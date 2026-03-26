@@ -1,0 +1,3001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDM-150 Architecture</title>
+    <style>
+@page {
+    size: A4;
+    margin: 20mm 15mm 20mm 15mm;
+}
+body {
+    font-family: "Segoe UI", Calibri, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #1a1a1a;
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 15mm;
+    background: #fff;
+}
+h1 {
+    font-size: 22pt;
+    color: #00285a;
+    border-bottom: 3px solid #0071c5;
+    padding-bottom: 8px;
+    margin-top: 30px;
+    page-break-before: always;
+}
+h1:first-of-type { page-break-before: avoid; }
+h2 {
+    font-size: 16pt;
+    color: #00285a;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 4px;
+    margin-top: 24px;
+}
+h3 {
+    font-size: 13pt;
+    color: #0071c5;
+    margin-top: 18px;
+}
+h4 { font-size: 11pt; color: #333; margin-top: 14px; }
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 12px 0;
+    font-size: 9.5pt;
+    page-break-inside: avoid;
+}
+th {
+    background: #00285a;
+    color: #fff;
+    font-weight: 600;
+    text-align: left;
+    padding: 6px 8px;
+    border: 1px solid #00285a;
+}
+td {
+    padding: 5px 8px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+}
+tr:nth-child(even) td { background: #f5f8fc; }
+tr:hover td { background: #e8f0fe; }
+code {
+    font-family: "Cascadia Code", "Consolas", monospace;
+    font-size: 9pt;
+    background: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+pre {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 12px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 8.5pt;
+    line-height: 1.4;
+    page-break-inside: avoid;
+}
+pre code { background: none; padding: 0; color: inherit; }
+blockquote {
+    border-left: 4px solid #0071c5;
+    background: #f5f8fc;
+    margin: 12px 0;
+    padding: 8px 16px;
+    color: #333;
+}
+.mermaid-placeholder {
+    background: #f5f8fc;
+    border: 1px dashed #0071c5;
+    border-radius: 4px;
+    padding: 16px;
+    margin: 12px 0;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+.mermaid {
+    background: #fafbfd;
+    border: 1px solid #e0e4ea;
+    border-radius: 6px;
+    padding: 20px 12px;
+    margin: 16px 0;
+    overflow-x: auto;
+    text-align: center;
+}
+.mermaid svg {
+    max-width: 100%;
+    height: auto;
+}
+.header-bar {
+    background: #00285a;
+    color: #fff;
+    padding: 16px 24px;
+    margin: -15mm -15mm 20px -15mm;
+    font-size: 9pt;
+}
+.header-bar h1 {
+    color: #fff;
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-size: 20pt;
+    page-break-before: avoid;
+}
+.header-bar .subtitle { color: #a8c7e8; font-size: 10pt; }
+.footer {
+    font-size: 8pt;
+    color: #888;
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+a { color: #0071c5; text-decoration: none; }
+a:hover { text-decoration: underline; }
+hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
+strong { color: #00285a; }
+
+@media print {
+    body { padding: 0; max-width: none; }
+    .header-bar { margin: 0 0 20px 0; }
+    .no-print { display: none; }
+}
+</style>
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    securityLevel: 'loose',
+    flowchart: {
+      curve: 'basis',
+      padding: 16,
+      nodeSpacing: 50,
+      rankSpacing: 60,
+      useMaxWidth: true
+    },
+    themeVariables: {
+      primaryColor: '#e8f0fe',
+      primaryBorderColor: '#0071c5',
+      primaryTextColor: '#1a1a1a',
+      lineColor: '#37474F',
+      secondaryColor: '#f5f8fc',
+      tertiaryColor: '#fff',
+      fontSize: '14px',
+      fontFamily: 'Segoe UI, Arial, sans-serif'
+    }
+  });
+</script>
+
+</head>
+<body>
+<div style="text-align:center; padding-top:80px;">
+  <h1 style="font-size:36px;">MDM-150 — Maintain Product Related Data</h1>
+  <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
+  <p style="font-size:18px; color:#555;">Master Data (MDM) Tower<br/>
+  Capability MDM-150 · MDM Manage Master Data</p>
+  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
+  Generated: March 2026</p>
+  <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
+</div>
+
+<style>
+@media print {
+  @page { margin: 0.75in; }
+  footer::after { content: "Intel Confidential — MDM-150 BDAT — March 2026"; font-size:9px; color:#999; }
+  .mermaid { page-break-inside: avoid; max-height: 95vh; overflow: visible; }
+  pre, table { page-break-inside: avoid; }
+  h2, h3, h4 { page-break-after: avoid; }
+}
+.mermaid svg { max-width: 100% !important; height: auto !important; }
+</style>
+
+<div style="page-break-before: always;"></div>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#1-executive-summary">Executive Summary</a></li>
+<li><a href="#2-business-context--objectives">Business Context &amp; Objectives</a>
+   - 2.1 <a href="#21-classification">Classification</a>
+   - 2.2 <a href="#22-business-drivers">Business Drivers</a>
+   - 2.3 <a href="#23-success-criteria">Success Criteria</a>
+   - 2.4 <a href="#24-companion-documents">Companion Documents</a></li>
+<li><a href="#3-business-architecture-togaf-b">Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+   - 3.1 <a href="#31-business-process-overview">Business Process Overview</a>
+   - 3.2 <a href="#32-business-process-diagrams">Business Process Diagrams</a>
+   - 3.3 <a href="#33-business-roles--responsibilities">Business Roles &amp; Responsibilities</a></li>
+<li><a href="#4-data-architecture-togaf-d">Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+   - 4.1 <a href="#41-data-entities--ownership">Data Entities &amp; Ownership</a>
+   - 4.2 <a href="#42-data-flow-diagrams">Data Flow Diagrams</a>
+   - 4.3 <a href="#43-data-lineage">Data Lineage</a>
+   - 4.4 <a href="#44-ricefw-data-objects">RICEFW Data Objects</a>
+   - 4.5 <a href="#45-data-governance--quality">Data Governance &amp; Quality</a></li>
+<li><a href="#5-application-architecture-togaf-a">Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+   - 5.1 <a href="#51-current-state--current-state-application-landscape">Current-State Application Landscape</a>
+   - 5.2 <a href="#52-future-state--future-state-application-landscape">Future-State Application Landscape</a>
+   - 5.3 <a href="#53-change-impact-summary">Change Impact Summary</a>
+   - 5.4 <a href="#54-component-overview">Component Overview</a>
+   - 5.5 <a href="#55-ricefw-inventory">RICEFW Inventory</a>
+   - 5.6 <a href="#56-integration-patterns">Integration Patterns</a></li>
+<li><a href="#6-technology-architecture-togaf-t">Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+   - 6.1 <a href="#61-platform--infrastructure">Platform &amp; Infrastructure</a>
+   - 6.2 <a href="#62-sap-development-object-status">SAP Development Object Status</a>
+   - 6.3 <a href="#63-nfrs--design-principles">NFRs &amp; Design Principles</a>
+   - 6.4 <a href="#64-security--governance">Security &amp; Governance</a></li>
+<li><a href="#7-project-context">Project Context</a>
+   - 7.1 <a href="#71-project-roadmap--go-live-plan">Project Roadmap &amp; Go-Live Plan</a>
+   - 7.2 <a href="#72-raid-log">RAID Log</a>
+   - 7.3 <a href="#73-recommendations--next-steps">Recommendations &amp; Next Steps</a></li>
+</ol>
+<div style="page-break-before: always;"></div>
+
+<h2 id="1-executive-summary">1. Executive Summary</h2>
+<p>This Architecture Document defines the <strong>Business, Data, Application, and Technology</strong> (BDAT) architecture for <strong>MDM-150 Maintain Product Related Data</strong> within the IAO program.
+| Dimension | Value |
+|-----------|-------|
+| <strong>Tower</strong> | Master Data (MDM) |
+| <strong>Process Group</strong> | MDM Manage Master Data |
+| <strong>Capability</strong> | MDM-150 - Maintain Product Related Data |
+| <strong>Release</strong> | Release 3 |
+| <strong>Total Systems</strong> | 0 |
+| <strong>System Status</strong> | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
+| <strong>RICEFW Objects</strong> | 5 Reports, 30 Interfaces, 40 Conversions, 61 Enhancements, 10 Workflows |
+<strong>Change Summary</strong>: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.</p>
+<blockquote>
+<p>All system nodes in architecture diagrams are <strong>IAPM-linked</strong> — click any node to open its IAPM page. Diagrams require <code>securityLevel: 'loose'</code> for click events.</p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h2 id="2-business-context-objectives">2. Business Context &amp; Objectives</h2>
+<h3 id="21-classification">2.1 Classification</h3>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>L0 Tower</strong></td>
+<td>Master Data</td>
+</tr>
+<tr>
+<td><strong>L1 Process</strong></td>
+<td>MDM Manage Master Data</td>
+</tr>
+<tr>
+<td><strong>L2 Capability</strong></td>
+<td>MDM-150 - Maintain Product Related Data</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-business-drivers">2.2 Business Drivers</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Driver</th>
+<th>Description</th>
+<th>Strategic Alignment</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Master Data Governance</td>
+<td>Establish single source of truth for vendor, customer, material, and BOM master data</td>
+<td>IDM 2.0 Data Foundation</td>
+<td>High</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Data Quality Improvement</td>
+<td>Implement data quality rules and automated validation for master data creation and changes</td>
+<td>Data Governance</td>
+<td>High</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Cross-System Data Synchronization</td>
+<td>Ensure master data consistency across S/4 HANA, MDG, and downstream systems</td>
+<td>Enterprise Integration</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>4</td>
+<td>MDM-150 Process Migration</td>
+<td>Migrate Maintain Product Related Data business processes and 0 integrated systems from legacy to S/4 HANA target architecture</td>
+<td>IDM 2.0 Master Data</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="23-success-criteria">2.3 Success Criteria</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+<th>Measure</th>
+<th>Baseline</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Master Data Accuracy</td>
+<td>&gt; 99%</td>
+<td>Master data records passing automated quality validation rules</td>
+<td>94% (current)</td>
+<td>Data Governance Lead</td>
+</tr>
+<tr>
+<td>Data Creation Lead Time</td>
+<td>&lt; 4 hours</td>
+<td>Vendor/customer/material master data creation cycle time</td>
+<td>2 business days (current)</td>
+<td>MDM Operations</td>
+</tr>
+<tr>
+<td>Data Sync Latency</td>
+<td>&lt; 15 minutes</td>
+<td>Time for master data changes to propagate to all consuming systems</td>
+<td>4 hours (batch)</td>
+<td>Integration Lead</td>
+</tr>
+<tr>
+<td>MDM-150 Migration Completeness</td>
+<td>100% flow chains validated</td>
+<td>All 0 flow chains verified in target state</td>
+<td>0% (pre-migration)</td>
+<td>Tower Architect</td>
+</tr>
+</tbody>
+</table>
+<h3 id="24-companion-documents">2.4 Companion Documents</h3>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Business Architecture</strong></td>
+<td>Included in this document (Section 3) — process flows from BPMN diagrams</td>
+</tr>
+<tr>
+<td><strong>This Document</strong></td>
+<td>Full BDAT Architecture — Business + Data + Application + Technology</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</h2>
+<h3 id="31-business-process-overview">3.1 Business Process Overview</h3>
+<p><em>(No BPMN files found in input/bpmn/ for this capability.)</em></p>
+<div style="page-break-before: always;"></div>
+
+<h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
+<table>
+<thead>
+<tr>
+<th>Role / Lane</th>
+<th>Processes Involved</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Business Process Owner</td>
+<td>MDM-150</td>
+<td>Accountable for Maintain Product Related Data business process definition and sign-off</td>
+</tr>
+<tr>
+<td>Functional Analyst</td>
+<td>MDM-150</td>
+<td>Responsible for functional specification and test case design</td>
+</tr>
+<tr>
+<td>Technical Developer</td>
+<td>MDM-150</td>
+<td>Responsible for RICEFW build and unit testing</td>
+</tr>
+<tr>
+<td>Integration Architect</td>
+<td>MDM-150</td>
+<td>Designs and validates integration patterns and middleware flows</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
+<h3 id="41-data-entities-ownership">4.1 Data Entities &amp; Ownership</h3>
+<p>The following data entities are derived from the system integration flows for MDM-150. Tower architects should validate ownership and classification.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Data Entity</th>
+<th>Source System</th>
+<th>Target System</th>
+<th>Data Owner</th>
+<th>Classification</th>
+<th>Volume</th>
+<th>Master/Transaction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="42-data-flow-diagrams">4.2 Data Flow Diagrams</h3>
+<blockquote>
+<p><strong>DATA ARCHITECTURE</strong> — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.</p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h3 id="43-data-lineage">4.3 Data Lineage</h3>
+<p>Data lineage traces the origin and transformation path of key data objects across integrated systems.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Source System</th>
+<th>Source Schema/Object</th>
+<th>Target System</th>
+<th>Target Schema/Object</th>
+<th>Transformation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Lineage detail will be refined when tower architects validate source/target schema object mappings.</em></p>
+</blockquote>
+<h3 id="44-ricefw-data-objects">4.4 RICEFW Data Objects</h3>
+<p>Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Type</th>
+<th>Description</th>
+<th>Status</th>
+<th>Source</th>
+<th>Target</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MDCR0025</td>
+<td>Report</td>
+<td>Alternate/Preferred BOM Component Change in S4</td>
+<td>09. FUT Overdue</td>
+<td>MDG</td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATR1430</td>
+<td>Report</td>
+<td>Cost Center Approvers report by Supergroup, Group, Division, Subdivision, CCR&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATR0787</td>
+<td>Report</td>
+<td>Report to send notification to Direct managers about the inactive Cost Center&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATR0390_IP</td>
+<td>Report</td>
+<td>Data Monitor Report between MDG and Reltio</td>
+<td>10. Object Complete</td>
+<td>NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATR0389_IP</td>
+<td>Report</td>
+<td>Customer Master Operational Report</td>
+<td>10. Object Complete</td>
+<td>NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>MDGM1332</td>
+<td>Conversion</td>
+<td>IMO Materials</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>DATC1663</td>
+<td>Conversion</td>
+<td>Product Hierarchy File 1 and File 2</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATC1640</td>
+<td>Conversion</td>
+<td>Material Master MRP View WINGS Conversion</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATC1639</td>
+<td>Conversion</td>
+<td>Material Master Plant and Storage Location View WINGS Materials Conversions</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATC1638</td>
+<td>Conversion</td>
+<td>Material Master Accounting and Costing View WINGS Materials Conversions</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATC1637</td>
+<td>Conversion</td>
+<td>Material Master Purchasing View WINGS Materials Conversions</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATC1617</td>
+<td>Conversion</td>
+<td>HAZMAT Profile Conversion</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC1604</td>
+<td>Conversion</td>
+<td>Initial Load for Objects &amp; Relationships</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC1556</td>
+<td>Conversion</td>
+<td>Conversion program to load Images of Products in Material Master</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC1552</td>
+<td>Conversion</td>
+<td>edFIT - PSI BOM Conversion</td>
+<td>03. FS Not Started</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC1551</td>
+<td>Conversion</td>
+<td>edFIT - Material Master Conversion</td>
+<td>04. FS In Progress</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC1237</td>
+<td>Conversion</td>
+<td>Material Master Data – Quality Management View Conversion</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC1204</td>
+<td>Conversion</td>
+<td>Load Vendor as Customer to MDG System</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0859</td>
+<td>Conversion</td>
+<td>Convert the Customer Master Contact Person from ECC system to MDG system_IP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0589</td>
+<td>Conversion</td>
+<td>Vendor Master : General Data conversion from ECC to MDG</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATC0588</td>
+<td>Conversion</td>
+<td>Vendor Master : Company Code Data conversion from ECC to MDG</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0587</td>
+<td>Conversion</td>
+<td>Vendor Master : Purchase Org conversion from ECC to MDG</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0586</td>
+<td>Conversion</td>
+<td>Vendor Master : Partner Function conversion from ECC to MDG</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATC0585</td>
+<td>Conversion</td>
+<td>Vendor Master : Tax Data conversion from ECC to MDG</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0584</td>
+<td>Conversion</td>
+<td>Vendor Master : Bank Data conversion from ECC to MDG</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0583</td>
+<td>Conversion</td>
+<td>Initial load of HRMM data from WCDS to MPipe system, The initial data load wi&hellip;</td>
+<td>10. Object Complete</td>
+<td>RELTIO</td>
+<td>S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATC0562</td>
+<td>Conversion</td>
+<td>Conversion of DUNS table from ECC to S/4 for IP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0553</td>
+<td>Conversion</td>
+<td>Conversion of BOM from SPEED to S4 IF</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>DATC0552</td>
+<td>Conversion</td>
+<td>Conversion of BOM from SPEED to S4 IP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>DATC0213</td>
+<td>Conversion</td>
+<td>Material Master-Work scheduling view</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0184_IP</td>
+<td>Conversion</td>
+<td>Convert the Customer Master Partner Function view from ECC system to MDG syst&hellip;</td>
+<td>10. Object Complete</td>
+<td>NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0182_IP</td>
+<td>Conversion</td>
+<td>Convert the General data view from ECC system to MDG system_IP.</td>
+<td>10. Object Complete</td>
+<td>NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0179_IP</td>
+<td>Conversion</td>
+<td>Convert the Customer Master Sales view from ECC system to MDG system_IP.</td>
+<td>10. Object Complete</td>
+<td>NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0178_IP</td>
+<td>Conversion</td>
+<td>Convert the Customer Master Tax view from ECC system to MDG system_IP.</td>
+<td>10. Object Complete</td>
+<td>NA</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATC0120_IP</td>
+<td>Conversion</td>
+<td>Convert the Customer Master Company Code view from ECC system to MDG system_IP.</td>
+<td>10. Object Complete</td>
+<td>ECC</td>
+<td>MDG</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATC0118_IP</td>
+<td>Conversion</td>
+<td>Convert the Customer Master In House Cash view from ECC system to MDG system_IP.</td>
+<td>10. Object Complete</td>
+<td>ECC</td>
+<td>MDG</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0076_IP</td>
+<td>Conversion</td>
+<td>Material Master-Classification View</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0075_IP</td>
+<td>Conversion</td>
+<td>Material Master-Accounting &amp; Costing view</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0074_IP</td>
+<td>Conversion</td>
+<td>Material Master-Sales Org Views and Sales Text</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0073</td>
+<td>Conversion</td>
+<td>Material Master-Warehouse Mgmt Views</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATC0072</td>
+<td>Conversion</td>
+<td>Material Master-Purchasing View and PO Text</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0071_IP</td>
+<td>Conversion</td>
+<td>Material Master-MRP View</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATC0070_IP</td>
+<td>Conversion</td>
+<td>Material Master-Plant Data/Storage Views</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0069_IP</td>
+<td>Conversion</td>
+<td>Material Master-Alt UOM</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATC0068_IP</td>
+<td>Conversion</td>
+<td>Material Master-Basic Data- (including description) Views</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+</tbody>
+</table>
+<h3 id="45-data-governance-quality">4.5 Data Governance &amp; Quality</h3>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Approach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Ownership</td>
+<td>Per-entity owners listed in Section 3.1</td>
+</tr>
+<tr>
+<td>Data Classification</td>
+<td>Financial data classified as Intel Confidential</td>
+</tr>
+<tr>
+<td>Data Retention</td>
+<td>Per Intel corporate retention policies</td>
+</tr>
+<tr>
+<td>Data Quality</td>
+<td>Validated at source; reconciliation at target</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</h2>
+<h3 id="51-current-state-current-state-application-landscape">5.1 Current-State — Current-State Application Landscape</h3>
+<h4 id="overview">Overview</h4>
+<p>The Current-State architecture represents the <strong>current / legacy</strong> landscape for MDM-150.</p>
+<div style="page-break-before: always;"></div>
+
+<h4 id="current-state-flow-narrative">Current-State Flow Narrative</h4>
+<p><em>(No current-state flows defined.)</em></p>
+<div style="page-break-before: always;"></div>
+
+<h3 id="52-future-state-future-state-application-landscape">5.2 Future-State — Future-State Application Landscape</h3>
+<h4 id="overview_1">Overview</h4>
+<p>The Future-State architecture represents the <strong>target</strong> landscape for MDM-150.</p>
+<div style="page-break-before: always;"></div>
+
+<h4 id="future-state-flow-narrative">Future-State Flow Narrative</h4>
+<p><em>(No future-state flows defined.)</em></p>
+<div style="page-break-before: always;"></div>
+
+<h3 id="53-change-impact-summary">5.3 Change Impact Summary</h3>
+<table>
+<thead>
+<tr>
+<th>Change Type</th>
+<th>Flow Chain</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Totals</strong>: 0 new - 0 removed - 0 modified - 0 unchanged</p>
+<h3 id="54-component-overview">5.4 Component Overview</h3>
+<h4 id="system-inventory">System Inventory</h4>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>IAPM ID</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Type</th>
+<th>Description</th>
+<th>Status</th>
+<th>Source → Target</th>
+<th>Middleware</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MDGM1332</td>
+<td>Conversion</td>
+<td>IMO Materials</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>MDCR0025</td>
+<td>Report</td>
+<td>Alternate/Preferred BOM Component Change in S4</td>
+<td>09. FUT Overdue</td>
+<td>MDG</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>MDCE0024</td>
+<td>Enhancement</td>
+<td>Supplier Hierarchy</td>
+<td>10. Object Complete</td>
+<td>MDG</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>MDCE0023</td>
+<td>Enhancement</td>
+<td>Sales Organization - Extended Itego datamodel + UI to govern assignment to Sa&hellip;</td>
+<td>10. Object Complete</td>
+<td>MDG</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>MDCE0022</td>
+<td>Enhancement</td>
+<td>Sales Region - Custom Itego Object to govern Sales Regions</td>
+<td>10. Object Complete</td>
+<td>MDG</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>MDCE0021</td>
+<td>Enhancement</td>
+<td>Customer Planning Hierarchy -IF</td>
+<td>10. Object Complete</td>
+<td>MDG</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>MDCE0020</td>
+<td>Enhancement</td>
+<td>Customer Planning Hierarchy -IP</td>
+<td>10. Object Complete</td>
+<td>MDG</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>MDCE0019</td>
+<td>Enhancement</td>
+<td>Product Planning Hierarchy -IF</td>
+<td>10. Object Complete</td>
+<td>MDG</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>MDCE0018</td>
+<td>Enhancement</td>
+<td>Product Planning Hierarchy -IP</td>
+<td>10. Object Complete</td>
+<td>MDG</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>MDCE0017</td>
+<td>Enhancement</td>
+<td>Commodity- Custom Itego Object with ~100 customer fields + UI to support gove&hellip;</td>
+<td>10. Object Complete</td>
+<td>MDG</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>MDCE0015</td>
+<td>Enhancement</td>
+<td>Asset Location - Extended Itego datamodel with 22 custom fields + UI to suppo&hellip;</td>
+<td>10. Object Complete</td>
+<td>MDG</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>MDCE0014</td>
+<td>Enhancement</td>
+<td>Storage Location - Extended Itego datamodel with 11 custom fields + UI to sup&hellip;</td>
+<td>10. Object Complete</td>
+<td>MDG</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>MDCE0013</td>
+<td>Enhancement</td>
+<td>Plant - Extended Itego datamodel with 13 custom fields + UI to support govern&hellip;</td>
+<td>10. Object Complete</td>
+<td>MDG</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>MDCE0012</td>
+<td>Enhancement</td>
+<td>Sales Org Association - Custom Itego Object with 4 customer fields + UI to su&hellip;</td>
+<td>10. Object Complete</td>
+<td>MDG</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>MDCE0011</td>
+<td>Enhancement</td>
+<td>Holiday Calendar - Custom goveranance</td>
+<td>10. Object Complete</td>
+<td>MDG</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>MDCE0009</td>
+<td>Enhancement</td>
+<td>Shipping Point- Custom Itego Object with 6 customer fields + UI to support go&hellip;</td>
+<td>10. Object Complete</td>
+<td>MDG</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATW1205</td>
+<td>Workflow</td>
+<td>Vendor as Customer Workflow</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATW1203</td>
+<td>Workflow</td>
+<td>Workflow Setup for Mark For Delete Reference Material Governance Process</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATW1202</td>
+<td>Workflow</td>
+<td>Workflow Setup for Change/Extend Reference Material Governance Process</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATW1201</td>
+<td>Workflow</td>
+<td>Workflow Setup for Create Reference Material Governance Process</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATW0748</td>
+<td>Workflow</td>
+<td>Workflow Setup for Material Master Governance Mass Processing</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATW0747</td>
+<td>Workflow</td>
+<td>Workflow Setup for Material Master Governance in Mark For Delete Process</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATW0746</td>
+<td>Workflow</td>
+<td>Workflow Setup for Material Master Governance in the Change Process</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATW0591</td>
+<td>Workflow</td>
+<td>Parallel Approver Workflow Process</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATW0207</td>
+<td>Workflow</td>
+<td>Create IP Customer process workflow</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATW0205_IP</td>
+<td>Workflow</td>
+<td>Change/Extend/Block/Unblock IP Customer Master process workflow</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATR1430</td>
+<td>Report</td>
+<td>Cost Center Approvers report by Supergroup, Group, Division, Subdivision, CCR&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATR0787</td>
+<td>Report</td>
+<td>Report to send notification to Direct managers about the inactive Cost Center&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATR0390_IP</td>
+<td>Report</td>
+<td>Data Monitor Report between MDG and Reltio</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATR0389_IP</td>
+<td>Report</td>
+<td>Customer Master Operational Report</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATI1727</td>
+<td>Interface</td>
+<td>Automated update to DC Sales Status and other Item Sales Data fields​</td>
+<td>05. FS Overdue</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATI1712</td>
+<td>Interface</td>
+<td>Import Dot process/stage details from MDG into IF. ​</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATI1618_IP</td>
+<td>Interface</td>
+<td>Interface to automate the PROC material master creation to read BOM data from&hellip;</td>
+<td>06. Dev In Progress</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATI1618_IF</td>
+<td>Interface</td>
+<td>Interface to automate the PROC material master creation to read BOM data from&hellip;</td>
+<td>06. Dev In Progress</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATI1612_IP</td>
+<td>Interface</td>
+<td>2A1 interface to send Product Catalog to OpenText for 3PL consumption</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>MuleSoft</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATI1612_IF</td>
+<td>Interface</td>
+<td>2A1 interface to send Product Catalog to OpenText for 3PL consumption</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>MuleSoft</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATI1607</td>
+<td>Interface</td>
+<td>Delta updates to OM Position IDs and Relationships</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATI1508</td>
+<td>Interface</td>
+<td>Program to update weight of material in the material master</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATI1501</td>
+<td>Interface</td>
+<td>Inbound Interface to exchange BOM data between PLM Translator to SAP S/4 – In&hellip;</td>
+<td>10. Object Complete</td>
+<td>PLM → S/4</td>
+<td>MULESOFT</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATI1489</td>
+<td>Interface</td>
+<td>Transfer activity type, WWID data from IFED2.0 to MDG for time keeping employees</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATI1445_IP</td>
+<td>Interface</td>
+<td>Outbound Interface to exchange BOM data between PLM Translator to SAP S/4 – I&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → PLM</td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATI1445_IF</td>
+<td>Interface</td>
+<td>Outbound Interface to exchange BOM data between PLM Translator to SAP S/4 – I&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → PLM</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATI1416</td>
+<td>Interface</td>
+<td>Interface to get MMID from the PLM Translator for the materials created direc&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATI1289_IP</td>
+<td>Interface</td>
+<td>Program to update weight of material in the material master</td>
+<td>10. Object Complete</td>
+<td>S/4 → S/4 MDG</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATI1289_IF</td>
+<td>Interface</td>
+<td>Program to update weight of material in the material master</td>
+<td>10. Object Complete</td>
+<td>S/4 → S/4 MDG</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATI1164</td>
+<td>Interface</td>
+<td>Update Min Max ROP proposals in IF S4 Hana(PDH to MDG to S4)</td>
+<td>10. Object Complete</td>
+<td>Supply Management and Materials Requirements Tool; IF Material PDH → S/4</td>
+<td>BODS</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATI1132_IP</td>
+<td>Interface</td>
+<td>Interface to exchange Yield and Scrap data between PDH Translator to SAP S/4 &hellip;</td>
+<td>10. Object Complete</td>
+<td>PDH → S/4</td>
+<td>BODS</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATI1132_IF</td>
+<td>Interface</td>
+<td>Interface to exchange Yield and Scrap data between PDH Translator to SAP S/4 &hellip;</td>
+<td>10. Object Complete</td>
+<td>PDH → S/4</td>
+<td>BODS</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATI0960</td>
+<td>Interface</td>
+<td>To transfer HRMM data retrieved by Signature Authority API from source system&hellip;</td>
+<td>10. Object Complete</td>
+<td>WCDS → S/4 MDG</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATI0959</td>
+<td>Interface</td>
+<td>To transfer HRMM data retrieved by Worker snapshot API from source system WCD&hellip;</td>
+<td>10. Object Complete</td>
+<td>WCDS → S/4 MDG</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATI0944</td>
+<td>Interface</td>
+<td>Interface to Send/Receive item master Data Asynchronously between PLM Transla&hellip;</td>
+<td>10. Object Complete</td>
+<td>PLM → S/4 MDG</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATI0943</td>
+<td>Interface</td>
+<td>Interface to Send/Receive item master Data between PLM Translator and MDG Syn&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 MDG → PLM</td>
+<td>APIGEE</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATI0927</td>
+<td>Interface</td>
+<td>Inbound Interface to exchange BOM data between PLM Translator to SAP S/4 – In&hellip;</td>
+<td>10. Object Complete</td>
+<td>PLM → S/4</td>
+<td>MULESOFT</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATI0657_IP</td>
+<td>Interface</td>
+<td>RICEFW2 - Interface between MDG and Reltio to fetch details to support pop-up&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATI0582</td>
+<td>Interface</td>
+<td>Interface to pull Vendor Master from Reltio to MDG</td>
+<td>10. Object Complete</td>
+<td>Reltio → S/4</td>
+<td>MULESOFT</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATI0394_IP</td>
+<td>Interface</td>
+<td>Inbound Interface from Reltio to MDG to receive BP ID and UCD ID to MDG and u&hellip;</td>
+<td>10. Object Complete</td>
+<td>Reltio → S/4 MDG</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATI0394_IF</td>
+<td>Interface</td>
+<td>Inbound Interface from Reltio to MDG to receive BP ID and UCD ID to MDG and u&hellip;</td>
+<td>10. Object Complete</td>
+<td>Reltio → S/4 MDG</td>
+<td>MULESOFT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATI0393_IP</td>
+<td>Interface</td>
+<td>Replicating Customer Master data from MDG to cFin,IF and IP systems</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATI0392_IP</td>
+<td>Interface</td>
+<td>Outbound Interface from MDG to Reltio to send the Name, Address, URL, BP ID a&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATI0391_IP</td>
+<td>Interface</td>
+<td>Interface between MDG and Reltio to fetch details to support pop-up and Data &hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>MULESOFT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATE1737_IP</td>
+<td>Enhancement</td>
+<td>Change BOM UI with BOM update Logic that can be run in background &amp; Error pro&hellip;</td>
+<td>06. Dev Not Started</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>DATE1737_IF</td>
+<td>Enhancement</td>
+<td>Change BOM UI with BOM update Logic that can be run in background &amp; Error pro&hellip;</td>
+<td>06. Dev Not Started</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATE1736_IP</td>
+<td>Enhancement</td>
+<td>Create BOM UI with Logic to combine Group BOM and MPV Component Table &amp; Error&hellip;</td>
+<td>06. Dev Not Started</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATE1736_IF</td>
+<td>Enhancement</td>
+<td>Create BOM UI with Logic to combine Group BOM and MPV Component Table &amp; Error&hellip;</td>
+<td>06. Dev Not Started</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE1735_IP</td>
+<td>Enhancement</td>
+<td>Reprocess Errors based on Error Categories (replication / BOM / etc.)​</td>
+<td>06. Dev Not Started</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>DATE1735_IF</td>
+<td>Enhancement</td>
+<td>Reprocess Errors based on Error Categories (replication / BOM / etc.)​</td>
+<td>06. Dev Not Started</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATE1734_IP</td>
+<td>Enhancement</td>
+<td>Search BOM using Plant and Parent ( User selects components from entire BOM w&hellip;</td>
+<td>06. Dev Not Started</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATE1734_IF</td>
+<td>Enhancement</td>
+<td>Search BOM using Plant and Parent ( User selects components from entire BOM w&hellip;</td>
+<td>06. Dev Not Started</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE1733_IP</td>
+<td>Enhancement</td>
+<td>Search BOM by Keyword and fetch only matching components​</td>
+<td>06. Dev Not Started</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATE1733_IF</td>
+<td>Enhancement</td>
+<td>Search BOM by Keyword and fetch only matching components​</td>
+<td>06. Dev Not Started</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE1732_IP</td>
+<td>Enhancement</td>
+<td>Maintain MPV Component table (add, update, inactivate)​</td>
+<td>06. Dev Not Started</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATE1732_IF</td>
+<td>Enhancement</td>
+<td>Maintain MPV Component table (add, update, inactivate)​</td>
+<td>06. Dev Not Started</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE1731_IP</td>
+<td>Enhancement</td>
+<td>Upload records to MPV Keyword or MPV Component table​</td>
+<td>06. Dev Not Started</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATE1731_IF</td>
+<td>Enhancement</td>
+<td>Upload records to MPV Keyword or MPV Component table​</td>
+<td>06. Dev Not Started</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE1730_IP</td>
+<td>Enhancement</td>
+<td>Create/Maintain Keyword for Plant / or update multiple Keywords into MPV Keyw&hellip;</td>
+<td>06. Dev Not Started</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATE1730_IF</td>
+<td>Enhancement</td>
+<td>Create/Maintain Keyword for Plant / or update multiple Keywords into MPV Keyw&hellip;</td>
+<td>06. Dev Not Started</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE1729_IP</td>
+<td>Enhancement</td>
+<td>Custom Tables – 3x (needed to support entire FS)​</td>
+<td>06. Dev Not Started</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATE1729_IF</td>
+<td>Enhancement</td>
+<td>Custom Tables – 3x (needed to support entire FS)​</td>
+<td>06. Dev Not Started</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE1633</td>
+<td>Enhancement</td>
+<td>SIMS External BOM - Update lead time offset for BOM Components</td>
+<td>06. Dev Unplanned</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE1623</td>
+<td>Enhancement</td>
+<td>Custom table to store WCDS attributes based on BusinessTitleNm</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATE1616_IP</td>
+<td>Enhancement</td>
+<td>Automate External BOM</td>
+<td>06. Dev Not Started</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATE1616_IF</td>
+<td>Enhancement</td>
+<td>Automate External BOM</td>
+<td>06. Dev Not Started</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE1615</td>
+<td>Enhancement</td>
+<td>Automate the PROC material master creation process based on business rules</td>
+<td>06. Dev In Progress</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE1613</td>
+<td>Enhancement</td>
+<td>HAZMAT Profile UI</td>
+<td>08. FUT In Progress</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE1611_IP</td>
+<td>Enhancement</td>
+<td>2A1 Enhancement to send Product Catalog to OpenText</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE1611_IF</td>
+<td>Enhancement</td>
+<td>2A1 Enhancement to send Product Catalog to OpenText</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATE1499</td>
+<td>Enhancement</td>
+<td>Capacity Group/Capacity Corridor Item Attribute Data Source​</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE1490</td>
+<td>Enhancement</td>
+<td>Extend 15 days to termination date and roll back to actual termination for ti&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATE1457</td>
+<td>Enhancement</td>
+<td>Master Data_Enhancement for Overwriting PC Value Derived from Business Rules</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATE1417</td>
+<td>Enhancement</td>
+<td>UNBW Cross Site</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE1044_IP</td>
+<td>Enhancement</td>
+<td>Master Data Governance Email Notifications</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>DATE1044_IF</td>
+<td>Enhancement</td>
+<td>Master Data Governance Email Notifications</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>DATE0926_IP</td>
+<td>Enhancement</td>
+<td>Enhancement on PROC BOM for Intel Foundry</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE0926_IF</td>
+<td>Enhancement</td>
+<td>Enhancement on PROC BOM for Intel Product</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATE0799</td>
+<td>Enhancement</td>
+<td>RICEFW for Validations and Derivations where enhancement required for all ref&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE0759</td>
+<td>Enhancement</td>
+<td>Segregation of IF IP workers based on biz segment getting retrieved from WCDS</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE0758</td>
+<td>Enhancement</td>
+<td>1)Standard IDOC Enhancement to map WWID same as CP ID and fill PERNR,</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE0668</td>
+<td>Enhancement</td>
+<td>Customizing Technology Node field while Creating Cost Center in MDG system</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE0667_IF</td>
+<td>Enhancement</td>
+<td>Adding Technology Node while Creating Cost Center in MDG system (cFIn, IF and&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE0667_CFIN</td>
+<td>Enhancement</td>
+<td>Adding Technology Node while Creating Cost Center in MDG system (cFIn, IF and&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE0590</td>
+<td>Enhancement</td>
+<td>Material extension using reference material</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE0570</td>
+<td>Enhancement</td>
+<td>Adding Cost Center Approvers fields while Creating Cost Center in MDG system</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE0561</td>
+<td>Enhancement</td>
+<td>Adding DQM Functionality for Address validation</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>DATE0446</td>
+<td>Enhancement</td>
+<td>Derivation of UPI Intelligent description, Material group, Profit center, and&hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE0395_IP</td>
+<td>Enhancement</td>
+<td>Pop Up window to be developed on MDG screen to display “Search before Create”&hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATE0313_IP</td>
+<td>Enhancement</td>
+<td>Customer Master Validations and Derivations</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATE0020</td>
+<td>Enhancement</td>
+<td>Material description generation from Classification data</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATC1663</td>
+<td>Conversion</td>
+<td>Product Hierarchy File 1 and File 2</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATC1640</td>
+<td>Conversion</td>
+<td>Material Master MRP View WINGS Conversion</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATC1639</td>
+<td>Conversion</td>
+<td>Material Master Plant and Storage Location View WINGS Materials Conversions</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATC1638</td>
+<td>Conversion</td>
+<td>Material Master Accounting and Costing View WINGS Materials Conversions</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATC1637</td>
+<td>Conversion</td>
+<td>Material Master Purchasing View WINGS Materials Conversions</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATC1617</td>
+<td>Conversion</td>
+<td>HAZMAT Profile Conversion</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC1604</td>
+<td>Conversion</td>
+<td>Initial Load for Objects &amp; Relationships</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC1556</td>
+<td>Conversion</td>
+<td>Conversion program to load Images of Products in Material Master</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC1552</td>
+<td>Conversion</td>
+<td>edFIT - PSI BOM Conversion</td>
+<td>03. FS Not Started</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC1551</td>
+<td>Conversion</td>
+<td>edFIT - Material Master Conversion</td>
+<td>04. FS In Progress</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC1237</td>
+<td>Conversion</td>
+<td>Material Master Data – Quality Management View Conversion</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC1204</td>
+<td>Conversion</td>
+<td>Load Vendor as Customer to MDG System</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0859</td>
+<td>Conversion</td>
+<td>Convert the Customer Master Contact Person from ECC system to MDG system_IP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0589</td>
+<td>Conversion</td>
+<td>Vendor Master : General Data conversion from ECC to MDG</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATC0588</td>
+<td>Conversion</td>
+<td>Vendor Master : Company Code Data conversion from ECC to MDG</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0587</td>
+<td>Conversion</td>
+<td>Vendor Master : Purchase Org conversion from ECC to MDG</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0586</td>
+<td>Conversion</td>
+<td>Vendor Master : Partner Function conversion from ECC to MDG</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATC0585</td>
+<td>Conversion</td>
+<td>Vendor Master : Tax Data conversion from ECC to MDG</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0584</td>
+<td>Conversion</td>
+<td>Vendor Master : Bank Data conversion from ECC to MDG</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0583</td>
+<td>Conversion</td>
+<td>Initial load of HRMM data from WCDS to MPipe system, The initial data load wi&hellip;</td>
+<td>10. Object Complete</td>
+<td>RELTIO → S4</td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>DATC0562</td>
+<td>Conversion</td>
+<td>Conversion of DUNS table from ECC to S/4 for IP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0553</td>
+<td>Conversion</td>
+<td>Conversion of BOM from SPEED to S4 IF</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>DATC0552</td>
+<td>Conversion</td>
+<td>Conversion of BOM from SPEED to S4 IP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>DATC0213</td>
+<td>Conversion</td>
+<td>Material Master-Work scheduling view</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0184_IP</td>
+<td>Conversion</td>
+<td>Convert the Customer Master Partner Function view from ECC system to MDG syst&hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0182_IP</td>
+<td>Conversion</td>
+<td>Convert the General data view from ECC system to MDG system_IP.</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0179_IP</td>
+<td>Conversion</td>
+<td>Convert the Customer Master Sales view from ECC system to MDG system_IP.</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0178_IP</td>
+<td>Conversion</td>
+<td>Convert the Customer Master Tax view from ECC system to MDG system_IP.</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATC0120_IP</td>
+<td>Conversion</td>
+<td>Convert the Customer Master Company Code view from ECC system to MDG system_IP.</td>
+<td>10. Object Complete</td>
+<td>ECC → MDG</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATC0118_IP</td>
+<td>Conversion</td>
+<td>Convert the Customer Master In House Cash view from ECC system to MDG system_IP.</td>
+<td>10. Object Complete</td>
+<td>ECC → MDG</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0076_IP</td>
+<td>Conversion</td>
+<td>Material Master-Classification View</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0075_IP</td>
+<td>Conversion</td>
+<td>Material Master-Accounting &amp; Costing view</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0074_IP</td>
+<td>Conversion</td>
+<td>Material Master-Sales Org Views and Sales Text</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0073</td>
+<td>Conversion</td>
+<td>Material Master-Warehouse Mgmt Views</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATC0072</td>
+<td>Conversion</td>
+<td>Material Master-Purchasing View and PO Text</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0071_IP</td>
+<td>Conversion</td>
+<td>Material Master-MRP View</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATC0070_IP</td>
+<td>Conversion</td>
+<td>Material Master-Plant Data/Storage Views</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>DATC0069_IP</td>
+<td>Conversion</td>
+<td>Material Master-Alt UOM</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>DATC0068_IP</td>
+<td>Conversion</td>
+<td>Material Master-Basic Data- (including description) Views</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Summary</strong>: 5 Reports, 30 Interfaces, 40 Conversions, 61 Enhancements, 10 Workflows</p>
+<div style="page-break-before: always;"></div>
+
+<h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
+<p>Integration patterns identified from the system flow analysis for MDM-150:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Pattern</th>
+<th>Flow Chain</th>
+<th>Middleware</th>
+<th>Protocol</th>
+<th>Auth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Integration pattern details will be refined when tower architects validate middleware assignments.</em></p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
+<h3 id="61-platform-infrastructure">6.1 Platform &amp; Infrastructure</h3>
+<blockquote>
+<p><strong>TECHNOLOGY / PLATFORM ARCHITECTURE</strong> — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.</p>
+</blockquote>
+<h4 id="platform-inventory">Platform Inventory</h4>
+<p>Platform landscape inferred from integrated systems for MDM-150:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Platform</th>
+<th>Type</th>
+<th>Systems Using</th>
+<th>Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>SAP S/4HANA</td>
+<td>On-Premise (HEC)</td>
+<td>SAP S/4 modules</td>
+<td>DEV, QAS, PRD</td>
+</tr>
+<tr>
+<td>2</td>
+<td>SAP BTP (Integration Suite)</td>
+<td>Cloud / PaaS</td>
+<td>CPI, API Management</td>
+<td>DEV, QAS, PRD</td>
+</tr>
+<tr>
+<td>3</td>
+<td>MuleSoft Anypoint</td>
+<td>Cloud / iPaaS</td>
+<td>API-led integrations</td>
+<td>DEV, QAS, PRD</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Platform assignments will be validated when tower architects populate technology platform columns.</em></p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h3 id="62-sap-development-object-status">6.2 SAP Development Object Status</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>DEV</th>
+<th>QAS</th>
+<th>PRD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transport Requests</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Custom Code Objects</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>CDS Views</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Fiori Apps</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>BAdIs / Enhancements</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Requirement</th>
+<th>Target / SLA</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Performance</td>
+<td>Master data creation and validation within user expectation</td>
+<td>&lt; 5 seconds for save/validate</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Availability</td>
+<td>MDM systems available during global business hours</td>
+<td>99.9% (follows-the-sun)</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Scalability</td>
+<td>Support master data volume growth from new entities</td>
+<td>Handle 5M+ master records</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Recoverability</td>
+<td>Master data systems recover with data integrity guaranteed</td>
+<td>RPO = 0 (no data loss), RTO &lt; 2 hours</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Data Volume</td>
+<td>Support comprehensive master data model across domains</td>
+<td>500K+ active material masters</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Latency</td>
+<td>Master data changes propagate to consuming systems promptly</td>
+<td>&lt; 15 minutes replication latency</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Concurrency</td>
+<td>Support centralized MDM team plus distributed maintainers</td>
+<td>100+ concurrent MDM users</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<h3 id="64-security-governance">6.4 Security &amp; Governance</h3>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Approach</th>
+<th>Standard / Policy</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authentication</td>
+<td>Single Sign-On (SSO) via Intel corporate Azure AD identity</td>
+<td>Intel IT Security Policy - Identity Management</td>
+<td>IT Security</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>Role-based access control (RBAC) with SAP authorization objects</td>
+<td>Intel SAP Security Standards - Role Design</td>
+<td>SAP Security Team</td>
+</tr>
+<tr>
+<td>Data Classification</td>
+<td>All financial/operational data classified per Intel Data Classification Standard</td>
+<td>Intel Data Classification Policy</td>
+<td>Data Governance</td>
+</tr>
+<tr>
+<td>Data Encryption (at rest)</td>
+<td>AES-256 encryption for SAP HANA database and file storage</td>
+<td>Intel Encryption Standard</td>
+<td>Infrastructure Security</td>
+</tr>
+<tr>
+<td>Data Encryption (in transit)</td>
+<td>TLS 1.3 for all system-to-system and user-to-system communication</td>
+<td>Intel Network Security Policy</td>
+<td>Network Engineering</td>
+</tr>
+<tr>
+<td>Network Segmentation</td>
+<td>SAP systems in dedicated network zones with firewall controls</td>
+<td>Intel Network Architecture Standard</td>
+<td>Network Security</td>
+</tr>
+<tr>
+<td>API Security</td>
+<td>OAuth 2.0 / certificate-based authentication for all API integrations</td>
+<td>Intel API Security Guidelines</td>
+<td>Integration Architecture</td>
+</tr>
+<tr>
+<td>Audit Logging</td>
+<td>Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log)</td>
+<td>SOX Compliance / Intel Audit Policy</td>
+<td>Internal Audit</td>
+</tr>
+<tr>
+<td>Certificate Management</td>
+<td>Automated certificate lifecycle management for system-to-system trust</td>
+<td>Intel PKI Standard</td>
+<td>Certificate Authority Team</td>
+</tr>
+<tr>
+<td>Compliance</td>
+<td>SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR)</td>
+<td>Intel Corporate Compliance Framework</td>
+<td>Compliance Office</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="7-project-context">7. Project Context</h2>
+<h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Description</th>
+<th>FS End</th>
+<th>FS %</th>
+<th>TDD End</th>
+<th>TDD %</th>
+<th>Build End</th>
+<th>Build %</th>
+<th>FUT End</th>
+<th>FUT %</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MDGM1332</td>
+<td>IMO Materials</td>
+<td>2025-08-13</td>
+<td>1.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td>2025-09-05</td>
+<td>1.0</td>
+<td>2. At Risk</td>
+</tr>
+<tr>
+<td>MDCR0025</td>
+<td>Alternate/Preferred BOM Component Cha&hellip;</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2026-02-04</td>
+<td>1.0</td>
+<td>2026-01-07</td>
+<td>0.52</td>
+<td></td>
+</tr>
+<tr>
+<td>MDCE0024</td>
+<td>Supplier Hierarchy</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2026-02-04</td>
+<td>1.0</td>
+<td>2026-01-07</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>MDCE0023</td>
+<td>Sales Organization - Extended Itego d&hellip;</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>MDCE0022</td>
+<td>Sales Region - Custom Itego Object to&hellip;</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>MDCE0021</td>
+<td>Customer Planning Hierarchy -IF</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>MDCE0020</td>
+<td>Customer Planning Hierarchy -IP</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>MDCE0019</td>
+<td>Product Planning Hierarchy -IF</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>MDCE0018</td>
+<td>Product Planning Hierarchy -IP</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>MDCE0017</td>
+<td>Commodity- Custom Itego Object with ~&hellip;</td>
+<td>2025-07-25</td>
+<td>1.0</td>
+<td>2025-07-25</td>
+<td>1.0</td>
+<td>2025-07-25</td>
+<td>1.0</td>
+<td>2025-11-05</td>
+<td>1.0</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>MDCE0015</td>
+<td>Asset Location - Extended Itego datam&hellip;</td>
+<td>2024-10-25</td>
+<td>1.0</td>
+<td>2024-11-08</td>
+<td>1.0</td>
+<td>2025-02-07</td>
+<td>1.0</td>
+<td>2025-02-21</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>MDCE0014</td>
+<td>Storage Location - Extended Itego dat&hellip;</td>
+<td>2024-10-11</td>
+<td>1.0</td>
+<td>2024-10-25</td>
+<td>1.0</td>
+<td>2024-11-08</td>
+<td>1.0</td>
+<td>2024-11-15</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>MDCE0013</td>
+<td>Plant - Extended Itego datamodel with&hellip;</td>
+<td>2024-10-11</td>
+<td>1.0</td>
+<td>2024-10-25</td>
+<td>1.0</td>
+<td>2024-11-08</td>
+<td>1.0</td>
+<td>2024-11-15</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>MDCE0012</td>
+<td>Sales Org Association - Custom Itego &hellip;</td>
+<td>2024-09-27</td>
+<td>1.0</td>
+<td>2024-10-11</td>
+<td>1.0</td>
+<td>2024-10-25</td>
+<td>1.0</td>
+<td>2024-11-01</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>MDCE0011</td>
+<td>Holiday Calendar - Custom goveranance</td>
+<td>2024-09-13</td>
+<td>1.0</td>
+<td>2024-09-20</td>
+<td>1.0</td>
+<td>2024-10-11</td>
+<td>1.0</td>
+<td>2024-10-18</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>MDCE0009</td>
+<td>Shipping Point- Custom Itego Object w&hellip;</td>
+<td>2024-10-11</td>
+<td>1.0</td>
+<td>2024-10-25</td>
+<td>1.0</td>
+<td>2024-11-15</td>
+<td>1.0</td>
+<td>2024-11-22</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>DATW1205</td>
+<td>Vendor as Customer Workflow</td>
+<td>2025-04-11</td>
+<td>1.0</td>
+<td>2025-08-13</td>
+<td>1.0</td>
+<td>2025-08-13</td>
+<td>1.0</td>
+<td>2025-10-08</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>DATW1203</td>
+<td>Workflow Setup for Mark For Delete Re&hellip;</td>
+<td>2025-04-11</td>
+<td>1.0</td>
+<td>2025-08-13</td>
+<td>1.0</td>
+<td>2025-08-13</td>
+<td>1.0</td>
+<td>2025-10-08</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>DATW1202</td>
+<td>Workflow Setup for Change/Extend Refe&hellip;</td>
+<td>2025-04-11</td>
+<td>1.0</td>
+<td>2025-08-13</td>
+<td>1.0</td>
+<td>2025-08-13</td>
+<td>1.0</td>
+<td>2025-10-08</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>DATW1201</td>
+<td>Workflow Setup for Create Reference M&hellip;</td>
+<td>2025-03-14</td>
+<td>1.0</td>
+<td>2025-06-11</td>
+<td>1.0</td>
+<td>2025-06-11</td>
+<td>1.0</td>
+<td>2025-10-08</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td><em>&hellip; and 126 more objects (see full Object Tracker)</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="72-raid-log">7.2 RAID Log</h3>
+<p>Standard RAID items for MDM-150 (Master Data):</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Category</th>
+<th>Description</th>
+<th>Status</th>
+<th>Owner</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Risk</td>
+<td>Data migration completeness — validate all legacy Maintain Product Related Data data maps to S/4 target structures</td>
+<td>Open</td>
+<td>Tower Architect</td>
+<td>High</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Risk</td>
+<td>Integration testing coverage — ensure all 0 integrated systems are validated end-to-end</td>
+<td>Open</td>
+<td>Integration Lead</td>
+<td>High</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Assumption</td>
+<td>Target SAP S/4HANA system available in DEV/QAS per release schedule</td>
+<td>Active</td>
+<td>SAP Basis</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Issue</td>
+<td>API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation</td>
+<td>Open</td>
+<td>EA Pipeline Team</td>
+<td>High</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Dependency</td>
+<td>Upstream BPMN process models validated and signed off by business process owners</td>
+<td>Active</td>
+<td>Process Owner</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.</em></p>
+</blockquote>
+<h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Category</th>
+<th>Recommendation</th>
+<th>Priority</th>
+<th>Owner</th>
+<th>Target Date</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Architecture</td>
+<td>Complete extended flow attributes (Data Entity, Integration Pattern, Tech Platform) in Flows tab for full BDAT coverage</td>
+<td>High</td>
+<td>Tower Architect</td>
+<td>2026-Q2</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Data</td>
+<td>Define data ownership and classification for all 0 flow chains to satisfy Data Architecture (TOGAF D) requirements</td>
+<td>Medium</td>
+<td>Data Architect</td>
+<td>2026-Q3</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Testing</td>
+<td>Develop integration test scenarios covering all 0 flow chains for FUT/SIT readiness</td>
+<td>High</td>
+<td>Test Lead</td>
+<td>2026-Q3</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Business Architecture</td>
+<td>Review and validate Business Architecture process steps against latest Signavio/BIC process models</td>
+<td>Medium</td>
+<td>Business Analyst</td>
+<td>2026-Q2</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Security</td>
+<td>Complete security review for API integrations and data flows per Intel Security Architecture standards</td>
+<td>Medium</td>
+<td>Security Architect</td>
+<td>2026-Q3</td>
+<td>Open</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>MDM-150 — Architecture Document (TOGAF BDAT) · Master Data · Generated: March 2026</em></p>
+<div class="footer">
+    IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+</body>
+</html>

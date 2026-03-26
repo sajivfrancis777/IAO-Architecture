@@ -1,0 +1,2919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E2E-110 Architecture</title>
+    <style>
+@page {
+    size: A4;
+    margin: 20mm 15mm 20mm 15mm;
+}
+body {
+    font-family: "Segoe UI", Calibri, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #1a1a1a;
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 15mm;
+    background: #fff;
+}
+h1 {
+    font-size: 22pt;
+    color: #00285a;
+    border-bottom: 3px solid #0071c5;
+    padding-bottom: 8px;
+    margin-top: 30px;
+    page-break-before: always;
+}
+h1:first-of-type { page-break-before: avoid; }
+h2 {
+    font-size: 16pt;
+    color: #00285a;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 4px;
+    margin-top: 24px;
+}
+h3 {
+    font-size: 13pt;
+    color: #0071c5;
+    margin-top: 18px;
+}
+h4 { font-size: 11pt; color: #333; margin-top: 14px; }
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 12px 0;
+    font-size: 9.5pt;
+    page-break-inside: avoid;
+}
+th {
+    background: #00285a;
+    color: #fff;
+    font-weight: 600;
+    text-align: left;
+    padding: 6px 8px;
+    border: 1px solid #00285a;
+}
+td {
+    padding: 5px 8px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+}
+tr:nth-child(even) td { background: #f5f8fc; }
+tr:hover td { background: #e8f0fe; }
+code {
+    font-family: "Cascadia Code", "Consolas", monospace;
+    font-size: 9pt;
+    background: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+pre {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 12px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 8.5pt;
+    line-height: 1.4;
+    page-break-inside: avoid;
+}
+pre code { background: none; padding: 0; color: inherit; }
+blockquote {
+    border-left: 4px solid #0071c5;
+    background: #f5f8fc;
+    margin: 12px 0;
+    padding: 8px 16px;
+    color: #333;
+}
+.mermaid-placeholder {
+    background: #f5f8fc;
+    border: 1px dashed #0071c5;
+    border-radius: 4px;
+    padding: 16px;
+    margin: 12px 0;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+.mermaid {
+    background: #fafbfd;
+    border: 1px solid #e0e4ea;
+    border-radius: 6px;
+    padding: 20px 12px;
+    margin: 16px 0;
+    overflow-x: auto;
+    text-align: center;
+}
+.mermaid svg {
+    max-width: 100%;
+    height: auto;
+}
+.header-bar {
+    background: #00285a;
+    color: #fff;
+    padding: 16px 24px;
+    margin: -15mm -15mm 20px -15mm;
+    font-size: 9pt;
+}
+.header-bar h1 {
+    color: #fff;
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-size: 20pt;
+    page-break-before: avoid;
+}
+.header-bar .subtitle { color: #a8c7e8; font-size: 10pt; }
+.footer {
+    font-size: 8pt;
+    color: #888;
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+a { color: #0071c5; text-decoration: none; }
+a:hover { text-decoration: underline; }
+hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
+strong { color: #00285a; }
+
+@media print {
+    body { padding: 0; max-width: none; }
+    .header-bar { margin: 0 0 20px 0; }
+    .no-print { display: none; }
+}
+</style>
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    securityLevel: 'loose',
+    flowchart: {
+      curve: 'basis',
+      padding: 16,
+      nodeSpacing: 50,
+      rankSpacing: 60,
+      useMaxWidth: true
+    },
+    themeVariables: {
+      primaryColor: '#e8f0fe',
+      primaryBorderColor: '#0071c5',
+      primaryTextColor: '#1a1a1a',
+      lineColor: '#37474F',
+      secondaryColor: '#f5f8fc',
+      tertiaryColor: '#fff',
+      fontSize: '14px',
+      fontFamily: 'Segoe UI, Arial, sans-serif'
+    }
+  });
+</script>
+
+</head>
+<body>
+<div style="text-align:center; padding-top:80px;">
+  <h1 style="font-size:36px;">E2E-110 — IMR Flow</h1>
+  <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
+  <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
+  Capability E2E-110 · Forecast to Stock</p>
+  <p style="font-size:14px; color:#888;">IAO Program · Release 2<br/>
+  Generated: March 2026</p>
+  <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
+</div>
+
+<style>
+@media print {
+  @page { margin: 0.75in; }
+  footer::after { content: "Intel Confidential — E2E-110 BDAT — March 2026"; font-size:9px; color:#999; }
+  .mermaid { page-break-inside: avoid; max-height: 95vh; overflow: visible; }
+  pre, table { page-break-inside: avoid; }
+  h2, h3, h4 { page-break-after: avoid; }
+}
+.mermaid svg { max-width: 100% !important; height: auto !important; }
+</style>
+
+<div style="page-break-before: always;"></div>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#1-executive-summary">Executive Summary</a></li>
+<li><a href="#2-business-context--objectives">Business Context &amp; Objectives</a>
+   - 2.1 <a href="#21-classification">Classification</a>
+   - 2.2 <a href="#22-business-drivers">Business Drivers</a>
+   - 2.3 <a href="#23-success-criteria">Success Criteria</a>
+   - 2.4 <a href="#24-companion-documents">Companion Documents</a></li>
+<li><a href="#3-business-architecture-togaf-b">Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+   - 3.1 <a href="#31-business-process-overview">Business Process Overview</a>
+   - 3.2 <a href="#32-business-process-diagrams">Business Process Diagrams</a>
+   - 3.3 <a href="#33-business-roles--responsibilities">Business Roles &amp; Responsibilities</a></li>
+<li><a href="#4-data-architecture-togaf-d">Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+   - 4.1 <a href="#41-data-entities--ownership">Data Entities &amp; Ownership</a>
+   - 4.2 <a href="#42-data-flow-diagrams">Data Flow Diagrams</a>
+   - 4.3 <a href="#43-data-lineage">Data Lineage</a>
+   - 4.4 <a href="#44-ricefw-data-objects">RICEFW Data Objects</a>
+   - 4.5 <a href="#45-data-governance--quality">Data Governance &amp; Quality</a></li>
+<li><a href="#5-application-architecture-togaf-a">Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+   - 5.1 <a href="#51-current-state--current-state-application-landscape">Current-State Application Landscape</a>
+   - 5.2 <a href="#52-future-state--future-state-application-landscape">Future-State Application Landscape</a>
+   - 5.3 <a href="#53-change-impact-summary">Change Impact Summary</a>
+   - 5.4 <a href="#54-component-overview">Component Overview</a>
+   - 5.5 <a href="#55-ricefw-inventory">RICEFW Inventory</a>
+   - 5.6 <a href="#56-integration-patterns">Integration Patterns</a></li>
+<li><a href="#6-technology-architecture-togaf-t">Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+   - 6.1 <a href="#61-platform--infrastructure">Platform &amp; Infrastructure</a>
+   - 6.2 <a href="#62-sap-development-object-status">SAP Development Object Status</a>
+   - 6.3 <a href="#63-nfrs--design-principles">NFRs &amp; Design Principles</a>
+   - 6.4 <a href="#64-security--governance">Security &amp; Governance</a></li>
+<li><a href="#7-project-context">Project Context</a>
+   - 7.1 <a href="#71-project-roadmap--go-live-plan">Project Roadmap &amp; Go-Live Plan</a>
+   - 7.2 <a href="#72-raid-log">RAID Log</a>
+   - 7.3 <a href="#73-recommendations--next-steps">Recommendations &amp; Next Steps</a></li>
+</ol>
+<div style="page-break-before: always;"></div>
+
+<h2 id="1-executive-summary">1. Executive Summary</h2>
+<p>This Architecture Document defines the <strong>Business, Data, Application, and Technology</strong> (BDAT) architecture for <strong>E2E-110 IMR Flow</strong> within the IAO program. It includes 10 BPMN process diagram(s) in Section 3.
+| Dimension | Value |
+|-----------|-------|
+| <strong>Tower</strong> | End-to-End Integrated Processes (E2E) |
+| <strong>Process Group</strong> | Forecast to Stock |
+| <strong>Capability</strong> | E2E-110 - IMR Flow |
+| <strong>Release</strong> | Release 2 |
+| <strong>Total Systems</strong> | 2 |
+| <strong>System Status</strong> | 0 Deployed, 0 Developing, 0 EOL, 2 Pending IAPM |
+| <strong>RICEFW Objects</strong> | Pending — Smartsheet Object Tracker API integration |
+<strong>Change Summary</strong>: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.</p>
+<blockquote>
+<p>All system nodes in architecture diagrams are <strong>IAPM-linked</strong> — click any node to open its IAPM page. Diagrams require <code>securityLevel: 'loose'</code> for click events.</p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h2 id="2-business-context-objectives">2. Business Context &amp; Objectives</h2>
+<h3 id="21-classification">2.1 Classification</h3>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>L0 Tower</strong></td>
+<td>End-to-End Integrated Processes</td>
+</tr>
+<tr>
+<td><strong>L1 Process</strong></td>
+<td>Forecast to Stock</td>
+</tr>
+<tr>
+<td><strong>L2 Capability</strong></td>
+<td>E2E-110 - IMR Flow</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-business-drivers">2.2 Business Drivers</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Driver</th>
+<th>Description</th>
+<th>Strategic Alignment</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>End-to-End Process Integration</td>
+<td>Enable cross-tower integrated processes spanning procurement, manufacturing, and fulfillment</td>
+<td>IDM 2.0 Process Excellence</td>
+<td>High</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Intel Foundry Business Enablement</td>
+<td>Stand up foundry-specific business processes for external customer engagement</td>
+<td>Intel Foundry Services</td>
+<td>High</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Process Visibility &amp; Monitoring</td>
+<td>Provide end-to-end process visibility across tower boundaries with integrated monitoring</td>
+<td>Operational Excellence</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>4</td>
+<td>E2E-110 Process Migration</td>
+<td>Migrate IMR Flow business processes and 2 integrated systems from legacy to S/4 HANA target architecture</td>
+<td>IDM 2.0 Cross-Functional / End-to-End</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="23-success-criteria">2.3 Success Criteria</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+<th>Measure</th>
+<th>Baseline</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E2E Process Cycle Time</td>
+<td>Per process SLA</td>
+<td>End-to-end transaction completion within defined SLA per process</td>
+<td>Varies by process</td>
+<td>E2E Process Owner</td>
+</tr>
+<tr>
+<td>Cross-Tower Integration Success</td>
+<td>&gt; 99%</td>
+<td>Transactions completing across tower boundaries without manual intervention</td>
+<td>92% (current)</td>
+<td>Integration Lead</td>
+</tr>
+<tr>
+<td>Process Exception Rate</td>
+<td>&lt; 2%</td>
+<td>Transactions requiring manual exception handling</td>
+<td>8% (current)</td>
+<td>Operations Manager</td>
+</tr>
+<tr>
+<td>E2E-110 Migration Completeness</td>
+<td>100% flow chains validated</td>
+<td>All 1 flow chains verified in target state</td>
+<td>0% (pre-migration)</td>
+<td>Tower Architect</td>
+</tr>
+</tbody>
+</table>
+<h3 id="24-companion-documents">2.4 Companion Documents</h3>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Business Architecture</strong></td>
+<td>Included in this document (Section 3) — process flows from BPMN diagrams</td>
+</tr>
+<tr>
+<td><strong>This Document</strong></td>
+<td>Full BDAT Architecture — Business + Data + Application + Technology</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</h2>
+<h3 id="31-business-process-overview">3.1 Business Process Overview</h3>
+<p>This capability includes <strong>10 business process(es)</strong> modeled in BPMN 2.0, covering the end-to-end workflow for E2E-110 IMR Flow.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Step ID</th>
+<th>Process Name</th>
+<th>Lanes</th>
+<th>Tasks</th>
+<th>Gateways</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>E2E-110A_IF_to_IMR_-<em>Variation_1</em>–_IMR_facility_is_within_the_plant</td>
+<td>E2E-110A_IF_to_IMR_-<em>Variation_1</em>–_IMR_facility_is_within_the_plant</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LE ++ Faulty Part, EWM, IMR Repair Plant</td>
+<td>20</td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>E2E-110B__IF_to_IMR_-<em>Variation_2</em>–_IMR_facility_is_within_the_same_LE_but_different_plant</td>
+<td>E2E-110B__IF_to_IMR_-<em>Variation_2</em>–_IMR_facility_is_within_the_same_LE_but_different_plant</td>
+<td>IMR EWM, IMR Repair Plant  (Different Plant), LE ++ Faulty Part</td>
+<td>32</td>
+<td>5</td>
+</tr>
+<tr>
+<td>3</td>
+<td>E2E-110C__IF_to_IMR_-<em>Variation_3</em>–<em>IMR_facility_is_in_different_LE</em>–_with_STO</td>
+<td>E2E-110C__IF_to_IMR_-<em>Variation_3</em>–<em>IMR_facility_is_in_different_LE</em>–_with_STO</td>
+<td>IMR EWM, IMR Repair Plant  (Different Plant), LE ++ Faulty Part</td>
+<td>33</td>
+<td>7</td>
+</tr>
+<tr>
+<td>4</td>
+<td>E2E-110D__IP_to_IMR</td>
+<td>E2E-110D__IP_to_IMR</td>
+<td>IF EWM (101), IMR EWM, IMR Legal Entity (LE101), IMR Malaysia, Intel Product (Faulty Part), LE 798</td>
+<td>55</td>
+<td>15</td>
+</tr>
+<tr>
+<td>5</td>
+<td>E2E-110E__IP_to_IMR_cash_settlement</td>
+<td>E2E-110E__IP_to_IMR_cash_settlement</td>
+<td>Boundary Apps Intel Foundry, S/4 Intel Product , SAP CFIN</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Intel Foundry AR, SAP CFIN</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Intel Product AP , SAP S/4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Intel Foundry (LE798)</td>
+<td>10</td>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>E2E-110F__IP_to_IMR_in_house_settlement</td>
+<td>E2E-110F__IP_to_IMR_in_house_settlement</td>
+<td>Inhouse Bank , Intel Foundry LE798, S/4 Intel Product , SAP CFIN</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Intel Foundry AR, SAP CFIN</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Intel Product AP</td>
+<td>10</td>
+<td>4</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>E2E-110G__Altera_to_IF</td>
+<td>E2E-110G__Altera_to_IF</td>
+<td>Boundary Apps, Customer, IF EWM (101), IMR EWM, IMR LE Malaysia, IMR Legal Entity (LE101), LE798</td>
+<td>45</td>
+<td>14</td>
+</tr>
+<tr>
+<td>8</td>
+<td>E2E-110H__Altera_to_IMR_cash_settlement</td>
+<td>E2E-110H__Altera_to_IMR_cash_settlement</td>
+<td>LE798, S/4 Intel Product , SAP CFIN</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>E2E-110I__IMR_Manufacturing</td>
+<td>E2E-110I__IMR_Manufacturing</td>
+<td>SAP S/4 Intel Foundry</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IMR Legal Entity</td>
+<td>13</td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>E2E-110J__TM_Steps</td>
+<td>E2E-110J__TM_Steps</td>
+<td>External Partners B2B, SAP S/4 Intel Foundry</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IMR Legal Entity</td>
+<td>10</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-business-process-diagrams">3.2 Business Process Diagrams</h3>
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-321-e2e-110a_if_to_imr_-variation_1imr_facility_is_within_the_plant-e2e-110a_if_to_imr-variation_1_imr_facility_is_within_the_plant">BUSINESS ARCHITECTURE — 3.2.1 E2E-110A_IF_to_IMR_-<em>Variation_1</em>–<em>IMR_facility_is_within_the_plant — E2E-110A_IF_to_IMR</em>-<em>Variation_1</em>–_IMR_facility_is_within_the_plant</h4>
+<p><strong>Swim Lanes</strong>: 
+ LE ++ Faulty Part · EWM · IMR Repair Plant  | <strong>Tasks</strong>: 20 | <strong>Gateways</strong>: 3</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart LR
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph   LE ++ Faulty Part
+        n3["fa:fa-user Material Movement triggers through MIGO with reason code"]
+        n17[["fa:fa-cog Identify Faulty Spare"]]
+        n18[["fa:fa-cog Perform Inbound Delivery"]]
+        n19[["fa:fa-cog Move Faulty Part to Material Review location"]]
+        n20[["fa:fa-cog Movement triggered through PM WO/ Reservation with reason..."]]
+        n21(["fa:fa-play IF to IMR Variation 1 process initiated"])
+        n26{{"fa:fa-arrows-alt parallelGateway"}}
+        n27{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    subgraph EWM
+        n10[["fa:fa-cog Distribute Inbound Delivery Distribution to EWM"]]
+        n11[["fa:fa-cog Perform Goods Receipt EWM"]]
+        n12[["fa:fa-cog Perform Outbound Delivery Order"]]
+        n13[["fa:fa-cog Perform Outbound Create and Confirm Picking"]]
+        n14[["fa:fa-cog Perform Goods Issue"]]
+        n15[["fa:fa-cog Perform Inbound Delivery distribution to EWM"]]
+        n16[["fa:fa-cog Perform Goods Receipt EWM"]]
+        n23(["fa:fa-stop Good Received in EWM"])
+        n24(["fa:fa-stop Good Received in EWM"])
+    end
+    subgraph IMR Repair Plant 
+        n1["fa:fa-user Create Repair Order"]
+        n2["fa:fa-user Repair order reservation for damaged part and components ..."]
+        n4[["fa:fa-cog Receive Material"]]
+        n5[["fa:fa-cog Perform Repair through PM Repair Order"]]
+        n6[["fa:fa-cog Movement triggered through PM WO/ Reservation"]]
+        n7[["fa:fa-cog Perform Inbound Delivery"]]
+        n8[["fa:fa-cog Settle Costs to Cost Centre"]]
+        n9[["fa:fa-cog Perform Outbound Delivery"]]
+        n22(["fa:fa-stop Cost Settled against Cost Centre"])
+        n25{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    n17 --> n19
+    n26 --> n20
+    n26 --> n3
+    n19 --> n26
+    n20 --> n27
+    n3 --> n27
+    n27 --> n18
+    n10 --> n11
+    n12 --> n13
+    n13 --> n14
+    n4 --> n5
+    n5 --> n6
+    n6 --> n7
+    n15 --> n16
+    n25 --> n8
+    n25 --> n15
+    n21 --> n17
+    n1 --> n2
+    n2 --> n9
+    n9 --> n12
+    n16 --> n23
+    n18 --> n10
+    n11 --> n24
+    n14 --> n4
+    n8 --> n22
+    n7 --> n25
+    class n1 userTask
+    class n2 userTask
+    class n3 userTask
+    class n4 serviceTask
+    class n5 serviceTask
+    class n6 serviceTask
+    class n7 serviceTask
+    class n8 serviceTask
+    class n9 serviceTask
+    class n10 serviceTask
+    class n11 serviceTask
+    class n12 serviceTask
+    class n13 serviceTask
+    class n14 serviceTask
+    class n15 serviceTask
+    class n16 serviceTask
+    class n17 serviceTask
+    class n18 serviceTask
+    class n19 serviceTask
+    class n20 serviceTask
+    class n21 startEvt
+    class n22 endEvt
+    class n23 endEvt
+    class n24 endEvt
+    class n25 gateway
+    class n26 gateway
+    class n27 gateway
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-322-e2e-110b__if_to_imr_-variation_2imr_facility_is_within_the_same_le_but_different_plant-e2e-110b__if_to_imr-variation_2_imr_facility_is_within_the_same_le_but_different_plant">BUSINESS ARCHITECTURE — 3.2.2 E2E-110B__IF_to_IMR_-<em>Variation_2</em>–<em>IMR_facility_is_within_the_same_LE_but_different_plant — E2E-110B__IF_to_IMR</em>-<em>Variation_2</em>–_IMR_facility_is_within_the_same_LE_but_different_plant</h4>
+<p><strong>Swim Lanes</strong>: IMR EWM · IMR Repair Plant  (Different Plant) · LE ++ Faulty Part | <strong>Tasks</strong>: 32 | <strong>Gateways</strong>: 5</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart LR
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph IMR EWM
+        n10[["fa:fa-cog Perform Outbound Create & confirm picking"]]
+        n11[["fa:fa-cog Perform Goods Issue"]]
+        n12[["fa:fa-cog Outbound delivery Order"]]
+        n13[["fa:fa-cog Perform Outbound Create & confirm picking"]]
+        n14[["fa:fa-cog Perform Goods Issue"]]
+        n15[["fa:fa-cog Perform Goods Receipt – Customer stock (Defective Material)"]]
+        n16[["fa:fa-cog Perform Outbound Delivery"]]
+        n17[["fa:fa-cog Receive IBD– Customer stock (Defective Material)"]]
+        n18[["fa:fa-cog Perform Goods Issue"]]
+        n19[["fa:fa-cog Perform Inbound Delivery Distribution to EWM"]]
+        n20[["fa:fa-cog Perform Goods Receipt EWM"]]
+        n21[["fa:fa-cog Perform Outbound Delivery Order"]]
+        n22[["fa:fa-cog Pick & Pack Updates & Print Invoice"]]
+        n23[["fa:fa-cog Perform Goods Issue"]]
+        n24[["fa:fa-cog Perform Goods Receipt"]]
+        n35(["fa:fa-stop Goods Received"])
+        n36(["fa:fa-stop Good Received in EWM"])
+        n37(["fa:fa-stop Good Received"])
+        n40{{"fa:fa-code-branch exclusiveGateway"}}
+    end
+    subgraph IMR Repair Plant  (Different Plant)
+        n2["fa:fa-user Create Repair Order"]
+        n3["fa:fa-user Create a MIGO transaction"]
+        n25[["fa:fa-cog Perform Outbound Delivery"]]
+        n26[["fa:fa-cog Receive Materials"]]
+        n27[["fa:fa-cog Perform Repair Process"]]
+        n28[["fa:fa-cog Movement triggered through PM WO/ Reservation"]]
+        n29[["fa:fa-cog Create STR/STO"]]
+        n30[["fa:fa-cog Perform Outbound Delivery"]]
+        n31[["fa:fa-cog Perform Goods Issue (Fixed Material)"]]
+        n32[["fa:fa-cog Perform GTS Check"]]
+        n34(["fa:fa-play Initiate Goods Issue"])
+        n38(["fa:fa-stop GTS Check Completed"])
+        n39(["fa:fa-stop Movement Triggered"])
+        n44{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    subgraph LE ++ Faulty Part
+        n1["fa:fa-user Material Movement triggers through MIGO with reason code"]
+        n4[["fa:fa-cog Identify Faulty Spare"]]
+        n5[["fa:fa-cog Perform Inbound Delivery"]]
+        n6[["fa:fa-cog Move Faulty Part to Material Review location"]]
+        n7[["fa:fa-cog Movement triggered through PM WO/ Reservation with reason..."]]
+        n8[["fa:fa-cog Create STR/STO to ship defective part"]]
+        n9[["fa:fa-cog Perform Outbound Delivery"]]
+        n33(["fa:fa-play IF to IMR Variation 2 Process Initiated"])
+        n41{{"fa:fa-arrows-alt parallelGateway"}}
+        n42{{"fa:fa-arrows-alt parallelGateway"}}
+        n43{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    n4 --> n6
+    n41 --> n7
+    n41 --> n1
+    n6 --> n41
+    n1 --> n42
+    n42 --> n5
+    n19 --> n20
+    n21 --> n22
+    n10 --> n11
+    n12 --> n13
+    n40 --> n14
+    n33 --> n4
+    n17 --> n15
+    n13 --> n18
+    n18 --> n40
+    n24 --> n36
+    n16 --> n10
+    n2 --> n3
+    n3 --> n25
+    n26 --> n27
+    n27 --> n28
+    n29 --> n30
+    n31 --> n44
+    n8 --> n9
+    n32 --> n38
+    n15 --> n35
+    n20 --> n37
+    n23 --> n17
+    n5 --> n19
+    n22 --> n23
+    n14 --> n24
+    n25 --> n16
+    n11 --> n26
+    n7 --> n43
+    n43 --> n42
+    n43 --> n29
+    n28 --> n39
+    n43 --> n8
+    n9 --> n21
+    n30 --> n12
+    n34 --> n31
+    n44 --> n32
+    n44 --> n40
+    class n1 userTask
+    class n2 userTask
+    class n3 userTask
+    class n4 serviceTask
+    class n5 serviceTask
+    class n6 serviceTask
+    class n7 serviceTask
+    class n8 serviceTask
+    class n9 serviceTask
+    class n10 serviceTask
+    class n11 serviceTask
+    class n12 serviceTask
+    class n13 serviceTask
+    class n14 serviceTask
+    class n15 serviceTask
+    class n16 serviceTask
+    class n17 serviceTask
+    class n18 serviceTask
+    class n19 serviceTask
+    class n20 serviceTask
+    class n21 serviceTask
+    class n22 serviceTask
+    class n23 serviceTask
+    class n24 serviceTask
+    class n25 serviceTask
+    class n26 serviceTask
+    class n27 serviceTask
+    class n28 serviceTask
+    class n29 serviceTask
+    class n30 serviceTask
+    class n31 serviceTask
+    class n32 serviceTask
+    class n33 startEvt
+    class n34 startEvt
+    class n35 endEvt
+    class n36 endEvt
+    class n37 endEvt
+    class n38 endEvt
+    class n39 endEvt
+    class n40 gateway
+    class n41 gateway
+    class n42 gateway
+    class n43 gateway
+    class n44 gateway
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-323-e2e-110c__if_to_imr_-variation_3imr_facility_is_in_different_lewith_sto-e2e-110c__if_to_imr-variation_3imr_facility_is_in_different_le_with_sto">BUSINESS ARCHITECTURE — 3.2.3 E2E-110C__IF_to_IMR_-<em>Variation_3</em>–<em>IMR_facility_is_in_different_LE</em>–<em>with_STO — E2E-110C__IF_to_IMR</em>-<em>Variation_3</em>–<em>IMR_facility_is_in_different_LE</em>–_with_STO</h4>
+<p><strong>Swim Lanes</strong>: IMR EWM · IMR Repair Plant  (Different Plant) · LE ++ Faulty Part | <strong>Tasks</strong>: 33 | <strong>Gateways</strong>: 7</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart LR
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph IMR EWM
+        n12[["fa:fa-cog Perform Outbound Create & confirm picking"]]
+        n13[["fa:fa-cog Perform Goods Issue"]]
+        n14[["fa:fa-cog Outbound delivery Order"]]
+        n15[["fa:fa-cog Perform Outbound Create & confirm picking"]]
+        n16[["fa:fa-cog Perform Goods Issue"]]
+        n17[["fa:fa-cog Perform Goods Receipt – Customer stock (Defective Material)"]]
+        n18[["fa:fa-cog Perform Outbound Delivery"]]
+        n19[["fa:fa-cog Perform Inbound Delivery Distribution to EWM"]]
+        n20[["fa:fa-cog Perform Goods Receipt EWM"]]
+        n21[["fa:fa-cog Perform Outbound Delivery Order"]]
+        n22[["fa:fa-cog Pick & Pack Updates & Print Invoice"]]
+        n23[["fa:fa-cog Perform Goods Issue"]]
+        n24[["fa:fa-cog Perform Goods Receipt"]]
+        n25[["fa:fa-cog Create IC Invoice"]]
+        n35(["fa:fa-stop Goods Received"])
+        n36(["fa:fa-stop Goods Issued in EWM"])
+        n37(["fa:fa-stop Good Received in EWM"])
+        n38(["fa:fa-stop Good Received"])
+        n46{{"fa:fa-arrows-alt parallelGateway"}}
+        n47{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    subgraph IMR Repair Plant  (Different Plant)
+        n1["TM Embedded"]
+        n4["fa:fa-user Create PM Repair Order"]
+        n5["fa:fa-user Create a MIGO transaction"]
+        n6["fa:fa-user Create STR/STO"]
+        n26[["fa:fa-cog Perform Outbound Delivery"]]
+        n27[["fa:fa-cog Receive Materials"]]
+        n28[["fa:fa-cog Perform Repair Process"]]
+        n29[["fa:fa-cog Movement triggered through PM WO/ Reservation"]]
+        n30[["fa:fa-cog Perform Outbound Delivery"]]
+        n31[["fa:fa-cog Perform Goods Issue (Fixed Material)"]]
+        n32[["fa:fa-cog Perform GTS Check"]]
+        n33[["fa:fa-cog Create IC Invoice"]]
+        n39(["fa:fa-stop Movement Triggered"])
+        n40(["fa:fa-stop GTS Check Completed"])
+        n41(["fa:fa-stop IC Invoice Created"])
+        n42["J: TM Steps"]
+        n48{{"fa:fa-arrows-alt parallelGateway"}}
+        n49{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    subgraph LE ++ Faulty Part
+        n2["fa:fa-user Material Movement triggers through MIGO with reason code"]
+        n3["fa:fa-user Create STR/STO to ship defective part"]
+        n7[["fa:fa-cog Identify Faulty Spare"]]
+        n8[["fa:fa-cog Perform Inbound Delivery"]]
+        n9[["fa:fa-cog Move Faulty Part to Material Review location"]]
+        n10[["fa:fa-cog Movement triggered through PM WO/ Reservation with reason..."]]
+        n11[["fa:fa-cog Perform Outbound Delivery"]]
+        n34(["fa:fa-play IF to IMR Variation 3 Process Initiated"])
+        n43{{"fa:fa-arrows-alt parallelGateway"}}
+        n44{{"fa:fa-arrows-alt parallelGateway"}}
+        n45{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    n7 --> n9
+    n43 --> n10
+    n43 --> n2
+    n9 --> n43
+    n2 --> n44
+    n44 --> n8
+    n19 --> n20
+    n21 --> n22
+    n12 --> n13
+    n14 --> n15
+    n46 --> n16
+    n34 --> n7
+    n24 --> n37
+    n18 --> n12
+    n4 --> n5
+    n5 --> n26
+    n27 --> n28
+    n28 --> n29
+    n6 --> n30
+    n30 --> n48
+    n3 --> n11
+    n48 --> n31
+    n17 --> n35
+    n20 --> n38
+    n22 --> n23
+    n11 --> n21
+    n23 --> n17
+    n15 --> n46
+    n31 --> n49
+    n49 --> n32
+    n49 --> n33
+    n49 --> n25
+    n16 --> n47
+    n26 --> n18
+    n48 --> n14
+    n48 --> n1
+    n1 --> n42
+    n10 --> n45
+    n45 --> n44
+    n29 --> n39
+    n45 --> n6
+    n45 --> n3
+    n13 --> n27
+    n8 --> n19
+    n47 --> n36
+    n47 --> n24
+    n32 --> n40
+    n33 --> n41
+    n49 --> n46
+    class n2 userTask
+    class n3 userTask
+    class n4 userTask
+    class n5 userTask
+    class n6 userTask
+    class n7 serviceTask
+    class n8 serviceTask
+    class n9 serviceTask
+    class n10 serviceTask
+    class n11 serviceTask
+    class n12 serviceTask
+    class n13 serviceTask
+    class n14 serviceTask
+    class n15 serviceTask
+    class n16 serviceTask
+    class n17 serviceTask
+    class n18 serviceTask
+    class n19 serviceTask
+    class n20 serviceTask
+    class n21 serviceTask
+    class n22 serviceTask
+    class n23 serviceTask
+    class n24 serviceTask
+    class n25 serviceTask
+    class n26 serviceTask
+    class n27 serviceTask
+    class n28 serviceTask
+    class n29 serviceTask
+    class n30 serviceTask
+    class n31 serviceTask
+    class n32 serviceTask
+    class n33 serviceTask
+    class n34 startEvt
+    class n35 endEvt
+    class n36 endEvt
+    class n37 endEvt
+    class n38 endEvt
+    class n39 endEvt
+    class n40 endEvt
+    class n41 endEvt
+    class n42 startEvt
+    class n43 gateway
+    class n44 gateway
+    class n45 gateway
+    class n46 gateway
+    class n47 gateway
+    class n48 gateway
+    class n49 gateway
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-324-e2e-110d__ip_to_imr-e2e-110d__ip_to_imr">BUSINESS ARCHITECTURE — 3.2.4 E2E-110D__IP_to_IMR — E2E-110D__IP_to_IMR</h4>
+<p><strong>Swim Lanes</strong>: IF EWM (101) · IMR EWM · IMR Legal Entity (LE101) · IMR Malaysia · Intel Product (Faulty Part) · LE 798 | <strong>Tasks</strong>: 55 | <strong>Gateways</strong>: 15</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart LR
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph IF EWM (101)
+        n8[["fa:fa-cog Perform Inbound Delivery"]]
+        n9[["fa:fa-cog Perform Goods Receipt – Customer stock (Defective Material)"]]
+        n10[["fa:fa-cog Perform Outbound Delivery Order"]]
+        n11[["fa:fa-cog Perform Goods Issue"]]
+        n12[["fa:fa-cog Perform Outbound delivery Order"]]
+        n13[["fa:fa-cog Perform Outbound Create & confirm picking"]]
+        n14[["fa:fa-cog Perform Goods Issue"]]
+        n73{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    subgraph IMR EWM
+        n37[["fa:fa-cog Perform Inbound Delivery"]]
+        n38[["fa:fa-cog Perform Goods Receipt – Customer stock (Defective Material)"]]
+        n39[["fa:fa-cog Perform Outbound delivery Order"]]
+        n40[["fa:fa-cog Perform Goods Issue"]]
+        n41[["fa:fa-cog Perform Outbound delivery Order"]]
+        n42[["fa:fa-cog Perform Outbound Create & confirm picking"]]
+        n43[["fa:fa-cog Perform Goods Issue"]]
+        n63(["fa:fa-stop Goods Issued"])
+        n72{{"fa:fa-code-branch exclusiveGateway"}}
+        n79{{"fa:fa-arrows-alt parallelGateway"}}
+        n80{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    subgraph IMR Legal Entity (LE101)
+        n4["fa:fa-user Create Repair (RA) Sales Order"]
+        n5["fa:fa-user Create PM Repair Order"]
+        n23[["fa:fa-cog Create MIGO transfer"]]
+        n24[["fa:fa-cog Perform Outbound Delivery"]]
+        n25[["fa:fa-cog Perform Goods Receipt w.r.t PM repair order"]]
+        n26[["fa:fa-cog Perform Repair"]]
+        n27[["fa:fa-cog Complete Repair"]]
+        n28[["fa:fa-cog Perform Inbound Delivery"]]
+        n29[["fa:fa-cog Perform Goods Receipt"]]
+        n30[["fa:fa-cog Perform Outbound Delivery"]]
+        n31[["fa:fa-cog Perform Goods Issue (Fixed Material)"]]
+        n32[["fa:fa-cog Perform GTS Check"]]
+        n33[["fa:fa-cog Send Invoice to IP"]]
+        n59(["fa:fa-stop Goods Received"])
+        n60(["fa:fa-stop Invoice sent to IP"])
+        n61(["fa:fa-stop GTS check completed"])
+        n70{{"fa:fa-code-branch exclusiveGateway"}}
+        n75{{"fa:fa-arrows-alt parallelGateway"}}
+        n76{{"fa:fa-arrows-alt parallelGateway"}}
+        n77{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    subgraph IMR Malaysia
+        n1["TM Embedded"]
+        n7["fa:fa-user Create PM Repair Order"]
+        n44[["fa:fa-cog Create MIGO transfer"]]
+        n45[["fa:fa-cog Perform Outbound Delivery"]]
+        n46[["fa:fa-cog Perform Goods Receipt"]]
+        n47[["fa:fa-cog Perform Repair"]]
+        n48[["fa:fa-cog Complete Repair"]]
+        n49[["fa:fa-cog Perform Inbound Delivery"]]
+        n50[["fa:fa-cog Perform Goods Receipt"]]
+        n51[["fa:fa-cog Perform Outbound Delivery"]]
+        n52[["fa:fa-cog Perform Goods Issue (Fixed Material)"]]
+        n53[["fa:fa-cog Perform GTS Check"]]
+        n54[["fa:fa-cog Create IC Invoice Bill To: LE798"]]
+        n55[["fa:fa-cog AR Posting & Auto Clearing"]]
+        n64(["fa:fa-stop Goods Received"])
+        n65(["fa:fa-stop Repair completed"])
+        n66(["fa:fa-stop GTS check completed"])
+        n67["J: TM Steps"]
+        n81{{"fa:fa-arrows-alt parallelGateway"}}
+        n82{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    subgraph Intel Product (Faulty Part)
+        n2["fa:fa-user Create Sub-Con Purchase Requisition"]
+        n3["fa:fa-user Create Sub-Con Purchase Order"]
+        n15[["fa:fa-cog Identify Faulty Spare"]]
+        n16[["fa:fa-cog Perform Inbound Delivery"]]
+        n17[["fa:fa-cog Initiate Repair Process"]]
+        n18[["fa:fa-cog Perform Goods Issue (Defective Material)"]]
+        n19[["fa:fa-cog Perform GTS Compliance Check"]]
+        n20[["fa:fa-cog Create Sub con Supplier Invoice"]]
+        n21[["fa:fa-cog Perform Goods Receipt (Repair Material)"]]
+        n22[["fa:fa-cog Perform GTS Compliance Check"]]
+        n56(["fa:fa-play IP to IF Process Initiated"])
+        n57(["fa:fa-stop GTS Check completed"])
+        n58(["fa:fa-stop GTS check completed"])
+        n68{{"fa:fa-code-branch Issue to LE101 Or LE798 ?"}}
+        n69{{"fa:fa-code-branch Repair in LE101/ LE798?"}}
+        n74{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    subgraph LE 798
+        n6["fa:fa-user Create Repair (RA) Sales Order"]
+        n34[["fa:fa-cog Send Customer Invoice to IP"]]
+        n35[["fa:fa-cog Calculate Taxes"]]
+        n36[["fa:fa-cog AR Posting & Auto Clearing"]]
+        n62(["fa:fa-stop AR Posted"])
+        n71{{"fa:fa-code-branch exclusiveGateway"}}
+        n78{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    n15 --> n17
+    n2 --> n3
+    n8 --> n9
+    n10 --> n11
+    n23 --> n24
+    n25 --> n26
+    n56 --> n15
+    n17 --> n2
+    n3 --> n69
+    n74 --> n16
+    n74 --> n19
+    n16 --> n18
+    n20 --> n22
+    n18 --> n68
+    n12 --> n13
+    n13 --> n73
+    n21 --> n20
+    n4 --> n75
+    n75 --> n28
+    n5 --> n23
+    n24 --> n10
+    n28 --> n8
+    n29 --> n59
+    n9 --> n29
+    n26 --> n27
+    n27 --> n70
+    n75 --> n70
+    n70 --> n30
+    n30 --> n77
+    n31 --> n76
+    n76 --> n32
+    n76 --> n33
+    n73 --> n14
+    n76 --> n73
+    n14 --> n21
+    n11 --> n25
+    n39 --> n40
+    n44 --> n45
+    n46 --> n47
+    n7 --> n44
+    n50 --> n64
+    n47 --> n48
+    n51 --> n82
+    n52 --> n81
+    n81 --> n53
+    n81 --> n54
+    n68 -->|"LE101 US"| n9
+    n37 --> n72
+    n72 --> n38
+    n68 -->|"LE798 Malaysia"| n72
+    n41 --> n42
+    n42 --> n80
+    n79 --> n49
+    n79 --> n7
+    n80 --> n43
+    n69 --> n74
+    n54 --> n55
+    n43 --> n63
+    n79 --> n51
+    n81 --> n80
+    n82 --> n52
+    n82 --> n1
+    n1 --> n67
+    n69 -->|"LE101"| n4
+    n19 --> n57
+    n22 --> n58
+    n71 --> n6
+    n6 --> n79
+    n33 --> n60
+    n32 --> n61
+    n77 --> n31
+    n77 --> n12
+    n36 --> n62
+    n48 --> n65
+    n82 --> n41
+    n53 --> n66
+    n34 --> n78
+    n78 --> n35
+    n35 --> n34
+    n45 --> n39
+    n40 --> n46
+    n49 --> n37
+    n38 --> n50
+    n55 --> n36
+    n69 -->|"LE798 Malaysia"| n71
+    n78 --> n71
+    class n2 userTask
+    class n3 userTask
+    class n4 userTask
+    class n5 userTask
+    class n6 userTask
+    class n7 userTask
+    class n8 serviceTask
+    class n9 serviceTask
+    class n10 serviceTask
+    class n11 serviceTask
+    class n12 serviceTask
+    class n13 serviceTask
+    class n14 serviceTask
+    class n15 serviceTask
+    class n16 serviceTask
+    class n17 serviceTask
+    class n18 serviceTask
+    class n19 serviceTask
+    class n20 serviceTask
+    class n21 serviceTask
+    class n22 serviceTask
+    class n23 serviceTask
+    class n24 serviceTask
+    class n25 serviceTask
+    class n26 serviceTask
+    class n27 serviceTask
+    class n28 serviceTask
+    class n29 serviceTask
+    class n30 serviceTask
+    class n31 serviceTask
+    class n32 serviceTask
+    class n33 serviceTask
+    class n34 serviceTask
+    class n35 serviceTask
+    class n36 serviceTask
+    class n37 serviceTask
+    class n38 serviceTask
+    class n39 serviceTask
+    class n40 serviceTask
+    class n41 serviceTask
+    class n42 serviceTask
+    class n43 serviceTask
+    class n44 serviceTask
+    class n45 serviceTask
+    class n46 serviceTask
+    class n47 serviceTask
+    class n48 serviceTask
+    class n49 serviceTask
+    class n50 serviceTask
+    class n51 serviceTask
+    class n52 serviceTask
+    class n53 serviceTask
+    class n54 serviceTask
+    class n55 serviceTask
+    class n56 startEvt
+    class n57 endEvt
+    class n58 endEvt
+    class n59 endEvt
+    class n60 endEvt
+    class n61 endEvt
+    class n62 endEvt
+    class n63 endEvt
+    class n64 endEvt
+    class n65 endEvt
+    class n66 endEvt
+    class n67 startEvt
+    class n68 gateway
+    class n69 gateway
+    class n70 gateway
+    class n71 gateway
+    class n72 gateway
+    class n73 gateway
+    class n74 gateway
+    class n75 gateway
+    class n76 gateway
+    class n77 gateway
+    class n78 gateway
+    class n79 gateway
+    class n80 gateway
+    class n81 gateway
+    class n82 gateway
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-325-e2e-110e__ip_to_imr_cash_settlement-e2e-110e__ip_to_imr_cash_settlement">BUSINESS ARCHITECTURE — 3.2.5 E2E-110E__IP_to_IMR_cash_settlement — E2E-110E__IP_to_IMR_cash_settlement</h4>
+<p><strong>Swim Lanes</strong>: Boundary Apps Intel Foundry · S/4 Intel Product  · SAP CFIN
+Intel Foundry AR · SAP CFIN
+Intel Product AP  · SAP S/4
+Intel Foundry (LE798) | <strong>Tasks</strong>: 10 | <strong>Gateways</strong>: 2</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart LR
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Boundary Apps Intel Foundry
+        n1["Banks"]
+    end
+    subgraph S/4 Intel Product 
+        n9[["fa:fa-cog Create Vendor Invoice"]]
+    end
+    subgraph SAP CFIN Intel Foundry AR
+        n6[["fa:fa-cog Perform AR Posting"]]
+        n7[["fa:fa-cog Perform Payment Receipt (Receiver)"]]
+        n8[["fa:fa-cog Perform Cash Application"]]
+        n11(["fa:fa-stop Cash Settlement Process Completed"])
+        n12(["fa:fa-stop AR Posted"])
+    end
+    subgraph SAP CFIN Intel Product AP 
+        n3[["fa:fa-cog Perform Payment Receipt (Payer)"]]
+        n4[["fa:fa-cog Perform AP Posting"]]
+        n5[["fa:fa-cog Perform Payment Run (F110)"]]
+    end
+    subgraph SAP S/4 Intel Foundry (LE798)
+        n2["Create IP Customer Invoice"]
+        n10[["fa:fa-cog Calculate Taxes"]]
+        n13["Customer Invoice To IP"]
+        n14{{"fa:fa-arrows-alt parallelGateway"}}
+        n15{{"fa:fa-arrows-alt inclusiveGateway"}}
+    end
+    n4 --> n5
+    n9 --> n4
+    n3 --> n7
+    n13 --> n15
+    n1 --> n3
+    n7 --> n8
+    n6 --> n12
+    n8 --> n11
+    n14 -->|"MAKE IT BOLD"| n6
+    n2 --> n14
+    n14 --> n10
+    n15 --> n2
+    n10 --> n15
+    n5 --> n1
+    class n3 serviceTask
+    class n4 serviceTask
+    class n5 serviceTask
+    class n6 serviceTask
+    class n7 serviceTask
+    class n8 serviceTask
+    class n9 serviceTask
+    class n10 serviceTask
+    class n11 endEvt
+    class n12 endEvt
+    class n13 startEvt
+    class n14 gateway
+    class n15 gateway
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-326-e2e-110f__ip_to_imr_in_house_settlement-e2e-110f__ip_to_imr_in_house_settlement">BUSINESS ARCHITECTURE — 3.2.6 E2E-110F__IP_to_IMR_in_house_settlement — E2E-110F__IP_to_IMR_in_house_settlement</h4>
+<p><strong>Swim Lanes</strong>: Inhouse Bank  · Intel Foundry LE798 · S/4 Intel Product  · SAP CFIN
+Intel Foundry AR · SAP CFIN
+Intel Product AP  | <strong>Tasks</strong>: 10 | <strong>Gateways</strong>: 4</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart LR
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Inhouse Bank 
+        n1["Inhouse Bank"]
+        n13{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    subgraph Intel Foundry LE798
+        n2["Create IP Customer Invoice"]
+        n10[["fa:fa-cog Calculate Taxes"]]
+        n11["Customer Invoice To IP"]
+        n14{{"fa:fa-arrows-alt parallelGateway"}}
+        n15{{"fa:fa-arrows-alt inclusiveGateway"}}
+    end
+    subgraph S/4 Intel Product 
+        n9[["fa:fa-cog Create Vendor Invoice"]]
+    end
+    subgraph SAP CFIN Intel Foundry AR
+        n6[["fa:fa-cog Perform AR Posting"]]
+        n7[["fa:fa-cog Perform Payment Receipt (Receiver)"]]
+        n8[["fa:fa-cog Perform Cash Application"]]
+        n12{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    subgraph SAP CFIN Intel Product AP 
+        n3[["fa:fa-cog Perform Payment Receipt (Payer)"]]
+        n4[["fa:fa-cog Perform AP Posting"]]
+        n5[["fa:fa-cog Perform Payment Run (F110)"]]
+    end
+    n4 --> n5
+    n9 --> n4
+    n11 --> n15
+    n1 --> n13
+    n7 --> n8
+    n2 --> n14
+    n14 --> n12
+    n14 --> n10
+    n15 --> n2
+    n10 --> n15
+    n12 --> n6
+    n8 --> n12
+    n5 --> n1
+    n13 --> n7
+    n13 --> n3
+    class n3 serviceTask
+    class n4 serviceTask
+    class n5 serviceTask
+    class n6 serviceTask
+    class n7 serviceTask
+    class n8 serviceTask
+    class n9 serviceTask
+    class n10 serviceTask
+    class n11 startEvt
+    class n12 gateway
+    class n13 gateway
+    class n14 gateway
+    class n15 gateway
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-327-e2e-110g__altera_to_if-e2e-110g__altera_to_if">BUSINESS ARCHITECTURE — 3.2.7 E2E-110G__Altera_to_IF — E2E-110G__Altera_to_IF</h4>
+<p><strong>Swim Lanes</strong>: Boundary Apps · Customer · IF EWM (101) · IMR EWM · IMR LE Malaysia · IMR Legal Entity (LE101) · LE798 | <strong>Tasks</strong>: 45 | <strong>Gateways</strong>: 14</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart LR
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Boundary Apps
+        n14[["fa:fa-cog Check Plan for Repair"]]
+        n60{{"fa:fa-code-branch Repair in LE101/ LE798?"}}
+        n61{{"fa:fa-code-branch Goods Issue in LE101/ LE798?"}}
+    end
+    subgraph Customer
+        n15[["fa:fa-cog Altera / External customer will Notify request for repair..."]]
+        n46(["fa:fa-play Altera To IF Process Initiated"])
+    end
+    subgraph IF EWM (101)
+        n1["TM Embedded"]
+        n7[["fa:fa-cog Perform Inbound Delivery"]]
+        n8[["fa:fa-cog Perform Goods Receipt – Customer stock (Defective Material)"]]
+        n9[["fa:fa-cog Perform Outbound Delivery Order"]]
+        n10[["fa:fa-cog Perform Goods Issue"]]
+        n11[["fa:fa-cog Perform Outbound delivery Order"]]
+        n12[["fa:fa-cog Perform Outbound Create & confirm picking"]]
+        n13[["fa:fa-cog Perform Goods Issue"]]
+        n48(["fa:fa-stop Goods Issued"])
+        n56["J: TM Steps"]
+        n59{{"fa:fa-code-branch exclusiveGateway"}}
+        n63{{"fa:fa-arrows-alt parallelGateway"}}
+        n64{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    subgraph IMR EWM
+        n30[["fa:fa-cog Perform Goods Receipt – Customer stock (Defective Material)"]]
+        n31[["fa:fa-cog Perform Outbound delivery Order"]]
+        n32[["fa:fa-cog Perform Goods Issue"]]
+        n33[["fa:fa-cog Perform Outbound delivery Order"]]
+        n34[["fa:fa-cog Perform Outbound Create & confirm picking"]]
+        n35[["fa:fa-cog Perform Goods Issue"]]
+        n53(["fa:fa-stop Goods Issued"])
+        n69{{"fa:fa-arrows-alt parallelGateway"}}
+        n70{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    subgraph IMR LE Malaysia
+        n2["TM Embedded"]
+        n6["fa:fa-user Create PM Repair Order"]
+        n36[["fa:fa-cog Create MIGO transfer"]]
+        n37[["fa:fa-cog Perform Outbound Delivery"]]
+        n38[["fa:fa-cog Perform Goods Receipt"]]
+        n39[["fa:fa-cog Perform Repair"]]
+        n40[["fa:fa-cog Complete Repair"]]
+        n41[["fa:fa-cog Perform Outbound Delivery"]]
+        n42[["fa:fa-cog Perform Goods Issue (Fixed Material)"]]
+        n43[["fa:fa-cog Perform GTS Check"]]
+        n44[["fa:fa-cog Create IC Invoice Bill To: LE798"]]
+        n45[["fa:fa-cog AR Posting & Auto Clearing"]]
+        n54(["fa:fa-stop GTS check completed"])
+        n55(["fa:fa-stop Repair Completed"])
+        n58["J: TM Steps"]
+        n71{{"fa:fa-arrows-alt parallelGateway"}}
+        n72{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    subgraph IMR Legal Entity (LE101)
+        n3["fa:fa-user Create Repair (RA) Sales Order"]
+        n4["fa:fa-user Create PM Repair Order"]
+        n16[["fa:fa-cog Create MIGO transfer"]]
+        n17[["fa:fa-cog Perform Outbound Delivery"]]
+        n18[["fa:fa-cog Perform Goods Receipt w.r.t PM repair order"]]
+        n19[["fa:fa-cog Perform Repair"]]
+        n20[["fa:fa-cog Complete Repair"]]
+        n21[["fa:fa-cog Perform Inbound Delivery"]]
+        n22[["fa:fa-cog Perform Goods Receipt"]]
+        n23[["fa:fa-cog Perform Outbound Delivery"]]
+        n24[["fa:fa-cog Perform Goods Issue (Fixed Material)"]]
+        n25[["fa:fa-cog Perform GTS Check"]]
+        n26[["fa:fa-cog Send Invoice to Altera"]]
+        n47(["fa:fa-play PM Order Initiation"])
+        n49(["fa:fa-stop Goods Received"])
+        n50(["fa:fa-stop GTS check completed"])
+        n57["H: Altera to IMR cash settlement"]
+        n62{{"fa:fa-code-branch exclusiveGateway"}}
+        n65{{"fa:fa-arrows-alt parallelGateway"}}
+        n66{{"fa:fa-arrows-alt parallelGateway"}}
+        n67{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    subgraph LE798
+        n5["fa:fa-user Create Repair (RA) Sales Order"]
+        n27[["fa:fa-cog Send Customer Invoice to Altera"]]
+        n28[["fa:fa-cog Calculate Taxes"]]
+        n29[["fa:fa-cog AR Posting & Auto Clearing"]]
+        n51(["fa:fa-stop Tax calucualted"])
+        n52(["fa:fa-stop AR Posted"])
+        n68{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    n9 --> n10
+    n16 --> n17
+    n18 --> n19
+    n11 --> n12
+    n12 --> n64
+    n3 --> n65
+    n65 --> n21
+    n4 --> n16
+    n21 --> n7
+    n19 --> n20
+    n20 --> n62
+    n62 --> n23
+    n23 --> n67
+    n24 --> n66
+    n66 --> n25
+    n64 --> n13
+    n66 --> n64
+    n10 --> n18
+    n31 --> n32
+    n36 --> n37
+    n38 --> n39
+    n6 --> n36
+    n39 --> n40
+    n41 --> n72
+    n42 --> n71
+    n71 --> n43
+    n71 --> n44
+    n33 --> n34
+    n34 --> n70
+    n70 --> n35
+    n44 --> n45
+    n35 --> n53
+    n71 --> n70
+    n46 --> n15
+    n14 --> n60
+    n13 --> n48
+    n22 --> n49
+    n8 --> n22
+    n69 --> n6
+    n69 -->|"Repair Status Update
+Manually"| n41
+    n72 --> n42
+    n72 --> n33
+    n65 --> n62
+    n47 --> n4
+    n60 --> n61
+    n7 --> n63
+    n59 --> n8
+    n66 --> n26
+    n60 -->|"LE101"| n3
+    n60 -->|"LE798 Malaysia"| n5
+    n72 --> n2
+    n2 --> n58
+    n1 --> n56
+    n63 --> n1
+    n37 --> n31
+    n32 --> n38
+    n45 --> n29
+    n17 --> n9
+    n67 --> n24
+    n67 --> n11
+    n26 --> n57
+    n25 --> n50
+    n29 --> n52
+    n28 --> n51
+    n43 --> n54
+    n40 --> n55
+    n61 --> n59
+    n61 --> n30
+    n63 --> n59
+    n27 --> n28
+    n5 --> n68
+    n68 --> n27
+    n68 --> n69
+    class n3 userTask
+    class n4 userTask
+    class n5 userTask
+    class n6 userTask
+    class n7 serviceTask
+    class n8 serviceTask
+    class n9 serviceTask
+    class n10 serviceTask
+    class n11 serviceTask
+    class n12 serviceTask
+    class n13 serviceTask
+    class n14 serviceTask
+    class n15 serviceTask
+    class n16 serviceTask
+    class n17 serviceTask
+    class n18 serviceTask
+    class n19 serviceTask
+    class n20 serviceTask
+    class n21 serviceTask
+    class n22 serviceTask
+    class n23 serviceTask
+    class n24 serviceTask
+    class n25 serviceTask
+    class n26 serviceTask
+    class n27 serviceTask
+    class n28 serviceTask
+    class n29 serviceTask
+    class n30 serviceTask
+    class n31 serviceTask
+    class n32 serviceTask
+    class n33 serviceTask
+    class n34 serviceTask
+    class n35 serviceTask
+    class n36 serviceTask
+    class n37 serviceTask
+    class n38 serviceTask
+    class n39 serviceTask
+    class n40 serviceTask
+    class n41 serviceTask
+    class n42 serviceTask
+    class n43 serviceTask
+    class n44 serviceTask
+    class n45 serviceTask
+    class n46 startEvt
+    class n47 startEvt
+    class n48 endEvt
+    class n49 endEvt
+    class n50 endEvt
+    class n51 endEvt
+    class n52 endEvt
+    class n53 endEvt
+    class n54 endEvt
+    class n55 endEvt
+    class n56 startEvt
+    class n57 startEvt
+    class n58 startEvt
+    class n59 gateway
+    class n60 gateway
+    class n61 gateway
+    class n62 gateway
+    class n63 gateway
+    class n64 gateway
+    class n65 gateway
+    class n66 gateway
+    class n67 gateway
+    class n68 gateway
+    class n69 gateway
+    class n70 gateway
+    class n71 gateway
+    class n72 gateway
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-328-e2e-110h__altera_to_imr_cash_settlement-e2e-110h__altera_to_imr_cash_settlement">BUSINESS ARCHITECTURE — 3.2.8 E2E-110H__Altera_to_IMR_cash_settlement — E2E-110H__Altera_to_IMR_cash_settlement</h4>
+<p><strong>Swim Lanes</strong>: LE798 · S/4 Intel Product  · SAP CFIN
+ | <strong>Tasks</strong>: 7 | <strong>Gateways</strong>: 3</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart LR
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph LE798
+        n1["Create IP Customer Invoice"]
+        n7[["fa:fa-cog Calculate Taxes"]]
+        n9["Altera To IF"]
+        n11{{"fa:fa-arrows-alt parallelGateway"}}
+        n12{{"fa:fa-arrows-alt inclusiveGateway"}}
+    end
+    subgraph S/4 Intel Product 
+        n2["Banks"]
+    end
+    subgraph SAP CFIN 
+        n3[["fa:fa-cog Perform Payment Receipt"]]
+        n4[["fa:fa-cog Perform AP Posting"]]
+        n5[["fa:fa-cog Perform Profitability Analysis"]]
+        n6[["fa:fa-cog Perform Cash Application"]]
+        n8(["fa:fa-stop Profitability Analysis Completed"])
+        n10{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    n4 --> n5
+    n9 --> n12
+    n3 --> n6
+    n5 --> n8
+    n1 --> n11
+    n12 --> n1
+    n11 --> n7
+    n7 --> n12
+    n11 --> n10
+    n10 --> n4
+    n6 --> n10
+    n2 --> n3
+    class n3 serviceTask
+    class n4 serviceTask
+    class n5 serviceTask
+    class n6 serviceTask
+    class n7 serviceTask
+    class n8 endEvt
+    class n9 startEvt
+    class n10 gateway
+    class n11 gateway
+    class n12 gateway
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-329-e2e-110i__imr_manufacturing-e2e-110i__imr_manufacturing">BUSINESS ARCHITECTURE — 3.2.9 E2E-110I__IMR_Manufacturing — E2E-110I__IMR_Manufacturing</h4>
+<p><strong>Swim Lanes</strong>: SAP S/4 Intel Foundry
+IMR Legal Entity | <strong>Tasks</strong>: 13 | <strong>Gateways</strong>: 3</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph SAP S/4 Intel Foundry IMR Legal Entity
+        n1[["fa:fa-cog Perform Re-order Point Planning"]]
+        n2[["fa:fa-cog Perform Planned Independent Requirement (PIR)"]]
+        n3[["fa:fa-cog Perform MRP Run"]]
+        n4[["fa:fa-cog Create Planned Order"]]
+        n5[["fa:fa-cog Create Production Order"]]
+        n6[["fa:fa-cog Release Production Order"]]
+        n7[["fa:fa-cog Perform Component Staging"]]
+        n8[["fa:fa-cog Perform Goods Issue (Raw Material) and Update Inventory"]]
+        n9[["fa:fa-cog Receive Production Operation Confirmation"]]
+        n10[["fa:fa-cog Perform Goods Receipt"]]
+        n11[["fa:fa-cog Unrestricted Stock"]]
+        n12[["fa:fa-cog Putaway (EWM)"]]
+        n13[["fa:fa-cog Create Purchase Requisition for external procurement"]]
+        n14(["fa:fa-play IMR Manufacturing Process Initiated"])
+        n15(["fa:fa-stop IMR Manufacturing Process Completed"])
+        n16{{"fa:fa-arrows-alt parallelGateway"}}
+        n17{{"fa:fa-arrows-alt parallelGateway"}}
+        n18{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    n2 --> n16
+    n1 --> n16
+    n16 --> n3
+    n3 --> n17
+    n4 --> n5
+    n5 --> n6
+    n6 --> n7
+    n7 --> n8
+    n8 --> n9
+    n9 --> n10
+    n10 --> n11
+    n11 --> n12
+    n17 --> n4
+    n17 --> n13
+    n12 --> n15
+    n14 --> n18
+    n18 --> n2
+    n18 --> n1
+    class n1 serviceTask
+    class n2 serviceTask
+    class n3 serviceTask
+    class n4 serviceTask
+    class n5 serviceTask
+    class n6 serviceTask
+    class n7 serviceTask
+    class n8 serviceTask
+    class n9 serviceTask
+    class n10 serviceTask
+    class n11 serviceTask
+    class n12 serviceTask
+    class n13 serviceTask
+    class n14 startEvt
+    class n15 endEvt
+    class n16 gateway
+    class n17 gateway
+    class n18 gateway
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-3210-e2e-110j__tm_steps-e2e-110j__tm_steps">BUSINESS ARCHITECTURE — 3.2.10 E2E-110J__TM_Steps — E2E-110J__TM_Steps</h4>
+<p><strong>Swim Lanes</strong>: External Partners B2B · SAP S/4 Intel Foundry
+IMR Legal Entity | <strong>Tasks</strong>: 10 | <strong>Gateways</strong>: 1</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph External Partners B2B
+        n1["Rates/Charges Integrators 3rd party service Redwood"]
+        n2["Carrier"]
+    end
+    subgraph SAP S/4 Intel Foundry IMR Legal Entity
+        n3[["fa:fa-cog Generate Freight Unit (TMS)"]]
+        n4[["fa:fa-cog Create Freight Order"]]
+        n5[["fa:fa-cog Update Carrier Rates and perform charge calculation (TMS)"]]
+        n6[["fa:fa-cog Execute Freight Order (TMS)"]]
+        n7[["fa:fa-cog Create Post Freight Settlement Document"]]
+        n8[["fa:fa-cog Create Service PO for FSD (TMS)"]]
+        n9[["fa:fa-cog Create SES with Auto Release (TMS)"]]
+        n10[["fa:fa-cog Create Cost Distribution/Agency Business Document (TMS)"]]
+        n11(["fa:fa-play TM Steps Initiated"])
+        n12(["fa:fa-stop TM Steps Completed"])
+        n13{{"fa:fa-code-branch exclusiveGateway"}}
+    end
+    n5 --> n6
+    n6 --> n7
+    n7 --> n8
+    n8 --> n9
+    n9 --> n10
+    n11 --> n3
+    n3 --> n4
+    n4 --> n13
+    n10 --> n12
+    n13 --> n5
+    n1 --> n13
+    class n3 serviceTask
+    class n4 serviceTask
+    class n5 serviceTask
+    class n6 serviceTask
+    class n7 serviceTask
+    class n8 serviceTask
+    class n9 serviceTask
+    class n10 serviceTask
+    class n11 startEvt
+    class n12 endEvt
+    class n13 gateway
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
+<table>
+<thead>
+<tr>
+<th>Role / Lane</th>
+<th>Processes Involved</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LE ++ Faulty Part</td>
+<td>E2E-110A_IF_to_IMR_-<em>Variation_1</em>–_IMR_facility_is_within_the_plant,</td>
+<td></td>
+</tr>
+<tr>
+<td>EWM</td>
+<td>E2E-110A_IF_to_IMR_-<em>Variation_1</em>–_IMR_facility_is_within_the_plant,</td>
+<td></td>
+</tr>
+<tr>
+<td>IMR Repair Plant</td>
+<td>E2E-110A_IF_to_IMR_-<em>Variation_1</em>–_IMR_facility_is_within_the_plant,</td>
+<td></td>
+</tr>
+<tr>
+<td>IMR EWM</td>
+<td>E2E-110B__IF_to_IMR_-<em>Variation_2</em>–<em>IMR_facility_is_within_the_same_LE_but_different_plant, E2E-110C__IF_to_IMR</em>-<em>Variation_3</em>–<em>IMR_facility_is_in_different_LE</em>–_with_STO, E2E-110D__IP_to_IMR, E2E-110G__Altera_to_IF,</td>
+<td></td>
+</tr>
+<tr>
+<td>IMR Repair Plant  (Different Plant)</td>
+<td>E2E-110B__IF_to_IMR_-<em>Variation_2</em>–<em>IMR_facility_is_within_the_same_LE_but_different_plant, E2E-110C__IF_to_IMR</em>-<em>Variation_3</em>–<em>IMR_facility_is_in_different_LE</em>–_with_STO,</td>
+<td></td>
+</tr>
+<tr>
+<td>LE ++ Faulty Part</td>
+<td>E2E-110B__IF_to_IMR_-<em>Variation_2</em>–<em>IMR_facility_is_within_the_same_LE_but_different_plant, E2E-110C__IF_to_IMR</em>-<em>Variation_3</em>–<em>IMR_facility_is_in_different_LE</em>–_with_STO,</td>
+<td></td>
+</tr>
+<tr>
+<td>IF EWM (101)</td>
+<td>E2E-110D__IP_to_IMR, E2E-110G__Altera_to_IF,</td>
+<td></td>
+</tr>
+<tr>
+<td>IMR Legal Entity (LE101)</td>
+<td>E2E-110D__IP_to_IMR, E2E-110G__Altera_to_IF,</td>
+<td></td>
+</tr>
+<tr>
+<td>IMR Malaysia</td>
+<td>E2E-110D__IP_to_IMR,</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel Product (Faulty Part)</td>
+<td>E2E-110D__IP_to_IMR,</td>
+<td></td>
+</tr>
+<tr>
+<td>LE 798</td>
+<td>E2E-110D__IP_to_IMR,</td>
+<td></td>
+</tr>
+<tr>
+<td>Boundary Apps Intel Foundry</td>
+<td>E2E-110E__IP_to_IMR_cash_settlement,</td>
+<td></td>
+</tr>
+<tr>
+<td>S/4 Intel Product</td>
+<td>E2E-110E__IP_to_IMR_cash_settlement, E2E-110F__IP_to_IMR_in_house_settlement, E2E-110H__Altera_to_IMR_cash_settlement,</td>
+<td></td>
+</tr>
+<tr>
+<td>SAP CFIN</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Intel Foundry AR</td>
+<td>E2E-110E__IP_to_IMR_cash_settlement, E2E-110F__IP_to_IMR_in_house_settlement,</td>
+<td></td>
+</tr>
+<tr>
+<td>SAP CFIN</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Intel Product AP</td>
+<td>E2E-110E__IP_to_IMR_cash_settlement, E2E-110F__IP_to_IMR_in_house_settlement,</td>
+<td></td>
+</tr>
+<tr>
+<td>SAP S/4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Intel Foundry (LE798)</td>
+<td>E2E-110E__IP_to_IMR_cash_settlement,</td>
+<td></td>
+</tr>
+<tr>
+<td>Inhouse Bank</td>
+<td>E2E-110F__IP_to_IMR_in_house_settlement,</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel Foundry LE798</td>
+<td>E2E-110F__IP_to_IMR_in_house_settlement,</td>
+<td></td>
+</tr>
+<tr>
+<td>Boundary Apps</td>
+<td>E2E-110G__Altera_to_IF,</td>
+<td></td>
+</tr>
+<tr>
+<td>Customer</td>
+<td>E2E-110G__Altera_to_IF,</td>
+<td></td>
+</tr>
+<tr>
+<td>IMR LE Malaysia</td>
+<td>E2E-110G__Altera_to_IF,</td>
+<td></td>
+</tr>
+<tr>
+<td>LE798</td>
+<td>E2E-110G__Altera_to_IF, E2E-110H__Altera_to_IMR_cash_settlement,</td>
+<td></td>
+</tr>
+<tr>
+<td>SAP CFIN</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>E2E-110H__Altera_to_IMR_cash_settlement,</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SAP S/4 Intel Foundry</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IMR Legal Entity</td>
+<td>E2E-110I__IMR_Manufacturing, E2E-110J__TM_Steps</td>
+<td></td>
+</tr>
+<tr>
+<td>External Partners B2B</td>
+<td>E2E-110J__TM_Steps</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
+<h3 id="41-data-entities-ownership">4.1 Data Entities &amp; Ownership</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Data Entity</th>
+<th>Source System</th>
+<th>Target System</th>
+<th>Data Owner</th>
+<th>Classification</th>
+<th>Volume</th>
+<th>Master/Transaction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>e.g. Cost Element</td>
+<td>e.g. MES 300</td>
+<td>e.g. XEUS</td>
+<td>Data steward</td>
+<td>e.g. Intel Confidential</td>
+<td>e.g. 10K rows/day</td>
+<td>Master / Transaction</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="42-data-flow-diagrams">4.2 Data Flow Diagrams</h3>
+<blockquote>
+<p><strong>DATA ARCHITECTURE</strong> — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.</p>
+</blockquote>
+<h4 id="421-current-state-current-state-data-flows">4.2.1 Current-State — Current-State Data Flows</h4>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '13px', 'fontFamily': 'Segoe UI, Arial'}} }%%
+flowchart TB
+    classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
+    classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
+    classDef eolBox fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#660000
+
+    subgraph E2E110CDACL_e_g_Azure_SQL[" "]
+        direction TB
+        E2E110CDAA_e_g_XEUS["e.g. XEUS"]:::appBox
+        E2E110CDAD_e_g_Azure_SQL[("🗄️ e.g. Azure SQL")]:::dbCyl
+        E2E110CDAA_e_g_XEUS -.-> E2E110CDAD_e_g_Azure_SQL
+    end
+    style E2E110CDACL_e_g_Azure_SQL fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+
+    subgraph E2E110CDACL_e_g_SAP_HANA[" "]
+        direction TB
+        E2E110CDAA_e_g_MES_300["e.g. MES 300"]:::appBox
+        E2E110CDAD_e_g_SAP_HANA[("🗄️ e.g. SAP HANA")]:::dbCyl
+        E2E110CDAA_e_g_MES_300 -.-> E2E110CDAD_e_g_SAP_HANA
+    end
+    style E2E110CDACL_e_g_SAP_HANA fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+
+    E2E110CDAD_e_g_SAP_HANA ==>|"e.g. Direct / API / File"| E2E110CDAD_e_g_Azure_SQL
+
+    subgraph Legend["📐 DATA ARCHITECTURE LEGEND"]
+        direction LR
+        L_A["Application"]:::appBox
+        L_D[("🗄️ Database")]:::dbCyl
+        L_E["End-of-Life"]:::eolBox
+    end
+    style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="422-future-state-future-state-data-flows">4.2.2 Future-State — Future-State Data Flows</h4>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '13px', 'fontFamily': 'Segoe UI, Arial'}} }%%
+flowchart TB
+    classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
+    classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
+    classDef eolBox fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#660000
+
+    subgraph E2E110FDACL_e_g_Azure_SQL[" "]
+        direction TB
+        E2E110FDAA_e_g_XEUS["e.g. XEUS"]:::appBox
+        E2E110FDAD_e_g_Azure_SQL[("🗄️ e.g. Azure SQL")]:::dbCyl
+        E2E110FDAA_e_g_XEUS -.-> E2E110FDAD_e_g_Azure_SQL
+    end
+    style E2E110FDACL_e_g_Azure_SQL fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+
+    subgraph E2E110FDACL_e_g_SAP_HANA[" "]
+        direction TB
+        E2E110FDAA_e_g_MES_300["e.g. MES 300"]:::appBox
+        E2E110FDAD_e_g_SAP_HANA[("🗄️ e.g. SAP HANA")]:::dbCyl
+        E2E110FDAA_e_g_MES_300 -.-> E2E110FDAD_e_g_SAP_HANA
+    end
+    style E2E110FDACL_e_g_SAP_HANA fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+
+    E2E110FDAD_e_g_SAP_HANA ==>|"e.g. Direct / API / File"| E2E110FDAD_e_g_Azure_SQL
+
+    subgraph Legend["📐 DATA ARCHITECTURE LEGEND"]
+        direction LR
+        L_A["Application"]:::appBox
+        L_D[("🗄️ Database")]:::dbCyl
+        L_E["End-of-Life"]:::eolBox
+    end
+    style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h3 id="43-data-lineage">4.3 Data Lineage</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Source System</th>
+<th>Source Schema/Object</th>
+<th>Target System</th>
+<th>Target Schema/Object</th>
+<th>Transformation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>e.g. MES 300</td>
+<td>e.g. CKMLHD table</td>
+<td>e.g. XEUS</td>
+<td>e.g. dbo.CostElements</td>
+<td>Lineage notes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="44-ricefw-data-objects">4.4 RICEFW Data Objects</h3>
+<p>Reports and Conversions for this capability will be populated from the Smartsheet Object Tracker via automated API extraction.</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Type</th>
+<th>Description</th>
+<th>Status</th>
+<th>Source</th>
+<th>Target</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E2E-110-R001</td>
+<td>Report</td>
+<td>IMR Flow operational report</td>
+<td>Planned</td>
+<td>SAP S/4HANA</td>
+<td>Analytics</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>E2E-110-C001</td>
+<td>Conversion</td>
+<td>Legacy data migration for IMR Flow</td>
+<td>Planned</td>
+<td>Legacy ERP</td>
+<td>SAP S/4HANA</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Pending: Smartsheet API integration to auto-populate live RICEFW data (see Build Requirements).</em></p>
+</blockquote>
+<h3 id="45-data-governance-quality">4.5 Data Governance &amp; Quality</h3>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Approach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Ownership</td>
+<td>Per-entity owners listed in Section 3.1</td>
+</tr>
+<tr>
+<td>Data Classification</td>
+<td>Financial data classified as Intel Confidential</td>
+</tr>
+<tr>
+<td>Data Retention</td>
+<td>Per Intel corporate retention policies</td>
+</tr>
+<tr>
+<td>Data Quality</td>
+<td>Validated at source; reconciliation at target</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</h2>
+<h3 id="51-current-state-current-state-application-landscape">5.1 Current-State — Current-State Application Landscape</h3>
+<h4 id="overview">Overview</h4>
+<p>The Current-State architecture represents the <strong>current / legacy</strong> landscape for E2E-110.This view is generated from <code>CurrentFlows.xlsx</code> (1 flow hops across 1 flow chains).</p>
+<h4 id="application-architecture-architecture-diagram-archimate-inspired">APPLICATION ARCHITECTURE — Architecture Diagram (ArchiMate-Inspired)</h4>
+<blockquote>
+<p><strong>Click any system node</strong> to open its IAPM application page.
+<strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'arial'}} }%%
+flowchart TB
+    %% -- ArchiMate-inspired style classes --
+    classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
+    classDef app           fill:#B5FFFF,stroke:#0077B6,stroke-width:2px,color:#000
+    classDef data          fill:#B5D8FF,stroke:#0077B6,stroke-width:1px,color:#000,stroke-dasharray: 5 5
+    classDef middleware    fill:#FFD6A5,stroke:#E76F00,stroke-width:2px,color:#000
+    classDef eol           fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#000
+
+    subgraph AL["🔵 APPLICATION LAYER"]
+        direction LR
+        E2E110C_e_g_MES_300["📦 e.g. MES 300"]:::app
+        E2E110C_e_g_XEUS["📦 e.g. XEUS"]:::app
+        E2E110CMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
+        E2E110CDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
+    end
+
+    E2E110C_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E110CMW_e_g_Azure_Service_Bus
+    E2E110CMW_e_g_Azure_Service_Bus --> E2E110C_e_g_XEUS
+
+
+    style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
+    style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
+
+    subgraph Legend["📐 LEGEND"]
+        direction LR
+        L_APP["📦 Application"]:::app
+        L_MW["🔗 Middleware"]:::middleware
+        L_DE>"📄 Data Entity"]:::data
+        L_EOL["⛔ End-of-Life"]:::eol
+    end
+    style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="current-state-flow-narrative">Current-State Flow Narrative</h4>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Flow Chain</th>
+<th>Path</th>
+<th>Interface</th>
+<th>Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>e.g. MES Route to ICOST</td>
+<td>e.g. MES 300 → e.g. XEUS</td>
+<td>e.g. Direct / API / File</td>
+<td>e.g. Near Real-Time</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="52-future-state-future-state-application-landscape">5.2 Future-State — Future-State Application Landscape</h3>
+<h4 id="overview_1">Overview</h4>
+<p>The Future-State architecture represents the <strong>target</strong> landscape for E2E-110.This view is generated from <code>FutureFlows.xlsx</code> (1 flow hops across 1 flow chains).</p>
+<h4 id="application-architecture-architecture-diagram-archimate-inspired_1">APPLICATION ARCHITECTURE — Architecture Diagram (ArchiMate-Inspired)</h4>
+<blockquote>
+<p><strong>Click any system node</strong> to open its IAPM application page.
+<strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'arial'}} }%%
+flowchart TB
+    %% -- ArchiMate-inspired style classes --
+    classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
+    classDef app           fill:#B5FFFF,stroke:#0077B6,stroke-width:2px,color:#000
+    classDef data          fill:#B5D8FF,stroke:#0077B6,stroke-width:1px,color:#000,stroke-dasharray: 5 5
+    classDef middleware    fill:#FFD6A5,stroke:#E76F00,stroke-width:2px,color:#000
+    classDef eol           fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#000
+
+    subgraph AL["🔵 APPLICATION LAYER"]
+        direction LR
+        E2E110F_e_g_MES_300["📦 e.g. MES 300"]:::app
+        E2E110F_e_g_XEUS["📦 e.g. XEUS"]:::app
+        E2E110FMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
+        E2E110FDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
+    end
+
+    E2E110F_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E110FMW_e_g_Azure_Service_Bus
+    E2E110FMW_e_g_Azure_Service_Bus --> E2E110F_e_g_XEUS
+
+
+    style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
+    style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
+
+    subgraph Legend["📐 LEGEND"]
+        direction LR
+        L_APP["📦 Application"]:::app
+        L_MW["🔗 Middleware"]:::middleware
+        L_DE>"📄 Data Entity"]:::data
+        L_EOL["⛔ End-of-Life"]:::eol
+    end
+    style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="future-state-flow-narrative">Future-State Flow Narrative</h4>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Flow Chain</th>
+<th>Path</th>
+<th>Interface</th>
+<th>Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>e.g. MES Route to ICOST</td>
+<td>e.g. MES 300 → e.g. XEUS</td>
+<td>e.g. Direct / API / File</td>
+<td>e.g. Near Real-Time</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="53-change-impact-summary">5.3 Change Impact Summary</h3>
+<table>
+<thead>
+<tr>
+<th>Change Type</th>
+<th>Flow Chain</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>UNCHANGED</strong></td>
+<td>e.g. MES Route to ICOST</td>
+<td>No change</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Totals</strong>: 0 new - 0 removed - 0 modified - 1 unchanged</p>
+<h3 id="54-component-overview">5.4 Component Overview</h3>
+<h4 id="system-inventory">System Inventory</h4>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>IAPM ID</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>e.g. MES 300</td>
+<td>-</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>e.g. XEUS</td>
+<td>-</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
+<p>RICEFW objects for this capability will be auto-populated from the Smartsheet S/4 Object Tracker.</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Type</th>
+<th>Description</th>
+<th>Status</th>
+<th>Source → Target</th>
+<th>Middleware</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E2E-110-I001</td>
+<td>Interface</td>
+<td>IMR Flow inbound data interface</td>
+<td>Planned</td>
+<td>Legacy → SAP S/4HANA</td>
+<td>MuleSoft / CPI</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>E2E-110-E001</td>
+<td>Enhancement</td>
+<td>IMR Flow custom business logic</td>
+<td>Planned</td>
+<td>SAP S/4HANA</td>
+<td>N/A</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>E2E-110-F001</td>
+<td>Form/Report</td>
+<td>IMR Flow operational output</td>
+<td>Planned</td>
+<td>SAP S/4HANA</td>
+<td>N/A</td>
+<td>Low</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).</em></p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Pattern</th>
+<th>Flow Chain</th>
+<th>Middleware</th>
+<th>Protocol</th>
+<th>Auth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>e.g. Pub-Sub / P2P / ETL</td>
+<td>e.g. MES Route to ICOST</td>
+<td>e.g. Azure Service Bus</td>
+<td>e.g. REST / RFC / SFTP</td>
+<td>e.g. OAuth / NTLM / Cert</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
+<h3 id="61-platform-infrastructure">6.1 Platform &amp; Infrastructure</h3>
+<blockquote>
+<p><strong>TECHNOLOGY / PLATFORM ARCHITECTURE</strong> — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.</p>
+</blockquote>
+<h4 id="611-current-state-current-state-platform-architecture">6.1.1 Current-State — Current-State Platform Architecture</h4>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '12px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'nodeSpacing': 25, 'rankSpacing': 30}} }%%
+flowchart TB
+    classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
+    classDef platBox fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    classDef eolBox fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#660000
+
+    subgraph E2E110CPLP_e_g_Azure_PaaS["☁️ e.g. Azure PaaS"]
+        direction LR
+        E2E110CPLA_e_g_XEUS["e.g. XEUS"]:::appBox
+    end
+    style E2E110CPLP_e_g_Azure_PaaS fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+
+    subgraph E2E110CPLP_e_g_S_4_HANA_2023["🖥️ e.g. S/4 HANA 2023"]
+        direction LR
+        E2E110CPLA_e_g_MES_300["e.g. MES 300"]:::appBox
+    end
+    style E2E110CPLP_e_g_S_4_HANA_2023 fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+
+    E2E110CPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E110CPLP_e_g_Azure_PaaS
+</div>
+
+<blockquote>
+<p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h4 id="612-future-state-future-state-platform-architecture">6.1.2 Future-State — Future-State Platform Architecture</h4>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '12px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'nodeSpacing': 25, 'rankSpacing': 30}} }%%
+flowchart TB
+    classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
+    classDef platBox fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    classDef eolBox fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#660000
+
+    subgraph E2E110FPLP_e_g_Azure_PaaS["☁️ e.g. Azure PaaS"]
+        direction LR
+        E2E110FPLA_e_g_XEUS["e.g. XEUS"]:::appBox
+    end
+    style E2E110FPLP_e_g_Azure_PaaS fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+
+    subgraph E2E110FPLP_e_g_S_4_HANA_2023["🖥️ e.g. S/4 HANA 2023"]
+        direction LR
+        E2E110FPLA_e_g_MES_300["e.g. MES 300"]:::appBox
+    end
+    style E2E110FPLP_e_g_S_4_HANA_2023 fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+
+    E2E110FPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E110FPLP_e_g_Azure_PaaS
+</div>
+
+<blockquote>
+<p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
+</blockquote>
+<h4 id="platform-inventory">Platform Inventory</h4>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Platform</th>
+<th>Type</th>
+<th>Systems Using</th>
+<th>Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>e.g. Azure PaaS</td>
+<td>Cloud / SaaS</td>
+<td>e.g. XEUS</td>
+<td>DEV,QAS,PRD</td>
+</tr>
+<tr>
+<td>2</td>
+<td>e.g. S/4 HANA 2023</td>
+<td>On-Premise</td>
+<td>e.g. MES 300</td>
+<td>DEV,QAS,PRD</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="62-sap-development-object-status">6.2 SAP Development Object Status</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>DEV</th>
+<th>QAS</th>
+<th>PRD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transport Requests</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Custom Code Objects</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>CDS Views</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Fiori Apps</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>BAdIs / Enhancements</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Requirement</th>
+<th>Target / SLA</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Performance</td>
+<td>Order/transaction processing within interactive SLA</td>
+<td>&lt; 3 seconds for online transactions</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Availability</td>
+<td>Business-critical systems available during extended hours</td>
+<td>99.9% (06:00-22:00 all time zones)</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Scalability</td>
+<td>Support seasonal and promotional volume spikes</td>
+<td>Handle 2x baseline transaction volume</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Recoverability</td>
+<td>Customer-facing systems recover within business impact window</td>
+<td>RPO &lt; 30 min, RTO &lt; 2 hours</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Data Volume</td>
+<td>Support transactional data growth from business expansion</td>
+<td>10M+ documents/year</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Latency</td>
+<td>Near-real-time integration for order status updates</td>
+<td>&lt; 30 seconds for status propagation</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Concurrency</td>
+<td>Support global user base across business functions</td>
+<td>300+ concurrent users</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<h3 id="64-security-governance">6.4 Security &amp; Governance</h3>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Approach</th>
+<th>Standard / Policy</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authentication</td>
+<td>Single Sign-On (SSO) via Intel corporate Azure AD identity</td>
+<td>Intel IT Security Policy - Identity Management</td>
+<td>IT Security</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>Role-based access control (RBAC) with SAP authorization objects</td>
+<td>Intel SAP Security Standards - Role Design</td>
+<td>SAP Security Team</td>
+</tr>
+<tr>
+<td>Data Classification</td>
+<td>All financial/operational data classified per Intel Data Classification Standard</td>
+<td>Intel Data Classification Policy</td>
+<td>Data Governance</td>
+</tr>
+<tr>
+<td>Data Encryption (at rest)</td>
+<td>AES-256 encryption for SAP HANA database and file storage</td>
+<td>Intel Encryption Standard</td>
+<td>Infrastructure Security</td>
+</tr>
+<tr>
+<td>Data Encryption (in transit)</td>
+<td>TLS 1.3 for all system-to-system and user-to-system communication</td>
+<td>Intel Network Security Policy</td>
+<td>Network Engineering</td>
+</tr>
+<tr>
+<td>Network Segmentation</td>
+<td>SAP systems in dedicated network zones with firewall controls</td>
+<td>Intel Network Architecture Standard</td>
+<td>Network Security</td>
+</tr>
+<tr>
+<td>API Security</td>
+<td>OAuth 2.0 / certificate-based authentication for all API integrations</td>
+<td>Intel API Security Guidelines</td>
+<td>Integration Architecture</td>
+</tr>
+<tr>
+<td>Audit Logging</td>
+<td>Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log)</td>
+<td>SOX Compliance / Intel Audit Policy</td>
+<td>Internal Audit</td>
+</tr>
+<tr>
+<td>Certificate Management</td>
+<td>Automated certificate lifecycle management for system-to-system trust</td>
+<td>Intel PKI Standard</td>
+<td>Certificate Authority Team</td>
+</tr>
+<tr>
+<td>Compliance</td>
+<td>SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR)</td>
+<td>Intel Corporate Compliance Framework</td>
+<td>Compliance Office</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="7-project-context">7. Project Context</h2>
+<h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
+<p>Project delivery milestones for E2E-110 RICEFW objects:</p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Planned Start</th>
+<th>Planned End</th>
+<th>Status</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Functional Specification (FS)</td>
+<td>Per project plan</td>
+<td>Per project plan</td>
+<td>In Progress</td>
+<td>Tower-level FS schedule</td>
+</tr>
+<tr>
+<td>Technical Design (TDD)</td>
+<td>FS + 2 weeks</td>
+<td>FS + 6 weeks</td>
+<td>Planned</td>
+<td>Dependent on FS completion</td>
+</tr>
+<tr>
+<td>Build &amp; Unit Test (TUT)</td>
+<td>TDD + 1 week</td>
+<td>TDD + 8 weeks</td>
+<td>Planned</td>
+<td>Includes S/4 + Middleware</td>
+</tr>
+<tr>
+<td>Functional User Test (FUT)</td>
+<td>Build + 1 week</td>
+<td>Build + 4 weeks</td>
+<td>Planned</td>
+<td>Tower-led validation</td>
+</tr>
+<tr>
+<td>Go-Live (Release 2)</td>
+<td>Per release plan</td>
+<td>Per release plan</td>
+<td>Planned</td>
+<td>End-to-End Integrated Processes release</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.</em></p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h3 id="72-raid-log">7.2 RAID Log</h3>
+<p>Standard RAID items for E2E-110 (End-to-End Integrated Processes):</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Category</th>
+<th>Description</th>
+<th>Status</th>
+<th>Owner</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Risk</td>
+<td>Data migration completeness — validate all legacy IMR Flow data maps to S/4 target structures</td>
+<td>Open</td>
+<td>Tower Architect</td>
+<td>High</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Risk</td>
+<td>Integration testing coverage — ensure all 2 integrated systems are validated end-to-end</td>
+<td>Open</td>
+<td>Integration Lead</td>
+<td>High</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Assumption</td>
+<td>Target SAP S/4HANA system available in DEV/QAS per release schedule</td>
+<td>Active</td>
+<td>SAP Basis</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Issue</td>
+<td>API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation</td>
+<td>Open</td>
+<td>EA Pipeline Team</td>
+<td>High</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Dependency</td>
+<td>Upstream BPMN process models validated and signed off by business process owners</td>
+<td>Active</td>
+<td>Process Owner</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.</em></p>
+</blockquote>
+<h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Category</th>
+<th>Recommendation</th>
+<th>Priority</th>
+<th>Owner</th>
+<th>Target Date</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Architecture</td>
+<td>Complete extended flow attributes (Data Entity, Integration Pattern, Tech Platform) in Flows tab for full BDAT coverage</td>
+<td>High</td>
+<td>Tower Architect</td>
+<td>2026-Q2</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Data</td>
+<td>Define data ownership and classification for all 1 flow chains to satisfy Data Architecture (TOGAF D) requirements</td>
+<td>Medium</td>
+<td>Data Architect</td>
+<td>2026-Q3</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Testing</td>
+<td>Develop integration test scenarios covering all 1 flow chains for FUT/SIT readiness</td>
+<td>High</td>
+<td>Test Lead</td>
+<td>2026-Q3</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Business Architecture</td>
+<td>Review and validate Business Architecture process steps against latest Signavio/BIC process models</td>
+<td>Medium</td>
+<td>Business Analyst</td>
+<td>2026-Q2</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Security</td>
+<td>Complete security review for API integrations and data flows per Intel Security Architecture standards</td>
+<td>Medium</td>
+<td>Security Architect</td>
+<td>2026-Q3</td>
+<td>Open</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>E2E-110 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026</em></p>
+<div class="footer">
+    IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+</body>
+</html>

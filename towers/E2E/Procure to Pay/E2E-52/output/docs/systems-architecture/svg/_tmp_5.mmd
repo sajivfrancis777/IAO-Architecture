@@ -1,0 +1,32 @@
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '16px', 'fontFamily': 'Segoe UI, Arial, sans-serif'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TB
+    %% -- ArchiMate-inspired style classes --
+    classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
+    classDef app           fill:#B5FFFF,stroke:#0077B6,stroke-width:2px,color:#000
+    classDef data          fill:#B5D8FF,stroke:#0077B6,stroke-width:1px,color:#000,stroke-dasharray: 5 5
+    classDef middleware    fill:#FFD6A5,stroke:#E76F00,stroke-width:2px,color:#000
+    classDef eol           fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#000
+
+    subgraph AL["🔵 APPLICATION LAYER"]
+        direction LR
+        E2E52F_e_g_MES_300["📦 e.g. MES 300"]:::app
+        E2E52F_e_g_XEUS["📦 e.g. XEUS"]:::app
+        E2E52FMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
+        E2E52FDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
+    end
+
+    E2E52F_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E52FMW_e_g_Azure_Service_Bus
+    E2E52FMW_e_g_Azure_Service_Bus --> E2E52F_e_g_XEUS
+
+
+    style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
+    style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
+
+    subgraph Legend["📐 LEGEND"]
+        direction LR
+        L_APP["📦 Application"]:::app
+        L_MW["🔗 Middleware"]:::middleware
+        L_DE>"📄 Data Entity"]:::data
+        L_EOL["⛔ End-of-Life"]:::eol
+    end
+    style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px

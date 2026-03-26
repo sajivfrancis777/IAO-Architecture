@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="Signavio Process Editor, http://www.signavio.com" exporterVersion="26.10.0-20260311103619+6e2d3ac" expressionLanguage="http://www.w3.org/TR/XPath" id="sid-8adfcd73-9ee7-43b1-ba8f-68dd8f8c72f6" targetNamespace="http://www.signavio.com" typeLanguage="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <collaboration id="sid-0b6fd02f-a002-4907-87ba-da61ad1bab5e">
+      <extensionElements>
+         <signavio:signavioDiagramMetaData metaKey="meta-processdescription" metaValue="Determine if the asset needs to be retired. This could be due to the fact that a project is in place to retire the asset, amortized assets are written off the books once their book value is zero, or an inventory or reconciliation reveals that the asset is no longer in existence.  It is assumed that where assets are retired for a consideration (dollars), a project is performed and project accounting will advise the asset manager of the retirement, as well as advising accounts receivable of the receivable."/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvedby" metaValue="[&quot;Jaime Sutton&quot;]"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalstatus" metaValue="ci1710756720720143051910"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvaldate" metaValue="19/09/24"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalcomments" metaValue="Global flow approved via email"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalevidence" metaValue="[{&quot;label&quot;:&quot;Approval Email&quot;,&quot;url&quot;:&quot;https://intel.sharepoint.com/:u:/r/sites/inteldeloitteiao/Shared Documents/General/Implementation/03. FPR/3 Final Deliverables/05. Process Approval Evidence/Team 05 - Fixed Assets/DC-40 Perform Fixed Asset Accounting/DC-040-100.msg?csf=1&amp;web=1&amp;e=WKkd19&quot;}]"/>
+         <signavio:signavioDiagramMetaData metaKey="revisionid" metaValue="1db2f4e137f844e29544fb6f97df121f"/>
+      </extensionElements>
+      <participant id="sid-F8AAA763-FBC8-4615-A6FA-DE3AED6AC7A0" name="Intel" processRef="sid-80B6ABCA-D2F5-4AA4-BBA3-CCE703194B32">
+         <extensionElements>
+            <signavio:signavioDictionaryLink propertyId="name">
+               <signavio:dictionaryLink>/glossary/e667553ad81e450aa194d3b00f6ba515</signavio:dictionaryLink>
+            </signavio:signavioDictionaryLink>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </participant>
+   </collaboration>
+   <process id="sid-80B6ABCA-D2F5-4AA4-BBA3-CCE703194B32" isClosed="false" isExecutable="false" name="Intel" processType="None">
+      <extensionElements/>
+      <laneSet id="sid-9081cd4b-43f3-4230-a655-b1e5f31f8814">
+         <lane id="sid-69F3EB59-9FDD-4D66-85D7-9D06612D5A12">
+            <extensionElements>
+               <signavio:signavioMetaData metaKey="bgcolor" metaValue=""/>
+               <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            </extensionElements>
+            <flowNodeRef>sid-152289FA-737F-4533-8E26-C7498DF3BFDB</flowNodeRef>
+            <flowNodeRef>sid-9036FFDE-32B0-4EAC-9C03-A84625030D87</flowNodeRef>
+            <flowNodeRef>sid-989F0835-29E4-4950-9418-55F18F8B5CCD</flowNodeRef>
+         </lane>
+      </laneSet>
+      <startEvent id="sid-152289FA-737F-4533-8E26-C7498DF3BFDB" name="Retire Asset / Transfer / &#10;Impairment / Grants Initiated">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <outgoing>sid-435197B2-E065-491B-976B-2FED1BB6919B</outgoing>
+      </startEvent>
+      <subProcess completionQuantity="1" id="sid-9036FFDE-32B0-4EAC-9C03-A84625030D87" isForCompensation="false" name="DC-040-100A Retire Asset / Transfer / Impairment / Grants_Global" startQuantity="1" triggeredByEvent="false">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="entry" metaValue="/model/afb17dbf3b3a4bd7a3ef770658cbb0b0"/>
+         </extensionElements>
+         <incoming>sid-435197B2-E065-491B-976B-2FED1BB6919B</incoming>
+         <outgoing>sid-47AD69C3-F627-48BB-84D3-DFA5DA4BF76F</outgoing>
+      </subProcess>
+      <endEvent id="sid-989F0835-29E4-4950-9418-55F18F8B5CCD" name="Retire Asset / Transfer / &#10;Impairment / Grants Completed">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <incoming>sid-47AD69C3-F627-48BB-84D3-DFA5DA4BF76F</incoming>
+      </endEvent>
+      <sequenceFlow id="sid-435197B2-E065-491B-976B-2FED1BB6919B" name="" sourceRef="sid-152289FA-737F-4533-8E26-C7498DF3BFDB" targetRef="sid-9036FFDE-32B0-4EAC-9C03-A84625030D87">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-47AD69C3-F627-48BB-84D3-DFA5DA4BF76F" name="" sourceRef="sid-9036FFDE-32B0-4EAC-9C03-A84625030D87" targetRef="sid-989F0835-29E4-4950-9418-55F18F8B5CCD">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <textAnnotation id="sid-5142449E-CE8F-4199-A6C9-1C1383926255" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>Process Tower: Finance Plan To Report
+Process Group: DC Manage Accounting and Control Data
+Process: DC-040-100G Retire Asset / Transfer / Impairment / Grants - EMEA Cluster 03</text>
+      </textAnnotation>
+      <textAnnotation id="sid-DBE2AD79-439D-4DF8-B21B-D8D1CE605A41" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>Flow same as global</text>
+      </textAnnotation>
+   </process>
+   <bpmndi:BPMNDiagram id="sid-aea62574-cf90-4209-bbcb-4abbf479b87f">
+      <bpmndi:BPMNPlane bpmnElement="sid-0b6fd02f-a002-4907-87ba-da61ad1bab5e" id="sid-5e323ee3-b195-485d-a7cd-9f5abdf73c87">
+         <bpmndi:BPMNShape bpmnElement="sid-F8AAA763-FBC8-4615-A6FA-DE3AED6AC7A0" id="sid-F8AAA763-FBC8-4615-A6FA-DE3AED6AC7A0_gui" isHorizontal="true">
+            <omgdc:Bounds height="169.46734518085145" width="538.1213155390411" x="0.0" y="193.57976410112286"/>
+            <bpmndi:BPMNLabel labelStyle="sid-7ab50794-5541-4386-b00a-eca4c0e68a4e">
+               <omgdc:Bounds height="23.914283752441406" width="12.000000000000002" x="5.000328569242241" y="266.3562948153279"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-69F3EB59-9FDD-4D66-85D7-9D06612D5A12" id="sid-69F3EB59-9FDD-4D66-85D7-9D06612D5A12_gui" isHorizontal="true">
+            <omgdc:Bounds height="169.46734518085145" width="508.1213155390411" x="30.0" y="193.57976410112286"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-152289FA-737F-4533-8E26-C7498DF3BFDB" id="sid-152289FA-737F-4533-8E26-C7498DF3BFDB_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="113.20905619178379" y="266.98056100674177"/>
+            <bpmndi:BPMNLabel labelStyle="sid-d5665ef3-080e-43ef-9233-5bf020c56f44">
+               <omgdc:Bounds height="22.0" width="145.6714324951172" x="55.373339944225194" y="298.98056100674177"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-9036FFDE-32B0-4EAC-9C03-A84625030D87" id="sid-9036FFDE-32B0-4EAC-9C03-A84625030D87_gui" isExpanded="false">
+            <omgdc:Bounds height="80.0" width="121.3049276186868" x="226.36485075147493" y="241.98056100674177"/>
+            <bpmndi:BPMNLabel labelStyle="sid-7ab50794-5541-4386-b00a-eca4c0e68a4e">
+               <omgdc:Bounds height="48.0" width="111.85713958740234" x="231.13128065259798" y="255.98056100674177"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-989F0835-29E4-4950-9418-55F18F8B5CCD" id="sid-989F0835-29E4-4950-9418-55F18F8B5CCD_gui">
+            <omgdc:Bounds height="28.0" width="28.0" x="430.8255729298529" y="267.98056100674177"/>
+            <bpmndi:BPMNLabel labelStyle="sid-d5665ef3-080e-43ef-9233-5bf020c56f44">
+               <omgdc:Bounds height="22.0" width="158.39999389648438" x="365.6255759816107" y="297.98056100674177"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-5142449E-CE8F-4199-A6C9-1C1383926255" id="sid-5142449E-CE8F-4199-A6C9-1C1383926255_gui">
+            <omgdc:Bounds height="49.999999999999986" width="612.9375031398409" x="23.69636972779228" y="19.999999999999986"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-DBE2AD79-439D-4DF8-B21B-D8D1CE605A41" id="sid-DBE2AD79-439D-4DF8-B21B-D8D1CE605A41_gui">
+            <omgdc:Bounds height="50.0" width="181.9999993890524" x="37.20905619178379" y="95.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge bpmnElement="sid-435197B2-E065-491B-976B-2FED1BB6919B" id="sid-435197B2-E065-491B-976B-2FED1BB6919B_gui">
+            <omgdi:waypoint x="143.2090561917838" y="281.98056100674177"/>
+            <omgdi:waypoint x="226.36485075147493" y="281.98056100674177"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-47AD69C3-F627-48BB-84D3-DFA5DA4BF76F" id="sid-47AD69C3-F627-48BB-84D3-DFA5DA4BF76F_gui">
+            <omgdi:waypoint x="347.66977837016174" y="281.98056100674177"/>
+            <omgdi:waypoint x="430.8255729298529" y="281.98056100674177"/>
+         </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+      <bpmndi:BPMNLabelStyle id="sid-d5665ef3-080e-43ef-9233-5bf020c56f44">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="11.0"/>
+      </bpmndi:BPMNLabelStyle>
+      <bpmndi:BPMNLabelStyle id="sid-7ab50794-5541-4386-b00a-eca4c0e68a4e">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="12.0"/>
+      </bpmndi:BPMNLabelStyle>
+   </bpmndi:BPMNDiagram>
+</definitions>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:caseagile="http://caseagile.com/schema/BPMN/20170414/MODEL" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="Signavio Process Editor, http://www.signavio.com" exporterVersion="26.10.0-20260311103619+6e2d3ac" expressionLanguage="https://www.ecma-international.org/publications/standards/Ecma-334.htm" id="_70dd53cb-65f8-4c5f-b189-dd9657540b1d" name="DC-040-110_Perform FA Year End Closing" targetNamespace="http://caseagile.com/schema/BPMN/20170414/MODEL" typeLanguage="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <collaboration id="sid-38ebb5cd-aa59-46f7-8d45-327adde3f8e3">
+      <extensionElements>
+         <signavio:signavioDiagramMetaData metaKey="meta-processdescription" metaValue="This sub-process explains the tasks and decisions that must be performed annually to close the current fiscal year for Asset Accounting"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvedby" metaValue="[&quot;Jamie Sutton&quot;,&quot;Rea M Meyer&quot;]"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalstatus" metaValue="ci1710756720720143051910"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvaldate" metaValue="23/08/24"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalcomments" metaValue="Approved on Signavio"/>
+         <signavio:signavioDiagramMetaData metaKey="revisionid" metaValue="5d2fc606471c4edd8cb5b906a49e7c2b"/>
+      </extensionElements>
+      <participant id="sid-F8AAA763-FBC8-4615-A6FA-DE3AED6AC7A0" name="Intel" processRef="sid-80B6ABCA-D2F5-4AA4-BBA3-CCE703194B32">
+         <extensionElements>
+            <signavio:signavioDictionaryLink propertyId="name">
+               <signavio:dictionaryLink>/glossary/e667553ad81e450aa194d3b00f6ba515</signavio:dictionaryLink>
+            </signavio:signavioDictionaryLink>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </participant>
+   </collaboration>
+   <process id="sid-80B6ABCA-D2F5-4AA4-BBA3-CCE703194B32" isClosed="false" isExecutable="false" name="Intel" processType="None">
+      <extensionElements/>
+      <laneSet id="sid-04f94c10-7d97-487c-86fe-fb4d2c3919c5">
+         <lane id="sid-69F3EB59-9FDD-4D66-85D7-9D06612D5A12">
+            <extensionElements>
+               <signavio:signavioMetaData metaKey="bgcolor" metaValue=""/>
+               <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            </extensionElements>
+            <flowNodeRef>sid-152289FA-737F-4533-8E26-C7498DF3BFDB</flowNodeRef>
+            <flowNodeRef>sid-9036FFDE-32B0-4EAC-9C03-A84625030D87</flowNodeRef>
+            <flowNodeRef>sid-989F0835-29E4-4950-9418-55F18F8B5CCD</flowNodeRef>
+         </lane>
+      </laneSet>
+      <startEvent id="sid-152289FA-737F-4533-8E26-C7498DF3BFDB" name="Perform FA Year End &#10;Closing Initiated">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <outgoing>sid-435197B2-E065-491B-976B-2FED1BB6919B</outgoing>
+      </startEvent>
+      <subProcess completionQuantity="1" id="sid-9036FFDE-32B0-4EAC-9C03-A84625030D87" isForCompensation="false" name="DC-040-110A Perform FA Year End Closing_Global" startQuantity="1" triggeredByEvent="false">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="entry" metaValue="/model/5d055ba94ef349eeaa0f3d6c953a735b"/>
+         </extensionElements>
+         <incoming>sid-435197B2-E065-491B-976B-2FED1BB6919B</incoming>
+         <outgoing>sid-47AD69C3-F627-48BB-84D3-DFA5DA4BF76F</outgoing>
+      </subProcess>
+      <endEvent id="sid-989F0835-29E4-4950-9418-55F18F8B5CCD" name="Perform FA Year End &#10;Closing Completed">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <incoming>sid-47AD69C3-F627-48BB-84D3-DFA5DA4BF76F</incoming>
+      </endEvent>
+      <sequenceFlow id="sid-435197B2-E065-491B-976B-2FED1BB6919B" name="" sourceRef="sid-152289FA-737F-4533-8E26-C7498DF3BFDB" targetRef="sid-9036FFDE-32B0-4EAC-9C03-A84625030D87">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-47AD69C3-F627-48BB-84D3-DFA5DA4BF76F" name="" sourceRef="sid-9036FFDE-32B0-4EAC-9C03-A84625030D87" targetRef="sid-989F0835-29E4-4950-9418-55F18F8B5CCD">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <textAnnotation id="sid-5142449E-CE8F-4199-A6C9-1C1383926255" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>Process Tower: Finance Plan To Report
+Process Group: DC Manage Accounting and Control Data
+Process: DC-040-110K Perform FA Year End Closing_APJ Cluster 04</text>
+      </textAnnotation>
+      <textAnnotation id="sid-16C63969-1853-438E-8725-A7F417155303" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>This flow is same as global flow</text>
+      </textAnnotation>
+   </process>
+   <bpmndi:BPMNDiagram id="sid-6f7d6b71-2123-4732-a140-65faff7d27cd" name="DC-040-110_Perform FA Year End Closing">
+      <bpmndi:BPMNPlane bpmnElement="sid-38ebb5cd-aa59-46f7-8d45-327adde3f8e3" id="sid-7ed40313-0a83-423e-a276-0d059d5e48bc">
+         <bpmndi:BPMNShape bpmnElement="sid-F8AAA763-FBC8-4615-A6FA-DE3AED6AC7A0" id="sid-F8AAA763-FBC8-4615-A6FA-DE3AED6AC7A0_gui" isHorizontal="true">
+            <omgdc:Bounds height="169.4673451808514" width="538.1213155390411" x="0.0" y="219.8868345186225"/>
+            <bpmndi:BPMNLabel labelStyle="sid-73ee683e-9dbf-4a68-a35b-85751216987f">
+               <omgdc:Bounds height="23.914283752441406" width="12.000000000000002" x="5.000328569242269" y="292.66336523282746"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-69F3EB59-9FDD-4D66-85D7-9D06612D5A12" id="sid-69F3EB59-9FDD-4D66-85D7-9D06612D5A12_gui" isHorizontal="true">
+            <omgdc:Bounds height="169.4673451808514" width="508.1213155390411" x="30.0" y="219.8868345186225"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-152289FA-737F-4533-8E26-C7498DF3BFDB" id="sid-152289FA-737F-4533-8E26-C7498DF3BFDB_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="113.20905619178379" y="293.2876314242414"/>
+            <bpmndi:BPMNLabel labelStyle="sid-4b5d95f2-b15a-4151-891e-d6327cbe88a7">
+               <omgdc:Bounds height="22.0" width="103.24285888671875" x="76.58762674842441" y="325.2876314242414"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-9036FFDE-32B0-4EAC-9C03-A84625030D87" id="sid-9036FFDE-32B0-4EAC-9C03-A84625030D87_gui" isExpanded="false">
+            <omgdc:Bounds height="80.0" width="121.3049276186868" x="226.36485075147493" y="268.2876314242414"/>
+            <bpmndi:BPMNLabel labelStyle="sid-73ee683e-9dbf-4a68-a35b-85751216987f">
+               <omgdc:Bounds height="36.0" width="112.62857818603516" x="230.74556135328157" y="288.2876314242414"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-989F0835-29E4-4950-9418-55F18F8B5CCD" id="sid-989F0835-29E4-4950-9418-55F18F8B5CCD_gui">
+            <omgdc:Bounds height="28.0" width="28.0" x="430.8255729298529" y="294.2876314242414"/>
+            <bpmndi:BPMNLabel labelStyle="sid-4b5d95f2-b15a-4151-891e-d6327cbe88a7">
+               <omgdc:Bounds height="22.0" width="103.24285888671875" x="393.20414348649354" y="324.2876314242414"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-5142449E-CE8F-4199-A6C9-1C1383926255" id="sid-5142449E-CE8F-4199-A6C9-1C1383926255_gui">
+            <omgdc:Bounds height="50.00000000000002" width="435.937499076128" x="29.999999105930353" y="59.999996423721406"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-16C63969-1853-438E-8725-A7F417155303" id="sid-16C63969-1853-438E-8725-A7F417155303_gui">
+            <omgdc:Bounds height="32.99999974292734" width="241.00000213219073" x="39.99999999999999" y="143.50000012853633"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge bpmnElement="sid-435197B2-E065-491B-976B-2FED1BB6919B" id="sid-435197B2-E065-491B-976B-2FED1BB6919B_gui">
+            <omgdi:waypoint x="143.2090561917838" y="308.2876314242414"/>
+            <omgdi:waypoint x="226.36485075147493" y="308.2876314242414"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-47AD69C3-F627-48BB-84D3-DFA5DA4BF76F" id="sid-47AD69C3-F627-48BB-84D3-DFA5DA4BF76F_gui">
+            <omgdi:waypoint x="347.66977837016174" y="308.2876314242414"/>
+            <omgdi:waypoint x="430.8255729298529" y="308.2876314242414"/>
+         </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+      <bpmndi:BPMNLabelStyle id="sid-4b5d95f2-b15a-4151-891e-d6327cbe88a7">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="11.0"/>
+      </bpmndi:BPMNLabelStyle>
+      <bpmndi:BPMNLabelStyle id="sid-73ee683e-9dbf-4a68-a35b-85751216987f">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="12.0"/>
+      </bpmndi:BPMNLabelStyle>
+   </bpmndi:BPMNDiagram>
+</definitions>

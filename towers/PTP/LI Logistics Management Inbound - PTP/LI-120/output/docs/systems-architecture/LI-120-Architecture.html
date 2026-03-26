@@ -1,0 +1,5510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LI-120 Architecture</title>
+    <style>
+@page {
+    size: A4;
+    margin: 20mm 15mm 20mm 15mm;
+}
+body {
+    font-family: "Segoe UI", Calibri, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #1a1a1a;
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 15mm;
+    background: #fff;
+}
+h1 {
+    font-size: 22pt;
+    color: #00285a;
+    border-bottom: 3px solid #0071c5;
+    padding-bottom: 8px;
+    margin-top: 30px;
+    page-break-before: always;
+}
+h1:first-of-type { page-break-before: avoid; }
+h2 {
+    font-size: 16pt;
+    color: #00285a;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 4px;
+    margin-top: 24px;
+}
+h3 {
+    font-size: 13pt;
+    color: #0071c5;
+    margin-top: 18px;
+}
+h4 { font-size: 11pt; color: #333; margin-top: 14px; }
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 12px 0;
+    font-size: 9.5pt;
+    page-break-inside: avoid;
+}
+th {
+    background: #00285a;
+    color: #fff;
+    font-weight: 600;
+    text-align: left;
+    padding: 6px 8px;
+    border: 1px solid #00285a;
+}
+td {
+    padding: 5px 8px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+}
+tr:nth-child(even) td { background: #f5f8fc; }
+tr:hover td { background: #e8f0fe; }
+code {
+    font-family: "Cascadia Code", "Consolas", monospace;
+    font-size: 9pt;
+    background: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+pre {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 12px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 8.5pt;
+    line-height: 1.4;
+    page-break-inside: avoid;
+}
+pre code { background: none; padding: 0; color: inherit; }
+blockquote {
+    border-left: 4px solid #0071c5;
+    background: #f5f8fc;
+    margin: 12px 0;
+    padding: 8px 16px;
+    color: #333;
+}
+.mermaid-placeholder {
+    background: #f5f8fc;
+    border: 1px dashed #0071c5;
+    border-radius: 4px;
+    padding: 16px;
+    margin: 12px 0;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+.mermaid {
+    background: #fafbfd;
+    border: 1px solid #e0e4ea;
+    border-radius: 6px;
+    padding: 20px 12px;
+    margin: 16px 0;
+    overflow-x: auto;
+    text-align: center;
+}
+.mermaid svg {
+    max-width: 100%;
+    height: auto;
+}
+.header-bar {
+    background: #00285a;
+    color: #fff;
+    padding: 16px 24px;
+    margin: -15mm -15mm 20px -15mm;
+    font-size: 9pt;
+}
+.header-bar h1 {
+    color: #fff;
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-size: 20pt;
+    page-break-before: avoid;
+}
+.header-bar .subtitle { color: #a8c7e8; font-size: 10pt; }
+.footer {
+    font-size: 8pt;
+    color: #888;
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+a { color: #0071c5; text-decoration: none; }
+a:hover { text-decoration: underline; }
+hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
+strong { color: #00285a; }
+
+@media print {
+    body { padding: 0; max-width: none; }
+    .header-bar { margin: 0 0 20px 0; }
+    .no-print { display: none; }
+}
+</style>
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    securityLevel: 'loose',
+    flowchart: {
+      curve: 'basis',
+      padding: 16,
+      nodeSpacing: 50,
+      rankSpacing: 60,
+      useMaxWidth: true
+    },
+    themeVariables: {
+      primaryColor: '#e8f0fe',
+      primaryBorderColor: '#0071c5',
+      primaryTextColor: '#1a1a1a',
+      lineColor: '#37474F',
+      secondaryColor: '#f5f8fc',
+      tertiaryColor: '#fff',
+      fontSize: '14px',
+      fontFamily: 'Segoe UI, Arial, sans-serif'
+    }
+  });
+</script>
+
+</head>
+<body>
+<div style="text-align:center; padding-top:80px;">
+  <h1 style="font-size:36px;">LI-120 — Receive Materials and Services - PTP</h1>
+  <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
+  <p style="font-size:18px; color:#555;">Procure To Pay (PTP) Tower<br/>
+  Capability LI-120 · LI Logistics Management Inbound - PTP</p>
+  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
+  Generated: March 2026</p>
+  <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
+</div>
+
+<style>
+@media print {
+  @page { margin: 0.75in; }
+  footer::after { content: "Intel Confidential — LI-120 BDAT — March 2026"; font-size:9px; color:#999; }
+  .mermaid { page-break-inside: avoid; max-height: 95vh; overflow: visible; }
+  pre, table { page-break-inside: avoid; }
+  h2, h3, h4 { page-break-after: avoid; }
+}
+.mermaid svg { max-width: 100% !important; height: auto !important; }
+</style>
+
+<div style="page-break-before: always;"></div>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#1-executive-summary">Executive Summary</a></li>
+<li><a href="#2-business-context--objectives">Business Context &amp; Objectives</a>
+   - 2.1 <a href="#21-classification">Classification</a>
+   - 2.2 <a href="#22-business-drivers">Business Drivers</a>
+   - 2.3 <a href="#23-success-criteria">Success Criteria</a>
+   - 2.4 <a href="#24-companion-documents">Companion Documents</a></li>
+<li><a href="#3-business-architecture-togaf-b">Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+   - 3.1 <a href="#31-business-process-overview">Business Process Overview</a>
+   - 3.2 <a href="#32-business-process-diagrams">Business Process Diagrams</a>
+   - 3.3 <a href="#33-business-roles--responsibilities">Business Roles &amp; Responsibilities</a></li>
+<li><a href="#4-data-architecture-togaf-d">Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+   - 4.1 <a href="#41-data-entities--ownership">Data Entities &amp; Ownership</a>
+   - 4.2 <a href="#42-data-flow-diagrams">Data Flow Diagrams</a>
+   - 4.3 <a href="#43-data-lineage">Data Lineage</a>
+   - 4.4 <a href="#44-ricefw-data-objects">RICEFW Data Objects</a>
+   - 4.5 <a href="#45-data-governance--quality">Data Governance &amp; Quality</a></li>
+<li><a href="#5-application-architecture-togaf-a">Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+   - 5.1 <a href="#51-current-state--current-state-application-landscape">Current-State Application Landscape</a>
+   - 5.2 <a href="#52-future-state--future-state-application-landscape">Future-State Application Landscape</a>
+   - 5.3 <a href="#53-change-impact-summary">Change Impact Summary</a>
+   - 5.4 <a href="#54-component-overview">Component Overview</a>
+   - 5.5 <a href="#55-ricefw-inventory">RICEFW Inventory</a>
+   - 5.6 <a href="#56-integration-patterns">Integration Patterns</a></li>
+<li><a href="#6-technology-architecture-togaf-t">Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+   - 6.1 <a href="#61-platform--infrastructure">Platform &amp; Infrastructure</a>
+   - 6.2 <a href="#62-sap-development-object-status">SAP Development Object Status</a>
+   - 6.3 <a href="#63-nfrs--design-principles">NFRs &amp; Design Principles</a>
+   - 6.4 <a href="#64-security--governance">Security &amp; Governance</a></li>
+<li><a href="#7-project-context">Project Context</a>
+   - 7.1 <a href="#71-project-roadmap--go-live-plan">Project Roadmap &amp; Go-Live Plan</a>
+   - 7.2 <a href="#72-raid-log">RAID Log</a>
+   - 7.3 <a href="#73-recommendations--next-steps">Recommendations &amp; Next Steps</a></li>
+</ol>
+<div style="page-break-before: always;"></div>
+
+<h2 id="1-executive-summary">1. Executive Summary</h2>
+<p>This Architecture Document defines the <strong>Business, Data, Application, and Technology</strong> (BDAT) architecture for <strong>LI-120 Receive Materials and Services - PTP</strong> within the IAO program. It includes 12 BPMN process diagram(s) in Section 3.
+| Dimension | Value |
+|-----------|-------|
+| <strong>Tower</strong> | Procure To Pay (PTP) |
+| <strong>Process Group</strong> | LI Logistics Management Inbound - PTP |
+| <strong>Capability</strong> | LI-120 - Receive Materials and Services - PTP |
+| <strong>Release</strong> | Release 3 |
+| <strong>Total Systems</strong> | 0 |
+| <strong>System Status</strong> | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
+| <strong>RICEFW Objects</strong> | 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows |
+<strong>Change Summary</strong>: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.</p>
+<blockquote>
+<p>All system nodes in architecture diagrams are <strong>IAPM-linked</strong> — click any node to open its IAPM page. Diagrams require <code>securityLevel: 'loose'</code> for click events.</p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h2 id="2-business-context-objectives">2. Business Context &amp; Objectives</h2>
+<h3 id="21-classification">2.1 Classification</h3>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>L0 Tower</strong></td>
+<td>Procure To Pay</td>
+</tr>
+<tr>
+<td><strong>L1 Process</strong></td>
+<td>LI Logistics Management Inbound - PTP</td>
+</tr>
+<tr>
+<td><strong>L2 Capability</strong></td>
+<td>LI-120 - Receive Materials and Services - PTP</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-business-drivers">2.2 Business Drivers</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Driver</th>
+<th>Description</th>
+<th>Strategic Alignment</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Procurement Process Standardization</td>
+<td>Standardize procurement processes across direct, indirect, and services on S/4 HANA + Ariba</td>
+<td>IDM 2.0 Procurement Excellence</td>
+<td>High</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Supplier Collaboration Enhancement</td>
+<td>Enable digital supplier collaboration for consignment, subcontracting, and quality management</td>
+<td>Supplier Ecosystem</td>
+<td>High</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Payment Automation</td>
+<td>Automate invoice verification, three-way matching, and payment execution</td>
+<td>Finance Efficiency</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>4</td>
+<td>LI-120 Process Migration</td>
+<td>Migrate Receive Materials and Services - PTP business processes and 0 integrated systems from legacy to S/4 HANA target architecture</td>
+<td>IDM 2.0 Procurement</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="23-success-criteria">2.3 Success Criteria</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+<th>Measure</th>
+<th>Baseline</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PO Cycle Time</td>
+<td>&lt; 24 hours</td>
+<td>Requisition approval to PO dispatch to supplier</td>
+<td>48 hours (current)</td>
+<td>Procurement Lead</td>
+</tr>
+<tr>
+<td>Invoice Automation Rate</td>
+<td>&gt; 80%</td>
+<td>Invoices processed without manual intervention (touchless)</td>
+<td>45% (current)</td>
+<td>AP Manager</td>
+</tr>
+<tr>
+<td>Supplier On-Time Delivery</td>
+<td>&gt; 95%</td>
+<td>Supplier adherence to confirmed delivery date</td>
+<td>89% (current)</td>
+<td>Supplier Management</td>
+</tr>
+<tr>
+<td>LI-120 Migration Completeness</td>
+<td>100% flow chains validated</td>
+<td>All 0 flow chains verified in target state</td>
+<td>0% (pre-migration)</td>
+<td>Tower Architect</td>
+</tr>
+</tbody>
+</table>
+<h3 id="24-companion-documents">2.4 Companion Documents</h3>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Business Architecture</strong></td>
+<td>Included in this document (Section 3) — process flows from BPMN diagrams</td>
+</tr>
+<tr>
+<td><strong>This Document</strong></td>
+<td>Full BDAT Architecture — Business + Data + Application + Technology</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</h2>
+<h3 id="31-business-process-overview">3.1 Business Process Overview</h3>
+<p>This capability includes <strong>12 business process(es)</strong> modeled in BPMN 2.0, covering the end-to-end workflow for LI-120 Receive Materials and Services - PTP.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Step ID</th>
+<th>Process Name</th>
+<th>Lanes</th>
+<th>Tasks</th>
+<th>Gateways</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>LI-120-010_Determine_if_Material_or_Service_-_PTP</td>
+<td>LI-120-010_Determine_if_Material_or_Service_-_PTP</td>
+<td>Master Data Specialist</td>
+<td>6</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>LI-120-030_Validate_BOL_against_shipment_received_-_PTP</td>
+<td>LI-120-030_Validate_BOL_against_shipment_received_-_PTP</td>
+<td>Transportation Manager (Transportation Management), Warehouse Operator</td>
+<td>8</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>LI-120-040_Unload_Material_Received_-_PTP</td>
+<td>LI-120-040_Unload_Material_Received_-_PTP</td>
+<td>Warehouse Operator</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>4</td>
+<td>LI-120-050_Inspect_Material_for_Damage_(Prior_to_Receipt)_-_PTP</td>
+<td>LI-120-050_Inspect_Material_for_Damage_(Prior_to_Receipt)_-_PTP</td>
+<td>Warehouse Operator</td>
+<td>5</td>
+<td>2</td>
+</tr>
+<tr>
+<td>5</td>
+<td>LI-120-060_Process_Damaged_Goods_-_PTP</td>
+<td>LI-120-060_Process_Damaged_Goods_-_PTP</td>
+<td>Receiving Agent, Warehouse Operator</td>
+<td>6</td>
+<td>2</td>
+</tr>
+<tr>
+<td>6</td>
+<td>LI-120-070_File_Shipping_Claim_-_PTP</td>
+<td>LI-120-070_File_Shipping_Claim_-_PTP</td>
+<td>Warehouse Clerk</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>7</td>
+<td>LI-120-090_Receive_Material_Against_Plant-to-Plant_Transfer_Order_-_PTP</td>
+<td>LI-120-090_Receive_Material_Against_Plant-to-Plant_Transfer_Order_-_PTP</td>
+<td>Inventory Manager, Sender</td>
+<td>1</td>
+<td>5</td>
+</tr>
+<tr>
+<td>8</td>
+<td>LI-120-140_Receive_Free_Samples_-_PTP</td>
+<td>LI-120-140_Receive_Free_Samples_-_PTP</td>
+<td>Inventory Manager, Procurement Agent, Receiving Agent</td>
+<td>4</td>
+<td>1</td>
+</tr>
+<tr>
+<td>9</td>
+<td>LI-120-170_Check_Material_for_Proper_Quantity_-_PTP</td>
+<td>LI-120-170_Check_Material_for_Proper_Quantity_-_PTP</td>
+<td>Inventory Manager</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr>
+<td>10</td>
+<td>LI-120-190_Resolve_Discrepancies_-_PTP</td>
+<td>LI-120-190_Resolve_Discrepancies_-_PTP</td>
+<td>Supplier</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>11</td>
+<td>LI-120-200_Reload_Shipment_-_PTP</td>
+<td>LI-120-200_Reload_Shipment_-_PTP</td>
+<td>Inventory Manager</td>
+<td>6</td>
+<td>3</td>
+</tr>
+<tr>
+<td>12</td>
+<td>LI-120-220_Receive_Actual_Count_Quantity_-_PTP</td>
+<td>LI-120-220_Receive_Actual_Count_Quantity_-_PTP</td>
+<td>Inventory Manager</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-business-process-diagrams">3.2 Business Process Diagrams</h3>
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-321-li-120-010_determine_if_material_or_service_-ptp-li-120-010_determine_if_material_or_service-_ptp">BUSINESS ARCHITECTURE — 3.2.1 LI-120-010_Determine_if_Material_or_Service_-<em>PTP — LI-120-010_Determine_if_Material_or_Service</em>-_PTP</h4>
+<p><strong>Swim Lanes</strong>: Master Data Specialist | <strong>Tasks</strong>: 6 | <strong>Gateways</strong>: 2</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Master Data Specialist
+        n1["fa:fa-user Determine Type of Commodity"]
+        n2["fa:fa-user Maintain Data for Inventory Commodity"]
+        n3["fa:fa-user Maintain Data for Non-Inventory Commodity"]
+        n4["fa:fa-user Categorize as Indirect Procurement"]
+        n5["fa:fa-user Categorize as Stock Movement using ISM"]
+        n6["fa:fa-user Categorize as Procurement for Major Tools and CSI"]
+        n7(["fa:fa-play Collect Requirements for Commodities"])
+        n8["Create and Process Purchase Order"]
+        n9["Create PO Manually With ’Text Materials’"]
+        n10["Create and Process Purchase Order"]
+        n11["Create Transfer posting for Plant-to-Plant Transfer (IP)"]
+        n12{{"fa:fa-code-branch Type ?"}}
+        n13{{"fa:fa-code-branch Category?"}}
+    end
+    n7 --> n1
+    n1 --> n12
+    n3 --> n13
+    n12 -->|"Inventory"| n2
+    n2 --> n8
+    n12 -->|"Non-Inventory"| n3
+    n13 -->|"Indirect Procurement"| n4
+    n4 --> n9
+    n6 --> n10
+    n5 --> n11
+    n13 -->|"Stock Movement"| n5
+    n13 -->|"Major Tools and CSI"| n6
+    class n1 userTask
+    class n2 userTask
+    class n3 userTask
+    class n4 userTask
+    class n5 userTask
+    class n6 userTask
+    class n7 startEvt
+    class n8 startEvt
+    class n9 startEvt
+    class n10 startEvt
+    class n11 startEvt
+    class n12 gateway
+    class n13 gateway
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-322-li-120-030_validate_bol_against_shipment_received_-ptp-li-120-030_validate_bol_against_shipment_received-_ptp">BUSINESS ARCHITECTURE — 3.2.2 LI-120-030_Validate_BOL_against_shipment_received_-<em>PTP — LI-120-030_Validate_BOL_against_shipment_received</em>-_PTP</h4>
+<p><strong>Swim Lanes</strong>: Transportation Manager (Transportation Management) · Warehouse Operator | <strong>Tasks</strong>: 8 | <strong>Gateways</strong>: 2</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Transportation Manager (Transportation Management)
+        n1[["fa:fa-cog Create Freight Unit"]]
+        n2[["fa:fa-cog Create/ Release Freight Order"]]
+    end
+    subgraph Warehouse Operator
+        n3[["fa:fa-cog Create Inbound Delivery"]]
+        n4[["fa:fa-cog Monitor Inbound Shipments"]]
+        n5[["fa:fa-cog Receive ASN Information from Middleware"]]
+        n6["Intake / Accept Physical Goods to unload Dock"]
+        n7["Validate Physical Documents"]
+        n8["Validate BOL against IBD"]
+        n9["Unload Material Received"]
+        n10{{"fa:fa-code-branch Intel Managed TM?"}}
+        n11{{"fa:fa-code-branch exclusiveGateway"}}
+    end
+    n3 --> n10
+    n1 --> n2
+    n6 --> n7
+    n7 --> n8
+    n5 --> n11
+    n11 --> n3
+    n8 --> n9
+    n2 --> n11
+    n4 --> n6
+    n10 -->|"Yes"| n1
+    n10 -->|"No"| n4
+    class n1 serviceTask
+    class n2 serviceTask
+    class n3 serviceTask
+    class n4 serviceTask
+    class n5 serviceTask
+    class n9 startEvt
+    class n10 gateway
+    class n11 gateway
+</div>
+
+<h4 id="business-architecture-323-li-120-040_unload_material_received_-ptp-li-120-040_unload_material_received-_ptp">BUSINESS ARCHITECTURE — 3.2.3 LI-120-040_Unload_Material_Received_-<em>PTP — LI-120-040_Unload_Material_Received</em>-_PTP</h4>
+<p><strong>Swim Lanes</strong>: Warehouse Operator | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 0</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Warehouse Operator
+        n1["Unload Physical Goods"]
+        n2["Receive Material Against Advanced Shipping Notification (..."]
+        n3["Validate BOL against shipment received"]
+    end
+    n3 --> n1
+    n1 --> n2
+    class n2 startEvt
+    class n3 startEvt
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-324-li-120-050_inspect_material_for_damage_prior_to_receipt-_ptp-li-120-050_inspect_material_for_damageprior_to_receipt_-_ptp">BUSINESS ARCHITECTURE — 3.2.4 LI-120-050_Inspect_Material_for_Damage_(Prior_to_Receipt)<em>-_PTP — LI-120-050_Inspect_Material_for_Damage</em>(Prior_to_Receipt)_-_PTP</h4>
+<p><strong>Swim Lanes</strong>: Warehouse Operator | <strong>Tasks</strong>: 5 | <strong>Gateways</strong>: 2</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Warehouse Operator
+        n1[["fa:fa-cog Return Goods to Supplier"]]
+        n2[["fa:fa-cog Scrap Goods"]]
+        n3["Perform Physical Inspection"]
+        n4["Accept Goods"]
+        n5["Reject Goods"]
+        n6(["fa:fa-stop Goods Returned"])
+        n7(["fa:fa-stop Goods Scrapped"])
+        n8["Receive Material Against Advanced Shipping Notification (..."]
+        n9["Unload Material Received"]
+        n10{{"fa:fa-code-branch Accept or Reject?"}}
+        n11{{"fa:fa-code-branch Return or Scrap?"}}
+    end
+    n9 --> n3
+    n3 --> n10
+    n4 --> n8
+    n5 --> n11
+    n1 --> n6
+    n2 --> n7
+    n10 -->|"Accept"| n4
+    n10 -->|"Reject"| n5
+    n11 -->|"Scrap"| n2
+    n11 -->|"Return"| n1
+    class n1 serviceTask
+    class n2 serviceTask
+    class n6 endEvt
+    class n7 endEvt
+    class n8 startEvt
+    class n9 startEvt
+    class n10 gateway
+    class n11 gateway
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-325-li-120-060_process_damaged_goods_-ptp-li-120-060_process_damaged_goods-_ptp">BUSINESS ARCHITECTURE — 3.2.5 LI-120-060_Process_Damaged_Goods_-<em>PTP — LI-120-060_Process_Damaged_Goods</em>-_PTP</h4>
+<p><strong>Swim Lanes</strong>: Receiving Agent · Warehouse Operator | <strong>Tasks</strong>: 6 | <strong>Gateways</strong>: 2</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Receiving Agent
+        n1["Inspect Materials for Damage"]
+        n2["Move Inventory to Block Stock"]
+        n3["Complete Goods Receipt into Warehouse Dock"]
+        n4["Instruct to Receive Inventory into Block Stock"]
+        n7(["fa:fa-stop Damaged Inventory Blocked"])
+        n8["Receive Material Against Advanced Shipping Notification (..."]
+        n9["Return Material to Supplier"]
+        n10["Unload Material Received"]
+        n11{{"fa:fa-code-branch Is the Product Damaged ?"}}
+        n12{{"fa:fa-code-branch Exception/ Wrong Item Sent?"}}
+    end
+    subgraph Warehouse Operator
+        n5["Inform About Product Damages"]
+        n6["Identify the Source of Damage"]
+    end
+    n4 --> n3
+    n3 --> n2
+    n10 --> n1
+    n11 -->|"No"| n8
+    n5 --> n6
+    n2 --> n7
+    n1 --> n12
+    n12 -->|"No"| n11
+    n12 -->|"Yes"| n9
+    n11 -->|"Yes"| n5
+    n6 --> n4
+    class n7 endEvt
+    class n8 startEvt
+    class n9 startEvt
+    class n10 startEvt
+    class n11 gateway
+    class n12 gateway
+</div>
+
+<h4 id="business-architecture-326-li-120-070_file_shipping_claim_-ptp-li-120-070_file_shipping_claim-_ptp">BUSINESS ARCHITECTURE — 3.2.6 LI-120-070_File_Shipping_Claim_-<em>PTP — LI-120-070_File_Shipping_Claim</em>-_PTP</h4>
+<p><strong>Swim Lanes</strong>: Warehouse Clerk | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 0</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Warehouse Clerk
+        n1[["fa:fa-cog File Shipping Claim"]]
+        n2["Receive Material Against Advanced Shipping Notification (..."]
+        n3["Process Damaged Goods"]
+    end
+    n3 --> n1
+    n1 --> n2
+    class n1 serviceTask
+    class n2 startEvt
+    class n3 startEvt
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-327-li-120-090_receive_material_against_plant-to-plant_transfer_order_-ptp-li-120-090_receive_material_against_plant-to-plant_transfer_order-_ptp">BUSINESS ARCHITECTURE — 3.2.7 LI-120-090_Receive_Material_Against_Plant-to-Plant_Transfer_Order_-<em>PTP — LI-120-090_Receive_Material_Against_Plant-to-Plant_Transfer_Order</em>-_PTP</h4>
+<p><strong>Swim Lanes</strong>: Inventory Manager · Sender | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 5</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Inventory Manager
+        n2(["fa:fa-play GR Data Updated"])
+        n3(["fa:fa-stop ASN Data Sent to 3PL"])
+        n4(["fa:fa-stop Physical Goods Sent to 3PL"])
+        n5["Receive Material Against Advanced Shipping Notification (..."]
+        n7{{"fa:fa-code-branch exclusiveGateway"}}
+        n8{{"fa:fa-code-branch IM or 3PL?"}}
+        n9{{"fa:fa-code-branch exclusiveGateway"}}
+        n10{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    subgraph Sender
+        n1["Ship Physical Goods Against Delivery"]
+        n6["Create Outbound Delivery"]
+        n11{{"fa:fa-arrows-alt inclusiveGateway"}}
+    end
+    n6 --> n11
+    n10 --> n3
+    n7 --> n8
+    n10 --> n7
+    n11 --> n1
+    n8 -->|"3PL Warehouse"| n4
+    n8 -->|"IM Warehouse"| n9
+    n2 --> n9
+    n9 --> n5
+    n11 --> n10
+    n1 --> n7
+    class n2 startEvt
+    class n3 endEvt
+    class n4 endEvt
+    class n5 startEvt
+    class n6 startEvt
+    class n7 gateway
+    class n8 gateway
+    class n9 gateway
+    class n10 gateway
+    class n11 gateway
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-328-li-120-140_receive_free_samples_-ptp-li-120-140_receive_free_samples-_ptp">BUSINESS ARCHITECTURE — 3.2.8 LI-120-140_Receive_Free_Samples_-<em>PTP — LI-120-140_Receive_Free_Samples</em>-_PTP</h4>
+<p><strong>Swim Lanes</strong>: Inventory Manager · Procurement Agent · Receiving Agent | <strong>Tasks</strong>: 4 | <strong>Gateways</strong>: 1</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart LR
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Inventory Manager
+        n2[["fa:fa-cog Perform Goods Receipt for Free Samlples"]]
+        n4["Perform Physical Inspection"]
+        n9(["fa:fa-stop PGR Completed"])
+    end
+    subgraph Procurement Agent
+        n1[["fa:fa-cog Create Purchase Orders for Free Samples"]]
+        n5(["fa:fa-play Procurement Request Received"])
+        n7(["fa:fa-stop Order Data is Sent"])
+        n8(["fa:fa-stop Requirement Sent to Supplier"])
+        n10{{"fa:fa-code-branch Procure with PO or Without PO?"}}
+    end
+    subgraph Receiving Agent
+        n3["Note Physical Goods Arrival at Warehouse"]
+        n6(["fa:fa-play Physical Goods Received"])
+    end
+    n2 --> n9
+    n4 --> n2
+    n3 --> n4
+    n6 --> n3
+    n1 --> n7
+    n5 --> n10
+    n10 -->|"Without PO"| n8
+    n10 -->|"With PO"| n1
+    class n1 serviceTask
+    class n2 serviceTask
+    class n5 startEvt
+    class n6 startEvt
+    class n7 endEvt
+    class n8 endEvt
+    class n9 endEvt
+    class n10 gateway
+</div>
+
+<h4 id="business-architecture-329-li-120-170_check_material_for_proper_quantity_-ptp-li-120-170_check_material_for_proper_quantity-_ptp">BUSINESS ARCHITECTURE — 3.2.9 LI-120-170_Check_Material_for_Proper_Quantity_-<em>PTP — LI-120-170_Check_Material_for_Proper_Quantity</em>-_PTP</h4>
+<p><strong>Swim Lanes</strong>: Inventory Manager | <strong>Tasks</strong>: 3 | <strong>Gateways</strong>: 1</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Inventory Manager
+        n1[["fa:fa-cog Perform Goods Receipt to Block Stock"]]
+        n2[["fa:fa-cog Perform Goods Receipt"]]
+        n3["Validate Quantity of Physical Goods Against Documents Rec..."]
+        n4(["fa:fa-play Physical Goods Arrived at Warehouse"])
+        n5(["fa:fa-stop Stock Blocked"])
+        n6(["fa:fa-stop GR Completed"])
+        n7{{"fa:fa-code-branch Quantity Validation Status?"}}
+    end
+    n4 --> n3
+    n3 --> n7
+    n1 --> n5
+    n2 --> n6
+    n7 -->|"Rejected"| n1
+    n7 -->|"Accepted"| n2
+    class n1 serviceTask
+    class n2 serviceTask
+    class n4 startEvt
+    class n5 endEvt
+    class n6 endEvt
+    class n7 gateway
+</div>
+
+<h4 id="business-architecture-3210-li-120-190_resolve_discrepancies_-ptp-li-120-190_resolve_discrepancies-_ptp">BUSINESS ARCHITECTURE — 3.2.10 LI-120-190_Resolve_Discrepancies_-<em>PTP — LI-120-190_Resolve_Discrepancies</em>-_PTP</h4>
+<p><strong>Swim Lanes</strong>: Supplier | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 0</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Supplier
+        n1["Confirm Disposition"]
+        n2(["fa:fa-play Receive Exemption Report"])
+        n3(["fa:fa-stop Send Disposition Report"])
+    end
+    n2 --> n1
+    n1 --> n3
+    class n2 startEvt
+    class n3 endEvt
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-3211-li-120-200_reload_shipment_-ptp-li-120-200_reload_shipment-_ptp">BUSINESS ARCHITECTURE — 3.2.11 LI-120-200_Reload_Shipment_-<em>PTP — LI-120-200_Reload_Shipment</em>-_PTP</h4>
+<p><strong>Swim Lanes</strong>: Inventory Manager | <strong>Tasks</strong>: 6 | <strong>Gateways</strong>: 3</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Inventory Manager
+        n1["fa:fa-user - 200-010 Perform Goods Receipt"]
+        n2["fa:fa-user - 200-040 Perform Goods Receipt to Block Stock"]
+        n3["- 200-030 Reload Shipment"]
+        n4["- 200-020 Move Material to Holding Location"]
+        n5["- 200-050 Move Material to Holding Location"]
+        n6["- 200-070 Reload Shipment"]
+        n7(["fa:fa-stop GR Completed"])
+        n8(["fa:fa-stop Initiate Return to Vendor Process"])
+        n9(["fa:fa-stop Initiate Return to Vendor Process"])
+        n10["Inspect Material for Damage (Prior to Receipt)"]
+        n11["Check Material for Proper Quantity"]
+        n12{{"fa:fa-code-branch Quantity and Quality Check Status?"}}
+        n13{{"fa:fa-code-branch Is the Material Correct or Incorrect?"}}
+        n14{{"fa:fa-code-branch exclusiveGateway"}}
+        n15[["fa:fa-folder-open - 200-060 LI-200-010 Determine Material Disposition"]]
+    end
+    n3 --> n8
+    n1 --> n7
+    n4 --> n3
+    n2 --> n5
+    n6 --> n9
+    n10 --> n14
+    n11 --> n14
+    n14 --> n12
+    n12 -->|"Fail"| n13
+    n13 -->|"Correct Material"| n2
+    n5 --> n15
+    n15 --> n6
+    n12 -->|"Pass"| n1
+    n13 -->|"Incorrect Material"| n4
+    class n1 userTask
+    class n2 userTask
+    class n7 endEvt
+    class n8 endEvt
+    class n9 endEvt
+    class n10 startEvt
+    class n11 startEvt
+    class n12 gateway
+    class n13 gateway
+    class n14 gateway
+    class n15 subProc
+</div>
+
+<h4 id="business-architecture-3212-li-120-220_receive_actual_count_quantity_-ptp-li-120-220_receive_actual_count_quantity-_ptp">BUSINESS ARCHITECTURE — 3.2.12 LI-120-220_Receive_Actual_Count_Quantity_-<em>PTP — LI-120-220_Receive_Actual_Count_Quantity</em>-_PTP</h4>
+<p><strong>Swim Lanes</strong>: Inventory Manager | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 1</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Inventory Manager
+        n1["fa:fa-user Post Goods Receipt"]
+        n2(["fa:fa-stop GR Completed for Actual Quantity"])
+        n3["Resolve Discrepancies - PTP"]
+        n4["Check Material for Proper Quantity"]
+        n5{{"fa:fa-code-branch Goods Quantity Match with PO?"}}
+    end
+    n4 --> n5
+    n1 --> n2
+    n5 -->|"Yes"| n1
+    n5 -->|"No"| n3
+    class n1 userTask
+    class n2 endEvt
+    class n3 startEvt
+    class n4 startEvt
+    class n5 gateway
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
+<table>
+<thead>
+<tr>
+<th>Role / Lane</th>
+<th>Processes Involved</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Master Data Specialist</td>
+<td>LI-120-010_Determine_if_Material_or_Service_-_PTP,</td>
+<td></td>
+</tr>
+<tr>
+<td>Transportation Manager (Transportation Management)</td>
+<td>LI-120-030_Validate_BOL_against_shipment_received_-_PTP,</td>
+<td></td>
+</tr>
+<tr>
+<td>Warehouse Operator</td>
+<td>LI-120-030_Validate_BOL_against_shipment_received_-<em>PTP, LI-120-040_Unload_Material_Received</em>-<em>PTP, LI-120-050_Inspect_Material_for_Damage</em>(Prior_to_Receipt)<em>-_PTP, LI-120-060_Process_Damaged_Goods</em>-_PTP,</td>
+<td></td>
+</tr>
+<tr>
+<td>Receiving Agent</td>
+<td>LI-120-060_Process_Damaged_Goods_-<em>PTP, LI-120-140_Receive_Free_Samples</em>-_PTP,</td>
+<td></td>
+</tr>
+<tr>
+<td>Warehouse Clerk</td>
+<td>LI-120-070_File_Shipping_Claim_-_PTP,</td>
+<td></td>
+</tr>
+<tr>
+<td>Inventory Manager</td>
+<td>LI-120-090_Receive_Material_Against_Plant-to-Plant_Transfer_Order_-<em>PTP, LI-120-140_Receive_Free_Samples</em>-<em>PTP, LI-120-170_Check_Material_for_Proper_Quantity</em>-<em>PTP, LI-120-200_Reload_Shipment</em>-<em>PTP, LI-120-220_Receive_Actual_Count_Quantity</em>-_PTP</td>
+<td></td>
+</tr>
+<tr>
+<td>Sender</td>
+<td>LI-120-090_Receive_Material_Against_Plant-to-Plant_Transfer_Order_-_PTP,</td>
+<td></td>
+</tr>
+<tr>
+<td>Procurement Agent</td>
+<td>LI-120-140_Receive_Free_Samples_-_PTP,</td>
+<td></td>
+</tr>
+<tr>
+<td>Supplier</td>
+<td>LI-120-190_Resolve_Discrepancies_-_PTP,</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
+<h3 id="41-data-entities-ownership">4.1 Data Entities &amp; Ownership</h3>
+<p>The following data entities are derived from the system integration flows for LI-120. Tower architects should validate ownership and classification.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Data Entity</th>
+<th>Source System</th>
+<th>Target System</th>
+<th>Data Owner</th>
+<th>Classification</th>
+<th>Volume</th>
+<th>Master/Transaction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="42-data-flow-diagrams">4.2 Data Flow Diagrams</h3>
+<blockquote>
+<p><strong>DATA ARCHITECTURE</strong> — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.</p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h3 id="43-data-lineage">4.3 Data Lineage</h3>
+<p>Data lineage traces the origin and transformation path of key data objects across integrated systems.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Source System</th>
+<th>Source Schema/Object</th>
+<th>Target System</th>
+<th>Target Schema/Object</th>
+<th>Transformation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Lineage detail will be refined when tower architects validate source/target schema object mappings.</em></p>
+</blockquote>
+<h3 id="44-ricefw-data-objects">4.4 RICEFW Data Objects</h3>
+<p>Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Type</th>
+<th>Description</th>
+<th>Status</th>
+<th>Source</th>
+<th>Target</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PTPR1530_IP</td>
+<td>Report</td>
+<td>Develop a custom report in SAP S/4 HANA for auto PR to PO conversion failures&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPR1530_IF</td>
+<td>Report</td>
+<td>Develop a custom report in SAP S/4 HANA for auto PR to PO conversion failures&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGR0856</td>
+<td>Report</td>
+<td>Capital Call Ahead GAP Report​</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPM0008</td>
+<td>Conversion</td>
+<td>Quality Info record upload [T-Code - QI01]</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>PTPM0007</td>
+<td>Conversion</td>
+<td>Inspection Plan upload [T-Code - QP01]</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>PTPM0006</td>
+<td>Conversion</td>
+<td>Master Inspection Characteristics upload [T-Code - QS21]</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>PTPC0808_IP</td>
+<td>Conversion</td>
+<td>2379_Master Data Migration from ECC to S/4 to bring Approved Manufacturer Par&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPC0808_IF</td>
+<td>Conversion</td>
+<td>2379_Master Data Migration from ECC to S/4 to bring Approved Manufacturer Par&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPC0633</td>
+<td>Conversion</td>
+<td>Purchase Requisition Conversion from ECC to S/4 - IF</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPC0537_IP</td>
+<td>Conversion</td>
+<td>Purchasing Info Records Migration from ECC to S/4 – IF and IP</td>
+<td>10. Object Complete</td>
+<td>NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPC0537_IF</td>
+<td>Conversion</td>
+<td>Purchasing Info Records Migration from ECC to S/4 – IF and IP</td>
+<td>10. Object Complete</td>
+<td>NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPC0536_IP</td>
+<td>Conversion</td>
+<td>Source List Migration from ECC to S/4 – IF and IP</td>
+<td>10. Object Complete</td>
+<td>NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPC0536_IF</td>
+<td>Conversion</td>
+<td>Source List Migration from ECC to S/4 – IF and IP</td>
+<td>10. Object Complete</td>
+<td>NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPC0509_IP</td>
+<td>Conversion</td>
+<td>Open Contracts Migration from ECC to S/4 - IF and IP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>PTPC0509_IF</td>
+<td>Conversion</td>
+<td>Open Contracts Migration from ECC to S/4 - IF and IP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>PTPC0504_IP</td>
+<td>Conversion</td>
+<td>Quota Arrangement Migration from ECC to S/4 - IF and IP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPC0504_IF</td>
+<td>Conversion</td>
+<td>Quota Arrangement Migration from ECC to S/4 - IF and IP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPC0176_IP</td>
+<td>Conversion</td>
+<td>Open PO conversion from Legacy to SAP S/4</td>
+<td>10. Object Complete</td>
+<td>ECC</td>
+<td>S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPC0176_IF</td>
+<td>Conversion</td>
+<td>Open PO conversion from Legacy to SAP S/4</td>
+<td>10. Object Complete</td>
+<td>ECC</td>
+<td>S4</td>
+<td>03.Medium</td>
+</tr>
+</tbody>
+</table>
+<h3 id="45-data-governance-quality">4.5 Data Governance &amp; Quality</h3>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Approach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Ownership</td>
+<td>Per-entity owners listed in Section 3.1</td>
+</tr>
+<tr>
+<td>Data Classification</td>
+<td>Financial data classified as Intel Confidential</td>
+</tr>
+<tr>
+<td>Data Retention</td>
+<td>Per Intel corporate retention policies</td>
+</tr>
+<tr>
+<td>Data Quality</td>
+<td>Validated at source; reconciliation at target</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</h2>
+<h3 id="51-current-state-current-state-application-landscape">5.1 Current-State — Current-State Application Landscape</h3>
+<h4 id="overview">Overview</h4>
+<p>The Current-State architecture represents the <strong>current / legacy</strong> landscape for LI-120.</p>
+<div style="page-break-before: always;"></div>
+
+<h4 id="current-state-flow-narrative">Current-State Flow Narrative</h4>
+<p><em>(No current-state flows defined.)</em></p>
+<div style="page-break-before: always;"></div>
+
+<h3 id="52-future-state-future-state-application-landscape">5.2 Future-State — Future-State Application Landscape</h3>
+<h4 id="overview_1">Overview</h4>
+<p>The Future-State architecture represents the <strong>target</strong> landscape for LI-120.</p>
+<div style="page-break-before: always;"></div>
+
+<h4 id="future-state-flow-narrative">Future-State Flow Narrative</h4>
+<p><em>(No future-state flows defined.)</em></p>
+<div style="page-break-before: always;"></div>
+
+<h3 id="53-change-impact-summary">5.3 Change Impact Summary</h3>
+<table>
+<thead>
+<tr>
+<th>Change Type</th>
+<th>Flow Chain</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Totals</strong>: 0 new - 0 removed - 0 modified - 0 unchanged</p>
+<h3 id="54-component-overview">5.4 Component Overview</h3>
+<h4 id="system-inventory">System Inventory</h4>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>IAPM ID</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Type</th>
+<th>Description</th>
+<th>Status</th>
+<th>Source → Target</th>
+<th>Middleware</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PTPW0367_IP</td>
+<td>Workflow</td>
+<td>Workflow for Email Functionality and Notification to PO approver(IP)</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPW0367_IF</td>
+<td>Workflow</td>
+<td>Workflow for Email Functionality and Notification to PO approver(IF)</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPW0366_IP</td>
+<td>Workflow</td>
+<td>Workflow to trigger PO approvals in S4_IF</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPW0366_IF</td>
+<td>Workflow</td>
+<td>Workflow to trigger PO approvals in S4_IF</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPW0363_IP</td>
+<td>Workflow</td>
+<td>Workflow for Email Functionality and Notification to PR approver - IF</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPW0363_IF</td>
+<td>Workflow</td>
+<td>Workflow for Email Functionality and Notification to PR approver - IF</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPW0362_IP</td>
+<td>Workflow</td>
+<td>Workflow to Trigger PR approvals in S/4 – IF</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPW0362_IF</td>
+<td>Workflow</td>
+<td>Workflow to Trigger PR approvals in S/4 – IF</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPR1530_IP</td>
+<td>Report</td>
+<td>Develop a custom report in SAP S/4 HANA for auto PR to PO conversion failures&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPR1530_IF</td>
+<td>Report</td>
+<td>Develop a custom report in SAP S/4 HANA for auto PR to PO conversion failures&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPM0008</td>
+<td>Conversion</td>
+<td>Quality Info record upload [T-Code - QI01]</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>PTPM0007</td>
+<td>Conversion</td>
+<td>Inspection Plan upload [T-Code - QP01]</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>PTPM0006</td>
+<td>Conversion</td>
+<td>Master Inspection Characteristics upload [T-Code - QS21]</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>PTPI1689</td>
+<td>Interface</td>
+<td>New custom API needed to process GET and DELETE function for Document Info Re&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>Apigee</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI1657</td>
+<td>Interface</td>
+<td>Interface to send Invoice PAID Status from CFIN to IP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI1533</td>
+<td>Interface</td>
+<td>Pay@accept – Inbound Interface to fetch the values from FCE ODS to SAP S/4 HA&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>APIGEE</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI1529_IP</td>
+<td>Interface</td>
+<td>An interface to retrieve the list of approvers from a custom MDG table(MDG sy&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI1529_IF</td>
+<td>Interface</td>
+<td>An interface to retrieve the list of approvers from a custom MDG table(MDG sy&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI1458</td>
+<td>Interface</td>
+<td>Develop an interface between PEGA and S/4 HANA system to transmit MSL informa&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI1428_IP</td>
+<td>Interface</td>
+<td>Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t&hellip;</td>
+<td>10. Object Complete</td>
+<td>→ S/4</td>
+<td>APIGEE</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI1428_IF</td>
+<td>Interface</td>
+<td>Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t&hellip;</td>
+<td>10. Object Complete</td>
+<td>→ S/4</td>
+<td>APIGEE</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI1331_IP</td>
+<td>Interface</td>
+<td>Ariba POs Goods Receipts to be sent from WIINGS to S/4 for R4 sites</td>
+<td>10. Object Complete</td>
+<td>WIINGS → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI1331_IF</td>
+<td>Interface</td>
+<td>Ariba POs Goods Receipts to be sent from WIINGS to S/4 for R4 sites</td>
+<td>10. Object Complete</td>
+<td>WIINGS → S/4</td>
+<td>MULESOFT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI1329_IP</td>
+<td>Interface</td>
+<td>FSD to change Purchase Order information from B2B Staging DB ePO from S4 IP</td>
+<td>10. Object Complete</td>
+<td>S/4 → Stagging DB</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI1329_IF</td>
+<td>Interface</td>
+<td>FSD to change Purchase Order information from B2B Staging DB ePO from S4 IF</td>
+<td>10. Object Complete</td>
+<td>S/4 → Stagging DB</td>
+<td>MULESOFT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI1308_IP</td>
+<td>Interface</td>
+<td>FSD to publish SAP Contracts pricing condition details to Web Contract - IP</td>
+<td>10. Object Complete</td>
+<td>S/4 → WebContract</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI1308_IF</td>
+<td>Interface</td>
+<td>FSD to publish SAP Contracts pricing condition details to Web Contract - IF</td>
+<td>10. Object Complete</td>
+<td>S/4 → WebContract</td>
+<td>MULESOFT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI1307_IP</td>
+<td>Interface</td>
+<td>FSD to publish SAP Contracts changes details to Web Contract - IP</td>
+<td>10. Object Complete</td>
+<td>S/4 → WebContract</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI1307_IF</td>
+<td>Interface</td>
+<td>FSD to publish SAP Contracts changes details to Web Contract - IF</td>
+<td>10. Object Complete</td>
+<td>S/4 → WebContract</td>
+<td>MULESOFT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI1171</td>
+<td>Interface</td>
+<td>Get Material details from IF to METs/SOM</td>
+<td>10. Object Complete</td>
+<td>S/4 → METs/SOM</td>
+<td>APIGEE</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI1170</td>
+<td>Interface</td>
+<td>Get Source List details from IF to METs/SOM</td>
+<td>10. Object Complete</td>
+<td>METs/SOM → S/4</td>
+<td>APIGEE</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI1169</td>
+<td>Interface</td>
+<td>Read Outline Agreement (OA) from IF in METs/SOM app.</td>
+<td>10. Object Complete</td>
+<td>S/4 → METs/SOM</td>
+<td>APIGEE</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI1168</td>
+<td>Interface</td>
+<td>Get PO details from IF to METs/SOM</td>
+<td>10. Object Complete</td>
+<td>S/4 → METs/SOM</td>
+<td>APIGEE</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI1167</td>
+<td>Interface</td>
+<td>Maintain PR in IF from METs/SOM</td>
+<td>10. Object Complete</td>
+<td>METs/SOM → S/4</td>
+<td>APIGEE</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI1154</td>
+<td>Interface</td>
+<td>ILM to SAP S4 Interface – Assigning Material to Inspection Plan</td>
+<td>10. Object Complete</td>
+<td>ILM → S/4</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI1153</td>
+<td>Interface</td>
+<td>Interface from ILM to SAP S/4 - Create/Modify Quality Info records</td>
+<td>10. Object Complete</td>
+<td>ILM → S/4</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI1152</td>
+<td>Interface</td>
+<td>Develop an interface to create PO/STO from IRIS Non-Standard Request to S/4 Hana</td>
+<td>10. Object Complete</td>
+<td>IRIS → S/4</td>
+<td>APIGEE</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI1138</td>
+<td>Interface</td>
+<td>This interface is required to trigger split account assigned Purchase Requisi&hellip;</td>
+<td>10. Object Complete</td>
+<td>MySamples → S/4</td>
+<td>APIGEE</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI1137_IP</td>
+<td>Interface</td>
+<td>Interface between S4 to Boundary Apps (Customs Tracker and PEGA-ISMQ) for rea&hellip;</td>
+<td>10. Object Complete</td>
+<td>ILM → S/4</td>
+<td>MULESOFT</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI1137_IF</td>
+<td>Interface</td>
+<td>Interface between S4 to Boundary Apps (Customs Tracker and PEGA-ISMQ) for rea&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → Boundary Apps (Customs Tracker and PEGA-ISMQ</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI1134</td>
+<td>Interface</td>
+<td>Inbound Interface from E2Open to IF – Intel Foundry in S/4 to bring shipping &hellip;</td>
+<td>10. Object Complete</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI1128_IP</td>
+<td>Interface</td>
+<td>Interface to send Ariba PO closure status information from S4 to Ariba</td>
+<td>10. Object Complete</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI1128_IF</td>
+<td>Interface</td>
+<td>Interface to send Ariba PO closure status information from S4 to Ariba</td>
+<td>10. Object Complete</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI1032</td>
+<td>Interface</td>
+<td>MQCS data pull Interface</td>
+<td>10. Object Complete</td>
+<td>MQCS → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0825</td>
+<td>Interface</td>
+<td>Get Purchase Group details from IF to CWB</td>
+<td>10. Object Complete</td>
+<td>S/4 → CWB</td>
+<td>MULESOFT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0823</td>
+<td>Interface</td>
+<td>Get Purchase Req Details from IF to CWB</td>
+<td>10. Object Complete</td>
+<td>S/4 → CWB</td>
+<td>APIGEE</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0822_IP</td>
+<td>Interface</td>
+<td>Ariba Invoice Integration through (CIG - Cloud Integration Gateway (Currently&hellip;</td>
+<td>10. Object Complete</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0822_IF</td>
+<td>Interface</td>
+<td>Ariba Invoice Integration through (CIG - Cloud Integration Gateway (Currently&hellip;</td>
+<td>10. Object Complete</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0821_IP</td>
+<td>Interface</td>
+<td>Invoice Status Update from SAP S/4 to Ariba Network through CIG - Cloud Integ&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0821_IF</td>
+<td>Interface</td>
+<td>Invoice Status Update from SAP S/4 to Ariba Network through CIG - Cloud Integ&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0820_IP</td>
+<td>Interface</td>
+<td>Carbon Copy Invoice Integration from SAP S/4 to Ariba Network</td>
+<td>10. Object Complete</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0820_IF</td>
+<td>Interface</td>
+<td>Carbon Copy Invoice Integration from SAP S/4 to Ariba Network</td>
+<td>10. Object Complete</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0819_IP</td>
+<td>Interface</td>
+<td>Intel B2B – XML (3C7) Notify of Self Billing Invoice – Interface to send noti&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0819_IF</td>
+<td>Interface</td>
+<td>Intel B2B – XML (3C7) Notify of Self Billing Invoice – Interface to send noti&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0817_IP</td>
+<td>Interface</td>
+<td>Purchasing Services Fiori Catalog</td>
+<td>10. Object Complete</td>
+<td>S/4 → Shopping@Intel</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0817_IF</td>
+<td>Interface</td>
+<td>Purchasing Services Fiori Catalog</td>
+<td>10. Object Complete</td>
+<td>S/4 → Shopping@Intel</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0816_IP</td>
+<td>Interface</td>
+<td>Intel WebSuite - Web PO – Interface to display Purchase Order information fro&hellip;</td>
+<td>10. Object Complete</td>
+<td>Stagging DB → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0816_IF</td>
+<td>Interface</td>
+<td>Intel WebSuite - Web PO – Interface to display Purchase Order information fro&hellip;</td>
+<td>10. Object Complete</td>
+<td>Stagging DB → S/4</td>
+<td>MULESOFT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0812_IP</td>
+<td>Interface</td>
+<td>Intel WebSuite - Web Forecast – Interface to display Purchase Order informati&hellip;</td>
+<td>10. Object Complete</td>
+<td>Intel WebSuite Web Contract → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0812_IF</td>
+<td>Interface</td>
+<td>Intel WebSuite - Web Forecast – Interface to display Purchase Order informati&hellip;</td>
+<td>10. Object Complete</td>
+<td>Intel WebSuite Web Contract → S/4</td>
+<td>MULESOFT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0735_IP</td>
+<td>Interface</td>
+<td>Ariba/Capital PO details to be retrieved from SAP S/4 at the time of receivin&hellip;</td>
+<td>10. Object Complete</td>
+<td>WIINGS → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0735_IF</td>
+<td>Interface</td>
+<td>Ariba/Capital PO details to be retrieved from SAP S/4 at the time of receivin&hellip;</td>
+<td>10. Object Complete</td>
+<td>WIINGS → S/4</td>
+<td>MULESOFT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0710_IP</td>
+<td>Interface</td>
+<td>S4 Manual Invoice Release Blocking functionality requires connection with GTT&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → GTT (Custom Tracker)</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0710_IF</td>
+<td>Interface</td>
+<td>S4 Manual Invoice Release Blocking functionality requires connection with GTT&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → GTT (Custom Tracker)</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0709_IP</td>
+<td>Interface</td>
+<td>Ariba Asset Settlement Interface</td>
+<td>10. Object Complete</td>
+<td>Shopping@Intel → S/4</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0709_IF</td>
+<td>Interface</td>
+<td>Ariba Asset Settlement Interface</td>
+<td>10. Object Complete</td>
+<td>Shopping@Intel → S/4</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0692_IP</td>
+<td>Interface</td>
+<td>Custom program to send configurations from S4 system to Illumis</td>
+<td>10. Object Complete</td>
+<td>S/4 → Accounts Payable Recovery Tool</td>
+<td>SFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0692_IF</td>
+<td>Interface</td>
+<td>Custom program to send configurations from S4 system to Illumis</td>
+<td>10. Object Complete</td>
+<td>S/4 → Accounts Payable Recovery Tool</td>
+<td>SFT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0691_IP</td>
+<td>Interface</td>
+<td>Custom program to send the supplier master data from S4 system to Illumis.</td>
+<td>10. Object Complete</td>
+<td>S/4 → Accounts Payable Recovery Tool</td>
+<td>SFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0691_IF</td>
+<td>Interface</td>
+<td>Custom program to send the supplier master data from S4 system to Illumis.</td>
+<td>10. Object Complete</td>
+<td>S/4 → Accounts Payable Recovery Tool</td>
+<td>SFT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0685</td>
+<td>Interface</td>
+<td>Custom program to send the Transactions (Invoices) from IF system to Illumis</td>
+<td>10. Object Complete</td>
+<td>S/4 → Accounts Payable Recovery Tool</td>
+<td>SFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0671</td>
+<td>Interface</td>
+<td>Interface to automatically create VMI PO &amp; IB delivery in S/4 (IF and IP) via&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0568</td>
+<td>Interface</td>
+<td>Maintain Purchasing Info Record in IF from Pega PSI</td>
+<td>10. Object Complete</td>
+<td>PEGA PSI → S/4</td>
+<td>APIGEE</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0567</td>
+<td>Interface</td>
+<td>Get Material Master details from IF to Pega PSI</td>
+<td>10. Object Complete</td>
+<td>S/4 → PEGA PSI</td>
+<td>APIGEE</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0566</td>
+<td>Interface</td>
+<td>Maintain Outline Agreement in IF from Pega PSI</td>
+<td>10. Object Complete</td>
+<td>PEGA PSI → S/4</td>
+<td>APIGEE</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0559_IP</td>
+<td>Interface</td>
+<td>All Validation of Chemical purchases on non MRP PR by using integration betwe&hellip;</td>
+<td>10. Object Complete</td>
+<td>ICHEM → S/4</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0559_IF</td>
+<td>Interface</td>
+<td>All Validation of Chemical purchases on non MRP PR by using integration betwe&hellip;</td>
+<td>10. Object Complete</td>
+<td>ICHEM → S/4</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0494</td>
+<td>Interface</td>
+<td>Maintain PO in IF from CWB</td>
+<td>10. Object Complete</td>
+<td>CWB → S/4</td>
+<td>APIGEE</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>PTPI0473</td>
+<td>Interface</td>
+<td>Demand Change - Automatic update of PR/PO/STR/STO/Scheduling agreement and Pr&hellip;</td>
+<td>06. Dev In Progress</td>
+<td>NA → NA</td>
+<td>Mulesoft</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0470</td>
+<td>Interface</td>
+<td>Payment Proposal after invoice posted from SAP S/4 HANA CFIN to Ariba</td>
+<td>10. Object Complete</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0469</td>
+<td>Interface</td>
+<td>Payment Remittance after payment posted from CFIN to IP/IF and from IP/IF to &hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0468</td>
+<td>Interface</td>
+<td>Payment Status after payment is cancelled / Void from CFIN to IP / IF and Fro&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0467</td>
+<td>Interface</td>
+<td>Maintain Outline Agreement in IF from EMS</td>
+<td>10. Object Complete</td>
+<td>EMS → S/4</td>
+<td>APIGEE</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0466_IP</td>
+<td>Interface</td>
+<td>Payment Remittance after payment posted from CFIN to IP/IF for Readsoft</td>
+<td>10. Object Complete</td>
+<td>S/4 → Readsoft</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0466_IF</td>
+<td>Interface</td>
+<td>Payment Remittance after payment posted from CFIN to IP/IF for Readsoft</td>
+<td>10. Object Complete</td>
+<td>S/4 → Readsoft</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0463_IP</td>
+<td>Interface</td>
+<td>GR Carbon Copy (Posted in S4)</td>
+<td>10. Object Complete</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0463_IF</td>
+<td>Interface</td>
+<td>GR Carbon Copy (Posted in S4)</td>
+<td>10. Object Complete</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0452</td>
+<td>Interface</td>
+<td>Get Material Master alternate UOM details from IF to CWB</td>
+<td>10. Object Complete</td>
+<td>S/4 → CWB</td>
+<td>APIGEE</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0449</td>
+<td>Interface</td>
+<td>Maintain Outline Agreement in IF from CWB</td>
+<td>10. Object Complete</td>
+<td>CWB → S/4</td>
+<td>APIGEE</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>PTPI0448</td>
+<td>Interface</td>
+<td>Maintain Purchasing Info Record in IF from CWB</td>
+<td>10. Object Complete</td>
+<td>CWB → S/4</td>
+<td>APIGEE</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0388_IP</td>
+<td>Interface</td>
+<td>Custom program to send the Purchase order from SAP S4 system to Illumis</td>
+<td>10. Object Complete</td>
+<td>S/4 → Accounts Payable Recovery Tool</td>
+<td>SFT</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0388_IF</td>
+<td>Interface</td>
+<td>Custom program to send the Purchase order from SAP S4 system to Illumis</td>
+<td>10. Object Complete</td>
+<td>S/4 → Accounts Payable Recovery Tool</td>
+<td>SFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0386</td>
+<td>Interface</td>
+<td>Maintain Document Info Record in IF from CWB</td>
+<td>10. Object Complete</td>
+<td>CWB → S/4</td>
+<td>APIGEE</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0384</td>
+<td>Interface</td>
+<td>Create Document Info Record in IF from EMS</td>
+<td>10. Object Complete</td>
+<td>Equipment Management System → S/4</td>
+<td>APIGEE</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0382</td>
+<td>Interface</td>
+<td>Get OA determination by material from IF to CWB</td>
+<td>10. Object Complete</td>
+<td>Commercial Workbench → S/4</td>
+<td>APIGEE</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0370</td>
+<td>Interface</td>
+<td>Get OA determination by material from IF to EMS</td>
+<td>10. Object Complete</td>
+<td>S/4 → Equipment Management System</td>
+<td>APIGEE</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0369</td>
+<td>Interface</td>
+<td>Develop an interface to send inventory reports and MRP parameters from S4(IF)&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0368</td>
+<td>Interface</td>
+<td>Automatic creation of Discrete PO &amp; IB delivery when supplier initiates shipm&hellip;</td>
+<td>10. Object Complete</td>
+<td>E2open → S/4</td>
+<td>MULESOFT</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0272</td>
+<td>Interface</td>
+<td>Get Material Master details from IF to EMS</td>
+<td>10. Object Complete</td>
+<td>S/4 → EMS</td>
+<td>APIGEE</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0271</td>
+<td>Interface</td>
+<td>Get Material Master details from IF to SIRFIS</td>
+<td>10. Object Complete</td>
+<td>S/4 → SIRFIS</td>
+<td>APIGEE</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0269_IP</td>
+<td>Interface</td>
+<td>Supplier Onboarding Data - IF</td>
+<td>10. Object Complete</td>
+<td>Shopping@Intel → S/4</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0269_IF</td>
+<td>Interface</td>
+<td>Supplier Onboarding Data - IP</td>
+<td>10. Object Complete</td>
+<td>Shopping@Intel → S/4</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0269_CFIN</td>
+<td>Interface</td>
+<td>Supplier Onboarding Data - CFIN</td>
+<td>10. Object Complete</td>
+<td>Shopping@Intel → S/4</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0266</td>
+<td>Interface</td>
+<td>Get PO details from IF to EMS</td>
+<td>10. Object Complete</td>
+<td>S/4 → EMS</td>
+<td>APIGEE</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0263</td>
+<td>Interface</td>
+<td>Maintain PR in IF from EMS</td>
+<td>10. Object Complete</td>
+<td>EMS → S/4</td>
+<td>APIGEE</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0262</td>
+<td>Interface</td>
+<td>Get PR details from IF to EMS</td>
+<td>10. Object Complete</td>
+<td>S/4 → EMS</td>
+<td>APIGEE</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0261</td>
+<td>Interface</td>
+<td>Get PR details from IF to SIRFIS</td>
+<td>10. Object Complete</td>
+<td>S/4 → SIRFIS</td>
+<td>APIGEE</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0211_IP</td>
+<td>Interface</td>
+<td>Outbound interface to publish SAP Contracts details to Web Contract - IP</td>
+<td>10. Object Complete</td>
+<td>S/4 → WebContract</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0211_IF</td>
+<td>Interface</td>
+<td>Outbound interface to publish SAP Contracts details to Web Contract - IF</td>
+<td>10. Object Complete</td>
+<td>S/4 → WebContract</td>
+<td>MULESOFT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0144_IP</td>
+<td>Interface</td>
+<td>Interface from E2Open to S4 to publish supplier commits against Purchase Order</td>
+<td>10. Object Complete</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0144_IF</td>
+<td>Interface</td>
+<td>Interface from E2Open to S4 to publish supplier commits against Purchase Order</td>
+<td>10. Object Complete</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0140_IP</td>
+<td>Interface</td>
+<td>Interface from S4 to E2Open to send SA delivery schedule lines</td>
+<td>10. Object Complete</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0140_IF</td>
+<td>Interface</td>
+<td>Interface from S4 to E2Open to send SA delivery schedule lines</td>
+<td>10. Object Complete</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0138</td>
+<td>Interface</td>
+<td>Interface from S4 to OpenText to send new purchase orders &amp; purchase order ch&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → GXS (Open text)</td>
+<td>MULESOFT</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0136_IP</td>
+<td>Interface</td>
+<td>Interface from S4 to E2open to send new purchase orders, purchase order chang&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0136_IF</td>
+<td>Interface</td>
+<td>Interface from S4 to E2open to send new purchase orders, purchase order chang&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0134_IP</td>
+<td>Interface</td>
+<td>Interface from S4 to E2Open for SIMS Master Data &amp; supply demand elements</td>
+<td>10. Object Complete</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0134_IF</td>
+<td>Interface</td>
+<td>Interface from S4 to E2Open for SIMS Master Data &amp; supply demand elements</td>
+<td>10. Object Complete</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0133</td>
+<td>Interface</td>
+<td>Get OA determination by material from IF to SIRFIS</td>
+<td>10. Object Complete</td>
+<td>SIRFIS → S/4</td>
+<td>APIGEE</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0131</td>
+<td>Interface</td>
+<td>Get Outline Agreement data from IF to SIRFIS</td>
+<td>10. Object Complete</td>
+<td>SIRFIS → S/4</td>
+<td>APIGEE</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0111_IP</td>
+<td>Interface</td>
+<td>PO change (Custom logic)</td>
+<td>10. Object Complete</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0111_IF</td>
+<td>Interface</td>
+<td>PO change (Custom logic)</td>
+<td>10. Object Complete</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0110</td>
+<td>Interface</td>
+<td>Get PO details from IF to SIRFIS</td>
+<td>10. Object Complete</td>
+<td>SIRFIS → S/4</td>
+<td>APIGEE</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPI0107_IP</td>
+<td>Interface</td>
+<td>PO Cancel</td>
+<td>10. Object Complete</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0107_IF</td>
+<td>Interface</td>
+<td>PO Cancel</td>
+<td>10. Object Complete</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0103_IP</td>
+<td>Interface</td>
+<td>PO create (Custom logic)</td>
+<td>10. Object Complete</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0103_IF</td>
+<td>Interface</td>
+<td>PO create (Custom logic)</td>
+<td>10. Object Complete</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0100_IP</td>
+<td>Interface</td>
+<td>PR Cancel</td>
+<td>10. Object Complete</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0100_IF</td>
+<td>Interface</td>
+<td>PR Cancel</td>
+<td>10. Object Complete</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0098_IP</td>
+<td>Interface</td>
+<td>PR change (Custom logic)</td>
+<td>10. Object Complete</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0098_IF</td>
+<td>Interface</td>
+<td>PR change (Custom logic)</td>
+<td>10. Object Complete</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0096_IP</td>
+<td>Interface</td>
+<td>PR creation (budget check, custom logic)</td>
+<td>10. Object Complete</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0096_IF</td>
+<td>Interface</td>
+<td>PR creation (budget check, custom logic)</td>
+<td>10. Object Complete</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0094_IP</td>
+<td>Interface</td>
+<td>validate and enrich (PR - master data and custom code)</td>
+<td>10. Object Complete</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0094_IF</td>
+<td>Interface</td>
+<td>validate and enrich (PR - master data and custom code)</td>
+<td>10. Object Complete</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>MULESOFT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0092_IP</td>
+<td>Interface</td>
+<td>Transfer of Ownership (change Ariba PR/PO)</td>
+<td>10. Object Complete</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>APIGEE</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0092_IF</td>
+<td>Interface</td>
+<td>Transfer of Ownership (change Ariba PR/PO)</td>
+<td>10. Object Complete</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>APIGEE</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPI0018</td>
+<td>Interface</td>
+<td>SAP S4 IF Boundary App Interface for updating Requested Dock Date (RDD) for C&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → SIRFIS</td>
+<td>APIGEE</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPI0017</td>
+<td>Interface</td>
+<td>SAP S4 IF Boundary App Interface for updating POChange/PODeliveryDates - PO S&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → SIRFIS</td>
+<td>APIGEE</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPF1384</td>
+<td>Form</td>
+<td>Exception Notification – Label printing functionality – IF only</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPF0014_IP</td>
+<td>Form</td>
+<td>PO Output Form Customization - IP</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPF0014_IF</td>
+<td>Form</td>
+<td>PO Output Form Customization - IF</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1700</td>
+<td>Enhancement</td>
+<td>Enhancement required in the purchase order (change only) to validate if the u&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1699</td>
+<td>Enhancement</td>
+<td>Enhancement required in the purchase requisition (change only) to validate if&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1687</td>
+<td>Enhancement</td>
+<td>Automate Warranty Credit Memo Posting</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1656</td>
+<td>Enhancement</td>
+<td>Enhancement to Update Invoice PAID Status from CFIN to IF &amp; IP ARIBA Standard&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1644</td>
+<td>Enhancement</td>
+<td>New Enhancement required for to make PO price updates for HVM OSAT and SIFO o&hellip;</td>
+<td>06. Dev In Progress</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPE1628_IP</td>
+<td>Enhancement</td>
+<td>INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparis&hellip;</td>
+<td>08. FUT In Progress</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE1628_IF</td>
+<td>Enhancement</td>
+<td>INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparis&hellip;</td>
+<td>08. FUT In Progress</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1622</td>
+<td>Enhancement</td>
+<td>Enhancement to update Purchase document amount into USD when BAPP pull data f&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1621</td>
+<td>Enhancement</td>
+<td>Enhancement to deleting all entries from ESH_SR_LTXT and ESH_SR_TXT_OBJ, runn&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE1606_IP</td>
+<td>Enhancement</td>
+<td>Custom enhancement to edit the posted accounting document for Payment Term, B&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1606_IF</td>
+<td>Enhancement</td>
+<td>Custom enhancement to edit the posted accounting document for Payment Term, B&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE1606_CFIN</td>
+<td>Enhancement</td>
+<td>Custom enhancement to edit the posted accounting document for Payment Term, B&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1603</td>
+<td>Enhancement</td>
+<td>Enhancement to Auto block the Expired Batches in IM Locations</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1532</td>
+<td>Enhancement</td>
+<td>Enhancement required in the purchase order (change only) to validate if the u&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1531</td>
+<td>Enhancement</td>
+<td>Enhancement required in the purchase requisition (change only) to validate if&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1495_IP</td>
+<td>Enhancement</td>
+<td>Enhancement required for ORDERS05 IDOC applicable for PO outbound from S4 to &hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1495_IF</td>
+<td>Enhancement</td>
+<td>Enhancement required for ORDERS05 IDOC applicable for PO outbound from S4 to &hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE1494_IP</td>
+<td>Enhancement</td>
+<td>Enhancement to trigger Output type which will generate IDOC once GR or GR rev&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1494_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to trigger Output type which will generate IDOC once GR or GR rev&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE1465_IP</td>
+<td>Enhancement</td>
+<td>Enhancement to Get Purchase order details like Payee, Supnam, Purchase group &hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1465_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to Get Purchase order details like Payee, Supnam, Purchase group &hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE1452_IP</td>
+<td>Enhancement</td>
+<td>Enhancement to create AMPL (Approved manufacturer part list ) in S/4 using ex&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPE1452_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to create AMPL (Approved manufacturer part list ) in S/4 using ex&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1440_IP</td>
+<td>Enhancement</td>
+<td>Custom program to generate a PDF printout of SAP self-billing invoices (ERS/C&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1440_IF</td>
+<td>Enhancement</td>
+<td>Custom program to generate a PDF printout of SAP self-billing invoices (ERS/C&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE1437_IP</td>
+<td>Enhancement</td>
+<td>Enhancement required to populate custom logic for BLAORD (PTPI0211_IP_IF).</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1437_IF</td>
+<td>Enhancement</td>
+<td>Enhancement required to populate custom logic for BLAORD (PTPI0211_IP_IF).</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE1436_IP</td>
+<td>Enhancement</td>
+<td>Enhancement required to populate custom logic for BLAOCH (PTPI0211_IP_IF).</td>
+<td>99. Rejected/Cancelled/On Hold</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1436_IF</td>
+<td>Enhancement</td>
+<td>Enhancement required to populate custom logic for BLAOCH (PTPI0211_IP_IF).</td>
+<td>99. Rejected/Cancelled/On Hold</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE1424_IP</td>
+<td>Enhancement</td>
+<td>Enhancement for I-chem PR creation from Ariba until R5 go-live</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1424_IF</td>
+<td>Enhancement</td>
+<td>Enhancement for I-chem PR creation from Ariba until R5 go-live</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE1422_IP</td>
+<td>Enhancement</td>
+<td>Enhancement to Update Invoice PAID Status from CFIN to IF &amp; IP ARIBA Standard&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1422_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to Update Invoice PAID Status from CFIN to IF &amp; IP ARIBA Standard&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE1343</td>
+<td>Enhancement</td>
+<td>Enhancement required to maintain the list of approved suppliers for copper ma&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1195_IP</td>
+<td>Enhancement</td>
+<td>Enhancement to auto close Purchase Orders based on policy criteria , executed&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1195_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to auto close Purchase Orders based on policy criteria , executed&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE1139_IP</td>
+<td>Enhancement</td>
+<td>Custom Enhancements for Payment Proposal, payment remittance, payment status,&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE1139_IF</td>
+<td>Enhancement</td>
+<td>Custom Enhancements for Payment Proposal, payment remittance, payment status,&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE1139_CFIN</td>
+<td>Enhancement</td>
+<td>Custom Enhancements for Payment Proposal, payment remittance, payment status,&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1135_IP</td>
+<td>Enhancement</td>
+<td>Enhancement required while triggering the COND_A idoc for contracts (PTPI0211&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1135_IF</td>
+<td>Enhancement</td>
+<td>Enhancement required while triggering the COND_A idoc for contracts (PTPI0211&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1133</td>
+<td>Enhancement</td>
+<td>Enhancement to Get Purchase group email address details from IF system to CWB.</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE1120</td>
+<td>Enhancement</td>
+<td>Enhancement required to automatically create and change subcon purchase requi&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE1107</td>
+<td>Enhancement</td>
+<td>Enhancement required to automatically create and change subcon purchase order&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1099</td>
+<td>Enhancement</td>
+<td>Exception Notification – Label printing functionality – IF only</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1050_IP</td>
+<td>Enhancement</td>
+<td>BADI Enhancement for PR PO Approval Workflow</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1050_IF</td>
+<td>Enhancement</td>
+<td>BADI Enhancement for PR PO Approval Workflow</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1049_IP</td>
+<td>Enhancement</td>
+<td>Enhancement to create custom field on Purchase Order Header Table to store Ap&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1049_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to create custom field on Purchase Order Header Table to store Ap&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1036</td>
+<td>Enhancement</td>
+<td>Batch update Program</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1033</td>
+<td>Enhancement</td>
+<td>UD Enhancement</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1031</td>
+<td>Enhancement</td>
+<td>Send email notification with details of task for Quality notification – IF only</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1030</td>
+<td>Enhancement</td>
+<td>Creation of Return PO from Action box within Notification – IF only</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1029</td>
+<td>Enhancement</td>
+<td>Creation of Notification as a follow up action with rejection codes – IF only</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPE1009</td>
+<td>Enhancement</td>
+<td>Returns to 3PL</td>
+<td>99. Rejected/Cancelled/On Hold</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE0977</td>
+<td>Enhancement</td>
+<td>Develop app/transaction to Automate the stock from ‘Unrestricted/Blocked to Q&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0962</td>
+<td>Enhancement</td>
+<td>Enhancement required to automatically create return purchase orders based on &hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0961</td>
+<td>Enhancement</td>
+<td>Enhancement required to automatically create rework or repair and replacement&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0958_IP</td>
+<td>Enhancement</td>
+<td>Activating the Final Invoice Indicator at PO Level SAP S/4 HANA - IP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0958_IF</td>
+<td>Enhancement</td>
+<td>Activating the Final Invoice Indicator at PO Level - SAP S/4 HANA - IF</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE0941_IP</td>
+<td>Enhancement</td>
+<td>Enhancement to capture material price from receiving plant in Intercompany STO.</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0941_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to capture material price from receiving plant in Intercompany STO.</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE0919_IP</td>
+<td>Enhancement</td>
+<td>Enhancement to trigger Output type which will generate IDOC once GR or GR rev&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0919_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to trigger Output type which will generate IDOC once GR or GR rev&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE0826</td>
+<td>Enhancement</td>
+<td>Enhancement required for FS-PTPI0017_IF, PTPI0018 to update the EKPO-VSART Field</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0790_IP</td>
+<td>Enhancement</td>
+<td>Enhancement to enrich or remove transactions from Intrastat arrival declarati&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0790_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to enrich or remove transactions from Intrastat arrival declarati&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0745_IP</td>
+<td>Enhancement</td>
+<td>Quota Arrangement Mass Upload Tool Functionality IP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPE0745_IF</td>
+<td>Enhancement</td>
+<td>Quota Arrangement Mass Upload Tool Functionality IF</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0744_IP</td>
+<td>Enhancement</td>
+<td>PIR Mass Upload Tool Functionality IP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPE0744_IF</td>
+<td>Enhancement</td>
+<td>PIR Mass Upload Tool Functionality IF</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0743_IP</td>
+<td>Enhancement</td>
+<td>OA Mass Upload Tool Functionality IP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPE0743_IF</td>
+<td>Enhancement</td>
+<td>OA Mass Upload Tool Functionality IF</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0733_IP</td>
+<td>Enhancement</td>
+<td>Enhancement to validate the user that creates/edits the PO cannot make themse&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0733_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to validate the user that creates/edits the PO cannot make themse&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE0732</td>
+<td>Enhancement</td>
+<td>Pay@Accept Custom Program to release the invoice - SAP S/4 HANA IP and IF</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0731_IP</td>
+<td>Enhancement</td>
+<td>Enhancement on Goods Receipts created from S4 (IF-IP) to Ariba Network</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0731_IF</td>
+<td>Enhancement</td>
+<td>Enhancement on Goods Receipts created from S4 (IF-IP) to Ariba Network</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE0730_IP</td>
+<td>Enhancement</td>
+<td>PR and PO interface enhancements to support Ariba Asset Interface</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0730_IF</td>
+<td>Enhancement</td>
+<td>PR and PO interface enhancements to support Ariba Asset Interface</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE0729_IP</td>
+<td>Enhancement</td>
+<td>Enhancement - Transfer of ownership Interface</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0729_IF</td>
+<td>Enhancement</td>
+<td>Enhancement - Transfer of ownership Interface</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE0727_IP</td>
+<td>Enhancement</td>
+<td>Source List Data Mass Upload Tool Functionality IP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPE0727_IF</td>
+<td>Enhancement</td>
+<td>Source List Data Mass Upload Tool Functionality IF</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0726_IP</td>
+<td>Enhancement</td>
+<td>Enhancement to validate enabled supplier details to trigger Ariba relevant in&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE0726_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to validate enabled supplier details to trigger Ariba relevant in&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE0726_CFIN</td>
+<td>Enhancement</td>
+<td>Enhancement to validate enabled supplier details to trigger Ariba relevant in&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0707</td>
+<td>Enhancement</td>
+<td>PR workflow Custom Table enhancement</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0706_IP</td>
+<td>Enhancement</td>
+<td>Enhancement to Post Goods Receipt for the converted Ariba Purchase Orders in &hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPE0706_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to Post Goods Receipt for the converted Ariba Purchase Orders in &hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0656_IP</td>
+<td>Enhancement</td>
+<td>Enhancement on Purchase Orders Created or Changed from Ariba to S4 (IF-IP)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0656_IF</td>
+<td>Enhancement</td>
+<td>Enhancement on Purchase Orders Created or Changed from Ariba to S4 (IF-IP)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE0606_IP</td>
+<td>Enhancement</td>
+<td>Enhancement to create idoc extension for payload header info to send data to &hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPE0606_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to create idoc extension for payload header info to send data to &hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0558_IP</td>
+<td>Enhancement</td>
+<td>Enhancements for chemical purchases on non MRP PR’s.</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0558_IF</td>
+<td>Enhancement</td>
+<td>Enhancements for chemical purchases on non MRP PR’s.</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE0543_IP</td>
+<td>Enhancement</td>
+<td>Enhancement required for ORDERS05 IDOC applicable for PO outbound from S4 to &hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0543_IF</td>
+<td>Enhancement</td>
+<td>Enhancement required for ORDERS05 IDOC applicable for PO outbound from S4 to &hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE0472_IP</td>
+<td>Enhancement</td>
+<td>Enhancement to map correct plant and user ID’s for Ariba PR replication in S4</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0472_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to map correct plant and user ID’s for Ariba PR replication in S4</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE0471</td>
+<td>Enhancement</td>
+<td>Review the auto reversal of payment documents, Reset clearing of invoice and &hellip;</td>
+<td>99. Rejected/Cancelled/On Hold</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPE0371_IP</td>
+<td>Enhancement</td>
+<td>Standard BTE for Manage Supplier Line items to add the PO and Supplier name -&hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE0371_IF</td>
+<td>Enhancement</td>
+<td>Standard BTE for Manage Supplier Line items to add the PO and Supplier name -&hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE0371_CFIN</td>
+<td>Enhancement</td>
+<td>Standard BTE for Manage Supplier Line items to add the PO and Supplier name -&hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0365</td>
+<td>Enhancement</td>
+<td>Enhancement for populating DPAS data on Purchase Requisition (IF and IP)</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0318_IP</td>
+<td>Enhancement</td>
+<td>Custom program to block the vendor invoice based on the different business sc&hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE0318_IF</td>
+<td>Enhancement</td>
+<td>Custom program to block the vendor invoice based on the different business sc&hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0259_IP</td>
+<td>Enhancement</td>
+<td>Develop a routing logic to send Purchase Order to the Boundary apps from S/4 &hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0259_IF</td>
+<td>Enhancement</td>
+<td>Develop a routing logic to send Purchase Order to the Boundary apps from S/4 &hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0241_IP</td>
+<td>Enhancement</td>
+<td>Payment Term Mass change functionality in FBL1N Vendor Line item report</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0241_IF</td>
+<td>Enhancement</td>
+<td>Payment Term Mass change functionality in FBL1N Vendor Line item report</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE0202_IP</td>
+<td>Enhancement</td>
+<td>Develop a change utility for mass PR creation and change of purchase requisit&hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPE0202_IF</td>
+<td>Enhancement</td>
+<td>Develop a change utility for mass PR creation and change of purchase requisit&hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0200_IP</td>
+<td>Enhancement</td>
+<td>PO Mass Change - Upload Tool Functionality (IP)</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPE0200_IF</td>
+<td>Enhancement</td>
+<td>PO Mass Change - Upload Tool Functionality (IF)</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0090_IP</td>
+<td>Enhancement</td>
+<td>Attachment need to copy from PR to PO automatically</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE0090_IF</td>
+<td>Enhancement</td>
+<td>Attachment need to copy from PR to PO automatically</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPC0808_IP</td>
+<td>Conversion</td>
+<td>2379_Master Data Migration from ECC to S/4 to bring Approved Manufacturer Par&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPC0808_IF</td>
+<td>Conversion</td>
+<td>2379_Master Data Migration from ECC to S/4 to bring Approved Manufacturer Par&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPC0633</td>
+<td>Conversion</td>
+<td>Purchase Requisition Conversion from ECC to S/4 - IF</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPC0537_IP</td>
+<td>Conversion</td>
+<td>Purchasing Info Records Migration from ECC to S/4 – IF and IP</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPC0537_IF</td>
+<td>Conversion</td>
+<td>Purchasing Info Records Migration from ECC to S/4 – IF and IP</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPC0536_IP</td>
+<td>Conversion</td>
+<td>Source List Migration from ECC to S/4 – IF and IP</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPC0536_IF</td>
+<td>Conversion</td>
+<td>Source List Migration from ECC to S/4 – IF and IP</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPC0509_IP</td>
+<td>Conversion</td>
+<td>Open Contracts Migration from ECC to S/4 - IF and IP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>PTPC0509_IF</td>
+<td>Conversion</td>
+<td>Open Contracts Migration from ECC to S/4 - IF and IP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>PTPC0504_IP</td>
+<td>Conversion</td>
+<td>Quota Arrangement Migration from ECC to S/4 - IF and IP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPC0504_IF</td>
+<td>Conversion</td>
+<td>Quota Arrangement Migration from ECC to S/4 - IF and IP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPC0176_IP</td>
+<td>Conversion</td>
+<td>Open PO conversion from Legacy to SAP S/4</td>
+<td>10. Object Complete</td>
+<td>ECC → S4</td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPC0176_IF</td>
+<td>Conversion</td>
+<td>Open PO conversion from Legacy to SAP S/4</td>
+<td>10. Object Complete</td>
+<td>ECC → S4</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGW0978_IP</td>
+<td>Workflow</td>
+<td>Workflow for processing Goods Receipt and tracking and tracing of non-invento&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGW0978_IF</td>
+<td>Workflow</td>
+<td>Workflow for processing Goods Receipt and tracking and tracing of non-invento&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGR0856</td>
+<td>Report</td>
+<td>Capital Call Ahead GAP Report​</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1726</td>
+<td>Interface</td>
+<td>GR replication for raw materials for Straddle Sites from ECC to S4 IP via ECA​</td>
+<td>04. FS In Progress</td>
+<td></td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1427_IP</td>
+<td>Interface</td>
+<td>Interface between S4 to Boundary Apps (PEGA-ISMQ) for real time data on Deliv&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → PEGA</td>
+<td>APIGEE</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1427_IF</td>
+<td>Interface</td>
+<td>Interface between S4 to Boundary Apps (PEGA-ISMQ) for real time data on Deliv&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → PEGA</td>
+<td>APIGEE</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGI1309</td>
+<td>Interface</td>
+<td>Inbound interface to receive Finished Goods Advanced Shipping notifications f&hellip;</td>
+<td>10. Object Complete</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>LOGI1206_IP</td>
+<td>Interface</td>
+<td>S4 sending 3B2 ASN information to supplier as outbound signal for return deli&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1206_IF</td>
+<td>Interface</td>
+<td>S4 sending 3B2 ASN information to supplier as outbound signal for return deli&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGI1136_IP</td>
+<td>Interface</td>
+<td>Interface between S4 to Boundary Apps (Customs Tracker) for real time data on&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → Boundary Apps (Customs Tracker)</td>
+<td>APIGEE</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGI1136_IF</td>
+<td>Interface</td>
+<td>Interface between S4 to Boundary Apps (Customs Tracker) for real time data on&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → Boundary Apps (Customs Tracker and PEGA-ISMQ</td>
+<td>APIGEE</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1129</td>
+<td>Interface</td>
+<td>TM: RICEFW 1:Carrier selection and Charges calculation for IRG/ISCG( Intel ro&hellip;</td>
+<td>10. Object Complete</td>
+<td>IRG/IRSG → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0956</td>
+<td>Interface</td>
+<td>Inbound interface to receive OSAT Finished Goods and Return rework FG “Goods &hellip;</td>
+<td>10. Object Complete</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0955</td>
+<td>Interface</td>
+<td>Inbound interface to receive Box CPU Finished Goods and Return Rework FG “Goo&hellip;</td>
+<td>10. Object Complete</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0954</td>
+<td>Interface</td>
+<td>Bailment Process: Inbound 4B2 from 3PL to IF via OpenText for Receipt of Bail&hellip;</td>
+<td>10. Object Complete</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0953</td>
+<td>Interface</td>
+<td>Bailment Process: Generated Outbound 4B2 from IF to OpenText for Bailed Material</td>
+<td>10. Object Complete</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0852_IP</td>
+<td>Interface</td>
+<td>Outbound Interface to send freight forwarder rates from TM to CTSI.</td>
+<td>10. Object Complete</td>
+<td>S/4 → CTSI</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0852_IF</td>
+<td>Interface</td>
+<td>Outbound Interface to send freight forwarder rates from TM to CTSI</td>
+<td>10. Object Complete</td>
+<td>S/4 → CTSI</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGI0834</td>
+<td>Interface</td>
+<td>Inbound interface for WLA Hold scenario to trigger Outbound ASN with Non-Valu&hellip;</td>
+<td>10. Object Complete</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0755</td>
+<td>Interface</td>
+<td>PTP-LE: ASN (Inbound 3B2) from SIFO Suppliers - E2Open to S/4 IP</td>
+<td>10. Object Complete</td>
+<td>E2OPEN → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0753_IP</td>
+<td>Interface</td>
+<td>The process involves sending a Real time consumption signal from a supplier o&hellip;</td>
+<td>10. Object Complete</td>
+<td>E2OPEN → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0749_IP</td>
+<td>Interface</td>
+<td>TM –CTSI integration – Freight details to CTSI for Liability validation</td>
+<td>10. Object Complete</td>
+<td>S/4 → CTSI</td>
+<td>SFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0749_IF</td>
+<td>Interface</td>
+<td>TM –CTSI integration – Freight details to CTSI for Liability validation</td>
+<td>10. Object Complete</td>
+<td>S/4 → CTSI</td>
+<td>SFT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGI0516_IP</td>
+<td>Interface</td>
+<td>PTP IF​Fetch Integrators rate in TM via an API call to Redwood and leverage i&hellip;</td>
+<td>10. Object Complete</td>
+<td>ECD → S/4</td>
+<td>APIGEE</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0515_IF</td>
+<td>Enhancement</td>
+<td>TM : Fetch Integrators rate in TM via an API call to Redwood and leverage it &hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGI0516_IF</td>
+<td>Interface</td>
+<td>PTP IP​Fetch Integrators rate in TM via an API call to Redwood and leverage i&hellip;</td>
+<td>10. Object Complete</td>
+<td>ECD → S/4</td>
+<td>APIGEE</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGI0503_IP</td>
+<td>Interface</td>
+<td>Outboundinterface GR data send to NIT as WIINGS gets replaced by S4</td>
+<td>10. Object Complete</td>
+<td>S/4 → NIT</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0503_IF</td>
+<td>Interface</td>
+<td>Outboundinterface GR data send to NIT as WIINGS gets replaced by S4</td>
+<td>10. Object Complete</td>
+<td>S/4 → NIT</td>
+<td>MULESOFT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGI0502</td>
+<td>Interface</td>
+<td>Inbound Interface to receive and process 4B2 Goods receipt signal from 3PL to&hellip;</td>
+<td>10. Object Complete</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0501</td>
+<td>Interface</td>
+<td>Inbound interface to receive ASN (3B2) from fab material suppliers via E2Open&hellip;</td>
+<td>10. Object Complete</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>LOGI0267</td>
+<td>Interface</td>
+<td>Inbound Interface to receive Advanced Shipment Notice (ASN) data in txt file &hellip;</td>
+<td>10. Object Complete</td>
+<td>GXS → S/4</td>
+<td>MULESOFT</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>LOGI0253</td>
+<td>Interface</td>
+<td>Inbound interface to receive Finished Goods Advanced Shipping notifications f&hellip;</td>
+<td>10. Object Complete</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0252</td>
+<td>Interface</td>
+<td>Inbound interface to receive “Goods Receipt” (4B2) signal for Raw Materials/F&hellip;</td>
+<td>10. Object Complete</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0249</td>
+<td>Interface</td>
+<td>Inbound interface to receive Realtime consumption (4B3) of raw materials/FG C&hellip;</td>
+<td>10. Object Complete</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0245</td>
+<td>Interface</td>
+<td>Inbound interface to receive Finished Goods ASN (3B2) from BOX CPU subcontrac&hellip;</td>
+<td>10. Object Complete</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0244</td>
+<td>Interface</td>
+<td>Inbound interface to receive ODM Finished Goods “Goods Receipt” (4B2) signal &hellip;</td>
+<td>10. Object Complete</td>
+<td>GSX → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0197_IP</td>
+<td>Interface</td>
+<td>Create Inbound Delivery Note from ASN in IP</td>
+<td>10. Object Complete</td>
+<td>WebASN → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0197_IF</td>
+<td>Interface</td>
+<td>Create Inbound Delivery Note from ASN in IF</td>
+<td>10. Object Complete</td>
+<td>WebASN → S/4</td>
+<td>MULESOFT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGI0163_IP</td>
+<td>Interface</td>
+<td>Inbound interface to receive consignment inventory adjustments (manual postin&hellip;</td>
+<td>10. Object Complete</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0163_IF</td>
+<td>Interface</td>
+<td>Inbound interface to receive consignment inventory adjustments (manual postin&hellip;</td>
+<td>10. Object Complete</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGI0161</td>
+<td>Interface</td>
+<td>Inbound interface to receive ODM Finished Goods “Goods Receipt” (4B2) signal &hellip;</td>
+<td>10. Object Complete</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0158</td>
+<td>Interface</td>
+<td>Inbound interface to receive “Goods Receipt” (4B2) signal from OSATs for semi&hellip;</td>
+<td>10. Object Complete</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0157_IP</td>
+<td>Interface</td>
+<td>Inbound interface to receive raw materials “Goods Receipt” (4B2) signal for c&hellip;</td>
+<td>10. Object Complete</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0157_IF</td>
+<td>Interface</td>
+<td>Inbound interface to receive raw materials “Goods Receipt” (4B2) signal for c&hellip;</td>
+<td>10. Object Complete</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGI0156</td>
+<td>Interface</td>
+<td>Outbound interface to send “Advanced Shipment Notification” signal (3B2) for &hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0155</td>
+<td>Interface</td>
+<td>Inbound interface to receive Semi-Finished Goods Advanced Shipping notificati&hellip;</td>
+<td>10. Object Complete</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>LOGI0154</td>
+<td>Interface</td>
+<td>Inbound interface to receive Finished Goods Advanced Shipping notifications f&hellip;</td>
+<td>10. Object Complete</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0150_IP</td>
+<td>Interface</td>
+<td>Outbound interface to send “Goods Receipt” signal (4B2) for Raw materials &amp; O&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0150_IF</td>
+<td>Interface</td>
+<td>Outbound Interface to send 4B2 Goods receipt acknowledgement from S/4 to E2Op&hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGF1085</td>
+<td>Form</td>
+<td>Enhancement to print the Bin Location label in SAP EWM.</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGF1045</td>
+<td>Form</td>
+<td>Goods Receipt Label Print triggered at the point of completion of the GR</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGF0920_IP</td>
+<td>Form</td>
+<td>Form for printing Goods receipt label in IM - IP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>LOGF0920_IF</td>
+<td>Form</td>
+<td>Form for printing Goods receipt label in IM - IF</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1728</td>
+<td>Enhancement</td>
+<td>Automate Outbound delivery note creation for 250K annual Subcon POs for repai&hellip;</td>
+<td>04. FS In Progress</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1570</td>
+<td>Enhancement</td>
+<td>CR0856 - Enhancement required (a report) to post the goods receipt for the ad&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1506</td>
+<td>Enhancement</td>
+<td>Enhancement to bring attachments of images from Material master (MM03) to the&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>LOGE1337</td>
+<td>Enhancement</td>
+<td>Enhancement to generate outbound IDOC for 3B2 ASN information to RMA supplier&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1193_IP</td>
+<td>Enhancement</td>
+<td>S4 – Enhancement to stop GR for Purchase Order for which Delivery Completed i&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1193_IF</td>
+<td>Enhancement</td>
+<td>S4 – Enhancement to stop GR for Purchase Order for which Delivery Completed i&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE1087</td>
+<td>Enhancement</td>
+<td>Enhancement on the RF screen to auto populate the HU number for receiving.</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1086</td>
+<td>Enhancement</td>
+<td>Enhancement on the RF screen for identifying the correct inbound delivery bas&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1048</td>
+<td>Enhancement</td>
+<td>To Identify Priority Inbound Deliveries in EWM and display the details of the&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>LOGE1047</td>
+<td>Enhancement</td>
+<td>RF Scanner -Inbound Process Screen to enhanced to show the Delivery Priority &hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>LOGE1046</td>
+<td>Enhancement</td>
+<td>Enhancement to capture Priority Indicator field in EWM Inbound Delivery from &hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>LOGE1035</td>
+<td>Enhancement</td>
+<td>Inventory update program for Stock type updates</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1034</td>
+<td>Enhancement</td>
+<td>Delivery creation enhancement to update Stock type</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0976_IP</td>
+<td>Enhancement</td>
+<td>Enhancement to enable delivery priority Indicator in Inbound delivery Documen&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0976_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to enable delivery priority Indicator in Inbound delivery Documen&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0952</td>
+<td>Enhancement</td>
+<td>Generate Outbound 3B2 Message from S4 to OSAT supplier E2Open onboarded Suppl&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0858_IP</td>
+<td>Enhancement</td>
+<td>Determine mode in freight order and charge calculation​</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0858_IF</td>
+<td>Enhancement</td>
+<td>Determine mode in freight order and charge calculation​</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0855</td>
+<td>Enhancement</td>
+<td>Capital Call Ahead Report​</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0854</td>
+<td>Enhancement</td>
+<td>Custom Fiori Application development to generate Call Ahead Reports for Capit&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0853_IP</td>
+<td>Enhancement</td>
+<td>Inbound Carrier selection over-ride and exclusion rules to be considered duri&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0853_IF</td>
+<td>Enhancement</td>
+<td>Inbound Carrier selection over-ride and exclusion rules to be considered duri&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0851_IP</td>
+<td>Enhancement</td>
+<td>Enhancement to store + transform + trigger freight forwarder rates to CTSI.</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>LOGE0851_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to store + transform + trigger freight forwarder rates to CTSI.</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0850_IP</td>
+<td>Enhancement</td>
+<td>Order management for inbound ASN and Non ASN scenarios using automatic optimi&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0850_IF</td>
+<td>Enhancement</td>
+<td>Order management for inbound ASN and Non ASN scenarios using automatic optimi&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0849_IP</td>
+<td>Enhancement</td>
+<td>Introduce HAWB in Transportation Cockpit, FRO worklist and selection criteria&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0849_IF</td>
+<td>Enhancement</td>
+<td>introduce HAWB in Transportation Cockpit, FRO worklist and selection criteria&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0848_IP</td>
+<td>Enhancement</td>
+<td>Planning for inbound ASN, Non ASN. ODM/OSAT scenarios using automatic optimiz&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0848_IF</td>
+<td>Enhancement</td>
+<td>Planning for inbound ASN, Non ASN. ODM/OSAT scenarios using automatic optimiz&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0847</td>
+<td>Enhancement</td>
+<td>TM: RICEFW 1:Carrier selection and Charges calculation for IRG/ISCG( Intel ro&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0769_IP</td>
+<td>Enhancement</td>
+<td>TM: Distribute the freight cost to R&amp;D/OCOS/PCOS/Capital cost objects based o&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0769_IF</td>
+<td>Enhancement</td>
+<td>TM: Distribute the freight cost to R&amp;D/OCOS/PCOS/Capital cost objects based o&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0768_IP</td>
+<td>Enhancement</td>
+<td>TM: Identify correct Company code, Purchase org, Purchase group, Virtual GLO &hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0768_IF</td>
+<td>Enhancement</td>
+<td>TM: Identify correct Company code, Purchase org, Purchase group, Virtual GLO &hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0767_IP</td>
+<td>Enhancement</td>
+<td>TM - GTT: GTT to S4 for IF and IP data split</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0767_IF</td>
+<td>Enhancement</td>
+<td>TM - GTT: GTT to S4 for IF and IP data split</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0754_IP</td>
+<td>Enhancement</td>
+<td>Enhancement to enable Outbound Interface to send 4B2 Goods receipt acknowledg&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0754_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to enable Outbound Interface to send 4B2 Goods receipt acknowledg&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0752_IP</td>
+<td>Enhancement</td>
+<td>TM: Auto-approve dispute doc for CTSI based invoices to update pass invoice c&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0752_IF</td>
+<td>Enhancement</td>
+<td>TM: Auto-approve dispute doc for CTSI based invoices to update pass invoice c&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0751_IP</td>
+<td>Enhancement</td>
+<td>TM: Shortcut planning and optimizer-based planning for Capital PO to perform &hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0751_IF</td>
+<td>Enhancement</td>
+<td>TM: Shortcut planning and optimizer-based planning for Capital PO to perform &hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0750_IP</td>
+<td>Enhancement</td>
+<td>TM: Update Pass invoice amount including prompt payment discount from CTSI to&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>LOGE0750_IF</td>
+<td>Enhancement</td>
+<td>TM: Update Pass invoice amount including prompt payment discount from CTSI to&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0665_IP</td>
+<td>Enhancement</td>
+<td>Calculation base and Associated charge calculation logic for field creation a&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0665_IF</td>
+<td>Enhancement</td>
+<td>Calculation base and Associated charge calculation logic for field creation a&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0655_IP</td>
+<td>Enhancement</td>
+<td>TM :PTP IP/IF​ - Weekly Milk run Charge calculation (Local Trucking)​</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>LOGE0655_IF</td>
+<td>Enhancement</td>
+<td>TM :PTP IP/IF​ - Weekly Milk run Charge calculation (Local Trucking)​</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0515_IP</td>
+<td>Enhancement</td>
+<td>TM : Fetch Integrators rate in TM via an API call to Redwood and leverage it &hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0450_IP</td>
+<td>Enhancement</td>
+<td>In SAP TM, Custom BRF+ and enhancement to populate the commodity code in the &hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0450_IF</td>
+<td>Enhancement</td>
+<td>In SAP TM, Custom BRF+ and enhancement to populate the commodity code in the &hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE1740</td>
+<td>Enhancement</td>
+<td>Fair Market value Determination using custom code/logic during the replicatio&hellip;</td>
+<td>01. Pending Approval</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Summary</strong>: 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows</p>
+<div style="page-break-before: always;"></div>
+
+<h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
+<p>Integration patterns identified from the system flow analysis for LI-120:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Pattern</th>
+<th>Flow Chain</th>
+<th>Middleware</th>
+<th>Protocol</th>
+<th>Auth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Integration pattern details will be refined when tower architects validate middleware assignments.</em></p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
+<h3 id="61-platform-infrastructure">6.1 Platform &amp; Infrastructure</h3>
+<blockquote>
+<p><strong>TECHNOLOGY / PLATFORM ARCHITECTURE</strong> — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.</p>
+</blockquote>
+<h4 id="platform-inventory">Platform Inventory</h4>
+<p>Platform landscape inferred from integrated systems for LI-120:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Platform</th>
+<th>Type</th>
+<th>Systems Using</th>
+<th>Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>SAP S/4HANA</td>
+<td>On-Premise (HEC)</td>
+<td>SAP S/4 modules</td>
+<td>DEV, QAS, PRD</td>
+</tr>
+<tr>
+<td>2</td>
+<td>SAP BTP (Integration Suite)</td>
+<td>Cloud / PaaS</td>
+<td>CPI, API Management</td>
+<td>DEV, QAS, PRD</td>
+</tr>
+<tr>
+<td>3</td>
+<td>MuleSoft Anypoint</td>
+<td>Cloud / iPaaS</td>
+<td>API-led integrations</td>
+<td>DEV, QAS, PRD</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Platform assignments will be validated when tower architects populate technology platform columns.</em></p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h3 id="62-sap-development-object-status">6.2 SAP Development Object Status</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>DEV</th>
+<th>QAS</th>
+<th>PRD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transport Requests</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Custom Code Objects</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>CDS Views</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Fiori Apps</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>BAdIs / Enhancements</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Requirement</th>
+<th>Target / SLA</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Performance</td>
+<td>Order/transaction processing within interactive SLA</td>
+<td>&lt; 3 seconds for online transactions</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Availability</td>
+<td>Business-critical systems available during extended hours</td>
+<td>99.9% (06:00-22:00 all time zones)</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Scalability</td>
+<td>Support seasonal and promotional volume spikes</td>
+<td>Handle 2x baseline transaction volume</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Recoverability</td>
+<td>Customer-facing systems recover within business impact window</td>
+<td>RPO &lt; 30 min, RTO &lt; 2 hours</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Data Volume</td>
+<td>Support transactional data growth from business expansion</td>
+<td>10M+ documents/year</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Latency</td>
+<td>Near-real-time integration for order status updates</td>
+<td>&lt; 30 seconds for status propagation</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Concurrency</td>
+<td>Support global user base across business functions</td>
+<td>300+ concurrent users</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<h3 id="64-security-governance">6.4 Security &amp; Governance</h3>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Approach</th>
+<th>Standard / Policy</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authentication</td>
+<td>Single Sign-On (SSO) via Intel corporate Azure AD identity</td>
+<td>Intel IT Security Policy - Identity Management</td>
+<td>IT Security</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>Role-based access control (RBAC) with SAP authorization objects</td>
+<td>Intel SAP Security Standards - Role Design</td>
+<td>SAP Security Team</td>
+</tr>
+<tr>
+<td>Data Classification</td>
+<td>All financial/operational data classified per Intel Data Classification Standard</td>
+<td>Intel Data Classification Policy</td>
+<td>Data Governance</td>
+</tr>
+<tr>
+<td>Data Encryption (at rest)</td>
+<td>AES-256 encryption for SAP HANA database and file storage</td>
+<td>Intel Encryption Standard</td>
+<td>Infrastructure Security</td>
+</tr>
+<tr>
+<td>Data Encryption (in transit)</td>
+<td>TLS 1.3 for all system-to-system and user-to-system communication</td>
+<td>Intel Network Security Policy</td>
+<td>Network Engineering</td>
+</tr>
+<tr>
+<td>Network Segmentation</td>
+<td>SAP systems in dedicated network zones with firewall controls</td>
+<td>Intel Network Architecture Standard</td>
+<td>Network Security</td>
+</tr>
+<tr>
+<td>API Security</td>
+<td>OAuth 2.0 / certificate-based authentication for all API integrations</td>
+<td>Intel API Security Guidelines</td>
+<td>Integration Architecture</td>
+</tr>
+<tr>
+<td>Audit Logging</td>
+<td>Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log)</td>
+<td>SOX Compliance / Intel Audit Policy</td>
+<td>Internal Audit</td>
+</tr>
+<tr>
+<td>Certificate Management</td>
+<td>Automated certificate lifecycle management for system-to-system trust</td>
+<td>Intel PKI Standard</td>
+<td>Certificate Authority Team</td>
+</tr>
+<tr>
+<td>Compliance</td>
+<td>SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR)</td>
+<td>Intel Corporate Compliance Framework</td>
+<td>Compliance Office</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="7-project-context">7. Project Context</h2>
+<h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Description</th>
+<th>FS End</th>
+<th>FS %</th>
+<th>TDD End</th>
+<th>TDD %</th>
+<th>Build End</th>
+<th>Build %</th>
+<th>FUT End</th>
+<th>FUT %</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PTPW0367_IP</td>
+<td>Workflow for Email Functionality and &hellip;</td>
+<td>2024-12-13</td>
+<td>1.0</td>
+<td>2025-09-24</td>
+<td>1.0</td>
+<td>2025-09-24</td>
+<td>1.0</td>
+<td>2025-12-03</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>PTPW0367_IF</td>
+<td>Workflow for Email Functionality and &hellip;</td>
+<td>2024-12-13</td>
+<td>1.0</td>
+<td>2025-09-24</td>
+<td>1.0</td>
+<td>2025-09-24</td>
+<td>1.0</td>
+<td>2025-12-03</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>PTPW0366_IP</td>
+<td>Workflow to trigger PO approvals in S&hellip;</td>
+<td>2024-12-27</td>
+<td>1.0</td>
+<td>2025-09-05</td>
+<td>1.0</td>
+<td>2025-09-05</td>
+<td>1.0</td>
+<td>2025-12-03</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>PTPW0366_IF</td>
+<td>Workflow to trigger PO approvals in S&hellip;</td>
+<td>2024-12-27</td>
+<td>1.0</td>
+<td>2025-09-05</td>
+<td>1.0</td>
+<td>2025-09-05</td>
+<td>1.0</td>
+<td>2025-12-03</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>PTPW0363_IP</td>
+<td>Workflow for Email Functionality and &hellip;</td>
+<td>2024-09-06</td>
+<td>1.0</td>
+<td>2025-09-24</td>
+<td>1.0</td>
+<td>2025-09-24</td>
+<td>1.0</td>
+<td>2025-11-05</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>PTPW0363_IF</td>
+<td>Workflow for Email Functionality and &hellip;</td>
+<td>2024-09-06</td>
+<td>1.0</td>
+<td>2025-09-24</td>
+<td>1.0</td>
+<td>2025-09-24</td>
+<td>1.0</td>
+<td>2025-11-05</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>PTPW0362_IP</td>
+<td>Workflow to Trigger PR approvals in S&hellip;</td>
+<td>2024-09-06</td>
+<td>1.0</td>
+<td>2025-08-29</td>
+<td>1.0</td>
+<td>2025-08-29</td>
+<td>1.0</td>
+<td>2025-12-03</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>PTPW0362_IF</td>
+<td>Workflow to Trigger PR approvals in S&hellip;</td>
+<td>2024-09-06</td>
+<td>1.0</td>
+<td>2025-08-29</td>
+<td>1.0</td>
+<td>2025-08-29</td>
+<td>1.0</td>
+<td>2025-12-03</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>PTPR1530_IP</td>
+<td>Develop a custom report in SAP S/4 HA&hellip;</td>
+<td>2025-08-09</td>
+<td>1.0</td>
+<td>2025-10-03</td>
+<td>1.0</td>
+<td>2025-10-03</td>
+<td>1.0</td>
+<td>2025-11-05</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>PTPR1530_IF</td>
+<td>Develop a custom report in SAP S/4 HA&hellip;</td>
+<td>2025-08-09</td>
+<td>1.0</td>
+<td>2025-10-03</td>
+<td>1.0</td>
+<td>2025-10-03</td>
+<td>1.0</td>
+<td>2025-11-05</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>PTPM0008</td>
+<td>Quality Info record upload [T-Code - &hellip;</td>
+<td>2025-05-05</td>
+<td>1.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td>2025-06-11</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>PTPM0007</td>
+<td>Inspection Plan upload [T-Code - QP01]</td>
+<td>2025-05-05</td>
+<td>1.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td>2025-06-11</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>PTPM0006</td>
+<td>Master Inspection Characteristics upl&hellip;</td>
+<td>2025-05-05</td>
+<td>1.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td>2025-06-11</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>PTPI1689</td>
+<td>New custom API needed to process GET &hellip;</td>
+<td>2026-01-07</td>
+<td>1.0</td>
+<td>2026-02-20</td>
+<td>1.0</td>
+<td>2026-02-20</td>
+<td>1.0</td>
+<td>2026-01-30</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>PTPI1657</td>
+<td>Interface to send Invoice PAID Status&hellip;</td>
+<td>2025-08-08</td>
+<td>1.0</td>
+<td>2025-11-05</td>
+<td>1.0</td>
+<td>2025-11-05</td>
+<td>1.0</td>
+<td>2025-12-03</td>
+<td>1.0</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>PTPI1533</td>
+<td>Pay@accept – Inbound Interface to fet&hellip;</td>
+<td>2025-09-08</td>
+<td>1.0</td>
+<td>2025-10-03</td>
+<td>1.0</td>
+<td>2025-10-03</td>
+<td>1.0</td>
+<td>2025-11-05</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>PTPI1529_IP</td>
+<td>An interface to retrieve the list of &hellip;</td>
+<td>2025-08-09</td>
+<td>1.0</td>
+<td>2025-10-17</td>
+<td>1.0</td>
+<td>2025-10-17</td>
+<td>1.0</td>
+<td>2025-12-03</td>
+<td>1.0</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>PTPI1529_IF</td>
+<td>An interface to retrieve the list of &hellip;</td>
+<td>2025-08-09</td>
+<td>1.0</td>
+<td>2025-10-03</td>
+<td>1.0</td>
+<td>2025-10-03</td>
+<td>1.0</td>
+<td>2025-12-03</td>
+<td>1.0</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>PTPI1458</td>
+<td>Develop an interface between PEGA and&hellip;</td>
+<td>2025-07-08</td>
+<td>1.0</td>
+<td>2025-09-05</td>
+<td>1.0</td>
+<td>2025-09-05</td>
+<td>1.0</td>
+<td>2025-12-12</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>PTPI1428_IP</td>
+<td>Setting Up Inbound Interface from SPT&hellip;</td>
+<td>2025-06-11</td>
+<td>1.0</td>
+<td>2025-08-08</td>
+<td>1.0</td>
+<td>2025-08-08</td>
+<td>1.0</td>
+<td>2025-11-05</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td><em>&hellip; and 358 more objects (see full Object Tracker)</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="72-raid-log">7.2 RAID Log</h3>
+<p>Standard RAID items for LI-120 (Procure To Pay):</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Category</th>
+<th>Description</th>
+<th>Status</th>
+<th>Owner</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Risk</td>
+<td>Data migration completeness — validate all legacy Receive Materials and Services - PTP data maps to S/4 target structures</td>
+<td>Open</td>
+<td>Tower Architect</td>
+<td>High</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Risk</td>
+<td>Integration testing coverage — ensure all 0 integrated systems are validated end-to-end</td>
+<td>Open</td>
+<td>Integration Lead</td>
+<td>High</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Assumption</td>
+<td>Target SAP S/4HANA system available in DEV/QAS per release schedule</td>
+<td>Active</td>
+<td>SAP Basis</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Issue</td>
+<td>API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation</td>
+<td>Open</td>
+<td>EA Pipeline Team</td>
+<td>High</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Dependency</td>
+<td>Upstream BPMN process models validated and signed off by business process owners</td>
+<td>Active</td>
+<td>Process Owner</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.</em></p>
+</blockquote>
+<h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Category</th>
+<th>Recommendation</th>
+<th>Priority</th>
+<th>Owner</th>
+<th>Target Date</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Architecture</td>
+<td>Complete extended flow attributes (Data Entity, Integration Pattern, Tech Platform) in Flows tab for full BDAT coverage</td>
+<td>High</td>
+<td>Tower Architect</td>
+<td>2026-Q2</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Data</td>
+<td>Define data ownership and classification for all 0 flow chains to satisfy Data Architecture (TOGAF D) requirements</td>
+<td>Medium</td>
+<td>Data Architect</td>
+<td>2026-Q3</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Testing</td>
+<td>Develop integration test scenarios covering all 0 flow chains for FUT/SIT readiness</td>
+<td>High</td>
+<td>Test Lead</td>
+<td>2026-Q3</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Business Architecture</td>
+<td>Review and validate Business Architecture process steps against latest Signavio/BIC process models</td>
+<td>Medium</td>
+<td>Business Analyst</td>
+<td>2026-Q2</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Security</td>
+<td>Complete security review for API integrations and data flows per Intel Security Architecture standards</td>
+<td>Medium</td>
+<td>Security Architect</td>
+<td>2026-Q3</td>
+<td>Open</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>LI-120 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: March 2026</em></p>
+<div class="footer">
+    IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+</body>
+</html>

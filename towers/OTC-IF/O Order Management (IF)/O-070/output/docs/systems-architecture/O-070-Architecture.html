@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O-070 Architecture</title>
+    <style>
+@page {
+    size: A4;
+    margin: 20mm 15mm 20mm 15mm;
+}
+body {
+    font-family: "Segoe UI", Calibri, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #1a1a1a;
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 15mm;
+    background: #fff;
+}
+h1 {
+    font-size: 22pt;
+    color: #00285a;
+    border-bottom: 3px solid #0071c5;
+    padding-bottom: 8px;
+    margin-top: 30px;
+    page-break-before: always;
+}
+h1:first-of-type { page-break-before: avoid; }
+h2 {
+    font-size: 16pt;
+    color: #00285a;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 4px;
+    margin-top: 24px;
+}
+h3 {
+    font-size: 13pt;
+    color: #0071c5;
+    margin-top: 18px;
+}
+h4 { font-size: 11pt; color: #333; margin-top: 14px; }
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 12px 0;
+    font-size: 9.5pt;
+    page-break-inside: avoid;
+}
+th {
+    background: #00285a;
+    color: #fff;
+    font-weight: 600;
+    text-align: left;
+    padding: 6px 8px;
+    border: 1px solid #00285a;
+}
+td {
+    padding: 5px 8px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+}
+tr:nth-child(even) td { background: #f5f8fc; }
+tr:hover td { background: #e8f0fe; }
+code {
+    font-family: "Cascadia Code", "Consolas", monospace;
+    font-size: 9pt;
+    background: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+pre {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 12px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 8.5pt;
+    line-height: 1.4;
+    page-break-inside: avoid;
+}
+pre code { background: none; padding: 0; color: inherit; }
+blockquote {
+    border-left: 4px solid #0071c5;
+    background: #f5f8fc;
+    margin: 12px 0;
+    padding: 8px 16px;
+    color: #333;
+}
+.mermaid-placeholder {
+    background: #f5f8fc;
+    border: 1px dashed #0071c5;
+    border-radius: 4px;
+    padding: 16px;
+    margin: 12px 0;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+.mermaid {
+    background: #fafbfd;
+    border: 1px solid #e0e4ea;
+    border-radius: 6px;
+    padding: 20px 12px;
+    margin: 16px 0;
+    overflow-x: auto;
+    text-align: center;
+}
+.mermaid svg {
+    max-width: 100%;
+    height: auto;
+}
+.header-bar {
+    background: #00285a;
+    color: #fff;
+    padding: 16px 24px;
+    margin: -15mm -15mm 20px -15mm;
+    font-size: 9pt;
+}
+.header-bar h1 {
+    color: #fff;
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-size: 20pt;
+    page-break-before: avoid;
+}
+.header-bar .subtitle { color: #a8c7e8; font-size: 10pt; }
+.footer {
+    font-size: 8pt;
+    color: #888;
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+a { color: #0071c5; text-decoration: none; }
+a:hover { text-decoration: underline; }
+hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
+strong { color: #00285a; }
+
+@media print {
+    body { padding: 0; max-width: none; }
+    .header-bar { margin: 0 0 20px 0; }
+    .no-print { display: none; }
+}
+</style>
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    securityLevel: 'loose',
+    flowchart: {
+      curve: 'basis',
+      padding: 16,
+      nodeSpacing: 50,
+      rankSpacing: 60,
+      useMaxWidth: true
+    },
+    themeVariables: {
+      primaryColor: '#e8f0fe',
+      primaryBorderColor: '#0071c5',
+      primaryTextColor: '#1a1a1a',
+      lineColor: '#37474F',
+      secondaryColor: '#f5f8fc',
+      tertiaryColor: '#fff',
+      fontSize: '14px',
+      fontFamily: 'Segoe UI, Arial, sans-serif'
+    }
+  });
+</script>
+
+</head>
+<body>
+<div style="text-align:center; padding-top:80px;">
+  <h1 style="font-size:36px;">O-070 — Manage Backorders (IF)</h1>
+  <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
+  <p style="font-size:18px; color:#555;">Order To Cash (IF) (OTC-IF) Tower<br/>
+  Capability O-070 · O Order Management (IF)</p>
+  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
+  Generated: March 2026</p>
+  <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
+</div>
+
+<style>
+@media print {
+  @page { margin: 0.75in; }
+  footer::after { content: "Intel Confidential — O-070 BDAT — March 2026"; font-size:9px; color:#999; }
+  .mermaid { page-break-inside: avoid; max-height: 95vh; overflow: visible; }
+  pre, table { page-break-inside: avoid; }
+  h2, h3, h4 { page-break-after: avoid; }
+}
+.mermaid svg { max-width: 100% !important; height: auto !important; }
+</style>
+
+<div style="page-break-before: always;"></div>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#1-executive-summary">Executive Summary</a></li>
+<li><a href="#2-business-context--objectives">Business Context &amp; Objectives</a>
+   - 2.1 <a href="#21-classification">Classification</a>
+   - 2.2 <a href="#22-business-drivers">Business Drivers</a>
+   - 2.3 <a href="#23-success-criteria">Success Criteria</a>
+   - 2.4 <a href="#24-companion-documents">Companion Documents</a></li>
+<li><a href="#3-business-architecture-togaf-b">Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+   - 3.1 <a href="#31-business-process-overview">Business Process Overview</a>
+   - 3.2 <a href="#32-business-process-diagrams">Business Process Diagrams</a>
+   - 3.3 <a href="#33-business-roles--responsibilities">Business Roles &amp; Responsibilities</a></li>
+<li><a href="#4-data-architecture-togaf-d">Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+   - 4.1 <a href="#41-data-entities--ownership">Data Entities &amp; Ownership</a>
+   - 4.2 <a href="#42-data-flow-diagrams">Data Flow Diagrams</a>
+   - 4.3 <a href="#43-data-lineage">Data Lineage</a>
+   - 4.4 <a href="#44-ricefw-data-objects">RICEFW Data Objects</a>
+   - 4.5 <a href="#45-data-governance--quality">Data Governance &amp; Quality</a></li>
+<li><a href="#5-application-architecture-togaf-a">Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+   - 5.1 <a href="#51-current-state--current-state-application-landscape">Current-State Application Landscape</a>
+   - 5.2 <a href="#52-future-state--future-state-application-landscape">Future-State Application Landscape</a>
+   - 5.3 <a href="#53-change-impact-summary">Change Impact Summary</a>
+   - 5.4 <a href="#54-component-overview">Component Overview</a>
+   - 5.5 <a href="#55-ricefw-inventory">RICEFW Inventory</a>
+   - 5.6 <a href="#56-integration-patterns">Integration Patterns</a></li>
+<li><a href="#6-technology-architecture-togaf-t">Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+   - 6.1 <a href="#61-platform--infrastructure">Platform &amp; Infrastructure</a>
+   - 6.2 <a href="#62-sap-development-object-status">SAP Development Object Status</a>
+   - 6.3 <a href="#63-nfrs--design-principles">NFRs &amp; Design Principles</a>
+   - 6.4 <a href="#64-security--governance">Security &amp; Governance</a></li>
+<li><a href="#7-project-context">Project Context</a>
+   - 7.1 <a href="#71-project-roadmap--go-live-plan">Project Roadmap &amp; Go-Live Plan</a>
+   - 7.2 <a href="#72-raid-log">RAID Log</a>
+   - 7.3 <a href="#73-recommendations--next-steps">Recommendations &amp; Next Steps</a></li>
+</ol>
+<div style="page-break-before: always;"></div>
+
+<h2 id="1-executive-summary">1. Executive Summary</h2>
+<p>This Architecture Document defines the <strong>Business, Data, Application, and Technology</strong> (BDAT) architecture for <strong>O-070 Manage Backorders (IF)</strong> within the IAO program.
+| Dimension | Value |
+|-----------|-------|
+| <strong>Tower</strong> | Order To Cash (IF) (OTC-IF) |
+| <strong>Process Group</strong> | O Order Management (IF) |
+| <strong>Capability</strong> | O-070 - Manage Backorders (IF) |
+| <strong>Release</strong> | Release 3 |
+| <strong>Total Systems</strong> | 0 |
+| <strong>System Status</strong> | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
+| <strong>RICEFW Objects</strong> | 11 Interfaces, 64 Enhancements, 11 Forms, 1 Workflows |
+<strong>Change Summary</strong>: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.</p>
+<blockquote>
+<p>All system nodes in architecture diagrams are <strong>IAPM-linked</strong> — click any node to open its IAPM page. Diagrams require <code>securityLevel: 'loose'</code> for click events.</p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h2 id="2-business-context-objectives">2. Business Context &amp; Objectives</h2>
+<h3 id="21-classification">2.1 Classification</h3>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>L0 Tower</strong></td>
+<td>Order To Cash (IF)</td>
+</tr>
+<tr>
+<td><strong>L1 Process</strong></td>
+<td>O Order Management (IF)</td>
+</tr>
+<tr>
+<td><strong>L2 Capability</strong></td>
+<td>O-070 - Manage Backorders (IF)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-business-drivers">2.2 Business Drivers</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Driver</th>
+<th>Description</th>
+<th>Strategic Alignment</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Foundry Customer Order Digitization</td>
+<td>Digitize end-to-end order capture, pricing, and fulfillment for Intel Foundry customers</td>
+<td>IDM 2.0 Foundry Revenue</td>
+<td>High</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Global Trade Compliance Automation</td>
+<td>Automate export/import compliance screening and customs declarations</td>
+<td>Global Trade Operations</td>
+<td>High</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Revenue Recognition Accuracy</td>
+<td>Ensure compliant revenue recognition aligned with ASC 606 through S/4 HANA billing</td>
+<td>Finance &amp; Compliance</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>4</td>
+<td>O-070 Process Migration</td>
+<td>Migrate Manage Backorders (IF) business processes and 0 integrated systems from legacy to S/4 HANA target architecture</td>
+<td>IDM 2.0 Order Management (Intel Foundry)</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="23-success-criteria">2.3 Success Criteria</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+<th>Measure</th>
+<th>Baseline</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Order-to-Cash Cycle Time</td>
+<td>&lt; 5 business days</td>
+<td>End-to-end cycle from order capture to cash application</td>
+<td>8 business days (legacy)</td>
+<td>OTC Process Owner</td>
+</tr>
+<tr>
+<td>Trade Compliance Screening Rate</td>
+<td>100%</td>
+<td>Orders screened for denied parties and export controls</td>
+<td>99.2% (current)</td>
+<td>Global Trade Manager</td>
+</tr>
+<tr>
+<td>Billing Accuracy</td>
+<td>&gt; 99.8%</td>
+<td>Invoices generated without errors requiring credit/re-bill</td>
+<td>98.5% (current)</td>
+<td>Billing Manager</td>
+</tr>
+<tr>
+<td>O-070 Migration Completeness</td>
+<td>100% flow chains validated</td>
+<td>All 0 flow chains verified in target state</td>
+<td>0% (pre-migration)</td>
+<td>Tower Architect</td>
+</tr>
+</tbody>
+</table>
+<h3 id="24-companion-documents">2.4 Companion Documents</h3>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Business Architecture</strong></td>
+<td>Included in this document (Section 3) — process flows from BPMN diagrams</td>
+</tr>
+<tr>
+<td><strong>This Document</strong></td>
+<td>Full BDAT Architecture — Business + Data + Application + Technology</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</h2>
+<h3 id="31-business-process-overview">3.1 Business Process Overview</h3>
+<p><em>(No BPMN files found in input/bpmn/ for this capability.)</em></p>
+<div style="page-break-before: always;"></div>
+
+<h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
+<table>
+<thead>
+<tr>
+<th>Role / Lane</th>
+<th>Processes Involved</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Business Process Owner</td>
+<td>O-070</td>
+<td>Accountable for Manage Backorders (IF) business process definition and sign-off</td>
+</tr>
+<tr>
+<td>Functional Analyst</td>
+<td>O-070</td>
+<td>Responsible for functional specification and test case design</td>
+</tr>
+<tr>
+<td>Technical Developer</td>
+<td>O-070</td>
+<td>Responsible for RICEFW build and unit testing</td>
+</tr>
+<tr>
+<td>Integration Architect</td>
+<td>O-070</td>
+<td>Designs and validates integration patterns and middleware flows</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
+<h3 id="41-data-entities-ownership">4.1 Data Entities &amp; Ownership</h3>
+<p>The following data entities are derived from the system integration flows for O-070. Tower architects should validate ownership and classification.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Data Entity</th>
+<th>Source System</th>
+<th>Target System</th>
+<th>Data Owner</th>
+<th>Classification</th>
+<th>Volume</th>
+<th>Master/Transaction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="42-data-flow-diagrams">4.2 Data Flow Diagrams</h3>
+<blockquote>
+<p><strong>DATA ARCHITECTURE</strong> — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.</p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h3 id="43-data-lineage">4.3 Data Lineage</h3>
+<p>Data lineage traces the origin and transformation path of key data objects across integrated systems.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Source System</th>
+<th>Source Schema/Object</th>
+<th>Target System</th>
+<th>Target Schema/Object</th>
+<th>Transformation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Lineage detail will be refined when tower architects validate source/target schema object mappings.</em></p>
+</blockquote>
+<h3 id="44-ricefw-data-objects">4.4 RICEFW Data Objects</h3>
+<p>Reports and Conversions for this capability will be populated from the Smartsheet Object Tracker via automated API extraction.</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Type</th>
+<th>Description</th>
+<th>Status</th>
+<th>Source</th>
+<th>Target</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O-070-R001</td>
+<td>Report</td>
+<td>Manage Backorders (IF) operational report</td>
+<td>Planned</td>
+<td>SAP S/4HANA</td>
+<td>Analytics</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>O-070-C001</td>
+<td>Conversion</td>
+<td>Legacy data migration for Manage Backorders (IF)</td>
+<td>Planned</td>
+<td>Legacy ERP</td>
+<td>SAP S/4HANA</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Pending: Smartsheet API integration to auto-populate live RICEFW data (see Build Requirements).</em></p>
+</blockquote>
+<h3 id="45-data-governance-quality">4.5 Data Governance &amp; Quality</h3>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Approach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Ownership</td>
+<td>Per-entity owners listed in Section 3.1</td>
+</tr>
+<tr>
+<td>Data Classification</td>
+<td>Financial data classified as Intel Confidential</td>
+</tr>
+<tr>
+<td>Data Retention</td>
+<td>Per Intel corporate retention policies</td>
+</tr>
+<tr>
+<td>Data Quality</td>
+<td>Validated at source; reconciliation at target</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</h2>
+<h3 id="51-current-state-current-state-application-landscape">5.1 Current-State — Current-State Application Landscape</h3>
+<h4 id="overview">Overview</h4>
+<p>The Current-State architecture represents the <strong>current / legacy</strong> landscape for O-070.</p>
+<div style="page-break-before: always;"></div>
+
+<h4 id="current-state-flow-narrative">Current-State Flow Narrative</h4>
+<p><em>(No current-state flows defined.)</em></p>
+<div style="page-break-before: always;"></div>
+
+<h3 id="52-future-state-future-state-application-landscape">5.2 Future-State — Future-State Application Landscape</h3>
+<h4 id="overview_1">Overview</h4>
+<p>The Future-State architecture represents the <strong>target</strong> landscape for O-070.</p>
+<div style="page-break-before: always;"></div>
+
+<h4 id="future-state-flow-narrative">Future-State Flow Narrative</h4>
+<p><em>(No future-state flows defined.)</em></p>
+<div style="page-break-before: always;"></div>
+
+<h3 id="53-change-impact-summary">5.3 Change Impact Summary</h3>
+<table>
+<thead>
+<tr>
+<th>Change Type</th>
+<th>Flow Chain</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Totals</strong>: 0 new - 0 removed - 0 modified - 0 unchanged</p>
+<h3 id="54-component-overview">5.4 Component Overview</h3>
+<h4 id="system-inventory">System Inventory</h4>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>IAPM ID</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Type</th>
+<th>Description</th>
+<th>Status</th>
+<th>Source → Target</th>
+<th>Middleware</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OTCW0638</td>
+<td>Workflow</td>
+<td>Dispute Write-off Workflow</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>OTCI1162</td>
+<td>Interface</td>
+<td>Inbound interface to change the sales order via Build Instructions</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>OTCI1161</td>
+<td>Interface</td>
+<td>Inbound interface from BY-PDH to S4 to update CMAD in IF sales orders</td>
+<td>10. Object Complete</td>
+<td>BY → S/4</td>
+<td>BODS</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>OTCI1126</td>
+<td>Interface</td>
+<td>Inbound interface to create and change sales order via Subcon, STO &amp; SIMS PO</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>MULESOFT</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>OTCI0442</td>
+<td>Interface</td>
+<td>IF: Interface requirement from SAC to S4</td>
+<td>10. Object Complete</td>
+<td>SAC → S/4</td>
+<td>BODS</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>OTCF0681_IF</td>
+<td>Form</td>
+<td>Form development for Intercompany Invoice.</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>OTCF0460_IF</td>
+<td>Form</td>
+<td>Form Development for Invoice list.</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>OTCF0431</td>
+<td>Form</td>
+<td>Generate Custom Late Payment Interest Charge Output Form</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>OTCF0290</td>
+<td>Form</td>
+<td>Dunning output form customization</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>OTCE1698</td>
+<td>Enhancement</td>
+<td>Additional material attributes for transfer from MDG to GTS to support produc&hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>OTCE1668_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to transfer Customs value from S4 to GTS for Sales orders and del&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>OTCE1662</td>
+<td>Enhancement</td>
+<td>BADI Enhancement for Dispute Write off (workflow Trigger)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>OTCE1658</td>
+<td>Enhancement</td>
+<td>Dispute Write-off Enhancement</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>OTCE1655</td>
+<td>Enhancement</td>
+<td>Enhancement to AIF capabilities on access and notifications</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>OTCE1625</td>
+<td>Enhancement</td>
+<td>Credit hold release dashboard at line-item level</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>OTCE1558</td>
+<td>Enhancement</td>
+<td>Business users want the capability to have CMIR updated for the specific Mate&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>OTCE1557</td>
+<td>Enhancement</td>
+<td>Business users want the capability to have sales order updated for the specif&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>OTCE1200</td>
+<td>Enhancement</td>
+<td>Enhancement to transfer fields from Sales Orders to Purchase Requisition duri&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>OTCE1124</td>
+<td>Enhancement</td>
+<td>Enhancement to support Inbound interface to change the ship to party record a&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>OTCE1123</td>
+<td>Enhancement</td>
+<td>Determine Confirmed Delivery date in sales orders at schedule line level base&hellip;</td>
+<td>06. Dev In Progress</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>OTCE1122</td>
+<td>Enhancement</td>
+<td>Enhancement for IMR to update the Repair Sales Order post Repair work order i&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>OTCE1106</td>
+<td>Enhancement</td>
+<td>Enhancement to support Inbound interface and manual upload to create the sale&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>OTCE1013</td>
+<td>Enhancement</td>
+<td>SIMS Enhancement to determine the order type based on the Material Characteri&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>OTCE0974</td>
+<td>Enhancement</td>
+<td>Screen enhancement to populate the assignment priority at SO line item</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>OTCE0659</td>
+<td>Enhancement</td>
+<td>IF : Apply a Delivery Block Hold for Items with Multiple Schedule lines (MSL)&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>OTCE0651_IF</td>
+<td>Enhancement</td>
+<td>Enrich the delivery data transfer data from S/4 IF to GTS with the &lsquo;new&rsquo; vs &lsquo;&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>OTCE0614_IF</td>
+<td>Enhancement</td>
+<td>Implement Standard Credit/Collection BADI</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>OTCE0486</td>
+<td>Enhancement</td>
+<td>Price Swamp: For Order Repricing</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>OTCE0235</td>
+<td>Enhancement</td>
+<td>Credit and Collections - Credit Check Step Configuration</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>OTCE0234</td>
+<td>Enhancement</td>
+<td>Implement mapping between customer’s risk class and credit check steps</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1688</td>
+<td>Interface</td>
+<td>To capture correct Country of Assembly and Country of Fabrication on FVR and &hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>MuleSoft</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1534_IF</td>
+<td>Interface</td>
+<td>BRF+ Extractor( API interface) to fetch the data saved in the BRF+ decision t&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGI0871</td>
+<td>Interface</td>
+<td>Interface for Label printing, So in this interface when user will click on pr&hellip;</td>
+<td>10. Object Complete</td>
+<td>SPECTRUM → S/4</td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>LOGI0842_IF</td>
+<td>Interface</td>
+<td>Interface from SAP S4 to DBaaS to Fetch Actual COF for FVR batch and COA for &hellip;</td>
+<td>10. Object Complete</td>
+<td>S/4 → DBaaS</td>
+<td>MULESOFT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGI0800_IF</td>
+<td>Interface</td>
+<td>Interface to send shipment information to custom broker</td>
+<td>10. Object Complete</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGI0663_IF</td>
+<td>Interface</td>
+<td>Trigger ZCUS (export customs clearance output) and ZXCI to send outputs - ZSI&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0630_IF</td>
+<td>Interface</td>
+<td>TM - GTT: GXS sending carrier events back to GTT app “Shipment Tracking”. IF.</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGF1673</td>
+<td>Form</td>
+<td>Consolidated Export CI for Wafer Die (Ireland)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGF1672</td>
+<td>Form</td>
+<td>Consolidated Export CI for Finished Goods (Ireland)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGF1149_IF</td>
+<td>Form</td>
+<td>Consolidated Packing list for Chengdu</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGF0873</td>
+<td>Form</td>
+<td>CI/PL document should be printed based on R3 process.</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>LOGF0356</td>
+<td>Form</td>
+<td>Generate Consolidated Bailment Commercial Invoice - Finished Goods (IF and IP)</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>LOGF0355</td>
+<td>Form</td>
+<td>Generate Consolidated Bailment Commercial Invoice - Wafer/Die (IF and IP)</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGF0349_IF</td>
+<td>Form</td>
+<td>ISM - Generate Packing List - IF/IP</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1624</td>
+<td>Enhancement</td>
+<td>Development of LCSR tool in Fiori</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>LOGE1509_IF</td>
+<td>Enhancement</td>
+<td>Tendering- FIORI app for Approval Hierarchy (Assign Delegate)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1488_IF</td>
+<td>Enhancement</td>
+<td>Invoice notification- Notification to carrier for POD and internal notificati&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1487_IF</td>
+<td>Enhancement</td>
+<td>Carrier notification- Carrier contact table BRF+ maintenance</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1486_IF</td>
+<td>Enhancement</td>
+<td>Carrier notification- Cancellation email</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1485_IF</td>
+<td>Enhancement</td>
+<td>Carrier notification- Acceptance and Rejection email</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1484_IF</td>
+<td>Enhancement</td>
+<td>Invoice notification- Notification to carrier for Invoice</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1483_IF</td>
+<td>Enhancement</td>
+<td>Invoice notification- Notification to carrier for dispute</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1482_IF</td>
+<td>Enhancement</td>
+<td>Tendering- Internal Notification mail</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE1481_IF</td>
+<td>Enhancement</td>
+<td>Tendering- Approval Process with Purchase group determination</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE1462_IF</td>
+<td>Enhancement</td>
+<td>TM - GTT: Send Event # Estimated Time of Arrival (ETA) as a separate event fr&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE1461_IF</td>
+<td>Enhancement</td>
+<td>TM - GTT: To propagate events to S/4 TM Freight order reported by GXS by Bypa&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE1460_IF</td>
+<td>Enhancement</td>
+<td>TM - GTT: Additional field needs to be captured in S/4 TM Freight Order “Note&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE1459_IF</td>
+<td>Enhancement</td>
+<td>TM - GTT: Additional field values sent by carrier through GXS are required in&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE1297_IF</td>
+<td>Enhancement</td>
+<td>Disable the Amount field within Subcontracting tab in Freight Order for CW Lo&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE1256_IF</td>
+<td>Enhancement</td>
+<td>TM - GTT: Document type T54 (House Airway Bill) number to GTT</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE1251_IF</td>
+<td>Enhancement</td>
+<td>More determinization of input entry criteria to be added for dedicated carrie&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1250_IF</td>
+<td>Enhancement</td>
+<td>Creating new Carrier selection strategy methods ZPRE_TAL and ZPOST_TAL to cal&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1197_IF</td>
+<td>Enhancement</td>
+<td>Carrier notification- Tendering initiation email</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1196_IF</td>
+<td>Enhancement</td>
+<td>Invoice notification- Notification to carrier for POD and internal notificati&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0841</td>
+<td>Enhancement</td>
+<td>Enhancement to display an error message in the pack transaction within SAP Ex&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0797_IF</td>
+<td>Enhancement</td>
+<td>Pre alert notification to Customer</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0796_IF</td>
+<td>Enhancement</td>
+<td>Custom transaction to trigger CUSDEC</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0792_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to Update Custom Table form Master data and Manage SOP Data Commu&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0791_IF</td>
+<td>Enhancement</td>
+<td>Creation of Proforma Invoice ZF8 from Freight Order and Save ITN Number in De&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0782</td>
+<td>Enhancement</td>
+<td>Enhancement to RF Loading Screen for 3PV Validation</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>LOGE0775</td>
+<td>Enhancement</td>
+<td>Enhancement in packing transaction. Should allow user to launch Interface for&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0772_IF</td>
+<td>Enhancement</td>
+<td>Develop Fiori app to View/Edit/Add SOP data(CMDB).</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0766_IF</td>
+<td>Enhancement</td>
+<td>TM - GTT: Routing of events from GTT to correct S4 system</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0765_IF</td>
+<td>Enhancement</td>
+<td>Calling a new BRF+ for Carrier exclusion during Carrier Selection process. Eg&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0673_IF</td>
+<td>Enhancement</td>
+<td>Data code extractor to be extended on S4 TM side​</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0632_IF</td>
+<td>Enhancement</td>
+<td>TM: Custom Determination Class to access Source and Destination country in FU&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0628_IF</td>
+<td>Enhancement</td>
+<td>CRF freight orders, should have a custom event type “Shipped –CRF&rdquo;. This cust&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0626_IF</td>
+<td>Enhancement</td>
+<td>FO subcontracting screen for tendering enhancement. Fields include- send for &hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0625_IF</td>
+<td>Enhancement</td>
+<td>Tendering- FIORI app for Approval Hierarchy (Assign Delegate)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0547_IF</td>
+<td>Enhancement</td>
+<td>Mass upload – Custom TM program for below items. Resource Downtime upload.Not&hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0546_IF</td>
+<td>Enhancement</td>
+<td>Mass upload – Custom TM program for below items. Schedule and Default Routes &hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0511_IF</td>
+<td>Enhancement</td>
+<td>Mass upload – Custom TM program for below items. Mass upload program to creat&hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0478_IF</td>
+<td>Enhancement</td>
+<td>Generate Automated Carrier Pre-Alert (ZPRC) from SAP TM.</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0459_IF</td>
+<td>Enhancement</td>
+<td>In SAP TM, Custom carrier selection strategy - Carrier Selection -Custom Stra&hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0458_IF</td>
+<td>Enhancement</td>
+<td>In SAP TM, Custom carrier selection strategy - Carrier Selection -Custom Stra&hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0457_IF</td>
+<td>Enhancement</td>
+<td>In SAP TM, Custom carrier selection strategy - Carrier Selection -Custom Stra&hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0456_IF</td>
+<td>Enhancement</td>
+<td>In SAP TM, Custom carrier selection strategy - Carrier Selection UI enhanceme&hellip;</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Summary</strong>: 11 Interfaces, 64 Enhancements, 11 Forms, 1 Workflows</p>
+<div style="page-break-before: always;"></div>
+
+<h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
+<p>Integration patterns identified from the system flow analysis for O-070:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Pattern</th>
+<th>Flow Chain</th>
+<th>Middleware</th>
+<th>Protocol</th>
+<th>Auth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Integration pattern details will be refined when tower architects validate middleware assignments.</em></p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
+<h3 id="61-platform-infrastructure">6.1 Platform &amp; Infrastructure</h3>
+<blockquote>
+<p><strong>TECHNOLOGY / PLATFORM ARCHITECTURE</strong> — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.</p>
+</blockquote>
+<h4 id="platform-inventory">Platform Inventory</h4>
+<p>Platform landscape inferred from integrated systems for O-070:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Platform</th>
+<th>Type</th>
+<th>Systems Using</th>
+<th>Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>SAP S/4HANA</td>
+<td>On-Premise (HEC)</td>
+<td>SAP S/4 modules</td>
+<td>DEV, QAS, PRD</td>
+</tr>
+<tr>
+<td>2</td>
+<td>SAP BTP (Integration Suite)</td>
+<td>Cloud / PaaS</td>
+<td>CPI, API Management</td>
+<td>DEV, QAS, PRD</td>
+</tr>
+<tr>
+<td>3</td>
+<td>MuleSoft Anypoint</td>
+<td>Cloud / iPaaS</td>
+<td>API-led integrations</td>
+<td>DEV, QAS, PRD</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Platform assignments will be validated when tower architects populate technology platform columns.</em></p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h3 id="62-sap-development-object-status">6.2 SAP Development Object Status</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>DEV</th>
+<th>QAS</th>
+<th>PRD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transport Requests</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Custom Code Objects</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>CDS Views</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Fiori Apps</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>BAdIs / Enhancements</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Requirement</th>
+<th>Target / SLA</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Performance</td>
+<td>Order/transaction processing within interactive SLA</td>
+<td>&lt; 3 seconds for online transactions</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Availability</td>
+<td>Business-critical systems available during extended hours</td>
+<td>99.9% (06:00-22:00 all time zones)</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Scalability</td>
+<td>Support seasonal and promotional volume spikes</td>
+<td>Handle 2x baseline transaction volume</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Recoverability</td>
+<td>Customer-facing systems recover within business impact window</td>
+<td>RPO &lt; 30 min, RTO &lt; 2 hours</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Data Volume</td>
+<td>Support transactional data growth from business expansion</td>
+<td>10M+ documents/year</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Latency</td>
+<td>Near-real-time integration for order status updates</td>
+<td>&lt; 30 seconds for status propagation</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Concurrency</td>
+<td>Support global user base across business functions</td>
+<td>300+ concurrent users</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<h3 id="64-security-governance">6.4 Security &amp; Governance</h3>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Approach</th>
+<th>Standard / Policy</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authentication</td>
+<td>Single Sign-On (SSO) via Intel corporate Azure AD identity</td>
+<td>Intel IT Security Policy - Identity Management</td>
+<td>IT Security</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>Role-based access control (RBAC) with SAP authorization objects</td>
+<td>Intel SAP Security Standards - Role Design</td>
+<td>SAP Security Team</td>
+</tr>
+<tr>
+<td>Data Classification</td>
+<td>All financial/operational data classified per Intel Data Classification Standard</td>
+<td>Intel Data Classification Policy</td>
+<td>Data Governance</td>
+</tr>
+<tr>
+<td>Data Encryption (at rest)</td>
+<td>AES-256 encryption for SAP HANA database and file storage</td>
+<td>Intel Encryption Standard</td>
+<td>Infrastructure Security</td>
+</tr>
+<tr>
+<td>Data Encryption (in transit)</td>
+<td>TLS 1.3 for all system-to-system and user-to-system communication</td>
+<td>Intel Network Security Policy</td>
+<td>Network Engineering</td>
+</tr>
+<tr>
+<td>Network Segmentation</td>
+<td>SAP systems in dedicated network zones with firewall controls</td>
+<td>Intel Network Architecture Standard</td>
+<td>Network Security</td>
+</tr>
+<tr>
+<td>API Security</td>
+<td>OAuth 2.0 / certificate-based authentication for all API integrations</td>
+<td>Intel API Security Guidelines</td>
+<td>Integration Architecture</td>
+</tr>
+<tr>
+<td>Audit Logging</td>
+<td>Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log)</td>
+<td>SOX Compliance / Intel Audit Policy</td>
+<td>Internal Audit</td>
+</tr>
+<tr>
+<td>Certificate Management</td>
+<td>Automated certificate lifecycle management for system-to-system trust</td>
+<td>Intel PKI Standard</td>
+<td>Certificate Authority Team</td>
+</tr>
+<tr>
+<td>Compliance</td>
+<td>SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR)</td>
+<td>Intel Corporate Compliance Framework</td>
+<td>Compliance Office</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="7-project-context">7. Project Context</h2>
+<h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Description</th>
+<th>FS End</th>
+<th>FS %</th>
+<th>TDD End</th>
+<th>TDD %</th>
+<th>Build End</th>
+<th>Build %</th>
+<th>FUT End</th>
+<th>FUT %</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OTCW0638</td>
+<td>Dispute Write-off Workflow</td>
+<td>2025-08-08</td>
+<td>1.0</td>
+<td>2025-11-05</td>
+<td>1.0</td>
+<td>2025-11-05</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2. At Risk</td>
+</tr>
+<tr>
+<td>OTCI1162</td>
+<td>Inbound interface to change the sales&hellip;</td>
+<td>2025-03-21</td>
+<td>1.0</td>
+<td>2025-06-20</td>
+<td>1.0</td>
+<td>2025-06-20</td>
+<td>1.0</td>
+<td>2026-03-25</td>
+<td>1.0</td>
+<td>2. At Risk</td>
+</tr>
+<tr>
+<td>OTCI1161</td>
+<td>Inbound interface from BY-PDH to S4 t&hellip;</td>
+<td>2025-06-20</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-05</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>OTCI1126</td>
+<td>Inbound interface to create and chang&hellip;</td>
+<td>2025-04-18</td>
+<td>1.0</td>
+<td>2025-07-11</td>
+<td>1.0</td>
+<td>2025-07-11</td>
+<td>1.0</td>
+<td>2026-01-23</td>
+<td>1.0</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>OTCI0442</td>
+<td>IF: Interface requirement from SAC to S4</td>
+<td>2024-09-13</td>
+<td>1.0</td>
+<td>2025-03-07</td>
+<td>1.0</td>
+<td>2025-03-07</td>
+<td>1.0</td>
+<td>2025-12-03</td>
+<td>1.0</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>OTCF0681_IF</td>
+<td>Form development for Intercompany Inv&hellip;</td>
+<td>2024-11-22</td>
+<td>1.0</td>
+<td>2025-03-07</td>
+<td>1.0</td>
+<td>2025-03-07</td>
+<td>1.0</td>
+<td>2025-07-11</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>OTCF0460_IF</td>
+<td>Form Development for Invoice list.</td>
+<td>2024-09-13</td>
+<td>1.0</td>
+<td>2025-01-17</td>
+<td>1.0</td>
+<td>2025-01-17</td>
+<td>1.0</td>
+<td>2025-01-10</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>OTCF0431</td>
+<td>Generate Custom Late Payment Interest&hellip;</td>
+<td>2024-08-30</td>
+<td>1.0</td>
+<td>2025-01-31</td>
+<td>1.0</td>
+<td>2025-01-31</td>
+<td>1.0</td>
+<td>2025-05-09</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>OTCF0290</td>
+<td>Dunning output form customization</td>
+<td>2024-07-18</td>
+<td>1.0</td>
+<td>2025-01-31</td>
+<td>1.0</td>
+<td>2025-01-31</td>
+<td>1.0</td>
+<td>2025-03-14</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>OTCE1698</td>
+<td>Additional material attributes for tr&hellip;</td>
+<td>2024-11-15</td>
+<td>1.0</td>
+<td>2025-03-21</td>
+<td>1.0</td>
+<td>2025-03-21</td>
+<td>1.0</td>
+<td>2025-12-03</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>OTCE1668_IF</td>
+<td>Enhancement to transfer Customs value&hellip;</td>
+<td>2026-01-07</td>
+<td>1.0</td>
+<td>2026-02-04</td>
+<td>1.0</td>
+<td>2026-02-04</td>
+<td>1.0</td>
+<td>2026-03-27</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>OTCE1662</td>
+<td>BADI Enhancement for Dispute Write of&hellip;</td>
+<td>2025-11-13</td>
+<td>1.0</td>
+<td>2025-11-21</td>
+<td>1.0</td>
+<td>2025-11-21</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2. At Risk</td>
+</tr>
+<tr>
+<td>OTCE1658</td>
+<td>Dispute Write-off Enhancement</td>
+<td>2025-11-13</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2. At Risk</td>
+</tr>
+<tr>
+<td>OTCE1655</td>
+<td>Enhancement to AIF capabilities on ac&hellip;</td>
+<td>2025-06-27</td>
+<td>1.0</td>
+<td>2025-11-05</td>
+<td>1.0</td>
+<td>2025-11-05</td>
+<td>1.0</td>
+<td>2026-01-23</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>OTCE1625</td>
+<td>Credit hold release dashboard at line&hellip;</td>
+<td>2024-07-12</td>
+<td>1.0</td>
+<td>2025-09-05</td>
+<td>1.0</td>
+<td>2025-09-05</td>
+<td>1.0</td>
+<td>2026-02-04</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>OTCE1558</td>
+<td>Business users want the capability to&hellip;</td>
+<td>2025-10-04</td>
+<td>1.0</td>
+<td>2025-11-21</td>
+<td>1.0</td>
+<td>2025-11-21</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>OTCE1557</td>
+<td>Business users want the capability to&hellip;</td>
+<td>2025-10-04</td>
+<td>1.0</td>
+<td>2025-12-03</td>
+<td>1.0</td>
+<td>2025-12-03</td>
+<td>1.0</td>
+<td>2026-01-30</td>
+<td>1.0</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>OTCE1200</td>
+<td>Enhancement to transfer fields from S&hellip;</td>
+<td>2025-07-11</td>
+<td>1.0</td>
+<td>2025-11-21</td>
+<td>1.0</td>
+<td>2025-11-21</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>OTCE1124</td>
+<td>Enhancement to support Inbound interf&hellip;</td>
+<td>2025-04-11</td>
+<td>1.0</td>
+<td>2025-08-13</td>
+<td>1.0</td>
+<td>2025-08-13</td>
+<td>1.0</td>
+<td>2026-01-23</td>
+<td>1.0</td>
+<td>3. Off Track</td>
+</tr>
+<tr>
+<td>OTCE1123</td>
+<td>Determine Confirmed Delivery date in &hellip;</td>
+<td>2025-06-20</td>
+<td>1.0</td>
+<td>2025-11-05</td>
+<td>0.6</td>
+<td>2025-11-05</td>
+<td>0.6</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td><em>&hellip; and 67 more objects (see full Object Tracker)</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="72-raid-log">7.2 RAID Log</h3>
+<p>Standard RAID items for O-070 (Order To Cash (IF)):</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Category</th>
+<th>Description</th>
+<th>Status</th>
+<th>Owner</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Risk</td>
+<td>Data migration completeness — validate all legacy Manage Backorders (IF) data maps to S/4 target structures</td>
+<td>Open</td>
+<td>Tower Architect</td>
+<td>High</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Risk</td>
+<td>Integration testing coverage — ensure all 0 integrated systems are validated end-to-end</td>
+<td>Open</td>
+<td>Integration Lead</td>
+<td>High</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Assumption</td>
+<td>Target SAP S/4HANA system available in DEV/QAS per release schedule</td>
+<td>Active</td>
+<td>SAP Basis</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Issue</td>
+<td>API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation</td>
+<td>Open</td>
+<td>EA Pipeline Team</td>
+<td>High</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Dependency</td>
+<td>Upstream BPMN process models validated and signed off by business process owners</td>
+<td>Active</td>
+<td>Process Owner</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.</em></p>
+</blockquote>
+<h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Category</th>
+<th>Recommendation</th>
+<th>Priority</th>
+<th>Owner</th>
+<th>Target Date</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Architecture</td>
+<td>Complete extended flow attributes (Data Entity, Integration Pattern, Tech Platform) in Flows tab for full BDAT coverage</td>
+<td>High</td>
+<td>Tower Architect</td>
+<td>2026-Q2</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Data</td>
+<td>Define data ownership and classification for all 0 flow chains to satisfy Data Architecture (TOGAF D) requirements</td>
+<td>Medium</td>
+<td>Data Architect</td>
+<td>2026-Q3</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Testing</td>
+<td>Develop integration test scenarios covering all 0 flow chains for FUT/SIT readiness</td>
+<td>High</td>
+<td>Test Lead</td>
+<td>2026-Q3</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Business Architecture</td>
+<td>Review and validate Business Architecture process steps against latest Signavio/BIC process models</td>
+<td>Medium</td>
+<td>Business Analyst</td>
+<td>2026-Q2</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Security</td>
+<td>Complete security review for API integrations and data flows per Intel Security Architecture standards</td>
+<td>Medium</td>
+<td>Security Architect</td>
+<td>2026-Q3</td>
+<td>Open</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>O-070 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: March 2026</em></p>
+<div class="footer">
+    IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+</body>
+</html>

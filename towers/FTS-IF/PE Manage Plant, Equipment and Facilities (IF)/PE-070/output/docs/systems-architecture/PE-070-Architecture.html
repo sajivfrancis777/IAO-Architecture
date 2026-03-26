@@ -1,0 +1,2838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PE-070 Architecture</title>
+    <style>
+@page {
+    size: A4;
+    margin: 20mm 15mm 20mm 15mm;
+}
+body {
+    font-family: "Segoe UI", Calibri, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #1a1a1a;
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 15mm;
+    background: #fff;
+}
+h1 {
+    font-size: 22pt;
+    color: #00285a;
+    border-bottom: 3px solid #0071c5;
+    padding-bottom: 8px;
+    margin-top: 30px;
+    page-break-before: always;
+}
+h1:first-of-type { page-break-before: avoid; }
+h2 {
+    font-size: 16pt;
+    color: #00285a;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 4px;
+    margin-top: 24px;
+}
+h3 {
+    font-size: 13pt;
+    color: #0071c5;
+    margin-top: 18px;
+}
+h4 { font-size: 11pt; color: #333; margin-top: 14px; }
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 12px 0;
+    font-size: 9.5pt;
+    page-break-inside: avoid;
+}
+th {
+    background: #00285a;
+    color: #fff;
+    font-weight: 600;
+    text-align: left;
+    padding: 6px 8px;
+    border: 1px solid #00285a;
+}
+td {
+    padding: 5px 8px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+}
+tr:nth-child(even) td { background: #f5f8fc; }
+tr:hover td { background: #e8f0fe; }
+code {
+    font-family: "Cascadia Code", "Consolas", monospace;
+    font-size: 9pt;
+    background: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+pre {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 12px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 8.5pt;
+    line-height: 1.4;
+    page-break-inside: avoid;
+}
+pre code { background: none; padding: 0; color: inherit; }
+blockquote {
+    border-left: 4px solid #0071c5;
+    background: #f5f8fc;
+    margin: 12px 0;
+    padding: 8px 16px;
+    color: #333;
+}
+.mermaid-placeholder {
+    background: #f5f8fc;
+    border: 1px dashed #0071c5;
+    border-radius: 4px;
+    padding: 16px;
+    margin: 12px 0;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+.mermaid {
+    background: #fafbfd;
+    border: 1px solid #e0e4ea;
+    border-radius: 6px;
+    padding: 20px 12px;
+    margin: 16px 0;
+    overflow-x: auto;
+    text-align: center;
+}
+.mermaid svg {
+    max-width: 100%;
+    height: auto;
+}
+.header-bar {
+    background: #00285a;
+    color: #fff;
+    padding: 16px 24px;
+    margin: -15mm -15mm 20px -15mm;
+    font-size: 9pt;
+}
+.header-bar h1 {
+    color: #fff;
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-size: 20pt;
+    page-break-before: avoid;
+}
+.header-bar .subtitle { color: #a8c7e8; font-size: 10pt; }
+.footer {
+    font-size: 8pt;
+    color: #888;
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+a { color: #0071c5; text-decoration: none; }
+a:hover { text-decoration: underline; }
+hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
+strong { color: #00285a; }
+
+@media print {
+    body { padding: 0; max-width: none; }
+    .header-bar { margin: 0 0 20px 0; }
+    .no-print { display: none; }
+}
+</style>
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    securityLevel: 'loose',
+    flowchart: {
+      curve: 'basis',
+      padding: 16,
+      nodeSpacing: 50,
+      rankSpacing: 60,
+      useMaxWidth: true
+    },
+    themeVariables: {
+      primaryColor: '#e8f0fe',
+      primaryBorderColor: '#0071c5',
+      primaryTextColor: '#1a1a1a',
+      lineColor: '#37474F',
+      secondaryColor: '#f5f8fc',
+      tertiaryColor: '#fff',
+      fontSize: '14px',
+      fontFamily: 'Segoe UI, Arial, sans-serif'
+    }
+  });
+</script>
+
+</head>
+<body>
+<div style="text-align:center; padding-top:80px;">
+  <h1 style="font-size:36px;">PE-070 — Identify and Plan Plant Maintenance (IF)</h1>
+  <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
+  <p style="font-size:18px; color:#555;">Forecast to Stock (IF) (FTS-IF) Tower<br/>
+  Capability PE-070 · PE Manage Plant, Equipment and Facilities (IF)</p>
+  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
+  Generated: March 2026</p>
+  <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
+</div>
+
+<style>
+@media print {
+  @page { margin: 0.75in; }
+  footer::after { content: "Intel Confidential — PE-070 BDAT — March 2026"; font-size:9px; color:#999; }
+  .mermaid { page-break-inside: avoid; max-height: 95vh; overflow: visible; }
+  pre, table { page-break-inside: avoid; }
+  h2, h3, h4 { page-break-after: avoid; }
+}
+.mermaid svg { max-width: 100% !important; height: auto !important; }
+</style>
+
+<div style="page-break-before: always;"></div>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#1-executive-summary">Executive Summary</a></li>
+<li><a href="#2-business-context--objectives">Business Context &amp; Objectives</a>
+   - 2.1 <a href="#21-classification">Classification</a>
+   - 2.2 <a href="#22-business-drivers">Business Drivers</a>
+   - 2.3 <a href="#23-success-criteria">Success Criteria</a>
+   - 2.4 <a href="#24-companion-documents">Companion Documents</a></li>
+<li><a href="#3-business-architecture-togaf-b">Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+   - 3.1 <a href="#31-business-process-overview">Business Process Overview</a>
+   - 3.2 <a href="#32-business-process-diagrams">Business Process Diagrams</a>
+   - 3.3 <a href="#33-business-roles--responsibilities">Business Roles &amp; Responsibilities</a></li>
+<li><a href="#4-data-architecture-togaf-d">Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+   - 4.1 <a href="#41-data-entities--ownership">Data Entities &amp; Ownership</a>
+   - 4.2 <a href="#42-data-flow-diagrams">Data Flow Diagrams</a>
+   - 4.3 <a href="#43-data-lineage">Data Lineage</a>
+   - 4.4 <a href="#44-ricefw-data-objects">RICEFW Data Objects</a>
+   - 4.5 <a href="#45-data-governance--quality">Data Governance &amp; Quality</a></li>
+<li><a href="#5-application-architecture-togaf-a">Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+   - 5.1 <a href="#51-current-state--current-state-application-landscape">Current-State Application Landscape</a>
+   - 5.2 <a href="#52-future-state--future-state-application-landscape">Future-State Application Landscape</a>
+   - 5.3 <a href="#53-change-impact-summary">Change Impact Summary</a>
+   - 5.4 <a href="#54-component-overview">Component Overview</a>
+   - 5.5 <a href="#55-ricefw-inventory">RICEFW Inventory</a>
+   - 5.6 <a href="#56-integration-patterns">Integration Patterns</a></li>
+<li><a href="#6-technology-architecture-togaf-t">Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+   - 6.1 <a href="#61-platform--infrastructure">Platform &amp; Infrastructure</a>
+   - 6.2 <a href="#62-sap-development-object-status">SAP Development Object Status</a>
+   - 6.3 <a href="#63-nfrs--design-principles">NFRs &amp; Design Principles</a>
+   - 6.4 <a href="#64-security--governance">Security &amp; Governance</a></li>
+<li><a href="#7-project-context">Project Context</a>
+   - 7.1 <a href="#71-project-roadmap--go-live-plan">Project Roadmap &amp; Go-Live Plan</a>
+   - 7.2 <a href="#72-raid-log">RAID Log</a>
+   - 7.3 <a href="#73-recommendations--next-steps">Recommendations &amp; Next Steps</a></li>
+</ol>
+<div style="page-break-before: always;"></div>
+
+<h2 id="1-executive-summary">1. Executive Summary</h2>
+<p>This Architecture Document defines the <strong>Business, Data, Application, and Technology</strong> (BDAT) architecture for <strong>PE-070 Identify and Plan Plant Maintenance (IF)</strong> within the IAO program. It includes 13 BPMN process diagram(s) in Section 3.
+| Dimension | Value |
+|-----------|-------|
+| <strong>Tower</strong> | Forecast to Stock (IF) (FTS-IF) |
+| <strong>Process Group</strong> | PE Manage Plant, Equipment and Facilities (IF) |
+| <strong>Capability</strong> | PE-070 - Identify and Plan Plant Maintenance (IF) |
+| <strong>Release</strong> | Release 3 |
+| <strong>Total Systems</strong> | 0 |
+| <strong>System Status</strong> | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
+| <strong>RICEFW Objects</strong> | 2 Reports, 12 Interfaces, 11 Conversions, 53 Enhancements, 1 Forms, 1 Workflows |
+<strong>Change Summary</strong>: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.</p>
+<blockquote>
+<p>All system nodes in architecture diagrams are <strong>IAPM-linked</strong> — click any node to open its IAPM page. Diagrams require <code>securityLevel: 'loose'</code> for click events.</p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h2 id="2-business-context-objectives">2. Business Context &amp; Objectives</h2>
+<h3 id="21-classification">2.1 Classification</h3>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>L0 Tower</strong></td>
+<td>Forecast to Stock (IF)</td>
+</tr>
+<tr>
+<td><strong>L1 Process</strong></td>
+<td>PE Manage Plant, Equipment and Facilities (IF)</td>
+</tr>
+<tr>
+<td><strong>L2 Capability</strong></td>
+<td>PE-070 - Identify and Plan Plant Maintenance (IF)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-business-drivers">2.2 Business Drivers</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Driver</th>
+<th>Description</th>
+<th>Strategic Alignment</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Intel Foundry Supply Chain Integration</td>
+<td>Integrate Intel Foundry manufacturing and logistics into unified S/4 HANA supply chain</td>
+<td>IDM 2.0 Foundry Enablement</td>
+<td>High</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Warehouse &amp; Logistics Modernization</td>
+<td>Modernize warehouse management and shipping processes with EWM integration</td>
+<td>Supply Chain Digital Transformation</td>
+<td>High</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Production Planning Optimization</td>
+<td>Enable MRP-driven production planning with real-time material availability</td>
+<td>Manufacturing Excellence</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>4</td>
+<td>PE-070 Process Migration</td>
+<td>Migrate Identify and Plan Plant Maintenance (IF) business processes and 0 integrated systems from legacy to S/4 HANA target architecture</td>
+<td>IDM 2.0 Supply Chain (Intel Foundry)</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="23-success-criteria">2.3 Success Criteria</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+<th>Measure</th>
+<th>Baseline</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Order Fulfillment Lead Time</td>
+<td>&lt; 48 hours</td>
+<td>Time from production completion to shipment dispatch</td>
+<td>72 hours (legacy)</td>
+<td>Logistics Manager</td>
+</tr>
+<tr>
+<td>Inventory Accuracy</td>
+<td>&gt; 99.5%</td>
+<td>Physical vs system inventory match rate</td>
+<td>97.8% (current)</td>
+<td>Warehouse Manager</td>
+</tr>
+<tr>
+<td>MRP Planning Cycle</td>
+<td>&lt; 4 hours</td>
+<td>End-to-end MRP run including exception processing</td>
+<td>8 hours (legacy)</td>
+<td>Planning Lead</td>
+</tr>
+<tr>
+<td>PE-070 Migration Completeness</td>
+<td>100% flow chains validated</td>
+<td>All 0 flow chains verified in target state</td>
+<td>0% (pre-migration)</td>
+<td>Tower Architect</td>
+</tr>
+</tbody>
+</table>
+<h3 id="24-companion-documents">2.4 Companion Documents</h3>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Business Architecture</strong></td>
+<td>Included in this document (Section 3) — process flows from BPMN diagrams</td>
+</tr>
+<tr>
+<td><strong>This Document</strong></td>
+<td>Full BDAT Architecture — Business + Data + Application + Technology</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</h2>
+<h3 id="31-business-process-overview">3.1 Business Process Overview</h3>
+<p>This capability includes <strong>13 business process(es)</strong> modeled in BPMN 2.0, covering the end-to-end workflow for PE-070 Identify and Plan Plant Maintenance (IF).</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Step ID</th>
+<th>Process Name</th>
+<th>Lanes</th>
+<th>Tasks</th>
+<th>Gateways</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>PE-070-010_Identify_Maintenance_Work_Required</td>
+<td>PE-070-010_Identify_Maintenance_Work_Required</td>
+<td>Boundary Apps</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>PE-070-020_Create_and_Maintain_Notification</td>
+<td>PE-070-020_Create_and_Maintain_Notification</td>
+<td>FTS IF - Maintenance Planner, Factory Supervisor</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>PE-070-030_Review_Notification_and_Validate_Request_for_Maintenance</td>
+<td>PE-070-030_Review_Notification_and_Validate_Request_for_Maintenance</td>
+<td>FTS IF - Maintenance Technician</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>PE-070-040_Review_Equipment_Maintenance_Planned_Orders</td>
+<td>PE-070-040_Review_Equipment_Maintenance_Planned_Orders</td>
+<td>FTS IF - Maintenance Planner</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>5</td>
+<td>PE-070-070_Perform_Field_Inspection_to_Create_Work_Request</td>
+<td>PE-070-070_Perform_Field_Inspection_to_Create_Work_Request</td>
+<td>Factory Supervisor</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>6</td>
+<td>PE-070-080_Check_Warranty</td>
+<td>PE-070-080_Check_Warranty</td>
+<td>FTS IF - Batch User, FTS IF - PM Maintenance Technician, Finance Manager, PTP IF Batch user</td>
+<td>11</td>
+<td>18</td>
+</tr>
+<tr>
+<td>7</td>
+<td>PE-070-090_Process_Notification</td>
+<td>PE-070-090_Process_Notification</td>
+<td>Factory Supervisor</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>8</td>
+<td>PE-070-100_Close_Notification</td>
+<td>PE-070-100_Close_Notification</td>
+<td>Factory Supervisor</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>9</td>
+<td>PE-070-110_Create_and_Maintain_Maintenance_Order</td>
+<td>PE-070-110_Create_and_Maintain_Maintenance_Order</td>
+<td>Boundary Apps, FTS IF - PM Batch User</td>
+<td>4</td>
+<td>1</td>
+</tr>
+<tr>
+<td>10</td>
+<td>PE-070-120_Review_Maintenance_Plan</td>
+<td>PE-070-120_Review_Maintenance_Plan</td>
+<td>FTS IF - Maintenance Planner</td>
+<td>4</td>
+<td>0</td>
+</tr>
+<tr>
+<td>11</td>
+<td>PE-070-130_Create_Maintenance_Plan</td>
+<td>PE-070-130_Create_Maintenance_Plan</td>
+<td>FTS IF - Maintenance Planner</td>
+<td>7</td>
+<td>3</td>
+</tr>
+<tr>
+<td>12</td>
+<td>PE-070-150_Define_Requirements_for_Each_Operation_and_Create_Job_Plan</td>
+<td>PE-070-150_Define_Requirements_for_Each_Operation_and_Create_Job_Plan</td>
+<td>Boundary Apps</td>
+<td>6</td>
+<td>1</td>
+</tr>
+<tr>
+<td>13</td>
+<td>PE-070-160_Identify_Required_Spare_Parts</td>
+<td>PE-070-160_Identify_Required_Spare_Parts</td>
+<td>FTS IF - PM Maintenance Technician</td>
+<td>2</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-business-process-diagrams">3.2 Business Process Diagrams</h3>
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-321-pe-070-010_identify_maintenance_work_required-pe-070-010_identify_maintenance_work_required">BUSINESS ARCHITECTURE — 3.2.1 PE-070-010_Identify_Maintenance_Work_Required — PE-070-010_Identify_Maintenance_Work_Required</h4>
+<p><strong>Swim Lanes</strong>: Boundary Apps | <strong>Tasks</strong>: 2 | <strong>Gateways</strong>: 0</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Boundary Apps
+        n1[["fa:fa-cog Detect Tool Down by Boundary App"]]
+        n2[["fa:fa-cog Auto Generate Notification"]]
+        n3(["fa:fa-play Request Received for Maintenance Work"])
+        n4["Create and Maintain Notification"]
+    end
+    n3 --> n1
+    n1 --> n2
+    n2 --> n4
+    class n1 serviceTask
+    class n2 serviceTask
+    class n3 startEvt
+    class n4 startEvt
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-322-pe-070-020_create_and_maintain_notification-pe-070-020_create_and_maintain_notification">BUSINESS ARCHITECTURE — 3.2.2 PE-070-020_Create_and_Maintain_Notification — PE-070-020_Create_and_Maintain_Notification</h4>
+<p><strong>Swim Lanes</strong>: FTS IF - Maintenance Planner · Factory Supervisor | <strong>Tasks</strong>: 3 | <strong>Gateways</strong>: 2</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph FTS IF - Maintenance Planner
+        n2[["fa:fa-cog Create Notification in SAP S/4 HANA"]]
+        n3["Send Email from SAP S/4 HANA"]
+    end
+    subgraph Factory Supervisor
+        n1[["fa:fa-cog Auto Generate Notification"]]
+        n4["Review Notification and Validate Request for Maintenance"]
+        n5["Identify Maintenance Work Required"]
+        n6{{"fa:fa-code-branch Source?"}}
+        n7{{"fa:fa-code-branch exclusiveGateway"}}
+    end
+    n5 --> n6
+    n2 --> n3
+    n1 --> n7
+    n6 -->|"MES/AutoTask"| n1
+    n7 --> n4
+    n3 --> n7
+    n6 -->|"SAP ME"| n2
+    class n1 serviceTask
+    class n2 serviceTask
+    class n4 startEvt
+    class n5 startEvt
+    class n6 gateway
+    class n7 gateway
+</div>
+
+<h4 id="business-architecture-323-pe-070-030_review_notification_and_validate_request_for_maintenance-pe-070-030_review_notification_and_validate_request_for_maintenance">BUSINESS ARCHITECTURE — 3.2.3 PE-070-030_Review_Notification_and_Validate_Request_for_Maintenance — PE-070-030_Review_Notification_and_Validate_Request_for_Maintenance</h4>
+<p><strong>Swim Lanes</strong>: FTS IF - Maintenance Technician | <strong>Tasks</strong>: 2 | <strong>Gateways</strong>: 1</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph FTS IF - Maintenance Technician
+        n1["fa:fa-user Review Email Notification"]
+        n2["fa:fa-user Review and Approve Notification"]
+        n3["Create and Maintain Maintenance Order"]
+        n4["Perform Field Inspection to Create Request"]
+        n5["Create and Maintain Notification"]
+        n6{{"fa:fa-code-branch System Generating Notification?"}}
+    end
+    n5 --> n6
+    n1 --> n3
+    n2 --> n4
+    n6 -->|"MES/AutoTask"| n2
+    n6 -->|"SAP S/4 HANA"| n1
+    class n1 userTask
+    class n2 userTask
+    class n3 startEvt
+    class n4 startEvt
+    class n5 startEvt
+    class n6 gateway
+</div>
+
+<h4 id="business-architecture-324-pe-070-040_review_equipment_maintenance_planned_orders-pe-070-040_review_equipment_maintenance_planned_orders">BUSINESS ARCHITECTURE — 3.2.4 PE-070-040_Review_Equipment_Maintenance_Planned_Orders — PE-070-040_Review_Equipment_Maintenance_Planned_Orders</h4>
+<p><strong>Swim Lanes</strong>: FTS IF - Maintenance Planner | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 0</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph FTS IF - Maintenance Planner
+        n1["fa:fa-user Review Planned Maintenance Orders Created for Equipment"]
+        n2["Create and Maintain Maintenance Order"]
+        n3["Process Notification"]
+    end
+    n3 --> n1
+    n1 --> n2
+    class n1 userTask
+    class n2 startEvt
+    class n3 startEvt
+</div>
+
+<h4 id="business-architecture-325-pe-070-070_perform_field_inspection_to_create_work_request-pe-070-070_perform_field_inspection_to_create_work_request">BUSINESS ARCHITECTURE — 3.2.5 PE-070-070_Perform_Field_Inspection_to_Create_Work_Request — PE-070-070_Perform_Field_Inspection_to_Create_Work_Request</h4>
+<p><strong>Swim Lanes</strong>: Factory Supervisor | <strong>Tasks</strong>: 2 | <strong>Gateways</strong>: 0</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Factory Supervisor
+        n1["fa:fa-user Perform MES/AutoTask Diagnostics"]
+        n2["fa:fa-user Review Checklists"]
+        n3["Process Notification"]
+        n4["Review Notification and Validate Request for Maintenance"]
+    end
+    n4 --> n1
+    n1 --> n2
+    n2 --> n3
+    class n1 userTask
+    class n2 userTask
+    class n3 startEvt
+    class n4 startEvt
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-326-pe-070-080_check_warranty-pe-070-080_check_warranty">BUSINESS ARCHITECTURE — 3.2.6 PE-070-080_Check_Warranty — PE-070-080_Check_Warranty</h4>
+<p><strong>Swim Lanes</strong>: FTS IF - Batch User · FTS IF - PM Maintenance Technician · Finance Manager · PTP IF Batch user | <strong>Tasks</strong>: 11 | <strong>Gateways</strong>: 18</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart LR
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph FTS IF - Batch User
+        n4[["fa:fa-cog Update Claim Document Status"]]
+        n5[["fa:fa-cog Create Claim Document (Draft)"]]
+        n6[["fa:fa-cog Create Return PR / PO"]]
+        n7[["fa:fa-cog Transmit Claim Document"]]
+        n8[["fa:fa-cog Update Warranty Information in Equipment and Master Warra..."]]
+        n14(["fa:fa-stop Claim Document Closed"])
+        n15(["fa:fa-stop Corrective/Breakdown Process Continued"])
+        n16(["fa:fa-stop No Claim Processed"])
+        n17(["fa:fa-stop Warranty Updated"])
+        n22["Warranty Check for Equipment Initiated"]
+        n23["intermediateThrowEvent"]
+        n28{{"fa:fa-code-branch Finalized Claimed Status ?"}}
+        n29{{"fa:fa-code-branch exclusiveGateway"}}
+        n30{{"fa:fa-code-branch exclusiveGateway"}}
+        n31{{"fa:fa-code-branch In QUAL?"}}
+        n32{{"fa:fa-code-branch Item/Part Under Warranty ?"}}
+        n33{{"fa:fa-code-branch exclusiveGateway"}}
+        n34{{"fa:fa-code-branch In Sustained / Extended ?"}}
+        n35{{"fa:fa-code-branch exclusiveGateway"}}
+        n36{{"fa:fa-code-branch Is Part Covered ?"}}
+        n37{{"fa:fa-code-branch Equipment Under Warranty ?"}}
+        n41{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    subgraph FTS IF - PM Maintenance Technician
+        n1["fa:fa-user Create Corrective / Break Down Order"]
+        n2["fa:fa-user Perform Warranty Claim Validation Pop-up"]
+        n11["Maintain Flag for Warranty Indicator"]
+        n12(["fa:fa-play Warranty Check Initiated"])
+        n13(["fa:fa-stop Corrective/Breakdown Process Continued"])
+        n20["System up & Status Running"]
+        n21["TECO (Technically Completed)"]
+        n25{{"fa:fa-code-branch Is tool ready to be brought up to production ?"}}
+        n26{{"fa:fa-code-branch Do parts have MMID?"}}
+        n27{{"fa:fa-code-branch Is equipment under warranty?"}}
+        n39{{"fa:fa-arrows-alt Warranty pop-up​ ? (with warranty checkbox indicator dete..."}}
+        n40{{"fa:fa-arrows-alt parallelGateway"}}
+        n42{{"fa:fa-arrows-alt inclusiveGateway"}}
+    end
+    subgraph Finance Manager
+        n3[["fa:fa-cog Post Financial Credit (W/refer to claim)"]]
+        n19["Send Credit Memo to Supplier"]
+    end
+    subgraph PTP IF Batch user
+        n9[["fa:fa-cog Create Free Goods PR"]]
+        n10[["fa:fa-cog System generates PR/PO"]]
+        n18(["fa:fa-stop Free Goods PR/PO Process End"])
+        n24["Create and Maintain Maintenance Order"]
+        n38{{"fa:fa-code-branch exclusiveGateway"}}
+    end
+    n12 --> n1
+    n41 --> n5
+    n37 -->|"Yes"| n31
+    n37 -->|"No"| n32
+    n32 -->|"Yes"| n33
+    n33 --> n8
+    n31 -->|"No"| n34
+    n34 -->|"Yes"| n36
+    n34 -->|"No"| n35
+    n36 -->|"Yes"| n33
+    n36 -->|"No"| n35
+    n41 --> n6
+    n2 --> n42
+    n9 --> n18
+    n4 --> n14
+    n28 -->|"Approved with Free Goods PR"| n9
+    n28 -->|"Approved with 
+Financial Credit"| n3
+    n25 -->|"Yes"| n20
+    n29 --> n7
+    n21 --> n29
+    n35 --> n16
+    n39 --> n25
+    n42 --> n21
+    n20 --> n2
+    n39 --> n30
+    n30 -->|"No"| n15
+    n30 -->|"Yes"| n41
+    n32 -->|"No"| n35
+    n8 --> n17
+    n25 -->|"No"| n13
+    n22 --> n37
+    n40 --> n39
+    n40 --> n22
+    n1 --> n26
+    n31 -->|"Yes"| n33
+    n5 --> n42
+    n6 --> n23
+    n3 --> n19
+    n26 -->|"Yes"| n40
+    n26 -->|"No"| n27
+    n11 --> n10
+    n27 -->|"No"| n38
+    n27 -->|"Yes"| n11
+    n38 --> n24
+    n10 --> n38
+    n28 -->|"Final Rejection"| n4
+    class n1 userTask
+    class n2 userTask
+    class n3 serviceTask
+    class n4 serviceTask
+    class n5 serviceTask
+    class n6 serviceTask
+    class n7 serviceTask
+    class n8 serviceTask
+    class n9 serviceTask
+    class n10 serviceTask
+    class n12 startEvt
+    class n13 endEvt
+    class n14 endEvt
+    class n15 endEvt
+    class n16 endEvt
+    class n17 endEvt
+    class n18 endEvt
+    class n19 startEvt
+    class n20 startEvt
+    class n21 startEvt
+    class n22 startEvt
+    class n23 startEvt
+    class n24 startEvt
+    class n25 gateway
+    class n26 gateway
+    class n27 gateway
+    class n28 gateway
+    class n29 gateway
+    class n30 gateway
+    class n31 gateway
+    class n32 gateway
+    class n33 gateway
+    class n34 gateway
+    class n35 gateway
+    class n36 gateway
+    class n37 gateway
+    class n38 gateway
+    class n39 gateway
+    class n40 gateway
+    class n41 gateway
+    class n42 gateway
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-327-pe-070-090_process_notification-pe-070-090_process_notification">BUSINESS ARCHITECTURE — 3.2.7 PE-070-090_Process_Notification — PE-070-090_Process_Notification</h4>
+<p><strong>Swim Lanes</strong>: Factory Supervisor | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 1</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Factory Supervisor
+        n1["fa:fa-user Check if Diagnostics Fixed Issue"]
+        n2["Review Equipment Maintenance Planned Orders"]
+        n3["Close Notification"]
+        n4["Perform Field Inspection to Create Request"]
+        n5{{"fa:fa-code-branch Diagnostics Fixed Issue?"}}
+    end
+    n4 --> n1
+    n5 -->|"Yes"| n3
+    n5 -->|"No"| n2
+    n1 --> n5
+    class n1 userTask
+    class n2 startEvt
+    class n3 startEvt
+    class n4 startEvt
+    class n5 gateway
+</div>
+
+<h4 id="business-architecture-328-pe-070-100_close_notification-pe-070-100_close_notification">BUSINESS ARCHITECTURE — 3.2.8 PE-070-100_Close_Notification — PE-070-100_Close_Notification</h4>
+<p><strong>Swim Lanes</strong>: Factory Supervisor | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 0</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Factory Supervisor
+        n1["fa:fa-user Set Status to Resolved"]
+        n2["Release Equipment to Production"]
+        n3["Process Notification"]
+    end
+    n3 --> n1
+    n1 --> n2
+    class n1 userTask
+    class n2 startEvt
+    class n3 startEvt
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-329-pe-070-110_create_and_maintain_maintenance_order-pe-070-110_create_and_maintain_maintenance_order">BUSINESS ARCHITECTURE — 3.2.9 PE-070-110_Create_and_Maintain_Maintenance_Order — PE-070-110_Create_and_Maintain_Maintenance_Order</h4>
+<p><strong>Swim Lanes</strong>: Boundary Apps · FTS IF - PM Batch User | <strong>Tasks</strong>: 4 | <strong>Gateways</strong>: 1</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Boundary Apps
+        n2["fa:fa-user Create Work Order"]
+        n7["Process Notification"]
+    end
+    subgraph FTS IF - PM Batch User
+        n1["fa:fa-user Run Chron Job to Find Open WO"]
+        n3[["fa:fa-cog Convert Notification into Work Order"]]
+        n4[["fa:fa-cog Replicate Work Order in S4 from XEUS"]]
+        n5["Identify Required Spare Parts"]
+        n6["Review Notification and Validate Request for Maintenance"]
+        n8{{"fa:fa-code-branch exclusiveGateway"}}
+    end
+    n2 --> n1
+    n7 --> n2
+    n6 --> n3
+    n4 --> n8
+    n8 --> n5
+    n3 --> n8
+    n1 --> n4
+    class n1 userTask
+    class n2 userTask
+    class n3 serviceTask
+    class n4 serviceTask
+    class n5 startEvt
+    class n6 startEvt
+    class n7 startEvt
+    class n8 gateway
+</div>
+
+<h4 id="business-architecture-3210-pe-070-120_review_maintenance_plan-pe-070-120_review_maintenance_plan">BUSINESS ARCHITECTURE — 3.2.10 PE-070-120_Review_Maintenance_Plan — PE-070-120_Review_Maintenance_Plan</h4>
+<p><strong>Swim Lanes</strong>: FTS IF - Maintenance Planner | <strong>Tasks</strong>: 4 | <strong>Gateways</strong>: 0</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph FTS IF - Maintenance Planner
+        n1["fa:fa-user Create Maintenance Strategy"]
+        n2["fa:fa-user Assign Maintenance Strategy to Task List"]
+        n3["fa:fa-user Maintain Maintenance Package"]
+        n4["fa:fa-user Display Strategies Through Task List"]
+        n5["Create Maintenance Plan"]
+        n6["Create and Maintain Maintenance Order"]
+    end
+    n6 --> n1
+    n1 --> n2
+    n3 --> n4
+    n4 --> n5
+    n2 --> n3
+    class n1 userTask
+    class n2 userTask
+    class n3 userTask
+    class n4 userTask
+    class n5 startEvt
+    class n6 startEvt
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-3211-pe-070-130_create_maintenance_plan-pe-070-130_create_maintenance_plan">BUSINESS ARCHITECTURE — 3.2.11 PE-070-130_Create_Maintenance_Plan — PE-070-130_Create_Maintenance_Plan</h4>
+<p><strong>Swim Lanes</strong>: FTS IF - Maintenance Planner | <strong>Tasks</strong>: 7 | <strong>Gateways</strong>: 3</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph FTS IF - Maintenance Planner
+        n1["fa:fa-user Create Single Cycle Maintenance Plan-Counter/Non-Counter"]
+        n2["fa:fa-user Change/Mass Change Maintenance Plan"]
+        n3["fa:fa-user Set Deletion Flag"]
+        n4["fa:fa-user Determine Maintenance Plan Type"]
+        n5["fa:fa-user Create Strategy-Based Maintenance Plan (Performance/Time ..."]
+        n6["fa:fa-user Create Multiple Counter/Dimension-Based Maintenance Plan"]
+        n7["fa:fa-user Schedule Maintenance Plan"]
+        n8(["fa:fa-stop Maintenance Plan Deleted"])
+        n9["Create and Maintain Maintenance Order"]
+        n10["Create and Maintain Notification"]
+        n11["Review Maintenance Plan"]
+        n12{{"fa:fa-code-branch Single Cycle/ Strategy/ Multiple Counter?"}}
+        n13{{"fa:fa-code-branch exclusiveGateway"}}
+        n14{{"fa:fa-code-branch exclusiveGateway"}}
+    end
+    n5 --> n13
+    n6 --> n13
+    n1 --> n13
+    n13 --> n2
+    n2 --> n7
+    n4 --> n12
+    n11 --> n4
+    n12 -->|"Strategy"| n5
+    n12 -->|"Multiple Counter"| n6
+    n7 --> n14
+    n14 --> n3
+    n14 --> n9
+    n14 --> n10
+    n3 --> n8
+    n12 -->|"Single Cycle"| n1
+    class n1 userTask
+    class n2 userTask
+    class n3 userTask
+    class n4 userTask
+    class n5 userTask
+    class n6 userTask
+    class n7 userTask
+    class n8 endEvt
+    class n9 startEvt
+    class n10 startEvt
+    class n11 startEvt
+    class n12 gateway
+    class n13 gateway
+    class n14 gateway
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-3212-pe-070-150_define_requirements_for_each_operation_and_create_job_plan-pe-070-150_define_requirements_for_each_operation_and_create_job_plan">BUSINESS ARCHITECTURE — 3.2.12 PE-070-150_Define_Requirements_for_Each_Operation_and_Create_Job_Plan — PE-070-150_Define_Requirements_for_Each_Operation_and_Create_Job_Plan</h4>
+<p><strong>Swim Lanes</strong>: Boundary Apps | <strong>Tasks</strong>: 6 | <strong>Gateways</strong>: 1</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Boundary Apps
+        n1["fa:fa-user Identify Maintenance Tasks Required for Job"]
+        n2["fa:fa-user Identify Internal and External Resources (FSE)"]
+        n3["fa:fa-user Identify Maintenance Skill Required to Perform Job"]
+        n4["fa:fa-user Identify Parts Required for Job from Spec"]
+        n5["fa:fa-user Add/Update Task List Job Plan in Work Order"]
+        n6["fa:fa-user Link Steps from Task List If Required"]
+        n7["Identify Required Spare Parts"]
+        n8["Consult Equipment Files/Data"]
+        n9["Maintain General Task List"]
+        n10{{"fa:fa-code-branch exclusiveGateway"}}
+    end
+    n8 --> n1
+    n1 --> n3
+    n3 --> n2
+    n2 --> n4
+    n4 --> n10
+    n6 --> n7
+    n10 --> n5
+    n9 --> n10
+    n5 --> n6
+    class n1 userTask
+    class n2 userTask
+    class n3 userTask
+    class n4 userTask
+    class n5 userTask
+    class n6 userTask
+    class n7 startEvt
+    class n8 startEvt
+    class n9 startEvt
+    class n10 gateway
+</div>
+
+<h4 id="business-architecture-3213-pe-070-160_identify_required_spare_parts-pe-070-160_identify_required_spare_parts">BUSINESS ARCHITECTURE — 3.2.13 PE-070-160_Identify_Required_Spare_Parts — PE-070-160_Identify_Required_Spare_Parts</h4>
+<p><strong>Swim Lanes</strong>: FTS IF - PM Maintenance Technician | <strong>Tasks</strong>: 2 | <strong>Gateways</strong>: 0</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph FTS IF - PM Maintenance Technician
+        n1["fa:fa-user Manually Add Stock Items to Work Order"]
+        n2["fa:fa-user Reserve Stock Automatically Items Available on Site"]
+        n3["Identify Asset Acquisition"]
+        n4["Define Requirements for Each Operation and Create Job Plan"]
+    end
+    n4 --> n1
+    n1 --> n2
+    n2 --> n3
+    class n1 userTask
+    class n2 userTask
+    class n3 startEvt
+    class n4 startEvt
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
+<table>
+<thead>
+<tr>
+<th>Role / Lane</th>
+<th>Processes Involved</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Boundary Apps</td>
+<td>PE-070-010_Identify_Maintenance_Work_Required, PE-070-110_Create_and_Maintain_Maintenance_Order, PE-070-150_Define_Requirements_for_Each_Operation_and_Create_Job_Plan,</td>
+<td></td>
+</tr>
+<tr>
+<td>FTS IF - Maintenance Planner</td>
+<td>PE-070-020_Create_and_Maintain_Notification, PE-070-040_Review_Equipment_Maintenance_Planned_Orders, PE-070-120_Review_Maintenance_Plan, PE-070-130_Create_Maintenance_Plan,</td>
+<td></td>
+</tr>
+<tr>
+<td>Factory Supervisor</td>
+<td>PE-070-020_Create_and_Maintain_Notification, PE-070-070_Perform_Field_Inspection_to_Create_Work_Request, PE-070-090_Process_Notification, PE-070-100_Close_Notification,</td>
+<td></td>
+</tr>
+<tr>
+<td>FTS IF - Maintenance Technician</td>
+<td>PE-070-030_Review_Notification_and_Validate_Request_for_Maintenance,</td>
+<td></td>
+</tr>
+<tr>
+<td>FTS IF - Batch User</td>
+<td>PE-070-080_Check_Warranty,</td>
+<td></td>
+</tr>
+<tr>
+<td>FTS IF - PM Maintenance Technician</td>
+<td>PE-070-080_Check_Warranty, PE-070-160_Identify_Required_Spare_Parts</td>
+<td></td>
+</tr>
+<tr>
+<td>Finance Manager</td>
+<td>PE-070-080_Check_Warranty,</td>
+<td></td>
+</tr>
+<tr>
+<td>PTP IF Batch user</td>
+<td>PE-070-080_Check_Warranty,</td>
+<td></td>
+</tr>
+<tr>
+<td>FTS IF - PM Batch User</td>
+<td>PE-070-110_Create_and_Maintain_Maintenance_Order,</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
+<h3 id="41-data-entities-ownership">4.1 Data Entities &amp; Ownership</h3>
+<p>The following data entities are derived from the system integration flows for PE-070. Tower architects should validate ownership and classification.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Data Entity</th>
+<th>Source System</th>
+<th>Target System</th>
+<th>Data Owner</th>
+<th>Classification</th>
+<th>Volume</th>
+<th>Master/Transaction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="42-data-flow-diagrams">4.2 Data Flow Diagrams</h3>
+<blockquote>
+<p><strong>DATA ARCHITECTURE</strong> — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.</p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h3 id="43-data-lineage">4.3 Data Lineage</h3>
+<p>Data lineage traces the origin and transformation path of key data objects across integrated systems.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Source System</th>
+<th>Source Schema/Object</th>
+<th>Target System</th>
+<th>Target Schema/Object</th>
+<th>Transformation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Lineage detail will be refined when tower architects validate source/target schema object mappings.</em></p>
+</blockquote>
+<h3 id="44-ricefw-data-objects">4.4 RICEFW Data Objects</h3>
+<p>Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Type</th>
+<th>Description</th>
+<th>Status</th>
+<th>Source</th>
+<th>Target</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FTSR1364</td>
+<td>Report</td>
+<td>Factory Portal - Warranty Claim (Warranty Dashboard​​)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FTSR1011</td>
+<td>Report</td>
+<td>Report- Custom Fiori report to show full parts tracking status dashboard (wor&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FTSM0986</td>
+<td>Conversion</td>
+<td>Convert Equipment Warranty information to SAP S/4 Equipment Master – reusable&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FTSM019</td>
+<td>Conversion</td>
+<td>Conversion of Inflight Work Orders</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>FTSM018</td>
+<td>Conversion</td>
+<td>Conversion of General Task List</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>FTSM017_IF</td>
+<td>Conversion</td>
+<td>Manual Conversion of Functional Locations (FLOC)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSM016</td>
+<td>Conversion</td>
+<td>Equipment Master</td>
+<td>10. Object Complete</td>
+<td>MES, SAP ME, EMS, EDFIT, Workstream, NIT, ECM</td>
+<td>S4</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>FTSM011</td>
+<td>Conversion</td>
+<td>Catalogs</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>S4</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>FTSM010</td>
+<td>Conversion</td>
+<td>Maintenance Plans</td>
+<td>10. Object Complete</td>
+<td>ME</td>
+<td>S4</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>FTSM009</td>
+<td>Conversion</td>
+<td>Maintenance Items</td>
+<td>10. Object Complete</td>
+<td>NA</td>
+<td>S4</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>FTSM008</td>
+<td>Conversion</td>
+<td>Equipment Class</td>
+<td>10. Object Complete</td>
+<td>NA</td>
+<td>S4</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>FTSM007</td>
+<td>Conversion</td>
+<td>Characteristics</td>
+<td>10. Object Complete</td>
+<td>NA</td>
+<td>S4</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>FTSM002_IF</td>
+<td>Conversion</td>
+<td>Work Center</td>
+<td>10. Object Complete</td>
+<td>Fuzion, ME, Manual</td>
+<td>S4</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h3 id="45-data-governance-quality">4.5 Data Governance &amp; Quality</h3>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Approach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Ownership</td>
+<td>Per-entity owners listed in Section 3.1</td>
+</tr>
+<tr>
+<td>Data Classification</td>
+<td>Financial data classified as Intel Confidential</td>
+</tr>
+<tr>
+<td>Data Retention</td>
+<td>Per Intel corporate retention policies</td>
+</tr>
+<tr>
+<td>Data Quality</td>
+<td>Validated at source; reconciliation at target</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</h2>
+<h3 id="51-current-state-current-state-application-landscape">5.1 Current-State — Current-State Application Landscape</h3>
+<h4 id="overview">Overview</h4>
+<p>The Current-State architecture represents the <strong>current / legacy</strong> landscape for PE-070.</p>
+<div style="page-break-before: always;"></div>
+
+<h4 id="current-state-flow-narrative">Current-State Flow Narrative</h4>
+<p><em>(No current-state flows defined.)</em></p>
+<div style="page-break-before: always;"></div>
+
+<h3 id="52-future-state-future-state-application-landscape">5.2 Future-State — Future-State Application Landscape</h3>
+<h4 id="overview_1">Overview</h4>
+<p>The Future-State architecture represents the <strong>target</strong> landscape for PE-070.</p>
+<div style="page-break-before: always;"></div>
+
+<h4 id="future-state-flow-narrative">Future-State Flow Narrative</h4>
+<p><em>(No future-state flows defined.)</em></p>
+<div style="page-break-before: always;"></div>
+
+<h3 id="53-change-impact-summary">5.3 Change Impact Summary</h3>
+<table>
+<thead>
+<tr>
+<th>Change Type</th>
+<th>Flow Chain</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Totals</strong>: 0 new - 0 removed - 0 modified - 0 unchanged</p>
+<h3 id="54-component-overview">5.4 Component Overview</h3>
+<h4 id="system-inventory">System Inventory</h4>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>IAPM ID</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Type</th>
+<th>Description</th>
+<th>Status</th>
+<th>Source → Target</th>
+<th>Middleware</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FTSW1372</td>
+<td>Workflow</td>
+<td>Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou&hellip;</td>
+<td>03. FS Not Started</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSR1364</td>
+<td>Report</td>
+<td>Factory Portal - Warranty Claim (Warranty Dashboard​​)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FTSR1011</td>
+<td>Report</td>
+<td>Report- Custom Fiori report to show full parts tracking status dashboard (wor&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FTSM0986</td>
+<td>Conversion</td>
+<td>Convert Equipment Warranty information to SAP S/4 Equipment Master – reusable&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FTSM019</td>
+<td>Conversion</td>
+<td>Conversion of Inflight Work Orders</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>FTSM018</td>
+<td>Conversion</td>
+<td>Conversion of General Task List</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>FTSM017_IF</td>
+<td>Conversion</td>
+<td>Manual Conversion of Functional Locations (FLOC)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSM016</td>
+<td>Conversion</td>
+<td>Equipment Master</td>
+<td>10. Object Complete</td>
+<td>MES, SAP ME, EMS, EDFIT, Workstream, NIT, ECM → S4</td>
+<td>NA</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>FTSM011</td>
+<td>Conversion</td>
+<td>Catalogs</td>
+<td>10. Object Complete</td>
+<td>→ S4</td>
+<td>NA</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>FTSM010</td>
+<td>Conversion</td>
+<td>Maintenance Plans</td>
+<td>10. Object Complete</td>
+<td>ME → S4</td>
+<td>NA</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>FTSM009</td>
+<td>Conversion</td>
+<td>Maintenance Items</td>
+<td>10. Object Complete</td>
+<td>NA → S4</td>
+<td>NA</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>FTSM008</td>
+<td>Conversion</td>
+<td>Equipment Class</td>
+<td>10. Object Complete</td>
+<td>NA → S4</td>
+<td>NA</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>FTSM007</td>
+<td>Conversion</td>
+<td>Characteristics</td>
+<td>10. Object Complete</td>
+<td>NA → S4</td>
+<td>NA</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>FTSM002_IF</td>
+<td>Conversion</td>
+<td>Work Center</td>
+<td>10. Object Complete</td>
+<td>Fuzion, ME, Manual → S4</td>
+<td>NA</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>FTSI1538</td>
+<td>Interface</td>
+<td>CMMS – get location info from CMMS</td>
+<td>02. FS Unplanned</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI1537</td>
+<td>Interface</td>
+<td>CMMS – Get Collateral Details</td>
+<td>02. FS Unplanned</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI1536</td>
+<td>Interface</td>
+<td>CMMS – Collateral Conversion</td>
+<td>02. FS Unplanned</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI1527</td>
+<td>Interface</td>
+<td>Interface to get Cu flag from XEUS</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI1371</td>
+<td>Interface</td>
+<td>CMMS – Equipment create and update (status and collateral name)</td>
+<td>04. FS In Progress</td>
+<td>→ S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI1370</td>
+<td>Interface</td>
+<td>Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou&hellip;</td>
+<td>04. FS In Progress</td>
+<td>→ S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI1355</td>
+<td>Interface</td>
+<td>CMMS – Equipment with MMS flag (S4 to CMMS)</td>
+<td>06. Dev Not Started</td>
+<td>→ S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI1008</td>
+<td>Interface</td>
+<td>Interface S/4 with EMS</td>
+<td>10. Object Complete</td>
+<td>EMS → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI1007</td>
+<td>Interface</td>
+<td>Interface S/4 with XEUS</td>
+<td>10. Object Complete</td>
+<td>XEUS/Mars → S/4</td>
+<td>APIGEE</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FTSI0985</td>
+<td>Interface</td>
+<td>Claim Status Update from e2open to SAP S4 (Inbound Interface)</td>
+<td>10. Object Complete</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI0983</td>
+<td>Interface</td>
+<td>SAP Warranty Claim Document to e2open (Outbound Interface)</td>
+<td>10. Object Complete</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI0924</td>
+<td>Interface</td>
+<td>Interface: SAP ME to S/4 to Create &amp; Maintain Notifications</td>
+<td>10. Object Complete</td>
+<td>SAP ME → S/4</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSF1361</td>
+<td>Form</td>
+<td>Factory Portal - Returns Order Flow (Form-Based (CRD) Return Order​)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1579</td>
+<td>Enhancement</td>
+<td>Custom tables to store Board Failure Form details</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1549</td>
+<td>Enhancement</td>
+<td>Custom Attributes for AMT/ISM</td>
+<td>02. FS Unplanned</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1548</td>
+<td>Enhancement</td>
+<td>Automation for Product Conversions – Equipment Structure update</td>
+<td>02. FS Unplanned</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1547</td>
+<td>Enhancement</td>
+<td>Automation for Product Conversions – Work Order Closure</td>
+<td>02. FS Unplanned</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1546</td>
+<td>Enhancement</td>
+<td>Automation for Product Conversions – Parts Request and Return</td>
+<td>02. FS Unplanned</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1545</td>
+<td>Enhancement</td>
+<td>Automation for Product Conversions – Explode BOM</td>
+<td>02. FS Unplanned</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1544</td>
+<td>Enhancement</td>
+<td>Automation for Product Conversions – create Work Order</td>
+<td>02. FS Unplanned</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1543</td>
+<td>Enhancement</td>
+<td>PM inbound from AMT</td>
+<td>02. FS Unplanned</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1542</td>
+<td>Enhancement</td>
+<td>PM outbound to AMT</td>
+<td>02. FS Unplanned</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1541</td>
+<td>Enhancement</td>
+<td>Send SAP notification on Work Order update</td>
+<td>02. FS Unplanned</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1540</td>
+<td>Enhancement</td>
+<td>Send SAP notification on Equipment update</td>
+<td>02. FS Unplanned</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1539</td>
+<td>Enhancement</td>
+<td>Custom Fiori UI – Move Equipment SRoom to SRoom (screen)</td>
+<td>02. FS Unplanned</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1528</td>
+<td>Enhancement</td>
+<td>Warranty claim for non E2O supplier</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1451</td>
+<td>Enhancement</td>
+<td>Enhancement required for triggering Interface between S4 and SAP ME from the &hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1413</td>
+<td>Enhancement</td>
+<td>Reusable Mass Upload Program for Equipment Master Warranty</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1385</td>
+<td>Enhancement</td>
+<td>Factory Portal - Preventative Maintenance (AT) (Schedule Maintenance Plan)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1383</td>
+<td>Enhancement</td>
+<td>Factory Portal - Preventative Maintenance (AT) (Set Maintenance Counte)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1382</td>
+<td>Enhancement</td>
+<td>Factory Portal - Preventative Maintenance (AT) (Set Maintenance Cycle​)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1381</td>
+<td>Enhancement</td>
+<td>Factory Portal - Preventative Maintenance (AT) (Create Maintenance Plan)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1379</td>
+<td>Enhancement</td>
+<td>Factory Portal - Part list (Part list creation / modify (IA05​)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1378</td>
+<td>Enhancement</td>
+<td>Factory Portal - Functional Location​ (FLOC creation / Update (IL01 and IL02)​​)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1376</td>
+<td>Enhancement</td>
+<td>Factory Portal - Admin (Notifications​)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1374</td>
+<td>Enhancement</td>
+<td>Factory Portal - Admin (Admin Screen - My Profile) - Contacts custom Table En&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1373</td>
+<td>Enhancement</td>
+<td>Factory Portal - Admin (Admin Screen - My Profile) - Fiori Enhancement</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1369</td>
+<td>Enhancement</td>
+<td>Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou&hellip;</td>
+<td>04. FS In Progress</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1368</td>
+<td>Enhancement</td>
+<td>Factory Portal - Equipment to Parts Management (Equipment Management (details&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1367</td>
+<td>Enhancement</td>
+<td>Factory Portal - Equipment to Parts Management (Equipment/ Entity/ Sub-Entity&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1366</td>
+<td>Enhancement</td>
+<td>Factory Portal - Operating Supply (Reserve Ops Suppl​​​)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1365</td>
+<td>Enhancement</td>
+<td>Factory Portal - Operating Supply (Search for Ops Supply​​​)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1363</td>
+<td>Enhancement</td>
+<td>Factory Portal - Warranty Claim (Create Warranty Claim – Detailed Vie​)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1360</td>
+<td>Enhancement</td>
+<td>Custom Fiori UI – HAZMAT Enhancement to pull data</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1359</td>
+<td>Enhancement</td>
+<td>Factory Portal - Returns Order Flow (Prevent TECO until after parts have been&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1358</td>
+<td>Enhancement</td>
+<td>Factory Portal - Returns Order Flow (Form-Based (CRD) Return Order​)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1354</td>
+<td>Enhancement</td>
+<td>Factory Portal - Work Order Flow ( Confirm and Submit Parts (Table Extension &hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1353</td>
+<td>Enhancement</td>
+<td>Factory Portal - Work Order Flow ( Confirm and Submit Parts (Fiori Enhancemen&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1351</td>
+<td>Enhancement</td>
+<td>Factory Portal - Work Order Flow ( Add component to work order )</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1350</td>
+<td>Enhancement</td>
+<td>Factory Portal - Work Order Flow ( Search Parts )</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1349</td>
+<td>Enhancement</td>
+<td>Factory Portal - Work Order Flow ( Change Color of WO, Equipment, and CRD &amp; e&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1348</td>
+<td>Enhancement</td>
+<td>Factory Portal - Work Order Flow ( Show Work Order – Single Work Order View +&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1347</td>
+<td>Enhancement</td>
+<td>Factory Portal - Work Order Flow ( Search work orders - ​List View )</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1344</td>
+<td>Enhancement</td>
+<td>Factory Portal - Work Order Flow ( Home Page - View S/4 work orders )</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1010</td>
+<td>Enhancement</td>
+<td>Update the Copper/Heavy Metal flag (User Status) for the tools on placement a&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE0996</td>
+<td>Enhancement</td>
+<td>Create Purchase Requisition with multiple purchase req document types from Wo&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE0995</td>
+<td>Enhancement</td>
+<td>Enhancement to update rejection reason and text in maintenance work order fro&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE0993</td>
+<td>Enhancement</td>
+<td>Auto Roll Function to add Item/Part through Batch job in Master Warranty</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE0992</td>
+<td>Enhancement</td>
+<td>Custom Fields Enhancement in WTY Claim</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE0991</td>
+<td>Enhancement</td>
+<td>Claim Generation from Maintenance Work Order per Item</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE0990</td>
+<td>Enhancement</td>
+<td>Create PR with Free of Charge from approved claim status – MMID &amp; Non-MMID</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE0989</td>
+<td>Enhancement</td>
+<td>Warranty validation at Equipment level &amp; Item/Part level in Work Order</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE0988</td>
+<td>Enhancement</td>
+<td>Convert Item/Part Warranty information upload to SAP S/4 Master Warranty</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FTSE0984</td>
+<td>Enhancement</td>
+<td>SAP Warranty Claim Document to e2open (Outbound Interface)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE0982</td>
+<td>Enhancement</td>
+<td>SAP PM enhancement to capture reason codes for returns (dropdown)</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FTSE0925</td>
+<td>Enhancement</td>
+<td>Enhancement: Batch process to create Equipment from Material BOM after GR</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Summary</strong>: 2 Reports, 12 Interfaces, 11 Conversions, 53 Enhancements, 1 Forms, 1 Workflows</p>
+<div style="page-break-before: always;"></div>
+
+<h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
+<p>Integration patterns identified from the system flow analysis for PE-070:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Pattern</th>
+<th>Flow Chain</th>
+<th>Middleware</th>
+<th>Protocol</th>
+<th>Auth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Integration pattern details will be refined when tower architects validate middleware assignments.</em></p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
+<h3 id="61-platform-infrastructure">6.1 Platform &amp; Infrastructure</h3>
+<blockquote>
+<p><strong>TECHNOLOGY / PLATFORM ARCHITECTURE</strong> — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.</p>
+</blockquote>
+<h4 id="platform-inventory">Platform Inventory</h4>
+<p>Platform landscape inferred from integrated systems for PE-070:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Platform</th>
+<th>Type</th>
+<th>Systems Using</th>
+<th>Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>SAP S/4HANA</td>
+<td>On-Premise (HEC)</td>
+<td>SAP S/4 modules</td>
+<td>DEV, QAS, PRD</td>
+</tr>
+<tr>
+<td>2</td>
+<td>SAP BTP (Integration Suite)</td>
+<td>Cloud / PaaS</td>
+<td>CPI, API Management</td>
+<td>DEV, QAS, PRD</td>
+</tr>
+<tr>
+<td>3</td>
+<td>MuleSoft Anypoint</td>
+<td>Cloud / iPaaS</td>
+<td>API-led integrations</td>
+<td>DEV, QAS, PRD</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Platform assignments will be validated when tower architects populate technology platform columns.</em></p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h3 id="62-sap-development-object-status">6.2 SAP Development Object Status</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>DEV</th>
+<th>QAS</th>
+<th>PRD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transport Requests</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Custom Code Objects</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>CDS Views</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Fiori Apps</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>BAdIs / Enhancements</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Requirement</th>
+<th>Target / SLA</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Performance</td>
+<td>MRP/production planning run completes within defined window</td>
+<td>&lt; 4 hours full MRP run</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Availability</td>
+<td>Manufacturing execution systems available 24/7</td>
+<td>99.95% (24x7 operations)</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Scalability</td>
+<td>Support production volume increases from new product lines</td>
+<td>Handle 10K+ production orders/day</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Recoverability</td>
+<td>Production systems recover within shift change window</td>
+<td>RPO &lt; 15 min, RTO &lt; 2 hours</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Data Volume</td>
+<td>Support high-frequency material movement transactions</td>
+<td>100K+ material documents/day</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Latency</td>
+<td>Real-time inventory visibility for warehouse operations</td>
+<td>&lt; 2 seconds for RF/scanner transactions</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Concurrency</td>
+<td>Support factory floor workers across multiple shifts/sites</td>
+<td>500+ concurrent warehouse users</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<h3 id="64-security-governance">6.4 Security &amp; Governance</h3>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Approach</th>
+<th>Standard / Policy</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authentication</td>
+<td>Single Sign-On (SSO) via Intel corporate Azure AD identity</td>
+<td>Intel IT Security Policy - Identity Management</td>
+<td>IT Security</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>Role-based access control (RBAC) with SAP authorization objects</td>
+<td>Intel SAP Security Standards - Role Design</td>
+<td>SAP Security Team</td>
+</tr>
+<tr>
+<td>Data Classification</td>
+<td>All financial/operational data classified per Intel Data Classification Standard</td>
+<td>Intel Data Classification Policy</td>
+<td>Data Governance</td>
+</tr>
+<tr>
+<td>Data Encryption (at rest)</td>
+<td>AES-256 encryption for SAP HANA database and file storage</td>
+<td>Intel Encryption Standard</td>
+<td>Infrastructure Security</td>
+</tr>
+<tr>
+<td>Data Encryption (in transit)</td>
+<td>TLS 1.3 for all system-to-system and user-to-system communication</td>
+<td>Intel Network Security Policy</td>
+<td>Network Engineering</td>
+</tr>
+<tr>
+<td>Network Segmentation</td>
+<td>SAP systems in dedicated network zones with firewall controls</td>
+<td>Intel Network Architecture Standard</td>
+<td>Network Security</td>
+</tr>
+<tr>
+<td>API Security</td>
+<td>OAuth 2.0 / certificate-based authentication for all API integrations</td>
+<td>Intel API Security Guidelines</td>
+<td>Integration Architecture</td>
+</tr>
+<tr>
+<td>Audit Logging</td>
+<td>Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log)</td>
+<td>SOX Compliance / Intel Audit Policy</td>
+<td>Internal Audit</td>
+</tr>
+<tr>
+<td>Certificate Management</td>
+<td>Automated certificate lifecycle management for system-to-system trust</td>
+<td>Intel PKI Standard</td>
+<td>Certificate Authority Team</td>
+</tr>
+<tr>
+<td>Compliance</td>
+<td>SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR)</td>
+<td>Intel Corporate Compliance Framework</td>
+<td>Compliance Office</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="7-project-context">7. Project Context</h2>
+<h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Description</th>
+<th>FS End</th>
+<th>FS %</th>
+<th>TDD End</th>
+<th>TDD %</th>
+<th>Build End</th>
+<th>Build %</th>
+<th>FUT End</th>
+<th>FUT %</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FTSW1372</td>
+<td>Factory Portal - Equipment to Parts M&hellip;</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td>5. Not Dispositioned</td>
+</tr>
+<tr>
+<td>FTSR1364</td>
+<td>Factory Portal - Warranty Claim (Warr&hellip;</td>
+<td>2025-08-13</td>
+<td>1.0</td>
+<td>2025-12-03</td>
+<td>1.0</td>
+<td>2025-12-03</td>
+<td>1.0</td>
+<td>2026-01-07</td>
+<td>1.0</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>FTSR1011</td>
+<td>Report- Custom Fiori report to show f&hellip;</td>
+<td>2025-03-21</td>
+<td>1.0</td>
+<td>2025-05-30</td>
+<td>1.0</td>
+<td>2025-05-30</td>
+<td>1.0</td>
+<td>2025-08-13</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>FTSM0986</td>
+<td>Convert Equipment Warranty informatio&hellip;</td>
+<td>2025-06-11</td>
+<td>1.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td>2025-07-16</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>FTSM019</td>
+<td>Conversion of Inflight Work Orders</td>
+<td>2025-06-06</td>
+<td>1.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td>2025-06-27</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>FTSM018</td>
+<td>Conversion of General Task List</td>
+<td>2025-01-17</td>
+<td>1.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td>2025-06-06</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>FTSM017_IF</td>
+<td>Manual Conversion of Functional Locat&hellip;</td>
+<td>2025-04-18</td>
+<td>1.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td>2025-05-09</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>FTSM016</td>
+<td>Equipment Master</td>
+<td>2025-05-20</td>
+<td>1.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td>2025-05-30</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>FTSM011</td>
+<td>Catalogs</td>
+<td>2025-02-07</td>
+<td>1.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td>2025-04-18</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>FTSM010</td>
+<td>Maintenance Plans</td>
+<td>2025-01-24</td>
+<td>1.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td>2025-06-11</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>FTSM009</td>
+<td>Maintenance Items</td>
+<td>2025-01-24</td>
+<td>1.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td>2025-06-11</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>FTSM008</td>
+<td>Equipment Class</td>
+<td>2025-01-10</td>
+<td>1.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td>2025-04-18</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>FTSM007</td>
+<td>Characteristics</td>
+<td>2025-01-10</td>
+<td>1.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td>2025-04-18</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>FTSM002_IF</td>
+<td>Work Center</td>
+<td>2025-01-10</td>
+<td>1.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td>2025-05-02</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>FTSI1538</td>
+<td>CMMS – get location info from CMMS</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td>5. Not Dispositioned</td>
+</tr>
+<tr>
+<td>FTSI1537</td>
+<td>CMMS – Get Collateral Details</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td>5. Not Dispositioned</td>
+</tr>
+<tr>
+<td>FTSI1536</td>
+<td>CMMS – Collateral Conversion</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td>5. Not Dispositioned</td>
+</tr>
+<tr>
+<td>FTSI1527</td>
+<td>Interface to get Cu flag from XEUS</td>
+<td>2025-08-13</td>
+<td>1.0</td>
+<td>2025-10-03</td>
+<td>1.0</td>
+<td>2025-10-03</td>
+<td>1.0</td>
+<td>2025-11-05</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>FTSI1371</td>
+<td>CMMS – Equipment create and update (s&hellip;</td>
+<td></td>
+<td>0.66</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td>5. Not Dispositioned</td>
+</tr>
+<tr>
+<td>FTSI1370</td>
+<td>Factory Portal - Equipment to Parts M&hellip;</td>
+<td></td>
+<td>0.66</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td></td>
+<td>0.0</td>
+<td>5. Not Dispositioned</td>
+</tr>
+<tr>
+<td><em>&hellip; and 60 more objects (see full Object Tracker)</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="72-raid-log">7.2 RAID Log</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Object ID</th>
+<th>Category</th>
+<th>RAID Description</th>
+<th>Status</th>
+<th>Assigned To</th>
+<th>Created</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>FTSI1007</td>
+<td>PM</td>
+<td>01584</td>
+<td>10. Object Complete</td>
+<td>Sateesh Kumar</td>
+<td>07/09/25</td>
+</tr>
+<tr>
+<td>2</td>
+<td>FTSI0924</td>
+<td>PM</td>
+<td>01584</td>
+<td>10. Object Complete</td>
+<td>Sateesh Kumar</td>
+<td>07/09/25</td>
+</tr>
+</tbody>
+</table>
+<h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Category</th>
+<th>Recommendation</th>
+<th>Priority</th>
+<th>Owner</th>
+<th>Target Date</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Architecture</td>
+<td>Complete extended flow attributes (Data Entity, Integration Pattern, Tech Platform) in Flows tab for full BDAT coverage</td>
+<td>High</td>
+<td>Tower Architect</td>
+<td>2026-Q2</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Data</td>
+<td>Define data ownership and classification for all 0 flow chains to satisfy Data Architecture (TOGAF D) requirements</td>
+<td>Medium</td>
+<td>Data Architect</td>
+<td>2026-Q3</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Testing</td>
+<td>Develop integration test scenarios covering all 0 flow chains for FUT/SIT readiness</td>
+<td>High</td>
+<td>Test Lead</td>
+<td>2026-Q3</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Business Architecture</td>
+<td>Review and validate Business Architecture process steps against latest Signavio/BIC process models</td>
+<td>Medium</td>
+<td>Business Analyst</td>
+<td>2026-Q2</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Security</td>
+<td>Complete security review for API integrations and data flows per Intel Security Architecture standards</td>
+<td>Medium</td>
+<td>Security Architect</td>
+<td>2026-Q3</td>
+<td>Open</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>PE-070 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: March 2026</em></p>
+<div class="footer">
+    IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+</body>
+</html>

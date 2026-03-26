@@ -1,0 +1,1525 @@
+<div style="text-align:center; padding-top:20px;">
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <h1 style="font-size:36px; margin-top:24px;">M-100 — Execute Production (IF)</h1>
+  <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
+  <p style="font-size:18px; color:#555;">Forecast to Stock (IF) (FTS-IF) Tower<br/>
+  Capability M-100 · M Mfg. Schedule and Execution (IF)</p>
+  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
+  Generated: March 2026<br/>
+  Sajiv Francis</p>
+  <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
+</div>
+
+<style>
+@media print {
+  @page { margin: 0.75in; }
+  .mermaid { page-break-inside: avoid; overflow: hidden; }
+  pre, table { page-break-inside: avoid; }
+  h2, h3, h4 { page-break-after: avoid; }
+}
+.mermaid { overflow-x: auto; overflow-y: auto; }
+.mermaid svg { height: auto !important; }
+.page-footer {
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 20px;
+  background: #fff;
+}
+@media print {
+  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
+</style>
+
+<div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
+<div style="page-break-before: always;"></div>
+
+<a id="toc"></a>
+
+## Table of Contents
+
+1. [Executive Summary](#1-executive-summary)
+2. [Business Context & Objectives](#2-business-context--objectives)
+   - 2.1 [Classification](#21-classification)
+   - 2.2 [Business Drivers](#22-business-drivers)
+   - 2.3 [Success Criteria](#23-success-criteria)
+   - 2.4 [Companion Documents](#24-companion-documents)
+3. [Business Architecture (TOGAF "B")](#3-business-architecture-togaf-b)
+   - 3.1 [Business Process Overview](#31-business-process-overview)
+   - 3.2 [Business Process Diagrams](#32-business-process-diagrams)
+   - 3.3 [Business Roles & Responsibilities](#33-business-roles--responsibilities)
+4. [Data Architecture (TOGAF "D")](#4-data-architecture-togaf-d)
+   - 4.1 [Data Entities & Ownership](#41-data-entities--ownership)
+   - 4.2 [Data Flow Diagrams](#42-data-flow-diagrams)
+   - 4.3 [Data Lineage](#43-data-lineage)
+   - 4.4 [RICEFW Data Objects](#44-ricefw-data-objects)
+   - 4.5 [Data Governance & Quality](#45-data-governance--quality)
+5. [Application Architecture (TOGAF "A")](#5-application-architecture-togaf-a)
+   - 5.1 [Current-State Application Landscape](#51-current-state--current-state-application-landscape)
+   - 5.2 [Future-State Application Landscape](#52-future-state--future-state-application-landscape)
+   - 5.3 [Change Impact Summary](#53-change-impact-summary)
+   - 5.4 [Component Overview](#54-component-overview)
+   - 5.5 [RICEFW Inventory](#55-ricefw-inventory)
+   - 5.6 [Integration Patterns](#56-integration-patterns)
+6. [Technology Architecture (TOGAF "T")](#6-technology-architecture-togaf-t)
+   - 6.1 [Platform & Infrastructure](#61-platform--infrastructure)
+   - 6.2 [SAP Development Object Status](#62-sap-development-object-status)
+   - 6.3 [NFRs & Design Principles](#63-nfrs--design-principles)
+   - 6.4 [Security & Governance](#64-security--governance)
+7. [Project Context](#7-project-context)
+   - 7.1 [Project Roadmap & Go-Live Plan](#71-project-roadmap--go-live-plan)
+   - 7.2 [RAID Log](#72-raid-log)
+   - 7.3 [Recommendations & Next Steps](#73-recommendations--next-steps)
+
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
+<div style="page-break-before: always;"></div>
+
+## 1. Executive Summary
+
+This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **M-100 Execute Production (IF)** within the IAO program. It includes 9 BPMN process diagram(s) in Section 3.
+| Dimension | Value |
+|-----------|-------|
+| **Tower** | Forecast to Stock (IF) (FTS-IF) |
+| **Process Group** | M Mfg. Schedule and Execution (IF) |
+| **Capability** | M-100 - Execute Production (IF) |
+| **Release** | Release 3 |
+| **Total Systems** | 0 |
+| **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
+| **RICEFW Objects** | 5 Reports, 92 Interfaces, 31 Conversions, 118 Enhancements, 15 Forms, 4 Workflows |
+**Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
+
+> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
+
+<div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
+<div style="page-break-before: always;"></div>
+
+## 2. Business Context & Objectives
+
+### 2.1 Classification
+
+| Level | Value |
+|-------|-------|
+| **L0 Tower** | Forecast to Stock (IF) |
+| **L1 Process** | M Mfg. Schedule and Execution (IF) |
+| **L2 Capability** | M-100 - Execute Production (IF) |
+
+### 2.2 Business Drivers
+
+| # | Driver | Description | Strategic Alignment | Priority |
+|---|--------|-------------|---------------------|----------|
+| 1 | Intel Foundry Supply Chain Integration | Integrate Intel Foundry manufacturing and logistics into unified S/4 HANA supply chain | IDM 2.0 Foundry Enablement | High |
+| 2 | Warehouse & Logistics Modernization | Modernize warehouse management and shipping processes with EWM integration | Supply Chain Digital Transformation | High |
+| 3 | Production Planning Optimization | Enable MRP-driven production planning with real-time material availability | Manufacturing Excellence | Medium |
+| 4 | M-100 Process Migration | Migrate Execute Production (IF) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Supply Chain (Intel Foundry) | High |
+
+<div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
+<div style="page-break-before: always;"></div>
+
+### 2.3 Success Criteria
+
+| Metric | Target | Measure | Baseline | Owner |
+|--------|--------|---------|----------|-------|
+| Order Fulfillment Lead Time | < 48 hours | Time from production completion to shipment dispatch | 72 hours (legacy) | Logistics Manager |
+| Inventory Accuracy | > 99.5% | Physical vs system inventory match rate | 97.8% (current) | Warehouse Manager |
+| MRP Planning Cycle | < 4 hours | End-to-end MRP run including exception processing | 8 hours (legacy) | Planning Lead |
+| M-100 Migration Completeness | 100% flow chains validated | All 0 flow chains verified in target state | 0% (pre-migration) | Tower Architect |
+
+### 2.4 Companion Documents
+
+| Document | Description |
+|----------|-------------|
+| **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
+| **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
+
+<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
+<div style="page-break-before: always;"></div>
+
+## 3. Business Architecture (TOGAF "B")
+
+### 3.1 Business Process Overview
+
+This capability includes **9 business process(es)** modeled in BPMN 2.0, covering the end-to-end workflow for M-100 Execute Production (IF).
+
+| # | Step ID | Process Name | Lanes | Tasks | Gateways |
+|---|---------|--------------|-------|-------|----------|
+| 1 | M-100-070_Issue_Materials_for_Production_Order_(IF) | M-100-070_Issue_Materials_for_Production_Order_(IF) | Batch User, IT Department, Production Engineer - Discrete Manufacturing | 6 | 0 |
+| 2 | M-100-140_Confirm_Completion_of_Production_Operation_Order_(IF) | M-100-140_Confirm_Completion_of_Production_Operation_Order_(IF) | FTS IF Batch System ID, Factory Supervisor, IT Department | 20 | 9 |
+| 3 | M-100-150_Backflush_Raw_Materials_(IF) | M-100-150_Backflush_Raw_Materials_(IF) | FTS IF - Production Scheduler, Factory Supervisor, IT Department | 4 | 0 |
+| 4 | M-100-160_Reprocess_Failed_Backflush_Items_(IF) | M-100-160_Reprocess_Failed_Backflush_Items_(IF) | FTS IF - Production Scheduler | 3 | 0 |
+| 5 | M-100-180_Assign_Batch_Number_and_Link_to_Order_(IF) | M-100-180_Assign_Batch_Number_and_Link_to_Order_(IF) | Batch User, Factory Supervisor, IT Department | 13 | 2 |
+| 6 | M-100-220_Transfer_Materials_from_Quality_Inspection_to_Stock_(IF) | M-100-220_Transfer_Materials_from_Quality_Inspection_to_Stock_(IF) | Boundary Apps, FTS IF Batch System ID, Factory Supervisor, IT Department | 23 | 16 |
+| 7 | M-100-230_Rework_(IF) | M-100-230_Rework_(IF) | FTS IF - Production Scheduler, Factory Supervisor, IT Department | 23 | 3 |
+| 8 | M-100-240_Reconcile_and_Close_Production_Order_(IF) | M-100-240_Reconcile_and_Close_Production_Order_(IF) | FTS IF - Production - Cost Accountant, FTS IF Batch System ID, Production Scheduler | 5 | 0 |
+| 9 | M-100-250_Archive_Production_Order_(IF) | M-100-250_Archive_Production_Order_(IF) | FTS IF - Firefighter ID | 4 | 0 |
+
+### 3.2 Business Process Diagrams
+
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.1 M-100-070_Issue_Materials_for_Production_Order_(IF) — M-100-070_Issue_Materials_for_Production_Order_(IF)
+
+**Swim Lanes**: Batch User · IT Department · Production Engineer - Discrete Manufacturing | **Tasks**: 6 | **Gateways**: 0
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Batch User
+        n1[["fa:fa-cog Issue Corresponding SAP Batches to Production Order"]]
+        n6["Create Production Order with Sales Order Line Items as Attribute"]
+        n8(["fa:fa-stop Corresponding Batch Issued to Production Order"])
+    end
+    subgraph IT Department
+        n2["Receive Build Instruction Data with SO (Sales Order) and SO Line"]
+        n7(["fa:fa-play Build Instructions received From Customer"])
+    end
+    subgraph Production Engineer - Discrete Manufacturing
+        n3["Pull BI (Build Instructions) Data for Schedules with SO Pegging"]
+        n4["Start Lot with SO Line as Attribute"]
+        n5["Report Assemble Events Consuming Customer Specified Lots"]
+    end
+    n7 --> n2
+    n2 --> n3
+    n3 --> n4
+    n4 --> n5
+    n6 --> n1
+    n1 --> n8
+    n5 --> n6
+    class n1 serviceTask
+    class n7 startEvt
+    class n8 endEvt
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVV1v4joQ_SujVBWtFKQkJISbh5UgEAmpq62W7r0P230wiQNWEzuyHShb8d93TEL4qLgvywPSTMbnzDnjjw8rFRm1Iuv-_oNxpiP46Ok1LWkvgt6SKNqzoUn8SyQjy4KqnqnJBdcL9vtQ5vrVuykzuYSUrNiZ7IKuBIUfcxvGuLCwQRGu-opKlvfsXiVZSeQuFoWQpvqOjnInP7C1nyZCZlSeChwndNMAlxaM01N6EPqhn5h1iqaCZxegeZCP8rS3N80VYpuuidSH9mtFv5L3_1im1xjnpFAUa9a6LJ7IkhZGo5a1yaW13BzNYMrwcDRsUZGU8RXmfQdTkvC3Uypw9nvY39-_8o4UXqavHPCXFkSpKc1BaUzPNhpyVhTRnR-Pk8CxlZbijUZ33iycDjw7NUoilO7Yxtz-lrLVWkdLUWRtaX9rNERe9W7L98hzbLnD_ysuyrMTUzz0Rt6oY5qEbuzGR6Y8z_-KCX2VL0S9tVyzQeIl047LDYZB7HzGO8qc-uHYvfaJyg1L6RlokiSD2cmq2TBwndugk2QwdOIr0BXRdEt2J8B_Yr8DTIIwccObgA3fdZf18lmK9Ag4mAVJ0AGGEzcZezcB_bHrj9oOEWclSbWGCdHpGn6g-uaD-XH3589XKydRTvqpWMFcqZpCLKSkqsKtj7sPFuPnZi1VoAVgU1mdaiY4fDPH6dX69esMcIh4saToxqdK2DK9hgXBA98mnvDcwVzTUgFRMNZasmWtKUKeIY4euhaVFtVVd42qQ9_ZjfYeGzDcsleOzF9gSis8NCXl-ozRQ8LvNKVsQ2FSsyKDOUerW9gp0aSV8g0ezuQ8AuGZSRpZlxrCk4aqwF3yCVWBbAgzSKQoIa5Ra_n_7Z9JnfEVcqKjfZgylUqK9n8lvM5JqmuJPp31MsBWnuuigMkcHj438tgIzIWEBc48q42-o9xnuloZtAtxPgIuzN0DT0J3pYfZ3p5qcPC4ErhqrBQt8RmA2QbnoHDAXNWlGe7RBVhUNGU5Q3eQQnVInSc8hH7_C06uDb0mHLThoAn9NvSbMGjDYRO21wR3m3DUhkETDs-Op6k5u0QuvoTdNXyRHrU3pmVbqKckLLOiD-vwCuJLmdGc1IW29rZFai0WO55a0eG1sOoqw7M0ZQRnXjbJ_R-OnF-n" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.2 M-100-140_Confirm_Completion_of_Production_Operation_Order_(IF) — M-100-140_Confirm_Completion_of_Production_Operation_Order_(IF)
+
+**Swim Lanes**: FTS IF Batch System ID · Factory Supervisor · IT Department | **Tasks**: 20 | **Gateways**: 9
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart LR
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph FTS IF Batch System ID
+        n13["-120 Post IM (Inventory Management) Transfers"]
+        n14["-130 Post Confirmation"]
+        n15["-150 Perform Inventory Splits"]
+        n16["-140 Perform Order Splits"]
+        n17["-170 Perform Inventory Merge"]
+        n18["-160 Perform Order Merge"]
+        n19["-180 Post IM Scrap"]
+        n20["-190 Post Confirmation"]
+        n24(["fa:fa-stop Confirmation Posted"])
+        n25(["fa:fa-stop Inventory Splits Performed"])
+        n26(["fa:fa-stop Inventory Merge Performed"])
+        n27(["fa:fa-stop Confirmation Posted"])
+        n29{{"fa:fa-code-branch exclusiveGateway"}}
+        n30{{"fa:fa-code-branch Call RFC?"}}
+        n31{{"fa:fa-code-branch If Failure occurs?"}}
+        n32{{"fa:fa-code-branch If Failure occurs?"}}
+        n33{{"fa:fa-code-branch If Failure occurs?"}}
+        n34{{"fa:fa-code-branch If Failure occurs?"}}
+    end
+    subgraph Factory Supervisor
+        n2["-010 Determine Data Elements"]
+        n21(["fa:fa-play Lot Creation Request Received"])
+    end
+    subgraph IT Department
+        n1["-200 Report Error And Hold Next Events"]
+        n3["-020 Filter Lot Owner From Operation Table (Non-TD ENG exclude)"]
+        n4["-030 Check if Operation is for Production Start in Moveout Operation"]
+        n5["-040 Go to Production Order Create"]
+        n6["-050 Determine Transaction Relevance"]
+        n7["-060 Determine Event"]
+        n8["-070 Determine Lot WIP or Inventory"]
+        n9["-080 Determine S/4 API Sequence"]
+        n10["-090 Determine Scrap for Reject Events"]
+        n11["-100 Assign Attributes"]
+        n12["-110 Call Relevant RFC(Remote Function Call)/BAPI"]
+        n22(["fa:fa-stop Production Order created"])
+        n23(["fa:fa-stop Error Reported And Hold Next Events"])
+        n28{{"fa:fa-code-branch IF Operation Is For Production Start"}}
+        n35{{"fa:fa-arrows-alt parallelGateway"}}
+        n36{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    n3 --> n4
+    n4 --> n28
+    n28 --> n5
+    n28 --> n35
+    n35 --> n6
+    n35 --> n7
+    n35 --> n8
+    n35 --> n9
+    n35 --> n10
+    n35 --> n11
+    n35 --> n12
+    n12 --> n36
+    n6 --> n36
+    n7 --> n36
+    n8 --> n36
+    n9 --> n36
+    n10 --> n36
+    n11 --> n36
+    n13 --> n14
+    n19 --> n20
+    n36 --> n30
+    n16 --> n15
+    n18 --> n17
+    n30 -->|"RFC Move"| n13
+    n14 --> n31
+    n15 --> n32
+    n17 --> n33
+    n20 --> n34
+    n31 -->|"No"| n24
+    n32 -->|"No"| n25
+    n33 -->|"No"| n26
+    n34 -->|"No"| n27
+    n30 -->|"RFC Split"| n16
+    n30 -->|"RFC Merge"| n18
+    n30 -->|"Reject"| n19
+    n34 -->|"Yes"| n29
+    n32 -->|"Yes"| n29
+    n33 -->|"Yes"| n29
+    n31 -->|"Yes"| n29
+    n1 --> n23
+    n29 --> n1
+    n5 --> n22
+    n2 --> n3
+    n21 --> n2
+    class n21 startEvt
+    class n22 endEvt
+    class n23 endEvt
+    class n24 endEvt
+    class n25 endEvt
+    class n26 endEvt
+    class n27 endEvt
+    class n28 gateway
+    class n29 gateway
+    class n30 gateway
+    class n31 gateway
+    class n32 gateway
+    class n33 gateway
+    class n34 gateway
+    class n35 gateway
+    class n36 gateway
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlWFtv4kYY_SsjryISCbQeX7DhoRUBvEXaZKOQdlWVPkzMGNwYDx2PSWiW_95vxhfMYFTtlococ-Z894sN70bIltQYGldX73EaiyF674g13dDOEHWeSUY7XVQAvxEek-eEZh3JiVgq5vE_ioad7ZukSSwgmzjZS3ROV4yiX2ddNALBpIsykma9jPI46nQ7Wx5vCN-PWcK4ZH-gfmRGylp5dcv4kvIjwTQ9HLogmsQpPcK253hOIOUyGrJ0eaI0ciM_CjsH6VzCXsM14UK5n2f0jrx9jZdiDeeIJBkFzlpsks_kmSYyRsFziYU531XJiDNpJ4WEzbckjNMV4I4JECfpyxFyzcMBHa6uFmltFH1-XKQIPmFCsmxCI5QJgKc7gaI4SYYfnPEocM1uJjh7ocMP1tSb2FY3lJEMIXSzK5Pbe6Xxai2GzyxZltTeq4xhaG3fuvxtaJldvoe_mi2aLo-Wxn3Lt_za0q2Hx3hcWYqi6H9ZgrzyJ5K9lLamdmAFk9oWdvvu2DzXV4U5cbwR1vNE-S4OaUNpEAT29Jiqad_F5mWlt4HdN8ea0hUR9JXsjwoHY6dWGLhegL2LCgt7upf58wNnYaXQnrqBWyv0bnEwsi4qdEbY8UsPQc-Kk-0aBU9zNAvQLRHhGs33maAbNJsUJPlJsf3Hwuhhy0QPLBNodoeuZ-mOpoLxPbojKVnBzKbiBj1Bc2YR5dnC-LMp7yh5u5QfszSK-YaImKUa0VVEF4iUR4yDH7Wd-TaJha64r_jOkf9FDnI711Ncr033HeUrqtF9Re_rqtuoA0X1j-mZh5DYU5JlKtLgP3NgOdfAjMgwIr1MsO0JVQnTJUjcNEVcTUTPWhXDuWT_oqQK9LKg9_1eDt7fKxH5IOg9Q7dAx9G3MMmzeEc_FZOyMA6HhphttouNSZKgx2D8s87H7fxZhAISJzmniIWwabMzQetHBe0fFXS-XxD2qz6-JCxKnW_l_soYbyZddp2JTTShgvINPM7QhAiCpokaWW1GLHys6jaBpfWZQatyWlT1kf6dU-jdRxpSKFejvudOzZ7A4hYeO9JKc1akP5ZpgpItg2fVlHPG0Shdol9g_aN7-gbY7twztYFM2EBBnEAgyrEvryn8F3AGswmhF04-yfcGdH3P0t7TBE3vPxX9taQ3pwrVSjJhJY3XNHxBcdTQEWcImh7Bll3moULm8gmK4hTdsR1luTiST7Wq_WXCPvrEkGBNDcX2ULnU1ofaYabbLJHaoyQss57QHbSFJqW2mdlvSqm8nbLUEjO9Jktm7uvsAUGA9bCfCql1ZvpNoflHB40eZmguW-DMF6x2mzk4kZArUKXxkf5Fw_aqYtUO8IhDoyyLVykaCcHj51xQnaj6GEMfF2Nf5ETI-b9-pBsmKArytEiYZNx8vAV3tea2tJV1Vp1QVedsb9maXNGzRQPT5aXmPVHhXxj0oNF1swwFLV2n7wz3qIqAI69ZjyQCwahB2DS5sEP73ydUz3Nqo17vJ5iW8ugUR8svz5ZfAK52tivAdgugr5097exr54F2xqYOYB2wSgBbpQ-Vzb529rSzr50H2hm6TgOwDpRpwlWecKnDqt2unKgAXAK4yhQu3cB1apTZbwsDmlztnYXxTZqq-GUt7CoRuEyEXSeiCrQSsapAKjdtXJq4Z0q5VV9Y2kVdT1u7qAvraBetYajXkSKOfmuYxduVvPfP7tUeKS4HutXf5caQZgd6BOc39sUbfOmmLLhVZ7Ksb5X7MvVWlfqqBatjJd94lVdo9c3sFLfKb1GnqN2KOq2o24r2W1GvFfWrLy6n8KAVhhq1wrgdttphux122mG3He5XsNE1NvAsIvHSGL4b6mcF-OlhSSOSJ8I4dA2SCzbfp6ExVF-_jXy7BMlJTOANZlOAh38B3QAEWQ==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.3 M-100-150_Backflush_Raw_Materials_(IF) — M-100-150_Backflush_Raw_Materials_(IF)
+
+**Swim Lanes**: FTS IF - Production Scheduler · Factory Supervisor · IT Department | **Tasks**: 4 | **Gateways**: 0
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph FTS IF - Production Scheduler
+        n3["Confirm Production Order"]
+        n4["Issue Goods of Components (Backflush)"]
+        n6["Reprocess Failed Backflush Items (IF)"]
+    end
+    subgraph Factory Supervisor
+        n1["Confirm the Lot"]
+        n5(["fa:fa-play Initiate Backflush process"])
+    end
+    subgraph IT Department
+        n2["Send Lot Data"]
+    end
+    n5 --> n1
+    n1 --> n2
+    n3 --> n4
+    n2 --> n3
+    n4 --> n6
+    class n5 startEvt
+    class n6 startEvt
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVF1v2jAU_StWKkQnBSmfhOVhEgQ8IXXaNNj2sO7BJDZYdezIdtqyiv--awgfperT8oB0D-eec8914hevVBX1cq_Xe-GS2xy99O2G1rSfo_6KGNr30QH4STQnK0FN33GYknbB_-5pYdI8O5rDMKm52Dp0QdeKoh9zH42hUfjIEGkGhmrO-n6_0bwmelsoobRj39ARC9jerftronRF9ZkQBFlYptAquKRnOM6SLMGuz9BSyeqVKEvZiJX9nRtOqKdyQ7Tdj98a-oU8_-KV3UDNiDAUOBtbizuyosJltLp1WNnqx-MyuHE-Eha2aEjJ5RrwJABIE_lwhtJgt0O7Xu9enkzRcnovETylIMZMKUPGAjx7tIhxIfKbpBjjNPCN1eqB5jfRLJvGkV-6JDlED3y33MET5euNzVdKVB118OQy5FHz7OvnPAp8vYXfKy8qq7NTMYxG0ejkNMnCIiyOToyx_3KCveolMQ-d1yzGEZ6evMJ0mBbBW71jzGmSjcPrPVH9yEt6IYoxjmfnVc2GaRi8LzrB8TAorkTXxNInsj0LfiySkyBOMxxm7woe_K6nbFfftCqPgvEsxelJMJuEeBy9K5iMw2TUTQg6a02aDcLLBZpjNEAgW7Wl5UqiRbmhVSuoPnDdI-Pf916hJOO6vqR-dd_OvffngpkAc25MS9FnpSqDFEOFqhslqbQG3U5I-cBEazYfXrcNoe07bSAcNQZhwgWt0ImM5pbW0D3H5zZ4267DkNIqvUWLtnGnadRlgvAiAVw06E7Z1xOkt8BgJGdk0Ag4tDlcUxwO8GKKbjzo-_DeDPMlmtIGvrka8l6oRyC-ALrzRVNiydscMkWDwSeYtCvDQxl1ZXwok66MDmXclcmhHF68ME7w-Pm_gocn2PO9muqa8MrLX7z9_Qt3dEUZaYX1dr5HWqsWW1l6-f6e8tqmgpVMOYG09QHc_QN7S9wp" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.4 M-100-160_Reprocess_Failed_Backflush_Items_(IF) — M-100-160_Reprocess_Failed_Backflush_Items_(IF)
+
+**Swim Lanes**: FTS IF - Production Scheduler | **Tasks**: 3 | **Gateways**: 0
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph FTS IF - Production Scheduler
+        n1["fa:fa-user Perform Good Issue Against the Production Order"]
+        n2["Monitor Post Processing of Error Records from Automatic Goods Movement"]
+        n3["Identifying the Error Caused by the Posting"]
+        n4(["fa:fa-stop Failed Backflush Reprocessed"])
+        n5["Backflush Raw Materials"]
+    end
+    n5 --> n2
+    n3 --> n1
+    n2 --> n3
+    n1 --> n4
+    class n1 userTask
+    class n4 endEvt
+    class n5 startEvt
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVMuu2jAQ_RUrV4hWClKehGZRCQKpkIpaldt2UbowiQ0Wjo1sh0cR_94x4V3dVbOIMscz58xMPHNwClkSJ3VarQMTzKTo0DZLUpF2itpzrEnbRQ3wAyuG55zotvWhUpgp-3Ny86P1zrpZLMcV43uLTslCEvR97KI-BHIXaSx0RxPFaNttrxWrsNpnkktlvV9Ij3r0pHY-GkhVEnVz8LzEL2II5UyQGxwmURLlNk6TQorygZTGtEeL9tEmx-W2WGJlTunXmkzw7icrzRJsirkm4LM0Ff-M54TbGo2qLVbUanNpBtNWR0DDpmtcMLEAPPIAUlisblDsHY_o2GrNxFUUvQ5nAsFTcKz1kFCkDcCjjUGUcZ6-RFk_jz1XGyVXJH0JRskwDNzCVpJC6Z5rm9vZErZYmnQueXl27WxtDWmw3rlqlwaeq_bwftIiorwpZd2gF_SuSoPEz_zsokQp_S8l6Kt6xXp11hqFeZAPr1p-3I0z71--S5nDKOn7z30iasMKckea53k4urVq1I19723SQR52veyJdIEN2eL9jfBDFl0J8zjJ_eRNwkbvOct6_lXJ4kIYjuI8vhImAz_vB28SRn0_6p0zBJ6Fwuslyl-naJyjDgLasi4MkwJNiyUpa05U42sf4f-aORSnFHds69FXoqhUFfokZYnGWtcE9ReYCW0QDPE92Rc7XTPn9x1XAFwTCUtAApGEEFsS0RpuNZIUjZSCg28wZarUiCpZoX5tZIUNK06CGk3kBjaFMI-8IfCOS4AZ3Vsum0lDlmHIukTzfZMdaML5Y3D07lqhNnKNcsw4hAxwsaK81ktIaN2kSUqIfH8XGkPknR_eogn8d7uM9FUDRqP5EDHqdD5CE85m2Jjn6yiCxgzPpt-Y0d01sODl-j_A0Xn-HsD4ugAc16mIqjArnfTgnFYtrOOSUFxz4xxdB0OTp3tROOlpJTn1uoQyhgzDTaka8PgXurfbiQ==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.5 M-100-180_Assign_Batch_Number_and_Link_to_Order_(IF) — M-100-180_Assign_Batch_Number_and_Link_to_Order_(IF)
+
+**Swim Lanes**: Batch User · Factory Supervisor · IT Department | **Tasks**: 13 | **Gateways**: 2
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart LR
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Batch User
+        n1["fa:fa-user Update Output Batch with Lot Number"]
+        n2["fa:fa-user Assign Batch Attributes"]
+        n13["Create Production Order and Automatic Output Batch Generated"]
+        n15(["fa:fa-stop Batch Attributes Assigned"])
+    end
+    subgraph Factory Supervisor
+        n3["Determine Data Elements"]
+        n14(["fa:fa-play Manufacturing (MFG) Operation Table Received"])
+    end
+    subgraph IT Department
+        n4["Create Copy of Operation Table"]
+        n5["Filter Lot Owner From Operation Table (TD)"]
+        n6["Check if Operation is for Production Start in Moveout Operation"]
+        n7["Determine Start Date"]
+        n8["Determine Production Version"]
+        n9["Determine Enterprise Resource Planning (ERP) Routing"]
+        n10["Determine Plant"]
+        n11["Determine Unique Product ID"]
+        n12["Determine Order Type"]
+        n16{{"fa:fa-arrows-alt parallelGateway"}}
+        n17{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    n4 --> n5
+    n5 --> n6
+    n17 --> n12
+    n7 --> n16
+    n17 --> n9
+    n17 --> n8
+    n8 --> n16
+    n12 --> n16
+    n9 --> n16
+    n17 --> n10
+    n17 --> n11
+    n10 --> n16
+    n11 --> n16
+    n6 --> n17
+    n17 --> n7
+    n3 --> n4
+    n14 --> n3
+    n16 --> n13
+    n13 --> n1
+    n1 --> n2
+    n2 --> n15
+    class n1 userTask
+    class n2 userTask
+    class n14 startEvt
+    class n15 endEvt
+    class n16 gateway
+    class n17 gateway
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVt9v8jYU_VesVBWtFKQkJITmYRIFUlVq10-FfntY92ASB6waO7MdKEP877smPyDpOmlaHhD35J5z7r12nBysRKTEiqzr6wPlVEfo0NNrsiG9CPWWWJGejUrgJ5YULxlRPZOTCa7n9K9TmuvnnybNYDHeULY36JysBEFvjzYaA5HZSGGu-opImvXsXi7pBsv9RDAhTfYVGWVOdnKrbt0LmRJ5TnCc0E0CoDLKyRkehH7ox4anSCJ42hLNgmyUJb2jKY6JXbLGUp_KLxR5xp-_0VSvIc4wUwRy1nrDnvCSMNOjloXBkkJu62FQZXw4DGye44TyFeC-A5DE_OMMBc7xiI7X1--8MUVPr-8cwZUwrNSUZEhpgGdbjTLKWHTlT8Zx4NhKS_FBoitvFk4Hnp2YTiJo3bHNcPs7QldrHS0FS6vU_s70EHn5py0_I8-x5R5-O16Ep2enydAbeaPG6T50J-6kdsqy7H85wVzlAquPyms2iL142ni5wTCYOF_16janfjh2u3MicksTciEax_Fgdh7VbBi4zvei9_Fg6Ew6oiusyQ7vz4J3E78RjIMwdsNvBUu_bpXF8ocUSS04mAVx0AiG92489r4V9MeuP6oqBJ2VxPka3WOdrNEbdF_eMBd3f3-3MhxluG_mjN7yFPpAL4XOC10xdlSv0ZPQ6NdiswSy9ccF32vzx0rRFa-IY60lXRaaqDbHHQBpIolxghbTItFUcPRiHk6EeYrGhRYbrGnSLuSBcCKBlHbkgpumCKVF_sW9qurEuy2JsH0704lxooXco3mRm-2hxOWUTMFTooncwEGBplhjNGNwgHHdbc0_15Iz2A7PmBcZSBcSHmR08xw_3KKX3LRhWl6Y0w-9koTQ7b-X97hAU5LD821MLwz98ygnIt8jkXXl2wUGkB9TBq2clvRlByNFsRSbL1XdLKa3be7QeK1J8oHopQtVKBPyciXn5iBClKNnsSUC1q9JbguGrbGWLBhup-RRK-vC5ieR6ovmXSt7xuEfnP7KTFmJQiagwDDnp9WYvf64Ra9QIESddXTapkDRnQy3lfHG6Z9FUx16nHayvVZ2udUX-7zTqjs8HOrtg6UUO9XHTCNYd8wYYQ_lGfNuHY-XpPC_kZrNxX3U7_8Ce6IKgzIcVqEblrHrVUAddxPuOvGoikfdfK8D3H0j6DpdwK0Bp0txO8CwisOORB0PytCvb1czGNRxzW-AitBUUIb1TOqWgovT2yTVb60W7P0zDDXUr-42HlSv2TY6rN81bTisYcu2NrDPME2t6GCdPrTgYywlGS6Yto62heF4ne95YkWnDxKrOB36U4rhqNmU4PFvCXgHMA==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.6 M-100-220_Transfer_Materials_from_Quality_Inspection_to_Stock_(IF) — M-100-220_Transfer_Materials_from_Quality_Inspection_to_Stock_(IF)
+
+**Swim Lanes**: Boundary Apps · FTS IF Batch System ID · Factory Supervisor · IT Department | **Tasks**: 23 | **Gateways**: 16
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart LR
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Boundary Apps
+        n1["Schedule Out Dates for WIP Lot"]
+        n2["Send Projected Available Dates From W/S for Unusable Lots"]
+        n3["Provide Data of Unusable Lot Which are Going to be Available"]
+        n4["Send Projected Available Dates From MES for Unusable Lots"]
+        n24(["fa:fa-play Data Transfer Process to be Initiated"])
+        n31["Adjust Schedule (IF)"]
+        n32{{"fa:fa-code-branch exclusiveGateway"}}
+        n43{{"fa:fa-arrows-alt parallelGateway"}}
+        n44{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    subgraph FTS IF Batch System ID
+        n20["Perform Goods Movement to Set Batch as Unrestricted"]
+        n21["Perform Goods movement to Set Batch as Unrestricted"]
+        n22["Perform Goods Movement to Set Batch as Restricted"]
+        n23["Perform Goods Movement to Set Batch as Restricted"]
+        n27(["fa:fa-stop Batch Set as Unestricted"])
+        n28(["fa:fa-stop Batch Set as Unestricted"])
+        n29(["fa:fa-stop Batch Set as Restricted"])
+        n30(["fa:fa-stop Batch Set as Restricted"])
+        n38{{"fa:fa-code-branch exclusiveGateway"}}
+        n39{{"fa:fa-code-branch If Failure occurs?"}}
+        n40{{"fa:fa-code-branch If Failure occurs?"}}
+        n41{{"fa:fa-code-branch If Failure occurs?"}}
+        n42{{"fa:fa-code-branch If Failure occurs?"}}
+    end
+    subgraph Factory Supervisor
+        n5["Send Transaction Data"]
+        n6["Send Transaction Data"]
+        n25(["fa:fa-play Request Initiated to Transfer Materials from Quality Inspection to Stock"])
+        n33{{"fa:fa-code-branch System Used to Send Transaction Data ?"}}
+        n34{{"fa:fa-code-branch exclusiveGateway"}}
+    end
+    subgraph IT Department
+        n7["Check MRB Summary"]
+        n8["Check Reel PHQ Values"]
+        n9["Check Lot Expiration"]
+        n10["Check Aged Attributes"]
+        n11["Check TRDI/SFGI Hold Attributes"]
+        n12["Determine if Lot is Usable/Not Usable"]
+        n13["Determine if Lot is Inventory or WIP"]
+        n14["Determine if Lot is Inventory or WIP"]
+        n15["Report Error and Hold Next Transaction"]
+        n16["Determine SAP Production Order"]
+        n17["Determine SAP Material, Batch, Plant, Storage Locations, Movement Type​"]
+        n18["Determine SAP Production Order"]
+        n19["Determine SAP Material, Batch, Plant"]
+        n26(["fa:fa-stop Error Reported and Hold Next Transaction"])
+        n35{{"fa:fa-code-branch Determine Lot?"}}
+        n36{{"fa:fa-code-branch Determine Lot?"}}
+        n37{{"fa:fa-code-branch Determine Lot?"}}
+        n45{{"fa:fa-arrows-alt parallelGateway"}}
+        n46{{"fa:fa-arrows-alt parallelGateway"}}
+        n47{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    n5 --> n34
+    n45 --> n7
+    n45 --> n8
+    n45 --> n9
+    n45 --> n10
+    n10 --> n46
+    n9 --> n46
+    n8 --> n46
+    n7 --> n46
+    n35 -->|"Not Usable"| n14
+    n13 --> n36
+    n36 -->|"WIP"| n16
+    n36 -->|"Inventory"| n17
+    n45 --> n11
+    n11 --> n46
+    n25 --> n33
+    n6 --> n34
+    n34 --> n45
+    n3 --> n4
+    n24 --> n44
+    n44 --> n3
+    n44 --> n2
+    n46 --> n47
+    n1 --> n31
+    n37 -->|"WIP"| n18
+    n37 -->|"Inventory"| n19
+    n20 --> n39
+    n39 -->|"No"| n27
+    n41 -->|"No"| n29
+    n42 -->|"No"| n30
+    n16 --> n23
+    n23 --> n42
+    n22 --> n41
+    n21 --> n40
+    n40 -->|"No"| n28
+    n33 -->|"MES"| n5
+    n33 -->|"Workstream"| n6
+    n35 -->|"Usable"| n13
+    n42 --> n38
+    n41 --> n38
+    n40 --> n38
+    n39 --> n38
+    n47 --> n12
+    n12 --> n35
+    n47 -->|"Rules"| n32
+    n38 --> n15
+    n15 --> n26
+    n2 --> n43
+    n14 --> n37
+    n19 --> n20
+    n17 --> n22
+    n18 --> n21
+    n4 --> n43
+    n43 --> n32
+    n32 --> n1
+    class n24 startEvt
+    class n25 startEvt
+    class n26 endEvt
+    class n27 endEvt
+    class n28 endEvt
+    class n29 endEvt
+    class n30 endEvt
+    class n31 startEvt
+    class n32 gateway
+    class n33 gateway
+    class n34 gateway
+    class n35 gateway
+    class n36 gateway
+    class n37 gateway
+    class n38 gateway
+    class n39 gateway
+    class n40 gateway
+    class n41 gateway
+    class n42 gateway
+    class n43 gateway
+    class n44 gateway
+    class n45 gateway
+    class n46 gateway
+    class n47 gateway
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqtWFtz2jgU_isaOpm0MzD1FQMPu0MAt8w0bQpp87Dsg7Dl4MbYrCSTsCn_fY9syWDFdFt285CJPp3rp3OOFD-3giwkrUHr4uI5TmM-QM-XfEXW5HKALpeYkcs2KoGvmMZ4mRB2KWSiLOXz-O9CzHQ2T0JMYD5ex8lOoHNynxH0ZdpGQ1BM2ojhlHUYoXF02b7c0HiN6W6UJRkV0q9ILzKiwpvcuspoSOhBwDA8M3BBNYlTcoBtz_EcX-gxEmRpWDMauVEvCi73IrgkewxWmPIi_JyRa_x0F4d8BesIJ4yAzIqvkw94SRKRI6e5wIKcbhUZMRN-UiBsvsFBnN4D7hgAUZw-HCDX2O_R_uJikVZO0YfZIkXwEySYsTGJEOMAT7YcRXGSDF45o6HvGm3GafZABq-siTe2rXYgMhlA6kZbkNt5JPH9ig-WWRJK0c6jyGFgbZ7a9GlgGW26g9-aL5KGB0-jrtWzepWnK88cmSPlKYqi_-QJeKW3mD1IXxPbt_xx5ct0u-7IeGlPpTl2vKGp80ToNg7IkVHf9-3JgapJ1zWN00avfLtrjDSj95iTR7w7GOyPnMqg73q-6Z00WPrTo8yXNzQLlEF74vpuZdC7Mv2hddKgMzSdnowQ7NxTvFmhqywvahkNNxtW7omf1Pxj0ZoHKxLmCUGfco7GkApDUUbR3fQGfcj4ovXnkbwl5OH8EYT3jQSchGi4xXEiOlnq-jRbo7u388LIlzRnxR5YYnVTNpgCK9s4LDQxyqKaOLpbxcEKYUrQuww6AfEMLcnBXd2a85OBXU_-NTDLeQ3GIjyIcGeTwLEW0d1CU7KIUOEgIIzJcKYw5GIwH4KNN8fZCWaH4beccVQR_Hrqv9FIsJ6flS8xOTtLcANZk6cgyVm8Je_K0lq09vvjbO2DGqY0e2QdnHC0wRQnCUlOKDm_pgRsalXk387R1EdXmEOI8x3jZI2m42PqDHGohALDazi1LGToOtvCtE-54GtOuFTGDE6AEqjhOCjJO7ZivrCyPsOK9fOxzE7ZsP8HG96hnBjPNoo-0C3iP1Y7riCrd6Ze_0d6s1NqtnGeWu-sArb7zWrTCPnQtTk0fRbAXcl-14vYOFfRPFfR-nXFhtbBAc9g_s7zjbiBWEaPXLhqeBVDBiTjLC2mTr2Suj8nZrna_JqRv3I4v8OsErVbzbNrQMSLCqa-GJCfc5zEfAfCbENKF6LSeRY86EdvNxMjB8MXVjpqjBjpLNvOr9bRS46nt2hMYJxx0Z9Htj2gY7QiwQO6nl3BCazFe7DOWa8SmRGSoJv3n9FXnABrdbF-JSYuqMnTJqZY5FSXMo1KbHgvLiIOvbPMuW7NNCu529l4-nbuv5ui9_BEOq0hZtqYwIGt4dWK4qiII4ZxUFxmbz_CqvxT07NP6E3TLXAlCrO88TU15zw1Uc8zssngoTqBi4YiDCVQJPaRPPHjYtAUuzV_8-HNIjcMbMCVG-alfLH-JJ7ymqqnq1aF3S5HWRvdJDjlbVHLFN-Lmz8oDo-1D0P9drchi9wyjKVmvnd-ZP2fjEzr4q42j0smS1qhqH5Eaa1L3ebGOkQEZ_qiG7vnKHlnKDnuOS-Z7jlK3pnPn9RFnc5vYkTJtSMBT1v3tHVfW5vymQ9_lIDTlUBfW_e0taet7cLi90XruOG_i4ZVHmwZc6XRlRpFtwrRFztVU5f7enamqWybWjSWIsiWQFcjzHakhqsAuVYG1H7FsARsbW2ptfTgqCBlSLaK0fb0dHv6jpauOixLno2tALtfcV1IWhUxprZRnbdV37Crc5dhWyovSxGhErMsCahELEW2suEYmtcqMVtuwL84xY6rb9xl9AGecQSvi_0XxXRcSHYtF_HOq2V9DBgaYPd1CVm-psrSVEbdmgSEMIN_k1hJmhK2ZTOYStiU5WZV9ScpUjGbqnqq6pARWdVByIisKiLpxFK8O5pNRzVUFZb0evyBoahk9SWmjrsn8K78mlJHvUa014j2m1DbaETN5iggF_kJow7bzbDTDLvNcLcZ9prhXjPcb4Sh9BphsxluztJpztJpztJpztJpztKpsmy1W2u4BXEctgbPreILKHwlDUmE84S39u0Wznk236VBa1B8KWzlmxA0xzGGt-26BPf_AKljiZc=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.7 M-100-230_Rework_(IF) — M-100-230_Rework_(IF)
+
+**Swim Lanes**: FTS IF - Production Scheduler · Factory Supervisor · IT Department | **Tasks**: 23 | **Gateways**: 3
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart LR
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph FTS IF - Production Scheduler
+        n21["Rework Production Order goods receipt"]
+        n22["Rework Operation Confirmed"]
+        n23["Rework Production Order created"]
+        n28(["fa:fa-stop Rework Completed"])
+    end
+    subgraph Factory Supervisor
+        n1["Create Rework Lot"]
+        n2["Create Rework Lot"]
+        n3["Move/Rejects on Rework lot"]
+        n4["Complete Rework Lot"]
+        n24(["fa:fa-play Initiate Rework Process"])
+    end
+    subgraph IT Department
+        n5["Check For Rework Attributes"]
+        n6["Determine Rework Order Type"]
+        n7["Determine Production Version"]
+        n8["Call (RFC) Production Order Create workflow"]
+        n9["Identify Rework Production Order"]
+        n10["Identify WorkCenter"]
+        n11["Prepare Activity Values"]
+        n12["Call (RFC)Operation Confirmation Workflow"]
+        n13["Manage Failure and Reprocessing"]
+        n14["Identify Last Operation Of Rework"]
+        n15["Identify Rework Production Order"]
+        n16["Call (RFC) Lot Complete Workflow"]
+        n17["Report Error and Hold Next Transaction"]
+        n18["Report Error and Hold Next Transaction"]
+        n19["Manage Failures and Reprocessing"]
+        n20["-23o Report Error and Hold Next Transaction"]
+        n25(["fa:fa-stop Report and Hold the Event"])
+        n26(["fa:fa-stop Report and Hold The Event"])
+        n27(["fa:fa-stop Report and Hold the Event"])
+        n29{{"fa:fa-code-branch Failure Occurs?"}}
+        n30{{"fa:fa-code-branch Failure Occurs?"}}
+        n31{{"fa:fa-code-branch Failure Occurs?"}}
+    end
+    n24 --> n1
+    n1 --> n2
+    n2 --> n5
+    n5 --> n6
+    n6 --> n7
+    n7 --> n8
+    n8 --> n29
+    n29 -->|"No"| n23
+    n23 --> n19
+    n3 --> n9
+    n9 --> n10
+    n10 --> n11
+    n11 --> n12
+    n12 --> n30
+    n30 -->|"No"| n22
+    n22 --> n13
+    n4 --> n14
+    n14 --> n15
+    n13 --> n4
+    n17 --> n25
+    n29 -->|"Yes"| n17
+    n18 --> n26
+    n16 --> n31
+    n20 --> n27
+    n31 -->|"Yes"| n20
+    n21 --> n28
+    n31 -->|"No"| n21
+    n30 -->|"Yes"| n18
+    n19 --> n3
+    n15 --> n16
+    class n24 startEvt
+    class n25 endEvt
+    class n26 endEvt
+    class n27 endEvt
+    class n28 endEvt
+    class n29 gateway
+    class n30 gateway
+    class n31 gateway
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlV21v4jgQ_itWVhW7EujivBDgw51oILpK3e2q9FqdjvtgEgdyDXFkO225lv9-Y2IHSMtW2-NDy0yeZ2ae8dgxz1bMEmqNrLOz56zI5Ag9d-SKrmlnhDoLImini2rHLeEZWeRUdBQmZYWcZf_uYNgrnxRM-SKyzvKN8s7oklH0x0UXjYGYd5EghegJyrO00-2UPFsTvglZzrhCf6KD1E532fSjc8YTyvcA2w5w7AM1zwq6d7uBF3iR4gkasyI5Cpr66SCNO1tVXM4e4xXhcld-JehX8nSXJXIFdkpyQQGzkuv8kixorjRKXilfXPEH04xMqDwFNGxWkjgrluD3bHBxUtzvXb693aLt2dm8aJKiy-t5geAT50SICU2RkOCePkiUZnk--uSF48i3u0Jydk9Hn5xpMHGdbqyUjEC63VXN7T3SbLmSowXLEw3tPSoNI6d86vKnkWN3-Qb-tnLRItlnCvvOwBk0mc4DHOLQZErT9H9lgr7yGyLuda6pGznRpMmF_b4f2q_jGZkTLxjjdp8of8hiehA0iiJ3um_VtO9j-3TQ88jt22Er6JJI-kg2-4DD0GsCRn4Q4eBkwDpfu8pq8Z2z2AR0p37kNwGDcxyNnZMBvTH2BrpCiLPkpFyh6GaGLiLUQxA2qWKZsQLN4hVNqpzyGqs-hYP_mlvX9JHx-0Poldo7aMlYIhCnMc1KObf-PuQ5e95VSTnZ0UJWpBlf06QFdn-QJOYUutlmDD4DJSWjlPSEZCXS7JCty5zW8C81HoazrZ3EkvENmlWlWnzBDgUrveEupYl5ydra3ocoQV_ZA_3lmv5DYykQyNHYvI31VDhd9-mc3l5wmcNoXcBhmh2UoMaDCvEj3Rc3aEJLOBbWtJAHsX1VwIrG9yhi3MQbS8mzRSWpOC6kD-AJVMrXcEwacL1SN5uSHoODI_DB0t5SLuD_MXqg6iB5jj5fR-GX15Oge64yqoPvmDwE8kUCwrJ0g07M0jED24eUOyCE8P0VSg3Ed676RtEYgj1kcoNuSV61O4Odo_pfTX1t3L1ZPd4NDCnIksJ4ZnkFyUiRgJCyXlc4-VsM77D6SyLkwT67SnULWhz_55vUP14UGMxmk53SEux2c8ngtTTlHEZKKfkdTnr0jT5JdANvM0F2GVvEwUeJw1fdE--0z1GL33Nchj6S0PFfHT-7IA0dbjRo-qC2WbMfa2L_HeLNKWLw0YzD52dDVFex3gJExatmyq5iuIGI3-bWdnt4ftkfYuGfZDVnFJxvqNf7FZZS27g2HfO4Nn1t-rXZ12a_NgNtBrU50OZAhxqaWEPleJlb39jcelFvH_PA1TUYpLaNOdSPbVOjrR1N0bpqbMrGum7XUFy7lbsRqJHYFGP64ZlQxmF6gHV1DUDLdvy2zj_VSfWiEAZqWmIaiHUHXaPE0dIcQ3FxK5i5msENQUMHbajRiNvim4IMBevWGvFYLzDuH9yDdkNirrXHfl9fQY-9_Te9wZvewZveobnJHblBx5tubNxW11rDO49kiTV6tna_buAXUEJTUuXS2nYtUkk22xSxNdr9CrCqMgHmJCPwol7Xzu1_LoUMAA==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.8 M-100-240_Reconcile_and_Close_Production_Order_(IF) — M-100-240_Reconcile_and_Close_Production_Order_(IF)
+
+**Swim Lanes**: FTS IF - Production - Cost Accountant · FTS IF Batch System ID · Production Scheduler | **Tasks**: 5 | **Gateways**: 0
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph FTS IF - Production - Cost Accountant
+        n1[["fa:fa-cog Validate Order Status"]]
+        n3["Validate Input and Output Cost of the Order"]
+        n4["Validate Settlement Accounting Entries"]
+        n8[["fa:fa-folder-open DS-020-160 Execute Order Settlement"]]
+    end
+    subgraph FTS IF Batch System ID
+        n5["Set Status Closed (CLSD) and Deletion Flag (DLFL)"]
+        n7(["fa:fa-stop Production Order Reconciled and Closed"])
+    end
+    subgraph Production Scheduler
+        n2["Validate Production Completion and TECO Production Order"]
+        n6(["fa:fa-play Request Received to Reconcile and Close Production Order"])
+    end
+    n3 --> n1
+    n5 --> n7
+    n8 --> n4
+    n1 --> n8
+    n6 --> n2
+    n2 --> n3
+    n4 --> n5
+    class n1 serviceTask
+    class n6 startEvt
+    class n7 endEvt
+    class n8 subProc
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVV1vozgU_SsWVZVWAgkIhAwPKyV8SJW66mrozjxM58ExJrFqbNY2bbJV_vvagQDJTJ-Whyjncu85515_8GEhXmIrtm5vPwgjKgYfM7XDNZ7FYLaBEs9s0AW-QUHghmI5MzkVZ6og_57SvKDZmzQTy2FN6MFEC7zlGPz9YIOVLqQ2kJBJR2JBqpk9awSpoTgknHJhsm_wsnKrk1r_as1FicWY4LqRh0JdSgnDY3geBVGQmzqJEWflBWkVVssKzY7GHOXvaAeFOtlvJf4T7r-TUu00riCVWOfsVE0f4QZT06MSrYmhVrydh0Gk0WF6YEUDEWFbHQ9cHRKQvY6h0D0ewfH29oUNouA5fWFAP4hCKVNcAal0OHtToCKUxjdBsspD15ZK8Fcc3_hZlM59G5lOYt26a5vhOu-YbHcq3nBa9qnOu-kh9pu9Lfax79rioH-vtDArR6Vk4S_95aC0jrzES85KVVX9LyU9V_EM5Wuvlc1zP08HLS9chIn7K9-5zTSIVt71nLB4IwhPSPM8n2fjqLJF6Lmfk67z-cJNrki3UOF3eBgJvyTBQJiHUe5FnxJ2etcu281fgqMz4TwL83AgjNZevvI_JQxWXrDsHWqerYDNDuTPBXjIgQM0bdkiRTjTIOFSgRVCvGUKMtXVmId5P368WBWMK-ggvgXfICWlbhI8mUMECgVVK1-snz8nJXNdMeQ9sKZVALISPLXK_D1J8Qros9-R6OpJcTAtLrBSVF8RbDCnDwLImBIEy8u65eiz0nsLC4c3mIG0cFzfdbyFC7I9Ru3ofKAe3evt_PtpraFCO1AcpMI1eEgnsqFW1VT9IEBCucQluEsei_T-1HWKKT4NOadwC-7Sx_zx_tJ5dDc4l4o304XprH419w8iVBMbxk5Dc9x_5nrCUKAdLluqpzwK-tMRT3ITXje9WaPznCVPv5i5tL4YrTdUb_uv-J8W6-XVjjF5034VH92P5n_Het0MmwPH-UPvvx6GHYx6uOxg0EOvg8seLjro99Dv4LyHQQfDyVEzDJML4eLNYrhSL8JRf_tdBJfnA2vZVo1FDUlpxR_W6Tunv4UlrmBLlXW0LdgqXhwYsuLT98BqG7McKYF6CesuePwPMV1QFw==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.9 M-100-250_Archive_Production_Order_(IF) — M-100-250_Archive_Production_Order_(IF)
+
+**Swim Lanes**: FTS IF - Firefighter ID | **Tasks**: 4 | **Gateways**: 0
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph FTS IF - Firefighter ID
+        n1["fa:fa-user Activate deletion flag in the order"]
+        n2["fa:fa-user Activate deletion indicator in the order"]
+        n3["fa:fa-user Execute archiving session"]
+        n4["Store Production Order in Archive Repository"]
+        n5(["fa:fa-play Initiate Archive Production Order Process"])
+        n6(["fa:fa-stop Production Order Archive Successfully"])
+    end
+    n2 --> n3
+    n1 --> n2
+    n5 --> n1
+    n3 --> n4
+    n4 --> n6
+    class n1 userTask
+    class n2 userTask
+    class n3 userTask
+    class n5 startEvt
+    class n6 endEvt
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqllcuO2jAUhl_FygillYKUK6FZVOIWCalVqzJtF6UL49hgjbEj22GgiHevnQQCTKddNAuU8-ec77ePLxwdJArsZE6vd6Sc6gwcXb3BW-xmwF1BhV0PNMI3KClcMaxcm0ME1wv6q04L4nJv06yWwy1lB6su8Fpg8HXugZEpZB5QkKu-wpIS13NLSbdQHiaCCWmzH_CQ-KR2az-NhSyw7BJ8Pw1QYkoZ5biTozRO49zWKYwEL26gJCFDgtyTHRwTz2gDpa6HXyn8Ee6_00JvTEwgU9jkbPSWfYArzOwctayshiq5OzeDKuvDTcMWJUSUr40e-0aSkD91UuKfTuDU6y35xRQ8TpccmAcxqNQUE6C0kWc7DQhlLHuIJ6M88T2lpXjC2UM4S6dR6CE7k8xM3fdsc_vPmK43OlsJVrSp_Wc7hyws957cZ6HvyYP5vfPCvOicJoNwGA4vTuM0mASTsxMh5L-cTF_lI1RPrdcsysN8evEKkkEy8V_yztOcxukouO8TljuK8BU0z_No1rVqNkgC_3XoOI8G_uQOuoYaP8NDB3w3iS_APEnzIH0V2Pjdj7JafZYCnYHRLMmTCzAdB_kofBUYj4J42I7QcNYSlhuQPy7APAd9kFOJiV0LLMG83UT24cGPpUNgRmDfNh2MkKY7My1QYIY1FRwQBteAcmBOL6jP0tL5eVUf_que8oIiqIX8CyS6hcz2GFWGASXa0J05DWb5lDKw26rYVC0MGAPTtKJCtd0nS7dWo7oYgy-4FIqatMNtdfLmYloys4hzc21RO_Jz4QuoXRozDoN5e8UZdBylRfmy7MxbVMiWk4qxQ8cwh6p54SHo99-bXrRh0IRhGyZN2O5rHjVh3IZxEw6u9pMlnM_RjRz-WY7-LCeXK-ZGHrS3geM5Wyy3kBZOdnTqG978CxSYwIpp5-Q5sNJiceDIyeqb0KnKwjR5SqHZoNtGPP0GSksBBg==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
+<div style="page-break-before: always;"></div>
+
+### 3.3 Business Roles & Responsibilities
+
+| Role / Lane | Processes Involved | Description |
+|------------|-------------------|-------------|
+| Batch User | M-100-070_Issue_Materials_for_Production_Order_(IF), M-100-180_Assign_Batch_Number_and_Link_to_Order_(IF),  | |
+| IT Department | M-100-070_Issue_Materials_for_Production_Order_(IF), M-100-140_Confirm_Completion_of_Production_Operation_Order_(IF), M-100-150_Backflush_Raw_Materials_(IF), M-100-180_Assign_Batch_Number_and_Link_to_Order_(IF), M-100-220_Transfer_Materials_from_Quality_Inspection_to_Stock_(IF), M-100-230_Rework_(IF),  | |
+| Production Engineer - Discrete Manufacturing | M-100-070_Issue_Materials_for_Production_Order_(IF),  | |
+| FTS IF Batch System ID | M-100-140_Confirm_Completion_of_Production_Operation_Order_(IF), M-100-220_Transfer_Materials_from_Quality_Inspection_to_Stock_(IF), M-100-240_Reconcile_and_Close_Production_Order_(IF),  | |
+| Factory Supervisor | M-100-140_Confirm_Completion_of_Production_Operation_Order_(IF), M-100-150_Backflush_Raw_Materials_(IF), M-100-180_Assign_Batch_Number_and_Link_to_Order_(IF), M-100-220_Transfer_Materials_from_Quality_Inspection_to_Stock_(IF), M-100-230_Rework_(IF),  | |
+| FTS IF - Production Scheduler | M-100-150_Backflush_Raw_Materials_(IF), M-100-160_Reprocess_Failed_Backflush_Items_(IF), M-100-230_Rework_(IF),  | |
+| Boundary Apps | M-100-220_Transfer_Materials_from_Quality_Inspection_to_Stock_(IF),  | |
+| FTS IF - Production - Cost Accountant | M-100-240_Reconcile_and_Close_Production_Order_(IF),  | |
+| Production Scheduler | M-100-240_Reconcile_and_Close_Production_Order_(IF),  | |
+| FTS IF - Firefighter ID | M-100-250_Archive_Production_Order_(IF) | |
+
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
+<div style="page-break-before: always;"></div>
+
+## 4. Data Architecture (TOGAF "D")
+
+### 4.1 Data Entities & Ownership
+
+The following data entities are derived from the system integration flows for M-100. Tower architects should validate ownership and classification.
+
+| # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
+|---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
+
+<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
+<div style="page-break-before: always;"></div>
+
+### 4.2 Data Flow Diagrams
+
+> **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
+### 4.3 Data Lineage
+
+Data lineage traces the origin and transformation path of key data objects across integrated systems.
+
+| # | Source System | Source Schema/Object | Target System | Target Schema/Object | Transformation |
+|---|-------------|---------------------|---------------|---------------------|---------------|
+
+> *Lineage detail will be refined when tower architects validate source/target schema object mappings.*
+
+### 4.4 RICEFW Data Objects
+
+Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
+
+| Object ID | Type | Description | Status | Source | Target | Complexity |
+|-----------|------|-------------|--------|--------|--------|-----------|
+| LOGR1176_IF | Report | ISM - International Traffic Report | 10. Object Complete |  |  | 03.Medium |
+| LOGR0833_IF | Report | Email Notification for deletion of Shipping Memos | 10. Object Complete |  |  | 04.Low |
+| FTSR1466 | Report | Custom ABAP report for SIMS PO Exceptions​ | 10. Object Complete |  |  | 03.Medium |
+| FTSR1364 | Report | Factory Portal - Warranty Claim (Warranty Dashboard​​) | 10. Object Complete |  |  | 02.High |
+| FTSR1011 | Report | Report- Custom Fiori report to show full parts tracking status dashboard (wor... | 10. Object Complete |  |  | 02.High |
+| LOGM024_IF | Conversion | Create/Upload Vehicle resource | 10. Object Complete |  |  | N/A |
+| LOGM023_IF | Conversion | Update Business Share | 10. Object Complete |  |  | N/A |
+| LOGM022_IF | Conversion | Upload Transportation Allocation | 10. Object Complete |  |  | N/A |
+| LOGM021_IF | Conversion | Upload Schedules | 10. Object Complete |  |  | N/A |
+| LOGM019_IF | Conversion | Default Routes | 10. Object Complete |  |  | N/A |
+| LOGM018_IF | Conversion | Upload Rate Table | 10. Object Complete |  |  | N/A |
+| LOGM016_IF | Conversion | Create and review Charge Calculation Sheet | 10. Object Complete |  |  | N/A |
+| LOGM015_IF | Conversion | Create and review Freight Agreement | 10. Object Complete |  |  | N/A |
+| LOGM012_IF | Conversion | Creation of Location based on BP, Shipping points, plants | 10. Object Complete |  |  | N/A |
+| LOGM008_IF | Conversion | Location creation-ocean ports, airports | 10. Object Complete |  |  | N/A |
+| LOGM007_IF | Conversion | Storage Bin Upload | 10. Object Complete | WIINGS | EWM | N/A |
+| LOGM006_IF | Conversion | Product Master conversion (additional EWM attribution) | 10. Object Complete | WIINGS, ECC WM | EWM | N/A |
+| LOGM005_IF | Conversion | UPLOAD TRANSPORTATION ZONES (TM) | 10. Object Complete |  |  | N/A |
+| LOGM004_IF | Conversion | UPLOAD TRANSPORTATION LANES | 10. Object Complete |  |  | N/A |
+| LOGC0972_IF | Conversion | Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi... | 10. Object Complete |  |  | 02.High |
+| LOGC0971 | Conversion | Open Inventory Conversion for IP and IF (as applicable) , WIINGs to EWM | 10. Object Complete |  |  | 02.High |
+| LOGC0970 | Conversion | Open Inventory Conversion for IP and IF (as applicable) , ECC/WM to EWM | 10. Object Complete |  |  | 02.High |
+| LOGC0946_IF | Conversion | Open Inventory Conversion for IP and IF (as applicable) , ECC to S4 | 10. Object Complete |  |  | 02.High |
+| FTSM0986 | Conversion | Convert Equipment Warranty information to SAP S/4 Equipment Master – reusable... | 10. Object Complete |  |  | 02.High |
+| FTSM019 | Conversion | Conversion of Inflight Work Orders | 10. Object Complete |  |  | N/A |
+| FTSM018 | Conversion | Conversion of General Task List | 10. Object Complete |  |  | N/A |
+| FTSM017_IF | Conversion | Manual Conversion of Functional Locations (FLOC) | 10. Object Complete |  |  | 03.Medium |
+| FTSM016 | Conversion | Equipment Master | 10. Object Complete | MES, SAP ME, EMS, EDFIT, Workstream, NIT, ECM | S4 | N/A |
+| FTSM011 | Conversion | Catalogs | 10. Object Complete |  | S4 | N/A |
+| FTSM010 | Conversion | Maintenance Plans | 10. Object Complete | ME | S4 | N/A |
+| FTSM009 | Conversion | Maintenance Items | 10. Object Complete | NA | S4 | N/A |
+| FTSM008 | Conversion | Equipment Class | 10. Object Complete | NA | S4 | N/A |
+| FTSM007 | Conversion | Characteristics | 10. Object Complete | NA | S4 | N/A |
+| FTSM002_IF | Conversion | Work Center | 10. Object Complete | Fuzion, ME, Manual | S4 | N/A |
+| FTSC1550 | Conversion | Inventory Conversion | 02. FS Unplanned |  |  | 03.Medium |
+| FTSC0052_IF | Conversion | Conversion of Reference Operation Sets to S/4 | 10. Object Complete | ECC | S4 | 02.High |
+
+### 4.5 Data Governance & Quality
+
+| Concern | Approach |
+|---------|----------|
+| Data Ownership | Per-entity owners listed in Section 3.1 |
+| Data Classification | Financial data classified as Intel Confidential |
+| Data Retention | Per Intel corporate retention policies |
+| Data Quality | Validated at source; reconciliation at target |
+
+<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
+<div style="page-break-before: always;"></div>
+
+## 5. Application Architecture (TOGAF "A")
+
+### 5.1 Current-State — Current-State Application Landscape
+
+#### Overview
+
+The Current-State architecture represents the **current / legacy** landscape for M-100.
+
+#### Current-State Flow Narrative
+
+*(No current-state flows defined.)*
+
+### 5.2 Future-State — Future-State Application Landscape
+
+#### Overview
+
+The Future-State architecture represents the **target** landscape for M-100.
+
+#### Future-State Flow Narrative
+
+*(No future-state flows defined.)*
+
+### 5.3 Change Impact Summary
+
+| Change Type | Flow Chain | Detail |
+|-------------|-----------|--------|
+
+**Totals**: 0 new - 0 removed - 0 modified - 0 unchanged
+
+### 5.4 Component Overview
+
+#### System Inventory
+
+| System | IAPM ID | Status |
+|--------|---------|--------|
+
+<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
+<div style="page-break-before: always;"></div>
+
+### 5.5 RICEFW Inventory
+
+| Object ID | Type | Description | Status | Source → Target | Middleware | Complexity |
+|-----------|------|-------------|--------|----------------|-----------|-----------|
+| LOGW1078_IF | Workflow | ISM Workflows - Capital/AMT | 10. Object Complete |  | NA | 03.Medium |
+| LOGW1077_IF | Workflow | ISM Workflows - EIMS/Lab | 10. Object Complete |  | NA | 03.Medium |
+| LOGW1076_IF | Workflow | ISM Workflows - Non-inventory | 10. Object Complete |  | NA | 03.Medium |
+| LOGR1176_IF | Report | ISM - International Traffic Report | 10. Object Complete |  | NA | 03.Medium |
+| LOGR0833_IF | Report | Email Notification for deletion of Shipping Memos | 10. Object Complete |  | NA | 04.Low |
+| LOGM024_IF | Conversion | Create/Upload Vehicle resource | 10. Object Complete |  | NA | N/A |
+| LOGM023_IF | Conversion | Update Business Share | 10. Object Complete |  | NA | N/A |
+| LOGM022_IF | Conversion | Upload Transportation Allocation | 10. Object Complete |  | NA | N/A |
+| LOGM021_IF | Conversion | Upload Schedules | 10. Object Complete |  | NA | N/A |
+| LOGM019_IF | Conversion | Default Routes | 10. Object Complete |  | NA | N/A |
+| LOGM018_IF | Conversion | Upload Rate Table | 10. Object Complete |  | NA | N/A |
+| LOGM016_IF | Conversion | Create and review Charge Calculation Sheet | 10. Object Complete |  | NA | N/A |
+| LOGM015_IF | Conversion | Create and review Freight Agreement | 10. Object Complete |  | NA | N/A |
+| LOGM012_IF | Conversion | Creation of Location based on BP, Shipping points, plants | 10. Object Complete |  | NA | N/A |
+| LOGM008_IF | Conversion | Location creation-ocean ports, airports | 10. Object Complete |  | NA | N/A |
+| LOGM007_IF | Conversion | Storage Bin Upload | 10. Object Complete | WIINGS → EWM | NA | N/A |
+| LOGM006_IF | Conversion | Product Master conversion (additional EWM attribution) | 10. Object Complete | WIINGS, ECC WM → EWM | NA | N/A |
+| LOGM005_IF | Conversion | UPLOAD TRANSPORTATION ZONES (TM) | 10. Object Complete |  | NA | N/A |
+| LOGM004_IF | Conversion | UPLOAD TRANSPORTATION LANES | 10. Object Complete |  | NA | N/A |
+| LOGI1718 | Interface | To align on batch attributes for straddle in S4 | 08. FUT In Progress |  | NA | 03.Medium |
+| LOGI1708 | Interface | Wrapper program for Inbound interface from Kommand AS to SAP | 10. Object Complete |  | Apigee | 03.Medium |
+| LOGI1677 | Interface | Send 4C1 Inventory Reconciliation Snapshot to IP | 10. Object Complete |  | SFT | 03.Medium |
+| LOGI1676 | Interface | Send 4C1 Inventory movement Stock type change and cycle count to IP | 10. Object Complete |  | SFT | 03.Medium |
+| LOGI1675 | Interface | Interface for SiGaC to extract inventory data from EWM to meet their existing... | 06. Dev In Progress |  | NA | 03.Medium |
+| LOGI1626 | Interface | Inventory adjustment data in XML format from Kommand auto-store to SAP EWM | 06. Dev In Progress |  | APIGEE | 03.Medium |
+| LOGI1595 | Interface | Summary Reconciliation and Inventory Snapshot data in XML format from SAP EWM... | 10. Object Complete |  | APIGEE | 02.High |
+| LOGI1594 | Interface | Pickresult(Pick Warehouse task confirmation) data in XML format from SAP EWM ... | 06. Dev In Progress |  | APIGEE | 02.High |
+| LOGI1593 | Interface | Replenresult(Putaway warehouse task confirmation) data in XML format from SAP... | 06. Dev In Progress |  | APIGEE | 02.High |
+| LOGI1591 | Interface | MergePick (Pick Warehouse task)data in XML format from SAP EWM to Kommand aut... | 10. Object Complete |  | APIGEE | 03.Medium |
+| LOGI1589 | Interface | MergeReplen(Putaway Warehouse task) data in XML format from SAP EWM to Komman... | 10. Object Complete |  | APIGEE | 03.Medium |
+| LOGI1587 | Interface | MergeItem (Product master)data in XML format from SAP EWM to Kommand auto-store | 10. Object Complete |  | APIGEE | 03.Medium |
+| LOGI1555 | Interface | Straddle Plant to be automatically complete the Goods Receipt and write of th... | 09. FUT Overdue |  | MuleSoft | 03.Medium |
+| LOGI1091 | Interface | STO based Outbound Delivery Notification Confirmation for Delivery Note Deletion | 10. Object Complete | S/4 → OpenText | MULESOFT | 03.Medium |
+| LOGI1084 | Interface | Interface to SiGac for capturing the consumption of Chems and Gases against a... | 10. Object Complete | SIGAC → S/4 | APIGEE | 03.Medium |
+| LOGI1081_IF | Interface | Interface + Enhancement - Reprinting of Carrier Label | 10. Object Complete | S/4 → Redwood | APIGEE | 04.Low |
+| LOGI1079_IF | Interface | Interface from S4 ISM to Service Now | 10. Object Complete | S/4 ISM → Service Now | NA | 04.Low |
+| LOGI1074_IF | Interface | Send data via API to retrieve the tracking ID - interface + Enhancement | 10. Object Complete | S/4 → Redwood | APIGEE | 04.Low |
+| LOGI1062 | Interface | STO based outbound delivery notification request for delivery note cancellation | 10. Object Complete | OpenText → S/4 | MULESOFT | 03.Medium |
+| LOGI1053 | Interface | STO based Outbound Delivery Notification from 3PL to S/4 for confirming Pick/... | 10. Object Complete | OpenText → S/4 | MULESOFT | 03.Medium |
+| LOGI1043 | Interface | Inventory Movement from 3PL to S/4 - 4C1 Cycle Count | 10. Object Complete | OpenText → S/4 | MULESOFT | 03.Medium |
+| LOGI1041 | Interface | STO based Outbound Delivery PGI confirmation from 3PL to S/4 - 3B2 | 10. Object Complete | OpenText → S/4 | MULESOFT | 03.Medium |
+| LOGI1040 | Interface | STO based Outbound Delivery PGI confirmation for returns from S/4 to 3PL - 3B2 | 10. Object Complete | S/4 → OpenText | MULESOFT | 03.Medium |
+| LOGI1038 | Interface | STO based Outbound Delivery Notification from S/4 to 3PL - 3B12 | 10. Object Complete | S/4 → OpenText | MULESOFT | 03.Medium |
+| LOGI1037 | Interface | Inventory Movement from S/4 to 3PL – 4C1 (Outbound) | 10. Object Complete | S/4 → OpenText | MULESOFT | 03.Medium |
+| LOGI0836_IF | Interface | Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements) | 10. Object Complete | S/4 → NDA | NA | 04.Low |
+| LOGI0237_IF | Interface | Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 | 10. Object Complete | 3PL → S/4 | MULESOFT | 03.Medium |
+| LOGF1614_IF | Form | TM-Bill of lading print output ( NSO/ Prospal STO's) | 10. Object Complete |  | NA | 04.Low |
+| LOGF1525 | Form | Consolidated Commercial Invoice for WIP | 10. Object Complete |  | NA | 04.Low |
+| LOGF1524 | Form | Commercial Invoice for WIP | 10. Object Complete |  | NA | 04.Low |
+| LOGF1523 | Form | Packing list for WIP | 10. Object Complete |  | NA | 04.Low |
+| LOGF1100_IF | Form | Printing of Standard Shipping Label | 10. Object Complete |  | NA | 03.Medium |
+| LOGF1089 | Form | Creation of Forms for Cycle count | 10. Object Complete |  | NA | 03.Medium |
+| LOGF1057 | Form | Print Pick List | 10. Object Complete |  | NA | 02.High |
+| LOGF1056 | Form | Print Return Label | 10. Object Complete |  | NA | 03.Medium |
+| LOGF1055 | Form | Print Pick Label (PM-EWM) | 10. Object Complete |  | NA | 02.High |
+| LOGF0359_IF | Form | ISM - Generate Commercial Invoice - IF/IP | 10. Object Complete | NA → NA | NA | 03.Medium |
+| LOGF0358_IF | Form | ISM - Generate Traveler Document - IF/IP | 10. Object Complete | NA → NA | NA | 03.Medium |
+| LOGF0352_IF | Form | ISM - IPLA | 10. Object Complete | NA → NA | NA | 03.Medium |
+| LOGF0351_IF | Form | ISM - Custom China Special label | 10. Object Complete | NA → NA | NA | 03.Medium |
+| LOGF0350_IF | Form | ISM - India GST DC | 10. Object Complete | NA → NA | NA | 03.Medium |
+| LOGE1691 | Enhancement | Custom Enhancement for Storage Location and Storage Type Restriction LOG IF a... | 08. FUT In Progress |  | NA | 03.Medium |
+| LOGE1690 | Enhancement | Custom Enhancement for Storage Location and Storage Type Restriction LOG IF a... | 07. FUT Roadblock |  | NA | 03.Medium |
+| LOGE1601 | Enhancement | Interface between ECD (Excursion Containment Disposition) and SAP S/4 EWM for... | 06. Dev In Progress |  | NA | 02.High |
+| LOGE1596 | Enhancement | Summary Reconciliation and Inventory Snapshot data in XML format from SAP EWM... | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1592 | Enhancement | MergePick (Pick Warehouse task)data in XML format from SAP EWM to Kommand aut... | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1590 | Enhancement | MergeReplen(Putaway Warehouse task) data in XML format from SAP EWM to Komman... | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1588 | Enhancement | MergeItem (Product master)data in XML format from SAP EWM to Kommand auto-store | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1572_IF | Enhancement | SAP GUI T-code to Move stock from Blocked to unblock Status | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1569_IF | Enhancement | Enhancement to change billing status based on ship reason in ISM | 10. Object Complete |  | NA | 04.Low |
+| LOGE1554 | Enhancement | Straddle Plant to be automatically complete the Goods Receipt and write of th... | 09. FUT Overdue |  | NA | 03.Medium |
+| LOGE1526_IF | Enhancement | Automatic HAWB assignment for Freight Forwarders( ISM/ Prospal STO's) | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1522 | Enhancement | WIP HU overpacking validation for unique TU | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1521 | Enhancement | WIP Overpack Label Printing | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1520 | Enhancement | Enhancement to enable WIP movement for receiving between Factory to EWM Wareh... | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1453 | Enhancement | Trigger the request for cancellation 3B14R and cancel the demand on STO based... | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1450 | Enhancement | Inbound idoc processing logic during 3B2 and 3B13 | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1415 | Enhancement | Suppress Batch and serial number validation in MIGO/MB26 for movement type 261 | 08. FUT In Progress |  | NA | 03.Medium |
+| LOGE1414 | Enhancement | Creation of outbound Delivery for WIP inventory from STO | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1276_IF | Enhancement | TM:Replace VTRC and integrate with parcel carrier to retrieve the package lev... | 10. Object Complete |  | NA | 04.Low |
+| LOGE1255 | Enhancement | Visibility of New & Old Part Number during RF picking/ issue process | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1254 | Enhancement | Print Product Label in SAP EWM after physical inventory document posting | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1177_IF | Enhancement | India GST E-invoicing | 10. Object Complete |  | NA | 04.Low |
+| LOGE1118_IF | Enhancement | ISM – MY Security Check Fiori app - IF | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1117_IF | Enhancement | ISM – Employee acknowledgement - IF | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1090_IF | Enhancement | PGI confirmation for non-inventory Intel freight shipments via email | 10. Object Complete |  | NA | 04.Low |
+| LOGE1080_IF | Enhancement | Email notifications to be triggered as part of ISM Workflows | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1061 | Enhancement | Enhancement for Pop-Up message during Decontamination Process (Copper to Non-... | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1059 | Enhancement | RF Capability for Rejection of the Returns to Factory and send notification | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1058 | Enhancement | Determine Warehouse Process type for PM Returns | 10. Object Complete |  | NA | 04.Low |
+| LOGE1054 | Enhancement | Email/Text Trigger to Factory Technician and Post Goods Issue upon all WO con... | 10. Object Complete |  | NA | 02.High |
+| LOGE1052_IF | Enhancement | Custom fields required on delivery screen | 10. Object Complete |  | NA | 04.Low |
+| LOGE0935_IF | Enhancement | Fiori App - Shipping Memo | 08. FUT In Progress |  | NA | 02.High |
+| LOGE0835_IP | Enhancement | Interface to get the AMT (Asset Management Tool) data on the ISM | 10. Object Complete |  | NA | 03.Medium |
+| LOGE0405_IF | Enhancement | Dangerous Goods indicator from the delivery header text to be transmitted to ... | 10. Object Complete | NA → NA | NA | 04.Low |
+| LOGE0403_IF | Enhancement | In SAP TM, update FU and FO Transportation Cockpit w/ custom fields Purchase ... | 10. Object Complete | NA → NA | NA | 03.Medium |
+| LOGE0239_IF | Enhancement | Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 - Table Creation | 10. Object Complete | NA → NA | NA | 04.Low |
+| LOGE0190_IF | Enhancement | Delivery Split for STO in S/4 | 10. Object Complete | NA → NA | NA | 04.Low |
+| LOGC0972_IF | Conversion | Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi... | 10. Object Complete |  | NA | 02.High |
+| LOGC0971 | Conversion | Open Inventory Conversion for IP and IF (as applicable) , WIINGs to EWM | 10. Object Complete |  | NA | 02.High |
+| LOGC0970 | Conversion | Open Inventory Conversion for IP and IF (as applicable) , ECC/WM to EWM | 10. Object Complete |  | NA | 02.High |
+| LOGC0946_IF | Conversion | Open Inventory Conversion for IP and IF (as applicable) , ECC to S4 | 10. Object Complete |  | NA | 02.High |
+| FTSW1372 | Workflow | Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou... | 03. FS Not Started |  | NA | 03.Medium |
+| FTSR1466 | Report | Custom ABAP report for SIMS PO Exceptions​ | 10. Object Complete |  | NA | 03.Medium |
+| FTSR1364 | Report | Factory Portal - Warranty Claim (Warranty Dashboard​​) | 10. Object Complete |  | NA | 02.High |
+| FTSR1011 | Report | Report- Custom Fiori report to show full parts tracking status dashboard (wor... | 10. Object Complete |  | NA | 02.High |
+| FTSM0986 | Conversion | Convert Equipment Warranty information to SAP S/4 Equipment Master – reusable... | 10. Object Complete |  | NA | 02.High |
+| FTSM019 | Conversion | Conversion of Inflight Work Orders | 10. Object Complete |  | NA | N/A |
+| FTSM018 | Conversion | Conversion of General Task List | 10. Object Complete |  | NA | N/A |
+| FTSM017_IF | Conversion | Manual Conversion of Functional Locations (FLOC) | 10. Object Complete |  | NA | 03.Medium |
+| FTSM016 | Conversion | Equipment Master | 10. Object Complete | MES, SAP ME, EMS, EDFIT, Workstream, NIT, ECM → S4 | NA | N/A |
+| FTSM011 | Conversion | Catalogs | 10. Object Complete |  → S4 | NA | N/A |
+| FTSM010 | Conversion | Maintenance Plans | 10. Object Complete | ME → S4 | NA | N/A |
+| FTSM009 | Conversion | Maintenance Items | 10. Object Complete | NA → S4 | NA | N/A |
+| FTSM008 | Conversion | Equipment Class | 10. Object Complete | NA → S4 | NA | N/A |
+| FTSM007 | Conversion | Characteristics | 10. Object Complete | NA → S4 | NA | N/A |
+| FTSM002_IF | Conversion | Work Center | 10. Object Complete | Fuzion, ME, Manual → S4 | NA | N/A |
+| FTSI1702 | Interface | Interface to transfer Vendor details from S4 to DMRA on a daily basis | 02. FS Unplanned | S/4 → DMRA | MULESOFT | 03.Medium |
+| FTSI1680 | Interface | An interface from Prospal to create lot level STO in S4 for the straddle solu... | 10. Object Complete |  | APIGEE | 03.Medium |
+| FTSI1667 | Interface | Interface to transfer BOM details from S4 to DMRA on a daily basis | 02. FS Unplanned | S/4 → DMRA | MULESOFT | 03.Medium |
+| FTSI1654 | Interface | Interface to transfer Material Master details from S4 to DMRA on a daily basis | 02. FS Unplanned | S/4 → DMRA | MULESOFT | 04.Low |
+| FTSI1652 | Interface | Interface to transfer STO Change & Delete from S4 to DMRA on a daily basis | 02. FS Unplanned | S/4 → DMRA | MULESOFT | 04.Low |
+| FTSI1651 | Interface | Interface to transfer STO details from S4 to DMRA on a daily basis - STO create | 02. FS Unplanned | S/4 → DMRA | MULESOFT | 04.Low |
+| FTSI1647 | Interface | New Interface required from APPS/XEUS for each different site with S/4 using ... | 10. Object Complete |  | BODS | 03.Medium |
+| FTSI1646 | Interface | New Interface required from FFS/MARS for each different site with S/4 using B... | 10. Object Complete |  | BODS | 03.Medium |
+| FTSI1610 | Interface | Interface from SMH to S/4 to Transfer DP and Stack Orders from Interim Locati... | 10. Object Complete |  | APIGEE | 03.Medium |
+| FTSI1602 | Interface | Interface from SGP to S4 to get Inventory status | 10. Object Complete |  | APIGEE | 03.Medium |
+| FTSI1580 | Interface | Interface between SMH to S/4 to Trigger UNDO START event, which will Reverse ... | 10. Object Complete |  | APIGEE | 03.Medium |
+| FTSI1578 | Interface | Interface to send Lot attribute signal to Workstream from SAP S4 - Mulesoft R... | 06. Dev In Progress |  | MuleSoft | 02.High |
+| FTSI1574 | Interface | A new interface for the Believe Handheld application will allow users to fetc... | 10. Object Complete |  | APIGEE | 03.Medium |
+| FTSI1573 | Interface | interface between S4 and ECA via BODS to post consumption of DTC and EMIB Die... | 10. Object Complete |  | MULESOFT | 03.Medium |
+| FTSI1538 | Interface | CMMS – get location info from CMMS | 02. FS Unplanned |  | NA | 03.Medium |
+| FTSI1537 | Interface | CMMS – Get Collateral Details | 02. FS Unplanned |  | NA | 03.Medium |
+| FTSI1536 | Interface | CMMS – Collateral Conversion | 02. FS Unplanned |  | NA | 03.Medium |
+| FTSI1527 | Interface | Interface to get Cu flag from XEUS | 10. Object Complete |  | MULESOFT | 03.Medium |
+| FTSI1473 | Interface | MDG to S4 for SFP, Stage, UPI | 10. Object Complete |  | BODS | 03.Medium |
+| FTSI1471 | Interface | MDG to S4 for MES Site Code to Plant | 10. Object Complete |  | MULESOFT | 03.Medium |
+| FTSI1469 | Interface | Inventory Conversion for R3 | 10. Object Complete |  | APIGEE | 03.Medium |
+| FTSI1455 | Interface | Interface from FSCO for lot level material staging by shift​ | 10. Object Complete |  | BODS | 03.Medium |
+| FTSI1454 | Interface | Interface from PDH to S4 for lot level STR assignment​ | 10. Object Complete |  | MULESOFT | 03.Medium |
+| FTSI1431 | Interface | Interface to transfer batch SLED details from S4 to DMRA on a daily basis | 06. Dev In Progress | S/4 → DMRA | MULESOFT | 03.Medium |
+| FTSI1371 | Interface | CMMS – Equipment create and update (status and collateral name) | 04. FS In Progress |  → S/4 | MULESOFT | 03.Medium |
+| FTSI1370 | Interface | Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou... | 04. FS In Progress |  → S/4 | MULESOFT | 03.Medium |
+| FTSI1355 | Interface | CMMS – Equipment with MMS flag (S4 to CMMS) | 06. Dev Not Started |  → S/4 | MULESOFT | 03.Medium |
+| FTSI1326 | Interface | Interface to send Lot create & Lot attribute signal to Workstream from SAP S4 | 06. Dev In Progress |  | MULESOFT | 02.High |
+| FTSI1323 | Interface | M-100-170_API 9 is to provide Shipping details Ship Server | 06. Dev In Progress |  | MULESOFT | 03.Medium |
+| FTSI1321 | Interface | M-100-170_API 6 is to get Shippable lots from Work Stream | 06. Dev In Progress |  | MULESOFT | 03.Medium |
+| FTSI1320 | Interface | M-100-170_API 7 is for Precheck Request and Response to Ship Server | 06. Dev In Progress |  | MULESOFT | 03.Medium |
+| FTSI1319 | Interface | M-100-170_API4 is to provide Shipping details to ULT from S4 | 10. Object Complete |  | MULESOFT | 03.Medium |
+| FTSI1318 | Interface | M-100-170_API3 is to provide Shipping details to WorkStream from S4 | 06. Dev In Progress |  | MULESOFT | 03.Medium |
+| FTSI1317 | Interface | M-100-170_API 11 is to get Shippable lots from Ship server | 06. Dev In Progress |  | MULESOFT | 03.Medium |
+| FTSI1159 | Interface | Interface from ECA to S4 to maintain POLP table | 10. Object Complete | ECA → S/4 | BODS | 03.Medium |
+| FTSI1158 | Interface | Interface from SMH to S4 to handle movement of lots from Revenue to TD | 10. Object Complete | PDF → S/4 | MULESOFT | 03.Medium |
+| FTSI1157 | Interface | Custom program for STO generation for Raw Silicon | 10. Object Complete | 3PL → S/4 | APIGEE | 03.Medium |
+| FTSI1021 | Interface | Interface to be developed from ECA to SAP which helps to upload PIR via BAPI | 06. Dev In Progress | ECA → S/4 | APIGEE | 03.Medium |
+| FTSI1020 | Interface | IMO - Interface from NBS to S4 to induct stock from IMO plant to S4 | 10. Object Complete | NBS → S/4 | APIGEE | 03.Medium |
+| FTSI1016 | Interface | IMR - Interface between SAP S/4 and SAP ME to replicate production orders. Th... | 10. Object Complete | S/4 → SAP ME | NA | 03.Medium |
+| FTSI1008 | Interface | Interface S/4 with EMS | 10. Object Complete | EMS → S/4 | MULESOFT | 03.Medium |
+| FTSI1007 | Interface | Interface S/4 with XEUS | 10. Object Complete | XEUS/Mars → S/4 | APIGEE | 02.High |
+| FTSI0985 | Interface | Claim Status Update from e2open to SAP S4 (Inbound Interface) | 10. Object Complete | E2Open → S/4 | MULESOFT | 03.Medium |
+| FTSI0983 | Interface | SAP Warranty Claim Document to e2open (Outbound Interface) | 10. Object Complete | S/4 → E2Open | MULESOFT | 03.Medium |
+| FTSI0924 | Interface | Interface: SAP ME to S/4 to Create & Maintain Notifications | 10. Object Complete | SAP ME → S/4 | NA | 03.Medium |
+| FTSI0860 | Interface | Interface to create Kanban trigger from DMRA and get Reservation created and ... | 06. Dev In Progress | DMRA → S/4 | MULESOFT | 01.Very High |
+| FTSI0830 | Interface | Shipserver Interface to S4 to get handling units for the logical ship | 06. Dev In Progress | MPL → S/4 | MULESOFT | 03.Medium |
+| FTSI0689 | Interface | Interface between PDF and S4 to handle DLCP update in S4 based on the DLCP UP... | 10. Object Complete | MES → S/4 | MULESOFT | 03.Medium |
+| FTSI0686 | Interface | Interface between PDF and S4 to handle production order merge events in S4 ba... | 10. Object Complete | MES → S/4 | APIGEE | 02.High |
+| FTSI0677 | Interface | API from SHIP server to validate shipment readiness” | 06. Dev In Progress | PDF → S/4 | MULESOFT | 01.Very High |
+| FTSI0676 | Interface | Interface between PDF and S4 to handle undo complete in S4 based on the UNDO ... | 10. Object Complete | PDF → S/4 | APIGEE | 03.Medium |
+| FTSI0675 | Interface | Interface between PDF and S4 to handle mid stage transfers in S4 based on the... | 10. Object Complete | MES → S/4 | APIGEE | 03.Medium |
+| FTSI0674 | Interface | Interface between PDF and S4 to handle undo move and scrap in S4 based on the... | 10. Object Complete | MES → S/4 | APIGEE | 03.Medium |
+| FTSI0484 | Interface | Interface between PDF and S4 to handle quantity or batch attribute updates ba... | 10. Object Complete | MES → S/4 | APIGEE | 03.Medium |
+| FTSI0483 | Interface | Interface between PDF and S4 to handle production order split events in S4 ba... | 10. Object Complete | MES → S/4 | APIGEE | 02.High |
+| FTSI0481 | Interface | Interface between PDF and S4 to handle production order complete events in S4... | 10. Object Complete | MES → S/4 | APIGEE | 03.Medium |
+| FTSI0422 | Interface | Interface between PDF and S4 for production order process in S4 based on the ... | 10. Object Complete | PDF → S/4 | APIGEE | 02.High |
+| FTSI0421 | Interface | Custom RFC triggered in S4 by PDF to determine activity values and post confi... | 10. Object Complete | PDF → S/4 | APIGEE | 03.Medium |
+| FTSI0420 | Interface | Custom RFC triggered in S4 by PDF to post goods movement in S4 based on the R... | 10. Object Complete | PDF → S/4 | APIGEE | 03.Medium |
+| FTSI0338 | Interface | Interface from MES staging database to S/4 to create/update reference operati... | 10. Object Complete | MES → S/4 | APIGEE | 02.High |
+| FTSI0311 | Interface | Production plan from ECA planning data hub (PDH) to S/4 to create planned Orders | 10. Object Complete | PDH (ECA) → S/4 | BODS | 03.Medium |
+| FTSI0310 | Interface | Network Plan from ECA Planning Data Hub to S/4 for STO Creation | 10. Object Complete | PDH (ECA) → S/4 | BODS | 03.Medium |
+| FTSI0308 | Interface | Interface from PDF to S/4 to update Lot level out date on Production orders | 10. Object Complete | MES → S/4 | APIGEE | 02.High |
+| FTSI0050 | Interface | Interface to transfer Purchase Requisitions created in IBP/MAPPS/other system... | 10. Object Complete | ECA → S/4 | BODS | 03.Medium |
+| FTSF1361 | Form | Factory Portal - Returns Order Flow (Form-Based (CRD) Return Order​) | 10. Object Complete |  | NA | 03.Medium |
+| FTSE1645 | Enhancement | Wafer Stock management for Reclaim Purposes | 10. Object Complete |  | NA | 03.Medium |
+| FTSE1641 | Enhancement | Enhancement to create a program which can query on Master Data, Batch & STO d... | 02. FS Unplanned |  | NA | 03.Medium |
+| FTSE1582 | Enhancement | A Custom table to map and capture the relationship between RSQ Batch ID/STO# ... | 10. Object Complete |  | NA | 04.Low |
+| FTSE1581 | Enhancement | Automated Batch Status Update Based on MRB Release Date using custom program. | 10. Object Complete |  | NA | 03.Medium |
+| FTSE1579 | Enhancement | Custom tables to store Board Failure Form details | 10. Object Complete |  | NA | 03.Medium |
+| FTSE1577 | Enhancement | Perform Auto batch determination at the time of STO creation – DMRA | 09. FUT Overdue |  | NA | 02.High |
+| FTSE1549 | Enhancement | Custom Attributes for AMT/ISM | 02. FS Unplanned |  | NA | 03.Medium |
+| FTSE1548 | Enhancement | Automation for Product Conversions – Equipment Structure update | 02. FS Unplanned |  | NA | 03.Medium |
+| FTSE1547 | Enhancement | Automation for Product Conversions – Work Order Closure | 02. FS Unplanned |  | NA | 03.Medium |
+| FTSE1546 | Enhancement | Automation for Product Conversions – Parts Request and Return | 02. FS Unplanned |  | NA | 03.Medium |
+| FTSE1545 | Enhancement | Automation for Product Conversions – Explode BOM | 02. FS Unplanned |  | NA | 03.Medium |
+| FTSE1544 | Enhancement | Automation for Product Conversions – create Work Order | 02. FS Unplanned |  | NA | 03.Medium |
+| FTSE1543 | Enhancement | PM inbound from AMT | 02. FS Unplanned |  | NA | 03.Medium |
+| FTSE1542 | Enhancement | PM outbound to AMT | 02. FS Unplanned |  | NA | 03.Medium |
+| FTSE1541 | Enhancement | Send SAP notification on Work Order update | 02. FS Unplanned |  | NA | 03.Medium |
+| FTSE1540 | Enhancement | Send SAP notification on Equipment update | 02. FS Unplanned |  | NA | 03.Medium |
+| FTSE1539 | Enhancement | Custom Fiori UI – Move Equipment SRoom to SRoom (screen) | 02. FS Unplanned |  | NA | 03.Medium |
+| FTSE1528 | Enhancement | Warranty claim for non E2O supplier | 10. Object Complete |  | NA | 03.Medium |
+| FTSE1480 | Enhancement | B2B SLOC Mapping Table | 10. Object Complete |  | NA | 04.Low |
+| FTSE1479 | Enhancement | Table for SFP/Operation for KM2/KM5 | 10. Object Complete |  | NA | 04.Low |
+| FTSE1478 | Enhancement | Table for All Shippable Mid Stage and End Stage Operations | 10. Object Complete |  | NA | 04.Low |
+| FTSE1477 | Enhancement | Enhancement - Lot Level Exception UI | 09. FUT Overdue |  | NA | 01.Very High |
+| FTSE1476 | Enhancement | Lot to STR Mapping table | 10. Object Complete |  | NA | 04.Low |
+| FTSE1475 | Enhancement | Non Revenue Shipping Demand Screen (Custom Table) | 10. Object Complete |  | NA | 04.Low |
+| FTSE1474 | Enhancement | Non Revenue Shipping Demand Screen | 10. Object Complete |  | NA | 02.High |
+| FTSE1472 | Enhancement | Custom Table for SFP, Stage, UPI Mapping | 10. Object Complete |  | NA | 04.Low |
+| FTSE1470 | Enhancement | Custom Table for MES Facility, MES Site Code to Plant | 10. Object Complete |  | NA | 04.Low |
+| FTSE1468 | Enhancement | Custom table to store PO Lot Pegging (POLP) | 10. Object Complete |  | NA | 04.Low |
+| FTSE1467 | Enhancement | Custom Report for Operating Supplies Reservations​ | 06. Dev In Progress |  | NA | 02.High |
+| FTSE1456 | Enhancement | Custom Table to store FSCO lot level material staging​ | 10. Object Complete |  | NA | 04.Low |
+| FTSE1451 | Enhancement | Enhancement required for triggering Interface between S4 and SAP ME from the ... | 10. Object Complete |  | NA | 03.Medium |
+| FTSE1435 | Enhancement | Custom Table - Cross Site Ref Op sets will be maintained at a higher level in... | 10. Object Complete |  | NA | 03.Medium |
+| FTSE1433 | Enhancement | Custom Program to assign Routings to Items based on Item Characteristics​​ | 10. Object Complete |  | NA | 03.Medium |
+| FTSE1432 | Enhancement | Custom Enhancement to Issue out stock in S4 | 10. Object Complete |  | NA | 03.Medium |
+| FTSE1413 | Enhancement | Reusable Mass Upload Program for Equipment Master Warranty | 10. Object Complete |  | NA | 03.Medium |
+| FTSE1385 | Enhancement | Factory Portal - Preventative Maintenance (AT) (Schedule Maintenance Plan) | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1383 | Enhancement | Factory Portal - Preventative Maintenance (AT) (Set Maintenance Counte) | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1382 | Enhancement | Factory Portal - Preventative Maintenance (AT) (Set Maintenance Cycle​) | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1381 | Enhancement | Factory Portal - Preventative Maintenance (AT) (Create Maintenance Plan) | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1379 | Enhancement | Factory Portal - Part list (Part list creation / modify (IA05​) | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1378 | Enhancement | Factory Portal - Functional Location​ (FLOC creation / Update (IL01 and IL02)​​) | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1376 | Enhancement | Factory Portal - Admin (Notifications​) | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1374 | Enhancement | Factory Portal - Admin (Admin Screen - My Profile) - Contacts custom Table En... | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1373 | Enhancement | Factory Portal - Admin (Admin Screen - My Profile) - Fiori Enhancement | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1369 | Enhancement | Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou... | 04. FS In Progress |  | NA | 01.Very High |
+| FTSE1368 | Enhancement | Factory Portal - Equipment to Parts Management (Equipment Management (details... | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1367 | Enhancement | Factory Portal - Equipment to Parts Management (Equipment/ Entity/ Sub-Entity... | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1366 | Enhancement | Factory Portal - Operating Supply (Reserve Ops Suppl​​​) | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1365 | Enhancement | Factory Portal - Operating Supply (Search for Ops Supply​​​) | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1363 | Enhancement | Factory Portal - Warranty Claim (Create Warranty Claim – Detailed Vie​) | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1360 | Enhancement | Custom Fiori UI – HAZMAT Enhancement to pull data | 10. Object Complete |  | NA | 03.Medium |
+| FTSE1359 | Enhancement | Factory Portal - Returns Order Flow (Prevent TECO until after parts have been... | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1358 | Enhancement | Factory Portal - Returns Order Flow (Form-Based (CRD) Return Order​) | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1354 | Enhancement | Factory Portal - Work Order Flow ( Confirm and Submit Parts (Table Extension ... | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1353 | Enhancement | Factory Portal - Work Order Flow ( Confirm and Submit Parts (Fiori Enhancemen... | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1351 | Enhancement | Factory Portal - Work Order Flow ( Add component to work order ) | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1350 | Enhancement | Factory Portal - Work Order Flow ( Search Parts ) | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1349 | Enhancement | Factory Portal - Work Order Flow ( Change Color of WO, Equipment, and CRD & e... | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1348 | Enhancement | Factory Portal - Work Order Flow ( Show Work Order – Single Work Order View +... | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1347 | Enhancement | Factory Portal - Work Order Flow ( Search work orders - ​List View ) | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1344 | Enhancement | Factory Portal - Work Order Flow ( Home Page - View S/4 work orders ) | 10. Object Complete |  | NA | 01.Very High |
+| FTSE1325 | Enhancement | M-100-170_Create Manual ship FIORI UI in S4 | 06. Dev In Progress |  | NA | 01.Very High |
+| FTSE1160 | Enhancement | Custom Utility for Engineering Planners to create Rev Eng Planned Orders in S4 | 10. Object Complete |  | NA | 03.Medium |
+| FTSE1125 | Enhancement | Custom table in S4 to store merging orders and surviving order association fr... | 10. Object Complete |  | NA | 04.Low |
+| FTSE1119 | Enhancement | Custom Table required to support enhancement to store lot attributes when Lot... | 07. FUT Roadblock |  | NA | 03.Medium |
+| FTSE1019 | Enhancement | WIINGS factory portal UI to send signal for raw material consumption in S4 | 10. Object Complete |  | NA | 02.High |
+| FTSE1010 | Enhancement | Update the Copper/Heavy Metal flag (User Status) for the tools on placement a... | 10. Object Complete |  | NA | 03.Medium |
+| FTSE0996 | Enhancement | Create Purchase Requisition with multiple purchase req document types from Wo... | 10. Object Complete |  | NA | 03.Medium |
+| FTSE0995 | Enhancement | Enhancement to update rejection reason and text in maintenance work order fro... | 10. Object Complete |  | NA | 03.Medium |
+| FTSE0993 | Enhancement | Auto Roll Function to add Item/Part through Batch job in Master Warranty | 10. Object Complete |  | NA | 03.Medium |
+| FTSE0992 | Enhancement | Custom Fields Enhancement in WTY Claim | 10. Object Complete |  | NA | 03.Medium |
+| FTSE0991 | Enhancement | Claim Generation from Maintenance Work Order per Item | 10. Object Complete |  | NA | 03.Medium |
+| FTSE0990 | Enhancement | Create PR with Free of Charge from approved claim status – MMID & Non-MMID | 10. Object Complete |  | NA | 03.Medium |
+| FTSE0989 | Enhancement | Warranty validation at Equipment level & Item/Part level in Work Order | 10. Object Complete |  | NA | 03.Medium |
+| FTSE0988 | Enhancement | Convert Item/Part Warranty information upload to SAP S/4 Master Warranty | 10. Object Complete |  | NA | 02.High |
+| FTSE0984 | Enhancement | SAP Warranty Claim Document to e2open (Outbound Interface) | 10. Object Complete |  | NA | 03.Medium |
+| FTSE0982 | Enhancement | SAP PM enhancement to capture reason codes for returns (dropdown) | 10. Object Complete |  | NA | 02.High |
+| FTSE0925 | Enhancement | Enhancement: Batch process to create Equipment from Material BOM after GR | 10. Object Complete |  | NA | 03.Medium |
+| FTSE0507 | Enhancement | Custom Program to read planned orders and build instruction data and generate... | 10. Object Complete |  | NA | 03.Medium |
+| FTSE0506 | Enhancement | Custom table to store planned orders and pegged sales orders in S4 | 10. Object Complete |  | NA | 03.Medium |
+| FTSE0423 | Enhancement | Create custom table in SAP to store the build instruction data | 10. Object Complete |  | NA | 04.Low |
+| FTSC1550 | Conversion | Inventory Conversion | 02. FS Unplanned |  | NA | 03.Medium |
+| FTSC0052_IF | Conversion | Conversion of Reference Operation Sets to S/4 | 10. Object Complete | ECC → S4 | NA | 02.High |
+| LOGI1738 | Interface | Interface to send data to Factory Comm to activate the Mobile text receiving ... | 02. FS Unplanned |  | NA | 02.High |
+
+**Summary**: 5 Reports, 92 Interfaces, 31 Conversions, 118 Enhancements, 15 Forms, 4 Workflows
+
+<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
+<div style="page-break-before: always;"></div>
+
+### 5.6 Integration Patterns
+
+Integration patterns identified from the system flow analysis for M-100:
+
+| # | Pattern | Flow Chain | Middleware | Protocol | Auth |
+|---|---------|-----------|-----------|----------|------|
+
+> *Integration pattern details will be refined when tower architects validate middleware assignments.*
+
+<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
+<div style="page-break-before: always;"></div>
+
+## 6. Technology Architecture (TOGAF "T")
+
+### 6.1 Platform & Infrastructure
+
+> **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
+#### Platform Inventory
+
+Platform landscape inferred from integrated systems for M-100:
+
+| # | Platform | Type | Systems Using | Environment |
+|---|----------|------|--------------|-------------|
+| 1 | SAP S/4HANA | On-Premise (HEC) | SAP S/4 modules | DEV, QAS, PRD |
+| 2 | SAP BTP (Integration Suite) | Cloud / PaaS | CPI, API Management | DEV, QAS, PRD |
+| 3 | MuleSoft Anypoint | Cloud / iPaaS | API-led integrations | DEV, QAS, PRD |
+
+> *Platform assignments will be validated when tower architects populate technology platform columns.*
+
+<div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
+<div style="page-break-before: always;"></div>
+
+### 6.2 SAP Development Object Status
+
+**Capability RICEFW Status** (265 objects)
+*Data source: Smartsheet Object Tracker (cached 2026-03-26)*
+
+| Status | Count | % |
+|--------|------:|----:|
+| 10. Object Complete | 209 | 78.9% |
+| 02. FS Unplanned | 22 | 8.3% |
+| 06. Dev In Progress | 19 | 7.2% |
+| 08. FUT In Progress | 4 | 1.5% |
+| 09. FUT Overdue | 4 | 1.5% |
+| 04. FS In Progress | 3 | 1.1% |
+| 07. FUT Roadblock | 2 | 0.8% |
+| 03. FS Not Started | 1 | 0.4% |
+| 06. Dev Not Started | 1 | 0.4% |
+| **Total** | **265** | **100%** |
+
+**RICEFW by Type:**
+
+| Type | Count |
+|------|------:|
+| Report (R) | 5 |
+| Interface (I) | 92 |
+| Conversion (C) | 31 |
+| Enhancement (E) | 118 |
+| Form (F) | 15 |
+| Workflow (W) | 4 |
+| **Total** | **265** |
+
+**Technical Complexity:**
+
+| Complexity | Count |
+|------------|------:|
+| 01.Very High | 29 |
+| 02.High | 31 |
+| 03.Medium | 149 |
+| 04.Low | 33 |
+| N/A | 23 |
+
+**Active (Non-Complete) Objects:**
+
+| Object ID | Type | Description | Status | Complexity |
+|-----------|------|-------------|--------|------------|
+| LOGI1718 | 02.Interface | To align on batch attributes for straddle in S4 | 08. FUT In Progress | 03.Medium |
+| LOGI1675 | 02.Interface | Interface for SiGaC to extract inventory data from EWM to meet their existing bu... | 06. Dev In Progress | 03.Medium |
+| LOGI1626 | 02.Interface | Inventory adjustment  data in XML format from Kommand auto-store to SAP EWM | 06. Dev In Progress | 03.Medium |
+| LOGI1594 | 02.Interface | Pickresult(Pick Warehouse task confirmation) data in XML format from SAP EWM to ... | 06. Dev In Progress | 02.High |
+| LOGI1593 | 02.Interface | Replenresult(Putaway warehouse task confirmation) data in XML format from SAP EW... | 06. Dev In Progress | 02.High |
+| LOGI1555 | 02.Interface | Straddle Plant to be automatically complete the Goods Receipt and write of the i... | 09. FUT Overdue | 03.Medium |
+| LOGE1691 | 04.Enhancement | Custom Enhancement for Storage Location and Storage Type Restriction LOG IF and ... | 08. FUT In Progress | 03.Medium |
+| LOGE1690 | 04.Enhancement | Custom Enhancement for Storage Location and Storage Type Restriction LOG IF and ... | 07. FUT Roadblock | 03.Medium |
+| LOGE1601 | 04.Enhancement | Interface between ECD (Excursion Containment Disposition) and SAP S/4 EWM for In... | 06. Dev In Progress | 02.High |
+| LOGE1554 | 04.Enhancement | Straddle Plant to be automatically complete the Goods Receipt and write of the i... | 09. FUT Overdue | 03.Medium |
+| LOGE1415 | 04.Enhancement | Suppress Batch and serial number validation in MIGO/MB26 for movement type 261 | 08. FUT In Progress | 03.Medium |
+| LOGE0935_IF | 04.Enhancement | Fiori App - Shipping Memo | 08. FUT In Progress | 02.High |
+| FTSW1372 | 06.Workflow | Factory Portal - Equipment to Parts Management (Custom Fields – Part Check out &... | 03. FS Not Started | 03.Medium |
+| FTSI1702 | 02.Interface | Interface to transfer Vendor details from S4 to DMRA on a daily basis | 02. FS Unplanned | 03.Medium |
+| FTSI1667 | 02.Interface | Interface to transfer BOM details from S4 to DMRA on a daily basis | 02. FS Unplanned | 03.Medium |
+| FTSI1654 | 02.Interface | Interface to transfer Material Master details from S4 to DMRA on a daily basis | 02. FS Unplanned | 04.Low |
+| FTSI1652 | 02.Interface | Interface to transfer STO Change  & Delete from S4 to DMRA on a daily basis | 02. FS Unplanned | 04.Low |
+| FTSI1651 | 02.Interface | Interface to transfer STO details from S4 to DMRA on a daily basis - STO create | 02. FS Unplanned | 04.Low |
+| FTSI1578 | 02.Interface | Interface to send Lot attribute signal to Workstream from SAP S4 - Mulesoft Requ... | 06. Dev In Progress | 02.High |
+| FTSI1538 | 02.Interface | CMMS – get location info from CMMS | 02. FS Unplanned | 03.Medium |
+| FTSI1537 | 02.Interface | CMMS – Get Collateral Details | 02. FS Unplanned | 03.Medium |
+| FTSI1536 | 02.Interface | CMMS – Collateral Conversion | 02. FS Unplanned | 03.Medium |
+| FTSI1431 | 02.Interface | Interface to transfer batch SLED details from S4 to DMRA on a daily basis | 06. Dev In Progress | 03.Medium |
+| FTSI1371 | 02.Interface | CMMS – Equipment create and update (status and collateral name) | 04. FS In Progress | 03.Medium |
+| FTSI1370 | 02.Interface | Factory Portal - Equipment to Parts Management (Custom Fields – Part Check out &... | 04. FS In Progress | 03.Medium |
+| FTSI1355 | 02.Interface | CMMS – Equipment with MMS flag (S4 to CMMS) | 06. Dev Not Started | 03.Medium |
+| FTSI1326 | 02.Interface | Interface to send Lot create & Lot attribute signal to Workstream from SAP S4 | 06. Dev In Progress | 02.High |
+| FTSI1323 | 02.Interface | M-100-170_API 9 is to provide Shipping details Ship Server | 06. Dev In Progress | 03.Medium |
+| FTSI1321 | 02.Interface | M-100-170_API 6 is to get Shippable lots from Work Stream | 06. Dev In Progress | 03.Medium |
+| FTSI1320 | 02.Interface | M-100-170_API 7 is for Precheck Request and Response to Ship Server | 06. Dev In Progress | 03.Medium |
+| FTSI1318 | 02.Interface | M-100-170_API3 is to provide Shipping details to WorkStream from S4 | 06. Dev In Progress | 03.Medium |
+| FTSI1317 | 02.Interface | M-100-170_API 11 is to get Shippable lots from Ship server | 06. Dev In Progress | 03.Medium |
+| FTSI1021 | 02.Interface | Interface to be developed from ECA to SAP which helps to upload PIR via BAPI | 06. Dev In Progress | 03.Medium |
+| FTSI0860 | 02.Interface | Interface to create Kanban trigger from DMRA and get Reservation created and sha... | 06. Dev In Progress | 01.Very High |
+| FTSI0830 | 02.Interface | Shipserver Interface to S4 to get handling units for the logical ship | 06. Dev In Progress | 03.Medium |
+| FTSI0677 | 02.Interface | API from SHIP server to validate shipment readiness” | 06. Dev In Progress | 01.Very High |
+| FTSE1641 | 04.Enhancement | Enhancement to create a program which can query on  Master Data, Batch & STO det... | 02. FS Unplanned | 03.Medium |
+| FTSE1577 | 04.Enhancement | Perform Auto batch determination at the time of STO creation – DMRA | 09. FUT Overdue | 02.High |
+| FTSE1549 | 04.Enhancement | Custom Attributes for AMT/ISM | 02. FS Unplanned | 03.Medium |
+| FTSE1548 | 04.Enhancement | Automation for Product Conversions – Equipment Structure update | 02. FS Unplanned | 03.Medium |
+| FTSE1547 | 04.Enhancement | Automation for Product Conversions – Work Order Closure | 02. FS Unplanned | 03.Medium |
+| FTSE1546 | 04.Enhancement | Automation for Product Conversions – Parts Request and Return | 02. FS Unplanned | 03.Medium |
+| FTSE1545 | 04.Enhancement | Automation for Product Conversions – Explode BOM | 02. FS Unplanned | 03.Medium |
+| FTSE1544 | 04.Enhancement | Automation for Product Conversions – create Work Order | 02. FS Unplanned | 03.Medium |
+| FTSE1543 | 04.Enhancement | PM inbound from AMT | 02. FS Unplanned | 03.Medium |
+| FTSE1542 | 04.Enhancement | PM outbound to AMT | 02. FS Unplanned | 03.Medium |
+| FTSE1541 | 04.Enhancement | Send SAP notification on Work Order update | 02. FS Unplanned | 03.Medium |
+| FTSE1540 | 04.Enhancement | Send SAP notification on Equipment update | 02. FS Unplanned | 03.Medium |
+| FTSE1539 | 04.Enhancement | Custom Fiori UI – Move Equipment SRoom to SRoom (screen) | 02. FS Unplanned | 03.Medium |
+| FTSE1477 | 04.Enhancement | Enhancement - Lot Level Exception UI | 09. FUT Overdue | 01.Very High |
+
+### 6.3 NFRs & Design Principles
+
+| Category | Requirement | Target / SLA | Priority |
+|----------|-------------|-------------|----------|
+| Performance | MRP/production planning run completes within defined window | < 4 hours full MRP run | High |
+| Availability | Manufacturing execution systems available 24/7 | 99.95% (24x7 operations) | High |
+| Scalability | Support production volume increases from new product lines | Handle 10K+ production orders/day | High |
+| Recoverability | Production systems recover within shift change window | RPO < 15 min, RTO < 2 hours | High |
+| Data Volume | Support high-frequency material movement transactions | 100K+ material documents/day | Medium |
+| Latency | Real-time inventory visibility for warehouse operations | < 2 seconds for RF/scanner transactions | High |
+| Concurrency | Support factory floor workers across multiple shifts/sites | 500+ concurrent warehouse users | Medium |
+
+### 6.4 Security & Governance
+
+| Concern | Approach | Standard / Policy | Owner |
+|---------|----------|--------------------|-------|
+| Authentication | Single Sign-On (SSO) via Intel corporate Azure AD identity | Intel IT Security Policy - Identity Management | IT Security |
+| Authorization | Role-based access control (RBAC) with SAP authorization objects | Intel SAP Security Standards - Role Design | SAP Security Team |
+| Data Classification | All financial/operational data classified per Intel Data Classification Standard | Intel Data Classification Policy | Data Governance |
+| Data Encryption (at rest) | AES-256 encryption for SAP HANA database and file storage | Intel Encryption Standard | Infrastructure Security |
+| Data Encryption (in transit) | TLS 1.3 for all system-to-system and user-to-system communication | Intel Network Security Policy | Network Engineering |
+| Network Segmentation | SAP systems in dedicated network zones with firewall controls | Intel Network Architecture Standard | Network Security |
+| API Security | OAuth 2.0 / certificate-based authentication for all API integrations | Intel API Security Guidelines | Integration Architecture |
+| Audit Logging | Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log) | SOX Compliance / Intel Audit Policy | Internal Audit |
+| Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
+| Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
+
+<div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
+<div style="page-break-before: always;"></div>
+
+## 7. Project Context
+
+### 7.1 Project Roadmap & Go-Live Plan
+
+*239 objects with timeline data (source: Object Tracker)*
+
+| ID | Description | FS | TDD | Build | FUT | Status |
+|----|-------------|----|-----|-------|-----|--------|
+| LOGW1078_IF | ISM Workflows - Capital/AMT | Jun-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
+| LOGW1077_IF | ISM Workflows - EIMS/Lab | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 4. Completed |
+| LOGW1076_IF | ISM Workflows - Non-inventory | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
+| LOGR1176_IF | ISM - International Traffic Report | Apr-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Nov-25 (100%) | 4. Completed |
+| LOGR0833_IF | Email Notification for deletion of Shipping Memos | Feb-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 4. Completed |
+| LOGM024_IF | Create/Upload Vehicle resource | May-25 (100%) | — | — | Sep-25 (100%) |  |
+| LOGM023_IF | Update Business Share | Jun-25 (100%) | — | — | Sep-25 (100%) |  |
+| LOGM022_IF | Upload Transportation Allocation | Jun-25 (100%) | — | — | Sep-25 (100%) |  |
+| LOGM021_IF | Upload Schedules | Aug-25 (100%) | — | — | Sep-25 (100%) |  |
+| LOGM019_IF | Default Routes | May-25 (100%) | — | — | Sep-25 (100%) |  |
+| LOGM018_IF | Upload Rate Table | Jun-25 (100%) | — | — | Sep-25 (100%) |  |
+| LOGM016_IF | Create and review Charge Calculation Sheet | Jun-25 (100%) | — | — | Sep-25 (100%) |  |
+| LOGM015_IF | Create and review Freight Agreement | Jun-25 (100%) | — | — | Sep-25 (100%) |  |
+| LOGM012_IF | Creation of Location based on BP, Shipping points, plants | May-25 (100%) | — | — | Sep-25 (100%) |  |
+| LOGM008_IF | Location creation-ocean ports, airports | May-25 (100%) | — | — | Sep-25 (100%) | 1. On Track |
+| LOGM007_IF | Storage Bin Upload | Jul-25 (100%) | — | — | Oct-25 (100%) |  |
+| LOGM006_IF | Product Master conversion (additional EWM attribution) | Jul-25 (100%) | — | — | Oct-25 (100%) |  |
+| LOGM005_IF | UPLOAD TRANSPORTATION ZONES (TM) | Jun-25 (100%) | — | — | Sep-25 (100%) |  |
+| LOGM004_IF | UPLOAD TRANSPORTATION LANES | Jun-25 (100%) | — | — | Sep-25 (100%) |  |
+| LOGI1718 | To align on batch attributes for straddle in S4 | Feb-26 (100%) | Mar-26 (100%) | Mar-26 (100%) | Mar-26 (5%) | 3. Off Track |
+| LOGI1708 | Wrapper program for Inbound interface from Kommand AS to SAP | Jan-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | 1. On Track |
+| LOGI1677 | Send 4C1 Inventory Reconciliation Snapshot to IP | Jan-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (100%) | 3. Off Track |
+| LOGI1676 | Send 4C1 Inventory movement Stock type change and cycle count to IP | Jan-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (100%) | 3. Off Track |
+| LOGI1675 | Interface for SiGaC to extract inventory data from EWM to meet their existing business needs​ | Jan-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (100%) | 4. Completed |
+| LOGI1626 | Inventory adjustment data in XML format from Kommand auto-store to SAP EWM | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | Mar-26 (77%) | 1. On Track |
+| LOGI1595 | Summary Reconciliation and Inventory Snapshot data in XML format from SAP EWM to Kommand auto-store | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Jan-26 (100%) | 4. Completed |
+| LOGI1594 | Pickresult(Pick Warehouse task confirmation) data in XML format from SAP EWM to Kommand auto-store | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Mar-26 (80%) | 1. On Track |
+| LOGI1593 | Replenresult(Putaway warehouse task confirmation) data in XML format from SAP EWM to Kommand auto-store | Aug-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Mar-26 (80%) | 1. On Track |
+| LOGI1591 | MergePick (Pick Warehouse task)data in XML format from SAP EWM to Kommand auto-store | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Jan-26 (100%) | 4. Completed |
+| LOGI1589 | MergeReplen(Putaway Warehouse task) data in XML format from SAP EWM to Kommand auto-store | Aug-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Jan-26 (100%) | 1. On Track |
+
+*... and 209 more objects (see full Object Tracker)*
+
+### 7.2 RAID Log
+
+*Live data from Smartsheet Master RAID Log — extracted 2026-03-26*
+
+**Mapped sub-tower(s):** 7.1 FTS IF - ALL, 7.4 FTS IF - EWM, 7.5 FTS IF - TM, 7.6 FTS IF - Logistics & Inventory Management, 7.7 FTS IF - Manufacturing & MES Integration, 7.8 FTS IF - MRP & Planning Integration, 7.9 FTS IF - Plant Maintenance
+
+**RAID Summary:** 102 open items (23 capability-specific, 79 tower-level), 439 closed
+
+| Severity | Capability | Tower-Wide | Total Open |
+|----------|----------:|-----------:|-----------:|
+| P1 - High | 0 | 6 | 6 |
+| P2 - Medium | 21 | 60 | 81 |
+| P3 - Low | 2 | 13 | 15 |
+| **Total** | **23** | **79** | **102** |
+
+**Capability-Specific RAID Items:**
+
+| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
+|---------|------|----------|-------|--------|-------------|----------|
+| 03294 |  | P2 - Medium | Factory portal application is not ready from FTS and this is... | In Progress | FTS IF | 2026-02-27 |
+| 02987 |  | P2 - Medium | LOGF1525 - Consolidated Commercial Invoice for WIP Awaiting ... | In Progress | FTS IF | 2025-11-06 |
+| 03716 | Risk | P2 - Medium | Raising RAID to track the progress of FUT for LOGE1690 as it... | In Progress | FTS IF | 2026-03-13 |
+| 03518 | Action | P2 - Medium | Batch Attributes for WIP Straddle-LOGI1718 | Not Started |  | 2026-02-06 |
+| 02315 | Action | P2 - Medium | Need Approval on Preload file | Not Started | FTS IF |  |
+| 02419 | Key Decision | P2 - Medium | Batch classification details clarification required LOGC0972... | Not Started | FTS IF | 2025-10-15 |
+| 03752 | Risk | P2 - Medium | IF-LOGE1691-Enhancement to restrict access based on Storage ... | In Progress | Security & Controls | 2026-03-24 |
+| 01857 | Action | P2 - Medium | TF Signavio Flows Update Request | In Progress | FTS IF | 2026-01-30 |
+| 03157 |  | P2 - Medium | Split Logic to Segregate IF & IP data from EWM tables | Not Started |  | 2025-12-04 |
+| 03231 | Risk | P2 - Medium | Need LE Sample Data (Shipping Point & Delivery Route) for va... | Not Started | FTS IF | 2026-02-10 |
+| 03331 | Risk | P2 - Medium | Clarity on finalized SAP S/4 Plant and storage location mapp... | In Progress | Master Data | 2026-02-20 |
+| 03703 | Risk | P2 - Medium | For FUT: Factory Automation Apps waiting on Heartbeat Loader... | In Progress | FTS IF | 2026-03-24 |
+| 03704 | Risk | P2 - Medium | ASN Data from CIBR via e2Open needs to incorporate new attri... | In Progress | Data Foundation Program ( | 2026-03-10 |
+| 02088 | Risk | P2 - Medium | Equipment Master Conversion help needed | In Progress | FTS IF | 2026-03-31 |
+| 03539 | Risk | P2 - Medium | TPTD coming back into scope for SAP PM poses risk for R3 | Roadblock / At Risk | FTS IF | 2026-03-27 |
+| 03517 | Issue | P2 - Medium | Need help to determine correct timezone for EWM datetime fie... | Not Started | FTS IF | 2026-02-11 |
+| 02133 | Action | P2 - Medium | clarification on storage location xref for one to many scena... | Not Started | FTS IF |  |
+| 03671 | Risk | P2 - Medium | R4 GFM US EWM Warehouses Structure | Roadblock / At Risk | FTS IF | 2026-04-30 |
+| 03685 |  | P2 - Medium | Rinchem ITC1 Test Scenario/Case Readiness | In Progress | FTS IF |  |
+| 03515 | Risk | P2 - Medium | Need E2E test data for STO of IM to IM (Interfactory shipmen... | In Progress | FTS IF | 2026-03-06 |
+| 03779 | Risk | P2 - Medium | Chem 3PL PIP Enhancement to support FTZ | In Progress | FTS IF | 2026-04-17 |
+| 03061 | Risk | P3 - Low | Athena Operational Team needed to handle data updates during... | In Progress | FTS IF | 2026-03-06 |
+| 03404 | Risk | P3 - Low | [WIINGS] EWM labels updates | Not Started | FTS IF | 2026-04-03 |
+
+**Other FTS-IF Tower RAID Items** (79 open):
+
+| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
+|---------|------|----------|-------|--------|-------------|----------|
+| 03578 | Risk | P1 - High | HBI Process Flow Change impact Assessment | In Progress | FTS IF | 2026-03-27 |
+| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-03 |
+| 03600 | Risk | P1 - High | Error lifecycle functionality within PDF application is miss... | In Progress | FTS IF | 2026-05-01 |
+| 03601 | Risk | P1 - High | Traceability functionality within PDF application is missing... | In Progress | FTS IF | 2026-05-15 |
+| 03757 | Risk | P1 - High | IF Planning data not available in ITC1 until W4, leaving too... | In Progress | FTS IF | 2026-04-03 |
+| 03762 | Risk | P1 - High | FTS-IF (esp SCP) related test cases/sequencing are not accur... | In Progress | FTS IF | 2026-04-03 |
+| 01355 | Action | P2 - Medium | PDF SMHe product development approach does not appear to hav... | To Be Reviewed | FTS IF | 2026-04-03 |
+| 01658 | Risk | P2 - Medium | Under Intel Review | In Progress |  | 2025-07-18 |
+| 01709 | Action | P2 - Medium | No PAY1 or ENG1 storage locations defined or configured for ... | Not Started |  | 2025-08-08 |
+| 01733 | Risk | P2 - Medium | Tariffs impacts Item/BOM design which is impacting ERP/SCP (... | In Progress | E2E | 2026-03-06 |
+| 01769 | Action | P2 - Medium | Approach and duration for PDF SMH application refreshes to s... | In Progress | FTS IF | 2026-04-01 |
+| 03079 | Action | P2 - Medium | Request for PDH Design WTF | In Progress | FTS IP | 2026-03-04 |
+| 03128 | Risk | P2 - Medium | Application Health Monitoring | In Progress | FTS IF | 2026-05-13 |
+| 03205 | Action | P2 - Medium | Provide an update WW50 on the production rollout plan for th... | In Progress | FTS IF | 2026-03-06 |
+| 03241 | Risk | P2 - Medium | Materials Planning Policy for Constrained Materials | In Progress | FTS IP | 2026-07-31 |
+| 03292 | Risk | P2 - Medium | SCP IF BY ESP Solves during ITC1 | In Progress | FTS IF | 2026-01-09 |
+| 03308 | Action | P2 - Medium | Missing information for Anafi material master | Not Started | FTS IF |  |
+| 03314 | Risk | P2 - Medium | Executive lock cause performance issues in IF Dev | In Progress | FTS IF | 2026-04-17 |
+| 03334 | Issue | P2 - Medium | Application Monitoring - Connectors Health Monitoring | In Progress | FTS IF | 2026-05-15 |
+| 03368 | Issue | P2 - Medium | Infrastructure resources support PDF SMH ability to provide ... | In Progress | FTS IF | 2026-03-27 |
+| 03398 | Action | P2 - Medium | Kafka Admin Password for both IF and IP | In Progress | FTS IF | 2026-04-03 |
+| 03713 | Risk | P2 - Medium | Lack of TRDI data impacting delivery of ECA report by ITC2 | In Progress | FTS IF | 2026-03-27 |
+| 03718 | Risk | P2 - Medium | Storage Location Logic for Non-MMID Parts. | In Progress | PTP | 2026-03-27 |
+| 03732 | Risk | P2 - Medium | Production scheduling systems will likely only provide mock ... | Not Started |  | 2026-03-27 |
+| 03526 | Action | P2 - Medium | Review process for post-validation of system changes | In Progress | FTS IP | 2026-04-03 |
+| 02856 | Risk | P2 - Medium | SMH IF and (IP) Entra ID issue | In Progress | FTS IF | 2026-04-03 |
+| 03543 | Risk | P2 - Medium | SME's lack level of knowledge for BE SCP | In Progress | CM & Comms | 2026-04-03 |
+| 03560 | Issue | P2 - Medium | Apigee Endpoints for different ITC's | In Progress | Technology | 2026-02-28 |
+| 03579 | Risk | P2 - Medium | FTS-IF ECA reports as risk due to open TD & data source ques... | In Progress | FTS IF | 2026-03-27 |
+| 03610 | Action | P2 - Medium | Schedule follow-up with Mike Lange (re: CR1690 fix to missin... | In Progress | FTS IF | 2026-02-27 |
+| | | | *... and 49 more tower-level items* | | | |
+
+### 7.3 Recommendations & Next Steps
+
+| # | Category | Recommendation | Priority | Owner | Target Date | Status |
+|---|----------|---------------|----------|-------|-------------|--------|
+| 1 | Architecture | Complete extended flow attributes (Data Entity, Integration Pattern, Tech Platform) in Flows tab for full BDAT coverage | High | Tower Architect | 2026-Q2 | Open |
+| 2 | Data | Define data ownership and classification for all 0 flow chains to satisfy Data Architecture (TOGAF D) requirements | Medium | Data Architect | 2026-Q3 | Open |
+| 3 | Testing | Develop integration test scenarios covering all 0 flow chains for FUT/SIT readiness | High | Test Lead | 2026-Q3 | Open |
+| 4 | Business Architecture | Review and validate Business Architecture process steps against latest Signavio/BIC process models | Medium | Business Analyst | 2026-Q2 | Open |
+| 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
+
+---
+*M-100 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: March 2026*
+

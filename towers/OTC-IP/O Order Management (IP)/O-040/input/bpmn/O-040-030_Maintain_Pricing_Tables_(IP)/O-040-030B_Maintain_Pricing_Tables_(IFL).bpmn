@@ -1,0 +1,933 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:caseagile="http://caseagile.com/schema/BPMN/20170414/MODEL" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="Signavio Process Editor, http://www.signavio.com" exporterVersion="26.10.0-20260311103619+6e2d3ac" expressionLanguage="https://www.ecma-international.org/publications/standards/Ecma-334.htm" id="_ba7f847a-344f-40c2-b436-85ec13562454" name="O-040-030_Maintain Pricing Tables" targetNamespace="http://caseagile.com/schema/BPMN/20170414/MODEL" typeLanguage="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <category id="sid-467bc021-621c-459b-951d-d60faab5d480">
+      <categoryValue id="sid-0d26d869-7900-4cd2-84b5-b834df6c8259" value="Legends -"/>
+   </category>
+   <collaboration id="sid-5b20f6fb-5e4a-4d5b-ad7f-64f4719bc82d">
+      <extensionElements>
+         <signavio:signavioDiagramMetaData metaKey="meta-processdescription" metaValue="Maintain the system tables that control product pricing.  ​These tables are usually valid for long time periods (e.g., one year).​&#10;Maintain tables for list pricing (i.e., the price displayed on the published price list).​ Maintain additional tables for special pricing either for particular customers or for special product lines.​​"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvedby" metaValue="[&quot;Al Shawi, Michel &lt;michel.al.shawi@intel.com&gt;&quot;,&quot;Alvarez, Kenneth &lt;kenneth.alvarez@intel.com&gt;&quot;,&quot;LeBlanc, Brian&lt;brian.leblanc@intel.com&gt;&quot;]"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalstatus" metaValue="ci1710756720720143051910"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvaldate" metaValue="23/10/24"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalcomments" metaValue="&#10;"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalevidence" metaValue="[{&quot;label&quot;:&quot;Approvals&quot;,&quot;url&quot;:&quot;https://intel.sharepoint.com/:u:/r/sites/inteldeloitteiao/Shared Documents/General/Implementation/05. OTC - Intel Products/6 Detail Design Workshops/IP_Order Management/IP_Process Flows/O-040 Calculate Order Price/FW OM Signavio flow review.msg?csf=1&amp;web=1&amp;e=330s2w&quot;}]"/>
+         <signavio:signavioDiagramMetaData metaKey="revisionid" metaValue="cd68e4663576418b8609d5a5eeb37319"/>
+      </extensionElements>
+      <participant id="sid-2C092486-1F50-409B-A68A-F575E69F6987" name="Intel" processRef="sid-237354CD-69B2-4D9B-B5CF-C5442333D173">
+         <extensionElements>
+            <signavio:signavioDictionaryLink propertyId="name">
+               <signavio:dictionaryLink>/glossary/e667553ad81e450aa194d3b00f6ba515</signavio:dictionaryLink>
+            </signavio:signavioDictionaryLink>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </participant>
+   </collaboration>
+   <process id="sid-237354CD-69B2-4D9B-B5CF-C5442333D173" isClosed="false" isExecutable="false" name="Intel" processType="None">
+      <extensionElements/>
+      <laneSet id="sid-3177fc10-e8b5-4466-93ce-e51a471d3e0f">
+         <lane id="sid-A6BBC1DC-EB31-4A7F-BA46-34BCAA49E786" name="WWPO">
+            <extensionElements>
+               <signavio:signavioDictionaryLink propertyId="name">
+                  <signavio:dictionaryLink>/glossary/4fafe41bae5f4b569d1f2daab85d0cfe</signavio:dictionaryLink>
+               </signavio:signavioDictionaryLink>
+               <signavio:signavioMetaData metaKey="bgcolor" metaValue=""/>
+               <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            </extensionElements>
+            <flowNodeRef>_47b3b984-2696-4147-9fc6-52bf9a63960e</flowNodeRef>
+            <flowNodeRef>sid-5343F50A-4074-4EF4-BBB2-AF1839C42096</flowNodeRef>
+            <flowNodeRef>sid-904BB0BB-0A6C-4DC2-A3C6-57181FF8B416</flowNodeRef>
+            <flowNodeRef>sid-41D12A49-4FAF-4E5A-8922-A30154FA225B</flowNodeRef>
+            <flowNodeRef>sid-32A1CBE1-54F7-451C-998B-AD5445AC3767</flowNodeRef>
+            <flowNodeRef>sid-3EFCF661-AB0E-42EA-A7FA-A32682B074D9</flowNodeRef>
+            <flowNodeRef>sid-C31B072F-AE15-473B-9011-73DEBDAF431F</flowNodeRef>
+            <flowNodeRef>sid-BA6C28A8-06EF-4B64-B04B-DF883A02954D</flowNodeRef>
+            <flowNodeRef>sid-A16A84DE-9DC5-4C0D-B10F-9AFDE5F9C5F0</flowNodeRef>
+            <flowNodeRef>sid-F2989CFB-776D-4296-8137-8A8314ED9AAC</flowNodeRef>
+            <flowNodeRef>sid-1452B198-8A68-4A32-94F8-DB8EC42ADEA1</flowNodeRef>
+            <flowNodeRef>sid-3F4AE150-323D-4F17-A5F3-8D24D0928A64</flowNodeRef>
+            <flowNodeRef>sid-3E4C2CA4-5ED3-4ED7-A5F0-9361003F9EF2</flowNodeRef>
+            <flowNodeRef>sid-5C973583-9C8D-4325-8615-1BA67B8C4BD3</flowNodeRef>
+         </lane>
+         <lane id="sid-E3AF2A23-8E71-4F1D-A84C-B60A56623D64" name="BU Price Owner">
+            <extensionElements>
+               <signavio:signavioDictionaryLink propertyId="name">
+                  <signavio:dictionaryLink>/glossary/0a597091613d4fde881b18dba62db351</signavio:dictionaryLink>
+               </signavio:signavioDictionaryLink>
+               <signavio:signavioMetaData metaKey="bgcolor" metaValue=""/>
+               <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            </extensionElements>
+            <flowNodeRef>sid-4A188E90-B60F-4A8A-9B6C-CF35E7A77609</flowNodeRef>
+         </lane>
+      </laneSet>
+      <userTask completionQuantity="1" id="_47b3b984-2696-4147-9fc6-52bf9a63960e" implementation="##WebService" isForCompensation="false" name="O-040-030B-050&#10;Save Condition" startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="meta-jobprofile" metaValue="/glossary/4fafe41bae5f4b569d1f2daab85d0cfe"/>
+            <signavio:signavioMetaData metaKey="meta-screenfloriapps" metaValue="[&quot;/glossary/ae58b8b039094ecc93308a7c50035a41&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-system" metaValue="[&quot;/glossary/87e190e5800648088193185674a9aceb&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-securityrole" metaValue="[&quot;/glossary/d5c82b29098745d6a3ed9c45361fbf47&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-degreeofautomation" metaValue="ci1704366147381296654580"/>
+            <signavio:signavioMetaData metaKey="meta-taskdescription" metaValue="The changes are saved  and new condition record is created."/>
+            <signavio:signavioMetaData metaKey="meta-instance" metaValue="[&quot;/glossary/aacdd2d442004dbf98224a8c62414d20&quot;]"/>
+            <caseagile:model xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:semantic="http://www.omg.org/spec/BPMN/20100524/MODEL">
+               <caseagile:element id="6fb9b988-2758-4c6a-b8df-27d0b51d8d5f"/>
+               <caseagile:principal id=""/>
+               <caseagile:created date="2024-01-25 07:07:37"/>
+               <caseagile:modified date="2024-01-25 07:07:37"/>
+               <caseagile:properties>
+                  <caseagile:property default="FFFFFF" description="Background Color" format="hex" maximum="FFFFFF" minimum="000000" name="bgcolor" readOnly="False" type="int" visible="True"/>
+               </caseagile:properties>
+               <caseagile:values>
+                  <caseagile:value name="bgcolor" value="FFFFFF"/>
+               </caseagile:values>
+            </caseagile:model>
+         </extensionElements>
+         <incoming>sid-63BB6C8F-B633-4D9E-AF70-7E12DFA3C788</incoming>
+         <outgoing>sid-A7E2A3B9-7B72-4AD0-8930-CF4CC71BEFFD</outgoing>
+      </userTask>
+      <intermediateThrowEvent id="sid-5343F50A-4074-4EF4-BBB2-AF1839C42096" name="O-040-060B Determine &#10;Order Price and Conditions">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <incoming>sid-A7E2A3B9-7B72-4AD0-8930-CF4CC71BEFFD</incoming>
+         <linkEventDefinition id="sid-3136dde6-1d7c-4db8-bc8e-28fde59e852f" name="O-040-060B Determine &#10;Order Price and Conditions">
+            <extensionElements>
+               <signavio:signavioMetaData metaKey="targetEntry" metaValue="/model/713d1aa049a04355a9f8d6743a2ed7a8"/>
+            </extensionElements>
+            <target>U002fmodelU002f713d1aa049a04355a9f8d6743a2ed7a8</target>
+         </linkEventDefinition>
+      </intermediateThrowEvent>
+      <userTask completionQuantity="1" id="sid-904BB0BB-0A6C-4DC2-A3C6-57181FF8B416" implementation="##WebService" isForCompensation="false" name="O-040-030B-003&#10;Manual Price upload" startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="meta-jobprofile" metaValue="/glossary/4fafe41bae5f4b569d1f2daab85d0cfe"/>
+            <signavio:signavioMetaData metaKey="meta-screenfloriapps" metaValue="[&quot;/glossary/ae58b8b039094ecc93308a7c50035a41&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-system" metaValue="[&quot;/glossary/87e190e5800648088193185674a9aceb&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-securityrole" metaValue="[&quot;/glossary/d5c82b29098745d6a3ed9c45361fbf47&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-degreeofautomation" metaValue="ci1704366147381296654580"/>
+            <signavio:signavioMetaData metaKey="meta-taskdescription" metaValue="The Pricing bulk upload file template is first downloaded and then updated with the pricing conditions to be uploaded."/>
+            <signavio:signavioMetaData metaKey="meta-instance" metaValue="[&quot;/glossary/aacdd2d442004dbf98224a8c62414d20&quot;]"/>
+            <caseagile:model xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:semantic="http://www.omg.org/spec/BPMN/20100524/MODEL">
+               <caseagile:element id="0ab8dbaf-616f-419d-8cab-b8cebfc2a3a0"/>
+               <caseagile:principal id=""/>
+               <caseagile:created date="2024-01-25 07:07:37"/>
+               <caseagile:modified date="2024-01-25 07:07:37"/>
+               <caseagile:properties>
+                  <caseagile:property default="FFFFFF" description="Background Color" format="hex" maximum="FFFFFF" minimum="000000" name="bgcolor" readOnly="False" type="int" visible="True"/>
+               </caseagile:properties>
+               <caseagile:values>
+                  <caseagile:value name="bgcolor" value="FFFFFF"/>
+               </caseagile:values>
+            </caseagile:model>
+         </extensionElements>
+         <incoming>sid-A2F5F284-E05E-46ED-A2B3-037051CE080E</incoming>
+         <outgoing>sid-DAA25668-42DA-41DE-A5F3-89CAAF8D9BA8</outgoing>
+      </userTask>
+      <exclusiveGateway gatewayDirection="Converging" id="sid-41D12A49-4FAF-4E5A-8922-A30154FA225B" name="">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#969696"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <incoming>sid-97D0BE55-B133-4DD1-B31B-82760FB6C981</incoming>
+         <incoming>sid-B7740360-EAAB-4815-B1AB-670AA610A1C8</incoming>
+         <outgoing>sid-63BB6C8F-B633-4D9E-AF70-7E12DFA3C788</outgoing>
+      </exclusiveGateway>
+      <serviceTask completionQuantity="1" id="sid-32A1CBE1-54F7-451C-998B-AD5445AC3767" implementation="##WebService" isForCompensation="false" name="O-040-030B-040 Enter Validity Period" startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="meta-jobprofile" metaValue="/glossary/4fafe41bae5f4b569d1f2daab85d0cfe"/>
+            <signavio:signavioMetaData metaKey="meta-screenfloriapps" metaValue="[&quot;/glossary/ae58b8b039094ecc93308a7c50035a41&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-system" metaValue="[&quot;/glossary/87e190e5800648088193185674a9aceb&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-securityrole" metaValue="[&quot;/glossary/d5c82b29098745d6a3ed9c45361fbf47&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-degreeofautomation" metaValue="ci1704366147381571714331"/>
+            <signavio:signavioMetaData metaKey="meta-taskdescription" metaValue="Appropriate validity period needs to be maintained in the system while calculating the order price ."/>
+            <signavio:signavioMetaData metaKey="meta-instance" metaValue="[&quot;/glossary/aacdd2d442004dbf98224a8c62414d20&quot;]"/>
+            <caseagile:model xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:semantic="http://www.omg.org/spec/BPMN/20100524/MODEL">
+               <caseagile:element id="1263bf61-1f10-4e09-b198-7f58953f38b7"/>
+               <caseagile:principal id=""/>
+               <caseagile:created date="2024-01-25 07:07:37"/>
+               <caseagile:modified date="2024-01-25 07:07:37"/>
+               <caseagile:properties>
+                  <caseagile:property default="FFFFFF" description="Background Color" format="hex" maximum="FFFFFF" minimum="000000" name="bgcolor" readOnly="False" type="int" visible="True"/>
+               </caseagile:properties>
+               <caseagile:values>
+                  <caseagile:value name="bgcolor" value="FFFFFF"/>
+               </caseagile:values>
+            </caseagile:model>
+         </extensionElements>
+         <incoming>sid-F983AB10-F890-4A38-9DF0-5561BA8A0DA1</incoming>
+         <outgoing>sid-97D0BE55-B133-4DD1-B31B-82760FB6C981</outgoing>
+      </serviceTask>
+      <serviceTask completionQuantity="1" id="sid-3EFCF661-AB0E-42EA-A7FA-A32682B074D9" implementation="##WebService" isForCompensation="false" name="O-040-030B-020 Identify Key Combination of Access Sequence" startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="meta-jobprofile" metaValue="/glossary/4fafe41bae5f4b569d1f2daab85d0cfe"/>
+            <signavio:signavioMetaData metaKey="meta-screenfloriapps" metaValue="[&quot;/glossary/ae58b8b039094ecc93308a7c50035a41&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-system" metaValue="[&quot;/glossary/87e190e5800648088193185674a9aceb&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-securityrole" metaValue="[&quot;/glossary/d5c82b29098745d6a3ed9c45361fbf47&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-degreeofautomation" metaValue="ci1704366147381571714331"/>
+            <signavio:signavioMetaData metaKey="meta-taskdescription" metaValue="Business might use different condition types. By identifying the key combination to the Access Sequence, we will be able to restrict the changes to relevant pricing."/>
+            <signavio:signavioMetaData metaKey="meta-instance" metaValue="[&quot;/glossary/aacdd2d442004dbf98224a8c62414d20&quot;]"/>
+            <caseagile:model xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:semantic="http://www.omg.org/spec/BPMN/20100524/MODEL">
+               <caseagile:element id="55fa872d-cc76-42dc-90f6-e8856616977c"/>
+               <caseagile:principal id=""/>
+               <caseagile:created date="2024-01-25 07:07:37"/>
+               <caseagile:modified date="2024-01-25 07:07:37"/>
+               <caseagile:properties>
+                  <caseagile:property default="FFFFFF" description="Background Color" format="hex" maximum="FFFFFF" minimum="000000" name="bgcolor" readOnly="False" type="int" visible="True"/>
+               </caseagile:properties>
+               <caseagile:values>
+                  <caseagile:value name="bgcolor" value="FFFFFF"/>
+               </caseagile:values>
+            </caseagile:model>
+         </extensionElements>
+         <incoming>sid-6CBC4F5C-52D5-40BD-8C76-3D800BD29AE1</incoming>
+         <outgoing>sid-89BD09F8-E37F-4B9E-A872-74C79E3798AE</outgoing>
+      </serviceTask>
+      <serviceTask completionQuantity="1" id="sid-C31B072F-AE15-473B-9011-73DEBDAF431F" implementation="##WebService" isForCompensation="false" name="O-040-030B-010 Identify Condition Type" startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="meta-jobprofile" metaValue="/glossary/4fafe41bae5f4b569d1f2daab85d0cfe"/>
+            <signavio:signavioMetaData metaKey="meta-screenfloriapps" metaValue="[&quot;/glossary/ae58b8b039094ecc93308a7c50035a41&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-system" metaValue="[&quot;/glossary/87e190e5800648088193185674a9aceb&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-securityrole" metaValue="[&quot;/glossary/d5c82b29098745d6a3ed9c45361fbf47&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-degreeofautomation" metaValue="ci1704366147381571714331"/>
+            <signavio:signavioMetaData metaKey="meta-taskdescription" metaValue="The first step to updating any price is to identify the condition type, which would point to the relev ant pricing table to be updated."/>
+            <signavio:signavioMetaData metaKey="meta-instance" metaValue="[&quot;/glossary/aacdd2d442004dbf98224a8c62414d20&quot;]"/>
+            <caseagile:model xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:semantic="http://www.omg.org/spec/BPMN/20100524/MODEL">
+               <caseagile:element id="0ab8dbaf-616f-419d-8cab-b8cebfc2a3a0"/>
+               <caseagile:principal id=""/>
+               <caseagile:created date="2024-01-25 07:07:37"/>
+               <caseagile:modified date="2024-01-25 07:07:37"/>
+               <caseagile:properties>
+                  <caseagile:property default="FFFFFF" description="Background Color" format="hex" maximum="FFFFFF" minimum="000000" name="bgcolor" readOnly="False" type="int" visible="True"/>
+               </caseagile:properties>
+               <caseagile:values>
+                  <caseagile:value name="bgcolor" value="FFFFFF"/>
+               </caseagile:values>
+            </caseagile:model>
+         </extensionElements>
+         <incoming>sid-7ED63D28-DD73-4AFF-BFBF-6E9163695BA8</incoming>
+         <outgoing>sid-6CBC4F5C-52D5-40BD-8C76-3D800BD29AE1</outgoing>
+      </serviceTask>
+      <serviceTask completionQuantity="1" id="sid-BA6C28A8-06EF-4B64-B04B-DF883A02954D" implementation="##WebService" isForCompensation="false" name="O-040-030B-030 Enter Condition Amount" startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="meta-jobprofile" metaValue="/glossary/4fafe41bae5f4b569d1f2daab85d0cfe"/>
+            <signavio:signavioMetaData metaKey="meta-screenfloriapps" metaValue="[&quot;/glossary/ae58b8b039094ecc93308a7c50035a41&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-system" metaValue="[&quot;/glossary/87e190e5800648088193185674a9aceb&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-securityrole" metaValue="[&quot;/glossary/d5c82b29098745d6a3ed9c45361fbf47&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-degreeofautomation" metaValue="ci1704366147381571714331"/>
+            <signavio:signavioMetaData metaKey="meta-taskdescription" metaValue="The first entry which maintain new price is the amount itself"/>
+            <signavio:signavioMetaData metaKey="meta-instance" metaValue="[&quot;/glossary/aacdd2d442004dbf98224a8c62414d20&quot;]"/>
+            <caseagile:model xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:semantic="http://www.omg.org/spec/BPMN/20100524/MODEL">
+               <caseagile:element id="aeb70c85-f84f-4319-8731-1e16d36e26bf"/>
+               <caseagile:principal id=""/>
+               <caseagile:created date="2024-01-25 07:07:37"/>
+               <caseagile:modified date="2024-01-25 07:07:37"/>
+               <caseagile:properties>
+                  <caseagile:property default="FFFFFF" description="Background Color" format="hex" maximum="FFFFFF" minimum="000000" name="bgcolor" readOnly="False" type="int" visible="True"/>
+               </caseagile:properties>
+               <caseagile:values>
+                  <caseagile:value name="bgcolor" value="FFFFFF"/>
+               </caseagile:values>
+            </caseagile:model>
+         </extensionElements>
+         <incoming>sid-89BD09F8-E37F-4B9E-A872-74C79E3798AE</incoming>
+         <outgoing>sid-F983AB10-F890-4A38-9DF0-5561BA8A0DA1</outgoing>
+      </serviceTask>
+      <userTask completionQuantity="1" id="sid-A16A84DE-9DC5-4C0D-B10F-9AFDE5F9C5F0" implementation="##WebService" isForCompensation="false" name="O-040-030B-041 Enter Validity Period" startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="meta-jobprofile" metaValue="/glossary/4fafe41bae5f4b569d1f2daab85d0cfe"/>
+            <signavio:signavioMetaData metaKey="meta-screenfloriapps" metaValue="[&quot;/glossary/ae58b8b039094ecc93308a7c50035a41&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-system" metaValue="[&quot;/glossary/87e190e5800648088193185674a9aceb&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-securityrole" metaValue="[&quot;/glossary/d5c82b29098745d6a3ed9c45361fbf47&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-degreeofautomation" metaValue="ci1704366147381296654580"/>
+            <signavio:signavioMetaData metaKey="meta-taskdescription" metaValue="Appropriate validity period needs to be maintained in the system while calculating the order price ."/>
+            <signavio:signavioMetaData metaKey="meta-instance" metaValue="[&quot;/glossary/aacdd2d442004dbf98224a8c62414d20&quot;]"/>
+            <caseagile:model xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:semantic="http://www.omg.org/spec/BPMN/20100524/MODEL">
+               <caseagile:element id="1263bf61-1f10-4e09-b198-7f58953f38b7"/>
+               <caseagile:principal id=""/>
+               <caseagile:created date="2024-01-25 07:07:37"/>
+               <caseagile:modified date="2024-01-25 07:07:37"/>
+               <caseagile:properties>
+                  <caseagile:property default="FFFFFF" description="Background Color" format="hex" maximum="FFFFFF" minimum="000000" name="bgcolor" readOnly="False" type="int" visible="True"/>
+               </caseagile:properties>
+               <caseagile:values>
+                  <caseagile:value name="bgcolor" value="FFFFFF"/>
+               </caseagile:values>
+            </caseagile:model>
+         </extensionElements>
+         <incoming>sid-618C0CDF-2939-409B-ADB8-6B20082F337F</incoming>
+         <outgoing>sid-B7740360-EAAB-4815-B1AB-670AA610A1C8</outgoing>
+      </userTask>
+      <userTask completionQuantity="1" id="sid-F2989CFB-776D-4296-8137-8A8314ED9AAC" implementation="##WebService" isForCompensation="false" name="O-040-030B-021 Identify Key Combination of Access Sequence" startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="meta-jobprofile" metaValue="/glossary/4fafe41bae5f4b569d1f2daab85d0cfe"/>
+            <signavio:signavioMetaData metaKey="meta-screenfloriapps" metaValue="[&quot;/glossary/ae58b8b039094ecc93308a7c50035a41&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-system" metaValue="[&quot;/glossary/87e190e5800648088193185674a9aceb&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-securityrole" metaValue="[&quot;/glossary/d5c82b29098745d6a3ed9c45361fbf47&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-degreeofautomation" metaValue="ci1704366147381296654580"/>
+            <signavio:signavioMetaData metaKey="meta-taskdescription" metaValue="Business might use different condition types. By identifying the key combination to the Access Sequence, we will be able to restrict the changes to relevant pricing."/>
+            <signavio:signavioMetaData metaKey="meta-instance" metaValue="[&quot;/glossary/aacdd2d442004dbf98224a8c62414d20&quot;]"/>
+            <caseagile:model xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:semantic="http://www.omg.org/spec/BPMN/20100524/MODEL">
+               <caseagile:element id="55fa872d-cc76-42dc-90f6-e8856616977c"/>
+               <caseagile:principal id=""/>
+               <caseagile:created date="2024-01-25 07:07:37"/>
+               <caseagile:modified date="2024-01-25 07:07:37"/>
+               <caseagile:properties>
+                  <caseagile:property default="FFFFFF" description="Background Color" format="hex" maximum="FFFFFF" minimum="000000" name="bgcolor" readOnly="False" type="int" visible="True"/>
+               </caseagile:properties>
+               <caseagile:values>
+                  <caseagile:value name="bgcolor" value="FFFFFF"/>
+               </caseagile:values>
+            </caseagile:model>
+         </extensionElements>
+         <incoming>sid-671B2169-6015-49ED-8018-58ABF0A605E5</incoming>
+         <outgoing>sid-D5B80E12-CEF1-4E9F-B7C9-EADFE3CC4F02</outgoing>
+      </userTask>
+      <userTask completionQuantity="1" id="sid-1452B198-8A68-4A32-94F8-DB8EC42ADEA1" implementation="##WebService" isForCompensation="false" name="O-040-030B-011 Identify Condition Type" startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="meta-jobprofile" metaValue="/glossary/4fafe41bae5f4b569d1f2daab85d0cfe"/>
+            <signavio:signavioMetaData metaKey="meta-screenfloriapps" metaValue="[&quot;/glossary/ae58b8b039094ecc93308a7c50035a41&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-system" metaValue="[&quot;/glossary/87e190e5800648088193185674a9aceb&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-securityrole" metaValue="[&quot;/glossary/d5c82b29098745d6a3ed9c45361fbf47&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-degreeofautomation" metaValue="ci1704366147381296654580"/>
+            <signavio:signavioMetaData metaKey="meta-taskdescription" metaValue="The first step to updating any price is to identify the condition type, which would point to the relev ant pricing table to be updated."/>
+            <signavio:signavioMetaData metaKey="meta-instance" metaValue="[&quot;/glossary/aacdd2d442004dbf98224a8c62414d20&quot;]"/>
+            <caseagile:model xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:semantic="http://www.omg.org/spec/BPMN/20100524/MODEL">
+               <caseagile:element id="0ab8dbaf-616f-419d-8cab-b8cebfc2a3a0"/>
+               <caseagile:principal id=""/>
+               <caseagile:created date="2024-01-25 07:07:37"/>
+               <caseagile:modified date="2024-01-25 07:07:37"/>
+               <caseagile:properties>
+                  <caseagile:property default="FFFFFF" description="Background Color" format="hex" maximum="FFFFFF" minimum="000000" name="bgcolor" readOnly="False" type="int" visible="True"/>
+               </caseagile:properties>
+               <caseagile:values>
+                  <caseagile:value name="bgcolor" value="FFFFFF"/>
+               </caseagile:values>
+            </caseagile:model>
+         </extensionElements>
+         <incoming>sid-DAA25668-42DA-41DE-A5F3-89CAAF8D9BA8</incoming>
+         <outgoing>sid-671B2169-6015-49ED-8018-58ABF0A605E5</outgoing>
+      </userTask>
+      <userTask completionQuantity="1" id="sid-3F4AE150-323D-4F17-A5F3-8D24D0928A64" implementation="##WebService" isForCompensation="false" name="O-040-030B-031 Enter Condition Amount" startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="meta-jobprofile" metaValue="/glossary/4fafe41bae5f4b569d1f2daab85d0cfe"/>
+            <signavio:signavioMetaData metaKey="meta-screenfloriapps" metaValue="[&quot;/glossary/ae58b8b039094ecc93308a7c50035a41&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-system" metaValue="[&quot;/glossary/87e190e5800648088193185674a9aceb&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-securityrole" metaValue="[&quot;/glossary/d5c82b29098745d6a3ed9c45361fbf47&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-degreeofautomation" metaValue="ci1704366147381296654580"/>
+            <signavio:signavioMetaData metaKey="meta-taskdescription" metaValue="The first entry which maintain new price is the amount itself"/>
+            <signavio:signavioMetaData metaKey="meta-instance" metaValue="[&quot;/glossary/aacdd2d442004dbf98224a8c62414d20&quot;]"/>
+            <caseagile:model xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:semantic="http://www.omg.org/spec/BPMN/20100524/MODEL">
+               <caseagile:element id="aeb70c85-f84f-4319-8731-1e16d36e26bf"/>
+               <caseagile:principal id=""/>
+               <caseagile:created date="2024-01-25 07:07:37"/>
+               <caseagile:modified date="2024-01-25 07:07:37"/>
+               <caseagile:properties>
+                  <caseagile:property default="FFFFFF" description="Background Color" format="hex" maximum="FFFFFF" minimum="000000" name="bgcolor" readOnly="False" type="int" visible="True"/>
+               </caseagile:properties>
+               <caseagile:values>
+                  <caseagile:value name="bgcolor" value="FFFFFF"/>
+               </caseagile:values>
+            </caseagile:model>
+         </extensionElements>
+         <incoming>sid-D5B80E12-CEF1-4E9F-B7C9-EADFE3CC4F02</incoming>
+         <outgoing>sid-618C0CDF-2939-409B-ADB8-6B20082F337F</outgoing>
+      </userTask>
+      <serviceTask completionQuantity="1" id="sid-3E4C2CA4-5ED3-4ED7-A5F0-9361003F9EF2" implementation="##WebService" isForCompensation="false" name="O-040-030B-001&#10;Receive Prices  " startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="meta-jobprofile" metaValue="/glossary/4fafe41bae5f4b569d1f2daab85d0cfe"/>
+            <signavio:signavioMetaData metaKey="meta-screenfloriapps" metaValue="[&quot;/glossary/84bcb166c64448ac8a507eb799124bbf&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-system" metaValue="[&quot;/glossary/e9945c9938454c5d8c92e48e6ea45d1c&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-securityrole" metaValue="[&quot;/glossary/f86e941de6604f41bdeabfc6db072085&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-degreeofautomation" metaValue="ci1704366147381571714331"/>
+            <signavio:signavioMetaData metaKey="meta-instance" metaValue="[&quot;/glossary/aacdd2d442004dbf98224a8c62414d20&quot;]"/>
+         </extensionElements>
+         <incoming>sid-172AB1E7-9497-4E97-8FA3-F10BEB96A2A5</incoming>
+         <outgoing>sid-7ED63D28-DD73-4AFF-BFBF-6E9163695BA8</outgoing>
+      </serviceTask>
+      <startEvent id="sid-5C973583-9C8D-4325-8615-1BA67B8C4BD3" name="Price to be loaded">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <outgoing>sid-A2F5F284-E05E-46ED-A2B3-037051CE080E</outgoing>
+      </startEvent>
+      <startEvent id="sid-4A188E90-B60F-4A8A-9B6C-CF35E7A77609" name="Initiate Pricing using IPAR">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioLabel bottom="false" left="false" ref="text_name" right="false" top="true" valign="bottom" x="15.0" y="-9.0"/>
+         </extensionElements>
+         <outgoing>sid-172AB1E7-9497-4E97-8FA3-F10BEB96A2A5</outgoing>
+      </startEvent>
+      <sequenceFlow id="sid-63BB6C8F-B633-4D9E-AF70-7E12DFA3C788" name="" sourceRef="sid-41D12A49-4FAF-4E5A-8922-A30154FA225B" targetRef="_47b3b984-2696-4147-9fc6-52bf9a63960e">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-F983AB10-F890-4A38-9DF0-5561BA8A0DA1" name="" sourceRef="sid-BA6C28A8-06EF-4B64-B04B-DF883A02954D" targetRef="sid-32A1CBE1-54F7-451C-998B-AD5445AC3767">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-89BD09F8-E37F-4B9E-A872-74C79E3798AE" isImmediate="true" name="" sourceRef="sid-3EFCF661-AB0E-42EA-A7FA-A32682B074D9" targetRef="sid-BA6C28A8-06EF-4B64-B04B-DF883A02954D">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-6CBC4F5C-52D5-40BD-8C76-3D800BD29AE1" name="" sourceRef="sid-C31B072F-AE15-473B-9011-73DEBDAF431F" targetRef="sid-3EFCF661-AB0E-42EA-A7FA-A32682B074D9">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-618C0CDF-2939-409B-ADB8-6B20082F337F" name="" sourceRef="sid-3F4AE150-323D-4F17-A5F3-8D24D0928A64" targetRef="sid-A16A84DE-9DC5-4C0D-B10F-9AFDE5F9C5F0">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-D5B80E12-CEF1-4E9F-B7C9-EADFE3CC4F02" isImmediate="true" name="" sourceRef="sid-F2989CFB-776D-4296-8137-8A8314ED9AAC" targetRef="sid-3F4AE150-323D-4F17-A5F3-8D24D0928A64">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-671B2169-6015-49ED-8018-58ABF0A605E5" name="" sourceRef="sid-1452B198-8A68-4A32-94F8-DB8EC42ADEA1" targetRef="sid-F2989CFB-776D-4296-8137-8A8314ED9AAC">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-DAA25668-42DA-41DE-A5F3-89CAAF8D9BA8" name="" sourceRef="sid-904BB0BB-0A6C-4DC2-A3C6-57181FF8B416" targetRef="sid-1452B198-8A68-4A32-94F8-DB8EC42ADEA1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-A2F5F284-E05E-46ED-A2B3-037051CE080E" name="" sourceRef="sid-5C973583-9C8D-4325-8615-1BA67B8C4BD3" targetRef="sid-904BB0BB-0A6C-4DC2-A3C6-57181FF8B416">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-A7E2A3B9-7B72-4AD0-8930-CF4CC71BEFFD" name="" sourceRef="_47b3b984-2696-4147-9fc6-52bf9a63960e" targetRef="sid-5343F50A-4074-4EF4-BBB2-AF1839C42096">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-172AB1E7-9497-4E97-8FA3-F10BEB96A2A5" name="" sourceRef="sid-4A188E90-B60F-4A8A-9B6C-CF35E7A77609" targetRef="sid-3E4C2CA4-5ED3-4ED7-A5F0-9361003F9EF2">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-97D0BE55-B133-4DD1-B31B-82760FB6C981" isImmediate="true" name="" sourceRef="sid-32A1CBE1-54F7-451C-998B-AD5445AC3767" targetRef="sid-41D12A49-4FAF-4E5A-8922-A30154FA225B">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-B7740360-EAAB-4815-B1AB-670AA610A1C8" isImmediate="true" name="" sourceRef="sid-A16A84DE-9DC5-4C0D-B10F-9AFDE5F9C5F0" targetRef="sid-41D12A49-4FAF-4E5A-8922-A30154FA225B">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-7ED63D28-DD73-4AFF-BFBF-6E9163695BA8" name="" sourceRef="sid-3E4C2CA4-5ED3-4ED7-A5F0-9361003F9EF2" targetRef="sid-C31B072F-AE15-473B-9011-73DEBDAF431F">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <association associationDirection="None" id="sid-CAD0A70F-0BA2-4FF2-B3F4-364F0B18FFE7" sourceRef="_47b3b984-2696-4147-9fc6-52bf9a63960e" targetRef="sid-BD500788-594A-4880-AA87-D69256BF426E">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </association>
+      <association associationDirection="None" id="sid-F5226EF6-7330-4CFF-978A-79A81B2631D7" sourceRef="sid-C31B072F-AE15-473B-9011-73DEBDAF431F" targetRef="sid-78450995-B696-4608-91D4-07C8C605AE36">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </association>
+      <association associationDirection="None" id="sid-6F28C6F4-6566-4BB0-85E4-1FCD69CB99C4" sourceRef="sid-3EFCF661-AB0E-42EA-A7FA-A32682B074D9" targetRef="sid-D9DB57D8-766E-40B4-BF49-13E916C40579">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </association>
+      <association associationDirection="None" id="sid-37D968A3-C5D1-4042-9C22-04509BCFA8CA" sourceRef="sid-BA6C28A8-06EF-4B64-B04B-DF883A02954D" targetRef="sid-75B257E9-FE13-418F-98F9-678A7016506B">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </association>
+      <association associationDirection="None" id="sid-E7F8C85B-28FA-4986-8642-DED4F4F5BBF5" sourceRef="sid-1452B198-8A68-4A32-94F8-DB8EC42ADEA1" targetRef="sid-78450995-B696-4608-91D4-07C8C605AE36">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </association>
+      <association associationDirection="None" id="sid-2B176CB9-3207-4793-B557-185046271CD4" sourceRef="sid-F2989CFB-776D-4296-8137-8A8314ED9AAC" targetRef="sid-D9DB57D8-766E-40B4-BF49-13E916C40579">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </association>
+      <association associationDirection="None" id="sid-226D4D74-2C8B-4635-B3DA-13F6483290CD" sourceRef="sid-3F4AE150-323D-4F17-A5F3-8D24D0928A64" targetRef="sid-75B257E9-FE13-418F-98F9-678A7016506B">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </association>
+      <association associationDirection="None" id="sid-1BB23378-9FAF-4277-9883-483357BDD100" sourceRef="sid-32A1CBE1-54F7-451C-998B-AD5445AC3767" targetRef="sid-D7D82A7F-B105-4B59-B3FE-9E05CAACE546">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </association>
+      <association associationDirection="None" id="sid-03DC1CC7-A37A-458F-A509-E2CB4FDFAA15" sourceRef="sid-904BB0BB-0A6C-4DC2-A3C6-57181FF8B416" targetRef="sid-DBCE5F4D-65A3-4343-95D3-B5C3D00191DE">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </association>
+      <association associationDirection="None" id="sid-F4E6AA4C-C4A7-4D31-BF70-97E988BAD2C6" sourceRef="sid-A16A84DE-9DC5-4C0D-B10F-9AFDE5F9C5F0" targetRef="sid-D7D82A7F-B105-4B59-B3FE-9E05CAACE546">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </association>
+      <association associationDirection="None" id="sid-5F282C68-4C10-4D78-9819-50C77728951B" sourceRef="sid-E667B012-2227-4ADE-9DBB-73E7DDCA722E" targetRef="sid-5C973583-9C8D-4325-8615-1BA67B8C4BD3">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </association>
+      <association associationDirection="None" id="sid-AFDC071C-BFBF-4D55-AA2C-9CDD2504BAE1" sourceRef="sid-3E4C2CA4-5ED3-4ED7-A5F0-9361003F9EF2" targetRef="sid-33307F1C-C386-44DE-9BA2-EAD6EB425DB0">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </association>
+      <association associationDirection="None" id="sid-F21440FF-ACCD-43BF-8AB6-6E33919300A6" sourceRef="sid-C31B072F-AE15-473B-9011-73DEBDAF431F" targetRef="sid-8A17B21F-C5D1-4C35-8E42-50972884C8BF">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </association>
+      <textAnnotation id="sid-78450995-B696-4608-91D4-07C8C605AE36" signavio:alignment="left">
+         <extensionElements>
+            <signavio:signavioDictionaryLink propertyId="name">
+               <signavio:dictionaryLink>/glossary/87e190e5800648088193185674a9aceb</signavio:dictionaryLink>
+            </signavio:signavioDictionaryLink>
+            <signavio:signavioType dataObjectType="IT-System"/>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#e1e1e1"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioLabel align="left" bottom="false" left="false" ref="text_name" right="true" top="false" valign="middle" x="68.0" y="29.0"/>
+         </extensionElements>
+         <text>SAP S/4HANA</text>
+      </textAnnotation>
+      <textAnnotation id="sid-75B257E9-FE13-418F-98F9-678A7016506B" signavio:alignment="left">
+         <extensionElements>
+            <signavio:signavioDictionaryLink propertyId="name">
+               <signavio:dictionaryLink>/glossary/87e190e5800648088193185674a9aceb</signavio:dictionaryLink>
+            </signavio:signavioDictionaryLink>
+            <signavio:signavioType dataObjectType="IT-System"/>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#e1e1e1"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioLabel align="left" bottom="false" left="false" ref="text_name" right="true" top="false" valign="middle" x="68.0" y="29.0"/>
+         </extensionElements>
+         <text>SAP S/4HANA</text>
+      </textAnnotation>
+      <textAnnotation id="sid-D7D82A7F-B105-4B59-B3FE-9E05CAACE546" signavio:alignment="left">
+         <extensionElements>
+            <signavio:signavioDictionaryLink propertyId="name">
+               <signavio:dictionaryLink>/glossary/87e190e5800648088193185674a9aceb</signavio:dictionaryLink>
+            </signavio:signavioDictionaryLink>
+            <signavio:signavioType dataObjectType="IT-System"/>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#e1e1e1"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioLabel align="left" bottom="false" left="false" ref="text_name" right="true" top="false" valign="middle" x="68.0" y="29.0"/>
+         </extensionElements>
+         <text>SAP S/4HANA</text>
+      </textAnnotation>
+      <textAnnotation id="sid-BD500788-594A-4880-AA87-D69256BF426E" signavio:alignment="left">
+         <extensionElements>
+            <signavio:signavioDictionaryLink propertyId="name">
+               <signavio:dictionaryLink>/glossary/87e190e5800648088193185674a9aceb</signavio:dictionaryLink>
+            </signavio:signavioDictionaryLink>
+            <signavio:signavioType dataObjectType="IT-System"/>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#e1e1e1"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioLabel ref="text_name" valign="middle" x="119.0" y="20.0"/>
+         </extensionElements>
+         <text>SAP S/4HANA</text>
+      </textAnnotation>
+      <textAnnotation id="sid-D9DB57D8-766E-40B4-BF49-13E916C40579" signavio:alignment="left">
+         <extensionElements>
+            <signavio:signavioDictionaryLink propertyId="name">
+               <signavio:dictionaryLink>/glossary/87e190e5800648088193185674a9aceb</signavio:dictionaryLink>
+            </signavio:signavioDictionaryLink>
+            <signavio:signavioType dataObjectType="IT-System"/>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#e1e1e1"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioLabel align="left" bottom="false" left="false" ref="text_name" right="true" top="false" valign="middle" x="68.0" y="29.0"/>
+         </extensionElements>
+         <text>SAP S/4HANA</text>
+      </textAnnotation>
+      <textAnnotation id="sid-DBCE5F4D-65A3-4343-95D3-B5C3D00191DE" signavio:alignment="left">
+         <extensionElements>
+            <signavio:signavioDictionaryLink propertyId="name">
+               <signavio:dictionaryLink>/glossary/87e190e5800648088193185674a9aceb</signavio:dictionaryLink>
+            </signavio:signavioDictionaryLink>
+            <signavio:signavioType dataObjectType="IT-System"/>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#e1e1e1"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioLabel ref="text_name" valign="middle" x="121.0" y="26.0"/>
+         </extensionElements>
+         <text>SAP S/4HANA</text>
+      </textAnnotation>
+      <textAnnotation id="sid-8A17B21F-C5D1-4C35-8E42-50972884C8BF" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>Create, Change and expirations will be taking place</text>
+      </textAnnotation>
+      <textAnnotation id="sid-33307F1C-C386-44DE-9BA2-EAD6EB425DB0" signavio:alignment="left">
+         <extensionElements>
+            <signavio:signavioDictionaryLink propertyId="name">
+               <signavio:dictionaryLink>/glossary/e9945c9938454c5d8c92e48e6ea45d1c</signavio:dictionaryLink>
+            </signavio:signavioDictionaryLink>
+            <signavio:signavioType dataObjectType="IT-System"/>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#e1e1e1"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>IPAR</text>
+      </textAnnotation>
+      <textAnnotation id="sid-E667B012-2227-4ADE-9DBB-73E7DDCA722E" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>1.Manual Upload takes place when the Boundary Apps are facing downtime.
+2.Create, Change and expirations will take place.</text>
+      </textAnnotation>
+      <textAnnotation id="sid-B6B7FCD6-2A2E-413F-83DB-E1F031F6E287" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>Process Tower : OTC  Order to Cash
+Process Group: O Order Management
+Process: O-040-030B Maintain Pricing Tables (IFL)
+
+</text>
+      </textAnnotation>
+      <textAnnotation id="sid-F1999967-043A-4BAA-8DD6-5984FD6B37B5" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioLabel bold="" fill="" fontFamily="" fontSize="24.0" italic="" ref="text-left"/>
+            <signavio:signavioLabel bold="" fill="" fontFamily="" fontSize="24.0" italic="" ref="text-right"/>
+         </extensionElements>
+         <text>No specific requirement for IFL</text>
+      </textAnnotation>
+      <group categoryValueRef="sid-0d26d869-7900-4cd2-84b5-b834df6c8259" id="sid-575C6C5B-365B-4065-82A2-3E196091919D">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </group>
+      <textAnnotation id="sid-01B4C3B1-F992-4264-90F7-5B9C9BFEA474" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioLabel bold="true" fill="#ff0000" fontFamily="" fontSize="24.0" italic="" ref="text-left"/>
+            <signavio:signavioLabel bold="true" fill="#ff0000" fontFamily="" fontSize="24.0" italic="" ref="text-right"/>
+         </extensionElements>
+         <text>Flow has been migrated to BIC. Please inform Process Steward: Michel Al, Shawi &lt;michel.al.shawi@intel.com&gt;, and BPM Champion: Rebeca, Meza Redondo &lt;rebeca.meza.redondo@intel.com&gt; of any changes that occur within the flow from now onwards so that changes can be accurately reflected within BIC</text>
+      </textAnnotation>
+   </process>
+   <bpmndi:BPMNDiagram id="sid-53e715e8-21c2-4e8a-8f6f-b82c0c814e93" name="O-040-030_Maintain Pricing Tables">
+      <bpmndi:BPMNPlane bpmnElement="sid-5b20f6fb-5e4a-4d5b-ad7f-64f4719bc82d" id="sid-03d6102a-2ce4-444d-97a1-25b89b553cbd">
+         <bpmndi:BPMNShape bpmnElement="sid-2C092486-1F50-409B-A68A-F575E69F6987" id="sid-2C092486-1F50-409B-A68A-F575E69F6987_gui" isHorizontal="true">
+            <omgdc:Bounds height="675.7475632943772" width="2263.9566104757164" x="47.05882328986285" y="627.9965679845152"/>
+            <bpmndi:BPMNLabel labelStyle="sid-78ea5a70-bc15-4dcf-b159-616d44d130cf">
+               <omgdc:Bounds height="23.914283752441406" width="12.000000000000007" x="52.05903456259613" y="953.9132077554831"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-A6BBC1DC-EB31-4A7F-BA46-34BCAA49E786" id="sid-A6BBC1DC-EB31-4A7F-BA46-34BCAA49E786_gui" isHorizontal="true">
+            <omgdc:Bounds height="542.094363682071" width="2233.9566104757164" x="77.05882328986286" y="761.6497675968213"/>
+            <bpmndi:BPMNLabel labelStyle="sid-78ea5a70-bc15-4dcf-b159-616d44d130cf">
+               <omgdc:Bounds height="37.79999923706055" width="12.0" x="83.05863851913983" y="1013.7969498193265"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-E3AF2A23-8E71-4F1D-A84C-B60A56623D64" id="sid-E3AF2A23-8E71-4F1D-A84C-B60A56623D64_gui" isHorizontal="true">
+            <omgdc:Bounds height="133.65319961230614" width="2233.9566104757164" x="77.05882328986286" y="627.9965679845152"/>
+            <bpmndi:BPMNLabel labelStyle="sid-78ea5a70-bc15-4dcf-b159-616d44d130cf">
+               <omgdc:Bounds height="82.54285430908203" width="12.000000000000014" x="83.05922696271368" y="653.5517406361273"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="_47b3b984-2696-4147-9fc6-52bf9a63960e" id="_47b3b984-2696-4147-9fc6-52bf9a63960e_gui">
+            <omgdc:Bounds height="98.00000000000057" width="127.99999999999955" x="1909.3073825641357" y="901.1017080969197"/>
+            <bpmndi:BPMNLabel labelStyle="sid-78ea5a70-bc15-4dcf-b159-616d44d130cf">
+               <omgdc:Bounds height="24.0" width="94.88571166992188" x="1925.8645267291747" y="936.1017080969197"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-5343F50A-4074-4EF4-BBB2-AF1839C42096" id="sid-5343F50A-4074-4EF4-BBB2-AF1839C42096_gui">
+            <omgdc:Bounds height="30.00000000000003" width="29.999999999999545" x="2160.894349106821" y="935.1016931086054"/>
+            <bpmndi:BPMNLabel labelStyle="sid-457cd8a7-1e68-4eac-9c5d-c5635ba8b015">
+               <omgdc:Bounds height="22.0" width="132.94285583496094" x="2109.4229211893407" y="967.1016931086054"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-904BB0BB-0A6C-4DC2-A3C6-57181FF8B416" id="sid-904BB0BB-0A6C-4DC2-A3C6-57181FF8B416_gui">
+            <omgdc:Bounds height="98.0000000000004" width="128.0" x="513.0644766723148" y="1130.6601535467519"/>
+            <bpmndi:BPMNLabel labelStyle="sid-78ea5a70-bc15-4dcf-b159-616d44d130cf">
+               <omgdc:Bounds height="24.0" width="105.68571472167969" x="524.2216193114749" y="1165.6601535467519"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-41D12A49-4FAF-4E5A-8922-A30154FA225B" id="sid-41D12A49-4FAF-4E5A-8922-A30154FA225B_gui" isMarkerVisible="true">
+            <omgdc:Bounds height="40.000000000000114" width="39.999999999999545" x="1745.7204160214503" y="930.101714472515"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-32A1CBE1-54F7-451C-998B-AD5445AC3767" id="sid-32A1CBE1-54F7-451C-998B-AD5445AC3767_gui">
+            <omgdc:Bounds height="98.00000000000045" width="128.00000000000114" x="1494.1334494787636" y="901.1016998523143"/>
+            <bpmndi:BPMNLabel labelStyle="sid-78ea5a70-bc15-4dcf-b159-616d44d130cf">
+               <omgdc:Bounds height="24.0" width="108.77142333984375" x="1503.7477378088417" y="936.1016998523143"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-3EFCF661-AB0E-42EA-A7FA-A32682B074D9" id="sid-3EFCF661-AB0E-42EA-A7FA-A32682B074D9_gui">
+            <omgdc:Bounds height="98.00000000000045" width="128.0" x="990.9595163933925" y="901.1016998523143"/>
+            <bpmndi:BPMNLabel labelStyle="sid-78ea5a70-bc15-4dcf-b159-616d44d130cf">
+               <omgdc:Bounds height="48.0" width="94.88571166992188" x="1007.5166605584316" y="924.1016998523143"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-C31B072F-AE15-473B-9011-73DEBDAF431F" id="sid-C31B072F-AE15-473B-9011-73DEBDAF431F_gui">
+            <omgdc:Bounds height="98.00000000000045" width="128.00000000000114" x="739.3725498507058" y="901.1016998523143"/>
+            <bpmndi:BPMNLabel labelStyle="sid-78ea5a70-bc15-4dcf-b159-616d44d130cf">
+               <omgdc:Bounds height="36.0" width="96.42857360839844" x="755.1582630465066" y="930.1016998523143"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-BA6C28A8-06EF-4B64-B04B-DF883A02954D" id="sid-BA6C28A8-06EF-4B64-B04B-DF883A02954D_gui">
+            <omgdc:Bounds height="98.00000000000023" width="128.00000000000045" x="1242.5464829360778" y="901.1016998523144"/>
+            <bpmndi:BPMNLabel labelStyle="sid-78ea5a70-bc15-4dcf-b159-616d44d130cf">
+               <omgdc:Bounds height="36.0" width="94.88571166992188" x="1259.103627101117" y="930.1016998523144"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-A16A84DE-9DC5-4C0D-B10F-9AFDE5F9C5F0" id="sid-A16A84DE-9DC5-4C0D-B10F-9AFDE5F9C5F0_gui">
+            <omgdc:Bounds height="98.00000000000017" width="128.00000000000205" x="1494.1334494787636" y="1130.660115097177"/>
+            <bpmndi:BPMNLabel labelStyle="sid-78ea5a70-bc15-4dcf-b159-616d44d130cf">
+               <omgdc:Bounds height="24.0" width="108.77142333984375" x="1503.7477378088417" y="1165.660115097177"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-F2989CFB-776D-4296-8137-8A8314ED9AAC" id="sid-F2989CFB-776D-4296-8137-8A8314ED9AAC_gui">
+            <omgdc:Bounds height="97.99999999999994" width="128.0" x="990.9595163933925" y="1130.6600766476038"/>
+            <bpmndi:BPMNLabel labelStyle="sid-78ea5a70-bc15-4dcf-b159-616d44d130cf">
+               <omgdc:Bounds height="48.0" width="94.88571166992188" x="1007.5166605584316" y="1153.6600766476038"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-1452B198-8A68-4A32-94F8-DB8EC42ADEA1" id="sid-1452B198-8A68-4A32-94F8-DB8EC42ADEA1_gui">
+            <omgdc:Bounds height="98.00000000000017" width="128.00000000000114" x="739.3725498507058" y="1130.6600574228178"/>
+            <bpmndi:BPMNLabel labelStyle="sid-78ea5a70-bc15-4dcf-b159-616d44d130cf">
+               <omgdc:Bounds height="36.0" width="96.42857360839844" x="755.1582630465066" y="1159.6600574228178"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-3F4AE150-323D-4F17-A5F3-8D24D0928A64" id="sid-3F4AE150-323D-4F17-A5F3-8D24D0928A64_gui">
+            <omgdc:Bounds height="97.99999999999994" width="128.00000000000045" x="1242.5464829360778" y="1130.66009587239"/>
+            <bpmndi:BPMNLabel labelStyle="sid-78ea5a70-bc15-4dcf-b159-616d44d130cf">
+               <omgdc:Bounds height="36.0" width="94.88571166992188" x="1259.103627101117" y="1159.66009587239"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-3E4C2CA4-5ED3-4ED7-A5F0-9361003F9EF2" id="sid-3E4C2CA4-5ED3-4ED7-A5F0-9361003F9EF2_gui">
+            <omgdc:Bounds height="98.00000000000034" width="128.00000000000125" x="270.873870363542" y="901.101714472515"/>
+            <bpmndi:BPMNLabel labelStyle="sid-78ea5a70-bc15-4dcf-b159-616d44d130cf">
+               <omgdc:Bounds height="24.0" width="94.88571166992188" x="287.43101452858104" y="936.101714472515"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-5C973583-9C8D-4325-8615-1BA67B8C4BD3" id="sid-5C973583-9C8D-4325-8615-1BA67B8C4BD3_gui">
+            <omgdc:Bounds height="29.17009153985782" width="29.202805580249333" x="319.873870363542" y="1164.6601795977635"/>
+            <bpmndi:BPMNLabel labelStyle="sid-457cd8a7-1e68-4eac-9c5d-c5635ba8b015">
+               <omgdc:Bounds height="11.0" width="88.39286041259766" x="290.67744015724315" y="1196.6601795977635"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-4A188E90-B60F-4A8A-9B6C-CF35E7A77609" id="sid-4A188E90-B60F-4A8A-9B6C-CF35E7A77609_gui">
+            <omgdc:Bounds height="30.0" width="30.000000000000227" x="319.8738603776137" y="689.7871912596686"/>
+            <bpmndi:BPMNLabel labelStyle="sid-457cd8a7-1e68-4eac-9c5d-c5635ba8b015">
+               <omgdc:Bounds height="11.0" width="126.57858276367188" x="271.5845689957778" y="669.7871912596686"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-78450995-B696-4608-91D4-07C8C605AE36" id="sid-78450995-B696-4608-91D4-07C8C605AE36_gui">
+            <omgdc:Bounds height="57.94599999999991" width="63.87500000000091" x="771.3726100981805" y="1029.3244309949214"/>
+            <bpmndi:BPMNLabel labelStyle="sid-457cd8a7-1e68-4eac-9c5d-c5635ba8b015">
+               <omgdc:Bounds height="12.0" width="75.60000610351562" x="839.3726100981805" y="1050.3244309949214"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-75B257E9-FE13-418F-98F9-678A7016506B" id="sid-75B257E9-FE13-418F-98F9-678A7016506B_gui">
+            <omgdc:Bounds height="57.94599999999991" width="63.874999999999545" x="1274.5464425460307" y="1029.3244309949214"/>
+            <bpmndi:BPMNLabel labelStyle="sid-457cd8a7-1e68-4eac-9c5d-c5635ba8b015">
+               <omgdc:Bounds height="12.0" width="75.60000610351562" x="1342.5464425460307" y="1050.3244309949214"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-D7D82A7F-B105-4B59-B3FE-9E05CAACE546" id="sid-D7D82A7F-B105-4B59-B3FE-9E05CAACE546_gui">
+            <omgdc:Bounds height="57.94599999999991" width="63.87500000000114" x="1526.1334953177513" y="1029.3244309949214"/>
+            <bpmndi:BPMNLabel labelStyle="sid-457cd8a7-1e68-4eac-9c5d-c5635ba8b015">
+               <omgdc:Bounds height="12.0" width="75.60000610351562" x="1594.1334953177513" y="1050.3244309949214"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-BD500788-594A-4880-AA87-D69256BF426E" id="sid-BD500788-594A-4880-AA87-D69256BF426E_gui">
+            <omgdc:Bounds height="57.94600000000014" width="63.874999999999545" x="1941.3073637910295" y="1044.101700541098"/>
+            <bpmndi:BPMNLabel labelStyle="sid-457cd8a7-1e68-4eac-9c5d-c5635ba8b015">
+               <omgdc:Bounds height="12.0" width="75.6000061035154" x="2022.5073607392717" y="1056.101700541098"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-D9DB57D8-766E-40B4-BF49-13E916C40579" id="sid-D9DB57D8-766E-40B4-BF49-13E916C40579_gui">
+            <omgdc:Bounds height="57.94599999999991" width="63.875000000000455" x="1022.9594813340816" y="1029.3244309949214"/>
+            <bpmndi:BPMNLabel labelStyle="sid-457cd8a7-1e68-4eac-9c5d-c5635ba8b015">
+               <omgdc:Bounds height="12.0" width="75.60000610351562" x="1090.9594813340816" y="1050.3244309949214"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-DBCE5F4D-65A3-4343-95D3-B5C3D00191DE" id="sid-DBCE5F4D-65A3-4343-95D3-B5C3D00191DE_gui">
+            <omgdc:Bounds height="57.94600000000014" width="63.87500000000023" x="545.0644676598155" y="1029.3244240834279"/>
+            <bpmndi:BPMNLabel labelStyle="sid-457cd8a7-1e68-4eac-9c5d-c5635ba8b015">
+               <omgdc:Bounds height="12.0" width="75.60000610351562" x="628.2644646080577" y="1047.3244240834279"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-8A17B21F-C5D1-4C35-8E42-50972884C8BF" id="sid-8A17B21F-C5D1-4C35-8E42-50972884C8BF_gui">
+            <omgdc:Bounds height="44.28489642109139" width="182.83062680577916" x="735.5351285322188" y="811.2484909068106"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-33307F1C-C386-44DE-9BA2-EAD6EB425DB0" id="sid-33307F1C-C386-44DE-9BA2-EAD6EB425DB0_gui">
+            <omgdc:Bounds height="57.946000000000026" width="63.875" x="141.9988650174992" y="921.1016931086054"/>
+            <bpmndi:BPMNLabel labelStyle="sid-457cd8a7-1e68-4eac-9c5d-c5635ba8b015">
+               <omgdc:Bounds height="12.0" width="25.45714569091797" x="161.27029217204023" y="983.1016931086054"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-E667B012-2227-4ADE-9DBB-73E7DDCA722E" id="sid-E667B012-2227-4ADE-9DBB-73E7DDCA722E_gui">
+            <omgdc:Bounds height="71.83000552539056" width="167.5949417699132" x="250.8738650174992" y="1037.1016819465767"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-B6B7FCD6-2A2E-413F-83DB-E1F031F6E287" id="sid-B6B7FCD6-2A2E-413F-83DB-E1F031F6E287_gui">
+            <omgdc:Bounds height="70.1916292643491" width="458.92462420412517" x="47.05882328986285" y="369.99999888738006"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-F1999967-043A-4BAA-8DD6-5984FD6B37B5" id="sid-F1999967-043A-4BAA-8DD6-5984FD6B37B5_gui">
+            <omgdc:Bounds height="57.94600000000014" width="393.12388558487527" x="79.0588209337264" y="485.7438611798466"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-575C6C5B-365B-4065-82A2-3E196091919D" id="sid-575C6C5B-365B-4065-82A2-3E196091919D_gui">
+            <omgdc:Bounds height="103.25270246116304" width="455.98344898410414" x="49.99999850988388" y="462.7438611798466"/>
+            <bpmndi:BPMNLabel labelStyle="sid-457cd8a7-1e68-4eac-9c5d-c5635ba8b015">
+               <omgdc:Bounds height="12.0" width="54.771427154541016" x="53.99999850988388" y="464.7438611798466"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-01B4C3B1-F992-4264-90F7-5B9C9BFEA474" id="sid-01B4C3B1-F992-4264-90F7-5B9C9BFEA474_gui">
+            <omgdc:Bounds height="219.98836234959396" width="535.1025833566819" x="39.999999701976776" y="127.45940256002218"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge bpmnElement="sid-CAD0A70F-0BA2-4FF2-B3F4-364F0B18FFE7" id="sid-CAD0A70F-0BA2-4FF2-B3F4-364F0B18FFE7_gui">
+            <omgdi:waypoint x="1973.2824712415652" y="999.1017080969202"/>
+            <omgdi:waypoint x="1973.2595935001889" y="1044.101700541098"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-63BB6C8F-B633-4D9E-AF70-7E12DFA3C788" id="sid-63BB6C8F-B633-4D9E-AF70-7E12DFA3C788_gui">
+            <omgdi:waypoint x="1785.7204160214499" y="950.533573225554"/>
+            <omgdi:waypoint x="1909.3073825641357" y="950.10170809692"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-F983AB10-F890-4A38-9DF0-5561BA8A0DA1" id="sid-F983AB10-F890-4A38-9DF0-5561BA8A0DA1_gui">
+            <omgdi:waypoint x="1370.5464829360783" y="950.1016998523145"/>
+            <omgdi:waypoint x="1494.1334494787636" y="950.1016998523145"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-89BD09F8-E37F-4B9E-A872-74C79E3798AE" id="sid-89BD09F8-E37F-4B9E-A872-74C79E3798AE_gui">
+            <omgdi:waypoint x="1118.9595163933925" y="950.1016998523145"/>
+            <omgdi:waypoint x="1242.5464829360778" y="950.1016998523145"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-6CBC4F5C-52D5-40BD-8C76-3D800BD29AE1" id="sid-6CBC4F5C-52D5-40BD-8C76-3D800BD29AE1_gui">
+            <omgdi:waypoint x="867.372549850707" y="950.1016998523145"/>
+            <omgdi:waypoint x="990.9595163933925" y="950.1016998523145"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-F5226EF6-7330-4CFF-978A-79A81B2631D7" id="sid-F5226EF6-7330-4CFF-978A-79A81B2631D7_gui">
+            <omgdi:waypoint x="803.3442719524803" y="999.1016998523147"/>
+            <omgdi:waypoint x="803.326830415432" y="1029.3244309949214"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-6F28C6F4-6566-4BB0-85E4-1FCD69CB99C4" id="sid-6F28C6F4-6566-4BB0-85E4-1FCD69CB99C4_gui">
+            <omgdi:waypoint x="1054.93119533235" y="999.1016998523147"/>
+            <omgdi:waypoint x="1054.9137271728896" y="1029.3244309949214"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-37D968A3-C5D1-4042-9C22-04509BCFA8CA" id="sid-37D968A3-C5D1-4042-9C22-04509BCFA8CA_gui">
+            <omgdi:waypoint x="1306.518159460836" y="999.1016998523146"/>
+            <omgdi:waypoint x="1306.5006898123202" y="1029.3244309949214"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-618C0CDF-2939-409B-ADB8-6B20082F337F" id="sid-618C0CDF-2939-409B-ADB8-6B20082F337F_gui">
+            <omgdi:waypoint x="1370.5464829360783" y="1179.6601007628913"/>
+            <omgdi:waypoint x="1494.1334494787636" y="1179.6601102066757"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-D5B80E12-CEF1-4E9F-B7C9-EADFE3CC4F02" id="sid-D5B80E12-CEF1-4E9F-B7C9-EADFE3CC4F02_gui">
+            <omgdi:waypoint x="1118.9595163933925" y="1179.6600815381048"/>
+            <omgdi:waypoint x="1242.5464829360778" y="1179.660090981889"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-671B2169-6015-49ED-8018-58ABF0A605E5" id="sid-671B2169-6015-49ED-8018-58ABF0A605E5_gui">
+            <omgdi:waypoint x="867.372549850707" y="1179.6600623133188"/>
+            <omgdi:waypoint x="990.9595163933925" y="1179.6600717571027"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-E7F8C85B-28FA-4986-8642-DED4F4F5BBF5" id="sid-E7F8C85B-28FA-4986-8642-DED4F4F5BBF5_gui">
+            <omgdi:waypoint x="803.3473398831587" y="1130.6600574228178"/>
+            <omgdi:waypoint x="803.3250163918495" y="1087.2704309949213"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-2B176CB9-3207-4793-B557-185046271CD4" id="sid-2B176CB9-3207-4793-B557-185046271CD4_gui">
+            <omgdi:waypoint x="1054.934267949856" y="1130.6600766476038"/>
+            <omgdi:waypoint x="1054.911910378053" y="1087.2704309949213"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-226D4D74-2C8B-4635-B3DA-13F6483290CD" id="sid-226D4D74-2C8B-4635-B3DA-13F6483290CD_gui">
+            <omgdi:waypoint x="1306.5212323442636" y="1130.66009587239"/>
+            <omgdi:waypoint x="1306.4988728602475" y="1087.2704309949213"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-1BB23378-9FAF-4277-9883-483357BDD100" id="sid-1BB23378-9FAF-4277-9883-483357BDD100_gui">
+            <omgdi:waypoint x="1558.1324119606572" y="999.1016998523147"/>
+            <omgdi:waypoint x="1558.1010553298602" y="1029.3244309949214"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-DAA25668-42DA-41DE-A5F3-89CAAF8D9BA8" id="sid-DAA25668-42DA-41DE-A5F3-89CAAF8D9BA8_gui">
+            <omgdi:waypoint x="641.0644766723148" y="1179.6601263628709"/>
+            <omgdi:waypoint x="739.3725498507058" y="1179.660084606699"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-03DC1CC7-A37A-458F-A509-E2CB4FDFAA15" id="sid-03DC1CC7-A37A-458F-A509-E2CB4FDFAA15_gui">
+            <omgdi:waypoint x="577.0392387625709" y="1130.6601535467519"/>
+            <omgdi:waypoint x="577.0168904753056" y="1087.2704240834282"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-F4E6AA4C-C4A7-4D31-BF70-97E988BAD2C6" id="sid-F4E6AA4C-C4A7-4D31-BF70-97E988BAD2C6_gui">
+            <omgdi:waypoint x="1558.070995317752" y="1130.660115097177"/>
+            <omgdi:waypoint x="1558.070995317752" y="1087.2704309949213"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-A2F5F284-E05E-46ED-A2B3-037051CE080E" id="sid-A2F5F284-E05E-46ED-A2B3-037051CE080E_gui">
+            <omgdi:waypoint x="349.0766759437913" y="1179.6601780700516"/>
+            <omgdi:waypoint x="513.0644766723148" y="1179.6601604308537"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-A7E2A3B9-7B72-4AD0-8930-CF4CC71BEFFD" id="sid-A7E2A3B9-7B72-4AD0-8930-CF4CC71BEFFD_gui">
+            <omgdi:waypoint x="2037.3073825641352" y="950.101703361906"/>
+            <omgdi:waypoint x="2160.894349106821" y="950.1016942183744"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-5F282C68-4C10-4D78-9819-50C77728951B" id="sid-5F282C68-4C10-4D78-9819-50C77728951B_gui">
+            <omgdi:waypoint x="335.5884955766391" y="1108.9316874719673"/>
+            <omgdi:waypoint x="335.02542708240134" y="1164.6601795977635"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-AFDC071C-BFBF-4D55-AA2C-9CDD2504BAE1" id="sid-AFDC071C-BFBF-4D55-AA2C-9CDD2504BAE1_gui">
+            <omgdi:waypoint x="270.873870363542" y="950.0909688897095"/>
+            <omgdi:waypoint x="205.8738650174992" y="950.080055406275"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-172AB1E7-9497-4E97-8FA3-F10BEB96A2A5" id="sid-172AB1E7-9497-4E97-8FA3-F10BEB96A2A5_gui">
+            <omgdi:waypoint x="334.8738609882133" y="719.7871912596686"/>
+            <omgdi:waypoint x="334.8738683689175" y="901.101714472515"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-97D0BE55-B133-4DD1-B31B-82760FB6C981" id="sid-97D0BE55-B133-4DD1-B31B-82760FB6C981_gui">
+            <omgdi:waypoint x="1622.1334494787648" y="950.1017043597884"/>
+            <omgdi:waypoint x="1745.7204160214503" y="950.1017130639295"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-B7740360-EAAB-4815-B1AB-670AA610A1C8" id="sid-B7740360-EAAB-4815-B1AB-670AA610A1C8_gui">
+            <omgdi:waypoint x="1622.1334494787657" y="1179.660115097177"/>
+            <omgdi:waypoint x="1765.7204160214505" y="1179.660115097177"/>
+            <omgdi:waypoint x="1765.72041602145" y="970.1017144725151"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-7ED63D28-DD73-4AFF-BFBF-6E9163695BA8" id="sid-7ED63D28-DD73-4AFF-BFBF-6E9163695BA8_gui">
+            <omgdi:waypoint x="398.87387036354323" y="950.1017124752996"/>
+            <omgdi:waypoint x="739.3725498507058" y="950.1017018495301"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-F21440FF-ACCD-43BF-8AB6-6E33919300A6" id="sid-F21440FF-ACCD-43BF-8AB6-6E33919300A6_gui">
+            <omgdi:waypoint x="803.3725498507064" y="901.1016998523143"/>
+            <omgdi:waypoint x="803.3725498507064" y="855.533387327902"/>
+         </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+      <bpmndi:BPMNLabelStyle id="sid-457cd8a7-1e68-4eac-9c5d-c5635ba8b015">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="11.0"/>
+      </bpmndi:BPMNLabelStyle>
+      <bpmndi:BPMNLabelStyle id="sid-78ea5a70-bc15-4dcf-b159-616d44d130cf">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="12.0"/>
+      </bpmndi:BPMNLabelStyle>
+   </bpmndi:BPMNDiagram>
+</definitions>

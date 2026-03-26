@@ -1,0 +1,1461 @@
+<div style="text-align:center; padding-top:20px;">
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <h1 style="font-size:36px; margin-top:24px;">LO-190 — Ship/Deliver Orders - OTC (IP)</h1>
+  <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
+  <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
+  Capability LO-190 · LO Logistics Management Outbound - OTC (IP)</p>
+  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
+  Generated: March 2026<br/>
+  Sajiv Francis</p>
+  <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
+</div>
+
+<style>
+@media print {
+  @page { margin: 0.75in; }
+  .mermaid { page-break-inside: avoid; overflow: hidden; }
+  pre, table { page-break-inside: avoid; }
+  h2, h3, h4 { page-break-after: avoid; }
+}
+.mermaid { overflow-x: auto; overflow-y: auto; }
+.mermaid svg { height: auto !important; }
+.page-footer {
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 20px;
+  background: #fff;
+}
+@media print {
+  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
+</style>
+
+<div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+<a id="toc"></a>
+
+## Table of Contents
+
+1. [Executive Summary](#1-executive-summary)
+2. [Business Context & Objectives](#2-business-context--objectives)
+   - 2.1 [Classification](#21-classification)
+   - 2.2 [Business Drivers](#22-business-drivers)
+   - 2.3 [Success Criteria](#23-success-criteria)
+   - 2.4 [Companion Documents](#24-companion-documents)
+3. [Business Architecture (TOGAF "B")](#3-business-architecture-togaf-b)
+   - 3.1 [Business Process Overview](#31-business-process-overview)
+   - 3.2 [Business Process Diagrams](#32-business-process-diagrams)
+   - 3.3 [Business Roles & Responsibilities](#33-business-roles--responsibilities)
+4. [Data Architecture (TOGAF "D")](#4-data-architecture-togaf-d)
+   - 4.1 [Data Entities & Ownership](#41-data-entities--ownership)
+   - 4.2 [Data Flow Diagrams](#42-data-flow-diagrams)
+   - 4.3 [Data Lineage](#43-data-lineage)
+   - 4.4 [RICEFW Data Objects](#44-ricefw-data-objects)
+   - 4.5 [Data Governance & Quality](#45-data-governance--quality)
+5. [Application Architecture (TOGAF "A")](#5-application-architecture-togaf-a)
+   - 5.1 [Current-State Application Landscape](#51-current-state--current-state-application-landscape)
+   - 5.2 [Future-State Application Landscape](#52-future-state--future-state-application-landscape)
+   - 5.3 [Change Impact Summary](#53-change-impact-summary)
+   - 5.4 [Component Overview](#54-component-overview)
+   - 5.5 [RICEFW Inventory](#55-ricefw-inventory)
+   - 5.6 [Integration Patterns](#56-integration-patterns)
+6. [Technology Architecture (TOGAF "T")](#6-technology-architecture-togaf-t)
+   - 6.1 [Platform & Infrastructure](#61-platform--infrastructure)
+   - 6.2 [SAP Development Object Status](#62-sap-development-object-status)
+   - 6.3 [NFRs & Design Principles](#63-nfrs--design-principles)
+   - 6.4 [Security & Governance](#64-security--governance)
+7. [Project Context](#7-project-context)
+   - 7.1 [Project Roadmap & Go-Live Plan](#71-project-roadmap--go-live-plan)
+   - 7.2 [RAID Log](#72-raid-log)
+   - 7.3 [Recommendations & Next Steps](#73-recommendations--next-steps)
+
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+## 1. Executive Summary
+
+This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **LO-190 Ship/Deliver Orders - OTC (IP)** within the IAO program. It includes 17 BPMN process diagram(s) in Section 3.
+| Dimension | Value |
+|-----------|-------|
+| **Tower** | Order To Cash (IP) (OTC-IP) |
+| **Process Group** | LO Logistics Management Outbound - OTC (IP) |
+| **Capability** | LO-190 - Ship/Deliver Orders - OTC (IP) |
+| **Release** | Release 3 |
+| **Total Systems** | 0 |
+| **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
+| **RICEFW Objects** | 6 Conversions, 3 Enhancements, 1 Workflows |
+**Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
+
+> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
+
+<div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+## 2. Business Context & Objectives
+
+### 2.1 Classification
+
+| Level | Value |
+|-------|-------|
+| **L0 Tower** | Order To Cash (IP) |
+| **L1 Process** | LO Logistics Management Outbound - OTC (IP) |
+| **L2 Capability** | LO-190 - Ship/Deliver Orders - OTC (IP) |
+
+### 2.2 Business Drivers
+
+| # | Driver | Description | Strategic Alignment | Priority |
+|---|--------|-------------|---------------------|----------|
+| 1 | IP Order Management Transformation | Transform Intel Products order management onto S/4 HANA with integrated pricing and ATP | IDM 2.0 Products Revenue | High |
+| 2 | Customer Experience Improvement | Reduce order processing time and improve order visibility for IP customers | Customer Centricity | High |
+| 3 | Returns & Rebate Automation | Automate returns processing, rebate management, and chargeback handling | Revenue Assurance | Medium |
+| 4 | LO-190 Process Migration | Migrate Ship/Deliver Orders - OTC (IP) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Order Management (Intel Products) | High |
+
+<div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+### 2.3 Success Criteria
+
+| Metric | Target | Measure | Baseline | Owner |
+|--------|--------|---------|----------|-------|
+| Order Processing Time | < 2 hours | Time from order receipt to order confirmation | 6 hours (current) | Order Management Lead |
+| Customer Credit Decision Time | < 15 minutes | Automated credit check and approval for standard orders | 2 hours (manual) | Credit Manager |
+| Returns Processing Cycle | < 3 business days | End-to-end returns receipt to credit memo issuance | 7 business days (current) | Returns Manager |
+| LO-190 Migration Completeness | 100% flow chains validated | All 0 flow chains verified in target state | 0% (pre-migration) | Tower Architect |
+
+### 2.4 Companion Documents
+
+| Document | Description |
+|----------|-------------|
+| **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
+| **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
+
+<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+## 3. Business Architecture (TOGAF "B")
+
+### 3.1 Business Process Overview
+
+This capability includes **17 business process(es)** modeled in BPMN 2.0, covering the end-to-end workflow for LO-190 Ship/Deliver Orders - OTC (IP).
+
+| # | Step ID | Process Name | Lanes | Tasks | Gateways |
+|---|---------|--------------|-------|-------|----------|
+| 1 | LO-190-010_Perform_Load_Consolidation_-_OTC_(IP) | LO-190-010_Perform_Load_Consolidation_-_OTC_(IP) | Warehouse Operator | 3 | 0 |
+| 2 | LO-190-020_Receive_Truck,_Rail_Car,_Barge,_etc._-_OTC_(IP) | LO-190-020_Receive_Truck,_Rail_Car,_Barge,_etc._-_OTC_(IP) | Warehouse Operator | 1 | 0 |
+| 3 | LO-190-030_Load_Vehicle_-_OTC_(IP) | LO-190-030_Load_Vehicle_-_OTC_(IP) | Warehouse Operator | 2 | 0 |
+| 4 | LO-190-040_Check_and_Weigh_Shipment_-_OTC_(IP) | LO-190-040_Check_and_Weigh_Shipment_-_OTC_(IP) | Warehouse Operator | 2 | 0 |
+| 5 | LO-190-060_Validate_and_Record_Shipping_Information_-_OTC_(IP) | LO-190-060_Validate_and_Record_Shipping_Information_-_OTC_(IP) | Warehouse Operator | 11 | 4 |
+| 6 | LO-190-070_Monitor_Carrier_Performance_on_Site_-_OTC_(IP) | LO-190-070_Monitor_Carrier_Performance_on_Site_-_OTC_(IP) | Load Planner | 10 | 4 |
+| 7 | LO-190-080_Record_Carrier_Information_-_OTC_(IP) | LO-190-080_Record_Carrier_Information_-_OTC_(IP) | Load Planner | 15 | 3 |
+| 8 | LO-190-090_Create_Proforma_Based_Delivery_Notice_-_OTC_(IP) | LO-190-090_Create_Proforma_Based_Delivery_Notice_-_OTC_(IP) | Warehouse Operator | 3 | 2 |
+| 9 | LO-190-100_Ship_Order_-_OTC_(IP) | LO-190-100_Ship_Order_-_OTC_(IP) | Load Planner, Warehouse Operator | 21 | 8 |
+| 10 | LO-190-110_Update_Inventory_Status_-_OTC_(IP) | LO-190-110_Update_Inventory_Status_-_OTC_(IP) | Warehouse Operator | 3 | 0 |
+| 11 | LO-190-120_Send_Advanced_Shipping_Notice_-_OTC_(IP) | LO-190-120_Send_Advanced_Shipping_Notice_-_OTC_(IP) | Load Planner, Warehouse Operator | 7 | 4 |
+| 12 | LO-190-130_Send_Interplant_Shipping_Register_-_OTC_(IP) | LO-190-130_Send_Interplant_Shipping_Register_-_OTC_(IP) | Warehouse Operator | 3 | 0 |
+| 13 | LO-190-150_Deliver_Product_-_OTC_(IP) | LO-190-150_Deliver_Product_-_OTC_(IP) | Customer Business Analyst | 4 | 4 |
+| 14 | LO-190-160_Resolve_Shipping_Issues_-_OTC_(IP) | LO-190-160_Resolve_Shipping_Issues_-_OTC_(IP) | Warehouse Operator | 1 | 0 |
+| 15 | LO-190-170_Receive_Customer_Acknowledgment_of_Shipment_Receipt_and_Discrepancies_-_OTC_(IP) | LO-190-170_Receive_Customer_Acknowledgment_of_Shipment_Receipt_and_Discrepancies_-_OTC_(IP) | Warehouse Operator | 1 | 0 |
+| 16 | LO-190-190_Audit_Shipment_Transportation_Charges_-_OTC_(IP) | LO-190-190_Audit_Shipment_Transportation_Charges_-_OTC_(IP) | Boundary Apps and other source data, Freight Payment Analyst | 10 | 1 |
+| 17 | LO-190-200_Monitor_Shipment_Status_-_OTC_(IP) | LO-190-200_Monitor_Shipment_Status_-_OTC_(IP) | Transportation Planner | 13 | 12 |
+
+### 3.2 Business Process Diagrams
+
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.1 LO-190-010_Perform_Load_Consolidation_-_OTC_(IP) — LO-190-010_Perform_Load_Consolidation_-_OTC_(IP)
+
+**Swim Lanes**: Warehouse Operator | **Tasks**: 3 | **Gateways**: 0
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Warehouse Operator
+        n1["fa:fa-user Manage Truck In/Out"]
+        n2["fa:fa-user Perform Load Consolidation"]
+        n3["fa:fa-user Handover Physical Shipment Per Carrier"]
+        n4["Receive Truck, Rail Car, Barge, etc. - OTC (IP)"]
+        n5["Pack Order Items - OTC (IP)"]
+    end
+    n5 --> n1
+    n1 --> n2
+    n2 --> n3
+    n3 --> n4
+    class n1 userTask
+    class n2 userTask
+    class n3 userTask
+    class n4 startEvt
+    class n5 startEvt
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVMtu2zAQ_BVCQeAWkFs9I1eHArZsoQFSJKjT9tD0sJaWFhGKNEjKiRv430v6GafJqTwI2tHszO6K5JNXyRq93Ds_f2KCmZw89UyDLfZy0puBxp5PtsAPUAxmHHXPcagUZsr-bGhhsnh0NIeV0DK-cugU5xLJ90ufDG0i94kGofsaFaM9v7dQrAW1KiSXyrHPcEADunHbfRpJVaM6EoIgC6vUpnIm8AjHWZIlpcvTWElRn4jSlA5o1Vu74rh8qBpQZlN-p_ErPP5ktWlsTIFrtJzGtPwKZshdj0Z1Dqs6tdwPg2nnI-zApguomJhbPAkspEDcH6E0WK_J-vz8ThxMye34ThC7Kg5aj5ESbSw8WRpCGef5WVIMyzTwtVHyHvOzaJKN48ivXCe5bT3w3XD7D8jmjclnktc7av_B9ZBHi0dfPeZR4KuVfb7wQlEfnYqLaBANDk6jLCzCYu9EKf0vJztXdQv6fuc1icuoHB-8wvQiLYJ_9fZtjpNsGL6cE6olq_CZaFmW8eQ4qslFGgZvi47K-CIoXojOweADrI6Cn4rkIFimWRlmbwpu_V5W2c1ulKz2gvEkLdODYDYKy2H0pmAyDJPBrkKrM1ewaMhPUNhIO05yvUAFRqotwS0R_rrzKOQU-m7e5CsImCO5VV11Ty7Fx-vO3Hm_n_GjU_4NKipVS64k1KSQQkvOajBMitO0-DTtC4haLl1-s9KsAk6mDVu0KIxTJAUoxVCdSiRW4htWyJa7-nzyDRh3ZJ-MQM3tEUNTfSB9cn1bkHeXN-9PBVIrcAO2r2t3G5BLg61-jWy3-PZFpKTf_2xntAvDbRjtwmgbxrsw3obJs9_pUvbb-ASOXofj1-HkcMJP4PQAe77XomqB1V7-5G2uWHsN10ih48Zb-x50Rk5XovLyzVXkdQv7k3DMwO6Qdguu_wJHvdLn" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.2 LO-190-020_Receive_Truck,_Rail_Car,_Barge,_etc._-_OTC_(IP) — LO-190-020_Receive_Truck,_Rail_Car,_Barge,_etc._-_OTC_(IP)
+
+**Swim Lanes**: Warehouse Operator | **Tasks**: 1 | **Gateways**: 0
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Warehouse Operator
+        n1["fa:fa-user Manage Carrier Information"]
+        n2["Load Vehicle - OTC (IP)"]
+        n3["Perform Load Consolidation - OTC (IP)"]
+    end
+    n3 --> n1
+    n1 --> n2
+    class n1 userTask
+    class n2 startEvt
+    class n3 startEvt
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVF1v2jAU_StWKpRNSqR8EpaHSRCIVKlVkejah7EHk1wTq46NbFNgiP8-m8_C1qf5IYpPzj3n3iPHW6cSNTi50-lsKac6R1tXN9CCmyN3hhW4HjoAL1hSPGOgXMshgusJ_b2nhclibWkWK3FL2caiE5gLQD_uPdQ3hcxDCnPlK5CUuJ67kLTFclMIJqRl30GPBGTvdvw0ELIGeSEEQRZWqSlllMMFjrMkS0pbp6ASvL4SJSnpkcrd2eaYWFUNlnrf_lLBI16_0lo3Zk8wU2A4jW7ZA54BszNqubRYtZTvpzCosj7cBDZZ4IryucGTwEAS87cLlAa7Hdp1OlN-NkXPwylHZlUMKzUEgpQ28OhdI0IZy--Sol-mgae0FG-Q30WjbBhHXmUnyc3ogWfD9VdA543OZ4LVR6q_sjPk0WLtyXUeBZ7cmOeNF_D64lR0o17UOzsNsrAIi5MTIeS_nEyu8hmrt6PXKC6jcnj2CtNuWgR_653GHCZZP7zNCeQ7reCDaFmW8egS1aibhsHnooMy7gbFjegca1jhzUXwW5GcBcs0K8PsU8GD322Xy9lYiuokGI_SMj0LZoOw7EefCib9MOkdOzQ6c4kXDXrFEhph4kRPC5BYC3kg2MXDn1OH4Jxg3-aNHjHHc0AFlpKa7T0nQrZYU8Gnzq8PZZEpexC4Ri_Q0IoB8tHTc4G-3I-_XhNjQxyDtDJoX1AIrgSj9V70X2XmhB1eeIx8_7tp8bgND9voQ14WPJ2TKzg6_xRXcHyGHc9pwYxGayffOvtbydxcNRC8ZNrZeQ5eajHZ8MrJ93-vs1yYlmFIsQm1PYC7P3bElNE=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.3 LO-190-030_Load_Vehicle_-_OTC_(IP) — LO-190-030_Load_Vehicle_-_OTC_(IP)
+
+**Swim Lanes**: Warehouse Operator | **Tasks**: 2 | **Gateways**: 0
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Warehouse Operator
+        n1["Wrap Shipment"]
+        n2["Load Shipment in Truck"]
+        n3["Check and Weigh Shipment - OTC (IP)"]
+        n4["Receive Truck, Rail Car, Barge, etc. - OTC (IP)"]
+    end
+    n4 --> n1
+    n1 --> n2
+    n2 --> n3
+    class n3 startEvt
+    class n4 startEvt
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVF2PmkAU_SsTNoY2wYZPsTw0UZRkkza7WW19qH0Yh4tMhBkyDK7W-N87I4qr7T6VB8I9c-45cw8MB4PwFIzI6PUOlFEZoYMpcyjBjJC5wjWYFmqBH1hQvCqgNjUn40zO6O8TzfGrnaZpLMElLfYancGaA_r-aKGRaiwsVGNW92sQNDMtsxK0xGIf84ILzX6AYWZnJ7fz0piLFMSVYNuhQwLVWlAGV9gL_dBPdF8NhLP0RjQLsmFGzKPeXMFfSY6FPG2_qeEb3i1oKnNVZ7ioQXFyWRZf8QoKPaMUjcZII7aXMGitfZgKbFZhQtla4b6tIIHZ5goF9vGIjr3eknWmaD5ZMqQuUuC6nkCGaqng6VaijBZF9ODHoySwrVoKvoHowZ2GE8-1iJ4kUqPblg63_wp0nctoxYv0TO2_6hkit9pZYhe5tiX26n7nBSy9OsUDd-gOO6dx6MROfHHKsuy_nFSuYo7rzdlr6iVuMum8nGAQxPbfepcxJ344cu5zArGlBN6IJkniTa9RTQeBY78vOk68gR3fia6xhFe8vwp-jv1OMAnCxAnfFWz97nfZrJ4FJxdBbxokQScYjp1k5L4r6I8cf3jeodJZC1zlaIEF5FzFiZ4qEFhy0RL0xZyfS2OhaGiW06oEJpfGrzfLrlr-ynHaLSPK0Fw0ZHPL8xQvzoFsEGYpWug3fm3po6d5jD48Pn-8bfJV0wsQoFtoNS30gmmBYiwsNMZirQ4NSPLpXwLqO2wfmI_6_S9qkHPptKV7Lt229N6ErKruyNzAfgcbllGCKDFNjehgnP5Z6r-WQoabQhpHy8CN5LM9I0Z0OttGU6XqO5hQrCIvW_D4B6Wlmlo=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.4 LO-190-040_Check_and_Weigh_Shipment_-_OTC_(IP) — LO-190-040_Check_and_Weigh_Shipment_-_OTC_(IP)
+
+**Swim Lanes**: Warehouse Operator | **Tasks**: 2 | **Gateways**: 0
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Warehouse Operator
+        n1["fa:fa-user Check and Weigh Shipment"]
+        n2["fa:fa-user Perform 3PV"]
+        n3["Load Vehicle - OTC (IP)"]
+        n4["Perform Load Consolidation - OTC (IP)"]
+    end
+    n1 --> n2
+    n4 --> n1
+    n2 --> n3
+    class n1 userTask
+    class n2 userTask
+    class n3 startEvt
+    class n4 startEvt
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVF1v2jAU_StWKpRNClI-CcvDJAhEqtSpSHTtw9iDSa6JhWNHtilliP8-m8_C2qflIYpPzj3n3uPEW6cUFTiZ0-lsKac6Q1tX19CAmyF3jhW4HjoAz1hSPGegXMshgusp_bOnBXH7ZmkWK3BD2caiU1gIQD_vPTQwhcxDCnPVVSApcT23lbTBcpMLJqRl30Gf-GTvdnw1FLICeSH4fhqUiSlllMMFjtI4jQtbp6AUvLoSJQnpk9Ld2eaYWJc1lnrf_krBD_z2QitdmzXBTIHh1LphD3gOzM6o5cpi5Uq-nsKgyvpwE9i0xSXlC4PHvoEk5ssLlPi7Hdp1OjN-NkVPoxlH5ioZVmoEBClt4PGrRoQylt3F-aBIfE9pKZaQ3YXjdBSFXmknyczovmfD7a6BLmqdzQWrjtTu2s6Qhe2bJ9-y0PfkxtxvvIBXF6e8F_bD_tlpmAZ5kJ-cCCH_5WRylU9YLY9e46gIi9HZK0h6Se7_q3cacxSng-A2J5CvtIR3okVRRONLVONeEvifiw6LqOfnN6ILrGGNNxfBb3l8FiyStAjSTwUPfrddruYTKcqTYDROiuQsmA6DYhB-KhgPgrh_7NDoLCRua_SCJdTCxIkeW5BYC3kg2IsHv2YOwRnBXZs3ymsolwjzCr3YXUPTmrYNcD1zfr8rCq-LJiCJkA2KJs_XvMjwHgSu0DPUtGSAuujxKUdf7idfr4mxIZ5U9gW54EowWmFNBf-ozHyHhwceoG73u-npuIwPy-Pe8_CwjN6FbEtOH9cVHH4MR-cf7AqOz7DjOQ3IBtPKybbO_oQzp2AFBK-Ydnaeg1daTDe8dLL9SeCsWjMYjCg2G9QcwN1febGqZw==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.5 LO-190-060_Validate_and_Record_Shipping_Information_-_OTC_(IP) — LO-190-060_Validate_and_Record_Shipping_Information_-_OTC_(IP)
+
+**Swim Lanes**: Warehouse Operator | **Tasks**: 11 | **Gateways**: 4
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Warehouse Operator
+        n1["fa:fa-user Generate Logistics Report"]
+        n2["fa:fa-user Analyze GCLO LCSR Analysis Dashboard"]
+        n3["fa:fa-user Deliver Finished Goods Report Query"]
+        n4["fa:fa-user Create SAP Route Code Report"]
+        n5["fa:fa-user Visualize ELO EMEA FG Supply Chain"]
+        n6["fa:fa-user View Security High Value Routes"]
+        n7["fa:fa-user View Delinquency Report (BB/CW)"]
+        n8["fa:fa-user Monitor Order Quality Report: FG Key Customers Issue Tracker"]
+        n9["fa:fa-user Monitor Carrier Performance Onsite - Performance Issue Logged in ILM"]
+        n10["fa:fa-user Manage Order Fulfillment Quality - ILM"]
+        n11["fa:fa-user View GLO Freight Loss Database (FLDB) Dashboard"]
+        n12(["fa:fa-play Receive Request to Generate Reports"])
+        n13(["fa:fa-stop Report Generated"])
+        n14{{"fa:fa-code-branch Method?"}}
+        n15{{"fa:fa-arrows-alt inclusiveGateway"}}
+        n16{{"fa:fa-arrows-alt inclusiveGateway"}}
+        n17{{"fa:fa-arrows-alt inclusiveGateway"}}
+    end
+    n12 --> n1
+    n1 --> n14
+    n15 --> n2
+    n15 --> n3
+    n15 --> n4
+    n15 --> n5
+    n15 --> n8
+    n15 --> n7
+    n15 --> n6
+    n16 --> n11
+    n16 --> n10
+    n16 --> n9
+    n5 --> n17
+    n4 --> n17
+    n3 --> n17
+    n2 --> n17
+    n8 --> n17
+    n7 --> n17
+    n6 --> n17
+    n11 --> n17
+    n10 --> n17
+    n9 --> n17
+    n17 --> n13
+    n14 -->|"ECA"| n15
+    n14 -->|"Boundary App"| n16
+    class n1 userTask
+    class n2 userTask
+    class n3 userTask
+    class n4 userTask
+    class n5 userTask
+    class n6 userTask
+    class n7 userTask
+    class n8 userTask
+    class n9 userTask
+    class n10 userTask
+    class n11 userTask
+    class n12 startEvt
+    class n13 endEvt
+    class n14 gateway
+    class n15 gateway
+    class n16 gateway
+    class n17 gateway
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVtFy6jYQ_RWNMxmSGZjaxsbED-2AwWnmkkka0uSh9EHYMtbEWK4kh3C5_HtXGEOsOg9tecDsYffs7tFa0s6IWEwM37i83NGcSh_tOjIla9LxUWeJBel0UQW8YE7xMiOio3wSlss5_X5ws5ziQ7kpLMRrmm0VOicrRtDvd100gsCsiwTORU8QTpNOt1NwusZ8G7CMceV9QYaJmRyyHf8aMx4TfnYwTc-KXAjNaE7OcN9zPCdUcYJELI8bpImbDJOos1fFZWwTpZjLQ_mlIPf445XGMgU7wZkg4JPKdTbDS5KpHiUvFRaV_L0WgwqVJwfB5gWOaL4C3DEB4jh_O0Ouud-j_eXlIj8lRc-TRY7gE2VYiAlJkJAAT98lSmiW-RdOMApdsyskZ2_Ev7Cn3qRvdyPViQ-tm10lbm9D6CqV_pJl8dG1t1E9-Hbx0eUfvm12-Ra-tVwkj8-ZgoE9tIenTGPPCqygzpQkyf_KBLryZyzejrmm_dAOJ6dcljtwA_OffHWbE8cbWbpOhL_TiHwiDcOwPz1LNR24lvk16TjsD8xAI11hSTZ4eya8CZwTYeh6oeV9SVjl06ssl4-cRTVhf-qG7onQG1vhyP6S0BlZzvBYIfCsOC5S9Io5SRnIiR4KwrFkvHJQn9z6Y2Ek2E9wT-mNbkmuXAiasRUVkkYCPZGCcbkw_vwUZTejRjnOtt8Jug1mD2gWzJ8qBIYcTbBIlwzzuEnQbxJMSEbf4RnCviFSEqNbxuI6NfqtJHzbjHea8QEnquj56BE9sRJ-BfBitVbuNgNfqChxBpsPmkLp0_vpCIW3aF4WRbZFQYpp3gwf6OFkg-YEXmwqt-hXmHP0grOSVFWIZqzXEqsaz_8qSR5t626vxuOfgtfrZuywGXvPYH9lHD2ofQ30gRZkTeCrDr4RKL8Ukq0JF-hOCKjpmePojfAm8U07cYA5p2A_Ep4wvsZ5BNOTCwrS9hpgRQ3TsoJVozm6m903E1imlgHneEWOlYdlpsZ8TXJ56qLXwmG1SHcLCxbyw94C-YUaNYnVMYOuwtlkfP3V6Fn21YmtyLCSLSIwffCEhRASSXZ-DSpJ1UJef6bonylA46Jeujos1v2d3a72V2dkbwm7fJSieyJTFv-yMPb7z97u2RuWgW1ED2cSxI2yUkCht9WOo0cN_lOU9y-jYP-vfoCOqNf7GZ61fTSd2nYrwNbsvmbr_q5mDzXb0-xBbQ-OBVg6YGrAzdE-Elg1o6PZfc22NXuo2Z5mDzTbsnTA1IAb3aGmPIl2qPHHwpgGo4XxQ6mg_zNm5eHqgkZFUbkMPp0wap3qk7UB2-1wvx122mG3HR60w147PGyHb9ph0LAd_6JPGNv6vtTE-8e7TRN16gO-Cbvt8KAd9mrY6BqwIa8xjQ1_ZxzuwnBfjkmCy0wa-66BS8nm2zwy_MOd0SiLGCInFMNRvq7A_d-Qtom-" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.6 LO-190-070_Monitor_Carrier_Performance_on_Site_-_OTC_(IP) — LO-190-070_Monitor_Carrier_Performance_on_Site_-_OTC_(IP)
+
+**Swim Lanes**: Load Planner | **Tasks**: 10 | **Gateways**: 4
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Load Planner
+        n1["fa:fa-user Generate Reports in SAP Transportation Management"]
+        n2["fa:fa-user Use Personalised Object Worklist (POWL)"]
+        n3["fa:fa-user Use Fiori Apps"]
+        n4["fa:fa-user Generate Reports Using Query"]
+        n5["fa:fa-user Generate Report Using Analytics Apps"]
+        n6["fa:fa-user Generate Report for Freight Order Execution Monitoring"]
+        n7["fa:fa-user Generate Report for Freight Order Quantity Analysis (ALP)"]
+        n8["fa:fa-user Use Transportation Cockpit"]
+        n9["fa:fa-user Generate Reports Using Export to Excel Option"]
+        n10["fa:fa-user Generate Report Using ECA"]
+        n11(["fa:fa-stop Report Generated"])
+        n12["Coordinate Transportation OTC (IP)"]
+        n13{{"fa:fa-code-branch Type of Report?"}}
+        n14{{"fa:fa-code-branch exclusiveGateway"}}
+        n15{{"fa:fa-code-branch Methods?"}}
+        n16{{"fa:fa-code-branch exclusiveGateway"}}
+    end
+    n2 --> n4
+    n3 --> n5
+    n5 --> n13
+    n6 --> n14
+    n7 --> n14
+    n1 --> n15
+    n14 --> n16
+    n16 --> n11
+    n4 --> n16
+    n8 --> n9
+    n9 --> n16
+    n15 -->|"POWL"| n2
+    n15 -->|"Transportation Cockpit"| n8
+    n13 -->|"Execution"| n6
+    n10 --> n16
+    n15 -->|"Fiori Apps"| n3
+    n15 -->|"ECA"| n10
+    n12 --> n1
+    n13 -->|"Quantity"| n7
+    class n1 userTask
+    class n2 userTask
+    class n3 userTask
+    class n4 userTask
+    class n5 userTask
+    class n6 userTask
+    class n7 userTask
+    class n8 userTask
+    class n9 userTask
+    class n10 userTask
+    class n11 endEvt
+    class n12 startEvt
+    class n13 gateway
+    class n14 gateway
+    class n15 gateway
+    class n16 gateway
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVl1v4jgU_StWqoqOFKR8EpqHXdFARiO1glno9GHYB5M44G2wI9tpYSj_fe18AEnT2RltHhD3-N5z7r2xb3zQIhojzdeurw-YYOGDQ09s0Bb1fNBbQY56OiiBb5BhuEoR7ymfhBIxxz8KN9PJdspNYSHc4nSv0DlaUwQev-hgJANTHXBIeJ8jhpOe3ssY3kK2D2hKmfK-QsPESAq1aumOshixs4NheGbkytAUE3SGbc_xnFDFcRRREjdIEzcZJlHvqJJL6Wu0gUwU6eccPcDdE47FRtoJTDmSPhuxTe_hCqWqRsFyhUU5e6mbgbnSIbJh8wxGmKwl7hgSYpA8nyHXOB7B8fp6SU6iYDFeEiCfKIWcj1ECuJDw5EWABKepf-UEo9A1dC4YfUb-lTXxxralR6oSX5Zu6Kq5_VeE1xvhr2gaV679V1WDb2U7ne18y9DZXv62tBCJz0rBwBpaw5PSnWcGZlArJUnyv5RkX9kC8udKa2KHVjg-aZnuwA2M93x1mWPHG5ntPiH2giN0QRqGoT05t2oycE3jY9K70B4YQYt0DQV6hfsz4W3gnAhD1wtN70PCUq-dZb6aMRrVhPbEDd0ToXdnhiPrQ0JnZDrDKkPJs2Yw24B7CmMwSyEhiJVL6iHm96WWQD-BfdVp8BnJZVkL-AtllAkOMAHz0Qws5IbkCoECUwIeIIFreYSJWGp_X7BZTbZHjsAMMU4JTDFHMZiu_kGRAE-UPUtAgJvZ9On-U5PDfs8RYsowGGUZb7o6_5H8I5fnB3zNEds3A92fBlZxI5n1XuCIdygPfk6QUAZCVux4MFVTB0x2KMrL3lE5FWU9ZN2k9H6X8msOicBiXyYqZwm4Gd3PWt0cvu9m610GNHrOcOtF3v5SZye7IjVB5b8IpWCaKcYmk2n8Sq8nwagVZt6c4rigWe1eh8fS_dOlv9p6AZUjHhPF3ipyugjAzZd2c0z7cKhF1Ferv5JR0QYs9hkCNKk0_1xqx-NllNMdhXZRmnP8gj6Xw6Ad5naHPSCxoTF_pzL4XRU5lMs_xAL9_h_yeFSmXZpuZbqladqVPajs2t1r2WZl1_GmUwGDGqgZqlFL2g7D0r6tzNt2fJHR21JT02CpvckC2isf7VnpO6x97cr3dNSK5ZOI8ZHq5XSRAXZ7vdibb4qhXqn6a7aV6xNZuHsXE101sf6SNWCrG7a7YacbdrvhQTfsdcPDbvi2G5bd7MbN6m7QRK3T7aSJ2_WHswk73bDbDQ9qWNO1LWJbiGPNP2jFHVPeQ2OUwDwV2lHXYC7ofE8izS_uYlqexTJyjKH8RG5L8PgvUeRjLw==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.7 LO-190-080_Record_Carrier_Information_-_OTC_(IP) — LO-190-080_Record_Carrier_Information_-_OTC_(IP)
+
+**Swim Lanes**: Load Planner | **Tasks**: 15 | **Gateways**: 3
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Load Planner
+        n1[["fa:fa-cog Trigger NCRM"]]
+        n2[["fa:fa-cog Generate Carrier List and Send RFQ"]]
+        n3[["fa:fa-cog Convert RFQs into Email and Send to Carrier(Included Hyperlink to BN4L 0"]]
+        n4[["fa:fa-cog Receive Carrier Response"]]
+        n5[["fa:fa-cog Verify Responses in LOM and Send for Approval (Best Carrier Selected)"]]
+        n6[["fa:fa-cog Trigger Approval Workflow"]]
+        n7[["fa:fa-cog Show RFQs in FO and Send Notification Mail to LOM"]]
+        n8[["fa:fa-cog Trigger Mail to Selected Carrier for Final Confirmation"]]
+        n9[["fa:fa-cog Receive Confirmation from Carrier"]]
+        n10[["fa:fa-cog Update Carrier on FO"]]
+        n11[["fa:fa-cog Select Other Response/Trigger Tendering Again"]]
+        n12[["fa:fa-cog Trigger Multibid"]]
+        n13[["fa:fa-cog Trigger Spot Bid"]]
+        n14[["fa:fa-cog Trigger Rejection Mail to Rejected Carrier"]]
+        n15[["fa:fa-cog Trigger Email to LOM"]]
+        n16["Ship Order - OTC (IP)"]
+        n17["Determine Mode of Transportation/Carrier - OTC (IP)"]
+        n18{{"fa:fa-code-branch Approved?"}}
+        n19{{"fa:fa-code-branch FO Pickup date 5 Days?"}}
+        n20{{"fa:fa-code-branch exclusiveGateway"}}
+    end
+    n17 --> n1
+    n3 --> n4
+    n5 --> n6
+    n6 --> n18
+    n7 --> n8
+    n8 --> n9
+    n9 --> n10
+    n10 --> n16
+    n1 --> n19
+    n13 --> n20
+    n20 --> n2
+    n12 --> n20
+    n19 -->|"No"| n13
+    n2 --> n3
+    n14 --> n11
+    n4 --> n15
+    n15 --> n5
+    n11 --> n20
+    n18 -->|"Yes"| n7
+    n18 -->|"No"| n14
+    n19 -->|"Yes"| n12
+    class n1 serviceTask
+    class n2 serviceTask
+    class n3 serviceTask
+    class n4 serviceTask
+    class n5 serviceTask
+    class n6 serviceTask
+    class n7 serviceTask
+    class n8 serviceTask
+    class n9 serviceTask
+    class n10 serviceTask
+    class n11 serviceTask
+    class n12 serviceTask
+    class n13 serviceTask
+    class n14 serviceTask
+    class n15 serviceTask
+    class n16 startEvt
+    class n17 startEvt
+    class n18 gateway
+    class n19 gateway
+    class n20 gateway
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlV9-TojgQ_ldSTE05V4W1BEGQh7tSlL2pml83zu7W1boPEYLmREIFdMZz_d-vI0SUlafzYcbu_r7-ujshwb0W8ohqnnZ7u2cpKzy07xRLuqYdD3XmJKcdHZWOr0QwMk9o3pGYmKfFlP17hGEr-5Aw6QvImiU76Z3SBafoy72OhkBMdJSTNO_mVLC4o3cywdZE7HyecCHRN9SNjfioVoVGXERU1ADDcHBoAzVhKa3dPcdyrEDychryNLpIGtuxG4edgywu4e_hkojiWP4mp4_k4xuLiiXYMUlyCphlsU4eyJwmssdCbKQv3IitGgbLpU4KA5tmJGTpAvyWAS5B0lXtso3DAR1ub2fpSRS9jWcpgk-YkDwf0xjlBbgn2wLFLEm8G8sfBrah54XgK-rdmBNn3DP1UHbiQeuGLofbfadssSy8OU-iCtp9lz14Zvahiw_PNHSxg78NLZpGtZLfN13TPSmNHOxjXynFcfy_lGCu4o3kq0pr0gvMYHzSwnbf9o1f86k2x5YzxM05UbFlIT1LGgRBb1KPatK3sdGedBT0-obfSLogBX0nuzrhwLdOCQPbCbDTmrDUa1a5mb8IHqqEvYkd2KeEzggHQ7M1oTXElltVCHkWgmRL9MBJhF4SkqZUlCH5SfH37zMtJl5MuiFfoDfBFgsq0JP_-jjTfvw4Q5qXyM8UEkHXyCdCMKA8sLxAJI3QFHYHeg3-avB7l3yfp1sK-xiAOWJpwdFkTVhSZwBPlfruPg2TTUQj9OcuowIe15WMjp6sB2Q0VKxLlVcaUrati3ylecbTnDZY9iXrqzxTdiewrA89PD_WtcVcoGGWCb4lCbobUehcKUxpQsOCRr81JPrXB33K8o2LlXy6GzTnkjZd8nc1MhQ81xU98YLFLCQF4yl6lIOECUHNjXTu9SoUQRV_6kY2GrAU6oP1iplYHwUaSQctMz9joFjwtcraoGPjkv8li873FZeNNimNbVvWjZ7hXqnX-JPq7g0GBCuaLtBwQVizemy2zGSTFGzOoia8dx0-zXiBRr_CrevwV_oPVHy-WKWnnn0zkX09UfnUXF1s3AfGdMky9CxvPtRFz28-urt_kXvzHOcAbkwLKtZwE6JHuI4Qj0EB7teMi-K4gp_UerRmcff7usCIdufAD5fVDqfRHzPtcDjHD67jYVe_sHC1ydBxG9hoTHZ5k2wa18n0A06KHHbf5_JArmmwB8ov0C7qdn-H_5XdK02rMu3S7FdmvwK7lV2RlemW5qAyBxXaUFpG5VDpcGUrAq7U1cUHXyqHApgNAD5q_JxpT3ym_ZQZFLMEKhNblZTqU9m2AlSdnmzcVHIrpb9pfpRymgFVgtWsTTGweXavye7Pbt-LiNka6bVGrNaI3Rrpt0ac1ojbGhm0RmDhW0PtU8DtY8Dtc8Dtg8Dtk8D90yvjpd9p8bvqLefSPbjqhm1cuTVdW8PJQlikeXvt-OYPvw4iGhM4YLWDrpFNwae7NNS84xuytjme_2NG4MVlXToP_wHjL9lw" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.8 LO-190-090_Create_Proforma_Based_Delivery_Notice_-_OTC_(IP) — LO-190-090_Create_Proforma_Based_Delivery_Notice_-_OTC_(IP)
+
+**Swim Lanes**: Warehouse Operator | **Tasks**: 3 | **Gateways**: 2
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Warehouse Operator
+        n1["fa:fa-user Print EIAJ Form"]
+        n2["fa:fa-user Extract Delivery Information"]
+        n3["Perform EIAJ Label Verification and Transfer to Handheld Device"]
+        n4["Stage Finished Goods (IP)"]
+        n5["Process Packing and Regulatory Export Reports - OTC (IP)"]
+        n6{{"fa:fa-code-branch Ship to Japan OEMs (Fujitsu, NEC and Panasonic)?"}}
+        n7{{"fa:fa-code-branch exclusiveGateway"}}
+    end
+    n1 --> n7
+    n6 -->|"Yes"| n2
+    n6 -->|"No"| n7
+    n5 --> n6
+    n3 --> n1
+    n2 --> n3
+    n7 --> n4
+    class n1 userTask
+    class n2 userTask
+    class n4 startEvt
+    class n5 startEvt
+    class n6 gateway
+    class n7 gateway
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVV2P2jgU_StWRiNaKUj5JDQPu2JC0p2q7aAybbVa-mCSG-IdY0e2MwOl_PfaCYGBnXnaPEDuybnnXN_4Ojsr5wVYsXV9vSOMqBjtBqqCNQxiNFhiCQMbdcA3LAheUpADwyk5U3Pys6W5Qb0xNINleE3o1qBzWHFAX29tNNGJ1EYSMzmUIEg5sAe1IGsstgmnXBj2FYxLp2zdDo9uuChAnAiOE7l5qFMpYXCC_SiIgszkScg5K85Ey7Acl_lgb4qj_CmvsFBt-Y2ET3jznRSq0nGJqQTNqdSafsRLoGaNSjQGyxvx2DeDSOPDdMPmNc4JW2k8cDQkMHs4QaGz36P99fWCHU3R_XTBkL5yiqWcQomk0nD6qFBJKI2vgmSShY4tleAPEF95aTT1PTs3K4n10h3bNHf4BGRVqXjJaXGgDp_MGmKv3thiE3uOLbb698ILWHFySkbe2BsfnW4iN3GT3qksy__lpPsq7rF8OHilfuZl06OXG47CxPmvXr_MaRBN3Ms-gXgkOTwTzbLMT0-tSkeh67wuepP5Iye5EF1hBU94exJ8lwRHwSyMMjd6VbDzu6yyWc4Ez3tBPw2z8CgY3bjZxHtVMJi4wfhQodZZCVxX6DsWUHHdTnRXg8CKi45gLub-s7BKHJd4aPqNZoIwhdLbyQeUcbFeWD-ecb1zbrpRAucKTYGSRxBbdMtKnYMV4ew80deJMxDmaafdTgb6ZgaY5G0CwqxA93rzy1JLK47-0kAFtNDy5qWdCwZacK7wClCmTxpZQYHec15I9OZ29vacGhpv3U-QEs1w_qDnqvX6AquGmmZs9UJqrufqC5g_iYbo7j55QWm02_XrNwfdcKmrzSs0r0htCv6Aa8zQXfpJV5E1_xIlGxt9TpPWbYYZlpyR_O2fC2u_f6YavawKm5w2Uvf1fbe_Tll6Arsb5qLh8A-tcAhHJvy1sP4GubB-6dd1gX_mLdzTwy57dAj9LjzMDPO60D-EURcGz_aq8e9n9Az2XoaD4zl1Bocvw6N-sM7QqEct21qD3muksOKd1X5U9IengBI3VFl728KN4vMty624PXytpi505pRgPRPrDtz_BnV7IPQ=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.9 LO-190-100_Ship_Order_-_OTC_(IP) — LO-190-100_Ship_Order_-_OTC_(IP)
+
+**Swim Lanes**: Load Planner · Warehouse Operator | **Tasks**: 21 | **Gateways**: 8
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Load Planner
+        n1[["fa:fa-cog Change Execution Status of FO to 'In Execution'"]]
+        n2[["fa:fa-cog Update FU with HAWB Number"]]
+        n3[["fa:fa-cog Unblock the Freight Unit"]]
+        n4[["fa:fa-cog Unblock the Freight Unit"]]
+        n5[["fa:fa-cog Update the HAWB Number in Freight Order"]]
+        n6[["fa:fa-cog Use Same FO / Create New FO (As Required)"]]
+        n7[["fa:fa-cog Reconcile Freight Order With FU having Same HAWB Number"]]
+        n8[["fa:fa-cog Fix Freight Order"]]
+        n9[["fa:fa-cog Trigger Batch Job to ZXCI"]]
+        n10[["fa:fa-cog Trigger ZCUS(MY,VN)"]]
+        n11[["fa:fa-cog Trigger Batch Job to ZSIS"]]
+        n12[["fa:fa-cog Trigger ZPRC"]]
+        n13[["fa:fa-cog Trigger ZPRE"]]
+        n14[["fa:fa-cog Add Planning Block in Freight Units"]]
+        n15[["fa:fa-cog De-link all the FUs from the Freight Order Except for One Freight Unit"]]
+        n22["Deliver Product - OTC (IP)"]
+        n23["Determine Mode of Transportation/Carrier - OTC (IP)"]
+        n24{{"fa:fa-code-branch exclusiveGateway"}}
+        n25{{"fa:fa-code-branch exclusiveGateway"}}
+        n26{{"fa:fa-code-branch exclusiveGateway"}}
+        n27{{"fa:fa-code-branch Country?"}}
+        n28{{"fa:fa-code-branch Country?"}}
+        n29{{"fa:fa-code-branch exclusiveGateway"}}
+    end
+    subgraph Warehouse Operator
+        n16[["fa:fa-cog Send 3B12 Request Information to 3rd Party Logistics Warehouse"]]
+        n17[["fa:fa-cog Receive 3B12 Message"]]
+        n18[["fa:fa-cog Post Goods Issue"]]
+        n19[["fa:fa-cog Trigger 3B13(Pick-Pack)"]]
+        n20[["fa:fa-cog Update Carrier and Freight Order Number in Delivery"]]
+        n21[["fa:fa-cog Update Delivery with HAWB Number"]]
+        n30{{"fa:fa-arrows-alt parallelGateway"}}
+        n31{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    n23 --> n20
+    n15 --> n14
+    n4 --> n6
+    n7 --> n8
+    n3 --> n5
+    n20 --> n16
+    n24 -->|"No"| n4
+    n5 --> n25
+    n6 --> n25
+    n25 --> n7
+    n10 --> n26
+    n26 --> n1
+    n17 --> n19
+    n1 --> n12
+    n12 --> n13
+    n13 --> n22
+    n8 --> n27
+    n14 --> n29
+    n16 --> n30
+    n30 --> n15
+    n30 --> n17
+    n11 --> n28
+    n9 --> n26
+    n27 -->|"NL"| n9
+    n31 --> n18
+    n31 --> n21
+    n19 --> n31
+    n29 --> n2
+    n21 --> n29
+    n2 -->|"FU linked to freight order?"| n24
+    n27 -->|"Other Sites"| n26
+    n28 -->|"VN,MY"| n10
+    n18 --> n26
+    n28 -->|"CD"| n26
+    n24 -->|"Yes"| n3
+    n27 -->|"VN,MY & CD"| n11
+    class n1 serviceTask
+    class n2 serviceTask
+    class n3 serviceTask
+    class n4 serviceTask
+    class n5 serviceTask
+    class n6 serviceTask
+    class n7 serviceTask
+    class n8 serviceTask
+    class n9 serviceTask
+    class n10 serviceTask
+    class n11 serviceTask
+    class n12 serviceTask
+    class n13 serviceTask
+    class n14 serviceTask
+    class n15 serviceTask
+    class n16 serviceTask
+    class n17 serviceTask
+    class n18 serviceTask
+    class n19 serviceTask
+    class n20 serviceTask
+    class n21 serviceTask
+    class n22 startEvt
+    class n23 startEvt
+    class n24 gateway
+    class n25 gateway
+    class n26 gateway
+    class n27 gateway
+    class n28 gateway
+    class n29 gateway
+    class n30 gateway
+    class n31 gateway
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlWG1z2jgQ_isad3LkZmBqyTYmfLgOGNzLTd6mJM21TT8IWwZNjMVJdgKX8t9PMrIBBfeuvXzIjJ7dfXb1eLWyebEiFhOrb52cvNCM5n3w0srnZEFafdCaYkFabbAFPmJO8TQloqV8EpblE_p36Qbd5Uq5KSzEC5quFTohM0bA3XkbDGRg2gYCZ6IjCKdJq91acrrAfB2wlHHl_Yb0Ejsps2nTkPGY8J2Dbfsw8mRoSjOygx3f9d1QxQkSsSw-IE28pJdErY0qLmXP0RzzvCy_EOQSr-5pnM_lOsGpINJnni_SCzwlqdpjzguFRQV_qsSgQuXJpGCTJY5oNpO4a0uI4-xxB3n2ZgM2JycPWZ0U3I4eMiD_ohQLMSIJELmEx085SGia9t-4wSD07LbIOXsk_Tdo7I8c1I7UTvpy63Zbidt5JnQ2z_tTlsbatfOs9tBHy1Wbr_rIbvO1_G_kIlm8yxR0UQ_16kxDHwYwqDIlSfK_Mkld-S0WjzrX2AlROKpzQa_rBfZrvmqbI9cfQFMnwp9oRPZIwzB0xjupxl0P2s2kw9Dp2oFBOsM5ecbrHeFZ4NaEoeeH0G8k3OYzqyymN5xFFaEz9kKvJvSHMBygRkJ3AN2erlDyzDhezsEFwzG4SXGWEb41qb8MfvnyYCW4n-BOxGYgmONsRsB4RaIipywDkxznhQAsAeE1yBlonWc7a-vB-vp1jwwdkt0tYykLCO_AM83n4PfB_RBcFYupLOAwzjHismnKokcgpwQIedk3EqO5EeX-VJR3tEYVtFcfoFnNca2mhkHSNUgEARO8IEqjtyDgRFFekWe1Ph0I8IH8VVBO4l8NGv-Q5oOaNxFNyWFucK_UkyrO8ZOcB9tMzWL2DklDuvruVs4O3W85nc1kziHOozn4g03VQ__8Z3BuhEH7eNzn4G5yevmp_fHK3CyE_yXT5HxixqGGTDcfAtPVaXQdm65G9wxifTqUwsOykfZ6QPWRMBmMThqRjrxIHgFO020P3gmQcLY4aMjtAx2vIrKU45NxcJ19t1sRkjlGJKVPMkwOhLiIctAB17cBOD2_URLvOzulc074Qt5o4FJeK-rg3srLRCwZlydZntm3AeacSrZGFvflZbevmHSmMl4-IbKK0kLIQt5vZ92Dtdnsh3k_F9b9uTD_eFjAiizn63eme-_H3M9-tCh5IRrz9h5zMmfy-gLXS8Jxzg6mrjFAJjIeOEOIylFBRA7OM9kdi_KJqXPhcNme8n5fyzk-oyKnkdhlMBvz9VghsuYt_yURAs9ehRhD44bJEt4zFgtwLkTxyr1haMgMzukNjR47Nzh6NAcAso-O3qofsZTg8JjsZrE-AWuTER5lrLz_9dqxd49ZFsGeRQenOVhiLs8wSY93ngN_LKjuDHk8Qafzm9JBA9DbAtDVgLtdd_XS3y57eqnDvYrO1tGVOyrDvz1YV-zB-ibZNK6zoCqwa6yRdvCrsjQxqol1BKwcdGHwrAL0GlVrpAGnAqqtVx49va5z6q2jmlLndCqxnGq7ngnUHLoMVAl2Zu7DrwS6KAWqcjlV_T0DQPWONZVTAajirtbQqB_pVPLaVrcCidUpTnR7lx8i78oakGsWdy3vCw4mNCdi61GX39MeH6_al59KG6xbqWfutXIORgZL1SWfNL9jFlDSg1-AjoT7L9DqWe-9QB9YUKPFabS4jRav0dJttPiNll6j5azRIs9Bo6lZBdgsA2zWATYLAZuVgM1SwGYtYLMYsFkN1KwG-k5PoPq79BB3GnC3-pQ6hL3jcPc47B-He8fhs6OwHC9HYVjBVttayDctTGOr_2KVv2jIXz1ikuAiza1N28JFzibrLLL65Ze_VZS304hi-YKw2IKbfwD5A0tO" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.10 LO-190-110_Update_Inventory_Status_-_OTC_(IP) — LO-190-110_Update_Inventory_Status_-_OTC_(IP)
+
+**Swim Lanes**: Warehouse Operator | **Tasks**: 3 | **Gateways**: 0
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Warehouse Operator
+        n1[["fa:fa-cog Send 3B2 PGI Signal"]]
+        n2[["fa:fa-cog Update PGI in Outbound Delivery"]]
+        n3[["fa:fa-cog Update Inventory Status"]]
+        n4["Update/Reset Cummulative Shipped for Customers - OTC (IP)"]
+        n5["Process Goods Issue for Stock Material - OTC (IP)"]
+    end
+    n1 --> n2
+    n2 --> n3
+    n5 --> n1
+    n3 --> n4
+    class n1 serviceTask
+    class n2 serviceTask
+    class n3 serviceTask
+    class n4 startEvt
+    class n5 startEvt
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVE1v4jAQ_StWqopdKWjz2bA5rASBVEhbtdq020Pbg0nGYNWxI9uhZSv--9qEAmXLaXOIMs8z7828WPPmlKICJ3XOz98opzpFbz29gBp6KerNsIKeizrgN5YUzxions0hguuC_tmk-VHzatMsluOaspVFC5gLQHdTFw1NIXORwlz1FUhKem6vkbTGcpUJJqTNPoMB8chGbXs0ErICuU_wvMQvY1PKKIc9HCZREuW2TkEpePWBlMRkQMre2jbHxEu5wFJv2m8VXOHXe1rphYkJZgpMzkLX7CeeAbMzatlarGzl8t0MqqwON4YVDS4pnxs88gwkMX_eQ7G3XqP1-fkj34mi2_EjR-YpGVZqDAQpbeDJUiNCGUvPomyYx56rtBTPkJ4Fk2QcBm5pJ0nN6J5rze2_AJ0vdDoTrNqm9l_sDGnQvLryNQ08V67M-0gLeLVXyi6CQTDYKY0SP_OzdyVCyH8pGV_lLVbPW61JmAf5eKflxxdx5v3L9z7mOEqG_rFPIJe0hAPSPM_Dyd6qyUXse6dJR3l44WVHpHOs4QWv9oTfs2hHmMdJ7icnCTu94y7b2Y0U5TthOInzeEeYjPx8GJwkjIZ-NNh2aHjmEjcLdI8lLISxE103ILEWskuwD_cfHh4dglOC-6WYo8L8XxSOAnRzOUUFnXPMHp2np4OC4GPBXVMZAzbplKPrVs9EayjGwOgS5OqoOPy0eMqXwE1bK1RorFt1VBSZmi7z2y9QoFHW1nXLsDYKqFjQpoEKESENrrSoQSrUR9e3GfoyvflquA6oYkNlzQWl0KUQlUJTpVrYVBdalM_oysjYHfMZhfGm--A-6vd_GC-2YdCF4TaMu3B7_XjYhdHBf7YMB7fxw0lw8iQ8eRLtdsAHON7BjusYY2pMKyd9czZL2CzqCghumXbWroNbLYoVL510s6ycdmP4mGJzh-oOXP8FlebgGw==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.11 LO-190-120_Send_Advanced_Shipping_Notice_-_OTC_(IP) — LO-190-120_Send_Advanced_Shipping_Notice_-_OTC_(IP)
+
+**Swim Lanes**: Load Planner · Warehouse Operator | **Tasks**: 7 | **Gateways**: 4
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart LR
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Load Planner
+        n1[["fa:fa-cog Create Freight Order"]]
+        n2[["fa:fa-cog Generate Customer Pre-Alert"]]
+        n3[["fa:fa-cog Send Error Email to Site Customer Service and Carrier"]]
+        n8(["fa:fa-stop Pre-Alert Generated"])
+        n9(["fa:fa-stop Error E-Mail Sent"])
+        n11["Create Delivery Note - OTC (IP)"]
+        n12{{"fa:fa-code-branch ZPRC Triggered?"}}
+        n13{{"fa:fa-code-branch Flight Matrix File Uploaded?"}}
+        n14{{"fa:fa-code-branch exclusiveGateway"}}
+    end
+    subgraph Warehouse Operator
+        n4[["fa:fa-cog Complete Pick Pack of all the Deliveries"]]
+        n5[["fa:fa-cog Complete PGI of all the Deliveries"]]
+        n6[["fa:fa-cog Update PGI in Deliveries"]]
+        n7[["fa:fa-cog Send Customer ASN (YDN1)"]]
+        n10(["fa:fa-stop Customer ASN Sent"])
+        n15{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    n1 --> n4
+    n5 --> n6
+    n4 --> n5
+    n2 --> n8
+    n7 --> n10
+    n11 --> n1
+    n6 --> n15
+    n15 --> n7
+    n14 --> n3
+    n3 --> n9
+    n12 -->|"No"| n14
+    n12 -->|"Yes"| n13
+    n13 -->|"No"| n14
+    n13 -->|"Yes"| n2
+    n15 --> n12
+    class n1 serviceTask
+    class n2 serviceTask
+    class n3 serviceTask
+    class n4 serviceTask
+    class n5 serviceTask
+    class n6 serviceTask
+    class n7 serviceTask
+    class n8 endEvt
+    class n9 endEvt
+    class n10 endEvt
+    class n11 startEvt
+    class n12 gateway
+    class n13 gateway
+    class n14 gateway
+    class n15 gateway
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVluP2joQ_itWVit2pUSKcyFsHnrEBrJaaS-obE_VU_pgEgesNXHkmAVK-e-1yQ1SIlU6PCDNN_N9M56ZONlrEYux5mvX13uSEuGDfU8s8Qr3fNCboxz3dFAA_yJO0JzivKdiEpaKKfl5DINOtlVhCgvRitCdQqd4wTD48qiDoSRSHeQozY0cc5L09F7GyQrxXcAo4yr6Cg8SMzlmK133jMeYNwGm6cHIlVRKUtzAtud4Tqh4OY5YGp-JJm4ySKLeQRVH2SZaIi6O5a9z_Iy2X0ksltJOEM2xjFmKFX1Cc0zVGQVfKyxa84-qGSRXeVLZsGmGIpIuJO6YEuIofW8g1zwcwOH6epbWScHT51kK5C-iKM9HOAG5kPD4Q4CEUOpfOcEwdE09F5y9Y__KGnsj29IjdRJfHt3UVXONDSaLpfDnjMZlqLFRZ_CtbKvzrW-ZOt_J_1YunMZNpqBvDaxBnenegwEMqkxJkvyvTLKv_A3l72WusR1a4ajOBd2-G5h_6lXHHDneELb7hPkHifCJaBiG9rhp1bjvQrNb9D60-2bQEl0ggTdo1wjeBU4tGLpeCL1OwSJfu8r1fMJZVAnaYzd0a0HvHoZDq1PQGUJnUFYodRYcZUvwxFAMJhSlKeaFS_1S-P37TEuQnyAjYgsQcCxPAkJ-nBZ4VU_MTPvx44RhnTMesBRUnGCdC7bCHEw4NoYUc9Ei2ufEqVwiMOaccTBeIUKBYGBKToWmxaQAkoEB4pz8UcvgppaUnKxJXZcVS8btCeOuxSgLMJ5VBbIk0YqHUMaXXRlhSj4w34EXJi0DvL4F4OZxcisppwxrv2_OGWNjLh_maAn-m3wOwBsniwXmOP5nph0Opyz7Miukx0E8I8HJFoSEyhswo3KWFyScyxJ4G9F1Lit_KJa0ockJtLbkK-J4yeRDB14z1T92uitOa1fYKqNYdmJConcwQfKPJQBROcll3SyC89bM3C6Vh8e_4vfP-V-yGJVsknazvAvLVy_acPoCbr6NXuBtiwXN1rqcUS6ti9vMQG4s2-QGogJkiMtzYdo9gRQCw_gke1yabmH2S9MpTLc0rcIclKZXmNCstEqx8upL-6VZ0WGp7lV2KW-Xtl2Yd5X7mO7XTHthM-2XCm87vql-K0-lAO0uit2iWK2aoHVyE6q2nNzXZx6r02N3epxOj9vp6Xd6vE7PoHxDnoF3l0BoXkRh_To_x63qTXMO25dh5zLsVrCma3KX5eUba_5eO36UyQ-3GCdoTYV20DW0Fmy6SyPNP368aOvjwzYiSN4WqwI8_AaGEBuu" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.12 LO-190-130_Send_Interplant_Shipping_Register_-_OTC_(IP) — LO-190-130_Send_Interplant_Shipping_Register_-_OTC_(IP)
+
+**Swim Lanes**: Warehouse Operator | **Tasks**: 3 | **Gateways**: 0
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Warehouse Operator
+        n1[["fa:fa-cog Trigger 3B2 from Sending Plant"]]
+        n2[["fa:fa-cog Trigger 4B2 Notification of Shipment Receipt"]]
+        n3[["fa:fa-cog Receive 3B2 and Update Delivery"]]
+        n4(["fa:fa-stop Interplant Shipping Register Triggered"])
+        n5["Process Goods Issue for Stock Material - OTC (IP)"]
+    end
+    n5 --> n1
+    n1 --> n3
+    n3 --> n2
+    n2 --> n4
+    class n1 serviceTask
+    class n2 serviceTask
+    class n3 serviceTask
+    class n4 endEvt
+    class n5 startEvt
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVMtu2zAQ_JWFgsAtIAN6Rq4OBWzZKgL0EdRpe0hyoKWlTEQiBZJO4gb-95KSX3HrU3UwvMPdmd0Rta9OIUp0Uufy8pVxplN4HeglNjhIYbAgCgcu9MBPIhlZ1KgGNocKrufsd5fmR-2LTbNYThpWry06x0og_Lh2YWwKaxcU4WqoUDI6cAetZA2R60zUQtrsCxxRj3Zq26OJkCXKQ4LnJX4Rm9KacTzAYRIlUW7rFBaCl29IaUxHtBhsbHO1eC6WROqu_ZXCL-TlFyv10sSU1ApNzlI39WeywNrOqOXKYsVKPu3MYMrqcGPYvCUF45XBI89AkvDHAxR7mw1sLi_v-V4Ubqf3HMxT1ESpKVJQ2sCzJw2U1XV6EWXjPPZcpaV4xPQimCXTMHALO0lqRvdca-7wGVm11OlC1OU2dfhsZ0iD9sWVL2nguXJtfk-0kJcHpewqGAWjvdIk8TM_2ylRSv9Lyfgqb4l63GrNwjzIp3stP76KM-9vvt2Y0ygZ-6c-oXxiBR6R5nkezg5Wza5i3ztPOsnDKy87Ia2IxmeyPhB-yKI9YR4nuZ-cJez1TrtcLW6kKHaE4SzO4z1hMvHzcXCWMBr70WjboeGpJGmX8ItIXApjJ3xrURItZJ9gH-7f3d07lKSUDAtRwa1kVYUSwkkAVIoG5uaFm6sINzXh-t55eDiqDf5dG5nar0IzygqimeAgKMyXrG2Qa_iOBbL2lCl8y9QlPWHXBeEl_GhL4zJMsTaoXJ8UR-_2xUqLFq65RtnafjvZ1rb_HSumDLxrEktD8v6IJDYc1nZUCj4JUSq4VmqFQIWEuRbFI3wxLdjtA0P4dpvBu-ub94ajpzAm9X94DMPhR2PrNvT7MNyGYR8G2zDow-joBtiSo3v65iQ4exKePYm2X-wbMN6vDMd1GpQNYaWTvjrdcjYLvERKVrV2Nq5DVlrM17xw0m6JOavuVUwZMXer6cHNH4Oy6VI=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.13 LO-190-150_Deliver_Product_-_OTC_(IP) — LO-190-150_Deliver_Product_-_OTC_(IP)
+
+**Swim Lanes**: Customer Business Analyst | **Tasks**: 4 | **Gateways**: 4
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Customer Business Analyst
+        n1[["fa:fa-cog Trigger IDOC for SO Creation"]]
+        n2[["fa:fa-cog Trigger IDOC for SO Update"]]
+        n3[["fa:fa-cog Transfer Sales Order to GTT"]]
+        n4[["fa:fa-cog Track Sales Order in Track SO Fulfilment App"]]
+        n5(["fa:fa-stop No Sales Order Updated Back to S/4"])
+        n6(["fa:fa-stop End of Process"])
+        n7(["fa:fa-stop End of Process"])
+        n8["Create Standard Order (IP)"]
+        n9{{"fa:fa-code-branch Document relevant for GTT?"}}
+        n10{{"fa:fa-code-branch Document relevant for GTT?"}}
+        n11{{"fa:fa-arrows-alt parallelGateway"}}
+        n12{{"fa:fa-arrows-alt inclusiveGateway"}}
+    end
+    n3 --> n4
+    n10 -->|"Yes"| n2
+    n8 --> n11
+    n9 -->|"Yes"| n1
+    n12 --> n3
+    n4 --> n5
+    n2 --> n12
+    n1 --> n12
+    n9 -->|"No"| n6
+    n10 -->|"No"| n7
+    n11 -->|"Sales Order Created"| n9
+    n11 -->|"Sales Order Updated"| n10
+    class n1 serviceTask
+    class n2 serviceTask
+    class n3 serviceTask
+    class n4 serviceTask
+    class n5 endEvt
+    class n6 endEvt
+    class n7 endEvt
+    class n8 startEvt
+    class n9 gateway
+    class n10 gateway
+    class n11 gateway
+    class n12 gateway
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVmuP2jgU_StWRiNaKWjjPAjkw64gkGqkbqcSdKuq9INJHLDG2Mh2YFjKf187Dx4Z2NWq-RDFx-eee33s3ORgpTzDVmQ9Ph4IIyoCh45a4TXuRKCzQBJ3bFABfyFB0IJi2TGcnDM1JX-XNOhvXg3NYAlaE7o36BQvOQZfnmww1IHUBhIx2ZVYkLxjdzaCrJHYx5xyYdgPuJ87eZmtnhpxkWFxJjhOCNNAh1LC8Bn2Qj_0ExMnccpZdiWaB3k_TztHUxzlu3SFhCrLLyT-E71-JZla6XGOqMSas1Jr-hEtMDVrVKIwWFqIbWMGkSYP04ZNNyglbKlx39GQQOzlDAXO8QiOj49zdkoKZuM5A_pKKZJyjHMglYYnWwVyQmn04MfDJHBsqQR_wdGDOwnHnmunZiWRXrpjG3O7O0yWKxUtOM1qandn1hC5m1dbvEauY4u9vrdyYZadM8U9t-_2T5lGIYxh3GTK8_yXMmlfxQzJlzrXxEvcZHzKBYNeEDtv9Zpljv1wCNs-YbElKb4QTZLEm5ytmvQC6NwXHSVez4lbokuk8A7tz4KD2D8JJkGYwPCuYJWvXWWx-Cx42gh6kyAJToLhCCZD966gP4R-v65Q6ywF2qxAXEjF11iAUSH1eZcSDBmie6kqnrkY_P59buUoylE35UswE2S51BFP4-cY5FyA6TOIBUaKcDa3fvy4iHT_O_LLJtMmteK8dpx-pXMdOEW6L4Bn88ICxcGH2awV6L8JTF-uoghrwGeQFFT7uMZMgeFm01IK3p2UtEMb8Ilf6VRlZ2BktHQp0998LfD-QqDXEpiwDPAcmO3TNrfI4f8h9zW3NByDqUKmFWV1Ve-ePr_X5Avu4HA4G5Lh7kJbma7AmKdFuXCBKd4i_WC2Q_v5x9w6Hi_33vlVAXgWQELwnewiqsAGCUQpph-qN6Qd5N4MIiyl-phu8Zso3XmqB-aBbvd3fRDqIXTM-Ofc-oa1jT_1kawn-hUP1n2ADVq8BoduRfTqsV8Ng3pYz8JGFrbGjewnXqr22mXVeNjgsMYvz1q111lJHPwbsT6UVf2XrcPUddHgrmbcuzPe3Rn_7kxQfwSuwN4tMLwF9k_fqyt40HTS6zU5t2F4G3Yb2LIt3fHWiGRWdLDKnw79Y5LhHBVUWUfbQoXi0z1Lraj8OFtF6euYIN0z1xV4_AcdosZc" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.14 LO-190-160_Resolve_Shipping_Issues_-_OTC_(IP) — LO-190-160_Resolve_Shipping_Issues_-_OTC_(IP)
+
+**Swim Lanes**: Warehouse Operator | **Tasks**: 1 | **Gateways**: 0
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Warehouse Operator
+        n1[["fa:fa-cog Manage Quality Incident and Quality Performance"]]
+        n2(["fa:fa-stop Shipping Issue Resolved"])
+        n3["Deliver Product - OTC (IP)"]
+    end
+    n1 --> n2
+    n3 --> n1
+    class n1 serviceTask
+    class n2 endEvt
+    class n3 startEvt
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVFtv2jAU_itWKpRWClKuhOVhEgQiIa1aN7r1ofTBJMfEqrEj2-EyxH-fwyVQpj7ND1H8-Tvfd87xZWflogArsTqdHeVUJ2hn6xKWYCfInmMFtoOOwG8sKZ4zUHbDIYLrKf1zoHlhtWloDZbhJWXbBp3CQgD6NXHQwAQyBynMVVeBpMR27ErSJZbbVDAhG_Yd9IlLDm6npaGQBcgLwXVjL49MKKMcLnAQh3GYNXEKcsGLD6IkIn2S2_smOSbWeYmlPqRfK3jEmxda6NLMCWYKDKfUS_YNz4E1NWpZN1hey9W5GVQ1Ptw0bFrhnPKFwUPXQBLz9wsUufs92nc6M96aoufRjCMzcoaVGgFBSht4vNKIUMaSuzAdZJHrKC3FOyR3_jgeBb6TN5UkpnTXaZrbXQNdlDqZC1acqN11U0PiVxtHbhLfdeTWfG-8gBcXp7Tn9_1-6zSMvdRLz06EkP9yMn2Vz1i9n7zGQeZno9bLi3pR6v6rdy5zFMYD77ZPIFc0hyvRLMuC8aVV417kuZ-LDrOg56Y3ogusYY23F8EvadgKZlGcefGngke_2yzr-ZMU-VkwGEdZ1ArGQy8b-J8KhgMv7J8yNDoLiasSvWAJpTDtRN8rkFgLeSQ0g3uvrzOL4ITgbi4W6BFzvAD0o8aM6i2a8JwWwDXCvGjBJ5BEyCXmOcyst7crMf--FVNaVGha0qoyBxlNlKoB_QQl2AoKE_VwFRWYoBEwugKJTOVFnWvURd-fU3Q_eXow5CPXnLzjD_dQt_vVuJ2mwXF6vdsN52q3P6z4pzP8AQzaS2Q51hJMdbSwkp11eK7Mk1YAwTXT1t6xcK3FdMtzKzlca6uuCnMERhSbbi-P4P4vK6WfDg==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.15 LO-190-170_Receive_Customer_Acknowledgment_of_Shipment_Receipt_and_Discrepancies_-_OTC_(IP) — LO-190-170_Receive_Customer_Acknowledgment_of_Shipment_Receipt_and_Discrepancies_-_OTC_(IP)
+
+**Swim Lanes**: Warehouse Operator | **Tasks**: 1 | **Gateways**: 0
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Warehouse Operator
+        n1["fa:fa-user Communicate Discrepancy / Delay in Shipment to Customer Business Analyst (CBA)"]
+        n2(["fa:fa-stop Communication Sent to CBA Regarding Discrepancy / Delay in Shipment"])
+        n3["Deliver Product - OTC (IP)"]
+    end
+    n1 --> n2
+    n3 --> n1
+    class n1 userTask
+    class n2 endEvt
+    class n3 startEvt
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVMuK2zAU_RXhIXgKDvUzTr0oOE4MAy0zNNPOoulCkaVYjCwZSc6jIf9eKe9JGbqoF8E6Ofece48lbR0kKuxkTq-3pZzqDGxdXeMGuxlw51Bh1wMH4AeUFM4ZVq7lEMH1lP7e04K4XVuaxUrYULax6BQvBAbfHzyQm0LmAQW56issKXE9t5W0gXJTCCakZd_hIfHJ3u3410jICssLwffTACWmlFGOL3CUxmlc2jqFkeDVG1GSkCFB7s42x8QK1VDqffudwl_h-oVWujZrApnChlPrhn2Bc8zsjFp2FkOdXJ7CoMr6cBPYtIWI8oXBY99AEvLXC5T4ux3Y9XozfjYFz-MZB-ZBDCo1xgQobeDJUgNCGcvu4iIvE99TWopXnN2Fk3QchR6yk2RmdN-z4fZXmC5qnc0Fq47U_srOkIXt2pPrLPQ9uTG_N16YVxenYhAOw-HZaZQGRVCcnAgh_-VkcpXPUL0evSZRGZbjs1eQDJLC_1vvNOY4TvPgNicslxThK9GyLKPJJarJIAn890VHZTTwixvRBdR4BTcXwU9FfBYsk7QM0ncFD363XXbzJynQSTCaJGVyFkxHQZmH7wrGeRAPjx0anYWEbQ1eoMS1MHGCxxZLqIU8EOzDg58zh8CMwL7NGxSiaTpOkRkKjKlCEreQow34CMaYmSkpB9Oatg3mGmgBik5p0Zi6UafMUVIK5ByyjdLgvhjlH2bOryur8P7sZaraKy8qjOxJcpSDb3gBZWVOwL96MAYfrhwiY2A4dGk6MhlWHdKgDx6fC3D_8HTpxuzhwwsPQL__2XR2XEaH5fW-sZzTTnwDh8ej8AaMzmfR8RyTSwNp5WRbZ3_rmZuxwgR2TDs7z4GdFtMNR062vx2crq1M6GMKzUdrDuDuD96TtyY=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.16 LO-190-190_Audit_Shipment_Transportation_Charges_-_OTC_(IP) — LO-190-190_Audit_Shipment_Transportation_Charges_-_OTC_(IP)
+
+**Swim Lanes**: Boundary Apps and other source data · Freight Payment Analyst | **Tasks**: 10 | **Gateways**: 1
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart LR
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Boundary Apps and other source data
+        n7[["fa:fa-cog Submit invoice to CTSI"]]
+        n8[["fa:fa-cog Make Attempt to Match Order Details and Pay the Carrier"]]
+        n9[["fa:fa-cog Submit Invoice in S/4 against Ariba PO"]]
+        n10[["fa:fa-cog Run 080 Payment for CTSI"]]
+        n13(["fa:fa-stop Payment Successfully Completed"])
+        n14{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    subgraph Freight Payment Analyst
+        n1[["fa:fa-cog Calculate Charges and Distribute Costs Successfully in Freight Order"]]
+        n2[["fa:fa-cog Create Freight Order"]]
+        n3[["fa:fa-cog Update Charges from CTSI in TM as per the Invoiced Amount"]]
+        n4[["fa:fa-cog Create and Post Freight settlement Document"]]
+        n5[["fa:fa-cog Create Purchase Order and SES in S/4"]]
+        n6[["fa:fa-cog Generate Cost Distribution Document"]]
+        n11(["fa:fa-play Initiate TM Planning"])
+        n12(["fa:fa-stop Cost Distribution Document Updated and Released to Accounting"])
+    end
+    n1 --> n7
+    n7 --> n8
+    n3 --> n4
+    n4 --> n5
+    n5 --> n6
+    n9 --> n10
+    n11 --> n2
+    n6 --> n12
+    n10 --> n13
+    n8 --> n14
+    n14 --> n3
+    n14 --> n9
+    n2 --> n1
+    class n1 serviceTask
+    class n2 serviceTask
+    class n3 serviceTask
+    class n4 serviceTask
+    class n5 serviceTask
+    class n6 serviceTask
+    class n7 serviceTask
+    class n8 serviceTask
+    class n9 serviceTask
+    class n10 serviceTask
+    class n11 startEvt
+    class n12 endEvt
+    class n13 endEvt
+    class n14 gateway
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVl1vozgU_SsWVZVdiWj5DCkPK6UkjCpNNVXT2X2YzoMDJrFqbGSbppko_31tcEhgy75sHqrer3PuPVwbjlbGcmTF1u3tEVMsY3CcyB0q0SQGkw0UaGKD1vEX5BhuCBITnVMwKtf4V5PmBtWHTtO-FJaYHLR3jbYMge8PNlioQmIDAamYCsRxMbEnFccl5IeEEcZ19g2aF07RsJnQPeM54pcEx4ncLFSlBFN0cftREAWprhMoYzTvgRZhMS-yyUk3R9g-20Eum_ZrgR7hx984lztlF5AIpHJ2siRf4QYRPaPktfZlNX8_i4GF5qFKsHUFM0y3yh84ysUhfbu4Qud0Aqfb21fakYKvz68UqF9GoBBLVAAhlXv1LkGBCYlvgmSRho4tJGdvKL7xVtHS9-xMTxKr0R1bizvdI7zdyXjDSG5Sp3s9Q-xVHzb_iD3H5gf1d8CFaH5hSmbe3Jt3TPeRm7jJmakoiv_FpHTlL1C8Ga6Vn3rpsuNyw1mYOP_GO4-5DKKFO9QJ8XecoSvQNE391UWq1Sx0nXHQ-9SfOckAdAsl2sPDBfAuCTrANIxSNxoFbPmGXdabJ86yM6C_CtOwA4zu3XThjQIGCzeYmw4VzpbDagfuWd3sMlhUlQCQ5oCpU8iBYDXPEMihhG2F_tHox49Xq4BxAacZ24J1vSmxBJi-MyUdkAwkL-uHV-vnz6uaeb_mEb4hsJASlZXUFY9QZjvwTZ9BsEQSYtK28aRkU52ABHKOER-A3n3ayINpBFOw_iMAcAsxFVLfCxsInr4NMFynD_JcU-DMHc1cIqrWmPHP5nH937oyIVnV5a_rLENCFDUhB5CwsiJIolxV_35dHRyP52o1GduLKSQSVJBDQhD50i7Mq3U6tUXqSA2eWMqbI9PRLigkByGvOfpzJZBkNVHAIFFXxBa1-i6x2hO8qbWbCSn67SsFzzzNoxlo4A0YONLw_1Xh9yu-V_l1QwVnZaO1Jn55BFCASu2Dfv7mmeZgUapVlQPY4NNGmv1RQ3UdCSQlQY1cS5bV-p8BUPgp0JM6BDv1cjL7qXHXq7XZrwHCrI_wBVHEoVH3ojZmdKwF170sVkXU-j-o9yTWEEqRJwIpVdf-cJ28wTKOsxnN82aKZ0SQmivXJ3CRZVrZHni3dtQF0-mf6uQbM2rNuTH91gyMGbRmaMywNWfGvGtN1zlDG2zP2DMTP9uuYxy-ccyNfaZzDZ8_sO-M7Zn8q0tUD3R11fci3mjEH40Eo5FwNDIbjUSjkflo5G40ovQbDbndh0Hf75mXeN_rf-oNzu83y7ZKxEuIcys-Ws1XnPrSy1EBayKtk23BWrL1gWZW3HztWHWziksM1ZVWts7TP32oNzA=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.17 LO-190-200_Monitor_Shipment_Status_-_OTC_(IP) — LO-190-200_Monitor_Shipment_Status_-_OTC_(IP)
+
+**Swim Lanes**: Transportation Planner | **Tasks**: 13 | **Gateways**: 12
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Transportation Planner
+        n1[["fa:fa-cog Trigger IDOC for Outbound Delivery Update"]]
+        n2[["fa:fa-cog Trigger IDOC for Outbound Delivery Creation"]]
+        n3[["fa:fa-cog Track Shipment Document/TU in Shipment Tracking App"]]
+        n4[["fa:fa-cog Update Events in Track Shipments App"]]
+        n5[["fa:fa-cog Receive Last Event as Proof of Delivery"]]
+        n6[["fa:fa-cog Receive Information from GXS"]]
+        n7[["fa:fa-cog Update Last Event as Shipped CRF"]]
+        n8[["fa:fa-cog Transfer Outbound Delivery to GTT"]]
+        n9[["fa:fa-cog Track Outbound Delivery in OBD Fulfillment App"]]
+        n10[["fa:fa-cog Pull information from S/4 (By WOM and My Samples)"]]
+        n11[["fa:fa-cog Backtrack Execution/Delay Status in SO Fulfillment App"]]
+        n12[["fa:fa-cog Update Last Event in Freight Order"]]
+        n13[["fa:fa-cog Update Events in Freight Order"]]
+        n14(["fa:fa-play Information from GXS received"])
+        n15(["fa:fa-stop End of Process"])
+        n16(["fa:fa-stop End of Process"])
+        n17(["fa:fa-stop Execution Status Updated in Freight Order"])
+        n18(["fa:fa-stop No Delivery Status Updated in S/4"])
+        n19(["fa:fa-stop End of Process"])
+        n20(["fa:fa-stop End of Process"])
+        n21(["fa:fa-stop Execution Status Updated in Freight Order"])
+        n22["Create Delivery Note - OTC (IP)"]
+        n23{{"fa:fa-code-branch Document Relevant for GTT?"}}
+        n24{{"fa:fa-code-branch Document Relevant for GTT?"}}
+        n25{{"fa:fa-code-branch FO Type in Execution Status?"}}
+        n26{{"fa:fa-code-branch exclusiveGateway"}}
+        n27{{"fa:fa-code-branch exclusiveGateway"}}
+        n28{{"fa:fa-arrows-alt parallelGateway"}}
+        n29{{"fa:fa-arrows-alt parallelGateway"}}
+        n30{{"fa:fa-arrows-alt parallelGateway"}}
+        n31{{"fa:fa-arrows-alt parallelGateway"}}
+        n32{{"fa:fa-arrows-alt parallelGateway"}}
+        n33{{"fa:fa-arrows-alt parallelGateway"}}
+        n34{{"fa:fa-arrows-alt inclusiveGateway"}}
+    end
+    n22 --> n28
+    n23 -->|"Yes"| n1
+    n25 -->|"Yes"| n3
+    n3 --> n26
+    n26 --> n4
+    n6 --> n26
+    n1 --> n34
+    n2 --> n34
+    n10 --> n20
+    n14 --> n6
+    n29 --> n5
+    n31 --> n10
+    n31 --> n25
+    n24 -->|"Yes"| n2
+    n34 --> n8
+    n9 --> n11
+    n11 --> n18
+    n27 --> n9
+    n12 --> n17
+    n8 --> n27
+    n29 --> n7
+    n29 --> n27
+    n5 --> n33
+    n33 --> n12
+    n7 --> n33
+    n4 --> n32
+    n32 --> n29
+    n13 --> n21
+    n30 -->|"Outbound Delivery Updated"| n23
+    n24 -->|"No"| n16
+    n23 -->|"No"| n15
+    n25 -->|"No"| n19
+    n32 --> n13
+    n28 -->|"Outbound Delivery"| n30
+    n30 -->|"Outbound Delivery Created"| n24
+    n28 -->|"FU/FO - Created/Updated"| n31
+    class n1 serviceTask
+    class n2 serviceTask
+    class n3 serviceTask
+    class n4 serviceTask
+    class n5 serviceTask
+    class n6 serviceTask
+    class n7 serviceTask
+    class n8 serviceTask
+    class n9 serviceTask
+    class n10 serviceTask
+    class n11 serviceTask
+    class n12 serviceTask
+    class n13 serviceTask
+    class n14 startEvt
+    class n15 endEvt
+    class n16 endEvt
+    class n17 endEvt
+    class n18 endEvt
+    class n19 endEvt
+    class n20 endEvt
+    class n21 endEvt
+    class n22 startEvt
+    class n23 gateway
+    class n24 gateway
+    class n25 gateway
+    class n26 gateway
+    class n27 gateway
+    class n28 gateway
+    class n29 gateway
+    class n30 gateway
+    class n31 gateway
+    class n32 gateway
+    class n33 gateway
+    class n34 gateway
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqtWG1v2kgQ_isrVxGpBIrfbfhwp_DiKFJbokKud2r6YbHXYMXY1tpOQlP--83aXgOb9UVJD0UR-8zMMzPPzi6YZ8VPA6KMlLOz5yiJihF67hUbsiW9EeqtcE56fVQDf2Ea4VVM8h7zCdOkWEQ_KzfNzJ6YG8M8vI3iHUMXZJ0SdHvdR5cQGPdRjpN8kBMahb1-L6PRFtPdJI1Tyrw_EDdUwypbYxqnNCD04KCqjuZbEBpHCTnAhmM6psficuKnSXBCGlqhG_q9PSsuTh_9DaZFVX6Zk8_46VsUFBtYhzjOCfhsim38Ca9IzHosaMkwv6QPXIwoZ3kSEGyRYT9K1oCbKkAUJ_cHyFL3e7Q_O7tL2qRoOb1LELz8GOf5lIQoLwCePRQojOJ49MGcXHqW2s8Lmt6T0Qd95kwNve-zTkbQutpn4g4eSbTeFKNVGgeN6-CR9TDSs6c-fRrpap_u4L-QiyTBIdPE1l3dbTONHW2iTXimMAx_KxPoSpc4v29yzQxP96ZtLs2yrYn6ko-3OTWdS03UidCHyCdHpJ7nGbODVDPb0tRu0rFn2OpEIF3jgjzi3YFwODFbQs9yPM3pJKzziVWWqxua-pzQmFme1RI6Y8271DsJzUvNdJsKgWdNcbZBSxipPEtpgYsoTdBNjJOE0NqJvRLt-_c7JcSjEA_8dA3-0XpNKLqezicoTCmal8UqLZMATUkcPRC6Q7dZAG3fKT9-HNHob6aZUFLVJBAZIhH279FiE2VbkhRomvole3OxvEVRcsArNzg16DLLBELzlLCuHs0eICxnHKcZcgmDdcrwlfgEWkCfcF7UPAjnCLYtDRH88QYFEltOcp2AOtt6c0KabtHV3wsh0pE2cJqdlZ-RAE2-ekK0-0LPJA-JbEOKFF0tl0L4ULYdL2NBx_l4irwyZpNbbclLHTX1lOymjGOIFARYXJjofLxD3-afEYYcn3dogbcZfGB8FPmE2R1DbUVV4OyJ-CWjvIAK4XwuYPzLarcX89eK1F-TG1g8Wl1raM4-WkQC45WB-89g87wNzljlsvlAtB6eAII_Hgdbh-C8SDM0A_lgItmNQvJc9Lbf5O2I3lxiLm7dZyDr8ITIFYi-pIcxekkF0yASDN9St66-yVv7n7rUdeCpbjhy6O5LCqsBmi8n6Pz6hk3zcYTx_HwYm4AMVnBS_U1748GNEZMHDG_YdQoH9c87Zb8_JjB_l8CSE3hztNxlhLUsyvGCwpZTkCc_LnNQ4ar-wBTDnPeFuYcwTGn6mA9wXKAMUxzHJO4IGr4jyFDfE6S9J0h_T5DxniBTGhQlXZrDt7_6DUw3Ggz-YBvAAYMBv-6UfwgcqV9wSLnBEgxGYzAaBps72jVgNmtbsGv12uB2XVhrahOgcsCsgTbBsF5bvICGUVMFQOceuinUrnPPhpp33zBrvGmNU7fyODUw5A5N9ZrTAG6T2hGKFdetg9W038rZ6KnxGh3BoSnZaHvgW9jWxHeEd2GoTftd3wCDWhRDlOtLWo-ALQ4HN1jicHDDUChOa7ndrlrqoVJfr7m-jJuaTZHXu72Aa27AvS6OOzSOHyXYJB49SpxY9E6L0WkxOy1Wp8XutDidFrfTMuy0wJnqNHWroHXLoHXrAMeVP8me4lbz1HmK2lLUkaKuFB3KUF2VopoU1eUVw7g3j4WnsCmHLTlsy2FHDrtyeCiF4ZBIYU0O63JY3qXRdqn0lS2Bb65RoIyeleqXH_h1KCAhLuNC2fcVXBbpYpf4yqj6hUQpqyM3jTA8uG5rcP8vGEC4hw==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+### 3.3 Business Roles & Responsibilities
+
+| Role / Lane | Processes Involved | Description |
+|------------|-------------------|-------------|
+| Warehouse Operator | LO-190-010_Perform_Load_Consolidation_-_OTC_(IP), LO-190-020_Receive_Truck,_Rail_Car,_Barge,_etc._-_OTC_(IP), LO-190-030_Load_Vehicle_-_OTC_(IP), LO-190-040_Check_and_Weigh_Shipment_-_OTC_(IP), LO-190-060_Validate_and_Record_Shipping_Information_-_OTC_(IP), LO-190-090_Create_Proforma_Based_Delivery_Notice_-_OTC_(IP), LO-190-100_Ship_Order_-_OTC_(IP), LO-190-110_Update_Inventory_Status_-_OTC_(IP), LO-190-120_Send_Advanced_Shipping_Notice_-_OTC_(IP), LO-190-130_Send_Interplant_Shipping_Register_-_OTC_(IP), LO-190-160_Resolve_Shipping_Issues_-_OTC_(IP), LO-190-170_Receive_Customer_Acknowledgment_of_Shipment_Receipt_and_Discrepancies_-_OTC_(IP),  | |
+| Load Planner | LO-190-070_Monitor_Carrier_Performance_on_Site_-_OTC_(IP), LO-190-080_Record_Carrier_Information_-_OTC_(IP), LO-190-100_Ship_Order_-_OTC_(IP), LO-190-120_Send_Advanced_Shipping_Notice_-_OTC_(IP),  | |
+| Customer Business Analyst | LO-190-150_Deliver_Product_-_OTC_(IP),  | |
+| Boundary Apps and other source data | LO-190-190_Audit_Shipment_Transportation_Charges_-_OTC_(IP),  | |
+| Freight Payment Analyst | LO-190-190_Audit_Shipment_Transportation_Charges_-_OTC_(IP),  | |
+| Transportation Planner | LO-190-200_Monitor_Shipment_Status_-_OTC_(IP) | |
+
+<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+## 4. Data Architecture (TOGAF "D")
+
+### 4.1 Data Entities & Ownership
+
+The following data entities are derived from the system integration flows for LO-190. Tower architects should validate ownership and classification.
+
+| # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
+|---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
+
+<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+### 4.2 Data Flow Diagrams
+
+> **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
+### 4.3 Data Lineage
+
+Data lineage traces the origin and transformation path of key data objects across integrated systems.
+
+| # | Source System | Source Schema/Object | Target System | Target Schema/Object | Transformation |
+|---|-------------|---------------------|---------------|---------------------|---------------|
+
+> *Lineage detail will be refined when tower architects validate source/target schema object mappings.*
+
+### 4.4 RICEFW Data Objects
+
+Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
+
+| Object ID | Type | Description | Status | Source | Target | Complexity |
+|-----------|------|-------------|--------|--------|--------|-----------|
+| OTCC1341 | Conversion | Payer Profile Data Conversion | 10. Object Complete |  |  | 03.Medium |
+| OTCC1340 | Conversion | Payer Segment Data Conversion | 10. Object Complete |  |  | 03.Medium |
+| OTCC1339 | Conversion | Payer Relationship Data Conversion | 10. Object Complete |  |  | 03.Medium |
+| OTCC0803 | Conversion | Open Credit Case Conversion | 10. Object Complete |  |  | 02.High |
+| OTCC0679 | Conversion | Open Dispute Case Conversion | 10. Object Complete |  |  | 02.High |
+| OTCC0678 | Conversion | Collection Master Conversion | 10. Object Complete |  |  | 02.High |
+
+### 4.5 Data Governance & Quality
+
+| Concern | Approach |
+|---------|----------|
+| Data Ownership | Per-entity owners listed in Section 3.1 |
+| Data Classification | Financial data classified as Intel Confidential |
+| Data Retention | Per Intel corporate retention policies |
+| Data Quality | Validated at source; reconciliation at target |
+
+<div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+## 5. Application Architecture (TOGAF "A")
+
+### 5.1 Current-State — Current-State Application Landscape
+
+#### Overview
+
+The Current-State architecture represents the **current / legacy** landscape for LO-190.
+
+#### Current-State Flow Narrative
+
+*(No current-state flows defined.)*
+
+### 5.2 Future-State — Future-State Application Landscape
+
+#### Overview
+
+The Future-State architecture represents the **target** landscape for LO-190.
+
+#### Future-State Flow Narrative
+
+*(No future-state flows defined.)*
+
+### 5.3 Change Impact Summary
+
+| Change Type | Flow Chain | Detail |
+|-------------|-----------|--------|
+
+**Totals**: 0 new - 0 removed - 0 modified - 0 unchanged
+
+### 5.4 Component Overview
+
+#### System Inventory
+
+| System | IAPM ID | Status |
+|--------|---------|--------|
+
+<div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+### 5.5 RICEFW Inventory
+
+| Object ID | Type | Description | Status | Source → Target | Middleware | Complexity |
+|-----------|------|-------------|--------|----------------|-----------|-----------|
+| OTCW1683 | Workflow | Additional WRICEF for Credit Limit Request Workflow | 10. Object Complete |  | NA | 03.Medium |
+| OTCE0737 | Enhancement | Implement Standard BADI to activate Credit Limit Request Workflow | 10. Object Complete |  | NA | 04.Low |
+| OTCE0614_IP | Enhancement | Implement Standard Credit/Collection BADI | 10. Object Complete |  | NA | 03.Medium |
+| OTCE0021 | Enhancement | Credit hold release dashboard at line-item level | 10. Object Complete | NA → NA | NA | 01.Very High |
+| OTCC1341 | Conversion | Payer Profile Data Conversion | 10. Object Complete |  | NA | 03.Medium |
+| OTCC1340 | Conversion | Payer Segment Data Conversion | 10. Object Complete |  | NA | 03.Medium |
+| OTCC1339 | Conversion | Payer Relationship Data Conversion | 10. Object Complete |  | NA | 03.Medium |
+| OTCC0803 | Conversion | Open Credit Case Conversion | 10. Object Complete |  | NA | 02.High |
+| OTCC0679 | Conversion | Open Dispute Case Conversion | 10. Object Complete |  | NA | 02.High |
+| OTCC0678 | Conversion | Collection Master Conversion | 10. Object Complete |  | NA | 02.High |
+
+**Summary**: 6 Conversions, 3 Enhancements, 1 Workflows
+
+<div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+### 5.6 Integration Patterns
+
+Integration patterns identified from the system flow analysis for LO-190:
+
+| # | Pattern | Flow Chain | Middleware | Protocol | Auth |
+|---|---------|-----------|-----------|----------|------|
+
+> *Integration pattern details will be refined when tower architects validate middleware assignments.*
+
+<div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+## 6. Technology Architecture (TOGAF "T")
+
+### 6.1 Platform & Infrastructure
+
+> **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
+#### Platform Inventory
+
+Platform landscape inferred from integrated systems for LO-190:
+
+| # | Platform | Type | Systems Using | Environment |
+|---|----------|------|--------------|-------------|
+| 1 | SAP S/4HANA | On-Premise (HEC) | SAP S/4 modules | DEV, QAS, PRD |
+| 2 | SAP BTP (Integration Suite) | Cloud / PaaS | CPI, API Management | DEV, QAS, PRD |
+| 3 | MuleSoft Anypoint | Cloud / iPaaS | API-led integrations | DEV, QAS, PRD |
+
+> *Platform assignments will be validated when tower architects populate technology platform columns.*
+
+<div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+### 6.2 SAP Development Object Status
+
+**Capability RICEFW Status** (10 objects)
+*Data source: Smartsheet Object Tracker (cached 2026-03-26)*
+
+| Status | Count | % |
+|--------|------:|----:|
+| 10. Object Complete | 10 | 100.0% |
+| **Total** | **10** | **100%** |
+
+**RICEFW by Type:**
+
+| Type | Count |
+|------|------:|
+| Conversion (C) | 6 |
+| Enhancement (E) | 3 |
+| Workflow (W) | 1 |
+| **Total** | **10** |
+
+**Technical Complexity:**
+
+| Complexity | Count |
+|------------|------:|
+| 01.Very High | 1 |
+| 02.High | 3 |
+| 03.Medium | 5 |
+| 04.Low | 1 |
+
+**Tower Context:** OTC-IP has 292 total RICEFW objects (282 complete, 10 active/other)
+
+### 6.3 NFRs & Design Principles
+
+| Category | Requirement | Target / SLA | Priority |
+|----------|-------------|-------------|----------|
+| Performance | Order/transaction processing within interactive SLA | < 3 seconds for online transactions | High |
+| Availability | Business-critical systems available during extended hours | 99.9% (06:00-22:00 all time zones) | High |
+| Scalability | Support seasonal and promotional volume spikes | Handle 2x baseline transaction volume | Medium |
+| Recoverability | Customer-facing systems recover within business impact window | RPO < 30 min, RTO < 2 hours | High |
+| Data Volume | Support transactional data growth from business expansion | 10M+ documents/year | Medium |
+| Latency | Near-real-time integration for order status updates | < 30 seconds for status propagation | Medium |
+| Concurrency | Support global user base across business functions | 300+ concurrent users | Medium |
+
+### 6.4 Security & Governance
+
+| Concern | Approach | Standard / Policy | Owner |
+|---------|----------|--------------------|-------|
+| Authentication | Single Sign-On (SSO) via Intel corporate Azure AD identity | Intel IT Security Policy - Identity Management | IT Security |
+| Authorization | Role-based access control (RBAC) with SAP authorization objects | Intel SAP Security Standards - Role Design | SAP Security Team |
+| Data Classification | All financial/operational data classified per Intel Data Classification Standard | Intel Data Classification Policy | Data Governance |
+| Data Encryption (at rest) | AES-256 encryption for SAP HANA database and file storage | Intel Encryption Standard | Infrastructure Security |
+| Data Encryption (in transit) | TLS 1.3 for all system-to-system and user-to-system communication | Intel Network Security Policy | Network Engineering |
+| Network Segmentation | SAP systems in dedicated network zones with firewall controls | Intel Network Architecture Standard | Network Security |
+| API Security | OAuth 2.0 / certificate-based authentication for all API integrations | Intel API Security Guidelines | Integration Architecture |
+| Audit Logging | Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log) | SOX Compliance / Intel Audit Policy | Internal Audit |
+| Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
+| Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
+
+<div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
+## 7. Project Context
+
+### 7.1 Project Roadmap & Go-Live Plan
+
+*10 objects with timeline data (source: Object Tracker)*
+
+| ID | Description | FS | TDD | Build | FUT | Status |
+|----|-------------|----|-----|-------|-----|--------|
+| OTCW1683 | Additional WRICEF for Credit Limit Request Workflow | Dec-25 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (100%) | 1. On Track |
+| OTCE0737 | Implement Standard BADI to activate Credit Limit Request Workflow | Jul-25 (100%) | Dec-25 (100%) | Dec-25 (100%) | Mar-26 (100%) | 1. On Track |
+| OTCE0614_IP | Implement Standard Credit/Collection BADI | Mar-25 (100%) | Aug-25 (100%) | Apr-25 (100%) | Sep-25 (100%) |  |
+| OTCE0021 | Credit hold release dashboard at line-item level | Jul-24 (100%) | Sep-25 (100%) | Sep-25 (100%) | Feb-26 (100%) | 1. On Track |
+| OTCC1341 | Payer Profile Data Conversion | May-25 (100%) | Jun-25 (100%) | Aug-25 (100%) | Sep-25 (100%) |  |
+| OTCC1340 | Payer Segment Data Conversion | May-25 (100%) | Jun-25 (100%) | Aug-25 (100%) | Sep-25 (100%) | 1. On Track |
+| OTCC1339 | Payer Relationship Data Conversion | Jun-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
+| OTCC0803 | Open Credit Case Conversion | Jun-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
+| OTCC0679 | Open Dispute Case Conversion | Jun-25 (100%) | Jul-25 (100%) | Aug-25 (100%) | Oct-25 (100%) | 4. Completed |
+| OTCC0678 | Collection Master Conversion | Mar-25 (100%) | May-25 (100%) | Jun-25 (100%) | Aug-25 (100%) |  |
+
+### 7.2 RAID Log
+
+*Live data from Smartsheet Master RAID Log — extracted 2026-03-26*
+
+**Mapped sub-tower(s):** 5.6 OTC IP - Credit and Collections
+
+**RAID Summary:** 19 open items (0 capability-specific, 19 tower-level), 220 closed
+
+| Severity | Capability | Tower-Wide | Total Open |
+|----------|----------:|-----------:|-----------:|
+| P1 - High | 0 | 3 | 3 |
+| P2 - Medium | 0 | 12 | 12 |
+| P3 - Low | 0 | 4 | 4 |
+| **Total** | **0** | **19** | **19** |
+
+**Other OTC-IP Tower RAID Items** (19 open):
+
+| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
+|---------|------|----------|-------|--------|-------------|----------|
+| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-03 |
+| 03755 | Risk | P1 - High | Coding for 2DN and AIF enhancements. | In Progress | Technology | 2026-03-27 |
+| 03767 | Risk | P1 - High | Day 1 OTC Execution - APOP production cutover for allocation... | In Progress | OTC IP | 2026-04-24 |
+| 01733 | Risk | P2 - Medium | Tariffs impacts Item/BOM design which is impacting ERP/SCP (... | In Progress | E2E | 2026-03-06 |
+| 03060 |  | P2 - Medium | Resource shift across Intel / Accenture Managed Services | In Progress | CM & Comms | 2026-03-27 |
+| 03712 | Risk | P2 - Medium | LOGE0627, LOGE0690 | In Progress | OTC IP | 2026-04-03 |
+| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
+| 03635 | Risk | P2 - Medium | Gaps in mapping of ITC test cases to automated controls and ... | Not Started | OTC IP | 2026-03-27 |
+| 02456 | Action | P2 - Medium | clarify who is D for the R3 org design between SMG and CPG a... | In Progress | OTC IP | 2026-03-27 |
+| 02486 | Action | P2 - Medium | Tier 1/Tier 2 customer support | Not Started | OTC IP | 2026-03-31 |
+| 02491 | Action | P2 - Medium | Clearly defined demand and sales ops roles (especially in BM... | In Progress | OTC IP | 2026-03-27 |
+| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
+| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
+| 03749 | Action | P2 - Medium | Logistics Data Intake and Creation Process Definition | In Progress | Test Management | 2026-03-27 |
+| 03760 | Risk | P2 - Medium | Require confirmation from OT/B2B team to confirm on 3B2 ASN | Roadblock / At Risk | B-Apps |  |
+| 03315 | Risk | P3 - Low | BPMG – SCP L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-03-27 |
+| 03317 | Risk | P3 - Low | BPMG – E2E L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-05-29 |
+| 03627 | Risk | P3 - Low | Inconsistency Response from EH -API B-App | Not Started | B-Apps |  |
+| 02488 | Action | P3 - Low | contractual demand policy (including cloud customers) | In Progress | OTC IP | 2026-04-17 |
+
+### 7.3 Recommendations & Next Steps
+
+| # | Category | Recommendation | Priority | Owner | Target Date | Status |
+|---|----------|---------------|----------|-------|-------------|--------|
+| 1 | Architecture | Complete extended flow attributes (Data Entity, Integration Pattern, Tech Platform) in Flows tab for full BDAT coverage | High | Tower Architect | 2026-Q2 | Open |
+| 2 | Data | Define data ownership and classification for all 0 flow chains to satisfy Data Architecture (TOGAF D) requirements | Medium | Data Architect | 2026-Q3 | Open |
+| 3 | Testing | Develop integration test scenarios covering all 0 flow chains for FUT/SIT readiness | High | Test Lead | 2026-Q3 | Open |
+| 4 | Business Architecture | Review and validate Business Architecture process steps against latest Signavio/BIC process models | Medium | Business Analyst | 2026-Q2 | Open |
+| 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
+
+---
+*LO-190 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: March 2026*
+

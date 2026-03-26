@@ -1,0 +1,1594 @@
+<div style="text-align:center; padding-top:20px;">
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <h1 style="font-size:36px; margin-top:24px;">OR-140 — OR-140</h1>
+  <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
+  <p style="font-size:18px; color:#555;">Finance Plan To Report (FPR) Tower<br/>
+  Capability OR-140 · </p>
+  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
+  Generated: March 2026<br/>
+  Sajiv Francis</p>
+  <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
+</div>
+
+<style>
+@media print {
+  @page { margin: 0.75in; }
+  .mermaid { page-break-inside: avoid; overflow: hidden; }
+  pre, table { page-break-inside: avoid; }
+  h2, h3, h4 { page-break-after: avoid; }
+}
+.mermaid { overflow-x: auto; overflow-y: auto; }
+.mermaid svg { height: auto !important; }
+.page-footer {
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 20px;
+  background: #fff;
+}
+@media print {
+  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
+</style>
+
+<div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — OR-140</span></div>
+<div style="page-break-before: always;"></div>
+
+<a id="toc"></a>
+
+## Table of Contents
+
+1. [Executive Summary](#1-executive-summary)
+2. [Business Context & Objectives](#2-business-context--objectives)
+   - 2.1 [Classification](#21-classification)
+   - 2.2 [Business Drivers](#22-business-drivers)
+   - 2.3 [Success Criteria](#23-success-criteria)
+   - 2.4 [Companion Documents](#24-companion-documents)
+3. [Business Architecture (TOGAF "B")](#3-business-architecture-togaf-b)
+   - 3.1 [Business Process Overview](#31-business-process-overview)
+   - 3.2 [Business Process Diagrams](#32-business-process-diagrams)
+   - 3.3 [Business Roles & Responsibilities](#33-business-roles--responsibilities)
+4. [Data Architecture (TOGAF "D")](#4-data-architecture-togaf-d)
+   - 4.1 [Data Entities & Ownership](#41-data-entities--ownership)
+   - 4.2 [Data Flow Diagrams](#42-data-flow-diagrams)
+   - 4.3 [Data Lineage](#43-data-lineage)
+   - 4.4 [RICEFW Data Objects](#44-ricefw-data-objects)
+   - 4.5 [Data Governance & Quality](#45-data-governance--quality)
+5. [Application Architecture (TOGAF "A")](#5-application-architecture-togaf-a)
+   - 5.1 [Current-State Application Landscape](#51-current-state--current-state-application-landscape)
+   - 5.2 [Future-State Application Landscape](#52-future-state--future-state-application-landscape)
+   - 5.3 [Change Impact Summary](#53-change-impact-summary)
+   - 5.4 [Component Overview](#54-component-overview)
+   - 5.5 [RICEFW Inventory](#55-ricefw-inventory)
+   - 5.6 [Integration Patterns](#56-integration-patterns)
+6. [Technology Architecture (TOGAF "T")](#6-technology-architecture-togaf-t)
+   - 6.1 [Platform & Infrastructure](#61-platform--infrastructure)
+   - 6.2 [SAP Development Object Status](#62-sap-development-object-status)
+   - 6.3 [NFRs & Design Principles](#63-nfrs--design-principles)
+   - 6.4 [Security & Governance](#64-security--governance)
+7. [Project Context](#7-project-context)
+   - 7.1 [Project Roadmap & Go-Live Plan](#71-project-roadmap--go-live-plan)
+   - 7.2 [RAID Log](#72-raid-log)
+   - 7.3 [Recommendations & Next Steps](#73-recommendations--next-steps)
+
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — OR-140</span></div>
+<div style="page-break-before: always;"></div>
+
+## 1. Executive Summary
+
+This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **OR-140 OR-140** within the IAO program. It includes 13 BPMN process diagram(s) in Section 3.
+| Dimension | Value |
+|-----------|-------|
+| **Tower** | Finance Plan To Report (FPR) |
+| **Process Group** |  |
+| **Capability** | OR-140 - OR-140 |
+| **Release** | Release 3 |
+| **Total Systems** | 0 |
+| **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
+| **RICEFW Objects** | 17 Reports, 86 Interfaces, 25 Conversions, 219 Enhancements, 1 Forms, 18 Workflows |
+**Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
+
+> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
+
+<div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — OR-140</span></div>
+<div style="page-break-before: always;"></div>
+
+## 2. Business Context & Objectives
+
+### 2.1 Classification
+
+| Level | Value |
+|-------|-------|
+| **L0 Tower** | Finance Plan To Report |
+| **L1 Process** |  |
+| **L2 Capability** | OR-140 - OR-140 |
+
+### 2.2 Business Drivers
+
+| # | Driver | Description | Strategic Alignment | Priority |
+|---|--------|-------------|---------------------|----------|
+| 1 | S/4 HANA Finance Consolidation | Migrate legacy costing and reporting platforms to unified S/4 HANA finance backbone | IDM 2.0 Core Finance Transformation | High |
+| 2 | Real-Time Financial Visibility | Enable real-time cost reporting and variance analysis replacing batch-driven legacy processes | CFO Digital Finance Initiative | High |
+| 3 | Regulatory Compliance Readiness | Ensure SOX compliance and audit trail continuity through the ERP transition period | Intel Corporate Compliance | Medium |
+| 4 | OR-140 Process Migration | Migrate OR-140 business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Finance | High |
+
+<div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — OR-140</span></div>
+<div style="page-break-before: always;"></div>
+
+### 2.3 Success Criteria
+
+| Metric | Target | Measure | Baseline | Owner |
+|--------|--------|---------|----------|-------|
+| Month-End Close Cycle Time | < 3 business days | Calendar days from period close trigger to final posting | 5 business days (legacy) | Finance Controller |
+| Cost Variance Accuracy | < 0.5% deviation | Variance between standard and actual cost post-migration | 1.2% (ICOST baseline) | Cost Accounting Lead |
+| System Availability (Finance) | 99.9% uptime | S/4 HANA finance module availability during business hours | 99.5% (legacy) | IT Operations |
+| OR-140 Migration Completeness | 100% flow chains validated | All 0 flow chains verified in target state | 0% (pre-migration) | Tower Architect |
+
+### 2.4 Companion Documents
+
+| Document | Description |
+|----------|-------------|
+| **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
+| **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
+
+<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — OR-140</span></div>
+<div style="page-break-before: always;"></div>
+
+## 3. Business Architecture (TOGAF "B")
+
+### 3.1 Business Process Overview
+
+This capability includes **13 business process(es)** modeled in BPMN 2.0, covering the end-to-end workflow for OR-140 OR-140.
+
+| # | Step ID | Process Name | Lanes | Tasks | Gateways |
+|---|---------|--------------|-------|-------|----------|
+| 1 | OR-140-010_Receive_Electronic_Payment | OR-140-010_Receive_Electronic_Payment | AR Cash Applier | 4 | 3 |
+| 2 | OR-140-030_Receive_Lockbox_Payment | OR-140-030_Receive_Lockbox_Payment | AR Cash Analyst | 4 | 3 |
+| 3 | OR-140-040_Receive_Bill-of-Exchange | OR-140-040_Receive_Bill-of-Exchange | AR Cash Analyst | 3 | 2 |
+| 4 | OR-140-050_Receive_Customer_Down_Payment | OR-140-050_Receive_Customer_Down_Payment | Accounts Receivable Analyst | 8 | 2 |
+| 5 | OR-140-060_Deposit_Funds | OR-140-060_Deposit_Funds | AR Cash Analyst | 2 | 0 |
+| 6 | OR-140-070_Evaluate_Discount | OR-140-070_Evaluate_Discount | AR Cash Analyst | 3 | 2 |
+| 7 | OR-140-080_Manage_Bill-of-Exchange | OR-140-080_Manage_Bill-of-Exchange | AR Cash Analyst | 5 | 0 |
+| 8 | OR-140-090_Post_Customer_Payment | OR-140-090_Post_Customer_Payment | AR Cash Analyst | 11 | 7 |
+| 9 | OR-140-110_Perform_Cash_Application | OR-140-110_Perform_Cash_Application | AR Cash Applier | 7 | 11 |
+| 10 | OR-140-120_Monitor_Unapplied_Cash | OR-140-120_Monitor_Unapplied_Cash | AR Cash Applier | 2 | 2 |
+| 11 | OR-140-130_Update_Financial_Records | OR-140-130_Update_Financial_Records | AR Data/Report Analyst | 2 | 3 |
+| 12 | OR-140-140_Reconcile_Bank_Information | OR-140-140_Reconcile_Bank_Information | AR Cash Analyst | 3 | 2 |
+| 13 | OR-140-150_Update_General_Ledger | OR-140-150_Update_General_Ledger | AR Cash Analyst | 3 | 2 |
+
+### 3.2 Business Process Diagrams
+
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — OR-140</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.1 OR-140-010_Receive_Electronic_Payment — OR-140-010_Receive_Electronic_Payment
+
+**Swim Lanes**: AR Cash Applier | **Tasks**: 4 | **Gateways**: 3
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph AR Cash Applier
+        n1["fa:fa-user Post Processing"]
+        n2[["fa:fa-cog Import Electronic Bank Statement Files to SAP"]]
+        n3[["fa:fa-cog Post Customer Payment"]]
+        n4["Contact EBS Team or Bank"]
+        n5(["fa:fa-play Electronic Payment Files Initiated by Customer"])
+        n6(["fa:fa-stop Electronic Payment Received"])
+        n7(["fa:fa-stop Issue Resolved"])
+        n8{{"fa:fa-code-branch Customer Payment Successfully Posted?"}}
+        n9{{"fa:fa-code-branch Is Issue Still Unresolved?"}}
+        n10{{"fa:fa-code-branch exclusiveGateway"}}
+    end
+    n2 --> n3
+    n3 --> n8
+    n8 -->|"No"| n1
+    n5 --> n2
+    n1 --> n9
+    n9 -->|"Yes"| n4
+    n10 --> n6
+    n8 -->|"Yes"| n10
+    n9 -->|"No"| n10
+    n4 --> n7
+    class n1 userTask
+    class n2 serviceTask
+    class n3 serviceTask
+    class n5 startEvt
+    class n6 endEvt
+    class n7 endEvt
+    class n8 gateway
+    class n9 gateway
+    class n10 gateway
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVV2PokgU_SsVOh1nE0wAQZSHnSjKxGRn0xl7drMZ56EsCq10QZGqolvX8b_vLQE_aPtpeVDuqXPPuXUpLgeLiJRakfX4eGAF0xE69PSW5rQXod4aK9qzUQ38hSXDa05Vz3AyUegl-_dEc_1yZ2gGS3DO-N6gS7oRFH1f2GgCidxGCheqr6hkWc_ulZLlWO5jwYU07Ac6ypzs5NYsTYVMqbwQHCd0SQCpnBX0Ag9CP_QTk6coEUV6I5oF2SgjvaMpjos3ssVSn8qvFP2Kd3-zVG8hzjBXFDhbnfM_8Jpys0ctK4ORSr62zWDK-BTQsGWJCSs2gPsOQBIXLxcocI5HdHx8XBVnU_Q8WxUILsKxUjOaIaUBnr9qlDHOowc_niSBYystxQuNHrx5OBt4NjE7iWDrjm2a23-jbLPV0VrwtKH238weIq_c2XIXeY4t9_Db8aJFenGKh97IG52dpqEbu3HrlGXZ_3KCvspnrF4ar_kg8ZLZ2csNhkHsvNdrtznzw4nb7ROVr4zQK9EkSQbzS6vmw8B1PhadJoOhE3dEN1jTN7y_CI5j_yyYBGHihh8K1n7dKqv1kxSkFRzMgyQ4C4ZTN5l4Hwr6E9cfNRWCzkbicosm31CMFfyXJWdU1qvmKtwfKyvDUYb7ptnoSSiNjDdVCo7fyvp5xfV-nMlEbNAiLwWcxTmnBGopGEFTOLhoqaEdOS00Shi830gLtJw8gdK11OBW6mQbV0qL3BSB9ya_k-JDRgyHCRPwnC7RM8U5EvJkeltn8OksXnJ4LlcVNtJNaQsYUQyqTdF6f7YHrd-uxIYXMVgv74l9o4SyV5p2MsNO5kKpigJZCf6ePDocLg1JaX8NQ4Bs3_UELStink1Wcb4_tY2mn1fW8XglNb4vtVBNBUsNxwp9L2RTSTffde4L0B3hlYKNfqnP-yUNJkJ9U3io3_8dHm8TDupw1IQjE_5aWX-KlfULjBo4qFleE7p1OG7CcZP0D1WnLL-lOTVv2BFvea7TEWhdW9yv88Orl8-Yt0PnBvauJ8fNyuDDleA8lW_gYTNAb8DwHjhqJ8sNOr6LQjca2LItODA5ZqkVHazTxxY-yCnNcMW1dbQtXGmx3BfEik4fJasqU8icMQyzIq_B438oRXhl" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — OR-140</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.2 OR-140-030_Receive_Lockbox_Payment — OR-140-030_Receive_Lockbox_Payment
+
+**Swim Lanes**: AR Cash Analyst | **Tasks**: 4 | **Gateways**: 3
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph AR Cash Analyst
+        n1["fa:fa-user Confirm Proposal"]
+        n2["fa:fa-user Post to Unapplied"]
+        n3[["fa:fa-cog Import Lockbox"]]
+        n4[["fa:fa-cog Clear the AR"]]
+        n5(["fa:fa-stop Lockbox Payment Received"])
+        n6["Monitor Unapplied Cash"]
+        n7["Lockbox Posted"]
+        n8["Receive Account Statements"]
+        n9{{"fa:fa-code-branch Lockbox Imported Successfully and Posted?"}}
+        n10{{"fa:fa-code-branch exclusiveGateway"}}
+        n11{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    n3 --> n9
+    n11 --> n1
+    n1 --> n10
+    n9 -->|"No"| n11
+    n7 --> n4
+    n10 --> n5
+    n4 --> n10
+    n9 -->|"Yes"| n7
+    n11 --> n2
+    n2 --> n6
+    n8 --> n3
+    class n1 userTask
+    class n2 userTask
+    class n3 serviceTask
+    class n4 serviceTask
+    class n5 endEvt
+    class n6 startEvt
+    class n7 startEvt
+    class n8 startEvt
+    class n9 gateway
+    class n10 gateway
+    class n11 gateway
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVV2P2jgU_StWRiO6UpDySZg8tGICWVVqq1Fpd7UqfTCOA9Y4dmQ7Ayzlv69NvgiFp80DcI_PPefeS3JztBDPsBVbj49HwoiKwXGktrjAoxiM1lDikQ1q4C8oCFxTLEeGk3OmluTfM80Nyr2hGSyFBaEHgy7xhmPw_aMNZjqR2kBCJscSC5KP7FEpSAHFIeGUC8N-wNPcyc9uzdEzFxkWPcFxIheFOpUShnvYj4IoSE2exIizbCCah_k0R6OTKY7yHdpCoc7lVxJ_hvu_Saa2Os4hlVhztqqgn-AaU9OjEpXBUCXe2mEQaXyYHtiyhIiwjcYDR0MCstceCp3TCZweH1esMwXf5isG9IUolHKOcyCVhhdvCuSE0vghSGZp6NhSCf6K4wdvEc19z0amk1i37thmuOMdJputitecZg11vDM9xF65t8U-9hxbHPTnlRdmWe-UTLypN-2cniM3cZPWKc_z_-Wk5yq-QfnaeC381EvnnZcbTsLE-V2vbXMeRDP3ek5YvBGEL0TTNPUX_agWk9B17os-p_7ESa5EN1DhHTz0gk9J0AmmYZS60V3B2u-6ymr9IjhqBf1FmIadYPTspjPvrmAwc4NpU6HW2QhYbsHsK0ig1N8M0oNU9am5mPtjZeUwzuHYDBsknOVEFEDbl1xCurJ-XpC9IfmFSwUUB98ZLEtKcDZk-z86OuIb8LEoub51P3H0uuZ7Tb3kBkNuQjEUQC8KXfkVM3zXMaXiZasHXuChwEyBrxhh8nau5Y-LtInO-sz1SuKir_c8lGHRkeZ1krq_66am-ryxADOEeKUtl0rfAMZcDrlPx2PfVIbHa_1go21XcT0QXcWyQghLmVeUHgBkWWP8YWWdTpd_lXNbD-8RraQu6M_6PrxOc_s0KATfyTGkCpRQQEox_S1JP971D-aD8fi9bqMJXbeO3TZuwubuZU8m_rWyvvCV9cvQGzyqeUGb5tRx2MTBHZl_sDzrRFf2XhN7dThpwmkd-hePkimxXSED2LsN-5frYXAS3D0Jm3U4ACfdPh7A0W14eht-avfKsCPnNuy2sGVbBRYFJJkVH63zu1a_jzOcw4oq62RbsFJ8eWDIis_vJKsqM505J1CviqIGT_8B3U5z9A==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.3 OR-140-040_Receive_Bill-of-Exchange — OR-140-040_Receive_Bill-of-Exchange
+
+**Swim Lanes**: AR Cash Analyst | **Tasks**: 3 | **Gateways**: 2
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph AR Cash Analyst
+        n1["fa:fa-user Validate the Terms and Conditions of the Bill-of-Exchange"]
+        n2["fa:fa-user Initiate Payment Based on Bill-of-Exchange"]
+        n3["fa:fa-user Correct the Term and Conditions of the Bill-of-Exchange"]
+        n4(["fa:fa-play Process to Receive Bill-of-Exchange Received"])
+        n5(["fa:fa-stop Bill-of-Exchange Received"])
+        n6{{"fa:fa-code-branch Validation Successful?"}}
+        n7{{"fa:fa-code-branch exclusiveGateway"}}
+    end
+    n1 --> n6
+    n4 --> n1
+    n2 --> n5
+    n6 -->|"Yes"| n7
+    n7 --> n2
+    n3 --> n7
+    n6 -->|"No"| n3
+    class n1 userTask
+    class n2 userTask
+    class n3 userTask
+    class n4 startEvt
+    class n5 endEvt
+    class n6 gateway
+    class n7 gateway
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVW1v2jAQ_itWqopNSqS8EpYPmyCQqdI2VaXrNI19MI4NVo2NbKeFUf77bJLw1labtnwA7vHd89wdvsvGQaLETuZcXm4opzoDm46e4wXuZKAzhQp3XFADd1BSOGVYdawPEVyP6a-dWxAvV9bNYgVcULa26BjPBAZfr1zQN4HMBQpy5SksKem4naWkCyjXuWBCWu8L3CM-2ak1RwMhSywPDr6fBigxoYxyfICjNE7jwsYpjAQvT0hJQnoEdbY2OSYe0RxKvUu_UvgzXH2jpZ4bm0CmsPGZ6wX7BKeY2Rq1rCyGKvnQNoMqq8NNw8ZLiCifGTz2DSQhvz9Aib_dgu3l5YTvRcHtcMKBeRCDSg0xAUobePSgAaGMZRdx3i8S31VainucXYSjdBiFLrKVZKZ037XN9R4xnc11NhWsbFy9R1tDFi5Xrlxloe_Ktfk808K8PCjl3bAX9vZKgzTIg7xVIoT8l5Lpq7yF6r7RGkVFWAz3WkHSTXL_OV9b5jBO-8F5n7B8oAgfkRZFEY0OrRp1k8B_nXRQRF0_PyOdQY0f4fpA-C6P94RFkhZB-iphrXeeZTW9lgK1hNEoKZI9YToIin74KmHcD-Jek6HhmUm4nIP-DcihMt8csrXS9al9ePBj4hCYEejZZoM7yGhpygFmSMEtlgsFIC9BbkaBaiq4AoLszgYmNU8Qb7QyN5LP8MT5ecQanrJemVVALes1XC8w12BgVkEJBP8DTXRKkwspMdL73P4ptfjNnnTJzJ9mG42VAlqAG4wwfXhO0B6UhuntEVVyoFJaLP86rrvZtHF2XXpTM_Bo3vbelALGFbJJkYp9mDjb7VFs-nIsXiFWKaP1sb6LhygzrfUPHgDPe2_UGzOuzWZCeFibSWN2rfk0cb5jNXGejG6Dp7Vb2JhRbaZnUV_ELig6utdWv53nEzh8GY5ehuP9qjuBk2YrnYDddjJP0LRFHddZmFsEaelkG2f3VjJvrhITWDHtbF0HVlqM1xw52W57O9XSjsaQQjNUixrc_gb4iTjR" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — OR-140</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.4 OR-140-050_Receive_Customer_Down_Payment — OR-140-050_Receive_Customer_Down_Payment
+
+**Swim Lanes**: Accounts Receivable Analyst | **Tasks**: 8 | **Gateways**: 2
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Accounts Receivable Analyst
+        n1["fa:fa-user Create Down Payment Request (Noted Item)"]
+        n2["fa:fa-user Clear the Down Payment Request with the Down Payment Received"]
+        n3[["fa:fa-cog Replicate the Down Payment Request as Open (Noted Item)"]]
+        n4[["fa:fa-cog Receive Down Payment via EBS File"]]
+        n5[["fa:fa-cog Clear the Down Payment Request"]]
+        n6[["fa:fa-cog Post AR Invoice"]]
+        n7[["fa:fa-cog Clear the AR Invoice"]]
+        n8[["fa:fa-cog Replicate the AR Invoice as Open Item"]]
+        n9(["fa:fa-play Receive Customer Down Payment Initiated"])
+        n10(["fa:fa-stop Receive Customer Down Payment Completed"])
+        n11{{"fa:fa-code-branch Is it a Down Payment Scenario"}}
+        n12{{"fa:fa-code-branch exclusiveGateway"}}
+        n13[["fa:fa-folder-open Process Customer Invoice"]]
+    end
+    n3 --> n4
+    n5 --> n3
+    n9 --> n11
+    n11 -->|"Yes"| n1
+    n11 -->|"No"| n13
+    n1 --> n5
+    n2 --> n12
+    n12 --> n6
+    n6 --> n7
+    n7 --> n8
+    n8 --> n10
+    n13 --> n12
+    n4 --> n2
+    class n1 userTask
+    class n2 userTask
+    class n3 serviceTask
+    class n4 serviceTask
+    class n5 serviceTask
+    class n6 serviceTask
+    class n7 serviceTask
+    class n8 serviceTask
+    class n9 startEvt
+    class n10 endEvt
+    class n11 gateway
+    class n12 gateway
+    class n13 subProc
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVluvmzgQ_isWR0dpJSJxDTk8rJSQsIq02x41bVerZh8cMIl1HJu1TS6b5r-vHSAEGroPywNivpn55mJ7zNlIWIqM0Hh-PmOKZQjOA7lFOzQIwWANBRqYoAS-Qo7hmiAx0DYZo3KJ_7ma2V5-1GYai-EOk5NGl2jDEPiyMMFEORITCEjFUCCOs4E5yDneQX6KGGFcWz-hcWZl12iVasp4inhjYFmBnfjKlWCKGtgNvMCLtZ9ACaNpizTzs3GWDC46OcIOyRZyeU2_EOh3ePwDp3Kr5AwSgZTNVu7Ib3CNiK5R8kJjScH3dTOw0HGoatgyhwmmG4V7loI4pG8N5FuXC7g8P6_oLSj4PFtRoJ6EQCFmKANCKni-lyDDhIRPXjSJfcsUkrM3FD4582DmOmaiKwlV6Zapmzs8ILzZynDNSFqZDg-6htDJjyY_ho5l8pN6d2IhmjaRopEzdsa3SNPAjuyojpRl2f-KpPrKP0PxVsWau7ETz26xbH_kR9aPfHWZMy-Y2N0-Ib7HCbojjePYnTetmo982-onncbuyIo6pBso0QGeGsKXyLsRxn4Q20EvYRmvm2WxfuUsqQnduR_7N8JgascTp5fQm9jeuMpQ8Ww4zLdgkiSsoFKATyhBeK8PHphQSE5Clpb6ofa3lZHBMIND3XgQcaQKAzN2oOAVnnaISuX_d4GEBO8-MIlSsJBo935l_HVH4nRICIIcqCP_mOeA5faRVmeJ0jaz--1GnbCNMsoJTnSGvexQgI85ot1s70m9Luk1cptujyGYT5cgxgR13P22-8-r7fiO2r6vTGU8-QQWdM_UFu0YB32Bej3GP2tX43Vrku5Oh-Ll3Y0iJ2qD192JCiHZTq1uq8qFGvhYBdDL9v5-W1kNjfLL_4MmYrucoAc09vncFJSi4VrNyWQLFgJgtdRtkmWCqLph2Mq4XO45nMcc6JiQQqicfi2PctftbutlaoYhPmS6ZfqQIiGaQn5YCTUryw_qguHwF7XfKtEvRbcSX0rRruaV-tDA95XxJxIr47sCuooPrMRrBrtk8CvRqQidWl0Bo0oelWJQiUEpjitxXHlbtbfbofNK2bkbXDqFemC3YOcx7N4P45bG69X4vZpRrybo1Yx7NS-3C7VdoFVdfm3Urm-ANuw8ht16vBumofbMDuLUCM_G9a9I_TmlKIMFkcbFNGAh2fJEEyO8_j0YRZ4qwhmGaqjvSvDyLz2L_SA=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.5 OR-140-060_Deposit_Funds — OR-140-060_Deposit_Funds
+
+**Swim Lanes**: AR Cash Analyst | **Tasks**: 2 | **Gateways**: 0
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph AR Cash Analyst
+        n1["fa:fa-user Analyze Deposited Funds and Bank Statements"]
+        n2["fa:fa-user Display the Customer Details"]
+        n3(["fa:fa-play Request Initiated to Deposit Funds"])
+        n4(["fa:fa-stop Funds Deposited"])
+    end
+    n3 --> n2
+    n2 --> n1
+    n1 --> n4
+    class n1 userTask
+    class n2 userTask
+    class n3 startEvt
+    class n4 endEvt
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVMuOmzAU_RWLUUQrEYlnSFlUSiBIlVqpmkzbRdOFA3ZijbGpbSbJRPn32oFAknZWZQH4-N5z7j1-HK2Cl8hKrNHoSBhRCTjaaosqZCfAXkOJbAe0wHcoCFxTJG0TgzlTS_J6DvPCem_CDJbDitCDQZdowxH49skBM51IHSAhk2OJBMG2Y9eCVFAcUk65MNEPaIpdfFbrpuZclEgMAa4be0WkUylhaICDOIzD3ORJVHBW3pDiCE9xYZ9McZTvii0U6lx-I9EXuP9BSrXVYwypRDpmqyr6Ga4RNT0q0RisaMTLxQwijQ7Thi1rWBC20XjoakhA9jxAkXs6gdNotGK9KHjKVgzop6BQygxhIJWGFy8KYEJp8hCmszxyHakEf0bJg7-Is8B3CtNJolt3HWPueIfIZquSNadlFzremR4Sv947Yp_4riMO-n2nhVg5KKUTf-pPe6V57KVeelHCGP-XkvZVPEH53GktgtzPs17LiyZR6v7Nd2kzC-OZd-8TEi-kQFekeZ4Hi8GqxSTy3LdJ53kwcdM70g1UaAcPA-GHNOwJ8yjOvfhNwlbvvspm_VXw4kIYLKI86gnjuZfP_DcJw5kXTrsKNc9GwHoLZo8ghVJ_GaQHqdpZ8zDv58rCMMFwbMxuA14RyFDNJVGoBHnDSgkgK8Fcb0uwVLrZCjElV9avKx7_licjsqbaEn3WQdpIxSsDIgUJvUsM3vWZ54xH9LtBUoFP-vog0FSg-KWcthid__6KIBwItE7dFdw3METrfdv-sACMxx91zd3Qb4fdXmFeOwyvFsWAl814A_v_hoP-QN7AYXd2LMfSflSQlFZytM73ob4zS4RhQ5V1cizYKL48sMJKzveG1dSltiIjUC9n1YKnPx4-vTY=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — OR-140</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.6 OR-140-070_Evaluate_Discount — OR-140-070_Evaluate_Discount
+
+**Swim Lanes**: AR Cash Analyst | **Tasks**: 3 | **Gateways**: 2
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph AR Cash Analyst
+        n1[["fa:fa-cog Calculate the Proposed Discount Amount Based on Defined Criteria"]]
+        n2[["fa:fa-cog Identify the Payment Terms"]]
+        n3[["fa:fa-cog Apply No Discount while Cash Application"]]
+        n4(["fa:fa-play Request to Evaluate Discount Initiated"])
+        n5(["fa:fa-stop Discount Evaluated"])
+        n6{{"fa:fa-code-branch Payment Term with Discount Parameter?"}}
+        n7{{"fa:fa-code-branch exclusiveGateway"}}
+    end
+    n2 --> n6
+    n4 --> n2
+    n1 --> n7
+    n6 -->|"Yes"| n1
+    n7 --> n5
+    n3 --> n7
+    n6 -->|"No"| n3
+    class n1 serviceTask
+    class n2 serviceTask
+    class n3 serviceTask
+    class n4 startEvt
+    class n5 endEvt
+    class n6 gateway
+    class n7 gateway
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVV2v4jYQ_StWrq5opSDlk9A8tIJAqit1V6u9t62qZR-M4xDrOnZqO0DK8t87IYEAXZ6aB8KcmTlnZpJxDhaRGbVi6_n5wAQzMTqMTEFLOorRaI01HdmoA_7AiuE1p3rUxuRSmFf2zynMDap9G9ZiKS4Zb1r0lW4kRb-_2GgGidxGGgs91lSxfGSPKsVKrJpEcqna6Cc6zZ38pNa75lJlVA0BjhO5JIRUzgQdYD8KoiBt8zQlUmQ3pHmYT3MyOrbFcbkjBVbmVH6t6Qe8_5NlpgA7x1xTiClMyX_Da8rbHo2qW4zUanseBtOtjoCBvVaYMLEBPHAAUli8D1DoHI_o-Py8EhdR9LZYCQQX4VjrBc2RNgAvtwbljPP4KUhmaejY2ij5TuMnbxktfM8mbScxtO7Y7XDHO8o2hYnXkmd96HjX9hB71d5W-9hzbNXA750WFdmglEy8qTe9KM0jN3GTs1Ke5_9LCeaq3rB-77WWfuqli4uWG07CxPkv37nNRRDN3Ps5UbVlhF6RpmnqL4dRLSeh6zwmnaf-xEnuSDfY0B1uBsKfkuBCmIZR6kYPCTu9-yrr9SclyZnQX4ZpeCGM5m468x4SBjM3mPYVAs9G4apAs88owRruAvNGm87bXsL98mVl5TjO8ZjIDURxUnPoB8GWIiiikppmaME0kbUwaFaebnPcolIgqBb2J0OJYgZ2Ea-sr1-v2L1b9peMCsPypiPHTQkmeqOq1Hd5_m3erKp4gz7KoY5dwTjtewInI9gwKe5Ygh8uLBWH5_OZ_l1TbZCRaLnFvG7bvDC-wHHFAMmA5McrknAg0UZWQ8KZ4j5hcjgMtWd0vIZ1JsVNu2jHTDEwfcIKlxTm98vKOh6vqKLvU9E94bVmW_pr9-INWbCa3R_hofH4ZyimN4PO9HrT7cyoNyet-W1l_UXhQXwDd49HXVjYm_73sz7KU5J_9RK3ClerduPxHnr8h57gcsDdwGF_Ft2Ak_M-3qDRGbVsq4RHgFlmxQfr9C2C71VGc1xzYx1tC9dGvjaCWPHpzLbqKoPMBcOwSmUHHv8FdBc3GQ==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.7 OR-140-080_Manage_Bill-of-Exchange — OR-140-080_Manage_Bill-of-Exchange
+
+**Swim Lanes**: AR Cash Analyst | **Tasks**: 5 | **Gateways**: 0
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph AR Cash Analyst
+        n1["fa:fa-user Enter BOE Payment"]
+        n2["fa:fa-user Make BOE Payment"]
+        n3["fa:fa-user Display BOE List"]
+        n4["fa:fa-user Reverse Bill Liability"]
+        n5["fa:fa-user Post Incoming Payment for Customer"]
+        n6(["fa:fa-stop Bill-of-Exchange Managed"])
+        n7["Receive Bill-of-Exchange"]
+    end
+    n1 --> n2
+    n4 --> n3
+    n7 --> n1
+    n3 --> n6
+    n2 --> n5
+    n5 --> n4
+    class n1 userTask
+    class n2 userTask
+    class n3 userTask
+    class n4 userTask
+    class n5 userTask
+    class n6 endEvt
+    class n7 startEvt
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVV1v2jAU_StWqopNClI-CcvDJAiJVKnTqrbbHtY9mOQarDo2sg2FIf77bBKgofC0PATu8bnn-F75OlunFBU4qXN7u6Wc6hRte3oONfRS1JtiBT0XNcBPLCmeMlA9yyGC6yf6d0_zo8Xa0ixW4JqyjUWfYCYA_bhz0cgkMhcpzFVfgaSk5_YWktZYbjLBhLTsGxgSj-zd2qWxkBXIE8HzEr-MTSqjHE5wmERJVNg8BaXgVUeUxGRIyt7Obo6Jt3KOpd5vf6ngG17_opWem5hgpsBw5rpm93gKzNao5dJi5VKuDs2gyvpw07CnBS4pnxk88gwkMX89QbG326Hd7e0LP5qi58kLR-YpGVZqAgQpbeB8pRGhjKU3UTYqYs9VWopXSG-CPJmEgVvaSlJTuufa5vbfgM7mOp0KVrXU_putIQ0Wa1eu08Bz5ca8z7yAVyenbBAMg-HRaZz4mZ8dnAgh_-Vk-iqfsXptvfKwCIrJ0cuPB3HmfdQ7lDmJkpF_3ieQK1rCO9GiKML81Kp8EPveddFxEQ687Ex0hjW84c1J8EsWHQWLOCn85Kpg43e-y-X0QYryIBjmcREfBZOxX4yCq4LRyI-G7Q6NzkzixRyNHlGGlfnlmG2Ublbtw_3fLw7BKcF922yUc23e4-85esCbGrh-cf68Ywdd9jf8CtfJYZc8oWrBTJcs_56qM3LUJT_CCqQy4qYDho2nlFG96abE3ZQHoTS646WozdwcdoSIkChbKi1qkN30wadjvlle7K36gvTztZkxPgNTHcczqEzW53dpicl6hBLoCj6kHA3MiDR_uI_6_a-mcW0YNWHYhkkTtqeUh004aMOgCeM2jJswendYrP5hSDpwcBkOL8PRZTi-DA_aG6ADJscryHEd0-sa08pJt87-sjcfhAoIXjLt7FwHL7V42vDSSfeXorNcVGaAJhSbs1o34O4fiyj8VA==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — OR-140</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.8 OR-140-090_Post_Customer_Payment — OR-140-090_Post_Customer_Payment
+
+**Swim Lanes**: AR Cash Analyst | **Tasks**: 11 | **Gateways**: 7
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph AR Cash Analyst
+        n1["fa:fa-user Receive Payment via EBS or Manual Cash application"]
+        n2["fa:fa-user Post Residual Payment"]
+        n3["fa:fa-user Post with Reason Code"]
+        n4[["fa:fa-cog Create Invoice through SD Process or FI"]]
+        n5[["fa:fa-cog Technically Clear Invoice in IP/IF System"]]
+        n6[["fa:fa-cog Replicate IP/IF Invoice in CFIN system"]]
+        n7[["fa:fa-cog Clear Open Items"]]
+        n8[["fa:fa-cog Display Error - Difference too Large to Clear"]]
+        n9[["fa:fa-cog Create an Open Customer Line Item"]]
+        n10[["fa:fa-cog Create Invoice through BRIM"]]
+        n11[["fa:fa-cog Clear Invoices in FICA and Replicate the same into FIAR"]]
+        n12(["fa:fa-play Request to Post Customer Payment Initiated"])
+        n13(["fa:fa-stop Post Customer Payment Completed"])
+        n14{{"fa:fa-code-branch Check if Payment is within Tolerance?"}}
+        n15{{"fa:fa-code-branch Reason Code needed or not?"}}
+        n16{{"fa:fa-code-branch exclusiveGateway"}}
+        n17{{"fa:fa-code-branch Is it Write off Reason code?"}}
+        n18{{"fa:fa-code-branch exclusiveGateway"}}
+        n19{{"fa:fa-arrows-alt parallelGateway"}}
+        n20{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    n12 --> n19
+    n4 --> n20
+    n6 --> n1
+    n1 --> n14
+    n14 -->|"No"| n8
+    n8 --> n15
+    n3 --> n16
+    n14 -->|"Yes"| n16
+    n16 --> n7
+    n7 --> n13
+    n2 --> n9
+    n9 --> n16
+    n15 -->|"No"| n18
+    n17 -->|"Yes"| n3
+    n18 --> n2
+    n17 -->|"No"| n18
+    n15 -->|"Yes"| n17
+    n5 --> n6
+    n19 --> n4
+    n19 --> n10
+    n10 --> n11
+    n11 --> n20
+    n20 --> n5
+    class n1 userTask
+    class n2 userTask
+    class n3 userTask
+    class n4 serviceTask
+    class n5 serviceTask
+    class n6 serviceTask
+    class n7 serviceTask
+    class n8 serviceTask
+    class n9 serviceTask
+    class n10 serviceTask
+    class n11 serviceTask
+    class n12 startEvt
+    class n13 endEvt
+    class n14 gateway
+    class n15 gateway
+    class n16 gateway
+    class n17 gateway
+    class n18 gateway
+    class n19 gateway
+    class n20 gateway
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlV11v6kYQ_SsrX0W0Eqi2sTHhoRUxuEJKbiNIe1Vd-rCxx7DKsuvumiSUy3_vLNgGO0bqBw8Je2bOmZnjtb3srVgmYI2sm5s9EywfkX0nX8MGOiPSeaYaOl1yAn6jitFnDrpjclIp8gX765jmeNm7STNYRDeM7wy6gJUE8uusS8ZI5F2iqdA9DYqlnW4nU2xD1S6UXCqT_QmGqZ0eqxWhO6kSUOcE2w6c2EcqZwLOcD_wAi8yPA2xFElNNPXTYRp3DqY5Lt_iNVX5sf2thgf6_oUl-RrXKeUaMGedb_g9fQZuZszV1mDxVr2WZjBt6gg0bJHRmIkV4p6NkKLi5Qz59uFADjc3S1EVJU-TpSD4iTnVegIp0TnC09ecpIzz0ScvHEe-3dW5ki8w-uROg0nf7cZmkhGObneNub03YKt1PnqWPClSe29mhpGbvXfV-8i1u2qHfxu1QCTnSuHAHbrDqtJd4IROWFZK0_R_VUJf1RPVL0WtaT9yo0lVy_EHfmh_1CvHnHjB2Gn6BOqVxXAhGkVRf3q2ajrwHfu66F3UH9hhQ3RFc3iju7PgbehVgpEfRE5wVfBUr9nl9vlRybgU7E_9yK8EgzsnGrtXBb2x4w2LDlFnpWi2JuM5CanG_4Lync5PUfMRztelldJRSnvGbDKHGNgrkEe624DIySujZHq3IFKRByq2lJ90aJZxFtOcSbG0_riQc-tyj1LnqKlZYqiFaJ3Rb2G8sXyNNKqlICHeH3WG97WixHJFQgXoP5mJV4lXluRrJberNVlMiPEQtDbNRzPUuBTx6yJPEK8FTsT5joQcqKr0mCCzxx9mEVmgcbBpyAzqMnM4-QIF50IkjGafiW7TCBrzHMv_kgEWxmTdyB7WsydMZxz33lQpHLOH6zQFBcI4ISW5p2plvp1UG1K3rUZScSoebnUuN3hJ7vEJeWylQXfsf3Qh7uazhybTaRu5IGrjVjQLx9hJcuEovjbwob8xZuI80Ww8b6q631WqR0_m8OcWcDth-nFbVROVu3uGryiG2gkqfX-p1D8rISW7Qg_lJuPQQvf2-_N4CfSe8Yker0m4hviFsLQSYPq41XHeJ8nBJMFPS-twuNTy27Uu7g4iABJIzDYXMv8gMGgXgPeYbzXe6z-fnl5NWtBOm-HlyckXxfCKyDQt-zApHyoP_1vl2zON4q5-0z3Kc5JRhXcn8HaSa_87Er7DTl9w15Be70dTtgC807p8GYlBES_zi6VXro_535bWZ7m0vuH9WeDDIs8v1v1iPWjyfgd9JJ4jRcWgWAcFs1-si4bLfm-bwn69IafsyAkaFUtBp-jVbSZ-UPCbPZc9-ieFqoeiKa-xdkpTHbsAKludhu1ukeFfvBuN--WZoAa77XC_HfYujwG1iH81MrgaCa5Ghlcjt1cjaMzVkHM95FYnwDreL05rddQrjyx12G-HB-1w0A4P2-HbVhgvcgFbXQsfrRvKEmu0t44_EfBnRAIp3fLcOnQtus3lYidia3Q8SlvbLEHmhFE84WxO4OFvMT3oaw==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — OR-140</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.9 OR-140-110_Perform_Cash_Application — OR-140-110_Perform_Cash_Application
+
+**Swim Lanes**: AR Cash Applier | **Tasks**: 7 | **Gateways**: 11
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph AR Cash Applier
+        n1["fa:fa-user Manually Match Incoming Payments in EBS with Invoices"]
+        n2["fa:fa-user Check Mulesoft/ SAP Batch Jobs Error logs to Resolve the Error"]
+        n3["fa:fa-user Manually Match Incoming Payments in Lockbox with Invoices"]
+        n4[["fa:fa-cog Convert Payment Advice Into Template"]]
+        n5[["fa:fa-cog Move the Data into SAP"]]
+        n6[["fa:fa-cog Update SAP Payment Advice"]]
+        n7["Check UI Path Error logs to Resolve the Error"]
+        n8(["fa:fa-play Payment Advice Processed"])
+        n9["Monitor Unapplied Cash"]
+        n10["Email Notification with Report of Error Logs Triggered Periodically"]
+        n11["Receive Electronic Payment"]
+        n12{{"fa:fa-code-branch Cash App Successful?"}}
+        n13{{"fa:fa-code-branch Payment Advice Received after EBS?"}}
+        n14{{"fa:fa-code-branch exclusiveGateway"}}
+        n15{{"fa:fa-code-branch exclusiveGateway"}}
+        n16{{"fa:fa-code-branch Errors Found?"}}
+        n17{{"fa:fa-code-branch Errors Found?"}}
+        n18{{"fa:fa-code-branch exclusiveGateway"}}
+        n19{{"fa:fa-code-branch Lockbox Received for the Open Item?"}}
+        n20{{"fa:fa-code-branch Payment Advice Processed via Email and Portal?"}}
+        n21{{"fa:fa-code-branch exclusiveGateway"}}
+        n22{{"fa:fa-arrows-alt parallelGateway"}}
+        n23[["fa:fa-folder-open Receive Account Statements"]]
+    end
+    n8 --> n20
+    n4 --> n16
+    n12 -->|"Yes"| n15
+    n14 --> n4
+    n12 -->|"No"| n13
+    n13 -->|"No"| n19
+    n13 -->|"Yes"| n14
+    n5 --> n6
+    n6 --> n17
+    n1 --> n15
+    n11 --> n22
+    n15 --> n9
+    n16 -->|"No"| n18
+    n16 -->|"Yes"| n10
+    n17 -->|"No"| n22
+    n17 -->|"Yes"| n2
+    n18 --> n21
+    n7 --> n14
+    n10 --> n7
+    n19 -->|"No"| n1
+    n19 -->|"Yes"| n3
+    n3 --> n15
+    n20 -->|"Yes"| n14
+    n21 --> n5
+    n2 --> n21
+    n20 -->|"No - Manual File Drop"| n18
+    n23 --> n12
+    n22 --> n23
+    class n1 userTask
+    class n2 userTask
+    class n3 userTask
+    class n4 serviceTask
+    class n5 serviceTask
+    class n6 serviceTask
+    class n8 startEvt
+    class n9 startEvt
+    class n10 startEvt
+    class n11 startEvt
+    class n12 gateway
+    class n13 gateway
+    class n14 gateway
+    class n15 gateway
+    class n16 gateway
+    class n17 gateway
+    class n18 gateway
+    class n19 gateway
+    class n20 gateway
+    class n21 gateway
+    class n22 gateway
+    class n23 subProc
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlV21v6jYU_itWrio2CbS8EuDDJgpk6nR7V5V203S7D8ZxwKqxI8ehZb389x2TF0gapq3jQ0sen-c55zw5ccybRWRMrYl1dfXGBNMT9NbTG7qlvQnqrXBGe31UAL9hxfCK06xnYhIp9JL9dQxz_PTVhBkswlvG9wZd0rWk6PGmj6ZA5H2UYZENMqpY0uv3UsW2WO1nkktloj_RUWInx2zl0rVUMVWnANsOHRIAlTNBT7AX-qEfGV5GiRRxQzQJklFCegdTHJcvZIOVPpafZ_QWv_7OYr2B6wTzjELMRm_5Z7yi3PSoVW4wkqtdZQbLTB4Bhi1TTJhYA-7bACksnk9QYB8O6HB19STqpOhh_iQQfAjHWTanCco0wIudRgnjfPLJn02jwO5nWslnOvnkLsK55_aJ6WQCrdt9Y-7ghbL1Rk9Wksdl6ODF9DBx09e-ep24dl_t4W8rFxXxKdNs6I7cUZ3pOnRmzqzKlCTJ_8oEvqoHnD2XuRZe5EbzOpcTDIOZ_V6vanPuh1On7RNVO0bomWgURd7iZNViGDj2ZdHryBvas5boGmv6gvcnwfHMrwWjIIyc8KJgka9dZb66U5JUgt4iiIJaMLx2oql7UdCfOv6orBB01gqnGzS9RzOcwf805YyqYtV8hPP1yUrwJMEDYza6xSLHnO_hiyYbdCOI3MIYoju831KhM8QEWlwv0QvTZnUnwczsyfrzTNFtKs42lDyj2xwedZnoH9Byeoeuj-K_yFWGFkpJhbhcZ0hLdA9BfEcRbBHFSlPa--_FfpbkeSVf_6lg_2stS-QazaTYUXjGShU0jc3EABfqe6DblMPdBoFzhaCpcCvLFuZYYygCiNB1izNsch7TGHSP7jQTt2ghsApLH28gEpr6Tw6OvquzQiP7dpNm6miW0RhY35_RxsC6lbChQ6ZHgY9TFB9Hqinv2BC42GLG0RepWcII1kyKwv17mkrwVSZlyZ9NyQ-KrddUgdod7OUyBgbc0ZaqGdJ7SiiDxhacEhh9wUhVfCvYfXs7GRvTwQq2U5iOav7RMiemxyTnPz1Zh8M51eumtkwqK4kRTjRMITwO74T8biH6SnieAffnYsdo04KP0YbdtKPLGYpkLuJ3FYYf4Iw-Vt64m1Y9mbWdCcyEGdtfUyrQjabbdgGu_a_uTz3EaMcwKqYRCxgwmD787qa7zoe6cs_GDINpL9kAc41SrGB-Kb9A8k4PfQLvQqoG0jRbzfaUEDBeo6UG-nELOz398NYtvogRGgx-NG6U135x7QzLa8c1wLcn6w-z030zc1WtlKF-O_KLLAK9asFrLYzbC7V2pRUU0lURw7KosCKW13UpJeC6FVAK1JmGrRJG7YW6hMoIJ2xSTtphi1IvVF6W5wQRlmXWDtkFULcxblXVxqsMlZNeq2_XvmSgWzpSR7ZKq5lfJBqU7z4UMQ6vGSXTpkdulbZq1K3UvLOjhrkr1RGrAbvdsNcN--enqsZKcHFleHFlVJ9lG_C4G4b70407F3C3Oq01Ya8b9rvhoBsedsNhNzzqhsedMNz8Ttjphru7hKkoT5ZW39pSBTtjbE3erOMPMvjRFtME51xbh76Fcy2Xe0GsyfGHi5UfjydzhuE8uS3Aw9_pXVyT" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — OR-140</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.10 OR-140-120_Monitor_Unapplied_Cash — OR-140-120_Monitor_Unapplied_Cash
+
+**Swim Lanes**: AR Cash Applier | **Tasks**: 2 | **Gateways**: 2
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph AR Cash Applier
+        n1["fa:fa-user Monitor Unapplied Cash"]
+        n2["fa:fa-user Make Required Corrections"]
+        n3(["fa:fa-stop Unapplied Cash Monitored"])
+        n4["Perform Cash Application"]
+        n5{{"fa:fa-code-branch Corrections Needed?"}}
+        n6{{"fa:fa-code-branch exclusiveGateway"}}
+    end
+    n1 --> n5
+    n2 --> n6
+    n6 --> n3
+    n5 -->|"Yes"| n2
+    n4 --> n1
+    n5 -->|"No"| n6
+    class n1 userTask
+    class n2 userTask
+    class n3 endEvt
+    class n4 startEvt
+    class n5 gateway
+    class n6 gateway
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVFtv2jAU_itWKsQmBSn3sDxsgkCmSWtVlXbTNPZgkmOwGuLMTriM5r_PzoXb2qflAThfvovPwfZBi1kCWqD1egea0SJAh36xgjX0A9RfYAF9HTXAN8wpXqQg-opDWFbM6J-aZjr5TtEUFuE1TfcKncGSAXr6oqORFKY6EjgTAwGckr7ezzldY74PWcq4Yt_AkBikTmtfjRlPgJ8IhuGbsSulKc3gBNu-4zuR0gmIWZZcmBKXDEncr9TiUraNV5gX9fJLAbd4950mxUrWBKcCJGdVrNOveAGp6rHgpcLikm-6YVChcjI5sFmOY5otJe4YEuI4ez5BrlFVqOr15tkxFD1O5hmST5xiISZAkCgkPN0UiNA0DW6ccBS5hi4Kzp4huLGm_sS29Fh1EsjWDV0Nd7AFulwVwYKlSUsdbFUPgZXvdL4LLEPne_l5lQVZckoKPWtoDY9JY98MzbBLIoT8V5KcK3_E4rnNmtqRFU2OWabruaHxr1_X5sTxR-b1nIBvaAxnplEU2dPTqKaeaxpvm44j2zPCK9MlLmCL9yfDD6FzNIxcPzL9Nw2bvOtVlot7zuLO0J66kXs09MdmNLLeNHRGpjNsVyh9lhznKzR6QCEW8jvPUwq8eauezPw51wgOCB6oYaNbJk8t4-gpwzU1qXVz7deZxLqS4GdAD_C7pFzRGecQF5Rl4lJlvzvKRMHyq4QuGBKpen8mc6TqHjhhfH3WQoxVwmWAezh0AeoSGizkMYpX5wtCdwAJJJ_mWlWdCb3XhbCL01LQDXxu_t6TSh6A5kdmosHgo4xuS6spvbb0mtJuS1eVL3PtB8jRvEh2izsNzbyi3bGa5Z3tDRXYnYkL2HodttuzegE6x8viAna7bXyBeh2q6doa-BrTRAsOWn2Fy2s-AYLLtNAqXcNlwWb7LNaC-qrTyjyRygnFcgeuG7D6Cyqo86E=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.11 OR-140-130_Update_Financial_Records — OR-140-130_Update_Financial_Records
+
+**Swim Lanes**: AR Data/Report Analyst | **Tasks**: 2 | **Gateways**: 3
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph AR Data/Report Analyst
+        n1["fa:fa-user Display customer line item reports"]
+        n2["fa:fa-user Display GL Line item report"]
+        n3(["fa:fa-play Request to Update Financial Records Initiated"])
+        n4["Close Sub-ledgers"]
+        n5["Close Period"]
+        n6["Perform Report Analysis"]
+        n7["Close Period"]
+        n8{{"fa:fa-arrows-alt parallelGateway"}}
+        n9{{"fa:fa-arrows-alt parallelGateway"}}
+        n10{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    n1 --> n8
+    n2 --> n9
+    n8 --> n4
+    n9 --> n6
+    n9 --> n5
+    n8 --> n7
+    n3 --> n10
+    n10 --> n1
+    n10 --> n2
+    class n1 userTask
+    class n2 userTask
+    class n3 startEvt
+    class n4 startEvt
+    class n5 startEvt
+    class n6 startEvt
+    class n7 startEvt
+    class n8 gateway
+    class n9 gateway
+    class n10 gateway
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVV2P6jYQ_StWVitaKaj5JJCHSmwgV1faK10t97YPpQ8mscFax05tZ1mK-O8dk_ARylZqmwfEHM85Z2bkSfZOIUvipM7j454JZlK0H5gNqcggRYMV1mTgohb4BSuGV5zogc2hUpgF-_OY5kf1u02zWI4rxncWXZC1JOj7ZxdNgchdpLHQQ00UowN3UCtWYbXLJJfKZj-QMfXo0a07epKqJOqS4HmJX8RA5UyQCxwmURLllqdJIUXZE6UxHdNicLDFcbktNliZY_mNJl_w-6-sNBuIKeaaQM7GVPwZrwi3PRrVWKxo1NtpGExbHwEDW9S4YGINeOQBpLB4vUCxdzigw-PjUpxN0bfZUiB4Co61nhGKtAF4_mYQZZynD1E2zWPP1UbJV5I-BPNkFgZuYTtJoXXPtcMdbglbb0y6krzsUodb20Ma1O-uek8Dz1U7-L3xIqK8OGWjYByMz05PiZ_52cmJUvq_nGCu6hvWr53XPMyDfHb28uNRnHl_1zu1OYuSqX87J6LeWEGuRPM8D-eXUc1Hse99LPqUhyMvuxFdY0O2eHcRnGTRWTCPk9xPPhRs_W6rbFZflSxOguE8zuOzYPLk59PgQ8Fo6kfjrkLQWStcb9D0Bc2wwT-9kFrC9ZkKzHfatEn2Ef5vS4filOKhnTmaMV1z6KhotJEVAHZLEDOkQuoooZfO71f04D790zN6viH2eeEPZ-KR8EL-aIg2yEj0vS5hrChnAosCNh7OCthhjT7De4XBUQlSP15pRSCVcakJWjSrISflmqibMuNzyld4cciyfzqCU8CpVBXqDYrdyCT_KDPe7089YaXkVg8xN6jGCnNO-Kf2riydw-GKM_kPHN_7dyRY2_aP8NFw-DMU2oVBG066cNyGURdO2nDUD-N-ctKFYRv63snJ64CbOLi68Lae06L34OA-HJ5fdj04ug_H9-HRfTi5D49PK95DJ3dRaLGDHdeB1akwK5107xy_evBlLAnFDTfOwXVwY-RiJwonPX4dnOZ45WcMw9JWLXj4CzbrUqs=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — OR-140</span></div>
+<div style="page-break-before: always;"></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.12 OR-140-140_Reconcile_Bank_Information — OR-140-140_Reconcile_Bank_Information
+
+**Swim Lanes**: AR Cash Analyst | **Tasks**: 3 | **Gateways**: 2
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph AR Cash Analyst
+        n1["fa:fa-user Match bank Statement Transactions with Corresponding SAP Transactions"]
+        n2["fa:fa-user Make Necessary Adjustments in SAP for Reconciling Discrepancies"]
+        n3[["fa:fa-cog Collect Bank Statements"]]
+        n4(["fa:fa-play Request to Reconcile Bank Information Initiated"])
+        n5(["fa:fa-stop Bank Information Reconciled"])
+        n6{{"fa:fa-code-branch Validation Successful?"}}
+        n7{{"fa:fa-code-branch exclusiveGateway"}}
+    end
+    n1 --> n6
+    n4 --> n3
+    n2 --> n7
+    n3 --> n1
+    n6 -->|"No"| n2
+    n7 --> n5
+    n6 -->|"Yes"| n7
+    class n1 userTask
+    class n2 userTask
+    class n3 serviceTask
+    class n4 startEvt
+    class n5 endEvt
+    class n6 gateway
+    class n7 gateway
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVd-P4jYQ_lesrFa0UpDyk3B5aAWBVCf1Tqfl7qrq6INxJuCusVPbWaAs_3ttEhLgbp-aB8h8nvm-mbHHOTpEFOCkzuPjkXKqU3Qc6A1sYZCiwQorGLioAb5iSfGKgRpYn1JwvaD_nt38qNpbN4vleEvZwaILWAtAX967aGICmYsU5mqoQNJy4A4qSbdYHjLBhLTeDzAuvfKs1i5NhSxA9g6el_gkNqGMcujhMImSKLdxCojgxQ1pGZfjkgxONjkmdmSDpT6nXyv4gPd_0EJvjF1ipsD4bPSW_Y5XwGyNWtYWI7V8uTSDKqvDTcMWFSaUrw0eeQaSmD_3UOydTuj0-LjknSj6PFtyZB7CsFIzKJHSBp6_aFRSxtKHKJvksecqLcUzpA_BPJmFgUtsJakp3XNtc4c7oOuNTleCFa3rcGdrSINq78p9GniuPJjfOy3gRa-UjYJxMO6Upomf-dlFqSzL_6Vk-io_Y_Xcas3DPMhnnZYfj-LM-57vUuYsSib-fZ9AvlACV6R5nofzvlXzUex7b5NO83DkZXeka6xhhw894bss6gjzOMn95E3CRu8-y3r1SQpyIQzncR53hMnUzyfBm4TRxI_GbYaGZy1xtUGTJ5RhZf45Zgelm1X7cP_b0ilxWuKhbTb6gDXZoJU5gGihTVlb4Oa0mQOpMNFUcIV2VG9QJqQEVZkBMWcULSafbnyWzl9XCsG9wjOgj0BAKTNcaFL8XSttZRSi_ExVCome7PQRyiz9jCoiocLGhjvu8FtHTsTapMUYEI2mN_nbmOug6KcuqGJm257gnxqURlp0stBQvOcmly22RZl3qqlhLAzbz1dscc-mtKi-D-w47yNHx2OffAHDlWmhaf5XzGjRhC5qYvtU1uzXpXM6XcUmP46FPWG1oi_wW3Mk-ygztM0L99Fw-ItRb82oMcPWDBozac2wMdsx4iNrvi6dj2LpvBrnFk4ar_jO60-7Xa8d2fl4W_3LWN_AwY_h8Hpkb1ai7tK7geP2froBR5cZvUGTC-q4zhbMftHCSY_O-ftkvmEFlLhm2jm5Dq61WBw4cdLzPe7UldkhmFFsxmvbgKf_ABSKP3g=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+#### BUSINESS ARCHITECTURE — 3.2.13 OR-140-150_Update_General_Ledger — OR-140-150_Update_General_Ledger
+
+**Swim Lanes**: AR Cash Analyst | **Tasks**: 3 | **Gateways**: 2
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph AR Cash Analyst
+        n1["fa:fa-user Validate Entries"]
+        n2["fa:fa-user Post Approved Journal Entries to the General Ledger"]
+        n3["fa:fa-user Make Corrections"]
+        n4(["fa:fa-play Request to Update General Ledger Initiated"])
+        n5(["fa:fa-stop General Ledger Updated"])
+        n6{{"fa:fa-code-branch Validation Successful?"}}
+        n7{{"fa:fa-code-branch exclusiveGateway"}}
+    end
+    n2 --> n5
+    n1 --> n6
+    n4 --> n1
+    n7 --> n2
+    n6 -->|"Yes"| n7
+    n6 -->|"No"| n3
+    n3 --> n7
+    class n1 userTask
+    class n2 userTask
+    class n3 userTask
+    class n4 startEvt
+    class n5 endEvt
+    class n6 gateway
+    class n7 gateway
+```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVd-P2jgQ_lesrFZcpSDlJ-Hy0IoNpGrVVlVpezodfTDOBKw1ds52WCjlfz-bJEC43afmIcl8nvm-mYnHOThEFOCkzv39gXKqU3QY6DVsYJCiwRIrGLioAb5jSfGSgRpYn1JwPac_T25-VO2sm8VyvKFsb9E5rASgb-9cNDGBzEUKczVUIGk5cAeVpBss95lgQlrvOxiXXnlSa5cehCxAXhw8L_FJbEIZ5XCBwyRKotzGKSCCFz3SMi7HJRkcbXJMPJE1lvqUfq3gI979RQu9NnaJmQLjs9Yb9gEvgdkatawtRmq57ZpBldXhpmHzChPKVwaPPANJzB8vUOwdj-h4f7_gZ1H0dbrgyFyEYaWmUCKlDTzbalRSxtK7KJvksecqLcUjpHfBLJmGgUtsJakp3XNtc4dPQFdrnS4FK1rX4ZOtIQ2qnSt3aeC5cm_uN1rAi4tSNgrGwfis9JD4mZ91SmVZ_paS6av8itVjqzUL8yCfnrX8eBRn3v_5ujKnUTLxb_sEcksJXJHmeR7OLq2ajWLfe5n0IQ9HXnZDusIanvD-QvhnFp0J8zjJ_eRFwkbvNst6-VkK0hGGsziPz4TJg59PghcJo4kfjdsMDc9K4mqNJl9QhpV5csz2Sjer9uL-PwunxGmJh7bZ6DtmtDDloBnXkoJaOD-unIO-82ehNJpUlRRbKNB7UUtD30UiLZCZdPQWOEgDf4BiBbLPF_b5PuJHQJmQEoimgt-IR3-cvStmuv0F_q3BJGB0vlWnnPtS6J05gKjBC8Pz6ooovhApLarbsIbsNmh0OHRB9ogbLs2QknXXL5MtmteEgFJlzd4snOPxKjZ5PhZ2hNWKbuFts38uUWbCmhceoOHwtUm5Nf3GHLVm1JjtJudJYwatObLmr4Xzt_2Mv8zyDf5JnOCwhcMmOrnai1awm8EeHDwPh8_D0fl46sFxe5L0wFE3TT006VDHdTYgN5gWTnpwTn8S87cpoMQ1087RdXCtxXzPiZOeTlynPn3NKcVmEDYNePwPN4cezg==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — OR-140</span></div>
+<div style="page-break-before: always;"></div>
+
+### 3.3 Business Roles & Responsibilities
+
+| Role / Lane | Processes Involved | Description |
+|------------|-------------------|-------------|
+| AR Cash Applier | OR-140-010_Receive_Electronic_Payment, OR-140-110_Perform_Cash_Application, OR-140-120_Monitor_Unapplied_Cash,  | |
+| AR Cash Analyst | OR-140-030_Receive_Lockbox_Payment, OR-140-040_Receive_Bill-of-Exchange, OR-140-060_Deposit_Funds, OR-140-070_Evaluate_Discount, OR-140-080_Manage_Bill-of-Exchange, OR-140-090_Post_Customer_Payment, OR-140-140_Reconcile_Bank_Information, OR-140-150_Update_General_Ledger | |
+| Accounts Receivable Analyst | OR-140-050_Receive_Customer_Down_Payment,  | |
+| AR Data/Report Analyst | OR-140-130_Update_Financial_Records,  | |
+
+<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — OR-140</span></div>
+<div style="page-break-before: always;"></div>
+
+## 4. Data Architecture (TOGAF "D")
+
+### 4.1 Data Entities & Ownership
+
+The following data entities are derived from the system integration flows for OR-140. Tower architects should validate ownership and classification.
+
+| # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
+|---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
+
+<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — OR-140</span></div>
+<div style="page-break-before: always;"></div>
+
+### 4.2 Data Flow Diagrams
+
+> **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
+### 4.3 Data Lineage
+
+Data lineage traces the origin and transformation path of key data objects across integrated systems.
+
+| # | Source System | Source Schema/Object | Target System | Target Schema/Object | Transformation |
+|---|-------------|---------------------|---------------|---------------------|---------------|
+
+> *Lineage detail will be refined when tower architects validate source/target schema object mappings.*
+
+### 4.4 RICEFW Data Objects
+
+Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
+
+| Object ID | Type | Description | Status | Source | Target | Complexity |
+|-----------|------|-------------|--------|--------|--------|-----------|
+| FPRR1514_IP | Report | To generate reports out of the ITT documents that was created | 10. Object Complete |  |  | 03.Medium |
+| FPRR1514_IF | Report | To generate reports out of the ITT documents that was created | 10. Object Complete |  |  | 04.Low |
+| FPRR1240 | Report | Custom report for Revenue Recognition by Stage for Product/Services Sale​ act... | 10. Object Complete |  |  | 03.Medium |
+| FPRR1211 | Report | Report for searching on and viewing government contract timesheets for Intel ... | 10. Object Complete |  |  | 03.Medium |
+| FPRR1210 | Report | Report for searching on and viewing government contract timesheet changes for... | 10. Object Complete |  |  | 03.Medium |
+| FPRR0907_IP | Report | Workflow Status Report ( Order Request / Approval Request / Others ) | 10. Object Complete |  |  | 03.Medium |
+| FPRR0907_IF | Report | Workflow Status Report ( Order Request / Approval Request / Others ) | 10. Object Complete |  |  | 04.Low |
+| FPRR0497 | Report | CFR - Report to support multiple Treasury Funding requests from Multiple Inte... | 10. Object Complete |  |  | 03.Medium |
+| FPRR0496 | Report | TPR-Report to support multiple Treasury Payment Requests from Multiple Intel ... | 10. Object Complete |  |  | 03.Medium |
+| FPRR0461 | Report | Inter-company Outage Pre-consolidate Report (ACDOCA) | 10. Object Complete | NA | NA | 03.Medium |
+| FPRR0380 | Report | GL Interface – Reconciliation Report/Dashboard | 10. Object Complete | NA | NA | 02.High |
+| FPRR0327_IP | Report | Report to display the requests/change IDs and status of the workflow approval... | 10. Object Complete | NA | NA | 02.High |
+| FPRR0327_IF | Report | Report to display the requests/change IDs and status of the workflow approval... | 10. Object Complete | NA | NA | 03.Medium |
+| FPRR0288_IP | Report | Operational Report to display whether supporting documents are attached to JEs | 10. Object Complete | NA | NA | 03.Medium |
+| FPRR0288_IF | Report | Operational Report to display whether supporting documents are attached to JEs | 10. Object Complete | NA | NA | 03.Medium |
+| FPRR0288_CFIN | Report | Operational Report to display whether supporting documents are attached to JEs | 10. Object Complete | NA | NA | 02.High |
+| FPRR0027 | Report | In House Cash – Loan Account balance Detailed report | 10. Object Complete | NA | NA | 01.Very High |
+| FPRM003 | Conversion | Revenue Recognition Rules | 10. Object Complete |  |  | N/A |
+| FPRM002 | Conversion | Revenue Contracts | 10. Object Complete |  |  | N/A |
+| FPRM001 | Conversion | Bank Master | 10. Object Complete | ECC | CFIN | N/A |
+| FPRC1724_IP | Conversion | Creation of output template with consumption data | 06. Dev In Progress |  |  | 02.High |
+| FPRC1724_IF | Conversion | Creation of output template with consumption data | 06. Dev In Progress |  |  | 03.Medium |
+| FPRC1565 | Conversion | Convert active delegate relationships for Timesheet approval | 10. Object Complete |  |  | 02.High |
+| FPRC1493 | Conversion | Conversion of WIP values as per Component structure in S/4 - IP | 10. Object Complete |  |  | 02.High |
+| FPRC1491 | Conversion | Conversion of WIP values as per Component structure in S/4 - Back End IF | 10. Object Complete |  |  | 02.High |
+| FPRC1464_IP | Conversion | Project Actuals Conversion (Non- Intel Federal) | 10. Object Complete |  |  | 02.High |
+| FPRC1464_IF | Conversion | Project Actuals Conversion (Non- Intel Federal) | 10. Object Complete |  |  | 02.High |
+| FPRC1442 | Conversion | Conversion of Actual Labor hours for Intel Federal Projects | 10. Object Complete |  |  | 02.High |
+| FPRC1441 | Conversion | Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj... | 10. Object Complete |  |  | 02.High |
+| FPRC1212 | Conversion | Project Actuals Conversion including Intel Federal | 10. Object Complete |  |  | 03.Medium |
+| FPRC0908_IP | Conversion | Project Budget Conversion | 10. Object Complete |  |  | 03.Medium |
+| FPRC0908_IF | Conversion | Project Budget Conversion | 10. Object Complete |  |  | 03.Medium |
+| FPRC0196_IP | Conversion | Asset Transaction data conversion | 10. Object Complete | NA | NA | 02.High |
+| FPRC0196_IF | Conversion | Asset Transaction data conversion | 10. Object Complete | NA | NA | 02.High |
+| FPRC0195_IP | Conversion | Asset Master data conversion | 10. Object Complete | NA | NA | 03.Medium |
+| FPRC0195_IF | Conversion | Asset Master data conversion | 10. Object Complete | NA | NA | 03.Medium |
+| FPRC0174_IP | Conversion | Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj... | 10. Object Complete | ECC | S4 | 02.High |
+| FPRC0174_IF | Conversion | Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj... | 10. Object Complete | ECC | S4 | 03.Medium |
+| FPRC0117 | Conversion | Conversion – In House Cash: Current Account creation and Current Account Bala... | 10. Object Complete | ECC | CFIN | 02.High |
+| FPRC0116 | Conversion | Conversion – Migration of Existing Bank Guarantees and Intercompany Loans to ... | 10. Object Complete | Quantum | CFIN | 03.Medium |
+| FPRC0035_IP | Conversion | Convert existing ECC & MDG hierarchy to S4HANA PPM hierarchy (Portfolio & buc... | 10. Object Complete |  | MDG | 03.Medium |
+| FPRC0035_IF | Conversion | Convert existing ECC & MDG hierarchy to S4HANA PPM hierarchy (Portfolio & buc... | 10. Object Complete |  | MDG | 04.Low |
+
+### 4.5 Data Governance & Quality
+
+| Concern | Approach |
+|---------|----------|
+| Data Ownership | Per-entity owners listed in Section 3.1 |
+| Data Classification | Financial data classified as Intel Confidential |
+| Data Retention | Per Intel corporate retention policies |
+| Data Quality | Validated at source; reconciliation at target |
+
+<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — OR-140</span></div>
+<div style="page-break-before: always;"></div>
+
+## 5. Application Architecture (TOGAF "A")
+
+### 5.1 Current-State — Current-State Application Landscape
+
+#### Overview
+
+The Current-State architecture represents the **current / legacy** landscape for OR-140.
+
+#### Current-State Flow Narrative
+
+*(No current-state flows defined.)*
+
+### 5.2 Future-State — Future-State Application Landscape
+
+#### Overview
+
+The Future-State architecture represents the **target** landscape for OR-140.
+
+#### Future-State Flow Narrative
+
+*(No future-state flows defined.)*
+
+### 5.3 Change Impact Summary
+
+| Change Type | Flow Chain | Detail |
+|-------------|-----------|--------|
+
+**Totals**: 0 new - 0 removed - 0 modified - 0 unchanged
+
+### 5.4 Component Overview
+
+#### System Inventory
+
+| System | IAPM ID | Status |
+|--------|---------|--------|
+
+<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — OR-140</span></div>
+<div style="page-break-before: always;"></div>
+
+### 5.5 RICEFW Inventory
+
+| Object ID | Type | Description | Status | Source → Target | Middleware | Complexity |
+|-----------|------|-------------|--------|----------------|-----------|-----------|
+| FPRW1449 | Workflow | TPR : Workflow to handle Memo creation and cancellation process | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRW1444 | Workflow | TFR: Workflow to handle Memo creation and cancellation process | 10. Object Complete |  | NA | 03.Medium |
+| FPRW1064_IP | Workflow | Custom Workflow will also be created with some predefined process/rules for a... | 10. Object Complete |  | NA | 01.Very High |
+| FPRW1064_IF | Workflow | Custom Workflow will also be created with some predefined process/rules for a... | 10. Object Complete |  | NA | 02.High |
+| FPRW0930 | Workflow | Workflow for Counterparty Approval | 10. Object Complete |  | NA | 03.Medium |
+| FPRW0906_IP | Workflow | Custom workflow: Change Order Create and Change Approval | 10. Object Complete |  | NA | 03.Medium |
+| FPRW0906_IF | Workflow | Custom workflow: Change Order Create and Change Approval | 10. Object Complete |  | NA | 03.Medium |
+| FPRW0904_IP | Workflow | Custom Workflow - WBS Element Request approval with WBS Element creation | 10. Object Complete |  | NA | 03.Medium |
+| FPRW0904_IF | Workflow | Custom Workflow - WBS Element Request approval with WBS Element creation | 10. Object Complete |  | NA | 03.Medium |
+| FPRW0900_IP | Workflow | Custom Workflow: Approval for Project creation and create a Project def and l... | 10. Object Complete |  | NA | 03.Medium |
+| FPRW0900_IF | Workflow | Custom Workflow: Approval for Project creation and create a Project def and l... | 10. Object Complete |  | NA | 03.Medium |
+| FPRW0445_IP | Workflow | Project budget approval workflow (Capex)​ | 10. Object Complete |  | NA | 03.Medium |
+| FPRW0445_IF | Workflow | Project budget approval workflow (Capex)​ | 10. Object Complete |  | NA | 03.Medium |
+| FPRW0325_IP | Workflow | Custom workflow to manage the approval process in bulk/individual requests | 10. Object Complete | NA → NA | NA | 02.High |
+| FPRW0325_IF | Workflow | Custom workflow to manage the approval process in bulk/individual requests | 10. Object Complete | NA → NA | NA | 02.High |
+| FPRW0165_IP | Workflow | Workflow is required to trigger the approvers based on the business requireme... | 10. Object Complete | NA → NA | NA | 02.High |
+| FPRW0165_IF | Workflow | Workflow is required to trigger the approvers based on the business requireme... | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRW0165_CFIN | Workflow | Workflow is required to trigger the approvers based on the business requireme... | 10. Object Complete | NA → NA | NA | 02.High |
+| FPRR1514_IP | Report | To generate reports out of the ITT documents that was created | 10. Object Complete |  | NA | 03.Medium |
+| FPRR1514_IF | Report | To generate reports out of the ITT documents that was created | 10. Object Complete |  | NA | 04.Low |
+| FPRR1240 | Report | Custom report for Revenue Recognition by Stage for Product/Services Sale​ act... | 10. Object Complete |  | NA | 03.Medium |
+| FPRR1211 | Report | Report for searching on and viewing government contract timesheets for Intel ... | 10. Object Complete |  | NA | 03.Medium |
+| FPRR1210 | Report | Report for searching on and viewing government contract timesheet changes for... | 10. Object Complete |  | NA | 03.Medium |
+| FPRR0907_IP | Report | Workflow Status Report ( Order Request / Approval Request / Others ) | 10. Object Complete |  | NA | 03.Medium |
+| FPRR0907_IF | Report | Workflow Status Report ( Order Request / Approval Request / Others ) | 10. Object Complete |  | NA | 04.Low |
+| FPRR0497 | Report | CFR - Report to support multiple Treasury Funding requests from Multiple Inte... | 10. Object Complete |  | NA | 03.Medium |
+| FPRR0496 | Report | TPR-Report to support multiple Treasury Payment Requests from Multiple Intel ... | 10. Object Complete |  | NA | 03.Medium |
+| FPRR0461 | Report | Inter-company Outage Pre-consolidate Report (ACDOCA) | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRR0380 | Report | GL Interface – Reconciliation Report/Dashboard | 10. Object Complete | NA → NA | NA | 02.High |
+| FPRR0327_IP | Report | Report to display the requests/change IDs and status of the workflow approval... | 10. Object Complete | NA → NA | NA | 02.High |
+| FPRR0327_IF | Report | Report to display the requests/change IDs and status of the workflow approval... | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRR0288_IP | Report | Operational Report to display whether supporting documents are attached to JEs | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRR0288_IF | Report | Operational Report to display whether supporting documents are attached to JEs | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRR0288_CFIN | Report | Operational Report to display whether supporting documents are attached to JEs | 10. Object Complete | NA → NA | NA | 02.High |
+| FPRR0027 | Report | In House Cash – Loan Account balance Detailed report | 10. Object Complete | NA → NA | NA | 01.Very High |
+| FPRM003 | Conversion | Revenue Recognition Rules | 10. Object Complete |  | NA | N/A |
+| FPRM002 | Conversion | Revenue Contracts | 10. Object Complete |  | NA | N/A |
+| FPRM001 | Conversion | Bank Master | 10. Object Complete | ECC → CFIN | NA | N/A |
+| FPRI1725_IP | Interface | Interface to be developed to transfer the files from Denodo to FS share path ... | 10. Object Complete |  | Intel MW | 03.Medium |
+| FPRI1725_IF | Interface | Interface to be developed to transfer the files from Denodo to FS share path ... | 10. Object Complete |  | Intel MW | 04.Low |
+| FPRI1704 | Interface | Automated Tool MUP Excess Capacity calculation and associated PCOS/OCOS Split... | 10. Object Complete |  | BODS | 03.Medium |
+| FPRI1670 | Interface | Import Dot process/stage details from MDG into S4. ​ | 10. Object Complete |  | NA | 03.Medium |
+| FPRI1669 | Interface | Import Xeus/Mars volumes from ECA into S4.​ | 07. FUT Roadblock |  | BODS | 03.Medium |
+| FPRI1504 | Interface | Asset Delete from EMS to S4 through APIGEE | 10. Object Complete |  | APIGEE | 03.Medium |
+| FPRI1503 | Interface | Asset Display from EMS to S4 through APIGEE | 10. Object Complete |  | APIGEE | 03.Medium |
+| FPRI1502 | Interface | Asset Change from EMS to S4 through APIGEE | 10. Object Complete |  | APIGEE | 03.Medium |
+| FPRI1463 | Interface | Interface to upload payroll data from Workday to S/4 IP for legal entity 199 ... | 10. Object Complete |  | MULESOFT | 03.Medium |
+| FPRI1447 | Interface | GL Interface –Create Inbound IDOCs to CFIN from IF system | 10. Object Complete | IF → CFIN | NA | 03.Medium |
+| FPRI1446 | Interface | GL Interface –Create Inbound IDOCs to CFIN from IP system | 10. Object Complete | IP → CFIN | NA | 03.Medium |
+| FPRI1439 | Interface | Receive planned production quantities per production version from ECA to S/4 ... | 10. Object Complete |  | APIGEE | 03.Medium |
+| FPRI1338 | Interface | Outbound Interface to view the Cleared Customer Invoices from CFIN System to ... | 10. Object Complete | S/4 → WOM | MULESOFT | 03.Medium |
+| FPRI1315 | Interface | Asset Create from EMS to S4 through APIGEE | 10. Object Complete |  | APIGEE | 03.Medium |
+| FPRI1306 | Interface | Interface for importing GL transactional data from SAP CFIN system into SAP IF | 10. Object Complete | CFIN → S/4 | NA | 03.Medium |
+| FPRI1305 | Interface | Interface for importing GL transactional data from SAP CFIN system into SAP IP | 10. Object Complete | CFIN → S/4 | NA | 03.Medium |
+| FPRI1288 | Interface | Activity Inbound interface from ECA to S4 IP | 10. Object Complete | ECA → S/4 | MuleSoft | 03.Medium |
+| FPRI1287 | Interface | Production quantity update in WAC custom table from ECA to S4 IF | 10. Object Complete | ECA → S/4 | MuleSoft | 03.Medium |
+| FPRI1286_IP | Interface | Interface between SAP IP and IF boxes for Outbound IDOC flow_IP | 10. Object Complete | MULESOFT → S/4 | SFT | 03.Medium |
+| FPRI1286_IF | Interface | Interface between SAP IP and IF boxes for Outbound IDOC flow_IF | 10. Object Complete | MULESOFT → S/4 | SFT | 04.Low |
+| FPRI1273 | Interface | Activity Quantity Inbound interface from ECA to S4 IF | 10. Object Complete | ECA → S/4 | MuleSoft | 03.Medium |
+| FPRI1241 | Interface | Disti Rebate percentage of gross for Unissued Returns and Intransit Deferral | 10. Object Complete | ECA → S/4 | BODS | 03.Medium |
+| FPRI1238 | Interface | Pull Foundry WBS from HAT and create in LE 199 in IP S/4 for Foundry Employee... | 10. Object Complete | Head Count Assignment Tool → S/4 | BODS | 03.Medium |
+| FPRI1105 | Interface | Interface for automatic creation of B2B customer related payment advice | 10. Object Complete |  | MULESOFT | 03.Medium |
+| FPRI0981_IP | Interface | Interface of SAP PPM module to SPEED | 10. Object Complete | ECA → S/4 | BODS | 03.Medium |
+| FPRI0981_IF | Interface | Interface of SAP PPM module to SPEED | 10. Object Complete | ECA → S/4 | BODS | 04.Low |
+| FPRI0913_IP | Interface | Export the Planning data from the SAC table to PPM standard tables using the ... | 10. Object Complete | SAC → S/4 | NA | 02.High |
+| FPRI0913_IF | Interface | Export the Planning data from the SAC table to PPM standard tables using the ... | 10. Object Complete | SAC → S/4 | NA | 03.Medium |
+| FPRI0909_IP | Interface | Interface for importing the Headcount details by Person# and WBS element comb... | 10. Object Complete | ECA → S/4 | BODS | 03.Medium |
+| FPRI0909_IF | Interface | Interface for importing the Headcount details by Person# and WBS element comb... | 10. Object Complete | ECA → S/4 | BODS | 04.Low |
+| FPRI0895 | Interface | Import Tool Sharing Forecasted Data from FCS to S4 & derive FTQ data by Capex... | 10. Object Complete | FCS → S/4 | BODS | 02.High |
+| FPRI0894 | Interface | Planned Volume from IP-BY will be utilized as a KP26 quantity to split 'Overh... | 10. Object Complete | ICS → S/4 | BODS | 02.High |
+| FPRI0869 | Interface | Interface for automatic creation of WOM related payment advice | 10. Object Complete | S/4 → WOM | MULESOFT | 03.Medium |
+| FPRI0867 | Interface | Outbound Interface to view the open & Cleared Customer Invoices from CFIN Sys... | 10. Object Complete | S/4 → WOM | MULESOFT | 03.Medium |
+| FPRI0866 | Interface | Interface to Obtains the payer associated to the sold to from CFIN System to ... | 10. Object Complete | S/4 → WOM | MULESOFT | 03.Medium |
+| FPRI0865 | Interface | Interface to transfer the Uploaded WCP Grant Amount from CFIN to WOM and Defe... | 10. Object Complete | S/4 → WOM | MULESOFT | 03.Medium |
+| FPRI0864_IP | Interface | Interface between SAP IP and IF boxes for Inbound IDOC flow_IP | 10. Object Complete | MULESOFT → S/4 | SFT | 03.Medium |
+| FPRI0864_IF | Interface | Interface between SAP IP and IF boxes for Inbound IDOC flow_IF | 10. Object Complete | MULESOFT → S/4 | SFT | 04.Low |
+| FPRI0863_IP | Interface | Interface between SAP & ECA to provide information for auto certification in ... | 10. Object Complete | ECA → BLACKLINE | APIGEE;DENODO | 03.Medium |
+| FPRI0863_IF | Interface | Interface between SAP & ECA to provide information for auto certification in ... | 10. Object Complete | ECA → BLACKLINE | APIGEE;DENODO | 04.Low |
+| FPRI0863_CFIN | Interface | Interface between SAP & ECA to provide information for auto certification in ... | 10. Object Complete | ECA → BLACKLINE | APIGEE;DENODO | 03.Medium |
+| FPRI0862 | Interface | Interface to transfer the details of selected invoice from WOM to CFIN ( Inbo... | 10. Object Complete | WOM → S/4 | MULESOFT | 03.Medium |
+| FPRI0778_IP | Interface | Continue to auto-certify a BL task when the related JE is approved | 10. Object Complete | BLACKLINE → S/4 | MULESOFT | 03.Medium |
+| FPRI0778_IF | Interface | Continue to auto-certify a BL task when the related JE is approved | 10. Object Complete | BLACKLINE → S/4 | MULESOFT | 03.Medium |
+| FPRI0778_CFIN | Interface | Continue to auto-certify a BL task when the related JE is approved | 10. Object Complete | BLACKLINE → S/4 | MULESOFT | 02.High |
+| FPRI0770_IP | Interface | To enable auto-certify a BL [Blackline] task when the related JE is approved | 10. Object Complete | BLACKLINE → ECA | NA | 03.Medium |
+| FPRI0770_IF | Interface | To enable auto-certify a BL [Blackline] task when the related JE is approved | 10. Object Complete | BLACKLINE → ECA | NA | 03.Medium |
+| FPRI0770_CFIN | Interface | To enable auto-certify a BL [Blackline] task when the related JE is approved | 10. Object Complete | BLACKLINE → ECA | NA | 02.High |
+| FPRI0704 | Interface | IF-IP Integration Actual Cost - Inbound Interface | 10. Object Complete | OpenText → S/4 | SFT | 02.High |
+| FPRI0703 | Interface | IF-IP Integration Actual Cost - Outbound Interface | 10. Object Complete | S/4 → OpenText | SFT | 02.High |
+| FPRI0696_IP | Interface | Interface between ONESOURCE and Readsoft Process Director built on the back o... | 10. Object Complete | ONESOURCE → READSOFT | NA | 02.High |
+| FPRI0696_IF | Interface | Interface between ONESOURCE and Readsoft Process Director built on the back o... | 10. Object Complete | ONESOURCE → READSOFT | NA | 03.Medium |
+| FPRI0695 | Interface | Reference Interest Rates - S4 converted data from MDG to CFIN | 10. Object Complete | S/4 MDG → CFIN | NA | 03.Medium |
+| FPRI0694 | Interface | Exchange Rates N - S4 converted data from MuleSoft to Treasury Suite | 10. Object Complete | MULESOFT → TREASURY SUITE | MULESOFT | 03.Medium |
+| FPRI0693 | Interface | Exchange Rates L - S4 converted data from MuleSoft to Treasury Suite | 10. Object Complete | Treasury Suite → MULESOFT | MULESOFT | 03.Medium |
+| FPRI0600_IP | Interface | Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M... | 10. Object Complete | BLACKLINE → S/4 | MULESOFT | 04.Low |
+| FPRI0600_IF | Interface | Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M... | 10. Object Complete | BLACKLINE → S/4 | MULESOFT | 04.Low |
+| FPRI0600_CFIN | Interface | Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M... | 10. Object Complete | BLACKLINE → S/4 | MULESOFT | 03.Medium |
+| FPRI0599_IP | Interface | ServiceNow Asset change | 10. Object Complete | SERVICENOW → S/4 | MULESOFT | 03.Medium |
+| FPRI0599_IF | Interface | ServiceNow Asset change | 10. Object Complete | SERVICENOW → S/4 | MULESOFT | 04.Low |
+| FPRI0598 | Interface | N rate from Mulesoft to MDG | 10. Object Complete | MULESOFT → S/4 MDG | MULESOFT | 04.Low |
+| FPRI0597 | Interface | N rate from Mulesoft to Bloomberg | 10. Object Complete | MULESOFT → BLOOMBERG | MULESOFT | 03.Medium |
+| FPRI0596 | Interface | N rate from Mulesoft to Treasury Suite | 10. Object Complete | MULESOFT → TREASURY SUITE | MULESOFT | 03.Medium |
+| FPRI0554 | Interface | SKF Interface to get file from ECA and send to S4 via BODS - IF | 10. Object Complete | ECA → S/4 | MuleSoft | 02.High |
+| FPRI0545 | Interface | IF-IP Integration - Interface to send Cost Idoc from S4 If to S4 IP | 10. Object Complete | S/4 → S/4 | SFT | 03.Medium |
+| FPRI0544 | Interface | IF-IP Integration - Interface to receive Cost Idoc from S4 If to S4 IP | 10. Object Complete | S/4 → S/4 | SFT | 03.Medium |
+| FPRI0533 | Interface | Reference Interest Rates from MuleSoft to S4 MDG | 10. Object Complete | Bloomberg → S/4 MDG | MULESOFT | 03.Medium |
+| FPRI0532 | Interface | Request for Reference Interest Rates from MuleSoft to Bloomberg | 10. Object Complete | MULESOFT → BLOOMBERG | MULESOFT | 03.Medium |
+| FPRI0531 | Interface | L Rates from MuleSoft to S4 MDG | 10. Object Complete | Bloomberg → S/4 MDG | MULESOFT | 03.Medium |
+| FPRI0530 | Interface | Request for L Rates from MuleSoft to Bloomberg | 10. Object Complete | MULESOFT → BLOOMBERG | MULESOFT | 03.Medium |
+| FPRI0529 | Interface | L Rates from MuleSoft to Quantum | 10. Object Complete | MULESOFT → QUANTUM | MULESOFT | 03.Medium |
+| FPRI0528 | Interface | L Rates from MuleSoft to Treasury Suite | 10. Object Complete | MULESOFT → TREASURY SUITE | MULESOFT | 03.Medium |
+| FPRI0527 | Interface | Reference Interest Rates from MuleSoft to Quantum | 10. Object Complete | MULESOFT → QUANTUM | MULESOFT | 03.Medium |
+| FPRI0526 | Interface | Reference Interest Rates from MuleSoft to Treasury Suite | 10. Object Complete | MULESOFT → TREASURY SUITE | MULESOFT | 03.Medium |
+| FPRI0505 | Interface | Interface – Copp Clark Holiday Calendar Integration with SAP | 10. Object Complete | Copp Clark → S/4 | SFT | 03.Medium |
+| FPRI0379 | Interface | GL Interface – File processing in MuleSoft-Payroll | 10. Object Complete | PAYROLL → S/4 | MULESOFT | 02.High |
+| FPRI0378_IP | Interface | GL Interface - SAP API IP | 10. Object Complete | API → S/4 | MULESOFT | 02.High |
+| FPRI0378_IF | Interface | GL Interface - SAP API IF | 10. Object Complete | API → S/4 | MULESOFT | 03.Medium |
+| FPRI0377 | Interface | GL Interface - File Processing in Mulesoft | 10. Object Complete | CONCUR → S/4 | MULESOFT | 02.High |
+| FPRI0376 | Interface | GL Interface - File Processing in Mulesoft | 10. Object Complete | ICOST → S/4 | MULESOFT | 02.High |
+| FPRI0323_IP | Interface | Create a common API for Asset updates, transfer, retire and Mass upload | 10. Object Complete |  | NA | 02.High |
+| FPRI0323_IF | Interface | Create a common API for Asset updates, transfer, retire and Mass upload | 10. Object Complete |  | NA | 03.Medium |
+| FPRI0227 | Interface | Outbound Interface from CFIN to QTM in relation to not only QTM payment ackno... | 10. Object Complete | S/4 → Quantum | SFT | 03.Medium |
+| FPRI0226 | Interface | Inbound Interface from QTM to CFIN in relation to QTM payment files and MT me... | 10. Object Complete | Quantum → S/4 | SFT | 03.Medium |
+| FPRI0224 | Interface | Outbound Interface - SAP to Quantum for Transmitting Cash Management Relevant... | 10. Object Complete | S/4 → Quantum | SFT | 02.High |
+| FPRI0188 | Interface | Inbound Interface from EMS to S/4 to create WBS element and Update WBS elemen... | 10. Object Complete | XEUS → S/4 | APIGEE | 02.High |
+| FPRF0230 | Form | Invoice output Layout - America | 10. Object Complete | NA → NA | NA | 02.High |
+| FPRE1723_IP | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 07. FUT Roadblock |  | NA | 04.Low |
+| FPRE1723_IF | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 07. FUT Roadblock |  | NA | 04.Low |
+| FPRE1722_IP | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 07. FUT Roadblock |  | NA | 04.Low |
+| FPRE1722_IF | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 07. FUT Roadblock |  | NA | 04.Low |
+| FPRE1711 | Enhancement | BADI Enhancement to change Order Type from Product cost Collector from IP & I... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1706 | Enhancement | Enhancement to create Cash Management relevant data from F110 Payment Run for... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1705 | Enhancement | Enhancement to do Cash App post EBS load with the corresponding payment advice. | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1695 | Enhancement | Custom Fiori app - Change WBS Element Request Form with ALV Input​ | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1671_IP | Enhancement | S4, Perform required calculations, summarizations, mappings and post the allo... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1671_IF | Enhancement | S4, Perform required calculations, summarizations, mappings and post the allo... | 10. Object Complete |  | NA | 04.Low |
+| FPRE1661_IP | Enhancement | WBS transfer tool | 07. FUT Roadblock |  | NA | 02.High |
+| FPRE1661_IF | Enhancement | WBS transfer tool | 07. FUT Roadblock |  | NA | 03.Medium |
+| FPRE1660 | Enhancement | Enhancement for Revenue Recognition by Stage postings for Product/Services Sa... | 10. Object Complete |  | NA | 02.High |
+| FPRE1659 | Enhancement | Enhancement for Revenue Recognition by Stage postings for Product/Services Sa... | 10. Object Complete |  | NA | 02.High |
+| FPRE1650_IP | Enhancement | (FTQ Input to drive Disaggregation to Allocation Cycle) for Forecast.​ | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1650_IF | Enhancement | (FTQ Input to drive Disaggregation to Allocation Cycle) for Forecast.​ | 10. Object Complete |  | NA | 04.Low |
+| FPRE1620_IP | Enhancement | Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de... | 99. Rejected/Cancelled/On Hold |  | NA | 03.Medium |
+| FPRE1620_IF | Enhancement | Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de... | 99. Rejected/Cancelled/On Hold |  | NA | 04.Low |
+| FPRE1600 | Enhancement | Custom Fiori app - Create WBS Element Request Form with ALV Input​ | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1599_IP | Enhancement | Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO li... | 07. FUT Roadblock |  | NA | 03.Medium |
+| FPRE1599_IF | Enhancement | Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO li... | 07. FUT Roadblock |  | NA | 04.Low |
+| FPRE1564 | Enhancement | Employee Notification for timesheet entry | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1563 | Enhancement | Manager notification for timesheet approval | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1562 | Enhancement | Manage Delegates for approval | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1561 | Enhancement | Timesheet approval | 10. Object Complete |  | NA | 02.High |
+| FPRE1560 | Enhancement | Timesheet entry for Intel Federal employees | 10. Object Complete |  | NA | 01.Very High |
+| FPRE1553 | Enhancement | Custom Fiori app - Change WBS Element Request Form with ALV Input​ | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1519_IP | Enhancement | Project Change Order - Edit and Submit of draft request with change functiona... | 10. Object Complete |  | NA | 02.High |
+| FPRE1519_IF | Enhancement | Project Change Order - Edit and Submit of draft request with change functiona... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1518_IP | Enhancement | Project Change Order - Change existing Purchase Orders during creation of Pro... | 10. Object Complete |  | NA | 02.High |
+| FPRE1518_IF | Enhancement | Project Change Order - Change existing Purchase Orders during creation of Pro... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1517_IP | Enhancement | Project Change Order - Create Purchase Orders during creation of Project Chan... | 10. Object Complete |  | NA | 02.High |
+| FPRE1517_IF | Enhancement | Project Change Order - Create Purchase Orders during creation of Project Chan... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1516_IP | Enhancement | Enhancement to enable user decision action to be taken from email directly fo... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1516_IF | Enhancement | Enhancement to enable user decision action to be taken from email directly fo... | 10. Object Complete |  | NA | 04.Low |
+| FPRE1515_IP | Enhancement | Enhancement to display popup screen to trigger project creation workflow | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1515_IF | Enhancement | Enhancement to display popup screen to trigger project creation workflow | 10. Object Complete |  | NA | 04.Low |
+| FPRE1513_IP | Enhancement | Generate and download JV file for JE posting | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1513_IF | Enhancement | Generate and download JV file for JE posting | 10. Object Complete |  | NA | 04.Low |
+| FPRE1513_CFIN | Enhancement | Generate and download JV file for JE posting | 99. Rejected/Cancelled/On Hold |  | NA | 03.Medium |
+| FPRE1512_IP | Enhancement | Query confirm ITT document to determine the Capital/Expense and tax code manu... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1512_IF | Enhancement | Query confirm ITT document to determine the Capital/Expense and tax code manu... | 10. Object Complete |  | NA | 04.Low |
+| FPRE1511_IP | Enhancement | Query existing draft ITT document and make changes | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1511_IF | Enhancement | Query existing draft ITT document and make changes | 10. Object Complete |  | NA | 04.Low |
+| FPRE1510_IP | Enhancement | ITT document creation | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1510_IF | Enhancement | ITT document creation | 10. Object Complete |  | NA | 04.Low |
+| FPRE1448 | Enhancement | FIORI screen to take care of TPR Display/ Change/ cancellation options | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE1443 | Enhancement | FIORI screen to take care of TFR Display/ Change/ cancellation options | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1438 | Enhancement | Update mixing ratio for Procurement alternative for Cross site transfer based... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1419 | Enhancement | Update Procurement alternatives based on production version & PIR for cross s... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1328 | Enhancement | Legal Valuation standard cost calculation enhancement | 99. Rejected/Cancelled/On Hold |  | NA | 03.Medium |
+| FPRE1239 | Enhancement | Enhancement for Revenue Recognition by Stage postings for Product/Services Sa... | 10. Object Complete |  | NA | 02.High |
+| FPRE1235_IP | Enhancement | Add custom fields to CJI3 and CJI5 reports (SAP S/4HANA Project Systems modul... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1235_IF | Enhancement | Add custom fields to CJI3 and CJI5 reports (SAP S/4HANA Project Systems modul... | 10. Object Complete |  | NA | 04.Low |
+| FPRE1209 | Enhancement | Upload adjustments to time sheet entries in bulk for Intel Federal. | 10. Object Complete |  | NA | 02.High |
+| FPRE1104_IP | Enhancement | WBS with custom attributes will be created in the PS module. The master data ... | 10. Object Complete |  | NA | 02.High |
+| FPRE1104_IF | Enhancement | WBS with custom attributes will be created in the PS module. The master data ... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1025_IP | Enhancement | Custom Fiori app will be created using Free style model to display WBS/AUC re... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE1025_IF | Enhancement | Custom Fiori app will be created using Free style model to display WBS/AUC re... | 10. Object Complete |  | NA | 04.Low |
+| FPRE0942_IP | Enhancement | Interface of SAP PPM module to ATLAS | 10. Object Complete | S4 → ATLAS | NA | 03.Medium |
+| FPRE0942_IF | Enhancement | Interface of SAP PPM module to ATLAS | 10. Object Complete | S4 → ATLAS | NA | 04.Low |
+| FPRE0931_IP | Enhancement | Rebuild Boundary Application ITT in S/4 | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0931_IF | Enhancement | Rebuild Boundary Application ITT in S/4 | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0931_CFIN | Enhancement | Rebuild Boundary Application ITT in S/4 | 10. Object Complete |  | NA | 02.High |
+| FPRE0929 | Enhancement | Fiori UI for Counterparty Maintenance and User Exit to trigger replication to... | 10. Object Complete |  | NA | 02.High |
+| FPRE0928 | Enhancement | Enhancement for automatic derivation and population of Purpose Of Payment (PO... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0899_IP | Enhancement | Custom Enhancement to disaggregate: Owner CC-DPN $ to WBS elements using Cape... | 10. Object Complete |  | NA | 02.High |
+| FPRE0899_IF | Enhancement | Custom Enhancement to disaggregate:Owner CC-DPN $ to WBS elements using Capex... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0892 | Enhancement | Derive ICS FTQ data by Capex WBS L2 & Mfr. Process Node CC​ | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0891 | Enhancement | Split from primary Cost centers to PCOS & R&D/OCOS | 99. Rejected/Cancelled/On Hold |  | NA | 04.Low |
+| FPRE0890_IP | Enhancement | Investment type creation and automatic settlement rule generation for Opex Pr... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0890_IF | Enhancement | Investment type creation and automatic settlement rule generation for Opex Pr... | 10. Object Complete |  | NA | 04.Low |
+| FPRE0889_IP | Enhancement | Custom table needs to be created to hold allocation %s based on LOB Profit ce... | 10. Object Complete |  | NA | 04.Low |
+| FPRE0889_IF | Enhancement | Custom table needs to be created to hold allocation %s based on LOB Profit ce... | 10. Object Complete |  | NA | 04.Low |
+| FPRE0888_IP | Enhancement | Mass Update Fields in WBS Elements | 10. Object Complete |  | NA | 02.High |
+| FPRE0888_IF | Enhancement | Mass Update Fields in WBS Elements | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0887_IP | Enhancement | WBS Element field synchronization to AUC and Fixed assets - Construction ID -... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0887_IF | Enhancement | WBS Element field synchronization to AUC and Fixed assets - Construction ID -... | 10. Object Complete |  | NA | 04.Low |
+| FPRE0886_IP | Enhancement | Project Change Order - Create Project Change Order via custom Fiori Screens w... | 10. Object Complete |  | NA | 02.High |
+| FPRE0886_IF | Enhancement | Project Change Order - Create Project Change Order via custom Fiori Screens w... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0885 | Enhancement | Custom Fiori app - Create WBS Element Request Form with ALV Input​ | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0884_IP | Enhancement | Custom Fiori app - CPA (Project Budget) approval request using PPM Item decis... | 10. Object Complete |  | NA | 02.High |
+| FPRE0884_IF | Enhancement | Custom Fiori app - CPA (Project Budget) approval request using PPM Item decis... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0883_IP | Enhancement | (FTQ Input to drive Disaggregation to Allocation Cycle) for Actuals.​ | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0883_IF | Enhancement | (FTQ Input to drive Disaggregation to Allocation Cycle) for Actuals.​ | 10. Object Complete |  | NA | 04.Low |
+| FPRE0882 | Enhancement | Derive FCS FTQ data by Capex WBS L2 & Mfr. Process Node CC​ | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0881 | Enhancement | DMEE User Exits Required in the payment files- APAC​ | 10. Object Complete |  | NA | 04.Low |
+| FPRE0880 | Enhancement | Cash concentration functionality for cross-currency current accounts | 07. FUT Roadblock |  | NA | 04.Low |
+| FPRE0879 | Enhancement | File Formatting and processing to support MBC and APM integration | 10. Object Complete |  | NA | 04.Low |
+| FPRE0877_IP | Enhancement | Automation to set TECO and CLSD status on Project/ WBS | 10. Object Complete |  | NA | 02.High |
+| FPRE0877_IF | Enhancement | Automation to set TECO and CLSD status on Project/ WBS | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0870 | Enhancement | Smart Exporter Interface to CFIN | 10. Object Complete | EY Smart Exporter Tool → S4 | NA | 04.Low |
+| FPRE0827 | Enhancement | MT3xx and MT5xx Files - Adjust SWIFT Parameters for MBC | 10. Object Complete |  | NA | 04.Low |
+| FPRE0786 | Enhancement | Enhancement to Mass upload of WOM payment advice. | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0785 | Enhancement | Enhancement to upload WCP Grant Amount in CFIN sys | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0784_IP | Enhancement | Reclass program for XIU/ SIU to reclass expense to inventory accounts (cost c... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0784_IF | Enhancement | Reclass program for XIU/ SIU to reclass expense to inventory accounts (cost c... | 10. Object Complete |  | NA | 04.Low |
+| FPRE0783_IP | Enhancement | Asset creation from PO (S4 / Ariba / EMS, etc.) | 10. Object Complete | Ariba → S4 | NA | 03.Medium |
+| FPRE0783_IF | Enhancement | Asset creation from PO (S4 / Ariba / EMS, etc.) | 10. Object Complete | Ariba → S4 | NA | 04.Low |
+| FPRE0781_IP | Enhancement | Import Standard Cost from S4 tables into SAC using Custom CDS view. | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0781_IF | Enhancement | Import Standard Cost from S4 tables into SAC using Custom CDS view. | 10. Object Complete |  | NA | 04.Low |
+| FPRE0780_IP | Enhancement | Read the workday file from AL11 in IP, IF | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0780_IF | Enhancement | Read the workday file from AL11 in IP, IF | 10. Object Complete |  | NA | 04.Low |
+| FPRE0779_IP | Enhancement | Enhance the details in workday file to meet AE format in IP, IF | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0779_IF | Enhancement | Enhance the details in workday file to meet AE format in IP, IF | 10. Object Complete |  | NA | 04.Low |
+| FPRE0777_IP | Enhancement | Add a field in ACDOCA to store Cert ID to continue auto-certify a BL task whe... | 10. Object Complete |  | NA | 04.Low |
+| FPRE0777_IF | Enhancement | Add a field in ACDOCA to store Cert ID to continue auto-certify a BL task whe... | 10. Object Complete |  | NA | 04.Low |
+| FPRE0777_CFIN | Enhancement | Add a field in ACDOCA to store Cert ID to continue auto-certify a BL task whe... | 10. Object Complete |  | NA | 04.Low |
+| FPRE0764_IP | Enhancement | Import Headcount details by cost center and update in S4 for HR benefits spen... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0764_IF | Enhancement | Import Headcount details by cost center and update in S4 for HR benefits spen... | 10. Object Complete |  | NA | 04.Low |
+| FPRE0763 | Enhancement | Placeholder - BADI for Memo Records with different Planning Levels/Types gene... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0761 | Enhancement | Branch Name and Address for Payments instead of entity Name and Address | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0760_IP | Enhancement | SAP RAR and TM Integration to trigger POD Event | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0760_IF | Enhancement | SAP RAR and TM Integration to trigger POD Event | 10. Object Complete |  | NA | 04.Low |
+| FPRE0702 | Enhancement | Calculation of variance to be loaded for Group Actual Costing | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0701_IP | Enhancement | Mixed Costing ratio auto update | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0701_IF | Enhancement | Mixed Costing ratio auto update | 10. Object Complete |  | NA | 04.Low |
+| FPRE0700_IP | Enhancement | Representative material ID – Q2-Q8 Forecast | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0700_IF | Enhancement | Representative material ID – Q2-Q8 Forecast | 10. Object Complete |  | NA | 04.Low |
+| FPRE0699 | Enhancement | Enhancement for Excess Capacity – Fixed Spending Adjustment | 10. Object Complete |  | NA | 02.High |
+| FPRE0698 | Enhancement | Legal Valuation standard cost calculation enhancement | 10. Object Complete |  | NA | 04.Low |
+| FPRE0697 | Enhancement | RAR Balance sheet posting with MM & Sold To ID | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0648_IP | Enhancement | RD04 - Intercompany invoice billing posting to different GL accounts | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0648_IF | Enhancement | RD04 - Intercompany invoice billing posting to different GL accounts | 10. Object Complete |  | NA | 04.Low |
+| FPRE0647_IP | Enhancement | Intercompany - Subledger Posting template & Approval Workflow | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0647_IF | Enhancement | Intercompany - Subledger Posting template & Approval Workflow | 10. Object Complete |  | NA | 04.Low |
+| FPRE0647_CFIN | Enhancement | Intercompany - Subledger Posting template & Approval Workflow | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0646_IP | Enhancement | An automated solution to record the depreciation amount in a monthly basis fo... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0646_IF | Enhancement | An automated solution to record the depreciation amount in a monthly basis fo... | 10. Object Complete |  | NA | 04.Low |
+| FPRE0645_IP | Enhancement | Need to identify a Mass settlement upload tool. Today, the capital life cycle... | 10. Object Complete |  | NA | 01.Very High |
+| FPRE0645_IF | Enhancement | Need to identify a Mass settlement upload tool. Today, the capital life cycle... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0624 | Enhancement | Portal Remittance Automation- Retrofitting | 10. Object Complete |  | NA | 04.Low |
+| FPRE0623 | Enhancement | Payment Advice Bot Success & Exception Report | 10. Object Complete |  | NA | 04.Low |
+| FPRE0622 | Enhancement | Exception Handling & Trigger Set up | 10. Object Complete |  | NA | 04.Low |
+| FPRE0621 | Enhancement | Payment Advice CSV Creation & Upload | 10. Object Complete |  | NA | 04.Low |
+| FPRE0620 | Enhancement | Model Integration & Export | 10. Object Complete |  | NA | 04.Low |
+| FPRE0619 | Enhancement | UiPath OCR - Model Validation | 10. Object Complete |  | NA | 04.Low |
+| FPRE0618 | Enhancement | UiPath OCR - Iterative Model Training | 10. Object Complete |  | NA | 04.Low |
+| FPRE0617 | Enhancement | UiPath OCR - Classification & Extraction | 10. Object Complete |  | NA | 04.Low |
+| FPRE0616 | Enhancement | UiPath OCR - Taxonomy & Digitize | 10. Object Complete |  | NA | 04.Low |
+| FPRE0605_IP | Enhancement | H2RA - 13th month bonus & Quarterly Performance Bonus (QPB) bonus accrual pos... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0605_IF | Enhancement | H2RA - 13th month bonus & Quarterly Performance Bonus (QPB) bonus accrual pos... | 10. Object Complete |  | NA | 04.Low |
+| FPRE0604_IP | Enhancement | H2RA - Annual Performance Bonus (APB) ER taxes accrual & Quarterly Performanc... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0604_IF | Enhancement | H2RA - Annual Performance Bonus (APB) ER taxes accrual & Quarterly Performanc... | 10. Object Complete |  | NA | 04.Low |
+| FPRE0602 | Enhancement | Reclassification of Vendor transactions from Default to Actual within CFIN | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0601 | Enhancement | Reclassification of Customer transactions from Default to Actual within CFIN | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0574_IP | Enhancement | Margin analysis Dimensions creation | 10. Object Complete |  | NA | 04.Low |
+| FPRE0573_IP | Enhancement | Mass Asset Documents Reversal | 10. Object Complete |  | NA | 02.High |
+| FPRE0573_IF | Enhancement | Mass Asset Documents Reversal | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0572_IP | Enhancement | Mass Asset Capitalization | 10. Object Complete |  | NA | 02.High |
+| FPRE0572_IF | Enhancement | Mass Asset Capitalization | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0571_IP | Enhancement | DSD Matrix Rules to Update Depreciation Start Date in the Direct Cap Asset Ma... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0571_IF | Enhancement | DSD Matrix Rules to Update Depreciation Start Date in the Direct Cap Asset Ma... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0551 | Enhancement | SKF Actual Driver volume update from actual activity confirmation Automation | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0550 | Enhancement | Enhancement to update additive cost in IP based on Idoc of IF cost | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0549 | Enhancement | Enhancement to a) update Cost and Production volume in custom table, b) calcu... | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0500_IP | Enhancement | Rule for Transaction Price Allocation in BRIM vs SD | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0500_IF | Enhancement | Rule for Transaction Price Allocation in BRIM vs SD | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0499_IP | Enhancement | Substitution and Validation rule user exit | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0499_IF | Enhancement | Substitution and Validation rule user exit | 10. Object Complete |  | NA | 04.Low |
+| FPRE0495_IP | Enhancement | Custom Fields in WBS element Master Data | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0495_IF | Enhancement | Custom Fields in WBS element Master Data | 10. Object Complete |  | NA | 04.Low |
+| FPRE0477 | Enhancement | Rebate for Direct Customer to Rebate of Intransit deferrals for Direct & Dist... | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0476 | Enhancement | Accounting for Stock Rotation | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0475 | Enhancement | Accounting for reserves for unissued returns credit note & Rebate Return Accr... | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0474 | Enhancement | Accounting for technical return reserve | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0462 | Enhancement | Enhancement to develop automatic creation of payment advice number in the AR ... | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0430 | Enhancement | Enhancement for automatic creation of MT210 (pre-advice) message for IC settl... | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0429_IP | Enhancement | Utility program to look up inactive cost center and derive replacement cost c... | 10. Object Complete | NA → NA | NA | 04.Low |
+| FPRE0429_IF | Enhancement | Utility program to look up inactive cost center and derive replacement cost c... | 10. Object Complete | NA → NA | NA | 04.Low |
+| FPRE0429_CFIN | Enhancement | Utility program to look up inactive cost center and derive replacement cost c... | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0428_IP | Enhancement | Program to replace inactive cost centers in Assets | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0428_IF | Enhancement | Program to replace inactive cost centers in Assets | 10. Object Complete | NA → NA | NA | 04.Low |
+| FPRE0425 | Enhancement | Treasury Funding - Enhancement to support multiple Treasury Funding scenarios... | 10. Object Complete |  | NA | 02.High |
+| FPRE0407_IP | Enhancement | Period Close in CFin, IP & IF | 10. Object Complete |  | NA | 04.Low |
+| FPRE0407_IF | Enhancement | Period Close in CFin, IP & IF | 10. Object Complete |  | NA | 04.Low |
+| FPRE0407_CFIN | Enhancement | Period Close in CFin, IP & IF | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0375_IP | Enhancement | GL Interface – IDOC status from IF & IP | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0375_IF | Enhancement | GL Interface – IDOC status from IF & IP | 10. Object Complete | NA → NA | NA | 04.Low |
+| FPRE0375_CFIN | Enhancement | GL Interface – IDOC status from IF & IP | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0374_IP | Enhancement | GL Interface- Managing 999+ GL line items | 10. Object Complete | NA → NA | NA | 04.Low |
+| FPRE0374_IF | Enhancement | GL Interface- Managing 999+ GL line items | 10. Object Complete | NA → NA | NA | 04.Low |
+| FPRE0374_CFIN | Enhancement | GL Interface- Managing 999+ GL line items | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0373 | Enhancement | GL Interface – Splitting of enriched files and populating staging table | 10. Object Complete | NA → NA | NA | 02.High |
+| FPRE0372 | Enhancement | GL Interface - Incoming file processing and Simulation | 10. Object Complete | NA → NA | NA | 02.High |
+| FPRE0360_IP | Enhancement | Reclassify GL Accounts for Balance Carryforwards - IP | 10. Object Complete |  | NA | 04.Low |
+| FPRE0360_IF | Enhancement | Reclassify GL Accounts for Balance Carryforwards - IF | 10. Object Complete |  | NA | 04.Low |
+| FPRE0328_IP | Enhancement | Validations on Asset updates, transfer and retirement | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0328_IF | Enhancement | Validations on Asset updates, transfer and retirement | 10. Object Complete | NA → NA | NA | 04.Low |
+| FPRE0326_IP | Enhancement | Mass upload tool to asset update, transfer and retire (S4 Fiori functionality... | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0326_IF | Enhancement | Mass upload tool to asset update, transfer and retire (S4 Fiori functionality... | 10. Object Complete | NA → NA | NA | 04.Low |
+| FPRE0324_IP | Enhancement | Custom Fiori App for Asset update, transfer, scrap, and retire based on Repor... | 10. Object Complete | NA → NA | NA | 02.High |
+| FPRE0324_IF | Enhancement | Custom Fiori App for Asset update, transfer, scrap, and retire based on Repor... | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0322_IP | Enhancement | Fiori Dashboard to display/edit pre-paid amortization for PO​ | 10. Object Complete | NA → NA | NA | 02.High |
+| FPRE0322_IF | Enhancement | Fiori Dashboard to display/edit pre-paid amortization for PO​ | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0321_IP | Enhancement | Fiori Dashboard to display/edit accruals for PO​ | 10. Object Complete | NA → NA | NA | 02.High |
+| FPRE0321_IF | Enhancement | Fiori Dashboard to display/edit accruals for PO​ | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0320_IP | Enhancement | Enhancement to read PO data and create manual accrual object​ | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0320_IF | Enhancement | Enhancement to read PO data and create manual accrual object​ | 10. Object Complete | NA → NA | NA | 04.Low |
+| FPRE0319_IP | Enhancement | Enhancement for accrual posting notification​ | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0319_IF | Enhancement | Enhancement for accrual posting notification​ | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0315_IP | Enhancement | Activation of custom enhancement tab on portfolio bucket for custom fields. | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0315_IF | Enhancement | Activation of custom enhancement tab on portfolio bucket for custom fields. | 10. Object Complete | NA → NA | NA | 04.Low |
+| FPRE0314_IP | Enhancement | Smart numbering for portfolio items. | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0314_IF | Enhancement | Smart numbering for portfolio items. | 10. Object Complete | NA → NA | NA | 04.Low |
+| FPRE0289_IP | Enhancement | Update XREF1, XREF2 and XREF3 fields in subledger line items | 10. Object Complete | NA → NA | NA | 04.Low |
+| FPRE0289_IF | Enhancement | Update XREF1, XREF2 and XREF3 fields in subledger line items | 10. Object Complete | NA → NA | NA | 04.Low |
+| FPRE0289_CFIN | Enhancement | Update XREF1, XREF2 and XREF3 fields in subledger line items | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0287_IP | Enhancement | Need to enhance Fiori screen to capture business process and the approver whi... | 10. Object Complete | NA → NA | NA | 04.Low |
+| FPRE0287_IF | Enhancement | Need to enhance Fiori screen to capture business process and the approver whi... | 10. Object Complete | NA → NA | NA | 04.Low |
+| FPRE0287_CFIN | Enhancement | Need to enhance Fiori screen to capture business process and the approver whi... | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0286_IP | Enhancement | Mass upload of the same supporting document as an attachment to multiple JEs | 10. Object Complete | NA → NA | NA | 04.Low |
+| FPRE0286_IF | Enhancement | Mass upload of the same supporting document as an attachment to multiple JEs | 10. Object Complete | NA → NA | NA | 04.Low |
+| FPRE0286_CFIN | Enhancement | Mass upload of the same supporting document as an attachment to multiple JEs | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRE0285 | Enhancement | Cash App rules engine for matching incoming payments with payment advice | 10. Object Complete |  | NA | 01.Very High |
+| FPRE0284 | Enhancement | Mass upload of payment advice | 10. Object Complete |  | NA | 03.Medium |
+| FPRE0282 | Enhancement | RPA BOT for collecting and transforming customer payment advice into standard... | 10. Object Complete |  | NA | 04.Low |
+| FPRE0240 | Enhancement | Treasury Payment/funding Request - Enhancement to support multiple Treasury P... | 10. Object Complete | NA → NA | NA | 02.High |
+| FPRE0049 | Enhancement | Enhancement - Custom Fields in Manage bank Accounts | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRC1724_IP | Conversion | Creation of output template with consumption data | 06. Dev In Progress |  | NA | 02.High |
+| FPRC1724_IF | Conversion | Creation of output template with consumption data | 06. Dev In Progress |  | NA | 03.Medium |
+| FPRC1565 | Conversion | Convert active delegate relationships for Timesheet approval | 10. Object Complete |  | NA | 02.High |
+| FPRC1493 | Conversion | Conversion of WIP values as per Component structure in S/4 - IP | 10. Object Complete |  | NA | 02.High |
+| FPRC1491 | Conversion | Conversion of WIP values as per Component structure in S/4 - Back End IF | 10. Object Complete |  | NA | 02.High |
+| FPRC1464_IP | Conversion | Project Actuals Conversion (Non- Intel Federal) | 10. Object Complete |  | NA | 02.High |
+| FPRC1464_IF | Conversion | Project Actuals Conversion (Non- Intel Federal) | 10. Object Complete |  | NA | 02.High |
+| FPRC1442 | Conversion | Conversion of Actual Labor hours for Intel Federal Projects | 10. Object Complete |  | NA | 02.High |
+| FPRC1441 | Conversion | Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj... | 10. Object Complete |  | NA | 02.High |
+| FPRC1212 | Conversion | Project Actuals Conversion including Intel Federal | 10. Object Complete |  | NA | 03.Medium |
+| FPRC0908_IP | Conversion | Project Budget Conversion | 10. Object Complete |  | NA | 03.Medium |
+| FPRC0908_IF | Conversion | Project Budget Conversion | 10. Object Complete |  | NA | 03.Medium |
+| FPRC0196_IP | Conversion | Asset Transaction data conversion | 10. Object Complete | NA → NA | NA | 02.High |
+| FPRC0196_IF | Conversion | Asset Transaction data conversion | 10. Object Complete | NA → NA | NA | 02.High |
+| FPRC0195_IP | Conversion | Asset Master data conversion | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRC0195_IF | Conversion | Asset Master data conversion | 10. Object Complete | NA → NA | NA | 03.Medium |
+| FPRC0174_IP | Conversion | Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj... | 10. Object Complete | ECC → S4 | NA | 02.High |
+| FPRC0174_IF | Conversion | Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj... | 10. Object Complete | ECC → S4 | NA | 03.Medium |
+| FPRC0117 | Conversion | Conversion – In House Cash: Current Account creation and Current Account Bala... | 10. Object Complete | ECC → CFIN | NA | 02.High |
+| FPRC0116 | Conversion | Conversion – Migration of Existing Bank Guarantees and Intercompany Loans to ... | 10. Object Complete | Quantum → CFIN | NA | 03.Medium |
+| FPRC0035_IP | Conversion | Convert existing ECC & MDG hierarchy to S4HANA PPM hierarchy (Portfolio & buc... | 10. Object Complete |  → MDG | NA | 03.Medium |
+| FPRC0035_IF | Conversion | Convert existing ECC & MDG hierarchy to S4HANA PPM hierarchy (Portfolio & buc... | 10. Object Complete |  → MDG | NA | 04.Low |
+
+**Summary**: 17 Reports, 86 Interfaces, 25 Conversions, 219 Enhancements, 1 Forms, 18 Workflows
+
+<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — OR-140</span></div>
+<div style="page-break-before: always;"></div>
+
+### 5.6 Integration Patterns
+
+Integration patterns identified from the system flow analysis for OR-140:
+
+| # | Pattern | Flow Chain | Middleware | Protocol | Auth |
+|---|---------|-----------|-----------|----------|------|
+
+> *Integration pattern details will be refined when tower architects validate middleware assignments.*
+
+<div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — OR-140</span></div>
+<div style="page-break-before: always;"></div>
+
+## 6. Technology Architecture (TOGAF "T")
+
+### 6.1 Platform & Infrastructure
+
+> **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
+#### Platform Inventory
+
+Platform landscape inferred from integrated systems for OR-140:
+
+| # | Platform | Type | Systems Using | Environment |
+|---|----------|------|--------------|-------------|
+| 1 | SAP S/4HANA | On-Premise (HEC) | SAP S/4 modules | DEV, QAS, PRD |
+| 2 | SAP BTP (Integration Suite) | Cloud / PaaS | CPI, API Management | DEV, QAS, PRD |
+| 3 | MuleSoft Anypoint | Cloud / iPaaS | API-led integrations | DEV, QAS, PRD |
+
+> *Platform assignments will be validated when tower architects populate technology platform columns.*
+
+<div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — OR-140</span></div>
+<div style="page-break-before: always;"></div>
+
+### 6.2 SAP Development Object Status
+
+**Capability RICEFW Status** (366 objects)
+*Data source: Smartsheet Object Tracker (cached 2026-03-26)*
+
+| Status | Count | % |
+|--------|------:|----:|
+| 10. Object Complete | 349 | 95.4% |
+| 07. FUT Roadblock | 10 | 2.7% |
+| 99. Rejected/Cancelled/On Hold | 5 | 1.4% |
+| 06. Dev In Progress | 2 | 0.5% |
+| **Total** | **366** | **100%** |
+
+**RICEFW by Type:**
+
+| Type | Count |
+|------|------:|
+| Report (R) | 17 |
+| Interface (I) | 86 |
+| Conversion (C) | 25 |
+| Enhancement (E) | 219 |
+| Form (F) | 1 |
+| Workflow (W) | 18 |
+| **Total** | **366** |
+
+**Technical Complexity:**
+
+| Complexity | Count |
+|------------|------:|
+| 01.Very High | 5 |
+| 02.High | 64 |
+| 03.Medium | 201 |
+| 04.Low | 93 |
+| N/A | 3 |
+
+**Active (Non-Complete) Objects:**
+
+| Object ID | Type | Description | Status | Complexity |
+|-----------|------|-------------|--------|------------|
+| FPRI1669 | 02.Interface | Import Xeus/Mars volumes from ECA into S4.​ | 07. FUT Roadblock | 03.Medium |
+| FPRE1723_IP | 04.Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 07. FUT Roadblock | 04.Low |
+| FPRE1723_IF | 04.Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 07. FUT Roadblock | 04.Low |
+| FPRE1722_IP | 04.Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 07. FUT Roadblock | 04.Low |
+| FPRE1722_IF | 04.Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 07. FUT Roadblock | 04.Low |
+| FPRE1661_IP | 04.Enhancement | WBS transfer tool | 07. FUT Roadblock | 02.High |
+| FPRE1661_IF | 04.Enhancement | WBS transfer tool | 07. FUT Roadblock | 03.Medium |
+| FPRE1599_IP | 04.Enhancement | Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO line ... | 07. FUT Roadblock | 03.Medium |
+| FPRE1599_IF | 04.Enhancement | Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO line ... | 07. FUT Roadblock | 04.Low |
+| FPRE0880 | 04.Enhancement | Cash concentration functionality for cross-currency current accounts | 07. FUT Roadblock | 04.Low |
+| FPRC1724_IP | 03.Conversion | Creation of output template with consumption data | 06. Dev In Progress | 02.High |
+| FPRC1724_IF | 03.Conversion | Creation of output template with consumption data | 06. Dev In Progress | 03.Medium |
+
+### 6.3 NFRs & Design Principles
+
+| Category | Requirement | Target / SLA | Priority |
+|----------|-------------|-------------|----------|
+| Performance | Month-end batch costing/closing completes within SLA window | < 4 hours end-to-end batch window | High |
+| Availability | S/4 HANA finance modules available during business hours | 99.9% (Mon-Fri 06:00-22:00 PST) | High |
+| Scalability | Support 2x transaction volume growth over 3-year horizon | Handle 500K+ journal entries/day | Medium |
+| Recoverability | RPO/RTO for financial systems meets audit requirements | RPO < 1 hour, RTO < 4 hours | High |
+| Data Volume | Support growing data volumes from legacy migration + BAU | 50M+ records in material ledger | Medium |
+| Latency | Near-real-time posting for financial transactions | < 5 seconds for online postings | Medium |
+| Concurrency | Support concurrent month-end users across time zones | 200+ concurrent finance users | Medium |
+
+### 6.4 Security & Governance
+
+| Concern | Approach | Standard / Policy | Owner |
+|---------|----------|--------------------|-------|
+| Authentication | Single Sign-On (SSO) via Intel corporate Azure AD identity | Intel IT Security Policy - Identity Management | IT Security |
+| Authorization | Role-based access control (RBAC) with SAP authorization objects | Intel SAP Security Standards - Role Design | SAP Security Team |
+| Data Classification | All financial/operational data classified per Intel Data Classification Standard | Intel Data Classification Policy | Data Governance |
+| Data Encryption (at rest) | AES-256 encryption for SAP HANA database and file storage | Intel Encryption Standard | Infrastructure Security |
+| Data Encryption (in transit) | TLS 1.3 for all system-to-system and user-to-system communication | Intel Network Security Policy | Network Engineering |
+| Network Segmentation | SAP systems in dedicated network zones with firewall controls | Intel Network Architecture Standard | Network Security |
+| API Security | OAuth 2.0 / certificate-based authentication for all API integrations | Intel API Security Guidelines | Integration Architecture |
+| Audit Logging | Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log) | SOX Compliance / Intel Audit Policy | Internal Audit |
+| Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
+| Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
+
+<div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — OR-140</span></div>
+<div style="page-break-before: always;"></div>
+
+## 7. Project Context
+
+### 7.1 Project Roadmap & Go-Live Plan
+
+*364 objects with timeline data (source: Object Tracker)*
+
+| ID | Description | FS | TDD | Build | FUT | Status |
+|----|-------------|----|-----|-------|-----|--------|
+| FPRW1449 | TPR : Workflow to handle Memo creation and cancellation process | Jul-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
+| FPRW1444 | TFR: Workflow to handle Memo creation and cancellation process | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Oct-25 (100%) | 1. On Track |
+| FPRW1064_IP | Custom Workflow will also be created with some predefined process/rules for approval/rejection. | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Feb-26 (100%) | 1. On Track |
+| FPRW1064_IF | Custom Workflow will also be created with some predefined process/rules for approval/rejection. | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Feb-26 (100%) | 1. On Track |
+| FPRW0930 | Workflow for Counterparty Approval | Apr-25 (100%) | Dec-25 (100%) | Dec-25 (100%) | Dec-25 (100%) | 5. Not Dispositioned |
+| FPRW0906_IP | Custom workflow: Change Order Create and Change Approval | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (100%) | 1. On Track |
+| FPRW0906_IF | Custom workflow: Change Order Create and Change Approval | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (100%) | 1. On Track |
+| FPRW0904_IP | Custom Workflow - WBS Element Request approval with WBS Element creation | Mar-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | 1. On Track |
+| FPRW0904_IF | Custom Workflow - WBS Element Request approval with WBS Element creation | Mar-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | 1. On Track |
+| FPRW0900_IP | Custom Workflow: Approval for Project creation and create a Project def and level n1 after approval using template | Feb-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 3. Off Track |
+| FPRW0900_IF | Custom Workflow: Approval for Project creation and create a Project def and level n1 after approval using template | Feb-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
+| FPRW0445_IP | Project budget approval workflow (Capex)​ | Aug-24 (100%) | Aug-25 (100%) | Aug-25 (100%) | Sep-25 (100%) | 1. On Track |
+| FPRW0445_IF | Project budget approval workflow (Capex)​ | Aug-24 (100%) | Aug-25 (100%) | Aug-25 (100%) | Sep-25 (100%) | 1. On Track |
+| FPRW0325_IP | Custom workflow to manage the approval process in bulk/individual requests | Jul-24 (100%) | Feb-25 (100%) | Feb-25 (100%) | Mar-25 (100%) |  |
+| FPRW0325_IF | Custom workflow to manage the approval process in bulk/individual requests | Jul-24 (100%) | Feb-25 (100%) | Feb-25 (100%) | Mar-25 (100%) |  |
+| FPRW0165_IP | Workflow is required to trigger the approvers based on the business requirement for Journal entry | May-24 (100%) | Aug-24 (100%) | Aug-24 (100%) | Sep-24 (100%) |  |
+| FPRW0165_IF | Workflow is required to trigger the approvers based on the business requirement for Journal entry | May-24 (100%) | Aug-24 (100%) | Aug-24 (100%) | Sep-24 (100%) |  |
+| FPRW0165_CFIN | Workflow is required to trigger the approvers based on the business requirement for Journal entry | May-24 (100%) | Aug-24 (100%) | Aug-24 (100%) | Sep-24 (100%) |  |
+| FPRR1514_IP | To generate reports out of the ITT documents that was created | Aug-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 4. Completed |
+| FPRR1514_IF | To generate reports out of the ITT documents that was created | Aug-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 4. Completed |
+| FPRR1240 | Custom report for Revenue Recognition by Stage for Product/Services Sale​ actual revenue vs planned revenue | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (100%) | 4. Completed |
+| FPRR1211 | Report for searching on and viewing government contract timesheets for Intel Federal. | Apr-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 1. On Track |
+| FPRR1210 | Report for searching on and viewing government contract timesheet changes for Intel Federal.​ | Apr-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Feb-26 (100%) | 4. Completed |
+| FPRR0907_IP | Workflow Status Report ( Order Request / Approval Request / Others ) | Mar-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Oct-25 (100%) | 2. At Risk |
+| FPRR0907_IF | Workflow Status Report ( Order Request / Approval Request / Others ) | Mar-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Oct-25 (100%) | 1. On Track |
+| FPRR0497 | CFR - Report to support multiple Treasury Funding requests from Multiple Intel teams | Mar-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Sep-25 (100%) | 1. On Track |
+| FPRR0496 | TPR-Report to support multiple Treasury Payment Requests from Multiple Intel teams | Mar-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Nov-25 (100%) | 1. On Track |
+| FPRR0461 | Inter-company Outage Pre-consolidate Report (ACDOCA) | Aug-24 (100%) | Jan-25 (100%) | Jan-25 (100%) | Mar-25 (100%) |  |
+| FPRR0380 | GL Interface – Reconciliation Report/Dashboard | Aug-24 (100%) | Feb-25 (100%) | Feb-25 (100%) | Sep-25 (100%) |  |
+| FPRR0327_IP | Report to display the requests/change IDs and status of the workflow approval and Error handling | Jul-24 (100%) | Feb-25 (100%) | Feb-25 (100%) | Mar-25 (100%) | 1. On Track |
+
+*... and 334 more objects (see full Object Tracker)*
+
+### 7.2 RAID Log
+
+*Live data from Smartsheet Master RAID Log — extracted 2026-03-26*
+
+**Mapped sub-tower(s):** 3.1 FPR - GL Close & Consolidate, 3.10 FPR - Accounts Receivable & Collections, 3.11 FPR - Project Accounting, 3.2 FPR - Tax, 3.3 FPR - Revenue Recognition & Reporting, 3.4 FPR - Intercompany, 3.5 FPR - Fixed Assets, 3.6 FPR - Cost and Profitability Analysis, 3.7 FPR - Product Costing and Inventory Valuation, 3.8 FPR - Financial Planning & Analysis, 3.9 FPR - Treasury and Cash Management
+
+**RAID Summary:** 18 open items (6 capability-specific, 12 tower-level), 234 closed
+
+| Severity | Capability | Tower-Wide | Total Open |
+|----------|----------:|-----------:|-----------:|
+| P1 - High | 0 | 1 | 1 |
+| P2 - Medium | 4 | 10 | 14 |
+| P3 - Low | 2 | 1 | 3 |
+| **Total** | **6** | **12** | **18** |
+
+**Capability-Specific RAID Items:**
+
+| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
+|---------|------|----------|-------|--------|-------------|----------|
+| 03633 | Action | P2 - Medium | Conversion RICEFW (FPRC1724_IF/IP) has dependency on the enh... | In Progress | FPR | 2026-03-13 |
+| 02226 | Action | P3 - Low | DMEE related FPR objects not ready for development | In Progress | FPR | 2026-03-31 |
+| 03729 | Action | P2 - Medium | AN and CC invoices are fetching wrong tax codes and posting ... | In Progress | FPR | 2026-03-23 |
+| 02680 | Action | P2 - Medium | T042A table config in IP and IF | In Progress | FPR | 2026-04-03 |
+| 03782 | Risk | P2 - Medium | Auto processing of JPMC lockbox BAI2 for AR Cashapp not work... | Not Started | FPR | 2026-04-10 |
+| 03473 | Action | P3 - Low | Manual Service PIR creation for IP-IF Service Procurement. | In Progress | FPR | 2026-05-29 |
+
+**Other FPR Tower RAID Items** (12 open):
+
+| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
+|---------|------|----------|-------|--------|-------------|----------|
+| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-03 |
+| 03197 | Issue | P2 - Medium | Company Code address disappearing in DI0 250 | Not Started |  |  |
+| 03564 | Risk | P2 - Medium | Development of the AMT impacting FPR Capital Tool report | In Progress | FTS IP | 2026-03-27 |
+| 03624 | Issue | P2 - Medium | Test Data not provided for CR "INT-Build-CR0918" | In Progress | FPR | 2026-03-20 |
+| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
+| 03628 | Risk | P2 - Medium | R3 Returns Rework Process Causing Finance Double Counting in... | In Progress | E2E | 2026-03-27 |
+| 03629 | Risk | P2 - Medium | Consensus Demand Data for ICOST | In Progress | FTS IP | 2026-03-27 |
+| 02799 | Risk | P2 - Medium | Deloite FPR objects FPRXV490, FPRXV038 and FPRXV048 are dela... | In Progress | FPR | 2026-03-25 |
+| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
+| 03740 | Action | P2 - Medium | Provide count of report with list of names due in ITC1 and I... | In Progress | FPR | 2026-03-20 |
+| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
+| 03333 |  | P3 - Low | FPR NRT : IF and IP  Power BI Workspace Provisioning | In Progress | Analytics (Reporting) | 2026-01-12 |
+
+### 7.3 Recommendations & Next Steps
+
+| # | Category | Recommendation | Priority | Owner | Target Date | Status |
+|---|----------|---------------|----------|-------|-------------|--------|
+| 1 | Architecture | Complete extended flow attributes (Data Entity, Integration Pattern, Tech Platform) in Flows tab for full BDAT coverage | High | Tower Architect | 2026-Q2 | Open |
+| 2 | Data | Define data ownership and classification for all 0 flow chains to satisfy Data Architecture (TOGAF D) requirements | Medium | Data Architect | 2026-Q3 | Open |
+| 3 | Testing | Develop integration test scenarios covering all 0 flow chains for FUT/SIT readiness | High | Test Lead | 2026-Q3 | Open |
+| 4 | Business Architecture | Review and validate Business Architecture process steps against latest Signavio/BIC process models | Medium | Business Analyst | 2026-Q2 | Open |
+| 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
+
+---
+*OR-140 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: March 2026*
+

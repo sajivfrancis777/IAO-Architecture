@@ -1,0 +1,20 @@
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TB
+    classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
+    classDef platBox fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    classDef eolBox fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#660000
+
+    subgraph E2E73CPLP_e_g_Azure_PaaS["☁️ e.g. Azure PaaS"]
+        direction LR
+        E2E73CPLA_e_g_XEUS["e.g. XEUS"]:::appBox
+    end
+    style E2E73CPLP_e_g_Azure_PaaS fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+
+    subgraph E2E73CPLP_e_g_S_4_HANA_2023["🖥️ e.g. S/4 HANA 2023"]
+        direction LR
+        E2E73CPLA_e_g_MES_300["e.g. MES 300"]:::appBox
+    end
+    style E2E73CPLP_e_g_S_4_HANA_2023 fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+
+    E2E73CPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E73CPLP_e_g_Azure_PaaS
+

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="Signavio Process Editor, http://www.signavio.com" exporterVersion="26.10.0-20260311103619+6e2d3ac" expressionLanguage="http://www.w3.org/TR/XPath" id="sid-16677517-de68-417f-85f3-b50cefa951c7" targetNamespace="http://www.signavio.com" typeLanguage="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <collaboration id="sid-ea8045d7-a92e-46aa-81e4-94e4459e89c1">
+      <extensionElements>
+         <signavio:signavioDiagramMetaData metaKey="meta-processdescription" metaValue="A pre-established cut-off period would be determined (either daily, weekly or monthly).  Sub-ledger/sub-system feeds would be received for the period end final transactions and the sub-ledger/sub-system periods would be closed to ensure that no further transactions are processed for that period.  A reconciliation should then be performed to ensure accuracy of the data."/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvedby" metaValue="[&quot;Rea M Meyer&quot;]"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalstatus" metaValue="ci1710756720720143051910"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvaldate" metaValue="13/09/24"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalcomments" metaValue="Approved on Signavio"/>
+         <signavio:signavioDiagramMetaData metaKey="revisionid" metaValue="fe3d00f6ea004dbf9b51b4fc5b4df73f"/>
+      </extensionElements>
+      <participant id="sid-E0A7FB73-46B6-41D4-A0AE-E5B81E211364" name="Intel" processRef="sid-989F7229-D501-4E94-A66C-BE7CBAE2F02C">
+         <extensionElements>
+            <signavio:signavioDictionaryLink propertyId="name">
+               <signavio:dictionaryLink>/glossary/e667553ad81e450aa194d3b00f6ba515</signavio:dictionaryLink>
+            </signavio:signavioDictionaryLink>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </participant>
+   </collaboration>
+   <process id="sid-989F7229-D501-4E94-A66C-BE7CBAE2F02C" isClosed="false" isExecutable="false" name="Intel" processType="None">
+      <extensionElements/>
+      <laneSet id="sid-73a26149-21ea-4633-b8fa-6f06c0fbe0dd">
+         <lane id="sid-025C9001-2117-4968-92A2-E36015A56995" name="IT Finance Analyst">
+            <extensionElements>
+               <signavio:signavioDictionaryLink propertyId="name">
+                  <signavio:dictionaryLink>/glossary/6080753d82da44e1b3fc8ea405b94737</signavio:dictionaryLink>
+               </signavio:signavioDictionaryLink>
+               <signavio:signavioMetaData metaKey="bgcolor" metaValue=""/>
+               <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            </extensionElements>
+            <flowNodeRef>sid-041ACCB0-7F68-4730-A9D1-E75AC50A2EB2</flowNodeRef>
+            <flowNodeRef>sid-8091857F-155B-4895-A116-0B1A9801D0B9</flowNodeRef>
+            <flowNodeRef>sid-50FFB913-82D7-4CB4-9C76-EEABB30A9494</flowNodeRef>
+         </lane>
+      </laneSet>
+      <startEvent id="sid-041ACCB0-7F68-4730-A9D1-E75AC50A2EB2" name="Close Sub-ledgers&#10;Initiated">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <outgoing>sid-26BC8787-8A3D-4C1C-A626-5226A8709ABA</outgoing>
+      </startEvent>
+      <subProcess completionQuantity="1" id="sid-8091857F-155B-4895-A116-0B1A9801D0B9" isForCompensation="false" name="DC-030-150B Carry Balances Forward - Non GR_R1" startQuantity="1" triggeredByEvent="false">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="entry" metaValue="/model/aab9c2838d0640ce850ff41de7506cfc"/>
+         </extensionElements>
+         <incoming>sid-26BC8787-8A3D-4C1C-A626-5226A8709ABA</incoming>
+         <outgoing>sid-751AD3D0-26AD-410C-90E8-517047F030C3</outgoing>
+      </subProcess>
+      <endEvent id="sid-50FFB913-82D7-4CB4-9C76-EEABB30A9494" name="Close Sub-ledgers&#10;Completed">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <incoming>sid-751AD3D0-26AD-410C-90E8-517047F030C3</incoming>
+      </endEvent>
+      <sequenceFlow id="sid-26BC8787-8A3D-4C1C-A626-5226A8709ABA" name="" sourceRef="sid-041ACCB0-7F68-4730-A9D1-E75AC50A2EB2" targetRef="sid-8091857F-155B-4895-A116-0B1A9801D0B9">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-751AD3D0-26AD-410C-90E8-517047F030C3" name="" sourceRef="sid-8091857F-155B-4895-A116-0B1A9801D0B9" targetRef="sid-50FFB913-82D7-4CB4-9C76-EEABB30A9494">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <association associationDirection="None" id="sid-5DEEC9D3-F4D0-4122-9042-2BC35C3F6848" sourceRef="sid-8091857F-155B-4895-A116-0B1A9801D0B9" targetRef="sid-9FAC43CA-C9DF-470C-B0ED-C6DFC722D26A">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </association>
+      <textAnnotation id="sid-9FAC43CA-C9DF-470C-B0ED-C6DFC722D26A" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>Reclassification of GL Accounts for retained earnings and dividend will be performed through custom program (FPRE0360_CFIN)</text>
+      </textAnnotation>
+      <textAnnotation id="sid-5EAD2F66-D7E3-4A13-918A-6605658223D2" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>Subledger Closings, reporting, accruals process will continue in ECC as part of R1 and the same will be replicated in S4 through CFIN replication</text>
+      </textAnnotation>
+      <textAnnotation id="sid-F51911E3-9213-45E3-9A58-3868349E27A6" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>Process Tower: Finance Plan to Report
+Process Group: DC Manage Accounting and Control Data
+Process Name: DC-030-020A Close Sub-ledgers_R1</text>
+      </textAnnotation>
+   </process>
+   <bpmndi:BPMNDiagram id="sid-a7cf77a9-b763-4117-91bf-5030c9dfa3d8">
+      <bpmndi:BPMNPlane bpmnElement="sid-ea8045d7-a92e-46aa-81e4-94e4459e89c1" id="sid-fa44c557-d96c-453a-84b7-32fc427e7f06">
+         <bpmndi:BPMNShape bpmnElement="sid-E0A7FB73-46B6-41D4-A0AE-E5B81E211364" id="sid-E0A7FB73-46B6-41D4-A0AE-E5B81E211364_gui" isHorizontal="true">
+            <omgdc:Bounds height="281.74399453752784" width="666.4366448463975" x="0.0" y="120.32101188973508"/>
+            <bpmndi:BPMNLabel labelStyle="sid-793baf99-f4ee-400d-829d-85692173d701">
+               <omgdc:Bounds height="23.914283752441378" width="12.000000000000005" x="4.999996749790766" y="249.2358672822783"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-025C9001-2117-4968-92A2-E36015A56995" id="sid-025C9001-2117-4968-92A2-E36015A56995_gui" isHorizontal="true">
+            <omgdc:Bounds height="281.74399453752784" width="636.4366448463975" x="30.0" y="120.32101188973508"/>
+            <bpmndi:BPMNLabel labelStyle="sid-793baf99-f4ee-400d-829d-85692173d701">
+               <omgdc:Bounds height="98.74285888671872" width="12.000000000000014" x="35.99999674979076" y="211.82157971513962"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-041ACCB0-7F68-4730-A9D1-E75AC50A2EB2" id="sid-041ACCB0-7F68-4730-A9D1-E75AC50A2EB2_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="185.07550128512813" y="283.32101647653116"/>
+            <bpmndi:BPMNLabel labelStyle="sid-749a8b6a-82af-4005-a7ec-0ccd07c57f4c">
+               <omgdc:Bounds height="22.0" width="91.22142791748047" x="154.4647873263879" y="315.32101647653116"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-8091857F-155B-4895-A116-0B1A9801D0B9" id="sid-8091857F-155B-4895-A116-0B1A9801D0B9_gui" isExpanded="false">
+            <omgdc:Bounds height="80.0" width="115.07000022682871" x="296.02309214594095" y="258.32101188973513"/>
+            <bpmndi:BPMNLabel labelStyle="sid-793baf99-f4ee-400d-829d-85692173d701">
+               <omgdc:Bounds height="48.0" width="80.22857284545898" x="313.4838064861509" y="272.32101188973513"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-50FFB913-82D7-4CB4-9C76-EEABB30A9494" id="sid-50FFB913-82D7-4CB4-9C76-EEABB30A9494_gui">
+            <omgdc:Bounds height="28.0" width="28.0" x="487.0406865615465" y="284.32101188973513"/>
+            <bpmndi:BPMNLabel labelStyle="sid-749a8b6a-82af-4005-a7ec-0ccd07c57f4c">
+               <omgdc:Bounds height="22.0" width="91.22142791748047" x="455.4299726028063" y="314.32101188973513"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-9FAC43CA-C9DF-470C-B0ED-C6DFC722D26A" id="sid-9FAC43CA-C9DF-470C-B0ED-C6DFC722D26A_gui">
+            <omgdc:Bounds height="64.99999999999994" width="201.21011818903798" x="311.0230923727697" y="163.32101188973513"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-5EAD2F66-D7E3-4A13-918A-6605658223D2" id="sid-5EAD2F66-D7E3-4A13-918A-6605658223D2_gui">
+            <omgdc:Bounds height="91.66050594486751" width="156.10560899609715" x="75.07549818399283" y="136.66050594486757"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-F51911E3-9213-45E3-9A58-3868349E27A6" id="sid-F51911E3-9213-45E3-9A58-3868349E27A6_gui">
+            <omgdc:Bounds height="64.99999999999994" width="701.2546366715318" x="20.0" y="19.99999999999997"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge bpmnElement="sid-26BC8787-8A3D-4C1C-A626-5226A8709ABA" id="sid-26BC8787-8A3D-4C1C-A626-5226A8709ABA_gui">
+            <omgdi:waypoint x="215.07550128512813" y="298.32101602837673"/>
+            <omgdi:waypoint x="296.02309214594095" y="298.3210136099086"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-5DEEC9D3-F4D0-4122-9042-2BC35C3F6848" id="sid-5DEEC9D3-F4D0-4122-9042-2BC35C3F6848_gui">
+            <omgdi:waypoint x="337.9670688250226" y="258.32101188973513"/>
+            <omgdi:waypoint x="326.2436165035355" y="228.32101188973508"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-751AD3D0-26AD-410C-90E8-517047F030C3" id="sid-751AD3D0-26AD-410C-90E8-517047F030C3_gui">
+            <omgdi:waypoint x="411.09309237276966" y="298.32101188973513"/>
+            <omgdi:waypoint x="487.0406865615465" y="298.32101188973513"/>
+         </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+      <bpmndi:BPMNLabelStyle id="sid-749a8b6a-82af-4005-a7ec-0ccd07c57f4c">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="11.0"/>
+      </bpmndi:BPMNLabelStyle>
+      <bpmndi:BPMNLabelStyle id="sid-793baf99-f4ee-400d-829d-85692173d701">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="12.0"/>
+      </bpmndi:BPMNLabelStyle>
+   </bpmndi:BPMNDiagram>
+</definitions>

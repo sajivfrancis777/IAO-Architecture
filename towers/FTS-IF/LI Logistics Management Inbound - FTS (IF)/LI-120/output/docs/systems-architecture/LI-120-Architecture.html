@@ -1,0 +1,2240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LI-120 Architecture</title>
+    <style>
+@page {
+    size: A4;
+    margin: 20mm 15mm 20mm 15mm;
+}
+body {
+    font-family: "Segoe UI", Calibri, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #1a1a1a;
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 15mm;
+    background: #fff;
+}
+h1 {
+    font-size: 22pt;
+    color: #00285a;
+    border-bottom: 3px solid #0071c5;
+    padding-bottom: 8px;
+    margin-top: 30px;
+    page-break-before: always;
+}
+h1:first-of-type { page-break-before: avoid; }
+h2 {
+    font-size: 16pt;
+    color: #00285a;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 4px;
+    margin-top: 24px;
+}
+h3 {
+    font-size: 13pt;
+    color: #0071c5;
+    margin-top: 18px;
+}
+h4 { font-size: 11pt; color: #333; margin-top: 14px; }
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 12px 0;
+    font-size: 9.5pt;
+    page-break-inside: avoid;
+}
+th {
+    background: #00285a;
+    color: #fff;
+    font-weight: 600;
+    text-align: left;
+    padding: 6px 8px;
+    border: 1px solid #00285a;
+}
+td {
+    padding: 5px 8px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+}
+tr:nth-child(even) td { background: #f5f8fc; }
+tr:hover td { background: #e8f0fe; }
+code {
+    font-family: "Cascadia Code", "Consolas", monospace;
+    font-size: 9pt;
+    background: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+pre {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 12px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 8.5pt;
+    line-height: 1.4;
+    page-break-inside: avoid;
+}
+pre code { background: none; padding: 0; color: inherit; }
+blockquote {
+    border-left: 4px solid #0071c5;
+    background: #f5f8fc;
+    margin: 12px 0;
+    padding: 8px 16px;
+    color: #333;
+}
+.mermaid-placeholder {
+    background: #f5f8fc;
+    border: 1px dashed #0071c5;
+    border-radius: 4px;
+    padding: 16px;
+    margin: 12px 0;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+.mermaid {
+    background: #fafbfd;
+    border: 1px solid #e0e4ea;
+    border-radius: 6px;
+    padding: 20px 12px;
+    margin: 16px 0;
+    overflow-x: auto;
+    text-align: center;
+}
+.mermaid svg {
+    max-width: 100%;
+    height: auto;
+}
+.header-bar {
+    background: #00285a;
+    color: #fff;
+    padding: 16px 24px;
+    margin: -15mm -15mm 20px -15mm;
+    font-size: 9pt;
+}
+.header-bar h1 {
+    color: #fff;
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-size: 20pt;
+    page-break-before: avoid;
+}
+.header-bar .subtitle { color: #a8c7e8; font-size: 10pt; }
+.footer {
+    font-size: 8pt;
+    color: #888;
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+a { color: #0071c5; text-decoration: none; }
+a:hover { text-decoration: underline; }
+hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
+strong { color: #00285a; }
+
+@media print {
+    body { padding: 0; max-width: none; }
+    .header-bar { margin: 0 0 20px 0; }
+    .no-print { display: none; }
+}
+</style>
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    securityLevel: 'loose',
+    flowchart: {
+      curve: 'basis',
+      padding: 16,
+      nodeSpacing: 50,
+      rankSpacing: 60,
+      useMaxWidth: true
+    },
+    themeVariables: {
+      primaryColor: '#e8f0fe',
+      primaryBorderColor: '#0071c5',
+      primaryTextColor: '#1a1a1a',
+      lineColor: '#37474F',
+      secondaryColor: '#f5f8fc',
+      tertiaryColor: '#fff',
+      fontSize: '14px',
+      fontFamily: 'Segoe UI, Arial, sans-serif'
+    }
+  });
+</script>
+
+</head>
+<body>
+<div style="text-align:center; padding-top:80px;">
+  <h1 style="font-size:36px;">LI-120 — Receive Materials and Services - FTS (IF)</h1>
+  <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
+  <p style="font-size:18px; color:#555;">Forecast to Stock (IF) (FTS-IF) Tower<br/>
+  Capability LI-120 · LI Logistics Management Inbound - FTS (IF)</p>
+  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
+  Generated: March 2026</p>
+  <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
+</div>
+
+<style>
+@media print {
+  @page { margin: 0.75in; }
+  footer::after { content: "Intel Confidential — LI-120 BDAT — March 2026"; font-size:9px; color:#999; }
+  .mermaid { page-break-inside: avoid; max-height: 95vh; overflow: visible; }
+  pre, table { page-break-inside: avoid; }
+  h2, h3, h4 { page-break-after: avoid; }
+}
+.mermaid svg { max-width: 100% !important; height: auto !important; }
+</style>
+
+<div style="page-break-before: always;"></div>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#1-executive-summary">Executive Summary</a></li>
+<li><a href="#2-business-context--objectives">Business Context &amp; Objectives</a>
+   - 2.1 <a href="#21-classification">Classification</a>
+   - 2.2 <a href="#22-business-drivers">Business Drivers</a>
+   - 2.3 <a href="#23-success-criteria">Success Criteria</a>
+   - 2.4 <a href="#24-companion-documents">Companion Documents</a></li>
+<li><a href="#3-business-architecture-togaf-b">Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+   - 3.1 <a href="#31-business-process-overview">Business Process Overview</a>
+   - 3.2 <a href="#32-business-process-diagrams">Business Process Diagrams</a>
+   - 3.3 <a href="#33-business-roles--responsibilities">Business Roles &amp; Responsibilities</a></li>
+<li><a href="#4-data-architecture-togaf-d">Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+   - 4.1 <a href="#41-data-entities--ownership">Data Entities &amp; Ownership</a>
+   - 4.2 <a href="#42-data-flow-diagrams">Data Flow Diagrams</a>
+   - 4.3 <a href="#43-data-lineage">Data Lineage</a>
+   - 4.4 <a href="#44-ricefw-data-objects">RICEFW Data Objects</a>
+   - 4.5 <a href="#45-data-governance--quality">Data Governance &amp; Quality</a></li>
+<li><a href="#5-application-architecture-togaf-a">Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+   - 5.1 <a href="#51-current-state--current-state-application-landscape">Current-State Application Landscape</a>
+   - 5.2 <a href="#52-future-state--future-state-application-landscape">Future-State Application Landscape</a>
+   - 5.3 <a href="#53-change-impact-summary">Change Impact Summary</a>
+   - 5.4 <a href="#54-component-overview">Component Overview</a>
+   - 5.5 <a href="#55-ricefw-inventory">RICEFW Inventory</a>
+   - 5.6 <a href="#56-integration-patterns">Integration Patterns</a></li>
+<li><a href="#6-technology-architecture-togaf-t">Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+   - 6.1 <a href="#61-platform--infrastructure">Platform &amp; Infrastructure</a>
+   - 6.2 <a href="#62-sap-development-object-status">SAP Development Object Status</a>
+   - 6.3 <a href="#63-nfrs--design-principles">NFRs &amp; Design Principles</a>
+   - 6.4 <a href="#64-security--governance">Security &amp; Governance</a></li>
+<li><a href="#7-project-context">Project Context</a>
+   - 7.1 <a href="#71-project-roadmap--go-live-plan">Project Roadmap &amp; Go-Live Plan</a>
+   - 7.2 <a href="#72-raid-log">RAID Log</a>
+   - 7.3 <a href="#73-recommendations--next-steps">Recommendations &amp; Next Steps</a></li>
+</ol>
+<div style="page-break-before: always;"></div>
+
+<h2 id="1-executive-summary">1. Executive Summary</h2>
+<p>This Architecture Document defines the <strong>Business, Data, Application, and Technology</strong> (BDAT) architecture for <strong>LI-120 Receive Materials and Services - FTS (IF)</strong> within the IAO program. It includes 8 BPMN process diagram(s) in Section 3.
+| Dimension | Value |
+|-----------|-------|
+| <strong>Tower</strong> | Forecast to Stock (IF) (FTS-IF) |
+| <strong>Process Group</strong> | LI Logistics Management Inbound - FTS (IF) |
+| <strong>Capability</strong> | LI-120 - Receive Materials and Services - FTS (IF) |
+| <strong>Release</strong> | Release 3 |
+| <strong>Total Systems</strong> | 0 |
+| <strong>System Status</strong> | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
+| <strong>RICEFW Objects</strong> | 2 Reports, 18 Interfaces, 3 Conversions, 19 Enhancements, 9 Forms, 3 Workflows |
+<strong>Change Summary</strong>: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.</p>
+<blockquote>
+<p>All system nodes in architecture diagrams are <strong>IAPM-linked</strong> — click any node to open its IAPM page. Diagrams require <code>securityLevel: 'loose'</code> for click events.</p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h2 id="2-business-context-objectives">2. Business Context &amp; Objectives</h2>
+<h3 id="21-classification">2.1 Classification</h3>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>L0 Tower</strong></td>
+<td>Forecast to Stock (IF)</td>
+</tr>
+<tr>
+<td><strong>L1 Process</strong></td>
+<td>LI Logistics Management Inbound - FTS (IF)</td>
+</tr>
+<tr>
+<td><strong>L2 Capability</strong></td>
+<td>LI-120 - Receive Materials and Services - FTS (IF)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-business-drivers">2.2 Business Drivers</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Driver</th>
+<th>Description</th>
+<th>Strategic Alignment</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Intel Foundry Supply Chain Integration</td>
+<td>Integrate Intel Foundry manufacturing and logistics into unified S/4 HANA supply chain</td>
+<td>IDM 2.0 Foundry Enablement</td>
+<td>High</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Warehouse &amp; Logistics Modernization</td>
+<td>Modernize warehouse management and shipping processes with EWM integration</td>
+<td>Supply Chain Digital Transformation</td>
+<td>High</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Production Planning Optimization</td>
+<td>Enable MRP-driven production planning with real-time material availability</td>
+<td>Manufacturing Excellence</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>4</td>
+<td>LI-120 Process Migration</td>
+<td>Migrate Receive Materials and Services - FTS (IF) business processes and 0 integrated systems from legacy to S/4 HANA target architecture</td>
+<td>IDM 2.0 Supply Chain (Intel Foundry)</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="23-success-criteria">2.3 Success Criteria</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+<th>Measure</th>
+<th>Baseline</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Order Fulfillment Lead Time</td>
+<td>&lt; 48 hours</td>
+<td>Time from production completion to shipment dispatch</td>
+<td>72 hours (legacy)</td>
+<td>Logistics Manager</td>
+</tr>
+<tr>
+<td>Inventory Accuracy</td>
+<td>&gt; 99.5%</td>
+<td>Physical vs system inventory match rate</td>
+<td>97.8% (current)</td>
+<td>Warehouse Manager</td>
+</tr>
+<tr>
+<td>MRP Planning Cycle</td>
+<td>&lt; 4 hours</td>
+<td>End-to-end MRP run including exception processing</td>
+<td>8 hours (legacy)</td>
+<td>Planning Lead</td>
+</tr>
+<tr>
+<td>LI-120 Migration Completeness</td>
+<td>100% flow chains validated</td>
+<td>All 0 flow chains verified in target state</td>
+<td>0% (pre-migration)</td>
+<td>Tower Architect</td>
+</tr>
+</tbody>
+</table>
+<h3 id="24-companion-documents">2.4 Companion Documents</h3>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Business Architecture</strong></td>
+<td>Included in this document (Section 3) — process flows from BPMN diagrams</td>
+</tr>
+<tr>
+<td><strong>This Document</strong></td>
+<td>Full BDAT Architecture — Business + Data + Application + Technology</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</h2>
+<h3 id="31-business-process-overview">3.1 Business Process Overview</h3>
+<p>This capability includes <strong>8 business process(es)</strong> modeled in BPMN 2.0, covering the end-to-end workflow for LI-120 Receive Materials and Services - FTS (IF).</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Step ID</th>
+<th>Process Name</th>
+<th>Lanes</th>
+<th>Tasks</th>
+<th>Gateways</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>LI-120-040_Unload_Material_Received_-<em>FTS</em>(IF)</td>
+<td>LI-120-040_Unload_Material_Received_-<em>FTS</em>(IF)</td>
+<td>Warehouse Operator</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>LI-120-040_Unload_Material_Received_-<em>FTS</em>(IF)_(Copy)</td>
+<td>LI-120-040_Unload_Material_Received_-<em>FTS</em>(IF)_(Copy)</td>
+<td>Warehouse Operator</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>LI-120-060_Process_Damaged_Goods_-<em>FTS</em>(IF)</td>
+<td>LI-120-060_Process_Damaged_Goods_-<em>FTS</em>(IF)</td>
+<td>Warehouse Operator</td>
+<td>12</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>LI-120-080_Receive_Material_Against_Advanced_Shipping_Notification_(ASN)<em>-_FTS</em>(IF)</td>
+<td>LI-120-080_Receive_Material_Against_Advanced_Shipping_Notification_(ASN)<em>-_FTS</em>(IF)</td>
+<td>Warehouse Operator</td>
+<td>9</td>
+<td>1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>LI-120-170_Check_Material_for_Proper_Quantity_-<em>FTS</em>(IF)</td>
+<td>LI-120-170_Check_Material_for_Proper_Quantity_-<em>FTS</em>(IF)</td>
+<td>Warehouse Operator</td>
+<td>10</td>
+<td>3</td>
+</tr>
+<tr>
+<td>6</td>
+<td>LI-120-180_Move_Material_to_Holding_Location_-<em>FTS</em>(IF)</td>
+<td>LI-120-180_Move_Material_to_Holding_Location_-<em>FTS</em>(IF)</td>
+<td>Warehouse Operator</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr>
+<td>7</td>
+<td>LI-120-190_Resolve_Discrepancies_-<em>FTS</em>(IF)</td>
+<td>LI-120-190_Resolve_Discrepancies_-<em>FTS</em>(IF)</td>
+<td>Warehouse Operator</td>
+<td>6</td>
+<td>3</td>
+</tr>
+<tr>
+<td>8</td>
+<td>LI-120-220_Receive_Actual_Count_Quantity_-<em>FTS</em>(IF)</td>
+<td>LI-120-220_Receive_Actual_Count_Quantity_-<em>FTS</em>(IF)</td>
+<td>Warehouse Operator</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-business-process-diagrams">3.2 Business Process Diagrams</h3>
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-321-li-120-040_unload_material_received_-ftsif-li-120-040_unload_material_received_-ftsif">BUSINESS ARCHITECTURE — 3.2.1 LI-120-040_Unload_Material_Received_-<em>FTS</em>(IF) — LI-120-040_Unload_Material_Received_-<em>FTS</em>(IF)</h4>
+<p><strong>Swim Lanes</strong>: Warehouse Operator | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 0</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Warehouse Operator
+        n1["Unload Material Received"]
+        n2(["fa:fa-stop Goods Receipt Posted"])
+        n3["Receive Material Against Advanced Shipping Notification (..."]
+    end
+    n1 --> n2
+    n3 --> n1
+    class n2 endEvt
+    class n3 startEvt
+</div>
+
+<h4 id="business-architecture-322-li-120-040_unload_material_received_-ftsifcopy-li-120-040_unload_material_received-ftsif_copy">BUSINESS ARCHITECTURE — 3.2.2 LI-120-040_Unload_Material_Received_-<em>FTS</em>(IF)<em>(Copy) — LI-120-040_Unload_Material_Received</em>-<em>FTS</em>(IF)_(Copy)</h4>
+<p><strong>Swim Lanes</strong>: Warehouse Operator | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 0</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Warehouse Operator
+        n1["Unload Material Received"]
+        n2(["fa:fa-stop Goods Receipt Posted"])
+        n3["Receive Material Against Advanced Shipping Notification (..."]
+    end
+    n1 --> n2
+    n3 --> n1
+    class n2 endEvt
+    class n3 startEvt
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-323-li-120-060_process_damaged_goods_-ftsif-li-120-060_process_damaged_goods_-ftsif">BUSINESS ARCHITECTURE — 3.2.3 LI-120-060_Process_Damaged_Goods_-<em>FTS</em>(IF) — LI-120-060_Process_Damaged_Goods_-<em>FTS</em>(IF)</h4>
+<p><strong>Swim Lanes</strong>: Warehouse Operator | <strong>Tasks</strong>: 12 | <strong>Gateways</strong>: 2</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Warehouse Operator
+        n1["fa:fa-user Perform Goods Receipt"]
+        n2["fa:fa-user Create Warehouse Task to Blocked Stock Type"]
+        n3["fa:fa-user Confirm Warehouse Task to Blocked Stock Type"]
+        n4["fa:fa-user Cancel Putaway Warehouse Task"]
+        n5["fa:fa-user Move FG Stock to Hold Storage Bin"]
+        n6[["fa:fa-cog Create Inbound Delivery"]]
+        n7[["fa:fa-cog Distribute Inbound Delivery"]]
+        n8[["fa:fa-cog Create Inbound Delivery with Blocked Stock Type"]]
+        n9[["fa:fa-cog Distribute Inbound Delivery to EWM with Blocked Stock Type"]]
+        n10["Receive FG Physical Boxes in Staging Area"]
+        n11["Move FG stock to Investigation Location"]
+        n12["Move Blocked Stock to Hold Storage Bin"]
+        n13(["fa:fa-play Identifying Damaged Box Initiated"])
+        n14(["fa:fa-stop Stock Type is Changed"])
+        n15(["fa:fa-stop Stock Moved to Hold Location"])
+        n16["Determine Put-away Location - R2_Interim State (IF)"]
+        n17{{"fa:fa-code-branch Damaged?"}}
+        n18{{"fa:fa-code-branch Type of MPL XML Trigger?"}}
+    end
+    n6 --> n7
+    n7 --> n10
+    n8 --> n9
+    n2 --> n3
+    n13 --> n18
+    n10 --> n1
+    n1 --> n17
+    n11 --> n15
+    n17 -->|"Yes"| n4
+    n9 --> n2
+    n18 -->|"QMEL Hold"| n8
+    n4 --> n5
+    n5 --> n11
+    n3 --> n12
+    n12 --> n14
+    n18 -->|"Unrestricted Waybill"| n6
+    n17 -->|"No"| n16
+    class n1 userTask
+    class n2 userTask
+    class n3 userTask
+    class n4 userTask
+    class n5 userTask
+    class n6 serviceTask
+    class n7 serviceTask
+    class n8 serviceTask
+    class n9 serviceTask
+    class n13 startEvt
+    class n14 endEvt
+    class n15 endEvt
+    class n16 startEvt
+    class n17 gateway
+    class n18 gateway
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-324-li-120-080_receive_material_against_advanced_shipping_notification_asn-_ftsif-li-120-080_receive_material_against_advanced_shipping_notification_asn-_ftsif">BUSINESS ARCHITECTURE — 3.2.4 LI-120-080_Receive_Material_Against_Advanced_Shipping_Notification_(ASN)<em>-_FTS</em>(IF) — LI-120-080_Receive_Material_Against_Advanced_Shipping_Notification_(ASN)<em>-_FTS</em>(IF)</h4>
+<p><strong>Swim Lanes</strong>: Warehouse Operator | <strong>Tasks</strong>: 9 | <strong>Gateways</strong>: 1</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Warehouse Operator
+        n1["fa:fa-user Perform Goods Receipt"]
+        n2["fa:fa-user Perform Rejection on Inbound Delivery based on Waybill ID..."]
+        n3[["fa:fa-cog Generate MPL Waybill for Finished Goods"]]
+        n4[["fa:fa-cog Receive ASN from MPL"]]
+        n5[["fa:fa-cog Create Inbound Delivery with Reference to ASN"]]
+        n6[["fa:fa-cog Update Goods Receipt in Inbound Delivery"]]
+        n7[["fa:fa-cog Update Open Quantity as zero in Inbound Delivery against ..."]]
+        n8["Send Offline Communication from Factory to Warehouse with..."]
+        n9["Receive Goods Physically"]
+        n10(["fa:fa-play Request Advance Shipping Notification (ASN) for Finished ..."])
+        n11(["fa:fa-stop ASN Received"])
+        n12(["fa:fa-stop Inbound Delivery is cancelled"])
+        n13{{"fa:fa-code-branch Cancel Waybill Request ?"}}
+    end
+    n3 --> n13
+    n5 --> n9
+    n9 --> n1
+    n1 --> n6
+    n6 --> n11
+    n4 --> n5
+    n7 --> n12
+    n2 --> n7
+    n8 --> n2
+    n13 -->|"Yes"| n8
+    n10 --> n3
+    n13 -->|"No"| n4
+    class n1 userTask
+    class n2 userTask
+    class n3 serviceTask
+    class n4 serviceTask
+    class n5 serviceTask
+    class n6 serviceTask
+    class n7 serviceTask
+    class n10 startEvt
+    class n11 endEvt
+    class n12 endEvt
+    class n13 gateway
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-325-li-120-170_check_material_for_proper_quantity_-ftsif-li-120-170_check_material_for_proper_quantity_-ftsif">BUSINESS ARCHITECTURE — 3.2.5 LI-120-170_Check_Material_for_Proper_Quantity_-<em>FTS</em>(IF) — LI-120-170_Check_Material_for_Proper_Quantity_-<em>FTS</em>(IF)</h4>
+<p><strong>Swim Lanes</strong>: Warehouse Operator | <strong>Tasks</strong>: 10 | <strong>Gateways</strong>: 3</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Warehouse Operator
+        n1["fa:fa-user Perform Goods Receipt for Good Condition Box"]
+        n2["fa:fa-user Perform Goods Receipt for Repacked Box"]
+        n3[["fa:fa-cog Create Inbound Delivery"]]
+        n4[["fa:fa-cog Distribute Inbound Delivery"]]
+        n5["Receive Physical Boxes In Staging Area"]
+        n6["Count and Verify Physical Boxes Against Labels"]
+        n7["Open and Inspect the Stock"]
+        n8["Check Condition of Physical Boxes"]
+        n9["Repack Damaged Box"]
+        n10["Move Damaged Stock to Hold Location"]
+        n11(["fa:fa-play Quantity Check Initiated"])
+        n12["Resolve Discrepancies (IF)"]
+        n13["Determine Put-away Location (IF)"]
+        n14["Resolve Discrepancies (IF)"]
+        n15["Determine Put-away Location (IF)"]
+        n16{{"fa:fa-code-branch Condition of Physical Box ?"}}
+        n17{{"fa:fa-code-branch Damaged Stock ?"}}
+        n18{{"fa:fa-code-branch Count Mismatch ?"}}
+    end
+    n3 --> n4
+    n5 --> n8
+    n8 --> n16
+    n7 --> n17
+    n4 --> n5
+    n6 --> n18
+    n1 --> n13
+    n10 --> n14
+    n17 -->|"No"| n9
+    n16 -->|"Good Box"| n6
+    n9 --> n2
+    n2 --> n15
+    n18 -->|"Yes"| n12
+    n16 -->|"Damaged  Box"| n7
+    n18 -->|"No"| n1
+    n17 -->|"Yes"| n10
+    n11 --> n3
+    class n1 userTask
+    class n2 userTask
+    class n3 serviceTask
+    class n4 serviceTask
+    class n11 startEvt
+    class n12 startEvt
+    class n13 startEvt
+    class n14 startEvt
+    class n15 startEvt
+    class n16 gateway
+    class n17 gateway
+    class n18 gateway
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-326-li-120-180_move_material_to_holding_location_-ftsif-li-120-180_move_material_to_holding_location_-ftsif">BUSINESS ARCHITECTURE — 3.2.6 LI-120-180_Move_Material_to_Holding_Location_-<em>FTS</em>(IF) — LI-120-180_Move_Material_to_Holding_Location_-<em>FTS</em>(IF)</h4>
+<p><strong>Swim Lanes</strong>: Warehouse Operator | <strong>Tasks</strong>: 3 | <strong>Gateways</strong>: 1</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Warehouse Operator
+        n1["fa:fa-user Create Warehouse Task to Move Material to Holding Location"]
+        n2["fa:fa-user Perform Goods Receipt"]
+        n3["fa:fa-user Confirm Warehouse Task to Move Material to Holding Locati..."]
+        n4(["fa:fa-stop Material Moved to Holding Location"])
+        n5["Determine Put-away Location (IF)"]
+        n6["Check Material For Proper Quantity"]
+        n7{{"fa:fa-code-branch Move Physical Box to Hold Location ?"}}
+    end
+    n2 --> n7
+    n1 --> n3
+    n3 --> n4
+    n7 -->|"No"| n5
+    n6 --> n2
+    n7 -->|"Yes"| n1
+    class n1 userTask
+    class n2 userTask
+    class n3 userTask
+    class n4 endEvt
+    class n5 startEvt
+    class n6 startEvt
+    class n7 gateway
+</div>
+
+<h4 id="business-architecture-327-li-120-190_resolve_discrepancies_-ftsif-li-120-190_resolve_discrepancies_-ftsif">BUSINESS ARCHITECTURE — 3.2.7 LI-120-190_Resolve_Discrepancies_-<em>FTS</em>(IF) — LI-120-190_Resolve_Discrepancies_-<em>FTS</em>(IF)</h4>
+<p><strong>Swim Lanes</strong>: Warehouse Operator | <strong>Tasks</strong>: 6 | <strong>Gateways</strong>: 3</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Warehouse Operator
+        n1["fa:fa-user Perform Goods Receipt (GR)"]
+        n2["fa:fa-user Reject Inbound Delivery"]
+        n3["fa:fa-user Use Process Code To Update Delivery"]
+        n4["Check for Discrepancy"]
+        n5["Check if Quantity is Missing"]
+        n6["Receive Actual Quantity"]
+        n7(["fa:fa-stop Inbound Delivery Completed"])
+        n8["Determine Put-away Location (IF)"]
+        n9["Check Material for Proper Quantity - FTS (IF)"]
+        n10{{"fa:fa-code-branch Discrepancy?"}}
+        n11{{"fa:fa-code-branch Quantity Missing?"}}
+        n12{{"fa:fa-code-branch exclusiveGateway"}}
+    end
+    n2 --> n7
+    n4 --> n10
+    n5 --> n11
+    n3 --> n6
+    n6 --> n12
+    n12 --> n1
+    n11 -->|"Full Quantity Missing"| n2
+    n11 -->|"Partial Quantity  Missing"| n3
+    n1 --> n8
+    n10 -->|"No"| n12
+    n10 -->|"Yes"| n5
+    n9 --> n4
+    class n1 userTask
+    class n2 userTask
+    class n3 userTask
+    class n7 endEvt
+    class n8 startEvt
+    class n9 startEvt
+    class n10 gateway
+    class n11 gateway
+    class n12 gateway
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h4 id="business-architecture-328-li-120-220_receive_actual_count_quantity_-ftsif-li-120-220_receive_actual_count_quantity_-ftsif">BUSINESS ARCHITECTURE — 3.2.8 LI-120-220_Receive_Actual_Count_Quantity_-<em>FTS</em>(IF) — LI-120-220_Receive_Actual_Count_Quantity_-<em>FTS</em>(IF)</h4>
+<p><strong>Swim Lanes</strong>: Warehouse Operator | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 0</p>
+<blockquote>
+<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
+</blockquote>
+<div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph Warehouse Operator
+        n1["Receive Actual Quantity after Resolving Discrepancy"]
+        n2(["fa:fa-play Receipt of Actual Quantity Initiated"])
+        n3(["fa:fa-stop Actual Quantity Received"])
+    end
+    n1 --> n3
+    n2 --> n1
+    class n2 startEvt
+    class n3 endEvt
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
+<table>
+<thead>
+<tr>
+<th>Role / Lane</th>
+<th>Processes Involved</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Warehouse Operator</td>
+<td>LI-120-040_Unload_Material_Received_-<em>FTS</em>(IF), LI-120-040_Unload_Material_Received_-<em>FTS</em>(IF)<em>(Copy), LI-120-060_Process_Damaged_Goods</em>-<em>FTS</em>(IF), LI-120-080_Receive_Material_Against_Advanced_Shipping_Notification_(ASN)<em>-_FTS</em>(IF), LI-120-170_Check_Material_for_Proper_Quantity_-<em>FTS</em>(IF), LI-120-180_Move_Material_to_Holding_Location_-<em>FTS</em>(IF), LI-120-190_Resolve_Discrepancies_-<em>FTS</em>(IF), LI-120-220_Receive_Actual_Count_Quantity_-<em>FTS</em>(IF)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
+<h3 id="41-data-entities-ownership">4.1 Data Entities &amp; Ownership</h3>
+<p>The following data entities are derived from the system integration flows for LI-120. Tower architects should validate ownership and classification.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Data Entity</th>
+<th>Source System</th>
+<th>Target System</th>
+<th>Data Owner</th>
+<th>Classification</th>
+<th>Volume</th>
+<th>Master/Transaction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="42-data-flow-diagrams">4.2 Data Flow Diagrams</h3>
+<blockquote>
+<p><strong>DATA ARCHITECTURE</strong> — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.</p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h3 id="43-data-lineage">4.3 Data Lineage</h3>
+<p>Data lineage traces the origin and transformation path of key data objects across integrated systems.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Source System</th>
+<th>Source Schema/Object</th>
+<th>Target System</th>
+<th>Target Schema/Object</th>
+<th>Transformation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Lineage detail will be refined when tower architects validate source/target schema object mappings.</em></p>
+</blockquote>
+<h3 id="44-ricefw-data-objects">4.4 RICEFW Data Objects</h3>
+<p>Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Type</th>
+<th>Description</th>
+<th>Status</th>
+<th>Source</th>
+<th>Target</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOGR1176_IF</td>
+<td>Report</td>
+<td>ISM - International Traffic Report</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGR0833_IF</td>
+<td>Report</td>
+<td>Email Notification for deletion of Shipping Memos</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGC0972_IF</td>
+<td>Conversion</td>
+<td>Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>LOGC0946_IF</td>
+<td>Conversion</td>
+<td>Open Inventory Conversion for IP and IF (as applicable) , ECC to S4</td>
+<td>10. Object Complete</td>
+<td></td>
+<td></td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FTSC1550</td>
+<td>Conversion</td>
+<td>Inventory Conversion</td>
+<td>02. FS Unplanned</td>
+<td></td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+</tbody>
+</table>
+<h3 id="45-data-governance-quality">4.5 Data Governance &amp; Quality</h3>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Approach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Ownership</td>
+<td>Per-entity owners listed in Section 3.1</td>
+</tr>
+<tr>
+<td>Data Classification</td>
+<td>Financial data classified as Intel Confidential</td>
+</tr>
+<tr>
+<td>Data Retention</td>
+<td>Per Intel corporate retention policies</td>
+</tr>
+<tr>
+<td>Data Quality</td>
+<td>Validated at source; reconciliation at target</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</h2>
+<h3 id="51-current-state-current-state-application-landscape">5.1 Current-State — Current-State Application Landscape</h3>
+<h4 id="overview">Overview</h4>
+<p>The Current-State architecture represents the <strong>current / legacy</strong> landscape for LI-120.</p>
+<div style="page-break-before: always;"></div>
+
+<h4 id="current-state-flow-narrative">Current-State Flow Narrative</h4>
+<p><em>(No current-state flows defined.)</em></p>
+<div style="page-break-before: always;"></div>
+
+<h3 id="52-future-state-future-state-application-landscape">5.2 Future-State — Future-State Application Landscape</h3>
+<h4 id="overview_1">Overview</h4>
+<p>The Future-State architecture represents the <strong>target</strong> landscape for LI-120.</p>
+<div style="page-break-before: always;"></div>
+
+<h4 id="future-state-flow-narrative">Future-State Flow Narrative</h4>
+<p><em>(No future-state flows defined.)</em></p>
+<div style="page-break-before: always;"></div>
+
+<h3 id="53-change-impact-summary">5.3 Change Impact Summary</h3>
+<table>
+<thead>
+<tr>
+<th>Change Type</th>
+<th>Flow Chain</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Totals</strong>: 0 new - 0 removed - 0 modified - 0 unchanged</p>
+<h3 id="54-component-overview">5.4 Component Overview</h3>
+<h4 id="system-inventory">System Inventory</h4>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>IAPM ID</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Type</th>
+<th>Description</th>
+<th>Status</th>
+<th>Source → Target</th>
+<th>Middleware</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOGW1078_IF</td>
+<td>Workflow</td>
+<td>ISM Workflows - Capital/AMT</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGW1077_IF</td>
+<td>Workflow</td>
+<td>ISM Workflows - EIMS/Lab</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGW1076_IF</td>
+<td>Workflow</td>
+<td>ISM Workflows - Non-inventory</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGR1176_IF</td>
+<td>Report</td>
+<td>ISM - International Traffic Report</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGR0833_IF</td>
+<td>Report</td>
+<td>Email Notification for deletion of Shipping Memos</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGI1718</td>
+<td>Interface</td>
+<td>To align on batch attributes for straddle in S4</td>
+<td>08. FUT In Progress</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1677</td>
+<td>Interface</td>
+<td>Send 4C1 Inventory Reconciliation Snapshot to IP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>SFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1676</td>
+<td>Interface</td>
+<td>Send 4C1 Inventory movement Stock type change and cycle count to IP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>SFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1555</td>
+<td>Interface</td>
+<td>Straddle Plant to be automatically complete the Goods Receipt and write of th&hellip;</td>
+<td>09. FUT Overdue</td>
+<td></td>
+<td>MuleSoft</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1091</td>
+<td>Interface</td>
+<td>STO based Outbound Delivery Notification Confirmation for Delivery Note Deletion</td>
+<td>10. Object Complete</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1081_IF</td>
+<td>Interface</td>
+<td>Interface + Enhancement - Reprinting of Carrier Label</td>
+<td>10. Object Complete</td>
+<td>S/4 → Redwood</td>
+<td>APIGEE</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGI1079_IF</td>
+<td>Interface</td>
+<td>Interface from S4 ISM to Service Now</td>
+<td>10. Object Complete</td>
+<td>S/4 ISM → Service Now</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGI1074_IF</td>
+<td>Interface</td>
+<td>Send data via API to retrieve the tracking ID - interface + Enhancement</td>
+<td>10. Object Complete</td>
+<td>S/4 → Redwood</td>
+<td>APIGEE</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGI1062</td>
+<td>Interface</td>
+<td>STO based outbound delivery notification request for delivery note cancellation</td>
+<td>10. Object Complete</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1053</td>
+<td>Interface</td>
+<td>STO based Outbound Delivery Notification from 3PL to S/4 for confirming Pick/&hellip;</td>
+<td>10. Object Complete</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1043</td>
+<td>Interface</td>
+<td>Inventory Movement from 3PL to S/4 - 4C1 Cycle Count</td>
+<td>10. Object Complete</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1041</td>
+<td>Interface</td>
+<td>STO based Outbound Delivery PGI confirmation from 3PL to S/4 - 3B2</td>
+<td>10. Object Complete</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1040</td>
+<td>Interface</td>
+<td>STO based Outbound Delivery PGI confirmation for returns from S/4 to 3PL - 3B2</td>
+<td>10. Object Complete</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1038</td>
+<td>Interface</td>
+<td>STO based Outbound Delivery Notification from S/4 to 3PL - 3B12</td>
+<td>10. Object Complete</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1037</td>
+<td>Interface</td>
+<td>Inventory Movement from S/4 to 3PL – 4C1 (Outbound)</td>
+<td>10. Object Complete</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI0836_IF</td>
+<td>Interface</td>
+<td>Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements)</td>
+<td>10. Object Complete</td>
+<td>S/4 → NDA</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGI0237_IF</td>
+<td>Interface</td>
+<td>Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4</td>
+<td>10. Object Complete</td>
+<td>3PL → S/4</td>
+<td>MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGF1525</td>
+<td>Form</td>
+<td>Consolidated Commercial Invoice for WIP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGF1524</td>
+<td>Form</td>
+<td>Commercial Invoice for WIP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGF1523</td>
+<td>Form</td>
+<td>Packing list for WIP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGF1100_IF</td>
+<td>Form</td>
+<td>Printing of Standard Shipping Label</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGF0359_IF</td>
+<td>Form</td>
+<td>ISM - Generate Commercial Invoice - IF/IP</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGF0358_IF</td>
+<td>Form</td>
+<td>ISM - Generate Traveler Document - IF/IP</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGF0352_IF</td>
+<td>Form</td>
+<td>ISM - IPLA</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGF0351_IF</td>
+<td>Form</td>
+<td>ISM - Custom China Special label</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGF0350_IF</td>
+<td>Form</td>
+<td>ISM - India GST DC</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1690</td>
+<td>Enhancement</td>
+<td>Custom Enhancement for Storage Location and Storage Type Restriction LOG IF a&hellip;</td>
+<td>07. FUT Roadblock</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1572_IF</td>
+<td>Enhancement</td>
+<td>SAP GUI T-code to Move stock from Blocked to unblock Status</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1569_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to change billing status based on ship reason in ISM</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE1554</td>
+<td>Enhancement</td>
+<td>Straddle Plant to be automatically complete the Goods Receipt and write of th&hellip;</td>
+<td>09. FUT Overdue</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1453</td>
+<td>Enhancement</td>
+<td>Trigger the request for cancellation 3B14R and cancel the demand on STO based&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1450</td>
+<td>Enhancement</td>
+<td>Inbound idoc processing logic during 3B2 and 3B13</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1415</td>
+<td>Enhancement</td>
+<td>Suppress Batch and serial number validation in MIGO/MB26 for movement type 261</td>
+<td>08. FUT In Progress</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1414</td>
+<td>Enhancement</td>
+<td>Creation of outbound Delivery for WIP inventory from STO</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1177_IF</td>
+<td>Enhancement</td>
+<td>India GST E-invoicing</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE1118_IF</td>
+<td>Enhancement</td>
+<td>ISM – MY Security Check Fiori app - IF</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1117_IF</td>
+<td>Enhancement</td>
+<td>ISM – Employee acknowledgement - IF</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1090_IF</td>
+<td>Enhancement</td>
+<td>PGI confirmation for non-inventory Intel freight shipments via email</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE1080_IF</td>
+<td>Enhancement</td>
+<td>Email notifications to be triggered as part of ISM Workflows</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1054</td>
+<td>Enhancement</td>
+<td>Email/Text Trigger to Factory Technician and Post Goods Issue upon all WO con&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>LOGE1052_IF</td>
+<td>Enhancement</td>
+<td>Custom fields required on delivery screen</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0935_IF</td>
+<td>Enhancement</td>
+<td>Fiori App - Shipping Memo</td>
+<td>08. FUT In Progress</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>LOGE0835_IP</td>
+<td>Enhancement</td>
+<td>Interface to get the AMT (Asset Management Tool) data on the ISM</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE0239_IF</td>
+<td>Enhancement</td>
+<td>Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 - Table Creation</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGE0190_IF</td>
+<td>Enhancement</td>
+<td>Delivery Split for STO in S/4</td>
+<td>10. Object Complete</td>
+<td>NA → NA</td>
+<td>NA</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>LOGC0972_IF</td>
+<td>Conversion</td>
+<td>Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi&hellip;</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>LOGC0946_IF</td>
+<td>Conversion</td>
+<td>Open Inventory Conversion for IP and IF (as applicable) , ECC to S4</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FTSC1550</td>
+<td>Conversion</td>
+<td>Inventory Conversion</td>
+<td>02. FS Unplanned</td>
+<td></td>
+<td>NA</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1738</td>
+<td>Interface</td>
+<td>Interface to send data to Factory Comm to activate the Mobile text receiving &hellip;</td>
+<td>02. FS Unplanned</td>
+<td></td>
+<td>NA</td>
+<td>02.High</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Summary</strong>: 2 Reports, 18 Interfaces, 3 Conversions, 19 Enhancements, 9 Forms, 3 Workflows</p>
+<div style="page-break-before: always;"></div>
+
+<h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
+<p>Integration patterns identified from the system flow analysis for LI-120:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Pattern</th>
+<th>Flow Chain</th>
+<th>Middleware</th>
+<th>Protocol</th>
+<th>Auth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Integration pattern details will be refined when tower architects validate middleware assignments.</em></p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
+<h3 id="61-platform-infrastructure">6.1 Platform &amp; Infrastructure</h3>
+<blockquote>
+<p><strong>TECHNOLOGY / PLATFORM ARCHITECTURE</strong> — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.</p>
+</blockquote>
+<h4 id="platform-inventory">Platform Inventory</h4>
+<p>Platform landscape inferred from integrated systems for LI-120:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Platform</th>
+<th>Type</th>
+<th>Systems Using</th>
+<th>Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>SAP S/4HANA</td>
+<td>On-Premise (HEC)</td>
+<td>SAP S/4 modules</td>
+<td>DEV, QAS, PRD</td>
+</tr>
+<tr>
+<td>2</td>
+<td>SAP BTP (Integration Suite)</td>
+<td>Cloud / PaaS</td>
+<td>CPI, API Management</td>
+<td>DEV, QAS, PRD</td>
+</tr>
+<tr>
+<td>3</td>
+<td>MuleSoft Anypoint</td>
+<td>Cloud / iPaaS</td>
+<td>API-led integrations</td>
+<td>DEV, QAS, PRD</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Platform assignments will be validated when tower architects populate technology platform columns.</em></p>
+</blockquote>
+<div style="page-break-before: always;"></div>
+
+<h3 id="62-sap-development-object-status">6.2 SAP Development Object Status</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>DEV</th>
+<th>QAS</th>
+<th>PRD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transport Requests</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Custom Code Objects</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>CDS Views</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Fiori Apps</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>BAdIs / Enhancements</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Requirement</th>
+<th>Target / SLA</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Performance</td>
+<td>MRP/production planning run completes within defined window</td>
+<td>&lt; 4 hours full MRP run</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Availability</td>
+<td>Manufacturing execution systems available 24/7</td>
+<td>99.95% (24x7 operations)</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Scalability</td>
+<td>Support production volume increases from new product lines</td>
+<td>Handle 10K+ production orders/day</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Recoverability</td>
+<td>Production systems recover within shift change window</td>
+<td>RPO &lt; 15 min, RTO &lt; 2 hours</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Data Volume</td>
+<td>Support high-frequency material movement transactions</td>
+<td>100K+ material documents/day</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Latency</td>
+<td>Real-time inventory visibility for warehouse operations</td>
+<td>&lt; 2 seconds for RF/scanner transactions</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Concurrency</td>
+<td>Support factory floor workers across multiple shifts/sites</td>
+<td>500+ concurrent warehouse users</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<h3 id="64-security-governance">6.4 Security &amp; Governance</h3>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Approach</th>
+<th>Standard / Policy</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authentication</td>
+<td>Single Sign-On (SSO) via Intel corporate Azure AD identity</td>
+<td>Intel IT Security Policy - Identity Management</td>
+<td>IT Security</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>Role-based access control (RBAC) with SAP authorization objects</td>
+<td>Intel SAP Security Standards - Role Design</td>
+<td>SAP Security Team</td>
+</tr>
+<tr>
+<td>Data Classification</td>
+<td>All financial/operational data classified per Intel Data Classification Standard</td>
+<td>Intel Data Classification Policy</td>
+<td>Data Governance</td>
+</tr>
+<tr>
+<td>Data Encryption (at rest)</td>
+<td>AES-256 encryption for SAP HANA database and file storage</td>
+<td>Intel Encryption Standard</td>
+<td>Infrastructure Security</td>
+</tr>
+<tr>
+<td>Data Encryption (in transit)</td>
+<td>TLS 1.3 for all system-to-system and user-to-system communication</td>
+<td>Intel Network Security Policy</td>
+<td>Network Engineering</td>
+</tr>
+<tr>
+<td>Network Segmentation</td>
+<td>SAP systems in dedicated network zones with firewall controls</td>
+<td>Intel Network Architecture Standard</td>
+<td>Network Security</td>
+</tr>
+<tr>
+<td>API Security</td>
+<td>OAuth 2.0 / certificate-based authentication for all API integrations</td>
+<td>Intel API Security Guidelines</td>
+<td>Integration Architecture</td>
+</tr>
+<tr>
+<td>Audit Logging</td>
+<td>Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log)</td>
+<td>SOX Compliance / Intel Audit Policy</td>
+<td>Internal Audit</td>
+</tr>
+<tr>
+<td>Certificate Management</td>
+<td>Automated certificate lifecycle management for system-to-system trust</td>
+<td>Intel PKI Standard</td>
+<td>Certificate Authority Team</td>
+</tr>
+<tr>
+<td>Compliance</td>
+<td>SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR)</td>
+<td>Intel Corporate Compliance Framework</td>
+<td>Compliance Office</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h2 id="7-project-context">7. Project Context</h2>
+<h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Description</th>
+<th>FS End</th>
+<th>FS %</th>
+<th>TDD End</th>
+<th>TDD %</th>
+<th>Build End</th>
+<th>Build %</th>
+<th>FUT End</th>
+<th>FUT %</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOGW1078_IF</td>
+<td>ISM Workflows - Capital/AMT</td>
+<td>2025-06-11</td>
+<td>1.0</td>
+<td>2025-11-21</td>
+<td>1.0</td>
+<td>2025-11-21</td>
+<td>1.0</td>
+<td>2025-11-05</td>
+<td>1.0</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>LOGW1077_IF</td>
+<td>ISM Workflows - EIMS/Lab</td>
+<td>2025-06-11</td>
+<td>1.0</td>
+<td>2025-09-24</td>
+<td>1.0</td>
+<td>2025-09-24</td>
+<td>1.0</td>
+<td>2025-12-03</td>
+<td>1.0</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>LOGW1076_IF</td>
+<td>ISM Workflows - Non-inventory</td>
+<td>2025-06-11</td>
+<td>1.0</td>
+<td>2025-09-24</td>
+<td>1.0</td>
+<td>2025-09-24</td>
+<td>1.0</td>
+<td>2025-11-05</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>LOGR1176_IF</td>
+<td>ISM - International Traffic Report</td>
+<td>2025-04-18</td>
+<td>1.0</td>
+<td>2025-08-13</td>
+<td>1.0</td>
+<td>2025-08-13</td>
+<td>1.0</td>
+<td>2025-11-05</td>
+<td>1.0</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>LOGR0833_IF</td>
+<td>Email Notification for deletion of Sh&hellip;</td>
+<td>2025-02-28</td>
+<td>1.0</td>
+<td>2025-09-05</td>
+<td>1.0</td>
+<td>2025-09-05</td>
+<td>1.0</td>
+<td>2025-11-05</td>
+<td>1.0</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>LOGI1718</td>
+<td>To align on batch attributes for stra&hellip;</td>
+<td>2026-02-04</td>
+<td>1.0</td>
+<td>2026-03-19</td>
+<td>1.0</td>
+<td>2026-03-19</td>
+<td>1.0</td>
+<td>2026-03-27</td>
+<td>0.05</td>
+<td>3. Off Track</td>
+</tr>
+<tr>
+<td>LOGI1677</td>
+<td>Send 4C1 Inventory Reconciliation Sna&hellip;</td>
+<td>2026-01-23</td>
+<td>1.0</td>
+<td>2026-02-24</td>
+<td>1.0</td>
+<td>2026-02-24</td>
+<td>1.0</td>
+<td>2026-03-20</td>
+<td>1.0</td>
+<td>3. Off Track</td>
+</tr>
+<tr>
+<td>LOGI1676</td>
+<td>Send 4C1 Inventory movement Stock typ&hellip;</td>
+<td>2026-01-23</td>
+<td>1.0</td>
+<td>2026-02-24</td>
+<td>1.0</td>
+<td>2026-02-24</td>
+<td>1.0</td>
+<td>2026-03-20</td>
+<td>1.0</td>
+<td>3. Off Track</td>
+</tr>
+<tr>
+<td>LOGI1555</td>
+<td>Straddle Plant to be automatically co&hellip;</td>
+<td>2025-09-26</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2025-11-28</td>
+<td>1.0</td>
+<td>2026-03-20</td>
+<td>0.45</td>
+<td>3. Off Track</td>
+</tr>
+<tr>
+<td>LOGI1091</td>
+<td>STO based Outbound Delivery Notificat&hellip;</td>
+<td>2025-03-11</td>
+<td>1.0</td>
+<td>2025-07-11</td>
+<td>1.0</td>
+<td>2025-07-11</td>
+<td>1.0</td>
+<td>2025-09-26</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>LOGI1081_IF</td>
+<td>Interface + Enhancement - Reprinting &hellip;</td>
+<td>2025-04-25</td>
+<td>1.0</td>
+<td>2025-05-15</td>
+<td>1.0</td>
+<td>2025-05-15</td>
+<td>1.0</td>
+<td>2025-10-08</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>LOGI1079_IF</td>
+<td>Interface from S4 ISM to Service Now</td>
+<td>2025-05-30</td>
+<td>1.0</td>
+<td>2025-05-30</td>
+<td>1.0</td>
+<td>2025-05-30</td>
+<td>1.0</td>
+<td>2025-10-17</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>LOGI1074_IF</td>
+<td>Send data via API to retrieve the tra&hellip;</td>
+<td>2025-03-28</td>
+<td>1.0</td>
+<td>2025-05-15</td>
+<td>1.0</td>
+<td>2025-05-15</td>
+<td>1.0</td>
+<td>2025-10-08</td>
+<td>1.0</td>
+<td>3. Off Track</td>
+</tr>
+<tr>
+<td>LOGI1062</td>
+<td>STO based outbound delivery notificat&hellip;</td>
+<td>2025-03-11</td>
+<td>1.0</td>
+<td>2025-07-11</td>
+<td>1.0</td>
+<td>2025-07-11</td>
+<td>1.0</td>
+<td>2025-09-26</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>LOGI1053</td>
+<td>STO based Outbound Delivery Notificat&hellip;</td>
+<td>2025-03-21</td>
+<td>1.0</td>
+<td>2025-05-30</td>
+<td>1.0</td>
+<td>2025-05-30</td>
+<td>1.0</td>
+<td>2025-08-13</td>
+<td>1.0</td>
+<td>3. Off Track</td>
+</tr>
+<tr>
+<td>LOGI1043</td>
+<td>Inventory Movement from 3PL to S/4 - &hellip;</td>
+<td>2025-04-18</td>
+<td>1.0</td>
+<td>2025-05-30</td>
+<td>1.0</td>
+<td>2025-05-30</td>
+<td>1.0</td>
+<td>2025-09-26</td>
+<td>1.0</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>LOGI1041</td>
+<td>STO based Outbound Delivery PGI confi&hellip;</td>
+<td>2025-03-28</td>
+<td>1.0</td>
+<td>2025-05-30</td>
+<td>1.0</td>
+<td>2025-05-30</td>
+<td>1.0</td>
+<td>2025-09-26</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td>LOGI1040</td>
+<td>STO based Outbound Delivery PGI confi&hellip;</td>
+<td>2025-04-04</td>
+<td>1.0</td>
+<td>2025-09-05</td>
+<td>1.0</td>
+<td>2025-09-05</td>
+<td>1.0</td>
+<td>2025-12-03</td>
+<td>1.0</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>LOGI1038</td>
+<td>STO based Outbound Delivery Notificat&hellip;</td>
+<td>2025-03-14</td>
+<td>1.0</td>
+<td>2025-04-11</td>
+<td>1.0</td>
+<td>2025-04-11</td>
+<td>1.0</td>
+<td>2025-07-16</td>
+<td>1.0</td>
+<td>2. At Risk</td>
+</tr>
+<tr>
+<td>LOGI1037</td>
+<td>Inventory Movement from S/4 to 3PL – &hellip;</td>
+<td>2025-05-02</td>
+<td>1.0</td>
+<td>2025-06-20</td>
+<td>1.0</td>
+<td>2025-06-20</td>
+<td>1.0</td>
+<td>2025-08-13</td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td><em>&hellip; and 34 more objects (see full Object Tracker)</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before: always;"></div>
+
+<h3 id="72-raid-log">7.2 RAID Log</h3>
+<p>Standard RAID items for LI-120 (Forecast to Stock (IF)):</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Category</th>
+<th>Description</th>
+<th>Status</th>
+<th>Owner</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Risk</td>
+<td>Data migration completeness — validate all legacy Receive Materials and Services - FTS (IF) data maps to S/4 target structures</td>
+<td>Open</td>
+<td>Tower Architect</td>
+<td>High</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Risk</td>
+<td>Integration testing coverage — ensure all 0 integrated systems are validated end-to-end</td>
+<td>Open</td>
+<td>Integration Lead</td>
+<td>High</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Assumption</td>
+<td>Target SAP S/4HANA system available in DEV/QAS per release schedule</td>
+<td>Active</td>
+<td>SAP Basis</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Issue</td>
+<td>API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation</td>
+<td>Open</td>
+<td>EA Pipeline Team</td>
+<td>High</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Dependency</td>
+<td>Upstream BPMN process models validated and signed off by business process owners</td>
+<td>Active</td>
+<td>Process Owner</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.</em></p>
+</blockquote>
+<h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Category</th>
+<th>Recommendation</th>
+<th>Priority</th>
+<th>Owner</th>
+<th>Target Date</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Architecture</td>
+<td>Complete extended flow attributes (Data Entity, Integration Pattern, Tech Platform) in Flows tab for full BDAT coverage</td>
+<td>High</td>
+<td>Tower Architect</td>
+<td>2026-Q2</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Data</td>
+<td>Define data ownership and classification for all 0 flow chains to satisfy Data Architecture (TOGAF D) requirements</td>
+<td>Medium</td>
+<td>Data Architect</td>
+<td>2026-Q3</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Testing</td>
+<td>Develop integration test scenarios covering all 0 flow chains for FUT/SIT readiness</td>
+<td>High</td>
+<td>Test Lead</td>
+<td>2026-Q3</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Business Architecture</td>
+<td>Review and validate Business Architecture process steps against latest Signavio/BIC process models</td>
+<td>Medium</td>
+<td>Business Analyst</td>
+<td>2026-Q2</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Security</td>
+<td>Complete security review for API integrations and data flows per Intel Security Architecture standards</td>
+<td>Medium</td>
+<td>Security Architect</td>
+<td>2026-Q3</td>
+<td>Open</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>LI-120 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: March 2026</em></p>
+<div class="footer">
+    IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:caseagile="http://caseagile.com/schema/BPMN/20170414/MODEL" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="Signavio Process Editor, http://www.signavio.com" exporterVersion="26.10.0-20260311103619+6e2d3ac" expressionLanguage="https://www.ecma-international.org/publications/standards/Ecma-334.htm" id="_c66a6bfa-c4bc-46b1-9610-33b953763f1f" name="DC-040-030_Settle Assets Under Constrution" targetNamespace="http://caseagile.com/schema/BPMN/20170414/MODEL" typeLanguage="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <collaboration id="sid-77112285-d210-4a98-b7f9-36fa7a1b96a7">
+      <extensionElements>
+         <signavio:signavioDiagramMetaData metaKey="meta-processdescription" metaValue="If the asset is an internal acquisition it will be dealt with differently from an external purchase.  When an asset has been constructed by the company itself, it is necessary to accumulate labor, material, overhead charges and capitalized interest and allocate these costs to the asset.  This is often done by project accounting and an integration point is shown. Periodically (usually monthly) projects will post to an asset under construction to avoid recording the costs associated with it in the profit and loss account.  In some cases the asset under construction may be recorded as such at the month end and backed out at the beginning of the next month, in others the value of the asset will be increased by the monthly costs attributed to it. On completion of an asset under construction or a project it is necessary to ensure that the asset in accounting terms captured all charges.  Once all costs are captured the asset can be capitalized using the appropriate capitalization method."/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvedby" metaValue="[&quot;Jamie Sutton&quot;,&quot;Rea M Meyer&quot;]"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalstatus" metaValue="ci1710756720720143051910"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvaldate" metaValue="23/08/24"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalcomments" metaValue="Approved on Signavio"/>
+         <signavio:signavioDiagramMetaData metaKey="revisionid" metaValue="484d9211805d4a1781d9ca028ecad922"/>
+      </extensionElements>
+      <participant id="sid-5F6EB8C2-6269-492F-9591-B4BE0F8331CC" name="Intel" processRef="sid-8CAB8C6F-7962-4D9F-A061-D67748434E7C">
+         <extensionElements>
+            <signavio:signavioDictionaryLink propertyId="name">
+               <signavio:dictionaryLink>/glossary/e667553ad81e450aa194d3b00f6ba515</signavio:dictionaryLink>
+            </signavio:signavioDictionaryLink>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </participant>
+   </collaboration>
+   <process id="sid-8CAB8C6F-7962-4D9F-A061-D67748434E7C" isClosed="false" isExecutable="false" name="Intel" processType="None">
+      <extensionElements/>
+      <laneSet id="sid-9d8a54ba-d339-4e22-8c43-cc2344edea17">
+         <lane id="sid-05C93B14-B99F-44E1-96E4-5DC4CC6F85DE" name="Capital Analyst">
+            <extensionElements>
+               <signavio:signavioDictionaryLink propertyId="name">
+                  <signavio:dictionaryLink>/glossary/f3c56cf6ff514e119ef02c52939d08a6</signavio:dictionaryLink>
+               </signavio:signavioDictionaryLink>
+               <signavio:signavioMetaData metaKey="bgcolor" metaValue=""/>
+               <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            </extensionElements>
+            <flowNodeRef>sid-F33B0946-8005-46DE-8799-2BD8C3998D38</flowNodeRef>
+            <flowNodeRef>sid-6D09188F-7AB3-4FB2-88D4-00B8FFB29D12</flowNodeRef>
+            <flowNodeRef>sid-C8080F95-8C60-45A1-9115-D38C75925A79</flowNodeRef>
+            <flowNodeRef>sid-A1F71B8F-A6E7-4943-BB3F-1DD4E3ABA919</flowNodeRef>
+         </lane>
+      </laneSet>
+      <intermediateCatchEvent id="sid-F33B0946-8005-46DE-8799-2BD8C3998D38" name="DC-050-680 Execute the &#10;Project (Post Transactions)">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <outgoing>sid-2C66A6E5-619D-4824-A4D4-5EF5190028F6</outgoing>
+         <linkEventDefinition id="sid-9c971187-ed3d-4b17-a399-8d4227f08b52" name="DC-050-680 Execute the &#10;Project (Post Transactions)">
+            <extensionElements>
+               <signavio:signavioMetaData metaKey="sourceEntry" metaValue="/model/cccf916b4a6e40239f328bbed1c8e200"/>
+            </extensionElements>
+            <source>U002fmodelU002fcccf916b4a6e40239f328bbed1c8e200</source>
+         </linkEventDefinition>
+      </intermediateCatchEvent>
+      <subProcess completionQuantity="1" id="sid-6D09188F-7AB3-4FB2-88D4-00B8FFB29D12" isForCompensation="false" name="DC-050-380A Manage Project Periodic Settlement_Global" startQuantity="1" triggeredByEvent="false">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="entry" metaValue="/model/0cf685e9e0244729a297a035288d881a"/>
+         </extensionElements>
+         <incoming>sid-2C66A6E5-619D-4824-A4D4-5EF5190028F6</incoming>
+         <outgoing>sid-7F085441-12FB-4DC5-BE78-FB9F7BD6A491</outgoing>
+      </subProcess>
+      <subProcess completionQuantity="1" id="sid-C8080F95-8C60-45A1-9115-D38C75925A79" isForCompensation="false" name="DC-040-120 Perform Asset Analysis and Reporting" startQuantity="1" triggeredByEvent="false">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="entry" metaValue="/model/1f6488837d6e4c3c992ecb52bf6e9b83"/>
+         </extensionElements>
+         <incoming>sid-7F085441-12FB-4DC5-BE78-FB9F7BD6A491</incoming>
+         <outgoing>sid-10156C14-CE29-4179-8A7A-F0EB3BE25A81</outgoing>
+      </subProcess>
+      <intermediateThrowEvent id="sid-A1F71B8F-A6E7-4943-BB3F-1DD4E3ABA919" name="DC-050-150A Run final &#10;settlement to Assets_Global">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <incoming>sid-10156C14-CE29-4179-8A7A-F0EB3BE25A81</incoming>
+         <linkEventDefinition id="sid-1263512f-130f-4ba4-be2d-99b7e3e0046b" name="DC-050-150A Run final &#10;settlement to Assets_Global">
+            <extensionElements>
+               <signavio:signavioMetaData metaKey="targetEntry" metaValue="/model/f42e885bd0d8475c9e073249336c7f47"/>
+            </extensionElements>
+            <target>U002fmodelU002ff42e885bd0d8475c9e073249336c7f47</target>
+         </linkEventDefinition>
+      </intermediateThrowEvent>
+      <sequenceFlow id="sid-7F085441-12FB-4DC5-BE78-FB9F7BD6A491" name="" sourceRef="sid-6D09188F-7AB3-4FB2-88D4-00B8FFB29D12" targetRef="sid-C8080F95-8C60-45A1-9115-D38C75925A79">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-10156C14-CE29-4179-8A7A-F0EB3BE25A81" name="" sourceRef="sid-C8080F95-8C60-45A1-9115-D38C75925A79" targetRef="sid-A1F71B8F-A6E7-4943-BB3F-1DD4E3ABA919">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-2C66A6E5-619D-4824-A4D4-5EF5190028F6" name="" sourceRef="sid-F33B0946-8005-46DE-8799-2BD8C3998D38" targetRef="sid-6D09188F-7AB3-4FB2-88D4-00B8FFB29D12">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <association associationDirection="None" id="sid-8490B7F4-E847-469B-A501-A61FF78E1897" sourceRef="sid-67DF461F-E34D-432C-8121-B3E1305DE743" targetRef="sid-F33B0946-8005-46DE-8799-2BD8C3998D38">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </association>
+      <textAnnotation id="sid-67DF461F-E34D-432C-8121-B3E1305DE743" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>Flow is only for CAPEX WBS (Work Breakdown Structure)</text>
+      </textAnnotation>
+      <textAnnotation id="sid-5142449E-CE8F-4199-A6C9-1C1383926255" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>Process Tower: Finance Plan To Report
+Process Group: DC Manage Accounting and Control Data
+Process: DC-040-030 Settle Assets Under Construction</text>
+      </textAnnotation>
+   </process>
+   <bpmndi:BPMNDiagram id="sid-42e80505-eaa0-45c7-84c6-f14072eec48c" name="DC-040-030_Settle Assets Under Constrution">
+      <bpmndi:BPMNPlane bpmnElement="sid-77112285-d210-4a98-b7f9-36fa7a1b96a7" id="sid-995b54ea-c1d1-43ac-800c-d7b03182af76">
+         <bpmndi:BPMNShape bpmnElement="sid-5F6EB8C2-6269-492F-9591-B4BE0F8331CC" id="sid-5F6EB8C2-6269-492F-9591-B4BE0F8331CC_gui" isHorizontal="true">
+            <omgdc:Bounds height="254.23650999404953" width="823.4421843958" x="0.0" y="129.30193235347969"/>
+            <bpmndi:BPMNLabel labelStyle="sid-e23b5474-7049-437b-9eee-f76fe8f1da1e">
+               <omgdc:Bounds height="23.914283752441406" width="12.000000000000005" x="4.999741218795561" y="244.46304547428372"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-05C93B14-B99F-44E1-96E4-5DC4CC6F85DE" id="sid-05C93B14-B99F-44E1-96E4-5DC4CC6F85DE_gui" isHorizontal="true">
+            <omgdc:Bounds height="254.23650999404953" width="793.4421843958" x="30.0" y="129.30193235347969"/>
+            <bpmndi:BPMNLabel labelStyle="sid-e23b5474-7049-437b-9eee-f76fe8f1da1e">
+               <omgdc:Bounds height="80.22856903076172" width="12.000000000000014" x="35.999741218795556" y="216.30590283512356"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-F33B0946-8005-46DE-8799-2BD8C3998D38" id="sid-F33B0946-8005-46DE-8799-2BD8C3998D38_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="131.33049065640012" y="251.05579648225608"/>
+            <bpmndi:BPMNLabel labelStyle="sid-4d2f1081-1f34-4c69-8e0d-4e877311e412">
+               <omgdc:Bounds height="22.0" width="135.77142333984375" x="78.44477898647824" y="283.0557964822561"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-6D09188F-7AB3-4FB2-88D4-00B8FFB29D12" id="sid-6D09188F-7AB3-4FB2-88D4-00B8FFB29D12_gui" isExpanded="false">
+            <omgdc:Bounds height="97.99999999999989" width="127.99999999999989" x="287.06550671489066" y="217.05580482994068"/>
+            <bpmndi:BPMNLabel labelStyle="sid-e23b5474-7049-437b-9eee-f76fe8f1da1e">
+               <omgdc:Bounds height="48.00000000000003" width="99.5142822265625" x="301.3533637705547" y="240.05580482994068"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-C8080F95-8C60-45A1-9115-D38C75925A79" id="sid-C8080F95-8C60-45A1-9115-D38C75925A79_gui" isExpanded="false">
+            <omgdc:Bounds height="97.99999999999989" width="128.0" x="471.91098998578684" y="217.05580482994068"/>
+            <bpmndi:BPMNLabel labelStyle="sid-e23b5474-7049-437b-9eee-f76fe8f1da1e">
+               <omgdc:Bounds height="36.00000000000003" width="114.94285583496094" x="478.4845602372517" y="246.05580482994068"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-A1F71B8F-A6E7-4943-BB3F-1DD4E3ABA919" id="sid-A1F71B8F-A6E7-4943-BB3F-1DD4E3ABA919_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="704.0704451937327" y="252.05579648225608"/>
+            <bpmndi:BPMNLabel labelStyle="sid-4d2f1081-1f34-4c69-8e0d-4e877311e412">
+               <omgdc:Bounds height="22.0" width="141.42857360839844" x="648.3561583895334" y="284.0557964822561"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-67DF461F-E34D-432C-8121-B3E1305DE743" id="sid-67DF461F-E34D-432C-8121-B3E1305DE743_gui">
+            <omgdc:Bounds height="57.946000000000026" width="122.54428422572113" x="109.99999999999994" y="146.05579648225606"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-5142449E-CE8F-4199-A6C9-1C1383926255" id="sid-5142449E-CE8F-4199-A6C9-1C1383926255_gui">
+            <omgdc:Bounds height="50.0" width="435.9374990761278" x="21.475413959810822" y="30.75875140818499"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge bpmnElement="sid-7F085441-12FB-4DC5-BE78-FB9F7BD6A491" id="sid-7F085441-12FB-4DC5-BE78-FB9F7BD6A491_gui">
+            <omgdi:waypoint x="415.06550671489055" y="266.0558048299406"/>
+            <omgdi:waypoint x="471.91098998578684" y="266.0558048299406"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-8490B7F4-E847-469B-A501-A61FF78E1897" id="sid-8490B7F4-E847-469B-A501-A61FF78E1897_gui">
+            <omgdi:waypoint x="122.69989026689565" y="204.00179648225608"/>
+            <omgdi:waypoint x="140.61838497678934" y="251.05579648225608"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-10156C14-CE29-4179-8A7A-F0EB3BE25A81" id="sid-10156C14-CE29-4179-8A7A-F0EB3BE25A81_gui">
+            <omgdi:waypoint x="599.9109899857868" y="266.4050651687278"/>
+            <omgdi:waypoint x="704.0704451937327" y="266.9738812898285"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-2C66A6E5-619D-4824-A4D4-5EF5190028F6" id="sid-2C66A6E5-619D-4824-A4D4-5EF5190028F6_gui">
+            <omgdi:waypoint x="161.33049065640012" y="266.05579709385285"/>
+            <omgdi:waypoint x="287.06550671489066" y="266.0558022204612"/>
+         </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+      <bpmndi:BPMNLabelStyle id="sid-4d2f1081-1f34-4c69-8e0d-4e877311e412">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="11.0"/>
+      </bpmndi:BPMNLabelStyle>
+      <bpmndi:BPMNLabelStyle id="sid-e23b5474-7049-437b-9eee-f76fe8f1da1e">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="12.0"/>
+      </bpmndi:BPMNLabelStyle>
+   </bpmndi:BPMNDiagram>
+</definitions>

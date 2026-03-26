@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="Signavio Process Editor, http://www.signavio.com" exporterVersion="26.10.0-20260311103619+6e2d3ac" expressionLanguage="http://www.w3.org/TR/XPath" id="sid-c8b23ffa-3648-4163-9026-054c9e2dae5e" targetNamespace="http://www.signavio.com" typeLanguage="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <collaboration id="sid-a7d8c21d-a19b-426f-af8b-5eb7875b9e28">
+      <extensionElements>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvedby" metaValue="[&quot;kaitlyn.moran@intel.com&quot;]"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalstatus" metaValue="ci1710756720720143051910"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvaldate" metaValue="19/07/24"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalevidence" metaValue="[{&quot;label&quot;:&quot;&quot;,&quot;url&quot;:&quot;https://intel.sharepoint.com/:f:/r/sites/inteldeloitteiao/Shared Documents/General/Implementation/06. PTP/3 Final Deliverables/1. Design/O. Process Approval Evidence/PM-150-180 Approval?csf=1&amp;web=1&amp;e=pysoxR&quot;}]"/>
+         <signavio:signavioDiagramMetaData metaKey="revisionid" metaValue="961710dfcb2145ea9cb96b68bbfc08db"/>
+      </extensionElements>
+      <participant id="sid-C36E19CF-100C-40B0-B07E-92B1C109C740" name="Intel" processRef="sid-9AE07564-FBB6-46A4-B928-C111EBDBF619">
+         <extensionElements>
+            <signavio:signavioDictionaryLink propertyId="name">
+               <signavio:dictionaryLink>/glossary/e667553ad81e450aa194d3b00f6ba515</signavio:dictionaryLink>
+            </signavio:signavioDictionaryLink>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </participant>
+   </collaboration>
+   <process id="sid-9AE07564-FBB6-46A4-B928-C111EBDBF619" isClosed="false" isExecutable="false" name="Intel" processType="None">
+      <extensionElements/>
+      <laneSet id="sid-e68915f4-dee0-4c18-8dda-2a5bb2ed9622">
+         <lane id="sid-52BC7AC9-D193-4A18-AAE7-32150A9C08DE" name="Payment Processor">
+            <extensionElements>
+               <signavio:signavioDictionaryLink propertyId="name">
+                  <signavio:dictionaryLink>/glossary/dfd16d3fe0b0411db0affe4a694dea1c</signavio:dictionaryLink>
+               </signavio:signavioDictionaryLink>
+               <signavio:signavioMetaData metaKey="bgcolor" metaValue=""/>
+               <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            </extensionElements>
+            <flowNodeRef>sid-4B73C469-85BE-45DC-924A-B8EBC318684A</flowNodeRef>
+            <flowNodeRef>sid-5B77CB87-2A0A-4436-9D2C-67A942BF3284</flowNodeRef>
+            <flowNodeRef>sid-B2949024-4DEF-4AD8-8729-C7B1D4F3F553</flowNodeRef>
+         </lane>
+      </laneSet>
+      <startEvent id="sid-4B73C469-85BE-45DC-924A-B8EBC318684A" name="Create and Release &#10;Electronic Payment &#10; Initiated">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <outgoing>sid-41C48056-3223-4B7B-9FB1-F7799BE28944</outgoing>
+      </startEvent>
+      <subProcess completionQuantity="1" id="sid-5B77CB87-2A0A-4436-9D2C-67A942BF3284" isForCompensation="false" name="PM-150-180A Create and Release Electronic Payment (EFT/DI)_Global" startQuantity="1" triggeredByEvent="false">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="entry" metaValue="/model/15c9319e420a4cc7b75ae024e50db924"/>
+         </extensionElements>
+         <incoming>sid-41C48056-3223-4B7B-9FB1-F7799BE28944</incoming>
+         <outgoing>sid-306D218F-DD2B-45BF-A516-A230956814DD</outgoing>
+      </subProcess>
+      <endEvent id="sid-B2949024-4DEF-4AD8-8729-C7B1D4F3F553" name="Create and Release &#10;Electronic Payment  &#10;Completed">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <incoming>sid-306D218F-DD2B-45BF-A516-A230956814DD</incoming>
+      </endEvent>
+      <sequenceFlow id="sid-41C48056-3223-4B7B-9FB1-F7799BE28944" name="" sourceRef="sid-4B73C469-85BE-45DC-924A-B8EBC318684A" targetRef="sid-5B77CB87-2A0A-4436-9D2C-67A942BF3284">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-306D218F-DD2B-45BF-A516-A230956814DD" name="" sourceRef="sid-5B77CB87-2A0A-4436-9D2C-67A942BF3284" targetRef="sid-B2949024-4DEF-4AD8-8729-C7B1D4F3F553">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <textAnnotation id="sid-9880644C-AB26-4303-BE2F-334556913CB9" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>Note: This flow is the exact replica of 180A - Create and Release Electronic Payment (EFT/EDI)_Global flow.</text>
+      </textAnnotation>
+   </process>
+   <bpmndi:BPMNDiagram id="sid-bfff7235-d2f3-43d3-afb4-1d3c43ae7b39">
+      <bpmndi:BPMNPlane bpmnElement="sid-a7d8c21d-a19b-426f-af8b-5eb7875b9e28" id="sid-5fd4a72e-c343-4a46-95b8-c5634c1af766">
+         <bpmndi:BPMNShape bpmnElement="sid-C36E19CF-100C-40B0-B07E-92B1C109C740" id="sid-C36E19CF-100C-40B0-B07E-92B1C109C740_gui" isHorizontal="true">
+            <omgdc:Bounds height="250.00000000000003" width="673.0000016759946" x="139.99999582767498" y="99.99999701976785"/>
+            <bpmndi:BPMNLabel labelStyle="sid-da7ac7aa-376e-4dba-a2cc-bafa2abc942f">
+               <omgdc:Bounds height="23.914283752441406" width="12.0" x="144.99999582767495" y="213.04285514354717"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-52BC7AC9-D193-4A18-AAE7-32150A9C08DE" id="sid-52BC7AC9-D193-4A18-AAE7-32150A9C08DE_gui" isHorizontal="true">
+            <omgdc:Bounds height="250.00000000000003" width="643.0000016759946" x="169.99999582767498" y="99.99999701976785"/>
+            <bpmndi:BPMNLabel labelStyle="sid-da7ac7aa-376e-4dba-a2cc-bafa2abc942f">
+               <omgdc:Bounds height="103.37142944335938" width="12.000000000000028" x="175.99999582767495" y="173.3142822980882"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-4B73C469-85BE-45DC-924A-B8EBC318684A" id="sid-4B73C469-85BE-45DC-924A-B8EBC318684A_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="282.99999750366953" y="209.99999701976785"/>
+            <bpmndi:BPMNLabel labelStyle="sid-d22375a1-d23e-4b6f-a6c8-7b8a7b4bd6b4">
+               <omgdc:Bounds height="33.00000000000003" width="95.46428680419922" x="250.26785410156992" y="241.99999701976785"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-5B77CB87-2A0A-4436-9D2C-67A942BF3284" id="sid-5B77CB87-2A0A-4436-9D2C-67A942BF3284_gui" isExpanded="false">
+            <omgdc:Bounds height="80.00000000000003" width="129.99999910593033" x="428.00000588364253" y="184.99999701976785"/>
+            <bpmndi:BPMNLabel labelStyle="sid-da7ac7aa-376e-4dba-a2cc-bafa2abc942f">
+               <omgdc:Bounds height="48.0" width="120.34284973144531" x="432.8735791868652" y="198.99999701976785"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-B2949024-4DEF-4AD8-8729-C7B1D4F3F553" id="sid-B2949024-4DEF-4AD8-8729-C7B1D4F3F553_gui">
+            <omgdc:Bounds height="28.0" width="28.0" x="642.9999975036695" y="210.99999701976785"/>
+            <bpmndi:BPMNLabel labelStyle="sid-d22375a1-d23e-4b6f-a6c8-7b8a7b4bd6b4">
+               <omgdc:Bounds height="33.00000000000003" width="95.46428680419922" x="609.2678541015699" y="240.99999701976785"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-9880644C-AB26-4303-BE2F-334556913CB9" id="sid-9880644C-AB26-4303-BE2F-334556913CB9_gui">
+            <omgdc:Bounds height="50.000000000000114" width="568.0000070770585" x="140.0000021170688" y="370.00000559511045"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge bpmnElement="sid-41C48056-3223-4B7B-9FB1-F7799BE28944" id="sid-41C48056-3223-4B7B-9FB1-F7799BE28944_gui">
+            <omgdi:waypoint x="312.99999750366953" y="224.99999701976785"/>
+            <omgdi:waypoint x="428.00000588364253" y="224.99999701976787"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-306D218F-DD2B-45BF-A516-A230956814DD" id="sid-306D218F-DD2B-45BF-A516-A230956814DD_gui">
+            <omgdi:waypoint x="558.0000049895729" y="224.99999701976787"/>
+            <omgdi:waypoint x="642.9999975036695" y="224.99999701976785"/>
+         </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+      <bpmndi:BPMNLabelStyle id="sid-d22375a1-d23e-4b6f-a6c8-7b8a7b4bd6b4">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="11.0"/>
+      </bpmndi:BPMNLabelStyle>
+      <bpmndi:BPMNLabelStyle id="sid-da7ac7aa-376e-4dba-a2cc-bafa2abc942f">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="12.0"/>
+      </bpmndi:BPMNLabelStyle>
+   </bpmndi:BPMNDiagram>
+</definitions>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="Signavio Process Editor, http://www.signavio.com" exporterVersion="26.10.0-20260311103619+6e2d3ac" expressionLanguage="http://www.w3.org/TR/XPath" id="sid-55b23749-11b3-4815-bd2e-9d076bccd01e" targetNamespace="http://www.signavio.com" typeLanguage="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <collaboration id="sid-ec7d6dd2-e644-41c2-9add-b01ec4ef849a">
+      <extensionElements>
+         <signavio:signavioDiagramMetaData metaKey="meta-processdescription" metaValue="*This flow is combined with the DC-060-040 Manage Withholding Tax Determination - Customer Data_APJ Cluster 03.&#10;&#10;&#10;The Withholding Certification Receivable Collection process includes the following activities: Issue a certificate of residency to the customer with Intel's local EIN number. Customer then determines if the service Intel is providing is applicable for WHT and/or subject to reduced treaty rates. Set up withholding tax type and tax code for each country where there is an entity, and assign that tax code to every customer that is NOT within the same country (foreign customer). Issue an invoice to customer. Customer then short-pay the WHT, which is then posted to appropriate WHT accounts (could be a contra-receivable or expense account). WHT report then shows the country of the customer. It also tracks the remittance of WHT withheld by the customer for each certificate. It is either required by law or as requested that customer provides Intel the receipt of WHT paid (local requirement).&#10;"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvedby" metaValue="[&quot;Jain, Priya&quot;]"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalstatus" metaValue="ci1710756720720143051910"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvaldate" metaValue="19/08/24"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalcomments" metaValue="Linked sub-process approved via email"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalevidence" metaValue="[{&quot;label&quot;:&quot;Approval Email&quot;,&quot;url&quot;:&quot;https://intel.sharepoint.com/sites/inteldeloitteiao/Shared Documents/Forms/AllItems.aspx?id=%2Fsites%2Finteldeloitteiao%2FShared Documents%2FGeneral%2FImplementation%2F03. FPR%2F3 Final Deliverables%2F05. Process Approval Evidence%2FTeam 02 - Tax%2FDC-060 Manage Taxes%2FR3S6%2FWHT Signavio flow APJ01%2C APJ03%2C EMEA03 .pdf&amp;parent=%2Fsites%2Finteldeloitteiao%2FShared Documents%2FGeneral%2FImplementation%2F03. FPR%2F3 Final Deliverables%2F05. Process Approval Evidence%2FTeam 02 - Tax%2FDC-060 Manage Taxes%2FR3S6&quot;}]"/>
+         <signavio:signavioDiagramMetaData metaKey="revisionid" metaValue="2aafbe9456d94b959882db7ab74a6e53"/>
+      </extensionElements>
+      <participant id="sid-A209D9D3-5A4D-4E76-8189-11B151EDAEC7" name="Intel" processRef="sid-F915E3BB-ABB8-4B81-8E0B-49DF868F4CBD">
+         <extensionElements>
+            <signavio:signavioDictionaryLink propertyId="name">
+               <signavio:dictionaryLink>/glossary/e667553ad81e450aa194d3b00f6ba515</signavio:dictionaryLink>
+            </signavio:signavioDictionaryLink>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </participant>
+   </collaboration>
+   <process id="sid-F915E3BB-ABB8-4B81-8E0B-49DF868F4CBD" isClosed="false" isExecutable="false" name="Intel" processType="None">
+      <extensionElements/>
+      <laneSet id="sid-a55624ca-d176-40fe-81e8-81361f3dfc37">
+         <lane id="sid-DC65CCE9-1246-4D54-A661-43A0447E9034">
+            <extensionElements>
+               <signavio:signavioMetaData metaKey="bgcolor" metaValue=""/>
+               <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            </extensionElements>
+            <flowNodeRef>sid-F0581D75-E6FB-45C0-A07D-20AA029F3AD3</flowNodeRef>
+            <flowNodeRef>sid-11226EC6-B0F1-41A7-A316-75C72E08CB6B</flowNodeRef>
+            <flowNodeRef>sid-DD11A6F9-5EE1-472E-B08E-8DF1B1C43BE9</flowNodeRef>
+         </lane>
+      </laneSet>
+      <startEvent id="sid-F0581D75-E6FB-45C0-A07D-20AA029F3AD3" name="Manage Withholding Certification &#10;Receivables Collection Initiated">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <outgoing>sid-FAC68B2C-02D7-47D2-87E9-56C242C5E8CC</outgoing>
+      </startEvent>
+      <subProcess completionQuantity="1" id="sid-11226EC6-B0F1-41A7-A316-75C72E08CB6B" isForCompensation="false" name="DC-060-040D Manage Withholding Tax Determination - Customer Data_APJ Cluster 03" startQuantity="1" triggeredByEvent="false">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="entry" metaValue="/model/4c477aabefb346b3abdb5ecff26dfd79"/>
+         </extensionElements>
+         <incoming>sid-FAC68B2C-02D7-47D2-87E9-56C242C5E8CC</incoming>
+         <outgoing>sid-FD596785-6755-41B6-83C1-53EF957901C8</outgoing>
+      </subProcess>
+      <endEvent id="sid-DD11A6F9-5EE1-472E-B08E-8DF1B1C43BE9" name="Manage Withholding Certification &#10;Receivables Collection Completed">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <incoming>sid-FD596785-6755-41B6-83C1-53EF957901C8</incoming>
+      </endEvent>
+      <sequenceFlow id="sid-FAC68B2C-02D7-47D2-87E9-56C242C5E8CC" name="" sourceRef="sid-F0581D75-E6FB-45C0-A07D-20AA029F3AD3" targetRef="sid-11226EC6-B0F1-41A7-A316-75C72E08CB6B">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-FD596785-6755-41B6-83C1-53EF957901C8" name="" sourceRef="sid-11226EC6-B0F1-41A7-A316-75C72E08CB6B" targetRef="sid-DD11A6F9-5EE1-472E-B08E-8DF1B1C43BE9">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <textAnnotation id="sid-5142449E-CE8F-4199-A6C9-1C1383926255" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>Process Tower: Finance Plan To Report
+Process Group: DC Manage Accounting and Control Data
+Process: DC-060-050D Manage Withholding Certification Receivables Collection_APJ Cluster 03</text>
+      </textAnnotation>
+   </process>
+   <bpmndi:BPMNDiagram id="sid-6d6c9dd8-4ee1-4b37-993c-e21e1c7db970">
+      <bpmndi:BPMNPlane bpmnElement="sid-ec7d6dd2-e644-41c2-9add-b01ec4ef849a" id="sid-3fd9573e-b6f4-4576-8256-055271fc9ebb">
+         <bpmndi:BPMNShape bpmnElement="sid-A209D9D3-5A4D-4E76-8189-11B151EDAEC7" id="sid-A209D9D3-5A4D-4E76-8189-11B151EDAEC7_gui" isHorizontal="true">
+            <omgdc:Bounds height="192.66988732866056" width="635.7584568821266" x="0.0" y="139.9275381236976"/>
+            <bpmndi:BPMNLabel labelStyle="sid-02858c66-bcb7-400c-b20e-791e3fdb739b">
+               <omgdc:Bounds height="23.914283752441406" width="12.000000000000002" x="5.000055420142372" y="224.30533991180715"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-DC65CCE9-1246-4D54-A661-43A0447E9034" id="sid-DC65CCE9-1246-4D54-A661-43A0447E9034_gui" isHorizontal="true">
+            <omgdc:Bounds height="192.66988732866056" width="605.7584568821266" x="30.0" y="139.9275381236976"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-F0581D75-E6FB-45C0-A07D-20AA029F3AD3" id="sid-F0581D75-E6FB-45C0-A07D-20AA029F3AD3_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="120.51529895760979" y="215.92754319593536"/>
+            <bpmndi:BPMNLabel labelStyle="sid-45842592-7745-465f-8be3-db50c5144af9">
+               <omgdc:Bounds height="22.0" width="162.64285278320312" x="54.193872566008224" y="247.92754319593536"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-11226EC6-B0F1-41A7-A316-75C72E08CB6B" id="sid-11226EC6-B0F1-41A7-A316-75C72E08CB6B_gui" isExpanded="false">
+            <omgdc:Bounds height="100.9339782095982" width="122.54428422572113" x="274.00000720907263" y="181.00000433921892"/>
+            <bpmndi:BPMNLabel labelStyle="sid-02858c66-bcb7-400c-b20e-791e3fdb739b">
+               <omgdc:Bounds height="59.999996185302706" width="109.54285049438477" x="280.54358058858924" y="199.467003393174"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-DD11A6F9-5EE1-472E-B08E-8DF1B1C43BE9" id="sid-DD11A6F9-5EE1-472E-B08E-8DF1B1C43BE9_gui">
+            <omgdc:Bounds height="28.0" width="28.0" x="519.0290136681845" y="216.99999802554066"/>
+            <bpmndi:BPMNLabel labelStyle="sid-45842592-7745-465f-8be3-db50c5144af9">
+               <omgdc:Bounds height="22.0" width="164.05714416503906" x="451.00044158566493" y="246.99999802554066"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-5142449E-CE8F-4199-A6C9-1C1383926255" id="sid-5142449E-CE8F-4199-A6C9-1C1383926255_gui">
+            <omgdc:Bounds height="50.0" width="667.8215653978309" x="20.0" y="20.00000000000003"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge bpmnElement="sid-FAC68B2C-02D7-47D2-87E9-56C242C5E8CC" id="sid-FAC68B2C-02D7-47D2-87E9-56C242C5E8CC_gui">
+            <omgdi:waypoint x="150.5152989576098" y="230.96804252241762"/>
+            <omgdi:waypoint x="274.00000720907263" y="231.30144569008715"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-FD596785-6755-41B6-83C1-53EF957901C8" id="sid-FD596785-6755-41B6-83C1-53EF957901C8_gui">
+            <omgdi:waypoint x="396.54429143479376" y="231.32237144742425"/>
+            <omgdi:waypoint x="519.0290136681845" y="231.03306566734346"/>
+         </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+      <bpmndi:BPMNLabelStyle id="sid-45842592-7745-465f-8be3-db50c5144af9">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="11.0"/>
+      </bpmndi:BPMNLabelStyle>
+      <bpmndi:BPMNLabelStyle id="sid-02858c66-bcb7-400c-b20e-791e3fdb739b">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="12.0"/>
+      </bpmndi:BPMNLabelStyle>
+   </bpmndi:BPMNDiagram>
+</definitions>

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:caseagile="http://caseagile.com/schema/BPMN/20170414/MODEL" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="Signavio Process Editor, http://www.signavio.com" exporterVersion="26.10.0-20260311103619+6e2d3ac" expressionLanguage="https://www.ecma-international.org/publications/standards/Ecma-334.htm" id="_003601ab-686c-49fa-9dd1-fc920b6a750b" name="L-060-180_Reconcile Inventory Count" targetNamespace="http://caseagile.com/schema/BPMN/20170414/MODEL" typeLanguage="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <collaboration id="sid-33131afe-3e17-4405-a18c-83fc45d9b899">
+      <extensionElements>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvedby" metaValue="[&quot;Yeager, Christopher &lt;christopher.yeager@intel.com&gt;&quot;]"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalstatus" metaValue="ci1710756720720143051910"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvaldate" metaValue="19/06/24"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalevidence" metaValue="[{&quot;label&quot;:&quot;Approval Evidence&quot;,&quot;url&quot;:&quot;https://intel.sharepoint.com/:u:/r/sites/inteldeloitteiao/Shared Documents/General/Implementation/16. Logistics (LE+TM+EWM)/Signavio Flows/EWM/FTS - IF/R2 Sprint 5/FW Signavio Flow Approval R2 Design Sprint 5 _06112024.msg?csf=1&amp;web=1&amp;e=hZpXUP&quot;}]"/>
+         <signavio:signavioDiagramMetaData metaKey="revisionid" metaValue="db7af0ab5ace4127bdca04d82a750975"/>
+      </extensionElements>
+      <participant id="sid-3A4F0893-9A67-4A3B-A57F-137B0FBD09F1" name="Intel" processRef="sid-09D1CF9F-02F0-4CE7-8344-BC405692EC90">
+         <extensionElements>
+            <signavio:signavioDictionaryLink propertyId="name">
+               <signavio:dictionaryLink>/glossary/e667553ad81e450aa194d3b00f6ba515</signavio:dictionaryLink>
+            </signavio:signavioDictionaryLink>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </participant>
+   </collaboration>
+   <process id="sid-09D1CF9F-02F0-4CE7-8344-BC405692EC90" isClosed="false" isExecutable="false" name="Intel" processType="None">
+      <extensionElements/>
+      <laneSet id="sid-9f05d398-a415-44cf-82b2-b7feb3baa37e">
+         <lane id="sid-6B3BE714-2F5B-4CAC-AB88-1EAACB35AAC1" name="Inventory Area Manager">
+            <extensionElements>
+               <signavio:signavioDictionaryLink propertyId="name">
+                  <signavio:dictionaryLink>/glossary/a42ef9cfe25b4224bd509a23f935e7ea</signavio:dictionaryLink>
+               </signavio:signavioDictionaryLink>
+               <signavio:signavioMetaData metaKey="bgcolor" metaValue=""/>
+               <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            </extensionElements>
+            <flowNodeRef>sid-BF6AD794-A96B-4728-AC75-8C071D3F566E</flowNodeRef>
+            <flowNodeRef>sid-8DCC4216-BC16-41AE-9B22-528CE85B4FBE</flowNodeRef>
+            <flowNodeRef>sid-BB4363BC-4496-4D15-98B0-3E3E887100F5</flowNodeRef>
+            <flowNodeRef>sid-E12FA950-7004-4BBF-9285-2A9F24A22D0C</flowNodeRef>
+         </lane>
+      </laneSet>
+      <endEvent id="sid-BF6AD794-A96B-4728-AC75-8C071D3F566E" name="Inventory Count &#10;Reconciliation Completed">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <incoming>sid-2DA4DE35-1916-43E9-99AE-15D5CC4689D5</incoming>
+      </endEvent>
+      <intermediateCatchEvent id="sid-8DCC4216-BC16-41AE-9B22-528CE85B4FBE" name="L-060-170 Update Inventory&#10; Value - R2_Interim State (IF)">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <outgoing>sid-013F0506-4BA0-4489-8891-3871C941B2E6</outgoing>
+         <linkEventDefinition id="sid-267f189f-25b1-4192-9784-851628a3dcc3" name="L-060-170 Update Inventory&#10; Value - R2_Interim State (IF)">
+            <extensionElements>
+               <signavio:signavioMetaData metaKey="sourceEntry" metaValue="/model/0eb11ac6e4644d779866b8c0c0534a1d"/>
+            </extensionElements>
+            <source>U002fmodelU002f0eb11ac6e4644d779866b8c0c0534a1d</source>
+         </linkEventDefinition>
+      </intermediateCatchEvent>
+      <serviceTask completionQuantity="1" id="sid-BB4363BC-4496-4D15-98B0-3E3E887100F5" implementation="##WebService" isForCompensation="false" name="L-060-180A-010 &#10;Update Inventory" startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="meta-jobprofile" metaValue="/glossary/a42ef9cfe25b4224bd509a23f935e7ea"/>
+            <signavio:signavioMetaData metaKey="meta-screenfloriapps" metaValue="[&quot;/glossary/c5f7133e3bf346278ddf8c9f2006be0a&quot;,&quot;/glossary/087ff7986b9b42c6aeb44516be2e9b80&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-system" metaValue="[&quot;/glossary/99ed2fb6879346238999fda867d77df1&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-securityrole" metaValue="[&quot;/glossary/9495dbb874f34ce5ba71e8c775f60e67&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-degreeofautomation" metaValue="ci1704366147381571714331"/>
+            <signavio:signavioMetaData metaKey="meta-taskdescription" metaValue="Update the Stock in EWM and S/4"/>
+            <signavio:signavioMetaData metaKey="meta-instance" metaValue="[&quot;/glossary/f6d8ca83167e4975b0a785eae90f4d34&quot;]"/>
+            <caseagile:model xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:semantic="http://www.omg.org/spec/BPMN/20100524/MODEL">
+               <caseagile:element id="9d6187eb-0932-4f86-ab78-85a05f7986c3"/>
+               <caseagile:principal id=""/>
+               <caseagile:created date="2024-01-25 02:21:16"/>
+               <caseagile:modified date="2024-01-25 02:21:16"/>
+               <caseagile:properties>
+                  <caseagile:property default="FFFFFF" description="Background Color" format="hex" maximum="FFFFFF" minimum="000000" name="bgcolor" readOnly="False" type="int" visible="True"/>
+               </caseagile:properties>
+               <caseagile:values>
+                  <caseagile:value name="bgcolor" value="FFFFFF"/>
+               </caseagile:values>
+            </caseagile:model>
+         </extensionElements>
+         <incoming>sid-013F0506-4BA0-4489-8891-3871C941B2E6</incoming>
+         <outgoing>sid-15A5F4CF-ADD5-4375-B0E9-513A05B0734A</outgoing>
+      </serviceTask>
+      <userTask completionQuantity="1" id="sid-E12FA950-7004-4BBF-9285-2A9F24A22D0C" implementation="##WebService" isForCompensation="false" name="L-060-180A-020&#10;Write-off Adjustment for Losses or Gains" startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="meta-jobprofile" metaValue="/glossary/a42ef9cfe25b4224bd509a23f935e7ea"/>
+            <signavio:signavioMetaData metaKey="meta-screenfloriapps" metaValue="[&quot;/glossary/84bcb166c64448ac8a507eb799124bbf&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-system" metaValue="[&quot;/glossary/87e190e5800648088193185674a9aceb&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-securityrole" metaValue="[&quot;/glossary/f86e941de6604f41bdeabfc6db072085&quot;]"/>
+            <signavio:signavioMetaData metaKey="meta-degreeofautomation" metaValue="ci170436614738196523502"/>
+            <signavio:signavioMetaData metaKey="meta-taskdescription" metaValue="Adjustments are Writen-off  for Losses or Gains"/>
+            <signavio:signavioMetaData metaKey="meta-instance" metaValue="[&quot;/glossary/f6d8ca83167e4975b0a785eae90f4d34&quot;]"/>
+         </extensionElements>
+         <incoming>sid-15A5F4CF-ADD5-4375-B0E9-513A05B0734A</incoming>
+         <outgoing>sid-2DA4DE35-1916-43E9-99AE-15D5CC4689D5</outgoing>
+      </userTask>
+      <sequenceFlow id="sid-013F0506-4BA0-4489-8891-3871C941B2E6" name="" sourceRef="sid-8DCC4216-BC16-41AE-9B22-528CE85B4FBE" targetRef="sid-BB4363BC-4496-4D15-98B0-3E3E887100F5">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-15A5F4CF-ADD5-4375-B0E9-513A05B0734A" name="" sourceRef="sid-BB4363BC-4496-4D15-98B0-3E3E887100F5" targetRef="sid-E12FA950-7004-4BBF-9285-2A9F24A22D0C">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-2DA4DE35-1916-43E9-99AE-15D5CC4689D5" name="" sourceRef="sid-E12FA950-7004-4BBF-9285-2A9F24A22D0C" targetRef="sid-BF6AD794-A96B-4728-AC75-8C071D3F566E">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <association associationDirection="None" id="sid-C69CAAA6-AFB7-445D-AEB5-C00642755B4F" sourceRef="sid-BB4363BC-4496-4D15-98B0-3E3E887100F5" targetRef="sid-3E06500C-9A52-49D8-8B01-400D210CDEBF">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </association>
+      <association associationDirection="None" id="sid-623BCB9B-B079-402A-BAE5-88E1E7C0CB3D" sourceRef="sid-E12FA950-7004-4BBF-9285-2A9F24A22D0C" targetRef="sid-3FD49332-E664-42CF-8CCC-618D61AC1244">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </association>
+      <textAnnotation id="sid-3E06500C-9A52-49D8-8B01-400D210CDEBF" signavio:alignment="left">
+         <extensionElements>
+            <signavio:signavioDictionaryLink propertyId="name">
+               <signavio:dictionaryLink>/glossary/99ed2fb6879346238999fda867d77df1</signavio:dictionaryLink>
+            </signavio:signavioDictionaryLink>
+            <signavio:signavioType dataObjectType="IT-System"/>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#e1e1e1"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>SAP Extended Warehouse 
+Management (EWM)</text>
+      </textAnnotation>
+      <textAnnotation id="sid-3FD49332-E664-42CF-8CCC-618D61AC1244" signavio:alignment="left">
+         <extensionElements>
+            <signavio:signavioDictionaryLink propertyId="name">
+               <signavio:dictionaryLink>/glossary/87e190e5800648088193185674a9aceb</signavio:dictionaryLink>
+            </signavio:signavioDictionaryLink>
+            <signavio:signavioType dataObjectType="IT-System"/>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#e1e1e1"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>SAP S/4HANA</text>
+      </textAnnotation>
+      <textAnnotation id="sid-F51911E3-9213-45E3-9A58-3868349E27A6" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>Process Tower: Forecast To Stock
+Process Group: L Logistics &amp; Inventory Management
+Process Name: L-060-180 Reconcile Inventory Count</text>
+      </textAnnotation>
+   </process>
+   <bpmndi:BPMNDiagram id="sid-efef818e-e61b-43a3-939b-9d4f68169610" name="L-060-180_Reconcile Inventory Count">
+      <bpmndi:BPMNPlane bpmnElement="sid-33131afe-3e17-4405-a18c-83fc45d9b899" id="sid-9acde1ff-a6d4-4ac4-b04e-139b06d3c992">
+         <bpmndi:BPMNShape bpmnElement="sid-3A4F0893-9A67-4A3B-A57F-137B0FBD09F1" id="sid-3A4F0893-9A67-4A3B-A57F-137B0FBD09F1_gui" isHorizontal="true">
+            <omgdc:Bounds height="376.1668742058741" width="1119.9523274700155" x="54.99999670008768" y="112.99999601472126"/>
+            <bpmndi:BPMNLabel labelStyle="sid-4f1fdba3-4dcf-436c-865b-59798b503238">
+               <omgdc:Bounds height="23.914283752441406" width="12.0" x="59.999552150861575" y="289.12629124143757"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-6B3BE714-2F5B-4CAC-AB88-1EAACB35AAC1" id="sid-6B3BE714-2F5B-4CAC-AB88-1EAACB35AAC1_gui" isHorizontal="true">
+            <omgdc:Bounds height="376.1668742058741" width="1089.9523274700155" x="84.99999670008768" y="112.99999601472126"/>
+            <bpmndi:BPMNLabel labelStyle="sid-4f1fdba3-4dcf-436c-865b-59798b503238">
+               <omgdc:Bounds height="130.37142944335935" width="12.000000000000028" x="90.99955215086156" y="235.89771839597861"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-BF6AD794-A96B-4728-AC75-8C071D3F566E" id="sid-BF6AD794-A96B-4728-AC75-8C071D3F566E_gui">
+            <omgdc:Bounds height="28.0" width="28.0" x="1014.4488886101303" y="214.00001243197713"/>
+            <bpmndi:BPMNLabel labelStyle="sid-061f1134-1f65-4138-be6f-1854ab4b36cc">
+               <omgdc:Bounds height="21.99999999999997" width="123.0428466796875" x="966.9274652702866" y="244.00001243197713"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-8DCC4216-BC16-41AE-9B22-528CE85B4FBE" id="sid-8DCC4216-BC16-41AE-9B22-528CE85B4FBE_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="214.0211497949375" y="212.9999910079312"/>
+            <bpmndi:BPMNLabel labelStyle="sid-061f1134-1f65-4138-be6f-1854ab4b36cc">
+               <omgdc:Bounds height="21.99999999999997" width="145.67143249511722" x="156.1854335473789" y="244.9999910079312"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-BB4363BC-4496-4D15-98B0-3E3E887100F5" id="sid-BB4363BC-4496-4D15-98B0-3E3E887100F5_gui">
+            <omgdc:Bounds height="97.99999999999997" width="128.00000000000023" x="433.77821872663503" y="178.99999555165635"/>
+            <bpmndi:BPMNLabel labelStyle="sid-4f1fdba3-4dcf-436c-865b-59798b503238">
+               <omgdc:Bounds height="24.0" width="94.88571166992188" x="450.3353628916741" y="213.99999555165635"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-E12FA950-7004-4BBF-9285-2A9F24A22D0C" id="sid-E12FA950-7004-4BBF-9285-2A9F24A22D0C_gui">
+            <omgdc:Bounds height="97.99999999999996" width="128.00000000000023" x="715.2019196684206" y="178.99999779543305"/>
+            <bpmndi:BPMNLabel labelStyle="sid-4f1fdba3-4dcf-436c-865b-59798b503238">
+               <omgdc:Bounds height="36.0" width="117.25714111328125" x="720.57334911178" y="207.99999779543305"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-3E06500C-9A52-49D8-8B01-400D210CDEBF" id="sid-3E06500C-9A52-49D8-8B01-400D210CDEBF_gui">
+            <omgdc:Bounds height="57.946" width="63.875" x="465.778229420358" y="297.02971281291394"/>
+            <bpmndi:BPMNLabel labelStyle="sid-061f1134-1f65-4138-be6f-1854ab4b36cc">
+               <omgdc:Bounds height="24.0" width="142.7142791748047" x="426.42108983295566" y="359.02971281291394"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-3FD49332-E664-42CF-8CCC-618D61AC1244" id="sid-3FD49332-E664-42CF-8CCC-618D61AC1244_gui">
+            <omgdc:Bounds height="57.946" width="63.875" x="747.2644196684207" y="297.0297271721535"/>
+            <bpmndi:BPMNLabel labelStyle="sid-061f1134-1f65-4138-be6f-1854ab4b36cc">
+               <omgdc:Bounds height="12.0" width="75.5999984741211" x="741.4644204313602" y="359.0297271721535"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-F51911E3-9213-45E3-9A58-3868349E27A6" id="sid-F51911E3-9213-45E3-9A58-3868349E27A6_gui">
+            <omgdc:Bounds height="65.0" width="701.2546366715303" x="58.33523582946435" y="29.41810562044253"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge bpmnElement="sid-C69CAAA6-AFB7-445D-AEB5-C00642755B4F" id="sid-C69CAAA6-AFB7-445D-AEB5-C00642755B4F_gui">
+            <omgdi:waypoint x="497.7469749397979" y="276.9999955516563"/>
+            <omgdi:waypoint x="497.73420342517505" y="297.02971281291394"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-013F0506-4BA0-4489-8891-3871C941B2E6" id="sid-013F0506-4BA0-4489-8891-3871C941B2E6_gui">
+            <omgdi:waypoint x="244.0211497949375" y="227.99999126152778"/>
+            <omgdi:waypoint x="433.77821872663503" y="227.9999944696442"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-15A5F4CF-ADD5-4375-B0E9-513A05B0734A" id="sid-15A5F4CF-ADD5-4375-B0E9-513A05B0734A_gui">
+            <omgdi:waypoint x="561.7782187266353" y="227.99999606192506"/>
+            <omgdi:waypoint x="715.2019196684206" y="227.9999972851643"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-2DA4DE35-1916-43E9-99AE-15D5CC4689D5" id="sid-2DA4DE35-1916-43E9-99AE-15D5CC4689D5_gui">
+            <omgdi:waypoint x="843.2019196684208" y="228.0000015537087"/>
+            <omgdi:waypoint x="1014.4488886101303" y="228.0000116098543"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-623BCB9B-B079-402A-BAE5-88E1E7C0CB3D" id="sid-623BCB9B-B079-402A-BAE5-88E1E7C0CB3D_gui">
+            <omgdi:waypoint x="779.2019196684207" y="276.999997795433"/>
+            <omgdi:waypoint x="779.2019196684207" y="297.0297271721535"/>
+         </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+      <bpmndi:BPMNLabelStyle id="sid-061f1134-1f65-4138-be6f-1854ab4b36cc">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="11.0"/>
+      </bpmndi:BPMNLabelStyle>
+      <bpmndi:BPMNLabelStyle id="sid-4f1fdba3-4dcf-436c-865b-59798b503238">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="12.0"/>
+      </bpmndi:BPMNLabelStyle>
+   </bpmndi:BPMNDiagram>
+</definitions>

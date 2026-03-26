@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:caseagile="http://caseagile.com/schema/BPMN/20170414/MODEL" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="Signavio Process Editor, http://www.signavio.com" exporterVersion="26.10.0-20260311103619+6e2d3ac" expressionLanguage="https://www.ecma-international.org/publications/standards/Ecma-334.htm" id="_94d7611c-a5a3-4295-8cd6-113b7d0abe1e" name="M-100-170_Process Goods Receipt from Production" targetNamespace="http://caseagile.com/schema/BPMN/20170414/MODEL" typeLanguage="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <collaboration id="sid-6d3b212c-2b73-4210-8540-dbdd5a073266">
+      <extensionElements>
+         <signavio:signavioDiagramMetaData metaKey="meta-processdescription" metaValue="When a material has been produced in a production/process run, a Goods Receipt for the order must be posted. A Goods Receipt is the physical acceptance of an item into a stocking location. In a repetitive manufacturing environment, this may be the final backflushing point (milestone). "/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvedby" metaValue="[&quot;Shilpa Chandra&quot;]"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalstatus" metaValue="ci1710756720720143051910"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvaldate" metaValue="26/08/24"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalevidence" metaValue="[{&quot;label&quot;:&quot;Approval Evidence FTS IP&quot;,&quot;url&quot;:&quot;https://intel.sharepoint.com/:u:/r/sites/inteldeloitteiao/Shared Documents/General/Implementation/08. FTS - Intel Products/03. Final Deliverables/Build/Signavio Flows/Process Flow Approval evidence/Approval Evidence IP R3Sprint6.msg?csf=1&amp;web=1&amp;e=wRHqp9&quot;}]"/>
+         <signavio:signavioDiagramMetaData metaKey="revisionid" metaValue="ffeb0564f6874f3fb7bcd5c830ea9e46"/>
+      </extensionElements>
+      <participant id="sid-4226853B-08B0-4364-A84C-D673312EA4CE" name="Intel" processRef="sid-C34BD68D-1F25-43D1-83FA-F1FD5C40E1E6">
+         <extensionElements>
+            <signavio:signavioDictionaryLink propertyId="name">
+               <signavio:dictionaryLink>/glossary/e667553ad81e450aa194d3b00f6ba515</signavio:dictionaryLink>
+            </signavio:signavioDictionaryLink>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </participant>
+   </collaboration>
+   <process id="sid-C34BD68D-1F25-43D1-83FA-F1FD5C40E1E6" isClosed="false" isExecutable="false" name="Intel" processType="None">
+      <extensionElements/>
+      <laneSet id="sid-caf203eb-366e-4521-9f86-07de528532ff">
+         <lane id="sid-885194CE-BE4A-45C0-9CF5-EFAEB54F73A8">
+            <extensionElements>
+               <signavio:signavioMetaData metaKey="bgcolor" metaValue=""/>
+               <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            </extensionElements>
+            <flowNodeRef>sid-96AF49A1-F6CE-4136-9A38-034978BE7A95</flowNodeRef>
+            <flowNodeRef>sid-716FE24D-26A9-4A99-8F15-87064E2B5263</flowNodeRef>
+            <flowNodeRef>sid-EA475F9F-FD39-4815-9DBF-BE9FAE2BC377</flowNodeRef>
+         </lane>
+      </laneSet>
+      <startEvent id="sid-96AF49A1-F6CE-4136-9A38-034978BE7A95" name="Request Send to Process &#10;Goods Receipt from Production ">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <outgoing>sid-8F9E6320-BDD7-4A1A-B5EA-3B5140F63496</outgoing>
+      </startEvent>
+      <subProcess completionQuantity="1" id="sid-716FE24D-26A9-4A99-8F15-87064E2B5263" isForCompensation="false" name="M-100-080A Execute Production Operations (IP)" startQuantity="1" triggeredByEvent="false">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="entry" metaValue="/model/adb1713d1f0b4e0d9a7f2936a3642e71"/>
+         </extensionElements>
+         <incoming>sid-8F9E6320-BDD7-4A1A-B5EA-3B5140F63496</incoming>
+         <outgoing>sid-F6F4AE25-7CBC-43CF-9846-0E94CFB1AF45</outgoing>
+      </subProcess>
+      <endEvent id="sid-EA475F9F-FD39-4815-9DBF-BE9FAE2BC377" name="Goods Receipt &#10;Processed from Production ">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <incoming>sid-F6F4AE25-7CBC-43CF-9846-0E94CFB1AF45</incoming>
+      </endEvent>
+      <sequenceFlow id="sid-F6F4AE25-7CBC-43CF-9846-0E94CFB1AF45" name="" sourceRef="sid-716FE24D-26A9-4A99-8F15-87064E2B5263" targetRef="sid-EA475F9F-FD39-4815-9DBF-BE9FAE2BC377">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-8F9E6320-BDD7-4A1A-B5EA-3B5140F63496" name="" sourceRef="sid-96AF49A1-F6CE-4136-9A38-034978BE7A95" targetRef="sid-716FE24D-26A9-4A99-8F15-87064E2B5263">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <textAnnotation id="sid-5142449E-CE8F-4199-A6C9-1C1383926255" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>Process Tower: FTS Forecast To Stock (IP)
+Process Group: M Mfg. Schedule and Execution (IP)
+Process: M-100-170 Process Goods Receipt from Production (IP)</text>
+      </textAnnotation>
+   </process>
+   <bpmndi:BPMNDiagram id="sid-24132b81-e07b-4613-af68-ea4e6bee3540" name="M-100-170_Process Goods Receipt from Production">
+      <bpmndi:BPMNPlane bpmnElement="sid-6d3b212c-2b73-4210-8540-dbdd5a073266" id="sid-4396b17d-cb16-43e9-a56a-73af276602ee">
+         <bpmndi:BPMNShape bpmnElement="sid-4226853B-08B0-4364-A84C-D673312EA4CE" id="sid-4226853B-08B0-4364-A84C-D673312EA4CE_gui" isHorizontal="true">
+            <omgdc:Bounds height="250.0" width="600.0" x="149.9999988824129" y="145.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-629e44a4-05b9-4177-99f1-ebf5879004c3">
+               <omgdc:Bounds height="23.914283752441406" width="12.0" x="154.9999988824129" y="258.0428581237793"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-885194CE-BE4A-45C0-9CF5-EFAEB54F73A8" id="sid-885194CE-BE4A-45C0-9CF5-EFAEB54F73A8_gui" isHorizontal="true">
+            <omgdc:Bounds height="250.0" width="570.0" x="179.9999988824129" y="145.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-96AF49A1-F6CE-4136-9A38-034978BE7A95" id="sid-96AF49A1-F6CE-4136-9A38-034978BE7A95_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="278.1021903733015" y="244.117659092155"/>
+            <bpmndi:BPMNLabel labelStyle="sid-d96fe5a1-0b93-4ea7-ab9a-fd45f5096329">
+               <omgdc:Bounds height="22.0" width="155.57142639160156" x="215.3164771775007" y="276.117659092155"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-716FE24D-26A9-4A99-8F15-87064E2B5263" id="sid-716FE24D-26A9-4A99-8F15-87064E2B5263_gui" isExpanded="false">
+            <omgdc:Bounds height="80.0" width="100.07" x="399.99999646445315" y="219.117659092155"/>
+            <bpmndi:BPMNLabel labelStyle="sid-629e44a4-05b9-4177-99f1-ebf5879004c3">
+               <omgdc:Bounds height="48.0" width="82.54285430908203" x="408.79856900473635" y="233.117659092155"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-EA475F9F-FD39-4815-9DBF-BE9FAE2BC377" id="sid-EA475F9F-FD39-4815-9DBF-BE9FAE2BC377_gui">
+            <omgdc:Bounds height="28.0" width="28.0" x="591.9678007070994" y="245.117659092155"/>
+            <bpmndi:BPMNLabel labelStyle="sid-d96fe5a1-0b93-4ea7-ab9a-fd45f5096329">
+               <omgdc:Bounds height="22.0" width="133.64999389648438" x="539.1428037588572" y="275.117659092155"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-5142449E-CE8F-4199-A6C9-1C1383926255" id="sid-5142449E-CE8F-4199-A6C9-1C1383926255_gui">
+            <omgdc:Bounds height="50.0" width="435.93749907612806" x="146.41287393949784" y="55.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge bpmnElement="sid-F6F4AE25-7CBC-43CF-9846-0E94CFB1AF45" id="sid-F6F4AE25-7CBC-43CF-9846-0E94CFB1AF45_gui">
+            <omgdi:waypoint x="500.06999646445314" y="259.117659092155"/>
+            <omgdi:waypoint x="591.9678007070994" y="259.117659092155"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-8F9E6320-BDD7-4A1A-B5EA-3B5140F63496" id="sid-8F9E6320-BDD7-4A1A-B5EA-3B5140F63496_gui">
+            <omgdi:waypoint x="308.1021903733015" y="259.117659092155"/>
+            <omgdi:waypoint x="399.99999646445315" y="259.117659092155"/>
+         </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+      <bpmndi:BPMNLabelStyle id="sid-d96fe5a1-0b93-4ea7-ab9a-fd45f5096329">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="11.0"/>
+      </bpmndi:BPMNLabelStyle>
+      <bpmndi:BPMNLabelStyle id="sid-629e44a4-05b9-4177-99f1-ebf5879004c3">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="12.0"/>
+      </bpmndi:BPMNLabelStyle>
+   </bpmndi:BPMNDiagram>
+</definitions>

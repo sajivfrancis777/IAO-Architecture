@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="Signavio Process Editor, http://www.signavio.com" exporterVersion="26.10.0-20260311103619+6e2d3ac" expressionLanguage="http://www.w3.org/TR/XPath" id="sid-d2c72f53-0245-4b71-8d5b-fe46cc605059" targetNamespace="http://www.signavio.com" typeLanguage="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <collaboration id="sid-2de71a46-4a07-4cc9-b3f9-9a46d1d2e8de">
+      <extensionElements>
+         <signavio:signavioDiagramMetaData metaKey="meta-processdescription" metaValue="Cost Components give the break up of standard cost of a material into various components for the purpose of analysis and reporting"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvedby" metaValue="[&quot;Josh Philpot&quot;]"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalstatus" metaValue="ci1710756720720143051910"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvaldate" metaValue="18/04/24"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalcomments" metaValue="Approved on Signavio"/>
+         <signavio:signavioDiagramMetaData metaKey="revisionid" metaValue="90b8343500884db6a36424288af29836"/>
+      </extensionElements>
+      <participant id="sid-41B90223-8944-42CD-8E2E-6F5B4E838E75" name="Intel" processRef="sid-729222B9-5A51-4ABE-BE4A-714188F328BE">
+         <extensionElements>
+            <signavio:signavioDictionaryLink propertyId="name">
+               <signavio:dictionaryLink>/glossary/e667553ad81e450aa194d3b00f6ba515</signavio:dictionaryLink>
+            </signavio:signavioDictionaryLink>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </participant>
+   </collaboration>
+   <process id="sid-729222B9-5A51-4ABE-BE4A-714188F328BE" isClosed="false" isExecutable="false" name="Intel" processType="None">
+      <extensionElements/>
+      <laneSet id="sid-41040d8f-91a3-4ddc-bc0e-c0c30f0f6fa2">
+         <lane id="sid-2A85D50A-AF08-4B74-A660-6C0B88026636">
+            <extensionElements>
+               <signavio:signavioMetaData metaKey="bgcolor" metaValue=""/>
+               <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            </extensionElements>
+            <flowNodeRef>sid-9BF09B14-E3BB-4F98-ADA4-FAB11977D196</flowNodeRef>
+            <flowNodeRef>sid-6A8A2EBE-B7AA-49A2-8E89-E460E0628BEF</flowNodeRef>
+            <flowNodeRef>sid-2CC784AD-3A71-4E50-858B-45ECDED4F837</flowNodeRef>
+         </lane>
+      </laneSet>
+      <startEvent id="sid-9BF09B14-E3BB-4F98-ADA4-FAB11977D196" name="Update Cost Components for &#10;Standard costing run Initiated">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <outgoing>sid-212CF2B1-A36F-42EE-9614-9900BFC20E92</outgoing>
+      </startEvent>
+      <subProcess completionQuantity="1" id="sid-6A8A2EBE-B7AA-49A2-8E89-E460E0628BEF" isForCompensation="false" name="DS-020-010A Update Cost Components for Standard costing run._Global" startQuantity="1" triggeredByEvent="false">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="entry" metaValue="/model/e29a830c5a3142a4bbb184688471041d"/>
+         </extensionElements>
+         <incoming>sid-212CF2B1-A36F-42EE-9614-9900BFC20E92</incoming>
+         <outgoing>sid-531914C9-FCC8-4672-8D1A-1377BBD7E3E0</outgoing>
+      </subProcess>
+      <endEvent id="sid-2CC784AD-3A71-4E50-858B-45ECDED4F837" name="Update Cost Components for &#10;Standard costing run Completed">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <incoming>sid-531914C9-FCC8-4672-8D1A-1377BBD7E3E0</incoming>
+      </endEvent>
+      <sequenceFlow id="sid-212CF2B1-A36F-42EE-9614-9900BFC20E92" name="" sourceRef="sid-9BF09B14-E3BB-4F98-ADA4-FAB11977D196" targetRef="sid-6A8A2EBE-B7AA-49A2-8E89-E460E0628BEF">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-531914C9-FCC8-4672-8D1A-1377BBD7E3E0" name="" sourceRef="sid-6A8A2EBE-B7AA-49A2-8E89-E460E0628BEF" targetRef="sid-2CC784AD-3A71-4E50-858B-45ECDED4F837">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <textAnnotation id="sid-E7292F15-A3D6-41BB-B76E-7AD2BB0E5013" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>Process Tower :  Finance Plan to Report
+Process Group: DS Provide Decision Support
+Process: DS-020-010D Update Cost Components for Standard costing run._APJ Cluster 01</text>
+      </textAnnotation>
+      <textAnnotation id="sid-16C63969-1853-438E-8725-A7F417155303" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>This flow is same as global flow</text>
+      </textAnnotation>
+   </process>
+   <bpmndi:BPMNDiagram id="sid-544ec1ac-6bd9-497d-91d5-26d44b520418">
+      <bpmndi:BPMNPlane bpmnElement="sid-2de71a46-4a07-4cc9-b3f9-9a46d1d2e8de" id="sid-bd269402-b35d-43ee-845f-4144b0ed3de0">
+         <bpmndi:BPMNShape bpmnElement="sid-41B90223-8944-42CD-8E2E-6F5B4E838E75" id="sid-41B90223-8944-42CD-8E2E-6F5B4E838E75_gui" isHorizontal="true">
+            <omgdc:Bounds height="250.0" width="600.0" x="0.0" y="173.973"/>
+            <bpmndi:BPMNLabel labelStyle="sid-fd1a94ae-1a84-45c0-8212-cce0b0a57cdc">
+               <omgdc:Bounds height="23.914283752441406" width="12.000000000000002" x="4.999999999999998" y="287.0158581237793"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-2A85D50A-AF08-4B74-A660-6C0B88026636" id="sid-2A85D50A-AF08-4B74-A660-6C0B88026636_gui" isHorizontal="true">
+            <omgdc:Bounds height="250.0" width="570.0" x="30.0" y="173.973"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-9BF09B14-E3BB-4F98-ADA4-FAB11977D196" id="sid-9BF09B14-E3BB-4F98-ADA4-FAB11977D196_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="117.27626709551812" y="283.97300562491336"/>
+            <bpmndi:BPMNLabel labelStyle="sid-0de1677b-a651-492c-a378-8714da9b1be7">
+               <omgdc:Bounds height="22.0" width="149.91429138183594" x="57.31912140460015" y="315.97300562491336"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-6A8A2EBE-B7AA-49A2-8E89-E460E0628BEF" id="sid-6A8A2EBE-B7AA-49A2-8E89-E460E0628BEF_gui" isExpanded="false">
+            <omgdc:Bounds height="99.00000028731645" width="115.0700002268288" x="239.00778246994278" y="249.9729997126835"/>
+            <bpmndi:BPMNLabel labelStyle="sid-fd1a94ae-1a84-45c0-8212-cce0b0a57cdc">
+               <omgdc:Bounds height="60.0" width="93.34286117553708" x="249.91135264511368" y="267.47299971268353"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-2CC784AD-3A71-4E50-858B-45ECDED4F837" id="sid-2CC784AD-3A71-4E50-858B-45ECDED4F837_gui">
+            <omgdc:Bounds height="28.0" width="28.0" x="448.56031242110936" y="284.97300562491336"/>
+            <bpmndi:BPMNLabel labelStyle="sid-0de1677b-a651-492c-a378-8714da9b1be7">
+               <omgdc:Bounds height="22.0" width="162.64285278320307" x="381.2388860295078" y="314.97300562491336"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-E7292F15-A3D6-41BB-B76E-7AD2BB0E5013" id="sid-E7292F15-A3D6-41BB-B76E-7AD2BB0E5013_gui">
+            <omgdc:Bounds height="57.946" width="589.5233922749273" x="20.0" y="20.000000000000014"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-16C63969-1853-438E-8725-A7F417155303" id="sid-16C63969-1853-438E-8725-A7F417155303_gui">
+            <omgdc:Bounds height="32.99999974292736" width="241.00000213219073" x="19.999999999999993" y="103.50000012853631"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge bpmnElement="sid-212CF2B1-A36F-42EE-9614-9900BFC20E92" id="sid-212CF2B1-A36F-42EE-9614-9900BFC20E92_gui">
+            <omgdi:waypoint x="147.2762670955181" y="299.018651424201"/>
+            <omgdi:waypoint x="239.00778246994278" y="299.29779531347623"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-531914C9-FCC8-4672-8D1A-1377BBD7E3E0" id="sid-531914C9-FCC8-4672-8D1A-1377BBD7E3E0_gui">
+            <omgdi:waypoint x="354.0777826967716" y="299.29980118347316"/>
+            <omgdi:waypoint x="448.56031242110936" y="299.0151795844575"/>
+         </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+      <bpmndi:BPMNLabelStyle id="sid-0de1677b-a651-492c-a378-8714da9b1be7">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="11.0"/>
+      </bpmndi:BPMNLabelStyle>
+      <bpmndi:BPMNLabelStyle id="sid-fd1a94ae-1a84-45c0-8212-cce0b0a57cdc">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="12.0"/>
+      </bpmndi:BPMNLabelStyle>
+   </bpmndi:BPMNDiagram>
+</definitions>

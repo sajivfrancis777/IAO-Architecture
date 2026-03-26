@@ -1,0 +1,155 @@
+# IAO Architecture Pipeline — SharePoint → GitHub reverse sync
+#
+# Triggered via webhook (Power Automate sends dispatch event when
+# an architect updates an xlsx file on the SharePoint document library).
+#
+# Flow:
+#   1. Power Automate detects file change in SharePoint
+#   2. Sends repository_dispatch to this workflow with changed file metadata
+#   3. This workflow downloads the changed file into the correct tower path
+#   4. Commits it to main, which triggers the forward generate-architecture workflow
+
+name: SharePoint Reverse Sync
+
+on:
+  repository_dispatch:
+    types: [sharepoint-file-updated]
+  workflow_dispatch:
+    inputs:
+      tower:
+        description: "Tower shortcode"
+        required: true
+      capability:
+        description: "Capability ID"
+        required: true
+      file_name:
+        description: "File name to pull from SharePoint"
+        required: true
+
+permissions:
+  contents: write
+
+env:
+  PYTHON_VERSION: "3.12"
+
+jobs:
+  reverse-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install requests python-dotenv
+
+      - name: Parse event payload
+        id: parse
+        run: |
+          if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
+            echo "tower=${{ github.event.client_payload.tower }}" >> "$GITHUB_OUTPUT"
+            echo "capability=${{ github.event.client_payload.capability }}" >> "$GITHUB_OUTPUT"
+            echo "file_name=${{ github.event.client_payload.file_name }}" >> "$GITHUB_OUTPUT"
+            echo "sp_path=${{ github.event.client_payload.sp_path }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "tower=${{ github.event.inputs.tower }}" >> "$GITHUB_OUTPUT"
+            echo "capability=${{ github.event.inputs.capability }}" >> "$GITHUB_OUTPUT"
+            echo "file_name=${{ github.event.inputs.file_name }}" >> "$GITHUB_OUTPUT"
+            echo "sp_path=" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Download file from SharePoint
+        env:
+          SP_TENANT_ID: ${{ secrets.SP_TENANT_ID }}
+          SP_CLIENT_ID: ${{ secrets.SP_CLIENT_ID }}
+          SP_CLIENT_SECRET: ${{ secrets.SP_CLIENT_SECRET }}
+          SP_SITE_URL: ${{ secrets.SP_SITE_URL }}
+          SP_DOC_LIBRARY: ${{ secrets.SP_DOC_LIBRARY }}
+          SP_TARGET_FOLDER: ${{ secrets.SP_TARGET_FOLDER }}
+        run: |
+          python -c "
+          import os, sys, requests
+          from pathlib import Path
+
+          tenant = os.environ['SP_TENANT_ID']
+          client_id = os.environ['SP_CLIENT_ID']
+          client_secret = os.environ['SP_CLIENT_SECRET']
+          site_url = os.environ['SP_SITE_URL']
+          doc_lib = os.environ.get('SP_DOC_LIBRARY', 'Shared Documents')
+          target_folder = os.environ.get('SP_TARGET_FOLDER', 'Architecture/SAD')
+
+          tower = '${{ steps.parse.outputs.tower }}'
+          cap = '${{ steps.parse.outputs.capability }}'
+          fname = '${{ steps.parse.outputs.file_name }}'
+
+          # Get token
+          r = requests.post(
+              f'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token',
+              data={'grant_type': 'client_credentials', 'client_id': client_id,
+                    'client_secret': client_secret,
+                    'scope': 'https://graph.microsoft.com/.default'},
+              timeout=30)
+          r.raise_for_status()
+          token = r.json()['access_token']
+          headers = {'Authorization': f'Bearer {token}'}
+
+          # Resolve site
+          from urllib.parse import urlparse
+          parsed = urlparse(site_url)
+          host = parsed.hostname
+          site_path = parsed.path.rstrip('/')
+          r = requests.get(f'https://graph.microsoft.com/v1.0/sites/{host}:{site_path}',
+                           headers=headers, timeout=30)
+          r.raise_for_status()
+          site_id = r.json()['id']
+
+          # Find drive
+          r = requests.get(f'https://graph.microsoft.com/v1.0/sites/{site_id}/drives',
+                           headers=headers, timeout=30)
+          r.raise_for_status()
+          drive_id = next(d['id'] for d in r.json()['value'] if d['name'] == doc_lib)
+
+          # Download file
+          sp_file_path = f'{target_folder}/{tower}/input/{fname}'
+          r = requests.get(
+              f'https://graph.microsoft.com/v1.0/drives/{drive_id}/root:/{sp_file_path}:/content',
+              headers=headers, timeout=60)
+          r.raise_for_status()
+
+          # Find local target path
+          towers_dir = Path('towers')
+          target = None
+          for d in towers_dir.rglob(cap):
+              if d.is_dir() and (d / 'input').is_dir():
+                  target = d / 'input' / 'data' / fname
+                  break
+          if not target:
+              print(f'ERROR: Could not find local dir for {tower}/{cap}')
+              sys.exit(1)
+
+          target.parent.mkdir(parents=True, exist_ok=True)
+          target.write_bytes(r.content)
+          print(f'Downloaded {fname} to {target}')
+          "
+
+      - name: Commit updated input file
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add towers/
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            TOWER="${{ steps.parse.outputs.tower }}"
+            CAP="${{ steps.parse.outputs.capability }}"
+            git commit -m "sync: update ${TOWER}/${CAP} input from SharePoint"
+            git push
+          fi
+          # The push triggers generate-architecture.yml via paths: towers/**/input/**

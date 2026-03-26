@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="Signavio Process Editor, http://www.signavio.com" exporterVersion="26.10.0-20260311103619+6e2d3ac" expressionLanguage="http://www.w3.org/TR/XPath" id="sid-665c244e-2476-4e33-b78b-682bcb2fb9e3" targetNamespace="http://www.signavio.com" typeLanguage="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <collaboration id="sid-673cc3b2-fd3d-41f7-a976-5579c632660e">
+      <extensionElements>
+         <signavio:signavioDiagramMetaData metaKey="meta-processdescription" metaValue="This activity is usually outsource to other financial institutions then underwriters on using international and national settlement networks. Usually, two institutions are involved, one for the settlement of securities and one for the settlement of the capital payment in the appropriate accounts.  Usually, there is no delivery of the physical certificate because settlement networks maintain book-based positions."/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvedby" metaValue="[&quot;Greeshma Kaza&quot;]"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalstatus" metaValue="ci1710756720720143051910"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvaldate" metaValue="05/11/24"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalcomments" metaValue="Approved via email"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalevidence" metaValue="[{&quot;label&quot;:&quot;Approval Email&quot;,&quot;url&quot;:&quot;https://intel.sharepoint.com/:u:/r/sites/inteldeloitteiao/Shared Documents/General/Implementation/03. FPR/3 Final Deliverables/05. Process Approval Evidence/Team 09 - Treasury %26 Cash Management/MR-20 Manage Capital Structure/MR-020-090.msg?csf=1&amp;web=1&amp;e=vucYIC&quot;}]"/>
+         <signavio:signavioDiagramMetaData metaKey="revisionid" metaValue="08ed39675fba4a67a5222430da9026f3"/>
+      </extensionElements>
+      <participant id="sid-41B90223-8944-42CD-8E2E-6F5B4E838E75" name="Intel" processRef="sid-729222B9-5A51-4ABE-BE4A-714188F328BE">
+         <extensionElements>
+            <signavio:signavioDictionaryLink propertyId="name">
+               <signavio:dictionaryLink>/glossary/e667553ad81e450aa194d3b00f6ba515</signavio:dictionaryLink>
+            </signavio:signavioDictionaryLink>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </participant>
+   </collaboration>
+   <process id="sid-729222B9-5A51-4ABE-BE4A-714188F328BE" isClosed="false" isExecutable="false" name="Intel" processType="None">
+      <extensionElements/>
+      <laneSet id="sid-6de89a96-a495-4eee-94ce-e49517eda2af">
+         <lane id="sid-2A85D50A-AF08-4B74-A660-6C0B88026636">
+            <extensionElements>
+               <signavio:signavioMetaData metaKey="bgcolor" metaValue=""/>
+               <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            </extensionElements>
+            <flowNodeRef>sid-9BF09B14-E3BB-4F98-ADA4-FAB11977D196</flowNodeRef>
+            <flowNodeRef>sid-2CC784AD-3A71-4E50-858B-45ECDED4F837</flowNodeRef>
+            <flowNodeRef>sid-6A8A2EBE-B7AA-49A2-8E89-E460E0628BEF</flowNodeRef>
+         </lane>
+      </laneSet>
+      <startEvent id="sid-9BF09B14-E3BB-4F98-ADA4-FAB11977D196" name="Execute/Settle &#10;Transactions Initiated">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <outgoing>sid-AFF875C3-73C2-4623-97C4-365B43E7BAFC</outgoing>
+      </startEvent>
+      <endEvent id="sid-2CC784AD-3A71-4E50-858B-45ECDED4F837" name="Execute/Settle &#10;Transactions Completed">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <incoming>sid-DF8B19ED-B63E-4FB1-98ED-6479EBBD8555</incoming>
+      </endEvent>
+      <subProcess completionQuantity="1" id="sid-6A8A2EBE-B7AA-49A2-8E89-E460E0628BEF" isForCompensation="false" name="MR-020-090V Execute/Settle Transactions - TRM/TPR_Global" startQuantity="1" triggeredByEvent="false">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="entry" metaValue="/model/f2a62f471c7540d59e719404065be497"/>
+         </extensionElements>
+         <incoming>sid-AFF875C3-73C2-4623-97C4-365B43E7BAFC</incoming>
+         <outgoing>sid-DF8B19ED-B63E-4FB1-98ED-6479EBBD8555</outgoing>
+      </subProcess>
+      <sequenceFlow id="sid-AFF875C3-73C2-4623-97C4-365B43E7BAFC" name="" sourceRef="sid-9BF09B14-E3BB-4F98-ADA4-FAB11977D196" targetRef="sid-6A8A2EBE-B7AA-49A2-8E89-E460E0628BEF">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-DF8B19ED-B63E-4FB1-98ED-6479EBBD8555" name="" sourceRef="sid-6A8A2EBE-B7AA-49A2-8E89-E460E0628BEF" targetRef="sid-2CC784AD-3A71-4E50-858B-45ECDED4F837">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <textAnnotation id="sid-5142449E-CE8F-4199-A6C9-1C1383926255" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>Process Tower: Finance Plan To Report
+Process Group: MR Manage Capital and Risk
+Process: MR-020-090X Execute/Settle Transactions - TRM/TPR_EMEA Cluster 01</text>
+      </textAnnotation>
+      <textAnnotation id="sid-16C63969-1853-438E-8725-A7F417155303" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>This flow is same as global flow</text>
+      </textAnnotation>
+   </process>
+   <bpmndi:BPMNDiagram id="sid-fbd91bae-ca06-478c-bb2d-784bb1844f0c">
+      <bpmndi:BPMNPlane bpmnElement="sid-673cc3b2-fd3d-41f7-a976-5579c632660e" id="sid-ccb993b5-500d-4c71-a5b5-f8c45f90b8ac">
+         <bpmndi:BPMNShape bpmnElement="sid-41B90223-8944-42CD-8E2E-6F5B4E838E75" id="sid-41B90223-8944-42CD-8E2E-6F5B4E838E75_gui" isHorizontal="true">
+            <omgdc:Bounds height="250.0" width="600.0" x="0.0" y="175.0"/>
+            <bpmndi:BPMNLabel labelStyle="sid-5b6871ae-54a9-49bc-94f6-36dbe6b80e32">
+               <omgdc:Bounds height="23.914283752441406" width="12.000000000000002" x="4.999999999999998" y="288.0428581237793"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-2A85D50A-AF08-4B74-A660-6C0B88026636" id="sid-2A85D50A-AF08-4B74-A660-6C0B88026636_gui" isHorizontal="true">
+            <omgdc:Bounds height="250.0" width="570.0" x="30.0" y="175.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-9BF09B14-E3BB-4F98-ADA4-FAB11977D196" id="sid-9BF09B14-E3BB-4F98-ADA4-FAB11977D196_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="117.27626709551812" y="285.00000562491334"/>
+            <bpmndi:BPMNLabel labelStyle="sid-c7722f06-207b-423d-b4e3-582cc9dcbabf">
+               <omgdc:Bounds height="22.0" width="107.48571777343749" x="78.53340820879937" y="317.00000562491334"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-2CC784AD-3A71-4E50-858B-45ECDED4F837" id="sid-2CC784AD-3A71-4E50-858B-45ECDED4F837_gui">
+            <omgdc:Bounds height="28.0" width="28.0" x="448.56031242110936" y="286.00000562491334"/>
+            <bpmndi:BPMNLabel labelStyle="sid-c7722f06-207b-423d-b4e3-582cc9dcbabf">
+               <omgdc:Bounds height="22.0" width="120.2142944335937" x="402.4531652043125" y="316.00000562491334"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-6A8A2EBE-B7AA-49A2-8E89-E460E0628BEF" id="sid-6A8A2EBE-B7AA-49A2-8E89-E460E0628BEF_gui" isExpanded="false">
+            <omgdc:Bounds height="80.00000000000006" width="128.0700006428472" x="235.999998241663" y="259.99999806284904"/>
+            <bpmndi:BPMNLabel labelStyle="sid-5b6871ae-54a9-49bc-94f6-36dbe6b80e32">
+               <omgdc:Bounds height="48.0" width="88.71427917480466" x="255.72286048531535" y="273.99999806284904"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-5142449E-CE8F-4199-A6C9-1C1383926255" id="sid-5142449E-CE8F-4199-A6C9-1C1383926255_gui">
+            <omgdc:Bounds height="50.0" width="566.3722863820859" x="20.0" y="35.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-16C63969-1853-438E-8725-A7F417155303" id="sid-16C63969-1853-438E-8725-A7F417155303_gui">
+            <omgdc:Bounds height="32.99999974292736" width="241.00000213219073" x="19.999999999999993" y="113.50000012853631"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge bpmnElement="sid-AFF875C3-73C2-4623-97C4-365B43E7BAFC" id="sid-AFF875C3-73C2-4623-97C4-365B43E7BAFC_gui">
+            <omgdi:waypoint x="147.2762670955181" y="300.000004948758"/>
+            <omgdi:waypoint x="235.999998241663" y="300.00000094935626"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-DF8B19ED-B63E-4FB1-98ED-6479EBBD8555" id="sid-DF8B19ED-B63E-4FB1-98ED-6479EBBD8555_gui">
+            <omgdi:waypoint x="364.0699988845102" y="300.0000010423036"/>
+            <omgdi:waypoint x="448.56031242110936" y="300.0000049735139"/>
+         </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+      <bpmndi:BPMNLabelStyle id="sid-c7722f06-207b-423d-b4e3-582cc9dcbabf">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="11.0"/>
+      </bpmndi:BPMNLabelStyle>
+      <bpmndi:BPMNLabelStyle id="sid-5b6871ae-54a9-49bc-94f6-36dbe6b80e32">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="12.0"/>
+      </bpmndi:BPMNLabelStyle>
+   </bpmndi:BPMNDiagram>
+</definitions>

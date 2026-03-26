@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="Signavio Process Editor, http://www.signavio.com" exporterVersion="26.10.0-20260311103619+6e2d3ac" expressionLanguage="http://www.w3.org/TR/XPath" id="sid-9ce1a02f-0887-4861-b334-b8fbf50ce530" targetNamespace="http://www.signavio.com" typeLanguage="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <collaboration id="sid-eae7dded-b911-4038-8329-f9d598e2b61f">
+      <extensionElements>
+         <signavio:signavioDiagramMetaData metaKey="meta-processdescription" metaValue="This process describes the changes/updates to Asset Master Data from requests received via Service now/Manual/S4 Asset management tool"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvedby" metaValue="[&quot;Rea M Meyer&quot;,&quot;Jamie Sutton&quot;]"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalstatus" metaValue="ci1710756720720143051910"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvaldate" metaValue="26/04/24"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalcomments" metaValue="Global Flow Approved on Signavio"/>
+         <signavio:signavioDiagramMetaData metaKey="revisionid" metaValue="b5c06fb0d3d14cb9820e87ef35eafe58"/>
+      </extensionElements>
+      <participant id="sid-78AAD310-4F85-4D61-8DF3-46CEBF201F89" name="Intel" processRef="sid-DAEB1817-012E-44A0-A628-CB31846A1DBF">
+         <extensionElements>
+            <signavio:signavioDictionaryLink propertyId="name">
+               <signavio:dictionaryLink>/glossary/e667553ad81e450aa194d3b00f6ba515</signavio:dictionaryLink>
+            </signavio:signavioDictionaryLink>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </participant>
+   </collaboration>
+   <process id="sid-DAEB1817-012E-44A0-A628-CB31846A1DBF" isClosed="false" isExecutable="false" name="Intel" processType="None">
+      <extensionElements/>
+      <laneSet id="sid-5541403e-93e8-4399-a572-a7cd9b6632d1">
+         <lane id="sid-78D3AAFE-7D17-4E55-A976-3A5C46538450">
+            <extensionElements>
+               <signavio:signavioMetaData metaKey="bgcolor" metaValue=""/>
+               <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            </extensionElements>
+            <flowNodeRef>sid-96AF49A1-F6CE-4136-9A38-034978BE7A95</flowNodeRef>
+            <flowNodeRef>sid-716FE24D-26A9-4A99-8F15-87064E2B5263</flowNodeRef>
+            <flowNodeRef>sid-EA475F9F-FD39-4815-9DBF-BE9FAE2BC377</flowNodeRef>
+         </lane>
+      </laneSet>
+      <startEvent id="sid-96AF49A1-F6CE-4136-9A38-034978BE7A95" name="Asset Master&#10;Process Change Initiated">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <outgoing>sid-8F9E6320-BDD7-4A1A-B5EA-3B5140F63496</outgoing>
+      </startEvent>
+      <subProcess completionQuantity="1" id="sid-716FE24D-26A9-4A99-8F15-87064E2B5263" isForCompensation="false" name="DC-040-070 Process Changes to Asset Master Data_Global" startQuantity="1" triggeredByEvent="false">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="entry" metaValue="/model/4a346d16f67f407cacee3dc388cd63eb"/>
+         </extensionElements>
+         <incoming>sid-8F9E6320-BDD7-4A1A-B5EA-3B5140F63496</incoming>
+         <outgoing>sid-F6F4AE25-7CBC-43CF-9846-0E94CFB1AF45</outgoing>
+      </subProcess>
+      <endEvent id="sid-EA475F9F-FD39-4815-9DBF-BE9FAE2BC377" name="Asset Master &#10;Process Change Completed">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <incoming>sid-F6F4AE25-7CBC-43CF-9846-0E94CFB1AF45</incoming>
+      </endEvent>
+      <sequenceFlow id="sid-F6F4AE25-7CBC-43CF-9846-0E94CFB1AF45" name="" sourceRef="sid-716FE24D-26A9-4A99-8F15-87064E2B5263" targetRef="sid-EA475F9F-FD39-4815-9DBF-BE9FAE2BC377">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-8F9E6320-BDD7-4A1A-B5EA-3B5140F63496" name="" sourceRef="sid-96AF49A1-F6CE-4136-9A38-034978BE7A95" targetRef="sid-716FE24D-26A9-4A99-8F15-87064E2B5263">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <textAnnotation id="sid-5142449E-CE8F-4199-A6C9-1C1383926255" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>Process Tower: Finance Plan To Report
+Process Group: DC Manage Accounting and Control Data
+Process: DC-040-070I Process Changes to Asset Master Data_APJ Cluster 04</text>
+      </textAnnotation>
+      <textAnnotation id="sid-7FE6B817-B3AD-4F6D-AE15-D86CF4A0693D" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>This flow is same as global flow</text>
+      </textAnnotation>
+   </process>
+   <bpmndi:BPMNDiagram id="sid-e7556d57-5231-4593-ad3c-a5084c54a009">
+      <bpmndi:BPMNPlane bpmnElement="sid-eae7dded-b911-4038-8329-f9d598e2b61f" id="sid-b9e8eac1-c45e-499a-9e7b-85c9375a3156">
+         <bpmndi:BPMNShape bpmnElement="sid-78AAD310-4F85-4D61-8DF3-46CEBF201F89" id="sid-78AAD310-4F85-4D61-8DF3-46CEBF201F89_gui" isHorizontal="true">
+            <omgdc:Bounds height="171.95273753523242" width="643.8116136592097" x="0.0" y="175.00000000000006"/>
+            <bpmndi:BPMNLabel labelStyle="sid-e7f91856-959d-4a5e-8580-d103c078ebe9">
+               <omgdc:Bounds height="23.914283752441378" width="12.000000000000005" x="4.999629157188478" y="249.01922689139556"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-78D3AAFE-7D17-4E55-A976-3A5C46538450" id="sid-78D3AAFE-7D17-4E55-A976-3A5C46538450_gui" isHorizontal="true">
+            <omgdc:Bounds height="171.95273753523242" width="613.8116136592097" x="30.0" y="175.00000000000006"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-96AF49A1-F6CE-4136-9A38-034978BE7A95" id="sid-96AF49A1-F6CE-4136-9A38-034978BE7A95_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="104.40556585182802" y="231.79795230176038"/>
+            <bpmndi:BPMNLabel labelStyle="sid-fd19e2ef-e338-4c43-bc0e-b288c223c84c">
+               <omgdc:Bounds height="22.0" width="123.0428466796875" x="57.884142511984265" y="263.79795230176035"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-716FE24D-26A9-4A99-8F15-87064E2B5263" id="sid-716FE24D-26A9-4A99-8F15-87064E2B5263_gui" isExpanded="false">
+            <omgdc:Bounds height="79.99999999999997" width="119.07000028731642" x="244.43776160918173" y="206.79795230176038"/>
+            <bpmndi:BPMNLabel labelStyle="sid-e7f91856-959d-4a5e-8580-d103c078ebe9">
+               <omgdc:Bounds height="47.99999999999997" width="107.99999618530273" x="250.014763180837" y="220.79795230176038"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-EA475F9F-FD39-4815-9DBF-BE9FAE2BC377" id="sid-EA475F9F-FD39-4815-9DBF-BE9FAE2BC377_gui">
+            <omgdc:Bounds height="28.0" width="28.0" x="439.405565851828" y="232.79795230176038"/>
+            <bpmndi:BPMNLabel labelStyle="sid-fd19e2ef-e338-4c43-bc0e-b288c223c84c">
+               <omgdc:Bounds height="22.0" width="135.77142333984375" x="385.5198541819061" y="262.79795230176035"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-5142449E-CE8F-4199-A6C9-1C1383926255" id="sid-5142449E-CE8F-4199-A6C9-1C1383926255_gui">
+            <omgdc:Bounds height="50.0" width="562.9375019918995" x="20.000000000000025" y="20.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-7FE6B817-B3AD-4F6D-AE15-D86CF4A0693D" id="sid-7FE6B817-B3AD-4F6D-AE15-D86CF4A0693D_gui">
+            <omgdc:Bounds height="29.999999697561606" width="292.00000290340864" x="20.0" y="111.7979523017604"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge bpmnElement="sid-F6F4AE25-7CBC-43CF-9846-0E94CFB1AF45" id="sid-F6F4AE25-7CBC-43CF-9846-0E94CFB1AF45_gui">
+            <omgdi:waypoint x="363.50776189649815" y="246.79795230176035"/>
+            <omgdi:waypoint x="439.405565851828" y="246.79795230176038"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-8F9E6320-BDD7-4A1A-B5EA-3B5140F63496" id="sid-8F9E6320-BDD7-4A1A-B5EA-3B5140F63496_gui">
+            <omgdi:waypoint x="134.40556585182802" y="246.79795230176038"/>
+            <omgdi:waypoint x="244.43776160918173" y="246.79795230176035"/>
+         </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+      <bpmndi:BPMNLabelStyle id="sid-fd19e2ef-e338-4c43-bc0e-b288c223c84c">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="11.0"/>
+      </bpmndi:BPMNLabelStyle>
+      <bpmndi:BPMNLabelStyle id="sid-e7f91856-959d-4a5e-8580-d103c078ebe9">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="12.0"/>
+      </bpmndi:BPMNLabelStyle>
+   </bpmndi:BPMNDiagram>
+</definitions>

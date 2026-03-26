@@ -1,0 +1,216 @@
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
+    classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
+    classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
+    classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    subgraph LE +++ – Plant 100X   
+        n16[["fa:fa-cog Create Intercompany STR (SFG-01)"]]
+        n17[["fa:fa-cog Create InterCompany STO (SFG-01)"]]
+        n18[["fa:fa-cog Perform GTS Trade Compliance"]]
+        n19[["fa:fa-cog Create Inbound Delivery (S/4) without any preceding doc."]]
+        n20[["fa:fa-cog Perform Goods Receipt (Valuated with Standard Cost from iCost)"]]
+        n21[["fa:fa-cog Check Quantity to be Delivered"]]
+        n22[["fa:fa-cog Perform Outbound Delivery – Full Qty"]]
+        n23[["fa:fa-cog Create Outbound Delivery – Partial Qty (Lot 1)"]]
+        n24[["fa:fa-cog Create Outbound Delivery – Partial Qty (Lot N)"]]
+        n25[["fa:fa-cog Perform ATP Check (unrestricted stock) – S/4"]]
+        n26[["fa:fa-cog Perform GTS Trade Compliance"]]
+        n27[["fa:fa-cog Perform Pick and Pack Updates (IM/EWM - Decentralized"]]
+        n28[["fa:fa-cog Check for Cross-border invoice?"]]
+        n29[["fa:fa-cog Create Export Invoice"]]
+        n30[["fa:fa-cog Create Commercial Invoice (Proforma)"]]
+        n31[["fa:fa-cog Perform GTS (Export Declaration US Only"]]
+        n32[["fa:fa-cog Create Packing list Packing list Addendum"]]
+        n33[["fa:fa-cog Create Sales Invoice (for MY, Vietnam, China"]]
+        n34[["fa:fa-cog Ship (Goods Issue"]]
+        n35[["fa:fa-cog IC Invoice Bill To: LE778"]]
+        n36[["fa:fa-cog Perform AR Posting and Auto Clearing"]]
+        n47(["fa:fa-stop Sales Invoice created"])
+        n48(["fa:fa-stop GTS Trade Completed"])
+        n49(["fa:fa-stop ATP Check Confirmed"])
+        n50(["fa:fa-stop GTS Trade Compliance Completed"])
+        n51(["fa:fa-stop GTS Trade Compliance Check Completed"])
+        n53{{"fa:fa-code-branch Quantity Delivered ?"}}
+        n54{{"fa:fa-code-branch Cross-Border?"}}
+        n55{{"fa:fa-code-branch exclusiveGateway"}}
+        n56{{"fa:fa-code-branch exclusiveGateway"}}
+        n57{{"fa:fa-code-branch exclusiveGateway"}}
+        n58{{"fa:fa-code-branch exclusiveGateway"}}
+        n59{{"fa:fa-code-branch exclusiveGateway"}}
+        n64{{"fa:fa-arrows-alt parallelGateway"}}
+        n65{{"fa:fa-arrows-alt parallelGateway"}}
+        n66{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    subgraph SA S/4 IF LE778 (China)  
+        n1[["fa:fa-cog Perform Repetitive Steps till order confirmation"]]
+        n2[["fa:fa-cog Create Sales Order"]]
+        n3[["fa:fa-cog Create InterCompany STR (SFG-01)"]]
+        n4[["fa:fa-cog Perform GTS Trade Compliance"]]
+        n5[["fa:fa-cog Create InterCompany STO (SFG-01)"]]
+        n6[["fa:fa-cog Perform GTS Trade Compliance"]]
+        n7[["fa:fa-cog Perform AR Posting and Auto Clearing"]]
+        n8[["fa:fa-cog Perform Inbound Delivery (SFG-01) wrt STO"]]
+        n9[["fa:fa-cog Perform Goods Receipt (SFG-01)"]]
+        n10[["fa:fa-cog Perform GTS Trade Compliance"]]
+        n37(["fa:fa-play Initiate IBD"])
+        n39(["fa:fa-stop AR posting Completed"])
+        n40(["fa:fa-stop Goods Received"])
+        n41(["fa:fa-stop Order Confirmed"])
+        n42(["fa:fa-stop GTS Trade Compliance Check Completed"])
+        n43(["fa:fa-stop GTS Trade Compliance Check Completed"])
+        n44(["fa:fa-stop GTS Trade Compliance Check Completed"])
+        n52{{"fa:fa-code-branch exclusiveGateway"}}
+        n60{{"fa:fa-arrows-alt parallelGateway"}}
+        n61{{"fa:fa-arrows-alt parallelGateway"}}
+    end
+    subgraph SAP S/4 IF LE101 US
+        n11[["fa:fa-cog Create Unconfirmed / Confirmed Sales Orders"]]
+        n12[["fa:fa-cog Create Purchase Requisition (FG-01)"]]
+        n13[["fa:fa-cog Create Purchase Order (FG-01)"]]
+        n14[["fa:fa-cog Perform GTS Trade Compliance"]]
+        n15[["fa:fa-cog Perform GTS Trade Compliance"]]
+        n38(["fa:fa-play Confirmed Sales"])
+        n45(["fa:fa-stop GTS Trade Compliance Check Completed"])
+        n46(["fa:fa-stop GTS Trade Compliance Check Completed"])
+        n62{{"fa:fa-arrows-alt parallelGateway"}}
+        n63{{"fa:fa-arrows-alt parallelGateway"}}
+        n67[["fa:fa-folder-open E2E-84E: R3 Physical Product Sales"]]
+    end
+    n12 --> n13
+    n62 --> n14
+    n13 --> n62
+    n2 --> n60
+    n60 --> n1
+    n5 --> n52
+    n16 --> n57
+    n19 --> n20
+    n21 --> n53
+    n53 -->|"Full"| n22
+    n22 --> n59
+    n27 --> n64
+    n28 --> n54
+    n29 --> n30
+    n30 --> n31
+    n54 -->|"No"| n32
+    n32 --> n33
+    n64 --> n28
+    n64 --> n34
+    n54 -->|"Yes"| n29
+    n36 --> n7
+    n34 --> n65
+    n7 --> n39
+    n60 --> n4
+    n62 --> n2
+    n8 --> n61
+    n61 --> n10
+    n61 --> n9
+    n20 --> n21
+    n9 --> n40
+    n56 --> n24
+    n56 --> n23
+    n53 -->|"Partial"| n56
+    n33 --> n47
+    n1 --> n41
+    n23 --> n55
+    n24 --> n55
+    n55 --> n59
+    n59 --> n66
+    n66 --> n25
+    n66 --> n27
+    n66 --> n26
+    n26 --> n48
+    n25 --> n49
+    n18 --> n50
+    n65 --> n35
+    n52 --> n6
+    n52 --> n16
+    n57 --> n17
+    n57 -->|"Outbound Delivery against STO"| n22
+    n58 --> n18
+    n17 -->|"Same STR/STO document 
+will be visible in both LE’s"| n58
+    n58 --> n3
+    n15 --> n45
+    n11 --> n63
+    n63 --> n12
+    n63 --> n15
+    n14 --> n46
+    n4 --> n42
+    n6 --> n43
+    n10 --> n44
+    n31 --> n51
+    n35 --> n36
+    n67 --> n11
+    n38 --> n67
+    n58 --> n19
+    n37 --> n8
+    class n1 serviceTask
+    class n2 serviceTask
+    class n3 serviceTask
+    class n4 serviceTask
+    class n5 serviceTask
+    class n6 serviceTask
+    class n7 serviceTask
+    class n8 serviceTask
+    class n9 serviceTask
+    class n10 serviceTask
+    class n11 serviceTask
+    class n12 serviceTask
+    class n13 serviceTask
+    class n14 serviceTask
+    class n15 serviceTask
+    class n16 serviceTask
+    class n17 serviceTask
+    class n18 serviceTask
+    class n19 serviceTask
+    class n20 serviceTask
+    class n21 serviceTask
+    class n22 serviceTask
+    class n23 serviceTask
+    class n24 serviceTask
+    class n25 serviceTask
+    class n26 serviceTask
+    class n27 serviceTask
+    class n28 serviceTask
+    class n29 serviceTask
+    class n30 serviceTask
+    class n31 serviceTask
+    class n32 serviceTask
+    class n33 serviceTask
+    class n34 serviceTask
+    class n35 serviceTask
+    class n36 serviceTask
+    class n37 startEvt
+    class n38 startEvt
+    class n39 endEvt
+    class n40 endEvt
+    class n41 endEvt
+    class n42 endEvt
+    class n43 endEvt
+    class n44 endEvt
+    class n45 endEvt
+    class n46 endEvt
+    class n47 endEvt
+    class n48 endEvt
+    class n49 endEvt
+    class n50 endEvt
+    class n51 endEvt
+    class n52 gateway
+    class n53 gateway
+    class n54 gateway
+    class n55 gateway
+    class n56 gateway
+    class n57 gateway
+    class n58 gateway
+    class n59 gateway
+    class n60 gateway
+    class n61 gateway
+    class n62 gateway
+    class n63 gateway
+    class n64 gateway
+    class n65 gateway
+    class n66 gateway
+    class n67 subProc

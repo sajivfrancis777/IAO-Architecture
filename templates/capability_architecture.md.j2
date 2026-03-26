@@ -1,0 +1,216 @@
+<div style="text-align:center; padding-top:60px;">
+  <h1 style="font-size:36px;">{{ cap_id }} {{ cap_name }}</h1>
+  <h2 style="font-size:24px;">Systems Architecture Document</h2>
+  <p style="font-size:18px; color:#555;">{{ tower_name }} ({{ tower_short }}) Tower<br/>
+  Capability {{ cap_id }} - {{ l1_process }}</p>
+  <p style="font-size:14px; color:#888;">IAO Program - {{ release_name }} Architecture<br/>
+  Version 1.0 - {{ gen_date }}</p>
+  <br/>
+</div>
+
+<style>
+@media print {
+  @page { margin: 0.75in; }
+  footer::after { content: "Intel Confidential - {{ cap_id }} SAD v1.0"; font-size:9px; color:#999; }
+}
+</style>
+
+<div style="page-break-before: always;"></div>
+
+## Table of Contents
+
+1. [Executive Summary](#1-executive-summary)
+2. [Business Context & Objectives](#2-business-context--objectives)
+3. [{{ current_label }} Architecture (Current State)](#3-{{ current_label | lower | replace(' ', '-') | replace('/', '-') }}-architecture-current-state)
+4. [{{ future_label }} Architecture (Future State)](#4-{{ future_label | lower | replace(' ', '-') | replace('/', '-') }}-architecture-future-state)
+5. [Change Impact Summary](#5-change-impact-summary)
+6. [Component Overview](#6-component-overview)
+7. [Key Data Flows & Integration Patterns](#7-key-data-flows--integration-patterns)
+8. [Non-Functional Requirements & Design Principles](#8-non-functional-requirements--design-principles)
+9. [Project Roadmap & Go-Live Plan](#9-project-roadmap--go-live-plan)
+10. [Risks, Assumptions, Dependencies & Mitigations](#10-risks-assumptions-dependencies--mitigations)
+11. [Recommendations & Next Steps](#11-recommendations--next-steps)
+
+<div style="page-break-before: always;"></div>
+
+## 1. Executive Summary
+
+This Systems Architecture Document (SAD) defines the {{ current_label }} and {{ future_label }} architecture for **{{ cap_id }} {{ cap_name }}** within the IAO program. This capability is classified under the **{{ tower_name }}** tower, process group **{{ l1_process }}**.
+
+**Scope**: The architecture covers {{ total_systems }} integrated systems across the {{ current_label }} and {{ future_label }} landscapes.
+
+**System Inventory**: {{ total_systems }} unique systems - approximately {{ deployed_count }} Deployed, {{ developing_count }} Developing, {{ eol_count }} End of Life, {{ no_match_count }} pending IAPM match.
+
+> All system nodes in the architecture diagrams below are **IAPM-linked** - click any node to open its IAPM application page. Diagrams require `securityLevel: 'loose'` in the Mermaid renderer for click events to function.
+
+**Change Summary**: {{ diff.new_count }} new flow chains, {{ diff.removed_count }} removed, {{ diff.modified_count }} modified, {{ diff.unchanged_count }} unchanged between {{ current_label }} and {{ future_label }} states.
+
+[^ Back to TOC](#table-of-contents)
+
+<div style="page-break-before: always;"></div>
+
+## 2. Business Context & Objectives
+
+### 2.1 Classification
+
+| Level | Value |
+|-------|-------|
+| **L0 Tower** | {{ tower_name }} |
+| **L1 Process** | {{ l1_process }} |
+| **L2 Capability** | {{ cap_id }} - {{ cap_name }} |
+
+### 2.2 Business Drivers
+
+| # | Driver | Description |
+|---|--------|-------------|
+| 1 | | *(To be completed by tower architect)* |
+| 2 | | |
+| 3 | | |
+
+### 2.3 Success Criteria
+
+| Metric | Target | Measure |
+|--------|--------|---------|
+| | | *(To be completed by tower architect)* |
+
+[^ Back to TOC](#table-of-contents)
+
+<div style="page-break-before: always;"></div>
+
+## 3. {{ current_label }} Architecture (Current State)
+
+### 3.1 Overview
+
+The {{ current_label }} architecture represents the **current / legacy** landscape for {{ cap_id }}.{% if current_desc %} {{ current_desc }}{% endif %} This diagram is generated from `{{ current_csv_name }}` ({{ current_flows.total_hops }} flow hops across {{ current_flows.total_chains }} flow chains).
+
+### 3.2 Architecture Diagram
+
+> **Click any system node** to open its IAPM application page.
+
+```mermaid
+{{ current_mermaid }}
+```
+
+<div style="page-break-before: always;"></div>
+
+### 3.3 {{ current_label }} Flow Narrative
+
+| # | Flow Chain | Path | Interface | Freq |
+|---|-----------|------|-----------|------|
+{% for chain in current_flows.chains -%}
+| {{ loop.index }} | {{ chain.name }} | {{ chain.path_str }} | {{ chain.interface_str }} | {{ chain.frequency }} |
+{% endfor %}
+[^ Back to TOC](#table-of-contents)
+
+<div style="page-break-before: always;"></div>
+
+## 4. {{ future_label }} Architecture (Future State)
+
+### 4.1 Overview
+
+The {{ future_label }} architecture represents the **target** landscape for {{ cap_id }}.{% if future_desc %} {{ future_desc }}{% endif %} This diagram is generated from `{{ future_csv_name }}` ({{ future_flows.total_hops }} flow hops across {{ future_flows.total_chains }} flow chains).
+
+### 4.2 Architecture Diagram
+
+> **Click any system node** to open its IAPM application page.
+
+```mermaid
+{{ future_mermaid }}
+```
+
+<div style="page-break-before: always;"></div>
+
+### 4.3 {{ future_label }} Flow Narrative
+
+| # | Flow Chain | Path | Interface | Freq |
+|---|-----------|------|-----------|------|
+{% for chain in future_flows.chains -%}
+| {{ loop.index }} | {{ chain.name }} | {{ chain.path_str }} | {{ chain.interface_str }} | {{ chain.frequency }} |
+{% endfor %}
+[^ Back to TOC](#table-of-contents)
+
+<div style="page-break-before: always;"></div>
+
+## 5. Change Impact Summary
+
+The following table summarizes differences between the {{ current_label }} and {{ future_label }} flow chains.
+
+| Change Type | Flow Chain | Detail |
+|-------------|-----------|--------|
+{% for c in diff.changes -%}
+| **{{ c.change_type }}** | {{ c.flow_chain }} | {{ c.detail }} |
+{% endfor %}
+**Totals**: {{ diff.summary_str }}
+
+[^ Back to TOC](#table-of-contents)
+
+<div style="page-break-before: always;"></div>
+
+## 6. Component Overview
+
+### 6.1 System Inventory
+
+| System | IAPM ID | Status |
+|--------|---------|--------|
+{% for sys in system_inventory -%}
+| {{ sys.name }} | {{ sys.iapm_id }} | {{ sys.status }} |
+{% endfor %}
+### 6.2 Security & Governance
+
+| Concern | Approach |
+|---------|----------|
+| Authentication | SSO via Intel corporate identity |
+| Authorization | Role-based access per system |
+| Data Classification | Financial data classified as Intel Confidential |
+| IAPM Governance | {{ total_systems }} systems tracked |
+
+[^ Back to TOC](#table-of-contents)
+
+<div style="page-break-before: always;"></div>
+
+## 7. Key Data Flows & Integration Patterns
+
+*(To be completed by tower architect - add sequence diagrams for critical flows)*
+
+[^ Back to TOC](#table-of-contents)
+
+<div style="page-break-before: always;"></div>
+
+## 8. Non-Functional Requirements & Design Principles
+
+*(To be completed by tower architect)*
+
+| Category | Requirement |
+|----------|-------------|
+| Performance | |
+| Availability | |
+| Scalability | |
+| Security | |
+
+[^ Back to TOC](#table-of-contents)
+
+<div style="page-break-before: always;"></div>
+
+## 9. Project Roadmap & Go-Live Plan
+
+*(To be completed by tower architect - add Gantt chart and milestones)*
+
+[^ Back to TOC](#table-of-contents)
+
+<div style="page-break-before: always;"></div>
+
+## 10. Risks, Assumptions, Dependencies & Mitigations
+
+| # | Type | Description | Impact | Likelihood | Mitigation |
+|---|------|-------------|--------|-----------|------------|
+| 1 | | *(To be completed)* | | | |
+
+[^ Back to TOC](#table-of-contents)
+
+<div style="page-break-before: always;"></div>
+
+## 11. Recommendations & Next Steps
+
+*(To be completed by tower architect)*
+
+[^ Back to TOC](#table-of-contents)

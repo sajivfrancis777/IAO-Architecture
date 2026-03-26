@@ -1,0 +1,109 @@
+# IAO Architecture Pipeline — Scheduled Generation & SharePoint Sync
+#
+# Triggers:
+#   - Weekly (Monday 06:00 UTC) — full regeneration
+#   - Manual dispatch — ad-hoc runs with optional tower filter
+#   - Push to main — regenerate only if src/ or templates/ changed
+
+name: Generate Architecture Docs
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"          # Every Monday at 06:00 UTC
+  workflow_dispatch:
+    inputs:
+      tower:
+        description: "Tower shortcode (blank = all)"
+        required: false
+        default: ""
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "templates/**"
+      - "towers/**/input/**"
+
+permissions:
+  contents: write                 # commit generated outputs back
+
+env:
+  PYTHON_VERSION: "3.12"
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Write .env from secrets
+        run: |
+          cat > .env <<EOF
+          SMARTSHEET_TOKEN=${{ secrets.SMARTSHEET_TOKEN }}
+          IAPM_BEARER_TOKEN=${{ secrets.IAPM_BEARER_TOKEN }}
+          BIC_AUTH_TOKEN=${{ secrets.BIC_AUTH_TOKEN }}
+          SP_TENANT_ID=${{ secrets.SP_TENANT_ID }}
+          SP_CLIENT_ID=${{ secrets.SP_CLIENT_ID }}
+          SP_CLIENT_SECRET=${{ secrets.SP_CLIENT_SECRET }}
+          SP_SITE_URL=${{ secrets.SP_SITE_URL }}
+          SP_DOC_LIBRARY=${{ secrets.SP_DOC_LIBRARY }}
+          SP_TARGET_FOLDER=${{ secrets.SP_TARGET_FOLDER }}
+          EOF
+
+      - name: Generate Architecture MDs
+        run: |
+          if [ -n "${{ github.event.inputs.tower }}" ]; then
+            python -m src.gen_systems_arch --tower "${{ github.event.inputs.tower }}"
+          else
+            python -m src.gen_systems_arch --all
+          fi
+
+      - name: Generate HTML outputs
+        run: |
+          if [ -n "${{ github.event.inputs.tower }}" ]; then
+            python gen_pdf.py --html-only --tower "${{ github.event.inputs.tower }}"
+          else
+            python gen_pdf.py --html-only
+          fi
+
+      - name: Commit generated outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add towers/*/output/
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: regenerate architecture docs [skip ci]"
+            git push
+          fi
+
+      - name: Sync to SharePoint
+        if: success()
+        run: python sync_sharepoint.py --all
+        env:
+          SP_TENANT_ID: ${{ secrets.SP_TENANT_ID }}
+          SP_CLIENT_ID: ${{ secrets.SP_CLIENT_ID }}
+          SP_CLIENT_SECRET: ${{ secrets.SP_CLIENT_SECRET }}
+          SP_SITE_URL: ${{ secrets.SP_SITE_URL }}
+          SP_DOC_LIBRARY: ${{ secrets.SP_DOC_LIBRARY }}
+          SP_TARGET_FOLDER: ${{ secrets.SP_TARGET_FOLDER }}
+
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: architecture-docs
+          path: towers/*/output/
+          retention-days: 30

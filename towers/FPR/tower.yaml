@@ -1,0 +1,44 @@
+# tower.yaml — Finance Plan To Report
+tower:
+  shortcode: "FPR"
+  name: "Finance Plan To Report"
+  owner: ""
+  contact: ""
+
+# --------------------------------------------------------------------------
+# views: (per-capability, optional)
+#   Maps CSV source files to named architecture views in the generated SAD.
+#   If omitted, defaults to:
+#     current:  { label: "Current-State", description: "" }
+#     future:   { label: "Future-State",  description: "" }
+#
+#   Supported keys under views:
+#     current:
+#       label:       Display name for the current/legacy architecture section
+#       description: One-line narrative for the section overview paragraph
+#     future:
+#       label:       Display name for the target architecture section
+#       description: One-line narrative for the section overview paragraph
+#
+#   The CSV file names (CurrentFlows.csv, FutureFlows.csv) remain unchanged.
+#   Release-scoped CSVs ({Release}_CurrentFlows.csv, {Release}_FutureFlows.csv)
+#   inherit the same labels unless overridden.
+# --------------------------------------------------------------------------
+
+capabilities:
+  - id: DS-020
+    name: "Perform Product Costing and Inventory Valuation"
+    l1: "DS Provide Decision Support"
+    status: active
+    views:
+      current:
+        label: "ICOST"
+        description: "Legacy and transitional product costing landscape. ICOST remains the primary costing engine during Release 3, with ECC as the book-of-record ERP."
+      future:
+        label: "S/4 HANA"
+        description: "Target S/4 HANA-based landscape with SAP PAPM for allocation, ECA lakehouse for analytics, and Power BI for self-service reporting."
+
+releases:
+  - id: R3
+    name: "Release 3"
+    go_live: "2027-04-05"

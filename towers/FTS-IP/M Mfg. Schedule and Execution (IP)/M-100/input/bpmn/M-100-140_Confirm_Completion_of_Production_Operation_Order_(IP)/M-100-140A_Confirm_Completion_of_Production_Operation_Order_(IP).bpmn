@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:caseagile="http://caseagile.com/schema/BPMN/20170414/MODEL" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="Signavio Process Editor, http://www.signavio.com" exporterVersion="26.10.0-20260311103619+6e2d3ac" expressionLanguage="https://www.ecma-international.org/publications/standards/Ecma-334.htm" id="_a0d87aa1-8e97-4730-b186-7451a3c3aefa" name="M-100-140_Confirm Completion of Production Operation Order" targetNamespace="http://caseagile.com/schema/BPMN/20170414/MODEL" typeLanguage="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <collaboration id="sid-7cac668d-0099-4876-bf83-b1e9d119bb7f">
+      <extensionElements>
+         <signavio:signavioDiagramMetaData metaKey="meta-processdescription" metaValue="Track and monitor the completion of production order operations including: operation completion, tool release, actual vs. scheduled time capture, next operation identification, etc. All areas of production will perform operation completions at a level appropriate to facilitate high level of WIP traceability. Not all operations will require data entry. Some operations will be milestone operations where the system will relieve material through backflushing, and book labor in the system for all interim operations.  &#10;&#10;&#10;Examples of business requirements for production operation completion include: &#10;&#10;Ability to implement bar-coding technology. &#10;Ability to confirm operation completion 'real time.' &#10;Ability to provide WIP status and order progress &#10;Ability to capture and record actual time spent on each operation. &#10;Ability to automatically update tool usage records at operation completion. &#10;Ability to confirm completion by operation, order number, collective order, partially completed order &#10;&#10;"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvedby" metaValue="[&quot;Shilpa Chandra&quot;]"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalstatus" metaValue="ci1710756720720143051910"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvaldate" metaValue="26/08/24"/>
+         <signavio:signavioDiagramMetaData metaKey="meta-approvalevidence" metaValue="[{&quot;label&quot;:&quot;Approval Evidence IP Sprint6&quot;,&quot;url&quot;:&quot;https://intel.sharepoint.com/:u:/r/sites/inteldeloitteiao/Shared Documents/General/Implementation/08. FTS - Intel Products/03. Final Deliverables/Build/Signavio Flows/Process Flow Approval evidence/Approval Evidence IP R3Sprint6.msg?csf=1&amp;web=1&amp;e=wRHqp9&quot;}]"/>
+         <signavio:signavioDiagramMetaData metaKey="revisionid" metaValue="7bc70fa7ce394d66bd33a1681f95b617"/>
+      </extensionElements>
+      <participant id="sid-4226853B-08B0-4364-A84C-D673312EA4CE" name="Intel" processRef="sid-C34BD68D-1F25-43D1-83FA-F1FD5C40E1E6">
+         <extensionElements>
+            <signavio:signavioDictionaryLink propertyId="name">
+               <signavio:dictionaryLink>/glossary/e667553ad81e450aa194d3b00f6ba515</signavio:dictionaryLink>
+            </signavio:signavioDictionaryLink>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </participant>
+   </collaboration>
+   <process id="sid-C34BD68D-1F25-43D1-83FA-F1FD5C40E1E6" isClosed="false" isExecutable="false" name="Intel" processType="None">
+      <extensionElements/>
+      <laneSet id="sid-d8b72d5b-38b1-48ad-b433-ab66af6eed23">
+         <lane id="sid-885194CE-BE4A-45C0-9CF5-EFAEB54F73A8">
+            <extensionElements>
+               <signavio:signavioMetaData metaKey="bgcolor" metaValue=""/>
+               <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            </extensionElements>
+            <flowNodeRef>sid-96AF49A1-F6CE-4136-9A38-034978BE7A95</flowNodeRef>
+            <flowNodeRef>sid-716FE24D-26A9-4A99-8F15-87064E2B5263</flowNodeRef>
+            <flowNodeRef>sid-EA475F9F-FD39-4815-9DBF-BE9FAE2BC377</flowNodeRef>
+         </lane>
+      </laneSet>
+      <startEvent id="sid-96AF49A1-F6CE-4136-9A38-034978BE7A95" name="Request Send to confirm &#10;Completion of Production Operation">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <outgoing>sid-8F9E6320-BDD7-4A1A-B5EA-3B5140F63496</outgoing>
+      </startEvent>
+      <subProcess completionQuantity="1" id="sid-716FE24D-26A9-4A99-8F15-87064E2B5263" isForCompensation="false" name="M-100-080A&#10;Execute Production Operations (IP)" startQuantity="1" triggeredByEvent="false">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+            <signavio:signavioMetaData metaKey="entry" metaValue="/model/adb1713d1f0b4e0d9a7f2936a3642e71"/>
+         </extensionElements>
+         <incoming>sid-8F9E6320-BDD7-4A1A-B5EA-3B5140F63496</incoming>
+         <outgoing>sid-F6F4AE25-7CBC-43CF-9846-0E94CFB1AF45</outgoing>
+      </subProcess>
+      <endEvent id="sid-EA475F9F-FD39-4815-9DBF-BE9FAE2BC377" name="Completion Confirmed">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <incoming>sid-F6F4AE25-7CBC-43CF-9846-0E94CFB1AF45</incoming>
+      </endEvent>
+      <sequenceFlow id="sid-F6F4AE25-7CBC-43CF-9846-0E94CFB1AF45" name="" sourceRef="sid-716FE24D-26A9-4A99-8F15-87064E2B5263" targetRef="sid-EA475F9F-FD39-4815-9DBF-BE9FAE2BC377">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <sequenceFlow id="sid-8F9E6320-BDD7-4A1A-B5EA-3B5140F63496" name="" sourceRef="sid-96AF49A1-F6CE-4136-9A38-034978BE7A95" targetRef="sid-716FE24D-26A9-4A99-8F15-87064E2B5263">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+      </sequenceFlow>
+      <textAnnotation id="sid-5142449E-CE8F-4199-A6C9-1C1383926255" signavio:alignment="left" textFormat="text/plain">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bordercolor" metaValue="#000000"/>
+         </extensionElements>
+         <text>Process Tower: FTS Forecast To Stock (IP)
+Process Group: M Mfg. Schedule and Execution (IP)
+Process: M-100-140A Confirm Completion of Production Operation Order (IP)</text>
+      </textAnnotation>
+   </process>
+   <bpmndi:BPMNDiagram id="sid-99a67294-59d7-49f5-8366-a020667130d3" name="M-100-140_Confirm Completion of Production Operation Order">
+      <bpmndi:BPMNPlane bpmnElement="sid-7cac668d-0099-4876-bf83-b1e9d119bb7f" id="sid-c7873632-f696-4f77-9c90-d2008fb3b21c">
+         <bpmndi:BPMNShape bpmnElement="sid-4226853B-08B0-4364-A84C-D673312EA4CE" id="sid-4226853B-08B0-4364-A84C-D673312EA4CE_gui" isHorizontal="true">
+            <omgdc:Bounds height="250.0" width="600.0" x="119.99999910593033" y="209.99999843537807"/>
+            <bpmndi:BPMNLabel labelStyle="sid-cdab395e-e70d-4600-908a-8e2564228b59">
+               <omgdc:Bounds height="23.914283752441406" width="12.0" x="124.99999910593033" y="323.04285655915737"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-885194CE-BE4A-45C0-9CF5-EFAEB54F73A8" id="sid-885194CE-BE4A-45C0-9CF5-EFAEB54F73A8_gui" isHorizontal="true">
+            <omgdc:Bounds height="250.0" width="570.0" x="149.99999910593033" y="209.99999843537807"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-96AF49A1-F6CE-4136-9A38-034978BE7A95" id="sid-96AF49A1-F6CE-4136-9A38-034978BE7A95_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="248.10219059681893" y="309.1176575275331"/>
+            <bpmndi:BPMNLabel labelStyle="sid-52913398-0aef-4fd4-a27b-9a298e93c0fc">
+               <omgdc:Bounds height="22.0" width="178.19999694824216" x="174.00219212269783" y="341.1176575275331"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-716FE24D-26A9-4A99-8F15-87064E2B5263" id="sid-716FE24D-26A9-4A99-8F15-87064E2B5263_gui" isExpanded="false">
+            <omgdc:Bounds height="80.0" width="100.07" x="369.99999668797057" y="284.1176575275331"/>
+            <bpmndi:BPMNLabel labelStyle="sid-cdab395e-e70d-4600-908a-8e2564228b59">
+               <omgdc:Bounds height="48.0" width="82.54285430908203" x="378.79856922825377" y="298.1176575275331"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-EA475F9F-FD39-4815-9DBF-BE9FAE2BC377" id="sid-EA475F9F-FD39-4815-9DBF-BE9FAE2BC377_gui">
+            <omgdc:Bounds height="28.0" width="28.0" x="561.9678009306168" y="310.1176575275331"/>
+            <bpmndi:BPMNLabel labelStyle="sid-52913398-0aef-4fd4-a27b-9a298e93c0fc">
+               <omgdc:Bounds height="11.0" width="110.31428527832031" x="520.8106582914567" y="340.1176575275331"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-5142449E-CE8F-4199-A6C9-1C1383926255" id="sid-5142449E-CE8F-4199-A6C9-1C1383926255_gui">
+            <omgdc:Bounds height="50.0" width="435.937499076128" x="119.9999964237214" y="140.29410686614656"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge bpmnElement="sid-F6F4AE25-7CBC-43CF-9846-0E94CFB1AF45" id="sid-F6F4AE25-7CBC-43CF-9846-0E94CFB1AF45_gui">
+            <omgdi:waypoint x="470.06999668797056" y="324.1176575275331"/>
+            <omgdi:waypoint x="561.9678009306168" y="324.1176575275331"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-8F9E6320-BDD7-4A1A-B5EA-3B5140F63496" id="sid-8F9E6320-BDD7-4A1A-B5EA-3B5140F63496_gui">
+            <omgdi:waypoint x="278.1021905968189" y="324.1176575275331"/>
+            <omgdi:waypoint x="369.99999668797057" y="324.1176575275331"/>
+         </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+      <bpmndi:BPMNLabelStyle id="sid-52913398-0aef-4fd4-a27b-9a298e93c0fc">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="11.0"/>
+      </bpmndi:BPMNLabelStyle>
+      <bpmndi:BPMNLabelStyle id="sid-cdab395e-e70d-4600-908a-8e2564228b59">
+         <omgdc:Font isBold="false" isItalic="false" isStrikeThrough="false" isUnderline="false" name="Arial" size="12.0"/>
+      </bpmndi:BPMNLabelStyle>
+   </bpmndi:BPMNDiagram>
+</definitions>

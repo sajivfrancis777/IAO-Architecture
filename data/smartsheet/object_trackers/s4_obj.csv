@@ -1,0 +1,84 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+	<head>
+        <!--  Copyright 2006, Smartsheet.com, Inc., All Rights Reserved -->
+
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
+
+	    <title>Smartsheet.com</title>
+
+        <link rel="stylesheet" type="text/css" id="smartsheet_style_fonts" href="https://app.smartsheet.com/b/css/fonts.2x_497.0.0.css"/>
+	    <link rel="stylesheet" type="text/css" id="smartsheet_style_common" href="https://app.smartsheet.com/b/css/common.2x_497.0.0.css"/>
+	    <link rel='icon' href='/b/images/fav_prod2.png' type='image/png' /><link rel='shortcut icon' href='/b/images/fav_prod2.png' type='image/png' />
+        <script type="text/javascript">var isHighDpi = true;</script>
+		<script type="text/javascript" CHARSET="UTF-8">
+			// Sometimes this page is displayed as a stand alone page and sometimes in the dataTransfer frame (show a message in the latter)
+			function getScriptFrame() {
+				// Only have a script frame if we're loaded in dataTransfer frame; if we return null, then the
+				// JavaScript executed to display the messages won't do anything.
+				return (parent && parent.frames['dataTransfer'] == window) ? parent : null;
+			}
+
+			function getDocumentFrame() {
+				// Only have a document frame if we're loaded in dataTransfer frame
+				return (parent && parent.frames['dataTransfer'] == window) ? parent : null;
+			}
+
+			function sendFailedInitialLoadMessage() {
+			    var pathnameParts = window.location.pathname.split('/');
+			    if (parent && pathnameParts[2] === "embed") {
+			        // If we're loaded via an embedUrl, and we have a parent frame, send a post message to the parent saying that the load failed
+                    // This value MUST stay in sync with the one found in web/javascript/app/src/models/index.ts in the enum EmbedMessageType
+                    var EMBED_MESSAGE_TYPE_FAILED_NAVIGATION = 103;
+                    // The embedData is stored as the final chunk in the pathname, before the query parameters. We want to
+                    // exclude the query parameters so trim everything after the ?
+                    var embedData = pathnameParts[pathnameParts.length - 1].split('?')[0];
+                    var message = {embedData: embedData,embedMessageType: EMBED_MESSAGE_TYPE_FAILED_NAVIGATION};
+                    parent.postMessage(message, "*");
+                }
+            }
+
+			function loadBodyShowMessage() {
+				JspUtil_init();
+				if ((typeof getScriptFrame != 'undefined') && getScriptFrame() && getScriptFrame().BbMessage){var mi=new (getScriptFrame().BbMessage)(unescape("The download request is invalid or has expired."), 400, 200, true);mi.toDOM();}
+
+                // Notify the parent window of our invalid request load -- may fail if parent has not set this up
+                try {
+                    var win = parent || window.opener;
+
+                    if (win && win.jscDesktop) {
+                        win.jscDesktop.handleInvalidRequestLoad();
+                    }
+                } catch(e) {}
+			}
+
+			window.onload = loadBodyShowMessage;
+			sendFailedInitialLoadMessage();
+		</script>
+
+		<script type="text/javascript" language="JavaScript" CHARSET="UTF-8">var clientState={"buildNumber":"497.0","revision":"0","version":"497.0.0","baseImageUrl":"https://s.smartsheet.com/b"};</script><script type="text/javascript" language="JavaScript" CHARSET="UTF-8" src="https://app.smartsheet.com/b/javascript/core_497.0.0.js"></script>
+
+	</head>
+
+	<body class="clsBody " style="">
+		<div id="desktopBackgroundImage" style="position:absolute; top: 0; right: 0; bottom: 0; left: 0;"></div>
+
+		<div class="clsJspBox">
+			<p>The download request is invalid or has expired.</p>
+
+            
+			    <div>
+				    <a target="_blank" href=https://www.smartsheet.com/>Smartsheet.com</a>
+			    </div>
+            
+		</div>
+	</body>
+
+</html>
