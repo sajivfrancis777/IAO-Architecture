@@ -1,0 +1,81 @@
+# Deploy generated HTML architecture docs to GitHub Pages
+# Enables direct browser viewing of HTML outputs without htmlpreview workaround
+
+name: Deploy to GitHub Pages
+
+on:
+  workflow_run:
+    workflows: ["Generate Architecture Docs"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create Pages structure
+        run: |
+          mkdir -p _site
+          # Copy all HTML and SVG outputs
+          find towers -name "*.html" -o -name "*.svg" | while read f; do
+            dest="_site/$f"
+            mkdir -p "$(dirname "$dest")"
+            cp "$f" "$dest"
+          done
+          # Create a simple index page
+          cat > _site/index.html <<'INDEXEOF'
+          <!DOCTYPE html>
+          <html><head><meta charset="UTF-8"><title>IAO Architecture Docs</title>
+          <style>
+            body { font-family: "Segoe UI", Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; }
+            h1 { color: #00285a; border-bottom: 3px solid #0071c5; padding-bottom: 8px; }
+            a { color: #0071c5; }
+            table { border-collapse: collapse; width: 100%; }
+            th { background: #00285a; color: #fff; padding: 8px 12px; text-align: left; }
+            td { padding: 6px 12px; border-bottom: 1px solid #e0e4ea; }
+            tr:hover td { background: #f5f8fc; }
+          </style></head><body>
+          <h1>IAO Architecture Documents</h1>
+          <p>Generated architecture documents for the IDM 2.0 program.</p>
+          INDEXEOF
+          # Generate tower links
+          for tower_dir in towers/*/; do
+            tower=$(basename "$tower_dir")
+            echo "<h2>$tower</h2><table><tr><th>Capability</th><th>Document</th></tr>" >> _site/index.html
+            find "$tower_dir" -name "*-Architecture.html" -type f | sort | while read html; do
+              rel_path="${html}"
+              cap=$(basename "$html" | sed 's/-Architecture.html//')
+              echo "<tr><td>$cap</td><td><a href=\"$rel_path\">$cap Architecture</a></td></tr>" >> _site/index.html
+            done
+            echo "</table>" >> _site/index.html
+          done
+          echo "</body></html>" >> _site/index.html
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

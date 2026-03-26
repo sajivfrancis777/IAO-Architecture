@@ -104,8 +104,9 @@ blockquote {
     border-radius: 6px;
     padding: 20px 12px;
     margin: 16px 0;
-    overflow-x: auto;
+    overflow: visible;
     text-align: center;
+    page-break-inside: avoid;
 }
 .mermaid svg {
     max-width: 100%;
@@ -144,6 +145,14 @@ strong { color: #00285a; }
     body { padding: 0; max-width: none; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print { display: none; }
+    .mermaid {
+        page-break-inside: avoid;
+        overflow: visible;
+    }
+    .mermaid svg {
+        max-width: 100%;
+        height: auto;
+    }
 }
 </style>
     
@@ -173,32 +182,82 @@ strong { color: #00285a; }
     }
   });
 </script>
+<script>
+  // Open rendered Mermaid diagram as full-size SVG in a new browser tab.
+  // Works on SharePoint, GitHub Pages, localhost — no file system dependency.
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[title="Open full-size SVG"]');
+    if (!link) return;
+    // Walk backwards from the link div to find the preceding .mermaid container
+    var container = link.closest('div');
+    var prev = container;
+    while (prev && prev.previousElementSibling) {
+      prev = prev.previousElementSibling;
+      if (prev.classList && prev.classList.contains('mermaid')) break;
+    }
+    if (!prev || !prev.classList.contains('mermaid')) return;
+    var svgEl = prev.querySelector('svg');
+    if (!svgEl) return;
+    e.preventDefault();
+    // Clone SVG with full dimensions for standalone viewing
+    var clone = svgEl.cloneNode(true);
+    clone.removeAttribute('style');
+    clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    var svgXml = new XMLSerializer().serializeToString(clone);
+    var blob = new Blob([svgXml], {type: 'image/svg+xml'});
+    window.open(URL.createObjectURL(blob), '_blank');
+  });
+</script>
 
 </head>
 <body>
-<div style="text-align:center; padding-top:80px;">
-  <h1 style="font-size:36px;">E2E-119 — R3 Shipping Rejects Inventory Movement</h1>
+<div style="text-align:center; padding-top:20px;">
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <h1 style="font-size:36px; margin-top:24px;">E2E-119 — R3 Shipping Rejects Inventory Movement</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
   Capability E2E-119 · Procure to Pay</p>
   <p style="font-size:14px; color:#888;">IAO Program · Release 2<br/>
-  Generated: March 2026</p>
+  Generated: March 2026<br/>
+  Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
   @page { margin: 0.75in; }
-  footer::after { content: "Intel Confidential — E2E-119 BDAT — March 2026"; font-size:9px; color:#999; }
-  .mermaid { page-break-inside: avoid; max-height: 95vh; overflow: visible; }
+  .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
-.mermaid svg { max-width: 100% !important; height: auto !important; }
+.mermaid { overflow: visible; }
+.mermaid svg { max-width: 100%; height: auto !important; }
+.page-footer {
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 20px;
+  background: #fff;
+}
+@media print {
+  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 </style>
 
+<div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
 <div style="page-break-before: always;"></div>
 
+<p><a id="toc"></a></p>
 <h2 id="table-of-contents">Table of Contents</h2>
 <ol>
 <li><a href="#1-executive-summary">Executive Summary</a></li>
@@ -234,6 +293,7 @@ strong { color: #00285a; }
    - 7.2 <a href="#72-raid-log">RAID Log</a>
    - 7.3 <a href="#73-recommendations--next-steps">Recommendations &amp; Next Steps</a></li>
 </ol>
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="1-executive-summary">1. Executive Summary</h2>
@@ -251,6 +311,7 @@ strong { color: #00285a; }
 <blockquote>
 <p>All system nodes in architecture diagrams are <strong>IAPM-linked</strong> — click any node to open its IAPM page. Diagrams require <code>securityLevel: 'loose'</code> for click events.</p>
 </blockquote>
+<div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="2-business-context-objectives">2. Business Context &amp; Objectives</h2>
@@ -319,6 +380,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="23-success-criteria">2.3 Success Criteria</h3>
@@ -382,6 +444,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</h2>
@@ -418,6 +481,7 @@ strong { color: #00285a; }
 </tbody>
 </table>
 <h3 id="32-business-process-diagrams">3.2 Business Process Diagrams</h3>
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-321-e2e-119c_r3_if_factory_to_if_factory-e2e-119c_r3_if_factory_to_if_factory">BUSINESS ARCHITECTURE — 3.2.1 E2E-119C_R3_IF_Factory_to_IF_Factory — E2E-119C_R3_IF_Factory_to_IF_Factory</h4>
@@ -426,7 +490,7 @@ strong { color: #00285a; }
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -458,9 +522,9 @@ flowchart LR
         n20["GTS Trade Compliance"]
         n21["Post Goods Issue"]
         n22["Create IC Invoice"]
-        n23["AR Posting & Auto Clearing"]
+        n23["AR Posting and Auto Clearing"]
         n25["fa:fa-user Move stock from Blocked stock to Unrestricted Stock via MIGO"]
-        n27(["fa:fa-play Initiate stock movement from Blocked stock to Unrestricte..."])
+        n27(["fa:fa-play Initiate stock movement from Blocked stock to Unrestricted stock"])
         n33(["fa:fa-stop Outbound Del. screening via GTS"])
         n36{{"fa:fa-arrows-alt parallelGateway"}}
         n37{{"fa:fa-arrows-alt parallelGateway"}}
@@ -470,8 +534,8 @@ flowchart LR
         n14["Goods Receipt Unrestricted Stock"]
         n15["Auto Stock Transport Order"]
         n16["Trigger GTS Check"]
-        n17["AP Posting & Auto Clearing"]
-        n18["GTS Compliance SPL & EMB"]
+        n17["AP Posting and Auto Clearing"]
+        n18["GTS Compliance SPL and EMB"]
         n24["fa:fa-user Create Stock Transport Request (Manual)"]
         n26(["fa:fa-play Initiate Inventory movement from IF Factory to IF Factory"])
         n30(["fa:fa-stop Good Receipt Posted"])
@@ -526,6 +590,9 @@ flowchart LR
     class n37 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlV1uP4jYU_itWViO2EuzmSoCHSpAhI6Qd7WiY7T50-mASB6wJduo4zNAR_712YgdioN1284Dw53M_33GcdyuhKbIm1s3NOyaYT8B7j2_QFvUmoLeCJer1QQP8BhmGqxyVPSmTUcKX-K9azPGLNykmsRhucb6X6BKtKQLfFn0wFYp5H5SQlIMSMZz1-r2C4S1k-4jmlEnpD2iU2VntTW3NKEsROwrYdugkgVDNMUFH2Av90I-lXokSStKO0SzIRlnSO8jgcvqabCDjdfhVie7h23ec8o1YZzAvkZDZ8G3-Ba5QLnPkrJJYUrGdLgYupR8iCrYsYILJWuC-LSAGycsRCuzDARxubp5J6xR8eXwmQDxJDsvyFmWg5AKe7zjIcJ5PPvjRNA7sfskZfUGTD-48vPXcfiIzmYjU7b4s7uAV4fWGT1Y0T5Xo4FXmMHGLtz57m7h2n-3Fr-ELkfToKRq6I3fUepqFTuRE2lOWZT_lSdSVPcHyRfmae7Eb37a-nGAYRPa5PZ3mrR9OHbNOiO1wgk6MxnHszY-lmg8Dx75udBZ7QzsyjK4hR69wfzQ4jvzWYByEsRNeNdj4M6OsVg-MJtqgNw_ioDUYzpx46l416E8df6QiFHbWDBYbMKNVzWUwLYqy2ZMPcX5_tqSniiHAKXiA-2frj5N9V-x_lYMjdyNYbrrbntiOMYEkQeAhh0RKPaKCMt6V86UcZSiBJZcyS06Tl1ZE8MkI9xYliHAGc3EkpGD-_f7EViBDpiUXwwGiDSRr1PU1lPs4eQGQpCKhEz_1dqjUwR2laQkWZVkZBkYy54qvZMlEJPknUFegKzQWQrdY9ACvKo7AgrTieIeYUUXHlk4Ryyjbgm8kpzCV0cu8unJON7hHUQZc8AuCsi8RQ4J3nyNKMizsPlR8MJUslNx-rlzbXtWK9T-jq6OPQj-DkwwOSk6Lph-A7wsEkrqkKYDa7S-nimNDUTiF2idQkaDU0PL893etBRmjr-UA5hwUUDQ4R_ldMz3P1uFwjQ8LwlEOYlliweGPy6ooPoE54ZjvTx0547PW1UXClBgFkA25e1qCJwZTJALfFjmWLDbEnH8li3vsBFhEItAdxWdm5JhMH4FmrSTmtJIDlSPxFiRrQzxoayzPP3BPd0ic77JDGaNbMMvFX9GhBhJmvhGGJBMTLtCmlTsMwf3i7qthOTy2r8hF2xbiFY1l6I2trfC0FYP3I35KNcKdRnsGPbq9KBOGEJEVkOGJ8pvqw__Gk0Yp_FlyLacPYPnZN0lWD9-untNzonknXf_n0ZdHX3eaz9tlqMj-1_xoeik4Skp5pl46hxx53D0xvF4LpkhGRxt0ZlCeeSLJH-SfM1LDcRwLsHz4UqvN72cGpfwuWVVRzMgf0Z-VSBp8vIekgvkvhpHhNV6KeRJ8pKIfXW4uYhDDpN4QeRxXJqNsg5CyE20jZD3ODyvHUFl8bsda3B44z-swTC3XPFGfvoJlzXfRZL5htFpvLlE--J_sFe8UMBj8Kt8ZGnAawPMV4PlKQgOOAjxbA24DuGMFBGo90gIK8AIFjJr1UC2HzTLU4mMlrvc9JaAvdi2gHbgqC89TQKgUdFauzkr7cHXMWsNRKp5W8bQN1wAcreJ6CmgD14COSyXitJVSiY_N2rY-VKWcoQloFUel7mkVVxdH98fVRnW1XZ1JCyijwcl9sdbTF-UuHlzBh-3nQhcPr-AjdeXvouNLqGdfRJ2LqHsR9S6ivr5ld-HgMjy8DIcatvrWFrEtxKk1ebfqD1Lx0ZqiDFY5tw59C4rzcbkniTWpP9ysqkiF5i2G4p2xbcDD39Zxic4=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-322-e2e-119e_r3__rejected_inventory_receipt_at_intel_product_lab-e2e-119e_r3__rejected_inventory_receipt_at_intel_product_lab">BUSINESS ARCHITECTURE — 3.2.2 E2E-119E_R3__Rejected_Inventory_Receipt_at_Intel_Product_Lab — E2E-119E_R3__Rejected_Inventory_Receipt_at_Intel_Product_Lab</h4>
@@ -534,7 +601,7 @@ flowchart LR
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -567,6 +634,9 @@ flowchart TD
     class n9 endEvt
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVVtv2jAY_SufUlVsUuhyJTQPk2ggFVKrotGtD-seTGKD12BHtsNlFf99NgnQsHUvy0PEdzjnfBdf8mplPMdWbF1evlJGVQyvHbXAS9yJoTNDEndsqIFvSFA0K7DsGA7hTE3prz3NDcqNoRksRUtabA06xXOO4evYhoEWFjZIxGRXYkFJx-6Ugi6R2Ca84MKwL3CfOGSfrfnrhoscixPBcSI3C7W0oAyfYD8KoiA1OokzzvKWKQlJn2SdnSmu4OtsgYTal19JfI82TzRXCx0TVEisOQu1LO7QDBemRyUqg2WVWB2GQaXJw_TApiXKKJtrPHA0JBB7OUGhs9vB7vLymR2TwuPwmYF-sgJJOcQEpNLwaKWA0KKIL4JkkIaOLZXgLzi-8EbR0PfszHQS69Yd2wy3u8Z0vlDxjBd5Q-2uTQ-xV25ssYk9xxZb_T7LhVl-ypT0vL7XP2a6idzETQ6ZCCH_lUnPVTwi-dLkGvmplw6PudywFybOn36HNodBNHDP54TFimb4jWmapv7oNKpRL3Sd901vUr_nJGemc6TwGm1PhtdJcDRMwyh1o3cN63znVVazieDZwdAfhWl4NIxu3HTgvWsYDNyg31SofeYClQuYDiYw_RTAmClcQMorlottzTEPc78_W1OFzH7PYVKJK3gwx-XZ-vGG5GnSLee5hC84w7RUgBSMJ6D3OEyv7nh21eb7mj_hUkFbNHq6b_MCw6tUd2BmmHBGqFgiRTmDNVULGG0yXO7DRB8V2daGWktQTFDX7JUm01jKCgOaI8p09sSUkGDduYAVRXA_vn1om_Q-HF3KQtcw1jcX1WtqJmHXkwAi-LJp1pTw8Y08ek_-iDcKJg__0vZPWql4qYf0E2d6qmylC-ZiC9T0koPijcGZ_vpMvz-bWnqiaaT-wVzodj_rZWxCvw6DJuzVYXNgWFCH100Y1aHfhF4dhk0Y1mH_zTY24OH4tuDe8a5qwdHf4X5z27TA6wa0bGuJ9V6huRW_WvvPiv705JigqlDWzrZQpfh0yzIr3l-_VlXmel2GFOlTsazB3W82Xxmd" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
@@ -606,6 +676,7 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
@@ -636,6 +707,7 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="42-data-flow-diagrams">4.2 Data Flow Diagrams</h3>
@@ -644,7 +716,7 @@ flowchart TD
 </blockquote>
 <h4 id="421-current-state-current-state-data-flows">4.2.1 Current-State — Current-State Data Flows</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '13px', 'fontFamily': 'Segoe UI, Arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '15px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 35, 'rankSpacing': 45}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
@@ -677,11 +749,14 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqdlYFu2jAQhl_FcoXYJOgCNDAitZIhYUVKq66h26RmikxyAasmiRJnhVLefXYC6cagq2pLUXy---_8XeSssR8HgA1cq61ZxISB1nUxhwXUDVSf0gzqDVTPwM9TJlY2_AKuNngclzuF6zeaMjrlkNVVdBhHwmFPhUBLT5bKTdlGdMH4SlkdmMWA7sYNRGQgr2-UB48f_TlNRaGRZ3BFl99ZIOZyHVKegfSZiwW36RS4SiTSXNkiWb2TUJ9FM2ns6NKU0ujhxXSmbzZoU6u5UZUCTQZuhOTwOc0yE0JEk2QQL1HIODdOBro5Go0amUjjBzBONK3XG3S3y-ajqsloJ8uGH_M4VdsdU9_XC6bDFd_KEd3skl4l17Z6Zqd9VK410K22ticHMX8pbzQa6AO90hsONTmO6nW7atuNSsUsn85SmsyR1bZarf7QJEPbA2_mkac8Bc_5at-7GLn4Z-muRsBS8AWLo4qaGlU8KcJ_WHeOjITT2SlS71LBMIyS6oEgcy_nBxe7efC5E8hn4J-5eQiaPLVSK5yQdHLxR6VZkH21DtQ8bV4czVWGQhRsgYgVh-M0dsiJmhVyS1Pzb-StZPlfyA658S7JNXkf4yvL8TqatsMsl0gu30S6SvwKaOmDlM-bOG9rOYh6l-xNpHfO7wJ9JDE6P7943lIyC7LoEyI3Y_kcMQ4ufn7l69hroQ0zeYL7P7D5gYZMMiGI3A4vxxNrOLm7tZBtfbGuzSNNtW9frLan2k-ShDOfqt3DDbQ980izTCqoupcP98n2LClvRUEzDps2C6GULy-Qgx0pT7jjr6tZ8e_3-__Axw28gHRBWYCNNS7uf_n3CCCkORd408A0F7GzinxsFFc0zpOACjAZlUQXpXHzG_18-Bk=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="422-future-state-future-state-data-flows">4.2.2 Future-State — Future-State Data Flows</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '13px', 'fontFamily': 'Segoe UI, Arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '15px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 35, 'rankSpacing': 45}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
@@ -714,6 +789,9 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqdlYFumzAQhl_FchVlk5KOJCVZkVrJCbBWolVX0m1SmZADR2LVAQRmTZrm3WdDQrcs6araEsLnu__O3yGzwkESAjZwo7FiMRMGWjXFDObQNFBzQnNotlAzh6DImFg68Au42uBJUu2Urt9oxuiEQ95U0VESC5c9lQIdPV0oN2Wz6ZzxpbK6ME0A3V22EJGBvLlWHjx5DGY0E6VGkcMVXXxnoZjJdUR5DtJnJubcoRPgKpHICmWLZfVuSgMWT6Wxp0tTRuOHF9OJvl6jdaPhxXUKNB56MZIj4DTPTYgQTdNhskAR49w4GuqmbdutXGTJAxhHmjYYDPubZftR1WR000UrSHiSqe2eqe_qhZPRkm_kiG72yaCW61oDs9c9KNcZ6lZX25GDhL-UZ9tDfajXeqORJsdBvX5fbXtxpZgXk2lG0xmyulanc2qbZOT44E998lRk4LtfnXsPIw__rNzVCFkGgWBJXFNTo44nZfgP686VkXA8PUbqXSoYhlFR3RNk7uT84GGvCD_3QvkMgxOviECTp1ZqpROSTh7-qDRLsq_WgdrH7fODuapQiMMNELHkcJjGFjlRs0ZuaWr-jbyTLv4L2SU3_gW5Ju9jfGW5fk_TtpjlEsnlm0jXiV8BLX2Q8nkT500te1Fvk72J9Nb5XaAPJEZnZ-fPG0pmSRZ9QuTmUj5txsHDz698HTstdGAqT3D_B7Yg1JBJxgSR29HF5dgaje9uLeRYX6xr80BTndsXq-Or9pM05Sygand_Ax3fPNAskwqq7uX9fXJ8S8pbcdhOorbDIqjkqwtkb0eqE27562rW_E9PT_-Bj1t4DtmcshAbK1ze__LvEUJECy7wuoVpIRJ3GQfYKK9oXKQhFWAyKonOK-P6N3pB-EM=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="43-data-lineage">4.3 Data Lineage</h3>
@@ -804,6 +882,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</h2>
@@ -816,7 +895,7 @@ flowchart TB
 <strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '16px', 'fontFamily': 'Segoe UI, Arial, sans-serif'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     %% -- ArchiMate-inspired style classes --
     classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
@@ -836,7 +915,6 @@ flowchart TB
     E2E119C_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E119CMW_e_g_Azure_Service_Bus
     E2E119CMW_e_g_Azure_Service_Bus --> E2E119C_e_g_XEUS
 
-
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -850,6 +928,9 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqVVWtv4jAQ_CtWKsQXaENbXlGFlJBw4hTaqunjTscpMvECVk0SxU5bSvnvZyeU8KroGSko69lZZ3ZsL7QgIqAZWqm0oCEVBlqUxRRmUDZQeYQ5lCuozCFIEyrmLrwAUxMsivKZDPqIE4pHDHhZZY-jUHj0PSOoNeI3BVOxHp5RNldRDyYRoId-BZkykVUQxyGvckjouLxUaBa9BlOciIwv5TDAb0-UiKl8H2PGQWKmYsZcPAKmiookVbFQfokX44CGExm81GUoweFzEarryyValkrDcF0C3VvDEMlRKqFqVS4omNIBFlClIY9pAgRxMWeAAoY5By4xOTx7t2GMRimnIXCOsjGmjBknPTmseoWLJHoG48RqtRq6tXqtvqovMc7jt0oQsSgxTnRd3-HEcYyKkXNadcW65tT1ZtNq_AcnwQLvc9qtI5y1Lc7POYK5FC_Bc6kpqu9UmlFCGLziBDYVsRtmoYjTbPQKtm-sHiK2p4jSeEPlblfXj3HmrDwdTRIcT5Hp_hlqw5S0Loh8kos6Mm9v3X7XvO_fXCPX_O3cDbW_eZIaRBoiEDQKkXtXRJ1zp1Zrd33wJ_7A8fwLXd-kDaCB4HRyiuQcknOS0TAM2eLDDL-cB-9gupr4OnfwlGWb72kCvgfJCw3At1K-9YG1Zk6VodAKhSQq5y0at0dvOxl9N-LCd5jc86HobC4yuMyZFQCtAFej5KxzRTv5hPeIzlDfjgL599O7ub46o528rHJmXhBC8tmjA6LKvdf5GGoZnZ11QlKZt3357FEGQ-3jmBhb1F-BVJm9jqhlrcyTHQeWu7HVe_qxrb6Zaq5T9e_s6D3TujCROm1ZhOjIdX441_Y33Or60uO7BjPjmNEAK_ABi7n-4GnXR4PCK196x_VtZ9cltjqGnFDI22S3-3mKc5NvyvMGuZRAUo3GVZeOV2XkObBhlULUXJRPYevqtxa23W7vnWlaRZtBMsOUaMZCy24xeQcSGOOUCW1Z0XAqIm8eBpqRXS5aGsuFgk2xbMIsDy7_AfaJPwE=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="current-state-flow-narrative">Current-State Flow Narrative</h4>
@@ -873,6 +954,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="52-future-state-future-state-application-landscape">5.2 Future-State — Future-State Application Landscape</h3>
@@ -884,7 +966,7 @@ flowchart TB
 <strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '16px', 'fontFamily': 'Segoe UI, Arial, sans-serif'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     %% -- ArchiMate-inspired style classes --
     classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
@@ -904,7 +986,6 @@ flowchart TB
     E2E119F_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E119FMW_e_g_Azure_Service_Bus
     E2E119FMW_e_g_Azure_Service_Bus --> E2E119F_e_g_XEUS
 
-
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -918,6 +999,9 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqVVWtv4jAQ_CtWKsQXaENbXlGFlJBw4hTaqunjTscpMvECVk0SxU5bSvnvZyeU8KroGSko69lZZ3ZsL7QgIqAZWqm0oCEVBlqUxRRmUDZQeYQ5lCuozCFIEyrmLrwAUxMsivKZDPqIE4pHDHhZZY-jUHj0PSOoNeI3BVOxHp5RNldRDyYRoId-BZkykVUQxyGvckjouLxUaBa9BlOciIwv5TDAb0-UiKl8H2PGQWKmYsZcPAKmiookVbFQfokX44CGExm81GUoweFzEarryyValkrDcF0C3VvDEMlRKqFqVS4omNIBFlClIY9pAgRxMWeAAoY5By4xOTx7t2GMRimnIXCOsjGmjBknPTmseoWLJHoG48RqtRq6tXqtvqovMc7jt0oQsSgxTnRd3-HEcYyKkXNadcW65tT1ZtNq_AcnwQLvc9qtI5y1Lc7POYK5FC_Bc6kpqu9UmlFCGLziBDYVsRtmoYjTbPQKtm-sHiK2p4jSeEPlblfXj3HmrDwdTRIcT5Hp_hlqw5S0Loh8kos6Mm9v3X7XvO_fXCPX_O3cDbW_eZIaRBoiEDQKkXtXRJ1zp1Zr93zwJ_7A8fwLXd-kDaCB4HRyiuQcknOS0TAM2eLDDL-cB-9gupr4OnfwlGWb72kCvgfJCw3At1K-9YG1Zk6VodAKhSQq5y0at0dvOxl9N-LCd5jc86HobC4yuMyZFQCtAFej5KxzRTv5hPeIzlDfjgL599O7ub46o528rHJmXhBC8tmjA6LKvdf5GGoZnZ11QlKZt3357FEGQ-3jmBhb1F-BVJm9jqhlrcyTHQeWu7HVe_qxrb6Zaq5T9e_s6D3TujCROm1ZhOjIdX441_Y33Or60uO7BjPjmNEAK_ABi7n-4GnXR4PCK196x_VtZ9cltjqGnFDI22S3-3mKc5NvyvMGuZRAUo3GVZeOV2XkObBhlULUXJRPYevqtxa23W7vnWlaRZtBMsOUaMZCy24xeQcSGOOUCW1Z0XAqIm8eBpqRXS5aGsuFgk2xbMIsDy7_AT1dPxk=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="future-state-flow-narrative">Future-State Flow Narrative</h4>
@@ -941,6 +1025,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="53-change-impact-summary">5.3 Change Impact Summary</h3>
@@ -984,6 +1069,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
@@ -1033,6 +1119,7 @@ flowchart TB
 <blockquote>
 <p><em>Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).</em></p>
 </blockquote>
+<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
@@ -1058,6 +1145,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
@@ -1067,7 +1155,7 @@ flowchart TB
 </blockquote>
 <h4 id="611-current-state-current-state-platform-architecture">6.1.1 Current-State — Current-State Platform Architecture</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '12px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'nodeSpacing': 25, 'rankSpacing': 30}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef platBox fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
@@ -1088,14 +1176,17 @@ flowchart TB
     E2E119CPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E119CPLP_e_g_Azure_PaaS
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqtlGFvmzAQhv-K5SriC2sJhDRF6iQgoFVKp2is26QxIQeOxKqDEZg2acp_nw1ZslZKpWrzB4t77_z4_Fp4h1OeAXbwYLCjBRUO2mliBWvQHKQtSA2ajrQa0qaiYjuDB2AqwTjvM13pN1JRsmBQa2p1zgsR0acOMByVG1WmtJCsKdsqNYIlB3R3oyNXLmRaqyoYf0xXpBIdo6nhlmy-00ysZJwTVoOsWYk1m5EFMLWRqBqlFbL7qCQpLZZSHBlSqkhxf5Rso21ROxjExWEL9NWLCyRHykhdTyFHpCw9vkE5Zcw58-xpGIZ6LSp-D86ZYVxeeuN9-OFR9eSY5UZPOeOVSltT-zWvZEQcgf4kGPtXB6A1mQSW_xJoHYFDzw5M4xUQODvywtCzPfvA831DjpMNjscqHRc9sW4Wy4qUKxSYwXB45c9n8wSSZeI-NRUkc0KinzGOG3NsDOMmB0Nufb48R10aqXSMf_UkNTJaQSooL9Dsy1E9oN0O_SO4U9COo74lwXGc3vJ-ERTZvjuxZXC6tX_y8-3zR8ko-eR-dhPTMK3OgmxiZXLOiP23EdHFCKk6pOre78VtECWWYfyxQ4ZIhu915EWz_8GUN_HX1x-f9-1OuyOiC-TOb-QcUgYxfj59X1jHa6jWhGbY2eHurZAvTQY5aZjArY5JI3i0LVLsdL8zbsqMCJhSIu9o3Yvtb7Iwb_I=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
 </blockquote>
+<div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="612-future-state-future-state-platform-architecture">6.1.2 Future-State — Future-State Platform Architecture</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '12px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'nodeSpacing': 25, 'rankSpacing': 30}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef platBox fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
@@ -1115,6 +1206,8 @@ flowchart TB
 
     E2E119FPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E119FPLP_e_g_Azure_PaaS
 </div>
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqtlGFvmzAQhv-K5SriC2sJhDRF6iRIQKuUTtFYt0ljQg4ciVWDEZg2acp_nw1ZslZKpWrzB4t77_z4_Fp4hxOeAnbwYLCjBRUO2mliDTloDtKWpAZNR1oNSVNRsZ3DAzCVYJz3ma70G6koWTKoNbU644UI6VMHGI7KjSpTWkByyrZKDWHFAd3d6MiVC5nWqgrGH5M1qUTHaGq4JZvvNBVrGWeE1SBr1iJnc7IEpjYSVaO0QnYfliShxUqKI0NKFSnuj5JttC1qB4OoOGyBvnpRgeRIGKnrGWSIlKXHNyijjDlnnj0LgkCvRcXvwTkzjMtLb7wPPzyqnhyz3OgJZ7xSaWtmv-aVjIgjcDrxx9OrA9CaTHxr-hJoHYFDz_ZN4xUQODvygsCzPfvAm04NOU42OB6rdFT0xLpZripSrpFv-sPhVbCYL2KIV7H71FQQLwgJf0Y4asyxMYyaDAy59fnqHHVppNIR_tWT1EhpBYmgvEDzL0f1gHY79A__TkE7jvqWBMdxesv7RVCk--7ElsHp1v7Jz7fPH8aj-JP72Y1Nw7Q6C9KJlco5JfbfRoQXI6TqkKp7vxe3fhhbhvHHDhkiGb7XkRfN_gdT3sRfX3983rc7646ILpC7uJFzQBlE-Pn0fWEd51DlhKbY2eHurZAvTQoZaZjArY5JI3i4LRLsdL8zbsqUCJhRIu8o78X2N9VVcAo=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
 
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
@@ -1147,48 +1240,40 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="62-sap-development-object-status">6.2 SAP Development Object Status</h3>
+<p><strong>RICEFW Status Summary</strong> — E2E Tower (0 objects)
+<em>Data source: Smartsheet Object Tracker (cached 2026-03-26)</em></p>
 <table>
 <thead>
 <tr>
-<th>Metric</th>
-<th>DEV</th>
-<th>QAS</th>
-<th>PRD</th>
+<th>Status</th>
+<th style="text-align: right;">Count</th>
+<th style="text-align: right;">%</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Transport Requests</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
+<td style="text-align: right;"><strong>100%</strong></td>
 </tr>
+</tbody>
+</table>
+<p><strong>RICEFW by Type:</strong></p>
+<table>
+<thead>
 <tr>
-<td>Custom Code Objects</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<th>Type</th>
+<th style="text-align: right;">Count</th>
 </tr>
+</thead>
+<tbody>
 <tr>
-<td>CDS Views</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>Fiori Apps</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>BAdIs / Enhancements</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
 </tr>
 </tbody>
 </table>
@@ -1320,123 +1405,202 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="7-project-context">7. Project Context</h2>
 <h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
-<p>Project delivery milestones for E2E-119 RICEFW objects:</p>
-<table>
-<thead>
-<tr>
-<th>Phase</th>
-<th>Planned Start</th>
-<th>Planned End</th>
-<th>Status</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Functional Specification (FS)</td>
-<td>Per project plan</td>
-<td>Per project plan</td>
-<td>In Progress</td>
-<td>Tower-level FS schedule</td>
-</tr>
-<tr>
-<td>Technical Design (TDD)</td>
-<td>FS + 2 weeks</td>
-<td>FS + 6 weeks</td>
-<td>Planned</td>
-<td>Dependent on FS completion</td>
-</tr>
-<tr>
-<td>Build &amp; Unit Test (TUT)</td>
-<td>TDD + 1 week</td>
-<td>TDD + 8 weeks</td>
-<td>Planned</td>
-<td>Includes S/4 + Middleware</td>
-</tr>
-<tr>
-<td>Functional User Test (FUT)</td>
-<td>Build + 1 week</td>
-<td>Build + 4 weeks</td>
-<td>Planned</td>
-<td>Tower-led validation</td>
-</tr>
-<tr>
-<td>Go-Live (Release 2)</td>
-<td>Per release plan</td>
-<td>Per release plan</td>
-<td>Planned</td>
-<td>End-to-End Integrated Processes release</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.</em></p>
-</blockquote>
-<div style="page-break-before: always;"></div>
-
+<p><em>No timeline data available for this capability.</em></p>
 <h3 id="72-raid-log">7.2 RAID Log</h3>
-<p>Standard RAID items for E2E-119 (End-to-End Integrated Processes):</p>
+<p><em>Live data from Smartsheet Master RAID Log — extracted 2026-03-26</em></p>
+<p><strong>RAID Summary:</strong> 15 open items (0 capability-specific, 15 tower-level), 56 closed</p>
 <table>
 <thead>
 <tr>
-<th>#</th>
-<th>Category</th>
-<th>Description</th>
-<th>Status</th>
-<th>Owner</th>
-<th>Priority</th>
+<th>Severity</th>
+<th style="text-align: right;">Capability</th>
+<th style="text-align: right;">Tower-Wide</th>
+<th style="text-align: right;">Total Open</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
-<td>Risk</td>
-<td>Data migration completeness — validate all legacy R3 Shipping Rejects Inventory Movement data maps to S/4 target structures</td>
-<td>Open</td>
-<td>Tower Architect</td>
-<td>High</td>
+<td>P1 - High</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
 </tr>
 <tr>
-<td>2</td>
-<td>Risk</td>
-<td>Integration testing coverage — ensure all 2 integrated systems are validated end-to-end</td>
-<td>Open</td>
-<td>Integration Lead</td>
-<td>High</td>
+<td>P2 - Medium</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
 </tr>
 <tr>
-<td>3</td>
-<td>Assumption</td>
-<td>Target SAP S/4HANA system available in DEV/QAS per release schedule</td>
-<td>Active</td>
-<td>SAP Basis</td>
-<td>Medium</td>
+<td>P3 - Low</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
 </tr>
 <tr>
-<td>4</td>
-<td>Issue</td>
-<td>API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation</td>
-<td>Open</td>
-<td>EA Pipeline Team</td>
-<td>High</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Dependency</td>
-<td>Upstream BPMN process models validated and signed off by business process owners</td>
-<td>Active</td>
-<td>Process Owner</td>
-<td>Medium</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
+<td style="text-align: right;"><strong>15</strong></td>
+<td style="text-align: right;"><strong>15</strong></td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><em>Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.</em></p>
-</blockquote>
+<p><strong>Other E2E Tower RAID Items</strong> (15 open):</p>
+<table>
+<thead>
+<tr>
+<th>RAID ID</th>
+<th>Type</th>
+<th>Severity</th>
+<th>Title</th>
+<th>Status</th>
+<th>Assigned To</th>
+<th>Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>03591</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>R3 E2E scenario execution</td>
+<td>In Progress</td>
+<td>Test Management</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>03681</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>ITC Execution: Planning run availability - Prerequisite for &hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03762</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>FTS-IF (esp SCP) related test cases/sequencing are not accur&hellip;</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>01733</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Tariffs impacts Item/BOM design which is impacting ERP/SCP (&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-06</td>
+</tr>
+<tr>
+<td>03592</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Lack of Defined IMO Owner for CBA Mask Billing and Materials&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03625</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Item/ BOM MC1 delta load</td>
+<td>In Progress</td>
+<td>Cutover</td>
+<td>2026-04-10</td>
+</tr>
+<tr>
+<td>03628</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>R3 Returns Rework Process Causing Finance Double Counting in&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03642</td>
+<td>Issue</td>
+<td>P2 - Medium</td>
+<td>E2E Process with Anafi on order/invoice point.  Need IFS SC &hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-24</td>
+</tr>
+<tr>
+<td>03736</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Golden Data/Test Data Readiness</td>
+<td>In Progress</td>
+<td>Master Data</td>
+<td>2026-04-22</td>
+</tr>
+<tr>
+<td>03743</td>
+<td>Issue</td>
+<td>P2 - Medium</td>
+<td>FD-Share with Entitlements -  Interface File Paths for MC1</td>
+<td>Roadblock / At Risk</td>
+<td>PMO</td>
+<td>2026-03-20</td>
+</tr>
+<tr>
+<td>03753</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>PDF-SMH IF test cases are not available in JIRA</td>
+<td>To Be Reviewed</td>
+<td>B-Apps</td>
+<td>2026-03-25</td>
+</tr>
+<tr>
+<td>03756</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>LE101-1001 Operation Support Ownership for SIMS/Tester Front&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-04-24</td>
+</tr>
+<tr>
+<td>03769</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Need a Labs SPOC owner to define IP Labs enterprise and mate&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-04-17</td>
+</tr>
+<tr>
+<td>03216</td>
+<td>Action</td>
+<td>P3 - Low</td>
+<td>Mask Expense vs. Invoice</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-06</td>
+</tr>
+<tr>
+<td>03315</td>
+<td>Risk</td>
+<td>P3 - Low</td>
+<td>BPMG – SCP L3/L4 flow standards</td>
+<td>In Progress</td>
+<td>Business Process Mgmt</td>
+<td>2026-03-27</td>
+</tr>
+</tbody>
+</table>
 <h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
 <table>
 <thead>

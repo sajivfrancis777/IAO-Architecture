@@ -104,8 +104,9 @@ blockquote {
     border-radius: 6px;
     padding: 20px 12px;
     margin: 16px 0;
-    overflow-x: auto;
+    overflow: visible;
     text-align: center;
+    page-break-inside: avoid;
 }
 .mermaid svg {
     max-width: 100%;
@@ -144,6 +145,14 @@ strong { color: #00285a; }
     body { padding: 0; max-width: none; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print { display: none; }
+    .mermaid {
+        page-break-inside: avoid;
+        overflow: visible;
+    }
+    .mermaid svg {
+        max-width: 100%;
+        height: auto;
+    }
 }
 </style>
     
@@ -173,32 +182,82 @@ strong { color: #00285a; }
     }
   });
 </script>
+<script>
+  // Open rendered Mermaid diagram as full-size SVG in a new browser tab.
+  // Works on SharePoint, GitHub Pages, localhost — no file system dependency.
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[title="Open full-size SVG"]');
+    if (!link) return;
+    // Walk backwards from the link div to find the preceding .mermaid container
+    var container = link.closest('div');
+    var prev = container;
+    while (prev && prev.previousElementSibling) {
+      prev = prev.previousElementSibling;
+      if (prev.classList && prev.classList.contains('mermaid')) break;
+    }
+    if (!prev || !prev.classList.contains('mermaid')) return;
+    var svgEl = prev.querySelector('svg');
+    if (!svgEl) return;
+    e.preventDefault();
+    // Clone SVG with full dimensions for standalone viewing
+    var clone = svgEl.cloneNode(true);
+    clone.removeAttribute('style');
+    clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    var svgXml = new XMLSerializer().serializeToString(clone);
+    var blob = new Blob([svgXml], {type: 'image/svg+xml'});
+    window.open(URL.createObjectURL(blob), '_blank');
+  });
+</script>
 
 </head>
 <body>
-<div style="text-align:center; padding-top:80px;">
-  <h1 style="font-size:36px;">O-040 — Calculate Order Price (IF)</h1>
+<div style="text-align:center; padding-top:20px;">
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <h1 style="font-size:36px; margin-top:24px;">O-040 — Calculate Order Price (IF)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IF) (OTC-IF) Tower<br/>
   Capability O-040 · O Order Management (IF)</p>
   <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026</p>
+  Generated: March 2026<br/>
+  Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
   @page { margin: 0.75in; }
-  footer::after { content: "Intel Confidential — O-040 BDAT — March 2026"; font-size:9px; color:#999; }
-  .mermaid { page-break-inside: avoid; max-height: 95vh; overflow: visible; }
+  .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
-.mermaid svg { max-width: 100% !important; height: auto !important; }
+.mermaid { overflow: visible; }
+.mermaid svg { max-width: 100%; height: auto !important; }
+.page-footer {
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 20px;
+  background: #fff;
+}
+@media print {
+  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 </style>
 
+<div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-040 — Calculate Order Price (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
+<p><a id="toc"></a></p>
 <h2 id="table-of-contents">Table of Contents</h2>
 <ol>
 <li><a href="#1-executive-summary">Executive Summary</a></li>
@@ -234,6 +293,7 @@ strong { color: #00285a; }
    - 7.2 <a href="#72-raid-log">RAID Log</a>
    - 7.3 <a href="#73-recommendations--next-steps">Recommendations &amp; Next Steps</a></li>
 </ol>
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-040 — Calculate Order Price (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="1-executive-summary">1. Executive Summary</h2>
@@ -251,6 +311,7 @@ strong { color: #00285a; }
 <blockquote>
 <p>All system nodes in architecture diagrams are <strong>IAPM-linked</strong> — click any node to open its IAPM page. Diagrams require <code>securityLevel: 'loose'</code> for click events.</p>
 </blockquote>
+<div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-040 — Calculate Order Price (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="2-business-context-objectives">2. Business Context &amp; Objectives</h2>
@@ -319,6 +380,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-040 — Calculate Order Price (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="23-success-criteria">2.3 Success Criteria</h3>
@@ -382,13 +444,12 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-040 — Calculate Order Price (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</h2>
 <h3 id="31-business-process-overview">3.1 Business Process Overview</h3>
 <p><em>(No BPMN files found in input/bpmn/ for this capability.)</em></p>
-<div style="page-break-before: always;"></div>
-
 <h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
 <table>
 <thead>
@@ -421,6 +482,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-040 — Calculate Order Price (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
@@ -452,14 +514,13 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-040 — Calculate Order Price (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="42-data-flow-diagrams">4.2 Data Flow Diagrams</h3>
 <blockquote>
 <p><strong>DATA ARCHITECTURE</strong> — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.</p>
 </blockquote>
-<div style="page-break-before: always;"></div>
-
 <h3 id="43-data-lineage">4.3 Data Lineage</h3>
 <p>Data lineage traces the origin and transformation path of key data objects across integrated systems.</p>
 <table>
@@ -552,27 +613,20 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-040 — Calculate Order Price (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</h2>
 <h3 id="51-current-state-current-state-application-landscape">5.1 Current-State — Current-State Application Landscape</h3>
 <h4 id="overview">Overview</h4>
 <p>The Current-State architecture represents the <strong>current / legacy</strong> landscape for O-040.</p>
-<div style="page-break-before: always;"></div>
-
 <h4 id="current-state-flow-narrative">Current-State Flow Narrative</h4>
 <p><em>(No current-state flows defined.)</em></p>
-<div style="page-break-before: always;"></div>
-
 <h3 id="52-future-state-future-state-application-landscape">5.2 Future-State — Future-State Application Landscape</h3>
 <h4 id="overview_1">Overview</h4>
 <p>The Future-State architecture represents the <strong>target</strong> landscape for O-040.</p>
-<div style="page-break-before: always;"></div>
-
 <h4 id="future-state-flow-narrative">Future-State Flow Narrative</h4>
 <p><em>(No future-state flows defined.)</em></p>
-<div style="page-break-before: always;"></div>
-
 <h3 id="53-change-impact-summary">5.3 Change Impact Summary</h3>
 <table>
 <thead>
@@ -609,6 +663,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-040 — Calculate Order Price (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
@@ -1411,6 +1466,7 @@ strong { color: #00285a; }
 </tbody>
 </table>
 <p><strong>Summary</strong>: 11 Interfaces, 64 Enhancements, 11 Forms, 1 Workflows</p>
+<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-040 — Calculate Order Price (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
@@ -1440,6 +1496,7 @@ strong { color: #00285a; }
 <blockquote>
 <p><em>Integration pattern details will be refined when tower architects validate middleware assignments.</em></p>
 </blockquote>
+<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-040 — Calculate Order Price (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
@@ -1486,48 +1543,114 @@ strong { color: #00285a; }
 <blockquote>
 <p><em>Platform assignments will be validated when tower architects populate technology platform columns.</em></p>
 </blockquote>
+<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-040 — Calculate Order Price (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="62-sap-development-object-status">6.2 SAP Development Object Status</h3>
+<p><strong>Capability RICEFW Status</strong> (87 objects)
+<em>Data source: Smartsheet Object Tracker (cached 2026-03-26)</em></p>
 <table>
 <thead>
 <tr>
-<th>Metric</th>
-<th>DEV</th>
-<th>QAS</th>
-<th>PRD</th>
+<th>Status</th>
+<th style="text-align: right;">Count</th>
+<th style="text-align: right;">%</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Transport Requests</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>10. Object Complete</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">98.9%</td>
 </tr>
 <tr>
-<td>Custom Code Objects</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>06. Dev In Progress</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.1%</td>
 </tr>
 <tr>
-<td>CDS Views</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>87</strong></td>
+<td style="text-align: right;"><strong>100%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>RICEFW by Type:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Interface (I)</td>
+<td style="text-align: right;">11</td>
 </tr>
 <tr>
-<td>Fiori Apps</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>Enhancement (E)</td>
+<td style="text-align: right;">64</td>
 </tr>
 <tr>
-<td>BAdIs / Enhancements</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>Form (F)</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr>
+<td>Workflow (W)</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>87</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Technical Complexity:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Complexity</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01.Very High</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>02.High</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr>
+<td>03.Medium</td>
+<td style="text-align: right;">48</td>
+</tr>
+<tr>
+<td>04.Low</td>
+<td style="text-align: right;">29</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Active (Non-Complete) Objects:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Type</th>
+<th>Description</th>
+<th>Status</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OTCE1123</td>
+<td>04.Enhancement</td>
+<td>Determine Confirmed Delivery date in sales orders at schedule line level based o&hellip;</td>
+<td>06. Dev In Progress</td>
+<td>02.High</td>
 </tr>
 </tbody>
 </table>
@@ -1659,23 +1782,21 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-040 — Calculate Order Price (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="7-project-context">7. Project Context</h2>
 <h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
+<p><em>87 objects with timeline data (source: Object Tracker)</em></p>
 <table>
 <thead>
 <tr>
-<th>Object ID</th>
+<th>ID</th>
 <th>Description</th>
-<th>FS End</th>
-<th>FS %</th>
-<th>TDD End</th>
-<th>TDD %</th>
-<th>Build End</th>
-<th>Build %</th>
-<th>FUT End</th>
-<th>FUT %</th>
+<th>FS</th>
+<th>TDD</th>
+<th>Build</th>
+<th>FUT</th>
 <th>Status</th>
 </tr>
 </thead>
@@ -1683,339 +1804,474 @@ strong { color: #00285a; }
 <tr>
 <td>OTCW0638</td>
 <td>Dispute Write-off Workflow</td>
-<td>2025-08-08</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
-<td>2025-11-28</td>
-<td>1.0</td>
+<td>Aug-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>2. At Risk</td>
 </tr>
 <tr>
 <td>OTCI1162</td>
-<td>Inbound interface to change the sales&hellip;</td>
-<td>2025-03-21</td>
-<td>1.0</td>
-<td>2025-06-20</td>
-<td>1.0</td>
-<td>2025-06-20</td>
-<td>1.0</td>
-<td>2026-03-25</td>
-<td>1.0</td>
+<td>Inbound interface to change the sales order via Build Instructions</td>
+<td>Mar-25 (100%)</td>
+<td>Jun-25 (100%)</td>
+<td>Jun-25 (100%)</td>
+<td>Mar-26 (100%)</td>
 <td>2. At Risk</td>
 </tr>
 <tr>
 <td>OTCI1161</td>
-<td>Inbound interface from BY-PDH to S4 t&hellip;</td>
-<td>2025-06-20</td>
-<td>1.0</td>
-<td>2025-11-28</td>
-<td>1.0</td>
-<td>2025-11-28</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
+<td>Inbound interface from BY-PDH to S4 to update CMAD in IF sales orders</td>
+<td>Jun-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>OTCI1126</td>
-<td>Inbound interface to create and chang&hellip;</td>
-<td>2025-04-18</td>
-<td>1.0</td>
-<td>2025-07-11</td>
-<td>1.0</td>
-<td>2025-07-11</td>
-<td>1.0</td>
-<td>2026-01-23</td>
-<td>1.0</td>
+<td>Inbound interface to create and change sales order via Subcon, STO &amp; SIMS PO</td>
+<td>Apr-25 (100%)</td>
+<td>Jul-25 (100%)</td>
+<td>Jul-25 (100%)</td>
+<td>Jan-26 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
 <td>OTCI0442</td>
 <td>IF: Interface requirement from SAC to S4</td>
-<td>2024-09-13</td>
-<td>1.0</td>
-<td>2025-03-07</td>
-<td>1.0</td>
-<td>2025-03-07</td>
-<td>1.0</td>
-<td>2025-12-03</td>
-<td>1.0</td>
+<td>Sep-24 (100%)</td>
+<td>Mar-25 (100%)</td>
+<td>Mar-25 (100%)</td>
+<td>Dec-25 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
 <td>OTCF0681_IF</td>
-<td>Form development for Intercompany Inv&hellip;</td>
-<td>2024-11-22</td>
-<td>1.0</td>
-<td>2025-03-07</td>
-<td>1.0</td>
-<td>2025-03-07</td>
-<td>1.0</td>
-<td>2025-07-11</td>
-<td>1.0</td>
+<td>Form development for Intercompany Invoice.</td>
+<td>Nov-24 (100%)</td>
+<td>Mar-25 (100%)</td>
+<td>Mar-25 (100%)</td>
+<td>Jul-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>OTCF0460_IF</td>
 <td>Form Development for Invoice list.</td>
-<td>2024-09-13</td>
-<td>1.0</td>
-<td>2025-01-17</td>
-<td>1.0</td>
-<td>2025-01-17</td>
-<td>1.0</td>
-<td>2025-01-10</td>
-<td>1.0</td>
+<td>Sep-24 (100%)</td>
+<td>Jan-25 (100%)</td>
+<td>Jan-25 (100%)</td>
+<td>Jan-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>OTCF0431</td>
-<td>Generate Custom Late Payment Interest&hellip;</td>
-<td>2024-08-30</td>
-<td>1.0</td>
-<td>2025-01-31</td>
-<td>1.0</td>
-<td>2025-01-31</td>
-<td>1.0</td>
-<td>2025-05-09</td>
-<td>1.0</td>
+<td>Generate Custom Late Payment Interest Charge Output Form</td>
+<td>Aug-24 (100%)</td>
+<td>Jan-25 (100%)</td>
+<td>Jan-25 (100%)</td>
+<td>May-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>OTCF0290</td>
 <td>Dunning output form customization</td>
-<td>2024-07-18</td>
-<td>1.0</td>
-<td>2025-01-31</td>
-<td>1.0</td>
-<td>2025-01-31</td>
-<td>1.0</td>
-<td>2025-03-14</td>
-<td>1.0</td>
+<td>Jul-24 (100%)</td>
+<td>Jan-25 (100%)</td>
+<td>Jan-25 (100%)</td>
+<td>Mar-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>OTCE1698</td>
-<td>Additional material attributes for tr&hellip;</td>
-<td>2024-11-15</td>
-<td>1.0</td>
-<td>2025-03-21</td>
-<td>1.0</td>
-<td>2025-03-21</td>
-<td>1.0</td>
-<td>2025-12-03</td>
-<td>1.0</td>
+<td>Additional material attributes for transfer from MDG to GTS to support product classification</td>
+<td>Nov-24 (100%)</td>
+<td>Mar-25 (100%)</td>
+<td>Mar-25 (100%)</td>
+<td>Dec-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>OTCE1668_IF</td>
-<td>Enhancement to transfer Customs value&hellip;</td>
-<td>2026-01-07</td>
-<td>1.0</td>
-<td>2026-02-04</td>
-<td>1.0</td>
-<td>2026-02-04</td>
-<td>1.0</td>
-<td>2026-03-27</td>
-<td>1.0</td>
+<td>Enhancement to transfer Customs value from S4 to GTS for Sales orders and delivery documents</td>
+<td>Jan-26 (100%)</td>
+<td>Feb-26 (100%)</td>
+<td>Feb-26 (100%)</td>
+<td>Mar-26 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>OTCE1662</td>
-<td>BADI Enhancement for Dispute Write of&hellip;</td>
-<td>2025-11-13</td>
-<td>1.0</td>
-<td>2025-11-21</td>
-<td>1.0</td>
-<td>2025-11-21</td>
-<td>1.0</td>
-<td>2025-11-28</td>
-<td>1.0</td>
+<td>BADI Enhancement for Dispute Write off (workflow Trigger)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>2. At Risk</td>
 </tr>
 <tr>
 <td>OTCE1658</td>
 <td>Dispute Write-off Enhancement</td>
-<td>2025-11-13</td>
-<td>1.0</td>
-<td>2025-11-28</td>
-<td>1.0</td>
-<td>2025-11-28</td>
-<td>1.0</td>
-<td>2025-11-28</td>
-<td>1.0</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>2. At Risk</td>
 </tr>
 <tr>
 <td>OTCE1655</td>
-<td>Enhancement to AIF capabilities on ac&hellip;</td>
-<td>2025-06-27</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
-<td>2026-01-23</td>
-<td>1.0</td>
+<td>Enhancement to AIF capabilities on access and notifications</td>
+<td>Jun-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Jan-26 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>OTCE1625</td>
-<td>Credit hold release dashboard at line&hellip;</td>
-<td>2024-07-12</td>
-<td>1.0</td>
-<td>2025-09-05</td>
-<td>1.0</td>
-<td>2025-09-05</td>
-<td>1.0</td>
-<td>2026-02-04</td>
-<td>1.0</td>
+<td>Credit hold release dashboard at line-item level</td>
+<td>Jul-24 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Feb-26 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>OTCE1558</td>
-<td>Business users want the capability to&hellip;</td>
-<td>2025-10-04</td>
-<td>1.0</td>
-<td>2025-11-21</td>
-<td>1.0</td>
-<td>2025-11-21</td>
-<td>1.0</td>
-<td>2025-11-28</td>
-<td>1.0</td>
+<td>Business users want the capability to have CMIR updated for the specific Materials which will go under FERT To HALB Conversion during R3 Cutover, this activity will be specific for IF system, CMIR to be deleted automatically for materials which will undergo FERT to HALB Conversion and new records to be created for new Material code</td>
+<td>Oct-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
 <td>OTCE1557</td>
-<td>Business users want the capability to&hellip;</td>
-<td>2025-10-04</td>
-<td>1.0</td>
-<td>2025-12-03</td>
-<td>1.0</td>
-<td>2025-12-03</td>
-<td>1.0</td>
-<td>2026-01-30</td>
-<td>1.0</td>
+<td>Business users want the capability to have sales order updated for the specific Materials which will go under FERT To HALB Conversion during R3 Cutover, this activity will be specific for IF system, orders to be updated automatically.</td>
+<td>Oct-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>Jan-26 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
 <td>OTCE1200</td>
-<td>Enhancement to transfer fields from S&hellip;</td>
-<td>2025-07-11</td>
-<td>1.0</td>
-<td>2025-11-21</td>
-<td>1.0</td>
-<td>2025-11-21</td>
-<td>1.0</td>
-<td>2025-11-28</td>
-<td>1.0</td>
+<td>Enhancement to transfer fields from Sales Orders to Purchase Requisition during Sales Order creation and change.</td>
+<td>Jul-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
 <td>OTCE1124</td>
-<td>Enhancement to support Inbound interf&hellip;</td>
-<td>2025-04-11</td>
-<td>1.0</td>
-<td>2025-08-13</td>
-<td>1.0</td>
-<td>2025-08-13</td>
-<td>1.0</td>
-<td>2026-01-23</td>
-<td>1.0</td>
+<td>Enhancement to support Inbound interface to change the ship to party record at the sales order</td>
+<td>Apr-25 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Jan-26 (100%)</td>
 <td>3. Off Track</td>
 </tr>
 <tr>
 <td>OTCE1123</td>
-<td>Determine Confirmed Delivery date in &hellip;</td>
-<td>2025-06-20</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>0.6</td>
-<td>2025-11-05</td>
-<td>0.6</td>
-<td>2025-11-28</td>
-<td>1.0</td>
+<td>Determine Confirmed Delivery date in sales orders at schedule line level based on CMAD received from Blue yonder</td>
+<td>Jun-25 (100%)</td>
+<td>Nov-25 (60%)</td>
+<td>Nov-25 (60%)</td>
+<td>Nov-25 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
-<td><em>&hellip; and 67 more objects (see full Object Tracker)</em></td>
+<td>OTCE1122</td>
+<td>Enhancement for IMR to update the Repair Sales Order post Repair work order is complete</td>
+<td>Mar-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Jun-25 (100%)</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>OTCE1106</td>
+<td>Enhancement to support Inbound interface and manual upload to create the sales order via Build Instructions</td>
+<td>Jun-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>Mar-26 (100%)</td>
+<td>3. Off Track</td>
+</tr>
+<tr>
+<td>OTCE1013</td>
+<td>SIMS Enhancement to determine the order type based on the Material Characteristic</td>
+<td>Jun-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>OTCE0974</td>
+<td>Screen enhancement to populate the assignment priority at SO line item</td>
+<td>Jun-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
 <td></td>
+</tr>
+<tr>
+<td>OTCE0659</td>
+<td>IF : Apply a Delivery Block Hold for Items with Multiple Schedule lines (MSL) which have price differences identified</td>
+<td>Jan-25 (100%)</td>
+<td>Mar-25 (100%)</td>
+<td>Mar-25 (100%)</td>
+<td>Mar-25 (100%)</td>
 <td></td>
+</tr>
+<tr>
+<td>OTCE0651_IF</td>
+<td>Enrich the delivery data transfer data from S/4 IF to GTS with the &lsquo;new&rsquo; vs &lsquo;used indicator</td>
+<td>Jul-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>OTCE0614_IF</td>
+<td>Implement Standard Credit/Collection BADI</td>
+<td>Mar-25 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Sep-25 (100%)</td>
 <td></td>
+</tr>
+<tr>
+<td>OTCE0486</td>
+<td>Price Swamp: For Order Repricing</td>
+<td>Sep-24 (100%)</td>
+<td>Feb-25 (100%)</td>
+<td>Feb-25 (100%)</td>
+<td>Apr-25 (100%)</td>
 <td></td>
+</tr>
+<tr>
+<td>OTCE0235</td>
+<td>Credit and Collections - Credit Check Step Configuration</td>
+<td>Jul-24 (100%)</td>
+<td>Jan-25 (100%)</td>
+<td>Jan-25 (100%)</td>
+<td>Jun-25 (100%)</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+</tr>
+<tr>
+<td>OTCE0234</td>
+<td>Implement mapping between customer’s risk class and credit check steps</td>
+<td>Jul-24 (100%)</td>
+<td>Dec-24 (100%)</td>
+<td>Dec-24 (100%)</td>
+<td>Feb-25 (100%)</td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<div style="page-break-before: always;"></div>
-
+<p><em>&hellip; and 57 more objects (see full Object Tracker)</em></p>
 <h3 id="72-raid-log">7.2 RAID Log</h3>
-<p>Standard RAID items for O-040 (Order To Cash (IF)):</p>
+<p><em>Live data from Smartsheet Master RAID Log — extracted 2026-03-26</em></p>
+<p><strong>Mapped sub-tower(s):</strong> 4.10 OTC IF - Logistics Management Outbound, 4.11 OTC IF - Order Management, 4.12 OTC IF - TM, 4.3 OTC IF - Billing and Rebates, 4.6 OTC IF - Credit and Collections, 4.8 OTC IF - EWM, 4.9 OTC IF - GTS, 7.6 FTS IF - Logistics &amp; Inventory Management</p>
+<p><strong>RAID Summary:</strong> 14 open items (1 capability-specific, 13 tower-level), 175 closed</p>
 <table>
 <thead>
 <tr>
-<th>#</th>
-<th>Category</th>
-<th>Description</th>
-<th>Status</th>
-<th>Owner</th>
-<th>Priority</th>
+<th>Severity</th>
+<th style="text-align: right;">Capability</th>
+<th style="text-align: right;">Tower-Wide</th>
+<th style="text-align: right;">Total Open</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
-<td>Risk</td>
-<td>Data migration completeness — validate all legacy Calculate Order Price (IF) data maps to S/4 target structures</td>
-<td>Open</td>
-<td>Tower Architect</td>
-<td>High</td>
+<td>P1 - High</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
 </tr>
 <tr>
-<td>2</td>
-<td>Risk</td>
-<td>Integration testing coverage — ensure all 0 integrated systems are validated end-to-end</td>
-<td>Open</td>
-<td>Integration Lead</td>
-<td>High</td>
+<td>P2 - Medium</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
 </tr>
 <tr>
-<td>3</td>
-<td>Assumption</td>
-<td>Target SAP S/4HANA system available in DEV/QAS per release schedule</td>
-<td>Active</td>
-<td>SAP Basis</td>
-<td>Medium</td>
+<td>P3 - Low</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
 </tr>
 <tr>
-<td>4</td>
-<td>Issue</td>
-<td>API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation</td>
-<td>Open</td>
-<td>EA Pipeline Team</td>
-<td>High</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Dependency</td>
-<td>Upstream BPMN process models validated and signed off by business process owners</td>
-<td>Active</td>
-<td>Process Owner</td>
-<td>Medium</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>1</strong></td>
+<td style="text-align: right;"><strong>13</strong></td>
+<td style="text-align: right;"><strong>14</strong></td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><em>Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.</em></p>
-</blockquote>
+<p><strong>Capability-Specific RAID Items:</strong></p>
+<table>
+<thead>
+<tr>
+<th>RAID ID</th>
+<th>Type</th>
+<th>Severity</th>
+<th>Title</th>
+<th>Status</th>
+<th>Assigned To</th>
+<th>Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>03381</td>
+<td>Risk</td>
+<td>P3 - Low</td>
+<td>New requirement raised for enabling Israel as virtual site</td>
+<td>Not Started</td>
+<td>OTC IF</td>
+<td>2026-03-31</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Other OTC-IF Tower RAID Items</strong> (13 open):</p>
+<table>
+<thead>
+<tr>
+<th>RAID ID</th>
+<th>Type</th>
+<th>Severity</th>
+<th>Title</th>
+<th>Status</th>
+<th>Assigned To</th>
+<th>Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>03591</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>R3 E2E scenario execution</td>
+<td>In Progress</td>
+<td>Test Management</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>03592</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Lack of Defined IMO Owner for CBA Mask Billing and Materials&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03625</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Item/ BOM MC1 delta load</td>
+<td>In Progress</td>
+<td>Cutover</td>
+<td>2026-04-10</td>
+</tr>
+<tr>
+<td>03628</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>R3 Returns Rework Process Causing Finance Double Counting in&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03634</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Gaps in mapping of ITC test cases to automated controls and &hellip;</td>
+<td>Not Started</td>
+<td>OTC IF</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03736</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Golden Data/Test Data Readiness</td>
+<td>In Progress</td>
+<td>Master Data</td>
+<td>2026-04-22</td>
+</tr>
+<tr>
+<td>03743</td>
+<td>Issue</td>
+<td>P2 - Medium</td>
+<td>FD-Share with Entitlements -  Interface File Paths for MC1</td>
+<td>Roadblock / At Risk</td>
+<td>PMO</td>
+<td>2026-03-20</td>
+</tr>
+<tr>
+<td>03749</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Logistics Data Intake and Creation Process Definition</td>
+<td>In Progress</td>
+<td>Test Management</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03756</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>LE101-1001 Operation Support Ownership for SIMS/Tester Front&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-04-24</td>
+</tr>
+<tr>
+<td>03758</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>IMR Repair Order Creation Ownership</td>
+<td>In Progress</td>
+<td>PTP</td>
+<td></td>
+</tr>
+<tr>
+<td>03763</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>IP to IF Regression Testing for LE Merge</td>
+<td>Not Started</td>
+<td>B-Apps</td>
+<td>2026-03-26</td>
+</tr>
+<tr>
+<td>03315</td>
+<td>Risk</td>
+<td>P3 - Low</td>
+<td>BPMG – SCP L3/L4 flow standards</td>
+<td>In Progress</td>
+<td>Business Process Mgmt</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03317</td>
+<td>Risk</td>
+<td>P3 - Low</td>
+<td>BPMG – E2E L3/L4 flow standards</td>
+<td>In Progress</td>
+<td>Business Process Mgmt</td>
+<td>2026-05-29</td>
+</tr>
+</tbody>
+</table>
 <h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
 <table>
 <thead>

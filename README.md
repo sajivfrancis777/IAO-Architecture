@@ -92,7 +92,7 @@ Pulls live data from enterprise APIs (Smartsheet, IAPM, SAP BIC, SAP S/4HANA ODa
 All scripts live in `scripts/` and are run from the project root:
 
 | Script | Purpose |
-|--------|---------||
+|--------|---------|
 | `scripts/update_sad_from_smartsheet.py` | Update all SADs with live Smartsheet data (roadmap, RICEFW status, RAID log) |
 | `scripts/gen_pdf.py` | Convert architecture Markdown to styled HTML and PDF |
 | `scripts/gen_xlsx_templates.py` | Generate multi-tab Excel input templates for tower architects |
@@ -187,12 +187,225 @@ The `mcp_servers/` directory contains [Model Context Protocol](https://modelcont
 - **SAP OData** — Development objects, transports (placeholder)
 - **BIC** — BPMN process models (placeholder)
 
-## GitHub Actions
+## CI/CD Workflows
+
+Three GitHub Actions workflows automate the full document lifecycle:
 
 | Workflow | Trigger | Purpose |
 |----------|---------|---------|
-| `generate-architecture.yml` | Weekly (Mon 06:00 UTC), push to main, manual | Regenerate architecture docs |
-| `sharepoint-reverse-sync.yml` | Manual | Reverse-sync from SharePoint |
+| `generate-architecture.yml` | Weekly (Mon 06:00 UTC), push to main, manual | Regenerate MDs, update from Smartsheet, generate HTML, sync to SharePoint |
+| `sharepoint-reverse-sync.yml` | Power Automate webhook, manual | Pull updated Excel inputs from SharePoint → commit → triggers forward generation |
+| `deploy-pages.yml` | After `Generate Architecture Docs` completes, manual | Deploy HTML outputs to GitHub Pages for browser viewing |
+
+### Pipeline Flow
+
+```
+ SharePoint (architect edits xlsx)
+        │
+        ▼
+ Power Automate → repository_dispatch
+        │
+        ▼
+ sharepoint-reverse-sync.yml
+   ├── Download updated file from SharePoint via Graph API
+   ├── Commit to towers/<TOWER>/<CAP>/input/data/
+   └── Push to main  ───────────────────────┐
+                                             ▼
+                                generate-architecture.yml
+                                  ├── Generate architecture MDs
+                                  ├── Update SADs from Smartsheet
+                                  ├── Generate HTML outputs
+                                  ├── Commit outputs to repo
+                                  ├── Sync HTML/MD/SVG to SharePoint
+                                  └── Trigger deploy-pages.yml
+                                             │
+                                             ▼
+                                      deploy-pages.yml
+                                        └── Deploy HTML to GitHub Pages
+```
+
+---
+
+## SharePoint Two-Way Sync
+
+The pipeline supports two-way sync between GitHub and SharePoint so that tower architects can update Excel input files directly on SharePoint without needing Git access.
+
+### How It Works
+
+1. **Forward sync** (GitHub → SharePoint): After docs are generated, `sync_sharepoint.py` uploads HTML, Markdown, and SVG files to the SharePoint document library.
+2. **Reverse sync** (SharePoint → GitHub): When an architect updates an Excel file on SharePoint, a Power Automate flow triggers `sharepoint-reverse-sync.yml` to pull the file into the repo and regenerate docs.
+
+### Folder Structure on SharePoint
+
+The sync maps the GitHub `towers/` structure to SharePoint:
+
+```
+SharePoint: <SP_DOC_LIBRARY>/<SP_TARGET_FOLDER>/
+  ├── FPR/
+  │   ├── DS-001/
+  │   │   ├── DS-001-Architecture.html
+  │   │   ├── DS-001-Architecture.md
+  │   │   └── svg/
+  │   └── DS-002/
+  ├── OTC-IF/
+  ├── PTP/
+  └── ...
+```
+
+**Default mapping** (from `.env`):
+- `SP_DOC_LIBRARY` = `Shared Documents`
+- `SP_TARGET_FOLDER` = `Architecture/SAD`
+
+### Syncing Specific Towers
+
+To sync only certain towers instead of all:
+
+```bash
+# Sync a single tower to SharePoint
+python scripts/sync_sharepoint.py --tower FPR
+
+# Sync all towers
+python scripts/sync_sharepoint.py --all
+```
+
+In the GitHub Actions manual dispatch, enter a tower shortcode to limit the scope:
+
+> **Actions → Generate Architecture Docs → Run workflow → Tower shortcode**: `FPR`
+
+### Setting Up Reverse Sync (SharePoint → GitHub)
+
+#### Prerequisites
+
+1. **Azure AD App Registration** with `Sites.ReadWrite.All` Graph API permission
+2. **GitHub Personal Access Token** (PAT) with `repo` scope for Power Automate to call the dispatch API
+3. **Power Automate** (or Logic App) flow on the SharePoint site
+
+#### Step 1: Configure GitHub Secrets
+
+Go to **Settings → Secrets and variables → Actions** and add:
+
+| Secret | Description |
+|--------|-------------|
+| `SMARTSHEET_TOKEN` | Smartsheet API token |
+| `SP_TENANT_ID` | Azure AD tenant ID |
+| `SP_CLIENT_ID` | Azure AD app client ID |
+| `SP_CLIENT_SECRET` | Azure AD app client secret |
+| `SP_SITE_URL` | SharePoint site URL (e.g., `https://intel.sharepoint.com/sites/IAO-Architecture`) |
+| `SP_DOC_LIBRARY` | Document library name (default: `Shared Documents`) |
+| `SP_TARGET_FOLDER` | Target folder path (default: `Architecture/SAD`) |
+
+Optional (for full pipeline): `IAPM_BEARER_TOKEN`, `BIC_AUTH_TOKEN`
+
+#### Step 2: Create Power Automate Flow
+
+Create a flow that fires when an `.xlsx` file changes in the SharePoint document library:
+
+1. **Trigger**: _When a file is modified (properties only)_ in the `Architecture/SAD` folder
+2. **Filter**: File extension = `.xlsx`
+3. **Parse path**: Extract tower and capability from the file path
+   - Example: `Architecture/SAD/FPR/DS-001/input/data/CurrentFlows.xlsx`
+   - Tower = `FPR`, Capability = `DS-001`, File = `CurrentFlows.xlsx`
+4. **HTTP action**: Send `repository_dispatch` to GitHub:
+
+```json
+POST https://api.github.com/repos/<OWNER>/<REPO>/dispatches
+Headers:
+  Authorization: Bearer <GITHUB_PAT>
+  Accept: application/vnd.github+json
+Body:
+{
+  "event_type": "sharepoint-file-updated",
+  "client_payload": {
+    "tower": "FPR",
+    "capability": "DS-001",
+    "file_name": "CurrentFlows.xlsx",
+    "sp_path": "Architecture/SAD/FPR/DS-001/input/data/CurrentFlows.xlsx"
+  }
+}
+```
+
+#### Step 3: Manual Reverse Sync (Alternative)
+
+If Power Automate is not configured, you can trigger the reverse sync manually:
+
+> **Actions → SharePoint Reverse Sync → Run workflow**
+>
+> - Tower shortcode: `FPR`
+> - Capability ID: `DS-001`
+> - File name: `CurrentFlows.xlsx`
+
+This downloads the specified file from SharePoint and commits it to the repo. The push then triggers the forward generation workflow automatically.
+
+### Sync Sequence Summary
+
+| Step | What Happens | Triggered By |
+|------|-------------|--------------|
+| 1 | Architect edits Excel on SharePoint | Manual |
+| 2 | Power Automate sends `repository_dispatch` | SharePoint file change trigger |
+| 3 | `sharepoint-reverse-sync.yml` downloads file, commits | `repository_dispatch` event |
+| 4 | `generate-architecture.yml` regenerates docs | Push to `main` (paths: `towers/**/input/**`) |
+| 5 | Updated HTML/MD/SVG uploaded to SharePoint | End of generation workflow |
+| 6 | `deploy-pages.yml` deploys HTML to GitHub Pages | After generation workflow completes |
+
+---
+
+## Viewing HTML Outputs
+
+GitHub does not render HTML files inline — it shows the source code instead. Three options for viewing the generated architecture HTML files:
+
+### Option 1: GitHub Pages (Recommended)
+
+After enabling GitHub Pages, all HTML outputs are served at:
+
+```
+https://<username>.github.io/IAO-Architecture/towers/<TOWER>/<CAP>/output/<CAP>-Architecture.html
+```
+
+**Setup:**
+1. Go to **Settings → Pages**
+2. Source: **GitHub Actions**
+3. The `deploy-pages.yml` workflow automatically deploys after each doc generation
+4. An index page at the root lists all towers and capabilities
+
+### Option 2: htmlpreview.github.io
+
+For quick viewing without Pages setup, prepend the raw GitHub URL:
+
+```
+https://htmlpreview.github.io/?https://github.com/<OWNER>/<REPO>/blob/main/towers/FPR/DS-001/output/DS-001-Architecture.html
+```
+
+### Option 3: Local
+
+```bash
+# Open a specific HTML file locally
+start towers/FPR/DS-001/output/DS-001-Architecture.html
+```
+
+---
+
+## Scheduling Options
+
+The `generate-architecture.yml` workflow runs weekly by default. To change the schedule:
+
+| Frequency | Cron Expression | Description |
+|-----------|----------------|-------------|
+| Daily | `0 6 * * *` | Every day at 06:00 UTC |
+| Weekly (default) | `0 6 * * 1` | Every Monday at 06:00 UTC |
+| Bi-weekly | `0 6 1,15 * *` | 1st and 15th of each month |
+| Monthly | `0 6 1 * *` | First day of each month |
+
+Edit the `cron` line in `.github/workflows/generate-architecture.yml`:
+
+```yaml
+on:
+  schedule:
+    - cron: "0 6 * * *"   # Change to desired frequency
+```
+
+Or trigger an ad-hoc run from **Actions → Generate Architecture Docs → Run workflow**.
+
+---
 
 ## License
 

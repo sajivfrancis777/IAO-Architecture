@@ -104,8 +104,9 @@ blockquote {
     border-radius: 6px;
     padding: 20px 12px;
     margin: 16px 0;
-    overflow-x: auto;
+    overflow: visible;
     text-align: center;
+    page-break-inside: avoid;
 }
 .mermaid svg {
     max-width: 100%;
@@ -144,6 +145,14 @@ strong { color: #00285a; }
     body { padding: 0; max-width: none; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print { display: none; }
+    .mermaid {
+        page-break-inside: avoid;
+        overflow: visible;
+    }
+    .mermaid svg {
+        max-width: 100%;
+        height: auto;
+    }
 }
 </style>
     
@@ -173,32 +182,82 @@ strong { color: #00285a; }
     }
   });
 </script>
+<script>
+  // Open rendered Mermaid diagram as full-size SVG in a new browser tab.
+  // Works on SharePoint, GitHub Pages, localhost — no file system dependency.
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[title="Open full-size SVG"]');
+    if (!link) return;
+    // Walk backwards from the link div to find the preceding .mermaid container
+    var container = link.closest('div');
+    var prev = container;
+    while (prev && prev.previousElementSibling) {
+      prev = prev.previousElementSibling;
+      if (prev.classList && prev.classList.contains('mermaid')) break;
+    }
+    if (!prev || !prev.classList.contains('mermaid')) return;
+    var svgEl = prev.querySelector('svg');
+    if (!svgEl) return;
+    e.preventDefault();
+    // Clone SVG with full dimensions for standalone viewing
+    var clone = svgEl.cloneNode(true);
+    clone.removeAttribute('style');
+    clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    var svgXml = new XMLSerializer().serializeToString(clone);
+    var blob = new Blob([svgXml], {type: 'image/svg+xml'});
+    window.open(URL.createObjectURL(blob), '_blank');
+  });
+</script>
 
 </head>
 <body>
-<div style="text-align:center; padding-top:80px;">
-  <h1 style="font-size:36px;">PM-080 — Purchase Materials and Services</h1>
+<div style="text-align:center; padding-top:20px;">
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <h1 style="font-size:36px; margin-top:24px;">PM-080 — Purchase Materials and Services</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Procure To Pay (PTP) Tower<br/>
   Capability PM-080 · PM Procure Materials and Services (Direct and Indirect)</p>
   <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026</p>
+  Generated: March 2026<br/>
+  Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
   @page { margin: 0.75in; }
-  footer::after { content: "Intel Confidential — PM-080 BDAT — March 2026"; font-size:9px; color:#999; }
-  .mermaid { page-break-inside: avoid; max-height: 95vh; overflow: visible; }
+  .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
-.mermaid svg { max-width: 100% !important; height: auto !important; }
+.mermaid { overflow: visible; }
+.mermaid svg { max-width: 100%; height: auto !important; }
+.page-footer {
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 20px;
+  background: #fff;
+}
+@media print {
+  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 </style>
 
+<div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
+<p><a id="toc"></a></p>
 <h2 id="table-of-contents">Table of Contents</h2>
 <ol>
 <li><a href="#1-executive-summary">Executive Summary</a></li>
@@ -234,6 +293,7 @@ strong { color: #00285a; }
    - 7.2 <a href="#72-raid-log">RAID Log</a>
    - 7.3 <a href="#73-recommendations--next-steps">Recommendations &amp; Next Steps</a></li>
 </ol>
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="1-executive-summary">1. Executive Summary</h2>
@@ -251,6 +311,7 @@ strong { color: #00285a; }
 <blockquote>
 <p>All system nodes in architecture diagrams are <strong>IAPM-linked</strong> — click any node to open its IAPM page. Diagrams require <code>securityLevel: 'loose'</code> for click events.</p>
 </blockquote>
+<div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="2-business-context-objectives">2. Business Context &amp; Objectives</h2>
@@ -319,6 +380,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="23-success-criteria">2.3 Success Criteria</h3>
@@ -382,6 +444,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</h2>
@@ -570,6 +633,7 @@ strong { color: #00285a; }
 </tbody>
 </table>
 <h3 id="32-business-process-diagrams">3.2 Business Process Diagrams</h3>
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-321-pm-080-010_create_po_manually_with_text_materials-pm-080-010_create_po_manually_with_text_materials">BUSINESS ARCHITECTURE — 3.2.1 PM-080-010_Create_PO_Manually_With_’Text_Materials’ — PM-080-010_Create_PO_Manually_With_’Text_Materials’</h4>
@@ -578,7 +642,7 @@ strong { color: #00285a; }
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -647,6 +711,9 @@ flowchart TD
     class n19 subProc
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVmuP4jYU_StWViNaCaQ8CeRDKwZIVanMjoZpq2rpB5M44E6IU9sZYFn-e6-TOBA2rKo2EhE5vufch68fJyNiMTEC4-HhRDMqA3TqyS3ZkV6AemssSK-PKuA3zClep0T0lE3CMrmkn0szy80PykxhId7R9KjQJdkwgn79uY8mQEz7SOBMDAThNOn1ezmnO8yPU5Yyrqw_kFFiJqW3euiR8Zjwi4Fp-lbkATWlGbnAju_6bqh4gkQsi1uiiZeMkqh3VsGlbB9tMZdl-IUgC3z4ncZyC98JTgUBm63cpb_gNUlVjpIXCosK_q6LQYXyk0HBljmOaLYB3DUB4jh7u0CeeT6j88PDKmucotfZKkPwRCkWYkYSJCTA83eJEpqmwQd3Ogk9sy8kZ28k-GDP_Zlj9yOVSQCpm31V3MGe0M1WBmuWxrXpYK9yCOz80OeHwDb7_AjvG18kiy-epkN7ZI8aT4--NbWm2lOSJP_LE9SVv2LxVvuaO6Edzhpfljf0pubXejrNmetPrNs6Ef5OI3IlGoahM7-Uaj70LPO-6GPoDM3pjegGS7LHx4vgeOo2gqHnh5Z_V7DydxtlsX7mLNKCztwLvUbQf7TCiX1X0J1Y7qiOEHQ2HOdbpNQKDssuk2iygXc1rp7M-rQyEhwkeKDKjaacQDro-SPaU7lFvVdykGgBkFp2orcy_rzi2m3ujKREcQsObSoIeiF_F1RQSVnW5jlt3oLFNDn-C577XUPMU6j480sVZTvIOocYuN9fkb0LWUiWd7qrU7ilDoH5UW0g6BUWp9hRCTZIMrQs8jylgC-PQpJdO1ofWC8kIvSdXAWHsxgtqzYUbftR42USvWVsn5J4U05ZLRK3zcdgvsA0k_C7BDIlXNKERrhMRzlbMNiJGUfPhCeM73AWkbaQZYIStMhfJIL2iCJWZBL2nhsj1SeT5dOdYCz7dNLVVWfAYA2FirZqhiZ5zhkQflwZ5_M1xemmkEOUFgJc_FStq1ua-99oXjet7ln2zS78KvThp6aXEtjUCB-wnGS6xJ0aoi4ETsvlSISa_VYJ_W5R3XKo6o2rrrsVGHULLHCGNwR1ttadUMbfVJrE76qLoI-3NM-hVdATuzTdlRgcFdUfqBgaDH5QfaIBWwFfVsYTWxlf1PzoAa8eqGamHNQkuxLRpm6t6Whq_e3rb78ChvV3HcNIDzu1vR63tOBtjH-opaqCdPWIWVtqYFxbNutwgWFDgC0RS3xD1flV_VYO6gRGtWoToQaaiHSKYw2MK0Cn7LRLUh4pqjD6KG3BdjfsdMNuc8towV59IWiBw25bvxsedcPjbhhq341bd3Bbn9Bt2OmG3W7Y64aH-rBuw343POqGxxo2-saOwBZNYyM4GeVFGS7TMUlwkUrj3DdwIdnymEVGUF4ojSKPIaoZxXDO7yrw_A_rWKRh" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-322-pm-080-020_release_scheduling_line_from_scheduling_agreement-pm-080-020_release_scheduling_line_from_scheduling_agreement">BUSINESS ARCHITECTURE — 3.2.2 PM-080-020_Release_Scheduling_Line_from_Scheduling_Agreement — PM-080-020_Release_Scheduling_Line_from_Scheduling_Agreement</h4>
@@ -655,7 +722,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -697,6 +764,9 @@ flowchart TD
     class n10 subProc
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVW2PozYQ_isWq1VaiUhAIGT50FM2CdVJd9fVZXun6tIPDowTax1DbbObNJf_3nGAvDWp1JYPiHmYeZ6ZwTNsnazIwUmc-_stl9wkZNsxS1hBJyGdOdXQcUkNfKGK07kA3bE-rJBmyv_cu_lhubZuFkvpiouNRaewKID8-t4lQwwULtFU6q4GxVnH7ZSKr6jajApRKOt9BwPmsb1a8-qxUDmoo4PnxX4WYajgEo5wLw7jMLVxGrJC5mekLGIDlnV2NjlRvGVLqsw-_UrDR7r-ynOzRJtRoQF9lmYlPtA5CFujUZXFskq9ts3g2upIbNi0pBmXC8RDDyFF5csRirzdjuzu72fyIEqexzNJ8MoE1XoMjGiD8OTVEMaFSO7C0TCNPFcbVbxAchdM4nEvcDNbSYKle65tbvcN-GJpknkh8sa1-2ZrSIJy7ap1Eniu2uD9QgtkflQa9YNBMDgoPcb-yB-1Soyx_6WEfVXPVL80WpNeGqTjg5Yf9aOR93e-tsxxGA_9yz6BeuUZnJCmadqbHFs16Ue-d5v0Me31vdEF6YIaeKObI-HDKDwQplGc-vFNwlrvMstq_qSKrCXsTaI0OhDGj346DG4ShkM_HDQZIs9C0XJJLFulcOykIcMF3uv39pL-t5nDaMJo17abfAYBOKhkDIK_gtqQabaEvBJAPuCkEKaKVQvh-UQ2BXvemfP7CWnww4FVm6K8xfaMR12vuDGQE1OQaVWWgoNCrh9PyHrINVKAXSZU5vtiQGvyVCmcBkz1Fzva5_ohhrzPMS3ONuTj5ycs64-K1x3Q567RqeunQnb_2b2_3baV2V3XnWMJ2ZLAOhOVxhp_rg_DzNntTqLi61HXGkkma66NfvfugmLwLyia9PNLjof_lLzvfTt8TYYjDKpblCBJ801unIamabgt6gcZkm73J2xgY0bnZr8248aMrfl95vwG2P_vmPkF_qnYw4MGHpzDvQu4ZfGbSZMPtVqzHhCv7VbFr83gZC4t2O6jMzhoFuIZ2Dts5DM4vA5H1-F-u1nO0PgqOriKPlxFsdpmwziuswK1ojx3kq2z_zHjzzsHRithnJ3r0MoU043MnGT_A3OqMkfCMae4V1Y1uPsLUYOMEA==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-323-pm-080-030_create_and_release_contract_order-pm-080-030_create_and_release_contract_order">BUSINESS ARCHITECTURE — 3.2.3 PM-080-030_Create_and_Release_Contract_Order — PM-080-030_Create_and_Release_Contract_Order</h4>
@@ -705,7 +775,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -751,6 +821,9 @@ flowchart TD
     class n11 subProc
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqllluP4jYUx7-KldGIXSlZ5UoyediKCaQaaWcXDdNW1dIHk9hgTXBS2xlgWb772uQCSTOVtuUBcf4553cucU44akmeIi3Ubm-PhBIRguNIbNAWjUIwWkGORjqohN8hI3CVIT5SPjinYkG-nd0st9grN6XFcEuyg1IXaJ0j8NuDDiYyMNMBh5QbHDGCR_qoYGQL2SHKs5wp7xsUYBOfs9WX7nOWInZxME3fSjwZmhGKLrLju74bqziOkpymHSj2cICT0UkVl-W7ZAOZOJdfcvQI93-QVGykjWHGkfTZiG32Ca5QpnoUrFRaUrLXZhiEqzxUDmxRwITQtdRdU0oM0peL5JmnEzjd3i5pmxQ8T5cUyE-SQc6nCAMupDx7FQCTLAtv3GgSe6bOBctfUHhjz_ypY-uJ6iSUrZu6Gq6xQ2S9EeEqz9La1dipHkK72OtsH9qmzg7yu5cL0fSSKRrbgR20me59K7KiJhPG-H9lknNlz5C_1LlmTmzH0zaX5Y29yPwnr2lz6voTqz8nxF5Jgq6gcRw7s8uoZmPPMt-G3sfO2Ix60DUUaAcPF-Bd5LbA2PNjy38TWOXrV1mu5ixPGqAz82KvBfr3Vjyx3wS6E8sN6golZ81gsQGKVjL52FEBJmv5XV1XH2p9XWoYhhgaatwgYki2AyJ52xhMBPiinhvwbv4F7D6wD6K98H6p_XVFsQcpj5CWMAPzkslzy1ENq0Dzpy7B6RKeUIZUyM8W4r5rOVzkxSW-AVacZ_mQ8S0RAqVA5GBRFkVGEJOs91cwT7IeUjkvgg_g8WkuIX-XpBok7-YdX7t-zqnx7-7-8diUqVamsZL1JBuA9klWcvKKfq3O1FI7na6iguGopvpLs7M94YL_0gu_Gw5vb88DxbmsOZG78g2CZf6nui3ra3tXsFwCiBl5gWhzTCBNz0cUcd47K3Jo9dTk1ql-UA8Yxkc5wdocd02_MoPaDJT5fal9zpfadzmBWr6r5T8RP-tWvShkg1W829hWZVtmL7IG2rVs99yCfoKGV_k5tel0w84bQDk1m68j28OyMyy79aLuiF77pujI42HZb1ZbRw0G1btBVY5zULaaHafp2haxLSSpFh61818D-fchRRiWmdBOugZLkS8ONNHC8ytUK4tUAqcEys22rcTTD0Agr1M=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-324-pm-080-040_create_plant-to-plant_transfer_order-pm-080-040_create_plant-to-plant_transfer_order">BUSINESS ARCHITECTURE — 3.2.4 PM-080-040_Create_Plant-to-Plant_Transfer_Order — PM-080-040_Create_Plant-to-Plant_Transfer_Order</h4>
@@ -759,7 +832,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -778,7 +851,7 @@ flowchart TD
         n8(["fa:fa-stop Outbound Delivery Created in Supplying Plant"])
         n9["Identify Non-MRP Requirements"]
         n10["Identify MRP Requirements"]
-        n11{{"fa:fa-code-branch STO Created for OSAT & BOX/CPU Suppliers?"}}
+        n11{{"fa:fa-code-branch STO Created for OSAT and BOX/CPU Suppliers?"}}
         n12{{"fa:fa-code-branch exclusiveGateway"}}
     end
     n9 --> n1
@@ -806,6 +879,9 @@ flowchart TD
     class n12 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVluP2jgU_itWRiN2paDNlTB56AoCWVXqDGhC96KyDyZxwJpgs7bDQCn_vXZukBS0D81DlPOd833nEtvJSYtpgjRfe3w8YYKFD049sUFb1PNBbwU56umgBP6EDMNVhnhPxaSUiAh_LcJMZ3dQYQoL4RZnR4VGaE0R-PxRByNJzHTAIeF9jhhOe3pvx_AWsmNAM8pU9AMapkZaZKtcY8oSxC4BhuGZsSupGSboAtue4zmh4nEUU5K0RFM3HaZx76yKy-h7vIFMFOXnHD3Dw184ERtppzDjSMZsxDb7BFcoUz0Klissztm-HgbmKg-RA4t2MMZkLXHHkBCD5O0Cucb5DM6Pj0vSJAWLyZIAecUZ5HyCUsCFhKd7AVKcZf6DE4xC19C5YPQN-Q_W1JvYlh6rTnzZuqGr4fbfEV5vhL-iWVKF9t9VD761O-js4FuGzo7y3smFSHLJFAysoTVsMo09MzCDOlOapj-VSc6VLSB_q3JN7dAKJ00u0x24gfGjXt3mxPFGZndOiO1xjK5EwzC0p5dRTQeuadwXHYf2wAg6omso0Ds8XgSfAqcRDF0vNL27gmW-bpX5as5oXAvaUzd0G0FvbIYj666gMzKdYVWh1FkzuNsApZYzue2IAKO1vJd-dRHzy1JLoZ_Cvho3-JhIN06P4Fl2VW61KN_tsqNcjWCeQSJ08IpihPcNsNT-vdKz2nqRXC5gFL2AlEpjMQOCloIYMd5m2m1mwJAsAcxysaK5FJmgDO8ROwJMuiW1dZybOpGg8RtYyM3FU4nO1HnQ5rlfGmJM13d4r-i_HHMsMCWSfU0fdOiUyGqF7Pm16LktM5912N4vDZsLuitGFqGitV-vwoadsB-nU5ad3J7StdSTVGre9gsl_efXedleuVI6b8c0ruP_J9Y8nS6zSFB_JfuON8X7r-tT62EWjRYAyurHs79_C-afLyvj96V2Pl8rWrcV0SHOci47_6PchBeaXHflA3kC_f4HKVGZVml6lWmayv621P5Bsotv0t91vNACH1a4XcnVemZpO5XpVO5Gpspn17ZR2m5lu6U5qMxBm16cCSpHfRa2YOs2bN-Gnduwe30qtjyDux6v-gq0wOEt8Kn5NrUbMu7gZn2ctmGrhjVd2yK2hTjR_JNW_EvI_40EpTDPhHbWNZgLGh1JrPnFN1fLd4lkTjCUR-G2BM_fAZZovWI=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-325-pm-080-050_create_and_process_purchase_order-pm-080-050_create_and_process_purchase_order">BUSINESS ARCHITECTURE — 3.2.5 PM-080-050_Create_and_Process_Purchase_Order — PM-080-050_Create_and_Process_Purchase_Order</h4>
@@ -814,7 +890,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -830,7 +906,7 @@ flowchart TD
         n5(["fa:fa-play Initiate PO Creation"])
         n6(["fa:fa-stop PO Information Sent to External Planning Engine"])
         n7["Transmit Order to Supplier"]
-        n8{{"fa:fa-code-branch Is the PO Created value >$25k or10% (whichever is lower) ..."}}
+        n8{{"fa:fa-code-branch Is the PO Created value $25k or10% (whichever is lower) as Compared to PR..."}}
         n9{{"fa:fa-code-branch exclusiveGateway"}}
         n10{{"fa:fa-code-branch PO Approval Status"}}
         n11{{"fa:fa-code-branch Is PO Applicable for Approval ?"}}
@@ -870,6 +946,9 @@ flowchart TD
     class n14 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVluPozYY_SsWs6PsSmTKNWR4aJVJwmqktjOaTLeqmj44YBJ3HINsk0uz-e_7OUASWOZlywOJD-ec7wL-4GDEWUKM0Li9PVBOVYgOPbUia9ILUW-BJemZqAS-YEHxghHZ05w042pG_zvRbC_faZrGIrymbK_RGVlmBP3xaKIRCJmJJOayL4mgac_s5YKusdiPM5YJzb4hw9RKT9GqSw-ZSIi4ECwrsGMfpIxycoHdwAu8SOskiTOeNExTPx2mce-ok2PZNl5hoU7pF5L8hnd_0kStYJ1iJglwVmrNfsULwnSNShQaiwuxqZtBpY7DoWGzHMeULwH3LIAE5m8XyLeOR3S8vZ3zc1D0OplzBEfMsJQTkiKpAJ5uFEopY-GNNx5FvmVKJbI3Et4402DiOmasKwmhdMvUze1vCV2uVLjIWFJR-1tdQ-jkO1PsQscyxR7OrViEJ5dI44EzdIbnSA-BPbbHdaQ0Tf9XJOireMXyrYo1dSMnmpxj2f7AH1vf-9VlTrxgZLf7RMSGxuTKNIoid3pp1XTg29b7pg-RO7DGLdMlVmSL9xfD-7F3Noz8ILKDdw3LeO0si8WzyOLa0J36kX82DB7saOS8a-iNbG9YZQg-S4HzFdJuhYBtxxUaLeFcXtcHt_-eGykOU9zX7UZjQaAc9PyEKEezn7y58c8V2WmSXwVdLuEX2KM8F9kGsybfbfK_YEaTyn5CFKZMIswT9FSovFBNqdeUvpBY0XQPyibN_3jm5QxuwiOMHVqFONVCMw6KT1eSwUUiVZZr5iNPM7E-kdFMd0llaLpTRHDM0DPDnMNmRFO-hGnRcgvA7BW2rFxThZ70lNHiWZHnjBLRTHZ4ONSR9aDsL0AXr9CjRDAUzxmTBEEjC4I-OP4byoRt3aKP2xWNV2QD7lQiGAREfEJYonG2zrEABcR8frm7u5sbx-NVxPvuiGQXs0LSDflcPrstlW11y67uM5oprArZFtrvVlhqGY312EfQ7ovVL20X58eydn9M5l1kWIhsK_uYKQRtxYwR9p0I5l_5h_uo3_8ZDKrlUC-_zo2_CLTlK2yWCndK2n2L9nt2YtXwfWVWDQNIqwQGjTXonnL9mOqdBmq3uuqW5KAmWxW57DFJTmS7zsiuUrK9GrBbudtu2-mF_AtbsHI666q4w2pd5XxR281iLxlUxOsBrdF65Ddgpxt2u2GvG_bPL8kGPKjeZw0w6OYO61HfQO87UehbJ2x3w0437HbDXg0bprEmMLhoYoQH4_RlBV9fCUlxwZRxNA1cqGy257ERnr5AjCLX83dCMbwY1iV4_AYeDQ09" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-326-pm-080-060_transmit_order_to_supplier-pm-080-060_transmit_order_to_supplier">BUSINESS ARCHITECTURE — 3.2.6 PM-080-060_Transmit_Order_to_Supplier — PM-080-060_Transmit_Order_to_Supplier</h4>
@@ -878,7 +957,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -962,6 +1041,9 @@ flowchart TD
     class n23 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlV1tv4kYU_isjRxGtZCRfsfFDKyC4ipTdREu6UbXsw2CPzSjGY43HAZblv_cMvgCOXbUpD4j5zvm-c5krByVgIVE85fb2QFMqPHQYiDXZkIGHBiuck4GKSuAr5hSvEpIPpE_EUrGgP05uupXtpJvEfLyhyV6iCxIzgv68V9EEiImKcpzmw5xwGg3UQcbpBvP9jCWMS-8b4kZadIpWmaaMh4SfHTTN0QMbqAlNyRk2HcuxfMnLScDS8Eo0siM3CgZHmVzCtsEac3FKv8jJJ7x7oaFYwzjCSU7AZy02yQNekUTWKHghsaDgb3UzaC7jpNCwRYYDmsaAWxpAHKevZ8jWjkd0vL1dpk1Q9Hy3TBF8ggTn-R2JUC4Anr8JFNEk8W6s2cS3NTUXnL0S78aYO3emoQayEg9K11TZ3OGW0HgtvBVLwsp1uJU1eEa2U_nOMzSV7-G7FYuk4TnSbGS4httEmjr6TJ_VkaIo-l-RoK_8GeevVay56Rv-XRNLt0f2THuvV5d5ZzkTvd0nwt9oQC5Efd835-dWzUe2rvWLTn1zpM1aojEWZIv3Z8HxzGoEfdvxdadXsIzXzrJYPXEW1ILm3PbtRtCZ6v7E6BW0JrrlVhmCTsxxtkZSreCw7VKBJjF8l3b5SfVv35ZKhL0IDwMWoxknUA6aYb5iKZqxbI9YhJ4eK0OIaCq34Aovle_fL2SMa5kvJBA02qM554y3XM2WKysg4AOLKVTMeKkOEVssq58FiX6FVQnc-1BFTwmGMnEaooVgHMfSK8CCsrSlaP-j4r-WGV3LLCAT2S_B0AtZ5QUVpEVwwP8ZNnm-oQI9ynNJOi-KLEsokc268HV_acSzBNYYCAfvJ-LXC8b4zMgFy5p2ysSEDDQtcjjz8hx9JmLL-GuLr2vA_4RTWXGZ3CR4Tdk2IWF8WkByMQH9Ok9dB9ZFkO5qdAO8vpCEwFWAFsGahAWcvzF6gIRQxNnmEpzEnJyWbEvDBI1qlcrZqdJBTwWHwzGvkm5xrDMHkoTqCpwke_RCxRotC0PTx89kJ8AgiLxe8hJridiHw3miQzJcwRwGa0R2QQItfSN_lOfAUjkeL2mjbtppZ_zedna6nZtJfN5n5B3J7SbVc4BojqbGFM1TeeOG7-jjD9VlaB-j6WcahhZs8yFOBMowhxkhSQ_J-AjJ_G8k2Lflj9RFw-FvMtVqbOglUI91oxrbNWC2AasNtMd2CTjV2Knso9o-ksDPpfIXgZ32E3KoDU7LYLYNn9kJ193KUOc2rh3dtrTRttQSNcWoCrZa46aacTmus6-KM-rcRtVYq_lalVPTYbPlYbUUmn7UqTlXcwOG-1QQuO3kAf3uqAPf6rA73TCP6YphOCXCi2MKNJsG1ZPVpHs9ead7Wk7pxWviymL0Wsxei9VrsXsto16L27wIr-Bx9Xi7rkPrdoY2dONGD2724FYPbtcvp2t41A073bDbDY87YVh3nbDeDRvdsFnDiqpsCN9gGireQTn9r4H_PiGJcJEI5agquBBssU8DxTu9_5UiC4F5RzEs1E0JHv8GHm4drg==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-327-pm-080-070_manage_order_acknowledgment_process-pm-080-070_manage_order_acknowledgment_process">BUSINESS ARCHITECTURE — 3.2.7 PM-080-070_Manage_Order_Acknowledgment_Process — PM-080-070_Manage_Order_Acknowledgment_Process</h4>
@@ -970,7 +1052,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1007,6 +1089,9 @@ flowchart TD
     class n9 subProc
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVVtv4jgU_itWqopZKWhzJWkedgSBSCvtTKuhs6vVMA8mOQarxs7aTinD8N_HJuHa9ml5QD2fv4vPSU_YOqWowMmc29st5VRnaNvTS1hBL0O9OVbQc1EL_I0lxXMGqmc5RHA9pT_2ND-qXyzNYgVeUbax6BQWAtDXP100NELmIoW56iuQlPTcXi3pCstNLpiQln0DKfHIPq07GglZgTwRPC_xy9hIGeVwgsMkSqLC6hSUglcXpiQmKSl7O3s5JtblEku9v36j4BN--YdWemlqgpkCw1nqFfsLz4HZHrVsLFY28vkwDKpsDjcDm9a4pHxh8MgzkMT86QTF3m6Hdre3M34MRY_jGUfmUzKs1BgIUtrAk2eNCGUsu4nyYRF7rtJSPEF2E0yScRi4pe0kM617rh1ufw10sdTZXLCqo_bXtocsqF9c-ZIFnis35vsqC3h1SsoHQRqkx6RR4ud-fkgihPyvJDNX-YjVU5c1CYugGB-z_HgQ595rv0Ob4ygZ-tdzAvlMSzgzLYoinJxGNRnEvve-6agIB15-ZbrAGtZ4czK8y6OjYREnhZ-8a9jmXd-ymT9IUR4Mw0lcxEfDZOQXw-Bdw2joR2l3Q-OzkLheolGzAfn7A8Ocg2zP7If7377NHIIzgvulWCAbCkqhe7sraFg-cbFmUC3MvnI9c75_P5MGRvkFSqDP8C7_jB4a-sM9mr46iMzBJ2HeFUJ2PlONdaMuWbFlYY4Xr8Ns1uHml6KBEeUSzNNBmFfH7h4aabZIdU6XksRI2oBccELlCmsqOPpwn_-Gum6rS0W63Z5GWEF_bra3XF4Pw4j_a6iE6uPM2e3O5HenJ0DMdoDsixo4ejQuakV1160WaNrUNaP7-3bxZg_bP_gA9ft_GK-uvGvLsCvDtky7MrXlz5nzL5hx_TQtd3jS0oKuDNrSv1J9FntR1MF-y4rP_oEteLZmFyfh8UV1AUdvw_Hb8OBtOHkbTg_reYHeHXbMcZ0VmMdMKyfbOvufJvPzVQHBDdPOznVwo8V0w0sn27_CnaaujN-YYrNZqxbc_QJYcTbm" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-328-pm-080-080_monitor_order_status-pm-080-080_monitor_order_status">BUSINESS ARCHITECTURE — 3.2.8 PM-080-080_Monitor_Order_Status — PM-080-080_Monitor_Order_Status</h4>
@@ -1015,7 +1100,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1077,6 +1162,9 @@ flowchart TD
     class n16 subProc
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVl2PozYU_SsWo1FeiMo3GR5aZUioRup0R5Ntq2rTBwcuwRpiqG3y0Wz-e-3wkYFl-rDNA4qP7znH99q-cNbiIgEt0O7vz4QSEaDzRGSwg0mAJhvMYaKjGvgdM4I3OfCJikkLKlbkn2uY6ZRHFaawCO9IflLoCrYFoN-edDSXxFxHHFM-5cBIOtEnJSM7zE5hkRdMRd_BLDXSq1sz9ViwBNgtwDB8M3YlNScUbrDtO74TKR6HuKBJTzR101kaTy5qcXlxiDPMxHX5FYdnfPyDJCKT4xTnHGRMJnb5L3gDucpRsEphccX2bTEIVz5UFmxV4pjQrcQdQ0IM07cb5BqXC7rc369pZ4o-L9YUyV-cY84XkCIuJLzcC5SSPA_unHAeuYbOBSveILizlv7CtvRYZRLI1A1dFXd6ALLNRLAp8qQJnR5UDoFVHnV2DCxDZyf5HHgBTW5OoWfNrFnn9OiboRm2Tmma_i8nWVf2GfO3xmtpR1a06LxM13ND41u9Ns2F48_NYZ2A7UkM70SjKLKXt1ItPdc0PhZ9jGzPCAeiWyzggE83wYfQ6QQj149M_0PB2m-4ymrzwoq4FbSXbuR2gv6jGc2tDwWduenMmhVKnS3DZYaUWsXktaMCzbfyWc-rHzW_rLUUBymeqnKj50Le24Khl09oJbCo-Fr761201Y9-hT2Bgwp-ErBDCxCY5BxhmqAww3QLA7o9braqyjInEpjHbzW5oClhOyxIQQcSTl8izEByFjK_a3aRvCP9eHdomZD0hF5e0YGIrFlln-FJRohpDDn6xMiWUJyjl4rJq8dBIrKP9ON9Gf8KMZA9oGd5FlSDqmuwqo_bIIOZ0mcgI69BanOA8_-0eDif2yxUh51uZI-IMwTHOK-49P25PoJr7XJ5v7XGOO2J8wr4D9ceLNPk6CmRtSMpgeSnoYT5kQRaHgkXskep3X-FvyvCRujWh3TZxze45uawx1R8w7XHufOyZMV-xMv5viK530fzvnQHK5V9Ddi0KIF252u4mc1uyuZZ_6EzNJ3-KHe2GT7Uw6ZhUbMeWs3QamaNdtpQwNe19mux1r7Ke9XiZh_3Gtyp-X4ztOuh07KsPst0mwm3sbWHtn-qM60izaFxN2MNxbuZzrZZVetm2oNldIFev1Zmuy5vyOw83HctVVWzfZX0YGsctsdhZxx2x2Gveyf3YH8cno3DD-27pZ-NMQ6b47A1DtvjsDMOu-Ow176rNF3bgWzYJNGCs3b9xJOfgQmkuMqFdtE1XIlidaKxFlw_hbSqTKTggmD5htrV4OVf2uI2_g==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-329-pm-080-090_resolve_order_issues_with_supplier-pm-080-090_resolve_order_issues_with_supplier">BUSINESS ARCHITECTURE — 3.2.9 PM-080-090_Resolve_Order_Issues_with_Supplier — PM-080-090_Resolve_Order_Issues_with_Supplier</h4>
@@ -1085,7 +1173,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1113,6 +1201,9 @@ flowchart TD
     class n6 startEvt
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVMuO2jAU_RUrI5RWClKehGZRCQKRRup0UJm2i9KFSWywMHZkOzyK-PfaJIRHh1WziLgn53F9sX2wcl4gK7E6nQNhRCXgYKslWiM7AfYcSmQ7oAZ-QEHgnCJpGw7mTE3JnxPNC8udoRksg2tC9wadogVH4PuzAwZaSB0gIZNdiQTBtmOXgqyh2KeccmHYT6iPXXxKaz4NuSiQuBBcN_bySEspYegCB3EYh5nRSZRzVtyY4gj3cW4fTXOUb_MlFOrUfiXRC9z9JIVa6hpDKpHmLNWafoFzRM0alagMlldicx4GkSaH6YFNS5gTttB46GpIQLa6QJF7PIJjpzNjbSh4G80Y0E9OoZQjhIFUGh5vFMCE0uQpTAdZ5DpSCb5CyZM_jkeB7-RmJYleuuuY4Xa3iCyWKplzWjTU7tasIfHLnSN2ie86Yq_fd1mIFZektOf3_X6bNIy91EvPSRjj_0rScxVvUK6arHGQ-dmozfKiXpS6__qdlzkK44F3PyckNiRHV6ZZlgXjy6jGvchzH5sOs6DnpnemC6jQFu4vhp_SsDXMojjz4oeGdd59l9V8Inh-NgzGURa1hvHQywb-Q8Nw4IX9pkPtsxCwXALjVgl97JgCg4V-19_Nw7xfMwvDBMOuGTeYcKlAyhkmYg0V4Wxm_b5i-7fsb0hyukFg8toViOo5FOBZygrJW1XwoZWVVE_qK1cEk_zkrz1yRDao0JKPV5rwTnPd0yNNdNFIxcuml3OX9-yeJr_wguA9mFRCnyyJwKu5Jtrm9VavfzAfdLufdUBTenXpN2VQl72mDOvyevMZyXk738D--3DQHukbOHwfjppDeQP2Wq7lWGukR0cKKzlYp_tX39EFwrCiyjo6FqwUn-5ZbiWne8qqykL_lyMC9fZZ1-DxL5Wu3s4=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-3210-pm-080-100_modify_purchase_order-pm-080-100_modify_purchase_order">BUSINESS ARCHITECTURE — 3.2.10 PM-080-100_Modify_Purchase_Order — PM-080-100_Modify_Purchase_Order</h4>
@@ -1121,7 +1212,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1139,7 +1230,7 @@ flowchart TD
         n7(["fa:fa-play PO Commit Received from Supplier"])
         n8(["fa:fa-stop No Action Needed"])
         n9["Transmit Order to Supplier"]
-        n10{{"fa:fa-code-branch Is the PO Change Value Greater than $25k or10% (whichever..."}}
+        n10{{"fa:fa-code-branch Is the PO Change Value Greater than $25k or10% (whichever is lower) as..."}}
         n11{{"fa:fa-code-branch exclusiveGateway"}}
         n12{{"fa:fa-code-branch Confirmation Received ?"}}
         n13{{"fa:fa-code-branch Modify Purchase Order?"}}
@@ -1187,6 +1278,9 @@ flowchart TD
     class n17 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVltvozgY_SsW3SgzEqm4k_KwqzQJo0rTiyadWa0m8-CASbwFjGyTNpvJf187mAQo0Wp381DV5zvnfBeDzV6LSIy0QBsM9jjHPAD7Id-gDA0DMFxBhoY6qIBvkGK4ShEbSk5Ccr7Afx1pplO8SZrEQpjhdCfRBVoTBL7e6WAihKkOGMzZiCGKk6E-LCjOIN1NSUqoZF-hcWIkx2wqdEtojOiZYBi-GblCmuIcnWHbd3wnlDqGIpLHLdPETcZJNDzI4lLyGm0g5cfyS4bu4dvvOOYbsU5gypDgbHiWfoYrlMoeOS0lFpV0Ww8DM5knFwNbFDDC-VrgjiEgCvOXM-QahwM4DAbL_JQUPM-WORC_KIWMzVACGBfwfMtBgtM0uHKmk9A1dMYpeUHBlTX3Z7alR7KTQLRu6HK4o1eE1xserEgaK-roVfYQWMWbTt8Cy9DpTvzt5EJ5fM409ayxNT5luvXNqTmtMyVJ8r8yibnSZ8heVK65HVrh7JTLdD13arz3q9ucOf7E7M4J0S2OUMM0DEN7fh7V3HNN47LpbWh7xrRjuoYcvcLd2fBm6pwMQ9cPTf-iYZWvW2W5eqIkqg3tuRu6J0P_1gwn1kVDZ2I6Y1Wh8FlTWGzAU0nFgyOar3D5y83vSy2BQQJHcsxAJkSMgadHMCkKSrYwXWo_GnyrzX-meL2Wukcw3cB8jS7I7LbsHuYlTNMd-FrEYmxHOckTTDPIMcnbWqet_YIijpOd0LRp7vcTLyLr2rlpy8BdXsmaOq9XV88KPMoTA3wW5wO44yjriP0PJ3GRwl3VSJZhLstEeItikFCSgUVZFCkWk9d-fGzIx2c546QADwRMIlkqeEAoRnGHfiPYz-JcYDJBVRgnTe_mxhr7_bmvGI1WQhhtwB0D4uhtbNg3mJYIfKJItC38BAh-sdwXQKhpDMCH1w2ONmgrQpgBcfQg-hFAdn19vdQOh2Y-sz8feovSkolJfKrej67M6pc19-08y9-6artffU_i4yPS2sR3Yqdf3Hj2wYJDXrKu0P2n0U7kjkTyZgMJod1X410h3n8bnf9vZeLMrv7JXTAa_Srnp9a-WltqbRoS-LnU_kCi-5_ivVcBSxHNmmgqoF6rpVOvLWX0QI4-dhevE7gqYHcqM-0O0esGlPO4W7rCz6V6lfVNvXYUsdoX-bZJutcNf0F_iiNHhU991RNTp3buqLVfE9xO3e8jdYF1RlWf6TYuAjnR-gJswVY_bPfDTj_sNq_CVsS7GPFPnxkteKy-CFrgTT9XbJG6Lduw2Q9b_bDdDzv9sNsPe_2wX8OarmVInEM41oK9dvxoFR-2MUpgmXLtoGuw5GSxyyMtOH7caeXx_phhKO7crAIPfwOXhHZU" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-3211-pm-080-110_cancel_original_purchase_order-pm-080-110_cancel_original_purchase_order">BUSINESS ARCHITECTURE — 3.2.11 PM-080-110_Cancel_Original_Purchase_Order — PM-080-110_Cancel_Original_Purchase_Order</h4>
@@ -1195,8 +1289,8 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
-flowchart LR
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
@@ -1304,6 +1398,9 @@ flowchart LR
     class n30 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlWO9v6jYU_VesPFVsEmhxfpDAh000kKrae68M3vY0ve6DmzhgNcQscWhZH__7rkkcSEharUNVpRz7nHvv8bVxeNECHlJtrF1dvbCEiTF66Yk13dDeGPUeSEZ7fVQAf5CUkYeYZj05J-KJWLJ_jtOwtX2W0yTmkw2L9xJd0hWn6PfbPpoAMe6jjCTZIKMpi3r93jZlG5LuPR7zVM7-QN1Ij47RyqFrnoY0PU3QdQcHNlBjltATbDqWY_mSl9GAJ2FNNLIjNwp6B5lczJ-CNUnFMf08o5_I81cWijU8RyTOKMxZi038kTzQWNYo0lxiQZ7ulBksk3ESMGy5JQFLVoBbOkApSR5PkK0fDuhwdXWfVEHRl-l9guATxCTLpjRCmQB4thMoYnE8_mB5E9_W-5lI-SMdfzBmztQ0-oGsZAyl631p7uCJstVajB94HJZTB0-yhrGxfe6nz2ND76d7-N-IRZPwFMkbGq7hVpGuHexhT0WKouh_RQJf0y8keyxjzUzf8KdVLGwPbU-_1FNlTi1ngps-0XTHAnom6vu-OTtZNRvaWO8WvfbNoe41RFdE0CeyPwmOPKsS9G3Hx06nYBGvmWX-ME95oATNme3blaBzjf2J0SloTbDllhmCziol2zXyeCbQJAh4ngiSiGJUfhL7270WkXFEBtJsJMPSLEPLfLuNGQC3yY6DYSjiKVrQgLIdDdFvOYgwsb_X_jqTGr4hNSf7DYXgNZL7rWIFfIVuaEJTsBPNFksVGwjnDGz8UFEywbdonqewKzKK7uQWRx5JAhrTEGg_ntMcYKlqVCX1XIzRy8spmZAOHmAnBmtEn4M4z2D-TbHQ99rhcEYz9f9Kgx3UWCBVQ3qecd3PBQ1zSH1-V9mPBEefiIBQN4ufbhcdy2K0L8vN4jPyubIrJoLxBPmUoo9wINYVzLrCFNyFFapsX9C_c5YxKVDnWa_ziuX6ysSa5-Iij6yu5dT7RGndHdPNEElCNAnDzmrOpUan_tnGsG2ndCPp3pokK4puQ-hRFrHLBtIbvKqxpyksclIKZOfNVePj1_v2NkO_0q1ossxj28L22xRF3UWy6qLOAllebCosnZ9tCIuPg7JPpmBXugEzEHz9vmU2lqeCx5OIqajwB1Hbtw0eVtGqEwLmvxXDbd813poGj-gWqlwglsHJlexoKkASipjf_dLYe3j0mgo7eqUsUOvV1DD01zTkwXfDeViu61Zc0PFb9Nqp0yJgdAicrbFsZTi_oT_kpelCwWxXmMOlAC5L5fEwhy8B8FFmBK5caFjvOvwMu50mz-9qg1zEGr4vlvM-mvvu8zkZocHgZ9ms5TN2JfD9XvtT9vN32YDliGGUI595MYCbA4pimGrErFMMS0Upop6ezRKwm8wqDTVQTFTpuiWvSrKsZ6iEncaEYfFs6s16VYqKaaiZ5bNVClXKozpRlWLoTTeq1HGdoWq1S2VHzbObCs0BtQKKgfVSQtlilL5gFQOrIHozTVW308yyil6NlBao59JaXK22AqpVLQm48qz01FAVmWXiuAKayzNqZuOeXSVlI6krdA022mGzHbbaYbsdHrbDzvnVuzbido6MqteaelF6B47LV5M6arSiZoeG1YHbHfiwA3c6cFe9LdThUSsMXdgK43bYaIfNdthqh-12eNgOO-1we5VGe5VmVaXW1zZwSyEs1MYv2vF3AvgtIaQRyWOhHfoayQVf7pNAGx_fp7V8GwJzygjcojcFePgXaaUgOg==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-3212-pm-080-120_determine_alternate_materials_and_approaches-pm-080-120_determine_alternate_materials_and_approaches">BUSINESS ARCHITECTURE — 3.2.12 PM-080-120_Determine_Alternate_Materials_and_Approaches — PM-080-120_Determine_Alternate_Materials_and_Approaches</h4>
@@ -1312,7 +1409,7 @@ flowchart LR
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1351,13 +1448,15 @@ flowchart TD
     class n9 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVd-P2jgQ_lesrFb0pCDlJ4E8tGIDOa10tFVp73Qq92CSCVjr2DnbWaCU__1sCIRQ9unyEGW-zHzfzMQz2VsZz8GKrcfHPWFExWjfU2sooRej3hJL6NnoBPyJBcFLCrJnfArO1Jz8OLq5QbU1bgZLcUnozqBzWHFA355tNNaB1EYSM9mXIEjRs3uVICUWu4RTLoz3AwwLpziqNa-euMhBtA6OE7lZqEMpYdDCfhREQWriJGSc5R3SIiyGRdY7mOQo32RrLNQx_VrCDG__Irlaa7vAVIL2WauS_oGXQE2NStQGy2rxem4GkUaH6YbNK5wRttJ44GhIYPbSQqFzOKDD4-OCXUTR18mCIX1lFEs5gQJJpeHpq0IFoTR-CJJxGjq2VIK_QPzgTaOJ79mZqSTWpTu2aW5_A2S1VvGS07xx7W9MDbFXbW2xjT3HFjt9v9EClrdKycAbesOL0lPkJm5yViqK4n8p6b6Kr1i-NFpTP_XSyUXLDQdh4vzKdy5zEkRj97ZPIF5JBlekaZr607ZV00HoOm-TPqX-wEluSFdYwQbvWsJRElwI0zBK3ehNwpPebZb18rPg2ZnQn4ZpeCGMntx07L1JGIzdYNhkqHlWAldrZNhqoceOKTRe6fvpvbmY-31hFTgucN-0G82BQqbQR9igeV1VlIBYWP9c-Xtd_0SALh99roU-mhLQF_i3JpIowlk3zu_GPec6DVLs0JgqEMxwzPTNDDf6JvXRb80ZlvoJTbDCXcrg3YVTKl7dTaJJMNeRv12FhjryC2RAXltdiTDLdQOOR0R2pQbaf8b1SuMCfTKrBM0VVvWNV7TfnxMyi7C_1KOcrdGzvPQSzQCUqS7hZUmU-SLyw8I6HK5YhvdZPunFKVqmX8JG98Ngm9Fa6jp_Px3TNkoP8umBDVC__16n35jeyQwa0z2Zo8YcnUyvMf3u28iYPxfWR76wfupabuC_TWM1Hjb48AZ3b_CGxr-aEJPQeTN0YO8-7N-Hg2aRdcDwskk78OA-HJ1Hv4MO76KjM2rZVgmixCS34r11_BnqH2YOBa6psg62hWvF5zuWWfHxp2HVVa4jJwTrWS5P4OE__IBeMg==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
 <h4 id="business-architecture-3213-pm-080-130_select_new_supplier_reissue_po-pm-080-130_select_new_supplier_reissue_po">BUSINESS ARCHITECTURE — 3.2.13 PM-080-130_Select_New_Supplier_&amp;<em>Reissue_PO — PM-080-130_Select_New_Supplier</em>&amp;_Reissue_PO</h4>
 <p><strong>Swim Lanes</strong>: Procurement Agent | <strong>Tasks</strong>: 3 | <strong>Gateways</strong>: 2</p>
 <blockquote>
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1393,6 +1492,9 @@ flowchart TD
     class n8 subProc
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVVuPozYU_isWo1FeiMQ1UB5aJSSsRup0R820VbXZBweOE2scw9omk2w2_702kAtp5ml5sDifz_ediziHg5WXBViJ9fh4oJyqBB0Gag0bGCRosMQSBjZqgb-xoHjJQA6MDym5mtPvjZsbVDvjZrAMbyjbG3QOqxLQX082Gmsis5HEXA4lCEoG9qASdIPFPi1ZKYz3A8TEIU207mpSigLExcFxIjcPNZVRDhfYj4IoyAxPQl7yoidKQhKTfHA0ybHyPV9joZr0awnPePcPLdRa2wQzCdpnrTbsd7wEZmpUojZYXovtqRlUmjhcN2xe4ZzylcYDR0MC87cLFDrHIzo-Pi74OSh6nS440k_OsJRTIEgqDc-2ChHKWPIQpOMsdGypRPkGyYM3i6a-Z-emkkSX7timucN3oKu1SpYlKzrX4bupIfGqnS12iefYYq_Pm1jAi0ukdOTFXnyONInc1E1PkQghPxVJ91W8YvnWxZr5mZdNz7HccBSmzv_1TmVOg2js3vYJxJbmcCWaZZk_u7RqNgpd52PRSeaPnPRGdIUVvOP9RfCXNDgLZmGUudGHgm282yzr5Yso85OgPwuz8CwYTdxs7H0oGIzdIO4y1Dorgas1Mmq10GPHFRqv9Nnem4e7XxYWwQnBQ9Nu9FToa0r2aMwUCK5LQ_O6qhgFIRfW1yui1yfOgUGu7tD6LL_PSgUY35da6C9bAvoTvtVUUkVL3ucFmvcCgpRic-2ExlUlyi1mTY0gb3IMNSvFPAeGPgu6otw4nmJ9Niuh7z86HE7pmU02XOpZzNcX7vMzepqi1xJNTKrNToHit4V1PF6JRPdFYJezWtItfGq_lxtW_OXcGaLnBMSwrICjKeh-bvSSuurssz7MFpQI86LtAM7XYGrvitEz2r7wEA2Hv-rCOtNtTa8zvdaMOjNqTb8zR8b8sbD-NdI_NPkG_6Ns4LiD_ZYddGbc024-bhP_NNQ92LsP-_fh4LzvenB4Hx6dBrSHRnfR-DR7lm1tdN8xLazkYDW_LP1bK4DgminraFu4VuV8z3MraVa7VVeF1ptSrCdu04LH_wCxSkJ9" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-3214-pm-080-140_verify_requirements_and_terms_with_new_supplier-pm-080-140_verify_requirements_and_terms_with_new_supplier">BUSINESS ARCHITECTURE — 3.2.14 PM-080-140_Verify_Requirements_and_Terms_with_New_Supplier — PM-080-140_Verify_Requirements_and_Terms_with_New_Supplier</h4>
@@ -1401,7 +1503,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1443,13 +1545,15 @@ flowchart TD
     class n10 subProc
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVVGPokgQ_isdJhNfMAEEYXi4i4Ny2WRnd7LO7eWy7kMLhXam7Xa7m1HP9b9ftaCOnr7s8UCoj6rvq6qmiq1TyBKc1Lm_3zLBTEq2HTOHBXRS0plSDR2XNMBXqhidctAd61NJYcbsn72bHy7X1s1iOV0wvrHoGGYSyJ8fXDLAQO4STYXualCs6ridpWILqjaZ5FJZ7ztIKq_aq7WvHqUqQZ0cPC_2iwhDORNwgntxGIe5jdNQSFGekVZRlVRFZ2eT43JVzKky-_RrDU90_RcrzRztinIN6DM3C_6RToHbGo2qLVbU6u3QDKatjsCGjZe0YGKGeOghpKh4PUGRt9uR3f39RBxFyctwIgheBadaD6Ei2iA8ejOkYpynd2E2yCPP1UbJV0jvglE87AVuYStJsXTPtc3troDN5iadSl62rt2VrSENlmtXrdPAc9UG7xdaIMqTUtYPkiA5Kj3GfuZnB6Wqqv6XEvZVvVD92mqNenmQD49aftSPMu-_fIcyh2E88C_7BOqNFfCONM_z3ujUqlE_8r3bpI95r-9lF6QzamBFNyfChyw8EuZRnPvxTcJG7zLLevqsZHEg7I2iPDoSxo9-PghuEoYDP0zaDJFnpuhyTixbrXDshCGDGd6b9_YS_reJU9G0ol3bbvLVjtSGvIBaaEJFSTIcA2aYFJqsmJmTT7Ai43q55AzUxPn-jilApjF-HeT5MzHyhlMPnZ6ooDMgn-1IkkHxKuSKQznbp2dTBa3Pg0IMyqgogGMQmzFBOXmuFQ6DbmnO_SMrInEBSdWqjA019QVrf7s9lG7XVneKg1fMyQd9TJ08ARgcQ2zCYsGMTVD_PnF2u3cs8XUWWBe81uwN_mi-jouo5HoUFnnW4H0C5Av8qFlzfJfqD7-k7nvfjqde4VCC6solCDIGDoU5z8B-A1-AaV0DHix2sG0hHnTzICLS7f6G7WxN32vs4GA3ZtKaQWO2kyni1mxnQPSt_XPi_A14Wj-xwAv8k9zDcQs_NOG9c7awNZMbZMlVsv382XwPe-cM7h2X7BkcXoej63D_sCzO0PgqmlxFH66i2PN2aTius8DZpax00q2z_9fi_7iEitbcODvXobWR440onHT_T3LqZYmEQ0ZxVSwacPcvfJN51g==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
 <h4 id="business-architecture-3215-pm-080-150_transmit_dunning_letter-pm-080-150_transmit_dunning_letter">BUSINESS ARCHITECTURE — 3.2.15 PM-080-150_Transmit_Dunning_Letter — PM-080-150_Transmit_Dunning_Letter</h4>
 <p><strong>Swim Lanes</strong>: Procurement Agent | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 3</p>
 <blockquote>
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1482,6 +1586,9 @@ flowchart TD
     class n7 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVdtu4zYQ_RVCQeAWkLG6Wq4eWiiytS2QZoM63cVi3QdaGtpEZFIgKV_W8b-XlGQ71iZPqwdBPJxzzsyAQx2snBdgxdbt7YEyqmJ0GKgVrGEQo8ECSxjYqAU-Y0HxogQ5MDGEMzWj35swN6h2JsxgGV7Tcm_QGSw5oH__slGiiaWNJGZyKEFQMrAHlaBrLPYpL7kw0TcwJg5p3LqtOy4KEJcAx4ncPNTUkjK4wH4UREFmeBJyzoorURKSMckHR5Ncybf5CgvVpF9L-BvvvtBCrfSa4FKCjlmpdXmPF1CaGpWoDZbXYnNqBpXGh-mGzSqcU7bUeOBoSGD2fIFC53hEx9vbOTuboqfJnCH95CWWcgIESaXh6UYhQssyvgnSJAsdWyrBnyG-8abRxPfs3FQS69Id2zR3uAW6XKl4wcuiCx1uTQ2xV-1ssYs9xxZ7_e55ASsuTunIG3vjs9Nd5KZuenIihPyUk-6reMLyufOa-pmXTc5ebjgKU-dHvVOZkyBK3H6fQGxoDq9Esyzzp5dWTUeh67wvepf5IyftiS6xgi3eXwR_S4OzYBZGmRu9K9j69bOsF4-C5ydBfxpm4VkwunOzxHtXMEjcYNxlqHWWAlcrZNRqoceOKZQs9bvdNw9zv80tgmOCh6bd6JFLhVLOCBVrrChnc-u_V9HeL-dwqXiFJjVj-pyie1BKs5_02ZVrqr8Lzfv1FdHvET9yXqB_IAdaqcYUCkQZmiWPaPYh-DN5SHoCgeanAnSvEWZFUxJIiR5roWdCAvpkBvw62fBwOHmae2m40NnlK5Tkz4xvSyiWTUc-JLOHNpMNFH_MrePxlcTobYnZilZNN9_jRW_zYJeXtdSEj-2ZubD0VLUfzEXD4e_auVtG7dLrliOzfJlbD3xuvejdHvwVZIP7HR728G4gWNCqhr2wa9XmQJqEToN4BXvdTXAF-m-Bwfl-uoLD0-RcoaM30eiEWra1Bn00aWHFB6v5l-j_TQEE16WyjraFa8Vne5ZbcXPnWnVVaOaEYj0K6xY8_g9UdB7q" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-3216-pm-080-160_manage_advanced_shipping_notifications-pm-080-160_manage_advanced_shipping_notifications">BUSINESS ARCHITECTURE — 3.2.16 PM-080-160_Manage_Advanced_Shipping_Notifications — PM-080-160_Manage_Advanced_Shipping_Notifications</h4>
@@ -1490,7 +1597,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1502,7 +1609,7 @@ flowchart TD
         n1[["fa:fa-cog Create Inbound Delivery"]]
         n2["Send Rejection to Supplier"]
         n3["Receive Supplier ASN"]
-        n4["Receive Material Against Advanced Shipping Notification (..."]
+        n4["Receive Material Against Advanced Shipping Notification (ASN)"]
         n5["Manage Order Acknowledgement Process"]
         n6{{"fa:fa-code-branch Quality Check Required?"}}
         n7{{"fa:fa-code-branch exclusiveGateway"}}
@@ -1528,13 +1635,15 @@ flowchart TD
     class n9 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVduOo0YQ_ZUWo5ETCUuAwTA8JPJgE62UmWTXuxtF631oN4XdcbshTeNLvP73VBt8Xc9DFB6Q6_Spc6oKyuwsVmRgxdbj445LrmOy6-g5LKETk86UVtCxSQN8porTqYCqYzh5IfWY_3OguX65MTSDpXTJxdagY5gVQD69s8kAE4VNKiqrbgWK5x27Uyq-pGqbFKJQhv0AUe7kB7f26LlQGagzwXFClwWYKriEM9wL_dBPTV4FrJDZlWge5FHOOntTnCjWbE6VPpRfV_BCN3_wTM8xzqmoADlzvRS_0ikI06NWtcFYrVbHYfDK-Egc2LikjMsZ4r6DkKJycYYCZ78n-8fHiTyZko_DiSR4MUGragg5qTTCo5UmORcifvCTQRo4dqVVsYD4wRuFw55nM9NJjK07thludw18NtfxtBBZS-2uTQ-xV25stYk9x1ZbvN94gczOTknfi7zo5PQcuombHJ3yPP9fTjhX9ZFWi9Zr1Eu9dHjycoN-kDjf6x3bHPrhwL2dE6gVZ3AhmqZpb3Qe1agfuM7bos9pr-8kN6IzqmFNt2fBp8Q_CaZBmLrhm4KN322V9fR3VbCjYG8UpMFJMHx204H3pqA_cP2orRB1ZoqWc2LUaoVrJzUZzPDenJtLul--TKycxjntsmJGEgXYDnknp0UtMzIEwVegthPr69eLJA9zxvgikA_wFzDNC0l0QcZ1WQoOCskX3B5yPwAD1DkxyGD8es3yL1gvWIHZcqyVcllhzdmKSgYZGc95WeJekNdC85wzerD-AdV-vJYLUO6FSjoD8pvZfDJgC1msBWSzZgxmJFBV11n93e48iwy6U1xFNifvayq43pJkDmyBLf9dcwXZzxNrv79IDu8nw4aJusK2fmlek5us6H7Wy_tkTBJQpkvse8AYlPp7z6f_6onPrPkhe6Tb_Qkffxu6Tei3Yd-E3ybWn4Aj-oZGLf7U0KI29JrweBrdZIU3aq_FFRxdw14Lh41orw2DJuxfLIkp92KVr07805_hFRzch_vH7b1Cw7todBd9OqKWbS1BLSnPrHhnHb5y-CXMIKe10Nbetmiti_FWMis-fA2suswwc8gpLumyAff_AqEITwg=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
 <h4 id="business-architecture-3217-pm-080-170_manage_p-card_purchases-pm-080-170_manage_p-card_purchases">BUSINESS ARCHITECTURE — 3.2.17 PM-080-170_Manage_P-Card_Purchases — PM-080-170_Manage_P-Card_Purchases</h4>
 <p><strong>Swim Lanes</strong>: Procurement Agent | <strong>Tasks</strong>: 4 | <strong>Gateways</strong>: 1</p>
 <blockquote>
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1575,6 +1684,9 @@ flowchart TD
     class n10 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVduO2jAQ_RUrqxWtFNRcCeShEgTSrtStUOnlofTBJA5Y6zip7SxLEf_eMQmBUPapPETMmTlnLhk7eyMpUmKExv39nnKqQrTvqQ3JSS9EvRWWpGeiGviOBcUrRmRPx2QFVwv65xhme-WLDtNYjHPKdhpdkHVB0LcHE42ByEwkMZd9SQTNemavFDTHYhcVrBA6-o4MMys7Zmtck0KkRJwDLCuwEx-ojHJyht3AC7xY8yRJCp52RDM_G2ZJ76CLY8U22WChjuVXkjzilx80VRuwM8wkgZiNytknvCJM96hEpbGkEs-nYVCp83AY2KLECeVrwD0LIIH50xnyrcMBHe7vl7xNir5OlxzBL2FYyinJkFQAz54Vyihj4Z0XjWPfMqUSxRMJ75xZMHUdM9GdhNC6Zerh9reErjcqXBUsbUL7W91D6JQvpngJHcsUO3he5SI8PWeKBs7QGbaZJoEd2dEpU5Zl_5UJ5iq-YvnU5Jq5sRNP21y2P_Aj61-9U5tTLxjb13Mi4pkm5EI0jmN3dh7VbODb1uuik9gdWNGV6BorssW7s-Ao8lrB2A9iO3hVsM53XWW1mosiOQm6Mz_2W8FgYsdj51VBb2x7w6ZC0FkLXG6QVqsEHDuu0HgNz9qvf9z-uTQyHGa4r8eNHlJw02yHvpDfFa05Eo0Z7B7sY0cpwiJF3yRek2XlWNZqafy60HW6uvNKwO5KOMPylk6X63a540ptCgH3A4rmUZ32I6wSEV2W97OlJcUaPWIOpaF5_0g45ZfAuST5b1pSyeAlPiiSo8-EpCRFqkAr0jJ1jW8vmAMgtl09wg7oi0kizFO0qNdMdusLgDCBs40WCqKPrS_0u-gEDSFoxvXViOZ4l__jH4H_w6d3USFhcOCF8SxKOJLwjhJVYQZTuhqmbe33pxaxEMVW9jFTqMQCM0bYh3p7l8bhUJNArP7DfdTvvweBxrRr021Mp_FaJ7dVA15je7UZNGZQm6PGHNXm8Io8aGy3Np2Lk6ELON0IHdi5Dbu3Ye_yEuh4_PYa7cCD23BwGx7ehke3YWi7uT0M08iJyDFNjXBvHL-R8B1NSYYrpoyDaeBKFYsdT4zw-C0xqjIF5pRiOOJ5DR7-AorgYDs=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-3218-pm-080-180_create_and_maintain_internal_catalogue-pm-080-180_create_and_maintain_internal_catalogue">BUSINESS ARCHITECTURE — 3.2.18 PM-080-180_Create_and_Maintain_Internal_Catalogue — PM-080-180_Create_and_Maintain_Internal_Catalogue</h4>
@@ -1583,8 +1695,8 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
-flowchart TD
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
@@ -1602,9 +1714,9 @@ flowchart TD
     end
     subgraph Catalog Administrator
         n4[["fa:fa-cog Request Approval of Catalog from Intel Commodity Manager"]]
-        n5["Notify Supplier about Catalog Rejection due to Validation..."]
+        n5["Notify Supplier about Catalog Rejection due to Validation Rules"]
         n6["Receive Catalog File in Buyer SAP Ariba Network"]
-        n7(["fa:fa-play Creation and Maintenace of Internal Catalog Initiated on ..."])
+        n7(["fa:fa-play Creation and Maintenace of Internal Catalog Initiated on Supplier's End"])
         n10["CIF or Punchout Catalog Uploaded in Supplier Ariba Network"]
         n12{{"fa:fa-code-branch Catalog Approved by Commodity Manager?"}}
         n13{{"fa:fa-code-branch exclusiveGateway"}}
@@ -1637,6 +1749,9 @@ flowchart TD
     class n14 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVltv4jgU_itWqopdCTS5EpqHXVFKVpU6VVW2M1qVeTCJA946dtZ2aFmG_77H5AKhdB5m8wA6n4-_79xiZ2slIiVWZF1ebimnOkLbnl6RnPQi1FtgRXp9VAFfsKR4wYjqGZ9McD2j_-7dHL94M24Gi3FO2cagM7IUBD3d9tEYNrI-UpirgSKSZr1-r5A0x3IzEUxI431BRpmd7dXqpWshUyIPDrYdOkkAWxnl5AB7oR_6sdmnSCJ42iHNgmyUJb2dCY6J12SFpd6HXyryGb99palegZ1hpgj4rHTO7vCCMJOjlqXBklKum2JQZXQ4FGxW4ITyJeC-DZDE_OUABfZuh3aXl3PeiqK7xzlH8CQMK3VDMqQ0wNO1RhllLLrwJ-M4sPtKS_FCogt3Gt54bj8xmUSQut03xR28Erpc6WghWFq7Dl5NDpFbvPXlW-TafbmB3xMtwtOD0mTojtxRq3QdOhNn0ihlWfa_lKCu8k-sXmqtqRe78U2r5QTDYGK_52vSvPHDsXNaJyLXNCFHpHEce9NDqabDwLE_Jr2OvaE9OSFdYk1e8eZAeDXxW8I4CGMn_JCw0juNslw8SJE0hN40iIOWMLx24rH7IaE_dvxRHSHwLCUuVui63BD56YFhzoms1szDnee5leEowwNTavRUMIFTdMs1kRwzdKtJjiZYYyaWKBMSTSSBXD89FSn8za1vR1Rul-qhXDCqVhXFHVkThiYwCRInGn0V8kXBfJ8weF2GSgs9kn9KqqimgqPFBj0peCvQuCikWJO0CU51mUa_tFQFg8acT6gSSGHrr0d7rw57lRZFR__8DsdUsSGlCt3R9Ulmjr_dNqTmgBws4BVPVoi8JaxU4P5HNUFza7ertsE7dtLCRmCc5nCyQvexFset9J-fDxLLfdhE6bpSkLrIDp2UIt_XxPQkz0VK9QZ9xhwvYTisb8eRB0B6LzTNNmhWFgWj0Bi8EKVuyR7J3yTZVyctCdICfcGMwngY5LGEA75biiEQPpKEQNItRUwZQZRXU4pm4wdzxi8wuif6FUalSxCe9HbfEyOGeQpJUEiLw2iZfNu2N0K3cCVR00EE_k0-PYWm_F1PbdPT2xgJM8rQq-OUq9cEWOiB5UchO-759rctbaYZ5vtdQ34_DEVF5v30LHEfDQa_mXhq26vsq9oc1cu16bjG_j63_jJN_G7GuFlxKk-vsRvidmtlNzpuvdzsH1Z2S2dX9rC2w9q9pa_jdOpzkgenDk2k92IfaHB0nppgmnukA7vnYe887B9fHZ2VsL18O_DoPHxVX5_dCO3zzlDn87jb3Dld2DsP-w1s9a2cyBzT1Iq21v47DL7VUpLhkmlr17dwqcVswxMr2n-vWOX-oL-hGM6gvAJ3_wETmyV1" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-3219-pm-080-210_vendor_managed_inventory_pay_upon_receipt_oem-pm-080-210_vendor_managed_inventory_pay_upon_receipt_oem">BUSINESS ARCHITECTURE — 3.2.19 PM-080-210_Vendor_Managed_Inventory_(Pay_Upon_Receipt_OEM) — PM-080-210_Vendor_Managed_Inventory_(Pay_Upon_Receipt_OEM)</h4>
@@ -1645,7 +1760,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1699,6 +1814,9 @@ flowchart LR
     class n13 startEvt
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVltv4jgU_itWqopdKWhzJTQPK1Egq0rDFMFu52G6DyZxwGqwI9uhZSv--x7nBsnAvEwekM53vvOdC_ZJPo2YJ8QIjfv7T8qoCtHnQO3IngxCNNhgSQYmqoAXLCjeZEQONCflTK3pfyXN9vIPTdNYhPc0O2p0TbacoH-eTDSBwMxEEjM5lETQdGAOckH3WBynPONCs-_IOLXSMlvteuQiIeJMsKzAjn0IzSgjZ9gNvMCLdJwkMWdJRzT103EaD066uIy_xzssVFl-IckCf3yjidqBneJMEuDs1D77gjck0z0qUWgsLsShGQaVOg-Dga1zHFO2BdyzABKYvZ0h3zqd0On-_pW1SdGX1StD8MQZlnJGUiQVwPODQinNsvDOm04i3zKlEvyNhHfOPJi5jhnrTkJo3TL1cIfvhG53KtzwLKmpw3fdQ-jkH6b4CB3LFEf47eUiLDlnmo6csTNuMz0G9tSeNpnSNP2lTDBX8TeWb3WuuRs50azNZfsjf2r9qNe0OfOCid2fExEHGpML0SiK3Pl5VPORb1u3RR8jd2RNe6JbrMg7Pp4FH6ZeKxj5QWQHNwWrfP0qi81S8LgRdOd-5LeCwaMdTZybgt7E9sZ1haCzFTjfockSaUEiJReVSz_M-f5qpDhM8VBPGr3gjCbQC3piBw5TejX-vSCPvrfsmG8bPTRfrS_4lwHj39oAqXjesNo0CfB_v-DbLvAb0orEhB5KTkWBU9dr6rE4kstu3G6Ba4jQOQlTXBxBMOdwczCAC8r-gPuKZljhXs1eV2MqiJ7HshBw7yRBz3qJ9EL8qyFPbMMLyDUjGbQhjr2g4DybPIOjs3pe_lAaWnBYoVyQBG2OaLZ-6c3rASQuuipDoGnV_dtsC2jL52sepxQo54zWO5rvgQIFK0wz-ZO5f8OC7DicGLTADG87_4HdPVGN-gJGote2LCtdV5dQ9srRsX-t0FeuaEpjrChn3arbUpiLhsM_YQK1-VCZtlPbXm3X94rZtV1vA-bXduO2KttvbKeyvcau40e1HVSmW5ujWq2x7bq6pppabXxxyXVJzXLrwM512L1cXB2Pd9Pj3_SMbnqC9kXSgcf1zu-AD9e5MMzruH0Dd27gbosbprEnYo9pYoSfRvn5AJ8YCUlxkSnjZBq4UHx9ZLERlq9Zo8j1fplRDAd2X4Gn_wHt86_O" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-3220-pm-080-220_vendor_managed_inventory_pay_upon_receipt_third_party_vmi-pm-080-220_vendor_managed_inventory_pay_upon_receipt_third_party_vmi">BUSINESS ARCHITECTURE — 3.2.20 PM-080-220_Vendor_Managed_Inventory_(Pay_upon_Receipt_Third_Party_VMI) — PM-080-220_Vendor_Managed_Inventory_(Pay_upon_Receipt_Third_Party_VMI)</h4>
@@ -1707,7 +1825,7 @@ flowchart LR
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1774,6 +1892,9 @@ flowchart LR
     class n16 startEvt
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVl1v6jgQ_StWqopdKWjzSWgeVuIrq0qXW1Tu7X24vQ8mccCqsbN2QstW_PcdEwcIbfZleUDMmZkzM8fOkHcrFRmxYuv29p1yWsbovVduyJb0YtRbYUV6NqqBJywpXjGiejomF7xc0n-OYW5QvOkwjSV4S9leo0uyFgR9v7fRCBKZjRTmqq-IpHnP7hWSbrHcTwQTUkffkGHu5MdqxjUWMiPyHOA4kZuGkMooJ2fYj4IoSHSeIqngWYs0D_NhnvYOujkmXtMNluWx_UqROX77QbNyA3aOmSIQsym37AteEaZnLGWlsbSSu0YMqnQdDoItC5xSvgY8cACSmL-codA5HNDh9vaZn4qiL4_PHMEnZVipKcmRKgGe7UqUU8bim2AySkLHVqUULyS-8WbR1PfsVE8Sw-iOrcXtvxK63pTxSrDMhPZf9QyxV7zZ8i32HFvu4fuqFuHZudJk4A294anSOHIn7qSplOf5_6oEuspvWL2YWjM_8ZLpqZYbDsKJ85GvGXMaRCP3WicidzQlF6RJkvizs1SzQeg63aTjxB84kyvSNS7JK96fCe8mwYkwCaPEjToJ63rXXVarhRRpQ-jPwiQ8EUZjNxl5nYTByA2GpkPgWUtcbNBogTQhUUrI2qU__O7nz2crx3GO-6lYNyFo9rhE93wnQKhn69evOgFO_Yp0XO3JJZt7ItPnhp4woxkoc0F1ERy0S08k0aGLSsIFVwQ9kr8rqmhJBT-3cEwMP028H6MpYXRH5P4qfvDfhR70WrhKidopc5HRfI8WD2gBYz3M5mhZFQWjYEwEz6nc4k_6dN3fTiyqFEUjw0mXDBJ-v0zwIB6KLAkv21q5fu2557lAS1gAJEO5kNAYrFghYU1cxQcQP1p-BRVTAppkV-6wprtsvit0AKFN4x9CPl6J-eNC08LVZKx1N7z23TCSzkEGvc3hhyqPx3BZ2zkLWDB4vB4fFgjzDM0p_wPWLZriEjcagCKrPZoun86ifuyuObaLIsOrJ4BIEHZ7nGPBMOe1tp3z_oCz2AgYCSbgeN2i9tsjm4v3lxCZqqUsyo9Kwtmhfv9PuObGDmvTb9xebbuN33VqwDO2SR8Yc2DCG7frGyAwQGTsUwFTMDK2ib8z5p0Jb_jdpkBjG7OxTbtDYw5rM7jYdzqn2fMt2Psc9j-Hg8vV3vKEnZ5Bpyfq9Aw7PXedHjij5v-5jbvmv7SNeh3RfgcedOBhBz444ZZtbQlsAJpZ8bt1fC-Dd7eM5LhipXWwLVyVYrnnqRUf31-sqtCba0oxXP9tDR7-BdiaGJ4=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-3221-pm-080_purchase_materials_and_services-pm-080_purchase_materials_and_services">BUSINESS ARCHITECTURE — 3.2.21 PM-080_Purchase_Materials_and_Services — PM-080_Purchase_Materials_and_Services</h4>
@@ -1782,7 +1903,7 @@ flowchart LR
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1966,6 +2087,9 @@ flowchart TD
     class n55 subProc
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqtWf1v4jga_lcsRiPuJNAlcUwCP-yKoeVUaTrTG7q7Om33BxMciCYknJ1My3b7v9_rxDaNcTordiu1gof3ed5Pf5A-D5Jywwazwfv3z1mRVTP0PKx2bM-GMzRcU8GGI9QCP1Oe0XXOxFDapGVRrbLfGzM_PDxJM4kt6T7LjxJdsW3J0E83IzQHYj5CghZiLBjP0uFoeODZnvLjosxLLq3fsTj10sab-uhDyTeMnww8L_ITAtQ8K9gJxlEYhUvJEywpi01HNCVpnCbDFxlcXj4mO8qrJvxasFv69Eu2qXbwPqW5YGCzq_b5R7pmucyx4rXEkpp_08XIhPRTQMFWB5pkxRbw0AOI0-LrCSLeywt6ef_-oTBO0f3VQ4HgJ8mpEFcsRaIC-PpbhdIsz2fvwsV8SbyRqHj5lc3eBdfRFQ5GicxkBql7I1nc8SPLtrtqti7zjTIdP8ocZsHhacSfZoE34kf4a_lixebkaTEJ4iA2nj5E_sJfaE9pmv4lT1BXfk_FV-XrGi-D5ZXx5ZMJWXjnejrNqzCa-3adGP-WJeyV6HK5xNenUl1PiO_1i35Y4om3sES3tGKP9HgSnC5CI7gk0dKPegVbf3aU9fqOl4kWxNdkSYxg9MFfzoNewXDuh7GKEHS2nB52SKrVHJZdUaH5Fv62n8ufwv_1YXAPIyf2WYW-sH1WbNBHVlWMPwx-e2UXgN3NBrhZegS7_9VZKyjQPIfBhGHtuFlQvkE_CbplXRkMMgvOoGSIgqdbmhUV_KKbAjwWNAdiRfNyW1u8EHh3NYf5F7APCJe7LoEAIaWzlI7lGEHECcu-MfRZ7gNonnwtysecbbaS_VAHnrfu0idduvTFhDijsz5-9Jb7RVmkGd_TKiuLf81Xn7rU-C3Xb1On_zDcQ047fUKqeVnScKHgWZVBG2TZ_vl6HryThqjKA7S36Qw07Bb-yN1XNK2bHw68pMmOCXTF4AOYnHMxOV069y591S5F0U3Al2N2SwuYG5lqxWlS2Sb4ZLKq14myKjk4KOoUXtYcxsMiyfm5LuSRg-7osela14CcVP9Tl1VTJMtk8v3Yop7xNqPbdERkUt3mxj3cNsk_JTF9fta9kyfxeA0LO9kh9pTktYAe_Lvdqh4GLy-vl7Z3Gc1306zVoYdw86PND9z8GyFqZsbVwcN9PCjV4ZBnsEzaJYluGavkVrEo97C9NdvVj3q1djVDt-aCFugeZlugNWtXgiMe0huPHnlTA3Sz37ONXHf58Uxn4tb5DDcmblITZ7SoP_RP7BFOAVUTWYzOzn2mFH-_sM6KWjLTv0UGXzaV2L-MFlxGw5fRwsto5DLa5DJa32ABCcb6rF_xZV5eTQvlvHwUY5pX6EA5zXOWu0mhdwnJv4QU_GqOwxTur4yPywMr0Bh5vgeHWM6SqllmZrTl3v2FZc0mdvcZNujONQa75dS-f_e5OcQgniP6Jat2zT7mT-_ZU3U6Poe2ZujW_ALByfNiBWf0ps7lcvsIZzRKebl_Dc63nDF1InZ0yZuxtnm2LvRx2F5SbJ3J2znnFL4iVOW4eYGau2gKdXRKRW4pc4FtL0lVadphC8RugdsSrkOlcopWcPzXwqZO-8osytxc7ZrDS6BH2byeGIjXF8NG3q3NOe8qAPG_U4CruiiaTusrfIfdM8w_y-_R1q1etrc9-ZpcXo-4rdoz0-ZW-CeukLZkz0jDmZawHCqTbTP5ZeHtWr09v31c-H7bvoA7IRqPf5DXKg1MbGDaAlgDWAEhtoGJpsQtoL_twosWIEQBoQKwtggjRfE1oDXOvBgNFWloNIgFKM1YR6F8akFlrd-qkMJImzf2fzwMPpUPgz_k8aktlVBohEPL0mgqH0YSK8P_ynGQljqYIO79ZPrdT2y3AbEppma-qoFuFdbt1lxVZZ2rH1njEIZWkZUA1o0LfCuqsw90VDoorIIKAruexlI7w8p7QOxUlTfjbNLFiS5aiK34tfPY7oRm-vY86KhCUxO9RHQCahBNkdX7QAOh1QUzF8pnoLtBQmslmVVgeq0aZFrcAq-LZ8TU3AaRXSQzJ_oTrFYf0Rmp96FvDZKvAaLrOLUtsA2YdaQjVbct5I_0xQvhtsKmoPZ-QVQbfa9PLGgz0m0N9erXACFdyebRlGydfiTXgSduOHLDsRuemoeYHRguWe0Dxy7q91gHPTjuwcMenPTgkx486sHjHnyqnxp2YDgKnLDvhgM3jN1w6IaJG5644cgNx27YnSV2Z4ndWWJ3ltidJXZnid1ZYneW2J0ldmeJ3VmG7ixDd5awAtVT3y6M3XDohokbnrjhyA3HbnjqhGHvccK-G3ZnSdxZEneWxGQ5GA32cMOk2WYwex40_1eC_z1tWErrvBq8jAa0rsrVsUgGs-b_L4P6sIHaX2UUHovvW_Dl_1eMSwQ=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
@@ -2030,6 +2154,7 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
@@ -2061,14 +2186,13 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="42-data-flow-diagrams">4.2 Data Flow Diagrams</h3>
 <blockquote>
 <p><strong>DATA ARCHITECTURE</strong> — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.</p>
 </blockquote>
-<div style="page-break-before: always;"></div>
-
 <h3 id="43-data-lineage">4.3 Data Lineage</h3>
 <p>Data lineage traces the origin and transformation path of key data objects across integrated systems.</p>
 <table>
@@ -2311,27 +2435,20 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</h2>
 <h3 id="51-current-state-current-state-application-landscape">5.1 Current-State — Current-State Application Landscape</h3>
 <h4 id="overview">Overview</h4>
 <p>The Current-State architecture represents the <strong>current / legacy</strong> landscape for PM-080.</p>
-<div style="page-break-before: always;"></div>
-
 <h4 id="current-state-flow-narrative">Current-State Flow Narrative</h4>
 <p><em>(No current-state flows defined.)</em></p>
-<div style="page-break-before: always;"></div>
-
 <h3 id="52-future-state-future-state-application-landscape">5.2 Future-State — Future-State Application Landscape</h3>
 <h4 id="overview_1">Overview</h4>
 <p>The Future-State architecture represents the <strong>target</strong> landscape for PM-080.</p>
-<div style="page-break-before: always;"></div>
-
 <h4 id="future-state-flow-narrative">Future-State Flow Narrative</h4>
 <p><em>(No future-state flows defined.)</em></p>
-<div style="page-break-before: always;"></div>
-
 <h3 id="53-change-impact-summary">5.3 Change Impact Summary</h3>
 <table>
 <thead>
@@ -2368,6 +2485,7 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
@@ -5789,6 +5907,7 @@ flowchart TD
 </tbody>
 </table>
 <p><strong>Summary</strong>: 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows</p>
+<div class="page-footer"><span>Page 29</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
@@ -5818,6 +5937,7 @@ flowchart TD
 <blockquote>
 <p><em>Integration pattern details will be refined when tower architects validate middleware assignments.</em></p>
 </blockquote>
+<div class="page-footer"><span>Page 30</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
@@ -5864,48 +5984,188 @@ flowchart TD
 <blockquote>
 <p><em>Platform assignments will be validated when tower architects populate technology platform columns.</em></p>
 </blockquote>
+<div class="page-footer"><span>Page 31</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="62-sap-development-object-status">6.2 SAP Development Object Status</h3>
+<p><strong>Capability RICEFW Status</strong> (378 objects)
+<em>Data source: Smartsheet Object Tracker (cached 2026-03-26)</em></p>
 <table>
 <thead>
 <tr>
-<th>Metric</th>
-<th>DEV</th>
-<th>QAS</th>
-<th>PRD</th>
+<th>Status</th>
+<th style="text-align: right;">Count</th>
+<th style="text-align: right;">%</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Transport Requests</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>10. Object Complete</td>
+<td style="text-align: right;">367</td>
+<td style="text-align: right;">97.1%</td>
 </tr>
 <tr>
-<td>Custom Code Objects</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>99. Rejected/Cancelled/On Hold</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1.1%</td>
 </tr>
 <tr>
-<td>CDS Views</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>06. Dev In Progress</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.5%</td>
 </tr>
 <tr>
-<td>Fiori Apps</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>08. FUT In Progress</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.5%</td>
 </tr>
 <tr>
-<td>BAdIs / Enhancements</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>04. FS In Progress</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.5%</td>
+</tr>
+<tr>
+<td>01. Pending Approval</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.3%</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>378</strong></td>
+<td style="text-align: right;"><strong>100%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>RICEFW by Type:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Report (R)</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td>Interface (I)</td>
+<td style="text-align: right;">171</td>
+</tr>
+<tr>
+<td>Conversion (C)</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr>
+<td>Enhancement (E)</td>
+<td style="text-align: right;">171</td>
+</tr>
+<tr>
+<td>Form (F)</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr>
+<td>Workflow (W)</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>378</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Technical Complexity:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Complexity</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01.Very High</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr>
+<td>02.High</td>
+<td style="text-align: right;">59</td>
+</tr>
+<tr>
+<td>03.Medium</td>
+<td style="text-align: right;">213</td>
+</tr>
+<tr>
+<td>04.Low</td>
+<td style="text-align: right;">97</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td style="text-align: right;">3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Active (Non-Complete) Objects:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Type</th>
+<th>Description</th>
+<th>Status</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PTPI0473</td>
+<td>02.Interface</td>
+<td>Demand Change - Automatic update of PR/PO/STR/STO/Scheduling agreement and Produ&hellip;</td>
+<td>06. Dev In Progress</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPE1644</td>
+<td>04.Enhancement</td>
+<td>New Enhancement required for to make PO price updates for HVM OSAT and SIFO orde&hellip;</td>
+<td>06. Dev In Progress</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>PTPE1628_IP</td>
+<td>04.Enhancement</td>
+<td>INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparison &hellip;</td>
+<td>08. FUT In Progress</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>PTPE1628_IF</td>
+<td>04.Enhancement</td>
+<td>INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparison &hellip;</td>
+<td>08. FUT In Progress</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1726</td>
+<td>02.Interface</td>
+<td>GR replication for raw materials for Straddle Sites from ECC to S4 IP via ECA​</td>
+<td>04. FS In Progress</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1728</td>
+<td>04.Enhancement</td>
+<td>Automate Outbound delivery note creation for 250K annual Subcon POs for repair/r&hellip;</td>
+<td>04. FS In Progress</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>PTPE1740</td>
+<td>04.Enhancement</td>
+<td>Fair Market value Determination using custom code/logic during the replication o&hellip;</td>
+<td>01. Pending Approval</td>
+<td>02.High</td>
 </tr>
 </tbody>
 </table>
@@ -6037,363 +6297,658 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 32</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="7-project-context">7. Project Context</h2>
 <h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
+<p><em>375 objects with timeline data (source: Object Tracker)</em></p>
 <table>
 <thead>
 <tr>
-<th>Object ID</th>
+<th>ID</th>
 <th>Description</th>
-<th>FS End</th>
-<th>FS %</th>
-<th>TDD End</th>
-<th>TDD %</th>
-<th>Build End</th>
-<th>Build %</th>
-<th>FUT End</th>
-<th>FUT %</th>
+<th>FS</th>
+<th>TDD</th>
+<th>Build</th>
+<th>FUT</th>
 <th>Status</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>PTPW0367_IP</td>
-<td>Workflow for Email Functionality and &hellip;</td>
-<td>2024-12-13</td>
-<td>1.0</td>
-<td>2025-09-24</td>
-<td>1.0</td>
-<td>2025-09-24</td>
-<td>1.0</td>
-<td>2025-12-03</td>
-<td>1.0</td>
+<td>Workflow for Email Functionality and Notification to PO approver(IP)</td>
+<td>Dec-24 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Dec-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>PTPW0367_IF</td>
-<td>Workflow for Email Functionality and &hellip;</td>
-<td>2024-12-13</td>
-<td>1.0</td>
-<td>2025-09-24</td>
-<td>1.0</td>
-<td>2025-09-24</td>
-<td>1.0</td>
-<td>2025-12-03</td>
-<td>1.0</td>
+<td>Workflow for Email Functionality and Notification to PO approver(IF)</td>
+<td>Dec-24 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Dec-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>PTPW0366_IP</td>
-<td>Workflow to trigger PO approvals in S&hellip;</td>
-<td>2024-12-27</td>
-<td>1.0</td>
-<td>2025-09-05</td>
-<td>1.0</td>
-<td>2025-09-05</td>
-<td>1.0</td>
-<td>2025-12-03</td>
-<td>1.0</td>
+<td>Workflow to trigger PO approvals in S4_IF</td>
+<td>Dec-24 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Dec-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>PTPW0366_IF</td>
-<td>Workflow to trigger PO approvals in S&hellip;</td>
-<td>2024-12-27</td>
-<td>1.0</td>
-<td>2025-09-05</td>
-<td>1.0</td>
-<td>2025-09-05</td>
-<td>1.0</td>
-<td>2025-12-03</td>
-<td>1.0</td>
+<td>Workflow to trigger PO approvals in S4_IF</td>
+<td>Dec-24 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Dec-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>PTPW0363_IP</td>
-<td>Workflow for Email Functionality and &hellip;</td>
-<td>2024-09-06</td>
-<td>1.0</td>
-<td>2025-09-24</td>
-<td>1.0</td>
-<td>2025-09-24</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
+<td>Workflow for Email Functionality and Notification to PR approver - IF</td>
+<td>Sep-24 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>PTPW0363_IF</td>
-<td>Workflow for Email Functionality and &hellip;</td>
-<td>2024-09-06</td>
-<td>1.0</td>
-<td>2025-09-24</td>
-<td>1.0</td>
-<td>2025-09-24</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
+<td>Workflow for Email Functionality and Notification to PR approver - IF</td>
+<td>Sep-24 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>PTPW0362_IP</td>
-<td>Workflow to Trigger PR approvals in S&hellip;</td>
-<td>2024-09-06</td>
-<td>1.0</td>
-<td>2025-08-29</td>
-<td>1.0</td>
-<td>2025-08-29</td>
-<td>1.0</td>
-<td>2025-12-03</td>
-<td>1.0</td>
+<td>Workflow to Trigger PR approvals in S/4 – IF</td>
+<td>Sep-24 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Dec-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>PTPW0362_IF</td>
-<td>Workflow to Trigger PR approvals in S&hellip;</td>
-<td>2024-09-06</td>
-<td>1.0</td>
-<td>2025-08-29</td>
-<td>1.0</td>
-<td>2025-08-29</td>
-<td>1.0</td>
-<td>2025-12-03</td>
-<td>1.0</td>
+<td>Workflow to Trigger PR approvals in S/4 – IF</td>
+<td>Sep-24 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Dec-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>PTPR1530_IP</td>
-<td>Develop a custom report in SAP S/4 HA&hellip;</td>
-<td>2025-08-09</td>
-<td>1.0</td>
-<td>2025-10-03</td>
-<td>1.0</td>
-<td>2025-10-03</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
+<td>Develop a custom report in SAP S/4 HANA for auto PR to PO conversion failures instead in ECA – IP/IF</td>
+<td>Aug-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>PTPR1530_IF</td>
-<td>Develop a custom report in SAP S/4 HA&hellip;</td>
-<td>2025-08-09</td>
-<td>1.0</td>
-<td>2025-10-03</td>
-<td>1.0</td>
-<td>2025-10-03</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
+<td>Develop a custom report in SAP S/4 HANA for auto PR to PO conversion failures instead in ECA – IP/IF</td>
+<td>Aug-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>PTPM0008</td>
-<td>Quality Info record upload [T-Code - &hellip;</td>
-<td>2025-05-05</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-06-11</td>
-<td>1.0</td>
+<td>Quality Info record upload [T-Code - QI01]</td>
+<td>May-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>Jun-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>PTPM0007</td>
 <td>Inspection Plan upload [T-Code - QP01]</td>
-<td>2025-05-05</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-06-11</td>
-<td>1.0</td>
+<td>May-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>Jun-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>PTPM0006</td>
-<td>Master Inspection Characteristics upl&hellip;</td>
-<td>2025-05-05</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-06-11</td>
-<td>1.0</td>
+<td>Master Inspection Characteristics upload [T-Code - QS21]</td>
+<td>May-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>Jun-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>PTPI1689</td>
-<td>New custom API needed to process GET &hellip;</td>
-<td>2026-01-07</td>
-<td>1.0</td>
-<td>2026-02-20</td>
-<td>1.0</td>
-<td>2026-02-20</td>
-<td>1.0</td>
-<td>2026-01-30</td>
-<td>1.0</td>
+<td>New custom API needed to process GET and DELETE function for Document Info Record Object Link where boundary app CWB can perform GET and DELETE in S4.</td>
+<td>Jan-26 (100%)</td>
+<td>Feb-26 (100%)</td>
+<td>Feb-26 (100%)</td>
+<td>Jan-26 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>PTPI1657</td>
-<td>Interface to send Invoice PAID Status&hellip;</td>
-<td>2025-08-08</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
-<td>2025-12-03</td>
-<td>1.0</td>
+<td>Interface to send Invoice PAID Status from CFIN to IP</td>
+<td>Aug-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Dec-25 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
 <td>PTPI1533</td>
-<td>Pay@accept – Inbound Interface to fet&hellip;</td>
-<td>2025-09-08</td>
-<td>1.0</td>
-<td>2025-10-03</td>
-<td>1.0</td>
-<td>2025-10-03</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
+<td>Pay@accept – Inbound Interface to fetch the values from FCE ODS to SAP S/4 HANA IF</td>
+<td>Sep-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>PTPI1529_IP</td>
-<td>An interface to retrieve the list of &hellip;</td>
-<td>2025-08-09</td>
-<td>1.0</td>
-<td>2025-10-17</td>
-<td>1.0</td>
-<td>2025-10-17</td>
-<td>1.0</td>
-<td>2025-12-03</td>
-<td>1.0</td>
+<td>An interface to retrieve the list of approvers from a custom MDG table(MDG system) when a PR/PO creation or change workflow is triggered in S/4HANA.​</td>
+<td>Aug-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>Dec-25 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
 <td>PTPI1529_IF</td>
-<td>An interface to retrieve the list of &hellip;</td>
-<td>2025-08-09</td>
-<td>1.0</td>
-<td>2025-10-03</td>
-<td>1.0</td>
-<td>2025-10-03</td>
-<td>1.0</td>
-<td>2025-12-03</td>
-<td>1.0</td>
+<td>An interface to retrieve the list of approvers from a custom MDG table(MDG system) when a PR/PO creation or change workflow is triggered in S/4HANA.​</td>
+<td>Aug-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>Dec-25 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
 <td>PTPI1458</td>
-<td>Develop an interface between PEGA and&hellip;</td>
-<td>2025-07-08</td>
-<td>1.0</td>
-<td>2025-09-05</td>
-<td>1.0</td>
-<td>2025-09-05</td>
-<td>1.0</td>
-<td>2025-12-12</td>
-<td>1.0</td>
+<td>Develop an interface between PEGA and S/4 HANA system to transmit MSL information – IF</td>
+<td>Jul-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Dec-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>PTPI1428_IP</td>
-<td>Setting Up Inbound Interface from SPT&hellip;</td>
-<td>2025-06-11</td>
-<td>1.0</td>
-<td>2025-08-08</td>
-<td>1.0</td>
-<td>2025-08-08</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
+<td>Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system to S/4 IF and IP Systems</td>
+<td>Jun-25 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
-<td><em>&hellip; and 358 more objects (see full Object Tracker)</em></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>PTPI1428_IF</td>
+<td>Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system to S/4 IF and IP Systems</td>
+<td>Jun-25 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>PTPI1331_IP</td>
+<td>Ariba POs Goods Receipts to be sent from WIINGS to S/4 for R4 sites</td>
+<td>May-25 (100%)</td>
+<td>May-25 (100%)</td>
+<td>May-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>PTPI1331_IF</td>
+<td>Ariba POs Goods Receipts to be sent from WIINGS to S/4 for R4 sites</td>
+<td>May-25 (100%)</td>
+<td>May-25 (100%)</td>
+<td>May-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>PTPI1329_IP</td>
+<td>FSD to change Purchase Order information from B2B Staging DB ePO from S4 IP</td>
+<td>May-25 (100%)</td>
+<td>Jun-25 (100%)</td>
+<td>Jun-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>PTPI1329_IF</td>
+<td>FSD to change Purchase Order information from B2B Staging DB ePO from S4 IF</td>
+<td>May-25 (100%)</td>
+<td>Jun-25 (100%)</td>
+<td>Jun-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>PTPI1308_IP</td>
+<td>FSD to publish SAP Contracts pricing condition details to Web Contract - IP</td>
+<td>May-25 (100%)</td>
+<td>Jun-25 (100%)</td>
+<td>Jun-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>PTPI1308_IF</td>
+<td>FSD to publish SAP Contracts pricing condition details to Web Contract - IF</td>
+<td>May-25 (100%)</td>
+<td>Jun-25 (100%)</td>
+<td>Jun-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>PTPI1307_IP</td>
+<td>FSD to publish SAP Contracts changes details to Web Contract - IP</td>
+<td>May-25 (100%)</td>
+<td>Jun-25 (100%)</td>
+<td>Jun-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>PTPI1307_IF</td>
+<td>FSD to publish SAP Contracts changes details to Web Contract - IF</td>
+<td>May-25 (100%)</td>
+<td>Jun-25 (100%)</td>
+<td>Jun-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>PTPI1171</td>
+<td>Get Material details from IF to METs/SOM</td>
+<td>May-25 (100%)</td>
+<td>Jul-25 (100%)</td>
+<td>Jul-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>4. Completed</td>
 </tr>
 </tbody>
 </table>
-<div style="page-break-before: always;"></div>
-
+<p><em>&hellip; and 345 more objects (see full Object Tracker)</em></p>
 <h3 id="72-raid-log">7.2 RAID Log</h3>
-<p>Standard RAID items for PM-080 (Procure To Pay):</p>
+<p><em>Live data from Smartsheet Master RAID Log — extracted 2026-03-26</em></p>
+<p><strong>Mapped sub-tower(s):</strong> 6.2 PTP - Procurement, 6.3 PTP - EWM, 6.4 PTP - Logistics Management Inbound, 6.5 PTP - TM, 6.6 PTP - GTS, 6.7 PTP - Enable Payments, 6.8 PTP - QM</p>
+<p><strong>RAID Summary:</strong> 32 open items (4 capability-specific, 28 tower-level), 324 closed</p>
 <table>
 <thead>
 <tr>
-<th>#</th>
-<th>Category</th>
-<th>Description</th>
-<th>Status</th>
-<th>Owner</th>
-<th>Priority</th>
+<th>Severity</th>
+<th style="text-align: right;">Capability</th>
+<th style="text-align: right;">Tower-Wide</th>
+<th style="text-align: right;">Total Open</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
-<td>Risk</td>
-<td>Data migration completeness — validate all legacy Purchase Materials and Services data maps to S/4 target structures</td>
-<td>Open</td>
-<td>Tower Architect</td>
-<td>High</td>
+<td>P1 - High</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
 </tr>
 <tr>
-<td>2</td>
-<td>Risk</td>
-<td>Integration testing coverage — ensure all 0 integrated systems are validated end-to-end</td>
-<td>Open</td>
-<td>Integration Lead</td>
-<td>High</td>
+<td>P2 - Medium</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">24</td>
 </tr>
 <tr>
-<td>3</td>
-<td>Assumption</td>
-<td>Target SAP S/4HANA system available in DEV/QAS per release schedule</td>
-<td>Active</td>
-<td>SAP Basis</td>
-<td>Medium</td>
+<td>P3 - Low</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
 </tr>
 <tr>
-<td>4</td>
-<td>Issue</td>
-<td>API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation</td>
-<td>Open</td>
-<td>EA Pipeline Team</td>
-<td>High</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Dependency</td>
-<td>Upstream BPMN process models validated and signed off by business process owners</td>
-<td>Active</td>
-<td>Process Owner</td>
-<td>Medium</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>4</strong></td>
+<td style="text-align: right;"><strong>28</strong></td>
+<td style="text-align: right;"><strong>32</strong></td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><em>Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.</em></p>
-</blockquote>
+<p><strong>Capability-Specific RAID Items:</strong></p>
+<table>
+<thead>
+<tr>
+<th>RAID ID</th>
+<th>Type</th>
+<th>Severity</th>
+<th>Title</th>
+<th>Status</th>
+<th>Assigned To</th>
+<th>Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>03501</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>PTPI0473 - DCR Interface from PDH to S/4 - Track development&hellip;</td>
+<td>In Progress</td>
+<td>B-Apps</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03236</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Assessment of IQC Solution mapping within Current QM Design &hellip;</td>
+<td>In Progress</td>
+<td>PTP</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03461</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>PTP ECA DCM Process Changes and impacts to delivered self se&hellip;</td>
+<td>In Progress</td>
+<td>PTP</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03373</td>
+<td>Risk</td>
+<td>P3 - Low</td>
+<td>incoterm location id value to be used for import requisition&hellip;</td>
+<td>In Progress</td>
+<td>PTP</td>
+<td>2026-05-01</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Other PTP Tower RAID Items</strong> (28 open):</p>
+<table>
+<thead>
+<tr>
+<th>RAID ID</th>
+<th>Type</th>
+<th>Severity</th>
+<th>Title</th>
+<th>Status</th>
+<th>Assigned To</th>
+<th>Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>03591</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>R3 E2E scenario execution</td>
+<td>In Progress</td>
+<td>Test Management</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>03681</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>ITC Execution: Planning run availability - Prerequisite for &hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03757</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>IF Planning data not available in ITC1 until W4, leaving too&hellip;</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>03234</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Process code information missing from PTP</td>
+<td>Not Started</td>
+<td>PTP</td>
+<td>2025-12-12</td>
+</tr>
+<tr>
+<td>03355</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>PTP ECA OSAT Predictive Tool Test Self-Service Query View cr&hellip;</td>
+<td>In Progress</td>
+<td>FTS IP</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>03718</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Storage Location Logic for Non-MMID Parts.</td>
+<td>In Progress</td>
+<td>PTP</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03729</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>AN and CC invoices are fetching wrong tax codes and posting &hellip;</td>
+<td>In Progress</td>
+<td>FPR</td>
+<td>2026-03-23</td>
+</tr>
+<tr>
+<td>03540</td>
+<td>Issue</td>
+<td>P2 - Medium</td>
+<td>FPR Tower help required for GR/IR Clearing document and Data&hellip;</td>
+<td>To Be Reviewed</td>
+<td>PTP</td>
+<td>2026-02-11</td>
+</tr>
+<tr>
+<td>03542</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>T042A table data in IF &amp; IP</td>
+<td>In Progress</td>
+<td></td>
+<td>2026-02-13</td>
+</tr>
+<tr>
+<td>03548</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>IAPMID 1532 SIC-Supplier Hub MRP data needs not aligned</td>
+<td>In Progress</td>
+<td>B-Apps</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>03625</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Item/ BOM MC1 delta load</td>
+<td>In Progress</td>
+<td>Cutover</td>
+<td>2026-04-10</td>
+</tr>
+<tr>
+<td>03628</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>R3 Returns Rework Process Causing Finance Double Counting in&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03641</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Inventory Item Detailed Report</td>
+<td>In Progress</td>
+<td>Analytics (Reporting)</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03462</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>PTP ECA Demand Analytics dependency on MP PRF &amp; RTF</td>
+<td>In Progress</td>
+<td>FTS IP</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>02173</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>LE Restructuring : Jan 1 ‘26 EE+Asset changes reduced to Mal&hellip;</td>
+<td>In Progress</td>
+<td>Legal Entity</td>
+<td>2025-09-30</td>
+</tr>
+<tr>
+<td>03733</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>FTS IP string cases upload to JIRA</td>
+<td>Not Started</td>
+<td>PTP</td>
+<td>2026-03-13</td>
+</tr>
+<tr>
+<td>03735</td>
+<td>Issue</td>
+<td>P2 - Medium</td>
+<td>Box CPU Supplier Moduslink Queries</td>
+<td>In Progress</td>
+<td>FTS IP</td>
+<td>2026-03-21</td>
+</tr>
+<tr>
+<td>03736</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Golden Data/Test Data Readiness</td>
+<td>In Progress</td>
+<td>Master Data</td>
+<td>2026-04-22</td>
+</tr>
+<tr>
+<td>03743</td>
+<td>Issue</td>
+<td>P2 - Medium</td>
+<td>FD-Share with Entitlements -  Interface File Paths for MC1</td>
+<td>Roadblock / At Risk</td>
+<td>PMO</td>
+<td>2026-03-20</td>
+</tr>
+<tr>
+<td>03749</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Logistics Data Intake and Creation Process Definition</td>
+<td>In Progress</td>
+<td>Test Management</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03756</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>LE101-1001 Operation Support Ownership for SIMS/Tester Front&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-04-24</td>
+</tr>
+<tr>
+<td>03758</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>IMR Repair Order Creation Ownership</td>
+<td>In Progress</td>
+<td>PTP</td>
+<td></td>
+</tr>
+<tr>
+<td>03765</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Net Price issue for ZIC STO creation</td>
+<td>Not Started</td>
+<td>PTP</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03768</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>E2Open interface smoke testing</td>
+<td>In Progress</td>
+<td>Cutover</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>03317</td>
+<td>Risk</td>
+<td>P3 - Low</td>
+<td>BPMG – E2E L3/L4 flow standards</td>
+<td>In Progress</td>
+<td>Business Process Mgmt</td>
+<td>2026-05-29</td>
+</tr>
+<tr>
+<td>03525</td>
+<td>Issue</td>
+<td>P3 - Low</td>
+<td>Vendor determination in PDH for 2DN PR&rsquo;s &amp; STR&rsquo;s.</td>
+<td>Not Started</td>
+<td>FTS IP</td>
+<td>2026-03-06</td>
+</tr>
+<tr>
+<td>03473</td>
+<td>Action</td>
+<td>P3 - Low</td>
+<td>Manual Service PIR creation for IP-IF Service Procurement.</td>
+<td>In Progress</td>
+<td>FPR</td>
+<td>2026-05-29</td>
+</tr>
+<tr>
+<td>02358</td>
+<td></td>
+<td></td>
+<td>METs/SOM Bapp is not ready for E2E Testing</td>
+<td>Not Started</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
 <table>
 <thead>

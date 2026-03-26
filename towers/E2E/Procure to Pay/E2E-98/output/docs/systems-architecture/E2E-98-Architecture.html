@@ -104,8 +104,9 @@ blockquote {
     border-radius: 6px;
     padding: 20px 12px;
     margin: 16px 0;
-    overflow-x: auto;
+    overflow: visible;
     text-align: center;
+    page-break-inside: avoid;
 }
 .mermaid svg {
     max-width: 100%;
@@ -144,6 +145,14 @@ strong { color: #00285a; }
     body { padding: 0; max-width: none; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print { display: none; }
+    .mermaid {
+        page-break-inside: avoid;
+        overflow: visible;
+    }
+    .mermaid svg {
+        max-width: 100%;
+        height: auto;
+    }
 }
 </style>
     
@@ -173,32 +182,82 @@ strong { color: #00285a; }
     }
   });
 </script>
+<script>
+  // Open rendered Mermaid diagram as full-size SVG in a new browser tab.
+  // Works on SharePoint, GitHub Pages, localhost — no file system dependency.
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[title="Open full-size SVG"]');
+    if (!link) return;
+    // Walk backwards from the link div to find the preceding .mermaid container
+    var container = link.closest('div');
+    var prev = container;
+    while (prev && prev.previousElementSibling) {
+      prev = prev.previousElementSibling;
+      if (prev.classList && prev.classList.contains('mermaid')) break;
+    }
+    if (!prev || !prev.classList.contains('mermaid')) return;
+    var svgEl = prev.querySelector('svg');
+    if (!svgEl) return;
+    e.preventDefault();
+    // Clone SVG with full dimensions for standalone viewing
+    var clone = svgEl.cloneNode(true);
+    clone.removeAttribute('style');
+    clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    var svgXml = new XMLSerializer().serializeToString(clone);
+    var blob = new Blob([svgXml], {type: 'image/svg+xml'});
+    window.open(URL.createObjectURL(blob), '_blank');
+  });
+</script>
 
 </head>
 <body>
-<div style="text-align:center; padding-top:80px;">
-  <h1 style="font-size:36px;">E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</h1>
+<div style="text-align:center; padding-top:20px;">
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <h1 style="font-size:36px; margin-top:24px;">E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
   Capability E2E-98 · Procure to Pay</p>
   <p style="font-size:14px; color:#888;">IAO Program · Release 2<br/>
-  Generated: March 2026</p>
+  Generated: March 2026<br/>
+  Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
   @page { margin: 0.75in; }
-  footer::after { content: "Intel Confidential — E2E-98 BDAT — March 2026"; font-size:9px; color:#999; }
-  .mermaid { page-break-inside: avoid; max-height: 95vh; overflow: visible; }
+  .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
-.mermaid svg { max-width: 100% !important; height: auto !important; }
+.mermaid { overflow: visible; }
+.mermaid svg { max-width: 100%; height: auto !important; }
+.page-footer {
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 20px;
+  background: #fff;
+}
+@media print {
+  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 </style>
 
+<div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
+<p><a id="toc"></a></p>
 <h2 id="table-of-contents">Table of Contents</h2>
 <ol>
 <li><a href="#1-executive-summary">Executive Summary</a></li>
@@ -234,6 +293,7 @@ strong { color: #00285a; }
    - 7.2 <a href="#72-raid-log">RAID Log</a>
    - 7.3 <a href="#73-recommendations--next-steps">Recommendations &amp; Next Steps</a></li>
 </ol>
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="1-executive-summary">1. Executive Summary</h2>
@@ -251,6 +311,7 @@ strong { color: #00285a; }
 <blockquote>
 <p>All system nodes in architecture diagrams are <strong>IAPM-linked</strong> — click any node to open its IAPM page. Diagrams require <code>securityLevel: 'loose'</code> for click events.</p>
 </blockquote>
+<div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="2-business-context-objectives">2. Business Context &amp; Objectives</h2>
@@ -319,6 +380,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="23-success-criteria">2.3 Success Criteria</h3>
@@ -382,6 +444,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</h2>
@@ -450,6 +513,7 @@ strong { color: #00285a; }
 </tbody>
 </table>
 <h3 id="32-business-process-diagrams">3.2 Business Process Diagrams</h3>
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-321-e2e-98a_r3_equipment_product_supporting_items_psiprocurement-e2e-98a_r3_equipment_product_supporting_itemspsi_procurement">BUSINESS ARCHITECTURE — 3.2.1 E2E-98A_R3_Equipment_Product_Supporting_Items_(PSI)<em>Procurement — E2E-98A_R3_Equipment_Product_Supporting_Items</em>(PSI)_Procurement</h4>
@@ -459,7 +523,7 @@ strong { color: #00285a; }
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -470,7 +534,7 @@ flowchart LR
     subgraph Boundary Apps
         n1["Perform Supply Planning ICS (Phoenix)"]
         n2["Receive Procurement Planning Information"]
-        n3["Review & Approve Procurement Planning Proposal by Intel P..."]
+        n3["Review and Approve Procurement Planning Proposal by Intel Product BUs"]
         n4["Receive Information in ECA"]
         n5["Organize Transport-Intel Routing Guide (IRG)"]
         n6["Receive Manual invoices through OCR"]
@@ -485,9 +549,9 @@ flowchart LR
     end
     subgraph External Partners/Supplier 
         n22["Perform Purchase Order Collaboration via SIFRIS"]
-        n23["Perform Carrier Selection via Intel Routing Guide hosted ..."]
+        n23["Perform Carrier Selection via Intel Routing Guide hosted Collaboration Portal"]
         n24["Pick Goods (Carrier) Order shipment"]
-        n25["Forecast Communication & Commit"]
+        n25["Forecast Communication and Commit"]
         n26["Raise Invoice (Supplier End)"]
         n36{{"fa:fa-code-branch exclusiveGateway"}}
         n37{{"fa:fa-code-branch exclusiveGateway"}}
@@ -591,6 +655,9 @@ Transport only"| n23
     class n45 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlWG1v4joW_isWo1E7EgjyAqF8uCtIoYM0M-VC7x2ttvvBJA5YDXbWTgpsp_99jxM7gJteaXv7oRJPznPez7GTl1bEY9IatT5_fqGM5iP0cpVvyY5cjdDVGkty1UYV8CcWFK9TIq-UTMJZvqL_LcUcPzsoMYXN8I6mR4WuyIYT9Me8jcZATNtIYiY7kgiaXLWvMkF3WBxDnnKhpD-RYdJLSmv60YSLmIiTQK8XOFEfqCll5AR7gR_4M8WTJOIsvlCa9JNhEl29KudSvo-2WOSl-4Uk3_HhJ43zLfxOcCoJyGzzXfoNr0mqYsxFobCoEM8mGVQqOwwStspwRNkGcL8HkMDs6QT1e6-v6PXz50dWG0Xflo8MwV-UYilvSYJkDvD0OUcJTdPRJz8cz_q9tswFfyKjT-40uPXcdqQiGUHovbZKbmdP6Gabj9Y8jbVoZ69iGLnZoS0OI7fXFkf4b9kiLD5ZCgfu0B3WliaBEzqhsZQkyd-yBHkVD1g-aVtTb-bObmtbTn_QD3tv9Zkwb_1g7Nh5IuKZRuRM6Ww286anVE0Hfaf3vtLJzBv0QkvpBudkj48nhTehXyuc9YOZE7yrsLJne1msF4JHRqE37c_6tcJg4szG7rsK_bHjD7WHoGcjcLZFE16UvYzGWSarZ-qPOf96bC2ISLjYoVWRZekRLVLMGHQemocrdL3YcsLo4ctj699nNBdoSxIR-kyQcrQQMNEsP-MypRLnlLNLplcynynZI8xi5Y7g7ykBMOMSp2h9BIU5SRUSF1GOJn_IS7X-mUNnthFlaBqOL2X7IHsvNpjBvkEPMGsy4yLvVBaWvMiV7buCxgRdz5d3VuiDM0vfMSvAPcqeOfSURPlW8GKzRffh8pIUXLgX8Z0yoWldNHEn3fuMsAdyyLs_yRrKRnNyqWFYasDxiic5-hOnNC4D7E4PEcnKUL9CPlOlV63ZGAEiCliv0PF5kVnlC65BXYJHCe5kKVbZpTmFJn7TA6ouRKpkfznnD098mfPsIuU6ztjieM7Li-GoM6KzhsxHW0QOUVpIINxVQ_TYen09p7nNNMgZ4kJl-h82w_uYoeGJhoXge9nBaY4yLHCakvQNCZagNWPTQ04Eg35YwCpmRMhumU1KBDrPnXs2cotCwD6XBN2rwwnBSZPiNRdVIp8pRqv5bDlfWdXzzjSE4KuysCIpiWpaUy9vucyhLy5tLKDzcWrpV8O0oNETuuM8luha2_iivZRbmqlBtVhqrGZckAjLHKzsdgWjUWVFTbpCqM0phwlTqaaiHAZ0XedsymJr9LzBxyobfIjm9_9uQ6zGC7Tq-l_HP8ZoPjtTfQNhh4Kogas7YEn-U1BJy3yFW8w2kAt4mqYdyrqLQm47UE0rIU7vfA83aar2q11hx2lwoCyuJVf2qtWj2rffC8xymh-7q2hLYtg06BbUSdtD762Gb3Dh6sxzskO30LRvjwhH9d-DoJsNCN89rMAkiZ4sGdVtIU6jIlVBPOADsU4EZ1BaXqdUbv86SLWcx9ET4_uUxBvSDTlL6JvhtEjDUwbnbK1OVxUN1AHO2D3Nt-grh8sLGlOhLgZrOMcRK3ZriOj66_jnxE6T6oiH72gKEnFc7s7zMVFlXsD46oEsK57Zs-QYoXqC9AFjySlTU3fauRmGaOmVTVofgtW4wrGGN-TtiHu9mjpR1HA2_2FJ-M2jZnXAGHTH5Vn_gxAI980K7zerMUtiHKlDr4F38_-NbDXnvY-QnI-Q3I-QvI-Q_A_uLnaDOp3flFX92-lVgHejAU9LeL4BfAX8UsMGy2qul9V9Ac3zS60QWyyEUhI4g6rBVyLGludUqg3F8bSpgQG0gF9LaAF9y2eu_j00v4MKMM-9oRawfptYfO2A4WsHTOy-Tobj20DfONTXCo1Fx7cAX_vsmKBcbaRWEehEwWGqD_Lf9wxO7kdWzync7tJjmTzXhKINu7VrOhd-zwDajmMA11TEm7ioi6auuoNWFTHxOyY_tVYdjnNjAebVDZ5owEi4fW2m3ktLAkEwCXfT6oqznKkrzq-zOlZ1-XV2oZDw2qvuMhbDNVnzdHTG84EudF1pV2ss7-bArNNvesgEYFqk1qx7yDUMzwT0g1deB0aVMWraM7CdMMx_qtNKue9Y1aozYKp1am1TT-OXryvuGPPOwBoXTwNuPS6uLWGyAtfp0qHAmnLn_P25nCfzoeESH-qPApfoTbO013sHd8yb9CXsNsNeM-w3w_1meNAMB83wsBm-aYRhOTTCzVH6zVH6zVH6zVH6dZStdmtH4JWMxq3RS6v84gZf5WKS4CLNW6_tFi5yvjqyqDUqv0y1igzeKMktxXB33VXg6_8AHwkVxw==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-322-e2e-98b_r3_cfin-e2e-98b_r3_cfin">BUSINESS ARCHITECTURE — 3.2.2 E2E-98B_R3_CFIN — E2E-98B_R3_CFIN</h4>
@@ -599,7 +666,7 @@ Transport only"| n23
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -624,7 +691,7 @@ flowchart LR
         n11["Review Failed Payment Log"]
         n12["Generate Payment Proposal"]
         n13["Replicate Supplier Invoice Posting"]
-        n14["Post Collateral Expense Chargeback – IF Profit Center (Al..."]
+        n14["Post Collateral Expense Chargeback – IF Profit Center (Allocations)"]
         n15["Posted Collateral Cost Charged – IP Profit Center"]
         n18(["fa:fa-play Initiate Charge Back Process"])
         n21(["fa:fa-stop Memo Record Created"])
@@ -647,7 +714,7 @@ flowchart LR
     end
     subgraph SAP S/4 (IP & IF)
         n20(["fa:fa-stop Payment Details provided back to Source System (IP/IF)"])
-        n24["E2E-98A R3 Equipment Product Supporting Items (PSI) Procu..."]
+        n24["E2E-98A R3 Equipment Product Supporting Items (PSI) Procurement"]
     end
     n12 --> n3
     n3 --> n32
@@ -705,6 +772,9 @@ flowchart LR
     class n34 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlWFtzozYU_isadlInU7tFXHx7aMc3djyzTj1xt51O3QcZRKxZjKgAJ27W_71HIGGDyUO3eUjQ4TvfuR8gb4bPA2qMjbu7NxazbIzeOtmeHmhnjDo7ktJOF5WC34hgZBfRtCMxIY-zDfungGEneZUwKfPIgUUnKd3QZ07R52UXTUAx6qKUxGkvpYKFnW4nEexAxGnGIy4k-gMdhmZYWFO3plwEVFwApjnAvguqEYvpRWwPnIHjSb2U-jwOaqShGw5Dv3OWzkX8xd8TkRXu5yldkdffWZDt4RySKKWA2WeH6BPZ0UjGmIlcyvxcHHUyWCrtxJCwTUJ8Fj-D3DFBJEj85SJyzfMZne_utnFlFH162sYIfvyIpOmchijNQLw4ZihkUTT-4Mwmnmt200zwL3T8wVoM5rbV9WUkYwjd7Mrk9l4oe95n4x2PAgXtvcgYxlby2hWvY8vsihP8btiicXCxNOtbQ2tYWZoO8AzPtKUwDP-XJcir-JWkX5Sthe1Z3ryyhd2-OzNv-XSYc2cwwc08UXFkPr0i9TzPXlxStei72HyfdOrZfXPWIH0mGX0hpwvhaOZUhJ478PDgXcLSXtPLfLcW3NeE9sL13IpwMMXexHqX0JlgZ6g8BJ5nQZI9mvK86GU0SZK0vCd_Yvzn1niiPmVHijwWUcRiNIXu2xp_XaEsQH1OAogSrcnpQOMMPdEDyzIS-7QOxaN7AIdkHJJemvGkUpiTjKCSJACVh1IHWqnh6cxbPl7x2cC2eKV-fm07j-tGHQDNBJX-TdYrtKIHDg76MPF1nAs4mVeapmg6W1WEU5L5exg2uEhpgDjkIE9hLQDsKYcVVWfpA8tHGlOh7WkamcA6dCDTy6XvGZepF_xIRR0ylL5zIaifFWTqmoETt3yjolzAkUrLazSHHnnMDzsqEImD68DRnEZUsjTKYwKDRyFc7XWKPOJnHFrjHsx3ZV66aDWdoRWH_c3FQ4Og7Jgjoy-gCA4GVfif-HMDa11nSsOgAAlPSdTA2gVvEjFfgjd5ApcQ1jI-cphXtOZpBhVqKMnCyzuQtSgCPUEitHhNaAz5mcGifKY74n9B29wysY2WnjQeMoCDI0B-P4kiDvYgTWkzTldRQ4BX5LPCWMEcVLTrOm2DaHgZiCSCJbGEtDIZY0kDPQceqq68DEY5d7gxTNcFLhs-aKpYDRXdJqptbvB2A9_iFUR9SKCbbpXdtzetLJ_7vR08uaC1ViTOIVllw8PFI5U0sH5-3hrn8zVBv51AjUpwgx-04-mrH8HEHunHchM31YbtajMCk071yLWYG32TOdv8NjXcrlZWDtLIBVwnZU1gFpre2tZFnwjBX9IeiTKUEGjciEbvGLW_RclpVWLxe_HdrnnYMNdDInfqKo8y1pNPH6hIHMsleGQZ7KU9DF0v4z35tzmmg_-ueOvMZrJGmx8ddA-j_B2siVqPm-890GgG-y9FslNZAOugWDWw5zc8F7CxNidYHgfJ-aNkbEyO3FwLa9EbDSfoyUaLv3OW6PUY5PAskBuQC7nz0BJ4UnS_3iwfipHMBZXQ24Bg46Je7ycokDrb6mips1OeLfVWFLvq7KqzVQi-bo1HvjW-ynlTNwYK2NdAJajOo_JcEQ3rRLZ6w4kVztIeYVO5WLmsBCN9VjFg7bOtYnQ0A1YMFQAr23pw6h4odawN9NW53zCoPRyqo8Zj7ZDVVKgsqDRju5nWP-S7BDij06o9XU-Wjz-YpgVFJqdexEkgX_3oQwHGFbpfh-N2eC1PRRouO6OsapVb5ehQ-9lv-FnVv7qjG0OrYNUI2LzNfsOs7TSbQ5up7mDdkDpz2FHQX6CUewqBqsc73P8ebcqXefXMKrmwbkGsCoedq5frQqy_lerykfquqUkts1WKW6VWq9RulTrtXkCnqI-JurjfLh60i4ft4lGrGAauVYzbxVa72G4XO1psdI0DFQfCAmP8ZhT_AYD_EgQ0JLC8jXPXIHnGN6fYN8bFl7KRF58Kc0ZgRR9K4flf0GQFJw==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-323-e2e-98c_r3_sap_transportation_management-e2e-98c_r3_sap_transportation_management">BUSINESS ARCHITECTURE — 3.2.3 E2E-98C_R3_SAP_Transportation_Management — E2E-98C_R3_SAP_Transportation_Management</h4>
@@ -715,7 +785,7 @@ Supplier
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -724,7 +794,7 @@ flowchart LR
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
     subgraph Boundary Apps
-        n1["Receive/Send Information in Carrier Invoice Reconciliatio..."]
+        n1["Receive/Send Information in Carrier Invoice Reconciliation/Dispute..."]
         n2["Event updates are received in GTT"]
         n17{{"fa:fa-code-branch exclusiveGateway"}}
     end
@@ -746,7 +816,7 @@ flowchart LR
         n9["Post SES with Auto Release (TM)"]
         n10["Create Cost Distribution/Agency Business Document (TM)"]
         n15(["fa:fa-stop TM process ended"])
-        n16["E2E-98A R3 Equipment Product Supporting Items (PSI) Procu..."]
+        n16["E2E-98A R3 Equipment Product Supporting Items (PSI) Procurement"]
         n18{{"fa:fa-code-branch exclusiveGateway"}}
         n19{{"fa:fa-code-branch exclusiveGateway"}}
         n22{{"fa:fa-arrows-alt inclusiveGateway"}}
@@ -786,6 +856,9 @@ flowchart LR
     class n22 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVtuO2zYQ_RVCwdYbwM6KsmTZfijgmwIDWcRYbdqHuA-0RNlEaEklKV-y8b93KFG-rbdtWj8sdo5mzswcDi8vVpTF1Opbd3cvLGWqj14aakXXtNFHjQWRtNFEFfAbEYwsOJUN7ZNkqQrZ99INu_lOu2ksIGvG9xoN6TKj6Mu0iQYQyJtIklS2JBUsaTQbuWBrIvajjGdCe7-j3cROymzm0zATMRUnB9v2ceRBKGcpPcFt3_XdQMdJGmVpfEGaeEk3iRoHXRzPttGKCFWWX0j6SHa_s1itwE4IlxR8VmrNP5EF5bpHJQqNRYXY1GIwqfOkIFiYk4ilS8BdGyBB0m8nyLMPB3S4u5unx6To09M8RfCLOJFyTBMkFcCTjUIJ47z_zh0NAs9uSiWyb7T_zpn447bTjHQnfWjdbmpxW1vKlivVX2Q8Nq6tre6h7-S7ptj1Hbsp9vD3KhdN41OmUcfpOt1jpqGPR3hUZ0qS5H9lAl3FM5HfTK5JO3CC8TEX9jreyH7NV7c5dv0BvtaJig2L6BlpEATtyUmqScfD9tukw6DdsUdXpEui6JbsT4S9kXskDDw_wP6bhFW-6yqLxUxkUU3YnniBdyT0hzgYOG8SugPsdk2FwLMUJF-hYVaUs4wGeS6rb_qX4q9z64lGlG3oQwjriqZpkok1USxLEUvRiAjBqAB4k4Fs6ElviohxVno8jJnMC0U_fPgwt_44o3WAdrKhqUJFHoM4EhFBkagSxZr44_PzZQj2X17mVkL6CWnpM6S1gF0QrRDdRbyQEPaxEnluHQ5VGJR71eVkp6hICUcz2AwpFfIBhUWec93BeSrddUChkCdd28MIttQSapymigKRyoREbRGjHFj29cSgeeHYuA0KxNssi6-K1w0bra6-tO-_1m3lHGZEryuVOhlToCIUMYRjMUagt67mWMxgQxjXByTwvT8ndK8IS50lmhULzuSKxlf-jn3SFQrMtrJFuNK9Ec4pf6VqFYR_Luj1UoSDGQofXHQ_naFf0DQ4L6kNDXyksD5AgwJRHg3oC-iB7p8f31_q52phBT33_KwP8huuHrjOqNDze5zbL_X4wWiPCI8KrpmMxpfhHT2zOxoV_yKVr1NlUh0dQ6oUh1sNJn6cRUX5z-uw7qmZ0EzV7DOCglEQjm_49-o04SREW6ZWaFCoDEaQU5iZGwHYPmUY6UDYoEqwRVHu1sGSptEeDWE7pXoE_6ZS7J2mTKosR8-PKDeTC4v9aspwqZ4zafW6A_TURpM_C5aX3DDvcRGpciNmQsGVhqaKriW6n4XT9-V2KESp3FUF3Z89D6qw3n8Kc5ybA8_Sfzx80jZqtX6FQTWmV5m4a2y_smsT9yrbM3anMh3H2K4J7xnbuGO7jrcNUBNgbBiOHqYgjGvAlHC06xx1TuwYitrDMZzYrwH7Gqiz1hRXbRwD6j7KFD_qW6HalnPrx5lQuFuFdIxtzCOBKbKuABvl2mdXZ9l8_RK6xN03cM-8Zi7Rzhvefn3VX8Ld23DvJgzS3ITxbdipYatprSlczSy2-i9W-YaGd3ZME1JwZR2aFoGzIdynkdUv35pWdfWOGYETeV2Bh78AAYWYEg==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
@@ -850,6 +923,7 @@ flowchart LR
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
@@ -880,6 +954,7 @@ flowchart LR
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="42-data-flow-diagrams">4.2 Data Flow Diagrams</h3>
@@ -888,7 +963,7 @@ flowchart LR
 </blockquote>
 <h4 id="421-current-state-current-state-data-flows">4.2.1 Current-State — Current-State Data Flows</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '13px', 'fontFamily': 'Segoe UI, Arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '15px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 35, 'rankSpacing': 45}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
@@ -921,11 +996,14 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqdlY9vmkAUx_-VyzXGLdGOatFK0ian4GpCm67YbUlZyAkPvfQEAseqtf7vuwOlm9Wu6V1CvPfj-x6fR84V9uMAsIFrtRWLmDDQqi5mMIe6geoTmkG9geoZ-HnKxNKG38CVg8dx6SlCv9OU0QmHrK6ywzgSDnsqBE70ZKHClG1I54wvldWBaQzobtRARCby-lpF8PjRn9FUFBp5Bld08YMFYibPIeUZyJiZmHObToCrQiLNlS2S3TsJ9Vk0lca2Lk0pjR5eTKf6eo3WtZobVSXQuO9GSC6f0ywzIUQ0SfrxAoWMc-Oor5vD4bCRiTR-AONI07rdfmdzbD6qnoxWsmj4MY9T5W6b-q5eMBks-UaO6GaHdCu5ltU1262Dcid93WppO3IQ85f2hsO-3tcrvcFAk-ugXqej3G5UKmb5ZJrSZIasltU7G5hkYHvgTT3ylKfgOd_sexcjF_8qo9UKWAq-YHFUQVNrm06K7J_WnSMT4Xh6jNRvKWAYRsn0dY65U_GTi908OGsH8hn4p24egiZfWYkVQUgGufizkiywvtUFah43Lw5VKhMhCjYsxJLDQRBb2ETtCralqf0v7JNk8T-8DrnxLsk1-RDdK8vx2pq2BSyPSB7fw7gq-wZiGYNUzHsIbzrZB3lb6j2Mt7EfQry_LDo_v3jeADILpugLIjcj-RwyDi5-PvxR7IzOhqls__4vYn6gIZOMCSK3g8vR2BqM724tZFtfrWvzwDTt2xer7am5kyThzKfKu390tmcemJNJBVU38f4R2Z4l5a0oaMZh02YhlPLllbF3HOUbbunralf0e73eK_S4geeQzikLsLHCxY0v_y8CCGnOBV43MM1F7CwjHxvFpYzzJKACTEYl0XlpXP8BPPf1zQ==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="422-future-state-future-state-data-flows">4.2.2 Future-State — Future-State Data Flows</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '13px', 'fontFamily': 'Segoe UI, Arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '15px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 35, 'rankSpacing': 45}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
@@ -958,6 +1036,9 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqdlY9vmkAUx_-VyzXGLdGOatFK0ianwGpCm67YbUlZyAkPvfQEAseqtf7vuwO1m9Wu6V1CvPfj-x6fR84lDpIQsIFrtSWLmTDQsi6mMIO6gepjmkO9geo5BEXGxMKB38CVgydJ5SlDv9OM0TGHvK6yoyQWLnsqBU70dK7ClM2mM8YXyurCJAF0N2wgIhN5faUiePIYTGkmSo0ihys6_8FCMZXniPIcZMxUzLhDx8BVIZEVyhbL7t2UBiyeSGNbl6aMxg8vplN9tUKrWs2LtyXQqO_FSK6A0zw3IUI0TfvJHEWMc-Oor5u2bTdykSUPYBxpWrfb76yPzUfVk9FK540g4Umm3G1T39ULx4MFX8sR3eyQ7lauZXXNduug3Elft1rajhwk_KU92-7rfX2rNxhoch3U63SU24srxbwYTzKaTpHVsnpntkkGjg_-xCdPRQa--8259zDy8K8qWq2QZRAIlsRbaGpt0kmZ_dO6c2UiHE-OkfotBQzDqJi-zjF3Kn7ysFeEZ-1QPsPg1Csi0OQrK7EyCMkgD39WkiXWt7pAzePmxaFKVSLE4ZqFWHA4CGIDm6i9hW1pav8L-ySd_w-vS278S3JNPkT3ynL9tqZtAMsjksf3MN6WfQOxjEEq5j2E153sg7wp9R7Gm9gPId5fFp2fXzyvAZklU_QFkZuhfNqMg4efD38UO6NzYCLbv_-LWBBqyCQjgsjt4HI4sgaju1sLOdZX69o8ME3n9sXq-GruJE05C6jy7h-d45sH5mRSQdVNvH9Ejm9JeSsOm0nUdFgElXx1ZewdR_WGG_q62lv6vV7vFXrcwDPIZpSF2Fji8saX_xchRLTgAq8amBYicRdxgI3yUsZFGlIBJqOS6Kwyrv4AuJz19w==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="43-data-lineage">4.3 Data Lineage</h3>
@@ -1048,6 +1129,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</h2>
@@ -1060,7 +1142,7 @@ flowchart TB
 <strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '16px', 'fontFamily': 'Segoe UI, Arial, sans-serif'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     %% -- ArchiMate-inspired style classes --
     classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
@@ -1080,7 +1162,6 @@ flowchart TB
     E2E98C_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E98CMW_e_g_Azure_Service_Bus
     E2E98CMW_e_g_Azure_Service_Bus --> E2E98C_e_g_XEUS
 
-
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -1094,6 +1175,9 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqVVW1vokAQ_isbGuMXbemLb6QxAcGLF2yb0pe7nBeysoNuugJhl7bW-t9vF6xYbNPemmCYeeaZ5ZmZ3ZUWxAQ0Q6vVVjSiwkCrupjDAuoGqk8xh3oD1TkEWUrF0oVHYMrB4rjw5NA7nFI8ZcDrKjqMI-HRl5zguJ08K5iyDfGCsqWyejCLAd2OGsiUgayBOI54k0NKw_paoVn8FMxxKnK-jMMYP99TIubyPcSMg8TMxYK5eApMJRVppmyR_BIvwQGNZtJ4pktTiqOH0tTS12u0rtUm0TYFurEmEZKrVkPNptxQMKdjLKBJI57QFAjiYskABQxzDlxiCnj-bkOIphmnEXCO8hVSxoyDoVxWq8FFGj-AcWB1u23d2rw2n9SXGCfJcyOIWZwaB7quVzhxkqByFZxWS7FuOXW907Ha_8FJsMD7nHb3C87jd5xvPoK5FC_FS6kpalUyLSghDJ5wCruK2G2zVMTptIcl2zd2DzHbU0RpvKPyYKDrX3EWrDybzlKczJHp_plok4x0T4l8ktMWMq-u3NHAvBldXiDX_O1cT7S_RZBaRDZEIGgcIfe6tDonTq878MGf-WPH8091fZc1gDaCw9khkj4kfZLQMAxZ4Q8Jfjm33ofRyvFp6Pg-DzZfshR8D9JHGoBvZfzd1x13CqYchTYoJFEFbVm1Krvt5OyDmAvfYXLeI9Hf3WJwVhArANoAzqfpUf-c9guHd4eO0MiOA_n307u8OD-i_SKr6soiH0TkrT77gsqx679OtJzNzosgmcyrkXwOKYOJ9vqFErvEn2FUkmot1JY2TZMfA5a7M-JD_asR3w01t6H6dyZ5r1ldmEmN3jUH0ZHr_HAu7G90qevL3q62lpkkjAZYgT9oLtcf31dbaFy2yadt4_q2U-0QWx0_TiTkLVKtfBHiXBbDeNImZxJImnHYdGm4SSPnf6dNSlELUd6EbanfVther7d3lmkNbQHpAlOiGSstv73k3UcgxBkT2rqh4UzE3jIKNCO_VLQskRsFm2JZhEVhXP8Dj2E9sQ==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="current-state-flow-narrative">Current-State Flow Narrative</h4>
@@ -1117,6 +1201,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="52-future-state-future-state-application-landscape">5.2 Future-State — Future-State Application Landscape</h3>
@@ -1128,7 +1213,7 @@ flowchart TB
 <strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '16px', 'fontFamily': 'Segoe UI, Arial, sans-serif'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     %% -- ArchiMate-inspired style classes --
     classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
@@ -1148,7 +1233,6 @@ flowchart TB
     E2E98F_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E98FMW_e_g_Azure_Service_Bus
     E2E98FMW_e_g_Azure_Service_Bus --> E2E98F_e_g_XEUS
 
-
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -1162,6 +1246,9 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqVVW1vokAQ_isbGuMXbemLb6QxgYIXL9g2pS93OS9kZQfddAXCLm2t9b_fLlix2MbemmCYeeaZ5ZmZ3aUWxAQ0Q6vVljSiwkDLupjBHOoGqk8wh3oD1TkEWUrFwoUnYMrB4rjw5NB7nFI8YcDrKjqMI-HR15zguJ28KJiyDfCcsoWyejCNAd0NG8iUgayBOI54k0NKw_pKoVn8HMxwKnK-jMMIvzxQImbyPcSMg8TMxJy5eAJMJRVppmyR_BIvwQGNptJ4pktTiqPH0tTSVyu0qtXG0SYFurXGEZKrVkPNptxQMKMjLKBJI57QFAjiYsEABQxzDlxiCnj-bkOIJhmnEXCO8hVSxoyDgVxWq8FFGj-CcWB1u23dWr82n9WXGCfJSyOIWZwaB7quVzhxkqByFZxWS7FuOHW907Ha_8FJsMC7nHZ3D-fxB853H8FcipfihdQUtSqZ5pQQBs84hW1F7LZZKuJ02oOS7Ru7h5jtKKI03lL54kLX93EWrDybTFOczJDp_hlr44x0T4l8ktMWMq-v3eGFeTu8ukSu-du5GWt_iyC1iGyIQNA4Qu5NaXVOnF534IM_9UeO55_q-jZrAG0Eh9NDJH1I-iShYRiywp8S_HLuvE-jlePL0NFDHmy-Zin4HqRPNADfyviHrzvuFEw5Cq1RSKIK2rJqVXbbydkvYi58h8l5j0R_e4vBWUGsAGgNOJ-kR_1z2i8c3j06QkM7DuTfT-_q8vyI9ousqiuLfBCR9_rsCirHrv821nI2Oy-CZDKvh_I5oAzG2tseJbaJv8KoJNVaqC2tmyY_Bix3a8QH-r4R3w41N6H6dyZ5p1ldmEqNPjQH0ZHr_HAu7W90qevL3q62lpkkjAZYgT9pLtcfPVRbaFS2yZdt4_q2U-0QWx0_TiTkLVKtfBHiXBXDeNImZxJImnHYdGm4TiPnf6tNSlELUd6FbanfRther7dzlmkNbQ7pHFOiGUstv73k3UcgxBkT2qqh4UzE3iIKNCO_VLQskRsFm2JZhHlhXP0D1dI9yQ==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="future-state-flow-narrative">Future-State Flow Narrative</h4>
@@ -1185,6 +1272,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="53-change-impact-summary">5.3 Change Impact Summary</h3>
@@ -1228,6 +1316,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
@@ -1277,6 +1366,7 @@ flowchart TB
 <blockquote>
 <p><em>Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).</em></p>
 </blockquote>
+<div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
@@ -1302,6 +1392,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
@@ -1311,7 +1402,7 @@ flowchart TB
 </blockquote>
 <h4 id="611-current-state-current-state-platform-architecture">6.1.1 Current-State — Current-State Platform Architecture</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '12px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'nodeSpacing': 25, 'rankSpacing': 30}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef platBox fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
@@ -1332,14 +1423,17 @@ flowchart TB
     E2E98CPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E98CPLP_e_g_Azure_PaaS
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqtlGFvmzAQhv-K5SriC2sJhDRF6iQgoFVKp2is26QxIQeOxKqDEZg1acp_nw1pslZKpWrzB4t77_z49Vl4h1OeAXbwYLCjBRUO2mliBWvQHKQtSA2ajrQa0qaiYjuD38BUgnHeZ7rSb6SiZMGg1tTqnBcioo8dYDgqN6pMaSFZU7ZVagRLDujuRkeuXMi0VlUw_pCuSCU6RlPDLdl8p5lYyTgnrAZZsxJrNiMLYGojUTVKK6T7qCQpLZZSHBlSqkhxf5Rso21ROxjExWEL9NWLCyRHykhdTyFHpCw9vkE5Zcw58-xpGIZ6LSp-D86ZYVxeeuN9-OFBeXLMcqOnnPFKpa2p_ZpXMiKOQH8SjP2rA9CaTALLfwm0jsChZwem8QoInB15YejZnn3g-b4hx0mD47FKx0VPrJvFsiLlCgVmcDXx57N5AskycR-bCpI5IdHPGMeNOTaGcZODIXc-X56jLo1UOsa_epAaGa0gFZQXaPblqD6T3Y78I7hTzA6jviXAcZy-4f0aKLK9N7FlcNLYPzXzzcNHySj55H52E9Mwre782cTK5JwR--8uRBcjpOqQqnt3I26DKLEM47kXMkQyfGc7Xlj9Dx15i359_fFpb3banQ9dIHd-I-eQMojx08mrwjpeQ7UmNMPODndvhHxhMshJwwRudUwawaNtkWKn-41xU2ZEwJQSeT3rXmz_AOKzbqI=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
 </blockquote>
+<div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="612-future-state-future-state-platform-architecture">6.1.2 Future-State — Future-State Platform Architecture</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '12px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'nodeSpacing': 25, 'rankSpacing': 30}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef platBox fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
@@ -1359,6 +1453,8 @@ flowchart TB
 
     E2E98FPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E98FPLP_e_g_Azure_PaaS
 </div>
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqtlGFvmzAQhv-K5SriC2sJhDRF6iRIQKuUTtFYt0ljQg4ciVWDEZg1acp_nw1pslZKpWrzB4t77_z49Vl4hxOeAnbwYLCjBRUO2mliDTloDtKWpAZNR1oNSVNRsZ3Db2AqwTjvM13pN1JRsmRQa2p1xgsR0scOMByVG1WmtIDklG2VGsKKA7q70ZErFzKtVRWMPyRrUomO0dRwSzbfaSrWMs4Iq0HWrEXO5mQJTG0kqkZphXQfliShxUqKI0NKFSnuj5JttC1qB4OoOGyBvnpRgeRIGKnrGWSIlKXHNyijjDlnnj0LgkCvRcXvwTkzjMtLb7wPPzwoT45ZbvSEM16ptDWzX_NKRsQROJ344-nVAWhNJr41fQm0jsChZ_um8QoInB15QeDZnn3gTaeGHCcNjscqHRU9sW6Wq4qUa-Sb_tUkWMwXMcSr2H1sKogXhIQ_Ixw15tgYRk0Ghtz5fHWOujRS6Qj_6kFqpLSCRFBeoPmXo_pMdjvyD_9OMTuM-pYAx3H6hvdroEj33sSWwUlj_9TMNw8fxqP4k_vZjU3DtLrzpxMrlXNK7L-7EF6MkKpDqu7djbj1w9gyjOdeyBDJ8J3teGH1P3TkLfr19cenvdlZdz50gdzFjZwDyiDCTyevCus4hyonNMXODndvhHxhUshIwwRudUwawcNtkWCn-41xU6ZEwIwSeT15L7Z_AAWTbro=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
 
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
@@ -1391,48 +1487,40 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="62-sap-development-object-status">6.2 SAP Development Object Status</h3>
+<p><strong>RICEFW Status Summary</strong> — E2E Tower (0 objects)
+<em>Data source: Smartsheet Object Tracker (cached 2026-03-26)</em></p>
 <table>
 <thead>
 <tr>
-<th>Metric</th>
-<th>DEV</th>
-<th>QAS</th>
-<th>PRD</th>
+<th>Status</th>
+<th style="text-align: right;">Count</th>
+<th style="text-align: right;">%</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Transport Requests</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
+<td style="text-align: right;"><strong>100%</strong></td>
 </tr>
+</tbody>
+</table>
+<p><strong>RICEFW by Type:</strong></p>
+<table>
+<thead>
 <tr>
-<td>Custom Code Objects</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<th>Type</th>
+<th style="text-align: right;">Count</th>
 </tr>
+</thead>
+<tbody>
 <tr>
-<td>CDS Views</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>Fiori Apps</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>BAdIs / Enhancements</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
 </tr>
 </tbody>
 </table>
@@ -1564,123 +1652,202 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="7-project-context">7. Project Context</h2>
 <h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
-<p>Project delivery milestones for E2E-98 RICEFW objects:</p>
-<table>
-<thead>
-<tr>
-<th>Phase</th>
-<th>Planned Start</th>
-<th>Planned End</th>
-<th>Status</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Functional Specification (FS)</td>
-<td>Per project plan</td>
-<td>Per project plan</td>
-<td>In Progress</td>
-<td>Tower-level FS schedule</td>
-</tr>
-<tr>
-<td>Technical Design (TDD)</td>
-<td>FS + 2 weeks</td>
-<td>FS + 6 weeks</td>
-<td>Planned</td>
-<td>Dependent on FS completion</td>
-</tr>
-<tr>
-<td>Build &amp; Unit Test (TUT)</td>
-<td>TDD + 1 week</td>
-<td>TDD + 8 weeks</td>
-<td>Planned</td>
-<td>Includes S/4 + Middleware</td>
-</tr>
-<tr>
-<td>Functional User Test (FUT)</td>
-<td>Build + 1 week</td>
-<td>Build + 4 weeks</td>
-<td>Planned</td>
-<td>Tower-led validation</td>
-</tr>
-<tr>
-<td>Go-Live (Release 2)</td>
-<td>Per release plan</td>
-<td>Per release plan</td>
-<td>Planned</td>
-<td>End-to-End Integrated Processes release</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.</em></p>
-</blockquote>
-<div style="page-break-before: always;"></div>
-
+<p><em>No timeline data available for this capability.</em></p>
 <h3 id="72-raid-log">7.2 RAID Log</h3>
-<p>Standard RAID items for E2E-98 (End-to-End Integrated Processes):</p>
+<p><em>Live data from Smartsheet Master RAID Log — extracted 2026-03-26</em></p>
+<p><strong>RAID Summary:</strong> 15 open items (0 capability-specific, 15 tower-level), 56 closed</p>
 <table>
 <thead>
 <tr>
-<th>#</th>
-<th>Category</th>
-<th>Description</th>
-<th>Status</th>
-<th>Owner</th>
-<th>Priority</th>
+<th>Severity</th>
+<th style="text-align: right;">Capability</th>
+<th style="text-align: right;">Tower-Wide</th>
+<th style="text-align: right;">Total Open</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
-<td>Risk</td>
-<td>Data migration completeness — validate all legacy R3 Equipment Product Supporting Items (PSI) Procurement data maps to S/4 target structures</td>
-<td>Open</td>
-<td>Tower Architect</td>
-<td>High</td>
+<td>P1 - High</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
 </tr>
 <tr>
-<td>2</td>
-<td>Risk</td>
-<td>Integration testing coverage — ensure all 2 integrated systems are validated end-to-end</td>
-<td>Open</td>
-<td>Integration Lead</td>
-<td>High</td>
+<td>P2 - Medium</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
 </tr>
 <tr>
-<td>3</td>
-<td>Assumption</td>
-<td>Target SAP S/4HANA system available in DEV/QAS per release schedule</td>
-<td>Active</td>
-<td>SAP Basis</td>
-<td>Medium</td>
+<td>P3 - Low</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
 </tr>
 <tr>
-<td>4</td>
-<td>Issue</td>
-<td>API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation</td>
-<td>Open</td>
-<td>EA Pipeline Team</td>
-<td>High</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Dependency</td>
-<td>Upstream BPMN process models validated and signed off by business process owners</td>
-<td>Active</td>
-<td>Process Owner</td>
-<td>Medium</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
+<td style="text-align: right;"><strong>15</strong></td>
+<td style="text-align: right;"><strong>15</strong></td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><em>Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.</em></p>
-</blockquote>
+<p><strong>Other E2E Tower RAID Items</strong> (15 open):</p>
+<table>
+<thead>
+<tr>
+<th>RAID ID</th>
+<th>Type</th>
+<th>Severity</th>
+<th>Title</th>
+<th>Status</th>
+<th>Assigned To</th>
+<th>Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>03591</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>R3 E2E scenario execution</td>
+<td>In Progress</td>
+<td>Test Management</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>03681</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>ITC Execution: Planning run availability - Prerequisite for &hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03762</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>FTS-IF (esp SCP) related test cases/sequencing are not accur&hellip;</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>01733</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Tariffs impacts Item/BOM design which is impacting ERP/SCP (&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-06</td>
+</tr>
+<tr>
+<td>03592</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Lack of Defined IMO Owner for CBA Mask Billing and Materials&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03625</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Item/ BOM MC1 delta load</td>
+<td>In Progress</td>
+<td>Cutover</td>
+<td>2026-04-10</td>
+</tr>
+<tr>
+<td>03628</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>R3 Returns Rework Process Causing Finance Double Counting in&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03642</td>
+<td>Issue</td>
+<td>P2 - Medium</td>
+<td>E2E Process with Anafi on order/invoice point.  Need IFS SC &hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-24</td>
+</tr>
+<tr>
+<td>03736</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Golden Data/Test Data Readiness</td>
+<td>In Progress</td>
+<td>Master Data</td>
+<td>2026-04-22</td>
+</tr>
+<tr>
+<td>03743</td>
+<td>Issue</td>
+<td>P2 - Medium</td>
+<td>FD-Share with Entitlements -  Interface File Paths for MC1</td>
+<td>Roadblock / At Risk</td>
+<td>PMO</td>
+<td>2026-03-20</td>
+</tr>
+<tr>
+<td>03753</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>PDF-SMH IF test cases are not available in JIRA</td>
+<td>To Be Reviewed</td>
+<td>B-Apps</td>
+<td>2026-03-25</td>
+</tr>
+<tr>
+<td>03756</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>LE101-1001 Operation Support Ownership for SIMS/Tester Front&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-04-24</td>
+</tr>
+<tr>
+<td>03769</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Need a Labs SPOC owner to define IP Labs enterprise and mate&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-04-17</td>
+</tr>
+<tr>
+<td>03216</td>
+<td>Action</td>
+<td>P3 - Low</td>
+<td>Mask Expense vs. Invoice</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-06</td>
+</tr>
+<tr>
+<td>03315</td>
+<td>Risk</td>
+<td>P3 - Low</td>
+<td>BPMG – SCP L3/L4 flow standards</td>
+<td>In Progress</td>
+<td>Business Process Mgmt</td>
+<td>2026-03-27</td>
+</tr>
+</tbody>
+</table>
 <h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
 <table>
 <thead>

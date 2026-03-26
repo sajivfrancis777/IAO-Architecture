@@ -104,8 +104,9 @@ blockquote {
     border-radius: 6px;
     padding: 20px 12px;
     margin: 16px 0;
-    overflow-x: auto;
+    overflow: visible;
     text-align: center;
+    page-break-inside: avoid;
 }
 .mermaid svg {
     max-width: 100%;
@@ -144,6 +145,14 @@ strong { color: #00285a; }
     body { padding: 0; max-width: none; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print { display: none; }
+    .mermaid {
+        page-break-inside: avoid;
+        overflow: visible;
+    }
+    .mermaid svg {
+        max-width: 100%;
+        height: auto;
+    }
 }
 </style>
     
@@ -173,32 +182,82 @@ strong { color: #00285a; }
     }
   });
 </script>
+<script>
+  // Open rendered Mermaid diagram as full-size SVG in a new browser tab.
+  // Works on SharePoint, GitHub Pages, localhost — no file system dependency.
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[title="Open full-size SVG"]');
+    if (!link) return;
+    // Walk backwards from the link div to find the preceding .mermaid container
+    var container = link.closest('div');
+    var prev = container;
+    while (prev && prev.previousElementSibling) {
+      prev = prev.previousElementSibling;
+      if (prev.classList && prev.classList.contains('mermaid')) break;
+    }
+    if (!prev || !prev.classList.contains('mermaid')) return;
+    var svgEl = prev.querySelector('svg');
+    if (!svgEl) return;
+    e.preventDefault();
+    // Clone SVG with full dimensions for standalone viewing
+    var clone = svgEl.cloneNode(true);
+    clone.removeAttribute('style');
+    clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    var svgXml = new XMLSerializer().serializeToString(clone);
+    var blob = new Blob([svgXml], {type: 'image/svg+xml'});
+    window.open(URL.createObjectURL(blob), '_blank');
+  });
+</script>
 
 </head>
 <body>
-<div style="text-align:center; padding-top:80px;">
-  <h1 style="font-size:36px;">CM-050 — Manage Customer Credit Exposure (IF)</h1>
+<div style="text-align:center; padding-top:20px;">
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <h1 style="font-size:36px; margin-top:24px;">CM-050 — Manage Customer Credit Exposure (IF)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IF) (OTC-IF) Tower<br/>
   Capability CM-050 · CM Credit and Collections Management (IF)</p>
   <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026</p>
+  Generated: March 2026<br/>
+  Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
   @page { margin: 0.75in; }
-  footer::after { content: "Intel Confidential — CM-050 BDAT — March 2026"; font-size:9px; color:#999; }
-  .mermaid { page-break-inside: avoid; max-height: 95vh; overflow: visible; }
+  .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
-.mermaid svg { max-width: 100% !important; height: auto !important; }
+.mermaid { overflow: visible; }
+.mermaid svg { max-width: 100%; height: auto !important; }
+.page-footer {
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 20px;
+  background: #fff;
+}
+@media print {
+  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 </style>
 
+<div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
+<p><a id="toc"></a></p>
 <h2 id="table-of-contents">Table of Contents</h2>
 <ol>
 <li><a href="#1-executive-summary">Executive Summary</a></li>
@@ -234,6 +293,7 @@ strong { color: #00285a; }
    - 7.2 <a href="#72-raid-log">RAID Log</a>
    - 7.3 <a href="#73-recommendations--next-steps">Recommendations &amp; Next Steps</a></li>
 </ol>
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="1-executive-summary">1. Executive Summary</h2>
@@ -251,6 +311,7 @@ strong { color: #00285a; }
 <blockquote>
 <p>All system nodes in architecture diagrams are <strong>IAPM-linked</strong> — click any node to open its IAPM page. Diagrams require <code>securityLevel: 'loose'</code> for click events.</p>
 </blockquote>
+<div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="2-business-context-objectives">2. Business Context &amp; Objectives</h2>
@@ -319,6 +380,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="23-success-criteria">2.3 Success Criteria</h3>
@@ -382,6 +444,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</h2>
@@ -458,6 +521,7 @@ strong { color: #00285a; }
 </tbody>
 </table>
 <h3 id="32-business-process-diagrams">3.2 Business Process Diagrams</h3>
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-321-cm-050-010_check_credit_rating_and_limits_if-cm-050-010_check_credit_rating_and_limits_if">BUSINESS ARCHITECTURE — 3.2.1 CM-050-010_Check_Credit_Rating_and_Limits_(IF) — CM-050-010_Check_Credit_Rating_and_Limits_(IF)</h4>
@@ -466,7 +530,7 @@ strong { color: #00285a; }
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -528,6 +592,9 @@ flowchart TD
     class n17 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVl2v4jYQ_StWrq7YlYIa54Nw89AKAtm9q-2HltutqqUPxnHAwsTITuBmWf57bZJAkiWV2vIAzJmZM2fsiZ2TgXlMjMB4fDzRlGYBOA2yDdmRQQAGKyTJwAQl8BkJilaMyIGOSXiaLejXSxh09686TGMR2lFWaHRB1pyA359NMFGJzAQSpXIoiaDJwBzsBd0hUYSccaGjH8g4sZJLtco15SIm4hZgWT7EnkplNCU32PFd3410niSYp3GLNPGScYIHZy2O8SPeIJFd5OeS_Ixe_6BxtlF2gpgkKmaT7dhHtCJM95iJXGM4F4d6MajUdVK1YIs9wjRdK9y1FCRQur1BnnU-g_Pj4zK9FgUvs2UK1AczJOWMJEBmCp4fMpBQxoIHN5xEnmXKTPAtCR7suT9zbBPrTgLVumXqxR0eCV1vsmDFWVyFDo-6h8Dev5riNbAtUxTqu1OLpPGtUjiyx_b4WmnqwxCGdaUkSf5XJbWu4gXJbVVr7kR2NLvWgt7IC63v-eo2Z64_gd11IuJAMWmQRlHkzG9LNR950OonnUbOyAo7pGuUkSMqboRPoXsljDw_gn4vYVmvqzJf_SY4rgmduRd5V0J_CqOJ3UvoTqA7rhQqnrVA-w0Ic5nxHRFgmks171KCSYpYIbMyTn9S-GVphBuCt-A5PZA046IAkwOiDK0oo1mxNP5qRNtfVHiCggQNMV8DLVfT_qqfMhXZDHXaoZ8Ro7FasTJWFcMsj9Wog1CQmGYApTF497IAFy0dKrdNVcr9lKtjpBPo3QusCnyku6rMRUrZWjN51E6GLohRIcF7LuhXntY09_T57cxPhBF16FWdThn_LmHcTljgDYlVO2CK8HYteK5EfuArkHABZmorih_e81yw4p80PL25UqpN3zeLk1hJ2vGD-l3kWG9YkjOm23_bHARLTwJKMWFV8pvn6G17-6GelgvndcubXvvqnRFGD0SN0h0OR9cRRM_CIkP6sI3vsrmn022RYjJcqQMSb1rbaTZnwWxtrmo1SSimaqR_Whrnc5PZuzEjIfhRDhHLwB4JxBhh78rnups0-i9J_r9LUmds-UetEhgOf1QPXG17pe12bK-y3dKEo8r2OrZf2k91-qjyV7Zdmk7tLs06eVyafmXWubWWSiqstcCLmG9L40_9gH5T-V3HL_yCw5oRVvKg1QVgF7Abh6bW3TjaWx6n1-P2erxez6jX4_d6xr2ep-oybYHQul7nbRz24HYP7vTgbn1jtWHvPjy6D_s1bJiGull2iMZGcDIuL3fqBTAmCcpZZpxNA-UZXxQpNoLLS5CR7_XxP6NI3U27Ejz_DU0hMeU=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-322-cm-050-030_block_delivery_if-cm-050-030_block_delivery_if">BUSINESS ARCHITECTURE — 3.2.2 CM-050-030_Block_Delivery_(IF) — CM-050-030_Block_Delivery_(IF)</h4>
@@ -536,7 +603,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -595,6 +662,9 @@ flowchart LR
     class n14 subProc
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVm2P4jYQ_itWTivupCDllbD50AoCaU_au6uWXqvq6AfjTCDa4KR2sgvl-O8dkzeSZaVWzYeAn5ln3jwe56SxLALN1-7uTglPCp-cRsUO9jDyyWhDJYx0UgG_UZHQTQpypHTijBer5O-LmunkB6WmsJDuk_So0BVsMyBfP-pkhsRUJ5JyOZYgknikj3KR7Kk4BlmaCaX9DqaxEV-81aJ5JiIQnYJheCZzkZomHDrY9hzPCRVPAst41DMau_E0ZqOzCi7NXtiOiuISfinhEz38nkTFDtcxTSWgzq7Ypw90A6nKsRClwlgpnptiJFL54ViwVU5ZwreIOwZCgvKnDnKN85mc7-7WvHVKHh7XnODDUirlAmIiC4SXzwWJkzT13znBLHQNXRYiewL_nbX0FralM5WJj6kbuiru-AWS7a7wN1ka1arjF5WDb-UHXRx8y9DFEd8DX8CjzlMwsabWtPU098zADBpPcRz_L09YV_ErlU-1r6UdWuGi9WW6EzcwXttr0lw43swc1gnEc8LgymgYhvayK9Vy4prG20bnoT0xgoHRLS3ghR47g_eB0xoMXS80vTcNVv6GUZabX0TGGoP20g3d1qA3N8OZ9aZBZ2Y60zpCtLMVNN-RQECUFOQT5XQLohKqh9vf1lpM_ZiOVa2VHubSqD8ke3w_wl8lyGKt_XnFc7-1RJZtG8LPuL_k_TzN2BNZQJo8gzh-QOI1c9JnPkIKOBfIhQRRSxuw7pEUlLLI9hilqCLCXwaoHJE4E4RVIaSXmIHvKGc4ZvggbtM8nTr3EYw3eNjYrp_x8sAAIoh-XGvn8zXZuk2GA0tLiZH8VDXCkGb_C591lcksz0X2fMO309UtxjKDGGc5cBLsAItdm3qkBc4MQnlUWZVdFfHQDnuiKeccY-cgJZlxmh5xp6-83myPqz260rX6unPsXRVMkbWe-vre-5aQp3h6VhRvA_JFjenaUYSED9fRGP-1_q-zXmGCsCdfZe8YOK_aWeU5eyRfVI0_ImPQj9MueMwtb9sYs50xlpVc7ajqzssd1-XRBsRdMh7_gI1dLyfV0qxHAf6pAKtZm2r9fa39ocx9V83YSKxK063XXm3JaeRODdSzkNf6jfy-Wtr10q61m7VpDxxPhoLP2SAgcyBo8EGKdVzTq-GnlJqh34Ot27B9G3au53xP4r4pmbwp8drbtQdP64uwB97f1sXdrC-JPmzehq3bsH0bdpr7QtM1PGV7mkSaf9Iun1n4KRZBTMu00M66RssiWx050_zL54hW5hEaXCQUz8a-As__AJkIE-0=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-323-cm-050-040_block_order_if-cm-050-040_block_order_if">BUSINESS ARCHITECTURE — 3.2.3 CM-050-040_Block_Order_(IF) — CM-050-040_Block_Order_(IF)</h4>
@@ -603,8 +673,8 @@ flowchart LR
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
-flowchart TD
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
@@ -650,6 +720,9 @@ flowchart TD
     class n11 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVl2v4jYQ_StWrq7YlYKahIRAHrqCQNpb3W1X0A9VSx-MMyERxqZ2woWy_Pfa5AOScp-ah0g-PnPOzDhjOBuEx2AExvPzOWNZHqBzL09hB70A9dZYQs9EJfA7FhleU5A9zUk4y5fZP1ea7e6PmqaxCO8yetLoEjYc0G8vJpqoQGoiiZnsSxBZ0jN7e5HtsDiFnHKh2U8wSqzk6lZtTbmIQdwIluXbxFOhNGNwgwe-67uRjpNAOItboomXjBLSu-jkKH8jKRb5Nf1Cwmd8_COL81StE0wlKE6a7-grXgPVNeai0BgpxKFuRia1D1MNW-4xydhG4a6lIIHZ9gZ51uWCLs_PK9aYotfFiiH1EIqlnEGCZK7g-SFHSUZp8OSGk8izTJkLvoXgyZn7s4FjEl1JoEq3TN3c_htkmzQP1pzGFbX_pmsInP3RFMfAsUxxUu-OF7D45hQOnZEzapymvh3aYe2UJMn_clJ9Fb9iua285oPIiWaNl-0NvdD6r15d5sz1J3a3TyAOGYE70SiKBvNbq-ZDz7beF51Gg6EVdkQ3OIc3fLoJjkO3EYw8P7L9dwVLv26WxfqL4KQWHMy9yGsE_akdTZx3Bd2J7Y6qDJXORuB9ikIBcZajz5jhDYhyUz_M_royEhwkuK97XfNes516L-DvAmS-Mv66C3DaAQugoMYa_aKnq810vzZUwjdoSVKICwpoisl2I3jBYvQTX6OECzTDasq_-5EXgp7qHMIUyFYp3kt6HxpJmfN96VrnEKNlQQhImRSUnlTkx_s6rfP5lk0M_bUaMpI-LBhN9nvBDxB_WhmXy72I_VgEjoQWMjvAD-WHcAtTo9I9iUJlvlNZT1UEU9miCcP0pNp88xm0OzelnGybDt_3Y6h4C5CcHqCu5EVKVQP68BJ9bB-Hr7iNuagqFUBA5R1fT6HVizlLVW3qomadD2CkdfTZ1PwFztVFhbA6z2voI_Px48Z9wSdtoBpfpvHpQeeYg_r979XZV0u_XFaDzexqWa8H5Xpcb9f71Ygxt8O3LQ18Wxl_glwZ35RdtTHu4G4H_5lfYb-CR6XuoCtb0YZ3E66Trm-2Fuw8hgf3t1Zrx313x6tu6RY4bH4mWrD_GB49hsf1ddeuyHoM2zVsmIb68HY4i43gbFz_Aqi_CTEkuKC5cTENXOR8eWLECK4_lUaxj1XkLMNqbnYlePkXzCGnQg==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-324-cm-050-050_resolve_credit_issues_if-cm-050-050_resolve_credit_issues_if">BUSINESS ARCHITECTURE — 3.2.4 CM-050-050_Resolve_Credit_Issues_(IF) — CM-050-050_Resolve_Credit_Issues_(IF)</h4>
@@ -658,7 +731,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -668,7 +741,7 @@ flowchart TD
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
     subgraph Credit Manager
         n1["fa:fa-user Review the Blocked Orders on Credit Release Dashboard"]
-        n2["fa:fa-user Determine if any Exceptions can be made to Resolve Credit..."]
+        n2["fa:fa-user Determine if any Exceptions can be made to Resolve Credit Issues"]
         n3(["fa:fa-stop Order Processed"])
         n4(["fa:fa-stop Monitor/Check Order Status"])
         n5["Block Order"]
@@ -699,6 +772,9 @@ flowchart TD
     class n10 subProc
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVd-P2jgQ_lesrFa0UlCTkBA2Dz1BIHcr3epOS3unU-mDScZgkdic7fDjKP97bZIA4Vj1oXlAzOeZb2a-eCYHK-UZWJH1-HigjKoIHTpqCQV0ItSZYwkdG1XAX1hQPM9BdowP4UxN6X8nN9df74ybwRJc0Hxv0CksOKDPzzYa6sDcRhIz2ZUgKOnYnbWgBRb7mOdcGO8HGBCHnLLVRyMuMhAXB8cJ3TTQoTllcIF7oR_6iYmTkHKWtUhJQAYk7RxNcTnfpkss1Kn8UsIL3v1NM7XUNsG5BO2zVEX-O55DbnpUojRYWopNIwaVJg_Tgk3XOKVsoXHf0ZDAbHWBAud4RMfHxxk7J0WfxjOG9JPmWMoxECSVhicbhQjN8-jBj4dJ4NhSCb6C6MGbhOOeZ6emk0i37thG3O4W6GKpojnPs9q1uzU9RN56Z4td5Dm22Ovfm1zAskumuO8NvME50yh0YzduMhFCfiqT1lV8wnJV55r0Ei8Zn3O5QT-Inf_zNW2O_XDo3uoEYkNTuCJNkqQ3uUg16Qeu8zbpKOn1nfiGdIEVbPH-QvgU-2fCJAgTN3yTsMp3W2U5_1PwtCHsTYIkOBOGIzcZem8S-kPXH9QVap6FwOsligVkVKEXzPACRHVoHuZ-mVkERwR3jdboFTYUtkhPKBrlPF1Bhv4wcyMRZw3JK-SgJxmNsVzOORbZzPp6xei1GcegQBR6xhAlCLM9muxSWCvKmUQpZmgOqMAZIMU1seT5Bpo8z1KWINvkvXdndqn4uioOGa1ASjCVvL_y9m-8X7heSVx8iJeQrurYqcKqlDeBgY479V85tWvo68NXKPim1uhDXe9v-nKjd8_J-7Z7eDg0RZjd2J3r6U6XrSarzksjiv77b0n12S8z63i8ohncp4FdmpeSbuDX6g7eRD19OStAdHkgunwNTAuRUbJHcallKSoB9VWDpvrr8l3nPsWPFKg59K6o_jAXdbsf9fWoTa8yw9oMKnNQm6Exv82sf8wF-Kb7qPFB5VZPNevfidKvvTafamenqcCpgN7VtJm6mi3Tgr37cK_efi3QvwcG553cgvv34bBZIi10cBd9avZDuw-ngS3b0i-1wDSzooN1-trqL3IGBJe5so62hUvFp3uWWtHpq2SV60ynGVOsl0VRgcfva8x4HA==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-325-cm-050-060_cancel_order_if-cm-050-060_cancel_order_if">BUSINESS ARCHITECTURE — 3.2.5 CM-050-060_Cancel_Order_(IF) — CM-050-060_Cancel_Order_(IF)</h4>
@@ -707,7 +783,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -750,6 +826,9 @@ flowchart TD
     class n10 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVV2v2jgQ_StWrq7oSkHKJ-HmYSsIRKrUdlel7WpV-mCcCbjXOKztcGEp_31tkkCS5T41D4nmeM6cmbE9OVmkyMCKrcfHE-VUxeg0UBvYwiBGgxWWMLBRBXzFguIVAzkwPnnB1YL-e3Fzg93BuBksxVvKjgZdwLoA9OWdjSaayGwkMZdDCYLmA3uwE3SLxTEpWCGM9wOMcye_qNVL00JkIG4OjhO5JNRURjncYD8KoiA1PAmk4FknaB7m45wMziY5VryQDRbqkn4p4QM-_EUztdF2jpkE7bNRW_Yer4CZGpUoDUZKsW-aQaXR4bphix0mlK81HjgaEpg_36DQOZ_R-fFxya-i6PNsyZF-CMNSziBHUml4vlcop4zFD0EySUPHlkoUzxA_ePNo5ns2MZXEunTHNs0dvgBdb1S8KlhWuw5fTA2xtzvY4hB7ji2O-t3TAp7dlJKRN_bGV6Vp5CZu0ijlef5LSrqv4jOWz7XW3E-9dHbVcsNRmDj_j9eUOQuiidvvE4g9JdAKmqapP7-1aj4KXef1oNPUHzlJL-gaK3jBx1vApyS4BkzDKHWjVwNWev0sy9WfoiBNQH8epuE1YDR104n3asBg4gbjOkMdZy3wboMSARlV6APmeA2iWjQP974trRzHOR6aXqNPIAu2h8b_nZQlyKX1vcXwu4xkA-S58X9Pt_o92WPK8Ioyqo5dbvTmSpaq2KE_zJ1ECeYEGIMMLUpCQMq8ZMwwf6uo-rz1yyk1faup01Lq6yslmnDMjlK1tNxenheRSrGbVPDt6kmKNZqyQhfU-LUdw1727ZC6c__oVin9_QFEQXZL_8Id_QJ3rKmdNn_CSo8GhHlWdby3Q0-n062gDIYrPU_IRm9md5vgQAAyyN4urfO53TjnPr9zJpqT0mZf94mP0XD4u06kNoPK9GvTr0yvNr3KdOtLwN3KjmrzyZg_l9bf5iD-1MF6-MfiAocN2-n5j_oLNaE9GYxoM2s6sHcf9u_DQXu8dFbCemh2wNE9MLoHjq_zvQM_NZOnW4rTwJZt6UuyxTSz4pN1-e3qX3MGOS6Zss62hUtVLI6cWPHl92SVu0wzZxTra7atwPN_HaV6og==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-326-cm-050-070_request_pre-paymentdown-payment_or_letter_of_creditlocif-cm-050-070_request_pre-payment_down-payment_or_letter_of_creditloc_if">BUSINESS ARCHITECTURE — 3.2.6 CM-050-070_Request_Pre-payment,<em>Down-payment_or_Letter_of_Credit</em>(LOC)<em>(IF) — CM-050-070_Request_Pre-payment,_Down-payment_or_Letter_of_Credit</em>(LOC)_(IF)</h4>
@@ -758,7 +837,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -778,10 +857,10 @@ flowchart LR
         n2["fa:fa-user A-060 Remove BUID Status Hold"]
         n3["fa:fa-user A-040 Remove Milestone Billing Plan Block"]
         n4["fa:fa-user A-090 Remove Milestone Billing Plan Block for Balance Value"]
-        n5["fa:fa-user A-110 Remove Remaining Billing Plan Blocks and CRED Statu..."]
+        n5["fa:fa-user A-110 Remove Remaining Billing Plan Blocks and CRED Status Hold"]
     end
     subgraph Customer Business Analyst
-        n1["fa:fa-user A-010 Create Sales Order with billing plan relevant Item ..."]
+        n1["fa:fa-user A-010 Create Sales Order with billing plan relevant Item Cat and add billing..."]
         n8[["fa:fa-cog A-020 Apply BUID and CRED Status Holds on the Line Item"]]
         n9[["fa:fa-cog A-070 Release Order Line-Item (to BY for ATP)"]]
         n10[["fa:fa-cog A-080 Issue Billing to Customer"]]
@@ -829,6 +908,9 @@ flowchart LR
     class n18 subProc
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVltv4jgU_itWqooZCapcCeRhJQhEi9TuVqUzq9V0H0ziQNRgR7YDZSv--x6TC5AEaVbDQ6vz-XzfufjE9qcWsohonnZ__5nQRHrosyc3ZEt6HuqtsCC9PiqA75gneJUS0VM-MaNymfx7cjPs7EO5KSzA2yQ9KHRJ1oygb4s-mgAx7SOBqRgIwpO41-9lPNlifvBZyrjyviOjWI9P0cqlKeMR4WcHXXeN0AFqmlByhi3Xdu1A8QQJGY2uRGMnHsVh76iSS9k-3GAuT-nngjzhj7-SSG7AjnEqCPhs5DZ9xCuSqholzxUW5nxXNSMRKg6Fhi0zHCZ0DbitA8QxfT9Djn48ouP9_Rutg6LHlzeK4BemWIgZiZGQAM93EsVJmnp3tj8JHL0vJGfvxLsz5-7MMvuhqsSD0vW-au5gT5L1Rnorlkal62CvavDM7KPPPzxT7_MD_G3EIjQ6R_KH5sgc1ZGmruEbfhUpjuNfigR95a9YvJex5lZgBrM6luEMHV9v61Vlzmx3YjT7RPguCcmFaBAE1vzcqvnQMfTbotPAGup-Q3SNJdnjw1lw7Nu1YOC4geHeFCziNbPMV8-chZWgNXcCpxZ0p0YwMW8K2hPDHpUZgs6a42yDJmHIcioFeiEhSXbqw0MTitODkIWn-tHhjzctxl6MB6rxaDLQHR19x2kSQYHoGR-2hMpCIpNv2j8XVLdJhaJ-kmo4X2qykCxDM7anNUX1gQiBfLbNUiJJBOSvl-zhj5odw3gRPmAZAT4TEvk5CG4hn1INuFeR3W5u0SRypl9m1NQY_ZIGfEuNrfI5iRKJnjDFa8IvIpmt3RnqEGbLIMr022KGlhLLXKDfIYvrDlstpl0znxI4gyWjoAHDBicOek4xRdOUhe_XKnZLZfxTKihmHE0x2CFRI5GTa12nNTpGrQv_MNwjoNfWFQjTCPkv8-7KOzpbbcU0F3Dow1C1PwGjVSQkA1uipniJoUj0p7pH0D6RG7Qqc8pUTpykZIdhYheSbJGP5Sk9HEWV28PDw3XhF5MTsrWKZepokmXpodjPrvIEYhTBBYoeoYJTqMY8jluirupmSuDyLXNX1MEpyy-Soenfpw2avD5_bY623tIa6WghRH7eZhCo2tpkGy229T_YZpNtWPVGLOiOwSF-yvulavvl7qjiRFPRPh8zsGGHelclVtd8VFDPp0t7fh7ZOhEyCQV6JXh7KW21kjXrZGckhXOAH9AfTJKOD58aaDD4DaahNM3CHFerw8I2nApwC2BY2uW6WS2PCtst7dK7YjulmlW5WyVQ88v4RqVv2CVQ2qV-JVDxq2WjLMeoEhgXtl2alZpe-eslMLq4A1VTqrv_Cja7YasbtrthpxsedsNuNzy6fEpcrYxvrkCtN5eM20vm7SXr9pJdvwmvcad8v12jw-rNcQ273fCogrW-Bt8unNGR5n1qp4c9PP4jEuM8ldqxr-FcsuWBhpp3egBreaYeBLMEwye1LcDjf029z4s=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-327-cm-050-090_modify_customer_profile_if-cm-050-090_modify_customer_profile_if">BUSINESS ARCHITECTURE — 3.2.7 CM-050-090_Modify_Customer_Profile_(IF) — CM-050-090_Modify_Customer_Profile_(IF)</h4>
@@ -837,7 +919,7 @@ flowchart LR
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -890,6 +972,9 @@ flowchart TD
     class n14 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVmuPozYU_SsWo1FmJSLxDBk-tEpIqEbaWa0m-1C16QcHTOIOYGo7r2bz33tNgASGUVU10oxyj-85594b23DSIhYTzdfu7080p9JHp4HckIwMfDRYYUEGOroA3zCneJUSMVA5Ccvlgv5dpplOcVBpCgtxRtOjQhdkzQj6-qSjCRBTHQmci6EgnCYDfVBwmmF-DFjKuMq-I-PESEq3amnKeEz4NcEwPDNygZrSnFxh23M8J1Q8QSKWxy3RxE3GSTQ4q-JSto82mMuy_K0gz_jwncZyA3GCU0EgZyOz9CNekVT1KPlWYdGW7-phUKF8chjYosARzdeAOwZAHOevV8g1zmd0vr9f5o0p-jJb5gg-UYqFmJEECQnwfCdRQtPUv3OCSegaupCcvRL_zpp7M9vSI9WJD60buhrucE_oeiP9FUvjKnW4Vz34VnHQ-cG3DJ0f4X_Hi-Tx1SkYWWNr3DhNPTMwg9opSZL_5QRz5V-weK285nZohbPGy3RHbmC81avbnDnexOzOifAdjciNaBiG9vw6qvnINY33RaehPTKCjugaS7LHx6vgY-A0gqHrhab3ruDFr1vldvWZs6gWtOdu6DaC3tQMJ9a7gs7EdMZVhaCz5rjYoICTmEr0jHO8JvyyqD65-WOpJdhP8FDNukqo0z_SjMql9sdNvtXNp7mEPwRnGgIhAZthiVHCeNs0I3lHym5LfS1iGGMp9IlERAg4eijY4HxNBHrr0NZy2lovZEfJvtUGYH9tiejU4LZ5QFA19PHQwyKYLOYf2vzRj0YgYuu6hxYfSp9-rioH8i3be2jYRQr7Z6EOMXpmMU1ohCVlOWIJCrZCsgyqgy0BG4KAyIcbkXFHpLf4F5go3ZG4w328csGj-FdrFLCsSIl8I2QaHaVWFfMcfsao3AI3Ff1Joh4htSFfiGDprpnjkxBAQQ9PYWf6pnU6Xccfk-EKbs5o03hMioIz6PrXpXY-3_Lsfh45ROlWwJx-uxzoLs35rzS4KS9fchsNh7-ARBWaVWhX8biKnXrduQBuFVehaVWxd4nr0L2ENXvUUTcr98c6tlT8c6l9Ykvtp_r1ugu_E1GujKoF6yLQCJrtesuLS3VVX9gt2OqH7X7Y6Yfdfnh0e6O3VrzmmdiCx_3wY_VUa_dj9KJmvwQMr3oQtGG7H3ZqWNM1OGIZprHmn7Ty5QheoGKS4G0qtbOu4a1ki2MeaX75EqFty1tmRjHc7dkFPP8Dj1j9nw==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
@@ -929,6 +1014,7 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
@@ -960,14 +1046,13 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="42-data-flow-diagrams">4.2 Data Flow Diagrams</h3>
 <blockquote>
 <p><strong>DATA ARCHITECTURE</strong> — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.</p>
 </blockquote>
-<div style="page-break-before: always;"></div>
-
 <h3 id="43-data-lineage">4.3 Data Lineage</h3>
 <p>Data lineage traces the origin and transformation path of key data objects across integrated systems.</p>
 <table>
@@ -1060,27 +1145,20 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</h2>
 <h3 id="51-current-state-current-state-application-landscape">5.1 Current-State — Current-State Application Landscape</h3>
 <h4 id="overview">Overview</h4>
 <p>The Current-State architecture represents the <strong>current / legacy</strong> landscape for CM-050.</p>
-<div style="page-break-before: always;"></div>
-
 <h4 id="current-state-flow-narrative">Current-State Flow Narrative</h4>
 <p><em>(No current-state flows defined.)</em></p>
-<div style="page-break-before: always;"></div>
-
 <h3 id="52-future-state-future-state-application-landscape">5.2 Future-State — Future-State Application Landscape</h3>
 <h4 id="overview_1">Overview</h4>
 <p>The Future-State architecture represents the <strong>target</strong> landscape for CM-050.</p>
-<div style="page-break-before: always;"></div>
-
 <h4 id="future-state-flow-narrative">Future-State Flow Narrative</h4>
 <p><em>(No future-state flows defined.)</em></p>
-<div style="page-break-before: always;"></div>
-
 <h3 id="53-change-impact-summary">5.3 Change Impact Summary</h3>
 <table>
 <thead>
@@ -1117,6 +1195,7 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
@@ -1919,6 +1998,7 @@ flowchart TD
 </tbody>
 </table>
 <p><strong>Summary</strong>: 11 Interfaces, 64 Enhancements, 11 Forms, 1 Workflows</p>
+<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
@@ -1948,6 +2028,7 @@ flowchart TD
 <blockquote>
 <p><em>Integration pattern details will be refined when tower architects validate middleware assignments.</em></p>
 </blockquote>
+<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
@@ -1994,48 +2075,114 @@ flowchart TD
 <blockquote>
 <p><em>Platform assignments will be validated when tower architects populate technology platform columns.</em></p>
 </blockquote>
+<div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="62-sap-development-object-status">6.2 SAP Development Object Status</h3>
+<p><strong>Capability RICEFW Status</strong> (87 objects)
+<em>Data source: Smartsheet Object Tracker (cached 2026-03-26)</em></p>
 <table>
 <thead>
 <tr>
-<th>Metric</th>
-<th>DEV</th>
-<th>QAS</th>
-<th>PRD</th>
+<th>Status</th>
+<th style="text-align: right;">Count</th>
+<th style="text-align: right;">%</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Transport Requests</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>10. Object Complete</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">98.9%</td>
 </tr>
 <tr>
-<td>Custom Code Objects</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>06. Dev In Progress</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.1%</td>
 </tr>
 <tr>
-<td>CDS Views</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>87</strong></td>
+<td style="text-align: right;"><strong>100%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>RICEFW by Type:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Interface (I)</td>
+<td style="text-align: right;">11</td>
 </tr>
 <tr>
-<td>Fiori Apps</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>Enhancement (E)</td>
+<td style="text-align: right;">64</td>
 </tr>
 <tr>
-<td>BAdIs / Enhancements</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>Form (F)</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr>
+<td>Workflow (W)</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>87</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Technical Complexity:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Complexity</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01.Very High</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>02.High</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr>
+<td>03.Medium</td>
+<td style="text-align: right;">48</td>
+</tr>
+<tr>
+<td>04.Low</td>
+<td style="text-align: right;">29</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Active (Non-Complete) Objects:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Type</th>
+<th>Description</th>
+<th>Status</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OTCE1123</td>
+<td>04.Enhancement</td>
+<td>Determine Confirmed Delivery date in sales orders at schedule line level based o&hellip;</td>
+<td>06. Dev In Progress</td>
+<td>02.High</td>
 </tr>
 </tbody>
 </table>
@@ -2167,23 +2314,21 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="7-project-context">7. Project Context</h2>
 <h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
+<p><em>87 objects with timeline data (source: Object Tracker)</em></p>
 <table>
 <thead>
 <tr>
-<th>Object ID</th>
+<th>ID</th>
 <th>Description</th>
-<th>FS End</th>
-<th>FS %</th>
-<th>TDD End</th>
-<th>TDD %</th>
-<th>Build End</th>
-<th>Build %</th>
-<th>FUT End</th>
-<th>FUT %</th>
+<th>FS</th>
+<th>TDD</th>
+<th>Build</th>
+<th>FUT</th>
 <th>Status</th>
 </tr>
 </thead>
@@ -2191,339 +2336,474 @@ flowchart TD
 <tr>
 <td>OTCW0638</td>
 <td>Dispute Write-off Workflow</td>
-<td>2025-08-08</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
-<td>2025-11-28</td>
-<td>1.0</td>
+<td>Aug-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>2. At Risk</td>
 </tr>
 <tr>
 <td>OTCI1162</td>
-<td>Inbound interface to change the sales&hellip;</td>
-<td>2025-03-21</td>
-<td>1.0</td>
-<td>2025-06-20</td>
-<td>1.0</td>
-<td>2025-06-20</td>
-<td>1.0</td>
-<td>2026-03-25</td>
-<td>1.0</td>
+<td>Inbound interface to change the sales order via Build Instructions</td>
+<td>Mar-25 (100%)</td>
+<td>Jun-25 (100%)</td>
+<td>Jun-25 (100%)</td>
+<td>Mar-26 (100%)</td>
 <td>2. At Risk</td>
 </tr>
 <tr>
 <td>OTCI1161</td>
-<td>Inbound interface from BY-PDH to S4 t&hellip;</td>
-<td>2025-06-20</td>
-<td>1.0</td>
-<td>2025-11-28</td>
-<td>1.0</td>
-<td>2025-11-28</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
+<td>Inbound interface from BY-PDH to S4 to update CMAD in IF sales orders</td>
+<td>Jun-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>OTCI1126</td>
-<td>Inbound interface to create and chang&hellip;</td>
-<td>2025-04-18</td>
-<td>1.0</td>
-<td>2025-07-11</td>
-<td>1.0</td>
-<td>2025-07-11</td>
-<td>1.0</td>
-<td>2026-01-23</td>
-<td>1.0</td>
+<td>Inbound interface to create and change sales order via Subcon, STO &amp; SIMS PO</td>
+<td>Apr-25 (100%)</td>
+<td>Jul-25 (100%)</td>
+<td>Jul-25 (100%)</td>
+<td>Jan-26 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
 <td>OTCI0442</td>
 <td>IF: Interface requirement from SAC to S4</td>
-<td>2024-09-13</td>
-<td>1.0</td>
-<td>2025-03-07</td>
-<td>1.0</td>
-<td>2025-03-07</td>
-<td>1.0</td>
-<td>2025-12-03</td>
-<td>1.0</td>
+<td>Sep-24 (100%)</td>
+<td>Mar-25 (100%)</td>
+<td>Mar-25 (100%)</td>
+<td>Dec-25 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
 <td>OTCF0681_IF</td>
-<td>Form development for Intercompany Inv&hellip;</td>
-<td>2024-11-22</td>
-<td>1.0</td>
-<td>2025-03-07</td>
-<td>1.0</td>
-<td>2025-03-07</td>
-<td>1.0</td>
-<td>2025-07-11</td>
-<td>1.0</td>
+<td>Form development for Intercompany Invoice.</td>
+<td>Nov-24 (100%)</td>
+<td>Mar-25 (100%)</td>
+<td>Mar-25 (100%)</td>
+<td>Jul-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>OTCF0460_IF</td>
 <td>Form Development for Invoice list.</td>
-<td>2024-09-13</td>
-<td>1.0</td>
-<td>2025-01-17</td>
-<td>1.0</td>
-<td>2025-01-17</td>
-<td>1.0</td>
-<td>2025-01-10</td>
-<td>1.0</td>
+<td>Sep-24 (100%)</td>
+<td>Jan-25 (100%)</td>
+<td>Jan-25 (100%)</td>
+<td>Jan-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>OTCF0431</td>
-<td>Generate Custom Late Payment Interest&hellip;</td>
-<td>2024-08-30</td>
-<td>1.0</td>
-<td>2025-01-31</td>
-<td>1.0</td>
-<td>2025-01-31</td>
-<td>1.0</td>
-<td>2025-05-09</td>
-<td>1.0</td>
+<td>Generate Custom Late Payment Interest Charge Output Form</td>
+<td>Aug-24 (100%)</td>
+<td>Jan-25 (100%)</td>
+<td>Jan-25 (100%)</td>
+<td>May-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>OTCF0290</td>
 <td>Dunning output form customization</td>
-<td>2024-07-18</td>
-<td>1.0</td>
-<td>2025-01-31</td>
-<td>1.0</td>
-<td>2025-01-31</td>
-<td>1.0</td>
-<td>2025-03-14</td>
-<td>1.0</td>
+<td>Jul-24 (100%)</td>
+<td>Jan-25 (100%)</td>
+<td>Jan-25 (100%)</td>
+<td>Mar-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>OTCE1698</td>
-<td>Additional material attributes for tr&hellip;</td>
-<td>2024-11-15</td>
-<td>1.0</td>
-<td>2025-03-21</td>
-<td>1.0</td>
-<td>2025-03-21</td>
-<td>1.0</td>
-<td>2025-12-03</td>
-<td>1.0</td>
+<td>Additional material attributes for transfer from MDG to GTS to support product classification</td>
+<td>Nov-24 (100%)</td>
+<td>Mar-25 (100%)</td>
+<td>Mar-25 (100%)</td>
+<td>Dec-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>OTCE1668_IF</td>
-<td>Enhancement to transfer Customs value&hellip;</td>
-<td>2026-01-07</td>
-<td>1.0</td>
-<td>2026-02-04</td>
-<td>1.0</td>
-<td>2026-02-04</td>
-<td>1.0</td>
-<td>2026-03-27</td>
-<td>1.0</td>
+<td>Enhancement to transfer Customs value from S4 to GTS for Sales orders and delivery documents</td>
+<td>Jan-26 (100%)</td>
+<td>Feb-26 (100%)</td>
+<td>Feb-26 (100%)</td>
+<td>Mar-26 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>OTCE1662</td>
-<td>BADI Enhancement for Dispute Write of&hellip;</td>
-<td>2025-11-13</td>
-<td>1.0</td>
-<td>2025-11-21</td>
-<td>1.0</td>
-<td>2025-11-21</td>
-<td>1.0</td>
-<td>2025-11-28</td>
-<td>1.0</td>
+<td>BADI Enhancement for Dispute Write off (workflow Trigger)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>2. At Risk</td>
 </tr>
 <tr>
 <td>OTCE1658</td>
 <td>Dispute Write-off Enhancement</td>
-<td>2025-11-13</td>
-<td>1.0</td>
-<td>2025-11-28</td>
-<td>1.0</td>
-<td>2025-11-28</td>
-<td>1.0</td>
-<td>2025-11-28</td>
-<td>1.0</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>2. At Risk</td>
 </tr>
 <tr>
 <td>OTCE1655</td>
-<td>Enhancement to AIF capabilities on ac&hellip;</td>
-<td>2025-06-27</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
-<td>2026-01-23</td>
-<td>1.0</td>
+<td>Enhancement to AIF capabilities on access and notifications</td>
+<td>Jun-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Jan-26 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>OTCE1625</td>
-<td>Credit hold release dashboard at line&hellip;</td>
-<td>2024-07-12</td>
-<td>1.0</td>
-<td>2025-09-05</td>
-<td>1.0</td>
-<td>2025-09-05</td>
-<td>1.0</td>
-<td>2026-02-04</td>
-<td>1.0</td>
+<td>Credit hold release dashboard at line-item level</td>
+<td>Jul-24 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Feb-26 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>OTCE1558</td>
-<td>Business users want the capability to&hellip;</td>
-<td>2025-10-04</td>
-<td>1.0</td>
-<td>2025-11-21</td>
-<td>1.0</td>
-<td>2025-11-21</td>
-<td>1.0</td>
-<td>2025-11-28</td>
-<td>1.0</td>
+<td>Business users want the capability to have CMIR updated for the specific Materials which will go under FERT To HALB Conversion during R3 Cutover, this activity will be specific for IF system, CMIR to be deleted automatically for materials which will undergo FERT to HALB Conversion and new records to be created for new Material code</td>
+<td>Oct-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
 <td>OTCE1557</td>
-<td>Business users want the capability to&hellip;</td>
-<td>2025-10-04</td>
-<td>1.0</td>
-<td>2025-12-03</td>
-<td>1.0</td>
-<td>2025-12-03</td>
-<td>1.0</td>
-<td>2026-01-30</td>
-<td>1.0</td>
+<td>Business users want the capability to have sales order updated for the specific Materials which will go under FERT To HALB Conversion during R3 Cutover, this activity will be specific for IF system, orders to be updated automatically.</td>
+<td>Oct-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>Jan-26 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
 <td>OTCE1200</td>
-<td>Enhancement to transfer fields from S&hellip;</td>
-<td>2025-07-11</td>
-<td>1.0</td>
-<td>2025-11-21</td>
-<td>1.0</td>
-<td>2025-11-21</td>
-<td>1.0</td>
-<td>2025-11-28</td>
-<td>1.0</td>
+<td>Enhancement to transfer fields from Sales Orders to Purchase Requisition during Sales Order creation and change.</td>
+<td>Jul-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
 <td>OTCE1124</td>
-<td>Enhancement to support Inbound interf&hellip;</td>
-<td>2025-04-11</td>
-<td>1.0</td>
-<td>2025-08-13</td>
-<td>1.0</td>
-<td>2025-08-13</td>
-<td>1.0</td>
-<td>2026-01-23</td>
-<td>1.0</td>
+<td>Enhancement to support Inbound interface to change the ship to party record at the sales order</td>
+<td>Apr-25 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Jan-26 (100%)</td>
 <td>3. Off Track</td>
 </tr>
 <tr>
 <td>OTCE1123</td>
-<td>Determine Confirmed Delivery date in &hellip;</td>
-<td>2025-06-20</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>0.6</td>
-<td>2025-11-05</td>
-<td>0.6</td>
-<td>2025-11-28</td>
-<td>1.0</td>
+<td>Determine Confirmed Delivery date in sales orders at schedule line level based on CMAD received from Blue yonder</td>
+<td>Jun-25 (100%)</td>
+<td>Nov-25 (60%)</td>
+<td>Nov-25 (60%)</td>
+<td>Nov-25 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
-<td><em>&hellip; and 67 more objects (see full Object Tracker)</em></td>
+<td>OTCE1122</td>
+<td>Enhancement for IMR to update the Repair Sales Order post Repair work order is complete</td>
+<td>Mar-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Jun-25 (100%)</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>OTCE1106</td>
+<td>Enhancement to support Inbound interface and manual upload to create the sales order via Build Instructions</td>
+<td>Jun-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>Mar-26 (100%)</td>
+<td>3. Off Track</td>
+</tr>
+<tr>
+<td>OTCE1013</td>
+<td>SIMS Enhancement to determine the order type based on the Material Characteristic</td>
+<td>Jun-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>OTCE0974</td>
+<td>Screen enhancement to populate the assignment priority at SO line item</td>
+<td>Jun-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
 <td></td>
+</tr>
+<tr>
+<td>OTCE0659</td>
+<td>IF : Apply a Delivery Block Hold for Items with Multiple Schedule lines (MSL) which have price differences identified</td>
+<td>Jan-25 (100%)</td>
+<td>Mar-25 (100%)</td>
+<td>Mar-25 (100%)</td>
+<td>Mar-25 (100%)</td>
 <td></td>
+</tr>
+<tr>
+<td>OTCE0651_IF</td>
+<td>Enrich the delivery data transfer data from S/4 IF to GTS with the &lsquo;new&rsquo; vs &lsquo;used indicator</td>
+<td>Jul-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>OTCE0614_IF</td>
+<td>Implement Standard Credit/Collection BADI</td>
+<td>Mar-25 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Sep-25 (100%)</td>
 <td></td>
+</tr>
+<tr>
+<td>OTCE0486</td>
+<td>Price Swamp: For Order Repricing</td>
+<td>Sep-24 (100%)</td>
+<td>Feb-25 (100%)</td>
+<td>Feb-25 (100%)</td>
+<td>Apr-25 (100%)</td>
 <td></td>
+</tr>
+<tr>
+<td>OTCE0235</td>
+<td>Credit and Collections - Credit Check Step Configuration</td>
+<td>Jul-24 (100%)</td>
+<td>Jan-25 (100%)</td>
+<td>Jan-25 (100%)</td>
+<td>Jun-25 (100%)</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+</tr>
+<tr>
+<td>OTCE0234</td>
+<td>Implement mapping between customer’s risk class and credit check steps</td>
+<td>Jul-24 (100%)</td>
+<td>Dec-24 (100%)</td>
+<td>Dec-24 (100%)</td>
+<td>Feb-25 (100%)</td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<div style="page-break-before: always;"></div>
-
+<p><em>&hellip; and 57 more objects (see full Object Tracker)</em></p>
 <h3 id="72-raid-log">7.2 RAID Log</h3>
-<p>Standard RAID items for CM-050 (Order To Cash (IF)):</p>
+<p><em>Live data from Smartsheet Master RAID Log — extracted 2026-03-26</em></p>
+<p><strong>Mapped sub-tower(s):</strong> 4.10 OTC IF - Logistics Management Outbound, 4.11 OTC IF - Order Management, 4.12 OTC IF - TM, 4.3 OTC IF - Billing and Rebates, 4.6 OTC IF - Credit and Collections, 4.8 OTC IF - EWM, 4.9 OTC IF - GTS, 7.6 FTS IF - Logistics &amp; Inventory Management</p>
+<p><strong>RAID Summary:</strong> 14 open items (1 capability-specific, 13 tower-level), 175 closed</p>
 <table>
 <thead>
 <tr>
-<th>#</th>
-<th>Category</th>
-<th>Description</th>
-<th>Status</th>
-<th>Owner</th>
-<th>Priority</th>
+<th>Severity</th>
+<th style="text-align: right;">Capability</th>
+<th style="text-align: right;">Tower-Wide</th>
+<th style="text-align: right;">Total Open</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
-<td>Risk</td>
-<td>Data migration completeness — validate all legacy Manage Customer Credit Exposure (IF) data maps to S/4 target structures</td>
-<td>Open</td>
-<td>Tower Architect</td>
-<td>High</td>
+<td>P1 - High</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
 </tr>
 <tr>
-<td>2</td>
-<td>Risk</td>
-<td>Integration testing coverage — ensure all 0 integrated systems are validated end-to-end</td>
-<td>Open</td>
-<td>Integration Lead</td>
-<td>High</td>
+<td>P2 - Medium</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
 </tr>
 <tr>
-<td>3</td>
-<td>Assumption</td>
-<td>Target SAP S/4HANA system available in DEV/QAS per release schedule</td>
-<td>Active</td>
-<td>SAP Basis</td>
-<td>Medium</td>
+<td>P3 - Low</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
 </tr>
 <tr>
-<td>4</td>
-<td>Issue</td>
-<td>API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation</td>
-<td>Open</td>
-<td>EA Pipeline Team</td>
-<td>High</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Dependency</td>
-<td>Upstream BPMN process models validated and signed off by business process owners</td>
-<td>Active</td>
-<td>Process Owner</td>
-<td>Medium</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>1</strong></td>
+<td style="text-align: right;"><strong>13</strong></td>
+<td style="text-align: right;"><strong>14</strong></td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><em>Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.</em></p>
-</blockquote>
+<p><strong>Capability-Specific RAID Items:</strong></p>
+<table>
+<thead>
+<tr>
+<th>RAID ID</th>
+<th>Type</th>
+<th>Severity</th>
+<th>Title</th>
+<th>Status</th>
+<th>Assigned To</th>
+<th>Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>03381</td>
+<td>Risk</td>
+<td>P3 - Low</td>
+<td>New requirement raised for enabling Israel as virtual site</td>
+<td>Not Started</td>
+<td>OTC IF</td>
+<td>2026-03-31</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Other OTC-IF Tower RAID Items</strong> (13 open):</p>
+<table>
+<thead>
+<tr>
+<th>RAID ID</th>
+<th>Type</th>
+<th>Severity</th>
+<th>Title</th>
+<th>Status</th>
+<th>Assigned To</th>
+<th>Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>03591</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>R3 E2E scenario execution</td>
+<td>In Progress</td>
+<td>Test Management</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>03592</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Lack of Defined IMO Owner for CBA Mask Billing and Materials&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03625</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Item/ BOM MC1 delta load</td>
+<td>In Progress</td>
+<td>Cutover</td>
+<td>2026-04-10</td>
+</tr>
+<tr>
+<td>03628</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>R3 Returns Rework Process Causing Finance Double Counting in&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03634</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Gaps in mapping of ITC test cases to automated controls and &hellip;</td>
+<td>Not Started</td>
+<td>OTC IF</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03736</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Golden Data/Test Data Readiness</td>
+<td>In Progress</td>
+<td>Master Data</td>
+<td>2026-04-22</td>
+</tr>
+<tr>
+<td>03743</td>
+<td>Issue</td>
+<td>P2 - Medium</td>
+<td>FD-Share with Entitlements -  Interface File Paths for MC1</td>
+<td>Roadblock / At Risk</td>
+<td>PMO</td>
+<td>2026-03-20</td>
+</tr>
+<tr>
+<td>03749</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Logistics Data Intake and Creation Process Definition</td>
+<td>In Progress</td>
+<td>Test Management</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03756</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>LE101-1001 Operation Support Ownership for SIMS/Tester Front&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-04-24</td>
+</tr>
+<tr>
+<td>03758</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>IMR Repair Order Creation Ownership</td>
+<td>In Progress</td>
+<td>PTP</td>
+<td></td>
+</tr>
+<tr>
+<td>03763</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>IP to IF Regression Testing for LE Merge</td>
+<td>Not Started</td>
+<td>B-Apps</td>
+<td>2026-03-26</td>
+</tr>
+<tr>
+<td>03315</td>
+<td>Risk</td>
+<td>P3 - Low</td>
+<td>BPMG – SCP L3/L4 flow standards</td>
+<td>In Progress</td>
+<td>Business Process Mgmt</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03317</td>
+<td>Risk</td>
+<td>P3 - Low</td>
+<td>BPMG – E2E L3/L4 flow standards</td>
+<td>In Progress</td>
+<td>Business Process Mgmt</td>
+<td>2026-05-29</td>
+</tr>
+</tbody>
+</table>
 <h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
 <table>
 <thead>

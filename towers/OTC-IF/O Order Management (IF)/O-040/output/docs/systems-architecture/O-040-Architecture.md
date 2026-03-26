@@ -13,12 +13,12 @@
 <style>
 @media print {
   @page { margin: 0.75in; }
-  .mermaid { page-break-inside: avoid; overflow: hidden; }
+  .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
-.mermaid { overflow-x: auto; overflow-y: auto; }
-.mermaid svg { height: auto !important; }
+.mermaid { overflow: visible; }
+.mermaid svg { max-width: 100%; height: auto !important; }
 .page-footer {
   padding-top: 8px;
   border-top: 1px solid #ddd;

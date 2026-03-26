@@ -104,8 +104,9 @@ blockquote {
     border-radius: 6px;
     padding: 20px 12px;
     margin: 16px 0;
-    overflow-x: auto;
+    overflow: visible;
     text-align: center;
+    page-break-inside: avoid;
 }
 .mermaid svg {
     max-width: 100%;
@@ -144,6 +145,14 @@ strong { color: #00285a; }
     body { padding: 0; max-width: none; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print { display: none; }
+    .mermaid {
+        page-break-inside: avoid;
+        overflow: visible;
+    }
+    .mermaid svg {
+        max-width: 100%;
+        height: auto;
+    }
 }
 </style>
     
@@ -173,32 +182,82 @@ strong { color: #00285a; }
     }
   });
 </script>
+<script>
+  // Open rendered Mermaid diagram as full-size SVG in a new browser tab.
+  // Works on SharePoint, GitHub Pages, localhost — no file system dependency.
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[title="Open full-size SVG"]');
+    if (!link) return;
+    // Walk backwards from the link div to find the preceding .mermaid container
+    var container = link.closest('div');
+    var prev = container;
+    while (prev && prev.previousElementSibling) {
+      prev = prev.previousElementSibling;
+      if (prev.classList && prev.classList.contains('mermaid')) break;
+    }
+    if (!prev || !prev.classList.contains('mermaid')) return;
+    var svgEl = prev.querySelector('svg');
+    if (!svgEl) return;
+    e.preventDefault();
+    // Clone SVG with full dimensions for standalone viewing
+    var clone = svgEl.cloneNode(true);
+    clone.removeAttribute('style');
+    clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    var svgXml = new XMLSerializer().serializeToString(clone);
+    var blob = new Blob([svgXml], {type: 'image/svg+xml'});
+    window.open(URL.createObjectURL(blob), '_blank');
+  });
+</script>
 
 </head>
 <body>
-<div style="text-align:center; padding-top:80px;">
-  <h1 style="font-size:36px;">Order_to_Cash_IF — Order to Cash (IF)</h1>
+<div style="text-align:center; padding-top:20px;">
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <h1 style="font-size:36px; margin-top:24px;">Order_to_Cash_IF — Order to Cash (IF)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
   Capability Order_to_Cash_IF · Order to Cash</p>
   <p style="font-size:14px; color:#888;">IAO Program · Release 2<br/>
-  Generated: March 2026</p>
+  Generated: March 2026<br/>
+  Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
   @page { margin: 0.75in; }
-  footer::after { content: "Intel Confidential — Order_to_Cash_IF BDAT — March 2026"; font-size:9px; color:#999; }
-  .mermaid { page-break-inside: avoid; max-height: 95vh; overflow: visible; }
+  .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
-.mermaid svg { max-width: 100% !important; height: auto !important; }
+.mermaid { overflow: visible; }
+.mermaid svg { max-width: 100%; height: auto !important; }
+.page-footer {
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 20px;
+  background: #fff;
+}
+@media print {
+  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 </style>
 
+<div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
+<p><a id="toc"></a></p>
 <h2 id="table-of-contents">Table of Contents</h2>
 <ol>
 <li><a href="#1-executive-summary">Executive Summary</a></li>
@@ -234,6 +293,7 @@ strong { color: #00285a; }
    - 7.2 <a href="#72-raid-log">RAID Log</a>
    - 7.3 <a href="#73-recommendations--next-steps">Recommendations &amp; Next Steps</a></li>
 </ol>
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="1-executive-summary">1. Executive Summary</h2>
@@ -251,6 +311,7 @@ strong { color: #00285a; }
 <blockquote>
 <p>All system nodes in architecture diagrams are <strong>IAPM-linked</strong> — click any node to open its IAPM page. Diagrams require <code>securityLevel: 'loose'</code> for click events.</p>
 </blockquote>
+<div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="2-business-context-objectives">2. Business Context &amp; Objectives</h2>
@@ -319,6 +380,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="23-success-criteria">2.3 Success Criteria</h3>
@@ -382,6 +444,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</h2>
@@ -450,6 +513,7 @@ strong { color: #00285a; }
 </tbody>
 </table>
 <h3 id="32-business-process-diagrams">3.2 Business Process Diagrams</h3>
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-321-e2e-10__r3_-intel_foundry__rma_for_direct_customers_with_no_physical_receipt_of_the_defective_produ-e2e-10__r3-_intel_foundry__rma_for_direct_customers_with_no_physical_receipt_of_the_defective_produ">BUSINESS ARCHITECTURE — 3.2.1 E2E-10__R3_-<em>Intel_Foundry__RMA_for_Direct_Customers_with_no_physical_receipt_of_the_defective_produ — E2E-10__R3</em>-_Intel_Foundry__RMA_for_Direct_Customers_with_no_physical_receipt_of_the_defective_produ</h4>
@@ -458,8 +522,8 @@ strong { color: #00285a; }
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
-flowchart LR
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
@@ -542,6 +606,9 @@ flowchart LR
     class n26 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlV1tz4jYU_isa72TIzsCs5QsmPHTHMbhNZ7NJQ3Y7ndIHxZZBjS9UkpPQLP-9R7YM2Jin8gCjT9_5zkVHF96NqIipMTUuLt5ZzuQUvQ_kmmZ0MEWDJyLoYIhq4DvhjDylVAwUJylyuWD_VjTsbN4UTWEhyVi6VeiCrgqKvt0MkQ-G6RAJkouRoJwlg-Fgw1lG-DYo0oIr9gc6Scyk8qanrgseU34gmKaHIxdMU5bTA2x7jueEyk7QqMjjlmjiJpMkGuxUcGnxGq0Jl1X4paC35O13Fss1jBOSCgqctczSL-SJpipHyUuFRSV_aYrBhPKTQ8EWGxKxfAW4YwLESf58gFxzt0O7i4tlvneKHmfLHMEnSokQM5ogIQGev0iUsDSdfnACP3TNoZC8eKbTD9bcm9nWMFKZTCF1c6iKO3qlbLWW06cijTV19KpymFqbtyF_m1rmkG_hu-OL5vHBUzC2JtZk7-nawwEOGk9JkvwvT1BX_kjEs_Y1t0MrnO19YXfsBuapXpPmzPF83K0T5S8sokeiYRja80Op5mMXm-dFr0N7bAYd0RWR9JVsD4JXgbMXDF0vxN5ZwdpfN8ry6Z4XUSNoz93Q3Qt61zj0rbOCjo-diY4QdFacbNbouiirXkb-ZiPqOfXJ8Z9L457ypOAZuud05AtBhchoLpfGX0c864j3tchHoY8uQ8LSklPk5yTdQjN_bJvYYPJtE0NpkP8lfJgvgjvlHYEGbOFozV5IiooEBXeztiFWQSVkmpCRWn_U-P315sFHv5UkZXL7CQIgZ2LF7uVeYJPCsjxQWfIcfv4pqZDwG1H2QmOU8CJDQSlkkVEOGh-PRcYHESBs9tac_k0jCdZ3SaKODkTyGAVFlpU5i4iakMVZUa8j2ipMXay4Y2Ph9_fGRp2toyc4HaI1ggLclTICL5-Xxm5XW8DO7Cz8wr9Hi08OusklTVGo2oBvj-Sdo4W9Uyck-g4FhkBYkbfL6gLzF9i_nXK2SWMgPVQV0rT2tAfTAaeqJ8K7ACiwPhFVS1g7b7MnBzb8xEyiW5oV_Y6vgPtInkG3SOGUhGIiPzpNApuKx9lqBZn-_LhAwZpGzx2O1e4_HYJOuy7Spf9w2-l3bLfNGi8Pt75aXl5Av3csnLaFbkwUUC5ZUnWT2iAzSJaXVTLQaHnCeNazPHjS6a3eAkMfMMl62gxfdcyPK37OyDJPNolujXqPdOlWfyvTtygtBWT-c32OHvq5NrP7zW7EUW1p_Llr5pzZOJ0GObFz--3q-r3sd0fdOlAbCD6Gm7pqp0UZRXAoJWX6-UR3fNAlnBevYkRSiTaEkzSl6Unu-72cYzQa_QQCemjVQ4ybaQ1Ye4IGnIZga4LdEJwa8DrjiR5faX4j4GmPzfxEj6_0eKz5ZuNQ61ljDegAcOMQuxrQY83HewFTC7hNhJXCj6XxBxVL44dyoWfcbvI6mCY23FSv8WVhLXVfCGhr2G_L_BJu2xi2GNxtsFGeyfZj7cTq2nylcNeDDeB7GyaOTZqULbcbsd2d-VpUEyc5anzcycg-eiRUeTWvozZuncHtM7hzBnf3b8o2Ptbvvzbq9aKTXvSqD7XMXhQ3j6s2bPXDdj_s9MNuPzxuYGNowB2eERYb03ej-tcC_2ximpAylcZuaJBSFottHhnT6nVvlNUNPmME7t6sBnf_AXD-Bkk=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-322-e2e_93__r3_product_service_sales-standard_sales_order_scenario_with_combined_ordersphysic-e2e_93__r3_product_service_sales-standard_sales_order_scenario_with_combined_ordersphysic">BUSINESS ARCHITECTURE — 3.2.2 E2E_93__R3_Product_&amp;<em>Service_Sales</em>-<em>&lsquo;Standard_sales_order_scenario_with_Combined_orders</em>(Physic — E2E_93__R3_Product_&amp;<em>Service_Sales</em>-<em>&lsquo;Standard_sales_order_scenario_with_Combined_orders</em>(Physic</h4>
@@ -553,8 +620,8 @@ flowchart LR
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
-flowchart LR
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
@@ -571,7 +638,7 @@ flowchart LR
         n48["Perform Profitability Analysus"]
         n49["Receive Payment Receipt from Bank"]
         n50["Generate Cash Application"]
-        n51["Perform AR Posting & Auto Clearing"]
+        n51["Perform AR Posting and Auto Clearing"]
         n71(["fa:fa-stop Cash Application Generated"])
         n72(["fa:fa-stop Profitabiiity analysis performed"])
         n91{{"fa:fa-code-branch Open Invoices Found in Reconciliation?"}}
@@ -582,7 +649,7 @@ flowchart LR
         n56["Execute Production Order Steps"]
         n57["Release Production Order Release"]
         n58["Perform Outbound Delivery(EWM)"]
-        n59["Perform STR> STO> Outbound Delivery (S/4)"]
+        n59["Perform STR STO Outbound Delivery (S/4)"]
         n60["Perform Pick/PGI (EWM)"]
         n61["Perform Goods Receipt (Value Added)"]
         n62["Receive Goods Receipt (EWM)"]
@@ -598,7 +665,7 @@ flowchart LR
         n2["Trigger GTS check"]
         n3["Calculate Taxes"]
         n4["Perform CTP Check"]
-        n5["Send Order Confirmation to Customer (Service Item on bill..."]
+        n5["Send Order Confirmation to Customer (Service Item on billing block)"]
         n6["Update Line-Item Text"]
         n7["Calculate Pricing"]
         n8["Derive MMID from CPN"]
@@ -610,7 +677,7 @@ flowchart LR
         n14["Derive MMID from CPN"]
         n15["Perform GTS check"]
         n16["Calculate Pricing"]
-        n17["Perform Order Validation & implement auto billing block"]
+        n17["Perform Order Validation and implement auto billing block"]
         n18["Derive MMID from CPN"]
         n19["Perform Credit Check (via FSCM)"]
         n20["Calculate Pricing"]
@@ -618,7 +685,7 @@ flowchart LR
         n22["Calculate Taxes"]
         n23["Check type of Delivery"]
         n24["Perform Outbound Delivery"]
-        n25["Perform Pick & Pack Updates (EWM - Decentralized)"]
+        n25["Perform Pick and Pack Updates (EWM - Decentralized)"]
         n26["Perform ATP Check (Unrestricted Stock)"]
         n27["Perform GTS Trade Compliance"]
         n28["Generate Customer Invoice (for Physical Product)"]
@@ -639,7 +706,7 @@ flowchart LR
         n43["Feed via ECA"]
         n44["Send Updates via PDH"]
         n45["Perform Scheduling in Third Party App (FSCO)"]
-        n46["Updates from FSCO to MES and send event updates to S/4 fr..."]
+        n46["Updates from FSCO to MES and send event updates to S/4 from MES"]
         n47["XEUS Integration Layer"]
         n63["fa:fa-user Capture Sales Order"]
         n64["fa:fa-user Perform Manual Price Override"]
@@ -864,6 +931,9 @@ for Commercial Invoice"| n3
     class n110 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlGtlu20jyVxrKZu0BJIT3oYddyDoyBmJbGzkzO1jvQ5tsWkQoUuDhWJP437e62UWRLTLJaAMkiIp1V3UdTX4dBVnIRtPR27df4zQup-TrRbllO3YxJRePtGAXY1IDfqN5TB8TVlxwnChLy038p0DTrf0LR-OwFd3FyYFDN-wpY-TT9ZjMgDAZk4KmxaRgeRxdjC_2ebyj-WGeJVnOsd8wL9IiIU0-usrykOVHBE1z9cAG0iRO2RFsupZrrThdwYIsDTtMIzvyouDilSuXZF-CLc1LoX5VsBv68nscllv4HdGkYICzLXfJB_rIEm5jmVccFlT5MzojLricFBy22dMgTp8AbmkAymn6-QiytddX8vr27UPaCCX3i4eUwJ8goUWxYBEpSgAvn0sSxUkyfWPNZytbGxdlnn1m0zfG0l2YxjjglkzBdG3MnTv5wuKnbTl9zJJQok6-cBumxv5lnL9MDW2cH-BfRRZLw6OkuWN4htdIunL1uT5HSVEU_V-SwK_5PS0-S1lLc2WsFo0s3XbsuXbKD81cWO5MV_3E8uc4YC2mq9XKXB5dtXRsXRtmerUyHW2uMH2iJftCD0eG_txqGK5sd6W7gwxreaqW1eM6zwJkaC7tld0wdK_01cwYZGjNdMuTGgKfp5zut2T5UrI8pQlZQ5qkLC_ekSvjitRY_E9qG_95GM3pvqxyRu74WSHPMSXLxfW7j-SWlQ-j_7axTcD-yAIWPzOyoCUlcUqurNsPCpoFaLdZGUcHMqd5HrO8i-C4l4AR0WlEJ_sEXCgkF0SyDkmUZzsyr4oy2wnaX2piSEHFws1sTear69sWc8sD3muWR1m-I-DPKC7pY5zE5YHMwBeHoiq62lh-y6o1PexYWtaq7Mtakys4mYqJGtC8Z-BTSAIwstiS2X6fxAEt4yxVcPWWQrOPZJ0VJZxxQtOQzKoyI_OEQVlMn7pkrn50EjhifyKFoPzw6KGa0lAoGy_E3AtUeCEuyL7W6YTe179-RXpe2CePUJqCLbnbs5Rcp88ZHKWCrLIKDIAE-MhLZgAeFlr982H0-tpmZvQzYy9BUhXg8vf1MTqS9Ud5884C2SVLasH5gXTy2G7HMKFpCllU5_Pl5v1qoum_KEFxgGD5woIK4gf-CatA-LSm2ZRsr2SJ7QoJEKqih0A-UEjamXhXlY_CYwuWgJL54XL5-42qlN8i2Nx_hL93p4Rg0TtLoXS0dtLHwed36_fXpEeE007G91kWFk2qX_5Gk4qRWRiyUKUyWu5VqE5luKaSf4ACrQpcSoJst0_Yacr65l_NEkGma86RDipN9qWY0KQke5rTJGHJEJV7FpXfSxWn31dR1_4i2c_m_wT-l0OHTcmHZfsstCNcZycENg57KhOP6n0ePz0Bzvv7DQm2LFAKnSn6QxJUCS909_SFqdWzJW1-D9X4lAc_mxuwSmozz9Ioznd1DePlT9Z5yOu6TZPrku0IPISynfBK-ZhkwWc1JYHpp33ItfoAs9xE0NyzF6VluR3913kcnBRafkoXMFFCat_cXC9k81nfdrHaR3OeszAua1PJJW-Yq81cPQU6P5I3UGyfGDQQQKybnIIkglWV3NpfYUxSnhroOXBTK9igBEFfiS5SFGz3mBxIyYqyX47500mhWz_lD91uF5L-5NGdH3tfd7-jmbAu5iVDNGXKu2UnKRRePxdK_S_H0tB-bIihKw7pOQmG8aPjZIgDJ5QpD3tGsqip-wqi9b3mouDaSncQfl3zpKyPUCHKOFSUBVT1tIQyCFuZ2gQMpz3H4FEnl5_SHNIOXAJlHTrn6VE1XMUz9zkNYWrivSCGMq-0TcPrzFZYHeTgQS559q-3MMEEfLKtO7Eq0Vf9rFQ1rdXMr2RCXfGEEp4J6gqFa4NCq_9YPXk4Fa1MQ8wc-wxWOYk-5l4A8gCW2yMMfKRQmh2ZJyTkcg8jHriXqiJ5lmy28V527euiqFR77DZv7W_QmWqeX-JyS9KM8N0TahgcveA4kbcZiFOeM3EyIKe4L5O4UAqx6fZjiXkjDaudgt5Jgg2FK4Oui2_-GJPfYlamdAdO3MYpVRj4P-xc7ZlplkD065oze6ZxgitDzyG2Thtsu6UpyE0Jx5Mm9qv5TEHjAV4xOED9j60-LuvFrwpa-5xvoCCHlchsGNLvt3Eeij3wwHcIcglV7k5JFuvYU4u6dHIkHvib5UYcjIKrwJ55La4kHjzlo4lABzSFIw_6v5efNmJ0gWFGOPgDPZxshGYzMfLtn-BKWgdeOFkhsLoEaDU03EqUBZ4od1AK8zhUEt6xle1T0mQSm_ArrLhnr3IchbDjqzpoHXxPmYPFygxhLFVEX13Y5AEZGpddTSHgVRVKAOxlwzO2K5Lo6FDyKZWFjilzh2srmDxvoNzAhDEfoOCpU-OGcc5EK4DMgMDP636ioLuKgCG23llrgesPLLBDxpCs4w11h_W0s9Tw9PPIBjbmzqSyqQIe7KhKTpQ9b5XyrH6ya6jO9U0Ov6aKI7x8uILWGfKxNeaD93XaNAeyvjtRye7n3UxJ3zPHOc8cd8CJndFKFpYu5UDOXRcQgawoJvWdMt7EwGX2icr-WSr752WZb52xzPr2OUTnLNv-Obu2751D5J-11WtnUelnURlnUZlnUVlnUdlnUXnnXnGkOplM_gFHRv70rfq3Y6kA-dtx69-2IQGGZGAjgV0DXGTpSA4-YjgSw0cZridJEMGUPE0JkM99FCEfowooAOldieBaKgBVcCWJpyEAdUI7Pa0G6IjhSU81jnEUFgjw0XBb8tQbHjaioGG2i1JQLiBLByPEksrbDReJ4euomojBt4fRH3zE_gYxaZipjkTM20wgeo25lnxwBbO32PVvIGf4Kz-42VLeBnzjFyMoQYbfQaM9W9GlyQPPQXeoqKoyvvSK6yuAxrWYIMgKcw4zwJcZg_G2MUubjJDKOOgZdLvVhFPvauc2aqNwV_Xd7zSCvvR3kjO-8oS4vko_NBGW9Drq4ijnQ5fJqTcATKSGhaPYb2lShU1W5TB4L2D8zHewkzWXOA9pBi-Ac6gJYk0VcGhsW5o-SQUbZp4rmalLvrjoqy8Hp8CQr7UiVR4qQwOrbjPyTe6IfHaeADueBOmn7AZR_lVRGGZgBRLTS51KaBMeBYyxLmOoYxbo8iAYSGLI9MYXmPAfCWiKk6E46lzbwJAT4yAxfmSbqYrFW8NGWi-Ld79CGNt8msom2eB69pFBxjG4wZEL1wOPbs_9hOByTHWZPjZ61kZXayjIxqLTNAaZtbbbcJEBczQV0pQ3R8bDVUR_ExezVUQDsIK7s34RxHPyIb1csH19l0UL3vhKPiiuYFJdwXt49NTSWBKXv4T5xl-poDiZD04Tfqm0j4Ya0lADAY5MEAM19H2p4DEf3hADcqK54uPqqNlTV13rezx0ziOFpSdukmiQkfc9RiYwOk0jEeDmHMgKYmDBMLD24jtvwK0hJjrPxKOCrvG8bgE0TfUBlngT_W2aCg-QJzVxTyBY3QysblpTCjTsW54K8TUVYqKNprTRRFGmTEez6Roy-k5joq9w9dErGEqzUQ6tN7E6a00P1KTrTFuF2A0Vanv0DB6oppr5J6JOIDa6AWX7UpDlqW0Lg9Og2igQbTOwzaL1loHymtYkfWo1o5ZkYh1jJZ1qIY2lI5ejOxqfoZqW9KvVtDTNVnFcqZ9lnuIc3YiFShHGSzx7epLHLMnK-qbseOVR8EqiPQofWUhsob2YQ5arznCWpepg4fhqtL4nEVMsfkjThVsDcLv5nKgLdwbg7gDck58KdaF-H9TVeqF6L9TohZq9UKtfN3fARnfARnfARtgY5Nc_XbDfC4ZZvhes94ONfrDZD7b6wXY_2OkHu_3gfiu9fiv9fiv9fiv9fiv9fiv9fiv9fiv9fiv9fiv9fiv9fit5_-iH6wNwYwBuDsCtAbg9AHcG4O4A3BuAD9irN_aOxiMY63Y0DkfTryPxOSd88hmyiFZJOXodj_jr2c0hDUZT8dnjqH5FsIgpXPzvauDr_wBon7T5" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-323-r3_e2e-80__intel_foundry-customer_requests_expedite-service_fee-r3_e2e-80__intel_foundry-_customer_requests_expedite-_service_fee">BUSINESS ARCHITECTURE — 3.2.3 R3_E2E-80__Intel_Foundry-<em>Customer_Requests_Expedite</em>-<em>Service_Fee — R3_E2E-80__Intel_Foundry-_Customer_Requests_Expedite</em>-_Service_Fee</h4>
@@ -872,8 +942,8 @@ for Commercial Invoice"| n3
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
-flowchart LR
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
@@ -885,22 +955,22 @@ flowchart LR
         n23["Send Updates via PDH"]
         n24["Send Updates via ECA"]
         n25["Perform Scheduling in Third Party App (FSCO)"]
-        n26["Updates from FSCO to MES and send event updates to S/4 fr..."]
+        n26["Updates from FSCO to MES and send event updates to S/4 from MES"]
         n34(["fa:fa-play Updates from ECA"])
         n48{{"fa:fa-code-branch exclusiveGateway"}}
         n61{{"fa:fa-arrows-alt inclusiveGateway"}}
         n62{{"fa:fa-arrows-alt inclusiveGateway"}}
     end
     subgraph Customer Business Analyst
-        n1["Manual registration of expedite request from Customer to ..."]
+        n1["Manual registration of expedite request from Customer to CBA/Marketing Team"]
         n2["Assessment Based on To-Be Business Process"]
         n31(["fa:fa-play Order Received from Customer"])
         n35(["fa:fa-stop Fee not Expedited"])
         n36(["fa:fa-stop Manual Assessment Not conducted"])
         n40{{"fa:fa-code-branch Decision made to charge Expedite Fee?"}}
-        n41{{"fa:fa-code-branch Decision made to create new Sales Order or update existin..."}}
+        n41{{"fa:fa-code-branch Decision made to create new Sales Order or update existing SO with service..."}}
         n42{{"fa:fa-code-branch exclusiveGateway"}}
-        n43{{"fa:fa-code-branch Manual Assessment by CBA/Marketing Team on feasibility of..."}}
+        n43{{"fa:fa-code-branch Manual Assessment by CBA/Marketing Team on feasibility of request from customer"}}
         n57{{"fa:fa-arrows-alt inclusiveGateway"}}
     end
     subgraph SAP CFIN
@@ -936,8 +1006,8 @@ flowchart LR
         n37(["fa:fa-stop Charge Cancelled"])
         n38(["fa:fa-stop Planned Order Updates Done"])
         n44{{"fa:fa-code-branch Check if Schedule is On Time ?"}}
-        n45{{"fa:fa-code-branch Review original expedited order to confirm shipment of Go..."}}
-        n46{{"fa:fa-code-branch Revise Expedite Fee based on CDD and Actual Del Date & T&..."}}
+        n45{{"fa:fa-code-branch Review original expedited order to confirm shipment of Goods to customer and..."}}
+        n46{{"fa:fa-code-branch Revise Expedite Fee based on CDD and Actual Del Date and T and Cs ?"}}
         n47{{"fa:fa-code-branch exclusiveGateway"}}
         n49{{"fa:fa-arrows-alt parallelGateway"}}
         n50{{"fa:fa-arrows-alt parallelGateway"}}
@@ -1062,6 +1132,9 @@ Pricing condition types"| n50
     class n62 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlWW1z4jYe_yoadnaSzMCun2QDL-4GTGgz091lQtpO53IvhC2DLsamliHh0nz3-8uWjC2U3pbmRRJ--j8_yua1F-Ux7Y17Hz--soyVY_R6VW7oll6N0dWKcHrVRzXwCykYWaWUXwmaJM_KJftvRWZ7uxdBJrA52bL0KNAlXecU_XzXRxNgTPuIk4wPOC1YctW_2hVsS4pjmKd5Iag_0GFiJZU2eTTNi5gWJwLLCuwIA2vKMnqC3cALvLng4zTKs7gjNMHJMImu3oRxaf4cbUhRVubvOf1CXn5lcbmBzwlJOQWaTblNfyIrmgofy2IvsGhfHFQwGBd6MgjYckcilq0B9yyACpI9nSBsvb2ht48fH7NGKXqYPWYIfqKUcD6jCeIlwLeHEiUsTccfvHAyx1afl0X-RMcfnNtg5jr9SHgyBtetvgju4Jmy9aYcr_I0lqSDZ-HD2Nm99IuXsWP1iyP81nTRLD5pCn1n6AwbTdPADu1QaUqS5G9pgrgWD4Q_SV237tyZzxpdNvZxaJ3LU27OvGBi63GixYFFtCV0Pp-7t6dQ3frYtt4XOp27vhVqQtekpM_keBI4Cr1G4BwHczt4V2CtT7dyv1oUeaQEurd4jhuBwdSeT5x3BXoT2xtKC0HOuiC7DZrm-6qW0WS346g-FD-Z4_zrsbegRZIXWzRJ0zwiJcszNDkQlpIVS1l5ROGGRk-PvX-3-VzgW0IloJ93MbjP0YERtJj9qJF5JrLbcKKR4ZYVy2hD4z205RqxDD1sWBGjBVR3ZTy6ni_Dbzcauw_sSkFS5FskiFCZoy-3S0RAOxcm0APNSrSXdHC6_OzV5EDWleh61yAyIeOEDHYppLYjvbb_pkXvDV9fFb2YgIMV9HC0QfQlSvecHegPdYk89t7eWmy-fWIjRZE_8wFJS3D7z7mcv8gFzmv1EO55mW9pgabAkVHO0SQj6ZGXLTU2ROALyfYkRQVdM6i3ujRymAAvOxqzksLB73vKyzosjVAIbTidfP5Ciidaijw-ULLVUgbCJ5yD5q1IyhRWQ4xA-EM-mNKTVaIL4K-WHFtLzjcx2tE9jSh4H3eN0RLl4hMvEOzQnFKU5SW6lS7FOoOvMciQtIz_CuxiV-yjc3bPMhfGjEaMi2huSUxFwMRcX9PGDGHXP7W8e_b3yioolADK6DNaElixMkB5IYsf8gfpFIlZfkPPrNyosfjp0yddp3NRYXuume08eKujoVZEJSQUNqQcQFBynUqLmuR2tOLgbzfGcrJA4fzua7sPRu0ReY8WeRU7rZ6tZgShkPBNNWg1EtFQskhhoB0r96vPu1IrcFcrcI0aLWXkpnBR0Ot1pNWrbCEU5ttdSs8rFPvGoO1IQdKUpt8ZMzFK77KSpmguVk1xbJsEBoUkjfapiM6iYNFZ-Lz_T4JPAf4JhsPgrqRbKJYXLXZ-O1kPC9PuCtROqtsizLOEFdtquHUJh8Kq-hTGSquVumSiPsK65b7ty5XwH3oyhTRDGDqUttWy7oc8jzm643xPNSr7JFCMsU8Q2UMO7YmugRHamK0ZTGskbq4IZsVWW4d2tdP3peiiyR4aBVyL0I9w99Lo3FNI7-l_aFSN93voO_gjxgi0LE01Hq9rWzXvG_Pa00s3Cn9HF9nt7C1SkmVUZam285rrYoM2R5GLISy8-HMmkdg6_Kqjrn8h6R5o4xu1R4rKAK26nKBpLnE3RTIS7Sl7_RXGbvXvDRLpamKSUC3PzrArTKaiI2xZD-aq5FFV8nAnasa3oRidUVeoio2cvKK1oEzBvYLFmj2uZbTnnh4YbOfPTd3RlkdopTZ3LLeQJtPRRtnJEdG7Sod4VmTEsH0DbZqF9ZoMq9JMz-mH-vQzFBFHszyj-qL2zBurmh-IJepaCrZCcuCiwrYUnW1obBYiQghVcRZBCFxll2i2es4gvmG7atbDzqtLVByqToO7rGFH--9r5d0rxSld4WxW3YwnUSnqAuYVmolMCOyh-h3yc_-Cy24Do7-2Yup5b13CZF_C5FzC5F7C5F3ChC9hGl7yZIFHFz2PWJdeu-AqjwaDf4ibmwQ8SwB_PPZ-o3B9-kNceuWJpPQc-dkZSmAkASwpXCVbilbnniMZFIEvCZRELAl8WwOUcYFk8ORnaQFWArGrC5CAMmFUf7Qt5ZMlAcXgSROVRlvZrFR60gZbGW1LFa5icaVMv1Fia4CvtCqhtlRrYxVbyaJeyMCNVALKUEfKwL5yVUbTVr7a0ll31EmteARTMlS8lS--UttkREZ4qGRKJW4DqBQowNGqxJeA-uy5p_pC1-pOLB6NxCsGeLEIL0ea_dYMy8eMrAtKq7lcPS-pgXxT16ilS_-aVweuio6nPAt0QBmOZbh8zfCmfLGnudoASiaWAW5qRYrEyjwnkObJy8CBt-6Hj5m8dlfPsqy6RZXHnWzDRgbGmlDP6_rc1G5z0LSySryH9RNfPzkT5ncPbFc_ULLcpu6xXqKqd1RRqxDr8bJ1XxtAJk3lxFEcWC83ZZ4jG8dWRrgya47KkqN6XuXVG2ptoQCnaRxlhxJqK8-aNlDdGLTeLFYFoF6pdvHhO_jIjMOMMeN28yK6izvv4O47uPcOjuXL5y7qG9HAiA6N6MiEwsCSb3a7sG2GHTPsmmHPDGMz7JvhwAwPzfDICGOzl9jsJTZ7ic1eYrOX2OwlNnuJzV5is5fY7KVv9tI3e-k3Xvb6PRjzW8Li3vi1V31zBd9uxTQh-7TsvfV7BAbo8phFvXH1DU-vfsM2Y7AwyLYG3_4HaElPsg==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
@@ -1131,6 +1204,7 @@ Pricing condition types"| n50
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
@@ -1161,6 +1235,7 @@ Pricing condition types"| n50
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="42-data-flow-diagrams">4.2 Data Flow Diagrams</h3>
@@ -1169,7 +1244,7 @@ Pricing condition types"| n50
 </blockquote>
 <h4 id="421-current-state-current-state-data-flows">4.2.1 Current-State — Current-State Data Flows</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '13px', 'fontFamily': 'Segoe UI, Arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '15px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 35, 'rankSpacing': 45}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
@@ -1202,11 +1277,14 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqllYtu2jAUhl_FcoXYJOhSaGCN1EomlxUp7bqGbpOaKTKJA1ZNHCXOCqW8--wE6Maghc2Wovhcfp-cz4rnMOQRgQas1eY0ocIA87oYkwmpG6A-xDmpN0A9J2GRUTFzyU_ClINxXnnK0K84o3jISF5X2TFPhEefSoETPZ2qMGVz8ISymbJ6ZMQJuOs3AJKJrL5QEYw_hmOciVKjyMkVnn6jkRjLdYxZTmTMWEyYi4eEqY1EVihbIqv3UhzSZCSNbV2aMpw8vJhO9cUCLGo1P1lvAQY9PwFyhAznuUVigNO0x6cgpowZRz3dchynkYuMPxDjSNO63V5nuWw-qpqMVjpthJzxTLnblr6pFw3NGVvKId3qoO5armV3rXZrp9xJT7db2oYc4eylPMfp6T19rWeamhw79Tod5faTSjEvhqMMp2PwOYtIFggemDgfB33HtJDpBiQYBeipyEjgfXHvfQh8-KNKVCOiGQkF5cm6f2psUUKl0Hf7zpMa5Hh0DNS71DIMo-r0q-nWRh3vfOgX0cd2JJ9ReOoXMdFkT5RuGQRkkA_fK_Wy73vWBprHzYs99q_kSBItWyhmjOzTvxUupOYal62p-Seuk3R6ACAP3QSX6Br9L58r2wvamrZCJJdALg-ktC7mFUgyBqiYAxkt63sD06qAAymt0v4J0pvFgPPzi-dlX62SCvgA0E1fPh3KiA-f9zp3G0fCJSP5ffe_NTqMNGChAQLo1rzsD2xzcHdrA9f-ZF9bO46Ge_tidQN1iFCaMhpi5d0O3w2sHXgtLLC6I7aTdQNbyttJ1ORx06UxqeSrn9lWXtUXrpjoaq6ZnJ2d_QUENuCEZBNMI2jMYXkXyZssIjEumICLBsSF4N4sCaFRXhewSCMsiEWx7OikMi5-Ae2YOfI=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="422-future-state-future-state-data-flows">4.2.2 Future-State — Future-State Data Flows</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '13px', 'fontFamily': 'Segoe UI, Arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '15px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 35, 'rankSpacing': 45}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
@@ -1239,6 +1317,9 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqllYtu2jAUhl_FcoXYJOhSaGCN1EqGJCtS2nUN3SY1U2QSB6yaOEqcFUp599kJpBuDFjZbiuJz-X1yPitewICHBBqwVlvQmAoDLOpiQqakboD6CGek3gD1jAR5SsXcIT8JUw7GeekpQr_ilOIRI1ldZUc8Fi59KgRO9GSmwpTNxlPK5srqkjEn4G7QAEgmsvpSRTD-GExwKgqNPCNXePaNhmIi1xFmGZExEzFlDh4RpjYSaa5ssazeTXBA47E0tnVpSnH88GI61ZdLsKzVvLjaAgx7XgzkCBjOMpNEACdJj89ARBkzjnq6adt2IxMpfyDGkaZ1u73Oatl8VDUZrWTWCDjjqXK3TX1TLxz152wlh3Szg7qVXMvqmu3WTrmTnm61tA05wtlLebbd03t6pdfva3Ls1Ot0lNuLS8UsH41TnEzA5zQkqS-438fZxB_Yton6jk_8sY-e8pT47hfn3oPAgz_KRDVCmpJAUB5X_VNjixIqhL5bd67UIMfjY6DepZZhGGWnX003N-p450EvDz-2Q_kMg1Mvj4gme6J0iyAggzz4XqkXfd-zNtA8bl7ssX8pR-Jw1UIxZ2Sf_q1xITUrXJam5p-4TpLZAYBcdONfomv0v3yuLNdva9oakVwCuTyQUlXMK5BkDFAxBzJa1fcGpnUBB1Jap_0TpDeLAefnF8-rvpoFFfABoJuBfNqUEQ8-73XuNo6EQ8by--5_a3QQasBEQwTQbf9yMLT6w7tbCzjWJ-va3HE0nNsXq-OrQ4SShNEAK-92-I5v7sBrYoHVHbGdrONbUt6KwyaPmg6NSClf_sy28iq_cM1EV7NicnZ29hcQ2IBTkk4xDaGxgMVdJG-ykEQ4ZwIuGxDngrvzOIBGcV3APAmxICbFsqPT0rj8BXUHOhw=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="43-data-lineage">4.3 Data Lineage</h3>
@@ -1329,6 +1410,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</h2>
@@ -1341,7 +1423,7 @@ flowchart TB
 <strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '16px', 'fontFamily': 'Segoe UI, Arial, sans-serif'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     %% -- ArchiMate-inspired style classes --
     classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
@@ -1361,7 +1443,6 @@ flowchart TB
     Order_to_Cash_IFC_e_g_MES_300 -->|"e.g. Direct / API / File"| Order_to_Cash_IFCMW_e_g_Azure_Service_Bus
     Order_to_Cash_IFCMW_e_g_Azure_Service_Bus --> Order_to_Cash_IFC_e_g_XEUS
 
-
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -1375,6 +1456,9 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqVVWtv4jAQ_CtWKsQXaNMHtI0qpEDCiVNoq6aPOx2nyMQLWDVJZDttact_v3VCC6UvzkhB2R3POuPx-smKUwaWY1UqTzzh2iFPVT2BKVQdUh1SBdUaqSqIc8n1LIA7ECYh0rTMFNBrKjkdClBVM3uUJjrkjwXBbjN7MDAT69IpFzMTDWGcArnq1YiLE0WNKJqougLJR9W5QYv0Pp5QqQu-XEGfPtxwpif4PqJCAWImeioCOgRhimqZm1iCXxJmNObJGIMHNoYkTW6XoYY9n5N5pTJIXkuQy_YgITgqFVKv44LiCe9TDXWeqIxLYETpmQASC6oUKMSU8OLdgxEZ5oonoBQpxogL4Wx1cbQbNaVlegvOVvvoqGm3F6_1e_Mlzl72UItTkUpny7btNU6aZWQ5Ss52w7C-ctr24WG7-R-cjGr6ntM7-oZz9w3nS45RheJJOkNNSWOt0pQzJuCeSlhVxGu6S0X8w2Z3ybbB6iEV7xQxGq-o3OnY9necJavKh2NJswlxgz8Da5Czo32GT7bfIO75edDruJe9s1MSuL_9i4H1t5xkBkNDxJqnCQkultEzyUBGOo06qErU63YiiMZR3w-jfdteLRBDk8D2eJtgjmAOuR3Hwc3-juuXfxV-SGQSm7D0bwoe9zGXEIUg73gMUTtXbz5_97AkLVBkgSKIKisst_WLQp5fFOqkSke-wN6Q6NbqwuODsoYBkAXgZCh3Wie8VSbCa7JDel4a49_P8Oz0ZIe3ygUYB5elIWEve_ml-HhaW88DqyD2ir1DUve8h88uFzCwnjeX6pNyn8FN6S920yx_YcaivbSDldbRtb9rHatT3dep9iYd4t0hCGCMer6xF7NJ4P_wT70N3B9EeGbWzelmmeAxNeAP7BlE_Zt15_WX7vrUbUHk-etu8kxb8xONt9O6S8op_ll5yPea7ACBrJ6O6gEfLcpgX1mx1FLUUpQXYRvm9yrs8fHxux5p1awpyCnlzHKerOJWxDuVwYjmQlvzmkVznYazJLac4rKy8gwXCh6nuAnTMjj_B5iHZJk=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="current-state-flow-narrative">Current-State Flow Narrative</h4>
@@ -1398,6 +1482,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="52-future-state-future-state-application-landscape">5.2 Future-State — Future-State Application Landscape</h3>
@@ -1409,7 +1494,7 @@ flowchart TB
 <strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '16px', 'fontFamily': 'Segoe UI, Arial, sans-serif'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     %% -- ArchiMate-inspired style classes --
     classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
@@ -1429,7 +1514,6 @@ flowchart TB
     Order_to_Cash_IFF_e_g_MES_300 -->|"e.g. Direct / API / File"| Order_to_Cash_IFFMW_e_g_Azure_Service_Bus
     Order_to_Cash_IFFMW_e_g_Azure_Service_Bus --> Order_to_Cash_IFF_e_g_XEUS
 
-
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -1443,6 +1527,9 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqVVWtv4jAQ_CtWKsQXaNMHtI0qpEDCiVNoq6aPOx2nyMQLWDVJZDttact_v3VCC6UvzkhB2R3POuPx-smKUwaWY1UqTzzh2iFPVT2BKVQdUh1SBdUaqSqIc8n1LIA7ECYh0rTMFNBrKjkdClBVM3uUJjrkjwXBbjN7MDAT69IpFzMTDWGcArnq1YiLE0WNKJqougLJR9W5QYv0Pp5QqQu-XEGfPtxwpif4PqJCAWImeioCOgRhimqZm1iCXxJmNObJGIMHNoYkTW6XoYY9n5N5pTJIXkuQy_YgITgqFVKv44LiCe9TDXWeqIxLYETpmQASC6oUKMSU8OLdgxEZ5oonoBQpxogL4Wx1cbQbNaVlegvOVvvoqGm3F6_1e_Mlzl72UItTkUpny7btNU6aZWQ5Ss52w7C-ctr24WG7-R-cjGr6ntM7-oZz9w3nS45RheJJOkNNSWOt0pQzJuCeSlhVxGu6S0X8w2Z3ybbB6iEV7xQxGq-o3OnY9necJavKh2NJswlxgz8Da5Czo32GT7bfIO75edDruJe9s1MSuL_9i4H1t5xkBkNDxJqnCQkultEzyUBGOo06qErU63YjiMZR3w-jfdteLRBDk8D2eJtgjmAOuR3Hwc3-juuXfxV-SGQSm7D0bwoe9zGXEIUg73gMUTtXbz5_97AkLVBkgSKIKisst_WLQp5fFOqkSke-wN6Q6NbqwuODsoYBkAXgZCh3Wie8VSbCa7JDel4a49_P8Oz0ZIe3ygUYB5elIWEve_ml-HhaW88DqyD2ir1DUve8h88uFzCwnjeX6pNyn8FN6S920yx_YcaivbSDldbRtb9rHatT3dep9iYd4t0hCGCMer6xF7NJ4P_wT70N3B9EeGbWzelmmeAxNeAP7BlE_Zt15_WX7vrUbUHk-etu8kxb8xONt9O6S8op_ll5yPea7ACBrJ6O6gEfLcpgX1mx1FLUUpQXYRvm9yrs8fHxux5p1awpyCnlzHKerOJWxDuVwYjmQlvzmkVznYazJLac4rKy8gwXCh6nuAnTMjj_B-KUZLE=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="future-state-flow-narrative">Future-State Flow Narrative</h4>
@@ -1466,6 +1553,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="53-change-impact-summary">5.3 Change Impact Summary</h3>
@@ -1509,6 +1597,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
@@ -1558,6 +1647,7 @@ flowchart TB
 <blockquote>
 <p><em>Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).</em></p>
 </blockquote>
+<div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
@@ -1583,6 +1673,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
@@ -1592,7 +1683,7 @@ flowchart TB
 </blockquote>
 <h4 id="611-current-state-current-state-platform-architecture">6.1.1 Current-State — Current-State Platform Architecture</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '12px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'nodeSpacing': 25, 'rankSpacing': 30}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef platBox fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
@@ -1613,14 +1704,17 @@ flowchart TB
     Order_to_Cash_IFCPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| Order_to_Cash_IFCPLP_e_g_Azure_PaaS
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqtlGFvmzAQhv-K5SriC2tJCGmG1ElAghYp3aKxbpPGhBw4EqsORsa0SVP--2zImrXapGidP1jce-fnjteS9zjlGWAX93p7WlDpor0h17ABw0XGklRgmMioIK0Flbs53AHTCcZ5l2lLvxBByZJBZejTOS9kRB9aQH9YbnWZ1kKyoWyn1QhWHNDNzESeOsiMRlcwfp-uiZAto67gmmy_0kyuVZwTVoGqWcsNm5MlMN1IilprhZo-KklKi5USh5aSBCluj5JjNQ1qer24eGqBPvtxgdRKGamqCeSIlKXPtyinjLlnvjMJw9CspOC34J5Z1uWlPzqEb-71TO6g3JopZ1zotD1xXvJKRuQRGIyno-DtE9Aej6d28BxoH4F935kOrBdA4OzIC0Pf8Z0nXhBYav11wNFIp-OiI1b1ciVIuUYfRQYikTwJSLVOZmGwmC8SSFaJ91ALSBaERN9jHNeDkdWP6xwsNcT56hy1aaTTMf7RMfXKqIBUUl6g-aej-ocmXtvk2_RG41ui_lYs13W7a-iOQ5EdJpY7BqeM-yq3T3UnSobJe--Dlwysgd0alI3tTO0ZcX63KboYIl2HdN1rnLqeRoltWb_MUiFS4b_79ewH_oNlJza6unr3ePiFSWsAukDeYqb2kDKI8eMpN4xNvAGxITTD7h63b496uTLISc0kbkxMasmjXZFit30ecF1mRMKEEnWrm05sfgIS6pWK" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
 </blockquote>
+<div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="612-future-state-future-state-platform-architecture">6.1.2 Future-State — Future-State Platform Architecture</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '12px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'nodeSpacing': 25, 'rankSpacing': 30}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef platBox fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
@@ -1640,6 +1734,8 @@ flowchart TB
 
     Order_to_Cash_IFFPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| Order_to_Cash_IFFPLP_e_g_Azure_PaaS
 </div>
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqtlGFvmzAQhv-K5SriC2tJCGmG1EmQBC1SukVj3SaNCTlwCVYNRsa0SVP--2zImrXapGidP1jce-fnjteS9zjhKWAX93p7WlDpor0hM8jBcJGxIhUYJjIqSGpB5W4Bd8B0gnHeZdrSL0RQsmJQGfr0mhcypA8toD8st7pMawHJKdtpNYQNB3QzN5GnDjKj0RWM3ycZEbJl1BVck-1XmspMxWvCKlA1mczZgqyA6UZS1For1PRhSRJabJQ4tJQkSHF7lByraVDT60XFUwv02Y8KpFbCSFVNYY1IWfp8i9aUMffMd6ZBEJiVFPwW3DPLurz0R4fwzb2eyR2UWzPhjAudtqfOS17JiDwCJ-PZaPL2CWiPxzN78hxoH4F935kNrBdA4OzICwLf8Z0n3mRiqfXXAUcjnY6KjljVq40gZYY-ihRELHk8IVUWz4NguVjGEG9i76EWEC8JCb9HOKoHI6sf1Wuw1BDnm3PUppFOR_hHx9QrpQISSXmBFp-O6h-aeG2Tb7MbjW-J-luxXNftrqE7DkV6mFjuGJwy7qvcPtWdMB7G770PXjywBnZrUDq2U7WnxPndpvBiiHQd0nWvcep6Fsa2Zf0yS4VIhf_u17Mf-A-Wndjo6urd4-EXpq0B6AJ5y7naA8ogwo-n3DA2cQ4iJzTF7h63b496uVJYk5pJ3JiY1JKHuyLBbvs84LpMiYQpJepW805sfgI5V5Wi" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
 
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
@@ -1672,48 +1768,40 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="62-sap-development-object-status">6.2 SAP Development Object Status</h3>
+<p><strong>RICEFW Status Summary</strong> — E2E Tower (0 objects)
+<em>Data source: Smartsheet Object Tracker (cached 2026-03-26)</em></p>
 <table>
 <thead>
 <tr>
-<th>Metric</th>
-<th>DEV</th>
-<th>QAS</th>
-<th>PRD</th>
+<th>Status</th>
+<th style="text-align: right;">Count</th>
+<th style="text-align: right;">%</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Transport Requests</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
+<td style="text-align: right;"><strong>100%</strong></td>
 </tr>
+</tbody>
+</table>
+<p><strong>RICEFW by Type:</strong></p>
+<table>
+<thead>
 <tr>
-<td>Custom Code Objects</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<th>Type</th>
+<th style="text-align: right;">Count</th>
 </tr>
+</thead>
+<tbody>
 <tr>
-<td>CDS Views</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>Fiori Apps</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>BAdIs / Enhancements</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
 </tr>
 </tbody>
 </table>
@@ -1845,123 +1933,202 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="7-project-context">7. Project Context</h2>
 <h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
-<p>Project delivery milestones for Order_to_Cash_IF RICEFW objects:</p>
-<table>
-<thead>
-<tr>
-<th>Phase</th>
-<th>Planned Start</th>
-<th>Planned End</th>
-<th>Status</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Functional Specification (FS)</td>
-<td>Per project plan</td>
-<td>Per project plan</td>
-<td>In Progress</td>
-<td>Tower-level FS schedule</td>
-</tr>
-<tr>
-<td>Technical Design (TDD)</td>
-<td>FS + 2 weeks</td>
-<td>FS + 6 weeks</td>
-<td>Planned</td>
-<td>Dependent on FS completion</td>
-</tr>
-<tr>
-<td>Build &amp; Unit Test (TUT)</td>
-<td>TDD + 1 week</td>
-<td>TDD + 8 weeks</td>
-<td>Planned</td>
-<td>Includes S/4 + Middleware</td>
-</tr>
-<tr>
-<td>Functional User Test (FUT)</td>
-<td>Build + 1 week</td>
-<td>Build + 4 weeks</td>
-<td>Planned</td>
-<td>Tower-led validation</td>
-</tr>
-<tr>
-<td>Go-Live (Release 2)</td>
-<td>Per release plan</td>
-<td>Per release plan</td>
-<td>Planned</td>
-<td>End-to-End Integrated Processes release</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.</em></p>
-</blockquote>
-<div style="page-break-before: always;"></div>
-
+<p><em>No timeline data available for this capability.</em></p>
 <h3 id="72-raid-log">7.2 RAID Log</h3>
-<p>Standard RAID items for Order_to_Cash_IF (End-to-End Integrated Processes):</p>
+<p><em>Live data from Smartsheet Master RAID Log — extracted 2026-03-26</em></p>
+<p><strong>RAID Summary:</strong> 15 open items (0 capability-specific, 15 tower-level), 56 closed</p>
 <table>
 <thead>
 <tr>
-<th>#</th>
-<th>Category</th>
-<th>Description</th>
-<th>Status</th>
-<th>Owner</th>
-<th>Priority</th>
+<th>Severity</th>
+<th style="text-align: right;">Capability</th>
+<th style="text-align: right;">Tower-Wide</th>
+<th style="text-align: right;">Total Open</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
-<td>Risk</td>
-<td>Data migration completeness — validate all legacy Order to Cash (IF) data maps to S/4 target structures</td>
-<td>Open</td>
-<td>Tower Architect</td>
-<td>High</td>
+<td>P1 - High</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
 </tr>
 <tr>
-<td>2</td>
-<td>Risk</td>
-<td>Integration testing coverage — ensure all 2 integrated systems are validated end-to-end</td>
-<td>Open</td>
-<td>Integration Lead</td>
-<td>High</td>
+<td>P2 - Medium</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
 </tr>
 <tr>
-<td>3</td>
-<td>Assumption</td>
-<td>Target SAP S/4HANA system available in DEV/QAS per release schedule</td>
-<td>Active</td>
-<td>SAP Basis</td>
-<td>Medium</td>
+<td>P3 - Low</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
 </tr>
 <tr>
-<td>4</td>
-<td>Issue</td>
-<td>API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation</td>
-<td>Open</td>
-<td>EA Pipeline Team</td>
-<td>High</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Dependency</td>
-<td>Upstream BPMN process models validated and signed off by business process owners</td>
-<td>Active</td>
-<td>Process Owner</td>
-<td>Medium</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
+<td style="text-align: right;"><strong>15</strong></td>
+<td style="text-align: right;"><strong>15</strong></td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><em>Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.</em></p>
-</blockquote>
+<p><strong>Other E2E Tower RAID Items</strong> (15 open):</p>
+<table>
+<thead>
+<tr>
+<th>RAID ID</th>
+<th>Type</th>
+<th>Severity</th>
+<th>Title</th>
+<th>Status</th>
+<th>Assigned To</th>
+<th>Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>03591</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>R3 E2E scenario execution</td>
+<td>In Progress</td>
+<td>Test Management</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>03681</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>ITC Execution: Planning run availability - Prerequisite for &hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03762</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>FTS-IF (esp SCP) related test cases/sequencing are not accur&hellip;</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>01733</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Tariffs impacts Item/BOM design which is impacting ERP/SCP (&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-06</td>
+</tr>
+<tr>
+<td>03592</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Lack of Defined IMO Owner for CBA Mask Billing and Materials&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03625</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Item/ BOM MC1 delta load</td>
+<td>In Progress</td>
+<td>Cutover</td>
+<td>2026-04-10</td>
+</tr>
+<tr>
+<td>03628</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>R3 Returns Rework Process Causing Finance Double Counting in&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03642</td>
+<td>Issue</td>
+<td>P2 - Medium</td>
+<td>E2E Process with Anafi on order/invoice point.  Need IFS SC &hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-24</td>
+</tr>
+<tr>
+<td>03736</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Golden Data/Test Data Readiness</td>
+<td>In Progress</td>
+<td>Master Data</td>
+<td>2026-04-22</td>
+</tr>
+<tr>
+<td>03743</td>
+<td>Issue</td>
+<td>P2 - Medium</td>
+<td>FD-Share with Entitlements -  Interface File Paths for MC1</td>
+<td>Roadblock / At Risk</td>
+<td>PMO</td>
+<td>2026-03-20</td>
+</tr>
+<tr>
+<td>03753</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>PDF-SMH IF test cases are not available in JIRA</td>
+<td>To Be Reviewed</td>
+<td>B-Apps</td>
+<td>2026-03-25</td>
+</tr>
+<tr>
+<td>03756</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>LE101-1001 Operation Support Ownership for SIMS/Tester Front&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-04-24</td>
+</tr>
+<tr>
+<td>03769</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Need a Labs SPOC owner to define IP Labs enterprise and mate&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-04-17</td>
+</tr>
+<tr>
+<td>03216</td>
+<td>Action</td>
+<td>P3 - Low</td>
+<td>Mask Expense vs. Invoice</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-06</td>
+</tr>
+<tr>
+<td>03315</td>
+<td>Risk</td>
+<td>P3 - Low</td>
+<td>BPMG – SCP L3/L4 flow standards</td>
+<td>In Progress</td>
+<td>Business Process Mgmt</td>
+<td>2026-03-27</td>
+</tr>
+</tbody>
+</table>
 <h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
 <table>
 <thead>

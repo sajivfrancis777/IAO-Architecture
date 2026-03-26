@@ -104,8 +104,9 @@ blockquote {
     border-radius: 6px;
     padding: 20px 12px;
     margin: 16px 0;
-    overflow-x: auto;
+    overflow: visible;
     text-align: center;
+    page-break-inside: avoid;
 }
 .mermaid svg {
     max-width: 100%;
@@ -144,6 +145,14 @@ strong { color: #00285a; }
     body { padding: 0; max-width: none; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print { display: none; }
+    .mermaid {
+        page-break-inside: avoid;
+        overflow: visible;
+    }
+    .mermaid svg {
+        max-width: 100%;
+        height: auto;
+    }
 }
 </style>
     
@@ -173,32 +182,82 @@ strong { color: #00285a; }
     }
   });
 </script>
+<script>
+  // Open rendered Mermaid diagram as full-size SVG in a new browser tab.
+  // Works on SharePoint, GitHub Pages, localhost — no file system dependency.
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[title="Open full-size SVG"]');
+    if (!link) return;
+    // Walk backwards from the link div to find the preceding .mermaid container
+    var container = link.closest('div');
+    var prev = container;
+    while (prev && prev.previousElementSibling) {
+      prev = prev.previousElementSibling;
+      if (prev.classList && prev.classList.contains('mermaid')) break;
+    }
+    if (!prev || !prev.classList.contains('mermaid')) return;
+    var svgEl = prev.querySelector('svg');
+    if (!svgEl) return;
+    e.preventDefault();
+    // Clone SVG with full dimensions for standalone viewing
+    var clone = svgEl.cloneNode(true);
+    clone.removeAttribute('style');
+    clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    var svgXml = new XMLSerializer().serializeToString(clone);
+    var blob = new Blob([svgXml], {type: 'image/svg+xml'});
+    window.open(URL.createObjectURL(blob), '_blank');
+  });
+</script>
 
 </head>
 <body>
-<div style="text-align:center; padding-top:80px;">
-  <h1 style="font-size:36px;">PE-070 — Identify and Plan Plant Maintenance (IF)</h1>
+<div style="text-align:center; padding-top:20px;">
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <h1 style="font-size:36px; margin-top:24px;">PE-070 — Identify and Plan Plant Maintenance (IF)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IF) (FTS-IF) Tower<br/>
   Capability PE-070 · PE Manage Plant, Equipment and Facilities (IF)</p>
   <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026</p>
+  Generated: March 2026<br/>
+  Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
   @page { margin: 0.75in; }
-  footer::after { content: "Intel Confidential — PE-070 BDAT — March 2026"; font-size:9px; color:#999; }
-  .mermaid { page-break-inside: avoid; max-height: 95vh; overflow: visible; }
+  .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
-.mermaid svg { max-width: 100% !important; height: auto !important; }
+.mermaid { overflow: visible; }
+.mermaid svg { max-width: 100%; height: auto !important; }
+.page-footer {
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 20px;
+  background: #fff;
+}
+@media print {
+  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 </style>
 
+<div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
+<p><a id="toc"></a></p>
 <h2 id="table-of-contents">Table of Contents</h2>
 <ol>
 <li><a href="#1-executive-summary">Executive Summary</a></li>
@@ -234,6 +293,7 @@ strong { color: #00285a; }
    - 7.2 <a href="#72-raid-log">RAID Log</a>
    - 7.3 <a href="#73-recommendations--next-steps">Recommendations &amp; Next Steps</a></li>
 </ol>
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="1-executive-summary">1. Executive Summary</h2>
@@ -251,6 +311,7 @@ strong { color: #00285a; }
 <blockquote>
 <p>All system nodes in architecture diagrams are <strong>IAPM-linked</strong> — click any node to open its IAPM page. Diagrams require <code>securityLevel: 'loose'</code> for click events.</p>
 </blockquote>
+<div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="2-business-context-objectives">2. Business Context &amp; Objectives</h2>
@@ -319,6 +380,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="23-success-criteria">2.3 Success Criteria</h3>
@@ -382,6 +444,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</h2>
@@ -506,6 +569,7 @@ strong { color: #00285a; }
 </tbody>
 </table>
 <h3 id="32-business-process-diagrams">3.2 Business Process Diagrams</h3>
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-321-pe-070-010_identify_maintenance_work_required-pe-070-010_identify_maintenance_work_required">BUSINESS ARCHITECTURE — 3.2.1 PE-070-010_Identify_Maintenance_Work_Required — PE-070-010_Identify_Maintenance_Work_Required</h4>
@@ -514,7 +578,7 @@ strong { color: #00285a; }
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -537,6 +601,9 @@ flowchart TD
     class n4 startEvt
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVNuO2jAQ_RUrK5RWClKuhOahEiSkqtRWVdl2H5Z9MM4YLIKdOg6XIv69NuFe8dRIuczxzDmeY8c7i4gCrMTqdHaMM5Wgna3msAQ7QfYU12A7qAV-YcnwtITaNjlUcDVmfw5pXlhtTJrBcrxk5dagY5gJQD8_O2igC0sH1ZjX3Roko7ZjV5ItsdymohTSZD9Bn7r0oHYcGgpZgLwkuG7skUiXlozDBQ7iMA5zU1cDEby4IaUR7VNi783kSrEmcyzVYfpNDV_x5oUVaq5jissadM5cLcsveAql6VHJxmCkkauTGaw2OlwbNq4wYXym8dDVkMR8cYEid79H-05nws-i6DmbcKQvUuK6zoCiWml4tFKIsrJMnsJ0kEeuUyspFpA8-aM4C3yHmE4S3brrGHO7a2CzuUqmoiyOqd216SHxq40jN4nvOnKrn3dawIuLUtrz-37_rDSMvdRLT0qU0v9S0r7KZ1wvjlqjIPfz7KzlRb0odf_lO7WZhfHAu_cJ5IoRuCLN8zwYXawa9SLPfUw6zIOem96RzrCCNd5eCD-k4Zkwj-Lcix8Stnr3s2ym36UgJ8JgFOXRmTAeevnAf0gYDrywf5yh5plJXM3RUDSHvYwGVVW3Y-bi3uvrxKI4obhLxAxloIDo3SVEiTKx5mi6vSmdWG9vV9X-bfWgUQJ9Ag5S-4G-CcUoI1gxwe_qgnfnuqrUvv2A3w3USr8JsBUUiAqJvmLGFXDMCaAXIRea4_0VR6gpUglGCfOizdb3vWxboXds-8ED1O1-1H0fQ68N_WPot2F4tRwm52rT3Iz4D0eC8w95A4dn2HKsJcglZoWV7KzDiahPzQIobkpl7R0LazPHW06s5HByWE1V6F4zhvWCLltw_xeSxL7O" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-322-pe-070-020_create_and_maintain_notification-pe-070-020_create_and_maintain_notification">BUSINESS ARCHITECTURE — 3.2.2 PE-070-020_Create_and_Maintain_Notification — PE-070-020_Create_and_Maintain_Notification</h4>
@@ -545,7 +612,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -579,13 +646,15 @@ flowchart TD
     class n7 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVU1v2zgQ_SuEgsAXGdWn5dWhC0W2ugE2RVCl7aHugaaGNhGa9FKUP-r6vy9pyZ-bnFYHAfP05r2Z0VDaOURW4KTO_f2OCaZTtOvpOSygl6LeFNfQc1ELfMOK4SmHumc5VApdsl8Hmh8tN5ZmsQIvGN9atISZBPT10UWZSeQuqrGo-zUoRntub6nYAqttLrlUln0HQ-rRg1v36EGqCtSZ4HmJT2KTypmAMxwmURIVNq8GIkV1JUpjOqSkt7fFcbkmc6z0ofymhie8-c4qPTcxxbwGw5nrBf8bT4HbHrVqLEYatToOg9XWR5iBlUtMmJgZPPIMpLB4PUOxt9-j_f39RJxM0ctoIpC5CMd1PQKKam3g8UojyjhP76I8K2LPrbWSr5DeBeNkFAYusZ2kpnXPtcPtr4HN5jqdSl511P7a9pAGy42rNmnguWpr7jdeIKqzUz4IhsHw5PSQ-LmfH50opf_LycxVveD6tfMah0VQjE5efjyIc--_esc2R1GS-bdzArViBC5Ei6IIx-dRjQex770v-lCEAy-_EZ1hDWu8PQv-kUcnwSJOCj95V7D1u62ymT4rSY6C4Tgu4pNg8uAXWfCuYJT50bCr0OjMFF7OUfFSoscC9dETZkKDwIIAeuZYCFAt1V4i-PFj4lCcUtwncoZyBaYz9FlqRhnBmkmBmEBl9ozKDxH6K_ucTZyfPy8EQpNfmv1A4wVmHFElF7f0lm04tyVioqXaorJZ2ndUy8vC_OvCskZL9AlM8bf13dQTmbQvsGKwvu4CmxK_Yc4qm_8F_mmgNgst1eV8TrUelGKj9FiBMCLbqyl-l-r1IMEUVNc5g93uXHUF_ak52GSOStkoAn9OnP3-gpy8TYYN4U3NVvCpXbJz1mmEIkb9_kdj14VBG4Zd6Ldh0oUDG_6eOE_j8oOdoz0KE-e34XWEpOVHXRi-nW7f6tP4kBhcbK-1uzhjV0-Cd59Ep-_XFRy_DQ-OB-4KTY6o4zoLUGb_KifdOYefjfkhVUBxw7Wzdx1sui63gjjp4aPsNEu7BiOGzSIuWnD_Lw1GKL0=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
 <h4 id="business-architecture-323-pe-070-030_review_notification_and_validate_request_for_maintenance-pe-070-030_review_notification_and_validate_request_for_maintenance">BUSINESS ARCHITECTURE — 3.2.3 PE-070-030_Review_Notification_and_Validate_Request_for_Maintenance — PE-070-030_Review_Notification_and_Validate_Request_for_Maintenance</h4>
 <p><strong>Swim Lanes</strong>: FTS IF - Maintenance Technician | <strong>Tasks</strong>: 2 | <strong>Gateways</strong>: 1</p>
 <blockquote>
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -614,13 +683,15 @@ flowchart TD
     class n6 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVU2P2jAQ_StWVisuQc0noTm0ygbSrtRtV822PZQejDMGaxM7tQ0spfz32nwudOmlkUDMY957MyOPs3KIqMBJnevrFeNMp2jV0VNooJOizhgr6LhoC3zFkuFxDapjc6jgumS_Nml-1D7ZNIsVuGH10qIlTASgL7cuygyxdpHCXHUVSEY7bqeVrMFymYtaSJt9BX3q0Y3b7q8bISuQxwTPS3wSG2rNOBzhMImSqLA8BUTw6kSUxrRPSWdti6vFgkyx1JvyZwru8NM3VumpiSmuFZicqW7qD3gMte1Ry5nFyEzO98NgyvpwM7CyxYTxicEjz0AS88cjFHvrNVpfX4_4wRQ9DEYcmYfUWKkBUKS0gYdzjSir6_QqyrMi9lylpXiE9CoYJoMwcIntJDWte64dbncBbDLV6VjU1S61u7A9pEH75MqnNPBcuTTfZ17Aq6NT3gv6Qf_gdJP4uZ_vnSil_-Vk5iofsHrceQ3DIigGBy8_7sW597fevs1BlGT--ZxAzhmBZ6JFUYTD46iGvdj3LoveFGHPy89EJ1jDAi-Pgq_z6CBYxEnhJxcFt37nVc7G91KQvWA4jIv4IJjc-EUWXBSMMj_q7yo0OhOJ2ykqHkp0W6AuusOMa-CYE0APQKacEYb5Nts-3P8-cihOKe7a4aPPMGewQMMGsxp9FJpRRrBmgo-cH89YwYsszCuUta0Uc_gHNzTcXIKZ4YawqdB8Tkr9ZJf3lBYZ2j1IKmSDCgZ1hW65aoFYA6QF2kl-hp8zUPqUG1-wvFxkb7Xad2hvuO7Y7CiZonKpNDToHXCQhsUnJxJvR856vRUxO7P9wWPU7b4xgrvQ34bhLgy2YbQLezb8PXLuhuWrbKaFPbcj57fJO0sos3tUvorQ--xjtkl4fvCty36VTuDgZTg8XCcncPQyHL8M9_Zr4bhOA9IcoMpJV87m8jcviAoontXaWbsONo2VS06cdHNJOrO2MswBw-bsNltw_QcXjglA" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
 <h4 id="business-architecture-324-pe-070-040_review_equipment_maintenance_planned_orders-pe-070-040_review_equipment_maintenance_planned_orders">BUSINESS ARCHITECTURE — 3.2.4 PE-070-040_Review_Equipment_Maintenance_Planned_Orders — PE-070-040_Review_Equipment_Maintenance_Planned_Orders</h4>
 <p><strong>Swim Lanes</strong>: FTS IF - Maintenance Planner | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 0</p>
 <blockquote>
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -640,13 +711,15 @@ flowchart TD
     class n3 startEvt
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVE2P2jAU_CtWViiXIOWT0BwqQcDSSt22Ktv2UHowyTNYm9jUdvgo4r_XhhAWVntqpETxZN7Me6PYB6cQJTiZ0-sdGGc6QwdXr6AGN0PugihwPXQGfhDJyKIC5VoOFVzP2N8TLYjXO0uzGCY1q_YWncFSAPr-6KGRKaw8pAhXfQWSUddz15LVRO5zUQlp2Q8wpD49ubWfxkKWIK8E30-DIjGlFeNwhaM0TmNs6xQUgpc3ojShQ1q4R9tcJbbFikh9ar9R8ER2P1mpV2ZNSaXAcFa6rj6RBVR2Ri0bixWN3FzCYMr6cBPYbE0KxpcGj30DScJfrlDiH4_o2OvNeWeKnidzjsxVVESpCVCktIGnG40oq6rsIc5HOPE9paV4gewhnKaTKPQKO0lmRvc9G25_C2y50tlCVGVL7W_tDFm43nlyl4W-J_fmeecFvLw65YNwGA47p3Ea5EF-caKU_peTyVU-E_XSek0jHOJJ5xUkgyT33-pdxpzE6Si4zwnkhhXwShRjHE2vUU0HSeC_LzrG0cDP70SXRMOW7K-CH_K4E8RJioP0XcGz332XzeKrFMVFMJomOOkE03GAR-G7gvEoiIdth0ZnKcl6hfDzDD1i1EdPhHENnPAC0NeKcA7yTLUXD37NHUoySvo2efQNNgy2La-8qf1id5NCuQQze4mokGj6p2HrGrieO79faYZG80xDhLci5n6rdlsWmTKbASiFPgvNKCuIZoJ3LPMXnl94hPr9j6b5dhmcl-GrTC14-Zdu4LDbODdw1MGO59Qga8JKJzs4p5PLnG4lUNJU2jl6Dmm0mO154WSnHe4069KMOmHEBF-fweM_zeqkJg==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
 <h4 id="business-architecture-325-pe-070-070_perform_field_inspection_to_create_work_request-pe-070-070_perform_field_inspection_to_create_work_request">BUSINESS ARCHITECTURE — 3.2.5 PE-070-070_Perform_Field_Inspection_to_Create_Work_Request — PE-070-070_Perform_Field_Inspection_to_Create_Work_Request</h4>
 <p><strong>Swim Lanes</strong>: Factory Supervisor | <strong>Tasks</strong>: 2 | <strong>Gateways</strong>: 0</p>
 <blockquote>
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -669,6 +742,9 @@ flowchart TD
     class n4 startEvt
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVMuu2jAU_BUrVyiboOZJaBaVIBCpUm9VldvbRenCOMdgkdjUdngU8e-1eYRHe1fNIsqZzJnxmTjeO0SU4GROp7NnnOkM7V29gBrcDLkzrMD10Al4xZLhWQXKtRwquJ6w30daEK-2lmaxAtes2ll0AnMB6NtHDw1MY-UhhbnqKpCMup67kqzGcpeLSkjLfoI-9enR7fxqKGQJ8krw_TQgiWmtGIcrHKVxGhe2TwERvLwTpQntU-Ie7OIqsSELLPVx-Y2CZ7z9zkq9MDXFlQLDWei6-oRnUNkZtWwsRhq5voTBlPXhJrDJChPG5waPfQNJzJdXKPEPB3TodKa8NUUvoylH5iIVVmoEFClt4PFaI8qqKnuK80GR-J7SUiwhewrH6SgKPWInyczovmfD7W6AzRc6m4mqPFO7GztDFq62ntxmoe_Jnbk_eAEvr055L-yH_dZpmAZ5kF-cKKX_5WRylS9YLc9e46gIi1HrFSS9JPf_1ruMOYrTQfCYE8g1I3AjWhRFNL5GNe4lgf-26LCIen7-IDrHGjZ4dxV8n8etYJGkRZC-KXjye1xlM_siBbkIRuOkSFrBdBgUg_BNwXgQxP3zCo3OXOLVAhWYaCF3aNKsbABKyBPBXjz4MXUoziju2rzRF5BUyBo9jyfvBo0Wx6xGDM-5UJoRNXV-3jSH981fYc1gg_IFkGXFlH5gR4ZtJwOl0GehGWUEayb4PSs2rLPQLQlhXqJXXLHS5G2cfjWgzDYUEj1jxjVwzAm0SmaXnh54jLrdD2bMcxmcyvBchqcyuvkElnPZendw-G84an-_OzhuYcdzapA1ZqWT7Z3j-WfOyBIobirtHDwHm5wnO06c7HhOOM3KzmhDl7g-gYc_ip66Vw==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-326-pe-070-080_check_warranty-pe-070-080_check_warranty">BUSINESS ARCHITECTURE — 3.2.6 PE-070-080_Check_Warranty — PE-070-080_Check_Warranty</h4>
@@ -677,7 +753,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -690,7 +766,7 @@ flowchart LR
         n5[["fa:fa-cog Create Claim Document (Draft)"]]
         n6[["fa:fa-cog Create Return PR / PO"]]
         n7[["fa:fa-cog Transmit Claim Document"]]
-        n8[["fa:fa-cog Update Warranty Information in Equipment and Master Warra..."]]
+        n8[["fa:fa-cog Update Warranty Information in Equipment and Master Warranty Table for..."]]
         n14(["fa:fa-stop Claim Document Closed"])
         n15(["fa:fa-stop Corrective/Breakdown Process Continued"])
         n16(["fa:fa-stop No Claim Processed"])
@@ -715,12 +791,12 @@ flowchart LR
         n11["Maintain Flag for Warranty Indicator"]
         n12(["fa:fa-play Warranty Check Initiated"])
         n13(["fa:fa-stop Corrective/Breakdown Process Continued"])
-        n20["System up & Status Running"]
+        n20["System up and Status Running"]
         n21["TECO (Technically Completed)"]
         n25{{"fa:fa-code-branch Is tool ready to be brought up to production ?"}}
         n26{{"fa:fa-code-branch Do parts have MMID?"}}
         n27{{"fa:fa-code-branch Is equipment under warranty?"}}
-        n39{{"fa:fa-arrows-alt Warranty pop-up​ ? (with warranty checkbox indicator dete..."}}
+        n39{{"fa:fa-arrows-alt Warranty pop-up​ ? (with warranty checkbox indicator determination after..."}}
         n40{{"fa:fa-arrows-alt parallelGateway"}}
         n42{{"fa:fa-arrows-alt inclusiveGateway"}}
     end
@@ -825,6 +901,9 @@ Financial Credit"| n3
     class n42 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqtWG1v4zYS_iuEF4tkAXujV8v2hxaJYxUBNl03Tro4NP1AS5Sti0yqFBUnTfPfbyhRskVTd-j2AuwmGs4z88xwZkjpbRCxmAxmg48f31Kaihl6OxNbsiNnM3S2xgU5G6Ja8CvmKV5npDiTOgmjYpX-WanZXv4i1aQsxLs0e5XSFdkwgh5uhugSgNkQFZgWo4LwNDkbnuU83WH-OmcZ41L7A5kkVlJ5U0tXjMeEHxQsK7AjH6BZSslB7AZe4IUSV5CI0bhjNPGTSRKdvUtyGdtHW8xFRb8syC1--ZbGYgvPCc4KAjpbscu-4DXJZIyCl1IWlfy5SUZaSD8UErbKcZTSDcg9C0Qc06eDyLfe39H7x4-PtHWKvtw9UgQ_UYaL4pokqBAgXjwLlKRZNvvgzS9D3xoWgrMnMvvgLIJr1xlGMpIZhG4NZXJHe5JutmK2ZlmsVEd7GcPMyV-G_GXmWEP-Cv9rvgiND57mY2fiTFpPV4E9t-eNpyRJ_pEnyCu_x8WT8rVwQye8bn3Z_tifW6f2mjCvveDS1vNE-HMakSOjYRi6i0OqFmPftvqNXoXu2JprRjdYkD1-PRiczr3WYOgHoR30Gqz96SzL9ZKzqDHoLvzQbw0GV3Z46fQa9C5tb6IYgp0Nx_kWhfcrdBOiEbrCItqiB0hDrSF_qPfbb4-DBM8SPIrYBj3kMQSE5hlOd-iaReWOUIFWAouyeBz8_vsR0u8i55wYkOfXHCfikwYdG6F3RJScouUdukDLrxok6ELuoU-KXSo0fxpoYgzuG-aAFq_ohiaM77BIGUUpRYs_yjSvWGMao1tcCMIPyvdyYiEAfP78WXNje-etn0KwXE_CPGMFiQH06Rjk6yDGOYlE-kwuriAhTzHbQzKgFEhRwCIVKS1PrYw1Kz8z5V0hTxGBhmgjrNOj6zsOqLc68y2JnmQWjrJ1A8M-VchjoAvAlEISdySW6_dbzvaL53qbjhUnb2-HbYrJaA2-oFLDlOIMDoa4jgh-13WIfnwcvL8fG5iaDZCXKCsLSOhPdZNqMNf6Pphtht1Q9MvD5RednOv0qAuyu1jKgf5A4-NCOzHgfh9Nr5fmqoQjA46-GBpt8SJgpsOfJ27973M77nFboCrYOXsm3OQuMOMOZfY_0uQdbQvosH0xwplAOeY4y0h2whai7huUy1voflm5FCgQdE-iLU2jFNPjNmqbSB5U7fRrexhSW3UxTAFo46_yAqJVfdfAknA5jA7x1V38K3RAXE-oJctHZd41YksaFVf4h8IMb6rePJpwcRphwTTftnOYAXkGp5fW38cd3Zkd7v9jZjkWGFm9wnjdoTKvhq1q7LuSUrj4aImSMd4v5l_RudoJ2FBgynZ5RoDjJ03d7y1AwViGgGb8Cn-iNUFrzkq4m0gWIMg5i8uoyvXJhOmp6msmC0wUaIthy29vb65PkEEvHdKWdlmV9l5twklrTI2V3e5ZXhdG6VjWGv2Izvep2LbGUCR3dM1e4IRTtYBiIocyTNcqVjifSX2odfvJ-nv9VIMcIyilfTPD0IVp3XW3mOJN56ridk_zJSuE0oaXAtmBMdwHzr9dcJJANmFDI9lC-t3DnsrqA78N4pbsmNRelXmepUdtespteb-UE6K-SJXdi9TUeKcJOSHoJ8ZiGH93OhOrC1EtsSGUcMBKxMXJPcieaC3Y8QD6bfst6EnjeQBVxOorjhocx9POMKrcyd89CtrUwahBo9EP8Fs9e3b97KtnN5DPfz0O_kXggvmXPF71lZ9ZveA0C44OcZsVtzY-aZ5tzYTXLHi6ibG-0kBaouNer-MeSBNrY1ulwmsCmarUNHQ99dywdCbK8GUOs-kZTs2qtbWaAo_T_w54pHqb1DwblK9F1ryLwcWqZhQ0zyogp3Ho-opymz6FcNocqKCdZlsdSwk0hNs4da1uOm1fX2h4erZeEfoOTBS9QA-1sd3mQNF0G01P0XSnmsBpiDe5GOvFdlIgvrbvY4VsC0ixbLdRLzXP0lcUf6ehays2dqupd89EX2iM220WVbacpv7sJgcTvb6qqzm8sP2bVOdlTfLoRVZmp3mB74gds9g9fjnvrHi9K37vyrh3JehdmfSuTHtXID-9S077WaYrd9UnlK7UM0p9o3RslAZG6cQonZq5QWea5XaPvCdGx-2Rez1yv_mK0hWPzeLALJ6YxVOjGEaJUWybxY5Z7JrFnllsjtI1R-mao3TNUbrmKD1zlJ45Sq-NcjAc7OCCiNN4MHsbVJ9s4bNuTBJcZmLwPhzgUrDVK40Gs-rT5qCsvhxcpxiuSbta-P4fTcTcKw==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-327-pe-070-090_process_notification-pe-070-090_process_notification">BUSINESS ARCHITECTURE — 3.2.7 PE-070-090_Process_Notification — PE-070-090_Process_Notification</h4>
@@ -833,7 +912,7 @@ Financial Credit"| n3
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -859,13 +938,15 @@ flowchart TD
     class n5 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVF1v2jAU_StWqoqXICUhaVgeNkEgUqV1q0q3aRp7MM41WDh2ajsFRvnvs_ksrH1aHlB8uOece09srz0iS_Ay7_p6zQQzGVq3zAwqaGWoNcEaWj7aAd-xYnjCQbdcDZXCjNifbVkY10tX5rACV4yvHDqCqQT07dZHPUvkPtJY6LYGxWjLb9WKVVitcsmlctVX0KUB3brt_-pLVYI6FQRBGpLEUjkTcII7aZzGheNpIFKUZ6I0oV1KWhvXHJcLMsPKbNtvNNzh5Q9WmpldU8w12JqZqfhnPAHuZjSqcRhp1PMhDKadj7CBjWpMmJhaPA4spLCYn6Ak2GzQ5vp6LI6m6HEwFsg-hGOtB0CRNhYePhtEGefZVZz3iiTwtVFyDtlVNEwHncgnbpLMjh74Ltz2Ath0ZrKJ5OW-tL1wM2RRvfTVMosCX63s74UXiPLklN9E3ah7dOqnYR7mBydK6X852VzVI9bzvdewU0TF4OgVJjdJHvyrdxhzEKe98DInUM-MwCvRoig6w1NUw5skDN4X7RedmyC_EJ1iAwu8Ogl-yOOjYJGkRZi-K7jzu-yymdwrSQ6CnWFSJEfBtB8WvehdwbgXxt19h1ZnqnA9QwUmRqoVGjW1C0BLtStwjwh_jT2KM4rbLm-Uz4DMEaNowPBUSG0Y0ahgSyjRrdYNjL3fr8iRJT_AM4MFGj41rK5AGHSHmTAgsCCA7jkWwnK_uvOnz8kdS8651IC-SMMoI9gwKc5rYltzD4pKVdkugNsuhK6BuEpkJMoV2PjRAzw1oM05N1mvD6O5e6k9sSeLzN4b7NPY22x2bLvFdy8iRu32R5vRfpm45cvY-wl2lBc7wQX-RW7haA-HO3by6vs68LCvz-DoeIjP4M7bcPw2nBw2o-d7FagKs9LL1t72yrXXcgkUN9x4G9_DjZGjlSBetr2avKYuLdNFo3C1Azd_ARnH3qs=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
 <h4 id="business-architecture-328-pe-070-100_close_notification-pe-070-100_close_notification">BUSINESS ARCHITECTURE — 3.2.8 PE-070-100_Close_Notification — PE-070-100_Close_Notification</h4>
 <p><strong>Swim Lanes</strong>: Factory Supervisor | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 0</p>
 <blockquote>
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -885,6 +966,9 @@ flowchart TD
     class n3 startEvt
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVMuu2jAU_BUrVyibIOVJaBaVIBCpUltV5bZdlC6McwzWdezUdngU8e-1eV6o7qpZRPFkzsw5k9h7j8gavMLr9fZMMFOgvW9W0IBfIH-BNfgBOgHfsWJ4wUH7jkOlMDP250iL0nbraA6rcMP4zqEzWEpA3z4EaGQLeYA0FrqvQTHqB36rWIPVrpRcKsd-giEN6dHt_GosVQ3qRgjDPCKZLeVMwA1O8jRPK1engUhR34nSjA4p8Q-uOS43ZIWVObbfafiEtz9YbVZ2TTHXYDkr0_CPeAHczWhU5zDSqfUlDKadj7CBzVpMmFhaPA0tpLB4uUFZeDigQ683F1dT9DyZC2QvwrHWE6BIGwtP1wZRxnnxlJajKgsDbZR8geIpnuaTJA6Im6Swo4eBC7e_AbZcmWIheX2m9jduhiJut4HaFnEYqJ29P3iBqG9O5SAexsOr0ziPyqi8OFFK_8vJ5qqesX45e02TKq4mV68oG2Rl-K_eZcxJmo-ix5xArRmBV6JVVSXTW1TTQRaFb4uOq2QQlg-iS2xgg3c3wXdlehWssryK8jcFT36PXXaLL0qSi2AyzarsKpiPo2oUvymYjqJ0eO7Q6iwVbleowsRItUOzrnUBaKlOBHeJ6Ofco7iguO_yRjMwaGaw6TQyEn0FLfka6rn361VJbEu-Age7o9H0d8faBoRxdNt23RHDpLgvSGyBGwm0Rp-lYZQRfMeyP9XpQSSo339vuzovo9MyfhWRAy-_xh0cX_fBHZxcYS_wGlANZrVX7L3jQWQPqxoo7rjxDoGHOyNnO0G84rhhva6t7cedMGxzbE7g4S_EmZQK" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-329-pe-070-110_create_and_maintain_maintenance_order-pe-070-110_create_and_maintain_maintenance_order">BUSINESS ARCHITECTURE — 3.2.9 PE-070-110_Create_and_Maintain_Maintenance_Order — PE-070-110_Create_and_Maintain_Maintenance_Order</h4>
@@ -893,7 +977,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -930,13 +1014,15 @@ flowchart TD
     class n8 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVdtuo0gQ_ZUSUeQXLHE1LA8r2disstpsojiZrDTehzYUdiu4m-0GX8byv2-3wRc8ydPwgFSnqs6pKrqavZHyDI3IuL_fU0arCPa9aokr7EXQmxOJPRMa4BsRlMwLlD0dk3NWTemPY5jtlVsdprGErGix0-gUFxzh7cGEoUosTJCEyb5EQfOe2SsFXRGxi3nBhY6-wzC38qNa6xpxkaG4BFhWYKe-Si0owwvsBl7gJTpPYspZ1iHN_TzM095BF1fwTbokojqWX0t8JNt3mlVLZeekkKhiltWq-IvMsdA9VqLWWFqL9WkYVGodpgY2LUlK2ULhnqUgQdjHBfKtwwEO9_czdhaF1_GMgXrSgkg5xhxkpeDJuoKcFkV058XDxLdMWQn-gdGdMwnGrmOmupNItW6Zerj9DdLFsormvMja0P5G9xA55dYU28ixTLFT7xstZNlFKR44oROelUaBHdvxSSnP819SUnMVr0R-tFoTN3GS8VnL9gd-bP3Md2pz7AVD-3ZOKNY0xSvSJEncyWVUk4FvW1-TjhJ3YMU3pAtS4YbsLoS_xd6ZMPGDxA6-JGz0bqus58-CpydCd-In_pkwGNnJ0PmS0BvaXthWqHgWgpRLGPH6eJZhWJay8emHOd9nRk6inPT1qCEWqFqBdy4-4Envy8z49yo6UNG6LpQS_uYVzWlKKsrZOUqdjBvh5HUKDwn04fkRRqRKl_CmhK447W4FLzWDeCk4gz_5HCoOCWUZPJXI4P2pW437_Zya8gXEnK1RrcZ1YUCZoui0c83gdRlesCx04vUAFANMPcgFX8E_k7fpDYOvCB4yZEpyp_L_q6nADNTuCoRntZGyW_JAhb_gmuKmWyZRPX4jBc20uKZBqfaLC3gkqgNkhKXYZQr3-0vpGfbn6s5Qw8VtWtSSrvGP5kjOjMPh5tMwB_r939XgWzNoTKc1B43ptqbXmGFrho3pt6bb9dqN6V2dZg2etrgDO5_D7vWGdjzelx7_fPt14MHncPA5HJ622DCNFYoVoZkR7Y3jv0r9zzLMSV1UxsE0SF3x6Y6lRnS804261J9tTIk68asGPPwPB9o84A==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
 <h4 id="business-architecture-3210-pe-070-120_review_maintenance_plan-pe-070-120_review_maintenance_plan">BUSINESS ARCHITECTURE — 3.2.10 PE-070-120_Review_Maintenance_Plan — PE-070-120_Review_Maintenance_Plan</h4>
 <p><strong>Swim Lanes</strong>: FTS IF - Maintenance Planner | <strong>Tasks</strong>: 4 | <strong>Gateways</strong>: 0</p>
 <blockquote>
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -965,6 +1051,9 @@ flowchart TD
     class n6 startEvt
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVE2P2jAU_CtWViiXIOWT0BwqQcDSSrvqStD2UHowiZ1YGAfZzgJd8d9rkxA2FE6NBMob3sy8NyT-sLIqx1ZiDQYflFOVgA9blXiL7QTYaySx7YAG-IEERWuGpW16SMXVgv45t3nh7mDaDAbRlrKjQRe4qDD4_uyAiSYyB0jE5VBiQYnt2DtBt0gc04pVwnQ_4TFxydmt_WlaiRyLa4Prxl4WaSqjHF_hIA7jEBqexFnF854oiciYZPbJDMeqfVYioc7j1xK_osNPmqtS1wQxiXVPqbbsBa0xMzsqURssq8X7JQwqjQ_XgS12KKO80HjoakggvrlCkXs6gdNgsOKdKVjOVhzoK2NIyhkmQCoNz98VIJSx5ClMJzByHalEtcHJkz-PZ4HvZGaTRK_uOibc4R7TolTJumJ52zrcmx0Sf3dwxCHxXUcc9feNF-b51Skd-WN_3DlNYy_10osTIeS_nHSuYonkpvWaB9CHs87Li0ZR6v6rd1lzFsYT7zYnLN5phj-JQgiD-TWq-Sjy3MeiUxiM3PRGtEAK79HxKvglDTtBGMXQix8KNn63U9brN1FlF8FgHsGoE4ynHpz4DwXDiReO2wm1TiHQrgRwuQDPEAzBK6JcYY54hsEbQ5xj0bSai3u_VhZBCUFDkzxIBdab9TgLJTRUHFfW7088v8-bSEkLfpcHVAXO4b9QqfoiQV_kzNaf_sgo26AC94lhnzijcsf0v9FaUizBshRVXZSPnCMtcGdXk0-_cXRtRDy_P-I3c850NP2uNDd8BIbDrzritvSa0m_LoCnDtgybMmpLvymDT4-JUbi8Hj3Yvw8H9-HwPhx1B0oPHnWw5VhbLLaI5lbyYZ1PdH3q55igminr5FioVtXiyDMrOZ98Vr3LdWwzivQDuW3A018r9fot" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-3211-pe-070-130_create_maintenance_plan-pe-070-130_create_maintenance_plan">BUSINESS ARCHITECTURE — 3.2.11 PE-070-130_Create_Maintenance_Plan — PE-070-130_Create_Maintenance_Plan</h4>
@@ -973,7 +1062,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -986,7 +1075,7 @@ flowchart TD
         n2["fa:fa-user Change/Mass Change Maintenance Plan"]
         n3["fa:fa-user Set Deletion Flag"]
         n4["fa:fa-user Determine Maintenance Plan Type"]
-        n5["fa:fa-user Create Strategy-Based Maintenance Plan (Performance/Time ..."]
+        n5["fa:fa-user Create Strategy-Based Maintenance Plan (Performance/Time Based)"]
         n6["fa:fa-user Create Multiple Counter/Dimension-Based Maintenance Plan"]
         n7["fa:fa-user Schedule Maintenance Plan"]
         n8(["fa:fa-stop Maintenance Plan Deleted"])
@@ -1028,6 +1117,9 @@ flowchart TD
     class n14 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVl2PokgU_SsVOh1nEoh8is3DbmyUzSTTs53V3X1Y96GEi1a6LExR-LGO_32rFFAQM9msico93HPOvReo4qjFWQJaoD0_HwkjIkDHnljBGnoB6i1wDj0dXYA_MCd4QSHvqZw0Y2JK_jmnWe5mr9IUFuE1oQeFTmGZAfr9i45Gkkh1lGOWGzlwkvb03oaTNeaHMKMZV9lPMEzN9OxWnnrNeAL8mmCavhV7kkoJgyvs-K7vRoqXQ5yxpCGaeukwjXsnVRzNdvEKc3Euv8jhDe__JIlYyTjFNAeZsxJr-hUvgKoeBS8UFhd8Ww2D5MqHyYFNNzgmbClx15QQx-zjCnnm6YROz89zVpui2XjOkPzEFOf5GFKUCwlPtgKlhNLgyQ1HkWfqueDZBwRP9sQfO7Yeq04C2bqpq-EaOyDLlQgWGU3KVGOnegjszV7n-8A2dX6Qvy0vYMnVKRzYQ3tYO736VmiFlVOapv_LSc6Vz3D-UXpNnMiOxrWX5Q280LzXq9ocu_7Ias8J-JbEcCMaRZEzuY5qMvAs87Hoa-QMzLAlusQCdvhwFXwJ3Vow8vzI8h8KXvzaVRaLd57FlaAz8SKvFvRfrWhkPxR0R5Y7LCuUOkuONysUzaboS4QM9IYJE8AwiwG9U8wY8Euq-jDrr7mW4iDFhpo8CjnIztBU3ocUUHiI5W9bwAizQgK8_y2rj-fa3zeidkt0hdkS-m-y1fL4TrPJd5r8KQg0BgqCZAxFFC-b2W4zewyynrV8xO9M0OywgSbX625fcPm3PBivcv1K7nU-vQNPM75WSH9G1oDOiZ-b2oNO7beCCrJRwy2nOJZ8lsvWHrg1Rf3WaOIVJAX90UCHn2paLrLNfUfn8UIiWZ9vaC-SVZaNWVmZ_Dbov6pFtulmmQ943zJBUhJjdSFbFHUf_gZbArsftGLZx2PVi9p5jIVcO-NV45bt11ewfzfvn-fa6XSr53TrwT6mRU628MvlUW_T3P9Kk2vo5YB5yDB-Us5lPGjFVjt2LoBdxvYl9MvQLdOr01bJd6v4nP99rlVDmWvfZRHts-1BnbMGZZZfetSapanTil9asVWuc6xsYXhX081lOzveLt9qFNWG0IDtbtjpht1u2OuGB92w3w0Py72xAb7Um3OzGfMBbj3A7WqfacJON-xWsKZra7kEYpJowVE7v3vJ97MEUiwvsXbSNVyIbHpgsRac31G0YpNI5phguXWsL-DpX0JkHmI=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-3212-pe-070-150_define_requirements_for_each_operation_and_create_job_plan-pe-070-150_define_requirements_for_each_operation_and_create_job_plan">BUSINESS ARCHITECTURE — 3.2.12 PE-070-150_Define_Requirements_for_Each_Operation_and_Create_Job_Plan — PE-070-150_Define_Requirements_for_Each_Operation_and_Create_Job_Plan</h4>
@@ -1036,7 +1128,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1077,13 +1169,15 @@ flowchart TD
     class n10 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVWuP4jYU_StWRiNaKWjzJEw-VOKV1VSz6mjZ7X4o_WCS68EisVPbmYFF_PfaSQgTBqRKRQJxTs4995H45mClPAMrtu7vD5RRFaPDQG2ggEGMBmssYWCjhvgTC4rXOciB0RDO1JL-rGVuUO6MzHAJLmi-N-wSXjig7482mujA3EYSMzmUICgZ2INS0AKL_YznXBj1HYyJQ-ps7aUpFxmIs8BxIjcNdWhOGZxpPwqiIDFxElLOsp4pCcmYpIOjKS7nb-kGC1WXX0n4gnc_aKY2GhOcS9CajSryJ7yG3PSoRGW4tBKvp2FQafIwPbBliVPKXjQfOJoSmG3PVOgcj-h4f79iXVL0bb5iSH_SHEs5B4Kk0vTiVSFC8zy-C2aTJHRsqQTfQnznLaK579mp6STWrTu2Ge7wDejLRsVrnmetdPhmeoi9cmeLXew5ttjr34tcwLJzptnIG3vjLtM0cmfu7JSJEPK_Mum5im9YbttcCz_xknmXyw1H4cz56Hdqcx5EE_dyTiBeaQrvTJMk8RfnUS1GoevcNp0m_siZXZi-YAVveH82fJgFnWESRokb3TRs8l1WWa2fBU9Phv4iTMLOMJq6ycS7aRhM3GDcVqh9XgQuN2jKq_pZRpOylM0182HuXyuL4JjgoRk1esyAKUr26AumTAHDLAVkZiXRV_inogIyRLhAv_P1yvr7nY93w-dRuwiGc4RZhha7FnwFySuRgkS_JMvFr30r_z-UtNzqwZxLUhw9g9CFFR8rC27YPevz8rErRAQv0LKEtO8S9l0mWfbpe5np215PBz1Rqerw5xwzRBn6wcUW_WE2Tt9n1Pd5omyLlgpK2SQ-mz2Srra-Q6Qduia68vW2END01JePtXzGmaxyhRZaXBY6FCVUL95Pc6xwX_2g1fWc9Rd9BgZC362uqL7WdQ6HUzNm6Q_Xem2lGwS7NK8kfYXPzalYWcdjE6b3RvOHjdFw-Ju2aKHbQL-FfgO9FnoNDFoYtLHtmWGjBkcnL6fBYYsfLuRhg0fvTpwp4LRperR3nfav08F1OrxOj67TUbfJe_T4Ov1wndYzaFeSZVsFiALTzIoPVv3i1S_nDAjWD4R1tC1cKb7cs9SK6xeUVdVP9ZxivTeKhjz-CxiHfio=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
 <h4 id="business-architecture-3213-pe-070-160_identify_required_spare_parts-pe-070-160_identify_required_spare_parts">BUSINESS ARCHITECTURE — 3.2.13 PE-070-160_Identify_Required_Spare_Parts — PE-070-160_Identify_Required_Spare_Parts</h4>
 <p><strong>Swim Lanes</strong>: FTS IF - PM Maintenance Technician | <strong>Tasks</strong>: 2 | <strong>Gateways</strong>: 0</p>
 <blockquote>
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1106,6 +1200,9 @@ flowchart TD
     class n4 startEvt
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVE1v2zgU_CsPCgJfZECfkVeHAopsASk2aFBn20OzB5p6tAlTpJekkriG_3tJf8bp5lQdBL_xvBm-ochNQFWLQRlcX2-45LaEzcAusMNBCYMZMTgIYQ98I5qTmUAz8BympJ3ynztanK1ePc1jDem4WHt0inOF8M9dCJVrFCEYIs3QoOZsEA5WmndEr2sllPbsKxyxiO3cDn_dKt2iPhOiqIhp7loFl3iG0yIrssb3GaRKtheiLGcjRgdbvzihXuiCaLtbfm_wnrx-561duJoRYdBxFrYTf5MZCj-j1b3HaK-fj2Fw432kC2y6IpTLucOzyEGayOUZyqPtFrbX10_yZAqP4ycJ7qGCGDNGBsY6ePJsgXEhyqusrpo8Co3VaonlVTIpxmkSUj9J6UaPQh_u8AX5fGHLmRLtgTp88TOUyeo11K9lEoV67d7vvFC2Z6f6Jhklo5PTbRHXcX10Yoz9kZPLVT8Sszx4TdImacYnrzi_yevod73jmOOsqOL3OaF-5hTfiDZNk07OUU1u8jj6WPS2SW-i-p3onFh8Ieuz4F91dhJs8qKJiw8F937vV9nPHrSiR8F0kjf5SbC4jZsq-VAwq-JsdFih05lrslpA8ziFuwaG8HAP94RLi5JIivCIdCE55UTuG_wj4x9PASMlI0Ofv-PLngixhqptYWoVXcKdxc6AVfBd6SV88SfrKfj3jURyKfEVfe546K56qzpiOd2p7rWqZ8KFvw9ASZhyi5d6qdO7a1Faztw6jEELFf2v54ZbruQlN3NcF6I71s7XcbS7baQ1wJSGCaEL-LJCTXwfENlCrdFtH3xWM3gQ5KzlvvL9D5nBcPjJxXIo432ZHMpkX6ZvttBzjp_uBZz8P5yeju8FnJ3gIAw61B3hbVBugt396e7YFhnphQ22YUBcpNO1pEG5u2eCftW6ocacuO3v9uD2F8Djzmc=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
@@ -1165,6 +1262,7 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
@@ -1196,14 +1294,13 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="42-data-flow-diagrams">4.2 Data Flow Diagrams</h3>
 <blockquote>
 <p><strong>DATA ARCHITECTURE</strong> — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.</p>
 </blockquote>
-<div style="page-break-before: always;"></div>
-
 <h3 id="43-data-lineage">4.3 Data Lineage</h3>
 <p>Data lineage traces the origin and transformation path of key data objects across integrated systems.</p>
 <table>
@@ -1392,27 +1489,20 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</h2>
 <h3 id="51-current-state-current-state-application-landscape">5.1 Current-State — Current-State Application Landscape</h3>
 <h4 id="overview">Overview</h4>
 <p>The Current-State architecture represents the <strong>current / legacy</strong> landscape for PE-070.</p>
-<div style="page-break-before: always;"></div>
-
 <h4 id="current-state-flow-narrative">Current-State Flow Narrative</h4>
 <p><em>(No current-state flows defined.)</em></p>
-<div style="page-break-before: always;"></div>
-
 <h3 id="52-future-state-future-state-application-landscape">5.2 Future-State — Future-State Application Landscape</h3>
 <h4 id="overview_1">Overview</h4>
 <p>The Future-State architecture represents the <strong>target</strong> landscape for PE-070.</p>
-<div style="page-break-before: always;"></div>
-
 <h4 id="future-state-flow-narrative">Future-State Flow Narrative</h4>
 <p><em>(No future-state flows defined.)</em></p>
-<div style="page-break-before: always;"></div>
-
 <h3 id="53-change-impact-summary">5.3 Change Impact Summary</h3>
 <table>
 <thead>
@@ -1449,6 +1539,7 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
@@ -2188,6 +2279,7 @@ flowchart TD
 </tbody>
 </table>
 <p><strong>Summary</strong>: 2 Reports, 12 Interfaces, 11 Conversions, 53 Enhancements, 1 Forms, 1 Workflows</p>
+<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
@@ -2217,6 +2309,7 @@ flowchart TD
 <blockquote>
 <p><em>Integration pattern details will be refined when tower architects validate middleware assignments.</em></p>
 </blockquote>
+<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
@@ -2263,51 +2356,267 @@ flowchart TD
 <blockquote>
 <p><em>Platform assignments will be validated when tower architects populate technology platform columns.</em></p>
 </blockquote>
+<div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="62-sap-development-object-status">6.2 SAP Development Object Status</h3>
+<p><strong>Capability RICEFW Status</strong> (80 objects)
+<em>Data source: Smartsheet Object Tracker (cached 2026-03-26)</em></p>
 <table>
 <thead>
 <tr>
-<th>Metric</th>
-<th>DEV</th>
-<th>QAS</th>
-<th>PRD</th>
+<th>Status</th>
+<th style="text-align: right;">Count</th>
+<th style="text-align: right;">%</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Transport Requests</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>10. Object Complete</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">76.2%</td>
 </tr>
 <tr>
-<td>Custom Code Objects</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>02. FS Unplanned</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">17.5%</td>
 </tr>
 <tr>
-<td>CDS Views</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>04. FS In Progress</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3.8%</td>
 </tr>
 <tr>
-<td>Fiori Apps</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>03. FS Not Started</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.2%</td>
 </tr>
 <tr>
-<td>BAdIs / Enhancements</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>06. Dev Not Started</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.2%</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>80</strong></td>
+<td style="text-align: right;"><strong>100%</strong></td>
 </tr>
 </tbody>
 </table>
+<p><strong>RICEFW by Type:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Report (R)</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>Interface (I)</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr>
+<td>Conversion (C)</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr>
+<td>Enhancement (E)</td>
+<td style="text-align: right;">53</td>
+</tr>
+<tr>
+<td>Form (F)</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>Workflow (W)</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>80</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Technical Complexity:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Complexity</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01.Very High</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr>
+<td>02.High</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr>
+<td>03.Medium</td>
+<td style="text-align: right;">40</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td style="text-align: right;">9</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Active (Non-Complete) Objects:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Type</th>
+<th>Description</th>
+<th>Status</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FTSW1372</td>
+<td>06.Workflow</td>
+<td>Factory Portal - Equipment to Parts Management (Custom Fields – Part Check out &amp;&hellip;</td>
+<td>03. FS Not Started</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI1538</td>
+<td>02.Interface</td>
+<td>CMMS – get location info from CMMS</td>
+<td>02. FS Unplanned</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI1537</td>
+<td>02.Interface</td>
+<td>CMMS – Get Collateral Details</td>
+<td>02. FS Unplanned</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI1536</td>
+<td>02.Interface</td>
+<td>CMMS – Collateral Conversion</td>
+<td>02. FS Unplanned</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI1371</td>
+<td>02.Interface</td>
+<td>CMMS – Equipment create and update (status and collateral name)</td>
+<td>04. FS In Progress</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI1370</td>
+<td>02.Interface</td>
+<td>Factory Portal - Equipment to Parts Management (Custom Fields – Part Check out &amp;&hellip;</td>
+<td>04. FS In Progress</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI1355</td>
+<td>02.Interface</td>
+<td>CMMS – Equipment with MMS flag (S4 to CMMS)</td>
+<td>06. Dev Not Started</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1549</td>
+<td>04.Enhancement</td>
+<td>Custom Attributes for AMT/ISM</td>
+<td>02. FS Unplanned</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1548</td>
+<td>04.Enhancement</td>
+<td>Automation for Product Conversions – Equipment Structure update</td>
+<td>02. FS Unplanned</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1547</td>
+<td>04.Enhancement</td>
+<td>Automation for Product Conversions – Work Order Closure</td>
+<td>02. FS Unplanned</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1546</td>
+<td>04.Enhancement</td>
+<td>Automation for Product Conversions – Parts Request and Return</td>
+<td>02. FS Unplanned</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1545</td>
+<td>04.Enhancement</td>
+<td>Automation for Product Conversions – Explode BOM</td>
+<td>02. FS Unplanned</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1544</td>
+<td>04.Enhancement</td>
+<td>Automation for Product Conversions – create Work Order</td>
+<td>02. FS Unplanned</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1543</td>
+<td>04.Enhancement</td>
+<td>PM inbound from AMT</td>
+<td>02. FS Unplanned</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1542</td>
+<td>04.Enhancement</td>
+<td>PM outbound to AMT</td>
+<td>02. FS Unplanned</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1541</td>
+<td>04.Enhancement</td>
+<td>Send SAP notification on Work Order update</td>
+<td>02. FS Unplanned</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1540</td>
+<td>04.Enhancement</td>
+<td>Send SAP notification on Equipment update</td>
+<td>02. FS Unplanned</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1539</td>
+<td>04.Enhancement</td>
+<td>Custom Fiori UI – Move Equipment SRoom to SRoom (screen)</td>
+<td>02. FS Unplanned</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1369</td>
+<td>04.Enhancement</td>
+<td>Factory Portal - Equipment to Parts Management (Custom Fields – Part Check out &amp;&hellip;</td>
+<td>04. FS In Progress</td>
+<td>01.Very High</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tower Context:</strong> FTS-IF has 265 total RICEFW objects (209 complete, 56 active/other)</p>
 <h3 id="63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</h3>
 <table>
 <thead>
@@ -2436,335 +2745,664 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="7-project-context">7. Project Context</h2>
 <h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
+<p><em>62 objects with timeline data (source: Object Tracker)</em></p>
 <table>
 <thead>
 <tr>
-<th>Object ID</th>
+<th>ID</th>
 <th>Description</th>
-<th>FS End</th>
-<th>FS %</th>
-<th>TDD End</th>
-<th>TDD %</th>
-<th>Build End</th>
-<th>Build %</th>
-<th>FUT End</th>
-<th>FUT %</th>
+<th>FS</th>
+<th>TDD</th>
+<th>Build</th>
+<th>FUT</th>
 <th>Status</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>FTSW1372</td>
-<td>Factory Portal - Equipment to Parts M&hellip;</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>5. Not Dispositioned</td>
-</tr>
-<tr>
 <td>FTSR1364</td>
-<td>Factory Portal - Warranty Claim (Warr&hellip;</td>
-<td>2025-08-13</td>
-<td>1.0</td>
-<td>2025-12-03</td>
-<td>1.0</td>
-<td>2025-12-03</td>
-<td>1.0</td>
-<td>2026-01-07</td>
-<td>1.0</td>
+<td>Factory Portal - Warranty Claim (Warranty Dashboard​​)</td>
+<td>Aug-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>Jan-26 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
 <td>FTSR1011</td>
-<td>Report- Custom Fiori report to show f&hellip;</td>
-<td>2025-03-21</td>
-<td>1.0</td>
-<td>2025-05-30</td>
-<td>1.0</td>
-<td>2025-05-30</td>
-<td>1.0</td>
-<td>2025-08-13</td>
-<td>1.0</td>
+<td>Report- Custom Fiori report to show full parts tracking status dashboard (workbench reporting)</td>
+<td>Mar-25 (100%)</td>
+<td>May-25 (100%)</td>
+<td>May-25 (100%)</td>
+<td>Aug-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>FTSM0986</td>
-<td>Convert Equipment Warranty informatio&hellip;</td>
-<td>2025-06-11</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-07-16</td>
-<td>1.0</td>
+<td>Convert Equipment Warranty information to SAP S/4 Equipment Master – reusable mass upload</td>
+<td>Jun-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>Jul-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>FTSM019</td>
 <td>Conversion of Inflight Work Orders</td>
-<td>2025-06-06</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-06-27</td>
-<td>1.0</td>
+<td>Jun-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>Jun-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>FTSM018</td>
 <td>Conversion of General Task List</td>
-<td>2025-01-17</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-06-06</td>
-<td>1.0</td>
+<td>Jan-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>Jun-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>FTSM017_IF</td>
-<td>Manual Conversion of Functional Locat&hellip;</td>
-<td>2025-04-18</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-05-09</td>
-<td>1.0</td>
+<td>Manual Conversion of Functional Locations (FLOC)</td>
+<td>Apr-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>May-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>FTSM016</td>
 <td>Equipment Master</td>
-<td>2025-05-20</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-05-30</td>
-<td>1.0</td>
+<td>May-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>May-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>FTSM011</td>
 <td>Catalogs</td>
-<td>2025-02-07</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-04-18</td>
-<td>1.0</td>
+<td>Feb-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>Apr-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>FTSM010</td>
 <td>Maintenance Plans</td>
-<td>2025-01-24</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-06-11</td>
-<td>1.0</td>
+<td>Jan-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>Jun-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>FTSM009</td>
 <td>Maintenance Items</td>
-<td>2025-01-24</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-06-11</td>
-<td>1.0</td>
+<td>Jan-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>Jun-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>FTSM008</td>
 <td>Equipment Class</td>
-<td>2025-01-10</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-04-18</td>
-<td>1.0</td>
+<td>Jan-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>Apr-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>FTSM007</td>
 <td>Characteristics</td>
-<td>2025-01-10</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-04-18</td>
-<td>1.0</td>
+<td>Jan-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>Apr-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>FTSM002_IF</td>
 <td>Work Center</td>
-<td>2025-01-10</td>
-<td>1.0</td>
+<td>Jan-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>May-25 (100%)</td>
 <td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-05-02</td>
-<td>1.0</td>
-<td></td>
-</tr>
-<tr>
-<td>FTSI1538</td>
-<td>CMMS – get location info from CMMS</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>5. Not Dispositioned</td>
-</tr>
-<tr>
-<td>FTSI1537</td>
-<td>CMMS – Get Collateral Details</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>5. Not Dispositioned</td>
-</tr>
-<tr>
-<td>FTSI1536</td>
-<td>CMMS – Collateral Conversion</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>5. Not Dispositioned</td>
 </tr>
 <tr>
 <td>FTSI1527</td>
 <td>Interface to get Cu flag from XEUS</td>
-<td>2025-08-13</td>
-<td>1.0</td>
-<td>2025-10-03</td>
-<td>1.0</td>
-<td>2025-10-03</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
+<td>Aug-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
-<td>FTSI1371</td>
-<td>CMMS – Equipment create and update (s&hellip;</td>
-<td></td>
-<td>0.66</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
+<td>FTSI1355</td>
+<td>CMMS – Equipment with MMS flag (S4 to CMMS)</td>
+<td>Jun-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
 <td>5. Not Dispositioned</td>
 </tr>
 <tr>
-<td>FTSI1370</td>
-<td>Factory Portal - Equipment to Parts M&hellip;</td>
-<td></td>
-<td>0.66</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
+<td>FTSI1008</td>
+<td>Interface S/4 with EMS</td>
+<td>Mar-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Jul-25 (100%)</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>FTSI1007</td>
+<td>Interface S/4 with XEUS</td>
+<td>Apr-25 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Oct-25 (100%)</td>
 <td>5. Not Dispositioned</td>
 </tr>
 <tr>
-<td><em>&hellip; and 60 more objects (see full Object Tracker)</em></td>
+<td>FTSI0985</td>
+<td>Claim Status Update from e2open to SAP S4 (Inbound Interface)</td>
+<td>Feb-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Jul-25 (100%)</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>FTSI0983</td>
+<td>SAP Warranty Claim Document to e2open (Outbound Interface)</td>
+<td>Feb-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Oct-25 (100%)</td>
 <td></td>
+</tr>
+<tr>
+<td>FTSI0924</td>
+<td>Interface: SAP ME to S/4 to Create &amp; Maintain Notifications</td>
+<td>Feb-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>FTSF1361</td>
+<td>Factory Portal - Returns Order Flow (Form-Based (CRD) Return Order​)</td>
+<td>Jun-25 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Oct-25 (100%)</td>
 <td></td>
+</tr>
+<tr>
+<td>FTSE1579</td>
+<td>Custom tables to store Board Failure Form details</td>
+<td>Aug-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>FTSE1528</td>
+<td>Warranty claim for non E2O supplier</td>
+<td>Aug-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>FTSE1451</td>
+<td>Enhancement required for triggering Interface between S4 and SAP ME from the save user exit of a work order with conditions to check the Order Type and Release Status</td>
+<td>Jun-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Oct-25 (100%)</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+</tr>
+<tr>
+<td>FTSE1413</td>
+<td>Reusable Mass Upload Program for Equipment Master Warranty</td>
+<td>Jul-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>FTSE1385</td>
+<td>Factory Portal - Preventative Maintenance (AT) (Schedule Maintenance Plan)</td>
+<td>Jul-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>Mar-26 (100%)</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>FTSE1383</td>
+<td>Factory Portal - Preventative Maintenance (AT) (Set Maintenance Counte)</td>
+<td>Jul-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>FTSE1382</td>
+<td>Factory Portal - Preventative Maintenance (AT) (Set Maintenance Cycle​)</td>
+<td>Jul-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>FTSE1381</td>
+<td>Factory Portal - Preventative Maintenance (AT) (Create Maintenance Plan)</td>
+<td>Aug-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>FTSE1379</td>
+<td>Factory Portal - Part list (Part list creation / modify (IA05​)</td>
+<td>Aug-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>1. On Track</td>
 </tr>
 </tbody>
 </table>
-<div style="page-break-before: always;"></div>
-
+<p><em>&hellip; and 32 more objects (see full Object Tracker)</em></p>
 <h3 id="72-raid-log">7.2 RAID Log</h3>
+<p><em>Live data from Smartsheet Master RAID Log — extracted 2026-03-26</em></p>
+<p><strong>Mapped sub-tower(s):</strong> 7.9 FTS IF - Plant Maintenance</p>
+<p><strong>RAID Summary:</strong> 102 open items (2 capability-specific, 100 tower-level), 439 closed</p>
 <table>
 <thead>
 <tr>
-<th>#</th>
-<th>Object ID</th>
-<th>Category</th>
-<th>RAID Description</th>
-<th>Status</th>
-<th>Assigned To</th>
-<th>Created</th>
+<th>Severity</th>
+<th style="text-align: right;">Capability</th>
+<th style="text-align: right;">Tower-Wide</th>
+<th style="text-align: right;">Total Open</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
-<td>FTSI1007</td>
-<td>PM</td>
-<td>01584</td>
-<td>10. Object Complete</td>
-<td>Sateesh Kumar</td>
-<td>07/09/25</td>
+<td>P1 - High</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">6</td>
 </tr>
 <tr>
-<td>2</td>
-<td>FTSI0924</td>
-<td>PM</td>
-<td>01584</td>
-<td>10. Object Complete</td>
-<td>Sateesh Kumar</td>
-<td>07/09/25</td>
+<td>P2 - Medium</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">79</td>
+<td style="text-align: right;">81</td>
+</tr>
+<tr>
+<td>P3 - Low</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>2</strong></td>
+<td style="text-align: right;"><strong>100</strong></td>
+<td style="text-align: right;"><strong>102</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Capability-Specific RAID Items:</strong></p>
+<table>
+<thead>
+<tr>
+<th>RAID ID</th>
+<th>Type</th>
+<th>Severity</th>
+<th>Title</th>
+<th>Status</th>
+<th>Assigned To</th>
+<th>Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>02088</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Equipment Master Conversion help needed</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-03-31</td>
+</tr>
+<tr>
+<td>03539</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>TPTD coming back into scope for SAP PM poses risk for R3</td>
+<td>Roadblock / At Risk</td>
+<td>FTS IF</td>
+<td>2026-03-27</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Other FTS-IF Tower RAID Items</strong> (100 open):</p>
+<table>
+<thead>
+<tr>
+<th>RAID ID</th>
+<th>Type</th>
+<th>Severity</th>
+<th>Title</th>
+<th>Status</th>
+<th>Assigned To</th>
+<th>Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>03578</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>HBI Process Flow Change impact Assessment</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03591</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>R3 E2E scenario execution</td>
+<td>In Progress</td>
+<td>Test Management</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>03600</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>Error lifecycle functionality within PDF application is miss&hellip;</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-05-01</td>
+</tr>
+<tr>
+<td>03601</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>Traceability functionality within PDF application is missing&hellip;</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-05-15</td>
+</tr>
+<tr>
+<td>03757</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>IF Planning data not available in ITC1 until W4, leaving too&hellip;</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>03762</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>FTS-IF (esp SCP) related test cases/sequencing are not accur&hellip;</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>01355</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>PDF SMHe product development approach does not appear to hav&hellip;</td>
+<td>To Be Reviewed</td>
+<td>FTS IF</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>01658</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Under Intel Review</td>
+<td>In Progress</td>
+<td></td>
+<td>2025-07-18</td>
+</tr>
+<tr>
+<td>01709</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>No PAY1 or ENG1 storage locations defined or configured for &hellip;</td>
+<td>Not Started</td>
+<td></td>
+<td>2025-08-08</td>
+</tr>
+<tr>
+<td>01733</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Tariffs impacts Item/BOM design which is impacting ERP/SCP (&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-06</td>
+</tr>
+<tr>
+<td>01769</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Approach and duration for PDF SMH application refreshes to s&hellip;</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-04-01</td>
+</tr>
+<tr>
+<td>01857</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>TF Signavio Flows Update Request</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-01-30</td>
+</tr>
+<tr>
+<td>03079</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Request for PDH Design WTF</td>
+<td>In Progress</td>
+<td>FTS IP</td>
+<td>2026-03-04</td>
+</tr>
+<tr>
+<td>03128</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Application Health Monitoring</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-05-13</td>
+</tr>
+<tr>
+<td>03157</td>
+<td></td>
+<td>P2 - Medium</td>
+<td>Split Logic to Segregate IF &amp; IP data from EWM tables</td>
+<td>Not Started</td>
+<td></td>
+<td>2025-12-04</td>
+</tr>
+<tr>
+<td>03205</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Provide an update WW50 on the production rollout plan for th&hellip;</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-03-06</td>
+</tr>
+<tr>
+<td>03231</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Need LE Sample Data (Shipping Point &amp; Delivery Route) for va&hellip;</td>
+<td>Not Started</td>
+<td>FTS IF</td>
+<td>2026-02-10</td>
+</tr>
+<tr>
+<td>03241</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Materials Planning Policy for Constrained Materials</td>
+<td>In Progress</td>
+<td>FTS IP</td>
+<td>2026-07-31</td>
+</tr>
+<tr>
+<td>03292</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>SCP IF BY ESP Solves during ITC1</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-01-09</td>
+</tr>
+<tr>
+<td>03294</td>
+<td></td>
+<td>P2 - Medium</td>
+<td>Factory portal application is not ready from FTS and this is&hellip;</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-02-27</td>
+</tr>
+<tr>
+<td>03308</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Missing information for Anafi material master</td>
+<td>Not Started</td>
+<td>FTS IF</td>
+<td></td>
+</tr>
+<tr>
+<td>03314</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Executive lock cause performance issues in IF Dev</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-04-17</td>
+</tr>
+<tr>
+<td>03331</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Clarity on finalized SAP S/4 Plant and storage location mapp&hellip;</td>
+<td>In Progress</td>
+<td>Master Data</td>
+<td>2026-02-20</td>
+</tr>
+<tr>
+<td>03334</td>
+<td>Issue</td>
+<td>P2 - Medium</td>
+<td>Application Monitoring - Connectors Health Monitoring</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-05-15</td>
+</tr>
+<tr>
+<td>03368</td>
+<td>Issue</td>
+<td>P2 - Medium</td>
+<td>Infrastructure resources support PDF SMH ability to provide &hellip;</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03398</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Kafka Admin Password for both IF and IP</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>02987</td>
+<td></td>
+<td>P2 - Medium</td>
+<td>LOGF1525 - Consolidated Commercial Invoice for WIP Awaiting &hellip;</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2025-11-06</td>
+</tr>
+<tr>
+<td>03703</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>For FUT: Factory Automation Apps waiting on Heartbeat Loader&hellip;</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-03-24</td>
+</tr>
+<tr>
+<td>03704</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>ASN Data from CIBR via e2Open needs to incorporate new attri&hellip;</td>
+<td>In Progress</td>
+<td>Data Foundation Program (</td>
+<td>2026-03-10</td>
+</tr>
+<tr>
+<td>03713</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Lack of TRDI data impacting delivery of ECA report by ITC2</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><em>&hellip; and 70 more tower-level items</em></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>

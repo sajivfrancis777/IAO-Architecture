@@ -104,8 +104,9 @@ blockquote {
     border-radius: 6px;
     padding: 20px 12px;
     margin: 16px 0;
-    overflow-x: auto;
+    overflow: visible;
     text-align: center;
+    page-break-inside: avoid;
 }
 .mermaid svg {
     max-width: 100%;
@@ -144,6 +145,14 @@ strong { color: #00285a; }
     body { padding: 0; max-width: none; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print { display: none; }
+    .mermaid {
+        page-break-inside: avoid;
+        overflow: visible;
+    }
+    .mermaid svg {
+        max-width: 100%;
+        height: auto;
+    }
 }
 </style>
     
@@ -173,32 +182,82 @@ strong { color: #00285a; }
     }
   });
 </script>
+<script>
+  // Open rendered Mermaid diagram as full-size SVG in a new browser tab.
+  // Works on SharePoint, GitHub Pages, localhost — no file system dependency.
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[title="Open full-size SVG"]');
+    if (!link) return;
+    // Walk backwards from the link div to find the preceding .mermaid container
+    var container = link.closest('div');
+    var prev = container;
+    while (prev && prev.previousElementSibling) {
+      prev = prev.previousElementSibling;
+      if (prev.classList && prev.classList.contains('mermaid')) break;
+    }
+    if (!prev || !prev.classList.contains('mermaid')) return;
+    var svgEl = prev.querySelector('svg');
+    if (!svgEl) return;
+    e.preventDefault();
+    // Clone SVG with full dimensions for standalone viewing
+    var clone = svgEl.cloneNode(true);
+    clone.removeAttribute('style');
+    clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    var svgXml = new XMLSerializer().serializeToString(clone);
+    var blob = new Blob([svgXml], {type: 'image/svg+xml'});
+    window.open(URL.createObjectURL(blob), '_blank');
+  });
+</script>
 
 </head>
 <body>
-<div style="text-align:center; padding-top:80px;">
-  <h1 style="font-size:36px;">E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</h1>
+<div style="text-align:center; padding-top:20px;">
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <h1 style="font-size:36px; margin-top:24px;">E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
   Capability E2E-74 · Forecast to Stock</p>
   <p style="font-size:14px; color:#888;">IAO Program · Release 2<br/>
-  Generated: March 2026</p>
+  Generated: March 2026<br/>
+  Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
   @page { margin: 0.75in; }
-  footer::after { content: "Intel Confidential — E2E-74 BDAT — March 2026"; font-size:9px; color:#999; }
-  .mermaid { page-break-inside: avoid; max-height: 95vh; overflow: visible; }
+  .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
-.mermaid svg { max-width: 100% !important; height: auto !important; }
+.mermaid { overflow: visible; }
+.mermaid svg { max-width: 100%; height: auto !important; }
+.page-footer {
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 20px;
+  background: #fff;
+}
+@media print {
+  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 </style>
 
+<div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
+<p><a id="toc"></a></p>
 <h2 id="table-of-contents">Table of Contents</h2>
 <ol>
 <li><a href="#1-executive-summary">Executive Summary</a></li>
@@ -234,6 +293,7 @@ strong { color: #00285a; }
    - 7.2 <a href="#72-raid-log">RAID Log</a>
    - 7.3 <a href="#73-recommendations--next-steps">Recommendations &amp; Next Steps</a></li>
 </ol>
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="1-executive-summary">1. Executive Summary</h2>
@@ -251,6 +311,7 @@ strong { color: #00285a; }
 <blockquote>
 <p>All system nodes in architecture diagrams are <strong>IAPM-linked</strong> — click any node to open its IAPM page. Diagrams require <code>securityLevel: 'loose'</code> for click events.</p>
 </blockquote>
+<div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="2-business-context-objectives">2. Business Context &amp; Objectives</h2>
@@ -319,6 +380,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="23-success-criteria">2.3 Success Criteria</h3>
@@ -382,6 +444,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</h2>
@@ -578,6 +641,7 @@ strong { color: #00285a; }
 </tbody>
 </table>
 <h3 id="32-business-process-diagrams">3.2 Business Process Diagrams</h3>
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-321-e2e-74a_r3_internal_manufacturing_of_die_bank_and_moving_to_le_500-e2e-74a_r3_internal_manufacturing_of_die_bank_and_moving_to_le_500">BUSINESS ARCHITECTURE — 3.2.1 E2E-74A_R3_Internal_Manufacturing_of_Die_Bank_and_moving_to_LE_500 — E2E-74A_R3_Internal_Manufacturing_of_Die_Bank_and_moving_to_LE_500</h4>
@@ -586,7 +650,7 @@ strong { color: #00285a; }
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -624,7 +688,7 @@ flowchart LR
         n22[["fa:fa-cog Manage Back Orders"]]
         n23[["fa:fa-cog Review Order Confirmation"]]
         n25(["fa:fa-play Manual Override Initiated"])
-        n26["E2E-74B R3 Internal Manufacturing Process of Wafer Produc..."]
+        n26["E2E-74B R3 Internal Manufacturing Process of Wafer Production"]
         n27{{"fa:fa-code-branch GTS Compliance Check ?"}}
         n28{{"fa:fa-code-branch Check Confirmation Status ?"}}
         n29{{"fa:fa-code-branch Partially Confirmed/ Unconfirmed ?"}}
@@ -746,6 +810,9 @@ flowchart LR
     class n45 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqtWNtu2zgQ_RXCReAuYCMmJVmyH3bhm9oATWvEaYui6QMjUTZRWfJSUi6b-t93aJGyTUsB1l0_BNFwzpmZw-FFemkFachaw9bFxQtPeD5EL-18xdasPUTte5qxdgeVhi9UcHofs6wtfaI0yRf8n50btjdP0k3afLrm8bO0LtgyZejzVQeNABh3UEaTrJsxwaN2p70RfE3F8ySNUyG93zAv6kW7aGponIqQib1Dr-fiwAFozBO2N1uu7dq-xGUsSJPwiDRyIi8K2luZXJw-Bisq8l36Rcau6dNXHuYreI5onDHwWeXr-AO9Z7GsMReFtAWFeNBi8EzGSUCwxYYGPFmC3e6BSdDk597k9LZbtL24uEuqoOjDzV2C4BfENMumLEJZDubZQ44iHsfDN_Zk5Du9TpaL9CcbviEzd2qRTiArGULpvY4Ut_vI-HKVD-_TOFSu3UdZw5BsnjriaUh6HfEMf41YLAn3kSZ94hGvijR28QRPdKQoin4rEugqbmn2U8WaWT7xp1Us7PSdSe-UT5c5td0RNnVi4oEH7IDU931rtpdq1ndwr5l07Fv93sQgXdKcPdLnPeFgYleEvuP62G0kLOOZWRb3c5EGmtCaOb5TEbpj7I9II6E9wranMgSepaCbFRqnxa6X0WizydCVj8px-UsG37_ftSI6jGg3SJdokaeCoXHB4xBdJRClCHKeJtld68ePAxTuHcOu6aYGhPIULSiscvRJLj_0ARYb4gmaTUYmHz7mmzMRpWKtcKDGmmewHgyUbb28aBQVIn3MujTOIUIQFxl_YO_KmblrbbclCnr3dWnmh-zHKd2wgAEnmhRZnq4hKx-UCmiWoynNKYJ00aLYbOJnNI9pkpxm6xhKQzKXmnRHkaeXEVSKFpe2Ae3Xp_J5E0KFGXrgFM2n7w0Qsd9WqE0MDdqQuWILAf7HYfn4t8VdjOayGOiJnMUQFaQGpQ-nHRKc0DgoYiBDt_SJyUY7rEE6CCZHKXoP-8fxsFUVKPeKqmuuaVLQGNoG1jr69MCE4CE7RmJyLGkpZV0PQ7-OxjeQHBxXZtdaxyQq08OWfzvlwAo7-h8m1n6t47_QmENCkIAJM7poCkcgdML1Nbqaol33TOYfTUy_PhSkG_IcTVYs-LnrIX8xuTax7jH2VvDlEhJ8d7sogaa_Vx9L-t8KGsL6SdebmNMkOFFzUDslctPoXuVsjW7ZU272uLEP7ZtJTv7pGiT49ZWUJmhyO6-tjBBzy0voUs4tiLebNHOPJJYZ64GzRzXBkzSJuFjXTTFxjHWr2lk3MrQnzzmka65Y0gfcjMy6rj1GN9Zu2YkEkJIgokFeCFBE7qYBy6DWCH2lUbm9hmW3G4vP3e8A8mLXvYerSbAq576aRdU_f-03ghLs1YNL78Py4cyheZGdMgzqGeZw14E7IGy0ioWFl-hzEuiHEyKr91oqik5WtIbVMIrhmgUk9wf75QkhridkT017Ywkj58Gs82BO7f69oQK0Y3EDqH8OyD0H5J0DGpwBsnvngOz_ePqVKOd_PjPV0jwI4dYeOfNCwKtBxvSpEzacOt7r6Bv2dwEXrZpNybLPEZGcKwdcXlC3-ydQqGe3fLT0s6XGB8YzJsqAiUL0tcFSBkdD-gpiaYOjPLQBa1INwRriaoPKi2iDpaJgnaitOPTbDfyjPLSDikq0AXuqdE2BlQfWpdiqNh1UA4hRyN6g0_TM2qussKpdc5Id5Nddaw5vJfKo-SUzMwd9ymM1WAmvYlcyD4xyiM5Ox7aVItU8qEc9t1iN29qBGPNka9G1hJapCNGcnhETV0EGRlTiqRqrU2ZXplXFUIWSKu2eAnyTt9gjV5UwIabrx7T0JGbQj2mOjgOTKrGB8jk48wyWQTV3J0dl6VlNOzFnSylHqmVzMp967g9uPrBbyVueOs5Zkss3v_G37qf5Llw1cUpjTaXXeLUUVCwd2zHGVdN6B-_Lslv0d4Ijs334sn804jSO9BtH3MYRr3Fk0DgCDd04hJuHSPOQ1TzULARuVgI3S4GbtcDNYuBmNUizGqRZDdKsBmlWA44V_a3s2O402PsNdld_9jk2e_XmQa0ZdoFaM643k3qzVW-2681Ovblfb66v0qqv0qqv0q6v0q6v0q6v0q6v0q6v0q6qbHVacIFfUx62hi-t3adn-DwdsogWcd7adlq0yNPFcxK0hrtPtK1i9yI45RRuY-vSuP0XyYIPmA==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-322-e2e-74b_r3_internal_manufacturing_of_die_bank_and_moving_to_le_500_die_bank_purchase_order_sales_ord-e2e-74b_r3_internal_manufacturing_of_die_bank_and_moving_to_le_500_die_bank_purchase_order_sales_ord">BUSINESS ARCHITECTURE — 3.2.2 E2E-74B_R3_Internal_Manufacturing_of_Die_Bank_and_moving_to_LE_500_Die_Bank_Purchase_Order_Sales_Ord — E2E-74B_R3_Internal_Manufacturing_of_Die_Bank_and_moving_to_LE_500_Die_Bank_Purchase_Order_Sales_Ord</h4>
@@ -754,7 +821,7 @@ flowchart LR
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -846,6 +913,9 @@ flowchart LR
     class n25 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlV11vqzgQ_SsWV1VaKVExH4HwsFJCoFupq0blfjzc7IMLJrFKgDWmbTY3_30NsQmhsLp7tw-VPDPnzPh4xjgHJcwirDjK1dWBpIQ54DBiW7zDIweMnlGBR2NwMnxFlKDnBBejKibOUhaQv-swaOTvVVhl89GOJPvKGuBNhsGX-zGYc2AyBgVKi0mBKYlH41FOyQ7RvZslGa2iP2E7VuM6m3AtMhpheg5QVQuGJocmJMVns24ZluFXuAKHWRpdkMZmbMfh6FgVl2Rv4RZRVpdfFvgP9P6NRGzL1zFKCsxjtmyXPKBnnFR7ZLSsbGFJX6UYpKjypFywIEchSTfcbqjcRFH6cjaZ6vEIjldX67RJCh6e1ingf2GCimKJY1AwbvZeGYhJkjifDHfum-q4YDR7wc4nzbOWujYOq504fOvquBJ38obJZsuc5yyJROjkrdqDo-XvY_ruaOqY7vn_Ti6cRudM7lSzNbvJtLCgC12ZKY7j_5WJ60o_o-JF5PJ0X_OXTS5oTk1X_cgnt7k0rDns6oTpKwlxi9T3fd07S-VNTagOky58faq6HdINYvgN7c-EM9doCH3T8qE1SHjK162yfF7RLJSEumf6ZkNoLaA_1wYJjTk0bFEh59lQlG_BIivrXgbzPC_AvQ9O_uovhd_XyhMOMXnFIAi3OCr5SGzAEjG0Vv5sBWrfeWSMnBhNwmwDJMbN0pjQHY5AgPg8g8dq0CS8jdcv8T7mkH4wy8AqQWla1fGVIOC58w6Xccm1wjTO6K5dvx-4j-BapxFY8dHYg5sOg9m_my95xE-zAK887Wr5ewcE7esGVbAs7womaSKOu2lLpx0OEocozd6KCUoYyBFFSYKTu1MDrZXjsQ3S_xuIz2Xn2O9ThhPgV4fPz_7Bs2wbuFuSovb5zzpScuHFMXBJwaLc5bdBRtktWBIMFvxq6mqiXhK4FPPK6tyUn-8uR-keBJ-fwHXg3wEV3jjgG4ox7dLAn6J5bGi6eK0X326ra7mDD1i9v52ecI4ZYfVkMMwnp0wZSQSbaF3ESJZ2-WadNrlAfOwOlUd7mjexDBc86bXmoOCagyzHtE4AEL_0PWBZdmcmzd4eIWmYlAWv-yea5MEzVRXcU8wPPmpvwugVtB5MPq_nFuk9TbP_NF3RCXeTnhOcDmMeBzAa_BXpPooQzFcguDU-TAxUYStbf4GrkvKvcoF5u_xVkoLUSSthBgbG-neWs7ADeLuDb67Qou71-qHTldY6N2Se8E9VeywG29L4xfsn1cFk8lt1gYn19LS2xNI6LaEm1lAVBqE1vy6FwegYZhIhA2QGKFJCGWGItfSLpS3XpjBMhWEmSlZlgCDQGgZRdcMgKU1Zo6RsKOpt_1grAVem-UIsUMgP9EcVL-IETpNyaGIv0m8Lf1eMhkDryC0JGoDYy7Sz1lrPjoql9Ti68OiDHmPQYw56poMea9BjD3pmgx7eVYMuOOwalgEO6wCHhYDDSsBhKXi3ySf9pd0Wz-9L66zPqqn9HBocsGvyJXtp1vvNRr_ZlGZlrOww_z6SSHEOSv2jj_8wjHCMyoQpx7GCSpYF-zRUnPrHkVLWT68lQfxK3p2Mx38AfSxnXQ==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-323-e2e-74c_r3_internal_manufacturing_process_of_wafer_production-e2e-74c_r3_internal_manufacturing_process_of_wafer_production">BUSINESS ARCHITECTURE — 3.2.3 E2E-74C_R3_Internal_Manufacturing_Process_of_Wafer_Production — E2E-74C_R3_Internal_Manufacturing_Process_of_Wafer_Production</h4>
@@ -856,7 +926,7 @@ flowchart LR
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -867,7 +937,7 @@ flowchart LR
     subgraph Boundary Apps
         n1[["fa:fa-cog Receive Goods information"]]
         n2[["fa:fa-cog Update Goods Information in CIBR"]]
-        n3[["fa:fa-cog Update to MES on Physical Location of stock for logical t..."]]
+        n3[["fa:fa-cog Update to MES on Physical Location of stock for logical transfer one MES to..."]]
         n37(["fa:fa-stop Shipping Information Updated"])
         n38(["fa:fa-stop MES Updated"])
     end
@@ -882,7 +952,7 @@ flowchart LR
         n8[["fa:fa-cog Ship, Perform Issue of Goods"]]
         n9[["fa:fa-cog Create InterCompany Invoice Bill to LE778"]]
         n10[["fa:fa-cog Perform Loading (Optional)"]]
-        n11[["fa:fa-cog Send for Outbound Deliveries (with partial quantities) – ..."]]
+        n11[["fa:fa-cog Send for Outbound Deliveries (with partial quantities) – Lot 1"]]
         n12[["fa:fa-cog Perform GTS Trade Compliance"]]
         n13[["fa:fa-cog Outbound Deliveries (with partial quantities) – Lot 2"]]
         n14[["fa:fa-cog Post AR and Auto Clearing"]]
@@ -891,11 +961,11 @@ flowchart LR
         n17[["fa:fa-cog Generate Export Invoice"]]
         n18[["fa:fa-cog Generate Commercial Invoice (proforma)"]]
         n19[["fa:fa-cog GTS Export Declaration for US Only"]]
-        n20[["fa:fa-cog Perform Packing (Shipping Label Printing)& Packing List"]]
+        n20[["fa:fa-cog Perform Packing (Shipping Label Printing) and Packing List"]]
         n21[["fa:fa-cog Generate Freight Unit (TMS)"]]
         n22[["fa:fa-cog Create Freight Order (TMS)"]]
         n23[["fa:fa-cog Update Carrier Rates and Calculate Charge (TMS)"]]
-        n24[["fa:fa-cog Packing (Shipping Label Printing)& Packing List"]]
+        n24[["fa:fa-cog Packing (Shipping Label Printing) and Packing List"]]
         n25[["fa:fa-cog Execute Freight Order (TMS)"]]
         n26[["fa:fa-cog Create Post Freight Settlement Document"]]
         n27[["fa:fa-cog Create Service PO for FSD (TMS)"]]
@@ -906,7 +976,7 @@ flowchart LR
         n36(["fa:fa-play PGI Update"])
         n39(["fa:fa-stop Freight Documentation activity completed"])
         n40(["fa:fa-stop GTS Trade Compliance Check complete"])
-        n43["E2E-74A Internal Manufacturing of Die Bank and moving to ..."]
+        n43["E2E-74A Internal Manufacturing of Die Bank and moving to LE 500"]
         n44{{"fa:fa-code-branch Delivery Quantity ?"}}
         n45{{"fa:fa-code-branch Is Cross-Border Applicable?"}}
         n46{{"fa:fa-code-branch exclusiveGateway"}}
@@ -1037,6 +1107,9 @@ flowchart LR
     class n54 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlWVFzozgS_isqT005qbJnkQCD_XBXjm2yrspcfHHmpq42-6BgYVODgROQxJfNf78WSNhW0NReNg-p0FJ_3f2pu9WQ116YbVhv0vv8-TVO43KCXvvlju1Zf4L6j7Rg_QFqBP-iPKaPCSv6Yk-UpeU6_m-9DTv5i9gmZAHdx8lBSNdsmzH0bTlAU1BMBqigaTEsGI-j_qCf83hP-WGWJRkXuz8xP7Ki2ppcusr4hvHjBsvycOiCahKn7Ci2PcdzAqFXsDBLN2egkRv5Udh_E84l2XO4o7ys3a8K9pW-fI835Q6eI5oUDPbsyn1yQx9ZImIseSVkYcWfFBlxIeykQNg6p2GcbkHuWCDiNP1xFLnW2xt6-_z5IW2Nopu7hxTBT5jQopizCBUliBdPJYriJJl8cmbTwLUGRcmzH2zyiSy8uU0GoYhkAqFbA0Hu8JnF2105ecySjdw6fBYxTEj-MuAvE2IN-AF-a7ZYujlamo2IT_zW0pWHZ3imLEVR9JcsAa_8nhY_pK2FHZBg3trC7sidWe_xVJhzx5tinSfGn-KQnYAGQWAvjlQtRi62zKBXgT2yZhrolpbsmR6OgOOZ0wIGrhdgzwjY2NO9rB5XPAsVoL1wA7cF9K5wMCVGQGeKHV96CDhbTvMdusqqOpfRNM-LZk38pPi33x56EZ1EdBhmW3THQhY_MXSdZZsCxWmU8T0t4yx96P3--4kaOVf7lm-AAam1PGoBApotr-40bbtTu8zQ18UagdZqdyjikCboJgsbnEwkeBbCkWUcJdm2Xi2hTIqIcVBhtWqZffnyRbflXbTGACJH612c51BYZ342LmxA9_JU19d0hZF3W6EaNLIXLyXjKXi4gppMGS9-Qesqz5MY_kSn-O45ESvGhUtoRjmHvWjd5GpxDOm9rWVasgQF4njhdG8WrmWhJWcJTTenppxzS3MGHu6h8aF_VjQt4_Ig6J-zBA6fawxqTs44E6cV8Lqi0Tdo8kgYU4Jb0WY1iFEnBEVNFcKRruLwhziT_vdfg0bav_hOIRG_0pRu4bZIy0sN09MwszSKgbvvv7ZgAkdT8s-VRC4MWtqXRVExkWp1Hmua484QBPtwp-xzmh7g4SmD40JXULSCzpuF5_kaDLa6j_wmoxvh88VtLhKSJnq4WKvUNaRCTd1tVT6K01enF7MCXTzH5Q7lkH1wU6L_NEcMC5fooSIWtsFcibBugXS7dn2_RvecbhgSgSYxTUOmq2oV_WGfiA6s5e0qK0o0vasTbloBx7OEwRyRbnU990-yddAV9VTdMeg6cQQHnhXFsBkidB0tFa8Z1LzIjsVLnsFdLfNC1_INWsDynvFQsKQy6iLnWd2s3mWFlpbirKTVOYPbhDftTUT-bY1u00SPlxjycUWbGrpo22U9yKAVkF3C42V9BGrXTVyUOjA2hHfWOC7uv671mAj5acOp-0u3Yve9orrpHTwUtdszmoRVUq_BMLVl3Wh66v1lRrScXLywsPpzgXX3z7oYlPaalWVSN0o0z8JK_KGjeJ0o8pJBq9s6TYL1vNsHv1sbbsS6sOtqvGNQjoWBz-4OOhNBzIEtHj9WIll_mW5ZGh7QVVXA_VQUpnBs68PtysaGpBe-yCGmvguaDNK1R8epIE9g6ltdL487z-aHsTY_qMNSITXVScMyfhJXcCgcZu_nEMfScLpilK1KYegQNiAsyGLoOdPm1hLzCdyuVQTmK9FCxc03j-H6gpePOpf32ZMQ1zcZvIRYAHmK6Ly-HkncsOEjjGPhrm2sx8ni7w-9t7dTTbdbc1mcdVkxqiYw6ME74juEUTcCewkTSJsndt0M5Lqa9zE1_2Nq46MatKDsuRjSpBQ3IE0SlnQrudZHlPBHlMhHlOz_T-n9vFoPRZCrcUpPK8UweyzT89saum9wPbTwJXqGK259f6vXpm1oCnVR1283edmC6MofHDYcrJc5BJfWF7iAEDU0M1U2actyge5stKo4vN8X9RR6fzdfntYhXJdNKfqeVoqu88FTgfkKDYd_E6Ergd0InLESYE3gSgG2dQFWKm4jcOWzLx8tpWA1grH2bBMFIAW-fB5LA8rJUfPsyUciHSBKnxAJqCwSGRVRCLbaoYIg0mcyUgJphLRWPClQXhEZF1FxOIo79SwfW27lfuWD3O6qdVcpEE2gnJQKtvLAVgqKeSKZspVLtmSSKAgsw3LU4WAZFlYqKkzFnSPDxO3xqTB9TYBb7qRVt00R-awCc2rBHw-9f2QPvT_ELKw2ynNRSLbKvhba0QSOOicVkKOy5Z2xf4s3aWFNHanjyJVV81ZSr7ptGktfHEtDdjVnCdbxgippwJzWlKLZ1QTHupKRKTBbBma3hyufvZNvRSKpTr5ona0Q44ptXHGMK65xZWRc8YwrvnFlbFyBrmBcMrOAzTRgMw_YTAQ2M4HNVGAzF9hMBjazQcxskJ_khJkNYmaDmNkgZjaImQ1iZoOY2SBmNmwzG7aZDfsnJWJmwzazYZvZgHJWn-jP5Z78nH4u9Tul4y6pY3VKcaeUdHsBV1e33FHfts_Fbrd41C32usV-t3jcKYYhoVOMu8WkW2x3i9soe4MefHvZ03jTm7z26v9Twf-yNiyiVVL23gY9CnPg-pCGvUn9_5xeVb_3zWMK0-2-Eb79D33SV5M=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-324-e2e-74d_r3_bump_sort_operation_at_le_778-e2e-74d_r3_bump_sort_operation_at_le_778">BUSINESS ARCHITECTURE — 3.2.4 E2E-74D_R3_Bump_sort_operation_at_LE_778 — E2E-74D_R3_Bump_sort_operation_at_LE_778</h4>
@@ -1045,8 +1118,8 @@ flowchart LR
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
-flowchart LR
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
@@ -1133,7 +1206,7 @@ flowchart LR
         n38[["fa:fa-cog Export Invoice"]]
         n39[["fa:fa-cog Export Declaration US only - GTS"]]
         n40[["fa:fa-cog Create Commercial Invoice Performa"]]
-        n41[["fa:fa-cog Create Intercompany Invoice (Applicable for non-US Countr..."]]
+        n41[["fa:fa-cog Create Intercompany Invoice (Applicable for non-US Countries)"]]
         n42[["fa:fa-cog Perform Outbound Delivery - Partial Quantity Lot 1"]]
         n43[["fa:fa-cog Perform Outbound Delivery - Partial Quantity Lot N"]]
         n44[["fa:fa-cog Perform Outbound Delivery - Full Quantity"]]
@@ -1148,7 +1221,7 @@ flowchart LR
         n67(["fa:fa-stop STO Process completed"])
         n68(["fa:fa-stop Post GI Completed"])
         n75["E2E-74M R3 TM steps"]
-        n77{{"fa:fa-code-branch Delivery Qty : Partial/Full ? (Lot Level – driven by MES ..."}}
+        n77{{"fa:fa-code-branch Delivery Qty : Partial/Full ? (Lot Level – driven by MES Ship lot transaction)"}}
         n78{{"fa:fa-code-branch exclusiveGateway"}}
         n82{{"fa:fa-arrows-alt parallelGateway"}}
         n83{{"fa:fa-arrows-alt parallelGateway"}}
@@ -1352,6 +1425,9 @@ flowchart LR
     class n96 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlWm1v2zgS_iuEF0VaIEYkkXrzhzs4sp0z0DTZ2u3eYXMfGJm2hcqSIclpvEn--w0lUrZost1zCzRIRvPMy8PhcCj7pRfnC9Yb9N69e0mypBqgl4tqzTbsYoAuHmnJLi5RI_hKi4Q-pqy84DrLPKtmyV-1mk22z1yNyyZ0k6R7Lp2xVc7Ql-klGgIwvUQlzcp-yYpkeXF5sS2SDS32UZ7mBdf-jQVLa1l7E4-u82LBioOCZfl27AI0TTJ2EGOf-GTCcSWL82zRMbp0l8EyvnjjwaX593hNi6oOf1eyW_r8R7Ko1vD3kqYlA511tUk_0keW8hyrYsdl8a54kmQkJfeTAWGzLY2TbAVyYoGooNm3g8i13t7Q27t3D1nrFM1HDxmCf3FKy3LElqisQDx-qtAySdPBbyQaTlzrsqyK_Bsb_OaM_RF2LmOeyQBSty45uf3vLFmtq8Fjni6Eav87z2HgbJ8vi-eBY10We_ip-GLZ4uAp8pzACVpP174d2ZH0tFwuf8kT8FrMaflN-BrjiTMZtb5s13Mj69SeTHNE_KGt8sSKpyRmR0YnkwkeH6gae65tmY1eT7BnRYrRFa3Yd7o_GAwj0hqcuP7E9o0GG39qlLvH-yKPpUE8didua9C_tidDx2iQDG0SiAjBzqqg2zW6znd1LaPhdls2z_i_zP7zofeZxSx5gr21XUAeJXpKKLof_euh998jxeBP0FzSwZL243yFZts0qa5uWbFiKF8iCHaxi6skz9Ad32aAPQaHXfDnxl-SPbGsKiCoXe1ZAdlWF9WEh6Lp9ec6xH-PZ1d_zFSQrcQJtYpGtKKqnqPRu09plsGe0wLwzwCoytHsiqg40sXds2KZFxs0i9dssYPes1IBrsYRhf9ymXTBeV3MtCx3wFS-2eYZUKxq-13t2xysTrOr5pe73Yl-oE_h9x2FItijaM3ib6UKUtZ8FkMdXv0nYelCFpqCcCy9m495ZULYekQKiBiST9lJUTmO2cmMt1BF3_Xet_rbFLb4FA61hNfhLc12SxpXu4IXAN-trCwRGAOViqVowndcsQd7H47t-Yq9YbosWBnnaCFK6JFBj8oWKi5QcMcBdxTDg2JZ5dujQms5UY17loLhxiODsk9AN4EUiw1bcCbm6yL_Pn5q6uxYMXx5kVZpATpln6YV2tKCpilLb5qe-dB7eztuM9Y5IPsMUKgHJVmc7krYZwaU83-i-FJ2W3E0mX46XjClIm9YxgpeYPd0vwFSm32_PSlMrC_kYd2FSwSdOKLlmvf7NIkpFyoWfFtZ9UZf4IW94-U_TWX8DGWQ0RRiLSoI-_hkcQ3bebZlMcxvKNqB000J6a2SDZw6j3s0mkRqloYdHgH3CSugOdanudoYvJNNoDjVZNdwYp1w0nVkRIbeLxdG0zfEUXpkmviaE-Er_Kh7zVMOcfHGcQ1Do8IDUTr3vEhWK8jmmiZpXVvD2ScO_cSeK3Q3G85VvHpwiyPoa1JU0PzRTZ4vVO59DyBjZ9z3yQh9xgdfskWCv4_jwLe63SI8Z-OH7i-TPhveo3EUHdcc0Sc9gftMCb20yRrd3k5Hcm9CFd9Cw8zK3War2WmucqRHBeMbfLZOtuiWbXKVQUetXqkokCdVixWAEuo04yVb9wCZzQ-3NecEJpnuQQaLhn0_gNM-yejxiQquRULTSGwwdijMa5hg0TwfANy27O6aY4De52WFbqZoWeSbem7hB9UsmaP3N9PJ1w9dAOn4mu14bzv46uq6rfHP9WRW5QWFYfVj3jTDtobf33yezxQ_vIQBEH-DHQO3zCX4gBMvhx_9WpBU9einHnhqOj9Wd7C2KuqZEpZON0c7hmFyOL9vpjDe9r9kMFBURRJDoaA6C9WKq7dyM581VlR9Zbq8T8ARn0jvKfxiGM3UnsVLmFejmE35nHQ3alitVxtIuxt9UK0EeoqU20Zt7Rr2Hroq86K6WiQMPZ52Q-ekm6UM3kj87PKCDQdZO17zOWx1Oshjw9kl9mRNA2dR3Gum9W0oryfGjhllPoA2s0zAzM-ixj_yrp8pMNFcDJp9AMv007rChrqaj6M71EdzFq8zGEVSOVqeNkrs6S1Ms0fehNCIpdC7Tiny9R27yVVs9PQEpRTX-HkLxXPUTDrKoVZ5xODKXjQN5csMdl-6h0xhI6kHqaUtZCACemU9mch-KVJWb3jE1hrgHbrgYz3N9q2J92Lmg5dr9c7I8qwPwUVAISwfK9VdRgx3IrgJdmmH1Pigx8OFu19W8csfvyrYqkH8iwY_qQbJ3zc42aUHa6od_UGsHloqSqnKiKbxLuXAOX0-nT3VsfrQnEfQLtSrl3rWy0VsCuz0qqYe9W3T1lonivZxvYoSNt3zPFcdhc3FaphLPO8kOU25GrC-OgTN79oR0niRDRSQPI6Nl1m3HVZv-bA6v4UXqWxbKge7fxgz-evt_iOc6vH6UHW_Q90OZClf1RX4T_SeV_JH9gQj1MPOsWyMFgWoZ_ymczueNUcif1VR8RmB1q38gzLg-oHeM3v-4S01cM65ReNzQOQckHsOyDsH5J8DCs4BnfO2I8RnvYMg5956oJ5Qv_8PXiBCEDiNwCGqwBMCxxMQLDWw0PClwG0EOFAFoSIgljTqC6PSRmg1gtBVBEQaDaWN1m2gQFwRuisjdYSGI-NwQhGYjAMLL9iWApFcIPnARGi0gQk-XGkjkBotRKYvKcQCgmXotgjMbgMTNjwZhyNseDIXIiC-NOoLiCvd2gLiS6OhLbzI0B2RrSO9uJIgWQ6uSN9vNQTEk0ZdYdSX6bvSbWtDBObL0LHw4kkNLJbBk6ET6UVGSoQXT2ZrC4jTrpxYbNwutoS06yJYD6WN2sTrQ6-dtNFsn8Xw4UM9JR0NTXBhEx-D1AcWvOWFeyPd8xn7lX8uIWMSIYQyLyIEvqxZghWBjAm3EKJo-L6IUpljXrmuqmOaxriy87eUPzXKLYki4LBdO7FRfb9T7WCufgvVuU20n4KMo2FtNpRVZNvHIH7wbQ8fs7zyGpL-BYNBu4iiMux2EWX3kYRhse6Bp3YwV-0-MhwiBEGgtBIibRBRbqHVaXqv_PVDDgNI82FyWQcftEUrClBSJeKQqyZ3tPhTVIJUFjx7bVpid0uwULflstpypdqdKizYuFNr3ZVqbp3GdQpFyO26CSalST9UKr4VKNz7Mm5bdqlQQdht25KZtc1Rng0yikCusPK3HXSK5PXwSeY02-6q5h0Mn7ToEnbx8Scmr0cVbosK89sTUPh3lL-x8ncoAaHIMQgVAWlpEUmTtlQ8BSKNurZyqsjuVX80DOLjD7A7T0LjE8jQ-Mg2P3LMj7D5ETE_cs2PPPMj3_zITIZtZsMxs-GY2XDMbDhmNhwzG46ZDcfMhmNmwzGz4ZjZwGY2sJkNbGYDm9nAZjawmQ1sZgOb2cBmNrCZDWJmg5jZIGY2iJkNYmaDmNkgZjaImQ1iZoOY2XDNbLhmNlwzG66ZDdfMhmtmA05F-b2nrtw3yAODPBTfaepIPUsrtbVSRyvFWinRSl2t1NNKfa000Eq1ufna3Hxtbr42N1-bG9xKtAz7rkFuWEGYWsWXqrriQC8OtWKYC7RiWy929GKsFxO92NWLPb1Yn2WgzzLQZxnqswz1WYb6LEN9lqE-y1CfZdhm2bvswbvCDU0WvcFLr_6-J3wndMGWdJdWvbfLHt1VOb999Qb19yJ7zTfARgmFTyA3jfDtfxNU9Sk=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-325-e2e-74e_r3_bailment_process_to_le870-e2e-74e_r3_bailment_process_to_le870">BUSINESS ARCHITECTURE — 3.2.5 E2E-74E_R3_Bailment_Process_to_LE870 — E2E-74E_R3_Bailment_Process_to_LE870</h4>
@@ -1362,7 +1438,7 @@ Intel Foundry (LE870) – Malaysia WLA Site
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1371,7 +1447,7 @@ flowchart LR
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
     subgraph Boundary Apps
-        n3[["fa:fa-cog Send Information Lot Notification to Customer once lot is..."]]
+        n3[["fa:fa-cog Send Information Lot Notification to Customer once lot is received"]]
         n4[["fa:fa-cog Receive Bailed Material Pricing Info (Clubbed with ASN)"]]
         n17["Channel: Automatic (Manual if no ASN)"]
     end
@@ -1445,6 +1521,9 @@ flowchart LR
     class n22 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlV11v6jgQ_StWriqoBNokJATysBINpKrUdlHp3T5c7oNxnGLV2JHttGUR_31tkvARiO72Lg9V58zMOePx2Ek2FuIJtkLr6mpDGFEh2LTUEq9wKwStBZS41QEF8DcUBC4oli0Tk3KmZuSfXZjjZZ8mzGAxXBG6NugMv3IMvt91wEgn0g6QkMmuxIKkrU4rE2QFxTrilAsT_Q0PUjvdqZWuGy4SLA4Bth04yNeplDB8gHuBF3ixyZMYcZackKZ-OkhRa2uKo_wDLaFQu_JziR_g5wtJ1FLbKaQS65ilWtF7uMDUrFGJ3GAoF-9VM4g0Okw3bJZBRNirxj1bQwKytwPk29st2F5dzdleFNw_zRnQP0ShlGOcAqk0PHlXICWUht-8aBT7dkcqwd9w-M2dBOOe20FmJaFeut0xze1-YPK6VOGC06QM7X6YNYRu9tkRn6Frd8Ra_61pYZYclKK-O3AHe6WbwImcqFJK0_R_Kem-imco30qtSS924_Fey_H7fmSf81XLHHvByKn3CYt3gvARaRzHvcmhVZO-79jNpDdxr29HNdJXqPAHXB8Ih5G3J4z9IHaCRsJCr15lvpgKjirC3sSP_T1hcOPEI7eR0Bs53qCsUPO8CpgtwQ3Pd7MMRlkmC5_5sd6PH3MrhWEKu4i_gpneWnDHUi5WUBHOwD1X4JErkhJUAIqDKJeKr7AAnCEMqI4gEgiMMHnHydz6-fOI3zvlfyqiwA0kFCfgQffNHGYwFcQM-04atCOaLxba_UHUEoxmj9c1UifQpNESMoZpCEa5rkYXh0D7AbJcs5EUMF4lFnl6XbWO3DGFjTBPcqSOW-KelnwnZX5ecHtMMFjoY3pWW6-9T8-ongmTucJMGSmEpTQdvJ8MAhuY-5FoQtOz62OKwWZzqCDB3YW-D9AS4E9Ec6nbd1uM29zabo_Thoc0KAT_kF1IFciggJRiepZ03pLZaApmf3hla2IzMnpi2rtqr8E8d22np1ugVyUJBC_3IzAjCoPjGvZrNycXRAJrVXDLeSKLvc8UaE-XOh9Beg3aj5x13yHNTRcOm7Wj8k-3IYKZysWvJgf9YnL6NdKivmku9K0qMfjLPCJ0gWaYE8M65ig3m1fnCU55pliYI6OLWJimgTGmepvEupY1OM36niVG_Y69awVuOn3Hus96ryU5Exz-N0E9U2Dy8lCfSbuWnSswMvfV7VNDgnNZ7vZ5BqIlRm_1ePeL8d7hkOi7JDsEgoivMoovHAq_lnJ2rhoz-18Wc-2vHaUiyfmdJPc3D62-aEC3-6e5LUqgX9iuW9pBaZfPFv1PAQxq9rC0ByVfaQ5Ls0p3SrrK79g1wHULIKjZzj6jpHC8CihL7Fd2WUK1gvoKK8KqYqeqsZL0S9svba-wK9MtC-jV8vf1VAL9Wosc9-j5bFpRvZecwO7xy8WJp9fo8Ro9fqOn3-gJGj2DRs-w0aN3uNHlNLua26BHtnpNPcW98pXyFPUvov2LaNDAPKjezU7h4UVYb_dF2LkMuxVsdSz9OrSCJLHCjbX7utFfQAlOYU6Vte1YUL-izNYMWeHuK8DKdzf_mED93F0V4PZfN4gdlQ==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-326-e2e-74f_r3_purchase_of_trdi_and_moving_it_to_le_870-e2e-74f_r3_purchase_of_trdi_and_moving_it_to_le_870">BUSINESS ARCHITECTURE — 3.2.6 E2E-74F_R3_Purchase_of_TRDI_and_moving_it_to_LE_870 — E2E-74F_R3_Purchase_of_TRDI_and_moving_it_to_LE_870</h4>
@@ -1453,7 +1532,7 @@ flowchart LR
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1649,6 +1728,9 @@ flowchart LR
     class n58 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlWVtv2zYU_iuEiyIdYKMSJVq2HzY4vmwBktaI0w7DsgdGohyhsuRRUi7L8t93KJGyRZPp5uUhiA7P9Ts3SnnphXnEepPe-_cvSZaUE_RyVt6zLTuboLM7WrCzPmoIXylP6F3KijPBE-dZuU7-qtlcf_ck2ARtSbdJ-iyoa7bJGfpy0UdTEEz7qKBZMSgYT-Kz_tmOJ1vKn2d5mnPB_Y6NYieurcmj85xHjO8ZHCdwQwKiaZKxPdkL_MBfCrmChXkWdZTGJB7F4dmrcC7NH8N7ysva_apgV_Tp1yQq7-E5pmnBgOe-3KaX9I6lIsaSV4IWVvxBgZEUwk4GgK13NEyyDdB9B0icZt_2JOK8vqLX9-9vs9Youry-zRD8hCktijmLUVECefFQojhJ08k7fzZdEqdflDz_xibv8CKYe7gfikgmELrTF-AOHlmyuS8nd3kaSdbBo4hhgndPff40wU6fP8NvzRbLor2l2RCP8Ki1dB64M3emLMVx_L8sAa78hhbfpK2Ft8TLeWvLJUMyc471qTDnfjB1dZwYf0hCdqB0uVx6iz1UiyFxHbvS86U3dGaa0g0t2SN93iscz_xW4ZIESzewKmzs6V5Wdyueh0qhtyBL0ioMzt3lFFsV-lPXH0kPQc-G0909Os-rupbRdLcr0MUSNefiJ8Pj33-_7cV0EtNBmG_Qusw5Q-dVkkboIgMzVVgmeVbc9v7440DMc7piV3RnEEJljtYU2hx9Fv2HLqHbUJKhxWyq63O7-laMxznfSjmAY5sU0BCaFBm9vCgpynn-WAxoWoKFMK2K5IH93KTmtvf62khB8b6NzepAe9B16ZqFDHSiWVWU-Ra8WgJSIS1KNKclReAuWle7XfqMVinNsmNvRxrS4MxHpVSo0CEhH1r-XQoF9rYDIP3DgbTv7qERU3lwB3MlvEfs6d9jc7kYBQ4aQHLBfJFQ9OvlFK2Tkh0WkIe7Yc04A82dtH8QcjfX84sf9BA9c9av2Y6VSSmCXZcM8lJlZZJKbbM8ixO-paLCdH2-0Zc6HyyS8iJRyiFdfryHHDDedS2ySMfYAe4FXgxgaUDdl4xnNAW0siqmYVlxKAGUx2BMmrLhvJ6u0PqjX6tIIatQkVCQlwvXcQdf1uhrwssKFB86CoZnNA2rVMR3Q59Y0epvXAOGX2DeitYJWaGdEiHeBHWYqC7TsIVCDGL0-YFxnkSsjg-8WXGYpF0Jl5g7xjAYPkzPr8FvuALoNeEOT68nN3hrinylaRKZysbVOnMO9wpw--oKXcxRDLMHzVafdJmx2RS4GyUlmt2z8Bt6gJ5ZrmdXmizWhucNTzYbcPDnm3UjqPNbhqPgv-EUcjLLt7s0gQZnuqjWnV92kUBTDOLBRcm26IY9lbqM1pX7QhM5P55r2DenvbFVoDxDs5uVOTJLxXy30_FQ3z8Z3UClUUC9FtYXFg7Mo6HicKcqGFj-s4IVI0zZpgMeva3i--NlqE30eh-2aVDJkS0LDQPuAOFo7GDzaK_Lpy0EWYI_7Qd8I-z9173QiPlmsRVcPOFCDkuvHZIf0ZcsVA_H9olZUeOtVCfC2EIXTVO484KSu-f90jtSODwtoOA0sdFb7h8WLGwuWlbFkb_ENd5ZdpQDjCw1myX4FCHvFCH_FCFyilDwvy9v3cUJfRPBfjkc0tBuaqSsw3sWVanYyfK6dNjaB4xqbInhvZr_0mUcm0dAY1lkXdtQ6GhFOd-_ougirlGkHhmra50Zv8H8WWf2LFfctn0P167hjur65s10ADbsv8_og8ejurmfjwDxAu3OpSVKOaVPQW-kyckQUVhHfDQ0x6eUqHOK0PDUuoYrPxoMfoQ3D_k8bh79sXz2JQHrBJdIgjtsCES--sIfkoAVRyBFRoqglMr3UPhDmlUiPhaEv297v4lr5t_iQqK0Y6lMeYwlYahEPanckwTpn6-ePe0Z-9JfX5mQ_mJFwBIkokSI1EGUUezqRqRV3IIwkn4rIInkUM-uo-lscWwJ0g1PT4XCxpUSrjKKlZ8qWb7kUJmQkfpKg6-lrs3Dp7xOg0LEU84qRUSG5ylNnvJe5Yn4UtX-xgRTVPRus7wKlpXi7f38t9pSq9lX2Rh2FInFqDhGUvPBW5Pwta0IohXT8YkKTznrq_QR3canvESaHQWKryI0XFEaTqJzHtxbug7goQYfHmupIjIFba4VTgoWrFKiODzZKV5bpLI8vLGuU1l1JdZthUkBde6pXDh6Z6hnKa9Mqi5oO18qVBi6SkClyFUc7fBQFhytLRRU9Vct0fbqa16HHBx-kuucjKwnY-sJNK31yLUfYfuRZz_y7UfEfjS0H9mxcO1guHY0sB0NbEcD29HAdjSwHQ1sRwPb0cB2NLAdDWxHw7Oj4dnR8OxoeHY0PDsasOHVx_oufWihB_KDe5c6MlLHJqrvmDXD8pFfrrtkbCZ7ZrJvJhMzeWgmB2byyEweG8kwLI1kc5TEHCUxR0nMURJzlMQcJTFHSdooe_0evN9uaRL1Ji-9-t9k8K-0iMW0Ssvea79HqzJfP2dhb1L_O6lX1S8q84TCy9C2Ib7-Ayqrbmg=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-327-e2e-74g_internal_manufacturing_of_wltrdi-e2e-74g_internal_manufacturing_of_wltrdi">BUSINESS ARCHITECTURE — 3.2.7 E2E-74G_Internal_Manufacturing_of_WLTRDI — E2E-74G_Internal_Manufacturing_of_WLTRDI</h4>
@@ -1658,8 +1740,8 @@ flowchart LR
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
-flowchart LR
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
@@ -1722,7 +1804,7 @@ flowchart LR
         n40[["fa:fa-cog Export Invoice"]]
         n41[["fa:fa-cog Export Declaration US only - GTS"]]
         n42[["fa:fa-cog Create Commercial Invoice Performa"]]
-        n43[["fa:fa-cog Create Intercompany Invoice (Applicable for non-US Countr..."]]
+        n43[["fa:fa-cog Create Intercompany Invoice (Applicable for non-US Countries)"]]
         n44[["fa:fa-cog Perform Outbound Delivery - Partial Quantity Lot 1"]]
         n45[["fa:fa-cog Perform Outbound Delivery - Partial Quantity Lot N"]]
         n46[["fa:fa-cog Perform Outbound Delivery - Full Quantity"]]
@@ -1733,7 +1815,7 @@ flowchart LR
         n61(["fa:fa-stop Commercial Invoice Performa Created"])
         n62(["fa:fa-stop Intercompany Invoice Created"])
         n68["E2E-74M R3 TM steps"]
-        n69{{"fa:fa-code-branch Delivery Qty : Partial/Full ? (Lot Level – driven by MES ..."}}
+        n69{{"fa:fa-code-branch Delivery Qty : Partial/Full ? (Lot Level – driven by MES Ship lot transaction)"}}
         n70{{"fa:fa-code-branch exclusiveGateway"}}
         n74{{"fa:fa-arrows-alt parallelGateway"}}
         n75{{"fa:fa-arrows-alt parallelGateway"}}
@@ -1927,6 +2009,9 @@ flowchart LR
     class n84 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlWltv2zgW_iuEiyItYCMSSV3sh104vgQG4kkmdtsZTOZBkalYiCwZkpzEm-a_76FEyhZNtjNpHor66Fw_nhtlv3bCbMU6g87Hj69xGpcD9HpWrtmGnQ3Q2X1QsLMuqglfgzwO7hNWnHGeKEvLRfy_is2m2xfOxmnTYBMne05dsIeMoS-zLhqCYNJFRZAWvYLlcXTWPdvm8SbI96MsyXLO_YH5kRVV1sSjiyxfsfzAYFmeHTogmsQpO5CJRz065XIFC7N01VIaOZEfhWdv3Lkkew7XQV5W7u8KNg9evsWrcg2foyApGPCsy01yFdyzhMdY5jtOC3f5kwQjLridFABbbIMwTh-ATi0g5UH6eCA51tsbevv48S5tjKLl-C5F8BcmQVGMWYSKEsiTpxJFcZIMPtDRcOpY3aLMs0c2-IAn3pjgbsgjGUDoVpeD23tm8cO6HNxnyUqw9p55DAO8fenmLwNsdfM9_KvYYunqYGnkYh_7jaULzx7ZI2kpiqJfsgS45sugeBS2JmSKp-PGlu24zsg61SfDHFNvaKs4sfwpDtmR0ul0SiYHqCauY1tmpRdT4lojRelDULLnYH9Q2B_RRuHU8aa2Z1RY21O93N3f5FkoFZKJM3Uahd6FPR1io0I6tKkvPAQ9D3mwXaOLbFflMhput0X9jP-l_l9_3XWiYBAFvTB7QMs8CB_RYh1vNywt0VMcoMXwBk3md52__z4S67fFFtskLs_nLH9gKIsQuL7ahWWcpeiaF50ibFtt6duQxU8MxekT2MzBx912BYCqUnZb6kvFhEazi9vKzz8mi_NvC1UIK45C6qJxUAYqH9Hw3SRBmkIJagXozwRQmaHFOVXlnLbcDcujLN-gRbhmqx20ogdVwFXAYjVaOp-8fxuEcvqzotgBotlmm6VwFCq3cujzDNyYpef1f653Kj-29KH-vgsgW_ZotGbhY6EKKae8CCF9z_-MWbISJ34igfVmrrLSJEFUiSjPNigBgRBiT9hJ7mFqtrHgjVfhp_1PDf82gcYwg1EY83SdB-kuCsJyl_Mz4TXOigKBMmApWYKmvE7zPej7fKTPsRR9wyTKWRFmaCUy7Z5BZ0tXqpytyB073GIkB8aizLaHFlB1BHaimCr8VRnWcJ_wOqrukK3rXD_GuyXiKiLc75HgVfV79uurZA7yPHsuekFSom2QB0nCksu6N9913t6OhfB7hMg7hHy9pTgNk10BlWyQIv9Sih9-u-VPXkqWp0GCbuC8U5Yft30P4JVJPAL9McuhXVSTkVfLEaernp7KLovh-FxOnWllN7qaeI4FtQApWUDrPm4yYGyUM14qsxEa7cDkhvHieMrAGLqAeYiW2QA02Jbd9hTzmLKiRJczVBU0b2c8yRbxEn26nE2_flYElF4s7FYdk63q0YW-XQ3R8nY8UzuCq-8Iw-VN3dgQDL8vKRRpmcchJC2UXRY-qlo8vZbL5aLWovIrDfsmBkMB7_J8bBu6nTqrobLRZZatRLvnved6DJnF5xVHCvC7Hn9WtBBLj9WPJz2x1eGVMLgD_FTM0NKbycR72MPprCTEACdEW4hwOVpidZhVC0dWdduWGqXbj7I0ikHNz7x2fmS9mttbdVAQVzNTq0zhTf2n-UMM-bOcjK5RDy1ZuE7jEFqA6J3guqrB12uYpfe8VtGYJdBtTiHq67eSr3FewnhPVH6qpM_kZZvBLUaUtcpsa5nHDNbjPKjw_7KA-kr2ECOUiiqOtakKEEAnCeHq2HQTEay6FlGiVcBbWM4HVpDuGxWfYJ9OAGK4yFaVlGZpD5wbAXhwcKxQ64gaNglYn9qAQ2i8b3N3YWFKS74x8SloqwqdX1T4m6rQ_ecKp7vkoE3R43jK4Di0xjEUsTrxfYVbAlwf_ulS0Vf4m5ap0-5aCvdxLon0Mq0Xrq0OQHMiiVQ5UYFPgtOkkkHWB9EJnvQ8Oke3BC3ncNVnW3VK9w_rAn8B07uHVwjh-nBWv8NpD2QCnFfn9l_0iZ__FXuCyXy3w5ZN0CoH9hTd79F8sqhHBV-LS9BWBFXr-6zuRJbeMnv54X7j0ffsX857hNz3CHnvEfLfI9R_z05pvUfoPXuyT395D61eIIxGxy3G00-PKbwxLOAeLEbmfD4by7kJA3TOB3Gx22w1Y4z62pZdJfCcbTK1N2HlXmTwYJZGWb1L8vuNWpmu5s5UWTOVstoRNdagiVRNSTj0w52aAwtvGKpVmE9EMXyP12nSWqcXOz6sDut0u4fQZn--rd5dwGYUwPucqyysXZLqP13eLhfKKu2AbL22LHmriMBGtVDGaa8ixGW1VpdK11I39p-wn1xSl9fNFTo0tW_1pioNavp9AzHcKVGv9x_-ukYSrJrgUUmgNQG7KsFTCb4gYF_oaJQ6gqMvCV5NoJZKsFUCVglEEIjwlEgRImIhUoRgQWhEiHBMxkJcwSFjIcIKkbEQEQuRrtuCYDeEvlAqzWLhGG5iEX5gSyFIFVi44Ug3sHDDaYwIDk_q9IUKW4aCpREZrFDhykOgwnFXSlDJIa0KBkdqoCIQR4JBBcKuDIQKo650iwqEXdw6-u-8OjPI3vrLCRjq3_mJSteFWtwcnMgoIn3HQq0jfbeFiCPT1BYcfuO80OE1vjoKwZOHL3VQV-HAQsSXHESctSvPxZeeShG3L-I1LbXfuWv_iPm3mlliYGPBXL3u5D14e3jdyRnlKdmWYGzufWixT0N421xt7keLPPQfeK_BXypXixq8r4M2GOz5je87x1h1U1mDudGmkgQwEn5ZixJacVzio8C1yV1R2tKeeEpbTQrsfwVPJ6Nh7V1zruJMbGnLEWlrN7khrPu4dfISyuNbs3yhLa00Ir4I0PaUztkknC3KCZ-0UnkwnqxAX-mLBw4RC1Y-28pnye9LE00nkQyWynEiIj_Lk2pOUia93eJooyW2FTNettDiNEcui1yeCpYF2jQsCbGvEJryazikFUdmjnf0vRJvZEfffrWe9I1PoGqMj2zzI2x-RMyPqPmRY37kmh955kdmMGwzGtiMBjajgc1oYDMa2IwGNqOBzWhgMxrYjAY2o0HMaBAzGsSMBjGjQcxoEDMaxIwGMaNBzGgQMxrUjAY1o0HNaFAzGtSMBjWjQc1oUDMa1IwGzBj5u4MWHUaNnm4b6NhAJ-K3Bm0q1VIdLdXVUj0t1ddS-zqqa2mptpaKtVRtbK42Nlcbm6uNzdXG5vp6hGGHET9eaJFhRmvJtp6M9WSiJ1M92dGTXT3Z05N9PVkfpa-P0tdH6euj9PVR-k2UnW4H3hdugnjVGbx2qt8-we-jViwKdknZeet2gl2Z8U20M6h-I9Spf_4wjgO45m9q4tv_AVuVaVc=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-328-e2e-74h_r3_trdi_inventory_ownership_transfer_to_ip-e2e-74h_r3_trdi_inventory_ownership_transfer_to_ip">BUSINESS ARCHITECTURE — 3.2.8 E2E-74H_R3_TRDI_Inventory_Ownership_Transfer_To_IP — E2E-74H_R3_TRDI_Inventory_Ownership_Transfer_To_IP</h4>
@@ -1935,7 +2020,7 @@ flowchart LR
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -2004,6 +2089,9 @@ flowchart LR
     class n18 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVtuO4jgQ_RUrrRYzUpjNlaTzsBKdJq2WZrbRwMw-TM-DcRywOtiR7XBZxL-vQ5wAWbLaCw9IdarqnKpyyfHBQCzFRmTc3x8IJTICh4Fc4TUeRGCwgAIPTFAD3yEncJFjMahiMkbljPxxCrO9YleFVVgC1yTfV-gMLxkG315MMFaJuQkEpGIoMCfZwBwUnKwh38csZ7yKvsNhZmUnNe16ZDzF_BxgWYGNfJWaE4rPsBt4gZdUeQIjRtMr0szPwgwNjlVxOduiFeTyVH4p8Be4-52kcqXsDOYCq5iVXOef4QLnVY-SlxWGSr5phkFEpUPVwGYFRIQuFe5ZCuKQvp8h3zoewfH-_o22ouDz1zcK1A_lUIgnnAEhFTzZSJCRPI_uvHic-JYpJGfvOLpzJsGT65io6iRSrVtmNdzhFpPlSkYLlqc6dLiteoicYmfyXeRYJt-r_44WpulZKR45oRO2So-BHdtxo5Rl2f9SUnPlcyjetdbETZzkqdWy_ZEfW3_la9p88oKx3Z0T5huC8AVpkiTu5Dyqyci3rX7Sx8QdWXGHdAkl3sL9mfAh9lrCxA8SO-glrPW6VZaLKWeoIXQnfuK3hMGjnYydXkJvbHuhrlDxLDksViBOXn6roepH7R8_3owMRhkcIrYEU8wzxtdAVlMp4H6NqQRfMcKkkG_Gz58Xmc7fZMZQrMC4KHKCoCSMdlJt-0ObW-RqXFOtVKhWsRAq_ONluHcOF5IVTbioK9vg9JygNrLT8Gw8BbNfPPBCJc5Bwkqa8j24oH-4biSGOSpzdY5gDndYdEu3OtEcV6FxqQpbY65UNkxtVTfL7TSsw8D2E_8kwfMLULMDrwkgVDIwI_PuBMLD4aya4uFCXQxoBfAO5aVQE3iu9-7NOB7_2RzUUqUlkhca7nVjerTgmbG0OwTv9tFrTnXe4LW6YkHMaEb4-tYK-NcUX5iSmjPwjXKs1pkgiVMwkwy9d_JGt6Xnk_i1Exncjjz106w0gEtIqJBgjncSTLsU4c2z_q5my9qTBh-2vM3_2D13p3PuN-dyddJ-Z9e1GtFq6FRD2s0a_dv9qNOC_7xW1AfD4a_qPLTp1abd2G5t-9oc1WagTbs2ncYMa_tB2w-aLNS2o22vidd0bmNbnQRbZzQJgfa3-hoIOwW0AY3d1G_riu3G1v3Zl_d11dfFV-XK4_R63F6P1-vxez2jXk_Q6wl7PQ-9HjXyXpfdvkGucacHd3twT78vrlH_JjpqPr3XcHAbDhvYMA11a68hSY3oYJyeo-rJmuIMlrk0jqYBS8lme4qM6PRsM8oiVZlPBKpLdV2Dxz8BgE1phg==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-329-e2e-74i_r3_bailment_process_to_le750-e2e-74i_r3_bailment_process_to_le750">BUSINESS ARCHITECTURE — 3.2.9 E2E-74I_R3_Bailment_Process_to_LE750 — E2E-74I_R3_Bailment_Process_to_LE750</h4>
@@ -2014,7 +2102,7 @@ Intel Foundry (LE870) – Malaysia WLA Site
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -2023,7 +2111,7 @@ flowchart LR
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
     subgraph Boundary Apps
-        n3[["fa:fa-cog Send information Lot Notification to Customer once lot is..."]]
+        n3[["fa:fa-cog Send information Lot Notification to Customer once lot is received"]]
         n4[["fa:fa-cog Receive Bailed Material Pricing Info (Clubbed with ASN)"]]
         n15["Channel: Automatic (Manual if no ASN)"]
     end
@@ -2091,6 +2179,9 @@ flowchart LR
     class n20 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlV1tv4jgU_itWRhVUAm2uBPKwEgRSVWpnq9LZPgzzYBwHrBo7sp3STsV_X5skXEKj2Z3tQyV_53zfufjYDh8W4im2Iuvq6oMwoiLw0VFrvMGdCHSWUOJOD5TA31AQuKRYdoxPxpmak597N8fP34ybwRK4IfTdoHO84hh8u-2BsSbSHpCQyb7EgmSdXicXZAPFe8wpF8b7Cx5mdraPVpkmXKRYHB1sO3RQoKmUMHyEvdAP_cTwJEacpWeiWZANM9TZmeQo36I1FGqffiHxPXx7Jqla63UGqcTaZ6029A4uMTU1KlEYDBXitW4GkSYO0w2b5xARttK4b2tIQPZyhAJ7twO7q6sFOwQFd48LBvQfolDKKc6AVBqevSqQEUqjL348TgK7J5XgLzj64s7Cqef2kKkk0qXbPdPc_haT1VpFS07TyrW_NTVEbv7WE2-Ra_fEu_7fiIVZeowUD9yhOzxEmoRO7MR1pCzL_lck3VfxBOVLFWvmJW4yPcRygkEQ25d6dZlTPxw7zT5h8UoQPhFNksSbHVs1GwSO3S46SbyBHTdEV1DhLXw_Co5i_yCYBGHihK2CZbxmlsXyQXBUC3qzIAkOguHEScZuq6A_dvxhlaHWWQmYr8GEF_tZBuM8l6XN_DHv-_eFlcEog33EV2CutxYQlnGxgYpwBu64Al-5IhlBJaA4iAup-AYLwBnCgGoPIoHACJNXnC6sHz9O9P1z_cfSC0wgoTgF97pv5jCDB0HMsINbHRp0Y1osl9q8JWoNxvOv1w1RJ9Ci8RoyhmkExoXORieHQPceskKrkQwwXhNLnq6r0ZFbprAJzNMCqdOWuOcp30pZXCbcnRIMlvqYXuTmdg_0nOqZMMwNZsqEQlhK08G72TC0gbkfiRY0Pbs-lRh8fBwzSHF_qe8DtAb4DdFC6vbdlOO2sHa7U1p4pEEh-Fb2IVUghwJSiukF6bIl8_EDmP_hV61JzMjoienus70Gi8K1HU-3QFclCQTPd2MwJwqD0xwOtZuTC2KBdVRww3kqy73PFeg-rDUfQXrcnT03OO97DHNViF-NCvrFqAwaomVCD4XQ16jE4C_zJuiMzPSmRnXKUWF2q6kTnus8YGHOiE5iaboEppjqfRHvDdbwnPUtT030W_aqI3DT2lvWf9KbK8lFwNG_C6iHCMye75tDaDfYhQJjc0HdPLYQnM_D3TzNQbzG6KXp7x2nXF8G-dERxHyTU_zJVPsNysXBaGUO_9tgl6TRb5Bc-zePkD72oN__05zdChiU6_pFY2FlH9aEYQk016NqXS2r54uNqmUt51Tr2t2xG4BbAWFj7dSKTi3h1UBQAnUFTl1CrVD514pOXVJQARXf8au1X65rs1PV4DX4tbt33sH9W2gKrb8BzmD39CE_s3itFr_VErRaBq2WsNUybLWMWi16_1pNTrvJPXz3neNe9Y12jvqfokGLxqD-rDmHw8_h4efw6FNYD2MFWz1Lf0lsIEmt6MPa_zDQPx5SnMGCKmvXs6B-3efvDFnR_gPaKvZ36JRA_WRtSnD3D23y498=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-3210-e2e-74j_r3_fg_purchase_order_to_if-e2e-74j_r3_fg_purchase_order_to_if">BUSINESS ARCHITECTURE — 3.2.10 E2E-74J_R3_FG_Purchase_Order_To_IF — E2E-74J_R3_FG_Purchase_Order_To_IF</h4>
@@ -2099,7 +2190,7 @@ flowchart LR
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -2316,6 +2407,9 @@ flowchart LR
     class n63 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlWVtv27gS_iuEiyJdwEZFUjf7YQ8cx-5mkTRGnHax2JwHRqIcobLk1SWXk-a_n5FEyhZNJoCbh6IezjeXb4ZDSnoZBFnIB5PBx48vcRqXE_RyUt7zDT-ZoJM7VvCTIWoF31kes7uEFye1TpSl5Sr-X6OG7e1TrVbLFmwTJ8-1dMXXGUffzodoCsBkiAqWFqOC53F0MjzZ5vGG5c-zLMnyWvsD9yMraryJpdMsD3m-U7AsDwcOQJM45Tsx9WzPXtS4ggdZGvaMRk7kR8HJax1ckj0G9ywvm_Crgl-yp7_isLyH3xFLCg469-UmuWB3PKlzLPOqlgVV_iDJiIvaTwqErbYsiNM1yG0LRDlLf-xEjvX6il4_frxNO6fo4vo2RfAXJKwozniEihLE84cSRXGSTD7Ys-nCsYZFmWc_-OQDmXtnlAyDOpMJpG4Na3JHjzxe35eTuywJherosc5hQrZPw_xpQqxh_gz_Kr54Gu48zVziE7_zdOrhGZ5JT1EU_ZIn4DW_YcUP4WtOF2Rx1vnCjuvMrEN7Ms0z25tilSeeP8QB3zO6WCzofEfV3HWwZTZ6uqCuNVOMrlnJH9nzzuB4ZncGF463wJ7RYOtPjbK6W-ZZIA3SubNwOoPeKV5MidGgPcW2LyIEO-ucbe_RaVY1vYym222BzheoXa__UvzP7eCaBzx-4GgV3POwgi2xRmesZLeD_-4ruv-AasQmERsF2Rqtyizn6LSKkxCdpxBPFZRxlhaA6sG8PuySbTUgVGZoxWAeoKt6o6IL2JYoTtF8NlXt-X17rf4yYWlaxw2Y079HV0sVNe6jZMazLI3ifMPDnneR_L4BYvUNLDhg9GhIpQvne8w0ORDcN7bkeZTlm33-F6vZFfpE8xAtYWs_o98UE7b1qTNRlNlWrZ3MMATcb3s4h7y8SBzL8-yxGLGkRFuWsyThyZe2l28Hr6_7IHoEyNV7itMgqQqI7AAFg-Xtvl3uWTfVswIyNlCEBTRnwIqyJQPYRatqu02eu9KoDaLUdwXRfJZWNf2AsT6Ab9sQ8irQAxR-efaHgqLurmrbBGbG23ErtXOtX2b0PC15Ak6AV6D1Yu45FuxIiKSAeFdxyfdHg7LhZzkHB71W_zS9QYsvam96-u6-5ltexmUzaEoOBa3SMk6EJbGVWD0NFHO-NoymjrDzWnhd4CYWlXBf2SY9bwe7w66n4ZzMR579J_CSVhELyiqvN1U9kXlRCE-LL4iVLX_dlDxkezVdotVnW2F9fxCAuxlLgiqpU7phT7zoD10KCn_AsSnd91ftGq6bQX01p6OgPlHR1QPP8zjkTYIsAdNwJPYRhOi7WzO4P01PryFyuMupbUDou_2jKxmx9e3TIr6zJA51XUKcPuwM7oYQ8eUlOj9DUZ5t0Gz5VcW4elcQaRiXaHbPgx_NToZpfKlilS6_yeP1GgL8crNqgaq-r_dV69_kLKzPos02iVnaFKMHVYZdO2OaM3J0XvINuuFPpdr4yjzbdVld7sP5R9-ZZ1mKZjdLbWbU0CzvbmxK1atBytbQZAxYb8DqXYJ6yvhsrgkdBZIYuVXP4REkBsHBLt87meoHltEdXLmD-7Z0XRFE-f-jHGs21YP5k2kKtzBbD-u12hIugDw88Ogc59E1eGxc7ZcFxjErq-IwVU9vob6RwEMYHKbd8PmMvqVBN4kODPlvhSLM1dRvgIppAs85YOTueXcqHhgcH0WJYx0Hs4-5MznHgNxjQN4xIP8Y0PiYeyD95VuL_hy9mGMLo28ruGTnZX2Q7U8KW39pqHJ4gi44zKh_q7iIm-433h2ct20Ybx7vJQDzKYTjc_82SfSuWsU6SPN5ien79yMVomenmaHLa1XZeUP5SuVsrNy3hBoKcs41o9jBx3QUPraj4AKORqPf4fFB_Mak_e2INwXwn1aAXUVAiBAQCXGkgAqBLSGOgFApsIWGNEqEgHQ2RFy2tEE8IZBu7cbtz9vB3_Ud8Wd9oZDWBZZ02LFwJ6EiQGpJhLAt4yPKbypydjwhcKUFSROVJHRB-K3AlRrEV42KjIjknkiaJCuu5F7mjKliVBK5E4hUiVo-yQUWCCzJoJaIXIZh2yqxMmuqVM0WAVMV-TVrgLaj1kpdcIRz2nWGLHPnwxXQvUeU2oKMlkpKqAr4mpVIAclEbE_o7B3SjYZjqRqas721JQtt-wpdXWjdish6Z1wUiXZ19ZUksKDBlRqu6C8s3WJZ6K6HhQaRrSB2gcxZWKS-ok-7XSJbRXoQlZAOZP9ipcMlXjZWVxnRHbKSVChQWXyRgSsdYEsRuEKAu5BkiFRJQiZFZDN3zMoWHSsN1jGLBU9OZ1N0FPZUgaVsMlmu5kVlPUXkC9qe2N1_y9pb8YwrvnFlbFwB-oxL2LxEzEvUvGSblxzzkpkKbOYCm8nAZjaImQ1iZoOY2SBmNoiZDWJmg5jZIGY2iJkNYmaDmtmgZjaomQ1qZoOa2aBmNuAiIj_a9OWeQe6LDy996VgntS2tFOstw2ElvmD0xVQvtvViRy929WJPL_b14rFWDGepVoz1Yn2Wjj5LR5-lo8_S0Wfp6LN09Fk6-ixdfZauPktXn6XbZTkYDuB5esPicDB5GTSfYuFzbcgjViXl4HU4YFWZrZ7TYDBpPlkOquaVylnM4EFm0wpf_w9u5yg9" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-3211-e2e-74k_manufacturing_process_for_atfg_at_le750-e2e-74k_manufacturing_process_for_atfg_at_le750">BUSINESS ARCHITECTURE — 3.2.11 E2E-74K_Manufacturing_Process_for_ATFG_at_LE750 — E2E-74K_Manufacturing_Process_for_ATFG_at_LE750</h4>
@@ -2325,8 +2419,8 @@ flowchart LR
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
-flowchart LR
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
@@ -2389,7 +2483,7 @@ flowchart LR
         n37[["fa:fa-cog Export Invoice"]]
         n38[["fa:fa-cog Export Declaration US only - GTS"]]
         n39[["fa:fa-cog Create Commercial Invoice Performa"]]
-        n40[["fa:fa-cog Create Intercompany Invoice (Applicable for non-US Countr..."]]
+        n40[["fa:fa-cog Create Intercompany Invoice (Applicable for non-US Countries)"]]
         n41[["fa:fa-cog Perform Outbound Delivery - Partial Quantity Lot 1"]]
         n42[["fa:fa-cog Perform Outbound Delivery - Partial Quantity Lot N"]]
         n43[["fa:fa-cog Perform Outbound Delivery - Full Quantity"]]
@@ -2399,7 +2493,7 @@ flowchart LR
         n58(["fa:fa-stop Declaration Export Completed"])
         n59(["fa:fa-stop Commercial Invoice Performa Created"])
         n60(["fa:fa-stop Intercompany Invoice Created"])
-        n67{{"fa:fa-code-branch Delivery Qty : Partial/Full ? (Lot Level – driven by MES ..."}}
+        n67{{"fa:fa-code-branch Delivery Qty : Partial/Full ? (Lot Level – driven by MES Ship lot transaction)"}}
         n68{{"fa:fa-code-branch exclusiveGateway"}}
         n72{{"fa:fa-arrows-alt parallelGateway"}}
         n73{{"fa:fa-arrows-alt parallelGateway"}}
@@ -2585,6 +2679,9 @@ flowchart LR
     class n81 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlWm1v2zgS_iuEiyItYCMSSb3YH_bgyHbOQNJka7e7h81-UGQqFiJLhiSn8aX57zeUSNmiyXYvzYeiHs7rw-HMkPZLL8pXrDfqvX__kmRJNUIvZ9WabdjZCJ3dhyU766OG8DUskvA-ZeUZ54nzrFok_63ZbLp95mycNgs3Sbrn1AV7yBn6Mu-jMQimfVSGWTkoWZHEZ_2zbZFswmIf5GlecO53zI-tuLYmli7yYsWKA4NleXbkgGiaZOxAJh716IzLlSzKs1VHaezEfhydvXLn0vxbtA6LqnZ_V7Lr8PmPZFWt4XMcpiUDnnW1Sa_Ce5byGKtix2nRrniSYCQlt5MBYIttGCXZA9CpBaQizB4PJMd6fUWv79_fZa1RtJzcZQj-ojQsywmLUVkBefpUoThJ09E7GoxnjtUvqyJ_ZKN3eOpNCO5HPJIRhG71ObiDbyx5WFej-zxdCdbBNx7DCG-f-8XzCFv9Yg__KrZYtjpYClzsY7-1dOHZgR1IS3Ec_5IlwLVYhuWjsDUlMzybtLZsx3UC61SfDHNCvbGt4sSKpyRiR0pnsxmZHqCauo5tmZVezIhrBYrSh7Bi38L9QeEwoK3CmePNbM-osLGnerm7vy3ySCokU2fmtAq9C3s2xkaFdGxTX3gIeh6KcLtGF_muzmU03m7LZo3_Zd5ff9314nAUh4Mof0DLIowe0WKdbDcsq9BTEqLF-BZNr-96f_99JOZ3xRbbNKnOr1nxwFAeI3B9tYuqJM_QDT90ivCwK_w5YskTQ0n2BCYLcHG3XQGeipBtdaW-1EwomF98rt38c7o4_2OhCtmKn5C5aBJWocqHNXy3aZhlcAK1AuRnAqjK0eKcqnK0K3fLijgvNmgRrdlqB5XoQRVwFLBYg5bOJ1fP2iBV1ijdTv6tSikZMC_LHcCab7Z5Bvuhcisbf52DgXl23vznZnfCP9TH-_suhIzZo2DNosdSEcLKVi8iSOHz_yQsXclgVAlbb-Yqr0wSWJWIi3yDUhCIIPaUnSQgJmYbC158FX7qf2j5tykUhzm0w4Tn7HWY7eIwqnYFTxZ-zllZIlAGLBVL0Yyf1WIP-j4e6xsq-sZpXLAyytFKpNs9g-qWrRQ5x1Lkjh3uMOIDY1nl20MZqKsCO1FMFP76LDZwn_BShZc7EQigVWZ3-PIimcOiyL-VgzCt0DYswjRl6WVTbO96r6_Hhcx6i5D9FiFfK5RkUbor4cAZpIb_pxTfyW4Nnz5XrMjCFN3C5mWsOK7j1FRYtiyCaQkFO4B9U0JReEg2UAzu92gyC9SUdfRKAnA4YQVUubp3qmfJVRNBNSr0nG60mhWqIaOkb_8ymp2zhq6mnmPByYQDUkKdPC5h4OJtXlboco7qGsErJD-4i2SJPlzOZ18_gnPHhQIEgoLxkz4PBAaMn-2nHGJCF9DS0TIfgUnbshVRZReFmrqxsFXTTNF4iWaXanEy7Nx4edvUWAS9-EsG9aIqkgiOHFSAPHpUtbh6LZfLRaNF5Vd6x20ChkLeCfkUYSi86ugARQZd5vlKdB5eBm8msJO8f3KEAfebyUdVy1AP1I8HD2KpHTJlcCX5qZihu7RNkpfTh9PeTbABToi2FOFytMQoM68HoLwu_B01SuMJ8ixOQM3PvKY_sl4PB1u1ZxFH097rTOH95af5Qwz5s5wGN2iAlixaZ0nEC0NT-cF1VYOSUdPnbQ63HXF2VGZfyzxhMEYXYQ3MlwUkfroH45DDqrg-h8A3OK51_ZJHVsShDlzU0irghaXgQ0SY7VsVH2DuTiF2uPDWKZ7l2QCcC6D8AKKsVBOcGnIORqx7XrIgyhTqXMFD4-2AuwtDVVbxqYo3V1tViH9R4SdVIfnnCme79KBN0eM4ShM41KwJnC51kHAVbglws_mng4en8Le1TKvdV7iPc0mkl2lqcYZqMzMnkkiVk35onQSnSSWDrHfoiPwJZnAPjwjR-rALv8M-juTWntc78i_0ge_sFXuCTni3w5ZN0KoA9ozPB9fTRVOd-VBcgbYyrKvNR2WycX29Zfb844EIv2X2Im8Rom8Rct4i5L5FyHuDkG_98gBUX-yD4PhIG26QM3jJK-GCKnrH9fV8IhsIdJJr3pHK3WarqefU05bIOq2u2SZXa4Gt3FVaDy4htDhvBjB-z1Cz39HcXWoLpuOi1hElxnlWH9T64AsnjlTowYTrfj3T8a7zNSkquOMeD5KkMxcudrwhHObC7iBI26Hzc_2QAGNBCG8rV3nUuCTVf7j8vFwo86cDsk3PXvJDG4ONeppKskFNSKp6oKy6Uq465v6E3VYBX960V9nIdLFTb5hgq7apqaktxHAdRIPBb_ztRBL8huBhQfBwQ8COSnBVgicI2BM6iOQggsOXBMFBPJVwwjFUCNSSVqSn0nWPCoJkELERKUEsQbAlwRYEGSwRoXgyWCJ1ymCJI0QkwRc6aOuGKzikDlt4bsvYbOm5dMwWnsonWlgRIkOFIFVg4YYjjWBh1ZHR24LDbVUIq3YrIjzHMnpHGMFy36iI3m0JUqkMlorYXKmUCj_cNjuEXy3EktAiKvxyZGxEoOFIz6nwy7U6-fSdH_kcjkTz7QNchr7zNJHRyWDazRZJSKTvWGy20-6ciM6XIrbQ4bTxC8hc6SvFCkHqIK0IUTiwANW3OgkD0dQPnZ0rRPvaOQ3GTXitFqHWk756wjVbAuBLAIYKR2vY9YRhZYT8zr1WeUyDMGe2_xHzp4ZZJoJtH4fNe8r28CDMGWUgQ8HX3uHQYp9F8JJdD_tHsz-UU_EUW8928AwIVT3c89vbd76ZHRxqheLREGpruQV3ub5P0AHKcwr34_p-zQXbDJK57SkVp2UQ6_KzSA6isEsExEd5dOTZkviIuiKxFau4U7khiq8Qr0yP9sTIsi5N2zJdunnaTbrm1mxMOSoLSLuDslq2GSbNukp7aTlsEQZWq2V75hwZt6ugRp2j73F4XTn6tqmz4htXhsYVOOnGJdu8hM1LxLxEzUuOeck1L5mxsM1g2GY0sBkNbEYDm9HAZjSwGQ1sRgOb0cBmNLAZDWxGg5jRIGY0iBkNYkaDmNEgZjSIGQ1iRoOY0SBmNKgZDWpGg5rRoGY0qBkNakaDmtGgZjSgusmv-bv0oZ4Ow5KebhvoWHy136USLZVqqY6W6mqpnpbqa6lDHdW1tFRbS9XG5mpjc7WxudrYXG1sMGWI3wR0yb6ePNSSYaDWkm09GevJRE-merKjJ7t6sj5KTx-lp4_S10fpt1H2-j14R9uEyao3eunVvx2C3xetWBzu0qr32u-Fuyrn41ZvVP_Gptf8fmCShHA13zTE1_8BQAk1Pg==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-3212-e2e-74l_r3_fg_inventory_ownership_to_ip-e2e-74l_r3_fg_inventory_ownership_to_ip">BUSINESS ARCHITECTURE — 3.2.12 E2E-74L_R3_FG_Inventory_Ownership_To_IP — E2E-74L_R3_FG_Inventory_Ownership_To_IP</h4>
@@ -2593,7 +2690,7 @@ flowchart LR
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -2659,6 +2756,9 @@ flowchart LR
     class n17 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVltv4jgU_itWqoqpFLS5EpqHlWhKqkozWzR0Zh-m82AcB6waO7KdAov472uTC5AhK-0uD0jnO-f7zs0Y7y3EM2zF1u3tnjCiYrAfqBVe40EMBgso8cAGFfAdCgIXFMuBick5U3Py1zHMDYqtCTNYCteE7gw6x0uOwbdnG0w0kdpAQiaHEguSD-xBIcgail3CKRcm-gaPcyc_ZqtdD1xkWJwCHCdyUaiplDB8gv0oiILU8CRGnGUXonmYj3M0OJjiKN-gFRTqWH4p8Re4_ZNkaqXtHFKJdcxKrelnuMDU9KhEaTBUio9mGESaPEwPbF5ARNhS44GjIQHZ-wkKncMBHG5v31ibFHz--saA_iAKpXzEOZBKw9MPBXJCaXwTJJM0dGypBH_H8Y03jR59z0amk1i37thmuMMNJsuVihecZnXocGN6iL1ia4tt7Dm22OnvTi7MslOmZOSNvXGb6SFyEzdpMuV5_r8y6bmKVyjf61xTP_XSxzaXG47CxPlVr2nzMYgmbndOWHwQhM9E0zT1p6dRTUeh6_SLPqT-yEk6okuo8AbuToL3SdAKpmGUulGvYJWvW2W5mAmOGkF_GqZhKxg9uOnE6xUMJm4wrivUOksBixVI0uc_Ksh8mPvjx5uVwziHQ8SXYIZFzsUaKDOVAu7WmCnwFSNMCvVm_fx5xvT-gZlAuQKToqAEQUU461Bd_1PLlYoXYFZlklWqD5xpwl1F0Ees08F8MgPz3wLwzBSmIOUly8QOnMnfX1aWQIpKqhcDXuEWy24tTidaYBOalLqwNRY6ywfXx6TL8k4dFFQvvKahhkZa2t05Leg0risy9ZVVgf-ibX0oshKpM23_so96kuCJ86zbc3B9dbWm3hd4MVckSDjLiVhfW2F4KfGF61SvHHxjAuvjSJBuBswVR-8d3uh66tdp8tKJjK5HHvtpjiSAS0iYVOAVbxWYdSXGV1f7Xc-Wt4sFnzai5d911-x21pw-GZ4-qlwfuZcNw0KuSGE6f56BQv9QsZQ6gihyuc5KLdzvT_VkeLjQ1ztaAbxFtJR6WU_V7fFmHQ7ntNF_o0UnGhSCb-QQUqV_1AJSiukvpPbEsRAMh7_rVdVmUJluY_uVHdbmqDKj2nQr02tMp2Y3fq-2_SagJgSNXeu1_rqacW1HNb9JP67tJrzrb4D72r6v_W2-pqDzm9e0cfb_cOHxej1-ryfo9YS9nlGvJ-r1jHs9970evaFel9u-Ji5xrwf36xfBJRpcRcPmz_ISHl2Howa2bEvfr2tIMiveW8cHpH5kZjiHJVXWwbZgqfh8x5AVHx9aVllkmvlIoL5G1xV4-BtbV1Q8" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-3213-e2e-74m_r3_tm_steps-e2e-74m_r3_tm_steps">BUSINESS ARCHITECTURE — 3.2.13 E2E-74M_R3_TM_steps — E2E-74M_R3_TM_steps</h4>
@@ -2668,8 +2768,8 @@ Intel Product/ Intel Foundry | <strong>Tasks</strong>: 9 | <strong>Gateways</str
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
-flowchart TD
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
@@ -2677,7 +2777,7 @@ flowchart TD
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
     subgraph External Partner Supplier B2B
-        n1["Provide Rates/Charges Integrators. 3rd party service – Re..."]
+        n1["Provide Rates/Charges Integrators. 3rd party service – Redwood"]
         n10(["fa:fa-play Rates/Charges to be Provided"])
     end
     subgraph SAP S/4  Intel Product/ Intel Foundry
@@ -2711,6 +2811,9 @@ flowchart TD
     class n13 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVl1v4jgU_StWqooZKWzzSWgeVoJARpWmmqppdx-WfTCJA1aNHdlOgUH8973OB7RMu1ppeag4l3vOuffm2unBykVBrNi6vj5QTnWMDgO9JhsyiNFgiRUZ2KgN_IElxUtG1MDklILrjP5s0tyg2pk0E0vxhrK9iWZkJQh6vrPRBIjMRgpzNVRE0nJgDypJN1juE8GENNlXZFw6ZePW_TQVsiDynOA4kZuHQGWUk3PYj4IoSA1PkVzw4p1oGZbjMh8cTXFMbPM1lropv1bkHu_-pIVeAy4xUwRy1nrDvuMlYaZHLWsTy2v52g-DKuPDYWBZhXPKVxAPHAhJzF_OodA5HtHx-nrBT6bo--OCI_jkDCs1IyVSGsLzV41Kylh8FSSTNHRspaV4IfGVN49mvmfnppMYWndsM9zhltDVWsdLwYoudbg1PcRetbPlLvYcW-7h74UX4cXZKRl5Y298cppGbuImvVNZlv_LCeYqn7B66bzmfuqls5OXG47CxPlVr29zFkQT93JORL7SnLwRTdPUn59HNR-FrvO56DT1R05yIbrCmmzx_ix4mwQnwTSMUjf6VLD1u6yyXj5IkfeC_jxMw5NgNHXTifepYDBxg3FXIeisJK7WaL7TRHLM0AOsCScSZXVVMQpfpt60zTUf7v61sMD5lRYEPUJX6iaBfVsRhe64JqClhVS_IV8WqAKlfT9PtKg9x_XRIym2QhQL6--3os4XkC1xXOJhxWBO75W1QEuCOldD_dpyYc0uusgmDyi7CVBTDDOUos71TQdTUfNC7t8Ye6YbIkshNyiVzQqiZ7iV0DcCM8CaCo6-PN1_fV-uD6xEEqjxRPph7o4PUgNIfa4Kk5pgKc08m94Q5gXKm_5Qjlles8_MQlCY70he_we3kWlHKH1KzIjWDO5SrtFM5HXz5VdadO4n657Www_URgoEw0FpNvuANwZeNyhgzjO0pXqNJjU8r0fCCFzmH5Buz2aJKXVGYU_psjbt30xWhOd7NK0V3LlK_VvRrnuxM3fw3KiRfbpHFZwN4J9XpaV4Z4rSojKZmSaVgko2FSP67XK1DP9w6Bnw-MRWDTHTiPKcQYmv5Ft7rhfW8XixktxDw-HvsCsdDFoYdjBs4aiDoxZGHYxaOO7guIW3HXRb6PbScKqaQNBh_-L32w57fb7TBXrcCXpv7pgmq39lvI-7n8S97tp_H_X7u8-yrQ2RG0wLKz5YzRse_gsoSIlrpq2jbWHYm2zPcytu3oRW3RybGcVwtDdt8PgPhUyRoA==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
@@ -2885,6 +2988,7 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
@@ -2915,6 +3019,7 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="42-data-flow-diagrams">4.2 Data Flow Diagrams</h3>
@@ -2923,7 +3028,7 @@ flowchart TD
 </blockquote>
 <h4 id="421-current-state-current-state-data-flows">4.2.1 Current-State — Current-State Data Flows</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '13px', 'fontFamily': 'Segoe UI, Arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '15px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 35, 'rankSpacing': 45}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
@@ -2956,11 +3061,14 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqdlY9P2kAUx_-VyxnCloCrYGE20eRKyzSpxlncltilOdpXuHi0TXtVEPnfd9dC3RCc8S5puPfj-14_rzmWOEhCwAZuNJYsZsJAy6aYwgyaBmqOaQ7NFmrmEBQZEwsHHoArB0-SylOG_qAZo2MOeVNlR0ksXPZUChzp6VyFKduQzhhfKKsLkwTQ7UULEZnImysVwZPHYEozUWoUOVzS-U8Wiqk8R5TnIGOmYsYdOgauComsULZYdu-mNGDxRBq7ujRlNL5_MR3rqxVaNRpeXJdAI9OLkVwBp3luQYRomprJHEWMc-PA1K3hcNjKRZbcg3Ggaf2-2Vsf24-qJ6OTzltBwpNMubuWvq0XjgcLvpYjutUj_VquY_etbmev3JGp2x1tSw4S_tLecGjqpl7rDQaaXHv1ej3l9uJKMS_Gk4ymU2TLNo4HFhk4PvgTnzwVGfjud-fOw8jDv6totUKWQSBYEtfQ1NqkkzL7l33rykQ4nBwi9VsKGIZRMX2dY21V_ORhrwi_dkP5DINjr4hAk6-sxMogJIM8_FlJlljf6gK1D9tn-ypViRCHaxZiwWEviA1sonYN29bU_hf2UTr_H16XXPvn5Ip8iO6l7fpdTdsAlkckj-9hXJd9A7GMQSrmPYTXneyCvCn1Hsab2A8h3l0WnZ6ePa8BWSVT9AWR6wv5HDIOHn7e_1Fsjc6BiWz_7i9iQaghi4wIIjeD84uRPRjd3tjIsb_ZV9aeaTo3L1bHV3MnacpZQJV39-gc39ozJ4sKqm7i3SNyfFvK23HYTqK2wyKo5KsrY-c4qjfc0NfVrumfnJy8Qo9beAbZjLIQG0tc3vjy_yKEiBZc4FUL00Ik7iIOsFFeyrhIQyrAYlQSnVXG1R9FLvV5" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="422-future-state-future-state-data-flows">4.2.2 Future-State — Future-State Data Flows</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '13px', 'fontFamily': 'Segoe UI, Arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '15px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 35, 'rankSpacing': 45}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
@@ -2993,6 +3101,9 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqdlY9P2kAUx_-VyxnCloCrYGE20eSg7TSpxlncltilOdpXuHi0TXtVEPnfd9dC3RCc8S5puPfj-14_rzmWOEhCwAZuNJYsZsJAy6aYwgyaBmqOaQ7NFmrmEBQZEwsHHoArB0-SylOG_qAZo2MOeVNlR0ksXPZUChzp6VyFKZtNZ4wvlNWFSQLo9qKFiEzkzZWK4MljMKWZKDWKHC7p_CcLxVSeI8pzkDFTMeMOHQNXhURWKFssu3dTGrB4Io1dXZoyGt-_mI711QqtGg0vrkug0cCLkVwBp3luQoRomg6SOYoY58bBQDdt227lIkvuwTjQtH5_0Fsf24-qJ6OTzltBwpNMubumvq0XjocLvpYjutkj_VquY_XNbmev3NFAtzralhwk_KU92x7oA73WGw41ufbq9XrK7cWVYl6MJxlNp8iSbRzbJhk6PvgTnzwVGfjud-fOw8jDv6totUKWQSBYEtfQ1NqkkzL7l3XrykQ4nBwi9VsKGIZRMX2dY25V_ORhrwi_dkP5DINjr4hAk6-sxMogJIM8_FlJlljf6gK1D9tn-ypViRCHaxZiwWEviA1sonYN29LU_hf2UTr_H16XXPvn5Ip8iO6l5fpdTdsAlkckj-9hXJd9A7GMQSrmPYTXneyCvCn1Hsab2A8h3l0WnZ6ePa8BmSVT9AWR6wv5tBkHDz_v_yi2RufARLZ_9xexINSQSUYEkZvh-cXIGo5ubyzkWN-sK3PPNJ2bF6vjq7mTNOUsoMq7e3SOb-6Zk0kFVTfx7hE5viXlrThsJ1HbYRFU8tWVsXMc1Rtu6Otq1_RPTk5eocctPINsRlmIjSUub3z5fxFCRAsu8KqFaSESdxEH2CgvZVykIRVgMiqJzirj6g_A0_Wj" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="43-data-lineage">4.3 Data Lineage</h3>
@@ -3083,6 +3194,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</h2>
@@ -3095,7 +3207,7 @@ flowchart TB
 <strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '16px', 'fontFamily': 'Segoe UI, Arial, sans-serif'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     %% -- ArchiMate-inspired style classes --
     classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
@@ -3115,7 +3227,6 @@ flowchart TB
     E2E74C_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E74CMW_e_g_Azure_Service_Bus
     E2E74CMW_e_g_Azure_Service_Bus --> E2E74C_e_g_XEUS
 
-
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -3129,6 +3240,9 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqVVW1vokAQ_isbGuMXbemLLyWNCQhevGDblL7c5byQlR100xUIu7S11v9-u2DFYht7a4Jh5plnlmdmdpdaEBPQDK1WW9KICgMt62IGc6gbqD7BHOoNVOcQZCkVCxeegCkHi-PCk0PvcUrxhAGvq-gwjoRHX3OC43byomDKNsBzyhbK6sE0BnQ3bCBTBrIG4jjiTQ4pDesrhWbxczDDqcj5Mg4j_PJAiZjJ9xAzDhIzE3Pm4gkwlVSkmbJF8ku8BAc0mkrjmS5NKY4eS1NLX63QqlYbR5sU6NYaR0iuWg01m3JDwYyOsIAmjXhCUyCIiwUDFDDMOXCJKeD5uw0hmmScRsA5yldIGTMOBnJZrQYXafwIxoHV7bZ1a_3afFZfYpwkL40gZnFqHOi6XuHESYLKVXBaLcW64dT1Tsdq_wcnwQLvctrdPZzHHzjffQRzKV6KF1JT1KpkmlNCGDzjFLYVsdtmqYjTaQ9Ktm_sHmK2o4jSeEvlfl_X93EWrDybTFOczJDp_hlr44x0T4l8ktMWMq-v3WHfvB1eXSLX_O3cjLW_RZBaRDZEIGgcIfemtDonTues74M_9UeO55_q-jZrAG0Eh9NDJH1I-iShYRiywp8S_HLuvE-jlePL0NFDHmy-Zin4HqRPNADfyviHrzvuFEw5Cq1RSKIK2rJqVXbbydn7MRe-w-S8R6K3vcXgrCBWALQGXEzSo94F7RUO7x4doaEdB_Lvp3d1eXFEe0VW1ZVFPojIe312BZVj13sbazmbnRdBMpnXQ_kcUAZj7W2PEtvEX2FUkmot1JbWTZMfA5a7NeIDfd-Ib4eam1D9O5O806wuTKVGH5qD6Mh1fjiX9je61PVlb1dby0wSRgOswJ80l-uPHqotNCrb5Mu2cX3bqXaIrY4fJxLyFqlWvghxrophPGmTMwkkzThsujRcp5Hzv9UmpaiFKO_CttRvI-z5-fnOWaY1tDmkc0yJZiy1_PaSdx-BEGdMaKuGhjMRe4so0Iz8UtGyRG4UbIplEeaFcfUPAj89gQ==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="current-state-flow-narrative">Current-State Flow Narrative</h4>
@@ -3152,6 +3266,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="52-future-state-future-state-application-landscape">5.2 Future-State — Future-State Application Landscape</h3>
@@ -3163,7 +3278,7 @@ flowchart TB
 <strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '16px', 'fontFamily': 'Segoe UI, Arial, sans-serif'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     %% -- ArchiMate-inspired style classes --
     classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
@@ -3183,7 +3298,6 @@ flowchart TB
     E2E74F_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E74FMW_e_g_Azure_Service_Bus
     E2E74FMW_e_g_Azure_Service_Bus --> E2E74F_e_g_XEUS
 
-
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -3197,6 +3311,9 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqVVW1vokAQ_isbGuMXbemLLyWNCQhevGDblL7c5byQlR100xUIu7S11v9-u2DFYht7a4Jh5plnlmdmdpdaEBPQDK1WW9KICgMt62IGc6gbqD7BHOoNVOcQZCkVCxeegCkHi-PCk0PvcUrxhAGvq-gwjoRHX3OC43byomDKNsBzyhbK6sE0BnQ3bCBTBrIG4jjiTQ4pDesrhWbxczDDqcj5Mg4j_PJAiZjJ9xAzDhIzE3Pm4gkwlVSkmbJF8ku8BAc0mkrjmS5NKY4eS1NLX63QqlYbR5sU6NYaR0iuWg01m3JDwYyOsIAmjXhCUyCIiwUDFDDMOXCJKeD5uw0hmmScRsA5yldIGTMOBnJZrQYXafwIxoHV7bZ1a_3afFZfYpwkL40gZnFqHOi6XuHESYLKVXBaLcW64dT1Tsdq_wcnwQLvctrdPZzHHzjffQRzKV6KF1JT1KpkmlNCGDzjFLYVsdtmqYjTaQ9Ktm_sHmK2o4jSeEvlfl_X93EWrDybTFOczJDp_hlr44x0T4l8ktMWMq-v3WHfvB1eXSLX_O3cjLW_RZBaRDZEIGgcIfemtDonTuds4IM_9UeO55_q-jZrAG0Eh9NDJH1I-iShYRiywp8S_HLuvE-jlePL0NFDHmy-Zin4HqRPNADfyviHrzvuFEw5Cq1RSKIK2rJqVXbbydn7MRe-w-S8R6K3vcXgrCBWALQGXEzSo94F7RUO7x4doaEdB_Lvp3d1eXFEe0VW1ZVFPojIe312BZVj13sbazmbnRdBMpnXQ_kcUAZj7W2PEtvEX2FUkmot1JbWTZMfA5a7NeIDfd-Ib4eam1D9O5O806wuTKVGH5qD6Mh1fjiX9je61PVlb1dby0wSRgOswJ80l-uPHqotNCrb5Mu2cX3bqXaIrY4fJxLyFqlWvghxrophPGmTMwkkzThsujRcp5Hzv9UmpaiFKO_CttRvI-z5-fnOWaY1tDmkc0yJZiy1_PaSdx-BEGdMaKuGhjMRe4so0Iz8UtGyRG4UbIplEeaFcfUPSLA9mQ==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="future-state-flow-narrative">Future-State Flow Narrative</h4>
@@ -3220,6 +3337,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="53-change-impact-summary">5.3 Change Impact Summary</h3>
@@ -3263,6 +3381,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 29</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
@@ -3312,6 +3431,7 @@ flowchart TB
 <blockquote>
 <p><em>Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).</em></p>
 </blockquote>
+<div class="page-footer"><span>Page 30</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
@@ -3337,6 +3457,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 31</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
@@ -3346,7 +3467,7 @@ flowchart TB
 </blockquote>
 <h4 id="611-current-state-current-state-platform-architecture">6.1.1 Current-State — Current-State Platform Architecture</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '12px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'nodeSpacing': 25, 'rankSpacing': 30}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef platBox fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
@@ -3367,14 +3488,17 @@ flowchart TB
     E2E74CPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E74CPLP_e_g_Azure_PaaS
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqtlGFvmzAQhv-K5SriC2sJhCRD6iQgoFVKp2is26QxIQeOxKqDEZg2acp_nw1tslZKpWrzB4t77_z49Vl4j1OeAXbwYLCnBRUO2mtiDRvQHKQtSQ2ajrQa0qaiYjeHO2AqwTjvM13pd1JRsmRQa2p1zgsR0YcOMByVW1WmtJBsKNspNYIVB3RzpSNXLmRaqyoYv0_XpBIdo6nhmmx_0EysZZwTVoOsWYsNm5MlMLWRqBqlFdJ9VJKUFispjgwpVaS4PUq20baoHQzi4rAF-ubFBZIjZaSuZ5AjUpYe36KcMuacefYsDEO9FhW_BefMMCYTb_wUfrhXnhyz3OopZ7xSaWtmv-aVjIgj0J8GY__jAWhNp4HlvwRaR-DQswPTeAUEzo68MPRszz7wfN-Q46TB8Vil46In1s1yVZFyjQIzmIz8xXyRQLJK3IemgmRBSPQrxnFjjo1h3ORgyJ3PV-eoSyOVjvHvHqRGRitIBeUFmn89qs9ktyP_DG4Us8OobwlwHKdveL8GiuzJm9gxOGnsn5r55uGjZJR8dr-4iWmYVnf-bGplcs6I_XcXoosRUnVI1b27EddBlFiG8dwLGSIZvrMdL6z-h468Rb-8_PT4ZHbWnQ9dIHdxJeeQMojx48mrwjreQLUhNMPOHndvhHxhMshJwwRudUwawaNdkWKn-41xU2ZEwIwSeT2bXmz_AJzRbnI=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
 </blockquote>
+<div class="page-footer"><span>Page 32</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="612-future-state-future-state-platform-architecture">6.1.2 Future-State — Future-State Platform Architecture</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '12px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'nodeSpacing': 25, 'rankSpacing': 30}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef platBox fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
@@ -3394,6 +3518,8 @@ flowchart TB
 
     E2E74FPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E74FPLP_e_g_Azure_PaaS
 </div>
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqtlGFvmzAQhv-K5SriC2sJhCRD6iRIQKuUTtFYt0ljQg4ciVWDEZg2acp_nw1tslZKpWrzB4t77_z49Vl4jxOeAnbwYLCnBRUO2mtiAzloDtJWpAZNR1oNSVNRsVvAHTCVYJz3ma70O6koWTGoNbU644UI6UMHGI7KrSpTWkByynZKDWHNAd1c6ciVC5nWqgrG75MNqUTHaGq4JtsfNBUbGWeE1SBrNiJnC7ICpjYSVaO0QroPS5LQYi3FkSGlihS3R8k22ha1g0FUHLZA37yoQHIkjNT1HDJEytLjW5RRxpwzz54HQaDXouK34JwZxmTijZ_CD_fKk2OWWz3hjFcqbc3t17ySEXEEzqb-ePbxALSmU9-avQRaR-DQs33TeAUEzo68IPBszz7wZjNDjpMGx2OVjoqeWDerdUXKDfJNfzIKlotlDPE6dh-aCuIlIeGvCEeNOTaGUZOBIXc-X5-jLo1UOsK_e5AaKa0gEZQXaPH1qD6T3Y78079RzA6jviXAcZy-4f0aKNInb2LH4KSxf2rmm4cP41H82f3ixqZhWt3506mVyjkl9t9dCC9GSNUhVffuRlz7YWwZxnMvZIhk-M52vLD6HzryFv3y8tPjk9l5dz50gdzllZwDyiDCjyevCus4hyonNMXOHndvhHxhUshIwwRudUwawcNdkWCn-41xU6ZEwJwSeT15L7Z_AL-iboo=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
 
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
@@ -3426,48 +3552,40 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 33</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="62-sap-development-object-status">6.2 SAP Development Object Status</h3>
+<p><strong>RICEFW Status Summary</strong> — E2E Tower (0 objects)
+<em>Data source: Smartsheet Object Tracker (cached 2026-03-26)</em></p>
 <table>
 <thead>
 <tr>
-<th>Metric</th>
-<th>DEV</th>
-<th>QAS</th>
-<th>PRD</th>
+<th>Status</th>
+<th style="text-align: right;">Count</th>
+<th style="text-align: right;">%</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Transport Requests</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
+<td style="text-align: right;"><strong>100%</strong></td>
 </tr>
+</tbody>
+</table>
+<p><strong>RICEFW by Type:</strong></p>
+<table>
+<thead>
 <tr>
-<td>Custom Code Objects</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<th>Type</th>
+<th style="text-align: right;">Count</th>
 </tr>
+</thead>
+<tbody>
 <tr>
-<td>CDS Views</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>Fiori Apps</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>BAdIs / Enhancements</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
 </tr>
 </tbody>
 </table>
@@ -3599,123 +3717,202 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 34</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="7-project-context">7. Project Context</h2>
 <h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
-<p>Project delivery milestones for E2E-74 RICEFW objects:</p>
-<table>
-<thead>
-<tr>
-<th>Phase</th>
-<th>Planned Start</th>
-<th>Planned End</th>
-<th>Status</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Functional Specification (FS)</td>
-<td>Per project plan</td>
-<td>Per project plan</td>
-<td>In Progress</td>
-<td>Tower-level FS schedule</td>
-</tr>
-<tr>
-<td>Technical Design (TDD)</td>
-<td>FS + 2 weeks</td>
-<td>FS + 6 weeks</td>
-<td>Planned</td>
-<td>Dependent on FS completion</td>
-</tr>
-<tr>
-<td>Build &amp; Unit Test (TUT)</td>
-<td>TDD + 1 week</td>
-<td>TDD + 8 weeks</td>
-<td>Planned</td>
-<td>Includes S/4 + Middleware</td>
-</tr>
-<tr>
-<td>Functional User Test (FUT)</td>
-<td>Build + 1 week</td>
-<td>Build + 4 weeks</td>
-<td>Planned</td>
-<td>Tower-led validation</td>
-</tr>
-<tr>
-<td>Go-Live (Release 2)</td>
-<td>Per release plan</td>
-<td>Per release plan</td>
-<td>Planned</td>
-<td>End-to-End Integrated Processes release</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.</em></p>
-</blockquote>
-<div style="page-break-before: always;"></div>
-
+<p><em>No timeline data available for this capability.</em></p>
 <h3 id="72-raid-log">7.2 RAID Log</h3>
-<p>Standard RAID items for E2E-74 (End-to-End Integrated Processes):</p>
+<p><em>Live data from Smartsheet Master RAID Log — extracted 2026-03-26</em></p>
+<p><strong>RAID Summary:</strong> 15 open items (0 capability-specific, 15 tower-level), 56 closed</p>
 <table>
 <thead>
 <tr>
-<th>#</th>
-<th>Category</th>
-<th>Description</th>
-<th>Status</th>
-<th>Owner</th>
-<th>Priority</th>
+<th>Severity</th>
+<th style="text-align: right;">Capability</th>
+<th style="text-align: right;">Tower-Wide</th>
+<th style="text-align: right;">Total Open</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
-<td>Risk</td>
-<td>Data migration completeness — validate all legacy R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati data maps to S/4 target structures</td>
-<td>Open</td>
-<td>Tower Architect</td>
-<td>High</td>
+<td>P1 - High</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
 </tr>
 <tr>
-<td>2</td>
-<td>Risk</td>
-<td>Integration testing coverage — ensure all 2 integrated systems are validated end-to-end</td>
-<td>Open</td>
-<td>Integration Lead</td>
-<td>High</td>
+<td>P2 - Medium</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
 </tr>
 <tr>
-<td>3</td>
-<td>Assumption</td>
-<td>Target SAP S/4HANA system available in DEV/QAS per release schedule</td>
-<td>Active</td>
-<td>SAP Basis</td>
-<td>Medium</td>
+<td>P3 - Low</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
 </tr>
 <tr>
-<td>4</td>
-<td>Issue</td>
-<td>API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation</td>
-<td>Open</td>
-<td>EA Pipeline Team</td>
-<td>High</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Dependency</td>
-<td>Upstream BPMN process models validated and signed off by business process owners</td>
-<td>Active</td>
-<td>Process Owner</td>
-<td>Medium</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
+<td style="text-align: right;"><strong>15</strong></td>
+<td style="text-align: right;"><strong>15</strong></td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><em>Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.</em></p>
-</blockquote>
+<p><strong>Other E2E Tower RAID Items</strong> (15 open):</p>
+<table>
+<thead>
+<tr>
+<th>RAID ID</th>
+<th>Type</th>
+<th>Severity</th>
+<th>Title</th>
+<th>Status</th>
+<th>Assigned To</th>
+<th>Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>03591</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>R3 E2E scenario execution</td>
+<td>In Progress</td>
+<td>Test Management</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>03681</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>ITC Execution: Planning run availability - Prerequisite for &hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03762</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>FTS-IF (esp SCP) related test cases/sequencing are not accur&hellip;</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>01733</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Tariffs impacts Item/BOM design which is impacting ERP/SCP (&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-06</td>
+</tr>
+<tr>
+<td>03592</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Lack of Defined IMO Owner for CBA Mask Billing and Materials&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03625</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Item/ BOM MC1 delta load</td>
+<td>In Progress</td>
+<td>Cutover</td>
+<td>2026-04-10</td>
+</tr>
+<tr>
+<td>03628</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>R3 Returns Rework Process Causing Finance Double Counting in&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03642</td>
+<td>Issue</td>
+<td>P2 - Medium</td>
+<td>E2E Process with Anafi on order/invoice point.  Need IFS SC &hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-24</td>
+</tr>
+<tr>
+<td>03736</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Golden Data/Test Data Readiness</td>
+<td>In Progress</td>
+<td>Master Data</td>
+<td>2026-04-22</td>
+</tr>
+<tr>
+<td>03743</td>
+<td>Issue</td>
+<td>P2 - Medium</td>
+<td>FD-Share with Entitlements -  Interface File Paths for MC1</td>
+<td>Roadblock / At Risk</td>
+<td>PMO</td>
+<td>2026-03-20</td>
+</tr>
+<tr>
+<td>03753</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>PDF-SMH IF test cases are not available in JIRA</td>
+<td>To Be Reviewed</td>
+<td>B-Apps</td>
+<td>2026-03-25</td>
+</tr>
+<tr>
+<td>03756</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>LE101-1001 Operation Support Ownership for SIMS/Tester Front&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-04-24</td>
+</tr>
+<tr>
+<td>03769</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Need a Labs SPOC owner to define IP Labs enterprise and mate&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-04-17</td>
+</tr>
+<tr>
+<td>03216</td>
+<td>Action</td>
+<td>P3 - Low</td>
+<td>Mask Expense vs. Invoice</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-06</td>
+</tr>
+<tr>
+<td>03315</td>
+<td>Risk</td>
+<td>P3 - Low</td>
+<td>BPMG – SCP L3/L4 flow standards</td>
+<td>In Progress</td>
+<td>Business Process Mgmt</td>
+<td>2026-03-27</td>
+</tr>
+</tbody>
+</table>
 <h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
 <table>
 <thead>

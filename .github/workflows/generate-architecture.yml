@@ -16,6 +16,10 @@ on:
         description: "Tower shortcode (blank = all)"
         required: false
         default: ""
+      schedule:
+        description: "Override schedule: daily, weekly, monthly"
+        required: false
+        default: ""
   push:
     branches: [main]
     paths:
@@ -69,12 +73,15 @@ jobs:
             python -m src.gen_systems_arch --all
           fi
 
+      - name: Update SADs from Smartsheet
+        run: python scripts/update_sad_from_smartsheet.py
+
       - name: Generate HTML outputs
         run: |
           if [ -n "${{ github.event.inputs.tower }}" ]; then
-            python gen_pdf.py --html-only --tower "${{ github.event.inputs.tower }}"
+            python scripts/gen_pdf.py --html-only --tower "${{ github.event.inputs.tower }}"
           else
-            python gen_pdf.py --html-only
+            python scripts/gen_pdf.py --html-only
           fi
 
       - name: Commit generated outputs
@@ -91,7 +98,7 @@ jobs:
 
       - name: Sync to SharePoint
         if: success()
-        run: python sync_sharepoint.py --all
+        run: python scripts/sync_sharepoint.py --all
         env:
           SP_TENANT_ID: ${{ secrets.SP_TENANT_ID }}
           SP_CLIENT_ID: ${{ secrets.SP_CLIENT_ID }}

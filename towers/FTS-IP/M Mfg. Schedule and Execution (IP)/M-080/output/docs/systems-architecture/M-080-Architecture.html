@@ -104,8 +104,9 @@ blockquote {
     border-radius: 6px;
     padding: 20px 12px;
     margin: 16px 0;
-    overflow-x: auto;
+    overflow: visible;
     text-align: center;
+    page-break-inside: avoid;
 }
 .mermaid svg {
     max-width: 100%;
@@ -144,6 +145,14 @@ strong { color: #00285a; }
     body { padding: 0; max-width: none; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print { display: none; }
+    .mermaid {
+        page-break-inside: avoid;
+        overflow: visible;
+    }
+    .mermaid svg {
+        max-width: 100%;
+        height: auto;
+    }
 }
 </style>
     
@@ -173,32 +182,82 @@ strong { color: #00285a; }
     }
   });
 </script>
+<script>
+  // Open rendered Mermaid diagram as full-size SVG in a new browser tab.
+  // Works on SharePoint, GitHub Pages, localhost — no file system dependency.
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[title="Open full-size SVG"]');
+    if (!link) return;
+    // Walk backwards from the link div to find the preceding .mermaid container
+    var container = link.closest('div');
+    var prev = container;
+    while (prev && prev.previousElementSibling) {
+      prev = prev.previousElementSibling;
+      if (prev.classList && prev.classList.contains('mermaid')) break;
+    }
+    if (!prev || !prev.classList.contains('mermaid')) return;
+    var svgEl = prev.querySelector('svg');
+    if (!svgEl) return;
+    e.preventDefault();
+    // Clone SVG with full dimensions for standalone viewing
+    var clone = svgEl.cloneNode(true);
+    clone.removeAttribute('style');
+    clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    var svgXml = new XMLSerializer().serializeToString(clone);
+    var blob = new Blob([svgXml], {type: 'image/svg+xml'});
+    window.open(URL.createObjectURL(blob), '_blank');
+  });
+</script>
 
 </head>
 <body>
-<div style="text-align:center; padding-top:80px;">
-  <h1 style="font-size:36px;">M-080 — Perform Materials Requirement Planning (IP)</h1>
+<div style="text-align:center; padding-top:20px;">
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <h1 style="font-size:36px; margin-top:24px;">M-080 — Perform Materials Requirement Planning (IP)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IP) (FTS-IP) Tower<br/>
   Capability M-080 · M Mfg. Schedule and Execution (IP)</p>
   <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026</p>
+  Generated: March 2026<br/>
+  Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
   @page { margin: 0.75in; }
-  footer::after { content: "Intel Confidential — M-080 BDAT — March 2026"; font-size:9px; color:#999; }
-  .mermaid { page-break-inside: avoid; max-height: 95vh; overflow: visible; }
+  .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
-.mermaid svg { max-width: 100% !important; height: auto !important; }
+.mermaid { overflow: visible; }
+.mermaid svg { max-width: 100%; height: auto !important; }
+.page-footer {
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 20px;
+  background: #fff;
+}
+@media print {
+  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 </style>
 
+<div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
+<p><a id="toc"></a></p>
 <h2 id="table-of-contents">Table of Contents</h2>
 <ol>
 <li><a href="#1-executive-summary">Executive Summary</a></li>
@@ -234,6 +293,7 @@ strong { color: #00285a; }
    - 7.2 <a href="#72-raid-log">RAID Log</a>
    - 7.3 <a href="#73-recommendations--next-steps">Recommendations &amp; Next Steps</a></li>
 </ol>
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="1-executive-summary">1. Executive Summary</h2>
@@ -251,6 +311,7 @@ strong { color: #00285a; }
 <blockquote>
 <p>All system nodes in architecture diagrams are <strong>IAPM-linked</strong> — click any node to open its IAPM page. Diagrams require <code>securityLevel: 'loose'</code> for click events.</p>
 </blockquote>
+<div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="2-business-context-objectives">2. Business Context &amp; Objectives</h2>
@@ -319,6 +380,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="23-success-criteria">2.3 Success Criteria</h3>
@@ -382,6 +444,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</h2>
@@ -442,6 +505,7 @@ strong { color: #00285a; }
 </tbody>
 </table>
 <h3 id="32-business-process-diagrams">3.2 Business Process Diagrams</h3>
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-321-m-080-010_run_mrp_for_all_materials_ip-m-080-010_run_mrp_for_all_materials_ip">BUSINESS ARCHITECTURE — 3.2.1 M-080-010_Run_MRP_for_All_Materials_(IP) — M-080-010_Run_MRP_for_All_Materials_(IP)</h4>
@@ -450,7 +514,7 @@ strong { color: #00285a; }
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -469,7 +533,7 @@ flowchart LR
     end
     subgraph Material Planner
         n1["fa:fa-user Monitor Material Requirement Planning (MRP)"]
-        n2["fa:fa-user Create/Revise Demands/ Create Planned Independent Require..."]
+        n2["fa:fa-user Create/Revise Demands/ Create Planned Independent Requirement for ALPS"]
         n3["Run MRP for All Materials"]
         n4["Create Purchase Requisition for ALPS Material"]
         n5["Create Production Order"]
@@ -502,6 +566,9 @@ flowchart LR
     class n15 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVl1v4jgU_StWqopWCpokJITmYSW-slup7CCYmX3Y7oNJHLDq2Fk7gTKI_77X5APIDNWulodW93DvOfceX5wcjEjExAiM-_sD5TQP0KGTb0hKOgHqrLAiHROVwDcsKV4xojo6JxE8X9LvpzTbzd51msZCnFK21-iSrAVBX59NNIRCZiKFueoqImnSMTuZpCmW-7FgQursOzJIrOSkVn01EjIm8pxgWb4deVDKKCdnuOe7vhvqOkUiweMr0sRLBknUOermmNhFGyzzU_uFIjP8_geN8w3ECWaKQM4mT9kLXhGmZ8xlobGokNvaDKq0DgfDlhmOKF8D7loASczfzpBnHY_oeH__yhtR9LJ45Qg-EcNKTUiCVA7wdJujhDIW3LnjYehZpsqleCPBnTP1Jz3HjPQkAYxumdrc7o7Q9SYPVoLFVWp3p2cInOzdlO-BY5lyD39bWoTHZ6Vx3xk4g0Zp5Ntje1wrJUnyv5TAV_kFq7dKa9oLnXDSaNle3xtbP_LVY05cf2i3fSJySyNyQRqGYW96tmra92zrNuko7PWtcYt0jXOyw_sz4dPYbQhDzw9t_yZhqdfusljNpYhqwt7UC72G0B_Z4dC5SegObXdQdQg8a4mzDRqJ4rTLaJhlqvxOf_jgz1djTmQiZIrmDHMOK4cob-Ubf12UPEHJElagzCfwX4q4iHIqODr9xlAu0NK9LrKdByhLcJDgbsbAqme4HCjYhiT5uyAKtklIlH3QwWPJBsKt0Z6_oAnJYPtTwvMLyT4ILkhE6Jb8rNXPp1ZDKdKPhvU_GPbzedjfhr8Pm8IfW5zBoPrSqljkpTGNLXrX0UyAL-BEU7EAe6gkerbzAT3MFvPH60ada56xJMDwaUG2VBHwJ8U8Vp8quBnmmcckg3Y1-aWQPovhy3x5LdHThhYcgXiZwVjTZ8s2F1JrrULClQVNnAQUPVlXCzT11-XeRXnL79ZaWa21WlTbVB18rI_nqueW6OMlmf0vyOQF2QwrIEITnGMEM_I1UW1K7dmQY7b_TsAvyOY4ByqF4DzgWABI4fGDxmV1ebDo4bl9urZ7ONStYSnFTnUxyxFsPWaMsF_L--fVOB4vi7z_VtTsLcihbvcXWKo6tsvYrmOrit0KGJTxUxU-lWG_TnfKeFDFXlXtVbHbiu06oVcBVX0d2i31XhnXYb8M_Ys7VdfUz5Ir2Pk5DAPWD9Rr3L6BOzfw3g3crZ8Z17BXw4ZppLAbmMZGcDBOL0zwUhWTBBcsN46mgYtcLPc8MoLTi4VRZDFUTiiGGyctweM_rSYENg==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-322-m-080-020_run_mrp_for_single_material_ip-m-080-020_run_mrp_for_single_material_ip">BUSINESS ARCHITECTURE — 3.2.2 M-080-020_Run_MRP_for_Single_Material_(IP) — M-080-020_Run_MRP_for_Single_Material_(IP)</h4>
@@ -510,7 +577,7 @@ flowchart LR
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -528,7 +595,7 @@ flowchart LR
         n8["Send Planned Production Order to S4HANA"]
     end
     subgraph Material Planner
-        n1["fa:fa-user Monitor Material Requirement Planning (MRP) (Master Data ..."]
+        n1["fa:fa-user Monitor Material Requirement Planning (MRP) (Master Data Changes Daily)"]
         n2["fa:fa-user Create/Revise Demands"]
         n3["Run MRP for Single Material"]
         n4["Create Purchase Requisition"]
@@ -572,6 +639,9 @@ flowchart LR
     class n18 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVttu4zYQ_RVCQeANIKO6WooeCji21QbYbAx7u_vQ9IGRKJsIRaqklMRr-N87tC62lThot36QMYczZ2YORxS3RiJSYkTG5eWWclpGaDso1yQngwgNHrEiAxPVwDcsKX5kRA20TyZ4uaQ_9m62V7xqN43FOKdso9ElWQmC_rg10RgCmYkU5mqoiKTZwBwUkuZYbiaCCam9L0iYWdk-W7N0I2RK5MHBsgI78SGUUU4OsBt4gRfrOEUSwdMT0szPwiwZ7HRxTLwkayzLffmVInf49TtNyzXYGWaKgM-6zNln_EiY7rGUlcaSSj63YlCl83AQbFnghPIV4J4FkMT86QD51m6HdpeXD7xLij4vHjiCX8KwUlOSIVUCPHsuUUYZiy68yTj2LVOVUjyR6MKZBVPXMRPdSQStW6YWd_hC6GpdRo-CpY3r8EX3EDnFqylfI8cy5QaevVyEp4dMk5ETOmGX6SawJ_akzZRl2f_KBLrKr1g9NblmbuzE0y6X7Y_8ifWWr21z6gVju68Tkc80IUekcRy7s4NUs5FvW-dJb2J3ZE16pCtckhe8ORBeT7yOMPaD2A7OEtb5-lVWj3MpkpbQnfmx3xEGN3Y8ds4SemPbC5sKgWclcbFGN6LazzIaF4Wq1_SPX__5YMyJzITM0ZxhzmHkEOU9f-OvoxDbgpglzEAdQOBfirRKSio42r9kqBRo6fWi3E8QluEow8OCgVa3cDpQ0A1J8ndFFIyTkKj4oISrmg0S93q7_YqmpIDxzwkvj1IGkHBBEkKfyXul3u9LjaXIP-o2_KDZ-0Ozv4-_jLvAtyXeQaP61GpY5LEwnSx62NGdAF1AiS5iAfJQSXRvhx36dLeYX8ETK_BCU1xiNFljviIKDDgwr06bcE5zTCQB9l8W5JkqAtrlmKe9tl2tXcUR5NlvzBKyMtJVdersgXPNieaVhAMKWPdlK6p1OnX2j5x7c3PqODpybLS_f-tl2725WjTj1Ox8qvfnuJMxY10bR2NVkzn_guywQ2fE75NqecYcs80PAtkhhuMSyBQC2UF9AHL4BHUczd7eznubaPvbbVscllK8qCFmJYLBx4wR9lt9Bj0Yu91x0OhngoKfCQr_W1D3kkA6NBz-ClPa2k5t261tN3bQAM2625hus-y3_n4NjHq219o9umbZbv29nm2PGqAlaO2wdQhroC0g7K1fN7bV-jcVX7e2VdttQY0e4dFHQVfdfgxPYOd9GDRrbwSnuHMGd8_g3hncbz96p_DofTh4Hw5b2DCNHF4DTFMj2hr7-yHcIVOS4YqVxs40cFWK5YYnRrS_RxlVkULklGI4X_Ma3P0DFddJMA==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-323-m-080-030_run_mrp_for_all_programs_mfgip-m-080-030_run_mrp_for_all_programsmfg_ip">BUSINESS ARCHITECTURE — 3.2.3 M-080-030_Run_MRP_for_All_Programs_(Mfg.)<em>(IP) — M-080-030_Run_MRP_for_All_Programs</em>(Mfg.)_(IP)</h4>
@@ -580,7 +650,7 @@ flowchart LR
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -604,7 +674,7 @@ flowchart LR
         n4["Run Full Planning MPS or MRP"]
         n5["Create Planned Orders"]
         n6["Create Production Order"]
-        n11(["fa:fa-play Request Received to Run Material Requirement Planning (MR..."])
+        n11(["fa:fa-play Request Received to Run Material Requirement Planning (MRP) for All Programs"])
         n12(["fa:fa-play Request Received to Monitor Master Data Changes Daily"])
         n14(["fa:fa-stop MRP Run for All Programs Done"])
         n15{{"fa:fa-arrows-alt parallelGateway"}}
@@ -642,6 +712,9 @@ flowchart LR
     class n18 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVl1v6kYQ_SsrRxGJZFR_m_ihEgHcRrq0CG7bh6YPi72GVdZed9dOQhH_vbN4bcA3XN3e8pBojufMmTk7_tgbCU-JERm3t3ta0CpC-0G1JTkZRGiwxpIMTNQAv2NB8ZoROVA5GS-qFf3nmGZ75btKU1iMc8p2Cl2RDSfotycTjYHITCRxIYeSCJoNzEEpaI7FbsIZFyr7howyKzuq6UuPXKREnBIsK7QTH6iMFuQEu6EXerHiSZLwIr0omvnZKEsGB9Uc42_JFovq2H4tyRy__0HTagtxhpkkkLOtcvYJrwlTM1aiVlhSi9fWDCqVTgGGrUqc0GIDuGcBJHDxcoJ863BAh9vb56ITRZ-WzwWCX8KwlFOSIVkBPHutUEYZi268yTj2LVNWgr-Q6MaZhVPXMRM1SQSjW6Yyd_hG6GZbRWvOUp06fFMzRE75bor3yLFMsYO_PS1SpCelSeCMnFGn9BjaE3vSKmVZ9r-UwFfxGcsXrTVzYyeedlq2H_gT68t67ZhTLxzbfZ-IeKUJOSsax7E7O1k1C3zbul70MXYDa9IrusEVecO7U8GHidcVjP0wtsOrBRu9fpf1eiF40hZ0Z37sdwXDRzseO1cLemPbG-kOoc5G4HKLHnl93GU0LkvZXFO_4uHPZ2NBRMZFjhYMFwWsHKJFL9_464xiW8BZwQ40BAL_BU_rpKK8QL-qmwxVHK28Hsu9A1qGowwPSwZePcHTgYJvSJC_ayJhnbhA5VdauG-qgXBvtqfPaEpKWP-cFNWZZAiCS5IQ-kqutxoLnn9t2tG3Dfvz-JdxR_yyxTkMqp5auoo4N6azRS07mnPwBZyYLxfobo4l8NAUVxhNtrjYEAkBPBDvL5t0LmtMBAG9H5bklUoC3uQY-lf2jhlD8PDt2unN6kKZhosWtYAHDbCXcDpUUjXvZbKn3K0LFNeMnVZnvlihpvvLbP-stDby6F6vg-Asredzb53s3jot9RbpA0_Vsaj2OuePgwiiduTU7h00et9ZA5JwXPnZsjVazjdoded27cj6Rb1TUVnx8njgquF-M2jKC9In-_t9S8ZC8Dc5xKxCcA9gxgj7qXkcPRuHwzkp-B5S-D2k0X8jdfcLHCsaDn9UshpwdRzo2NOx3xL8BujHbhs7mtDGYRM7bdzTswMNeBrQ_DZ80JetNl83-NDGVhO39bTcSIdBb5yRjtvrfi-2dUJw9n5QTbfvxQvY-RgGT9uPg0vcuYK7V3BPv_gvUb99-13Cwcdw-DE8amHDNHIickxTI9obxw9F-JhMSYZrVhkH08B1xVe7IjGi4weVUZcpMKcUq5ulAQ__Aqi7SzA=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-324-m-080-060_analyze_alternatives_and_determine_changes_mrpip-m-080-060_analyze_alternatives_and_determine_changesmrp_ip">BUSINESS ARCHITECTURE — 3.2.4 M-080-060_Analyze_Alternatives_and_Determine_Changes_(MRP)<em>(IP) — M-080-060_Analyze_Alternatives_and_Determine_Changes</em>(MRP)_(IP)</h4>
@@ -650,8 +723,8 @@ flowchart LR
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
-flowchart LR
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
@@ -667,7 +740,7 @@ flowchart LR
     end
     subgraph Material Planner
         n1["fa:fa-user Check any Rescheduling in the Planning Required"]
-        n4(["fa:fa-stop Alternatives Analyzed and MRP Changes Determined Successf..."])
+        n4(["fa:fa-stop Alternatives Analyzed and MRP Changes Determined Successfully"])
     end
     n5 --> n3
     n2 --> n1
@@ -680,13 +753,15 @@ flowchart LR
     class n5 startEvt
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVU1v4zYU_CuEgsAJIAP6jFwdCjiSBQSo0SBO20OzB1p6tLimKS9JJfEG_u_7aMvyRzd7qQ4COBzOvDciqQ-nbCpwUuf6-oNLblLyMTA1rGCQksGcahi4ZA_8TRWncwF6YDmskWbGv-9ofrR-tzSLFXTFxcaiM1g0QP56cMkYFwqXaCr1UIPibOAO1oqvqNpkjWiUZV_BiHls59ZN3TeqAnUkeF7ilzEuFVzCEQ6TKIkKu05D2cjqTJTFbMTKwdYWJ5q3sqbK7MpvNUzp-z-8MjWOGRUakFOblfiDzkHYHo1qLVa26vUQBtfWR2JgszUtuVwgHnkIKSqXRyj2tluyvb5-kb0pec5fJMGnFFTrHBjRBuHJqyGMC5FeRdm4iD1XG9UsIb0KJkkeBm5pO0mxdc-14Q7fgC9qk84bUXXU4ZvtIQ3W7656TwPPVRt8X3iBrI5O2V0wCka9033iZ352cGKM_S8nzFU9U73svCZhERR57-XHd3Hm_Vfv0GYeJWP_MidQr7yEE9GiKMLJMarJXex7n4veF-Gdl12ILqiBN7o5Cv6WRb1gESeFn3wquPe7rLKdP6qmPAiGk7iIe8Hk3i_GwaeC0diPRl2FqLNQdF2Th2eSwxq3yAqk2c_ZR4b_vjiMpowObdRkLKnYfAeCJ5RMsSl70sgTfGu5AruSPAoqJW5LcjN9erwlf7Zm3ZoX58uJZIyST60kSCCsQU0hei3dU3EPXZQ4pRpJJKeGkpnNU1UnqsF5oVO6BEIlGVdfW71rinDZlX2UuSEP7FB-dftL767XXX-gToz9c-OshnKJzhvU1WUNVStsHJ15H8_B9Dya6KYX06ZZYzRoK6nhr6AP2VcoXu3Cy2oqFziRA7JWeEtVZNaWJWjNWiE2KH170Y-MyXD4O37Vbhjsh90ZkP5-GHXDcD8MTvae5RzO3Bkc_BwOfw5H3RVxBsb9HeW4zgo7orxy0g9n9zfAP0YFjLbCOFvXoa1pZhtZOunu1nTadYUfKOcUv9ZqD25_AFhEEJo=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
 <h4 id="business-architecture-325-m-080-070_edit_mrp_list_ip-m-080-070_edit_mrp_list_ip">BUSINESS ARCHITECTURE — 3.2.5 M-080-070_Edit_MRP_List_(IP) — M-080-070_Edit_MRP_List_(IP)</h4>
 <p><strong>Swim Lanes</strong>: Material Planner | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 0</p>
 <blockquote>
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -706,6 +781,9 @@ flowchart TD
     class n3 endEvt
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVE2P2jAU_CtWVii7UpDySWgOlSAQqVJXQsu2PZQeTPIM1jpOapuvIv57bQIJS7Wn5pDEkzcz743sHK28KsBKrF7vSDlVCTraag0l2Amyl1iC7aAG-I4FxUsG0jY1pOJqTv-cy7yw3psyg2W4pOxg0DmsKkDfvjhopInMQRJz2ZcgKLEduxa0xOKQVqwSpvoBhsQlZ7fLp3ElChBdgevGXh5pKqMcOjiIwzjMDE9CXvHinSiJyJDk9sk0x6pdvsZCndvfSHjG-x-0UGu9JphJ0DVrVbKveAnMzKjExmD5RmyvYVBpfLgObF7jnPKVxkNXQwLztw6K3NMJnXq9BW9N0etkwZG-coalnABBUml4ulWIUMaShzAdZZHrSCWqN0ge_Gk8CXwnN5MkenTXMeH2d0BXa5UsK1ZcSvs7M0Pi13tH7BPfdcRB3--8gBedUzrwh_6wdRrHXuqlVydCyH856VzFK5ZvF69pkPnZpPXyokGUuv_qXcechPHIu88JxJbmcCOaZVkw7aKaDiLP_Vh0nAUDN70TXWEFO3zoBD-lYSuYRXHmxR8KNn73XW6WM1HlV8FgGmVRKxiPvWzkfygYjrxweOlQ66wErtfoWXdojg2aMcw5iOazubj3c2ERnBDcN2mjaUFVV_4CvzdU6OPKVUPVWxI9Pr_MntBXKtXC-nWj5D-2UjXTcRgySKWfOdAtFEhVF_mX2ZX-dMMPOr5UVd2WNaS0KmsGCoqOpTdi88J91O9_1rNcll6zDG5iNeB1O72D_fbsvIODyza3HKsEUWJaWMnROv-69O-tAII3TFknx8IbVc0PPLeS8xG3NnWh05tQrJMvG_D0F3vloes=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
@@ -740,6 +818,7 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
@@ -771,14 +850,13 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="42-data-flow-diagrams">4.2 Data Flow Diagrams</h3>
 <blockquote>
 <p><strong>DATA ARCHITECTURE</strong> — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.</p>
 </blockquote>
-<div style="page-break-before: always;"></div>
-
 <h3 id="43-data-lineage">4.3 Data Lineage</h3>
 <p>Data lineage traces the origin and transformation path of key data objects across integrated systems.</p>
 <table>
@@ -1048,27 +1126,20 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</h2>
 <h3 id="51-current-state-current-state-application-landscape">5.1 Current-State — Current-State Application Landscape</h3>
 <h4 id="overview">Overview</h4>
 <p>The Current-State architecture represents the <strong>current / legacy</strong> landscape for M-080.</p>
-<div style="page-break-before: always;"></div>
-
 <h4 id="current-state-flow-narrative">Current-State Flow Narrative</h4>
 <p><em>(No current-state flows defined.)</em></p>
-<div style="page-break-before: always;"></div>
-
 <h3 id="52-future-state-future-state-application-landscape">5.2 Future-State — Future-State Application Landscape</h3>
 <h4 id="overview_1">Overview</h4>
 <p>The Future-State architecture represents the <strong>target</strong> landscape for M-080.</p>
-<div style="page-break-before: always;"></div>
-
 <h4 id="future-state-flow-narrative">Future-State Flow Narrative</h4>
 <p><em>(No future-state flows defined.)</em></p>
-<div style="page-break-before: always;"></div>
-
 <h3 id="53-change-impact-summary">5.3 Change Impact Summary</h3>
 <table>
 <thead>
@@ -1105,6 +1176,7 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
@@ -2033,6 +2105,7 @@ flowchart TD
 </tbody>
 </table>
 <p><strong>Summary</strong>: 2 Reports, 34 Interfaces, 20 Conversions, 35 Enhancements, 7 Forms, 3 Workflows</p>
+<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
@@ -2062,6 +2135,7 @@ flowchart TD
 <blockquote>
 <p><em>Integration pattern details will be refined when tower architects validate middleware assignments.</em></p>
 </blockquote>
+<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
@@ -2108,48 +2182,204 @@ flowchart TD
 <blockquote>
 <p><em>Platform assignments will be validated when tower architects populate technology platform columns.</em></p>
 </blockquote>
+<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="62-sap-development-object-status">6.2 SAP Development Object Status</h3>
+<p><strong>Capability RICEFW Status</strong> (101 objects)
+<em>Data source: Smartsheet Object Tracker (cached 2026-03-26)</em></p>
 <table>
 <thead>
 <tr>
-<th>Metric</th>
-<th>DEV</th>
-<th>QAS</th>
-<th>PRD</th>
+<th>Status</th>
+<th style="text-align: right;">Count</th>
+<th style="text-align: right;">%</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Transport Requests</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>10. Object Complete</td>
+<td style="text-align: right;">91</td>
+<td style="text-align: right;">90.1%</td>
 </tr>
 <tr>
-<td>Custom Code Objects</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>08. FUT In Progress</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">5.9%</td>
 </tr>
 <tr>
-<td>CDS Views</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>06. Dev In Progress</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2.0%</td>
 </tr>
 <tr>
-<td>Fiori Apps</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>09. FUT Overdue</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.0%</td>
 </tr>
 <tr>
-<td>BAdIs / Enhancements</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>01. Pending Approval</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.0%</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>101</strong></td>
+<td style="text-align: right;"><strong>100%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>RICEFW by Type:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Report (R)</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>Interface (I)</td>
+<td style="text-align: right;">34</td>
+</tr>
+<tr>
+<td>Conversion (C)</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr>
+<td>Enhancement (E)</td>
+<td style="text-align: right;">35</td>
+</tr>
+<tr>
+<td>Form (F)</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr>
+<td>Workflow (W)</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>101</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Technical Complexity:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Complexity</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01.Very High</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>02.High</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr>
+<td>03.Medium</td>
+<td style="text-align: right;">60</td>
+</tr>
+<tr>
+<td>04.Low</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td style="text-align: right;">13</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Active (Non-Complete) Objects:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Type</th>
+<th>Description</th>
+<th>Status</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOGI1576</td>
+<td>02.Interface</td>
+<td>ECD_Interface between S4 to ECD for inventory status response</td>
+<td>08. FUT In Progress</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1575</td>
+<td>02.Interface</td>
+<td>ECD_Interface between S4 to 3PL for inventory status webservice​</td>
+<td>08. FUT In Progress</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1295</td>
+<td>02.Interface</td>
+<td>ECD_Interface between S/4 and ECD for completion status</td>
+<td>08. FUT In Progress</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1291</td>
+<td>02.Interface</td>
+<td>ECD_Interface between S/4 and 3PL to send plant/batch level hold/unhold informat&hellip;</td>
+<td>08. FUT In Progress</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1290</td>
+<td>02.Interface</td>
+<td>ECD_Interface from ECD to S4 for Inventory Hold/unhold request</td>
+<td>08. FUT In Progress</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGE1327</td>
+<td>04.Enhancement</td>
+<td>ECD_Enhancement to retrieve plant details for material/batch and update custom t&hellip;</td>
+<td>08. FUT In Progress</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>LOGE0935_IP</td>
+<td>04.Enhancement</td>
+<td>Fiori App - Shipping Memo</td>
+<td>09. FUT Overdue</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSI1693</td>
+<td>02.Interface</td>
+<td>Interface for Reporting Scrap of Semi Finished Goods at OSAT and IF manufacturin&hellip;</td>
+<td>06. Dev In Progress</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>LOGI1584</td>
+<td>02.Interface</td>
+<td>Interface to post inventory in SAP S/4HANA from ECA via MuleSoft.</td>
+<td>06. Dev In Progress</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1739</td>
+<td>04.Enhancement</td>
+<td>Develop Utility for mass change of Production Orders in SAP S4 system</td>
+<td>01. Pending Approval</td>
+<td>03.Medium</td>
 </tr>
 </tbody>
 </table>
@@ -2281,23 +2511,21 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="7-project-context">7. Project Context</h2>
 <h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
+<p><em>100 objects with timeline data (source: Object Tracker)</em></p>
 <table>
 <thead>
 <tr>
-<th>Object ID</th>
+<th>ID</th>
 <th>Description</th>
-<th>FS End</th>
-<th>FS %</th>
-<th>TDD End</th>
-<th>TDD %</th>
-<th>Build End</th>
-<th>Build %</th>
-<th>FUT End</th>
-<th>FUT %</th>
+<th>FS</th>
+<th>TDD</th>
+<th>Build</th>
+<th>FUT</th>
 <th>Status</th>
 </tr>
 </thead>
@@ -2305,339 +2533,654 @@ flowchart TD
 <tr>
 <td>LOGW1078_IP</td>
 <td>ISM Workflows - Capital/AMT</td>
-<td>2025-06-11</td>
-<td>1.0</td>
-<td>2025-09-24</td>
-<td>1.0</td>
-<td>2025-09-24</td>
-<td>1.0</td>
-<td>2025-11-07</td>
-<td>1.0</td>
+<td>Jun-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>LOGW1077_IP</td>
 <td>ISM Workflows - EIMS/Lab</td>
-<td>2025-06-11</td>
-<td>1.0</td>
-<td>2025-09-24</td>
-<td>1.0</td>
-<td>2025-09-24</td>
-<td>1.0</td>
-<td>2025-12-03</td>
-<td>1.0</td>
+<td>Jun-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Dec-25 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
 <td>LOGW1076_IP</td>
 <td>ISM Workflows - Non-inventory</td>
-<td>2025-06-11</td>
-<td>1.0</td>
-<td>2025-09-24</td>
-<td>1.0</td>
-<td>2025-09-24</td>
-<td>1.0</td>
-<td>2025-11-07</td>
-<td>1.0</td>
+<td>Jun-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>LOGR1176_IP</td>
 <td>ISM - International Traffic Report</td>
-<td>2025-04-18</td>
-<td>1.0</td>
-<td>2025-08-13</td>
-<td>1.0</td>
-<td>2025-08-13</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
+<td>Apr-25 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
 <td>LOGR0833_IP</td>
-<td>Email Notification for deletion of Sh&hellip;</td>
-<td>2025-02-28</td>
-<td>1.0</td>
-<td>2025-09-05</td>
-<td>1.0</td>
-<td>2025-09-05</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
+<td>Email Notification for deletion of Shipping Memos</td>
+<td>Feb-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>LOGM024_IP</td>
 <td>Create/Upload Vehicle resource</td>
-<td>2025-05-16</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-09-10</td>
-<td>1.0</td>
+<td>May-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>Sep-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>LOGM023_IP</td>
 <td>Update Business Share</td>
-<td>2025-06-11</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-09-26</td>
-<td>1.0</td>
+<td>Jun-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>Sep-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>LOGM022_IP</td>
 <td>Upload Transportation Allocation</td>
-<td>2025-06-11</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-09-26</td>
-<td>1.0</td>
+<td>Jun-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>Sep-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>LOGM021_IP</td>
 <td>Upload Schedules</td>
-<td>2025-05-16</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-09-10</td>
-<td>1.0</td>
+<td>May-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>Sep-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>LOGM019_IP</td>
 <td>Default Routes</td>
-<td>2025-05-16</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-09-10</td>
-<td>1.0</td>
+<td>May-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>Sep-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>LOGM018_IP</td>
 <td>Upload Rate Table</td>
-<td>2025-06-11</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-09-26</td>
-<td>1.0</td>
+<td>Jun-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>Sep-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>LOGM016_IP</td>
-<td>Create and review Charge Calculation &hellip;</td>
-<td>2025-06-11</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-09-26</td>
-<td>1.0</td>
+<td>Create and review Charge Calculation Sheet</td>
+<td>Jun-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>Sep-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>LOGM015_IP</td>
 <td>Create and review Freight Agreement</td>
-<td>2025-06-11</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-09-26</td>
-<td>1.0</td>
+<td>Jun-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>Sep-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>LOGM012_IP</td>
-<td>Creation of Location based on BP, Shi&hellip;</td>
-<td>2025-05-16</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-09-10</td>
-<td>1.0</td>
+<td>Creation of Location based on BP, Shipping points, plants</td>
+<td>May-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>Sep-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>LOGM008_IP</td>
 <td>Location creation-ocean ports, airports</td>
-<td>2025-05-16</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-09-10</td>
-<td>1.0</td>
+<td>May-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>Sep-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>LOGM005_IP</td>
 <td>UPLOAD TRANSPORTATION ZONES (TM)</td>
-<td>2025-06-11</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-09-26</td>
-<td>1.0</td>
+<td>Jun-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>Sep-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>LOGM004_IP</td>
 <td>UPLOAD TRANSPORTATION LANES</td>
-<td>2025-06-11</td>
-<td>1.0</td>
-<td></td>
-<td>0.0</td>
-<td></td>
-<td>0.0</td>
-<td>2025-09-26</td>
-<td>1.0</td>
+<td>Jun-25 (100%)</td>
+<td>—</td>
+<td>—</td>
+<td>Sep-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>LOGI1679</td>
-<td>Receive 4C1 Inventory movement Stock &hellip;</td>
-<td>2026-01-23</td>
-<td>1.0</td>
-<td>2026-02-24</td>
-<td>1.0</td>
-<td>2026-02-24</td>
-<td>1.0</td>
-<td>2026-03-20</td>
-<td>1.0</td>
+<td>Receive 4C1 Inventory movement Stock type change and cycle count from IF</td>
+<td>Jan-26 (100%)</td>
+<td>Feb-26 (100%)</td>
+<td>Feb-26 (100%)</td>
+<td>Mar-26 (100%)</td>
 <td>3. Off Track</td>
 </tr>
 <tr>
 <td>LOGI1678</td>
-<td>Receive 4C1 Inventory Reconciliation &hellip;</td>
-<td>2026-01-23</td>
-<td>1.0</td>
-<td>2026-02-24</td>
-<td>1.0</td>
-<td>2026-02-24</td>
-<td>1.0</td>
-<td>2026-03-20</td>
-<td>1.0</td>
+<td>Receive 4C1 Inventory Reconciliation Snapshot from IF</td>
+<td>Jan-26 (100%)</td>
+<td>Feb-26 (100%)</td>
+<td>Feb-26 (100%)</td>
+<td>Mar-26 (100%)</td>
 <td>3. Off Track</td>
 </tr>
 <tr>
 <td>LOGI1576</td>
-<td>ECD_Interface between S4 to ECD for i&hellip;</td>
-<td>2025-09-26</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
-<td>2026-03-25</td>
-<td>0.95</td>
+<td>ECD_Interface between S4 to ECD for inventory status response</td>
+<td>Sep-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Mar-26 (95%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
-<td><em>&hellip; and 81 more objects (see full Object Tracker)</em></td>
+<td>LOGI1575</td>
+<td>ECD_Interface between S4 to 3PL for inventory status webservice​</td>
+<td>Sep-25 (100%)</td>
+<td>Jan-26 (100%)</td>
+<td>Jan-26 (100%)</td>
+<td>Mar-26 (95%)</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>LOGI1571</td>
+<td>ECD_Interface from ECD to S4 for Inventory status call​</td>
+<td>Sep-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Nov-25 (100%)</td>
+<td>Jan-26 (100%)</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>LOGI1295</td>
+<td>ECD_Interface between S/4 and ECD for completion status</td>
+<td>Aug-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>Mar-26 (5%)</td>
+<td>3. Off Track</td>
+</tr>
+<tr>
+<td>LOGI1291</td>
+<td>ECD_Interface between S/4 and 3PL to send plant/batch level hold/unhold information for webservice plants to hold/unhold inventory in 3PL</td>
+<td>May-25 (100%)</td>
+<td>Jan-26 (100%)</td>
+<td>Jan-26 (100%)</td>
+<td>Mar-26 (30%)</td>
+<td>3. Off Track</td>
+</tr>
+<tr>
+<td>LOGI1290</td>
+<td>ECD_Interface from ECD to S4 for Inventory Hold/unhold request</td>
+<td>May-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>Mar-26 (75%)</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>LOGI1272</td>
+<td>Response to goods receipt posting from SAP to 3PL - EDI 4C1B</td>
+<td>Feb-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Aug-25 (100%)</td>
 <td></td>
+</tr>
+<tr>
+<td>LOGI1267</td>
+<td>Inventory Reconciliation with Consignment hub – EDI 4C1 with version control</td>
+<td>Mar-25 (100%)</td>
+<td>May-25 (100%)</td>
+<td>May-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>LOGI1081_IP</td>
+<td>Interface + Enhancement - Reprinting of Carrier Label</td>
+<td>Apr-25 (100%)</td>
+<td>May-25 (100%)</td>
+<td>May-25 (100%)</td>
+<td>Oct-25 (100%)</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+</tr>
+<tr>
+<td>LOGI1079_IP</td>
+<td>Interface from S4 ISM to Service Now</td>
+<td>May-25 (100%)</td>
+<td>May-25 (100%)</td>
+<td>May-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>LOGI1074_IP</td>
+<td>Send data via API to retrieve the tracking ID - interface + Enhancement</td>
+<td>Mar-25 (100%)</td>
+<td>May-25 (100%)</td>
+<td>May-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>3. Off Track</td>
 </tr>
 </tbody>
 </table>
-<div style="page-break-before: always;"></div>
-
+<p><em>&hellip; and 70 more objects (see full Object Tracker)</em></p>
 <h3 id="72-raid-log">7.2 RAID Log</h3>
-<p>Standard RAID items for M-080 (Forecast to Stock (IP)):</p>
+<p><em>Live data from Smartsheet Master RAID Log — extracted 2026-03-26</em></p>
+<p><strong>Mapped sub-tower(s):</strong> 8.1 FTS IP - ALL, 8.4 FTS IP - Logistics &amp; Inventory Management, 8.5 FTS IP - Manufacturing, 8.6 FTS IP - MRP &amp; Planning Integration, 8.7 FTS IP - TM</p>
+<p><strong>RAID Summary:</strong> 140 open items (3 capability-specific, 137 tower-level), 444 closed</p>
 <table>
 <thead>
 <tr>
-<th>#</th>
-<th>Category</th>
-<th>Description</th>
-<th>Status</th>
-<th>Owner</th>
-<th>Priority</th>
+<th>Severity</th>
+<th style="text-align: right;">Capability</th>
+<th style="text-align: right;">Tower-Wide</th>
+<th style="text-align: right;">Total Open</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
-<td>Risk</td>
-<td>Data migration completeness — validate all legacy Perform Materials Requirement Planning (IP) data maps to S/4 target structures</td>
-<td>Open</td>
-<td>Tower Architect</td>
-<td>High</td>
+<td>P1 - High</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">7</td>
 </tr>
 <tr>
-<td>2</td>
-<td>Risk</td>
-<td>Integration testing coverage — ensure all 0 integrated systems are validated end-to-end</td>
-<td>Open</td>
-<td>Integration Lead</td>
-<td>High</td>
+<td>P2 - Medium</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">87</td>
+<td style="text-align: right;">90</td>
 </tr>
 <tr>
-<td>3</td>
-<td>Assumption</td>
-<td>Target SAP S/4HANA system available in DEV/QAS per release schedule</td>
-<td>Active</td>
-<td>SAP Basis</td>
-<td>Medium</td>
+<td>P3 - Low</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">12</td>
 </tr>
 <tr>
-<td>4</td>
-<td>Issue</td>
-<td>API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation</td>
-<td>Open</td>
-<td>EA Pipeline Team</td>
-<td>High</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Dependency</td>
-<td>Upstream BPMN process models validated and signed off by business process owners</td>
-<td>Active</td>
-<td>Process Owner</td>
-<td>Medium</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>3</strong></td>
+<td style="text-align: right;"><strong>137</strong></td>
+<td style="text-align: right;"><strong>140</strong></td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><em>Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.</em></p>
-</blockquote>
+<p><strong>Capability-Specific RAID Items:</strong></p>
+<table>
+<thead>
+<tr>
+<th>RAID ID</th>
+<th>Type</th>
+<th>Severity</th>
+<th>Title</th>
+<th>Status</th>
+<th>Assigned To</th>
+<th>Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>03152</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>LOGC0972_IP &amp; IF- Test Data to be provided in load files for&hellip;</td>
+<td>Not Started</td>
+<td>FTS IP</td>
+<td></td>
+</tr>
+<tr>
+<td>03503</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>LOGI1678 and LOGI1679 Queue details</td>
+<td>Not Started</td>
+<td>FTS IP</td>
+<td>2026-02-03</td>
+</tr>
+<tr>
+<td>03564</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Development of the AMT impacting FPR Capital Tool report</td>
+<td>In Progress</td>
+<td>FTS IP</td>
+<td>2026-03-27</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Other FTS-IP Tower RAID Items</strong> (137 open):</p>
+<table>
+<thead>
+<tr>
+<th>RAID ID</th>
+<th>Type</th>
+<th>Severity</th>
+<th>Title</th>
+<th>Status</th>
+<th>Assigned To</th>
+<th>Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>03578</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>HBI Process Flow Change impact Assessment</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03591</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>R3 E2E scenario execution</td>
+<td>In Progress</td>
+<td>Test Management</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>03600</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>Error lifecycle functionality within PDF application is miss&hellip;</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-05-01</td>
+</tr>
+<tr>
+<td>03601</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>Traceability functionality within PDF application is missing&hellip;</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-05-15</td>
+</tr>
+<tr>
+<td>03757</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>IF Planning data not available in ITC1 until W4, leaving too&hellip;</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>03764</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>Unable to post IPLA call from postman</td>
+<td>Not Started</td>
+<td>B-Apps</td>
+<td>2026-03-24</td>
+</tr>
+<tr>
+<td>03767</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>Day 1 OTC Execution - APOP production cutover for allocation&hellip;</td>
+<td>In Progress</td>
+<td>OTC IP</td>
+<td>2026-04-24</td>
+</tr>
+<tr>
+<td>01355</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>PDF SMHe product development approach does not appear to hav&hellip;</td>
+<td>To Be Reviewed</td>
+<td>FTS IF</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>01733</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Tariffs impacts Item/BOM design which is impacting ERP/SCP (&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-06</td>
+</tr>
+<tr>
+<td>01769</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Approach and duration for PDF SMH application refreshes to s&hellip;</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-04-01</td>
+</tr>
+<tr>
+<td>03059</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Operations SME Availability for Change Impact Assessment dev&hellip;</td>
+<td>In Progress</td>
+<td>CM &amp; Comms</td>
+<td>2026-03-17</td>
+</tr>
+<tr>
+<td>03079</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Request for PDH Design WTF</td>
+<td>In Progress</td>
+<td>FTS IP</td>
+<td>2026-03-04</td>
+</tr>
+<tr>
+<td>03128</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Application Health Monitoring</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-05-13</td>
+</tr>
+<tr>
+<td>03196</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>MC1 R3 Data/SCP Readiness</td>
+<td>In Progress</td>
+<td>Data Readiness</td>
+<td>2026-05-01</td>
+</tr>
+<tr>
+<td>03241</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Materials Planning Policy for Constrained Materials</td>
+<td>In Progress</td>
+<td>FTS IP</td>
+<td>2026-07-31</td>
+</tr>
+<tr>
+<td>03245</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>ODM Expedite</td>
+<td>Not Started</td>
+<td>FTS IP</td>
+<td>2025-12-19</td>
+</tr>
+<tr>
+<td>03246</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Expedite Fees</td>
+<td>Not Started</td>
+<td>FTS IP</td>
+<td>2025-12-19</td>
+</tr>
+<tr>
+<td>03250</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Update Commit Date for Holds</td>
+<td>In Progress</td>
+<td>FTS IP</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03251</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Out of Cycle Replenishment</td>
+<td>In Progress</td>
+<td>FTS IP</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03267</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>R3 metrics</td>
+<td>In Progress</td>
+<td>FTS IP</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03276</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Biz Documentation</td>
+<td>In Progress</td>
+<td>FTS IP</td>
+<td>2026-02-27</td>
+</tr>
+<tr>
+<td>03278</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Persona validation</td>
+<td>In Progress</td>
+<td>FTS IP</td>
+<td>2026-02-20</td>
+</tr>
+<tr>
+<td>03334</td>
+<td>Issue</td>
+<td>P2 - Medium</td>
+<td>Application Monitoring - Connectors Health Monitoring</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-05-15</td>
+</tr>
+<tr>
+<td>03355</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>PTP ECA OSAT Predictive Tool Test Self-Service Query View cr&hellip;</td>
+<td>In Progress</td>
+<td>FTS IP</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>03368</td>
+<td>Issue</td>
+<td>P2 - Medium</td>
+<td>Infrastructure resources support PDF SMH ability to provide &hellip;</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03375</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>CIBR System Clarification</td>
+<td>In Progress</td>
+<td>FTS IP</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03377</td>
+<td></td>
+<td>P2 - Medium</td>
+<td>KDD Telescoping vs exact network search</td>
+<td>In Progress</td>
+<td>FTS IP</td>
+<td>2026-03-20</td>
+</tr>
+<tr>
+<td>03406</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Mass Change of Engineering Orders</td>
+<td>In Progress</td>
+<td>FTS IP</td>
+<td>2026-04-27</td>
+</tr>
+<tr>
+<td>03701</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>IP DP (CDP) string test cases has risk of completely beyond &hellip;</td>
+<td>In Progress</td>
+<td>Test Management</td>
+<td>2026-04-04</td>
+</tr>
+<tr>
+<td>03526</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Review process for post-validation of system changes</td>
+<td>In Progress</td>
+<td>FTS IP</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><em>&hellip; and 107 more tower-level items</em></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
 <table>
 <thead>

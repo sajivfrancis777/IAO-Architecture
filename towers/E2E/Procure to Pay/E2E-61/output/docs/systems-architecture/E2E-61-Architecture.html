@@ -104,8 +104,9 @@ blockquote {
     border-radius: 6px;
     padding: 20px 12px;
     margin: 16px 0;
-    overflow-x: auto;
+    overflow: visible;
     text-align: center;
+    page-break-inside: avoid;
 }
 .mermaid svg {
     max-width: 100%;
@@ -144,6 +145,14 @@ strong { color: #00285a; }
     body { padding: 0; max-width: none; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print { display: none; }
+    .mermaid {
+        page-break-inside: avoid;
+        overflow: visible;
+    }
+    .mermaid svg {
+        max-width: 100%;
+        height: auto;
+    }
 }
 </style>
     
@@ -173,32 +182,82 @@ strong { color: #00285a; }
     }
   });
 </script>
+<script>
+  // Open rendered Mermaid diagram as full-size SVG in a new browser tab.
+  // Works on SharePoint, GitHub Pages, localhost — no file system dependency.
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[title="Open full-size SVG"]');
+    if (!link) return;
+    // Walk backwards from the link div to find the preceding .mermaid container
+    var container = link.closest('div');
+    var prev = container;
+    while (prev && prev.previousElementSibling) {
+      prev = prev.previousElementSibling;
+      if (prev.classList && prev.classList.contains('mermaid')) break;
+    }
+    if (!prev || !prev.classList.contains('mermaid')) return;
+    var svgEl = prev.querySelector('svg');
+    if (!svgEl) return;
+    e.preventDefault();
+    // Clone SVG with full dimensions for standalone viewing
+    var clone = svgEl.cloneNode(true);
+    clone.removeAttribute('style');
+    clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    var svgXml = new XMLSerializer().serializeToString(clone);
+    var blob = new Blob([svgXml], {type: 'image/svg+xml'});
+    window.open(URL.createObjectURL(blob), '_blank');
+  });
+</script>
 
 </head>
 <body>
-<div style="text-align:center; padding-top:80px;">
-  <h1 style="font-size:36px;">E2E-61 — R3 Consignment Material - Vendor</h1>
+<div style="text-align:center; padding-top:20px;">
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <h1 style="font-size:36px; margin-top:24px;">E2E-61 — R3 Consignment Material - Vendor</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
   Capability E2E-61 · Procure to Pay</p>
   <p style="font-size:14px; color:#888;">IAO Program · Release 2<br/>
-  Generated: March 2026</p>
+  Generated: March 2026<br/>
+  Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
   @page { margin: 0.75in; }
-  footer::after { content: "Intel Confidential — E2E-61 BDAT — March 2026"; font-size:9px; color:#999; }
-  .mermaid { page-break-inside: avoid; max-height: 95vh; overflow: visible; }
+  .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
-.mermaid svg { max-width: 100% !important; height: auto !important; }
+.mermaid { overflow: visible; }
+.mermaid svg { max-width: 100%; height: auto !important; }
+.page-footer {
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 20px;
+  background: #fff;
+}
+@media print {
+  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 </style>
 
+<div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 <div style="page-break-before: always;"></div>
 
+<p><a id="toc"></a></p>
 <h2 id="table-of-contents">Table of Contents</h2>
 <ol>
 <li><a href="#1-executive-summary">Executive Summary</a></li>
@@ -234,6 +293,7 @@ strong { color: #00285a; }
    - 7.2 <a href="#72-raid-log">RAID Log</a>
    - 7.3 <a href="#73-recommendations--next-steps">Recommendations &amp; Next Steps</a></li>
 </ol>
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="1-executive-summary">1. Executive Summary</h2>
@@ -251,6 +311,7 @@ strong { color: #00285a; }
 <blockquote>
 <p>All system nodes in architecture diagrams are <strong>IAPM-linked</strong> — click any node to open its IAPM page. Diagrams require <code>securityLevel: 'loose'</code> for click events.</p>
 </blockquote>
+<div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="2-business-context-objectives">2. Business Context &amp; Objectives</h2>
@@ -319,6 +380,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="23-success-criteria">2.3 Success Criteria</h3>
@@ -382,6 +444,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</h2>
@@ -410,6 +473,7 @@ strong { color: #00285a; }
 </tbody>
 </table>
 <h3 id="32-business-process-diagrams">3.2 Business Process Diagrams</h3>
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-321-e2e-61_r3_consignment_material_-vendor-e2e-61_r3_consignment_material-_vendor">BUSINESS ARCHITECTURE — 3.2.1 E2E-61_R3_Consignment_Material_-<em>Vendor — E2E-61_R3_Consignment_Material</em>-_Vendor</h4>
@@ -418,8 +482,8 @@ strong { color: #00285a; }
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
-flowchart LR
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
@@ -427,10 +491,10 @@ flowchart LR
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
     subgraph Boundary Apps
-        n8["Perform Exceptional Handling/Read Soft Validation Based o..."]
+        n8["Perform Exceptional Handling/Read Soft Validation Based on Rules Setup"]
         n9["Receive Incoming invoice/ B2B/OpenText/Web suite"]
         n10["Receive File in Bank"]
-        n11["WebSuite Payment Tracker/ SAP Business Network / OpenText..."]
+        n11["WebSuite Payment Tracker/ SAP Business Network / OpenText Payment Remittance"]
         n44["Obtain Manual Invoices Through OCR"]
         n48(["fa:fa-stop Payment Data Updated"])
         n54{{"fa:fa-code-branch exclusiveGateway"}}
@@ -633,6 +697,9 @@ flowchart LR
     class n77 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlWVtz2koS_itTpFJOquCgu4CH3QIMCVWxTRknqVObfRjECFQWGo408mUd__ftlmaENMgnG9YPCWp1f33vaUkvnYBvWGfUef_-JUoiMSIvF2LH9uxiRC7WNGMXXVISvtE0ouuYZRfIE_JErKL_FGymc3hCNqTN6T6Kn5G6YlvOyNdFl4xBMO6SjCZZL2NpFF50Lw5ptKfp85THPEXud2wQGmGhTd6a8HTD0iODYfhm4IJoHCXsSLZ9x3fmKJexgCebBmjohoMwuHhF42L-GOxoKgrz84xd0afv0Ubs4DqkccaAZyf28Re6ZjH6KNIcaUGePqhgRBnqSSBgqwMNomQLdMcAUkqT-yPJNV5fyev79z-SSim5u_yREPgLYppllywkmQDy7EGQMIrj0TtnOp67RjcTKb9no3fWzL-0rW6AnozAdaOLwe09smi7E6M1jzeStfeIPoysw1M3fRpZRjd9hn81XSzZHDVNPWtgDSpNE9-cmlOlKQzD_0sTxDW9o9m91DWz59b8stJlup47NU7xlJuXjj829Tix9CEKWA10Pp_bs2OoZp5rGm-DTua2Z0w10C0V7JE-HwGHU6cCnLv-3PTfBCz16Vbm62XKAwVoz9y5WwH6E3M-tt4EdMamM5AWAs42pYcdmfC8qGUyPhyy8h7-JYN__egsWRrydE9mTwE7iIgnNCafabKBxtj2bxndkBUPBflG42hD8T6ZQCNvCPy4zaGByYqJ_PCj8-8a7hBwb1nAogdGFknA94BFouSBQ-z7ZGJN-jcHltyxJ9H_ztZgZyRYE8E0ahDzKGYgDoqTe43NBDaAWCECWdLnPUugPVIa3LO0T1bjJZnkGbR4lpFrJh55ek_6RCmvBG7ZPhKCJoFmheMA_M1aUFB-RZMcQrMovcjI3S7l-XZHbqa3mtDgA0iFdBTSXib4odJySQUlXw8QRbYBkY81Gdd5eVEyOEJ7axgCwY6wpyAG-x_Yp7LGfnReX0sx6EItydP54roGaZtFBA9xFIAsWeUH-MlS5QBZ8kxAWpq22xYIfWIJS2ktnlCMB57RWOO1gXf2xIK8xnqbJxoXhnCaMsQbL6_IFdtziHcA81hjdLEYoewxV5PpVQU5oSLYYQFVdVeltChADcare4AaFQ5WkcbrY4g42i849kbKH1iq8WCPTHmaskAUcPI3NkILYln5gJKh8iW5hDa-zvdrCDz0VN17cslihjBa9WDhzxm4rAzPyJwGgkP3fgD9XYxNl1xNpuSKwxHL048aQJn3h4g9giBYuKki8IVr6XYtrVTr9pVJO6lUWxNRXkqvdX7PbK9s2U5l0OHHNcPEw4z657HGSwCrHUCma3PCb_9uK5Vib3TglEK9MZX1FnXueeq888T888QG7WJlziD6PIXfh7L5oNV0J_2akzRN-WPWo7EgB5rSOGZxu1Lf-z2h04k2exIsxfNIDa_-EtYcaO36CVA7J5Z5CvsRdN4NLnuEiuPUmyXauMFBNw7uE_4IHbJlfdkxTQitufEwKJBXu-iAHaV1Xt2U3XMGgzcmBeEg0Bh7-UVrv2K0HOBYXl3jBDph8AqG_T5PyiG-vGllwzGmz3fNNPfYtYcYdhXlAbnmIgoRHQfaAgZKhE1PwpTvq-hpLe342gg4moggcHWAycaOpjbmwfCcUvJbhaLkfz8dYWDWXcD0X-WxiHq4VIDNSYJD_SESMGZ3cDT2BO_h__p0tX9f8NQY3EtWfefz-HpMPizm_cWyHiITjSv3BMTPom1SHsOqNhdJ2H6GmvbxsG2VvGV_5VEWnR47ZlG8Oaw5t0uyjGmSnOwGpnsEXyRrXCnxDIPwp88ap1frhE-cbzLc3qRBUFxQomAVPxHDOr6MYLON1nmLEiyo2fcrTai-w35NYk43uCuc8g2P1qv1FvgjccpqGRVrH4wOI0Be5qI3xiW_eHQ4FcExtMiynPW_R2K3Senjr_21MM-wqyZZWPZtydTI3Erw4B4dXySCxeTmEfEKoob1q8y3zDPL-UWdFTJ9yUGPw_J09FlYG_AgIOIGlMaEZYFrJ_n7YWX5RVyi7RY4Pt2tyHTHTvwt1jIaB3mMxt3RJ30RtIZKW1mBahBD7n6dGhtLYJmv4yjb_W0MHU8brGqENiNanqz6HB1qc7RM9vgBtjZ8N4JNU1ZaYwEz9AWsmRj1hIHSyxtd2Hzr2YTBQ06cEdypog1Ir2lZdysO3sPjw3Mm2B6G1bK_mH_UUd_YgZqBLyq4j0eCvl64byxDi6s-BuCE_Y0lqOg_XGWqnuJhIw1Vsk8QB2etVe7wvG3MeMN--WQ2DvBJ_HTV9I1zjk7zHCHrHCH7HCHnzCURTknS6_0DTy5FsEuCZSuCvJaXrofXP2FOQ0v9xOwpPq9k9BWSBPIUgyWR3IGCGkhoV0EMJcFQIkZJcColjjRXWWdJgqtEXFfZh41SmuipexLfVARTWaDwvaGUxl3yW0SJeitSAJmuzlZsZqhC3nAk3ZlYzehYrrRTRUdq9pTdjqMx-CrwKlyWFPGr6PgaoRLxFUFyOHpwlN2-r6e1GJXoq7pjywqxVchtmVhfOW0r01WN-EpN_WmoQPUqGRkPz1QhNaXMNS85K3XSB0-he1K_rbLoWZqocteTSuwqb47GqSBsWRmu0urIyvMrJbK87apUpF22yo8vORyzEQaMjxIxpPo_8Zj9iWe57r26Y1cpVA1aVZI01bd095XsMXTKIsVqKSeUiY6MpVOVoSwhT3nlDapclk-5zcDVbuuprgpIlbqrBco0NYKrCJYqscpOJVI5Le2u6lcKqGuzMQbI989lO1aTRibPrJJXXqsg2zIMdjX2ZI0rfpkEx9Erq0pCZYmEcgZ6FcgirBgVfTleXP9hGBb5AHtFD3dxfIfNPhbcTlWhVpPdbGU3q9kgC9pWBFtVuAL0bTUCrOLdbu0Vb-lRgw-gVbLk0FGhcFTZq_uWPvd9qUhtGGUvVNNDjRO9BaqTpQJoPivI2rTqnysKc9R3nSbde4Puy28zTeqglTpso7pGK9VspVqtVLuV6qiPJE2y20722sl-O3nQTh62kqGEW8lmO9lqJ9vt5HYvvXYvvXYvvXYvvXYvvXYv_XYv_XYv_XYv_XYv_XYv_XYv_XYv_crLTrezZ-meRpvO6KVTfBuG78cbFlJ4ydJ57XZoLvjqOQk6o-IbaicvHm8uIwqvUvYl8fW_a6NBrA==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
@@ -672,6 +739,7 @@ flowchart LR
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
@@ -702,6 +770,7 @@ flowchart LR
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="42-data-flow-diagrams">4.2 Data Flow Diagrams</h3>
@@ -710,7 +779,7 @@ flowchart LR
 </blockquote>
 <h4 id="421-current-state-current-state-data-flows">4.2.1 Current-State — Current-State Data Flows</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '13px', 'fontFamily': 'Segoe UI, Arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '15px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 35, 'rankSpacing': 45}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
@@ -743,11 +812,14 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqdlQ1v2jAQhv-K5QmxSdAFaGCN1ErOB2ultOoauk1qpsgkF7BqkihxVijlv89OgG4Uuqq2FOH7eO_yXGSWOEwjwAZuNJYsYcJAy6aYwgyaBmqOaQHNFmoWEJY5EwsXfgNXDp6mtacK_U5zRscciqbKjtNEeOyxEujo2VyFKduQzhhfKKsHkxTQ7UULEZnImysVwdOHcEpzUWmUBVzS-Q8Wiak8x5QXIGOmYsZdOgauCom8VLZEdu9lNGTJRBp7ujTlNLl_Nh3rqxVaNRp-si2BRqafILlCTovChhjRLDPTOYoZ58YHU7eHw2GrEHl6D8YHTRsMzP762H5QPRndbN4KU57myt2z9V29aGwt-FqO6HafDLZyXWdg97oH5Tqm7nS1HTlI-XN7w6Gpm_pWz7I0uQ7q9fvK7Se1YlGOJznNpsjpOv2OZRPLDSCYBOSxzCHwvrl3PkY-_lVHqxWxHELB0mQLTa1NOqmyfzq3nkyEo8kRUr-lgGEYNdOXOfZOxY8-9svoSy-Szyg89ssYNPnKSqwKQjLIx5-UZIX1tS5Q-6h9dqhSnQhJtGYhFhwOgtjAJmpvYTua2v_C7mTz_-H1yHVwTq7Iu-heOl7Q07QNYHlE8vgWxtuyryCWMUjFvIXwupN9kDel3sJ4E_suxPvLotPTs6c1ILtiij4jcn0hn0PGwcdPhz-KndG5MJHt3_1FLIw0ZJMRQeTGOr8YOdbo9sZBrvPVubIPTNO9eba6gZo7yTLOQqq8-0fnBvaBOdlUUHUT7x-RGzhS3kmidhq3XRZDLV9fGXvHUb_hhr6u9pb-ycnJC_S4hWeQzyiLsLHE1Y0v_y8iiGnJBV61MC1F6i2SEBvVpYzLLKICbEYl0VltXP0Bn_31QQ==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="422-future-state-future-state-data-flows">4.2.2 Future-State — Future-State Data Flows</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '13px', 'fontFamily': 'Segoe UI, Arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '15px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 35, 'rankSpacing': 45}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
@@ -780,6 +852,9 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqdlY9vmkAUx_-Vyy3GLdEOtehK0ianwNqENl2x25KykBMeeukJBI5Va_3fdwdKN6td07uEeO_H9z0-j5wrHCQhYAM3GisWM2GgVVPMYA5NAzUnNIdmCzVzCIqMiaUDv4ErB0-SylOGfqcZoxMOeVNlR0ksXPZYCnT0dKHClM2mc8aXyurCNAF0e9FCRCby5lpF8OQhmNFMlBpFDpd08YOFYibPEeU5yJiZmHOHToCrQiIrlC2W3bspDVg8lcaeLk0Zje-fTcf6eo3WjYYX1yXQeOjFSK6A0zw3IUI0TYfJAkWMc-PDUDdt227lIkvuwfigaYPBsL85th9UT0Y3XbSChCeZcvdMfVcvnIyWfCNHdLNPBrVc1xqYve5Buc5Qt7rajhwk_Lk92x7qQ73WG400uQ7q9fvK7cWVYl5MphlNZ8jqWv2ObZKR44M_9cljkYHvfnPuPIw8_KuKVitkGQSCJXENTa1tOimzf1q3rkyEo-kRUr-lgGEYFdOXOeZOxY8e9orwSy-UzzA49ooINPnKSqwMQjLIw5-UZIn1tS5Q-6h9dqhSlQhxuGEhlhwOgtjCJmrXsC1N7X9hd9LF__C65No_J1fkXXQvLdfvadoWsDwieXwL47rsK4hlDFIxbyG86WQf5G2ptzDexr4L8f6y6PT07GkDyCyZos-IXF_Ip804ePjp8EexMzoHprL9u7-IBaGGTDImiNyMzi_G1mh8e2Mhx_pqXZkHpuncPFsdX82dpClnAVXe_aNzfPPAnEwqqLqJ94_I8S0pb8VhO4naDougkq-ujL3jqN5wS19Xu6Z_cnLyAj1u4Tlkc8pCbKxweePL_4sQIlpwgdctTAuRuMs4wEZ5KeMiDakAk1FJdF4Z138AG7H1aw==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="43-data-lineage">4.3 Data Lineage</h3>
@@ -870,6 +945,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</h2>
@@ -882,7 +958,7 @@ flowchart TB
 <strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '16px', 'fontFamily': 'Segoe UI, Arial, sans-serif'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     %% -- ArchiMate-inspired style classes --
     classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
@@ -902,7 +978,6 @@ flowchart TB
     E2E61C_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E61CMW_e_g_Azure_Service_Bus
     E2E61CMW_e_g_Azure_Service_Bus --> E2E61C_e_g_XEUS
 
-
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -916,6 +991,9 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqVVdtu4jAQ_RUrFeIF2vTCpVGFFEhYsQpt1fSyq2UVmXgCVk0S2U5bSvn3tRMKKbSia6SgzJw545yZsRdGmBAwLKNSWdCYSgstqnIKM6haqDrGAqo1VBUQZpzKuQdPwLSDJUnhyaH3mFM8ZiCqOjpKYunT15zguJm-aJi29fGMsrm2-jBJAN0NashWgayGBI5FXQCnUXWp0Sx5DqeYy5wvEzDELw-UyKl6jzAToDBTOWMeHgPTSSXPtC1WX-KnOKTxRBnPTGXiOH7cmBrmcomWlcooXqdAt91RjNSqVFC9rjYUTukQS6jTWKSUA0FCzhmgkGEhQChMAc_fHYjQOBM0BiFQviLKmHXQV6vbqAnJk0ewDrrtdtPsrl7rz_pLrJP0pRYmLOHWgWmaW5w4TdFmFZzdhmZdc5pmq9Vt_gcnwRLvcjrtPZzHHzjffQQLJR7Hc6UpamxlmlFCGDxjDmVFnKa9UcRtNfsbtm_sHhK2o4jWuKRyr2ea-zgLVpGNJxynU2R7f0bGKCPtU6Ke5LSB7Otrb9CzbwdXl8izf7s3I-NvEaQXUQ0RSprEyLvZWN0Tt3ncCyCYBEPXD05Ns8waQhPB4eQQKR9SPkVoWZaq8KcEv9w7_9No7fgydPiQB9uvGYfAB_5EQwi6mfjwdcetgilHoRUKKVRBu6naNrvj5uy9RMjAZWreY9kpbzE8K4g1AK0AF2N-1LmgncLh36MjNHCSUP399K8uL45op8iqu7LIBzF5r8-uoGrsOm8jI2dz8iIoJvt6oJ59ymBkvO1Rokz8FUYn2a6F3tKqafJjoOuVRrxv7hvxcqi9DjW_M8k7zerBRGn0oTmIiTz3h3vpfKNLvUD19nZr2WnKaIg1-JPm8oLhw3YLDTdt8mXbeIHjbneIo48fN5bqFtmufBHiXhXDeNIkZwpI6klU92i0SqPmv9QmG1ELUd6FbejfWtjz8_Ods8yoGTPgM0yJYS2M_PZSdx-BCGdMGsuagTOZ-PM4NKz8UjGyVG0UHIpVEWaFcfkPpBw9YQ==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="current-state-flow-narrative">Current-State Flow Narrative</h4>
@@ -939,6 +1017,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="52-future-state-future-state-application-landscape">5.2 Future-State — Future-State Application Landscape</h3>
@@ -950,7 +1029,7 @@ flowchart TB
 <strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '16px', 'fontFamily': 'Segoe UI, Arial, sans-serif'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     %% -- ArchiMate-inspired style classes --
     classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
@@ -970,7 +1049,6 @@ flowchart TB
     E2E61F_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E61FMW_e_g_Azure_Service_Bus
     E2E61FMW_e_g_Azure_Service_Bus --> E2E61F_e_g_XEUS
 
-
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -984,6 +1062,9 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqVVW1P4kAQ_iubGsIX0KLyYmNIii0XLkWN9eUux6VZulPYuLTN7lZF5L_fbotQQYO3JCWdeeaZ7TMzuwsjTAgYllGpLGhMpYUWVTmFGVQtVB1jAdUaqgoIM07l3IMnYNrBkqTw5NB7zCkeMxBVHR0lsfTpa07QaKUvGqZtfTyjbK6tPkwSQHeDGrJVIKshgWNRF8BpVF1qNEuewynmMufLBAzxywMlcqreI8wEKMxUzpiHx8B0UskzbYvVl_gpDmk8UcZTU5k4jh83pqa5XKJlpTKK1ynQbW8UI7UqFVSvqw2FUzrEEuo0FinlQJCQcwYoZFgIEApTwPN3ByI0zgSNQQiUr4gyZh301eo1a0Ly5BGsg16n0zJ7q9f6s_4S6zh9qYUJS7h1YJrmFidOU7RZBWevqVnXnKbZbvda_8FJsMS7nE5nD2fjA-e7j2ChxON4rjRFza1MM0oIg2fMoayI07I3irjtVn_D9o3dQ8J2FNEal1S-uDDNfZwFq8jGE47TKbK9PyNjlJHOCVFPctJE9vW1N7iwbwdXl8izf7s3I-NvEaQXUQ0RSprEyLvZWN1jt9XoBxBMgqHrByemWWYNoYXgcHKIlA8pnyK0LEtV-FOCX-6d_2m0dnwZOnzIg-3XjEPgA3-iIQS9THz4uka7YMpRaIVCClXQbqq2ze64OftFImTgMjXvseyWtxieFsQagFaA8zE_6p7TbuHw79ERGjhJqP5--leX50e0W2TVXVnkg5i812dXUDV23beRkbM5eREUk309UM8-ZTAy3vYoUSb-CqOTbNdCb2nVNPkx0PNKI9439414OdReh5rfmeSdZvVgojT60BzERJ77w710vtGlXqB6e7u17DRlNMQa_ElzecHwYbuFhps2-bJtvMBxtzvE0cePG0t1i2xXvghxr4phPG6RUwUk9SSqezRapVHzX2qTjaiFKO_CNvVvLezZ2dnOWWbUjBnwGabEsBZGfnupu49AhDMmjWXNwJlM_HkcGlZ-qRhZqjYKDsWqCLPCuPwH6o09eQ==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="future-state-flow-narrative">Future-State Flow Narrative</h4>
@@ -1007,6 +1088,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="53-change-impact-summary">5.3 Change Impact Summary</h3>
@@ -1050,6 +1132,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
@@ -1099,6 +1182,7 @@ flowchart TB
 <blockquote>
 <p><em>Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).</em></p>
 </blockquote>
+<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
@@ -1124,6 +1208,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
@@ -1133,7 +1218,7 @@ flowchart TB
 </blockquote>
 <h4 id="611-current-state-current-state-platform-architecture">6.1.1 Current-State — Current-State Platform Architecture</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '12px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'nodeSpacing': 25, 'rankSpacing': 30}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef platBox fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
@@ -1154,14 +1239,17 @@ flowchart TB
     E2E61CPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E61CPLP_e_g_Azure_PaaS
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqtlGFvmzAQhv-K5SriC2sJhDRD6iQgoFVKp2is26QxIQeOxKqDEZg2acp_nw1pslZKpWrzB4t77_z49Vl4h1OeAXbwYLCjBRUO2mliBWvQHKQtSA2ajrQa0qaiYjuDe2AqwTjvM13pd1JRsmBQa2p1zgsR0ccOMByVG1WmtJCsKdsqNYIlB3R7rSNXLmRaqyoYf0hXpBIdo6nhhmx-0EysZJwTVoOsWYk1m5EFMLWRqBqlFdJ9VJKUFkspjgwpVaS4O0q20baoHQzi4rAF-ubFBZIjZaSup5AjUpYe36CcMuacefY0DEO9FhW_A-fMMC4vvfE-_PCgPDlmudFTznil0tbUfs0rGRFHoD8Jxv7HA9CaTALLfwm0jsChZwem8QoInB15YejZnn3g-b4hx0mD47FKx0VPrJvFsiLlCgVmMB7689k8gWSZuI9NBcmckOhXjOPGHBvDuMnBkDufL89Rl0YqHePfPUiNjFaQCsoLNPt6VJ_Jbkf-GdwqZodR3xLgOE7f8H4NFNnem9gyOGnsn5r55uGjZJR8dr-4iWmYVnf-bGJlcs6I_XcXoosRUnVI1b27ETdBlFiG8dwLGSIZvrMdL6z-h468Rb-6-vS0NzvtzocukDu_lnNIGcT46eRVYR2voVoTmmFnh7s3Qr4wGeSkYQK3OiaN4NG2SLHT_ca4KTMiYEqJvJ51L7Z_AG49blI=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
 </blockquote>
+<div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="612-future-state-future-state-platform-architecture">6.1.2 Future-State — Future-State Platform Architecture</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '12px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'nodeSpacing': 25, 'rankSpacing': 30}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef platBox fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
@@ -1181,6 +1269,8 @@ flowchart TB
 
     E2E61FPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E61FPLP_e_g_Azure_PaaS
 </div>
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqtlGFvmzAQhv-K5SriC2sJhDRD6iRIQKuUTtFYt0ljQg4ciVWDEZg2acp_nw1pslZKpWrzB4t77_z49Vl4hxOeAnbwYLCjBRUO2mliDTloDtKWpAZNR1oNSVNRsZ3DPTCVYJz3ma70O6koWTKoNbU644UI6WMHGI7KjSpTWkByyrZKDWHFAd1e68iVC5nWqgrGH5I1qUTHaGq4IZsfNBVrGWeE1SBr1iJnc7IEpjYSVaO0QroPS5LQYiXFkSGlihR3R8k22ha1g0FUHLZA37yoQHIkjNT1DDJEytLjG5RRxpwzz54FQaDXouJ34JwZxuWlN96HHx6UJ8csN3rCGa9U2prZr3klI-IInE788fTjAWhNJr41fQm0jsChZ_um8QoInB15QeDZnn3gTaeGHCcNjscqHRU9sW6Wq4qUa-Sb_ngYLOaLGOJV7D42FcQLQsJfEY4ac2wMoyYDQ-58vjpHXRqpdIR_9yA1UlpBIigv0PzrUX0mux35p3-rmB1GfUuA4zh9w_s1UKR7b2LL4KSxf2rmm4cP41H82f3ixqZhWt3504mVyjkl9t9dCC9GSNUhVffuRtz4YWwZxnMvZIhk-M52vLD6HzryFv3q6tPT3uysOx-6QO7iWs4BZRDhp5NXhXWcQ5UTmmJnh7s3Qr4wKWSkYQK3OiaN4OG2SLDT_ca4KVMiYEaJvJ68F9s_kQ5uag==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
 
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
@@ -1213,48 +1303,40 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="62-sap-development-object-status">6.2 SAP Development Object Status</h3>
+<p><strong>RICEFW Status Summary</strong> — E2E Tower (0 objects)
+<em>Data source: Smartsheet Object Tracker (cached 2026-03-26)</em></p>
 <table>
 <thead>
 <tr>
-<th>Metric</th>
-<th>DEV</th>
-<th>QAS</th>
-<th>PRD</th>
+<th>Status</th>
+<th style="text-align: right;">Count</th>
+<th style="text-align: right;">%</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Transport Requests</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
+<td style="text-align: right;"><strong>100%</strong></td>
 </tr>
+</tbody>
+</table>
+<p><strong>RICEFW by Type:</strong></p>
+<table>
+<thead>
 <tr>
-<td>Custom Code Objects</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<th>Type</th>
+<th style="text-align: right;">Count</th>
 </tr>
+</thead>
+<tbody>
 <tr>
-<td>CDS Views</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>Fiori Apps</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>BAdIs / Enhancements</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
 </tr>
 </tbody>
 </table>
@@ -1386,123 +1468,202 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="7-project-context">7. Project Context</h2>
 <h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
-<p>Project delivery milestones for E2E-61 RICEFW objects:</p>
-<table>
-<thead>
-<tr>
-<th>Phase</th>
-<th>Planned Start</th>
-<th>Planned End</th>
-<th>Status</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Functional Specification (FS)</td>
-<td>Per project plan</td>
-<td>Per project plan</td>
-<td>In Progress</td>
-<td>Tower-level FS schedule</td>
-</tr>
-<tr>
-<td>Technical Design (TDD)</td>
-<td>FS + 2 weeks</td>
-<td>FS + 6 weeks</td>
-<td>Planned</td>
-<td>Dependent on FS completion</td>
-</tr>
-<tr>
-<td>Build &amp; Unit Test (TUT)</td>
-<td>TDD + 1 week</td>
-<td>TDD + 8 weeks</td>
-<td>Planned</td>
-<td>Includes S/4 + Middleware</td>
-</tr>
-<tr>
-<td>Functional User Test (FUT)</td>
-<td>Build + 1 week</td>
-<td>Build + 4 weeks</td>
-<td>Planned</td>
-<td>Tower-led validation</td>
-</tr>
-<tr>
-<td>Go-Live (Release 2)</td>
-<td>Per release plan</td>
-<td>Per release plan</td>
-<td>Planned</td>
-<td>End-to-End Integrated Processes release</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.</em></p>
-</blockquote>
-<div style="page-break-before: always;"></div>
-
+<p><em>No timeline data available for this capability.</em></p>
 <h3 id="72-raid-log">7.2 RAID Log</h3>
-<p>Standard RAID items for E2E-61 (End-to-End Integrated Processes):</p>
+<p><em>Live data from Smartsheet Master RAID Log — extracted 2026-03-26</em></p>
+<p><strong>RAID Summary:</strong> 15 open items (0 capability-specific, 15 tower-level), 56 closed</p>
 <table>
 <thead>
 <tr>
-<th>#</th>
-<th>Category</th>
-<th>Description</th>
-<th>Status</th>
-<th>Owner</th>
-<th>Priority</th>
+<th>Severity</th>
+<th style="text-align: right;">Capability</th>
+<th style="text-align: right;">Tower-Wide</th>
+<th style="text-align: right;">Total Open</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
-<td>Risk</td>
-<td>Data migration completeness — validate all legacy R3 Consignment Material - Vendor data maps to S/4 target structures</td>
-<td>Open</td>
-<td>Tower Architect</td>
-<td>High</td>
+<td>P1 - High</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
 </tr>
 <tr>
-<td>2</td>
-<td>Risk</td>
-<td>Integration testing coverage — ensure all 2 integrated systems are validated end-to-end</td>
-<td>Open</td>
-<td>Integration Lead</td>
-<td>High</td>
+<td>P2 - Medium</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
 </tr>
 <tr>
-<td>3</td>
-<td>Assumption</td>
-<td>Target SAP S/4HANA system available in DEV/QAS per release schedule</td>
-<td>Active</td>
-<td>SAP Basis</td>
-<td>Medium</td>
+<td>P3 - Low</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
 </tr>
 <tr>
-<td>4</td>
-<td>Issue</td>
-<td>API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation</td>
-<td>Open</td>
-<td>EA Pipeline Team</td>
-<td>High</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Dependency</td>
-<td>Upstream BPMN process models validated and signed off by business process owners</td>
-<td>Active</td>
-<td>Process Owner</td>
-<td>Medium</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
+<td style="text-align: right;"><strong>15</strong></td>
+<td style="text-align: right;"><strong>15</strong></td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><em>Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.</em></p>
-</blockquote>
+<p><strong>Other E2E Tower RAID Items</strong> (15 open):</p>
+<table>
+<thead>
+<tr>
+<th>RAID ID</th>
+<th>Type</th>
+<th>Severity</th>
+<th>Title</th>
+<th>Status</th>
+<th>Assigned To</th>
+<th>Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>03591</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>R3 E2E scenario execution</td>
+<td>In Progress</td>
+<td>Test Management</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>03681</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>ITC Execution: Planning run availability - Prerequisite for &hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03762</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>FTS-IF (esp SCP) related test cases/sequencing are not accur&hellip;</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>01733</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Tariffs impacts Item/BOM design which is impacting ERP/SCP (&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-06</td>
+</tr>
+<tr>
+<td>03592</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Lack of Defined IMO Owner for CBA Mask Billing and Materials&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03625</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Item/ BOM MC1 delta load</td>
+<td>In Progress</td>
+<td>Cutover</td>
+<td>2026-04-10</td>
+</tr>
+<tr>
+<td>03628</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>R3 Returns Rework Process Causing Finance Double Counting in&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03642</td>
+<td>Issue</td>
+<td>P2 - Medium</td>
+<td>E2E Process with Anafi on order/invoice point.  Need IFS SC &hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-24</td>
+</tr>
+<tr>
+<td>03736</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Golden Data/Test Data Readiness</td>
+<td>In Progress</td>
+<td>Master Data</td>
+<td>2026-04-22</td>
+</tr>
+<tr>
+<td>03743</td>
+<td>Issue</td>
+<td>P2 - Medium</td>
+<td>FD-Share with Entitlements -  Interface File Paths for MC1</td>
+<td>Roadblock / At Risk</td>
+<td>PMO</td>
+<td>2026-03-20</td>
+</tr>
+<tr>
+<td>03753</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>PDF-SMH IF test cases are not available in JIRA</td>
+<td>To Be Reviewed</td>
+<td>B-Apps</td>
+<td>2026-03-25</td>
+</tr>
+<tr>
+<td>03756</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>LE101-1001 Operation Support Ownership for SIMS/Tester Front&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-04-24</td>
+</tr>
+<tr>
+<td>03769</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Need a Labs SPOC owner to define IP Labs enterprise and mate&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-04-17</td>
+</tr>
+<tr>
+<td>03216</td>
+<td>Action</td>
+<td>P3 - Low</td>
+<td>Mask Expense vs. Invoice</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-06</td>
+</tr>
+<tr>
+<td>03315</td>
+<td>Risk</td>
+<td>P3 - Low</td>
+<td>BPMG – SCP L3/L4 flow standards</td>
+<td>In Progress</td>
+<td>Business Process Mgmt</td>
+<td>2026-03-27</td>
+</tr>
+</tbody>
+</table>
 <h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
 <table>
 <thead>

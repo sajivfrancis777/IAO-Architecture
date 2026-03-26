@@ -128,8 +128,9 @@ blockquote {
     border-radius: 6px;
     padding: 20px 12px;
     margin: 16px 0;
-    overflow-x: auto;
+    overflow: visible;
     text-align: center;
+    page-break-inside: avoid;
 }
 .mermaid svg {
     max-width: 100%;
@@ -168,6 +169,14 @@ strong { color: #00285a; }
     body { padding: 0; max-width: none; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print { display: none; }
+    .mermaid {
+        page-break-inside: avoid;
+        overflow: visible;
+    }
+    .mermaid svg {
+        max-width: 100%;
+        height: auto;
+    }
 }
 """
 
@@ -198,12 +207,40 @@ MERMAID_JS = """
     }
   });
 </script>
+<script>
+  // Open rendered Mermaid diagram as full-size SVG in a new browser tab.
+  // Works on SharePoint, GitHub Pages, localhost — no file system dependency.
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[title="Open full-size SVG"]');
+    if (!link) return;
+    // Walk backwards from the link div to find the preceding .mermaid container
+    var container = link.closest('div');
+    var prev = container;
+    while (prev && prev.previousElementSibling) {
+      prev = prev.previousElementSibling;
+      if (prev.classList && prev.classList.contains('mermaid')) break;
+    }
+    if (!prev || !prev.classList.contains('mermaid')) return;
+    var svgEl = prev.querySelector('svg');
+    if (!svgEl) return;
+    e.preventDefault();
+    // Clone SVG with full dimensions for standalone viewing
+    var clone = svgEl.cloneNode(true);
+    clone.removeAttribute('style');
+    clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    var svgXml = new XMLSerializer().serializeToString(clone);
+    var blob = new Blob([svgXml], {type: 'image/svg+xml'});
+    window.open(URL.createObjectURL(blob), '_blank');
+  });
+</script>
 """
 
 
-def md_to_html(md_content: str, title: str = "") -> str:
+def md_to_html(md_content: str, title: str = "", md_path: Path | None = None) -> str:
     """Convert Markdown content to a standalone HTML document."""
-    # Convert mermaid code blocks to <div class="mermaid"> for rendering
+    # Convert mermaid code blocks to <div class="mermaid"> for Mermaid.js rendering.
+    # The JS library renders full, interactive diagrams in the browser.
+    # SVG and Mermaid Live links below each diagram are preserved from the MD source.
     def replace_mermaid(match):
         code = match.group(1).strip()
         return f'<div class="mermaid">\n{code}\n</div>'
@@ -214,6 +251,11 @@ def md_to_html(md_content: str, title: str = "") -> str:
         md_content,
         flags=re.DOTALL,
     )
+
+    # Fix legacy overflow:hidden in embedded <style> blocks from older MD files.
+    # These clip Mermaid diagrams when printing to PDF.
+    processed = processed.replace('overflow: hidden', 'overflow: visible')
+    processed = processed.replace('overflow-x: auto; overflow-y: auto', 'overflow: visible')
 
     # Convert MD to HTML
     extensions = [
@@ -250,7 +292,7 @@ def convert_file(md_path: Path, html_only: bool = False) -> tuple[Path | None, P
     md_content = md_path.read_text(encoding="utf-8")
     title = md_path.stem.replace("-Architecture", " Architecture")
 
-    html_content = md_to_html(md_content, title)
+    html_content = md_to_html(md_content, title, md_path)
 
     # Write HTML next to the MD
     html_path = md_path.with_suffix(".html")

@@ -104,8 +104,9 @@ blockquote {
     border-radius: 6px;
     padding: 20px 12px;
     margin: 16px 0;
-    overflow-x: auto;
+    overflow: visible;
     text-align: center;
+    page-break-inside: avoid;
 }
 .mermaid svg {
     max-width: 100%;
@@ -144,6 +145,14 @@ strong { color: #00285a; }
     body { padding: 0; max-width: none; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print { display: none; }
+    .mermaid {
+        page-break-inside: avoid;
+        overflow: visible;
+    }
+    .mermaid svg {
+        max-width: 100%;
+        height: auto;
+    }
 }
 </style>
     
@@ -173,32 +182,82 @@ strong { color: #00285a; }
     }
   });
 </script>
+<script>
+  // Open rendered Mermaid diagram as full-size SVG in a new browser tab.
+  // Works on SharePoint, GitHub Pages, localhost — no file system dependency.
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[title="Open full-size SVG"]');
+    if (!link) return;
+    // Walk backwards from the link div to find the preceding .mermaid container
+    var container = link.closest('div');
+    var prev = container;
+    while (prev && prev.previousElementSibling) {
+      prev = prev.previousElementSibling;
+      if (prev.classList && prev.classList.contains('mermaid')) break;
+    }
+    if (!prev || !prev.classList.contains('mermaid')) return;
+    var svgEl = prev.querySelector('svg');
+    if (!svgEl) return;
+    e.preventDefault();
+    // Clone SVG with full dimensions for standalone viewing
+    var clone = svgEl.cloneNode(true);
+    clone.removeAttribute('style');
+    clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    var svgXml = new XMLSerializer().serializeToString(clone);
+    var blob = new Blob([svgXml], {type: 'image/svg+xml'});
+    window.open(URL.createObjectURL(blob), '_blank');
+  });
+</script>
 
 </head>
 <body>
-<div style="text-align:center; padding-top:80px;">
-  <h1 style="font-size:36px;">IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</h1>
+<div style="text-align:center; padding-top:20px;">
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <h1 style="font-size:36px; margin-top:24px;">IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
   Capability IF_Simplified_PO-SO_Model · Order to Cash</p>
   <p style="font-size:14px; color:#888;">IAO Program · Release 2<br/>
-  Generated: March 2026</p>
+  Generated: March 2026<br/>
+  Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
   @page { margin: 0.75in; }
-  footer::after { content: "Intel Confidential — IF_Simplified_PO-SO_Model BDAT — March 2026"; font-size:9px; color:#999; }
-  .mermaid { page-break-inside: avoid; max-height: 95vh; overflow: visible; }
+  .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
-.mermaid svg { max-width: 100% !important; height: auto !important; }
+.mermaid { overflow: visible; }
+.mermaid svg { max-width: 100%; height: auto !important; }
+.page-footer {
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 20px;
+  background: #fff;
+}
+@media print {
+  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 </style>
 
+<div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
+<p><a id="toc"></a></p>
 <h2 id="table-of-contents">Table of Contents</h2>
 <ol>
 <li><a href="#1-executive-summary">Executive Summary</a></li>
@@ -234,6 +293,7 @@ strong { color: #00285a; }
    - 7.2 <a href="#72-raid-log">RAID Log</a>
    - 7.3 <a href="#73-recommendations--next-steps">Recommendations &amp; Next Steps</a></li>
 </ol>
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="1-executive-summary">1. Executive Summary</h2>
@@ -251,6 +311,7 @@ strong { color: #00285a; }
 <blockquote>
 <p>All system nodes in architecture diagrams are <strong>IAPM-linked</strong> — click any node to open its IAPM page. Diagrams require <code>securityLevel: 'loose'</code> for click events.</p>
 </blockquote>
+<div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="2-business-context-objectives">2. Business Context &amp; Objectives</h2>
@@ -319,6 +380,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="23-success-criteria">2.3 Success Criteria</h3>
@@ -382,6 +444,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</h2>
@@ -954,6 +1017,7 @@ strong { color: #00285a; }
 </tbody>
 </table>
 <h3 id="32-business-process-diagrams">3.2 Business Process Diagrams</h3>
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-321-if_simplified_po-so_model_-1a_intel_products-wafer_procurement_from_external_foundry_and_shipment-if_simplified_po-so_model-1a_intel_products-_wafer_procurement_from_external_foundry_and_shipment">BUSINESS ARCHITECTURE — 3.2.1 IF_Simplified_PO-SO_Model_-<em>1A_Intel_Products</em>-<em>Wafer_Procurement_from_External_Foundry_and_Shipment — IF_Simplified_PO-SO_Model</em>-<em>1A_Intel_Products</em>-_Wafer_Procurement_from_External_Foundry_and_Shipment</h4>
@@ -967,8 +1031,8 @@ Apps
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
-flowchart LR
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
@@ -981,7 +1045,7 @@ flowchart LR
         n3["Planning done for Wafer"]
         n4["Alfresco (ACMS)"]
         n5["ECA"]
-        n6["Receive updates ReadSoft Validation/Exception Handling ba..."]
+        n6["Receive updates ReadSoft Validation/Exception Handling based on rules setup"]
         n7["Incoming invoice/ E2Open/Web suite"]
         n8["Manual invoices through OCR"]
         n9["Updates sent to Once source tax app"]
@@ -996,7 +1060,7 @@ flowchart LR
         n25["Send Acknowledgement"]
         n26["Receive STO prior to 3B2 Signal"]
         n27["ASN/ Order shipment Wrt STO"]
-        n28["Trigger Physical Receipt of Bailed Stock at Intel Foundry..."]
+        n28["Trigger Physical Receipt of Bailed Stock at Intel Foundry Site (Ownership..."]
         n29["Goods Receipt Confirmation"]
         n30["Generate Invoicing"]
         n31["Advance Invoice (If Applicable)"]
@@ -1101,6 +1165,9 @@ PIP 3B2"| n18
     class n46 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlWFtv4kgW_islWq0QCRpfuT3sCgxkkaYbhOmORss-FHYZSilsT9nOZdP573PKrjK4Qkaanjwk8ce5n--cKvPaCpKQtMatz59faUzzMXq9yY_kRG7G6GaPM3LTQRXwA3OK94xkN0ImSuLcp_8vxUwnfRZiAlvgE2UvAvXJISHo-7KDJqDIOijDcdbNCKfRTecm5fSE-YuXsIQL6U9kGBlR6U1-NE14SPhZwDAGZuCCKqMxOcP2wBk4C6GXkSCJw4bRyI2GUXDzJoJjyVNwxDwvwy8y8hU_39MwP8JzhFlGQOaYn9hveE-YyDHnhcCCgj-qYtBM-ImhYH6KAxofAHcMgDiOH86Qa7y9obfPn3dx7RRtZ7sYwU_AcJbNSISyHOD5Y44iytj4k-NNFq7RyXKePJDxJ2s-mNlWJxCZjCF1oyOK230i9HDMx_uEhVK0-yRyGFvpc4c_jy2jw1_gt-aLxOHZk9e3htaw9jQdmJ7pKU9RFP0jT1BXvsXZg_Q1txfWYlb7Mt2-6xnv7ak0Z85gYup1IvyRBuTC6GKxsOfnUs37rml8bHS6sPuGpxk94Jw84ZezwZHn1AYX7mBhDj40WPnToyz2a54EyqA9dxdubXAwNRcT60ODzsR0hjJCsHPgOD2iaVKUXEaTNM1QexnnhCFwEd6iSlL8xOZ_d6014VHCT7vCMLAxIycch2jNcBwDGdFyut61_nehYZ01kF-kKXs5C09_b8raQlZ9GCYxQaCG7nFEeFPQAcEJizjJggS1J95X_7Yp4ILA3Js0wT6AGxIQ-khQkYbQkgxtCA79JMrRD8woQDSJe_PngKTiP_QfyI2JYMRiChEgvICFBBzJi7RpfADGl3GQnIQ4jR8T4FAPza1VSuLePdlDpWlOmjpD0PmK4wIzpZGh_MiT4nBEK2_TFB6B8HcZdUbiHOUJWsUBQVlScPiT42eEUy0q226DWoTHEe5meZJWxTx3YAZFBo3bS5Xh66tSwZwnT1kXsxylmGPGCLurmLxrvb1dKo1-QclxrirROGBFBk36QMv9m1qwjDSuz59zwmOo-hpWYkx41iuZSaEyl8x1LviyXiGco1psDjabNBeM88EVmgQPcfLESHiAMyzONbFLDvrbFYKzBygOrbSnFvLpAaLSNASxJv63HlqJ4wllR5oKu-geljxY0KQFpbacHg6iy8eXjAaQZukwzVESoSmmEBry8yR4EBlVc74Qww-z7wNFUXv1JGoCfr58-aKZFyS8S5Iwq216SRxRfionR-OeIYQJ2IKOgCNBcOCcJiQ2yiR8xILJlQxEsIzEGmIQPJz_2mjb1pnSKYOdqmuLvUiyDInbBQXXoUZwx_oVrtq_otT_x1Q97-EiyBubWFTX40TUdg0L4AgbSlKkvV6Zt-fuL9flvGtMNEXhPcyCggkTW_xMMk3CuuDS3dZH3pEED5pMubKLPaPZUQtDEyxX9nk0epI3f63kXslxQ_4oaEbf883sn6X97Qa1n2BCRCk0scGl2Ar5QHS0TcZoudAEh-VK34vZQDPCoGEwIu3761bFZPygPBfLvDkh7e8xHFQ5p0GuJu9WHCWwUq70xTIuDswPqm6Zl5N1t0H4gGmcXdsHVplDNQho_ohZISaijs0nec7KPYXa841_CwCLulO4VLybVMu-NFVvwnrqkix_P92OdvxUBNVWJJILUR9U29W0RbvUdHvJKWXk_XTbggU-nOUEuUPkLZbf4OZLUo3b9uA8meJ9pLuHG3VwrLOZBOIKQMJ_6xNt_MoaMP-eUr0FYMhRt_sv4VYCjgRMUwcspWJKFSVhWhrgSAnTloDlVIDlKhX5rD6vHu2hfLaHEtCeHUd50J8loOzbUl8ZcGVAtX8FqLRNacBWFs3SxE-45M2WaOgavfkJDrZdvPk23yJ74vTsiTnatX6K5LQozb6y0ZfAQOXpXhgFq26vomvjiCtdjIWP0rypzFvSmlVbG8gq1J2RAah3GPhHBjBSdZKVtlSlLdkJW1XGGsoQHbgutO82t1WOda9Hl2Xpm3ABvagL6FTiyp81kiGqRjiyM05fAyyVhMzSrkNWgEpKZq0ycGQrlUFFlZoKAxnx7-L4EcHZ-iffkvKDOiZL0acGLN2oYqyqi21qedlGgz-DRqGgu55d-lS9tGWhbB1QZRhpEZgq-Gq1iat2uevHcISrU2K5qDC0KywDCP3b3DUMtOSEiTeqXbyGgxtoXEVi9Rsc-VneCUGoir-vxGWHzeHF62JZD_X238Rt-abeRJ2rqHsV7X9geaBeeZvw8Do8ugrDbrsKm9dh6zpsX4ed67B7He4ruNVpnQjsAhq2xq-t8nsq-C4rJBEuWN5667RwkSf-Sxy0xuX3Oa3qRXNGMdznThX49idZE7s1" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-322-if_simplified_po-so_model_-1b_bailment_of_procured_wafer_by_intel_products_via_external_foundry-if_simplified_po-so_model-_1b_bailment_of_procured_wafer_by_intel_products_via_external_foundry">BUSINESS ARCHITECTURE — 3.2.2 IF_Simplified_PO-SO_Model_-<em>1B_Bailment_of_Procured_Wafer_by_Intel_Products_via_External_Foundry — IF_Simplified_PO-SO_Model</em>-_1B_Bailment_of_Procured_Wafer_by_Intel_Products_via_External_Foundry</h4>
@@ -1112,7 +1179,7 @@ PIP 3B2"| n18
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1133,7 +1200,7 @@ flowchart LR
         n17["Goods Receipt (Physical) (Non-Valuated)"]
         n18["Perform GTS Check"]
         n19["Inbound Delivery (EWM)"]
-        n20["GR & Put away (EWM)"]
+        n20["GR and Put away (EWM)"]
         n21["fa:fa-user Purchase Order (Preceding Doc)"]
         n24(["fa:fa-stop Statistical Price Captured"])
         n25(["fa:fa-stop endEvent"])
@@ -1202,6 +1269,9 @@ IP STO as reference"| n12
     class n29 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlV21P4zgQ_itWVqhFarVJmjSlH06ipUGVFogou3y43gc3cahFake2A3Sh__3GSZy2oZx0d0hAPZ555sXPjN13K-YJscbW2dk7ZVSN0XtHrcmGdMaos8KSdHqoEvzCguJVRmRH66ScqQX9Xao5Xv6m1bQsxBuabbV0QZ44QT_nPXQJhlkPScxkXxJB006vkwu6wWI75RkXWvsbGaV2WnqrtyZcJETsFWw7cGIfTDPKyF48CLzAC7WdJDFnyRFo6qejNO7sdHAZf43XWKgy_EKSG_z2SBO1hnWKM0lAZ6022Q-8IpnOUYlCy-JCvJhiUKn9MCjYIscxZU8g92wQCcye9yLf3u3Q7uxsyRqn6Mf9kiH4iTMs5RVJkVQgnr0olNIsG3_zppehb_ekEvyZjL-5s-Bq4PZinckYUrd7urj9V0Kf1mq84llSq_ZfdQ5jN3_ribexa_fEFv62fBGW7D1Nh-7IHTWeJoEzdabGU5qm_8sT1FU8YPlc-5oNQje8anw5_tCf2p_xTJpXXnDptOtExAuNyQFoGIaD2b5Us6Hv2F-DTsLB0J62QJ-wIq94uwe8mHoNYOgHoRN8CVj5a0dZrCLBYwM4mPmh3wAGEye8dL8E9C4db1RHCDhPAudrNHtTRDCcoQhowoiQ3yfuBFVK-oc59p9LK7pDgsSEvpAEYYUWRZ5nlAg0Y7CG35hvNlQpkiytvw5tHbC9XNx-R3e6x5Bc03xDmEKPwNTFw11L2wXtCaYZOLmBwuluRpGgmu1ozlKOunFWrFaw_UrVGg0m7nkLYQAI91WgGh9Bi3OBFNe6aEGfINHGAsjaqsWcKZKhkBcsEVvU_THzbfsc9dFckExneejJA09TnKtCkCbGK6IgegkIArXz6C4UVlQqGuOsHbUPWHO20n4BI4PgxbalMixVXqB2HEL7mSeAi7pz1n-AkSCpakMGoH_NeSJRWY5coW603srSO-rectb_hbMCQJK25UgfNxEpFxt0_bBA0zWJn1s6FycCRt3Z400LzNXcub4vKRIVCmHdC6f0NE9SPE5xXzc26AqYZpLUtOlGmnxJWWIet229bmMsFc_RQaHLkyGoPidNzvNDS79lWY4vKHFb7-L93ehhIfir7ONMoRwLnGUku656fGntdv9MLGjcpIjVEY00iwTRh3mccyvHvdri4R51X6F9ojunVYnBodYdWkCzoQc-RvPwWM87eXqPJzE1NX9RoQooZotPP5kgMGpoDCSCovP4-RxxBhgogm5Rxziav3eFajlNBd-geVQZIPyEKZPlYIAjh3EEffM9LLJ2v2huRxwUq4DmUhbkyNjA5p_jGJ3KHeaDyXEefg7mGOHiU2cdxU3ZIVYZQZuw7p52sL8FdlBIFU6NmFmc1iMoh1EPxC1Hpv5MpGxzc9DisJ47pf6Ub_KMqM-s10fRDHCYKVy3SNSgH6oG_474ldHoP3YLc1C__4e-cMzargRuvXar5cBsD2r9-iZnXrX266VfWwfGPKgEw3o9rJZmu94d1ctRbW3WTu3d8YygducagWvib0xMBBdGULt0jE-n9uKYmN2LWjBsCxqMWmBeRPChFjQYJnRTl7JOH-Zi1FO0pPgYBtEn2i8L14bCLll5-Zmbb2l96HqbEJwaEG520JxdzdHIh4Dvb2cP5UXbhY3z0sbUxgTdQAQ1hKfVr-8rbZOja2p9dHIfn2m7ZA1vPzSzjyoA-hEMAQhoyeB_ndlNdFs-ddBtsVkR0YMETPK9_bumvsnL3ahsbCzhBZQSQRi4LcvhHjzNytM3b9Jjudu8wI_lg_q1fCz1Tkr9k9LhF8iBeXYei0enxRdGbPWsDREbTBNr_G6VX8Xg61pCUlxkytr1LFwovtiy2BqXX1msonyFXFEMl9ymEu7-BjZMPqU=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-323-if_simplified_po-so_model_-1c_payment_process_in_cfin-if_simplified_po-so_model-_1c_payment_process_in_cfin">BUSINESS ARCHITECTURE — 3.2.3 IF_Simplified_PO-SO_Model_-<em>1C_Payment_Process_in_CFIN — IF_Simplified_PO-SO_Model</em>-_1C_Payment_Process_in_CFIN</h4>
@@ -1210,7 +1280,7 @@ IP STO as reference"| n12
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1306,6 +1376,9 @@ flowchart LR
     class n30 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlV9tu4zYQ_RVCi9RZQO7qatl-aOFLtAgQB0bcbVHUfaAlKhYiiwJJOXGz_vcOLVK2ZOWhWz8k4tGZMxfOUNK7EdGYGGPj5uY9zVMxRu89sSU70huj3gZz0jNRBfyOWYo3GeE9yUloLlbpPyea7RVvkiaxEO_S7CDRFXmmBH27N9EEDDMTcZzzPicsTXpmr2DpDrPDjGaUSfYnMkys5ORN3ZpSFhN2JlhWYEc-mGZpTs6wG3iBF0o7TiKaxw3RxE-GSdQ7yuAy-hptMROn8EtOFvjtjzQWW1gnOOMEOFuxyx7whmQyR8FKiUUl2-tipFz6yaFgqwJHaf4MuGcBxHD-coZ863hEx5ubdV47RQ9P6xzBL8ow53OSIC4AvtsLlKRZNv7kzSahb5lcMPpCxp-cu2DuOmYkMxlD6pYpi9t_JenzVow3NIsVtf8qcxg7xZvJ3saOZbID_G35Inl89jQbOENnWHuaBvbMnmlPSZL8L09QV_Yb5i_K150bOuG89mX7A39mXevpNOdeMLHbdSJsn0bkQjQMQ_fuXKq7gW9bH4tOQ3dgzVqiz1iQV3w4C45mXi0Y-kFoBx8KVv7aUZabJaORFnTv_NCvBYOpHU6cDwW9ie0NVYSg88xwsUVTWp56GU2Kglf35C-3_1obTyQi6Z6gMM0ISnM0he5bG39fsBxgfStiyBIt8WFHcoGeyC4VAucRaVLtwS2QEzxOcJ8LWtQGcywwqkRiMPlc2UArtSKdhfePF3ouqN29kai89F3mTacekGaMyPgmywVakB2FACOY-CbPB56sK-EcTWeLWnCKRbSFYYMLTmJEoQYlh2MBaE8lHFFNlQGofCU5YdqflpEFbFIDWV4qYxdUlp7RPWFNylDGThkjkTiJqesUgrjWG522CzS49LxEc-iRx3K3IQzhPL5MHM1JRqRKa3ssUAgJpKuj5ijEkaDQGrfg3pR1MdFiOkMLCuc3ZZ9bAlXH7FPyCoYQYFyn_0CfW1znslKaBhtQUI6zFtc96RZZGknyqizgEtK6z_cU5hUtKRewQy2jYavZLgtQNcRFr1Umo5aJLqMqa5vv2O_vmi8fbf0NHM5QvQXOS5ypPYWLRyK7Cibs17VxPF4KON0CqhviK77bzSdvUQZNuSdfq8OmbeZ1m80wNDPRXdXhzv8xd4MfMwu6zariQxkpg-uiGlHY7qtoh2d7zBh95X2cCVRghrOMZB84Hf2AkWt1GqX5R_ldn2QwRJeNJw-pRZmJtC8PWNiRPJdzvk8FjN4W2rsvaF_-b0-c_98Nr4NZTZZo9cVDt_dL9BO6DxszEXx0ZhMBI86R7NQ0hlHf4OhFHmUrWjIYytWBC7KTml-kYmty5FGzysAO-b7pB9fBwQGB-v1foNhq7VZLZ6jWXrW29dpX99VDHS4k8H1tPNK18V3OjroRKKKjiUp5oNdKyddrryWkiSMVwUhHbCllDTiDCqjX2qKOcVgBnlawlUKgCYHyrYegGYEqka3Xyp_ttRzqVJU7R6dmq9Rtpx1hHYDKyXbbZf1TPvogGM3U-HJy__izZTnoFjqln1EcyzcV8vlEtmvPXpNud9MbdTqV4Tz_VSm0oKsC1e3gOK046_2v7-j9rKuvNt62rqvfcuta7ebQbtzL1zW5NeqNuIkGneiwEx11obAv-q2-idv6hbMJO92w2w173bDfDQ-64aAbHnbDo04YdlXBhmnsCNvhNDbG78bpKxG-JGOSYDj9jKNp4FLQ1SGPjPHpa8ooT6-T8xTDGberwOO_a0tvag==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-324-if_simplified_po-so_model_-1d_intel_foundry_standard_sales_order_to_cash_scenario_for_procco-if_simplified_po-so_model-1d_intel_foundry_standard_sales_order_to_cash_scenario_for_proc_co">BUSINESS ARCHITECTURE — 3.2.4 IF_Simplified_PO-SO_Model_-<em>1D_Intel_Foundry_Standard_Sales_Order_to_Cash_Scenario_for_PROC</em>&amp;<em>CO — IF_Simplified_PO-SO_Model</em>-<em>1D_Intel_Foundry_Standard_Sales_Order_to_Cash_Scenario_for_PROC</em>&amp;_CO</h4>
@@ -1317,8 +1390,8 @@ flowchart LR
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
-flowchart LR
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
@@ -1367,7 +1440,7 @@ flowchart LR
         n59["Perform ATP Check (Unrestricted Stock)"]
         n60["Perform GTS Trade Compliance"]
         n61["Create IC Invoice (Bill To: LE778)"]
-        n62["Perform AR Posting & Auto Clearing"]
+        n62["Perform AR Posting and Auto Clearing"]
         n103{{"fa:fa-code-branch exclusiveGateway"}}
         n104{{"fa:fa-code-branch Outbound Delivery to be Performed in Partial Quantity?"}}
         n105{{"fa:fa-code-branch exclusiveGateway"}}
@@ -1393,7 +1466,7 @@ flowchart LR
         n29["Create IC STO (Sorted Wafer)"]
         n30["Create Inbound Delivery (Sorted Wafer) wrt STO"]
         n31["Create Goods Receipt (Sorted Wafer)"]
-        n32["Perform AP Posting & Auto Clearing"]
+        n32["Perform AP Posting and Auto Clearing"]
         n33["Receive Planned Order PROC+COPO"]
         n34["Execute Production Order Steps"]
         n35["Capture GR Against Production Order"]
@@ -1722,6 +1795,9 @@ from Customer"| n13
     class n139 subProc
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNq1W1tv2zoS_iuED7pJcWIckbr7YRfxLWugabyx24PFZh8UmU6EypKhS5psm_--Q4mkZErsOVF3-1DAo5nh3DjziVS-jcJ0R0eT0bt336IkKibo21nxSA_0bILO7oOcnl2gmvA5yKLgPqb5GePZp0mxif5TsWHr-MzYGG0ZHKL4hVE39CGl6NPqAl2CYHyB8iDJxznNov3Zxdkxiw5B9jJL4zRj3L9Qb2_sq9X4o2ma7WjWMBiGi0MbROMooQ3ZdC3XWjK5nIZpsjtRurf33j48e2XGxenX8DHIisr8MqfXwfPv0a54hN_7IM4p8DwWh_hDcE9j5mORlYwWltmTCEaUs3USCNjmGIRR8gB0ywBSFiRfGpJtvL6i13fv7hK5KNrO7xIE_8I4yPM53aO8APLiqUD7KI4nv1izy6VtXORFln6hk1_Iwp2b5CJknkzAdeOCBXf8lUYPj8XkPo13nHX8lfkwIcfni-x5QoyL7AX-V9aiya5ZaeYQj3hypamLZ3gmVtrv9z-1EsQ12wb5F77WwlyS5VyuhW3HnhldfcLNueVeYjVONHuKQtpSulwuzUUTqoVjY0OvdLo0HWOmKH0ICvo1eGkU-jNLKlza7hK7WoX1eqqV5f06S0Oh0FzYS1sqdKd4eUm0Cq1LbHncQtDzkAXHRzRNy6qW0eXxmNfP2L8Ee_-6G61ptk-zA7qM4zQMiihN0OVTEMXBfRRHxQuaPdLwy93o3205vyV3w3YWmqXJPsoOlfwpMzHewoxbzJvwke5K2KEPKErQ9jHKdmgNhV75gc6Xm9nNe0WcgPgtDWn0RNGcFuBGzmRnq-mtwmn-WU6XnAPrPpjsg3FepEfJzaV3wP6-zW--jd_H374JftY-x_fQAMJHRJ_DuMxB4Kqur7vR62s7B9hr5IIsS7_m4yAu0DHIgjimcUcK9q1SFovngmZJEFdBTWiW_4amZIraUbLAlVlwLMqM8tw9RQFazFe_3aKPtFBiardjGhQBC-jU-vhBYXP-HJsLbB_TItpDDYKDEc2UxFhqoJkuXZTJW6PcjdfmNwutkoJCwLJ0V4ZFS7_D6mmWUdAinrKdVMfsfH07v7nFSrE6LLhb-lyg9Q2Cgkfr25sZOp-WUbyDdWCHcyXy2a9odgO8qh6vicMxhka0SbOC7tA8oqgae8ygkOY5KI2KCCxUg4NNu7eWouQNwblctwK0ZB0HGs4YfVjYhoFWGY2DZNeuLcttIraaoc32Fp1zy38P9jRTvLQ8hf3mx-x-q8jWsHYCjDwbm6vl2FCzYbM2tXimYdmXwU1BoXOeCuDW3ri6RZcPQQRJ68gqUqQl9SnJKKQ5CpkXmyJV-6xdFRXrv2i1RwCcoJfE4BAE9h9lkBSsPUd5tX0BFEGy0bKMY0UHq7LNYwQN8ypNd1AEeV5S1Xm7cv4I8YQEPqUwIy-gSx8ONAuZZkm72m4USbaZryh0D5aYrgg6P2Yp6-aBumSV_vRwjCkI3pTFPSuZxkHoCR_SQo2594dCLAIyOop0e2xdbtf1aEPn3TSoO6w9wiAEaJsFu8rbYxxBG6EKOz4pVRmJKcxztE0nsCdc11PXIG3jbtE6zQs2-diuuSyLFM1iCqA5eVBGsWEOGx-G1S_XDSqsfQ9bojYNIgRBFhUn4vy3jnZ7oFVOv9wqR7MszfNxDeQZAIijkL1BdJd2By7t9cux5lGwbbb4_RpdB0nwADGArbaSv7om-ANHutEvx7bvkRXDpgxZI9-XcWdNPBBGEPdtMIJLeYOk_CFSpjFICg-SIoOkzEFS1iAp719y2u_hhYpm4_RIE7QgizH2ZpNqEG-vYfIuDvd0t4NiHUOtQtc4aRum_yM10341sAMaPW-BANDu0PnsMUqC9yfw0nsTBCD-myCAabTYE6WpnQqirzD4QJ-ioNXH69lZAYpj8eNlTxr5-s82ctPUAhaG_X5lyE-RsN6IWEx7CGIxnTcgFnPIVDd_aqqbQ6e69bapbuFeIFWh85s5GAmp3URbdI6uVjdzdS0yFGBZ5kCAZVknu2VWwjsSyEq5FhrBBlZk7dOdFsBJnUTPN-Q96lajxcqE1Tq4j_ZZeqjiUw0tFpSr1fJzn5hrKy9xAH2qndJsHFEZ6luLxxIC_Qptp3O0iSPInWWeaveHgSP__4mN_GHQyHf-V_DEHwaQfO9noZk_EBYZPwGLjIGwyCADIdwgiEMGQRwyCOKQQRCHDII4ZBDEIfYgKWcQnHJ-FgdxPe5PwrI3wSnfa6_dOV_9HEA37DtdZQdOWfTwADxs4IXdo93qxCGIwzJmvX8bPFNlWFut1WZy2gJ0qE6oWOsO0-MLSqE9su7Y7fhstGzA256zYCawWivvxcD-6bhj1nyAu5rxqqAHxE7NlDlyYvcaxn4HYTGUMYcbI8BX19ereT2kZuuPysho-5fRXVQIQMFOPuHM-fq9-gYOEnWrRdMAGCu_lKjh0yOBdZnBTU4uzlS7QcIViCwLFti_QzkpT00RQwjYMs3gegVw1aKCIpv6iqMeonlOD_cxjClAQv12WW10wUZ9ydp3Cyb02GbLSX_LDABslTHnP4jrg89RVpQwAc-vbrebeuhD2XKqooulVxxL1iiNwbAkB1xdQ6ooGVcEyEM96n6ozlVBSEdcI-nYcvuyayckAK8CfeDUsCSGcd8-j60pijrnVJ2oKKgTFhlWn5B82CMZwBZF1FWOc7lMyrlRpDnFdfy-83Aok0K9oTAGYy4XK6LVbWDPEsz_duw-JWG90alSy66rcHL8BFU700iwjVzz7qKMVvgeCuXTBs3AkEzNrOsrC2jUegaHk-MGTzqkCoxjQT3k0JFpUcRwe50ozccbBhY8DTrVxoHhulYg2U_5TEU-njXMpmHo1NOg05MOqodp3jBI6ukg6Q5SVN0bsSvVaB_xxjSFlrtjLTViQ2SVoFC8FK1vOiZpwCqbm3_kjm8MBI-DoBkeBM3wIGiGB0EzPAiaYXfgBWeC0Xj8V0ih-IlJTXCcDoUT-E_P57_d-rfJfzr1Twi1VGByCSJYOjyOKyiCx-PLuILD5koEwat_Cyt8_lhY6fI1PEsQ5BKC4lmcYggCX8OSlluKEkmB7EoSt4RgESBBELZZvlhI-GsbNcUWMjbPgy38B15OEdbBISiPtKCYXIsptDhciyMjzaNoSrWY20IEhYhAy8hXkft-N_onw7PfgUPIEjUFIqSq5Me0EvQb07ldIiKer6wha8PnPjWF4GuUiqoSibBFZlzpKyd1UgWvrGpQiWTy-HqbFJBn9cEDzQ5wHFu1xfpiNoX7RYa5qrOkig7t6jFIHoQ3QhnBauYJX89vEs1ZxBYkgiAp0kgHSyGeCyJ4LJ4Ly1NZLBkPwzoNpS15icik1GeLcBpSXNS1LXeDoSTcdjpPRIJtmSano1jaJZnFI1vYZUhxT6U0xhvN8mLHkWYRkVf2Jvm9uh2Qjzreg3ZOMmUbI3IXS__FBrR9leKIKrWFVLNJDZXSqJZb2zYFpalUwh3oHq3dwRtVfT5dHcx_r1QKTbwMbOGI5amqxfJW44ZYHksbTaxGxJa9UG5J0UtEbqQQFqqFZl9okV1NyvDQmyKbPhcxLbWJNckRO1uq9ZVal9n21WIzRYmYvAx8aYmnEOAIhFOEjC_qvDrnqMpKFqHU12GWJSifiHIjTbnxMvGl16KZmL5KsWQCZN2L3FqGSpGaMWkKUOTbaEika5JIuGyWFmfyG5PEDBWKfO80EZapPhCJsKTNZker6Joyi75qii83sQiYMMWVBK7XbTzi-Wx85Au5IqKW7OCGKmRZHTUSIwmCSLAr7MUNrjIU_3GrwOWqXoedx7G1NY2OJtJ0Qq7JdzrcQpHMuUA7IhieyTlP3ki_M3Clcsg3sLtkdsrqqqynz1tASnboZi81DUk234bkdUgCKiwpe3fZo-b1r36pvUvqgx32DlzdG1YHXwziyORiMZ78DkXGG0uEEFev09WtUAUNqjsvdpTHX5bqupb9RGgi3VoSEbUEj9xiYtPJ4hC9QmZUiLiqVk-azDeHK4cQD54jEbgcOGJhR-w5uZN5KckN5gtA2AAVbpujsjRqPZHl6kIY_QWxz93YuQT_4LiuYNdT2afwYSg7ToAzHgBk7NYIPvOujiXbsZZvFMJYR6zregoBy6D4KqWxtgll-8vj6nVEfHJ9Snc0dFd-eH5K9zR0n388fkJ1jV4q7qWSXqrZS7V6qXYv1em32NV46Go8hI7YS_cMDR1r6ER8VX5KNvvJVj_Z7ic7_WS3n-z1k_1eMrzo9JJxP7nfS7_fS7_fS7_fS7_fS7_fS7_fS7_fSzZt-ulYQycauqmhWxq6raE7GrqroXsausZfrPEXa_zFGn-xxl-s8Rdr_MUaf7HGX6zxF2v8JRp_icZfovGXaPwlGn-Jxl-i8Zdo_CUaf4nGX1Pjr6nx19T4a2r8NTX-mhp_AVPwv4FR6K6G7mnovqCPLkYwTQ9BtBtNvo2qP0GDP1Pb0X1QxsXo9WIUwJdZm5ckHE2qP9UaldWV4zwK4C72UBNf_wtRTWPt" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-325-if_simplified_po-so_model_-1e_intel_productsbailing_the_sorted_die_to_le778_back_virtually-if_simplified_po-so_model-1e_intel_products_bailing_the_sorted_die_to_le778_back_virtually">BUSINESS ARCHITECTURE — 3.2.5 IF_Simplified_PO-SO_Model_-<em>1E_Intel_Products</em>–<em>Bailing_the_Sorted_Die_to_LE778_back_Virtually — IF_Simplified_PO-SO_Model</em>-<em>1E_Intel_Products</em>–_Bailing_the_Sorted_Die_to_LE778_back_Virtually</h4>
@@ -1733,7 +1809,7 @@ from Customer"| n13
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1753,7 +1829,7 @@ flowchart LR
         n12["Goods Receipt (Virtual) (Non-Valuated)"]
         n13["Perform GTS Check"]
         n14["Inbound Delivery (EWM)"]
-        n15["GR & Put away (EWM)"]
+        n15["GR and Put away (EWM)"]
         n16(["fa:fa-stop Pricing Details Captured"])
         n17(["fa:fa-stop Sent for EWM"])
         n19{{"fa:fa-arrows-alt parallelGateway"}}
@@ -1793,6 +1869,9 @@ IP STO as reference"| n9
     class n19 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqtVltv4jgU_itWRhVUCpo4EELzsFKhpEJqp6h0ZrQa9sEkDlg1dmQ7vUyH_77HuXBJ26ddHlqdk-985zsXO3lzEplSJ3LOzt6YYCZCbx2zoVvaiVBnRTTtuKhy_CCKkRWnumMxmRRmwX6XMDzIXyzM-mKyZfzVehd0LSn6PnPRJQRyF2kidE9TxbKO28kV2xL1OpFcKov-QkeZl5XZ6kdjqVKqDgDPC3ESQChngh7c_XAQDmIbp2kiRXpCmgXZKEs6OyuOy-dkQ5Qp5Rea3pKXnyw1G7AzwjUFzMZs-Q1ZUW5rNKqwvqRQT00zmLZ5BDRskZOEiTX4Bx64FBGPB1fg7XZod3a2FPuk6OZ-KRD8Ek60vqIZ0gbc0yeDMsZ59GUwuYwDz9VGyUcaffGn4VXfdxNbSQSle65tbu-ZsvXGRCvJ0xrae7Y1RH7-4qqXyPdc9Qp_W7moSA-ZJkN_5I_2mcYhnuBJkynLsv-UCfqqHoh-rHNN-7EfX-1z4WAYTLz3fE2ZV4PwErf7RNUTS-gRaRzH_emhVdNhgL3PScdxf-hNWqRrYugzeT0QXkwGe8I4CGMcfkpY5WurLFZzJZOGsD8N4mBPGI5xfOl_Sji4xINRrRB41orkGzR9MVQJwtEc1kRQpb-O_TGqQPYnwl9LZ0wYpym6hWrsEUNzxewKopnIJOomvFit4PEzMxvUH_vnS-efIwI8entbOhmJMtIjSsln3SPcoJwowjnl11WLls5uVwXBErU0zoShHMWyEKl6Rd2baRiOztGy8D3cR5MNE-RY8AgET0huCkX3Qq-ogRI0cCjULqa7MMQwbVhCeEv6BVDNCwUnS1N0Z68J1J0rmtC0JJXJOZrf9VvlehA0EyurFvJy9kSt6B9MmeJdAoxL8BMVRgLqe56CKtSdid4DHHXNTBvvA_5aylSje5DBcnNgRt1vUvR-EF4AR9oO7NtSqMqk2qLrhwW0jSaPLczgQ-XTn7dtssCquEcEcPPCIGJX_CPcsPurmbw2Mn83jnpMKYSdH8eFrbgF9AeBdAQ52tiL_2e74FSlRWKOF8nOZvFwj7r29ZQiKeCqZus1LEGm5BaN_26V65f4O7TYsBw9yAjN4lOAncFdYVoNLslmczTnBKoka8KENsgSde2ZhBX9Ghe8vTl2VnMJwGobZloX9CS4oc1L2k_2L_ho4kaiGg0VvJd1yjB8t5AnFTBxzFVqOUjYz0Jg1Ov9BR2sTb8y-7XZr8xBbQ4qM6jNoDLxqLbDym5MPKrssLYvanhDjr3acdE4ajG4UYNrOcParglxY-NaH_YaR5MDtx1NCbiuATdF4KaK8ET2HxgyzBAu1aWA__WVdzv_Vl7X6FuxXVHlwtI2g3LRoshzzmBJ60NWPp2X0yAaKZpRRUVCl84f6MXR28UWVL_AT73hh95R8247dV80bsd1tlRtCUud6M0pP-zg4y-lGSm4cXauQwojF68icaLyA8gpyrvvihE4ldvKufsXm4ghRQ==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-326-if_simplified_po-so_model_-1f_ip_if_cash_settlement-if_simplified_po-so_model-_1f_ip_if_cash_settlement">BUSINESS ARCHITECTURE — 3.2.6 IF_Simplified_PO-SO_Model_-<em>1F_IP_IF_Cash_Settlement — IF_Simplified_PO-SO_Model</em>-_1F_IP_IF_Cash_Settlement</h4>
@@ -1808,7 +1887,7 @@ Intel Foundry
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1853,7 +1932,7 @@ flowchart LR
         n16(["fa:fa-stop Perform Payment Receipt completed for IP AP"])
     end
     subgraph SAP S/4 Intel Foundry - LE778 (China) 
-        n20["1D Intel Foundry Standard Sales Order to Cash Scenario fo..."]
+        n20["1D Intel Foundry Standard Sales Order to Cash Scenario for PROC and COPO..."]
         n23{{"fa:fa-arrows-alt parallelGateway"}}
     end
     n20 --> n23
@@ -1897,6 +1976,9 @@ ACH/WIRE"| n4
     class n26 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlV12P2jgU_StWqhFTCdo4JAR4WAkCmUVqOwi67UPZB09wBqsmRnHCwE7573ud2CFkmFa75WE0PtyPc8-9_uDZisSaWkPr5uaZJSwboudWtqFb2hqi1gORtNVGJfCFpIw8cCpbyiYWSbZk_xRm2N0dlJnCQrJl_KjQJX0UFP01a6MROPI2kiSRHUlTFrfarV3KtiQ9BoKLVFm_of3Yjots-quxSNc0PRvYto8jD1w5S-gZ7vqu74bKT9JIJOuLoLEX9-OodVLkuHiKNiTNCvq5pB_J4StbZxtYx4RLCjabbMs_kAfKVY1ZmissytO9EYNJlScBwZY7ErHkEXDXBiglyfcz5NmnEzrd3KySKin6sFglCD4RJ1JOaIxkBvB0n6GYcT584waj0LPbMkvFdzp840z9SddpR6qSIZRut5W4nSfKHjfZ8EHwtTbtPKkahs7u0E4PQ8dup0f428hFk_U5U9Bz-k6_yjT2cYADkymO49_KBLqmn4n8rnNNu6ETTqpc2Ot5gf0ynilz4voj3NSJpnsW0VrQMAy707NU056H7deDjsNuzw4aQR9JRp_I8RxwELhVwNDzQ-y_GrDM12SZP8xTEZmA3akXelVAf4zDkfNqQHeE3b5mCHEeU7LboLHIi1lGo91OolmSUY5ChQFUmqpP4n5bWXNy3NIkQzsgQKWka8QSNIaJlCvr75qtg5-fV1ZMhjHpkDQVT7JDOLiRlHBO-V2pyco6nUonmJoGqekho2lCOJrD7CY0le_R2BnX-XjAZwbHCINgKIAsjKboUYi1RFuxp4png5Tzu6Q-TP1BH61yx8ZdtLxDHYS-sDTLgWYtD-4CszsKpBWz-f0ELWhE2a5BB7t1syCXmdhCBbNkL2AIUXA_v284qIoDwqOcK4_P5EAbsuPB7TdTIYTblTao8lmD-du6Iu7vKrJ87-qJgZlc51Ema-EH9Q7Nkgc1U2hCOdtTGK2vcFR9pocMFLpWrF1X565oq5YRjR4JS-RPvXHd-wvwFpWyDUtHicqFpKYCJhJ0r-4DNF9M7he4Yd9vSPzCqwj2QmnvqtIsiXguQY8XUpdevf_odaVBozkKwtmnxr4eLeoT21Nbm6axSLfIbHEj9m3xD3Ts7aUQfs0nIHKjTg_OIqKUuLTs1ywh71zIDC6vhqx-Q9azIQrEdsfpxfT-sk7dFQRoPUudyfw6E-eaFnmCbkOM7YYG3Z_pBsAL0XCvOT2veEemZhSryZ0D3V9Vf96KpskddWD5fXQbbFhC3taVcNT2wpOGwzIj6iZYoyWBx5ee50yU_V1GNIF3mSgYzRf3AQLjYu-9e_euoWH3f54rwAt1On-oCAboloBn1k65xpWBVwIDvR7o7-2Gg2MiFPY_oHGbo4R55dVtgUQMJuUNsmcERfpOAQEifTqvrB8qoo6Esc5l1jqTyawTVUe7bvIqGQV_vv86W0yLcK42d7W3iaYLxz0TTofvNtbm-1659PXSN9k5ha7BNpqXd3aRs6-N-jqHccImqSGFDasK0HJjo7ejLbDXAJyKuGaGK510k3ElpGlq_6LrwB7eM2i0_FTq7tVeQkoY_di8RP2raP8qOriGwgiaB_Mljs1b7hJ2rsPd67B7Hfauwz0DW20LJmhL2NoaPlvFjyT4IbWmMcl5Zp3aFskzsTwmkTUsfkxY-W4NnhNG4IDYluDpX3G5KLc=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-327-if_simplified_po-so_model_-1g_ip_if-inhouse_settlement-if_simplified_po-so_model-1g_ip_if-_inhouse_settlement">BUSINESS ARCHITECTURE — 3.2.7 IF_Simplified_PO-SO_Model_-<em>1G_IP_IF</em>-<em>Inhouse_Settlement — IF_Simplified_PO-SO_Model</em>-<em>1G_IP_IF</em>-_Inhouse_Settlement</h4>
@@ -1911,7 +1993,7 @@ Intel Foundry
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1953,7 +2035,7 @@ flowchart LR
         n15(["fa:fa-stop Perform Payment Receipt completed for IP AP"])
     end
     subgraph SAP S/4 Intel Foundry - LE778 (China) 
-        n18["E2E-TBD Intel Foundry Standard Sales Order to Cash Scenar..."]
+        n18["E2E-TBD Intel Foundry Standard Sales Order to Cash Scenario for PROC and..."]
         n21{{"fa:fa-arrows-alt parallelGateway"}}
     end
     n18 --> n21
@@ -1992,6 +2074,9 @@ ACH/WIRE"| n4
     class n23 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlV12P2jgU_StWqhFTCdo4JIThYSUIZIo020HDbPtQ9sGTOBCNsZGdMLBT_vteEyeElGlXWx4QPtyPc8-9dpxXKxIxtQbW1dVrytNsgF5b2YquaWuAWk9E0VYbFcAXIlPyxKhqaZtE8Gye_nM0w-5mp800FpJ1yvYandOloOivaRsNwZG1kSJcdRSVadJqtzYyXRO5DwQTUlu_o_3ETo7ZzF8jIWMqTwa27ePIA1eWcnqCu77ru6H2UzQSPD4LmnhJP4laB02OiZdoRWR2pJ8r-ifZfU3jbAXrhDBFwWaVrdkdeaJM15jJXGNRLrelGKnSeTgINt-QKOVLwF0bIEn48wny7MMBHa6uFrxKiu4eFhzBJ2JEqTFNkMoAnmwzlKSMDd65wTD07LbKpHimg3fOxB93nXakKxlA6XZbi9t5oelylQ2eBIuNaedF1zBwNru23A0cuy338N3IRXl8yhT0nL7TrzKNfBzgoMyUJMlvZQJd5SNRzybXpBs64bjKhb2eF9g_xivLHLv-EDd1onKbRrQWNAzD7uQk1aTnYfvtoKOw27ODRtAlyegL2Z8C3gRuFTD0_BD7bwYs8jVZ5k8zKaIyYHfihV4V0B_hcOi8GdAdYrdvGEKcpSSbFRqJ_DjLaLjZKDTlGWUo1BhAhan-cPfbwpqR_ZryDG2AAFWKxmibEnBBnwS0A41gNtXC-rvmhW9eXxdWQgYJ6RApxYvqEAYBiCSMUXZbqLOwDofCCeanQW-yy6jkhKEZTDGnUn1EI2dUZ-YBsykcKCkEQwFkSalESyFihdZiSzXjc1KO_buk7iYI27hepwMkbinw0yRm92P0QCOabhqZcbduFuQqE2sgO-VbAZOHgvvZfcNByx4QFuVMezySHW0q7F9_K4uBcJvCBlU-MZi_rxfv_G7x84-uGRMYxDiPMlULf1NvxpQ_6UFCY8rSLYV5-grn0yPdZaDQpWLtujq3xw4aGdFwSVKufuqN695fgLeolG30v3tRgpRHLFdA9L9oMJyhIJx-buyX4UN9MHt6y1CZCLlG5dYp67k-_gBR3p9z82s-AVErvStZGpEsFfzcsl-zhLwzoTJ4KDQ06TWG42SIArHeMHo2IL-s0zQcAVrPUmcyu8zEuaRFztF1iLHd0KD7M90A-EE07DXKfMs7KmtGiR6OGdD9VfWnaS-b3IHt7_t9dB2sUk7enymhmzJxJp3H0bjhNc-IPmZjNCdws0H3-sqBMlE0eR5RDpcecaQ1e7gPEBh_-PChoSH-n1sXeKFO5w8dwQAOLgCvXNvFGjtnBt8X1nD-eWF915um_KdbmN6Y9Y3xtBuhKgfPRJqt9gommVWnMhIJmBQntX6QRObsBlUiczQWqcvQ2LAuqzDLirNJVJ2rpv0LPgw-ffw6fZgcw7nG3DXBykJMXbjUBJvKuo11z6x7xdI3S7_Mzii0EjbYrHhKHnP2jZHpAy5jYMcAVRLDwimLwiXNMo9TupR14LJ39QuNrsPcxs7R3kXUv4j2q7vjOX5TXmvOYGj8RRhfhp3LcLeErbYFPVyTNLYGr9bxxQBeHmKakJxl1qFtkTwT8z2PrMHxAm3lmxg8xymBzbsuwMO_UavZjg==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-328-if_simplified_po-so_model_-2a_ip_requests_to_move_the_inventory_from_le778_to_le101chandlerlate-if_simplified_po-so_model-2a_ip_requests_to_move_the_inventory_from_le778_to_le101chandler_late">BUSINESS ARCHITECTURE — 3.2.8 IF_Simplified_PO-SO_Model_-<em>2A_IP_requests_to_move_the_inventory_from_LE778_to_LE101</em>(Chandler)<em>late — IF_Simplified_PO-SO_Model</em>-<em>2A_IP_requests_to_move_the_inventory_from_LE778_to_LE101</em>(Chandler)_late</h4>
@@ -2004,7 +2089,7 @@ ACH/WIRE"| n4
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -2017,7 +2102,7 @@ flowchart LR
         n10["STO Ship To: IF"]
         n11["Inbound Delivery to LE101 against STO"]
         n12["Inbound Delivery (EWM)"]
-        n13["GR & Put away (EWM)"]
+        n13["GR and Put away (EWM)"]
         n14["Goods Receipt (Virtual) (Non-Valuated)"]
     end
     subgraph LE778 – China 
@@ -2035,7 +2120,7 @@ flowchart LR
         n18{{"fa:fa-arrows-alt inclusiveGateway"}}
     end
     subgraph Mirror LE778 China 
-        n1["Virtual Outbound Delivery from Mirror LE778 Plant (Partia..."]
+        n1["Virtual Outbound Delivery from Mirror LE778 Plant (Partial/Full)"]
         n2["Post Goods Issue against STO from LE778 (Mirror)"]
     end
     n15 --> n3
@@ -2062,6 +2147,9 @@ flowchart LR
     class n18 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVttu4zYQ_RVCQWAHkFFRF0vRQwHftAiQdIM4zaKo-0BLlE2EJl2SSuJ6_e-lLDK2lXi3QP1gYM6cOXPhiNLWyXmBndS5vNwSRlQKth21xCvcSUFnjiTuuKABnpAgaE6x7NSckjM1Jf_saTBcv9W0GsvQitBNjU7xgmPw-40LBjqQukAiJnsSC1J23M5akBUSmxGnXNTsC5yUXrnPZlxDLgosDgTPi2Ee6VBKGD7AQRzGYVbHSZxzVpyIllGZlHlnVxdH-Wu-RELty68kvkNv30ihltouEZVYc5ZqRW_RHNO6RyWqGssr8WKHQWSdh-mBTdcoJ2yh8dDTkEDs-QBF3m4HdpeXM_aeFNw-zBjQv5wiKce4BFJpePKiQEkoTS_C0SCLPFcqwZ9xeuFP4nHgu3ndSapb99x6uL1XTBZLlc45LQy191r3kPrrN1e8pb7nio3-b-XCrDhkGvX9xE_eMw1jOIIjm6ksy_-VSc9VPCL5bHJNgszPxu-5YNSPRt5HPdvmOIwHsD0nLF5Ijo9EsywLJodRTfoR9M6LDrOg741aoguk8CvaHASvR-G7YBbFGYzPCjb52lVW83vBcysYTKIseheMhzAb-GcFwwEME1Oh1lkItF6C2wn0IJhVvgcDMFoiVlAsQEOqf-z6z5kzfXyYOX8dgdDbo1_BdEnW4JGn4CZrMaBm3LA5r1gBxpiSFyw2QHGTEC0QYVIBrdGK8z-L606-3V21iIEmfnkAumJwXymA6jl_xgtrHueFBA84x2StQPeJCFUhegW6v3HWe0K00udUHAL1Hn8YUxwnhzERho5nFOsUXyvVKroUfGUC7yliOu-9fhT1FfVLVlHaKjPREvdcT6Qp9UbKCh9P6UjtB2XeESG4MDP-7DSD5jRBt75yC8CZvn7IYqFJe_3hH62ywp-dc_RhusdFdwnTEbas_RRaCfpn1uSkk2Z853cm6mqVEqUl6q2pXoO6Q4H_rrBm3-iXDamPV8dcHQf1D0FS8TUYUS6xET8hxtutJSJd1KvsIarAGglEKaZfmkd85ux2x0HJp0GE5bSSuskPUT84y3qBPqxc_XiZNQZnVu9E4Ocb6P_3DQTdRvuTJ0YfBuj1ftWbZuygMUNjho0JY0uPDWDsa2N61u81gOUbemLd0PB9C_gGsPkNwfqNu2_MvmFbPVM8tH6YNEBkbdMODE_q_z5zgoFO6XzXHRhPYh1Df49D2yIMjSe0nuTolt9P0L60T_G-ecGeorF9y5zCiYUd11lhsUKkcNKts__E0p9hBS5RRZWzcx1UKT7dsNxJ958iTrUudOSYIL2Hqwbc_QsdTfPw" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-329-if_simplified_po-so_model_-3a_if_sales_order_process_for_sales_to_ipproc_copo-if_simplified_po-so_model-3a_if_sales_order_process_for_sales_to_ipproc__copo">BUSINESS ARCHITECTURE — 3.2.9 IF_Simplified_PO-SO_Model_-<em>3A_IF_Sales_Order_Process_for_Sales_to_IP</em>(PROC_&amp;<em>COPO) — IF_Simplified_PO-SO_Model</em>-<em>3A_IF_Sales_Order_Process_for_Sales_to_IP</em>(PROC_&amp;_COPO)</h4>
@@ -2073,8 +2161,8 @@ flowchart LR
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
-flowchart LR
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
@@ -2125,7 +2213,7 @@ flowchart LR
         n61["Perform ATP Check (Unrestricted Stock)"]
         n62["Perform GTS Trade Compliance"]
         n63["Create IC Invoice (Bill To: LE778)"]
-        n64["Perform AR Posting & Auto Clearing"]
+        n64["Perform AR Posting and Auto Clearing"]
         n105{{"fa:fa-code-branch exclusiveGateway"}}
         n106{{"fa:fa-code-branch Outbound Delivery to be Performed in Partial Quantity?"}}
         n107{{"fa:fa-code-branch exclusiveGateway"}}
@@ -2151,7 +2239,7 @@ flowchart LR
         n31["Create IC STO (Sorted Wafer)"]
         n32["Create Inbound Delivery (Sorted Wafer) wrt STO"]
         n33["Create Goods Receipt (Sorted Wafer)"]
-        n34["Perform AP Posting & Auto Clearing"]
+        n34["Perform AP Posting and Auto Clearing"]
         n35["Receive Planned Order PROC+COPO"]
         n36["Execute Production Order Steps"]
         n37["Capture GR Against Production Order"]
@@ -2494,6 +2582,9 @@ and Bailed material"| n138
     class n144 subProc
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNq1W1tv2zgW_iuEB92kmBgVSV3zsIv4ljHQNt447WAx2QdFpmOhsmRIcptum_--hxJJyZTYmai7fSjgo3MOee6fSOXbKMo2bHQ5evXqW5zG5SX6dlbu2J6dXaKzh7BgZxeoJnwM8zh8SFhxxnm2WVqu4_9UbNg-PHE2TluE-zj5yqlr9pgx9GF5ga5AMLlARZgW44Ll8fbs4uyQx_sw_zrNkizn3L8wf2ttq9XEo0mWb1jeMFiWhyMHRJM4ZQ2ZerZnL7hcwaIs3Zwo3TpbfxudPfPNJdmXaBfmZbX9Y8HehU-_x5tyB7-3YVIw4NmV--Rt-MASbmOZHzktOuafpTPigq-TgsPWhzCK00eg2xaQ8jD91JAc6_kZPb96dZ-qRdHd7D5F8C9KwqKYsS0qSiDPP5doGyfJ5S_29GrhWBdFmWef2OUvZO7NKLmIuCWXYLp1wZ07_sLix115-ZAlG8E6_sJtuCSHp4v86ZJYF_lX-F9bi6WbZqWpS3ziq5UmHp7iqVxpu93-1Erg1_wuLD6JteZ0QRYztRZ2XGdqdfVJM2e2d4V1P7H8cxyxltLFYkHnjavmroMts9LJgrrWVFP6GJbsS_i1URhMbaVw4XgL7BkV1uvpuzw-rPIskgrp3Fk4SqE3wYsrYlRoX2HbFzsEPY95eNihSXaschldHQ5F_Yz_S3Hwx_1oxfJtlu_RVZJkUVjGWYquPodxEj7ESVx-RdMdiz7dj_7dkiNWS-6GVxaaZuk2zveVvMaMX8JMWszraMc2R6jQRxSn6G4X5xu0gkSv7EDni_X05rUmTkH8lkUs_szQjJVgRsFlp8vJrcZp_2VOBzjrfX84bCDWKK_FNqd8nn0OjNvwchuOizI7KK23DfvrNr_zMv6Afvsm-XmbHT9Ao4h2iD1FybEAges6D-9Hz8_tGBPcyIV5nn0pxmFSokOYh0nCEoMUDXql4tS0GLQFLevmTyXL0zCpYpayvHiDJmSC2q51wQPT8FAecyZS43Mcovls-eYWvWelFgivHbKwDHm8Jvb7txqb_9fYeO6_z8p4CykOFsYs1-Lp6vHhukzBsV8anK6_1m9stExLBg7Ls80xKlv6XZ6E05zx9BNPeaHWPjtf3c5ubrFWCy537h17KtHqBkE9odXtzRSdT45xsoF1oIEIJerZr2h6A7yaHs9q_HBIoM-ts7xkGzSLGaqmKt9QxIoClMZlDDvUnYNt66eTaX21ajlowRsa9LMxejt3LAstc5aE6aadW3bQeGw5Reu7W3Qudv57uGW5ZqVjaew3P2bHrSRbwdopMIporK8XY0uPhsMb2_yJRce-CK5LBo35VIC2auP6Fl09hjEErSOrSdktqQ9pziDMccStWJeZ3sadKql4e0fLLQJcBi0oAYPAsf88hmnJu39cVOULmAuCjRbHJNF08Cxb72Lox9dZtoEkKIoj0433KuMP4E8I4OcMRvAFDIH9nuUR16xo13drTZIX8zWD7sED0xVB54c848Mi1Jeswp_tDwkDwZtj-cBTpjEQesLbrNR87lp_KsQ9oLyjSbcH3dXdqp6c6LwbBr1S20MPXIDu8nBTWXtIYmgjTGOnJ6mqPDEBuIDuskuoCc_z9TXs9uZu0SorSj5YedVcHcsMTRMGmDx9PBXDljNs6lhuv1zXqbD2A5REvTXwEDhZZpz08z862r2Bu_L75ZYFmuZZUYzr9wSOL5I44i8o3aWDYUtjq1-ON4-Sl9n893foXZiGj-ADKLWl-tXZAsYDt0D65Xj5HngyrI8Rb-TbY9JdcyD6oNYg9DEMs5BBUnSQlD1Iyhkk5Q6S8oZI2fQPNe238L7G8nF2YCmak_kY-9PLahDfvYPJO98_sM0GknUMuQpd46Rt2PaP1Ez61UAFNHpeAgGg3aHz6S5Ow9dtCECtF0EAil8EAShpsadaUzsVRF9g8IE-TUGrj9ezswIUh_LHy5408tVfbeTUMQIWjv1-5chPk3BfiFioNwSxUP8FiIUOmer2T011e-hUt1821W3aC6QqdH4zg01CaNfxHTpH18ubmb6WPRRg2c5AgGW7J9UyPcI7EsgquRYawRbWZL3TSgvhIFCh5xvyGnWz0eZpwnMdzEfbPNtX_qmGFnfK9XLxsU_M87SXOIA-VaU0hSMzQ39r8XlAoF-hu8kMrZMYYmfTU-3BMHAU_D-xUTAMGgX-_wqeBAMBkmX9PDYbCIysnwBG1kBgZNkDj3MGgRwyCOSQQSCHDAI5ZBDIIYNADvEHSQWDABX-WSQk9JCfBGYvAlSB3167c4D7MYR-2Hd8y4-c8vjxEXj4yIu6Z8f1sUYSHRPe_e_CJ6aP69ZqUzVvATxUZ1S8eUfZ4SvKoEHy_tjt-XyircHansNmLrBcaW_GwC4Odt_CZdB4WbI94udm2iQ52fcKBn8HY_ERNYMrKUBY794tZ_WYmq7ea0OjbV_ONnEpIQU_-4RD7Xev9XdwkKibLZqEwFjZpXkNn4LX1TGHq6JCnqp2nYQrdHIsuWN_g3TSnlLpQ3DYIsvh_gaQ1bwCI-v6DqUeo0XB9g8JDCrAQv37stv4gg_7I-_fLaDQszdHzfpbvgFAVzk3_q28n_gY5-URZuD59e3duh77kLaCquni4ZUHkzVO40AsLQBZ16AqTscVAeJQD7sfqvN0GNIRN0n6TZ59mC3Q-dXk9jXkP8wxLR89Vef8AgxJbKyhJDhgPBLLemgf3dYUTZ1_qk6mHiQUdyFPZMgSKKYcEI4mGmgnv0ImE9woNhz4erjv6BzyqdQZyWB45lFNtLqX7FmC29_23Yc0qjtC5wIn0DgF1IL0nvZL-Ja6GtrEcCvEXwUgoz6s0RQ2kusp4GNtAZPa6s0yLHZvlukug6iB68oygWvzVGtK_jAQ4Rtwq9FsjvhafuM_1TMdEfnusD0Nw62-AbeedFYzfPOHgdXAhFU3EKLqRonf5cbbWDSsCbTiDW-1MR8uyxRF8nVpddPBzwYQy-fpn5kTkIEng4OAHh4E9PAgoIcHAT08COjhQUCPDDvp9IdejaUYjcd_hxSWP7FdE9wuRRBI_TMQn0WkXv2bip9u_RPiqhQ4Yg1bsvg6jxtIiuTxxaqe5BDLYPmBRyqUBOKn0ODLfXviuS_37ak1JMWXe1UqxSK22rqrKVEUyCVJIsKHhAgKtYRLpIscLBeSBjvCi450m0MFQa1tCbc5Ui0cxgq9aiGhhSrnCy2ucrVwI1VqiZAhUoYIGU-5vvLc9_vRvziq_g4cSlZ4Q_rcly7VJd9nlWDQbF2sITkDrK2hkiMgMtA6q65U6PRlIBwZmUAFSzjM0UMFL866U4mKZyDWW2eAf6vvOli-h2PhqgnXF8QZ3HNy5FedaVV0aI67MH2U1khl0ttN5IlIoKAJtGCR21abJFjfpEuVkAyszF1bxMKxdBZb-cNyT13pKl6ZsrjJWVlwlhKnYmOOqgZLC7jjd57IADsqTH5HsdqXYpaPHJlhlmoElk5pNm81TUv6UPkH136GRfj77PfqlkKtH-jWg3ZJUsZSFcuGJOsNdygyS121E1WTRKc0qlUlOzKbqUpe6ggDukd89_BeV5-TVxcE3yuVUpNIA0f1HktXrQLbmKHanHIStXWPOIpJlaTs2jI20h24aY7CsEAtLrRQJSPbnIxmIESaUMiyop3KVmoDLddtS38gk43KZKMiDQK5E9vSCHAQIyhq7Mg8r05bqrRSTrSJiVmloGpyarw1NgrXBQ1FFjTuUKQeW_UO6Qeb6BSlGcQVSY1CFW_idLekdilDY8uksJo9ifpulZelhcLpPJGxsOWObKerWHWkpsVhfUOBLGXVz6WYpwCMTNLGIUKo8YdkUX6VLrOILmS7HTVyM9IVRA1MuV_cdCqiuQCrQsBybGJsddiFL1sFanU0kabDymTyO9xSkYq8sN2X7vFl3zl56f3OIZbOod767tPpKWugs54-b8Ep1aebimrCItMNN0VGdRKRChaMvy9tUfPKWb8336f1IRN_za5uMatDuMr1DXSQobN0SrM0VkAhqV7Zq0uqCiFUV3D8XFG8odW5rRqc1ERoJ5lUYUkeVceyQpUzZIWo_JMcnq7VV-vIWpAET3Q4VyFxqVX1S1cCFikTCI-rvhCIqATKV7JxujpLoxZjuTmsU1pMygLVKGVwJ_CZKz_LgPMkwGf8Mgs-bq_OSts-x6eb5nKdTxdheELIuD7IkL3QJqRVucjZoDCZao9NzsiUaSa2oLgyIr4avb5uT3VNj_6G-EeI_AhIfGUu8GTjEEvD4IqiWortaelVfRNevULJj-FP6b6BHqg_CTihQ87007H4rP-USnqptJdq91KdXqrbS_V6qb5hxwYLfYOF0L776cRApwa6Lb_3PyU7_WS3n-z1k_1-ctBLhvTrJeN-Mukn035yv5VBv5VBv5VBv5VBv5VBv5UcZ_TTsYFODHRqoNsGumOguwa6Z6D7BrrBXmywFxvsxQZ7scFebLAXG-zFBnuxwV5ssBcb7CUGe4nBXmKwlxjsJQZ7icFeYrCXGOwlBnuJwV5qsJca7KUGe6nBXmqwlxrspQZ7qcFearCXGuy1DfbC6474OyeNTgx0aqDbkj66GAF22IfxZnT5bVT9mSH8KeKGbcNjUo6eL0YhfB63_ppGo8vqz_FGx-o2bhaHcB2-r4nP_wWOdfRf" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-3210-if_simplified_po-so_model_-3b_intel_products_bailing_sorted_die_to_le778_back_virtually-if_simplified_po-so_model-_3b_intel_products_bailing_sorted_die_to_le778_back_virtually">BUSINESS ARCHITECTURE — 3.2.10 IF_Simplified_PO-SO_Model_-<em>3B_Intel_Products_Bailing_Sorted_Die_to_LE778_back_virtually — IF_Simplified_PO-SO_Model</em>-_3B_Intel_Products_Bailing_Sorted_Die_to_LE778_back_virtually</h4>
@@ -2505,7 +2596,7 @@ and Bailed material"| n138
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -2525,7 +2616,7 @@ flowchart LR
         n12["Goods Receipt (Virtual) (Non-Valuated)"]
         n13["Perform GTS Check"]
         n14["Inbound Delivery (EWM)"]
-        n15["GR & Put away (EWM)"]
+        n15["GR and Put away (EWM)"]
         n16(["fa:fa-stop Pricing Details Captured"])
         n17(["fa:fa-stop Sent for EWM"])
         n19{{"fa:fa-arrows-alt parallelGateway"}}
@@ -2565,6 +2656,9 @@ IP STO as reference"| n9
     class n19 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqtVltv4jgU_itWRhVUCpo4EELzsFKhpEJqp6h0ZrQa9sEkDlg1dmQ7vUyH_77HuXBJ26ddHlqdk-985zsXO3lzEplSJ3LOzt6YYCZCbx2zoVvaiVBnRTTtuKhy_CCKkRWnumMxmRRmwX6XMDzIXyzM-mKyZfzVehd0LSn6PnPRJQRyF2kidE9TxbKO28kV2xL1OpFcKov-QkeZl5XZ6kdjqVKqDgDPC3ESQChngh7c_XAQDmIbp2kiRXpCmgXZKEs6OyuOy-dkQ5Qp5Rea3pKXnyw1G7AzwjUFzMZs-Q1ZUW5rNKqwvqRQT00zmLZ5BDRskZOEiTX4Bx64FBGPB1fg7XZod3a2FPuk6OZ-KRD8Ek60vqIZ0gbc0yeDMsZ59GUwuYwDz9VGyUcaffGn4VXfdxNbSQSle65tbu-ZsvXGRCvJ0xrae7Y1RH7-4qqXyPdc9Qp_W7moSA-ZJkN_5I_2mcYhnuBJkynLsv-UCfqqHoh-rHNN-7EfX-1z4WAYTLz3fE2ZV4PwErf7RNUTS-gRaRzH_emhVdNhgL3PScdxf-hNWqRrYugzeT0QXkwGe8I4CGMcfkpY5WurLFZzJZOGsD8N4mBPGI5xfOl_Sji4xINRrRB41orkGzR9MVQJwtEc1kRQpb-O_TGqQPYnwl9LZ0wYpym6hWrsEUNzxewKopnIJOomvFit4PEzMxvUH_vnS-efIwI8entbOhmJMtIjSsln3SPcoJwowjnl11WLls5uVwXBErU0zoShHMWyEKl6Rd2baRiOztGy8D3cR5MNE-RY8AgET0huCkX3Qq-ogRI0cCjULqa7MMQwbVhCeEv6BVDNCwUnS1N0Z68J1J0rmtC0JJXJOZrf9VvlehA0EyurFvJy9kSt6B9MmeJdAoxL8BMVRgLqe56CKtSdid4DHHXNTBvvA_5aylSje5DBcnNgRt1vUvR-EF4AR9oO7NtSqMqk2qLrhwW0jSaPLczgQ-XTn7dtssCquEcEcPPCIGJX_CPcsPurmbw2Mn83jnpMKYSdH8eFrbgF9AeBdAQ52tiL_2e74FSlRWKOF8nOZvFwj7r29ZQiKeCqZus1LEGm5BaN_26V65f4O7TYsBw9yAjN4lOAncFdYVoNLslmczTnBKoka8KENsgSde2ZhBX9Ghe8vTl2VnMJwGobZloX9CS4oc1L2k_2L_ho4kaiGg0VvJd1yjB8t5AnFTBxzFVqOUjYz0Jg1Ov9BR2sTb8y-7XZr8xBbQ4qM6jNoDLxqLbDym5MPKrssLYvanhDjr3acdE4ajG4UYNrOcParglxY-NaH_YaR5MDtx1NCbiuATdF4KaK8ET2HxgyzBAu1aWA__WVdzv_Vl7X6FuxXVHlwtI2g3LRoshzzmBJ60NWPp2X0yAaKZpRRUVCl84f6MXR28UWVL_AT73hh95R8247dV80bsd1tlRtCUud6M0pP-zg4y-lGSm4cXauQwojF68icaLyA8gpyrvvihE4ldvKufsXm4ghRQ==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-3211-if_simplified_po-so_model_-3c_intel_products_requests_to_move_inventory_from_le778_to_le101_chandle-if_simplified_po-so_model-_3c_intel_products_requests_to_move_inventory_from_le778_to_le101_chandle">BUSINESS ARCHITECTURE — 3.2.11 IF_Simplified_PO-SO_Model_-<em>3C_Intel_Products_requests_to_move_inventory_from_LE778_to_LE101_Chandle — IF_Simplified_PO-SO_Model</em>-_3C_Intel_Products_requests_to_move_inventory_from_LE778_to_LE101_Chandle</h4>
@@ -2577,7 +2671,7 @@ IP STO as reference"| n9
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -2590,7 +2684,7 @@ flowchart LR
         n10["STO Ship To: IF"]
         n11["Inbound Delivery to LE101 against STO"]
         n12["Inbound Delivery (EWM)"]
-        n13["GR & Put away (EWM)"]
+        n13["GR and Put away (EWM)"]
         n14["Goods Receipt (Virtual) (Non-Valuated)"]
     end
     subgraph LE778 – China 
@@ -2608,7 +2702,7 @@ flowchart LR
         n18{{"fa:fa-arrows-alt inclusiveGateway"}}
     end
     subgraph Mirror LE778 China 
-        n1["Virtual Outbound Delivery from Mirror LE778 Plant (Partia..."]
+        n1["Virtual Outbound Delivery from Mirror LE778 Plant (Partial/Full)"]
         n2["Post Goods Issue against STO from LE778 (Mirror)"]
     end
     n15 --> n3
@@ -2635,6 +2729,9 @@ flowchart LR
     class n18 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVl1v4jgU_StWqgoqBW0cEpLmYaUWyKhSu1OVbkejYR9M4oBVY2dtp5RF_Pe1icNHWmZWWh6Q7vG553742s7GyXiOncS5vNwQRlQCNh21wEvcSUBnhiTuuKAGXpAgaEax7BhOwZmakH92NBiU74ZmsBQtCV0bdILnHIM_71xwox2pCyRisiexIEXH7ZSCLJFYDznlwrAvcFx4xS6aXbrlIsfiQPC8CGahdqWE4QPcj4IoSI2fxBln-YloERZxkXW2JjnKV9kCCbVLv5L4Ab1_I7laaLtAVGLNWaglvUczTE2NSlQGyyrx1jSDSBOH6YZNSpQRNtd44GlIIPZ6gEJvuwXby8sp2wcF909TBvQvo0jKES6AVBoevylQEEqTi2B4k4aeK5Xgrzi58MfRqO-7makk0aV7rmlub4XJfKGSGae5pfZWpobEL99d8Z74nivW-r8VC7P8EGk48GM_3ke6jeAQDptIRVH8r0i6r-IZyVcba9xP_XS0jwXDQTj0Puo1ZY6C6Aa2-4TFG8nwkWiapv3xoVXjQQi986K3aX_gDVuic6TwCq0PgtfDYC-YhlEKo7OCdbx2ltXsUfCsEeyPwzTcC0a3ML3xzwoGNzCIbYZaZy5QuQD3Y-hBMK18D_bBcIFYTrEANcn82PWPqTN5fpo6fx2B0NuhX8FkQUrwzBNwl7YYUDPu2IxXLAcjTMkbFmuguA2I5ogwqYDWaPn5n_l1x98erlrEviZ-eQI6Y_BYKYBMnz_jBYbHeS7BE84wKRXovhChKkSvQPcPznoviFZ6n_KDo57jD22KovjQJsLQcY8iHeJrpVpJF4IvreMjRUzHfdRHUV9Rv6UVpa00Yy3xyHVH6lTvpKzwcZeO1H6S5gMRggvb4892s1_vJuiaKzcHnOnrh8znmrTTv_3eSiv41T6HH7p7nHSXMO3RpLXrQivA4MyYnFRSt-_8zIRdrVKgpEC9kuoxMBUK_HeFNftOPzbEbK_2uTp2GhycpOIlGFIusRU_IUabTUNEOqmV7CGqQIkEohTTL_URnzrb7bFT_KkTYRmtpC7yg9dP9tIM0IeRM8fLjjE4M3onAr-eQP-_TyDo1tqfnBi9GaDX-11PmrX7tRlYM6hNGDX0yAIt-9ra13bZa9a9Gmj8LT22ZmzpezloAb8BfAs0-VlCs26XB9YcWHajb4uDzTq0AcPGDloO0NYPg6ObfNel5mE-xQf2ET1Fo-YlOYXjBnZcZ4nFEpHcSTbO7jNKf2rluEAVVc7WdVCl-GTNMifZfW44VZlrzxFBetaWNbj9F5XK6-0=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-3212-if_simplified_po-so_model_-3d_ip_if_cash_settlement-if_simplified_po-so_model-_3d_ip_if_cash_settlement">BUSINESS ARCHITECTURE — 3.2.12 IF_Simplified_PO-SO_Model_-<em>3D_IP_IF_Cash_Settlement — IF_Simplified_PO-SO_Model</em>-_3D_IP_IF_Cash_Settlement</h4>
@@ -2650,7 +2747,7 @@ Intel Foundry
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -2739,6 +2836,9 @@ ACH/WIRE"| n4
     class n26 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlV12P2jgU_StWqhFTCdQ4HwR4WAkCmUWadtDQbR_KPngSB6yaBNkJAzvlv-81sSFkmFa75WE0Ptx77rnH1054seI8odbAurl5YRkrBuilVazomrYGqPVEJG21UQV8IYKRJ05lS8WkeVbM2T_HMOxtdipMYRFZM75X6Jwuc4r-mrbREBJ5G0mSyY6kgqWtdmsj2JqIfZjzXKjod7SX2umxmv5qlIuEinOAbQc49iGVs4yeYTfwAi9SeZLGeZZckKZ-2kvj1kGJ4_lzvCKiOMovJf1Idl9ZUqxgnRIuKcSsijW_J0-Uqx4LUSosLsXWmMGkqpOBYfMNiVm2BNyzARIk-36GfPtwQIebm0V2KoruHxcZgk_MiZRjmiJZADzZFihlnA_eeeEw8u22LET-nQ7eOZNg7DrtWHUygNbttjK380zZclUMnnKe6NDOs-ph4Gx2bbEbOHZb7OFvoxbNknOlsOv0nN6p0ijAIQ5NpTRNf6sS-Co-E_ld15q4kRONT7Ww3_VD-zWfaXPsBUPc9ImKLYtpjTSKIndytmrS9bH9Nukocrt22CBdkoI-k_2ZsB96J8LIDyIcvElY1WuqLJ9mIo8NoTvxI_9EGIxwNHTeJPSG2OtphcCzFGSzQqO8PM4yGm42Ek2zgnIUKQygKlR9Mu_bwpqR_ZpmBdqAAColTRDL0AgmUi6sv2uxDn55WVgpGaSkQ4TIn2WHcEgjgnBO-V3lycI6HKokmJqGqMmuoCIjHM1gdjMq5Ac0ckZ1PT7omcI1woAMhVCFUYGWeZ5ItM63VOlsiHJ-V9T9JOj30KJ0bOyi-R3qIPSFiaIEmbU62AVldxREK2WzhzF6pDFlm4Yc7NXDwlIW-Ro6mGbbHIYQhQ-zh0aC6jgkPC65yvhMdrRhO-7ffjMdAt2mikGnnATC39cd8X7XkfkHT08MzGRSxoWs0ffrOzTNntRMoTHlbEthtL7CVfWZ7gpw6Fqzdt2du-O2ahvRcElYJn-ajevZX0B3fnK2EekoU3kuqemA5Rl6UM8DNHscPzziRnyvYfGrrCPZK6f9q06zLOalBD9eWV1ldf9j1pUNGs5QGE0_Nc718LE-sV11tKlIc7FG5ogbs2-P_8COvb80IqjlhESu1O3BWUyUE5eRvVok1J3lsoCHV8PWoGHrORCF-XrD6cX0_rJPvSsI0HqVupLZdSXONS_KDN1GGNsND9yf-QbAK9Nwtzk9b2THpmeUqsmdgdxfdX8-imaTO-rCCnroNlyxjLyvO-Go4zXnLKEowKgdOO3Abfjg_s-7AbhRp_OHYjCAWwG-WTvVGp8C_Aro63Vff283EhzDcIz_Aeav9hJmjp9ufJSnEFI9BbaMoFg_F4ocxfqGXVg_FKNmwljXMmtdyVTWhU7Xs96oRTYM__zwdfo4OdJ5OtzT2YZNN467hk7Tu421-b5bLQO9DEx1TuGNGI7CrHruHmv2dFBP1zBJ2BQ1orBRdQK03dj47egI7DcA5yRcK8P4Yk9B23D-qXLU5GK9_fhksdnuXu1NRpmiXxYv0eAq2ruK9q-hMH7mhfcSx-Zd7BJ2rsPuddi7DvvX4a6BrbYF07MmLLEGL9bxRw78EEpoSkpeWIe2Rcoin--z2BocfwxY5SaBzDEjcMDXFXj4FzPnErU=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-3213-if_simplified_po-so_model_-3e_ip_if_inhouse_settlement-if_simplified_po-so_model-_3e_ip_if_inhouse_settlement">BUSINESS ARCHITECTURE — 3.2.13 IF_Simplified_PO-SO_Model_-<em>3E_IP_IF_Inhouse_Settlement — IF_Simplified_PO-SO_Model</em>-_3E_IP_IF_Inhouse_Settlement</h4>
@@ -2753,7 +2853,7 @@ Intel Foundry
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -2795,7 +2895,7 @@ flowchart LR
         n15(["fa:fa-stop Perform Payment Receipt completed for IP AP"])
     end
     subgraph SAP S/4 Intel Foundry - LE778 (China) 
-        n18["E2E-TBD Intel Foundry Standard Sales Order to Cash Scenar..."]
+        n18["E2E-TBD Intel Foundry Standard Sales Order to Cash Scenario for PROC and..."]
         n21{{"fa:fa-arrows-alt parallelGateway"}}
     end
     n18 --> n21
@@ -2834,6 +2934,9 @@ ACH/WIRE"| n4
     class n23 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlV12P2jgU_StWqhFTCdo4JIThYSUIZIo020HDbPtQ9sGTOBCNsZGdMLBT_vteEyeElGlXWx4QPtyPc8-9dpxXKxIxtQbW1dVrytNsgF5b2YquaWuAWk9E0VYbFcAXIlPyxKhqaZtE8Gye_nM0w-5mp800FpJ1yvYandOloOivaRsNwZG1kSJcdRSVadJqtzYyXRO5DwQTUlu_o_3ETo7ZzF8jIWMqTwa27ePIA1eWcnqCu77ru6H2UzQSPD4LmnhJP4laB02OiZdoRWR2pJ8r-ifZfU3jbAXrhDBFwWaVrdkdeaJM15jJXGNRLrelGKnSeTgINt-QKOVLwF0bIEn48wny7MMBHa6uFrxKiu4eFhzBJ2JEqTFNkMoAnmwzlKSMDd65wTD07LbKpHimg3fOxB93nXakKxlA6XZbi9t5oelylQ2eBIuNaedF1zBwNru23A0cuy338N3IRXl8yhT0nL7TrzKNfBzgoMyUJMlvZQJd5SNRzybXpBs64bjKhb2eF9g_xivLHLv-EDd1onKbRrQWNAzD7uQk1aTnYfvtoKOw27ODRtAlyegL2Z8C3gRuFTD0_BD7bwYs8jVZ5k8zKaIyYHfihV4V0B_hcOi8GdAdYrdvGEKcpSSbFRqJ_DjLaLjZKDTlGWUo1BhAhan-cPfbwpqR_ZryDG2AAFWKxmibEnBBnwS0A41gNtXC-rvmhW9eXxdWQgYJ6RApxYvqEAYBiCSMUXZbqLOwDofCCeanQW-yy6jkhKEZTDGnUn1EI2dUZ-YBsykcKCkEQwFkSalESyFihdZiSzXjc1KO_buk7iYI27hepwMkbinw0yRm92P0QCOabhqZcbduFuQqE2sgO-VbAZOHgvvZfcNByx4QFuVMezySHW0q7F9_K4uBcJvCBlU-MZi_rxfv_G7x84-uGRMYxDiPMlULf1NvxpQ_6UFCY8rSLYV5-grn0yPdZaDQpWLtujq3xw4aGdFwSVKufuqN695fgLeolG30v3tRgpRHLFdA9L9oMJyhIJx-buyX4UN9MHt6y1CZCLlG5dYp67k-_gBR3p9z82s-AVErvStZGpEsFfzcsl-zhLwzoTJ4KDQ06TWG42SIArHeMHo2IL-s0zQcAVrPUmcyu8zEuaRFztF1iLHd0KD7M90A-EE07DXKfMs7KmtGiR6OGdD9VfWnaS-b3IHt7_t9dB2sUk7enymhmzJxJp3H0bjhNc-IPmZjNCdws0H3-sqBMlE0eR5RDpcecaQ1e7gPEBh_-PChoSH-n1sXeKFO5w8dwQAOLgCvXNvFGjtnBt8X1nD-eWF915um_KdbmN6Y9Y3xtBuhKgfPRJqt9gommVWnMhIJmBQntX6QRObsBlUiczQWqcvQ2LAuqzDLirNJVJ2rpv0LPgw-ffw6fZgcw7nG3DXBykJMXbjUBJvKuo11z6x7xdI3S7_Mzii0EjbYrHhKHnP2jZHpAy5jYMcAVRLDwimLwiXNMo9TupR14LJ39QuNrsPcxs7R3kXUv4j2q7vjOX5TXmvOYGj8RRhfhp3LcLeErbYFPVyTNLYGr9bxxQBeHmKakJxl1qFtkTwT8z2PrMHxAm3lmxg8xymBzbsuwMO_UavZjg==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-3214-if_simplified_po-so_model_-4a_month_end_recon_intel_foundry_raising_debit_memo_for_delta_charges-if_simplified_po-so_model-_4a_month_end_recon_intel_foundry_raising_debit_memo_for_delta_charges">BUSINESS ARCHITECTURE — 3.2.14 IF_Simplified_PO-SO_Model_-<em>4A_Month_End_Recon_Intel_Foundry_raising_Debit_Memo_for_Delta_charges — IF_Simplified_PO-SO_Model</em>-_4A_Month_End_Recon_Intel_Foundry_raising_Debit_Memo_for_Delta_charges</h4>
@@ -2842,7 +2945,7 @@ ACH/WIRE"| n4
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -2973,6 +3076,9 @@ flowchart TD
     class n43 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlWF1v2zYU_SuEisAtYAOiRFmyHzY4djQEaNoiSVsMyx5oiYq50KJGyY6z1P99pETKFiMPm5cHIzy659xzLz9M-dVJeEqcqXNx8UpzWk3B66BakTUZTMFgiUsyGIIG-IYFxUtGyoGKyXhe3dG_6jCIip0KU1iM15S9KPSOPHICvl4PwUwS2RCUOC9HJRE0GwwHhaBrLF7mnHGhot-RKHOzOpt-dMlFSsQhwHVDmASSymhODrAfohDFileShOdpRzQLsihLBntljvHnZIVFVdvflOQG777TtFrJcYZZSWTMqlqzj3hJmKqxEhuFJRuxNc2gpcqTy4bdFTih-aPEkSshgfOnAxS4-z3YX1w85G1ScL94yIH8SxguywXJQFlJ-GpbgYwyNn2H5rM4cIdlJfgTmb7zrsKF7w0TVclUlu4OVXNHz4Q-rqrpkrNUh46eVQ1Tr9gNxW7quUPxIj-tXCRPD5nmYy_yojbTZQjncG4yZVn2vzLJvop7XD7pXFd-7MWLNhcMxsHcfatnylygcAbtPhGxpQk5Eo3j2L86tOpqHED3tOhl7I_duSX6iCvyjF8OgpM5agXjIIxheFKwyWe73Cy_CJ4YQf8qiINWMLyE8cw7KYhmEEXaodR5FLhYgY9X4SRqMPWXw98enOuU5BXNXsCCEvBFyK6AWfrHpqzWEi9BJvga3KpNID8LLqoH5_cjBU8qfBb0keaYgblk8TUR4DrfcinUDfVl6HxFEtlxLsCCLCmtgCC45Hk51ZlTmmVEkNzmIsn9WqSyweCj3KjguiJrcE92lpugk2K2xZThJWW0egE8k_61dr-_sSTfEiYNEXApOy63HbhkPHnqhoUqB2bJhik3yrYM7IZEnZB7vCNlN2CiAmTp8qnqQwVuyJp3Q6Bb23nm4gnI0LQ_SE3gJ15P3_xyZj1Uc_MNM1q3bZYkfCMn2vYK_eOoHq8QNWaVg6a3779RDOK7-c0HKzKoLReMJkpLLh9BSQkqDubx9ScrVnU7w9MMj9TuBm-6IWfrzw0pK_BeTpvS0HNm5wz_tc53Wq34pjosA1sq6kp9IUKuojW4wflGLu5mgX7eEiFoai0dOOlSZ0Uh-JYcT5xc6bUPa_u4lv0Vzh9Jz0x78H0bWTB5yBxVqM4IUpZAfdNSWX0qqR-OuZ7F1RVxXctpon8gyp1dWHsPNDvyDQtZrNt6j4O5_IY7RQksSmf_Ab0r37DGFqtevaDeeX1JQiv8qIWFbmHC1wUjPdzocADpcswhVgE5WNzcWvM1eX01ydRdaLSU3-bJClyXb48hc1Ax8vODs98fH5luvwrZJWxT0i35pfnKsWnwPJrXT2tWs1wwaglTuaTf2PTPy4cONCwEfy5HmFWgwAIzRtgJUnAOaXwOKTyHFJ1DmpxBQu45JNhLovk_ThTyzmL5_5ElL5TNP_K0A6PRT_Jc1WM99PXQR80YWWMYmfixJgQGiDQwNhmasXnu6bHfSgYN4EUWgKANeBpAWiM0OUM7QEuaMjxtyjNJjeu2TlfXZVz7vo5wbaB1ZTpnXGgTvhn7xpVvAaZQpBXsnF7bS-PK5EQ6Apo6TF1GYqI9tL3UAdCzAWMK6RwTk9NIGAY0hbcRZg0YwNjWQzOf5rFXK_54cH5VF54fRz1tn3zizYO2t2NrQqFulddOh6ep-gKQ1gKoVXat3jdlKhNgCtRVT73aAbyp1HWhuYku9TfhsrmJ_jhegbopsJ0ZU2Ro-9EXyVt9gNc60NiCXreX9ftHvYnMi1cXD0_g0Ql80o_LbvTjsH2N7eLeCdzXr6JdFPWiQS867kXDXjQ64WJi3v86sNzCvTDsh71-2O-HUT8c9MPjfjjsh6N-uL9K1F8l6q8S9VeJ2iqdoSPfIteYps701al_J5K_JaUkwxtWOfuho3bI3UueONP69xRnU9_MFhTL19x1A-7_Bu_dpiY=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-3215-if_simplified_po-so_model_-4b_month_end_recon-intel_foundry_raising_cebit_memo_for_delta_charges-if_simplified_po-so_model-4b_month_end_recon-_intel_foundry_raising_cebit_memo_for_delta_charges">BUSINESS ARCHITECTURE — 3.2.15 IF_Simplified_PO-SO_Model_-<em>4B_Month_End_Recon</em>-<em>Intel_Foundry_raising_Cebit_Memo_for_Delta_charges — IF_Simplified_PO-SO_Model</em>-<em>4B_Month_End_Recon</em>-_Intel_Foundry_raising_Cebit_Memo_for_Delta_charges</h4>
@@ -2981,7 +3087,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -3110,6 +3216,9 @@ flowchart TD
     class n42 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlWF1v2zYU_SuEisAtYAOiPizZDxv8OQRo2iJJWwzLHmiJsrnQokZJjr3U_32kRMoWIw-b5wcnPLrn3nPvJSnSr1bEYmyNrZubV5KSYgxee8UGb3FvDHorlONeH9TAN8QJWlGc96RNwtLigfxVmUEv20sziS3RltCDRB_wmmHw9bYPJoJI-yBHaT7IMSdJr9_LONkifpgxyri0fofDxE6qaOrRlPEY85OBbQcw8gWVkhSfYDfwAm8peTmOWBq3nCZ-EiZR7yjFUfYSbRAvKvllju_Q_juJi40YJ4jmWNhsii39iFaYyhwLXkosKvlOF4PkMk4qCvaQoYika4F7toA4Sp9PkG8fj-B4c_OUNkHB4_wpBeITUZTnc5yAvBDwYleAhFA6fufNJkvf7ucFZ894_M5ZBHPX6Ucyk7FI3e7L4g5eMFlvivGK0ViZDl5kDmMn2_f5fuzYfX4Q30YsnManSLOhEzphE2kawBmc6UhJkvyvSKKu_BHlzyrWwl06y3kTC_pDf2a_9afTnHvBBJp1wnxHInzmdLlcuotTqRZDH9qXnU6X7tCeGU7XqMAv6HByOJp5jcOlHyxhcNFhHc9UWa6-cBZph-7CX_qNw2AKlxPnokNvAr1QKRR-1hxlG_BxEYzCGpOfFP72ZN3GOC1IcgBzgsEXLqoCJvEfZV5sBZ6DhLMtuJeLQHxnjBdP1u9nHhzh4TMna5IiCmaCxbaYg9t0x4SjtqkrTGcbHImKMw5meEUKwDHKWZqPVeCYJAnmODWpnqB-zWJRX_BRrFNwW-AteMR7Q4zfijDZIULRilBSHABLhHzlu1veUJDvMRWCMJiKgotVB6aURc9ts0DGQDQqqVQjZQvDtknYMnlEe5y3DUbSQKQunoo_sajDHd6ytg20Kz0vjD-DeVWrDhvZv0-s6t5sOjEeytZ8Q5RUZZtEEStFn02t0D236tAKvUpHRkkkLcSc4ATnoGBgtrz9ZNjKBiRonKCBXLLgbY6iCX-WOC_Ae9EN6US14oPhaPjvHX0nxYaVxam9pq-g7esL5mJ2bMEdSksxZ-uJ93mHOSexMSVg2KZOsoyzXVsHr3UYxJGhf4PSNe7ooGO_bywzKvaOU6uBXPo4z4F8gRKRfiyoH8650OCqjJjK5TLRORHFgs2MNQXqlfaG5Rqs-2rtgpl4cV2ieAalta6AWm1vWL7BqmYlqFZUV5ChYX7enUzVMGLbjOIOcnDaWVQ-cuuouyAG87t7o2Hh66uOJs84g5V4S0cbcJu_3V_0DkTxz0_W8XjuZdTtBe8jWuZkh3-pXyUGzbWvo8FuWj2dxYyRc5iIqpkyXee6eO6JhjhnL_kA0QJkiCNKMb1A8q4h-deQhteQgmtI4TWk0RUkz-4kkfQfG-XBq1jOf2SJg2L9j9juwGDwk9gf1RjWQ1cNXbcee8YYBtreVwRtAQMF-DpCPW6GOkITwqsBJzAAzzYBLdJTPhoRQ9NAuXR0UCXK0UEVwW0MRiovLdNVsp2RAbiNKl25oQJ04nrsalWOAYRapfIwNGM2tdQhdF6hMtAqlWq3KZ3SAB0T0IlDnYYW4SofOk-oYrjNjHBNhhKhhmoCOPqxUzn48WT9Kg8uP85K2Dz5xKoHp1L6Rv-gajBsqg8VVb3w49pBI3pkllrbq_PavdpPKxq0W7lLqWAMpJ28xwFUFvIQUZ87V-r9uKrPnT_Op6WqFGzapaedbqinig3Ds2tEtWb0_amNDy_gwQU8vICPunGx1vVttI3DC7ijbpRt1O1EvU7U70SHnWhwQUWor3FteNQJi1XZCcNu2OmG3W7Y64b9bnjYDQfdcHeWbneWXneWXneWXpOl1bfEZXCLSGyNX63q5x7xk1CME1TSwjr2LTn3Hw5pZI2rn0WssjqIzQkSt9VtDR7_Bq7Il8o=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
@@ -3354,6 +3463,7 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
@@ -3384,6 +3494,7 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="42-data-flow-diagrams">4.2 Data Flow Diagrams</h3>
@@ -3392,7 +3503,7 @@ flowchart TD
 </blockquote>
 <h4 id="421-current-state-current-state-data-flows">4.2.1 Current-State — Current-State Data Flows</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '13px', 'fontFamily': 'Segoe UI, Arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '15px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 35, 'rankSpacing': 45}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
@@ -3425,11 +3536,14 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqtlQ1v2jAQhv-K5QqxSdClpYE1UisZkqxI6ccauk1qpsgkF7BqkihxVijlv89OgG6sVAXNliJ8Pj95c-8Jz3GQhIANXKvNWcyEgeZ1MYYJ1A1UH9Ic6g1UzyEoMiZmDvwCrjZ4klQ7Zeo3mjE65JDX1ekoiYXLnkrAkZ5OVZqK2XTC-ExFXRglgO76DUTkQV5fqAyePAZjmomSUeRwSaffWSjGch1RnoPMGYsJd-gQuHqRyAoVi6V6N6UBi0cy2NJlKKPxw0voRF8s0KJW8-L1K9Cg68VIjoDTPDchQjRNu8kURYxz46Crm7ZtN3KRJQ9gHGhap9NtL5fNR6XJOE6njSDhSaa2W6a-yQuHvRlf4ohutklnjTu2OmbreCvuqKtbx9oGDhL-Is-2u3pXX_N6PU2Orbx2W217cUXMi-Eoo-kY9W3fZZOUs4hB6N9cu9f-pawk75mk5_jgj3zyVGTgu1-dew8jD_-sAGqELINAsCRe11GNN4ikBP6w7lzJgsPRIVK_JdMwjKry78KYG7o-eNgrws-tUD7D4MQrItBkrRS_TEIyycMf1VtKP3bUipqHzfMd9FR4iMNlqcWMwy51XtlL1Fzba2lq_m3vUTrdw1CX3PgX5Ir8Lz8vLddvadrKUrlEcrmnq2txb5gqc5DK2dPTpd532roStKerq-N7mfpucejs7Px5WX-zdBF9QuSmL5824-Dh5536d6OlHBjJ777_w5Ag1JBJBgSR295Ff2D1Bne3FnKsL9aVuaWlnNuXqOOr5iOpVBNQtft6szi-uaUNTCqoupNe7wDHtyTeisNmEjUdFkGFr_48X_Wx-sKVR7qaa49OT0__MQg38ASyCWUhNua4vPvkzRlCRAsu8KKBaSESdxYH2CivJ1ykIRVgMiorOqmCi9-aEWHe" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="422-future-state-future-state-data-flows">4.2.2 Future-State — Future-State Data Flows</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '13px', 'fontFamily': 'Segoe UI, Arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '15px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 35, 'rankSpacing': 45}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
@@ -3462,6 +3576,9 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqtlQ1v2jAQhv-K5QqxSdClpYE1UisZkqxI6ccauk1qpsgkF7BqkihxVijlv89OgG6sVAXNliJ8Pj95c-8Jz3GQhIANXKvNWcyEgeZ1MYYJ1A1UH9Ic6g1UzyEoMiZmDvwCrjZ4klQ7Zeo3mjE65JDX1ekoiYXLnkrAkZ5OVZqK2XTC-ExFXRglgO76DUTkQV5fqAyePAZjmomSUeRwSaffWSjGch1RnoPMGYsJd-gQuHqRyAoVi6V6N6UBi0cy2NJlKKPxw0voRF8s0KJW8-L1K9Cg68VIjoDTPDchQjRNu8kURYxz46Crm7ZtN3KRJQ9gHGhap9NtL5fNR6XJOE6njSDhSaa2W6a-yQuHvRlf4ohutklnjTu2OmbreCvuqKtbx9oGDhL-Is-2u3pXX_N6PU2Orbx2W217cUXMi-Eoo-kY9W3fZZOUs4hB6N9cu9f-pawkt03Sc3zwRz55KjLw3a_OvYeRh39WADVClkEgWBKv66jGG0RSAn9Yd65kweHoEKnfkmkYRlX5d2HMDV0fPOwV4edWKJ9hcOIVEWiyVopfJiGZ5OGP6i2lHztqRc3D5vkOeio8xOGy1GLGYZc6r-wlaq7ttTQ1_7b3KJ3uYahLbvwLckX-l5-Xluu3NG1lqVwiudzT1bW4N0yVOUjl7OnpUu87bV0J2tPV1fG9TH23OHR2dv68rL9Zuog-IXLTl0-bcfDw8079u9FSDozkd9__YUgQasgkA4LIbe-iP7B6g7tbCznWF-vK3NJSzu1L1PFV85FUqgmo2n29WRzf3NIGJhVU3Umvd4DjWxJvxWEziZoOi6DCV3-er_pYfeHKI13NtUenp6f_GIQbeALZhLIQG3Nc3n3y5gwhogUXeNHAtBCJO4sDbJTXEy7SkAowGZUVnVTBxW8qCGII" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="43-data-lineage">4.3 Data Lineage</h3>
@@ -3552,6 +3669,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</h2>
@@ -3564,7 +3682,7 @@ flowchart TB
 <strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '16px', 'fontFamily': 'Segoe UI, Arial, sans-serif'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     %% -- ArchiMate-inspired style classes --
     classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
@@ -3584,7 +3702,6 @@ flowchart TB
     IF_Simplified_POSO_ModelC_e_g_MES_300 -->|"e.g. Direct / API / File"| IF_Simplified_POSO_ModelCMW_e_g_Azure_Service_Bus
     IF_Simplified_POSO_ModelCMW_e_g_Azure_Service_Bus --> IF_Simplified_POSO_ModelC_e_g_XEUS
 
-
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -3598,6 +3715,9 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqVVW1P4kAQ_iubGsIX0PoCYmNICi0XLkWM9eUux6VZulPY3NI23a2KyH-_2RYFUSMuScnOyzOzz8zOLowwYWBYRqWy4DFXFllU1RRmULVIdUwlVGukKiHMM67mHtyD0AqRJKWmML2lGadjAbKqvaMkVj5_KgAOm-mjNtOyHp1xMddSHyYJkJt-jdjoKGpE0ljWJWQ8qi61tUgewinNVIGXSxjQxzvO1BT3ERUS0GaqZsKjYxA6qMpyLYvxJH5KQx5PUHhioiij8b-1qGEul2RZqYzi1xDkujOKCa5KhdTrmFA45QOqoM5jmfIMGJFqLoCEgkoJEm1K82LvQETGueQxSEmKFXEhrL0erk6jJlWW_ANrr9NqNc3Oalt_0CexjtLHWpiIJLP2TNPcwqRpStarxOw0NOorpmmennaa38BkVNH3mE7rC8zDN5gvOkYlkpfROXJKGluRZpwxAQ80g01GnKa9ZsQ9bfbWaDtkD4l4x4jmeIPlbtc0v8IsUWU-nmQ0nRLb-zMyRjlrHTP8suMGsS8vvX7Xvu4PL4hn_3avRsbf0kkvhg0RKp7ExLtaS_u9wOezVPCIAwsuh_4wGGAnim4AwSQYuH5wbJqbgUJoEtif7BPUEdRhDMuysOi7Yv5yb_wPAbXiO2iDuwLPfsozCHzI7nkIQSeXb2g5PC3BCyuysiJoVUZal3uHgI5bBOwmUgWuwNkRq_bmQcKTMpY2ICuD83F20D7n7VLh35ID0neSEP9--sOL8wPeLhPRHV6mADF7qfVOxcFb3X4eGUUAp6gxgtuXffz2uICR8fx9Cr8I_5mbTmWH6uvjrZq5GE8db2P09MyvRs-mq_3qau4yYd5dIg8myPebdmQm8dwf7oWzw-3xArxz281sp3j4kGrjD9rZCwZ32x06WHfhp13pBY673W2OHoturPB12-6i0sUdlkPiqMlO0JDVk6ju8WgVBufSRsutSS1JeSG2oX-vxJ6dnb2bsUbNmEE2o5wZ1sIoXlV8kxlENBfKWNYMmqvEn8ehYRWPnZGnmCg4nGIRZqVw-R968ntp" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="current-state-flow-narrative">Current-State Flow Narrative</h4>
@@ -3621,6 +3741,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="52-future-state-future-state-application-landscape">5.2 Future-State — Future-State Application Landscape</h3>
@@ -3632,7 +3753,7 @@ flowchart TB
 <strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'arial'}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '16px', 'fontFamily': 'Segoe UI, Arial, sans-serif'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     %% -- ArchiMate-inspired style classes --
     classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
@@ -3652,7 +3773,6 @@ flowchart TB
     IF_Simplified_POSO_ModelF_e_g_MES_300 -->|"e.g. Direct / API / File"| IF_Simplified_POSO_ModelFMW_e_g_Azure_Service_Bus
     IF_Simplified_POSO_ModelFMW_e_g_Azure_Service_Bus --> IF_Simplified_POSO_ModelF_e_g_XEUS
 
-
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -3666,6 +3786,9 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqVVXtP4kAQ_yqbGsI_oPXBw8aQFFsuXIoY6-Mux6VZulPY3NI23a2Kyne_2RYBUSMuScnO4zezv5mdfTbChIFhGZXKM4-5sshzVU1hBlWLVMdUQrVGqhLCPONq7sE9CK0QSVJqCtNbmnE6FiCr2jtKYuXzpwLgsJk-ajMt69EZF3Mt9WGSALnp14iNjqJGJI1lXULGo-pCW4vkIZzSTBV4uYQBfbzjTE1xH1EhAW2maiY8Ogahg6os17IYT-KnNOTxBIUnJooyGv9bixrmYkEWlcooXoUg191RTHBVKqRex4TCKR9QBXUey5RnwIhUcwEkFFRKkGhTmhd7ByIyziWPQUpSrIgLYe31cHUbNamy5B9Ye912u2l2l9v6gz6JdZQ-1sJEJJm1Z5rmFiZNU7JeJWa3oVFXmKbZanWb38BkVNH3mE77C8zDN5ivOkYlkpfROXJKGluRZpwxAQ80g01GnKa9ZsRtNXtrtB2yh0S8Y0RzvMHy-blpfoVZosp8PMloOiW292dkjHLWPmb4ZccNYl9eev1z-7o_vCCe_du9Ghl_Sye9GDZEqHgSE-9qLe33Ap_PUsEjDiy4HPrDYICdKHoBBJNg4PrBsWluBgqhSWB_sk9QR1CHMSzLwqLvivnLvfE_BNSK76AN7go8-ynPIPAhu-chBN1cvqHlsFWCF1ZkaUXQqoy0LvcOAR23CHieSBW4AmdHrDqbBwlPyljagCwNzsbZQeeMd0qFf0sOSN9JQvz76Q8vzg54p0xEd3iZAsTstdY7FQdvdedlZBQBnKLGCG5f9vHb4wJGxsv3Kfwi_GduOpUdqq-Pt2zmYjx1vY3R0zO_Gj2brvbK1dxlwry7RB5MkO837chM4rk_3Atnh9vjBXjntpvZTvHwIdXGH7SzFwzutjt0sO7CT7vSCxx3u9scPRbdWOHrtt1FpYs7LIfEUZOdoCGrJ1Hd49EyDM6ljZZbk1qS8kpsQ_9WxJ6enr6bsUbNmEE2o5wZ1rNRvKr4JjOIaC6UsagZNFeJP49DwyoeOyNPMVFwOMUizErh4j_Hn3uB" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 29</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="future-state-flow-narrative">Future-State Flow Narrative</h4>
@@ -3689,6 +3812,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 30</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="53-change-impact-summary">5.3 Change Impact Summary</h3>
@@ -3732,6 +3856,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 31</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
@@ -3781,6 +3906,7 @@ flowchart TB
 <blockquote>
 <p><em>Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).</em></p>
 </blockquote>
+<div class="page-footer"><span>Page 32</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
@@ -3806,6 +3932,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 33</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
@@ -3815,7 +3942,7 @@ flowchart TB
 </blockquote>
 <h4 id="611-current-state-current-state-platform-architecture">6.1.1 Current-State — Current-State Platform Architecture</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '12px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'nodeSpacing': 25, 'rankSpacing': 30}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef platBox fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
@@ -3836,14 +3963,17 @@ flowchart TB
     IF_Simplified_POSO_ModelCPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| IF_Simplified_POSO_ModelCPLP_e_g_Azure_PaaS
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqtlGFvmzAQhv-K5SriC2tJCGmG1ElAghYpWaOxbpPGhBw4EqsGIzBr0pT_PhuyZK20SVHrDxZ-7_zc-TXyHsc8AWzjXm9PcypstNfEBjLQbKStSAWajrQK4rqkYjeHX8BUgHHeRdrUr6SkZMWg0tTulOcioI8toD8stipNaT7JKNspNYA1B3Q305EjNzKtURmMP8QbUoqWUVewINtvNBEbuU4Jq0DmbETG5mQFTBUSZa20XHYfFCSm-VqKQ0NKJcnvT5JlNA1qer0wP5ZAX9wwR3LEjFTVBFJEisLlW5RSxuwL15r4vq9XouT3YF8YxvW1Ozos3z2onuxBsdVjznipwubEeskrGBEnoDeejrz3R6A5Hk9N7znQPAH7rjUdGC-AwNmJ5_uu5VpHnucZcvyzwdFIhcO8I1b1al2SYoNmfhTQrGA0pZBEy9vgNlpIL5m3nC8jiNaR81iXEC0JCX6EOKwHI6Mf1ikYspnL9SVqw0iFQ_yzY6uR0BJiQXmO5p9P6n-KOW2x79M7VaYlq2_JtG27u5YOA3lyOIHYMTin_VfdwrmuBdEw-uh8cqKBMTBb45Kxmcg5Idbf9gVXQ6TykMp7CwcX0yAyDeOPiXKJ5PL1Pj470BtYeWbBm5sPT4cjTVpj0BVyljM5-5RBiJ_O-ROwjjMoM0ITbO9x-3bJly-BlNRM4EbHpBY82OUxttvnBddFQgRMKJG3n3Vi8xvv1axa" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
 </blockquote>
+<div class="page-footer"><span>Page 34</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="612-future-state-future-state-platform-architecture">6.1.2 Future-State — Future-State Platform Architecture</h4>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '12px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'nodeSpacing': 25, 'rankSpacing': 30}} }%%
+%%{init: {'theme': 'base', 'securityLevel': 'loose', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TB
     classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
     classDef platBox fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
@@ -3863,6 +3993,8 @@ flowchart TB
 
     IF_Simplified_POSO_ModelFPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| IF_Simplified_POSO_ModelFPLP_e_g_Azure_PaaS
 </div>
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqtlGFvmzAQhv-K5SriC2tJCDRD6iRIghYpWaOxbpPGhBw4EqsGIzBr0pT_PhuyZK20SVHrDxZ-7_zc-TXyHsc8AezgXm9PcyoctNfEBjLQHKStSAWajrQK4rqkYjeHX8BUgHHeRdrUr6SkZMWg0tTulOcioI8toD8stipNaT7JKNspNYA1B3Q305ErNzKtURmMP8QbUoqWUVewINtvNBEbuU4Jq0DmbETG5mQFTBUSZa20XHYfFCSm-VqKQ0NKJcnvT5JlNA1qer0wP5ZAX7wwR3LEjFTVBFJEisLjW5RSxpwLz5r4vq9XouT34FwYxvW1Zx-W7x5UT86g2OoxZ7xUYXNiveQVjIgTcDya2uP3R6A5Gk3N8XOgeQL2PWs6MF4AgbMTz_c9y7OOvPHYkOOfDdq2Cod5R6zq1bokxQbN_CigWcFoSiGJlrfBbbSQXjJ_OV9GEK0j97EuIVoSEvwIcVgPbKMf1ikYspnL9SVqw0iFQ_yzY6uR0BJiQXmO5p9P6n-KuW2x79M7VaYlq2_JdBynu5YOA3lyOIHYMTin_VfdwrmuBdEw-uh-cqOBMTBb45KRmcg5Idbf9gVXQ6TykMp7CwcX0yAyDeOPiXKJ5PL1Pj470BtYeWbBm5sPT4cjTVpj0BVylzM5-5RBiJ_O-ROwjjMoM0IT7Oxx-3bJly-BlNRM4EbHpBY82OUxdtrnBddFQgRMKJG3n3Vi8xsY8axy" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
 
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
@@ -3895,48 +4027,40 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 35</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="62-sap-development-object-status">6.2 SAP Development Object Status</h3>
+<p><strong>RICEFW Status Summary</strong> — E2E Tower (0 objects)
+<em>Data source: Smartsheet Object Tracker (cached 2026-03-26)</em></p>
 <table>
 <thead>
 <tr>
-<th>Metric</th>
-<th>DEV</th>
-<th>QAS</th>
-<th>PRD</th>
+<th>Status</th>
+<th style="text-align: right;">Count</th>
+<th style="text-align: right;">%</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Transport Requests</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
+<td style="text-align: right;"><strong>100%</strong></td>
 </tr>
+</tbody>
+</table>
+<p><strong>RICEFW by Type:</strong></p>
+<table>
+<thead>
 <tr>
-<td>Custom Code Objects</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<th>Type</th>
+<th style="text-align: right;">Count</th>
 </tr>
+</thead>
+<tbody>
 <tr>
-<td>CDS Views</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>Fiori Apps</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>BAdIs / Enhancements</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
 </tr>
 </tbody>
 </table>
@@ -4068,123 +4192,202 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 36</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="7-project-context">7. Project Context</h2>
 <h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
-<p>Project delivery milestones for IF_Simplified_PO-SO_Model RICEFW objects:</p>
-<table>
-<thead>
-<tr>
-<th>Phase</th>
-<th>Planned Start</th>
-<th>Planned End</th>
-<th>Status</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Functional Specification (FS)</td>
-<td>Per project plan</td>
-<td>Per project plan</td>
-<td>In Progress</td>
-<td>Tower-level FS schedule</td>
-</tr>
-<tr>
-<td>Technical Design (TDD)</td>
-<td>FS + 2 weeks</td>
-<td>FS + 6 weeks</td>
-<td>Planned</td>
-<td>Dependent on FS completion</td>
-</tr>
-<tr>
-<td>Build &amp; Unit Test (TUT)</td>
-<td>TDD + 1 week</td>
-<td>TDD + 8 weeks</td>
-<td>Planned</td>
-<td>Includes S/4 + Middleware</td>
-</tr>
-<tr>
-<td>Functional User Test (FUT)</td>
-<td>Build + 1 week</td>
-<td>Build + 4 weeks</td>
-<td>Planned</td>
-<td>Tower-led validation</td>
-</tr>
-<tr>
-<td>Go-Live (Release 2)</td>
-<td>Per release plan</td>
-<td>Per release plan</td>
-<td>Planned</td>
-<td>End-to-End Integrated Processes release</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.</em></p>
-</blockquote>
-<div style="page-break-before: always;"></div>
-
+<p><em>No timeline data available for this capability.</em></p>
 <h3 id="72-raid-log">7.2 RAID Log</h3>
-<p>Standard RAID items for IF_Simplified_PO-SO_Model (End-to-End Integrated Processes):</p>
+<p><em>Live data from Smartsheet Master RAID Log — extracted 2026-03-26</em></p>
+<p><strong>RAID Summary:</strong> 15 open items (0 capability-specific, 15 tower-level), 56 closed</p>
 <table>
 <thead>
 <tr>
-<th>#</th>
-<th>Category</th>
-<th>Description</th>
-<th>Status</th>
-<th>Owner</th>
-<th>Priority</th>
+<th>Severity</th>
+<th style="text-align: right;">Capability</th>
+<th style="text-align: right;">Tower-Wide</th>
+<th style="text-align: right;">Total Open</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
-<td>Risk</td>
-<td>Data migration completeness — validate all legacy IF Simplified PO-SO Model data maps to S/4 target structures</td>
-<td>Open</td>
-<td>Tower Architect</td>
-<td>High</td>
+<td>P1 - High</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
 </tr>
 <tr>
-<td>2</td>
-<td>Risk</td>
-<td>Integration testing coverage — ensure all 2 integrated systems are validated end-to-end</td>
-<td>Open</td>
-<td>Integration Lead</td>
-<td>High</td>
+<td>P2 - Medium</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
 </tr>
 <tr>
-<td>3</td>
-<td>Assumption</td>
-<td>Target SAP S/4HANA system available in DEV/QAS per release schedule</td>
-<td>Active</td>
-<td>SAP Basis</td>
-<td>Medium</td>
+<td>P3 - Low</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
 </tr>
 <tr>
-<td>4</td>
-<td>Issue</td>
-<td>API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation</td>
-<td>Open</td>
-<td>EA Pipeline Team</td>
-<td>High</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Dependency</td>
-<td>Upstream BPMN process models validated and signed off by business process owners</td>
-<td>Active</td>
-<td>Process Owner</td>
-<td>Medium</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
+<td style="text-align: right;"><strong>15</strong></td>
+<td style="text-align: right;"><strong>15</strong></td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><em>Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.</em></p>
-</blockquote>
+<p><strong>Other E2E Tower RAID Items</strong> (15 open):</p>
+<table>
+<thead>
+<tr>
+<th>RAID ID</th>
+<th>Type</th>
+<th>Severity</th>
+<th>Title</th>
+<th>Status</th>
+<th>Assigned To</th>
+<th>Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>03591</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>R3 E2E scenario execution</td>
+<td>In Progress</td>
+<td>Test Management</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>03681</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>ITC Execution: Planning run availability - Prerequisite for &hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03762</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>FTS-IF (esp SCP) related test cases/sequencing are not accur&hellip;</td>
+<td>In Progress</td>
+<td>FTS IF</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>01733</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Tariffs impacts Item/BOM design which is impacting ERP/SCP (&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-06</td>
+</tr>
+<tr>
+<td>03592</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Lack of Defined IMO Owner for CBA Mask Billing and Materials&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03625</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Item/ BOM MC1 delta load</td>
+<td>In Progress</td>
+<td>Cutover</td>
+<td>2026-04-10</td>
+</tr>
+<tr>
+<td>03628</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>R3 Returns Rework Process Causing Finance Double Counting in&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03642</td>
+<td>Issue</td>
+<td>P2 - Medium</td>
+<td>E2E Process with Anafi on order/invoice point.  Need IFS SC &hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-24</td>
+</tr>
+<tr>
+<td>03736</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Golden Data/Test Data Readiness</td>
+<td>In Progress</td>
+<td>Master Data</td>
+<td>2026-04-22</td>
+</tr>
+<tr>
+<td>03743</td>
+<td>Issue</td>
+<td>P2 - Medium</td>
+<td>FD-Share with Entitlements -  Interface File Paths for MC1</td>
+<td>Roadblock / At Risk</td>
+<td>PMO</td>
+<td>2026-03-20</td>
+</tr>
+<tr>
+<td>03753</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>PDF-SMH IF test cases are not available in JIRA</td>
+<td>To Be Reviewed</td>
+<td>B-Apps</td>
+<td>2026-03-25</td>
+</tr>
+<tr>
+<td>03756</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>LE101-1001 Operation Support Ownership for SIMS/Tester Front&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-04-24</td>
+</tr>
+<tr>
+<td>03769</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Need a Labs SPOC owner to define IP Labs enterprise and mate&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-04-17</td>
+</tr>
+<tr>
+<td>03216</td>
+<td>Action</td>
+<td>P3 - Low</td>
+<td>Mask Expense vs. Invoice</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-06</td>
+</tr>
+<tr>
+<td>03315</td>
+<td>Risk</td>
+<td>P3 - Low</td>
+<td>BPMG – SCP L3/L4 flow standards</td>
+<td>In Progress</td>
+<td>Business Process Mgmt</td>
+<td>2026-03-27</td>
+</tr>
+</tbody>
+</table>
 <h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
 <table>
 <thead>

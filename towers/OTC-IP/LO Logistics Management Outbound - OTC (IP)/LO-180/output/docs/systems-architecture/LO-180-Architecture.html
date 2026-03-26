@@ -104,8 +104,9 @@ blockquote {
     border-radius: 6px;
     padding: 20px 12px;
     margin: 16px 0;
-    overflow-x: auto;
+    overflow: visible;
     text-align: center;
+    page-break-inside: avoid;
 }
 .mermaid svg {
     max-width: 100%;
@@ -144,6 +145,14 @@ strong { color: #00285a; }
     body { padding: 0; max-width: none; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print { display: none; }
+    .mermaid {
+        page-break-inside: avoid;
+        overflow: visible;
+    }
+    .mermaid svg {
+        max-width: 100%;
+        height: auto;
+    }
 }
 </style>
     
@@ -173,32 +182,82 @@ strong { color: #00285a; }
     }
   });
 </script>
+<script>
+  // Open rendered Mermaid diagram as full-size SVG in a new browser tab.
+  // Works on SharePoint, GitHub Pages, localhost — no file system dependency.
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[title="Open full-size SVG"]');
+    if (!link) return;
+    // Walk backwards from the link div to find the preceding .mermaid container
+    var container = link.closest('div');
+    var prev = container;
+    while (prev && prev.previousElementSibling) {
+      prev = prev.previousElementSibling;
+      if (prev.classList && prev.classList.contains('mermaid')) break;
+    }
+    if (!prev || !prev.classList.contains('mermaid')) return;
+    var svgEl = prev.querySelector('svg');
+    if (!svgEl) return;
+    e.preventDefault();
+    // Clone SVG with full dimensions for standalone viewing
+    var clone = svgEl.cloneNode(true);
+    clone.removeAttribute('style');
+    clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    var svgXml = new XMLSerializer().serializeToString(clone);
+    var blob = new Blob([svgXml], {type: 'image/svg+xml'});
+    window.open(URL.createObjectURL(blob), '_blank');
+  });
+</script>
 
 </head>
 <body>
-<div style="text-align:center; padding-top:80px;">
-  <h1 style="font-size:36px;">LO-180 — Manage Outbound Transportation - OTC (IP)</h1>
+<div style="text-align:center; padding-top:20px;">
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <h1 style="font-size:36px; margin-top:24px;">LO-180 — Manage Outbound Transportation - OTC (IP)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
   Capability LO-180 · LO Logistics Management Outbound - OTC (IP)</p>
   <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026</p>
+  Generated: March 2026<br/>
+  Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
   @page { margin: 0.75in; }
-  footer::after { content: "Intel Confidential — LO-180 BDAT — March 2026"; font-size:9px; color:#999; }
-  .mermaid { page-break-inside: avoid; max-height: 95vh; overflow: visible; }
+  .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
-.mermaid svg { max-width: 100% !important; height: auto !important; }
+.mermaid { overflow: visible; }
+.mermaid svg { max-width: 100%; height: auto !important; }
+.page-footer {
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 20px;
+  background: #fff;
+}
+@media print {
+  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 </style>
 
+<div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
+<p><a id="toc"></a></p>
 <h2 id="table-of-contents">Table of Contents</h2>
 <ol>
 <li><a href="#1-executive-summary">Executive Summary</a></li>
@@ -234,6 +293,7 @@ strong { color: #00285a; }
    - 7.2 <a href="#72-raid-log">RAID Log</a>
    - 7.3 <a href="#73-recommendations--next-steps">Recommendations &amp; Next Steps</a></li>
 </ol>
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="1-executive-summary">1. Executive Summary</h2>
@@ -251,6 +311,7 @@ strong { color: #00285a; }
 <blockquote>
 <p>All system nodes in architecture diagrams are <strong>IAPM-linked</strong> — click any node to open its IAPM page. Diagrams require <code>securityLevel: 'loose'</code> for click events.</p>
 </blockquote>
+<div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="2-business-context-objectives">2. Business Context &amp; Objectives</h2>
@@ -319,6 +380,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="23-success-criteria">2.3 Success Criteria</h3>
@@ -382,6 +444,7 @@ strong { color: #00285a; }
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</h2>
@@ -482,6 +545,7 @@ strong { color: #00285a; }
 </tbody>
 </table>
 <h3 id="32-business-process-diagrams">3.2 Business Process Diagrams</h3>
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-321-lo-180-010_process_delivery_of_line_items_-otcip-lo-180-010_process_delivery_of_line_items_-otcip">BUSINESS ARCHITECTURE — 3.2.1 LO-180-010_Process_Delivery_of_Line_Items_-<em>OTC</em>(IP) — LO-180-010_Process_Delivery_of_Line_Items_-<em>OTC</em>(IP)</h4>
@@ -490,7 +554,7 @@ strong { color: #00285a; }
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -507,8 +571,8 @@ flowchart TD
         n6[["fa:fa-cog Determine Ship Ahead Window"]]
         n7[["fa:fa-cog Check Delivery Block Reason"]]
         n8[["fa:fa-cog Update Freight Unit Based on Controller Strategy"]]
-        n9[["fa:fa-cog Check for DG Material Classification and Update DG Indica..."]]
-        n10[["fa:fa-cog Freight Unit will be created with Stages as per the Integ..."]]
+        n9[["fa:fa-cog Check for DG Material Classification and Update DG Indicator in Freight Unit"]]
+        n10[["fa:fa-cog Freight Unit will be created with Stages as per the Integration profile..."]]
         n11["Plan Transportation"]
         n12["Create Delivery Note"]
         n13{{"fa:fa-arrows-alt parallelGateway"}}
@@ -549,6 +613,9 @@ Created"| n11
     class n14 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVltv2zYU_iuEgsAdIGe6Wo4eBtiyVQRdtiJO1oe6D7RE2URoUiDpOK7r_76ji29cNWCYHgx_5_KdG3mkvZWJnFixdXu7p5zqGO17ekXWpBej3gIr0rNRI_gLS4oXjKheZVMIrmf0e23mBuV7ZVbJUrymbFdJZ2QpCHp5sNEIHJmNFOaqr4ikRc_ulZKusdwlgglZWd-QYeEUdbRWNRYyJ_Js4DiRm4XgyignZ7EfBVGQVn6KZILnV6RFWAyLrHeokmNim62w1HX6G0Ue8fsXmusV4AIzRcBmpdfsd7wgrKpRy00lyzby7dgMqqo4HBo2K3FG-RLkgQMiifnrWRQ6hwM63N7O-Skoep7MOYInY1ipCSmQ0iCevmlUUMbimyAZpaFjKy3FK4lvvGk08T07qyqJoXTHrprb3xK6XOl4IVjemva3VQ2xV77b8j32HFvu4NeIRXh-jpQMvKE3PEUaR27iJsdIRVH8r0jQV_mM1Wsba-qnXjo5xXLDQZg4_-Q7ljkJopFr9onIN5qRC9I0Tf3puVXTQeg63aTj1B84iUG6xJps8e5MeJ8EJ8I0jFI36iRs4plZbhafpciOhP40TMMTYTR205HXSRiM3GDYZgg8S4nLFUo2Sos1kWi8UXDelUIjjtlO6cauerj79evcKnBc4H4mlugZTqEqwGVCGH0jcoe0QM-PHxKYpxQMfSK7X-bWt28XDN41Q0p0tkJ_yiXm9DvWVHA0g2uQ6Y0kwKoxZcpg8K8ZwIjINSSMUlmfIPQCSwWKoCyHy4GeNowYDEEnwwt63pUEfXh4TH9NnlIz-fDaMVmRDI6IgJZh-DOBEedQC-wQhTDP0UuZg-gqL4Nw0JXJbEVLNFoRnKMvlOdiazhGP8vkNIUxEwCfCFaCG47Da8efpAjFKKgDJtGOkcGAYShgt9wZbPddDZl8RI_gUK1hlFRHlhY0a-Z70RmweuB5pQAXyv-tU65jHJzLjLdwB9CCoEySegZbqleQMl4SGIRCJRQALxSIBSXIJotSCrg55O7uzgzkQpzPDPPmdJdC6toDzC6tPLBK6nDntv8hNDHM_P3-mDWWUmxVHzONSiwxtJV9bJbC3DocLp2C_-YEu7b5w13U7_8Gd6yFXgP9FvoNDI7GLR4YODJw2OKwge7Rf2DgyMBDA7ttOu265UELfSPefYvvTf_a4cfcujolvBlCPrd-VLMzuIYGdp2jwLlmr9dq1cCL5X-l8To1fqcm6NSEnZpBpybq1Aw7NfedGmhAp8o9fSpcy70OuX98u12Lg6PYsi14r6wxza14b9WfdvD5l5MCb5i2DraFN1rMdjyz4voTyNrU62FCMdzWdSM8_A1W0DgV" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-322-lo-180-050_prepare_delivery_schedule_for_non-orders_-otcip-lo-180-050_prepare_delivery_schedule_for_non-orders_-otcip">BUSINESS ARCHITECTURE — 3.2.2 LO-180-050_Prepare_Delivery_Schedule_for_Non-orders_-<em>OTC</em>(IP) — LO-180-050_Prepare_Delivery_Schedule_for_Non-orders_-<em>OTC</em>(IP)</h4>
@@ -557,8 +624,8 @@ Created"| n11
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
-flowchart LR
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
@@ -603,13 +670,15 @@ flowchart LR
     class n10 subProc
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVV2P2jgU_StWRiNmpKDNJ4E8bMUAqZA6M6jMbLUq-2CSG7BI7NROGCjlv9cmgQQKT8sD0j0-95x7r2N7p4UsAs3X7u93hJLcR7tWvoQUWj5qzbGAlo5K4B_MCZ4nIFqKEzOaT8nPA810so2iKSzAKUm2Cp3CggF6H-uoLxMTHQlMRVsAJ3FLb2WcpJhvByxhXLHvoBsb8cGtWnpiPAJeEwzDM0NXpiaEQg3bnuM5gcoTEDIanYnGbtyNw9ZeFZewj3CJeX4ovxDwjDffSJQvZRzjRIDkLPM0-YLnkKgec14oLCz4-jgMIpQPlQObZjgkdCFxx5AQx3RVQ66x36P9_f2MnkzR23BGkfyFCRZiCDESuYRH6xzFJEn8O2fQD1xDFzlnK_DvrJE3tC09VJ34snVDV8NtfwBZLHN_zpKoorY_VA--lW10vvEtQ-db-X_hBTSqnQYdq2t1T05PnjkwB0enOI7_l5OcK3_DYlV5jezACoYnL9PtuAPjT71jm0PH65uXcwK-JiE0RIMgsEf1qEYd1zRuiz4FdscYXIgucA4feFsL9gbOSTBwvcD0bgqWfpdVFvMJZ-FR0B65gXsS9J7MoG_dFHT6ptOtKpQ6C46zJRqSNRGEUZygSYIpBV4S1I-a32dajP0Yt9W80YCD7AeNp8_opUjnkqr912Db30_0kC2O7CEkZA18K7lNcufhRM4SOaEjrUyTBaGxvCWIVIhQzDh6YbT9qg6qQISqEqTeY6knv7qLpt7kOREZ43mp9IwpXsj6H67iKdD8sVGZe97GexapNgJ--FDRoQb0ELw-XjRkGnVeLL9m4G2WAUVqu0CIukEWoy_yZkHjHFKBHsaThtKfrXzDHJZMjh-9ZsBxzpr7Y53vz4SEK_QXmuBwdb4zztWWbuyMJ7mfgSozQNMlyTJ526AhCws1qXJyVdWNrO5uV1tE0J7LUYdLBJswKYS0-VyehJm23zeyetezgveqRoG-wo-CcIg-1ZmnIdEuarf_lu1VoVWGXhV2yrA66NQtw24VmkYZu8e4DO0qtMuwV4U9Ff6aaS9spv2qRZySZV2w_gVxoJnN46ssjtfWGWxdh-3mlXS24txccW-udE4PwRnsXYe7x5vrDO1dReUgq1tJ07UUeIpJpPk77fCYywc_ghgXSa7tdQ0XOZtuaaj5h0dPKw6bPCRYfutpCe5_A4xWlx4=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
 <h4 id="business-architecture-323-lo-180-060_assign_warranty_-otcip-lo-180-060_assign_warranty_-otcip">BUSINESS ARCHITECTURE — 3.2.3 LO-180-060_Assign_Warranty_-<em>OTC</em>(IP) — LO-180-060_Assign_Warranty_-<em>OTC</em>(IP)</h4>
 <p><strong>Swim Lanes</strong>: Warehouse Operator | <strong>Tasks</strong>: 2 | <strong>Gateways</strong>: 1</p>
 <blockquote>
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -638,6 +707,9 @@ flowchart TD
     class n6 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVE1v4jAU_CtWKkQrJVI-CZvDShBIhbTdVqLdHkoPJrHBwtiR7RRYxH9fm4TPXU6bA-KN38w8TxxvrZwXyEqsVmtLGFEJ2LbVHC1ROwHtKZSobYMa-AUFgVOKZNv0YM7UmPzet3lhuTZtBsvgktCNQcdoxhF4G9mgp4nUBhIy6UgkCG7b7VKQJRSblFMuTPcd6mIX792apT4XBRKnBteNvTzSVEoYOsFBHMZhZngS5ZwVF6I4wl2ct3dmOMpX-RwKtR-_kugJrt9Joea6xpBKpHvmakl_wCmiZo9KVAbLK_F1CINI48N0YOMS5oTNNB66GhKQLU5Q5O52YNdqTdjRFLwOJgzoJ6dQygHCQCoND78UwITS5C5Me1nk2lIJvkDJnT-MB4Fv52Ynid66a5twnRUis7lKppwWTauzMntI_HJti3Xiu7bY6N8rL8SKk1Pa8bt-9-jUj73USw9OGOP_ctK5ilcoF43XMMj8bHD08qJOlLp_6x22OQjjnnedExJfJEdnolmWBcNTVMNO5Lm3RftZ0HHTK9EZVGgFNyfBb2l4FMyiOPPim4K13_WU1fRF8PwgGAyjLDoKxn0v6_k3BcOeF3abCbXOTMByDt6hQHOu4wTPJRJQcVE3mId5Hx8TC8MEQyfnMzDW7xcEfR-8PI7AmMwYpBPr8_OM4F8SelLqLs0zHyb4WS2nSFwxgvsjQypeXvY2AqjQpIczUqg5b2WhwwUj9oWYnnoDxgqqSgIHPL-m4H708qBJZ5xIc0x0SErwyHkhwUjKCgHMhabyfAGetN7e_JZEZ7s9zAqF4CvpQKpACQWkFNHH-l1PrN2u5ui06j8sAo7zXcfZlF5ddpqyU5fhZek3pV-XwdlBMApnx_Vixb-5EjSf5wUYHu-HCzj6N9w5HGjLtpZILCEprGRr7a9tfbUXCMOKKmtnW7BSfLxhuZXsrzer2r-tAYH61C1rcPcHtTjtXQ==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-324-lo-180-070_plan_transportation_-otcip-lo-180-070_plan_transportation_-otcip">BUSINESS ARCHITECTURE — 3.2.4 LO-180-070_Plan_Transportation_-<em>OTC</em>(IP) — LO-180-070_Plan_Transportation_-<em>OTC</em>(IP)</h4>
@@ -646,7 +718,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -660,7 +732,7 @@ flowchart TD
         n3["fa:fa-user Maintain Time Related Attributes"]
         n4["fa:fa-user Maintain Additional Attributes"]
         n5(["fa:fa-play Selection Profile Creation Initiated"])
-        n6["Coordinate Transportation (Planning Profile,Optimizer Set..."]
+        n6["Coordinate Transportation (Planning Profile,Optimizer Settings Etc.)"]
         n7{{"fa:fa-arrows-alt parallelGateway"}}
         n8{{"fa:fa-arrows-alt parallelGateway"}}
     end
@@ -683,13 +755,15 @@ flowchart TD
     class n8 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVV2PozYU_SsWo1F2JVLxGSgPlTIkrFbqqqtmuvvQ9MGB68QaYyPbTCYb5b_XDpAMs5OHqkhBOcf3nnPvBZujU4oKnMy5vz9STnWGjhO9gxomGZpssIKJizriG5YUbxioiY0hgusV_XEO86PmxYZZrsA1ZQfLrmArAP312UVzk8hcpDBXUwWSkok7aSStsTzkgglpo-8gJR45u_VLD0JWIK8Bnpf4ZWxSGeVwpcMkSqLC5ikoBa9GoiQmKSknJ1scE_tyh6U-l98q-IJfvtNK7wwmmCkwMTtds9_xBpjtUcvWcmUrn4dhUGV9uBnYqsEl5VvDR56hJOZPVyr2Tid0ur9f84spelysOTJXybBSCyBIaUMvnzUilLHsLsrnRey5SkvxBNldsEwWYeCWtpPMtO65drjTPdDtTmcbwao-dLq3PWRB8-LKlyzwXHkw9zdewKurUz4L0iC9OD0kfu7ngxMh5H85mbnKR6yeeq9lWATF4uLlx7M4937WG9pcRMncfzsnkM-0hFeiRVGEy-uolrPY926LPhThzMvfiG6xhj0-XAV_zaOLYBEnhZ_cFOz83lbZbr5KUQ6C4TIu4otg8uAX8-CmYDT3o7Sv0OhsJW52qGh5qangmKG5uR2U7gLsxf2_1w7BGcFTO2-USzD9oBW1twZKSmiJVsDgrIBMYaYsWDv_vJIIxhJfMOXa_NAnEGiutaSbVoMa54Q3ch5pDehPYKaI6mZydCN5XlV0aPRGavzhktsw89R-aq2bgCU-myOM2jqMwsdXEjOjkAtzolBuR_VoNqxqhNRd1oevDHNuNu8g6P7RaFqb400aM63NikJLXf7ycVxYcjwOhWEpxV5NMdOowRIzBuxT95KtndPpVU7633LM1u3-8BhNp7-ZZ99Dv4NJD5MOhmMYjGHUw6CDaQ-jMUw7OOthOFo9v_HWfdjpIzp4nw7fp6P36fhyNo7o2ft0MmzmEZsOrOM6Ncga08rJjs75Q2Y-dhUQ3DLtnFwHt1qsDrx0svOB77RNZTIXFJt9WHfk6V-yeEmg" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
 <h4 id="business-architecture-325-lo-180-110_schedule_carrier_for_product_shipping_-otcip-lo-180-110_schedule_carrier_for_product_shipping_-otcip">BUSINESS ARCHITECTURE — 3.2.5 LO-180-110_Schedule_Carrier_for_Product_Shipping_-<em>OTC</em>(IP) — LO-180-110_Schedule_Carrier_for_Product_Shipping_-<em>OTC</em>(IP)</h4>
 <p><strong>Swim Lanes</strong>: Warehouse Operator | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 0</p>
 <blockquote>
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -709,6 +783,9 @@ flowchart TD
     class n3 startEvt
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVMuOmzAU_RWLUcSGSDxDyqJSAkEaqaOOlGln0XThGDtYMTayTR6N8u-18yCTVLMqC4QP555z78Hm4CBRYSdzBoMD5VRn4ODqGjfYzYC7hAq7HjgDP6GkcMmwci2HCK7n9M-JFsTtztIsVsKGsr1F53glMPjx7IGJKWQeUJCrocKSEtdzW0kbKPe5YEJa9hMeE5-c3C6vpkJWWN4Ivp8GKDGljHJ8g6M0TuPS1imMBK_uRElCxgS5R9scE1tUQ6lP7XcKv8DdO610bdYEMoUNp9YN-waXmNkZtewshjq5uYZBlfXhJrB5CxHlK4PHvoEk5OsblPjHIzgOBgvem4K3YsGBuRCDShWYAKUNPNtoQChj2VOcT8rE95SWYo2zp3CWFlHoITtJZkb3PRvucIvpqtbZUrDqQh1u7QxZ2O48uctC35N7c3_wwry6OeWjcByOe6dpGuRBfnUihPyXk8lVvkG1vnjNojIsi94rSEZJ7v-rdx2ziNNJ8JgTlhuK8AfRsiyj2S2q2SgJ_M9Fp2U08vMH0RXUeAv3N8EvedwLlklaBumngme_xy675asU6CoYzZIy6QXTaVBOwk8F40kQjy8dGp2VhG0N3qHEtTBxgu8tllALeSbYiwe_Fg6BGYFDmzd45kTIBuRQSoqlAoIDc2LBK0Xrrl04vz9UhqaywIxuTJlpuOqQvidEJ4LGsjGnDLyYrQ4EAW9mg6tWSA01NeoXp77S7K_zA4_AcPjVNHhZBudl-CEtC153yR0c9kfiDo562PGcxvQFaeVkB-f0TzL_rQoT2DHtHD0HdlrM9xw52ensOl1bme9cUGgibc7g8S8TFJeS" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-326-lo-180-120_schedule_shipping_labor_-otcip-lo-180-120_schedule_shipping_labor_-otcip">BUSINESS ARCHITECTURE — 3.2.6 LO-180-120_Schedule_Shipping_Labor_-<em>OTC</em>(IP) — LO-180-120_Schedule_Shipping_Labor_-<em>OTC</em>(IP)</h4>
@@ -717,7 +794,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -736,7 +813,7 @@ flowchart TD
         n2["fa:fa-user Schedule Shipping Labour"]
         n3["fa:fa-user Ship Order"]
         n4["fa:fa-user Pick / Pack Order"]
-        n6[["fa:fa-cog Send 3B12 Request Information to 3rd Party Logistics Ware..."]]
+        n6[["fa:fa-cog Send 3B12 Request Information to 3rd Party Logistics Warehouse"]]
         n7(["fa:fa-stop Shipping Labor Scheduled"])
     end
     n5 --> n10
@@ -760,6 +837,9 @@ flowchart TD
     class n10 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVdtu4zYQ_RVCQeAYkFFdLUcPLXwTECDdGHXaRbHeB1oaWURkUSWpOK7X_96hJV_kOkCB6sHGHM6cMzMckjsj5gkYoXF_v2MFUyHZdVQGa-iEpLOkEjomqYE_qGB0mYPsaJ-UF2rO_j642V75od00FtE1y7cancOKA_n9ySRDDMxNImkhexIESztmpxRsTcV2zHMutPcdDFIrPag1SyMuEhBnB8sK7NjH0JwVcIbdwAu8SMdJiHmRtEhTPx2kcWevk8v5Js6oUIf0Kwm_0o-vLFEZ2inNJaBPptb5M11CrmtUotJYXIn3YzOY1DoFNmxe0pgVK8Q9CyFBi7cz5Fv7Pdnf3y-Kkyh5nSwKgl-cUyknkBKpEJ6-K5KyPA_vvPEw8i1TKsHfILxzpsHEdcxYVxJi6Zapm9vbAFtlKlzyPGlcextdQ-iUH6b4CB3LFFv8vdKCIjkrjfvOwBmclEaBPbbHR6U0Tf-XEvZVvFL51mhN3ciJJict2-_7Y-vffMcyJ14wtK_7BOKdxXBBGkWROz23atr3betz0lHk9q3xFemKKtjQ7ZnwceydCCM_iOzgU8Ja7zrLajkTPD4SulM_8k-EwciOhs6nhN7Q9gZNhsizErTMyCuOlCy5UFQxXpBZTosCBHmYV2WZb8k4o6wgKRdkfpx6MmGowJaVDujWdPor_G_fFkZKw5T2Yr7CUIjfCEtJJA57TF70OSMP0UuXMEnGArA5CUHqL1wtjO_fL6gGyKTrBCnJBHL2DqjLU_KMR5I8KVhL8vA062LURdAjBtWs5xikBpTkYkNF0r0RZFu73TnrBHpLbEic_aekf1kY-33NhZN_1divVEDGcU7JSwmCKi4uVU-d0oNMfoMYMF_ijmwHjb8qkKqdptMOmMcZJFUOZJ6xssTbgOB1wivRDnKvgtC3rqft5rXdZgy37Scyo_h3w7vf3uU5Vt7KmzwVOC7repwUJ65IkEuoLXnmK5wcFstzb662PXg4cUvFy3Z156oTDOte9b3wSa_3s97PxrYtDfxYGH-CXBg_MPFmod84NqZTm94xrDadxnRrM2jMx9r0rzW-8IPEoMG92s29OLya-XhptWDnNuzehr3bsH95fbVW-p-uBM113QIHp_eiBT_ehrH-5oYzTGMNuOssMcKdcXjH8a1PIKVVroy9adBK8fm2iI3w8N4ZVZlg5IRRPC3rGtz_Ay2gk7s=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-327-lo-180-130_coordinate_transportation_-otcip-lo-180-130_coordinate_transportation_-otcip">BUSINESS ARCHITECTURE — 3.2.7 LO-180-130_Coordinate_Transportation_-<em>OTC</em>(IP) — LO-180-130_Coordinate_Transportation_-<em>OTC</em>(IP)</h4>
@@ -768,8 +848,8 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
-flowchart TD
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
@@ -797,7 +877,7 @@ flowchart TD
     end
     subgraph Load Planner
         n12["fa:fa-user Manage Transportation Cockpit"]
-        n13["fa:fa-user Check for Back Dated order & Customer Window in Freight U..."]
+        n13["fa:fa-user Check for Back Dated order and Customer Window in Freight Units for..."]
         n14["fa:fa-user Perform Consolidation"]
     end
     n17 --> n2
@@ -848,6 +928,9 @@ flowchart TD
     class n20 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlV2Fv4jgQ_StWVhU9CXpJSEjIh5NoaE6VWm21bW-lu94HkzhgNbEj25SyiP9-45BAcROdbg-pqPOYeTNvPB7Czkp5RqzIurjYUUZVhHYDtSIlGURosMCSDIboAPyBBcWLgsiB9sk5U4_0R-3meNW7dtNYgktabDX6SJacoOfbIZpBYDFEEjM5kkTQfDAcVIKWWGxjXnChvb-QMLfzOlvz0TUXGREnB9sOnNSH0IIycoLHgRd4iY6TJOUsOyPN_TzM08FeF1fwTbrCQtXlryW5x-_faaZWYOe4kAR8Vqos7vCCFFqjEmuNpWvx1jaDSp2HQcMeK5xStgTcswESmL2eIN_e79H-4uKFHZOiu28vDMErLbCUc5IjqQC-eVMop0URffHiWeLbQ6kEfyXRF_cmmI_dYaqVRCDdHurmjjaELlcqWvAia1xHG60hcqv3oXiPXHsotvBu5CIsO2WKJ27ohsdM14ETO3GbKc_z_5UJ-iqesHxtct2MEzeZH3M5_sSP7c98rcy5F8wcs09EvNGUfCBNkmR8c2rVzcR37H7S62Q8sWODdIkV2eDtiXAae0fCxA8SJ-glPOQzq1wvHgRPW8LxjZ_4R8Lg2klmbi-hN3O8sKkQeJYCVyuUrFmqKGe4QDN420p1cNAv5vz1YuU4yvFI9xvFgoAe9FBgxmACEVQCdZAX6-8PMe55zD2mTMHfpyj0gAUuiSJCnhOMewhirAdfbdEjKUhdc3cB3r8VEHOp4LiVAsPI7ffEfq0ULWELCUjeFTfpibtlKS8rrOiCFlRRYoQFvVKFoHWyVml32vA8_rnK6vNZC9gFkqCvYokZ_YE1w3ng9DxwTiSw1356XywJ2sB8oQVB65oyA1ut0J9j6B2TdMmI0XPH7qwkEfXthkJgw6JrqClDkCJeYQY5gAsmtSi0UCXAf7k1WB2zTJiWErayQfy0rQi6vL1Pfo2_Jb8YHPpIT4H3sFMRz9ETbFJZcaEOotuGX37qvEmnT1pPkslw-Xksj4dmcgS7XasL0vGNHOFCoQruAzSj-P2wM16s_f5jUPgzQdOfCHLt_xYES9_YKXccZ4frRsTHaj6tBqZHzTwKnr5WVBktM5ZCvCIprGmuhwr-mdczWn-PI8wyFK-l4iUY3ynL-AbBlWon5hmePaSOvLq6MnIYi-OBCHAr65HnBc3Or9FRNRwnGo1-g74Z9tiwPcOeGHbQ2O7BdMLGHhu2Z9gTww4M22kdWrsx23xO2ABHAW0FRwXTAxAatmO3gN20wDY8po0dGp9PDdttCBzfaEpr-6aotivHrray2pRO26ePX_RaffvocAa73fC4G_a6Yb8bnnTDQTccdsPTbhg634336HR6hDo9Sp0eqY5_fLA8xyc9eNA-C53DYTc87YRhShrYGlpwvUtMMyvaWfXPBvhpkZEcrwtl7YcWXiv-uGWpFdWP19bhe2xOMWyo8gDu_wEKvfIU" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-328-lo-180-140_record_transportation_information_-otcip-lo-180-140_record_transportation_information_-otcip">BUSINESS ARCHITECTURE — 3.2.8 LO-180-140_Record_Transportation_Information_-<em>OTC</em>(IP) — LO-180-140_Record_Transportation_Information_-<em>OTC</em>(IP)</h4>
@@ -856,7 +939,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -867,12 +950,12 @@ flowchart TD
     subgraph Load Planner
         n1[["fa:fa-cog Update Custom Fields in Freight Order"]]
         n6["Ship Order (IP)"]
-        n7["Determine Mode of Transportation/ Carrier (IP) (Carrier S..."]
+        n7["Determine Mode of Transportation/ Carrier (IP) (Carrier Selection)"]
     end
     subgraph Warehouse Operator
         n2[["fa:fa-cog Receive 3B12 Message"]]
         n3[["fa:fa-cog Pick/Pack"]]
-        n4[["fa:fa-cog Send 3B12 Request Information to 3rd Party Logistics Ware..."]]
+        n4[["fa:fa-cog Send 3B12 Request Information to 3rd Party Logistics Warehouse"]]
         n5[["fa:fa-cog Update Delivery Note"]]
     end
     n2 --> n3
@@ -890,6 +973,9 @@ flowchart TD
     class n7 startEvt
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVduO0zAQ_RUrq1VBSkWuTckDUps20kosVHSBB5YH1xm3Vh072M7ullX_HadJr9An8hBpzpw5c_E4eXWILMBJndvbVyaYSdFrz6yghF6KegusoeeiFviGFcMLDrrXcKgUZs5-72h-VL00tAbLccn4pkHnsJSAvt65aGQDuYs0FrqvQTHac3uVYiVWm0xyqRr2DQypR3fZOtdYqgLUkeB5iU9iG8qZgCMcJlES5U2cBiJFcSZKYzqkpLdtiuPymaywMrvyaw33-OU7K8zK2hRzDZazMiX_iBfAmx6NqhuM1OppPwymmzzCDmxeYcLE0uKRZyGFxfoIxd52i7a3t4_ikBQ9TB4Fsg_hWOsJUKSNhadPBlHGeXoTZaM89lxtlFxDehNMk0kYuKTpJLWte24z3P4zsOXKpAvJi47af256SIPqxVUvaeC5amPfF7lAFMdM2SAYBsNDpnHiZ362z0Qp_a9Mdq7qAet1l2sa5kE-OeTy40GceX_r7ducRMnIv5wTqCdG4EQ0z_NwehzVdBD73nXRcR4OvOxCdIkNPOPNUfB9Fh0E8zjJ_eSqYJvvssp6MVOS7AXDaZzHB8Fk7Oej4KpgNPKjYVeh1VkqXK3QR4kLNONYCFCtq3mE_-PHo0NxSnGfyCX6WhW2E5TV2sgS5Qx4oRETKFe740Ofmyv06Pz8eSIxsArzFataJ3pzN3trGSeExBImYECV9qKhe7vtSFL0YHdcV1IZbJgU71CGlWJdPHqzt-bAgTSEo6ZdvovevmMFK2lXBX2uQGEjTzsMzjv8AgTYE6Bw7AfoHrTGS7hoKDyPmDGyfjfDZH1Bi85pc1tXq_oFftWgDboTVKpy1x4yEoXKHoC9oxt7FkumDSP6WPmFdvzPY5kAt6WrDfokzUnEYSAiQP3-B9tAZyat2d0AEbVm0Jlhaw4602_NuDPj1oxO9rLhnNyeM09w1RNe9URXPfFVz-DwnTuDkwPsuE5pNw2zwklfnd2Pxv6MCqC45sbZug6ujZxvBHHS3QfZqXeznTBsd6lswe0fmCcnfg==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-329-lo-180-150_generate_shipping_documentation_-otcip-lo-180-150_generate_shipping_documentation_-otcip">BUSINESS ARCHITECTURE — 3.2.9 LO-180-150_Generate_Shipping_Documentation_-<em>OTC</em>(IP) — LO-180-150_Generate_Shipping_Documentation_-<em>OTC</em>(IP)</h4>
@@ -898,8 +984,8 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
-flowchart TD
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
+flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef userTask fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1
@@ -914,7 +1000,7 @@ flowchart TD
         n5[["fa:fa-cog Generate Customer Pre Alert"]]
         n6[["fa:fa-cog Generate ZXCI"]]
         n9(["fa:fa-stop Output Message Status Updated (Success or Failure)"])
-        n10["Coordinate Transportation (Planning profiles, Optimizer s..."]
+        n10["Coordinate Transportation (Planning profiles, Optimizer settings Etc.)"]
         n11{{"fa:fa-code-branch exclusiveGateway"}}
         n12{{"fa:fa-code-branch Country?"}}
         n13{{"fa:fa-code-branch exclusiveGateway"}}
@@ -960,6 +1046,9 @@ flowchart TD
     class n15 gateway
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlVm1vozgQ_isWVZWuRE5AIKR8uFNKQlWp3Uab7e5dN_vBAZNYdTCyTZtcNv_9xgTywpaT9o4PJDPPzDMvNmNvjZgnxAiMy8stzagK0LajlmRFOgHqzLEkHRPtFV-woHjOiOxom5Rnakr_Ls1sN19rM62L8IqyjdZOyYIT9HRnoiE4MhNJnMmuJIKmHbOTC7rCYhNyxoW2viCD1ErLaBV0w0VCxNHAsnw79sCV0Ywc1T3f9d1I-0kS8yw5I029dJDGnZ1OjvG3eImFKtMvJHnA6680UUuQU8wkAZulWrF7PCdM16hEoXVxIV7rZlCp42TQsGmOY5otQO9aoBI4ezmqPGu3Q7vLy1l2CIruP80yBE_MsJQjkiKpQD1-VSiljAUXbjiMPMuUSvAXElw4Y3_Uc8xYVxJA6Zapm9t9I3SxVMGcs6Qy7b7pGgInX5tiHTiWKTbwbsQiWXKMFPadgTM4RLrx7dAO60hpmv6vSNBX8RnLlyrWuBc50egQy_b6Xmj9zFeXOXL9od3sExGvNCYnpFEU9cbHVo37nm21k95Evb4VNkgXWJE3vDkSXofugTDy_Mj2Wwn38ZpZFvOJ4HFN2Bt7kXcg9G_saOi0ErpD2x1UGQLPQuB8ie45TtCE4SwjYg_pJ7O_fZsZKQ5S3I35AoWCQCUoEuVqoUf9xcyM799PPJxzj1sChNrnOXyaNkx7LaYhFoISgSaCoCEjQjX83DY_nknOaAL_EzRe5xy-g_AOpVyg6BZdPU_vph8aVF4bVSEVX_1LDv22Mv8M7xqm11cHUyDN0WOh8kKhByIlXhA0VVgVEj3l-7yvpkUcA4R01piyQhCd9IfTRbGAMOQwr2imY36GcSB1tVhRnqGrchlhNKBccNggRJroMVd0BeNTwP5WCjCJxir-TTOfEtvb7bGqhHTnwBwvEVnHrJD0ldzu9_HM2O1O3Zz33UJeZEps_mia9341CsyTxnb9igVZcvj6oTLdeH66af3GpuWrnBHo04TGL2iC4cVThBlDcM6ghDAICftNNpZt0MZye3fqP2rzt91f64r3n7sCGwJ1u7_Dby3be_m6lveiX4l-Ze1WslvJTiV7lVzT9RqyU8leTV8a_JgZz5NP4cz4AR414lTIw1_ml48lVAex3Qq6KjEzHH0ocfcd0nGJeE3S4cO0BPoV0G_mVRUyqORBhf-UXTgqeY6OdW6PsMJCnoHlCNYtPTkozhCnFem1Im4r4rUi_VbEb0UGrch1dWifF2kdrg3ners-0c7Vzvvq3vtq9321V6sN04AJvMI0MYKtUd4J4d6YkBQXTBk708CF4tNNFhtBeXcyinKEjiiGGbHaK3f_ADXsRe0=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h4 id="business-architecture-3210-lo-180-170_create_delivery_note_-otcip-lo-180-170_create_delivery_note_-otcip">BUSINESS ARCHITECTURE — 3.2.10 LO-180-170_Create_Delivery_Note_-<em>OTC</em>(IP) — LO-180-170_Create_Delivery_Note_-<em>OTC</em>(IP)</h4>
@@ -968,7 +1057,7 @@ flowchart TD
 <p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1008,7 +1097,7 @@ flowchart LR
         n10[["fa:fa-cog Send 3B12 Confirmation to OpenText"]]
         n11[["fa:fa-cog Send Email Alert"]]
         n12[["fa:fa-cog Update Delivery"]]
-        n13[["fa:fa-cog Send 3B12 Request Information to 3rd Party Logistics Ware..."]]
+        n13[["fa:fa-cog Send 3B12 Request Information to 3rd Party Logistics Warehouse"]]
         n17(["fa:fa-stop Delivery Information Confirmed"])
         n18(["fa:fa-stop Email Alert Sent Successfully"])
         n29{{"fa:fa-code-branch Confirmation Status?"}}
@@ -1084,6 +1173,9 @@ flowchart LR
     class n32 subProc
 </div>
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlWFtv2zYU_iuEisApYKOiLpbshw2-qcuQNEGcrhiaPdASZXORRY-Sk3ip__sOJVE3yy3Q-cEAv3POdy48PDT9pvk8oNpYu7h4YzFLx-itl27olvbGqLciCe31UQ78QQQjq4gmPakT8jhdsn8zNWztXqWaxDyyZdFBoku65hR9vuqjCRhGfZSQOBkkVLCw1-_tBNsScZjxiAup_Y66oR5m3grRlIuAikpB1x3s22AasZhWsOlYjuVJu4T6PA4apKEduqHfO8rgIv7ib4hIs_D3Cb0hr19YkG5gHZIooaCzSbfRNVnRSOaYir3E_L14VsVgifQTQ8GWO-KzeA24pQMkSPxUQbZ-PKLjxcVjXDpF1_ePMYKPH5EkmdMQJSnAi-cUhSyKxu-s2cSz9X6SCv5Ex--MhTM3jb4vMxlD6npfFnfwQtl6k45XPAoK1cGLzGFs7F774nVs6H1xgO-WLxoHlafZ0HANt_Q0dfAMz5SnMAz_lyeoq3ggyVPha2F6hjcvfWF7aM_0Uz6V5txyJrhdJyqemU9rpJ7nmYuqVIuhjfXzpFPPHOqzFumapPSFHCrC0cwqCT3b8bBzljD3145yv7oT3FeE5sL27JLQmWJvYpwltCbYcosIgWctyG6DZtMJmu4TaPUkQTckJmsqchX5ifHXRy0k45AMZMXRTFDICM1pxJ6pOEiDPYmiw6P2V83IaBpdBTROWXhACyG4aKqaTdV7GlGYBeg3aIcPaBpx_6mpbzX1ZS1k4EsC8wLdyoPc1Leb-hljFX7IBfL2AsZOSQUnq8ngfC0pfL4-qcBkn_ItSZlflKFu6n7fdHVAX2APdrlz2I5tyx7blyXBLoI2Kk0_cSDK-BiP0RXMUwbUAdi_r9sPK_sk5bvKPqvDqf4I1LM60AClHD3c3v02eWjtrf72ViUV0MEKZpK_qag_oI8Py2wDf33Ujse6Ke42pa9-BB34TD_mp6VtZvzAY7MYoeBbNCUpaPzOV9BR_-yZoKfBmD8XjNVtNttQaKybG3Q1RyxBLEaLnAgiumZJeuLe_h4PC1vZwWasqNq1E67hz6Xi_JyZ222GkxTNP_XRHKrtpwhOlhEHgLTMzVoTEJgHL8mARCnaEQEHiEbdPk2jOkkhdBYVA76jcXn8y2LxEKodU3SV0m2CLq_u3ldHCi6n1ux7gMiTHRdp3jnF9EOXnfgWhlj9sAybkwXc1gYL7JcnspstH0ro0rt93zxI2GpOhyXEh7xb9HkXQA2S78X9hQi64eAW3cLwICmvT-xRk_ae-hRiQuYUG-gGigWptMeM3hFJpj_jccjENi8D5ATu4gf6mrYJcAfBYktYhCYRFSfqRlM9z7gsXlvbPBedPNoUuu4qhjleBWmKAN3Bb54DuuZrOHrMT6qKtcmdcxOyTlqU4XReui3rWs4yTvja-7JBw31-OdSNjdGZCVCv-RJacJ-0D7yp_2B4nPaeHEr5_RPIowlDpUZadlhsocHgFznki7WBc8Aq1sXSMJU8X6ul0xJjuwCw0s8Mvj1qf8oO_ybnqZJYheQTzwSOolAuVEijfI3V2iwUsGIqfOKhYi6iUjFgvQhqpIAiK-wqC7PQsJUPlbfixEWhsKFM7Gb4Jm4LVMZ2O-GyFGXKhXsVn6m3NLHZiAskc-hzwVb7_KpQ97ZUVSRGm8RoC4rIDbe9V0qg4jNbm2q2GMrCjwr8nv4NV4I8PjIi3BZP4IzsSrHyYgyLjVeBDlt7YLiFvSEvGTB124LmlZQnodjcZqtmP7Blf6uHRQM2umGzG7a6YbsbHnbDTv1B0pC4ZyWjsxLo-bMifF5knBeZ50XWeZFdPkeb-LB4OjZRpxN1O9FRNzN0d_EGa8K4Gza6YbMbtrphuxsedsNON-x2w6NO2OzO0uzOEiZm8YzU-tqWwl3DAm38pmX_vsA_NAENyT5KtWNfI_C6WR5iXxtn_1Jo--yqnjMiXys5ePwPe7uMTg==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
@@ -1138,6 +1230,7 @@ flowchart LR
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
@@ -1169,14 +1262,13 @@ flowchart LR
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="42-data-flow-diagrams">4.2 Data Flow Diagrams</h3>
 <blockquote>
 <p><strong>DATA ARCHITECTURE</strong> — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.</p>
 </blockquote>
-<div style="page-break-before: always;"></div>
-
 <h3 id="43-data-lineage">4.3 Data Lineage</h3>
 <p>Data lineage traces the origin and transformation path of key data objects across integrated systems.</p>
 <table>
@@ -1284,27 +1376,20 @@ flowchart LR
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</h2>
 <h3 id="51-current-state-current-state-application-landscape">5.1 Current-State — Current-State Application Landscape</h3>
 <h4 id="overview">Overview</h4>
 <p>The Current-State architecture represents the <strong>current / legacy</strong> landscape for LO-180.</p>
-<div style="page-break-before: always;"></div>
-
 <h4 id="current-state-flow-narrative">Current-State Flow Narrative</h4>
 <p><em>(No current-state flows defined.)</em></p>
-<div style="page-break-before: always;"></div>
-
 <h3 id="52-future-state-future-state-application-landscape">5.2 Future-State — Future-State Application Landscape</h3>
 <h4 id="overview_1">Overview</h4>
 <p>The Future-State architecture represents the <strong>target</strong> landscape for LO-180.</p>
-<div style="page-break-before: always;"></div>
-
 <h4 id="future-state-flow-narrative">Future-State Flow Narrative</h4>
 <p><em>(No future-state flows defined.)</em></p>
-<div style="page-break-before: always;"></div>
-
 <h3 id="53-change-impact-summary">5.3 Change Impact Summary</h3>
 <table>
 <thead>
@@ -1341,6 +1426,7 @@ flowchart LR
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
@@ -1747,6 +1833,7 @@ flowchart LR
 </tbody>
 </table>
 <p><strong>Summary</strong>: 4 Reports, 12 Interfaces, 18 Enhancements, 9 Forms</p>
+<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
@@ -1776,6 +1863,7 @@ flowchart LR
 <blockquote>
 <p><em>Integration pattern details will be refined when tower architects validate middleware assignments.</em></p>
 </blockquote>
+<div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
@@ -1822,51 +1910,130 @@ flowchart LR
 <blockquote>
 <p><em>Platform assignments will be validated when tower architects populate technology platform columns.</em></p>
 </blockquote>
+<div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h3 id="62-sap-development-object-status">6.2 SAP Development Object Status</h3>
+<p><strong>Capability RICEFW Status</strong> (43 objects)
+<em>Data source: Smartsheet Object Tracker (cached 2026-03-26)</em></p>
 <table>
 <thead>
 <tr>
-<th>Metric</th>
-<th>DEV</th>
-<th>QAS</th>
-<th>PRD</th>
+<th>Status</th>
+<th style="text-align: right;">Count</th>
+<th style="text-align: right;">%</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Transport Requests</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>10. Object Complete</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: right;">95.3%</td>
 </tr>
 <tr>
-<td>Custom Code Objects</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>06. Dev In Progress</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2.3%</td>
 </tr>
 <tr>
-<td>CDS Views</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td>08. FUT In Progress</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2.3%</td>
 </tr>
 <tr>
-<td>Fiori Apps</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>BAdIs / Enhancements</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>43</strong></td>
+<td style="text-align: right;"><strong>100%</strong></td>
 </tr>
 </tbody>
 </table>
+<p><strong>RICEFW by Type:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Report (R)</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr>
+<td>Interface (I)</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr>
+<td>Enhancement (E)</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr>
+<td>Form (F)</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>43</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Technical Complexity:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Complexity</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01.Very High</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>02.High</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr>
+<td>03.Medium</td>
+<td style="text-align: right;">28</td>
+</tr>
+<tr>
+<td>04.Low</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Active (Non-Complete) Objects:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Type</th>
+<th>Description</th>
+<th>Status</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOGR1236</td>
+<td>01.Report</td>
+<td>2DN - Outbound Escort Report</td>
+<td>06. Dev In Progress</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>LOGE1713</td>
+<td>04.Enhancement</td>
+<td>Copy Control Routine for Customer Master Special Instructions</td>
+<td>08. FUT In Progress</td>
+<td>03.Medium</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tower Context:</strong> OTC-IP has 292 total RICEFW objects (282 complete, 10 active/other)</p>
 <h3 id="63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</h3>
 <table>
 <thead>
@@ -1995,23 +2162,21 @@ flowchart LR
 </tr>
 </tbody>
 </table>
+<div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 <h2 id="7-project-context">7. Project Context</h2>
 <h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
+<p><em>43 objects with timeline data (source: Object Tracker)</em></p>
 <table>
 <thead>
 <tr>
-<th>Object ID</th>
+<th>ID</th>
 <th>Description</th>
-<th>FS End</th>
-<th>FS %</th>
-<th>TDD End</th>
-<th>TDD %</th>
-<th>Build End</th>
-<th>Build %</th>
-<th>FUT End</th>
-<th>FUT %</th>
+<th>FS</th>
+<th>TDD</th>
+<th>Build</th>
+<th>FUT</th>
 <th>Status</th>
 </tr>
 </thead>
@@ -2019,339 +2184,503 @@ flowchart LR
 <tr>
 <td>LOGR1252</td>
 <td>2DN - Inbound Escort Report</td>
-<td>2025-07-16</td>
-<td>1.0</td>
-<td>2026-01-07</td>
-<td>1.0</td>
-<td>2026-01-07</td>
-<td>1.0</td>
-<td>2026-03-04</td>
-<td>1.0</td>
+<td>Jul-25 (100%)</td>
+<td>Jan-26 (100%)</td>
+<td>Jan-26 (100%)</td>
+<td>Mar-26 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>LOGR1236</td>
 <td>2DN - Outbound Escort Report</td>
-<td>2025-07-16</td>
-<td>1.0</td>
-<td>2026-01-07</td>
-<td>0.75</td>
-<td>2026-01-07</td>
-<td>0.95</td>
-<td>2026-03-04</td>
-<td>1.0</td>
+<td>Jul-25 (100%)</td>
+<td>Jan-26 (75%)</td>
+<td>Jan-26 (95%)</td>
+<td>Mar-26 (100%)</td>
 <td>3. Off Track</td>
 </tr>
 <tr>
 <td>LOGR1173</td>
 <td>2DN - Outbound Manifest Report</td>
-<td>2025-05-23</td>
-<td>1.0</td>
-<td>2025-09-05</td>
-<td>1.0</td>
-<td>2025-09-05</td>
-<td>1.0</td>
-<td>2026-01-23</td>
-<td>1.0</td>
+<td>May-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Jan-26 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>LOGR1172</td>
 <td>2DN - Inbound Manifest Report</td>
-<td>2025-05-23</td>
-<td>1.0</td>
-<td>2025-09-05</td>
-<td>1.0</td>
-<td>2025-09-05</td>
-<td>1.0</td>
-<td>2026-01-23</td>
-<td>1.0</td>
+<td>May-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Jan-26 (100%)</td>
 <td>3. Off Track</td>
 </tr>
 <tr>
 <td>LOGI1067</td>
-<td>2DN - S4 – Interface from S/4 to MPL &hellip;</td>
-<td>2025-03-21</td>
-<td>1.0</td>
-<td>2025-05-15</td>
-<td>1.0</td>
-<td>2025-05-15</td>
-<td>1.0</td>
-<td>2026-01-23</td>
-<td>1.0</td>
+<td>2DN - S4 – Interface from S/4 to MPL for packing list.</td>
+<td>Mar-25 (100%)</td>
+<td>May-25 (100%)</td>
+<td>May-25 (100%)</td>
+<td>Jan-26 (100%)</td>
 <td>3. Off Track</td>
 </tr>
 <tr>
 <td>LOGI1066</td>
-<td>2DN - Interface to capture Data for 1&hellip;</td>
-<td>2025-02-28</td>
-<td>1.0</td>
-<td>2025-04-11</td>
-<td>1.0</td>
-<td>2025-04-11</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
+<td>2DN - Interface to capture Data for 1st Delivery in 2DN X-Dock Model</td>
+<td>Feb-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
 <td>LOGI0875</td>
-<td>Interface from WOM to S4 HANA to fetc&hellip;</td>
-<td>2025-04-18</td>
-<td>1.0</td>
-<td>2025-05-30</td>
-<td>1.0</td>
-<td>2025-05-30</td>
-<td>1.0</td>
-<td>2025-10-03</td>
-<td>1.0</td>
+<td>Interface from WOM to S4 HANA to fetch the list of Deliveries for a particular customer</td>
+<td>Apr-25 (100%)</td>
+<td>May-25 (100%)</td>
+<td>May-25 (100%)</td>
+<td>Oct-25 (100%)</td>
 <td></td>
 </tr>
 <tr>
 <td>LOGI0874</td>
-<td>Interface from WOM to S4 HANA to fetc&hellip;</td>
-<td>2025-04-18</td>
-<td>1.0</td>
-<td>2025-08-08</td>
-<td>1.0</td>
-<td>2025-08-08</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
+<td>Interface from WOM to S4 HANA to fetch the ASN information of delivery.</td>
+<td>Apr-25 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>LOGI0842_IP</td>
-<td>Interface from SAP S4 to DBaaS to Fet&hellip;</td>
-<td>2025-03-28</td>
-<td>1.0</td>
-<td>2025-07-11</td>
-<td>1.0</td>
-<td>2025-07-11</td>
-<td>1.0</td>
-<td>2026-02-04</td>
-<td>1.0</td>
+<td>Interface from SAP S4 to DBaaS to Fetch Actual COF for FVR batch and COA for AVR batch.</td>
+<td>Mar-25 (100%)</td>
+<td>Jul-25 (100%)</td>
+<td>Jul-25 (100%)</td>
+<td>Feb-26 (100%)</td>
 <td>3. Off Track</td>
 </tr>
 <tr>
 <td>LOGI0800_IP</td>
-<td>Interface to send shipment informatio&hellip;</td>
-<td>2025-02-21</td>
-<td>1.0</td>
-<td>2025-04-11</td>
-<td>1.0</td>
-<td>2025-04-11</td>
-<td>1.0</td>
-<td>2025-10-09</td>
-<td>1.0</td>
+<td>Interface to send shipment information to custom broker</td>
+<td>Feb-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Oct-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>LOGI0612_IP</td>
-<td>Customer ASN interface from outbound &hellip;</td>
-<td>2025-01-31</td>
-<td>1.0</td>
-<td>2025-04-23</td>
-<td>1.0</td>
-<td>2025-04-23</td>
-<td>1.0</td>
-<td>2025-10-09</td>
-<td>1.0</td>
+<td>Customer ASN interface from outbound delivery</td>
+<td>Jan-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Oct-25 (100%)</td>
 <td>3. Off Track</td>
 </tr>
 <tr>
 <td>LOGI0610</td>
-<td>3B2 Post goods issue interface for Ou&hellip;</td>
-<td>2025-01-31</td>
-<td>1.0</td>
-<td>2025-04-23</td>
-<td>1.0</td>
-<td>2025-04-23</td>
-<td>1.0</td>
-<td>2025-11-21</td>
-<td>1.0</td>
+<td>3B2 Post goods issue interface for Outbound delivery to SAP</td>
+<td>Jan-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
 <td>LOGI0609</td>
-<td>3B13 interface for pick/pack updates &hellip;</td>
-<td>2025-02-21</td>
-<td>1.0</td>
-<td>2025-04-11</td>
-<td>1.0</td>
-<td>2025-04-11</td>
-<td>1.0</td>
-<td>2025-11-21</td>
-<td>1.0</td>
+<td>3B13 interface for pick/pack updates for outbound delivery to SAP</td>
+<td>Feb-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Apr-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>LOGI0607</td>
-<td>3B14R Cancellation Request from S/4 t&hellip;</td>
-<td>2025-01-10</td>
-<td>1.0</td>
-<td>2025-03-14</td>
-<td>1.0</td>
-<td>2025-03-14</td>
-<td>1.0</td>
-<td>2025-11-21</td>
-<td>1.0</td>
+<td>3B14R Cancellation Request from S/4 to 3PL</td>
+<td>Jan-25 (100%)</td>
+<td>Mar-25 (100%)</td>
+<td>Mar-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
 <td>LOGI0418</td>
 <td>3B12 Request to 3PL on FO creation</td>
-<td>2024-09-20</td>
-<td>1.0</td>
-<td>2025-02-28</td>
-<td>1.0</td>
-<td>2025-02-28</td>
-<td>1.0</td>
-<td>2025-11-21</td>
-<td>1.0</td>
+<td>Sep-24 (100%)</td>
+<td>Feb-25 (100%)</td>
+<td>Feb-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
 <td>LOGI0415</td>
-<td>3B14C Cancellation Confirmation from &hellip;</td>
-<td>2024-08-30</td>
-<td>1.0</td>
-<td>2025-01-17</td>
-<td>1.0</td>
-<td>2025-01-17</td>
-<td>1.0</td>
-<td>2025-11-21</td>
-<td>1.0</td>
+<td>3B14C Cancellation Confirmation from 3PL to S/4</td>
+<td>Aug-24 (100%)</td>
+<td>Jan-25 (100%)</td>
+<td>Jan-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
 <td>LOGF1583</td>
-<td>Consolidated Export Commercial Invoic&hellip;</td>
-<td>2025-11-21</td>
-<td>1.0</td>
-<td>2025-12-19</td>
-<td>1.0</td>
-<td>2025-12-19</td>
-<td>1.0</td>
-<td>2026-01-30</td>
-<td>1.0</td>
+<td>Consolidated Export Commercial Invoice – Finished Goods (IP)</td>
+<td>Nov-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>Jan-26 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>LOGF1149_IP</td>
 <td>Consolidated Packing list for Chengdu</td>
-<td>2025-05-16</td>
-<td>1.0</td>
-<td>2025-08-13</td>
-<td>1.0</td>
-<td>2025-08-13</td>
-<td>1.0</td>
-<td>2025-10-31</td>
-<td>1.0</td>
+<td>May-25 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Oct-25 (100%)</td>
 <td>4. Completed</td>
 </tr>
 <tr>
 <td>LOGF0805</td>
-<td>EIAJ form to be generated for OEM cus&hellip;</td>
-<td>2025-06-20</td>
-<td>1.0</td>
-<td>2025-09-05</td>
-<td>1.0</td>
-<td>2025-09-05</td>
-<td>1.0</td>
-<td>2025-11-05</td>
-<td>1.0</td>
+<td>EIAJ form to be generated for OEM customers (Japan)</td>
+<td>Jun-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Nov-25 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
 <td>LOGF0353_IP</td>
-<td>Generate Consolidated Export Commerci&hellip;</td>
-<td>2024-08-16</td>
-<td>1.0</td>
-<td>2025-08-13</td>
-<td>1.0</td>
-<td>2025-08-13</td>
-<td>1.0</td>
-<td>2026-01-30</td>
-<td>1.0</td>
+<td>Generate Consolidated Export Commercial Invoice - Finished Goods (IF and IP)</td>
+<td>Aug-24 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Aug-25 (100%)</td>
+<td>Jan-26 (100%)</td>
 <td>1. On Track</td>
 </tr>
 <tr>
-<td><em>&hellip; and 23 more objects (see full Object Tracker)</em></td>
+<td>LOGF0348_IP</td>
+<td>Shipper Letter of instruction (Localization requirement for US)</td>
+<td>Aug-24 (100%)</td>
+<td>Feb-25 (100%)</td>
+<td>Feb-25 (100%)</td>
+<td>Aug-25 (100%)</td>
 <td></td>
+</tr>
+<tr>
+<td>LOGF0345_IP</td>
+<td>Bailment CI and End-Customer CI for IF/IP</td>
+<td>Aug-24 (100%)</td>
+<td>Feb-25 (100%)</td>
+<td>Feb-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>3. Off Track</td>
+</tr>
+<tr>
+<td>LOGF0344_IP</td>
+<td>Generate Export CI for IF/IP</td>
+<td>Aug-24 (100%)</td>
+<td>Feb-25 (100%)</td>
+<td>Feb-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>4. Completed</td>
+</tr>
+<tr>
+<td>LOGF0343_IP</td>
+<td>Generate Itemised Packing Lists</td>
+<td>Aug-24 (100%)</td>
+<td>Feb-25 (100%)</td>
+<td>Feb-25 (100%)</td>
+<td>Jul-25 (100%)</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+</tr>
+<tr>
+<td>LOGF0342_IP</td>
+<td>Generate Packing Lists for Finished Goods - IP and IF</td>
+<td>Aug-24 (100%)</td>
+<td>Feb-25 (100%)</td>
+<td>Feb-25 (100%)</td>
+<td>Jul-25 (100%)</td>
+<td>3. Off Track</td>
+</tr>
+<tr>
+<td>LOGE1713</td>
+<td>Copy Control Routine for Customer Master Special Instructions</td>
+<td>Feb-26 (100%)</td>
+<td>Mar-26 (100%)</td>
+<td>Mar-26 (100%)</td>
+<td>Mar-26 (95%)</td>
+<td>3. Off Track</td>
+</tr>
+<tr>
+<td>LOGE1148</td>
+<td>2DN - Trigger Auto packing in 2nd DN of 2DN X-Dock Model</td>
+<td>Mar-25 (100%)</td>
+<td>Jul-25 (100%)</td>
+<td>Jul-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>LOGE1147</td>
+<td>2DN - S4 – Error Handling program in 2DN X-Dock Model</td>
+<td>May-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>Dec-25 (100%)</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>LOGE1116</td>
+<td>2DN - Enhancement to capture required fields of 1st Delivery in 2DN X-Dock Model</td>
+<td>Feb-25 (100%)</td>
+<td>May-25 (100%)</td>
+<td>May-25 (100%)</td>
+<td>Sep-25 (100%)</td>
+<td>1. On Track</td>
+</tr>
+<tr>
+<td>LOGE1114</td>
+<td>2DN - Post 3PL 3B2 or manual Goods Issue from CW or IW - Wrapper Program to complete processing of subsequent documents in the first leg of 2DN X-Dock Model. ​</td>
+<td>Feb-25 (100%)</td>
+<td>Jul-25 (100%)</td>
+<td>Jul-25 (100%)</td>
+<td>Oct-25 (100%)</td>
+<td>1. On Track</td>
 </tr>
 </tbody>
 </table>
-<div style="page-break-before: always;"></div>
-
+<p><em>&hellip; and 13 more objects (see full Object Tracker)</em></p>
 <h3 id="72-raid-log">7.2 RAID Log</h3>
-<p>Standard RAID items for LO-180 (Order To Cash (IP)):</p>
+<p><em>Live data from Smartsheet Master RAID Log — extracted 2026-03-26</em></p>
+<p><strong>Mapped sub-tower(s):</strong> 5.10 OTC IP - Logistics Management Outbound</p>
+<p><strong>RAID Summary:</strong> 19 open items (0 capability-specific, 19 tower-level), 220 closed</p>
 <table>
 <thead>
 <tr>
-<th>#</th>
-<th>Category</th>
-<th>Description</th>
-<th>Status</th>
-<th>Owner</th>
-<th>Priority</th>
+<th>Severity</th>
+<th style="text-align: right;">Capability</th>
+<th style="text-align: right;">Tower-Wide</th>
+<th style="text-align: right;">Total Open</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
-<td>Risk</td>
-<td>Data migration completeness — validate all legacy Manage Outbound Transportation - OTC (IP) data maps to S/4 target structures</td>
-<td>Open</td>
-<td>Tower Architect</td>
-<td>High</td>
+<td>P1 - High</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
 </tr>
 <tr>
-<td>2</td>
-<td>Risk</td>
-<td>Integration testing coverage — ensure all 0 integrated systems are validated end-to-end</td>
-<td>Open</td>
-<td>Integration Lead</td>
-<td>High</td>
+<td>P2 - Medium</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">12</td>
 </tr>
 <tr>
-<td>3</td>
-<td>Assumption</td>
-<td>Target SAP S/4HANA system available in DEV/QAS per release schedule</td>
-<td>Active</td>
-<td>SAP Basis</td>
-<td>Medium</td>
+<td>P3 - Low</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
 </tr>
 <tr>
-<td>4</td>
-<td>Issue</td>
-<td>API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation</td>
-<td>Open</td>
-<td>EA Pipeline Team</td>
-<td>High</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Dependency</td>
-<td>Upstream BPMN process models validated and signed off by business process owners</td>
-<td>Active</td>
-<td>Process Owner</td>
-<td>Medium</td>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
+<td style="text-align: right;"><strong>19</strong></td>
+<td style="text-align: right;"><strong>19</strong></td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><em>Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.</em></p>
-</blockquote>
+<p><strong>Other OTC-IP Tower RAID Items</strong> (19 open):</p>
+<table>
+<thead>
+<tr>
+<th>RAID ID</th>
+<th>Type</th>
+<th>Severity</th>
+<th>Title</th>
+<th>Status</th>
+<th>Assigned To</th>
+<th>Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>03591</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>R3 E2E scenario execution</td>
+<td>In Progress</td>
+<td>Test Management</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>03755</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>Coding for 2DN and AIF enhancements.</td>
+<td>In Progress</td>
+<td>Technology</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03767</td>
+<td>Risk</td>
+<td>P1 - High</td>
+<td>Day 1 OTC Execution - APOP production cutover for allocation&hellip;</td>
+<td>In Progress</td>
+<td>OTC IP</td>
+<td>2026-04-24</td>
+</tr>
+<tr>
+<td>01733</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Tariffs impacts Item/BOM design which is impacting ERP/SCP (&hellip;</td>
+<td>In Progress</td>
+<td>E2E</td>
+<td>2026-03-06</td>
+</tr>
+<tr>
+<td>03060</td>
+<td></td>
+<td>P2 - Medium</td>
+<td>Resource shift across Intel / Accenture Managed Services</td>
+<td>In Progress</td>
+<td>CM &amp; Comms</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03712</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>LOGE0627, LOGE0690</td>
+<td>In Progress</td>
+<td>OTC IP</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>03625</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Item/ BOM MC1 delta load</td>
+<td>In Progress</td>
+<td>Cutover</td>
+<td>2026-04-10</td>
+</tr>
+<tr>
+<td>03635</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Gaps in mapping of ITC test cases to automated controls and &hellip;</td>
+<td>Not Started</td>
+<td>OTC IP</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>02456</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>clarify who is D for the R3 org design between SMG and CPG a&hellip;</td>
+<td>In Progress</td>
+<td>OTC IP</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>02486</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Tier 1/Tier 2 customer support</td>
+<td>Not Started</td>
+<td>OTC IP</td>
+<td>2026-03-31</td>
+</tr>
+<tr>
+<td>02491</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Clearly defined demand and sales ops roles (especially in BM&hellip;</td>
+<td>In Progress</td>
+<td>OTC IP</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03736</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Golden Data/Test Data Readiness</td>
+<td>In Progress</td>
+<td>Master Data</td>
+<td>2026-04-22</td>
+</tr>
+<tr>
+<td>03743</td>
+<td>Issue</td>
+<td>P2 - Medium</td>
+<td>FD-Share with Entitlements -  Interface File Paths for MC1</td>
+<td>Roadblock / At Risk</td>
+<td>PMO</td>
+<td>2026-03-20</td>
+</tr>
+<tr>
+<td>03749</td>
+<td>Action</td>
+<td>P2 - Medium</td>
+<td>Logistics Data Intake and Creation Process Definition</td>
+<td>In Progress</td>
+<td>Test Management</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03760</td>
+<td>Risk</td>
+<td>P2 - Medium</td>
+<td>Require confirmation from OT/B2B team to confirm on 3B2 ASN</td>
+<td>Roadblock / At Risk</td>
+<td>B-Apps</td>
+<td></td>
+</tr>
+<tr>
+<td>03315</td>
+<td>Risk</td>
+<td>P3 - Low</td>
+<td>BPMG – SCP L3/L4 flow standards</td>
+<td>In Progress</td>
+<td>Business Process Mgmt</td>
+<td>2026-03-27</td>
+</tr>
+<tr>
+<td>03317</td>
+<td>Risk</td>
+<td>P3 - Low</td>
+<td>BPMG – E2E L3/L4 flow standards</td>
+<td>In Progress</td>
+<td>Business Process Mgmt</td>
+<td>2026-05-29</td>
+</tr>
+<tr>
+<td>03627</td>
+<td>Risk</td>
+<td>P3 - Low</td>
+<td>Inconsistency Response from EH -API B-App</td>
+<td>Not Started</td>
+<td>B-Apps</td>
+<td></td>
+</tr>
+<tr>
+<td>02488</td>
+<td>Action</td>
+<td>P3 - Low</td>
+<td>contractual demand policy (including cloud customers)</td>
+<td>In Progress</td>
+<td>OTC IP</td>
+<td>2026-04-17</td>
+</tr>
+</tbody>
+</table>
 <h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
 <table>
 <thead>
