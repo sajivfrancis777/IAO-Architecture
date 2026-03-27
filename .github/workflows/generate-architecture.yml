@@ -8,8 +8,8 @@
 name: Generate Architecture Docs
 
 on:
-  schedule:
-    - cron: "0 6 * * 1"          # Every Monday at 06:00 UTC
+  # schedule:                       # PAUSED — re-enable after refinement
+  #   - cron: "0 6 * * 1"          # Every Monday at 06:00 UTC
   workflow_dispatch:
     inputs:
       tower:
@@ -20,12 +20,12 @@ on:
         description: "Override schedule: daily, weekly, monthly"
         required: false
         default: ""
-  push:
-    branches: [main]
-    paths:
-      - "src/**"
-      - "templates/**"
-      - "towers/**/input/**"
+  # push:                            # PAUSED — re-enable after refinement
+  #   branches: [main]
+  #   paths:
+  #     - "src/**"
+  #     - "templates/**"
+  #     - "towers/**/input/**"
 
 permissions:
   contents: write                 # commit generated outputs back
