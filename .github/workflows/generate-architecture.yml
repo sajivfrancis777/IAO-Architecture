@@ -88,7 +88,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add towers/*/output/
+          git add towers/
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
@@ -97,7 +97,7 @@ jobs:
           fi
 
       - name: Sync to SharePoint
-        if: success()
+        if: ${{ success() && secrets.SP_TENANT_ID != '' }}
         run: python scripts/sync_sharepoint.py --all
         env:
           SP_TENANT_ID: ${{ secrets.SP_TENANT_ID }}
@@ -112,5 +112,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: architecture-docs
-          path: towers/*/output/
+          path: |
+            towers/**/output/**/*.html
+            towers/**/output/**/*.pdf
+            towers/**/output/**/*.md
           retention-days: 30

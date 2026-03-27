@@ -443,31 +443,47 @@ GitHub does not render HTML files inline — it shows the source code instead. T
 
 ### Option 1: GitHub Pages (Recommended)
 
-After enabling GitHub Pages, all HTML outputs are served at:
+GitHub Pages serves the HTML files as a static website directly from the repository.
+
+**One-time setup on GitHub:**
+
+1. Go to `https://github.com/<OWNER>/IAO-Architecture/settings/pages`
+2. Under **Build and deployment → Source**, select **GitHub Actions**
+3. That's it — the `deploy-pages.yml` workflow handles the rest
+
+**How it works:**
+- Every time `generate-architecture.yml` completes successfully, it triggers `deploy-pages.yml`
+- `deploy-pages.yml` copies all HTML and SVG outputs to a `_site/` folder and generates an index page
+- GitHub Pages publishes the site at:
 
 ```
-https://<username>.github.io/IAO-Architecture/towers/<TOWER>/<CAP>/output/<CAP>-Architecture.html
+https://<username>.github.io/IAO-Architecture/
 ```
 
-**Setup:**
-1. Go to **Settings → Pages**
-2. Source: **GitHub Actions**
-3. The `deploy-pages.yml` workflow automatically deploys after each doc generation
-4. An index page at the root lists all towers and capabilities
+The index page lists every tower and capability with clickable links.
+
+**Direct capability link format:**
+```
+https://<username>.github.io/IAO-Architecture/towers/<TOWER>/<ProcessGroup>/<CAP>/output/docs/systems-architecture/<CAP>-Architecture.html
+```
+
+> **Note:** If you already enabled Pages with "Deploy from a branch" (which creates a `static.yml` workflow), switch the source to **GitHub Actions** so that `deploy-pages.yml` is used instead. You can delete the `static.yml` workflow after switching.
 
 ### Option 2: htmlpreview.github.io
 
-For quick viewing without Pages setup, prepend the raw GitHub URL:
+For quick one-off viewing without any setup:
 
 ```
-https://htmlpreview.github.io/?https://github.com/<OWNER>/<REPO>/blob/main/towers/FPR/DS-001/output/DS-001-Architecture.html
+https://htmlpreview.github.io/?https://github.com/<OWNER>/IAO-Architecture/blob/main/towers/FPR/DS%20Provide%20Decision%20Support/DS-020/output/docs/systems-architecture/DS-020-Architecture.html
 ```
+
+> **Caveat:** Spaces in folder names must be URL-encoded (`%20`). Mermaid diagrams may not render if htmlpreview blocks CDN scripts.
 
 ### Option 3: Local
 
 ```bash
-# Open a specific HTML file locally
-start towers/FPR/DS-001/output/DS-001-Architecture.html
+# Open a specific HTML file in your default browser (Windows)
+start "towers\FPR\DS Provide Decision Support\DS-020\output\docs\systems-architecture\DS-020-Architecture.html"
 ```
 
 ### SharePoint Input Folder Sync
