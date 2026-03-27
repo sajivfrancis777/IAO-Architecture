@@ -482,7 +482,7 @@ Platform landscape inferred from integrated systems for MDM-130:
 ### 6.2 SAP Development Object Status
 
 **Capability RICEFW Status** (146 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-03-26)*
+*Data source: Smartsheet Object Tracker (cached 2026-03-27)*
 
 | Status | Count | % |
 |--------|------:|----:|
@@ -625,7 +625,7 @@ Platform landscape inferred from integrated systems for MDM-130:
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-03-26*
+*Live data from Smartsheet Master RAID Log — extracted 2026-03-27*
 
 **Mapped sub-tower(s):** 9A.1 Master Data - ALL, 9A.2 Master Data - BOM, 9A.3 Master Data - Customer, 9A.4 Master Data - Vendor, 9A.5 Master Data - Finance, 9A.6 Master Data - Material, 9A.7 Master Data - Reference, 9A.8 Master Data - HR Mini Master
 

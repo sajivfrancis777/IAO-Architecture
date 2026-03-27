@@ -637,7 +637,7 @@ flowchart TB
 ### 6.2 SAP Development Object Status
 
 **RICEFW Status Summary** — E2E Tower (0 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-03-26)*
+*Data source: Smartsheet Object Tracker (cached 2026-03-27)*
 
 | Status | Count | % |
 |--------|------:|----:|
@@ -687,7 +687,7 @@ flowchart TB
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-03-26*
+*Live data from Smartsheet Master RAID Log — extracted 2026-03-27*
 
 **RAID Summary:** 15 open items (0 capability-specific, 15 tower-level), 56 closed
 

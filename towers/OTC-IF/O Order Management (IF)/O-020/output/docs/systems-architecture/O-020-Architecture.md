@@ -849,7 +849,7 @@ Platform landscape inferred from integrated systems for O-020:
 ### 6.2 SAP Development Object Status
 
 **Capability RICEFW Status** (87 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-03-26)*
+*Data source: Smartsheet Object Tracker (cached 2026-03-27)*
 
 | Status | Count | % |
 |--------|------:|----:|
@@ -955,7 +955,7 @@ Platform landscape inferred from integrated systems for O-020:
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-03-26*
+*Live data from Smartsheet Master RAID Log — extracted 2026-03-27*
 
 **Mapped sub-tower(s):** 4.10 OTC IF - Logistics Management Outbound, 4.11 OTC IF - Order Management, 4.12 OTC IF - TM, 4.3 OTC IF - Billing and Rebates, 4.6 OTC IF - Credit and Collections, 4.8 OTC IF - EWM, 4.9 OTC IF - GTS, 7.6 FTS IF - Logistics & Inventory Management
 
