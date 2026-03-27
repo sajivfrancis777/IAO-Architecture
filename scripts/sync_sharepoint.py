@@ -103,9 +103,9 @@ def sync_tower(token: str, drive_id: str, tower_short: str) -> tuple[int, int]:
         print(f"  No output/ dir for {tower_short}")
         return 0, 0
 
-    # Collect HTML, MD, and SVG files from output/
+    # Collect HTML, PDF, and SVG files from output/ (MD files stay in GitHub only)
     files = (list(output_dir.rglob("*.html"))
-             + list(output_dir.rglob("*.md"))
+             + list(output_dir.rglob("*.pdf"))
              + list(output_dir.rglob("*.svg")))
     if not files:
         print(f"  No files to sync for {tower_short}")
