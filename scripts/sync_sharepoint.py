@@ -1,11 +1,12 @@
-"""sync_sharepoint.py — Upload generated architecture docs to SharePoint Online.
+"""sync_sharepoint.py — Upload architecture docs & inputs to SharePoint Online.
 
 Uses Microsoft Graph API with client-credentials (Azure AD app registration).
 Credentials come from .env via src.config.
 
 Usage:
-    python sync_sharepoint.py --all          # sync all towers
-    python sync_sharepoint.py --tower FPR    # sync one tower
+    python sync_sharepoint.py --all                    # sync outputs for all towers
+    python sync_sharepoint.py --tower FPR              # sync one tower
+    python sync_sharepoint.py --all --include-inputs   # also sync input xlsx files
 """
 
 from __future__ import annotations
@@ -94,36 +95,50 @@ def upload_file(token: str, drive_id: str, local_path: Path, remote_folder: str)
         return False
 
 
-def sync_tower(token: str, drive_id: str, tower_short: str) -> tuple[int, int]:
-    """Upload all HTML/MD outputs for a tower. Returns (uploaded, failed)."""
+def sync_tower(token: str, drive_id: str, tower_short: str,
+               include_inputs: bool = False) -> tuple[int, int]:
+    """Upload outputs (and optionally inputs) for a tower. Returns (uploaded, failed)."""
     tower_dir = TOWERS_DIR / tower_short
-    output_dir = tower_dir / "output"
-
-    if not output_dir.is_dir():
-        print(f"  No output/ dir for {tower_short}")
-        return 0, 0
-
-    # Collect HTML, PDF, and SVG files from output/ (MD files stay in GitHub only)
-    files = (list(output_dir.rglob("*.html"))
-             + list(output_dir.rglob("*.pdf"))
-             + list(output_dir.rglob("*.svg")))
-    if not files:
-        print(f"  No files to sync for {tower_short}")
-        return 0, 0
-
     remote_base = f"{cfg.sp_target_folder}/{tower_short}"
     uploaded, failed = 0, 0
 
-    for fp in files:
-        # Preserve subfolder structure (html/, md/)
-        rel = fp.relative_to(output_dir)
-        remote_folder = f"{remote_base}/{rel.parent}".rstrip("/.")
-        ok = upload_file(token, drive_id, fp, remote_folder)
-        if ok:
-            uploaded += 1
-        else:
-            failed += 1
-        time.sleep(0.2)  # rate limit courtesy
+    # ── Output files (HTML, PDF, SVG) ──
+    for cap_dir in tower_dir.rglob("output"):
+        if not cap_dir.is_dir():
+            continue
+        files = (list(cap_dir.rglob("*.html"))
+                 + list(cap_dir.rglob("*.pdf"))
+                 + list(cap_dir.rglob("*.svg")))
+        for fp in files:
+            rel = fp.relative_to(tower_dir)
+            remote_folder = f"{remote_base}/{rel.parent}".replace("\\", "/").rstrip("/.")
+            ok = upload_file(token, drive_id, fp, remote_folder)
+            if ok:
+                uploaded += 1
+            else:
+                failed += 1
+            time.sleep(0.2)
+
+    # ── Input files (xlsx) — only when --include-inputs ──
+    if include_inputs:
+        for cap_dir in tower_dir.rglob("input"):
+            if not cap_dir.is_dir():
+                continue
+            data_dir = cap_dir / "data"
+            if not data_dir.is_dir():
+                continue
+            for fp in data_dir.glob("*.xlsx"):
+                rel = fp.relative_to(tower_dir)
+                remote_folder = f"{remote_base}/{rel.parent}".replace("\\", "/").rstrip("/.")
+                ok = upload_file(token, drive_id, fp, remote_folder)
+                if ok:
+                    uploaded += 1
+                else:
+                    failed += 1
+                time.sleep(0.2)
+
+    if uploaded == 0 and failed == 0:
+        print(f"  No files to sync for {tower_short}")
 
     return uploaded, failed
 
@@ -132,6 +147,8 @@ def main():
     parser = argparse.ArgumentParser(description="Sync architecture docs to SharePoint")
     parser.add_argument("--tower", type=str, help="Single tower shortcode")
     parser.add_argument("--all", action="store_true", help="Sync all towers")
+    parser.add_argument("--include-inputs", action="store_true",
+                        help="Also upload input/data/*.xlsx files (for initial bootstrap)")
     args = parser.parse_args()
 
     if not args.tower and not args.all:
@@ -146,6 +163,8 @@ def main():
     drive_id = get_drive_id(token, site_id)
     print(f"  Site: {cfg.sp_site_url}")
     print(f"  Drive: {drive_id[:40]}...")
+    if args.include_inputs:
+        print("  Mode: outputs + input xlsx files")
 
     towers = []
     if args.all:
@@ -156,7 +175,7 @@ def main():
     total_up, total_fail = 0, 0
     for t in sorted(towers):
         print(f"\nSyncing {t}...")
-        up, fail = sync_tower(token, drive_id, t)
+        up, fail = sync_tower(token, drive_id, t, include_inputs=args.include_inputs)
         total_up += up
         total_fail += fail
         print(f"  {t}: {up} uploaded, {fail} failed")

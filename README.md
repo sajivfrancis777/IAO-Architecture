@@ -437,47 +437,70 @@ This downloads the specified file from SharePoint and commits it to the repo. Th
 
 ---
 
+## Security & Credential Management
+
+### Repository Visibility
+
+**The repository must be PRIVATE.** Architecture documents, process flow data, IAPM application inventory (30K+ apps), and Smartsheet CSV exports contain Intel confidential information. A public repository would expose this content to the internet.
+
+### GitHub Pages Visibility
+
+> **Important:** GitHub Pages sites are **always publicly accessible** unless you have **GitHub Enterprise Cloud** with the "private Pages" feature enabled. On free/pro plans, even a private repo's Pages site is public.
+
+**Recommendation:**
+- **Do NOT enable GitHub Pages** unless your organization has GitHub Enterprise Cloud with private Pages.
+- **Use SharePoint as the primary viewing platform** — it's behind corporate authentication.
+- The `deploy-pages.yml` workflow is included in the repo for organizations that do have Enterprise Cloud. If you don't, leave Pages disabled in Settings.
+
+### Where Secrets Live
+
+| Location | What's Stored | Exposed? |
+|----------|-------------|----------|
+| **GitHub Secrets** | API tokens, SP credentials | Never — masked in logs, only available during workflow execution |
+| **`.env` (local)** | Same credentials for local runs | Never committed — in `.gitignore` |
+| **`.env.example`** | Placeholder template only | Safe — contains no real values |
+| **Workflow YAML** | References `${{ secrets.X }}` | Safe — resolved at runtime, not stored in file |
+| **Generated HTML/PDF** | Architecture content only | No credentials — but contains internal IP |
+
+### Secure Handling Checklist
+
+- [x] `.env` is in `.gitignore` — never committed
+- [x] `.env.example` contains only placeholders
+- [x] All API tokens are stored in GitHub Secrets (Settings → Secrets → Actions)
+- [x] Azure AD app uses `client_credentials` grant (no user passwords in pipelines)
+- [x] Workflow YAML uses `${{ secrets.X }}` — values never appear in source
+- [x] SharePoint sync uses OAuth2 with scoped permissions (`Sites.ReadWrite.All`)
+- [ ] Repository is set to **Private** (verify in Settings → General → Danger Zone)
+- [ ] GitHub Pages is **disabled** (or Enterprise Cloud private Pages is enabled)
+
+---
+
 ## Viewing HTML Outputs
 
-GitHub does not render HTML files inline — it shows the source code instead. Three options for viewing the generated architecture HTML files:
+Since the repository should be private and GitHub Pages may not be available, use these options:
 
-### Option 1: GitHub Pages (Recommended)
+### Option 1: SharePoint (Recommended)
 
-GitHub Pages serves the HTML files as a static website directly from the repository.
-
-**One-time setup on GitHub:**
-
-1. Go to `https://github.com/<OWNER>/IAO-Architecture/settings/pages`
-2. Under **Build and deployment → Source**, select **GitHub Actions**
-3. That's it — the `deploy-pages.yml` workflow handles the rest
-
-**How it works:**
-- Every time `generate-architecture.yml` completes successfully, it triggers `deploy-pages.yml`
-- `deploy-pages.yml` copies all HTML and SVG outputs to a `_site/` folder and generates an index page
-- GitHub Pages publishes the site at:
+After the forward sync runs, architecture HTML and PDF files are available on SharePoint:
 
 ```
-https://<username>.github.io/IAO-Architecture/
+SharePoint > Shared Documents > Architecture/SAD > <TOWER> > <ProcessGroup> > <CAP> > output/docs/systems-architecture/
+  ├── DS-020-Architecture.html   ← Open in browser
+  └── DS-020-Architecture.pdf    ← Download
 ```
 
-The index page lists every tower and capability with clickable links.
+- **HTML**: Click to open in the SharePoint browser preview. If JavaScript is stripped (Mermaid diagrams won't render), download the file and open locally.
+- **PDF**: Always works — click to view or download.
 
-**Direct capability link format:**
-```
-https://<username>.github.io/IAO-Architecture/towers/<TOWER>/<ProcessGroup>/<CAP>/output/docs/systems-architecture/<CAP>-Architecture.html
-```
+### Option 2: GitHub Pages (Enterprise Cloud Only)
 
-> **Note:** If you already enabled Pages with "Deploy from a branch" (which creates a `static.yml` workflow), switch the source to **GitHub Actions** so that `deploy-pages.yml` is used instead. You can delete the `static.yml` workflow after switching.
+If your organization has **GitHub Enterprise Cloud** with **private Pages** enabled:
 
-### Option 2: htmlpreview.github.io
-
-For quick one-off viewing without any setup:
-
-```
-https://htmlpreview.github.io/?https://github.com/<OWNER>/IAO-Architecture/blob/main/towers/FPR/DS%20Provide%20Decision%20Support/DS-020/output/docs/systems-architecture/DS-020-Architecture.html
-```
-
-> **Caveat:** Spaces in folder names must be URL-encoded (`%20`). Mermaid diagrams may not render if htmlpreview blocks CDN scripts.
+1. Go to **Settings → Pages**
+2. Source: **GitHub Actions**
+3. Visibility: **Private** (only repo collaborators can access)
+4. The `deploy-pages.yml` workflow auto-deploys after each generation
+5. Site URL: `https://<org>.github.io/IAO-Architecture/`
 
 ### Option 3: Local
 
@@ -486,22 +509,53 @@ https://htmlpreview.github.io/?https://github.com/<OWNER>/IAO-Architecture/blob/
 start "towers\FPR\DS Provide Decision Support\DS-020\output\docs\systems-architecture\DS-020-Architecture.html"
 ```
 
-### SharePoint Input Folder Sync
+---
 
-For the reverse sync to work, the **input Excel files** must also be present on SharePoint. Upload the initial set manually or extend `sync_sharepoint.py` to push `input/data/` folders:
+## SharePoint Folder Structure
 
-```bash
-# The forward sync currently uploads output files only.
-# Input xlsx files are synced via the reverse-sync workflow (SharePoint → GitHub).
-# To bootstrap: manually upload the input/data/ folders to SharePoint,
-# matching the structure: Architecture/SAD/<TOWER>/input/data/*.xlsx
+The sync uploads both **input files** (for architect editing) and **output files** (generated docs) to SharePoint, mirroring the repository layout:
+
+```
+SharePoint: Shared Documents / Architecture/SAD /
+├── FPR/
+│   └── DS Provide Decision Support/
+│       └── DS-020/
+│           ├── input/data/                          ◀ Architects edit here
+│           │   ├── CurrentFlows.xlsx
+│           │   ├── FutureFlows.xlsx
+│           │   ├── R3_CurrentFlows.xlsx
+│           │   └── R3_FutureFlows.xlsx
+│           └── output/docs/systems-architecture/    ◀ Generated docs appear here
+│               ├── DS-020-Architecture.html
+│               ├── DS-020-Architecture.pdf
+│               └── svg/
+├── OTC-IF/
+├── PTP/
+└── ...
 ```
 
-The architect's workflow:
-1. Navigate to `Shared Documents > Architecture/SAD > FPR > input/data/`
+### Initial Bootstrap — Upload Input Files to SharePoint
+
+On first setup, upload the existing input Excel files to SharePoint so architects can start editing:
+
+```bash
+# Upload both outputs AND input xlsx files for all towers
+python scripts/sync_sharepoint.py --all --include-inputs
+
+# Upload for a single tower
+python scripts/sync_sharepoint.py --tower FPR --include-inputs
+```
+
+After the initial upload, the regular workflow handles the sync cycle:
+- **Forward** (GitHub → SharePoint): `sync_sharepoint.py --all` uploads outputs only (HTML/PDF/SVG)
+- **Reverse** (SharePoint → GitHub): `sharepoint-reverse-sync.yml` pulls updated xlsx files back
+
+### Architect Workflow
+
+1. Navigate to `Shared Documents > Architecture/SAD > FPR > DS Provide Decision Support > DS-020 > input/data/`
 2. Open and edit `CurrentFlows.xlsx` (or `FutureFlows.xlsx`, `R3_CurrentFlows.xlsx`, `R3_FutureFlows.xlsx`)
 3. Save — Power Automate detects the change and triggers the pipeline
-4. Updated HTML/PDF appears in the output folder within minutes
+4. Updated HTML/PDF appears in the `output/` folder within minutes
 
 ---
 
@@ -530,4 +584,4 @@ Or trigger an ad-hoc run from **Actions → Generate Architecture Docs → Run w
 
 ## License
 
-Internal use only.
+Internal use only — Intel confidential. Do not make this repository or its contents publicly accessible.
