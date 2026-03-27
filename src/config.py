@@ -65,4 +65,4 @@ class Config:
 # Singleton — import and use directly: ``from src.config import cfg``
 cfg = Config()
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
