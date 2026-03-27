@@ -97,7 +97,8 @@ jobs:
           fi
 
       - name: Sync to SharePoint
-        if: ${{ success() && secrets.SP_TENANT_ID != '' }}
+        if: success()
+        continue-on-error: true
         run: python scripts/sync_sharepoint.py --all
         env:
           SP_TENANT_ID: ${{ secrets.SP_TENANT_ID }}
