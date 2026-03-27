@@ -8,6 +8,11 @@ on:
     workflows: ["Generate Architecture Docs"]
     types: [completed]
     branches: [main]
+  push:
+    branches: [main]
+    paths:
+      - "towers/**"
+      - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
 
 permissions:
