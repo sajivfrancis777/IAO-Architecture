@@ -716,7 +716,7 @@ Platform landscape inferred from integrated systems for GT-090:
 ### 6.2 SAP Development Object Status
 
 **Capability RICEFW Status** (292 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-03-26)*
+*Data source: Smartsheet Object Tracker (cached 2026-03-27)*
 
 | Status | Count | % |
 |--------|------:|----:|
@@ -836,7 +836,7 @@ Platform landscape inferred from integrated systems for GT-090:
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-03-26*
+*Live data from Smartsheet Master RAID Log — extracted 2026-03-27*
 
 **Mapped sub-tower(s):** 5.1 OTC IP - ALL, 5.10 OTC IP - Logistics Management Outbound, 5.11 OTC IP - Order Management, 5.12 OTC IP - TM, 5.13 OTC IP - Returns (Logistics Management), 5.3 OTC IP - Billing and Rebates, 5.4 OTC IP - Returns, 5.6 OTC IP - Credit and Collections, 5.8 OTC IP - EWM, 5.9 OTC IP - GTS, 8.4 FTS IP - Logistics & Inventory Management
 

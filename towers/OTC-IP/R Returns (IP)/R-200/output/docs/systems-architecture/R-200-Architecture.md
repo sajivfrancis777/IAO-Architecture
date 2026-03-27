@@ -277,7 +277,7 @@ as Return to Customer"| n26
     class n30 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlWFtv2kgU_isjVxGtBJKvGHjYFSE4TdW02ZButSr7MNhjGMV4rJkxCZvy3_eM7QHs2NI2m4dI880537kf27wYIYuIMTEuLl5oSuUEvfTkhmxJb4J6KyxIr49K4E_MKV4lRPSUTMxSuaD_FGKWmz0rMYUFeEuTvUIXZM0I-nbTR1NQTPpI4FQMBOE07vV7GadbzPczljCupN-RUWzGhbXq6pLxiPCTgGn6VuiBakJTcoId3_XdQOkJErI0qpHGXjyKw95BOZewp3CDuSzczwW5xc_faSQ3cI5xIgjIbOQ2-YxXJFExSp4rLMz5TieDCmUnhYQtMhzSdA24awLEcfp4gjzzcECHi4tlejSKPt8vUwR_YYKFuCIxEhLg-U6imCbJ5J07mwae2ReSs0cyeWfP_SvH7ocqkgmEbvZVcgdPhK43crJiSVSJDp5UDBM7e-7z54lt9vke_jdskTQ6WZoN7ZE9Olq69K2ZNdOW4jj-X5Ygr_wBi8fK1twJ7ODqaMvyht7MfM2nw7xy_anVzBPhOxqSM9IgCJz5KVXzoWeZ3aSXgTM0Zw3SNZbkCe9PhOOZeyQMPD-w_E7C0l7Ty3x1x1moCZ25F3hHQv_SCqZ2J6E7tdxR5SHwrDnONuiaszyN0AxqwVmSEF7eq7_U-rE0YjyJ8UClG91EJJU03qM554wvjb_PRO266D1JCMw0-ghlrQs6dcE7TlOJ7nD4CC2NPlMhUcD4VtSV3DalGdtuCQ9h5NFNumNQuzZVr6FKeAxC6I6WFqehpDsq93WlYUOJgVuwm9A1Y5FAN0LkpK7gd1jBdSsIQ6pv2Y6gW2gMta2QZGgh8bqQ4gTXaUd12jPzSknmAuVZBEwRoin6mstVUcsrktAd4Y2YLPvHkS1kazQDa5K81kLgOdRP5jxVzs1yIRnkGchqbE6d7Vvhx4nkicoNCr4CIDFNRFPb_Y--fFWruansvz8qg2_Z64ReUZFhGW50Rj-ca48a2q-NzhImSNTUG4OarifEimFhQBOq8rno4_TLtDEPJog_wLoWMRROOydQzNkW_ZHjRHXDTSoyAq3B0rINWPiI3t_cfWhQ2S8vp2RFZLACWgju-mFRzNfvS-NwOJd32uXJc5jkAkK8LpdSU819m5r3NrXhSQ3DOnkSA5xIlGGOYQklHUr-W5RGb1Ea_5oSPPgae7WcIIEWUGGoPCy2M_px-_BA2zJBi364JyIHg2oW1eK5v502p8Csczxwul5Dq10Wjf-JrYqWAr_QfHALI4i-MNjdNMS63boG22r1bbGh2VY1fDXQHVtC7aEWX4eNmWtzaVGN05lf5_NnW7_aZ69rUsxjxrgsLd4lOE3B5_eLPMsSmPsNBvdVYAv9hqdqIjld5Uqhtg68eprUQ5kI0WpCbQzFeraXa09E8429llpoMPgNUlMd7ero6LNTApYWqM6uvh-W57GmMyv5oQYqA1b1FpKOKwuWZtACGrC0D74G3BLwqnNl0tY2vfKsxW2_ItTy9qgEho2zpQnsyoAO2tI-NqO0j2kqfPy5NP4i8Fz6CSrNiy-swE-J9KuL18-KZXrsEHgKQ_vOv9-WpEf7ZqV8Pt7QXjHlW1BZpli0Pm6VAzrqKiv2SAdZpc3RhbGcRtSO2SiVBiwdVJU3-5jpilPb0InWZ7tKrOU3AM1QvKOqptTv5jXYboeddthth712eNgO--3wqB0en38B1CMyu6-s7iu7-8rpvnK7r7zuq2H16VVH_VZ01IqOjx-K9bKZHbilv23qsN0OO-2w2w577fCwHfbb4VE7PG6FYToq2OgbMH5bTCNj8mIUP0jAjxYRiTE8j41D38C5ZIt9GhqT4sPdKN_AryiGZ8y2BA__AjOfU14=" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlWFtv2kgU_isjVxGtBJKvGHjYFSE4TdW02ZButSr7MNhjGMV4rJkxCZvy3_eM7QHs2NI2y0Ok-eac79yP7bwYIYuIMTEuLl5oSuUEvfTkhmxJb4J6KyxIr49K4E_MKV4lRPSUTMxSuaD_FGKWmz0rMYUFeEuTvUIXZM0I-nbTR1NQTPpI4FQMBOE07vV7GadbzPczljCupN-RUWzGhbXq6pLxiPCTgGn6VuiBakJTcoId3_XdQOkJErI0qpHGXjyKw95BOZewp3CDuSzczwW5xc_faSQ3cI5xIgjIbOQ2-YxXJFExSp4rLMz5TieDCmUnhYQtMhzSdA24awLEcfp4gjzzcECHi4tlejSKPt8vUwS_MMFCXJEYCQnwfCdRTJNk8s6dTQPP7AvJ2SOZvLPn_pVj90MVyQRCN_squYMnQtcbOVmxJKpEB08qhomdPff588Q2-3wPfxu2SBqdLM2G9sgeHS1d-tbMmmlLcRz_L0uQV_6AxWNla-4EdnB1tGV5Q29mvubTYV65_tRq5onwHQ3JGWkQBM78lKr50LPMbtLLwBmaswbpGkvyhPcnwvHMPRIGnh9Yfidhaa_pZb664yzUhM7cC7wjoX9pBVO7k9CdWu6o8hB41hxnG3TNWZ5GaAa14CxJCC_v1S-1fiyNGE9iPFDpRjcRSSWN92jOOeNL4-8zUbsuek8SAjONPkJZ64JOXfCO01SiOxw-Qkujz1RIFDC-FXUlt01pxrZbwkMYeXST7hjUrk3Va6gSHoMQuqOlxWko6Y7KfV1p2FBi4BbsJnTNWCTQjRA5qSv4HVZw3QrCkOpbtiPoFhpDbSskGVpIvC6kOMF12lGd9sy8UpK5QHkWAVOEaIq-5nJV1PKKJHRHeCMmy_5xZAvZGs3AmiSvtRB4DvWTOU-Vc7NcSAZ5BrIam1Nn-1b4cSJ5onKDgq8ASEwT0dR2_6MvX9Vqbir774_K4Fv2OqFXVGRYhhud0Q_n2qOG9mujs4QJEjX1xqCm6wmxYlgY0ISqfC76OP0ybcyDCeIPsK5FDIXTzgkUc7ZFf-Q4Ud1wk4qMQGuwtGwDFj6i9zd3HxpU9svLKVkRGayAFoK7flgU8_X70jgczuWddnnyHCa5gBCvy6XUVHPfpua9TW14UsOwTp7EACcSZZhjWEJJh5L_FqXRW5TGv6YED77GXi0nSKAFVBgqD4vtjH7cPjzQtkzQoh_uicjBoJpFtXjub6fNKTDrHA-crtfQapdF439iq6KlwC80H9zCCKIvDHY3DbFut67Btlp9W2xotlUNXw10x5ZQe6jF12Fj5tpcWlTjdObX-fzZ1q_22euaFPOYMS5Li3cJTlPw-f0iz7IE5n6DwX0V2EK_4amaSE5XuVKorQOvnib1UCZCtJpQG0Oxnu3l2hPRfGOvpRYaDH6D1FRHuzo6-uyUgKUFqrOr74fleazpzEp-qIHKgFW9haTjyoKlGbSABiztg68BtwS86lyZtLVNrzxrcduvCLW8PSqBYeNsaQK7MqCDtrSPzSjtY5oKH38ujb8IPJd-gkrz4gsr8FMi_eri9bNimR47BJ7C0L7z77cl6dG-WSmfjze0V0z5FlSWKRatj1vlgI66yoo90kFWaXN0YSynEbVjNkqlAUsHVeXNPma64tQ2dKL12a4Sa_kNQDMU76iqKfW7eQ2222GnHXbbYa8dHrbDfjs8aofH518A9YjM7iur-8ruvnK6r9zuK6_7alh9etVRvxUdtaLj44divWxmB27pb5s6bLfDTjvstsNeOzxsh_12eNQOj1thmI4KNvoGjN8W08iYvBjFPySMiRGRGMPz2Dj0DZxLttinoTEpPtyN8g38imJ4xmxL8PAvM59TXg==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-200 — Receive Materials and Services (IP)</span></div>
 <div style="page-break-before: always;"></div>
@@ -739,7 +739,7 @@ Platform landscape inferred from integrated systems for R-200:
 ### 6.2 SAP Development Object Status
 
 **Capability RICEFW Status** (292 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-03-26)*
+*Data source: Smartsheet Object Tracker (cached 2026-03-27)*
 
 | Status | Count | % |
 |--------|------:|----:|
@@ -859,7 +859,7 @@ Platform landscape inferred from integrated systems for R-200:
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-03-26*
+*Live data from Smartsheet Master RAID Log — extracted 2026-03-27*
 
 **Mapped sub-tower(s):** 5.1 OTC IP - ALL, 5.10 OTC IP - Logistics Management Outbound, 5.11 OTC IP - Order Management, 5.12 OTC IP - TM, 5.13 OTC IP - Returns (Logistics Management), 5.3 OTC IP - Billing and Rebates, 5.4 OTC IP - Returns, 5.6 OTC IP - Credit and Collections, 5.8 OTC IP - EWM, 5.9 OTC IP - GTS, 8.4 FTS IP - Logistics & Inventory Management
 

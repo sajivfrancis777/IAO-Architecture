@@ -356,7 +356,7 @@ flowchart TD
     class n36 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlWF2P2jgU_StWqhG7EqiJ8wkPu2KAdEcq7ahMt1rt7IMJDlgTEmonM0On_Pe1EzskwWm1szwgcnzPub5fTsKLEWUbbEyMq6sXkpJ8Al4G-Q7v8WACBmvE8GAIKuBPRAlaJ5gNhE2cpfmKfCvNLOfwLMwEFqI9SY4CXeFthsHnmyGYcmIyBAylbMQwJfFgODhQskf0OMuSjArrNziIzbj0JpeuM7rB9Gxgmr4VuZyakBSfYdt3fCcUPIajLN20RGM3DuJocBKbS7KnaIdoXm6_YHiJnr-QTb7j1zFKGOY2u3yfvEdrnIgYc1oILCroo0oGYcJPyhO2OqCIpFuOOyaHKEofzpBrnk7gdHV1n9ZOwd38PgX8EyWIsTmOAcs5vHjMQUySZPLGmU1D1xyynGYPePIGLvy5DYeRiGTCQzeHIrmjJ0y2u3yyzpKNNB09iRgm8PA8pM8TaA7pkX93fOF0c_Y082AAg9rTtW_NrJnyFMfx__LE80rvEHuQvhZ2CMN57ctyPXdmXuqpMOeOP7W6ecL0kUS4IRqGob04p2rhuZbZL3od2p4564huUY6f0PEsOJ45tWDo-qHl9wpW_rq7LNa3NIuUoL1wQ7cW9K-tcAp7BZ2p5QRyh1xnS9FhB8K7FbgJwQjcLsESkTTHKUojDG4TlKaYVtbik1p_3xsxmsRoJJIPpoyRbQoWXwty2OM0BzOxx7cz3oUoyvn0sZxE7N74pyEB2xIiEszYWaNtbbetP6ck5c2cJA2fMc32ICzSKCdZihLwPouQ-NkWcjpChw0vS0NllaO86GzVbXPmhB0SXsgz6T0PsE3x2pQZxcLNcnkzB3FGwQqL44l802zQbzNvLuLkdcl-Hmfwkz23rcfarFS54A7BYrlqEyyzzfiEvxaY5VWEZbQXO7JE06z4sVAZ8SBW01uweuuAP6Yfph1b0R2fcITJY7M4HOEHdKc6lv1LvReWZwcwKyg9l1KS8Iazfm3SnA7togMb7lpE93X-REuUU4VIc1S-IMpP8vyo_HeCE-1ws-GGJD62hvJLRh_KtBNa-mqSAr2ra35QgCzmMnnZf11foguWGLGC8pnPOF2_J2jq5cvj8nIUoKi7HAAkqq-YzWiWiOVlG2kKDEUzqOpUkwM-FPs1P5HadnaPI82wsB97dKr24ytqAEtWKctHac8Lxp8ItiKZPRMF3WaSPvKnGX4K_PA89F5eVFuJx6PRmrdFtFP-39ZH3u_3xunUJPp64sXIXxCDH3oEmeZUvtAY6zXkHUF7H-hq2KZeAz9HScH4CfCuunN2adbraPB1NPt1NOd1NPdM4-dD9sRGKMnBgecxSXDSQ_L-G4kfxdWP1Aaj0W_83igvYXUJfXXtSMBT9q4Avt8b5X3hO79_KEupBAMJWFYHqKkfbu5KqgXlinRiu0pLUi353JMG1bVa96TQcv6uErKUC08S1XYtU0orCwg7gC191QFKg3pdxlVnRDmXs1JuwLa7q_XMVutKzJTLmmcebqbyAWW8ttnlXTwTtN37kqfKaavyqSq5HQPoq5pkldLFwl-YlSvtKjYkodKsdz_uaHrdBaVZU1TdoNkt5LgLBF1AFWYsr1UuLFVIFZJqKrfxMC1Q9RLRgqEetvWwo4ddPezpYV8PB3p4rId5w-txW76WtVFHi7pa1KtfItu434MHPfhYj0OzB7d6cNiD2z2404O7Pbin3tvasK-HAz081sJ8nrWwpYehHrb1sKOHXT1cR2kMjT2me0Q2xuTFKP-D4f_TbHCMiiQ3TkMDFXm2OqaRMSn_qzCK8lVhThB_hdxX4Olf9gOS4w==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/edit#pako:eNqlWF2P2jgU_StWqhG7EqiJ8wkPu2KAdEcq7ahMt1rt7IMJDlgTEmonM0On_Pe1EzskwWm1szwgcnzPub5fTsKLEWUbbEyMq6sXkpJ8Al4G-Q7v8WACBmvE8GAIKuBPRAlaJ5gNhE2cpfmKfCvNLOfwLMwEFqI9SY4CXeFthsHnmyGYcmIyBAylbMQwJfFgODhQskf0OMuSjArrNziIzbj0JpeuM7rB9Gxgmr4VuZyakBSfYdt3fCcUPIajLN20RGM3DuJocBKbS7KnaIdoXm6_YHiJnr-QTb7j1zFKGOY2u3yfvEdrnIgYc1oILCroo0oGYcJPyhO2OqCIpFuOOyaHKEofzpBrnk7gdHV1n9ZOwd38PgX8EyWIsTmOAcs5vHjMQUySZPLGmU1D1xyynGYPePIGLvy5DYeRiGTCQzeHIrmjJ0y2u3yyzpKNNB09iRgm8PA8pM8TaA7pkX93fOF0c_Y082AAg9rTtW_NrJnyFMfx__LE80rvEHuQvhZ2CMN57ctyPXdmXuqpMOeOP7W6ecL0kUS4IRqGob04p2rhuZbZL3od2p4564huUY6f0PEsOJ45tWDo-qHl9wpW_rq7LNa3NIuUoL1wQ7cW9K-tcAp7BZ2p5QRyh1xnS9FhB8K7FbgJwQjcLsESkTTHKUojDG4TlKaYVtbik1p_3xsxmsRoJJIPpoyRbQoWXwty2OM0BzOxx7cz3oUoyvn0sZxE7N74pyEB2xIiEszYWaNtbbetP6ck5c2cJA2fMc32ICzSKCdZihLwPouQ-NkWcjpChw0vS0NllaO86GzVbXPmhB0SXsgz6T0PsE3x2pQZxcLNcnkzB3FGwQqL44l802zQbzNvLuLkdcl-Hmfwkz23rcfarFS54A7BYrlqEyyzzfiEvxaY5VWEZbQXO7JE06z4sVAZ8SBW01uweuuAP6Yfph1b0R2fcITJY7M4HOEHdKc6lv1LvReWZwcwKyg9l1KS8Iazfm3SnA7togMb7lpE93X-REuUU4VIc1S-IMpP8vyo_HeCE-1ws-GGJD62hvJLRh_KtBNa-mqSAr2ra35QgCzmMnnZf11foguWGLGC8pnPOF2_J2jq5cvj8nIUoKi7HAAkqq-YzWiWiOVlG2kKDEUzqOpUkwM-FPs1P5HadnaPI82wsB97dKr24ytqAEtWKctHac8Lxp8ItiKZPRMF3WaSPvKnGX4K_PA89F5eVFuJx6PRmrdFtFP-39ZH3u_3xunUJPp64sXIXxCDH3oEmeZUvtAY6zXkHUF7H-hq2KZeAz9HScH4CfCuunN2adbraPB1NPt1NOd1NPdM4-dD9sRGKMnBgecxSXDSQ_L-G4kfxdWP1Aaj0W_83igvYXUJfXXtSMBT9q4Avt8b5X3hO79_KEupBAMJWFYHqKkfbu5KqgXlinRiu0pLUi353JMG1bVa96TQcv6uErKUC08S1XYtU0orCwg7gC191QFKg3pdxlVnRDmXs1JuwLa7q_XMVutKzJTLmmcebqbyAWW8ttnlXTwTtN37kqfKaavyqSq5HQPoq5pkldLFwl-YlSvtKjYkodKsdz_uaHrdBaVZU1TdoNkt5LgLBF1AFWYsr1UuLFVIFZJqKrfxMC1Q9RLRgqEetvWwo4ddPezpYV8PB3p4rId5w-txW76WtVFHi7pa1KtfItu434MHPfhYj0OzB7d6cNiD2z2404O7Pbin3tvasK-HAz081sJ8nrWwpYehHrb1sKOHXT1cR2kMjT2me0Q2xuTFKP-DMSbGBseoSHLjNDRQkWerYxoZk_K_CqMoXxXmBPFXyH0Fnv4F9gOS4w==" title="Edit in Mermaid Live">&#9998; Edit in Mermaid Live</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
 <div style="page-break-before: always;"></div>
@@ -1594,7 +1594,7 @@ Platform landscape inferred from integrated systems for PE-060:
 ### 6.2 SAP Development Object Status
 
 **Capability RICEFW Status** (265 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-03-26)*
+*Data source: Smartsheet Object Tracker (cached 2026-03-27)*
 
 | Status | Count | % |
 |--------|------:|----:|
@@ -1759,7 +1759,7 @@ Platform landscape inferred from integrated systems for PE-060:
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-03-26*
+*Live data from Smartsheet Master RAID Log — extracted 2026-03-27*
 
 **Mapped sub-tower(s):** 7.1 FTS IF - ALL, 7.4 FTS IF - EWM, 7.5 FTS IF - TM, 7.6 FTS IF - Logistics & Inventory Management, 7.7 FTS IF - Manufacturing & MES Integration, 7.8 FTS IF - MRP & Planning Integration, 7.9 FTS IF - Plant Maintenance
 

@@ -350,7 +350,7 @@ Platform landscape inferred from integrated systems for L-110:
 ### 6.2 SAP Development Object Status
 
 **Capability RICEFW Status** (54 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-03-26)*
+*Data source: Smartsheet Object Tracker (cached 2026-03-27)*
 
 | Status | Count | % |
 |--------|------:|----:|
@@ -469,7 +469,7 @@ Platform landscape inferred from integrated systems for L-110:
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-03-26*
+*Live data from Smartsheet Master RAID Log — extracted 2026-03-27*
 
 **Mapped sub-tower(s):** 7.6 FTS IF - Logistics & Inventory Management
 

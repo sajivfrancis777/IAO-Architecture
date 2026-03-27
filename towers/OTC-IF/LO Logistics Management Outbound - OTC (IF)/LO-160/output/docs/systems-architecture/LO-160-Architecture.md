@@ -304,7 +304,7 @@ Platform landscape inferred from integrated systems for LO-160:
 ### 6.2 SAP Development Object Status
 
 **Capability RICEFW Status** (9 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-03-26)*
+*Data source: Smartsheet Object Tracker (cached 2026-03-27)*
 
 | Status | Count | % |
 |--------|------:|----:|
@@ -380,7 +380,7 @@ Platform landscape inferred from integrated systems for LO-160:
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-03-26*
+*Live data from Smartsheet Master RAID Log — extracted 2026-03-27*
 
 **Mapped sub-tower(s):** 4.6 OTC IF - Credit and Collections
 
