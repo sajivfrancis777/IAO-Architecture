@@ -33,40 +33,187 @@ jobs:
       - name: Create Pages structure
         run: |
           mkdir -p _site
-          # Copy all HTML and SVG outputs
+
+          # Copy all HTML and SVG outputs from towers
           find towers -name "*.html" -o -name "*.svg" | while read f; do
             dest="_site/$f"
             mkdir -p "$(dirname "$dest")"
             cp "$f" "$dest"
           done
-          # Create a simple index page
-          cat > _site/index.html <<'INDEXEOF'
+
+          # Copy banner asset so relative paths from HTML files resolve
+          mkdir -p _site/templates/assets
+          cp templates/assets/cover_banner.svg _site/templates/assets/
+
+          # ── Shared CSS/JS ──────────────────────────────────────────
+          SHARED_CSS='
+          *,*::before,*::after{box-sizing:border-box}
+          body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:#f0f2f5;color:#1a1a2e}
+          .topbar{background:linear-gradient(135deg,#00285a 0%,#0071c5 100%);padding:0 32px;display:flex;align-items:center;height:56px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+          .topbar img{height:36px;margin-right:16px;border-radius:4px}
+          .topbar h1{color:#fff;font-size:18px;font-weight:600;margin:0;letter-spacing:.5px}
+          .topbar a{color:rgba(255,255,255,.85);text-decoration:none;font-size:14px;margin-left:auto}
+          .topbar a:hover{color:#fff}
+          .container{max-width:1120px;margin:0 auto;padding:24px 24px 48px}
+          .breadcrumb{font-size:13px;color:#666;margin-bottom:20px}
+          .breadcrumb a{color:#0071c5;text-decoration:none}
+          .breadcrumb a:hover{text-decoration:underline}
+          .hero{background:linear-gradient(135deg,#00285a,#0060a9);color:#fff;border-radius:12px;padding:48px 40px;margin-bottom:32px;position:relative;overflow:hidden}
+          .hero::after{content:"";position:absolute;top:0;right:0;width:300px;height:100%;background:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 300 200%27%3E%3Cpath d=%27M0 100L80 100L120 60L200 60L240 100L300 100%27 stroke=%27rgba(255,255,255,.08)%27 fill=%27none%27 stroke-width=%272%27/%3E%3Cpath d=%27M0 140L60 140L100 180L180 180L220 140L300 140%27 stroke=%27rgba(255,255,255,.06)%27 fill=%27none%27 stroke-width=%272%27/%3E%3C/svg%3E") no-repeat center;opacity:.5}
+          .hero h2{font-size:32px;margin:0 0 8px;font-weight:700;position:relative}
+          .hero p{font-size:16px;opacity:.85;margin:0;position:relative}
+          .hero .badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:4px 14px;font-size:12px;margin-top:12px;position:relative}
+          .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-bottom:32px}
+          .card{background:#fff;border-radius:10px;padding:24px;box-shadow:0 1px 4px rgba(0,0,0,.08);border:1px solid #e4e8ed;transition:all .2s;text-decoration:none;color:inherit;display:block}
+          .card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.1);border-color:#0071c5}
+          .card h3{margin:0 0 8px;font-size:18px;color:#00285a}
+          .card .meta{font-size:13px;color:#666;margin-bottom:12px}
+          .card .count{display:inline-block;background:#e8f4fd;color:#0060a9;border-radius:12px;padding:2px 10px;font-size:12px;font-weight:600}
+          .card .arrow{float:right;color:#0071c5;font-size:20px;margin-top:-24px}
+          .section-title{font-size:20px;font-weight:700;color:#00285a;margin:32px 0 16px;padding-bottom:8px;border-bottom:2px solid #e4e8ed}
+          table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06);border:1px solid #e4e8ed}
+          th{background:#00285a;color:#fff;padding:12px 16px;font-size:13px;font-weight:600;text-align:left;text-transform:uppercase;letter-spacing:.5px}
+          td{padding:10px 16px;border-bottom:1px solid #f0f2f5;font-size:14px}
+          tr:last-child td{border-bottom:none}
+          tr:hover td{background:#f5f8fc}
+          td a{color:#0071c5;text-decoration:none;font-weight:500}
+          td a:hover{text-decoration:underline}
+          .footer{text-align:center;padding:32px 0;font-size:12px;color:#999;border-top:1px solid #e4e8ed;margin-top:48px}
+          '
+
+          # ── Tower metadata (description + icon) ────────────────────
+          tower_desc() {
+            case "$1" in
+              E2E)     echo "End-to-End Integrated Scenarios|Cross-tower integration flows spanning the full business cycle|🔗";;
+              FPR)     echo "Finance Plan to Report|Financial planning, accounting, decision support, capital and risk management|💰";;
+              FTS-IF)  echo "Forecast to Stock — IF|Supply chain planning, manufacturing, logistics and quality (Front-End IF)|🏭";;
+              FTS-IP)  echo "Forecast to Stock — IP|Supply chain planning, manufacturing, logistics and quality (Back-End IP)|📦";;
+              MDM)     echo "Master Data Management|Enterprise master data governance and harmonization|🗂️";;
+              OTC-IF)  echo "Order to Cash — IF|Order management, billing, credit, trade and returns (Front-End IF)|📋";;
+              OTC-IP)  echo "Order to Cash — IP|Order management, billing, credit, trade and returns (Back-End IP)|🛒";;
+              PTP)     echo "Plan to Procure|Procurement, supplier management, logistics and quality (incoming)|🔧";;
+              *)       echo "$1|Architecture documents|📄";;
+            esac
+          }
+
+          # ── INDEX PAGE ─────────────────────────────────────────────
+          cat > _site/index.html <<HEREDOC
           <!DOCTYPE html>
-          <html><head><meta charset="UTF-8"><title>IAO Architecture Docs</title>
-          <style>
-            body { font-family: "Segoe UI", Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; }
-            h1 { color: #00285a; border-bottom: 3px solid #0071c5; padding-bottom: 8px; }
-            a { color: #0071c5; }
-            table { border-collapse: collapse; width: 100%; }
-            th { background: #00285a; color: #fff; padding: 8px 12px; text-align: left; }
-            td { padding: 6px 12px; border-bottom: 1px solid #e0e4ea; }
-            tr:hover td { background: #f5f8fc; }
-          </style></head><body>
-          <h1>IAO Architecture Documents</h1>
-          <p>Generated architecture documents for the IDM 2.0 program.</p>
-          INDEXEOF
-          # Generate tower links
+          <html lang="en"><head>
+          <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+          <title>IAO Architecture — IDM 2.0</title>
+          <style>${SHARED_CSS}</style>
+          </head><body>
+          <div class="topbar">
+            <img src="templates/assets/cover_banner.svg" alt="IAO">
+            <h1>IAO Architecture Portal</h1>
+          </div>
+          <div class="container">
+          <div class="hero">
+            <h2>IAO Architecture Documents</h2>
+            <p>TOGAF BDAT architecture for the IDM 2.0 SAP S/4HANA transformation program</p>
+            <span class="badge">8 Towers · 188 Capabilities · Release 3</span>
+          </div>
+          <h2 class="section-title">Towers</h2>
+          <div class="cards">
+          HEREDOC
+
+          total_caps=0
           for tower_dir in towers/*/; do
             tower=$(basename "$tower_dir")
-            echo "<h2>$tower</h2><table><tr><th>Capability</th><th>Document</th></tr>" >> _site/index.html
-            find "$tower_dir" -name "*-Architecture.html" -type f | sort | while read html; do
-              rel_path="${html}"
-              cap=$(basename "$html" | sed 's/-Architecture.html//')
-              echo "<tr><td>$cap</td><td><a href=\"$rel_path\">$cap Architecture</a></td></tr>" >> _site/index.html
-            done
-            echo "</table>" >> _site/index.html
+            info=$(tower_desc "$tower")
+            full_name=$(echo "$info" | cut -d'|' -f1)
+            desc=$(echo "$info" | cut -d'|' -f2)
+            icon=$(echo "$info" | cut -d'|' -f3)
+            cap_count=$(find "$tower_dir" -name "*-Architecture.html" -type f | wc -l | tr -d ' ')
+            total_caps=$((total_caps + cap_count))
+            proc_count=$(find "$tower_dir" -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')
+            cat >> _site/index.html <<CARD
+          <a class="card" href="tower-${tower}.html">
+            <h3>${icon} ${tower}</h3>
+            <div class="meta">${full_name}</div>
+            <div class="meta">${desc}</div>
+            <span class="count">${cap_count} capabilities</span>
+            <span class="count" style="margin-left:6px">${proc_count} process areas</span>
+            <span class="arrow">→</span>
+          </a>
+          CARD
           done
-          echo "</body></html>" >> _site/index.html
+
+          cat >> _site/index.html <<HEREDOC
+          </div>
+          <div class="footer">
+            IAO Architecture Pipeline · Intel IDM 2.0 · TOGAF BDAT · Intel Confidential<br>
+            Generated: $(date -u +"%B %Y")
+          </div>
+          </div></body></html>
+          HEREDOC
+
+          # ── PER-TOWER PAGES ────────────────────────────────────────
+          for tower_dir in towers/*/; do
+            tower=$(basename "$tower_dir")
+            info=$(tower_desc "$tower")
+            full_name=$(echo "$info" | cut -d'|' -f1)
+            desc=$(echo "$info" | cut -d'|' -f2)
+            icon=$(echo "$info" | cut -d'|' -f3)
+            cap_count=$(find "$tower_dir" -name "*-Architecture.html" -type f | wc -l | tr -d ' ')
+
+            cat > "_site/tower-${tower}.html" <<TOWERHEAD
+          <!DOCTYPE html>
+          <html lang="en"><head>
+          <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+          <title>${tower} — IAO Architecture</title>
+          <style>${SHARED_CSS}</style>
+          </head><body>
+          <div class="topbar">
+            <img src="templates/assets/cover_banner.svg" alt="IAO">
+            <h1>IAO Architecture Portal</h1>
+            <a href="index.html">← All Towers</a>
+          </div>
+          <div class="container">
+          <div class="breadcrumb"><a href="index.html">Home</a> / <strong>${tower}</strong></div>
+          <div class="hero">
+            <h2>${icon} ${tower} — ${full_name}</h2>
+            <p>${desc}</p>
+            <span class="badge">${cap_count} capabilities · Release 3</span>
+          </div>
+          TOWERHEAD
+
+            # Group capabilities by process area (L1 subfolder)
+            for proc_dir in "$tower_dir"*/; do
+              [ -d "$proc_dir" ] || continue
+              proc_name=$(basename "$proc_dir")
+              html_files=$(find "$proc_dir" -name "*-Architecture.html" -type f | sort)
+              [ -z "$html_files" ] && continue
+              proc_cap_count=$(echo "$html_files" | wc -l | tr -d ' ')
+
+              cat >> "_site/tower-${tower}.html" <<PROCHDR
+          <h2 class="section-title">${proc_name} <span style="font-size:14px;color:#666;font-weight:400">(${proc_cap_count} capabilities)</span></h2>
+          <table>
+          <tr><th style="width:120px">ID</th><th>Capability</th><th style="width:100px">View</th></tr>
+          PROCHDR
+
+              echo "$html_files" | while read html; do
+                cap=$(basename "$html" | sed 's/-Architecture.html//')
+                # Build a readable name from the directory path
+                cap_dir=$(basename "$(dirname "$(dirname "$(dirname "$html")")")")
+                cat >> "_site/tower-${tower}.html" <<ROW
+          <tr><td><strong>${cap}</strong></td><td>${cap_dir}</td><td><a href="${html}">Open →</a></td></tr>
+          ROW
+              done
+
+              echo "</table>" >> "_site/tower-${tower}.html"
+            done
+
+            cat >> "_site/tower-${tower}.html" <<TOWERFOOT
+          <div style="margin-top:24px"><a href="index.html" style="color:#0071c5;text-decoration:none;font-weight:600">← Back to All Towers</a></div>
+          <div class="footer">
+            IAO Architecture Pipeline · Intel IDM 2.0 · ${tower} Tower · Intel Confidential<br>
+            Generated: $(date -u +"%B %Y")
+          </div>
+          </div></body></html>
+          TOWERFOOT
+          done
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
