@@ -443,14 +443,20 @@ This downloads the specified file from SharePoint and commits it to the repo. Th
 
 **The repository must be PRIVATE.** Architecture documents, process flow data, IAPM application inventory (30K+ apps), and Smartsheet CSV exports contain Intel confidential information. A public repository would expose this content to the internet.
 
-### GitHub Pages Visibility
+### GitHub Pages (Enterprise Cloud — Private Pages Enabled)
 
-> **Important:** GitHub Pages sites are **always publicly accessible** unless you have **GitHub Enterprise Cloud** with the "private Pages" feature enabled. On free/pro plans, even a private repo's Pages site is public.
+This repository is hosted on **GitHub Enterprise Cloud**, which supports **private GitHub Pages**. The Pages site is only accessible to repository collaborators — not the public internet.
 
-**Recommendation:**
-- **Do NOT enable GitHub Pages** unless your organization has GitHub Enterprise Cloud with private Pages.
-- **Use SharePoint as the primary viewing platform** — it's behind corporate authentication.
-- The `deploy-pages.yml` workflow is included in the repo for organizations that do have Enterprise Cloud. If you don't, leave Pages disabled in Settings.
+**Pages Site**: `https://sajivfrancis777.github.io/IAO-Architecture/`
+
+The `deploy-pages.yml` workflow automatically deploys all HTML outputs after each generation run. The index page lists every tower and capability with direct links.
+
+**Setup** (if not already enabled):
+1. Go to **Settings → Pages**
+2. Source: **GitHub Actions**
+3. Visibility: **Private** (only repo collaborators can access)
+
+> **Note:** Clicking an HTML file in the GitHub **repo browser** always shows source code — this is standard GitHub behavior. Use the **Pages site URL** above or **SharePoint** to view rendered architecture documents.
 
 ### Where Secrets Live
 
@@ -470,16 +476,24 @@ This downloads the specified file from SharePoint and commits it to the repo. Th
 - [x] Azure AD app uses `client_credentials` grant (no user passwords in pipelines)
 - [x] Workflow YAML uses `${{ secrets.X }}` — values never appear in source
 - [x] SharePoint sync uses OAuth2 with scoped permissions (`Sites.ReadWrite.All`)
-- [ ] Repository is set to **Private** (verify in Settings → General → Danger Zone)
-- [ ] GitHub Pages is **disabled** (or Enterprise Cloud private Pages is enabled)
+- [x] Repository is set to **Private** (verify in Settings → General → Danger Zone)
+- [x] GitHub Pages set to **Private** visibility (Enterprise Cloud — only repo collaborators can access)
 
 ---
 
-## Viewing HTML Outputs
+## Viewing Architecture Documents
 
-Since the repository should be private and GitHub Pages may not be available, use these options:
+> **Important:** Clicking an HTML file in the GitHub repo browser shows raw source code — GitHub never renders HTML inline. Use one of the options below to view rendered documents.
 
-### Option 1: SharePoint (Recommended)
+### Option 1: GitHub Pages (Recommended)
+
+The Pages site is live and auto-deployed after each pipeline run:
+
+**`https://sajivfrancis777.github.io/IAO-Architecture/`**
+
+The index page lists all 8 towers with every capability linked. Click any capability to view the full BDAT architecture document with rendered Mermaid diagrams and IAPM-linked system nodes.
+
+### Option 2: SharePoint
 
 After the forward sync runs, architecture HTML and PDF files are available on SharePoint:
 
@@ -491,16 +505,6 @@ SharePoint > Shared Documents > Architecture/SAD > <TOWER> > <ProcessGroup> > <C
 
 - **HTML**: Click to open in the SharePoint browser preview. If JavaScript is stripped (Mermaid diagrams won't render), download the file and open locally.
 - **PDF**: Always works — click to view or download.
-
-### Option 2: GitHub Pages (Enterprise Cloud Only)
-
-If your organization has **GitHub Enterprise Cloud** with **private Pages** enabled:
-
-1. Go to **Settings → Pages**
-2. Source: **GitHub Actions**
-3. Visibility: **Private** (only repo collaborators can access)
-4. The `deploy-pages.yml` workflow auto-deploys after each generation
-5. Site URL: `https://<org>.github.io/IAO-Architecture/`
 
 ### Option 3: Local
 
