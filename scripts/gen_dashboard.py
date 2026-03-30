@@ -244,44 +244,50 @@ def _scan_doc_inventory(tower_short: str, base_url: str = "") -> list[dict]:
             sad_path = None
             sad_dir = doc_base / "systems-architecture"
             if sad_dir.exists():
-                sads = list(sad_dir.glob("*-Architecture.md"))
+                sads = list(sad_dir.glob("*-Architecture.html"))
+                if not sads:
+                    sads = list(sad_dir.glob("*-Architecture.md"))
                 if sads:
                     sad_path = sads[0]
             # RICEFW
             ricefw_path = None
             ricefw_dir = doc_base / "ricefw-tracker"
             if ricefw_dir.exists():
-                ricefws = list(ricefw_dir.glob("*-RICEFW-Tracker.md"))
+                ricefws = list(ricefw_dir.glob("*-RICEFW-Tracker.*"))
                 if ricefws:
                     ricefw_path = ricefws[0]
             # Testing
             testing_path = None
             testing_dir = doc_base / "testing-report"
             if testing_dir.exists():
-                tests = list(testing_dir.glob("*-Testing-Report.md"))
+                tests = list(testing_dir.glob("*-Testing-Report.*"))
                 if tests:
                     testing_path = tests[0]
 
-            def _rel(p: Path | None, from_dir: Path) -> str:
+            def _page_url(p: Path | None) -> str:
+                """Convert a local file path to a Pages-relative URL."""
                 if p is None:
                     return ""
                 try:
-                    return str(p.relative_to(from_dir)).replace("\\", "/")
+                    rel = p.relative_to(WORKSPACE)
                 except ValueError:
-                    return str(p).replace("\\", "/")
-
-            # Compute relative links from the dashboard output location
-            if base_url:
-                from_dir = TOWERS_DIR / tower_short / "output" / "docs" / "dashboard"
-            else:
-                from_dir = WORKSPACE / "output" / "docs" / "dashboard"
+                    return ""
+                # Pages URLs: from /dashboard/ or /dashboard/TOWER/
+                # Tower docs live at /towers/TOWER/...
+                parts = str(rel).replace("\\", "/")
+                if base_url:
+                    # From /dashboard/TOWER/ -> need ../../towers/...
+                    return f"../../{parts}"
+                else:
+                    # From /dashboard/ -> need ../towers/...
+                    return f"../{parts}"
 
             rows.append({
                 "tower": tower_short,
                 "cap_id": cap_id,
-                "sad_url": _rel(sad_path, from_dir) if sad_path else "",
-                "ricefw_url": _rel(ricefw_path, from_dir) if ricefw_path else "",
-                "testing_url": _rel(testing_path, from_dir) if testing_path else "",
+                "sad_url": _page_url(sad_path),
+                "ricefw_url": _page_url(ricefw_path),
+                "testing_url": _page_url(testing_path),
             })
     return rows
 
@@ -437,18 +443,18 @@ def build_dashboard_context(
     # Sankey data
     sankey = _build_sankey(tower_data, objects, tower_filter)
 
-    # Navigation URLs
+    # Navigation URLs — use flat Pages structure: /dashboard/, /dashboard/FPR/
     if tower_filter:
-        program_url = "../../../output/docs/dashboard/Program-Dashboard.html"
+        program_url = "../index.html"
     else:
         program_url = ""
 
     nav_towers = []
     for t_short in _TOWER_ORDER:
         if tower_filter:
-            url = f"../../../towers/{t_short}/output/docs/dashboard/{t_short}-Dashboard.html"
+            url = f"../{t_short}/index.html"
         else:
-            url = f"../../towers/{t_short}/output/docs/dashboard/{t_short}-Dashboard.html"
+            url = f"{t_short}/index.html"
         nav_towers.append({"short": t_short, "dashboard_url": url})
 
     tower_urls = {}
@@ -502,42 +508,6 @@ def build_dashboard_context(
         },
         "top_raids": top_raids,
         "doc_inventory": doc_inventory,
-    }
-
-    # Title
-    if tower_filter:
-        title_text = f"{_TOWER_DISPLAY.get(tower_filter, tower_filter)} ({tower_filter})"
-        cover_path = "../../templates/assets/cover_banner.svg"
-    else:
-        title_text = "IDM 2.0 — All Towers"
-        cover_path = "templates/assets/cover_banner.svg"
-
-    return {
-        "title": title_text,
-        "cover_banner_path": cover_path,
-        "release_name": "Release 3",
-        "generated_date": datetime.now().strftime("%B %Y"),
-        "author": "Sajiv Francis",
-        "towers": tower_data,
-        "program": {
-            "total_objects": total_objects,
-            "completed_count": completed_count,
-            "completed_pct": round(completed_count / total_objects * 100) if total_objects else 0,
-            "active_count": active_count,
-            "rejected_count": rejected_count,
-            "tower_count": len(tower_data),
-            "capability_count": cap_count,
-            "avg_fs": _program_avg("fs_pct"),
-            "avg_build": _program_avg("build_pct"),
-            "avg_fut": _program_avg("fut_pct"),
-            "raid_count": sum(t["raid_count"] for t in tower_data),
-            "type_totals": type_totals,
-            "type_rows": type_rows,
-            "total_sads": sum(t["sad_count"] for t in tower_data),
-            "total_ricefw_docs": sum(t["ricefw_doc_count"] for t in tower_data),
-            "total_testing_docs": sum(t["testing_doc_count"] for t in tower_data),
-        },
-        "top_raids": top_raids,
     }
 
 
