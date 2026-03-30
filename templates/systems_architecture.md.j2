@@ -39,6 +39,13 @@
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
 .page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
 </style>
 
 <div style="page-break-before: always;"></div>
@@ -47,38 +54,60 @@
 
 ## Table of Contents
 
-1. [Executive Summary](#1-executive-summary)
-2. [Business Context & Objectives](#2-business-context--objectives)
-   - 2.1 [Classification](#21-classification)
-   - 2.2 [Business Drivers](#22-business-drivers)
-   - 2.3 [Success Criteria](#23-success-criteria)
-   - 2.4 [Companion Documents](#24-companion-documents)
-3. [Business Architecture (TOGAF "B")](#3-business-architecture-togaf-b)
-   - 3.1 [Business Process Overview](#31-business-process-overview)
-   - 3.2 [Business Process Diagrams](#32-business-process-diagrams)
-   - 3.3 [Business Roles & Responsibilities](#33-business-roles--responsibilities)
-4. [Data Architecture (TOGAF "D")](#4-data-architecture-togaf-d)
-   - 4.1 [Data Entities & Ownership](#41-data-entities--ownership)
-   - 4.2 [Data Flow Diagrams](#42-data-flow-diagrams)
-   - 4.3 [Data Lineage](#43-data-lineage)
-   - 4.4 [RICEFW Data Objects](#44-ricefw-data-objects)
-   - 4.5 [Data Governance & Quality](#45-data-governance--quality)
-5. [Application Architecture (TOGAF "A")](#5-application-architecture-togaf-a)
-   - 5.1 [Current-State Application Landscape](#51-{{ current_label | lower | replace(' ', '-') }}--current-state-application-landscape)
-   - 5.2 [Future-State Application Landscape](#52-{{ future_label | lower | replace(' ', '-') }}--future-state-application-landscape)
-   - 5.3 [Change Impact Summary](#53-change-impact-summary)
-   - 5.4 [Component Overview](#54-component-overview)
-   - 5.5 [RICEFW Inventory](#55-ricefw-inventory)
-   - 5.6 [Integration Patterns](#56-integration-patterns)
-6. [Technology Architecture (TOGAF "T")](#6-technology-architecture-togaf-t)
-   - 6.1 [Platform & Infrastructure](#61-platform--infrastructure)
-   - 6.2 [SAP Development Object Status](#62-sap-development-object-status)
-   - 6.3 [NFRs & Design Principles](#63-nfrs--design-principles)
-   - 6.4 [Security & Governance](#64-security--governance)
-7. [Project Context](#7-project-context)
-   - 7.1 [Project Roadmap & Go-Live Plan](#71-project-roadmap--go-live-plan)
-   - 7.2 [RAID Log](#72-raid-log)
-   - 7.3 [Recommendations & Next Steps](#73-recommendations--next-steps)
+<nav class="toc">
+<ol>
+  <li><a href="#1-executive-summary">1. Executive Summary</a></li>
+  <li><a href="#2-business-context--objectives">2. Business Context &amp; Objectives</a>
+    <ul>
+      <li><a href="#21-classification">2.1 Classification</a></li>
+      <li><a href="#22-business-drivers">2.2 Business Drivers</a></li>
+      <li><a href="#23-success-criteria">2.3 Success Criteria</a></li>
+      <li><a href="#24-companion-documents">2.4 Companion Documents</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+    <ul>
+      <li><a href="#31-business-process-overview">3.1 Business Process Overview</a></li>
+      <li><a href="#32-business-process-diagrams">3.2 Business Process Diagrams</a></li>
+      <li><a href="#33-business-roles--responsibilities">3.3 Business Roles &amp; Responsibilities</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+    <ul>
+      <li><a href="#41-data-entities--ownership">4.1 Data Entities &amp; Ownership</a></li>
+      <li><a href="#42-data-flow-diagrams">4.2 Data Flow Diagrams</a></li>
+      <li><a href="#43-data-lineage">4.3 Data Lineage</a></li>
+      <li><a href="#44-ricefw-data-objects">4.4 RICEFW Data Objects</a></li>
+      <li><a href="#45-data-governance--quality">4.5 Data Governance &amp; Quality</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+    <ul>
+      <li><a href="#51-{{ current_label | lower | replace(' ', '-') }}--current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
+      <li><a href="#52-{{ future_label | lower | replace(' ', '-') }}--future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
+      <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
+      <li><a href="#54-component-overview">5.4 Component Overview</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+    <ul>
+      <li><a href="#61-platform--infrastructure">6.1 Platform &amp; Infrastructure</a></li>
+      <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
+      <li><a href="#63-nfrs--design-principles">6.3 NFRs &amp; Design Principles</a></li>
+      <li><a href="#64-security--governance">6.4 Security &amp; Governance</a></li>
+    </ul>
+  </li>
+  <li><a href="#7-project-context">7. Project Context</a>
+    <ul>
+      <li><a href="#71-project-roadmap--go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</a></li>
+      <li><a href="#72-raid-log">7.2 RAID Log</a></li>
+      <li><a href="#73-recommendations--next-steps">7.3 Recommendations &amp; Next Steps</a></li>
+    </ul>
+  </li>
+</ol>
+</nav>
 
 <div style="page-break-before: always;"></div>
 

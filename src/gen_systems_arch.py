@@ -44,6 +44,7 @@ from src.smartsheet_loader import SmartsheetLoader, SmartsheetData
 from src.context_loader import load_capability_context, CapabilityContext
 from src.bpmn_parser import load_capability_bpmns, bpmn_to_mermaid, build_process_inventory_table, BPMNProcess
 from src.xlsx_loader import load_workbook as load_xlsx_workbook, find_workbook as find_xlsx_workbook
+from src.cap_name_resolver import CapNameResolver
 
 
 # ---------------------------------------------------------------------------
@@ -600,18 +601,18 @@ def generate_capability(
     if not cap_cfg:
         cap_cfg = CapabilityConfig(cap_id=cap_id, name=cap_id)
 
-    # Avoid duplicate title like "DC-050 — DC-050" when name wasn't populated
-    if cap_cfg.name == cap_cfg.cap_id:
-        # Use L1 process group as meaningful name, or directory-derived name
-        if cap_cfg.l1 and cap_cfg.l1 != cap_cfg.cap_id:
-            cap_cfg.name = cap_cfg.l1
-        else:
-            # Derive from the capability directory name
-            cap_dir_name = cap_dir.parent.name if cap_dir.parent.name != cap_id else ""
-            if cap_dir_name and cap_dir_name != cap_id:
-                cap_cfg.name = cap_dir_name
-            else:
-                cap_cfg.name = f"{cap_id} Architecture"
+    # Resolve capability name from multiple sources (BIC > Smartsheet > BPMN > L1)
+    resolver = CapNameResolver(tower_dir, tower_cfg.shortcode)
+    l1_dir_name = cap_dir.parent.name if cap_dir.parent.name != cap_id else ""
+    bpmn_dir = cap_dir / "input" / "bpmn"
+    cap_cfg.name = resolver.resolve(
+        cap_id=cap_id,
+        yaml_name=cap_cfg.name,
+        l1_dir_name=l1_dir_name,
+        bpmn_dir=bpmn_dir if bpmn_dir.exists() else None,
+    )
+    if not cap_cfg.l1 and l1_dir_name:
+        cap_cfg.l1 = l1_dir_name
 
     # Locate flow files — prefer multi-tab xlsx over individual CSVs
     current_xlsx = find_xlsx_workbook(input_data, tower_cfg.release.release_id, "CurrentFlows")
