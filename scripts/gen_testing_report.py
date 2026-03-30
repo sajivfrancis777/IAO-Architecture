@@ -193,6 +193,18 @@ def build_context(
     # Filter objects
     tower_objs = [o for o in all_objects if o["tower"] == tower_short]
 
+    # Capability-level filtering (best-effort: prefix match or sub_tower match)
+    if cap_id:
+        cap_prefix = cap_id.replace("-", "")[:4].upper()
+        cap_objs = [
+            o for o in tower_objs
+            if o["object_id"].replace("-", "").upper().startswith(cap_prefix)
+            or cap_id.lower() in o.get("sub_tower", "").lower()
+        ]
+        # Fall back to full tower data if no capability-specific match
+        if cap_objs:
+            tower_objs = cap_objs
+
     total = len(tower_objs)
     completed = [o for o in tower_objs if o["status"] in _COMPLETED_STATUSES]
     rejected = [o for o in tower_objs if o["status"] in _REJECTED_STATUSES]
@@ -354,6 +366,37 @@ def generate_tower_report(
             out_path.write_text(rendered, encoding="utf-8")
             print(f"  Wrote: {out_path}")
         outputs.append(out_path)
+
+    # Capability-level reports (scan tower directory for L1/cap structure)
+    for l1_dir in sorted(tower_dir.iterdir()):
+        if not l1_dir.is_dir() or l1_dir.name.startswith(("output", ".", "_")):
+            continue
+        for cap_dir in sorted(l1_dir.iterdir()):
+            if not cap_dir.is_dir():
+                continue
+            cid = cap_dir.name
+            if cap_filter and cid != cap_filter:
+                continue
+
+            ctx = build_context(
+                tower_short, all_objects, all_raids,
+                cap_id=cid,
+                cap_name=cid,
+                l1_process=l1_dir.name,
+            )
+
+            rendered = template.render(**ctx)
+
+            out_dir = cap_dir / "output" / "docs" / "testing-report"
+            out_dir.mkdir(parents=True, exist_ok=True)
+            out_path = out_dir / f"{cid}-Testing-Report.md"
+
+            if dry_run:
+                print(f"  [DRY-RUN] Would write: {out_path} ({len(rendered):,} chars)")
+            else:
+                out_path.write_text(rendered, encoding="utf-8")
+                print(f"  Wrote: {out_path}")
+            outputs.append(out_path)
 
     return outputs
 

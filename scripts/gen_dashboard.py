@@ -1,8 +1,9 @@
-"""gen_dashboard.py — Generate program-level and per-tower dashboard summaries.
+"""gen_dashboard.py — Generate interactive HTML dashboards with Plotly charts.
 
 Aggregates data from the Smartsheet Object Tracker + RAID logs to produce:
-  - All-towers program dashboard (top-level summary)
-  - Per-tower dashboard (one per tower)
+  - All-towers program dashboard (Plotly bar/pie/sankey/line charts)
+  - Per-tower dashboard with capability drill-down
+  - Click-through navigation to SAD, RICEFW Tracker, and Testing Report docs
 
 Usage:
     python scripts/gen_dashboard.py
@@ -14,6 +15,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import json
 import re
 from collections import Counter
 from datetime import datetime
@@ -30,7 +32,7 @@ TEMPLATES_DIR = WORKSPACE / "templates"
 OBJECT_TRACKER_CSV = WORKSPACE / "data" / "smartsheet" / "object_trackers" / "s4_r3_object_tracker.csv"
 RAID_CSV = WORKSPACE / "data" / "smartsheet" / "raid" / "master_raid_log.csv"
 
-DASHBOARD_TEMPLATE = "dashboard.md.j2"
+DASHBOARD_TEMPLATE = "dashboard.html.j2"
 
 _COMPLETED_STATUSES = {"10. object complete", "10. Object Complete"}
 _REJECTED_STATUSES = {"99. rejected/cancelled/on hold", "99. Rejected/Cancelled/On Hold"}
@@ -221,6 +223,141 @@ def _tower_stats(tower_short: str, objects: list[dict], raids: list[dict]) -> di
 
 
 # ---------------------------------------------------------------------------
+# Document inventory — scan for 3 docs per capability
+# ---------------------------------------------------------------------------
+def _scan_doc_inventory(tower_short: str, base_url: str = "") -> list[dict]:
+    """Scan a tower directory for SAD, RICEFW, and Testing docs per capability."""
+    tower_dir = TOWERS_DIR / tower_short
+    if not tower_dir.exists():
+        return []
+    rows = []
+    for l1_dir in sorted(tower_dir.iterdir()):
+        if not l1_dir.is_dir() or l1_dir.name.startswith(("output", ".", "_")):
+            continue
+        for cap_dir in sorted(l1_dir.iterdir()):
+            if not cap_dir.is_dir():
+                continue
+            cap_id = cap_dir.name
+            doc_base = cap_dir / "output" / "docs"
+
+            # SAD
+            sad_path = None
+            sad_dir = doc_base / "systems-architecture"
+            if sad_dir.exists():
+                sads = list(sad_dir.glob("*-Architecture.md"))
+                if sads:
+                    sad_path = sads[0]
+            # RICEFW
+            ricefw_path = None
+            ricefw_dir = doc_base / "ricefw-tracker"
+            if ricefw_dir.exists():
+                ricefws = list(ricefw_dir.glob("*-RICEFW-Tracker.md"))
+                if ricefws:
+                    ricefw_path = ricefws[0]
+            # Testing
+            testing_path = None
+            testing_dir = doc_base / "testing-report"
+            if testing_dir.exists():
+                tests = list(testing_dir.glob("*-Testing-Report.md"))
+                if tests:
+                    testing_path = tests[0]
+
+            def _rel(p: Path | None, from_dir: Path) -> str:
+                if p is None:
+                    return ""
+                try:
+                    return str(p.relative_to(from_dir)).replace("\\", "/")
+                except ValueError:
+                    return str(p).replace("\\", "/")
+
+            # Compute relative links from the dashboard output location
+            if base_url:
+                from_dir = TOWERS_DIR / tower_short / "output" / "docs" / "dashboard"
+            else:
+                from_dir = WORKSPACE / "output" / "docs" / "dashboard"
+
+            rows.append({
+                "tower": tower_short,
+                "cap_id": cap_id,
+                "sad_url": _rel(sad_path, from_dir) if sad_path else "",
+                "ricefw_url": _rel(ricefw_path, from_dir) if ricefw_path else "",
+                "testing_url": _rel(testing_path, from_dir) if testing_path else "",
+            })
+    return rows
+
+
+# ---------------------------------------------------------------------------
+# Sankey data builder
+# ---------------------------------------------------------------------------
+def _build_sankey(towers_data: list[dict], objects: list[dict], tower_filter: str = "") -> dict:
+    """Build Sankey node/link data: Towers → RICEFW Types → Statuses."""
+    tower_colors = [
+        "#0071c5", "#00395d", "#00aeef", "#34a853",
+        "#fbbc04", "#ea4335", "#8e44ad", "#e67e22",
+    ]
+    type_colors = {
+        "I": "#0071c5", "C": "#00aeef", "E": "#34a853",
+        "R": "#fbbc04", "F": "#8e44ad", "W": "#e67e22",
+    }
+    status_colors = {"Completed": "#34a853", "Active": "#0071c5", "Rejected": "#ea4335"}
+
+    # Nodes: towers + types + statuses
+    tower_labels = [t["short"] for t in towers_data]
+    type_labels_ordered = ["Interface", "Conversion", "Enhancement", "Report", "Form", "Workflow"]
+    status_labels = ["Completed", "Active", "Rejected"]
+
+    all_labels = tower_labels + type_labels_ordered + status_labels
+    all_colors = (
+        [tower_colors[i % len(tower_colors)] for i in range(len(tower_labels))]
+        + [type_colors.get(l[0], "#999") for l in type_labels_ordered]
+        + [status_colors[s] for s in status_labels]
+    )
+
+    # Index maps
+    idx = {label: i for i, label in enumerate(all_labels)}
+
+    # Links: tower → type
+    links_source, links_target, links_value, links_color = [], [], [], []
+    filtered = [o for o in objects if not tower_filter or o["tower"] == tower_filter]
+
+    for t in towers_data:
+        t_objs = [o for o in filtered if o["tower"] == t["short"]]
+        type_counts = Counter(o["type_code"] for o in t_objs)
+        for code, label in [("I", "Interface"), ("C", "Conversion"), ("E", "Enhancement"),
+                            ("R", "Report"), ("F", "Form"), ("W", "Workflow")]:
+            cnt = type_counts.get(code, 0)
+            if cnt:
+                links_source.append(idx[t["short"]])
+                links_target.append(idx[label])
+                links_value.append(cnt)
+                links_color.append(type_colors.get(code, "#ccc") + "55")
+
+    # Links: type → status
+    for label, code in [("Interface", "I"), ("Conversion", "C"), ("Enhancement", "E"),
+                        ("Report", "R"), ("Form", "F"), ("Workflow", "W")]:
+        type_objs = [o for o in filtered if o["type_code"] == code]
+        completed = sum(1 for o in type_objs if o["status"] in _COMPLETED_STATUSES)
+        rejected = sum(1 for o in type_objs if o["status"] in _REJECTED_STATUSES)
+        active = len(type_objs) - completed - rejected
+        for status_label, count, color in [
+            ("Completed", completed, "#34a85355"),
+            ("Active", active, "#0071c555"),
+            ("Rejected", rejected, "#ea433555"),
+        ]:
+            if count:
+                links_source.append(idx[label])
+                links_target.append(idx[status_label])
+                links_value.append(count)
+                links_color.append(color)
+
+    return {
+        "node": {"label": all_labels, "color": all_colors},
+        "link": {"source": links_source, "target": links_target,
+                 "value": links_value, "color": links_color},
+    }
+
+
+# ---------------------------------------------------------------------------
 # Build context
 # ---------------------------------------------------------------------------
 def build_dashboard_context(
@@ -228,7 +365,7 @@ def build_dashboard_context(
     raids: list[dict],
     tower_filter: str = "",
 ) -> dict:
-    """Build the Jinja2 context for a dashboard."""
+    """Build the Jinja2 context for an interactive HTML dashboard."""
 
     towers_to_process = [tower_filter] if tower_filter else _TOWER_ORDER
     tower_data = []
@@ -243,11 +380,6 @@ def build_dashboard_context(
     active_count = sum(t["active"] for t in tower_data)
     rejected_count = sum(t["rejected"] for t in tower_data)
 
-    type_totals = Counter()
-    for t in tower_data:
-        for code in ["I", "C", "E", "R", "F", "W"]:
-            type_totals[code] += t.get(code.lower() + "s" if code != "I" else "interfaces", 0)
-    # Fix: map codes to stat keys
     type_totals = {"I": 0, "C": 0, "E": 0, "R": 0, "F": 0, "W": 0}
     for t in tower_data:
         type_totals["I"] += t["interfaces"]
@@ -277,7 +409,7 @@ def build_dashboard_context(
             "completed_pct": round(tc_completed / tc * 100) if tc else 0,
         })
 
-    # Count capabilities from directory structure
+    # Count capabilities
     cap_count = 0
     for t in towers_to_process:
         tower_dir = TOWERS_DIR / t
@@ -288,7 +420,6 @@ def build_dashboard_context(
                         if cap.is_dir():
                             cap_count += 1
 
-    # Avg phase completion
     def _program_avg(key: str) -> int:
         vals = [_safe_float(o[key]) for o in objects
                 if not tower_filter or o["tower"] == tower_filter]
@@ -297,6 +428,81 @@ def build_dashboard_context(
     # Top RAID items (P0/P1)
     top_raids = [r for r in raids if r["severity"].lower() in ("p0", "p1")
                  and (not tower_filter or r["tower"] == tower_filter)]
+
+    # Document inventory (per-capability)
+    doc_inventory = []
+    for t in towers_to_process:
+        doc_inventory.extend(_scan_doc_inventory(t, base_url="" if not tower_filter else t))
+
+    # Sankey data
+    sankey = _build_sankey(tower_data, objects, tower_filter)
+
+    # Navigation URLs
+    if tower_filter:
+        program_url = "../../../output/docs/dashboard/Program-Dashboard.html"
+    else:
+        program_url = ""
+
+    nav_towers = []
+    for t_short in _TOWER_ORDER:
+        if tower_filter:
+            url = f"../../../towers/{t_short}/output/docs/dashboard/{t_short}-Dashboard.html"
+        else:
+            url = f"../../towers/{t_short}/output/docs/dashboard/{t_short}-Dashboard.html"
+        nav_towers.append({"short": t_short, "dashboard_url": url})
+
+    tower_urls = {}
+    for t in nav_towers:
+        tower_urls[t["short"]] = t["dashboard_url"]
+
+    # Capability click URLs (map cap_id → its dashboard or first doc)
+    cap_urls = {}
+    for row in doc_inventory:
+        first_url = row.get("sad_url") or row.get("ricefw_url") or row.get("testing_url") or ""
+        if first_url:
+            cap_urls[row["cap_id"]] = first_url
+
+    # Title
+    if tower_filter:
+        title_text = f"{_TOWER_DISPLAY.get(tower_filter, tower_filter)} ({tower_filter})"
+    else:
+        title_text = "IDM 2.0 — All Towers"
+
+    return {
+        "title": title_text,
+        "release_name": "Release 3",
+        "generated_date": datetime.now().strftime("%B %Y"),
+        "author": "Sajiv Francis",
+        "tower_filter": tower_filter,
+        "program_dashboard_url": program_url,
+        "nav_towers": nav_towers,
+        "towers": tower_data,
+        "towers_json": json.dumps(tower_data),
+        "type_data_json": json.dumps(type_rows),
+        "sankey_json": json.dumps(sankey),
+        "tower_urls_json": json.dumps(tower_urls),
+        "cap_urls_json": json.dumps(cap_urls),
+        "program": {
+            "total_objects": total_objects,
+            "completed_count": completed_count,
+            "completed_pct": round(completed_count / total_objects * 100) if total_objects else 0,
+            "active_count": active_count,
+            "rejected_count": rejected_count,
+            "tower_count": len(tower_data),
+            "capability_count": cap_count,
+            "avg_fs": _program_avg("fs_pct"),
+            "avg_build": _program_avg("build_pct"),
+            "avg_fut": _program_avg("fut_pct"),
+            "raid_count": sum(t["raid_count"] for t in tower_data),
+            "type_totals": type_totals,
+            "type_rows": type_rows,
+            "total_sads": sum(t["sad_count"] for t in tower_data),
+            "total_ricefw_docs": sum(t["ricefw_doc_count"] for t in tower_data),
+            "total_testing_docs": sum(t["testing_doc_count"] for t in tower_data),
+        },
+        "top_raids": top_raids,
+        "doc_inventory": doc_inventory,
+    }
 
     # Title
     if tower_filter:
@@ -355,7 +561,7 @@ def generate_dashboard(
 
         out_dir = WORKSPACE / "output" / "docs" / "dashboard"
         out_dir.mkdir(parents=True, exist_ok=True)
-        out_path = out_dir / "Program-Dashboard.md"
+        out_path = out_dir / "Program-Dashboard.html"
 
         if dry_run:
             print(f"  [DRY-RUN] Would write: {out_path} ({len(rendered):,} chars)")
@@ -376,7 +582,7 @@ def generate_dashboard(
 
         out_dir = tower_dir / "output" / "docs" / "dashboard"
         out_dir.mkdir(parents=True, exist_ok=True)
-        out_path = out_dir / f"{t}-Dashboard.md"
+        out_path = out_dir / f"{t}-Dashboard.html"
 
         if dry_run:
             print(f"  [DRY-RUN] Would write: {out_path} ({len(rendered):,} chars)")
@@ -392,7 +598,7 @@ def generate_dashboard(
 # CLI
 # ---------------------------------------------------------------------------
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Generate Program Dashboard")
+    parser = argparse.ArgumentParser(description="Generate Interactive Program Dashboard")
     parser.add_argument("--tower", type=str, help="Tower shortcode (single tower only)")
     parser.add_argument("--dry-run", action="store_true", help="Preview only")
     args = parser.parse_args()
