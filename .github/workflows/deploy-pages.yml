@@ -50,15 +50,95 @@ jobs:
           mkdir -p _site/templates/assets
           cp templates/assets/cover_banner.svg _site/templates/assets/
 
-          # ── Shared CSS/JS ──────────────────────────────────────────
+          # ── Tower metadata (description + icon) ────────────────────
+          tower_desc() {
+            case "$1" in
+              E2E)     echo "End-to-End Integrated Scenarios|Cross-tower integration flows spanning the full business cycle|🔗";;
+              FPR)     echo "Finance Plan to Report|Financial planning, accounting, decision support, capital and risk management|💰";;
+              FTS-IF)  echo "Forecast to Stock — IF|Supply chain planning, manufacturing, logistics and quality (Front-End IF)|🏭";;
+              FTS-IP)  echo "Forecast to Stock — IP|Supply chain planning, manufacturing, logistics and quality (Back-End IP)|📦";;
+              MDM)     echo "Master Data Management|Enterprise master data governance and harmonization|🗂️";;
+              OTC-IF)  echo "Order to Cash — IF|Order management, billing, credit, trade and returns (Front-End IF)|📋";;
+              OTC-IP)  echo "Order to Cash — IP|Order management, billing, credit, trade and returns (Back-End IP)|🛒";;
+              PTP)     echo "Plan to Procure|Procurement, supplier management, logistics and quality (incoming)|🔧";;
+              *)       echo "$1|Architecture documents|📄";;
+            esac
+          }
+
+          # ── Build navigation manifest (nav.json) ──────────────────
+          echo '[' > _site/nav.json
+          first_tower=true
+          for tower_dir in towers/*/; do
+            tower=$(basename "$tower_dir")
+            info=$(tower_desc "$tower")
+            full_name=$(echo "$info" | cut -d'|' -f1)
+            icon=$(echo "$info" | cut -d'|' -f3)
+
+            $first_tower || echo ',' >> _site/nav.json
+            first_tower=false
+            echo "{\"tower\":\"${tower}\",\"name\":\"${full_name}\",\"icon\":\"${icon}\",\"groups\":[" >> _site/nav.json
+
+            first_group=true
+            for proc_dir in "$tower_dir"*/; do
+              [ -d "$proc_dir" ] || continue
+              proc_name=$(basename "$proc_dir")
+              html_files=$(find "$proc_dir" -name "*-Architecture.html" -type f | sort)
+              [ -z "$html_files" ] && continue
+
+              $first_group || echo ',' >> _site/nav.json
+              first_group=false
+              echo "{\"group\":\"${proc_name}\",\"caps\":[" >> _site/nav.json
+
+              first_cap=true
+              echo "$html_files" | while read html; do
+                cap=$(basename "$html" | sed 's/-Architecture.html//')
+                cap_dir=$(basename "$(dirname "$(dirname "$(dirname "$html")")")")
+                $first_cap || printf ',' >> _site/nav.json
+                first_cap=false
+                echo "{\"id\":\"${cap}\",\"name\":\"${cap_dir}\",\"href\":\"${html}\"}" >> _site/nav.json
+              done
+              echo ']}'  >> _site/nav.json
+            done
+            echo ']}'  >> _site/nav.json
+          done
+          echo ']' >> _site/nav.json
+
+          # ── SHARED CSS ─────────────────────────────────────────────
           SHARED_CSS='
           *,*::before,*::after{box-sizing:border-box}
           body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:#f0f2f5;color:#1a1a2e}
-          .topbar{background:linear-gradient(135deg,#00285a 0%,#0071c5 100%);padding:0 32px;display:flex;align-items:center;height:56px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+          .topbar{background:linear-gradient(135deg,#00285a 0%,#0071c5 100%);padding:0 32px;display:flex;align-items:center;height:56px;box-shadow:0 2px 8px rgba(0,0,0,.15);position:fixed;top:0;left:0;right:0;z-index:100}
           .topbar img{height:36px;margin-right:16px;border-radius:4px}
           .topbar h1{color:#fff;font-size:18px;font-weight:600;margin:0;letter-spacing:.5px}
-          .topbar a{color:rgba(255,255,255,.85);text-decoration:none;font-size:14px;margin-left:auto}
-          .topbar a:hover{color:#fff}
+          .topbar a.back-link{color:rgba(255,255,255,.85);text-decoration:none;font-size:14px;margin-left:auto}
+          .topbar a.back-link:hover{color:#fff}
+          .topbar .sidebar-toggle{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;margin-right:12px;padding:4px 8px}
+
+          /* ── Sidebar ── */
+          .sidebar{position:fixed;top:56px;left:0;bottom:0;width:280px;background:#fff;border-right:1px solid #e4e8ed;overflow-y:auto;z-index:90;transition:transform .25s ease;padding-bottom:24px}
+          .sidebar .search-box{padding:12px 16px;border-bottom:1px solid #e4e8ed;position:sticky;top:0;background:#fff;z-index:1}
+          .sidebar .search-box input{width:100%;padding:8px 12px 8px 34px;border:1px solid #d0d5dd;border-radius:8px;font-size:13px;outline:none;background:#f8f9fb url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2716%27 height=%2716%27 fill=%27%23999%27 viewBox=%270 0 16 16%27%3E%3Cpath d=%27M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242.156a5 5 0 1 1 0-10 5 5 0 0 1 0 10z%27/%3E%3C/svg%3E") 10px center no-repeat}
+          .sidebar .search-box input:focus{border-color:#0071c5;box-shadow:0 0 0 2px rgba(0,113,197,.15)}
+          .sidebar .nav-tree{padding:8px 0}
+          .sidebar .tower-group{margin-bottom:2px}
+          .sidebar .tower-header{display:flex;align-items:center;padding:8px 16px;font-size:14px;font-weight:600;color:#00285a;cursor:pointer;user-select:none;border-radius:0}
+          .sidebar .tower-header:hover{background:#f5f8fc}
+          .sidebar .tower-header .arrow{font-size:10px;margin-right:8px;transition:transform .2s;color:#999}
+          .sidebar .tower-header.open .arrow{transform:rotate(90deg)}
+          .sidebar .tower-header .icon{margin-right:6px}
+          .sidebar .tower-header a{color:inherit;text-decoration:none;flex:1}
+          .sidebar .proc-group{margin-left:16px;display:none}
+          .sidebar .tower-header.open+.proc-group,.sidebar .proc-group.search-open{display:block}
+          .sidebar .proc-label{font-size:11px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.5px;padding:8px 16px 4px;margin-top:4px}
+          .sidebar .cap-link{display:block;padding:4px 16px 4px 24px;font-size:13px;color:#444;text-decoration:none;border-radius:4px;margin:1px 8px}
+          .sidebar .cap-link:hover{background:#e8f4fd;color:#0071c5}
+          .sidebar .cap-link.active{background:#0071c5;color:#fff;font-weight:600}
+          .sidebar .cap-id{font-weight:600;color:#00285a;margin-right:4px}
+          .sidebar .cap-link.active .cap-id{color:#fff}
+          .sidebar .no-results{padding:16px;font-size:13px;color:#999;text-align:center;font-style:italic}
+
+          /* ── Layout ── */
+          .page-body{margin-top:56px;margin-left:280px;transition:margin-left .25s ease}
           .container{max-width:1120px;margin:0 auto;padding:24px 24px 48px}
           .breadcrumb{font-size:13px;color:#666;margin-bottom:20px}
           .breadcrumb a{color:#0071c5;text-decoration:none}
@@ -84,21 +164,114 @@ jobs:
           td a{color:#0071c5;text-decoration:none;font-weight:500}
           td a:hover{text-decoration:underline}
           .footer{text-align:center;padding:32px 0;font-size:12px;color:#999;border-top:1px solid #e4e8ed;margin-top:48px}
+
+          /* ── Mobile ── */
+          @media(max-width:768px){
+            .topbar .sidebar-toggle{display:block}
+            .sidebar{transform:translateX(-100%)}
+            .sidebar.open{transform:translateX(0);box-shadow:4px 0 16px rgba(0,0,0,.15)}
+            .page-body{margin-left:0}
+            .hero{padding:28px 20px}
+            .hero h2{font-size:24px}
+            .cards{grid-template-columns:1fr}
+          }
           '
 
-          # ── Tower metadata (description + icon) ────────────────────
-          tower_desc() {
-            case "$1" in
-              E2E)     echo "End-to-End Integrated Scenarios|Cross-tower integration flows spanning the full business cycle|🔗";;
-              FPR)     echo "Finance Plan to Report|Financial planning, accounting, decision support, capital and risk management|💰";;
-              FTS-IF)  echo "Forecast to Stock — IF|Supply chain planning, manufacturing, logistics and quality (Front-End IF)|🏭";;
-              FTS-IP)  echo "Forecast to Stock — IP|Supply chain planning, manufacturing, logistics and quality (Back-End IP)|📦";;
-              MDM)     echo "Master Data Management|Enterprise master data governance and harmonization|🗂️";;
-              OTC-IF)  echo "Order to Cash — IF|Order management, billing, credit, trade and returns (Front-End IF)|📋";;
-              OTC-IP)  echo "Order to Cash — IP|Order management, billing, credit, trade and returns (Back-End IP)|🛒";;
-              PTP)     echo "Plan to Procure|Procurement, supplier management, logistics and quality (incoming)|🔧";;
-              *)       echo "$1|Architecture documents|📄";;
-            esac
+          # ── SHARED JS (sidebar search + toggle) ───────────────────
+          SHARED_JS='
+          <script>
+          (function(){
+            var sidebar=document.querySelector(".sidebar");
+            var toggle=document.querySelector(".sidebar-toggle");
+            if(toggle){toggle.addEventListener("click",function(){sidebar.classList.toggle("open")})}
+
+            // Load nav.json for sidebar tree
+            var basePath=document.querySelector("meta[name=base-path]");
+            var base=basePath?basePath.content:"";
+            fetch(base+"nav.json").then(function(r){return r.json()}).then(function(data){
+              var tree=document.querySelector(".nav-tree");
+              if(!tree)return;
+              var currentPage=location.pathname;
+              data.forEach(function(t){
+                var tg=document.createElement("div");tg.className="tower-group";tg.dataset.tower=t.tower;
+                var th=document.createElement("div");th.className="tower-header";
+                th.innerHTML="<span class=\"arrow\">▶</span><span class=\"icon\">"+t.icon+"</span><a href=\""+base+"tower-"+t.tower+".html\">"+t.tower+"</a>";
+                th.addEventListener("click",function(e){if(e.target.tagName!=="A"){th.classList.toggle("open")}});
+                tg.appendChild(th);
+
+                var pg=document.createElement("div");pg.className="proc-group";
+                t.groups.forEach(function(g){
+                  var pl=document.createElement("div");pl.className="proc-label";pl.textContent=g.group;
+                  pg.appendChild(pl);
+                  g.caps.forEach(function(c){
+                    var a=document.createElement("a");a.className="cap-link";a.href=base+c.href;
+                    a.innerHTML="<span class=\"cap-id\">"+c.id+"</span> "+c.name;
+                    a.dataset.search=(c.id+" "+c.name+" "+g.group+" "+t.tower+" "+t.name).toLowerCase();
+                    if(currentPage.indexOf(c.id)!==-1){a.classList.add("active");th.classList.add("open")}
+                    pg.appendChild(a);
+                  });
+                });
+                tg.appendChild(pg);
+                tree.appendChild(tg);
+              });
+
+              // Auto-open tower for tower pages
+              var m=currentPage.match(/tower-([A-Z0-9-]+)\.html/);
+              if(m){var hdr=tree.querySelector("[data-tower=\""+m[1]+"\"] .tower-header");if(hdr)hdr.classList.add("open")}
+            }).catch(function(){});
+
+            // Search filter
+            var input=document.querySelector(".sidebar .search-box input");
+            if(input){
+              input.addEventListener("input",function(){
+                var q=input.value.trim().toLowerCase();
+                var groups=document.querySelectorAll(".tower-group");
+                var anyVisible=false;
+                groups.forEach(function(tg){
+                  var links=tg.querySelectorAll(".cap-link");
+                  var towerVisible=false;
+                  links.forEach(function(a){
+                    var match=!q||a.dataset.search.indexOf(q)!==-1;
+                    a.style.display=match?"block":"none";
+                    if(match)towerVisible=true;
+                  });
+                  // Show/hide process labels based on visible caps beneath them
+                  var labels=tg.querySelectorAll(".proc-label");
+                  labels.forEach(function(lbl){
+                    var next=lbl.nextElementSibling;
+                    var hasVisible=false;
+                    while(next&&!next.classList.contains("proc-label")){
+                      if(next.classList.contains("cap-link")&&next.style.display!=="none")hasVisible=true;
+                      next=next.nextElementSibling;
+                    }
+                    lbl.style.display=hasVisible?"block":"none";
+                  });
+                  tg.style.display=towerVisible?"block":"none";
+                  var pg=tg.querySelector(".proc-group");
+                  if(q&&towerVisible){pg.classList.add("search-open")}else{pg.classList.remove("search-open")}
+                  if(towerVisible)anyVisible=true;
+                });
+                // Show/hide no-results message
+                var nr=document.querySelector(".no-results");
+                if(nr){nr.style.display=anyVisible?"none":"block"}
+              });
+            }
+          })();
+          </script>
+          '
+
+          # ── Helper: sidebar HTML fragment ──────────────────────────
+          sidebar_html() {
+            local base_prefix="$1"  # "" for root pages, or relative prefix for tower pages
+            cat <<SIDEBAR
+          <nav class="sidebar">
+            <div class="search-box">
+              <input type="text" placeholder="Search capabilities..." aria-label="Search capabilities">
+            </div>
+            <div class="nav-tree"></div>
+            <div class="no-results" style="display:none">No matching capabilities</div>
+          </nav>
+          SIDEBAR
           }
 
           # ── INDEX PAGE ─────────────────────────────────────────────
@@ -106,13 +279,17 @@ jobs:
           <!DOCTYPE html>
           <html lang="en"><head>
           <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+          <meta name="base-path" content="">
           <title>IAO Architecture — IDM 2.0</title>
           <style>${SHARED_CSS}</style>
           </head><body>
           <div class="topbar">
+            <button class="sidebar-toggle" aria-label="Toggle navigation">☰</button>
             <img src="templates/assets/cover_banner.svg" alt="IAO">
             <h1>IAO Architecture Portal</h1>
           </div>
+          $(sidebar_html "")
+          <div class="page-body">
           <div class="container">
           <div class="hero">
             <h2>IAO Architecture Documents</h2>
@@ -151,7 +328,9 @@ jobs:
             IAO Architecture Pipeline · Intel IDM 2.0 · TOGAF BDAT · Intel Confidential<br>
             Generated: $(date -u +"%B %Y")
           </div>
-          </div></body></html>
+          </div></div>
+          ${SHARED_JS}
+          </body></html>
           HEREDOC
 
           # ── PER-TOWER PAGES ────────────────────────────────────────
@@ -167,14 +346,18 @@ jobs:
           <!DOCTYPE html>
           <html lang="en"><head>
           <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+          <meta name="base-path" content="">
           <title>${tower} — IAO Architecture</title>
           <style>${SHARED_CSS}</style>
           </head><body>
           <div class="topbar">
+            <button class="sidebar-toggle" aria-label="Toggle navigation">☰</button>
             <img src="templates/assets/cover_banner.svg" alt="IAO">
             <h1>IAO Architecture Portal</h1>
-            <a href="index.html">← All Towers</a>
+            <a class="back-link" href="index.html">← All Towers</a>
           </div>
+          $(sidebar_html "")
+          <div class="page-body">
           <div class="container">
           <div class="breadcrumb"><a href="index.html">Home</a> / <strong>${tower}</strong></div>
           <div class="hero">
@@ -216,7 +399,9 @@ jobs:
             IAO Architecture Pipeline · Intel IDM 2.0 · ${tower} Tower · Intel Confidential<br>
             Generated: $(date -u +"%B %Y")
           </div>
-          </div></body></html>
+          </div></div>
+          ${SHARED_JS}
+          </body></html>
           TOWERFOOT
           done
 
