@@ -147,13 +147,13 @@ class MermaidBuilder:
 
     def _render(self) -> list[str]:
         lines: list[str] = []
-        lines.append("%%{init: {'theme': 'base', 'securityLevel': 'loose', "
-                      "'themeVariables': {'fontSize': '14px', "
-                      "'fontFamily': 'Segoe UI, Arial, sans-serif', "
-                      "'primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5', "
-                      "'lineColor': '#37474F', 'secondaryColor': '#f5f8fc', "
-                      "'tertiaryColor': '#fff'}, "
-                      "'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%")
+        lines.append('%%{init: {"theme": "base", "securityLevel": "loose", '
+                      '"themeVariables": {"fontSize": "14px", '
+                      '"fontFamily": "Segoe UI, Arial, sans-serif", '
+                      '"primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5", '
+                      '"lineColor": "#37474F", "secondaryColor": "#f5f8fc", '
+                      '"tertiaryColor": "#fff"}, '
+                      '"flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%')
         lines.append("flowchart LR")
         lines.append("")
 
@@ -401,9 +401,9 @@ def build_archimate_mermaid(
 
     # Render
     lines: list[str] = []
-    lines.append("%%{init: {'theme': 'base', 'securityLevel': 'loose', "
-                  "'themeVariables': {'fontSize': '16px', 'fontFamily': 'Segoe UI, Arial, sans-serif'}, "
-                  "'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%")
+    lines.append('%%{init: {"theme": "base", "securityLevel": "loose", '
+                  '"themeVariables": {"fontSize": "16px", "fontFamily": "Segoe UI, Arial, sans-serif"}, '
+                  '"flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%')
     lines.append("flowchart TB")
     lines.append(ARCHIMATE_CLASSDEFS)
     lines.append("")
@@ -537,9 +537,9 @@ def build_data_arch_mermaid(
 
     # Render
     lines: list[str] = []
-    lines.append("%%{init: {'theme': 'base', 'securityLevel': 'loose', "
-                  "'themeVariables': {'fontSize': '15px', 'fontFamily': 'Segoe UI, Arial'}, "
-                  "'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 35, 'rankSpacing': 45}} }%%")
+    lines.append('%%{init: {"theme": "base", "securityLevel": "loose", '
+                  '"themeVariables": {"fontSize": "15px", "fontFamily": "Segoe UI, Arial"}, '
+                  '"flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 35, "rankSpacing": 45}} }%%')
     lines.append("flowchart TB")
     lines.append("    classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B")
     lines.append("    classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20")
@@ -671,9 +671,9 @@ def build_platform_arch_mermaid(
 
     # Render
     lines: list[str] = []
-    lines.append("%%{init: {'theme': 'base', 'securityLevel': 'loose', "
-                  "'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial'},"
-                  " 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'nodeSpacing': 40, 'rankSpacing': 50}} }%%")
+    lines.append('%%{init: {"theme": "base", "securityLevel": "loose", '
+                  '"themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial"},'
+                  ' "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%')
     lines.append("flowchart TB")
     lines.append("    classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B")
     lines.append("    classDef platBox fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20")
