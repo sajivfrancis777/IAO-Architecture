@@ -57,6 +57,20 @@
       background: rgba(255,255,255,0.15);
       color: #fff;
     }
+    .topbar .nav-links button.pdf-btn {
+      color: #fff;
+      font-size: 0.82rem;
+      padding: 4px 12px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.12);
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.15s;
+    }
+    .topbar .nav-links button.pdf-btn:hover {
+      background: rgba(255,255,255,0.25);
+    }
 
     /* ---- Breadcrumb / tower nav ---- */
     .tower-nav {
@@ -269,6 +283,7 @@
         padding: 8px 16px;
       }
       .topbar .nav-links { display: none; }
+      .topbar .pdf-btn { display: none !important; }
       .topbar h1 { font-size: 14pt; }
       .topbar .meta { font-size: 9pt; }
 
@@ -361,6 +376,7 @@
     {% if tower_filter %}
     <a href="../../tower-{{ tower_filter }}.html">📋 {{ tower_filter }} Tower</a>
     {% endif %}
+    <button class="pdf-btn" id="btn-pdf" title="Print / Save as PDF">📄 Download PDF</button>
   </div>
 </div>
 
@@ -579,9 +595,15 @@ var selected = new Set();
 })();
 
 // ---- Filtered accessors ----
-function fTowers(){ return ALL_TOWERS.filter(function(t){return selected.has(t.short)}); }
+// On tower pages: charts always show full tower data (Object Tracker has no
+// per-capability mapping). Capability filter only affects tables.
+// On program pages: tower filter chips control both charts and tables.
+function fTowers(){
+  if(IS_TOWER) return ALL_TOWERS;  // always full tower — no per-cap object data
+  return ALL_TOWERS.filter(function(t){return selected.has(t.short)});
+}
 function fObjs(){
-  if(IS_TOWER) return RAW_OBJS;
+  if(IS_TOWER) return RAW_OBJS;  // all objects for this tower
   return RAW_OBJS.filter(function(o){return selected.has(o.t)});
 }
 
@@ -804,6 +826,9 @@ function applyFilters(){
     });
   }
 })();
+
+// ---- PDF download button ----
+document.getElementById('btn-pdf').addEventListener('click', function(){ window.print(); });
 
 // ---- Initial render ----
 applyFilters();

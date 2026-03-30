@@ -55,9 +55,8 @@ jobs:
         run: |
           echo "Regenerating SAD Markdown + HTML for all towers..."
           python -m src.gen_systems_arch --all || echo "SAD MD generation completed with warnings"
-          python scripts/gen_pdf.py --html-only || echo "SAD HTML conversion completed with warnings"
-          echo "SAD regeneration complete"
-          find towers -name "*-Architecture.html" | wc -l | xargs -I{} echo "  Total SAD HTML files: {}"
+          echo "SAD MD generation complete"
+          find towers -name "*-Architecture.md" | wc -l | xargs -I{} echo "  Total SAD MD files: {}"
 
       - name: Generate RICEFW Trackers
         run: |
@@ -70,6 +69,13 @@ jobs:
           echo "Generating Testing Reports for all towers..."
           python scripts/gen_testing_report.py --all || echo "Testing report generation completed with warnings"
           find towers -name "*-Testing-Report.*" | wc -l | xargs -I{} echo "  Total Testing docs: {}"
+
+      - name: Convert all MD docs to HTML
+        run: |
+          echo "Converting all MD docs (Architecture + RICEFW + Testing) to HTML..."
+          python scripts/gen_pdf.py --html-only || echo "MD-to-HTML conversion completed with warnings"
+          find towers -name "*-RICEFW-Tracker.html" | wc -l | xargs -I{} echo "  RICEFW HTML files: {}"
+          find towers -name "*-Testing-Report.html" | wc -l | xargs -I{} echo "  Testing HTML files: {}"
 
       - name: Generate dashboards
         run: |

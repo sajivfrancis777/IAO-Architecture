@@ -385,13 +385,14 @@ def _html_to_pdf(html_path: Path, pdf_path: Path) -> Path | None:
 
 
 def discover_md_files(tower: str | None = None, cap: str | None = None) -> list[Path]:
-    """Find all generated Architecture MD files."""
+    """Find all generated Architecture, RICEFW, and Testing MD files."""
     towers_dir = WORKSPACE / "towers"
     md_files = []
+    patterns = ("-Architecture.md", "-RICEFW-Tracker.md", "-Testing-Report.md")
 
     for root, dirs, files in os.walk(str(towers_dir)):
         for f in files:
-            if f.endswith("-Architecture.md"):
+            if any(f.endswith(pat) for pat in patterns):
                 p = Path(root) / f
                 if tower and tower.upper() not in str(p).upper():
                     continue
@@ -410,7 +411,7 @@ def main():
     args = parser.parse_args()
 
     md_files = discover_md_files(args.tower, args.cap)
-    print(f"Found {len(md_files)} Architecture MD files")
+    print(f"Found {len(md_files)} MD files (Architecture + RICEFW + Testing)")
 
     html_count = 0
     pdf_count = 0
