@@ -26,6 +26,10 @@ concurrency:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  # Custom domain for GitHub Pages (optional)
+  # Set to your corporate subdomain, e.g. iao-architecture.intel.com
+  # Leave empty to use the default github.io URL
+  CUSTOM_DOMAIN: ''
 
 jobs:
   deploy:
@@ -447,7 +451,7 @@ jobs:
           .portal-sidebar .ps-cap .cid{font-weight:600;color:#00285a;margin-right:4px}
           .portal-sidebar .ps-cap.active .cid{color:#fff}
           .portal-sidebar .ps-empty{padding:16px;font-size:13px;color:#999;text-align:center;font-style:italic;display:none}
-          @media print{.portal-toolbar,.portal-sidebar,.portal-sidebar-overlay{display:none !important}body{padding-top:0 !important}}
+          @media print{.portal-toolbar,.portal-sidebar,.portal-sidebar-overlay{display:none !important}body{padding-top:0 !important}h1,h2,h3,h4{page-break-after:avoid;break-after:avoid}table,pre,blockquote,.mermaid{page-break-inside:avoid;break-inside:avoid}p{orphans:3;widows:3}a[title="View full diagram"],a[title="Open full-size SVG"]{color:#0071c5 !important;text-decoration:underline !important;font-size:10pt !important}a[title="View full diagram"]::after{content:" (opens mermaid.live)";font-size:8pt;color:#666}}
           """
 
           TOOLBAR_JS = """
@@ -543,6 +547,13 @@ jobs:
 
           print(f"  Injected toolbar + sidebar into {count} SAD documents")
           PYINJECT
+
+          # ── CUSTOM DOMAIN (CNAME) ──────────────────────────────────
+          # If CUSTOM_DOMAIN is set, create a CNAME file for GitHub Pages
+          if [ -n "$CUSTOM_DOMAIN" ]; then
+            echo "$CUSTOM_DOMAIN" > _site/CNAME
+            echo "Custom domain configured: $CUSTOM_DOMAIN"
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

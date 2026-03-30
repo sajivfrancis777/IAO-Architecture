@@ -58,19 +58,34 @@ h2 {
     border-bottom: 1px solid #ccc;
     padding-bottom: 4px;
     margin-top: 24px;
+    page-break-after: avoid;
+    break-after: avoid;
 }
 h3 {
     font-size: 13pt;
     color: #0071c5;
     margin-top: 18px;
+    page-break-after: avoid;
+    break-after: avoid;
 }
-h4 { font-size: 11pt; color: #333; margin-top: 14px; }
+h4 {
+    font-size: 11pt;
+    color: #333;
+    margin-top: 14px;
+    page-break-after: avoid;
+    break-after: avoid;
+}
+p {
+    orphans: 3;
+    widows: 3;
+}
 table {
     border-collapse: collapse;
     width: 100%;
     margin: 12px 0;
     font-size: 9.5pt;
     page-break-inside: avoid;
+    break-inside: avoid;
 }
 th {
     background: #00285a;
@@ -103,6 +118,7 @@ pre {
     font-size: 8.5pt;
     line-height: 1.4;
     page-break-inside: avoid;
+    break-inside: avoid;
 }
 pre code { background: none; padding: 0; color: inherit; }
 blockquote {
@@ -111,6 +127,8 @@ blockquote {
     margin: 12px 0;
     padding: 8px 16px;
     color: #333;
+    page-break-inside: avoid;
+    break-inside: avoid;
 }
 .mermaid-placeholder {
     background: #f5f8fc;
@@ -131,6 +149,7 @@ blockquote {
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
+    break-inside: avoid;
 }
 .mermaid svg {
     max-width: 100%;
@@ -169,6 +188,9 @@ strong { color: #00285a; }
     body { padding: 0; max-width: none; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print { display: none; }
+    h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    p { orphans: 3; widows: 3; }
     .mermaid {
         page-break-inside: avoid;
         overflow: visible;
@@ -176,6 +198,18 @@ strong { color: #00285a; }
     .mermaid svg {
         max-width: 100%;
         height: auto;
+    }
+    /* Diagram links: visible + clickable in PDF */
+    a[title="View full diagram"],
+    a[title="Open full-size SVG"] {
+        color: #0071c5 !important;
+        text-decoration: underline !important;
+        font-size: 10pt !important;
+    }
+    a[title="View full diagram"]::after {
+        content: " (opens mermaid.live)";
+        font-size: 8pt;
+        color: #666;
     }
 }
 """

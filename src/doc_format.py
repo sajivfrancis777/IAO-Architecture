@@ -33,9 +33,21 @@ CANONICAL_STYLE = """\
 <style>
 @media print {
   @page { margin: 0.75in; }
-  .mermaid { page-break-inside: avoid; overflow: visible; }
-  pre, table { page-break-inside: avoid; }
-  h2, h3, h4 { page-break-after: avoid; }
+  .mermaid { page-break-inside: avoid; break-inside: avoid; overflow: visible; }
+  pre, table, blockquote { page-break-inside: avoid; break-inside: avoid; }
+  h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+  p { orphans: 3; widows: 3; }
+  a[title="View full diagram"],
+  a[title="Open full-size SVG"] {
+    color: #0071c5 !important;
+    text-decoration: underline !important;
+    font-size: 10pt !important;
+  }
+  a[title="View full diagram"]::after {
+    content: " (opens mermaid.live)";
+    font-size: 8pt;
+    color: #666;
+  }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
