@@ -484,9 +484,30 @@ def build_ricefw_status_section(
     else:
         lines.append(f"**RICEFW Active Items** — {tower} Tower ({summary['total']} of {total_all} objects)\n")
     lines.append(f"*Data source: Smartsheet Object Tracker (cached {datetime.now().strftime('%Y-%m-%d')})*\n")
-    if completed_count:
-        lines.append(f"*{completed_count} completed/rejected objects excluded — see RICEFW Register for full detail.*\n")
     lines.append("\n")
+
+    # Compact completion context — gives stakeholders the big picture
+    if completed_count:
+        pct = completed_count / total_all * 100 if total_all else 0
+        completed_rows = [r for r in all_scope_rows if not _is_active(r)]
+        completed_summary = get_ricefw_status_summary(completed_rows)
+        lines.append(f"> **Completion Context:** {completed_count} of {total_all} objects "
+                      f"({pct:.0f}%) are complete/closed. "
+                      f"The **{summary['total']} active items** below require attention. "
+                      f"See the **RICEFW Register** for full detail.\n")
+        lines.append(">\n")
+        lines.append("> | Type | Completed | Active | Total |\n")
+        lines.append("> |------|----------:|-------:|------:|\n")
+        type_labels_ctx = {"R": "Report", "I": "Interface", "C": "Conversion",
+                           "E": "Enhancement", "F": "Form", "W": "Workflow"}
+        for code in ["R", "I", "C", "E", "F", "W"]:
+            comp = completed_summary["types"].get(code, 0)
+            act = summary["types"].get(code, 0)
+            tot = comp + act
+            if tot:
+                lines.append(f"> | {type_labels_ctx[code]} ({code}) | {comp} | {act} | {tot} |\n")
+        lines.append(f"> | **Total** | **{completed_count}** | **{summary['total']}** | **{total_all}** |\n")
+        lines.append("\n")
 
     if not scope_rows:
         lines.append(f"**All {total_all} objects are completed** — no active items requiring attention.\n")

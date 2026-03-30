@@ -18,11 +18,13 @@ Review the following before proceeding:
 | Core pipeline orchestrator | `src/gen_systems_arch.py` |
 | Smartsheet data injection into SADs | `scripts/update_sad_from_smartsheet.py` |
 | Smartsheet data loader (RICEFW + RAID from CSV) | `src/smartsheet_loader.py` |
+| **Shared document formatting module** | `src/doc_format.py` |
 | MCP server implementations (5 servers, 20 tools) | `mcp_servers/` |
 | Existing data files (Smartsheet CSVs, IAPM catalog) | `data/` |
 | Generated architecture documents (HTML, PDF, MD, SVG) | `towers/**/output/` |
 | GitHub Pages deployment (deploy-pages.yml builds `_site/`) | `.github/workflows/deploy-pages.yml` |
 | Jinja2 templates for SAD generation | `templates/` |
+| HTML/PDF converter with CSS + Mermaid.js | `scripts/gen_pdf.py` |
 | Pipeline configuration and credentials | `src/config.py`, `.env.example` |
 | Existing documentation | `docs/` |
 
@@ -70,6 +72,39 @@ Review the following before proceeding:
 
 ---
 
+## DOCUMENT FORMATTING STANDARD (applies to ALL generated documents)
+
+All pipeline-generated documents (SAD, RICEFW Register, Testing Register) **must** follow the same formatting structure. A shared module `src/doc_format.py` provides the building blocks.
+
+### Required Elements
+
+| Element | Description | Implementation |
+|---------|-------------|----------------|
+| **Title Page** | Centered cover banner (`templates/assets/cover_banner.svg`), document title (36pt), subtitle (24pt), context metadata, author, date, confidentiality line | `DocFormatter.title_page()` |
+| **Table of Contents** | Page-break before TOC, `<a id="toc">` anchor, numbered section list with markdown anchor links | `DocFormatter.toc()` |
+| **Page Breaks** | `<div style="page-break-before: always;"></div>` before every `##` (major) section | `DocFormatter.page_break()` or `DocFormatter.section_heading()` |
+| **Page Footers** | Auto-numbered footers at each page break: "Page N" (left), "↑ Back to TOC" link (center), document title (right) | `DocFormatter.inject_footers()` — call after full content assembly |
+| **Canonical CSS** | Print rules (`@page 0.75in`), mermaid overflow:visible, footer fixed positioning, Intel link colors (#00aeef / #0071c5) | `doc_format.CANONICAL_STYLE` constant |
+| **Intel Branding** | Colors: #00285a (headings), #0071c5 (accent), #00aeef (links). Font: Segoe UI. Tables: #00285a header, alternating #f5f8fc rows | Defined in `scripts/gen_pdf.py` `DOCUMENT_CSS` |
+
+### Document-Specific Subtitles
+
+| Document | `doc_type` | `subtitle` |
+|----------|-----------|------------|
+| SAD | "Architecture Document" | "TOGAF BDAT" |
+| RICEFW Register | "RICEFW / Objects Register" | "Complete Object Inventory" |
+| Testing Register | "Testing Register" | "Test Execution & Defect Tracking" |
+
+### Conversion Pipeline
+
+All documents follow the same chain: **Jinja2 template → Markdown (with HTML) → `gen_pdf.py` → styled HTML + PDF**. The `gen_pdf.py` converter provides `DOCUMENT_CSS` (Intel colors, typography, table styling) and `MERMAID_JS` (CDN rendering). All documents must be convertible by the existing converter without modification.
+
+### SAD-Specific: Completed RICEFW Context Block (IMPLEMENTED)
+
+The SAD §6.2 (RICEFW Status) now includes a compact **blockquote context summary** showing completion posture by RICEFW type (completed vs. active counts). This gives stakeholders the big picture without including per-object detail for completed items. The full RICEFW Register carries all objects.
+
+---
+
 ## WHAT NEEDS TO BE BUILT / EXTENDED
 
 ### PHASE 1 — Fix Capability-Specific Smartsheet Extraction (PREREQUISITE)
@@ -106,6 +141,7 @@ Extract and generate a living register tracking **ALL** RICEFW objects across th
 **Relationship to SAD:** The SAD §6.2 shows only active RICEFW items (objects with status other than `10. Object Complete` or `99. Rejected/Cancelled/On Hold`). This register shows the full picture including all completed work.
 
 **New file:** `scripts/extract_ricefw.py`
+**New template:** `templates/ricefw_register.md.j2` — must use `DocFormatter` for title page, TOC, page breaks, and footers (same format as SAD)
 
 #### Document 3: Testing Register (JIRA Extract, by Capability)
 
@@ -121,6 +157,7 @@ Extract testing data from JIRA and generate a living test register **grouped by 
 - **Graceful degradation:** If JIRA credentials are not configured, produce an empty/placeholder JSON with a "JIRA not configured" status flag
 
 **New file:** `scripts/extract_testing_jira.py`
+**New template:** `templates/testing_register.md.j2` — must use `DocFormatter` for title page, TOC, page breaks, and footers (same format as SAD)
 **Updated file:** `mcp_servers/jira_server.py` — implement the 4 existing tool stubs
 
 ---
