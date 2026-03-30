@@ -24,6 +24,11 @@ from typing import Optional
 
 from jinja2 import Environment, FileSystemLoader
 
+try:
+    import yaml
+except ImportError:
+    yaml = None  # type: ignore
+
 # ---------------------------------------------------------------------------
 # Paths
 # ---------------------------------------------------------------------------
@@ -327,6 +332,49 @@ def build_context(
     return ctx
 
 
+def _load_cap_names(tower_dir: Path) -> dict[str, str]:
+    """Load capability ID → name mapping from tower.yaml."""
+    if yaml is None:
+        return {}
+    yaml_path = tower_dir / "tower.yaml"
+    if not yaml_path.exists():
+        return {}
+    try:
+        with open(yaml_path, "r", encoding="utf-8") as f:
+            data = yaml.safe_load(f)
+        caps = data.get("capabilities", [])
+        return {c["id"]: c.get("name", c["id"]) for c in caps if "id" in c}
+    except Exception:
+        return {}
+
+
+# ---------------------------------------------------------------------------
+# Page footer injection (matches gen_systems_arch.py pattern)
+# ---------------------------------------------------------------------------
+_PAGE_BREAK = '<div style="page-break-before: always;"></div>'
+
+
+def _inject_page_footers(rendered: str, title: str) -> str:
+    """Insert page-numbered footers with Back-to-TOC links at every page break."""
+    parts = rendered.split(_PAGE_BREAK)
+    if len(parts) <= 1:
+        return rendered
+    result = []
+    for i, part in enumerate(parts[:-1]):
+        page = i + 1
+        footer = (
+            f'<div class="page-footer">'
+            f'<span>Page {page}</span>'
+            f'<span><a href="#toc">\u2191 Back to TOC</a></span>'
+            f'<span>{title}</span>'
+            f'</div>\n'
+            f'{_PAGE_BREAK}'
+        )
+        result.append(part + footer)
+    result.append(parts[-1])
+    return "".join(result)
+
+
 # ---------------------------------------------------------------------------
 # Generator
 # ---------------------------------------------------------------------------
@@ -349,12 +397,14 @@ def generate_tower_report(
             return []
 
     template = jinja_env.get_template(TESTING_TEMPLATE)
+    cap_names = _load_cap_names(tower_dir)
     outputs = []
 
     # Tower-level report
     if not cap_filter:
         ctx = build_context(tower_short, all_objects, all_raids)
         rendered = template.render(**ctx)
+        rendered = _inject_page_footers(rendered, f"{ctx['title']} — Testing Report")
 
         out_dir = tower_dir / "output" / "docs" / "testing-report"
         out_dir.mkdir(parents=True, exist_ok=True)
@@ -378,14 +428,17 @@ def generate_tower_report(
             if cap_filter and cid != cap_filter:
                 continue
 
+            resolved_name = cap_names.get(cid, cid)
+
             ctx = build_context(
                 tower_short, all_objects, all_raids,
                 cap_id=cid,
-                cap_name=cid,
+                cap_name=resolved_name,
                 l1_process=l1_dir.name,
             )
 
             rendered = template.render(**ctx)
+            rendered = _inject_page_footers(rendered, f"{cid} \u2014 {resolved_name}")
 
             out_dir = cap_dir / "output" / "docs" / "testing-report"
             out_dir.mkdir(parents=True, exist_ok=True)
