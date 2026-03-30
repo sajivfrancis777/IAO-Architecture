@@ -291,6 +291,22 @@ def md_to_html(md_content: str, title: str = "", md_path: Path | None = None) ->
     processed = processed.replace('overflow: hidden', 'overflow: visible')
     processed = processed.replace('overflow-x: auto; overflow-y: auto', 'overflow: visible')
 
+    # Fix legacy position:fixed on page footers — causes stacking in multi-page docs.
+    # Replace with static positioning so footers render inline at each page break.
+    processed = re.sub(
+        r'\.page-footer\s*\{[^}]*position:\s*fixed[^}]*\}',
+        '.page-footer { padding-top:8px; border-top:1px solid #ddd; display:flex; '
+        'justify-content:space-between; align-items:center; font-size:11px; color:#888; '
+        'margin-top:24px; padding:6px 0; background:#fff; }',
+        processed,
+    )
+    # Also fix the @media print block for page-footer
+    processed = re.sub(
+        r'@media\s+print\s*\{\s*\.page-footer\s*\{[^}]*position:\s*fixed[^}]*\}\s*\}',
+        '@media print { .page-footer { page-break-inside:avoid; break-inside:avoid; margin-top:16px; } }',
+        processed,
+    )
+
     # Convert MD to HTML
     extensions = [
         TableExtension(),

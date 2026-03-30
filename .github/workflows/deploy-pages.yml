@@ -47,9 +47,32 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Install Python dependencies
+        run: |
+          pip install jinja2 pyyaml markdown
+
+      - name: Regenerate SADs with name resolver
+        run: |
+          echo "Regenerating SAD Markdown + HTML for all towers..."
+          python -m src.gen_systems_arch --all || echo "SAD MD generation completed with warnings"
+          python scripts/gen_pdf.py --html-only || echo "SAD HTML conversion completed with warnings"
+          echo "SAD regeneration complete"
+          find towers -name "*-Architecture.html" | wc -l | xargs -I{} echo "  Total SAD HTML files: {}"
+
+      - name: Generate RICEFW Trackers
+        run: |
+          echo "Generating RICEFW Tracker docs for all towers..."
+          python scripts/gen_ricefw_tracker.py --all || echo "RICEFW generation completed with warnings"
+          find towers -name "*-RICEFW-Tracker.*" | wc -l | xargs -I{} echo "  Total RICEFW docs: {}"
+
+      - name: Generate Testing Reports
+        run: |
+          echo "Generating Testing Reports for all towers..."
+          python scripts/gen_testing_report.py --all || echo "Testing report generation completed with warnings"
+          find towers -name "*-Testing-Report.*" | wc -l | xargs -I{} echo "  Total Testing docs: {}"
+
       - name: Generate dashboards
         run: |
-          pip install jinja2
           python scripts/gen_dashboard.py
           echo "Dashboard generation complete"
           ls -la output/docs/dashboard/ || true

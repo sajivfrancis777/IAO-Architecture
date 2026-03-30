@@ -36,13 +36,27 @@
       padding: 12px 24px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 16px;
       position: sticky;
       top: 0;
       z-index: 100;
     }
-    .topbar h1 { font-size: 1.2rem; font-weight: 600; }
+    .topbar h1 { font-size: 1.2rem; font-weight: 600; flex: 1; }
     .topbar .meta { font-size: 0.85rem; opacity: 0.8; }
+    .topbar .nav-links { display: flex; gap: 8px; }
+    .topbar .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.82rem;
+      padding: 4px 12px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.25);
+      transition: all 0.15s;
+    }
+    .topbar .nav-links a:hover {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+    }
 
     /* ---- Breadcrumb / tower nav ---- */
     .tower-nav {
@@ -178,15 +192,156 @@
     .badge-sev-p2 { background: #fbbc04; color: #202124; }
     .badge-sev-p3 { background: #e8ecf0; color: #5f6368; }
 
+    /* ---- Filter bar ---- */
+    .filter-bar {
+      padding: 10px 24px;
+      background: #fff;
+      border-bottom: 1px solid var(--grey-200);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .filter-bar .filter-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--grey-600);
+      white-space: nowrap;
+    }
+    .filter-bar .filter-search {
+      padding: 5px 10px;
+      border: 1px solid var(--grey-200);
+      border-radius: 6px;
+      font-size: 0.82rem;
+      width: 180px;
+      outline: none;
+    }
+    .filter-bar .filter-search:focus {
+      border-color: var(--intel-blue);
+      box-shadow: 0 0 0 2px rgba(0,113,197,0.15);
+    }
+    .filter-chips {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      max-height: 120px;
+      overflow-y: auto;
+    }
+    .filter-chip {
+      padding: 3px 12px;
+      border-radius: 14px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border: 1px solid var(--grey-200);
+      background: var(--grey-100);
+      color: var(--grey-600);
+      cursor: pointer;
+      transition: all 0.15s;
+      user-select: none;
+    }
+    .filter-chip.active {
+      background: var(--intel-blue);
+      color: #fff;
+      border-color: var(--intel-blue);
+    }
+    .filter-chip:hover { border-color: var(--intel-blue); }
+
     /* ---- Responsive ---- */
     @media (max-width: 900px) {
       .chart-grid { grid-template-columns: 1fr; }
       .kpi-grid { grid-template-columns: repeat(2, 1fr); }
     }
+
+    /* ---- Print / PDF Export ---- */
+    @page {
+      size: A4 landscape;
+      margin: 12mm 10mm;
+    }
     @media print {
-      .topbar { position: static; }
-      .tower-nav { display: none; }
-      .chart-card { break-inside: avoid; min-height: auto; }
+      /* Reset backgrounds & layout */
+      *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      body { background: #fff !important; font-size: 10pt; }
+
+      /* Header — keep as simple title bar */
+      .topbar {
+        position: static;
+        background: var(--intel-dark) !important;
+        padding: 8px 16px;
+      }
+      .topbar .nav-links { display: none; }
+      .topbar h1 { font-size: 14pt; }
+      .topbar .meta { font-size: 9pt; }
+
+      /* Hide interactive-only elements */
+      .tower-nav, .filter-bar { display: none !important; }
+
+      /* KPI cards — 4 per row, compact */
+      .kpi-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 8px;
+        padding: 12px 0;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+      .kpi-card {
+        padding: 10px;
+        box-shadow: none;
+        border: 1px solid #ddd;
+      }
+      .kpi-card .value { font-size: 1.4rem; }
+      .kpi-card .label { font-size: 0.7rem; }
+
+      /* Charts — single column, controlled height */
+      .chart-grid {
+        display: block !important;
+        padding: 0;
+      }
+      .chart-card {
+        min-height: auto !important;
+        max-height: none !important;
+        height: auto !important;
+        margin-bottom: 12px;
+        padding: 12px;
+        box-shadow: none;
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        overflow: hidden;
+      }
+      /* Force Plotly SVG/Canvas to fit within card */
+      .chart-card .js-plotly-plot,
+      .chart-card .plot-container,
+      .chart-card .svg-container {
+        max-height: 320px !important;
+        overflow: hidden !important;
+      }
+      .chart-card .js-plotly-plot .main-svg {
+        max-height: 320px !important;
+      }
+      /* Sankey is wide — give it a full page */
+      .chart-card.full {
+        page-break-before: always;
+        max-height: none !important;
+      }
+      .chart-card.full .js-plotly-plot,
+      .chart-card.full .plot-container,
+      .chart-card.full .svg-container,
+      .chart-card.full .js-plotly-plot .main-svg {
+        max-height: 450px !important;
+      }
+
+      /* Tables */
+      .doc-section { padding: 0; }
+      .doc-section h2 { font-size: 11pt; margin-bottom: 6px; }
+      .doc-table { font-size: 8pt; box-shadow: none; border: 1px solid #ddd; }
+      .doc-table th { padding: 6px 8px; font-size: 7pt; }
+      .doc-table td { padding: 4px 8px; }
+      .doc-table thead { display: table-header-group; }  /* repeat header on every page */
+      .doc-table tr { page-break-inside: avoid; break-inside: avoid; }
+
+      /* Badges preserve color */
+      .badge { border: 1px solid currentColor; }
     }
   </style>
 </head>
@@ -198,6 +353,15 @@
 <div class="topbar">
   <h1>{{ title }} — Dashboard</h1>
   <span class="meta">{{ release_name }} &middot; Generated {{ generated_date }}</span>
+  <div class="nav-links">
+    {% if tower_filter %}
+    <a href="{{ program_dashboard_url }}">📊 Program Dashboard</a>
+    {% endif %}
+    <a href="{% if tower_filter %}../../index.html{% else %}../index.html{% endif %}">🏠 Portal Home</a>
+    {% if tower_filter %}
+    <a href="../../tower-{{ tower_filter }}.html">📋 {{ tower_filter }} Tower</a>
+    {% endif %}
+  </div>
 </div>
 
 <!-- ============================================================ -->
@@ -208,6 +372,30 @@
   {% for t in nav_towers %}
   <a href="{{ t.dashboard_url }}" {% if tower_filter == t.short %}class="active"{% endif %}>{{ t.short }}</a>
   {% endfor %}
+</div>
+
+<!-- ============================================================ -->
+<!--  FILTER BAR                                                   -->
+<!-- ============================================================ -->
+<div class="filter-bar">
+  {% if not tower_filter %}
+  <span class="filter-label">Filter by Tower:</span>
+  <div class="filter-chips" id="filter-chips">
+    <button class="filter-chip active" data-key="__ALL__">All</button>
+    {% for t in nav_towers %}
+    <button class="filter-chip active" data-key="{{ t.short }}">{{ t.short }}</button>
+    {% endfor %}
+  </div>
+  {% else %}
+  <span class="filter-label">Filter by Capability:</span>
+  <input type="text" class="filter-search" id="cap-filter-input" placeholder="Search capabilities…">
+  <div class="filter-chips" id="filter-chips">
+    <button class="filter-chip active" data-key="__ALL__">All</button>
+    {% for row in doc_inventory %}
+    <button class="filter-chip active" data-key="{{ row.cap_id }}">{{ row.cap_id }}</button>
+    {% endfor %}
+  </div>
+  {% endif %}
 </div>
 
 <!-- ============================================================ -->
@@ -354,215 +542,308 @@
 {% endif %}
 
 <!-- ============================================================ -->
-<!--  PLOTLY DATA & RENDER                                         -->
+<!--  PLOTLY DATA & RENDER (with client-side filtering)            -->
 <!-- ============================================================ -->
 <script>
-// ---- Inject context as JSON ----
-const towers = {{ towers_json }};
-const typeData = {{ type_data_json }};
-const sankeyData = {{ sankey_json }};
-const towerUrls = {{ tower_urls_json }};
-const capUrls = {{ cap_urls_json }};
+// ---- Injected data ----
+var ALL_TOWERS = {{ towers_json }};
+var RAW_OBJS   = {{ raw_objects_json }};
+var DOC_INV    = {{ doc_inventory_json }};
+var towerUrls  = {{ tower_urls_json }};
+var capUrls    = {{ cap_urls_json }};
+var IS_TOWER   = {{ 'true' if tower_filter else 'false' }};
 
-const COLORS = {
-  completed: '#34a853',
-  active: '#0071c5',
-  rejected: '#ea4335',
-  blue: '#0071c5',
-  teal: '#00aeef',
-  green: '#34a853',
-  amber: '#fbbc04',
-  red: '#ea4335',
-  phases: ['#0071c5', '#00aeef', '#34a853', '#fbbc04'],
-  tower: ['#0071c5', '#00395d', '#00aeef', '#34a853', '#fbbc04', '#ea4335', '#8e44ad', '#e67e22'],
+// ---- Constants ----
+var COLORS = {
+  completed:'#34a853', active:'#0071c5', rejected:'#ea4335',
+  phases:['#0071c5','#00aeef','#34a853','#fbbc04'],
+  tower:['#0071c5','#00395d','#00aeef','#34a853','#fbbc04','#ea4335','#8e44ad','#e67e22']
 };
-
-const LAYOUT_BASE = {
-  font: { family: 'Segoe UI, system-ui, sans-serif', size: 13 },
-  margin: { l: 50, r: 20, t: 40, b: 50 },
-  paper_bgcolor: 'rgba(0,0,0,0)',
-  plot_bgcolor: 'rgba(0,0,0,0)',
-  hoverlabel: { bgcolor: '#fff', font: { size: 13 } },
+var TC = ['I','C','E','R','F','W'];
+var TL = {I:'Interface',C:'Conversion',E:'Enhancement',R:'Report',F:'Form',W:'Workflow'};
+var TCOL = {I:'#0071c5',C:'#00aeef',E:'#34a853',R:'#fbbc04',F:'#8e44ad',W:'#e67e22'};
+var SCOL = {Completed:'#34a853',Active:'#0071c5',Rejected:'#ea4335'};
+var LB = {
+  font:{family:'Segoe UI, system-ui, sans-serif',size:14},
+  margin:{l:55,r:25,t:45,b:55},
+  paper_bgcolor:'rgba(0,0,0,0)', plot_bgcolor:'rgba(0,0,0,0)',
+  hoverlabel:{bgcolor:'#fff',font:{size:14}}
 };
+var CFG = {responsive:true, displayModeBar:false};
 
-const CONFIG = { responsive: true, displayModeBar: false };
+// ---- Filter state ----
+var selected = new Set();
+(function(){
+  if(!IS_TOWER) ALL_TOWERS.forEach(function(t){selected.add(t.short)});
+  else DOC_INV.forEach(function(d){selected.add(d.cap_id)});
+})();
 
-// ---- Helper: navigate on click ----
-function attachClickNav(plotDiv, urlMap, keyField) {
-  plotDiv.on('plotly_click', function(data) {
-    const pt = data.points[0];
-    const key = pt[keyField] || pt.label || pt.x;
-    if (urlMap[key]) window.location.href = urlMap[key];
+// ---- Filtered accessors ----
+function fTowers(){ return ALL_TOWERS.filter(function(t){return selected.has(t.short)}); }
+function fObjs(){
+  if(IS_TOWER) return RAW_OBJS;
+  return RAW_OBJS.filter(function(o){return selected.has(o.t)});
+}
+
+// ---- KPI update ----
+function updateKPIs(twrs){
+  var tot=0,comp=0,act=0,rej=0,raids=0,bW=0,fW=0,n=0;
+  twrs.forEach(function(t){
+    tot+=t.total; comp+=t.completed; act+=t.active; rej+=t.rejected;
+    raids+=t.raid_count; bW+=t.avg_build*t.total; fW+=t.avg_fut*t.total; n+=t.total;
+  });
+  var capSet=new Set();
+  DOC_INV.forEach(function(d){
+    if(!IS_TOWER){ if(selected.has(d.tower)) capSet.add(d.cap_id); }
+    else{ if(selected.has(d.cap_id)) capSet.add(d.cap_id); }
+  });
+  var cards=document.querySelectorAll('.kpi-card .value');
+  if(cards.length>=8){
+    cards[0].textContent=tot;
+    cards[1].textContent=(tot?Math.round(comp/tot*100):0)+'%';
+    cards[2].textContent=act;
+    cards[3].textContent=twrs.length;
+    cards[4].textContent=capSet.size;
+    cards[5].textContent=(n?Math.round(bW/n):0)+'%';
+    cards[6].textContent=(n?Math.round(fW/n):0)+'%';
+    cards[7].textContent=raids;
+  }
+}
+
+// ---- Chart 1: RICEFW by Tower — Stacked Bar ----
+function renderTowerBar(twrs){
+  var nm=twrs.map(function(t){return t.short});
+  Plotly.react('chart-tower-bar',[
+    {x:nm,y:twrs.map(function(t){return t.completed}),name:'Completed',type:'bar',marker:{color:COLORS.completed}},
+    {x:nm,y:twrs.map(function(t){return t.active}),name:'Active',type:'bar',marker:{color:COLORS.active}},
+    {x:nm,y:twrs.map(function(t){return t.rejected}),name:'Rejected',type:'bar',marker:{color:COLORS.rejected}}
+  ],Object.assign({},LB,{title:{text:'RICEFW Objects by Tower',font:{size:14,color:'#202124'}},barmode:'stack',xaxis:{title:''},yaxis:{title:'Objects'},legend:{orientation:'h',y:-0.15}}),CFG);
+}
+
+// ---- Chart 2: Completion Donut ----
+function renderDonut(twrs){
+  var c=0,a=0,r=0;
+  twrs.forEach(function(t){c+=t.completed;a+=t.active;r+=t.rejected});
+  Plotly.react('chart-completion-pie',[{
+    values:[c,a,r],labels:['Completed','Active','Rejected'],type:'pie',hole:0.5,
+    marker:{colors:[COLORS.completed,COLORS.active,COLORS.rejected]},
+    textinfo:'label+percent',textposition:'outside',hoverinfo:'label+value+percent'
+  }],Object.assign({},LB,{title:{text:'Overall Completion',font:{size:14,color:'#202124'}},showlegend:false}),CFG);
+}
+
+// ---- Chart 3: Build Phases by Tower — Grouped Bar ----
+function renderPhaseBar(twrs){
+  var nm=twrs.map(function(t){return t.short});
+  var pL=['FS %','TDD %','Build %','FUT %'], pK=['avg_fs','avg_tdd','avg_build','avg_fut'];
+  var traces=pK.map(function(k,i){
+    return{x:nm,y:twrs.map(function(t){return t[k]}),name:pL[i],type:'bar',marker:{color:COLORS.phases[i]}};
+  });
+  Plotly.react('chart-phases',traces,Object.assign({},LB,{title:{text:'Build Phase Progress by Tower',font:{size:14,color:'#202124'}},barmode:'group',yaxis:{title:'%',range:[0,100]},legend:{orientation:'h',y:-0.15}}),CFG);
+}
+
+// ---- Chart 4: Type Pie ----
+function renderTypePie(objs){
+  var cnt={}; TC.forEach(function(c){cnt[c]=0});
+  objs.forEach(function(o){if(cnt[o.tc]!==undefined)cnt[o.tc]++});
+  var lb=[],vl=[];
+  TC.forEach(function(c){if(cnt[c]>0){lb.push(TL[c]);vl.push(cnt[c])}});
+  Plotly.react('chart-type-pie',[{
+    labels:lb,values:vl,type:'pie',
+    marker:{colors:lb.map(function(l){return TCOL[l[0]]||'#999'})},
+    textinfo:'label+value',textposition:'outside',hoverinfo:'label+value+percent'
+  }],Object.assign({},LB,{title:{text:'RICEFW by Object Type',font:{size:14,color:'#202124'}},showlegend:false}),CFG);
+}
+
+// ---- Chart 5: Sankey ----
+function renderSankey(twrs,objs){
+  var tL=twrs.map(function(t){return t.short});
+  var tyL=['Interface','Conversion','Enhancement','Report','Form','Workflow'];
+  var sL=['Completed','Active','Rejected'];
+  var all=tL.concat(tyL).concat(sL);
+  var allC=tL.map(function(_,i){return COLORS.tower[i%COLORS.tower.length]})
+    .concat(tyL.map(function(l){return TCOL[l[0]]||'#999'}))
+    .concat(sL.map(function(s){return SCOL[s]}));
+  var idx={}; all.forEach(function(l,i){idx[l]=i});
+  var src=[],tgt=[],val=[],col=[];
+  var tSet=new Set(tL);
+  twrs.forEach(function(t){
+    var to=objs.filter(function(o){return o.t===t.short});
+    var tc={}; to.forEach(function(o){tc[o.tc]=(tc[o.tc]||0)+1});
+    [['I','Interface'],['C','Conversion'],['E','Enhancement'],['R','Report'],['F','Form'],['W','Workflow']].forEach(function(p){
+      var n=tc[p[0]]||0;
+      if(n){src.push(idx[t.short]);tgt.push(idx[p[1]]);val.push(n);col.push((TCOL[p[0]]||'#ccc')+'55')}
+    });
+  });
+  [['Interface','I'],['Conversion','C'],['Enhancement','E'],['Report','R'],['Form','F'],['Workflow','W']].forEach(function(p){
+    var to=objs.filter(function(o){return o.tc===p[1]&&tSet.has(o.t)});
+    var c=0,a=0,r=0;
+    to.forEach(function(o){if(o.s===1)c++;else if(o.s===2)r++;else a++});
+    if(c){src.push(idx[p[0]]);tgt.push(idx['Completed']);val.push(c);col.push('#34a85355')}
+    if(a){src.push(idx[p[0]]);tgt.push(idx['Active']);val.push(a);col.push('#0071c555')}
+    if(r){src.push(idx[p[0]]);tgt.push(idx['Rejected']);val.push(r);col.push('#ea433555')}
+  });
+  if(!all.length) return;
+  Plotly.react('chart-sankey',[{
+    type:'sankey',orientation:'h',
+    node:{label:all,color:allC,pad:15,thickness:20},
+    link:{source:src,target:tgt,value:val,color:col}
+  }],Object.assign({},LB,{title:{text:'Object Flow: Tower \u2192 Type \u2192 Status',font:{size:14,color:'#202124'}},margin:{l:10,r:10,t:40,b:10}}),CFG);
+}
+
+// ---- Chart 6: RAID by Tower — Bar ----
+function renderRaidBar(twrs){
+  var nm=twrs.map(function(t){return t.short});
+  var rd=twrs.map(function(t){return t.raid_count});
+  var cl=rd.map(function(v){return v>20?COLORS.rejected:v>10?'#fbbc04':COLORS.completed});
+  Plotly.react('chart-raids',[{
+    x:nm,y:rd,type:'bar',marker:{color:cl},
+    text:rd.map(String),textposition:'auto',hoverinfo:'x+y'
+  }],Object.assign({},LB,{title:{text:'Open RAID Items by Tower',font:{size:14,color:'#202124'}},yaxis:{title:'RAID Count'},showlegend:false}),CFG);
+}
+
+// ---- Chart 7: Completion by Type — Line ----
+function renderTypeLine(objs){
+  var cnt={},comp={};
+  TC.forEach(function(c){cnt[c]=0;comp[c]=0});
+  objs.forEach(function(o){if(cnt[o.tc]!==undefined){cnt[o.tc]++;if(o.s===1)comp[o.tc]++}});
+  var lb=[],pc=[];
+  TC.forEach(function(c){if(cnt[c]>0){lb.push(TL[c]);pc.push(Math.round(comp[c]/cnt[c]*100))}});
+  Plotly.react('chart-type-phases',[{
+    x:lb,y:pc,name:'Completed %',mode:'lines+markers',
+    line:{color:COLORS.completed,width:2},marker:{size:8}
+  }],Object.assign({},LB,{title:{text:'Completion Rate by Object Type',font:{size:14,color:'#202124'}},yaxis:{title:'%',range:[0,100]},showlegend:false}),CFG);
+}
+
+// ---- Table filtering ----
+function filterDocTable(){
+  var rows=document.querySelectorAll('.doc-table tbody tr');
+  rows.forEach(function(row){
+    var cells=row.querySelectorAll('td');
+    if(cells.length<2) return;
+    var tower=cells[0].textContent.trim();
+    var capId=cells[1].textContent.trim();
+    row.style.display = IS_TOWER ? (selected.has(capId)?'':'none') : (selected.has(tower)?'':'none');
+  });
+}
+function filterRaidTable(){
+  var sections=document.querySelectorAll('.doc-section');
+  if(sections.length<2) return;
+  var rows=sections[1].querySelectorAll('tbody tr');
+  rows.forEach(function(row){
+    var cells=row.querySelectorAll('td');
+    if(cells.length<3) return;
+    var tower=cells[2].textContent.trim();
+    row.style.display = (!IS_TOWER && !selected.has(tower)) ? 'none' : '';
   });
 }
 
-// ============================================================
-// 1. RICEFW BY TOWER — Stacked Bar
-// ============================================================
-(function() {
-  const names = towers.map(t => t.short);
-  const completed = towers.map(t => t.completed);
-  const active = towers.map(t => t.active);
-  const rejected = towers.map(t => t.rejected);
+// ---- Click navigation on bar charts ----
+function attachNav(){
+  ['chart-tower-bar','chart-phases','chart-raids'].forEach(function(id){
+    var div=document.getElementById(id);
+    if(!div) return;
+    div.on('plotly_click',function(data){
+      var pt=data.points[0]; var key=pt.x||pt.label;
+      if(towerUrls[key]) window.location.href=towerUrls[key];
+    });
+  });
+}
 
-  const traces = [
-    { x: names, y: completed, name: 'Completed', type: 'bar', marker: { color: COLORS.completed } },
-    { x: names, y: active, name: 'Active', type: 'bar', marker: { color: COLORS.active } },
-    { x: names, y: rejected, name: 'Rejected', type: 'bar', marker: { color: COLORS.red } },
-  ];
+// ---- Master apply ----
+function applyFilters(){
+  var twrs=fTowers(), objs=fObjs();
+  updateKPIs(twrs);
+  renderTowerBar(twrs);
+  renderDonut(twrs);
+  renderPhaseBar(twrs);
+  renderTypePie(objs);
+  renderSankey(twrs,objs);
+  renderRaidBar(twrs);
+  renderTypeLine(objs);
+  filterDocTable();
+  filterRaidTable();
+  attachNav();
+}
 
-  const layout = {
-    ...LAYOUT_BASE,
-    title: { text: 'RICEFW Objects by Tower', font: { size: 14, color: '#202124' } },
-    barmode: 'stack',
-    xaxis: { title: '' },
-    yaxis: { title: 'Objects' },
-    legend: { orientation: 'h', y: -0.15 },
-  };
+// ---- Filter chip handlers ----
+(function(){
+  var box=document.getElementById('filter-chips');
+  if(!box) return;
+  var chips=box.querySelectorAll('.filter-chip');
+  var allChip=box.querySelector('[data-key="__ALL__"]');
 
-  const div = document.getElementById('chart-tower-bar');
-  Plotly.newPlot(div, traces, layout, CONFIG);
-  attachClickNav(div, towerUrls, 'x');
+  var allKeys=[];
+  chips.forEach(function(c){var k=c.dataset.key; if(k!=='__ALL__') allKeys.push(k)});
+
+  chips.forEach(function(chip){
+    chip.addEventListener('click',function(){
+      var key=chip.dataset.key;
+      if(key==='__ALL__'){
+        var allOn=allKeys.every(function(k){return selected.has(k)});
+        if(allOn){ selected.clear(); chips.forEach(function(c){c.classList.remove('active')}); }
+        else{ allKeys.forEach(function(k){selected.add(k)}); chips.forEach(function(c){c.classList.add('active')}); }
+      } else {
+        if(selected.has(key)){selected.delete(key);chip.classList.remove('active')}
+        else{selected.add(key);chip.classList.add('active')}
+        if(allChip) allChip.classList.toggle('active',allKeys.every(function(k){return selected.has(k)}));
+      }
+      applyFilters();
+    });
+  });
+
+  // Search box for capability filter
+  var si=document.getElementById('cap-filter-input');
+  if(si){
+    si.addEventListener('input',function(){
+      var q=si.value.trim().toLowerCase();
+      chips.forEach(function(c){
+        var k=c.dataset.key;
+        if(k==='__ALL__'){c.style.display=q?'none':''; return}
+        c.style.display=(!q||k.toLowerCase().indexOf(q)!==-1)?'':'none';
+      });
+    });
+  }
 })();
 
-// ============================================================
-// 2. COMPLETION DONUT
-// ============================================================
-(function() {
-  const vals = [
-    {{ program.completed_count | default(0) }},
-    {{ program.active_count | default(0) }},
-    {{ program.rejected_count | default(0) }}
-  ];
-  const labels = ['Completed', 'Active', 'Rejected'];
+// ---- Initial render ----
+applyFilters();
 
-  Plotly.newPlot('chart-completion-pie', [{
-    values: vals, labels: labels, type: 'pie', hole: 0.5,
-    marker: { colors: [COLORS.completed, COLORS.active, COLORS.red] },
-    textinfo: 'label+percent', textposition: 'outside',
-    hoverinfo: 'label+value+percent',
-  }], {
-    ...LAYOUT_BASE,
-    title: { text: 'Overall Completion', font: { size: 14, color: '#202124' } },
-    showlegend: false,
-  }, CONFIG);
-})();
+// ---- Print/PDF: freeze charts to static images before print ----
+(function(){
+  var chartIds=['chart-tower-bar','chart-completion-pie','chart-phases',
+                'chart-type-pie','chart-sankey','chart-raids','chart-type-phases'];
+  var snapshots={}; // id → {html, width, height}
 
-// ============================================================
-// 3. BUILD PHASES BY TOWER — Grouped Bar
-// ============================================================
-(function() {
-  const names = towers.map(t => t.short);
-  const phaseLabels = ['FS %', 'TDD %', 'Build %', 'FUT %'];
-  const phaseKeys = ['avg_fs', 'avg_tdd', 'avg_build', 'avg_fut'];
+  window.addEventListener('beforeprint',function(){
+    chartIds.forEach(function(id){
+      var div=document.getElementById(id);
+      if(!div) return;
+      var plot=div.querySelector('.js-plotly-plot');
+      if(!plot) return;
+      // Save current state
+      snapshots[id]={html:div.innerHTML, w:div.style.width, h:div.style.height};
+      // Export chart to PNG data URL at fixed size
+      var w=id==='chart-sankey'?900:500;
+      var h=id==='chart-sankey'?400:320;
+      Plotly.toImage(div,{format:'png',width:w,height:h,scale:2}).then(function(url){
+        div.innerHTML='<img src="'+url+'" style="width:100%;max-height:'+(h+20)+'px;display:block;" />';
+      });
+    });
+  });
 
-  const traces = phaseKeys.map((key, i) => ({
-    x: names,
-    y: towers.map(t => t[key]),
-    name: phaseLabels[i],
-    type: 'bar',
-    marker: { color: COLORS.phases[i] },
-  }));
-
-  Plotly.newPlot('chart-phases', traces, {
-    ...LAYOUT_BASE,
-    title: { text: 'Build Phase Progress by Tower', font: { size: 14, color: '#202124' } },
-    barmode: 'group',
-    yaxis: { title: '%', range: [0, 100] },
-    legend: { orientation: 'h', y: -0.15 },
-  }, CONFIG);
-
-  const div = document.getElementById('chart-phases');
-  attachClickNav(div, towerUrls, 'x');
-})();
-
-// ============================================================
-// 4. RICEFW TYPE DISTRIBUTION — Pie
-// ============================================================
-(function() {
-  const labels = typeData.map(t => t.label);
-  const values = typeData.map(t => t.total);
-
-  Plotly.newPlot('chart-type-pie', [{
-    labels: labels, values: values, type: 'pie',
-    marker: { colors: COLORS.tower },
-    textinfo: 'label+value', textposition: 'outside',
-    hoverinfo: 'label+value+percent',
-  }], {
-    ...LAYOUT_BASE,
-    title: { text: 'RICEFW by Object Type', font: { size: 14, color: '#202124' } },
-    showlegend: false,
-  }, CONFIG);
-})();
-
-// ============================================================
-// 5. SANKEY: Tower → Type → Status
-// ============================================================
-(function() {
-  if (!sankeyData.node || sankeyData.node.label.length === 0) return;
-
-  Plotly.newPlot('chart-sankey', [{
-    type: 'sankey',
-    orientation: 'h',
-    node: {
-      label: sankeyData.node.label,
-      color: sankeyData.node.color,
-      pad: 15,
-      thickness: 20,
-    },
-    link: {
-      source: sankeyData.link.source,
-      target: sankeyData.link.target,
-      value: sankeyData.link.value,
-      color: sankeyData.link.color,
-    },
-  }], {
-    ...LAYOUT_BASE,
-    title: { text: 'Object Flow: Tower → Type → Status', font: { size: 14, color: '#202124' } },
-    margin: { l: 10, r: 10, t: 40, b: 10 },
-  }, CONFIG);
-})();
-
-// ============================================================
-// 6. RAID BY TOWER — Bar
-// ============================================================
-(function() {
-  const names = towers.map(t => t.short);
-  const raids = towers.map(t => t.raid_count);
-
-  const colors = raids.map(v => v > 20 ? COLORS.red : v > 10 ? COLORS.amber : COLORS.green);
-
-  Plotly.newPlot('chart-raids', [{
-    x: names, y: raids, type: 'bar',
-    marker: { color: colors },
-    text: raids.map(String), textposition: 'auto',
-    hoverinfo: 'x+y',
-  }], {
-    ...LAYOUT_BASE,
-    title: { text: 'Open RAID Items by Tower', font: { size: 14, color: '#202124' } },
-    yaxis: { title: 'RAID Count' },
-    showlegend: false,
-  }, CONFIG);
-
-  const div = document.getElementById('chart-raids');
-  attachClickNav(div, towerUrls, 'x');
-})();
-
-// ============================================================
-// 7. TYPE PHASE COMPLETION — Grouped Line
-// ============================================================
-(function() {
-  const labels = typeData.map(t => t.label);
-  const traces = [
-    { x: labels, y: typeData.map(t => t.completed_pct), name: 'Completed %', mode: 'lines+markers', line: { color: COLORS.green, width: 2 }, marker: { size: 8 } },
-  ];
-
-  Plotly.newPlot('chart-type-phases', traces, {
-    ...LAYOUT_BASE,
-    title: { text: 'Completion Rate by Object Type', font: { size: 14, color: '#202124' } },
-    yaxis: { title: '%', range: [0, 100] },
-    showlegend: false,
-  }, CONFIG);
+  window.addEventListener('afterprint',function(){
+    // Restore interactive Plotly charts
+    chartIds.forEach(function(id){
+      var div=document.getElementById(id);
+      if(!div||!snapshots[id]) return;
+      div.innerHTML=snapshots[id].html;
+      if(snapshots[id].w) div.style.width=snapshots[id].w;
+      if(snapshots[id].h) div.style.height=snapshots[id].h;
+    });
+    snapshots={};
+    // Re-render charts to restore interactivity
+    setTimeout(function(){ applyFilters(); },100);
+  });
 })();
 </script>
 

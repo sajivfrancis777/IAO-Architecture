@@ -59,15 +59,17 @@ CANONICAL_STYLE = """\
   align-items: center;
   font-size: 11px;
   color: #888;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 20px;
+  margin-top: 24px;
+  padding: 6px 0;
   background: #fff;
 }
 @media print {
-  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+  .page-footer {
+    position: running(footer);
+    margin-top: 16px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
 .page-footer a:hover { color: #0071c5; text-decoration: underline; }

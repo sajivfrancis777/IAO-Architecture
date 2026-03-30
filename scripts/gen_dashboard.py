@@ -116,6 +116,7 @@ def _load_objects(csv_path: Path) -> list[dict]:
                 "object_id": obj_id,
                 "type_code": _type_code(otype),
                 "tower": tower,
+                "sub_tower": r.get("Sub-Tower Name", "").strip(),
                 "status": r.get("Object Status", "").strip(),
                 "fs_pct": r.get("FS % Complete", "").strip(),
                 "tdd_pct": r.get("S/4 TDD % Complete", "").strip(),
@@ -468,6 +469,17 @@ def build_dashboard_context(
         if first_url:
             cap_urls[row["cap_id"]] = first_url
 
+    # Raw objects for client-side filtering (compact: t=tower, tc=type, s=status)
+    # s: 0=active, 1=completed, 2=rejected
+    raw_objects_compact = []
+    for o in objects:
+        if tower_filter and o["tower"] != tower_filter:
+            continue
+        s = 1 if o["status"] in _COMPLETED_STATUSES else (2 if o["status"] in _REJECTED_STATUSES else 0)
+        raw_objects_compact.append({
+            "t": o["tower"], "tc": o["type_code"], "s": s,
+        })
+
     # Title
     if tower_filter:
         title_text = f"{_TOWER_DISPLAY.get(tower_filter, tower_filter)} ({tower_filter})"
@@ -508,6 +520,8 @@ def build_dashboard_context(
         },
         "top_raids": top_raids,
         "doc_inventory": doc_inventory,
+        "raw_objects_json": json.dumps(raw_objects_compact),
+        "doc_inventory_json": json.dumps(doc_inventory),
     }
 
 
