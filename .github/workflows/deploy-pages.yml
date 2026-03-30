@@ -155,10 +155,14 @@ jobs:
               first_cap=true
               echo "$html_files" | while read html; do
                 cap=$(basename "$html" | sed 's/-Architecture.html//')
-                cap_dir=$(basename "$(dirname "$(dirname "$(dirname "$html")")")")
+                # Extract the real capability title from the generated HTML <h1> tag
+                cap_title=$(grep -oP '<h1 style="font-size:36px[^>]*>\K[^<]+' "$html" 2>/dev/null | head -1)
+                # Strip the "DS-020 — " prefix to get just the name
+                cap_name=$(echo "$cap_title" | sed "s/^${cap} — //")
+                [ -z "$cap_name" ] && cap_name="$cap"
                 $first_cap || printf ',' >> _site/nav.json
                 first_cap=false
-                echo "{\"id\":\"${cap}\",\"name\":\"${cap_dir}\",\"href\":\"${html}\"}" >> _site/nav.json
+                echo "{\"id\":\"${cap}\",\"name\":\"${cap_name}\",\"href\":\"${html}\"}" >> _site/nav.json
               done
               echo ']}'  >> _site/nav.json
             done
@@ -457,10 +461,12 @@ jobs:
 
               echo "$html_files" | while read html; do
                 cap=$(basename "$html" | sed 's/-Architecture.html//')
-                # Build a readable name from the directory path
-                cap_dir=$(basename "$(dirname "$(dirname "$(dirname "$html")")")")
+                # Extract the real capability title from the generated HTML <h1> tag
+                cap_title=$(grep -oP '<h1 style="font-size:36px[^>]*>\K[^<]+' "$html" 2>/dev/null | head -1)
+                cap_name=$(echo "$cap_title" | sed "s/^${cap} — //")
+                [ -z "$cap_name" ] && cap_name="$cap"
                 cat >> "_site/tower-${tower}.html" <<ROW
-          <tr><td><strong>${cap}</strong></td><td>${cap_dir}</td><td><a href="${html}">Open →</a></td></tr>
+          <tr><td><strong>${cap}</strong></td><td>${cap_name}</td><td><a href="${html}">Open →</a></td></tr>
           ROW
               done
 
