@@ -324,7 +324,7 @@
         break-inside: avoid;
         overflow: hidden;
       }
-      /* Force Plotly SVG/Canvas to fit within card */
+      /* Hide live Plotly when frozen images are shown */
       .chart-card .js-plotly-plot,
       .chart-card .plot-container,
       .chart-card .svg-container {
@@ -333,6 +333,15 @@
       }
       .chart-card .js-plotly-plot .main-svg {
         max-height: 320px !important;
+      }
+      /* Frozen chart images: centered, constrained */
+      .chart-card img.chart-snapshot {
+        display: block !important;
+        margin: 0 auto !important;
+        max-width: 520px !important;
+        max-height: 340px !important;
+        width: auto !important;
+        height: auto !important;
       }
       /* Sankey is wide — give it a full page */
       .chart-card.full {
@@ -344,6 +353,10 @@
       .chart-card.full .svg-container,
       .chart-card.full .js-plotly-plot .main-svg {
         max-height: 450px !important;
+      }
+      .chart-card.full img.chart-snapshot {
+        max-width: 90% !important;
+        max-height: 420px !important;
       }
 
       /* Tables */
@@ -830,25 +843,34 @@ function applyFilters(){
 // ---- Initial render ----
 applyFilters();
 
-// ---- Print/PDF: freeze charts to static images, then print ----
+// ---- Print/PDF: freeze Plotly charts to static PNG images, then print ----
 (function(){
   var chartIds=['chart-tower-bar','chart-completion-pie','chart-phases',
                 'chart-type-pie','chart-sankey','chart-raids','chart-type-phases'];
-  var snapshots={}; // id → {html, width, height}
+  var snapshots={};
+  var frozen=false;
 
   function freezeCharts(){
     var promises=[];
     chartIds.forEach(function(id){
       var div=document.getElementById(id);
       if(!div) return;
-      // Plotly adds .js-plotly-plot on the div itself, not a child
       if(!div.classList.contains('js-plotly-plot') && !div.querySelector('.js-plotly-plot')) return;
       snapshots[id]={html:div.innerHTML, w:div.style.width, h:div.style.height};
       var w=id==='chart-sankey'?900:500;
       var h=id==='chart-sankey'?400:320;
       promises.push(
-        Plotly.toImage(div,{format:'png',width:w,height:h,scale:2}).then(function(url){
-          div.innerHTML='<img src="'+url+'" style="width:100%;max-height:'+(h+20)+'px;display:block;" />';
+        Plotly.toImage(div,{format:'png',width:w,height:h,scale:2}).then(function(dataUrl){
+          // Return a promise that resolves only after the <img> has loaded
+          return new Promise(function(resolve){
+            var img=new Image();
+            img.className='chart-snapshot';
+            img.onload=function(){ resolve(); };
+            img.onerror=function(){ resolve(); }; // don't block on error
+            img.src=dataUrl;
+            div.innerHTML='';
+            div.appendChild(img);
+          });
         })
       );
     });
@@ -864,23 +886,33 @@ applyFilters();
       if(snapshots[id].h) div.style.height=snapshots[id].h;
     });
     snapshots={};
-    setTimeout(function(){ applyFilters(); },100);
+    frozen=false;
+    setTimeout(function(){ applyFilters(); },150);
   }
 
-  // PDF button: freeze charts, wait for images to render, then print
+  // PDF button: freeze → wait for paint → print → restore
   document.getElementById('btn-pdf').addEventListener('click', function(){
+    if(frozen) return; // guard against double-click
+    frozen=true;
     freezeCharts().then(function(){
-      // Allow browser a paint frame so <img> tags are fully rendered
-      return new Promise(function(resolve){ requestAnimationFrame(function(){ setTimeout(resolve,200); }); });
+      // Two rAF + timeout ensures both Chrome and Edge have painted the images
+      return new Promise(function(resolve){
+        requestAnimationFrame(function(){
+          requestAnimationFrame(function(){
+            setTimeout(resolve, 300);
+          });
+        });
+      });
     }).then(function(){
       window.print();
       restoreCharts();
     });
   });
 
-  // Fallback for Ctrl+P / browser menu print (best-effort, may miss some charts)
-  window.addEventListener('beforeprint', function(){ freezeCharts(); });
-  window.addEventListener('afterprint', function(){ restoreCharts(); });
+  // Fallback for Ctrl+P (best-effort — can't await async in synchronous event)
+  window.addEventListener('afterprint', function(){
+    if(Object.keys(snapshots).length>0) restoreCharts();
+  });
 })();
 </script>
 
