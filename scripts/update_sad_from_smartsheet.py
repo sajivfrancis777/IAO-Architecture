@@ -389,16 +389,30 @@ def _sanitize_cell(value: str, max_len: int = 0) -> str:
     return s
 
 
+# Statuses considered "completed" — excluded from SAD (shown in full RICEFW Register)
+_COMPLETED_STATUSES = {"10. Object Complete", "99. Rejected/Cancelled/On Hold"}
+
+
+def _is_active(row: dict) -> bool:
+    """Return True if the RICEFW object is NOT completed/rejected/cancelled."""
+    return row.get("Object Status", "").strip() not in _COMPLETED_STATUSES
+
+
 def build_roadmap_section(
     tower: str, cap_obj_ids: set[str], obj_rows: list[dict],
 ) -> list[str]:
-    """Build section 7.1 — compact 7-column layout with full descriptions."""
+    """Build section 7.1 — compact 7-column layout, active objects only."""
     if cap_obj_ids:
         cap_rows = [r for r in obj_rows if r.get("Object ID", "").strip() in cap_obj_ids]
     else:
         cap_rows = []
     if not cap_rows:
         cap_rows = [r for r in obj_rows if _normalize_tower(r.get("Tower Name", "")) == tower]
+
+    total_count = len(cap_rows)
+    # Exclude completed objects — SAD focuses on items needing attention
+    cap_rows = [r for r in cap_rows if _is_active(r)]
+    completed_count = total_count - len(cap_rows)
 
     # Filter to rows that have at least some timeline data
     timeline_rows = [r for r in cap_rows if (r.get("FS Plan Finish Date") or
@@ -409,11 +423,16 @@ def build_roadmap_section(
     lines = ["### 7.1 Project Roadmap & Go-Live Plan\n", "\n"]
 
     if not timeline_rows:
-        lines.append("*No timeline data available for this capability.*\n")
+        if completed_count:
+            lines.append(f"*All {completed_count} objects are completed — no active items to track.*\n")
+        else:
+            lines.append("*No timeline data available for this capability.*\n")
         lines.append("\n")
         return lines
 
-    lines.append(f"*{len(timeline_rows)} objects with timeline data (source: Object Tracker)*\n")
+    lines.append(f"*{len(timeline_rows)} active objects with timeline data (source: Object Tracker)*\n")
+    if completed_count:
+        lines.append(f"*{completed_count} completed objects excluded — see RICEFW Register for full detail.*\n")
     lines.append("\n")
     lines.append("| ID | Description | FS | TDD | Build | FUT | Status |\n")
     lines.append("|----|-------------|----|-----|-------|-----|--------|\n")
@@ -438,34 +457,50 @@ def build_roadmap_section(
 def build_ricefw_status_section(
     tower: str, cap_obj_ids: set[str], obj_rows: list[dict],
 ) -> list[str]:
-    """Build section 6.2 — capability-specific if possible, else tower-level."""
-    if cap_obj_ids:
-        cap_rows = [r for r in obj_rows if r.get("Object ID", "").strip() in cap_obj_ids]
-    else:
-        cap_rows = []
+    """Build section 6.2 — shows only active (non-completed) objects.
 
-    tower_rows = [r for r in obj_rows if _normalize_tower(r.get("Tower Name", "")) == tower]
-    scope_rows = cap_rows if cap_rows else tower_rows
+    Completed/rejected/cancelled objects are excluded from the SAD.
+    The full RICEFW Register (separate document) contains all objects.
+    """
+    if cap_obj_ids:
+        all_cap_rows = [r for r in obj_rows if r.get("Object ID", "").strip() in cap_obj_ids]
+    else:
+        all_cap_rows = []
+
+    all_tower_rows = [r for r in obj_rows if _normalize_tower(r.get("Tower Name", "")) == tower]
+    all_scope_rows = all_cap_rows if all_cap_rows else all_tower_rows
+    total_all = len(all_scope_rows)
+
+    # Filter to active objects only
+    scope_rows = [r for r in all_scope_rows if _is_active(r)]
+    tower_active = [r for r in all_tower_rows if _is_active(r)]
+    completed_count = total_all - len(scope_rows)
     summary = get_ricefw_status_summary(scope_rows)
-    tower_summary = get_ricefw_status_summary(tower_rows)
 
     lines = ["### 6.2 SAP Development Object Status\n", "\n"]
 
-    if cap_rows:
-        lines.append(f"**Capability RICEFW Status** ({summary['total']} objects)\n")
+    if all_cap_rows:
+        lines.append(f"**Capability RICEFW — Active Items** ({summary['total']} of {total_all} objects)\n")
     else:
-        lines.append(f"**RICEFW Status Summary** — {tower} Tower ({summary['total']} objects)\n")
+        lines.append(f"**RICEFW Active Items** — {tower} Tower ({summary['total']} of {total_all} objects)\n")
     lines.append(f"*Data source: Smartsheet Object Tracker (cached {datetime.now().strftime('%Y-%m-%d')})*\n")
+    if completed_count:
+        lines.append(f"*{completed_count} completed/rejected objects excluded — see RICEFW Register for full detail.*\n")
     lines.append("\n")
+
+    if not scope_rows:
+        lines.append(f"**All {total_all} objects are completed** — no active items requiring attention.\n")
+        lines.append("\n")
+        return lines
 
     lines.append("| Status | Count | % |\n")
     lines.append("|--------|------:|----:|\n")
     for status, cnt in sorted(summary["statuses"].items(), key=lambda x: -x[1]):
         pct = cnt / summary["total"] * 100 if summary["total"] else 0
         lines.append(f"| {status} | {cnt} | {pct:.1f}% |\n")
-    lines.append(f"| **Total** | **{summary['total']}** | **100%** |\n")
+    lines.append(f"| **Total Active** | **{summary['total']}** | **100%** |\n")
 
-    lines.append("\n**RICEFW by Type:**\n\n")
+    lines.append("\n**Active RICEFW by Type:**\n\n")
     lines.append("| Type | Count |\n")
     lines.append("|------|------:|\n")
     type_labels = {"R": "Report", "I": "Interface", "C": "Conversion", "E": "Enhancement", "F": "Form", "W": "Workflow"}
@@ -482,27 +517,24 @@ def build_ricefw_status_section(
         for c, cnt in sorted(summary["complexities"].items()):
             lines.append(f"| {c} | {cnt} |\n")
 
-    active_statuses = {s for s in summary["statuses"]
-                       if "Complete" not in s and "Rejected" not in s and "Cancelled" not in s}
-    if active_statuses:
-        active_rows = [r for r in scope_rows if r.get("Object Status", "") in active_statuses]
-        if active_rows:
-            lines.append("\n**Active (Non-Complete) Objects:**\n\n")
-            lines.append("| Object ID | Type | Description | Status | Complexity |\n")
-            lines.append("|-----------|------|-------------|--------|------------|\n")
-            for r in active_rows[:50]:
-                oid = r.get("Object ID", "")
-                otype = r.get("Object Type", "")
-                desc = (r.get("Description", "") or "")[:80]
-                st = r.get("Object Status", "")
-                cx = r.get("Technical Complexity", "")
-                el = "..." if len(r.get("Description", "") or "") > 80 else ""
-                lines.append(f"| {oid} | {otype} | {desc}{el} | {st} | {cx} |\n")
+    # Detailed table of all active objects
+    lines.append("\n**Objects Requiring Attention:**\n\n")
+    lines.append("| Object ID | Type | Description | Status | Complexity |\n")
+    lines.append("|-----------|------|-------------|--------|------------|\n")
+    for r in scope_rows[:50]:
+        oid = r.get("Object ID", "")
+        otype = r.get("Object Type", "")
+        desc = (r.get("Description", "") or "")[:80]
+        st = r.get("Object Status", "")
+        cx = r.get("Technical Complexity", "")
+        el = "..." if len(r.get("Description", "") or "") > 80 else ""
+        lines.append(f"| {oid} | {otype} | {desc}{el} | {st} | {cx} |\n")
+    if len(scope_rows) > 50:
+        lines.append(f"| | | *... and {len(scope_rows) - 50} more active objects* | | |\n")
 
-    if cap_rows and tower_summary["total"] > summary["total"]:
-        complete = tower_summary["statuses"].get("10. Object Complete", 0)
-        lines.append(f"\n**Tower Context:** {tower} has {tower_summary['total']} total RICEFW objects ")
-        lines.append(f"({complete} complete, {tower_summary['total'] - complete} active/other)\n")
+    if all_cap_rows:
+        tower_completed = len(all_tower_rows) - len(tower_active)
+        lines.append(f"\n**Tower Context:** {tower} has {len(tower_active)} active / {tower_completed} completed RICEFW objects\n")
 
     lines.append("\n")
     return lines
