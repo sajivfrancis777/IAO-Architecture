@@ -47,6 +47,254 @@ This pipeline produces three document types per capability — **SAD** (Systems 
 
 ---
 
+## Solution Architecture
+
+This section presents the IAO Architecture Pipeline as an **enterprise solution** — its integration landscape, credential requirements, AI chatbot capabilities, and value across the IDM 2.0 project lifecycle.
+
+### Architecture Overview
+
+```
+  ┌─────────────────────────────────────────────────────────────────────────────────┐
+  │                          IAO ARCHITECTURE PIPELINE                              │
+  │                          Solution Architecture Diagram                          │
+  │                                                                                 │
+  │  ┌─ SOURCE SYSTEMS ─────────────────────────────────────────────────────────┐   │
+  │  │                                                                          │   │
+  │  │  ┌──────────────┐ ┌────────────┐ ┌──────────────┐ ┌─────────────────┐   │   │
+  │  │  │  Smartsheet   │ │ Signavio/  │ │    IAPM      │ │   SharePoint    │   │   │
+  │  │  │  (RICEFW,     │ │ BIC        │ │ (App         │ │   (Excel        │   │   │
+  │  │  │   RAID,       │ │ (BPMN      │ │  Portfolio   │ │    Workbooks)   │   │   │
+  │  │  │   Timeline)   │ │  Models)   │ │  30K+ apps)  │ │                 │   │   │
+  │  │  └──────┬───────┘ └─────┬──────┘ └──────┬───────┘ └───────┬─────────┘   │   │
+  │  │         │ API           │ API/CSV        │ API/CSV         │ Graph API   │   │
+  │  │         │               │                │                 │             │   │
+  │  │  ┌──────┴───────┐ ┌────┴───────┐ ┌──────┴──────┐ ┌───────┴─────────┐   │   │
+  │  │  │   SAP S/4    │ │   JIRA     │ │  ServiceNow │ │  Future         │   │   │
+  │  │  │  OData       │ │  (Test     │ │  (Incident  │ │  Integrations   │   │   │
+  │  │  │  (Dev Objs,  │ │   Cases,   │ │   data,     │ │                 │   │   │
+  │  │  │   Transports)│ │   Defects) │ │   by tower) │ │                 │   │   │
+  │  │  └──────┬───────┘ └─────┬──────┘ └──────┬──────┘ └───────┬─────────┘   │   │
+  │  │         │ OData/ADT     │ REST           │ REST           │             │   │
+  │  └─────────┼───────────────┼────────────────┼────────────────┼─────────────┘   │
+  │            │               │                │                │                  │
+  │            ▼               ▼                ▼                ▼                  │
+  │  ┌─ PROCESSING ENGINE ─────────────────────────────────────────────────────┐   │
+  │  │                                                                          │   │
+  │  │  src/config.py ─── .env (credentials) ─── os.environ (runtime)          │   │
+  │  │       │                                                                  │   │
+  │  │       ├── smartsheet_loader.py ──── Live API → CSV fallback             │   │
+  │  │       ├── iapm_lookup.py ────────── Live API → CSV fallback             │   │
+  │  │       ├── bpmn_parser.py ────────── XML parse + Mermaid render          │   │
+  │  │       ├── xlsx_loader.py ────────── Multi-tab workbook parse            │   │
+  │  │       ├── csv_parser.py ─────────── Flow CSV parse + chain build        │   │
+  │  │       └── mermaid_builder.py ────── 6 diagram types (ArchiMate, etc.)   │   │
+  │  │                    │                                                     │   │
+  │  │                    ▼                                                     │   │
+  │  │  gen_systems_arch.py (orchestrator) ──> Jinja2 templates                │   │
+  │  │       │                                                                  │   │
+  │  │       ├── gen_pdf.py ────────── MD → HTML (Mermaid.js live rendering)   │   │
+  │  │       ├── gen_dashboard.py ──── Plotly.js interactive dashboards        │   │
+  │  │       ├── gen_ricefw_tracker.py  Per-tower RICEFW tracker docs          │   │
+  │  │       └── gen_testing_report.py  Per-tower testing readiness docs       │   │
+  │  │                                                                          │   │
+  │  └──────────────────────────────────┬───────────────────────────────────────┘   │
+  │                                     │                                           │
+  │            ┌────────────────────────┼─────────────────────┐                    │
+  │            ▼                        ▼                     ▼                    │
+  │  ┌─ OUTPUT CHANNELS ───────────────────────────────────────────────────────┐   │
+  │  │                                                                          │   │
+  │  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐                  │   │
+  │  │  │ GitHub Pages │  │  SharePoint  │  │  Git Repo    │                  │   │
+  │  │  │ (interactive │  │  (HTML+PDF   │  │  (versioned  │                  │   │
+  │  │  │  dashboards, │  │   for arch   │  │   MD+HTML,   │                  │   │
+  │  │  │  full docs)  │  │   workspace) │  │   diff-able) │                  │   │
+  │  │  └──────────────┘  └──────────────┘  └──────────────┘                  │   │
+  │  │                                                                          │   │
+  │  └──────────────────────────────────────────────────────────────────────────┘   │
+  │                                                                                 │
+  │  ┌─ AI CHATBOT LAYER (MCP Servers) ────────────────────────────────────────┐   │
+  │  │                                                                          │   │
+  │  │  VS Code / GitHub Copilot Chat                                          │   │
+  │  │       │                                                                  │   │
+  │  │       ├── iao-smartsheet ─── "What RICEFW objects are in FPR DS-020?"   │   │
+  │  │       ├── iao-iapm ──────── "What's the IAPM status of MuleSoft?"       │   │
+  │  │       ├── iao-jira ──────── "How many open defects in OTC-IF?"          │   │
+  │  │       ├── iao-sap-odata ─── "Show transports for FPRI1234"             │   │
+  │  │       └── iao-bic ──────── "Find BIC process models for DS-020"        │   │
+  │  │                                                                          │   │
+  │  │  Each MCP server: API live → CSV fallback → structured JSON response    │   │
+  │  │  Same tower_registry.py normalization used across pipeline + chatbot    │   │
+  │  │                                                                          │   │
+  │  └──────────────────────────────────────────────────────────────────────────┘   │
+  │                                                                                 │
+  └─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Credential & Integration Inventory
+
+Every API integration follows the same pattern: **API-first with graceful fallback**. The table below is the complete credential inventory for the solution.
+
+#### Source System Credentials
+
+| # | Variable | System | Auth Method | Status | Provisioning |
+|---|----------|--------|-------------|--------|-------------|
+| 1 | `SMARTSHEET_TOKEN` | Smartsheet API v2.0 | Bearer token | **Working** | Smartsheet admin generates API token |
+| 2 | `IAPM_BEARER_TOKEN` | IAPM (Azure AD) | OAuth2 Bearer | **CSV fallback** | Browser: `localStorage` → access token; or Azure AD app |
+| 3 | `BIC_AUTH_TOKEN` | SAP BIC / Signavio | Bearer token | **Placeholder** | Browser F12 → Network → Authorization header |
+| 4 | `SAP_BI0_HOST` | SAP S/4HANA BI0 (Foundry) | — | **Placeholder** | `https://sapbi0ci.intel.com:8220` |
+| 5 | `SAP_BI0_USER` | SAP BI0 | NTLM / Negotiate | **Pending** | SAP access request + `S_SERVICE` role |
+| 6 | `SAP_BI0_PASS` | SAP BI0 | NTLM / Negotiate | **Pending** | Same as above |
+| 7 | `SAP_BI0_CLIENT` | SAP BI0 | Client number | **Placeholder** | Default `200` |
+| 8 | `SAP_DI0_HOST` | SAP S/4HANA DI0 (Products) | — | **Placeholder** | `https://sapdi0ci.intel.com:8220` |
+| 9 | `SAP_DI0_USER` | SAP DI0 | NTLM / Negotiate | **Pending** | SAP access request + `S_SERVICE` role |
+| 10 | `SAP_DI0_PASS` | SAP DI0 | NTLM / Negotiate | **Pending** | Same as above |
+| 11 | `SAP_DI0_CLIENT` | SAP DI0 | Client number | **Placeholder** | Default `200` |
+| 12 | `JIRA_BASE_URL` | JIRA REST API | — | **Placeholder** | `https://jira.intel.com` |
+| 13 | `JIRA_USER_EMAIL` | JIRA | Basic / PAT | **Pending** | JIRA profile → Personal Access Token |
+| 14 | `JIRA_API_TOKEN` | JIRA | PAT | **Pending** | Needs IDM 2.0 project read access |
+
+#### SharePoint & Delivery Credentials
+
+| # | Variable | System | Auth Method | Status | Provisioning |
+|---|----------|--------|-------------|--------|-------------|
+| 15 | `SP_TENANT_ID` | Azure AD | OAuth2 client creds | **Working** | Azure portal → App Registration |
+| 16 | `SP_CLIENT_ID` | Azure AD | OAuth2 client creds | **Working** | Same app registration |
+| 17 | `SP_CLIENT_SECRET` | Azure AD | OAuth2 client creds | **Working** | App Registration → Certificates & Secrets |
+| 18 | `SP_SITE_URL` | SharePoint Online | — | **Working** | `https://intel.sharepoint.com/sites/IAO-Architecture` |
+| 19 | `SP_DOC_LIBRARY` | SharePoint | — | **Working** | Default: `Shared Documents` |
+| 20 | `SP_TARGET_FOLDER` | SharePoint | — | **Working** | Default: `Architecture/SAD` |
+
+#### GitHub Actions Runtime
+
+All credentials above are stored as **GitHub Actions Secrets** (AES-256 encrypted at rest) and injected at workflow runtime via `${{ secrets.XXX }}`. No credential is ever committed to the repository.
+
+| Status | Count | Credentials |
+|--------|-------|-------------|
+| **Working** | 7 | Smartsheet, SharePoint (6 vars) |
+| **CSV fallback** | 1 | IAPM (30K apps from CSV cache) |
+| **Placeholder** | 6 | BIC, SAP hosts, SAP clients, JIRA URL |
+| **Pending enterprise access** | 6 | SAP BI0/DI0 user/pass, JIRA user/token |
+| **Total** | **20** | |
+
+### AI Chatbot Integration (MCP Servers)
+
+The chatbot layer is what transforms this pipeline from a static document site into an **interactive AI-powered architecture knowledge base**. Without it, the site is a Wikipedia — searchable but passive. With it, architects and support teams can query live build data conversationally.
+
+#### MCP Server Inventory
+
+| Server | Tool Count | Status | Credential Required | Sample Queries |
+|--------|-----------|--------|-------------------|---------------|
+| `iao-smartsheet` | 6 tools | **Working** | `SMARTSHEET_TOKEN` | "Get RICEFW objects for FPR DS-020" / "Show RAID items for OTC-IF" |
+| `iao-iapm` | 3 tools | **Working** | (CSV cache) | "Search IAPM for SAP S/4HANA" / "What's the status of MuleSoft?" |
+| `iao-jira` | 4 tools | **Placeholder** | `JIRA_*` (3 vars) | "Get defects for PTP tower" / "Sprint status for FTS-IF" |
+| `iao-sap-odata` | 4 tools | **Placeholder** | `SAP_BI0_*` or `SAP_DI0_*` | "Get dev objects for transport K9xxxxx" / "CDS view catalog" |
+| `iao-bic` | 4 tools | **Placeholder** | `BIC_AUTH_TOKEN` | "Search BIC for DS-020 process models" / "Get process hierarchy" |
+
+#### Chatbot Capabilities by BDAT Domain
+
+| TOGAF Domain | MCP Server | What the Chatbot Provides |
+|-------------|-----------|--------------------------|
+| **Business** | `iao-bic` | Process model names, L1/L2/L3 hierarchy, BPMN metadata |
+| **Data** | `iao-sap-odata` | CDS views, data object inventory, schema references |
+| **Application** | `iao-iapm` + `iao-smartsheet` | Application lifecycle status, RICEFW object inventory, integration patterns |
+| **Technology** | `iao-sap-odata` | Transport status, dev object inventory, system configuration |
+| **Project** | `iao-jira` + `iao-smartsheet` | Test readiness, defect counts, RAID items, sprint burn-down, delivery timelines |
+
+### Value Proposition — Project Lifecycle
+
+This architecture delivers value across **every phase of the IDM 2.0 program**, not just design:
+
+#### Pre-Go-Live: Integration Testing & Mock Cutovers
+
+```
+  ┌─────────────────────────────────────────────────────────────────┐
+  │  INTEGRATION TESTING & MOCK CUTOVER VALUE                       │
+  │                                                                 │
+  │  Integration Testers ask:                                       │
+  │    "What interfaces does FPR DC-020 depend on?"                │
+  │    "Which systems feed data into S/4HANA for this process?"    │
+  │    "What RICEFW objects are in Developing vs Deployed status?"  │
+  │                                                                 │
+  │  ┌────────────────────┐    ┌──────────────────────────────┐    │
+  │  │  GitHub Pages        │    │  Copilot Chat (MCP)          │    │
+  │  │  ──────────────      │    │  ──────────────────────      │    │
+  │  │  Full architecture  │    │  "Show RICEFW objects for     │    │
+  │  │  docs per tower +   │    │   FPR DC-020 where status     │    │
+  │  │  capability with    │    │   = Developing"               │    │
+  │  │  Mermaid diagrams   │    │                               │    │
+  │  │  showing integration│    │  → Returns live Smartsheet    │    │
+  │  │  flows & system     │    │    data filtered by tower,    │    │
+  │  │  dependencies       │    │    capability, and status     │    │
+  │  └────────────────────┘    └──────────────────────────────┘    │
+  │                                                                 │
+  │  WITHOUT THIS PIPELINE:                                         │
+  │  • Architects email Excel files to test leads                  │
+  │  • Test leads manually search Smartsheet for RICEFW status     │
+  │  • Integration diagrams are stale PowerPoint slides            │
+  │  • No single view of current vs future architecture            │
+  │                                                                 │
+  │  WITH THIS PIPELINE:                                            │
+  │  • Live RICEFW status auto-injected from Smartsheet API        │
+  │  • Architectural diagrams regenerated on every input change    │
+  │  • Chatbot answers "what depends on what" queries in seconds   │
+  │  • Mock cutover teams see real build status, not stale docs    │
+  └─────────────────────────────────────────────────────────────────┘
+```
+
+#### Post-Go-Live: Production Support & ServiceNow
+
+```
+  ┌─────────────────────────────────────────────────────────────────┐
+  │  PRODUCTION SUPPORT VALUE                                       │
+  │                                                                 │
+  │  Support team receives ServiceNow incident:                     │
+  │    "Invoice posting fails in S/4HANA for customer X"           │
+  │                                                                 │
+  │  Step 1: Identify Tower & Capability                            │
+  │    Incident → OTC-IF tower → BR-130 (Billing Revenue)          │
+  │                                                                 │
+  │  Step 2: Look up Architecture (GitHub Pages)                    │
+  │    BR-130-Architecture.html shows:                              │
+  │    • All systems in the billing flow (current + future)        │
+  │    • Integration diagrams (which middleware, which protocol)    │
+  │    • RICEFW objects (custom interfaces, enhancements)          │
+  │    • Platform dependencies (SAP, MuleSoft, Ariba, etc.)        │
+  │                                                                 │
+  │  Step 3: Ask Chatbot for Live Data                              │
+  │    "What interfaces does OTC-IF BR-130 use?"                   │
+  │    → Returns: 12 interfaces, 3 enhancements, 2 reports         │
+  │    "What's the IAPM status of MuleSoft?"                       │
+  │    → Returns: Deployed, hosted on Azure, owner: Integration    │
+  │                                                                 │
+  │  Step 4: Resolve Faster                                         │
+  │    Support team knows exactly which systems to check,          │
+  │    which interfaces carry the invoice data, and who owns       │
+  │    each integration point — without opening SAP or Smartsheet  │
+  │                                                                 │
+  │  SUPPORT TEAM BENEFITS:                                         │
+  │  • Incident → Tower → Capability mapping (ServiceNow-ready)   │
+  │  • Architecture docs organized by tower + capability ID        │
+  │  • AI answers "what systems are involved" without SAP access   │
+  │  • Understanding of current vs future state for transitions    │
+  │  • Historical architecture versioned in Git (what changed?)    │
+  └─────────────────────────────────────────────────────────────────┘
+```
+
+#### Lifecycle Coverage Summary
+
+| Phase | What the Pipeline Provides | Key Consumers |
+|-------|---------------------------|---------------|
+| **Design** | TOGAF BDAT docs, Mermaid diagrams, capability hierarchy | Solution architects, enterprise architects |
+| **Build** | Live RICEFW status, dev object inventory, RAID log | Tower leads, program managers |
+| **Integration Test** | System dependency maps, interface inventory, current vs future state | Test leads, integration testers |
+| **Mock Cutover** | Complete architecture per capability, platform dependencies | Cutover coordinators, release managers |
+| **UAT** | Testing reports, defect tracking (via JIRA), readiness dashboards | QA leads, business testers |
+| **Go-Live** | Final architecture baseline, all RICEFW objects in Deployed status | Go-live command center, operations |
+| **Post-Go-Live Support** | Incident → Tower → Capability lookup, AI chatbot queries | L2/L3 support, ServiceNow teams |
+| **Steady State** | Versioned architecture (Git), change tracking, compliance audits | Governance, audit, architecture review boards |
+
+---
+
 ## Quick Start
 
 ### Step 1 — Clone & Install
