@@ -1,5 +1,6 @@
+<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">E2E-96 — R3 Straddle & R4 SIMS Design with Returns</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -19,7 +20,14 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
+.page-section {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 40px);
+  box-sizing: border-box;
+}
 .page-footer {
+  margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid #ddd;
   display: flex;
@@ -27,62 +35,99 @@
   align-items: center;
   font-size: 11px;
   color: #888;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 20px;
+  padding: 6px 12px;
   background: #fff;
 }
 @media print {
-  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+  .page-section {
+    min-height: 100vh;
+  }
+  .page-footer {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
 .page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
 </style>
 
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 <a id="toc"></a>
 
 ## Table of Contents
 
-1. [Executive Summary](#1-executive-summary)
-2. [Business Context & Objectives](#2-business-context--objectives)
-   - 2.1 [Classification](#21-classification)
-   - 2.2 [Business Drivers](#22-business-drivers)
-   - 2.3 [Success Criteria](#23-success-criteria)
-   - 2.4 [Companion Documents](#24-companion-documents)
-3. [Business Architecture (TOGAF "B")](#3-business-architecture-togaf-b)
-   - 3.1 [Business Process Overview](#31-business-process-overview)
-   - 3.2 [Business Process Diagrams](#32-business-process-diagrams)
-   - 3.3 [Business Roles & Responsibilities](#33-business-roles--responsibilities)
-4. [Data Architecture (TOGAF "D")](#4-data-architecture-togaf-d)
-   - 4.1 [Data Entities & Ownership](#41-data-entities--ownership)
-   - 4.2 [Data Flow Diagrams](#42-data-flow-diagrams)
-   - 4.3 [Data Lineage](#43-data-lineage)
-   - 4.4 [RICEFW Data Objects](#44-ricefw-data-objects)
-   - 4.5 [Data Governance & Quality](#45-data-governance--quality)
-5. [Application Architecture (TOGAF "A")](#5-application-architecture-togaf-a)
-   - 5.1 [Current-State Application Landscape](#51-current-state--current-state-application-landscape)
-   - 5.2 [Future-State Application Landscape](#52-future-state--future-state-application-landscape)
-   - 5.3 [Change Impact Summary](#53-change-impact-summary)
-   - 5.4 [Component Overview](#54-component-overview)
-   - 5.5 [RICEFW Inventory](#55-ricefw-inventory)
-   - 5.6 [Integration Patterns](#56-integration-patterns)
-6. [Technology Architecture (TOGAF "T")](#6-technology-architecture-togaf-t)
-   - 6.1 [Platform & Infrastructure](#61-platform--infrastructure)
-   - 6.2 [SAP Development Object Status](#62-sap-development-object-status)
-   - 6.3 [NFRs & Design Principles](#63-nfrs--design-principles)
-   - 6.4 [Security & Governance](#64-security--governance)
-7. [Project Context](#7-project-context)
-   - 7.1 [Project Roadmap & Go-Live Plan](#71-project-roadmap--go-live-plan)
-   - 7.2 [RAID Log](#72-raid-log)
-   - 7.3 [Recommendations & Next Steps](#73-recommendations--next-steps)
+<nav class="toc">
+<ol>
+  <li><a href="#1-executive-summary">1. Executive Summary</a></li>
+  <li><a href="#2-business-context-objectives">2. Business Context &amp; Objectives</a>
+    <ul>
+      <li><a href="#21-classification">2.1 Classification</a></li>
+      <li><a href="#22-business-drivers">2.2 Business Drivers</a></li>
+      <li><a href="#23-success-criteria">2.3 Success Criteria</a></li>
+      <li><a href="#24-companion-documents">2.4 Companion Documents</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+    <ul>
+      <li><a href="#31-business-process-overview">3.1 Business Process Overview</a></li>
+      <li><a href="#32-business-process-diagrams">3.2 Business Process Diagrams</a></li>
+      <li><a href="#33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+    <ul>
+      <li><a href="#41-data-entities-ownership">4.1 Data Entities &amp; Ownership</a></li>
+      <li><a href="#42-data-flow-diagrams">4.2 Data Flow Diagrams</a></li>
+      <li><a href="#43-data-lineage">4.3 Data Lineage</a></li>
+      <li><a href="#44-ricefw-data-objects">4.4 RICEFW Data Objects</a></li>
+      <li><a href="#45-data-governance-quality">4.5 Data Governance &amp; Quality</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+    <ul>
+      <li><a href="#51-current-state-current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
+      <li><a href="#52-future-state-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
+      <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
+      <li><a href="#54-component-overview">5.4 Component Overview</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+    <ul>
+      <li><a href="#61-platform-infrastructure">6.1 Platform &amp; Infrastructure</a></li>
+      <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
+      <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
+      <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+    </ul>
+  </li>
+  <li><a href="#7-project-context">7. Project Context</a>
+    <ul>
+      <li><a href="#71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</a></li>
+      <li><a href="#72-raid-log">7.2 RAID Log</a></li>
+      <li><a href="#73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</a></li>
+    </ul>
+  </li>
+</ol>
+</nav>
 
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 1. Executive Summary
 
@@ -98,10 +143,13 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.
 
-> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: "loose"` for click events.
+> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 2. Business Context & Objectives
 
@@ -123,7 +171,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 4 | E2E-96 Process Migration | Migrate R3 Straddle & R4 SIMS Design with Returns business processes and 2 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Cross-Functional / End-to-End | High |
 
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 2.3 Success Criteria
 
@@ -142,7 +193,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 3. Business Architecture (TOGAF "B")
 
@@ -154,10 +208,14 @@ This capability includes **1 business process(es)** modeled in BPMN 2.0, coverin
 |---|---------|--------------|-------|-------|----------|
 | 1 | e.g | e.g | Cost Accountant | 1 | 0 |
 
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 ### 3.2 Business Process Diagrams
 
-<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
-<div style="page-break-before: always;"></div>
 
 #### BUSINESS ARCHITECTURE — 3.2.1 e.g — e.g
 
@@ -166,7 +224,7 @@ This capability includes **1 business process(es)** modeled in BPMN 2.0, coverin
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -180,10 +238,15 @@ flowchart TD
     class n1 userTask
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2yAU_CuIVeSLI9mOHae-JU6QKnWllbLdHpoeCIYYBUMEOB-N8t8L-fI2VU7lgORh3sx7g_ARElVRWMBe78gltwU4BramDQ0KECyxoUEILsAH1hwvBTWB5zAl7Zz_PtPidLP3NI8h3HBx8OicrhQF37-GYOwKRQgMlqZvqOYsCION5g3Wh1IJpT37hY5YxM5u16OJ0hXVHSGK8phkrlRwSTt4kKd5inydoUTJ6i9RlrERI8HJNyfUjtRY23P7raGveP-DV7Z23wwLQx2nto34hpdU-Bmtbj1GWr29hcGN95EusPkGEy5XDk8jB2ks1x2URacTOPV6C3k3Be_ThQRuEYGNmVIGjHXwbGsB40IUL2k5RlkUGqvVmhYvySyfDpKQ-EkKN3oU-nD7O8pXtS2WSlRXan_nZyiSzT7U-yKJQn1w-4MXlVXnVA6TUTK6O03yuIzLmxNj7L-cXK76HZv11Ws2QAma3r3ibJiV0b96tzGnaT6OH3OiessJ_SSKEBrMuqhmwyyOnotO0GAYlQ-iK2zpDh86wS9lehdEWY7i_Kngxe-xy3b5phW5CQ5mGcrugvkkRuPkqWA6jtPRtUOns9J4U4NSGQvGhKhWWizt5dQvGf9cQIYLhvs-bFDWlKzBqxvIvzLwpl1YC_jrUuAu_lOjrvZ-QTCEDdUN5hUsjvD8wN1PoKIMt8LCUwhxa9X8IAkszg8BtpvKeUw5dv01F_D0B1EcX54=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2yAU_CuIVeSLI9mOHae-JU6QKnWllbLdHpoeCIYYBUMEOB-N8t8L-fI2VU7lgORh3sx7g_ARElVRWMBe78gltwU4BramDQ0KECyxoUEILsAH1hwvBTWB5zAl7Zz_PtPidLP3NI8h3HBx8OicrhQF37-GYOwKRQgMlqZvqOYsCION5g3Wh1IJpT37hY5YxM5u16OJ0hXVHSGK8phkrlRwSTt4kKd5inydoUTJ6i9RlrERI8HJNyfUjtRY23P7raGveP-DV7Z23wwLQx2nto34hpdU-Bmtbj1GWr29hcGN95EusPkGEy5XDk8jB2ks1x2URacTOPV6C3k3Be_ThQRuEYGNmVIGjHXwbGsB40IUL2k5RlkUGqvVmhYvySyfDpKQ-EkKN3oU-nD7O8pXtS2WSlRXan_nZyiSzT7U-yKJQn1w-4MXlVXnVA6TUTK6O03yuIzLmxNj7L-cXK76HZv11Ws2QAma3r3ibJiV0b96tzGnaT6OH3OiessJ_SSKEBrMuqhmwyyOnotO0GAYlQ-iK2zpDh86wS9lehdEWY7i_Kngxe-xy3b5phW5CQ5mGcrugvkkRuPkqWA6jtPRtUOns9J4U4NSGQvGhKhWWizt5dQvGf9cQIYLhvs-bFDWlKzBqxvIvzLwpl1YC_jrUuAu_lOjrvZ-QTCEDdUN5hUsjvD8wN1PoKIMt8LCUwhxa9X8IAkszg8BtpvKeUw5dv01F_D0B1EcX54=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 3.3 Business Roles & Responsibilities
 
@@ -192,7 +255,10 @@ flowchart TD
 | Cost Accountant | e.g | |
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 4. Data Architecture (TOGAF "D")
 
@@ -203,11 +269,15 @@ flowchart TD
 | 1 | e.g. Cost Element | e.g. MES 300 | e.g. XEUS | Data steward | e.g. Intel Confidential | e.g. 10K rows/day | Master / Transaction |
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
 
 #### 4.2.1 Current-State — Current-State Data Flows
 
@@ -245,10 +315,16 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlY9vmkAUx_-Vyy3GLdGOatFJ0ian4NqENl2x25KykBMeeukJBI5Va_3fdwdKNytd07uEeO_H9z0-j5xr7McBYAM3GmsWMWGgdVPMYQFNAzWnNINmCzUz8POUiZUNv4ErB4_j0lOEfqcpo1MOWVNlh3EkHPZYCBzryVKFKduYLhhfKasDsxjQ7UULEZnImxsVweMHf05TUWjkGVzS5Q8WiLk8h5RnIGPmYsFtOgWuCok0V7ZIdu8k1GfRTBq7ujSlNLp_Np3omw3aNBpuVJVAk6EbIbl8TrPMhBDRJBnGSxQyzo0PQ90cj8etTKTxPRgfNK3fH_a2x_aD6snoJMuWH_M4Ve6uqe_rBdPRim_liG72SL-S61h9s9uplTse6lZH25ODmD-3Nx4P9aFe6Y1Gmly1er2ecrtRqZjl01lKkzmyOtagNzLJyPbAm3nkMU_Bc77Zdy5GLv5VRqsVsBR8weKogqbWLp0U2T-tW0cmwtHsCKnfUsAwjJLpyxxzr-JHF7t58KUbyGfgn7h5CJp8ZSVWBCEZ5OJPSrLA-loXqH3UPqurVCZCFGxZiBWHWhA72ETtCralqf0v7ONk-T-8Drn2zskVeRfdS8vxupq2AyyPSB7fwrgq-wpiGYNUzFsIbzs5BHlX6i2Md7HvQny4LDo9PXvaAjILpugzItcX8jlmHFz8VP9R7I3Ohpls_-4vYn6gIZNMCCI3o_OLiTWa3N5YyLa-WldmzTTtm2er7am5kyThzKfKe3h0tmfWzMmkgqqb-PCIbM-S8lYUtOOwbbMQSvnyyjg4jvINd_R1tSv6g8HgBXrcwgtIF5QF2Fjj4saX_xcBhDTnAm9amOYidlaRj43iUsZ5ElABJqOS6KI0bv4A6l71sQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1rozAYx79KyCjcQbtz7Wyvwgbx7VZwYze7u4N5SKqxDUtVNN7adf3ul6h1u67uxhKQ5Hn5P_H3SNzAIAkJ1GCns6Ex5RrYeJAvyJJ4UAMenOFcrLpilZOgyChfO-QPYZWTJcnOW6b8wBnFM0Zy6RY6URJzlz7WUidquqqCpd3GS8rWlccl84SA20kXICEgxLdlFEseggXOeK1W5OQSr37SkC-kJcIsJzJuwZfMwTPCyrI8K0prLF7LTXFA47k0D1RpzHB8_8J4qm63YNvpeHFTC0x1LwZiBAznuUkigNNUT1YgooxpR7pq2rbdzXmW3BPtSFFGI31Yb3sP8mhaP111g4QlmXQPTHVfL5wZa1bLIdUcolEj17dG5qDfKneiq1Zf2ZMjCXs-nm3rqq42eoahiNGqNxxKtxdXinkxm2c4XQCrb42HhokMxyf-3EePRUZ897tz50GB8HcVLUdIMxJwmsQNNDl26ajM_mXduiKRHM-PgVwLAU3TKqavc8y9ip886BXh10EonmFw6hURUcQrS7EyCIggD36WkiXWt04Bese987ZKVSKJw5oFXzPSCmIHG8nZwLYUOf-FfSK--P_gddG1f4Gu0IfoXlquP1CUHWCxBWL7HsZN2TcQixggY95DuD7JIci7Uu9hvIv9EOLDZcHZ2flTDcgsmYIvAF1PxNOmTNxNT-0fxV7rHDIXx797QSwIFWCiKQLoxriYTC1jentjAcf6Zl2ZLd10bp6tji_7jtKU0QBL7-HWOb7Z0icTc1xd0Yda5PiWkLfisJdEPYdGpJKvroyD7ajecEdflbOhPx6PX6GHXbgk2RLTEGqb6icg_iUhiXDBuLjGIS544q7jAGrlxQyLNMScmBQLosvKuP0LQyz_NQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 
 #### 4.2.2 Future-State — Future-State Data Flows
 
@@ -286,10 +362,15 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlY9vmkAUx_-Vyy3GLdGOatFJ0ianwNqENl2x25KykBMeeukJBI5Va_3fdwdKN6td07uEeO_H9z0-j5wrHCQhYAM3GisWM2GgVVPMYA5NAzUnNIdmCzVzCIqMiaUDv4ErB0-SylOGfqcZoxMOeVNlR0ksXPZYChzr6UKFKZtN54wvldWFaQLo9qKFiEzkzbWK4MlDMKOZKDWKHC7p4gcLxUyeI8pzkDEzMecOnQBXhURWKFssu3dTGrB4Ko1dXZoyGt8_m0709RqtGw0vrkug8dCLkVwBp3luQoRomg6TBYoY58aHoW7att3KRZbcg_FB0_r9YW9zbD-onoxOumgFCU8y5e6a-q5eOBkt-UaO6GaP9Gu5jtU3u52DcsdD3epoO3KQ8Of2bHuoD_VabzTS5Dqo1-sptxdXinkxmWY0nSGrYw16tklGjg_-1CePRQa--8258zDy8K8qWq2QZRAIlsQ1NLW26aTM_mndujIRjqZHSP2WAoZhVExf5pg7FT962CvCL91QPsPgxCsi0OQrK7EyCMkgD39SkiXW17pA7aP22aFKVSLE4YaFWHI4CGILm6hdw7Y0tf-FfZwu_ofXJdf-Obki76J7abl-V9O2gOURyeNbGNdlX0EsY5CKeQvhTSf7IG9LvYXxNvZdiPeXRaenZ08bQGbJFH1G5PpCPm3GwcNPhz-KndE5MJXt3_1FLAg1ZJIxQeRmdH4xtkbj2xsLOdZX68o8ME3n5tnq-GruJE05C6jy7h-d45sH5mRSQdVNvH9Ejm9JeSsO20nUdlgElXx1ZewdR_WGW_q62jX9wWDwAj1u4Tlkc8pCbKxweePL_4sQIlpwgdctTAuRuMs4wEZ5KeMiDakAk1FJdF4Z138AZhL12w==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1rozAYx79KyCjcQbtz7Wyvwgax6q3gxm52dwfzkFRjG5aqaLy16_rdL_Ftu67uxhKQ5Hn5P_H3SNxCPw4I1GCns6UR5RrYupAvyYq4UAMunONMrLpilRE_Tynf2OQPYaWTxXHtLVJ-4JTiOSOZdAudMI64Qx8rqRM1WZfB0m7hFWWb0uOQRUzA7bQLkBAQ4rsiisUP_hKnvFLLM3KJ1z9pwJfSEmKWERm35Ctm4zlhRVme5oU1Eq_lJNin0UKaB6o0pji6f2E8VXc7sOt03KipBWa6GwExfIazzCAhwEmix2sQUsa0I101LMvqZjyN74l2pCijkT6str0HeTStn6y7fsziVLoHhrqvF8wnG1bJIdUYolEj1zdHxqDfKneiq2Zf2ZMjMXs-nmXpqq42epOJIkar3nAo3W5UKmb5fJHiZAnMvjkeWgaa2B7xFh56zFPiOd_tOxcKhL_LaDkCmhKf0zhqoMlRp6Mi-5d564hEcrw4BnItBDRNK5m-zjH2Kn5yoZsHXweBeAb-qZuHRBGvLMWKICCCXPhZShZY3zoF6B33ztsqlYkkCioWfMNIK4gaNpKzgW0qcv4L-0R88f_B66Br7wJdoQ_RvTQdb6AoNWCxBWL7HsZN2TcQixggY95DuDrJIch1qfcwrmM_hPhwWXB2dv5UATIKpuALQNdT8bQoE3fTU_tHsdc6myzE8e9eEPMDBRhohgC6mVxMZ-ZkdntjAtv8Zl4ZLd20b56ttif7jpKEUR9L7-HW2Z7R0icDc1xe0YdaZHumkDejoBeHPZuGpJQvr4yD7SjfsKavytnQH4_Hr9DDLlyRdIVpALVt-RMQ_5KAhDhnXFzjEOc8djaRD7XiYoZ5EmBODIoF0VVp3P0FvtH_Xw==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 4.3 Data Lineage
 
@@ -318,7 +399,10 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Quality | Validated at source; reconciliation at target |
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 5. Application Architecture (TOGAF "A")
 
@@ -354,6 +438,7 @@ flowchart TB
     E2E96C_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E96CMW_e_g_Azure_Service_Bus
     E2E96CMW_e_g_Azure_Service_Bus --> E2E96C_e_g_XEUS
 
+
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -367,10 +452,14 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1vokAQ_isbGuMXbemLqKQxAcGLF2yb0pe7nBeysqNuugJhl7bW-t9vF6xYbNPemmCYeeaZ5ZmZ3ZUWxgQ0U6vVVjSiwkSrupjDAuomqk8wh3oD1TmEWUrF0oNHYMrB4rjw5NA7nFI8YcDrKnoaR8KnLznBsZE8K5iyDfCCsqWy-jCLAd0OG8iSgayBOI54k0NKp_W1QrP4KZzjVOR8GYcRfr6nRMzl-xQzDhIzFwvm4QkwlVSkmbJF8kv8BIc0mknjmS5NKY4eSlNLX6_RulYbR9sU6MYeR0iuWg01m3JD4ZyOsIAmjXhCUyCIiyUDFDLMOXCJKeD5uwNTNMk4jYBzlK8pZcw8GMhltxpcpPEDmAd2p2Po9ua1-aS-xDxJnhthzOLUPNB1vcKJkwSVq-C0W4p1y6nr7bZt_AcnwQLvczqdLziP33G--QjmUrwUL6WmqFXJtKCEMHjCKewq4hhWqYjbNgYl2zd2DzHbU0RpvKNyv6_rX3EWrDybzFKczJHl_Rlr44x0Tol8ktMWsq6uvGHfuhleXiDP-u1ej7W_RZBaRDZEKGgcIe-6tLonbtfoBxDMgpHrB6e6vssagoHgcHaIpA9JnyQ0TVNW-EOCX-6t_2G0cnwaOrrPg62XLIXAh_SRhhDYGX_3dcftgilHoQ0KSVRBW1atyu64OXs_5iJwmZz3SPR2txieFcQKgDaA80l61DunvcLh36EjNHTiUP799C8vzo9or8iqurLIBxF5q8--oHLseq9jLWdz8iJIJutqKJ8DymCsvX6hxC7xZxiVpFoLtaVN0-THgO3tjPhA_2rEd0Otbaj-nUnea1YPZlKjd81BdOS5P9wL5xtd6gWyt6utZSUJoyFW4A-aywtG99UWGpVt8mnbeIHjVjvEUcePGwl5i1QrX4S4l8UwnhjkTAJJM542PTrdpJHzv9MmpaiFKG_CttRvK2y32907y7SGtoB0gSnRzJWW317y7iMwxRkT2rqh4UzE_jIKNTO_VLQskRsFh2JZhEVhXP8DYFs9oQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzzaQoQqpU06dUoBETY2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpfygBacTAVK7EWeapSrkD2uog05-b4K1fUgXXCyNJ4RZBuT7qElcBBBNImkqWxIKPo2sVZUhsrtkTgu1Ri4ljOn9DWdqri1TKiTouLlaiIBOQFRTUEVZWVNcYpjThKczbT62tbGg6d-asW2vVmTVaETpSy1y3Y9SgqPRIK0Wzi2Z8zFV0OKpzHkBjEi1FEASQaUEiTEmvPr2YEompeQpSEmqMeVCOHtDHP12U6oi-wvOXv_kpGP315-tO70g5zC_byaZyApnz7btLUya52QzDGa_rVFfMG272-13_gOTUUV3Mb2TDzAPXmE--xiVSF5Bl8gpaW9VWnDGBNzRAuqMeB13w4jf7Qw3aJ-YPWRihxHNcY3lwcC2P8I0qLKczAqaz4kb_I6sqGQnRwyf7KhN3MvLYDRwr0cX5yRwf_lXkfXHJOnBUBCJ4llKgquN1T_0TzuDGOJZPPbD-Mi266gJdAh8mX0h6CPoQ0DHcbDDbwL89L-Hb2Zrx7up45sq2X0oC4hDKG55AnG_lK9Wd9A1SFUUWUcRjDKwm65to3t-hT7IpIp9gUdAqnr1KSbHBlgHkHXA2aTY753xnnGEP8g-GXlZgn_fwovzs33eM1W1Kk09SNlzf3YJxW3Xe4qsCs2rmoBI7uUIn0Mu8Ox5-oCJOvB7MbrIdi_0lNaiqY6BflDb4kP7oy1eT3VfUu3P7OQdsQYwQ45eiYPZJPC_-ufeJ1QaxKjtbWm5eS54QnXwG-IK4vHNtoTGG5m8K5sg9vxthXj6-PFThZfLdudNin9hNuNhhx1jIGtl01bAp-syuP9rMtmQakh5Jratfy_Enp6e7pxlVtNaQLGgnFnOo7nQ8F5kMKWlUHgNWbRUWbhME8upLharzHGi4HGKTVgY4-ofUPpHJQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### Current-State Flow Narrative
 
@@ -379,7 +468,10 @@ flowchart TB
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.2 Future-State — Future-State Application Landscape
 
@@ -413,6 +505,7 @@ flowchart TB
     E2E96F_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E96FMW_e_g_Azure_Service_Bus
     E2E96FMW_e_g_Azure_Service_Bus --> E2E96F_e_g_XEUS
 
+
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -426,10 +519,14 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1vokAQ_isbGuMXbemLqKQxgYIXL9g2pS93OS9kZQfddAXCLm2t9b_fLli12MbemmCYeeaZ5ZmZ3YUWJgQ0U6vVFjSmwkSLupjCDOomqo8xh3oD1TmEeUbF3IMnYMrBkqT0FNB7nFE8ZsDrKjpKYuHT14Lg2EhfFEzZ-nhG2VxZfZgkgO4GDWTJQNZAHMe8ySGjUX2p0Cx5Dqc4EwVfzmGIXx4oEVP5HmHGQWKmYsY8PAamkoosV7ZYfomf4pDGE2k806Upw_HjxtTSl0u0rNVG8ToFurVHMZKrVkPNptxQOKVDLKBJY57SDAjiYs4AhQxzDlxiSnjx7kCExjmnMXCOihVRxsyDvlx2q8FFljyCeWB3OoZur16bz-pLzJP0pREmLMnMA13XK5w4TdFmlZx2S7GuOXW93baN_-AkWOBdTqezh_P4A-e7j2AuxcvwXGqKWpVMM0oIg2ecwbYijmFtFHHbRn_D9o3dQ8J2FFEab6l8caHr-zhLVp6PJxlOp8jy_oy0UU46p0Q-yWkLWdfX3uDCuh1cXSLP-u3ejLS_ZZBaRDZEKGgSI-9mY3VP3K7RDyCYBEPXD051fZs1BAPB4eQQSR-SPklomqas8KcEv9w7_9No5fgydPhQBFuveQaBD9kTDSGwc_7h647bJVOBQisUkqiSdlO1KrvjFuwXCReBy-S8x6K3vcXwrCRWALQCnI-zo9457ZUO_x4doYGThPLvp391eX5Ee2VW1ZVlPojJe312BZVj13sbaQWbUxRBMlnXA_nsUwYj7W2PEtvEX2FUkmot1JZWTVMcA7a3NeJ9fd-Ib4da61D9O5O806weTKRGH5qD6Mhzf7iXzje61Atkb1dby0pTRkOswJ80lxcMH6otNNy0yZdt4wWOW-0QRx0_bizkLVKtfBniXpXDeGKQMwkkzSRqejRapZHzv9UmG1FLUd6FbanfWthut7tzlmkNbQbZDFOimQutuL3k3UcgwjkT2rKh4Vwk_jwONbO4VLQ8lRsFh2JZhFlpXP4Dpsw9uQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9A5wuoiyEZbtxwM9Q4X-7N3c1S1gM0lm1ZOxWV_35PV5QJGr0lGdt5eU77nKfts5VkDCzHajSeecqVQ54jS01hBpHlkMgaUYlvTXyTkJQFV_MA7kEYp8iyV2-VckMLTkcCpHYjzjhLVcifllC7nfzRBGt7n864mBtPCJMMyPWgSVwEEE0iaSpbEgo-jqxFlSGyh2RKC7VELiUM6eMtZ2qqLWMqJOi4qZqJgI5AVFNQRVlZU1ximNOEpxNtPrC1saDpXc3YthcLsmg0ovStFrnqRSnB0WiQVgvnlkz5kCpo8VTmvABGpJoLIImgUoLEGBNefXswJqNS8hSkJNUYcyGcrT6OXrspVZHdgbPVOzrq2L3lZ-tBL8jZyx-bSSaywtmybXsNk-Y5WQ2D2Wtr1DdM2z487HX-A5NRRTcxvaMvMHffYb76GJVIXkHnyClpr1WaccYEPNAC6ox4HXfFiH_Y6a_QvjF7yMQGI5rjGsunp7b9FaZBleVoUtB8StzgT2RFJTvaZ_hk-23iXlwEg1P3anB-RgL3t38ZWX9Nkh4MBZEonqUkuFxZ_T3_uNOPIZ7EQz-M9227jppAh8D2ZJugj6APAR3HwQ5_CPDLvw4_zNaOT1OHt1Wy-1QWEIdQ3PME4l4p361u99AgVVFkGUUwysCuuraO7vkV-mkmVewLPAJS1a1PMTkwwDqALANORsVO94R3jSO8ITtk4GUJ_v0Mz89OdnjXVNWqNPUgZa_92SQUt133JbIqNK9qAiK5FwN89rnAs-flCybqwJ_F6CLrvdBTWoqmOgZ6QW2L9-2vtng91X1Ltb-zkzfEGsAEOXonDmaTwP_hn3nfUGkQo7bXpeXmueAJ1cEfiCuIh7frEhquZPKpbILY89cV4unjx08VXi7rnTcp_rnZjHsddoCBrJWNWwEfL8vg_q_JZEWqIeWV2Lb-vRF7fHy8cZZZTWsGxYxyZjnP5kLDe5HBmJZC4TVk0VJl4TxNLKe6WKwyx4mCxyk2YWaMi3-Xa0c9" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### Future-State Flow Narrative
 
@@ -438,7 +535,10 @@ flowchart TB
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.3 Change Impact Summary
 
@@ -458,7 +558,10 @@ flowchart TB
 | e.g. XEUS | - | N/A |
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.5 RICEFW Inventory
 
@@ -473,7 +576,10 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 > *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.6 Integration Patterns
 
@@ -482,13 +588,17 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 | 1 | e.g. Pub-Sub / P2P / ETL | e.g. MES Route to ICOST | e.g. Azure Service Bus | e.g. REST / RFC / SFTP | e.g. OAuth / NTLM / Cert |
 
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
 
 #### 6.1.1 Current-State — Current-State Platform Architecture
 
@@ -515,12 +625,18 @@ flowchart TB
 
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlGFvmzAQhv-K5SriC2sJhDRF6iQgoFVKp2is26QxIQeOxKqDEZg1acp_nw1pslZKpWrzB4t77_z49Vl4h1OeAXbwYLCjBRUO2mliBWvQHKQtSA2ajrQa0qaiYjuD38BUgnHeZ7rSb6SiZMGg1tTqnBcioo8dYDgqN6pMaSFZU7ZVagRLDujuRkeuXMi0VlUw_pCuSCU6RlPDLdl8p5lYyTgnrAZZsxJrNiMLYGojUTVKK6T7qCQpLZZSHBlSqkhxf5Rso21ROxjExWEL9NWLCyRHykhdTyFHpCw9vkE5Zcw58-xpGIZ6LSp-D86ZYVxeeuN9-OFBeXLMcqOnnPFKpa2p_ZpXMiKOQH8SjP2rA9CaTALLfwm0jsChZwem8QoInB15YejZnn3g-b4hx0mD47FKx0VPrJvFsiLlCgVmcDX257N5AskycR-bCpI5IdHPGMeNOTaGcZODIXc-X56jLo1UOsa_epAaGa0gFZQXaPblqD6T3Y78I7hTzA6jviXAcZy-4f0aKLK9N7FlcNLYPzXzzcNHySj55H52E9Mwre782cTK5JwR--8uRBcjpOqQqnt3I26DKLEM47kXMkQyfGc7Xlj9Dx15i359_fFpb3banQ9dIHd-I-eQMojx08mrwjpeQ7UmNMPODndvhHxhMshJwwRudUwawaNtkWKn-41xU2ZEwJQSeT3rXmz_AMttbpI=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1vmzAUhv-K5Sp3WUsg0BSpk4CAVimdorFuk8aEHDgkVg1GYNqkKf99NuSjrZRK1eYLy37f48fHx7K3OOEpYBsPBltaUGGjbYTFCnKIsI0ivCC1HA3lqIakqajYzOABWG8yzvdut-QHqShZMKiVLTkZL0RIn3ao0bhc98FKD0hO2aZ3QlhyQHc3Q-RIgIS3XRTjj8mKVGJHa2q4JeufNBUrpWSE1aDiViJnM7IA1m0rqqZTC3mssCQJLZZKHmtKrEhx_0I0tbZF7WAQFYe90Hc3KpBsCSN1PYUMkbJ0-RpllDH7zDWnQRAMa1Hxe7DPNO3y0rV200-PKjVbL9fDhDNeKduYmm95JSPiCPQmvuVdHYDGZOIb3mugcQSOXNPXtTdA4OzICwLXdM0Dz_M02U4maFnKjoqeWDeLZUXKFfJ1_8ry5rN5DPEydp6aCuI5IeHvCEeNbmmjqMlAkzufL89RZyNlR_hPD1ItpRUkgvICzb4d1T3Z6ci__DvF7DBqLAG2bfcF79dAke5yExsGJxP7p2K-e_gwHsdfnK9OrGu60Z0_nRip7FNivqxCeDFGKg6puA8X4tYPY0PT9rWQUySnHyzHq1T_Q0Xeo19ff37eJTvtzocukDO_kX1AmXzvzyevCg9xDlVOaIrtbf9tyN8nhYw0TMiHj0kjeLgpEmx3Txk3ZUoETCmR15P3YvsX9t54Fg==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 
 #### 6.1.2 Future-State — Future-State Platform Architecture
 
@@ -547,9 +663,11 @@ flowchart TB
 
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlGFvmzAQhv-K5SriC2sJhDRF6iRIQKuUTtFYt0ljQg4ciVWDEZg1acp_nw1pslZKpWrzB4t77_z49Vl4hxOeAnbwYLCjBRUO2mliDTloDtKWpAZNR1oNSVNRsZ3Db2AqwTjvM13pN1JRsmRQa2p1xgsR0scOMByVG1WmtIDklG2VGsKKA7q70ZErFzKtVRWMPyRrUomO0dRwSzbfaSrWMs4Iq0HWrEXO5mQJTG0kqkZphXQfliShxUqKI0NKFSnuj5JttC1qB4OoOGyBvnpRgeRIGKnrGWSIlKXHNyijjDlnnj0LgkCvRcXvwTkzjMtLb7wPPzwoT45ZbvSEM16ptDWzX_NKRsQROJ344-nVAWhNJr41fQm0jsChZ_um8QoInB15QeDZnn3gTaeGHCcNjscqHRU9sW6Wq4qUa-Sb_tU4WMwXMcSr2H1sKogXhIQ_Ixw15tgYRk0Ghtz5fHWOujRS6Qj_6kFqpLSCRFBeoPmXo_pMdjvyD_9OMTuM-pYAx3H6hvdroEj33sSWwUlj_9TMNw8fxqP4k_vZjU3DtLrzpxMrlXNK7L-7EF6MkKpDqu7djbj1w9gyjOdeyBDJ8J3teGH1P3TkLfr19cenvdlZdz50gdzFjZwDyiDCTyevCus4hyonNMXODndvhHxhUshIwwRudUwawcNtkWCn-41xU6ZEwIwSeT15L7Z_AO4-bqo=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1jp27KaCDuzEZoV0hHndBvMwin2ciMqWseU2aZr_PsnOR1tIoWy6ENL7Hj06OkLa4ESkgAnu9TasYJKgTYTlEnKIMEERntNajfpqVEPSVEyup_AAvDO5EHu3XfKDVozOOdTaVpxMFDJkTzvUYFiuumCtBzRnfN05ISwEoLubPnIVQMG3bRQXj8mSVnJHa2q4paufLJVLrWSU16DjljLnUzoH3m4rq6ZVC3WssKQJKxZaHhparGhx_0K0je0WbXu9qDjshb57UYFUSzit6wlkiJalJ1YoY5yTM8-eBEHQr2Ul7oGcGcblpefspp8edWrELFf9RHBRadua2G95JafyCByPfGd8dQBao5FvjV8DrSNw4Nm-abwBguBHXhB4tmcfeOOxodrJBB1H21HREetmvqhouUS-6V85wWw6iyFexO5TU0E8ozT8HeGoMR1jEDUZGGrn88U5am2k7Qj_6UC6payCRDJRoOm3o7onuy35l3-nmS1GjxWAENIVvFsDRbrLTa45nEzsn4r57uHDeBh_cb-6sWmYVnv-dGSlqk-p_bIK4cUQ6Tik4z5ciFs_jC3D2NdCTZGafrAcr1L9DxV5j359_fl5l-ykPR-6QO7sRvUB4-q9P5-8KtzHOVQ5ZSkmm-7bUL9PChltuFQPH9NGinBdJJi0Txk3ZUolTBhV15N34vYvGb54Lg==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
+
 
 #### Platform Inventory
 
@@ -559,22 +677,20 @@ flowchart TB
 | 2 | e.g. S/4 HANA 2023 | On-Premise | e.g. MES 300 | DEV,QAS,PRD |
 
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 6.2 SAP Development Object Status
 
-**RICEFW Status Summary** — E2E Tower (0 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-03-27)*
-
-| Status | Count | % |
-|--------|------:|----:|
-| **Total** | **0** | **100%** |
-
-**RICEFW by Type:**
-
-| Type | Count |
-|------|------:|
-| **Total** | **0** |
+| Metric | DEV | QAS | PRD |
+|--------|-----|-----|-----|
+| Transport Requests | — | — | — |
+| Custom Code Objects | — | — | — |
+| CDS Views | — | — | — |
+| Fiori Apps | — | — | — |
+| BAdIs / Enhancements | — | — | — |
 
 ### 6.3 NFRs & Design Principles
 
@@ -604,46 +720,46 @@ flowchart TB
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 7. Project Context
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
-*No timeline data available for this capability.*
+Project delivery milestones for E2E-96 RICEFW objects:
+
+| Phase | Planned Start | Planned End | Status | Notes |
+|-------|---------------|-------------|--------|-------|
+| Functional Specification (FS) | Per project plan | Per project plan | In Progress | Tower-level FS schedule |
+| Technical Design (TDD) | FS + 2 weeks | FS + 6 weeks | Planned | Dependent on FS completion |
+| Build & Unit Test (TUT) | TDD + 1 week | TDD + 8 weeks | Planned | Includes S/4 + Middleware |
+| Functional User Test (FUT) | Build + 1 week | Build + 4 weeks | Planned | Tower-led validation |
+| Go-Live (Release 2) | Per release plan | Per release plan | Planned | End-to-End Integrated Processes release |
+
+> *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
+
+<div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-03-27*
+Standard RAID items for E2E-96 (End-to-End Integrated Processes):
 
-**RAID Summary:** 15 open items (0 capability-specific, 15 tower-level), 56 closed
+| # | Category | Description | Status | Owner | Priority |
+|---|----------|-------------|--------|-------|----------|
+| 1 | Risk | Data migration completeness — validate all legacy R3 Straddle & R4 SIMS Design with Returns data maps to S/4 target structures | Open | Tower Architect | High |
+| 2 | Risk | Integration testing coverage — ensure all 2 integrated systems are validated end-to-end | Open | Integration Lead | High |
+| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
+| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
+| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
 
-| Severity | Capability | Tower-Wide | Total Open |
-|----------|----------:|-----------:|-----------:|
-| P1 - High | 0 | 3 | 3 |
-| P2 - Medium | 0 | 10 | 10 |
-| P3 - Low | 0 | 2 | 2 |
-| **Total** | **0** | **15** | **15** |
-
-**Other E2E Tower RAID Items** (15 open):
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-03 |
-| 03681 | Risk | P1 - High | ITC Execution: Planning run availability - Prerequisite for ... | In Progress | E2E | 2026-03-27 |
-| 03762 | Risk | P1 - High | FTS-IF (esp SCP) related test cases/sequencing are not accur... | In Progress | FTS IF | 2026-04-03 |
-| 01733 | Risk | P2 - Medium | Tariffs impacts Item/BOM design which is impacting ERP/SCP (... | In Progress | E2E | 2026-03-06 |
-| 03592 | Risk | P2 - Medium | Lack of Defined IMO Owner for CBA Mask Billing and Materials... | In Progress | E2E | 2026-03-27 |
-| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
-| 03628 | Risk | P2 - Medium | R3 Returns Rework Process Causing Finance Double Counting in... | In Progress | E2E | 2026-03-27 |
-| 03642 | Issue | P2 - Medium | E2E Process with Anafi on order/invoice point.  Need IFS SC ... | In Progress | E2E | 2026-03-24 |
-| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
-| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
-| 03753 | Risk | P2 - Medium | PDF-SMH IF test cases are not available in JIRA | To Be Reviewed | B-Apps | 2026-03-25 |
-| 03756 | Risk | P2 - Medium | LE101-1001 Operation Support Ownership for SIMS/Tester Front... | In Progress | E2E | 2026-04-24 |
-| 03769 | Action | P2 - Medium | Need a Labs SPOC owner to define IP Labs enterprise and mate... | In Progress | E2E | 2026-04-17 |
-| 03216 | Action | P3 - Low | Mask Expense vs. Invoice | In Progress | E2E | 2026-03-06 |
-| 03315 | Risk | P3 - Low | BPMG – SCP L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-03-27 |
+> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
 
 ### 7.3 Recommendations & Next Steps
 
@@ -657,4 +773,5 @@ flowchart TB
 
 ---
 *E2E-96 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026*
-
+<div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-96 — R3 Straddle & R4 SIMS Design with Returns</span></div>
+</div>

@@ -39,7 +39,14 @@ _OBJ_ID_RE = re.compile(r'[A-Z]{2,5}[RICEFWXVM]\d{3,5}(?:_[A-Z]+)?', re.IGNORECA
 _PAGE_BREAK = '<div style="page-break-before: always;"></div>'
 
 _FOOTER_CSS = """\
+.page-section {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 40px);
+  box-sizing: border-box;
+}
 .page-footer {
+  margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid #ddd;
   display: flex;
@@ -47,15 +54,12 @@ _FOOTER_CSS = """\
   align-items: center;
   font-size: 11px;
   color: #888;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 20px;
+  padding: 6px 12px;
   background: #fff;
 }
 @media print {
-  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+  .page-section { min-height: 100vh; }
+  .page-footer { page-break-inside: avoid; break-inside: avoid; }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
 .page-footer a:hover { color: #0071c5; text-decoration: underline; }"""
@@ -103,16 +107,18 @@ def inject_page_footers(content: str) -> str:
     )
     content = re.sub(r'<style>.*?</style>', _CANONICAL_STYLE, content, flags=re.DOTALL, count=1)
 
-    # Remove any existing footers (idempotent re-run)
+    # Remove any existing footers and page-section wrappers (idempotent re-run)
     content = re.sub(r'<div class="page-footer">.*?</div>\n?', '', content)
+    content = re.sub(r'<div class="page-section">\n?', '', content)
+    content = content.replace('</div>\n' + _PAGE_BREAK, _PAGE_BREAK)
 
-    # Inject footers at each page break
+    # Inject page-section wrappers with footers at each page break
     parts = content.split(_PAGE_BREAK)
     if len(parts) <= 1:
         return content
 
     result = []
-    for i, part in enumerate(parts[:-1]):
+    for i, part in enumerate(parts):
         page = i + 1
         footer = (
             f'<div class="page-footer">'
@@ -120,10 +126,11 @@ def inject_page_footers(content: str) -> str:
             f'<span><a href="#toc">\u2191 Back to TOC</a></span>'
             f'<span>{title}</span>'
             f'</div>\n'
-            f'{_PAGE_BREAK}'
         )
-        result.append(part + footer)
-    result.append(parts[-1])
+        wrapped = f'<div class="page-section">\n{part}{footer}</div>\n'
+        if i < len(parts) - 1:
+            wrapped += f'{_PAGE_BREAK}\n'
+        result.append(wrapped)
     return "".join(result)
 
 

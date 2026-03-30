@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E2E-68 Architecture</title>
+    <title>E2E-68</title>
     <style>
 @page {
     size: A4;
@@ -34,19 +34,34 @@ h2 {
     border-bottom: 1px solid #ccc;
     padding-bottom: 4px;
     margin-top: 24px;
+    page-break-after: avoid;
+    break-after: avoid;
 }
 h3 {
     font-size: 13pt;
     color: #0071c5;
     margin-top: 18px;
+    page-break-after: avoid;
+    break-after: avoid;
 }
-h4 { font-size: 11pt; color: #333; margin-top: 14px; }
+h4 {
+    font-size: 11pt;
+    color: #333;
+    margin-top: 14px;
+    page-break-after: avoid;
+    break-after: avoid;
+}
+p {
+    orphans: 3;
+    widows: 3;
+}
 table {
     border-collapse: collapse;
     width: 100%;
     margin: 12px 0;
     font-size: 9.5pt;
     page-break-inside: avoid;
+    break-inside: avoid;
 }
 th {
     background: #00285a;
@@ -79,6 +94,7 @@ pre {
     font-size: 8.5pt;
     line-height: 1.4;
     page-break-inside: avoid;
+    break-inside: avoid;
 }
 pre code { background: none; padding: 0; color: inherit; }
 blockquote {
@@ -87,6 +103,8 @@ blockquote {
     margin: 12px 0;
     padding: 8px 16px;
     color: #333;
+    page-break-inside: avoid;
+    break-inside: avoid;
 }
 .mermaid-placeholder {
     background: #f5f8fc;
@@ -107,6 +125,7 @@ blockquote {
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
+    break-inside: avoid;
 }
 .mermaid svg {
     max-width: 100%;
@@ -136,15 +155,60 @@ blockquote {
     padding-top: 10px;
     border-top: 1px solid #ddd;
 }
+.page-section {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 40px);
+    box-sizing: border-box;
+}
+.page-footer {
+    margin-top: auto;
+    padding-top: 8px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9pt;
+    color: #888;
+    padding: 6px 12px;
+    background: #fff;
+}
+.page-footer a { color: #0071c5; text-decoration: none; }
+.page-footer a:hover { text-decoration: underline; }
 a { color: #0071c5; text-decoration: none; }
 a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Floating PDF download button ---- */
+.pdf-download-btn {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 9999;
+    background: #00285a;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: background 0.2s;
+}
+.pdf-download-btn:hover { background: #0071c5; }
+
 @media print {
     body { padding: 0; max-width: none; }
     .header-bar { margin: 0 0 20px 0; }
-    .no-print { display: none; }
+    .no-print, .pdf-download-btn { display: none !important; }
+    h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    p { orphans: 3; widows: 3; }
+    .page-section { min-height: 100vh; }
+    .page-footer { page-break-inside: avoid; break-inside: avoid; }
     .mermaid {
         page-break-inside: avoid;
         overflow: visible;
@@ -152,6 +216,18 @@ strong { color: #00285a; }
     .mermaid svg {
         max-width: 100%;
         height: auto;
+    }
+    /* Diagram links: visible + clickable in PDF */
+    a[title="View full diagram"],
+    a[title="Open full-size SVG"] {
+        color: #0071c5 !important;
+        text-decoration: underline !important;
+        font-size: 10pt !important;
+    }
+    a[title="View full diagram"]::after {
+        content: " (opens mermaid.live)";
+        font-size: 8pt;
+        color: #666;
     }
 }
 </style>
@@ -161,24 +237,24 @@ strong { color: #00285a; }
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
-    theme: "base",
-    securityLevel: "loose",
+    theme: 'base',
+    securityLevel: 'loose',
     flowchart: {
-      curve: "basis",
+      curve: 'basis',
       padding: 16,
       nodeSpacing: 50,
       rankSpacing: 60,
       useMaxWidth: true
     },
     themeVariables: {
-      primaryColor: "#e8f0fe",
-      primaryBorderColor: "#0071c5",
+      primaryColor: '#e8f0fe',
+      primaryBorderColor: '#0071c5',
       primaryTextColor: '#1a1a1a',
-      lineColor: "#37474F",
-      secondaryColor: "#f5f8fc",
-      tertiaryColor: "#fff",
-      fontSize: "14px",
-      fontFamily: "Segoe UI, Arial, sans-serif"
+      lineColor: '#37474F',
+      secondaryColor: '#f5f8fc',
+      tertiaryColor: '#fff',
+      fontSize: '14px',
+      fontFamily: 'Segoe UI, Arial, sans-serif'
     }
   });
 </script>
@@ -211,8 +287,10 @@ strong { color: #00285a; }
 
 </head>
 <body>
+<button class="pdf-download-btn" onclick="window.print()" title="Print / Save as PDF">&#128196; Download PDF</button>
+<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">E2E-68 — -Intel Foundry   NPI planning and execution processes</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -232,7 +310,14 @@ strong { color: #00285a; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
+.page-section {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 40px);
+  box-sizing: border-box;
+}
 .page-footer {
+  margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid #ddd;
   display: flex;
@@ -240,349 +325,246 @@ strong { color: #00285a; }
   align-items: center;
   font-size: 11px;
   color: #888;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 20px;
+  padding: 6px 12px;
   background: #fff;
 }
 @media print {
-  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+  .page-section {
+    min-height: 100vh;
+  }
+  .page-footer {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
 .page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
 </style>
 
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<p><a id="toc"></a></p>
-<h2 id="table-of-contents">Table of Contents</h2>
+
+<a id="toc"></a>
+
+## Table of Contents
+
+<nav class="toc">
 <ol>
-<li><a href="#1-executive-summary">Executive Summary</a></li>
-<li><a href="#2-business-context--objectives">Business Context &amp; Objectives</a>
-   - 2.1 <a href="#21-classification">Classification</a>
-   - 2.2 <a href="#22-business-drivers">Business Drivers</a>
-   - 2.3 <a href="#23-success-criteria">Success Criteria</a>
-   - 2.4 <a href="#24-companion-documents">Companion Documents</a></li>
-<li><a href="#3-business-architecture-togaf-b">Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
-   - 3.1 <a href="#31-business-process-overview">Business Process Overview</a>
-   - 3.2 <a href="#32-business-process-diagrams">Business Process Diagrams</a>
-   - 3.3 <a href="#33-business-roles--responsibilities">Business Roles &amp; Responsibilities</a></li>
-<li><a href="#4-data-architecture-togaf-d">Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
-   - 4.1 <a href="#41-data-entities--ownership">Data Entities &amp; Ownership</a>
-   - 4.2 <a href="#42-data-flow-diagrams">Data Flow Diagrams</a>
-   - 4.3 <a href="#43-data-lineage">Data Lineage</a>
-   - 4.4 <a href="#44-ricefw-data-objects">RICEFW Data Objects</a>
-   - 4.5 <a href="#45-data-governance--quality">Data Governance &amp; Quality</a></li>
-<li><a href="#5-application-architecture-togaf-a">Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
-   - 5.1 <a href="#51-current-state--current-state-application-landscape">Current-State Application Landscape</a>
-   - 5.2 <a href="#52-future-state--future-state-application-landscape">Future-State Application Landscape</a>
-   - 5.3 <a href="#53-change-impact-summary">Change Impact Summary</a>
-   - 5.4 <a href="#54-component-overview">Component Overview</a>
-   - 5.5 <a href="#55-ricefw-inventory">RICEFW Inventory</a>
-   - 5.6 <a href="#56-integration-patterns">Integration Patterns</a></li>
-<li><a href="#6-technology-architecture-togaf-t">Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
-   - 6.1 <a href="#61-platform--infrastructure">Platform &amp; Infrastructure</a>
-   - 6.2 <a href="#62-sap-development-object-status">SAP Development Object Status</a>
-   - 6.3 <a href="#63-nfrs--design-principles">NFRs &amp; Design Principles</a>
-   - 6.4 <a href="#64-security--governance">Security &amp; Governance</a></li>
-<li><a href="#7-project-context">Project Context</a>
-   - 7.1 <a href="#71-project-roadmap--go-live-plan">Project Roadmap &amp; Go-Live Plan</a>
-   - 7.2 <a href="#72-raid-log">RAID Log</a>
-   - 7.3 <a href="#73-recommendations--next-steps">Recommendations &amp; Next Steps</a></li>
+  <li><a href="#1-executive-summary">1. Executive Summary</a></li>
+  <li><a href="#2-business-context-objectives">2. Business Context &amp; Objectives</a>
+    <ul>
+      <li><a href="#21-classification">2.1 Classification</a></li>
+      <li><a href="#22-business-drivers">2.2 Business Drivers</a></li>
+      <li><a href="#23-success-criteria">2.3 Success Criteria</a></li>
+      <li><a href="#24-companion-documents">2.4 Companion Documents</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+    <ul>
+      <li><a href="#31-business-process-overview">3.1 Business Process Overview</a></li>
+      <li><a href="#32-business-process-diagrams">3.2 Business Process Diagrams</a></li>
+      <li><a href="#33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+    <ul>
+      <li><a href="#41-data-entities-ownership">4.1 Data Entities &amp; Ownership</a></li>
+      <li><a href="#42-data-flow-diagrams">4.2 Data Flow Diagrams</a></li>
+      <li><a href="#43-data-lineage">4.3 Data Lineage</a></li>
+      <li><a href="#44-ricefw-data-objects">4.4 RICEFW Data Objects</a></li>
+      <li><a href="#45-data-governance-quality">4.5 Data Governance &amp; Quality</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+    <ul>
+      <li><a href="#51-current-state-current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
+      <li><a href="#52-future-state-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
+      <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
+      <li><a href="#54-component-overview">5.4 Component Overview</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+    <ul>
+      <li><a href="#61-platform-infrastructure">6.1 Platform &amp; Infrastructure</a></li>
+      <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
+      <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
+      <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+    </ul>
+  </li>
+  <li><a href="#7-project-context">7. Project Context</a>
+    <ul>
+      <li><a href="#71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</a></li>
+      <li><a href="#72-raid-log">7.2 RAID Log</a></li>
+      <li><a href="#73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</a></li>
+    </ul>
+  </li>
 </ol>
-<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-<div style="page-break-before: always;"></div>
+</nav>
 
-<h2 id="1-executive-summary">1. Executive Summary</h2>
-<p>This Architecture Document defines the <strong>Business, Data, Application, and Technology</strong> (BDAT) architecture for <strong>E2E-68 -Intel Foundry   NPI planning and execution processes</strong> within the IAO program. It includes 9 BPMN process diagram(s) in Section 3.
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+## 1. Executive Summary
+
+This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **E2E-68 -Intel Foundry   NPI planning and execution processes** within the IAO program. It includes 9 BPMN process diagram(s) in Section 3.
 | Dimension | Value |
 |-----------|-------|
-| <strong>Tower</strong> | End-to-End Integrated Processes (E2E) |
-| <strong>Process Group</strong> | Forecast to Stock |
-| <strong>Capability</strong> | E2E-68 - -Intel Foundry   NPI planning and execution processes |
-| <strong>Release</strong> | Release 2 |
-| <strong>Total Systems</strong> | 2 |
-| <strong>System Status</strong> | 0 Deployed, 0 Developing, 0 EOL, 2 Pending IAPM |
-| <strong>RICEFW Objects</strong> | Pending — Smartsheet Object Tracker API integration |
-<strong>Change Summary</strong>: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.</p>
-<blockquote>
-<p>All system nodes in architecture diagrams are <strong>IAPM-linked</strong> — click any node to open its IAPM page. Diagrams require <code>securityLevel: "loose"</code> for click events.</p>
-</blockquote>
+| **Tower** | End-to-End Integrated Processes (E2E) |
+| **Process Group** | Forecast to Stock |
+| **Capability** | E2E-68 - -Intel Foundry   NPI planning and execution processes |
+| **Release** | Release 2 |
+| **Total Systems** | 2 |
+| **System Status** | 0 Deployed, 0 Developing, 0 EOL, 2 Pending IAPM |
+| **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
+**Change Summary**: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.
+
+> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="2-business-context-objectives">2. Business Context &amp; Objectives</h2>
-<h3 id="21-classification">2.1 Classification</h3>
-<table>
-<thead>
-<tr>
-<th>Level</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>L0 Tower</strong></td>
-<td>End-to-End Integrated Processes</td>
-</tr>
-<tr>
-<td><strong>L1 Process</strong></td>
-<td>Forecast to Stock</td>
-</tr>
-<tr>
-<td><strong>L2 Capability</strong></td>
-<td>E2E-68 - -Intel Foundry   NPI planning and execution processes</td>
-</tr>
-</tbody>
-</table>
-<h3 id="22-business-drivers">2.2 Business Drivers</h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Driver</th>
-<th>Description</th>
-<th>Strategic Alignment</th>
-<th>Priority</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>End-to-End Process Integration</td>
-<td>Enable cross-tower integrated processes spanning procurement, manufacturing, and fulfillment</td>
-<td>IDM 2.0 Process Excellence</td>
-<td>High</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Intel Foundry Business Enablement</td>
-<td>Stand up foundry-specific business processes for external customer engagement</td>
-<td>Intel Foundry Services</td>
-<td>High</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Process Visibility &amp; Monitoring</td>
-<td>Provide end-to-end process visibility across tower boundaries with integrated monitoring</td>
-<td>Operational Excellence</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>4</td>
-<td>E2E-68 Process Migration</td>
-<td>Migrate -Intel Foundry   NPI planning and execution processes business processes and 2 integrated systems from legacy to S/4 HANA target architecture</td>
-<td>IDM 2.0 Cross-Functional / End-to-End</td>
-<td>High</td>
-</tr>
-</tbody>
-</table>
+
+## 2. Business Context & Objectives
+
+### 2.1 Classification
+
+| Level | Value |
+|-------|-------|
+| **L0 Tower** | End-to-End Integrated Processes |
+| **L1 Process** | Forecast to Stock |
+| **L2 Capability** | E2E-68 - -Intel Foundry   NPI planning and execution processes |
+
+### 2.2 Business Drivers
+
+| # | Driver | Description | Strategic Alignment | Priority |
+|---|--------|-------------|---------------------|----------|
+| 1 | End-to-End Process Integration | Enable cross-tower integrated processes spanning procurement, manufacturing, and fulfillment | IDM 2.0 Process Excellence | High |
+| 2 | Intel Foundry Business Enablement | Stand up foundry-specific business processes for external customer engagement | Intel Foundry Services | High |
+| 3 | Process Visibility & Monitoring | Provide end-to-end process visibility across tower boundaries with integrated monitoring | Operational Excellence | Medium |
+| 4 | E2E-68 Process Migration | Migrate -Intel Foundry   NPI planning and execution processes business processes and 2 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Cross-Functional / End-to-End | High |
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="23-success-criteria">2.3 Success Criteria</h3>
-<table>
-<thead>
-<tr>
-<th>Metric</th>
-<th>Target</th>
-<th>Measure</th>
-<th>Baseline</th>
-<th>Owner</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>E2E Process Cycle Time</td>
-<td>Per process SLA</td>
-<td>End-to-end transaction completion within defined SLA per process</td>
-<td>Varies by process</td>
-<td>E2E Process Owner</td>
-</tr>
-<tr>
-<td>Cross-Tower Integration Success</td>
-<td>&gt; 99%</td>
-<td>Transactions completing across tower boundaries without manual intervention</td>
-<td>92% (current)</td>
-<td>Integration Lead</td>
-</tr>
-<tr>
-<td>Process Exception Rate</td>
-<td>&lt; 2%</td>
-<td>Transactions requiring manual exception handling</td>
-<td>8% (current)</td>
-<td>Operations Manager</td>
-</tr>
-<tr>
-<td>E2E-68 Migration Completeness</td>
-<td>100% flow chains validated</td>
-<td>All 1 flow chains verified in target state</td>
-<td>0% (pre-migration)</td>
-<td>Tower Architect</td>
-</tr>
-</tbody>
-</table>
-<h3 id="24-companion-documents">2.4 Companion Documents</h3>
-<table>
-<thead>
-<tr>
-<th>Document</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Business Architecture</strong></td>
-<td>Included in this document (Section 3) — process flows from BPMN diagrams</td>
-</tr>
-<tr>
-<td><strong>This Document</strong></td>
-<td>Full BDAT Architecture — Business + Data + Application + Technology</td>
-</tr>
-</tbody>
-</table>
+
+### 2.3 Success Criteria
+
+| Metric | Target | Measure | Baseline | Owner |
+|--------|--------|---------|----------|-------|
+| E2E Process Cycle Time | Per process SLA | End-to-end transaction completion within defined SLA per process | Varies by process | E2E Process Owner |
+| Cross-Tower Integration Success | > 99% | Transactions completing across tower boundaries without manual intervention | 92% (current) | Integration Lead |
+| Process Exception Rate | < 2% | Transactions requiring manual exception handling | 8% (current) | Operations Manager |
+| E2E-68 Migration Completeness | 100% flow chains validated | All 1 flow chains verified in target state | 0% (pre-migration) | Tower Architect |
+
+### 2.4 Companion Documents
+
+| Document | Description |
+|----------|-------------|
+| **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
+| **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</h2>
-<h3 id="31-business-process-overview">3.1 Business Process Overview</h3>
-<p>This capability includes <strong>9 business process(es)</strong> modeled in BPMN 2.0, covering the end-to-end workflow for E2E-68 -Intel Foundry   NPI planning and execution processes.</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Step ID</th>
-<th>Process Name</th>
-<th>Lanes</th>
-<th>Tasks</th>
-<th>Gateways</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>E2E-68A-_NPI_setup_for_IF</td>
-<td>E2E-68A-_NPI_setup_for_IF</td>
-<td>Boundary Apps, SAP S/4 Intel Foundry</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>2</td>
-<td>0</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>2</td>
-<td>E2E-68B-<em>Raising_Purchase_Order_by_Intel_Products_to_Intel_Foundry</em>(LE-101)</td>
-<td>E2E-68B-<em>Raising_Purchase_Order_by_Intel_Products_to_Intel_Foundry</em>(LE-101)</td>
-<td>SAP S/4</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Intel Foundry (LE-101)</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>, SAP S/4</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Intel Prod</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>14</td>
-<td>4</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>3</td>
-<td>E2E-68C-<em>Order_Confirmation</em>&amp;_Planned_order_trigger</td>
-<td>E2E-68C-<em>Order_Confirmation</em>&amp;_Planned_order_trigger</td>
-<td>LE101 US Virtual , LE500 Ireland</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>, SAP S/4 Intel Foundry</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>LE778 China
+
+## 3. Business Architecture (TOGAF "B")
+
+### 3.1 Business Process Overview
+
+This capability includes **9 business process(es)** modeled in BPMN 2.0, covering the end-to-end workflow for E2E-68 -Intel Foundry   NPI planning and execution processes.
+
+| # | Step ID | Process Name | Lanes | Tasks | Gateways |
+|---|---------|--------------|-------|-------|----------|
+| 1 | E2E-68A-_NPI_setup_for_IF | E2E-68A-_NPI_setup_for_IF | Boundary Apps, SAP S/4 Intel Foundry
+ | 2 | 0 |
+| 2 | E2E-68B-_Raising_Purchase_Order_by_Intel_Products_to_Intel_Foundry_(LE-101) | E2E-68B-_Raising_Purchase_Order_by_Intel_Products_to_Intel_Foundry_(LE-101) | SAP S/4 
+Intel Foundry (LE-101)
+, SAP S/4 
+Intel Prod
+ | 14 | 4 |
+| 3 | E2E-68C-_Order_Confirmation_&amp;_Planned_order_trigger | E2E-68C-_Order_Confirmation_&amp;_Planned_order_trigger | LE101 US Virtual , LE500 Ireland
+, SAP S/4 Intel Foundry
+
+LE778 China
  | 11 | 1 |
-| 4 | E2E-68D-<em>Manufacturing_process_in_IF | E2E-68D-_Manufacturing_process_in_IF | Boundary
+| 4 | E2E-68D-_Manufacturing_process_in_IF | E2E-68D-_Manufacturing_process_in_IF | Boundary
 Apps
 Intel Foundry
 , SAP S/4
 Intel Foundry (LE-500)
  | 20 | 6 |
-| 5 | E2E-68E-_Manufacturing_process_in_IF</em>(NPI_Planning_and_Execution_Process) | E2E-68E-<em>Manufacturing_process_in_IF</em>(NPI_Planning_and_Execution_Process) | Boundary Apps</p>
-<p>, SAP S/4
+| 5 | E2E-68E-_Manufacturing_process_in_IF_(NPI_Planning_and_Execution_Process) | E2E-68E-_Manufacturing_process_in_IF_(NPI_Planning_and_Execution_Process) | Boundary Apps
+
+, SAP S/4
 Intel Foundry LE500 Ireland
 , SAP S/4
 LE778 China
  | 21 | 6 |
-| 6 | E2E-68F-_TM_Steps | E2E-68F-_TM_Steps | Boundary Apps</p>
-<p>, External Partners/
+| 6 | E2E-68F-_TM_Steps | E2E-68F-_TM_Steps | Boundary Apps
+
+, External Partners/
 Supplier
 , SAP S/4
 LE778 China
  | 12 | 1 |
-| 7 | E2E-68G-<em>NPI_planning</em>&amp;<em>Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte | E2E-68G-_NPI_planning</em>&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte | Boundary Apps</p>
-<p>, External Partners/ B2B
+| 7 | E2E-68G-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte | E2E-68G-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte | Boundary Apps
+
+, External Partners/ B2B
 , SAP S/4
 Intel Foundry LE500 Ireland
 , SAP S/4
-LE101 US Virtual</p>
-<p>| 24 | 7 |
-| 8 | E2E-68H-<em>NPI_planning</em>&amp;<em>Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte | E2E-68H-_NPI_planning</em>&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte | CFIN
+LE101 US Virtual
+
+ | 24 | 7 |
+| 8 | E2E-68H-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte | E2E-68H-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte | CFIN
 , LE101 US Virtual
 , SAP S/4
 Intel Product | 7 | 3 |
-| 9 | E2E-68I-_TM_Steps | E2E-68I-_TM_Steps | Boundary Apps</p>
-<p>, SAP S/4
-LE778 China
- | 10 | 1 |</p>
-<h3 id="32-business-process-diagrams">3.2 Business Process Diagrams</h3>
-<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-<div style="page-break-before: always;"></div>
+| 9 | E2E-68I-_TM_Steps | E2E-68I-_TM_Steps | Boundary Apps
 
-<h4 id="business-architecture-321-e2e-68a-_npi_setup_for_if-e2e-68a-_npi_setup_for_if">BUSINESS ARCHITECTURE — 3.2.1 E2E-68A-_NPI_setup_for_IF — E2E-68A-_NPI_setup_for_IF</h4>
-<p><strong>Swim Lanes</strong>: Boundary Apps · SAP S/4 Intel Foundry
- | <strong>Tasks</strong>: 2 | <strong>Gateways</strong>: 0</p>
-<blockquote>
-<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
-</blockquote>
+, SAP S/4
+LE778 China
+ | 10 | 1 |
+
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+### 3.2 Business Process Diagrams
+
+
+#### BUSINESS ARCHITECTURE — 3.2.1 E2E-68A-_NPI_setup_for_IF — E2E-68A-_NPI_setup_for_IF
+
+**Swim Lanes**: Boundary Apps · SAP S/4 Intel Foundry
+ | **Tasks**: 2 | **Gateways**: 0
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
 <div class="mermaid">
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -605,22 +587,27 @@ flowchart TD
     class n4 endEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuO2jAU_RUrI5RWCpo8Cc2iUghYQmqrkZhpF6ULk9hgjWNHtjMMRfx7bR7h0bJqFlHu8b3nnHtje-uUosJO5vR6W8qpzsDW1StcYzcD7gIp7HrgAHxHkqIFw8q1OURwPaO_92lB3LzbNItBVFO2segMLwUGL1MP5KaQeUAhrvoKS0pcz20krZHcFIIJabMf8JD4ZK92XBoJWWF5TvD9NCgTU8oox2c4SuM0hrZO4VLw6oqUJGRISndnzTGxLldI6r39VuGv6P0HrfTKxAQxhU3OStfsC1pgZnvUsrVY2cq30zCosjrcDGzWoJLypcFj30AS8dczlPi7Hdj1enPeiYLn8ZwD85QMKTXGBCht4MmbBoQylj3ERQ4T31NailecPYSTdByFXmk7yUzrvmeH219julzpbCFYdUztr20PWdi8e_I9C31Pbsz7Rgvz6qxUDMJhOOyURmlQBMVJiRDyX0pmrvIZqdej1iSCIRx3WkEySAr_b75Tm-M4zYPbOWH5Rkt8QQohjCbnUU0GSeDfJx3BaOAXN6RLpPEabc6En4q4I4RJCoP0LuFB79Zlu3iSojwRRpMEJh1hOgpgHt4ljPMgHh4dGp6lRM0KjES738sgbxp1WLMPD3_OHYIygvp21KCQ2LQCcsbAt6cp-GoCe9gUoBxMoYl5ixjbzJ1fFxzRh46kYWYKtlJh3TaACGnLbCtYKTA1FwI1lJWp_3ggMFvpxuksfwKzx9gka8wAtL6N7Qu5wKgdfD6-NJW1e7JpPpT5unYXn90pLZr77gpRNwz_2x0PQL__2ZAdw-gQhhe_zUTddr2Co-5sXsHx8Rg5nlNjWSNaOdnW2V-N5vqsMEEt087Oc1CrxWzDSyfbXyFOu296TJGZV30Ad38Ajaq_tQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuO2jAU_RUrI5RWCpo8Cc2iUghYQmqrkZhpF6ULk9hgjWNHtjMMRfx7bR7h0bJqFlHu8b3nnHtje-uUosJO5vR6W8qpzsDW1StcYzcD7gIp7HrgAHxHkqIFw8q1OURwPaO_92lB3LzbNItBVFO2segMLwUGL1MP5KaQeUAhrvoKS0pcz20krZHcFIIJabMf8JD4ZK92XBoJWWF5TvD9NCgTU8oox2c4SuM0hrZO4VLw6oqUJGRISndnzTGxLldI6r39VuGv6P0HrfTKxAQxhU3OStfsC1pgZnvUsrVY2cq30zCosjrcDGzWoJLypcFj30AS8dczlPi7Hdj1enPeiYLn8ZwD85QMKTXGBCht4MmbBoQylj3ERQ4T31NailecPYSTdByFXmk7yUzrvmeH219julzpbCFYdUztr20PWdi8e_I9C31Pbsz7Rgvz6qxUDMJhOOyURmlQBMVJiRDyX0pmrvIZqdej1iSCIRx3WkEySAr_b75Tm-M4zYPbOWH5Rkt8QQohjCbnUU0GSeDfJx3BaOAXN6RLpPEabc6En4q4I4RJCoP0LuFB79Zlu3iSojwRRpMEJh1hOgpgHt4ljPMgHh4dGp6lRM0KjES738sgbxp1WLMPD3_OHYIygvp21KCQ2LQCcsbAt6cp-GoCe9gUoBxMoYl5ixjbzJ1fFxzRh46kYWYKtlJh3TaACGnLbCtYKTA1FwI1lJWp_3ggMFvpxuksfwKzx9gka8wAtL6N7Qu5wKgdfD6-NJW1e7JpPpT5unYXn90pLZr77gpRNwz_2x0PQL__2ZAdw-gQhhe_zUTddr2Co-5sXsHx8Rg5nlNjWSNaOdnW2V-N5vqsMEEt087Oc1CrxWzDSyfbXyFOu296TJGZV30Ad38Ajaq_tQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="business-architecture-322-e2e-68b-raising_purchase_order_by_intel_products_to_intel_foundryle-101-e2e-68b-raising_purchase_order_by_intel_products_to_intel_foundryle-101">BUSINESS ARCHITECTURE — 3.2.2 E2E-68B-<em>Raising_Purchase_Order_by_Intel_Products_to_Intel_Foundry</em>(LE-101) — E2E-68B-<em>Raising_Purchase_Order_by_Intel_Products_to_Intel_Foundry</em>(LE-101)</h4>
-<p><strong>Swim Lanes</strong>: SAP S/4 
+
+#### BUSINESS ARCHITECTURE — 3.2.2 E2E-68B-_Raising_Purchase_Order_by_Intel_Products_to_Intel_Foundry_(LE-101) — E2E-68B-_Raising_Purchase_Order_by_Intel_Products_to_Intel_Foundry_(LE-101)
+
+**Swim Lanes**: SAP S/4 
 Intel Foundry (LE-101)
  · SAP S/4 
 Intel Prod
- | <strong>Tasks</strong>: 14 | <strong>Gateways</strong>: 4</p>
-<blockquote>
-<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
-</blockquote>
+ | **Tasks**: 14 | **Gateways**: 4
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
 <div class="mermaid">
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -703,21 +690,27 @@ flowchart LR
     class n23 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1tvo0YU_isjoshZCVqGi8E8tHKw2VpKNtY6m6pa92EMgz3KeHAHSOx6_d87Yy42BPrQ5iHSfOf7zo3DGXxUwiTCiqfc3h4JI5kHjoNsg7d44IHBCqV4oIICeEGcoBXF6UBy4oRlC_L3mQat3V7SJBagLaEHiS7wOsHg20wFYyGkKkgRS7UUcxIP1MGOky3iBz-hCZfsG-zGenyOVpruEx5hfiHougNDW0gpYfgCm47lWIHUpThMWNRwGtuxG4eDk0yOJu_hBvHsnH6e4ke0_51E2UacY0RTLDibbEsf0ApTWWPGc4mFOX-rmkFSGYeJhi12KCRsLXBLFxBH7PUC2frpBE63t0tWBwUPX5cMiL-QojSd4BikmYCnbxmICaXejeWPA1tX04wnr9i7MabOxDTUUFbiidJ1VTZXe8dkvcm8VUKjkqq9yxo8Y7dX-d4zdJUfxP9WLMyiSyR_aLiGW0e6d6AP_SpSHMf_K5LoK39G6WsZa2oGRjCpY0F7aPv6R39VmRPLGcN2nzB_IyG-choEgTm9tGo6tKHe7_Q-MIe633K6Rhl-R4eLw5Fv1Q4D2wmg0-uwiNfOMl_NeRJWDs2pHdi1Q-ceBmOj16E1hpZbZij8rDnabcBiPAeLny0AZizDFARJziJ-AHcPUw3q8BMo6PKPGd-XSoy8GGmy-8DnWFQHFki8quBJvkPpUvnzim82-Y-I5YiCORddBk9vmHMS4abC_l5LwmQN5pjHCd8WzsELoiRCGUmYEF2rhk3VRLz5bxg8PoLZBMQ82QJ__qUlcboDiZIikgF_g8NXcPdC0E8gWPiPn1pqt6l-5mS9Fgl-fl4U0hZ91KT_Jka9xYB6dz59HiFs8n1Ew5zKpyG7K5ZDm2_08Z_RHqdtttlkF-33ExYTvu16ANBqCr7tIun7QexPbZbhLcjwPmtrhne1ZkfFK1KORzUYYh5JRoQb2atP10LnIkyzZCdLkAXlRUUf6G6LXvdUVLTdUdwhGQnF1JhqQ9fXOqoHiEVgThFjOALny0Ps8PMINKfZ0I_HS1sirK3E-g43AO9DmqdiRj8X22GpnE7XMtgtux7OX9sa47-FMi8yxHnynmqIZmCHOKIU0w8isd__fX2I3RRdrwzYuTLmOReXVYoBx381W9YapDb__Czag2S3BukrIql4BcD8CawOYDYHzwmYBfVGuzzsuhoGgab9IqJXR7s4l1cEM4pjdQkxqzyXx5I9LI_D4uiUR6ck187OwX4slS_JUvkhtkOJuyWv8mroBWCX51ErCaPMCn4AqkiwLMswK4ZZMow2UDGqc92JshiznfwfcmuI7N2KaLXSh5Wrqj5YpVc1BpYFQvfqjpPPorrbG7DRDZvdsHV9nTcsdq9l2Gtxei1ur2XUaxF195pgv8noN5n9pv5GiCGvPg2b-LAHd8rPuybqdqKjbh9ipssvoiYMu2GjGzYrWFGVLRZLmUSKd1TOPx7ED4wIxyinmXJSFZRnyeLAQsU7f2Qr-flimhAklte2AE__ANlQ3gw=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1tvo0YU_isjoshZCVqGi8E8tHKw2VpKNtY6m6pa92EMgz3KeHAHSOx6_d87Yy42BPrQ5iHSfOf7zo3DGXxUwiTCiqfc3h4JI5kHjoNsg7d44IHBCqV4oIICeEGcoBXF6UBy4oRlC_L3mQat3V7SJBagLaEHiS7wOsHg20wFYyGkKkgRS7UUcxIP1MGOky3iBz-hCZfsG-zGenyOVpruEx5hfiHougNDW0gpYfgCm47lWIHUpThMWNRwGtuxG4eDk0yOJu_hBvHsnH6e4ke0_51E2UacY0RTLDibbEsf0ApTWWPGc4mFOX-rmkFSGYeJhi12KCRsLXBLFxBH7PUC2frpBE63t0tWBwUPX5cMiL-QojSd4BikmYCnbxmICaXejeWPA1tX04wnr9i7MabOxDTUUFbiidJ1VTZXe8dkvcm8VUKjkqq9yxo8Y7dX-d4zdJUfxP9WLMyiSyR_aLiGW0e6d6AP_SpSHMf_K5LoK39G6WsZa2oGRjCpY0F7aPv6R39VmRPLGcN2nzB_IyG-choEgTm9tGo6tKHe7_Q-MIe633K6Rhl-R4eLw5Fv1Q4D2wmg0-uwiNfOMl_NeRJWDs2pHdi1Q-ceBmOj16E1hpZbZij8rDnabcBiPAeLny0AZizDFARJziJ-AHcPUw3q8BMo6PKPGd-XSoy8GGmy-8DnWFQHFki8quBJvkPpUvnzim82-Y-I5YiCORddBk9vmHMS4abC_l5LwmQN5pjHCd8WzsELoiRCGUmYEF2rhk3VRLz5bxg8PoLZBMQ82QJ__qUlcboDiZIikgF_g8NXcPdC0E8gWPiPn1pqt6l-5mS9Fgl-fl4U0hZ91KT_Jka9xYB6dz59HiFs8n1Ew5zKpyG7K5ZDm2_08Z_RHqdtttlkF-33ExYTvu16ANBqCr7tIun7QexPbZbhLcjwPmtrhne1ZkfFK1KORzUYYh5JRoQb2atP10LnIkyzZCdLkAXlRUUf6G6LXvdUVLTdUdwhGQnF1JhqQ9fXOqoHiEVgThFjOALny0Ps8PMINKfZ0I_HS1sirK3E-g43AO9DmqdiRj8X22GpnE7XMtgtux7OX9sa47-FMi8yxHnynmqIZmCHOKIU0w8isd__fX2I3RRdrwzYuTLmOReXVYoBx381W9YapDb__Czag2S3BukrIql4BcD8CawOYDYHzwmYBfVGuzzsuhoGgab9IqJXR7s4l1cEM4pjdQkxqzyXx5I9LI_D4uiUR6ck187OwX4slS_JUvkhtkOJuyWv8mroBWCX51ErCaPMCn4AqkiwLMswK4ZZMow2UDGqc92JshiznfwfcmuI7N2KaLXSh5Wrqj5YpVc1BpYFQvfqjpPPorrbG7DRDZvdsHV9nTcsdq9l2Gtxei1ur2XUaxF195pgv8noN5n9pv5GiCGvPg2b-LAHd8rPuybqdqKjbh9ipssvoiYMu2GjGzYrWFGVLRZLmUSKd1TOPx7ED4wIxyinmXJSFZRnyeLAQsU7f2Qr-flimhAklte2AE__ANlQ3gw=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="business-architecture-323-e2e-68c-order_confirmationplanned_order_trigger-e2e-68c-_order_confirmation_planned_order_trigger">BUSINESS ARCHITECTURE — 3.2.3 E2E-68C-<em>Order_Confirmation</em>&amp;<em>Planned_order_trigger — E2E-68C-_Order_Confirmation</em>&amp;_Planned_order_trigger</h4>
-<p><strong>Swim Lanes</strong>: LE101 US Virtual  · LE500 Ireland
- · SAP S/4 Intel Foundry</p>
-<p>LE778 China
- | <strong>Tasks</strong>: 11 | <strong>Gateways</strong>: 1</p>
-<blockquote>
-<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
-</blockquote>
+
+#### BUSINESS ARCHITECTURE — 3.2.3 E2E-68C-_Order_Confirmation_&amp;_Planned_order_trigger — E2E-68C-_Order_Confirmation_&amp;_Planned_order_trigger
+
+**Swim Lanes**: LE101 US Virtual  · LE500 Ireland
+ · SAP S/4 Intel Foundry
+
+LE778 China
+ | **Tasks**: 11 | **Gateways**: 1
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
 <div class="mermaid">
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -787,23 +780,28 @@ flowchart LR
     class n19 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltvozgU_isWVZVWCh0g3MLDSikJVaTOTlRmZh-m--CCSawSw9qmaTbKf99DuCSkYbS7wwPS-c53rj6-7JQoi4niKdfXO8qo9NBuIFdkTQYeGrxgQQZDVAHfMaf4JSViUHKSjMmQ_n2g6Wb-XtJKLMBrmm5LNCTLjKBv8yGagGE6RAIzoQrCaTIYDnJO15hv_SzNeMm-Im6iJYdoteo-4zHhR4KmOXpkgWlKGTnCI8d0zKC0EyTKWNxxmliJm0SDfZlcmm2iFebykH4hyGf8_geN5QrkBKeCAGcl1-kjfiFpWaPkRYlFBX9rmkFFGYdBw8IcR5QtATc1gDhmr0fI0vZ7tL--fmZtUPT49MwQfFGKhZiSBAkJ8OxNooSmqXdl-pPA0oZC8uyVeFfGzJmOjGFUVuJB6dqwbK66IXS5kt5LlsY1Vd2UNXhG_j7k756hDfkW_mexCIuPkXzbcA23jXTv6L7uN5GSJPmlSNBX_hWL1zrWbBQYwbSNpVu25Wsf_TVlTk1nop_3ifA3GpETp0EQjGbHVs1sS9f6nd4HI1vzz5wusSQbvD06HPtm6zCwnEB3eh1W8c6zLF4WPIsah6OZFVitQ-deDyZGr0NzoptunSH4WXKcr9DjTNd09C1E3ymXBU5RpS8_pv94VhLsJVgt242eSEToG0F-xhLK1yRGIYZtir6U-0c8K3-emBpdU58T6ARaFBymVBDEyV9d_ujn_EOIroXugsnMmKm2O1HR74s5rKAscpRkHM2Dlgsj-aFiS9PQnJMUs_i0XPtyDkBjUOulFLQfrUmULRuLuY_Cr09A7XD1fu4XdBMGD6qm354bmTetUZ7CHHWSqXzQjKE5HKgU3MVgf3tq74C57U7Vz5gVCY5kweHkQDlMEBECUbAM0E3H6e1POhdOFij8ZEI4SVIUZAWL-RZBQx3HRf6KMnzaTvNiO_tHxvqv7Xe6HV0QDmu_hjHNiYR-wKSGkuQCSdgr6HDIo6ga3UPXznrt_vu1HP-fpTTOltLHYoUCOLc_3WOoMYJsV4TIquBylfT-ZR394lhYR3shsxwt6oGYsQ9Uu91lD9Uuy5v8yt0zeydRcYjVuCi3XwAXvFhBPg9ZFldjVk7M3d3d2f4Z73ZNHpjzbCNUnErgR2khYP0eqtPzWdnvz0aSGUhVf4NjoxZHlWjWolmJTi26laiPa9mu5Uavjyug0deirjX6OprbyHU4q5HreHYja7WD-o5hVi03BKeWWwdNho1ciUYj6t0CDrdByWpuwQ5sXIZHl2HzMmxdhu3LsHN6e3Y0bq9m3KuB9vWq9H6V0T51uvioBzd7cKt-xnRRu4ft9OBuDz5u3gTKUFkTOIporHg75fDyhddxTBJcpFLZDxVcyCzcskjxDi9EpchjsJxSDIfxugL3_wBvz4F6" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltvozgU_isWVZVWCh0g3MLDSikJVaTOTlRmZh-m--CCSawSw9qmaTbKf99DuCSkYbS7wwPS-c53rj6-7JQoi4niKdfXO8qo9NBuIFdkTQYeGrxgQQZDVAHfMaf4JSViUHKSjMmQ_n2g6Wb-XtJKLMBrmm5LNCTLjKBv8yGagGE6RAIzoQrCaTIYDnJO15hv_SzNeMm-Im6iJYdoteo-4zHhR4KmOXpkgWlKGTnCI8d0zKC0EyTKWNxxmliJm0SDfZlcmm2iFebykH4hyGf8_geN5QrkBKeCAGcl1-kjfiFpWaPkRYlFBX9rmkFFGYdBw8IcR5QtATc1gDhmr0fI0vZ7tL--fmZtUPT49MwQfFGKhZiSBAkJ8OxNooSmqXdl-pPA0oZC8uyVeFfGzJmOjGFUVuJB6dqwbK66IXS5kt5LlsY1Vd2UNXhG_j7k756hDfkW_mexCIuPkXzbcA23jXTv6L7uN5GSJPmlSNBX_hWL1zrWbBQYwbSNpVu25Wsf_TVlTk1nop_3ifA3GpETp0EQjGbHVs1sS9f6nd4HI1vzz5wusSQbvD06HPtm6zCwnEB3eh1W8c6zLF4WPIsah6OZFVitQ-deDyZGr0NzoptunSH4WXKcr9DjTNd09C1E3ymXBU5RpS8_pv94VhLsJVgt242eSEToG0F-xhLK1yRGIYZtir6U-0c8K3-emBpdU58T6ARaFBymVBDEyV9d_ujn_EOIroXugsnMmKm2O1HR74s5rKAscpRkHM2Dlgsj-aFiS9PQnJMUs_i0XPtyDkBjUOulFLQfrUmULRuLuY_Cr09A7XD1fu4XdBMGD6qm354bmTetUZ7CHHWSqXzQjKE5HKgU3MVgf3tq74C57U7Vz5gVCY5kweHkQDlMEBECUbAM0E3H6e1POhdOFij8ZEI4SVIUZAWL-RZBQx3HRf6KMnzaTvNiO_tHxvqv7Xe6HV0QDmu_hjHNiYR-wKSGkuQCSdgr6HDIo6ga3UPXznrt_vu1HP-fpTTOltLHYoUCOLc_3WOoMYJsV4TIquBylfT-ZR394lhYR3shsxwt6oGYsQ9Uu91lD9Uuy5v8yt0zeydRcYjVuCi3XwAXvFhBPg9ZFldjVk7M3d3d2f4Z73ZNHpjzbCNUnErgR2khYP0eqtPzWdnvz0aSGUhVf4NjoxZHlWjWolmJTi26laiPa9mu5Uavjyug0deirjX6OprbyHU4q5HreHYja7WD-o5hVi03BKeWWwdNho1ciUYj6t0CDrdByWpuwQ5sXIZHl2HzMmxdhu3LsHN6e3Y0bq9m3KuB9vWq9H6V0T51uvioBzd7cKt-xnRRu4ft9OBuDz5u3gTKUFkTOIporHg75fDyhddxTBJcpFLZDxVcyCzcskjxDi9EpchjsJxSDIfxugL3_wBvz4F6" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="business-architecture-324-e2e-68d-_manufacturing_process_in_if-e2e-68d-_manufacturing_process_in_if">BUSINESS ARCHITECTURE — 3.2.4 E2E-68D-_Manufacturing_process_in_IF — E2E-68D-_Manufacturing_process_in_IF</h4>
-<p><strong>Swim Lanes</strong>: Boundary
+
+#### BUSINESS ARCHITECTURE — 3.2.4 E2E-68D-_Manufacturing_process_in_IF — E2E-68D-_Manufacturing_process_in_IF
+
+**Swim Lanes**: Boundary
 Apps
 Intel Foundry
  · SAP S/4
 Intel Foundry (LE-500)
- | <strong>Tasks</strong>: 20 | <strong>Gateways</strong>: 6</p>
-<blockquote>
-<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
-</blockquote>
+ | **Tasks**: 20 | **Gateways**: 6
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
 <div class="mermaid">
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -902,23 +900,29 @@ flowchart TD
     class n29 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV11vozgU_SsWoyqtlKjYQCB52FVKw6irqdqddHa1ms6DAyaxSmxkTNtslf--5sNJcMOOtpuHqpx77tfxtTFvVswTYk2ts7M3yqicgreBXJMNGUzBYIkLMhiCBvgDC4qXGSkGFSflTC7o3zUNuvlrRauwCG9otq3QBVlxAr7dDMFMOWZDUGBWjAoiaDoYDnJBN1hsQ55xUbE_kSC10zpba7riIiHiQLBtH8aecs0oIwfY8V3fjSq_gsScJZ2gqZcGaTzYVcVl_CVeYyHr8suC3OLXP2ki1-o5xVlBFGctN9kXvCRZ1aMUZYXFpXjWYtCiysOUYIscx5StFO7aChKYPR0gz97twO7s7JHtk4KH60cG1C_OcFFckxQUUsHzZwlSmmXTT244izx7WEjBn8j0E5r71w4axlUnU9W6PazEHb0QulrL6ZJnSUsdvVQ9TFH-OhSvU2QPxVb9NXIRlhwyhWMUoGCf6cqHIQx1pjRN_1cmpat4wMVTm2vuRCi63ueC3tgL7ffxdJvXrj-Dpk5EPNOYHAWNosiZH6Sajz1o9we9ipyxHRpBV1iSF7w9BJyE7j5g5PkR9HsDNvnMKsvlveCxDujMvcjbB_SvYDRDvQHdGXSDtkIVZyVwvgZXvKxnGczyvAA3TJIMRBWmoIZa_Rh0v39_tFI8TfEo5iuwyDMqL2-JWBHAU5ALnpSxpJyBejc9Wj9-HHt7Xe8vXIJFNZcmb9zl3RRFSUDMNzlnhL1j-132LX8mqoPL5p-78h0_6PLviUi52IDfS6ya2YJwTeIn02fS9fmWJ2pJwSJW4l3-RUmWGA7Ift9qqBrIiCQm1X17O1ATMlqq7R2vwS1Vh59UHStHllKxwbWwdXng10drtzsOEhyCYCH4SzHCmQQ5FjjLSPa5GUDTafLfnNS-NsZmMbsHi0vXGJjzL_ORZ9sXncnZy1HtWRAKUgl4n2HGSALu2mk5Lq4r4GfOk6KdBMwSvQI37FlNBBdbQ1Tn9Bo3Ub6SmNDcnAtjtGuSGqDGhTLwjQm1HoLGUhW8kPzdkHincz7MwzvwWCIbOuCBxGtGY5zpYVArakQxZl9tcyVPTkS7-kejYDga20ArfNiSdye2ZGA2nRH1Ev6Z1-R0p6HeodWuXqmXk7mL7NN-97yQiq1GGzN1kJzf335tylf5L8wY8HSMNiOoDm7TBf3c5d-EhU5fu6woN3mtUjWSxyN6fouZOk8uf-NLswMEz_fh8ky9FSpqimNZiqoadYbGpKgn7iZS800lVetYnS8Xx0HQIYg6JPJmyvQJ847tKPL8lcRlOxGK2Ui-kCQvjI3nfeQoGX_Eyf_g-aPeJGA0-qV6U2hg3AK-BvwGQIEGgpYx0cCkZWgAaUZgAq52aZ51jjaFprdspGtCuiZbu9stADXQBoRIu7QhJ0YItG8LGUDbBHQ0wWkJ7XP7qDtwW6unE7RCIscANKEtYG_WFbfP2h0ZkiGdEGmVj68wlZL66taB0fH9q2Nxei1ur8XrtYx7LX6vJei1THotasV7TbDf1C8D7NcB9gsB-5WA_VLAfi1gvxiwXw3Ur4aaK_2F0sVR-zXRRZ0etquv2l3YOw2PT8P-aTg4DU80bA2tDVFvEJpY0zer_oZV37kJSXGZSWs3tHAp-WLLYmtaf-tZZX2FuaZY3aU2Dbj7B12Ztp4=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV11vozgU_SsWoyqtlKjYQCB52FVKw6irqdqddHa1ms6DAyaxSmxkTNtslf--5sNJcMOOtpuHqpx77tfxtTFvVswTYk2ts7M3yqicgreBXJMNGUzBYIkLMhiCBvgDC4qXGSkGFSflTC7o3zUNuvlrRauwCG9otq3QBVlxAr7dDMFMOWZDUGBWjAoiaDoYDnJBN1hsQ55xUbE_kSC10zpba7riIiHiQLBtH8aecs0oIwfY8V3fjSq_gsScJZ2gqZcGaTzYVcVl_CVeYyHr8suC3OLXP2ki1-o5xVlBFGctN9kXvCRZ1aMUZYXFpXjWYtCiysOUYIscx5StFO7aChKYPR0gz97twO7s7JHtk4KH60cG1C_OcFFckxQUUsHzZwlSmmXTT244izx7WEjBn8j0E5r71w4axlUnU9W6PazEHb0QulrL6ZJnSUsdvVQ9TFH-OhSvU2QPxVb9NXIRlhwyhWMUoGCf6cqHIQx1pjRN_1cmpat4wMVTm2vuRCi63ueC3tgL7ffxdJvXrj-Dpk5EPNOYHAWNosiZH6Sajz1o9we9ipyxHRpBV1iSF7w9BJyE7j5g5PkR9HsDNvnMKsvlveCxDujMvcjbB_SvYDRDvQHdGXSDtkIVZyVwvgZXvKxnGczyvAA3TJIMRBWmoIZa_Rh0v39_tFI8TfEo5iuwyDMqL2-JWBHAU5ALnpSxpJyBejc9Wj9-HHt7Xe8vXIJFNZcmb9zl3RRFSUDMNzlnhL1j-132LX8mqoPL5p-78h0_6PLviUi52IDfS6ya2YJwTeIn02fS9fmWJ2pJwSJW4l3-RUmWGA7Ift9qqBrIiCQm1X17O1ATMlqq7R2vwS1Vh59UHStHllKxwbWwdXng10drtzsOEhyCYCH4SzHCmQQ5FjjLSPa5GUDTafLfnNS-NsZmMbsHi0vXGJjzL_ORZ9sXncnZy1HtWRAKUgl4n2HGSALu2mk5Lq4r4GfOk6KdBMwSvQI37FlNBBdbQ1Tn9Bo3Ub6SmNDcnAtjtGuSGqDGhTLwjQm1HoLGUhW8kPzdkHincz7MwzvwWCIbOuCBxGtGY5zpYVArakQxZl9tcyVPTkS7-kejYDga20ArfNiSdye2ZGA2nRH1Ev6Z1-R0p6HeodWuXqmXk7mL7NN-97yQiq1GGzN1kJzf335tylf5L8wY8HSMNiOoDm7TBf3c5d-EhU5fu6woN3mtUjWSxyN6fouZOk8uf-NLswMEz_fh8ky9FSpqimNZiqoadYbGpKgn7iZS800lVetYnS8Xx0HQIYg6JPJmyvQJ847tKPL8lcRlOxGK2Ui-kCQvjI3nfeQoGX_Eyf_g-aPeJGA0-qV6U2hg3AK-BvwGQIEGgpYx0cCkZWgAaUZgAq52aZ51jjaFprdspGtCuiZbu9stADXQBoRIu7QhJ0YItG8LGUDbBHQ0wWkJ7XP7qDtwW6unE7RCIscANKEtYG_WFbfP2h0ZkiGdEGmVj68wlZL66taB0fH9q2Nxei1ur8XrtYx7LX6vJei1THotasV7TbDf1C8D7NcB9gsB-5WA_VLAfi1gvxiwXw3Ur4aaK_2F0sVR-zXRRZ0etquv2l3YOw2PT8P-aTg4DU80bA2tDVFvEJpY0zer_oZV37kJSXGZSWs3tHAp-WLLYmtaf-tZZX2FuaZY3aU2Dbj7B12Ztp4=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="business-architecture-325-e2e-68e-manufacturing_process_in_ifnpi_planning_and_execution_process-e2e-68e-manufacturing_process_in_ifnpi_planning_and_execution_process">BUSINESS ARCHITECTURE — 3.2.5 E2E-68E-<em>Manufacturing_process_in_IF</em>(NPI_Planning_and_Execution_Process) — E2E-68E-<em>Manufacturing_process_in_IF</em>(NPI_Planning_and_Execution_Process)</h4>
-<p><strong>Swim Lanes</strong>: Boundary Apps</p>
-<p>· SAP S/4
+
+#### BUSINESS ARCHITECTURE — 3.2.5 E2E-68E-_Manufacturing_process_in_IF_(NPI_Planning_and_Execution_Process) — E2E-68E-_Manufacturing_process_in_IF_(NPI_Planning_and_Execution_Process)
+
+**Swim Lanes**: Boundary Apps
+
+ · SAP S/4
 Intel Foundry LE500 Ireland
  · SAP S/4
 LE778 China
- | <strong>Tasks</strong>: 21 | <strong>Gateways</strong>: 6</p>
-<blockquote>
-<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
-</blockquote>
+ | **Tasks**: 21 | **Gateways**: 6
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
 <div class="mermaid">
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1028,23 +1032,29 @@ flowchart LR
     class n32 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWF1z4jYU_Ssa72QgMzC1_A0P7RCD08xkGxqS7sPSB2Fk0MTIrmwnoVn-e6_8AcGxZrbb8sBYR7rn6h7de2V408JkTbWxdnHxxjjLx-itl2_pjvbGqLciGe0NUAX8QQQjq5hmPbkmSni-YH-Xy7CVvsplEgvIjsV7iS7oJqHo8WaAJmAYD1BGeDbMqGBRb9BLBdsRsfeTOBFy9SfqRXpUequnrhKxpuK0QNddHNpgGjNOT7DpWq4VSLuMhglfn5FGduRFYe8gNxcnL-GWiLzcfpHRz-T1C1vnWxhHJM4orNnmu_iWrGgsY8xFIbGwEM-NGCyTfjgItkhJyPgGcEsHSBD-dIJs_XBAh4uLJT86Rbf3S47gE8Yky6Y0QlkO8Ow5RxGL4_Eny58Etj7IcpE80fEnY-ZOTWMQykjGELo-kOIOXyjbbPPxKonX9dLhi4xhbKSvA_E6NvSB2MN3yxfl65Mn3zE8wzt6unKxj_3GUxRF_8kT6CoeSPZU-5qZgRFMj76w7di-_pGvCXNquRPc1omKZxbSd6RBEJizk1Qzx8a6mvQqMB3db5FuSE5fyP5EOPKtI2FguwF2lYSVv_Yui9VcJGFDaM7swD4Sulc4mBhKQmuCLa_eIfBsBEm36CopylxGkzTNEKpm5Ycb-OvXpRaRcUSGYbJBcyqiROzQnIRPA_SZCPgukxgt5jP_4f7xM-rDAuQXWZ7sqKgml9qff1akkBwt34vJHC1-stANz4ElkDuBjdzObF1HN4LGhK_fbwjDdm58WP2cwEEtC0PXV-gKhEAPyRjMXNerQPD5Po7zMKY0p2IHpQ1PMXum4PH3gvCc5fvTXktDszv-64cF8pNdGjPCQ4r8LQ2fWpaWQjkWPkHloi-_ojLNfEFJzhKO-l_IMwVJOdlAA-T5ZYvP7uYLRFk86BH6KZJiNcCd7GhH-haZ852bS3jExK6LwVUnhmToL7YsTeVTlR5zwUBevrks99isumVZ3uL1unlvE7Iuee9SuRkSt-UZnduVcVM0e00TaIhNupybYF19uP3ackqh7ER1Qo8LdMfjfdszxp2uIT2gAEK4jRr3qA9lKz2QDxRGJ4WsCRFCmhG-P5FAkcYslLcjkqX2W8KHsLMQKicXjGYfuFspLA8G9a-TZJ2hmywr6AeDVuZO7tE8yeThlWc3KfIE-TGFG5pv2qaKJL0r8pWs7FO59YMCarYpug9bcP4nHvf7eEA21H9h-RalcFHKI_urYpR6ItlQsAkpmCOj5cAw-kcH0PHS7iOrjnMNtpfvbc2WbdlUZCepWgvtMHHAYmbMho43HcpeUUQkzAt5EiiFK4FmGWIc3QSt7ue-vZ1kWNPhCt4hwi2ir2FcZCDAdXVFLbXD4b2Z1202rzWC5DtT_5e2_eiH3Jr6j5nhkxkRInnJhiTO5YGSOKaxwsj4d0bq-6u8euD4GCdn95X348U06k7eG96ugUVwPdTxJXqBhrV4uGvnqKrNlS3gnoaUpfmRpG1stZIUwlUGoM5bu8pb5HjXx9Q8askNNBz-LPOtGY8qANsN4FZAM7aroVUPrWro1EOnGrr1sLY165c9eKgArzUe1ePGef3aBQ810BDg2gAbNeDVY7NZUFM0b6zwUANNAGYdMm6cQn-pdtlw4joofBSl9PJtqZ3V3FL7JvVq1tShG2c2sqQav00sThto1MK1XMYRcNqA3QZqL0ZzHrg50GYfdXDGUaDaqdWW492brkyLd-_jZzOmcsZSztjKGUc54ypnPOXMSDkDiaScwuoptQxYrQNWC4HVSmC1FFitBVaLgdVqGGo1DLUahlH_wDxHzU7U6kTt48_hc9xR4G7zC-4c9rrhUScMZdYJ427YaGBtoMFL5I6wtTZ-08q_RrSxtqYRKeJcOww0Av13seehNi7_QtCKdA2WU0bgdtpV4OEfNIprqQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWF1z4jYU_Ssa72QgMzC1_A0P7RCD08xkGxqS7sPSB2Fk0MTIrmwnoVn-e6_8AcGxZrbb8sBYR7rn6h7de2V408JkTbWxdnHxxjjLx-itl2_pjvbGqLciGe0NUAX8QQQjq5hmPbkmSni-YH-Xy7CVvsplEgvIjsV7iS7oJqHo8WaAJmAYD1BGeDbMqGBRb9BLBdsRsfeTOBFy9SfqRXpUequnrhKxpuK0QNddHNpgGjNOT7DpWq4VSLuMhglfn5FGduRFYe8gNxcnL-GWiLzcfpHRz-T1C1vnWxhHJM4orNnmu_iWrGgsY8xFIbGwEM-NGCyTfjgItkhJyPgGcEsHSBD-dIJs_XBAh4uLJT86Rbf3S47gE8Yky6Y0QlkO8Ow5RxGL4_Eny58Etj7IcpE80fEnY-ZOTWMQykjGELo-kOIOXyjbbPPxKonX9dLhi4xhbKSvA_E6NvSB2MN3yxfl65Mn3zE8wzt6unKxj_3GUxRF_8kT6CoeSPZU-5qZgRFMj76w7di-_pGvCXNquRPc1omKZxbSd6RBEJizk1Qzx8a6mvQqMB3db5FuSE5fyP5EOPKtI2FguwF2lYSVv_Yui9VcJGFDaM7swD4Sulc4mBhKQmuCLa_eIfBsBEm36CopylxGkzTNEKpm5Ycb-OvXpRaRcUSGYbJBcyqiROzQnIRPA_SZCPgukxgt5jP_4f7xM-rDAuQXWZ7sqKgml9qff1akkBwt34vJHC1-stANz4ElkDuBjdzObF1HN4LGhK_fbwjDdm58WP2cwEEtC0PXV-gKhEAPyRjMXNerQPD5Po7zMKY0p2IHpQ1PMXum4PH3gvCc5fvTXktDszv-64cF8pNdGjPCQ4r8LQ2fWpaWQjkWPkHloi-_ojLNfEFJzhKO-l_IMwVJOdlAA-T5ZYvP7uYLRFk86BH6KZJiNcCd7GhH-haZ852bS3jExK6LwVUnhmToL7YsTeVTlR5zwUBevrks99isumVZ3uL1unlvE7Iuee9SuRkSt-UZnduVcVM0e00TaIhNupybYF19uP3ackqh7ER1Qo8LdMfjfdszxp2uIT2gAEK4jRr3qA9lKz2QDxRGJ4WsCRFCmhG-P5FAkcYslLcjkqX2W8KHsLMQKicXjGYfuFspLA8G9a-TZJ2hmywr6AeDVuZO7tE8yeThlWc3KfIE-TGFG5pv2qaKJL0r8pWs7FO59YMCarYpug9bcP4nHvf7eEA21H9h-RalcFHKI_urYpR6ItlQsAkpmCOj5cAw-kcH0PHS7iOrjnMNtpfvbc2WbdlUZCepWgvtMHHAYmbMho43HcpeUUQkzAt5EiiFK4FmGWIc3QSt7ue-vZ1kWNPhCt4hwi2ir2FcZCDAdXVFLbXD4b2Z1202rzWC5DtT_5e2_eiH3Jr6j5nhkxkRInnJhiTO5YGSOKaxwsj4d0bq-6u8euD4GCdn95X348U06k7eG96ugUVwPdTxJXqBhrV4uGvnqKrNlS3gnoaUpfmRpG1stZIUwlUGoM5bu8pb5HjXx9Q8askNNBz-LPOtGY8qANsN4FZAM7aroVUPrWro1EOnGrr1sLY165c9eKgArzUe1ePGef3aBQ810BDg2gAbNeDVY7NZUFM0b6zwUANNAGYdMm6cQn-pdtlw4joofBSl9PJtqZ3V3FL7JvVq1tShG2c2sqQav00sThto1MK1XMYRcNqA3QZqL0ZzHrg50GYfdXDGUaDaqdWW492brkyLd-_jZzOmcsZSztjKGUc54ypnPOXMSDkDiaScwuoptQxYrQNWC4HVSmC1FFitBVaLgdVqGGo1DLUahlH_wDxHzU7U6kTt48_hc9xR4G7zC-4c9rrhUScMZdYJ427YaGBtoMFL5I6wtTZ-08q_RuDvkzWNSBHn2mGgEei_iz0PtXH5F4JWpGuwnDICt9OuAg__ADSKa6k=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="business-architecture-326-e2e-68f-_tm_steps-e2e-68f-_tm_steps">BUSINESS ARCHITECTURE — 3.2.6 E2E-68F-_TM_Steps — E2E-68F-_TM_Steps</h4>
-<p><strong>Swim Lanes</strong>: Boundary Apps</p>
-<p>· External Partners/
+
+#### BUSINESS ARCHITECTURE — 3.2.6 E2E-68F-_TM_Steps — E2E-68F-_TM_Steps
+
+**Swim Lanes**: Boundary Apps
+
+ · External Partners/
 Supplier
  · SAP S/4
 LE778 China
- | <strong>Tasks</strong>: 12 | <strong>Gateways</strong>: 1</p>
-<blockquote>
-<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
-</blockquote>
+ | **Tasks**: 12 | **Gateways**: 1
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
 <div class="mermaid">
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1104,24 +1114,31 @@ flowchart LR
     class n16 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4jgU_itWqooZCdRcCc3DShRIVanVoKbdfRjmwSQOWDV2ZDulDOK_78mNS5bMy-YBcW7fOefz8WVvxCIhRmDc3u4ppzpA-55ekw3pBai3xIr0-qhS_I0lxUtGVK_wSQXXEf1dullu9lW4FboQbyjbFdqIrARB7099NIZA1kcKczVQRNK01-9lkm6w3E0EE7LwviGj1EzLbLXpQciEyJODafpW7EEoo5yc1I7v-m5YxCkSC55cgKZeOkrj3qEojoltvMZSl-Xnirzgr39ootcgp5gpAj5rvWHPeElY0aOWeaGLc_nZkEFVkYcDYVGGY8pXoHdNUEnMP04qzzwc0OH2dsGPSdHz64Ij-GKGlZqSFCkN6tmnRillLLhxJ-PQM_tKS_FBght75k8dux8XnQTQutkvyB1sCV2tdbAULKldB9uih8DOvvryK7DNvtzBbysX4ckp02Roj-zRMdODb02sSZMpTdP_lQl4lW9YfdS5Zk5oh9NjLssbehPzv3hNm1PXH1ttnoj8pDE5Aw3D0JmdqJoNPcvsBn0InaE5aYGusCZbvDsB3k_cI2Do-aHldwJW-dpV5su5FHED6My80DsC-g9WOLY7Ad2x5Y7qCgFnJXG2Rg8iL2cZjbNMIVRZi49bP38ujBQHKR7EYoXmRKZCbtAES0mJRE_8UwBf6LXYDTFlFGsq-B2aUpXlmqAXzPEKtjPXCPMEzfGu-K8Wxq9fVRIYllYtsy9NJMcMnKXmRKo7FOVZxop0Z4XZl4W9AsfqbgLTvyIKytIE0LSQCjkyQRlA7ZrFRYvcNi0Hak62QiSnWkpc5xK3bvRPBUfjOYruXPQ88_0Rmqwpx-eFutcZDGU58-gdjkH0SKDRkjr07e3le6skr1WSJNDsEeBHcXC1IoaXEe9ZUkQ0i1ZyVa5HXPKFYszinHXm9__cQVkALBuJ8y6E0XWEuVD6CBMRrVk1KlMR5-WfK1D3V8mI6qWd_0CAjMJoei3WMq8HzyK0pXqNxrkWMBaMwE10Nb5rNxR9wMhrSZclB3fjFeHxDj3kCq4PpU4dVSmTq-j2dfTHtwimisQfbX_n29E_Y3C-PMEo0aKhtxdUnA-QGEK-n4e4pxClRdZdYDvQawUei4LmNxkjV0KG-30TAoMntmqAmS62ImaMsMfqUFwYh0NrY3EXDQZ_wdjX4rAS_Vr0K3FUi6NKvK9Fy6xkqz7ZuVfLw8ahhmvLll0r7mvZbBysWuE2CqdSHGW7dvDOjmkQzy-TC4vdaXE6LW6nxeu0DDstfqdl1Gm577QA552mbhasbhqA4ebBcql368fFpda7qh02967RNzZEbjBNjGBvlK9LeIEmJMU508ahb2DY9tGOx0ZQvsKMvDwupxTD-b6plId_ASAGYss=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4jgU_itWqooZCdRcCc3DShRIVanVoKbdfRjmwSQOWDV2ZDulDOK_78mNS5bMy-YBcW7fOefz8WVvxCIhRmDc3u4ppzpA-55ekw3pBai3xIr0-qhS_I0lxUtGVK_wSQXXEf1dullu9lW4FboQbyjbFdqIrARB7099NIZA1kcKczVQRNK01-9lkm6w3E0EE7LwviGj1EzLbLXpQciEyJODafpW7EEoo5yc1I7v-m5YxCkSC55cgKZeOkrj3qEojoltvMZSl-Xnirzgr39ootcgp5gpAj5rvWHPeElY0aOWeaGLc_nZkEFVkYcDYVGGY8pXoHdNUEnMP04qzzwc0OH2dsGPSdHz64Ij-GKGlZqSFCkN6tmnRillLLhxJ-PQM_tKS_FBght75k8dux8XnQTQutkvyB1sCV2tdbAULKldB9uih8DOvvryK7DNvtzBbysX4ckp02Roj-zRMdODb02sSZMpTdP_lQl4lW9YfdS5Zk5oh9NjLssbehPzv3hNm1PXH1ttnoj8pDE5Aw3D0JmdqJoNPcvsBn0InaE5aYGusCZbvDsB3k_cI2Do-aHldwJW-dpV5su5FHED6My80DsC-g9WOLY7Ad2x5Y7qCgFnJXG2Rg8iL2cZjbNMIVRZi49bP38ujBQHKR7EYoXmRKZCbtAES0mJRE_8UwBf6LXYDTFlFGsq-B2aUpXlmqAXzPEKtjPXCPMEzfGu-K8Wxq9fVRIYllYtsy9NJMcMnKXmRKo7FOVZxop0Z4XZl4W9AsfqbgLTvyIKytIE0LSQCjkyQRlA7ZrFRYvcNi0Hak62QiSnWkpc5xK3bvRPBUfjOYruXPQ88_0Rmqwpx-eFutcZDGU58-gdjkH0SKDRkjr07e3le6skr1WSJNDsEeBHcXC1IoaXEe9ZUkQ0i1ZyVa5HXPKFYszinHXm9__cQVkALBuJ8y6E0XWEuVD6CBMRrVk1KlMR5-WfK1D3V8mI6qWd_0CAjMJoei3WMq8HzyK0pXqNxrkWMBaMwE10Nb5rNxR9wMhrSZclB3fjFeHxDj3kCq4PpU4dVSmTq-j2dfTHtwimisQfbX_n29E_Y3C-PMEo0aKhtxdUnA-QGEK-n4e4pxClRdZdYDvQawUei4LmNxkjV0KG-30TAoMntmqAmS62ImaMsMfqUFwYh0NrY3EXDQZ_wdjX4rAS_Vr0K3FUi6NKvK9Fy6xkqz7ZuVfLw8ahhmvLll0r7mvZbBysWuE2CqdSHGW7dvDOjmkQzy-TC4vdaXE6LW6nxeu0DDstfqdl1Gm577QA552mbhasbhqA4ebBcql368fFpda7qh02967RNzZEbjBNjGBvlK9LeIEmJMU508ahb2DY9tGOx0ZQvsKMvDwupxTD-b6plId_ASAGYss=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="business-architecture-327-e2e-68g-npi_planningexecution_process_for_finished_goods_in_intel_foundry_with_planning_inte-e2e-68g-_npi_planning_execution_process_for_finished_goods_in_intel_foundry_with_planning_inte">BUSINESS ARCHITECTURE — 3.2.7 E2E-68G-<em>NPI_planning</em>&amp;<em>Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte — E2E-68G-_NPI_planning</em>&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte</h4>
-<p><strong>Swim Lanes</strong>: Boundary Apps</p>
-<p>· External Partners/ B2B
+
+#### BUSINESS ARCHITECTURE — 3.2.7 E2E-68G-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte — E2E-68G-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte
+
+**Swim Lanes**: Boundary Apps
+
+ · External Partners/ B2B
  · SAP S/4
 Intel Foundry LE500 Ireland
  · SAP S/4
-LE101 US Virtual</p>
-<p>| <strong>Tasks</strong>: 24 | <strong>Gateways</strong>: 7</p>
-<blockquote>
-<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
-</blockquote>
+LE101 US Virtual
+
+ | **Tasks**: 24 | **Gateways**: 7
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
 <div class="mermaid">
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1247,21 +1264,26 @@ flowchart LR
     class n38 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv4jgU_itWRhVUAk3iJAR4WIlbKqR2yhY68zDdBzc4EDXEkeP0sh3--x4ncQCX7Gq6PCDlO_6-c_GxD-HdCNiaGkPj4uI9SiIxRO8tsaU72hqi1iPJaKuDSuA74RF5jGnWkmtClohl9HexzHLSV7lMYj7ZRfGbRJd0wyi6n3fQCIhxB2UkyboZ5VHY6rRSHu0If5uwmHG5-gvth2ZYeKtMY8bXlB8WmKZnBS5Q4yihB9j2HM_xJS-jAUvWJ6KhG_bDoLWXwcXsJdgSLorw84zekNcf0Vps4TkkcUZhzVbs4mvySGOZo-C5xIKcP6tiRJn0k0DBlikJomQDuGMCxEnydIBcc79H-4uLh6R2iq7vHhIEnyAmWTalIcoEwLNngcIojodfnMnId81OJjh7osMveOZNbdwJZCZDSN3syOJ2X2i02YrhI4vX1dLui8xhiNPXDn8dYrPD3-Bb80WT9cHTpIf7uF97GnvWxJooT2EY_i9PUFe-ItlT5Wtm-9if1r4st-dOzI96Ks2p440svU6UP0cBPRL1fd-eHUo167mW2Sw69u2eOdFEN0TQF_J2EBxMnFrQdz3f8hoFS396lPnjgrNACdoz13drQW9s-SPcKOiMLKdfRQg6G07SLRqzvOhlNErTDKHSKj8Jdn7-fDBCMgxJN2AbtKA8ZHyHFiR46qAbwuG7aGK0XMwmq7v7G9SGBWiSZ4LtKC-ND8Zff5Wi0Bya79mroDwhMUhykVCefUVjPD6OoQ8RTAjnEeUg1KSzHC3Q8quD5omAaHyZESR0PXNNE805jUmyPha1QHS5jVJ0xdgazbMsp0gGfjtFUSIYWkYr1EZX89vpZe20rAgQFywTYEMhZ7uCC0exZFzN_e8awZbhcwpNgOaTQ2HmyTODVkNj2ES0YkMI1TKtU-qgrr1sdVSpLCCXhK7RrbyyTgmWeX67loLCxgrpCjqnokLpaZCLiCWQchDna5kF3GpZvksLlIXokUQxuNqBX3mvHjaydGedupO1zNAdDWiUCkQ2JEqgUAePOh2f0u8TTqFvo0CAy6VgwZNOsE8Jo9UCTbY0eELt_JibSe6lTm5o5avVshTR17un64u0nqH8EfiT3STPALpP11CbDLVnP24-eOydKpShRiFsJMsyVM4cNGVBphO986HejqfoIcemZRenBTYE_SneUPuaCfTtg_f-f4r4eVwo6MzB77u3dPdYa8WqeWevKYMJVXW_zrE-wcGf4Nif4LjtmpPGcJ1_W8zLoyiPjQ8_Z7IttF55BNpz_1L2fUBhn-fwSycC_TUoXh4r9g6K0LHpaVusoS3QhsKNeI7qadTDSag26yOlr1Hqvm-k2PKSnOFZt9f3u2h1U14j2u2G398PpVzT7iP8PAm2aEpjOCxwA8sOGap--So77sHY748V7PMK9BXupAxErsr5qdOcAw2GA3vJuiQWKCWcxDGNG0juZ0i9z5C8z5D6v0dqnoLFMEH3S_Q94iKHg3o8-5x6hN0hOeoE42RD0TULSHHvK0776m611KaZK-emvF7RCrYpC6FTi3kZJd0CiERxKMQpq6cPzX9f7p2MzGWepnF0GJnaPB7ofQ3HUrqasF0a049nxzY1wnJ1W5_V4COpLjLci6jb_UNezxWA3RIYVM_KbiqCWQGWAqwKwArAJWArwC6AXw9GeVJ-yXtcmeyK7Cpy5d5WgO2VAMY6YOuAqQMqRFyFaCu3GOuArQOmBtRJVMe-zENVya7Ctnoqj17FV3VVIagFtlMxNAXbURFUz8pePiq5KkVb5VypqapVYrWzKhqsPStfyjzQguvrwdXR9itGnW8VH67zrSSw0rBUyCojq68BdTN8AJyjtwXZkuot6QSGzjx61zk1Wc0m3Gyym01Os8ltNvWaTV6zqd9sGjSacHM1cHM1cHM1cHM1cHM14DpRL-qneK96qT5FvbNo_yw6OIfa5lnUOh8FHOrqTfYUts_DznnYPQ_3zsPeebivYKNjwLvUjkRrY_huFP8cGUNjTUOSx8LYdwySC7Z8SwJjWPzDYuTFz_VpRGBc7kpw_w-dGahB" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv4jgU_isWowoqgSZxEgI8rMQtFVI7ZRs68zDdBzc4EDXEkeP0sh3--x4ncQCX7Gq6PCDlO_6-c_GxD-G9FbA1bY1aFxfvURKJEXpviy3d0fYItR9JRttdVALfCY_IY0yztlwTskT40d_FMtNOX-UyiXlkF8VvEvXphlF0v-iiMRDjLspIkvUyyqOw3W2nPNoR_jZlMeNy9Rc6CI2w8FaZJoyvKT8sMAzXDBygxlFCD7Dl2q7tSV5GA5asT0RDJxyEQXsvg4vZS7AlXBTh5xm9Ia8_orXYwnNI4ozCmq3YxdfkkcYyR8FziQU5f1bFiDLpJ4GC-SkJomQDuG0AxEnydIAcY79H-4uLh6R2iq7vHhIEnyAmWTajIcoEwPNngcIojkdf7OnYc4xuJjh7oqMveO7OLNwNZCYjSN3oyuL2Xmi02YrRI4vX1dLei8xhhNPXLn8dYaPL3-Bb80WT9cHTtI8HeFB7mrjm1JwqT2EY_i9PUFe-ItlT5Wtuedib1b5Mp-9MjY96Ks2Z7Y5NvU6UP0cBPRL1PM-aH0o17zum0Sw68ay-MdVEN0TQF_J2EBxO7VrQc1zPdBsFS396lPnjkrNACVpzx3NqQXdiemPcKGiPTXtQRQg6G07SLZqwvOhlNE7TDKHSKj8Jtn_-fGiFZBSSXsA2aEl5yPgOLUnw1EU3hMN30cTIX86nq7v7G9SBBWiaZ4LtKC-ND62__ipFoTk03_NXQXlCYpDkIqE8-4omeHIcwwAimBLOI8pBqEnHHy-R_9VGi0RANJ7MCBK6njuGgRacxiRZH4uaIOpvoxRdMbZGiyzLKZKB385QlAiG_GiFOuhqcTu7rJ2WFQHikmUCbCjkbFdw4SiWjKuF910jWDJ8TqEJ0GJ6KMwieWbQamgCm4hWbAShmoZ5Sh3WtZetjiqVJeSS0DW6lVfWKcE0zm-XLyhsrJCuoHMqKpSeBrmIWAIpB3G-llnArZblu7RAWYgeSRSDqx34lffqYSNLd-apO1nLDN3RgEapQGRDogQKdfCo0_Ep_T7hFPo2CgS49AULnnSCdUoYr5ZouqXBE-rkx9xMci91ckMrX638UkRf75yuL9J6hvJH4E92kzwD6D5dQ20y1Jn_uPngsX-qUIYahbCRLMtQOXPQjAWZTnTPh3o7maGHHBumVZwW2BD0p3hDnWsm0LcP3gf_KeLlcaGgM4e_797U3WOtFavmnb-mDCZU1f06x_wEB3-CY32C43RqThrDdf5tuSiPojw2HvycybbQeuUR6Cy8S9n3AYV9XsAvnQj016B4eazYPyhCx6anbbGGtkAbCjfiOaqrUQ8nodqsj5SBRqn7vpFiyUtyjue9_sDrodVNeY1otxt-fz-Uck17j_DzJNiiGY3hsMANLDtkpPrlq-y4h9Z-f6xgnVegr3AnZSByVc5PnWYfaDAc2EvWI7FAKeEkjmncQHI-Q-p_huR-hjT4PVLzFCyGCbr30feIixwO6vHss-sRdofkqBOMkw1F1ywgxb2vOJ2ru5WvTTNHzk15vaIVbFMWQqcW8zJKegUQieJQiFNWXx-a_77cPRmZfp6mcXQYmdo8Hup9DcdSupqyXRrTj2fHMjSCv7qtz2rwkVQXGe5F1Ov9Ia_nCsBOCQyrZ2U3FMGoAFMBZgVgBeASsBRgFcCvh1Z5Un7Je1yZrIrsKHLl3lKA5ZYAxjpg6YChAypEXIVoKbcY64ClA4YG1ElUx77MQ1XJqsI2-yqPfsVXdVUhqAWWXTE0BctWEVTPyl4-KrkqRUvlXKmpqlVitbMqGqw9K1_KPNSCG-jB1dEOKkadbxUfrvOtJLDSMFXIKiNzoAF1M3wA7KO3BdmS6i3pBIbOPHrXOTWZzSbcbLKaTXazyWk29ZtNbrNp0GwaNppwczVwczVwczVwczVwczXgOlEv6qd4v3qpPkXds-jgLDo8h1rGWdQ8HwUc6upN9hS2zsP2edg5D_fPw-55eKDgVrcF71I7Eq1bo_dW8c8R_Lu0piHJY9Had1skF8x_S4LWqPiHpZUXP9dnEYFxuSvB_T-dGahB" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="business-architecture-328-e2e-68h-npi_planningexecution_process_for_finished_goods_in_intel_foundry_with_planning_inte-e2e-68h-_npi_planning_execution_process_for_finished_goods_in_intel_foundry_with_planning_inte">BUSINESS ARCHITECTURE — 3.2.8 E2E-68H-<em>NPI_planning</em>&amp;<em>Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte — E2E-68H-_NPI_planning</em>&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte</h4>
-<p><strong>Swim Lanes</strong>: CFIN
+
+#### BUSINESS ARCHITECTURE — 3.2.8 E2E-68H-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte — E2E-68H-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte
+
+**Swim Lanes**: CFIN
  · LE101 US Virtual
  · SAP S/4
-Intel Product | <strong>Tasks</strong>: 7 | <strong>Gateways</strong>: 3</p>
-<blockquote>
-<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
-</blockquote>
+Intel Product | **Tasks**: 7 | **Gateways**: 3
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
 <div class="mermaid">
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1313,21 +1335,27 @@ flowchart LR
     class n12 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2PmzoQ_SsWq1VaiaiYQMjycCVCwtVK295V2W4fmj44YBJrjY1sk49G-e_XBMgHXR6q8hBpzpw5Z2YcPg5GwlNs-Mb9_YEwonxwGKg1zvHAB4Mlknhgghp4RYKgJcVyUHEyzlRMfp1o0Cl2Fa3CIpQTuq_QGK84Bt8eTRDoQmoCiZgcSixINjAHhSA5EvuQUy4q9h2eZFZ2cmtSUy5SLC4Ey_Jg4upSShi-wCPP8ZyoqpM44Sy9Ec3cbJIlg2PVHOXbZI2EOrVfSvwZ7b6TVK11nCEqseasVU6f0BLTakYlygpLSrFpl0Fk5cP0wuICJYStNO5YGhKIvV0g1zoewfH-fsHOpuDp64IBfSUUSTnDGZBKw_ONAhmh1L9zwiByLVMqwd-wf2fPvdnINpNqEl-PbpnVcodbTFZr5S85TRvqcFvN4NvFzhQ737ZMsde_HS_M0otTOLYn9uTsNPVgCMPWKcuyv3LSexUvSL41XvNRZEezsxd0x25o_a7XjjlzvAB294TFhiT4SjSKotH8sqr52IVWv-g0Go2tsCO6Qgpv0f4i-BA6Z8HI9SLo9QrWft0uy-Wz4EkrOJq7kXsW9KYwCuxeQSeAzqTpUOusBCrWIIwev4Aaqy7m_PixMDLkZ2iY8BV4RvscMwW-4gSTQi2Mnz-vyO4tOURyDYKioCRBinDWYT98OLOl4sVvdFBNhqUEIc8LihVOtcDHWkD_szqNP82hBcG3GLwSoUpEr4cYd_oSWJ8DCEttm2MBHtmG66PutOd1h6FJSau6F7TDskOG8HBo2UgIvpVDRBUokECUYvpvfe4L43js6z8OnkH8ydHNKEyr0dMyUdcO787wqoV43wT2bcmLIKuVHneJCD0dYhB_AYoDhncK_BcHL53y0W356cg3GHxoFvyxQ590jnPa2jS-18dXT2T92c7qIvvdIsISWkrdXv-mmQOGw3_0n7QJ3Tp8aEJo1bHdieEZsBugiUdN2NySrElPmnDcpFs6hDXgdeKzvlfH4zZfh87VDV-BV4-lm4zdmxn1ZpzejNubGfdmvN7MpHkR3IAP74F66c0j8haG78N2CxumoW_kHJHU8A_G6bNBf1qkOEMlVcbRNFCpeLxnieGfXq9GWaS6ckaQvvnyGjz-D1rWsRo=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2PmzoQ_SsWq1VaiaiYQMjycCVCwtVK295V2W4fmj44YBJrjY1sk49G-e_XBMgHXR6q8hBpzpw5Z2YcPg5GwlNs-Mb9_YEwonxwGKg1zvHAB4Mlknhgghp4RYKgJcVyUHEyzlRMfp1o0Cl2Fa3CIpQTuq_QGK84Bt8eTRDoQmoCiZgcSixINjAHhSA5EvuQUy4q9h2eZFZ2cmtSUy5SLC4Ey_Jg4upSShi-wCPP8ZyoqpM44Sy9Ec3cbJIlg2PVHOXbZI2EOrVfSvwZ7b6TVK11nCEqseasVU6f0BLTakYlygpLSrFpl0Fk5cP0wuICJYStNO5YGhKIvV0g1zoewfH-fsHOpuDp64IBfSUUSTnDGZBKw_ONAhmh1L9zwiByLVMqwd-wf2fPvdnINpNqEl-PbpnVcodbTFZr5S85TRvqcFvN4NvFzhQ737ZMsde_HS_M0otTOLYn9uTsNPVgCMPWKcuyv3LSexUvSL41XvNRZEezsxd0x25o_a7XjjlzvAB294TFhiT4SjSKotH8sqr52IVWv-g0Go2tsCO6Qgpv0f4i-BA6Z8HI9SLo9QrWft0uy-Wz4EkrOJq7kXsW9KYwCuxeQSeAzqTpUOusBCrWIIwev4Aaqy7m_PixMDLkZ2iY8BV4RvscMwW-4gSTQi2Mnz-vyO4tOURyDYKioCRBinDWYT98OLOl4sVvdFBNhqUEIc8LihVOtcDHWkD_szqNP82hBcG3GLwSoUpEr4cYd_oSWJ8DCEttm2MBHtmG66PutOd1h6FJSau6F7TDskOG8HBo2UgIvpVDRBUokECUYvpvfe4L43js6z8OnkH8ydHNKEyr0dMyUdcO787wqoV43wT2bcmLIKuVHneJCD0dYhB_AYoDhncK_BcHL53y0W356cg3GHxoFvyxQ590jnPa2jS-18dXT2T92c7qIvvdIsISWkrdXv-mmQOGw3_0n7QJ3Tp8aEJo1bHdieEZsBugiUdN2NySrElPmnDcpFs6hDXgdeKzvlfH4zZfh87VDV-BV4-lm4zdmxn1ZpzejNubGfdmvN7MpHkR3IAP74F66c0j8haG78N2CxumoW_kHJHU8A_G6bNBf1qkOEMlVcbRNFCpeLxnieGfXq9GWaS6ckaQvvnyGjz-D1rWsRo=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="business-architecture-329-e2e-68i-_tm_steps-e2e-68i-_tm_steps">BUSINESS ARCHITECTURE — 3.2.9 E2E-68I-_TM_Steps — E2E-68I-_TM_Steps</h4>
-<p><strong>Swim Lanes</strong>: Boundary Apps</p>
-<p>· SAP S/4
+
+#### BUSINESS ARCHITECTURE — 3.2.9 E2E-68I-_TM_Steps — E2E-68I-_TM_Steps
+
+**Swim Lanes**: Boundary Apps
+
+ · SAP S/4
 LE778 China
- | <strong>Tasks</strong>: 10 | <strong>Gateways</strong>: 1</p>
-<blockquote>
-<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
-</blockquote>
+ | **Tasks**: 10 | **Gateways**: 1
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
 <div class="mermaid">
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1381,90 +1409,36 @@ flowchart LR
     class n14 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4jgU_itWqooZKai5EpqHlSCQqlKrQU27-zCdB5M4YNXYke0UWMR_XzsJUDLJvGweUL5z-c6F4-McjJRlyAiN29sDpliG4DCQa7RBgxAMllCggQlqwd-QY7gkSAy0Tc6oTPC_lZntFTttpmUx3GCy19IErRgCb48mmChHYgIBqRgKxHE-MAcFxxvI9xEjjGvrGzTOrbyK1qimjGeIXwwsK7BTX7kSTNFF7AZe4MXaT6CU0eyKNPfzcZ4Ojjo5wrbpGnJZpV8K9Ax3_-BMrhXOIRFI2azlhjzBJSK6RslLLUtL_nlqBhY6DlUNSwqYYrpScs9SIg7px0XkW8cjON7evtNzUPD08k6BelIChZihHAipxPNPCXJMSHjjRZPYt0whOftA4Y0zD2auY6a6klCVbpm6ucMtwqu1DJeMZI3pcKtrCJ1iZ_Jd6Fgm36vfVixEs0ukaOSMnfE50jSwIzs6Rcrz_H9FUn3lr1B8NLHmbuzEs3Ms2x_5kfU736nMmRdM7HafEP_EKfpCGsexO7-0aj7ybaufdBq7Iytqka6gRFu4vxDeR96ZMPaD2A56Cet47SzL5YKz9ETozv3YPxMGUzueOL2E3sT2xk2GimfFYbEGU1ZWswwmRSEAqLX6ofbPn-9GDsMcDlO2AgvEc8Y3IIKcY8TBI_1kql_gRZ-GFBMMJWb0DsywKEqJwDOkcKWOM5UA0gws4F6_i3fj1686iBqWVi7JZAGSOw88zYNgDKI1pvBrQk53QjGvRgi8qa0CHhBFvMoEfHt9_n6JVjG41wwRR-r_ORP80Hug5eFde7wVmfY49eBFAVGVpw_fCoEUkrQkvfH9P1dQJQDmO5SWfQyjboYFE_JMkyApSd35GUvL6qWDKuhsRlIfA7D4ARQziJNZl--423eegC2WazApJVODQZDa613u9z2jpatQ8yM5XlYduJusEE33YFoKtYuFuNRTR8y6yG2rm_3hNVEzhdKPtr397WxfEHVYH9UgYV3P67PanqjQM_v9q4NzcRCSFf3ptR3dluM5JVX6piCow8U7HE4uaujYVgwhkaCAHBKCyEO9X96N47F1qKgDhsO_1Mg30Kuh30C_hqMGjmoYNHBcw_sGujW0vQbbDVkb2822okGNxw28b9TOyd5qBKfkbLsWOF-2nZJ-3clXGqdX4_ZqvF6N36sZ9WqCXs24V3Pfq1EN6VXZ5xv8Wu40t-211O2UeqeLyDCNDeIbiDMjPBjV55b6JMtQDksijaNpQHVykz1NjbD6LDHKauHNMFQbelMLj_8BZUkVVw==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4jgU_itWqooZKai5EpqHlSCQqlKrQU27-zCdB5M4YNXYke0UWMR_XzsJUDLJvGweUL5z-c6F4-McjJRlyAiN29sDpliG4DCQa7RBgxAMllCggQlqwd-QY7gkSAy0Tc6oTPC_lZntFTttpmUx3GCy19IErRgCb48mmChHYgIBqRgKxHE-MAcFxxvI9xEjjGvrGzTOrbyK1qimjGeIXwwsK7BTX7kSTNFF7AZe4MXaT6CU0eyKNPfzcZ4Ojjo5wrbpGnJZpV8K9Ax3_-BMrhXOIRFI2azlhjzBJSK6RslLLUtL_nlqBhY6DlUNSwqYYrpScs9SIg7px0XkW8cjON7evtNzUPD08k6BelIChZihHAipxPNPCXJMSHjjRZPYt0whOftA4Y0zD2auY6a6klCVbpm6ucMtwqu1DJeMZI3pcKtrCJ1iZ_Jd6Fgm36vfVixEs0ukaOSMnfE50jSwIzs6Rcrz_H9FUn3lr1B8NLHmbuzEs3Ms2x_5kfU736nMmRdM7HafEP_EKfpCGsexO7-0aj7ybaufdBq7Iytqka6gRFu4vxDeR96ZMPaD2A56Cet47SzL5YKz9ETozv3YPxMGUzueOL2E3sT2xk2GimfFYbEGU1ZWswwmRSEAqLX6ofbPn-9GDsMcDlO2AgvEc8Y3IIKcY8TBI_1kql_gRZ-GFBMMJWb0DsywKEqJwDOkcKWOM5UA0gws4F6_i3fj1686iBqWVi7JZAGSOw88zYNgDKI1pvBrQk53QjGvRgi8qa0CHhBFvMoEfHt9_n6JVjG41wwRR-r_ORP80Hug5eFde7wVmfY49eBFAVGVpw_fCoEUkrQkvfH9P1dQJQDmO5SWfQyjboYFE_JMkyApSd35GUvL6qWDKuhsRlIfA7D4ARQziJNZl--423eegC2WazApJVODQZDa613u9z2jpatQ8yM5XlYduJusEE33YFoKtYuFuNRTR8y6yG2rm_3hNVEzhdKPtr397WxfEHVYH9UgYV3P67PanqjQM_v9q4NzcRCSFf3ptR3dluM5JVX6piCow8U7HE4uaujYVgwhkaCAHBKCyEO9X96N47F1qKgDhsO_1Mg30Kuh30C_hqMGjmoYNHBcw_sGujW0vQbbDVkb2822okGNxw28b9TOyd5qBKfkbLsWOF-2nZJ-3clXGqdX4_ZqvF6N36sZ9WqCXs24V3Pfq1EN6VXZ5xv8Wu40t-211O2UeqeLyDCNDeIbiDMjPBjV55b6JMtQDksijaNpQHVykz1NjbD6LDHKauHNMFQbelMLj_8BZUkVVw==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
-<table>
-<thead>
-<tr>
-<th>Role / Lane</th>
-<th>Processes Involved</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Boundary Apps</td>
-<td>E2E-68A-_NPI_setup_for_IF,</td>
-<td></td>
-</tr>
-<tr>
-<td>SAP S/4 Intel Foundry</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>E2E-68A-_NPI_setup_for_IF,</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>SAP S/4</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Intel Foundry (LE-101)</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>E2E-68B-<em>Raising_Purchase_Order_by_Intel_Products_to_Intel_Foundry</em>(LE-101),</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>SAP S/4</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Intel Prod</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>E2E-68B-<em>Raising_Purchase_Order_by_Intel_Products_to_Intel_Foundry</em>(LE-101),</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>LE101 US Virtual</td>
-<td>E2E-68C-<em>Order_Confirmation</em>&amp;_Planned_order_trigger,</td>
-<td></td>
-</tr>
-<tr>
-<td>LE500 Ireland</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>E2E-68C-<em>Order_Confirmation</em>&amp;_Planned_order_trigger,</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>SAP S/4 Intel Foundry</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>LE778 China
- | E2E-68C-<em>Order_Confirmation</em>&amp;_Planned_order_trigger,  | |
+
+### 3.3 Business Roles & Responsibilities
+
+| Role / Lane | Processes Involved | Description |
+|------------|-------------------|-------------|
+| Boundary Apps | E2E-68A-_NPI_setup_for_IF,  | |
+| SAP S/4 Intel Foundry
+ | E2E-68A-_NPI_setup_for_IF,  | |
+| SAP S/4 
+Intel Foundry (LE-101)
+ | E2E-68B-_Raising_Purchase_Order_by_Intel_Products_to_Intel_Foundry_(LE-101),  | |
+| SAP S/4 
+Intel Prod
+ | E2E-68B-_Raising_Purchase_Order_by_Intel_Products_to_Intel_Foundry_(LE-101),  | |
+| LE101 US Virtual  | E2E-68C-_Order_Confirmation_&amp;_Planned_order_trigger,  | |
+| LE500 Ireland
+ | E2E-68C-_Order_Confirmation_&amp;_Planned_order_trigger,  | |
+| SAP S/4 Intel Foundry
+
+LE778 China
+ | E2E-68C-_Order_Confirmation_&amp;_Planned_order_trigger,  | |
 | Boundary
 Apps
 Intel Foundry
@@ -1472,67 +1446,58 @@ Intel Foundry
 | SAP S/4
 Intel Foundry (LE-500)
  | E2E-68D-_Manufacturing_process_in_IF,  | |
-| Boundary Apps</p>
-<p>| E2E-68E-<em>Manufacturing_process_in_IF</em>(NPI_Planning_and_Execution_Process), E2E-68F-<em>TM_Steps, E2E-68G-_NPI_planning</em>&amp;<em>Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte, E2E-68I-_TM_Steps | |
+| Boundary Apps
+
+ | E2E-68E-_Manufacturing_process_in_IF_(NPI_Planning_and_Execution_Process), E2E-68F-_TM_Steps, E2E-68G-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte, E2E-68I-_TM_Steps | |
 | SAP S/4
 Intel Foundry LE500 Ireland
- | E2E-68E-_Manufacturing_process_in_IF</em>(NPI_Planning_and_Execution_Process), E2E-68G-<em>NPI_planning</em>&amp;<em>Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte,  | |
+ | E2E-68E-_Manufacturing_process_in_IF_(NPI_Planning_and_Execution_Process), E2E-68G-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte,  | |
 | SAP S/4
 LE778 China
- | E2E-68E-_Manufacturing_process_in_IF</em>(NPI_Planning_and_Execution_Process), E2E-68F-<em>TM_Steps, E2E-68I-_TM_Steps | |
+ | E2E-68E-_Manufacturing_process_in_IF_(NPI_Planning_and_Execution_Process), E2E-68F-_TM_Steps, E2E-68I-_TM_Steps | |
 | External Partners/
 Supplier
  | E2E-68F-_TM_Steps,  | |
 | External Partners/ B2B
- | E2E-68G-_NPI_planning</em>&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte,  | |
+ | E2E-68G-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte,  | |
 | SAP S/4
-LE101 US Virtual</p>
-<p>| E2E-68G-<em>NPI_planning</em>&amp;<em>Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte,  | |
+LE101 US Virtual
+
+ | E2E-68G-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte,  | |
 | CFIN
- | E2E-68H-_NPI_planning</em>&amp;<em>Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte,  | |
+ | E2E-68H-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte,  | |
 | LE101 US Virtual
- | E2E-68H-_NPI_planning</em>&amp;<em>Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte,  | |
+ | E2E-68H-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte,  | |
 | SAP S/4
-Intel Product | E2E-68H-_NPI_planning</em>&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte,  | |</p>
+Intel Product | E2E-68H-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte,  | |
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
-<h3 id="41-data-entities-ownership">4.1 Data Entities &amp; Ownership</h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Data Entity</th>
-<th>Source System</th>
-<th>Target System</th>
-<th>Data Owner</th>
-<th>Classification</th>
-<th>Volume</th>
-<th>Master/Transaction</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>e.g. Cost Element</td>
-<td>e.g. MES 300</td>
-<td>e.g. XEUS</td>
-<td>Data steward</td>
-<td>e.g. Intel Confidential</td>
-<td>e.g. 10K rows/day</td>
-<td>Master / Transaction</td>
-</tr>
-</tbody>
-</table>
+
+## 4. Data Architecture (TOGAF "D")
+
+### 4.1 Data Entities & Ownership
+
+| # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
+|---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
+| 1 | e.g. Cost Element | e.g. MES 300 | e.g. XEUS | Data steward | e.g. Intel Confidential | e.g. 10K rows/day | Master / Transaction |
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="42-data-flow-diagrams">4.2 Data Flow Diagrams</h3>
-<blockquote>
-<p><strong>DATA ARCHITECTURE</strong> — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.</p>
-</blockquote>
-<h4 id="421-current-state-current-state-data-flows">4.2.1 Current-State — Current-State Data Flows</h4>
+
+### 4.2 Data Flow Diagrams
+
+> **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
+
+#### 4.2.1 Current-State — Current-State Data Flows
+
 <div class="mermaid">
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "15px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 35, "rankSpacing": 45}} }%%
 flowchart TB
@@ -1567,12 +1532,19 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlY9P2kAUx_-VyxnCloCrYEGbaHL9wTSpxlncltilOdpXuHi0TXudIPK_764F3BCc8S5puPfj-14_rzkWOEwjwAZuNBYsYcJAi6aYwBSaBmqOaAHNFmoWEJY5E3MXfgNXDp6mtacK_U5zRkcciqbKjtNEeOypEjjSs5kKU7YBnTI-V1YPximgu8sWIjKRN5cqgqeP4YTmotIoC7iisx8sEhN5jikvQMZMxJS7dARcFRJ5qWyJ7N7LaMiSsTR2dWnKafLwYjrWl0u0bDT8ZFMCDU0_QXKFnBaFDTGiWWamMxQzzo0DU7cHg0GrEHn6AMaBpvX7Zm91bD-qnoxONmuFKU9z5e7a-rZeNLLmfCVHdLtH-hu5jtO3u529ckem7nS0LTlI-Ut7g4Gpm_pGz7I0ufbq9XrK7Se1YlGOxjnNJsjpOL0TyyaWG0AwDshTmUPgfXPvfYx8_KuOVitiOYSCpckGmlrrdFJl_3TuPJkIh-NDpH5LAcMwaqavc-ytip987JfRSTeSzyg89ssYNPnKSqwKQjLIx5-VZIX1rS5Q-7B9vq9SnQhJtGIh5hz2gljDJmpvYDua2v_CPspm_8PrkZvgglyTD9G9crygq2lrwPKI5PE9jDdl30AsY5CKeQ_hVSe7IK9LvYfxOvZDiHeXRWdn588rQHbFFH1B5OZSPgeMg4-f938UW6NzYSzbv_-LWBhpyCZDgsitdXE5dKzh3a2DXOerc23vmaZ7-2J1AzV3kmWchVR5d4_ODew9c7KpoOom3j0iN3CkvJNE7TRuuyyGWr6-MnaOo37DNX1d7Q3909PTV-hxC08hn1IWYWOBqxtf_l9EENOSC7xsYVqK1JsnITaqSxmXWUQF2IxKotPauPwDwO_1ow==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtO2zAUhl_FMqq0SS0LLWkhEkjObSAFxEjZJpEpchOntXCTKHFGS-m7z84N1jUMYUuRfS7_cb4TORsYJCGBGuz1NjSmXAMbD_IFWRIPasCDM5yLVV-schIUGeVrh_wmrHKyJGm8Zcp3nFE8YySXbqETJTF36VMtdaSmqypY2m28pGxdeVwyTwi4u-wDJASE-LaMYsljsMAZr9WKnFzh1Q8a8oW0RJjlRMYt-JI5eEZYWZZnRWmNxWu5KQ5oPJfmkSqNGY4fXhmP1e0WbHs9L25rganuxUCMgOE8N0kEcJrqyQpElDHtQFdN27b7Oc-SB6IdKMpkoo_r7eBRHk0bpqt-kLAkk-6Rqe7qhTNjzWo5pJpjNGnlhtbEHA075Y501RoqO3IkYS_Hs21d1dVWzzAUMTr1xmPp9uJKMS9m8wynC2ANrfGJYSLD8Yk_99FTkRHf_ebce1Ag_FVFyxHSjAScJnELTY4mHZXZP607VySSw_khkGshoGlaxfTfHHOn4icPekV4MgrFMwyOvSIiinhlKVYGARHkwc9SssT61inA4HBw3lWpSiRxWLPga0Y6QTSwkZwtbEuR82_YR-KL_w9eF934F-gafYjuleX6I0VpAIstENv3MG7LvoFYxAAZ8x7C9Un2QW5KvYdxE_shxPvLgrOz8-cakFkyBV8AurkUT5sycTc9d38UO61zyFwc__4VsSBUgImmCKBb4-JyahnTu1sLONZX69rs6KZz-2J1fNl3lKaMBlh697fO8c2OPpmY4-qK3tcix7eEvBWHgyQaODQilXx1ZextR_WGDX1Vzpb-6enpP-hhHy5JtsQ0hNqm-gmIf0lIIlwwLq5xiAueuOs4gFp5McMiDTEnJsWC6LIybv8AGb3_Jw==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="422-future-state-future-state-data-flows">4.2.2 Future-State — Future-State Data Flows</h4>
+
+
+#### 4.2.2 Future-State — Future-State Data Flows
+
 <div class="mermaid">
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "15px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 35, "rankSpacing": 45}} }%%
 flowchart TB
@@ -1607,111 +1579,61 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlY9P2kAUx_-VyxnCloCrYEGbaHLQdppU4yxuS-zSHO0rXDzapr1OEPnfd9dC3RCc8S5puPfj-14_rzmWOEhCwAZuNJYsZsJAy6aYwgyaBmqOaQ7NFmrmEBQZEwsHfgNXDp4klacM_U4zRscc8qbKjpJYuOypFDjS07kKUzabzhhfKKsLkwTQ3WULEZnImysVwZPHYEozUWoUOVzR-Q8Wiqk8R5TnIGOmYsYdOgauComsULZYdu-mNGDxRBq7ujRlNH54MR3rqxVaNRpeXJdAo4EXI7kCTvPchAjRNB0kcxQxzo2DgW7att3KRZY8gHGgaf3-oLc-th9VT0YnnbeChCeZcndNfVsvHA8XfC1HdLNH-rVcx-qb3c5euaOBbnW0LTlI-Et7tj3QB3qtNxxqcu3V6_WU24srxbwYTzKaTpHVsXontkmGjg_-xCdPRQa--8259zDy8K8qWq2QZRAIlsQ1NLU26aTM_mnduTIRDieHSP2WAoZhVExf55hbFT952CvCk24on2Fw7BURaPKVlVgZhGSQhz8ryRLrW12g9mH7fF-lKhHicM1CLDjsBbGBTdSuYVua2v_CPkrn_8Prkhv_glyTD9G9sly_q2kbwPKI5PE9jOuybyCWMUjFvIfwupNdkDel3sN4E_shxLvLorOz8-c1ILNkir4gcnMpnzbj4OHn_R_F1ugcmMj27_8iFoQaMsmIIHI7vLgcWcPR3a2FHOurdW3umaZz-2J1fDV3kqacBVR5d4_O8c09czKpoOom3j0ix7ekvBWH7SRqOyyCSr66MnaOo3rDDX1d7Zr-6enpK_S4hWeQzSgLsbHE5Y0v_y9CiGjBBV61MC1E4i7iABvlpYyLNKQCTEYl0VllXP0BPKP1zQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1L4zAYx79KiAzuYPPqZjctKGRrewpVPDvvDuxRsjbdgllT2vTcnPvul_RNb7d6YgIleV7-T_p7SrqBAQ8JNGCns6ExFQbYeFAsyJJ40AAenOFMrrpylZEgT6lYO-Q3YaWTcV57i5TvOKV4xkim3FIn4rFw6VMldaQnqzJY2W28pGxdelwy5wTcXXYBkgJSfFtEMf4YLHAqKrU8I1d49YOGYqEsEWYZUXELsWQOnhFWlBVpXlhj-VpuggMaz5V5oCtjiuOHV8ZjfbsF207Hi5taYDr2YiBHwHCWmSQCOEnGfAUiyphxMNZN27a7mUj5AzEONG00Gg-rbe9RHc3oJ6tuwBlPlXtg6rt64WyyZpUc0s0hGjVyfWtkDvqtckdj3eprO3KEs5fj2fZYH-uN3mSiydGqNxwqtxeXilk-m6c4WQCrbw1PbBNNHJ_4cx895Snx3W_OvQclwl9ltBohTUkgKI8baGrU6ajI_mnduTKRHM4PgVpLAcMwSqb_5pg7FT950MvDk0Eon2Fw7OUR0eQrK7EiCMggD35WkgXWt04Beoe987ZKZSKJw4qFWDPSCqKGjdRsYFuamn_DPpJf_H_wuujGv0DX6EN0ryzXH2haDVhugdy-h3FT9g3EMgaomPcQrk6yD3Jd6j2M69gPId5fFpydnT9XgMyCKfgC0M2lfNqUybvpuf2j2GmdQ-by-PeviAWhBkw0RQDdTi4up9ZkendrAcf6al2bLd10bl-sjq_6jpKE0QAr7_7WOb7Z0icTC1xe0fta5PiWlLfisMejnkMjUsqXV8bedpRvWNPX1Wzon56e_oMeduGSpEtMQ2hsyp-A_JeEJMI5E_IahzgX3F3HATSKixnmSYgFMSmWRJelcfsHlWL_UQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="43-data-lineage">4.3 Data Lineage</h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Source System</th>
-<th>Source Schema/Object</th>
-<th>Target System</th>
-<th>Target Schema/Object</th>
-<th>Transformation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>e.g. MES 300</td>
-<td>e.g. CKMLHD table</td>
-<td>e.g. XEUS</td>
-<td>e.g. dbo.CostElements</td>
-<td>Lineage notes</td>
-</tr>
-</tbody>
-</table>
-<h3 id="44-ricefw-data-objects">4.4 RICEFW Data Objects</h3>
-<p>Reports and Conversions for this capability will be populated from the Smartsheet Object Tracker via automated API extraction.</p>
-<table>
-<thead>
-<tr>
-<th>Object ID</th>
-<th>Type</th>
-<th>Description</th>
-<th>Status</th>
-<th>Source</th>
-<th>Target</th>
-<th>Complexity</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>E2E-68-R001</td>
-<td>Report</td>
-<td>-Intel Foundry   NPI planning and execution processes operational report</td>
-<td>Planned</td>
-<td>SAP S/4HANA</td>
-<td>Analytics</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>E2E-68-C001</td>
-<td>Conversion</td>
-<td>Legacy data migration for -Intel Foundry   NPI planning and execution processes</td>
-<td>Planned</td>
-<td>Legacy ERP</td>
-<td>SAP S/4HANA</td>
-<td>High</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Pending: Smartsheet API integration to auto-populate live RICEFW data (see Build Requirements).</em></p>
-</blockquote>
-<h3 id="45-data-governance-quality">4.5 Data Governance &amp; Quality</h3>
-<table>
-<thead>
-<tr>
-<th>Concern</th>
-<th>Approach</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Data Ownership</td>
-<td>Per-entity owners listed in Section 3.1</td>
-</tr>
-<tr>
-<td>Data Classification</td>
-<td>Financial data classified as Intel Confidential</td>
-</tr>
-<tr>
-<td>Data Retention</td>
-<td>Per Intel corporate retention policies</td>
-</tr>
-<tr>
-<td>Data Quality</td>
-<td>Validated at source; reconciliation at target</td>
-</tr>
-</tbody>
-</table>
+
+### 4.3 Data Lineage
+
+| # | Source System | Source Schema/Object | Target System | Target Schema/Object | Transformation |
+|---|-------------|---------------------|---------------|---------------------|---------------|
+| 1 | e.g. MES 300 | e.g. CKMLHD table | e.g. XEUS | e.g. dbo.CostElements | Lineage notes |
+
+### 4.4 RICEFW Data Objects
+
+Reports and Conversions for this capability will be populated from the Smartsheet Object Tracker via automated API extraction.
+
+| Object ID | Type | Description | Status | Source | Target | Complexity |
+|-----------|------|-------------|--------|--------|--------|-----------|
+| E2E-68-R001 | Report | -Intel Foundry   NPI planning and execution processes operational report | Planned | SAP S/4HANA | Analytics | Medium |
+| E2E-68-C001 | Conversion | Legacy data migration for -Intel Foundry   NPI planning and execution processes | Planned | Legacy ERP | SAP S/4HANA | High |
+
+> *Pending: Smartsheet API integration to auto-populate live RICEFW data (see Build Requirements).*
+
+### 4.5 Data Governance & Quality
+
+| Concern | Approach |
+|---------|----------|
+| Data Ownership | Per-entity owners listed in Section 3.1 |
+| Data Classification | Financial data classified as Intel Confidential |
+| Data Retention | Per Intel corporate retention policies |
+| Data Quality | Validated at source; reconciliation at target |
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</h2>
-<h3 id="51-current-state-current-state-application-landscape">5.1 Current-State — Current-State Application Landscape</h3>
-<h4 id="overview">Overview</h4>
-<p>The Current-State architecture represents the <strong>current / legacy</strong> landscape for E2E-68.This view is generated from <code>CurrentFlows.xlsx</code> (1 flow hops across 1 flow chains).</p>
-<h4 id="application-architecture-architecture-diagram-archimate-inspired">APPLICATION ARCHITECTURE — Architecture Diagram (ArchiMate-Inspired)</h4>
-<blockquote>
-<p><strong>Click any system node</strong> to open its IAPM application page.
-<strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
-</blockquote>
+
+## 5. Application Architecture (TOGAF "A")
+
+### 5.1 Current-State — Current-State Application Landscape
+
+#### Overview
+
+The Current-State architecture represents the **current / legacy** landscape for E2E-68.This view is generated from `CurrentFlows.xlsx` (1 flow hops across 1 flow chains).
+
+#### APPLICATION ARCHITECTURE — Architecture Diagram (ArchiMate-Inspired)
+
+> **Click any system node** to open its IAPM application page.
+> **Legend**: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span>
+
 <div class="mermaid">
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "16px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
 flowchart TB
@@ -1733,6 +1655,7 @@ flowchart TB
     E2E68C_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E68CMW_e_g_Azure_Service_Bus
     E2E68CMW_e_g_Azure_Service_Bus --> E2E68C_e_g_XEUS
 
+
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -1746,43 +1669,38 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVdtu4jAQ_RUrFeIF2vTCpVGFFEhYsQpt1fSyq2UVmXgCVk0S2U5bSvn3tRMKKbSia6SgzJw545yZsRdGmBAwLKNSWdCYSgstqnIKM6haqDrGAqo1VBUQZpzKuQdPwLSDJUnhyaH3mFM8ZiCqOjpKYunT15zguJm-aJi29fGMsrm2-jBJAN0NashWgayGBI5FXQCnUXWp0Sx5DqeYy5wvEzDELw-UyKl6jzAToDBTOWMeHgPTSSXPtC1WX-KnOKTxRBnPTGXiOH7cmBrmcomWlcooXqdAt91RjNSqVFC9rjYUTukQS6jTWKSUA0FCzhmgkGEhQChMAc_fHYjQOBM0BiFQviLKmHXQV6vbqAnJk0ewDrrtdtPsrl7rz_pLrJP0pRYmLOHWgWmaW5w4TdFmFZzdhmZdc5pmq9Vt_gcnwRLvcjrtPZzHHzjffQQLJR7Hc6UpamxlmlFCGDxjDmVFnKa9UcRtNfsbtm_sHhK2o4jWuKRyr2ea-zgLVpGNJxynU2R7f0bGKCPtU6Ke5LSB7Otrb9CzbwdXl8izf7s3I-NvEaQXUQ0RSprEyLvZWN0Tt9nuBRBMgqHrB6emWWYNoYngcHKIlA8pnyK0LEtV-FOCX-6d_2m0dnwZOnzIg-3XjEPgA3-iIQTdTHz4uuNWwZSj0AqFFKqg3VRtm91xc_ZeImTgMjXvseyUtxieFcQagFaAizE_6lzQTuHw79ERGjhJqP5--leXF0e0U2TVXVnkg5i812dXUDV2nbeRkbM5eREUk309UM8-ZTAy3vYoUSb-CqOTbNdCb2nVNPkx0PVKI9439414OdReh5rfmeSdZvVgojT60BzERJ77w710vtGlXqB6e7u17DRlNMQa_ElzecHwYbuFhps2-bJtvMBxtzvE0cePG0t1i2xXvghxr4phPGmSMwUk9SSqezRapVHzX2qTjaiFKO_CNvRvLez5-fnOWWbUjBnwGabEsBZGfnupu49AhDMmjWXNwJlM_HkcGlZ-qRhZqjYKDsWqCLPCuPwHSMA9mQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzxaSoQqpU06dUoBLQM2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpVzTgtOJAKndiDPNUhXyhzXUQSe_N8HaPqQLLpbGE8IsA3I1ahIXAUSTSJrKloSCTyNrVWWI7C6Z00KtkUsJY3p_w5maa8uUCgk6bq4WIqATENUUVFFW1hSXGOY04elMm49tbSxo-rdmbNurFVk1GlH6Uov86EcpwdFokFYL55bM-ZgqaPFU5rwARqRaCiCJoFKCxBgTXn17MCWTUvIUpCTVmHIhnL0hjn67KVWR_QVnr9_tduz--rN1pxfkHOb3zSQTWeHs2ba9hUnznGyGwey3NeoLpm2fnPQ7_4HJqKK7mF73A8yDV5jPPkYlklfQJXJK2luVFpwxAXe0gDojXsfdMOKfdIYbtE_MHjKxw4jmuMbyYGDbH2EaVFlOZgXN58QNfkdWVLLuEcMnO2oT9_IyGA3cH6OLcxK4v_zvkfXHJOnBUBCJ4llKgu8bq3_od7qDGOJZPPbD-Mi266gJdAh8mX0h6CPoQ0DHcbDDbwL89K_CN7O1493U8U2V7D6UBcQhFLc8gbhfylerOzgxSFUUWUcRjDKwm65to3t-hT7IpIp9gUdAqnr1KSbHBlgHkHXA2aTY753xnnGE12SfjLwswb9v4cX52T7vmapalaYepOy5P7uE4rbrPUVWheZVTUAk93KEzyEXePY8fcBEHfi9GF1kuxd6SmvRVMdAP6ht8aH90Ravp7ovqfZndvKOWAOYIUevxMFsEvhf_XPvEyoNYtT2trTcPBc8oTr4DXEF8fhmW0LjjUzelU0Qe_62Qjx9_Pipwstlu_Mmxb8wm_Gww44xkLWyaSvg03UZ3P81mWxINaQ8E9vWvxdiT09Pd84yq2ktoFhQzizn0VxoeC8ymNJSKLyGLFqqLFymieVUF4tV5jhR8DjFJiyMcfUPOV9HHQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="current-state-flow-narrative">Current-State Flow Narrative</h4>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Flow Chain</th>
-<th>Path</th>
-<th>Interface</th>
-<th>Freq</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>e.g. MES Route to ICOST</td>
-<td>e.g. MES 300 → e.g. XEUS</td>
-<td>e.g. Direct / API / File</td>
-<td>e.g. Near Real-Time</td>
-</tr>
-</tbody>
-</table>
+
+#### Current-State Flow Narrative
+
+| # | Flow Chain | Path | Interface | Freq |
+|---|-----------|------|-----------|------|
+| 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="52-future-state-future-state-application-landscape">5.2 Future-State — Future-State Application Landscape</h3>
-<h4 id="overview_1">Overview</h4>
-<p>The Future-State architecture represents the <strong>target</strong> landscape for E2E-68.This view is generated from <code>FutureFlows.xlsx</code> (1 flow hops across 1 flow chains).</p>
-<h4 id="application-architecture-architecture-diagram-archimate-inspired_1">APPLICATION ARCHITECTURE — Architecture Diagram (ArchiMate-Inspired)</h4>
-<blockquote>
-<p><strong>Click any system node</strong> to open its IAPM application page.
-<strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
-</blockquote>
+
+### 5.2 Future-State — Future-State Application Landscape
+
+#### Overview
+
+The Future-State architecture represents the **target** landscape for E2E-68.This view is generated from `FutureFlows.xlsx` (1 flow hops across 1 flow chains).
+
+#### APPLICATION ARCHITECTURE — Architecture Diagram (ArchiMate-Inspired)
+
+> **Click any system node** to open its IAPM application page.
+> **Legend**: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span>
+
 <div class="mermaid">
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "16px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
 flowchart TB
@@ -1804,6 +1722,7 @@ flowchart TB
     E2E68F_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E68FMW_e_g_Azure_Service_Bus
     E2E68FMW_e_g_Azure_Service_Bus --> E2E68F_e_g_XEUS
 
+
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -1817,161 +1736,89 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVdtu4jAQ_RUrFeIF2vTCpVGFFEhYsQpt1fSyq2UVmXgCVk0S2U5bSvn3tRMKKbSia6SgzJw545yZsRdGmBAwLKNSWdCYSgstqnIKM6haqDrGAqo1VBUQZpzKuQdPwLSDJUnhyaH3mFM8ZiCqOjpKYunT15zguJm-aJi29fGMsrm2-jBJAN0NashWgayGBI5FXQCnUXWp0Sx5DqeYy5wvEzDELw-UyKl6jzAToDBTOWMeHgPTSSXPtC1WX-KnOKTxRBnPTGXiOH7cmBrmcomWlcooXqdAt91RjNSqVFC9rjYUTukQS6jTWKSUA0FCzhmgkGEhQChMAc_fHYjQOBM0BiFQviLKmHXQV6vbqAnJk0ewDrrtdtPsrl7rz_pLrJP0pRYmLOHWgWmaW5w4TdFmFZzdhmZdc5pmq9Vt_gcnwRLvcjrtPZzHHzjffQQLJR7Hc6UpamxlmlFCGDxjDmVFnKa9UcRtNfsbtm_sHhK2o4jWuKRyr2ea-zgLVpGNJxynU2R7f0bGKCPtU6Ke5LSB7Otrb9CzbwdXl8izf7s3I-NvEaQXUQ0RSprEyLvZWN0Tt9nuBxBMgqHrB6emWWYNoYngcHKIlA8pnyK0LEtV-FOCX-6d_2m0dnwZOnzIg-3XjEPgA3-iIQTdTHz4uuNWwZSj0AqFFKqg3VRtm91xc_ZeImTgMjXvseyUtxieFcQagFaAizE_6lzQTuHw79ERGjhJqP5--leXF0e0U2TVXVnkg5i812dXUDV2nbeRkbM5eREUk309UM8-ZTAy3vYoUSb-CqOTbNdCb2nVNPkx0PVKI9439414OdReh5rfmeSdZvVgojT60BzERJ77w710vtGlXqB6e7u17DRlNMQa_ElzecHwYbuFhps2-bJtvMBxtzvE0cePG0t1i2xXvghxr4phPGmSMwUk9SSqezRapVHzX2qTjaiFKO_CNvRvLez5-fnOWWbUjBnwGabEsBZGfnupu49AhDMmjWXNwJlM_HkcGlZ-qRhZqjYKDsWqCLPCuPwHjzE9sQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1Izz6IEKVUpJOnVJAhI1NyxS58W1rzU2i2AEK9L_vOi40tCCYK6XJfZxrn3tsP1pJxsByrEbjkadcOeQxstQcFhBZDomsCZX41sQ3CUlZcLUM4BaEcYose_ZWKT9owelEgNRuxJlmqQr5wxrqoJPfm2BtH9IFF0vjCWGWAfk-ahIXAUSTSJrKloSCTyNrVWWI7C6Z00KtkUsJY3p_w5maa8uUCgk6bq4WIqATENUUVFFW1hSXGOY04elMm49tbSxo-rdmbNurFVk1GlH6UotcD6KU4Gg0SKuFc0vmfEwVtHgqc14AI1ItBZBEUClBYowJr749mJJJKXkKUpJqTLkQzt4Qx6DdlKrI_oKzN-j1OvZg_dm60wtyDvP7ZpKJrHD2bNvewqR5TjbDYA7aGvUF07a73UHnPzAZVXQX0-t9gHnwCvPZx6hE8gq6RE5Je6vSgjMm4I4WUGfE67gbRvxuZ7hB-8TsIRM7jGiOayyfndn2R5gGVZaTWUHzOXGD35EVlax3xPDJjtrEvbwMRmfu9ejinATuL_8qsv6YJD0YCiJRPEtJcLWx-od-pzeMIZ7FYz-Mj2y7jppAh8CX2ReCPoI-BHQcBzv8JsBP_3v4ZrZ2vJs6vqmS3YeygDiE4pYnEA9K-Wp1B12DVEWRdRTBKAO76do2uudX6GeZVLEv8AhIVb8-xeTYAOsAsg44nRT7_VPeN47wB9knIy9L8O9beHF-us_7pqpWpakHKXvuzy6huO36T5FVoXlVExDJvRzhc8gFnj1PHzBRB34vRhfZ7oWe0lo01TEwCGpbfGh_tMXrqe5Lqv2Znbwj1gBmyNErcTCbBP5X_9z7hEqDGLW9LS03zwVPqA5-Q1xBPL7ZltB4I5N3ZRPEnr-tEE8fP36q8HLZ7rxJ8S_MZjzssGMMZK1s2gr4dF0G939NJhtSDSnPxLb174XYk5OTnbPMaloLKBaUM8t5NBca3osMprQUCq8hi5YqC5dpYjnVxWKVOU4UPE6xCQtjXP0Df9BHNQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="future-state-flow-narrative">Future-State Flow Narrative</h4>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Flow Chain</th>
-<th>Path</th>
-<th>Interface</th>
-<th>Freq</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>e.g. MES Route to ICOST</td>
-<td>e.g. MES 300 → e.g. XEUS</td>
-<td>e.g. Direct / API / File</td>
-<td>e.g. Near Real-Time</td>
-</tr>
-</tbody>
-</table>
+
+#### Future-State Flow Narrative
+
+| # | Flow Chain | Path | Interface | Freq |
+|---|-----------|------|-----------|------|
+| 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="53-change-impact-summary">5.3 Change Impact Summary</h3>
-<table>
-<thead>
-<tr>
-<th>Change Type</th>
-<th>Flow Chain</th>
-<th>Detail</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>UNCHANGED</strong></td>
-<td>e.g. MES Route to ICOST</td>
-<td>No change</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Totals</strong>: 0 new - 0 removed - 0 modified - 1 unchanged</p>
-<h3 id="54-component-overview">5.4 Component Overview</h3>
-<h4 id="system-inventory">System Inventory</h4>
-<table>
-<thead>
-<tr>
-<th>System</th>
-<th>IAPM ID</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>e.g. MES 300</td>
-<td>-</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>e.g. XEUS</td>
-<td>-</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
+
+### 5.3 Change Impact Summary
+
+| Change Type | Flow Chain | Detail |
+|-------------|-----------|--------|
+| **UNCHANGED** | e.g. MES Route to ICOST | No change |
+
+**Totals**: 0 new - 0 removed - 0 modified - 1 unchanged
+
+### 5.4 Component Overview
+
+#### System Inventory
+
+| System | IAPM ID | Status |
+|--------|---------|--------|
+| e.g. MES 300 | - | N/A |
+| e.g. XEUS | - | N/A |
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
-<p>RICEFW objects for this capability will be auto-populated from the Smartsheet S/4 Object Tracker.</p>
-<table>
-<thead>
-<tr>
-<th>Object ID</th>
-<th>Type</th>
-<th>Description</th>
-<th>Status</th>
-<th>Source → Target</th>
-<th>Middleware</th>
-<th>Complexity</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>E2E-68-I001</td>
-<td>Interface</td>
-<td>-Intel Foundry   NPI planning and execution processes inbound data interface</td>
-<td>Planned</td>
-<td>Legacy → SAP S/4HANA</td>
-<td>MuleSoft / CPI</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>E2E-68-E001</td>
-<td>Enhancement</td>
-<td>-Intel Foundry   NPI planning and execution processes custom business logic</td>
-<td>Planned</td>
-<td>SAP S/4HANA</td>
-<td>N/A</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>E2E-68-F001</td>
-<td>Form/Report</td>
-<td>-Intel Foundry   NPI planning and execution processes operational output</td>
-<td>Planned</td>
-<td>SAP S/4HANA</td>
-<td>N/A</td>
-<td>Low</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).</em></p>
-</blockquote>
+
+### 5.5 RICEFW Inventory
+
+RICEFW objects for this capability will be auto-populated from the Smartsheet S/4 Object Tracker.
+
+| Object ID | Type | Description | Status | Source → Target | Middleware | Complexity |
+|-----------|------|-------------|--------|----------------|-----------|-----------|
+| E2E-68-I001 | Interface | -Intel Foundry   NPI planning and execution processes inbound data interface | Planned | Legacy → SAP S/4HANA | MuleSoft / CPI | Medium |
+| E2E-68-E001 | Enhancement | -Intel Foundry   NPI planning and execution processes custom business logic | Planned | SAP S/4HANA | N/A | Medium |
+| E2E-68-F001 | Form/Report | -Intel Foundry   NPI planning and execution processes operational output | Planned | SAP S/4HANA | N/A | Low |
+
+> *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
+
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Pattern</th>
-<th>Flow Chain</th>
-<th>Middleware</th>
-<th>Protocol</th>
-<th>Auth</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>e.g. Pub-Sub / P2P / ETL</td>
-<td>e.g. MES Route to ICOST</td>
-<td>e.g. Azure Service Bus</td>
-<td>e.g. REST / RFC / SFTP</td>
-<td>e.g. OAuth / NTLM / Cert</td>
-</tr>
-</tbody>
-</table>
+
+### 5.6 Integration Patterns
+
+| # | Pattern | Flow Chain | Middleware | Protocol | Auth |
+|---|---------|-----------|-----------|----------|------|
+| 1 | e.g. Pub-Sub / P2P / ETL | e.g. MES Route to ICOST | e.g. Azure Service Bus | e.g. REST / RFC / SFTP | e.g. OAuth / NTLM / Cert |
+
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
-<h3 id="61-platform-infrastructure">6.1 Platform &amp; Infrastructure</h3>
-<blockquote>
-<p><strong>TECHNOLOGY / PLATFORM ARCHITECTURE</strong> — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.</p>
-</blockquote>
-<h4 id="611-current-state-current-state-platform-architecture">6.1.1 Current-State — Current-State Platform Architecture</h4>
+
+## 6. Technology Architecture (TOGAF "T")
+
+### 6.1 Platform & Infrastructure
+
+> **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
+
+#### 6.1.1 Current-State — Current-State Platform Architecture
+
 <div class="mermaid">
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
 flowchart TB
@@ -1994,15 +1841,21 @@ flowchart TB
     E2E68CPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E68CPLP_e_g_Azure_PaaS
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlGFvmzAQhv-K5SriS9aSEGiG1ElAQKuUTtFYt0ljQg4ciVWDEZg2acp_nw1pslZKpWrzB4t77_z49Vl4hxOeArbxYLCjBRU22mliDTloNtKWpAZtiLQakqaiYjuHe2AqwTjvM13pd1JRsmRQa2p1xgsR0scOMJqUG1WmtIDklG2VGsKKA7q9HiJHLmRaqyoYf0jWpBIdo6nhhmx-0FSsZZwRVoOsWYuczckSmNpIVI3SCuk-LElCi5UUJ7qUKlLcHSVTb1vUDgZRcdgCfXOjAsmRMFLXM8gQKUuXb1BGGbPPXHMWBMGwFhW_A_tM1y8vXWsffnhQnuxxuRkmnPFKpY2Z-ZpXMiKOQG_qW97HA9CYTn3Dewk0jsCRa_pj_RUQODvygsA1XfPA8zxdjpMGLUulo6In1s1yVZFyjfyxb029xXwRQ7yKncemgnhBSPgrwlEztvRR1GSgy53PV-eoSyOVjvDvHqRGSitIBOUFmn89qs9kpyP_9G8Vs8OobwmwbbtveL8GinTvTWwZnDT2T8188_BhPIk_O1-ceKyPje786dRI5ZwS8-8uhBcTpOqQqnt3I278MDZ0_bkXMkQyfGc7Xlj9Dx15i3519elpb3bWnQ9dIGdxLeeAMojw08mrwkOcQ5UTmmJ7h7s3Qr4wKWSkYQK3Q0wawcNtkWC7-41xU6ZEwIwSeT15L7Z_AL-yboo=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1jp27GaGDmzHZoV0hHndBvMwin2ciMqSseU1aZr_PsnOR1tooWy6ENL7Hj06OkLa4kzkgF08GGwpp9JF2wTLFZSQYBcleEEaNRqqUQNZW1O5mcEfYL3JhDi43ZLvpKZkwaDRtuIUgsuYPuxRo3G17oO1HpGSsk3vxLAUgG6vh8hTAAXfdVFM3GcrUss9rW3ghqx_0FyutFIQ1oCOW8mSzcgCWLetrNtO5epYcUUyypdaHhtarAm_eyLaxm6HdoNBwo97oW9-wpFqGSNNM4UCkaryxRoVlDH3zLenURQNG1mLO3DPDOPy0nf20w_3OjXXrNbDTDBRa9ua2i95FSPyBAwmoRN8PAKtySS0gudA6wQc-XZoGi-AINiJF0W-7dtHXhAYqr2aoONoO-E9sWkXy5pUKxSaoTMJ5rN5Cuky9R7aGtI5IfGvBCet6RijpC3AUDufL89RZyNtJ_h3D9ItpzVkkgqOZl9P6oHsdeSf4a1mdhg9VgDXdfuC92uA5_vc5IbBq4n9UzHfPHycjtPP3hcvNQ3T6s6fT6xc9Tmxn1YhvhgjHYd03LsLcRPGqWUYh1qoKVLTd5bjWar_oSJv0a-uPj3uk51250MXyJtfqz6iTL33x1evCg9xCXVJaI7dbf9tqN8nh4K0TKqHj0krRbzhGXa7p4zbKicSppSo6yl7cfcX6yN4Dg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
-<blockquote>
-<p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
-</blockquote>
+
+> **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
+
+
 <div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="612-future-state-future-state-platform-architecture">6.1.2 Future-State — Future-State Platform Architecture</h4>
+
+
+#### 6.1.2 Future-State — Future-State Platform Architecture
+
 <div class="mermaid">
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
 flowchart TB
@@ -2025,463 +1878,118 @@ flowchart TB
     E2E68FPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E68FPLP_e_g_Azure_PaaS
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlGFvmzAQhv-K5SriC2sJhDRD6iRIQKuUTtFYt0ljQg4ciVWDEZg2acp_nw1pslZKpWrzB4t77_z49Vl4hxOeAnbwYLCjBRUO2mliDTloDtKWpAZNR1oNSVNRsZ3DPTCVYJz3ma70O6koWTKoNbU644UI6WMHGI7KjSpTWkByyrZKDWHFAd1e68iVC5nWqgrGH5I1qUTHaGq4IZsfNBVrGWeE1SBr1iJnc7IEpjYSVaO0QroPS5LQYiXFkSGlihR3R8k22ha1g0FUHLZA37yoQHIkjNT1DDJEytLjG5RRxpwzz54FQaDXouJ34JwZxuWlN96HHx6UJ8csN3rCGa9U2prZr3klI-IInE788fTjAWhNJr41fQm0jsChZ_um8QoInB15QeDZnn3gTaeGHCcNjscqHRU9sW6Wq4qUa-Sb_ngSLOaLGOJV7D42FcQLQsJfEY4ac2wMoyYDQ-58vjpHXRqpdIR_9yA1UlpBIigv0PzrUX0mux35p3-rmB1GfUuA4zh9w_s1UKR7b2LL4KSxf2rmm4cP41H82f3ixqZhWt3504mVyjkl9t9dCC9GSNUhVffuRtz4YWwZxnMvZIhk-M52vLD6HzryFv3q6tPT3uysOx-6QO7iWs4BZRDhp5NXhXWcQ5UTmmJnh7s3Qr4wKWSkYQK3OiaN4OG2SLDT_ca4KVMiYEaJvJ68F9s_4oNuog==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1jp27KaCDuzEZoV0hLndBvMwin2ciMqWseU1aZr_PsnOR1tIoWy6ENL7Hj06OkLa4ESkgAnu9TasYJKgTYTlEnKIMEERntNajfpqVEPSVEyup_AHeGdyIfZuu-Q7rRidc6i1rTiZKGTInnaowbBcdcFaD2jO-LpzQlgIQPc3feQqgIJv2yguHpMlreSO1tRwS1c_WCqXWskor0HHLWXOp3QOvN1WVk2rFupYYUkTViy0PDS0WNHi4YVoG9st2vZ6UXHYC915UYFUSzit6wlkiJalJ1YoY5yTM8-eBEHQr2UlHoCcGcblpefspp8edWrELFf9RHBRadua2G95JafyCByPfGd8dQBao5FvjV8DrSNw4Nm-abwBguBHXhB4tmcfeOOxodrJBB1H21HREetmvqhouUS-6TujYDadxRAvYvepqSCeURr-inDUmI4xiJoMDLXz-eIctTbSdoR_dyDdUlZBIpko0PTbUd2T3Zb807_XzBajxwpACOkK3q2BIt3lJtccTib2T8V89_BhPIy_uF_d2DRMqz1_OrJS1afUflmF8GKIdBzScR8uxK0fxpZh7GuhpkhNP1iOV6n-h4q8R7--_vy8S3bSng9dIHd2o_qAcfXen09eFe7jHKqcshSTTfdtqN8nhYw2XKqHj2kjRbguEkzap4ybMqUSJoyq68k7cfsXDgN4Jg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
-<blockquote>
-<p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
-</blockquote>
-<h4 id="platform-inventory">Platform Inventory</h4>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Platform</th>
-<th>Type</th>
-<th>Systems Using</th>
-<th>Environment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>e.g. Azure PaaS</td>
-<td>Cloud / SaaS</td>
-<td>e.g. XEUS</td>
-<td>DEV,QAS,PRD</td>
-</tr>
-<tr>
-<td>2</td>
-<td>e.g. S/4 HANA 2023</td>
-<td>On-Premise</td>
-<td>e.g. MES 300</td>
-<td>DEV,QAS,PRD</td>
-</tr>
-</tbody>
-</table>
+
+> **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
+
+
+#### Platform Inventory
+
+| # | Platform | Type | Systems Using | Environment |
+|---|----------|------|--------------|-------------|
+| 1 | e.g. Azure PaaS | Cloud / SaaS | e.g. XEUS | DEV,QAS,PRD |
+| 2 | e.g. S/4 HANA 2023 | On-Premise | e.g. MES 300 | DEV,QAS,PRD |
+
 <div class="page-footer"><span>Page 29</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="62-sap-development-object-status">6.2 SAP Development Object Status</h3>
-<p><strong>RICEFW Status Summary</strong> — E2E Tower (0 objects)
-<em>Data source: Smartsheet Object Tracker (cached 2026-03-27)</em></p>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th style="text-align: right;">Count</th>
-<th style="text-align: right;">%</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Total</strong></td>
-<td style="text-align: right;"><strong>0</strong></td>
-<td style="text-align: right;"><strong>100%</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>RICEFW by Type:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th style="text-align: right;">Count</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Total</strong></td>
-<td style="text-align: right;"><strong>0</strong></td>
-</tr>
-</tbody>
-</table>
-<h3 id="63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</h3>
-<table>
-<thead>
-<tr>
-<th>Category</th>
-<th>Requirement</th>
-<th>Target / SLA</th>
-<th>Priority</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Performance</td>
-<td>Order/transaction processing within interactive SLA</td>
-<td>&lt; 3 seconds for online transactions</td>
-<td>High</td>
-</tr>
-<tr>
-<td>Availability</td>
-<td>Business-critical systems available during extended hours</td>
-<td>99.9% (06:00-22:00 all time zones)</td>
-<td>High</td>
-</tr>
-<tr>
-<td>Scalability</td>
-<td>Support seasonal and promotional volume spikes</td>
-<td>Handle 2x baseline transaction volume</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>Recoverability</td>
-<td>Customer-facing systems recover within business impact window</td>
-<td>RPO &lt; 30 min, RTO &lt; 2 hours</td>
-<td>High</td>
-</tr>
-<tr>
-<td>Data Volume</td>
-<td>Support transactional data growth from business expansion</td>
-<td>10M+ documents/year</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>Latency</td>
-<td>Near-real-time integration for order status updates</td>
-<td>&lt; 30 seconds for status propagation</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>Concurrency</td>
-<td>Support global user base across business functions</td>
-<td>300+ concurrent users</td>
-<td>Medium</td>
-</tr>
-</tbody>
-</table>
-<h3 id="64-security-governance">6.4 Security &amp; Governance</h3>
-<table>
-<thead>
-<tr>
-<th>Concern</th>
-<th>Approach</th>
-<th>Standard / Policy</th>
-<th>Owner</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Authentication</td>
-<td>Single Sign-On (SSO) via Intel corporate Azure AD identity</td>
-<td>Intel IT Security Policy - Identity Management</td>
-<td>IT Security</td>
-</tr>
-<tr>
-<td>Authorization</td>
-<td>Role-based access control (RBAC) with SAP authorization objects</td>
-<td>Intel SAP Security Standards - Role Design</td>
-<td>SAP Security Team</td>
-</tr>
-<tr>
-<td>Data Classification</td>
-<td>All financial/operational data classified per Intel Data Classification Standard</td>
-<td>Intel Data Classification Policy</td>
-<td>Data Governance</td>
-</tr>
-<tr>
-<td>Data Encryption (at rest)</td>
-<td>AES-256 encryption for SAP HANA database and file storage</td>
-<td>Intel Encryption Standard</td>
-<td>Infrastructure Security</td>
-</tr>
-<tr>
-<td>Data Encryption (in transit)</td>
-<td>TLS 1.3 for all system-to-system and user-to-system communication</td>
-<td>Intel Network Security Policy</td>
-<td>Network Engineering</td>
-</tr>
-<tr>
-<td>Network Segmentation</td>
-<td>SAP systems in dedicated network zones with firewall controls</td>
-<td>Intel Network Architecture Standard</td>
-<td>Network Security</td>
-</tr>
-<tr>
-<td>API Security</td>
-<td>OAuth 2.0 / certificate-based authentication for all API integrations</td>
-<td>Intel API Security Guidelines</td>
-<td>Integration Architecture</td>
-</tr>
-<tr>
-<td>Audit Logging</td>
-<td>Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log)</td>
-<td>SOX Compliance / Intel Audit Policy</td>
-<td>Internal Audit</td>
-</tr>
-<tr>
-<td>Certificate Management</td>
-<td>Automated certificate lifecycle management for system-to-system trust</td>
-<td>Intel PKI Standard</td>
-<td>Certificate Authority Team</td>
-</tr>
-<tr>
-<td>Compliance</td>
-<td>SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR)</td>
-<td>Intel Corporate Compliance Framework</td>
-<td>Compliance Office</td>
-</tr>
-</tbody>
-</table>
+
+### 6.2 SAP Development Object Status
+
+| Metric | DEV | QAS | PRD |
+|--------|-----|-----|-----|
+| Transport Requests | — | — | — |
+| Custom Code Objects | — | — | — |
+| CDS Views | — | — | — |
+| Fiori Apps | — | — | — |
+| BAdIs / Enhancements | — | — | — |
+
+### 6.3 NFRs & Design Principles
+
+| Category | Requirement | Target / SLA | Priority |
+|----------|-------------|-------------|----------|
+| Performance | Order/transaction processing within interactive SLA | < 3 seconds for online transactions | High |
+| Availability | Business-critical systems available during extended hours | 99.9% (06:00-22:00 all time zones) | High |
+| Scalability | Support seasonal and promotional volume spikes | Handle 2x baseline transaction volume | Medium |
+| Recoverability | Customer-facing systems recover within business impact window | RPO < 30 min, RTO < 2 hours | High |
+| Data Volume | Support transactional data growth from business expansion | 10M+ documents/year | Medium |
+| Latency | Near-real-time integration for order status updates | < 30 seconds for status propagation | Medium |
+| Concurrency | Support global user base across business functions | 300+ concurrent users | Medium |
+
+### 6.4 Security & Governance
+
+| Concern | Approach | Standard / Policy | Owner |
+|---------|----------|--------------------|-------|
+| Authentication | Single Sign-On (SSO) via Intel corporate Azure AD identity | Intel IT Security Policy - Identity Management | IT Security |
+| Authorization | Role-based access control (RBAC) with SAP authorization objects | Intel SAP Security Standards - Role Design | SAP Security Team |
+| Data Classification | All financial/operational data classified per Intel Data Classification Standard | Intel Data Classification Policy | Data Governance |
+| Data Encryption (at rest) | AES-256 encryption for SAP HANA database and file storage | Intel Encryption Standard | Infrastructure Security |
+| Data Encryption (in transit) | TLS 1.3 for all system-to-system and user-to-system communication | Intel Network Security Policy | Network Engineering |
+| Network Segmentation | SAP systems in dedicated network zones with firewall controls | Intel Network Architecture Standard | Network Security |
+| API Security | OAuth 2.0 / certificate-based authentication for all API integrations | Intel API Security Guidelines | Integration Architecture |
+| Audit Logging | Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log) | SOX Compliance / Intel Audit Policy | Internal Audit |
+| Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
+| Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
+
 <div class="page-footer"><span>Page 30</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="7-project-context">7. Project Context</h2>
-<h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
-<p><em>No timeline data available for this capability.</em></p>
-<h3 id="72-raid-log">7.2 RAID Log</h3>
-<p><em>Live data from Smartsheet Master RAID Log — extracted 2026-03-27</em></p>
-<p><strong>RAID Summary:</strong> 15 open items (0 capability-specific, 15 tower-level), 56 closed</p>
-<table>
-<thead>
-<tr>
-<th>Severity</th>
-<th style="text-align: right;">Capability</th>
-<th style="text-align: right;">Tower-Wide</th>
-<th style="text-align: right;">Total Open</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>P1 - High</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr>
-<td>P2 - Medium</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">10</td>
-</tr>
-<tr>
-<td>P3 - Low</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr>
-<td><strong>Total</strong></td>
-<td style="text-align: right;"><strong>0</strong></td>
-<td style="text-align: right;"><strong>15</strong></td>
-<td style="text-align: right;"><strong>15</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Other E2E Tower RAID Items</strong> (15 open):</p>
-<table>
-<thead>
-<tr>
-<th>RAID ID</th>
-<th>Type</th>
-<th>Severity</th>
-<th>Title</th>
-<th>Status</th>
-<th>Assigned To</th>
-<th>Due Date</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>03591</td>
-<td>Risk</td>
-<td>P1 - High</td>
-<td>R3 E2E scenario execution</td>
-<td>In Progress</td>
-<td>Test Management</td>
-<td>2026-04-03</td>
-</tr>
-<tr>
-<td>03681</td>
-<td>Risk</td>
-<td>P1 - High</td>
-<td>ITC Execution: Planning run availability - Prerequisite for &hellip;</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-03-27</td>
-</tr>
-<tr>
-<td>03762</td>
-<td>Risk</td>
-<td>P1 - High</td>
-<td>FTS-IF (esp SCP) related test cases/sequencing are not accur&hellip;</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-04-03</td>
-</tr>
-<tr>
-<td>01733</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Tariffs impacts Item/BOM design which is impacting ERP/SCP (&hellip;</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-03-06</td>
-</tr>
-<tr>
-<td>03592</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Lack of Defined IMO Owner for CBA Mask Billing and Materials&hellip;</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-03-27</td>
-</tr>
-<tr>
-<td>03625</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Item/ BOM MC1 delta load</td>
-<td>In Progress</td>
-<td>Cutover</td>
-<td>2026-04-10</td>
-</tr>
-<tr>
-<td>03628</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>R3 Returns Rework Process Causing Finance Double Counting in&hellip;</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-03-27</td>
-</tr>
-<tr>
-<td>03642</td>
-<td>Issue</td>
-<td>P2 - Medium</td>
-<td>E2E Process with Anafi on order/invoice point.  Need IFS SC &hellip;</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-03-24</td>
-</tr>
-<tr>
-<td>03736</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>Golden Data/Test Data Readiness</td>
-<td>In Progress</td>
-<td>Master Data</td>
-<td>2026-04-22</td>
-</tr>
-<tr>
-<td>03743</td>
-<td>Issue</td>
-<td>P2 - Medium</td>
-<td>FD-Share with Entitlements -  Interface File Paths for MC1</td>
-<td>Roadblock / At Risk</td>
-<td>PMO</td>
-<td>2026-03-20</td>
-</tr>
-<tr>
-<td>03753</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>PDF-SMH IF test cases are not available in JIRA</td>
-<td>To Be Reviewed</td>
-<td>B-Apps</td>
-<td>2026-03-25</td>
-</tr>
-<tr>
-<td>03756</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>LE101-1001 Operation Support Ownership for SIMS/Tester Front&hellip;</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-04-24</td>
-</tr>
-<tr>
-<td>03769</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>Need a Labs SPOC owner to define IP Labs enterprise and mate&hellip;</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-04-17</td>
-</tr>
-<tr>
-<td>03216</td>
-<td>Action</td>
-<td>P3 - Low</td>
-<td>Mask Expense vs. Invoice</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-03-06</td>
-</tr>
-<tr>
-<td>03315</td>
-<td>Risk</td>
-<td>P3 - Low</td>
-<td>BPMG – SCP L3/L4 flow standards</td>
-<td>In Progress</td>
-<td>Business Process Mgmt</td>
-<td>2026-03-27</td>
-</tr>
-</tbody>
-</table>
-<h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Category</th>
-<th>Recommendation</th>
-<th>Priority</th>
-<th>Owner</th>
-<th>Target Date</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Architecture</td>
-<td>Complete extended flow attributes (Data Entity, Integration Pattern, Tech Platform) in Flows tab for full BDAT coverage</td>
-<td>High</td>
-<td>Tower Architect</td>
-<td>2026-Q2</td>
-<td>Open</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Data</td>
-<td>Define data ownership and classification for all 1 flow chains to satisfy Data Architecture (TOGAF D) requirements</td>
-<td>Medium</td>
-<td>Data Architect</td>
-<td>2026-Q3</td>
-<td>Open</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Testing</td>
-<td>Develop integration test scenarios covering all 1 flow chains for FUT/SIT readiness</td>
-<td>High</td>
-<td>Test Lead</td>
-<td>2026-Q3</td>
-<td>Open</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Business Architecture</td>
-<td>Review and validate Business Architecture process steps against latest Signavio/BIC process models</td>
-<td>Medium</td>
-<td>Business Analyst</td>
-<td>2026-Q2</td>
-<td>Open</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Security</td>
-<td>Complete security review for API integrations and data flows per Intel Security Architecture standards</td>
-<td>Medium</td>
-<td>Security Architect</td>
-<td>2026-Q3</td>
-<td>Open</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<p><em>E2E-68 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026</em></p>
+
+## 7. Project Context
+
+### 7.1 Project Roadmap & Go-Live Plan
+
+Project delivery milestones for E2E-68 RICEFW objects:
+
+| Phase | Planned Start | Planned End | Status | Notes |
+|-------|---------------|-------------|--------|-------|
+| Functional Specification (FS) | Per project plan | Per project plan | In Progress | Tower-level FS schedule |
+| Technical Design (TDD) | FS + 2 weeks | FS + 6 weeks | Planned | Dependent on FS completion |
+| Build & Unit Test (TUT) | TDD + 1 week | TDD + 8 weeks | Planned | Includes S/4 + Middleware |
+| Functional User Test (FUT) | Build + 1 week | Build + 4 weeks | Planned | Tower-led validation |
+| Go-Live (Release 2) | Per release plan | Per release plan | Planned | End-to-End Integrated Processes release |
+
+> *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
+
+<div class="page-footer"><span>Page 31</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+### 7.2 RAID Log
+
+Standard RAID items for E2E-68 (End-to-End Integrated Processes):
+
+| # | Category | Description | Status | Owner | Priority |
+|---|----------|-------------|--------|-------|----------|
+| 1 | Risk | Data migration completeness — validate all legacy -Intel Foundry   NPI planning and execution processes data maps to S/4 target structures | Open | Tower Architect | High |
+| 2 | Risk | Integration testing coverage — ensure all 2 integrated systems are validated end-to-end | Open | Integration Lead | High |
+| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
+| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
+| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
+
+> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
+
+### 7.3 Recommendations & Next Steps
+
+| # | Category | Recommendation | Priority | Owner | Target Date | Status |
+|---|----------|---------------|----------|-------|-------------|--------|
+| 1 | Architecture | Complete extended flow attributes (Data Entity, Integration Pattern, Tech Platform) in Flows tab for full BDAT coverage | High | Tower Architect | 2026-Q2 | Open |
+| 2 | Data | Define data ownership and classification for all 1 flow chains to satisfy Data Architecture (TOGAF D) requirements | Medium | Data Architect | 2026-Q3 | Open |
+| 3 | Testing | Develop integration test scenarios covering all 1 flow chains for FUT/SIT readiness | High | Test Lead | 2026-Q3 | Open |
+| 4 | Business Architecture | Review and validate Business Architecture process steps against latest Signavio/BIC process models | Medium | Business Analyst | 2026-Q2 | Open |
+| 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
+
+---
+*E2E-68 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026*
+<div class="page-footer"><span>Page 32</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+</div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
 </div>

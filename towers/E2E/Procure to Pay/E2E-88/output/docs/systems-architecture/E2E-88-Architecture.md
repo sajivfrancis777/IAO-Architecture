@@ -1,5 +1,6 @@
+<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -19,7 +20,14 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
+.page-section {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 40px);
+  box-sizing: border-box;
+}
 .page-footer {
+  margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid #ddd;
   display: flex;
@@ -27,62 +35,99 @@
   align-items: center;
   font-size: 11px;
   color: #888;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 20px;
+  padding: 6px 12px;
   background: #fff;
 }
 @media print {
-  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+  .page-section {
+    min-height: 100vh;
+  }
+  .page-footer {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
 .page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
 </style>
 
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 <a id="toc"></a>
 
 ## Table of Contents
 
-1. [Executive Summary](#1-executive-summary)
-2. [Business Context & Objectives](#2-business-context--objectives)
-   - 2.1 [Classification](#21-classification)
-   - 2.2 [Business Drivers](#22-business-drivers)
-   - 2.3 [Success Criteria](#23-success-criteria)
-   - 2.4 [Companion Documents](#24-companion-documents)
-3. [Business Architecture (TOGAF "B")](#3-business-architecture-togaf-b)
-   - 3.1 [Business Process Overview](#31-business-process-overview)
-   - 3.2 [Business Process Diagrams](#32-business-process-diagrams)
-   - 3.3 [Business Roles & Responsibilities](#33-business-roles--responsibilities)
-4. [Data Architecture (TOGAF "D")](#4-data-architecture-togaf-d)
-   - 4.1 [Data Entities & Ownership](#41-data-entities--ownership)
-   - 4.2 [Data Flow Diagrams](#42-data-flow-diagrams)
-   - 4.3 [Data Lineage](#43-data-lineage)
-   - 4.4 [RICEFW Data Objects](#44-ricefw-data-objects)
-   - 4.5 [Data Governance & Quality](#45-data-governance--quality)
-5. [Application Architecture (TOGAF "A")](#5-application-architecture-togaf-a)
-   - 5.1 [Current-State Application Landscape](#51-current-state--current-state-application-landscape)
-   - 5.2 [Future-State Application Landscape](#52-future-state--future-state-application-landscape)
-   - 5.3 [Change Impact Summary](#53-change-impact-summary)
-   - 5.4 [Component Overview](#54-component-overview)
-   - 5.5 [RICEFW Inventory](#55-ricefw-inventory)
-   - 5.6 [Integration Patterns](#56-integration-patterns)
-6. [Technology Architecture (TOGAF "T")](#6-technology-architecture-togaf-t)
-   - 6.1 [Platform & Infrastructure](#61-platform--infrastructure)
-   - 6.2 [SAP Development Object Status](#62-sap-development-object-status)
-   - 6.3 [NFRs & Design Principles](#63-nfrs--design-principles)
-   - 6.4 [Security & Governance](#64-security--governance)
-7. [Project Context](#7-project-context)
-   - 7.1 [Project Roadmap & Go-Live Plan](#71-project-roadmap--go-live-plan)
-   - 7.2 [RAID Log](#72-raid-log)
-   - 7.3 [Recommendations & Next Steps](#73-recommendations--next-steps)
+<nav class="toc">
+<ol>
+  <li><a href="#1-executive-summary">1. Executive Summary</a></li>
+  <li><a href="#2-business-context-objectives">2. Business Context &amp; Objectives</a>
+    <ul>
+      <li><a href="#21-classification">2.1 Classification</a></li>
+      <li><a href="#22-business-drivers">2.2 Business Drivers</a></li>
+      <li><a href="#23-success-criteria">2.3 Success Criteria</a></li>
+      <li><a href="#24-companion-documents">2.4 Companion Documents</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+    <ul>
+      <li><a href="#31-business-process-overview">3.1 Business Process Overview</a></li>
+      <li><a href="#32-business-process-diagrams">3.2 Business Process Diagrams</a></li>
+      <li><a href="#33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+    <ul>
+      <li><a href="#41-data-entities-ownership">4.1 Data Entities &amp; Ownership</a></li>
+      <li><a href="#42-data-flow-diagrams">4.2 Data Flow Diagrams</a></li>
+      <li><a href="#43-data-lineage">4.3 Data Lineage</a></li>
+      <li><a href="#44-ricefw-data-objects">4.4 RICEFW Data Objects</a></li>
+      <li><a href="#45-data-governance-quality">4.5 Data Governance &amp; Quality</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+    <ul>
+      <li><a href="#51-current-state-current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
+      <li><a href="#52-future-state-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
+      <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
+      <li><a href="#54-component-overview">5.4 Component Overview</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+    <ul>
+      <li><a href="#61-platform-infrastructure">6.1 Platform &amp; Infrastructure</a></li>
+      <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
+      <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
+      <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+    </ul>
+  </li>
+  <li><a href="#7-project-context">7. Project Context</a>
+    <ul>
+      <li><a href="#71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</a></li>
+      <li><a href="#72-raid-log">7.2 RAID Log</a></li>
+      <li><a href="#73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</a></li>
+    </ul>
+  </li>
+</ol>
+</nav>
 
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 1. Executive Summary
 
@@ -98,10 +143,13 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.
 
-> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: "loose"` for click events.
+> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 2. Business Context & Objectives
 
@@ -123,7 +171,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 4 | E2E-88 Process Migration | Migrate R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme business processes and 2 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Cross-Functional / End-to-End | High |
 
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 2.3 Success Criteria
 
@@ -142,7 +193,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 3. Business Architecture (TOGAF "B")
 
@@ -163,10 +217,14 @@ Supplier
 , SAP S/4 (IP & IF) | 12 | 6 |
 | 6 | E2E-88F_R3_Project_Systems_2 | E2E-88F_R3_Project_Systems_2 | SAP S/4 (IP & IF) | 9 | 6 |
 
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 ### 3.2 Business Process Diagrams
 
-<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-<div style="page-break-before: always;"></div>
 
 #### BUSINESS ARCHITECTURE — 3.2.1 E2E-88A_R3_Portfolio_and_Project_Management — E2E-88A_R3_Portfolio_and_Project_Management
 
@@ -175,7 +233,7 @@ Supplier
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -252,10 +310,14 @@ flowchart LR
     class n25 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_RVCi9RZwEZ0tWQ_tPBNXQNJ14i3LYq6D7RE2WxoUaAox16v_71DifJFcVB064cgPJw5Z-aQI-lgRDwmRt-4uzvQlMo-OrTkmmxIq49aS5yTVhtVwG9YULxkJG-pmISnck6_lmGWm-1UmMJCvKFsr9A5WXGCfp220QASWRvlOM07ORE0abVbmaAbLPYjzrhQ0R9IkJhJqaa3hlzERJwDTNO3Ig9SGU3JGXZ813dDlZeTiKfxFWniJUEStY6qOMZfozUWsiy_yMkT3v1OY7mGdYJZTiBmLTfsES8JUz1KUSgsKsS2NoPmSicFw-YZjmi6Atw1ARI4fTlDnnk8ouPd3SI9iaLH50WK4BcxnOdjkqBcAjzZSpRQxvof3NEg9Mx2LgV_If0P9sQfO3Y7Up30oXWzrcztvBK6Wsv-krNYh3ZeVQ99O9u1xa5vm22xh78NLZLGZ6VR1w7s4KQ09K2RNaqVkiT5X0rgq_iC8xetNXFCOxyftCyv643Mt3x1m2PXH1hNn4jY0ohckIZh6EzOVk26nmW-TzoMna45apCusCSveH8m7I3cE2Ho-aHlv0tY6TWrLJYzwaOa0Jl4oXci9IdWOLDfJXQHlhvoCoFnJXC2RkNelHcZDbIsr_bUL7X-XBgjnm4J3KnZ03T-8Ins8IqnaC4FNLWiERrhjErM0IzhFEmOvuBI0giAzxmBGMpTvbkw_rpgtoG5TJkPZmg6nKF5kWVsX0amcLGvox1VhyAg-QAVCr4l1-WAG3-TSF4nWf49pCW4n-BOLnmGpmlWwL3koimGnklE6JbEQPDxskjzcKgZ1IOrs4TRi9YILAF7i0h1V2v_tDCOx8tc-5yLheCveQcziTIsMGOE_VzdiXMSTE3jUOaD0WU3rnKs0kIhTaEQqp1965flqWAioNfNO2dV9v2AhkW8IvKS4FYhcDwPLrqfztAPaBpeWqSqeuQ4PnEvS8Ic0RQuw4wLmXBG-cOwiF4Avi7TOx3r7RPswv6YgtV0WUDMZ0FXVF2nqmh126aSbK5z_DNnXVIIl1t1W51ZIci_1RVc1FVHIgpS6B7qzHiO2cfrjB5kTLaYFbqXMgbdzyMulDJOY0ApLCT9Wg5FI98ygeB0tXV-I-RyGJW3-i7cz2ZPN3yw1IQ9c-WbuvHaskriDbVzrV7yVhmNwO55pDIGj7QpvMTppddJ0-vGSFlBYyh1YTAUPAKiWLWWnUxXb9_S-SZNabg96QTBED07p6Ln-_yNE7Z1e4rJLmJFDmP_ZharNOe_DXCV5H5Pkvedj4rUR53Oj0pVr4Nq3dPLXrW09PsDnNCAfu3BPxqoCSxXA3YNOFrCqzm8Cmiuu_VaM7iNtVUnWN0K8Ou1qRVORdk6w6kBLWHXgK0j7Mb6tK8Jagm7lPi2MP4gMOnfYKdm1jw1kdMoRZdqBU2iX3jJU-Nus8CaqHZed2D1Lt7kpRX1h9k17uuPqGs0uIn2bnNAqfq74xq2bsP2bdi5Dbu3Ya-GjbaxIWKDaWz0D0b5QQ8f_TFJcMGkcWwbuJB8vk8jo19--BpFFkPmmGJ442wq8PgPKIvDnQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_RVCi9RZwEZ0tWQ_tPBNXQNJ14i3LYq6D7RE2WxoUaAox16v_71DifJFcVB064cgPJw5Z-aQI-lgRDwmRt-4uzvQlMo-OrTkmmxIq49aS5yTVhtVwG9YULxkJG-pmISnck6_lmGWm-1UmMJCvKFsr9A5WXGCfp220QASWRvlOM07ORE0abVbmaAbLPYjzrhQ0R9IkJhJqaa3hlzERJwDTNO3Ig9SGU3JGXZ813dDlZeTiKfxFWniJUEStY6qOMZfozUWsiy_yMkT3v1OY7mGdYJZTiBmLTfsES8JUz1KUSgsKsS2NoPmSicFw-YZjmi6Atw1ARI4fTlDnnk8ouPd3SI9iaLH50WK4BcxnOdjkqBcAjzZSpRQxvof3NEg9Mx2LgV_If0P9sQfO3Y7Up30oXWzrcztvBK6Wsv-krNYh3ZeVQ99O9u1xa5vm22xh78NLZLGZ6VR1w7s4KQ09K2RNaqVkiT5X0rgq_iC8xetNXFCOxyftCyv643Mt3x1m2PXH1hNn4jY0ohckIZh6EzOVk26nmW-TzoMna45apCusCSveH8m7I3cE2Ho-aHlv0tY6TWrLJYzwaOa0Jl4oXci9IdWOLDfJXQHlhvoCoFnJXC2RkNelHcZDbIsr_bUL7X-XBgjnm4J3KnZ03T-8Ins8IqnaC4FNLWiERrhjErM0IzhFEmOvuBI0giAzxmBGMpTvbkw_rpgtoG5TJkPZmg6nKF5kWVsX0amcLGvox1VhyAg-QAVCr4l1-WAG3-TSF4nWf49pCW4n-BOLnmGpmlWwL3koimGnklE6JbEQPDxskjzcKgZ1IOrs4TRi9YILAF7i0h1V2v_tDCOx8tc-5yLheCveQcziTIsMGOE_VzdiXMSTE3jUOaD0WU3rnKs0kIhTaEQqp1965flqWAioNfNO2dV9v2AhkW8IvKS4FYhcDwPLrqfztAPaBpeWqSqeuQ4PnEvS8Ic0RQuw4wLmXBG-cOwiF4Avi7TOx3r7RPswv6YgtV0WUDMZ0FXVF2nqmh126aSbK5z_DNnXVIIl1t1W51ZIci_1RVc1FVHIgpS6B7qzHiO2cfrjB5kTLaYFbqXMgbdzyMulDJOY0ApLCT9Wg5FI98ygeB0tXV-I-RyGJW3-i7cz2ZPN3yw1IQ9c-WbuvHaskriDbVzrV7yVhmNwO55pDIGj7QpvMTppddJ0-vGSFlBYyh1YTAUPAKiWLWWnUxXb9_S-SZNabg96QTBED07p6Ln-_yNE7Z1e4rJLmJFDmP_ZharNOe_DXCV5H5Pkvedj4rUR53Oj0pVr4Nq3dPLXrW09PsDnNCAfu3BPxqoCSxXA3YNOFrCqzm8Cmiuu_VaM7iNtVUnWN0K8Ou1qRVORdk6w6kBLWHXgK0j7Mb6tK8Jagm7lPi2MP4gMOnfYKdm1jw1kdMoRZdqBU2iX3jJU-Nus8CaqHZed2D1Lt7kpRX1h9k17uuPqGs0uIn2bnNAqfq74xq2bsP2bdi5Dbu3Ya-GjbaxIWKDaWz0D0b5QQ8f_TFJcMGkcWwbuJB8vk8jo19--BpFFkPmmGJ442wq8PgPKIvDnQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.2 E2E-88B_R3_Project_Systems_1 — E2E-88B_R3_Project_Systems_1
 
@@ -264,7 +326,7 @@ flowchart LR
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -395,10 +457,14 @@ Activated"| n34
     class n44 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv2zYU_iuEii4dYCOiLr49bHB82QIsTRC3K4Z6D7RE2Vxk0iNpJ16a_75DmVRsVunQzA-G9emc79wPJT8GmchpMAjevn1knOkBejzTK7qmZwN0tiCKnrXQAfidSEYWJVVnRqYQXM_YP5UYTjYPRsxgU7Jm5d6gM7oUFH28bKEhKJYtpAhXbUUlK85aZxvJ1kTuR6IU0ki_ob0iLCpr9taFkDmVzwJh2MVZCqol4_QZjrtJN5kaPUUzwfMT0iItekV29mScK8V9tiJSV-5vFb0iD59YrldwXZBSUZBZ6XX5G1nQ0sSo5dZg2VbuXDKYMnY4JGy2IRnjS8CTECBJ-N0zlIZPT-jp7ds5r42iD-M5R_DJSqLUmBZIaYAnO40KVpaDN8loOE3DltJS3NHBm2jSHcdRKzORDCD0sGWS276nbLnSg4UocyvavjcxDKLNQ0s-DKKwJffw7dmiPH-2NOpEvahXW7ro4hEeOUtFUfwvS5BX-YGoO2trEk-j6bi2hdNOOgq_5nNhjpPuEPt5onLHMnpEOp1O48lzqiadFIcvk15M40448kiXRNN7sn8m7I-SmnCadqe4-yLhwZ7v5XZxI0XmCONJOk1rwu4Fng6jFwmTIU561kPgWUqyWaELsa16GQ03G3W4Zz4cf54HtzSjbEfRp4sZGlNNWIkueSHkmmgm-Dz480g-AvlLmGsGESPj4lbCLHN9KhUfsR5RoV_pA1kKfj5bmx6-pQWVlGcUrCq25Ojd7Hb84ylTcmxvtCJ8SdG1GeRTsRTEIDIpdt-SitPHx3lQkEFB2kRKca_apNRoQyQpS1r-cqjiPHh6OlbqfJ8SDIeX-9nwBs3OE_Tu8gb9gC6nPx6xd8DxkaQ2m3_RzMtk9_n-JyHv0AX8vsvFPUczWCiZhvQjwnP0_tPwVLFnMqKqtI6E0mgERZL0_HpDJdSiqkvOMqKFVKeKfVCEFoSliAQsaomuF8YtVZmZMlrmCiLhWbnNYT2hycfLMSqkWKPJ1eyUCYdANYHFtCiZWkFB2JJxUqKLbb6kGhGNfqM7WiJsOs9Txc2qNkfHFOIefDwQmQaelA39iE3bDoFg_w-1umYW3lMKwUB7NuceH9q4pHBsWS1PIDkSODJ-_lU1sGnQS6W2FF1BLc0B5gmYRripCkU2TEOocHAIr3-x6YabrYQjAAze0r-37DB95zVYdb1XUWx64XdSbk0X_SIExFwN58YPp1-FYzbkS25G4clk7wSsUk_CVO7jJje2LjlwUKXPr3dUrijJPcciUxazRKhS6AqOidX5BJrsAxx_imRmY_gKVUW2HN2AbwL6FwLZCKl9MVOX6wVsMo6GWUY3mpgtowXalAR-wFxQaGi4OzucBp56epzmMew4k2PfRufdZ7cWlBYb9LUCOqQhB8XjkY9MFSfRpN3rjdBt_PIWjXq14NQKVs0_2ytN1wpFnnj_u8TjsBYfVuKQx0KUTFSD7pSvCCfLpg2Pn7eieeJrL6Bo2QoN85yZwpkxr1eV7dT8Z3-1Rs0k9AG2i4IWe2Ejx_9tu57xEbSVFGU16w0eJK_zoPuag6T3GqX-K5SS8DVK-DVKUaMS499MXxK_Siv5Tq36JOYd1G7_BIepveweLmN3HVugZ68xtgKRE4gsEDsgNsCXefAHhb3wxZwwTteK4lo0sUBigcRJdHygtp8egMRx4I4P9Dygbx10FLEVwKHT6PsUoVXBTgX7MWHfwdQDkjqm2JL1HeCidoD1x11il8DhDp43yYKVTO_RnLtxnfMhHAC7w_r8YrLom3bO2VpFfhTvxUEx8kvmbiRe9es8WAPu0hbD5c0G5qfCvbrADy_RqZcr10uu_LFVcNeRi8h5HjkTjjGyLka1j7a4kYshsl5GdUtZIHGkibUauUAi62fU8VooqmtqHcNubrDNXBL6pPVkdbxqHTyFKtyUhHPzAKkFlHsNL087s67NXwQ5Euahdb2GE17vD8VKPUIHVG9Mxmn7UnqKduvX4lO89wLeb8ahQs04dm9-p3DUDMfNcNIMp81wpxnuNsO9ZrjfCEP1GuHmKJPmKJPmKJM6yqAVrCm8ELI8GDwG1V9BwSDIaUG2pQ6eWgHZajHb8ywYVH-ZBNvqKWrMCLxNrQ_g079YZJaH" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv2zYU_iuEiywtYCOiLr49bHB82QI0TRC3DYZ6D7RE2Vxk0iNpJ26a_75DmVRsVunQLA-B9emc79wPJT02UpHRRr9xcvLIONN99Hiql3RFT_vodE4UPW2iPfCZSEbmBVWnRiYXXE_Z11IMx-sHI2awCVmxYmfQKV0Iij5dNNEAFIsmUoSrlqKS5afN07VkKyJ3Q1EIaaTf0G4e5KU1e-tcyIzKZ4Eg6OA0AdWCcfoMR524E0-MnqKp4NkRaZ7k3Tw9fTLOFeI-XRKpS_c3il6Sh1uW6SVc56RQFGSWelW8J3NamBi13Bgs3citSwZTxg6HhE3XJGV8AXgcACQJv3uGkuDpCT2dnMx4ZRR9HM04gr-0IEqNaI6UBni81ShnRdF_Ew8HkyRoKi3FHe2_CcedURQ2UxNJH0IPmia5rXvKFkvdn4sis6KtexNDP1w_NOVDPwyacgf_PVuUZ8-Whu2wG3YrS-cdPMRDZynP8_9lCfIqPxJ1Z22No0k4GVW2cNJOhsH3fC7MUdwZYD9PVG5ZSg9IJ5NJNH5O1bid4OBl0vNJ1A6GHumCaHpPds-EvWFcEU6SzgR3XiTc2_O93MyvpUgdYTROJklF2DnHk0H4ImE8wHHXegg8C0nWS3QuNmUvo8F6rfb3zB_HX2aNG5pStqXo9nyKRlQTVqALngu5IpoJPmv8dSAfgvwFzDWDiJFxcSNhlrk-looOWA-o0B_0gSwEP5uuTA_f0JxKylMKVhVbcPR2ejN6d8wUH9obLglfUHRlBvlYLAExiEyK7Y-kouTxcdbIST8nLSKluFctUmi0JpIUBS1-31dx1nh6OlRq_5wSDIeX--ngGk3PYvT24hr9gi4m7w7Y2-D4UFKbzb9p6mWy83z_Vsg7dA6_7zJxz9EUFkqqIf2I8Ax9uB0cK3ZNRlSZ1qFQGg2hSJKeXa2phFqUdclYSrSQ6lixB4rQgrAUkYBFLdHV3LilSjMTRotMQSQ8LTYZrCc0_nQxQrkUKzS-nB4z4QCoxrCY5gVTSygIWzBOCnS-yRZUI6LRe7qlBcKm8zxVXK9qc3RIIe7Bxz2RaeBxUdOP2LTtAAh2X6nVNbPwgVIIBtqzPvd438YFhWPLankC8YHAgfGz76qBTYNeKLWh6BJqaQ4wT8A0wnVZKLJmGkKFg0N4_YtNN1xvJBwBYPCG_rNh--k7q8Cy672KYtMLn0mxMV30uxAQczmcaz-cXhmO2ZAvuRkGR5O9FbBKPQlTuU_rzNi64MBBlT672lK5pCTzHAtNWcwSoUqhSzgmlmdjaLKPcPwpkpqN4SuUFdlwdA2-CehfCGQtpPbFTF2u5rDJOBqkKV1rYraMFmhdEPgBc0GhoeHudH8aeOrJYZpHsONMjn0b7bdf3FpQWqzR9wpon4YMFA9HPjRVHIfjVrc7RDfRy1s07FaCEytYNv90pzRdKRR64r2fEo-CSnxQikMec1EwUQ66U74knCzqNjx-3ormia81h6KlSzTIMmYKZ8a8WlW2U7Pf_NUa1pPQB9guClrshY0c_bftasaH0FZSFOWs13gQv86DzmsOku5rlHqvUIqD1yjh1yiFtUqM_zB9cfQqrfgntaqTmLdRq_UrHKb2srO_jNx1ZIGuvcbYCoROILRA5IDIAN9mjT8p7IVv5oRxulYUV6KxBWILxE6i7QOV_WQPxI4Dt32g6wE966CjiKwADpxGz6cIrAp2KtiPCfsOJh4QVzFFlqznABe1A6w_7hK7BA628LxJ5qxgeodm3I3rjA_gANju1-c3k0XftHPO1ir0o_gg9oqhXzJ3I_aqX-XBGnCXthgubzYwPxXu1QV-eIlOvFy5XnLlj6yCuw5dRM7z0JlwjKF1Max8tMUNXQyh9TKsWsoCsSONrdXQBRJaP8O210JhVVPrGHZzg23m4sAnrSar7VVr7ylU4bognJsHSC2g3Ct4edqadW0-EWRImIfW1QpOeL3bFyvxCB1QvjEZp-1L6THaqV6Lj_HuC3ivHocK1ePYvfkdw2E9HNXDcT2c1MPterhTD3fr4V4tDNWrheujjOujjOujjKsoG83GisILIcsa_cdG-SkIPhdlNCebQjeemg2y0WK642mjX34yaWzKp6gRI_A2tdqDT_8CWGSWhw==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.3 E2E-88C_R3_Procurement — E2E-88C_R3_Procurement
 
@@ -409,7 +475,7 @@ Supplier
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -522,10 +588,14 @@ Business Rule"| n17
     class n39 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWF1zokgU_StdTGWdqdJVQER92C01krFqMrFCZlJb4z600GhvsJvthsRsxv--t6FBJWS2atYHTR_uud_3AnkxAh4SY2xcXLxQRtMxemmlW7IjrTFqrbEkrTYqgK9YULyOiWwpmYiz1Kf_5GJmP9krMYV5eEfjZ4X6ZMMJ-rJoowkQ4zaSmMmOJIJGrXYrEXSHxfOMx1wo6XdkGPWi3Jq-NOUiJOIo0Ou5ZuAANaaMHGHb7bt9T_EkCTgLz5RGTjSMgtZBORfzp2CLRZq7n0lyjff3NEy3cI5wLAnIbNNd_AmvSaxiTEWmsCATj2UyqFR2GCTMT3BA2Qbwfg8ggdnDEXJ6hwM6XFysWGUUfbpdMQSfIMZSXpIIyRTg-WOKIhrH43f92cRzem2ZCv5Axu-suXtpW-1ARTKG0HttldzOE6GbbTpe8zjUop0nFcPYSvZtsR9bvbZ4hu-aLcLCo6XZwBpaw8rS1DVn5qy0FEXR_7IEeRV3WD5oW3Pbs7zLypbpDJxZ77W-MszLvjsx63ki4pEG5ESp53n2_Jiq-cAxe28rnXr2oDerKd3glDzh56PC0axfKfQc1zPdNxUW9upeZuul4EGp0J47nlMpdKemN7HeVNifmP2h9hD0bAROtmjKs7yX0SRJZHFNfZj5bWUsMwFNJQm6UROCoN1jvOYCp5Qz5C9uvYXfvSdr5Gc0JSvjzxO6BfRbEhD6SNCCRVzscta5kH0idI1ZhmNE2SOHKkiUbgXPNlt0M7s9J_XPNAd8B7NQ0rpoak27Nwlhd2Sf5r7J1745uQYc-jxK0Vcc0zD3rTvfByTJY_uIWRgrvWoxhQgQkcFCgh5Js6QW6OjlZWVEeBzhjtpwnTXMaLBVjiAulPu_r4zD4TTqXjOD7IM4kxDWVdE0RxqMVa1q831KBIN8LWG4GRGyC0VIkphCmU6dU1WccRZRsev6JCZBimZYCBCTtTBUwW7EBjPYtegOPJIJF2lNyM6FVC_4W5rsCEvRFeehREsaPECi3mvlH2q805pVfuqa1VrC-v_J8SdL5Hf76P1iiX5BC-_Dif6BSoggoARV3X1L_s6opHnln2i6RfdT_9wrF1gwH4I_NtPOpYcNNoqsNWsfgfydoJsNSFzd-Wi2JcFD_hfUISQwdzvIGKShliuzpwzhOMhiZesO72vXixlex1Rua57UBFXxJ8ED408xCTekq1vmxyTVDEsi1GzDIK7VHkGXJIYawTbJI_3IYU2jCRXoHj-vYWMhlu3WEOXHyf20pu20RYqeyk9JilKuhvRXNI153mQyhd8a23mTHQm-O-eDvi9MENiSNEjzpuVMZrti8rMEvq5uaw1sqrZZcpnWlM8UhDeYMvh9VVfTPTbCHHqlGJhrLNNXuVQt8yUJmyQRJBhNVfJ4BBAg8JCT9wRnIFWbYzNvpms0hzyHIQlrg9gr4_jxFFrO-2_lFEK6k9dOFc4q9afTZak8za15Zzico1s7n8RqlxS3DdjzeEOUqppJt6JeKurMW3yuSQwriamSgPvgX2qh-c_g0U4is7ZJzOZNsigCRpNAbXsSvlrP9pEH24w_yQ6OU5RggeOYxK_2T0Hq_wzJ-RnSoJE0LW9UU9iSjEjoUbhj1bnuzxgc_gxp1Eii7D-3OHNRp_MbLFF9tO3iPKqdTf1kxAbF2dXHUXG0-_o81Gdbn81eTcDua4VmKWFqQJ8tqzhbpQpLC1hWydCE6lwyKpWONjooAR2FXbpt6jBsp3RLU8wKyCW-r4yq1CtWK_Z3tXNKhTpwq-SbOjPW4EyhuuWWEjr15bl0uozCNrUHfxCZGyufykGFZpZJtXRSrVGd-5nn1Mqopf0svbJsLTjxP8M2zlfiI8Xo5DlThVnVQmepbBdLl9cq86AdsStXa2drpO3lD5rKs_oFeJLLL1QNo01UhdFpM0d1oGLo1JtV-Uuvqi4f1stfAqOTFwBVTf2OdY4Oqre8c9x9Ax--gY_KF5YzGAJuhM1m2GqG7Wa43ww7zfCgGXab4WEzXEVptI0dgTcTGhrjFyP_54MxNkIS4SxOjUPbwFnK_WcWGOP8Jd0o-vGSYnjQ3BXg4V92wCXz" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWF1zokgU_StdTGWdqdJVQER92C01krFqMrFCZlJb4z600GhvsJvthsRsxv--t6FBJWS2atYHkz7cc7_vBXwxAh4SY2xcXLxQRtMxemmlW7IjrTFqrbEkrTYqgK9YULyOiWwpmYiz1Kf_5GJmP9krMYV5eEfjZ4X6ZMMJ-rJoowkQ4zaSmMmOJIJGrXYrEXSHxfOMx1wo6XdkGPWi3Jq-NOUiJOIo0Ou5ZuAANaaMHGHb7bt9T_EkCTgLz5RGTjSMgtZBORfzp2CLRZq7n0lyjff3NEy3cI5wLAnIbNNd_AmvSaxiTEWmsCATj2UyqFR2GCTMT3BA2Qbwfg8ggdnDEXJ6hwM6XFysWGUUfbpdMQSfIMZSXpIIyRTg-WOKIhrH43f92cRzem2ZCv5Axu-suXtpW-1ARTKG0HttldzOE6GbbTpe8zjUop0nFcPYSvZtsR9bvbZ4hu-aLcLCo6XZwBpaw8rS1DVn5qy0FEXR_7IEeRV3WD5oW3Pbs7zLypbpDJxZ77W-MszLvjsx63ki4pEG5ESp53n2_Jiq-cAxe28rnXr2oDerKd3glDzh56PC0axfKfQc1zPdNxUW9upeZuul4EGp0J47nlMpdKemN7HeVNifmP2h9hD0bAROtmjKs7yX0SRJZHFNfZj5bWUsMwFNJQm6UROCoN1jvOYCp5Qz5C9uvYXfvSdr5Gc0JSvjzxO6BfRbEhD6SNCCRVzscta5kH0idI1ZhmNE2SOHKkiUbgXPNlt0M7s9J_XPNAd8B7NQ0rpoak27Nwlhd2Sf5r7J1745uQYc-jxK0Vcc0zD3rTvfByTJY_uIWRgrvWoxhQgQkcFCgh5Js6QW6OjlZWVEeBzhjtpwnTXMaLBVjiAulPu_r4zD4TTqXjOD7IM4kxDWVdE0RxqMVa1q831KBIN8LWG4GRGyC0VIkphCmU6dU1WccRZRsev6JCZBimZYCBCTtTBUwW7EBjPYtegOPJIJF2lNyM6FVC_4W5rsCEvRFeehREsaPECi3mvlH2q805pVfuqa1VrC-v_J8SdL5Hf76P1iiX5BC-_Dif6BSoggoARV3X1L_s6opHnln2i6RfdT_9wrF1gwH4I_NtPOpYcNNoqsNWsfgfydoJsNSFzd-Wi2JcFD_h_UISQwdzvIGKShliuzpwzhOMhiZesO72vXixlex1Rua57UBFXxJ8ED408xCTekq1vmxyTVDEsi1GzDIK7VHkGXJIYawTbJI_3IYU2jCRXoHj-vYWMhlu3WEOXHyf20pu20RYqeyk9JilKuhvRXNI153mQyhb81tvMmOxJ8d84HfV-YILAlaZDmTcuZzHbF5GcJfF3d1hrYVG2z5DKtKZ8pCG8wZfD3VV1N99gIc-iVYmCusUxf5VK1zJckbJJEkGA0VcnjEUCAwENO3hOcgVRtjs28ma7RHPIchiSsDWKvjOPHU2g577-VUwjpTl47VTir1J9Ol6XyNLfmneFwjm7tfBKrXVLcNmDP4w1Rqmom3Yp6qagzb_G5JjGsJKZKAu6Df6mF5j-DRzuJzNomMZs3yaIIGE0Cte1J-Go920cebDP-JDs4TlGCBY5jEr_aPwWp_zMk52dIg0bStLxRTWFLMiKhR-GOVee6P2Nw-DOkUSOJsv_c4sxFnc5vsET10baL86h2NvWTERsUZ1cfR8XR7uvzUJ9tfTZ7NQG7rxWapYSpAX22rOJslSosLWBZJUMTqnPJqFQ62uigBHQUdum2qcOwndItTTErIJf4vjKqUq9Yrdjf1c4pFerArZJv6sxYgzOF6pZbSujUl-fS6TIK29Qe_EFkbqx8KgcVmlkm1dJJtUZ17meeUyujlvaz9MqyteDE_wzbOF-JjxSjk-dMFWZVC52lsl0sXV6rzIN2xK5crZ2tkbaXP2gqz-oX4Ekuv1A1jDZRFUanzRzVgYqhU29W5S-9qrp8WC9_CYxOXgBUNfU71jk6qN7yznH3DXz4Bj4qX1jOYAi4ETabYasZtpvhfjPsNMODZththofNcBWl0TZ2BN5MaGiMX4z8xwf4gSIkEc7i1Di0DZyl3H9mgTHOX9KNoh8vKYYHzV0BHv4FdsAl8w==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.4 E2E-88D_R3_CFIN — E2E-88D_R3_CFIN
 
@@ -534,7 +604,7 @@ Business Rule"| n17
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -630,10 +700,14 @@ flowchart LR
     class n30 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV11v6kYQ_SsrX6UkEvT6ExseWoHBV5FChEJvq6r0YbHXwYrxWus1Cc3lv3cW7xpsnIemPCTe4zNnZmdnhuVdC2lEtLF2c_OeZAkfo_ce35Id6Y1Rb4ML0uujCvgdswRvUlL0BCemGV8l_5xohp2_CZrAArxL0oNAV-SZEvT9vo8mYJj2UYGzYlAQlsS9fi9nyQ6zg09TygT7C_FiPT55k6-mlEWEnQm67hqhA6ZpkpEzbLm2awfCriAhzaKGaOzEXhz2jiK4lL6GW8z4KfyyIAv89kcS8S2sY5wWBDhbvksf8IakYo-clQILS7ZXyUgK4SeDhK1yHCbZM-C2DhDD2csZcvTjER1vbtZZ7RQ9PK0zBJ8wxUUxIzEqOMDzPUdxkqbjL7Y_CRy9X3BGX8j4izl3Z5bZD8VOxrB1vS-SO3glyfOWjzc0jSR18Cr2MDbztz57G5t6nx3gb8sXyaKzJ39oeqZXe5q6hm_4ylMcx__LE-SV_YaLF-lrbgVmMKt9Gc7Q8fVrPbXNme1OjHaeCNsnIbkQDYLAmp9TNR86hv6x6DSwhrrfEn3GnLziw1lw5Nu1YOC4geF-KFj5a0dZbpaMhkrQmjuBUwu6UyOYmB8K2hPD9mSEoPPMcL5FU1qeahlN8ryo3olPZvy11p5ISJI9QUGSEpRkaArVt9b-vmCZwPqeR7BLtMSHHck4eiK7hHOchaRJNYa3QI7xOMaDgtO8NphhjlElEoHJXWUDpdSK1A_uHy_0LFCbv5GwvPRdZk2nNpB8RkR8k-UCLciOQoAhdHyT5wBP5JUUBZr6i1pwinm4hWaDh4JEiEIOygLGAtCeShhRTZUhqHwjGWHKn5IRCWxSXZFeKmLnVKSe0T1hTYonYqeMkZCfxORzAkFc641OxwUahfC8RDOokcdytyEM4Sy63DiakZQIldbx6KAQENiuirpAAQ45hdK4Bfd9kZc-Wkx9tKAwvym7awlUFbNPyCsYQoBRvf0H-tzimpeZUjQ4gJwWOG1xrZNuniahIK_KHB5hW_fZnkK_oiUtOJxQy8hrFdtlAqqCuKi1ymTUMlFplGlt803j_V3xxVfbYAPDGbK3wFmJU3mm8PBIRFVBh_261o7HSwGzW0BWQ3TFt7r55C1MoSj35Fs1bNpmdreZj6GYiaqqDnfO59wNP2fmdptVyYc0UgbPedWicNxX0Xpne8wYfS0GOOUoxwynKUk_cDr6hJGldxol2Uf7u55k0ESXhSeG1KJMeTIQAxZOJMtEn-8TDq23hfIecDoQ_9sd5_x3w-tgVpMlWn210e39Ev2E7oNGT7gfzWzCocULJCo1iaDVNzh8EaNsRUsGTbk6FJzshOZXodjqHDFq5uZ84Hk-erJE38Plhwjh6zhhVqDB4BfIu1xb1dL05Nqu1oZaO_K9_H6HBwH8WGuPdK39EG0kX7iSaCqiVB6qtVRy1NpuCSniSEYwUhHrUlkB5rAC6rWyqGP0KsBWCoZUcBXBlb5VPzQjkCky1Fr6M-yWQ7VV6c5UWzPk1g2zHWEdgNyTYbXT-qf4FoRgFFPhy8n948-6bqJbKJpBSnEkLi3k7kQ2as92k2500xt5OqXhPAqqVChBSwaqysE0W3HW51-_UedZZ18evKFfZ7_l1tLbxaHcWJc3N3E08nLcRN1O1OtER10onIu64DdxQ909m7DZDVvdsN0NO93wsBt2u2GvGx51wnCqEtb62o6wHU4ibfyunX4wwo_KiMQYBqF27Gu45HR1yEJtfPphpZWnm-UswTDudhV4_BfnQHNM" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV11v6kYQ_SsrX6UkEvT6ExseWoHBV5FChEJvq6r0YbHXwYrxWus1Cc3lv3cW7xpsnIemPCTe4zNnZmdnhuVdC2lEtLF2c_OeZAkfo_ce35Id6Y1Rb4ML0uujCvgdswRvUlL0BCemGV8l_5xohp2_CZrAArxL0oNAV-SZEvT9vo8mYJj2UYGzYlAQlsS9fi9nyQ6zg09TygT7C_FiPT55k6-mlEWEnQm67hqhA6ZpkpEzbLm2awfCriAhzaKGaOzEXhz2jiK4lL6GW8z4KfyyIAv89kcS8S2sY5wWBDhbvksf8IakYo-clQILS7ZXyUgK4SeDhK1yHCbZM-C2DhDD2csZcvTjER1vbtZZ7RQ9PK0zBJ8wxUUxIzEqOMDzPUdxkqbjL7Y_CRy9X3BGX8j4izl3Z5bZD8VOxrB1vS-SO3glyfOWjzc0jSR18Cr2MDbztz57G5t6nx3gb8sXyaKzJ39oeqZXe5q6hm_4ylMcx__LE-SV_YaLF-lrbgVmMKt9Gc7Q8fVrPbXNme1OjHaeCNsnIbkQDYLAmp9TNR86hv6x6DSwhrrfEn3GnLziw1lw5Nu1YOC4geF-KFj5a0dZbpaMhkrQmjuBUwu6UyOYmB8K2hPD9mSEoPPMcL5FU1qeahlN8ryo3olPZvy11p5ISJI9QUGSEpRkaArVt9b-vmCZwPqeR7BLtMSHHck4eiK7hHOchaRJNYa3QI7xOMaDgtO8NphhjlElEoHJXWUDpdSK1A_uHy_0LFCbv5GwvPRdZk2nNpB8RkR8k-UCLciOQoAhdHyT5wBP5JUUBZr6i1pwinm4hWaDh4JEiEIOygLGAtCeShhRTZUhqHwjGWHKn5IRCWxSXZFeKmLnVKSe0T1hTYonYqeMkZCfxORzAkFc641OxwUahfC8RDOokcdytyEM4Sy63DiakZQIldbx6KAQENiuirpAAQ45hdK4Bfd9kZc-Wkx9tKAwvym7awlUFbNPyCsYQoBRvf0H-tzimpeZUjQ4gJwWOG1xrZNuniahIK_KHB5hW_fZnkK_oiUtOJxQy8hrFdtlAqqCuKi1ymTUMlFplGlt803j_V3xxVfbYAPDGbK3wFmJU3mm8PBIRFVBh_261o7HSwGzW0BWQ3TFt7r55C1MoSj35Fs1bNpmdreZj6GYiaqqDnfO59wNP2fmdptVyYc0UgbPedWicNxX0Xpne8wYfS0GOOUoxwynKUk_cDr6hJGldxol2Uf7u55k0ESXhSeG1KJMeTIQAxZOJMtEn-8TDq23hfIecDoQ_9sd5_x3w-tgVpMlWn210e39Ev2E7oNGT7gfzWzCocULJCo1iaDVNzh8EaNsRUsGTbk6FJzshOZXodjqHDFq5uZ84Hk-erJE38Plhwjh6zhhVqDB4BfIu1xb1dL05Nqu1oZaO_K9_H6HBwH8WGuPdK39EG0kX7iSaCqiVB6qtVRy1NpuCSniSEYwUhHrUlkB5rAC6rWyqGP0KsBWCoZUcBXBlb5VPzQjkCky1Fr6M-yWQ7VV6c5UWzPk1g2zHWEdgNyTYbXT-qf4FoRgFFPhy8n948-6bqJbKJpBSnEkLi3k7kQ2as92k2500xt5OqXhPAqqVChBSwaqysE0W3HW51-_UedZZ18evKFfZ7_l1tLbxaHcWJc3N3E08nLcRN1O1OtER10onIu64DdxQ909m7DZDVvdsN0NO93wsBt2u2GvGx51wnCqEtb62o6wHU4ibfyunX4wwo_KiMQYBqF27Gu45HR1yEJtfPphpZWnm-UswTDudhV4_BfnQHNM" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.5 E2E-88E_R3_SAP_Transportation_Management — E2E-88E_R3_SAP_Transportation_Management
 
@@ -644,7 +718,7 @@ Supplier
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -715,10 +789,14 @@ flowchart LR
     class n22 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_RVCQeosYCeiLpbjhwK2bAUBNlgjStqHdR9oibKJ0JJAUr4063_vUBff4hTdrR-CzNHMmZnD4eXdiLKYGn3j-vqdpUz10XtLLeiStvqoNSOSttqoAv4ggpEZp7KlfZIsVSH7u3TDTr7RbhoLyJLxrUZDOs8oen1sowEE8jaSJJUdSQVLWu1WLtiSiK2f8Uxo7yvaS8ykzFZ_GmYipuLgYJoejlwI5SylB9j2HM8JdJykUZbGJ6SJm_SSqLXTxfFsHS2IUGX5haRPZPMni9UC7IRwScFnoZb8K5lRrntUotBYVIhVIwaTOk8KgoU5iVg6B9wxARIkfTtArrnbod319TTdJ0Vfn6cpgl_EiZQjmiCpAB6vFEoY5_0rxx8ErtmWSmRvtH9ljb2RbbUj3UkfWjfbWtzOmrL5QvVnGY9r185a99C38k1bbPqW2RZb-HuWi6bxIZPftXpWb59p6GEf-02mJEn-VybQVbwQ-VbnGtuBFYz2ubDbdX3zI1_T5sjxBvhcJypWLKJHpEEQ2OODVOOui83PSYeB3TX9M9I5UXRNtgfCe9_ZEwauF2DvU8Iq33mVxWwisqghtMdu4O4JvSEOBtanhM4AO726QuCZC5Iv0DAryllGgzyX1Tf9S_H3qfFMI8pW9C6EdUWPaZKJJVEsSxFLkU-EYFQAvMpANvSsN0XEOCs97kZM5oWit7e3U-OvI1oLaMcrmipU5DGIIxERFIkqUayJH15eTkOw9_4-NRLST0hHnyGdGeyCaIHoJuKFhLCHSuSpsdtVYVDuWZfjjaIiJRxNYDOkVMg7FBZ5znUHx6l01wGFQp51bXc-bKk51PiYKgpEKhMS2SJGObBsm4lB08IysQ0KxOssi8-K1w3XWp19sW--N23lHGZEryuVOhlToCIUMYRjMUagt65mX8xgRRjXByTwfTkmdM4IS50lmhQzzuSCxmf-Fj7oCgVma9khXOneCOeUf1C1CrJ-LujjUoSDCQrvHHTzOEG_ocfguCQbGnigsD5AgwJRHg3oFfRANy9PX071c7Swgh57ftMH-QVXF1wnVOj53c_tazN-MNo-4VHBNVOt8Wl4V8_shkbFf0jl6VSZVHvHkCrF4VaDiR9lUVH-8zGsd2gmrKdq8g1BwSgIRxf875s04ThEa6YWaFCoDEaQU5iZCwHYPGTwdSBsUCXYrCh362BO02iLhrCdUj2C_1Ipdg9TJlWWo5cnlNeTC4v9YcpwqZ417vR6Pnq2yykvRCnIGXHvZ7d5FXb_S2GW-cuHSmqjTud3GMDadCsT92rbq-zGxPeV7dZ2tzKbGy116vD72q7dcfMdmzXQEGBcM-AGqAvCe6AuYW83OawGsGqKBrBqAHsNgM-BJqShOGtjH9D0Ufr_aE77artNjR9HQuFaCruxe5Xdre3a3BPWQnhHV2LZfPPCOcWdT3C3fqWcot1PvL3mCj-Fe5fh-4swFH4Rxpdhq4GNtrGkcOWy2Oi_G-XbGN7PMU1IwZWxaxsE9ny4TSOjX74hjepKHTECJ-2yAnf_APLjiZA=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_RVCQeosYCeiLpbjhwK2bAUBNlgjStqHdR9oibKJ0JJAUr4063_vUBff4hTdrR-CzNHMmZnD4eXdiLKYGn3j-vqdpUz10XtLLeiStvqoNSOSttqoAv4ggpEZp7KlfZIsVSH7u3TDTr7RbhoLyJLxrUZDOs8oen1sowEE8jaSJJUdSQVLWu1WLtiSiK2f8Uxo7yvaS8ykzFZ_GmYipuLgYJoejlwI5SylB9j2HM8JdJykUZbGJ6SJm_SSqLXTxfFsHS2IUGX5haRPZPMni9UC7IRwScFnoZb8K5lRrntUotBYVIhVIwaTOk8KgoU5iVg6B9wxARIkfTtArrnbod319TTdJ0Vfn6cpgl_EiZQjmiCpAB6vFEoY5_0rxx8ErtmWSmRvtH9ljb2RbbUj3UkfWjfbWtzOmrL5QvVnGY9r185a99C38k1bbPqW2RZb-HuWi6bxIZPftXpWb59p6GEf-02mJEn-VybQVbwQ-VbnGtuBFYz2ubDbdX3zI1_T5sjxBvhcJypWLKJHpEEQ2OODVOOui83PSYeB3TX9M9I5UXRNtgfCe9_ZEwauF2DvU8Iq33mVxWwisqghtMdu4O4JvSEOBtanhM4AO726QuCZC5Iv0DAryllGgzyX1Tf9S_H3qfFMI8pW9C6EdUWPaZKJJVEsSxFLkU-EYFQAvMpANvSsN0XEOCs97kZM5oWit7e3U-OvI1oLaMcrmipU5DGIIxERFIkqUayJH15eTkOw9_4-NRLST0hHnyGdGeyCaIHoJuKFhLCHSuSpsdtVYVDuWZfjjaIiJRxNYDOkVMg7FBZ5znUHx6l01wGFQp51bXc-bKk51PiYKgpEKhMS2SJGObBsm4lB08IysQ0KxOssi8-K1w3XWp19sW--N23lHGZEryuVOhlToCIUMYRjMUagt65mX8xgRRjXByTwfTkmdM4IS50lmhQzzuSCxmf-Fj7oCgVma9khXOneCOeUf1C1CrJ-LujjUoSDCQrvHHTzOEG_ocfguCQbGnigsD5AgwJRHg3oFfRANy9PX071c7Swgh57ftMH-QVXF1wnVOj53c_tazN-MNo-4VHBNVOt8Wl4V8_shkbFf0jl6VSZVHvHkCrF4VaDiR9lUVH-8zGsd2gmrKdq8g1BwSgIRxf875s04ThEa6YWaFCoDEaQU5iZCwHYPGTwdSBsUCXYrCh362BO02iLhrCdUj2C_1Ipdg9TJlWWo5cnlNeTC4v9YcpwqZ417vR6Pnq2yykvRCnIGXHvZ7d5FXb_S2GW-cuHSmqjTud3GMDadCsT92rbq-zGxPeV7dZ2tzKbGy116vD72q7dcfMdmzXQEGBcM-AGqAvCe6AuYW83OawGsGqKBrBqAHsNgM-BJqShOGtjH9D0Ufr_aE77artNjR9HQuFaCruxe5Xdre3a3BPWQnhHV2LZfPPCOcWdT3C3fqWcot1PvL3mCj-Fe5fh-4swFH4Rxpdhq4GNtrGkcOWy2Oi_G-XbGN7PMU1IwZWxaxsE9ny4TSOjX74hjepKHTECJ-2yAnf_APLjiZA=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.6 E2E-88F_R3_Project_Systems_2 — E2E-88F_R3_Project_Systems_2
 
@@ -727,7 +805,7 @@ flowchart LR
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -788,10 +866,15 @@ flowchart TD
     class n19 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP4jYU_itWRlNmpaDNlYQ8tIKEVCO13dEw01VV-mAcZ3DHxKntwLAs_702uTBk4WFbHhDnO9_5ziUcO3sDsQwbkXF7uycFkRHYD-QKr_EgAoMlFHhgghr4HXIClxSLgebkrJBz8uVIs73yTdM0lsI1oTuNzvELw-D53gQTFUhNIGAhhgJzkg_MQcnJGvJdzCjjmn2Dw9zKj9ka15TxDPMTwbICG_kqlJICn2A38AIv1XECI1ZkZ6K5n4c5Ghx0cZRt0QpyeSy_EvhX-PaZZHKl7BxSgRVnJdf0F7jEVPcoeaUxVPFNOwwidJ5CDWxeQkSKF4V7loI4LF5PkG8dDuBwe7souqTgKVkUQH0QhUIkOAdCKni2kSAnlEY3XjxJfcsUkrNXHN04syBxHRPpTiLVumXq4Q63mLysZLRkNGuow63uIXLKN5O_RY5l8p367uXCRXbKFI-c0Am7TNPAju24zZTn-f_KpObKn6B4bXLN3NRJky6X7Y_82PpWr20z8YKJ3Z8T5huC8DvRNE3d2WlUs5FvW9dFp6k7suKe6AuUeAt3J8Fx7HWCqR-kdnBVsM7Xr7JaPnCGWkF35qd-JxhM7XTiXBX0JrYXNhUqnRcOyxWYTx7A_KMH7u4fwA_gPv1Q-_WnsP9cGDHHqgcwx1JStZyFBI-V2s2F8dc7oqOIj1XxjtUjuIrwQCHCYCIElgIQTT4O_JzoKeKnpYTKP0EIlxIWKihnHKi2_8ZIgpgyUfFemK8rhSWRkKqzAqSkgLROdc4bnTq6ygkU57nMNOf56eFjgkuOEYGSMFWzXiaQaN9dMk8-AIVdFQp100yokmFZ-8ExtxaCRQYgQqwqpNpltTiS786jx3qmWBLezuzcbVt3ipDDKIdDIVnZzYeI44hwpvhnD9PuBdQVoW5q3wTopzpzZsMwnIJHt0sw3wmJ1wLYvYLc76N7-31bjr4Zhkt1tqHV2R8N_1Op9rOfFsbh8D7Uvxw62UBC4ZJQIncgVocLZ-q5IEk26nllfZHRZRH8hmglyAb_XK9uPyw4hUHO2VYMIZWghBxSiumVoPC_BI2_L0idvfWPwgbD4Y9qKRvTqU3bb91-Dbit7Wn768L4Q6_1Vz2a1jNqQhvbbcyg9Qc14DW21_itvvJvrBZuS2gqsO2eUFdiW3PYAmGjNHu-T0B13M662FGfoXa2XtCcszX4PJ0faV3J41q5FQ5rc9yYTR12a496dhN9mlA7Eu_dOa0n0FyF56h9EXW6K_ocd6_gXnurnMP-ZXh0GQ4uw-FleNzChmmsMV9DkhnR3ji-rqlXugznsKLSOJgGrCSb7wpkRMfXGqN-VAmB6rZZ1-DhX3VNF8g=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP4jYU_itWRlNmpaDNlYQ8tIKEVCO13dEw01VV-mAcZ3DHxKntwLAs_702uTBk4WFbHhDnO9_5ziUcO3sDsQwbkXF7uycFkRHYD-QKr_EgAoMlFHhgghr4HXIClxSLgebkrJBz8uVIs73yTdM0lsI1oTuNzvELw-D53gQTFUhNIGAhhgJzkg_MQcnJGvJdzCjjmn2Dw9zKj9ka15TxDPMTwbICG_kqlJICn2A38AIv1XECI1ZkZ6K5n4c5Ghx0cZRt0QpyeSy_EvhX-PaZZHKl7BxSgRVnJdf0F7jEVPcoeaUxVPFNOwwidJ5CDWxeQkSKF4V7loI4LF5PkG8dDuBwe7souqTgKVkUQH0QhUIkOAdCKni2kSAnlEY3XjxJfcsUkrNXHN04syBxHRPpTiLVumXq4Q63mLysZLRkNGuow63uIXLKN5O_RY5l8p367uXCRXbKFI-c0Am7TNPAju24zZTn-f_KpObKn6B4bXLN3NRJky6X7Y_82PpWr20z8YKJ3Z8T5huC8DvRNE3d2WlUs5FvW9dFp6k7suKe6AuUeAt3J8Fx7HWCqR-kdnBVsM7Xr7JaPnCGWkF35qd-JxhM7XTiXBX0JrYXNhUqnRcOyxWYTx7A_KMH7u4fwA_gPv1Q-_WnsP9cGDHHqgcwx1JStZyFBI-V2s2F8dc7oqOIj1XxjtUjuIrwQCHCYCIElgIQTT4O_JzoKeKnpYTKP0EIlxIWKihnHKi2_8ZIgpgyUfFemK8rhSWRkKqzAqSkgLROdc4bnTq6ygkU57nMNOf56eFjgkuOEYGSMFWzXiaQaN9dMk8-AIVdFQp100yokmFZ-8ExtxaCRQYgQqwqpNpltTiS786jx3qmWBLezuzcbVt3ipDDKIdDIVnZzYeI44hwpvhnD9PuBdQVoW5q3wTopzpzZsMwnIJHt0sw3wmJ1wLYvYLc76N7-31bjr4Zhkt1tqHV2R8N_1Op9rOfFsbh8D7Uvxw62UBC4ZJQIncgVocLZ-q5IEk26nllfZHRZRH8hmglyAb_XK9uPyw4hUHO2VYMIZWghBxSiumVoPC_BI2_L0idvfWPwgbD4Y9qKRvTqU3bb91-Dbit7Wn768L4Q6_1Vz2a1jNqQhvbbcyg9Qc14DW21_itvvJvrBZuS2gqsO2eUFdiW3PYAmGjNHu-T0B13M662FGfoXa2XtCcszX4PJ0faV3J41q5FQ5rc9yYTR12a496dhN9mlA7Eu_dOa0n0FyF56h9EXW6K_ocd6_gXnurnMP-ZXh0GQ4uw-FleNzChmmsMV9DkhnR3ji-rqlXugznsKLSOJgGrCSb7wpkRMfXGqN-VAmB6rZZ1-DhX3VNF8g=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 3.3 Business Roles & Responsibilities
 
@@ -807,7 +890,10 @@ Supplier
 | MBC | E2E-88D_R3_CFIN,  | |
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 4. Data Architecture (TOGAF "D")
 
@@ -818,11 +904,15 @@ Supplier
 | 1 | e.g. Cost Element | e.g. MES 300 | e.g. XEUS | Data steward | e.g. Intel Confidential | e.g. 10K rows/day | Master / Transaction |
 
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
 
 #### 4.2.1 Current-State — Current-State Data Flows
 
@@ -860,10 +950,16 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlY9P2kAUx_-VyxnCloCrYEGbaHLQMk2qcRa3JXZpjvYVLh5t014niPzvu2uhbkid8S5puPfj-14_rzlW2I8DwAZuNFYsYsJAq6aYwRyaBmpOaAbNFmpm4OcpE0sbfgNXDh7HpacI_U5TRiccsqbKDuNIOOypEDjSk4UKU7YRnTO-VFYHpjGgu8sWIjKRN9cqgseP_oymotDIM7iiix8sEDN5DinPQMbMxJzbdAJcFRJprmyR7N5JqM-iqTR2dWlKafTwYjrW12u0bjTcqCqBxgM3QnL5nGaZCSGiSTKIFyhknBsHA90cjUatTKTxAxgHmtbvD3qbY_tR9WR0kkXLj3mcKnfX1Hf1gslwyTdyRDd7pF_Jday-2e3Uyh0NdKuj7chBzF_aG40G-kCv9IZDTa5avV5Pud2oVMzyyTSlyQxZHevkZGiSoe2BN_XIU56C53yz712MXPyrjFYrYCn4gsVRBU2tbTopsn9ad45MhMPpIVK_pYBhGCXT1znmTsVPLnbz4KQbyGfgH7t5CJp8ZSVWBCEZ5OLPSrLA-lYXqH3YPq-rVCZCFGxYiCWHWhBb2ETtCralqf0v7KNk8T-8DrnxLsg1-RDdK8vxupq2BSyPSB7fw7gq-wZiGYNUzHsIbzrZB3lb6j2Mt7EfQry_LDo7O3_eADILpugLIjeX8jliHFz8XP9R7IzOhqls__4vYn6gIZOMCSK3w4vLsTUc391ayLa-WtdmzTTt2xer7am5kyThzKfKu390tmfWzMmkgqqbeP-IbM-S8lYUtOOwbbMQSvnyytg7jvINt_R1tSv6p6enr9DjFp5DOqcswMYKFze-_L8IIKQ5F3jdwjQXsbOMfGwUlzLOk4AKMBmVROelcf0HE6T1vw==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtO2zAUhl_FMqq0SS0LLWkhEkjObSAFxEjZJpEpchOntXCTKHFGS-m7z84N1jUMYUuRfS7_cb4TORsYJCGBGuz1NjSmXAMbD_IFWRIPasCDM5yLVV-schIUGeVrh_wmrHKyJGm8Zcp3nFE8YySXbqETJTF36VMtdaSmqypY2m28pGxdeVwyTwi4u-wDJASE-LaMYsljsMAZr9WKnFzh1Q8a8oW0RJjlRMYt-JI5eEZYWZZnRWmNxWu5KQ5oPJfmkSqNGY4fXhmP1e0WbHs9L25rganuxUCMgOE8N0kEcJrqyQpElDHtQFdN27b7Oc-SB6IdKMpkoo_r7eBRHk0bpqt-kLAkk-6Rqe7qhTNjzWo5pJpjNGnlhtbEHA075Y501RoqO3IkYS_Hs21d1dVWzzAUMTr1xmPp9uJKMS9m8wynC2ANrZMTw0SG4xN_7qOnIiO--82596BA-KuKliOkGQk4TeIWmhxNOiqzf1p3rkgkh_NDINdCQNO0ium_OeZOxU8e9IrwZBSKZxgce0VEFPHKUqwMAiLIg5-lZIn1rVOAweHgvKtSlUjisGbB14x0gmhgIzlb2JYi59-wj8QX_x-8LrrxL9A1-hDdK8v1R4rSABZbILbvYdyWfQOxiAEy5j2E65Psg9yUeg_jJvZDiPeXBWdn5881ILNkCr4AdHMpnjZl4m567v4odlrnkLk4_v0rYkGoABNNEUC3xsXl1DKmd7cWcKyv1rXZ0U3n9sXq-LLvKE0ZDbD07m-d45sdfTIxx9UVva9Fjm8JeSsOB0k0cGhEKvnqytjbjuoNG_qqnC3909PTf9DDPlySbIlpCLVN9RMQ_5KQRLhgXFzjEBc8cddxALXyYoZFGmJOTIoF0WVl3P4BbGP_Qw==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 
 #### 4.2.2 Future-State — Future-State Data Flows
 
@@ -901,10 +997,15 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlY9P2kAUx_-VyxnCloCrYEGbaHLQdppU4yxuS-zSHO0rXDzapr1OEPnfd9dC3RCc8S5puPfj-14_rzmWOEhCwAZuNJYsZsJAy6aYwgyaBmqOaQ7NFmrmEBQZEwsHfgNXDp4klacM_U4zRscc8qbKjpJYuOypFDjS07kKUzabzhhfKKsLkwTQ3WULEZnImysVwZPHYEozUWoUOVzR-Q8Wiqk8R5TnIGOmYsYdOgauComsULZYdu-mNGDxRBq7ujRlNH54MR3rqxVaNRpeXJdAo4EXI7kCTvPchAjRNB0kcxQxzo2DgW7att3KRZY8gHGgaf3-oLc-th9VT0YnnbeChCeZcndNfVsvHA8XfC1HdLNH-rVcx-qb3c5euaOBbnW0LTlI-Et7tj3QB3qtNxxqcu3V6_WU24srxbwYTzKaTpHVsU5ObJMMHR_8iU-eigx895tz72Hk4V9VtFohyyAQLIlraGpt0kmZ_dO6c2UiHE4OkfotBQzDqJi-zjG3Kn7ysFeEJ91QPsPg2Csi0OQrK7EyCMkgD39WkiXWt7pA7cP2-b5KVSLE4ZqFWHDYC2IDm6hdw7Y0tf-FfZTO_4fXJTf-BbkmH6J7Zbl-V9M2gOURyeN7GNdl30AsY5CKeQ_hdSe7IG9KvYfxJvZDiHeXRWdn589rQGbJFH1B5OZSPm3GwcPP-z-KrdE5MJHt3_9FLAg1ZJIRQeR2eHE5soaju1sLOdZX69rcM03n9sXq-GruJE05C6jy7h6d45t75mRSQdVNvHtEjm9JeSsO20nUdlgElXx1ZewcR_WGG_q62jX909PTV-hxC88gm1EWYmOJyxtf_l-EENGCC7xqYVqIxF3EATbKSxkXaUgFmIxKorPKuPoDj0n16Q==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1L4zAYx79KiAzuYPPqZjctKKRrewpVPDvvDuxRsjbdgllT2vTcnPvul_RNb7d5YgIleV7-T_p7SrqGIY8INGCns6YJFQZY-1DMyYL40AA-nOJcrrpylZOwyKhYueQ3YZWTcd54y5TvOKN4ykiu3FIn5onw6FMtdaSnyypY2R28oGxVeTwy4wTcXXYBkgJSfFNGMf4YznEmarUiJ1d4-YNGYq4sMWY5UXFzsWAunhJWlhVZUVoT-VpeikOazJR5oCtjhpOHV8ZjfbMBm07HT9paYGL6CZAjZDjPLRIDnKYmX4KYMmYcmLrlOE43Fxl_IMaBpo1G5rDe9h7V0Yx-uuyGnPFMuQeWvq0XTccrVssh3RqiUSvXt0fWoL9X7sjU7b62JUc4ezme45i6qbd647Emx1694VC5_aRSzIvpLMPpHNh9--TEsdDYDUgwC9BTkZHA--be-1Ai_FVFqxHRjISC8qSFpkaTjsrsn_adJxPJ4ewQqLUUMAyjYvpvjrVV8ZMP_SI6GUTyGYXHfhETTb6yEiuDgAzy4WclWWJ96xSgd9g731epSiRJVLMQK0b2gmhgIzVb2Lam5t-wj-QX_x-8HroJLtA1-hDdK9sLBprWAJZbILfvYdyWfQOxjAEq5j2E65PsgtyUeg_jJvZDiHeXBWdn5881IKtkCr4AdHMpnw5l8m563v9RbLXOJTN5_PtXxMJIAxaaIIBuxxeXE3s8ubu1gWt_ta-tPd10b1-sbqD6jtKU0RAr7-7WuYG1p08WFri6one1yA1sKW8nUY_HPZfGpJKvroyd7ajesKGvq9nSPz09_Qc97MIFyRaYRtBYVz8B-S-JSIwLJuQ1DnEhuLdKQmiUFzMs0ggLYlEsiS4q4-YP6Aj_bQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 4.3 Data Lineage
 
@@ -933,7 +1034,10 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Quality | Validated at source; reconciliation at target |
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 5. Application Architecture (TOGAF "A")
 
@@ -969,6 +1073,7 @@ flowchart TB
     E2E88C_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E88CMW_e_g_Azure_Service_Bus
     E2E88CMW_e_g_Azure_Service_Bus --> E2E88C_e_g_XEUS
 
+
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -982,10 +1087,14 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1vokAQ_isbGuMXbemLLyWNCQhevGDblL7c5byQlR100xUIu7S11v9-u2DFYht7a4Jh5plnlmdmdpdaEBPQDK1WW9KICgMt62IGc6gbqD7BHOoNVOcQZCkVCxeegCkHi-PCk0PvcUrxhAGvq-gwjoRHX3OC43byomDKNsBzyhbK6sE0BnQ3bCBTBrIG4jjiTQ4pDesrhWbxczDDqcj5Mg4j_PJAiZjJ9xAzDhIzE3Pm4gkwlVSkmbJF8ku8BAc0mkrjmS5NKY4eS1NLX63QqlYbR5sU6NYaR0iuWg01m3JDwYyOsIAmjXhCUyCIiwUDFDDMOXCJKeD5uw0hmmScRsA5yldIGTMOBnJZrQYXafwIxoHV7bZ1a_3afFZfYpwkL40gZnFqHOi6XuHESYLKVXBaLcW64dT1Tsdq_wcnwQLvctrdPZzHHzjffQRzKV6KF1JT1KpkmlNCGDzjFLYVsdtmqYjTaQ9Ktm_sHmK2o4jSeEvlfl_X93EWrDybTFOczJDp_hlr44x0T4l8ktMWMq-v3WHfvB1eXSLX_O3cjLW_RZBaRDZEIGgcIfemtDonTrfb98Gf-iPH8091fZs1gDaCw-khkj4kfZLQMAxZ4U8Jfjl33qfRyvFl6OghDzZfsxR8D9InGoBvZfzD1x13CqYchdYoJFEFbVm1Krvt5Oz9mAvfYXLeI9Hb3mJwVhArAFoDLibpUe-C9gqHd4-O0NCOA_n307u6vDiivSKr6soiH0TkvT67gsqx672NtZzNzosgmczroXwOKIOx9rZHiW3irzAqSbUWakvrpsmPAcvdGvGBvm_Et0PNTaj-nUneaVYXplKjD81BdOQ6P5xL-xtd6vqyt6utZSYJowFW4E-ay_VHD9UWGpVt8mXbuL7tVDvEVsePEwl5i1QrX4Q4V8UwnrTJmQSSZhw2XRqu08j532qTUtRClHdhW-q3Efb8_HznLNMa2hzSOaZEM5ZafnvJu49AiDMmtFVDw5mIvUUUaEZ-qWhZIjcKNsWyCPPCuPoHd9Y9qQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzxaSoQqpU06dUoBLQM2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpVzTgtOJAKndiDPNUhXyhzXUQSe_N8HaPqQLLpbGE8IsA3I1ahIXAUSTSJrKloSCTyNrVWWI7C6Z00KtkUsJY3p_w5maa8uUCgk6bq4WIqATENUUVFFW1hSXGOY04elMm49tbSxo-rdmbNurFVk1GlH6Uov86EcpwdFokFYL55bM-ZgqaPFU5rwARqRaCiCJoFKCxBgTXn17MCWTUvIUpCTVmHIhnL0hjn67KVWR_QVnr9_tduz--rN1pxfkHOb3zSQTWeHs2ba9hUnznGyGwey3NeoLpm2fnPQ7_4HJqKK7mF73A8yDV5jPPkYlklfQJXJK2luVFpwxAXe0gDojXsfdMOKfdIYbtE_MHjKxw4jmuMbyYGDbH2EaVFlOZgXN58QNfkdWVLLuEcMnO2oT9_IyGA3cH6OLcxK4v_zvkfXHJOnBUBCJ4llKgu8bq3_od7uDGOJZPPbD-Mi266gJdAh8mX0h6CPoQ0DHcbDDbwL89K_CN7O1493U8U2V7D6UBcQhFLc8gbhfylerOzgxSFUUWUcRjDKwm65to3t-hT7IpIp9gUdAqnr1KSbHBlgHkHXA2aTY753xnnGE12SfjLwswb9v4cX52T7vmapalaYepOy5P7uE4rbrPUVWheZVTUAk93KEzyEXePY8fcBEHfi9GF1kuxd6SmvRVMdAP6ht8aH90Ravp7ovqfZndvKOWAOYIUevxMFsEvhf_XPvEyoNYtT2trTcPBc8oTr4DXEF8fhmW0LjjUzelU0Qe_62Qjx9_Pipwstlu_Mmxb8wm_Gww44xkLWyaSvg03UZ3P81mWxINaQ8E9vWvxdiT09Pd84yq2ktoFhQzizn0VxoeC8ymNJSKLyGLFqqLFymieVUF4tV5jhR8DjFJiyMcfUPaHVHLQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### Current-State Flow Narrative
 
@@ -994,7 +1103,10 @@ flowchart TB
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.2 Future-State — Future-State Application Landscape
 
@@ -1028,6 +1140,7 @@ flowchart TB
     E2E88F_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E88FMW_e_g_Azure_Service_Bus
     E2E88FMW_e_g_Azure_Service_Bus --> E2E88F_e_g_XEUS
 
+
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -1041,10 +1154,14 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1vokAQ_isbGuMXbemLLyWNCQhevGDblL7c5byQlR100xUIu7S11v9-u2DFYht7a4Jh5plnlmdmdpdaEBPQDK1WW9KICgMt62IGc6gbqD7BHOoNVOcQZCkVCxeegCkHi-PCk0PvcUrxhAGvq-gwjoRHX3OC43byomDKNsBzyhbK6sE0BnQ3bCBTBrIG4jjiTQ4pDesrhWbxczDDqcj5Mg4j_PJAiZjJ9xAzDhIzE3Pm4gkwlVSkmbJF8ku8BAc0mkrjmS5NKY4eS1NLX63QqlYbR5sU6NYaR0iuWg01m3JDwYyOsIAmjXhCUyCIiwUDFDDMOXCJKeD5uw0hmmScRsA5yldIGTMOBnJZrQYXafwIxoHV7bZ1a_3afFZfYpwkL40gZnFqHOi6XuHESYLKVXBaLcW64dT1Tsdq_wcnwQLvctrdPZzHHzjffQRzKV6KF1JT1KpkmlNCGDzjFLYVsdtmqYjTaQ9Ktm_sHmK2o4jSeEvlfl_X93EWrDybTFOczJDp_hlr44x0T4l8ktMWMq-v3WHfvB1eXSLX_O3cjLW_RZBaRDZEIGgcIfemtDonTrc78MGf-iPH8091fZs1gDaCw-khkj4kfZLQMAxZ4U8Jfjl33qfRyvFl6OghDzZfsxR8D9InGoBvZfzD1x13CqYchdYoJFEFbVm1Krvt5Oz9mAvfYXLeI9Hb3mJwVhArAFoDLibpUe-C9gqHd4-O0NCOA_n307u6vDiivSKr6soiH0TkvT67gsqx672NtZzNzosgmczroXwOKIOx9rZHiW3irzAqSbUWakvrpsmPAcvdGvGBvm_Et0PNTaj-nUneaVYXplKjD81BdOQ6P5xL-xtd6vqyt6utZSYJowFW4E-ay_VHD9UWGpVt8mXbuL7tVDvEVsePEwl5i1QrX4Q4V8UwnrTJmQSSZhw2XRqu08j532qTUtRClHdhW-q3Efb8_HznLNMa2hzSOaZEM5ZafnvJu49AiDMmtFVDw5mIvUUUaEZ-qWhZIjcKNsWyCPPCuPoHvkc9wQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1Izz6IEKVUpJOnVJAhI1NyxS58W1rzU2i2AEK9L_vOi40tCCYK6XJfZxrn3tsP1pJxsByrEbjkadcOeQxstQcFhBZDomsCZX41sQ3CUlZcLUM4BaEcYose_ZWKT9owelEgNRuxJlmqQr5wxrqoJPfm2BtH9IFF0vjCWGWAfk-ahIXAUSTSJrKloSCTyNrVWWI7C6Z00KtkUsJY3p_w5maa8uUCgk6bq4WIqATENUUVFFW1hSXGOY04elMm49tbSxo-rdmbNurFVk1GlH6UotcD6KU4Gg0SKuFc0vmfEwVtHgqc14AI1ItBZBEUClBYowJr749mJJJKXkKUpJqTLkQzt4Qx6DdlKrI_oKzN-j1OvZg_dm60wtyDvP7ZpKJrHD2bNvewqR5TjbDYA7aGvUF07a73UHnPzAZVXQX0-t9gHnwCvPZx6hE8gq6RE5Je6vSgjMm4I4WUGfE67gbRvxuZ7hB-8TsIRM7jGiOayyfndn2R5gGVZaTWUHzOXGD35EVlax3xPDJjtrEvbwMRmfu9ejinATuL_8qsv6YJD0YCiJRPEtJcLWx-od-rzeMIZ7FYz-Mj2y7jppAh8CX2ReCPoI-BHQcBzv8JsBP_3v4ZrZ2vJs6vqmS3YeygDiE4pYnEA9K-Wp1B12DVEWRdRTBKAO76do2uudX6GeZVLEv8AhIVb8-xeTYAOsAsg44nRT7_VPeN47wB9knIy9L8O9beHF-us_7pqpWpakHKXvuzy6huO36T5FVoXlVExDJvRzhc8gFnj1PHzBRB34vRhfZ7oWe0lo01TEwCGpbfGh_tMXrqe5Lqv2Znbwj1gBmyNErcTCbBP5X_9z7hEqDGLW9LS03zwVPqA5-Q1xBPL7ZltB4I5N3ZRPEnr-tEE8fP36q8HLZ7rxJ8S_MZjzssGMMZK1s2gr4dF0G939NJhtSDSnPxLb174XYk5OTnbPMaloLKBaUM8t5NBca3osMprQUCq8hi5YqC5dpYjnVxWKVOU4UPE6xCQtjXP0DruZHRQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### Future-State Flow Narrative
 
@@ -1053,7 +1170,10 @@ flowchart TB
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.3 Change Impact Summary
 
@@ -1073,7 +1193,10 @@ flowchart TB
 | e.g. XEUS | - | N/A |
 
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.5 RICEFW Inventory
 
@@ -1088,7 +1211,10 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 > *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
 
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.6 Integration Patterns
 
@@ -1097,13 +1223,17 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 | 1 | e.g. Pub-Sub / P2P / ETL | e.g. MES Route to ICOST | e.g. Azure Service Bus | e.g. REST / RFC / SFTP | e.g. OAuth / NTLM / Cert |
 
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
 
 #### 6.1.1 Current-State — Current-State Platform Architecture
 
@@ -1130,12 +1260,18 @@ flowchart TB
 
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlGFvmzAQhv-K5SriC2tJCClD6iRIQKuUTtFYt0ljQg4ciVWDEZg2acp_nw1pslZKpWrzB4t77_z49Vl4hxOeAnbwYLCjBRUO2mliDTloDtKWpAZNR1oNSVNRsZ3DPTCVYJz3ma70O6koWTKoNbU644UI6WMHGI7LjSpTWkByyrZKDWHFAd1e68iVC5nWqgrGH5I1qUTHaGq4IZsfNBVrGWeE1SBr1iJnc7IEpjYSVaO0QroPS5LQYiXFsSGlihR3R8ky2ha1g0FUHLZA37yoQHIkjNT1DDJEytLjG5RRxpwzz5oFQaDXouJ34JwZxuWlN9mHHx6UJ2dUbvSEM16ptDmzXvNKRsQROLX9yfTjAWjatm9OXwLNI3DoWf7IeAUEzo68IPAszzrwplNDjpMGJxOVjoqeWDfLVUXKNfJHvm1PF_NFDPEqdh-bCuIFIeGvCEfNaGIMoyYDQ-58vjpHXRqpdIR_9yA1UlpBIigv0PzrUX0mux35p3-rmB1GfUuA4zh9w_s1UKR7b2LL4KSxf2rmm4cP43H82f3ixiNjZHbnT20zlXNKrL-7EF6MkapDqu7djbjxw9g0jOdeyBDJ8J3teGH1P3TkLfrV1aenvdlZdz50gdzFtZwDyiDCTyevCus4hyonNMXODndvhHxhUshIwwRudUwawcNtkWCn-41xU6ZEwIwSeT15L7Z_ANcIbpo=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1jp2nHqGDmzHZoV0hHndBvMwin2ciMqSseU1aZr_PsnOR1tooWy6ENL7Hj06OkLa4kzkgF08GGwpp9JF2wTLFZSQYBcleEEaNRqqUQNZW1O5mcEfYL3JhDi43ZLvpKZkwaDRtuIUgsuYPuxRo3G17oO1HpGSsk3vxLAUgG6vh8hTAAXfdVFM3GcrUss9rW3ghqx_0FyutFIQ1oCOW8mSzcgCWLetrNtO5epYcUUyypdaHhtarAm_eyLaxm6HdoNBwo97oW9-wpFqGSNNM4UCkaryxRoVlDH3zLenURQNG1mLO3DPDOPy0p_spx_udWquWa2HmWCi1rY1tV_yKkbkCRg44ST4eARajhNawXOgdQKOfDs0jRdAEOzEiyLf9u0jLwgM1V5NcDLRdsJ7YtMuljWpVig0Q8cJ5rN5Cuky9R7aGtI5IfGvBCetOTFGSVuAoXY-X56jzkbaTvDvHqRbTmvIJBUczb6e1APZ68g_w1vN7DB6rACu6_YF79cAz_e5yQ2DVxP7p2K-efg4HaefvS9eahqm1Z0_d6xc9Tmxn1YhvhgjHYd03LsLcRPGqWUYh1qoKVLTd5bjWar_oSJv0a-uPj3uk51250MXyJtfqz6iTL33x1evCg9xCXVJaI7dbf9tqN8nh4K0TKqHj0krRbzhGXa7p4zbKicSppSo6yl7cfcXAoh4Hg==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
 
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 
 #### 6.1.2 Future-State — Future-State Platform Architecture
 
@@ -1162,9 +1298,11 @@ flowchart TB
 
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlGFvmzAQhv-K5SriC2sJhJQhdRIkoFVKp2is26QxIQeOxKqDEZg2acp_nw1pslZKpWrzB4t77_z49Vl4h1OeAXbxYLCjBRUu2mliBWvQXKQtSA2ajrQa0qaiYjuDe2AqwTjvM13pd1JRsmBQa2p1zgsR0ccOMByVG1WmtJCsKdsqNYIlB3R7rSNPLmRaqyoYf0hXpBIdo6nhhmx-0EysZJwTVoOsWYk1m5EFMLWRqBqlFdJ9VJKUFkspjgwpVaS4O0q20baoHQzi4rAF-ubHBZIjZaSup5AjUpY-36CcMuae-fY0DEO9FhW_A_fMMC4v_fE-_PCgPLlmudFTznil0tbUfs0rGRFH4MQJxpOPB6DlOIE1eQm0jsChbwem8QoInB15Yejbvn3gTSaGHCcNjscqHRc9sW4Wy4qUKxSYgeOE89k8gWSZeI9NBcmckOhXjOPGHBvDuMnBkDufL89Rl0YqHePfPUiNjFaQCsoLNPt6VJ_JXkf-GdwqZodR3xLgum7f8H4NFNnem9gyOGnsn5r55uGjZJR89r54iWmYVnf-zLEyOWfE_rsL0cUIqTqk6t7diJsgSizDeO6FDJEM39mOF1b_Q0feol9dfXram51250MXyJtfyzmkDGL8dPKqsI7XUK0JzbC7w90bIV-YDHLSMIFbHZNG8GhbpNjtfmPclBkRMKVEXs-6F9s_-dlusg==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1jp2nLqCDuzEZoV0hLndBvMwin2ciMqWseU1aZr_PsnOR1tIoWy6ENL7Hj06OkLa4ESkgAnu9TasYJKgTYTlEnKIMEERntNajfpqVEPSVEyup_AHeGdyIfZuu-Q7rRidc6i1rTiZKGTInnaowbBcdcFaD2jO-LpzQlgIQPc3feQqgIJv2yguHpMlreSO1tRwS1c_WCqXWskor0HHLWXOp3QOvN1WVk2rFupYYUkTViy0PDS0WNHi4YVoG9st2vZ6UXHYC915UYFUSzit6wlkiJalJ1YoY5yTM8-eBEHQr2UlHoCcGcblpTfaTT896tSIWa76ieCi0rY1sd_ySk7lETh2_NH46gC0HMe3xq-B1hE48GzfNN4AQfAjLwg827MPvPHYUO1kgqORtqOiI9bNfFHRcol803ecYDadxRAvYvepqSCeURr-inDUmCNjEDUZGGrn88U5am2k7Qj_7kC6payCRDJRoOm3o7onuy35p3-vmS1GjxWAENIVvFsDRbrLTa45nEzsn4r57uHDeBh_cb-6sWmYVnv-1LFS1afUflmF8GKIdBzScR8uxK0fxpZh7GuhpkhNP1iOV6n-h4q8R7--_vy8S3bSng9dIHd2o_qAcfXen09eFe7jHKqcshSTTfdtqN8nhYw2XKqHj2kjRbguEkzap4ybMqUSJoyq68k7cfsXJVl4Ng==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
+
 
 #### Platform Inventory
 
@@ -1174,22 +1312,20 @@ flowchart TB
 | 2 | e.g. S/4 HANA 2023 | On-Premise | e.g. MES 300 | DEV,QAS,PRD |
 
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 6.2 SAP Development Object Status
 
-**RICEFW Status Summary** — E2E Tower (0 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-03-27)*
-
-| Status | Count | % |
-|--------|------:|----:|
-| **Total** | **0** | **100%** |
-
-**RICEFW by Type:**
-
-| Type | Count |
-|------|------:|
-| **Total** | **0** |
+| Metric | DEV | QAS | PRD |
+|--------|-----|-----|-----|
+| Transport Requests | — | — | — |
+| Custom Code Objects | — | — | — |
+| CDS Views | — | — | — |
+| Fiori Apps | — | — | — |
+| BAdIs / Enhancements | — | — | — |
 
 ### 6.3 NFRs & Design Principles
 
@@ -1219,46 +1355,46 @@ flowchart TB
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 7. Project Context
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
-*No timeline data available for this capability.*
+Project delivery milestones for E2E-88 RICEFW objects:
+
+| Phase | Planned Start | Planned End | Status | Notes |
+|-------|---------------|-------------|--------|-------|
+| Functional Specification (FS) | Per project plan | Per project plan | In Progress | Tower-level FS schedule |
+| Technical Design (TDD) | FS + 2 weeks | FS + 6 weeks | Planned | Dependent on FS completion |
+| Build & Unit Test (TUT) | TDD + 1 week | TDD + 8 weeks | Planned | Includes S/4 + Middleware |
+| Functional User Test (FUT) | Build + 1 week | Build + 4 weeks | Planned | Tower-led validation |
+| Go-Live (Release 2) | Per release plan | Per release plan | Planned | End-to-End Integrated Processes release |
+
+> *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
+
+<div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-03-27*
+Standard RAID items for E2E-88 (End-to-End Integrated Processes):
 
-**RAID Summary:** 15 open items (0 capability-specific, 15 tower-level), 56 closed
+| # | Category | Description | Status | Owner | Priority |
+|---|----------|-------------|--------|-------|----------|
+| 1 | Risk | Data migration completeness — validate all legacy R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme data maps to S/4 target structures | Open | Tower Architect | High |
+| 2 | Risk | Integration testing coverage — ensure all 2 integrated systems are validated end-to-end | Open | Integration Lead | High |
+| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
+| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
+| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
 
-| Severity | Capability | Tower-Wide | Total Open |
-|----------|----------:|-----------:|-----------:|
-| P1 - High | 0 | 3 | 3 |
-| P2 - Medium | 0 | 10 | 10 |
-| P3 - Low | 0 | 2 | 2 |
-| **Total** | **0** | **15** | **15** |
-
-**Other E2E Tower RAID Items** (15 open):
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-03 |
-| 03681 | Risk | P1 - High | ITC Execution: Planning run availability - Prerequisite for ... | In Progress | E2E | 2026-03-27 |
-| 03762 | Risk | P1 - High | FTS-IF (esp SCP) related test cases/sequencing are not accur... | In Progress | FTS IF | 2026-04-03 |
-| 01733 | Risk | P2 - Medium | Tariffs impacts Item/BOM design which is impacting ERP/SCP (... | In Progress | E2E | 2026-03-06 |
-| 03592 | Risk | P2 - Medium | Lack of Defined IMO Owner for CBA Mask Billing and Materials... | In Progress | E2E | 2026-03-27 |
-| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
-| 03628 | Risk | P2 - Medium | R3 Returns Rework Process Causing Finance Double Counting in... | In Progress | E2E | 2026-03-27 |
-| 03642 | Issue | P2 - Medium | E2E Process with Anafi on order/invoice point.  Need IFS SC ... | In Progress | E2E | 2026-03-24 |
-| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
-| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
-| 03753 | Risk | P2 - Medium | PDF-SMH IF test cases are not available in JIRA | To Be Reviewed | B-Apps | 2026-03-25 |
-| 03756 | Risk | P2 - Medium | LE101-1001 Operation Support Ownership for SIMS/Tester Front... | In Progress | E2E | 2026-04-24 |
-| 03769 | Action | P2 - Medium | Need a Labs SPOC owner to define IP Labs enterprise and mate... | In Progress | E2E | 2026-04-17 |
-| 03216 | Action | P3 - Low | Mask Expense vs. Invoice | In Progress | E2E | 2026-03-06 |
-| 03315 | Risk | P3 - Low | BPMG – SCP L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-03-27 |
+> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
 
 ### 7.3 Recommendations & Next Steps
 
@@ -1272,4 +1408,5 @@ flowchart TB
 
 ---
 *E2E-88 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026*
-
+<div class="page-footer"><span>Page 29</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
+</div>

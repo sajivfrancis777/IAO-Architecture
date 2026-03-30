@@ -1,6 +1,7 @@
+<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
-  <h1 style="font-size:36px; margin-top:24px;">E2E-45 — E2E-45</h1>
+  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <h1 style="font-size:36px; margin-top:24px;">E2E-45 — Forecast to Stock</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
   Capability E2E-45 · Forecast to Stock</p>
@@ -19,7 +20,14 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
+.page-section {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 40px);
+  box-sizing: border-box;
+}
 .page-footer {
+  margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid #ddd;
   display: flex;
@@ -27,81 +35,121 @@
   align-items: center;
   font-size: 11px;
   color: #888;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 20px;
+  padding: 6px 12px;
   background: #fff;
 }
 @media print {
-  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+  .page-section {
+    min-height: 100vh;
+  }
+  .page-footer {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
 .page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
 </style>
 
-<div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+<div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 <a id="toc"></a>
 
 ## Table of Contents
 
-1. [Executive Summary](#1-executive-summary)
-2. [Business Context & Objectives](#2-business-context--objectives)
-   - 2.1 [Classification](#21-classification)
-   - 2.2 [Business Drivers](#22-business-drivers)
-   - 2.3 [Success Criteria](#23-success-criteria)
-   - 2.4 [Companion Documents](#24-companion-documents)
-3. [Business Architecture (TOGAF "B")](#3-business-architecture-togaf-b)
-   - 3.1 [Business Process Overview](#31-business-process-overview)
-   - 3.2 [Business Process Diagrams](#32-business-process-diagrams)
-   - 3.3 [Business Roles & Responsibilities](#33-business-roles--responsibilities)
-4. [Data Architecture (TOGAF "D")](#4-data-architecture-togaf-d)
-   - 4.1 [Data Entities & Ownership](#41-data-entities--ownership)
-   - 4.2 [Data Flow Diagrams](#42-data-flow-diagrams)
-   - 4.3 [Data Lineage](#43-data-lineage)
-   - 4.4 [RICEFW Data Objects](#44-ricefw-data-objects)
-   - 4.5 [Data Governance & Quality](#45-data-governance--quality)
-5. [Application Architecture (TOGAF "A")](#5-application-architecture-togaf-a)
-   - 5.1 [Current-State Application Landscape](#51-current-state--current-state-application-landscape)
-   - 5.2 [Future-State Application Landscape](#52-future-state--future-state-application-landscape)
-   - 5.3 [Change Impact Summary](#53-change-impact-summary)
-   - 5.4 [Component Overview](#54-component-overview)
-   - 5.5 [RICEFW Inventory](#55-ricefw-inventory)
-   - 5.6 [Integration Patterns](#56-integration-patterns)
-6. [Technology Architecture (TOGAF "T")](#6-technology-architecture-togaf-t)
-   - 6.1 [Platform & Infrastructure](#61-platform--infrastructure)
-   - 6.2 [SAP Development Object Status](#62-sap-development-object-status)
-   - 6.3 [NFRs & Design Principles](#63-nfrs--design-principles)
-   - 6.4 [Security & Governance](#64-security--governance)
-7. [Project Context](#7-project-context)
-   - 7.1 [Project Roadmap & Go-Live Plan](#71-project-roadmap--go-live-plan)
-   - 7.2 [RAID Log](#72-raid-log)
-   - 7.3 [Recommendations & Next Steps](#73-recommendations--next-steps)
+<nav class="toc">
+<ol>
+  <li><a href="#1-executive-summary">1. Executive Summary</a></li>
+  <li><a href="#2-business-context-objectives">2. Business Context &amp; Objectives</a>
+    <ul>
+      <li><a href="#21-classification">2.1 Classification</a></li>
+      <li><a href="#22-business-drivers">2.2 Business Drivers</a></li>
+      <li><a href="#23-success-criteria">2.3 Success Criteria</a></li>
+      <li><a href="#24-companion-documents">2.4 Companion Documents</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+    <ul>
+      <li><a href="#31-business-process-overview">3.1 Business Process Overview</a></li>
+      <li><a href="#32-business-process-diagrams">3.2 Business Process Diagrams</a></li>
+      <li><a href="#33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+    <ul>
+      <li><a href="#41-data-entities-ownership">4.1 Data Entities &amp; Ownership</a></li>
+      <li><a href="#42-data-flow-diagrams">4.2 Data Flow Diagrams</a></li>
+      <li><a href="#43-data-lineage">4.3 Data Lineage</a></li>
+      <li><a href="#44-ricefw-data-objects">4.4 RICEFW Data Objects</a></li>
+      <li><a href="#45-data-governance-quality">4.5 Data Governance &amp; Quality</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+    <ul>
+      <li><a href="#51-current-state-current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
+      <li><a href="#52-future-state-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
+      <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
+      <li><a href="#54-component-overview">5.4 Component Overview</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+    <ul>
+      <li><a href="#61-platform-infrastructure">6.1 Platform &amp; Infrastructure</a></li>
+      <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
+      <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
+      <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+    </ul>
+  </li>
+  <li><a href="#7-project-context">7. Project Context</a>
+    <ul>
+      <li><a href="#71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</a></li>
+      <li><a href="#72-raid-log">7.2 RAID Log</a></li>
+      <li><a href="#73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</a></li>
+    </ul>
+  </li>
+</ol>
+</nav>
 
-<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 1. Executive Summary
 
-This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **E2E-45 E2E-45** within the IAO program. It includes 5 BPMN process diagram(s) in Section 3.
+This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **E2E-45 Forecast to Stock** within the IAO program. It includes 5 BPMN process diagram(s) in Section 3.
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | End-to-End Integrated Processes (E2E) |
 | **Process Group** | Forecast to Stock |
-| **Capability** | E2E-45 - E2E-45 |
+| **Capability** | E2E-45 - Forecast to Stock |
 | **Release** | Release 2 |
 | **Total Systems** | 2 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 2 Pending IAPM |
 | **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.
 
-> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: "loose"` for click events.
+> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
-<div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+<div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 2. Business Context & Objectives
 
@@ -111,7 +159,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 |-------|-------|
 | **L0 Tower** | End-to-End Integrated Processes |
 | **L1 Process** | Forecast to Stock |
-| **L2 Capability** | E2E-45 - E2E-45 |
+| **L2 Capability** | E2E-45 - Forecast to Stock |
 
 ### 2.2 Business Drivers
 
@@ -122,8 +170,11 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Process Visibility & Monitoring | Provide end-to-end process visibility across tower boundaries with integrated monitoring | Operational Excellence | Medium |
 | 4 | E2E-45 Process Migration | Migrate E2E-45 business processes and 2 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Cross-Functional / End-to-End | High |
 
-<div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+<div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 2.3 Success Criteria
 
@@ -141,14 +192,17 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
-<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 3. Business Architecture (TOGAF "B")
 
 ### 3.1 Business Process Overview
 
-This capability includes **5 business process(es)** modeled in BPMN 2.0, covering the end-to-end workflow for E2E-45 E2E-45.
+This capability includes **5 business process(es)** modeled in BPMN 2.0, covering the end-to-end workflow for E2E-45 Forecast to Stock.
 
 | # | Step ID | Process Name | Lanes | Tasks | Gateways |
 |---|---------|--------------|-------|-------|----------|
@@ -170,10 +224,14 @@ Supplying Plant  (IM)
 | 5 | E2E-_45E-IF-Shipment_of_goods_through_Stock_transfer_with_planning_integration_for_Semi_Finished_and | E2E-_45E-IF-Shipment_of_goods_through_Stock_transfer_with_planning_integration_for_Semi_Finished_and | EWM, External Partners/ B2B
 , SAP S/4  | 19 | 6 |
 
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 ### 3.2 Business Process Diagrams
 
-<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
-<div style="page-break-before: always;"></div>
 
 #### BUSINESS ARCHITECTURE — 3.2.1 E2E-_45A-IF-Shipment_of_goods_through_Stock_transfer_with_planning_integration_for_Raw_Materials_&am — E2E-_45A-IF-Shipment_of_goods_through_Stock_transfer_with_planning_integration_for_Raw_Materials_&am
 
@@ -186,7 +244,7 @@ Supplying Plant  (IM)
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -233,10 +291,14 @@ flowchart LR
     class n14 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4jgU_StWqopWCtokJITmYSUayAhpqqLS7j5M98EkDlh14sh2oCziv-91PiBh1NFIywNwrs_9OrZvcjRinhAjMG5vjzSnKkDHgdqSjAwCNFhjSQYmqg1_YUHxmhE50JyU52pF_61otlt8apq2RTij7KCtK7LhBL0tTDQFR2YiiXM5lETQdGAOCkEzLA4hZ1xo9g2ZpFZaZWuWHrlIiLgQLMu3Yw9cGc3JxTzyXd-NtJ8kMc-TXtDUSydpPDjp4hjfx1ssVFV-KckT_vybJmoLOMVMEuBsVca-4zVhukclSm2LS7FrxaBS58lBsFWBY5pvwO5aYBI4_7iYPOt0Qqfb2_f8nBR9f3nPEXxihqWckRRJBeb5TqGUMhbcuOE08ixTKsE_SHDjzP3ZyDFj3UkArVumFne4J3SzVcGas6ShDve6h8ApPk3xGTiWKQ7wfZWL5MklUzh2Js7knOnRt0M7bDOlafq_MoGu4hXLjybXfBQ50eycy_bGXmj9HK9tc-b6U_taJyJ2NCadoFEUjeYXqeZjz7a-DvoYjcZWeBV0gxXZ48Ml4EPongNGnh_Z_pcB63zXVZbrpeBxG3A09yLvHNB_tKOp82VAd2q7k6ZCiLMRuNii1XSJVn-4aJErwlDEyzwRB_RCYkJ3cMrQkuFcIXS3eLpHtav-5P6Pd2NJRMpFBq5r7YZmhNEdAe87CHj_bvzT4U86_G-cJ7JOUag-7QFoKQ5SPNQbjEJBQEC0en3p02zrx5kY8w0KeQ6JlSaiVw4_z8DvOdh3Z4eCwYastrTICHTGYZOqetRW8HIDgigef8ClhCGSQgkLmFUUikgg4n03onOJKBUvul3tumy4E78l-aosCnb4heR2R8LnUvU17-vj_KT2QsqSIAweb0WiNV2AYrni156jjueSghDaZYnhT-0ndVnoCed4Q5KrPXY7viHPMiJimMc6E6d6YvXZXjcTl6oqtK6zTxwDsTkIkaimBXqDTakqaw3PeoRfnRHdyusT7Ccp5NWSezy2e4eF4Hs5xEyhAgvMGGHf6kv7bpxOV1uYO2g4_BNUaqBbQ6-Bfg0nDXyood3cYTiEteGhwaMauu2y1fBb3MDzepNtfIWdBns19Bs4adzb5XGDR52JomtsJ2nPDLV05mF_yT4_Uvp2pxn_fevoC7bbzkbDNOCkZJgmRnA0qjcAeEtISIpLpoyTaeBS8dUhj42gelIaZXUQZxTDbcpq4-k_UNqZBw==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4jgU_StWqopWCtokJITmYSUayAhpqqLS7j5M98EkDlh14sh2oCziv-91PiBh1NFIywNwrs_9OrZvcjRinhAjMG5vjzSnKkDHgdqSjAwCNFhjSQYmqg1_YUHxmhE50JyU52pF_61otlt8apq2RTij7KCtK7LhBL0tTDQFR2YiiXM5lETQdGAOCkEzLA4hZ1xo9g2ZpFZaZWuWHrlIiLgQLMu3Yw9cGc3JxTzyXd-NtJ8kMc-TXtDUSydpPDjp4hjfx1ssVFV-KckT_vybJmoLOMVMEuBsVca-4zVhukclSm2LS7FrxaBS58lBsFWBY5pvwO5aYBI4_7iYPOt0Qqfb2_f8nBR9f3nPEXxihqWckRRJBeb5TqGUMhbcuOE08ixTKsE_SHDjzP3ZyDFj3UkArVumFne4J3SzVcGas6ShDve6h8ApPk3xGTiWKQ7wfZWL5MklUzh2Js7knOnRt0M7bDOlafq_MoGu4hXLjybXfBQ50eycy_bGXmj9HK9tc-b6U_taJyJ2NCadoFEUjeYXqeZjz7a-DvoYjcZWeBV0gxXZ48Ml4EPongNGnh_Z_pcB63zXVZbrpeBxG3A09yLvHNB_tKOp82VAd2q7k6ZCiLMRuNii1XSJVn-4aJErwlDEyzwRB_RCYkJ3cMrQkuFcIXS3eLpHtav-5P6Pd2NJRMpFBq5r7YZmhNEdAe87CHj_bvzT4U86_G-cJ7JOUag-7QFoKQ5SPNQbjEJBQEC0en3p02zrx5kY8w0KeQ6JlSaiVw4_z8DvOdh3Z4eCwYastrTICHTGYZOqetRW8HIDgigef8ClhCGSQgkLmFUUikgg4n03onOJKBUvul3tumy4E78l-aosCnb4heR2R8LnUvU17-vj_KT2QsqSIAweb0WiNV2AYrni156jjueSghDaZYnhT-0ndVnoCed4Q5KrPXY7viHPMiJimMc6E6d6YvXZXjcTl6oqtK6zTxwDsTkIkaimBXqDTakqaw3PeoRfnRHdyusT7Ccp5NWSezy2e4eF4Hs5xEyhAgvMGGHf6kv7bpxOV1uYO2g4_BNUaqBbQ6-Bfg0nDXyood3cYTiEteGhwaMauu2y1fBb3MDzepNtfIWdBns19Bs4adzb5XGDR52JomtsJ2nPDLV05mF_yT4_Uvp2pxn_fevoC7bbzkbDNOCkZJgmRnA0qjcAeEtISIpLpoyTaeBS8dUhj42gelIaZXUQZxTDbcpq4-k_UNqZBw==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
-<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.2 E2E-_45B-IF_-_Shipment_of_goods_through_Stock_transfer_with_planning_integration_for_Semi_Finished_u — E2E-_45B-IF_-_Shipment_of_goods_through_Stock_transfer_with_planning_integration_for_Semi_Finished_u
 
@@ -247,7 +309,7 @@ flowchart LR
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -302,10 +364,14 @@ flowchart LR
     class n14 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4jgU_itWqopWCtpcCeRhJRrIqNJURU27fZjOg0kcsGrsrO1AGcR_XzsJtwxZrbQ8VD237zvn84mTnZGyDBmhcXu7wxTLEOx6colWqBeC3hwK1DNB7fgLcgznBImezskZlQn-VaXZXvGl07QvhitMttqboAVD4O3RBGNVSEwgIBV9gTjOe2av4HgF-TZihHGdfYOGuZVXbE3ogfEM8VOCZQV26qtSgik6ud3AC7xY1wmUMppdgOZ-PszT3l43R9gmXUIuq_ZLgZ7g1zvO5FLZOSQCqZylXJHvcI6InlHyUvvSkq8PYmCheagSLClgiulC-T1LuTiknyeXb-33YH97-0GPpOD7ywcF6pcSKMQE5UBI5Z6uJcgxIeGNF41j3zKF5OwThTfONJi4jpnqSUI1umVqcfsbhBdLGc4ZyZrU_kbPEDrFl8m_Qscy-Vb9bXEhmp2YooEzdIZHpofAjuzowJTn-f9iUrryVyg-G66pGzvx5Mhl-wM_sn7HO4w58YKx3dYJ8TVO0RloHMfu9CTVdODbVjfoQ-wOrKgFuoASbeD2BDiKvCNg7AexHXQC1nztLsv5jLP0AOhO_dg_AgYPdjx2OgG9se0Nmw4VzoLDYgmm70-1R__o8MePDyOHYQ77KVuAGeI54yvwSOespBmYIILXiG9BhhUJnpcSMwokq1CMnz_PkEbXkb4xlgnwglKEC3mlzLYu6yKOlIQAKvKI0RwriFkp-1CL-g45WjK1CUDqQ7tTaPdtOOfuCCckK0CyxMUKUQlY3vQSsRVBEmWq8r6uVFvcEikZz0Dyh6d0kIiAWGuhRABJWRRkq55FMCNQYd49Pt2Dc_arsySSpZ_gVT3KomDqiX1Bf5dIyFbnTquWUSW8BMnri9Y7eX1u5btXuZ5LeXlyrSrv-inNsOpQaz6D6p-3IlNYQo8HniCFC5S1dfb_2960qgb_tiOPQpT1wdf8CmytDo79hhJcnTzm1cUC3tS7pkI5OJ71bd9eE_u0JgVRq3W-JouqHbnkrFwsm9N7VKgYXmxNDeQqnKkz7QPPn6rYecjb7Q4ckHO2EX1IJCggh4Qg8q2-KT6M_b61hdQG_f6faiMac1CbfmM6tek2plebg0NtYweN7dam7R3iVuM4oPu1PWzMYW2OGnPUZFst-CNc02tzudKgMd2za0wPdHbZXkSczojbGfE6I35nZNAZCTojw87IqDOi5O0M2cdX86XfaV6jl163I9s7vGMM01ghvoI4M8KdUX1Jqa-tDOWwJNLYmwYsJUu2NDXC6ovDKKvHaoKhuuNWtXP_D2jKCSA=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4jgU_itWqopWCtpcCeRhJRrIqNJURU27fZjOg0kcsGrsrO1AGcR_XzsJtwxZrbQ8VD237zvn84mTnZGyDBmhcXu7wxTLEOx6colWqBeC3hwK1DNB7fgLcgznBImezskZlQn-VaXZXvGl07QvhitMttqboAVD4O3RBGNVSEwgIBV9gTjOe2av4HgF-TZihHGdfYOGuZVXbE3ogfEM8VOCZQV26qtSgik6ud3AC7xY1wmUMppdgOZ-PszT3l43R9gmXUIuq_ZLgZ7g1zvO5FLZOSQCqZylXJHvcI6InlHyUvvSkq8PYmCheagSLClgiulC-T1LuTiknyeXb-33YH97-0GPpOD7ywcF6pcSKMQE5UBI5Z6uJcgxIeGNF41j3zKF5OwThTfONJi4jpnqSUI1umVqcfsbhBdLGc4ZyZrU_kbPEDrFl8m_Qscy-Vb9bXEhmp2YooEzdIZHpofAjuzowJTn-f9iUrryVyg-G66pGzvx5Mhl-wM_sn7HO4w58YKx3dYJ8TVO0RloHMfu9CTVdODbVjfoQ-wOrKgFuoASbeD2BDiKvCNg7AexHXQC1nztLsv5jLP0AOhO_dg_AgYPdjx2OgG9se0Nmw4VzoLDYgmm70-1R__o8MePDyOHYQ77KVuAGeI54yvwSOespBmYIILXiG9BhhUJnpcSMwokq1CMnz_PkEbXkb4xlgnwglKEC3mlzLYu6yKOlIQAKvKI0RwriFkp-1CL-g45WjK1CUDqQ7tTaPdtOOfuCCckK0CyxMUKUQlY3vQSsRVBEmWq8r6uVFvcEikZz0Dyh6d0kIiAWGuhRABJWRRkq55FMCNQYd49Pt2Dc_arsySSpZ_gVT3KomDqiX1Bf5dIyFbnTquWUSW8BMnri9Y7eX1u5btXuZ5LeXlyrSrv-inNsOpQaz6D6p-3IlNYQo8HniCFC5S1dfb_2960qgb_tiOPQpT1wdf8CmytDo79hhJcnTzm1cUC3tS7pkI5OJ71bd9eE_u0JgVRq3W-JouqHbnkrFwsm9N7VKgYXmxNDeQqnKkz7QPPn6rYecjb7Q4ckHO2EX1IJCggh4Qg8q2-KT6M_b61hdQG_f6faiMac1CbfmM6tek2plebg0NtYweN7dam7R3iVuM4oPu1PWzMYW2OGnPUZFst-CNc02tzudKgMd2za0wPdHbZXkSczojbGfE6I35nZNAZCTojw87IqDOi5O0M2cdX86XfaV6jl163I9s7vGMM01ghvoI4M8KdUX1Jqa-tDOWwJNLYmwYsJUu2NDXC6ovDKKvHaoKhuuNWtXP_D2jKCSA=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
-<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+
+<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.3 E2E-_45C-IF-_Shipment_of_goods_through_Stock_transfer_with_planning_integration_for_Semi_Finished_us — E2E-_45C-IF-_Shipment_of_goods_through_Stock_transfer_with_planning_integration_for_Semi_Finished_us
 
@@ -316,7 +382,7 @@ flowchart LR
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -362,10 +428,14 @@ SLoc"| n14
     class n14 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1Vttu6jgU_RUrRxWtFDS5EpqHkWggR0itWjXtnIdhHkzigFVjR7bTluHw77OdC7czfRpNHoC9vdbaF2877KxcFMSKraurHeVUx2g30GuyIYMYDZZYkYGNWscfWFK8ZEQNDKYUXGf07wbmBtWngRlfijeUbY03IytB0OvcRhMgMhspzNVQEUnLgT2oJN1guU0EE9Kgv5Fx6ZRNtG7pTsiCyCPAcSI3D4HKKCdHtx8FUZAaniK54MWZaBmW4zIf7E1yTHzkayx1k36tyAP-_EELvQa7xEwRwKz1ht3jJWGmRi1r48tr-d43gyoTh0PDsgrnlK_AHzjgkpi_HV2hs9-j_dXVgh-CovvnBUfw5AwrNSUlUhrcs3eNSspY_C1IJmno2EpL8Ubib94smvqenZtKYijdsU1zhx-ErtY6XgpWdNDhh6kh9qpPW37GnmPLLXxexCK8OEZKRt7YGx8i3UVu4iZ9pLIs_1Mk6Kt8weqtizXzUy-dHmK54ShMnF_1-jKnQTRxL_tE5DvNyYlomqb-7Niq2Sh0na9F71J_5CQXoiusyQfeHgVvk-AgmIZR6kZfCrbxLrOsl09S5L2gPwvT8CAY3bnpxPtSMJi4wbjLEHRWEldrNPvx0HrMw8d_LqwnIkshN-ix1ktR8wJNCaPvRG7Rozko6BooNwvrrxPaLdASSaBYhIGQCF5SUHii-RtMauN7wu3vf2G7DtDnStUEfReiUIdVGKeLbLPJE8p-C9Cca8JQatKDvND1_OEGnSoe88lens-jeWZNcChIm0WkBXw9nmP8I__XLphg5_DgCE9lM8_oFa64pu7e0fTunBYC7bUqDK2pG7U9oBzNH86Ro5NtmfPzfM6R0QmyFX0mOaEVJKNBFmX3j8lF991r4JQ4LvGwYjCr2ZpWG8I1EjC_jYReS1GvoPta5G9wX8H9WsIgZGRDUQqXuVqTAk6k2V5oZbPFpq1tn25OY3nHWEqL6n-NZTbxBSrWpFIXJQe7XZ8GllJ8qCFmGlVYYsYI-94e2oW131_MIXfRcPg7zFBnhq056leD1h5f2EFn-8b8ubCyuqrY1pSw4Nm9yBfWTwPuUOOWdNuZt63pOr2o0zrCzh61ZtSZUQfvU3S7lLvrjnut6Xdml6Hrn9wzDal_bZz7ve6KP_f6X6CD_v6zbGtD5AbTwop3VvOWh38CBSlxzbS1ty1ca5FteW7FzdvQqptjMaUYjv2mde7_AXxIjXQ=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1Vttu6jgU_RUrRxWtFDS5EpqHkWggR0itWjXtnIdhHkzigFVjR7bTluHw77OdC7czfRpNHoC9vdbaF2877KxcFMSKraurHeVUx2g30GuyIYMYDZZYkYGNWscfWFK8ZEQNDKYUXGf07wbmBtWngRlfijeUbY03IytB0OvcRhMgMhspzNVQEUnLgT2oJN1guU0EE9Kgv5Fx6ZRNtG7pTsiCyCPAcSI3D4HKKCdHtx8FUZAaniK54MWZaBmW4zIf7E1yTHzkayx1k36tyAP-_EELvQa7xEwRwKz1ht3jJWGmRi1r48tr-d43gyoTh0PDsgrnlK_AHzjgkpi_HV2hs9-j_dXVgh-CovvnBUfw5AwrNSUlUhrcs3eNSspY_C1IJmno2EpL8Ubib94smvqenZtKYijdsU1zhx-ErtY6XgpWdNDhh6kh9qpPW37GnmPLLXxexCK8OEZKRt7YGx8i3UVu4iZ9pLIs_1Mk6Kt8weqtizXzUy-dHmK54ShMnF_1-jKnQTRxL_tE5DvNyYlomqb-7Niq2Sh0na9F71J_5CQXoiusyQfeHgVvk-AgmIZR6kZfCrbxLrOsl09S5L2gPwvT8CAY3bnpxPtSMJi4wbjLEHRWEldrNPvx0HrMw8d_LqwnIkshN-ix1ktR8wJNCaPvRG7Rozko6BooNwvrrxPaLdASSaBYhIGQCF5SUHii-RtMauN7wu3vf2G7DtDnStUEfReiUIdVGKeLbLPJE8p-C9Cca8JQatKDvND1_OEGnSoe88lens-jeWZNcChIm0WkBXw9nmP8I__XLphg5_DgCE9lM8_oFa64pu7e0fTunBYC7bUqDK2pG7U9oBzNH86Ro5NtmfPzfM6R0QmyFX0mOaEVJKNBFmX3j8lF991r4JQ4LvGwYjCr2ZpWG8I1EjC_jYReS1GvoPta5G9wX8H9WsIgZGRDUQqXuVqTAk6k2V5oZbPFpq1tn25OY3nHWEqL6n-NZTbxBSrWpFIXJQe7XZ8GllJ8qCFmGlVYYsYI-94e2oW131_MIXfRcPg7zFBnhq056leD1h5f2EFn-8b8ubCyuqrY1pSw4Nm9yBfWTwPuUOOWdNuZt63pOr2o0zrCzh61ZtSZUQfvU3S7lLvrjnut6Xdml6Hrn9wzDal_bZz7ve6KP_f6X6CD_v6zbGtD5AbTwop3VvOWh38CBSlxzbS1ty1ca5FteW7FzdvQqptjMaUYjv2mde7_AXxIjXQ=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
-<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+
+<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.4 E2E-_45D-IF-_Shipment_of_goods_through_Stock_transfer_with_planning_integration_for_Semi_Finished_us — E2E-_45D-IF-_Shipment_of_goods_through_Stock_transfer_with_planning_integration_for_Semi_Finished_us
 
@@ -377,7 +447,7 @@ SLoc"| n14
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -465,10 +535,14 @@ flowchart LR
     class n24 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21v4jgQ_itWqoquBLq8EuDDnSglq0qtigq96rTsB5M4YNXEkePQsiz__cZ5IZAmur07PrT48cwznmfGk3DQfB4QbaRdXx9oROUIHTpyQ7akM0KdFU5Ip4ty4E8sKF4xknSUTcgjOac_MjPDjj-UmcI8vKVsr9A5WXOCXu67aAyOrIsSHCW9hAgadrqdWNAtFvsJZ1wo6ysyCPUwi1Zs3XIREFEZ6Lpr-A64MhqRCrZc27U95ZcQn0fBBWnohIPQ7xzV4Rh_9zdYyOz4aUIe8ccrDeQG1iFmCQGbjdyyB7wiTOUoRaowPxW7UgyaqDgRCDaPsU-jNeC2DpDA0VsFOfrxiI7X18voFBQ9PC8jBB-f4SS5IyFKJMDTnUQhZWx0ZU_GnqN3Eyn4GxldmVP3zjK7vspkBKnrXSVu753Q9UaOVpwFhWnvXeUwMuOPrvgYmXpX7OFvLRaJgirSpG8OzMEp0q1rTIxJGSkMw_8VCXQVC5y8FbGmlmd6d6dYhtN3JvpnvjLNO9sdG3WdiNhRn5yRep5nTSuppn3H0NtJbz2rr09qpGssyTveV4TDiX0i9BzXM9xWwjxe_ZTpaia4XxJaU8dzToTureGNzVZCe2zYg-KEwLMWON6gZ-ITuoN-Qq9YkA0HYdHN9PXxC8oN1Scafvu21EI8CnHP52s0IyLkYovuoxVPowDdEUZ3ROxRQCE2XaWS8ghJjoBnqX3_fsZk6M1UXzkPkvwwsWzyMy79JoKAtAhD9AmPQgoUs1T2sBK7SkSqYmbZ1OkGNye6RPIYzTc03pJIIh4WZ5nwbcyIJAG4fsldob1r6s3HMzT_zQYlJGHIU2qADAhKFKR-psKMYWC9ub8UtJZNXgQCNEoMnDmGgj-i279qBzcbZZgvnmp2VnOA8WKGJhviv6GXOADPpOZmN1fnKZW1SquEar5O49E8kV1w9AIzPytXCTypqVuj6Ldk91yzc9vkQwuYkAlEuo92UE0u9jXPwa91cr1dnKpdYgYtllc1CxYSoertkyQBGiopvuiZ3L9fa7fZE5o_oUcY8CwTpSSAO7MiKOQM5vlnFrfGoqrpZ9X0Pzdr7jIEj8UjPARIrGp93kn64VBJEZDeCrLxN2ixj4m6BbUU_1hqx-O5u9HsTj58liYg4td89NXdzMoNC8Hfkx5mEsVYYMYIa3Gy_ouT_e-cGi53Gsds_3k0nutr_uqFydq9eRZZ_zzaqP-mzpG1Cs6_N1LV7u99kqQkn2eV5SlRaGvU6_0O_8u1WaytErAKwC6BfF0-juGLAn4uNRiAAi-1n3CHi61-YVpaFsvTugDKUKZVMFWqzx-4n1EapZNhFyx2jcUsUzALC7dYu_lyUCyHRT7l-Q29AIyGhNR4UtHLjIwie6NkMwvAvsgBJmGxLk9b5jgouKtn7inFYe38p4TKEpUGZUXcsxcDVZez15eLHbN1x2rdsVt3nNadfuuO27ozaN0Ztu5AxVq32lUw2mUw2nUw2oWAq1O-WF_i_eIl-BJ1G9FBIzpsZobOLN4mL2GjGTabYasZtktY62pbAq8gNNBGBy37PQa_2QIS4pRJ7djVcCr5fB_52ij73aKl2XvEHcUwM7c5ePwbNE1W_w==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21v4jgQ_itWqoquBLq8EuDDnSglq0qtigq96rTsB5M4YNXEkePQsiz__cZ5IZAmur07PrT48cwznmfGk3DQfB4QbaRdXx9oROUIHTpyQ7akM0KdFU5Ip4ty4E8sKF4xknSUTcgjOac_MjPDjj-UmcI8vKVsr9A5WXOCXu67aAyOrIsSHCW9hAgadrqdWNAtFvsJZ1wo6ysyCPUwi1Zs3XIREFEZ6Lpr-A64MhqRCrZc27U95ZcQn0fBBWnohIPQ7xzV4Rh_9zdYyOz4aUIe8ccrDeQG1iFmCQGbjdyyB7wiTOUoRaowPxW7UgyaqDgRCDaPsU-jNeC2DpDA0VsFOfrxiI7X18voFBQ9PC8jBB-f4SS5IyFKJMDTnUQhZWx0ZU_GnqN3Eyn4GxldmVP3zjK7vspkBKnrXSVu753Q9UaOVpwFhWnvXeUwMuOPrvgYmXpX7OFvLRaJgirSpG8OzMEp0q1rTIxJGSkMw_8VCXQVC5y8FbGmlmd6d6dYhtN3JvpnvjLNO9sdG3WdiNhRn5yRep5nTSuppn3H0NtJbz2rr09qpGssyTveV4TDiX0i9BzXM9xWwjxe_ZTpaia4XxJaU8dzToTureGNzVZCe2zYg-KEwLMWON6gZ-ITuoN-Qq9YkA0HYdHN9PXxC8oN1Scafvu21EI8CnHP52s0IyLkYovuoxVPowDdEUZ3ROxRQCE2XaWS8ghJjoBnqX3_fsZk6M1UXzkPkvwwsWzyMy79JoKAtAhD9AmPQgoUs1T2sBK7SkSqYmbZ1OkGNye6RPIYzTc03pJIIh4WZ5nwbcyIJAG4fsldob1r6s3HMzT_zQYlJGHIU2qADAhKFKR-psKMYWC9ub8UtJZNXgQCNEoMnDmGgj-i279qBzcbZZgvnmp2VnOA8WKGJhviv6GXOADPpOZmN1fnKZW1SquEar5O49E8kV1w9AIzPytXCTypqVuj6Ldk91yzc9vkQwuYkAlEuo92UE0u9jXPwa91cr1dnKpdYgYtllc1CxYSoertkyQBGiopvuiZ3L9fa7fZE5o_oUcY8CwTpSSAO7MiKOQM5vlnFrfGoqrpZ9X0Pzdr7jIEj8UjPARIrGp93kn64VBJEZDeCrLxN2ixj4m6BbUU_1hqx-O5u9HsTj58liYg4td89NXdzMoNC8Hfkx5mEsVYYMYIa3Gy_ouT_e-cGi53Gsds_3k0nutr_uqFydq9eRZZ_zzaqP-mzpG1Cs6_N1LV7u99kqQkn2eV5SlRaGvU6_0O_8u1WaytErAKwC6BfF0-juGLAn4uNRiAAi-1n3CHi61-YVpaFsvTugDKUKZVMFWqzx-4n1EapZNhFyx2jcUsUzALC7dYu_lyUCyHRT7l-Q29AIyGhNR4UtHLjIwie6NkMwvAvsgBJmGxLk9b5jgouKtn7inFYe38p4TKEpUGZUXcsxcDVZez15eLHbN1x2rdsVt3nNadfuuO27ozaN0Ztu5AxVq32lUw2mUw2nUw2oWAq1O-WF_i_eIl-BJ1G9FBIzpsZobOLN4mL2GjGTabYasZtktY62pbAq8gNNBGBy37PQa_2QIS4pRJ7djVcCr5fB_52ij73aKl2XvEHcUwM7c5ePwbNE1W_w==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
-<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+
+<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.5 E2E-_45E-IF-Shipment_of_goods_through_Stock_transfer_with_planning_integration_for_Semi_Finished_and — E2E-_45E-IF-Shipment_of_goods_through_Stock_transfer_with_planning_integration_for_Semi_Finished_and
 
@@ -478,7 +552,7 @@ flowchart LR
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -580,10 +654,15 @@ and trigger for
     class n28 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21vozgQ_isWqyqplKhAIKT5cFKal91KXTVqrtsP2_3ggEmsOhjZpi_XzX-_MWCSULjb28uHqjyeeWbm8XgM71bII2KNrbOzd5pQNUbvHbUlO9IZo84aS9LpoQL4hgXFa0ZkR9vEPFEr-ldu5njpqzbT2ALvKHvT6IpsOEH31z00AUfWQxInsi-JoHGn10kF3WHxNuWMC239iYxiO86jlUtXXEREHAxsO3BCH1wZTcgBHgRe4C20nyQhT6IT0tiPR3HY2evkGH8Jt1ioPP1Mkq_49YFGagvPMWaSgM1W7dgNXhOma1Qi01iYiWcjBpU6TgKCrVIc0mQDuGcDJHDydIB8e79H-7Ozx6QKim7uHhMEv5BhKWckRlIBPH9WKKaMjT9508nCt3tSCf5Exp_ceTAbuL1QVzKG0u2eFrf_Quhmq8ZrzqLStP-iaxi76WtPvI5duyfe4G8tFkmiQ6Tp0B25oyrSVeBMnamJFMfx_4oEuoo_sXwqY80HC3cxq2I5_tCf2h_5TJkzL5g4dZ2IeKYhOSJdLBaD-UGq-dB37HbSq8VgaE9rpBusyAt-OxBeTr2KcOEHCydoJSzi1bPM1kvBQ0M4mPsLvyIMrpzFxG0l9CaONyozBJ6NwOkWzR--Foj-JY77_fujFeNxjPsh36CpIFABus3UmmdJhCLC6DMRb-hWn5lH68ePY-dBo_MDfibojjAChxxhIFnS8Ak9fEFa6jqFd0qxJCLmYpe7QM8bLzTlSUzFDivKkzqF30KBC4ruakvTVP-Xn0C0FDRR8Hhe5FZa3VCp6sTDf9ZmZrTp3s7O0QtVW_TlHhRTmDJZ5wqak7zhOILwdetRs_VnziOJrqXMCOrCRp7X_Fz__f3gF5H-GuZHuEXkNWSZhGQ_F-35aO33x27BwQ0LwV9kHzOFUiwwY4R9cIJTX2-qV0VEgkFcmD0JEfICXblX6Liky-aSphCQEoFWRB_GI9k-BllNlmh14Z2wAueEMR7qjVmIfLRAr0glkeKHDbpWZCdRd3p7sZycIy7QV7DXdwf6hllmmupYkdNkdQeh7pH6deEH_1YcI6GOkrfcFLMwYzrjKUzwDan3iveLR7ILYtQT8Zt8L9B9Gh0rdA_3cZ5K06mudf0KNsK0KbpOYNZkeSm5wnqYnHq39LmJnAeEdiFhVumxUlhlssxRohS2D32-rvGOfqmwFVGKwStFotCMh5n-p8ZTa8M7EhJQEwl9xYeUkajatOvkmUNLdmVdY8eu1agTnoShyKChQBSTzPw1JQmMQFiCjVMNRE7jTq-Kiwktby_QPFGw06stIfVCXLtbOacMv-VNmlfO4RrKW1VtBc82cHAUhwGsYBbIOC-MKgqBImA8P2Z0DoxS8bSqSReod_-oNlzUhEK-Sxlp4HJrXMeHE5kj-8Fr8Hvzy_s9t-F_G3uF06jRiSZtoao5Bnct6vf_0NemAbwS8EvAtQvAHRmLoLSogEEJeAbwS2BYAiWna57dYQGYGKV9lUO57AYGGJWA8S8ezXKZkMnn8vSxzM417G4JmGRMsKrgoA6Ycqp0nNLCFOwa0ew6cFLwz0frjqSMhvl012eimpux4Lv8IjED7KfeG-Ndlu_VMxydAEAPd_2suOtRlk-hCLqgvKD0WFOCbjZw3GD-gas0pzMq5xLaELgoy7vn55FmZQKOqccxTVEB5bN79Kqo9-nohfZkZdC64rWu-K0rw9aVoHVl1Lpy2boCZbcuOe1L7TI47To47UI47Uo47VI47Vo47WI47WrAZDDfdae4U36DnaJuIzownyensNcM-83wsBkOmuGRga2etSPwAk8ja_xu5d_91tiKSIwzpqx9z8KZ4qu3JLTG-fexVZypGcXw8rcrwP3fYwUgcg==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1vozgQ_isWqyqplKhAIKT5cFKal91KXTVqrtsP2_3ggEmsOhjZpi_XzX-_MWCSULjb2-uHqjyeeWbm8XgMfbdCHhFrbJ2dvdOEqjF676gt2ZHOGHXWWJJODxXANywoXjMiO9om5ola0b9yM8dLX7WZxhZ4R9mbRldkwwm6v-6hCTiyHpI4kX1JBI07vU4q6A6LtylnXGjrT2QU23EerVy64iIi4mBg24ET-uDKaEIO8CDwAm-h_SQJeRKdkMZ-PIrDzl4nx_hLuMVC5elnknzFrw80Ult4jjGTBGy2asdu8JowXaMSmcbCTDwbMajUcRIQbJXikCYbwD0bIIGTpwPk2_s92p-dPSZVUHRz95gg-AkZlnJGYiQVwPNnhWLK2PiTN50sfLsnleBPZPzJnQezgdsLdSVjKN3uaXH7L4Rutmq85iwqTfsvuoaxm772xOvYtXviDX7XYpEkOkSaDt2RO6oiXQXO1JmaSHEc_69IoKv4E8unMtZ8sHAXsyqW4w_9qf2Rz5Q584KJU9eJiGcakiPSxWIxmB-kmg99x24nvVoMhva0RrrBirzgtwPh5dSrCBd-sHCCVsIiXj3LbL0UPDSEg7m_8CvC4MpZTNxWQm_ieKMyQ-DZCJxu0fzha4Hon8Rxv39_tGI8jnE_5Bs0FQQqQLeZWvMsiVBEGH0m4g3d6jPzaP34cew8aHR-wM8E3RFG4JAjDCRLGj6hhy9IS12n8E4plkTEXOxyF-h544WmPImp2GFFeVKn8FsocEHRXW1pmuq_8hOIloImCh7Pi9xKqxsqVZ14-M_azIw23dvZOXqhaou-3INiClMm61xBc5I3HEcQvm49arb-zHkk0bWUGUFd2Mjzmp_rv78f_CLSX8P8CLeIvIYsk5Ds56I9H639_tgtOLhhIfiL7GOmUIoFZoywD05w6utN9aqISDCIC7MnIUJeoCv3Ch2XdNlc0hQCUiLQiujDeCTbxyCryRKtLrwTVuCcMMZDvTELkY8W6BWpJFL8sEHXiuwk6k5vL5aTc8QF-gr2-u5A3zDLTFMdK3KarO4g1D1Svy784N-KYyTUUfKWm2IWZkxnPIUJviH1XvF-8Uh2QYx6In6T7wW6T6Njhe7hPs5TaTrVta5fwUaYNkXXCcyaLC8lV1gPk1Pvlj43kfOA0C4kzCo9VgqrTJY5SpTC9qHP1zXe0S8VtiJKMXilSBSa8TDTf9R4am14R0ICaiKhr_iQMhJVm3adPHNoya6sa-zYtRp1wpMwFBk0FIhikpm_piSBEQhLsHGqgchp3OlVcTGh5e0FmicKdnq1JaReiGt3K-eU4be8SfPKOVxDeauqreDZBg6O4jCAFcwCGeeFUUUhUASM58eMzoFRKp5WNekC9e4f1YaLmlDIdykjDVxujev4cCJzZD94DX5vfnm_5zb8b2OvcBo1OtGkLVQ1x-CuRf3-H_raNIBXAn4JuHYBuCNjEZQWFTAoAc8AfgkMS6DkdM2zOywAE6O0r3Iol93AAKMSMP7Fo1kuEzL5XJ4-ltm5ht0tAZOMCVYVHNQBU06VjlNamIJdI5pdB04K_vlo3ZGU0TCf7vpMVHMzFnyXXyRmgP3Ue2O8y_K9eoajEwDo4a6fFXc9yvIpFEEXlBeUHmtK0M0GjhvMP3CV5nRG5VxCGwIXZXn3_DzSrEzAMfU4pikqoHx2j14V9T4dvdCerAxaV7zWFb91Zdi6ErSujFpXLltXoOzWJad9qV0Gp10Hp10Ip10Jp10Kp10Lp10Mp10NmAzmu-4Ud8pvsFPUbUQH5vPkFPaaYb8ZHjbDQTM8MrDVs3YEXuBpZI3frfy7H_43EJEYZ0xZ-56FM8VXb0lojfPvY6s4UzOK4eVvV4D7vwFjBSBy" title="View full diagram">&#128065; View Full Diagram</a></div>
 
-<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+
+
+<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 3.3 Business Roles & Responsibilities
 
@@ -612,8 +691,11 @@ Supplying Plant  (IM)
  | E2E-_45E-IF-Shipment_of_goods_through_Stock_transfer_with_planning_integration_for_Semi_Finished_and | |
 | SAP S/4  | E2E-_45E-IF-Shipment_of_goods_through_Stock_transfer_with_planning_integration_for_Semi_Finished_and | |
 
-<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 4. Data Architecture (TOGAF "D")
 
@@ -623,12 +705,16 @@ Supplying Plant  (IM)
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 | 1 | e.g. Cost Element | e.g. MES 300 | e.g. XEUS | Data steward | e.g. Intel Confidential | e.g. 10K rows/day | Master / Transaction |
 
-<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
 
 #### 4.2.1 Current-State — Current-State Data Flows
 
@@ -666,10 +752,16 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlY9P2kAUx_-VyxnCloCrYGE20eRKyzSpxlncltilOdpXuHi0TXtVEPnfd9dC3RCc8S5puPfj-14_rzmWOEhCwAZuNJYsZsJAy6aYwgyaBmqOaQ7NFmrmEBQZEwsHHoArB0-SylOG_qAZo2MOeVNlR0ksXPZUChzp6VyFKduQzhhfKKsLkwTQ7UULEZnImysVwZPHYEozUWoUOVzS-U8Wiqk8R5TnIGOmYsYdOgauComsULZYdu-mNGDxRBq7ujRlNL5_MR3rqxVaNRpeXJdAI9OLkVwBp3luQYRomprJHEWMc-PA1K3hcNjKRZbcg3Ggaf2-2Vsf24-qJ6OTzltBwpNMubuWvq0XjgcLvpYjutUj_VquY_etbmev3JGp2x1tSw4S_tLecGjqpl7rDQaaXHv1ej3l9uJKMS_Gk4ymU2R37GN9YJGB44M_8clTkYHvfnfuPIw8_LuKVitkGQSCJXENTa1NOimzf9m3rkyEw8khUr-lgGEYFdPXOdZWxU8e9orwazeUzzA49ooINPnKSqwMQjLIw5-VZIn1rS5Q-7B9tq9SlQhxuGYhFhz2gtjAJmrXsG1N7X9hH6Xz_-F1ybV_Tq7Ih-he2q7f1bQNYHlE8vgexnXZNxDLGKRi3kN43ckuyJtS72G8if0Q4t1l0enp2fMakFUyRV8Qub6QzyHj4OHn_R_F1ugcmMj27_4iFoQassiIIHIzOL8Y2YPR7Y2NHPubfWXtmaZz82J1fDV3kqacBVR5d4_O8a09c7KooOom3j0ix7elvB2H7SRqOyyCSr66MnaOo3rDDX1d7Zr-ycnJK_S4hWeQzSgLsbHE5Y0v_y9CiGjBBV61MC1E4i7iABvlpYyLNKQCLEYl0VllXP0B8mv1XQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtO2zAUhl_FMqq0SS0LLWlHJJCc20AKiJGyTSJT5CZOa-EmUeKMltJ3n50brDQMYUuRfS7_cb4TORsYJCGBGuz1NjSmXAMbD_IFWRIPasCDM5yLVV-schIUGeVrh_whrHKyJGm8ZcoPnFE8YySXbqETJTF36WMtdaSmqypY2m28pGxdeVwyTwi4vegDJASE-LaMYslDsMAZr9WKnFzi1U8a8oW0RJjlRMYt-JI5eEZYWZZnRWmNxWu5KQ5oPJfmkSqNGY7vXxiP1e0WbHs9L25rganuxUCMgOE8N0kEcJrqyQpElDHtQFdN27b7Oc-Se6IdKMpkoo_r7eBBHk0bpqt-kLAkk-6Rqe7qhTNjzWo5pJpjNGnlhtbEHA075Y501RoqO3IkYc_Hs21d1dVWzzAUMTr1xmPp9uJKMS9m8wynC2ANrWPVMJHh-MSf--ixyIjvfnfuPCgQ_q6i5QhpRgJOk7iFJkeTjsrsX9atKxLJ4fwQyLUQ0DStYvo6x9yp-MmDXhF-HYXiGQbHXhERRbyyFCuDgAjy4GcpWWJ96xRgcDg466pUJZI4rFnwNSOdIBrYSM4WtqXI-S_sI_HF_wevi679c3SFPkT30nL9kaI0gMUWiO17GLdl30AsYoCMeQ_h-iT7IDel3sO4if0Q4v1lwenp2VMNyCyZgi8AXV-Ip02ZuJueuj-KndY5ZC6Of_eCWBAqwERTBNCNcX4xtYzp7Y0FHOubdWV2dNO5ebY6vuw7SlNGAyy9-1vn-GZHn0zMcXVF72uR41tC3orDQRINHBqRSr66Mva2o3rDhr4qZ0v_5OTkFXrYh0uSLTENobapfgLiXxKSCBeMi2sc4oIn7joOoFZezLBIQ8yJSbEguqyM279LOf7h" title="View full diagram">&#128065; View Full Diagram</a></div>
 
-<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+
+
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 
 #### 4.2.2 Future-State — Future-State Data Flows
 
@@ -707,10 +799,15 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlY9P2kAUx_-VyxnCloCrYGE20eSg7TSpxlncltilOdpXuHi0TXtVEPnfd9dC3RCc8S5puPfj-14_rzmWOEhCwAZuNJYsZsJAy6aYwgyaBmqOaQ7NFmrmEBQZEwsHHoArB0-SylOG_qAZo2MOeVNlR0ksXPZUChzp6VyFKZtNZ4wvlNWFSQLo9qKFiEzkzZWK4MljMKWZKDWKHC7p_CcLxVSeI8pzkDFTMeMOHQNXhURWKFssu3dTGrB4Io1dXZoyGt-_mI711QqtGg0vrkug0cCLkVwBp3luQoRomg6SOYoY58bBQDdt227lIkvuwTjQtH5_0Fsf24-qJ6OTzltBwpNMubumvq0XjocLvpYjutkj_VquY_XNbmev3NFAtzralhwk_KU92x7oA73WGw41ufbq9XrK7cWVYl6MJxlNp8jqWMe6bZKh44M_8clTkYHvfnfuPIw8_LuKVitkGQSCJXENTa1NOimzf1m3rkyEw8khUr-lgGEYFdPXOeZWxU8e9orwazeUzzA49ooINPnKSqwMQjLIw5-VZIn1rS5Q-7B9tq9SlQhxuGYhFhz2gtjAJmrXsC1N7X9hH6Xz_-F1ybV_Tq7Ih-heWq7f1bQNYHlE8vgexnXZNxDLGKRi3kN43ckuyJtS72G8if0Q4t1l0enp2fMakFkyRV8Qub6QT5tx8PDz_o9ia3QOTGT7d38RC0INmWREELkZnl-MrOHo9sZCjvXNujL3TNO5ebE6vpo7SVPOAqq8u0fn-OaeOZlUUHUT7x6R41tS3orDdhK1HRZBJV9dGTvHUb3hhr6udk3_5OTkFXrcwjPIZpSF2Fji8saX_xchRLTgAq9amBYicRdxgI3yUsZFGlIBJqOS6Kwyrv4Abh_1hw==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1L4zAYx79KiAzuYPPqZrezoJCt7SlU8ey8O7BHydp0C2ZNadNzc-67X9I3vbl6YgIleV7-T_p7SrqBAQ8JNGCns6ExFQbYeFAsyJJ40AAenOFMrrpylZEgT6lYO-QPYaWTcV57i5QfOKV4xkim3FIn4rFw6WMldaQnqzJY2W28pGxdelwy5wTcXnQBkgJSfFtEMf4QLHAqKrU8I5d49ZOGYqEsEWYZUXELsWQOnhFWlBVpXlhj-VpuggMaz5V5oCtjiuP7F8ZjfbsF207Hi5taYDr2YiBHwHCWmSQCOEnGfAUiyphxMNZN27a7mUj5PTEONG00Gg-rbe9BHc3oJ6tuwBlPlXtg6rt64WyyZpUc0s0hGjVyfWtkDvqtckdj3eprO3KEs-fj2fZYH-uN3mSiydGqNxwqtxeXilk-m6c4WQCrbx3rtokmjk_8uY8e85T47nfnzoMS4e8yWo2QpiQQlMcNNDXqdFRk_7JuXZlIDueHQK2lgGEYJdPXOeZOxU8e9PLw6yCUzzA49vKIaPKVlVgRBGSQBz8ryQLrW6cAvcPeWVulMpHEYcVCrBlpBVHDRmo2sC1NzX9hH8kv_j94XXTtn6Mr9CG6l5brDzStBiy3QG7fw7gp-wZiGQNUzHsIVyfZB7ku9R7GdeyHEO8vC05Pz54qQGbBFHwB6PpCPm3K5N301P5R7LTOIXN5_LsXxIJQAyaaIoBuJucXU2syvb2xgGN9s67Mlm46N89Wx1d9R0nCaICVd3_rHN9s6ZOJBS6v6H0tcnxLyltx2ONRz6ERKeXLK2NvO8o3rOnrajb0T05OXqGHXbgk6RLTEBqb8icg_yUhiXDOhLzGIc4Fd9dxAI3iYoZ5EmJBTIol0WVp3P4Fxt7_Cw==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
-<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+
+
+<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 4.3 Data Lineage
 
@@ -724,8 +821,8 @@ Reports and Conversions for this capability will be populated from the Smartshee
 
 | Object ID | Type | Description | Status | Source | Target | Complexity |
 |-----------|------|-------------|--------|--------|--------|-----------|
-| E2E-45-R001 | Report | E2E-45 operational report | Planned | SAP S/4HANA | Analytics | Medium |
-| E2E-45-C001 | Conversion | Legacy data migration for E2E-45 | Planned | Legacy ERP | SAP S/4HANA | High |
+| E2E-45-R001 | Report | Forecast to Stock operational report | Planned | SAP S/4HANA | Analytics | Medium |
+| E2E-45-C001 | Conversion | Legacy data migration for Forecast to Stock | Planned | Legacy ERP | SAP S/4HANA | High |
 
 > *Pending: Smartsheet API integration to auto-populate live RICEFW data (see Build Requirements).*
 
@@ -738,8 +835,11 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
-<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 5. Application Architecture (TOGAF "A")
 
@@ -775,6 +875,7 @@ flowchart TB
     E2E45C_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E45CMW_e_g_Azure_Service_Bus
     E2E45CMW_e_g_Azure_Service_Bus --> E2E45C_e_g_XEUS
 
+
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -788,10 +889,14 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1vokAQ_isbGuMXbemLLyWNCQhevGDblL7c5byQlR100xUIu7S11v9-u2DFYht7a4Jh5plnlmdmdpdaEBPQDK1WW9KICgMt62IGc6gbqD7BHOoNVOcQZCkVCxeegCkHi-PCk0PvcUrxhAGvq-gwjoRHX3OC43byomDKNsBzyhbK6sE0BnQ3bCBTBrIG4jjiTQ4pDesrhWbxczDDqcj5Mg4j_PJAiZjJ9xAzDhIzE3Pm4gkwlVSkmbJF8ku8BAc0mkrjmS5NKY4eS1NLX63QqlYbR5sU6NYaR0iuWg01m3JDwYyOsIAmjXhCUyCIiwUDFDDMOXCJKeD5uw0hmmScRsA5yldIGTMOBnJZrQYXafwIxoHV7bZ1a_3afFZfYpwkL40gZnFqHOi6XuHESYLKVXBaLcW64dT1Tsdq_wcnwQLvctrdPZzHHzjffQRzKV6KF1JT1KpkmlNCGDzjFLYVsdtmqYjTaQ9Ktm_sHmK2o4jSeEvlfl_X93EWrDybTFOczJDp_hlr44x0T4l8ktMWMq-v3WHfvB1eXSLX_O3cjLW_RZBaRDZEIGgcIfemtDonzlmr74M_9UeO55_q-jZrAG0Eh9NDJH1I-iShYRiywp8S_HLuvE-jlePL0NFDHmy-Zin4HqRPNADfyviHrzvuFEw5Cq1RSKIK2rJqVXbbydn7MRe-w-S8R6K3vcXgrCBWALQGXEzSo94F7RUO7x4doaEdB_Lvp3d1eXFEe0VW1ZVFPojIe312BZVj13sbazmbnRdBMpnXQ_kcUAZj7W2PEtvEX2FUkmot1JbWTZMfA5a7NeIDfd-Ib4eam1D9O5O806wuTKVGH5qD6Mh1fjiX9je61PVlb1dby0wSRgOswJ80l-uPHqotNCrb5Mu2cX3bqXaIrY4fJxLyFqlWvghxrophPGmTMwkkzThsujRcp5Hzv9UmpaiFKO_CttRvI-z5-fnOWaY1tDmkc0yJZiy1_PaSdx-BEGdMaKuGhjMRe4so0Iz8UtGyRG4UbIplEeaFcfUP0xI9cQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzzaQoQqpU06dUoBETY2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpfygBacTAVK7EWeapSrkD2uog05-b4K1fUgXXCyNJ4RZBuT7qElcBBBNImkqWxIKPo2sVZUhsrtkTgu1Ri4ljOn9DWdqri1TKiTouLlaiIBOQFRTUEVZWVNcYpjThKczbT62tbGg6d-asW2vVmTVaETpSy1y3Y9SgqPRIK0Wzi2Z8zFV0OKpzHkBjEi1FEASQaUEiTEmvPr2YEompeQpSEmqMeVCOHtDHP12U6oi-wvOXv_kpGP315-tO70g5zC_byaZyApnz7btLUya52QzDGa_rVFfMG272-13_gOTUUV3Mb2TDzAPXmE--xiVSF5Bl8gpaW9VWnDGBNzRAuqMeB13w4jf7Qw3aJ-YPWRihxHNcY3lwcC2P8I0qLKczAqaz4kb_I6sqGQnRwyf7KhN3MvLYDRwr0cX5yRwf_lXkfXHJOnBUBCJ4llKgquN1T_0j9uDGOJZPPbD-Mi266gJdAh8mX0h6CPoQ0DHcbDDbwL89L-Hb2Zrx7up45sq2X0oC4hDKG55AnG_lK9Wd9A1SFUUWUcRjDKwm65to3t-hT7IpIp9gUdAqnr1KSbHBlgHkHXA2aTY753xnnGEP8g-GXlZgn_fwovzs33eM1W1Kk09SNlzf3YJxW3Xe4qsCs2rmoBI7uUIn0Mu8Ox5-oCJOvB7MbrIdi_0lNaiqY6BflDb4kP7oy1eT3VfUu3P7OQdsQYwQ45eiYPZJPC_-ufeJ1QaxKjtbWm5eS54QnXwG-IK4vHNtoTGG5m8K5sg9vxthXj6-PFThZfLdudNin9hNuNhhx1jIGtl01bAp-syuP9rMtmQakh5Jratfy_Enp6e7pxlVtNaQLGgnFnOo7nQ8F5kMKWlUHgNWbRUWbhME8upLharzHGi4HGKTVgY4-ofw7FG9Q==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
-<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+
+<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### Current-State Flow Narrative
 
@@ -799,8 +904,11 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
-<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.2 Future-State — Future-State Application Landscape
 
@@ -834,6 +942,7 @@ flowchart TB
     E2E45F_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E45FMW_e_g_Azure_Service_Bus
     E2E45FMW_e_g_Azure_Service_Bus --> E2E45F_e_g_XEUS
 
+
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -847,10 +956,14 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1vokAQ_isbGuMXbemLLyWNCQhevGDblL7c5byQlR100xUIu7S11v9-u2DFYht7a4Jh5plnlmdmdpdaEBPQDK1WW9KICgMt62IGc6gbqD7BHOoNVOcQZCkVCxeegCkHi-PCk0PvcUrxhAGvq-gwjoRHX3OC43byomDKNsBzyhbK6sE0BnQ3bCBTBrIG4jjiTQ4pDesrhWbxczDDqcj5Mg4j_PJAiZjJ9xAzDhIzE3Pm4gkwlVSkmbJF8ku8BAc0mkrjmS5NKY4eS1NLX63QqlYbR5sU6NYaR0iuWg01m3JDwYyOsIAmjXhCUyCIiwUDFDDMOXCJKeD5uw0hmmScRsA5yldIGTMOBnJZrQYXafwIxoHV7bZ1a_3afFZfYpwkL40gZnFqHOi6XuHESYLKVXBaLcW64dT1Tsdq_wcnwQLvctrdPZzHHzjffQRzKV6KF1JT1KpkmlNCGDzjFLYVsdtmqYjTaQ9Ktm_sHmK2o4jSeEvlfl_X93EWrDybTFOczJDp_hlr44x0T4l8ktMWMq-v3WHfvB1eXSLX_O3cjLW_RZBaRDZEIGgcIfemtDonzllr4IM_9UeO55_q-jZrAG0Eh9NDJH1I-iShYRiywp8S_HLuvE-jlePL0NFDHmy-Zin4HqRPNADfyviHrzvuFEw5Cq1RSKIK2rJqVXbbydn7MRe-w-S8R6K3vcXgrCBWALQGXEzSo94F7RUO7x4doaEdB_Lvp3d1eXFEe0VW1ZVFPojIe312BZVj13sbazmbnRdBMpnXQ_kcUAZj7W2PEtvEX2FUkmot1JbWTZMfA5a7NeIDfd-Ib4eam1D9O5O806wuTKVGH5qD6Mh1fjiX9je61PVlb1dby0wSRgOswJ80l-uPHqotNCrb5Mu2cX3bqXaIrY4fJxLyFqlWvghxrophPGmTMwkkzThsujRcp5Hzv9UmpaiFKO_CttRvI-z5-fnOWaY1tDmkc0yJZiy1_PaSdx-BEGdMaKuGhjMRe4so0Iz8UtGyRG4UbIplEeaFcfUPGZI9iQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9A5wuoiyEZbtxwM9Q4X-7N3c1S1gM0lm1ZOxWV_35PV5QJGr0lGdt5eU77nKfts5VkDCzHajSeecqVQ54jS01hBpHlkMgaUYlvTXyTkJQFV_MA7kEYp8iyV2-VckMLTkcCpHYjzjhLVcifllC7nfzRBGt7n864mBtPCJMMyPWgSVwEEE0iaSpbEgo-jqxFlSGyh2RKC7VELiUM6eMtZ2qqLWMqJOi4qZqJgI5AVFNQRVlZU1ximNOEpxNtPrC1saDpXc3YthcLsmg0ovStFrnqRSnB0WiQVgvnlkz5kCpo8VTmvABGpJoLIImgUoLEGBNefXswJqNS8hSkJNUYcyGcrT6OXrspVZHdgbPVOzrq2L3lZ-tBL8jZyx-bSSaywtmybXsNk-Y5WQ2D2Wtr1DdM2z487HX-A5NRRTcxvaMvMHffYb76GJVIXkHnyClpr1WaccYEPNAC6ox4HXfFiH_Y6a_QvjF7yMQGI5rjGsunp7b9FaZBleVoUtB8StzgT2RFJTvaZ_hk-23iXlwEg1P3anB-RgL3t38ZWX9Nkh4MBZEonqUkuFxZ_T3_oN2PIZ7EQz-M9227jppAh8D2ZJugj6APAR3HwQ5_CPDLvw4_zNaOT1OHt1Wy-1QWEIdQ3PME4l4p361u99AgVVFkGUUwysCuuraO7vkV-mkmVewLPAJS1a1PMTkwwDqALANORsVO94R3jSO8ITtk4GUJ_v0Mz89OdnjXVNWqNPUgZa_92SQUt133JbIqNK9qAiK5FwN89rnAs-flCybqwJ_F6CLrvdBTWoqmOgZ6QW2L9-2vtng91X1Ltb-zkzfEGsAEOXonDmaTwP_hn3nfUGkQo7bXpeXmueAJ1cEfiCuIh7frEhquZPKpbILY89cV4unjx08VXi7rnTcp_rnZjHsddoCBrJWNWwEfL8vg_q_JZEWqIeWV2Lb-vRF7fHy8cZZZTWsGxYxyZjnP5kLDe5HBmJZC4TVk0VJl4TxNLKe6WKwyx4mCxyk2YWaMi38KMUcN" title="View full diagram">&#128065; View Full Diagram</a></div>
 
-<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+
+<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### Future-State Flow Narrative
 
@@ -858,8 +971,11 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
-<div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+<div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.3 Change Impact Summary
 
@@ -878,8 +994,11 @@ flowchart TB
 | e.g. MES 300 | - | N/A |
 | e.g. XEUS | - | N/A |
 
-<div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+<div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.5 RICEFW Inventory
 
@@ -887,14 +1006,17 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 
 | Object ID | Type | Description | Status | Source → Target | Middleware | Complexity |
 |-----------|------|-------------|--------|----------------|-----------|-----------|
-| E2E-45-I001 | Interface | E2E-45 inbound data interface | Planned | Legacy → SAP S/4HANA | MuleSoft / CPI | Medium |
-| E2E-45-E001 | Enhancement | E2E-45 custom business logic | Planned | SAP S/4HANA | N/A | Medium |
-| E2E-45-F001 | Form/Report | E2E-45 operational output | Planned | SAP S/4HANA | N/A | Low |
+| E2E-45-I001 | Interface | Forecast to Stock inbound data interface | Planned | Legacy → SAP S/4HANA | MuleSoft / CPI | Medium |
+| E2E-45-E001 | Enhancement | Forecast to Stock custom business logic | Planned | SAP S/4HANA | N/A | Medium |
+| E2E-45-F001 | Form/Report | Forecast to Stock operational output | Planned | SAP S/4HANA | N/A | Low |
 
 > *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
 
-<div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+<div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.6 Integration Patterns
 
@@ -902,14 +1024,18 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 |---|---------|-----------|-----------|----------|------|
 | 1 | e.g. Pub-Sub / P2P / ETL | e.g. MES Route to ICOST | e.g. Azure Service Bus | e.g. REST / RFC / SFTP | e.g. OAuth / NTLM / Cert |
 
-<div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+<div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
 
 #### 6.1.1 Current-State — Current-State Platform Architecture
 
@@ -936,12 +1062,18 @@ flowchart TB
 
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlGFvmzAQhv-K5SriC2sJhDRD6iQgoFVKp2is26QxIQeOxKqDEZg2acp_nw1pslZKpWrzB4t77_z49Vl4h1OeAXbwYLCjBRUO2mliBWvQHKQtSA2ajrQa0qaiYjuDe2AqwTjvM13pd1JRsmBQa2p1zgsR0ccOMByVG1WmtJCsKdsqNYIlB3R7rSNXLmRaqyoYf0hXpBIdo6nhhmx-0EysZJwTVoOsWYk1m5EFMLWRqBqlFdJ9VJKUFkspjgwpVaS4O0q20baoHQzi4rAF-ubFBZIjZaSup5AjUpYe36CcMuacefY0DEO9FhW_A-fMMC4vvfE-_PCgPDlmudFTznil0tbUfs0rGRFHoD8Jxv7HA9CaTALLfwm0jsChZwem8QoInB15YejZnn3g-b4hx0mD47FKx0VPrJvFsiLlCgVmMLL9-WyeQLJM3MemgmROSPQrxnFjjo1h3ORgyJ3Pl-eoSyOVjvHvHqRGRitIBeUFmn09qs9ktyP_DG4Vs8OobwlwHKdveL8GimzvTWwZnDT2T8188_BRMko-u1_cxDRMqzt_NrEyOWfE_rsL0cUIqTqk6t7diJsgSizDeO6FDJEM39mOF1b_Q0feol9dfXram51250MXyJ1fyzmkDGL8dPKqsI7XUK0JzbCzw90bIV-YDHLSMIFbHZNG8GhbpNjpfmPclBkRMKVEXs-6F9s_hXNuYg==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1jp2nKaCDmzHZoV0hLndBvMwin2ciMqWseU1aZr_PsnOR1tIoWy6ENL7Hj06OkLa4ESkgAnu9TasYJKgTYTlEnKIMEERntNajfpqVEPSVEyup_AHeGdyIfZuu-Q7rRidc6i1rTiZKGTInnaowbBcdcFaD2jO-LpzQlgIQPc3feQogIJv2yguHpMlreSO1tRwS1c_WCqXWskor0HHLWXOp3QOvN1WVk2rFupYYUkTViy0PDS0WNHi4YVoG9st2vZ6UXHYC925UYFUSzit6wlkiJalK1YoY5yTM9eeBEHQr2UlHoCcGcblpTvaTT896tSIWa76ieCi0rY1sd_ySk7lEeiN_ZF3dQBa47Fvea-B1hE4cG3fNN4AQfAjLwhc27UPPM8zVDuZ4Gik7ajoiHUzX1S0XCLf9Ie2N5vOYogXsfPUVBDPKA1_RThqzJExiJoMDLXz-eIctTbSdoR_dyDdUlZBIpko0PTbUd2TnZb807_XzBajxwpACOkK3q2BIt3lJtccTib2T8V89_BhPIy_OF-d2DRMqz1_OrZS1afUflmF8GKIdBzScR8uxK0fxpZh7GuhpkhNP1iOV6n-h4q8R7--_vy8S3bSng9dIGd2o_qAcfXen09eFe7jHKqcshSTTfdtqN8nhYw2XKqHj2kjRbguEkzap4ybMqUSJoyq68k7cfsXsOR35g==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
 
-<div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+
+<div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 
 #### 6.1.2 Future-State — Future-State Platform Architecture
 
@@ -968,9 +1100,11 @@ flowchart TB
 
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlGFvmzAQhv-K5SriC2sJhDRD6iRIQKuUTtFYt0ljQg4ciVWDEZg2acp_nw1pslZKpWrzB4t77_z49Vl4hxOeAnbwYLCjBRUO2mliDTloDtKWpAZNR1oNSVNRsZ3DPTCVYJz3ma70O6koWTKoNbU644UI6WMHGI7KjSpTWkByyrZKDWHFAd1e68iVC5nWqgrGH5I1qUTHaGq4IZsfNBVrGWeE1SBr1iJnc7IEpjYSVaO0QroPS5LQYiXFkSGlihR3R8k22ha1g0FUHLZA37yoQHIkjNT1DDJEytLjG5RRxpwzz54FQaDXouJ34JwZxuWlN96HHx6UJ8csN3rCGa9U2prZr3klI-IInE788fTjAWhNJr41fQm0jsChZ_um8QoInB15QeDZnn3gTaeGHCcNjscqHRU9sW6Wq4qUa-Sb_sgOFvNFDPEqdh-bCuIFIeGvCEeNOTaGUZOBIXc-X52jLo1UOsK_e5AaKa0gEZQXaP71qD6T3Y78079VzA6jviXAcZy-4f0aKNK9N7FlcNLYPzXzzcOH8Sj-7H5xY9Mwre786cRK5ZwS--8uhBcjpOqQqnt3I278MLYM47kXMkQyfGc7Xlj9Dx15i3519elpb3bWnQ9dIHdxLeeAMojw08mrwjrOocoJTbGzw90bIV-YFDLSMIFbHZNG8HBbJNjpfmPclCkRMKNEXk_ei-0fqERueg==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1ip2nGaCDuzEZoV0hHndBvMwin2ciMqWseU1aZr_PsnOR1tooWy6ENL7Hj06OkLa4kSmgCnu9ba84IqibYTVCnKIMEURXrBaj_p6VEPSVFxtZvAHRGcKKQ9uu-Q7qzhbCKiNrTmZLFTIH_aowbBcd8FGD1jOxaZzQlhKQLfXfeRqgIbv2igh75MVq9Se1tRww9Y_eKpWRsmYqMHErVQuZmwBot1WVU2rFvpYYckSXiyNPCRGrFhx90R0yG6Hdr1eVBz3Qt-8qEC6JYLV9RQyxMrSk2uUcSHomedMgyDo16qSd0DPCLm89Eb76Yd7kxq1ynU_kUJWxranzkteKZg6ASdjfzT5eATa47FvT54D7RNw4Dm-RV4AQYoTLwg8x3OOvMmE6PZqgqORsaOiI9bNYlmxcoV8yx86wXw2jyFexu5DU0E8Zyz8FeGosUZkEDUZEL3z-fIctTYydoR_dyDTUl5Borgs0OzrST2Q3Zb80781zBZjxhpAKe0K3q2BIt3npjYCXk3sn4r55uHDeBh_dr-4sUUsuz1_OrZT3afMeVqF8GKITBwyce8uxI0fxjYhh1roKdLTd5bjWar_oSJv0a-uPj3uk52250MXyJ1f6z7gQr_3x1evCvdxDlXOeIrptvs29O-TQsYaofTDx6xRMtwUCabtU8ZNmTIFU8709eSduPsL07V3_g==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
+
 
 #### Platform Inventory
 
@@ -979,23 +1113,21 @@ flowchart TB
 | 1 | e.g. Azure PaaS | Cloud / SaaS | e.g. XEUS | DEV,QAS,PRD |
 | 2 | e.g. S/4 HANA 2023 | On-Premise | e.g. MES 300 | DEV,QAS,PRD |
 
-<div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+<div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 6.2 SAP Development Object Status
 
-**RICEFW Status Summary** — E2E Tower (0 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-03-27)*
-
-| Status | Count | % |
-|--------|------:|----:|
-| **Total** | **0** | **100%** |
-
-**RICEFW by Type:**
-
-| Type | Count |
-|------|------:|
-| **Total** | **0** |
+| Metric | DEV | QAS | PRD |
+|--------|-----|-----|-----|
+| Transport Requests | — | — | — |
+| Custom Code Objects | — | — | — |
+| CDS Views | — | — | — |
+| Fiori Apps | — | — | — |
+| BAdIs / Enhancements | — | — | — |
 
 ### 6.3 NFRs & Design Principles
 
@@ -1024,47 +1156,47 @@ flowchart TB
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
-<div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — E2E-45</span></div>
+<div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 7. Project Context
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
-*No timeline data available for this capability.*
+Project delivery milestones for E2E-45 RICEFW objects:
+
+| Phase | Planned Start | Planned End | Status | Notes |
+|-------|---------------|-------------|--------|-------|
+| Functional Specification (FS) | Per project plan | Per project plan | In Progress | Tower-level FS schedule |
+| Technical Design (TDD) | FS + 2 weeks | FS + 6 weeks | Planned | Dependent on FS completion |
+| Build & Unit Test (TUT) | TDD + 1 week | TDD + 8 weeks | Planned | Includes S/4 + Middleware |
+| Functional User Test (FUT) | Build + 1 week | Build + 4 weeks | Planned | Tower-led validation |
+| Go-Live (Release 2) | Per release plan | Per release plan | Planned | End-to-End Integrated Processes release |
+
+> *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
+
+<div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-03-27*
+Standard RAID items for E2E-45 (End-to-End Integrated Processes):
 
-**RAID Summary:** 15 open items (0 capability-specific, 15 tower-level), 56 closed
+| # | Category | Description | Status | Owner | Priority |
+|---|----------|-------------|--------|-------|----------|
+| 1 | Risk | Data migration completeness — validate all legacy Forecast to Stock data maps to S/4 target structures | Open | Tower Architect | High |
+| 2 | Risk | Integration testing coverage — ensure all 2 integrated systems are validated end-to-end | Open | Integration Lead | High |
+| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
+| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
+| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
 
-| Severity | Capability | Tower-Wide | Total Open |
-|----------|----------:|-----------:|-----------:|
-| P1 - High | 0 | 3 | 3 |
-| P2 - Medium | 0 | 10 | 10 |
-| P3 - Low | 0 | 2 | 2 |
-| **Total** | **0** | **15** | **15** |
-
-**Other E2E Tower RAID Items** (15 open):
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-03 |
-| 03681 | Risk | P1 - High | ITC Execution: Planning run availability - Prerequisite for ... | In Progress | E2E | 2026-03-27 |
-| 03762 | Risk | P1 - High | FTS-IF (esp SCP) related test cases/sequencing are not accur... | In Progress | FTS IF | 2026-04-03 |
-| 01733 | Risk | P2 - Medium | Tariffs impacts Item/BOM design which is impacting ERP/SCP (... | In Progress | E2E | 2026-03-06 |
-| 03592 | Risk | P2 - Medium | Lack of Defined IMO Owner for CBA Mask Billing and Materials... | In Progress | E2E | 2026-03-27 |
-| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
-| 03628 | Risk | P2 - Medium | R3 Returns Rework Process Causing Finance Double Counting in... | In Progress | E2E | 2026-03-27 |
-| 03642 | Issue | P2 - Medium | E2E Process with Anafi on order/invoice point.  Need IFS SC ... | In Progress | E2E | 2026-03-24 |
-| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
-| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
-| 03753 | Risk | P2 - Medium | PDF-SMH IF test cases are not available in JIRA | To Be Reviewed | B-Apps | 2026-03-25 |
-| 03756 | Risk | P2 - Medium | LE101-1001 Operation Support Ownership for SIMS/Tester Front... | In Progress | E2E | 2026-04-24 |
-| 03769 | Action | P2 - Medium | Need a Labs SPOC owner to define IP Labs enterprise and mate... | In Progress | E2E | 2026-04-17 |
-| 03216 | Action | P3 - Low | Mask Expense vs. Invoice | In Progress | E2E | 2026-03-06 |
-| 03315 | Risk | P3 - Low | BPMG – SCP L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-03-27 |
+> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
 
 ### 7.3 Recommendations & Next Steps
 
@@ -1078,4 +1210,5 @@ flowchart TB
 
 ---
 *E2E-45 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026*
-
+<div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-45 — Forecast to Stock</span></div>
+</div>

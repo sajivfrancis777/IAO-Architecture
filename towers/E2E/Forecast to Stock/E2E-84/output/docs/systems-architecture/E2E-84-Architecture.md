@@ -1,5 +1,6 @@
+<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -19,7 +20,14 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
+.page-section {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 40px);
+  box-sizing: border-box;
+}
 .page-footer {
+  margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid #ddd;
   display: flex;
@@ -27,62 +35,99 @@
   align-items: center;
   font-size: 11px;
   color: #888;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 20px;
+  padding: 6px 12px;
   background: #fff;
 }
 @media print {
-  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+  .page-section {
+    min-height: 100vh;
+  }
+  .page-footer {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
 .page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
 </style>
 
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 <a id="toc"></a>
 
 ## Table of Contents
 
-1. [Executive Summary](#1-executive-summary)
-2. [Business Context & Objectives](#2-business-context--objectives)
-   - 2.1 [Classification](#21-classification)
-   - 2.2 [Business Drivers](#22-business-drivers)
-   - 2.3 [Success Criteria](#23-success-criteria)
-   - 2.4 [Companion Documents](#24-companion-documents)
-3. [Business Architecture (TOGAF "B")](#3-business-architecture-togaf-b)
-   - 3.1 [Business Process Overview](#31-business-process-overview)
-   - 3.2 [Business Process Diagrams](#32-business-process-diagrams)
-   - 3.3 [Business Roles & Responsibilities](#33-business-roles--responsibilities)
-4. [Data Architecture (TOGAF "D")](#4-data-architecture-togaf-d)
-   - 4.1 [Data Entities & Ownership](#41-data-entities--ownership)
-   - 4.2 [Data Flow Diagrams](#42-data-flow-diagrams)
-   - 4.3 [Data Lineage](#43-data-lineage)
-   - 4.4 [RICEFW Data Objects](#44-ricefw-data-objects)
-   - 4.5 [Data Governance & Quality](#45-data-governance--quality)
-5. [Application Architecture (TOGAF "A")](#5-application-architecture-togaf-a)
-   - 5.1 [Current-State Application Landscape](#51-current-state--current-state-application-landscape)
-   - 5.2 [Future-State Application Landscape](#52-future-state--future-state-application-landscape)
-   - 5.3 [Change Impact Summary](#53-change-impact-summary)
-   - 5.4 [Component Overview](#54-component-overview)
-   - 5.5 [RICEFW Inventory](#55-ricefw-inventory)
-   - 5.6 [Integration Patterns](#56-integration-patterns)
-6. [Technology Architecture (TOGAF "T")](#6-technology-architecture-togaf-t)
-   - 6.1 [Platform & Infrastructure](#61-platform--infrastructure)
-   - 6.2 [SAP Development Object Status](#62-sap-development-object-status)
-   - 6.3 [NFRs & Design Principles](#63-nfrs--design-principles)
-   - 6.4 [Security & Governance](#64-security--governance)
-7. [Project Context](#7-project-context)
-   - 7.1 [Project Roadmap & Go-Live Plan](#71-project-roadmap--go-live-plan)
-   - 7.2 [RAID Log](#72-raid-log)
-   - 7.3 [Recommendations & Next Steps](#73-recommendations--next-steps)
+<nav class="toc">
+<ol>
+  <li><a href="#1-executive-summary">1. Executive Summary</a></li>
+  <li><a href="#2-business-context-objectives">2. Business Context &amp; Objectives</a>
+    <ul>
+      <li><a href="#21-classification">2.1 Classification</a></li>
+      <li><a href="#22-business-drivers">2.2 Business Drivers</a></li>
+      <li><a href="#23-success-criteria">2.3 Success Criteria</a></li>
+      <li><a href="#24-companion-documents">2.4 Companion Documents</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+    <ul>
+      <li><a href="#31-business-process-overview">3.1 Business Process Overview</a></li>
+      <li><a href="#32-business-process-diagrams">3.2 Business Process Diagrams</a></li>
+      <li><a href="#33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+    <ul>
+      <li><a href="#41-data-entities-ownership">4.1 Data Entities &amp; Ownership</a></li>
+      <li><a href="#42-data-flow-diagrams">4.2 Data Flow Diagrams</a></li>
+      <li><a href="#43-data-lineage">4.3 Data Lineage</a></li>
+      <li><a href="#44-ricefw-data-objects">4.4 RICEFW Data Objects</a></li>
+      <li><a href="#45-data-governance-quality">4.5 Data Governance &amp; Quality</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+    <ul>
+      <li><a href="#51-current-state-current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
+      <li><a href="#52-future-state-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
+      <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
+      <li><a href="#54-component-overview">5.4 Component Overview</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+    <ul>
+      <li><a href="#61-platform-infrastructure">6.1 Platform &amp; Infrastructure</a></li>
+      <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
+      <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
+      <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+    </ul>
+  </li>
+  <li><a href="#7-project-context">7. Project Context</a>
+    <ul>
+      <li><a href="#71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</a></li>
+      <li><a href="#72-raid-log">7.2 RAID Log</a></li>
+      <li><a href="#73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</a></li>
+    </ul>
+  </li>
+</ol>
+</nav>
 
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 1. Executive Summary
 
@@ -98,10 +143,13 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.
 
-> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: "loose"` for click events.
+> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 2. Business Context & Objectives
 
@@ -123,7 +171,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 4 | E2E-84 Process Migration | Migrate Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State) business processes and 2 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Cross-Functional / End-to-End | High |
 
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 2.3 Success Criteria
 
@@ -142,7 +193,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 3. Business Architecture (TOGAF "B")
 
@@ -179,10 +233,14 @@ LE778 (China)
 , SAP S/4 IF
 LE101 US | 39 | 16 |
 
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 ### 3.2 Business Process Diagrams
 
-<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
-<div style="page-break-before: always;"></div>
 
 #### BUSINESS ARCHITECTURE — 3.2.1 E2E-84C-Final_Delivery_Plant_is_Non-S4_Plant_(Shell) — E2E-84C-Final_Delivery_Plant_is_Non-S4_Plant_(Shell)
 
@@ -197,7 +255,7 @@ LE101 US | **Tasks**: 36 | **Gateways**: 15
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -415,10 +473,14 @@ will be visible in both LE’s"| n58
     class n67 subProc
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWWtv2zgW_SuEiyIOam9FUi_7wy4cxy4CtNNMnHZ2MOkHWqJjIbLk1SOJN5P_vpcyKTs0GXSd-kMQHfHcx-HlJSU9daI85p1h5_37pyRLqiF6OqmWfMVPhuhkzkp-0kNb4DsrEjZPeXkixizyrJol_22GYXf9KIYJbMpWSboR6Izf5hx9u-ihERDTHipZVvZLXiSLk97JukhWrNiM8zQvxOh3PFw4i8abvHWWFzEvdgMcJ8CRB9Q0yfgOpoEbuFPBK3mUZ_ELowtvES6ik2cRXJo_REtWVE34dcm_sMc_krhawvWCpSWHMctqlX5mc56KHKuiFlhUF_dKjKQUfjIQbLZmUZLdAu46ABUsu9tBnvP8jJ7fv7_JWqfo-vwmQ_CLUlaW53yBygrgyX2FFkmaDt-549HUc3plVeR3fPiOTIJzSnqRyGQIqTs9IW7_gSe3y2o4z9NYDu0_iByGZP3YKx6HxOkVG_ir-eJZvPM09klIwtbTWYDHeKw8LRaLN3kCXYtrVt5JXxM6JdPz1hf2fG_sHNpTaZ67wQjrOvHiPon4ntHpdEonO6kmvocdu9GzKfWdsWb0llX8gW12BgdjtzU49YIpDqwGt_70KOv5ZZFHyiCdeFOvNRic4emIWA26I-yGMkKwc1uw9RJ9nqAPHz6gm5o4mKLLlGUVArf_hjHbkeKXYf-vv246CzZcsH6U36JxwSEzdJFVvIjy1ZplGzS7vkLd2fRT38GnN50fP_bpgZ0-bulfrfTwJf2SF4u8WKFP1zN0XbCYI2EkTVgWcZ06sHie53UWo3OeJve82IDnj-4pekiqZV5XSMSzLnjEY1hoKM6jf2hmiWOJKM_jEl0BM1lXqPudpTW4ixvDaFYx0TZiiLaERVLkK5SIf_V0CdZiXvLoDv1ew9Qk1QZVOZpzFTmPdTIxR_a1rrSU5ZRP6zRFv1cb3Q41Cmc1cwldBrqvsIS6n3MoooO03Dda_O3AomfOdXR9KUXr1lnBYT0kkZiFssqju1NlH2Zct-cfXWckMFMvE4gCph2ygX--rWNIuUTdiy8fJ398QX1IOuJZVbAUtriDqQxNdQBmQbq8LPvzZuNCSXafQ-P6l842V_7kcZ3DNnGxJWkc6hg5kPUK1rmYDMlDXehCIkGmzwnFdg270jkknbKCVUmeoW8z9DVL9eqjxBiIEFGsyDSBBfTiYhTHsPnUK92OuYpnDI4Xu1yEpF_-7KHvCa8ytuqB0knGdFNa-c6WyRp1twv-oizrAy214rwYtw7PoHmj63wIzTcIQp1nKcLRFbqEZiEyFvU0qqEPjFMOh6XsVjPhBt3WBNT8Wss3akQQ1Xa6Two1klb13EAZaJTdwhvn2SIpVgcUz3ndS7O2rA49_FNsGYHFBn162ukb8_4cDlXRctdf286KYEk9P-9TXTN1uxy358gDjmfm8McorUtw9Gl7RNBp_nG04DhaeBxtcBTN35ORFUX-UPZZWqE1tIQ05amF5B1D8v8_ErQQ7Xg0G4l9Al1Mt2sVdZvWcPrycGResFd8zaGgQAbY-fm6RJVY9tueHW2XR9MC9b79Ssf6Ksh6v_iZo5X1ZOYeveN5bzrSHb_TBm9uj5bTpOFMuA0dPcCeBbloZgY_dQS0nGido_One819ncKzxQU8TSeN9mfnWq-jBw36Cq2lStamftChdwndH47WO3JTotb275K3N3CX_gIb7i_YSMhx3c85ppHhtzeyy10nww6Gg9d-PWLjav6WRWoi0cfdpO53o1KvbMvJrS6iJSs51NF_6qRMmrNf17w26OsWthVm4R7fz7B3_JIMtSWpKaUXn_cLCth_uw2fHFOJ9BjSXtNe5CnMXz9f8wxNyKQfupMhuoLHveWmTCJ4xIAni7iOqla6H1pJQ4mhfv-folAk4CvAVSPoFvCJBOQA31EMRzLktbe99NR47EsgUMBgC6gXUfCQLkeoILzG5983HfFAfdP5WzyKq7HSvTdQQCDjUQGTUI5oAemPKn9URkzbkF3p77e88UaVNyq90VYeV8YeagB1dVt_CsVF6CpSKoVQOlBJ9T0JyEzoQFPW1eZGRScT9VUavtQROxrQaiUNEsWQyriK4MkQiasDB1MjXyk0KXq-SkkWi9vOtbxWDokc4KmciasBnqdNsCeD9JUTX8Xk6UCgA4pCJOCqaSPSi6u8YFU1rXZyBG0DU4WvXeMWkPOHgxcAaHX4XobdsiQr5VFov749GQdWkWJlZMZWXBw_P4qjYJxH9YpnFZydH8RReM7RPWwF85SjJEPzvBJvI5uXM4NtFXqh5kBNKFZKqDyxnDO_rXk5Z5joQEuRk-gqKdR1y5DXrVNV2arOqGoBqlCokr-ddaVuO0KVf6BL1y44SQn3XvyKktx7Pf3iDrHeodY7rvWOZ73jW-8E1juh9c7AegdUtt6yq4DtMmC7DtguBLYrge1SYLsW2C4GtqtB7GqQV2rCrgaxq0HsahC7GsSuBrGrQexqELsa1K4GtatBX1kidjWoXQ1qV4Pa1YCFrT7FvcRDCz6Qn9NeLl3HiGIjSowoNaKuEfWMqG9EAyMaGlFjbp4xN8-YG2xk8tvaS5iaYdcMe2bYN8OBGQ7N8MAIw_HICGMzbM7SN2fpm7P0zVn65ixhy5LfGDu9zooXK5bEneFTp_k03xl2Yr5gdVp1nnsdVlf5bJNFnWHzCbtTN183zhMGT5yrLfj8PxQayaM=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWWtv2zgW_SuEiyIOam9FUi_7wy4cxy4CtNNMnHZ2MOkHWqJjIbLk1SOJN5P_vpcyKTs0GXSd-kMQHfHcx-HlFUU9daI85p1h5_37pyRLqiF6OqmWfMVPhuhkzkp-0kNb4DsrEjZPeXkixizyrJol_22GYXf9KIYJbMpWSboR6Izf5hx9u-ihERDTHipZVvZLXiSLk97JukhWrNiM8zQvxOh3PFw4i8abvHWWFzEvdgMcJ8CRB9Q0yfgOpoEbuFPBK3mUZ_ELowtvES6ik2cRXJo_REtWVE34dcm_sMc_krhawvWCpSWHMctqlX5mc56KHKuiFlhUF_dKjKQUfjIQbLZmUZLdAu46ABUsu9tBnvP8jJ7fv7_JWqfo-vwmQ_CLUlaW53yBygrgyX2FFkmaDt-549HUc3plVeR3fPiOTIJzSnqRyGQIqTs9IW7_gSe3y2o4z9NYDu0_iByGZP3YKx6HxOkVG_ir-eJZvPM09klIwtbTWYDHeKw8LRaLN3kCXYtrVt5JXxM6JdPz1hf2fG_sHNpTaZ67wQjrOvHiPon4ntHpdEonO6kmvocdu9GzKfWdsWb0llX8gW12BgdjtzU49YIpDqwGt_70KOv5ZZFHyiCdeFOvNRic4emIWA26I-yGMkKwc1uw9RJ9nqAPHz6gm5o4mKLLlGUVArf_hjHbkeKXYf-vv246CzZcsH6U36JxwSEzdJFVvIjy1ZplGzS7vkLd2fRT38GnN50fP_bpgZ0-bulfrfTwJf2SF4u8WKFP1zN0XbCYI2EkTVgWcZ06sHie53UWo3OeJve82IDnj-4pekiqZV5XSMSzLnjEY1hoKM6jf2hmiWOJKM_jEl0BM1lXqPudpTW4ixvDaFYx0TZiiLaERVLkK5SIf_V0CdZiXvLoDv1ew9Qk1QZVOZpzFTmPdTIxR_a1rrSU5ZRP6zRFv1cb3Q41Cmc1cwldBrqvsIS6n3MoooO03Dda_O3AomfOdXR9KUXr1lnBYT0kkZiFssqju1NlH2Zct-cfXWckMFMvE4gCph2ygX--rWNIuUTdiy8fJ398QX1IOuJZVbAUHnEHUxma6gDMgnR5WfbnzYMLJdl9Do3rXzrbXPmTx3UOj4mLLUnjUMfIgaxXsM7FZEge6kIXEgkyfU4otmvYlc4h6ZQVrEryDH2boa9ZqlcfJcZAhIhiRaYJLKAXF6M4hodPvdLtmKt4xmB7sctFSPrlzx76nvAqY6seKJ1kTDelle9smaxRd7vgL8qyPtBSK86LcevwDJo3us6H0HyDINR5liIcXaFLaBYiY1FPoxr6wDjlsFnKbjUTbtBtTUDNr7V8o0YEUW2n-6RQI2lVzw2UgUbZLbxxni2SYnVA8ZzXvTRry-rQwz_FlhFYbNCnp52-Me_PYVMVLXf9te2sCJbU8_M-1TVTt8txu4884HhmDn-M0roER5-2WwSd5h9HC46jhcfRBkfR_D0ZWVHkD2WfpRVaQ0tIU55aSN4xJP__I0EL0bZHs5F4TqCL6Xatom7TGk5fbo7MC_aKrzkUFMgAT36-LlEllv22Z0fb5dG0QL1vv9Kxvgqy3i9-Zmtl3Zm5Rz_xvDdt6Y5_0gZvbo-W3aRhT7gNHT3AMwty0cwMfmoLaNnROkfnT_ea-zqFd4sLeJtOGu3PzrVeRw8a9BVaS5WsTf2gQ-8Suj8crXfkpkSt7d8lb2_gLv0FNtxf8CAhx3U_55hGht_eyC53nQw7GDZe-_WIjav5WxapiUQfd5O6341KvbItO7e6gPOJkkMd_adOyqTZ-3XNa4O-bmFbYRbu8f0Me8cvyVBbkppSevF5v6CA_bfb8MkxlUiPIe017QWc9PCin695hiZk0g_dyRBdweveclMmEbxiwJtFXEdVK90PraShxFC__09RKBLwFeCqEXQL-EQCcoDvKIYjGfLa2156ajz2JRAoYLAF1EEUvKTLESoIr_H5901HvFDfdP4Wr-JqrHTvDRQQyHhUwCSUI1pA-qPKH5UR0zZkV_r7LW-8UeWNSm-0lceVsYcaQF3d1p9CcRG6ipRKIZQOVFJ9TwIyEzrQlHW1uVHRyUR9lYYvdcSOBrRaSYNEMaQyriJ4MkTi6sDB1MgjhSZFz1cpyWJx27mW18ohkQM8lTNxNcDztAn2ZJC-cuKrmDwdCHRAUYgEXDVtRHpxlResqqbVTo6gbWCq8LVr3AJy_nDwAgCtDs9l2C1LslJuhfbr25NxYBUpVkZmbMXF9vOj2ArCOVq9gtMO2Ds_iK0wnGLdw6MAjvrhDAPN80qcRjaHM4NtFXqh5kBNKFZKqDyxnDO_rXk5Z5joQEuRk-gqKdR1y5DXrVNV2arOqGoBqlCokr-ddaVuO0KVf6BL1y44SQn3Dn5FSe4dT7-4Q6x3qPWOa73jWe_41juB9U5ovTOw3gGVrbfsKmC7DNiuA7YLge1KYLsU2K4FtouB7WoQuxrklZqwq0HsahC7GsSuBrGrQexqELsaxK4GtatB7WrQV5aIXQ1qV4Pa1aB2NWBhq09xL_HQgg_k57SXS9cxotiIEiNKjahrRD0j6hvRwIiGRtSYm2fMzTPmBg8y-W3tJUzNsGuGPTPsm-HADIdmeGCEYXtkhLEZNmfpm7P0zVn65ix9c5bwyJLfGDu9Dpz6r1gSd4ZPnebTPHy-j_mC1WnVee51GJyxzDZZ1Bk2n7A7dfN14zxh8Ma52oLP_wMUGsmj" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.2 E2E-84D-Final_Delivery_Plant_is_Non-S4_Plant_(Shell) — E2E-84D-Final_Delivery_Plant_is_Non-S4_Plant_(Shell)
 
@@ -429,7 +491,7 @@ LE101 · LE778 (Shell Plant)
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -620,10 +682,14 @@ flowchart TD
     class n58 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWVtv27gS_iuEiiIOYJ-IpGTJfjgLx5dugHSbrdMuFpt9oCU6JiJLhi5JfNL89zOUSTmmxS7WbR6S6CPn9s1whrJfnCiLuTN03r9_Eakoh-jlrFzxNT8borMFK_hZF-2ArywXbJHw4kzuWWZpORf_q7dhb_Mst0lsxtYi2Up0zu8zjr5cddEIBJMuKlha9Aqei-VZ92yTizXLt-MsyXK5-x0Pl-6ytqaWLrM85vl-g-sGOPJBNBEp38M08AJvJuUKHmVpfKB06S_DZXT2Kp1LsqdoxfKydr8q-Ef2_IeIyxU8L1lScNizKtfJNVvwRMZY5pXEoip_1GSIQtpJgbD5hkUivQfccwHKWfqwh3z39RW9vn9_lzZG0e3kLkXwEyWsKCZ8iYoS4OljiZYiSYbvvPFo5rvdosyzBz58R6bBhJJuJCMZQuhuV5Lbe-LiflUOF1kSq629JxnDkGyeu_nzkLjdfAu_DVs8jfeWxn0SkrCxdBngMR5rS8vl8ocsAa_5LSselK0pnZHZpLGF_b4_do_16TAnXjDCJk88fxQRf6N0NpvR6Z6qad_Hrl3p5Yz23bGh9J6V_Ilt9woHY69ROPODGQ6sCnf2TC-rxU2eRVohnfozv1EYXOLZiFgVeiPshcpD0HOfs80KoespdhUX8ifFf_115yzZcMl6UXaPxjmHGNCcwYFEn-RJKe6cv_9-I0AOBW54vszy9W4v-soSEbNSZCnqiDRKqhhKVyqNRYlYGqMPt3MUrXj0UJwbeumh3s884uKRo_HtDfqyAZ3cdMT7niPjLF2KfF27Ysj57XLSs9ucxWAyW28SwdKIG5L9dsnRZ3STFaWMVIY4qsoMjRMOfS29NzQE7UF2voq8rFhichIebp-vxAZ1PmRZXKCroqi4uX_QmsxxVZTZGki5Sh8zcRQVdk8mBJvVw5KoSqTNW_Z8lDBslM5Y1gH6vWJpKcotAtYWHE14AoxAwZjC1JLuywm6q4iLKZpVSYJ-L7empK1QqnKRVZCweGdyq_XcQAeFySJVoc51ViJs8oz9f3TmSMlvRwXvdxolmwS6xhXMSSHJK-rTV88pkDl_KxPsZSCpG1l7G1V7dZZ4WTN3IBMaMm2JVcmw6hj8uA7Pf3nZkxbz3gLGW7TaF0CTevTLnfP6-la03y7Kn6HFFCD0Ydd4TbHgNLHwJDGf7MVYnmdPRY8lJdqwnCUJTyxC9N8Jwcg1Ovr1NAhC1JmvOFT_TQJcnqO3pdpv7QlX6a72J7r2O_ML7xw9iXKVVbJVb9Emh-5U9-84i_5jnoDA0jTq5lT3tU0JfY0lFZiLa8VoXjJ5kYqhRAq4NuTZGgn579HxCn-kUQxObRTE_emNguCf0CiIZeSOYDTuqOlUac7hHiAiyTUc0OjhXOuHvJr66MkNn1h66Y0AL-Twu2Hwj5rXqHP18WL6x0fUg2RFPC2hpuFqbyaM-G3ZBrVQq1lR9BZ1I0RiN7x-MaXb63v6vMngetw-8UjQPiezNUzJSCZDyaEO3L5kgOwoJ2GrChm-PDGJgAI_eBjFMZzdam3qGXzn_tV4Icn4-GcXfRW8TNm6CxyJlJnzxP2H24K531KbyurFJdw5pfvyL7rNhrurY61WPulbxcWn-ejWVE1--KZETy9S6tlFO6owoCAT6LH1TfXLHH1KE7Mb0L5tPF9dTszR5v77sexhQ0aXy7Usl7oOpHNa3JQmP2Eg05-gwwMVUzLthd6vvc_QzVbbQkRwguDgxFVUqrtMh15QeYTeSg5Ovg74brvorl_sXvCPZPBpQ907Zaj7pwj1TxEKThEKT7xzpAT1ev-Fo6EecX_37PsaCHeAN1CAN5DAtztHjtw755scz3rvQAljrRybgDJHtD1f7SBE7_CUiKcBXwGuBpSLJNA6lAjVO9QGGphGtE4c7AAcKoCqILWAsokDA6CN365i4U_5TvRNemWu_JbtFhobmoxmp_ZTx04VO55rREZ0NohynDTZ0JFoEZUCjM10qUtJ7ZOv4yI6u3q7r1xo0q8eibGun5V5T8fkGc9E-UM1tdRVGkODhYYVHSI2AR2ipySwdsLzj0qSmksH4TdZVHnHTWHoDPjmjoYQVQmephB7JkANQNdOUwi6uvSzjkdTQLWG5lBooHFc5Y1iA2icUDRTXSg60doJTwHN2cXmBkV747WO03vzgZYskDcfux2sEOsKta541hXfutK3rgTWldC6MrCuAKXWJTsL2E4DtvOA7URgOxPYTgW2c4HtZGA7G8TOBvlOTdjZIHY2iJ0NYmeD2NkgdjaInQ1iZ4Pa2aB2Nuh3joidDWpnAzqL_rLgEO9b8EB94H-Ihq3ooA313FYUt6KkFaWtqNfuMfRz9Yn8Idxvh4N2OGyHB60wDPRWGLfDpB2m7bDXDrdH6bdH6bdH6TdROl0H3urWTMTO8MWpv6Jzhk7Ml6xKSue16zB4a5tv08gZ1l9lOVX9tj8R7D5n6x34-n_sOpdN" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWVtv27gS_iuEiyIOYJ-IpGTJfjgLx5dugHSbrdMuFpt9oCUqJiJLhi5JfNL89zOUSTmmxS7WbR6S6CPn9s1whrJfOmEW8c6o8_79i0hFOUIvZ-WKr_nZCJ0tWcHPemgHfGW5YMuEF2dyT5yl5UL8r96G3c2z3CaxOVuLZCvRBb_POPpy1UNjEEx6qGBp0S94LuKz3tkmF2uWbydZkuVy9zsexE5cW1NLl1ke8Xy_wXF8HHogmoiU72Hqu747l3IFD7M0OlAae3EQh2ev0rkkewpXLC9r96uCf2TPf4ioXMFzzJKCw55VuU6u2ZInMsYyryQWVvmjJkMU0k4KhC02LBTpPeCuA1DO0oc95Dmvr-j1_fu7tDGKbqd3KYKfMGFFMeUxKkqAZ48likWSjN65k_Hcc3pFmWcPfPSOzPwpJb1QRjKC0J2eJLf_xMX9qhwtsyRSW_tPMoYR2Tz38ucRcXr5Fn4btnga7S1NBiQgQWPp0scTPNGW4jj-IUvAa37Ligdla0bnZD5tbGFv4E2cY306zKnrj7HJE88fRcjfKJ3P53S2p2o28LBjV3o5pwNnYii9ZyV_Ytu9wuHEbRTOPX-OfavCnT3Ty2p5k2ehVkhn3txrFPqXeD4mVoXuGLuB8hD03Odss0LoeoYdxYX8SfFff911YjaKWT_M7tEk5xADWjA4kOiTPCnFXefvv98IkEOBG57HWb7e7UVfWSIiVoosRV2RhkkVQelKpZEoEUsj9OF2gcIVDx-Kc0MvPdT7mYdcPHI0ub1BXzagk5uOuN9zZJKlscjXtSuGnNcuJz27zVkEJrP1JhEsDbkhOWiXHH9GN1lRykhliOOqzNAk4dDX0ntDg98eZPeryMuKJSYnweH2xUpsUPdDlkUFuiqKipv7h63JnFRFma2BlKv0MRNHUWHnZEKwWT0sCatE2rxlz0cJw0bpTGQdoN8rlpai3CJgbcnRlCfACBSMKUwt6b6coruKOJiieZUk6Pdya0raCqUql1kFCYt2Jrdazw10UJgsUhXqXmclwibP2PtHZ46U_HZU8F63UbJJoGtcwZwUkryiPn31nAKZ87cy_l4GkrqRtbdRtVdniZc1cwcygSHTlliVDKuO4Y_rcL2Xlz1pEe8vYbyFq30BNKlHv9x1Xl_fig7aRfkztJgChD7sGq8p5p8mFpwk5pG9GMvz7Knos6REG5azJOGJRYj-OyEYuUZHv575foC6ixWH6r9JgMtz9LZUB6094Srd1f5U1353ceGeoydRrrJKtuot2uTQner-HWXhf8wT4FuaRt2c6r62KaGvsaQCc1GtGC1KJi9SEZRIAdeGPFsjIf89Ol7BjzSK4amNgjg_vVEQ_BMaBbGM3DGMxh013SrNOdwDRCi5hgMaPpxr_ZBXUx89ueETSy-9EeCFHH43DP5R8xp1rz5ezP74iPqQrJCnJdQ0XO3NhBGvLdugFmo1K4r-sm6ESOyG1y-mdHt9z543GVyP2yce8dvnZLaGKRnKZCg51IXblwyQHeUkaFUhw5cnJhFQ4AcP4yiCs1utTT3D79y_Gi8kGR__7KGvgpcpW_eAI5Eyc544_3BbMPdbalNZvbiEO6d0X_5Ft9lod3Ws1confau4-LQY35qqyQ_flOjpRUpdu2hXFQYUZAI9tr6pflmgT2lidgM6sI3nq8upOdqcfz-WXWzI6HK5luVS14F0Toub0uQnDGT6E3S4oGJGZv3A_bX_GbrZaluIEE4QHJyoCkt1l-nSCyqP0FvJ4cnXAc9pF931i90L_pEMPm2ou6cMde8UocEpQv4pQsGJd46UoH7_v3A01CMe7J49TwPBDnCHCnCHEvh215Ej967zTY5nvXeohLFWjk1AmSPanqd2EKJ3uErE1YCnAEcDykXiax1KhOodagP1TSNaJ_Z3AA4UQFWQWkDZxL4B0MZvR7Hwp3wn-ia9Mld-y3YLjQ1NRrNT-6ljp4od1zEiIzobRDlOmmzoSLSISgHGZrrUpaT2ydNxEZ1dvd1TLjTpV4_EWNfPyryrY3KNZ6L8oZpa6iiNgcFCw4oOEZuADtFVElg74XpHJUnNpYPwmyyqvOOmMHQGPHNHQ4iqBFdTiF0ToAaga6cpBF1d-lnHoymgWkNzKDTQOK7yRrEBNE4omqkuFJ1o7YSrgObsYnODor3xWsfpvvlASxbIm4_dDlaIdYVaV1zrimddGVhXfOtKYF0ZWleAUuuSnQVspwHbecB2IrCdCWynAtu5wHYysJ0NYmeDfKcm7GwQOxvEzgaxs0HsbBA7G8TOBrGzQe1sUDsb9DtHxM4GtbMBnUV_WXCIDyy4rz7wP0SDVnTYhrpOK4pbUdKK0lbUbfcY-rn6RP4QHrTDfjsctMPDVhgGeiuM22HSDtN22G2H26P02qP02qP0mig7vQ681a2ZiDqjl079FR18jRfxmFVJ2XntdRi8tS22adgZ1V9ldar6bX8qGHwetd6Br_8H7DqXTQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.3 E2E-84F__R3_SAP_TM_-_Embedded — E2E-84F__R3_SAP_TM_-_Embedded
 
@@ -634,7 +700,7 @@ flowchart TD
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -767,10 +833,14 @@ Carrier via BN4L"| n33
     class n44 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv4jgU_itWRt1SCUSuBHhYCQLMVOpMq9JOH6b74AanWA1x5DgUttP_vseJHcClD8v0YTT5cr5zP8cOb1bMFsQaWmdnbzSjYojezsWSrMj5EJ0_4YKct1EN_MSc4qeUFOdSJmGZmNN_KzHHzzdSTGIzvKLpVqJz8swIur9soxEQ0zYqcFZ0CsJpct4-zzldYb6NWMq4lP5C-omdVNbUqzHjC8J3ArYdOnEA1JRmZAd7oR_6M8krSMyyxYHSJEj6SXz-Lp1L2Wu8xFxU7pcF-Y43D3QhlvCc4LQgILMUq_QKP5FUxih4KbG45GudDFpIOxkkbJ7jmGbPgPs2QBxnLzsosN_f0fvZ2WPWGEVXt48Zgr84xUUxIQkqBMDTtUAJTdPhFz8azQK7XQjOXsjwizsNJ57bjmUkQwjdbsvkdl4JfV6K4RNLF0q08ypjGLr5ps03Q9du8y38a9gi2WJnKeq5fbffWBqHTuRE2lKSJH9kCfLK73DxomxNvZk7mzS2nKAXRPZHfTrMiR-OHDNPhK9pTPaUzmYzb7pL1bQXOPbnSsczr2dHhtJnLMgr3u4UDiK_UTgLwpkTfqqwtmd6WT7dcBZrhd40mAWNwnDszEbupwr9keP3lYeg55njfInGrKx6GY3yvKjfyb_MGfx6tG5lp8c0JSi6m1MUYc4p4egyWzNIFcLZAk1okZeCoO84w88wvZl4tP7Z0-PatR5C1wRxrW9h6moVFw0PushwcvrwHaHWhHQi0M9xCvtgcbHvrFsZSQnsEfSA17VrNzR-QQ_fUFXSiBMsKMsOvXM8IB7KsSyhfFXJotbdbffu-sLg-JKDgdOaL2mewyyiapjRDaeZgMeL2jyIVO9oYeTECaQGwhPGV-iK4QWIGRI9KcEKgb4ytijQZVGUBLUgD6YzIQhel-JJlhFNSApphmK2ricX6JWKJfp2D6jANC0MYn-vLh8VXMudiGgmU39I9N23t0crwcMEd6CG7LXo4FSgHENdUpJ-rTv-0Xp__7SaG0F4hiFfsJkywovu2B3vt4wDrs2BhwRD89ENGvs_royukgX_wQRNtiiuO8kQkIWNcC5KTsxeK1BrTTGaTi4Ry9KtkVHX32NONyQuq1Yga2i9Akni-Id_1fl6d2fwgj3ezXJb0BhC5DLDuUAMdkFVSQwrehqGfYPcb_3SSc1TWBgTLDDKCAEGJOGJIMiHkP9Vudjvfs_ekQvB8p31W2VdubUwid6ulPJ07jzB-RIvEdnEaVlAI3woZt0B3v_rgJrk_2nbyE6Yd32oooBZm8l-hUbtQDoD20aXnKRy6vZbXBZEjv2xBm-BKrPyjXz3Pl9I2oxXpxO6hwtLNdMaqMbjkO3tzbRuuDmspLhqH0mOcBqXqdQbwVH9TIyJ9HXXq40AgcImLyt-1QUfRjHQjFtQWnSV1mHjJfjyiqWn0PEPsAxgnO_MBSIXjVxjqLW3aQwZuWPqSSCHGajCUrmaCyzKAtVL6_JQQX9XiT2GVjUnQqTV0YEmLC4_niGDHX1en9Lo5rqLpnAWbNF8SYi5X229PUdxzEsYBMietjbd5CSDYwJeQUeI_YOnJsu2GaUpi_d9jEBbVYSmgS4FWUFeo-vuzegCMQ4nIKw1uICinzgtj5w1bs-Y8Y9NCQWrzrp65OuQzaF1Q0PNQfGrnbG3MkzywFgVOkEyW0Dc7_E6ZJ2JD7vDOWl3eO5pNP-EleMFp5B6p5DCU0j9U0iDU3avfQrJOXFhw6UKdTp_y4uSBlwFeBoIa8B3FeBriUBL1M-eVqHee_q959eAVqBMNuJ9Ja8tKoNeX8srAd_RgNLgNkCgKBpQjIF6HKjX-tlTgGObgFbgqKB8LeHYBuDpsHUYmtEAKg--DtTXedASvo5DS3iKEpoMnUpXB6q98JVbrg7N7alItN8qFY7OvqNUOD3DiyZ5jkqG2xhRoemCaCe0BldVrCl4z9BYA7_hEiv3n1x58I0C585vOY4HboAM3PW68IUCm64ScBvHVTKchmE0pu4zR_vpKD-0n9qthqD8dgYHnQY-jBl76d7BmMC5Cd4-ZvqWoO-Ute9NqX3Fu7meNBe5aXULrQW1RVfnWsfg2mZvB0rV7Bq1Dg7wC4T-Qt9GD3D9bn1jpTwWKZcfrGP4vryAI636vDlIavUpWvWE_mXhEA8_wfuf4AP1q8EB6tlHUUd_UB_C7nHYOw77x-HgONw7DofH4f5xeHAUhjk7Ch-P0j8epX88Sr-J0mpbKwIftHRhDd-s6hc2a2gtSILLVFjvbQuXgs23WWwNq1-irLK6nU0ohmv3qgbf_wNXSwZc" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv4jgU_isWo26pBCJXAjysBAFmKnWmqNDpw3QfTHCK1RBHjtOW7fDf9zixA7j0YZk-jCZfznfu59jhvRGxFWkMGhcX7zSlYoDeL8WabMjlAF0ucU4uW6gCfmJO8TIh-aWUiVkq5vTfUsz2sjcpJrEp3tBkK9E5eWIE3V-30BCISQvlOM3bOeE0vmxdZpxuMN-GLGFcSn8hvdiKS2vq1YjxFeF7AcsK7MgHakJTsofdwAu8qeTlJGLp6khp7Me9OLrcSecS9hqtMRel-0VOvuO3B7oSa3iOcZITkFmLTXKDlySRMQpeSCwq-ItOBs2lnRQSNs9wRNMnwD0LII7T5z3kW7sd2l1cPKa1UXRz95gi-IsSnOdjEqNcADx5ESimSTL44oXDqW-1csHZMxl8cSbB2HVakYxkAKFbLZnc9iuhT2sxWLJkpUTbrzKGgZO9tfjbwLFafAv_GrZIutpbCrtOz-nVlkaBHdqhthTH8R9ZgrzyBc6fla2JO3Wm49qW7Xf90PqoT4c59oKhbeaJ8BcakQOl0-nUnexTNen6tvW50tHU7VqhofQJC_KKt3uF_dCrFU79YGoHnyqs7JleFssZZ5FW6E78qV8rDEb2dOh8qtAb2l5PeQh6njjO1mjEirKX0TDL8uqd_Evt_q_Hxp3s9IgmBIWLOUUh5pwSjq7TFwapQjhdoTHNs0IQ9B2n-AmmNxWPjX8O9DhWpYfQF4K41rcydTXzq5oHXWQ4OXn4jlBzTNoh6Oc4gX2wujp01imNJAT2CHrAL5VrMxo9o4dvqCxpyAkWlKXH3tkuEI_lWBpTvillUXNx11ncXhkcT3IwcJrzNc0ymEVUDjOacZoKeLyqzINI-Y7mRk5sX2ogPGZ8g24YXoGYIdGVEiwX6Ctjqxxd53lBUBPyYDoTgOBtIZayjGhMEkgzFLN5O75Cr1Ss0bd7QAWmSW4Qewd1-ajgVu5ERFOZ-mOi57y_PzZiPIhxG2rIXvM2TgTKMNQlIcnXquMfG7vdp9V8E4SnGPIFmyklPO-MnNFhy9jg2hx4SDA0H87QyPtxY3SVLPgPJmi8RVHVSYaALGyIM1FwYvZajpovFKPJ-BqxNNkaGXW8A-bkjURF2QrkBVovR5I4-uHdtL8uFgbPP-DN1tucRhAilxnOBGKwC8pKYljRkyDoGeRe85dOapbAwhhjgVFKCDAgCUuCIB9C_lfl4rD7XWtPzgXL9tbvlHXl1sokuvtSytO5vYTzJVoj8hYlRQ6N8KGYVQe4_68DKpL3p20jO2He8aCKAmZtKvsVGrUN6fQtC11zksipO2xxWRA59qcavAmqzMrX8p37bCVpU16eTugeLizlTGugHI9jtnsw07rh5rCSorJ9JDnESVQkUm8IR_UTMSbS012vNgIECpu8KPllF3wYRV8z7kBp3lFaB7WX4Msrlp5Cxz_AMoBxXpgLRC4aucZQ82DTGDJyx1STQI4zUIalcjUXWBQ5qpbW9bGC3r4SBwytak6ESMqjA41ZVHw8Q_p7-rw6pdHstoMmcBZs0XxNiLlfLb09h1HECxgEyJ62NnnLSArHBLyCjhCHB09Flm0zTBIWHfoYgrayCHUDXQuygbyGt53Z8AoxDicgrDW4gKKfOClOnDVO15jxj00JBSvPumrkq5DNoXUCQ81R8cudcbAyTHLfWBU6QTJbQDzs8SpknYkPu8M-a3e4znk074yV4_rnkLrnkIJzSL1zSP1zdq91Dsk-c2HDpQq123_Li5IGHAW4GggqwHMU4GkJX0tUz65Wod67-r3rVYBWoEzW4j0lry0qg25PyysBz9aA0uDUgK8oGlCMvnrsq9f62VWAbZmAVmCroDwtYVsG4OqwdRiaUQMqD54O1NN50BKejkNLuIoSmAydSkcHqr3wlFuODs3pqki03yoVts6-rVTYXcOLOnm2SoZTG1Gh6YJoJ7QGR1WsLnjX0FgBv-ESK_efXHnwjQLnzm85jkdugAzc9TrwhQKbrhRwasdVMuyaYTSm7jNb-2krP7Sf2q2aoPy2-0edBj6MGHvuLGBM4NwEbx9TfUvQd8rK97rUnuLNbsf1RW5S3kIrQW3R0bnWMTiW2du-UjW9Rc2jA_wKob_Qt-EDXL-b31ghj0XK5QfrCL4vr-BIKz9vjpJafoqWPaF_WTjGg0_w3id4X_1qcIS61knU1h_Ux7BzGnZPw95p2D8Nd0_DwWm4dxrun4Rhzk7Cp6P0TkfpnY7Sq6NstBobAh-0dNUYvDfKX9jgV7gViXGRiMau1cCFYPNtGjUG5S9RjaK8nY0phmv3pgJ3_wFXSwZc" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.4 E2E-84I-R3_-_Inventory_Transfer_Interim_State_Variation_-_3 — E2E-84I-R3_-_Inventory_Transfer_Interim_State_Variation_-_3
 
@@ -783,7 +853,7 @@ LE101 US | **Tasks**: 32 | **Gateways**: 14
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -963,10 +1033,14 @@ flowchart TD
     class n58 subProc
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWW1v4rgW_itWRqNSCe7EjkOAD_eKUlhVmpfu0JnVajsfTOKUqCaJ8tKW7fa_3-NgBzDOapfhQ1Uen-e8PLaPnfDqhFnEnYnz_v1rkibVBL1eVGu-4RcTdLFiJb_oox3wnRUJWwleXkibOEurZfJnY4Zp_iLNJLZgm0RsJbrkDxlH3276aApE0UclS8tByYskvuhf5EWyYcV2lomskNbv-Ch24yaaGrrKiogXewPXDXDoA1UkKd_DXkADupC8kodZGh05jf14FIcXbzI5kT2Ha1ZUTfp1yT-xl9-SqFrD95iJkoPNutqIj2zFhayxKmqJhXXxpMVIShknBcGWOQuT9AFw6gJUsPRxD_nu2xt6e__-Pm2Dorvr-xTBJxSsLK95jMoK4PlTheJEiMk7OpsufLdfVkX2yCfvyDy49kg_lJVMoHS3L8UdPPPkYV1NVpmIlOngWdYwIflLv3iZELdfbOGvEYun0T7SbEhGZNRGugrwDM90pDiOfyoS6FrcsfJRxZp7C7K4bmNhf-jP3FN_usxrGkyxqRMvnpKQHzhdLBbefC_VfOhjt9vp1cIbujPD6QOr-DPb7h2OZ7R1uPCDBQ46He7imVnWq9siC7VDb-4v_NZhcIUXU9LpkE4xHakMwc9DwfI1QkuWo-UHim4W6OM8CEaot1xzIdCtYGl1iXbm8pNi-scf907MJjEbhNkDuuVFnBUb9MvdEt0VLOJolm1ykbA05PfOjx-HVP-YOis4KINu0lVWpxG65iJ54sUWYn-gl-g5qdZZXSGWblFe8JBHsN5RlIX_Md0OOzLKsqhEX4GZ5BXqfWeihnBR4xgtKyZ3bwTZlrBWi2yDEvnvpek8MHJe8_AR_VqDLEm1RVWGVlxnziOTPLJn9qWujJLva-JiDy1q0PzXamv6GVuF63RzC5sdmqD0hHofswphsyzi_qTHzycesb3W6d2tEq1XpwWHZZmEchbKKgsfL7V_mHHTHzl7nRHPTr1NIAuYdqgG_vmWR1ByiXo3nz7Mf_uEBlB0yNOqYAJOGnMqCbWtA3AL0mVlOVg15wdK0qcM-sf_TLZ95c9f8gy69c2OZHKGVg5UveFFKCdD8VAPmoEskJ3MSdCtYU8Fh6IFK1iVZCn6tkRfUmGuPjKyJiJFlDtSJLCBjr5MowjOgHpj-rGv4iWDU35fi5T00-999D3hVco2fVA6SZnhyjOW73Kd5Ki32_A3ZVmbWnrG4ryZtQGvoIeiu2yy63smr2MRTr-iW2gWsmK5nqY19IGZ4HBnSR9MF6Ne6wLWfG7UGzYiyNV2eUgaGyRj1fNTCnX_ntJslG42Ntj7bTvL0jgpNqcU8o8CKh8dYT0z7FeUg7CnhvT1dT8RER-s4BIUrveNuG3BCPbe29sh1bdTd_t2d-874QztHP4SirqEQL_sjnSTFpxHG51F8709jRVF9lwOmKhQDrtZCC46SPQckn8OaXgOKfh3JOgzxlVmtrj5fOAwgPW1362wqg7GRjAmW2dSsVUi5Cqapkxs4eJ9bDcGuxkr12iaw7IOm155bIFd6YptN3B-6BvHsQUd_9s5Pi1tOb3dX9Kwi6FfH-YAKTShnzg0z6KqmThOgYDB6QHfw_IS0xznhw0IbJumetxTDwsCi46z-HA-pXQ1bG04sw7OuQOLYSOuqMNayNPgjr1wQ36MrefGtzTUnQl92Hcp1V-_yG1dmveo8-8U2Pv5k-Cg2eUCngeMnM0zgP58f_V8i48DdtjFGxo8mBa0myXYjqfmgb2NS1W6UvPdc9oDPodEziEdXHpieCzlxSDLeYrmZD4Y0fkEfYVL8Rp6RQgXMWgiUR1W7TT-MHYwPPmgweC_sidqINgBlCqAUgn8de_IR4B75y_58KBtR8pWA8RT3jwNUGXha0DFIzoeGSog0PF8Fe9z1kQjrXMVjYwV4KtohBqA55q-fpfVS2c6D89VmWou1lydB1aJ4TYxpQxxDQCPTanUQ0kTkmo-GasIrXwKoK0WrgHQoSEwVRr4ug5f64lNwDMBoqMQlYdOm2AVpfWhZs3TANbTqEvH2kcrn_Lhawtf1YLbsHphacBTimNsUHxdra-qbdNQlWiPyrzlq3Fdua6inXNlr83VV-1Oae1p8X29AE4AXbSni9ZT7KsaPWIAWOfkqaSpZyTdrmFloIMqB1oSvWTGhnkLUGXRLmMl6vjgTU0zXQcvlI6HSPeQ1z1Eu4f87qFh91DQPTTqHhp3DsHm6hzqVoN0q0G61SDdapBuNUi3GqRbDdKtBulWw-tWw-tWw-tWA3azfpV7jFP12vUY9a3o0IoGVnRkRcc2lLpWFFtRYkU9K0r1G9Rj2LfDQzsc2OGRHR5bYWidVhjbYWKHPTtsr9K3V-nbq_TtVUKHV6-Mnb4DN_ENSyJn8uo0v7Q4EyfiMatF5bz1HQYX2OU2DZ1J84uEUzdvya4TBo8gmx349n8ngdwU" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWW1v4rgW_isWo1GpBHdixyHAh3tFKawqzUt36MxqtZ0PJnFKVJNEeWnLdvvf73GwQzDOapfhQ1Uen-e8PLaPnfDaC9KQ96a99-9f4yQup-j1otzwLb-Yoos1K_jFAO2B7yyP2Vrw4kLaRGlSruI_azNMsxdpJrEl28ZiJ9EVf0g5-nYzQDMgigEqWFIMC57H0cXgIsvjLct381SkubR-x8eRE9XR1NBVmoc8Pxg4jo8DD6giTvgBdn3q06XkFTxIk_DIaeRF4yi4eJPJifQ52LC8rNOvCv6JvfwWh-UGvkdMFBxsNuVWfGRrLmSNZV5JLKjyJy1GXMg4CQi2ylgQJw-AUwegnCWPB8hz3t7Q2_v390kTFN1d3ycIPoFgRXHNI1SUAC-eShTFQkzf0fls6TmDoszTRz59Rxb-tUsGgaxkCqU7Aynu8JnHD5tyuk5FqEyHz7KGKcleBvnLlDiDfAd_jVg8CQ-R5iMyJuMm0pWP53iuI0VR9FORQNf8jhWPKtbCXZLldRMLeyNv7pz602VeU3-GTZ14_hQHvOV0uVy6i4NUi5GHnW6nV0t35MwNpw-s5M9sd3A4mdPG4dLzl9jvdLiPZ2ZZrW_zNNAO3YW39BqH_hVezkinQzrDdKwyBD8POcs2CK1YhlYfKLpZoo8L3x-j_mrDhUC3giXlJdqby0-C6R9_3PciNo3YMEgf0C3PozTfol_uVuguZyFH83SbiZglAb_v_fjRpnrH1HnOQRl0k6zTKgnRNRfxE893EPsDvUTPcblJqxKxZIeynAc8hPWOwjT4j-l21JFRmoYF-grMOCtR_zsTFYQLa8doVTK5e0PItoC1mqdbFMt_L03nvpHzhgeP6NcKZInLHSpTtOY6cx6a5LE9sy9VaZR8XxEHu2hZgea_ljvTz8QqXKebW9js0ASlJ9T_mJYIm2UR5yc9fj7xiO21zu5ulWj9Ksk5LMs4kLNQlGnweKn9w4yb_sjZ64y4duptDFnAtEM18M-3LISSC9S_-fRh8dsnNISiA56UORNw0phTSahtHYBbkC4tiuG6Pj9QnDyl0D_-Z7LtK3_xkqXQrW_2JJMzsnKg6i3PAzkZiof60AxkgexkTvxuDfsqOBQtWM7KOE3QtxX6kghz9ZGxNREpotyRIoYNdPRlFoZwBlRb0499Fa8YnPKHWqSkn34foO8xLxO2HYDSccIMV66xfFebOEP9_Ya_KYrK1NI1FufNvAl4BT0U3aXTfd8zeR2LcPYV3UKzkBXL9TSroA_MBYc7S_Jguhj3Gxew5jOj3qAWQa62yzZpYpCMVc9PKdT5e0q9UbrZ2GAftu08TaI4355SyD8KqHx0hHXNsF9RBsKeGtLX18NEhHy4hktQsDk04qYFI9h7b29tqmen7vft_t53whnZOfwlEFUBgX7ZH-kmzT-PNj6L5rkHGsvz9LkYMlGiDHazEFx0kOg5JO8c0ugckv_vSNBnjKvMfHnzueXQh_V12K2wqlpjYxiTrTMu2ToWchXNEiZ2cPE-tpuA3ZwVGzTLYFkHda88tsCOdMV2Wzg_9I3j2IJO_u0cn5a2mt0eLmnYwdCv2zlACnXoJw7NMy8rJo5TIGBwesD3sbzE1Md5uwGBbd1Uj3tquyCw6DiL2_Mppatga8OZ1TrnWhajWlxRBZWQp8Ede-GG_Bhbz41vSaA7E_pw6FKqv36R27ow71Hn3ymw-_MnQavZZQKeB4yczTOA_nx_dT2LjxY76OKNDB5MC9rPEmzHU3Pf3salKl2pec457QGfQyLnkFqXnggeS3k-TDOeoAVZDMd0MUVf4VK8gV4RwEUMmkhYBWUzjT-MHQxPPmg4_K_siRrw9wClCqBUAn_d9-QjwH3vL_nwoG3HylYDxFXeXA1QZeFpQMUjOh4ZKcDX8TwV73NaRyONcxWNTBTgqWiEGoDrmL5-l9VLZzoP11GZai7WXJ0HVonhJjGlDHEMAE9MqdRDSR2Saj6ZqAiNfAqgjRaOAdCRITBVGni6Dk_riU3ANQGioxCVh06bYBWl8aFmzdUA1tOoS8faRyOf8uFpC0_VgpuwemFpwFWKY2xQPF2tp6pt0lCVaI_KvOGrcV25rqKZc2WvzdVX7U5p7WrxPb0ATgBdtKuL1lPsqRpdYgBY5-SqpKlrJN2sYWWggyoHWhK9ZCaGeQNQZdEsYyXqpPWmpp6u1gul4yHSPeR2D9HuIa97aNQ95HcPjbuHJp1DsLk6h7rVIN1qkG41SLcapFsN0q0G6VaDdKtButVwu9Vwu9Vwu9WA3axf5R7jVL12PUY9Kzqyor4VHVvRiQ2ljhXFVpRYUdeKUv0G9Rj27PDIDvt2eGyHJ1YYWqcVxnaY2GHXDtur9OxVevYqPXuV0OHVK-PeoAc38S2Lw970tVf_0gK_xoQ8YpUoe2-DHoML7GqXBL1p_YtEr6rfkl3HDB5Btnvw7f8ngdwU" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.5 E2E-_84A-Final_Delivery_Plant_is_Non-S4_Plant_(Shell) — E2E-_84A-Final_Delivery_Plant_is_Non-S4_Plant_(Shell)
 
@@ -982,7 +1056,7 @@ LE101 US | **Tasks**: 39 | **Gateways**: 16
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -1210,10 +1284,15 @@ will be visible in both LE’s"| n67
     class n70 subProc
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWm1v2zYQ_iuEiyIuYKMiqRfbHzY4jh0EaBovTlYMyz7QMhULkSVPL0m8LP99R5mUbYYMOrf9UFQP-RzvHt4dKbkvrTBb8Nag9fHjS5zG5QC9nJRLvuInA3QyZwU_6aAt8DvLYzZPeHEi5kRZWs7if-pp2F0_i2kCm7BVnGwEOuP3GUe3Fx00BGLSQQVLi27B8zg66Zys83jF8s0oS7JczP7Ae5ET1avJodMsX_B8N8FxAhx6QE3ilO9gGriBOxG8godZujgwGnlRLwpPXoVzSfYULlle1u5XBb9kz9_iRbmE54glBYc5y3KVfGFznogYy7wSWFjlj0qMuBDrpCDYbM3COL0H3HUAyln6sIM85_UVvX78eJc2i6Kbs7sUwZ8wYUVxxiNUlACPH0sUxUky-OCOhhPP6RRlnj3wwQcyDs4o6YQikgGE7nSEuN0nHt8vy8E8SxZyavdJxDAg6-dO_jwgTiffwN_aWjxd7FYa-aRHes1KpwEe4ZFaKYqiH1oJdM1vWPEg1xrTCZmcNWthz_dGzlt7KswzNxhiXSeeP8Yh3zM6mUzoeCfV2PewYzd6OqG-M9KM3rOSP7HNzmB_5DYGJ14wwYHV4HY93ctqPs2zUBmkY2_iNQaDUzwZEqtBd4jdnvQQ7NznbL1EaMbWaPbZRRcT9GXsOQ66yHnC0gXaThR_Uhz8-eddK2KDiHXD7B6Ncg6BoYu05HmYrdYs3aDZzTVqzybnXQd_umv99dc-vWeno1HDv7Ly-4f8Kc-jLF-h85sZusnZgtdGkpilIdeoxDEuPYUIU75AV6L0bcsSbF52VvJ1gUrYAQR7oYyMn3lYlXGW6laI0YPza8TuWZwW5Z4RnUoPqZfZI0dlhm7TnMMmx2EJIczKLHzQia625pKHD-i3iqVlXG6EiTlHZzyJH3nOFzrZM4d9VZXzrILEkMQNuquIgymaVKDEb-VGt-P_TztTaFTQwIUp1P6Slejrmx0JzCaz7zb5dpN7ZpPDm6mUrV3ty10IuT8p-1A4ur3jc5U6Zuo0Bi9ERU4Z_ON2vYD8KVD74vLz-Nsl6kLQIU_LnCVwTOqbSbEpE8As5GFWFN15ffihOH3MoPn9qrPNuTt-Xmdw1FxsSTqHGjkQ9QqahdgMyUNtSHwRINP3hLp2DdtycQg6YTkTBYduZ-gqTfT8o57RkRmDq8XOByHF5R8d9HvMy5StOqBQnDLdlG_uIrAfcBKjJBZVvP8wXCzgLKxWuh0tf2fLeI3a51m2AI-KonqjpZacF6PG8VPRfm6yATTtIOjpPEsSDq_RNCtK4abIp2EFnWCUcLhwpfeaCZe0GxPrBI4w1TIz2ag-7U32nN1kKJD1XvWMsjSK81WdmAcUrFG0AuHlWwp5n1LXVLOsxQb9CTbcl5edugvencO1LFzu-mvTWREU1OvrPtUzU7fFuL2JvuH4Zg5_DpOqgIXOt5cMnRYcR-sdRfP3NGF5nj0VXZaUaA0lmiQ8sZC8Y0j-MaTgGFLv_5Gg4rXL1Wy4u1pBlaJ23Vw-oe5sycXtAUqqPLhnmcv2mq85JBaIv3_32HbucFtfzHTzeKf_ma4b9HtuaeL4EwWTFhHA1_zvCs5G2w3KPfos9L7Dl_oohtcn6YvFB_9oH4IfbqKWu8VFqt1WlOvoCU42uAhrZmxXivrcuIbTP15btwBrl4pveVzy7lUUiZMErg1Zrp-bGB-tmOtoh8YFvOnH9c6dnmld1NU7Mei6lrraOq_rapwmhjquOizF1anejzd-1_8JNoKfcAD1j-lmzjEkfAzJ7F6c2k4QU-Oc7jondjBc8fYz1NzZbtNQXTbQ593FY7_jFXqum3vetMrDJSt43d_iIq5vmW1zfbnvW5BvmGaud3Sl4ePbmou1It0pVdRKZUqpg7zt_YTc7_-4DZ8ck5H0CFKw1zmjLAFNutmap2hMxt2eOx6ga3i_XG6KOGTbDwFVWG5zbSd4k9mQaajb_UXkiwR8IgFPzXC3gE8kICd4ffns9SVDEeR8NS5XUPY8OdxMDyTQU_adLUDUDCItksYD6QKhCpBrEBUFkU57CvBq4N-7lvgqcNf6V3xPUHOlR55ygEoHfEWm0gFPUahcjzZBedL816w2Tn0lp3SEYh0IlK2eBPq6rT_ElgljKm4qlVZUX3pOG8-Vlsov-exSba_03VYreNIZX_mvnh1FkNpgFY_afDUBywluo7z0gQQ64Ot7Iz-L1EF7jT4qyGY3pM-02X1p0FMGia8Bnq9tsS8B6mgA0WcQtS1ERuo1aSm18RobKvO1Z9zsl3QUK5u-tEm1CU3tYOmF2wAyeL-hqAJWgMwvV6WAsqC8wioOteeuygEVB1XFo0xiGYjbBCJDx70DALbw7Vc09Tmxvj_u1x1WnBlbcfGd9rP41rrIwmrF6_ePJ_E6MefoEY66ecLhpEbzrFzC0Vt_5upvq8NXTgUqNYkuTRO6TCVXue3KwAI9vZXcrnzu7X3vFh1u76v8wQixjlDriGsd8awjvnUksI70rCN96whUs3XIrgK2y4DtOmC7ENiuBLZLge1aYLsY2K4GsatB3skJuxrErgaxq0HsahC7GsSuBrGrQexqULsa1K4GfadE7GpQuxrUrga1q0HtalC7GtSuBnQK9ZPmIY4tOLHgVP5ceYi6RtQzor4RDYxoz4j2TajnGFFsRIkRNcYGx7_8PfIQ9sywb4YDM9wzw30jDN3fCGMzTMwwNcPmKH1zlL45St8cpW-O0jdHCeek_Lm21WmteL5i8aI1eGnV_8uhNWgteMSqpGy9dlqsKrPZJg1bg_p_A7Sq-kees5jB6_BqC77-B33GMkU=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWm1v4jgQ_isWq1VZCbSxnRfgw50oharSdsuV9lan630wwSlRQ8LlpS3X63-_cbADuHa1x24_rDZjP-OZxzPjicNLK8wWvDVoffz4EqdxOUAvJ-WSr_jJAJ3MWcFPOmgr-J3lMZsnvDgRc6IsLWfxP_U07K6fxTQhm7BVnGyEdMbvM45uLzpoCMCkgwqWFt2C53F00jlZ5_GK5ZtRlmS5mP2B9yInqleTQ6dZvuD5boLjBDj0AJrEKd-JaeAG7kTgCh5m6eJAaeRFvSg8eRXGJdlTuGR5WZtfFfySPX-LF-USniOWFBzmLMtV8oXNeSJ8LPNKyMIqf1RkxIVYJwXCZmsWxuk9yF0HRDlLH3Yiz3l9Ra8fP96lzaLo5uwuRfAXJqwozniEihLE48cSRXGSDD64o-HEczpFmWcPfPCBjIMzSjqh8GQArjsdQW73icf3y3Iwz5KFnNp9Ej4MyPq5kz8PiNPJN_CvthZPF7uVRj7pkV6z0mmAR3ikVoqi6IdWAl7zG1Y8yLXGdEImZ81a2PO9kfNWn3LzzA2GWOeJ549xyPeUTiYTOt5RNfY97NiVnk6o74w0pfes5E9ss1PYH7mNwokXTHBgVbhdT7eymk_zLFQK6dibeI3C4BRPhsSq0B1ityctBD33OVsvEZqxNZp9dtHFBH0Ze46DLnKesHSBthPFX4qDP_-8a0VsELFumN2jUc7BMXSRljwPs9WapRs0u7lG7dnkvOvgT3etv_7ah_fscDRq8FdWfP8QP-V5lOUrdH4zQzc5W_BaSRKzNOQalDjGpafgYcoX6Eqkvm1Zgs3Lzkq-LlAJO4BgL5SS8TMPqzLOUl0LMVpwfo3YPYvTotxTokPpIfQye-SozNBtmnPY5DgswYVZmYUPOtDV1lzy8AH9VrG0jMuNUDHn6Iwn8SPP-UIHe2a3r6pynlUQGBK4QXcVcTBFkwqY-K3c6Hr8_6lnCoUKCrhQhdpfshJ9fbMjgVll9t0q325yz6xyeDOVtLWrfboLQfcnpR8SR9d3fKxSxwydxmCFyMgpg__crhcQPwVqX1x-Hn-7RF1wOuRpmbMEjkl9Myk2RQKohTjMiqI7rw8_FKePGRS_X3W0OXbHz-sMjpqLLUjHUCMGvF5BsRCbIXGoDYEvHGT6nlDXzmFbLg5OJyxnIuHQ7QxdpYkef9QzGjJj0FrsbBBUXP7RQb_HvEzZqgMMxSnTVfnmKgL7AScxSmKRxfsPw8UCzsJqpevR4ne2jNeofZ5lC7CoKKo3XGrBeTFqDD8V5ecmG0DRDoKejrME4fAaTbOiFGaKeBpWUAlGCYeGK73XVLik3ahYJ3CEqZKZyUL1aW-y5-wmQ4Ks97JnlKVRnK_qwDyAYA2iJQgv30LI-5A6p5plLTroT9Dhvrzs2F3w7hzasnC5q69NZUWQUK-v-1DPDN0m47YTfYPxzRj-HCZVAQudb5sMHRYcB-sdBfP3OGF5nj0VXZaUaA0pmiQ8sYC8Y0D-MaDgGFDv_4Eg47XmajbctVaQpahdF5dPqDtbctE9QEqVB32WOW2v-ZpDYAH5-73HtnKH2_xips7jnfpnajfo93Rp4vgTCZMWEYiv-d8VnI22Dso9-iz0vsOW-iiG1ydpi8UG_2gbgh8uopbe4iLVuhVlOnqCkw0aYU2NraWoz41rOP3jtXULsNZUfMvjknevokicJNA2ZLl-bmJ8NGOuox0aF_CmH9c7d3qmVVFXr8TA61ryaqu8rqthGh9qv2q3FFaHej9e-F3_J-gIfsIB1D-mmjnHgPAxILN5cWo7QUyFc7qrnNjB0OLtR6i5st2moWo20Odd47Ff8Qo91s01b1rlcJtS8Lq-xUVcd5ltc36572uQb5hmrHd0puHjy5qLtSTdMVXUTGWKqYO47f2E2O__uA6fHBOR9AhQsFc5I7ie4nk3W_MUjcm423PHA3QN75fLTRGHbHsRUIXlNtZ2hDeRDZGGut1fRLxIgU-kwFMz3K3AJ1IgJ3h9-ez1JUIB5Hw1LldQ-jw53EwPpKCn9DtbAVEziNRIGgukCYQqgVyDKC-INNpTAq8W_HvXErcCd61_xX2Cmist8pQBVBrgKzCVBngKQuV6tHHKk-q_ZrVy6is6pSEU64JA6epJQV_X9YfYMqFM-U0l0wrqS8tpY7niUtkln12q7ZW-22oFTxrjK_vVs6MAkhus_FGbryZgOcFtmJc2kEAX-PreyGuR2mmv4Uc52eyGtJk2uy8Vekoh8TWB52tb7EsBdTQB0WcQtS1Eeuo1YSm58RodKvK1Z9zslzQUK52-1Em1CU3uYGmF2wik834DUQmsBDK-XBUCSoOyCis_1J67KgaUH1Qlj1KJpSNu44h0HfcOBLCFb2_R1HVi3T_u5x1WmBlbcXFP-1nctS6ysFrx-v3jSbxOwI3gIxx18OEFTmo0z8olHL31NVd_mx2-MipQoUl0ahrXZSi5ymxXOhbo4a3oduVzb---W1S4vVv5gxFiHaHWEdc64llHfOtIYB3pWUf61hHIZuuQnQVspwHbecB2IrCdCWynAtu5wHYysJ0NYmeDvBMTdjaInQ1iZ4PY2SB2NoidDWJng9jZoHY2qJ0N-k6K2NmgdjaonQ1qZ4Pa2aB2NqidDagU6pPmoRxb5MQip_Jz5aHUNUo9o9Q3SgOjtGeU9k1SzzFKsVFKjFKjb3D8y--Rh2LPLPbN4sAs7pnFfaMYqr9RjM1iYhZTs9jspW_20jd76Zu99M1e-mYv4ZyUn2tbnRZ8_FixeNEavLTqXznALyEWPGJVUrZeOy0Gl0izTRq2BvWvAVpV_ZHnLGbwOrzaCl__A33GMkU=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 3.3 Business Roles & Responsibilities
 
@@ -1253,7 +1332,10 @@ LE778 (China)
  | E2E-_84A-Final_Delivery_Plant_is_Non-S4_Plant_(Shell) | |
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 4. Data Architecture (TOGAF "D")
 
@@ -1264,11 +1346,15 @@ LE778 (China)
 | 1 | e.g. Cost Element | e.g. MES 300 | e.g. XEUS | Data steward | e.g. Intel Confidential | e.g. 10K rows/day | Master / Transaction |
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
 
 #### 4.2.1 Current-State — Current-State Data Flows
 
@@ -1306,10 +1392,16 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlY9P2kAUx_-VyxnCloCrYEGbaHLQMk2qcRa3JXZpjvYVLh5t014niPzvu2uhbkid8S5puPfj-14_rzlW2I8DwAZuNFYsYsJAq6aYwRyaBmpOaAbNFmpm4OcpE0sbfgNXDh7HpacI_U5TRiccsqbKDuNIOOypEDjSk4UKU7YRnTO-VFYHpjGgu8sWIjKRN9cqgseP_oymotDIM7iiix8sEDN5DinPQMbMxJzbdAJcFRJprmyR7N5JqM-iqTR2dWlKafTwYjrW12u0bjTcqCqBxgM3QnL5nGaZCSGiSTKIFyhknBsHA90cjUatTKTxAxgHmtbvD3qbY_tR9WR0kkXLj3mcKnfX1Hf1gslwyTdyRDd7pF_Jday-2e3Uyh0NdKuj7chBzF_aG40G-kCv9IZDTa5avV5Pud2oVMzyyTSlyQxZHevkeGiSoe2BN_XIU56C53yz712MXPyrjFYrYCn4gsVRBU2tbTopsn9ad45MhMPpIVK_pYBhGCXT1znmTsVPLnbz4KQbyGfgH7t5CJp8ZSVWBCEZ5OLPSrLA-lYXqH3YPq-rVCZCFGxYiCWHWhBb2ETtCralqf0v7KNk8T-8DrnxLsg1-RDdK8vxupq2BSyPSB7fw7gq-wZiGYNUzHsIbzrZB3lb6j2Mt7EfQry_LDo7O3_eADILpugLIjeX8jliHFz8XP9R7IzOhqls__4vYn6gIZOMCSK3w4vLsTUc391ayLa-WtdmzTTt2xer7am5kyThzKfKu390tmfWzMmkgqqbeP-IbM-S8lYUtOOwbbMQSvnyytg7jvINt_R1tSv6p6enr9DjFp5DOqcswMYKFze-_L8IIKQ5F3jdwjQXsbOMfGwUlzLOk4AKMBmVROelcf0HboH1hw==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtO2zAUhl_FMqq0SS0LLWkhEkjObSAFxEjZJpEpchOntXCTKHFGS-m7z84N1jUMYUuRfS7_cb4TORsYJCGBGuz1NjSmXAMbD_IFWRIPasCDM5yLVV-schIUGeVrh_wmrHKyJGm8Zcp3nFE8YySXbqETJTF36VMtdaSmqypY2m28pGxdeVwyTwi4u-wDJASE-LaMYsljsMAZr9WKnFzh1Q8a8oW0RJjlRMYt-JI5eEZYWZZnRWmNxWu5KQ5oPJfmkSqNGY4fXhmP1e0WbHs9L25rganuxUCMgOE8N0kEcJrqyQpElDHtQFdN27b7Oc-SB6IdKMpkoo_r7eBRHk0bpqt-kLAkk-6Rqe7qhTNjzWo5pJpjNGnlhtbEHA075Y501RoqO3IkYS_Hs21d1dVWzzAUMTr1xmPp9uJKMS9m8wynC2ANrZNjw0SG4xN_7qOnIiO--82596BA-KuKliOkGQk4TeIWmhxNOiqzf1p3rkgkh_NDINdCQNO0ium_OeZOxU8e9IrwZBSKZxgce0VEFPHKUqwMAiLIg5-lZIn1rVOAweHgvKtSlUjisGbB14x0gmhgIzlb2JYi59-wj8QX_x-8LrrxL9A1-hDdK8v1R4rSABZbILbvYdyWfQOxiAEy5j2E65Psg9yUeg_jJvZDiPeXBWdn5881ILNkCr4AdHMpnjZl4m567v4odlrnkLk4_v0rYkGoABNNEUC3xsXl1DKmd7cWcKyv1rXZ0U3n9sXq-LLvKE0ZDbD07m-d45sdfTIxx9UVva9Fjm8JeSsOB0k0cGhEKvnqytjbjuoNG_qqnC3909PTf9DDPlySbIlpCLVN9RMQ_5KQRLhgXFzjEBc8cddxALXyYoZFGmJOTIoF0WVl3P4Bx0D_Cw==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 
 #### 4.2.2 Future-State — Future-State Data Flows
 
@@ -1347,10 +1439,15 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlY9P2kAUx_-VyxnCloCrYEGbaHLQdppU4yxuS-zSHO0rXDzapr1OEPnfd9dC3RCc8S5puPfj-14_rzmWOEhCwAZuNJYsZsJAy6aYwgyaBmqOaQ7NFmrmEBQZEwsHfgNXDp4klacM_U4zRscc8qbKjpJYuOypFDjS07kKUzabzhhfKKsLkwTQ3WULEZnImysVwZPHYEozUWoUOVzR-Q8Wiqk8R5TnIGOmYsYdOgauComsULZYdu-mNGDxRBq7ujRlNH54MR3rqxVaNRpeXJdAo4EXI7kCTvPchAjRNB0kcxQxzo2DgW7att3KRZY8gHGgaf3-oLc-th9VT0YnnbeChCeZcndNfVsvHA8XfC1HdLNH-rVcx-qb3c5euaOBbnW0LTlI-Et7tj3QB3qtNxxqcu3V6_WU24srxbwYTzKaTpHVsU6ObZMMHR_8iU-eigx895tz72Hk4V9VtFohyyAQLIlraGpt0kmZ_dO6c2UiHE4OkfotBQzDqJi-zjG3Kn7ysFeEJ91QPsPg2Csi0OQrK7EyCMkgD39WkiXWt7pA7cP2-b5KVSLE4ZqFWHDYC2IDm6hdw7Y0tf-FfZTO_4fXJTf-BbkmH6J7Zbl-V9M2gOURyeN7GNdl30AsY5CKeQ_hdSe7IG9KvYfxJvZDiHeXRWdn589rQGbJFH1B5OZSPm3GwcPP-z-KrdE5MJHt3_9FLAg1ZJIRQeR2eHE5soaju1sLOdZX69rcM03n9sXq-GruJE05C6jy7h6d45t75mRSQdVNvHtEjm9JeSsO20nUdlgElXx1ZewcR_WGG_q62jX909PTV-hxC88gm1EWYmOJyxtf_l-EENGCC7xqYVqIxF3EATbKSxkXaUgFmIxKorPKuPoD6ib1sQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1PozAYx79KU7PkLtk83GRTEk3KgNMEjSfz7hK5kA7K1thRAuXcnPvu1_Iyvd3wjG1C2ufl_5TfQ8oahjwi0ICdzpomVBhg7UMxJwviQwP4cIpzuerKVU7CIqNi5ZLfhFVOxnnjLVO-44ziKSO5ckudmCfCo0-11JGeLqtgZXfwgrJV5fHIjBNwd9kFSApI8U0ZxfhjOMeZqNWKnFzh5Q8aibmyxJjlRMXNxYK5eEpYWVZkRWlN5Gt5KQ5pMlPmga6MGU4eXhmP9c0GbDodP9nWAhPTT4AcIcN5bpEY4DQ1-RLElDHjwNQtx3G6ucj4AzEONG00Mof1tveojmb002U35Ixnyj2w9F29aDpesVoO6dYQjbZyfXtkDfqtckembve1HTnC2cvxHMfUTX2rNx5rcrTqDYfK7SeVYl5MZxlO58Du2yfHjoXGbkCCWYCeiowE3jf33ocS4a8qWo2IZiQUlCdbaGo06ajM_mnfeTKRHM4OgVpLAcMwKqb_5lg7FT_50C-ik0Ekn1F47Bcx0eQrK7EyCMggH35WkiXWt04Beoe987ZKVSJJopqFWDHSCqKBjdTcwrY1Nf-GfSS_-P_g9dBNcIGu0YfoXtleMNC0BrDcArl9D-Nt2TcQyxigYt5DuD7JPshNqfcwbmI_hHh_WXB2dv5cA7JKpuALQDeX8ulQJu-m5_aPYqd1LpnJ49-_IhZGGrDQBAF0O764nNjjyd2tDVz7q31ttXTTvX2xuoHqO0pTRkOsvPtb5wZWS58sLHB1Re9rkRvYUt5Ooh6Pey6NSSVfXRl721G9YUNfV3NL__T09B_0sAsXJFtgGkFjXf0E5L8kIjEumJDXOMSF4N4qCaFRXsywSCMsiEWxJLqojJs_QvT_NQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 4.3 Data Lineage
 
@@ -1379,7 +1476,10 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Quality | Validated at source; reconciliation at target |
 
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 5. Application Architecture (TOGAF "A")
 
@@ -1415,6 +1515,7 @@ flowchart TB
     E2E84C_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E84CMW_e_g_Azure_Service_Bus
     E2E84CMW_e_g_Azure_Service_Bus --> E2E84C_e_g_XEUS
 
+
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -1428,10 +1529,14 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1vokAQ_isbGuMXbemLLyWNCQhevGDblL7c5byQlR100xUIu7S11v9-u2DFYht7a4Jh5plnlmdmdpdaEBPQDK1WW9KICgMt62IGc6gbqD7BHOoNVOcQZCkVCxeegCkHi-PCk0PvcUrxhAGvq-gwjoRHX3OC43byomDKNsBzyhbK6sE0BnQ3bCBTBrIG4jjiTQ4pDesrhWbxczDDqcj5Mg4j_PJAiZjJ9xAzDhIzE3Pm4gkwlVSkmbJF8ku8BAc0mkrjmS5NKY4eS1NLX63QqlYbR5sU6NYaR0iuWg01m3JDwYyOsIAmjXhCUyCIiwUDFDDMOXCJKeD5uw0hmmScRsA5yldIGTMOBnJZrQYXafwIxoHV7bZ1a_3afFZfYpwkL40gZnFqHOi6XuHESYLKVXBaLcW64dT1Tsdq_wcnwQLvctrdPZzHHzjffQRzKV6KF1JT1KpkmlNCGDzjFLYVsdtmqYjTaQ9Ktm_sHmK2o4jSeEvlfl_X93EWrDybTFOczJDp_hlr44x0T4l8ktMWMq-v3WHfvB1eXSLX_O3cjLW_RZBaRDZEIGgcIfemtDonTves74M_9UeO55_q-jZrAG0Eh9NDJH1I-iShYRiywp8S_HLuvE-jlePL0NFDHmy-Zin4HqRPNADfyviHrzvuFEw5Cq1RSKIK2rJqVXbbydn7MRe-w-S8R6K3vcXgrCBWALQGXEzSo94F7RUO7x4doaEdB_Lvp3d1eXFEe0VW1ZVFPojIe312BZVj13sbazmbnRdBMpnXQ_kcUAZj7W2PEtvEX2FUkmot1JbWTZMfA5a7NeIDfd-Ib4eam1D9O5O806wuTKVGH5qD6Mh1fjiX9je61PVlb1dby0wSRgOswJ80l-uPHqotNCrb5Mu2cX3bqXaIrY4fJxLyFqlWvghxrophPGmTMwkkzThsujRcp5Hzv9UmpaiFKO_CttRvI-z5-fnOWaY1tDmkc0yJZiy1_PaSdx-BEGdMaKuGhjMRe4so0Iz8UtGyRG4UbIplEeaFcfUPGco9iQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzxaSoQqpU06dUoBLQM2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpVzTgtOJAKndiDPNUhXyhzXUQSe_N8HaPqQLLpbGE8IsA3I1ahIXAUSTSJrKloSCTyNrVWWI7C6Z00KtkUsJY3p_w5maa8uUCgk6bq4WIqATENUUVFFW1hSXGOY04elMm49tbSxo-rdmbNurFVk1GlH6Uov86EcpwdFokFYL55bM-ZgqaPFU5rwARqRaCiCJoFKCxBgTXn17MCWTUvIUpCTVmHIhnL0hjn67KVWR_QVnr9_tduz--rN1pxfkHOb3zSQTWeHs2ba9hUnznGyGwey3NeoLpm2fnPQ7_4HJqKK7mF73A8yDV5jPPkYlklfQJXJK2luVFpwxAXe0gDojXsfdMOKfdIYbtE_MHjKxw4jmuMbyYGDbH2EaVFlOZgXN58QNfkdWVLLuEcMnO2oT9_IyGA3cH6OLcxK4v_zvkfXHJOnBUBCJ4llKgu8bq3_od48HMcSzeOyH8ZFt11ET6BD4MvtC0EfQh4CO42CH3wT46V-Fb2Zrx7up45sq2X0oC4hDKG55AnG_lK9Wd3BikKooso4iGGVgN13bRvf8Cn2QSRX7Ao-AVPXqU0yODbAOIOuAs0mx3zvjPeMIr8k-GXlZgn_fwovzs33eM1W1Kk09SNlzf3YJxW3Xe4qsCs2rmoBI7uUIn0Mu8Ox5-oCJOvB7MbrIdi_0lNaiqY6BflDb4kP7oy1eT3VfUu3P7OQdsQYwQ45eiYPZJPC_-ufeJ1QaxKjtbWm5eS54QnXwG-IK4vHNtoTGG5m8K5sg9vxthXj6-PFThZfLdudNin9hNuNhhx1jIGtl01bAp-syuP9rMtmQakh5Jratfy_Enp6e7pxlVtNaQLGgnFnOo7nQ8F5kMKWlUHgNWbRUWbhME8upLharzHGi4HGKTVgY4-ofCmlHDQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### Current-State Flow Narrative
 
@@ -1440,7 +1545,10 @@ flowchart TB
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.2 Future-State — Future-State Application Landscape
 
@@ -1474,6 +1582,7 @@ flowchart TB
     E2E84F_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E84FMW_e_g_Azure_Service_Bus
     E2E84FMW_e_g_Azure_Service_Bus --> E2E84F_e_g_XEUS
 
+
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -1487,10 +1596,14 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1vokAQ_isbGuMXbemLLyWNCQhevGDblL7c5byQlR100xUIu7S11v9-u2DFYht7a4Jh5plnlmdmdpdaEBPQDK1WW9KICgMt62IGc6gbqD7BHOoNVOcQZCkVCxeegCkHi-PCk0PvcUrxhAGvq-gwjoRHX3OC43byomDKNsBzyhbK6sE0BnQ3bCBTBrIG4jjiTQ4pDesrhWbxczDDqcj5Mg4j_PJAiZjJ9xAzDhIzE3Pm4gkwlVSkmbJF8ku8BAc0mkrjmS5NKY4eS1NLX63QqlYbR5sU6NYaR0iuWg01m3JDwYyOsIAmjXhCUyCIiwUDFDDMOXCJKeD5uw0hmmScRsA5yldIGTMOBnJZrQYXafwIxoHV7bZ1a_3afFZfYpwkL40gZnFqHOi6XuHESYLKVXBaLcW64dT1Tsdq_wcnwQLvctrdPZzHHzjffQRzKV6KF1JT1KpkmlNCGDzjFLYVsdtmqYjTaQ9Ktm_sHmK2o4jSeEvlfl_X93EWrDybTFOczJDp_hlr44x0T4l8ktMWMq-v3WHfvB1eXSLX_O3cjLW_RZBaRDZEIGgcIfemtDonTvds4IM_9UeO55_q-jZrAG0Eh9NDJH1I-iShYRiywp8S_HLuvE-jlePL0NFDHmy-Zin4HqRPNADfyviHrzvuFEw5Cq1RSKIK2rJqVXbbydn7MRe-w-S8R6K3vcXgrCBWALQGXEzSo94F7RUO7x4doaEdB_Lvp3d1eXFEe0VW1ZVFPojIe312BZVj13sbazmbnRdBMpnXQ_kcUAZj7W2PEtvEX2FUkmot1JbWTZMfA5a7NeIDfd-Ib4eam1D9O5O806wuTKVGH5qD6Mh1fjiX9je61PVlb1dby0wSRgOswJ80l-uPHqotNCrb5Mu2cX3bqXaIrY4fJxLyFqlWvghxrophPGmTMwkkzThsujRcp5Hzv9UmpaiFKO_CttRvI-z5-fnOWaY1tDmkc0yJZiy1_PaSdx-BEGdMaKuGhjMRe4so0Iz8UtGyRG4UbIplEeaFcfUPYDs9oQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1Izz6IEKVUpJOnVJAhI1NyxS58W1rzU2i2AEK9L_vOi40tCCYK6XJfZxrn3tsP1pJxsByrEbjkadcOeQxstQcFhBZDomsCZX41sQ3CUlZcLUM4BaEcYose_ZWKT9owelEgNRuxJlmqQr5wxrqoJPfm2BtH9IFF0vjCWGWAfk-ahIXAUSTSJrKloSCTyNrVWWI7C6Z00KtkUsJY3p_w5maa8uUCgk6bq4WIqATENUUVFFW1hSXGOY04elMm49tbSxo-rdmbNurFVk1GlH6UotcD6KU4Gg0SKuFc0vmfEwVtHgqc14AI1ItBZBEUClBYowJr749mJJJKXkKUpJqTLkQzt4Qx6DdlKrI_oKzN-j1OvZg_dm60wtyDvP7ZpKJrHD2bNvewqR5TjbDYA7aGvUF07a73UHnPzAZVXQX0-t9gHnwCvPZx6hE8gq6RE5Je6vSgjMm4I4WUGfE67gbRvxuZ7hB-8TsIRM7jGiOayyfndn2R5gGVZaTWUHzOXGD35EVlax3xPDJjtrEvbwMRmfu9ejinATuL_8qsv6YJD0YCiJRPEtJcLWx-od-73gYQzyLx34YH9l2HTWBDoEvsy8EfQR9COg4Dnb4TYCf_vfwzWzteDd1fFMluw9lAXEIxS1PIB6U8tXqDroGqYoi6yiCUQZ207VtdM-v0M8yqWJf4BGQqn59ismxAdYBZB1wOin2-6e8bxzhD7JPRl6W4N-38OL8dJ_3TVWtSlMPUvbcn11Ccdv1nyKrQvOqJiCSeznC55ALPHuePmCiDvxejC6y3Qs9pbVoqmNgENS2-ND-aIvXU92XVPszO3lHrAHMkKNX4mA2Cfyv_rn3CZUGMWp7W1pungueUB38hriCeHyzLaHxRibvyiaIPX9bIZ4-fvxU4eWy3XmT4l-YzXjYYccYyFrZtBXw6boM7v-aTDakGlKeiW3r3wuxJycnO2eZ1bQWUCwoZ5bzaC40vBcZTGkpFF5DFi1VFi7TxHKqi8Uqc5woeJxiExbGuPoHUNpHJQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### Future-State Flow Narrative
 
@@ -1499,7 +1612,10 @@ flowchart TB
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.3 Change Impact Summary
 
@@ -1519,7 +1635,10 @@ flowchart TB
 | e.g. XEUS | - | N/A |
 
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.5 RICEFW Inventory
 
@@ -1534,7 +1653,10 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 > *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
 
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.6 Integration Patterns
 
@@ -1543,13 +1665,17 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 | 1 | e.g. Pub-Sub / P2P / ETL | e.g. MES Route to ICOST | e.g. Azure Service Bus | e.g. REST / RFC / SFTP | e.g. OAuth / NTLM / Cert |
 
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
 
 #### 6.1.1 Current-State — Current-State Platform Architecture
 
@@ -1576,12 +1702,18 @@ flowchart TB
 
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlGFvmzAQhv-K5SriC2sJhDRD6iQgoFVKp2is26QxIQeOxKqDEZg2acp_nw1pslZKpWrzB4t77_z49Vl4h1OeAXbwYLCjBRUO2mliBWvQHKQtSA2ajrQa0qaiYjuDe2AqwTjvM13pd1JRsmBQa2p1zgsR0ccOMByVG1WmtJCsKdsqNYIlB3R7rSNXLmRaqyoYf0hXpBIdo6nhhmx-0EysZJwTVoOsWYk1m5EFMLWRqBqlFdJ9VJKUFkspjgwpVaS4O0q20baoHQzi4rAF-ubFBZIjZaSup5AjUpYe36CcMuacefY0DEO9FhW_A-fMMC4vvfE-_PCgPDlmudFTznil0tbUfs0rGRFHoD8Jxv7HA9CaTALLfwm0jsChZwem8QoInB15YejZnn3g-b4hx0mD47FKx0VPrJvFsiLlCgVmMBn589k8gWSZuI9NBcmckOhXjOPGHBvDuMnBkDufL89Rl0YqHePfPUiNjFaQCsoLNPt6VJ_Jbkf-GdwqZodR3xLgOE7f8H4NFNnem9gyOGnsn5r55uGjZJR8dr-4iWmYVnf-bGJlcs6I_XcXoosRUnVI1b27ETdBlFiG8dwLGSIZvrMdL6z-h468Rb-6-vS0NzvtzocukDu_lnNIGcT46eRVYR2voVoTmmFnh7s3Qr4wGeSkYQK3OiaN4NG2SLHT_ca4KTMiYEqJvJ51L7Z_AKh8bno=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1jp2nKaCDmzHZoV0hLndBvMwin2ciMqWseU1aZr_PsnOR1tIoWy6ENL7Hj06OkLa4ESkgAnu9TasYJKgTYTlEnKIMEERntNajfpqVEPSVEyup_AHeGdyIfZuu-Q7rRidc6i1rTiZKGTInnaowbBcdcFaD2jO-LpzQlgIQPc3feQogIJv2yguHpMlreSO1tRwS1c_WCqXWskor0HHLWXOp3QOvN1WVk2rFupYYUkTViy0PDS0WNHi4YVoG9st2vZ6UXHYC925UYFUSzit6wlkiJalK1YoY5yTM9eeBEHQr2UlHoCcGcblpTvaTT896tSIWa76ieCi0rY1sd_ySk7lEeiN_ZF3dQBa47Fvea-B1hE4cG3fNN4AQfAjLwhc27UPPM8zVDuZ4Gik7ajoiHUzX1S0XCLf9MdDbzadxRAvYuepqSCeURr-inDUmCNjEDUZGGrn88U5am2k7Qj_7kC6payCRDJRoOm3o7onOy35p3-vmS1GjxWAENIVvFsDRbrLTa45nEzsn4r57uHDeBh_cb46sWmYVnv-dGylqk-p_bIK4cUQ6Tik4z5ciFs_jC3D2NdCTZGafrAcr1L9DxV5j359_fl5l-ykPR-6QM7sRvUB4-q9P5-8KtzHOVQ5ZSkmm-7bUL9PChltuFQPH9NGinBdJJi0Txk3ZUolTBhV15N34vYv0-13_g==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 
 #### 6.1.2 Future-State — Future-State Platform Architecture
 
@@ -1608,9 +1740,11 @@ flowchart TB
 
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlGFvmzAQhv-K5SriC2sJhDRD6iRIQKuUTtFYt0ljQg4ciVWDEZg2acp_nw1pslZKpWrzB4t77_z49Vl4hxOeAnbwYLCjBRUO2mliDTloDtKWpAZNR1oNSVNRsZ3DPTCVYJz3ma70O6koWTKoNbU644UI6WMHGI7KjSpTWkByyrZKDWHFAd1e68iVC5nWqgrGH5I1qUTHaGq4IZsfNBVrGWeE1SBr1iJnc7IEpjYSVaO0QroPS5LQYiXFkSGlihR3R8k22ha1g0FUHLZA37yoQHIkjNT1DDJEytLjG5RRxpwzz54FQaDXouJ34JwZxuWlN96HHx6UJ8csN3rCGa9U2prZr3klI-IInE788fTjAWhNJr41fQm0jsChZ_um8QoInB15QeDZnn3gTaeGHCcNjscqHRU9sW6Wq4qUa-Sb_mQULOaLGOJV7D42FcQLQsJfEY4ac2wMoyYDQ-58vjpHXRqpdIR_9yA1UlpBIigv0PzrUX0mux35p3-rmB1GfUuA4zh9w_s1UKR7b2LL4KSxf2rmm4cP41H82f3ixqZhWt3504mVyjkl9t9dCC9GSNUhVffuRtz4YWwZxnMvZIhk-M52vLD6HzryFv3q6tPT3uysOx-6QO7iWs4BZRDhp5NXhXWcQ5UTmmJnh7s3Qr4wKWSkYQK3OiaN4OG2SLDT_ca4KVMiYEaJvJ68F9s_y01ukg==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1ip2nGaGDuzEZoV0hHndBvMwin2ciMqWkeU1aZr_PsnOR1tooWy6ENL7Hj06OkLa4lRkgF3c621ZyZSLtjFWKyggxi6K8YLWetTXoxrSRjK1mcEf4J3JhTi47ZLvVDK64FAbW3NyUaqIPexRg2G17oKNHtKC8U3nRLAUgG6v-8jTAA3ftVFc3KcrKtWe1tRwQ9c_WKZWRskpr8HErVTBZ3QBvN1WyaZVS32sqKIpK5dGHhIjSlrePREdstuhXa8Xl8e90Dc_LpFuKad1PYUc0aryxRrljHP3zHemYRj2ayXFHbhnhFxe-qP99MO9Sc21qnU_FVxIY9tT5yWv4lSdgJNxMJp8PALt8TiwJ8-B9gk48J3AIi-AIPiJF4a-4ztH3mRCdHs1wdHI2HHZEetmsZS0WqHACsbDcD6bJ5AsE--hkZDMKY1-xThurBEZxE0ORO98vjxHrY2MHePfHci0jElIFRMlmn09qQey15J_BreG2WLMWANc1-0K3q2BMtvnpjYcXk3sn4r55uGjZJh89r54iUUsuz1_NrYz3WfUeVqF6GKITBwyce8uxE0QJTYhh1roKdLTd5bjWar_oSJv0a-uPj3uk52250MXyJtf6z5kXL_3x1evCvdxAbKgLMPutvs29O-TQU4brvTDx7RRItqUKXbbp4ybKqMKpozq6yk6cfcX9r54Fg==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
+
 
 #### Platform Inventory
 
@@ -1620,22 +1754,20 @@ flowchart TB
 | 2 | e.g. S/4 HANA 2023 | On-Premise | e.g. MES 300 | DEV,QAS,PRD |
 
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 6.2 SAP Development Object Status
 
-**RICEFW Status Summary** — E2E Tower (0 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-03-27)*
-
-| Status | Count | % |
-|--------|------:|----:|
-| **Total** | **0** | **100%** |
-
-**RICEFW by Type:**
-
-| Type | Count |
-|------|------:|
-| **Total** | **0** |
+| Metric | DEV | QAS | PRD |
+|--------|-----|-----|-----|
+| Transport Requests | — | — | — |
+| Custom Code Objects | — | — | — |
+| CDS Views | — | — | — |
+| Fiori Apps | — | — | — |
+| BAdIs / Enhancements | — | — | — |
 
 ### 6.3 NFRs & Design Principles
 
@@ -1665,46 +1797,46 @@ flowchart TB
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 7. Project Context
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
-*No timeline data available for this capability.*
+Project delivery milestones for E2E-84 RICEFW objects:
+
+| Phase | Planned Start | Planned End | Status | Notes |
+|-------|---------------|-------------|--------|-------|
+| Functional Specification (FS) | Per project plan | Per project plan | In Progress | Tower-level FS schedule |
+| Technical Design (TDD) | FS + 2 weeks | FS + 6 weeks | Planned | Dependent on FS completion |
+| Build & Unit Test (TUT) | TDD + 1 week | TDD + 8 weeks | Planned | Includes S/4 + Middleware |
+| Functional User Test (FUT) | Build + 1 week | Build + 4 weeks | Planned | Tower-led validation |
+| Go-Live (Release 2) | Per release plan | Per release plan | Planned | End-to-End Integrated Processes release |
+
+> *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
+
+<div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-03-27*
+Standard RAID items for E2E-84 (End-to-End Integrated Processes):
 
-**RAID Summary:** 15 open items (0 capability-specific, 15 tower-level), 56 closed
+| # | Category | Description | Status | Owner | Priority |
+|---|----------|-------------|--------|-------|----------|
+| 1 | Risk | Data migration completeness — validate all legacy Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State) data maps to S/4 target structures | Open | Tower Architect | High |
+| 2 | Risk | Integration testing coverage — ensure all 2 integrated systems are validated end-to-end | Open | Integration Lead | High |
+| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
+| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
+| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
 
-| Severity | Capability | Tower-Wide | Total Open |
-|----------|----------:|-----------:|-----------:|
-| P1 - High | 0 | 3 | 3 |
-| P2 - Medium | 0 | 10 | 10 |
-| P3 - Low | 0 | 2 | 2 |
-| **Total** | **0** | **15** | **15** |
-
-**Other E2E Tower RAID Items** (15 open):
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-03 |
-| 03681 | Risk | P1 - High | ITC Execution: Planning run availability - Prerequisite for ... | In Progress | E2E | 2026-03-27 |
-| 03762 | Risk | P1 - High | FTS-IF (esp SCP) related test cases/sequencing are not accur... | In Progress | FTS IF | 2026-04-03 |
-| 01733 | Risk | P2 - Medium | Tariffs impacts Item/BOM design which is impacting ERP/SCP (... | In Progress | E2E | 2026-03-06 |
-| 03592 | Risk | P2 - Medium | Lack of Defined IMO Owner for CBA Mask Billing and Materials... | In Progress | E2E | 2026-03-27 |
-| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
-| 03628 | Risk | P2 - Medium | R3 Returns Rework Process Causing Finance Double Counting in... | In Progress | E2E | 2026-03-27 |
-| 03642 | Issue | P2 - Medium | E2E Process with Anafi on order/invoice point.  Need IFS SC ... | In Progress | E2E | 2026-03-24 |
-| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
-| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
-| 03753 | Risk | P2 - Medium | PDF-SMH IF test cases are not available in JIRA | To Be Reviewed | B-Apps | 2026-03-25 |
-| 03756 | Risk | P2 - Medium | LE101-1001 Operation Support Ownership for SIMS/Tester Front... | In Progress | E2E | 2026-04-24 |
-| 03769 | Action | P2 - Medium | Need a Labs SPOC owner to define IP Labs enterprise and mate... | In Progress | E2E | 2026-04-17 |
-| 03216 | Action | P3 - Low | Mask Expense vs. Invoice | In Progress | E2E | 2026-03-06 |
-| 03315 | Risk | P3 - Low | BPMG – SCP L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-03-27 |
+> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
 
 ### 7.3 Recommendations & Next Steps
 
@@ -1718,4 +1850,5 @@ flowchart TB
 
 ---
 *E2E-84 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026*
-
+<div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
+</div>

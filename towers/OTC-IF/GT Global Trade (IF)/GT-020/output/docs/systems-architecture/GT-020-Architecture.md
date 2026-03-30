@@ -1,5 +1,6 @@
+<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">GT-020 — Product Classification (IF)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IF) (OTC-IF) Tower<br/>
@@ -19,7 +20,14 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
+.page-section {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 40px);
+  box-sizing: border-box;
+}
 .page-footer {
+  margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid #ddd;
   display: flex;
@@ -27,62 +35,99 @@
   align-items: center;
   font-size: 11px;
   color: #888;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 20px;
+  padding: 6px 12px;
   background: #fff;
 }
 @media print {
-  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+  .page-section {
+    min-height: 100vh;
+  }
+  .page-footer {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
 .page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
 </style>
 
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 <a id="toc"></a>
 
 ## Table of Contents
 
-1. [Executive Summary](#1-executive-summary)
-2. [Business Context & Objectives](#2-business-context--objectives)
-   - 2.1 [Classification](#21-classification)
-   - 2.2 [Business Drivers](#22-business-drivers)
-   - 2.3 [Success Criteria](#23-success-criteria)
-   - 2.4 [Companion Documents](#24-companion-documents)
-3. [Business Architecture (TOGAF "B")](#3-business-architecture-togaf-b)
-   - 3.1 [Business Process Overview](#31-business-process-overview)
-   - 3.2 [Business Process Diagrams](#32-business-process-diagrams)
-   - 3.3 [Business Roles & Responsibilities](#33-business-roles--responsibilities)
-4. [Data Architecture (TOGAF "D")](#4-data-architecture-togaf-d)
-   - 4.1 [Data Entities & Ownership](#41-data-entities--ownership)
-   - 4.2 [Data Flow Diagrams](#42-data-flow-diagrams)
-   - 4.3 [Data Lineage](#43-data-lineage)
-   - 4.4 [RICEFW Data Objects](#44-ricefw-data-objects)
-   - 4.5 [Data Governance & Quality](#45-data-governance--quality)
-5. [Application Architecture (TOGAF "A")](#5-application-architecture-togaf-a)
-   - 5.1 [Current-State Application Landscape](#51-current-state--current-state-application-landscape)
-   - 5.2 [Future-State Application Landscape](#52-future-state--future-state-application-landscape)
-   - 5.3 [Change Impact Summary](#53-change-impact-summary)
-   - 5.4 [Component Overview](#54-component-overview)
-   - 5.5 [RICEFW Inventory](#55-ricefw-inventory)
-   - 5.6 [Integration Patterns](#56-integration-patterns)
-6. [Technology Architecture (TOGAF "T")](#6-technology-architecture-togaf-t)
-   - 6.1 [Platform & Infrastructure](#61-platform--infrastructure)
-   - 6.2 [SAP Development Object Status](#62-sap-development-object-status)
-   - 6.3 [NFRs & Design Principles](#63-nfrs--design-principles)
-   - 6.4 [Security & Governance](#64-security--governance)
-7. [Project Context](#7-project-context)
-   - 7.1 [Project Roadmap & Go-Live Plan](#71-project-roadmap--go-live-plan)
-   - 7.2 [RAID Log](#72-raid-log)
-   - 7.3 [Recommendations & Next Steps](#73-recommendations--next-steps)
+<nav class="toc">
+<ol>
+  <li><a href="#1-executive-summary">1. Executive Summary</a></li>
+  <li><a href="#2-business-context-objectives">2. Business Context &amp; Objectives</a>
+    <ul>
+      <li><a href="#21-classification">2.1 Classification</a></li>
+      <li><a href="#22-business-drivers">2.2 Business Drivers</a></li>
+      <li><a href="#23-success-criteria">2.3 Success Criteria</a></li>
+      <li><a href="#24-companion-documents">2.4 Companion Documents</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+    <ul>
+      <li><a href="#31-business-process-overview">3.1 Business Process Overview</a></li>
+      <li><a href="#32-business-process-diagrams">3.2 Business Process Diagrams</a></li>
+      <li><a href="#33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+    <ul>
+      <li><a href="#41-data-entities-ownership">4.1 Data Entities &amp; Ownership</a></li>
+      <li><a href="#42-data-flow-diagrams">4.2 Data Flow Diagrams</a></li>
+      <li><a href="#43-data-lineage">4.3 Data Lineage</a></li>
+      <li><a href="#44-ricefw-data-objects">4.4 RICEFW Data Objects</a></li>
+      <li><a href="#45-data-governance-quality">4.5 Data Governance &amp; Quality</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+    <ul>
+      <li><a href="#51-current-state-current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
+      <li><a href="#52-future-state-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
+      <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
+      <li><a href="#54-component-overview">5.4 Component Overview</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+    <ul>
+      <li><a href="#61-platform-infrastructure">6.1 Platform &amp; Infrastructure</a></li>
+      <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
+      <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
+      <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+    </ul>
+  </li>
+  <li><a href="#7-project-context">7. Project Context</a>
+    <ul>
+      <li><a href="#71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</a></li>
+      <li><a href="#72-raid-log">7.2 RAID Log</a></li>
+      <li><a href="#73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</a></li>
+    </ul>
+  </li>
+</ol>
+</nav>
 
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 1. Executive Summary
 
@@ -98,10 +143,13 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **RICEFW Objects** | 11 Interfaces, 64 Enhancements, 11 Forms, 1 Workflows |
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
-> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: "loose"` for click events.
+> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 2. Business Context & Objectives
 
@@ -123,7 +171,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 4 | GT-020 Process Migration | Migrate Product Classification (IF) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Order Management (Intel Foundry) | High |
 
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 2.3 Success Criteria
 
@@ -142,7 +193,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 3. Business Architecture (TOGAF "B")
 
@@ -158,10 +212,14 @@ This capability includes **5 business process(es)** modeled in BPMN 2.0, coverin
 | 4 | GT-020-040_Determine_&amp;_Assign_ECCN_Classification_(IF) | GT-020-040_Determine_&amp;_Assign_ECCN_Classification_(IF) | Trade Execution Analyst | 4 | 3 |
 | 5 | GT-020-070_Classification_reporting_(IF) | GT-020-070_Classification_reporting_(IF) | Trade Execution Analyst | 2 | 2 |
 
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 ### 3.2 Business Process Diagrams
 
-<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
-<div style="page-break-before: always;"></div>
 
 #### BUSINESS ARCHITECTURE — 3.2.1 GT-020-010_Determine_Classification_Requirements_(which_legal_reg._Numbering_scheme_to_be_defined)_( — GT-020-010_Determine_Classification_Requirements_(which_legal_reg._Numbering_scheme_to_be_defined)_(
 
@@ -170,7 +228,7 @@ This capability includes **5 business process(es)** modeled in BPMN 2.0, coverin
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -202,10 +260,14 @@ flowchart TD
     class n7 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU1v2zgQ_SuEgsBdQAb0aXl1aOHIFhCgWxS12x7We6AlUiZCkS5JJXFd__cOJX9FG7eH6mB4nmbeGz5yqJ1TyJI4qXN7u2OCmRTtBmZNajJI0WCFNRm4qAO-YMXwihM9sDlUCjNn39s0P9o82zSL5bhmfGvROakkQZ_vXTSBQu4ijYUeaqIYHbiDjWI1VttMcqls9g0ZU4-2aodXd1KVRJ0TPC_xixhKORPkDIdJlES5rdOkkKJ8QUpjOqbFYG-b4_KpWGNl2vYbTf7Bz19ZadYQU8w1gZy1qfl7vCLcrtGoxmJFox6PZjBtdQQYNt_ggokK8MgDSGHxcIZib79H-9vbpTiJosV0KRA8BcdaTwlF2gA8ezSIMs7Tmyib5LHnaqPkA0lvglkyDQO3sCtJYemea80dPhFWrU26krw8pA6f7BrSYPPsquc08Fy1hd-eFhHlWSkbBeNgfFK6S_zMz45KlNI_UgJf1QLrh4PWLMyDfHrS8uNRnHn_5zsucxolE7_vE1GPrCAXpHmeh7OzVbNR7HvXSe_ycORlPdIKG_KEt2fCv7PoRJjHSe4nVwk7vX6XzeqjksWRMJzFeXwiTO78fBJcJYwmfjQ-dAg8lcKbNVooXBJ0v0ATgflWm-61fYT_79KhOKV4aN1GU2KIqmEm0CfCySMWBr0nFeYQVg3Hhkmhl85_FwTBbwk-NPUKBlVUaF7Y2e8RhG9ODBsONmbWBkZZ0aoBzbeGKSgTRrcB0Qbdw-XCwPYSqP664IqA6twBFiWaAFclUCbrWpbMAD0MnO6JvGwovkaygEuL0pbhlwSjawSzLPvwy8pktzt6YW_S4QrugmJ9LNlaD-FklE0BXlCp0Luls9939TCW3R8RouHwLezsIfS7MDiEQRcmhzCx4Y-lc7E22J8f4EIvoTsGGYyzkrzNGPUyeh63OdHF0batHEf6BRy8Doena-0FHL0Ox6_Do9fh5Di1juvUsFGYlU66c9pvE3y_SkJxw42zdx3cGDnfisJJ2zvcaTYlVE4ZhtGqO3D_E5TjQL4=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU1v2zgQ_SuEgsBdQAb0aXl1aOHIFhCgWxS12x7We6AlUiZCkS5JJXFd__cOJX9FG7eH6mB4nmbeGz5yqJ1TyJI4qXN7u2OCmRTtBmZNajJI0WCFNRm4qAO-YMXwihM9sDlUCjNn39s0P9o82zSL5bhmfGvROakkQZ_vXTSBQu4ijYUeaqIYHbiDjWI1VttMcqls9g0ZU4-2aodXd1KVRJ0TPC_xixhKORPkDIdJlES5rdOkkKJ8QUpjOqbFYG-b4_KpWGNl2vYbTf7Bz19ZadYQU8w1gZy1qfl7vCLcrtGoxmJFox6PZjBtdQQYNt_ggokK8MgDSGHxcIZib79H-9vbpTiJosV0KRA8BcdaTwlF2gA8ezSIMs7Tmyib5LHnaqPkA0lvglkyDQO3sCtJYemea80dPhFWrU26krw8pA6f7BrSYPPsquc08Fy1hd-eFhHlWSkbBeNgfFK6S_zMz45KlNI_UgJf1QLrh4PWLMyDfHrS8uNRnHn_5zsucxolE7_vE1GPrCAXpHmeh7OzVbNR7HvXSe_ycORlPdIKG_KEt2fCv7PoRJjHSe4nVwk7vX6XzeqjksWRMJzFeXwiTO78fBJcJYwmfjQ-dAg8lcKbNVooXBJ0v0ATgflWm-61fYT_79KhOKV4aN1GU2KIqmEm0CfCySMWBr0nFeYQVg3Hhkmhl85_FwTBbwk-NPUKBlVUaF7Y2e8RhG9ODBsONmbWBkZZ0aoBzbeGKSgTRrcB0Qbdw-XCwPYSqP664IqA6twBFiWaAFclUCbrWpbMAD0MnO6JvGwovkaygEuL0pbhlwSjawSzLPvwy8pktzt6YW_S4QrugmJ9LNlaD-FklE0BXlCp0Luls9939TCW3R8RouHwLezsIfS7MDiEQRcmhzCx4Y-lc7E22J8f4EIvoTsGGYyzkrzNGPUyeh63OdHF0batHEf6BRy8Doena-0FHL0Ox6_Do9fh5Di1juvUsFGYlU66c9pvE3y_SkJxw42zdx3cGDnfisJJ2zvcaTYlVE4ZhtGqO3D_E5TjQL4=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.2 GT-020-020_Determine_&amp;_Assign_Commodity_codes_classification_(IF) — GT-020-020_Determine_&amp;_Assign_Commodity_codes_classification_(IF)
 
@@ -214,7 +276,7 @@ flowchart TD
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -267,10 +329,14 @@ flowchart TD
     class n13 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP4jYU_itWRiO2UhC5EiYPrZhARit12tVcuqqWPhjHAWsSmzoOkLL899q5AAmhUts8QM7nc77vnONbDhpiEdZ87f7-QCgRPjgMxBqneOCDwRJmeKCDCvgNcgKXCc4GyidmVLySv0o309nslZvCQpiSpFDoK14xDN4_62AqAxMdZJBmwwxzEg_0wYaTFPIiYAnjyvsOT2IjLtXqoUfGI8zPDobhmciVoQmh-AzbnuM5oYrLMGI0apHGbjyJ0eCokkvYDq0hF2X6eYaf4f4ricRa2jFMMix91iJNfoZLnKgaBc8VhnK-bZpBMqVDZcNeNxARupK4Y0iIQ_pxhlzjeATH-_sFPYmCt9mCAvmgBGbZDMcgExKebwWISZL4d04wDV1DzwRnH9i_s-bezLZ0pCrxZemGrpo73GGyWgt_yZKodh3uVA2-tdnrfO9bhs4L-dvRwjQ6KwVja2JNTkqPnhmYQaMUx_H_UpJ95W8w-6i15nZohbOTlumO3cC45mvKnDne1Oz2CfMtQfiCNAxDe35u1XzsmsZt0sfQHhtBh3QFBd7B4kz4EDgnwtD1QtO7SVjpdbPMl184Qw2hPXdD90ToPZrh1LpJ6ExNZ1JnKHlWHG7W4I3DCIP5HqNcEEbBlMKkyETlpR5qfltoMfRjOFRNBy8YwSQZBYxzjASQ2US5_A9UhiQmCCqahfbHBYN1xVA5F010Bp4hzSVtAT59TjeMi9F8r_5-aBPZbaJgjdHHjQxAwKjcRwJTVLRJnA7JVS47ItZAHkUy0QRvIZXULE1ZREQh32S3_qlW99uJHrFVb61izVm-qiTeNwmDEWAxgCAkidJEmGxxBGLOUlWErKDs8pbIU0pqXYqNpdYMC8xTeVQBSCMwlVorCn59mo6-PE3LdNv5eTLkBUeyM5wsqymX4le9i3AGPr2OHDACz7OnzjRMWrKd2Bf8Z064PMepyNphD4fDuTURHi7laYbWAO9Rkmey5qdqsyy04_Fy-Rn_LczsD_sqd-NVwT91g63-4GrBkfg8rZ2qoysm-99mL8_Q6oU-gOHwR9WA2jaNCrBr26rMh9q0a_dm2KyBccf2attth5sl3feF9juW8_ZddbAZMeuR900ks60Gu2NXHWlWebXCyyD3ZlBxOgBKR6ub0y-sUj21op37pDKd2nTqTlgXh6eKaS6NFmz1w3Y_7PTD7uX10RoZny7gFuz1w5N--KG5SNoFGf2w2Q9b_bDdwJqupXJLQxJp_kErP8Xk51qEY5gnQjvqGswFey0o0vzyk0XLy-UwI1DeJGkFHv8Gc9Isug==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP4jYU_itWRiO2UhC5EiYPrZhARit12tVcuqqWPhjHAWsSmzoOkLL899q5AAmhUts8QM7nc77vnONbDhpiEdZ87f7-QCgRPjgMxBqneOCDwRJmeKCDCvgNcgKXCc4GyidmVLySv0o309nslZvCQpiSpFDoK14xDN4_62AqAxMdZJBmwwxzEg_0wYaTFPIiYAnjyvsOT2IjLtXqoUfGI8zPDobhmciVoQmh-AzbnuM5oYrLMGI0apHGbjyJ0eCokkvYDq0hF2X6eYaf4f4ricRa2jFMMix91iJNfoZLnKgaBc8VhnK-bZpBMqVDZcNeNxARupK4Y0iIQ_pxhlzjeATH-_sFPYmCt9mCAvmgBGbZDMcgExKebwWISZL4d04wDV1DzwRnH9i_s-bezLZ0pCrxZemGrpo73GGyWgt_yZKodh3uVA2-tdnrfO9bhs4L-dvRwjQ6KwVja2JNTkqPnhmYQaMUx_H_UpJ95W8w-6i15nZohbOTlumO3cC45mvKnDne1Oz2CfMtQfiCNAxDe35u1XzsmsZt0sfQHhtBh3QFBd7B4kz4EDgnwtD1QtO7SVjpdbPMl184Qw2hPXdD90ToPZrh1LpJ6ExNZ1JnKHlWHG7W4I3DCIP5HqNcEEbBlMKkyETlpR5qfltoMfRjOFRNBy8YwSQZBYxzjASQ2US5_A9UhiQmCCqahfbHBYN1xVA5F010Bp4hzSVtAT59TjeMi9F8r_5-aBPZbaJgjdHHjQxAwKjcRwJTVLRJnA7JVS47ItZAHkUy0QRvIZXULE1ZREQh32S3_qlW99uJHrFVb61izVm-qiTeNwmDEWAxgCAkidJEmGxxBGLOUlWErKDs8pbIU0pqXYqNpdYMC8xTeVQBSCMwlVorCn59mo6-PE3LdNv5eTLkBUeyM5wsqymX4le9i3AGPr2OHDACz7OnzjRMWrKd2Bf8Z064PMepyNphD4fDuTURHi7laYbWAO9Rkmey5qdqsyy04_Fy-Rn_LczsD_sqd-NVwT91g63-4GrBkfg8rZ2qoysm-99mL8_Q6oU-gOHwR9WA2jaNCrBr26rMh9q0a_dm2KyBccf2attth5sl3feF9juW8_ZddbAZMeuR900ks60Gu2NXHWlWebXCyyD3ZlBxOgBKR6ub0y-sUj21op37pDKd2nTqTlgXh6eKaS6NFmz1w3Y_7PTD7uX10RoZny7gFuz1w5N--KG5SNoFGf2w2Q9b_bDdwJqupXJLQxJp_kErP8Xk51qEY5gnQjvqGswFey0o0vzyk0XLy-UwI1DeJGkFHv8Gc9Isug==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.3 GT-020-030_Determine_&amp;_Assign_Tariff_codes_classification_(IF) — GT-020-030_Determine_&amp;_Assign_Tariff_codes_classification_(IF)
 
@@ -279,7 +345,7 @@ flowchart TD
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -323,7 +389,9 @@ flowchart TD
     class n10 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_RVCQeAWkBFJlixHDy0c2QoW2O0uNkkXxboPNEXaRGjSpShf6vW_79CSL1KcvlQPludw5pyZETnSziEqp07i3N7uuOQmQbuOmdMF7SSoM8UF7bioAv7EmuOpoEXH-jAlzRP_9-Dmh8uNdbNYhhdcbC36RGeKopcPLhpCoHBRgWXRLajmrON2lpovsN6mSihtvW_ogHnsoFYvPSidU3128LzYJxGECi7pGe7FYRxmNq6gRMm8QcoiNmCks7fJCbUmc6zNIf2yoJ_w5hvPzRxshkVBwWduFuIjnlJhazS6tBgp9erYDF5YHQkNe1piwuUM8NADSGP5eoYib79H-9vbiTyJoufRRCK4iMBFMaIMFQbg8cogxoVIbsJ0mEWeWxitXmlyE4zjUS9wia0kgdI91za3u6Z8NjfJVIm8du2ubQ1JsNy4epMEnqu38NvSojI_K6X9YBAMTkoPsZ_66VGJMfa_lKCv-hkXr7XWuJcF2eik5Uf9KPXe8h3LHIXx0G_3ieoVJ_SCNMuy3vjcqnE_8r33SR-yXt9LW6QzbOgab8-E92l4IsyiOPPjdwkrvXaW5fSLVuRI2BtHWXQijB_8bBi8SxgO_XBQZwg8M42Xc_SscU7ReENJabiSaCix2Bam8rKX9L9PHIYThru26egrJViIu1RpTYlBkE1ewj21GXLGCbY0E-fvC4bgDUPlvD1GF-gTliXQbtEvHxZLpc3deGNvvzaJek2idE7J6zsZoFRJOEeGSrJtkoQtkje5rLmZIxhFkKigKyzhUMFIYuw_a4y-n2iJml2t0cy1KmcV9ctSKJwjxRBGGRdWi1C-ojliWi1s8pD5obsrDtMJtC7F-qA1oobqBYwohGWOhqA1k-jz4_Duy-MQ4nPazC9uhLR69ZX-U3INs1eaohk22O3OZeW0O4UJROaIbogoC8j3sdrgE2e_v4i6vx71DU6Carfx91as710Prh42Z-fWtrLPL5hgEFV_ZIS63d-gjtr0m2avMvvHVc_aPybOXxT68AMKqRfua_xlmUPBhyW_HfOHOuBH6kFF3WsxvMn-uCuqHXGgiOqYuKIIazOsTL-eCTJo1nJfmcHFxLD1HidlAw6uw73rcHgdji5nZmOlf3rrNOD4Ojw4jskGen8VhW7XsOM6C9jNmOdOsnMOXw7wdZFThkthnL3r4NKop60kTnJ4wzrl4dmNOIbBt6jA_U8V4sNl" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_RVCQeAWkBFJlixHDy0c2QoW2O0uNkkXxboPNEXaRGjSpShf6vW_79CSL1KcvlQPludw5pyZETnSziEqp07i3N7uuOQmQbuOmdMF7SSoM8UF7bioAv7EmuOpoEXH-jAlzRP_9-Dmh8uNdbNYhhdcbC36RGeKopcPLhpCoHBRgWXRLajmrON2lpovsN6mSihtvW_ogHnsoFYvPSidU3128LzYJxGECi7pGe7FYRxmNq6gRMm8QcoiNmCks7fJCbUmc6zNIf2yoJ_w5hvPzRxshkVBwWduFuIjnlJhazS6tBgp9erYDF5YHQkNe1piwuUM8NADSGP5eoYib79H-9vbiTyJoufRRCK4iMBFMaIMFQbg8cogxoVIbsJ0mEWeWxitXmlyE4zjUS9wia0kgdI91za3u6Z8NjfJVIm8du2ubQ1JsNy4epMEnqu38NvSojI_K6X9YBAMTkoPsZ_66VGJMfa_lKCv-hkXr7XWuJcF2eik5Uf9KPXe8h3LHIXx0G_3ieoVJ_SCNMuy3vjcqnE_8r33SR-yXt9LW6QzbOgab8-E92l4IsyiOPPjdwkrvXaW5fSLVuRI2BtHWXQijB_8bBi8SxgO_XBQZwg8M42Xc_SscU7ReENJabiSaCix2Bam8rKX9L9PHIYThru26egrJViIu1RpTYlBkE1ewj21GXLGCbY0E-fvC4bgDUPlvD1GF-gTliXQbtEvHxZLpc3deGNvvzaJek2idE7J6zsZoFRJOEeGSrJtkoQtkje5rLmZIxhFkKigKyzhUMFIYuw_a4y-n2iJml2t0cy1KmcV9ctSKJwjxRBGGRdWi1C-ojliWi1s8pD5obsrDtMJtC7F-qA1oobqBYwohGWOhqA1k-jz4_Duy-MQ4nPazC9uhLR69ZX-U3INs1eaohk22O3OZeW0O4UJROaIbogoC8j3sdrgE2e_v4i6vx71DU6Carfx91as710Prh42Z-fWtrLPL5hgEFV_ZIS63d-gjtr0m2avMvvHVc_aPybOXxT68AMKqRfua_xlmUPBhyW_HfOHOuBH6kFF3WsxvMn-uCuqHXGgiOqYuKIIazOsTL-eCTJo1nJfmcHFxLD1HidlAw6uw73rcHgdji5nZmOlf3rrNOD4Ojw4jskGen8VhW7XsOM6C9jNmOdOsnMOXw7wdZFThkthnL3r4NKop60kTnJ4wzrl4dmNOIbBt6jA_U8V4sNl" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 #### BUSINESS ARCHITECTURE — 3.2.4 GT-020-040_Determine_&amp;_Assign_ECCN_Classification_(IF) — GT-020-040_Determine_&amp;_Assign_ECCN_Classification_(IF)
 
@@ -332,7 +400,7 @@ flowchart TD
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -372,10 +440,14 @@ flowchart TD
     class n9 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P2jgU_StWRiOmUlDzSZg87IoJZFWpHVWdaavV0gfj2GCNsVnb4aOU_16bJEAyzFPzQLgn955zfGVf7x0kCuykzu3tnnKqU7Dv6QVe4l4KejOocM8FFfANSgpnDKuezSGC6yf685jmR6utTbNYDpeU7Sz6hOcCg68fXDAyhcwFCnLVV1hS0nN7K0mXUO4ywYS02Td4SDxyVKs_PQhZYHlO8LzER7EpZZTjMxwmURLltk5hJHjRIiUxGRLUO1hzTGzQAkp9tF8q_Aluv9NCL0xMIFPY5Cz0kn2EM8zsGrUsLYZKuW6aQZXV4aZhTyuIKJ8bPPIMJCF_OUOxdziAw-3tlJ9EwfN4yoF5EINKjTEBSht4staAUMbSmygb5bHnKi3FC05vgkkyDgMX2ZWkZumea5vb32A6X-h0JlhRp_Y3dg1psNq6cpsGnit35rejhXlxVsoGwTAYnpQeEj_zs0aJEPJHSqav8hmql1prEuZBPj5p-fEgzrzXfM0yx1Ey8rt9wnJNEb4gzfM8nJxbNRnEvvc26UMeDrysQzqHGm_g7kx4n0UnwjxOcj95k7DS67osZ5-lQA1hOInz-ESYPPj5KHiTMBr50bB2aHjmEq4W4FnCAoPJFqNSU8HBiEO2U7rKsg_3_5s6BKYE9m3TwReMIGPvMyElRhoYN0Vp3pl1SAlF0NJMnR8XDMErhip511Qr8Any0tDuwN2H5UpI_X6yta93baKwTZQtMHp5wwHIBDfnSGOOdm2SqEPyysuG6gUwo8gYZXgNuQaVGUtpWsu6So_lcmaI7iZZ9tgxHN-dxJQWq7NG16xdCS5M8buL6oEpHmON5dJMom7JF_x_SaWZl1yrtmiy3zeidub2Z2ZqoEXdLUrO_e9QFX9PncPhgmh4nei72dCCdPx0a--v1-ItYqWia_xPdTLOVWZ2VH94APr9vwxDHYZVGNeh3_46tOGvqXOxqZq9NHV-GbI6L6nz_sXqiA879V9XhXF0_FRPBn5fKYUdhkdxzGoMDKqsqA6jKkwuzq313MyrFhxch8PrcHQdjuup2wIHp7HfgpNmILXQ4VX0vkEd11maLQhp4aR753hFm2u8wASWTDsH14GlFk87jpz0eJU55bGVYwrNhFlW4OE3tPCUOQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P2jgU_StWRiOmUlDzSZg87IoJZFWpHVWdaavV0gfj2GCNsVnb4aOU_16bJEAyzFPzQLgn955zfGVf7x0kCuykzu3tnnKqU7Dv6QVe4l4KejOocM8FFfANSgpnDKuezSGC6yf685jmR6utTbNYDpeU7Sz6hOcCg68fXDAyhcwFCnLVV1hS0nN7K0mXUO4ywYS02Td4SDxyVKs_PQhZYHlO8LzER7EpZZTjMxwmURLltk5hJHjRIiUxGRLUO1hzTGzQAkp9tF8q_Aluv9NCL0xMIFPY5Cz0kn2EM8zsGrUsLYZKuW6aQZXV4aZhTyuIKJ8bPPIMJCF_OUOxdziAw-3tlJ9EwfN4yoF5EINKjTEBSht4staAUMbSmygb5bHnKi3FC05vgkkyDgMX2ZWkZumea5vb32A6X-h0JlhRp_Y3dg1psNq6cpsGnit35rejhXlxVsoGwTAYnpQeEj_zs0aJEPJHSqav8hmql1prEuZBPj5p-fEgzrzXfM0yx1Ey8rt9wnJNEb4gzfM8nJxbNRnEvvc26UMeDrysQzqHGm_g7kx4n0UnwjxOcj95k7DS67osZ5-lQA1hOInz-ESYPPj5KHiTMBr50bB2aHjmEq4W4FnCAoPJFqNSU8HBiEO2U7rKsg_3_5s6BKYE9m3TwReMIGPvMyElRhoYN0Vp3pl1SAlF0NJMnR8XDMErhip511Qr8Any0tDuwN2H5UpI_X6yta93baKwTZQtMHp5wwHIBDfnSGOOdm2SqEPyysuG6gUwo8gYZXgNuQaVGUtpWsu6So_lcmaI7iZZ9tgxHN-dxJQWq7NG16xdCS5M8buL6oEpHmON5dJMom7JF_x_SaWZl1yrtmiy3zeidub2Z2ZqoEXdLUrO_e9QFX9PncPhgmh4nei72dCCdPx0a--v1-ItYqWia_xPdTLOVWZ2VH94APr9vwxDHYZVGNeh3_46tOGvqXOxqZq9NHV-GbI6L6nz_sXqiA879V9XhXF0_FRPBn5fKYUdhkdxzGoMDKqsqA6jKkwuzq313MyrFhxch8PrcHQdjuup2wIHp7HfgpNmILXQ4VX0vkEd11maLQhp4aR753hFm2u8wASWTDsH14GlFk87jpz0eJU55bGVYwrNhFlW4OE3tPCUOQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.5 GT-020-070_Classification_reporting_(IF) — GT-020-070_Classification_reporting_(IF)
 
@@ -384,7 +456,7 @@ flowchart TD
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -414,10 +486,15 @@ flowchart TD
     class n6 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllU2P0zAQhv-KldWqIKUin03JAdRNG4QEEmIXOFAOrjNurXXtYDu7LaX_HbtJP9kVB3KoOm9mntcziZ2NR2QFXu5dX2-YYCZHm55ZwBJ6OerNsIaej1rhK1YMzzjonsuhUphb9muXFib1yqU5rcRLxtdOvYW5BPTlvY9GtpD7SGOh-xoUoz2_Vyu2xGpdSC6Vy76CIQ3ozq27dSNVBeqYEARZSFJbypmAoxxnSZaUrk4DkaI6g9KUDinpbd3iuHwkC6zMbvmNho949Y1VZmFjirkGm7MwS_4Bz4C7Ho1qnEYa9bAfBtPOR9iB3daYMDG3ehJYSWFxf5TSYLtF2-vrqTiYorvxVCB7EY61HgNF2lh58mAQZZznV0kxKtPA10bJe8ivokk2jiOfuE5y23rgu-H2H4HNFyafSV51qf1H10Me1StfrfIo8NXa_l54gaiOTsUgGkbDg9NNFhZhsXeilP6Xk52rusP6vvOaxGVUjg9eYTpIi-Bv3r7NcZKNwss5gXpgBE6gZVnGk-OoJoM0DJ6H3pTxICguoHNs4BGvj8DXRXIAlmlWhtmzwNbvcpXN7JOSZA-MJ2mZHoDZTViOomeByShMht0KLWeucL1AdwpXgCYrII1hUqCRwHytTZvlLhF-n3oU5xT33dDRmOma25YKtyRGGVTIrqhqiNHoxQeYY44K-2CV5C-n3o8TTvQvzqsvgjwBpVKhotFGLvU5MH5xIO5In-FnA9q0BR2I4F1Xn6GWythdg97bs4fZp1JZ1ssTWHKEWav6ecBYCrioTTebfa075Pozu02JHe26BiTpBert1NtuT4oHTxfDivBGswd4175Cxyq7ydo_Ikb9_htr34VhGw66MDoPB22YdGHqwt9T7zDZ37bi4t7Z09xlnG4aZ7jfhmdy9LQcH46iMznpTo0zMd3vnDN1sFc931uCWmJWefnG23017JelAoobbryt7-HGyNu1IF6-O129pq5s5Zhh-9IvW3H7B6pxH0c=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllU2P0zAQhv-KldWqIKUin03JAdRNG4QEEmIXOFAOrjNurXXtYDu7LaX_HbtJP9kVB3KoOm9mntcziZ2NR2QFXu5dX2-YYCZHm55ZwBJ6OerNsIaej1rhK1YMzzjonsuhUphb9muXFib1yqU5rcRLxtdOvYW5BPTlvY9GtpD7SGOh-xoUoz2_Vyu2xGpdSC6Vy76CIQ3ozq27dSNVBeqYEARZSFJbypmAoxxnSZaUrk4DkaI6g9KUDinpbd3iuHwkC6zMbvmNho949Y1VZmFjirkGm7MwS_4Bz4C7Ho1qnEYa9bAfBtPOR9iB3daYMDG3ehJYSWFxf5TSYLtF2-vrqTiYorvxVCB7EY61HgNF2lh58mAQZZznV0kxKtPA10bJe8ivokk2jiOfuE5y23rgu-H2H4HNFyafSV51qf1H10Me1StfrfIo8NXa_l54gaiOTsUgGkbDg9NNFhZhsXeilP6Xk52rusP6vvOaxGVUjg9eYTpIi-Bv3r7NcZKNwss5gXpgBE6gZVnGk-OoJoM0DJ6H3pTxICguoHNs4BGvj8DXRXIAlmlWhtmzwNbvcpXN7JOSZA-MJ2mZHoDZTViOomeByShMht0KLWeucL1AdwpXgCYrII1hUqCRwHytTZvlLhF-n3oU5xT33dDRmOma25YKtyRGGVTIrqhqiNHoxQeYY44K-2CV5C-n3o8TTvQvzqsvgjwBpVKhotFGLvU5MH5xIO5In-FnA9q0BR2I4F1Xn6GWythdg97bs4fZp1JZ1ssTWHKEWav6ecBYCrioTTebfa075Pozu02JHe26BiTpBert1NtuT4oHTxfDivBGswd4175Cxyq7ydo_Ikb9_htr34VhGw66MDoPB22YdGHqwt9T7zDZ37bi4t7Z09xlnG4aZ7jfhmdy9LQcH46iMznpTo0zMd3vnDN1sFc931uCWmJWefnG23017JelAoobbryt7-HGyNu1IF6-O129pq5s5Zhh-9IvW3H7B6pxH0c=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 3.3 Business Roles & Responsibilities
 
@@ -427,7 +504,10 @@ flowchart TD
 | Trade Execution Analyst | GT-020-020_Determine_&amp;_Assign_Commodity_codes_classification_(IF), GT-020-030_Determine_&amp;_Assign_Tariff_codes_classification_(IF), GT-020-040_Determine_&amp;_Assign_ECCN_Classification_(IF), GT-020-070_Classification_reporting_(IF) | |
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 4. Data Architecture (TOGAF "D")
 
@@ -439,11 +519,18 @@ The following data entities are derived from the system integration flows for GT
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
+
+
+
 
 ### 4.3 Data Lineage
 
@@ -475,7 +562,10 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Quality | Validated at source; reconciliation at target |
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 5. Application Architecture (TOGAF "A")
 
@@ -485,9 +575,11 @@ Reports and Conversions for this capability will be populated from the Smartshee
 
 The Current-State architecture represents the **current / legacy** landscape for GT-020.
 
+
 #### Current-State Flow Narrative
 
 *(No current-state flows defined.)*
+
 
 ### 5.2 Future-State — Future-State Application Landscape
 
@@ -495,9 +587,11 @@ The Current-State architecture represents the **current / legacy** landscape for
 
 The Future-State architecture represents the **target** landscape for GT-020.
 
+
 #### Future-State Flow Narrative
 
 *(No future-state flows defined.)*
+
 
 ### 5.3 Change Impact Summary
 
@@ -514,7 +608,10 @@ The Future-State architecture represents the **target** landscape for GT-020.
 |--------|---------|--------|
 
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.5 RICEFW Inventory
 
@@ -611,7 +708,10 @@ The Future-State architecture represents the **target** landscape for GT-020.
 **Summary**: 11 Interfaces, 64 Enhancements, 11 Forms, 1 Workflows
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.6 Integration Patterns
 
@@ -623,13 +723,19 @@ Integration patterns identified from the system flow analysis for GT-020:
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
+
+
 
 #### Platform Inventory
 
@@ -644,43 +750,20 @@ Platform landscape inferred from integrated systems for GT-020:
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 6.2 SAP Development Object Status
 
-**Capability RICEFW Status** (87 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-03-27)*
-
-| Status | Count | % |
-|--------|------:|----:|
-| 10. Object Complete | 86 | 98.9% |
-| 06. Dev In Progress | 1 | 1.1% |
-| **Total** | **87** | **100%** |
-
-**RICEFW by Type:**
-
-| Type | Count |
-|------|------:|
-| Interface (I) | 11 |
-| Enhancement (E) | 64 |
-| Form (F) | 11 |
-| Workflow (W) | 1 |
-| **Total** | **87** |
-
-**Technical Complexity:**
-
-| Complexity | Count |
-|------------|------:|
-| 01.Very High | 2 |
-| 02.High | 8 |
-| 03.Medium | 48 |
-| 04.Low | 29 |
-
-**Active (Non-Complete) Objects:**
-
-| Object ID | Type | Description | Status | Complexity |
-|-----------|------|-------------|--------|------------|
-| OTCE1123 | 04.Enhancement | Determine Confirmed Delivery date in sales orders at schedule line level based o... | 06. Dev In Progress | 02.High |
+| Metric | DEV | QAS | PRD |
+|--------|-----|-----|-----|
+| Transport Requests | — | — | — |
+| Custom Code Objects | — | — | — |
+| CDS Views | — | — | — |
+| Fiori Apps | — | — | — |
+| BAdIs / Enhancements | — | — | — |
 
 ### 6.3 NFRs & Design Principles
 
@@ -710,13 +793,14 @@ Platform landscape inferred from integrated systems for GT-020:
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 7. Project Context
 
 ### 7.1 Project Roadmap & Go-Live Plan
-
-*87 objects with timeline data (source: Object Tracker)*
 
 | ID | Description | FS | TDD | Build | FUT | Status |
 |----|-------------|----|-----|-------|-----|--------|
@@ -729,68 +813,38 @@ Platform landscape inferred from integrated systems for GT-020:
 | OTCF0460_IF | Form Development for Invoice list. | Sep-24 (100%) | Jan-25 (100%) | Jan-25 (100%) | Jan-25 (100%) |  |
 | OTCF0431 | Generate Custom Late Payment Interest Charge Output Form | Aug-24 (100%) | Jan-25 (100%) | Jan-25 (100%) | May-25 (100%) |  |
 | OTCF0290 | Dunning output form customization | Jul-24 (100%) | Jan-25 (100%) | Jan-25 (100%) | Mar-25 (100%) |  |
-| OTCE1698 | Additional material attributes for transfer from MDG to GTS to support product classification | Nov-24 (100%) | Mar-25 (100%) | Mar-25 (100%) | Dec-25 (100%) |  |
-| OTCE1668_IF | Enhancement to transfer Customs value from S4 to GTS for Sales orders and delivery documents | Jan-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (100%) | 1. On Track |
+| OTCE1698 | Additional material attributes for transfer from MDG to GTS to support produc... | Nov-24 (100%) | Mar-25 (100%) | Mar-25 (100%) | Dec-25 (100%) |  |
+| OTCE1668_IF | Enhancement to transfer Customs value from S4 to GTS for Sales orders and del... | Jan-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (100%) | 1. On Track |
 | OTCE1662 | BADI Enhancement for Dispute Write off (workflow Trigger) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 2. At Risk |
 | OTCE1658 | Dispute Write-off Enhancement | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 2. At Risk |
 | OTCE1655 | Enhancement to AIF capabilities on access and notifications | Jun-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Jan-26 (100%) | 1. On Track |
 | OTCE1625 | Credit hold release dashboard at line-item level | Jul-24 (100%) | Sep-25 (100%) | Sep-25 (100%) | Feb-26 (100%) | 1. On Track |
-| OTCE1558 | Business users want the capability to have CMIR updated for the specific Materials which will go under FERT To HALB Conversion during R3 Cutover, this activity will be specific for IF system, CMIR to be deleted automatically for materials which will undergo FERT to HALB Conversion and new records to be created for new Material code | Oct-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
-| OTCE1557 | Business users want the capability to have sales order updated for the specific Materials which will go under FERT To HALB Conversion during R3 Cutover, this activity will be specific for IF system, orders to be updated automatically. | Oct-25 (100%) | Dec-25 (100%) | Dec-25 (100%) | Jan-26 (100%) | 4. Completed |
-| OTCE1200 | Enhancement to transfer fields from Sales Orders to Purchase Requisition during Sales Order creation and change. | Jul-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
-| OTCE1124 | Enhancement to support Inbound interface to change the ship to party record at the sales order | Apr-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Jan-26 (100%) | 3. Off Track |
-| OTCE1123 | Determine Confirmed Delivery date in sales orders at schedule line level based on CMAD received from Blue yonder | Jun-25 (100%) | Nov-25 (60%) | Nov-25 (60%) | Nov-25 (100%) | 4. Completed |
-| OTCE1122 | Enhancement for IMR to update the Repair Sales Order post Repair work order is complete | Mar-25 (100%) | Apr-25 (100%) | Apr-25 (100%) | Jun-25 (100%) | 4. Completed |
-| OTCE1106 | Enhancement to support Inbound interface and manual upload to create the sales order via Build Instructions | Jun-25 (100%) | Dec-25 (100%) | Dec-25 (100%) | Mar-26 (100%) | 3. Off Track |
-| OTCE1013 | SIMS Enhancement to determine the order type based on the Material Characteristic | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Oct-25 (100%) | 1. On Track |
-| OTCE0974 | Screen enhancement to populate the assignment priority at SO line item | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Sep-25 (100%) |  |
-| OTCE0659 | IF : Apply a Delivery Block Hold for Items with Multiple Schedule lines (MSL) which have price differences identified | Jan-25 (100%) | Mar-25 (100%) | Mar-25 (100%) | Mar-25 (100%) |  |
-| OTCE0651_IF | Enrich the delivery data transfer data from S/4 IF to GTS with the 'new' vs 'used indicator | Jul-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Dec-25 (100%) | 4. Completed |
-| OTCE0614_IF | Implement Standard Credit/Collection BADI | Mar-25 (100%) | Aug-25 (100%) | Apr-25 (100%) | Sep-25 (100%) |  |
-| OTCE0486 | Price Swamp: For Order Repricing | Sep-24 (100%) | Feb-25 (100%) | Feb-25 (100%) | Apr-25 (100%) |  |
-| OTCE0235 | Credit and Collections - Credit Check Step Configuration | Jul-24 (100%) | Jan-25 (100%) | Jan-25 (100%) | Jun-25 (100%) |  |
-| OTCE0234 | Implement mapping between customer’s risk class and credit check steps | Jul-24 (100%) | Dec-24 (100%) | Dec-24 (100%) | Feb-25 (100%) |  |
+| OTCE1558 | Business users want the capability to have CMIR updated for the specific Mate... | Oct-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
+| OTCE1557 | Business users want the capability to have sales order updated for the specif... | Oct-25 (100%) | Dec-25 (100%) | Dec-25 (100%) | Jan-26 (100%) | 4. Completed |
+| OTCE1200 | Enhancement to transfer fields from Sales Orders to Purchase Requisition duri... | Jul-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
+| OTCE1124 | Enhancement to support Inbound interface to change the ship to party record a... | Apr-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Jan-26 (100%) | 3. Off Track |
+| OTCE1123 | Determine Confirmed Delivery date in sales orders at schedule line level base... | Jun-25 (100%) | Nov-25 (60%) | Nov-25 (60%) | Nov-25 (100%) | 4. Completed |
+*... and 67 more objects (see full Object Tracker)*
 
-*... and 57 more objects (see full Object Tracker)*
+<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-03-27*
+Standard RAID items for GT-020 (Order To Cash (IF)):
 
-**Mapped sub-tower(s):** 4.10 OTC IF - Logistics Management Outbound, 4.11 OTC IF - Order Management, 4.12 OTC IF - TM, 4.3 OTC IF - Billing and Rebates, 4.6 OTC IF - Credit and Collections, 4.8 OTC IF - EWM, 4.9 OTC IF - GTS, 7.6 FTS IF - Logistics & Inventory Management
+| # | Category | Description | Status | Owner | Priority |
+|---|----------|-------------|--------|-------|----------|
+| 1 | Risk | Data migration completeness — validate all legacy Product Classification (IF) data maps to S/4 target structures | Open | Tower Architect | High |
+| 2 | Risk | Integration testing coverage — ensure all 0 integrated systems are validated end-to-end | Open | Integration Lead | High |
+| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
+| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
+| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
 
-**RAID Summary:** 14 open items (1 capability-specific, 13 tower-level), 175 closed
-
-| Severity | Capability | Tower-Wide | Total Open |
-|----------|----------:|-----------:|-----------:|
-| P1 - High | 0 | 1 | 1 |
-| P2 - Medium | 0 | 10 | 10 |
-| P3 - Low | 1 | 2 | 3 |
-| **Total** | **1** | **13** | **14** |
-
-**Capability-Specific RAID Items:**
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03381 | Risk | P3 - Low | New requirement raised for enabling Israel as virtual site | Not Started | OTC IF | 2026-03-31 |
-
-**Other OTC-IF Tower RAID Items** (13 open):
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-03 |
-| 03592 | Risk | P2 - Medium | Lack of Defined IMO Owner for CBA Mask Billing and Materials... | In Progress | E2E | 2026-03-27 |
-| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
-| 03628 | Risk | P2 - Medium | R3 Returns Rework Process Causing Finance Double Counting in... | In Progress | E2E | 2026-03-27 |
-| 03634 | Risk | P2 - Medium | Gaps in mapping of ITC test cases to automated controls and ... | Not Started | OTC IF | 2026-03-27 |
-| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
-| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
-| 03749 | Action | P2 - Medium | Logistics Data Intake and Creation Process Definition | In Progress | Test Management | 2026-03-27 |
-| 03756 | Risk | P2 - Medium | LE101-1001 Operation Support Ownership for SIMS/Tester Front... | In Progress | E2E | 2026-04-24 |
-| 03758 | Action | P2 - Medium | IMR Repair Order Creation Ownership | In Progress | PTP |  |
-| 03763 | Risk | P2 - Medium | IP to IF Regression Testing for LE Merge | Not Started | B-Apps | 2026-03-26 |
-| 03315 | Risk | P3 - Low | BPMG – SCP L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-03-27 |
-| 03317 | Risk | P3 - Low | BPMG – E2E L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-05-29 |
+> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
 
 ### 7.3 Recommendations & Next Steps
 
@@ -804,4 +858,5 @@ Platform landscape inferred from integrated systems for GT-020:
 
 ---
 *GT-020 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: March 2026*
-
+<div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
+</div>

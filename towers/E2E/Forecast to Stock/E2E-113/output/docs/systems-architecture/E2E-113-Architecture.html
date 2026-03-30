@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E2E-113 Architecture</title>
+    <title>E2E-113</title>
     <style>
 @page {
     size: A4;
@@ -34,19 +34,34 @@ h2 {
     border-bottom: 1px solid #ccc;
     padding-bottom: 4px;
     margin-top: 24px;
+    page-break-after: avoid;
+    break-after: avoid;
 }
 h3 {
     font-size: 13pt;
     color: #0071c5;
     margin-top: 18px;
+    page-break-after: avoid;
+    break-after: avoid;
 }
-h4 { font-size: 11pt; color: #333; margin-top: 14px; }
+h4 {
+    font-size: 11pt;
+    color: #333;
+    margin-top: 14px;
+    page-break-after: avoid;
+    break-after: avoid;
+}
+p {
+    orphans: 3;
+    widows: 3;
+}
 table {
     border-collapse: collapse;
     width: 100%;
     margin: 12px 0;
     font-size: 9.5pt;
     page-break-inside: avoid;
+    break-inside: avoid;
 }
 th {
     background: #00285a;
@@ -79,6 +94,7 @@ pre {
     font-size: 8.5pt;
     line-height: 1.4;
     page-break-inside: avoid;
+    break-inside: avoid;
 }
 pre code { background: none; padding: 0; color: inherit; }
 blockquote {
@@ -87,6 +103,8 @@ blockquote {
     margin: 12px 0;
     padding: 8px 16px;
     color: #333;
+    page-break-inside: avoid;
+    break-inside: avoid;
 }
 .mermaid-placeholder {
     background: #f5f8fc;
@@ -107,6 +125,7 @@ blockquote {
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
+    break-inside: avoid;
 }
 .mermaid svg {
     max-width: 100%;
@@ -136,15 +155,60 @@ blockquote {
     padding-top: 10px;
     border-top: 1px solid #ddd;
 }
+.page-section {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 40px);
+    box-sizing: border-box;
+}
+.page-footer {
+    margin-top: auto;
+    padding-top: 8px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9pt;
+    color: #888;
+    padding: 6px 12px;
+    background: #fff;
+}
+.page-footer a { color: #0071c5; text-decoration: none; }
+.page-footer a:hover { text-decoration: underline; }
 a { color: #0071c5; text-decoration: none; }
 a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Floating PDF download button ---- */
+.pdf-download-btn {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 9999;
+    background: #00285a;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: background 0.2s;
+}
+.pdf-download-btn:hover { background: #0071c5; }
+
 @media print {
     body { padding: 0; max-width: none; }
     .header-bar { margin: 0 0 20px 0; }
-    .no-print { display: none; }
+    .no-print, .pdf-download-btn { display: none !important; }
+    h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    p { orphans: 3; widows: 3; }
+    .page-section { min-height: 100vh; }
+    .page-footer { page-break-inside: avoid; break-inside: avoid; }
     .mermaid {
         page-break-inside: avoid;
         overflow: visible;
@@ -152,6 +216,18 @@ strong { color: #00285a; }
     .mermaid svg {
         max-width: 100%;
         height: auto;
+    }
+    /* Diagram links: visible + clickable in PDF */
+    a[title="View full diagram"],
+    a[title="Open full-size SVG"] {
+        color: #0071c5 !important;
+        text-decoration: underline !important;
+        font-size: 10pt !important;
+    }
+    a[title="View full diagram"]::after {
+        content: " (opens mermaid.live)";
+        font-size: 8pt;
+        color: #666;
     }
 }
 </style>
@@ -161,24 +237,24 @@ strong { color: #00285a; }
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
-    theme: "base",
-    securityLevel: "loose",
+    theme: 'base',
+    securityLevel: 'loose',
     flowchart: {
-      curve: "basis",
+      curve: 'basis',
       padding: 16,
       nodeSpacing: 50,
       rankSpacing: 60,
       useMaxWidth: true
     },
     themeVariables: {
-      primaryColor: "#e8f0fe",
-      primaryBorderColor: "#0071c5",
+      primaryColor: '#e8f0fe',
+      primaryBorderColor: '#0071c5',
       primaryTextColor: '#1a1a1a',
-      lineColor: "#37474F",
-      secondaryColor: "#f5f8fc",
-      tertiaryColor: "#fff",
-      fontSize: "14px",
-      fontFamily: "Segoe UI, Arial, sans-serif"
+      lineColor: '#37474F',
+      secondaryColor: '#f5f8fc',
+      tertiaryColor: '#fff',
+      fontSize: '14px',
+      fontFamily: 'Segoe UI, Arial, sans-serif'
     }
   });
 </script>
@@ -211,8 +287,10 @@ strong { color: #00285a; }
 
 </head>
 <body>
+<button class="pdf-download-btn" onclick="window.print()" title="Print / Save as PDF">&#128196; Download PDF</button>
+<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">E2E-113 — R3 IMR Labs Process</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -232,7 +310,14 @@ strong { color: #00285a; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
+.page-section {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 40px);
+  box-sizing: border-box;
+}
 .page-footer {
+  margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid #ddd;
   display: flex;
@@ -240,306 +325,204 @@ strong { color: #00285a; }
   align-items: center;
   font-size: 11px;
   color: #888;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 20px;
+  padding: 6px 12px;
   background: #fff;
 }
 @media print {
-  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+  .page-section {
+    min-height: 100vh;
+  }
+  .page-footer {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
 .page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
 </style>
 
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<p><a id="toc"></a></p>
-<h2 id="table-of-contents">Table of Contents</h2>
+
+<a id="toc"></a>
+
+## Table of Contents
+
+<nav class="toc">
 <ol>
-<li><a href="#1-executive-summary">Executive Summary</a></li>
-<li><a href="#2-business-context--objectives">Business Context &amp; Objectives</a>
-   - 2.1 <a href="#21-classification">Classification</a>
-   - 2.2 <a href="#22-business-drivers">Business Drivers</a>
-   - 2.3 <a href="#23-success-criteria">Success Criteria</a>
-   - 2.4 <a href="#24-companion-documents">Companion Documents</a></li>
-<li><a href="#3-business-architecture-togaf-b">Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
-   - 3.1 <a href="#31-business-process-overview">Business Process Overview</a>
-   - 3.2 <a href="#32-business-process-diagrams">Business Process Diagrams</a>
-   - 3.3 <a href="#33-business-roles--responsibilities">Business Roles &amp; Responsibilities</a></li>
-<li><a href="#4-data-architecture-togaf-d">Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
-   - 4.1 <a href="#41-data-entities--ownership">Data Entities &amp; Ownership</a>
-   - 4.2 <a href="#42-data-flow-diagrams">Data Flow Diagrams</a>
-   - 4.3 <a href="#43-data-lineage">Data Lineage</a>
-   - 4.4 <a href="#44-ricefw-data-objects">RICEFW Data Objects</a>
-   - 4.5 <a href="#45-data-governance--quality">Data Governance &amp; Quality</a></li>
-<li><a href="#5-application-architecture-togaf-a">Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
-   - 5.1 <a href="#51-current-state--current-state-application-landscape">Current-State Application Landscape</a>
-   - 5.2 <a href="#52-future-state--future-state-application-landscape">Future-State Application Landscape</a>
-   - 5.3 <a href="#53-change-impact-summary">Change Impact Summary</a>
-   - 5.4 <a href="#54-component-overview">Component Overview</a>
-   - 5.5 <a href="#55-ricefw-inventory">RICEFW Inventory</a>
-   - 5.6 <a href="#56-integration-patterns">Integration Patterns</a></li>
-<li><a href="#6-technology-architecture-togaf-t">Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
-   - 6.1 <a href="#61-platform--infrastructure">Platform &amp; Infrastructure</a>
-   - 6.2 <a href="#62-sap-development-object-status">SAP Development Object Status</a>
-   - 6.3 <a href="#63-nfrs--design-principles">NFRs &amp; Design Principles</a>
-   - 6.4 <a href="#64-security--governance">Security &amp; Governance</a></li>
-<li><a href="#7-project-context">Project Context</a>
-   - 7.1 <a href="#71-project-roadmap--go-live-plan">Project Roadmap &amp; Go-Live Plan</a>
-   - 7.2 <a href="#72-raid-log">RAID Log</a>
-   - 7.3 <a href="#73-recommendations--next-steps">Recommendations &amp; Next Steps</a></li>
+  <li><a href="#1-executive-summary">1. Executive Summary</a></li>
+  <li><a href="#2-business-context-objectives">2. Business Context &amp; Objectives</a>
+    <ul>
+      <li><a href="#21-classification">2.1 Classification</a></li>
+      <li><a href="#22-business-drivers">2.2 Business Drivers</a></li>
+      <li><a href="#23-success-criteria">2.3 Success Criteria</a></li>
+      <li><a href="#24-companion-documents">2.4 Companion Documents</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+    <ul>
+      <li><a href="#31-business-process-overview">3.1 Business Process Overview</a></li>
+      <li><a href="#32-business-process-diagrams">3.2 Business Process Diagrams</a></li>
+      <li><a href="#33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+    <ul>
+      <li><a href="#41-data-entities-ownership">4.1 Data Entities &amp; Ownership</a></li>
+      <li><a href="#42-data-flow-diagrams">4.2 Data Flow Diagrams</a></li>
+      <li><a href="#43-data-lineage">4.3 Data Lineage</a></li>
+      <li><a href="#44-ricefw-data-objects">4.4 RICEFW Data Objects</a></li>
+      <li><a href="#45-data-governance-quality">4.5 Data Governance &amp; Quality</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+    <ul>
+      <li><a href="#51-current-state-current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
+      <li><a href="#52-future-state-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
+      <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
+      <li><a href="#54-component-overview">5.4 Component Overview</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+    <ul>
+      <li><a href="#61-platform-infrastructure">6.1 Platform &amp; Infrastructure</a></li>
+      <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
+      <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
+      <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+    </ul>
+  </li>
+  <li><a href="#7-project-context">7. Project Context</a>
+    <ul>
+      <li><a href="#71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</a></li>
+      <li><a href="#72-raid-log">7.2 RAID Log</a></li>
+      <li><a href="#73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</a></li>
+    </ul>
+  </li>
 </ol>
-<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
-<div style="page-break-before: always;"></div>
+</nav>
 
-<h2 id="1-executive-summary">1. Executive Summary</h2>
-<p>This Architecture Document defines the <strong>Business, Data, Application, and Technology</strong> (BDAT) architecture for <strong>E2E-113 R3 IMR Labs Process</strong> within the IAO program. It includes 4 BPMN process diagram(s) in Section 3.
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+## 1. Executive Summary
+
+This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **E2E-113 R3 IMR Labs Process** within the IAO program. It includes 4 BPMN process diagram(s) in Section 3.
 | Dimension | Value |
 |-----------|-------|
-| <strong>Tower</strong> | End-to-End Integrated Processes (E2E) |
-| <strong>Process Group</strong> | Forecast to Stock |
-| <strong>Capability</strong> | E2E-113 - R3 IMR Labs Process |
-| <strong>Release</strong> | Release 2 |
-| <strong>Total Systems</strong> | 2 |
-| <strong>System Status</strong> | 0 Deployed, 0 Developing, 0 EOL, 2 Pending IAPM |
-| <strong>RICEFW Objects</strong> | Pending — Smartsheet Object Tracker API integration |
-<strong>Change Summary</strong>: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.</p>
-<blockquote>
-<p>All system nodes in architecture diagrams are <strong>IAPM-linked</strong> — click any node to open its IAPM page. Diagrams require <code>securityLevel: "loose"</code> for click events.</p>
-</blockquote>
+| **Tower** | End-to-End Integrated Processes (E2E) |
+| **Process Group** | Forecast to Stock |
+| **Capability** | E2E-113 - R3 IMR Labs Process |
+| **Release** | Release 2 |
+| **Total Systems** | 2 |
+| **System Status** | 0 Deployed, 0 Developing, 0 EOL, 2 Pending IAPM |
+| **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
+**Change Summary**: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.
+
+> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="2-business-context-objectives">2. Business Context &amp; Objectives</h2>
-<h3 id="21-classification">2.1 Classification</h3>
-<table>
-<thead>
-<tr>
-<th>Level</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>L0 Tower</strong></td>
-<td>End-to-End Integrated Processes</td>
-</tr>
-<tr>
-<td><strong>L1 Process</strong></td>
-<td>Forecast to Stock</td>
-</tr>
-<tr>
-<td><strong>L2 Capability</strong></td>
-<td>E2E-113 - R3 IMR Labs Process</td>
-</tr>
-</tbody>
-</table>
-<h3 id="22-business-drivers">2.2 Business Drivers</h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Driver</th>
-<th>Description</th>
-<th>Strategic Alignment</th>
-<th>Priority</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>End-to-End Process Integration</td>
-<td>Enable cross-tower integrated processes spanning procurement, manufacturing, and fulfillment</td>
-<td>IDM 2.0 Process Excellence</td>
-<td>High</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Intel Foundry Business Enablement</td>
-<td>Stand up foundry-specific business processes for external customer engagement</td>
-<td>Intel Foundry Services</td>
-<td>High</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Process Visibility &amp; Monitoring</td>
-<td>Provide end-to-end process visibility across tower boundaries with integrated monitoring</td>
-<td>Operational Excellence</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>4</td>
-<td>E2E-113 Process Migration</td>
-<td>Migrate R3 IMR Labs Process business processes and 2 integrated systems from legacy to S/4 HANA target architecture</td>
-<td>IDM 2.0 Cross-Functional / End-to-End</td>
-<td>High</td>
-</tr>
-</tbody>
-</table>
+
+## 2. Business Context & Objectives
+
+### 2.1 Classification
+
+| Level | Value |
+|-------|-------|
+| **L0 Tower** | End-to-End Integrated Processes |
+| **L1 Process** | Forecast to Stock |
+| **L2 Capability** | E2E-113 - R3 IMR Labs Process |
+
+### 2.2 Business Drivers
+
+| # | Driver | Description | Strategic Alignment | Priority |
+|---|--------|-------------|---------------------|----------|
+| 1 | End-to-End Process Integration | Enable cross-tower integrated processes spanning procurement, manufacturing, and fulfillment | IDM 2.0 Process Excellence | High |
+| 2 | Intel Foundry Business Enablement | Stand up foundry-specific business processes for external customer engagement | Intel Foundry Services | High |
+| 3 | Process Visibility & Monitoring | Provide end-to-end process visibility across tower boundaries with integrated monitoring | Operational Excellence | Medium |
+| 4 | E2E-113 Process Migration | Migrate R3 IMR Labs Process business processes and 2 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Cross-Functional / End-to-End | High |
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="23-success-criteria">2.3 Success Criteria</h3>
-<table>
-<thead>
-<tr>
-<th>Metric</th>
-<th>Target</th>
-<th>Measure</th>
-<th>Baseline</th>
-<th>Owner</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>E2E Process Cycle Time</td>
-<td>Per process SLA</td>
-<td>End-to-end transaction completion within defined SLA per process</td>
-<td>Varies by process</td>
-<td>E2E Process Owner</td>
-</tr>
-<tr>
-<td>Cross-Tower Integration Success</td>
-<td>&gt; 99%</td>
-<td>Transactions completing across tower boundaries without manual intervention</td>
-<td>92% (current)</td>
-<td>Integration Lead</td>
-</tr>
-<tr>
-<td>Process Exception Rate</td>
-<td>&lt; 2%</td>
-<td>Transactions requiring manual exception handling</td>
-<td>8% (current)</td>
-<td>Operations Manager</td>
-</tr>
-<tr>
-<td>E2E-113 Migration Completeness</td>
-<td>100% flow chains validated</td>
-<td>All 1 flow chains verified in target state</td>
-<td>0% (pre-migration)</td>
-<td>Tower Architect</td>
-</tr>
-</tbody>
-</table>
-<h3 id="24-companion-documents">2.4 Companion Documents</h3>
-<table>
-<thead>
-<tr>
-<th>Document</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Business Architecture</strong></td>
-<td>Included in this document (Section 3) — process flows from BPMN diagrams</td>
-</tr>
-<tr>
-<td><strong>This Document</strong></td>
-<td>Full BDAT Architecture — Business + Data + Application + Technology</td>
-</tr>
-</tbody>
-</table>
+
+### 2.3 Success Criteria
+
+| Metric | Target | Measure | Baseline | Owner |
+|--------|--------|---------|----------|-------|
+| E2E Process Cycle Time | Per process SLA | End-to-end transaction completion within defined SLA per process | Varies by process | E2E Process Owner |
+| Cross-Tower Integration Success | > 99% | Transactions completing across tower boundaries without manual intervention | 92% (current) | Integration Lead |
+| Process Exception Rate | < 2% | Transactions requiring manual exception handling | 8% (current) | Operations Manager |
+| E2E-113 Migration Completeness | 100% flow chains validated | All 1 flow chains verified in target state | 0% (pre-migration) | Tower Architect |
+
+### 2.4 Companion Documents
+
+| Document | Description |
+|----------|-------------|
+| **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
+| **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</h2>
-<h3 id="31-business-process-overview">3.1 Business Process Overview</h3>
-<p>This capability includes <strong>4 business process(es)</strong> modeled in BPMN 2.0, covering the end-to-end workflow for E2E-113 R3 IMR Labs Process.</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Step ID</th>
-<th>Process Name</th>
-<th>Lanes</th>
-<th>Tasks</th>
-<th>Gateways</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>E2E-113A_IMR_Labs_Process_–_To-Be_from_IP_to_IF</td>
-<td>E2E-113A_IMR_Labs_Process_–_To-Be_from_IP_to_IF</td>
-<td>Boundary Apps , Intel Foundry Lab, SAP S/4</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Intel Foundry IMR</td>
-<td>21</td>
-<td>4</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>2</td>
-<td>E2E-113B_IMR_Labs_Process_–To-Be_within_IF_Different_Legal_Entity_(Part_1)</td>
-<td>E2E-113B_IMR_Labs_Process_–To-Be_within_IF_Different_Legal_Entity_(Part_1)</td>
-<td>Intel Foundry Lab, SAP S/4</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Intel Foundry IMR</td>
-<td>22</td>
-<td>3</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>3</td>
-<td>E2E-113C_IMR_Labs_Process_–To-Be_within_IF_Different_Legal_Entity)_(Part_2)</td>
-<td>E2E-113C_IMR_Labs_Process_–To-Be_within_IF_Different_Legal_Entity)_(Part_2)</td>
-<td>Intel Foundry Lab, SAP S/4</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Intel Foundry IMR</td>
-<td>16</td>
-<td>1</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>4</td>
-<td>E2E-113D_IMR_Labs_Process_–<em>To-Be_within_IF_Same_Legal_Entity</em>&amp;_within_Same_Plant</td>
-<td>E2E-113D_IMR_Labs_Process_–<em>To-Be_within_IF_Same_Legal_Entity</em>&amp;_within_Same_Plant</td>
-<td>IF Lab S. Loc, SAP S/4</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>IMR S . Loc.</td>
-<td>12</td>
-<td>1</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3 id="32-business-process-diagrams">3.2 Business Process Diagrams</h3>
+
+## 3. Business Architecture (TOGAF "B")
+
+### 3.1 Business Process Overview
+
+This capability includes **4 business process(es)** modeled in BPMN 2.0, covering the end-to-end workflow for E2E-113 R3 IMR Labs Process.
+
+| # | Step ID | Process Name | Lanes | Tasks | Gateways |
+|---|---------|--------------|-------|-------|----------|
+| 1 | E2E-113A_IMR_Labs_Process_–_To-Be_from_IP_to_IF | E2E-113A_IMR_Labs_Process_–_To-Be_from_IP_to_IF | Boundary Apps , Intel Foundry Lab, SAP S/4 
+ Intel Foundry IMR | 21 | 4 |
+| 2 | E2E-113B_IMR_Labs_Process_–To-Be_within_IF_Different_Legal_Entity_(Part_1) | E2E-113B_IMR_Labs_Process_–To-Be_within_IF_Different_Legal_Entity_(Part_1) | Intel Foundry Lab, SAP S/4 
+ Intel Foundry IMR | 22 | 3 |
+| 3 | E2E-113C_IMR_Labs_Process_–To-Be_within_IF_Different_Legal_Entity)_(Part_2) | E2E-113C_IMR_Labs_Process_–To-Be_within_IF_Different_Legal_Entity)_(Part_2) | Intel Foundry Lab, SAP S/4 
+ Intel Foundry IMR | 16 | 1 |
+| 4 | E2E-113D_IMR_Labs_Process_–_To-Be_within_IF_Same_Legal_Entity_&amp;_within_Same_Plant | E2E-113D_IMR_Labs_Process_–_To-Be_within_IF_Same_Legal_Entity_&amp;_within_Same_Plant | IF Lab S. Loc, SAP S/4 
+ IMR S . Loc. | 12 | 1 |
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="business-architecture-321-e2e-113a_imr_labs_process_to-be_from_ip_to_if-e2e-113a_imr_labs_process_to-be_from_ip_to_if">BUSINESS ARCHITECTURE — 3.2.1 E2E-113A_IMR_Labs_Process_–<em>To-Be_from_IP_to_IF — E2E-113A_IMR_Labs_Process</em>–_To-Be_from_IP_to_IF</h4>
-<p><strong>Swim Lanes</strong>: Boundary Apps  · Intel Foundry Lab · SAP S/4 
- Intel Foundry IMR | <strong>Tasks</strong>: 21 | <strong>Gateways</strong>: 4</p>
-<blockquote>
-<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
-</blockquote>
+
+### 3.2 Business Process Diagrams
+
+
+#### BUSINESS ARCHITECTURE — 3.2.1 E2E-113A_IMR_Labs_Process_–_To-Be_from_IP_to_IF — E2E-113A_IMR_Labs_Process_–_To-Be_from_IP_to_IF
+
+**Swim Lanes**: Boundary Apps  · Intel Foundry Lab · SAP S/4 
+ Intel Foundry IMR | **Tasks**: 21 | **Gateways**: 4
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
 <div class="mermaid">
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -654,19 +637,24 @@ flowchart LR
     class n35 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1v4jgQ_itWVhV7EtzGeSHAh5OANiukrYrK3t2H7X0wiQNRQ5yznb5cxX-_CdiBBKe7e8eHFj8z88wzE4-T8GZFLKbWxLq6ekvzVE7QW09u6Y72Jqi3JoL2-ugI_EF4StYZFb3KJ2G5XKX_HNywV7xUbhUWkl2avVboim4YRb8v-mgKgVkfCZKLgaA8TXr9XsHTHeGvc5YxXnl_oKPETg7ZlGnGeEz5ycG2Axz5EJqlOT3BbuAFXljFCRqxPG6QJn4ySqLevhKXsedoS7g8yC8FvSUvf6ax3MI6IZmg4LOVu-wLWdOsqlHyssKikj_pZqSiypNDw1YFidJ8A7hnA8RJ_niCfHu_R_urq4e8Toq-3D_kCD5RRoS4pgkSEuCbJ4mSNMsmH7z5NPTtvpCcPdLJB-cmuHadflRVMoHS7X7V3MEzTTdbOVmzLFaug-eqholTvPT5y8Sx-_wV_rZy0Tw-ZZoPnZEzqjPNAjzHc50pSZL_lQn6yr8S8ahy3bihE17XubA_9Of2JZ8u89oLprjdJ8qf0oiekYZh6N6cWnUz9LHdTToL3aE9b5FuiKTP5PVEOJ57NWHoByEOOgmP-doqy_WSs0gTujd-6NeEwQyHU6eT0Jtib6QUAs-Gk2KLZqw87GU0LQqBjsbqk-NvD9ZXnm42lKOi2lmc_l1SIR-sv868HOcj-CVkkpBBkUGlC5jtFKpux_xyDIId0hKwyCXNUFjJABUwFWfs3reaPGIbNOe0Yl6V68Gc5WhZctjzgqJ7yJIKyMtyyHQuz_8xgrvqBEDPqQQ5t_eICHApiiylvMU3bPItKU8Y36GFECVFcH1oJNMnim4hS3UWIbIhaS5klfGQ8K7FFzT57ummzAg3V1Y6tr1uxY--E_9OYSa6cZNuMbtGJI_R5_u6kDpDuxJsN2NXcKUPOdP8icFcIcnQYonklrNys4WN0cWDv6uhq5nY-QEJRS0BaCITjeOetrSQrDhQwL4UqJo8KgT6ygYzihLOdoeSgDWsbXO2KzIqaXza80dWr8X6mbEY2hlR2DAXzr5BwkJVAWXJtv_QQC5qdmPnzuNd5-3t1LmYDtZwo4m2iL5EWSmA4vPxHHuw9vvzMPcURjhnz2JAMllNPskyml0EXQ7_arpEq08eQM1jAOo9L68urjr29RSrf9D4-NfjRm8eTa4xankLbSlIyk0h2DXP91k7C1l3s5m5weMZeT7pzaEktKN8c_Y7PQIHFenhrDnN46GWFYHnJcRMUoamoTifyXZA8PMq9DS_I2P0szI6ziLzJfk4L2Hf7-AyrySLHn9pj7TdPifPuma6gA423jjuG3WeH65LlFUnBBywkVLSZgxaI3qpQWW5OAxG7w5323t8kUdpvuvgd-1WBIzIe3pc3PaHOSij6h71fpz3c6fFMcj_j0cMTBMaDH6rGBTgHdd6qc2uWgfH9UiHK3es_bGrgEADKsL1FODqkJpjpABbA0MFOK2QsVqrAAdru0o6bK318zB8UYBWpTNoRjxWDlqUgxWgPRSlW1OqtdagCXSZWKesO6MZa5Wqt_gC0JxYJXF09x0F1A5KRN0oZfda6-Ds-biSrt8LGrBrhr3zZ_6Gxe-0DDstQadl1GkZd1qgyZ0m3G1yuk1ut6m7Ebi7E7i7Fbi7F7i7Gbi7G053N5zubsCe0i-_TdxVL6pN1DOivhEdGtHAiI6M6NiEurYRxUbU0W-XTdg1w54Z9jVs9S24ae1IGluTN-vwQ4w1sWKakDKT1r5vkVKy1WseWZPDDxZWWcQQeZ0SeJLbHcH9v4noirs=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1v4jgQ_itWVhV7EtzGeSHAh5OANiukrYrK3t2H7X0wiQNRQ5yznb5cxX-_CdiBBKe7e8eHFj8z88wzE4-T8GZFLKbWxLq6ekvzVE7QW09u6Y72Jqi3JoL2-ugI_EF4StYZFb3KJ2G5XKX_HNywV7xUbhUWkl2avVboim4YRb8v-mgKgVkfCZKLgaA8TXr9XsHTHeGvc5YxXnl_oKPETg7ZlGnGeEz5ycG2Axz5EJqlOT3BbuAFXljFCRqxPG6QJn4ySqLevhKXsedoS7g8yC8FvSUvf6ax3MI6IZmg4LOVu-wLWdOsqlHyssKikj_pZqSiypNDw1YFidJ8A7hnA8RJ_niCfHu_R_urq4e8Toq-3D_kCD5RRoS4pgkSEuCbJ4mSNMsmH7z5NPTtvpCcPdLJB-cmuHadflRVMoHS7X7V3MEzTTdbOVmzLFaug-eqholTvPT5y8Sx-_wV_rZy0Tw-ZZoPnZEzqjPNAjzHc50pSZL_lQn6yr8S8ahy3bihE17XubA_9Of2JZ8u89oLprjdJ8qf0oiekYZh6N6cWnUz9LHdTToL3aE9b5FuiKTP5PVEOJ57NWHoByEOOgmP-doqy_WSs0gTujd-6NeEwQyHU6eT0Jtib6QUAs-Gk2KLZqw87GU0LQqBjsbqk-NvD9ZXnm42lKOi2lmc_l1SIR-sv868HOcj-CVkkpBBkUGlC5jtFKpux_xyDIId0hKwyCXNUFjJABUwFWfs3reaPGIbNOe0Yl6V68Gc5WhZctjzgqJ7yJIKyMtyyHQuz_8xgrvqBEDPqQQ5t_eICHApiiylvMU3bPItKU8Y36GFECVFcH1oJNMnim4hS3UWIbIhaS5klfGQ8K7FFzT57ummzAg3V1Y6tr1uxY--E_9OYSa6cZNuMbtGJI_R5_u6kDpDuxJsN2NXcKUPOdP8icFcIcnQYonklrNys4WN0cWDv6uhq5nY-QEJRS0BaCITjeOetrSQrDhQwL4UqJo8KgT6ygYzihLOdoeSgDWsbXO2KzIqaXza80dWr8X6mbEY2hlR2DAXzr5BwkJVAWXJtv_QQC5qdmPnzuNd5-3t1LmYDtZwo4m2iL5EWSmA4vPxHHuw9vvzMPcURjhnz2JAMllNPskyml0EXQ7_arpEq08eQM1jAOo9L68urjr29RSrf9D4-NfjRm8eTa4xankLbSlIyk0h2DXP91k7C1l3s5m5weMZeT7pzaEktKN8c_Y7PQIHFenhrDnN46GWFYHnJcRMUoamoTifyXZA8PMq9DS_I2P0szI6ziLzJfk4L2Hf7-AyrySLHn9pj7TdPifPuma6gA423jjuG3WeH65LlFUnBBywkVLSZgxaI3qpQWW5OAxG7w5323t8kUdpvuvgd-1WBIzIe3pc3PaHOSij6h71fpz3c6fFMcj_j0cMTBMaDH6rGBTgHdd6qc2uWgfH9UiHK3es_bGrgEADKsL1FODqkJpjpABbA0MFOK2QsVqrAAdru0o6bK318zB8UYBWpTNoRjxWDlqUgxWgPRSlW1OqtdagCXSZWKesO6MZa5Wqt_gC0JxYJXF09x0F1A5KRN0oZfda6-Ds-biSrt8LGrBrhr3zZ_6Gxe-0DDstQadl1GkZd1qgyZ0m3G1yuk1ut6m7Ebi7E7i7Fbi7F7i7Gbi7G053N5zubsCe0i-_TdxVL6pN1DOivhEdGtHAiI6M6NiEurYRxUbU0W-XTdg1w54Z9jVs9S24ae1IGluTN-vwQwz8WBPThJSZtPZ9i5SSrV7zyJocfrCwyiKGyOuUwJPc7gju_wWJ6Iq7" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="business-architecture-322-e2e-113b_imr_labs_process_to-be_within_if_different_legal_entity_part_1-e2e-113b_imr_labs_process_to-be_within_if_different_legal_entity_part_1">BUSINESS ARCHITECTURE — 3.2.2 E2E-113B_IMR_Labs_Process_–To-Be_within_IF_Different_Legal_Entity_(Part_1) — E2E-113B_IMR_Labs_Process_–To-Be_within_IF_Different_Legal_Entity_(Part_1)</h4>
-<p><strong>Swim Lanes</strong>: Intel Foundry Lab · SAP S/4 
- Intel Foundry IMR | <strong>Tasks</strong>: 22 | <strong>Gateways</strong>: 3</p>
-<blockquote>
-<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
-</blockquote>
+
+#### BUSINESS ARCHITECTURE — 3.2.2 E2E-113B_IMR_Labs_Process_–To-Be_within_IF_Different_Legal_Entity_(Part_1) — E2E-113B_IMR_Labs_Process_–To-Be_within_IF_Different_Legal_Entity_(Part_1)
+
+**Swim Lanes**: Intel Foundry Lab · SAP S/4 
+ Intel Foundry IMR | **Tasks**: 22 | **Gateways**: 3
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
 <div class="mermaid">
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -773,19 +761,24 @@ flowchart TD
     class n34 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv4jgU_itWqoqpBJ3YudE8rESBjCpNVVS6uw_TfTCJA1FDHNlOW7biv68NNpeQdNouD63ynfN952If4_BmxTQhVmidn79lRSZC8NYRC7IknRB0ZpiTThdsgb8wy_AsJ7yjfFJaiGn278YNuuWrclNYhJdZvlLolMwpAX_edMFAEvMu4LjgPU5Ylna6nZJlS8xWQ5pTprzPSD-10000bbqmLCFs72DbAYw9Sc2zguxhJ3ADN1I8TmJaJEeiqZf207izVsnl9CVeYCY26Vec3OLXv7NELORzinNOpM9CLPOfeEZyVaNglcLiij2bZmRcxSlkw6YljrNiLnHXlhDDxdMe8uz1GqzPzx-LXVDwMHosgPzEOeZ8RFLAhYTHzwKkWZ6HZ-5wEHl2lwtGn0h4hsbByEHdWFUSytLtrmpu74Vk84UIZzRPtGvvRdUQovK1y15DZHfZSv6txSJFso809FEf9XeRrgM4hEMTKU3T_xVJ9pU9YP6kY42dCEWjXSzo-d7QPtUzZY7cYADrfSLsOYvJgWgURc5436qx70G7XfQ6cnx7WBOdY0Fe8GoveDV0d4KRF0QwaBXcxqtnWc0mjMZG0Bl7kbcTDK5hNECtgu4Aun2dodSZM1wuwE0hSA4iWhUJWwG5Kbd29Sngr0drcA8mlAu54QAuEjCoBAXDnMgZLeaPFbLt2aP1zwEHKc7kc5zglySlOExxL6ZzMGREtm2TGYvpssTFCkwf7gGUrENa_yO0uxPa1TFtQlhK2VLyZqoJYCTbcQnwHGcFF0qgzod2s8APShMO7klMslLOAGWNZPixWhH4Nq3K8hJMclwIgDm4idTqbBoqYxwabu8v6lHQx1qD6jynubS7SrQ050TBrSnIfaA7c8N5Rd7les1ZD2Xiz1TO5km-yPm2Y5S5nLNQNkO1iQM1JYRzoPYbdMAD7V0TkDIqF3oC5H68iaTWxaGWW9OqrwnaaW4TS-oC3l6AC1rqmC-ZWGSFWr5RlqaEEblqP8kc52BciEysLvayMlZOGoT9mvDBfG3G6pQR1Bj1lYctNTjO25shYsboC-_hXIASM5znJP-xPc4erfV6S5IHfu08mcrkpt9dCR2fLHJhDuN84ZRwv3Aaebs2qC8Ms6P0P9n35BLcqW__Y5bfyJrcysErccaaKND_yKFgNv9x5COdoFHnu9kbOoU6q_-Buc2eiVyH9w62lpPxvRmuayD7dzN8woC_PY83mddp6DMNV6cNwGKzC2s6_U8P11WNoVazikVGi-2Sts2WXefdvu8Pa_4HpT2feqP95Kqbdm8m74rxApDXOK-4JJzM7pbmfnHg5Z4Dvd4fatcYAGoAGQBpwDGAowHXAO4WcIwH0h6Bfg62j3396Gh_E_JK69lGz94CyKsRzP1RRtIU44G0B4Q1D2QApOtCu7p0WGdXhqc1zLO2G0XNN1XotiBfP5sc9aMWQ6ZIX6vtitRNcQzBMX02AfTKINNFpB2cXYJ-TQLpxrkH102ViblmH8F-MxwcXqGPLP1Wy1WrRS5lqwm2m1C7yWk3ue0mr93kt5vaewHbmwHbu4Hau4Hau4HauyEHzbwYHuNuC-7pl7tj1G9Eg0a034heNaGO3YjCRhSZt6xj2GmGXQNbXWtJ2BJniRW-WZtfHqzQSkiKq1xY666F5eViuipiK9y8oVtVmUjmKMPyorPcguv_AIPsKsI=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv4jgU_itWqoqpBJ3YudE8rESBjCpNVVS6uw_TfTCJA1FDHNlOW7biv68NNpeQdNouD63ynfN952If4_BmxTQhVmidn79lRSZC8NYRC7IknRB0ZpiTThdsgb8wy_AsJ7yjfFJaiGn278YNuuWrclNYhJdZvlLolMwpAX_edMFAEvMu4LjgPU5Ylna6nZJlS8xWQ5pTprzPSD-10000bbqmLCFs72DbAYw9Sc2zguxhJ3ADN1I8TmJaJEeiqZf207izVsnl9CVeYCY26Vec3OLXv7NELORzinNOpM9CLPOfeEZyVaNglcLiij2bZmRcxSlkw6YljrNiLnHXlhDDxdMe8uz1GqzPzx-LXVDwMHosgPzEOeZ8RFLAhYTHzwKkWZ6HZ-5wEHl2lwtGn0h4hsbByEHdWFUSytLtrmpu74Vk84UIZzRPtGvvRdUQovK1y15DZHfZSv6txSJFso809FEf9XeRrgM4hEMTKU3T_xVJ9pU9YP6kY42dCEWjXSzo-d7QPtUzZY7cYADrfSLsOYvJgWgURc5436qx70G7XfQ6cnx7WBOdY0Fe8GoveDV0d4KRF0QwaBXcxqtnWc0mjMZG0Bl7kbcTDK5hNECtgu4Aun2dodSZM1wuwE0hSA4iWhUJWwG5Kbd29Sngr0drcA8mlAu54QAuEjCoBAXDnMgZLeaPFbLt2aP1zwEHKc7kc5zglySlOExxL6ZzMGREtm2TGYvpssTFCkwf7gGUrENa_yO0uxPa1TFtQlhK2VLyZqoJYCTbcQnwHGcFF0qgzod2s8APShMO7klMslLOAGWNZPixWhH4Nq3K8hJMclwIgDm4idTqbBoqYxwabu8v6lHQx1qD6jynubS7SrQ050TBrSnIfaA7c8N5Rd7les1ZD2Xiz1TO5km-yPm2Y5S5nLNQNkO1iQM1JYRzoPYbdMAD7V0TkDIqF3oC5H68iaTWxaGWW9OqrwnaaW4TS-oC3l6AC1rqmC-ZWGSFWr5RlqaEEblqP8kc52BciEysLvayMlZOGoT9mvDBfG3G6pQR1Bj1lYctNTjO25shYsboC-_hXIASM5znJP-xPc4erfV6S5IHfu08mcrkpt9dCR2fLHJhDuN84ZRwv3Aaebs2qC8Ms6P0P9n35BLcqW__Y5bfyJrcysErccaaKND_yKFgNv9x5COdoFHnu9kbOoU6q_-Buc2eiVyH9w62lpPxvRmuayD7dzN8woC_PY83mddp6DMNV6cNwGKzC2s6_U8P11WNoVazikVGi-2Sts2WXefdvu8Pa_4HpT2feqP95Kqbdm8m74rxApDXOK-4JJzM7pbmfnHg5Z4Dvd4fatcYAGoAGQBpwDGAowHXAO4WcIwH0h6Bfg62j3396Gh_E_JK69lGz94CyKsRzP1RRtIU44G0B4Q1D2QApOtCu7p0WGdXhqc1zLO2G0XNN1XotiBfP5sc9aMWQ6ZIX6vtitRNcQzBMX02AfTKINNFpB2cXYJ-TQLpxrkH102ViblmH8F-MxwcXqGPLP1Wy1WrRS5lqwm2m1C7yWk3ue0mr93kt5vaewHbmwHbu4Hau4Hau4HauyEHzbwYHuNuC-7pl7tj1G9Eg0a034heNaGO3YjCRhSZt6xj2GmGXQNbXWtJ2BJniRW-WZtfHuSvEwlJcZULa921sLxcTFdFbIWbN3SrKhPJHGVYXnSWW3D9H4PsKsI=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="business-architecture-323-e2e-113c_imr_labs_process_to-be_within_if_different_legal_entitypart_2-e2e-113c_imr_labs_processto-be_within_if_different_legal_entity_part_2">BUSINESS ARCHITECTURE — 3.2.3 E2E-113C_IMR_Labs_Process_–To-Be_within_IF_Different_Legal_Entity)<em>(Part_2) — E2E-113C_IMR_Labs_Process</em>–To-Be_within_IF_Different_Legal_Entity)_(Part_2)</h4>
-<p><strong>Swim Lanes</strong>: Intel Foundry Lab · SAP S/4 
- Intel Foundry IMR | <strong>Tasks</strong>: 16 | <strong>Gateways</strong>: 1</p>
-<blockquote>
-<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
-</blockquote>
+
+#### BUSINESS ARCHITECTURE — 3.2.3 E2E-113C_IMR_Labs_Process_–To-Be_within_IF_Different_Legal_Entity)_(Part_2) — E2E-113C_IMR_Labs_Process_–To-Be_within_IF_Different_Legal_Entity)_(Part_2)
+
+**Swim Lanes**: Intel Foundry Lab · SAP S/4 
+ Intel Foundry IMR | **Tasks**: 16 | **Gateways**: 1
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
 <div class="mermaid">
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -865,19 +858,24 @@ flowchart LR
     class n24 subProc
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV11v4jgU_StWRhVTCWbifBCah5UokFGlqYrK7O7DdB5M4oDVYEe205ap-O97TRIIKel2tTy08rn3nPvhayd5tWKRUCu0Li5eGWc6RK89vaYb2gtRb0kU7fVRCfxFJCPLjKqe8UkF1wv2e--GvfzFuBksIhuWbQ26oCtB0Z83fTQGYtZHinA1UFSytNfv5ZJtiNxORCak8f5ER6md7qNVpmshEyqPDrYd4NgHasY4PcJu4AVeZHiKxoInJ6Kpn47SuLczyWXiOV4TqffpF4rekpe_WaLXsE5Jpij4rPUm-06WNDM1alkYLC7kU90MpkwcDg1b5CRmfAW4ZwMkCX88Qr6926HdxcUDPwRF3-8fOIJfnBGlpjRFSgM8e9IoZVkWfvIm48i3-0pL8UjDT84smLpOPzaVhFC63TfNHTxTtlrrcCmypHIdPJsaQid_6cuX0LH7cgt_W7EoT46RJkNn5IwOka4DPMGTOlKapv8rEvRV_iDqsYo1cyMnmh5iYX_oT-y3enWZUy8Y43afqHxiMW2IRlHkzo6tmg19bHeLXkfu0J60RFdE02eyPQpeTbyDYOQHEQ46Bct47SyL5VyKuBZ0Z37kHwSDaxyNnU5Bb4y9UZUh6KwkydfohmuaoUgUPJFbBENZ2s2Puz9_PlgpCVMyiMUKTSSFcgxDklhscsK3aPHjHuEH69evBs37CO3uDQ3jU96cylTIDRCXJjs0hTy_ILIijCttFN4IOOcFvgmRKHRPY8pyGE4hz5KDzwdynsGWhTe396YfCpmGU6XQQ-HY2EU_xOCaolQKSG2OtEA3EWhdNrVGRy2lRV5RnpleMw7uaMrSlErK4bjSFcnQjGumt5eHSBNoU0Y1TVrCjt0SftPUstlveI0tSeGkUTkQOeVonOcZi81liyCxGG5hJFIkaU6YRIJnW1MeROAK0kUJTWms2RNFOVwpx_7BqW8N1WI8R4uvHkCn4wUtbbbpkJM5zfWcVP-gFckXdGeuZojUrOUsa34LG7xP-wwFux8ZjHqyTiOf6Hhndb7W21Wl0Gb556PfFfo42NBV6M97wz08rzIX4F8WcqNUQd_TcHBrfEypBWyp4GW9XePjtHm37_u7r6_HXBM6WMIIxWtEX-KsUFDqt_JafLB2u9YIcf9jl4dzLI0PP9Dfk4ujSQ5a5Hfa2aSNPnY1OujzosjzL2ieETjtRJnTD5cKIpAXDF7TcHt_2Qhw9a-X4X5kGgxs_5cpN_UgovdHsqFx1drpBvmpuc98hAaDP2C76m0rl8M6-3KJ7brL5fqq3rFyGRwyr9xrO67kcK2HKwG3Wrvl0qvNuPJ3asCpgFEFOBUD1wnjKgeMa8ArAaeOgd02UK1rRhXDqYPWAs1ntmHV7yonsHMedpvvIScWr9Pid1qGnZag0zLqtFx1WmADO0242-R0m7r7gLsbgbs7gbtbAbNVvyOf4qPqffYUvTqHOvZZFJ9FnbOoW78snsJe_cpn9a0NlRvCEit8tfZfSvA1Bc9kUmTa2vUtUmix2PLYCvdfFFaRJyA4ZQSeyZsS3P0DpKA8Xw==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV11v4jgU_StWRhVTCWbifBCah5UokFGlqYrK7O7DdB5M4oDVYEe205ap-O97TRIIKel2tTy08rn3nPvhayd5tWKRUCu0Li5eGWc6RK89vaYb2gtRb0kU7fVRCfxFJCPLjKqe8UkF1wv2e--GvfzFuBksIhuWbQ26oCtB0Z83fTQGYtZHinA1UFSytNfv5ZJtiNxORCak8f5ER6md7qNVpmshEyqPDrYd4NgHasY4PcJu4AVeZHiKxoInJ6Kpn47SuLczyWXiOV4TqffpF4rekpe_WaLXsE5Jpij4rPUm-06WNDM1alkYLC7kU90MpkwcDg1b5CRmfAW4ZwMkCX88Qr6926HdxcUDPwRF3-8fOIJfnBGlpjRFSgM8e9IoZVkWfvIm48i3-0pL8UjDT84smLpOPzaVhFC63TfNHTxTtlrrcCmypHIdPJsaQid_6cuX0LH7cgt_W7EoT46RJkNn5IwOka4DPMGTOlKapv8rEvRV_iDqsYo1cyMnmh5iYX_oT-y3enWZUy8Y43afqHxiMW2IRlHkzo6tmg19bHeLXkfu0J60RFdE02eyPQpeTbyDYOQHEQ46Bct47SyL5VyKuBZ0Z37kHwSDaxyNnU5Bb4y9UZUh6KwkydfohmuaoUgUPJFbBENZ2s2Puz9_PlgpCVMyiMUKTSSFcgxDklhscsK3aPHjHuEH69evBs37CO3uDQ3jU96cylTIDRCXJjs0hTy_ILIijCttFN4IOOcFvgmRKHRPY8pyGE4hz5KDzwdynsGWhTe396YfCpmGU6XQQ-HY2EU_xOCaolQKSG2OtEA3EWhdNrVGRy2lRV5RnpleMw7uaMrSlErK4bjSFcnQjGumt5eHSBNoU0Y1TVrCjt0SftPUstlveI0tSeGkUTkQOeVonOcZi81liyCxGG5hJFIkaU6YRIJnW1MeROAK0kUJTWms2RNFOVwpx_7BqW8N1WI8R4uvHkCn4wUtbbbpkJM5zfWcVP-gFckXdGeuZojUrOUsa34LG7xP-wwFux8ZjHqyTiOf6Hhndb7W21Wl0Gb556PfFfo42NBV6M97wz08rzIX4F8WcqNUQd_TcHBrfEypBWyp4GW9XePjtHm37_u7r6_HXBM6WMIIxWtEX-KsUFDqt_JafLB2u9YIcf9jl4dzLI0PP9Dfk4ujSQ5a5Hfa2aSNPnY1OujzosjzL2ieETjtRJnTD5cKIpAXDF7TcHt_2Qhw9a-X4X5kGgxs_5cpN_UgovdHsqFx1drpBvmpuc98hAaDP2C76m0rl8M6-3KJ7brL5fqq3rFyGRwyr9xrO67kcK2HKwG3Wrvl0qvNuPJ3asCpgFEFOBUD1wnjKgeMa8ArAaeOgd02UK1rRhXDqYPWAs1ntmHV7yonsHMedpvvIScWr9Pid1qGnZag0zLqtFx1WmADO0242-R0m7r7gLsbgbs7gbtbAbNVvyOf4qPqffYUvTqHOvZZFJ9FnbOoW78snsJe_cpn9a0NlRvCEit8tfZfSvA1Bc9kUmTa2vUtUmix2PLYCvdfFFaRJyA4ZQSeyZsS3P0DpKA8Xw==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="business-architecture-324-e2e-113d_imr_labs_process_to-be_within_if_same_legal_entitywithin_same_plant-e2e-113d_imr_labs_processto-be_within_if_same_legal_entity_within_same_plant">BUSINESS ARCHITECTURE — 3.2.4 E2E-113D_IMR_Labs_Process_–<em>To-Be_within_IF_Same_Legal_Entity</em>&amp;<em>within_Same_Plant — E2E-113D_IMR_Labs_Process</em>–<em>To-Be_within_IF_Same_Legal_Entity</em>&amp;_within_Same_Plant</h4>
-<p><strong>Swim Lanes</strong>: IF Lab S. Loc · SAP S/4 
- IMR S . Loc. | <strong>Tasks</strong>: 12 | <strong>Gateways</strong>: 1</p>
-<blockquote>
-<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
-</blockquote>
+
+#### BUSINESS ARCHITECTURE — 3.2.4 E2E-113D_IMR_Labs_Process_–_To-Be_within_IF_Same_Legal_Entity_&amp;_within_Same_Plant — E2E-113D_IMR_Labs_Process_–_To-Be_within_IF_Same_Legal_Entity_&amp;_within_Same_Plant
+
+**Swim Lanes**: IF Lab S. Loc · SAP S/4 
+ IMR S . Loc. | **Tasks**: 12 | **Gateways**: 1
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
 <div class="mermaid">
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -941,97 +939,55 @@ flowchart LR
     class n18 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v6jgQ_StWqopeKfTG-SBpHlaiQK4qtWrVdHcfbvfBJA5YDXFkO7Qs4r-vDQ6QNKn26vKAmDMz54zHg-2tkdAUG6FxebklBREh2A7EEq_wIASDOeJ4YIID8BdiBM1zzAcqJqOFiMm_-zDolh8qTGERWpF8o9AYLygGf96ZYCwTcxNwVPAhx4xkA3NQMrJCbDOhOWUq-gIHmZXt1bTrlrIUs1OAZfkw8WRqTgp8gh3f9d1I5XGc0CJtkGZeFmTJYKeKy-l7skRM7MuvOH5AH3-TVCylnaGcYxmzFKv8Hs1xrtYoWKWwpGLruhmEK51CNiwuUUKKhcRdS0IMFW8nyLN2O7C7vHwtjqLg_vm1APKT5IjzKc4AFxKerQXISJ6HF-5kHHmWyQWjbzi8sGf-1LHNRK0klEu3TNXc4Tsmi6UI5zRPdejwXa0htMsPk32EtmWyjfxuaeEiPSlNRnZgB0elWx9O4KRWyrLst5RkX9kL4m9aa-ZEdjQ9akFv5E2sz3z1MqeuP4btPmG2Jgk-I42iyJmdWjUbedDqJ72NnJE1aZEukMDvaHMivJm4R8LI8yPo9xIe9NpVVvMnRpOa0Jl5kXck9G9hNLZ7Cd0xdANdoeRZMFQuwV0E5CSC-Brc0-TgU58C_nw1MhRmaKhaDSYMy6WA-OUR2ODqGSeYrOUQ6jyAOLh7eFY_kSC0-PZq_HPG5f48kiV0cc4FwVVcleW15OmhOefxmjxPmGWUrcAPSlMO9jWVAqAFIgUXih628kfd-Y-VmNOqSMEU5-D6nMBuEfgtAirDDup3nFf4q1ToXB1zy1yOxAsd3mLwTsSSFGoXYrTC4B4vUA5mhSBiA5AsSfv3zqccFQKo7cdcKspDlMg-plLo27mQexLigpa_LTShqzLHDSH5P2-NUTx-AvF3V0JqA2OwH4vrs7LsznmSGuk1eFQHcHNknO7wB7nNJSKsKyX4leloCp_T3HTSfK-7oAto7671i6P5aTzg_5hNssZs89WAQ7ub5atB_cThteZHNn3fJ70Jn-Zt1I6XrT1mINyR4bcyzrq0xmm7TY3UYLs9LTDFw7m8EZMlwB9JXnGZ_eNw4L4au11rVGWLwXD4h2qSBkYH26_9zsF2te3p8NqG9gHwajvQAfomKWo70LbbsrX-SJu-dusjvtDysObXcrCOh5YG6oJvmvz7O0Kp1HdjA7a7Yacbds-vw4bH6_WMej1-ryfo9dz0emQfel2w32X3u5zjI6mJu_pB00S9TnTUifqdaFC_CwzTWGG2QiQ1wq2xf_3KF3KKM1TlwtiZBqoEjTdFYoT7V6JRlanMnBIkT93VAdz9B0g_im0=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v6jgQ_StWqopeKfTG-SBpHlaiQK4qtWrVdHcfbvfBJA5YDXFkO7Qs4r-vDQ6QNKn26vKAmDMz54zHg-2tkdAUG6FxebklBREh2A7EEq_wIASDOeJ4YIID8BdiBM1zzAcqJqOFiMm_-zDolh8qTGERWpF8o9AYLygGf96ZYCwTcxNwVPAhx4xkA3NQMrJCbDOhOWUq-gIHmZXt1bTrlrIUs1OAZfkw8WRqTgp8gh3f9d1I5XGc0CJtkGZeFmTJYKeKy-l7skRM7MuvOH5AH3-TVCylnaGcYxmzFKv8Hs1xrtYoWKWwpGLruhmEK51CNiwuUUKKhcRdS0IMFW8nyLN2O7C7vHwtjqLg_vm1APKT5IjzKc4AFxKerQXISJ6HF-5kHHmWyQWjbzi8sGf-1LHNRK0klEu3TNXc4Tsmi6UI5zRPdejwXa0htMsPk32EtmWyjfxuaeEiPSlNRnZgB0elWx9O4KRWyrLst5RkX9kL4m9aa-ZEdjQ9akFv5E2sz3z1MqeuP4btPmG2Jgk-I42iyJmdWjUbedDqJ72NnJE1aZEukMDvaHMivJm4R8LI8yPo9xIe9NpVVvMnRpOa0Jl5kXck9G9hNLZ7Cd0xdANdoeRZMFQuwV0E5CSC-Brc0-TgU58C_nw1MhRmaKhaDSYMy6WA-OUR2ODqGSeYrOUQ6jyAOLh7eFY_kSC0-PZq_HPG5f48kiV0cc4FwVVcleW15OmhOefxmjxPmGWUrcAPSlMO9jWVAqAFIgUXih628kfd-Y-VmNOqSMEU5-D6nMBuEfgtAirDDup3nFf4q1ToXB1zy1yOxAsd3mLwTsSSFGoXYrTC4B4vUA5mhSBiA5AsSfv3zqccFQKo7cdcKspDlMg-plLo27mQexLigpa_LTShqzLHDSH5P2-NUTx-AvF3V0JqA2OwH4vrs7LsznmSGuk1eFQHcHNknO7wB7nNJSKsKyX4leloCp_T3HTSfK-7oAto7671i6P5aTzg_5hNssZs89WAQ7ub5atB_cThteZHNn3fJ70Jn-Zt1I6XrT1mINyR4bcyzrq0xmm7TY3UYLs9LTDFw7m8EZMlwB9JXnGZ_eNw4L4au11rVGWLwXD4h2qSBkYH26_9zsF2te3p8NqG9gHwajvQAfomKWo70LbbsrX-SJu-dusjvtDysObXcrCOh5YG6oJvmvz7O0Kp1HdjA7a7Yacbds-vw4bH6_WMej1-ryfo9dz0emQfel2w32X3u5zjI6mJu_pB00S9TnTUifqdaFC_CwzTWGG2QiQ1wq2xf_3KF3KKM1TlwtiZBqoEjTdFYoT7V6JRlanMnBIkT93VAdz9B0g_im0=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
-<table>
-<thead>
-<tr>
-<th>Role / Lane</th>
-<th>Processes Involved</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Boundary Apps</td>
-<td>E2E-113A_IMR_Labs_Process_–_To-Be_from_IP_to_IF,</td>
-<td></td>
-</tr>
-<tr>
-<td>Intel Foundry Lab</td>
-<td>E2E-113A_IMR_Labs_Process_–<em>To-Be_from_IP_to_IF, E2E-113B_IMR_Labs_Process</em>–To-Be_within_IF_Different_Legal_Entity_(Part_1), E2E-113C_IMR_Labs_Process_–To-Be_within_IF_Different_Legal_Entity)_(Part_2),</td>
-<td></td>
-</tr>
-<tr>
-<td>SAP S/4</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Intel Foundry IMR</td>
-<td>E2E-113A_IMR_Labs_Process_–<em>To-Be_from_IP_to_IF, E2E-113B_IMR_Labs_Process</em>–To-Be_within_IF_Different_Legal_Entity_(Part_1), E2E-113C_IMR_Labs_Process_–To-Be_within_IF_Different_Legal_Entity)_(Part_2),</td>
-<td></td>
-</tr>
-<tr>
-<td>IF Lab S. Loc</td>
-<td>E2E-113D_IMR_Labs_Process_–<em>To-Be_within_IF_Same_Legal_Entity</em>&amp;_within_Same_Plant</td>
-<td></td>
-</tr>
-<tr>
-<td>SAP S/4</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>IMR S . Loc.</td>
-<td>E2E-113D_IMR_Labs_Process_–<em>To-Be_within_IF_Same_Legal_Entity</em>&amp;_within_Same_Plant</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+### 3.3 Business Roles & Responsibilities
+
+| Role / Lane | Processes Involved | Description |
+|------------|-------------------|-------------|
+| Boundary Apps  | E2E-113A_IMR_Labs_Process_–_To-Be_from_IP_to_IF,  | |
+| Intel Foundry Lab | E2E-113A_IMR_Labs_Process_–_To-Be_from_IP_to_IF, E2E-113B_IMR_Labs_Process_–To-Be_within_IF_Different_Legal_Entity_(Part_1), E2E-113C_IMR_Labs_Process_–To-Be_within_IF_Different_Legal_Entity)_(Part_2),  | |
+| SAP S/4 
+ Intel Foundry IMR | E2E-113A_IMR_Labs_Process_–_To-Be_from_IP_to_IF, E2E-113B_IMR_Labs_Process_–To-Be_within_IF_Different_Legal_Entity_(Part_1), E2E-113C_IMR_Labs_Process_–To-Be_within_IF_Different_Legal_Entity)_(Part_2),  | |
+| IF Lab S. Loc | E2E-113D_IMR_Labs_Process_–_To-Be_within_IF_Same_Legal_Entity_&amp;_within_Same_Plant | |
+| SAP S/4 
+ IMR S . Loc. | E2E-113D_IMR_Labs_Process_–_To-Be_within_IF_Same_Legal_Entity_&amp;_within_Same_Plant | |
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
-<h3 id="41-data-entities-ownership">4.1 Data Entities &amp; Ownership</h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Data Entity</th>
-<th>Source System</th>
-<th>Target System</th>
-<th>Data Owner</th>
-<th>Classification</th>
-<th>Volume</th>
-<th>Master/Transaction</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>e.g. Cost Element</td>
-<td>e.g. MES 300</td>
-<td>e.g. XEUS</td>
-<td>Data steward</td>
-<td>e.g. Intel Confidential</td>
-<td>e.g. 10K rows/day</td>
-<td>Master / Transaction</td>
-</tr>
-</tbody>
-</table>
+
+## 4. Data Architecture (TOGAF "D")
+
+### 4.1 Data Entities & Ownership
+
+| # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
+|---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
+| 1 | e.g. Cost Element | e.g. MES 300 | e.g. XEUS | Data steward | e.g. Intel Confidential | e.g. 10K rows/day | Master / Transaction |
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="42-data-flow-diagrams">4.2 Data Flow Diagrams</h3>
-<blockquote>
-<p><strong>DATA ARCHITECTURE</strong> — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.</p>
-</blockquote>
-<h4 id="421-current-state-current-state-data-flows">4.2.1 Current-State — Current-State Data Flows</h4>
+
+### 4.2 Data Flow Diagrams
+
+> **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
+
+#### 4.2.1 Current-State — Current-State Data Flows
+
 <div class="mermaid">
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "15px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 35, "rankSpacing": 45}} }%%
 flowchart TB
@@ -1066,12 +1022,19 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYFumzAQhl_FchVlk5KOJCVZkVrJCWStRKuupNukMiEHjsSqAwjMmjTNu8-GhG5Z6KraEsLnu__O3yGzxn4cADZwo7FmERMGWjfFHBbQNFBzSjNotlAzAz9PmVjZ8Au42uBxXO4Urt9oyuiUQ9ZU0WEcCYc9FQIdPVkqN2Ub0wXjK2V1YBYDurtsISIDeXOjPHj86M9pKgqNPIMruvzOAjGX65DyDKTPXCy4TafAVSKR5soWyeqdhPosmkljT5emlEYPL6YTfbNBm0bDjaoUaDJ0IySHz2mWmRAimiTDeIlCxrlxNNTN8XjcykQaP4BxpGmDwbC_XbYfVU1GN1m2_JjHqdrumfq-XjAdrfhWjuhmnwwqua41MHvdWrnOULe62p4cxPylvPF4qA_1Sm800uSo1ev31bYblYpZPp2lNJkjq2t1Or2RSUa2B97MI095Cp7z1b53MXLxz9JdjYCl4AsWRxU1Nap4UoT_sO4cGQnHs2Ok3qWCYRgl1QNB5l7ODy528-BzL5DPwD9x8xA0eWqlVjgh6eTij0qzIPtqHah93D6vzVWGQhRsgYgVh3oaO-REzQq5pan5N_JOsvwvZIfceBfkmryP8ZXleD1N22GWSySXbyJdJX4FtPRByudNnLe1HES9S_Ym0jvnd4GuSYzOzs6ft5TMgiz6hMjNpXyOGQcXP7_ydey10IaZPMH9H9j8QEMmmRBEbkcXlxNrNLm7tZBtfbGuzZqm2rcvVttT7SdJwplP1e7hBtqeWdMskwqq7uXDfbI9S8pbUdCOw7bNQijlywvkYEfKE-7462pW_E9PT_-Bj1t4AemCsgAba1zc__LvEUBIcy7wpoVpLmJnFfnYKK5onCcBFWAyKokuSuPmNwO898U=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtumzAUhl_F8hRpk5KOJCVZkVrJXLJWolVX0m1SmZADJrHqYARmTZrm3WcDoV0Wuqq2hMy5_Mf-DjIbGPKIQAN2OhuaUGGAjQ_FgiyJDw3gwxnO5aorVzkJi4yKtUt-E1Y5Gec7b5nyHWcUzxjJlVvqxDwRHn2spfp6uqqClX2Cl5StK49H5pyA24suQFJAim_LKMYfwgXORK1W5OQSr37QSCyUJcYsJypuIZbMxTPCyrIiK0prIo_lpTikyVyZh7oyZji5f2E81rdbsO10_KSpBaamnwA5Qobz3CYxwGlq8hWIKWPGB1O3J5NJNxcZvyfGB00bj81R_dp7UFszBumqG3LGM-Ue2vq-XjSz1qyWQ7o9QuNGbuCM7eGgVa5v6s5A25MjnD1vbzIxdVNv9CxLk6NVbzRSbj-pFPNiNs9wugDOwOn3h5aNLDcgwTxAj0VGAu-be-dDyfBXFa5GRDMSCsqThpoaTT4q0386t57MJEfzI6DWUsEwjIrqgSR7r-ZHH_pF9GUYyWcUHvtFTDR5aqVWBgEZ5MNPSrMk--o-QO-od9Zaq0olSVQDEWtG2mnskCM1G-SOpubfyPvyu_8fZA9dB-foCr2P8aXjBUNN22GWr0C-vol0U_gV0DIGqJg3ca73chD1rtibSO-C3wW6pTA4PT17qinZJVnwGaDrC_mcUCYvqqdXvo69FrpkLk9w9wJbGGnARlME0I11fjF1rOntjQNc56tzZbc01b15trqBaj9KU0ZDrLyHG-gGdkuzbCxwdWEf6pMbOFLeSaIej3sujUklX10gBztSnXDHX1ez4X9ycvIPfNiFS5ItMY2gsal-CfLPEpEYF0zISx3iQnBvnYTQKK9pWKQRFsSmWBJdVsbtH-GzAVg=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="422-future-state-future-state-data-flows">4.2.2 Future-State — Future-State Data Flows</h4>
+
+
+#### 4.2.2 Future-State — Future-State Data Flows
+
 <div class="mermaid">
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "15px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 35, "rankSpacing": 45}} }%%
 flowchart TB
@@ -1106,111 +1069,61 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYFumzAQhl_FchVlk5KOJCVZkVrJCbBWolVX0m1SmZADR2LVAQRmTZrm3WdDQrcs6araEsLnu__O3yGzwkESAjZwo7FiMRMGWjXFDObQNFBzQnNotlAzh6DImFg68Au42uBJUu2Urt9oxuiEQ95U0VESC5c9lQIdPV0oN2Wz6ZzxpbK6ME0A3V22EJGBvLlWHjx5DGY0E6VGkcMVXXxnoZjJdUR5DtJnJubcoRPgKpHICmWLZfVuSgMWT6Wxp0tTRuOHF9OJvl6jdaPhxXUKNB56MZIj4DTPTYgQTdNhskAR49w4GuqmbdutXGTJAxhHmjYYDPubZftR1WR000UrSHiSqe2eqe_qhZPRkm_kiG72yaCW61oDs9c9KNcZ6lZX25GDhL-UZ9tDfajXeqORJsdBvX5fbXtxpZgXk2lG0xmyulan07NNMnJ88Kc-eSoy8N2vzr2HkYd_Vu5qhCyDQLAkrqmpUceTMvyHdefKSDieHiP1LhUMw6io7gkyd3J-8LBXhJ97oXyGwYlXRKDJUyu10glJJw9_VJol2VfrQO3j9vnBXFUoxOEGiFhyOExji5yoWSO3NDX_Rt5JF_-F7JIb_4Jck_cxvrJcv6dpW8xyieTyTaTrxK-Alj5I-byJ86aWvai3yd5Eeuv8LtAHEqOzs_PnDSWzJIs-IXJzKZ824-Dh51e-jp0WOjCVJ7j_A1sQasgkY4LI7ejicmyNxne3FnKsL9a1eaCpzu2L1fFV-0machZQtbu_gY5vHmiWSQVV9_L-Pjm-JeWtOGwnUdthEVTy1QWytyPVCbf8dTVr_qenp__Axy08h2xOWYiNFS7vf_n3CCGiBRd43cK0EIm7jANslFc0LtKQCjAZlUTnlXH9G4By9-8=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtumzAUhl_F8hRpk5KOJCVZkVrJBFgr0aor6TapTMgBk1h1MAKzJk3z7rOB0C4LXVVbQuZc_mN_B5kNDHlEoAE7nQ1NqDDAxodiQZbEhwbw4QznctWVq5yERUbF2iW_CaucjPOdt0z5jjOKZ4zkyi11Yp4Ijz7WUn09XVXByu7gJWXryuOROSfg9qILkBSQ4tsyivGHcIEzUasVObnEqx80EgtliTHLiYpbiCVz8YywsqzIitKayGN5KQ5pMlfmoa6MGU7uXxiP9e0WbDsdP2lqganpJ0COkOE8t0gMcJqafAViypjxwdQtx3G6ucj4PTE-aNp4bI7q196D2poxSFfdkDOeKffQ0vf1otlkzWo5pFsjNG7kBvbYGg5a5fqmbg-0PTnC2fP2HMfUTb3Rm0w0OVr1RiPl9pNKMS9m8wynC2AP7H5_6Fho4gYkmAfoschI4H1z73woGf6qwtWIaEZCQXnSUFOjyUdl-k_71pOZ5Gh-BNRaKhiGUVE9kGTt1fzoQ7-Ivgwj-YzCY7-IiSZPrdTKICCDfPhJaZZkX90H6B31zlprVakkiWogYs1IO40dcqRmg9zW1PwbeV9-9_-D7KHr4BxdofcxvrS9YKhpO8zyFcjXN5FuCr8CWsYAFfMmzvVeDqLeFXsT6V3wu0C3FAanp2dPNSWrJAs-A3R9IZ8OZfKienrl69hroUvm8gR3L7CFkQYsNEUA3UzOL6b2ZHp7YwPX_mpfWS1NdW-erW6g2o_SlNEQK-_hBrqB1dIsCwtcXdiH-uQGtpS3k6jH455LY1LJVxfIwY5UJ9zx19Vs-J-cnPwDH3bhkmRLTCNobKpfgvyzRCTGBRPyUoe4ENxbJyE0ymsaFmmEBbEolkSXlXH7B154AYI=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="43-data-lineage">4.3 Data Lineage</h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Source System</th>
-<th>Source Schema/Object</th>
-<th>Target System</th>
-<th>Target Schema/Object</th>
-<th>Transformation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>e.g. MES 300</td>
-<td>e.g. CKMLHD table</td>
-<td>e.g. XEUS</td>
-<td>e.g. dbo.CostElements</td>
-<td>Lineage notes</td>
-</tr>
-</tbody>
-</table>
-<h3 id="44-ricefw-data-objects">4.4 RICEFW Data Objects</h3>
-<p>Reports and Conversions for this capability will be populated from the Smartsheet Object Tracker via automated API extraction.</p>
-<table>
-<thead>
-<tr>
-<th>Object ID</th>
-<th>Type</th>
-<th>Description</th>
-<th>Status</th>
-<th>Source</th>
-<th>Target</th>
-<th>Complexity</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>E2E-113-R001</td>
-<td>Report</td>
-<td>R3 IMR Labs Process operational report</td>
-<td>Planned</td>
-<td>SAP S/4HANA</td>
-<td>Analytics</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>E2E-113-C001</td>
-<td>Conversion</td>
-<td>Legacy data migration for R3 IMR Labs Process</td>
-<td>Planned</td>
-<td>Legacy ERP</td>
-<td>SAP S/4HANA</td>
-<td>High</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Pending: Smartsheet API integration to auto-populate live RICEFW data (see Build Requirements).</em></p>
-</blockquote>
-<h3 id="45-data-governance-quality">4.5 Data Governance &amp; Quality</h3>
-<table>
-<thead>
-<tr>
-<th>Concern</th>
-<th>Approach</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Data Ownership</td>
-<td>Per-entity owners listed in Section 3.1</td>
-</tr>
-<tr>
-<td>Data Classification</td>
-<td>Financial data classified as Intel Confidential</td>
-</tr>
-<tr>
-<td>Data Retention</td>
-<td>Per Intel corporate retention policies</td>
-</tr>
-<tr>
-<td>Data Quality</td>
-<td>Validated at source; reconciliation at target</td>
-</tr>
-</tbody>
-</table>
+
+### 4.3 Data Lineage
+
+| # | Source System | Source Schema/Object | Target System | Target Schema/Object | Transformation |
+|---|-------------|---------------------|---------------|---------------------|---------------|
+| 1 | e.g. MES 300 | e.g. CKMLHD table | e.g. XEUS | e.g. dbo.CostElements | Lineage notes |
+
+### 4.4 RICEFW Data Objects
+
+Reports and Conversions for this capability will be populated from the Smartsheet Object Tracker via automated API extraction.
+
+| Object ID | Type | Description | Status | Source | Target | Complexity |
+|-----------|------|-------------|--------|--------|--------|-----------|
+| E2E-113-R001 | Report | R3 IMR Labs Process operational report | Planned | SAP S/4HANA | Analytics | Medium |
+| E2E-113-C001 | Conversion | Legacy data migration for R3 IMR Labs Process | Planned | Legacy ERP | SAP S/4HANA | High |
+
+> *Pending: Smartsheet API integration to auto-populate live RICEFW data (see Build Requirements).*
+
+### 4.5 Data Governance & Quality
+
+| Concern | Approach |
+|---------|----------|
+| Data Ownership | Per-entity owners listed in Section 3.1 |
+| Data Classification | Financial data classified as Intel Confidential |
+| Data Retention | Per Intel corporate retention policies |
+| Data Quality | Validated at source; reconciliation at target |
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</h2>
-<h3 id="51-current-state-current-state-application-landscape">5.1 Current-State — Current-State Application Landscape</h3>
-<h4 id="overview">Overview</h4>
-<p>The Current-State architecture represents the <strong>current / legacy</strong> landscape for E2E-113.This view is generated from <code>CurrentFlows.xlsx</code> (1 flow hops across 1 flow chains).</p>
-<h4 id="application-architecture-architecture-diagram-archimate-inspired">APPLICATION ARCHITECTURE — Architecture Diagram (ArchiMate-Inspired)</h4>
-<blockquote>
-<p><strong>Click any system node</strong> to open its IAPM application page.
-<strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
-</blockquote>
+
+## 5. Application Architecture (TOGAF "A")
+
+### 5.1 Current-State — Current-State Application Landscape
+
+#### Overview
+
+The Current-State architecture represents the **current / legacy** landscape for E2E-113.This view is generated from `CurrentFlows.xlsx` (1 flow hops across 1 flow chains).
+
+#### APPLICATION ARCHITECTURE — Architecture Diagram (ArchiMate-Inspired)
+
+> **Click any system node** to open its IAPM application page.
+> **Legend**: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span>
+
 <div class="mermaid">
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "16px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
 flowchart TB
@@ -1232,6 +1145,7 @@ flowchart TB
     E2E113C_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E113CMW_e_g_Azure_Service_Bus
     E2E113CMW_e_g_Azure_Service_Bus --> E2E113C_e_g_XEUS
 
+
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -1245,43 +1159,38 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtv4jAQ_CtWKsQXaEMpj0YVUkLCiVNoq6aPOx2nyMQLWDVJFDttKeW_n51QwquiZ6SgrGdnndmxvdCCiIBmaKXSgoZUGGhRFlOYQdlA5RHmUK6gMocgTaiYu_ACTE2wKMpnMugjTigeMeBllT2OQuHR94yg1ozfFEzFenhG2VxFPZhEgB76FWTKRFZBHIe8yiGh4_JSoVn0GkxxIjK-lMMAvz1RIqbyfYwZB4mZihlz8QiYKiqSVMVC-SVejAMaTmTwQpehBIfPRaihL5doWSoNw3UJdG8NQyRHqYSqVbmgYEoHWECVhjymCRDExZwBChjmHLjE5PDs3YYxGqWchsA5ysaYMmac9OSwGhUukugZjBOr3W7q1uq1-qq-xDiP3ypBxKLEONF1fYcTxzEqRs5pNRTrmlPXWy2r-R-cBAu8z2m3j3DWtjg_5wjmUrwEz6WmqLFTaUYJYfCKE9hUxG6ahSJOq9kr2L6xeojYniJK4w2Vu11dP8aZs_J0NElwPEWm-2eoDVPSrhP5JPUGMm9v3X7XvO_fXCPX_O3cDbW_eZIaRBoiEDQKkXtXRJ1zp1ard33wJ_7A8fy6rm_SBtBEcDo5RXIOyTnJaBiGbPFhhl_Og3cwXU18nTt4yrLN9zQB34PkhQbgWynf-sBaK6fKUGiFQhKV8xaN26O3nYy-G3HhO0zu-VB0NhcZXOTMCoBWgKtRcta5op18wntEZ6hvR4H8--ndXF-d0U5eVjkzLwgh-ezRAVHl3ut8DLWMzs46IanM27589iiDofZxTIwt6q9AqsxeR9SyVubJjgPL3djqPf3YVt9MNdep-nd29J5pXZhInbYsQnTkOj-ca_sbbnV96fFdg5lxzGiAFfiAxVx_8LTro0HhlS-94_q2s-sSWx1DTijkbbLb_TzFuck35XmTXEggqUbjqkvHqzLyHNiwSiFqLsqnsA31Wwt7eXm5d6ZpFW0GyQxTohkLLbvF5B1IYIxTJrRlRcOpiLx5GGhGdrloaSwXCjbFsgmzPLj8B2jPPtE=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9AhwrqYkgGGzfcDDXOl3tzd7OU9QCNZVvWTkXlv9_TFQVBo7ckYzsvz2mf87R9tpKMgeVYtdozT7lyyHNkqSnMILIcElkjKvGtjm8SkrLgah7APQjjFFn26q1SbmjB6UiA1G7EGWepCvnTEqrZzh9NsLb36YyLufGEMMmAXA_qxEUAUSeSprIhoeDjyFpUGSJ7SKa0UEvkUsKQPt5ypqbaMqZCgo6bqpkI6AhENQVVlJU1xSWGOU14OtHmQ1sbC5rerRlb9mJBFrValL7VIlfdKCU4ajXSaODckikfUgUNnsqcF8CIVHMBJBFUSpAYY8Krbw_GZFRKnoKUpBpjLoSz08fRbdWlKrI7cHa6x8dtu7v8bDzoBTn7-WM9yURWODu2bW9g0jwnq2Ewuy2N-oZp20dH3fZ_YDKq6Damd_wFZvMd5quPUYnkFXSOnJLWRqUZZ0zAAy1gnRGv7a4Y8Y_a_RXaN2YPmdhiRHO8xnKvZ9tfYRpUWY4mBc2nxA3-RFZUsuMDhk920CLuxUUw6LlXg_MzEri__cvI-muS9GAoiETxLCXB5crq7_vN5kEvhngSD_0wPrDtddgE2gR2J7sEfQR9iOg4Drb4Y4Rf_nX4Ybp2fJ47vK2y3aeygDiE4p4nEHdL-W6BzSMDVUWRZRTBKIO7atwWvOdX8L1MqtgXeAykqrM-yeTQIOsAsgw4HRV7nVPeMY7whuyRgZcl-PczPD873eMdU1Yr0xSElL326ANSce91XiKrgvOqTiCUezHAZ58LPIBeviLjHfRnQbrMVkf0tJbiqY6DbrC21fv2V1t9PdV9S7W_s6O3RBvABHl6JxFmk8D_4Z9531BrEKPGNwXm5rngCdXBH0gsiIe3mzoarrTyqXaC2PM3VeLpY8hPFV4ym903Kf652ZT7bXaIgayRjRsBHy_L4DmwJpUVqYaUV2Jb-vdG7MnJydaZZtWtGRQzypnlPJuLDe9HBmNaCoXXkUVLlYXzNLGc6oKxyhwnCh6n2ISZMS7-AaWOSFU=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="current-state-flow-narrative">Current-State Flow Narrative</h4>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Flow Chain</th>
-<th>Path</th>
-<th>Interface</th>
-<th>Freq</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>e.g. MES Route to ICOST</td>
-<td>e.g. MES 300 → e.g. XEUS</td>
-<td>e.g. Direct / API / File</td>
-<td>e.g. Near Real-Time</td>
-</tr>
-</tbody>
-</table>
+
+#### Current-State Flow Narrative
+
+| # | Flow Chain | Path | Interface | Freq |
+|---|-----------|------|-----------|------|
+| 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="52-future-state-future-state-application-landscape">5.2 Future-State — Future-State Application Landscape</h3>
-<h4 id="overview_1">Overview</h4>
-<p>The Future-State architecture represents the <strong>target</strong> landscape for E2E-113.This view is generated from <code>FutureFlows.xlsx</code> (1 flow hops across 1 flow chains).</p>
-<h4 id="application-architecture-architecture-diagram-archimate-inspired_1">APPLICATION ARCHITECTURE — Architecture Diagram (ArchiMate-Inspired)</h4>
-<blockquote>
-<p><strong>Click any system node</strong> to open its IAPM application page.
-<strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
-</blockquote>
+
+### 5.2 Future-State — Future-State Application Landscape
+
+#### Overview
+
+The Future-State architecture represents the **target** landscape for E2E-113.This view is generated from `FutureFlows.xlsx` (1 flow hops across 1 flow chains).
+
+#### APPLICATION ARCHITECTURE — Architecture Diagram (ArchiMate-Inspired)
+
+> **Click any system node** to open its IAPM application page.
+> **Legend**: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span>
+
 <div class="mermaid">
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "16px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
 flowchart TB
@@ -1303,6 +1212,7 @@ flowchart TB
     E2E113F_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E113FMW_e_g_Azure_Service_Bus
     E2E113FMW_e_g_Azure_Service_Bus --> E2E113F_e_g_XEUS
 
+
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -1316,161 +1226,89 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtv4jAQ_CtWKsQXaEMpj0YVUkLCiVNoq6aPOx2nyMQLWDVJFDttKeW_n51QwquiZ6SgrGdnndmxvdCCiIBmaKXSgoZUGGhRFlOYQdlA5RHmUK6gMocgTaiYu_ACTE2wKMpnMugjTigeMeBllT2OQuHR94yg1ozfFEzFenhG2VxFPZhEgB76FWTKRFZBHIe8yiGh4_JSoVn0GkxxIjK-lMMAvz1RIqbyfYwZB4mZihlz8QiYKiqSVMVC-SVejAMaTmTwQpehBIfPRaihL5doWSoNw3UJdG8NQyRHqYSqVbmgYEoHWECVhjymCRDExZwBChjmHLjE5PDs3YYxGqWchsA5ysaYMmac9OSwGhUukugZjBOr3W7q1uq1-qq-xDiP3ypBxKLEONF1fYcTxzEqRs5pNRTrmlPXWy2r-R-cBAu8z2m3j3DWtjg_5wjmUrwEz6WmqLFTaUYJYfCKE9hUxG6ahSJOq9kr2L6xeojYniJK4w2Vu11dP8aZs_J0NElwPEWm-2eoDVPSrhP5JPUGMm9v3X7XvO_fXCPX_O3cDbW_eZIaRBoiEDQKkXtXRJ1zp1ar93zwJ_7A8fy6rm_SBtBEcDo5RXIOyTnJaBiGbPFhhl_Og3cwXU18nTt4yrLN9zQB34PkhQbgWynf-sBaK6fKUGiFQhKV8xaN26O3nYy-G3HhO0zu-VB0NhcZXOTMCoBWgKtRcta5op18wntEZ6hvR4H8--ndXF-d0U5eVjkzLwgh-ezRAVHl3ut8DLWMzs46IanM27589iiDofZxTIwt6q9AqsxeR9SyVubJjgPL3djqPf3YVt9MNdep-nd29J5pXZhInbYsQnTkOj-ca_sbbnV96fFdg5lxzGiAFfiAxVx_8LTro0HhlS-94_q2s-sSWx1DTijkbbLb_TzFuck35XmTXEggqUbjqkvHqzLyHNiwSiFqLsqnsA31Wwt7eXm5d6ZpFW0GyQxTohkLLbvF5B1IYIxTJrRlRcOpiLx5GGhGdrloaSwXCjbFsgmzPLj8B6-UPuk=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9AhwroYkiGGzfcDDXOl3tzd7OU9QCNZVvWTkXlv9_TFQVBo7ckYzsvz2mf87R9tpKMgeVYtdozT7lyyHNkqSnMILIcElkjKvGtjm8SkrLgah7APQjjFFn26q1SbmjB6UiA1G7EGWepCvnTEqrZzh9NsLb36YyLufGEMMmAXA_qxEUAUSeSprIhoeDjyFpUGSJ7SKa0UEvkUsKQPt5ypqbaMqZCgo6bqpkI6AhENQVVlJU1xSWGOU14OtHmQ1sbC5rerRlb9mJBFrValL7VIle9KCU4ajXSaODckikfUgUNnsqcF8CIVHMBJBFUSpAYY8Krbw_GZFRKnoKUpBpjLoSz08fRa9WlKrI7cHZ6R0dtu7f8bDzoBTn7-WM9yURWODu2bW9g0jwnq2Ewey2N-oZp251Or_0fmIwquo3pHX2B2XyH-epjVCJ5BZ0jp6S1UWnGGRPwQAtYZ8RruytG_E67v0L7xuwhE1uMaI7XWD49te2vMA2qLEeTguZT4gZ_Iisq2dEBwyc7aBH34iIYnLpXg_MzEri__cvI-muS9GAoiETxLCXB5crq7_vN5kE_hngSD_0wPrDtddgE2gR2J7sEfQR9iOg4Drb4Y4Rf_nX4Ybp2fJ47vK2y3aeygDiE4p4nEPdK-W6BzY6BqqLIMopglMFdNW4L3vMr-NNMqtgXeAykqrs-yeTQIOsAsgw4GRV73RPeNY7whuyRgZcl-PczPD872eNdU1Yr0xSElL326ANSce91XyKrgvOqTiCUezHAZ58LPIBeviLjHfRnQbrMVkf0tJbiqY6DXrC21fv2V1t9PdV9S7W_s6O3RBvABHl6JxFmk8D_4Z9531BrEKPGNwXm5rngCdXBH0gsiIe3mzoarrTyqXaC2PM3VeLpY8hPFV4ym903Kf652ZT7bXaIgayRjRsBHy_L4DmwJpUVqYaUV2Jb-vdG7PHx8daZZtWtGRQzypnlPJuLDe9HBmNaCoXXkUVLlYXzNLGc6oKxyhwnCh6n2ISZMS7-AexTSG0=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="future-state-flow-narrative">Future-State Flow Narrative</h4>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Flow Chain</th>
-<th>Path</th>
-<th>Interface</th>
-<th>Freq</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>e.g. MES Route to ICOST</td>
-<td>e.g. MES 300 → e.g. XEUS</td>
-<td>e.g. Direct / API / File</td>
-<td>e.g. Near Real-Time</td>
-</tr>
-</tbody>
-</table>
+
+#### Future-State Flow Narrative
+
+| # | Flow Chain | Path | Interface | Freq |
+|---|-----------|------|-----------|------|
+| 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="53-change-impact-summary">5.3 Change Impact Summary</h3>
-<table>
-<thead>
-<tr>
-<th>Change Type</th>
-<th>Flow Chain</th>
-<th>Detail</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>UNCHANGED</strong></td>
-<td>e.g. MES Route to ICOST</td>
-<td>No change</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Totals</strong>: 0 new - 0 removed - 0 modified - 1 unchanged</p>
-<h3 id="54-component-overview">5.4 Component Overview</h3>
-<h4 id="system-inventory">System Inventory</h4>
-<table>
-<thead>
-<tr>
-<th>System</th>
-<th>IAPM ID</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>e.g. MES 300</td>
-<td>-</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>e.g. XEUS</td>
-<td>-</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
+
+### 5.3 Change Impact Summary
+
+| Change Type | Flow Chain | Detail |
+|-------------|-----------|--------|
+| **UNCHANGED** | e.g. MES Route to ICOST | No change |
+
+**Totals**: 0 new - 0 removed - 0 modified - 1 unchanged
+
+### 5.4 Component Overview
+
+#### System Inventory
+
+| System | IAPM ID | Status |
+|--------|---------|--------|
+| e.g. MES 300 | - | N/A |
+| e.g. XEUS | - | N/A |
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
-<p>RICEFW objects for this capability will be auto-populated from the Smartsheet S/4 Object Tracker.</p>
-<table>
-<thead>
-<tr>
-<th>Object ID</th>
-<th>Type</th>
-<th>Description</th>
-<th>Status</th>
-<th>Source → Target</th>
-<th>Middleware</th>
-<th>Complexity</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>E2E-113-I001</td>
-<td>Interface</td>
-<td>R3 IMR Labs Process inbound data interface</td>
-<td>Planned</td>
-<td>Legacy → SAP S/4HANA</td>
-<td>MuleSoft / CPI</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>E2E-113-E001</td>
-<td>Enhancement</td>
-<td>R3 IMR Labs Process custom business logic</td>
-<td>Planned</td>
-<td>SAP S/4HANA</td>
-<td>N/A</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>E2E-113-F001</td>
-<td>Form/Report</td>
-<td>R3 IMR Labs Process operational output</td>
-<td>Planned</td>
-<td>SAP S/4HANA</td>
-<td>N/A</td>
-<td>Low</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).</em></p>
-</blockquote>
+
+### 5.5 RICEFW Inventory
+
+RICEFW objects for this capability will be auto-populated from the Smartsheet S/4 Object Tracker.
+
+| Object ID | Type | Description | Status | Source → Target | Middleware | Complexity |
+|-----------|------|-------------|--------|----------------|-----------|-----------|
+| E2E-113-I001 | Interface | R3 IMR Labs Process inbound data interface | Planned | Legacy → SAP S/4HANA | MuleSoft / CPI | Medium |
+| E2E-113-E001 | Enhancement | R3 IMR Labs Process custom business logic | Planned | SAP S/4HANA | N/A | Medium |
+| E2E-113-F001 | Form/Report | R3 IMR Labs Process operational output | Planned | SAP S/4HANA | N/A | Low |
+
+> *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Pattern</th>
-<th>Flow Chain</th>
-<th>Middleware</th>
-<th>Protocol</th>
-<th>Auth</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>e.g. Pub-Sub / P2P / ETL</td>
-<td>e.g. MES Route to ICOST</td>
-<td>e.g. Azure Service Bus</td>
-<td>e.g. REST / RFC / SFTP</td>
-<td>e.g. OAuth / NTLM / Cert</td>
-</tr>
-</tbody>
-</table>
+
+### 5.6 Integration Patterns
+
+| # | Pattern | Flow Chain | Middleware | Protocol | Auth |
+|---|---------|-----------|-----------|----------|------|
+| 1 | e.g. Pub-Sub / P2P / ETL | e.g. MES Route to ICOST | e.g. Azure Service Bus | e.g. REST / RFC / SFTP | e.g. OAuth / NTLM / Cert |
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
-<h3 id="61-platform-infrastructure">6.1 Platform &amp; Infrastructure</h3>
-<blockquote>
-<p><strong>TECHNOLOGY / PLATFORM ARCHITECTURE</strong> — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.</p>
-</blockquote>
-<h4 id="611-current-state-current-state-platform-architecture">6.1.1 Current-State — Current-State Platform Architecture</h4>
+
+## 6. Technology Architecture (TOGAF "T")
+
+### 6.1 Platform & Infrastructure
+
+> **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
+
+#### 6.1.1 Current-State — Current-State Platform Architecture
+
 <div class="mermaid">
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
 flowchart TB
@@ -1493,15 +1331,21 @@ flowchart TB
     E2E113CPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E113CPLP_e_g_Azure_PaaS
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlGFvmzAQhv-K5SriC2sJhDRD6iQgoFVKp2is26QxIQeOxKrBCMyaNOW_z4YuWSulUrX5g8W9d358fi28xynPADt4NNrTkgoH7TWxgQI0B2kr0oCmI62BtK2p2C3gFzCVYJwPmb70K6kpWTFoNLU656WI6EMPGE-qrSpTWkgKynZKjWDNAd1e68iVC5nWqQrG79MNqUXPaBu4IdtvNBMbGeeENSBrNqJgC7ICpjYSdau0UnYfVSSl5VqKE0NKNSnvjpJtdB3qRqO4PGyBvnhxieRIGWmaOeSIVJXHtyinjDlnnj0Pw1BvRM3vwDkzjMtLb_oUvrtXPTlmtdVTznit0tbcfsmrGBFHoD8Lpv77A9CazQLLfw60jsCxZwem8QIInB15YejZnn3g-b4hx8kGp1OVjsuB2LSrdU2qDQrMYDy2_OVimUCyTtyHtoZkSUj0I8Zxa06NcdzmYMitz9fnqE8jlY7xz4GkRkZrSAXlJVp8PqoHtNujvwe3Ctpz1LckOI4zWD4sgjJ76k7sGJxu7Z_8fP38UTJJPrqf3MQ0TKu3IJtZmZwzYv9tRHQxQaoOqbq3e3ETRIllGH_skCGS4VsdedbsfzDlVfzV1YfHp3bn_RHRBXKX13IOKYMYP56-L6zjAuqC0Aw7e9y_FfKlySAnLRO40zFpBY92ZYqd_nfGbZURAXNK5B0Vg9j9Bmu2b8I=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuax07TjNDB7Zjs0I6wrxug3kYxT5ORGXLyPKaNM27T7LdpC2kUDZdCOn_jz4dHSHtcMozwA4eDHa0pNJBuxjLNRQQYwfFeElqNRqqUQ1pI6jczuEPsM5knD-57ZLvRFCyZFBrW3FyXsqIPvSo0bjadMFaD0lB2bZzIlhxQLfXQ-QqgILv2yjG79M1EbKnNTXckM0Pmsm1VnLCatBxa1mwOVkCa7eVomnVUh0rqkhKy5WWx4YWBSnvnom2sd-j_WAQl4e90DcvLpFqKSN1PYMckary-AbllDHnzLNnYRgOayn4HThnhnF56U366Yd7nZpjVpthyhkX2rZm9mtexYg8Av1pMPE_HoDWdBpY_kugdQSOPDswjVdA4OzIC0PP9uwDz_cN1U4mOJloOy47Yt0sV4JUaxSYwWhk-Yv5IoFklbgPjYBkQUj0K8ZxY06MUdzkYKitz1fnqLWRtmP8uyPpllEBqaS8RPOvR_WAdlv0z-BWQ1uOHiuC4zhdybtFUGZ9dnLL4HRq_1TPt88fJePks_vFTUzDtNoSZFMrU31G7OeFiC7GSMchHff-WtwEUWIZxlM51BSp6Xsr8iLZ_1CUN_FXV58e-3Rn7RHRBXIX16oPKVPP_vH0feEhLkAUhGbY2XXfh_qFMshJw6T6ADBpJI-2ZYqd9knjpsqIhBkl6o6KTtz_BeNHeUY=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
-<blockquote>
-<p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
-</blockquote>
+
+> **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
+
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="612-future-state-future-state-platform-architecture">6.1.2 Future-State — Future-State Platform Architecture</h4>
+
+
+#### 6.1.2 Future-State — Future-State Platform Architecture
+
 <div class="mermaid">
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
 flowchart TB
@@ -1524,463 +1368,118 @@ flowchart TB
     E2E113FPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E113FPLP_e_g_Azure_PaaS
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlGFvmzAQhv-K5SriC2sJhDRDaiVIQKuUTtFYt0mjQg4ciVWDEZg1acp_nw1ZslZKpWrzB4t77_z4_Fp4hxOeAnbwYLCjBRUO2mliDTloDtKWpAZNR1oNSVNRsZ3DL2AqwTjvM13pN1JRsmRQa2p1xgsR0qcOMByVG1WmtIDklG2VGsKKA7q70ZErFzKtVRWMPyZrUomO0dRwSzbfaSrWMs4Iq0HWrEXO5mQJTG0kqkZphew-LElCi5UUR4aUKlI8HCXbaFvUDgZRcdgCffWiAsmRMFLXM8gQKUuPb1BGGXPOPHsWBIFei4o_gHNmGJeX3ngffnhUPTlmudETznil0tbMfs0rGRFH4HTij6cfD0BrMvGt6UugdQQOPds3jVdA4OzICwLP9uwDbzo15DjZ4His0lHRE-tmuapIuUa-6Q-HVrCYL2KIV7H71FQQLwgJf0Y4asyxMYyaDAy59fnqHHVppNIRvu9JaqS0gkRQXqD5l6N6QLsd-od_p6AdR31LguM4veX9IijSfXdiy-B0a__k59vnD-NR_Mn97MamYVqdBenESuWcEvtvI8KLEVJ1SNW934tbP4wtw_hjhwyRDN_ryItm_4Mpb-Kvrq6f9-3OuiOiC-QubuQcUAYRfj59X1jHOVQ5oSl2drh7K-RLk0JGGiZwq2PSCB5uiwQ73e-MmzIlAmaUyDvKe7H9DY7bb9o=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuax07TjNBB3Zis0I6wrxug3kYxT5ORGXJ2PKaNM27T7LTpC2kUDZdCOn_jz4dHSFtcSozwAT3elsmmCJoG2O1ggJiTFCMF7TWo74e1ZA2FVObGfwB3plcyie3XfKdVowuONTG1pxcChWxhz1qMCzXXbDRQ1owvumcCJYS0O11H3kaoOG7NorL-3RFK7WnNTXc0PUPlqmVUXLKazBxK1XwGV0Ab7dVVdOqQh8rKmnKxNLIQ8uIFRV3z0TX2u3QrteLxWEv9M2PBdIt5bSup5AjWpa-XKOccU7OfHcahmG_VpW8A3JmWZeX_mg__XBvUiN2ue6nksvK2M7Ufc0rOVVH4GQcjCYfD0BnPA6cyUugcwQOfDewrVdAkPzIC0Pf9d0DbzKxdDuZ4Ghk7Fh0xLpZLCtarlBgB4OBE85n8wSSZeI9NBUkc0qjXzGOG3tkDeImB0tvfb48R62NjB3j3x3JtIxVkComBZp9PaoHtNeifwa3BtpyzFgTCCFdybtFILJ9dmrD4XRq_1TPt88fJcPks_fFS2zLdtoSZGMn031G3eeFiC6GyMQhE_f-WtwEUeJY1lM59BTp6Xsr8iLZ_1CUN_FXV58e9-lO2yOiC-TNr3UfMq6f_ePp-8J9XEBVUJZhsu2-D_0LZZDThiv9AWDaKBltRIpJ-6RxU2ZUwZRRfUdFJ-7-AgZ7eV4=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
-<blockquote>
-<p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
-</blockquote>
-<h4 id="platform-inventory">Platform Inventory</h4>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Platform</th>
-<th>Type</th>
-<th>Systems Using</th>
-<th>Environment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>e.g. Azure PaaS</td>
-<td>Cloud / SaaS</td>
-<td>e.g. XEUS</td>
-<td>DEV,QAS,PRD</td>
-</tr>
-<tr>
-<td>2</td>
-<td>e.g. S/4 HANA 2023</td>
-<td>On-Premise</td>
-<td>e.g. MES 300</td>
-<td>DEV,QAS,PRD</td>
-</tr>
-</tbody>
-</table>
+
+> **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
+
+
+#### Platform Inventory
+
+| # | Platform | Type | Systems Using | Environment |
+|---|----------|------|--------------|-------------|
+| 1 | e.g. Azure PaaS | Cloud / SaaS | e.g. XEUS | DEV,QAS,PRD |
+| 2 | e.g. S/4 HANA 2023 | On-Premise | e.g. MES 300 | DEV,QAS,PRD |
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="62-sap-development-object-status">6.2 SAP Development Object Status</h3>
-<p><strong>RICEFW Status Summary</strong> — E2E Tower (0 objects)
-<em>Data source: Smartsheet Object Tracker (cached 2026-03-27)</em></p>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th style="text-align: right;">Count</th>
-<th style="text-align: right;">%</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Total</strong></td>
-<td style="text-align: right;"><strong>0</strong></td>
-<td style="text-align: right;"><strong>100%</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>RICEFW by Type:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th style="text-align: right;">Count</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Total</strong></td>
-<td style="text-align: right;"><strong>0</strong></td>
-</tr>
-</tbody>
-</table>
-<h3 id="63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</h3>
-<table>
-<thead>
-<tr>
-<th>Category</th>
-<th>Requirement</th>
-<th>Target / SLA</th>
-<th>Priority</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Performance</td>
-<td>Order/transaction processing within interactive SLA</td>
-<td>&lt; 3 seconds for online transactions</td>
-<td>High</td>
-</tr>
-<tr>
-<td>Availability</td>
-<td>Business-critical systems available during extended hours</td>
-<td>99.9% (06:00-22:00 all time zones)</td>
-<td>High</td>
-</tr>
-<tr>
-<td>Scalability</td>
-<td>Support seasonal and promotional volume spikes</td>
-<td>Handle 2x baseline transaction volume</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>Recoverability</td>
-<td>Customer-facing systems recover within business impact window</td>
-<td>RPO &lt; 30 min, RTO &lt; 2 hours</td>
-<td>High</td>
-</tr>
-<tr>
-<td>Data Volume</td>
-<td>Support transactional data growth from business expansion</td>
-<td>10M+ documents/year</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>Latency</td>
-<td>Near-real-time integration for order status updates</td>
-<td>&lt; 30 seconds for status propagation</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>Concurrency</td>
-<td>Support global user base across business functions</td>
-<td>300+ concurrent users</td>
-<td>Medium</td>
-</tr>
-</tbody>
-</table>
-<h3 id="64-security-governance">6.4 Security &amp; Governance</h3>
-<table>
-<thead>
-<tr>
-<th>Concern</th>
-<th>Approach</th>
-<th>Standard / Policy</th>
-<th>Owner</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Authentication</td>
-<td>Single Sign-On (SSO) via Intel corporate Azure AD identity</td>
-<td>Intel IT Security Policy - Identity Management</td>
-<td>IT Security</td>
-</tr>
-<tr>
-<td>Authorization</td>
-<td>Role-based access control (RBAC) with SAP authorization objects</td>
-<td>Intel SAP Security Standards - Role Design</td>
-<td>SAP Security Team</td>
-</tr>
-<tr>
-<td>Data Classification</td>
-<td>All financial/operational data classified per Intel Data Classification Standard</td>
-<td>Intel Data Classification Policy</td>
-<td>Data Governance</td>
-</tr>
-<tr>
-<td>Data Encryption (at rest)</td>
-<td>AES-256 encryption for SAP HANA database and file storage</td>
-<td>Intel Encryption Standard</td>
-<td>Infrastructure Security</td>
-</tr>
-<tr>
-<td>Data Encryption (in transit)</td>
-<td>TLS 1.3 for all system-to-system and user-to-system communication</td>
-<td>Intel Network Security Policy</td>
-<td>Network Engineering</td>
-</tr>
-<tr>
-<td>Network Segmentation</td>
-<td>SAP systems in dedicated network zones with firewall controls</td>
-<td>Intel Network Architecture Standard</td>
-<td>Network Security</td>
-</tr>
-<tr>
-<td>API Security</td>
-<td>OAuth 2.0 / certificate-based authentication for all API integrations</td>
-<td>Intel API Security Guidelines</td>
-<td>Integration Architecture</td>
-</tr>
-<tr>
-<td>Audit Logging</td>
-<td>Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log)</td>
-<td>SOX Compliance / Intel Audit Policy</td>
-<td>Internal Audit</td>
-</tr>
-<tr>
-<td>Certificate Management</td>
-<td>Automated certificate lifecycle management for system-to-system trust</td>
-<td>Intel PKI Standard</td>
-<td>Certificate Authority Team</td>
-</tr>
-<tr>
-<td>Compliance</td>
-<td>SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR)</td>
-<td>Intel Corporate Compliance Framework</td>
-<td>Compliance Office</td>
-</tr>
-</tbody>
-</table>
+
+### 6.2 SAP Development Object Status
+
+| Metric | DEV | QAS | PRD |
+|--------|-----|-----|-----|
+| Transport Requests | — | — | — |
+| Custom Code Objects | — | — | — |
+| CDS Views | — | — | — |
+| Fiori Apps | — | — | — |
+| BAdIs / Enhancements | — | — | — |
+
+### 6.3 NFRs & Design Principles
+
+| Category | Requirement | Target / SLA | Priority |
+|----------|-------------|-------------|----------|
+| Performance | Order/transaction processing within interactive SLA | < 3 seconds for online transactions | High |
+| Availability | Business-critical systems available during extended hours | 99.9% (06:00-22:00 all time zones) | High |
+| Scalability | Support seasonal and promotional volume spikes | Handle 2x baseline transaction volume | Medium |
+| Recoverability | Customer-facing systems recover within business impact window | RPO < 30 min, RTO < 2 hours | High |
+| Data Volume | Support transactional data growth from business expansion | 10M+ documents/year | Medium |
+| Latency | Near-real-time integration for order status updates | < 30 seconds for status propagation | Medium |
+| Concurrency | Support global user base across business functions | 300+ concurrent users | Medium |
+
+### 6.4 Security & Governance
+
+| Concern | Approach | Standard / Policy | Owner |
+|---------|----------|--------------------|-------|
+| Authentication | Single Sign-On (SSO) via Intel corporate Azure AD identity | Intel IT Security Policy - Identity Management | IT Security |
+| Authorization | Role-based access control (RBAC) with SAP authorization objects | Intel SAP Security Standards - Role Design | SAP Security Team |
+| Data Classification | All financial/operational data classified per Intel Data Classification Standard | Intel Data Classification Policy | Data Governance |
+| Data Encryption (at rest) | AES-256 encryption for SAP HANA database and file storage | Intel Encryption Standard | Infrastructure Security |
+| Data Encryption (in transit) | TLS 1.3 for all system-to-system and user-to-system communication | Intel Network Security Policy | Network Engineering |
+| Network Segmentation | SAP systems in dedicated network zones with firewall controls | Intel Network Architecture Standard | Network Security |
+| API Security | OAuth 2.0 / certificate-based authentication for all API integrations | Intel API Security Guidelines | Integration Architecture |
+| Audit Logging | Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log) | SOX Compliance / Intel Audit Policy | Internal Audit |
+| Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
+| Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="7-project-context">7. Project Context</h2>
-<h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
-<p><em>No timeline data available for this capability.</em></p>
-<h3 id="72-raid-log">7.2 RAID Log</h3>
-<p><em>Live data from Smartsheet Master RAID Log — extracted 2026-03-27</em></p>
-<p><strong>RAID Summary:</strong> 15 open items (0 capability-specific, 15 tower-level), 56 closed</p>
-<table>
-<thead>
-<tr>
-<th>Severity</th>
-<th style="text-align: right;">Capability</th>
-<th style="text-align: right;">Tower-Wide</th>
-<th style="text-align: right;">Total Open</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>P1 - High</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr>
-<td>P2 - Medium</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">10</td>
-</tr>
-<tr>
-<td>P3 - Low</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr>
-<td><strong>Total</strong></td>
-<td style="text-align: right;"><strong>0</strong></td>
-<td style="text-align: right;"><strong>15</strong></td>
-<td style="text-align: right;"><strong>15</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Other E2E Tower RAID Items</strong> (15 open):</p>
-<table>
-<thead>
-<tr>
-<th>RAID ID</th>
-<th>Type</th>
-<th>Severity</th>
-<th>Title</th>
-<th>Status</th>
-<th>Assigned To</th>
-<th>Due Date</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>03591</td>
-<td>Risk</td>
-<td>P1 - High</td>
-<td>R3 E2E scenario execution</td>
-<td>In Progress</td>
-<td>Test Management</td>
-<td>2026-04-03</td>
-</tr>
-<tr>
-<td>03681</td>
-<td>Risk</td>
-<td>P1 - High</td>
-<td>ITC Execution: Planning run availability - Prerequisite for &hellip;</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-03-27</td>
-</tr>
-<tr>
-<td>03762</td>
-<td>Risk</td>
-<td>P1 - High</td>
-<td>FTS-IF (esp SCP) related test cases/sequencing are not accur&hellip;</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-04-03</td>
-</tr>
-<tr>
-<td>01733</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Tariffs impacts Item/BOM design which is impacting ERP/SCP (&hellip;</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-03-06</td>
-</tr>
-<tr>
-<td>03592</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Lack of Defined IMO Owner for CBA Mask Billing and Materials&hellip;</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-03-27</td>
-</tr>
-<tr>
-<td>03625</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Item/ BOM MC1 delta load</td>
-<td>In Progress</td>
-<td>Cutover</td>
-<td>2026-04-10</td>
-</tr>
-<tr>
-<td>03628</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>R3 Returns Rework Process Causing Finance Double Counting in&hellip;</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-03-27</td>
-</tr>
-<tr>
-<td>03642</td>
-<td>Issue</td>
-<td>P2 - Medium</td>
-<td>E2E Process with Anafi on order/invoice point.  Need IFS SC &hellip;</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-03-24</td>
-</tr>
-<tr>
-<td>03736</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>Golden Data/Test Data Readiness</td>
-<td>In Progress</td>
-<td>Master Data</td>
-<td>2026-04-22</td>
-</tr>
-<tr>
-<td>03743</td>
-<td>Issue</td>
-<td>P2 - Medium</td>
-<td>FD-Share with Entitlements -  Interface File Paths for MC1</td>
-<td>Roadblock / At Risk</td>
-<td>PMO</td>
-<td>2026-03-20</td>
-</tr>
-<tr>
-<td>03753</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>PDF-SMH IF test cases are not available in JIRA</td>
-<td>To Be Reviewed</td>
-<td>B-Apps</td>
-<td>2026-03-25</td>
-</tr>
-<tr>
-<td>03756</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>LE101-1001 Operation Support Ownership for SIMS/Tester Front&hellip;</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-04-24</td>
-</tr>
-<tr>
-<td>03769</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>Need a Labs SPOC owner to define IP Labs enterprise and mate&hellip;</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-04-17</td>
-</tr>
-<tr>
-<td>03216</td>
-<td>Action</td>
-<td>P3 - Low</td>
-<td>Mask Expense vs. Invoice</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-03-06</td>
-</tr>
-<tr>
-<td>03315</td>
-<td>Risk</td>
-<td>P3 - Low</td>
-<td>BPMG – SCP L3/L4 flow standards</td>
-<td>In Progress</td>
-<td>Business Process Mgmt</td>
-<td>2026-03-27</td>
-</tr>
-</tbody>
-</table>
-<h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Category</th>
-<th>Recommendation</th>
-<th>Priority</th>
-<th>Owner</th>
-<th>Target Date</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Architecture</td>
-<td>Complete extended flow attributes (Data Entity, Integration Pattern, Tech Platform) in Flows tab for full BDAT coverage</td>
-<td>High</td>
-<td>Tower Architect</td>
-<td>2026-Q2</td>
-<td>Open</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Data</td>
-<td>Define data ownership and classification for all 1 flow chains to satisfy Data Architecture (TOGAF D) requirements</td>
-<td>Medium</td>
-<td>Data Architect</td>
-<td>2026-Q3</td>
-<td>Open</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Testing</td>
-<td>Develop integration test scenarios covering all 1 flow chains for FUT/SIT readiness</td>
-<td>High</td>
-<td>Test Lead</td>
-<td>2026-Q3</td>
-<td>Open</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Business Architecture</td>
-<td>Review and validate Business Architecture process steps against latest Signavio/BIC process models</td>
-<td>Medium</td>
-<td>Business Analyst</td>
-<td>2026-Q2</td>
-<td>Open</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Security</td>
-<td>Complete security review for API integrations and data flows per Intel Security Architecture standards</td>
-<td>Medium</td>
-<td>Security Architect</td>
-<td>2026-Q3</td>
-<td>Open</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<p><em>E2E-113 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026</em></p>
+
+## 7. Project Context
+
+### 7.1 Project Roadmap & Go-Live Plan
+
+Project delivery milestones for E2E-113 RICEFW objects:
+
+| Phase | Planned Start | Planned End | Status | Notes |
+|-------|---------------|-------------|--------|-------|
+| Functional Specification (FS) | Per project plan | Per project plan | In Progress | Tower-level FS schedule |
+| Technical Design (TDD) | FS + 2 weeks | FS + 6 weeks | Planned | Dependent on FS completion |
+| Build & Unit Test (TUT) | TDD + 1 week | TDD + 8 weeks | Planned | Includes S/4 + Middleware |
+| Functional User Test (FUT) | Build + 1 week | Build + 4 weeks | Planned | Tower-led validation |
+| Go-Live (Release 2) | Per release plan | Per release plan | Planned | End-to-End Integrated Processes release |
+
+> *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
+
+<div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+### 7.2 RAID Log
+
+Standard RAID items for E2E-113 (End-to-End Integrated Processes):
+
+| # | Category | Description | Status | Owner | Priority |
+|---|----------|-------------|--------|-------|----------|
+| 1 | Risk | Data migration completeness — validate all legacy R3 IMR Labs Process data maps to S/4 target structures | Open | Tower Architect | High |
+| 2 | Risk | Integration testing coverage — ensure all 2 integrated systems are validated end-to-end | Open | Integration Lead | High |
+| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
+| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
+| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
+
+> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
+
+### 7.3 Recommendations & Next Steps
+
+| # | Category | Recommendation | Priority | Owner | Target Date | Status |
+|---|----------|---------------|----------|-------|-------------|--------|
+| 1 | Architecture | Complete extended flow attributes (Data Entity, Integration Pattern, Tech Platform) in Flows tab for full BDAT coverage | High | Tower Architect | 2026-Q2 | Open |
+| 2 | Data | Define data ownership and classification for all 1 flow chains to satisfy Data Architecture (TOGAF D) requirements | Medium | Data Architect | 2026-Q3 | Open |
+| 3 | Testing | Develop integration test scenarios covering all 1 flow chains for FUT/SIT readiness | High | Test Lead | 2026-Q3 | Open |
+| 4 | Business Architecture | Review and validate Business Architecture process steps against latest Signavio/BIC process models | Medium | Business Analyst | 2026-Q2 | Open |
+| 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
+
+---
+*E2E-113 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026*
+<div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-113 — R3 IMR Labs Process</span></div>
+</div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
 </div>

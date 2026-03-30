@@ -1,9 +1,10 @@
+<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
-  <h1 style="font-size:36px; margin-top:24px;">DC-010 — DC-010</h1>
+  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <h1 style="font-size:36px; margin-top:24px;">DC-010 — Perform Transaction Processing</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Finance Plan To Report (FPR) Tower<br/>
-  Capability DC-010 · </p>
+  Capability DC-010 · DC Manage Accounting and Control Data</p>
   <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
   Generated: March 2026<br/>
   Sajiv Francis</p>
@@ -19,7 +20,14 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
+.page-section {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 40px);
+  box-sizing: border-box;
+}
 .page-footer {
+  margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid #ddd;
   display: flex;
@@ -27,81 +35,121 @@
   align-items: center;
   font-size: 11px;
   color: #888;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 20px;
+  padding: 6px 12px;
   background: #fff;
 }
 @media print {
-  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+  .page-section {
+    min-height: 100vh;
+  }
+  .page-footer {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
 .page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
 </style>
 
-<div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — DC-010</span></div>
+<div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 <a id="toc"></a>
 
 ## Table of Contents
 
-1. [Executive Summary](#1-executive-summary)
-2. [Business Context & Objectives](#2-business-context--objectives)
-   - 2.1 [Classification](#21-classification)
-   - 2.2 [Business Drivers](#22-business-drivers)
-   - 2.3 [Success Criteria](#23-success-criteria)
-   - 2.4 [Companion Documents](#24-companion-documents)
-3. [Business Architecture (TOGAF "B")](#3-business-architecture-togaf-b)
-   - 3.1 [Business Process Overview](#31-business-process-overview)
-   - 3.2 [Business Process Diagrams](#32-business-process-diagrams)
-   - 3.3 [Business Roles & Responsibilities](#33-business-roles--responsibilities)
-4. [Data Architecture (TOGAF "D")](#4-data-architecture-togaf-d)
-   - 4.1 [Data Entities & Ownership](#41-data-entities--ownership)
-   - 4.2 [Data Flow Diagrams](#42-data-flow-diagrams)
-   - 4.3 [Data Lineage](#43-data-lineage)
-   - 4.4 [RICEFW Data Objects](#44-ricefw-data-objects)
-   - 4.5 [Data Governance & Quality](#45-data-governance--quality)
-5. [Application Architecture (TOGAF "A")](#5-application-architecture-togaf-a)
-   - 5.1 [Current-State Application Landscape](#51-current-state--current-state-application-landscape)
-   - 5.2 [Future-State Application Landscape](#52-future-state--future-state-application-landscape)
-   - 5.3 [Change Impact Summary](#53-change-impact-summary)
-   - 5.4 [Component Overview](#54-component-overview)
-   - 5.5 [RICEFW Inventory](#55-ricefw-inventory)
-   - 5.6 [Integration Patterns](#56-integration-patterns)
-6. [Technology Architecture (TOGAF "T")](#6-technology-architecture-togaf-t)
-   - 6.1 [Platform & Infrastructure](#61-platform--infrastructure)
-   - 6.2 [SAP Development Object Status](#62-sap-development-object-status)
-   - 6.3 [NFRs & Design Principles](#63-nfrs--design-principles)
-   - 6.4 [Security & Governance](#64-security--governance)
-7. [Project Context](#7-project-context)
-   - 7.1 [Project Roadmap & Go-Live Plan](#71-project-roadmap--go-live-plan)
-   - 7.2 [RAID Log](#72-raid-log)
-   - 7.3 [Recommendations & Next Steps](#73-recommendations--next-steps)
+<nav class="toc">
+<ol>
+  <li><a href="#1-executive-summary">1. Executive Summary</a></li>
+  <li><a href="#2-business-context-objectives">2. Business Context &amp; Objectives</a>
+    <ul>
+      <li><a href="#21-classification">2.1 Classification</a></li>
+      <li><a href="#22-business-drivers">2.2 Business Drivers</a></li>
+      <li><a href="#23-success-criteria">2.3 Success Criteria</a></li>
+      <li><a href="#24-companion-documents">2.4 Companion Documents</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+    <ul>
+      <li><a href="#31-business-process-overview">3.1 Business Process Overview</a></li>
+      <li><a href="#32-business-process-diagrams">3.2 Business Process Diagrams</a></li>
+      <li><a href="#33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+    <ul>
+      <li><a href="#41-data-entities-ownership">4.1 Data Entities &amp; Ownership</a></li>
+      <li><a href="#42-data-flow-diagrams">4.2 Data Flow Diagrams</a></li>
+      <li><a href="#43-data-lineage">4.3 Data Lineage</a></li>
+      <li><a href="#44-ricefw-data-objects">4.4 RICEFW Data Objects</a></li>
+      <li><a href="#45-data-governance-quality">4.5 Data Governance &amp; Quality</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+    <ul>
+      <li><a href="#51-current-state-current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
+      <li><a href="#52-future-state-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
+      <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
+      <li><a href="#54-component-overview">5.4 Component Overview</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+    <ul>
+      <li><a href="#61-platform-infrastructure">6.1 Platform &amp; Infrastructure</a></li>
+      <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
+      <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
+      <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+    </ul>
+  </li>
+  <li><a href="#7-project-context">7. Project Context</a>
+    <ul>
+      <li><a href="#71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</a></li>
+      <li><a href="#72-raid-log">7.2 RAID Log</a></li>
+      <li><a href="#73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</a></li>
+    </ul>
+  </li>
+</ol>
+</nav>
 
-<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — DC-010</span></div>
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 1. Executive Summary
 
-This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **DC-010 DC-010** within the IAO program. It includes 5 BPMN process diagram(s) in Section 3.
+This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **DC-010 Perform Transaction Processing** within the IAO program. It includes 5 BPMN process diagram(s) in Section 3.
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Finance Plan To Report (FPR) |
-| **Process Group** |  |
-| **Capability** | DC-010 - DC-010 |
+| **Process Group** | DC Manage Accounting and Control Data |
+| **Capability** | DC-010 - Perform Transaction Processing |
 | **Release** | Release 3 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 17 Reports, 86 Interfaces, 25 Conversions, 219 Enhancements, 1 Forms, 18 Workflows |
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
-> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: "loose"` for click events.
+> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
-<div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — DC-010</span></div>
+<div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 2. Business Context & Objectives
 
@@ -110,8 +158,8 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | Level | Value |
 |-------|-------|
 | **L0 Tower** | Finance Plan To Report |
-| **L1 Process** |  |
-| **L2 Capability** | DC-010 - DC-010 |
+| **L1 Process** | DC Manage Accounting and Control Data |
+| **L2 Capability** | DC-010 - Perform Transaction Processing |
 
 ### 2.2 Business Drivers
 
@@ -122,8 +170,11 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Regulatory Compliance Readiness | Ensure SOX compliance and audit trail continuity through the ERP transition period | Intel Corporate Compliance | Medium |
 | 4 | DC-010 Process Migration | Migrate DC-010 business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Finance | High |
 
-<div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — DC-010</span></div>
+<div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 2.3 Success Criteria
 
@@ -141,14 +192,17 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
-<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — DC-010</span></div>
+<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 3. Business Architecture (TOGAF "B")
 
 ### 3.1 Business Process Overview
 
-This capability includes **5 business process(es)** modeled in BPMN 2.0, covering the end-to-end workflow for DC-010 DC-010.
+This capability includes **5 business process(es)** modeled in BPMN 2.0, covering the end-to-end workflow for DC-010 Perform Transaction Processing.
 
 | # | Step ID | Process Name | Lanes | Tasks | Gateways |
 |---|---------|--------------|-------|-------|----------|
@@ -158,10 +212,14 @@ This capability includes **5 business process(es)** modeled in BPMN 2.0, coverin
 | 4 | DC-010-080_Exchange_Rate_Maintenance | DC-010-080_Exchange_Rate_Maintenance | Treasury IT Support Specialist | 2 | 0 |
 | 5 | DC-010-090_CFIN_Initial_Load | DC-010-090_CFIN_Initial_Load | CFIN IT Analyst, Group Accountant | 23 | 16 |
 
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 ### 3.2 Business Process Diagrams
 
-<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — DC-010</span></div>
-<div style="page-break-before: always;"></div>
 
 #### BUSINESS ARCHITECTURE — 3.2.1 DC-010-040_Create_Automated_Journal_Entry_Criteria — DC-010-040_Create_Automated_Journal_Entry_Criteria
 
@@ -170,7 +228,7 @@ This capability includes **5 business process(es)** modeled in BPMN 2.0, coverin
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -220,10 +278,14 @@ flowchart TD
     class n13 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP6jYQ_itWjlbsSlAlISFsHlqxgahUPdvVgT1VdeiDSRyw1tiR7bBLOfz3jnPhkkJVqXmAzOeZby4ej7O3EpESK7Tu7vaUUx2ifUevyYZ0QtRZYkU6XVQBX7GkeMmI6hidTHA9o3-Vao6Xfxg1g8V4Q9nOoDOyEgS9TrtoBIasixTmqqeIpFmn28kl3WC5iwQT0mh_IsPMzkpv9dKTkCmRJwXbDpzEB1NGOTnB_cALvNjYKZIInl6QZn42zJLOwQTHxHuyxlKX4ReKfMYfv9NUr0HOMFMEdNZ6w37FS8JMjloWBksKuW2KQZXxw6FgsxwnlK8A92yAJOZvJ8i3Dwd0uLtb8KNTNB8vOIInYVipMcmQ0gBPthpllLHwkxeNYt_uKi3FGwk_uZNg3He7ickkhNTtrilu753Q1VqHS8HSWrX3bnII3fyjKz9C1-7KHfy2fBGenjxFA3foDo-engIncqLGU5Zl_8sT1FXOsXqrfU36sRuPj74cf-BH9j_5mjTHXjBy2nUicksTckYax3F_cirVZOA79m3Sp7g_sKMW6Qpr8o53J8LHyDsSxn4QO8FNwspfO8pi-SJF0hD2J37sHwmDJyceuTcJvZHjDesIgWclcb5G0zmKnr-gWZHnAtpnlpMEDhFVutIzD3e-LawMhxnumbKjLyRnNIHM0FOh4IwohT7jPIeeXFh_npm5l2YvRGZCblAUT5_RKElEwTXYoCnXsIITcmndv2797y6960YTKYVEkZCSJJoKjn7GPGXG-f1oGj9ccvjtbLWkZEvQD4naopiyVpyDb0f9RKzQa84EThFMMjTGGiPKq4RnGq-Mw3k52oDinCO45GjCfuV0S6TCDP0iCsnhf8K13EHQ0fi3aPTQYhm2WBjUtAzEBK1MJLPRCxpTUwQhdy3rx-sxGFv0FToixWXl7mNAMTQKzGQEVYR9gFlo-ECVsFS1o3Ls-yNxzuAszGGIKWbaB7YQTT5g901qJYyr7SkrN4VbgoJaCoQP54TOiVBpkf9nwkhsckauELotwmehaWY63JjOCNdIC3NQmkMyJ3jT5ujv96fypaS3BO_J-rxysyJJoHGzgv20sA6HyhgmZvXCXdTr_QhtX4tBJTr1mOJOJbu16FViUIuDWrsW-5Xo1eKwEgcNlV3Jfi37lfhYi481VxOJU7J9X1h_mL79DnTthWdR4o57NqxMxM2QvoDd63D_Ouxdh_3r8OB8il-sBDdXhjdXHm-uQAWba_USd-or8BJ1r6L95nawutaGwKGiqRXurfIbCL6TUpLhgmnr0LVwocVsxxMrLL8VrCKHliJjimGEbyrw8De9Q_fe" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP6jYQ_itWjlbsSlAlISFsHlqxgahUPdvVgT1VdeiDSRyw1tiR7bBLOfz3jnPhkkJVqXmAzOeZby4ej7O3EpESK7Tu7vaUUx2ifUevyYZ0QtRZYkU6XVQBX7GkeMmI6hidTHA9o3-Vao6Xfxg1g8V4Q9nOoDOyEgS9TrtoBIasixTmqqeIpFmn28kl3WC5iwQT0mh_IsPMzkpv9dKTkCmRJwXbDpzEB1NGOTnB_cALvNjYKZIInl6QZn42zJLOwQTHxHuyxlKX4ReKfMYfv9NUr0HOMFMEdNZ6w37FS8JMjloWBksKuW2KQZXxw6FgsxwnlK8A92yAJOZvJ8i3Dwd0uLtb8KNTNB8vOIInYVipMcmQ0gBPthpllLHwkxeNYt_uKi3FGwk_uZNg3He7ickkhNTtrilu753Q1VqHS8HSWrX3bnII3fyjKz9C1-7KHfy2fBGenjxFA3foDo-engIncqLGU5Zl_8sT1FXOsXqrfU36sRuPj74cf-BH9j_5mjTHXjBy2nUicksTckYax3F_cirVZOA79m3Sp7g_sKMW6Qpr8o53J8LHyDsSxn4QO8FNwspfO8pi-SJF0hD2J37sHwmDJyceuTcJvZHjDesIgWclcb5G0zmKnr-gWZHnAtpnlpMEDhFVutIzD3e-LawMhxnumbKjLyRnNIHM0FOh4IwohT7jPIeeXFh_npm5l2YvRGZCblAUT5_RKElEwTXYoCnXsIITcmndv2797y6960YTKYVEkZCSJJoKjn7GPGXG-f1oGj9ccvjtbLWkZEvQD4naopiyVpyDb0f9RKzQa84EThFMMjTGGiPKq4RnGq-Mw3k52oDinCO45GjCfuV0S6TCDP0iCsnhf8K13EHQ0fi3aPTQYhm2WBjUtAzEBK1MJLPRCxpTUwQhdy3rx-sxGFv0FToixWXl7mNAMTQKzGQEVYR9gFlo-ECVsFS1o3Ls-yNxzuAszGGIKWbaB7YQTT5g901qJYyr7SkrN4VbgoJaCoQP54TOiVBpkf9nwkhsckauELotwmehaWY63JjOCNdIC3NQmkMyJ3jT5ujv96fypaS3BO_J-rxysyJJoHGzgv20sA6HyhgmZvXCXdTr_QhtX4tBJTr1mOJOJbu16FViUIuDWrsW-5Xo1eKwEgcNlV3Jfi37lfhYi481VxOJU7J9X1h_mL79DnTthWdR4o57NqxMxM2QvoDd63D_Ouxdh_3r8OB8il-sBDdXhjdXHm-uQAWba_USd-or8BJ1r6L95nawutaGwKGiqRXurfIbCL6TUpLhgmnr0LVwocVsxxMrLL8VrCKHliJjimGEbyrw8De9Q_fe" title="View full diagram">&#128065; View Full Diagram</a></div>
 
-<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — DC-010</span></div>
+
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.2 DC-010-050_Perform_Periodic_Automated_Entries — DC-010-050_Perform_Periodic_Automated_Entries
 
@@ -232,7 +294,7 @@ flowchart TD
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -284,10 +346,14 @@ flowchart TD
     class n14 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2PqzYQ_SsWq1VaiejyGbI8tMqSUPWqlVY32_ah6YMDQ2ItYGqbTdLc_PfaYJKQJb0P5SHKnJlzzngwhqOR0BSM0Hh8PJKSiBAdR2ILBYxCNFpjDiMTtcDvmBG8zoGPVE1GS7Ek_zRltlftVZnCYlyQ_KDQJWwooN9-NtFMEnMTcVzyMQdGspE5qhgpMDtENKdMVT_ANLOyxk2nnilLgV0KLCuwE19Sc1LCBXYDL_BixeOQ0DLtiWZ-Ns2S0Uk1l9NdssVMNO3XHH7F-z9IKrYyznDOQdZsRZH_gteQqzUKVissqdl7NwzClU8pB7ascELKjcQ9S0IMl28XyLdOJ3R6fFyVZ1P0Ol-VSF5JjjmfQ4a4kPDiXaCM5Hn44EWz2LdMLhh9g_DBWQRz1zETtZJQLt0y1XDHOyCbrQjXNE916Xin1hA61d5k-9CxTHaQvzdeUKYXp2jiTJ3p2ek5sCM76pyyLPtfTnKu7BXzN-21cGMnnp-9bH_iR9ZHvW6Zcy-Y2bdzAvZOErgSjePYXVxGtZj4tnVf9Dl2J1Z0I7rBAnb4cBF8iryzYOwHsR3cFWz9brus1y-MJp2gu_Bj_ywYPNvxzLkr6M1sb6o7lDobhqstmiUJrUshNxRaHriAAi3rCpiab1uprtL-c2VkOMzwWCXQnPAql8v6AhWVe05QtNzSnQzlJmZK6vNiZfx1xXf6_MVeVgq4IixKwQ59jnvPs8dBc5rUBZSCoxcq-0_7Il5fJNricvMNX__GF3L4VquT4VZbN67m85_0QNK_wN818GaWEQO5bT4ND4kA75OnktwyPozmFQrZh4A-4em7c7dNly_ypKQpSdCsFrSQ5WlnhF4Z2WyANUP9_no7WBcNLmjVu_N6Yh849l2O2tHAubRNP9Kc47GjqTfIeC3PwGSrh4To3c306ceVcTpdK7l3lNo9Qe_d6g863rAO7JO85uQdfmof-gtNHovtn3KKxuMfpIQObR16Onba2NWh14YTHQa62tGxr2OrU9P1Xd7V-bNbA3yV26VZ8cr4Ki1uc-0Mmpyvc0-tTtCVOrpUD76ptd3bbHuDmuRU5yb95TaHmhpCd5j3YGcYdodhbxj2h-HJMPx0fln2G7T0i62P2oOo0535fdgdhr0ONkyjAFZgkhrh0Wi-g-S3UgoZrnNhnEwDy4dzeSgTI2y-F4y6SiVzTrA8xosWPP0LGIr5fw==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2PqzYQ_SsWq1VaiejyGbI8tMqSUPWqlVY32_ah6YMDQ2ItYGqbTdLc_PfaYJKQJb0P5SHKnJlzzngwhqOR0BSM0Hh8PJKSiBAdR2ILBYxCNFpjDiMTtcDvmBG8zoGPVE1GS7Ek_zRltlftVZnCYlyQ_KDQJWwooN9-NtFMEnMTcVzyMQdGspE5qhgpMDtENKdMVT_ANLOyxk2nnilLgV0KLCuwE19Sc1LCBXYDL_BixeOQ0DLtiWZ-Ns2S0Uk1l9NdssVMNO3XHH7F-z9IKrYyznDOQdZsRZH_gteQqzUKVissqdl7NwzClU8pB7ascELKjcQ9S0IMl28XyLdOJ3R6fFyVZ1P0Ol-VSF5JjjmfQ4a4kPDiXaCM5Hn44EWz2LdMLhh9g_DBWQRz1zETtZJQLt0y1XDHOyCbrQjXNE916Xin1hA61d5k-9CxTHaQvzdeUKYXp2jiTJ3p2ek5sCM76pyyLPtfTnKu7BXzN-21cGMnnp-9bH_iR9ZHvW6Zcy-Y2bdzAvZOErgSjePYXVxGtZj4tnVf9Dl2J1Z0I7rBAnb4cBF8iryzYOwHsR3cFWz9brus1y-MJp2gu_Bj_ywYPNvxzLkr6M1sb6o7lDobhqstmiUJrUshNxRaHriAAi3rCpiab1uprtL-c2VkOMzwWCXQnPAql8v6AhWVe05QtNzSnQzlJmZK6vNiZfx1xXf6_MVeVgq4IixKwQ59jnvPs8dBc5rUBZSCoxcq-0_7Il5fJNricvMNX__GF3L4VquT4VZbN67m85_0QNK_wN818GaWEQO5bT4ND4kA75OnktwyPozmFQrZh4A-4em7c7dNly_ypKQpSdCsFrSQ5WlnhF4Z2WyANUP9_no7WBcNLmjVu_N6Yh849l2O2tHAubRNP9Kc47GjqTfIeC3PwGSrh4To3c306ceVcTpdK7l3lNo9Qe_d6g863rAO7JO85uQdfmof-gtNHovtn3KKxuMfpIQObR16Onba2NWh14YTHQa62tGxr2OrU9P1Xd7V-bNbA3yV26VZ8cr4Ki1uc-0Mmpyvc0-tTtCVOrpUD76ptd3bbHuDmuRU5yb95TaHmhpCd5j3YGcYdodhbxj2h-HJMPx0fln2G7T0i62P2oOo0535fdgdhr0ONkyjAFZgkhrh0Wi-g-S3UgoZrnNhnEwDy4dzeSgTI2y-F4y6SiVzTrA8xosWPP0LGIr5fw==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
-<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — DC-010</span></div>
+
+<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.3 DC-010-070_Reversals — DC-010-070_Reversals
 
@@ -296,7 +362,7 @@ flowchart TD
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -349,7 +415,9 @@ flowchart TD
     class n13 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v6jYY_itWqopzpKDlk9BcbKKBTK12pGrtdi7GLkzyBqwaO7MdCuPw3-eQD0garsZFy_v4eZ73A8fO0Uh4CkZo3N8fCSMqRMeR2sAWRiEarbCEkYkq4E8sCF5RkKOSk3GmXsm_Z5rt5fuSVmIx3hJ6KNFXWHNAfzyZaKaF1EQSMzmWIEg2Mke5IFssDhGnXJTsO5hmVnbOVi89cpGCuBAsK7ATX0spYXCB3cALvLjUSUg4SzummZ9Ns2R0Kouj_CPZYKHO5RcSvuH9d5KqjY4zTCVozkZt6W94BbTsUYmixJJC7JphEFnmYXpgrzlOCFtr3LM0JDB7v0C-dTqh0_39krVJ0dt8yZD-JBRLOYcMSaXhxU6hjFAa3nnRLPYtUyrB3yG8cxbB3HXMpOwk1K1bZjnc8QeQ9UaFK07Tmjr-KHsInXxvin3oWKY46L-9XMDSS6Zo4kydaZvpMbAjO2oyZVn2vzLpuYo3LN_rXAs3duJ5m8v2J35kffZr2px7wczuzwnEjiRwZRrHsbu4jGox8W3rtulj7E6sqGe6xgo-8OFi-BB5rWHsB7Ed3DSs8vWrLFYvgieNobvwY781DB7teObcNPRmtjetK9Q-a4HzDXrmhWCYogVT4oC-PC--ohcBORYgKmb5YfZfSyPDYYbH5eDRHCgoQPpxRS9YvEOK5jwptsDU0vj7SuZ0Zb_DDoSsdVyqmzq3r5OgUERBnwxsjTBLW6thvdfVv4DIuNiiJ5aSHUkL3W6lx7Sr84d13_Twbygm_Ur_KUAqpHgzo586XT8vblQcDGeOBNepI77NMTvo_-ml4xsFTb-0TjnVO69hSVTuG9BuT_r0JXpfplr49Ur5cFFKxfP-L1s31FfZVk_2pttMGw2ReqclZdqsoPSARDWLFHGB0mE_-3hs_MobY7zSZ16yaafIm933y9I4na6FzrDw-wbr3-OQa2nWTuOT2B0Wwz6hhSQ7-LV6kC8yfdRVX5iNxuOf9fjq0KlC22mWz-s_lkZV9tL4obH-Wt3debERTmqjhjyt4kkduvWyW8dBL_Z7sdeL7cbAagCnLqa33XVJfp8y-CRpotcnft7AZ17Q53Uf8TPHvTr6yik3R34HdoZhdxj2hmF_GJ4Mw8EwPG1v2g78UF-K3WasQdRu7osu7AzDbgMbprEFscUkNcKjcX6H0u9ZKWS4oMo4mQYuFH89sMQIz-8aRpGnWjknWF8B2wo8_Qc5zw0B" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v6jYY_itWqopzpKDlk9BcbKKBTK12pGrtdi7GLkzyBqwaO7MdCuPw3-eQD0garsZFy_v4eZ73A8fO0Uh4CkZo3N8fCSMqRMeR2sAWRiEarbCEkYkq4E8sCF5RkKOSk3GmXsm_Z5rt5fuSVmIx3hJ6KNFXWHNAfzyZaKaF1EQSMzmWIEg2Mke5IFssDhGnXJTsO5hmVnbOVi89cpGCuBAsK7ATX0spYXCB3cALvLjUSUg4SzummZ9Ns2R0Kouj_CPZYKHO5RcSvuH9d5KqjY4zTCVozkZt6W94BbTsUYmixJJC7JphEFnmYXpgrzlOCFtr3LM0JDB7v0C-dTqh0_39krVJ0dt8yZD-JBRLOYcMSaXhxU6hjFAa3nnRLPYtUyrB3yG8cxbB3HXMpOwk1K1bZjnc8QeQ9UaFK07Tmjr-KHsInXxvin3oWKY46L-9XMDSS6Zo4kydaZvpMbAjO2oyZVn2vzLpuYo3LN_rXAs3duJ5m8v2J35kffZr2px7wczuzwnEjiRwZRrHsbu4jGox8W3rtulj7E6sqGe6xgo-8OFi-BB5rWHsB7Ed3DSs8vWrLFYvgieNobvwY781DB7teObcNPRmtjetK9Q-a4HzDXrmhWCYogVT4oC-PC--ohcBORYgKmb5YfZfSyPDYYbH5eDRHCgoQPpxRS9YvEOK5jwptsDU0vj7SuZ0Zb_DDoSsdVyqmzq3r5OgUERBnwxsjTBLW6thvdfVv4DIuNiiJ5aSHUkL3W6lx7Sr84d13_Twbygm_Ur_KUAqpHgzo586XT8vblQcDGeOBNepI77NMTvo_-ml4xsFTb-0TjnVO69hSVTuG9BuT_r0JXpfplr49Ur5cFFKxfP-L1s31FfZVk_2pttMGw2ReqclZdqsoPSARDWLFHGB0mE_-3hs_MobY7zSZ16yaafIm933y9I4na6FzrDw-wbr3-OQa2nWTuOT2B0Wwz6hhSQ7-LV6kC8yfdRVX5iNxuOf9fjq0KlC22mWz-s_lkZV9tL4obH-Wt3debERTmqjhjyt4kkduvWyW8dBL_Z7sdeL7cbAagCnLqa33XVJfp8y-CRpotcnft7AZ17Q53Uf8TPHvTr6yik3R34HdoZhdxj2hmF_GJ4Mw8EwPG1v2g78UF-K3WasQdRu7osu7AzDbgMbprEFscUkNcKjcX6H0u9ZKWS4oMo4mQYuFH89sMQIz-8aRpGnWjknWF8B2wo8_Qc5zw0B" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 #### BUSINESS ARCHITECTURE — 3.2.4 DC-010-080_Exchange_Rate_Maintenance — DC-010-080_Exchange_Rate_Maintenance
 
@@ -358,7 +426,7 @@ flowchart TD
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -384,10 +452,14 @@ flowchart TD
     class n5 startEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO2jAQ_RUrK5RWCmquhOahEgRSrdSVqsJ2H5Y-mGRMLIIT2Q6QIv69NpdwaXlqHghzPOccz2TsnZGWGRiR0ensKKMyQjtT5rACM0LmHAswLXQEfmJO8bwAYeocUjI5ob8PaY5fbXWaxhK8okWj0QksSkCvzxYaKGJhIYGZ6ArglJiWWXG6wryJy6LkOvsJ-sQmB7fT0rDkGfBLgm2HThooakEZXGAv9EM_0TwBacmyG1ESkD5Jzb3eXFFu0hxzedh-LeAFb99oJnMVE1wIUDm5XBXf8BwKXaPktcbSmq_PzaBC-zDVsEmFU8oWCvdtBXHMlhcosPd7tO90Zqw1RdPRjCH1pAUWYgQECang8VoiQosievLjQRLYlpC8XEL05I7Dkedaqa4kUqXblm5udwN0kctoXhbZKbW70TVEbrW1-DZybYs36vfOC1h2cYp7bt_tt07D0Imd-OxECPkvJ9VXPsViefIae4mbjFovJ-gFsf233rnMkR8OnPs-AV_TFK5EkyTxxpdWjXuBYz8WHSZez47vRBdYwgY3F8HPsd8KJkGYOOFDwaPf_S7r-XdepmdBbxwkQSsYDp1k4D4U9AeO3z_tUOksOK5yNOWARc0b9DxFk7qqSjVDkwpSdZKokMdk_TDn_X1mEBwR3E3LBXrOgElKGhSrs0AlLRmaNhXMjF-_rkjuLem1ylRD0HirZpUtAP3QERaoAq4rUgCkQNeQ3cl4H1qZqlDtPPBeMGUSGGbplaJuDgiBJnrqDzofr3R8JfMVGHDNj7HIE3VuuroEURZU7U2VoShXjEAxRljdNJ_QG8BSv1_U2OZozLI2U4398Q9zULf7RZV9Cr1jGJxC9xj6pzA4hteDqBWuBvFmxX244rWH_Ab2_w0HLWxYxgr4CtPMiHbG4fJVF3QGBNeFNPaWgWtZThqWGtHhkjLqw_cbUaxmZ3UE938A6z7gOA==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO2jAQ_RUrK5RWCmquhOahEgRSrdSVqsJ2H5Y-mGRMLIIT2Q6QIv69NpdwaXlqHghzPOccz2TsnZGWGRiR0ensKKMyQjtT5rACM0LmHAswLXQEfmJO8bwAYeocUjI5ob8PaY5fbXWaxhK8okWj0QksSkCvzxYaKGJhIYGZ6ArglJiWWXG6wryJy6LkOvsJ-sQmB7fT0rDkGfBLgm2HThooakEZXGAv9EM_0TwBacmyG1ESkD5Jzb3eXFFu0hxzedh-LeAFb99oJnMVE1wIUDm5XBXf8BwKXaPktcbSmq_PzaBC-zDVsEmFU8oWCvdtBXHMlhcosPd7tO90Zqw1RdPRjCH1pAUWYgQECang8VoiQosievLjQRLYlpC8XEL05I7Dkedaqa4kUqXblm5udwN0kctoXhbZKbW70TVEbrW1-DZybYs36vfOC1h2cYp7bt_tt07D0Imd-OxECPkvJ9VXPsViefIae4mbjFovJ-gFsf233rnMkR8OnPs-AV_TFK5EkyTxxpdWjXuBYz8WHSZez47vRBdYwgY3F8HPsd8KJkGYOOFDwaPf_S7r-XdepmdBbxwkQSsYDp1k4D4U9AeO3z_tUOksOK5yNOWARc0b9DxFk7qqSjVDkwpSdZKokMdk_TDn_X1mEBwR3E3LBXrOgElKGhSrs0AlLRmaNhXMjF-_rkjuLem1ylRD0HirZpUtAP3QERaoAq4rUgCkQNeQ3cl4H1qZqlDtPPBeMGUSGGbplaJuDgiBJnrqDzofr3R8JfMVGHDNj7HIE3VuuroEURZU7U2VoShXjEAxRljdNJ_QG8BSv1_U2OZozLI2U4398Q9zULf7RZV9Cr1jGJxC9xj6pzA4hteDqBWuBvFmxX244rWH_Ab2_w0HLWxYxgr4CtPMiHbG4fJVF3QGBNeFNPaWgWtZThqWGtHhkjLqw_cbUaxmZ3UE938A6z7gOA==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
-<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — DC-010</span></div>
+
+<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.5 DC-010-090_CFIN_Initial_Load — DC-010-090_CFIN_Initial_Load
 
@@ -396,7 +468,7 @@ flowchart TD
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -555,10 +627,15 @@ Error"| n4
     class n45 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWGtv4zYW_SuEBoMkgI0VJcqS_WELR44GRjvNYJxpUTT7gZEpRx1ZNCgpj6b5772USMWiKew2ayCBdXjPuQ9ePqwXJ-Vb5iycjx9f8jKvF-jlrL5ne3a2QGd3tGJnE9QBv1CR07uCVWfSJuNlvcn_bM0wOTxJM4kldJ8XzxLdsB1n6Nt6gpZALCaoomU1rZjIs7PJ2UHkeyqeY15wIa0_sChzs9abGrrkYsvEm4HrhjgNgFrkJXuD_ZCEJJG8iqW83A5EsyCLsvTsVQZX8Mf0noq6Db-p2Gf69Gu-re_hOaNFxcDmvt4XP9E7Vsgca9FILG3Egy5GXkk_JRRsc6BpXu4AJy5Agpbf36DAfX1Frx8_3pa9U3Szui0RfNKCVtWKZaiqAb56qFGWF8XiA4mXSeBOqlrw72zxwbsKV743SWUmC0jdncjiTh9ZvruvF3e82CrT6aPMYeEdnibiaeG5E_EM_w1frNy-eYpnXuRFvafLEMc41p6yLPu_PEFdxQ2tvitfV37iJaveFw5mQeye6uk0VyRcYrNOTDzkKTsSTZLEv3or1dUswO646GXiz9zYEN3Rmj3S5zfBeUx6wSQIExyOCnb-zCibuy-Cp1rQvwqSoBcML3Gy9EYFyRKTSEUIOjtBD_coTtY_o_UNWpa0eK7qblR-Svz7rZPRRUanstgoFgySQVygzzQva_hDK1rTW-c_RxxvyPmFFvlWssB4eTgUeUrrnJdoXdZMZDRlKBF0zx65-I7Ol-vkAm1SwVg5FPWNQLgQLK0RbBYQyuEAa2FoT4b2X8AVF3u0gfTYXiYQ8zLLd43oglF68HUoEwxlPnPYtYCcrNEXXtXgtRraz-xuwX4NTNiZ0E-cbjV5yA1H6gYK6EoILgxf0dD-q9yR0rxg6JLVj1BAtOGNgPLScotuqNixGp1fxUsIZhpf9-Z5V4Cv7MBFXV0MXczf6ULrK1lDFbumbC3y3Q6-tdOZVxXUBq142uxZWVdytq7v_oDpMQqAsalT8eKBtSpdwdC5ag6poWLVuhdt1MCRe-Ngegwv4e-9m5Tv-jmFBoI1VhRS_agZBtTITk3ykpYQynmyvhjlzsfcVlDk-PpC1cSgea6dBhtGltcoZnLVoRUcjA9UtfuAjke8NrA-yvRZZv3ARGVhekPmps73TSH7d7z5B3x_yP92aJs_vr78sZ2o5bfkR-gxuBOYRHLeEw8F7LPdbnbs8aZrLyZn9uKYKpd3ax4XvGKySCmrqtafzrzr4JPF6smVrltJGnVUZjSPF_5PZr778vKW_JZN7-CQT-_VdvWv4V7Vtna3B3e93QI_3Dqvr8eS2C7Zs0ten3A8O6dP4J5WamWdUH07lT2lRVPlD-xTdwqaNPI-WmCnHW1qUKhNk8piZ01h0mf_lZ4P-CfZhu8KmxzVl0IZH6spLWp0oIIWBStGSP57SOQ9pOCfkeCmZ1wkPgneHNAyTXkDt4NycJMwrgXtwpSXB5QJvu8Wbc3Rp69wCYhX1_G3brGbR4dvP2BhhcDeL8_LkyMck5FzFbb-pjg5U4wT_2tToss4MYxmI5JgaZf1ovfvNPIQ1vbyLpDkVQo722-MCuS5XiAFcr5FnqwfkTLykmbuMNH7Ftp8ZEeAGAQ7UHkkJDDZW3OFkJEdbV0hOIZUxLhtgBMq_uc--1aEcxNNp_-Wy0YBxOsAHJpAZAJzrREaGh7pAF9rKIavfkCUfvfs6XFfETztQj3ONH-mBIgGQgMgvgH4WAJ_3Tq_MWiuv-ShYY78zNuBPo2okwjUs3ahg_K9IU_XI1B2OnvfVXbqOBrenW_L9kRoFfpsVH36cqhkSJ-dLohrArqinqsoOnqiwvJ0-B42LFS6vn72A6NiM3NAJd5n6ul51BKqmfyeOTMkPd8cUZpYZ4Z1d2lLrJxgXQysu0tPnK8ywf1MzYfipC-ba8SDdeRYlQvr0LFqOaIrTIy28SJTVA_MTUbfgpEZ4MmIp0uogZnxrGexz1W1qQ4Tu8ba69txcP_pvA46W_5C0CJ42NPtb2npW79DGMCeHfbtMLHDgR2e2eHQDkd2eG6HoVR2fCRPPJIoHskUj6SKR3LFI8nC_nr0pmU4FI0PzUeHYLMYHcLjQ974kD8-RPrXaUM8GMFnI3g4gkcj-NyOw3JQb5iGMLbDnh327TCxw4Edntnh0A5HdnhuhYk9S2LPktizJPYsiT1L0mfpTJw9E3uab53Fi9O-oHYWzpZlFG56zuvEoU3NN89l6izaF7lO0_54XeUUrsX7Dnz9G3RQGio=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWGtvqzYY_itWjqq2UqJhMIHkw6aUlKPoXHp00rNpWvfBJSZlh-DIQC_r-t_3GmwaHKNtXaRW4fH7PO_Fry_heZTwDRvNRycnz1mRVXP0fFrdsR07naPTW1qy0zFqgZ-pyOhtzspTaZPyolpnfzZmmOwfpZnEYrrL8ieJrtmWM_RtNUYLIOZjVNKinJRMZOnp-HQvsh0VTxHPuZDW71iYOmnjTQ1dcLFh4tXAcQKc-EDNs4K9wl5AAhJLXskSXmx6oqmfhmly-iKDy_lDckdF1YRfl-wTffwl21R38JzSvGRgc1ft8o_0luUyx0rUEktqca-LkZXSTwEFW-9pkhVbwIkDkKDF91fId15e0MvJyU3ROUXXy5sCwSfJaVkuWYrKCuDL-wqlWZ7P35FoEfvOuKwE_87m79zLYOm540RmMofUnbEs7uSBZdu7an7L840ynTzIHObu_nEsHueuMxZP8N_wxYrNq6do6oZu2Hm6CHCEI-0pTdP_5QnqKq5p-V35uvRiN152vrA_9SPnWE-nuSTBApt1YuI-S9iBaBzH3uVrqS6nPnaGRS9ib-pEhuiWVuyBPr0KziLSCcZ-EONgULD1Z0ZZ334RPNGC3qUf-51gcIHjhTsoSBaYhCpC0NkKur9DUbz6jFbXaFHQ_Kms2lH5KfBvN6OUzlM6kcVGkWCQDOICfaJZUcEfWtKK3ox-P-C4fc7PNM82kgXGi_0-zxJaZbxAq6JiIqUJQ7GgO_bAxXd0tljF52idCMaKvqhnBMKFYEmFYLOAUPZ7WAt9e9K3_wKuuNihNaTHdjKBiBdptq1FG4zSg699Gb8v84nDrgXkeIW-8LICr2Xffmp3C_YrYMLOhD5yutHkPjcYqBsooEshuDB8hX37r3JHSrKcoQtWPUAB0ZrXAspLiw26pmLLKnR2GS0gmEl01ZlnbQG-sj0XVXnedzF7owutr2QNVeyYspXItlv41kxnVpZQG7TkSb1jRVXK2bq6_QOmxygAxqZOyfN71qi0BUNnqjmkhopV6543UQNH7o296TG8BL91bhK-7eYUGgjWWJ5L9YNm6FFDOzXOClpAKGfx6nyQOxtyW0KRo6tzVROD5jp2GmwYaVahiMlVh5ZwMN5T1e49Oh7wWsP6KJInmfU9E6WF6faZ6yrb1bns3-Hm7_G9Pv_bvmn-6OriQzNRi2_xB-gxuBOYRHLWEfc57LPtbnbo8bptLyZn9vyQKpd3Yx7lvGSySAkry8afzrzt4KPF6sqVrltJGrVUZjSPG_wrM895fn5NfsMmt3DIJ3dqu_qhv1c1rd3uwW1vN8BPN6OXl0NJbJfs2AWvjjiundMlcEdLtbKOqJ6dyh6TvC6ze_a-PQVNGnkbzbfTDjY1KNS6TmSx0zo36dN_pGc9_lG2wZvCJgf1pVDGh3JC8wrtqaB5zvIBkvcWEnkLyf9vJLjpGReJ94LXe7RIEl7D7aDo3SSMa0GzMOXlAaWC79pFW3H0_itcAqLlVfStXezm0eHZD1hYIbD3y_Py6AjHZOBcha2_zo_OFOPE_1oX6CKKDaPpgCRY2mXd8O07jTyEtb28C8RZmcDO9iujArmO60uBjG-QK-tHpIy8pJk7TPi2hTYb2BEgBsH2VB4JMUz2xlwhZGBHW5UIjiEVMW4a4IiK_7vPrhXh3ESTyY9y2SiAuC2AAxMITWCmNQJDwyUt4GkNxfDUD4jCa59dPe4pgqtdqMep5k-VANFAYADEMwAPS-Cvm9GvDJrrL3lomCOfeTPQpRG2Er561i50UJ7b5-l6-MpOZ-85yk4dR_27803RnAiNQpeNqk9XDpUM6bLTBXFMQFfUdRRFR09UWK4O38WGhUrX08-eb1Rsag6oxLtMXT2PWkI1k9cxp4ak65kjShPrzLDuLm2JlROsi4F1d-mJ81QmuJupWV-cdGVzjHiwjhyrcmEdOlYtR3SFidE2bmiK6oGZyehaMDQDPBpxdQk1MDWe9Sx2uao21WFix1h7XTv27j-t115ny18IWgT3e7r5LS1963cIPdi1w54dJnbYt8NTOxzY4dAOz-wwlMqOD-SJBxLFA5nigVTxQK54IFnYXw_etPSHwuGh2eAQbBaDQ3h4yB0e8oaHSPc6rY_7A_h0AA8G8HAAn9lxWA7qDVMfxnbYtcOeHSZ22LfDUzsc2OHQDs-sMLFnSexZEnuWxJ4lsWdJuixH49GOiR3NNqP586h5QQ0vsTcspXDTG72MR7Su-PqpSEbz5kXuqG5-vC4zCtfiXQu-_A10UBoq" title="View full diagram">&#128065; View Full Diagram</a></div>
 
-<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — DC-010</span></div>
+
+
+<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 3.3 Business Roles & Responsibilities
 
@@ -571,8 +648,11 @@ Error"| n4
 | CFIN IT Analyst | DC-010-090_CFIN_Initial_Load | |
 | Group Accountant | DC-010-090_CFIN_Initial_Load | |
 
-<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — DC-010</span></div>
+<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 4. Data Architecture (TOGAF "D")
 
@@ -583,12 +663,19 @@ The following data entities are derived from the system integration flows for DC
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
-<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — DC-010</span></div>
+<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
+
+
+
 
 ### 4.3 Data Lineage
 
@@ -657,8 +744,11 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
-<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — DC-010</span></div>
+<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 5. Application Architecture (TOGAF "A")
 
@@ -668,9 +758,11 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 The Current-State architecture represents the **current / legacy** landscape for DC-010.
 
+
 #### Current-State Flow Narrative
 
 *(No current-state flows defined.)*
+
 
 ### 5.2 Future-State — Future-State Application Landscape
 
@@ -678,9 +770,11 @@ The Current-State architecture represents the **current / legacy** landscape for
 
 The Future-State architecture represents the **target** landscape for DC-010.
 
+
 #### Future-State Flow Narrative
 
 *(No future-state flows defined.)*
+
 
 ### 5.3 Change Impact Summary
 
@@ -696,8 +790,11 @@ The Future-State architecture represents the **target** landscape for DC-010.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
-<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — DC-010</span></div>
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.5 RICEFW Inventory
 
@@ -1072,8 +1169,11 @@ The Future-State architecture represents the **target** landscape for DC-010.
 
 **Summary**: 17 Reports, 86 Interfaces, 25 Conversions, 219 Enhancements, 1 Forms, 18 Workflows
 
-<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — DC-010</span></div>
+<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.6 Integration Patterns
 
@@ -1084,14 +1184,20 @@ Integration patterns identified from the system flow analysis for DC-010:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
-<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — DC-010</span></div>
+<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
+
+
 
 #### Platform Inventory
 
@@ -1105,60 +1211,21 @@ Platform landscape inferred from integrated systems for DC-010:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
-<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — DC-010</span></div>
+<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 6.2 SAP Development Object Status
 
-**Capability RICEFW Status** (366 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-03-27)*
-
-| Status | Count | % |
-|--------|------:|----:|
-| 10. Object Complete | 349 | 95.4% |
-| 07. FUT Roadblock | 10 | 2.7% |
-| 99. Rejected/Cancelled/On Hold | 5 | 1.4% |
-| 06. Dev In Progress | 2 | 0.5% |
-| **Total** | **366** | **100%** |
-
-**RICEFW by Type:**
-
-| Type | Count |
-|------|------:|
-| Report (R) | 17 |
-| Interface (I) | 86 |
-| Conversion (C) | 25 |
-| Enhancement (E) | 219 |
-| Form (F) | 1 |
-| Workflow (W) | 18 |
-| **Total** | **366** |
-
-**Technical Complexity:**
-
-| Complexity | Count |
-|------------|------:|
-| 01.Very High | 5 |
-| 02.High | 64 |
-| 03.Medium | 201 |
-| 04.Low | 93 |
-| N/A | 3 |
-
-**Active (Non-Complete) Objects:**
-
-| Object ID | Type | Description | Status | Complexity |
-|-----------|------|-------------|--------|------------|
-| FPRI1669 | 02.Interface | Import Xeus/Mars volumes from ECA into S4.​ | 07. FUT Roadblock | 03.Medium |
-| FPRE1723_IP | 04.Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 07. FUT Roadblock | 04.Low |
-| FPRE1723_IF | 04.Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 07. FUT Roadblock | 04.Low |
-| FPRE1722_IP | 04.Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 07. FUT Roadblock | 04.Low |
-| FPRE1722_IF | 04.Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 07. FUT Roadblock | 04.Low |
-| FPRE1661_IP | 04.Enhancement | WBS transfer tool | 07. FUT Roadblock | 02.High |
-| FPRE1661_IF | 04.Enhancement | WBS transfer tool | 07. FUT Roadblock | 03.Medium |
-| FPRE1599_IP | 04.Enhancement | Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO line ... | 07. FUT Roadblock | 03.Medium |
-| FPRE1599_IF | 04.Enhancement | Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO line ... | 07. FUT Roadblock | 04.Low |
-| FPRE0880 | 04.Enhancement | Cash concentration functionality for cross-currency current accounts | 07. FUT Roadblock | 04.Low |
-| FPRC1724_IP | 03.Conversion | Creation of output template with consumption data | 06. Dev In Progress | 02.High |
-| FPRC1724_IF | 03.Conversion | Creation of output template with consumption data | 06. Dev In Progress | 03.Medium |
+| Metric | DEV | QAS | PRD |
+|--------|-----|-----|-----|
+| Transport Requests | — | — | — |
+| Custom Code Objects | — | — | — |
+| CDS Views | — | — | — |
+| Fiori Apps | — | — | — |
+| BAdIs / Enhancements | — | — | — |
 
 ### 6.3 NFRs & Design Principles
 
@@ -1187,92 +1254,59 @@ Platform landscape inferred from integrated systems for DC-010:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
-<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — DC-010</span></div>
+<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 7. Project Context
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
-*364 objects with timeline data (source: Object Tracker)*
-
 | ID | Description | FS | TDD | Build | FUT | Status |
 |----|-------------|----|-----|-------|-----|--------|
 | FPRW1449 | TPR : Workflow to handle Memo creation and cancellation process | Jul-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
 | FPRW1444 | TFR: Workflow to handle Memo creation and cancellation process | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Oct-25 (100%) | 1. On Track |
-| FPRW1064_IP | Custom Workflow will also be created with some predefined process/rules for approval/rejection. | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Feb-26 (100%) | 1. On Track |
-| FPRW1064_IF | Custom Workflow will also be created with some predefined process/rules for approval/rejection. | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Feb-26 (100%) | 1. On Track |
+| FPRW1064_IP | Custom Workflow will also be created with some predefined process/rules for a... | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Feb-26 (100%) | 1. On Track |
+| FPRW1064_IF | Custom Workflow will also be created with some predefined process/rules for a... | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Feb-26 (100%) | 1. On Track |
 | FPRW0930 | Workflow for Counterparty Approval | Apr-25 (100%) | Dec-25 (100%) | Dec-25 (100%) | Dec-25 (100%) | 5. Not Dispositioned |
 | FPRW0906_IP | Custom workflow: Change Order Create and Change Approval | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (100%) | 1. On Track |
 | FPRW0906_IF | Custom workflow: Change Order Create and Change Approval | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (100%) | 1. On Track |
 | FPRW0904_IP | Custom Workflow - WBS Element Request approval with WBS Element creation | Mar-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | 1. On Track |
 | FPRW0904_IF | Custom Workflow - WBS Element Request approval with WBS Element creation | Mar-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | 1. On Track |
-| FPRW0900_IP | Custom Workflow: Approval for Project creation and create a Project def and level n1 after approval using template | Feb-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 3. Off Track |
-| FPRW0900_IF | Custom Workflow: Approval for Project creation and create a Project def and level n1 after approval using template | Feb-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
+| FPRW0900_IP | Custom Workflow: Approval for Project creation and create a Project def and l... | Feb-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 3. Off Track |
+| FPRW0900_IF | Custom Workflow: Approval for Project creation and create a Project def and l... | Feb-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
 | FPRW0445_IP | Project budget approval workflow (Capex)​ | Aug-24 (100%) | Aug-25 (100%) | Aug-25 (100%) | Sep-25 (100%) | 1. On Track |
 | FPRW0445_IF | Project budget approval workflow (Capex)​ | Aug-24 (100%) | Aug-25 (100%) | Aug-25 (100%) | Sep-25 (100%) | 1. On Track |
 | FPRW0325_IP | Custom workflow to manage the approval process in bulk/individual requests | Jul-24 (100%) | Feb-25 (100%) | Feb-25 (100%) | Mar-25 (100%) |  |
 | FPRW0325_IF | Custom workflow to manage the approval process in bulk/individual requests | Jul-24 (100%) | Feb-25 (100%) | Feb-25 (100%) | Mar-25 (100%) |  |
-| FPRW0165_IP | Workflow is required to trigger the approvers based on the business requirement for Journal entry | May-24 (100%) | Aug-24 (100%) | Aug-24 (100%) | Sep-24 (100%) |  |
-| FPRW0165_IF | Workflow is required to trigger the approvers based on the business requirement for Journal entry | May-24 (100%) | Aug-24 (100%) | Aug-24 (100%) | Sep-24 (100%) |  |
-| FPRW0165_CFIN | Workflow is required to trigger the approvers based on the business requirement for Journal entry | May-24 (100%) | Aug-24 (100%) | Aug-24 (100%) | Sep-24 (100%) |  |
+| FPRW0165_IP | Workflow is required to trigger the approvers based on the business requireme... | May-24 (100%) | Aug-24 (100%) | Aug-24 (100%) | Sep-24 (100%) |  |
+| FPRW0165_IF | Workflow is required to trigger the approvers based on the business requireme... | May-24 (100%) | Aug-24 (100%) | Aug-24 (100%) | Sep-24 (100%) |  |
+| FPRW0165_CFIN | Workflow is required to trigger the approvers based on the business requireme... | May-24 (100%) | Aug-24 (100%) | Aug-24 (100%) | Sep-24 (100%) |  |
 | FPRR1514_IP | To generate reports out of the ITT documents that was created | Aug-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 4. Completed |
 | FPRR1514_IF | To generate reports out of the ITT documents that was created | Aug-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 4. Completed |
-| FPRR1240 | Custom report for Revenue Recognition by Stage for Product/Services Sale​ actual revenue vs planned revenue | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (100%) | 4. Completed |
-| FPRR1211 | Report for searching on and viewing government contract timesheets for Intel Federal. | Apr-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 1. On Track |
-| FPRR1210 | Report for searching on and viewing government contract timesheet changes for Intel Federal.​ | Apr-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Feb-26 (100%) | 4. Completed |
-| FPRR0907_IP | Workflow Status Report ( Order Request / Approval Request / Others ) | Mar-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Oct-25 (100%) | 2. At Risk |
-| FPRR0907_IF | Workflow Status Report ( Order Request / Approval Request / Others ) | Mar-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Oct-25 (100%) | 1. On Track |
-| FPRR0497 | CFR - Report to support multiple Treasury Funding requests from Multiple Intel teams | Mar-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Sep-25 (100%) | 1. On Track |
-| FPRR0496 | TPR-Report to support multiple Treasury Payment Requests from Multiple Intel teams | Mar-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Nov-25 (100%) | 1. On Track |
-| FPRR0461 | Inter-company Outage Pre-consolidate Report (ACDOCA) | Aug-24 (100%) | Jan-25 (100%) | Jan-25 (100%) | Mar-25 (100%) |  |
-| FPRR0380 | GL Interface – Reconciliation Report/Dashboard | Aug-24 (100%) | Feb-25 (100%) | Feb-25 (100%) | Sep-25 (100%) |  |
-| FPRR0327_IP | Report to display the requests/change IDs and status of the workflow approval and Error handling | Jul-24 (100%) | Feb-25 (100%) | Feb-25 (100%) | Mar-25 (100%) | 1. On Track |
+*... and 346 more objects (see full Object Tracker)*
 
-*... and 334 more objects (see full Object Tracker)*
+<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-03-27*
+Standard RAID items for DC-010 (Finance Plan To Report):
 
-**Mapped sub-tower(s):** 3.1 FPR - GL Close & Consolidate, 3.10 FPR - Accounts Receivable & Collections, 3.11 FPR - Project Accounting, 3.2 FPR - Tax, 3.3 FPR - Revenue Recognition & Reporting, 3.4 FPR - Intercompany, 3.5 FPR - Fixed Assets, 3.6 FPR - Cost and Profitability Analysis, 3.7 FPR - Product Costing and Inventory Valuation, 3.8 FPR - Financial Planning & Analysis, 3.9 FPR - Treasury and Cash Management
+| # | Category | Description | Status | Owner | Priority |
+|---|----------|-------------|--------|-------|----------|
+| 1 | Risk | Data migration completeness — validate all legacy Perform Transaction Processing data maps to S/4 target structures | Open | Tower Architect | High |
+| 2 | Risk | Integration testing coverage — ensure all 0 integrated systems are validated end-to-end | Open | Integration Lead | High |
+| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
+| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
+| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
 
-**RAID Summary:** 18 open items (6 capability-specific, 12 tower-level), 234 closed
-
-| Severity | Capability | Tower-Wide | Total Open |
-|----------|----------:|-----------:|-----------:|
-| P1 - High | 0 | 1 | 1 |
-| P2 - Medium | 4 | 10 | 14 |
-| P3 - Low | 2 | 1 | 3 |
-| **Total** | **6** | **12** | **18** |
-
-**Capability-Specific RAID Items:**
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03633 | Action | P2 - Medium | Conversion RICEFW (FPRC1724_IF/IP) has dependency on the enh... | In Progress | FPR | 2026-03-13 |
-| 02226 | Action | P3 - Low | DMEE related FPR objects not ready for development | In Progress | FPR | 2026-03-31 |
-| 03729 | Action | P2 - Medium | AN and CC invoices are fetching wrong tax codes and posting ... | In Progress | FPR | 2026-03-23 |
-| 02680 | Action | P2 - Medium | T042A table config in IP and IF | In Progress | FPR | 2026-04-03 |
-| 03782 | Risk | P2 - Medium | Auto processing of JPMC lockbox BAI2 for AR Cashapp not work... | Not Started | FPR | 2026-04-10 |
-| 03473 | Action | P3 - Low | Manual Service PIR creation for IP-IF Service Procurement. | In Progress | FPR | 2026-05-29 |
-
-**Other FPR Tower RAID Items** (12 open):
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-03 |
-| 03197 | Issue | P2 - Medium | Company Code address disappearing in DI0 250 | Not Started |  |  |
-| 03564 | Risk | P2 - Medium | Development of the AMT impacting FPR Capital Tool report | In Progress | FTS IP | 2026-03-27 |
-| 03624 | Issue | P2 - Medium | Test Data not provided for CR "INT-Build-CR0918" | In Progress | FPR | 2026-03-20 |
-| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
-| 03628 | Risk | P2 - Medium | R3 Returns Rework Process Causing Finance Double Counting in... | In Progress | E2E | 2026-03-27 |
-| 03629 | Risk | P2 - Medium | Consensus Demand Data for ICOST | In Progress | FTS IP | 2026-03-27 |
-| 02799 | Risk | P2 - Medium | Deloite FPR objects FPRXV490, FPRXV038 and FPRXV048 are dela... | In Progress | FPR | 2026-03-25 |
-| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
-| 03740 | Action | P2 - Medium | Provide count of report with list of names due in ITC1 and I... | In Progress | FPR | 2026-03-20 |
-| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
-| 03333 |  | P3 - Low | FPR NRT : IF and IP  Power BI Workspace Provisioning | In Progress | Analytics (Reporting) | 2026-01-12 |
+> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
 
 ### 7.3 Recommendations & Next Steps
 
@@ -1286,4 +1320,5 @@ Platform landscape inferred from integrated systems for DC-010:
 
 ---
 *DC-010 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: March 2026*
-
+<div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
+</div>

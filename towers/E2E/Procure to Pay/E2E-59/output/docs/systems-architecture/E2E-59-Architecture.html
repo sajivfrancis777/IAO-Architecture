@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E2E-59 Architecture</title>
+    <title>E2E-59</title>
     <style>
 @page {
     size: A4;
@@ -34,19 +34,34 @@ h2 {
     border-bottom: 1px solid #ccc;
     padding-bottom: 4px;
     margin-top: 24px;
+    page-break-after: avoid;
+    break-after: avoid;
 }
 h3 {
     font-size: 13pt;
     color: #0071c5;
     margin-top: 18px;
+    page-break-after: avoid;
+    break-after: avoid;
 }
-h4 { font-size: 11pt; color: #333; margin-top: 14px; }
+h4 {
+    font-size: 11pt;
+    color: #333;
+    margin-top: 14px;
+    page-break-after: avoid;
+    break-after: avoid;
+}
+p {
+    orphans: 3;
+    widows: 3;
+}
 table {
     border-collapse: collapse;
     width: 100%;
     margin: 12px 0;
     font-size: 9.5pt;
     page-break-inside: avoid;
+    break-inside: avoid;
 }
 th {
     background: #00285a;
@@ -79,6 +94,7 @@ pre {
     font-size: 8.5pt;
     line-height: 1.4;
     page-break-inside: avoid;
+    break-inside: avoid;
 }
 pre code { background: none; padding: 0; color: inherit; }
 blockquote {
@@ -87,6 +103,8 @@ blockquote {
     margin: 12px 0;
     padding: 8px 16px;
     color: #333;
+    page-break-inside: avoid;
+    break-inside: avoid;
 }
 .mermaid-placeholder {
     background: #f5f8fc;
@@ -107,6 +125,7 @@ blockquote {
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
+    break-inside: avoid;
 }
 .mermaid svg {
     max-width: 100%;
@@ -136,15 +155,60 @@ blockquote {
     padding-top: 10px;
     border-top: 1px solid #ddd;
 }
+.page-section {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 40px);
+    box-sizing: border-box;
+}
+.page-footer {
+    margin-top: auto;
+    padding-top: 8px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9pt;
+    color: #888;
+    padding: 6px 12px;
+    background: #fff;
+}
+.page-footer a { color: #0071c5; text-decoration: none; }
+.page-footer a:hover { text-decoration: underline; }
 a { color: #0071c5; text-decoration: none; }
 a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Floating PDF download button ---- */
+.pdf-download-btn {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 9999;
+    background: #00285a;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: background 0.2s;
+}
+.pdf-download-btn:hover { background: #0071c5; }
+
 @media print {
     body { padding: 0; max-width: none; }
     .header-bar { margin: 0 0 20px 0; }
-    .no-print { display: none; }
+    .no-print, .pdf-download-btn { display: none !important; }
+    h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    p { orphans: 3; widows: 3; }
+    .page-section { min-height: 100vh; }
+    .page-footer { page-break-inside: avoid; break-inside: avoid; }
     .mermaid {
         page-break-inside: avoid;
         overflow: visible;
@@ -152,6 +216,18 @@ strong { color: #00285a; }
     .mermaid svg {
         max-width: 100%;
         height: auto;
+    }
+    /* Diagram links: visible + clickable in PDF */
+    a[title="View full diagram"],
+    a[title="Open full-size SVG"] {
+        color: #0071c5 !important;
+        text-decoration: underline !important;
+        font-size: 10pt !important;
+    }
+    a[title="View full diagram"]::after {
+        content: " (opens mermaid.live)";
+        font-size: 8pt;
+        color: #666;
     }
 }
 </style>
@@ -161,24 +237,24 @@ strong { color: #00285a; }
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
-    theme: "base",
-    securityLevel: "loose",
+    theme: 'base',
+    securityLevel: 'loose',
     flowchart: {
-      curve: "basis",
+      curve: 'basis',
       padding: 16,
       nodeSpacing: 50,
       rankSpacing: 60,
       useMaxWidth: true
     },
     themeVariables: {
-      primaryColor: "#e8f0fe",
-      primaryBorderColor: "#0071c5",
+      primaryColor: '#e8f0fe',
+      primaryBorderColor: '#0071c5',
       primaryTextColor: '#1a1a1a',
-      lineColor: "#37474F",
-      secondaryColor: "#f5f8fc",
-      tertiaryColor: "#fff",
-      fontSize: "14px",
-      fontFamily: "Segoe UI, Arial, sans-serif"
+      lineColor: '#37474F',
+      secondaryColor: '#f5f8fc',
+      tertiaryColor: '#fff',
+      fontSize: '14px',
+      fontFamily: 'Segoe UI, Arial, sans-serif'
     }
   });
 </script>
@@ -211,8 +287,10 @@ strong { color: #00285a; }
 
 </head>
 <body>
+<button class="pdf-download-btn" onclick="window.print()" title="Print / Save as PDF">&#128196; Download PDF</button>
+<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">E2E-59 — R3 Rework Re-localization in Factory​</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -232,7 +310,14 @@ strong { color: #00285a; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
+.page-section {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 40px);
+  box-sizing: border-box;
+}
 .page-footer {
+  margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid #ddd;
   display: flex;
@@ -240,249 +325,196 @@ strong { color: #00285a; }
   align-items: center;
   font-size: 11px;
   color: #888;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 20px;
+  padding: 6px 12px;
   background: #fff;
 }
 @media print {
-  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+  .page-section {
+    min-height: 100vh;
+  }
+  .page-footer {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
 .page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
 </style>
 
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<p><a id="toc"></a></p>
-<h2 id="table-of-contents">Table of Contents</h2>
+
+<a id="toc"></a>
+
+## Table of Contents
+
+<nav class="toc">
 <ol>
-<li><a href="#1-executive-summary">Executive Summary</a></li>
-<li><a href="#2-business-context--objectives">Business Context &amp; Objectives</a>
-   - 2.1 <a href="#21-classification">Classification</a>
-   - 2.2 <a href="#22-business-drivers">Business Drivers</a>
-   - 2.3 <a href="#23-success-criteria">Success Criteria</a>
-   - 2.4 <a href="#24-companion-documents">Companion Documents</a></li>
-<li><a href="#3-business-architecture-togaf-b">Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
-   - 3.1 <a href="#31-business-process-overview">Business Process Overview</a>
-   - 3.2 <a href="#32-business-process-diagrams">Business Process Diagrams</a>
-   - 3.3 <a href="#33-business-roles--responsibilities">Business Roles &amp; Responsibilities</a></li>
-<li><a href="#4-data-architecture-togaf-d">Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
-   - 4.1 <a href="#41-data-entities--ownership">Data Entities &amp; Ownership</a>
-   - 4.2 <a href="#42-data-flow-diagrams">Data Flow Diagrams</a>
-   - 4.3 <a href="#43-data-lineage">Data Lineage</a>
-   - 4.4 <a href="#44-ricefw-data-objects">RICEFW Data Objects</a>
-   - 4.5 <a href="#45-data-governance--quality">Data Governance &amp; Quality</a></li>
-<li><a href="#5-application-architecture-togaf-a">Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
-   - 5.1 <a href="#51-current-state--current-state-application-landscape">Current-State Application Landscape</a>
-   - 5.2 <a href="#52-future-state--future-state-application-landscape">Future-State Application Landscape</a>
-   - 5.3 <a href="#53-change-impact-summary">Change Impact Summary</a>
-   - 5.4 <a href="#54-component-overview">Component Overview</a>
-   - 5.5 <a href="#55-ricefw-inventory">RICEFW Inventory</a>
-   - 5.6 <a href="#56-integration-patterns">Integration Patterns</a></li>
-<li><a href="#6-technology-architecture-togaf-t">Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
-   - 6.1 <a href="#61-platform--infrastructure">Platform &amp; Infrastructure</a>
-   - 6.2 <a href="#62-sap-development-object-status">SAP Development Object Status</a>
-   - 6.3 <a href="#63-nfrs--design-principles">NFRs &amp; Design Principles</a>
-   - 6.4 <a href="#64-security--governance">Security &amp; Governance</a></li>
-<li><a href="#7-project-context">Project Context</a>
-   - 7.1 <a href="#71-project-roadmap--go-live-plan">Project Roadmap &amp; Go-Live Plan</a>
-   - 7.2 <a href="#72-raid-log">RAID Log</a>
-   - 7.3 <a href="#73-recommendations--next-steps">Recommendations &amp; Next Steps</a></li>
+  <li><a href="#1-executive-summary">1. Executive Summary</a></li>
+  <li><a href="#2-business-context-objectives">2. Business Context &amp; Objectives</a>
+    <ul>
+      <li><a href="#21-classification">2.1 Classification</a></li>
+      <li><a href="#22-business-drivers">2.2 Business Drivers</a></li>
+      <li><a href="#23-success-criteria">2.3 Success Criteria</a></li>
+      <li><a href="#24-companion-documents">2.4 Companion Documents</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+    <ul>
+      <li><a href="#31-business-process-overview">3.1 Business Process Overview</a></li>
+      <li><a href="#32-business-process-diagrams">3.2 Business Process Diagrams</a></li>
+      <li><a href="#33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+    <ul>
+      <li><a href="#41-data-entities-ownership">4.1 Data Entities &amp; Ownership</a></li>
+      <li><a href="#42-data-flow-diagrams">4.2 Data Flow Diagrams</a></li>
+      <li><a href="#43-data-lineage">4.3 Data Lineage</a></li>
+      <li><a href="#44-ricefw-data-objects">4.4 RICEFW Data Objects</a></li>
+      <li><a href="#45-data-governance-quality">4.5 Data Governance &amp; Quality</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+    <ul>
+      <li><a href="#51-current-state-current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
+      <li><a href="#52-future-state-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
+      <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
+      <li><a href="#54-component-overview">5.4 Component Overview</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+    <ul>
+      <li><a href="#61-platform-infrastructure">6.1 Platform &amp; Infrastructure</a></li>
+      <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
+      <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
+      <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+    </ul>
+  </li>
+  <li><a href="#7-project-context">7. Project Context</a>
+    <ul>
+      <li><a href="#71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</a></li>
+      <li><a href="#72-raid-log">7.2 RAID Log</a></li>
+      <li><a href="#73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</a></li>
+    </ul>
+  </li>
 </ol>
-<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
-<div style="page-break-before: always;"></div>
+</nav>
 
-<h2 id="1-executive-summary">1. Executive Summary</h2>
-<p>This Architecture Document defines the <strong>Business, Data, Application, and Technology</strong> (BDAT) architecture for <strong>E2E-59 R3 Rework Re-localization in Factory​</strong> within the IAO program. It includes 1 BPMN process diagram(s) in Section 3.
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+## 1. Executive Summary
+
+This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **E2E-59 R3 Rework Re-localization in Factory​** within the IAO program. It includes 1 BPMN process diagram(s) in Section 3.
 | Dimension | Value |
 |-----------|-------|
-| <strong>Tower</strong> | End-to-End Integrated Processes (E2E) |
-| <strong>Process Group</strong> | Procure to Pay |
-| <strong>Capability</strong> | E2E-59 - R3 Rework Re-localization in Factory​ |
-| <strong>Release</strong> | Release 2 |
-| <strong>Total Systems</strong> | 2 |
-| <strong>System Status</strong> | 0 Deployed, 0 Developing, 0 EOL, 2 Pending IAPM |
-| <strong>RICEFW Objects</strong> | Pending — Smartsheet Object Tracker API integration |
-<strong>Change Summary</strong>: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.</p>
-<blockquote>
-<p>All system nodes in architecture diagrams are <strong>IAPM-linked</strong> — click any node to open its IAPM page. Diagrams require <code>securityLevel: "loose"</code> for click events.</p>
-</blockquote>
+| **Tower** | End-to-End Integrated Processes (E2E) |
+| **Process Group** | Procure to Pay |
+| **Capability** | E2E-59 - R3 Rework Re-localization in Factory​ |
+| **Release** | Release 2 |
+| **Total Systems** | 2 |
+| **System Status** | 0 Deployed, 0 Developing, 0 EOL, 2 Pending IAPM |
+| **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
+**Change Summary**: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.
+
+> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="2-business-context-objectives">2. Business Context &amp; Objectives</h2>
-<h3 id="21-classification">2.1 Classification</h3>
-<table>
-<thead>
-<tr>
-<th>Level</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>L0 Tower</strong></td>
-<td>End-to-End Integrated Processes</td>
-</tr>
-<tr>
-<td><strong>L1 Process</strong></td>
-<td>Procure to Pay</td>
-</tr>
-<tr>
-<td><strong>L2 Capability</strong></td>
-<td>E2E-59 - R3 Rework Re-localization in Factory​</td>
-</tr>
-</tbody>
-</table>
-<h3 id="22-business-drivers">2.2 Business Drivers</h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Driver</th>
-<th>Description</th>
-<th>Strategic Alignment</th>
-<th>Priority</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>End-to-End Process Integration</td>
-<td>Enable cross-tower integrated processes spanning procurement, manufacturing, and fulfillment</td>
-<td>IDM 2.0 Process Excellence</td>
-<td>High</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Intel Foundry Business Enablement</td>
-<td>Stand up foundry-specific business processes for external customer engagement</td>
-<td>Intel Foundry Services</td>
-<td>High</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Process Visibility &amp; Monitoring</td>
-<td>Provide end-to-end process visibility across tower boundaries with integrated monitoring</td>
-<td>Operational Excellence</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>4</td>
-<td>E2E-59 Process Migration</td>
-<td>Migrate R3 Rework Re-localization in Factory​ business processes and 2 integrated systems from legacy to S/4 HANA target architecture</td>
-<td>IDM 2.0 Cross-Functional / End-to-End</td>
-<td>High</td>
-</tr>
-</tbody>
-</table>
+
+## 2. Business Context & Objectives
+
+### 2.1 Classification
+
+| Level | Value |
+|-------|-------|
+| **L0 Tower** | End-to-End Integrated Processes |
+| **L1 Process** | Procure to Pay |
+| **L2 Capability** | E2E-59 - R3 Rework Re-localization in Factory​ |
+
+### 2.2 Business Drivers
+
+| # | Driver | Description | Strategic Alignment | Priority |
+|---|--------|-------------|---------------------|----------|
+| 1 | End-to-End Process Integration | Enable cross-tower integrated processes spanning procurement, manufacturing, and fulfillment | IDM 2.0 Process Excellence | High |
+| 2 | Intel Foundry Business Enablement | Stand up foundry-specific business processes for external customer engagement | Intel Foundry Services | High |
+| 3 | Process Visibility & Monitoring | Provide end-to-end process visibility across tower boundaries with integrated monitoring | Operational Excellence | Medium |
+| 4 | E2E-59 Process Migration | Migrate R3 Rework Re-localization in Factory​ business processes and 2 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Cross-Functional / End-to-End | High |
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="23-success-criteria">2.3 Success Criteria</h3>
-<table>
-<thead>
-<tr>
-<th>Metric</th>
-<th>Target</th>
-<th>Measure</th>
-<th>Baseline</th>
-<th>Owner</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>E2E Process Cycle Time</td>
-<td>Per process SLA</td>
-<td>End-to-end transaction completion within defined SLA per process</td>
-<td>Varies by process</td>
-<td>E2E Process Owner</td>
-</tr>
-<tr>
-<td>Cross-Tower Integration Success</td>
-<td>&gt; 99%</td>
-<td>Transactions completing across tower boundaries without manual intervention</td>
-<td>92% (current)</td>
-<td>Integration Lead</td>
-</tr>
-<tr>
-<td>Process Exception Rate</td>
-<td>&lt; 2%</td>
-<td>Transactions requiring manual exception handling</td>
-<td>8% (current)</td>
-<td>Operations Manager</td>
-</tr>
-<tr>
-<td>E2E-59 Migration Completeness</td>
-<td>100% flow chains validated</td>
-<td>All 1 flow chains verified in target state</td>
-<td>0% (pre-migration)</td>
-<td>Tower Architect</td>
-</tr>
-</tbody>
-</table>
-<h3 id="24-companion-documents">2.4 Companion Documents</h3>
-<table>
-<thead>
-<tr>
-<th>Document</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Business Architecture</strong></td>
-<td>Included in this document (Section 3) — process flows from BPMN diagrams</td>
-</tr>
-<tr>
-<td><strong>This Document</strong></td>
-<td>Full BDAT Architecture — Business + Data + Application + Technology</td>
-</tr>
-</tbody>
-</table>
+
+### 2.3 Success Criteria
+
+| Metric | Target | Measure | Baseline | Owner |
+|--------|--------|---------|----------|-------|
+| E2E Process Cycle Time | Per process SLA | End-to-end transaction completion within defined SLA per process | Varies by process | E2E Process Owner |
+| Cross-Tower Integration Success | > 99% | Transactions completing across tower boundaries without manual intervention | 92% (current) | Integration Lead |
+| Process Exception Rate | < 2% | Transactions requiring manual exception handling | 8% (current) | Operations Manager |
+| E2E-59 Migration Completeness | 100% flow chains validated | All 1 flow chains verified in target state | 0% (pre-migration) | Tower Architect |
+
+### 2.4 Companion Documents
+
+| Document | Description |
+|----------|-------------|
+| **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
+| **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</h2>
-<h3 id="31-business-process-overview">3.1 Business Process Overview</h3>
-<p>This capability includes <strong>1 business process(es)</strong> modeled in BPMN 2.0, covering the end-to-end workflow for E2E-59 R3 Rework Re-localization in Factory​.</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Step ID</th>
-<th>Process Name</th>
-<th>Lanes</th>
-<th>Tasks</th>
-<th>Gateways</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>e.g</td>
-<td>e.g</td>
-<td>Cost Accountant</td>
-<td>1</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<h3 id="32-business-process-diagrams">3.2 Business Process Diagrams</h3>
+
+## 3. Business Architecture (TOGAF "B")
+
+### 3.1 Business Process Overview
+
+This capability includes **1 business process(es)** modeled in BPMN 2.0, covering the end-to-end workflow for E2E-59 R3 Rework Re-localization in Factory​.
+
+| # | Step ID | Process Name | Lanes | Tasks | Gateways |
+|---|---------|--------------|-------|-------|----------|
+| 1 | e.g | e.g | Cost Accountant | 1 | 0 |
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="business-architecture-321-eg-eg">BUSINESS ARCHITECTURE — 3.2.1 e.g — e.g</h4>
-<p><strong>Swim Lanes</strong>: Cost Accountant | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 0</p>
-<blockquote>
-<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
-</blockquote>
+
+### 3.2 Business Process Diagrams
+
+
+#### BUSINESS ARCHITECTURE — 3.2.1 e.g — e.g
+
+**Swim Lanes**: Cost Accountant | **Tasks**: 1 | **Gateways**: 0
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
 <div class="mermaid">
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -496,67 +528,49 @@ flowchart TD
     class n1 userTask
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2yAU_CuIVeSLI9mOHae-JU6QKnWllbLdHpoeCIYYBUMEOB-N8t8L-fI2VU7lgORh3sx7g_ARElVRWMBe78gltwU4BramDQ0KECyxoUEILsAH1hwvBTWB5zAl7Zz_PtPidLP3NI8h3HBx8OicrhQF37-GYOwKRQgMlqZvqOYsCION5g3Wh1IJpT37hY5YxM5u16OJ0hXVHSGK8phkrlRwSTt4kKd5inydoUTJ6i9RlrERI8HJNyfUjtRY23P7raGveP-DV7Z23wwLQx2nto34hpdU-Bmtbj1GWr29hcGN95EusPkGEy5XDk8jB2ks1x2URacTOPV6C3k3Be_ThQRuEYGNmVIGjHXwbGsB40IUL2k5RlkUGqvVmhYvySyfDpKQ-EkKN3oU-nD7O8pXtS2WSlRXan_nZyiSzT7U-yKJQn1w-4MXlVXnVA6TUTK6O03yuIzLmxNj7L-cXK76HZv11Ws2QAma3r3ibJiV0b96tzGnaT6OH3OiessJ_SSKEBrMuqhmwyyOnotO0GAYlQ-iK2zpDh86wS9lehdEWY7i_Kngxe-xy3b5phW5CQ5mGcrugvkkRuPkqWA6jtPRtUOns9J4U4NSGQvGhKhWWizt5dQvGf9cQIYLhvs-bFDWlKzBqxvIvzLwpl1YC_jrUuAu_lOjrvZ-QTCEDdUN5hUsjvD8wN1PoKIMt8LCUwhxa9X8IAkszg8BtpvKeUw5dv01F_D0B1EcX54=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2yAU_CuIVeSLI9mOHae-JU6QKnWllbLdHpoeCIYYBUMEOB-N8t8L-fI2VU7lgORh3sx7g_ARElVRWMBe78gltwU4BramDQ0KECyxoUEILsAH1hwvBTWB5zAl7Zz_PtPidLP3NI8h3HBx8OicrhQF37-GYOwKRQgMlqZvqOYsCION5g3Wh1IJpT37hY5YxM5u16OJ0hXVHSGK8phkrlRwSTt4kKd5inydoUTJ6i9RlrERI8HJNyfUjtRY23P7raGveP-DV7Z23wwLQx2nto34hpdU-Bmtbj1GWr29hcGN95EusPkGEy5XDk8jB2ks1x2URacTOPV6C3k3Be_ThQRuEYGNmVIGjHXwbGsB40IUL2k5RlkUGqvVmhYvySyfDpKQ-EkKN3oU-nD7O8pXtS2WSlRXan_nZyiSzT7U-yKJQn1w-4MXlVXnVA6TUTK6O03yuIzLmxNj7L-cXK76HZv11Ws2QAma3r3ibJiV0b96tzGnaT6OH3OiessJ_SSKEBrMuqhmwyyOnotO0GAYlQ-iK2zpDh86wS9lehdEWY7i_Kngxe-xy3b5phW5CQ5mGcrugvkkRuPkqWA6jtPRtUOns9J4U4NSGQvGhKhWWizt5dQvGf9cQIYLhvs-bFDWlKzBqxvIvzLwpl1YC_jrUuAu_lOjrvZ-QTCEDdUN5hUsjvD8wN1PoKIMt8LCUwhxa9X8IAkszg8BtpvKeUw5dv01F_D0B1EcX54=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
-<table>
-<thead>
-<tr>
-<th>Role / Lane</th>
-<th>Processes Involved</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Cost Accountant</td>
-<td>e.g</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+### 3.3 Business Roles & Responsibilities
+
+| Role / Lane | Processes Involved | Description |
+|------------|-------------------|-------------|
+| Cost Accountant | e.g | |
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
-<h3 id="41-data-entities-ownership">4.1 Data Entities &amp; Ownership</h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Data Entity</th>
-<th>Source System</th>
-<th>Target System</th>
-<th>Data Owner</th>
-<th>Classification</th>
-<th>Volume</th>
-<th>Master/Transaction</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>e.g. Cost Element</td>
-<td>e.g. MES 300</td>
-<td>e.g. XEUS</td>
-<td>Data steward</td>
-<td>e.g. Intel Confidential</td>
-<td>e.g. 10K rows/day</td>
-<td>Master / Transaction</td>
-</tr>
-</tbody>
-</table>
+
+## 4. Data Architecture (TOGAF "D")
+
+### 4.1 Data Entities & Ownership
+
+| # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
+|---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
+| 1 | e.g. Cost Element | e.g. MES 300 | e.g. XEUS | Data steward | e.g. Intel Confidential | e.g. 10K rows/day | Master / Transaction |
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="42-data-flow-diagrams">4.2 Data Flow Diagrams</h3>
-<blockquote>
-<p><strong>DATA ARCHITECTURE</strong> — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.</p>
-</blockquote>
-<h4 id="421-current-state-current-state-data-flows">4.2.1 Current-State — Current-State Data Flows</h4>
+
+### 4.2 Data Flow Diagrams
+
+> **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
+
+#### 4.2.1 Current-State — Current-State Data Flows
+
 <div class="mermaid">
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "15px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 35, "rankSpacing": 45}} }%%
 flowchart TB
@@ -591,12 +605,19 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1v2jAQhv-K5QmxSdCl0MCI1ErOB2ultOoauk1qpsgkF7BqkihxVijlv89OgG4Uuqq2FOH7eO_yXGSWOEwjwAZuNJYsYcJAy6aYwgyaBmqOaQHNFmoWEJY5EwsXfgNXDp6mtacK_U5zRscciqbKjtNEeOyxEjjWs7kKU7YhnTG-UFYPJimg24sWIjKRN1cqgqcP4ZTmotIoC7ik8x8sElN5jikvQMZMxYy7dAxcFRJ5qWyJ7N7LaMiSiTR2dWnKaXL_bDrRVyu0ajT8ZFsCjUw_QXKFnBaFDTGiWWamcxQzzo0Ppm4Ph8NWIfL0HowPmtbvm731sf2gejI62bwVpjzNlbtr67t60dha8LUc0e0e6W_lOk7f7nYOyh2butPRduQg5c_tDYembupbPcvS5Dqo1-spt5_UikU5nuQ0myKn4-gDyyaWG0AwCchjmUPgfXPvfIx8_KuOVitiOYSCpckWmlqbdFJl_3RuPZkIR5MjpH5LAcMwaqYvc-ydih997JfRl24kn1F44pcxaPKVlVgVhGSQjz8pyQrra12g9lH77FClOhGSaM1CLDgcBLGBTdTewnY0tf-FfZzN_4fXI9fBObki76J76XhBV9M2gOURyeNbGG_LvoJYxiAV8xbC6072Qd6UegvjTey7EO8vi05Pz57WgOyKKfqMyPWFfA4ZBx8_Hf4odkbnwkS2f_cXsTDSkE1GBJEb6_xi5Fij2xsHuc5X58o-ME335tnqBmruJMs4C6ny7h-dG9gH5mRTQdVNvH9EbuBIeSeJ2mncdlkMtXx9ZewdR_2GG_q62lv6g8HgBXrcwjPIZ5RF2Fji6saX_xcRxLTkAq9amJYi9RZJiI3qUsZlFlEBNqOS6Kw2rv4AwOH1ow==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1rozAYx79KyCjcQbtz7Wyvwgbx7VZwYze7u4N5SKqxDUtVNN7adf3ul6h1u67uxhKQ5Hn5P_H3SNzAIAkJ1GCns6Ex5RrYeJAvyJJ4UAMenOFcrLpilZOgyChfO-QPYZWTJcnOW6b8wBnFM0Zy6RY6URJzlz7WUidquqqCpd3GS8rWlccl84SA20kXICEgxLdlFEseggXOeK1W5OQSr37SkC-kJcIsJzJuwZfMwTPCyrI8K0prLF7LTXFA47k0D1RpzHB8_8J4qm63YNvpeHFTC0x1LwZiBAznuUkigNNUT1YgooxpR7pq2rbdzXmW3BPtSFFGI31Yb3sP8mhaP111g4QlmXQPTHVfL5wZa1bLIdUcolEj17dG5qDfKneiq1Zf2ZMjCXs-nm3rqq42eoahiNGqNxxKtxdXinkxm2c4XQCrb6ljw0SG4xN_7qPHIiO--92586BA-LuKliOkGQk4TeIGmhy7dFRm_7JuXZFIjufHQK6FgKZpFdPXOeZexU8e9Irw6yAUzzA49YqIKOKVpVgZBESQBz9LyRLrW6cAvePeeVulKpHEYc2CrxlpBbGDjeRsYFuKnP_CPhFf_H_wuujav0BX6EN0Ly3XHyjKDrDYArF9D-Om7BuIRQyQMe8hXJ_kEORdqfcw3sV-CPHhsuDs7PypBmSWTMEXgK4n4mlTJu6mp_aPYq91DpmL49-9IBaECjDRFAF0Y1xMppYxvb2xgGN9s67Mlm46N89Wx5d9R2nKaICl93DrHN9s6ZOJOa6u6EMtcnxLyFtx2EuinkMjUslXV8bBdlRvuKOvytnQH4_Hr9DDLlySbIlpCLVN9RMQ_5KQRLhgXFzjEBc8cddxALXyYoZFGmJOTIoF0WVl3P4FGa__Jw==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="422-future-state-future-state-data-flows">4.2.2 Future-State — Future-State Data Flows</h4>
+
+
+#### 4.2.2 Future-State — Future-State Data Flows
+
 <div class="mermaid">
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "15px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 35, "rankSpacing": 45}} }%%
 flowchart TB
@@ -631,111 +652,61 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlY9vmkAUx_-Vyy3GLdGOatFJ0ianwNqENl2x25KykBMeeukJBI5Va_3fdwdKN6td07uEeO_H9z0-j5wrHCQhYAM3GisWM2GgVVPMYA5NAzUnNIdmCzVzCIqMiaUDv4ErB0-SylOGfqcZoxMOeVNlR0ksXPZYChzr6UKFKZtN54wvldWFaQLo9qKFiEzkzbWK4MlDMKOZKDWKHC7p4gcLxUyeI8pzkDEzMecOnQBXhURWKFssu3dTGrB4Ko1dXZoyGt8_m0709RqtGw0vrkug8dCLkVwBp3luQoRomg6TBYoY58aHoW7att3KRZbcg_FB0_r9YW9zbD-onoxOumgFCU8y5e6a-q5eOBkt-UaO6GaP9Gu5jtU3u52DcsdD3epoO3KQ8Of2bHuoD_VabzTS5Dqo1-sptxdXinkxmWY0nSGrY-kD2yQjxwd_6pPHIgPf_ebceRh5-FcVrVbIMggES-IamlrbdFJm_7RuXZkIR9MjpH5LAcMwKqYvc8ydih897BXhl24on2Fw4hURaPKVlVgZhGSQhz8pyRLra12g9lH77FClKhHicMNCLDkcBLGFTdSuYVua2v_CPk4X_8Prkmv_nFyRd9G9tFy_q2lbwPKI5PEtjOuyryCWMUjFvIXwppN9kLel3sJ4G_suxPvLotPTs6cNILNkij4jcn0hnzbj4OGnwx_FzugcmMr27_4iFoQaMsmYIHIzOr8YW6Px7Y2FHOurdWUemKZz82x1fDV3kqacBVR594_O8c0DczKpoOom3j8ix7ekvBWH7SRqOyyCSr66MvaOo3rDLX1d7Zr-YDB4gR638ByyOWUhNla4vPHl_0UIES24wOsWpoVI3GUcYKO8lHGRhlSAyagkOq-M6z88lfXN" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1rozAYx79KyCjcQbtz7Wyvwgax6q3gxm52dwfzkFRjG5aqaLy16_rdL_Ftu67uxhKQ5Hn5P_H3SNxCPw4I1GCns6UR5RrYupAvyYq4UAMunONMrLpilRE_Tynf2OQPYaWTxXHtLVJ-4JTiOSOZdAudMI64Qx8rqRM1WZfB0m7hFWWb0uOQRUzA7bQLkBAQ4rsiisUP_hKnvFLLM3KJ1z9pwJfSEmKWERm35Ctm4zlhRVme5oU1Eq_lJNin0UKaB6o0pji6f2E8VXc7sOt03KipBWa6GwExfIazzCAhwEmix2sQUsa0I101LMvqZjyN74l2pCijkT6str0HeTStn6y7fsziVLoHhrqvF8wnG1bJIdUYolEj1zdHxqDfKneiq2Zf2ZMjMXs-nmXpqq42epOJIkar3nAo3W5UKmb5fJHiZAnMvqmOLQNNbI94Cw895inxnO_2nQsFwt9ltBwBTYnPaRw10OSo01GR_cu8dUQiOV4cA7kWApqmlUxf5xh7FT-50M2Dr4NAPAP_1M1DoohXlmJFEBBBLvwsJQusb50C9I57522VykQSBRULvmGkFUQNG8nZwDYVOf-FfSK--P_gddC1d4Gu0IfoXpqON1CUGrDYArF9D-Om7BuIRQyQMe8hXJ3kEOS61HsY17EfQny4LDg7O3-qABkFU_AFoOupeFqUibvpqf2j2GudTRbi-HcviPmBAgw0QwDdTC6mM3Myu70xgW1-M6-Mlm7aN89W25N9R0nCqI-l93DrbM9o6ZOBOS6v6EMtsj1TyJtR0IvDnk1DUsqXV8bBdpRvWNNX5Wzoj8fjV-hhF65IusI0gNq2_AmIf0lAQpwzLq5xiHMeO5vIh1pxMcM8CTAnBsWC6Ko07v4ClVT_UQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="43-data-lineage">4.3 Data Lineage</h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Source System</th>
-<th>Source Schema/Object</th>
-<th>Target System</th>
-<th>Target Schema/Object</th>
-<th>Transformation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>e.g. MES 300</td>
-<td>e.g. CKMLHD table</td>
-<td>e.g. XEUS</td>
-<td>e.g. dbo.CostElements</td>
-<td>Lineage notes</td>
-</tr>
-</tbody>
-</table>
-<h3 id="44-ricefw-data-objects">4.4 RICEFW Data Objects</h3>
-<p>Reports and Conversions for this capability will be populated from the Smartsheet Object Tracker via automated API extraction.</p>
-<table>
-<thead>
-<tr>
-<th>Object ID</th>
-<th>Type</th>
-<th>Description</th>
-<th>Status</th>
-<th>Source</th>
-<th>Target</th>
-<th>Complexity</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>E2E-59-R001</td>
-<td>Report</td>
-<td>R3 Rework Re-localization in Factory​ operational report</td>
-<td>Planned</td>
-<td>SAP S/4HANA</td>
-<td>Analytics</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>E2E-59-C001</td>
-<td>Conversion</td>
-<td>Legacy data migration for R3 Rework Re-localization in Factory​</td>
-<td>Planned</td>
-<td>Legacy ERP</td>
-<td>SAP S/4HANA</td>
-<td>High</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Pending: Smartsheet API integration to auto-populate live RICEFW data (see Build Requirements).</em></p>
-</blockquote>
-<h3 id="45-data-governance-quality">4.5 Data Governance &amp; Quality</h3>
-<table>
-<thead>
-<tr>
-<th>Concern</th>
-<th>Approach</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Data Ownership</td>
-<td>Per-entity owners listed in Section 3.1</td>
-</tr>
-<tr>
-<td>Data Classification</td>
-<td>Financial data classified as Intel Confidential</td>
-</tr>
-<tr>
-<td>Data Retention</td>
-<td>Per Intel corporate retention policies</td>
-</tr>
-<tr>
-<td>Data Quality</td>
-<td>Validated at source; reconciliation at target</td>
-</tr>
-</tbody>
-</table>
+
+### 4.3 Data Lineage
+
+| # | Source System | Source Schema/Object | Target System | Target Schema/Object | Transformation |
+|---|-------------|---------------------|---------------|---------------------|---------------|
+| 1 | e.g. MES 300 | e.g. CKMLHD table | e.g. XEUS | e.g. dbo.CostElements | Lineage notes |
+
+### 4.4 RICEFW Data Objects
+
+Reports and Conversions for this capability will be populated from the Smartsheet Object Tracker via automated API extraction.
+
+| Object ID | Type | Description | Status | Source | Target | Complexity |
+|-----------|------|-------------|--------|--------|--------|-----------|
+| E2E-59-R001 | Report | R3 Rework Re-localization in Factory​ operational report | Planned | SAP S/4HANA | Analytics | Medium |
+| E2E-59-C001 | Conversion | Legacy data migration for R3 Rework Re-localization in Factory​ | Planned | Legacy ERP | SAP S/4HANA | High |
+
+> *Pending: Smartsheet API integration to auto-populate live RICEFW data (see Build Requirements).*
+
+### 4.5 Data Governance & Quality
+
+| Concern | Approach |
+|---------|----------|
+| Data Ownership | Per-entity owners listed in Section 3.1 |
+| Data Classification | Financial data classified as Intel Confidential |
+| Data Retention | Per Intel corporate retention policies |
+| Data Quality | Validated at source; reconciliation at target |
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</h2>
-<h3 id="51-current-state-current-state-application-landscape">5.1 Current-State — Current-State Application Landscape</h3>
-<h4 id="overview">Overview</h4>
-<p>The Current-State architecture represents the <strong>current / legacy</strong> landscape for E2E-59.This view is generated from <code>CurrentFlows.xlsx</code> (1 flow hops across 1 flow chains).</p>
-<h4 id="application-architecture-architecture-diagram-archimate-inspired">APPLICATION ARCHITECTURE — Architecture Diagram (ArchiMate-Inspired)</h4>
-<blockquote>
-<p><strong>Click any system node</strong> to open its IAPM application page.
-<strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
-</blockquote>
+
+## 5. Application Architecture (TOGAF "A")
+
+### 5.1 Current-State — Current-State Application Landscape
+
+#### Overview
+
+The Current-State architecture represents the **current / legacy** landscape for E2E-59.This view is generated from `CurrentFlows.xlsx` (1 flow hops across 1 flow chains).
+
+#### APPLICATION ARCHITECTURE — Architecture Diagram (ArchiMate-Inspired)
+
+> **Click any system node** to open its IAPM application page.
+> **Legend**: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span>
+
 <div class="mermaid">
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "16px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
 flowchart TB
@@ -757,6 +728,7 @@ flowchart TB
     E2E59C_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E59CMW_e_g_Azure_Service_Bus
     E2E59CMW_e_g_Azure_Service_Bus --> E2E59C_e_g_XEUS
 
+
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -770,43 +742,38 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1vokAQ_isbGuMXbemLb6QxAcGLF2yb0pe7nBeysoNuugJhl7bW-t9vF6xYbNPemmCYeeaZ5ZmZ3ZUWxAQ0Q6vVVjSiwkCrupjDAuoGqk8xh3oD1TkEWUrF0oVHYMrB4rjw5NA7nFI8ZcDrKjqMI-HRl5zguJ08K5iyDfGCsqWyejCLAd2OGsiUgayBOI54k0NKw_paoVn8FMxxKnK-jMMYP99TIubyPcSMg8TMxYK5eApMJRVppmyR_BIvwQGNZtJ4pktTiqOH0tTS12u0rtUm0TYFurEmEZKrVkPNptxQMKdjLKBJI57QFAjiYskABQxzDlxiCnj-bkOIphmnEXCO8hVSxoyDoVxWq8FFGj-AcWB1u23d2rw2n9SXGCfJcyOIWZwaB7quVzhxkqByFZxWS7FuOXW907Ha_8FJsMD7nHb3C87jd5xvPoK5FC_FS6kpalUyLSghDJ5wCruK2G2zVMTptIcl2zd2DzHbU0RpvKPyYKDrX3EWrDybzlKczJHp_plok4x0T4l8ktMWMq-u3NHAvBldXiDX_O1cT7S_RZBaRDZEIGgcIfe6tDonTqs38MGf-WPH8091fZc1gDaCw9khkj4kfZLQMAxZ4Q8Jfjm33ofRyvFp6Pg-DzZfshR8D9JHGoBvZfzd1x13CqYchTYoJFEFbVm1Krvt5OyDmAvfYXLeI9Hf3WJwVhArANoAzqfpUf-c9guHd4eO0MiOA_n307u8OD-i_SKr6soiH0TkrT77gsqx679OtJzNzosgmcyrkXwOKYOJ9vqFErvEn2FUkmot1JY2TZMfA5a7M-JD_asR3w01t6H6dyZ5r1ldmEmN3jUH0ZHr_HAu7G90qevL3q62lpkkjAZYgT9oLtcf31dbaFy2yadt4_q2U-0QWx0_TiTkLVKtfBHiXBbDeNImZxJImnHYdGm4SSPnf6dNSlELUd6EbanfVther7d3lmkNbQHpAlOiGSstv73k3UcgxBkT2rqh4UzE3jIKNCO_VLQskRsFm2JZhEVhXP8DSLg9mQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzzaQoQqpU06dUoBETY2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpfygBacTAVK7EWeapSrkD2uog05-b4K1fUgXXCyNJ4RZBuT7qElcBBBNImkqWxIKPo2sVZUhsrtkTgu1Ri4ljOn9DWdqri1TKiTouLlaiIBOQFRTUEVZWVNcYpjThKczbT62tbGg6d-asW2vVmTVaETpSy1y3Y9SgqPRIK0Wzi2Z8zFV0OKpzHkBjEi1FEASQaUEiTEmvPr2YEompeQpSEmqMeVCOHtDHP12U6oi-wvOXv_kpGP315-tO70g5zC_byaZyApnz7btLUya52QzDGa_rVFfMG272-13_gOTUUV3Mb2TDzAPXmE--xiVSF5Bl8gpaW9VWnDGBNzRAuqMeB13w4jf7Qw3aJ-YPWRihxHNcY3lwcC2P8I0qLKczAqaz4kb_I6sqGQnRwyf7KhN3MvLYDRwr0cX5yRwf_lXkfXHJOnBUBCJ4llKgquN1T_026eDGOJZPPbD-Mi266gJdAh8mX0h6CPoQ0DHcbDDbwL89L-Hb2Zrx7up45sq2X0oC4hDKG55AnG_lK9Wd9A1SFUUWUcRjDKwm65to3t-hT7IpIp9gUdAqnr1KSbHBlgHkHXA2aTY753xnnGEP8g-GXlZgn_fwovzs33eM1W1Kk09SNlzf3YJxW3Xe4qsCs2rmoBI7uUIn0Mu8Ox5-oCJOvB7MbrIdi_0lNaiqY6BflDb4kP7oy1eT3VfUu3P7OQdsQYwQ45eiYPZJPC_-ufeJ1QaxKjtbWm5eS54QnXwG-IK4vHNtoTGG5m8K5sg9vxthXj6-PFThZfLdudNin9hNuNhhx1jIGtl01bAp-syuP9rMtmQakh5Jratfy_Enp6e7pxlVtNaQLGgnFnOo7nQ8F5kMKWlUHgNWbRUWbhME8upLharzHGi4HGKTVgY4-ofOVdHHQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="current-state-flow-narrative">Current-State Flow Narrative</h4>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Flow Chain</th>
-<th>Path</th>
-<th>Interface</th>
-<th>Freq</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>e.g. MES Route to ICOST</td>
-<td>e.g. MES 300 → e.g. XEUS</td>
-<td>e.g. Direct / API / File</td>
-<td>e.g. Near Real-Time</td>
-</tr>
-</tbody>
-</table>
+
+#### Current-State Flow Narrative
+
+| # | Flow Chain | Path | Interface | Freq |
+|---|-----------|------|-----------|------|
+| 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="52-future-state-future-state-application-landscape">5.2 Future-State — Future-State Application Landscape</h3>
-<h4 id="overview_1">Overview</h4>
-<p>The Future-State architecture represents the <strong>target</strong> landscape for E2E-59.This view is generated from <code>FutureFlows.xlsx</code> (1 flow hops across 1 flow chains).</p>
-<h4 id="application-architecture-architecture-diagram-archimate-inspired_1">APPLICATION ARCHITECTURE — Architecture Diagram (ArchiMate-Inspired)</h4>
-<blockquote>
-<p><strong>Click any system node</strong> to open its IAPM application page.
-<strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
-</blockquote>
+
+### 5.2 Future-State — Future-State Application Landscape
+
+#### Overview
+
+The Future-State architecture represents the **target** landscape for E2E-59.This view is generated from `FutureFlows.xlsx` (1 flow hops across 1 flow chains).
+
+#### APPLICATION ARCHITECTURE — Architecture Diagram (ArchiMate-Inspired)
+
+> **Click any system node** to open its IAPM application page.
+> **Legend**: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span>
+
 <div class="mermaid">
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "16px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
 flowchart TB
@@ -828,6 +795,7 @@ flowchart TB
     E2E59F_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E59FMW_e_g_Azure_Service_Bus
     E2E59FMW_e_g_Azure_Service_Bus --> E2E59F_e_g_XEUS
 
+
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -841,161 +809,89 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1vokAQ_isbGuMXbemLb6QxgYIXL9g2pS93OS9kZQfddAXCLm2t9b_fLlil2MbemmCYeeaZ5ZmZ3aUWxAQ0Q6vVljSiwkDLupjBHOoGqk8wh3oD1TkEWUrFwoUnYMrB4rjw5NB7nFI8YcDrKjqMI-HR15zguJ28KJiyDfCcsoWyejCNAd0NG8iUgayBOI54k0NKw_pKoVn8HMxwKnK-jMMIvzxQImbyPcSMg8TMxJy5eAJMJRVppmyR_BIvwQGNptJ4pktTiqPHramlr1ZoVauNo00KdGuNIyRXrYaaTbmhYEZHWECTRjyhKRDExYIBChjmHLjEFPD83YYQTTJOI-Ac5SukjBkHA7msVoOLNH4E48Dqdtu6tX5tPqsvMU6Sl0YQszg1DnRdr3DiJEHbVXBaLcW64dT1Tsdq_wcnwQLvctrdPZzHHzjffQRzKV6KF1JT1KpkmlNCGDzjFMqK2G1zq4jTaQ-2bN_YPcRsRxGlcUnliwtd38dZsPJsMk1xMkOm-2esjTPSPSXySU5byLy-docX5u3w6hK55m_nZqz9LYLUIrIhAkHjCLk3W6tz4rR6Ax_8qT9yPP9U18usAbQRHE4PkfQh6ZOEhmHICn9K8Mu58z6NVo4vQ0cPebD5mqXge5A-0QB8K-Mfvu64UzDlKLRGIYkqaLdVq7LbTs5-EXPhO0zOeyT65S0GZwWxAqA14HySHvXPab9wePfoCA3tOJB_P72ry_Mj2i-yqq4s8kFE3uuzK6gcu_7bWMvZ7LwIksm8HsrngDIYa297lCgTf4VRSaq1UFtaN01-DFhuacQH-r4RL4eam1D9O5O806wuTKVGH5qD6Mh1fjiX9je61PVlb1dby0wSRgOswJ80l-uPHqotNNq2yZdt4_q2U-0QWx0_TiTkLVKtfBHiXBXDeNImZxJImnHYdGm4TiPnv9QmW1ELUd6FbanfRther7dzlmkNbQ7pHFOiGUstv73k3UcgxBkT2qqh4UzE3iIKNCO_VLQskRsFm2JZhHlhXP0Djyk9sQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9A5wuoiyEZbtxwM9Q4X-7N3c1S1gM0lm1ZOxWV_35PV5QJGr0lGdt5eU77nKfts5VkDCzHajSeecqVQ54jS01hBpHlkMgaUYlvTXyTkJQFV_MA7kEYp8iyV2-VckMLTkcCpHYjzjhLVcifllC7nfzRBGt7n864mBtPCJMMyPWgSVwEEE0iaSpbEgo-jqxFlSGyh2RKC7VELiUM6eMtZ2qqLWMqJOi4qZqJgI5AVFNQRVlZU1ximNOEpxNtPrC1saDpXc3YthcLsmg0ovStFrnqRSnB0WiQVgvnlkz5kCpo8VTmvABGpJoLIImgUoLEGBNefXswJqNS8hSkJNUYcyGcrT6OXrspVZHdgbPVOzrq2L3lZ-tBL8jZyx-bSSaywtmybXsNk-Y5WQ2D2Wtr1DdM2z487HX-A5NRRTcxvaMvMHffYb76GJVIXkHnyClpr1WaccYEPNAC6ox4HXfFiH_Y6a_QvjF7yMQGI5rjGsunp7b9FaZBleVoUtB8StzgT2RFJTvaZ_hk-23iXlwEg1P3anB-RgL3t38ZWX9Nkh4MBZEonqUkuFxZ_T2_fdyPIZ7EQz-M9227jppAh8D2ZJugj6APAR3HwQ5_CPDLvw4_zNaOT1OHt1Wy-1QWEIdQ3PME4l4p361u99AgVVFkGUUwysCuuraO7vkV-mkmVewLPAJS1a1PMTkwwDqALANORsVO94R3jSO8ITtk4GUJ_v0Mz89OdnjXVNWqNPUgZa_92SQUt133JbIqNK9qAiK5FwN89rnAs-flCybqwJ_F6CLrvdBTWoqmOgZ6QW2L9-2vtng91X1Ltb-zkzfEGsAEOXonDmaTwP_hn3nfUGkQo7bXpeXmueAJ1cEfiCuIh7frEhquZPKpbILY89cV4unjx08VXi7rnTcp_rnZjHsddoCBrJWNWwEfL8vg_q_JZEWqIeWV2Lb-vRF7fHy8cZZZTWsGxYxyZjnP5kLDe5HBmJZC4TVk0VJl4TxNLKe6WKwyx4mCxyk2YWaMi39_yEc1" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="future-state-flow-narrative">Future-State Flow Narrative</h4>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Flow Chain</th>
-<th>Path</th>
-<th>Interface</th>
-<th>Freq</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>e.g. MES Route to ICOST</td>
-<td>e.g. MES 300 → e.g. XEUS</td>
-<td>e.g. Direct / API / File</td>
-<td>e.g. Near Real-Time</td>
-</tr>
-</tbody>
-</table>
+
+#### Future-State Flow Narrative
+
+| # | Flow Chain | Path | Interface | Freq |
+|---|-----------|------|-----------|------|
+| 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="53-change-impact-summary">5.3 Change Impact Summary</h3>
-<table>
-<thead>
-<tr>
-<th>Change Type</th>
-<th>Flow Chain</th>
-<th>Detail</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>UNCHANGED</strong></td>
-<td>e.g. MES Route to ICOST</td>
-<td>No change</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Totals</strong>: 0 new - 0 removed - 0 modified - 1 unchanged</p>
-<h3 id="54-component-overview">5.4 Component Overview</h3>
-<h4 id="system-inventory">System Inventory</h4>
-<table>
-<thead>
-<tr>
-<th>System</th>
-<th>IAPM ID</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>e.g. MES 300</td>
-<td>-</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>e.g. XEUS</td>
-<td>-</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
+
+### 5.3 Change Impact Summary
+
+| Change Type | Flow Chain | Detail |
+|-------------|-----------|--------|
+| **UNCHANGED** | e.g. MES Route to ICOST | No change |
+
+**Totals**: 0 new - 0 removed - 0 modified - 1 unchanged
+
+### 5.4 Component Overview
+
+#### System Inventory
+
+| System | IAPM ID | Status |
+|--------|---------|--------|
+| e.g. MES 300 | - | N/A |
+| e.g. XEUS | - | N/A |
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
-<p>RICEFW objects for this capability will be auto-populated from the Smartsheet S/4 Object Tracker.</p>
-<table>
-<thead>
-<tr>
-<th>Object ID</th>
-<th>Type</th>
-<th>Description</th>
-<th>Status</th>
-<th>Source → Target</th>
-<th>Middleware</th>
-<th>Complexity</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>E2E-59-I001</td>
-<td>Interface</td>
-<td>R3 Rework Re-localization in Factory​ inbound data interface</td>
-<td>Planned</td>
-<td>Legacy → SAP S/4HANA</td>
-<td>MuleSoft / CPI</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>E2E-59-E001</td>
-<td>Enhancement</td>
-<td>R3 Rework Re-localization in Factory​ custom business logic</td>
-<td>Planned</td>
-<td>SAP S/4HANA</td>
-<td>N/A</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>E2E-59-F001</td>
-<td>Form/Report</td>
-<td>R3 Rework Re-localization in Factory​ operational output</td>
-<td>Planned</td>
-<td>SAP S/4HANA</td>
-<td>N/A</td>
-<td>Low</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).</em></p>
-</blockquote>
+
+### 5.5 RICEFW Inventory
+
+RICEFW objects for this capability will be auto-populated from the Smartsheet S/4 Object Tracker.
+
+| Object ID | Type | Description | Status | Source → Target | Middleware | Complexity |
+|-----------|------|-------------|--------|----------------|-----------|-----------|
+| E2E-59-I001 | Interface | R3 Rework Re-localization in Factory​ inbound data interface | Planned | Legacy → SAP S/4HANA | MuleSoft / CPI | Medium |
+| E2E-59-E001 | Enhancement | R3 Rework Re-localization in Factory​ custom business logic | Planned | SAP S/4HANA | N/A | Medium |
+| E2E-59-F001 | Form/Report | R3 Rework Re-localization in Factory​ operational output | Planned | SAP S/4HANA | N/A | Low |
+
+> *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Pattern</th>
-<th>Flow Chain</th>
-<th>Middleware</th>
-<th>Protocol</th>
-<th>Auth</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>e.g. Pub-Sub / P2P / ETL</td>
-<td>e.g. MES Route to ICOST</td>
-<td>e.g. Azure Service Bus</td>
-<td>e.g. REST / RFC / SFTP</td>
-<td>e.g. OAuth / NTLM / Cert</td>
-</tr>
-</tbody>
-</table>
+
+### 5.6 Integration Patterns
+
+| # | Pattern | Flow Chain | Middleware | Protocol | Auth |
+|---|---------|-----------|-----------|----------|------|
+| 1 | e.g. Pub-Sub / P2P / ETL | e.g. MES Route to ICOST | e.g. Azure Service Bus | e.g. REST / RFC / SFTP | e.g. OAuth / NTLM / Cert |
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
-<h3 id="61-platform-infrastructure">6.1 Platform &amp; Infrastructure</h3>
-<blockquote>
-<p><strong>TECHNOLOGY / PLATFORM ARCHITECTURE</strong> — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.</p>
-</blockquote>
-<h4 id="611-current-state-current-state-platform-architecture">6.1.1 Current-State — Current-State Platform Architecture</h4>
+
+## 6. Technology Architecture (TOGAF "T")
+
+### 6.1 Platform & Infrastructure
+
+> **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
+
+#### 6.1.1 Current-State — Current-State Platform Architecture
+
 <div class="mermaid">
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
 flowchart TB
@@ -1018,15 +914,21 @@ flowchart TB
     E2E59CPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E59CPLP_e_g_Azure_PaaS
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlGFvmzAQhv-K5SriC2sJhDRF6iQgoFVKp2is26QxIQeOxKqDEZg1acp_nw1pslZKpWrzB4t77_z49Vl4h1OeAXbwYLCjBRUO2mliBWvQHKQtSA2ajrQa0qaiYjuD38BUgnHeZ7rSb6SiZMGg1tTqnBcioo8dYDgqN6pMaSFZU7ZVagRLDujuRkeuXMi0VlUw_pCuSCU6RlPDLdl8p5lYyTgnrAZZsxJrNiMLYGojUTVKK6T7qCQpLZZSHBlSqkhxf5Rso21ROxjExWEL9NWLCyRHykhdTyFHpCw9vkE5Zcw58-xpGIZ6LSp-D86ZYVxeeuN9-OFBeXLMcqOnnPFKpa2p_ZpXMiKOQH8SjP2rA9CaTALLfwm0jsChZwem8QoInB15YejZnn3g-b4hx0mD47FKx0VPrJvFsiLlCgVmYF_589k8gWSZuI9NBcmckOhnjOPGHBvDuMnBkDufL89Rl0YqHeNfPUiNjFaQCsoLNPtyVJ_Jbkf-EdwpZodR3xLgOE7f8H4NFNnem9gyOGnsn5r55uGjZJR8cj-7iWmYVnf-bGJlcs6I_XcXoosRUnVI1b27EbdBlFiG8dwLGSIZvrMdL6z-h468Rb--_vi0NzvtzocukDu_kXNIGcT46eRVYR2voVoTmmFnh7s3Qr4wGeSkYQK3OiaN4NG2SLHT_ca4KTMiYEqJvJ51L7Z_AL-qboo=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1jp2nKaCDmzHZoV0hHndBvMwin2ciMqWseU2aZr_PsnOR1tIoWy6ENL7Hj06OkLa4ESkgAnu9TasYJKgTYTlEnKIMEERntNajfpqVEPSVEyup_AAvDO5EHu3XfKDVozOOdTaVpxMFDJkTzvUYFiuumCtBzRnfN05ISwEoLubPnIUQMG3bRQXj8mSVnJHa2q4paufLJVLrWSU16DjljLnUzoH3m4rq6ZVC3WssKQJKxZaHhparGhx_0K0je0WbXu9qDjshb67UYFUSzit6wlkiJalK1YoY5yTM9eeBEHQr2Ul7oGcGcblpTvaTT896tSIWa76ieCi0rY1sd_ySk7lEeiN_ZF3dQBa47Fvea-B1hE4cG3fNN4AQfAjLwhc27UPPM8zVDuZ4Gik7ajoiHUzX1S0XCLf9O0rbzadxRAvYuepqSCeURr-jnDUmCNjEDUZGGrn88U5am2k7Qj_6UC6payCRDJRoOm3o7onOy35l3-nmS1GjxWAENIVvFsDRbrLTa45nEzsn4r57uHDeBh_cb46sWmYVnv-dGylqk-p_bIK4cUQ6Tik4z5ciFs_jC3D2NdCTZGafrAcr1L9DxV5j359_fl5l-ykPR-6QM7sRvUB4-q9P5-8KtzHOVQ5ZSkmm-7bUL9PChltuFQPH9NGinBdJJi0Txk3ZUolTBhV15N34vYv6xt4Dg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
-<blockquote>
-<p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
-</blockquote>
+
+> **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
+
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="612-future-state-future-state-platform-architecture">6.1.2 Future-State — Future-State Platform Architecture</h4>
+
+
+#### 6.1.2 Future-State — Future-State Platform Architecture
+
 <div class="mermaid">
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
 flowchart TB
@@ -1049,463 +951,118 @@ flowchart TB
     E2E59FPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E59FPLP_e_g_Azure_PaaS
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlGFvmzAQhv-K5SriC2sJhDRF6iRIQKuUTtFYt0ljQg4ciVWDEZg1acp_nw1pslZKpWrzB4t77_z49Vl4hxOeAnbwYLCjBRUO2mliDTloDtKWpAZNR1oNSVNRsZ3Db2AqwTjvM13pN1JRsmRQa2p1xgsR0scOMByVG1WmtIDklG2VGsKKA7q70ZErFzKtVRWMPyRrUomO0dRwSzbfaSrWMs4Iq0HWrEXO5mQJTG0kqkZphXQfliShxUqKI0NKFSnuj5JttC1qB4OoOGyBvnpRgeRIGKnrGWSIlKXHNyijjDlnnj0LgkCvRcXvwTkzjMtLb7wPPzwoT45ZbvSEM16ptDWzX_NKRsQROJ344-nVAWhNJr41fQm0jsChZ_um8QoInB15QeDZnn3gTaeGHCcNjscqHRU9sW6Wq4qUa-Sbvn0VLOaLGOJV7D42FcQLQsKfEY4ac2wMoyYDQ-58vjpHXRqpdIR_9SA1UlpBIigv0PzLUX0mux35h3-nmB1GfUuA4zh9w_s1UKR7b2LL4KSxf2rmm4cP41H8yf3sxqZhWt3504mVyjkl9t9dCC9GSNUhVffuRtz6YWwZxnMvZIhk-M52vLD6HzryFv36-uPT3uysOx-6QO7iRs4BZRDhp5NXhXWcQ5UTmmJnh7s3Qr4wKWSkYQK3OiaN4OG2SLDT_ca4KVMiYEaJvJ68F9s_4ntuog==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1jp2nKaCDuzEZoV0hHndBvMwin2ciMqWseU2aer_PsnOR1tIoWy6ENL7Hj06OkLa4lgkgAnu9bYsZ5KgbYjlCjIIMUEhXtBKjfpqVEFcl0xuZvAAvDO5EHu3XfKDlowuOFTaVpxU5DJgTzvUYFisu2Ct-zRjfNM5ASwFoLubPnIUQMGbNoqLx3hFS7mj1RXc0vVPlsiVVlLKK9BxK5nxGV0Ab7eVZd2quTpWUNCY5UstDw0tljS_fyHaRtOgptcL88Ne6Lsb5ki1mNOqmkKKaFG4Yo1Sxjk5c-2p7_v9SpbiHsiZYVxeuqPd9NOjTo2YxbofCy5KbVtT-y2v4FQegZOxN5pcHYDWeOxZk9dA6wgcuLZnGm-AIPiR5_uu7doH3mRiqHYywdFI22HeEat6sSxpsUKe6dlX_nw2jyBaRs5TXUI0pzT4HeKwNkfGIKxTMNTO58tz1NpI2yH-04F0S1gJsWQiR7NvR3VPdlryL-9OM1uMHisAIaQreLcG8mSXm9xwOJnYPxXz3cMH0TD64nx1ItMwrfb8ydhKVJ9Q-2UVgosh0nFIx324ELdeEFmGsa-FmiI1_WA5XqX6HyryHv36-vPzLtlpez50gZz5jep9xtV7fz55VbiPMygzyhJMtt23oX6fBFJac6kePqa1FMEmjzFpnzKui4RKmDKqrifrxOYvDft4Jg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
-<blockquote>
-<p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
-</blockquote>
-<h4 id="platform-inventory">Platform Inventory</h4>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Platform</th>
-<th>Type</th>
-<th>Systems Using</th>
-<th>Environment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>e.g. Azure PaaS</td>
-<td>Cloud / SaaS</td>
-<td>e.g. XEUS</td>
-<td>DEV,QAS,PRD</td>
-</tr>
-<tr>
-<td>2</td>
-<td>e.g. S/4 HANA 2023</td>
-<td>On-Premise</td>
-<td>e.g. MES 300</td>
-<td>DEV,QAS,PRD</td>
-</tr>
-</tbody>
-</table>
+
+> **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
+
+
+#### Platform Inventory
+
+| # | Platform | Type | Systems Using | Environment |
+|---|----------|------|--------------|-------------|
+| 1 | e.g. Azure PaaS | Cloud / SaaS | e.g. XEUS | DEV,QAS,PRD |
+| 2 | e.g. S/4 HANA 2023 | On-Premise | e.g. MES 300 | DEV,QAS,PRD |
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="62-sap-development-object-status">6.2 SAP Development Object Status</h3>
-<p><strong>RICEFW Status Summary</strong> — E2E Tower (0 objects)
-<em>Data source: Smartsheet Object Tracker (cached 2026-03-27)</em></p>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th style="text-align: right;">Count</th>
-<th style="text-align: right;">%</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Total</strong></td>
-<td style="text-align: right;"><strong>0</strong></td>
-<td style="text-align: right;"><strong>100%</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>RICEFW by Type:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th style="text-align: right;">Count</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Total</strong></td>
-<td style="text-align: right;"><strong>0</strong></td>
-</tr>
-</tbody>
-</table>
-<h3 id="63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</h3>
-<table>
-<thead>
-<tr>
-<th>Category</th>
-<th>Requirement</th>
-<th>Target / SLA</th>
-<th>Priority</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Performance</td>
-<td>Order/transaction processing within interactive SLA</td>
-<td>&lt; 3 seconds for online transactions</td>
-<td>High</td>
-</tr>
-<tr>
-<td>Availability</td>
-<td>Business-critical systems available during extended hours</td>
-<td>99.9% (06:00-22:00 all time zones)</td>
-<td>High</td>
-</tr>
-<tr>
-<td>Scalability</td>
-<td>Support seasonal and promotional volume spikes</td>
-<td>Handle 2x baseline transaction volume</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>Recoverability</td>
-<td>Customer-facing systems recover within business impact window</td>
-<td>RPO &lt; 30 min, RTO &lt; 2 hours</td>
-<td>High</td>
-</tr>
-<tr>
-<td>Data Volume</td>
-<td>Support transactional data growth from business expansion</td>
-<td>10M+ documents/year</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>Latency</td>
-<td>Near-real-time integration for order status updates</td>
-<td>&lt; 30 seconds for status propagation</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>Concurrency</td>
-<td>Support global user base across business functions</td>
-<td>300+ concurrent users</td>
-<td>Medium</td>
-</tr>
-</tbody>
-</table>
-<h3 id="64-security-governance">6.4 Security &amp; Governance</h3>
-<table>
-<thead>
-<tr>
-<th>Concern</th>
-<th>Approach</th>
-<th>Standard / Policy</th>
-<th>Owner</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Authentication</td>
-<td>Single Sign-On (SSO) via Intel corporate Azure AD identity</td>
-<td>Intel IT Security Policy - Identity Management</td>
-<td>IT Security</td>
-</tr>
-<tr>
-<td>Authorization</td>
-<td>Role-based access control (RBAC) with SAP authorization objects</td>
-<td>Intel SAP Security Standards - Role Design</td>
-<td>SAP Security Team</td>
-</tr>
-<tr>
-<td>Data Classification</td>
-<td>All financial/operational data classified per Intel Data Classification Standard</td>
-<td>Intel Data Classification Policy</td>
-<td>Data Governance</td>
-</tr>
-<tr>
-<td>Data Encryption (at rest)</td>
-<td>AES-256 encryption for SAP HANA database and file storage</td>
-<td>Intel Encryption Standard</td>
-<td>Infrastructure Security</td>
-</tr>
-<tr>
-<td>Data Encryption (in transit)</td>
-<td>TLS 1.3 for all system-to-system and user-to-system communication</td>
-<td>Intel Network Security Policy</td>
-<td>Network Engineering</td>
-</tr>
-<tr>
-<td>Network Segmentation</td>
-<td>SAP systems in dedicated network zones with firewall controls</td>
-<td>Intel Network Architecture Standard</td>
-<td>Network Security</td>
-</tr>
-<tr>
-<td>API Security</td>
-<td>OAuth 2.0 / certificate-based authentication for all API integrations</td>
-<td>Intel API Security Guidelines</td>
-<td>Integration Architecture</td>
-</tr>
-<tr>
-<td>Audit Logging</td>
-<td>Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log)</td>
-<td>SOX Compliance / Intel Audit Policy</td>
-<td>Internal Audit</td>
-</tr>
-<tr>
-<td>Certificate Management</td>
-<td>Automated certificate lifecycle management for system-to-system trust</td>
-<td>Intel PKI Standard</td>
-<td>Certificate Authority Team</td>
-</tr>
-<tr>
-<td>Compliance</td>
-<td>SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR)</td>
-<td>Intel Corporate Compliance Framework</td>
-<td>Compliance Office</td>
-</tr>
-</tbody>
-</table>
+
+### 6.2 SAP Development Object Status
+
+| Metric | DEV | QAS | PRD |
+|--------|-----|-----|-----|
+| Transport Requests | — | — | — |
+| Custom Code Objects | — | — | — |
+| CDS Views | — | — | — |
+| Fiori Apps | — | — | — |
+| BAdIs / Enhancements | — | — | — |
+
+### 6.3 NFRs & Design Principles
+
+| Category | Requirement | Target / SLA | Priority |
+|----------|-------------|-------------|----------|
+| Performance | Order/transaction processing within interactive SLA | < 3 seconds for online transactions | High |
+| Availability | Business-critical systems available during extended hours | 99.9% (06:00-22:00 all time zones) | High |
+| Scalability | Support seasonal and promotional volume spikes | Handle 2x baseline transaction volume | Medium |
+| Recoverability | Customer-facing systems recover within business impact window | RPO < 30 min, RTO < 2 hours | High |
+| Data Volume | Support transactional data growth from business expansion | 10M+ documents/year | Medium |
+| Latency | Near-real-time integration for order status updates | < 30 seconds for status propagation | Medium |
+| Concurrency | Support global user base across business functions | 300+ concurrent users | Medium |
+
+### 6.4 Security & Governance
+
+| Concern | Approach | Standard / Policy | Owner |
+|---------|----------|--------------------|-------|
+| Authentication | Single Sign-On (SSO) via Intel corporate Azure AD identity | Intel IT Security Policy - Identity Management | IT Security |
+| Authorization | Role-based access control (RBAC) with SAP authorization objects | Intel SAP Security Standards - Role Design | SAP Security Team |
+| Data Classification | All financial/operational data classified per Intel Data Classification Standard | Intel Data Classification Policy | Data Governance |
+| Data Encryption (at rest) | AES-256 encryption for SAP HANA database and file storage | Intel Encryption Standard | Infrastructure Security |
+| Data Encryption (in transit) | TLS 1.3 for all system-to-system and user-to-system communication | Intel Network Security Policy | Network Engineering |
+| Network Segmentation | SAP systems in dedicated network zones with firewall controls | Intel Network Architecture Standard | Network Security |
+| API Security | OAuth 2.0 / certificate-based authentication for all API integrations | Intel API Security Guidelines | Integration Architecture |
+| Audit Logging | Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log) | SOX Compliance / Intel Audit Policy | Internal Audit |
+| Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
+| Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="7-project-context">7. Project Context</h2>
-<h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
-<p><em>No timeline data available for this capability.</em></p>
-<h3 id="72-raid-log">7.2 RAID Log</h3>
-<p><em>Live data from Smartsheet Master RAID Log — extracted 2026-03-27</em></p>
-<p><strong>RAID Summary:</strong> 15 open items (0 capability-specific, 15 tower-level), 56 closed</p>
-<table>
-<thead>
-<tr>
-<th>Severity</th>
-<th style="text-align: right;">Capability</th>
-<th style="text-align: right;">Tower-Wide</th>
-<th style="text-align: right;">Total Open</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>P1 - High</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr>
-<td>P2 - Medium</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">10</td>
-</tr>
-<tr>
-<td>P3 - Low</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr>
-<td><strong>Total</strong></td>
-<td style="text-align: right;"><strong>0</strong></td>
-<td style="text-align: right;"><strong>15</strong></td>
-<td style="text-align: right;"><strong>15</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Other E2E Tower RAID Items</strong> (15 open):</p>
-<table>
-<thead>
-<tr>
-<th>RAID ID</th>
-<th>Type</th>
-<th>Severity</th>
-<th>Title</th>
-<th>Status</th>
-<th>Assigned To</th>
-<th>Due Date</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>03591</td>
-<td>Risk</td>
-<td>P1 - High</td>
-<td>R3 E2E scenario execution</td>
-<td>In Progress</td>
-<td>Test Management</td>
-<td>2026-04-03</td>
-</tr>
-<tr>
-<td>03681</td>
-<td>Risk</td>
-<td>P1 - High</td>
-<td>ITC Execution: Planning run availability - Prerequisite for &hellip;</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-03-27</td>
-</tr>
-<tr>
-<td>03762</td>
-<td>Risk</td>
-<td>P1 - High</td>
-<td>FTS-IF (esp SCP) related test cases/sequencing are not accur&hellip;</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-04-03</td>
-</tr>
-<tr>
-<td>01733</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Tariffs impacts Item/BOM design which is impacting ERP/SCP (&hellip;</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-03-06</td>
-</tr>
-<tr>
-<td>03592</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Lack of Defined IMO Owner for CBA Mask Billing and Materials&hellip;</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-03-27</td>
-</tr>
-<tr>
-<td>03625</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Item/ BOM MC1 delta load</td>
-<td>In Progress</td>
-<td>Cutover</td>
-<td>2026-04-10</td>
-</tr>
-<tr>
-<td>03628</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>R3 Returns Rework Process Causing Finance Double Counting in&hellip;</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-03-27</td>
-</tr>
-<tr>
-<td>03642</td>
-<td>Issue</td>
-<td>P2 - Medium</td>
-<td>E2E Process with Anafi on order/invoice point.  Need IFS SC &hellip;</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-03-24</td>
-</tr>
-<tr>
-<td>03736</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>Golden Data/Test Data Readiness</td>
-<td>In Progress</td>
-<td>Master Data</td>
-<td>2026-04-22</td>
-</tr>
-<tr>
-<td>03743</td>
-<td>Issue</td>
-<td>P2 - Medium</td>
-<td>FD-Share with Entitlements -  Interface File Paths for MC1</td>
-<td>Roadblock / At Risk</td>
-<td>PMO</td>
-<td>2026-03-20</td>
-</tr>
-<tr>
-<td>03753</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>PDF-SMH IF test cases are not available in JIRA</td>
-<td>To Be Reviewed</td>
-<td>B-Apps</td>
-<td>2026-03-25</td>
-</tr>
-<tr>
-<td>03756</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>LE101-1001 Operation Support Ownership for SIMS/Tester Front&hellip;</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-04-24</td>
-</tr>
-<tr>
-<td>03769</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>Need a Labs SPOC owner to define IP Labs enterprise and mate&hellip;</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-04-17</td>
-</tr>
-<tr>
-<td>03216</td>
-<td>Action</td>
-<td>P3 - Low</td>
-<td>Mask Expense vs. Invoice</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-03-06</td>
-</tr>
-<tr>
-<td>03315</td>
-<td>Risk</td>
-<td>P3 - Low</td>
-<td>BPMG – SCP L3/L4 flow standards</td>
-<td>In Progress</td>
-<td>Business Process Mgmt</td>
-<td>2026-03-27</td>
-</tr>
-</tbody>
-</table>
-<h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Category</th>
-<th>Recommendation</th>
-<th>Priority</th>
-<th>Owner</th>
-<th>Target Date</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Architecture</td>
-<td>Complete extended flow attributes (Data Entity, Integration Pattern, Tech Platform) in Flows tab for full BDAT coverage</td>
-<td>High</td>
-<td>Tower Architect</td>
-<td>2026-Q2</td>
-<td>Open</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Data</td>
-<td>Define data ownership and classification for all 1 flow chains to satisfy Data Architecture (TOGAF D) requirements</td>
-<td>Medium</td>
-<td>Data Architect</td>
-<td>2026-Q3</td>
-<td>Open</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Testing</td>
-<td>Develop integration test scenarios covering all 1 flow chains for FUT/SIT readiness</td>
-<td>High</td>
-<td>Test Lead</td>
-<td>2026-Q3</td>
-<td>Open</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Business Architecture</td>
-<td>Review and validate Business Architecture process steps against latest Signavio/BIC process models</td>
-<td>Medium</td>
-<td>Business Analyst</td>
-<td>2026-Q2</td>
-<td>Open</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Security</td>
-<td>Complete security review for API integrations and data flows per Intel Security Architecture standards</td>
-<td>Medium</td>
-<td>Security Architect</td>
-<td>2026-Q3</td>
-<td>Open</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<p><em>E2E-59 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026</em></p>
+
+## 7. Project Context
+
+### 7.1 Project Roadmap & Go-Live Plan
+
+Project delivery milestones for E2E-59 RICEFW objects:
+
+| Phase | Planned Start | Planned End | Status | Notes |
+|-------|---------------|-------------|--------|-------|
+| Functional Specification (FS) | Per project plan | Per project plan | In Progress | Tower-level FS schedule |
+| Technical Design (TDD) | FS + 2 weeks | FS + 6 weeks | Planned | Dependent on FS completion |
+| Build & Unit Test (TUT) | TDD + 1 week | TDD + 8 weeks | Planned | Includes S/4 + Middleware |
+| Functional User Test (FUT) | Build + 1 week | Build + 4 weeks | Planned | Tower-led validation |
+| Go-Live (Release 2) | Per release plan | Per release plan | Planned | End-to-End Integrated Processes release |
+
+> *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
+
+<div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+### 7.2 RAID Log
+
+Standard RAID items for E2E-59 (End-to-End Integrated Processes):
+
+| # | Category | Description | Status | Owner | Priority |
+|---|----------|-------------|--------|-------|----------|
+| 1 | Risk | Data migration completeness — validate all legacy R3 Rework Re-localization in Factory​ data maps to S/4 target structures | Open | Tower Architect | High |
+| 2 | Risk | Integration testing coverage — ensure all 2 integrated systems are validated end-to-end | Open | Integration Lead | High |
+| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
+| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
+| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
+
+> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
+
+### 7.3 Recommendations & Next Steps
+
+| # | Category | Recommendation | Priority | Owner | Target Date | Status |
+|---|----------|---------------|----------|-------|-------------|--------|
+| 1 | Architecture | Complete extended flow attributes (Data Entity, Integration Pattern, Tech Platform) in Flows tab for full BDAT coverage | High | Tower Architect | 2026-Q2 | Open |
+| 2 | Data | Define data ownership and classification for all 1 flow chains to satisfy Data Architecture (TOGAF D) requirements | Medium | Data Architect | 2026-Q3 | Open |
+| 3 | Testing | Develop integration test scenarios covering all 1 flow chains for FUT/SIT readiness | High | Test Lead | 2026-Q3 | Open |
+| 4 | Business Architecture | Review and validate Business Architecture process steps against latest Signavio/BIC process models | Medium | Business Analyst | 2026-Q2 | Open |
+| 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
+
+---
+*E2E-59 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026*
+<div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-59 — R3 Rework Re-localization in Factory​</span></div>
+</div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
 </div>

@@ -19,7 +19,14 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
+.page-section {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 40px);
+  box-sizing: border-box;
+}
 .page-footer {
+  margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid #ddd;
   display: flex;
@@ -27,15 +34,16 @@
   align-items: center;
   font-size: 11px;
   color: #888;
-  margin-top: 24px;
-  padding: 6px 0;
+  padding: 6px 12px;
   background: #fff;
 }
 @media print {
+  .page-section {
+    min-height: 100vh;
+  }
   .page-footer {
     page-break-inside: avoid;
     break-inside: avoid;
-    margin-top: 16px;
   }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
@@ -58,7 +66,7 @@ nav.toc a:hover { text-decoration: underline; }
 <nav class="toc">
 <ol>
   <li><a href="#1-executive-summary">1. Executive Summary</a></li>
-  <li><a href="#2-business-context--objectives">2. Business Context &amp; Objectives</a>
+  <li><a href="#2-business-context-objectives">2. Business Context &amp; Objectives</a>
     <ul>
       <li><a href="#21-classification">2.1 Classification</a></li>
       <li><a href="#22-business-drivers">2.2 Business Drivers</a></li>
@@ -70,22 +78,22 @@ nav.toc a:hover { text-decoration: underline; }
     <ul>
       <li><a href="#31-business-process-overview">3.1 Business Process Overview</a></li>
       <li><a href="#32-business-process-diagrams">3.2 Business Process Diagrams</a></li>
-      <li><a href="#33-business-roles--responsibilities">3.3 Business Roles &amp; Responsibilities</a></li>
+      <li><a href="#33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</a></li>
     </ul>
   </li>
   <li><a href="#4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
     <ul>
-      <li><a href="#41-data-entities--ownership">4.1 Data Entities &amp; Ownership</a></li>
+      <li><a href="#41-data-entities-ownership">4.1 Data Entities &amp; Ownership</a></li>
       <li><a href="#42-data-flow-diagrams">4.2 Data Flow Diagrams</a></li>
       <li><a href="#43-data-lineage">4.3 Data Lineage</a></li>
       <li><a href="#44-ricefw-data-objects">4.4 RICEFW Data Objects</a></li>
-      <li><a href="#45-data-governance--quality">4.5 Data Governance &amp; Quality</a></li>
+      <li><a href="#45-data-governance-quality">4.5 Data Governance &amp; Quality</a></li>
     </ul>
   </li>
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
-      <li><a href="#51-{{ current_label | lower | replace(' ', '-') }}--current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
-      <li><a href="#52-{{ future_label | lower | replace(' ', '-') }}--future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
+      <li><a href="#51-{{ current_label | lower | replace(' ', '-') }}-current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
+      <li><a href="#52-{{ future_label | lower | replace(' ', '-') }}-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
       <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
       <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
@@ -94,17 +102,17 @@ nav.toc a:hover { text-decoration: underline; }
   </li>
   <li><a href="#6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
     <ul>
-      <li><a href="#61-platform--infrastructure">6.1 Platform &amp; Infrastructure</a></li>
+      <li><a href="#61-platform-infrastructure">6.1 Platform &amp; Infrastructure</a></li>
       <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
-      <li><a href="#63-nfrs--design-principles">6.3 NFRs &amp; Design Principles</a></li>
-      <li><a href="#64-security--governance">6.4 Security &amp; Governance</a></li>
+      <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
+      <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
     </ul>
   </li>
   <li><a href="#7-project-context">7. Project Context</a>
     <ul>
-      <li><a href="#71-project-roadmap--go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</a></li>
+      <li><a href="#71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</a></li>
       <li><a href="#72-raid-log">7.2 RAID Log</a></li>
-      <li><a href="#73-recommendations--next-steps">7.3 Recommendations &amp; Next Steps</a></li>
+      <li><a href="#73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</a></li>
     </ul>
   </li>
 </ol>

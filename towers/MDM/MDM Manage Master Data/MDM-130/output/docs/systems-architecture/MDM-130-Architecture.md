@@ -1,5 +1,6 @@
+<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">MDM-130 — Create and Maintain Customers</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Master Data (MDM) Tower<br/>
@@ -19,7 +20,14 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
+.page-section {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 40px);
+  box-sizing: border-box;
+}
 .page-footer {
+  margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid #ddd;
   display: flex;
@@ -27,62 +35,99 @@
   align-items: center;
   font-size: 11px;
   color: #888;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 20px;
+  padding: 6px 12px;
   background: #fff;
 }
 @media print {
-  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+  .page-section {
+    min-height: 100vh;
+  }
+  .page-footer {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
 .page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
 </style>
 
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-130 — Create and Maintain Customers</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 <a id="toc"></a>
 
 ## Table of Contents
 
-1. [Executive Summary](#1-executive-summary)
-2. [Business Context & Objectives](#2-business-context--objectives)
-   - 2.1 [Classification](#21-classification)
-   - 2.2 [Business Drivers](#22-business-drivers)
-   - 2.3 [Success Criteria](#23-success-criteria)
-   - 2.4 [Companion Documents](#24-companion-documents)
-3. [Business Architecture (TOGAF "B")](#3-business-architecture-togaf-b)
-   - 3.1 [Business Process Overview](#31-business-process-overview)
-   - 3.2 [Business Process Diagrams](#32-business-process-diagrams)
-   - 3.3 [Business Roles & Responsibilities](#33-business-roles--responsibilities)
-4. [Data Architecture (TOGAF "D")](#4-data-architecture-togaf-d)
-   - 4.1 [Data Entities & Ownership](#41-data-entities--ownership)
-   - 4.2 [Data Flow Diagrams](#42-data-flow-diagrams)
-   - 4.3 [Data Lineage](#43-data-lineage)
-   - 4.4 [RICEFW Data Objects](#44-ricefw-data-objects)
-   - 4.5 [Data Governance & Quality](#45-data-governance--quality)
-5. [Application Architecture (TOGAF "A")](#5-application-architecture-togaf-a)
-   - 5.1 [Current-State Application Landscape](#51-current-state--current-state-application-landscape)
-   - 5.2 [Future-State Application Landscape](#52-future-state--future-state-application-landscape)
-   - 5.3 [Change Impact Summary](#53-change-impact-summary)
-   - 5.4 [Component Overview](#54-component-overview)
-   - 5.5 [RICEFW Inventory](#55-ricefw-inventory)
-   - 5.6 [Integration Patterns](#56-integration-patterns)
-6. [Technology Architecture (TOGAF "T")](#6-technology-architecture-togaf-t)
-   - 6.1 [Platform & Infrastructure](#61-platform--infrastructure)
-   - 6.2 [SAP Development Object Status](#62-sap-development-object-status)
-   - 6.3 [NFRs & Design Principles](#63-nfrs--design-principles)
-   - 6.4 [Security & Governance](#64-security--governance)
-7. [Project Context](#7-project-context)
-   - 7.1 [Project Roadmap & Go-Live Plan](#71-project-roadmap--go-live-plan)
-   - 7.2 [RAID Log](#72-raid-log)
-   - 7.3 [Recommendations & Next Steps](#73-recommendations--next-steps)
+<nav class="toc">
+<ol>
+  <li><a href="#1-executive-summary">1. Executive Summary</a></li>
+  <li><a href="#2-business-context-objectives">2. Business Context &amp; Objectives</a>
+    <ul>
+      <li><a href="#21-classification">2.1 Classification</a></li>
+      <li><a href="#22-business-drivers">2.2 Business Drivers</a></li>
+      <li><a href="#23-success-criteria">2.3 Success Criteria</a></li>
+      <li><a href="#24-companion-documents">2.4 Companion Documents</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+    <ul>
+      <li><a href="#31-business-process-overview">3.1 Business Process Overview</a></li>
+      <li><a href="#32-business-process-diagrams">3.2 Business Process Diagrams</a></li>
+      <li><a href="#33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+    <ul>
+      <li><a href="#41-data-entities-ownership">4.1 Data Entities &amp; Ownership</a></li>
+      <li><a href="#42-data-flow-diagrams">4.2 Data Flow Diagrams</a></li>
+      <li><a href="#43-data-lineage">4.3 Data Lineage</a></li>
+      <li><a href="#44-ricefw-data-objects">4.4 RICEFW Data Objects</a></li>
+      <li><a href="#45-data-governance-quality">4.5 Data Governance &amp; Quality</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+    <ul>
+      <li><a href="#51-current-state-current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
+      <li><a href="#52-future-state-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
+      <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
+      <li><a href="#54-component-overview">5.4 Component Overview</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+    <ul>
+      <li><a href="#61-platform-infrastructure">6.1 Platform &amp; Infrastructure</a></li>
+      <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
+      <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
+      <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+    </ul>
+  </li>
+  <li><a href="#7-project-context">7. Project Context</a>
+    <ul>
+      <li><a href="#71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</a></li>
+      <li><a href="#72-raid-log">7.2 RAID Log</a></li>
+      <li><a href="#73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</a></li>
+    </ul>
+  </li>
+</ol>
+</nav>
 
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-130 — Create and Maintain Customers</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 1. Executive Summary
 
@@ -101,7 +146,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-130 — Create and Maintain Customers</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 2. Business Context & Objectives
 
@@ -123,7 +171,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 4 | MDM-130 Process Migration | Migrate Create and Maintain Customers business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Master Data | High |
 
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-130 — Create and Maintain Customers</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 2.3 Success Criteria
 
@@ -142,13 +193,17 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-130 — Create and Maintain Customers</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 3. Business Architecture (TOGAF "B")
 
 ### 3.1 Business Process Overview
 
 *(No BPMN files found in input/bpmn/ for this capability.)*
+
 
 ### 3.3 Business Roles & Responsibilities
 
@@ -160,7 +215,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | Integration Architect | MDM-130 | Designs and validates integration patterns and middleware flows |
 
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-130 — Create and Maintain Customers</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 4. Data Architecture (TOGAF "D")
 
@@ -172,11 +230,18 @@ The following data entities are derived from the system integration flows for MD
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-130 — Create and Maintain Customers</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
+
+
+
 
 ### 4.3 Data Lineage
 
@@ -249,7 +314,10 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Quality | Validated at source; reconciliation at target |
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-130 — Create and Maintain Customers</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 5. Application Architecture (TOGAF "A")
 
@@ -259,9 +327,11 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 The Current-State architecture represents the **current / legacy** landscape for MDM-130.
 
+
 #### Current-State Flow Narrative
 
 *(No current-state flows defined.)*
+
 
 ### 5.2 Future-State — Future-State Application Landscape
 
@@ -269,9 +339,11 @@ The Current-State architecture represents the **current / legacy** landscape for
 
 The Future-State architecture represents the **target** landscape for MDM-130.
 
+
 #### Future-State Flow Narrative
 
 *(No future-state flows defined.)*
+
 
 ### 5.3 Change Impact Summary
 
@@ -288,7 +360,10 @@ The Future-State architecture represents the **target** landscape for MDM-130.
 |--------|---------|--------|
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-130 — Create and Maintain Customers</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.5 RICEFW Inventory
 
@@ -444,7 +519,10 @@ The Future-State architecture represents the **target** landscape for MDM-130.
 **Summary**: 5 Reports, 30 Interfaces, 40 Conversions, 61 Enhancements, 10 Workflows
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-130 — Create and Maintain Customers</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.6 Integration Patterns
 
@@ -456,13 +534,19 @@ Integration patterns identified from the system flow analysis for MDM-130:
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-130 — Create and Maintain Customers</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
+
+
 
 #### Platform Inventory
 
@@ -477,80 +561,20 @@ Platform landscape inferred from integrated systems for MDM-130:
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-130 — Create and Maintain Customers</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 6.2 SAP Development Object Status
 
-**Capability RICEFW Status** (146 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-03-27)*
-
-| Status | Count | % |
-|--------|------:|----:|
-| 10. Object Complete | 117 | 80.1% |
-| 06. Dev Not Started | 20 | 13.7% |
-| 06. Dev In Progress | 3 | 2.1% |
-| 09. FUT Overdue | 1 | 0.7% |
-| 05. FS Overdue | 1 | 0.7% |
-| 06. Dev Unplanned | 1 | 0.7% |
-| 08. FUT In Progress | 1 | 0.7% |
-| 03. FS Not Started | 1 | 0.7% |
-| 04. FS In Progress | 1 | 0.7% |
-| **Total** | **146** | **100%** |
-
-**RICEFW by Type:**
-
-| Type | Count |
-|------|------:|
-| Report (R) | 5 |
-| Interface (I) | 30 |
-| Conversion (C) | 40 |
-| Enhancement (E) | 61 |
-| Workflow (W) | 10 |
-| **Total** | **146** |
-
-**Technical Complexity:**
-
-| Complexity | Count |
-|------------|------:|
-| 01.Very High | 7 |
-| 02.High | 21 |
-| 03.Medium | 95 |
-| 04.Low | 22 |
-| N/A | 1 |
-
-**Active (Non-Complete) Objects:**
-
-| Object ID | Type | Description | Status | Complexity |
-|-----------|------|-------------|--------|------------|
-| MDCR0025 | 01.Report | Alternate/Preferred BOM Component Change in S4 | 09. FUT Overdue | 03.Medium |
-| DATI1727 | 02.Interface | Automated update to DC Sales Status and other Item Sales Data fields​ | 05. FS Overdue | 03.Medium |
-| DATI1618_IP | 02.Interface | Interface to automate the PROC material master creation to read BOM data from S/... | 06. Dev In Progress | 03.Medium |
-| DATI1618_IF | 02.Interface | Interface to automate the PROC material master creation to read BOM data from S/... | 06. Dev In Progress | 04.Low |
-| DATE1737_IP | 04.Enhancement | Change BOM UI with BOM update Logic that can be run in background & Error proces... | 06. Dev Not Started | 01.Very High |
-| DATE1737_IF | 04.Enhancement | Change BOM UI with BOM update Logic that can be run in background & Error proces... | 06. Dev Not Started | 02.High |
-| DATE1736_IP | 04.Enhancement | Create BOM UI with Logic to combine Group BOM and MPV Component Table & Error pr... | 06. Dev Not Started | 02.High |
-| DATE1736_IF | 04.Enhancement | Create BOM UI with Logic to combine Group BOM and MPV Component Table & Error pr... | 06. Dev Not Started | 03.Medium |
-| DATE1735_IP | 04.Enhancement | Reprocess Errors based on Error Categories (replication | BOM | etc.)​ | 06. Dev Not Started | 01.Very High |
-| DATE1735_IF | 04.Enhancement | Reprocess Errors based on Error Categories (replication | BOM | etc.)​ | 06. Dev Not Started | 02.High |
-| DATE1734_IP | 04.Enhancement | Search BOM using Plant and Parent ( User selects components from entire BOM with... | 06. Dev Not Started | 02.High |
-| DATE1734_IF | 04.Enhancement | Search BOM using Plant and Parent ( User selects components from entire BOM with... | 06. Dev Not Started | 03.Medium |
-| DATE1733_IP | 04.Enhancement | Search BOM by Keyword and fetch only matching components​ | 06. Dev Not Started | 02.High |
-| DATE1733_IF | 04.Enhancement | Search BOM by Keyword and fetch only matching components​ | 06. Dev Not Started | 03.Medium |
-| DATE1732_IP | 04.Enhancement | Maintain MPV Component table (add, update, inactivate)​ | 06. Dev Not Started | 02.High |
-| DATE1732_IF | 04.Enhancement | Maintain MPV Component table (add, update, inactivate)​ | 06. Dev Not Started | 03.Medium |
-| DATE1731_IP | 04.Enhancement | Upload records to MPV Keyword or MPV Component table​ | 06. Dev Not Started | 02.High |
-| DATE1731_IF | 04.Enhancement | Upload records to MPV Keyword or MPV Component table​ | 06. Dev Not Started | 03.Medium |
-| DATE1730_IP | 04.Enhancement | Create/Maintain Keyword for Plant / or update multiple Keywords into MPV Keyword... | 06. Dev Not Started | 02.High |
-| DATE1730_IF | 04.Enhancement | Create/Maintain Keyword for Plant / or update multiple Keywords into MPV Keyword... | 06. Dev Not Started | 03.Medium |
-| DATE1729_IP | 04.Enhancement | Custom Tables – 3x (needed to support entire FS)​ | 06. Dev Not Started | 02.High |
-| DATE1729_IF | 04.Enhancement | Custom Tables – 3x (needed to support entire FS)​ | 06. Dev Not Started | 03.Medium |
-| DATE1633 | 04.Enhancement | SIMS External BOM - Update lead time offset for BOM Components | 06. Dev Unplanned | 03.Medium |
-| DATE1616_IP | 04.Enhancement | Automate External BOM | 06. Dev Not Started | 02.High |
-| DATE1616_IF | 04.Enhancement | Automate External BOM | 06. Dev Not Started | 03.Medium |
-| DATE1615 | 04.Enhancement | Automate the PROC material master creation process based on business rules | 06. Dev In Progress | 03.Medium |
-| DATE1613 | 04.Enhancement | HAZMAT Profile UI | 08. FUT In Progress | 03.Medium |
-| DATC1552 | 03.Conversion | edFIT - PSI BOM Conversion | 03. FS Not Started | 03.Medium |
-| DATC1551 | 03.Conversion | edFIT - Material Master Conversion | 04. FS In Progress | 03.Medium |
+| Metric | DEV | QAS | PRD |
+|--------|-----|-----|-----|
+| Transport Requests | — | — | — |
+| Custom Code Objects | — | — | — |
+| CDS Views | — | — | — |
+| Fiori Apps | — | — | — |
+| BAdIs / Enhancements | — | — | — |
 
 ### 6.3 NFRs & Design Principles
 
@@ -580,92 +604,58 @@ Platform landscape inferred from integrated systems for MDM-130:
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-130 — Create and Maintain Customers</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 7. Project Context
 
 ### 7.1 Project Roadmap & Go-Live Plan
-
-*144 objects with timeline data (source: Object Tracker)*
 
 | ID | Description | FS | TDD | Build | FUT | Status |
 |----|-------------|----|-----|-------|-----|--------|
 | MDGM1332 | IMO Materials | Aug-25 (100%) | — | — | Sep-25 (100%) | 2. At Risk |
 | MDCR0025 | Alternate/Preferred BOM Component Change in S4 | Nov-25 (100%) | Nov-25 (100%) | Feb-26 (100%) | Jan-26 (52%) |  |
 | MDCE0024 | Supplier Hierarchy | Nov-25 (100%) | Nov-25 (100%) | Feb-26 (100%) | Jan-26 (100%) |  |
-| MDCE0023 | Sales Organization - Extended Itego datamodel + UI to govern assignment to Sales Regions | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
+| MDCE0023 | Sales Organization - Extended Itego datamodel + UI to govern assignment to Sa... | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
 | MDCE0022 | Sales Region - Custom Itego Object to govern Sales Regions | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
 | MDCE0021 | Customer Planning Hierarchy -IF | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
 | MDCE0020 | Customer Planning Hierarchy -IP | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
 | MDCE0019 | Product Planning Hierarchy -IF | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
 | MDCE0018 | Product Planning Hierarchy -IP | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
-| MDCE0017 | Commodity- Custom Itego Object with ~100 customer fields + UI to support governance | Jul-25 (100%) | Jul-25 (100%) | Jul-25 (100%) | Nov-25 (100%) | 4. Completed |
-| MDCE0015 | Asset Location - Extended Itego datamodel with 22 custom fields + UI to support governance | Oct-24 (100%) | Nov-24 (100%) | Feb-25 (100%) | Feb-25 (100%) |  |
-| MDCE0014 | Storage Location - Extended Itego datamodel with 11 custom fields + UI to support governance | Oct-24 (100%) | Oct-24 (100%) | Nov-24 (100%) | Nov-24 (100%) |  |
-| MDCE0013 | Plant - Extended Itego datamodel with 13 custom fields + UI to support governance | Oct-24 (100%) | Oct-24 (100%) | Nov-24 (100%) | Nov-24 (100%) |  |
-| MDCE0012 | Sales Org Association - Custom Itego Object with 4 customer fields + UI to support goverance | Sep-24 (100%) | Oct-24 (100%) | Oct-24 (100%) | Nov-24 (100%) |  |
+| MDCE0017 | Commodity- Custom Itego Object with ~100 customer fields + UI to support gove... | Jul-25 (100%) | Jul-25 (100%) | Jul-25 (100%) | Nov-25 (100%) | 4. Completed |
+| MDCE0015 | Asset Location - Extended Itego datamodel with 22 custom fields + UI to suppo... | Oct-24 (100%) | Nov-24 (100%) | Feb-25 (100%) | Feb-25 (100%) |  |
+| MDCE0014 | Storage Location - Extended Itego datamodel with 11 custom fields + UI to sup... | Oct-24 (100%) | Oct-24 (100%) | Nov-24 (100%) | Nov-24 (100%) |  |
+| MDCE0013 | Plant - Extended Itego datamodel with 13 custom fields + UI to support govern... | Oct-24 (100%) | Oct-24 (100%) | Nov-24 (100%) | Nov-24 (100%) |  |
+| MDCE0012 | Sales Org Association - Custom Itego Object with 4 customer fields + UI to su... | Sep-24 (100%) | Oct-24 (100%) | Oct-24 (100%) | Nov-24 (100%) |  |
 | MDCE0011 | Holiday Calendar - Custom goveranance | Sep-24 (100%) | Sep-24 (100%) | Oct-24 (100%) | Oct-24 (100%) |  |
-| MDCE0009 | Shipping Point- Custom Itego Object with 6 customer fields + UI to support goverance | Oct-24 (100%) | Oct-24 (100%) | Nov-24 (100%) | Nov-24 (100%) |  |
+| MDCE0009 | Shipping Point- Custom Itego Object with 6 customer fields + UI to support go... | Oct-24 (100%) | Oct-24 (100%) | Nov-24 (100%) | Nov-24 (100%) |  |
 | DATW1205 | Vendor as Customer Workflow | Apr-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Oct-25 (100%) |  |
 | DATW1203 | Workflow Setup for Mark For Delete Reference Material Governance Process | Apr-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Oct-25 (100%) |  |
 | DATW1202 | Workflow Setup for Change/Extend Reference Material Governance Process | Apr-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Oct-25 (100%) |  |
 | DATW1201 | Workflow Setup for Create Reference Material Governance Process | Mar-25 (100%) | Jun-25 (100%) | Jun-25 (100%) | Oct-25 (100%) |  |
-| DATW0748 | Workflow Setup for Material Master Governance Mass Processing | Mar-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Sep-25 (100%) |  |
-| DATW0747 | Workflow Setup for Material Master Governance in Mark For Delete Process | Mar-25 (100%) | May-25 (100%) | May-25 (100%) | Sep-25 (100%) |  |
-| DATW0746 | Workflow Setup for Material Master Governance in the Change Process | Mar-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Sep-25 (100%) |  |
-| DATW0591 | Parallel Approver Workflow Process | Oct-24 (100%) | Nov-24 (100%) | Nov-24 (100%) | May-25 (100%) |  |
-| DATW0207 | Create IP Customer process workflow | May-25 (100%) | May-25 (100%) | May-25 (100%) | Sep-25 (100%) | 1. On Track |
-| DATW0205_IP | Change/Extend/Block/Unblock IP Customer Master process workflow | Nov-24 (100%) | Sep-25 (100%) | Sep-25 (100%) | Oct-25 (100%) | 1. On Track |
-| DATR1430 | Cost Center Approvers report by Supergroup, Group, Division, Subdivision, CCRU, profit center, Expense approver, capital approver or consolidator | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | 1. On Track |
-| DATR0787 | Report to send notification to Direct managers about the inactive Cost Center Approvers | Jul-25 (100%) | Jun-25 (100%) | Jun-25 (100%) | Jul-25 (100%) |  |
-| DATR0390_IP | Data Monitor Report between MDG and Reltio | Jun-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 4. Completed |
-| DATR0389_IP | Customer Master Operational Report | Jun-25 (100%) | Dec-25 (100%) | Dec-25 (100%) | Dec-25 (100%) | 1. On Track |
+*... and 126 more objects (see full Object Tracker)*
 
-*... and 114 more objects (see full Object Tracker)*
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-130 — Create and Maintain Customers</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-03-27*
+Standard RAID items for MDM-130 (Master Data):
 
-**Mapped sub-tower(s):** 9A.1 Master Data - ALL, 9A.2 Master Data - BOM, 9A.3 Master Data - Customer, 9A.4 Master Data - Vendor, 9A.5 Master Data - Finance, 9A.6 Master Data - Material, 9A.7 Master Data - Reference, 9A.8 Master Data - HR Mini Master
+| # | Category | Description | Status | Owner | Priority |
+|---|----------|-------------|--------|-------|----------|
+| 1 | Risk | Data migration completeness — validate all legacy Create and Maintain Customers data maps to S/4 target structures | Open | Tower Architect | High |
+| 2 | Risk | Integration testing coverage — ensure all 0 integrated systems are validated end-to-end | Open | Integration Lead | High |
+| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
+| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
+| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
 
-**RAID Summary:** 19 open items (1 capability-specific, 18 tower-level), 174 closed
-
-| Severity | Capability | Tower-Wide | Total Open |
-|----------|----------:|-----------:|-----------:|
-| P1 - High | 0 | 2 | 2 |
-| P2 - Medium | 1 | 12 | 13 |
-| P3 - Low | 0 | 4 | 4 |
-| **Total** | **1** | **18** | **19** |
-
-**Capability-Specific RAID Items:**
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03331 | Risk | P2 - Medium | Clarity on finalized SAP S/4 Plant and storage location mapp... | In Progress | Master Data | 2026-02-20 |
-
-**Other MDM Tower RAID Items** (18 open):
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03578 | Risk | P1 - High | HBI Process Flow Change impact Assessment | In Progress | FTS IF | 2026-03-27 |
-| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-03 |
-| 01733 | Risk | P2 - Medium | Tariffs impacts Item/BOM design which is impacting ERP/SCP (... | In Progress | E2E | 2026-03-06 |
-| 03728 | Risk | P2 - Medium | Awaiting logic and FS details to develop INT-CR1120 from Mas... | In Progress | Master Data | 2026-03-11 |
-| 03603 | Risk | P2 - Medium | Inbound (ECC /WIINGS to BODS to ECM) - Missing good sample d... | Roadblock / At Risk | Master Data | 2026-02-27 |
-| 03604 | Risk | P2 - Medium | Outbound (ECM to BODS to ECC /WIINGS) - Need actionable expo... | Roadblock / At Risk | Master Data | 2026-03-27 |
-| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
-| 03466 | Action | P2 - Medium | Updated BOM for Substrate CR | In Progress | Master Data | 2026-03-13 |
-| 02436 | Action | P2 - Medium | MD Straddle WtFlow:  Change impact #1 Intel Federal’s potent... | Not Started | Master Data | 2026-04-24 |
-| 02438 | Action | P2 - Medium | MD Straddle WtFlow:  Breakpoint #4 concern with no clear biz... | In Progress | Master Data | 2026-03-20 |
-| 02657 | Action | P2 - Medium | Exception Report | In Progress | FTS IP | 2026-04-03 |
-| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
-| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
-| 03769 | Action | P2 - Medium | Need a Labs SPOC owner to define IP Labs enterprise and mate... | In Progress | E2E | 2026-04-17 |
-| 03317 | Risk | P3 - Low | BPMG – E2E L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-05-29 |
-| 03381 | Risk | P3 - Low | New requirement raised for enabling Israel as virtual site | Not Started | OTC IF | 2026-03-31 |
-| 03525 | Issue | P3 - Low | Vendor determination in PDH for 2DN PR's & STR's. | Not Started | FTS IP | 2026-03-06 |
-| 02610 | Action | P3 - Low | Sample Master Data from S4 | In Progress |  | 2025-10-31 |
+> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
 
 ### 7.3 Recommendations & Next Steps
 
@@ -679,4 +669,5 @@ Platform landscape inferred from integrated systems for MDM-130:
 
 ---
 *MDM-130 — Architecture Document (TOGAF BDAT) · Master Data · Generated: March 2026*
-
+<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-130 — Create and Maintain Customers</span></div>
+</div>

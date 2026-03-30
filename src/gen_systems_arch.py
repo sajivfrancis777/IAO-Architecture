@@ -522,13 +522,13 @@ _PAGE_BREAK = '<div style="page-break-before: always;"></div>'
 
 
 def _inject_page_footers(rendered: str, cap_id: str, cap_name: str) -> str:
-    """Replace page-break divs with footer + page break, auto-numbering pages."""
+    """Wrap each page-break section in a flex container with footer at bottom."""
     parts = rendered.split(_PAGE_BREAK)
     if len(parts) <= 1:
         return rendered
     title = f"{cap_id} — {cap_name}"
     result = []
-    for i, part in enumerate(parts[:-1]):
+    for i, part in enumerate(parts):
         page = i + 1
         footer = (
             f'<div class="page-footer">'
@@ -536,10 +536,11 @@ def _inject_page_footers(rendered: str, cap_id: str, cap_name: str) -> str:
             f'<span><a href="#toc">\u2191 Back to TOC</a></span>'
             f'<span>{title}</span>'
             f'</div>\n'
-            f'{_PAGE_BREAK}'
         )
-        result.append(part + footer)
-    result.append(parts[-1])
+        wrapped = f'<div class="page-section">\n{part}{footer}</div>\n'
+        if i < len(parts) - 1:
+            wrapped += f'{_PAGE_BREAK}\n'
+        result.append(wrapped)
     return "".join(result)
 
 

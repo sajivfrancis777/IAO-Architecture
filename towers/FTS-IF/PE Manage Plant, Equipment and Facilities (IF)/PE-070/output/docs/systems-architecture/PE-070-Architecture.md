@@ -1,5 +1,6 @@
+<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">PE-070 — Identify and Plan Plant Maintenance (IF)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IF) (FTS-IF) Tower<br/>
@@ -19,7 +20,14 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
+.page-section {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 40px);
+  box-sizing: border-box;
+}
 .page-footer {
+  margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid #ddd;
   display: flex;
@@ -27,62 +35,99 @@
   align-items: center;
   font-size: 11px;
   color: #888;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 20px;
+  padding: 6px 12px;
   background: #fff;
 }
 @media print {
-  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+  .page-section {
+    min-height: 100vh;
+  }
+  .page-footer {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
 .page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
 </style>
 
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 <a id="toc"></a>
 
 ## Table of Contents
 
-1. [Executive Summary](#1-executive-summary)
-2. [Business Context & Objectives](#2-business-context--objectives)
-   - 2.1 [Classification](#21-classification)
-   - 2.2 [Business Drivers](#22-business-drivers)
-   - 2.3 [Success Criteria](#23-success-criteria)
-   - 2.4 [Companion Documents](#24-companion-documents)
-3. [Business Architecture (TOGAF "B")](#3-business-architecture-togaf-b)
-   - 3.1 [Business Process Overview](#31-business-process-overview)
-   - 3.2 [Business Process Diagrams](#32-business-process-diagrams)
-   - 3.3 [Business Roles & Responsibilities](#33-business-roles--responsibilities)
-4. [Data Architecture (TOGAF "D")](#4-data-architecture-togaf-d)
-   - 4.1 [Data Entities & Ownership](#41-data-entities--ownership)
-   - 4.2 [Data Flow Diagrams](#42-data-flow-diagrams)
-   - 4.3 [Data Lineage](#43-data-lineage)
-   - 4.4 [RICEFW Data Objects](#44-ricefw-data-objects)
-   - 4.5 [Data Governance & Quality](#45-data-governance--quality)
-5. [Application Architecture (TOGAF "A")](#5-application-architecture-togaf-a)
-   - 5.1 [Current-State Application Landscape](#51-current-state--current-state-application-landscape)
-   - 5.2 [Future-State Application Landscape](#52-future-state--future-state-application-landscape)
-   - 5.3 [Change Impact Summary](#53-change-impact-summary)
-   - 5.4 [Component Overview](#54-component-overview)
-   - 5.5 [RICEFW Inventory](#55-ricefw-inventory)
-   - 5.6 [Integration Patterns](#56-integration-patterns)
-6. [Technology Architecture (TOGAF "T")](#6-technology-architecture-togaf-t)
-   - 6.1 [Platform & Infrastructure](#61-platform--infrastructure)
-   - 6.2 [SAP Development Object Status](#62-sap-development-object-status)
-   - 6.3 [NFRs & Design Principles](#63-nfrs--design-principles)
-   - 6.4 [Security & Governance](#64-security--governance)
-7. [Project Context](#7-project-context)
-   - 7.1 [Project Roadmap & Go-Live Plan](#71-project-roadmap--go-live-plan)
-   - 7.2 [RAID Log](#72-raid-log)
-   - 7.3 [Recommendations & Next Steps](#73-recommendations--next-steps)
+<nav class="toc">
+<ol>
+  <li><a href="#1-executive-summary">1. Executive Summary</a></li>
+  <li><a href="#2-business-context-objectives">2. Business Context &amp; Objectives</a>
+    <ul>
+      <li><a href="#21-classification">2.1 Classification</a></li>
+      <li><a href="#22-business-drivers">2.2 Business Drivers</a></li>
+      <li><a href="#23-success-criteria">2.3 Success Criteria</a></li>
+      <li><a href="#24-companion-documents">2.4 Companion Documents</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+    <ul>
+      <li><a href="#31-business-process-overview">3.1 Business Process Overview</a></li>
+      <li><a href="#32-business-process-diagrams">3.2 Business Process Diagrams</a></li>
+      <li><a href="#33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+    <ul>
+      <li><a href="#41-data-entities-ownership">4.1 Data Entities &amp; Ownership</a></li>
+      <li><a href="#42-data-flow-diagrams">4.2 Data Flow Diagrams</a></li>
+      <li><a href="#43-data-lineage">4.3 Data Lineage</a></li>
+      <li><a href="#44-ricefw-data-objects">4.4 RICEFW Data Objects</a></li>
+      <li><a href="#45-data-governance-quality">4.5 Data Governance &amp; Quality</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+    <ul>
+      <li><a href="#51-current-state-current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
+      <li><a href="#52-future-state-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
+      <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
+      <li><a href="#54-component-overview">5.4 Component Overview</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+    <ul>
+      <li><a href="#61-platform-infrastructure">6.1 Platform &amp; Infrastructure</a></li>
+      <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
+      <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
+      <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+    </ul>
+  </li>
+  <li><a href="#7-project-context">7. Project Context</a>
+    <ul>
+      <li><a href="#71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</a></li>
+      <li><a href="#72-raid-log">7.2 RAID Log</a></li>
+      <li><a href="#73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</a></li>
+    </ul>
+  </li>
+</ol>
+</nav>
 
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 1. Executive Summary
 
@@ -98,10 +143,13 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **RICEFW Objects** | 2 Reports, 12 Interfaces, 11 Conversions, 53 Enhancements, 1 Forms, 1 Workflows |
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
-> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: "loose"` for click events.
+> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 2. Business Context & Objectives
 
@@ -123,7 +171,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 4 | PE-070 Process Migration | Migrate Identify and Plan Plant Maintenance (IF) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Supply Chain (Intel Foundry) | High |
 
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 2.3 Success Criteria
 
@@ -142,7 +193,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 3. Business Architecture (TOGAF "B")
 
@@ -166,10 +220,14 @@ This capability includes **13 business process(es)** modeled in BPMN 2.0, coveri
 | 12 | PE-070-150_Define_Requirements_for_Each_Operation_and_Create_Job_Plan | PE-070-150_Define_Requirements_for_Each_Operation_and_Create_Job_Plan | Boundary Apps | 6 | 1 |
 | 13 | PE-070-160_Identify_Required_Spare_Parts | PE-070-160_Identify_Required_Spare_Parts | FTS IF - PM Maintenance Technician | 2 | 0 |
 
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 ### 3.2 Business Process Diagrams
 
-<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-<div style="page-break-before: always;"></div>
 
 #### BUSINESS ARCHITECTURE — 3.2.1 PE-070-010_Identify_Maintenance_Work_Required — PE-070-010_Identify_Maintenance_Work_Required
 
@@ -178,7 +236,7 @@ This capability includes **13 business process(es)** modeled in BPMN 2.0, coveri
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -201,10 +259,14 @@ flowchart TD
     class n4 startEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO2jAQ_RUrK5RWClKuhOahEiSkqtRWVdl2H5Z9MM4YLIKdOg6XIv69NuFe8dRIuczxzDmeY8c7i4gCrMTqdHaMM5Wgna3msAQ7QfYU12A7qAV-YcnwtITaNjlUcDVmfw5pXlhtTJrBcrxk5dagY5gJQD8_O2igC0sH1ZjX3Roko7ZjV5ItsdymohTSZD9Bn7r0oHYcGgpZgLwkuG7skUiXlozDBQ7iMA5zU1cDEby4IaUR7VNi783kSrEmcyzVYfpNDV_x5oUVaq5jissadM5cLcsveAql6VHJxmCkkauTGaw2OlwbNq4wYXym8dDVkMR8cYEid79H-05nws-i6DmbcKQvUuK6zoCiWml4tFKIsrJMnsJ0kEeuUyspFpA8-aM4C3yHmE4S3brrGHO7a2CzuUqmoiyOqd216SHxq40jN4nvOnKrn3dawIuLUtrz-37_rDSMvdRLT0qU0v9S0r7KZ1wvjlqjIPfz7KzlRb0odf_lO7WZhfHAu_cJ5IoRuCLN8zwYXawa9SLPfUw6zIOem96RzrCCNd5eCD-k4Zkwj-Lcix8Stnr3s2ym36UgJ8JgFOXRmTAeevnAf0gYDrywf5yh5plJXM3RUDSHvYwGVVW3Y-bi3uvrxKI4obhLxAxloIDo3SVEiTKx5mi6vSmdWG9vV9X-bfWgUQJ9Ag5S-4G-CcUoI1gxwe_qgnfnuqrUvv2A3w3USr8JsBUUiAqJvmLGFXDMCaAXIRea4_0VR6gpUglGCfOizdb3vWxboXds-8ED1O1-1H0fQ68N_WPot2F4tRwm52rT3Iz4D0eC8w95A4dn2HKsJcglZoWV7KzDiahPzQIobkpl7R0LazPHW06s5HByWE1V6F4zhvWCLltw_xeSxL7O" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO2jAQ_RUrK5RWClKuhOahEiSkqtRWVdl2H5Z9MM4YLIKdOg6XIv69NuFe8dRIuczxzDmeY8c7i4gCrMTqdHaMM5Wgna3msAQ7QfYU12A7qAV-YcnwtITaNjlUcDVmfw5pXlhtTJrBcrxk5dagY5gJQD8_O2igC0sH1ZjX3Roko7ZjV5ItsdymohTSZD9Bn7r0oHYcGgpZgLwkuG7skUiXlozDBQ7iMA5zU1cDEby4IaUR7VNi783kSrEmcyzVYfpNDV_x5oUVaq5jissadM5cLcsveAql6VHJxmCkkauTGaw2OlwbNq4wYXym8dDVkMR8cYEid79H-05nws-i6DmbcKQvUuK6zoCiWml4tFKIsrJMnsJ0kEeuUyspFpA8-aM4C3yHmE4S3brrGHO7a2CzuUqmoiyOqd216SHxq40jN4nvOnKrn3dawIuLUtrz-37_rDSMvdRLT0qU0v9S0r7KZ1wvjlqjIPfz7KzlRb0odf_lO7WZhfHAu_cJ5IoRuCLN8zwYXawa9SLPfUw6zIOem96RzrCCNd5eCD-k4Zkwj-Lcix8Stnr3s2ym36UgJ8JgFOXRmTAeevnAf0gYDrywf5yh5plJXM3RUDSHvYwGVVW3Y-bi3uvrxKI4obhLxAxloIDo3SVEiTKx5mi6vSmdWG9vV9X-bfWgUQJ9Ag5S-4G-CcUoI1gxwe_qgnfnuqrUvv2A3w3USr8JsBUUiAqJvmLGFXDMCaAXIRea4_0VR6gpUglGCfOizdb3vWxboXds-8ED1O1-1H0fQ68N_WPot2F4tRwm52rT3Iz4D0eC8w95A4dn2HKsJcglZoWV7KzDiahPzQIobkpl7R0LazPHW06s5HByWE1V6F4zhvWCLltw_xeSxL7O" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.2 PE-070-020_Create_and_Maintain_Notification — PE-070-020_Create_and_Maintain_Notification
 
@@ -213,7 +275,7 @@ flowchart TD
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -247,7 +309,9 @@ flowchart TD
     class n7 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU1v2zgQ_SuEgsAXGdWn5dWhC0W2ugE2RVCl7aHugaaGNhGa9FKUP-r6vy9pyZ-bnFYHAfP05r2Z0VDaOURW4KTO_f2OCaZTtOvpOSygl6LeFNfQc1ELfMOK4SmHumc5VApdsl8Hmh8tN5ZmsQIvGN9atISZBPT10UWZSeQuqrGo-zUoRntub6nYAqttLrlUln0HQ-rRg1v36EGqCtSZ4HmJT2KTypmAMxwmURIVNq8GIkV1JUpjOqSkt7fFcbkmc6z0ofymhie8-c4qPTcxxbwGw5nrBf8bT4HbHrVqLEYatToOg9XWR5iBlUtMmJgZPPIMpLB4PUOxt9-j_f39RJxM0ctoIpC5CMd1PQKKam3g8UojyjhP76I8K2LPrbWSr5DeBeNkFAYusZ2kpnXPtcPtr4HN5jqdSl511P7a9pAGy42rNmnguWpr7jdeIKqzUz4IhsHw5PSQ-LmfH50opf_LycxVveD6tfMah0VQjE5efjyIc--_esc2R1GS-bdzArViBC5Ei6IIx-dRjQex770v-lCEAy-_EZ1hDWu8PQv-kUcnwSJOCj95V7D1u62ymT4rSY6C4Tgu4pNg8uAXWfCuYJT50bCr0OjMFF7OUfFSoscC9dETZkKDwIIAeuZYCFAt1V4i-PFj4lCcUtwncoZyBaYz9FlqRhnBmkmBmEBl9ozKDxH6K_ucTZyfPy8EQpNfmv1A4wVmHFElF7f0lm04tyVioqXaorJZ2ndUy8vC_OvCskZL9AlM8bf13dQTmbQvsGKwvu4CmxK_Yc4qm_8F_mmgNgst1eV8TrUelGKj9FiBMCLbqyl-l-r1IMEUVNc5g93uXHUF_ak52GSOStkoAn9OnP3-gpy8TYYN4U3NVvCpXbJz1mmEIkb9_kdj14VBG4Zd6Ldh0oUDG_6eOE_j8oOdoz0KE-e34XWEpOVHXRi-nW7f6tP4kBhcbK-1uzhjV0-Cd59Ep-_XFRy_DQ-OB-4KTY6o4zoLUGb_KifdOYefjfkhVUBxw7Wzdx1sui63gjjp4aPsNEu7BiOGzSIuWnD_Lw1GKL0=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU1v2zgQ_SuEgsAXGdWn5dWhC0W2ugE2RVCl7aHugaaGNhGa9FKUP-r6vy9pyZ-bnFYHAfP05r2Z0VDaOURW4KTO_f2OCaZTtOvpOSygl6LeFNfQc1ELfMOK4SmHumc5VApdsl8Hmh8tN5ZmsQIvGN9atISZBPT10UWZSeQuqrGo-zUoRntub6nYAqttLrlUln0HQ-rRg1v36EGqCtSZ4HmJT2KTypmAMxwmURIVNq8GIkV1JUpjOqSkt7fFcbkmc6z0ofymhie8-c4qPTcxxbwGw5nrBf8bT4HbHrVqLEYatToOg9XWR5iBlUtMmJgZPPIMpLB4PUOxt9-j_f39RJxM0ctoIpC5CMd1PQKKam3g8UojyjhP76I8K2LPrbWSr5DeBeNkFAYusZ2kpnXPtcPtr4HN5jqdSl511P7a9pAGy42rNmnguWpr7jdeIKqzUz4IhsHw5PSQ-LmfH50opf_LycxVveD6tfMah0VQjE5efjyIc--_esc2R1GS-bdzArViBC5Ei6IIx-dRjQex770v-lCEAy-_EZ1hDWu8PQv-kUcnwSJOCj95V7D1u62ymT4rSY6C4Tgu4pNg8uAXWfCuYJT50bCr0OjMFF7OUfFSoscC9dETZkKDwIIAeuZYCFAt1V4i-PFj4lCcUtwncoZyBaYz9FlqRhnBmkmBmEBl9ozKDxH6K_ucTZyfPy8EQpNfmv1A4wVmHFElF7f0lm04tyVioqXaorJZ2ndUy8vC_OvCskZL9AlM8bf13dQTmbQvsGKwvu4CmxK_Yc4qm_8F_mmgNgst1eV8TrUelGKj9FiBMCLbqyl-l-r1IMEUVNc5g93uXHUF_ak52GSOStkoAn9OnP3-gpy8TYYN4U3NVvCpXbJz1mmEIkb9_kdj14VBG4Zd6Ldh0oUDG_6eOE_j8oOdoz0KE-e34XWEpOVHXRi-nW7f6tP4kBhcbK-1uzhjV0-Cd59Ep-_XFRy_DQ-OB-4KTY6o4zoLUGb_KifdOYefjfkhVUBxw7Wzdx1sui63gjjp4aPsNEu7BiOGzSIuWnD_Lw1GKL0=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 #### BUSINESS ARCHITECTURE — 3.2.3 PE-070-030_Review_Notification_and_Validate_Request_for_Maintenance — PE-070-030_Review_Notification_and_Validate_Request_for_Maintenance
 
@@ -256,7 +320,7 @@ flowchart TD
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -285,7 +349,9 @@ flowchart TD
     class n6 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU2P2jAQ_StWVisuQc0noTm0ygbSrtRtV822PZQejDMGaxM7tQ0spfz32nwudOmlkUDMY957MyOPs3KIqMBJnevrFeNMp2jV0VNooJOizhgr6LhoC3zFkuFxDapjc6jgumS_Nml-1D7ZNIsVuGH10qIlTASgL7cuygyxdpHCXHUVSEY7bqeVrMFymYtaSJt9BX3q0Y3b7q8bISuQxwTPS3wSG2rNOBzhMImSqLA8BUTw6kSUxrRPSWdti6vFgkyx1JvyZwru8NM3VumpiSmuFZicqW7qD3gMte1Ry5nFyEzO98NgyvpwM7CyxYTxicEjz0AS88cjFHvrNVpfX4_4wRQ9DEYcmYfUWKkBUKS0gYdzjSir6_QqyrMi9lylpXiE9CoYJoMwcIntJDWte64dbncBbDLV6VjU1S61u7A9pEH75MqnNPBcuTTfZ17Aq6NT3gv6Qf_gdJP4uZ_vnSil_-Vk5iofsHrceQ3DIigGBy8_7sW597fevs1BlGT--ZxAzhmBZ6JFUYTD46iGvdj3LoveFGHPy89EJ1jDAi-Pgq_z6CBYxEnhJxcFt37nVc7G91KQvWA4jIv4IJjc-EUWXBSMMj_q7yo0OhOJ2ykqHkp0W6AuusOMa-CYE0APQKacEYb5Nts-3P8-cihOKe7a4aPPMGewQMMGsxp9FJpRRrBmgo-cH89YwYsszCuUta0Uc_gHNzTcXIKZ4YawqdB8Tkr9ZJf3lBYZ2j1IKmSDCgZ1hW65aoFYA6QF2kl-hp8zUPqUG1-wvFxkb7Xad2hvuO7Y7CiZonKpNDToHXCQhsUnJxJvR856vRUxO7P9wWPU7b4xgrvQ34bhLgy2YbQLezb8PXLuhuWrbKaFPbcj57fJO0sos3tUvorQ--xjtkl4fvCty36VTuDgZTg8XCcncPQyHL8M9_Zr4bhOA9IcoMpJV87m8jcviAoontXaWbsONo2VS06cdHNJOrO2MswBw-bsNltw_QcXjglA" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU2P2jAQ_StWVisuQc0noTm0ygbSrtRtV822PZQejDMGaxM7tQ0spfz32nwudOmlkUDMY957MyOPs3KIqMBJnevrFeNMp2jV0VNooJOizhgr6LhoC3zFkuFxDapjc6jgumS_Nml-1D7ZNIsVuGH10qIlTASgL7cuygyxdpHCXHUVSEY7bqeVrMFymYtaSJt9BX3q0Y3b7q8bISuQxwTPS3wSG2rNOBzhMImSqLA8BUTw6kSUxrRPSWdti6vFgkyx1JvyZwru8NM3VumpiSmuFZicqW7qD3gMte1Ry5nFyEzO98NgyvpwM7CyxYTxicEjz0AS88cjFHvrNVpfX4_4wRQ9DEYcmYfUWKkBUKS0gYdzjSir6_QqyrMi9lylpXiE9CoYJoMwcIntJDWte64dbncBbDLV6VjU1S61u7A9pEH75MqnNPBcuTTfZ17Aq6NT3gv6Qf_gdJP4uZ_vnSil_-Vk5iofsHrceQ3DIigGBy8_7sW597fevs1BlGT--ZxAzhmBZ6JFUYTD46iGvdj3LoveFGHPy89EJ1jDAi-Pgq_z6CBYxEnhJxcFt37nVc7G91KQvWA4jIv4IJjc-EUWXBSMMj_q7yo0OhOJ2ykqHkp0W6AuusOMa-CYE0APQKacEYb5Nts-3P8-cihOKe7a4aPPMGewQMMGsxp9FJpRRrBmgo-cH89YwYsszCuUta0Uc_gHNzTcXIKZ4YawqdB8Tkr9ZJf3lBYZ2j1IKmSDCgZ1hW65aoFYA6QF2kl-hp8zUPqUG1-wvFxkb7Xad2hvuO7Y7CiZonKpNDToHXCQhsUnJxJvR856vRUxO7P9wWPU7b4xgrvQ34bhLgy2YbQLezb8PXLuhuWrbKaFPbcj57fJO0sos3tUvorQ--xjtkl4fvCty36VTuDgZTg8XCcncPQyHL8M9_Zr4bhOA9IcoMpJV87m8jcviAoontXaWbsONo2VS06cdHNJOrO2MswBw-bsNltw_QcXjglA" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 #### BUSINESS ARCHITECTURE — 3.2.4 PE-070-040_Review_Equipment_Maintenance_Planned_Orders — PE-070-040_Review_Equipment_Maintenance_Planned_Orders
 
@@ -294,7 +360,7 @@ flowchart TD
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -314,7 +380,9 @@ flowchart TD
     class n3 startEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViiXIOWT0BwqQcDSSt22Ktv2UHowyTNYm9jUdvgo4r_XhhAWVntqpETxZN7Me6PYB6cQJTiZ0-sdGGc6QwdXr6AGN0PugihwPXQGfhDJyKIC5VoOFVzP2N8TLYjXO0uzGCY1q_YWncFSAPr-6KGRKaw8pAhXfQWSUddz15LVRO5zUQlp2Q8wpD49ubWfxkKWIK8E30-DIjGlFeNwhaM0TmNs6xQUgpc3ojShQ1q4R9tcJbbFikh9ar9R8ER2P1mpV2ZNSaXAcFa6rj6RBVR2Ri0bixWN3FzCYMr6cBPYbE0KxpcGj30DScJfrlDiH4_o2OvNeWeKnidzjsxVVESpCVCktIGnG40oq6rsIc5HOPE9paV4gewhnKaTKPQKO0lmRvc9G25_C2y50tlCVGVL7W_tDFm43nlyl4W-J_fmeecFvLw65YNwGA47p3Ea5EF-caKU_peTyVU-E_XSek0jHOJJ5xUkgyT33-pdxpzE6Si4zwnkhhXwShRjHE2vUU0HSeC_LzrG0cDP70SXRMOW7K-CH_K4E8RJioP0XcGz332XzeKrFMVFMJomOOkE03GAR-G7gvEoiIdth0ZnKcl6hfDzDD1i1EdPhHENnPAC0NeKcA7yTLUXD37NHUoySvo2efQNNgy2La-8qf1id5NCuQQze4mokGj6p2HrGrieO79faYZG80xDhLci5n6rdlsWmTKbASiFPgvNKCuIZoJ3LPMXnl94hPr9j6b5dhmcl-GrTC14-Zdu4LDbODdw1MGO59Qga8JKJzs4p5PLnG4lUNJU2jl6Dmm0mO154WSnHe4069KMOmHEBF-fweM_zeqkJg==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViiXIOWT0BwqQcDSSt22Ktv2UHowyTNYm9jUdvgo4r_XhhAWVntqpETxZN7Me6PYB6cQJTiZ0-sdGGc6QwdXr6AGN0PugihwPXQGfhDJyKIC5VoOFVzP2N8TLYjXO0uzGCY1q_YWncFSAPr-6KGRKaw8pAhXfQWSUddz15LVRO5zUQlp2Q8wpD49ubWfxkKWIK8E30-DIjGlFeNwhaM0TmNs6xQUgpc3ojShQ1q4R9tcJbbFikh9ar9R8ER2P1mpV2ZNSaXAcFa6rj6RBVR2Ri0bixWN3FzCYMr6cBPYbE0KxpcGj30DScJfrlDiH4_o2OvNeWeKnidzjsxVVESpCVCktIGnG40oq6rsIc5HOPE9paV4gewhnKaTKPQKO0lmRvc9G25_C2y50tlCVGVL7W_tDFm43nlyl4W-J_fmeecFvLw65YNwGA47p3Ea5EF-caKU_peTyVU-E_XSek0jHOJJ5xUkgyT33-pdxpzE6Si4zwnkhhXwShRjHE2vUU0HSeC_LzrG0cDP70SXRMOW7K-CH_K4E8RJioP0XcGz332XzeKrFMVFMJomOOkE03GAR-G7gvEoiIdth0ZnKcl6hfDzDD1i1EdPhHENnPAC0NeKcA7yTLUXD37NHUoySvo2efQNNgy2La-8qf1id5NCuQQze4mokGj6p2HrGrieO79faYZG80xDhLci5n6rdlsWmTKbASiFPgvNKCuIZoJ3LPMXnl94hPr9j6b5dhmcl-GrTC14-Zdu4LDbODdw1MGO59Qga8JKJzs4p5PLnG4lUNJU2jl6Dmm0mO154WSnHe4069KMOmHEBF-fweM_zeqkJg==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 #### BUSINESS ARCHITECTURE — 3.2.5 PE-070-070_Perform_Field_Inspection_to_Create_Work_Request — PE-070-070_Perform_Field_Inspection_to_Create_Work_Request
 
@@ -323,7 +391,7 @@ flowchart TD
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -346,10 +414,14 @@ flowchart TD
     class n4 startEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuu2jAU_BUrVyiboOZJaBaVIBCpUm9VldvbRenCOMdgkdjUdngU8e-1eYRHe1fNIsqZzJnxmTjeO0SU4GROp7NnnOkM7V29gBrcDLkzrMD10Al4xZLhWQXKtRwquJ6w30daEK-2lmaxAtes2ll0AnMB6NtHDw1MY-UhhbnqKpCMup67kqzGcpeLSkjLfoI-9enR7fxqKGQJ8krw_TQgiWmtGIcrHKVxGhe2TwERvLwTpQntU-Ie7OIqsSELLPVx-Y2CZ7z9zkq9MDXFlQLDWei6-oRnUNkZtWwsRhq5voTBlPXhJrDJChPG5waPfQNJzJdXKPEPB3TodKa8NUUvoylH5iIVVmoEFClt4PFaI8qqKnuK80GR-J7SUiwhewrH6SgKPWInyczovmfD7W6AzRc6m4mqPFO7GztDFq62ntxmoe_Jnbk_eAEvr055L-yH_dZpmAZ5kF-cKKX_5WRylS9YLc9e46gIi1HrFSS9JPf_1ruMOYrTQfCYE8g1I3AjWhRFNL5GNe4lgf-26LCIen7-IDrHGjZ4dxV8n8etYJGkRZC-KXjye1xlM_siBbkIRuOkSFrBdBgUg_BNwXgQxP3zCo3OXOLVAhWYaCF3aNKsbABKyBPBXjz4MXUoziju2rzRF5BUyBo9jyfvBo0Wx6xGDM-5UJoRNXV-3jSH981fYc1gg_IFkGXFlH5gR4ZtJwOl0GehGWUEayb4PSs2rLPQLQlhXqJXXLHS5G2cfjWgzDYUEj1jxjVwzAm0SmaXnh54jLrdD2bMcxmcyvBchqcyuvkElnPZendw-G84an-_OzhuYcdzapA1ZqWT7Z3j-WfOyBIobirtHDwHm5wnO06c7HhOOM3KzmhDl7g-gYc_ip66Vw==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuu2jAU_BUrVyiboOZJaBaVIBCpUm9VldvbRenCOMdgkdjUdngU8e-1eYRHe1fNIsqZzJnxmTjeO0SU4GROp7NnnOkM7V29gBrcDLkzrMD10Al4xZLhWQXKtRwquJ6w30daEK-2lmaxAtes2ll0AnMB6NtHDw1MY-UhhbnqKpCMup67kqzGcpeLSkjLfoI-9enR7fxqKGQJ8krw_TQgiWmtGIcrHKVxGhe2TwERvLwTpQntU-Ie7OIqsSELLPVx-Y2CZ7z9zkq9MDXFlQLDWei6-oRnUNkZtWwsRhq5voTBlPXhJrDJChPG5waPfQNJzJdXKPEPB3TodKa8NUUvoylH5iIVVmoEFClt4PFaI8qqKnuK80GR-J7SUiwhewrH6SgKPWInyczovmfD7W6AzRc6m4mqPFO7GztDFq62ntxmoe_Jnbk_eAEvr055L-yH_dZpmAZ5kF-cKKX_5WRylS9YLc9e46gIi1HrFSS9JPf_1ruMOYrTQfCYE8g1I3AjWhRFNL5GNe4lgf-26LCIen7-IDrHGjZ4dxV8n8etYJGkRZC-KXjye1xlM_siBbkIRuOkSFrBdBgUg_BNwXgQxP3zCo3OXOLVAhWYaCF3aNKsbABKyBPBXjz4MXUoziju2rzRF5BUyBo9jyfvBo0Wx6xGDM-5UJoRNXV-3jSH981fYc1gg_IFkGXFlH5gR4ZtJwOl0GehGWUEayb4PSs2rLPQLQlhXqJXXLHS5G2cfjWgzDYUEj1jxjVwzAm0SmaXnh54jLrdD2bMcxmcyvBchqcyuvkElnPZendw-G84an-_OzhuYcdzapA1ZqWT7Z3j-WfOyBIobirtHDwHm5wnO06c7HhOOM3KzmhDl7g-gYc_ip66Vw==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.6 PE-070-080_Check_Warranty — PE-070-080_Check_Warranty
 
@@ -358,7 +430,7 @@ flowchart TD
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -506,10 +578,14 @@ Financial Credit"| n3
     class n42 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWG1v4zYS_iuEF4tkAXujV8v2hxaJYxUBNl03Tro4NP1AS5Sti0yqFBUnTfPfbyhRskVTd-j2AuwmGs4z88xwZkjpbRCxmAxmg48f31Kaihl6OxNbsiNnM3S2xgU5G6Ja8CvmKV5npDiTOgmjYpX-WanZXv4i1aQsxLs0e5XSFdkwgh5uhugSgNkQFZgWo4LwNDkbnuU83WH-OmcZ41L7A5kkVlJ5U0tXjMeEHxQsK7AjH6BZSslB7AZe4IUSV5CI0bhjNPGTSRKdvUtyGdtHW8xFRb8syC1--ZbGYgvPCc4KAjpbscu-4DXJZIyCl1IWlfy5SUZaSD8UErbKcZTSDcg9C0Qc06eDyLfe39H7x4-PtHWKvtw9UgQ_UYaL4pokqBAgXjwLlKRZNvvgzS9D3xoWgrMnMvvgLIJr1xlGMpIZhG4NZXJHe5JutmK2ZlmsVEd7GcPMyV-G_GXmWEP-Cv9rvgiND57mY2fiTFpPV4E9t-eNpyRJ_pEnyCu_x8WT8rVwQye8bn3Z_tifW6f2mjCvveDS1vNE-HMakSOjYRi6i0OqFmPftvqNXoXu2JprRjdYkD1-PRiczr3WYOgHoR30Gqz96SzL9ZKzqDHoLvzQbw0GV3Z46fQa9C5tb6IYgp0Nx_kWhfcrdBOiEbrCItqiB0hDrSF_qPfbb4-DBM8SPIrYBj3kMQSE5hlOd-iaReWOUIFWAouyeBz8_vsR0u8i55wYkOfXHCfikwYdG6F3RJScouUdukDLrxok6ELuoU-KXSo0fxpoYgzuG-aAFq_ohiaM77BIGUUpRYs_yjSvWGMao1tcCMIPyvdyYiEAfP78WXNje-etn0KwXE_CPGMFiQH06Rjk6yDGOYlE-kwuriAhTzHbQzKgFEhRwCIVKS1PrYw1Kz8z5V0hTxGBhmgjrNOj6zsOqLc68y2JnmQWjrJ1A8M-VchjoAvAlEISdySW6_dbzvaL53qbjhUnb2-HbYrJaA2-oFLDlOIMDoa4jgh-13WIfnwcvL8fG5iaDZCXKCsLSOhPdZNqMNf6Pphtht1Q9MvD5RednOv0qAuyu1jKgf5A4-NCOzHgfh9Nr5fmqoQjA46-GBpt8SJgpsOfJ27973M77nFboCrYOXsm3OQuMOMOZfY_0uQdbQvosH0xwplAOeY4y0h2whai7huUy1voflm5FCgQdE-iLU2jFNPjNmqbSB5U7fRrexhSW3UxTAFo46_yAqJVfdfAknA5jA7x1V38K3RAXE-oJctHZd41YksaFVf4h8IMb6rePJpwcRphwTTftnOYAXkGp5fW38cd3Zkd7v9jZjkWGFm9wnjdoTKvhq1q7LuSUrj4aImSMd4v5l_RudoJ2FBgynZ5RoDjJ03d7y1AwViGgGb8Cn-iNUFrzkq4m0gWIMg5i8uoyvXJhOmp6msmC0wUaIthy29vb65PkEEvHdKWdlmV9l5twklrTI2V3e5ZXhdG6VjWGv2Izvep2LbGUCR3dM1e4IRTtYBiIocyTNcqVjifSX2odfvJ-nv9VIMcIyilfTPD0IVp3XW3mOJN56ridk_zJSuE0oaXAtmBMdwHzr9dcJJANmFDI9lC-t3DnsrqA78N4pbsmNRelXmepUdtespteb-UE6K-SJXdi9TUeKcJOSHoJ8ZiGH93OhOrC1EtsSGUcMBKxMXJPcieaC3Y8QD6bfst6EnjeQBVxOorjhocx9POMKrcyd89CtrUwahBo9EP8Fs9e3b97KtnN5DPfz0O_kXggvmXPF71lZ9ZveA0C44OcZsVtzY-aZ5tzYTXLHi6ibG-0kBaouNer-MeSBNrY1ulwmsCmarUNHQ99dywdCbK8GUOs-kZTs2qtbWaAo_T_w54pHqb1DwblK9F1ryLwcWqZhQ0zyogp3Ho-opymz6FcNocqKCdZlsdSwk0hNs4da1uOm1fX2h4erZeEfoOTBS9QA-1sd3mQNF0G01P0XSnmsBpiDe5GOvFdlIgvrbvY4VsC0ixbLdRLzXP0lcUf6ehays2dqupd89EX2iM220WVbacpv7sJgcTvb6qqzm8sP2bVOdlTfLoRVZmp3mB74gds9g9fjnvrHi9K37vyrh3JehdmfSuTHtXID-9S077WaYrd9UnlK7UM0p9o3RslAZG6cQonZq5QWea5XaPvCdGx-2Rez1yv_mK0hWPzeLALJ6YxVOjGEaJUWybxY5Z7JrFnllsjtI1R-mao3TNUbrmKD1zlJ45Sq-NcjAc7OCCiNN4MHsbVJ9sB7NBTBJcZmLwPhzgUrDVK40Gs-rT5qCsvhxcpxiuSbta-P4fTcTcKw==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWG1v4zYS_iuEF4tkAXujV8v2hxaJYxUBNl03Tro4NP1AS5Sti0yqFBUnTfPfbyhRskVTd-j2AuwmGs4z88xwZkjpbRCxmAxmg48f31Kaihl6OxNbsiNnM3S2xgU5G6Ja8CvmKV5npDiTOgmjYpX-WanZXv4i1aQsxLs0e5XSFdkwgh5uhugSgNkQFZgWo4LwNDkbnuU83WH-OmcZ41L7A5kkVlJ5U0tXjMeEHxQsK7AjH6BZSslB7AZe4IUSV5CI0bhjNPGTSRKdvUtyGdtHW8xFRb8syC1--ZbGYgvPCc4KAjpbscu-4DXJZIyCl1IWlfy5SUZaSD8UErbKcZTSDcg9C0Qc06eDyLfe39H7x4-PtHWKvtw9UgQ_UYaL4pokqBAgXjwLlKRZNvvgzS9D3xoWgrMnMvvgLIJr1xlGMpIZhG4NZXJHe5JutmK2ZlmsVEd7GcPMyV-G_GXmWEP-Cv9rvgiND57mY2fiTFpPV4E9t-eNpyRJ_pEnyCu_x8WT8rVwQye8bn3Z_tifW6f2mjCvveDS1vNE-HMakSOjYRi6i0OqFmPftvqNXoXu2JprRjdYkD1-PRiczr3WYOgHoR30Gqz96SzL9ZKzqDHoLvzQbw0GV3Z46fQa9C5tb6IYgp0Nx_kWhfcrdBOiEbrCItqiB0hDrSF_qPfbb4-DBM8SPIrYBj3kMQSE5hlOd-iaReWOUIFWAouyeBz8_vsR0u8i55wYkOfXHCfikwYdG6F3RJScouUdukDLrxok6ELuoU-KXSo0fxpoYgzuG-aAFq_ohiaM77BIGUUpRYs_yjSvWGMao1tcCMIPyvdyYiEAfP78WXNje-etn0KwXE_CPGMFiQH06Rjk6yDGOYlE-kwuriAhTzHbQzKgFEhRwCIVKS1PrYw1Kz8z5V0hTxGBhmgjrNOj6zsOqLc68y2JnmQWjrJ1A8M-VchjoAvAlEISdySW6_dbzvaL53qbjhUnb2-HbYrJaA2-oFLDlOIMDoa4jgh-13WIfnwcvL8fG5iaDZCXKCsLSOhPdZNqMNf6Pphtht1Q9MvD5RednOv0qAuyu1jKgf5A4-NCOzHgfh9Nr5fmqoQjA46-GBpt8SJgpsOfJ27973M77nFboCrYOXsm3OQuMOMOZfY_0uQdbQvosH0xwplAOeY4y0h2whai7huUy1voflm5FCgQdE-iLU2jFNPjNmqbSB5U7fRrexhSW3UxTAFo46_yAqJVfdfAknA5jA7x1V38K3RAXE-oJctHZd41YksaFVf4h8IMb6rePJpwcRphwTTftnOYAXkGp5fW38cd3Zkd7v9jZjkWGFm9wnjdoTKvhq1q7LuSUrj4aImSMd4v5l_RudoJ2FBgynZ5RoDjJ03d7y1AwViGgGb8Cn-iNUFrzkq4m0gWIMg5i8uoyvXJhOmp6msmC0wUaIthy29vb65PkEEvHdKWdlmV9l5twklrTI2V3e5ZXhdG6VjWGv2Izvep2LbGUCR3dM1e4IRTtYBiIocyTNcqVjifSX2odfvJ-nv9VIMcIyilfTPD0IVp3XW3mOJN56ridk_zJSuE0oaXAtmBMdwHzr9dcJJANmFDI9lC-t3DnsrqA78N4pbsmNRelXmepUdtespteb-UE6K-SJXdi9TUeKcJOSHoJ8ZiGH93OhOrC1EtsSGUcMBKxMXJPcieaC3Y8QD6bfst6EnjeQBVxOorjhocx9POMKrcyd89CtrUwahBo9EP8Fs9e3b97KtnN5DPfz0O_kXggvmXPF71lZ9ZveA0C44OcZsVtzY-aZ5tzYTXLHi6ibG-0kBaouNer-MeSBNrY1ulwmsCmarUNHQ99dywdCbK8GUOs-kZTs2qtbWaAo_T_w54pHqb1DwblK9F1ryLwcWqZhQ0zyogp3Ho-opymz6FcNocqKCdZlsdSwk0hNs4da1uOm1fX2h4erZeEfoOTBS9QA-1sd3mQNF0G01P0XSnmsBpiDe5GOvFdlIgvrbvY4VsC0ixbLdRLzXP0lcUf6ehays2dqupd89EX2iM220WVbacpv7sJgcTvb6qqzm8sP2bVOdlTfLoRVZmp3mB74gds9g9fjnvrHi9K37vyrh3JehdmfSuTHtXID-9S077WaYrd9UnlK7UM0p9o3RslAZG6cQonZq5QWea5XaPvCdGx-2Rez1yv_mK0hWPzeLALJ6YxVOjGEaJUWybxY5Z7JrFnllsjtI1R-mao3TNUbrmKD1zlJ45Sq-NcjAc7OCCiNN4MHsbVJ9s4bNuTBJcZmLwPhzgUrDVK40Gs-rT5qCsvhxcpxiuSbta-P4fTcTcKw==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.7 PE-070-090_Process_Notification — PE-070-090_Process_Notification
 
@@ -518,7 +594,7 @@ Financial Credit"| n3
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -544,7 +620,9 @@ flowchart TD
     class n5 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVF1v2jAU_StWqoqXICUhaVgeNkEgUqV1q0q3aRp7MM41WDh2ajsFRvnvs_ksrH1aHlB8uOece09srz0iS_Ay7_p6zQQzGVq3zAwqaGWoNcEaWj7aAd-xYnjCQbdcDZXCjNifbVkY10tX5rACV4yvHDqCqQT07dZHPUvkPtJY6LYGxWjLb9WKVVitcsmlctVX0KUB3brt_-pLVYI6FQRBGpLEUjkTcII7aZzGheNpIFKUZ6I0oV1KWhvXHJcLMsPKbNtvNNzh5Q9WmpldU8w12JqZqfhnPAHuZjSqcRhp1PMhDKadj7CBjWpMmJhaPA4spLCYn6Ak2GzQ5vp6LI6m6HEwFsg-hGOtB0CRNhYePhtEGefZVZz3iiTwtVFyDtlVNEwHncgnbpLMjh74Ltz2Ath0ZrKJ5OW-tL1wM2RRvfTVMosCX63s74UXiPLklN9E3ah7dOqnYR7mBydK6X852VzVI9bzvdewU0TF4OgVJjdJHvyrdxhzEKe98DInUM-MwCvRoig6w1NUw5skDN4X7RedmyC_EJ1iAwu8Ogl-yOOjYJGkRZi-K7jzu-yymdwrSQ6CnWFSJEfBtB8WvehdwbgXxt19h1ZnqnA9QwUmRqoVGjW1C0BLtStwjwh_jT2KM4rbLm-Uz4DMEaNowPBUSG0Y0ahgSyjRrdYNjL3fr8iRJT_AM4MFGj41rK5AGHSHmTAgsCCA7jkWwnK_uvOnz8kdS8651IC-SMMoI9gwKc5rYltzD4pKVdkugNsuhK6BuEpkJMoV2PjRAzw1oM05N1mvD6O5e6k9sSeLzN4b7NPY22x2bLvFdy8iRu32R5vRfpm45cvY-wl2lBc7wQX-RW7haA-HO3by6vs68LCvz-DoeIjP4M7bcPw2nBw2o-d7FagKs9LL1t72yrXXcgkUN9x4G9_DjZGjlSBetr2avKYuLdNFo3C1Azd_ARnH3qs=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVF1v2jAU_StWqoqXICUhaVgeNkEgUqV1q0q3aRp7MM41WDh2ajsFRvnvs_ksrH1aHlB8uOece09srz0iS_Ay7_p6zQQzGVq3zAwqaGWoNcEaWj7aAd-xYnjCQbdcDZXCjNifbVkY10tX5rACV4yvHDqCqQT07dZHPUvkPtJY6LYGxWjLb9WKVVitcsmlctVX0KUB3brt_-pLVYI6FQRBGpLEUjkTcII7aZzGheNpIFKUZ6I0oV1KWhvXHJcLMsPKbNtvNNzh5Q9WmpldU8w12JqZqfhnPAHuZjSqcRhp1PMhDKadj7CBjWpMmJhaPA4spLCYn6Ak2GzQ5vp6LI6m6HEwFsg-hGOtB0CRNhYePhtEGefZVZz3iiTwtVFyDtlVNEwHncgnbpLMjh74Ltz2Ath0ZrKJ5OW-tL1wM2RRvfTVMosCX63s74UXiPLklN9E3ah7dOqnYR7mBydK6X852VzVI9bzvdewU0TF4OgVJjdJHvyrdxhzEKe98DInUM-MwCvRoig6w1NUw5skDN4X7RedmyC_EJ1iAwu8Ogl-yOOjYJGkRZi-K7jzu-yymdwrSQ6CnWFSJEfBtB8WvehdwbgXxt19h1ZnqnA9QwUmRqoVGjW1C0BLtStwjwh_jT2KM4rbLm-Uz4DMEaNowPBUSG0Y0ahgSyjRrdYNjL3fr8iRJT_AM4MFGj41rK5AGHSHmTAgsCCA7jkWwnK_uvOnz8kdS8651IC-SMMoI9gwKc5rYltzD4pKVdkugNsuhK6BuEpkJMoV2PjRAzw1oM05N1mvD6O5e6k9sSeLzN4b7NPY22x2bLvFdy8iRu32R5vRfpm45cvY-wl2lBc7wQX-RW7haA-HO3by6vs68LCvz-DoeIjP4M7bcPw2nBw2o-d7FagKs9LL1t72yrXXcgkUN9x4G9_DjZGjlSBetr2avKYuLdNFo3C1Azd_ARnH3qs=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 #### BUSINESS ARCHITECTURE — 3.2.8 PE-070-100_Close_Notification — PE-070-100_Close_Notification
 
@@ -553,7 +631,7 @@ flowchart TD
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -573,10 +651,14 @@ flowchart TD
     class n3 startEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuu2jAU_BUrVyibIOVJaBaVIBCpUltV5bZdlC6McwzWdezUdngU8e-1eV6o7qpZRPFkzsw5k9h7j8gavMLr9fZMMFOgvW9W0IBfIH-BNfgBOgHfsWJ4wUH7jkOlMDP250iL0nbraA6rcMP4zqEzWEpA3z4EaGQLeYA0FrqvQTHqB36rWIPVrpRcKsd-giEN6dHt_GosVQ3qRgjDPCKZLeVMwA1O8jRPK1engUhR34nSjA4p8Q-uOS43ZIWVObbfafiEtz9YbVZ2TTHXYDkr0_CPeAHczWhU5zDSqfUlDKadj7CBzVpMmFhaPA0tpLB4uUFZeDigQ683F1dT9DyZC2QvwrHWE6BIGwtP1wZRxnnxlJajKgsDbZR8geIpnuaTJA6Im6Swo4eBC7e_AbZcmWIheX2m9jduhiJut4HaFnEYqJ29P3iBqG9O5SAexsOr0ziPyqi8OFFK_8vJ5qqesX45e02TKq4mV68oG2Rl-K_eZcxJmo-ix5xArRmBV6JVVSXTW1TTQRaFb4uOq2QQlg-iS2xgg3c3wXdlehWssryK8jcFT36PXXaLL0qSi2AyzarsKpiPo2oUvymYjqJ0eO7Q6iwVbleowsRItUOzrnUBaKlOBHeJ6Ofco7iguO_yRjMwaGaw6TQyEn0FLfka6rn361VJbEu-Age7o9H0d8faBoRxdNt23RHDpLgvSGyBGwm0Rp-lYZQRfMeyP9XpQSSo339vuzovo9MyfhWRAy-_xh0cX_fBHZxcYS_wGlANZrVX7L3jQWQPqxoo7rjxDoGHOyNnO0G84rhhva6t7cedMGxzbE7g4S_EmZQK" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuu2jAU_BUrVyibIOVJaBaVIBCpUltV5bZdlC6McwzWdezUdngU8e-1eV6o7qpZRPFkzsw5k9h7j8gavMLr9fZMMFOgvW9W0IBfIH-BNfgBOgHfsWJ4wUH7jkOlMDP250iL0nbraA6rcMP4zqEzWEpA3z4EaGQLeYA0FrqvQTHqB36rWIPVrpRcKsd-giEN6dHt_GosVQ3qRgjDPCKZLeVMwA1O8jRPK1engUhR34nSjA4p8Q-uOS43ZIWVObbfafiEtz9YbVZ2TTHXYDkr0_CPeAHczWhU5zDSqfUlDKadj7CBzVpMmFhaPA0tpLB4uUFZeDigQ683F1dT9DyZC2QvwrHWE6BIGwtP1wZRxnnxlJajKgsDbZR8geIpnuaTJA6Im6Swo4eBC7e_AbZcmWIheX2m9jduhiJut4HaFnEYqJ29P3iBqG9O5SAexsOr0ziPyqi8OFFK_8vJ5qqesX45e02TKq4mV68oG2Rl-K_eZcxJmo-ix5xArRmBV6JVVSXTW1TTQRaFb4uOq2QQlg-iS2xgg3c3wXdlehWssryK8jcFT36PXXaLL0qSi2AyzarsKpiPo2oUvymYjqJ0eO7Q6iwVbleowsRItUOzrnUBaKlOBHeJ6Ofco7iguO_yRjMwaGaw6TQyEn0FLfka6rn361VJbEu-Age7o9H0d8faBoRxdNt23RHDpLgvSGyBGwm0Rp-lYZQRfMeyP9XpQSSo339vuzovo9MyfhWRAy-_xh0cX_fBHZxcYS_wGlANZrVX7L3jQWQPqxoo7rjxDoGHOyNnO0G84rhhva6t7cedMGxzbE7g4S_EmZQK" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.9 PE-070-110_Create_and_Maintain_Maintenance_Order — PE-070-110_Create_and_Maintain_Maintenance_Order
 
@@ -585,7 +667,7 @@ flowchart TD
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -622,7 +704,9 @@ flowchart TD
     class n8 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVdtuo0gQ_ZUSUeQXLHE1LA8r2disstpsojiZrDTehzYUdiu4m-0GX8byv2-3wRc8ydPwgFSnqs6pKrqavZHyDI3IuL_fU0arCPa9aokr7EXQmxOJPRMa4BsRlMwLlD0dk3NWTemPY5jtlVsdprGErGix0-gUFxzh7cGEoUosTJCEyb5EQfOe2SsFXRGxi3nBhY6-wzC38qNa6xpxkaG4BFhWYKe-Si0owwvsBl7gJTpPYspZ1iHN_TzM095BF1fwTbokojqWX0t8JNt3mlVLZeekkKhiltWq-IvMsdA9VqLWWFqL9WkYVGodpgY2LUlK2ULhnqUgQdjHBfKtwwEO9_czdhaF1_GMgXrSgkg5xhxkpeDJuoKcFkV058XDxLdMWQn-gdGdMwnGrmOmupNItW6Zerj9DdLFsormvMja0P5G9xA55dYU28ixTLFT7xstZNlFKR44oROelUaBHdvxSSnP819SUnMVr0R-tFoTN3GS8VnL9gd-bP3Md2pz7AVD-3ZOKNY0xSvSJEncyWVUk4FvW1-TjhJ3YMU3pAtS4YbsLoS_xd6ZMPGDxA6-JGz0bqus58-CpydCd-In_pkwGNnJ0PmS0BvaXthWqHgWgpRLGPH6eJZhWJay8emHOd9nRk6inPT1qCEWqFqBdy4-4Envy8z49yo6UNG6LpQS_uYVzWlKKsrZOUqdjBvh5HUKDwn04fkRRqRKl_CmhK447W4FLzWDeCk4gz_5HCoOCWUZPJXI4P2pW437_Zya8gXEnK1RrcZ1YUCZoui0c83gdRlesCx04vUAFANMPcgFX8E_k7fpDYOvCB4yZEpyp_L_q6nADNTuCoRntZGyW_JAhb_gmuKmWyZRPX4jBc20uKZBqfaLC3gkqgNkhKXYZQr3-0vpGfbn6s5Qw8VtWtSSrvGP5kjOjMPh5tMwB_r939XgWzNoTKc1B43ptqbXmGFrho3pt6bb9dqN6V2dZg2etrgDO5_D7vWGdjzelx7_fPt14MHncPA5HJ622DCNFYoVoZkR7Y3jv0r9zzLMSV1UxsE0SF3x6Y6lRnS804261J9tTIk68asGPPwPB9o84A==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVdtuo0gQ_ZUSUeQXLHE1LA8r2disstpsojiZrDTehzYUdiu4m-0GX8byv2-3wRc8ydPwgFSnqs6pKrqavZHyDI3IuL_fU0arCPa9aokr7EXQmxOJPRMa4BsRlMwLlD0dk3NWTemPY5jtlVsdprGErGix0-gUFxzh7cGEoUosTJCEyb5EQfOe2SsFXRGxi3nBhY6-wzC38qNa6xpxkaG4BFhWYKe-Si0owwvsBl7gJTpPYspZ1iHN_TzM095BF1fwTbokojqWX0t8JNt3mlVLZeekkKhiltWq-IvMsdA9VqLWWFqL9WkYVGodpgY2LUlK2ULhnqUgQdjHBfKtwwEO9_czdhaF1_GMgXrSgkg5xhxkpeDJuoKcFkV058XDxLdMWQn-gdGdMwnGrmOmupNItW6Zerj9DdLFsormvMja0P5G9xA55dYU28ixTLFT7xstZNlFKR44oROelUaBHdvxSSnP819SUnMVr0R-tFoTN3GS8VnL9gd-bP3Md2pz7AVD-3ZOKNY0xSvSJEncyWVUk4FvW1-TjhJ3YMU3pAtS4YbsLoS_xd6ZMPGDxA6-JGz0bqus58-CpydCd-In_pkwGNnJ0PmS0BvaXthWqHgWgpRLGPH6eJZhWJay8emHOd9nRk6inPT1qCEWqFqBdy4-4Envy8z49yo6UNG6LpQS_uYVzWlKKsrZOUqdjBvh5HUKDwn04fkRRqRKl_CmhK447W4FLzWDeCk4gz_5HCoOCWUZPJXI4P2pW437_Zya8gXEnK1RrcZ1YUCZoui0c83gdRlesCx04vUAFANMPcgFX8E_k7fpDYOvCB4yZEpyp_L_q6nADNTuCoRntZGyW_JAhb_gmuKmWyZRPX4jBc20uKZBqfaLC3gkqgNkhKXYZQr3-0vpGfbn6s5Qw8VtWtSSrvGP5kjOjMPh5tMwB_r939XgWzNoTKc1B43ptqbXmGFrho3pt6bb9dqN6V2dZg2etrgDO5_D7vWGdjzelx7_fPt14MHncPA5HJ622DCNFYoVoZkR7Y3jv0r9zzLMSV1UxsE0SF3x6Y6lRnS804261J9tTIk68asGPPwPB9o84A==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 #### BUSINESS ARCHITECTURE — 3.2.10 PE-070-120_Review_Maintenance_Plan — PE-070-120_Review_Maintenance_Plan
 
@@ -631,7 +715,7 @@ flowchart TD
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -660,10 +744,14 @@ flowchart TD
     class n6 startEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViiXIOWT0BwqQcDSSrvqStD2UHowiZ1YGAfZzgJd8d9rkxA2FE6NBMob3sy8NyT-sLIqx1ZiDQYflFOVgA9blXiL7QTYaySx7YAG-IEERWuGpW16SMXVgv45t3nh7mDaDAbRlrKjQRe4qDD4_uyAiSYyB0jE5VBiQYnt2DtBt0gc04pVwnQ_4TFxydmt_WlaiRyLa4Prxl4WaSqjHF_hIA7jEBqexFnF854oiciYZPbJDMeqfVYioc7j1xK_osNPmqtS1wQxiXVPqbbsBa0xMzsqURssq8X7JQwqjQ_XgS12KKO80HjoakggvrlCkXs6gdNgsOKdKVjOVhzoK2NIyhkmQCoNz98VIJSx5ClMJzByHalEtcHJkz-PZ4HvZGaTRK_uOibc4R7TolTJumJ52zrcmx0Sf3dwxCHxXUcc9feNF-b51Skd-WN_3DlNYy_10osTIeS_nHSuYonkpvWaB9CHs87Li0ZR6v6rd1lzFsYT7zYnLN5phj-JQgiD-TWq-Sjy3MeiUxiM3PRGtEAK79HxKvglDTtBGMXQix8KNn63U9brN1FlF8FgHsGoE4ynHpz4DwXDiReO2wm1TiHQrgRwuQDPEAzBK6JcYY54hsEbQ5xj0bSai3u_VhZBCUFDkzxIBdab9TgLJTRUHFfW7088v8-bSEkLfpcHVAXO4b9QqfoiQV_kzNaf_sgo26AC94lhnzijcsf0v9FaUizBshRVXZSPnCMtcGdXk0-_cXRtRDy_P-I3c850NP2uNDd8BIbDrzritvSa0m_LoCnDtgybMmpLvymDT4-JUbi8Hj3Yvw8H9-HwPhx1B0oPHnWw5VhbLLaI5lbyYZ1PdH3q55igminr5FioVtXiyDMrOZ98Vr3LdWwzivQDuW3A018r9fot" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViiXIOWT0BwqQcDSSrvqStD2UHowiZ1YGAfZzgJd8d9rkxA2FE6NBMob3sy8NyT-sLIqx1ZiDQYflFOVgA9blXiL7QTYaySx7YAG-IEERWuGpW16SMXVgv45t3nh7mDaDAbRlrKjQRe4qDD4_uyAiSYyB0jE5VBiQYnt2DtBt0gc04pVwnQ_4TFxydmt_WlaiRyLa4Prxl4WaSqjHF_hIA7jEBqexFnF854oiciYZPbJDMeqfVYioc7j1xK_osNPmqtS1wQxiXVPqbbsBa0xMzsqURssq8X7JQwqjQ_XgS12KKO80HjoakggvrlCkXs6gdNgsOKdKVjOVhzoK2NIyhkmQCoNz98VIJSx5ClMJzByHalEtcHJkz-PZ4HvZGaTRK_uOibc4R7TolTJumJ52zrcmx0Sf3dwxCHxXUcc9feNF-b51Skd-WN_3DlNYy_10osTIeS_nHSuYonkpvWaB9CHs87Li0ZR6v6rd1lzFsYT7zYnLN5phj-JQgiD-TWq-Sjy3MeiUxiM3PRGtEAK79HxKvglDTtBGMXQix8KNn63U9brN1FlF8FgHsGoE4ynHpz4DwXDiReO2wm1TiHQrgRwuQDPEAzBK6JcYY54hsEbQ5xj0bSai3u_VhZBCUFDkzxIBdab9TgLJTRUHFfW7088v8-bSEkLfpcHVAXO4b9QqfoiQV_kzNaf_sgo26AC94lhnzijcsf0v9FaUizBshRVXZSPnCMtcGdXk0-_cXRtRDy_P-I3c850NP2uNDd8BIbDrzritvSa0m_LoCnDtgybMmpLvymDT4-JUbi8Hj3Yvw8H9-HwPhx1B0oPHnWw5VhbLLaI5lbyYZ1PdH3q55igminr5FioVtXiyDMrOZ98Vr3LdWwzivQDuW3A018r9fot" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.11 PE-070-130_Create_Maintenance_Plan — PE-070-130_Create_Maintenance_Plan
 
@@ -672,7 +760,7 @@ flowchart TD
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -727,10 +815,14 @@ flowchart TD
     class n14 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2PokgU_SsVOh1nEoh8is3DbmyUzSTTs53V3X1Y96GEi1a6LExR-LGO_32rFFAQM9msico93HPOvReo4qjFWQJaoD0_HwkjIkDHnljBGnoB6i1wDj0dXYA_MCd4QSHvqZw0Y2JK_jmnWe5mr9IUFuE1oQeFTmGZAfr9i45Gkkh1lGOWGzlwkvb03oaTNeaHMKMZV9lPMEzN9OxWnnrNeAL8mmCavhV7kkoJgyvs-K7vRoqXQ5yxpCGaeukwjXsnVRzNdvEKc3Euv8jhDe__JIlYyTjFNAeZsxJr-hUvgKoeBS8UFhd8Ww2D5MqHyYFNNzgmbClx15QQx-zjCnnm6YROz89zVpui2XjOkPzEFOf5GFKUCwlPtgKlhNLgyQ1HkWfqueDZBwRP9sQfO7Yeq04C2bqpq-EaOyDLlQgWGU3KVGOnegjszV7n-8A2dX6Qvy0vYMnVKRzYQ3tYO736VmiFlVOapv_LSc6Vz3D-UXpNnMiOxrWX5Q280LzXq9ocu_7Ias8J-JbEcCMaRZEzuY5qMvAs87Hoa-QMzLAlusQCdvhwFXwJ3Vow8vzI8h8KXvzaVRaLd57FlaAz8SKvFvRfrWhkPxR0R5Y7LCuUOkuONysUzaboS4QM9IYJE8AwiwG9U8wY8Euq-jDrr7mW4iDFhpo8CjnIztBU3ocUUHiI5W9bwAizQgK8_y2rj-fa3zeidkt0hdkS-m-y1fL4TrPJd5r8KQg0BgqCZAxFFC-b2W4zewyynrV8xO9M0OywgSbX625fcPm3PBivcv1K7nU-vQNPM75WSH9G1oDOiZ-b2oNO7beCCrJRwy2nOJZ8lsvWHrg1Rf3WaOIVJAX90UCHn2paLrLNfUfn8UIiWZ9vaC-SVZaNWVmZ_Dbov6pFtulmmQ943zJBUhJjdSFbFHUf_gZbArsftGLZx2PVi9p5jIVcO-NV45bt11ewfzfvn-fa6XSr53TrwT6mRU628MvlUW_T3P9Kk2vo5YB5yDB-Us5lPGjFVjt2LoBdxvYl9MvQLdOr01bJd6v4nP99rlVDmWvfZRHts-1BnbMGZZZfetSapanTil9asVWuc6xsYXhX081lOzveLt9qFNWG0IDtbtjpht1u2OuGB92w3w0Py72xAb7Um3OzGfMBbj3A7WqfacJON-xWsKZra7kEYpJowVE7v3vJ97MEUiwvsXbSNVyIbHpgsRac31G0YpNI5phguXWsL-DpX0JkHmI=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2PokgU_SsVOh1nEoh8is3DbmyUzSTTs53V3X1Y96GEi1a6LExR-LGO_32rFFAQM9msico93HPOvReo4qjFWQJaoD0_HwkjIkDHnljBGnoB6i1wDj0dXYA_MCd4QSHvqZw0Y2JK_jmnWe5mr9IUFuE1oQeFTmGZAfr9i45Gkkh1lGOWGzlwkvb03oaTNeaHMKMZV9lPMEzN9OxWnnrNeAL8mmCavhV7kkoJgyvs-K7vRoqXQ5yxpCGaeukwjXsnVRzNdvEKc3Euv8jhDe__JIlYyTjFNAeZsxJr-hUvgKoeBS8UFhd8Ww2D5MqHyYFNNzgmbClx15QQx-zjCnnm6YROz89zVpui2XjOkPzEFOf5GFKUCwlPtgKlhNLgyQ1HkWfqueDZBwRP9sQfO7Yeq04C2bqpq-EaOyDLlQgWGU3KVGOnegjszV7n-8A2dX6Qvy0vYMnVKRzYQ3tYO736VmiFlVOapv_LSc6Vz3D-UXpNnMiOxrWX5Q280LzXq9ocu_7Ias8J-JbEcCMaRZEzuY5qMvAs87Hoa-QMzLAlusQCdvhwFXwJ3Vow8vzI8h8KXvzaVRaLd57FlaAz8SKvFvRfrWhkPxR0R5Y7LCuUOkuONysUzaboS4QM9IYJE8AwiwG9U8wY8Euq-jDrr7mW4iDFhpo8CjnIztBU3ocUUHiI5W9bwAizQgK8_y2rj-fa3zeidkt0hdkS-m-y1fL4TrPJd5r8KQg0BgqCZAxFFC-b2W4zewyynrV8xO9M0OywgSbX625fcPm3PBivcv1K7nU-vQNPM75WSH9G1oDOiZ-b2oNO7beCCrJRwy2nOJZ8lsvWHrg1Rf3WaOIVJAX90UCHn2paLrLNfUfn8UIiWZ9vaC-SVZaNWVmZ_Dbov6pFtulmmQ943zJBUhJjdSFbFHUf_gZbArsftGLZx2PVi9p5jIVcO-NV45bt11ewfzfvn-fa6XSr53TrwT6mRU628MvlUW_T3P9Kk2vo5YB5yDB-Us5lPGjFVjt2LoBdxvYl9MvQLdOr01bJd6v4nP99rlVDmWvfZRHts-1BnbMGZZZfetSapanTil9asVWuc6xsYXhX081lOzveLt9qFNWG0IDtbtjpht1u2OuGB92w3w0Py72xAb7Um3OzGfMBbj3A7WqfacJON-xWsKZra7kEYpJowVE7v3vJ97MEUiwvsXbSNVyIbHpgsRac31G0YpNI5phguXWsL-DpX0JkHmI=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.12 PE-070-150_Define_Requirements_for_Each_Operation_and_Create_Job_Plan — PE-070-150_Define_Requirements_for_Each_Operation_and_Create_Job_Plan
 
@@ -739,7 +831,7 @@ flowchart TD
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -780,7 +872,9 @@ flowchart TD
     class n10 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVWuP4jYU_StWRiNaKWjzJEw-VOKV1VSz6mjZ7X4o_WCS68EisVPbmYFF_PfaSQgTBqRKRQJxTs4995H45mClPAMrtu7vD5RRFaPDQG2ggEGMBmssYWCjhvgTC4rXOciB0RDO1JL-rGVuUO6MzHAJLmi-N-wSXjig7482mujA3EYSMzmUICgZ2INS0AKL_YznXBj1HYyJQ-ps7aUpFxmIs8BxIjcNdWhOGZxpPwqiIDFxElLOsp4pCcmYpIOjKS7nb-kGC1WXX0n4gnc_aKY2GhOcS9CajSryJ7yG3PSoRGW4tBKvp2FQafIwPbBliVPKXjQfOJoSmG3PVOgcj-h4f79iXVL0bb5iSH_SHEs5B4Kk0vTiVSFC8zy-C2aTJHRsqQTfQnznLaK579mp6STWrTu2Ge7wDejLRsVrnmetdPhmeoi9cmeLXew5ttjr34tcwLJzptnIG3vjLtM0cmfu7JSJEPK_Mum5im9YbttcCz_xknmXyw1H4cz56Hdqcx5EE_dyTiBeaQrvTJMk8RfnUS1GoevcNp0m_siZXZi-YAVveH82fJgFnWESRokb3TRs8l1WWa2fBU9Phv4iTMLOMJq6ycS7aRhM3GDcVqh9XgQuN2jKq_pZRpOylM0182HuXyuL4JjgoRk1esyAKUr26AumTAHDLAVkZiXRV_inogIyRLhAv_P1yvr7nY93w-dRuwiGc4RZhha7FnwFySuRgkS_JMvFr30r_z-UtNzqwZxLUhw9g9CFFR8rC27YPevz8rErRAQv0LKEtO8S9l0mWfbpe5np215PBz1Rqerw5xwzRBn6wcUW_WE2Tt9n1Pd5omyLlgpK2SQ-mz2Srra-Q6Qduia68vW2END01JePtXzGmaxyhRZaXBY6FCVUL95Pc6xwX_2g1fWc9Rd9BgZC362uqL7WdQ6HUzNm6Q_Xem2lGwS7NK8kfYXPzalYWcdjE6b3RvOHjdFw-Ju2aKHbQL-FfgO9FnoNDFoYtLHtmWGjBkcnL6fBYYsfLuRhg0fvTpwp4LRperR3nfav08F1OrxOj67TUbfJe_T4Ov1wndYzaFeSZVsFiALTzIoPVv3i1S_nDAjWD4R1tC1cKb7cs9SK6xeUVdVP9ZxivTeKhjz-CxiHfio=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVWuP4jYU_StWRiNaKWjzJEw-VOKV1VSz6mjZ7X4o_WCS68EisVPbmYFF_PfaSQgTBqRKRQJxTs4995H45mClPAMrtu7vD5RRFaPDQG2ggEGMBmssYWCjhvgTC4rXOciB0RDO1JL-rGVuUO6MzHAJLmi-N-wSXjig7482mujA3EYSMzmUICgZ2INS0AKL_YznXBj1HYyJQ-ps7aUpFxmIs8BxIjcNdWhOGZxpPwqiIDFxElLOsp4pCcmYpIOjKS7nb-kGC1WXX0n4gnc_aKY2GhOcS9CajSryJ7yG3PSoRGW4tBKvp2FQafIwPbBliVPKXjQfOJoSmG3PVOgcj-h4f79iXVL0bb5iSH_SHEs5B4Kk0vTiVSFC8zy-C2aTJHRsqQTfQnznLaK579mp6STWrTu2Ge7wDejLRsVrnmetdPhmeoi9cmeLXew5ttjr34tcwLJzptnIG3vjLtM0cmfu7JSJEPK_Mum5im9YbttcCz_xknmXyw1H4cz56Hdqcx5EE_dyTiBeaQrvTJMk8RfnUS1GoevcNp0m_siZXZi-YAVveH82fJgFnWESRokb3TRs8l1WWa2fBU9Phv4iTMLOMJq6ycS7aRhM3GDcVqh9XgQuN2jKq_pZRpOylM0182HuXyuL4JjgoRk1esyAKUr26AumTAHDLAVkZiXRV_inogIyRLhAv_P1yvr7nY93w-dRuwiGc4RZhha7FnwFySuRgkS_JMvFr30r_z-UtNzqwZxLUhw9g9CFFR8rC27YPevz8rErRAQv0LKEtO8S9l0mWfbpe5np215PBz1Rqerw5xwzRBn6wcUW_WE2Tt9n1Pd5omyLlgpK2SQ-mz2Srra-Q6Qduia68vW2END01JePtXzGmaxyhRZaXBY6FCVUL95Pc6xwX_2g1fWc9Rd9BgZC362uqL7WdQ6HUzNm6Q_Xem2lGwS7NK8kfYXPzalYWcdjE6b3RvOHjdFw-Ju2aKHbQL-FfgO9FnoNDFoYtLHtmWGjBkcnL6fBYYsfLuRhg0fvTpwp4LRperR3nfav08F1OrxOj67TUbfJe_T4Ov1wndYzaFeSZVsFiALTzIoPVv3i1S_nDAjWD4R1tC1cKb7cs9SK6xeUVdVP9ZxivTeKhjz-CxiHfio=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 #### BUSINESS ARCHITECTURE — 3.2.13 PE-070-160_Identify_Required_Spare_Parts — PE-070-160_Identify_Required_Spare_Parts
 
@@ -789,7 +883,7 @@ flowchart TD
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -812,10 +906,15 @@ flowchart TD
     class n4 startEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE1v2zgU_CsPCgJfZECfkVeHAopsASk2aFBn20OzB5p6tAlTpJekkriG_3tJf8bp5lQdBL_xvBm-ochNQFWLQRlcX2-45LaEzcAusMNBCYMZMTgIYQ98I5qTmUAz8BympJ3ynztanK1ePc1jDem4WHt0inOF8M9dCJVrFCEYIs3QoOZsEA5WmndEr2sllPbsKxyxiO3cDn_dKt2iPhOiqIhp7loFl3iG0yIrssb3GaRKtheiLGcjRgdbvzihXuiCaLtbfm_wnrx-561duJoRYdBxFrYTf5MZCj-j1b3HaK-fj2Fw432kC2y6IpTLucOzyEGayOUZyqPtFrbX10_yZAqP4ycJ7qGCGDNGBsY6ePJsgXEhyqusrpo8Co3VaonlVTIpxmkSUj9J6UaPQh_u8AX5fGHLmRLtgTp88TOUyeo11K9lEoV67d7vvFC2Z6f6Jhklo5PTbRHXcX10Yoz9kZPLVT8Sszx4TdImacYnrzi_yevod73jmOOsqOL3OaF-5hTfiDZNk07OUU1u8jj6WPS2SW-i-p3onFh8Ieuz4F91dhJs8qKJiw8F937vV9nPHrSiR8F0kjf5SbC4jZsq-VAwq-JsdFih05lrslpA8ziFuwaG8HAP94RLi5JIivCIdCE55UTuG_wj4x9PASMlI0Ofv-PLngixhqptYWoVXcKdxc6AVfBd6SV88SfrKfj3jURyKfEVfe546K56qzpiOd2p7rWqZ8KFvw9ASZhyi5d6qdO7a1Faztw6jEELFf2v54ZbruQlN3NcF6I71s7XcbS7baQ1wJSGCaEL-LJCTXwfENlCrdFtH3xWM3gQ5KzlvvL9D5nBcPjJxXIo432ZHMpkX6ZvttBzjp_uBZz8P5yeju8FnJ3gIAw61B3hbVBugt396e7YFhnphQ22YUBcpNO1pEG5u2eCftW6ocacuO3v9uD2F8Djzmc=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE1v2zgU_CsPCgJfZECfkVeHAopsASk2aFBn20OzB5p6tAlTpJekkriG_3tJf8bp5lQdBL_xvBm-ochNQFWLQRlcX2-45LaEzcAusMNBCYMZMTgIYQ98I5qTmUAz8BympJ3ynztanK1ePc1jDem4WHt0inOF8M9dCJVrFCEYIs3QoOZsEA5WmndEr2sllPbsKxyxiO3cDn_dKt2iPhOiqIhp7loFl3iG0yIrssb3GaRKtheiLGcjRgdbvzihXuiCaLtbfm_wnrx-561duJoRYdBxFrYTf5MZCj-j1b3HaK-fj2Fw432kC2y6IpTLucOzyEGayOUZyqPtFrbX10_yZAqP4ycJ7qGCGDNGBsY6ePJsgXEhyqusrpo8Co3VaonlVTIpxmkSUj9J6UaPQh_u8AX5fGHLmRLtgTp88TOUyeo11K9lEoV67d7vvFC2Z6f6Jhklo5PTbRHXcX10Yoz9kZPLVT8Sszx4TdImacYnrzi_yevod73jmOOsqOL3OaF-5hTfiDZNk07OUU1u8jj6WPS2SW-i-p3onFh8Ieuz4F91dhJs8qKJiw8F937vV9nPHrSiR8F0kjf5SbC4jZsq-VAwq-JsdFih05lrslpA8ziFuwaG8HAP94RLi5JIivCIdCE55UTuG_wj4x9PASMlI0Ofv-PLngixhqptYWoVXcKdxc6AVfBd6SV88SfrKfj3jURyKfEVfe546K56qzpiOd2p7rWqZ8KFvw9ASZhyi5d6qdO7a1Faztw6jEELFf2v54ZbruQlN3NcF6I71s7XcbS7baQ1wJSGCaEL-LJCTXwfENlCrdFtH3xWM3gQ5KzlvvL9D5nBcPjJxXIo432ZHMpkX6ZvttBzjp_uBZz8P5yeju8FnJ3gIAw61B3hbVBugt396e7YFhnphQ22YUBcpNO1pEG5u2eCftW6ocacuO3v9uD2F8Djzmc=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 3.3 Business Roles & Responsibilities
 
@@ -832,7 +931,10 @@ flowchart TD
 | FTS IF - PM Batch User | PE-070-110_Create_and_Maintain_Maintenance_Order,  | |
 
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 4. Data Architecture (TOGAF "D")
 
@@ -844,11 +946,18 @@ The following data entities are derived from the system integration flows for PE
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
+
+
+
 
 ### 4.3 Data Lineage
 
@@ -889,7 +998,10 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Quality | Validated at source; reconciliation at target |
 
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 5. Application Architecture (TOGAF "A")
 
@@ -899,9 +1011,11 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 The Current-State architecture represents the **current / legacy** landscape for PE-070.
 
+
 #### Current-State Flow Narrative
 
 *(No current-state flows defined.)*
+
 
 ### 5.2 Future-State — Future-State Application Landscape
 
@@ -909,9 +1023,11 @@ The Current-State architecture represents the **current / legacy** landscape for
 
 The Future-State architecture represents the **target** landscape for PE-070.
 
+
 #### Future-State Flow Narrative
 
 *(No future-state flows defined.)*
+
 
 ### 5.3 Change Impact Summary
 
@@ -928,7 +1044,10 @@ The Future-State architecture represents the **target** landscape for PE-070.
 |--------|---------|--------|
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.5 RICEFW Inventory
 
@@ -1018,7 +1137,10 @@ The Future-State architecture represents the **target** landscape for PE-070.
 **Summary**: 2 Reports, 12 Interfaces, 11 Conversions, 53 Enhancements, 1 Forms, 1 Workflows
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.6 Integration Patterns
 
@@ -1030,13 +1152,19 @@ Integration patterns identified from the system flow analysis for PE-070:
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
+
+
 
 #### Platform Inventory
 
@@ -1051,68 +1179,20 @@ Platform landscape inferred from integrated systems for PE-070:
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 6.2 SAP Development Object Status
 
-**Capability RICEFW Status** (80 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-03-27)*
-
-| Status | Count | % |
-|--------|------:|----:|
-| 10. Object Complete | 61 | 76.2% |
-| 02. FS Unplanned | 14 | 17.5% |
-| 04. FS In Progress | 3 | 3.8% |
-| 03. FS Not Started | 1 | 1.2% |
-| 06. Dev Not Started | 1 | 1.2% |
-| **Total** | **80** | **100%** |
-
-**RICEFW by Type:**
-
-| Type | Count |
-|------|------:|
-| Report (R) | 2 |
-| Interface (I) | 12 |
-| Conversion (C) | 11 |
-| Enhancement (E) | 53 |
-| Form (F) | 1 |
-| Workflow (W) | 1 |
-| **Total** | **80** |
-
-**Technical Complexity:**
-
-| Complexity | Count |
-|------------|------:|
-| 01.Very High | 25 |
-| 02.High | 6 |
-| 03.Medium | 40 |
-| N/A | 9 |
-
-**Active (Non-Complete) Objects:**
-
-| Object ID | Type | Description | Status | Complexity |
-|-----------|------|-------------|--------|------------|
-| FTSW1372 | 06.Workflow | Factory Portal - Equipment to Parts Management (Custom Fields – Part Check out &... | 03. FS Not Started | 03.Medium |
-| FTSI1538 | 02.Interface | CMMS – get location info from CMMS | 02. FS Unplanned | 03.Medium |
-| FTSI1537 | 02.Interface | CMMS – Get Collateral Details | 02. FS Unplanned | 03.Medium |
-| FTSI1536 | 02.Interface | CMMS – Collateral Conversion | 02. FS Unplanned | 03.Medium |
-| FTSI1371 | 02.Interface | CMMS – Equipment create and update (status and collateral name) | 04. FS In Progress | 03.Medium |
-| FTSI1370 | 02.Interface | Factory Portal - Equipment to Parts Management (Custom Fields – Part Check out &... | 04. FS In Progress | 03.Medium |
-| FTSI1355 | 02.Interface | CMMS – Equipment with MMS flag (S4 to CMMS) | 06. Dev Not Started | 03.Medium |
-| FTSE1549 | 04.Enhancement | Custom Attributes for AMT/ISM | 02. FS Unplanned | 03.Medium |
-| FTSE1548 | 04.Enhancement | Automation for Product Conversions – Equipment Structure update | 02. FS Unplanned | 03.Medium |
-| FTSE1547 | 04.Enhancement | Automation for Product Conversions – Work Order Closure | 02. FS Unplanned | 03.Medium |
-| FTSE1546 | 04.Enhancement | Automation for Product Conversions – Parts Request and Return | 02. FS Unplanned | 03.Medium |
-| FTSE1545 | 04.Enhancement | Automation for Product Conversions – Explode BOM | 02. FS Unplanned | 03.Medium |
-| FTSE1544 | 04.Enhancement | Automation for Product Conversions – create Work Order | 02. FS Unplanned | 03.Medium |
-| FTSE1543 | 04.Enhancement | PM inbound from AMT | 02. FS Unplanned | 03.Medium |
-| FTSE1542 | 04.Enhancement | PM outbound to AMT | 02. FS Unplanned | 03.Medium |
-| FTSE1541 | 04.Enhancement | Send SAP notification on Work Order update | 02. FS Unplanned | 03.Medium |
-| FTSE1540 | 04.Enhancement | Send SAP notification on Equipment update | 02. FS Unplanned | 03.Medium |
-| FTSE1539 | 04.Enhancement | Custom Fiori UI – Move Equipment SRoom to SRoom (screen) | 02. FS Unplanned | 03.Medium |
-| FTSE1369 | 04.Enhancement | Factory Portal - Equipment to Parts Management (Custom Fields – Part Check out &... | 04. FS In Progress | 01.Very High |
-
-**Tower Context:** FTS-IF has 265 total RICEFW objects (209 complete, 56 active/other)
+| Metric | DEV | QAS | PRD |
+|--------|-----|-----|-----|
+| Transport Requests | — | — | — |
+| Custom Code Objects | — | — | — |
+| CDS Views | — | — | — |
+| Fiori Apps | — | — | — |
+| BAdIs / Enhancements | — | — | — |
 
 ### 6.3 NFRs & Design Principles
 
@@ -1142,19 +1222,21 @@ Platform landscape inferred from integrated systems for PE-070:
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 7. Project Context
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
-*62 objects with timeline data (source: Object Tracker)*
-
 | ID | Description | FS | TDD | Build | FUT | Status |
 |----|-------------|----|-----|-------|-----|--------|
+| FTSW1372 | Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou... | — | — | — | — | 5. Not Dispositioned |
 | FTSR1364 | Factory Portal - Warranty Claim (Warranty Dashboard​​) | Aug-25 (100%) | Dec-25 (100%) | Dec-25 (100%) | Jan-26 (100%) | 4. Completed |
-| FTSR1011 | Report- Custom Fiori report to show full parts tracking status dashboard (workbench reporting) | Mar-25 (100%) | May-25 (100%) | May-25 (100%) | Aug-25 (100%) | 1. On Track |
-| FTSM0986 | Convert Equipment Warranty information to SAP S/4 Equipment Master – reusable mass upload | Jun-25 (100%) | — | — | Jul-25 (100%) |  |
+| FTSR1011 | Report- Custom Fiori report to show full parts tracking status dashboard (wor... | Mar-25 (100%) | May-25 (100%) | May-25 (100%) | Aug-25 (100%) | 1. On Track |
+| FTSM0986 | Convert Equipment Warranty information to SAP S/4 Equipment Master – reusable... | Jun-25 (100%) | — | — | Jul-25 (100%) |  |
 | FTSM019 | Conversion of Inflight Work Orders | Jun-25 (100%) | — | — | Jun-25 (100%) |  |
 | FTSM018 | Conversion of General Task List | Jan-25 (100%) | — | — | Jun-25 (100%) |  |
 | FTSM017_IF | Manual Conversion of Functional Locations (FLOC) | Apr-25 (100%) | — | — | May-25 (100%) |  |
@@ -1165,83 +1247,26 @@ Platform landscape inferred from integrated systems for PE-070:
 | FTSM008 | Equipment Class | Jan-25 (100%) | — | — | Apr-25 (100%) |  |
 | FTSM007 | Characteristics | Jan-25 (100%) | — | — | Apr-25 (100%) |  |
 | FTSM002_IF | Work Center | Jan-25 (100%) | — | — | May-25 (100%) |  |
+| FTSI1538 | CMMS – get location info from CMMS | — | — | — | — | 5. Not Dispositioned |
+| FTSI1537 | CMMS – Get Collateral Details | — | — | — | — | 5. Not Dispositioned |
+| FTSI1536 | CMMS – Collateral Conversion | — | — | — | — | 5. Not Dispositioned |
 | FTSI1527 | Interface to get Cu flag from XEUS | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | 1. On Track |
-| FTSI1355 | CMMS – Equipment with MMS flag (S4 to CMMS) | Jun-25 (100%) | — | — | — | 5. Not Dispositioned |
-| FTSI1008 | Interface S/4 with EMS | Mar-25 (100%) | Apr-25 (100%) | Apr-25 (100%) | Jul-25 (100%) | 1. On Track |
-| FTSI1007 | Interface S/4 with XEUS | Apr-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Oct-25 (100%) | 5. Not Dispositioned |
-| FTSI0985 | Claim Status Update from e2open to SAP S4 (Inbound Interface) | Feb-25 (100%) | Apr-25 (100%) | Apr-25 (100%) | Jul-25 (100%) | 4. Completed |
-| FTSI0983 | SAP Warranty Claim Document to e2open (Outbound Interface) | Feb-25 (100%) | Apr-25 (100%) | Apr-25 (100%) | Oct-25 (100%) |  |
-| FTSI0924 | Interface: SAP ME to S/4 to Create & Maintain Notifications | Feb-25 (100%) | Apr-25 (100%) | Apr-25 (100%) | Dec-25 (100%) | 1. On Track |
-| FTSF1361 | Factory Portal - Returns Order Flow (Form-Based (CRD) Return Order​) | Jun-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Oct-25 (100%) |  |
-| FTSE1579 | Custom tables to store Board Failure Form details | Aug-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 4. Completed |
-| FTSE1528 | Warranty claim for non E2O supplier | Aug-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 4. Completed |
-| FTSE1451 | Enhancement required for triggering Interface between S4 and SAP ME from the save user exit of a work order with conditions to check the Order Type and Release Status | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Oct-25 (100%) |  |
-| FTSE1413 | Reusable Mass Upload Program for Equipment Master Warranty | Jul-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 4. Completed |
-| FTSE1385 | Factory Portal - Preventative Maintenance (AT) (Schedule Maintenance Plan) | Jul-25 (100%) | Dec-25 (100%) | Dec-25 (100%) | Mar-26 (100%) | 1. On Track |
-| FTSE1383 | Factory Portal - Preventative Maintenance (AT) (Set Maintenance Counte) | Jul-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 4. Completed |
-| FTSE1382 | Factory Portal - Preventative Maintenance (AT) (Set Maintenance Cycle​) | Jul-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 1. On Track |
-| FTSE1381 | Factory Portal - Preventative Maintenance (AT) (Create Maintenance Plan) | Aug-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 1. On Track |
-| FTSE1379 | Factory Portal - Part list (Part list creation / modify (IA05​) | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | 1. On Track |
+| FTSI1371 | CMMS – Equipment create and update (status and collateral name) | — | — | — | — | 5. Not Dispositioned |
+| FTSI1370 | Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou... | — | — | — | — | 5. Not Dispositioned |
+*... and 60 more objects (see full Object Tracker)*
 
-*... and 32 more objects (see full Object Tracker)*
+<div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-03-27*
-
-**Mapped sub-tower(s):** 7.9 FTS IF - Plant Maintenance
-
-**RAID Summary:** 102 open items (2 capability-specific, 100 tower-level), 439 closed
-
-| Severity | Capability | Tower-Wide | Total Open |
-|----------|----------:|-----------:|-----------:|
-| P1 - High | 0 | 6 | 6 |
-| P2 - Medium | 2 | 79 | 81 |
-| P3 - Low | 0 | 15 | 15 |
-| **Total** | **2** | **100** | **102** |
-
-**Capability-Specific RAID Items:**
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 02088 | Risk | P2 - Medium | Equipment Master Conversion help needed | In Progress | FTS IF | 2026-03-31 |
-| 03539 | Risk | P2 - Medium | TPTD coming back into scope for SAP PM poses risk for R3 | Roadblock / At Risk | FTS IF | 2026-03-27 |
-
-**Other FTS-IF Tower RAID Items** (100 open):
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03578 | Risk | P1 - High | HBI Process Flow Change impact Assessment | In Progress | FTS IF | 2026-03-27 |
-| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-03 |
-| 03600 | Risk | P1 - High | Error lifecycle functionality within PDF application is miss... | In Progress | FTS IF | 2026-05-01 |
-| 03601 | Risk | P1 - High | Traceability functionality within PDF application is missing... | In Progress | FTS IF | 2026-05-15 |
-| 03757 | Risk | P1 - High | IF Planning data not available in ITC1 until W4, leaving too... | In Progress | FTS IF | 2026-04-03 |
-| 03762 | Risk | P1 - High | FTS-IF (esp SCP) related test cases/sequencing are not accur... | In Progress | FTS IF | 2026-04-03 |
-| 01355 | Action | P2 - Medium | PDF SMHe product development approach does not appear to hav... | To Be Reviewed | FTS IF | 2026-04-03 |
-| 01658 | Risk | P2 - Medium | Under Intel Review | In Progress |  | 2025-07-18 |
-| 01709 | Action | P2 - Medium | No PAY1 or ENG1 storage locations defined or configured for ... | Not Started |  | 2025-08-08 |
-| 01733 | Risk | P2 - Medium | Tariffs impacts Item/BOM design which is impacting ERP/SCP (... | In Progress | E2E | 2026-03-06 |
-| 01769 | Action | P2 - Medium | Approach and duration for PDF SMH application refreshes to s... | In Progress | FTS IF | 2026-04-01 |
-| 01857 | Action | P2 - Medium | TF Signavio Flows Update Request | In Progress | FTS IF | 2026-01-30 |
-| 03079 | Action | P2 - Medium | Request for PDH Design WTF | In Progress | FTS IP | 2026-03-04 |
-| 03128 | Risk | P2 - Medium | Application Health Monitoring | In Progress | FTS IF | 2026-05-13 |
-| 03157 |  | P2 - Medium | Split Logic to Segregate IF & IP data from EWM tables | Not Started |  | 2025-12-04 |
-| 03205 | Action | P2 - Medium | Provide an update WW50 on the production rollout plan for th... | In Progress | FTS IF | 2026-03-06 |
-| 03231 | Risk | P2 - Medium | Need LE Sample Data (Shipping Point & Delivery Route) for va... | Not Started | FTS IF | 2026-02-10 |
-| 03241 | Risk | P2 - Medium | Materials Planning Policy for Constrained Materials | In Progress | FTS IP | 2026-07-31 |
-| 03292 | Risk | P2 - Medium | SCP IF BY ESP Solves during ITC1 | In Progress | FTS IF | 2026-01-09 |
-| 03294 |  | P2 - Medium | Factory portal application is not ready from FTS and this is... | In Progress | FTS IF | 2026-02-27 |
-| 03308 | Action | P2 - Medium | Missing information for Anafi material master | Not Started | FTS IF |  |
-| 03314 | Risk | P2 - Medium | Executive lock cause performance issues in IF Dev | In Progress | FTS IF | 2026-04-17 |
-| 03331 | Risk | P2 - Medium | Clarity on finalized SAP S/4 Plant and storage location mapp... | In Progress | Master Data | 2026-02-20 |
-| 03334 | Issue | P2 - Medium | Application Monitoring - Connectors Health Monitoring | In Progress | FTS IF | 2026-05-15 |
-| 03368 | Issue | P2 - Medium | Infrastructure resources support PDF SMH ability to provide ... | In Progress | FTS IF | 2026-03-27 |
-| 03398 | Action | P2 - Medium | Kafka Admin Password for both IF and IP | In Progress | FTS IF | 2026-04-03 |
-| 02987 |  | P2 - Medium | LOGF1525 - Consolidated Commercial Invoice for WIP Awaiting ... | In Progress | FTS IF | 2025-11-06 |
-| 03703 | Risk | P2 - Medium | For FUT: Factory Automation Apps waiting on Heartbeat Loader... | In Progress | FTS IF | 2026-03-24 |
-| 03704 | Risk | P2 - Medium | ASN Data from CIBR via e2Open needs to incorporate new attri... | In Progress | Data Foundation Program ( | 2026-03-10 |
-| 03713 | Risk | P2 - Medium | Lack of TRDI data impacting delivery of ECA report by ITC2 | In Progress | FTS IF | 2026-03-27 |
-| | | | *... and 70 more tower-level items* | | | |
+| # | Object ID | Category | RAID Description | Status | Assigned To | Created |
+|---|-----------|----------|-----------------|--------|-------------|---------|
+| 1 | FTSI1007 | PM | 01584 | 10. Object Complete | Sateesh Kumar | 07/09/25 |
+| 2 | FTSI0924 | PM | 01584 | 10. Object Complete | Sateesh Kumar | 07/09/25 |
 
 ### 7.3 Recommendations & Next Steps
 
@@ -1255,4 +1280,5 @@ Platform landscape inferred from integrated systems for PE-070:
 
 ---
 *PE-070 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: March 2026*
-
+<div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
+</div>

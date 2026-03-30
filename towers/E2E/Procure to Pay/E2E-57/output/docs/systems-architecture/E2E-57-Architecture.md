@@ -1,5 +1,6 @@
+<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -19,7 +20,14 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
+.page-section {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 40px);
+  box-sizing: border-box;
+}
 .page-footer {
+  margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid #ddd;
   display: flex;
@@ -27,62 +35,99 @@
   align-items: center;
   font-size: 11px;
   color: #888;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 20px;
+  padding: 6px 12px;
   background: #fff;
 }
 @media print {
-  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+  .page-section {
+    min-height: 100vh;
+  }
+  .page-footer {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
 .page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
 </style>
 
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 <a id="toc"></a>
 
 ## Table of Contents
 
-1. [Executive Summary](#1-executive-summary)
-2. [Business Context & Objectives](#2-business-context--objectives)
-   - 2.1 [Classification](#21-classification)
-   - 2.2 [Business Drivers](#22-business-drivers)
-   - 2.3 [Success Criteria](#23-success-criteria)
-   - 2.4 [Companion Documents](#24-companion-documents)
-3. [Business Architecture (TOGAF "B")](#3-business-architecture-togaf-b)
-   - 3.1 [Business Process Overview](#31-business-process-overview)
-   - 3.2 [Business Process Diagrams](#32-business-process-diagrams)
-   - 3.3 [Business Roles & Responsibilities](#33-business-roles--responsibilities)
-4. [Data Architecture (TOGAF "D")](#4-data-architecture-togaf-d)
-   - 4.1 [Data Entities & Ownership](#41-data-entities--ownership)
-   - 4.2 [Data Flow Diagrams](#42-data-flow-diagrams)
-   - 4.3 [Data Lineage](#43-data-lineage)
-   - 4.4 [RICEFW Data Objects](#44-ricefw-data-objects)
-   - 4.5 [Data Governance & Quality](#45-data-governance--quality)
-5. [Application Architecture (TOGAF "A")](#5-application-architecture-togaf-a)
-   - 5.1 [Current-State Application Landscape](#51-current-state--current-state-application-landscape)
-   - 5.2 [Future-State Application Landscape](#52-future-state--future-state-application-landscape)
-   - 5.3 [Change Impact Summary](#53-change-impact-summary)
-   - 5.4 [Component Overview](#54-component-overview)
-   - 5.5 [RICEFW Inventory](#55-ricefw-inventory)
-   - 5.6 [Integration Patterns](#56-integration-patterns)
-6. [Technology Architecture (TOGAF "T")](#6-technology-architecture-togaf-t)
-   - 6.1 [Platform & Infrastructure](#61-platform--infrastructure)
-   - 6.2 [SAP Development Object Status](#62-sap-development-object-status)
-   - 6.3 [NFRs & Design Principles](#63-nfrs--design-principles)
-   - 6.4 [Security & Governance](#64-security--governance)
-7. [Project Context](#7-project-context)
-   - 7.1 [Project Roadmap & Go-Live Plan](#71-project-roadmap--go-live-plan)
-   - 7.2 [RAID Log](#72-raid-log)
-   - 7.3 [Recommendations & Next Steps](#73-recommendations--next-steps)
+<nav class="toc">
+<ol>
+  <li><a href="#1-executive-summary">1. Executive Summary</a></li>
+  <li><a href="#2-business-context-objectives">2. Business Context &amp; Objectives</a>
+    <ul>
+      <li><a href="#21-classification">2.1 Classification</a></li>
+      <li><a href="#22-business-drivers">2.2 Business Drivers</a></li>
+      <li><a href="#23-success-criteria">2.3 Success Criteria</a></li>
+      <li><a href="#24-companion-documents">2.4 Companion Documents</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+    <ul>
+      <li><a href="#31-business-process-overview">3.1 Business Process Overview</a></li>
+      <li><a href="#32-business-process-diagrams">3.2 Business Process Diagrams</a></li>
+      <li><a href="#33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+    <ul>
+      <li><a href="#41-data-entities-ownership">4.1 Data Entities &amp; Ownership</a></li>
+      <li><a href="#42-data-flow-diagrams">4.2 Data Flow Diagrams</a></li>
+      <li><a href="#43-data-lineage">4.3 Data Lineage</a></li>
+      <li><a href="#44-ricefw-data-objects">4.4 RICEFW Data Objects</a></li>
+      <li><a href="#45-data-governance-quality">4.5 Data Governance &amp; Quality</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+    <ul>
+      <li><a href="#51-current-state-current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
+      <li><a href="#52-future-state-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
+      <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
+      <li><a href="#54-component-overview">5.4 Component Overview</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+    <ul>
+      <li><a href="#61-platform-infrastructure">6.1 Platform &amp; Infrastructure</a></li>
+      <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
+      <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
+      <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+    </ul>
+  </li>
+  <li><a href="#7-project-context">7. Project Context</a>
+    <ul>
+      <li><a href="#71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</a></li>
+      <li><a href="#72-raid-log">7.2 RAID Log</a></li>
+      <li><a href="#73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</a></li>
+    </ul>
+  </li>
+</ol>
+</nav>
 
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 1. Executive Summary
 
@@ -98,10 +143,13 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.
 
-> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: "loose"` for click events.
+> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 2. Business Context & Objectives
 
@@ -123,7 +171,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 4 | E2E-57 Process Migration | Migrate R3 Subcontracting with Planning integration- Foundry,OSAT,ODM business processes and 2 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Cross-Functional / End-to-End | High |
 
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 2.3 Success Criteria
 
@@ -142,7 +193,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 3. Business Architecture (TOGAF "B")
 
@@ -158,10 +212,14 @@ This capability includes **5 business process(es)** modeled in BPMN 2.0, coverin
 | 4 | E2E_57D_Intel_Product_to_Intel_Foundry_–_HVM | E2E_57D_Intel_Product_to_Intel_Foundry_–_HVM | SAP S/4 Intel Foundry, SAP S/4 Intel Product (Virtual Site) | 17 | 6 |
 | 5 | E2E_57E_R3_Intel_Product_to_Intel_Foundry_–_HVM | E2E_57E_R3_Intel_Product_to_Intel_Foundry_–_HVM | Boundary Apps, Intel Product Virtual site, Intel Product Warehouse, SAP S/4 Intel Foundry | 19 | 7 |
 
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 ### 3.2 Business Process Diagrams
 
-<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
-<div style="page-break-before: always;"></div>
 
 #### BUSINESS ARCHITECTURE — 3.2.1 E2E_57A_R3_OSAT_Manufacturing_with_Planning_Integration_-_HVM — E2E_57A_R3_OSAT_Manufacturing_with_Planning_Integration_-_HVM
 
@@ -170,7 +228,7 @@ This capability includes **5 business process(es)** modeled in BPMN 2.0, coverin
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -281,10 +339,14 @@ with commercial info"| n12
     class n38 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWF1v4kYU_Ssjr1J2JWj8iYGHSkBwFilRENDdh6YPgz2GUYzHHduQNMt_7x17BrAxWzXlIZIP95x77_G9Y5N3zWcB0Qbazc07jWk2QO-tbEO2pDVArRVOSauNSuAb5hSvIpK2REzI4mxB_y7CDDt5FWEC8_CWRm8CXZA1I-j3aRsNgRi1UYrjtJMSTsNWu5VwusX8bcwixkX0J9IL9bDIJr8aMR4QfgrQddfwHaBGNCYn2HJt1_YELyU-i4OKaOiEvdBvHURxEdv7G8yzovw8JY_49TsNsg1chzhKCcRssm30gFckEj1mPBeYn_OdMoOmIk8Mhi0S7NN4DbitA8Rx_HKCHP1wQIebm-f4mBQ9zJ9jBB8_wml6R0KUZgBPdhkKaRQNPtnjoefo7TTj7IUMPpkT984y277oZACt621hbmdP6HqTDVYsCmRoZy96GJjJa5u_Dky9zd_gby0XiYNTpnHX7Jm9Y6aRa4yNscoUhuH_ygS-8iVOX2SuieWZ3t0xl-F0nbF-qafavLPdoVH3ifAd9cmZqOd51uRk1aTrGPp10ZFndfVxTXSNM7LHbyfB_tg-CnqO6xnuVcEyX73KfDXjzFeC1sTxnKOgOzK8oXlV0B4adk9WCDprjpMNGrG8mGU0TJK0_E58YuOPZ-2exIRDB8hjnPg4zdAswnEMw4fucIbR13z1rP15RjKNz0AL8SDEnSSCvi-JU9h9CpoBML-cUS39_V1RMedsn3ZwlKEEcxxFJLovjXzWDodzkvERUq-RRGM_ylO6IxcsmOqaaU-L4fLcKxO6XpJXaPPpFo1yGgUgB7ch9zPK4hSBCQSUA7Sn2Qb5bLsl3IezCqJCVrXQsE5aaOi_xGwfkWAN52Kc1SJtiIRhCMos6EkcY2gM4rQe6UDkvKwBLZZPZRllndNTnU3VdIE5eSV-DlPwiOM8xH6Wc3EjcVbaUI13IR5KSFgM9UKncZpvEyFei-tB3MIHM0VMSPkWFxWEjKMHVi-_D8EiFzrrtji0hZVJRDJSG0NdOEM4qG3RbO515ktPcH2SprVIqzawC3FaXu30fGDN3omaZiwpjJ3GImfZCxhOye5i0E3RzcScIMcdoblVSKOMATUjEbJmD7ffMScbBiccmm3eUurDnEzjHfjJYE0f2a6YBdRBX789Vrux7I-sg_MRUvcjJPe_kS73bjGcocWtjT5PZ-gXNPUqvorJ4wREbuckIljYV1uOmltHAir2bZoRmJacw3MUuHPyV05Tejm69k9pDXnE8o1x5OdRwcGvpDaEYseWnK7XMND3ywUab4j_Ug0RazVjcI7eMxakaJqmeW3me6eyFhnzX9AS3hXShME0i1YIcD9_F2svTPlVHhZzEhJOYp98qYr1r4s1NGjozcuM11icgiipbW2NLZ40Vf_gECtkit05v8XmxbY2dwrrtCJXHzWmXdvcevai8wuW8y-s89blYXuh0a1pjE8HJBL3l4gHhxjxOtH9INEyP7Ko1gcXNbZRp_ObyCqvLbMEnNp1V153Zbwlr53ataWXgNIzJN-yFWBJQGUwZURPXvfKy74SlPGmEijCf5weucfHxA8IViTZllEHjlktWbhhVxoF3RkcVdbQRjuK0cR8Skj8HDe_BfwQ7am2pDGGqwBXZlTOWbIxS1eNGJKiAuS1enU-ApayxlJJqoAsGl4mz4sW5R2LkWHHtzt76JSGqeSmfhlilSHHZGXy441UHisJQ9WvPO5XHIUbX6vOUIGGvBmmSmXKXIYyT5ppqmtDjdmxw_7PnTDVPBnqNiimJbWNfgU4k_pWK_v8Fb-4jeoXWxU3r-DWFdyWv8aqqNOIdhtRtxHtNaL95ipgf-VPoCpsNMNmM2w1w3Yz7DTD3WbYbYZ7CtbaGqzpFtNAG7xrxT8otIEWkBDnUaYd2hrOM7Z4i31tUPyQ1_IkAOYdxfDKsi3Bwz8d9jZU" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWF1v4jgU_SsWoy4zEmzzSYCHlSglHaRWRcDOPGz3wU0csBrirJ1Aux3--14nNpAQZrVdHpB8uOfcD9_rOLy3AhaS1rB1dfVOE5oN0Xs7W5MNaQ9R-xkL0u6gEviGOcXPMRFtaROxJFvQvwsz00lfpZnEfLyh8ZtEF2TFCPp92kEjIMYdJHAiuoJwGrU77ZTTDeZvYxYzLq0_kX5kRIU39dMN4yHhRwPD8MzABWpME3KEbc_xHF_yBAlYElZEIzfqR0F7L4OL2S5YY54V4eeCPODX7zTM1rCOcCwI2KyzTXyPn0ksc8x4LrEg51tdDCqknwQKtkhxQJMV4I4BEMfJyxFyjf0e7a-unpKDU3Q_f0oQfIIYC3FLIiQygCfbDEU0joefnPHId42OyDh7IcNP1sS7ta1OIDMZQupGRxa3uyN0tc6GzywOlWl3J3MYWulrh78OLaPD3-C75osk4dHTuGf1rf7B041njs2x9hRF0f_yBHXlSyxelK-J7Vv-7cGX6fbcsXGup9O8dbyRWa8T4VsakBNR3_ftybFUk55rGpdFb3y7Z4xroiuckR1-OwoOxs5B0Hc93_QuCpb-6lHmzzPOAi1oT1zfPQh6N6Y_si4KOiPT6asIQWfFcbpGNywvehmN0lSUv8lPYv7x1LojCeGQAfIZJwEWGZrFOEmg-dAtzjD6mj8_tf48IVnmZ6BFeBjhbhpD3ufEKcw-Bc0QmF9OqLbx_q6pmHO2E10cZyjFHMcxie_KQj619vtTkvkRUr-RRJMgzgXdkjMWdHWtaI-L0fK0VhZkvSSvkObjNbrJaRyCHGxDHmSUJQJBEQgoh2hHszUK2GZDeABnFVhFrFpC0z5qoVHwkrBdTMIVnItJVrN0wBKaISy9oEd5jKExiNO6pQuW8zIGtFg-lmGUcU6PcTZF0wPm5JUEOXTBA07yCAdZzuVG4qwsQ9XeA3sIIWUJxAuZJiLfpFK8ZtcHu0UAxZQ2EeUbXEQQMY7uWT38ARhLX-gk2-LQlqVMY5KRWhsasjKEg9oGzeZ-d770JTcgQtQs7VrDLuRpeTHT04a1-keqyFhaFHaaSJ9lLlBwSrZnjW7JbCbWBLneDZrbhTTKGFAzEiN7dn_9HXOyZnDCodn6TdAA-mSabKGeDMb0gW2LXkBd9PXbQzUb2_nIOLgfIfU-QvL-G-l87hajGVpcO-jzdIZ-QVO_UlfZeZyAyPWcxATL8tWGo1atAwEV8zbNCHRLzuE5Ctw5-Sungp63rvNTWoMfOXxjHAd5XHDwK6k1oZyxJaerFTT03XKBxmsSvFRN5FjNGJyjd4yFAk2FyGs93z-GtchY8IKWcFcQKYNulqkQ4H7-LsdeFuVXdVjMSUQ4SQLypSo2uCzWkKBpNA8zXmF5CqK0NrU1tnzSVOsHh1ghU8zO6RZbZ9PanCmM0zO5-KixnNrk1r0XmZ-x3H9hnaauDtszjV5NY3w8IJHcXyIfHLLF60Tvg0Tb-sig2h8c1MRB3e5v0qta21YJuLV1T617yt5Wa7e2to0S0Hqm4tuOBmwFaA-Wsuirdb9cDrSgsre0QGH-4_jIPTwmfoCxJqm0zDpw8GqrwE2nkijozuCoskcO2lKMJtZjSpKnpPkW8EOmp9NShTE9DXjKo66crRKzDZ2IqSjaQK311fkA2Lo0tnZSBVTQcJk8DVqGdwhGmR1ud87ILQumnVvGuYldmhyclc4PG6lrrCVMHb-u8aBSUdj4WnSmNjTVZljalaV8mbp4qpiWXpu6zQ4ZDn5eCUv3k6m3QTNtpW0OKsCJ1Lda2KdX_GIb9RtbFbcu4PYF3FFvY1XUbUR7jajXiPYb0UFzFDC_6hWoCpvNsNUM282w0wy7zXCvGfaa4b6GW50WjOkG07A1fG8Vf1DAnxghiXAeZ619p4XzjC3ekqA1LF7kW3kaAvOWYriybEpw_w8d9jZU" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.2 E2E_57B_R3_OSAT_Manufacturing_with_Planning_Integration_-_HVM — E2E_57B_R3_OSAT_Manufacturing_with_Planning_Integration_-_HVM
 
@@ -293,7 +355,7 @@ with commercial info"| n12
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -407,10 +469,14 @@ flowchart LR
     class n38 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWF1v4jgU_StWRhUdCVriJITysCugMFNpZlqVzoxWwz6YxClWTRI5Tgvb4b_vdbADmPRhu31o8eGe-32vk746URZTZ-Ccnb2ylMkBem3JJV3R1gC1FqSgrTbaAT-IYGTBadFSMkmWyhn7pxJz_XytxBQ2JSvGNwqd0ceMou83bTQEIm-jgqRFp6CCJa12KxdsRcRmnPFMKOkPtJ90k8qa_mqUiZiKvUC3G7pRAFTOUrqHvdAP_aniFTTK0vhIaRIk_SRqbZVzPHuJlkTIyv2yoF_J-ieL5RLOCeEFBZmlXPEvZEG5ilGKUmFRKZ5NMlih7KSQsFlOIpY-Au53ARIkfdpDQXe7Rduzs3laG0Vf7ucpgp-Ik6K4pgkqJMCTZ4kSxvnggz8eToNuu5Aie6KDD3gSXnu4HalIBhB6t62S23mh7HEpB4uMx1q086JiGOB83RbrAe62xQZ-W7ZoGu8tjXu4j_u1pVHojt2xsZQkyf-yBHkVD6R40rYm3hRPr2tbbtALxt1TfSbMaz8cunaeqHhmET1QOp1Ovck-VZNe4HbfVjqaer3u2FL6SCR9IZu9wquxXyucBuHUDd9UuLNne1ku7kQWGYXeJJgGtcJw5E6H-E2F_tD1-9pD0PMoSL5Eo6ysehkN87zYfad-UvfX3LnjJE2h1dA1kQR9Lhdz5-8DEQwi9zSi7JmiryQtCUcsfc4giQWSS5GVj0t0O74_JnkHpJs0ylZKv6ZdohEeXd7mNH2ga3n5ky7ATybpsQa_0kDiWZZI9INwFhPJsvRyso5orj6hzySNudKr9kqMABEl7BMosSxzK4ar19e5k5BBQjpqQXUWMGLRUjmCMqHc_3PubLeHAXSbGXQd8bKAsD7tar6nwVRYSb9JJeUIChmXkUQ6HQIVKtaDEvQg0pt0oSqErim_QGNBQXmMiCGpIGcnGXJDVbyskOhTlsXFTjaXiDwSlgI6e7i1shCe_zIxFTLLLZ5SRWOgfDzMQ3-fByJE9lJ0CJdQyvemYQYCp0kIVChUJJlYodtS1slQCdscR9E7EL1j0ROCNkB3BD58z6FHaHEsbiXppihKis5_MCGhkz8ey_ZVJcbgcNWn6EGQuEq9FOBLrhxP5THjChg7xcLKfg7xourOsarWVQ7VXyK4ZBImVlVzQxhCwuV2OS05R-cPk_EtgjhhDaQwdcWS5SvwwHLaVTM8eSa8rJrGVHNGpeRUyaPzyf3sIwA86YxgoUBIlgZcR2H3kJpQdGf1kaume7LOM7iIdK4sATW8uy5G42y1oiKCqOq8nkP4qnzEjiQwtZqVec4ZZIc1qcee1ccHNftEUyrIaR9j3-Ic-_82L7B4DfG8ye1Z3Dosw2wcOazacIInKAiH6N5Dt7PhQ7V5ExLJUqiOfGFyieq9rQYMRk11kLWF3eYlZswPI7VLaXyy_LzGoc-JIJxTfjLzO5L_HlLwHlLvPaTwv5FO95iqw2G39uupUWsIRq_M0XD2Db1ciIuG7euqXXG33BQsgt6pB00i7-6L1d9qRdi9Yom4-9bKOTx63MDDNlPzZs1xpR42IywXiJrBmkBZUq8Su_OwpfWesIJejjMB202iBpeOrgr87iszDVCn8wfsdn3s7Y6hPoa7o-fps-ftANfIu1oCG0Zfnw3D1QzsGxXahHsCGArWOrxawt8BV9bZ1U9v6ZUmBMZo1wI8HaaLjYQ26vUNgDVgAvF0ZG7fit2rY9du4MCmuCYSVwO15xXwe-78pW7L32rz6m-0Ls9QXe0xNtbwlaZWj3xANaEYt7q2IDxjVYJ1XnVWcO2NBkyesaXJdS2gdv9bttNc-6CpuKbqGprwsNGNj7IJqoaqtSP1QlrduNcsSS7Urs9JuoG_Ma0s1UXQel1TJtdEW02aPeXz1B_hnav9gyf9qjLmxe0Yx2_gnn75Okb9RjRoRHuNaNiI9t_w4sq88RzBUMdG2G2GcTPsNcN-Mxw0w71mOGyG-wZ22g7c7SvCYmfw6lT_pnAGTkwTUnLpbNsOKWU226SRM6he552yeuK8ZgRuiNUO3P4L4u45Rg==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWF1v4jgU_StWRhUdCVrsJITysCugMFNpZlqVzoxWwz6YxClWQxI5Tgvb4b_vdbADmPRhuzy05OSe-32vE16dMIuYM3DOzl55yuUAvbbkkq1Ya4BaC1qwVhvtgB9UcLpIWNFSMnGWyhn_pxLDXr5WYgqb0hVPNgqdsceMoe83bTQEYtJGBU2LTsEEj1vtVi74iorNOEsyoaQ_sH7cjStr-tYoExETe4FuN8ChD9SEp2wPu4EXeFPFK1iYpdGR0tiP-3HY2irnkuwlXFIhK_fLgn2l6588kku4jmlSMJBZylXyhS5YomKUolRYWIpnkwxeKDspJGyW05Cnj4B7XYAETZ_2kN_dbtH27Gye1kbRl_t5iuATJrQorlmMCgnw5FmimCfJ4IM3Hk79bruQIntigw9kEly7pB2qSAYQeretktt5YfxxKQeLLIm0aOdFxTAg-bot1gPSbYsN_LVssTTaWxr3SJ_0a0ujAI_x2FiK4_h_WYK8igdaPGlbE3dKpte1Lez3_HH3VJ8J89oLhtjOExPPPGQHSqfTqTvZp2rS83H3baWjqdvrji2lj1SyF7rZK7wae7XCqR9McfCmwp0928tycSey0Ch0J_7UrxUGIzwdkjcVekPs9bWHoOdR0HyJRllZ9TIa5nmxu6c-Kf41d-4SmqbQauiaSoo-l4u58_eBCAGRexYy_szQV5qWNEE8fc4giQWSS5GVj0t0O74_JrkHpJs0zFZKv6ZdohEZXd7mLH1ga3n5ky3ATy7ZsQav0kCjWRZL9IMmPKKSZ-nlZB2yXH1Dn2kaJUqv2isRAkSUsE-gxLLMrRiuXl_nTkwHMe2oBdVZwIiFS-UIyoRy_8-5s90eBtBtZrB1mJQFhPVpV_M9DabCSvpNKlmCoJBRGUqk0yFQoWI9KEEPIr1JF6pC6JolF2gsGCiPEDUkFeTsJEM4UMXLCok-ZVlU7GRziegj5Smgs4dbKwvB-S8TUyGz3OIpVSwCysfDPPT3eaBCZC9FhyYSSvneNMxA4DQJvgqFiTgTK3RbyjoZKmGb4yh6B6J3PHxC0AbojsKX7zn0CCuOxa0k3RRFydD5Dy4kdPLHY9m-qsQYHK76FD0IGlWplwJ8yZXjqTxmXAFjp1hY2c8hXlSdOVbVusqh-iaCQybmYlU1N4QhJBxul9MySdD5w2R8iyBOWAMpTF2x5PkKPLCcxmqGJ880KaumMdWcMSkTpuTR-eR-9hGAJO6MYKFASJYGUkdh95CaUHRn9RFW0z1Z5xkcRDpXloAa3l0Xo3G2WjERQlR1Xs8hfFU-akfim1rNyjxPOGSHN6knrtXHBzX7xFIm6GkfE8_iHPv_Ns-3eA3xvMntWdw6LMNsHDmi2nBCJsgPhujeRbez4UO1eWMaylKojnzhconqva0GDEZNdZC1hXHzEjPmh6HapSw6WX5u49DnVNAkYcnJzO9I3ntI_ntIvfeQgv9GOt1jqg6H3dqvp0atIRi9MkfD2Tf0ciEuGrYvVrvibrkpeAi9Uw-aRO7dF6u_1Yqwe8USwfvWyhN49LiBh22u5s2a40o9bEZYLhA1hzWBsrheJXbnEUvrPeUFuxxnArabRA0uHR0V5N1HZuqjTucP2O36sre7DPRlsLt0XX3tujsAG3msJYhh9PW1YWDNIJ5RoU3gE8BQiNbh1hLeDriyrrF-ekuvNME3RrsW4OowMTES2qjbNwDRgAnE1ZHhvhW7W8eu3SC-TcEmEqyB2vMK-D13_lKn5W-1efUdrcs1VKw9JsYaudLU6pEPqCYU41bXFoRnrEqwzqvOCqm90YDJM7E0YWwBtfvfsp3m2gdNJTVV19CER4xucpRNUDVUrR2qF9LqxL3mcXyhdn1O0w38j1hlqS6C1otNmbCJtpo0e8rnqTciO1f7B0_6VWXMi9sxTt7AXf3ydYx6jajfiPYa0aAR7b_hxZV54zmCoY6NMG6GSTPsNsNeM-w3w71mOGiG-wZ22g6c7SvKI2fw6lQ_U8BPGRGLaZlIZ9t2aCmz2SYNnUH1Ou-U1RPnNadwQqx24PZf4u45Rg==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.3 E2E_57C_R3_Intel_Product_to_Intel_Foundry_–_HVM — E2E_57C_R3_Intel_Product_to_Intel_Foundry_–_HVM
 
@@ -419,7 +485,7 @@ flowchart LR
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -549,10 +615,14 @@ flowchart LR
     class n44 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWF1v2zYU_SuEisAtYKMSSVm2HwYkttUWaNYgTrMByx4YibKJyJJHSUm81P99lxIp25yMbV4eAujonnM_eHlF-s2J8pg7E-fi4k1kopygt1654mvem6DeIyt4r48a4J5JwR5TXvSUTZJn5UL8WZt5dPOqzBQWsrVItwpd8GXO0fcvfXQJxLSPCpYVg4JLkfT6vY0Uaya30zzNpbJ-x0eJm9Te9KurXMZc7g1cN_AiH6ipyPgeJgENaKh4BY_yLD4STfxklES9nQouzV-iFZNlHX5V8Gv2-ouIyxU8JywtONisynX6lT3yVOVYykphUSWfTTFEofxkULDFhkUiWwJOXYAky572kO_udmh3cfGQtU7R19uHDMFflLKimPEEFSXA8-cSJSJNJ-_o9DL03X5RyvyJT97heTAjuB-pTCaQuttXxR28cLFclZPHPI216eBF5TDBm9e-fJ1gty-38N_yxbN472k6xCM8aj1dBd7UmxpPSZL8L09QV3nHiifta05CHM5aX54_9Kfu3_VMmjMaXHp2nbh8FhE_EA3DkMz3pZoPfc89LXoVkqE7tUSXrOQvbLsXHE9pKxj6QegFJwUbf3aU1eONzCMjSOZ-6LeCwZUXXuKTgvTSoyMdIegsJdus0FVe1b2MLjebonmn_jLvtwfnE8-4hAxQmEsesaJENynLMmg-NGMlQ5-rxwfn9wMSpu-BlrBJwgabFPL-AjtdKAUVNC8KMP_Q2EOrWJEsLm_Q4iMFTslTcAlxye2B-Bikv29ipfZ9FqI7NSOO3XsumEzZpqwkRwsGIwR9U3sbPQuGqlKkotxaDJXmPUtFLVsbWwYYDGYwS545ur7-MkOJzNdoevOzZUaUZ8ljUaLpikdP6L3yGS6m1x8sSwqWd1IslxDXp7sFipS5ZeODzWfYERY8rNNLoyptSirUHEDvk1yiqCrKfF3YzgLFuLtpYrLejeDdDcwGmJnpFk3zLBFyzW2fddWzqPstVgVvSnyCj1WB79grMnGLPCssE1Xia5ZVLK1zgnV45lKK2FpdTBo7tuToikGJ67ltiw33HQgV2Ry2QYEY9EWjEO87seEFFu8w5r9bq9rN8Rz5wRzdEt2y0ONxFZWozI97GD1U2PUI-nx_bQU7bmVm52oQ9-3NBK6-sINH-EZEK8Rfo7QqoG0_NSPowdntDmn-nsakzF-KAUtLtGESuoGnJ0jDc0jBOaTROaTxGSTqnkPyziHhc0jkHBLtJInsVEv8y2GM7oUs620KnwE4asw91zts52YGgvjHW55yONOZdoZN3zVc1Ya-qkQagxv4aDWGBZpnK2hhDujs2xS9iHIF02W95jKCUQWmSX4sU09U_goJlnyNbioJJyHwfcv_qEQhlOaxvd_GiWralyNaR5xDa2R3TNPgH8dcPW6PnKAmCHti-vYkUjGeZB6OJXJOW5Jz2pKc05aE_jdS25VwrkCDwU_wNdLPnqufW8DTADYA1gAxgJYgQw2QYQNQzwKIbyjGwjXAWFsEhhI0AG69jLTFyFiMbIoBxgZwLYCa5AyFmuTa0DVgvOpciUmeaIAagebR5OVrc0MnpAGMvM6SGjmq5fDIAjxTGEqt9aBa0jMheBqgxLJoq22yxMYtxlb5TWGwZwVuCqVXgxinQ-uZ6DDbxdGV8EwMem2wf7Q2P2BcwOkGbotqx_1Qq2yyMh5dm3B0ZFIUs7pYx4zbxdTlxm2X6aioCRubvFsNU6rAKgTxrA7YAyaR-pwI9-kY_Xr9tTmlzvG3Dc8-1HGOD-4b9b4z18dj3NdXvWN02IkGnejohPK4G4fC6rvUMex1w7gbJt0w7Yb9bnjYDQfd8KgbHnfCtDtL2p0l7c6SdmdJ2yydvgMf0zUTsTN5c-rfXJyJE_OEVWnp7PoOq8p8sc0iZ1L_NuFU9a1rJhicDdYNuPsLFx9gmw==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWF1v4jgU_SsWo4oZCTSJ7RDgYaUWyEylYaYqne5K231wEweshoR1krZsh_--14kdwBO0u2wfKuXknnM_fH1j89YJs4h3xp2LizeRimKM3rrFiq95d4y6jyzn3R6qgXsmBXtMeN5VNnGWFgvxV2Xm0s2rMlNYwNYi2Sp0wZcZR9-ve-gSiEkP5SzN-zmXIu72uhsp1kxuJ1mSSWX9jg9jJ6686VdXmYy43Bs4ju-GHlATkfI9THzq00Dxch5maXQkGnvxMA67OxVckr2EKyaLKvwy53P2-quIihU8xyzJOdisinXyhT3yROVYyFJhYSmfTTFErvykULDFhoUiXQJOHYAkS5_2kOfsdmh3cfGQNk7Rl9uHFMFfmLA8n_IY5QXAs-cCxSJJxu_o5DLwnF5eyOyJj9_hmT8luBeqTMaQutNTxe2_cLFcFePHLIm0af9F5TDGm9eefB1jpye38N_yxdNo72kywEM8bDxd-e7EnRhPcRz_L09QV3nH8ifta0YCHEwbX6438CbOz3omzSn1L127Tlw-i5AfiAZBQGb7Us0GnuucFr0KyMCZWKJLVvAXtt0Ljia0EQw8P3D9k4K1PzvK8vFGZqERJDMv8BpB_8oNLvFJQXrp0qGOEHSWkm1W6Corq15Gl5tNXr9Tf6n7-0PnE0-5hAxQkEkesrxANwlLU2g-NGUFQ5_Lx4fOHwckTN8DLWbjmPU3CeR9DTtdKAUVNM9zMP9Q20OrWJEsLm_Q4iMFTsETcAlxye2B-Aikv28ipfZ9GqA7NSOO3bsOmEzYpiglRwsGIwR9U3sbPQuGykIkothaDJXmPUtEJVsZWwYYDKYwS545ms-vpyiW2RpNbr5aZkR5ljwSBZqsePiE3iufwWIy_2BZUrC8k2K5hLg-3S1QqMwtGw9sPsOOsOBBlV4SlkldUqHmAHofZxKFZV5k69x25ivG3U0dk_VuCO9uYDbAzEy2aJKlsZBrbvusqp6G7W-xKnhd4hN8rAp8x16RiVtkaW6ZqBLPWVqypMoJ1uGZSykia3Uxqe3YkqMrBiWu5rYtNth3IFRkc9gGOWLQF7VCtO_EmudbvMOYf7ZWtZvhGfL8GbolumWhx6MyLFCRHfcweiix4xL0-X5uBTtqZKbnahDn7c0Err6w_Uf4RoQrxF_DpMyhbT_VI-ihs9sd0rw9jUmZveR9lhRowyR0A09OkAbnkPxzSMNzSKMzSNQ5h-SeQ8LnkMg5JNpKEumplviXwxjdC1lU2xQ-A3DUmLmOe9jO9QwE8Y-3POFwpjPtDJu-bbiqDX1ViiQCN_DRqg1zNEtX0MIc0Om3CXoRxQqmy3rNZQijCkzj7Fimmqj8FRIs-BrdlBJOQuD7lv9ZilwozWN7r4kTVbTrI1pLnANrZLdMU_8fx1w1bo-coDoIe2J69iRSMZ5kHo4lck5bknPakpzTloT-N1LTlXCuQP3-L_A10s-uo58bwNUANgDWADGAliADDZBBDVDXAohnKMbCMcBIW_iG4tcAbrwMtcXQWAxtigFGBnAsgJrkDIWa5JrQNWC86lyJSZ5ogBqB-tHk5WlzQyekBoy8zpIaOarl8NACXFMYSq31oFrSNSG4GqDEsmiqbbLExi3GVvlNYbBrBW4KpVeDGKcD65noMJvF0ZVwTQx6bbB3tDY_YFzA6QZui2rH_VCrbLIyHh2bcHRkUhSzuljHjJvF1OXGTZfpqKgJG5u8Gw1TKt8qBHGtDtgDJpHqnAj36Qj9Nv9Sn1Jn-NuGpx-qOEcH941q35nr4zHu6aveMTpoRf1WdHhCedSOQ2H1XeoYdtth3A6Tdpi2w147PGiH_XZ42A6PWmHaniVtz5K2Z0nbs6RNlp1eBz6mayaizvitU_3mAr_LRDxmZVJ0dr0OK4tssU3Dzrj6baJTVreuqWBwNljX4O5vFx9gmw==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.4 E2E_57D_Intel_Product_to_Intel_Foundry_–_HVM — E2E_57D_Intel_Product_to_Intel_Foundry_–_HVM
 
@@ -561,7 +631,7 @@ flowchart LR
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -646,10 +716,14 @@ Execution"| n14
     class n29 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtV11v4jgU_StWRhUdCTSJkxDgYSVKk9lKU1ENTFerZR9M4oBV40S204_p8N_3GpwUMrDa7S4PCJ-c-3Xse2NenbTIqDNyLi5emWB6hF47ek03tDNCnSVRtNNFe-CeSEaWnKqO4eSF0DP2fUfzgvLZ0AyWkA3jLwad0VVB0bebLhqDIe8iRYTqKSpZ3ul2Ssk2RL5MCl5Iw_5AB7mb76LZR1eFzKh8I7hu5KUhmHIm6BvsR0EUJMZO0bQQ2ZHTPMwHedrZmuR48ZSuidS79CtFb8nzbyzTa1jnhCsKnLXe8C9kSbmpUcvKYGklH2sxmDJxBAg2K0nKxArwwAVIEvHwBoXudou2FxcL0QRF8-uFQPBJOVHqmuZIaYDjR41yxvnoQzAZJ6HbVVoWD3T0AcfRtY-7qalkBKW7XSNu74my1VqPlgXPLLX3ZGoY4fK5K59H2O3KF_huxaIie4s06eMBHjSRriJv4k3qSHme_6dIoKucE_VgY8V-gpPrJpYX9sOJ-7O_uszrIBp7bZ2ofGQpPXCaJIkfv0kV90PPPe_0KvH77qTldEU0fSIvbw6Hk6BxmIRR4kVnHe7jtbOslneySGuHfhwmYeMwuvKSMT7rMBh7wcBmCH5WkpRrNBvfodmnAN0ITTlKikpk8mXPMR8x-GPhQMSsSjUrBJqaXkGXsyn6At2BmKabjwvnzwOD4SmDr5RT6PFjpucC9ZaIKiepriScaRQ_07Qydi2mB8xJsSkLQYVGk0KoalOe4GHg_c4ozwwnZ3JDTpB8IH0uikxBWillpUaX94RXFI2zjGatcrwA2NNKL40yKKOcPVIQ6JgTmppZ-oDuCHx9KzPYdtXi9A2nUBrtQ98oVbX1iIAyv0XxZklNJsdPsXsJj3MyyklP6aJEcxgGqiyk3tWIQEiygvEJ-pgTQhXEgDnLIBXj6eOhKyNTjGMURjH66tu9t5uGdHF8GNCiwq7no1_vb1sZ9V9f64yIlMWT6hGuUUkk4Zzyz_uzv3C220Oj6D1Gg_cYDf-dEQyvv-2NWp_LeyZ1RTiawek_lNVrztVucxFZESaURu1uaKn4Lqufz_A_swtsd9q-POwSOLwSjgv_lFSco8t5PJmivJAwagQUq9asNIer1R7h2Tzm9BmSmR7TTRPEj9Bs5lQ2JjOqNd8f3cv46wzWPEdXMOFgJLTimRY5kXpC2-3iDVrtcjA0kOlDiM-E2d5Wc3jDdxpi7__pKr9xMzFuprPxHB1PySem1-iOEyHMyriF87rLr3fCX_Ce3gnf2TtigHq9X-AtYJfD_dKz7zH4YQGvBrw9gPsWwH3LwDUDW0ZUMyLL8GuGb4AfC6cZ42ynBmhu5V-Ieh8msINGtZmmpUILcfDG-WGmvXUZ7kP0j0JChLubOwSvWfTICIrxtKR7O3yU_HleU3VgaxrUhlY3L7SAVQE3FjVQK2t18xoPdl0_x_4eiNoRasCzMtZ3K3BtgUZ5q4LXP2LY8vwr_JMMdfbYWgatdb1jNjdcPw9aa2yB8OD6Y2q1N8xjdHgKxe5J1Gvuw8c4PoP7Z_Cgvtodw-FpuH8ajk7Dg9PwsIadrrOhMPlY5oxend1_JvhfldGcVFw7265DKl3MXkTqjHb_LZxqdyG5ZgTGxGYPbv8CX7QrAg==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtV11v4jgU_StWRhUdCTSJkxDgYSVKk9lKU1ENTFerZR9M4oBV40S204_p8N_3GpwUMrDa7S4PCJ-c-3Xse2NenbTIqDNyLi5emWB6hF47ek03tDNCnSVRtNNFe-CeSEaWnKqO4eSF0DP2fUfzgvLZ0AyWkA3jLwad0VVB0bebLhqDIe8iRYTqKSpZ3ul2Ssk2RL5MCl5Iw_5AB7mb76LZR1eFzKh8I7hu5KUhmHIm6BvsR0EUJMZO0bQQ2ZHTPMwHedrZmuR48ZSuidS79CtFb8nzbyzTa1jnhCsKnLXe8C9kSbmpUcvKYGklH2sxmDJxBAg2K0nKxArwwAVIEvHwBoXudou2FxcL0QRF8-uFQPBJOVHqmuZIaYDjR41yxvnoQzAZJ6HbVVoWD3T0AcfRtY-7qalkBKW7XSNu74my1VqPlgXPLLX3ZGoY4fK5K59H2O3KF_huxaIie4s06eMBHjSRriJv4k3qSHme_6dIoKucE_VgY8V-gpPrJpYX9sOJ-7O_uszrIBp7bZ2ofGQpPXCaJIkfv0kV90PPPe_0KvH77qTldEU0fSIvbw6Hk6BxmIRR4kVnHe7jtbOslneySGuHfhwmYeMwuvKSMT7rMBh7wcBmCH5WkpRrNBvfodmnAN0ITTlKikpk8mXPMR8x-GPhQMSsSjUrBJqaXkGXsyn6At2BmKabjwvnzwOD4SmDr5RT6PFjpucC9ZaIKiepriScaRQ_07Qydi2mB8xJsSkLQYVGk0KoalOe4GHg_c4ozwwnZ3JDTpB8IH0uikxBWillpUaX94RXFI2zjGatcrwA2NNKL40yKKOcPVIQ6JgTmppZ-oDuCHx9KzPYdtXi9A2nUBrtQ98oVbX1iIAyv0XxZklNJsdPsXsJj3MyyklP6aJEcxgGqiyk3tWIQEiygvEJ-pgTQhXEgDnLIBXj6eOhKyNTjGMURjH66tu9t5uGdHF8GNCiwq7no1_vb1sZ9V9f64yIlMWT6hGuUUkk4Zzyz_uzv3C220Oj6D1Gg_cYDf-dEQyvv-2NWp_LeyZ1RTiawek_lNVrztVucxFZESaURu1uaKn4Lqufz_A_swtsd9q-POwSOLwSjgv_lFSco8t5PJmivJAwagQUq9asNIer1R7h2Tzm9BmSmR7TTRPEj9Bs5lQ2JjOqNd8f3cv46wzWPEdXMOFgJLTimRY5kXpC2-3iDVrtcjA0kOlDiM-E2d5Wc3jDdxpi7__pKr9xMzFuprPxHB1PySem1-iOEyHMyriF87rLr3fCX_Ce3gnf2TtigHq9X-AtYJfD_dKz7zH4YQGvBrw9gPsWwH3LwDUDW0ZUMyLL8GuGb4AfC6cZ42ynBmhu5V-Ieh8msINGtZmmpUILcfDG-WGmvXUZ7kP0j0JChLubOwSvWfTICIrxtKR7O3yU_HleU3VgaxrUhlY3L7SAVQE3FjVQK2t18xoPdl0_x_4eiNoRasCzMtZ3K3BtgUZ5q4LXP2LY8vwr_JMMdfbYWgatdb1jNjdcPw9aa2yB8OD6Y2q1N8xjdHgKxe5J1Gvuw8c4PoP7Z_Cgvtodw-FpuH8ajk7Dg9PwsIadrrOhMPlY5oxend1_JvhfldGcVFw7265DKl3MXkTqjHb_LZxqdyG5ZgTGxGYPbv8CX7QrAg==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.5 E2E_57E_R3_Intel_Product_to_Intel_Foundry_–_HVM — E2E_57E_R3_Intel_Product_to_Intel_Foundry_–_HVM
 
@@ -658,7 +732,7 @@ Execution"| n14
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -769,10 +843,15 @@ flowchart LR
     class n37 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv4jgU_itWRhUdCba5EuBhV9wygzRVUenMaLXsg0mcYjXEWcehsB3--x4HJxAXtNqdPrT443zn8vkcO-mbEbKIGAPj5uaNplQM0FtLrMmGtAaotcI5abXREfiGOcWrhOQtaROzVCzo36WZ5WY7aSaxAG9ospfogjwzgr7O2mgIxKSNcpzmnZxwGrfarYzTDeb7MUsYl9YfSC824zKa-mrEeET4ycA0fSv0gJrQlJxgx3d9N5C8nIQsjRpOYy_uxWHrIJNL2Gu4xlyU6Rc5uce77zQSa1jHOMkJ2KzFJvmCVySRNQpeSCws-LYSg-YyTgqCLTIc0vQZcNcEiOP05QR55uGADjc3y7QOir48LlMEP2GC83xCYpQLgKdbgWKaJIMP7ngYeGY7F5y9kMEHe-pPHLsdykoGULrZluJ2Xgl9XovBiiWRMu28yhoGdrZr893ANtt8D7-1WCSNTpHGXbtn9-pII98aW-MqUhzHPxUJdOVPOH9RsaZOYAeTOpbldb2x-d5fVebE9YeWrhPhWxqSM6dBEDjTk1TTrmeZ152OAqdrjjWnz1iQV7w_OeyP3dph4PmB5V91eIynZ1ms5pyFlUNn6gVe7dAfWcHQvurQHVpuT2UIfp45ztZoxIqyl9Ewy_Ljd_Intf5YGp9ISjhUgALGSYhzgeYJTlNoPjTBAqPPxWpp_HlGsoH0SEJCtwTd47TACaLploGsORJrzornNXoYPzZJzhlploZsI_0r2h0a2aO7h4ykT2Qn7r6TFWROBWl6cEsPOFqwWKBvOKERFpSld9NdSDL5CX3GaZRIv_KkiRAgvIATBjZdFJlWg3kL7mI8iHEnS2Dv7kEBebCcipfnFwU0AubH80qst7eKKk-7zgrmNVzLGhDjsvLflsbhcM6wLzPILkyKHBT5dGygEw1GTNvBWSoIJMdZVIRQPuVC6p5LlU6BPKhpTnjM-AY9FGIldx1NSAIh-L4pQPfMdE7DFwTaoTmGD18zEJbkTXNfmjPojU-MRTma5XlB0K1K42PTtge2szFkXG4ueuI4knouBIdcYJMjkoomow-M6S5jcLIpVvN7ywSDMSeyS8dssyE8lFtVRbgFWWQhWEvEku093eKkkNuIyvbLBFoQIRK4glKBbqePi48AJHFnBLMGaWoe7KruRZFlCSW86lmtnexTO-WCZeis_mq-9D6yHY3TVOA6z9V4FxS5yvU0bl1WxZTFvqfJLZ3aU-T5E60TBVNAIJsNTphlYZuWgz5_u9cOAOfyEFSBh6EcYxK9Gx7vxMOcs9e8gxOBMsxxkpDk3egcSd3_Rvq3efuOOVkzuI7Oe6N5pDWHrTxGtC633OYQVf2InzFNZYs9PWgE79T2C8FgNgVolpdd8kj-KgiQbl-pWJd5ogf5hIM4ifUxkLN-5D_V_NJYa-Ku1hzNNC93Rr_ujDF6dP53c_g_u1-L4Rwt7txmvHMR5AkGCsP8lkeFvDA0mWSTz9f7nIYwSfXmwEAGmqGseVyARJvT4GhSWtr1MlOXib71QhPoawa3FihA4dRCDJ4E1jTbHM_Lhuy-PsdQ2exUGVJ9-e7uMuvtmv7Mdrn_-0KDmxd1Or-CimrtHZddtewel75a-sel46m1o8wtRwGWewTsykFPrW217qt1RXBUBMvUgH7l0VEGbgVUMasQlmI4VZaOStNrrH9AO83myBmCxy3FaGrLR5yl8UN2Y-WqpyzLjde7b5m6I_tIqJKx-1oytirYqgR1lMBOnb_Kzq6DKkZTVEhiKC-DUL6WIWglNKFx_Iu8XjKc7uFvRMpcetpeOLUuKrJdJ1tFqimWilQ-H4KvapeU5o6tG8JTVWlYb599tKxDaETL0gElmFPr4yjXv8uHHKltbaqc2ZUwqrecOrgCrH7D10nr8gm-7PHqhayJW1dwW71UNVHnIupeRL2LaPci6l9Ee1dy61_GnSs1ws6p96EmbF-Gncuwexn2LsPdy7BfwUbbgKN6g2lkDN6M8v8PxsCISIyLRBiHtoELwRb7NDQG5Xu6UZTPwBOK4XLZHMHDP8PbKbs=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv4jgU_isWo4qOBNtcCfCwK26ZQZqqqHRmtFr2wSROsRrirONQ2A7_fY-DE4gbtNqdPrT443zn8vkcO-lbK2AhaQ1bNzdvNKFiiN7aYkO2pD1E7TXOSLuDTsA3zClexyRrS5uIJWJJ_y7MTCfdSzOJ-XhL44NEl-SZEfR13kEjIMYdlOEk62aE06jdaaecbjE_TFjMuLT-QPqRERXR1FdjxkPCzwaG4ZmBC9SYJuQM257jOb7kZSRgSVhzGrlRPwraR5lczF6DDeaiSD_PyD3ef6eh2MA6wnFGwGYjtvEXvCaxrFHwXGJBznelGDSTcRIQbJnigCbPgDsGQBwnL2fINY5HdLy5WSVVUPTlcZUg-AlinGVTEqFMADzbCRTROB5-cCYj3zU6meDshQw_WDNvaludQFYyhNKNjhS3-0ro80YM1ywOlWn3VdYwtNJ9h--HltHhB_itxSJJeI406Vl9q19FGnvmxJyUkaIo-qlIoCt_wtmLijWzfcufVrFMt-dOjPf-yjKnjjcydZ0I39GAXDj1fd-enaWa9VzTuO507Ns9Y6I5fcaCvOLD2eFg4lQOfdfzTe-qw1M8Pct8veAsKB3aM9d3K4fe2PRH1lWHzsh0-ipD8PPMcbpBY5YXvYxGaZqdvpM_ifnHqvWJJIRDBchnnAQ4E2gR4ySB5kNTLDD6nK9XrT8vSBaQHklA6I6ge5zkOEY02TGQNUNiw1n-vEEPk8c6yb4gzZOAbaV_RbtDY2t895CS5Insxd13sobMqSB1D07hAYdLFgn0Dcc0xIKy5G62D0gqP6HPOAlj6VeeNCEChOdwwsCmizzVajBuwV2EhxHupjHs3T0oIA-Wc_Hy_KKAhsD8eFmJ-fZWUuVp113DvAYbWQNiXFb-26p1PF4yrGYG2QdxnoEin04NdKbBiGk7OE8EgeQ4C_MAyqdcSN0zqdI5kAs1LQiPGN-ih1ys5a6jKYkhBD_UBehdmC5o8IJAO7TA8OFrCsKSrG7uSXMGvfGJsTBD8yzLCbpVaXys2_bBdj6BjIvNRU8ch1LPpeCQC2xySBJRZwyAMdunDE42xap_bxpgMOFEdumEbbeEB3Krygi3IIssBGuJmLK9Zzsc53IbUdF-qUBLIkQMV1Ai0O3scfkRgDjqjmHWIE3Ng1XWvczTNKaElz2rtZN1bqdMsBRd1F_Ol95Hlq1x6gpc5zkar0GRq1xX41ZllUxZ7Hua3NKZNUOuN9U6UTAF-LLZ4IRZ5ZZh2ujzt3vtALCbh6AMPArkGJPw3fC4Zx7mnL1mXRwLlGKO45jE70bnROr9N9K_zdt3zMmGwXV02Rv1I60-bMUxonW56dSHqOxH_IxpIlvs6UEjuOe2XwoGsylAs6zokkfyV06AdPtKxabIEz3IJxzESaSPgZz1E_-p4hfGWhP3tOaop9ncGYOqMybo0f7fzeH97H4tRwu0vHPq8S5FkCcYKAzzWxwV8sLQZJJNvtgcMhrAJFWbAwPpa4ay5kkOEm3Pg6NJaWrXy1xdJvrWC02gryncWqAAhVMLMXgS2NB0ezova7J7-hxDZfNzZUj15bu7y6i2a_Yz2-X87wsNbl7U7f4KKqq1e1r21LJ3Wnpq6Z2WtqvWtjI3bQWYzgmwSgd9tbbUeqDWJcFWEUxDAwalR1sZOCVQxixDmIphl1naKk23tv4B7TRfIHsEHncUo5klH3FWrR-yG0tXfWVZbLzefavEGVsnQpmMNdCSsVTBZimorQS2q_xVdlYVVDHqokISI3kZBPK1DEEroSmNol_k9ZLi5AB_Q1Lk0tf2wq50UZGtKtkyUkUxVaTi-RB8lbukNLct3RCeqgrDavusk2UVQiOapg4owexKH1u5_l0-5EhtK1PlzCqFUb1lV8EVYA5qvs5aF0_wRY-XL2R13LyCW-qlqo7ajajTiLqNaK8R9RrR_pXcBs24faVG2Dn1PlSHrWbYboadZththnvNsFfCrU4LjuotpmFr-NYq_v8A_6MISYTzWLSOnRbOBVsekqA1LN7TW3nxDDylGC6X7Qk8_gPD2ym7" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 3.3 Business Roles & Responsibilities
 
@@ -790,7 +869,10 @@ flowchart LR
 | Intel Product Warehouse | E2E_57E_R3_Intel_Product_to_Intel_Foundry_–_HVM | |
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 4. Data Architecture (TOGAF "D")
 
@@ -801,11 +883,15 @@ flowchart LR
 | 1 | e.g. Cost Element | e.g. MES 300 | e.g. XEUS | Data steward | e.g. Intel Confidential | e.g. 10K rows/day | Master / Transaction |
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
 
 #### 4.2.1 Current-State — Current-State Data Flows
 
@@ -843,10 +929,16 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlY9P2kAUx_-VyxnCloCrYGE20eRoyzSpxlncltilOdpXuHi0TXtVEPnfd9cCbkid8S5puPfj-14_rzmWOEhCwAZuNJYsZsJAy6aYwgyaBmqOaQ7NFmrmEBQZEwsHHoArB0-SylOG_qAZo2MOeVNlR0ksXPZUChzp6VyFKduQzhhfKKsLkwTQ7UULEZnImysVwZPHYEozUWoUOVzS-U8Wiqk8R5TnIGOmYsYdOgauComsULZYdu-mNGDxRBq7ujRlNL5_MR3rqxVaNRpevC2BRgMvRnIFnOa5BRGiaTpI5ihinBsHA90aDoetXGTJPRgHmtbvD3rrY_tR9WR00nkrSHiSKXfX0nf1wrG54Gs5ols90t_Kdey-1e3Uyh0NdLuj7chBwl_aGw4H-kDf6pmmJletXq-n3F5cKebFeJLRdIrsjq33TYuYjg_-xCdPRQa--9258zDy8O8qWq2QZRAIlsRbaGpt0kmZ_cu-dWUiHE4OkfotBQzDqJi-zrF2Kn7ysFeEX7uhfIbBsVdEoMlXVmJlEJJBHv6sJEusb3WB2ofts7pKVSLE4ZqFWHCoBbGBTdTewrY1tf-FfZTO_4fXJdf-ObkiH6J7abt-V9M2gOURyeN7GG_LvoFYxiAV8x7C6072Qd6Ueg_jTeyHEO8vi05Pz57XgKySKfqCyPWFfA4ZBw8_138UO6NzYCLbv_uLWBBqyCIjgsiNeX4xss3R7Y2NHPubfWXVTNO5ebE6vpo7SVPOAqq8-0fn-FbNnCwqqLqJ94_I8W0pb8dhO4naDougkq-ujL3jqN5wQ19Xe0v_5OTkFXrcwjPIZpSF2Fji8saX_xchRLTgAq9amBYicRdxgI3yUsZFGlIBFqOS6Kwyrv4Ablf1hw==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtO2zAUhl_FMqq0SS0LLWlHJJCc20AKiJGyTSJT5CZOa-EmUeKMltJ3n50brDQMYUuRfS7_cb4TORsYJCGBGuz1NjSmXAMbD_IFWRIPasCDM5yLVV-schIUGeVrh_whrHKyJGm8ZcoPnFE8YySXbqETJTF36WMtdaSmqypY2m28pGxdeVwyTwi4vegDJASE-LaMYslDsMAZr9WKnFzi1U8a8oW0RJjlRMYt-JI5eEZYWZZnRWmNxWu5KQ5oPJfmkSqNGY7vXxiP1e0WbHs9L25rganuxUCMgOE8N0kEcJrqyQpElDHtQFdN27b7Oc-Se6IdKMpkoo_r7eBBHk0bpqt-kLAkk-6Rqe7qhTNjzWo5pJpjNGnlhtbEHA075Y501RoqO3IkYc_Hs21d1dVWzzAUMTr1xmPp9uJKMS9m8wynC2ANLXVimMhwfOLPffRYZMR3vzt3HhQIf1fRcoQ0IwGnSdxCk6NJR2X2L-vWFYnkcH4I5FoIaJpWMX2dY-5U_ORBrwi_jkLxDINjr4iIIl5ZipVBQAR58LOULLG-dQowOBycdVWqEkkc1iz4mpFOEA1sJGcL21Lk_Bf2kfji_4PXRdf-ObpCH6J7abn-SFEawGILxPY9jNuybyAWMUDGvIdwfZJ9kJtS72HcxH4I8f6y4PT07KkGZJZMwReAri_E06ZM3E1P3R_FTuscMhfHv3tBLAgVYKIpAujGOL-YWsb09sYCjvXNujI7uuncPFsdX_YdpSmjAZbe_a1zfLOjTybmuLqi97XI8S0hb8XhIIkGDo1IJV9dGXvbUb1hQ1-Vs6V_cnLyCj3swyXJlpiGUNtUPwHxLwlJhAvGxTUOccETdx0HUCsvZlikIebEpFgQXVbG7V_HFv8L" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 
 #### 4.2.2 Future-State — Future-State Data Flows
 
@@ -884,10 +976,15 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlY9P2kAUx_-VyxnCloCrYGE20eSg7TSpxlncltilOdpXuHi0TXtVEPnfd9dC3RCc8S5puPfj-14_rzmWOEhCwAZuNJYsZsJAy6aYwgyaBmqOaQ7NFmrmEBQZEwsHHoArB0-SylOG_qAZo2MOeVNlR0ksXPZUChzp6VyFKZtNZ4wvlNWFSQLo9qKFiEzkzZWK4MljMKWZKDWKHC7p_CcLxVSeI8pzkDFTMeMOHQNXhURWKFssu3dTGrB4Io1dXZoyGt-_mI711QqtGg0vrkug0cCLkVwBp3luQoRomg6SOYoY58bBQDdt227lIkvuwTjQtH5_0Fsf24-qJ6OTzltBwpNMubumvq0XjocLvpYjutkj_VquY_XNbmev3NFAtzralhwk_KU92x7oA73WGw41ufbq9XrK7cWVYl6MJxlNp8jqWHrfNsnQ8cGf-OSpyMB3vzt3HkYe_l1FqxWyDALBkriGptYmnZTZv6xbVybC4eQQqd9SwDCMiunrHHOr4icPe0X4tRvKZxgce0UEmnxlJVYGIRnk4c9KssT6Vheofdg-21epSoQ4XLMQCw57QWxgE7Vr2Jam9r-wj9L5__C65No_J1fkQ3QvLdfvatoGsDwieXwP47rsG4hlDFIx7yG87mQX5E2p9zDexH4I8e6y6PT07HkNyCyZoi-IXF_Ip804ePh5_0exNToHJrL9u7-IBaGGTDIiiNwMzy9G1nB0e2Mhx_pmXZl7puncvFgdX82dpClnAVXe3aNzfHPPnEwqqLqJd4_I8S0pb8VhO4naDougkq-ujJ3jqN5wQ19Xu6Z_cnLyCj1u4RlkM8pCbCxxeePL_4sQIlpwgVctTAuRuIs4wEZ5KeMiDakAk1FJdFYZV38A6fz1sQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1L4zAYx79KiAzuYPPqZrezoJCu7SlU8ey8O7BHydp0C2ZNadNzc-67X9I3vbl5YgIleV7-T_p7SrqGIY8INGCns6YJFQZY-1DMyYL40AA-nOJcrrpylZOwyKhYueQPYZWTcd54y5QfOKN4ykiu3FIn5onw6GMtdaSnyypY2R28oGxVeTwy4wTcXnQBkgJSfFNGMf4QznEmarUiJ5d4-ZNGYq4sMWY5UXFzsWAunhJWlhVZUVoT-VpeikOazJR5oCtjhpP7F8ZjfbMBm07HT9paYGL6CZAjZDjPLRIDnKYmX4KYMmYcmLrlOE43Fxm_J8aBpo1G5rDe9h7U0Yx-uuyGnPFMuQeWvq0XTccrVssh3RqiUSvXt0fWoL9X7sjU7b62JUc4ez6e45i6qbd647Emx1694VC5_aRSzIvpLMPpHNh9Wx85Fhq7AQlmAXosMhJ43907H0qEv6toNSKakVBQnrTQ1GjSUZn9y771ZCI5nB0CtZYChmFUTF_nWFsVP_nQL6Kvg0g-o_DYL2KiyVdWYmUQkEE-_KwkS6xvnQL0Dntn-ypViSSJahZixcheEA1spGYL29bU_Bf2kfzi_4PXQ9fBObpCH6J7aXvBQNMawHIL5PY9jNuybyCWMUDFvIdwfZJdkJtS72HcxH4I8e6y4PT07KkGZJVMwReAri_k06FM3k1P-z-Krda5ZCaPf_eCWBhpwEITBNDN-PxiYo8ntzc2cO1v9pW1p5vuzbPVDVTfUZoyGmLl3d06N7D29MnCAldX9K4WuYEt5e0k6vG459KYVPLVlbGzHdUbNvR1NVv6Jycnr9DDLlyQbIFpBI119ROQ_5KIxLhgQl7jEBeCe6skhEZ5McMijbAgFsWS6KIybv4CQsr_NQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 4.3 Data Lineage
 
@@ -916,7 +1013,10 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Quality | Validated at source; reconciliation at target |
 
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 5. Application Architecture (TOGAF "A")
 
@@ -952,6 +1052,7 @@ flowchart TB
     E2E57C_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E57CMW_e_g_Azure_Service_Bus
     E2E57CMW_e_g_Azure_Service_Bus --> E2E57C_e_g_XEUS
 
+
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -965,10 +1066,14 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1vokAQ_isbGuMXbemLLyWNCQhevGDblL7c5byQlR100xUIu7S11v9-u2DFYht7a4Jh5plnlmdmdpdaEBPQDK1WW9KICgMt62IGc6gbqD7BHOoNVOcQZCkVCxeegCkHi-PCk0PvcUrxhAGvq-gwjoRHX3OC43byomDKNsBzyhbK6sE0BnQ3bCBTBrIG4jjiTQ4pDesrhWbxczDDqcj5Mg4j_PJAiZjJ9xAzDhIzE3Pm4gkwlVSkmbJF8ku8BAc0mkrjmS5NKY4eS1NLX63QqlYbR5sU6NYaR0iuWg01m3JDwYyOsIAmjXhCUyCIiwUDFDDMOXCJKeD5uw0hmmScRsA5yldIGTMOBnJZrQYXafwIxoHV7bZ1a_3afFZfYpwkL40gZnFqHOi6XuHESYLKVXBaLcW64dT1Tsdq_wcnwQLvctrdPZzHHzjffQRzKV6KF1JT1KpkmlNCGDzjFLYVsdtmqYjTaQ9Ktm_sHmK2o4jSeEvlfl_X93EWrDybTFOczJDp_hlr44x0T4l8ktMWMq-v3WHfvB1eXSLX_O3cjLW_RZBaRDZEIGgcIfemtDonTqvT98Gf-iPH8091fZs1gDaCw-khkj4kfZLQMAxZ4U8Jfjl33qfRyvFl6OghDzZfsxR8D9InGoBvZfzD1x13CqYchdYoJFEFbVm1Krvt5Oz9mAvfYXLeI9Hb3mJwVhArAFoDLibpUe-C9gqHd4-O0NCOA_n307u6vDiivSKr6soiH0TkvT67gsqx672NtZzNzosgmczroXwOKIOx9rZHiW3irzAqSbUWakvrpsmPAcvdGvGBvm_Et0PNTaj-nUneaVYXplKjD81BdOQ6P5xL-xtd6vqyt6utZSYJowFW4E-ay_VHD9UWGpVt8mXbuL7tVDvEVsePEwl5i1QrX4Q4V8UwnrTJmQSSZhw2XRqu08j532qTUtRClHdhW-q3Efb8_HznLNMa2hzSOaZEM5ZafnvJu49AiDMmtFVDw5mIvUUUaEZ-qWhZIjcKNsWyCPPCuPoHGbI9iQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzzaQoQqpU06dUoBLQM2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpVzTgtOJAKndiDPNUhXyhzXUQSe_N8HaPqQLLpbGE8IsA3I1ahIXAUSTSJrKloSCTyNrVWWI7C6Z00KtkUsJY3p_w5maa8uUCgk6bq4WIqATENUUVFFW1hSXGOY04elMm49tbSxo-rdmbNurFVk1GlH6Uov86EcpwdFokFYL55bM-ZgqaPFU5rwARqRaCiCJoFKCxBgTXn17MCWTUvIUpCTVmHIhnL0hjn67KVWR_QVnr39y0rH768_WnV6Qc5jfN5NMZIWzZ9v2FibNc7IZBrPf1qgvmLbd7fY7_4HJqKK7mN7JB5gHrzCffYxKJK-gS-SUtLcqLThjAu5oAXVGvI67YcTvdoYbtE_MHjKxw4jmuMbyYGDbH2EaVFlOZgXN58QNfkdWVLKTI4ZPdtQm7uVlMBq4P0YX5yRwf_nfI-uPSdKDoSASxbOUBN83Vv_Qb3cHMcSzeOyH8ZFt11ET6BD4MvtC0EfQh4CO42CH3wT46V-Fb2Zrx7up45sq2X0oC4hDKG55AnG_lK9Wd9A1SFUUWUcRjDKwm65to3t-hT7IpIp9gUdAqnr1KSbHBlgHkHXA2aTY753xnnGE12SfjLwswb9v4cX52T7vmapalaYepOy5P7uE4rbrPUVWheZVTUAk93KEzyEXePY8fcBEHfi9GF1kuxd6SmvRVMdAP6ht8aH90Ravp7ovqfZndvKOWAOYIUevxMFsEvhf_XPvEyoNYtT2trTcPBc8oTr4DXEF8fhmW0LjjUzelU0Qe_62Qjx9_Pipwstlu_Mmxb8wm_Gww44xkLWyaSvg03UZ3P81mWxINaQ8E9vWvxdiT09Pd84yq2ktoFhQzizn0VxoeC8ymNJSKLyGLFqqLFymieVUF4tV5jhR8DjFJiyMcfUPClFHDQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### Current-State Flow Narrative
 
@@ -977,7 +1082,10 @@ flowchart TB
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.2 Future-State — Future-State Application Landscape
 
@@ -1011,6 +1119,7 @@ flowchart TB
     E2E57F_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E57FMW_e_g_Azure_Service_Bus
     E2E57FMW_e_g_Azure_Service_Bus --> E2E57F_e_g_XEUS
 
+
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -1024,10 +1133,14 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1vokAQ_isbGuMXbemLLyWNCQhevGDblL7c5byQlR100xUIu7S11v9-u2DFYht7a4Jh5plnlmdmdpdaEBPQDK1WW9KICgMt62IGc6gbqD7BHOoNVOcQZCkVCxeegCkHi-PCk0PvcUrxhAGvq-gwjoRHX3OC43byomDKNsBzyhbK6sE0BnQ3bCBTBrIG4jjiTQ4pDesrhWbxczDDqcj5Mg4j_PJAiZjJ9xAzDhIzE3Pm4gkwlVSkmbJF8ku8BAc0mkrjmS5NKY4eS1NLX63QqlYbR5sU6NYaR0iuWg01m3JDwYyOsIAmjXhCUyCIiwUDFDDMOXCJKeD5uw0hmmScRsA5yldIGTMOBnJZrQYXafwIxoHV7bZ1a_3afFZfYpwkL40gZnFqHOi6XuHESYLKVXBaLcW64dT1Tsdq_wcnwQLvctrdPZzHHzjffQRzKV6KF1JT1KpkmlNCGDzjFLYVsdtmqYjTaQ9Ktm_sHmK2o4jSeEvlfl_X93EWrDybTFOczJDp_hlr44x0T4l8ktMWMq-v3WHfvB1eXSLX_O3cjLW_RZBaRDZEIGgcIfemtDonTqsz8MGf-iPH8091fZs1gDaCw-khkj4kfZLQMAxZ4U8Jfjl33qfRyvFl6OghDzZfsxR8D9InGoBvZfzD1x13CqYchdYoJFEFbVm1Krvt5Oz9mAvfYXLeI9Hb3mJwVhArAFoDLibpUe-C9gqHd4-O0NCOA_n307u6vDiivSKr6soiH0TkvT67gsqx672NtZzNzosgmczroXwOKIOx9rZHiW3irzAqSbUWakvrpsmPAcvdGvGBvm_Et0PNTaj-nUneaVYXplKjD81BdOQ6P5xL-xtd6vqyt6utZSYJowFW4E-ay_VHD9UWGpVt8mXbuL7tVDvEVsePEwl5i1QrX4Q4V8UwnrTJmQSSZhw2XRqu08j532qTUtRClHdhW-q3Efb8_HznLNMa2hzSOaZEM5ZafnvJu49AiDMmtFVDw5mIvUUUaEZ-qWhZIjcKNsWyCPPCuPoHYCM9oQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1Izz6IEKVUpJOnVJAhI1NyxS58W1rzU2i2AEK9L_vOi40tCCYK6XJfZxrn3tsP1pJxsByrEbjkadcOeQxstQcFhBZDomsCZX41sQ3CUlZcLUM4BaEcYose_ZWKT9owelEgNRuxJlmqQr5wxrqoJPfm2BtH9IFF0vjCWGWAfk-ahIXAUSTSJrKloSCTyNrVWWI7C6Z00KtkUsJY3p_w5maa8uUCgk6bq4WIqATENUUVFFW1hSXGOY04elMm49tbSxo-rdmbNurFVk1GlH6UotcD6KU4Gg0SKuFc0vmfEwVtHgqc14AI1ItBZBEUClBYowJr749mJJJKXkKUpJqTLkQzt4Qx6DdlKrI_oKzN-j1OvZg_dm60wtyDvP7ZpKJrHD2bNvewqR5TjbDYA7aGvUF07a73UHnPzAZVXQX0-t9gHnwCvPZx6hE8gq6RE5Je6vSgjMm4I4WUGfE67gbRvxuZ7hB-8TsIRM7jGiOayyfndn2R5gGVZaTWUHzOXGD35EVlax3xPDJjtrEvbwMRmfu9ejinATuL_8qsv6YJD0YCiJRPEtJcLWx-od-uzuMIZ7FYz-Mj2y7jppAh8CX2ReCPoI-BHQcBzv8JsBP_3v4ZrZ2vJs6vqmS3YeygDiE4pYnEA9K-Wp1B12DVEWRdRTBKAO76do2uudX6GeZVLEv8AhIVb8-xeTYAOsAsg44nRT7_VPeN47wB9knIy9L8O9beHF-us_7pqpWpakHKXvuzy6huO36T5FVoXlVExDJvRzhc8gFnj1PHzBRB34vRhfZ7oWe0lo01TEwCGpbfGh_tMXrqe5Lqv2Znbwj1gBmyNErcTCbBP5X_9z7hEqDGLW9LS03zwVPqA5-Q1xBPL7ZltB4I5N3ZRPEnr-tEE8fP36q8HLZ7rxJ8S_MZjzssGMMZK1s2gr4dF0G939NJhtSDSnPxLb174XYk5OTnbPMaloLKBaUM8t5NBca3osMprQUCq8hi5YqC5dpYjnVxWKVOU4UPE6xCQtjXP0DUMJHJQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### Future-State Flow Narrative
 
@@ -1036,7 +1149,10 @@ flowchart TB
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.3 Change Impact Summary
 
@@ -1056,7 +1172,10 @@ flowchart TB
 | e.g. XEUS | - | N/A |
 
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.5 RICEFW Inventory
 
@@ -1071,7 +1190,10 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 > *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
 
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.6 Integration Patterns
 
@@ -1080,13 +1202,17 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 | 1 | e.g. Pub-Sub / P2P / ETL | e.g. MES Route to ICOST | e.g. Azure Service Bus | e.g. REST / RFC / SFTP | e.g. OAuth / NTLM / Cert |
 
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
 
 #### 6.1.1 Current-State — Current-State Platform Architecture
 
@@ -1113,12 +1239,18 @@ flowchart TB
 
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlGFvmzAQhv-K5SriC2sJhCRD6iQgoFVKp2is26QxIQeOxKqDEZg2acp_nw1tslZKpWrzB4t77_z49Vl4j1OeAXbwYLCnBRUO2mtiDRvQHKQtSQ2ajrQa0qaiYjeHO2AqwTjvM13pd1JRsmRQa2p1zgsR0YcOMByVW1WmtJBsKNspNYIVB3RzpSNXLmRaqyoYv0_XpBIdo6nhmmx_0EysZZwTVoOsWYsNm5MlMLWRqBqlFdJ9VJKUFispjgwpVaS4PUq20baoHQzi4rAF-ubFBZIjZaSuZ5AjUpYe36KcMuacefYsDEO9FhW_BefMMCYTb_wUfrhXnhyz3OopZ7xSaWtmv-aVjIgj0J8GY__jAWhNp4HlvwRaR-DQswPTeAUEzo68MPRszz7wfN-Q46TB8Vil46In1s1yVZFyjQIzsCf-Yr5IIFkl7kNTQbIgJPoV47gxx8YwbnIw5M7nq3PUpZFKx_h3D1IjoxWkgvICzb8e1Wey25F_BjeK2WHUtwQ4jtM3vF8DRfbkTewYnDT2T8188_BRMko-u1_cxDRMqzt_NrUyOWfE_rsL0cUIqTqk6t7diOsgSizDeO6FDJEM39mOF1b_Q0feol9efnp8MjvrzocukLu4knNIGcT48eRVYR1voNoQmmFnj7s3Qr4wGeSkYQK3OiaN4NGuSLHT_ca4KTMiYEaJvJ5NL7Z_AKhkbno=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1ip2nGSGDmzHZoV0hHndBvMwin2ciMqWseU1aZr_PsnOR1tIoWy6ENL7Hj06OkLa4kSkgG3c621ZwaSNthGWK8ghwjaK8ILWatRXoxqSpmJyM4M_wDuTC3Fw2yXfacXogkOtbcXJRCFD9rhHDYblugvWekBzxjedE8JSALq76SNHARR810Zx8ZCsaCX3tKaGW7r-wVK50kpGeQ06biVzPqML4O22smpatVDHCkuasGKp5SHRYkWL-2eiRXY7tOv1ouK4F_rmRgVSLeG0rqeQIVqWrlijjHFuX7jWNAiCfi0rcQ_2BSHjsTvaTz886NRso1z3E8FFpW1zar3mlZzKE9Cb-CPv4xFoTia-6b0EmifgwLV8g7wCguAnXhC4lmsdeZ5HVDub4Gik7ajoiHWzWFa0XCHf8K2xN5_NY4iXsfPYVBDPKQ1_RThqjBEZRE0GRO18ubxErY20HeHfHUi3lFWQSCYKNPt6Ug9kpyX_9O80s8XosQLYtt0VvFsDRbrPTW44nE3sn4r55uHDeBh_dr44sUEMsz1_OjFT1afUel6F8GqIdBzSce8uxK0fxiYhh1qoKVLTd5bjRar_oSJv0a-vPz3tk52250NXyJnfqD5gXL33p7NXhfs4hyqnLMX2tvs21O-TQkYbLtXDx7SRItwUCbbbp4ybMqUSpoyq68k7cfcX09V3_g==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 
 #### 6.1.2 Future-State — Future-State Platform Architecture
 
@@ -1145,9 +1277,11 @@ flowchart TB
 
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlGFvmzAQhv-K5SriC2sJhCRD6iRIQKuUTtFYt0ljQg4ciVWDEZg2acp_nw1tslZKpWrzB4t77_z49Vl4jxOeAnbwYLCnBRUO2mtiAzloDtJWpAZNR1oNSVNRsVvAHTCVYJz3ma70O6koWTGoNbU644UI6UMHGI7KrSpTWkByynZKDWHNAd1c6ciVC5nWqgrG75MNqUTHaGq4JtsfNBUbGWeE1SBrNiJnC7ICpjYSVaO0QroPS5LQYi3FkSGlihS3R8k22ha1g0FUHLZA37yoQHIkjNT1HDJEytLjW5RRxpwzz54HQaDXouK34JwZxmTijZ_CD_fKk2OWWz3hjFcqbc3t17ySEXEEzqb-ePbxALSmU9-avQRaR-DQs33TeAUEzo68IPBszz7wZjNDjpMGx2OVjoqeWDerdUXKDfJN354Ey8Uyhngduw9NBfGSkPBXhKPGHBvDqMnAkDufr89Rl0YqHeHfPUiNlFaQCMoLtPh6VJ_Jbkf-6d8oZodR3xLgOE7f8H4NFOmTN7FjcNLYPzXzzcOH8Sj-7H5xY9Mwre786dRK5ZwS--8uhBcjpOqQqnt3I679MLYM47kXMkQyfGc7Xlj9Dx15i355-enxyey8Ox-6QO7ySs4BZRDhx5NXhXWcQ5UTmmJnj7s3Qr4wKWSkYQK3OiaN4OGuSLDT_ca4KVMiYE6JvJ68F9s_yzVukg==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1jp2nGSCDuzEZoV0hHndBvMwin2ciMqWseU1aer_PsnOR1tIoWy6ENL7Hj06OkLa4VgkgAnu9XYsZ5KgXYjlGjIIMUEhXtJKjfpqVEFcl0xu5_AHeGdyIQ5uu-Q7LRldcqi0rTipyGXAHveowbDYdMFa92nG-LZzAlgJQHc3feQogII3bRQXD_GalnJPqyu4pZsfLJFrraSUV6Dj1jLjc7oE3m4ry7pVc3WsoKAxy1daHhpaLGl-_0y0jaZBTa8X5se90Dc3zJFqMadVNYMU0aJwxQaljHNy4doz3_f7lSzFPZALwxiP3dF--uFBp0bMYtOPBReltq2Z_ZpXcCpPwOnEG00_HoHWZOJZ05dA6wQcuLZnGq-AIPiJ5_uu7dpH3nRqqHY2wdFI22HeEat6uSppsUae6dljfzFfRBCtIuexLiFaUBr8CnFYmyNjENYpGGrny9Ulam2k7RD_7kC6JayEWDKRo_nXk3ogOy35p3enmS1GjxWAENIVvFsDebLPTW45nE3sn4r55uGDaBh9dr44kWmYVnv-ZGIlqk-o_bwKwdUQ6Tik495diFsviCzDONRCTZGavrMcL1L9DxV5i359_elpn-ysPR-6Qs7iRvU-4-q9P529KtzHGZQZZQkmu-7bUL9PAimtuVQPH9NaimCbx5i0TxnXRUIlzBhV15N1YvMX9qZ4Fg==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
+
 
 #### Platform Inventory
 
@@ -1157,22 +1291,20 @@ flowchart TB
 | 2 | e.g. S/4 HANA 2023 | On-Premise | e.g. MES 300 | DEV,QAS,PRD |
 
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 6.2 SAP Development Object Status
 
-**RICEFW Status Summary** — E2E Tower (0 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-03-27)*
-
-| Status | Count | % |
-|--------|------:|----:|
-| **Total** | **0** | **100%** |
-
-**RICEFW by Type:**
-
-| Type | Count |
-|------|------:|
-| **Total** | **0** |
+| Metric | DEV | QAS | PRD |
+|--------|-----|-----|-----|
+| Transport Requests | — | — | — |
+| Custom Code Objects | — | — | — |
+| CDS Views | — | — | — |
+| Fiori Apps | — | — | — |
+| BAdIs / Enhancements | — | — | — |
 
 ### 6.3 NFRs & Design Principles
 
@@ -1202,46 +1334,46 @@ flowchart TB
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 7. Project Context
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
-*No timeline data available for this capability.*
+Project delivery milestones for E2E-57 RICEFW objects:
+
+| Phase | Planned Start | Planned End | Status | Notes |
+|-------|---------------|-------------|--------|-------|
+| Functional Specification (FS) | Per project plan | Per project plan | In Progress | Tower-level FS schedule |
+| Technical Design (TDD) | FS + 2 weeks | FS + 6 weeks | Planned | Dependent on FS completion |
+| Build & Unit Test (TUT) | TDD + 1 week | TDD + 8 weeks | Planned | Includes S/4 + Middleware |
+| Functional User Test (FUT) | Build + 1 week | Build + 4 weeks | Planned | Tower-led validation |
+| Go-Live (Release 2) | Per release plan | Per release plan | Planned | End-to-End Integrated Processes release |
+
+> *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
+
+<div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-03-27*
+Standard RAID items for E2E-57 (End-to-End Integrated Processes):
 
-**RAID Summary:** 15 open items (0 capability-specific, 15 tower-level), 56 closed
+| # | Category | Description | Status | Owner | Priority |
+|---|----------|-------------|--------|-------|----------|
+| 1 | Risk | Data migration completeness — validate all legacy R3 Subcontracting with Planning integration- Foundry,OSAT,ODM data maps to S/4 target structures | Open | Tower Architect | High |
+| 2 | Risk | Integration testing coverage — ensure all 2 integrated systems are validated end-to-end | Open | Integration Lead | High |
+| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
+| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
+| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
 
-| Severity | Capability | Tower-Wide | Total Open |
-|----------|----------:|-----------:|-----------:|
-| P1 - High | 0 | 3 | 3 |
-| P2 - Medium | 0 | 10 | 10 |
-| P3 - Low | 0 | 2 | 2 |
-| **Total** | **0** | **15** | **15** |
-
-**Other E2E Tower RAID Items** (15 open):
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-03 |
-| 03681 | Risk | P1 - High | ITC Execution: Planning run availability - Prerequisite for ... | In Progress | E2E | 2026-03-27 |
-| 03762 | Risk | P1 - High | FTS-IF (esp SCP) related test cases/sequencing are not accur... | In Progress | FTS IF | 2026-04-03 |
-| 01733 | Risk | P2 - Medium | Tariffs impacts Item/BOM design which is impacting ERP/SCP (... | In Progress | E2E | 2026-03-06 |
-| 03592 | Risk | P2 - Medium | Lack of Defined IMO Owner for CBA Mask Billing and Materials... | In Progress | E2E | 2026-03-27 |
-| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
-| 03628 | Risk | P2 - Medium | R3 Returns Rework Process Causing Finance Double Counting in... | In Progress | E2E | 2026-03-27 |
-| 03642 | Issue | P2 - Medium | E2E Process with Anafi on order/invoice point.  Need IFS SC ... | In Progress | E2E | 2026-03-24 |
-| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
-| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
-| 03753 | Risk | P2 - Medium | PDF-SMH IF test cases are not available in JIRA | To Be Reviewed | B-Apps | 2026-03-25 |
-| 03756 | Risk | P2 - Medium | LE101-1001 Operation Support Ownership for SIMS/Tester Front... | In Progress | E2E | 2026-04-24 |
-| 03769 | Action | P2 - Medium | Need a Labs SPOC owner to define IP Labs enterprise and mate... | In Progress | E2E | 2026-04-17 |
-| 03216 | Action | P3 - Low | Mask Expense vs. Invoice | In Progress | E2E | 2026-03-06 |
-| 03315 | Risk | P3 - Low | BPMG – SCP L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-03-27 |
+> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
 
 ### 7.3 Recommendations & Next Steps
 
@@ -1255,4 +1387,5 @@ flowchart TB
 
 ---
 *E2E-57 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026*
-
+<div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
+</div>

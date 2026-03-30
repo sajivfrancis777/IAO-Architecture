@@ -1,5 +1,6 @@
+<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">E2E-44 — R3 - Intel Owned Consignment with Planning Integration</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -19,7 +20,14 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
+.page-section {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 40px);
+  box-sizing: border-box;
+}
 .page-footer {
+  margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid #ddd;
   display: flex;
@@ -27,62 +35,99 @@
   align-items: center;
   font-size: 11px;
   color: #888;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 20px;
+  padding: 6px 12px;
   background: #fff;
 }
 @media print {
-  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+  .page-section {
+    min-height: 100vh;
+  }
+  .page-footer {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
 .page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
 </style>
 
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 <a id="toc"></a>
 
 ## Table of Contents
 
-1. [Executive Summary](#1-executive-summary)
-2. [Business Context & Objectives](#2-business-context--objectives)
-   - 2.1 [Classification](#21-classification)
-   - 2.2 [Business Drivers](#22-business-drivers)
-   - 2.3 [Success Criteria](#23-success-criteria)
-   - 2.4 [Companion Documents](#24-companion-documents)
-3. [Business Architecture (TOGAF "B")](#3-business-architecture-togaf-b)
-   - 3.1 [Business Process Overview](#31-business-process-overview)
-   - 3.2 [Business Process Diagrams](#32-business-process-diagrams)
-   - 3.3 [Business Roles & Responsibilities](#33-business-roles--responsibilities)
-4. [Data Architecture (TOGAF "D")](#4-data-architecture-togaf-d)
-   - 4.1 [Data Entities & Ownership](#41-data-entities--ownership)
-   - 4.2 [Data Flow Diagrams](#42-data-flow-diagrams)
-   - 4.3 [Data Lineage](#43-data-lineage)
-   - 4.4 [RICEFW Data Objects](#44-ricefw-data-objects)
-   - 4.5 [Data Governance & Quality](#45-data-governance--quality)
-5. [Application Architecture (TOGAF "A")](#5-application-architecture-togaf-a)
-   - 5.1 [Current-State Application Landscape](#51-current-state--current-state-application-landscape)
-   - 5.2 [Future-State Application Landscape](#52-future-state--future-state-application-landscape)
-   - 5.3 [Change Impact Summary](#53-change-impact-summary)
-   - 5.4 [Component Overview](#54-component-overview)
-   - 5.5 [RICEFW Inventory](#55-ricefw-inventory)
-   - 5.6 [Integration Patterns](#56-integration-patterns)
-6. [Technology Architecture (TOGAF "T")](#6-technology-architecture-togaf-t)
-   - 6.1 [Platform & Infrastructure](#61-platform--infrastructure)
-   - 6.2 [SAP Development Object Status](#62-sap-development-object-status)
-   - 6.3 [NFRs & Design Principles](#63-nfrs--design-principles)
-   - 6.4 [Security & Governance](#64-security--governance)
-7. [Project Context](#7-project-context)
-   - 7.1 [Project Roadmap & Go-Live Plan](#71-project-roadmap--go-live-plan)
-   - 7.2 [RAID Log](#72-raid-log)
-   - 7.3 [Recommendations & Next Steps](#73-recommendations--next-steps)
+<nav class="toc">
+<ol>
+  <li><a href="#1-executive-summary">1. Executive Summary</a></li>
+  <li><a href="#2-business-context-objectives">2. Business Context &amp; Objectives</a>
+    <ul>
+      <li><a href="#21-classification">2.1 Classification</a></li>
+      <li><a href="#22-business-drivers">2.2 Business Drivers</a></li>
+      <li><a href="#23-success-criteria">2.3 Success Criteria</a></li>
+      <li><a href="#24-companion-documents">2.4 Companion Documents</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+    <ul>
+      <li><a href="#31-business-process-overview">3.1 Business Process Overview</a></li>
+      <li><a href="#32-business-process-diagrams">3.2 Business Process Diagrams</a></li>
+      <li><a href="#33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+    <ul>
+      <li><a href="#41-data-entities-ownership">4.1 Data Entities &amp; Ownership</a></li>
+      <li><a href="#42-data-flow-diagrams">4.2 Data Flow Diagrams</a></li>
+      <li><a href="#43-data-lineage">4.3 Data Lineage</a></li>
+      <li><a href="#44-ricefw-data-objects">4.4 RICEFW Data Objects</a></li>
+      <li><a href="#45-data-governance-quality">4.5 Data Governance &amp; Quality</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+    <ul>
+      <li><a href="#51-current-state-current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
+      <li><a href="#52-future-state-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
+      <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
+      <li><a href="#54-component-overview">5.4 Component Overview</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+    <ul>
+      <li><a href="#61-platform-infrastructure">6.1 Platform &amp; Infrastructure</a></li>
+      <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
+      <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
+      <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+    </ul>
+  </li>
+  <li><a href="#7-project-context">7. Project Context</a>
+    <ul>
+      <li><a href="#71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</a></li>
+      <li><a href="#72-raid-log">7.2 RAID Log</a></li>
+      <li><a href="#73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</a></li>
+    </ul>
+  </li>
+</ol>
+</nav>
 
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 1. Executive Summary
 
@@ -98,10 +143,13 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.
 
-> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: "loose"` for click events.
+> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 2. Business Context & Objectives
 
@@ -123,7 +171,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 4 | E2E-44 Process Migration | Migrate R3 - Intel Owned Consignment with Planning Integration business processes and 2 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Cross-Functional / End-to-End | High |
 
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 2.3 Success Criteria
 
@@ -142,7 +193,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 3. Business Architecture (TOGAF "B")
 
@@ -160,10 +214,14 @@ Supplier
 | 4 | E2E_44B_R3_-_Intel_Owned_Consignment_with_Planning_Integration-Shipment_of_components_from_Intel_War | E2E_44B_R3_-_Intel_Owned_Consignment_with_Planning_Integration-Shipment_of_components_from_Intel_War | Boundary Apps, External Partner/Supplier, SAP S/4HANA IP | 45 | 28 |
 | 5 | E2E_44C_R3_Intel_Owned_Consignment_with_Planning_Integration_-_Subcontracting_Process_with_ODM_Suppl | E2E_44C_R3_Intel_Owned_Consignment_with_Planning_Integration_-_Subcontracting_Process_with_ODM_Suppl | Boundary Apps, External Partners/Supplier, SAP S/4HANA IP | 34 | 14 |
 
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 ### 3.2 Business Process Diagrams
 
-<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-<div style="page-break-before: always;"></div>
 
 #### BUSINESS ARCHITECTURE — 3.2.1 E2E-44_R3_CFIN — E2E-44_R3_CFIN
 
@@ -172,7 +230,7 @@ Supplier
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -268,10 +326,14 @@ flowchart LR
     class n30 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV99z4jYQ_lc0vklJZqDnnxh4aAcMvslMyDGh106n9EHYcvDEWB5ZJqE5_veubMlg4zz0moc76_O3365Wu2vxrgU0JNpEu7l5j9OYT9B7j-_InvQmqLfFOen1UQX8jlmMtwnJe4IT0ZSv439KmmFnb4ImMB_v4-Qo0DV5pgR9u--jKRgmfZTjNB_khMVRr9_LWLzH7OjRhDLB_kRGkR6V3uSrGWUhYWeCrrtG4IBpEqfkDFuu7dq-sMtJQNOwIRo50SgKeicRXEJfgx1mvAy_yMkSv_0Rh3wH6wgnOQHOju-TB7wlidgjZ4XAgoIdVDLiXPhJIWHrDAdx-gy4rQPEcPpyhhz9dEKnm5tNWjtFD0-bFMFfkOA8n5MI5RzgxYGjKE6SySfbm_qO3s85oy9k8slcuHPL7AdiJxPYut4XyR28kvh5xydbmoSSOngVe5iY2VufvU1Mvc-O8G_LF0nDsydvaI7MUe1p5hqe4SlPURT9L0-QV_Ybzl-kr4Xlm_689mU4Q8fTr_XUNue2OzXaeSLsEAfkQtT3fWtxTtVi6Bj6x6Iz3xrqXkv0GXPyio9nwbFn14K-4_qG-6Fg5a8dZbFdMRooQWvh-E4t6M4Mf2p-KGhPDXskIwSdZ4azHZrRoqxlNM2yvHon_lLjr432RAISHwjy44SgOEUzqL6N9vcFywTWtyyEXaIVPu5JytET2cec4zQgTarh3gI5wpMID3JOs9pgjjlGlUgIJneVDZRSK1LPv3-80LNAbfFGguLSd5E2ndpA8hgR8U1XS7QkewoBBtDxTZ4DPJFXkudo5i1rwRnmwQ6aDR5yEiIKOShyGAtAeypgRDVVhqDyhaSEKX9KRiSwSXVFeqmInVORekYPhDUpIxE7ZYwEvBSTzzEEca03Lo8LNHLheYXmUCOPxX5LGMJpeLlxNCcJESqt49FBwSewXRV1jnwccAqlcQvu-yIvfbSceWhJYX5TdtcSqCrmEJNXMIQAw3r7D_S5xTUvM6VocAAZzXHS4lqlbpbEgSCviwweYVv36YFCv6IVzTmcUMto3Cq2ywRUBXFRa1Up6y0TlUaZ1iu-8f6u-OLTNtjCcIbsLXFa4ESeKTw8ElFV0GG_brTT6VLA7BaQ1RBe8a1uPnkLEijKA_lSDZu2md1t5mEoZqKqqsOd82Puhj9m5nabVcmHNFIGz1nVonDcV9GOzvaYMfqaD3DCUYYZThKSfOB0_ANGlt5pFKcf7e96kkETXdaqGFLLIuHxQAxYOJE0FX1-iDm03g7Ke8DpQPzf7jjnvxteB7OertD6s41u71foJ3TvX9a4MTz3RJbAd6yz-6DTbz26z2hadvHXcuKsiy3Eg1YFg3sJDKWv4pIlht3X-fKu1UrG6KNPA-EwSXIkGiIOwc8WBy9CZE1BF4bBEbzvReifReDXHw-YNGgw-AVOTa6tammO5Nqu1sZYrh35Xt4O4EEA3zfaI91o30UTyheuJJqKKJWHai2VHLW2W0KKOJZCuopYl4AKyRxWQL2WFkYd46gCbKVgSAVXEVzpW3VTMwKZIkPRpT_DbjlUW5XuTLU1Q27dMNsRjtpZ_FN8MsG3cqXw1fT-8WddN9EtHP0goTgUNxxyV5KN2pHdpBvd9EZayl2f50a1cyVoyVzXcZqtOOvjrt-o46uTLc_Z0K-T3XJr6e1aUG7qN4bKvXVx7ythdY1v4q68cjfRUSc67kJNvRM11M21CZvdsNUN292w0w0Pu2G3Gx51w-NOGI5Zwlpf2xO2x3GoTd618ucm_CQNSYRhjGqnvoYLTtfHNNAm5c8yrSjvpfMYw7DcV-DpX1SFiV0=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV99z4jYQ_lc0vklJZqDnnxh4aAcMvslMyDGh106n9EHYcvDEWB5ZJqE5_veubMlg4zz0moc76_O3365Wu2vxrgU0JNpEu7l5j9OYT9B7j-_InvQmqLfFOen1UQX8jlmMtwnJe4IT0ZSv439KmmFnb4ImMB_v4-Qo0DV5pgR9u--jKRgmfZTjNB_khMVRr9_LWLzH7OjRhDLB_kRGkR6V3uSrGWUhYWeCrrtG4IBpEqfkDFuu7dq-sMtJQNOwIRo50SgKeicRXEJfgx1mvAy_yMkSv_0Rh3wH6wgnOQHOju-TB7wlidgjZ4XAgoIdVDLiXPhJIWHrDAdx-gy4rQPEcPpyhhz9dEKnm5tNWjtFD0-bFMFfkOA8n5MI5RzgxYGjKE6SySfbm_qO3s85oy9k8slcuHPL7AdiJxPYut4XyR28kvh5xydbmoSSOngVe5iY2VufvU1Mvc-O8G_LF0nDsydvaI7MUe1p5hqe4SlPURT9L0-QV_Ybzl-kr4Xlm_689mU4Q8fTr_XUNue2OzXaeSLsEAfkQtT3fWtxTtVi6Bj6x6Iz3xrqXkv0GXPyio9nwbFn14K-4_qG-6Fg5a8dZbFdMRooQWvh-E4t6M4Mf2p-KGhPDXskIwSdZ4azHZrRoqxlNM2yvHon_lLjr432RAISHwjy44SgOEUzqL6N9vcFywTWtyyEXaIVPu5JytET2cec4zQgTarh3gI5wpMID3JOs9pgjjlGlUgIJneVDZRSK1LPv3-80LNAbfFGguLSd5E2ndpA8hgR8U1XS7QkewoBBtDxTZ4DPJFXkudo5i1rwRnmwQ6aDR5yEiIKOShyGAtAeypgRDVVhqDyhaSEKX9KRiSwSXVFeqmInVORekYPhDUpIxE7ZYwEvBSTzzEEca03Lo8LNHLheYXmUCOPxX5LGMJpeLlxNCcJESqt49FBwSewXRV1jnwccAqlcQvu-yIvfbSceWhJYX5TdtcSqCrmEJNXMIQAw3r7D_S5xTUvM6VocAAZzXHS4lqlbpbEgSCviwweYVv36YFCv6IVzTmcUMto3Cq2ywRUBXFRa1Up6y0TlUaZ1iu-8f6u-OLTNtjCcIbsLXFa4ESeKTw8ElFV0GG_brTT6VLA7BaQ1RBe8a1uPnkLEijKA_lSDZu2md1t5mEoZqKqqsOd82Puhj9m5nabVcmHNFIGz1nVonDcV9GOzvaYMfqaD3DCUYYZThKSfOB0_ANGlt5pFKcf7e96kkETXdaqGFLLIuHxQAxYOJE0FX1-iDm03g7Ke8DpQPzf7jjnvxteB7OertD6s41u71foJ3TvX9a4MTz3RJbAd6yz-6DTbz26z2hadvHXcuKsiy3Eg1YFg3sJDKWv4pIlht3X-fKu1UrG6KNPA-EwSXIkGiIOwc8WBy9CZE1BF4bBEbzvReifReDXHw-YNGgw-AVOTa6tammO5Nqu1sZYrh35Xt4O4EEA3zfaI91o30UTyheuJJqKKJWHai2VHLW2W0KKOJZCuopYl4AKyRxWQL2WFkYd46gCbKVgSAVXEVzpW3VTMwKZIkPRpT_DbjlUW5XuTLU1Q27dMNsRjtpZ_FN8MsG3cqXw1fT-8WddN9EtHP0goTgUNxxyV5KN2pHdpBvd9EZayl2f50a1cyVoyVzXcZqtOOvjrt-o46uTLc_Z0K-T3XJr6e1aUG7qN4bKvXVx7ythdY1v4q68cjfRUSc67kJNvRM11M21CZvdsNUN292w0w0Pu2G3Gx51w-NOGI5Zwlpf2xO2x3GoTd618ucm_CQNSYRhjGqnvoYLTtfHNNAm5c8yrSjvpfMYw7DcV-DpX1SFiV0=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.2 E2E-44_R3_SAP_Transportation_Management — E2E-44_R3_SAP_Transportation_Management
 
@@ -282,7 +344,7 @@ Supplier
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -353,10 +415,14 @@ flowchart LR
     class n22 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_RVCQeosYCeiLFmOHwrYshUE2GCNKGkf1n2gJcomQksCSfnSrP-9Q118UZy22_ohyBzNnJk5miH1boRpRI2BcX39zhKmBui9pZZ0RVsD1JoTSVttVAK_EcHInFPZ0j5xmqiA_Vm4YTvbajeN-WTF-E6jAV2kFL0-ttEQAnkbSZLIjqSCxa12KxNsRcTOS3kqtPcV7cdmXGSrHo1SEVFxdDBNF4cOhHKW0CPcdW3X9nWcpGGaRGeksRP347C118XxdBMuiVBF-bmkT2T7O4vUEuyYcEnBZ6lW_CuZU657VCLXWJiLdS0GkzpPAoIFGQlZsgDcNgESJHk7Qo6536P99fUsOSRFX59nCYJfyImUYxojqQCerBWKGeeDK9sb-o7Zlkqkb3RwZU3ccddqh7qTAbRutrW4nQ1li6UazFMeVa6dje5hYGXbttgOLLMtdvC3kYsm0TGT17P6Vv-QaeRiD3t1pjiO_1cm0FW8EPlW5Zp0fcsfH3Jhp-d45ke-us2x7Q5xUycq1iykJ6S-73cnR6kmPQebn5OO_G7P9BqkC6LohuyOhPeefSD0HdfH7qeEZb5mlfl8KtKwJuxOHN85ELoj7A-tTwntIbb7VYXAsxAkW6JRmhezjIZZJstn-pfg7zPjmYaUreldAO8VPSZxKlZEsTRBLEEeEYJRAfA6BdnQs16KkHFWeNyNmcxyRW9vb2fGHye0FtBO1jRRKM8iEEciIigSZaJIEz-8vJyHYPf9fWbEZBCTjj5DOnPYgnCJ6DbkuYSwh1LkmbHfl2FQbqPLyVZRkRCOprAMCRXyDgV5lnHdwWkq3bVPoZBnXdudByu1gBofE0WBSKVCoq6IUAYsu3pi0Cy3TNwFBaJNmkaN4nXDlVaNJ_bN97qtjMOM6PdKpU7GFKgIRYzgWIwQ6K2rORQzXBPG9QEJfF9OCZ0GYaGzRNN8zplc0qjhb5lHXaHAdCM7hCvdG-Gc8g-qlkH454I-vopgOEXBnY1uHqfoF_Ton5bUhQYeKLwfoEG-KI4G9Ap6oJuXpy_n-tlaWEFPPb_pg_yCqwOuUyr0_B7m9rUePxhtj_Aw55qp0vg8vKdndkvD_F-kcnWqVKqDY0CV4nCrwcSP0zAv_vkY1j82E1RTNf2GoGDkB-ML_vd1mmASoA1TSzTMVQojyCnMzIUAbB4zeDoQFlQJNs-LbR0uaBLu0AjWKdEj-DeV4m5jyrx0laWJdoaKtZpBPvdgZsF6HI0PqwNpmvPaOzJJlWbo5Qll1Q7A2HyYV9z_2XOgDLv_T2GWdXHQWfKPh07SRZ3OrzCglemUJu5XtlvatYnvS9upbLtyv6_s6jE2a3-zAno1gEvAOnjUFLgGqpQHuy7JqgGroqg9rIoTuzVgNoE6a9Ohrrug_FGf9uW6zYwfJ0LgfhlSN1KZNQGudOxWdq9KeCi6YVtVE-7JlVmw1F9A57j9Ce58gveqr5tz1K2v-HO4fxm-vwiDdBdhfBm2athoGysKVzKLjMG7UXw7w_d1RGOSc2Xs2waBMyHYJaExKL4xjfLKHTMCC7kqwf1fVJKVCA==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_RVCQeosYCeiLFmOHwrYshUE2GCNKGkf1n2gJcomQksCSfnSrP-9Q118UZy22_ohyBzNnJk5miH1boRpRI2BcX39zhKmBui9pZZ0RVsD1JoTSVttVAK_EcHInFPZ0j5xmqiA_Vm4YTvbajeN-WTF-E6jAV2kFL0-ttEQAnkbSZLIjqSCxa12KxNsRcTOS3kqtPcV7cdmXGSrHo1SEVFxdDBNF4cOhHKW0CPcdW3X9nWcpGGaRGeksRP347C118XxdBMuiVBF-bmkT2T7O4vUEuyYcEnBZ6lW_CuZU657VCLXWJiLdS0GkzpPAoIFGQlZsgDcNgESJHk7Qo6536P99fUsOSRFX59nCYJfyImUYxojqQCerBWKGeeDK9sb-o7Zlkqkb3RwZU3ccddqh7qTAbRutrW4nQ1li6UazFMeVa6dje5hYGXbttgOLLMtdvC3kYsm0TGT17P6Vv-QaeRiD3t1pjiO_1cm0FW8EPlW5Zp0fcsfH3Jhp-d45ke-us2x7Q5xUycq1iykJ6S-73cnR6kmPQebn5OO_G7P9BqkC6LohuyOhPeefSD0HdfH7qeEZb5mlfl8KtKwJuxOHN85ELoj7A-tTwntIbb7VYXAsxAkW6JRmhezjIZZJstn-pfg7zPjmYaUreldAO8VPSZxKlZEsTRBLEEeEYJRAfA6BdnQs16KkHFWeNyNmcxyRW9vb2fGHye0FtBO1jRRKM8iEEciIigSZaJIEz-8vJyHYPf9fWbEZBCTjj5DOnPYgnCJ6DbkuYSwh1LkmbHfl2FQbqPLyVZRkRCOprAMCRXyDgV5lnHdwWkq3bVPoZBnXdudByu1gBofE0WBSKVCoq6IUAYsu3pi0Cy3TNwFBaJNmkaN4nXDlVaNJ_bN97qtjMOM6PdKpU7GFKgIRYzgWIwQ6K2rORQzXBPG9QEJfF9OCZ0GYaGzRNN8zplc0qjhb5lHXaHAdCM7hCvdG-Gc8g-qlkH454I-vopgOEXBnY1uHqfoF_Ton5bUhQYeKLwfoEG-KI4G9Ap6oJuXpy_n-tlaWEFPPb_pg_yCqwOuUyr0_B7m9rUePxhtj_Aw55qp0vg8vKdndkvD_F-kcnWqVKqDY0CV4nCrwcSP0zAv_vkY1j82E1RTNf2GoGDkB-ML_vd1mmASoA1TSzTMVQojyCnMzIUAbB4zeDoQFlQJNs-LbR0uaBLu0AjWKdEj-DeV4m5jyrx0laWJdoaKtZpBPvdgZsF6HI0PqwNpmvPaOzJJlWbo5Qll1Q7A2HyYV9z_2XOgDLv_T2GWdXHQWfKPh07SRZ3OrzCglemUJu5XtlvatYnvS9upbLtyv6_s6jE2a3-zAno1gEvAOnjUFLgGqpQHuy7JqgGroqg9rIoTuzVgNoE6a9Ohrrug_FGf9uW6zYwfJ0LgfhlSN1KZNQGudOxWdq9KeCi6YVtVE-7JlVmw1F9A57j9Ce58gveqr5tz1K2v-HO4fxm-vwiDdBdhfBm2athoGysKVzKLjMG7UXw7w_d1RGOSc2Xs2waBMyHYJaExKL4xjfLKHTMCC7kqwf1fVJKVCA==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.3 E2E_44A_R3_Intel_Owned_Consignment_with_Planning_Integration-Procurement_from_Component_supplier_and — E2E_44A_R3_Intel_Owned_Consignment_with_Planning_Integration-Procurement_from_Component_supplier_and
 
@@ -365,7 +431,7 @@ flowchart LR
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -479,10 +545,14 @@ Power BI"| n22
     class n40 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv4jgU_itWRlU7EohcgfKwK6DQQZq2qHRmtBr2wSQOWDV21nFaup3-9z1ObC4ZOpcuD1X8-Vy-c_Fx0mcnFglxes7JyTPlVPXQ86lakTU57aHTBc7JaQNVwGcsKV4wkp9qmVRwNaP_lmJemG20mMbGeE3Zk0ZnZCkI-jRpoD4osgbKMc-bOZE0PW2cZpKusXwaCiakln5Huqmblt7M1kDIhMidgOt2vDgCVUY52cFBJ-yEY62Xk1jw5MBoGqXdND590eSYeIxXWKqSfpGTK7z5QhO1gnWKWU5AZqXW7CNeEKZjVLLQWFzIB5sMmms_HBI2y3BM-RLw0AVIYn6_gyL35QW9nJzM-dYp-ng75wh-McN5fkFSlCuARw8KpZSx3rtw2B9HbiNXUtyT3jt_1LkI_EasI-lB6G5DJ7f5SOhypXoLwRIj2nzUMfT8bNOQm57vNuQT_K35IjzZeRq2_a7f3XoadLyhN7Se0jT9X54gr_IO5_fG1ygY--OLrS8vakdD93t7NsyLsNP36nki8oHGZM_oeDwORrtUjdqR575udDAO2u6wZnSJFXnETzuD58Nwa3AcdcZe51WDlb86y2IxlSK2BoNRNI62BjsDb9z3XzUY9r2waxiCnaXE2QoNRFH2MupnWV7t6R_3oq9z50YuMYfDh-6g8fJMSNWccEUYuhWFgh5ElwVNCDqb3F6-nzt_76u3Qf2W4GQmUoU-Y0YTrKjgrdEmJpl-Qh8wT5g2ok9_ggCRBZx6KIQqspq1Dlib8FistTzlDwIq1UIDf9C6yQi_IxvV-kIWEBVVpKbaBdUrzAvMrGKO1EqKYrlCN8PbQ-kgeH6eOynupbip51VzAYHHK0Q2MSty-kAuq4LOnZeXfbXwuJomWPn-s64R_a4jOFu10o02ikgOcU3hhHMi89asyDJG4Wk_AeeQgE8ZpJ-gsZAkxrlCQ7FeF5zGZU0QFKJEqDrMhu-WRYwJ8EHTG4RLxUxwwhWyvmoqHqhUttCNnquoH99z8chIsoTZzusefBCfQWjafHxASgl0c3H1mpug1GMkBkpYShBADxSjY925ErkiOkDG8ELIyvoUehmzmtHQkqmYz1Y0O0I52k_K6ikHwuBSA5lCIkVXkGl9ESG8xJRDsqvM_SAYfVbsFoSgmxTo14S6Z19tw-RKZD9NGJpV1N_vGQndXddB1sRj3sRMoQxLzBhhv9Bzs_4UzVrhh_51H02m-22m6y6J7rJpIeEuygkk5Z-C5lSzqwWzEzZH8-c6uuIwo6R4-BUP4RE6ZVUPxXQt7yRdLiFfl3czNFyR-P5QRBdniFlcMG3sDm9IfihQzSbgoPf7BZRhwhd6qqILwqBJ5NOhfHevfy6FSPJt85x9plJBNmqz9HyP5N0VGq0XJElIUptz-qyOHjArNA1rcUaUYuW5Q2ej29l7AFjaHMDl8V2DebqCkzwvyK6D6y11FoVefdDrWk7hiKFaB9fnsK7ftFgwmq9-WBJPl25vaLSGgqdUrn-o5Hd2pyNjcOEe6xBUNoR-sOVKaufD16ke-aNmGKLboGz27c1XaUK74mODLHAPNIfjyXVNwDs-8E2yYEzqe5Ek310U_ttupPbvnfRKqfMWpe5blM7fOIi4j5rNP8CAXZq13zVA0K6AyAqEev0NWmp2jUa-fl2Y82rozJ1vepxbwahS7Jh1xziy68AA3dr63Ky7Rn67bwDPrQOeBQIDtA3gWZ-WU2A4BTbcIDQq3TpgaXpuXcUzCfhLD65v-sTWd65FlQrLwzc5DEJrtFsjZgVs8FFt7ZnQQhu8Z3j628IZnr7Nhm-zYX2cG4GtTVt6t1ZqSzswGp71EbomQHg3nN605tzUvwx2y8xw97fB2uAsM0M9aNfNVm3UMm0F9qfiEebfYFJ5sHn2PcNr68EY3BbCRGb3fdMH2_1D-fJjoJSy33aHeNd8hx2i58elA_cV3LMfL4ewfxwOjsPhcTg6DrePw53jcPc4fH4UhpoZ2Gk4ayLXmCZO79kp_-Pg9JyEpLhgynlpOBiu8NkTj51e-WXuFOW78wXF8Aa0rsCX_wAK7SXe" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv4jgU_isWo6odCUSuQHnYFVDoIE1bVDozWg37YBIHrBo76ziUbof_vseJzSVD59LlAeHP5_Kdi48TXmqRiEmtWzs7e6Gcqi56OVdLsiLnXXQ-xxk5r6MS-IwlxXNGsnMtkwiupvTfQswN0o0W09gIryh71uiULARBn8Z11ANFVkcZ5lkjI5Im5_XzVNIVls8DwYTU0u9IJ3GSwpvZ6gsZE7kXcJy2G4Wgyigne9hvB-1gpPUyEgkeHxlNwqSTROdbTY6Jp2iJpSro5xm5wZsvNFZLWCeYZQRklmrFPuI5YTpGJXONRblc22TQTPvhkLBpiiPKF4AHDkAS88c9FDrbLdqenc34zin6eD_jCD4Rw1l2RRKUKYCHa4USylj3XTDojUKnnikpHkn3nTdsX_lePdKRdCF0p66T23gidLFU3blgsRFtPOkYul66qctN13Pq8hm-K74Ij_eeBi2v43V2nvptd-AOrKckSf6XJ8irfMDZo_E19Efe6Grnyw1b4cD53p4N8ypo99xqnohc04gcGB2NRv5wn6phK3Sd1432R37LGVSMLrAiT_h5b_ByEOwMjsL2yG2_arD0V2WZzydSRNagPwxH4c5gu--Oet6rBoOeG3QMQ7CzkDhdor7Ii15GvTTNyj394W74dVa7kwvM4fChB2i8LBVSNcZcEYbuRa6gB9F1TmOCLsb31-9ntb8P1Vugfk9wPBWJQp8xozFWVPDmcBORVP9CHzCPmTaiT3-MAJE5nHoohMrTirU2WBvzSKy0POVrAZVqor7Xb96lhD-QjWp-IXOIiipSUe2A6g3mOWZWMUNqKUW-WKK7wf2xtO-_vMxqCe4muKHnVWMOgUdLRDYRyzO6JtdlQWe17fZQLTitpgmWvv-saoS_6wjOVqV0w40ikkNcEzjhnMisOc3TlFH4dZiAS0jApxTST9BISBLhTKGBWK1yTqOiJggKUSBUHWfDc4oiRgT4oMkdwoViKjjhCllfFRUXVEpb6E7PVdSLHrl4YiRewGznVQ8eiE8hNG0-OiKlBLq7unnNjV_oMRIBJSwlCKA1xehUdy5FpogOkDE8F7K0PoFexqxiNLBkSubTJU1PUA4Pk7J8zoAwuNRAqpBI0A1kWl9ECC8w5ZDsMnM_CEafFbsFIegmBfoVoc7FV9swmRLpTxOGpiX19wdGAmffdZA18ZQ1MFMoxRIzRtgv9Ny0N0HTZvChd9tD48lhm-m6S6K7bJJLuIsyAkn5J6cZ1ewqweyFzdH8uY6uOMwoKda_4iE4Qaeo6rGYruWDpIsF5Ov6YYoGSxI9Hovo4gwwi3KmjT3gDcmOBcrZBBz0fi-HMoz5XE9VdEUYNIl8PpbvHPTPtRBxtmuei89UKshGZZZeHpB8uEHD1ZzEMYkrc06f1eEas1zTsBanRClWnDt0MbyfvgeAJY0-XB7fNZirKzjOspzsO7jaUhdh4FYHva7lBI4YqnRwdQ7r-k3yOaPZ8oclcXXpDoZGcyB4QuXqh0pee386UgYX7qkOQUVD6B-2XHHlfHg61UNv2AgCdO8Xzb67-UpNaFd8apD5zpHmYDS-rQi4pwe-SRaMSX0vkvi7i8J7243U-r2TXiq136LUeYvS5RsHEfdQo_EHGLBLs_Y6BvBbJRBagUCvv0FLTW_R0NOPCzNeDp1Z7Zse51YwLBXbZt02juzaN0Cnsr40646R3-0bwHWqgGsB3wAtA7jWp-XkG06-DdcPjEqnCliarlNVcU0C_tKD65s-sdWdW1GmwvLwTA79wBrtVIhZARt8WFm7JrTABu8ant6ucIanZ7Ph2WxYH5dGYGfTlt6plNrS9o2Ga30EjgkQng0nd80ZN_Uvgt0xM9y9XbA2OMvMUPdbVbNlGzVNW4H9iXiC-dcflx5snj3X8Np5MAZ3hTCR2X3P9MFu_1i-eBkopOy73THeMe9hx-jlaWnfeQV37cvLMeydhv3TcHAaDk_DrdNw-zTcOQ1fnoShZgau1WsrIleYxrXuS634xwH-lYhJgnOmatt6DcMVPn3mUa1bvJnX8uLZ-YpieAJaleD2PwrtJd4=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.4 E2E_44B_R3_-_Intel_Owned_Consignment_with_Planning_Integration-Shipment_of_components_from_Intel_War — E2E_44B_R3_-_Intel_Owned_Consignment_with_Planning_Integration-Shipment_of_components_from_Intel_War
 
@@ -491,7 +561,7 @@ Power BI"| n22
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -728,10 +798,14 @@ from R3 onwards"| n68
     class n84 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWltv2zgW_iuEi25SwGmsKxU_7MKx40yApjFit8Visg-MTNtCZUlDUblsmv--hzKPbNPMTKvZPhTV4bl858pjqS-dOJ_zTr_z_v1LkiWyT16O5Iqv-VGfHN2zkh91yYbwlYmE3ae8PFI8izyT0-S_NZvjF0-KTdHGbJ2kz4o65cucky9XXTIAwbRLSpaVJyUXyeKoe1SIZM3E8zBPc6G43_Fo0VvU1vTReS7mXGwZej3qxAGIpknGt2SP-tQfK7mSx3k231O6CBbRIj56VeDS_DFeMSFr-FXJr9nTt2QuV_C8YGnJgWcl1-knds9T5aMUlaLFlXjAYCSlspNBwKYFi5NsCXS_ByTBsu9bUtB7fSWv79_fZY1RMhvdZQT-xCkryxFfkFIC-eJBkkWSpv13_nAwDnrdUor8O--_cy_oyHO7sfKkD673uiq4J488Wa5k_z5P55r15FH50HeLp6546ru9rniGvw1bPJtvLQ1DN3KjxtI5dYbOEC0tFou_ZQniKmas_K5tXXhjdzxqbDlBGAx7h_rQzZFPB44ZJy4ekpjvKB2Px97FNlQXYeD03lZ6PvbC3tBQumSSP7LnrcKzod8oHAd07NA3FW7smSir-4nIY1ToXQTjoFFIz53xwH1ToT9w_EgjBD1LwYoVOc-rupbJoCjKzZn6k3nB73edWx7z5IGfTiGx5Cpb5GLNZJJnJMnIkAmRcAHkhxziRm5VV8RJmtQcp6OkLCrJP378eNf5z47eMHx5uessWH_BTtREOLmHmo5XhD_FaVWCsctNyO46r68bMbBtYL54klxkLCUTKO2Mi9NpVRQpgNnFHwJ-xDjMs0WC2G_zSkL_kMsqmfPT4e31PkCPguAkib8Dj3ESqRNmOzmDk085mx-c-D0lk5eSTFbPZRID6DqohST5glyDr2pmEbZkSQZM09kNYZLcjK5J49O-PkejIzdqapHpKinWPJPkMs_nJTnWHn8wpFyQGnM-J7dgsTwdwqhY8hJyJzmEVOaiJJ6YkwLi-YydQO4qt-d4gHf-CMoNjR5oPM_z76czyA8AkXlTEQ8JI-ef_U-GhA8S08HEdhRsc2WcRMe_Y7UUKTSSKn5eKuSJhEoDj87h7pgTlVd4bDwbPLAkVbcI6Puwq_DMUIiKbOh3BYOeIXjxAGEvyaS6T5Nyxecmf7jlL2VeQNHyuKoLkG8k0dDJ5WwG1gtZiQMtIf3VbtmIRa3E6NlWDKKRP5YnLJWqKlia8tQuFPXaCDlthNw2Ql4bIf_XhA5HlCr06an_2-DzgFxNdlSr_h0KripuKnPo4xmkpixyuLrrjt6v_7pvExh1sAHV3ZpinZbbwoehYYwjkJqJZLmEcr6cTclwxePvRmNtYdxU8l5dAmTEUygN8bzPuenNNK5SxTxjT7w0Jrqydk0u1vd8PufGnMBh2iVqcBIGZr4Uc9C0zxbhlNyMsauyrAwONWEvnuo44Y1zPOGivpKMaeeomTvM12suYjVct_wit_LXOVExIoPZpGabV7EkgzTN482doccJ3G4wH2tWU4e7DeiggmF4lf1ZUB1ve7tqn_W1cPw1EbJiqalfJawOy_bSACu7FwU5DnzHFFPZuxo2IYBiU3cUlJ74CNAKNbszaciEf5VxhzbOnup0krGoFznyBeZpnWZLNTsqzVOecgiuddw7Z3um9TA3WqJnvcv6DQJI8SNTxuE6VG04uzaC4jp1LalxvMW9uU4V8Klksiq1XyUp6rK8MlS4O_nDzQcgGUvRcWma9t6O3JRLmfL6Mh_lcbU-SIy707RTfUdPbk7JRSZhf5uuODcFVPZ1FW_tDMGhUhUPlia5knytdoeb08ngA8nFtsS-srSqO8BQHGK_DuJYVJtaRP3QpTwruTqCDpCHMaC_kMBviVzBsnmYQ1VKlxyWv5-dpKq0msteTcVjPU5GHLZrUXtpGPE2g6TeHS1TVpXRNcvYklsO3bfn_C3_o-KlkStvWxkQ_kzF9OfkVFHA7i7yh5-05If_752KvrVT_bkjpHZ3U1x7q5NjrE6WWY6pP1i73IO1qzaZ_JWcZ8g1LVAP3bk5bE1x3xD_qb4gqoUOoQSGrr_VuHiLHZp5Y7UcihxqYfNS5F_GXhS02yuDs3ZbbK-dmNNOzG0n5tnF3l4iUm6GNfTbmQ7aibXZ8mmbLZ-22fJpmy2fttnyqd9GKGgjFLYRom2Eopa_XDKHnJz8U1WHfg7PNgRPP_ubR6rfSME_tAA-63MHn7XCgGpCUHP8uOv8W610P9RYME8-5_WBgzY8rdSLkBBpK42oJiADRdSmG6GPfmhcPhpxPK3TRR3uhuAEyKF9DzAWDjrbcGgYDpp1tFl8cQn_0CKIw9U4KAbQ1WZdtOJqYG4jgjlADoociMMNNFIk-FpphGnxNVIfvQ1DHTEUibASmsz6JiEwCCFCR6UeciDB11ZcrAZXhzBsgGlfItfE0XBgGtBsoGPqN94GupDGN-Qf5LfBt3O4EYuifiv3YwevRkcbMFhWWEaR1hw1odf5DBBMpOEGkUnAEtA6QzRCtcduU8wGCqolXKPDoqaGdKbQDQcjhPUQekaLeU0nOUYbNKy65zzHaJjAQBU2qnoGATu9IYSYF3zWiXPQhhcankW-ESwkeEjwzjTenTcE-Nr0Lms2oixXrxZ-qHSYcwjD7mh0bjNDUHVdMExKFq9g47tT77vhlwfux1hFzWTR-fTRKwfnhmcOkiYQ-pmajdQEX4N1GrCaw2l6T-sII6M7XcfkcM0p0UwazREgrsjVEWheJ8OyXr_nVp8FVCREvia3HvwkUL_MNrXVIPB1xfjenrpdt3DoNEO4pw365y65vN1M_WZ4aLwecnuor-lzvBfQoucbHCHGTT9jUbt79wQAqD_DQYqTTGKC6c43l3py4Se0fTp9gx69QT-z02GI2emO_py2T3WtVM9K9a3UwEoNrVSKX7D2yZGdfGYlwzSwkh072bWTPTvZt5MDOzm0k-1ehnYvQ7uX1O4ltXtJ7V5Su5fU7iW1e0ntXlK7l9TuJbV7Gdm9jOxeRnYvI7uXUeNlp9uB3_trlsw7_ZdO_Z8COv3OnC9YlcrOa7fDKplPn7O4068_nneq-k3aKGFLwdYb4uv_AKiA1Vs=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWllv20gS_isNBVk7gByLZ9N62IWsw2MgjgVLSbAY70ObbFlEKJJDNn2s4_--1WQXJbXaMwln_WCYxTq-OrvU8ksvzCLeG_bev3-J01gMycuRWPMNPxqSoztW8qM-aQhfWRGzu4SXR5JnlaViEf-3ZrPc_EmySdqMbeLkWVIX_D7j5Mtln4xAMOmTkqXlScmLeHXUP8qLeMOK53GWZIXkfseD1WBVW1OvzrMi4sWWYTCgVuiBaBKnfEt2qEvdmZQreZil0Z7SlbcKVuHRqwSXZI_hmhWihl-V_Io9fYsjsYbnFUtKDjxrsUk-sTueSB9FUUlaWBUPGIy4lHZSCNgiZ2Gc3gPdHQCpYOn3LckbvL6S1_fvb9PWKFlOblMCP2HCynLCV6QUQJ4-CLKKk2T4zh2PZt6gX4oi-86H7-wpnTh2P5SeDMH1QV8G9-SRx_drMbzLkkixnjxKH4Z2_tQvnob2oF88w2_NFk-jraWxbwd20Fo6p9bYGqOl1Wr1tyxBXIslK78rW1NnZs8mrS3L873x4FAfujlx6cjS48SLhzjkO0pns5kz3YZq6nvW4G2l5zPHH4w1pfdM8Ef2vFV4NnZbhTOPziz6psLGno6yupsXWYgKnak381qF9Nyajew3Fbojyw0UQtBzX7B8Tc6zqq5lMsrzsnknf1LH-_22d8NDHj_w0wUkllymq6zYMBFnKYlTMmZFEfMCyA8ZxI3cyK4I4ySuOU4ncZlXgn_8-PG2958dvb7_8nLbW7Hhip3IiXByBzUdrgl_CpOqBGMXTchue6-vjRjY1jBPnwQvUpaQOZR2yovTRZXnCYDZxe8DfsQ4ztJVjNhvskpA_5CLKo746fjmah-gQ0FwHoffgUd7E8g3zPTmDN58ylh08MYdSJmsFGS-fi7jEEDXQc0FyVbkCnyVM4uwexanwLRYXhMmyPXkirQ-7euzFDpyLacWWazjfMNTQS6yLCrJsfL4gyZlg9SM84jcgMXydAyj4p6XkDvBIaQiK0riFBHJIZ7P2AnktrIHlgN4o0dQrml0QON5ln0_XUJ-AIjI2op4iBk5_-x-0iRckFiM5qZX3jZX2pvg-HesljyBRpLFz0uJPBZQaeDROZwdEZF5hcfWs9EDixN5ioC-D7sKzzSFqMiEflfQG2iC0wcIe0nm1V0Sl2se6fz-lr8UWQ5Fy8OqLkDeSKKhk4vlEqznoioOtPj0V7ulEQs6idGzrRhEI3ssT1giZFWwJOGJWSgYdBGyugjZXYScLkLurwkdjihZ6ItT97fR5xG5nO-olv07LrisuIXIoI-XkJoyz-Dorjt6v_7rvo1h1MEGVHdrgnVabgsfhoY2jkBqWcT391DOF8sFGa95-F1rrC2M60rcyUOATHgCpVE873M2vZmEVSKZl-yJl9pEl9auyHRzx6OIa3MCh2mfyMFJGJj5kkegaZ8twCnZjLHLsqw0Djlhp091nPDEOZ7zoj6StGlnyZk7zjYbXoRyuG75i8zIX-dExoiMlvOaLapCQUZJkoXNmaHGCZxuMB9rVl2HvQ3oqIJheJn-WVAtZ3u6Kp_VsXD8NS5ExRJdv0xYHZbtoQFWdg8Kcuy5li4ms3c5bkMAxSbPKCi94iNAy-XsToUm4_9Vxi3aOnuq0klmRb3IkS8wT-s0G6rZkmle8IRDcI3j3jrbM62GudYSA-NZNmwRQIofmTQOx6Fsw-WVFhTbqmtJjuMt7uY4lcAXgomqVH6VJK_L8lJTYe_kDzcfgKQtRcelbtp5O3ILLkTC68N8koXV5iAx9k7TLtQZPb8-JdNUwP62WHOuC8jsqyre2hmDQ6UsHixNcin4Ru4O16fz0QeSFdsS-8qSqu4ATbGP_ToKw6JqahH1Q5fytOTyFXSAOIwB_YUEfovFGpbNwxzKUrrgsPz97CSVpdUe9nIqHqtxMuGwXRe1l5oRpxkk9e5omLKyjK5Yyu654aX99py_4X9UvNRy5WwrA8Kfypj-nJwsCtjdi-zhJy25_v97p6Jv7VR_7gip3W2Ka291srTVyTDLMfUHa5d9sHbVJuO_knM0ubYF6qEb6cNWF3c18Z_qCyJb6BCKp-n6W42Lp9ihmTdWy3GRQS00lyL_0vYir9te6Z1122IH3cSsbmJ2NzHHLPb2EpFwPay-2820102sy5ZPu2z5tMuWT7ts-bTLlk_dLkJeFyG_ixDtIhR0_OSSWuTk5J-yOtSzf9YQHPXsNo9U3UjBH0oAn9V7C5-VQo8qgldz_Ljt_VuudD_kWNDffM7qFxbacJRSJ0BCoKy0ooqADBRR6274LvqhcLloBK44Gp026rAbguUhh_Ldw1hY6GzLoWBYaNZSZvHiEv5QIojDVjgoBtBWZm20YitgdiuCOUAOihyIw_YUUiS4SmmAaXEVUhe99X0VMRQJsBLazLo6wdMIPkJHpQ5yIMFVVmysBluF0G-BKV8CW8fRcmAa0KynYuq23nqqkGbX5B_kt9G3czgR87y-lfuxg1ehoy0YLCsso0BpDtrQq3x6CCZQcL1AJ2AJKJ0-GqHKY7stZg0FVRK21mFBW0MqU-iGhRHCevAdrcWctpMsrQ1aVtVzjqU1jKeh8ltVA42And4SfMwLPqvEWWjD8TXPAlcLFhIcJDhnCu_ODQFem96m7UaUZvJq4YdMhz6HMOyWQme3MwRV1wXDhGAh3OeRW3nfDZ88cD_GKmoni8qni15ZODccfZC0gVDPVG-kNvgKrNWCVRxW23tKhx9o3WlbOoetT4l20igOD3EFtopAe50My3p9zy2_FpCRKLINuXHgI4H8ZNbUVovAVRXjOnvqdt3CodMO4YEy6J7b5OKmmfrt8FB4HeR2UF_b53guoEXH1Th8jJt6xqK2984JAFB_DQcpjlOBCaY737nUkwu_Qtun0zfowRv0MzMdhpiZbqmv0_aptpHqGKmukeoZqb6RSvEbrH1yYCafGckwDYxky0y2zWTHTHbNZM9M9s1ks5e-2Uvf7CU1e0nNXlKzl9TsJTV7Sc1eUrOX1OwlNXtJzV4GZi8Ds5eB2cvA7GXQetnr9-Dz_obFUW_40qv_KQD-cSDiK1Ylovfa7zG4YV08p2FvWH953qvqm7RJzODyfdMQX_8HqIDVWw==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.5 E2E_44C_R3_Intel_Owned_Consignment_with_Planning_Integration_-_Subcontracting_Process_with_ODM_Suppl — E2E_44C_R3_Intel_Owned_Consignment_with_Planning_Integration_-_Subcontracting_Process_with_ODM_Suppl
 
@@ -740,7 +814,7 @@ from R3 onwards"| n68
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -894,10 +968,15 @@ Power BI"| n21
     class n56 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWNtu4zgS_RVCjUbSgD0WdfHtYRa2YycBOolhpydYjPeBliibiCxqKSlxNp1_36JEKjYjD6YzeWi0SnXqeqpI69UKeEitofX16ytLWD5Er2f5lu7o2RCdrUlGz1qoEvxBBCPrmGZnUifiSb5k_yvVsJfupZqUzciOxS9SuqQbTtGP6xYaATBuoYwkWTujgkVnrbNUsB0RLxMecyG1v9B-ZEelN_VqzEVIxbuCbfdw4AM0Zgl9F7s9r-fNJC6jAU_CI6ORH_Wj4OxNBhfz52BLRF6GX2T0huwfWJhv4TkicUZBZ5vv4u9kTWOZYy4KKQsK8aSLwTLpJ4GCLVMSsGQDcs8GkSDJ47vIt9_e0NvXr6ukdoruL1YJgr8gJll2QSOU5SCePuUoYnE8_OJNRjPfbmW54I90-MWZ9i5cpxXITIaQut2SxW0_U7bZ5sM1j0Ol2n6WOQyddN8S-6Fjt8QL_Gv4okn47mnSdfpOv_Y07uEJnmhPURT9I09QV3FPskfla-rOnNlF7Qv7XX9if7Sn07zweiNs1omKJxbQA6Oz2cydvpdq2vWxfdroeOZ27YlhdENy-kxe3g0OJl5tcOb3Zrh30mDlz4yyWM8FD7RBd-rP_Npgb4xnI-ekQW-Evb6KEOxsBEm3aMyLkstolKZZ9U7-JS7-c2XdiQ1JYPjQPRAvS7nI29dJTmO04EUOHESXBQspOr9eXH5bWf85hDsAX1ASLnmUoz9IzEKSM550pvuApvJ_6IokYSyNyOkPEUhEAVMPjciL1LDmgrXrJOA7qc-SJw6d6qCxM-7cpTS5p_u880DXkBXLqQH1AHpDkoLEGpihfCt4sdmiu8niWNvrv76urIgMI9KW-6q9hsSDLaL7IC4y9kQvq4aurLe3Q9igGSYDrHz_y0D49q86gtkyWjfd51QkkNccJjyhIussizSNGRUHjvCgbERAwSaa3yGSo7uLG1RrHqXv2KA84bsdAy25FdEoeEz4c0zDDWzmJDfUJUeWEJg0DM3ZFQkLZJtRgnKO3Pl3Q98p9WMa5GhChAD_6IkR1MSpLc9yYAWs2JisuSjJg-bAQBIbRiU35ix4RD9SdMl5mKFzZfybSiLbsrQhesmMRZGgm8Vcl2UKRT5W8kFpuqdBkVMEfI7bOdtRCCvJil3JY0O_W1YwhXla3jYXoXfYkO1LBiWD5KUgzWUcHxF9XealSkQank7K2t3dT1AKG4FmGYq4QCETsrwyZbQqHBu7qGKgYVPSYk4FQHZHhIBmyCGBRhhzZB8UYsbBCcmgiwdNTxAMNKrYY2C7539qsqcxrMNruAAwIivaVP5vh9CeAZVqP1JYJjDGqoofMIN3TJbz1GSnJidaVpw4xHq2ga1L3qTc_dy26H0K5nvvMOA3f87aJM5RSgSJYxqfAPmfAXV_DfRxNS1Hc7TseFej2xG6nh-uIzkegsreL4t1IGe6EHBzyWg1qwZLQftesM0GeHl5v0STLQ0eDW5JgyQOiljavCd7mhkrXRIdlglQoJ5ZtONP5T5Dvuceq_vlSbOWpyK6oDF0A87GZ5Zv0RWHSwcaMYEeyMsazl90W-zWENn51ehhbJx_cg3cA6FBIQypsVQON0C1sQ7GXxL8O6-Iegwr10DOYdPVx7FacOXwvsjlCcjf9NyDpY40_Fslrbbsw9Wx0cPjodH4sTq2D_Q_1AnCb_aC8cmUK6c_EkHh3sICufTPtRGjqFjyYfpE4qLcHdoAzfO46ub5dLH8BoI4ao-hQR-WGHY1GYx1Z1wacEmaYh2zbPuXBMWSLgdnZAcOhojBSv1LUPf0ECzofwuWsY_Nx72_BULn1bY3Kye5Azc8wZ9-wafrn9rbZSDSHY_-bjRHG7pvbNmD8xTd6Nmcl1cAc-dKJk2dadvz0MJFk9n1rTHvzpGC3EQ1o6uYISbSdJ3x3M-tc68ZppgFVyh546WheQX0_M8dA_gzG935DMj95DGQYNRu_y5DVc--Ejjq2VHP7kADBkrB1hqeEvhKoJ7dvlbwpeDnyrqlz2hxPZnOHlbWT9DTLhVA4331qEPwnUrQ1fa61bPXNRQ-ClwN6SmbtQ_lxKmD7CuITksh9Hv1WldBFQFrbWwrga4jVnXDOgvPU1X4tzz2fsoNp1Vd5VpjPeXbGZjYW15Vrqde6Eo4Rve0aWXZr-tgPGNdel05rOtS919B3JogXRUL_Iqb33VWydSRP-yqlAamUrVUOqhSAu05f4ZVPr4u9Z06Y1VeV7t1deS6wL4qsKcb4qkWuJ4pqJP3DBvYMWw4CuLVcSu3WBt19TjURlXJHa3h6EhNOjtdg2s1Gz1tQ7fRUzb0s6sIUPfZ1ZHXXjXfNKGxgmCdG9bc0BquCgNro7hvaHha4-BLRonTH6aO5d0T8t4JeV99dDqWDpqknt0oxc2WPeeE3NVfdY7FXrPYbxZ3m8W9ZnG_WTxoFAOpG8W4Wew0i5uz9Juz9Juz9OssrZa1o2JHWGgNX63yM681tEIakSLOrbeWRYqcL1-SwBqWn0OtovyJd8EI_J7YVcK3_wOJR8Hn" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1v4rgW_isWo1E7EixxXnj7sFdAoa00bRF0trpa7gcTHLAa4lzHaent9L_f48ROwQ2rnW4_jCYn5zmvzzk2eW2EfE0bg8bXr68sYXKAXs_klu7o2QCdrUhGz5qoFPxBBCOrmGZnSifiiVyw_xVq2E_3Sk3JpmTH4hclXdANp-jHdRMNARg3UUaSrJVRwaKz5lkq2I6IlzGPuVDaX2gvcqLCm3414mJNxbuC43RxGAA0Zgl9F3tdv-tPFS6jIU_WR0ajIOpF4dmbCi7mz-GWCFmEn2f0huwf2Fpu4TkicUZBZyt38XeyorHKUYpcycJcPJlisEz5SaBgi5SELNmA3HdAJEjy-C4KnLc39Pb16zKpnKL7i2WC4C-MSZZd0AhlEsSTJ4kiFseDL_54OA2cZiYFf6SDL-6ke-G5zVBlMoDUnaYqbuuZss1WDlY8XmvV1rPKYeCm-6bYD1ynKV7gX8sXTdbvnsYdt-f2Kk-jLh7jsfEURdE_8gR1Ffcke9S-Jt7UnV5UvnDQCcbOR3smzQu_O8R2nah4YiE9MDqdTr3Je6kmnQA7p42Opl7HGVtGN0TSZ_LybrA_9iuD06A7xd2TBkt_dpT5aiZ4aAx6k2AaVAa7IzwduicN-kPs93SEYGcjSLpFI54XXEbDNM3Kd-ov8fCfy8ad2JAEhg_dA_GylAvZuk4kjdGc5xI4iC5ztqbo_Hp--W3Z-M8h3AX4nJL1gkcS_UFitiaS8aQ92Yc0Vf9DVyRZx8qImv41AonIYeqhETJPLWseWLtOQr5T-ix54tCpNhq5o_ZdSpN7upftB7qCrJikFtQH6A1JchIbYIbkVvB8s0V34_mxtt97fV02IjKISEvtq9YKEg-3iO7DOM_YE70sG7psvL0dwvr1MBVg6ftfFiJwftURzJbVusleUpFAXjOY8ISKrL3I0zRmVBw4wv2iESEFm2h2h4hEdxc3qNI8St91QHnMdzsGWmoromH4mPDnmK43sJkTaakrjiwgMGUYmrPLExaqNqMESY682XdL3y30YxpKNCZCgH_0xAiq49SWZxJYASs2JisuCvKgGTCQxJZRxY0ZCx_RjxRdcr7O0Lk2_k0nkW1ZWhO9YsY8T9DNfGbKMoEiHysFoDTZ0zCXFAGf45ZkOwphJVm-K3hs6XeKCqYwT4vb-iJ0DxuyfcmgZJC8EqRSxfER0TNlXuhElOHJuKjd3f0YpbARaJahiAu0ZkKVV6WMlrnrYA-VDLRsKlrMqADI7ogQ0Aw1JNAIa46cg0JMOTghGXTxoOkJgoFGJXssbOf8T0P2NIZ1eA0XAEZURevK_-0Q2rWgSu1HCssExlhX8QOm_47JJE9tdhpyokXJiUOs71jYquR1yp3PbYvup2CB_w4DfvPnrEViiVIiSBzT-AQo-Ayo82ugj6tpMZyhRdu_Gt4O0fXscB2p8RBU9X6Rr0I107mAm0tGy1m1WAra94JtNsDLy_sFGm9p-GhxSxkkcZjHyuY92dPMWumK6LBMgALVzKIdfyr2GQp871g9KE6alToV0QWNoRtwNj4zuUVXHC4daMgEeiAvKzh_0W2-W0Fk51fDh5F1_qk1cA-EBoX1mlpL5XADlBvrYPwVwb_zkqjHsGINSA6brjqO9YIrhvdFLU9A_mbmHiy1leHfSmm5ZR-ujo0eHg-1xo_VsXOg_6FOEH69F4xPplw6_ZEICvcWFqqlf26MWEXFig-TJxLnxe4wBqiUcdnN88l88Q0EcdQaQYM-LDHsGTJY6866NOCCNPkqZtn2LwmKFV0Ozsg2HAwRg5X6l6DO6SGY0__mLGMfm4-7fwuEzsttb1dOcQdueII__YJPLzi1t4tAlDse_d1ojjZ0z9qyB-cpujGzOSuuAPbOVUyauJOW76O5h8bT61tr3t0jBbWJKkaXMUNMpO4643ufW-d-PUwzC65Q6sZL1_YV0A8-dwzgz2x09zMg75PHQIJRq_W7ClU_B1rg6mdXP3t9A-hrBcdo-FoQaIF-9npGIVCCn8vGLX1G8-vxZPqwbPwEPeNSAww-0I8mhMAtBR1jr1M--x1L4aPAM5Cutln50E7cKsiehpi0NMK8169NFXQRsNHGjhaYOmJdN2yy8H1dhX-rY--n2nBG1dOuDdbXvt2-jb3lZeW6-oWphGt1z5jWloOqDtYzNqU3lcOmLlX_NcSrCNLRscCvuNlde5lMXPXDrkypbyuVS6WNSiXQnvFnWOWj60LfrTLW5fWMW89Ebgoc6AL7piG-boHn24Iqed-ygV3LhqshfhW3douNUc-MQ2VUl9w1Gq6J1Kaz27G4VrHRNzZMG31twzx7mgBVnz0TeeXV8M0QGmsINrlhww2j4ekwsDGKe5aGbzQOvmQUOPNh6ljeOSHvnpD39EenY2m_Tuo7tVJcb9l3T8g981XnWOzXi4N6cade3K0X9-rF_VoxkLpWjOvFbr24PsugPsugPsugyrLRbOyo2BG2bgxeG8VnXvgUvKYRyWPZeGs2SC754iUJG4Pic2gjL37iXTACvyd2pfDt_4lHwec=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 3.3 Business Roles & Responsibilities
 
@@ -916,7 +995,10 @@ Supplier
 | External Partners/Supplier | E2E_44C_R3_Intel_Owned_Consignment_with_Planning_Integration_-_Subcontracting_Process_with_ODM_Suppl | |
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 4. Data Architecture (TOGAF "D")
 
@@ -927,11 +1009,15 @@ Supplier
 | 1 | e.g. Cost Element | e.g. MES 300 | e.g. XEUS | Data steward | e.g. Intel Confidential | e.g. 10K rows/day | Master / Transaction |
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
 
 #### 4.2.1 Current-State — Current-State Data Flows
 
@@ -969,10 +1055,16 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlY9vmkAUx_-Vyy3GLdGOquhK0iaH4NqENl2x25KykBMeeukJBI5Va_3fdwdKN6td07uEeO_H9z0-j5wrHCQhYAM3GisWM2GgVVPMYA5NAzUnNIdmCzVzCIqMiaUDv4ErB0-SylOGfqcZoxMOeVNlR0ksXPZYChzr6UKFKduIzhlfKqsL0wTQ7UULEZnIm2sVwZOHYEYzUWoUOVzSxQ8Wipk8R5TnIGNmYs4dOgGuComsULZYdu-mNGDxVBq7ujRlNL5_NvX09RqtGw0vrkugsenFSK6A0zy3IEI0Tc1kgSLGufHB1K3RaNTKRZbcg_FB0wYDs785th9UT0YnXbSChCeZcnctfVcvnAyXfCNHdKtPBrVcxx5Y3c5BuWNTtzvajhwk_Lm90cjUTb3WGw41uQ7q9fvK7cWVYl5MphlNZ8ju2L3e0CJDxwd_6pPHIgPf_ebceRh5-FcVrVbIMggES-IamlrbdFJm_7RvXZkIR9MjpH5LAcMwKqYvc6ydih897BXhl24on2HQ84oINPnKSqwMQjLIw5-UZIn1tS5Q-6h9dqhSlQhxuGEhlhwOgtjCJmrXsG1N7X9hH6eL_-F1ybV_Tq7Iu-he2q7f1bQtYHlE8vgWxnXZVxDLGKRi3kJ408k-yNtSb2G8jX0X4v1l0enp2dMGkFUyRZ8Rub6QzxHj4OGnwx_FzugcmMr27_4iFoQassiYIHIzPL8Y28Px7Y2NHPurfWUdmKZz82x1fDV3kqacBVR594_O8a0Dc7KooOom3j8ix7elvB2H7SRqOyyCSr66MvaOo3rDLX1d7Zr-ycnJC_S4heeQzSkLsbHC5Y0v_y9CiGjBBV63MC1E4i7jABvlpYyLNKQCLEYl0XllXP8BySb1Tw==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1rozAYx79KyCjcQbtzbW1vwgbx7VZwYze7u4N5SKqxDUtVNN7adf3ul6h1u67uxhKQ5Hn5P_H3SNzAIAkJ1GCns6Ex5RrYeJAvyJJ4UAMenOFcrLpilZOgyChfO-QPYZWTJcnOW6b8wBnFM0Zy6RY6URJzlz7WUidquqqCpd3GS8rWlccl84SA20kXICEgxLdlFEseggXOeK1W5OQSr37SkC-kJcIsJzJuwZfMwTPCyrI8K0prLF7LTXFA47k0D1RpzHB8_8I4VLdbsO10vLipBaa6FwMxAobz3CQRwGmqJysQUca0I101bdvu5jxL7ol2pCjjsT6qt70HeTStn666QcKSTLoHprqvF86MNavlkGqO0LiR61tjc9BvlTvRVauv7MmRhD0fz7Z1VVcbPcNQxGjVG42k24srxbyYzTOcLoDVt4ZDw0SG4xN_7qPHIiO--92586BA-LuKliOkGQk4TeIGmhy7dFRm_7JuXZFIjufHQK6FgKZpFdPXOeZexU8e9Irw6yAUzzAYekVEFPHKUqwMAiLIg5-lZIn1rVOA3nHvvK1SlUjisGbB14y0gtjBRnI2sC1Fzn9hn4gv_j94XXTtX6Ar9CG6l5brDxRlB1hsgdi-h3FT9g3EIgbImPcQrk9yCPKu1HsY72I_hPhwWXB2dv5UAzJLpuALQNcT8bQpE3fTU_tHsdc6h8zF8e9eEAtCBZhoigC6MS4mU8uY3t5YwLG-WVdmSzedm2er48u-ozRlNMDSe7h1jm-29MnEHFdX9KEWOb4l5K047CVRz6ERqeSrK-NgO6o33NFX5Wzon56evkIPu3BJsiWmIdQ21U9A_EtCEuGCcXGNQ1zwxF3HAdTKixkWaYg5MSkWRJeVcfsXIfT-0w==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 
 #### 4.2.2 Future-State — Future-State Data Flows
 
@@ -1010,10 +1102,15 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlY9vmkAUx_-Vyy3GLdGOquhK0ianwNqENl2x25KykBMeeukJBI5Va_3fdwdKN6td07uEeO_H9z0-j5wrHCQhYAM3GisWM2GgVVPMYA5NAzUnNIdmCzVzCIqMiaUDv4ErB0-SylOGfqcZoxMOeVNlR0ksXPZYChzr6UKFKZtN54wvldWFaQLo9qKFiEzkzbWK4MlDMKOZKDWKHC7p4gcLxUyeI8pzkDEzMecOnQBXhURWKFssu3dTGrB4Ko1dXZoyGt8_m3r6eo3WjYYX1yXQeOjFSK6A0zw3IUI0TYfJAkWMc-PDUDdt227lIkvuwfigaYPBsL85th9UT0YnXbSChCeZcndNfVcvnIyWfCNHdLNPBrVcxxqY3c5BueOhbnW0HTlI-HN7tj3Uh3qtNxppch3U6_eV24srxbyYTDOazpDVsXo92yQjxwd_6pPHIgPf_ebceRh5-FcVrVbIMggES-IamlrbdFJm_7RuXZkIR9MjpH5LAcMwKqYvc8ydih897BXhl24on2HQ84oINPnKSqwMQjLIw5-UZIn1tS5Q-6h9dqhSlQhxuGEhlhwOgtjCJmrXsC1N7X9hH6eL_-F1ybV_Tq7Iu-heWq7f1bQtYHlE8vgWxnXZVxDLGKRi3kJ408k-yNtSb2G8jX0X4v1l0enp2dMGkFkyRZ8Rub6QT5tx8PDT4Y9iZ3QOTGX7d38RC0INmWRMELkZnV-MrdH49sZCjvXVujIPTNO5ebY6vpo7SVPOAqq8-0fn-OaBOZlUUHUT7x-R41tS3orDdhK1HRZBJV9dGXvHUb3hlr6udk3_5OTkBXrcwnPI5pSF2Fjh8saX_xchRLTgAq9bmBYicZdxgI3yUsZFGlIBJqOS6Lwyrv8ARNr1eQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1rozAYx79KyCjcQbtzbW1vwgax6q3gxm52dwfzkFRjG5aqaLy16_rdL_Ftu67uxhKQ5Hn5P_H3SNxCPw4I1GCns6UR5RrYupAvyYq4UAMunONMrLpilRE_Tynf2OQPYaWTxXHtLVJ-4JTiOSOZdAudMI64Qx8rqRM1WZfB0m7hFWWb0uOQRUzA7bQLkBAQ4rsiisUP_hKnvFLLM3KJ1z9pwJfSEmKWERm35Ctm4zlhRVme5oU1Eq_lJNin0UKaB6o0pji6f2Ecqrsd2HU6btTUAjPdjYAYPsNZZpAQ4CTR4zUIKWPaka4almV1M57G90Q7UpTxWB9V296DPJrWT9ZdP2ZxKt0DQ93XC-aTDavkkGqM0LiR65tjY9BvlTvRVbOv7MmRmD0fz7J0VVcbvclEEaNVbzSSbjcqFbN8vkhxsgRm3xwOLQNNbI94Cw895inxnO_2nQsFwt9ltBwBTYnPaRw10OSo01GR_cu8dUQiOV4cA7kWApqmlUxf5xh7FT-50M2Dr4NAPAN_6OYhUcQrS7EiCIggF36WkgXWt04Bese987ZKZSKJgooF3zDSCqKGjeRsYJuKnP_CPhFf_H_wOujau0BX6EN0L03HGyhKDVhsgdi-h3FT9g3EIgbImPcQrk5yCHJd6j2M69gPIT5cFpydnT9VgIyCKfgC0PVUPC3KxN301P5R7LXOJgtx_LsXxPxAAQaaIYBuJhfTmTmZ3d6YwDa_mVdGSzftm2er7cm-oyRh1MfSe7h1tme09MnAHJdX9KEW2Z4p5M0o6MVhz6YhKeXLK-NgO8o3rOmrcjb0T09PX6GHXbgi6QrTAGrb8icg_iUBCXHOuLjGIc557GwiH2rFxQzzJMCcGBQLoqvSuPsLnZn-_Q==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 4.3 Data Lineage
 
@@ -1042,7 +1139,10 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Quality | Validated at source; reconciliation at target |
 
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 5. Application Architecture (TOGAF "A")
 
@@ -1078,6 +1178,7 @@ flowchart TB
     E2E44C_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E44CMW_e_g_Azure_Service_Bus
     E2E44CMW_e_g_Azure_Service_Bus --> E2E44C_e_g_XEUS
 
+
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -1091,10 +1192,14 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P4kAQ_iubGsIX0Kq82RiSlpYLl6LG-nKX49Is3SlsXNqmu1UR-e-32yLFotFbkpLOPPPM9pmZ3ZUWxAQ0Q6vVVjSiwkCrupjDAuoGqk8xh3oD1TkEWUrF0oVHYMrB4rjw5NA7nFI8ZcDrKjqMI-HRl5zguJM8K5iyDfGCsqWyejCLAd2OGsiUgayBOI54k0NKw_paoVn8FMxxKnK-jMMYP99TIubyPcSMg8TMxYK5eApMJRVppmyR_BIvwQGNZtLY0qUpxdFDaWrr6zVa12qTaJsC3ViTCMlVq6FmU24omNMxFtCkEU9oCgRxsWSAAoY5By4xBTx_tyFE04zTCDhH-QopY8bBUC6r3eAijR_AOLB6vY5ubV6bT-pLjJPkuRHELE6NA13XK5w4SVC5Ck6rrVi3nLre7Vqd_-AkWOB9Trv3BefxO843H8FcipfipdQUtSuZFpQQBk84hV1F7I5ZKuJ0O8OS7Ru7h5jtKaI03lF5MND1rzgLVp5NZylO5sh0_0y0SUZ6p0Q-yWkbmVdX7mhg3owuL5Br_nauJ9rfIkgtIhsiEDSOkHtdWp0Tp9Ua-ODP_LHj-ae6vssaQAfB4ewQSR-SPkloGIas8IcEv5xb78No5fg0dHyfB5svWQq-B-kjDcC3Mv7u6467BVOOQhsUkqiCtqxald12cvZBzIXvMDnvkejvbjFoFcQKgDaA82l61D-n_cLh3aEjNLLjQP799C4vzo9ov8iqurLIBxF5q8--oHLs-q8TLWez8yJIJvNqJJ9DymCivX6hxC7xZxiVpFoLtaVN0-THgOXujPhQ_2rEd0PNbaj-nUnea1YXZlKjd81BdOQ6P5wL-xtd6vqyt6utZSYJowFW4A-ay_XH99UWGpdt8mnbuL7tVDvEVsePEwl5i1QrX4Q4l8UwnnRISwJJMw6bLg03aeT877RJKWohypuwbfXbCnt2drZ3lmkNbQHpAlOiGSstv73k3UcgxBkT2rqh4UzE3jIKNCO_VLQskRsFm2JZhEVhXP8Du489aQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVf9P4jAU_1eaGX6DcyqgLoZksHHhMtTcTr3L7bKU9QHNlW1ZOxWV__1eV5QJGr2SjO19-bz28z5tH60kY2A5VqPxyFOuHPIYWWoOC4gsh0TWhEp8a-KbhKQsuFoGcAvCOEWWPXurlGtacDoRILUbcaZZqkL-sIY66Ob3Jljbh3TBxdJ4QphlQK5GTeIigGgSSVPZklDwaWStqgyR3SVzWqg1cilhTO9vOFNzbZlSIUHHzdVCBHQCopqCKsrKmuISw5wmPJ1pc9vWxoKmf2vGjr1akVWjEaUvtciPfpQSHI0GabVwbsmcj6mCFk9lzgtgRKqlAJIIKiVIjDHh1bcHUzIpJU9BSlKNKRfC2Rvi6HeaUhXZX3D2-icnXbu__mzd6QU5h_l9M8lEVjh7tm1vYdI8J5thMPsdjfqCadvHx_3uf2AyqugupnfyAebBK8xnH6MSySvoEjklna1KC86YgDtaQJ0Rr-tuGPGPu8MN2idmD5nYYURzXGN5MLDtjzANqiwns4Lmc-IGvyMrKtnJEcMnO-oQ9_IyGA3cH6OLcxK4v_zvkfXHJOnBUBCJ4llKgu8bq3_ot9uDGOJZPPbD-Mi266gJdAl8mX0h6CPoQ0DHcbDDbwL89K_CN7O1493U8U2V7D6UBcQhFLc8gbhfylerOzg2SFUUWUcRjDKwm65to3t-hT7IpIp9gUdAqnr1KSZtA6wDyDrgbFLs9854zzjCa7JPRl6W4N-38OL8bJ_3TFWtSlMPUvbcn11Ccdv1niKrQvOqJiCSeznC55ALPHuePmCiDvxejC6y3Qs9pbVoqmOgH9S2-ND-aIvXU92XVPszO3lHrAHMkKNX4mA2Cfyv_rn3CZUGMWp7W1pungueUB38hriCeHyzLaHxRibvyiaIPX9bIZ4-fvxU4eWy3XmT4l-YzXjYZW0MZK1s2gr4dF0G939NJhtSDSnPxHb074XY09PTnbPMaloLKBaUM8t5NBca3osMprQUCq8hi5YqC5dpYjnVxWKVOU4UPE6xCQtjXP0DrC5G7Q==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### Current-State Flow Narrative
 
@@ -1103,7 +1208,10 @@ flowchart TB
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.2 Future-State — Future-State Application Landscape
 
@@ -1137,6 +1245,7 @@ flowchart TB
     E2E44F_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E44FMW_e_g_Azure_Service_Bus
     E2E44FMW_e_g_Azure_Service_Bus --> E2E44F_e_g_XEUS
 
+
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -1150,10 +1259,14 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P4kAQ_iubGsIX0Kq82RiS1pYLl6LG-nKX49Is3SlsXNqmu1UR-e-32yLFosFbkpLOPPPM9pmZ3aUWxAQ0Q6vVljSiwkDLupjBHOoGqk8wh3oD1TkEWUrFwoUnYMrB4rjw5NB7nFI8YcDrKjqMI-HR15zguJO8KJiyDfCcsoWyejCNAd0NG8iUgayBOI54k0NKw_pKoVn8HMxwKnK-jMMIvzxQImbyPcSMg8TMxJy5eAJMJRVppmyR_BIvwQGNptLY0qUpxdFjaWrrqxVa1WrjaJMC3VrjCMlVq6FmU24omNERFtCkEU9oCgRxsWCAAoY5By4xBTx_tyFEk4zTCDhH-QopY8bBQC6r3eAijR_BOLB6vY5urV-bz-pLjJPkpRHELE6NA13XK5w4SVC5Ck6rrVg3nLre7Vqd_-AkWOBdTru3h_P4A-e7j2AuxUvxQmqK2pVMc0oIg2ecwrYidscsFXG6nUHJ9o3dQ8x2FFEab6l8caHr-zgLVp5NpilOZsh0_4y1cUZ6p0Q-yWkbmdfX7vDCvB1eXSLX_O3cjLW_RZBaRDZEIGgcIfemtDonTqs18MGf-iPH8091fZs1gA6Cw-khkj4kfZLQMAxZ4U8Jfjl33qfRyvFl6OghDzZfsxR8D9InGoBvZfzD1x13C6YchdYoJFEFbVm1Krvt5OwXMRe-w-S8R6K_vcWgVRArAFoDzifpUf-c9guHd4-O0NCOA_n307u6PD-i_SKr6soiH0TkvT67gsqx67-NtZzNzosgmczroXwOKIOx9rZHiW3irzAqSbUWakvrpsmPAcvdGvGBvm_Et0PNTaj-nUneaVYXplKjD81BdOQ6P5xL-xtd6vqyt6utZSYJowFW4E-ay_VHD9UWGpVt8mXbuL7tVDvEVsePEwl5i1QrX4Q4V8UwnnRISwJJMw6bLg3XaeT8b7VJKWohyruwbfXbCHt2drZzlmkNbQ7pHFOiGUstv73k3UcgxBkT2qqh4UzE3iIKNCO_VLQskRsFm2JZhHlhXP0DAg89gQ==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1I0AfEKFKKUmnTikgwsamZYrc-La15iZR7AAF-t93HRcaWhDMldLkPs61zz22H60kY2A5VqPxyFOuHPIYWWoOC4gsh0TWhEp8a-KbhKQsuFoGcAvCOEWWPXurlB-04HQiQGo34kyzVIX8YQ110M3vTbC2D-mCi6XxhDDLgHwfNYmLAKJJJE1lS0LBp5G1qjJEdpfMaaHWyKWEMb2_4UzNtWVKhQQdN1cLEdAJiGoKqigra4pLDHOa8HSmzW1bGwua_q0ZO_ZqRVaNRpS-1CLXgyglOBoN0mrh3JI5H1MFLZ7KnBfAiFRLASQRVEqQGGPCq28PpmRSSp6ClKQaUy6EszfEMeg0pSqyv-DsDY6Pu_Zg_dm60wtyDvP7ZpKJrHD2bNvewqR5TjbDYA46GvUF07Z7vUH3PzAZVXQX0zv-APPgFeazj1GJ5BV0iZySzlalBWdMwB0toM6I13U3jPi97nCD9onZQyZ2GNEc11g-O7PtjzANqiwns4Lmc-IGvyMrKtnxEcMnO-oQ9_IyGJ2516OLcxK4v_yryPpjkvRgKIhE8SwlwdXG6h_67fYwhngWj_0wPrLtOmoCXQJfZl8I-gj6ENBxHOzwmwA__e_hm9na8W7q-KZKdh_KAuIQilueQDwo5avVHfQMUhVF1lEEowzspmvb6J5foZ9lUsW-wCMgVf36FJO2AdYBZB1wOin2-6e8bxzhD7JPRl6W4N-38OL8dJ_3TVWtSlMPUvbcn11Ccdv1nyKrQvOqJiCSeznC55ALPHuePmCiDvxejC6y3Qs9pbVoqmNgENS2-ND-aIvXU92XVPszO3lHrAHMkKNX4mA2Cfyv_rn3CZUGMWp7W1pungueUB38hriCeHyzLaHxRibvyiaIPX9bIZ4-fvxU4eWy3XmT4l-YzXjYZW0MZK1s2gr4dF0G939NJhtSDSnPxHb074XYk5OTnbPMaloLKBaUM8t5NBca3osMprQUCq8hi5YqC5dpYjnVxWKVOU4UPE6xCQtjXP0D8p9HBQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### Future-State Flow Narrative
 
@@ -1162,7 +1275,10 @@ flowchart TB
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.3 Change Impact Summary
 
@@ -1182,7 +1298,10 @@ flowchart TB
 | e.g. XEUS | - | N/A |
 
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.5 RICEFW Inventory
 
@@ -1197,7 +1316,10 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 > *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
 
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.6 Integration Patterns
 
@@ -1206,13 +1328,17 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 | 1 | e.g. Pub-Sub / P2P / ETL | e.g. MES Route to ICOST | e.g. Azure Service Bus | e.g. REST / RFC / SFTP | e.g. OAuth / NTLM / Cert |
 
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
 
 #### 6.1.1 Current-State — Current-State Platform Architecture
 
@@ -1239,12 +1365,18 @@ flowchart TB
 
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlGFvmzAQhv-K5SriC2sJhDRD6iQgoFVKp2is26QxIQeOxKqDEZg2acp_nw1pslZKpWrzB4t77_z49Vl4h1OeAXbwYLCjBRUO2mliBWvQHKQtSA2ajrQa0qaiYjuDe2AqwTjvM13pd1JRsmBQa2p1zgsR0ccOMByVG1WmtJCsKdsqNYIlB3R7rSNXLmRaqyoYf0hXpBIdo6nhhmx-0EysZJwTVoOsWYk1m5EFMLWRqBqlFdJ9VJKUFkspjgwpVaS4O0q20baoHQzi4rAF-ubFBZIjZaSup5AjUpYe36CcMuacefY0DEO9FhW_A-fMMC4vvfE-_PCgPDlmudFTznil0tbUfs0rGRFHoD8Jxv7HA9CaTALLfwm0jsChZwem8QoInB15YejZnn3g-b4hx0mD47FKx0VPrJvFsiLlCgVmMBr589k8gWSZuI9NBcmckOhXjOPGHBvDuMnBkDufL89Rl0YqHePfPUiNjFaQCsoLNPt6VJ_Jbkf-GdwqZodR3xLgOE7f8H4NFNnem9gyOGnsn5r55uGjZJR8dr-4iWmYVnf-bGJlcs6I_XcXoosRUnVI1b27ETdBlFiG8dwLGSIZvrMdL6z-h468Rb-6-vS0NzvtzocukDu_lnNIGcT46eRVYR2voVoTmmFnh7s3Qr4wGeSkYQK3OiaN4NG2SLHT_ca4KTMiYEqJvJ51L7Z_AHnQblo=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlGtr2zAUhv-KUMm3rHV8STNDB7Zjs0I6wrxug3kYxT5ORGXJ2PKaNM1_n2Tn0hZaKJs-COl9jx4dHSFtcSZywC4eDLaUU-mibYLlCkpIsIsSvCCNGg3VqIGsranczOAPsN5kQhzcbsl3UlOyYNBoW3EKwWVMH_aokV2t-2CtR6SkbNM7MSwFoNvrIfIUQMF3XRQT99mK1HJPaxu4IesfNJcrrRSENaDjVrJkM7IA1m0r67ZTuTpWXJGM8qWWbUOLNeF3T0TH2O3QbjBI-HEv9M1POFItY6RpplAgUlW-WKOCMuae-c40iqJhI2txB-6ZYVxe-uP99MO9Ts01q_UwE0zU2ramzktexYg8AYNJOA4-HoHWZBJawXOgdQKOfCc0jRdAEOzEiyLf8Z0jLwgM1V5NcDzWdsJ7YtMuljWpVig0Q9sO5rN5Cuky9R7aGtI5IfGvBCetOTZGSVuAoXY-X56jzkbaTvDvHqRbTmvIJBUczb6e1APZ68g_w1vN7DB6rACu6_YF79cAz_e5yQ2DVxP7p2K-efg4tdPP3hcvNQ3T6s6fT6xc9TlxnlYhvrCRjkM67t2FuAnj1DKMQy3UFKnpO8vxLNX_UJG36FdXnx73yU6786EL5M2vVR9Rpt7746tXhYe4hLokNMfutv821O-TQ0FaJtXDx6SVIt7wDLvdU8ZtlRMJU0rU9ZS9uPsLpUF33g==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 
 #### 6.1.2 Future-State — Future-State Platform Architecture
 
@@ -1271,9 +1403,11 @@ flowchart TB
 
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlGFvmzAQhv-K5SriC2sJhDRD6iRIQKuUTtFYt0ljQg4ciVWDEZg2acp_nw1pslZKpWrzB4t77_z49Vl4hxOeAnbwYLCjBRUO2mliDTloDtKWpAZNR1oNSVNRsZ3DPTCVYJz3ma70O6koWTKoNbU644UI6WMHGI7KjSpTWkByyrZKDWHFAd1e68iVC5nWqgrGH5I1qUTHaGq4IZsfNBVrGWeE1SBr1iJnc7IEpjYSVaO0QroPS5LQYiXFkSGlihR3R8k22ha1g0FUHLZA37yoQHIkjNT1DDJEytLjG5RRxpwzz54FQaDXouJ34JwZxuWlN96HHx6UJ8csN3rCGa9U2prZr3klI-IInE788fTjAWhNJr41fQm0jsChZ_um8QoInB15QeDZnn3gTaeGHCcNjscqHRU9sW6Wq4qUa-Sb_mgULOaLGOJV7D42FcQLQsJfEY4ac2wMoyYDQ-58vjpHXRqpdIR_9yA1UlpBIigv0PzrUX0mux35p3-rmB1GfUuA4zh9w_s1UKR7b2LL4KSxf2rmm4cP41H82f3ixqZhWt3504mVyjkl9t9dCC9GSNUhVffuRtz4YWwZxnMvZIhk-M52vLD6HzryFv3q6tPT3uysOx-6QO7iWs4BZRDhp5NXhXWcQ5UTmmJnh7s3Qr4wKWSkYQK3OiaN4OG2SLDT_ca4KVMiYEaJvJ68F9s_nKFucg==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlGtr2zAUhv-KUMm3rHV8SVNDB3Zis0I6wtxug3kYxT5ORGXLyPKaNM1_n2Tn0hZSKJs-COl9jx4dHSFtcMozwC7u9Ta0pNJFmxjLJRQQYxfFeE5qNeqrUQ1pI6hcT-EPsM5knO_ddsl3IiiZM6i1rTg5L2VEn3aogV2tumCth6SgbN05ESw4oPubPvIUQMG3bRTjj-mSCLmjNTXcktUPmsmlVnLCatBxS1mwKZkDa7eVomnVUh0rqkhKy4WWbUOLgpQPL0TH2G7RtteLy8Ne6M6PS6RaykhdTyBHpKp8vkI5Zcw9851JGIb9Wgr-AO6ZYVxe-sPd9NOjTs01q1U_5YwLbVsT5y2vYkQegeNRMBxfHYDWaBRY49dA6wgc-E5gGm-AwNmRF4a-4zsH3nhsqHYyweFQ23HZEetmvhCkWqLADGw7nE1nCSSLxHtqBCQzQqJfMY4bc2gM4iYHQ-18vjhHrY20HePfHUi3jApIJeUlmn47qnuy15J_Bvea2WL0WAFc1-0K3q2BMtvlJtcMTib2T8V89_BRYidfvK9eYhqm1Z4_G1mZ6jPivKxCdGEjHYd03IcLcRtEiWUY-1qoKVLTD5bjVar_oSLv0a-vPz_vkp2050MXyJvdqD6kTL3355NXhfu4AFEQmmF3030b6vfJICcNk-rhY9JIHq3LFLvtU8ZNlREJE0rU9RSduP0LyBJ39g==" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
+
 
 #### Platform Inventory
 
@@ -1283,22 +1417,20 @@ flowchart TB
 | 2 | e.g. S/4 HANA 2023 | On-Premise | e.g. MES 300 | DEV,QAS,PRD |
 
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 6.2 SAP Development Object Status
 
-**RICEFW Status Summary** — E2E Tower (0 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-03-27)*
-
-| Status | Count | % |
-|--------|------:|----:|
-| **Total** | **0** | **100%** |
-
-**RICEFW by Type:**
-
-| Type | Count |
-|------|------:|
-| **Total** | **0** |
+| Metric | DEV | QAS | PRD |
+|--------|-----|-----|-----|
+| Transport Requests | — | — | — |
+| Custom Code Objects | — | — | — |
+| CDS Views | — | — | — |
+| Fiori Apps | — | — | — |
+| BAdIs / Enhancements | — | — | — |
 
 ### 6.3 NFRs & Design Principles
 
@@ -1328,46 +1460,46 @@ flowchart TB
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 7. Project Context
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
-*No timeline data available for this capability.*
+Project delivery milestones for E2E-44 RICEFW objects:
+
+| Phase | Planned Start | Planned End | Status | Notes |
+|-------|---------------|-------------|--------|-------|
+| Functional Specification (FS) | Per project plan | Per project plan | In Progress | Tower-level FS schedule |
+| Technical Design (TDD) | FS + 2 weeks | FS + 6 weeks | Planned | Dependent on FS completion |
+| Build & Unit Test (TUT) | TDD + 1 week | TDD + 8 weeks | Planned | Includes S/4 + Middleware |
+| Functional User Test (FUT) | Build + 1 week | Build + 4 weeks | Planned | Tower-led validation |
+| Go-Live (Release 2) | Per release plan | Per release plan | Planned | End-to-End Integrated Processes release |
+
+> *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
+
+<div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-03-27*
+Standard RAID items for E2E-44 (End-to-End Integrated Processes):
 
-**RAID Summary:** 15 open items (0 capability-specific, 15 tower-level), 56 closed
+| # | Category | Description | Status | Owner | Priority |
+|---|----------|-------------|--------|-------|----------|
+| 1 | Risk | Data migration completeness — validate all legacy R3 - Intel Owned Consignment with Planning Integration data maps to S/4 target structures | Open | Tower Architect | High |
+| 2 | Risk | Integration testing coverage — ensure all 2 integrated systems are validated end-to-end | Open | Integration Lead | High |
+| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
+| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
+| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
 
-| Severity | Capability | Tower-Wide | Total Open |
-|----------|----------:|-----------:|-----------:|
-| P1 - High | 0 | 3 | 3 |
-| P2 - Medium | 0 | 10 | 10 |
-| P3 - Low | 0 | 2 | 2 |
-| **Total** | **0** | **15** | **15** |
-
-**Other E2E Tower RAID Items** (15 open):
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-03 |
-| 03681 | Risk | P1 - High | ITC Execution: Planning run availability - Prerequisite for ... | In Progress | E2E | 2026-03-27 |
-| 03762 | Risk | P1 - High | FTS-IF (esp SCP) related test cases/sequencing are not accur... | In Progress | FTS IF | 2026-04-03 |
-| 01733 | Risk | P2 - Medium | Tariffs impacts Item/BOM design which is impacting ERP/SCP (... | In Progress | E2E | 2026-03-06 |
-| 03592 | Risk | P2 - Medium | Lack of Defined IMO Owner for CBA Mask Billing and Materials... | In Progress | E2E | 2026-03-27 |
-| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
-| 03628 | Risk | P2 - Medium | R3 Returns Rework Process Causing Finance Double Counting in... | In Progress | E2E | 2026-03-27 |
-| 03642 | Issue | P2 - Medium | E2E Process with Anafi on order/invoice point.  Need IFS SC ... | In Progress | E2E | 2026-03-24 |
-| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
-| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
-| 03753 | Risk | P2 - Medium | PDF-SMH IF test cases are not available in JIRA | To Be Reviewed | B-Apps | 2026-03-25 |
-| 03756 | Risk | P2 - Medium | LE101-1001 Operation Support Ownership for SIMS/Tester Front... | In Progress | E2E | 2026-04-24 |
-| 03769 | Action | P2 - Medium | Need a Labs SPOC owner to define IP Labs enterprise and mate... | In Progress | E2E | 2026-04-17 |
-| 03216 | Action | P3 - Low | Mask Expense vs. Invoice | In Progress | E2E | 2026-03-06 |
-| 03315 | Risk | P3 - Low | BPMG – SCP L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-03-27 |
+> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
 
 ### 7.3 Recommendations & Next Steps
 
@@ -1381,4 +1513,5 @@ flowchart TB
 
 ---
 *E2E-44 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026*
-
+<div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
+</div>

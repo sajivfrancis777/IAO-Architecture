@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PLB-020 Architecture</title>
+    <title>PLB-020</title>
     <style>
 @page {
     size: A4;
@@ -34,19 +34,34 @@ h2 {
     border-bottom: 1px solid #ccc;
     padding-bottom: 4px;
     margin-top: 24px;
+    page-break-after: avoid;
+    break-after: avoid;
 }
 h3 {
     font-size: 13pt;
     color: #0071c5;
     margin-top: 18px;
+    page-break-after: avoid;
+    break-after: avoid;
 }
-h4 { font-size: 11pt; color: #333; margin-top: 14px; }
+h4 {
+    font-size: 11pt;
+    color: #333;
+    margin-top: 14px;
+    page-break-after: avoid;
+    break-after: avoid;
+}
+p {
+    orphans: 3;
+    widows: 3;
+}
 table {
     border-collapse: collapse;
     width: 100%;
     margin: 12px 0;
     font-size: 9.5pt;
     page-break-inside: avoid;
+    break-inside: avoid;
 }
 th {
     background: #00285a;
@@ -79,6 +94,7 @@ pre {
     font-size: 8.5pt;
     line-height: 1.4;
     page-break-inside: avoid;
+    break-inside: avoid;
 }
 pre code { background: none; padding: 0; color: inherit; }
 blockquote {
@@ -87,6 +103,8 @@ blockquote {
     margin: 12px 0;
     padding: 8px 16px;
     color: #333;
+    page-break-inside: avoid;
+    break-inside: avoid;
 }
 .mermaid-placeholder {
     background: #f5f8fc;
@@ -107,6 +125,7 @@ blockquote {
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
+    break-inside: avoid;
 }
 .mermaid svg {
     max-width: 100%;
@@ -136,15 +155,60 @@ blockquote {
     padding-top: 10px;
     border-top: 1px solid #ddd;
 }
+.page-section {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 40px);
+    box-sizing: border-box;
+}
+.page-footer {
+    margin-top: auto;
+    padding-top: 8px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9pt;
+    color: #888;
+    padding: 6px 12px;
+    background: #fff;
+}
+.page-footer a { color: #0071c5; text-decoration: none; }
+.page-footer a:hover { text-decoration: underline; }
 a { color: #0071c5; text-decoration: none; }
 a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Floating PDF download button ---- */
+.pdf-download-btn {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 9999;
+    background: #00285a;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: background 0.2s;
+}
+.pdf-download-btn:hover { background: #0071c5; }
+
 @media print {
     body { padding: 0; max-width: none; }
     .header-bar { margin: 0 0 20px 0; }
-    .no-print { display: none; }
+    .no-print, .pdf-download-btn { display: none !important; }
+    h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    p { orphans: 3; widows: 3; }
+    .page-section { min-height: 100vh; }
+    .page-footer { page-break-inside: avoid; break-inside: avoid; }
     .mermaid {
         page-break-inside: avoid;
         overflow: visible;
@@ -152,6 +216,18 @@ strong { color: #00285a; }
     .mermaid svg {
         max-width: 100%;
         height: auto;
+    }
+    /* Diagram links: visible + clickable in PDF */
+    a[title="View full diagram"],
+    a[title="Open full-size SVG"] {
+        color: #0071c5 !important;
+        text-decoration: underline !important;
+        font-size: 10pt !important;
+    }
+    a[title="View full diagram"]::after {
+        content: " (opens mermaid.live)";
+        font-size: 8pt;
+        color: #666;
     }
 }
 </style>
@@ -161,24 +237,24 @@ strong { color: #00285a; }
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
-    theme: "base",
-    securityLevel: "loose",
+    theme: 'base',
+    securityLevel: 'loose',
     flowchart: {
-      curve: "basis",
+      curve: 'basis',
       padding: 16,
       nodeSpacing: 50,
       rankSpacing: 60,
       useMaxWidth: true
     },
     themeVariables: {
-      primaryColor: "#e8f0fe",
-      primaryBorderColor: "#0071c5",
+      primaryColor: '#e8f0fe',
+      primaryBorderColor: '#0071c5',
       primaryTextColor: '#1a1a1a',
-      lineColor: "#37474F",
-      secondaryColor: "#f5f8fc",
-      tertiaryColor: "#fff",
-      fontSize: "14px",
-      fontFamily: "Segoe UI, Arial, sans-serif"
+      lineColor: '#37474F',
+      secondaryColor: '#f5f8fc',
+      tertiaryColor: '#fff',
+      fontSize: '14px',
+      fontFamily: 'Segoe UI, Arial, sans-serif'
     }
   });
 </script>
@@ -211,8 +287,10 @@ strong { color: #00285a; }
 
 </head>
 <body>
+<button class="pdf-download-btn" onclick="window.print()" title="Print / Save as PDF">&#128196; Download PDF</button>
+<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">PLB-020 — Supply Planning & Management (IF)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IF) (FTS-IF) Tower<br/>
@@ -232,7 +310,14 @@ strong { color: #00285a; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
+.page-section {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 40px);
+  box-sizing: border-box;
+}
 .page-footer {
+  margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid #ddd;
   display: flex;
@@ -240,265 +325,198 @@ strong { color: #00285a; }
   align-items: center;
   font-size: 11px;
   color: #888;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 20px;
+  padding: 6px 12px;
   background: #fff;
 }
 @media print {
-  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+  .page-section {
+    min-height: 100vh;
+  }
+  .page-footer {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
 .page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
 </style>
 
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-020 — Supply Planning & Management (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<p><a id="toc"></a></p>
-<h2 id="table-of-contents">Table of Contents</h2>
+
+<a id="toc"></a>
+
+## Table of Contents
+
+<nav class="toc">
 <ol>
-<li><a href="#1-executive-summary">Executive Summary</a></li>
-<li><a href="#2-business-context--objectives">Business Context &amp; Objectives</a>
-   - 2.1 <a href="#21-classification">Classification</a>
-   - 2.2 <a href="#22-business-drivers">Business Drivers</a>
-   - 2.3 <a href="#23-success-criteria">Success Criteria</a>
-   - 2.4 <a href="#24-companion-documents">Companion Documents</a></li>
-<li><a href="#3-business-architecture-togaf-b">Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
-   - 3.1 <a href="#31-business-process-overview">Business Process Overview</a>
-   - 3.2 <a href="#32-business-process-diagrams">Business Process Diagrams</a>
-   - 3.3 <a href="#33-business-roles--responsibilities">Business Roles &amp; Responsibilities</a></li>
-<li><a href="#4-data-architecture-togaf-d">Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
-   - 4.1 <a href="#41-data-entities--ownership">Data Entities &amp; Ownership</a>
-   - 4.2 <a href="#42-data-flow-diagrams">Data Flow Diagrams</a>
-   - 4.3 <a href="#43-data-lineage">Data Lineage</a>
-   - 4.4 <a href="#44-ricefw-data-objects">RICEFW Data Objects</a>
-   - 4.5 <a href="#45-data-governance--quality">Data Governance &amp; Quality</a></li>
-<li><a href="#5-application-architecture-togaf-a">Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
-   - 5.1 <a href="#51-current-state--current-state-application-landscape">Current-State Application Landscape</a>
-   - 5.2 <a href="#52-future-state--future-state-application-landscape">Future-State Application Landscape</a>
-   - 5.3 <a href="#53-change-impact-summary">Change Impact Summary</a>
-   - 5.4 <a href="#54-component-overview">Component Overview</a>
-   - 5.5 <a href="#55-ricefw-inventory">RICEFW Inventory</a>
-   - 5.6 <a href="#56-integration-patterns">Integration Patterns</a></li>
-<li><a href="#6-technology-architecture-togaf-t">Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
-   - 6.1 <a href="#61-platform--infrastructure">Platform &amp; Infrastructure</a>
-   - 6.2 <a href="#62-sap-development-object-status">SAP Development Object Status</a>
-   - 6.3 <a href="#63-nfrs--design-principles">NFRs &amp; Design Principles</a>
-   - 6.4 <a href="#64-security--governance">Security &amp; Governance</a></li>
-<li><a href="#7-project-context">Project Context</a>
-   - 7.1 <a href="#71-project-roadmap--go-live-plan">Project Roadmap &amp; Go-Live Plan</a>
-   - 7.2 <a href="#72-raid-log">RAID Log</a>
-   - 7.3 <a href="#73-recommendations--next-steps">Recommendations &amp; Next Steps</a></li>
+  <li><a href="#1-executive-summary">1. Executive Summary</a></li>
+  <li><a href="#2-business-context-objectives">2. Business Context &amp; Objectives</a>
+    <ul>
+      <li><a href="#21-classification">2.1 Classification</a></li>
+      <li><a href="#22-business-drivers">2.2 Business Drivers</a></li>
+      <li><a href="#23-success-criteria">2.3 Success Criteria</a></li>
+      <li><a href="#24-companion-documents">2.4 Companion Documents</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+    <ul>
+      <li><a href="#31-business-process-overview">3.1 Business Process Overview</a></li>
+      <li><a href="#32-business-process-diagrams">3.2 Business Process Diagrams</a></li>
+      <li><a href="#33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+    <ul>
+      <li><a href="#41-data-entities-ownership">4.1 Data Entities &amp; Ownership</a></li>
+      <li><a href="#42-data-flow-diagrams">4.2 Data Flow Diagrams</a></li>
+      <li><a href="#43-data-lineage">4.3 Data Lineage</a></li>
+      <li><a href="#44-ricefw-data-objects">4.4 RICEFW Data Objects</a></li>
+      <li><a href="#45-data-governance-quality">4.5 Data Governance &amp; Quality</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+    <ul>
+      <li><a href="#51-current-state-current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
+      <li><a href="#52-future-state-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
+      <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
+      <li><a href="#54-component-overview">5.4 Component Overview</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+    <ul>
+      <li><a href="#61-platform-infrastructure">6.1 Platform &amp; Infrastructure</a></li>
+      <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
+      <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
+      <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+    </ul>
+  </li>
+  <li><a href="#7-project-context">7. Project Context</a>
+    <ul>
+      <li><a href="#71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</a></li>
+      <li><a href="#72-raid-log">7.2 RAID Log</a></li>
+      <li><a href="#73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</a></li>
+    </ul>
+  </li>
 </ol>
-<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-020 — Supply Planning & Management (IF)</span></div>
-<div style="page-break-before: always;"></div>
+</nav>
 
-<h2 id="1-executive-summary">1. Executive Summary</h2>
-<p>This Architecture Document defines the <strong>Business, Data, Application, and Technology</strong> (BDAT) architecture for <strong>PLB-020 Supply Planning &amp; Management (IF)</strong> within the IAO program. It includes 3 BPMN process diagram(s) in Section 3.
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-020 — Supply Planning & Management (IF)</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+## 1. Executive Summary
+
+This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **PLB-020 Supply Planning & Management (IF)** within the IAO program. It includes 3 BPMN process diagram(s) in Section 3.
 | Dimension | Value |
 |-----------|-------|
-| <strong>Tower</strong> | Forecast to Stock (IF) (FTS-IF) |
-| <strong>Process Group</strong> | PLB Supply Chain Planning (IF) |
-| <strong>Capability</strong> | PLB-020 - Supply Planning &amp; Management (IF) |
-| <strong>Release</strong> | Release 3 |
-| <strong>Total Systems</strong> | 0 |
-| <strong>System Status</strong> | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
-| <strong>RICEFW Objects</strong> | 2 Reports, 18 Interfaces, 3 Conversions, 19 Enhancements, 9 Forms, 3 Workflows |
-<strong>Change Summary</strong>: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.</p>
-<blockquote>
-<p>All system nodes in architecture diagrams are <strong>IAPM-linked</strong> — click any node to open its IAPM page. Diagrams require <code>securityLevel: "loose"</code> for click events.</p>
-</blockquote>
+| **Tower** | Forecast to Stock (IF) (FTS-IF) |
+| **Process Group** | PLB Supply Chain Planning (IF) |
+| **Capability** | PLB-020 - Supply Planning & Management (IF) |
+| **Release** | Release 3 |
+| **Total Systems** | 0 |
+| **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
+| **RICEFW Objects** | 2 Reports, 18 Interfaces, 3 Conversions, 19 Enhancements, 9 Forms, 3 Workflows |
+**Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
+
+> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-020 — Supply Planning & Management (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="2-business-context-objectives">2. Business Context &amp; Objectives</h2>
-<h3 id="21-classification">2.1 Classification</h3>
-<table>
-<thead>
-<tr>
-<th>Level</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>L0 Tower</strong></td>
-<td>Forecast to Stock (IF)</td>
-</tr>
-<tr>
-<td><strong>L1 Process</strong></td>
-<td>PLB Supply Chain Planning (IF)</td>
-</tr>
-<tr>
-<td><strong>L2 Capability</strong></td>
-<td>PLB-020 - Supply Planning &amp; Management (IF)</td>
-</tr>
-</tbody>
-</table>
-<h3 id="22-business-drivers">2.2 Business Drivers</h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Driver</th>
-<th>Description</th>
-<th>Strategic Alignment</th>
-<th>Priority</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Intel Foundry Supply Chain Integration</td>
-<td>Integrate Intel Foundry manufacturing and logistics into unified S/4 HANA supply chain</td>
-<td>IDM 2.0 Foundry Enablement</td>
-<td>High</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Warehouse &amp; Logistics Modernization</td>
-<td>Modernize warehouse management and shipping processes with EWM integration</td>
-<td>Supply Chain Digital Transformation</td>
-<td>High</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Production Planning Optimization</td>
-<td>Enable MRP-driven production planning with real-time material availability</td>
-<td>Manufacturing Excellence</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>4</td>
-<td>PLB-020 Process Migration</td>
-<td>Migrate Supply Planning &amp; Management (IF) business processes and 0 integrated systems from legacy to S/4 HANA target architecture</td>
-<td>IDM 2.0 Supply Chain (Intel Foundry)</td>
-<td>High</td>
-</tr>
-</tbody>
-</table>
+
+## 2. Business Context & Objectives
+
+### 2.1 Classification
+
+| Level | Value |
+|-------|-------|
+| **L0 Tower** | Forecast to Stock (IF) |
+| **L1 Process** | PLB Supply Chain Planning (IF) |
+| **L2 Capability** | PLB-020 - Supply Planning & Management (IF) |
+
+### 2.2 Business Drivers
+
+| # | Driver | Description | Strategic Alignment | Priority |
+|---|--------|-------------|---------------------|----------|
+| 1 | Intel Foundry Supply Chain Integration | Integrate Intel Foundry manufacturing and logistics into unified S/4 HANA supply chain | IDM 2.0 Foundry Enablement | High |
+| 2 | Warehouse & Logistics Modernization | Modernize warehouse management and shipping processes with EWM integration | Supply Chain Digital Transformation | High |
+| 3 | Production Planning Optimization | Enable MRP-driven production planning with real-time material availability | Manufacturing Excellence | Medium |
+| 4 | PLB-020 Process Migration | Migrate Supply Planning & Management (IF) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Supply Chain (Intel Foundry) | High |
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-020 — Supply Planning & Management (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="23-success-criteria">2.3 Success Criteria</h3>
-<table>
-<thead>
-<tr>
-<th>Metric</th>
-<th>Target</th>
-<th>Measure</th>
-<th>Baseline</th>
-<th>Owner</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Order Fulfillment Lead Time</td>
-<td>&lt; 48 hours</td>
-<td>Time from production completion to shipment dispatch</td>
-<td>72 hours (legacy)</td>
-<td>Logistics Manager</td>
-</tr>
-<tr>
-<td>Inventory Accuracy</td>
-<td>&gt; 99.5%</td>
-<td>Physical vs system inventory match rate</td>
-<td>97.8% (current)</td>
-<td>Warehouse Manager</td>
-</tr>
-<tr>
-<td>MRP Planning Cycle</td>
-<td>&lt; 4 hours</td>
-<td>End-to-end MRP run including exception processing</td>
-<td>8 hours (legacy)</td>
-<td>Planning Lead</td>
-</tr>
-<tr>
-<td>PLB-020 Migration Completeness</td>
-<td>100% flow chains validated</td>
-<td>All 0 flow chains verified in target state</td>
-<td>0% (pre-migration)</td>
-<td>Tower Architect</td>
-</tr>
-</tbody>
-</table>
-<h3 id="24-companion-documents">2.4 Companion Documents</h3>
-<table>
-<thead>
-<tr>
-<th>Document</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Business Architecture</strong></td>
-<td>Included in this document (Section 3) — process flows from BPMN diagrams</td>
-</tr>
-<tr>
-<td><strong>This Document</strong></td>
-<td>Full BDAT Architecture — Business + Data + Application + Technology</td>
-</tr>
-</tbody>
-</table>
+
+### 2.3 Success Criteria
+
+| Metric | Target | Measure | Baseline | Owner |
+|--------|--------|---------|----------|-------|
+| Order Fulfillment Lead Time | < 48 hours | Time from production completion to shipment dispatch | 72 hours (legacy) | Logistics Manager |
+| Inventory Accuracy | > 99.5% | Physical vs system inventory match rate | 97.8% (current) | Warehouse Manager |
+| MRP Planning Cycle | < 4 hours | End-to-end MRP run including exception processing | 8 hours (legacy) | Planning Lead |
+| PLB-020 Migration Completeness | 100% flow chains validated | All 0 flow chains verified in target state | 0% (pre-migration) | Tower Architect |
+
+### 2.4 Companion Documents
+
+| Document | Description |
+|----------|-------------|
+| **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
+| **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-020 — Supply Planning & Management (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</h2>
-<h3 id="31-business-process-overview">3.1 Business Process Overview</h3>
-<p>This capability includes <strong>3 business process(es)</strong> modeled in BPMN 2.0, covering the end-to-end workflow for PLB-020 Supply Planning &amp; Management (IF).</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Step ID</th>
-<th>Process Name</th>
-<th>Lanes</th>
-<th>Tasks</th>
-<th>Gateways</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>PLB-020-010_Supply_Parameter_&amp;<em>Data_Management</em>(010)_(IF)</td>
-<td>PLB-020-010_Supply_Parameter_&amp;<em>Data_Management</em>(010)_(IF)</td>
-<td>Boundary Apps, Master Data Steward, Material Planner, PTP Batch user</td>
-<td>17</td>
-<td>14</td>
-</tr>
-<tr>
-<td>2</td>
-<td>PLB-020-090_Product_Data_Management_(IF)</td>
-<td>PLB-020-090_Product_Data_Management_(IF)</td>
-<td>Boundary Apps, Master Data Steward, Material Planner, PTP Batch user</td>
-<td>17</td>
-<td>14</td>
-</tr>
-<tr>
-<td>3</td>
-<td>PLB-020-120_Master_Production_Scheduling_(IF)</td>
-<td>PLB-020-120_Master_Production_Scheduling_(IF)</td>
-<td>Boundary Apps, FTS IF - Production Scheduler, Factory Supervisor, IT Department</td>
-<td>13</td>
-<td>5</td>
-</tr>
-</tbody>
-</table>
-<h3 id="32-business-process-diagrams">3.2 Business Process Diagrams</h3>
+
+## 3. Business Architecture (TOGAF "B")
+
+### 3.1 Business Process Overview
+
+This capability includes **3 business process(es)** modeled in BPMN 2.0, covering the end-to-end workflow for PLB-020 Supply Planning & Management (IF).
+
+| # | Step ID | Process Name | Lanes | Tasks | Gateways |
+|---|---------|--------------|-------|-------|----------|
+| 1 | PLB-020-010_Supply_Parameter_&amp;_Data_Management_(010)_(IF) | PLB-020-010_Supply_Parameter_&amp;_Data_Management_(010)_(IF) | Boundary Apps, Master Data Steward, Material Planner, PTP Batch user | 17 | 14 |
+| 2 | PLB-020-090_Product_Data_Management_(IF) | PLB-020-090_Product_Data_Management_(IF) | Boundary Apps, Master Data Steward, Material Planner, PTP Batch user | 17 | 14 |
+| 3 | PLB-020-120_Master_Production_Scheduling_(IF) | PLB-020-120_Master_Production_Scheduling_(IF) | Boundary Apps, FTS IF - Production Scheduler, Factory Supervisor, IT Department | 13 | 5 |
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-020 — Supply Planning & Management (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="business-architecture-321-plb-020-010_supply_parameter_data_management010if-plb-020-010_supply_parameterdata_management010_if">BUSINESS ARCHITECTURE — 3.2.1 PLB-020-010_Supply_Parameter_&amp;<em>Data_Management</em>(010)<em>(IF) — PLB-020-010_Supply_Parameter</em>&amp;<em>Data_Management</em>(010)_(IF)</h4>
-<p><strong>Swim Lanes</strong>: Boundary Apps · Master Data Steward · Material Planner · PTP Batch user | <strong>Tasks</strong>: 17 | <strong>Gateways</strong>: 14</p>
-<blockquote>
-<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
-</blockquote>
+
+### 3.2 Business Process Diagrams
+
+
+#### BUSINESS ARCHITECTURE — 3.2.1 PLB-020-010_Supply_Parameter_&amp;_Data_Management_(010)_(IF) — PLB-020-010_Supply_Parameter_&amp;_Data_Management_(010)_(IF)
+
+**Swim Lanes**: Boundary Apps · Master Data Steward · Material Planner · PTP Batch user | **Tasks**: 17 | **Gateways**: 14
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
 <div class="mermaid">
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -613,18 +631,23 @@ flowchart LR
     class n33 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWG1vozgQ_isWqyp3EpEwhpDkw53yxm6lzTZKdnN32uwHF0xilQBnIG2um_9-NtiEULKnbS9Sq_jxPPPMjMc25FnzYp9oQ-3m5plGNBuC5062I3vSGYLOPU5JRwclsMaM4vuQpB1hE8RRtqL_FGbQSp6EmcBcvKfhUaArso0J-HKrgxEnhjpIcZR2U8Jo0NE7CaN7zI6TOIyZsH5H-oERFGpyahwzn7CzgWE40LM5NaQROcPIsRzLFbyUeHHkXzgN7KAfeJ2TCC6MH70dZlkRfp6SOX76g_rZjo8DHKaE2-yyffgR35NQ5JixXGBezg6qGDQVOhEv2CrBHo22HLcMDjEcPZwh2zidwOnmZhNVouDjchMB_vFCnKZTEoA04_DskIGAhuHwnTUZubahpxmLH8jwnTlzpsjUPZHJkKdu6KK43UdCt7tseB-HvjTtPoochmbypLOnoWno7Mj_N7RI5J-VJj2zb_YrpbEDJ3CilIIgeJMSryv7jNMHqTVDrulOKy1o9-yJ8dKfSnNqOSPYrBNhB-qRmlPXddHsXKpZz4bGdadjF_WMScPpFmfkER_PDgcTq3Lo2o4LnasOS71mlPn9gsWecohmtmtXDp0xdEfmVYfWCFp9GSH3s2U42YFxnBe9DEZJkpZz4hPZX79utAAPA9z14i1YEBbEbA8WIY4i3n2Aj8CcZye2XLrRvn2rcXtv4Dpv4ML-LxU5CXnZ21nglp8_lI98zv-1xjft5-ezuE-693y_eTvw-ZgQEAfAJ3sc-b9vtNOpzuq1s8iTF-YpPZD3ZRM0ac51sVSoTeL9PvZ5pCR9Idl_lSRCZxpmLH5MuzjMwHy5KFP8864mxPdyo1XmOOUVBFOcYbAS_plfd16VXuxNbkyjjP8Blz6BJSnOWLCIOciLXk9l0J6KCuo_IiqXtFxowuq9cBnOLBKhuzEjHs9CtMQBhzkv9BxHOQ7DY9kiqhLrdSPKt3kzL71Z7T0-JQlPkUQZ_yYaTThodPiAE5fEI3yJZc4-uBOlTS8VoMENz0tQC7RYPRHdKM_iHy0MhHUXkzhK832S0TgqXDRsRX1UGtWiLMnfOWX8RucZVTtxmUcNLqrnlDN-jaWk5KZU6DXMrZ8zt3_OvCcSod4DWJcLKqq0xxn1ilVdU3xRiR_2DHTe4KvRMabxujMGvo5mttPq4X6gaRaLa-OAaSge116cUeh12tb_oI2M1oPuy-JWbq0XBNhKSDDja0XCK8ep2Uqi0bUEXx5gi88LMMYZz0-cKzXf_csjgmd_IPzpbrEEfNcu7poX3-B88fHSJOdOLw4HMGHk8rqrIokQ6HZ_EztYjqFZAuqJK7LluCfHfUkYyHGvMT8ox0jxoSQgpACjoQBhAzClBVQUJIPqK4aMGqmoTSniyLEjHViKILNAUBFU2IphFpTvG231ZbzSwWx-O9bBfDbXwe2H1Ub7LjSUM6vhDMFmOMoZ7zgduO8LvioYMuRktds_TS8FzEHTYg0LC3TVxaJ0ofJFSBr8RdLSt92c-RSXEyosmRRUhlBVSGUJG2NTArACTCU6KysGe82ZT3flhHIp18lUiZnNsWrPqjWspobTnJEa1VrYEl-SA4lyIk-AwsZu2syiLX_p49eXuCnPdr3rC7MuxczrFmZpYdWe5EUx1RvMBWy2w6gdtuovLRcz9tWZ3tUZ5-pM_-oM39zq_fISH8h3wcvsDPVCdAnDdthsh1E7bLXDdjvca4eddrjfDg9aYdSeJWrPErVniaosNV3bE7bH1NeGz1rxC4k21HwS4DzMtJOuYf5YsTpGnjYsfknQ8sTnzCnF_IrZl-DpX9xLbCA=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWG1vozgQ_isWqyp3EpEwhpDkw53yxm6lzTZKdnN32uwHF0xilQBnIG2um_9-NtiEULKnbS9Sq_jxPPPMjMc25FnzYp9oQ-3m5plGNBuC5062I3vSGYLOPU5JRwclsMaM4vuQpB1hE8RRtqL_FGbQSp6EmcBcvKfhUaArso0J-HKrgxEnhjpIcZR2U8Jo0NE7CaN7zI6TOIyZsH5H-oERFGpyahwzn7CzgWE40LM5NaQROcPIsRzLFbyUeHHkXzgN7KAfeJ2TCC6MH70dZlkRfp6SOX76g_rZjo8DHKaE2-yyffgR35NQ5JixXGBezg6qGDQVOhEv2CrBHo22HLcMDjEcPZwh2zidwOnmZhNVouDjchMB_vFCnKZTEoA04_DskIGAhuHwnTUZubahpxmLH8jwnTlzpsjUPZHJkKdu6KK43UdCt7tseB-HvjTtPoochmbypLOnoWno7Mj_N7RI5J-VJj2zb_YrpbEDJ3CilIIgeJMSryv7jNMHqTVDrulOKy1o9-yJ8dKfSnNqOSPYrBNhB-qRmlPXddHsXKpZz4bGdadjF_WMScPpFmfkER_PDgcTq3Lo2o4LnasOS71mlPn9gsWecohmtmtXDp0xdEfmVYfWCFp9GSH3s2U42YFxnBe9DEZJkpZz4hPZX79utAAPA9z14i1YEBbEbA8WIY4i3n2Aj8CcZye2XLrRvn2rcXtv4Dpv4ML-LxU5CXnZ21nglp8_lI98zv-1xjft5-ezuE-693y_eTvw-ZgQEAfAJ3sc-b9vtNOpzuq1s8iTF-YpPZD3ZRM0ac51sVSoTeL9PvZ5pCR9Idl_lSRCZxpmLH5MuzjMwHy5KFP8864mxPdyo1XmOOUVBFOcYbAS_plfd16VXuxNbkyjjP8Blz6BJSnOWLCIOciLXk9l0J6KCuo_IiqXtFxowuq9cBnOLBKhuzEjHs9CtMQBhzkv9BxHOQ7DY9kiqhLrdSPKt3kzL71Z7T0-JQlPkUQZ_yYaTThodPiAE5fEI3yJZc4-uBOlTS8VoMENz0tQC7RYPRHdKM_iHy0MhHUXkzhK832S0TgqXDRsRX1UGtWiLMnfOWX8RucZVTtxmUcNLqrnlDN-jaWk5KZU6DXMrZ8zt3_OvCcSod4DWJcLKqq0xxn1ilVdU3xRiR_2DHTe4KvRMabxujMGvo5mttPq4X6gaRaLa-OAaSge116cUeh12tb_oI2M1oPuy-JWbq0XBNhKSDDja0XCK8ep2Uqi0bUEXx5gi88LMMYZz0-cKzXf_csjgmd_IPzpbrEEfNcu7poX3-B88fHSJOdOLw4HMGHk8rqrIokQ6HZ_EztYjqFZAuqJK7LluCfHfUkYyHGvMT8ox0jxoSQgpACjoQBhAzClBVQUJIPqK4aMGqmoTSniyLEjHViKILNAUBFU2IphFpTvG231ZbzSwWx-O9bBfDbXwe2H1Ub7LjSUM6vhDMFmOMoZ7zgduO8LvioYMuRktds_TS8FzEHTYg0LC3TVxaJ0ofJFSBr8RdLSt92c-RSXEyosmRRUhlBVSGUJG2NTArACTCU6KysGe82ZT3flhHIp18lUiZnNsWrPqjWspobTnJEa1VrYEl-SA4lyIk-AwsZu2syiLX_p49eXuCnPdr3rC7MuxczrFmZpYdWe5EUx1RvMBWy2w6gdtuovLRcz9tWZ3tUZ5-pM_-oM39zq_fISH8h3wcvsDPVCdAnDdthsh1E7bLXDdjvca4eddrjfDg9aYdSeJWrPErVniaosNV3bE7bH1NeGz1rxCwn_FcUnAc7DTDvpGuaPFatj5GnD4pcELU98zpxSzK-YfQme_gXcS2wg" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-020 — Supply Planning & Management (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="business-architecture-322-plb-020-090_product_data_management_if-plb-020-090_product_data_management_if">BUSINESS ARCHITECTURE — 3.2.2 PLB-020-090_Product_Data_Management_(IF) — PLB-020-090_Product_Data_Management_(IF)</h4>
-<p><strong>Swim Lanes</strong>: Boundary Apps · Master Data Steward · Material Planner · PTP Batch user | <strong>Tasks</strong>: 17 | <strong>Gateways</strong>: 14</p>
-<blockquote>
-<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
-</blockquote>
+
+#### BUSINESS ARCHITECTURE — 3.2.2 PLB-020-090_Product_Data_Management_(IF) — PLB-020-090_Product_Data_Management_(IF)
+
+**Swim Lanes**: Boundary Apps · Master Data Steward · Material Planner · PTP Batch user | **Tasks**: 17 | **Gateways**: 14
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
 <div class="mermaid">
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -739,18 +762,23 @@ flowchart LR
     class n33 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWG1v2zYQ_iuEisAbIAOiXizbHzb4TW2AujHs1tvQ9AMjUQ4RmdIoyYmX-r-PlEhZVqQOTWbABvjwnrt7jkdS8rPmxwHWxtrV1TOhJBuD5152j_e4Nwa9O5Ting5KYIsYQXcRTnvCJoxptiH_FGbQTp6EmcA8tCfRUaAbvIsx-HKtgwknRjpIEU37KWYk7Om9hJE9YsdZHMVMWL_Dw9AIi2hyahqzALOzgWG40Hc4NSIUn2HLtV3bE7wU-zENLpyGTjgM_d5JJBfFj_49YlmRfp7iJXr6gwTZPR-HKEoxt7nP9tFHdIcjoTFjucD8nB1UMUgq4lBesE2CfEJ3HLcNDjFEH86QY5xO4HR1dUuroODj-pYC_vEjlKZzHII04_DikIGQRNH4nT2beI6hpxmLH_D4nblw55ap-0LJmEs3dFHc_iMmu_tsfBdHgTTtPwoNYzN50tnT2DR0duS_jViYBudIs4E5NIdVpKkLZ3CmIoVh-KZIvK7sM0ofZKyF5ZnevIoFnYEzM176UzLntjuBzTphdiA-rjn1PM9anEu1GDjQ6HY69ayBMWs43aEMP6Lj2eFoZlcOPcf1oNvpsIzXzDK_W7HYVw6theM5lUN3Cr2J2enQnkB7KDPkfnYMJfdgGudFL4NJkqTlnPhQ5-vXWy1E4xD1_XgHVpiFMduDVYQo5d0H-AgsuTqx5dJb7du3GnfwBq77Bi4c_lKRk4iXvZ0Frvn5Q_go4Pxfa3zTeX4-Bw9w_47vN_8efD4mGMQhmOM9osHvt9rpVGcN2ln4yY_ylBzw-7IJmjS3O1gqos3i_T4OeKY4fRFy-KqQlnWmIcbix7SPogws1yuQCYl_GrVAfC83WmWJUl5BMEcZAhvhnwV151Xpxd7kxoRm_As88gTWuDhjwSrmIC96XcqoXYpISpTiPzIql7RcaMzqvXCZzoKK1L2YYZ-rEC1xQFHOC71ENEdRdCxbRAYF220jy7d5My-92e09PscJl4hpJhtNOGh0-IgT19jHfIml5gDciNKmlxGgwQ3PS1BLtFg9kd0kz-IfLQyEdRezmKb5PslITAsXDVtRHyWjWpQ1_jsnjN_oXFG1E9c5bXCtuqac8WssxSU3JSJew9z-OXPn58wHQgjxH8C2XFBRpT3KiF-s6pagi0r8sGeg-wZfjY4xjdedMfB1NLOdVk_3A0mzWFwbB0Qi8bj24oyyXhfb_h9iW0brQfdldd1xhluwlZAgxtcKRx3HqdlKIrRL4MsDbPV5BaYo4_rEuVLzPbw8Irj6A-ZPd6s14Lt2ddO8-Ebni4-XJjl3enE4gBnDl9ddlQm1QL__m9jBcgzNElBPXNSR44EcDyVhJMeDxvyoHFuKbxkC-M7PEtXcq_mt9p2fgiqi0YgIYQMwpQW0lE-Z5FAxpApLqTBllq4cu9JBFVOqsqAiKBmKYboy7c2X6UYHi-X1VAfLxVIH1x82Rf5mFd1uOLNgMx3ljHegDrz3BX_UWaBP88sA5qhpsYWFhaoHlHItBciMoKMMlDyVImyOZYVM5cFsjm2Zw1-LUj50mzOfbsq0FS5jwKrGqteqdXUkc40PmOZYbs7Ci9O0WdAdfx_jN4u4xM52qu1Ms5nfoLt62zJRs9vCLC3spnepsVppqxHVdJozqiqj2pO8qL96g7mAzXbYaoft-kvLxYzTOTPonHE7Z4adM7zx1PvlJT6S74KX6gz1QnQJw3bYbIetdthuh512eNAOu-3wsB0etcJWu0qrXaXVrtKqVGq6tsdsj0igjZ-14h8SbawFOER5lGknXUP8sWJzpL42Lv5J0PIk4Mw5QfyK2Zfg6V95-muh" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWG1vozgQ_isWqyp3EpGwgZDkw53yxm6lzTZKdnN32u4HF0xqlQBnIG2um_9-NtiEUNjTtheplfx4npl5xmMbeNa82CfaWLu6eqYRzcbguZfdkz3pjUHvDqekp4MS2GJG8V1I0p6wCeIo29B_CjNoJU_CTGAu3tPwKNAN2cUEfLnWwYQTQx2kOEr7KWE06Om9hNE9ZsdZHMZMWL8jw8AIimhyahozn7CzgWE40LM5NaQROcOmYzmWK3gp8eLIv3Aa2MEw8HonkVwYP3r3mGVF-nlKlvjpD-pn93wc4DAl3OY-24cf8R0JhcaM5QLzcnZQxaCpiBPxgm0S7NFox3HL4BDD0cMZso3TCZyurm6jKij4uL6NAP95IU7TOQlAmnF4cchAQMNw_M6aTVzb0NOMxQ9k_A4tnLmJdE8oGXPphi6K238kdHefje_i0Jem_UehYYySJ509jZGhsyP_34hFIv8caTZAQzSsIk0dOIMzFSkIgjdF4nVln3H6IGMtTBe58yoWtAf2zHjpT8mcW84ENutE2IF6pObUdV1zcS7VYmBDo9vp1DUHxqzhdIcz8oiPZ4ejmVU5dG3HhU6nwzJeM8v8bsViTzk0F7ZrVw6dKXQnqNOhNYHWUGbI_ewYTu7BNM6LXgaTJEnLOfGL7K9fb7UAjwPc9-IdWBEWxGwPViGOIt59gI_AkqsTWy691b59q3EHb-A6b-DC4S8VOQl52dtZ4JqfP5SPfM7_tcZH9vPzObhP-nd8v3n34PMxISAOwJzsceT_fqudTnXWoJ1FnrwwT-mBvC-boElzuoOlItos3u9jn2dK0hchh68KaZpnGmYsfkz7OMzAcr0CmZD4p1ELxPdyo1WWOOUVBHOcYbAR_plfd16VXuxNbkyjjP8Blz6BNSnOWLCKOciLXpcyapcikhKl-I-MyiUtF5qwei9cprOIROpuzIjHVYiWOOAw54Ve4ijHYXgsW0QGBdttI8u3eUOX3qz2Hp-ThEskUSYbTThodPiIE9fEI3yJpWYf3IjSppcRoMENz0tQS7RYPZHdJM_iHy0MhHUXszhK832S0TgqXDRsRX2UjGpR1uTvnDJ-o3NF1U5c51GDa9Y15YxfYykpuSkV8Rrm1s-Z2z9nPhBCqPcAtuWCiirtcUa9YlW3FF9U4oc9A503-Gp0DDJed8bA19FQO62e7geaZrG4Ng6YhuJx7cUZZb4utvU_xDaN1oPuy-q64ww3YSshwYyvFQk7jlPUSqJRl8CXB9jq8wpMccb1iXOl5nt4eURw9QfCn-5Wa8B37eqmefGNzhcfL01y7vTicAAzRi6vuyqTyAT9_m9iB8sxRCWgnrgiW44HcjyUhJEcDxrzo3JsKr5pCOA7P0tUc6_mt9p3fgqqiEYjIoQNAEkLaCqfMsmhYkgVplKBZJaOHDvSQRVTqjKhIigZioEcmfbmy3Sjg8XyeqqD5WKpg-sPmyJ_VEW3Gs5M2ExHOeMdqAP3fcEfdRbo0_wyABo1LbawsFD1gFKuqQCZEbSVgZKnUoTNsawQUh5Qc2zJHP5alPKh05z5dFOmrXAZA1Y1Vr1WrastmWtyIFFO5OYsvNhNm0W04-9j_GYRl9jZTrUdQs38Bt3V25aJom4LVFpYTe9SY7XSZiMqspszqiqj2pO8qL96g7mAUTtstsNW_aXlYsbunBl0zjidM8POGd546v3yEh_Jd8FLdYZ6IbqEYTuM2mGzHbbaYbsdHrTDTjs8bIdHrbDZrtJsV2m2qzQrlZqu7QnbY-pr42et-ELCv6L4JMB5mGknXcP8sWJzjDxtXHxJ0PLE58w5xfyK2Zfg6V95-muh" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-020 — Supply Planning & Management (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="business-architecture-323-plb-020-120_master_production_scheduling_if-plb-020-120_master_production_scheduling_if">BUSINESS ARCHITECTURE — 3.2.3 PLB-020-120_Master_Production_Scheduling_(IF) — PLB-020-120_Master_Production_Scheduling_(IF)</h4>
-<p><strong>Swim Lanes</strong>: Boundary Apps · FTS IF - Production Scheduler · Factory Supervisor · IT Department | <strong>Tasks</strong>: 13 | <strong>Gateways</strong>: 5</p>
-<blockquote>
-<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
-</blockquote>
+
+#### BUSINESS ARCHITECTURE — 3.2.3 PLB-020-120_Master_Production_Scheduling_(IF) — PLB-020-120_Master_Production_Scheduling_(IF)
+
+**Swim Lanes**: Boundary Apps · FTS IF - Production Scheduler · Factory Supervisor · IT Department | **Tasks**: 13 | **Gateways**: 5
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
 <div class="mermaid">
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -843,1968 +871,353 @@ flowchart LR
     class n25 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1Fv4kYQ_isrRxGtBIptbAw8tCKAq0i5Jgq59uFyD4u9hlWM112vIZTjv3fW9gJe7F7V4yHRfjPzzcw33sEcjICFxBgbt7cHmlAxRoeOWJMN6YxRZ4kz0umiEvgDc4qXMck60idiiVjQvws3y0k_pJvEfLyh8V6iC7JiBH1-6KIJBMZdlOEk62WE06jT7aScbjDfT1nMuPS-IcPIjIpsleme8ZDws4NpelbgQmhME3KG-57jOb6My0jAkrBGGrnRMAo6R1lczHbBGnNRlJ9n5BP--JOGYg3nCMcZAZ-12MSPeEli2aPgucSCnG-VGDSTeRIQbJHigCYrwB0TII6T9zPkmscjOt7eviWnpOjx5S1B8AlinGUzEqFMADzfChTROB7fONOJ75rdTHD2TsY39tyb9e1uIDsZQ-tmV4rb2xG6WovxksVh5drbyR7GdvrR5R9j2-zyPfzVcpEkPGeaDuyhPTxluvesqTVVmaIo-qFMoCt_xdl7lWve921_dspluQN3al7zqTZnjjexdJ0I39KAXJD6vt-fn6WaD1zLbCe99_sDc6qRrrAgO7w_E46mzonQdz3f8loJy3x6lfnymbNAEfbnru-eCL17y5_YrYTOxHKGVYXAs-I4XaN7lhfPMpqkaVba5Cexvnx5MyI8jnAvYCs05QRaQZA7zANBWYKeY5ygHRVrtHhCz2S1gmfyzfj69YLDrnO8kIDQbY3kSV49NMMCl1RPuZAnkmlMlvPTiSqNQdAHWCFUVrTBmQCKC85FsCZhHpfl_HxJMjiTZIKl6HMaAkXYXJAWbFuHw7mZkPSWcBeDdSnD6z4lv74Zx2MZANdAU9l_XaAHH_Ua6iT8IovXrDrkSKDOojhdmmE95JXT1QpaeGQC3V1kK5YcCgrCUKMYNc9pIVjwDoSwTiOIfSF_5TSjku1qPENN2cXrCxIM_j2hKUu2hJdJa4KaEHKlPHhHlG9wAd0VXUzZJo0JyMCruiLONujTfAGEl3zOeUCYc7bLejgWKMUcxzGJfytv4r8OCQeCwU1Y5KncBRm7nIxl1kV6JjxifFN_2mqaWI2q3qmhQmvZd-6PZTfP9ko1KfXkWY_u_6exyodLjxzp47wOUXRXY7Wb7wn5COI8g4CrQZRh7o9O7-EVzQj4iw1JxAWzpsKMbml4vchoIjUUeHW1epx6_AIyo8n9i9oRl65uo-Dhec_ITMXEtMCBluP7E3K1fagqko_CksCXGVRZ3JP5dKKvQU-bbm29lCyqYpo0ENj9_zkrWOOo1_tFLlMFlOd-deyXR09ZK7NlK8AtAac623blYCoHs0rgKo8qwrI04ORQ5PhWW0Wl4N8gSnf6nYgd4-9nj0HlMajyqk7sqpWRdrZODpUUQ60uW_Vm2RqgelUpVWdKrVF1VoxeFa_Ec7SzpUpSNQ4rByWmrcS8eAeRI7t4U6pZ7FZLv9XitFrcVsug1eK1WoatllGrBR6mVlO7Cla7DFa7DnAz1It6HXdb8EH1sl1HvUZ02IiOmlCYeWM-uAHVu2wdtpvhfjPsNMOugo2usSHw7U9DY3wwil-D8IsxJBHOY2EcuwbOBVvsk8AYF7-ajLzYUzOK4TtgU4LHfwB0PIEh" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1Fv4kYQ_isrRxGtBIptbAw8tCKAq0i5Jgq59uFyD4u9hlWM112vIZTjv3fW9gJe7F7V4yHRfjPzzcw33sEcjICFxBgbt7cHmlAxRoeOWJMN6YxRZ4kz0umiEvgDc4qXMck60idiiVjQvws3y0k_pJvEfLyh8V6iC7JiBH1-6KIJBMZdlOEk62WE06jT7aScbjDfT1nMuPS-IcPIjIpsleme8ZDws4NpelbgQmhME3KG-57jOb6My0jAkrBGGrnRMAo6R1lczHbBGnNRlJ9n5BP--JOGYg3nCMcZAZ-12MSPeEli2aPgucSCnG-VGDSTeRIQbJHigCYrwB0TII6T9zPkmscjOt7eviWnpOjx5S1B8AlinGUzEqFMADzfChTROB7fONOJ75rdTHD2TsY39tyb9e1uIDsZQ-tmV4rb2xG6WovxksVh5drbyR7GdvrR5R9j2-zyPfzVcpEkPGeaDuyhPTxluvesqTVVmaIo-qFMoCt_xdl7lWve921_dspluQN3al7zqTZnjjexdJ0I39KAXJD6vt-fn6WaD1zLbCe99_sDc6qRrrAgO7w_E46mzonQdz3f8loJy3x6lfnymbNAEfbnru-eCL17y5_YrYTOxHKGVYXAs-I4XaN7lhfPMpqkaVba5Cexvnx5MyI8jnAvYCs05QRaQZA7zANBWYKeY5ygHRVrtHhCz2S1gmfyzfj69YLDrnO8kIDQbY3kSV49NMMCl1RPuZAnkmlMlvPTiSqNQdAHWCFUVrTBmQCKC85FsCZhHpfl_HxJMjiTZIKl6HMaAkXYXJAWbFuHw7mZkPSWcBeDdSnD6z4lv74Zx2MZANdAU9l_XaAHH_Ua6iT8IovXrDrkSKDOojhdmmE95JXT1QpaeGQC3V1kK5YcCgrCUKMYNc9pIVjwDoSwTiOIfSF_5TSjku1qPENN2cXrCxIM_j2hKUu2hJdJa4KaEHKlPHhHlG9wAd0VXUzZJo0JyMCruiLONujTfAGEl3zOeUCYc7bLejgWKMUcxzGJfytv4r8OCQeCwU1Y5KncBRm7nIxl1kV6JjxifFN_2mqaWI2q3qmhQmvZd-6PZTfP9ko1KfXkWY_u_6exyodLjxzp47wOUXRXY7Wb7wn5COI8g4CrQZRh7o9O7-EVzQj4iw1JxAWzpsKMbml4vchoIjUUeHW1epx6_AIyo8n9i9oRl65uo-Dhec_ITMXEtMCBluP7E3K1fagqko_CksCXGVRZ3JP5dKKvQU-bbm29lCyqYpo0ENj9_zkrWOOo1_tFLlMFlOd-deyXR09ZK7NlK8AtAac623blYCoHs0rgKo8qwrI04ORQ5PhWW0Wl4N8gSnf6nYgd4-9nj0HlMajyqk7sqpWRdrZODpUUQ60uW_Vm2RqgelUpVWdKrVF1VoxeFa_Ec7SzpUpSNQ4rByWmrcS8eAeRI7t4U6pZ7FZLv9XitFrcVsug1eK1WoatllGrBR6mVlO7Cla7DFa7DnAz1It6HXdb8EH1sl1HvUZ02IiOmlCYeWM-uAHVu2wdtpvhfjPsNMOugo2usSHw7U9DY3wwil-D8IsxJBHOY2EcuwbOBVvsk8AYF7-ajLzYUzOK4TtgU4LHfwB0PIEh" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-020 — Supply Planning & Management (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
-<table>
-<thead>
-<tr>
-<th>Role / Lane</th>
-<th>Processes Involved</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Boundary Apps</td>
-<td>PLB-020-010_Supply_Parameter_&amp;<em>Data_Management</em>(010)<em>(IF), PLB-020-090_Product_Data_Management</em>(IF), PLB-020-120_Master_Production_Scheduling_(IF)</td>
-<td></td>
-</tr>
-<tr>
-<td>Master Data Steward</td>
-<td>PLB-020-010_Supply_Parameter_&amp;<em>Data_Management</em>(010)<em>(IF), PLB-020-090_Product_Data_Management</em>(IF),</td>
-<td></td>
-</tr>
-<tr>
-<td>Material Planner</td>
-<td>PLB-020-010_Supply_Parameter_&amp;<em>Data_Management</em>(010)<em>(IF), PLB-020-090_Product_Data_Management</em>(IF),</td>
-<td></td>
-</tr>
-<tr>
-<td>PTP Batch user</td>
-<td>PLB-020-010_Supply_Parameter_&amp;<em>Data_Management</em>(010)<em>(IF), PLB-020-090_Product_Data_Management</em>(IF),</td>
-<td></td>
-</tr>
-<tr>
-<td>FTS IF - Production Scheduler</td>
-<td>PLB-020-120_Master_Production_Scheduling_(IF)</td>
-<td></td>
-</tr>
-<tr>
-<td>Factory Supervisor</td>
-<td>PLB-020-120_Master_Production_Scheduling_(IF)</td>
-<td></td>
-</tr>
-<tr>
-<td>IT Department</td>
-<td>PLB-020-120_Master_Production_Scheduling_(IF)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+### 3.3 Business Roles & Responsibilities
+
+| Role / Lane | Processes Involved | Description |
+|------------|-------------------|-------------|
+| Boundary Apps | PLB-020-010_Supply_Parameter_&amp;_Data_Management_(010)_(IF), PLB-020-090_Product_Data_Management_(IF), PLB-020-120_Master_Production_Scheduling_(IF) | |
+| Master Data Steward | PLB-020-010_Supply_Parameter_&amp;_Data_Management_(010)_(IF), PLB-020-090_Product_Data_Management_(IF),  | |
+| Material Planner | PLB-020-010_Supply_Parameter_&amp;_Data_Management_(010)_(IF), PLB-020-090_Product_Data_Management_(IF),  | |
+| PTP Batch user | PLB-020-010_Supply_Parameter_&amp;_Data_Management_(010)_(IF), PLB-020-090_Product_Data_Management_(IF),  | |
+| FTS IF - Production Scheduler | PLB-020-120_Master_Production_Scheduling_(IF) | |
+| Factory Supervisor | PLB-020-120_Master_Production_Scheduling_(IF) | |
+| IT Department | PLB-020-120_Master_Production_Scheduling_(IF) | |
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-020 — Supply Planning & Management (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
-<h3 id="41-data-entities-ownership">4.1 Data Entities &amp; Ownership</h3>
-<p>The following data entities are derived from the system integration flows for PLB-020. Tower architects should validate ownership and classification.</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Data Entity</th>
-<th>Source System</th>
-<th>Target System</th>
-<th>Data Owner</th>
-<th>Classification</th>
-<th>Volume</th>
-<th>Master/Transaction</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+## 4. Data Architecture (TOGAF "D")
+
+### 4.1 Data Entities & Ownership
+
+The following data entities are derived from the system integration flows for PLB-020. Tower architects should validate ownership and classification.
+
+| # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
+|---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-020 — Supply Planning & Management (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="42-data-flow-diagrams">4.2 Data Flow Diagrams</h3>
-<blockquote>
-<p><strong>DATA ARCHITECTURE</strong> — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.</p>
-</blockquote>
-<h3 id="43-data-lineage">4.3 Data Lineage</h3>
-<p>Data lineage traces the origin and transformation path of key data objects across integrated systems.</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Source System</th>
-<th>Source Schema/Object</th>
-<th>Target System</th>
-<th>Target Schema/Object</th>
-<th>Transformation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Lineage detail will be refined when tower architects validate source/target schema object mappings.</em></p>
-</blockquote>
-<h3 id="44-ricefw-data-objects">4.4 RICEFW Data Objects</h3>
-<p>Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:</p>
-<table>
-<thead>
-<tr>
-<th>Object ID</th>
-<th>Type</th>
-<th>Description</th>
-<th>Status</th>
-<th>Source</th>
-<th>Target</th>
-<th>Complexity</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LOGR1176_IF</td>
-<td>Report</td>
-<td>ISM - International Traffic Report</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGR0833_IF</td>
-<td>Report</td>
-<td>Email Notification for deletion of Shipping Memos</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>LOGC0972_IF</td>
-<td>Conversion</td>
-<td>Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGC0946_IF</td>
-<td>Conversion</td>
-<td>Open Inventory Conversion for IP and IF (as applicable) , ECC to S4</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FTSC1550</td>
-<td>Conversion</td>
-<td>Inventory Conversion</td>
-<td>02. FS Unplanned</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-</tbody>
-</table>
-<h3 id="45-data-governance-quality">4.5 Data Governance &amp; Quality</h3>
-<table>
-<thead>
-<tr>
-<th>Concern</th>
-<th>Approach</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Data Ownership</td>
-<td>Per-entity owners listed in Section 3.1</td>
-</tr>
-<tr>
-<td>Data Classification</td>
-<td>Financial data classified as Intel Confidential</td>
-</tr>
-<tr>
-<td>Data Retention</td>
-<td>Per Intel corporate retention policies</td>
-</tr>
-<tr>
-<td>Data Quality</td>
-<td>Validated at source; reconciliation at target</td>
-</tr>
-</tbody>
-</table>
+
+### 4.2 Data Flow Diagrams
+
+> **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
+
+
+
+
+### 4.3 Data Lineage
+
+Data lineage traces the origin and transformation path of key data objects across integrated systems.
+
+| # | Source System | Source Schema/Object | Target System | Target Schema/Object | Transformation |
+|---|-------------|---------------------|---------------|---------------------|---------------|
+
+> *Lineage detail will be refined when tower architects validate source/target schema object mappings.*
+
+### 4.4 RICEFW Data Objects
+
+Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
+
+| Object ID | Type | Description | Status | Source | Target | Complexity |
+|-----------|------|-------------|--------|--------|--------|-----------|
+| LOGR1176_IF | Report | ISM - International Traffic Report | 10. Object Complete |  |  | 03.Medium |
+| LOGR0833_IF | Report | Email Notification for deletion of Shipping Memos | 10. Object Complete |  |  | 04.Low |
+| LOGC0972_IF | Conversion | Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi... | 10. Object Complete |  |  | 02.High |
+| LOGC0946_IF | Conversion | Open Inventory Conversion for IP and IF (as applicable) , ECC to S4 | 10. Object Complete |  |  | 02.High |
+| FTSC1550 | Conversion | Inventory Conversion | 02. FS Unplanned |  |  | 03.Medium |
+
+### 4.5 Data Governance & Quality
+
+| Concern | Approach |
+|---------|----------|
+| Data Ownership | Per-entity owners listed in Section 3.1 |
+| Data Classification | Financial data classified as Intel Confidential |
+| Data Retention | Per Intel corporate retention policies |
+| Data Quality | Validated at source; reconciliation at target |
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-020 — Supply Planning & Management (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</h2>
-<h3 id="51-current-state-current-state-application-landscape">5.1 Current-State — Current-State Application Landscape</h3>
-<h4 id="overview">Overview</h4>
-<p>The Current-State architecture represents the <strong>current / legacy</strong> landscape for PLB-020.</p>
-<h4 id="current-state-flow-narrative">Current-State Flow Narrative</h4>
-<p><em>(No current-state flows defined.)</em></p>
-<h3 id="52-future-state-future-state-application-landscape">5.2 Future-State — Future-State Application Landscape</h3>
-<h4 id="overview_1">Overview</h4>
-<p>The Future-State architecture represents the <strong>target</strong> landscape for PLB-020.</p>
-<h4 id="future-state-flow-narrative">Future-State Flow Narrative</h4>
-<p><em>(No future-state flows defined.)</em></p>
-<h3 id="53-change-impact-summary">5.3 Change Impact Summary</h3>
-<table>
-<thead>
-<tr>
-<th>Change Type</th>
-<th>Flow Chain</th>
-<th>Detail</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Totals</strong>: 0 new - 0 removed - 0 modified - 0 unchanged</p>
-<h3 id="54-component-overview">5.4 Component Overview</h3>
-<h4 id="system-inventory">System Inventory</h4>
-<table>
-<thead>
-<tr>
-<th>System</th>
-<th>IAPM ID</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+## 5. Application Architecture (TOGAF "A")
+
+### 5.1 Current-State — Current-State Application Landscape
+
+#### Overview
+
+The Current-State architecture represents the **current / legacy** landscape for PLB-020.
+
+
+#### Current-State Flow Narrative
+
+*(No current-state flows defined.)*
+
+
+### 5.2 Future-State — Future-State Application Landscape
+
+#### Overview
+
+The Future-State architecture represents the **target** landscape for PLB-020.
+
+
+#### Future-State Flow Narrative
+
+*(No future-state flows defined.)*
+
+
+### 5.3 Change Impact Summary
+
+| Change Type | Flow Chain | Detail |
+|-------------|-----------|--------|
+
+**Totals**: 0 new - 0 removed - 0 modified - 0 unchanged
+
+### 5.4 Component Overview
+
+#### System Inventory
+
+| System | IAPM ID | Status |
+|--------|---------|--------|
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-020 — Supply Planning & Management (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
-<table>
-<thead>
-<tr>
-<th>Object ID</th>
-<th>Type</th>
-<th>Description</th>
-<th>Status</th>
-<th>Source → Target</th>
-<th>Middleware</th>
-<th>Complexity</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LOGW1078_IF</td>
-<td>Workflow</td>
-<td>ISM Workflows - Capital/AMT</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGW1077_IF</td>
-<td>Workflow</td>
-<td>ISM Workflows - EIMS/Lab</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGW1076_IF</td>
-<td>Workflow</td>
-<td>ISM Workflows - Non-inventory</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGR1176_IF</td>
-<td>Report</td>
-<td>ISM - International Traffic Report</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGR0833_IF</td>
-<td>Report</td>
-<td>Email Notification for deletion of Shipping Memos</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>LOGI1718</td>
-<td>Interface</td>
-<td>To align on batch attributes for straddle in S4</td>
-<td>08. FUT In Progress</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1677</td>
-<td>Interface</td>
-<td>Send 4C1 Inventory Reconciliation Snapshot to IP</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>SFT</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1676</td>
-<td>Interface</td>
-<td>Send 4C1 Inventory movement Stock type change and cycle count to IP</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>SFT</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1555</td>
-<td>Interface</td>
-<td>Straddle Plant to be automatically complete the Goods Receipt and write of th&hellip;</td>
-<td>09. FUT Overdue</td>
-<td></td>
-<td>MuleSoft</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1091</td>
-<td>Interface</td>
-<td>STO based Outbound Delivery Notification Confirmation for Delivery Note Deletion</td>
-<td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>MULESOFT</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1081_IF</td>
-<td>Interface</td>
-<td>Interface + Enhancement - Reprinting of Carrier Label</td>
-<td>10. Object Complete</td>
-<td>S/4 → Redwood</td>
-<td>APIGEE</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>LOGI1079_IF</td>
-<td>Interface</td>
-<td>Interface from S4 ISM to Service Now</td>
-<td>10. Object Complete</td>
-<td>S/4 ISM → Service Now</td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>LOGI1074_IF</td>
-<td>Interface</td>
-<td>Send data via API to retrieve the tracking ID - interface + Enhancement</td>
-<td>10. Object Complete</td>
-<td>S/4 → Redwood</td>
-<td>APIGEE</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>LOGI1062</td>
-<td>Interface</td>
-<td>STO based outbound delivery notification request for delivery note cancellation</td>
-<td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>MULESOFT</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1053</td>
-<td>Interface</td>
-<td>STO based Outbound Delivery Notification from 3PL to S/4 for confirming Pick/&hellip;</td>
-<td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>MULESOFT</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1043</td>
-<td>Interface</td>
-<td>Inventory Movement from 3PL to S/4 - 4C1 Cycle Count</td>
-<td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>MULESOFT</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1041</td>
-<td>Interface</td>
-<td>STO based Outbound Delivery PGI confirmation from 3PL to S/4 - 3B2</td>
-<td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>MULESOFT</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1040</td>
-<td>Interface</td>
-<td>STO based Outbound Delivery PGI confirmation for returns from S/4 to 3PL - 3B2</td>
-<td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>MULESOFT</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1038</td>
-<td>Interface</td>
-<td>STO based Outbound Delivery Notification from S/4 to 3PL - 3B12</td>
-<td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>MULESOFT</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1037</td>
-<td>Interface</td>
-<td>Inventory Movement from S/4 to 3PL – 4C1 (Outbound)</td>
-<td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>MULESOFT</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI0836_IF</td>
-<td>Interface</td>
-<td>Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements)</td>
-<td>10. Object Complete</td>
-<td>S/4 → NDA</td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>LOGI0237_IF</td>
-<td>Interface</td>
-<td>Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4</td>
-<td>10. Object Complete</td>
-<td>3PL → S/4</td>
-<td>MULESOFT</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGF1525</td>
-<td>Form</td>
-<td>Consolidated Commercial Invoice for WIP</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>LOGF1524</td>
-<td>Form</td>
-<td>Commercial Invoice for WIP</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>LOGF1523</td>
-<td>Form</td>
-<td>Packing list for WIP</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>LOGF1100_IF</td>
-<td>Form</td>
-<td>Printing of Standard Shipping Label</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGF0359_IF</td>
-<td>Form</td>
-<td>ISM - Generate Commercial Invoice - IF/IP</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGF0358_IF</td>
-<td>Form</td>
-<td>ISM - Generate Traveler Document - IF/IP</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGF0352_IF</td>
-<td>Form</td>
-<td>ISM - IPLA</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGF0351_IF</td>
-<td>Form</td>
-<td>ISM - Custom China Special label</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGF0350_IF</td>
-<td>Form</td>
-<td>ISM - India GST DC</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE1690</td>
-<td>Enhancement</td>
-<td>Custom Enhancement for Storage Location and Storage Type Restriction LOG IF a&hellip;</td>
-<td>07. FUT Roadblock</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE1572_IF</td>
-<td>Enhancement</td>
-<td>SAP GUI T-code to Move stock from Blocked to unblock Status</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE1569_IF</td>
-<td>Enhancement</td>
-<td>Enhancement to change billing status based on ship reason in ISM</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>LOGE1554</td>
-<td>Enhancement</td>
-<td>Straddle Plant to be automatically complete the Goods Receipt and write of th&hellip;</td>
-<td>09. FUT Overdue</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE1453</td>
-<td>Enhancement</td>
-<td>Trigger the request for cancellation 3B14R and cancel the demand on STO based&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE1450</td>
-<td>Enhancement</td>
-<td>Inbound idoc processing logic during 3B2 and 3B13</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE1415</td>
-<td>Enhancement</td>
-<td>Suppress Batch and serial number validation in MIGO/MB26 for movement type 261</td>
-<td>08. FUT In Progress</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE1414</td>
-<td>Enhancement</td>
-<td>Creation of outbound Delivery for WIP inventory from STO</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE1177_IF</td>
-<td>Enhancement</td>
-<td>India GST E-invoicing</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>LOGE1118_IF</td>
-<td>Enhancement</td>
-<td>ISM – MY Security Check Fiori app - IF</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE1117_IF</td>
-<td>Enhancement</td>
-<td>ISM – Employee acknowledgement - IF</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE1090_IF</td>
-<td>Enhancement</td>
-<td>PGI confirmation for non-inventory Intel freight shipments via email</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>LOGE1080_IF</td>
-<td>Enhancement</td>
-<td>Email notifications to be triggered as part of ISM Workflows</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE1054</td>
-<td>Enhancement</td>
-<td>Email/Text Trigger to Factory Technician and Post Goods Issue upon all WO con&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGE1052_IF</td>
-<td>Enhancement</td>
-<td>Custom fields required on delivery screen</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>LOGE0935_IF</td>
-<td>Enhancement</td>
-<td>Fiori App - Shipping Memo</td>
-<td>08. FUT In Progress</td>
-<td></td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGE0835_IP</td>
-<td>Enhancement</td>
-<td>Interface to get the AMT (Asset Management Tool) data on the ISM</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE0239_IF</td>
-<td>Enhancement</td>
-<td>Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 - Table Creation</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>LOGE0190_IF</td>
-<td>Enhancement</td>
-<td>Delivery Split for STO in S/4</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>LOGC0972_IF</td>
-<td>Conversion</td>
-<td>Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGC0946_IF</td>
-<td>Conversion</td>
-<td>Open Inventory Conversion for IP and IF (as applicable) , ECC to S4</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FTSC1550</td>
-<td>Conversion</td>
-<td>Inventory Conversion</td>
-<td>02. FS Unplanned</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1738</td>
-<td>Interface</td>
-<td>Interface to send data to Factory Comm to activate the Mobile text receiving &hellip;</td>
-<td>02. FS Unplanned</td>
-<td></td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Summary</strong>: 2 Reports, 18 Interfaces, 3 Conversions, 19 Enhancements, 9 Forms, 3 Workflows</p>
+
+### 5.5 RICEFW Inventory
+
+| Object ID | Type | Description | Status | Source → Target | Middleware | Complexity |
+|-----------|------|-------------|--------|----------------|-----------|-----------|
+| LOGW1078_IF | Workflow | ISM Workflows - Capital/AMT | 10. Object Complete |  | NA | 03.Medium |
+| LOGW1077_IF | Workflow | ISM Workflows - EIMS/Lab | 10. Object Complete |  | NA | 03.Medium |
+| LOGW1076_IF | Workflow | ISM Workflows - Non-inventory | 10. Object Complete |  | NA | 03.Medium |
+| LOGR1176_IF | Report | ISM - International Traffic Report | 10. Object Complete |  | NA | 03.Medium |
+| LOGR0833_IF | Report | Email Notification for deletion of Shipping Memos | 10. Object Complete |  | NA | 04.Low |
+| LOGI1718 | Interface | To align on batch attributes for straddle in S4 | 08. FUT In Progress |  | NA | 03.Medium |
+| LOGI1677 | Interface | Send 4C1 Inventory Reconciliation Snapshot to IP | 10. Object Complete |  | SFT | 03.Medium |
+| LOGI1676 | Interface | Send 4C1 Inventory movement Stock type change and cycle count to IP | 10. Object Complete |  | SFT | 03.Medium |
+| LOGI1555 | Interface | Straddle Plant to be automatically complete the Goods Receipt and write of th... | 09. FUT Overdue |  | MuleSoft | 03.Medium |
+| LOGI1091 | Interface | STO based Outbound Delivery Notification Confirmation for Delivery Note Deletion | 10. Object Complete | S/4 → OpenText | MULESOFT | 03.Medium |
+| LOGI1081_IF | Interface | Interface + Enhancement - Reprinting of Carrier Label | 10. Object Complete | S/4 → Redwood | APIGEE | 04.Low |
+| LOGI1079_IF | Interface | Interface from S4 ISM to Service Now | 10. Object Complete | S/4 ISM → Service Now | NA | 04.Low |
+| LOGI1074_IF | Interface | Send data via API to retrieve the tracking ID - interface + Enhancement | 10. Object Complete | S/4 → Redwood | APIGEE | 04.Low |
+| LOGI1062 | Interface | STO based outbound delivery notification request for delivery note cancellation | 10. Object Complete | OpenText → S/4 | MULESOFT | 03.Medium |
+| LOGI1053 | Interface | STO based Outbound Delivery Notification from 3PL to S/4 for confirming Pick/... | 10. Object Complete | OpenText → S/4 | MULESOFT | 03.Medium |
+| LOGI1043 | Interface | Inventory Movement from 3PL to S/4 - 4C1 Cycle Count | 10. Object Complete | OpenText → S/4 | MULESOFT | 03.Medium |
+| LOGI1041 | Interface | STO based Outbound Delivery PGI confirmation from 3PL to S/4 - 3B2 | 10. Object Complete | OpenText → S/4 | MULESOFT | 03.Medium |
+| LOGI1040 | Interface | STO based Outbound Delivery PGI confirmation for returns from S/4 to 3PL - 3B2 | 10. Object Complete | S/4 → OpenText | MULESOFT | 03.Medium |
+| LOGI1038 | Interface | STO based Outbound Delivery Notification from S/4 to 3PL - 3B12 | 10. Object Complete | S/4 → OpenText | MULESOFT | 03.Medium |
+| LOGI1037 | Interface | Inventory Movement from S/4 to 3PL – 4C1 (Outbound) | 10. Object Complete | S/4 → OpenText | MULESOFT | 03.Medium |
+| LOGI0836_IF | Interface | Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements) | 10. Object Complete | S/4 → NDA | NA | 04.Low |
+| LOGI0237_IF | Interface | Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 | 10. Object Complete | 3PL → S/4 | MULESOFT | 03.Medium |
+| LOGF1525 | Form | Consolidated Commercial Invoice for WIP | 10. Object Complete |  | NA | 04.Low |
+| LOGF1524 | Form | Commercial Invoice for WIP | 10. Object Complete |  | NA | 04.Low |
+| LOGF1523 | Form | Packing list for WIP | 10. Object Complete |  | NA | 04.Low |
+| LOGF1100_IF | Form | Printing of Standard Shipping Label | 10. Object Complete |  | NA | 03.Medium |
+| LOGF0359_IF | Form | ISM - Generate Commercial Invoice - IF/IP | 10. Object Complete | NA → NA | NA | 03.Medium |
+| LOGF0358_IF | Form | ISM - Generate Traveler Document - IF/IP | 10. Object Complete | NA → NA | NA | 03.Medium |
+| LOGF0352_IF | Form | ISM - IPLA | 10. Object Complete | NA → NA | NA | 03.Medium |
+| LOGF0351_IF | Form | ISM - Custom China Special label | 10. Object Complete | NA → NA | NA | 03.Medium |
+| LOGF0350_IF | Form | ISM - India GST DC | 10. Object Complete | NA → NA | NA | 03.Medium |
+| LOGE1690 | Enhancement | Custom Enhancement for Storage Location and Storage Type Restriction LOG IF a... | 07. FUT Roadblock |  | NA | 03.Medium |
+| LOGE1572_IF | Enhancement | SAP GUI T-code to Move stock from Blocked to unblock Status | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1569_IF | Enhancement | Enhancement to change billing status based on ship reason in ISM | 10. Object Complete |  | NA | 04.Low |
+| LOGE1554 | Enhancement | Straddle Plant to be automatically complete the Goods Receipt and write of th... | 09. FUT Overdue |  | NA | 03.Medium |
+| LOGE1453 | Enhancement | Trigger the request for cancellation 3B14R and cancel the demand on STO based... | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1450 | Enhancement | Inbound idoc processing logic during 3B2 and 3B13 | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1415 | Enhancement | Suppress Batch and serial number validation in MIGO/MB26 for movement type 261 | 08. FUT In Progress |  | NA | 03.Medium |
+| LOGE1414 | Enhancement | Creation of outbound Delivery for WIP inventory from STO | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1177_IF | Enhancement | India GST E-invoicing | 10. Object Complete |  | NA | 04.Low |
+| LOGE1118_IF | Enhancement | ISM – MY Security Check Fiori app - IF | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1117_IF | Enhancement | ISM – Employee acknowledgement - IF | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1090_IF | Enhancement | PGI confirmation for non-inventory Intel freight shipments via email | 10. Object Complete |  | NA | 04.Low |
+| LOGE1080_IF | Enhancement | Email notifications to be triggered as part of ISM Workflows | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1054 | Enhancement | Email/Text Trigger to Factory Technician and Post Goods Issue upon all WO con... | 10. Object Complete |  | NA | 02.High |
+| LOGE1052_IF | Enhancement | Custom fields required on delivery screen | 10. Object Complete |  | NA | 04.Low |
+| LOGE0935_IF | Enhancement | Fiori App - Shipping Memo | 08. FUT In Progress |  | NA | 02.High |
+| LOGE0835_IP | Enhancement | Interface to get the AMT (Asset Management Tool) data on the ISM | 10. Object Complete |  | NA | 03.Medium |
+| LOGE0239_IF | Enhancement | Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 - Table Creation | 10. Object Complete | NA → NA | NA | 04.Low |
+| LOGE0190_IF | Enhancement | Delivery Split for STO in S/4 | 10. Object Complete | NA → NA | NA | 04.Low |
+| LOGC0972_IF | Conversion | Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi... | 10. Object Complete |  | NA | 02.High |
+| LOGC0946_IF | Conversion | Open Inventory Conversion for IP and IF (as applicable) , ECC to S4 | 10. Object Complete |  | NA | 02.High |
+| FTSC1550 | Conversion | Inventory Conversion | 02. FS Unplanned |  | NA | 03.Medium |
+| LOGI1738 | Interface | Interface to send data to Factory Comm to activate the Mobile text receiving ... | 02. FS Unplanned |  | NA | 02.High |
+
+**Summary**: 2 Reports, 18 Interfaces, 3 Conversions, 19 Enhancements, 9 Forms, 3 Workflows
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-020 — Supply Planning & Management (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
-<p>Integration patterns identified from the system flow analysis for PLB-020:</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Pattern</th>
-<th>Flow Chain</th>
-<th>Middleware</th>
-<th>Protocol</th>
-<th>Auth</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Integration pattern details will be refined when tower architects validate middleware assignments.</em></p>
-</blockquote>
+
+### 5.6 Integration Patterns
+
+Integration patterns identified from the system flow analysis for PLB-020:
+
+| # | Pattern | Flow Chain | Middleware | Protocol | Auth |
+|---|---------|-----------|-----------|----------|------|
+
+> *Integration pattern details will be refined when tower architects validate middleware assignments.*
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-020 — Supply Planning & Management (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
-<h3 id="61-platform-infrastructure">6.1 Platform &amp; Infrastructure</h3>
-<blockquote>
-<p><strong>TECHNOLOGY / PLATFORM ARCHITECTURE</strong> — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.</p>
-</blockquote>
-<h4 id="platform-inventory">Platform Inventory</h4>
-<p>Platform landscape inferred from integrated systems for PLB-020:</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Platform</th>
-<th>Type</th>
-<th>Systems Using</th>
-<th>Environment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>SAP S/4HANA</td>
-<td>On-Premise (HEC)</td>
-<td>SAP S/4 modules</td>
-<td>DEV, QAS, PRD</td>
-</tr>
-<tr>
-<td>2</td>
-<td>SAP BTP (Integration Suite)</td>
-<td>Cloud / PaaS</td>
-<td>CPI, API Management</td>
-<td>DEV, QAS, PRD</td>
-</tr>
-<tr>
-<td>3</td>
-<td>MuleSoft Anypoint</td>
-<td>Cloud / iPaaS</td>
-<td>API-led integrations</td>
-<td>DEV, QAS, PRD</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Platform assignments will be validated when tower architects populate technology platform columns.</em></p>
-</blockquote>
+
+## 6. Technology Architecture (TOGAF "T")
+
+### 6.1 Platform & Infrastructure
+
+> **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
+
+
+
+#### Platform Inventory
+
+Platform landscape inferred from integrated systems for PLB-020:
+
+| # | Platform | Type | Systems Using | Environment |
+|---|----------|------|--------------|-------------|
+| 1 | SAP S/4HANA | On-Premise (HEC) | SAP S/4 modules | DEV, QAS, PRD |
+| 2 | SAP BTP (Integration Suite) | Cloud / PaaS | CPI, API Management | DEV, QAS, PRD |
+| 3 | MuleSoft Anypoint | Cloud / iPaaS | API-led integrations | DEV, QAS, PRD |
+
+> *Platform assignments will be validated when tower architects populate technology platform columns.*
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-020 — Supply Planning & Management (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="62-sap-development-object-status">6.2 SAP Development Object Status</h3>
-<p><strong>Capability RICEFW Status</strong> (54 objects)
-<em>Data source: Smartsheet Object Tracker (cached 2026-03-27)</em></p>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th style="text-align: right;">Count</th>
-<th style="text-align: right;">%</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>10. Object Complete</td>
-<td style="text-align: right;">46</td>
-<td style="text-align: right;">85.2%</td>
-</tr>
-<tr>
-<td>08. FUT In Progress</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">5.6%</td>
-</tr>
-<tr>
-<td>09. FUT Overdue</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3.7%</td>
-</tr>
-<tr>
-<td>02. FS Unplanned</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3.7%</td>
-</tr>
-<tr>
-<td>07. FUT Roadblock</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1.9%</td>
-</tr>
-<tr>
-<td><strong>Total</strong></td>
-<td style="text-align: right;"><strong>54</strong></td>
-<td style="text-align: right;"><strong>100%</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>RICEFW by Type:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th style="text-align: right;">Count</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Report (R)</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr>
-<td>Interface (I)</td>
-<td style="text-align: right;">18</td>
-</tr>
-<tr>
-<td>Conversion (C)</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr>
-<td>Enhancement (E)</td>
-<td style="text-align: right;">19</td>
-</tr>
-<tr>
-<td>Form (F)</td>
-<td style="text-align: right;">9</td>
-</tr>
-<tr>
-<td>Workflow (W)</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr>
-<td><strong>Total</strong></td>
-<td style="text-align: right;"><strong>54</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Technical Complexity:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Complexity</th>
-<th style="text-align: right;">Count</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>02.High</td>
-<td style="text-align: right;">5</td>
-</tr>
-<tr>
-<td>03.Medium</td>
-<td style="text-align: right;">35</td>
-</tr>
-<tr>
-<td>04.Low</td>
-<td style="text-align: right;">14</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Active (Non-Complete) Objects:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Object ID</th>
-<th>Type</th>
-<th>Description</th>
-<th>Status</th>
-<th>Complexity</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LOGI1718</td>
-<td>02.Interface</td>
-<td>To align on batch attributes for straddle in S4</td>
-<td>08. FUT In Progress</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1555</td>
-<td>02.Interface</td>
-<td>Straddle Plant to be automatically complete the Goods Receipt and write of the i&hellip;</td>
-<td>09. FUT Overdue</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE1690</td>
-<td>04.Enhancement</td>
-<td>Custom Enhancement for Storage Location and Storage Type Restriction LOG IF and &hellip;</td>
-<td>07. FUT Roadblock</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE1554</td>
-<td>04.Enhancement</td>
-<td>Straddle Plant to be automatically complete the Goods Receipt and write of the i&hellip;</td>
-<td>09. FUT Overdue</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE1415</td>
-<td>04.Enhancement</td>
-<td>Suppress Batch and serial number validation in MIGO/MB26 for movement type 261</td>
-<td>08. FUT In Progress</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE0935_IF</td>
-<td>04.Enhancement</td>
-<td>Fiori App - Shipping Memo</td>
-<td>08. FUT In Progress</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FTSC1550</td>
-<td>03.Conversion</td>
-<td>Inventory Conversion</td>
-<td>02. FS Unplanned</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1738</td>
-<td>02.Interface</td>
-<td>Interface to send data to Factory Comm to activate the Mobile text receiving cap&hellip;</td>
-<td>02. FS Unplanned</td>
-<td>02.High</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Tower Context:</strong> FTS-IF has 265 total RICEFW objects (209 complete, 56 active/other)</p>
-<h3 id="63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</h3>
-<table>
-<thead>
-<tr>
-<th>Category</th>
-<th>Requirement</th>
-<th>Target / SLA</th>
-<th>Priority</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Performance</td>
-<td>MRP/production planning run completes within defined window</td>
-<td>&lt; 4 hours full MRP run</td>
-<td>High</td>
-</tr>
-<tr>
-<td>Availability</td>
-<td>Manufacturing execution systems available 24/7</td>
-<td>99.95% (24x7 operations)</td>
-<td>High</td>
-</tr>
-<tr>
-<td>Scalability</td>
-<td>Support production volume increases from new product lines</td>
-<td>Handle 10K+ production orders/day</td>
-<td>High</td>
-</tr>
-<tr>
-<td>Recoverability</td>
-<td>Production systems recover within shift change window</td>
-<td>RPO &lt; 15 min, RTO &lt; 2 hours</td>
-<td>High</td>
-</tr>
-<tr>
-<td>Data Volume</td>
-<td>Support high-frequency material movement transactions</td>
-<td>100K+ material documents/day</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>Latency</td>
-<td>Real-time inventory visibility for warehouse operations</td>
-<td>&lt; 2 seconds for RF/scanner transactions</td>
-<td>High</td>
-</tr>
-<tr>
-<td>Concurrency</td>
-<td>Support factory floor workers across multiple shifts/sites</td>
-<td>500+ concurrent warehouse users</td>
-<td>Medium</td>
-</tr>
-</tbody>
-</table>
-<h3 id="64-security-governance">6.4 Security &amp; Governance</h3>
-<table>
-<thead>
-<tr>
-<th>Concern</th>
-<th>Approach</th>
-<th>Standard / Policy</th>
-<th>Owner</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Authentication</td>
-<td>Single Sign-On (SSO) via Intel corporate Azure AD identity</td>
-<td>Intel IT Security Policy - Identity Management</td>
-<td>IT Security</td>
-</tr>
-<tr>
-<td>Authorization</td>
-<td>Role-based access control (RBAC) with SAP authorization objects</td>
-<td>Intel SAP Security Standards - Role Design</td>
-<td>SAP Security Team</td>
-</tr>
-<tr>
-<td>Data Classification</td>
-<td>All financial/operational data classified per Intel Data Classification Standard</td>
-<td>Intel Data Classification Policy</td>
-<td>Data Governance</td>
-</tr>
-<tr>
-<td>Data Encryption (at rest)</td>
-<td>AES-256 encryption for SAP HANA database and file storage</td>
-<td>Intel Encryption Standard</td>
-<td>Infrastructure Security</td>
-</tr>
-<tr>
-<td>Data Encryption (in transit)</td>
-<td>TLS 1.3 for all system-to-system and user-to-system communication</td>
-<td>Intel Network Security Policy</td>
-<td>Network Engineering</td>
-</tr>
-<tr>
-<td>Network Segmentation</td>
-<td>SAP systems in dedicated network zones with firewall controls</td>
-<td>Intel Network Architecture Standard</td>
-<td>Network Security</td>
-</tr>
-<tr>
-<td>API Security</td>
-<td>OAuth 2.0 / certificate-based authentication for all API integrations</td>
-<td>Intel API Security Guidelines</td>
-<td>Integration Architecture</td>
-</tr>
-<tr>
-<td>Audit Logging</td>
-<td>Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log)</td>
-<td>SOX Compliance / Intel Audit Policy</td>
-<td>Internal Audit</td>
-</tr>
-<tr>
-<td>Certificate Management</td>
-<td>Automated certificate lifecycle management for system-to-system trust</td>
-<td>Intel PKI Standard</td>
-<td>Certificate Authority Team</td>
-</tr>
-<tr>
-<td>Compliance</td>
-<td>SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR)</td>
-<td>Intel Corporate Compliance Framework</td>
-<td>Compliance Office</td>
-</tr>
-</tbody>
-</table>
+
+### 6.2 SAP Development Object Status
+
+| Metric | DEV | QAS | PRD |
+|--------|-----|-----|-----|
+| Transport Requests | — | — | — |
+| Custom Code Objects | — | — | — |
+| CDS Views | — | — | — |
+| Fiori Apps | — | — | — |
+| BAdIs / Enhancements | — | — | — |
+
+### 6.3 NFRs & Design Principles
+
+| Category | Requirement | Target / SLA | Priority |
+|----------|-------------|-------------|----------|
+| Performance | MRP/production planning run completes within defined window | < 4 hours full MRP run | High |
+| Availability | Manufacturing execution systems available 24/7 | 99.95% (24x7 operations) | High |
+| Scalability | Support production volume increases from new product lines | Handle 10K+ production orders/day | High |
+| Recoverability | Production systems recover within shift change window | RPO < 15 min, RTO < 2 hours | High |
+| Data Volume | Support high-frequency material movement transactions | 100K+ material documents/day | Medium |
+| Latency | Real-time inventory visibility for warehouse operations | < 2 seconds for RF/scanner transactions | High |
+| Concurrency | Support factory floor workers across multiple shifts/sites | 500+ concurrent warehouse users | Medium |
+
+### 6.4 Security & Governance
+
+| Concern | Approach | Standard / Policy | Owner |
+|---------|----------|--------------------|-------|
+| Authentication | Single Sign-On (SSO) via Intel corporate Azure AD identity | Intel IT Security Policy - Identity Management | IT Security |
+| Authorization | Role-based access control (RBAC) with SAP authorization objects | Intel SAP Security Standards - Role Design | SAP Security Team |
+| Data Classification | All financial/operational data classified per Intel Data Classification Standard | Intel Data Classification Policy | Data Governance |
+| Data Encryption (at rest) | AES-256 encryption for SAP HANA database and file storage | Intel Encryption Standard | Infrastructure Security |
+| Data Encryption (in transit) | TLS 1.3 for all system-to-system and user-to-system communication | Intel Network Security Policy | Network Engineering |
+| Network Segmentation | SAP systems in dedicated network zones with firewall controls | Intel Network Architecture Standard | Network Security |
+| API Security | OAuth 2.0 / certificate-based authentication for all API integrations | Intel API Security Guidelines | Integration Architecture |
+| Audit Logging | Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log) | SOX Compliance / Intel Audit Policy | Internal Audit |
+| Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
+| Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-020 — Supply Planning & Management (IF)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="7-project-context">7. Project Context</h2>
-<h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
-<p><em>52 objects with timeline data (source: Object Tracker)</em></p>
-<table>
-<thead>
-<tr>
-<th>ID</th>
-<th>Description</th>
-<th>FS</th>
-<th>TDD</th>
-<th>Build</th>
-<th>FUT</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LOGW1078_IF</td>
-<td>ISM Workflows - Capital/AMT</td>
-<td>Jun-25 (100%)</td>
-<td>Nov-25 (100%)</td>
-<td>Nov-25 (100%)</td>
-<td>Nov-25 (100%)</td>
-<td>4. Completed</td>
-</tr>
-<tr>
-<td>LOGW1077_IF</td>
-<td>ISM Workflows - EIMS/Lab</td>
-<td>Jun-25 (100%)</td>
-<td>Sep-25 (100%)</td>
-<td>Sep-25 (100%)</td>
-<td>Dec-25 (100%)</td>
-<td>4. Completed</td>
-</tr>
-<tr>
-<td>LOGW1076_IF</td>
-<td>ISM Workflows - Non-inventory</td>
-<td>Jun-25 (100%)</td>
-<td>Sep-25 (100%)</td>
-<td>Sep-25 (100%)</td>
-<td>Nov-25 (100%)</td>
-<td>1. On Track</td>
-</tr>
-<tr>
-<td>LOGR1176_IF</td>
-<td>ISM - International Traffic Report</td>
-<td>Apr-25 (100%)</td>
-<td>Aug-25 (100%)</td>
-<td>Aug-25 (100%)</td>
-<td>Nov-25 (100%)</td>
-<td>4. Completed</td>
-</tr>
-<tr>
-<td>LOGR0833_IF</td>
-<td>Email Notification for deletion of Shipping Memos</td>
-<td>Feb-25 (100%)</td>
-<td>Sep-25 (100%)</td>
-<td>Sep-25 (100%)</td>
-<td>Nov-25 (100%)</td>
-<td>4. Completed</td>
-</tr>
-<tr>
-<td>LOGI1718</td>
-<td>To align on batch attributes for straddle in S4</td>
-<td>Feb-26 (100%)</td>
-<td>Mar-26 (100%)</td>
-<td>Mar-26 (100%)</td>
-<td>Mar-26 (5%)</td>
-<td>3. Off Track</td>
-</tr>
-<tr>
-<td>LOGI1677</td>
-<td>Send 4C1 Inventory Reconciliation Snapshot to IP</td>
-<td>Jan-26 (100%)</td>
-<td>Feb-26 (100%)</td>
-<td>Feb-26 (100%)</td>
-<td>Mar-26 (100%)</td>
-<td>3. Off Track</td>
-</tr>
-<tr>
-<td>LOGI1676</td>
-<td>Send 4C1 Inventory movement Stock type change and cycle count to IP</td>
-<td>Jan-26 (100%)</td>
-<td>Feb-26 (100%)</td>
-<td>Feb-26 (100%)</td>
-<td>Mar-26 (100%)</td>
-<td>3. Off Track</td>
-</tr>
-<tr>
-<td>LOGI1555</td>
-<td>Straddle Plant to be automatically complete the Goods Receipt and write of the inventory</td>
-<td>Sep-25 (100%)</td>
-<td>Nov-25 (100%)</td>
-<td>Nov-25 (100%)</td>
-<td>Mar-26 (45%)</td>
-<td>3. Off Track</td>
-</tr>
-<tr>
-<td>LOGI1091</td>
-<td>STO based Outbound Delivery Notification Confirmation for Delivery Note Deletion</td>
-<td>Mar-25 (100%)</td>
-<td>Jul-25 (100%)</td>
-<td>Jul-25 (100%)</td>
-<td>Sep-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGI1081_IF</td>
-<td>Interface + Enhancement - Reprinting of Carrier Label</td>
-<td>Apr-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>Oct-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGI1079_IF</td>
-<td>Interface from S4 ISM to Service Now</td>
-<td>May-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>Oct-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGI1074_IF</td>
-<td>Send data via API to retrieve the tracking ID - interface + Enhancement</td>
-<td>Mar-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>Oct-25 (100%)</td>
-<td>3. Off Track</td>
-</tr>
-<tr>
-<td>LOGI1062</td>
-<td>STO based outbound delivery notification request for delivery note cancellation</td>
-<td>Mar-25 (100%)</td>
-<td>Jul-25 (100%)</td>
-<td>Jul-25 (100%)</td>
-<td>Sep-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGI1053</td>
-<td>STO based Outbound Delivery Notification from 3PL to S/4 for confirming Pick/Pack - 3B13</td>
-<td>Mar-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>Aug-25 (100%)</td>
-<td>3. Off Track</td>
-</tr>
-<tr>
-<td>LOGI1043</td>
-<td>Inventory Movement from 3PL to S/4 - 4C1 Cycle Count</td>
-<td>Apr-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>Sep-25 (100%)</td>
-<td>1. On Track</td>
-</tr>
-<tr>
-<td>LOGI1041</td>
-<td>STO based Outbound Delivery PGI confirmation from 3PL to S/4 - 3B2</td>
-<td>Mar-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>Sep-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGI1040</td>
-<td>STO based Outbound Delivery PGI confirmation for returns from S/4 to 3PL - 3B2</td>
-<td>Apr-25 (100%)</td>
-<td>Sep-25 (100%)</td>
-<td>Sep-25 (100%)</td>
-<td>Dec-25 (100%)</td>
-<td>4. Completed</td>
-</tr>
-<tr>
-<td>LOGI1038</td>
-<td>STO based Outbound Delivery Notification from S/4 to 3PL - 3B12</td>
-<td>Mar-25 (100%)</td>
-<td>Apr-25 (100%)</td>
-<td>Apr-25 (100%)</td>
-<td>Jul-25 (100%)</td>
-<td>2. At Risk</td>
-</tr>
-<tr>
-<td>LOGI1037</td>
-<td>Inventory Movement from S/4 to 3PL – 4C1 (Outbound)</td>
-<td>May-25 (100%)</td>
-<td>Jun-25 (100%)</td>
-<td>Jun-25 (100%)</td>
-<td>Aug-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGI0836_IF</td>
-<td>Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements)</td>
-<td>Apr-25 (100%)</td>
-<td>Jun-25 (100%)</td>
-<td>Jun-25 (100%)</td>
-<td>Jan-26 (100%)</td>
-<td>4. Completed</td>
-</tr>
-<tr>
-<td>LOGI0237_IF</td>
-<td>Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4</td>
-<td>Jun-24 (100%)</td>
-<td>Jan-25 (100%)</td>
-<td>Jan-25 (100%)</td>
-<td>Sep-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGF1525</td>
-<td>Consolidated Commercial Invoice for WIP</td>
-<td>Aug-25 (100%)</td>
-<td>Nov-25 (100%)</td>
-<td>Nov-25 (100%)</td>
-<td>Feb-26 (100%)</td>
-<td>3. Off Track</td>
-</tr>
-<tr>
-<td>LOGF1524</td>
-<td>Commercial Invoice for WIP</td>
-<td>Aug-25 (100%)</td>
-<td>Dec-25 (100%)</td>
-<td>Dec-25 (100%)</td>
-<td>Feb-26 (100%)</td>
-<td>1. On Track</td>
-</tr>
-<tr>
-<td>LOGF1523</td>
-<td>Packing list for WIP</td>
-<td>Aug-25 (100%)</td>
-<td>Nov-25 (100%)</td>
-<td>Nov-25 (100%)</td>
-<td>Dec-25 (100%)</td>
-<td>3. Off Track</td>
-</tr>
-<tr>
-<td>LOGF1100_IF</td>
-<td>Printing of Standard Shipping Label</td>
-<td>Apr-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>Sep-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGF0359_IF</td>
-<td>ISM - Generate Commercial Invoice - IF/IP</td>
-<td>Sep-24 (100%)</td>
-<td>Feb-25 (100%)</td>
-<td>Feb-25 (100%)</td>
-<td>Apr-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGF0358_IF</td>
-<td>ISM - Generate Traveler Document - IF/IP</td>
-<td>Sep-24 (100%)</td>
-<td>Feb-25 (100%)</td>
-<td>Feb-25 (100%)</td>
-<td>Apr-25 (100%)</td>
-<td>1. On Track</td>
-</tr>
-<tr>
-<td>LOGF0352_IF</td>
-<td>ISM - IPLA</td>
-<td>Sep-24 (100%)</td>
-<td>May-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>Jul-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGF0351_IF</td>
-<td>ISM - Custom China Special label</td>
-<td>Sep-24 (100%)</td>
-<td>May-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>Jul-25 (100%)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><em>&hellip; and 22 more objects (see full Object Tracker)</em></p>
-<h3 id="72-raid-log">7.2 RAID Log</h3>
-<p><em>Live data from Smartsheet Master RAID Log — extracted 2026-03-27</em></p>
-<p><strong>Mapped sub-tower(s):</strong> 7.6 FTS IF - Logistics &amp; Inventory Management</p>
-<p><strong>RAID Summary:</strong> 102 open items (12 capability-specific, 90 tower-level), 439 closed</p>
-<table>
-<thead>
-<tr>
-<th>Severity</th>
-<th style="text-align: right;">Capability</th>
-<th style="text-align: right;">Tower-Wide</th>
-<th style="text-align: right;">Total Open</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>P1 - High</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">6</td>
-</tr>
-<tr>
-<td>P2 - Medium</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">69</td>
-<td style="text-align: right;">81</td>
-</tr>
-<tr>
-<td>P3 - Low</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">15</td>
-</tr>
-<tr>
-<td><strong>Total</strong></td>
-<td style="text-align: right;"><strong>12</strong></td>
-<td style="text-align: right;"><strong>90</strong></td>
-<td style="text-align: right;"><strong>102</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Capability-Specific RAID Items:</strong></p>
-<table>
-<thead>
-<tr>
-<th>RAID ID</th>
-<th>Type</th>
-<th>Severity</th>
-<th>Title</th>
-<th>Status</th>
-<th>Assigned To</th>
-<th>Due Date</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>03294</td>
-<td></td>
-<td>P2 - Medium</td>
-<td>Factory portal application is not ready from FTS and this is&hellip;</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-02-27</td>
-</tr>
-<tr>
-<td>02987</td>
-<td></td>
-<td>P2 - Medium</td>
-<td>LOGF1525 - Consolidated Commercial Invoice for WIP Awaiting &hellip;</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2025-11-06</td>
-</tr>
-<tr>
-<td>03716</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Raising RAID to track the progress of FUT for LOGE1690 as it&hellip;</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-03-13</td>
-</tr>
-<tr>
-<td>03518</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>Batch Attributes for WIP Straddle-LOGI1718</td>
-<td>Not Started</td>
-<td></td>
-<td>2026-02-06</td>
-</tr>
-<tr>
-<td>02419</td>
-<td>Key Decision</td>
-<td>P2 - Medium</td>
-<td>Batch classification details clarification required LOGC0972&hellip;</td>
-<td>Not Started</td>
-<td>FTS IF</td>
-<td>2025-10-15</td>
-</tr>
-<tr>
-<td>03231</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Need LE Sample Data (Shipping Point &amp; Delivery Route) for va&hellip;</td>
-<td>Not Started</td>
-<td>FTS IF</td>
-<td>2026-02-10</td>
-</tr>
-<tr>
-<td>03704</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>ASN Data from CIBR via e2Open needs to incorporate new attri&hellip;</td>
-<td>In Progress</td>
-<td>Data Foundation Program (</td>
-<td>2026-03-10</td>
-</tr>
-<tr>
-<td>02133</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>clarification on storage location xref for one to many scena&hellip;</td>
-<td>Not Started</td>
-<td>FTS IF</td>
-<td></td>
-</tr>
-<tr>
-<td>02315</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>Need Approval on Preload file</td>
-<td>Not Started</td>
-<td>FTS IF</td>
-<td></td>
-</tr>
-<tr>
-<td>03685</td>
-<td></td>
-<td>P2 - Medium</td>
-<td>Rinchem ITC1 Test Scenario/Case Readiness</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td></td>
-</tr>
-<tr>
-<td>03515</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Need E2E test data for STO of IM to IM (Interfactory shipmen&hellip;</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-03-06</td>
-</tr>
-<tr>
-<td>03779</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Chem 3PL PIP Enhancement to support FTZ</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-04-17</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Other FTS-IF Tower RAID Items</strong> (90 open):</p>
-<table>
-<thead>
-<tr>
-<th>RAID ID</th>
-<th>Type</th>
-<th>Severity</th>
-<th>Title</th>
-<th>Status</th>
-<th>Assigned To</th>
-<th>Due Date</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>03578</td>
-<td>Risk</td>
-<td>P1 - High</td>
-<td>HBI Process Flow Change impact Assessment</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-03-27</td>
-</tr>
-<tr>
-<td>03591</td>
-<td>Risk</td>
-<td>P1 - High</td>
-<td>R3 E2E scenario execution</td>
-<td>In Progress</td>
-<td>Test Management</td>
-<td>2026-04-03</td>
-</tr>
-<tr>
-<td>03600</td>
-<td>Risk</td>
-<td>P1 - High</td>
-<td>Error lifecycle functionality within PDF application is miss&hellip;</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-05-01</td>
-</tr>
-<tr>
-<td>03601</td>
-<td>Risk</td>
-<td>P1 - High</td>
-<td>Traceability functionality within PDF application is missing&hellip;</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-05-15</td>
-</tr>
-<tr>
-<td>03757</td>
-<td>Risk</td>
-<td>P1 - High</td>
-<td>IF Planning data not available in ITC1 until W4, leaving too&hellip;</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-04-03</td>
-</tr>
-<tr>
-<td>03762</td>
-<td>Risk</td>
-<td>P1 - High</td>
-<td>FTS-IF (esp SCP) related test cases/sequencing are not accur&hellip;</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-04-03</td>
-</tr>
-<tr>
-<td>01355</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>PDF SMHe product development approach does not appear to hav&hellip;</td>
-<td>To Be Reviewed</td>
-<td>FTS IF</td>
-<td>2026-04-03</td>
-</tr>
-<tr>
-<td>01658</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Under Intel Review</td>
-<td>In Progress</td>
-<td></td>
-<td>2025-07-18</td>
-</tr>
-<tr>
-<td>01709</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>No PAY1 or ENG1 storage locations defined or configured for &hellip;</td>
-<td>Not Started</td>
-<td></td>
-<td>2025-08-08</td>
-</tr>
-<tr>
-<td>01733</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Tariffs impacts Item/BOM design which is impacting ERP/SCP (&hellip;</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-03-06</td>
-</tr>
-<tr>
-<td>01769</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>Approach and duration for PDF SMH application refreshes to s&hellip;</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-04-01</td>
-</tr>
-<tr>
-<td>01857</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>TF Signavio Flows Update Request</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-01-30</td>
-</tr>
-<tr>
-<td>03079</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>Request for PDH Design WTF</td>
-<td>In Progress</td>
-<td>FTS IP</td>
-<td>2026-03-04</td>
-</tr>
-<tr>
-<td>03128</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Application Health Monitoring</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-05-13</td>
-</tr>
-<tr>
-<td>03157</td>
-<td></td>
-<td>P2 - Medium</td>
-<td>Split Logic to Segregate IF &amp; IP data from EWM tables</td>
-<td>Not Started</td>
-<td></td>
-<td>2025-12-04</td>
-</tr>
-<tr>
-<td>03205</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>Provide an update WW50 on the production rollout plan for th&hellip;</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-03-06</td>
-</tr>
-<tr>
-<td>03241</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Materials Planning Policy for Constrained Materials</td>
-<td>In Progress</td>
-<td>FTS IP</td>
-<td>2026-07-31</td>
-</tr>
-<tr>
-<td>03292</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>SCP IF BY ESP Solves during ITC1</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-01-09</td>
-</tr>
-<tr>
-<td>03308</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>Missing information for Anafi material master</td>
-<td>Not Started</td>
-<td>FTS IF</td>
-<td></td>
-</tr>
-<tr>
-<td>03314</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Executive lock cause performance issues in IF Dev</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-04-17</td>
-</tr>
-<tr>
-<td>03331</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Clarity on finalized SAP S/4 Plant and storage location mapp&hellip;</td>
-<td>In Progress</td>
-<td>Master Data</td>
-<td>2026-02-20</td>
-</tr>
-<tr>
-<td>03334</td>
-<td>Issue</td>
-<td>P2 - Medium</td>
-<td>Application Monitoring - Connectors Health Monitoring</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-05-15</td>
-</tr>
-<tr>
-<td>03368</td>
-<td>Issue</td>
-<td>P2 - Medium</td>
-<td>Infrastructure resources support PDF SMH ability to provide &hellip;</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-03-27</td>
-</tr>
-<tr>
-<td>03398</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>Kafka Admin Password for both IF and IP</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-04-03</td>
-</tr>
-<tr>
-<td>03703</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>For FUT: Factory Automation Apps waiting on Heartbeat Loader&hellip;</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-03-24</td>
-</tr>
-<tr>
-<td>03713</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Lack of TRDI data impacting delivery of ECA report by ITC2</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-03-27</td>
-</tr>
-<tr>
-<td>03718</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Storage Location Logic for Non-MMID Parts.</td>
-<td>In Progress</td>
-<td>PTP</td>
-<td>2026-03-27</td>
-</tr>
-<tr>
-<td>03732</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Production scheduling systems will likely only provide mock &hellip;</td>
-<td>Not Started</td>
-<td></td>
-<td>2026-03-27</td>
-</tr>
-<tr>
-<td>03526</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>Review process for post-validation of system changes</td>
-<td>In Progress</td>
-<td>FTS IP</td>
-<td>2026-04-03</td>
-</tr>
-<tr>
-<td>02088</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Equipment Master Conversion help needed</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-03-31</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td><em>&hellip; and 60 more tower-level items</em></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Category</th>
-<th>Recommendation</th>
-<th>Priority</th>
-<th>Owner</th>
-<th>Target Date</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Architecture</td>
-<td>Complete extended flow attributes (Data Entity, Integration Pattern, Tech Platform) in Flows tab for full BDAT coverage</td>
-<td>High</td>
-<td>Tower Architect</td>
-<td>2026-Q2</td>
-<td>Open</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Data</td>
-<td>Define data ownership and classification for all 0 flow chains to satisfy Data Architecture (TOGAF D) requirements</td>
-<td>Medium</td>
-<td>Data Architect</td>
-<td>2026-Q3</td>
-<td>Open</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Testing</td>
-<td>Develop integration test scenarios covering all 0 flow chains for FUT/SIT readiness</td>
-<td>High</td>
-<td>Test Lead</td>
-<td>2026-Q3</td>
-<td>Open</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Business Architecture</td>
-<td>Review and validate Business Architecture process steps against latest Signavio/BIC process models</td>
-<td>Medium</td>
-<td>Business Analyst</td>
-<td>2026-Q2</td>
-<td>Open</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Security</td>
-<td>Complete security review for API integrations and data flows per Intel Security Architecture standards</td>
-<td>Medium</td>
-<td>Security Architect</td>
-<td>2026-Q3</td>
-<td>Open</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<p><em>PLB-020 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: March 2026</em></p>
+
+## 7. Project Context
+
+### 7.1 Project Roadmap & Go-Live Plan
+
+| ID | Description | FS | TDD | Build | FUT | Status |
+|----|-------------|----|-----|-------|-----|--------|
+| LOGW1078_IF | ISM Workflows - Capital/AMT | Jun-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
+| LOGW1077_IF | ISM Workflows - EIMS/Lab | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 4. Completed |
+| LOGW1076_IF | ISM Workflows - Non-inventory | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
+| LOGR1176_IF | ISM - International Traffic Report | Apr-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Nov-25 (100%) | 4. Completed |
+| LOGR0833_IF | Email Notification for deletion of Shipping Memos | Feb-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 4. Completed |
+| LOGI1718 | To align on batch attributes for straddle in S4 | Feb-26 (100%) | Mar-26 (100%) | Mar-26 (100%) | Mar-26 (5%) | 3. Off Track |
+| LOGI1677 | Send 4C1 Inventory Reconciliation Snapshot to IP | Jan-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (100%) | 3. Off Track |
+| LOGI1676 | Send 4C1 Inventory movement Stock type change and cycle count to IP | Jan-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (100%) | 3. Off Track |
+| LOGI1555 | Straddle Plant to be automatically complete the Goods Receipt and write of th... | Sep-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (45%) | 3. Off Track |
+| LOGI1091 | STO based Outbound Delivery Notification Confirmation for Delivery Note Deletion | Mar-25 (100%) | Jul-25 (100%) | Jul-25 (100%) | Sep-25 (100%) |  |
+| LOGI1081_IF | Interface + Enhancement - Reprinting of Carrier Label | Apr-25 (100%) | May-25 (100%) | May-25 (100%) | Oct-25 (100%) |  |
+| LOGI1079_IF | Interface from S4 ISM to Service Now | May-25 (100%) | May-25 (100%) | May-25 (100%) | Oct-25 (100%) |  |
+| LOGI1074_IF | Send data via API to retrieve the tracking ID - interface + Enhancement | Mar-25 (100%) | May-25 (100%) | May-25 (100%) | Oct-25 (100%) | 3. Off Track |
+| LOGI1062 | STO based outbound delivery notification request for delivery note cancellation | Mar-25 (100%) | Jul-25 (100%) | Jul-25 (100%) | Sep-25 (100%) |  |
+| LOGI1053 | STO based Outbound Delivery Notification from 3PL to S/4 for confirming Pick/... | Mar-25 (100%) | May-25 (100%) | May-25 (100%) | Aug-25 (100%) | 3. Off Track |
+| LOGI1043 | Inventory Movement from 3PL to S/4 - 4C1 Cycle Count | Apr-25 (100%) | May-25 (100%) | May-25 (100%) | Sep-25 (100%) | 1. On Track |
+| LOGI1041 | STO based Outbound Delivery PGI confirmation from 3PL to S/4 - 3B2 | Mar-25 (100%) | May-25 (100%) | May-25 (100%) | Sep-25 (100%) |  |
+| LOGI1040 | STO based Outbound Delivery PGI confirmation for returns from S/4 to 3PL - 3B2 | Apr-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 4. Completed |
+| LOGI1038 | STO based Outbound Delivery Notification from S/4 to 3PL - 3B12 | Mar-25 (100%) | Apr-25 (100%) | Apr-25 (100%) | Jul-25 (100%) | 2. At Risk |
+| LOGI1037 | Inventory Movement from S/4 to 3PL – 4C1 (Outbound) | May-25 (100%) | Jun-25 (100%) | Jun-25 (100%) | Aug-25 (100%) |  |
+*... and 34 more objects (see full Object Tracker)*
+
+<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-020 — Supply Planning & Management (IF)</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+### 7.2 RAID Log
+
+Standard RAID items for PLB-020 (Forecast to Stock (IF)):
+
+| # | Category | Description | Status | Owner | Priority |
+|---|----------|-------------|--------|-------|----------|
+| 1 | Risk | Data migration completeness — validate all legacy Supply Planning & Management (IF) data maps to S/4 target structures | Open | Tower Architect | High |
+| 2 | Risk | Integration testing coverage — ensure all 0 integrated systems are validated end-to-end | Open | Integration Lead | High |
+| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
+| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
+| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
+
+> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
+
+### 7.3 Recommendations & Next Steps
+
+| # | Category | Recommendation | Priority | Owner | Target Date | Status |
+|---|----------|---------------|----------|-------|-------------|--------|
+| 1 | Architecture | Complete extended flow attributes (Data Entity, Integration Pattern, Tech Platform) in Flows tab for full BDAT coverage | High | Tower Architect | 2026-Q2 | Open |
+| 2 | Data | Define data ownership and classification for all 0 flow chains to satisfy Data Architecture (TOGAF D) requirements | Medium | Data Architect | 2026-Q3 | Open |
+| 3 | Testing | Develop integration test scenarios covering all 0 flow chains for FUT/SIT readiness | High | Test Lead | 2026-Q3 | Open |
+| 4 | Business Architecture | Review and validate Business Architecture process steps against latest Signavio/BIC process models | Medium | Business Analyst | 2026-Q2 | Open |
+| 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
+
+---
+*PLB-020 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: March 2026*
+<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-020 — Supply Planning & Management (IF)</span></div>
+</div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
 </div>

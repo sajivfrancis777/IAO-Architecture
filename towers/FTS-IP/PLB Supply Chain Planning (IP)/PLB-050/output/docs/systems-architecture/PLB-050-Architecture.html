@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PLB-050 Architecture</title>
+    <title>PLB-050</title>
     <style>
 @page {
     size: A4;
@@ -34,19 +34,34 @@ h2 {
     border-bottom: 1px solid #ccc;
     padding-bottom: 4px;
     margin-top: 24px;
+    page-break-after: avoid;
+    break-after: avoid;
 }
 h3 {
     font-size: 13pt;
     color: #0071c5;
     margin-top: 18px;
+    page-break-after: avoid;
+    break-after: avoid;
 }
-h4 { font-size: 11pt; color: #333; margin-top: 14px; }
+h4 {
+    font-size: 11pt;
+    color: #333;
+    margin-top: 14px;
+    page-break-after: avoid;
+    break-after: avoid;
+}
+p {
+    orphans: 3;
+    widows: 3;
+}
 table {
     border-collapse: collapse;
     width: 100%;
     margin: 12px 0;
     font-size: 9.5pt;
     page-break-inside: avoid;
+    break-inside: avoid;
 }
 th {
     background: #00285a;
@@ -79,6 +94,7 @@ pre {
     font-size: 8.5pt;
     line-height: 1.4;
     page-break-inside: avoid;
+    break-inside: avoid;
 }
 pre code { background: none; padding: 0; color: inherit; }
 blockquote {
@@ -87,6 +103,8 @@ blockquote {
     margin: 12px 0;
     padding: 8px 16px;
     color: #333;
+    page-break-inside: avoid;
+    break-inside: avoid;
 }
 .mermaid-placeholder {
     background: #f5f8fc;
@@ -107,6 +125,7 @@ blockquote {
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
+    break-inside: avoid;
 }
 .mermaid svg {
     max-width: 100%;
@@ -136,15 +155,60 @@ blockquote {
     padding-top: 10px;
     border-top: 1px solid #ddd;
 }
+.page-section {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 40px);
+    box-sizing: border-box;
+}
+.page-footer {
+    margin-top: auto;
+    padding-top: 8px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9pt;
+    color: #888;
+    padding: 6px 12px;
+    background: #fff;
+}
+.page-footer a { color: #0071c5; text-decoration: none; }
+.page-footer a:hover { text-decoration: underline; }
 a { color: #0071c5; text-decoration: none; }
 a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Floating PDF download button ---- */
+.pdf-download-btn {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 9999;
+    background: #00285a;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: background 0.2s;
+}
+.pdf-download-btn:hover { background: #0071c5; }
+
 @media print {
     body { padding: 0; max-width: none; }
     .header-bar { margin: 0 0 20px 0; }
-    .no-print { display: none; }
+    .no-print, .pdf-download-btn { display: none !important; }
+    h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    p { orphans: 3; widows: 3; }
+    .page-section { min-height: 100vh; }
+    .page-footer { page-break-inside: avoid; break-inside: avoid; }
     .mermaid {
         page-break-inside: avoid;
         overflow: visible;
@@ -152,6 +216,18 @@ strong { color: #00285a; }
     .mermaid svg {
         max-width: 100%;
         height: auto;
+    }
+    /* Diagram links: visible + clickable in PDF */
+    a[title="View full diagram"],
+    a[title="Open full-size SVG"] {
+        color: #0071c5 !important;
+        text-decoration: underline !important;
+        font-size: 10pt !important;
+    }
+    a[title="View full diagram"]::after {
+        content: " (opens mermaid.live)";
+        font-size: 8pt;
+        color: #666;
     }
 }
 </style>
@@ -161,24 +237,24 @@ strong { color: #00285a; }
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
-    theme: "base",
-    securityLevel: "loose",
+    theme: 'base',
+    securityLevel: 'loose',
     flowchart: {
-      curve: "basis",
+      curve: 'basis',
       padding: 16,
       nodeSpacing: 50,
       rankSpacing: 60,
       useMaxWidth: true
     },
     themeVariables: {
-      primaryColor: "#e8f0fe",
-      primaryBorderColor: "#0071c5",
+      primaryColor: '#e8f0fe',
+      primaryBorderColor: '#0071c5',
       primaryTextColor: '#1a1a1a',
-      lineColor: "#37474F",
-      secondaryColor: "#f5f8fc",
-      tertiaryColor: "#fff",
-      fontSize: "14px",
-      fontFamily: "Segoe UI, Arial, sans-serif"
+      lineColor: '#37474F',
+      secondaryColor: '#f5f8fc',
+      tertiaryColor: '#fff',
+      fontSize: '14px',
+      fontFamily: 'Segoe UI, Arial, sans-serif'
     }
   });
 </script>
@@ -211,8 +287,10 @@ strong { color: #00285a; }
 
 </head>
 <body>
+<button class="pdf-download-btn" onclick="window.print()" title="Print / Save as PDF">&#128196; Download PDF</button>
+<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IP) (FTS-IP) Tower<br/>
@@ -232,7 +310,14 @@ strong { color: #00285a; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
+.page-section {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 40px);
+  box-sizing: border-box;
+}
 .page-footer {
+  margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid #ddd;
   display: flex;
@@ -240,257 +325,197 @@ strong { color: #00285a; }
   align-items: center;
   font-size: 11px;
   color: #888;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 20px;
+  padding: 6px 12px;
   background: #fff;
 }
 @media print {
-  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+  .page-section {
+    min-height: 100vh;
+  }
+  .page-footer {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
 .page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
 </style>
 
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<p><a id="toc"></a></p>
-<h2 id="table-of-contents">Table of Contents</h2>
+
+<a id="toc"></a>
+
+## Table of Contents
+
+<nav class="toc">
 <ol>
-<li><a href="#1-executive-summary">Executive Summary</a></li>
-<li><a href="#2-business-context--objectives">Business Context &amp; Objectives</a>
-   - 2.1 <a href="#21-classification">Classification</a>
-   - 2.2 <a href="#22-business-drivers">Business Drivers</a>
-   - 2.3 <a href="#23-success-criteria">Success Criteria</a>
-   - 2.4 <a href="#24-companion-documents">Companion Documents</a></li>
-<li><a href="#3-business-architecture-togaf-b">Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
-   - 3.1 <a href="#31-business-process-overview">Business Process Overview</a>
-   - 3.2 <a href="#32-business-process-diagrams">Business Process Diagrams</a>
-   - 3.3 <a href="#33-business-roles--responsibilities">Business Roles &amp; Responsibilities</a></li>
-<li><a href="#4-data-architecture-togaf-d">Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
-   - 4.1 <a href="#41-data-entities--ownership">Data Entities &amp; Ownership</a>
-   - 4.2 <a href="#42-data-flow-diagrams">Data Flow Diagrams</a>
-   - 4.3 <a href="#43-data-lineage">Data Lineage</a>
-   - 4.4 <a href="#44-ricefw-data-objects">RICEFW Data Objects</a>
-   - 4.5 <a href="#45-data-governance--quality">Data Governance &amp; Quality</a></li>
-<li><a href="#5-application-architecture-togaf-a">Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
-   - 5.1 <a href="#51-current-state--current-state-application-landscape">Current-State Application Landscape</a>
-   - 5.2 <a href="#52-future-state--future-state-application-landscape">Future-State Application Landscape</a>
-   - 5.3 <a href="#53-change-impact-summary">Change Impact Summary</a>
-   - 5.4 <a href="#54-component-overview">Component Overview</a>
-   - 5.5 <a href="#55-ricefw-inventory">RICEFW Inventory</a>
-   - 5.6 <a href="#56-integration-patterns">Integration Patterns</a></li>
-<li><a href="#6-technology-architecture-togaf-t">Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
-   - 6.1 <a href="#61-platform--infrastructure">Platform &amp; Infrastructure</a>
-   - 6.2 <a href="#62-sap-development-object-status">SAP Development Object Status</a>
-   - 6.3 <a href="#63-nfrs--design-principles">NFRs &amp; Design Principles</a>
-   - 6.4 <a href="#64-security--governance">Security &amp; Governance</a></li>
-<li><a href="#7-project-context">Project Context</a>
-   - 7.1 <a href="#71-project-roadmap--go-live-plan">Project Roadmap &amp; Go-Live Plan</a>
-   - 7.2 <a href="#72-raid-log">RAID Log</a>
-   - 7.3 <a href="#73-recommendations--next-steps">Recommendations &amp; Next Steps</a></li>
+  <li><a href="#1-executive-summary">1. Executive Summary</a></li>
+  <li><a href="#2-business-context-objectives">2. Business Context &amp; Objectives</a>
+    <ul>
+      <li><a href="#21-classification">2.1 Classification</a></li>
+      <li><a href="#22-business-drivers">2.2 Business Drivers</a></li>
+      <li><a href="#23-success-criteria">2.3 Success Criteria</a></li>
+      <li><a href="#24-companion-documents">2.4 Companion Documents</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+    <ul>
+      <li><a href="#31-business-process-overview">3.1 Business Process Overview</a></li>
+      <li><a href="#32-business-process-diagrams">3.2 Business Process Diagrams</a></li>
+      <li><a href="#33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+    <ul>
+      <li><a href="#41-data-entities-ownership">4.1 Data Entities &amp; Ownership</a></li>
+      <li><a href="#42-data-flow-diagrams">4.2 Data Flow Diagrams</a></li>
+      <li><a href="#43-data-lineage">4.3 Data Lineage</a></li>
+      <li><a href="#44-ricefw-data-objects">4.4 RICEFW Data Objects</a></li>
+      <li><a href="#45-data-governance-quality">4.5 Data Governance &amp; Quality</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+    <ul>
+      <li><a href="#51-current-state-current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
+      <li><a href="#52-future-state-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
+      <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
+      <li><a href="#54-component-overview">5.4 Component Overview</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+    <ul>
+      <li><a href="#61-platform-infrastructure">6.1 Platform &amp; Infrastructure</a></li>
+      <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
+      <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
+      <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+    </ul>
+  </li>
+  <li><a href="#7-project-context">7. Project Context</a>
+    <ul>
+      <li><a href="#71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</a></li>
+      <li><a href="#72-raid-log">7.2 RAID Log</a></li>
+      <li><a href="#73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</a></li>
+    </ul>
+  </li>
 </ol>
-<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
-<div style="page-break-before: always;"></div>
+</nav>
 
-<h2 id="1-executive-summary">1. Executive Summary</h2>
-<p>This Architecture Document defines the <strong>Business, Data, Application, and Technology</strong> (BDAT) architecture for <strong>PLB-050 Responsive Demand and Supply Matching (RDSM) (IP)</strong> within the IAO program. It includes 2 BPMN process diagram(s) in Section 3.
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+## 1. Executive Summary
+
+This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **PLB-050 Responsive Demand and Supply Matching (RDSM) (IP)** within the IAO program. It includes 2 BPMN process diagram(s) in Section 3.
 | Dimension | Value |
 |-----------|-------|
-| <strong>Tower</strong> | Forecast to Stock (IP) (FTS-IP) |
-| <strong>Process Group</strong> | PLB Supply Chain Planning (IP) |
-| <strong>Capability</strong> | PLB-050 - Responsive Demand and Supply Matching (RDSM) (IP) |
-| <strong>Release</strong> | Release 3 |
-| <strong>Total Systems</strong> | 0 |
-| <strong>System Status</strong> | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
-| <strong>RICEFW Objects</strong> | 2 Reports, 34 Interfaces, 20 Conversions, 35 Enhancements, 7 Forms, 3 Workflows |
-<strong>Change Summary</strong>: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.</p>
-<blockquote>
-<p>All system nodes in architecture diagrams are <strong>IAPM-linked</strong> — click any node to open its IAPM page. Diagrams require <code>securityLevel: "loose"</code> for click events.</p>
-</blockquote>
+| **Tower** | Forecast to Stock (IP) (FTS-IP) |
+| **Process Group** | PLB Supply Chain Planning (IP) |
+| **Capability** | PLB-050 - Responsive Demand and Supply Matching (RDSM) (IP) |
+| **Release** | Release 3 |
+| **Total Systems** | 0 |
+| **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
+| **RICEFW Objects** | 2 Reports, 34 Interfaces, 20 Conversions, 35 Enhancements, 7 Forms, 3 Workflows |
+**Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
+
+> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="2-business-context-objectives">2. Business Context &amp; Objectives</h2>
-<h3 id="21-classification">2.1 Classification</h3>
-<table>
-<thead>
-<tr>
-<th>Level</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>L0 Tower</strong></td>
-<td>Forecast to Stock (IP)</td>
-</tr>
-<tr>
-<td><strong>L1 Process</strong></td>
-<td>PLB Supply Chain Planning (IP)</td>
-</tr>
-<tr>
-<td><strong>L2 Capability</strong></td>
-<td>PLB-050 - Responsive Demand and Supply Matching (RDSM) (IP)</td>
-</tr>
-</tbody>
-</table>
-<h3 id="22-business-drivers">2.2 Business Drivers</h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Driver</th>
-<th>Description</th>
-<th>Strategic Alignment</th>
-<th>Priority</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Intel Products Supply Chain Unification</td>
-<td>Consolidate Intel Products manufacturing and logistics onto S/4 HANA platform</td>
-<td>IDM 2.0 Products Transformation</td>
-<td>High</td>
-</tr>
-<tr>
-<td>2</td>
-<td>End-to-End Traceability</td>
-<td>Enable lot/batch traceability from raw material to finished goods shipment</td>
-<td>Quality &amp; Compliance</td>
-<td>High</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Demand-Supply Matching</td>
-<td>Implement responsive demand and supply matching (RDSM) for IP product lines</td>
-<td>Supply Chain Agility</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>4</td>
-<td>PLB-050 Process Migration</td>
-<td>Migrate Responsive Demand and Supply Matching (RDSM) (IP) business processes and 0 integrated systems from legacy to S/4 HANA target architecture</td>
-<td>IDM 2.0 Supply Chain (Intel Products)</td>
-<td>High</td>
-</tr>
-</tbody>
-</table>
+
+## 2. Business Context & Objectives
+
+### 2.1 Classification
+
+| Level | Value |
+|-------|-------|
+| **L0 Tower** | Forecast to Stock (IP) |
+| **L1 Process** | PLB Supply Chain Planning (IP) |
+| **L2 Capability** | PLB-050 - Responsive Demand and Supply Matching (RDSM) (IP) |
+
+### 2.2 Business Drivers
+
+| # | Driver | Description | Strategic Alignment | Priority |
+|---|--------|-------------|---------------------|----------|
+| 1 | Intel Products Supply Chain Unification | Consolidate Intel Products manufacturing and logistics onto S/4 HANA platform | IDM 2.0 Products Transformation | High |
+| 2 | End-to-End Traceability | Enable lot/batch traceability from raw material to finished goods shipment | Quality & Compliance | High |
+| 3 | Demand-Supply Matching | Implement responsive demand and supply matching (RDSM) for IP product lines | Supply Chain Agility | Medium |
+| 4 | PLB-050 Process Migration | Migrate Responsive Demand and Supply Matching (RDSM) (IP) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Supply Chain (Intel Products) | High |
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="23-success-criteria">2.3 Success Criteria</h3>
-<table>
-<thead>
-<tr>
-<th>Metric</th>
-<th>Target</th>
-<th>Measure</th>
-<th>Baseline</th>
-<th>Owner</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Production Schedule Adherence</td>
-<td>&gt; 95%</td>
-<td>Percentage of production orders completed on schedule</td>
-<td>88% (current)</td>
-<td>Production Manager</td>
-</tr>
-<tr>
-<td>Material Availability Rate</td>
-<td>&gt; 98%</td>
-<td>Materials available at point of need for production</td>
-<td>94% (current)</td>
-<td>Materials Planning</td>
-</tr>
-<tr>
-<td>Shipping On-Time Delivery</td>
-<td>&gt; 97%</td>
-<td>Orders shipped within committed delivery window</td>
-<td>93% (current)</td>
-<td>Logistics Lead</td>
-</tr>
-<tr>
-<td>PLB-050 Migration Completeness</td>
-<td>100% flow chains validated</td>
-<td>All 0 flow chains verified in target state</td>
-<td>0% (pre-migration)</td>
-<td>Tower Architect</td>
-</tr>
-</tbody>
-</table>
-<h3 id="24-companion-documents">2.4 Companion Documents</h3>
-<table>
-<thead>
-<tr>
-<th>Document</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Business Architecture</strong></td>
-<td>Included in this document (Section 3) — process flows from BPMN diagrams</td>
-</tr>
-<tr>
-<td><strong>This Document</strong></td>
-<td>Full BDAT Architecture — Business + Data + Application + Technology</td>
-</tr>
-</tbody>
-</table>
+
+### 2.3 Success Criteria
+
+| Metric | Target | Measure | Baseline | Owner |
+|--------|--------|---------|----------|-------|
+| Production Schedule Adherence | > 95% | Percentage of production orders completed on schedule | 88% (current) | Production Manager |
+| Material Availability Rate | > 98% | Materials available at point of need for production | 94% (current) | Materials Planning |
+| Shipping On-Time Delivery | > 97% | Orders shipped within committed delivery window | 93% (current) | Logistics Lead |
+| PLB-050 Migration Completeness | 100% flow chains validated | All 0 flow chains verified in target state | 0% (pre-migration) | Tower Architect |
+
+### 2.4 Companion Documents
+
+| Document | Description |
+|----------|-------------|
+| **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
+| **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</h2>
-<h3 id="31-business-process-overview">3.1 Business Process Overview</h3>
-<p>This capability includes <strong>2 business process(es)</strong> modeled in BPMN 2.0, covering the end-to-end workflow for PLB-050 Responsive Demand and Supply Matching (RDSM) (IP).</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Step ID</th>
-<th>Process Name</th>
-<th>Lanes</th>
-<th>Tasks</th>
-<th>Gateways</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>PLB-050-040_Response_Management_(IP)</td>
-<td>PLB-050-040_Response_Management_(IP)</td>
-<td>Boundary Apps, FTS IP - Production Supervisor, PTP IP Batch System User, Planning Data hub</td>
-<td>14</td>
-<td>3</td>
-</tr>
-<tr>
-<td>2</td>
-<td>PLB-050-080_Deployment_Planning_(IP)</td>
-<td>PLB-050-080_Deployment_Planning_(IP)</td>
-<td>Boundary Apps, FTS IP - Production Planner, IT Department</td>
-<td>4</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<h3 id="32-business-process-diagrams">3.2 Business Process Diagrams</h3>
+
+## 3. Business Architecture (TOGAF "B")
+
+### 3.1 Business Process Overview
+
+This capability includes **2 business process(es)** modeled in BPMN 2.0, covering the end-to-end workflow for PLB-050 Responsive Demand and Supply Matching (RDSM) (IP).
+
+| # | Step ID | Process Name | Lanes | Tasks | Gateways |
+|---|---------|--------------|-------|-------|----------|
+| 1 | PLB-050-040_Response_Management_(IP) | PLB-050-040_Response_Management_(IP) | Boundary Apps, FTS IP - Production Supervisor, PTP IP Batch System User, Planning Data hub | 14 | 3 |
+| 2 | PLB-050-080_Deployment_Planning_(IP) | PLB-050-080_Deployment_Planning_(IP) | Boundary Apps, FTS IP - Production Planner, IT Department | 4 | 0 |
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="business-architecture-321-plb-050-040_response_management_ip-plb-050-040_response_management_ip">BUSINESS ARCHITECTURE — 3.2.1 PLB-050-040_Response_Management_(IP) — PLB-050-040_Response_Management_(IP)</h4>
-<p><strong>Swim Lanes</strong>: Boundary Apps · FTS IP - Production Supervisor · PTP IP Batch System User · Planning Data hub | <strong>Tasks</strong>: 14 | <strong>Gateways</strong>: 3</p>
-<blockquote>
-<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
-</blockquote>
+
+### 3.2 Business Process Diagrams
+
+
+#### BUSINESS ARCHITECTURE — 3.2.1 PLB-050-040_Response_Management_(IP) — PLB-050-040_Response_Management_(IP)
+
+**Swim Lanes**: Boundary Apps · FTS IP - Production Supervisor · PTP IP Batch System User · Planning Data hub | **Tasks**: 14 | **Gateways**: 3
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
 <div class="mermaid">
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -565,18 +590,23 @@ flowchart LR
     class n20 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21zm0YQ_is7ZDyyZ6QEEAiJD81ISLROk0aJ7GY6cT-c4BA3Rhw9Dsuqo__ePQF6weJDW33QzL49u_vc3gIvWsBDqrna1dULS5l04aUjY7qmHRc6S5LTThdKxe9EMLJMaN5RPhFP5YL9vXczrOxZuSmdT9Ys2Srtgq44hfvbLowxMOlCTtK8l1PBok63kwm2JmLr8YQL5f2GDiM92merTBMuQiqODrruGIGNoQlL6VHddyzH8lVcTgOehmegkR0No6CzU8UlfBPERMh9-UVOP5HnbyyUMcoRSXKKPrFcJx_JkiaqRykKpQsK8VSTwXKVJ0XCFhkJWLpCvaWjSpD08aiy9d0OdldXD-khKXz8-pAC_oKE5PmURpBLVM-eJEQsSdw3ljf2bb2bS8EfqfvGnDnTvtkNVCcutq53Fbm9DWWrWLpLnoSVa2-jenDN7Lkrnl1T74ot_jdy0TQ8ZvIG5tAcHjJNHMMzvDpTFEX_KxPyKu5I_ljlmvV9058echn2wPb013h1m1PLGRtNnqh4YgE9AfV9vz87UjUb2IbeDjrx-wPda4CuiKQbsj0CjjzrAOjbjm84rYBlvmaVxXIueFAD9me2bx8AnYnhj81WQGtsWMOqQsRZCZLFMOHFfpZhnGV5aVO_1Pj-_UGLiBuRXsBXsAhiGhYJha80oCyTcJ-F2NuD9uefJ0HmeRD68vUahwK8mKQrmsNyC5M_4Hpe5PG7eZHgZf0it7W1Cx5JA4rKRcwykPymAW_Y1wf8LEFa79OYZNkW5kTGoHiheQ63uF0Y1haqbLeppAnC3JzCDI4wueQZOkVcrIlkPK36CoGlWOkxEJtoEOffLeB2Dj2VNyyCffCiyNQU5VycpHPOSfEExQQwLiRXKQO4o88S5l8bvQ4vRk0KloRYLx5xlRIrhzvs4T6DLwVJJZPbBtKoeSgJxXV7WvZntQBrpF7RimTo51AlV6-QmlHGxahXreTNOAvDqr5Ljj7D9Z43eGIEJkQGMXzgSzUlp2FO43TL7sbBY8o3CQ1XOJAShBrjp_KcF-8skLHgxQqHCI_UmQyaEzN6eakxiRB8k_dIIiEjgiQJTX4ub_mDttudXgb93wW9HrH53VyNWNnpYptLuoZ73FOnlZkXyT3whRCvblH_YoiHV5VJxYfH04jV9-GOLOG6grsB4oJj_wrfvllvDVi-BbMS7GOOC20kJE3xiQVTIgnExfKkmEYtHzjmfzWZBDfIolzPqqlQwSi_GvcXhDzv0TqH_UQeKUxpwHIFWq0FsaYh21_FlCRILi4c-MSfKPhcbIgIYcNwq5S7Ca69Aodp_f59k037PNOcCrVLMNmaHPYe3rm_CooZ6hVVoTWxBhfv_G90U_FwXV7Pm3fVkc2eWS4VARev3fA_jl9qQq_3E3JYiVYp2pVol-KgEp1SNGpvY1QqhjWYXspOQzZGlaLyr5_w6aCy1wBGVY5h1IpKriswhkrx40Fr0vFDbazaqSrbrOV-KfcruRIPOaxGlUZdttnMqo6HHxKOTp7XqtSTt4ozi9lq6bdarFaL3WoZtFqcVsuw1TJqtSA_raZ2Fox2Gox2HvAs65fac_2gegE91zoXtcP63excPbqoxqGt1FpXW-PmICzU3Bdt_72C3zQhjUiRSG3X1Qg-nxbbNNDc_Xu9Vuyv6pQR3IXrUrn7BxtuG9w=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21zm0YQ_is7ZDyyZ6QEEAiJD81ISLROk0aJ7GY6cT-c4BA3Rhw9Dsuqo__ePQF6weJDW33QzL49u_vc3gIvWsBDqrna1dULS5l04aUjY7qmHRc6S5LTThdKxe9EMLJMaN5RPhFP5YL9vXczrOxZuSmdT9Ys2Srtgq44hfvbLowxMOlCTtK8l1PBok63kwm2JmLr8YQL5f2GDiM92merTBMuQiqODrruGIGNoQlL6VHddyzH8lVcTgOehmegkR0No6CzU8UlfBPERMh9-UVOP5HnbyyUMcoRSXKKPrFcJx_JkiaqRykKpQsK8VSTwXKVJ0XCFhkJWLpCvaWjSpD08aiy9d0OdldXD-khKXz8-pAC_oKE5PmURpBLVM-eJEQsSdw3ljf2bb2bS8EfqfvGnDnTvtkNVCcutq53Fbm9DWWrWLpLnoSVa2-jenDN7Lkrnl1T74ot_jdy0TQ8ZvIG5tAcHjJNHMMzvDpTFEX_KxPyKu5I_ljlmvV9058echn2wPb013h1m1PLGRtNnqh4YgE9AfV9vz87UjUb2IbeDjrx-wPda4CuiKQbsj0CjjzrAOjbjm84rYBlvmaVxXIueFAD9me2bx8AnYnhj81WQGtsWMOqQsRZCZLFMOHFfpZhnGV5aVO_1Pj-_UGLiBuRXsBXsAhiGhYJha80oCyTcJ-F2NuD9uefJ0HmeRD68vUahwK8mKQrmsNyC5M_4Hpe5PG7eZHgZf0it7W1Cx5JA4rKRcwykPymAW_Y1wf8LEFa79OYZNkW5kTGoHiheQ63uF0Y1haqbLeppAnC3JzCDI4wueQZOkVcrIlkPK36CoGlWOkxEJtoEOffLeB2Dj2VNyyCffCiyNQU5VycpHPOSfEExQQwLiRXKQO4o88S5l8bvQ4vRk0KloRYLx5xlRIrhzvs4T6DLwVJJZPbBtKoeSgJxXV7WvZntQBrpF7RimTo51AlV6-QmlHGxahXreTNOAvDqr5Ljj7D9Z43eGIEJkQGMXzgSzUlp2FO43TL7sbBY8o3CQ1XOJAShBrjp_KcF-8skLHgxQqHCI_UmQyaEzN6eakxiRB8k_dIIiEjgiQJTX4ub_mDttudXgb93wW9HrH53VyNWNnpYptLuoZ73FOnlZkXyT3whRCvblH_YoiHV5VJxYfH04jV9-GOLOG6grsB4oJj_wrfvllvDVi-BbMS7GOOC20kJE3xiQVTIgnExfKkmEYtHzjmfzWZBDfIolzPqqlQwSi_GvcXhDzv0TqH_UQeKUxpwHIFWq0FsaYh21_FlCRILi4c-MSfKPhcbIgIYcNwq5S7Ca69Aodp_f59k037PNOcCrVLMNmaHPYe3rm_CooZ6hVVoTWxBhfv_G90U_FwXV7Pm3fVkc2eWS4VARev3fA_jl9qQq_3E3JYiVYp2pVol-KgEp1SNGpvY1QqhjWYXspOQzZGlaLyr5_w6aCy1wBGVY5h1IpKriswhkrx40Fr0vFDbazaqSrbrOV-KfcruRIPOaxGlUZdttnMqo6HHxKOTp7XqtSTt4ozi9lq6bdarFaL3WoZtFqcVsuw1TJqtSA_raZ2Fox2Gox2HvAs65fac_2gegE91zoXtcP63excPbqoxqGt1FpXW-PmICzU3Bdt_72C3zQhjUiRSG3X1Qg-nxbbNNDc_Xu9Vuyv6pQR3IXrUrn7BxtuG9w=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h4 id="business-architecture-322-plb-050-080_deployment_planning_ip-plb-050-080_deployment_planning_ip">BUSINESS ARCHITECTURE — 3.2.2 PLB-050-080_Deployment_Planning_(IP) — PLB-050-080_Deployment_Planning_(IP)</h4>
-<p><strong>Swim Lanes</strong>: Boundary Apps · FTS IP - Production Planner · IT Department | <strong>Tasks</strong>: 4 | <strong>Gateways</strong>: 0</p>
-<blockquote>
-<p><strong>Legend</strong>: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span></p>
-</blockquote>
+
+#### BUSINESS ARCHITECTURE — 3.2.2 PLB-050-080_Deployment_Planning_(IP) — PLB-050-080_Deployment_Planning_(IP)
+
+**Swim Lanes**: Boundary Apps · FTS IP - Production Planner · IT Department | **Tasks**: 4 | **Gateways**: 0
+
+> **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
+
 <div class="mermaid">
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -609,2479 +639,416 @@ flowchart TD
     class n6 endEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVcuO2zYU_RVCg4ETQAb0tBwtCtiyhQ7QIIPITReZLGjpUiaGIlWS8ow78L-XtDR-Je6mWti4r3POvSKv3pxSVOCkzv39G-VUp-htpDfQwChFozVWMHJR7_iGJcVrBmpkc4jguqD_HNL8qH21adaX44aynfUWUAtAfz64aGYKmYsU5mqsQFIycketpA2Wu0wwIW32HUyJRw5sQ2guZAXylOB5iV_GppRRDid3mERJlNs6BaXg1QUoicmUlKO9FcfES7nBUh_kdwo-49e_aKU3xiaYKTA5G92wP_AamO1Ry876yk5u34dBleXhZmBFi0vKa-OPPOOSmD-fXLG336P9_f0TP5Ki1eKJI_OUDCu1AIKUNu7lViNCGUvvomyWx56rtBTPkN4Fy2QRBm5pO0lN655rhzt-AVpvdLoWrBpSxy-2hzRoX135mgaeK3fm94oLeHViyibBNJgemeaJn_nZOxMh5H8xmbnKFVbPA9cyzIN8ceTy40mceT_jvbe5iJKZfz0nkFtawhlonufh8jSq5ST2vdug8zyceNkVaI01vODdCfBTFh0B8zjJ_eQmYM93rbJbP0pRvgOGyziPj4DJ3M9nwU3AaOZH00GhwaklbjdoLrrDWUaztlV9zD48_P79ySE4JXhcihqtJK1rkOiRYc6hMldN0i1mqKA1N39aoN-7tXpyfvw4w4g_HDFaZqbwFf7uQGlUANe2pLBHEy2gZWLXWN8B3Zxtg_OxxzEn6kpwvirQwyMaIzOHqis1FXxQJc-o_Uv5X6EEugXDKMpn04zZEMR0YwVRRS3GlfTgsj4TfAtG6-36vp-L6Be7V65wJ6eRKC3aXzVvyJqWgYbqv8bwsLK1Zn629owguhRemKUAP721D5-_fFt-PEk7wvMYjce_mbc_mH5vBoMZ9OZkMMPejAYz6s3zi2URzi7WRSS4GQlvRqKbkfi46C7ck2EnOa7TgGwwrZz0zTl8Z8y3qAKCO6advevgTotix0snPexjp2src3cXFJtxN71z_y-1uizQ" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVcuO2zYU_RVCg4ETQAb0tBwtCtiyhQ7QIIPITReZLGjpUiaGIlWS8ow78L-XtDR-Je6mWti4r3POvSKv3pxSVOCkzv39G-VUp-htpDfQwChFozVWMHJR7_iGJcVrBmpkc4jguqD_HNL8qH21adaX44aynfUWUAtAfz64aGYKmYsU5mqsQFIycketpA2Wu0wwIW32HUyJRw5sQ2guZAXylOB5iV_GppRRDid3mERJlNs6BaXg1QUoicmUlKO9FcfES7nBUh_kdwo-49e_aKU3xiaYKTA5G92wP_AamO1Ry876yk5u34dBleXhZmBFi0vKa-OPPOOSmD-fXLG336P9_f0TP5Ki1eKJI_OUDCu1AIKUNu7lViNCGUvvomyWx56rtBTPkN4Fy2QRBm5pO0lN655rhzt-AVpvdLoWrBpSxy-2hzRoX135mgaeK3fm94oLeHViyibBNJgemeaJn_nZOxMh5H8xmbnKFVbPA9cyzIN8ceTy40mceT_jvbe5iJKZfz0nkFtawhlonufh8jSq5ST2vdug8zyceNkVaI01vODdCfBTFh0B8zjJ_eQmYM93rbJbP0pRvgOGyziPj4DJ3M9nwU3AaOZH00GhwaklbjdoLrrDWUaztlV9zD48_P79ySE4JXhcihqtJK1rkOiRYc6hMldN0i1mqKA1N39aoN-7tXpyfvw4w4g_HDFaZqbwFf7uQGlUANe2pLBHEy2gZWLXWN8B3Zxtg_OxxzEn6kpwvirQwyMaIzOHqis1FXxQJc-o_Uv5X6EEugXDKMpn04zZEMR0YwVRRS3GlfTgsj4TfAtG6-36vp-L6Be7V65wJ6eRKC3aXzVvyJqWgYbqv8bwsLK1Zn629owguhRemKUAP721D5-_fFt-PEk7wvMYjce_mbc_mH5vBoMZ9OZkMMPejAYz6s3zi2URzi7WRSS4GQlvRqKbkfi46C7ck2EnOa7TgGwwrZz0zTl8Z8y3qAKCO6advevgTotix0snPexjp2src3cXFJtxN71z_y-1uizQ" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
-<table>
-<thead>
-<tr>
-<th>Role / Lane</th>
-<th>Processes Involved</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Boundary Apps</td>
-<td>PLB-050-040_Response_Management_(IP), PLB-050-080_Deployment_Planning_(IP)</td>
-<td></td>
-</tr>
-<tr>
-<td>FTS IP - Production Supervisor</td>
-<td>PLB-050-040_Response_Management_(IP),</td>
-<td></td>
-</tr>
-<tr>
-<td>PTP IP Batch System User</td>
-<td>PLB-050-040_Response_Management_(IP),</td>
-<td></td>
-</tr>
-<tr>
-<td>Planning Data hub</td>
-<td>PLB-050-040_Response_Management_(IP),</td>
-<td></td>
-</tr>
-<tr>
-<td>FTS IP - Production Planner</td>
-<td>PLB-050-080_Deployment_Planning_(IP)</td>
-<td></td>
-</tr>
-<tr>
-<td>IT Department</td>
-<td>PLB-050-080_Deployment_Planning_(IP)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+### 3.3 Business Roles & Responsibilities
+
+| Role / Lane | Processes Involved | Description |
+|------------|-------------------|-------------|
+| Boundary Apps | PLB-050-040_Response_Management_(IP), PLB-050-080_Deployment_Planning_(IP) | |
+| FTS IP - Production Supervisor | PLB-050-040_Response_Management_(IP),  | |
+| PTP IP Batch System User | PLB-050-040_Response_Management_(IP),  | |
+| Planning Data hub | PLB-050-040_Response_Management_(IP),  | |
+| FTS IP - Production Planner | PLB-050-080_Deployment_Planning_(IP) | |
+| IT Department | PLB-050-080_Deployment_Planning_(IP) | |
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
-<h3 id="41-data-entities-ownership">4.1 Data Entities &amp; Ownership</h3>
-<p>The following data entities are derived from the system integration flows for PLB-050. Tower architects should validate ownership and classification.</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Data Entity</th>
-<th>Source System</th>
-<th>Target System</th>
-<th>Data Owner</th>
-<th>Classification</th>
-<th>Volume</th>
-<th>Master/Transaction</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+## 4. Data Architecture (TOGAF "D")
+
+### 4.1 Data Entities & Ownership
+
+The following data entities are derived from the system integration flows for PLB-050. Tower architects should validate ownership and classification.
+
+| # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
+|---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="42-data-flow-diagrams">4.2 Data Flow Diagrams</h3>
-<blockquote>
-<p><strong>DATA ARCHITECTURE</strong> — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.</p>
-</blockquote>
-<h3 id="43-data-lineage">4.3 Data Lineage</h3>
-<p>Data lineage traces the origin and transformation path of key data objects across integrated systems.</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Source System</th>
-<th>Source Schema/Object</th>
-<th>Target System</th>
-<th>Target Schema/Object</th>
-<th>Transformation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Lineage detail will be refined when tower architects validate source/target schema object mappings.</em></p>
-</blockquote>
-<h3 id="44-ricefw-data-objects">4.4 RICEFW Data Objects</h3>
-<p>Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:</p>
-<table>
-<thead>
-<tr>
-<th>Object ID</th>
-<th>Type</th>
-<th>Description</th>
-<th>Status</th>
-<th>Source</th>
-<th>Target</th>
-<th>Complexity</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LOGR1176_IP</td>
-<td>Report</td>
-<td>ISM - International Traffic Report</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGR0833_IP</td>
-<td>Report</td>
-<td>Email Notification for deletion of Shipping Memos</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGM024_IP</td>
-<td>Conversion</td>
-<td>Create/Upload Vehicle resource</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGM023_IP</td>
-<td>Conversion</td>
-<td>Update Business Share</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGM022_IP</td>
-<td>Conversion</td>
-<td>Upload Transportation Allocation</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGM021_IP</td>
-<td>Conversion</td>
-<td>Upload Schedules</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGM019_IP</td>
-<td>Conversion</td>
-<td>Default Routes</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>S4</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGM018_IP</td>
-<td>Conversion</td>
-<td>Upload Rate Table</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGM016_IP</td>
-<td>Conversion</td>
-<td>Create and review Charge Calculation Sheet</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>S4</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGM015_IP</td>
-<td>Conversion</td>
-<td>Create and review Freight Agreement</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>S4</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGM012_IP</td>
-<td>Conversion</td>
-<td>Creation of Location based on BP, Shipping points, plants</td>
-<td>10. Object Complete</td>
-<td>ECC</td>
-<td>S4</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGM008_IP</td>
-<td>Conversion</td>
-<td>Location creation-ocean ports, airports</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGM005_IP</td>
-<td>Conversion</td>
-<td>UPLOAD TRANSPORTATION ZONES (TM)</td>
-<td>10. Object Complete</td>
-<td>TMS</td>
-<td>S4</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGM004_IP</td>
-<td>Conversion</td>
-<td>UPLOAD TRANSPORTATION LANES</td>
-<td>10. Object Complete</td>
-<td>TMS</td>
-<td>S4</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGC1500</td>
-<td>Conversion</td>
-<td>IM Stock conversion from Non SAP system to S4 system</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGC0972_IP</td>
-<td>Conversion</td>
-<td>Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGC0946_IP</td>
-<td>Conversion</td>
-<td>Open Inventory Conversion for IP and IF (as applicable) , ECC to S4</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FTSM002_IP</td>
-<td>Conversion</td>
-<td>Work Center</td>
-<td>10. Object Complete</td>
-<td>NA</td>
-<td>S4</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>FTSC1682</td>
-<td>Conversion</td>
-<td>Conversion of Intel Products Bailed Inventory &amp; Lot Attributes</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSC1559</td>
-<td>Conversion</td>
-<td>Conversion of Open PO/Engineering/Rework Orders into Production orders from I&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSC0434</td>
-<td>Conversion</td>
-<td>Conversion of Open Production Orders from ECC purchase order data into S4</td>
-<td>10. Object Complete</td>
-<td>ECC</td>
-<td>S4 HANA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSC0052_IP</td>
-<td>Conversion</td>
-<td>Conversion of Reference Operation Sets to S/4</td>
-<td>10. Object Complete</td>
-<td>ECC</td>
-<td>S4</td>
-<td>03.Medium</td>
-</tr>
-</tbody>
-</table>
-<h3 id="45-data-governance-quality">4.5 Data Governance &amp; Quality</h3>
-<table>
-<thead>
-<tr>
-<th>Concern</th>
-<th>Approach</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Data Ownership</td>
-<td>Per-entity owners listed in Section 3.1</td>
-</tr>
-<tr>
-<td>Data Classification</td>
-<td>Financial data classified as Intel Confidential</td>
-</tr>
-<tr>
-<td>Data Retention</td>
-<td>Per Intel corporate retention policies</td>
-</tr>
-<tr>
-<td>Data Quality</td>
-<td>Validated at source; reconciliation at target</td>
-</tr>
-</tbody>
-</table>
+
+### 4.2 Data Flow Diagrams
+
+> **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
+
+
+
+
+### 4.3 Data Lineage
+
+Data lineage traces the origin and transformation path of key data objects across integrated systems.
+
+| # | Source System | Source Schema/Object | Target System | Target Schema/Object | Transformation |
+|---|-------------|---------------------|---------------|---------------------|---------------|
+
+> *Lineage detail will be refined when tower architects validate source/target schema object mappings.*
+
+### 4.4 RICEFW Data Objects
+
+Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
+
+| Object ID | Type | Description | Status | Source | Target | Complexity |
+|-----------|------|-------------|--------|--------|--------|-----------|
+| LOGR1176_IP | Report | ISM - International Traffic Report | 10. Object Complete |  |  | 02.High |
+| LOGR0833_IP | Report | Email Notification for deletion of Shipping Memos | 10. Object Complete |  |  | 03.Medium |
+| LOGM024_IP | Conversion | Create/Upload Vehicle resource | 10. Object Complete |  |  | N/A |
+| LOGM023_IP | Conversion | Update Business Share | 10. Object Complete |  |  | N/A |
+| LOGM022_IP | Conversion | Upload Transportation Allocation | 10. Object Complete |  |  | N/A |
+| LOGM021_IP | Conversion | Upload Schedules | 10. Object Complete |  |  | N/A |
+| LOGM019_IP | Conversion | Default Routes | 10. Object Complete |  | S4 | N/A |
+| LOGM018_IP | Conversion | Upload Rate Table | 10. Object Complete |  |  | N/A |
+| LOGM016_IP | Conversion | Create and review Charge Calculation Sheet | 10. Object Complete |  | S4 | N/A |
+| LOGM015_IP | Conversion | Create and review Freight Agreement | 10. Object Complete |  | S4 | N/A |
+| LOGM012_IP | Conversion | Creation of Location based on BP, Shipping points, plants | 10. Object Complete | ECC | S4 | N/A |
+| LOGM008_IP | Conversion | Location creation-ocean ports, airports | 10. Object Complete |  |  | N/A |
+| LOGM005_IP | Conversion | UPLOAD TRANSPORTATION ZONES (TM) | 10. Object Complete | TMS | S4 | N/A |
+| LOGM004_IP | Conversion | UPLOAD TRANSPORTATION LANES | 10. Object Complete | TMS | S4 | N/A |
+| LOGC1500 | Conversion | IM Stock conversion from Non SAP system to S4 system | 10. Object Complete |  |  | 02.High |
+| LOGC0972_IP | Conversion | Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi... | 10. Object Complete |  |  | 02.High |
+| LOGC0946_IP | Conversion | Open Inventory Conversion for IP and IF (as applicable) , ECC to S4 | 10. Object Complete |  |  | 02.High |
+| FTSM002_IP | Conversion | Work Center | 10. Object Complete | NA | S4 | N/A |
+| FTSC1682 | Conversion | Conversion of Intel Products Bailed Inventory & Lot Attributes | 10. Object Complete |  |  | 03.Medium |
+| FTSC1559 | Conversion | Conversion of Open PO/Engineering/Rework Orders into Production orders from I... | 10. Object Complete |  |  | 03.Medium |
+| FTSC0434 | Conversion | Conversion of Open Production Orders from ECC purchase order data into S4 | 10. Object Complete | ECC | S4 HANA | 03.Medium |
+| FTSC0052_IP | Conversion | Conversion of Reference Operation Sets to S/4 | 10. Object Complete | ECC | S4 | 03.Medium |
+
+### 4.5 Data Governance & Quality
+
+| Concern | Approach |
+|---------|----------|
+| Data Ownership | Per-entity owners listed in Section 3.1 |
+| Data Classification | Financial data classified as Intel Confidential |
+| Data Retention | Per Intel corporate retention policies |
+| Data Quality | Validated at source; reconciliation at target |
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</h2>
-<h3 id="51-current-state-current-state-application-landscape">5.1 Current-State — Current-State Application Landscape</h3>
-<h4 id="overview">Overview</h4>
-<p>The Current-State architecture represents the <strong>current / legacy</strong> landscape for PLB-050.</p>
-<h4 id="current-state-flow-narrative">Current-State Flow Narrative</h4>
-<p><em>(No current-state flows defined.)</em></p>
-<h3 id="52-future-state-future-state-application-landscape">5.2 Future-State — Future-State Application Landscape</h3>
-<h4 id="overview_1">Overview</h4>
-<p>The Future-State architecture represents the <strong>target</strong> landscape for PLB-050.</p>
-<h4 id="future-state-flow-narrative">Future-State Flow Narrative</h4>
-<p><em>(No future-state flows defined.)</em></p>
-<h3 id="53-change-impact-summary">5.3 Change Impact Summary</h3>
-<table>
-<thead>
-<tr>
-<th>Change Type</th>
-<th>Flow Chain</th>
-<th>Detail</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Totals</strong>: 0 new - 0 removed - 0 modified - 0 unchanged</p>
-<h3 id="54-component-overview">5.4 Component Overview</h3>
-<h4 id="system-inventory">System Inventory</h4>
-<table>
-<thead>
-<tr>
-<th>System</th>
-<th>IAPM ID</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+
+## 5. Application Architecture (TOGAF "A")
+
+### 5.1 Current-State — Current-State Application Landscape
+
+#### Overview
+
+The Current-State architecture represents the **current / legacy** landscape for PLB-050.
+
+
+#### Current-State Flow Narrative
+
+*(No current-state flows defined.)*
+
+
+### 5.2 Future-State — Future-State Application Landscape
+
+#### Overview
+
+The Future-State architecture represents the **target** landscape for PLB-050.
+
+
+#### Future-State Flow Narrative
+
+*(No future-state flows defined.)*
+
+
+### 5.3 Change Impact Summary
+
+| Change Type | Flow Chain | Detail |
+|-------------|-----------|--------|
+
+**Totals**: 0 new - 0 removed - 0 modified - 0 unchanged
+
+### 5.4 Component Overview
+
+#### System Inventory
+
+| System | IAPM ID | Status |
+|--------|---------|--------|
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
-<table>
-<thead>
-<tr>
-<th>Object ID</th>
-<th>Type</th>
-<th>Description</th>
-<th>Status</th>
-<th>Source → Target</th>
-<th>Middleware</th>
-<th>Complexity</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LOGW1078_IP</td>
-<td>Workflow</td>
-<td>ISM Workflows - Capital/AMT</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGW1077_IP</td>
-<td>Workflow</td>
-<td>ISM Workflows - EIMS/Lab</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGW1076_IP</td>
-<td>Workflow</td>
-<td>ISM Workflows - Non-inventory</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGR1176_IP</td>
-<td>Report</td>
-<td>ISM - International Traffic Report</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGR0833_IP</td>
-<td>Report</td>
-<td>Email Notification for deletion of Shipping Memos</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGM024_IP</td>
-<td>Conversion</td>
-<td>Create/Upload Vehicle resource</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGM023_IP</td>
-<td>Conversion</td>
-<td>Update Business Share</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGM022_IP</td>
-<td>Conversion</td>
-<td>Upload Transportation Allocation</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGM021_IP</td>
-<td>Conversion</td>
-<td>Upload Schedules</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGM019_IP</td>
-<td>Conversion</td>
-<td>Default Routes</td>
-<td>10. Object Complete</td>
-<td>→ S4</td>
-<td>NA</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGM018_IP</td>
-<td>Conversion</td>
-<td>Upload Rate Table</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGM016_IP</td>
-<td>Conversion</td>
-<td>Create and review Charge Calculation Sheet</td>
-<td>10. Object Complete</td>
-<td>→ S4</td>
-<td>NA</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGM015_IP</td>
-<td>Conversion</td>
-<td>Create and review Freight Agreement</td>
-<td>10. Object Complete</td>
-<td>→ S4</td>
-<td>NA</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGM012_IP</td>
-<td>Conversion</td>
-<td>Creation of Location based on BP, Shipping points, plants</td>
-<td>10. Object Complete</td>
-<td>ECC → S4</td>
-<td>NA</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGM008_IP</td>
-<td>Conversion</td>
-<td>Location creation-ocean ports, airports</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGM005_IP</td>
-<td>Conversion</td>
-<td>UPLOAD TRANSPORTATION ZONES (TM)</td>
-<td>10. Object Complete</td>
-<td>TMS → S4</td>
-<td>NA</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGM004_IP</td>
-<td>Conversion</td>
-<td>UPLOAD TRANSPORTATION LANES</td>
-<td>10. Object Complete</td>
-<td>TMS → S4</td>
-<td>NA</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>LOGI1679</td>
-<td>Interface</td>
-<td>Receive 4C1 Inventory movement Stock type change and cycle count from IF</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>SFT</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1678</td>
-<td>Interface</td>
-<td>Receive 4C1 Inventory Reconciliation Snapshot from IF</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>SFT</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1576</td>
-<td>Interface</td>
-<td>ECD_Interface between S4 to ECD for inventory status response</td>
-<td>08. FUT In Progress</td>
-<td></td>
-<td>MuleSoft</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1575</td>
-<td>Interface</td>
-<td>ECD_Interface between S4 to 3PL for inventory status webservice​</td>
-<td>08. FUT In Progress</td>
-<td></td>
-<td>MuleSoft</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1571</td>
-<td>Interface</td>
-<td>ECD_Interface from ECD to S4 for Inventory status call​</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>MuleSoft</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1295</td>
-<td>Interface</td>
-<td>ECD_Interface between S/4 and ECD for completion status</td>
-<td>08. FUT In Progress</td>
-<td></td>
-<td>MULESOFT</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1291</td>
-<td>Interface</td>
-<td>ECD_Interface between S/4 and 3PL to send plant/batch level hold/unhold infor&hellip;</td>
-<td>08. FUT In Progress</td>
-<td></td>
-<td>MULESOFT</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1290</td>
-<td>Interface</td>
-<td>ECD_Interface from ECD to S4 for Inventory Hold/unhold request</td>
-<td>08. FUT In Progress</td>
-<td></td>
-<td>MULESOFT</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1272</td>
-<td>Interface</td>
-<td>Response to goods receipt posting from SAP to 3PL - EDI 4C1B</td>
-<td>10. Object Complete</td>
-<td>S/4 → WMS (3PL)</td>
-<td>MULESOFT</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1267</td>
-<td>Interface</td>
-<td>Inventory Reconciliation with Consignment hub – EDI 4C1 with version control</td>
-<td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>MULESOFT</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1081_IP</td>
-<td>Interface</td>
-<td>Interface + Enhancement - Reprinting of Carrier Label</td>
-<td>10. Object Complete</td>
-<td>S/4 → Redwood</td>
-<td>APIGEE</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1079_IP</td>
-<td>Interface</td>
-<td>Interface from S4 ISM to Service Now</td>
-<td>10. Object Complete</td>
-<td>S/4 ISM → Service Now</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1074_IP</td>
-<td>Interface</td>
-<td>Send data via API to retrieve the tracking ID - interface + Enhancement</td>
-<td>10. Object Complete</td>
-<td>S/4 → Redwood</td>
-<td>APIGEE</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI0951</td>
-<td>Interface</td>
-<td>Inbound interface to receive Finished Goods “Goods Receipt” (4B2) signal from&hellip;</td>
-<td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>MULESOFT</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI0950</td>
-<td>Interface</td>
-<td>Interface to receive 4B2 signal from Factory and return shipments from ODM/OS&hellip;</td>
-<td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>MULESOFT</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI0933</td>
-<td>Interface</td>
-<td>W-lot inventory error handling</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>MULESOFT</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI0836_IP</td>
-<td>Interface</td>
-<td>Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements)</td>
-<td>10. Object Complete</td>
-<td>S/4 → NDA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI0335</td>
-<td>Interface</td>
-<td>Outbound PIP signal to 3PL for material document transfer – EDI 4C1</td>
-<td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>MULESOFT</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGI0237_IP</td>
-<td>Interface</td>
-<td>Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4</td>
-<td>10. Object Complete</td>
-<td>3PL → S/4</td>
-<td>MULESOFT</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGF1614_IP</td>
-<td>Form</td>
-<td>TM-Bill of lading print output ( NSO/ Prospal STO&rsquo;s)</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGF1100_IP</td>
-<td>Form</td>
-<td>Printing of Standard Shipping Label</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGF0359_IP</td>
-<td>Form</td>
-<td>ISM - Generate Commercial Invoice - IF/IP</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGF0358_IP</td>
-<td>Form</td>
-<td>ISM - Generate Traveler Document - IF/IP</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGF0352_IP</td>
-<td>Form</td>
-<td>ISM - IPLA</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGF0351_IP</td>
-<td>Form</td>
-<td>ISM - Custom China Special label</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGF0350_IP</td>
-<td>Form</td>
-<td>ISM - India GST DC</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGE1686</td>
-<td>Enhancement</td>
-<td>IP custom table for reconciliation data</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE1572_IP</td>
-<td>Enhancement</td>
-<td>SAP GUI T-code to Move stock from Blocked to unblock Status</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGE1569_IP</td>
-<td>Enhancement</td>
-<td>Enhancement to change billing status based on ship reason in ISM</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE1526_IP</td>
-<td>Enhancement</td>
-<td>Automatic HAWB assignment for Freight Forwarders( ISM/ Prospal STO&rsquo;s)</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGE1327</td>
-<td>Enhancement</td>
-<td>ECD_Enhancement to retrieve plant details for material/batch and update custo&hellip;</td>
-<td>08. FUT In Progress</td>
-<td></td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGE1276_IP</td>
-<td>Enhancement</td>
-<td>TM:Replace VTRC and integrate with parcel carrier to retrieve the package lev&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE1253</td>
-<td>Enhancement</td>
-<td>Inventory Reconciliation with Consignment hub – EDI 4C1 with version control</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE1177_IP</td>
-<td>Enhancement</td>
-<td>India GST E-invoicing</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE1118_IP</td>
-<td>Enhancement</td>
-<td>ISM – MY Security Check Fiori app - IF</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGE1117_IP</td>
-<td>Enhancement</td>
-<td>ISM – Employee acknowledgement - IP</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGE1090_IP</td>
-<td>Enhancement</td>
-<td>PGI confirmation for non-inventory Intel freight shipments via email</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE1080_IP</td>
-<td>Enhancement</td>
-<td>Email notifications to be triggered as part of ISM Workflows</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGE1052_IP</td>
-<td>Enhancement</td>
-<td>Custom fields required on delivery screen</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE0945</td>
-<td>Enhancement</td>
-<td>Update COF, COA and FVR in 3PL WMS - EDI 4C1B</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE0936</td>
-<td>Enhancement</td>
-<td>Validate receiving consigned materials into consignment hub – EDI 4B2 CSGN</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE0935_IP</td>
-<td>Enhancement</td>
-<td>Fiori App - Shipping Memo</td>
-<td>09. FUT Overdue</td>
-<td></td>
-<td>NA</td>
-<td>01.Very High</td>
-</tr>
-<tr>
-<td>LOGE0835_IF</td>
-<td>Enhancement</td>
-<td>Interface to get the AMT (Asset Management Tool) data on the ISM</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>LOGE0405_IP</td>
-<td>Enhancement</td>
-<td>Dangerous Goods indicator from the delivery header text to be transmitted to &hellip;</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE0403_IP</td>
-<td>Enhancement</td>
-<td>In SAP TM, update FU and FO Transportation Cockpit w/ custom fields Purchase &hellip;</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGE0239_IP</td>
-<td>Enhancement</td>
-<td>Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 - Table Creation</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE0190_IP</td>
-<td>Enhancement</td>
-<td>Delivery Split for STO in S/4</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGC1500</td>
-<td>Conversion</td>
-<td>IM Stock conversion from Non SAP system to S4 system</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGC0972_IP</td>
-<td>Conversion</td>
-<td>Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGC0946_IP</td>
-<td>Conversion</td>
-<td>Open Inventory Conversion for IP and IF (as applicable) , ECC to S4</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FTSM002_IP</td>
-<td>Conversion</td>
-<td>Work Center</td>
-<td>10. Object Complete</td>
-<td>NA → S4</td>
-<td>NA</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>FTSI1693</td>
-<td>Interface</td>
-<td>Interface for Reporting Scrap of Semi Finished Goods at OSAT and IF manufactu&hellip;</td>
-<td>06. Dev In Progress</td>
-<td></td>
-<td>BODS</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI1692</td>
-<td>Interface</td>
-<td>Interface for Reporting Scrap of Semi Finished Goods at OSAT and IF manufactu&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>APIGEE</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI1681</td>
-<td>Interface</td>
-<td>Enhancement to create Zero Lead Time Order to convert Sorted Wafers into Sort&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>MULESOFT</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI1631</td>
-<td>Interface</td>
-<td>Interface to update Remnants in production order</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>APIGEE</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI1619</td>
-<td>Interface</td>
-<td>Interface to capture Sales Order 3B2 ASN and Virtual 3B2 ASN signals from Int&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>APIGEE</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGI1584</td>
-<td>Interface</td>
-<td>Interface to post inventory in SAP S/4HANA from ECA via MuleSoft.</td>
-<td>06. Dev In Progress</td>
-<td></td>
-<td>MuleSoft</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI1023</td>
-<td>Interface</td>
-<td>Interface to Transfer stock from Unrestricted stock to Block stock and vice v&hellip;</td>
-<td>10. Object Complete</td>
-<td>E2OPEN → S/4</td>
-<td>APIGEE</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI1022</td>
-<td>Interface</td>
-<td>Inbound Interface to update projected release quantity and date for lots on q&hellip;</td>
-<td>10. Object Complete</td>
-<td>FLAT FILE → S/4</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI0725</td>
-<td>Interface</td>
-<td>Inbound interface to capture Yield Confirmation and Goods Receipt against Pro&hellip;</td>
-<td>10. Object Complete</td>
-<td>E2OPEN → S/4</td>
-<td>APIGEE</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI0724</td>
-<td>Interface</td>
-<td>Inbound interface from e2open to IP SAP S4 HANA system to update Die Quantity&hellip;</td>
-<td>10. Object Complete</td>
-<td>E2OPEN → S/4</td>
-<td>APIGEE</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FTSI0492</td>
-<td>Interface</td>
-<td>Interface between E2Open and S4 for goods issue against production order</td>
-<td>10. Object Complete</td>
-<td>E2Open → S/4</td>
-<td>APIGEE</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI0491</td>
-<td>Interface</td>
-<td>Interface between E2Open and S4 for capturing confirmation of scrap against p&hellip;</td>
-<td>10. Object Complete</td>
-<td>E2Open → S/4</td>
-<td>APIGEE</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI0268</td>
-<td>Interface</td>
-<td>Interface to be developed from S/4 to E2Open to transmit Build Instruction​ d&hellip;</td>
-<td>10. Object Complete</td>
-<td>S/4 → E2Open</td>
-<td>MULESOFT</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI0210</td>
-<td>Interface</td>
-<td>Interface Function to Create Purchase Requisitions from ECA to S/4</td>
-<td>10. Object Complete</td>
-<td>ECA (PDH) → S/4</td>
-<td>BODS</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI0209</td>
-<td>Interface</td>
-<td>Interface to create Production Order from ECA to S/4</td>
-<td>10. Object Complete</td>
-<td>ECA (PDH) → S/4</td>
-<td>BODS</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1701</td>
-<td>Enhancement</td>
-<td>Enhancement to automate updation of Routing_Prod versions with reference to S&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1694</td>
-<td>Enhancement</td>
-<td>Enhancement to Introduction of additional restrictions by MRP Area for S4 IP &hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1653</td>
-<td>Enhancement</td>
-<td>Enhancement to automate creation of Routing_Prod versions with reference to S&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FTSE1642</td>
-<td>Enhancement</td>
-<td>Enhancement to create a user exit (or) Business Add In to update Components a&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1597</td>
-<td>Enhancement</td>
-<td>Develop a utility for mass creation of production orders via load file in SAP&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FTSE1586</td>
-<td>Enhancement</td>
-<td>Text Purchase Requisition while creating with reference to Production Order O&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1194</td>
-<td>Enhancement</td>
-<td>Enhancement in IP SAP HANA system to re-assign the first operation plant to C&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1146</td>
-<td>Enhancement</td>
-<td>Enhancement to link KB sales orders / STR to purchase requisition generated b&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FTSE1144</td>
-<td>Enhancement</td>
-<td>Total Quantity’ update for Parent Production Order with reference to Actual G&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1024</td>
-<td>Enhancement</td>
-<td>Create a custom table and a custom Fiori app in S4 to manually update the rel&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE0593</td>
-<td>Enhancement</td>
-<td>Enhancement of standard iDoc to capture and transfer Build Instructions from &hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FTSE0424</td>
-<td>Enhancement</td>
-<td>Conversion of Production Versions data into S4</td>
-<td>10. Object Complete</td>
-<td>S4 HANA → S4 HANA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE0198</td>
-<td>Enhancement</td>
-<td>Conversion Program for Routings</td>
-<td>10. Object Complete</td>
-<td>NA → S4 HANA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSC1682</td>
-<td>Conversion</td>
-<td>Conversion of Intel Products Bailed Inventory &amp; Lot Attributes</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSC1559</td>
-<td>Conversion</td>
-<td>Conversion of Open PO/Engineering/Rework Orders into Production orders from I&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSC0434</td>
-<td>Conversion</td>
-<td>Conversion of Open Production Orders from ECC purchase order data into S4</td>
-<td>10. Object Complete</td>
-<td>ECC → S4 HANA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSC0052_IP</td>
-<td>Conversion</td>
-<td>Conversion of Reference Operation Sets to S/4</td>
-<td>10. Object Complete</td>
-<td>ECC → S4</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1739</td>
-<td>Enhancement</td>
-<td>Develop Utility for mass change of Production Orders in SAP S4 system</td>
-<td>01. Pending Approval</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Summary</strong>: 2 Reports, 34 Interfaces, 20 Conversions, 35 Enhancements, 7 Forms, 3 Workflows</p>
+
+### 5.5 RICEFW Inventory
+
+| Object ID | Type | Description | Status | Source → Target | Middleware | Complexity |
+|-----------|------|-------------|--------|----------------|-----------|-----------|
+| LOGW1078_IP | Workflow | ISM Workflows - Capital/AMT | 10. Object Complete |  | NA | 03.Medium |
+| LOGW1077_IP | Workflow | ISM Workflows - EIMS/Lab | 10. Object Complete |  | NA | 03.Medium |
+| LOGW1076_IP | Workflow | ISM Workflows - Non-inventory | 10. Object Complete |  | NA | 02.High |
+| LOGR1176_IP | Report | ISM - International Traffic Report | 10. Object Complete |  | NA | 02.High |
+| LOGR0833_IP | Report | Email Notification for deletion of Shipping Memos | 10. Object Complete |  | NA | 03.Medium |
+| LOGM024_IP | Conversion | Create/Upload Vehicle resource | 10. Object Complete |  | NA | N/A |
+| LOGM023_IP | Conversion | Update Business Share | 10. Object Complete |  | NA | N/A |
+| LOGM022_IP | Conversion | Upload Transportation Allocation | 10. Object Complete |  | NA | N/A |
+| LOGM021_IP | Conversion | Upload Schedules | 10. Object Complete |  | NA | N/A |
+| LOGM019_IP | Conversion | Default Routes | 10. Object Complete |  → S4 | NA | N/A |
+| LOGM018_IP | Conversion | Upload Rate Table | 10. Object Complete |  | NA | N/A |
+| LOGM016_IP | Conversion | Create and review Charge Calculation Sheet | 10. Object Complete |  → S4 | NA | N/A |
+| LOGM015_IP | Conversion | Create and review Freight Agreement | 10. Object Complete |  → S4 | NA | N/A |
+| LOGM012_IP | Conversion | Creation of Location based on BP, Shipping points, plants | 10. Object Complete | ECC → S4 | NA | N/A |
+| LOGM008_IP | Conversion | Location creation-ocean ports, airports | 10. Object Complete |  | NA | N/A |
+| LOGM005_IP | Conversion | UPLOAD TRANSPORTATION ZONES (TM) | 10. Object Complete | TMS → S4 | NA | N/A |
+| LOGM004_IP | Conversion | UPLOAD TRANSPORTATION LANES | 10. Object Complete | TMS → S4 | NA | N/A |
+| LOGI1679 | Interface | Receive 4C1 Inventory movement Stock type change and cycle count from IF | 10. Object Complete |  | SFT | 03.Medium |
+| LOGI1678 | Interface | Receive 4C1 Inventory Reconciliation Snapshot from IF | 10. Object Complete |  | SFT | 03.Medium |
+| LOGI1576 | Interface | ECD_Interface between S4 to ECD for inventory status response | 08. FUT In Progress |  | MuleSoft | 03.Medium |
+| LOGI1575 | Interface | ECD_Interface between S4 to 3PL for inventory status webservice​ | 08. FUT In Progress |  | MuleSoft | 03.Medium |
+| LOGI1571 | Interface | ECD_Interface from ECD to S4 for Inventory status call​ | 10. Object Complete |  | MuleSoft | 03.Medium |
+| LOGI1295 | Interface | ECD_Interface between S/4 and ECD for completion status | 08. FUT In Progress |  | MULESOFT | 03.Medium |
+| LOGI1291 | Interface | ECD_Interface between S/4 and 3PL to send plant/batch level hold/unhold infor... | 08. FUT In Progress |  | MULESOFT | 03.Medium |
+| LOGI1290 | Interface | ECD_Interface from ECD to S4 for Inventory Hold/unhold request | 08. FUT In Progress |  | MULESOFT | 03.Medium |
+| LOGI1272 | Interface | Response to goods receipt posting from SAP to 3PL - EDI 4C1B | 10. Object Complete | S/4 → WMS (3PL) | MULESOFT | 03.Medium |
+| LOGI1267 | Interface | Inventory Reconciliation with Consignment hub – EDI 4C1 with version control | 10. Object Complete | OpenText → S/4 | MULESOFT | 03.Medium |
+| LOGI1081_IP | Interface | Interface + Enhancement - Reprinting of Carrier Label | 10. Object Complete | S/4 → Redwood | APIGEE | 03.Medium |
+| LOGI1079_IP | Interface | Interface from S4 ISM to Service Now | 10. Object Complete | S/4 ISM → Service Now | NA | 03.Medium |
+| LOGI1074_IP | Interface | Send data via API to retrieve the tracking ID - interface + Enhancement | 10. Object Complete | S/4 → Redwood | APIGEE | 03.Medium |
+| LOGI0951 | Interface | Inbound interface to receive Finished Goods “Goods Receipt” (4B2) signal from... | 10. Object Complete | OpenText → S/4 | MULESOFT | 03.Medium |
+| LOGI0950 | Interface | Interface to receive 4B2 signal from Factory and return shipments from ODM/OS... | 10. Object Complete | OpenText → S/4 | MULESOFT | 03.Medium |
+| LOGI0933 | Interface | W-lot inventory error handling | 10. Object Complete |  | MULESOFT | 03.Medium |
+| LOGI0836_IP | Interface | Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements) | 10. Object Complete | S/4 → NDA | NA | 03.Medium |
+| LOGI0335 | Interface | Outbound PIP signal to 3PL for material document transfer – EDI 4C1 | 10. Object Complete | S/4 → OpenText | MULESOFT | 02.High |
+| LOGI0237_IP | Interface | Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 | 10. Object Complete | 3PL → S/4 | MULESOFT | 02.High |
+| LOGF1614_IP | Form | TM-Bill of lading print output ( NSO/ Prospal STO's) | 10. Object Complete |  | NA | 03.Medium |
+| LOGF1100_IP | Form | Printing of Standard Shipping Label | 10. Object Complete |  | NA | 02.High |
+| LOGF0359_IP | Form | ISM - Generate Commercial Invoice - IF/IP | 10. Object Complete | NA → NA | NA | 02.High |
+| LOGF0358_IP | Form | ISM - Generate Traveler Document - IF/IP | 10. Object Complete | NA → NA | NA | 02.High |
+| LOGF0352_IP | Form | ISM - IPLA | 10. Object Complete |  | NA | 02.High |
+| LOGF0351_IP | Form | ISM - Custom China Special label | 10. Object Complete |  | NA | 02.High |
+| LOGF0350_IP | Form | ISM - India GST DC | 10. Object Complete |  | NA | 02.High |
+| LOGE1686 | Enhancement | IP custom table for reconciliation data | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1572_IP | Enhancement | SAP GUI T-code to Move stock from Blocked to unblock Status | 10. Object Complete |  | NA | 02.High |
+| LOGE1569_IP | Enhancement | Enhancement to change billing status based on ship reason in ISM | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1526_IP | Enhancement | Automatic HAWB assignment for Freight Forwarders( ISM/ Prospal STO's) | 10. Object Complete |  | NA | 02.High |
+| LOGE1327 | Enhancement | ECD_Enhancement to retrieve plant details for material/batch and update custo... | 08. FUT In Progress |  | NA | 02.High |
+| LOGE1276_IP | Enhancement | TM:Replace VTRC and integrate with parcel carrier to retrieve the package lev... | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1253 | Enhancement | Inventory Reconciliation with Consignment hub – EDI 4C1 with version control | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1177_IP | Enhancement | India GST E-invoicing | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1118_IP | Enhancement | ISM – MY Security Check Fiori app - IF | 10. Object Complete |  | NA | 02.High |
+| LOGE1117_IP | Enhancement | ISM – Employee acknowledgement - IP | 10. Object Complete |  | NA | 02.High |
+| LOGE1090_IP | Enhancement | PGI confirmation for non-inventory Intel freight shipments via email | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1080_IP | Enhancement | Email notifications to be triggered as part of ISM Workflows | 10. Object Complete |  | NA | 02.High |
+| LOGE1052_IP | Enhancement | Custom fields required on delivery screen | 10. Object Complete |  | NA | 03.Medium |
+| LOGE0945 | Enhancement | Update COF, COA and FVR in 3PL WMS - EDI 4C1B | 10. Object Complete |  | NA | 03.Medium |
+| LOGE0936 | Enhancement | Validate receiving consigned materials into consignment hub – EDI 4B2 CSGN | 10. Object Complete |  | NA | 03.Medium |
+| LOGE0935_IP | Enhancement | Fiori App - Shipping Memo | 09. FUT Overdue |  | NA | 01.Very High |
+| LOGE0835_IF | Enhancement | Interface to get the AMT (Asset Management Tool) data on the ISM | 10. Object Complete |  | NA | 04.Low |
+| LOGE0405_IP | Enhancement | Dangerous Goods indicator from the delivery header text to be transmitted to ... | 10. Object Complete | NA → NA | NA | 03.Medium |
+| LOGE0403_IP | Enhancement | In SAP TM, update FU and FO Transportation Cockpit w/ custom fields Purchase ... | 10. Object Complete | NA → NA | NA | 02.High |
+| LOGE0239_IP | Enhancement | Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 - Table Creation | 10. Object Complete | NA → NA | NA | 03.Medium |
+| LOGE0190_IP | Enhancement | Delivery Split for STO in S/4 | 10. Object Complete | NA → NA | NA | 03.Medium |
+| LOGC1500 | Conversion | IM Stock conversion from Non SAP system to S4 system | 10. Object Complete |  | NA | 02.High |
+| LOGC0972_IP | Conversion | Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi... | 10. Object Complete |  | NA | 02.High |
+| LOGC0946_IP | Conversion | Open Inventory Conversion for IP and IF (as applicable) , ECC to S4 | 10. Object Complete |  | NA | 02.High |
+| FTSM002_IP | Conversion | Work Center | 10. Object Complete | NA → S4 | NA | N/A |
+| FTSI1693 | Interface | Interface for Reporting Scrap of Semi Finished Goods at OSAT and IF manufactu... | 06. Dev In Progress |  | BODS | 03.Medium |
+| FTSI1692 | Interface | Interface for Reporting Scrap of Semi Finished Goods at OSAT and IF manufactu... | 10. Object Complete |  | APIGEE | 03.Medium |
+| FTSI1681 | Interface | Enhancement to create Zero Lead Time Order to convert Sorted Wafers into Sort... | 10. Object Complete |  | MULESOFT | 03.Medium |
+| FTSI1631 | Interface | Interface to update Remnants in production order | 10. Object Complete |  | APIGEE | 03.Medium |
+| FTSI1619 | Interface | Interface to capture Sales Order 3B2 ASN and Virtual 3B2 ASN signals from Int... | 10. Object Complete |  | APIGEE | 02.High |
+| LOGI1584 | Interface | Interface to post inventory in SAP S/4HANA from ECA via MuleSoft. | 06. Dev In Progress |  | MuleSoft | 03.Medium |
+| FTSI1023 | Interface | Interface to Transfer stock from Unrestricted stock to Block stock and vice v... | 10. Object Complete | E2OPEN → S/4 | APIGEE | 03.Medium |
+| FTSI1022 | Interface | Inbound Interface to update projected release quantity and date for lots on q... | 10. Object Complete | FLAT FILE → S/4 | NA | 03.Medium |
+| FTSI0725 | Interface | Inbound interface to capture Yield Confirmation and Goods Receipt against Pro... | 10. Object Complete | E2OPEN → S/4 | APIGEE | 03.Medium |
+| FTSI0724 | Interface | Inbound interface from e2open to IP SAP S4 HANA system to update Die Quantity... | 10. Object Complete | E2OPEN → S/4 | APIGEE | 02.High |
+| FTSI0492 | Interface | Interface between E2Open and S4 for goods issue against production order | 10. Object Complete | E2Open → S/4 | APIGEE | 03.Medium |
+| FTSI0491 | Interface | Interface between E2Open and S4 for capturing confirmation of scrap against p... | 10. Object Complete | E2Open → S/4 | APIGEE | 03.Medium |
+| FTSI0268 | Interface | Interface to be developed from S/4 to E2Open to transmit Build Instruction​ d... | 10. Object Complete | S/4 → E2Open | MULESOFT | 03.Medium |
+| FTSI0210 | Interface | Interface Function to Create Purchase Requisitions from ECA to S/4 | 10. Object Complete | ECA (PDH) → S/4 | BODS | 03.Medium |
+| FTSI0209 | Interface | Interface to create Production Order from ECA to S/4 | 10. Object Complete | ECA (PDH) → S/4 | BODS | 03.Medium |
+| FTSE1701 | Enhancement | Enhancement to automate updation of Routing_Prod versions with reference to S... | 10. Object Complete |  | NA | 03.Medium |
+| FTSE1694 | Enhancement | Enhancement to Introduction of additional restrictions by MRP Area for S4 IP ... | 10. Object Complete |  | NA | 03.Medium |
+| FTSE1653 | Enhancement | Enhancement to automate creation of Routing_Prod versions with reference to S... | 10. Object Complete |  | NA | 02.High |
+| FTSE1642 | Enhancement | Enhancement to create a user exit (or) Business Add In to update Components a... | 10. Object Complete |  | NA | 03.Medium |
+| FTSE1597 | Enhancement | Develop a utility for mass creation of production orders via load file in SAP... | 10. Object Complete |  | NA | 02.High |
+| FTSE1586 | Enhancement | Text Purchase Requisition while creating with reference to Production Order O... | 10. Object Complete |  | NA | 03.Medium |
+| FTSE1194 | Enhancement | Enhancement in IP SAP HANA system to re-assign the first operation plant to C... | 10. Object Complete |  | NA | 03.Medium |
+| FTSE1146 | Enhancement | Enhancement to link KB sales orders / STR to purchase requisition generated b... | 10. Object Complete |  | NA | 04.Low |
+| FTSE1144 | Enhancement | Total Quantity’ update for Parent Production Order with reference to Actual G... | 10. Object Complete |  | NA | 03.Medium |
+| FTSE1024 | Enhancement | Create a custom table and a custom Fiori app in S4 to manually update the rel... | 10. Object Complete |  | NA | 03.Medium |
+| FTSE0593 | Enhancement | Enhancement of standard iDoc to capture and transfer Build Instructions from ... | 10. Object Complete |  | NA | 02.High |
+| FTSE0424 | Enhancement | Conversion of Production Versions data into S4 | 10. Object Complete | S4 HANA → S4 HANA | NA | 03.Medium |
+| FTSE0198 | Enhancement | Conversion Program for Routings | 10. Object Complete | NA → S4 HANA | NA | 03.Medium |
+| FTSC1682 | Conversion | Conversion of Intel Products Bailed Inventory & Lot Attributes | 10. Object Complete |  | NA | 03.Medium |
+| FTSC1559 | Conversion | Conversion of Open PO/Engineering/Rework Orders into Production orders from I... | 10. Object Complete |  | NA | 03.Medium |
+| FTSC0434 | Conversion | Conversion of Open Production Orders from ECC purchase order data into S4 | 10. Object Complete | ECC → S4 HANA | NA | 03.Medium |
+| FTSC0052_IP | Conversion | Conversion of Reference Operation Sets to S/4 | 10. Object Complete | ECC → S4 | NA | 03.Medium |
+| FTSE1739 | Enhancement | Develop Utility for mass change of Production Orders in SAP S4 system | 01. Pending Approval |  | NA | 03.Medium |
+
+**Summary**: 2 Reports, 34 Interfaces, 20 Conversions, 35 Enhancements, 7 Forms, 3 Workflows
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
-<p>Integration patterns identified from the system flow analysis for PLB-050:</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Pattern</th>
-<th>Flow Chain</th>
-<th>Middleware</th>
-<th>Protocol</th>
-<th>Auth</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Integration pattern details will be refined when tower architects validate middleware assignments.</em></p>
-</blockquote>
+
+### 5.6 Integration Patterns
+
+Integration patterns identified from the system flow analysis for PLB-050:
+
+| # | Pattern | Flow Chain | Middleware | Protocol | Auth |
+|---|---------|-----------|-----------|----------|------|
+
+> *Integration pattern details will be refined when tower architects validate middleware assignments.*
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
-<h3 id="61-platform-infrastructure">6.1 Platform &amp; Infrastructure</h3>
-<blockquote>
-<p><strong>TECHNOLOGY / PLATFORM ARCHITECTURE</strong> — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.</p>
-</blockquote>
-<h4 id="platform-inventory">Platform Inventory</h4>
-<p>Platform landscape inferred from integrated systems for PLB-050:</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Platform</th>
-<th>Type</th>
-<th>Systems Using</th>
-<th>Environment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>SAP S/4HANA</td>
-<td>On-Premise (HEC)</td>
-<td>SAP S/4 modules</td>
-<td>DEV, QAS, PRD</td>
-</tr>
-<tr>
-<td>2</td>
-<td>SAP BTP (Integration Suite)</td>
-<td>Cloud / PaaS</td>
-<td>CPI, API Management</td>
-<td>DEV, QAS, PRD</td>
-</tr>
-<tr>
-<td>3</td>
-<td>MuleSoft Anypoint</td>
-<td>Cloud / iPaaS</td>
-<td>API-led integrations</td>
-<td>DEV, QAS, PRD</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Platform assignments will be validated when tower architects populate technology platform columns.</em></p>
-</blockquote>
+
+## 6. Technology Architecture (TOGAF "T")
+
+### 6.1 Platform & Infrastructure
+
+> **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
+
+
+
+#### Platform Inventory
+
+Platform landscape inferred from integrated systems for PLB-050:
+
+| # | Platform | Type | Systems Using | Environment |
+|---|----------|------|--------------|-------------|
+| 1 | SAP S/4HANA | On-Premise (HEC) | SAP S/4 modules | DEV, QAS, PRD |
+| 2 | SAP BTP (Integration Suite) | Cloud / PaaS | CPI, API Management | DEV, QAS, PRD |
+| 3 | MuleSoft Anypoint | Cloud / iPaaS | API-led integrations | DEV, QAS, PRD |
+
+> *Platform assignments will be validated when tower architects populate technology platform columns.*
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h3 id="62-sap-development-object-status">6.2 SAP Development Object Status</h3>
-<p><strong>Capability RICEFW Status</strong> (101 objects)
-<em>Data source: Smartsheet Object Tracker (cached 2026-03-27)</em></p>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th style="text-align: right;">Count</th>
-<th style="text-align: right;">%</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>10. Object Complete</td>
-<td style="text-align: right;">91</td>
-<td style="text-align: right;">90.1%</td>
-</tr>
-<tr>
-<td>08. FUT In Progress</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">5.9%</td>
-</tr>
-<tr>
-<td>06. Dev In Progress</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2.0%</td>
-</tr>
-<tr>
-<td>09. FUT Overdue</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1.0%</td>
-</tr>
-<tr>
-<td>01. Pending Approval</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1.0%</td>
-</tr>
-<tr>
-<td><strong>Total</strong></td>
-<td style="text-align: right;"><strong>101</strong></td>
-<td style="text-align: right;"><strong>100%</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>RICEFW by Type:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th style="text-align: right;">Count</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Report (R)</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr>
-<td>Interface (I)</td>
-<td style="text-align: right;">34</td>
-</tr>
-<tr>
-<td>Conversion (C)</td>
-<td style="text-align: right;">20</td>
-</tr>
-<tr>
-<td>Enhancement (E)</td>
-<td style="text-align: right;">35</td>
-</tr>
-<tr>
-<td>Form (F)</td>
-<td style="text-align: right;">7</td>
-</tr>
-<tr>
-<td>Workflow (W)</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr>
-<td><strong>Total</strong></td>
-<td style="text-align: right;"><strong>101</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Technical Complexity:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Complexity</th>
-<th style="text-align: right;">Count</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>01.Very High</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr>
-<td>02.High</td>
-<td style="text-align: right;">25</td>
-</tr>
-<tr>
-<td>03.Medium</td>
-<td style="text-align: right;">60</td>
-</tr>
-<tr>
-<td>04.Low</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr>
-<td>N/A</td>
-<td style="text-align: right;">13</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Active (Non-Complete) Objects:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Object ID</th>
-<th>Type</th>
-<th>Description</th>
-<th>Status</th>
-<th>Complexity</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LOGI1576</td>
-<td>02.Interface</td>
-<td>ECD_Interface between S4 to ECD for inventory status response</td>
-<td>08. FUT In Progress</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1575</td>
-<td>02.Interface</td>
-<td>ECD_Interface between S4 to 3PL for inventory status webservice​</td>
-<td>08. FUT In Progress</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1295</td>
-<td>02.Interface</td>
-<td>ECD_Interface between S/4 and ECD for completion status</td>
-<td>08. FUT In Progress</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1291</td>
-<td>02.Interface</td>
-<td>ECD_Interface between S/4 and 3PL to send plant/batch level hold/unhold informat&hellip;</td>
-<td>08. FUT In Progress</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1290</td>
-<td>02.Interface</td>
-<td>ECD_Interface from ECD to S4 for Inventory Hold/unhold request</td>
-<td>08. FUT In Progress</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGE1327</td>
-<td>04.Enhancement</td>
-<td>ECD_Enhancement to retrieve plant details for material/batch and update custom t&hellip;</td>
-<td>08. FUT In Progress</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>LOGE0935_IP</td>
-<td>04.Enhancement</td>
-<td>Fiori App - Shipping Memo</td>
-<td>09. FUT Overdue</td>
-<td>01.Very High</td>
-</tr>
-<tr>
-<td>FTSI1693</td>
-<td>02.Interface</td>
-<td>Interface for Reporting Scrap of Semi Finished Goods at OSAT and IF manufacturin&hellip;</td>
-<td>06. Dev In Progress</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1584</td>
-<td>02.Interface</td>
-<td>Interface to post inventory in SAP S/4HANA from ECA via MuleSoft.</td>
-<td>06. Dev In Progress</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1739</td>
-<td>04.Enhancement</td>
-<td>Develop Utility for mass change of Production Orders in SAP S4 system</td>
-<td>01. Pending Approval</td>
-<td>03.Medium</td>
-</tr>
-</tbody>
-</table>
-<h3 id="63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</h3>
-<table>
-<thead>
-<tr>
-<th>Category</th>
-<th>Requirement</th>
-<th>Target / SLA</th>
-<th>Priority</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Performance</td>
-<td>MRP/production planning run completes within defined window</td>
-<td>&lt; 4 hours full MRP run</td>
-<td>High</td>
-</tr>
-<tr>
-<td>Availability</td>
-<td>Manufacturing execution systems available 24/7</td>
-<td>99.95% (24x7 operations)</td>
-<td>High</td>
-</tr>
-<tr>
-<td>Scalability</td>
-<td>Support production volume increases from new product lines</td>
-<td>Handle 10K+ production orders/day</td>
-<td>High</td>
-</tr>
-<tr>
-<td>Recoverability</td>
-<td>Production systems recover within shift change window</td>
-<td>RPO &lt; 15 min, RTO &lt; 2 hours</td>
-<td>High</td>
-</tr>
-<tr>
-<td>Data Volume</td>
-<td>Support high-frequency material movement transactions</td>
-<td>100K+ material documents/day</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>Latency</td>
-<td>Real-time inventory visibility for warehouse operations</td>
-<td>&lt; 2 seconds for RF/scanner transactions</td>
-<td>High</td>
-</tr>
-<tr>
-<td>Concurrency</td>
-<td>Support factory floor workers across multiple shifts/sites</td>
-<td>500+ concurrent warehouse users</td>
-<td>Medium</td>
-</tr>
-</tbody>
-</table>
-<h3 id="64-security-governance">6.4 Security &amp; Governance</h3>
-<table>
-<thead>
-<tr>
-<th>Concern</th>
-<th>Approach</th>
-<th>Standard / Policy</th>
-<th>Owner</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Authentication</td>
-<td>Single Sign-On (SSO) via Intel corporate Azure AD identity</td>
-<td>Intel IT Security Policy - Identity Management</td>
-<td>IT Security</td>
-</tr>
-<tr>
-<td>Authorization</td>
-<td>Role-based access control (RBAC) with SAP authorization objects</td>
-<td>Intel SAP Security Standards - Role Design</td>
-<td>SAP Security Team</td>
-</tr>
-<tr>
-<td>Data Classification</td>
-<td>All financial/operational data classified per Intel Data Classification Standard</td>
-<td>Intel Data Classification Policy</td>
-<td>Data Governance</td>
-</tr>
-<tr>
-<td>Data Encryption (at rest)</td>
-<td>AES-256 encryption for SAP HANA database and file storage</td>
-<td>Intel Encryption Standard</td>
-<td>Infrastructure Security</td>
-</tr>
-<tr>
-<td>Data Encryption (in transit)</td>
-<td>TLS 1.3 for all system-to-system and user-to-system communication</td>
-<td>Intel Network Security Policy</td>
-<td>Network Engineering</td>
-</tr>
-<tr>
-<td>Network Segmentation</td>
-<td>SAP systems in dedicated network zones with firewall controls</td>
-<td>Intel Network Architecture Standard</td>
-<td>Network Security</td>
-</tr>
-<tr>
-<td>API Security</td>
-<td>OAuth 2.0 / certificate-based authentication for all API integrations</td>
-<td>Intel API Security Guidelines</td>
-<td>Integration Architecture</td>
-</tr>
-<tr>
-<td>Audit Logging</td>
-<td>Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log)</td>
-<td>SOX Compliance / Intel Audit Policy</td>
-<td>Internal Audit</td>
-</tr>
-<tr>
-<td>Certificate Management</td>
-<td>Automated certificate lifecycle management for system-to-system trust</td>
-<td>Intel PKI Standard</td>
-<td>Certificate Authority Team</td>
-</tr>
-<tr>
-<td>Compliance</td>
-<td>SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR)</td>
-<td>Intel Corporate Compliance Framework</td>
-<td>Compliance Office</td>
-</tr>
-</tbody>
-</table>
+
+### 6.2 SAP Development Object Status
+
+| Metric | DEV | QAS | PRD |
+|--------|-----|-----|-----|
+| Transport Requests | — | — | — |
+| Custom Code Objects | — | — | — |
+| CDS Views | — | — | — |
+| Fiori Apps | — | — | — |
+| BAdIs / Enhancements | — | — | — |
+
+### 6.3 NFRs & Design Principles
+
+| Category | Requirement | Target / SLA | Priority |
+|----------|-------------|-------------|----------|
+| Performance | MRP/production planning run completes within defined window | < 4 hours full MRP run | High |
+| Availability | Manufacturing execution systems available 24/7 | 99.95% (24x7 operations) | High |
+| Scalability | Support production volume increases from new product lines | Handle 10K+ production orders/day | High |
+| Recoverability | Production systems recover within shift change window | RPO < 15 min, RTO < 2 hours | High |
+| Data Volume | Support high-frequency material movement transactions | 100K+ material documents/day | Medium |
+| Latency | Real-time inventory visibility for warehouse operations | < 2 seconds for RF/scanner transactions | High |
+| Concurrency | Support factory floor workers across multiple shifts/sites | 500+ concurrent warehouse users | Medium |
+
+### 6.4 Security & Governance
+
+| Concern | Approach | Standard / Policy | Owner |
+|---------|----------|--------------------|-------|
+| Authentication | Single Sign-On (SSO) via Intel corporate Azure AD identity | Intel IT Security Policy - Identity Management | IT Security |
+| Authorization | Role-based access control (RBAC) with SAP authorization objects | Intel SAP Security Standards - Role Design | SAP Security Team |
+| Data Classification | All financial/operational data classified per Intel Data Classification Standard | Intel Data Classification Policy | Data Governance |
+| Data Encryption (at rest) | AES-256 encryption for SAP HANA database and file storage | Intel Encryption Standard | Infrastructure Security |
+| Data Encryption (in transit) | TLS 1.3 for all system-to-system and user-to-system communication | Intel Network Security Policy | Network Engineering |
+| Network Segmentation | SAP systems in dedicated network zones with firewall controls | Intel Network Architecture Standard | Network Security |
+| API Security | OAuth 2.0 / certificate-based authentication for all API integrations | Intel API Security Guidelines | Integration Architecture |
+| Audit Logging | Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log) | SOX Compliance / Intel Audit Policy | Internal Audit |
+| Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
+| Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
 
-<h2 id="7-project-context">7. Project Context</h2>
-<h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
-<p><em>100 objects with timeline data (source: Object Tracker)</em></p>
-<table>
-<thead>
-<tr>
-<th>ID</th>
-<th>Description</th>
-<th>FS</th>
-<th>TDD</th>
-<th>Build</th>
-<th>FUT</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LOGW1078_IP</td>
-<td>ISM Workflows - Capital/AMT</td>
-<td>Jun-25 (100%)</td>
-<td>Sep-25 (100%)</td>
-<td>Sep-25 (100%)</td>
-<td>Nov-25 (100%)</td>
-<td>1. On Track</td>
-</tr>
-<tr>
-<td>LOGW1077_IP</td>
-<td>ISM Workflows - EIMS/Lab</td>
-<td>Jun-25 (100%)</td>
-<td>Sep-25 (100%)</td>
-<td>Sep-25 (100%)</td>
-<td>Dec-25 (100%)</td>
-<td>4. Completed</td>
-</tr>
-<tr>
-<td>LOGW1076_IP</td>
-<td>ISM Workflows - Non-inventory</td>
-<td>Jun-25 (100%)</td>
-<td>Sep-25 (100%)</td>
-<td>Sep-25 (100%)</td>
-<td>Nov-25 (100%)</td>
-<td>1. On Track</td>
-</tr>
-<tr>
-<td>LOGR1176_IP</td>
-<td>ISM - International Traffic Report</td>
-<td>Apr-25 (100%)</td>
-<td>Aug-25 (100%)</td>
-<td>Aug-25 (100%)</td>
-<td>Nov-25 (100%)</td>
-<td>4. Completed</td>
-</tr>
-<tr>
-<td>LOGR0833_IP</td>
-<td>Email Notification for deletion of Shipping Memos</td>
-<td>Feb-25 (100%)</td>
-<td>Sep-25 (100%)</td>
-<td>Sep-25 (100%)</td>
-<td>Nov-25 (100%)</td>
-<td>1. On Track</td>
-</tr>
-<tr>
-<td>LOGM024_IP</td>
-<td>Create/Upload Vehicle resource</td>
-<td>May-25 (100%)</td>
-<td>—</td>
-<td>—</td>
-<td>Sep-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGM023_IP</td>
-<td>Update Business Share</td>
-<td>Jun-25 (100%)</td>
-<td>—</td>
-<td>—</td>
-<td>Sep-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGM022_IP</td>
-<td>Upload Transportation Allocation</td>
-<td>Jun-25 (100%)</td>
-<td>—</td>
-<td>—</td>
-<td>Sep-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGM021_IP</td>
-<td>Upload Schedules</td>
-<td>May-25 (100%)</td>
-<td>—</td>
-<td>—</td>
-<td>Sep-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGM019_IP</td>
-<td>Default Routes</td>
-<td>May-25 (100%)</td>
-<td>—</td>
-<td>—</td>
-<td>Sep-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGM018_IP</td>
-<td>Upload Rate Table</td>
-<td>Jun-25 (100%)</td>
-<td>—</td>
-<td>—</td>
-<td>Sep-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGM016_IP</td>
-<td>Create and review Charge Calculation Sheet</td>
-<td>Jun-25 (100%)</td>
-<td>—</td>
-<td>—</td>
-<td>Sep-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGM015_IP</td>
-<td>Create and review Freight Agreement</td>
-<td>Jun-25 (100%)</td>
-<td>—</td>
-<td>—</td>
-<td>Sep-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGM012_IP</td>
-<td>Creation of Location based on BP, Shipping points, plants</td>
-<td>May-25 (100%)</td>
-<td>—</td>
-<td>—</td>
-<td>Sep-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGM008_IP</td>
-<td>Location creation-ocean ports, airports</td>
-<td>May-25 (100%)</td>
-<td>—</td>
-<td>—</td>
-<td>Sep-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGM005_IP</td>
-<td>UPLOAD TRANSPORTATION ZONES (TM)</td>
-<td>Jun-25 (100%)</td>
-<td>—</td>
-<td>—</td>
-<td>Sep-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGM004_IP</td>
-<td>UPLOAD TRANSPORTATION LANES</td>
-<td>Jun-25 (100%)</td>
-<td>—</td>
-<td>—</td>
-<td>Sep-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGI1679</td>
-<td>Receive 4C1 Inventory movement Stock type change and cycle count from IF</td>
-<td>Jan-26 (100%)</td>
-<td>Feb-26 (100%)</td>
-<td>Feb-26 (100%)</td>
-<td>Mar-26 (100%)</td>
-<td>3. Off Track</td>
-</tr>
-<tr>
-<td>LOGI1678</td>
-<td>Receive 4C1 Inventory Reconciliation Snapshot from IF</td>
-<td>Jan-26 (100%)</td>
-<td>Feb-26 (100%)</td>
-<td>Feb-26 (100%)</td>
-<td>Mar-26 (100%)</td>
-<td>3. Off Track</td>
-</tr>
-<tr>
-<td>LOGI1576</td>
-<td>ECD_Interface between S4 to ECD for inventory status response</td>
-<td>Sep-25 (100%)</td>
-<td>Nov-25 (100%)</td>
-<td>Nov-25 (100%)</td>
-<td>Mar-26 (95%)</td>
-<td>4. Completed</td>
-</tr>
-<tr>
-<td>LOGI1575</td>
-<td>ECD_Interface between S4 to 3PL for inventory status webservice​</td>
-<td>Sep-25 (100%)</td>
-<td>Jan-26 (100%)</td>
-<td>Jan-26 (100%)</td>
-<td>Mar-26 (95%)</td>
-<td>4. Completed</td>
-</tr>
-<tr>
-<td>LOGI1571</td>
-<td>ECD_Interface from ECD to S4 for Inventory status call​</td>
-<td>Sep-25 (100%)</td>
-<td>Nov-25 (100%)</td>
-<td>Nov-25 (100%)</td>
-<td>Jan-26 (100%)</td>
-<td>1. On Track</td>
-</tr>
-<tr>
-<td>LOGI1295</td>
-<td>ECD_Interface between S/4 and ECD for completion status</td>
-<td>Aug-25 (100%)</td>
-<td>Oct-25 (100%)</td>
-<td>Oct-25 (100%)</td>
-<td>Mar-26 (5%)</td>
-<td>3. Off Track</td>
-</tr>
-<tr>
-<td>LOGI1291</td>
-<td>ECD_Interface between S/4 and 3PL to send plant/batch level hold/unhold information for webservice plants to hold/unhold inventory in 3PL</td>
-<td>May-25 (100%)</td>
-<td>Jan-26 (100%)</td>
-<td>Jan-26 (100%)</td>
-<td>Mar-26 (30%)</td>
-<td>3. Off Track</td>
-</tr>
-<tr>
-<td>LOGI1290</td>
-<td>ECD_Interface from ECD to S4 for Inventory Hold/unhold request</td>
-<td>May-25 (100%)</td>
-<td>Oct-25 (100%)</td>
-<td>Oct-25 (100%)</td>
-<td>Mar-26 (75%)</td>
-<td>4. Completed</td>
-</tr>
-<tr>
-<td>LOGI1272</td>
-<td>Response to goods receipt posting from SAP to 3PL - EDI 4C1B</td>
-<td>Feb-25 (100%)</td>
-<td>Apr-25 (100%)</td>
-<td>Apr-25 (100%)</td>
-<td>Aug-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGI1267</td>
-<td>Inventory Reconciliation with Consignment hub – EDI 4C1 with version control</td>
-<td>Mar-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>Sep-25 (100%)</td>
-<td>1. On Track</td>
-</tr>
-<tr>
-<td>LOGI1081_IP</td>
-<td>Interface + Enhancement - Reprinting of Carrier Label</td>
-<td>Apr-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>Oct-25 (100%)</td>
-<td></td>
-</tr>
-<tr>
-<td>LOGI1079_IP</td>
-<td>Interface from S4 ISM to Service Now</td>
-<td>May-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>Oct-25 (100%)</td>
-<td>4. Completed</td>
-</tr>
-<tr>
-<td>LOGI1074_IP</td>
-<td>Send data via API to retrieve the tracking ID - interface + Enhancement</td>
-<td>Mar-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>May-25 (100%)</td>
-<td>Oct-25 (100%)</td>
-<td>3. Off Track</td>
-</tr>
-</tbody>
-</table>
-<p><em>&hellip; and 70 more objects (see full Object Tracker)</em></p>
-<h3 id="72-raid-log">7.2 RAID Log</h3>
-<p><em>Live data from Smartsheet Master RAID Log — extracted 2026-03-27</em></p>
-<p><strong>Mapped sub-tower(s):</strong> 8.1 FTS IP - ALL, 8.4 FTS IP - Logistics &amp; Inventory Management, 8.5 FTS IP - Manufacturing, 8.6 FTS IP - MRP &amp; Planning Integration, 8.7 FTS IP - TM</p>
-<p><strong>RAID Summary:</strong> 140 open items (3 capability-specific, 137 tower-level), 444 closed</p>
-<table>
-<thead>
-<tr>
-<th>Severity</th>
-<th style="text-align: right;">Capability</th>
-<th style="text-align: right;">Tower-Wide</th>
-<th style="text-align: right;">Total Open</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>P1 - High</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">7</td>
-</tr>
-<tr>
-<td>P2 - Medium</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">87</td>
-<td style="text-align: right;">90</td>
-</tr>
-<tr>
-<td>P3 - Low</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">12</td>
-</tr>
-<tr>
-<td><strong>Total</strong></td>
-<td style="text-align: right;"><strong>3</strong></td>
-<td style="text-align: right;"><strong>137</strong></td>
-<td style="text-align: right;"><strong>140</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Capability-Specific RAID Items:</strong></p>
-<table>
-<thead>
-<tr>
-<th>RAID ID</th>
-<th>Type</th>
-<th>Severity</th>
-<th>Title</th>
-<th>Status</th>
-<th>Assigned To</th>
-<th>Due Date</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>03152</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>LOGC0972_IP &amp; IF- Test Data to be provided in load files for&hellip;</td>
-<td>Not Started</td>
-<td>FTS IP</td>
-<td></td>
-</tr>
-<tr>
-<td>03503</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>LOGI1678 and LOGI1679 Queue details</td>
-<td>Not Started</td>
-<td>FTS IP</td>
-<td>2026-02-03</td>
-</tr>
-<tr>
-<td>03564</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Development of the AMT impacting FPR Capital Tool report</td>
-<td>In Progress</td>
-<td>FTS IP</td>
-<td>2026-03-27</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Other FTS-IP Tower RAID Items</strong> (137 open):</p>
-<table>
-<thead>
-<tr>
-<th>RAID ID</th>
-<th>Type</th>
-<th>Severity</th>
-<th>Title</th>
-<th>Status</th>
-<th>Assigned To</th>
-<th>Due Date</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>03578</td>
-<td>Risk</td>
-<td>P1 - High</td>
-<td>HBI Process Flow Change impact Assessment</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-03-27</td>
-</tr>
-<tr>
-<td>03591</td>
-<td>Risk</td>
-<td>P1 - High</td>
-<td>R3 E2E scenario execution</td>
-<td>In Progress</td>
-<td>Test Management</td>
-<td>2026-04-03</td>
-</tr>
-<tr>
-<td>03600</td>
-<td>Risk</td>
-<td>P1 - High</td>
-<td>Error lifecycle functionality within PDF application is miss&hellip;</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-05-01</td>
-</tr>
-<tr>
-<td>03601</td>
-<td>Risk</td>
-<td>P1 - High</td>
-<td>Traceability functionality within PDF application is missing&hellip;</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-05-15</td>
-</tr>
-<tr>
-<td>03757</td>
-<td>Risk</td>
-<td>P1 - High</td>
-<td>IF Planning data not available in ITC1 until W4, leaving too&hellip;</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-04-03</td>
-</tr>
-<tr>
-<td>03764</td>
-<td>Risk</td>
-<td>P1 - High</td>
-<td>Unable to post IPLA call from postman</td>
-<td>Not Started</td>
-<td>B-Apps</td>
-<td>2026-03-24</td>
-</tr>
-<tr>
-<td>03767</td>
-<td>Risk</td>
-<td>P1 - High</td>
-<td>Day 1 OTC Execution - APOP production cutover for allocation&hellip;</td>
-<td>In Progress</td>
-<td>OTC IP</td>
-<td>2026-04-24</td>
-</tr>
-<tr>
-<td>01355</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>PDF SMHe product development approach does not appear to hav&hellip;</td>
-<td>To Be Reviewed</td>
-<td>FTS IF</td>
-<td>2026-04-03</td>
-</tr>
-<tr>
-<td>01733</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Tariffs impacts Item/BOM design which is impacting ERP/SCP (&hellip;</td>
-<td>In Progress</td>
-<td>E2E</td>
-<td>2026-03-06</td>
-</tr>
-<tr>
-<td>01769</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>Approach and duration for PDF SMH application refreshes to s&hellip;</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-04-01</td>
-</tr>
-<tr>
-<td>03059</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Operations SME Availability for Change Impact Assessment dev&hellip;</td>
-<td>In Progress</td>
-<td>CM &amp; Comms</td>
-<td>2026-03-17</td>
-</tr>
-<tr>
-<td>03079</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>Request for PDH Design WTF</td>
-<td>In Progress</td>
-<td>FTS IP</td>
-<td>2026-03-04</td>
-</tr>
-<tr>
-<td>03128</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Application Health Monitoring</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-05-13</td>
-</tr>
-<tr>
-<td>03196</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>MC1 R3 Data/SCP Readiness</td>
-<td>In Progress</td>
-<td>Data Readiness</td>
-<td>2026-05-01</td>
-</tr>
-<tr>
-<td>03241</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Materials Planning Policy for Constrained Materials</td>
-<td>In Progress</td>
-<td>FTS IP</td>
-<td>2026-07-31</td>
-</tr>
-<tr>
-<td>03245</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>ODM Expedite</td>
-<td>Not Started</td>
-<td>FTS IP</td>
-<td>2025-12-19</td>
-</tr>
-<tr>
-<td>03246</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>Expedite Fees</td>
-<td>Not Started</td>
-<td>FTS IP</td>
-<td>2025-12-19</td>
-</tr>
-<tr>
-<td>03250</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>Update Commit Date for Holds</td>
-<td>In Progress</td>
-<td>FTS IP</td>
-<td>2026-03-27</td>
-</tr>
-<tr>
-<td>03251</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>Out of Cycle Replenishment</td>
-<td>In Progress</td>
-<td>FTS IP</td>
-<td>2026-03-27</td>
-</tr>
-<tr>
-<td>03267</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>R3 metrics</td>
-<td>In Progress</td>
-<td>FTS IP</td>
-<td>2026-03-27</td>
-</tr>
-<tr>
-<td>03276</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>Biz Documentation</td>
-<td>In Progress</td>
-<td>FTS IP</td>
-<td>2026-02-27</td>
-</tr>
-<tr>
-<td>03278</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>Persona validation</td>
-<td>In Progress</td>
-<td>FTS IP</td>
-<td>2026-02-20</td>
-</tr>
-<tr>
-<td>03334</td>
-<td>Issue</td>
-<td>P2 - Medium</td>
-<td>Application Monitoring - Connectors Health Monitoring</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-05-15</td>
-</tr>
-<tr>
-<td>03355</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>PTP ECA OSAT Predictive Tool Test Self-Service Query View cr&hellip;</td>
-<td>In Progress</td>
-<td>FTS IP</td>
-<td>2026-04-03</td>
-</tr>
-<tr>
-<td>03368</td>
-<td>Issue</td>
-<td>P2 - Medium</td>
-<td>Infrastructure resources support PDF SMH ability to provide &hellip;</td>
-<td>In Progress</td>
-<td>FTS IF</td>
-<td>2026-03-27</td>
-</tr>
-<tr>
-<td>03375</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>CIBR System Clarification</td>
-<td>In Progress</td>
-<td>FTS IP</td>
-<td>2026-03-27</td>
-</tr>
-<tr>
-<td>03377</td>
-<td></td>
-<td>P2 - Medium</td>
-<td>KDD Telescoping vs exact network search</td>
-<td>In Progress</td>
-<td>FTS IP</td>
-<td>2026-03-20</td>
-</tr>
-<tr>
-<td>03406</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>Mass Change of Engineering Orders</td>
-<td>In Progress</td>
-<td>FTS IP</td>
-<td>2026-04-27</td>
-</tr>
-<tr>
-<td>03701</td>
-<td>Risk</td>
-<td>P2 - Medium</td>
-<td>IP DP (CDP) string test cases has risk of completely beyond &hellip;</td>
-<td>In Progress</td>
-<td>Test Management</td>
-<td>2026-04-04</td>
-</tr>
-<tr>
-<td>03526</td>
-<td>Action</td>
-<td>P2 - Medium</td>
-<td>Review process for post-validation of system changes</td>
-<td>In Progress</td>
-<td>FTS IP</td>
-<td>2026-04-03</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td><em>&hellip; and 107 more tower-level items</em></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Category</th>
-<th>Recommendation</th>
-<th>Priority</th>
-<th>Owner</th>
-<th>Target Date</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Architecture</td>
-<td>Complete extended flow attributes (Data Entity, Integration Pattern, Tech Platform) in Flows tab for full BDAT coverage</td>
-<td>High</td>
-<td>Tower Architect</td>
-<td>2026-Q2</td>
-<td>Open</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Data</td>
-<td>Define data ownership and classification for all 0 flow chains to satisfy Data Architecture (TOGAF D) requirements</td>
-<td>Medium</td>
-<td>Data Architect</td>
-<td>2026-Q3</td>
-<td>Open</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Testing</td>
-<td>Develop integration test scenarios covering all 0 flow chains for FUT/SIT readiness</td>
-<td>High</td>
-<td>Test Lead</td>
-<td>2026-Q3</td>
-<td>Open</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Business Architecture</td>
-<td>Review and validate Business Architecture process steps against latest Signavio/BIC process models</td>
-<td>Medium</td>
-<td>Business Analyst</td>
-<td>2026-Q2</td>
-<td>Open</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Security</td>
-<td>Complete security review for API integrations and data flows per Intel Security Architecture standards</td>
-<td>Medium</td>
-<td>Security Architect</td>
-<td>2026-Q3</td>
-<td>Open</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<p><em>PLB-050 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IP) · Generated: March 2026</em></p>
+
+## 7. Project Context
+
+### 7.1 Project Roadmap & Go-Live Plan
+
+| ID | Description | FS | TDD | Build | FUT | Status |
+|----|-------------|----|-----|-------|-----|--------|
+| LOGW1078_IP | ISM Workflows - Capital/AMT | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
+| LOGW1077_IP | ISM Workflows - EIMS/Lab | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 4. Completed |
+| LOGW1076_IP | ISM Workflows - Non-inventory | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
+| LOGR1176_IP | ISM - International Traffic Report | Apr-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Nov-25 (100%) | 4. Completed |
+| LOGR0833_IP | Email Notification for deletion of Shipping Memos | Feb-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
+| LOGM024_IP | Create/Upload Vehicle resource | May-25 (100%) | — | — | Sep-25 (100%) |  |
+| LOGM023_IP | Update Business Share | Jun-25 (100%) | — | — | Sep-25 (100%) |  |
+| LOGM022_IP | Upload Transportation Allocation | Jun-25 (100%) | — | — | Sep-25 (100%) |  |
+| LOGM021_IP | Upload Schedules | May-25 (100%) | — | — | Sep-25 (100%) |  |
+| LOGM019_IP | Default Routes | May-25 (100%) | — | — | Sep-25 (100%) |  |
+| LOGM018_IP | Upload Rate Table | Jun-25 (100%) | — | — | Sep-25 (100%) |  |
+| LOGM016_IP | Create and review Charge Calculation Sheet | Jun-25 (100%) | — | — | Sep-25 (100%) |  |
+| LOGM015_IP | Create and review Freight Agreement | Jun-25 (100%) | — | — | Sep-25 (100%) |  |
+| LOGM012_IP | Creation of Location based on BP, Shipping points, plants | May-25 (100%) | — | — | Sep-25 (100%) |  |
+| LOGM008_IP | Location creation-ocean ports, airports | May-25 (100%) | — | — | Sep-25 (100%) |  |
+| LOGM005_IP | UPLOAD TRANSPORTATION ZONES (TM) | Jun-25 (100%) | — | — | Sep-25 (100%) |  |
+| LOGM004_IP | UPLOAD TRANSPORTATION LANES | Jun-25 (100%) | — | — | Sep-25 (100%) |  |
+| LOGI1679 | Receive 4C1 Inventory movement Stock type change and cycle count from IF | Jan-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (100%) | 3. Off Track |
+| LOGI1678 | Receive 4C1 Inventory Reconciliation Snapshot from IF | Jan-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (100%) | 3. Off Track |
+| LOGI1576 | ECD_Interface between S4 to ECD for inventory status response | Sep-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (95%) | 4. Completed |
+*... and 81 more objects (see full Object Tracker)*
+
+<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+### 7.2 RAID Log
+
+Standard RAID items for PLB-050 (Forecast to Stock (IP)):
+
+| # | Category | Description | Status | Owner | Priority |
+|---|----------|-------------|--------|-------|----------|
+| 1 | Risk | Data migration completeness — validate all legacy Responsive Demand and Supply Matching (RDSM) (IP) data maps to S/4 target structures | Open | Tower Architect | High |
+| 2 | Risk | Integration testing coverage — ensure all 0 integrated systems are validated end-to-end | Open | Integration Lead | High |
+| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
+| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
+| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
+
+> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
+
+### 7.3 Recommendations & Next Steps
+
+| # | Category | Recommendation | Priority | Owner | Target Date | Status |
+|---|----------|---------------|----------|-------|-------------|--------|
+| 1 | Architecture | Complete extended flow attributes (Data Entity, Integration Pattern, Tech Platform) in Flows tab for full BDAT coverage | High | Tower Architect | 2026-Q2 | Open |
+| 2 | Data | Define data ownership and classification for all 0 flow chains to satisfy Data Architecture (TOGAF D) requirements | Medium | Data Architect | 2026-Q3 | Open |
+| 3 | Testing | Develop integration test scenarios covering all 0 flow chains for FUT/SIT readiness | High | Test Lead | 2026-Q3 | Open |
+| 4 | Business Architecture | Review and validate Business Architecture process steps against latest Signavio/BIC process models | Medium | Business Analyst | 2026-Q2 | Open |
+| 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
+
+---
+*PLB-050 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IP) · Generated: March 2026*
+<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
+</div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
 </div>

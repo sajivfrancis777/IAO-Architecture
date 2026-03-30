@@ -179,6 +179,26 @@ blockquote {
     padding-top: 10px;
     border-top: 1px solid #ddd;
 }
+.page-section {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 40px);
+    box-sizing: border-box;
+}
+.page-footer {
+    margin-top: auto;
+    padding-top: 8px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9pt;
+    color: #888;
+    padding: 6px 12px;
+    background: #fff;
+}
+.page-footer a { color: #0071c5; text-decoration: none; }
+.page-footer a:hover { text-decoration: underline; }
 a { color: #0071c5; text-decoration: none; }
 a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
@@ -211,6 +231,8 @@ strong { color: #00285a; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
     table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
+    .page-section { min-height: 100vh; }
+    .page-footer { page-break-inside: avoid; break-inside: avoid; }
     .mermaid {
         page-break-inside: avoid;
         overflow: visible;
@@ -312,18 +334,18 @@ def md_to_html(md_content: str, title: str = "", md_path: Path | None = None) ->
     processed = processed.replace('overflow-x: auto; overflow-y: auto', 'overflow: visible')
 
     # Fix legacy position:fixed on page footers — causes stacking in multi-page docs.
-    # Replace with static positioning so footers render inline at each page break.
+    # Replace with flex-based margin-top:auto positioning inside page-section containers.
     processed = re.sub(
         r'\.page-footer\s*\{[^}]*position:\s*fixed[^}]*\}',
-        '.page-footer { padding-top:8px; border-top:1px solid #ddd; display:flex; '
-        'justify-content:space-between; align-items:center; font-size:11px; color:#888; '
-        'margin-top:24px; padding:6px 0; background:#fff; }',
+        '.page-footer { margin-top:auto; padding-top:8px; border-top:1px solid #ddd; '
+        'display:flex; justify-content:space-between; align-items:center; '
+        'font-size:11px; color:#888; padding:6px 12px; background:#fff; }',
         processed,
     )
     # Also fix the @media print block for page-footer
     processed = re.sub(
         r'@media\s+print\s*\{\s*\.page-footer\s*\{[^}]*position:\s*fixed[^}]*\}\s*\}',
-        '@media print { .page-footer { page-break-inside:avoid; break-inside:avoid; margin-top:16px; } }',
+        '@media print { .page-footer { page-break-inside:avoid; break-inside:avoid; } }',
         processed,
     )
 

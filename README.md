@@ -533,28 +533,53 @@ This section describes the end-to-end pipeline from an **operations** perspectiv
   │                                                                     │
   ├─────────────────────────────────────────────────────────────────────┤
   │                                                                     │
-  │  PHASE 2: INPUT VALIDATION & DATA EXTRACTION                       │
-  │  ───────────────────────────────────────────                        │
+  │  PHASE 2: INPUT SOURCES & DATA EXTRACTION                          │
+  │  ────────────────────────────────────────                           │
   │                                                                     │
-  │  ┌──────────────────┐   ┌────────────────┐   ┌──────────────────┐  │
-  │  │  Signavio/BIC     │   │  Smartsheet    │   │  SharePoint      │  │
-  │  │  BPMN Manifest    │   │  Object Tracker│   │  Excel Workbooks │  │
-  │  │  (CSV export)     │   │  RAID Log      │   │  (CurrentFlows,  │  │
-  │  └────────┬─────────┘   └───────┬────────┘   │   FutureFlows)   │  │
-  │           │                     │             └────────┬─────────┘  │
-  │           ▼                     ▼                      ▼            │
-  │  build_capability        smartsheet_loader       xlsx_loader.py    │
-  │  _master.py              .py (API or CSV)        bpmn_parser.py    │
-  │           │                     │                      │            │
-  │           ▼                     ▼                      ▼            │
-  │  config/capability       data/smartsheet/       towers/*/input/     │
-  │  _master.yaml            (cached CSVs)          data/*.xlsx         │
-  │  towers/*/tower.yaml                            input/bpmn/*.bpmn   │
+  │  ┌─ MANUAL INPUT (Architect-authored) ──────────────────────────┐  │
+  │  │                                                               │  │
+  │  │  SharePoint Excel Workbooks (synced to towers/*/input/data/) │  │
+  │  │  ├── CurrentFlows.xlsx  (current-state integration flows)    │  │
+  │  │  ├── FutureFlows.xlsx   (future-state integration flows)     │  │
+  │  │  └── Tabs: Flows · Context · Business Architecture           │  │
+  │  │                                                               │  │
+  │  │  This is the ONLY manual input from tower architects.        │  │
+  │  │  sync_sharepoint.py keeps local copies in sync.              │  │
+  │  │                                                               │  │
+  │  └───────────────────────────────────┬───────────────────────────┘  │
+  │                                      │                              │
+  │  ┌─ API-AUTOMATED EXTRACTION ────────┼──────────────────────────┐  │
+  │  │                                   │                           │  │
+  │  │  ┌─────────────────┐  ┌──────────┴────────┐  ┌───────────┐  │  │
+  │  │  │ Smartsheet API  │  │ Signavio/BIC API  │  │ IAPM API  │  │  │
+  │  │  │ ───────────────│  │ ─────────────────│  │ ─────────│  │  │
+  │  │  │ Object Tracker  │  │ BPMN Manifest    │  │ App meta  │  │  │
+  │  │  │ RAID Log        │  │ Process models   │  │ 30K+ apps │  │  │
+  │  │  │ Timeline        │  │ L1/L2/L3 hier.   │  │ statuses  │  │  │
+  │  │  └───────┬─────────┘  └────────┬─────────┘  └─────┬─────┘  │  │
+  │  │          │                      │                  │         │  │
+  │  │          ▼                      ▼                  ▼         │  │
+  │  │  smartsheet_loader    build_capability_m.   iapm_lookup.py   │  │
+  │  │  .py (live API)       py (Signavio CSV)     (API or CSV)    │  │
+  │  │                                                              │  │
+  │  └─────────────────────────────────────────────────────────────┘  │
+  │                                                                     │
+  │  ┌─ POC FALLBACKS (ranked, used when API unavailable) ──────────┐  │
+  │  │                                                               │  │
+  │  │  Priority  Source              Trigger                        │  │
+  │  │  ────────  ──────              ───────                        │  │
+  │  │  1st       API live query      Token present in .env          │  │
+  │  │  2nd       CSV cache           data/smartsheet/*.csv cached   │  │
+  │  │  3rd       Manual download     Browser export → data/ folder  │  │
+  │  │                                                               │  │
+  │  │  Goal: 100% API. POC fallback is temporary.                  │  │
+  │  │                                                               │  │
+  │  └──────────────────────────────────────────────────────────────┘  │
   │                                                                     │
   ├─────────────────────────────────────────────────────────────────────┤
   │                                                                     │
-  │  PHASE 3: DOCUMENT GENERATION                                      │
-  │  ────────────────────────────                                       │
+  │  PHASE 3: DOCUMENT GENERATION (fully automated)                    │
+  │  ──────────────────────────────────────────────                     │
   │                                                                     │
   │  tower.yaml ──> gen_systems_arch.py ──> Jinja2 templates           │
   │  xlsx data        (orchestrator)         systems_architecture.md.j2│
@@ -584,8 +609,8 @@ This section describes the end-to-end pipeline from an **operations** perspectiv
   │                           │                                         │
   ├─────────────────────────────────────────────────────────────────────┤
   │                                                                     │
-  │  PHASE 4: PUBLISH & DISTRIBUTE                                     │
-  │  ─────────────────────────────                                      │
+  │  PHASE 4: PUBLISH & DISTRIBUTE (fully automated)                   │
+  │  ───────────────────────────────────────────────                    │
   │                           │                                         │
   │              ┌────────────┼────────────┐                           │
   │              ▼            ▼            ▼                            │
@@ -622,6 +647,21 @@ This section describes the end-to-end pipeline from an **operations** perspectiv
   │                                                                     │
   └─────────────────────────────────────────────────────────────────────┘
 ```
+
+### Data Source Priority
+
+Every data source in the pipeline follows **API-first extraction**. Manual inputs are limited to architect-authored XLSX workbooks synced via SharePoint:
+
+| Data Source | Production (Target) | POC Fallback | Manual? |
+|-------------|-------------------|--------------|---------|
+| **Integration Flows** (CurrentFlows/FutureFlows) | SharePoint sync → `towers/*/input/data/*.xlsx` | Same (architect-authored) | **Yes** — only manual input |
+| **RICEFW Objects** | Smartsheet API → `smartsheet_loader.py` | CSV cache in `data/smartsheet/` | No |
+| **RAID Log** | Smartsheet API → `smartsheet_loader.py` | CSV cache | No |
+| **BPMN Process Models** | BIC/Signavio API → `bpmn_parser.py` | CSV manifest export | No |
+| **Capability L1/L2/L3 Hierarchy** | BIC API → `build_capability_master.py` | Signavio manifest CSV | No |
+| **Application Metadata** (IAPM) | IAPM API → `iapm_lookup.py` | CSV cache (`IAPM_All_Solutions.csv`) | No |
+| **Test Cases / Defects** | JIRA API → `jira_server.py` | Placeholder (API pending) | No |
+| **SAP Dev Object Status** | SAP OData → `sap_odata_server.py` | Placeholder (API pending) | No |
 
 ### Single Source of Truth — Configuration Files
 

@@ -1,5 +1,6 @@
+<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">E2E-119 — R3 Shipping Rejects Inventory Movement</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -19,7 +20,14 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
+.page-section {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 40px);
+  box-sizing: border-box;
+}
 .page-footer {
+  margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid #ddd;
   display: flex;
@@ -27,62 +35,99 @@
   align-items: center;
   font-size: 11px;
   color: #888;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 20px;
+  padding: 6px 12px;
   background: #fff;
 }
 @media print {
-  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+  .page-section {
+    min-height: 100vh;
+  }
+  .page-footer {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
 .page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
 </style>
 
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 <a id="toc"></a>
 
 ## Table of Contents
 
-1. [Executive Summary](#1-executive-summary)
-2. [Business Context & Objectives](#2-business-context--objectives)
-   - 2.1 [Classification](#21-classification)
-   - 2.2 [Business Drivers](#22-business-drivers)
-   - 2.3 [Success Criteria](#23-success-criteria)
-   - 2.4 [Companion Documents](#24-companion-documents)
-3. [Business Architecture (TOGAF "B")](#3-business-architecture-togaf-b)
-   - 3.1 [Business Process Overview](#31-business-process-overview)
-   - 3.2 [Business Process Diagrams](#32-business-process-diagrams)
-   - 3.3 [Business Roles & Responsibilities](#33-business-roles--responsibilities)
-4. [Data Architecture (TOGAF "D")](#4-data-architecture-togaf-d)
-   - 4.1 [Data Entities & Ownership](#41-data-entities--ownership)
-   - 4.2 [Data Flow Diagrams](#42-data-flow-diagrams)
-   - 4.3 [Data Lineage](#43-data-lineage)
-   - 4.4 [RICEFW Data Objects](#44-ricefw-data-objects)
-   - 4.5 [Data Governance & Quality](#45-data-governance--quality)
-5. [Application Architecture (TOGAF "A")](#5-application-architecture-togaf-a)
-   - 5.1 [Current-State Application Landscape](#51-current-state--current-state-application-landscape)
-   - 5.2 [Future-State Application Landscape](#52-future-state--future-state-application-landscape)
-   - 5.3 [Change Impact Summary](#53-change-impact-summary)
-   - 5.4 [Component Overview](#54-component-overview)
-   - 5.5 [RICEFW Inventory](#55-ricefw-inventory)
-   - 5.6 [Integration Patterns](#56-integration-patterns)
-6. [Technology Architecture (TOGAF "T")](#6-technology-architecture-togaf-t)
-   - 6.1 [Platform & Infrastructure](#61-platform--infrastructure)
-   - 6.2 [SAP Development Object Status](#62-sap-development-object-status)
-   - 6.3 [NFRs & Design Principles](#63-nfrs--design-principles)
-   - 6.4 [Security & Governance](#64-security--governance)
-7. [Project Context](#7-project-context)
-   - 7.1 [Project Roadmap & Go-Live Plan](#71-project-roadmap--go-live-plan)
-   - 7.2 [RAID Log](#72-raid-log)
-   - 7.3 [Recommendations & Next Steps](#73-recommendations--next-steps)
+<nav class="toc">
+<ol>
+  <li><a href="#1-executive-summary">1. Executive Summary</a></li>
+  <li><a href="#2-business-context-objectives">2. Business Context &amp; Objectives</a>
+    <ul>
+      <li><a href="#21-classification">2.1 Classification</a></li>
+      <li><a href="#22-business-drivers">2.2 Business Drivers</a></li>
+      <li><a href="#23-success-criteria">2.3 Success Criteria</a></li>
+      <li><a href="#24-companion-documents">2.4 Companion Documents</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+    <ul>
+      <li><a href="#31-business-process-overview">3.1 Business Process Overview</a></li>
+      <li><a href="#32-business-process-diagrams">3.2 Business Process Diagrams</a></li>
+      <li><a href="#33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+    <ul>
+      <li><a href="#41-data-entities-ownership">4.1 Data Entities &amp; Ownership</a></li>
+      <li><a href="#42-data-flow-diagrams">4.2 Data Flow Diagrams</a></li>
+      <li><a href="#43-data-lineage">4.3 Data Lineage</a></li>
+      <li><a href="#44-ricefw-data-objects">4.4 RICEFW Data Objects</a></li>
+      <li><a href="#45-data-governance-quality">4.5 Data Governance &amp; Quality</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+    <ul>
+      <li><a href="#51-current-state-current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
+      <li><a href="#52-future-state-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
+      <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
+      <li><a href="#54-component-overview">5.4 Component Overview</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+    <ul>
+      <li><a href="#61-platform-infrastructure">6.1 Platform &amp; Infrastructure</a></li>
+      <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
+      <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
+      <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+    </ul>
+  </li>
+  <li><a href="#7-project-context">7. Project Context</a>
+    <ul>
+      <li><a href="#71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</a></li>
+      <li><a href="#72-raid-log">7.2 RAID Log</a></li>
+      <li><a href="#73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</a></li>
+    </ul>
+  </li>
+</ol>
+</nav>
 
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 1. Executive Summary
 
@@ -98,10 +143,13 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.
 
-> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: "loose"` for click events.
+> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 2. Business Context & Objectives
 
@@ -123,7 +171,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 4 | E2E-119 Process Migration | Migrate R3 Shipping Rejects Inventory Movement business processes and 2 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Cross-Functional / End-to-End | High |
 
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 2.3 Success Criteria
 
@@ -142,7 +193,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 3. Business Architecture (TOGAF "B")
 
@@ -155,10 +209,14 @@ This capability includes **2 business process(es)** modeled in BPMN 2.0, coverin
 | 1 | E2E-119C_R3_IF_Factory_to_IF_Factory | E2E-119C_R3_IF_Factory_to_IF_Factory | Boundary Apps, Decentralized EWM, Intel Foundry (Supp. Entity), SAP S/4 Intel Foundry (Receiving Entity) | 25 | 4 |
 | 2 | E2E-119E_R3__Rejected_Inventory_Receipt_at_Intel_Product_Lab | E2E-119E_R3__Rejected_Inventory_Receipt_at_Intel_Product_Lab | SAP S/4 Intel Foundry | 5 | 0 |
 
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 ### 3.2 Business Process Diagrams
 
-<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
-<div style="page-break-before: always;"></div>
 
 #### BUSINESS ARCHITECTURE — 3.2.1 E2E-119C_R3_IF_Factory_to_IF_Factory — E2E-119C_R3_IF_Factory_to_IF_Factory
 
@@ -167,7 +225,7 @@ This capability includes **2 business process(es)** modeled in BPMN 2.0, coverin
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart LR
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -267,10 +325,14 @@ flowchart LR
     class n37 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1uP4jYU_itWViO2EuzmSoCHSpAhI6Qd7WiY7T50-mASB6wJduo4zNAR_712YgdioN1284Dw53M_33GcdyuhKbIm1s3NOyaYT8B7j2_QFvUmoLeCJer1QQP8BhmGqxyVPSmTUcKX-K9azPGLNykmsRhucb6X6BKtKQLfFn0wFYp5H5SQlIMSMZz1-r2C4S1k-4jmlEnpD2iU2VntTW3NKEsROwrYdugkgVDNMUFH2Av90I-lXokSStKO0SzIRlnSO8jgcvqabCDjdfhVie7h23ec8o1YZzAvkZDZ8G3-Ba5QLnPkrJJYUrGdLgYupR8iCrYsYILJWuC-LSAGycsRCuzDARxubp5J6xR8eXwmQDxJDsvyFmWg5AKe7zjIcJ5PPvjRNA7sfskZfUGTD-48vPXcfiIzmYjU7b4s7uAV4fWGT1Y0T5Xo4FXmMHGLtz57m7h2n-3Fr-ELkfToKRq6I3fUepqFTuRE2lOWZT_lSdSVPcHyRfmae7Eb37a-nGAYRPa5PZ3mrR9OHbNOiO1wgk6MxnHszY-lmg8Dx75udBZ7QzsyjK4hR69wfzQ4jvzWYByEsRNeNdj4M6OsVg-MJtqgNw_ioDUYzpx46l416E8df6QiFHbWDBYbMKNVzWUwLYqy2ZMPcX5_tqSniiHAKXiA-2frj5N9V-x_lYMjdyNYbrrbntiOMYEkQeAhh0RKPaKCMt6V86UcZSiBJZcyS06Tl1ZE8MkI9xYliHAGc3EkpGD-_f7EViBDpiUXwwGiDSRr1PU1lPs4eQGQpCKhEz_1dqjUwR2laQkWZVkZBkYy54qvZMlEJPknUFegKzQWQrdY9ACvKo7AgrTieIeYUUXHlk4Ryyjbgm8kpzCV0cu8unJON7hHUQZc8AuCsi8RQ4J3nyNKMizsPlR8MJUslNx-rlzbXtWK9T-jq6OPQj-DkwwOSk6Lph-A7wsEkrqkKYDa7S-nimNDUTiF2idQkaDU0PL893etBRmjr-UA5hwUUDQ4R_ldMz3P1uFwjQ8LwlEOYlliweGPy6ooPoE54ZjvTx0547PW1UXClBgFkA25e1qCJwZTJALfFjmWLDbEnH8li3vsBFhEItAdxWdm5JhMH4FmrSTmtJIDlSPxFiRrQzxoayzPP3BPd0ic77JDGaNbMMvFX9GhBhJmvhGGJBMTLtCmlTsMwf3i7qthOTy2r8hF2xbiFY1l6I2trfC0FYP3I35KNcKdRnsGPbq9KBOGEJEVkOGJ8pvqw__Gk0Yp_FlyLacPYPnZN0lWD9-untNzonknXf_n0ZdHX3eaz9tlqMj-1_xoeik4Skp5pl46hxx53D0xvF4LpkhGRxt0ZlCeeSLJH-SfM1LDcRwLsHz4UqvN72cGpfwuWVVRzMgf0Z-VSBp8vIekgvkvhpHhNV6KeRJ8pKIfXW4uYhDDpN4QeRxXJqNsg5CyE20jZD3ODyvHUFl8bsda3B44z-swTC3XPFGfvoJlzXfRZL5htFpvLlE--J_sFe8UMBj8Kt8ZGnAawPMV4PlKQgOOAjxbA24DuGMFBGo90gIK8AIFjJr1UC2HzTLU4mMlrvc9JaAvdi2gHbgqC89TQKgUdFauzkr7cHXMWsNRKp5W8bQN1wAcreJ6CmgD14COSyXitJVSiY_N2rY-VKWcoQloFUel7mkVVxdH98fVRnW1XZ1JCyijwcl9sdbTF-UuHlzBh-3nQhcPr-AjdeXvouNLqGdfRJ2LqHsR9S6ivr5ld-HgMjy8DIcatvrWFrEtxKk1ebfqD1Lx0ZqiDFY5tw59C4rzcbkniTWpP9ysqkiF5i2G4p2xbcDD39Zxic4=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1uP4jYU_itWViO2EuzmSoCHSpAhI6Qd7WiY7T50-mASB6wJduo4zNAR_712YgdioN1284Dw53M_33GcdyuhKbIm1s3NOyaYT8B7j2_QFvUmoLeCJer1QQP8BhmGqxyVPSmTUcKX-K9azPGLNykmsRhucb6X6BKtKQLfFn0wFYp5H5SQlIMSMZz1-r2C4S1k-4jmlEnpD2iU2VntTW3NKEsROwrYdugkgVDNMUFH2Av90I-lXokSStKO0SzIRlnSO8jgcvqabCDjdfhVie7h23ec8o1YZzAvkZDZ8G3-Ba5QLnPkrJJYUrGdLgYupR8iCrYsYILJWuC-LSAGycsRCuzDARxubp5J6xR8eXwmQDxJDsvyFmWg5AKe7zjIcJ5PPvjRNA7sfskZfUGTD-48vPXcfiIzmYjU7b4s7uAV4fWGT1Y0T5Xo4FXmMHGLtz57m7h2n-3Fr-ELkfToKRq6I3fUepqFTuRE2lOWZT_lSdSVPcHyRfmae7Eb37a-nGAYRPa5PZ3mrR9OHbNOiO1wgk6MxnHszY-lmg8Dx75udBZ7QzsyjK4hR69wfzQ4jvzWYByEsRNeNdj4M6OsVg-MJtqgNw_ioDUYzpx46l416E8df6QiFHbWDBYbMKNVzWUwLYqy2ZMPcX5_tqSniiHAKXiA-2frj5N9V-x_lYMjdyNYbrrbntiOMYEkQeAhh0RKPaKCMt6V86UcZSiBJZcyS06Tl1ZE8MkI9xYliHAGc3EkpGD-_f7EViBDpiUXwwGiDSRr1PU1lPs4eQGQpCKhEz_1dqjUwR2laQkWZVkZBkYy54qvZMlEJPknUFegKzQWQrdY9ACvKo7AgrTieIeYUUXHlk4Ryyjbgm8kpzCV0cu8unJON7hHUQZc8AuCsi8RQ4J3nyNKMizsPlR8MJUslNx-rlzbXtWK9T-jq6OPQj-DkwwOSk6Lph-A7wsEkrqkKYDa7S-nimNDUTiF2idQkaDU0PL893etBRmjr-UA5hwUUDQ4R_ldMz3P1uFwjQ8LwlEOYlliweGPy6ooPoE54ZjvTx0547PW1UXClBgFkA25e1qCJwZTJALfFjmWLDbEnH8li3vsBFhEItAdxWdm5JhMH4FmrSTmtJIDlSPxFiRrQzxoayzPP3BPd0ic77JDGaNbMMvFX9GhBhJmvhGGJBMTLtCmlTsMwf3i7qthOTy2r8hF2xbiFY1l6I2trfC0FYP3I35KNcKdRnsGPbq9KBOGEJEVkOGJ8pvqw__Gk0Yp_FlyLacPYPnZN0lWD9-untNzonknXf_n0ZdHX3eaz9tlqMj-1_xoeik4Skp5pl46hxx53D0xvF4LpkhGRxt0ZlCeeSLJH-SfM1LDcRwLsHz4UqvN72cGpfwuWVVRzMgf0Z-VSBp8vIekgvkvhpHhNV6KeRJ8pKIfXW4uYhDDpN4QeRxXJqNsg5CyE20jZD3ODyvHUFl8bsda3B44z-swTC3XPFGfvoJlzXfRZL5htFpvLlE--J_sFe8UMBj8Kt8ZGnAawPMV4PlKQgOOAjxbA24DuGMFBGo90gIK8AIFjJr1UC2HzTLU4mMlrvc9JaAvdi2gHbgqC89TQKgUdFauzkr7cHXMWsNRKp5W8bQN1wAcreJ6CmgD14COSyXitJVSiY_N2rY-VKWcoQloFUel7mkVVxdH98fVRnW1XZ1JCyijwcl9sdbTF-UuHlzBh-3nQhcPr-AjdeXvouNLqGdfRJ2LqHsR9S6ivr5ld-HgMjy8DIcatvrWFrEtxKk1ebfqD1Lx0ZqiDFY5tw59C4rzcbkniTWpP9ysqkiF5i2G4p2xbcDD39Zxic4=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.2 E2E-119E_R3__Rejected_Inventory_Receipt_at_Intel_Product_Lab — E2E-119E_R3__Rejected_Inventory_Receipt_at_Intel_Product_Lab
 
@@ -279,7 +341,7 @@ flowchart LR
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -312,10 +374,15 @@ flowchart TD
     class n9 endEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVtv2jAY_SufUlVsUuhyJTQPk2ggFVKrotGtD-seTGKD12BHtsNlFf99NgnQsHUvy0PEdzjnfBdf8mplPMdWbF1evlJGVQyvHbXAS9yJoTNDEndsqIFvSFA0K7DsGA7hTE3prz3NDcqNoRksRUtabA06xXOO4evYhoEWFjZIxGRXYkFJx-6Ugi6R2Ca84MKwL3CfOGSfrfnrhoscixPBcSI3C7W0oAyfYD8KoiA1OokzzvKWKQlJn2SdnSmu4OtsgYTal19JfI82TzRXCx0TVEisOQu1LO7QDBemRyUqg2WVWB2GQaXJw_TApiXKKJtrPHA0JBB7OUGhs9vB7vLymR2TwuPwmYF-sgJJOcQEpNLwaKWA0KKIL4JkkIaOLZXgLzi-8EbR0PfszHQS69Yd2wy3u8Z0vlDxjBd5Q-2uTQ-xV25ssYk9xxZb_T7LhVl-ypT0vL7XP2a6idzETQ6ZCCH_lUnPVTwi-dLkGvmplw6PudywFybOn36HNodBNHDP54TFimb4jWmapv7oNKpRL3Sd901vUr_nJGemc6TwGm1PhtdJcDRMwyh1o3cN63znVVazieDZwdAfhWl4NIxu3HTgvWsYDNyg31SofeYClQuYDiYw_RTAmClcQMorlottzTEPc78_W1OFzH7PYVKJK3gwx-XZ-vGG5GnSLee5hC84w7RUgBSMJ6D3OEyv7nh21eb7mj_hUkFbNHq6b_MCw6tUd2BmmHBGqFgiRTmDNVULGG0yXO7DRB8V2daGWktQTFDX7JUm01jKCgOaI8p09sSUkGDduYAVRXA_vn1om_Q-HF3KQtcw1jcX1WtqJmHXkwAi-LJp1pTw8Y08ek_-iDcKJg__0vZPWql4qYf0E2d6qmylC-ZiC9T0koPijcGZ_vpMvz-bWnqiaaT-wVzodj_rZWxCvw6DJuzVYXNgWFCH100Y1aHfhF4dhk0Y1mH_zTY24OH4tuDe8a5qwdHf4X5z27TA6wa0bGuJ9V6huRW_WvvPiv705JigqlDWzrZQpfh0yzIr3l-_VlXmel2GFOlTsazB3W82Xxmd" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVtv2jAY_SufUlVsUuhyJTQPk2ggFVKrotGtD-seTGKD12BHtsNlFf99NgnQsHUvy0PEdzjnfBdf8mplPMdWbF1evlJGVQyvHbXAS9yJoTNDEndsqIFvSFA0K7DsGA7hTE3prz3NDcqNoRksRUtabA06xXOO4evYhoEWFjZIxGRXYkFJx-6Ugi6R2Ca84MKwL3CfOGSfrfnrhoscixPBcSI3C7W0oAyfYD8KoiA1OokzzvKWKQlJn2SdnSmu4OtsgYTal19JfI82TzRXCx0TVEisOQu1LO7QDBemRyUqg2WVWB2GQaXJw_TApiXKKJtrPHA0JBB7OUGhs9vB7vLymR2TwuPwmYF-sgJJOcQEpNLwaKWA0KKIL4JkkIaOLZXgLzi-8EbR0PfszHQS69Yd2wy3u8Z0vlDxjBd5Q-2uTQ-xV25ssYk9xxZb_T7LhVl-ypT0vL7XP2a6idzETQ6ZCCH_lUnPVTwi-dLkGvmplw6PudywFybOn36HNodBNHDP54TFimb4jWmapv7oNKpRL3Sd901vUr_nJGemc6TwGm1PhtdJcDRMwyh1o3cN63znVVazieDZwdAfhWl4NIxu3HTgvWsYDNyg31SofeYClQuYDiYw_RTAmClcQMorlottzTEPc78_W1OFzH7PYVKJK3gwx-XZ-vGG5GnSLee5hC84w7RUgBSMJ6D3OEyv7nh21eb7mj_hUkFbNHq6b_MCw6tUd2BmmHBGqFgiRTmDNVULGG0yXO7DRB8V2daGWktQTFDX7JUm01jKCgOaI8p09sSUkGDduYAVRXA_vn1om_Q-HF3KQtcw1jcX1WtqJmHXkwAi-LJp1pTw8Y08ek_-iDcKJg__0vZPWql4qYf0E2d6qmylC-ZiC9T0koPijcGZ_vpMvz-bWnqiaaT-wVzodj_rZWxCvw6DJuzVYXNgWFCH100Y1aHfhF4dhk0Y1mH_zTY24OH4tuDe8a5qwdHf4X5z27TA6wa0bGuJ9V6huRW_WvvPiv705JigqlDWzrZQpfh0yzIr3l-_VlXmel2GFOlTsazB3W82Xxmd" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 3.3 Business Roles & Responsibilities
 
@@ -328,7 +395,10 @@ flowchart TD
 | SAP S/4 Intel Foundry | E2E-119E_R3__Rejected_Inventory_Receipt_at_Intel_Product_Lab | |
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 4. Data Architecture (TOGAF "D")
 
@@ -339,11 +409,15 @@ flowchart TD
 | 1 | e.g. Cost Element | e.g. MES 300 | e.g. XEUS | Data steward | e.g. Intel Confidential | e.g. 10K rows/day | Master / Transaction |
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
 
 #### 4.2.1 Current-State — Current-State Data Flows
 
@@ -381,10 +455,16 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYFu2jAQhl_FcoXYJOgCNDAitZIhYUVKq66h26RmikxyAasmiRJnhVLefXYC6cagq2pLUXy---_8XeSssR8HgA1cq61ZxISB1nUxhwXUDVSf0gzqDVTPwM9TJlY2_AKuNngclzuF6zeaMjrlkNVVdBhHwmFPhUBLT5bKTdlGdMH4SlkdmMWA7sYNRGQgr2-UB48f_TlNRaGRZ3BFl99ZIOZyHVKegfSZiwW36RS4SiTSXNkiWb2TUJ9FM2ns6NKU0ujhxXSmbzZoU6u5UZUCTQZuhOTwOc0yE0JEk2QQL1HIODdOBro5Go0amUjjBzBONK3XG3S3y-ajqsloJ8uGH_M4VdsdU9_XC6bDFd_KEd3skl4l17Z6Zqd9VK410K22ticHMX8pbzQa6AO90hsONTmO6nW7atuNSsUsn85SmsyR1bZarf7QJEPbA2_mkac8Bc_5at-7GLn4Z-muRsBS8AWLo4qaGlU8KcJ_WHeOjITT2SlS71LBMIyS6oEgcy_nBxe7efC5E8hn4J-5eQiaPLVSK5yQdHLxR6VZkH21DtQ8bV4czVWGQhRsgYgVh-M0dsiJmhVyS1Pzb-StZPlfyA658S7JNXkf4yvL8TqatsMsl0gu30S6SvwKaOmDlM-bOG9rOYh6l-xNpHfO7wJ9JDE6P7943lIyC7LoEyI3Y_kcMQ4ufn7l69hroQ0zeYL7P7D5gYZMMiGI3A4vxxNrOLm7tZBtfbGuzSNNtW9frLan2k-ShDOfqt3DDbQ980izTCqoupcP98n2LClvRUEzDps2C6GULy-Qgx0pT7jjr6tZ8e_3-__Axw28gHRBWYCNNS7uf_n3CCCkORd408A0F7GzinxsFFc0zpOACjAZlUQXpXHzG_18-Bk=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1rozAYx79KyCjcQbuz7Wyvwgbx7TZwYze7u4N5SKqxDUtVNG7tun73S9S6Xa_uxhKQ-Lz8n-T3SNzAIAkJ1GCns6Ex5RrYeJAvyJJ4UAMenOFcrLpilZOgyChfO-SBsMrJkmTnLVN-4IziGSO5dAudKIm5S59qqb6arqpgabfxkrJ15XHJPCHg9qILkBAQ4tsyiiWPwQJnvFYrcnKJVz9pyBfSEmGWExm34Evm4BlhZVmeFaU1FsdyUxzQeC7NQ1UaMxzfvzKeqNst2HY6XtzUAlPdi4EYAcN5bpII4DTVkxWIKGPaka6atm13c54l90Q7UpTxWB_Vr71HuTVtkK66QcKSTLqHprqvF86MNavlkGqO0LiRG1hjczholevrqjVQ9uRIwl62Z9u6qquNnmEoYrTqjUbS7cWVYl7M5hlOF8AaWP3-xDCR4fjEn_voqciI73537jwoGP6uwuUIaUYCTpO4oSZHk4_K9F_WrSsyyfH8GMi1UNA0raJ6IMncq_nJg14Rfh2G4hkGJ14REUWcWqqVQUAEefCz1CzJvrkP0DvunbXWqlJJHNZA-JqRdho75EjOBrmlyPk38r747v8H2UXX_jm6Qh9jfGm5_lBRdpjFKxCv7yLdFH4DtIgBMuZdnOu9HES9K_Yu0rvgD4FuKQxOT8-ea0pmSRZ8Aej6QjxtysRF9fzG17HXQofMxQnuXmELQgWYaIoAujHOL6aWMb29sYBjfbOuzJamOjcvVseX7UdpymiApfdwAx3fbGmWiTmuLuxDfXJ8S8hbcdhLop5DI1LJVxfIwY5UJ9zxV-Vs-E8mk3_gwy5ckmyJaQi1TfVLEH-WkES4YFxc6hAXPHHXcQC18pqGRRpiTkyKBdFlZdz-AduCAaw=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 
 #### 4.2.2 Future-State — Future-State Data Flows
 
@@ -422,10 +502,15 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYFumzAQhl_FchVlk5KOJCVZkVrJCbBWolVX0m1SmZADR2LVAQRmTZrm3WdDQrcs6araEsLnu__O3yGzwkESAjZwo7FiMRMGWjXFDObQNFBzQnNotlAzh6DImFg68Au42uBJUu2Urt9oxuiEQ95U0VESC5c9lQIdPV0oN2Wz6ZzxpbK6ME0A3V22EJGBvLlWHjx5DGY0E6VGkcMVXXxnoZjJdUR5DtJnJubcoRPgKpHICmWLZfVuSgMWT6Wxp0tTRuOHF9OJvl6jdaPhxXUKNB56MZIj4DTPTYgQTdNhskAR49w4GuqmbdutXGTJAxhHmjYYDPubZftR1WR000UrSHiSqe2eqe_qhZPRkm_kiG72yaCW61oDs9c9KNcZ6lZX25GDhL-UZ9tDfajXeqORJsdBvX5fbXtxpZgXk2lG0xmyulanc2qbZOT44E998lRk4LtfnXsPIw__rNzVCFkGgWBJXFNTo44nZfgP686VkXA8PUbqXSoYhlFR3RNk7uT84GGvCD_3QvkMgxOviECTp1ZqpROSTh7-qDRLsq_WgdrH7fODuapQiMMNELHkcJjGFjlRs0ZuaWr-jbyTLv4L2SU3_gW5Ju9jfGW5fk_TtpjlEsnlm0jXiV8BLX2Q8nkT500te1Fvk72J9Nb5XaAPJEZnZ-fPG0pmSRZ9QuTmUj5txsHDz698HTstdGAqT3D_B7Yg1JBJxgSR29HF5dgaje9uLeRYX6xr80BTndsXq-Or9pM05Sygand_Ax3fPNAskwqq7uX9fXJ8S8pbcdhOorbDIqjkqwtkb0eqE27562rW_E9PT_-Bj1t4DtmcshAbK1ze__LvEUJECy7wuoVpIRJ3GQfYKK9oXKQhFWAyKonOK-P6N3pB-EM=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1rozAYx79KyCjcQbuz7WyvwgZp1dvAjd3s7g7mIanGNiw1onFr1_W7X6LW7Xp1N5aAxOfl_yS_R-IGBjwk0ICt1obGVBhg40GxIEviQQN4cIYzuWrLVUaCPKVi7ZAHwkon43znLVJ-4JTiGSOZckudiMfCpU-VVFdPVmWwstt4Sdm69Lhkzgm4vWgDJAWk-LaIYvwxWOBUVGp5Ri7x6icNxUJZIswyouIWYskcPCOsKCvSvLDG8lhuggMaz5W5rytjiuP7V8YTfbsF21bLi-taYDr2YiBHwHCWmSQCOEnGfAUiyphxNNZN27bbmUj5PTGONG04HA-q186j2prRS1btgDOeKnff1Pf1wtlkzSo5pJsDNKzletbQ7Pca5bpj3eppe3KEs5ft2fZYH-u13mSiydGoNxgotxeXilk-m6c4WQCrZ3W7I9tEE8cn_txHT3lKfPe7c-dByfB3Ga5GSFMSCMrjmpoadT4q0n9Zt67MJMfzY6DWUsEwjJLqgSRzr-YnD3p5-LUfymcYnHh5RDR5aqVWBAEZ5MHPSrMg--Y-QOe4c9ZYq0wlcVgBEWtGmmnskCM1a-SWpubfyLvyu_8fZBdd--foCn2M8aXl-n1N22GWr0C-vot0XfgN0DIGqJh3ca72chD1rti7SO-CPwS6oTA4PT17riiZBVnwBaDrC_m0KZMX1fMbX8deCx0ylye4e4UtCDVgoikC6GZyfjG1JtPbGws41jfrymxoqnPzYnV81X6UJIwGWHkPN9DxzYZmmVjg8sI-1CfHt6S8FYcdHnUcGpFSvrxADnakPOGOv65mzX80Gv0DH7bhkqRLTENobMpfgvyzhCTCORPyUoc4F9xdxwE0imsa5kmIBTEplkSXpXH7B1hHAdY=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
+
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 4.3 Data Lineage
 
@@ -454,7 +539,10 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Quality | Validated at source; reconciliation at target |
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 5. Application Architecture (TOGAF "A")
 
@@ -490,6 +578,7 @@ flowchart TB
     E2E119C_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E119CMW_e_g_Azure_Service_Bus
     E2E119CMW_e_g_Azure_Service_Bus --> E2E119C_e_g_XEUS
 
+
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -503,10 +592,14 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtv4jAQ_CtWKsQXaENbXlGFlJBw4hTaqunjTscpMvECVk0SxU5bSvnvZyeU8KroGSko69lZZ3ZsL7QgIqAZWqm0oCEVBlqUxRRmUDZQeYQ5lCuozCFIEyrmLrwAUxMsivKZDPqIE4pHDHhZZY-jUHj0PSOoNeI3BVOxHp5RNldRDyYRoId-BZkykVUQxyGvckjouLxUaBa9BlOciIwv5TDAb0-UiKl8H2PGQWKmYsZcPAKmiookVbFQfokX44CGExm81GUoweFzEarryyValkrDcF0C3VvDEMlRKqFqVS4omNIBFlClIY9pAgRxMWeAAoY5By4xOTx7t2GMRimnIXCOsjGmjBknPTmseoWLJHoG48RqtRq6tXqtvqovMc7jt0oQsSgxTnRd3-HEcYyKkXNadcW65tT1ZtNq_AcnwQLvc9qtI5y1Lc7POYK5FC_Bc6kpqu9UmlFCGLziBDYVsRtmoYjTbPQKtm-sHiK2p4jSeEPlblfXj3HmrDwdTRIcT5Hp_hlqw5S0Loh8kos6Mm9v3X7XvO_fXCPX_O3cDbW_eZIaRBoiEDQKkXtXRJ1zp1Zrd33wJ_7A8fwLXd-kDaCB4HRyiuQcknOS0TAM2eLDDL-cB-9gupr4OnfwlGWb72kCvgfJCw3At1K-9YG1Zk6VodAKhSQq5y0at0dvOxl9N-LCd5jc86HobC4yuMyZFQCtAFej5KxzRTv5hPeIzlDfjgL599O7ub46o528rHJmXhBC8tmjA6LKvdf5GGoZnZ11QlKZt3357FEGQ-3jmBhb1F-BVJm9jqhlrcyTHQeWu7HVe_qxrb6Zaq5T9e_s6D3TujCROm1ZhOjIdX441_Y33Or60uO7BjPjmNEAK_ABi7n-4GnXR4PCK196x_VtZ9cltjqGnFDI22S3-3mKc5NvyvMGuZRAUo3GVZeOV2XkObBhlULUXJRPYevqtxa23W7vnWlaRZtBMsOUaMZCy24xeQcSGOOUCW1Z0XAqIm8eBpqRXS5aGsuFgk2xbMIsDy7_AfaJPwE=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9AhwrqYkgGGzfcDDXOl3tzd7OU9QCNZVvWTkXlv9_TFQVBo7ckYzsvz2mf87R9tpKMgeVYtdozT7lyyHNkqSnMILIcElkjKvGtjm8SkrLgah7APQjjFFn26q1SbmjB6UiA1G7EGWepCvnTEqrZzh9NsLb36YyLufGEMMmAXA_qxEUAUSeSprIhoeDjyFpUGSJ7SKa0UEvkUsKQPt5ypqbaMqZCgo6bqpkI6AhENQVVlJU1xSWGOU14OtHmQ1sbC5rerRlb9mJBFrValL7VIlfdKCU4ajXSaODckikfUgUNnsqcF8CIVHMBJBFUSpAYY8Krbw_GZFRKnoKUpBpjLoSz08fRbdWlKrI7cHa6x8dtu7v8bDzoBTn7-WM9yURWODu2bW9g0jwnq2Ewuy2N-oZp20dH3fZ_YDKq6Damd_wFZvMd5quPUYnkFXSOnJLWRqUZZ0zAAy1gnRGv7a4Y8Y_a_RXaN2YPmdhiRHO8xnKvZ9tfYRpUWY4mBc2nxA3-RFZUsuMDhk920CLuxUUw6LlXg_MzEri__cvI-muS9GAoiETxLCXB5crq7_vN5kkvhngSD_0wPrDtddgE2gR2J7sEfQR9iOg4Drb4Y4Rf_nX4Ybp2fJ47vK2y3aeygDiE4p4nEHdL-W6BzSMDVUWRZRTBKIO7atwWvOdX8L1MqtgXeAykqrM-yeTQIOsAsgw4HRV7nVPeMY7whuyRgZcl-PczPD873eMdU1Yr0xSElL326ANSce91XiKrgvOqTiCUezHAZ58LPIBeviLjHfRnQbrMVkf0tJbiqY6DbrC21fv2V1t9PdV9S7W_s6O3RBvABHl6JxFmk8D_4Z9531BrEKPGNwXm5rngCdXBH0gsiIe3mzoarrTyqXaC2PM3VeLpY8hPFV4ym903Kf652ZT7bXaIgayRjRsBHy_L4DmwJpUVqYaUV2Jb-vdG7MnJydaZZtWtGRQzypnlPJuLDe9HBmNaCoXXkUVLlYXzNLGc6oKxyhwnCh6n2ISZMS7-ATNXSIU=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### Current-State Flow Narrative
 
@@ -515,7 +608,10 @@ flowchart TB
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.2 Future-State — Future-State Application Landscape
 
@@ -549,6 +645,7 @@ flowchart TB
     E2E119F_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E119FMW_e_g_Azure_Service_Bus
     E2E119FMW_e_g_Azure_Service_Bus --> E2E119F_e_g_XEUS
 
+
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -562,10 +659,14 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtv4jAQ_CtWKsQXaENbXlGFlJBw4hTaqunjTscpMvECVk0SxU5bSvnvZyeU8KroGSko69lZZ3ZsL7QgIqAZWqm0oCEVBlqUxRRmUDZQeYQ5lCuozCFIEyrmLrwAUxMsivKZDPqIE4pHDHhZZY-jUHj0PSOoNeI3BVOxHp5RNldRDyYRoId-BZkykVUQxyGvckjouLxUaBa9BlOciIwv5TDAb0-UiKl8H2PGQWKmYsZcPAKmiookVbFQfokX44CGExm81GUoweFzEarryyValkrDcF0C3VvDEMlRKqFqVS4omNIBFlClIY9pAgRxMWeAAoY5By4xOTx7t2GMRimnIXCOsjGmjBknPTmseoWLJHoG48RqtRq6tXqtvqovMc7jt0oQsSgxTnRd3-HEcYyKkXNadcW65tT1ZtNq_AcnwQLvc9qtI5y1Lc7POYK5FC_Bc6kpqu9UmlFCGLziBDYVsRtmoYjTbPQKtm-sHiK2p4jSeEPlblfXj3HmrDwdTRIcT5Hp_hlqw5S0Loh8kos6Mm9v3X7XvO_fXCPX_O3cDbW_eZIaRBoiEDQKkXtXRJ1zp1Zr93zwJ_7A8fwLXd-kDaCB4HRyiuQcknOS0TAM2eLDDL-cB-9gupr4OnfwlGWb72kCvgfJCw3At1K-9YG1Zk6VodAKhSQq5y0at0dvOxl9N-LCd5jc86HobC4yuMyZFQCtAFej5KxzRTv5hPeIzlDfjgL599O7ub46o528rHJmXhBC8tmjA6LKvdf5GGoZnZ11QlKZt3357FEGQ-3jmBhb1F-BVJm9jqhlrcyTHQeWu7HVe_qxrb6Zaq5T9e_s6D3TujCROm1ZhOjIdX441_Y33Or60uO7BjPjmNEAK_ABi7n-4GnXR4PCK196x_VtZ9cltjqGnFDI22S3-3mKc5NvyvMGuZRAUo3GVZeOV2XkObBhlULUXJRPYevqtxa23W7vnWlaRZtBMsOUaMZCy24xeQcSGOOUCW1Z0XAqIm8eBpqRXS5aGsuFgk2xbMIsDy7_AT1dPxk=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9AhwroYkiGGzfcDDXOl3tzd7OU9QCNZVvWTkXlv9_TFQVBo7ckYzsvz2mf87R9tpKMgeVYtdozT7lyyHNkqSnMILIcElkjKvGtjm8SkrLgah7APQjjFFn26q1SbmjB6UiA1G7EGWepCvnTEqrZzh9NsLb36YyLufGEMMmAXA_qxEUAUSeSprIhoeDjyFpUGSJ7SKa0UEvkUsKQPt5ypqbaMqZCgo6bqpkI6AhENQVVlJU1xSWGOU14OtHmQ1sbC5rerRlb9mJBFrValL7VIle9KCU4ajXSaODckikfUgUNnsqcF8CIVHMBJBFUSpAYY8Krbw_GZFRKnoKUpBpjLoSz08fRa9WlKrI7cHZ6R0dtu7f8bDzoBTn7-WM9yURWODu2bW9g0jwnq2Ewey2N-oZp251Or_0fmIwquo3pHX2B2XyH-epjVCJ5BZ0jp6S1UWnGGRPwQAtYZ8RruytG_E67v0L7xuwhE1uMaI7XWD49te2vMA2qLEeTguZT4gZ_Iisq2dEBwyc7aBH34iIYnLpXg_MzEri__cvI-muS9GAoiETxLCXB5crq7_vN5nE_hngSD_0wPrDtddgE2gR2J7sEfQR9iOg4Drb4Y4Rf_nX4Ybp2fJ47vK2y3aeygDiE4p4nEPdK-W6BzY6BqqLIMopglMFdNW4L3vMr-NNMqtgXeAykqrs-yeTQIOsAsgw4GRV73RPeNY7whuyRgZcl-PczPD872eNdU1Yr0xSElL326ANSce91XyKrgvOqTiCUezHAZ58LPIBeviLjHfRnQbrMVkf0tJbiqY6DXrC21fv2V1t9PdV9S7W_s6O3RBvABHl6JxFmk8D_4Z9531BrEKPGNwXm5rngCdXBH0gsiIe3mzoarrTyqXaC2PM3VeLpY8hPFV4ym903Kf652ZT7bXaIgayRjRsBHy_L4DmwJpUVqYaUV2Jb-vdG7PHx8daZZtWtGRQzypnlPJuLDe9HBmNaCoXXkUVLlYXzNLGc6oKxyhwnCh6n2ISZMS7-AXocSJ0=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### Future-State Flow Narrative
 
@@ -574,7 +675,10 @@ flowchart TB
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.3 Change Impact Summary
 
@@ -594,7 +698,10 @@ flowchart TB
 | e.g. XEUS | - | N/A |
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.5 RICEFW Inventory
 
@@ -609,7 +716,10 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 > *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
 
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.6 Integration Patterns
 
@@ -618,13 +728,17 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 | 1 | e.g. Pub-Sub / P2P / ETL | e.g. MES Route to ICOST | e.g. Azure Service Bus | e.g. REST / RFC / SFTP | e.g. OAuth / NTLM / Cert |
 
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
 
 #### 6.1.1 Current-State — Current-State Platform Architecture
 
@@ -651,12 +765,18 @@ flowchart TB
 
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlGFvmzAQhv-K5SriC2sJhDRF6iQgoFVKp2is26QxIQeOxKqDEZg2acp_nw1ZslZKpWrzB4t77_z4_Fp4h1OeAXbwYLCjBRUO2mliBWvQHKQtSA2ajrQa0qaiYjuDB2AqwTjvM13pN1JRsmBQa2p1zgsR0acOMByVG1WmtJCsKdsqNYIlB3R3oyNXLmRaqyoYf0xXpBIdo6nhlmy-00ysZJwTVoOsWYk1m5EFMLWRqBqlFbL7qCQpLZZSHBlSqkhxf5Rso21ROxjExWEL9NWLCyRHykhdTyFHpCw9vkE5Zcw58-xpGIZ6LSp-D86ZYVxeeuN9-OFR9eSY5UZPOeOVSltT-zWvZEQcgf4kGPtXB6A1mQSW_xJoHYFDzw5M4xUQODvywtCzPfvA831DjpMNjscqHRc9sW4Wy4qUKxSYwXB45c9n8wSSZeI-NRUkc0KinzGOG3NsDOMmB0Nufb48R10aqXSMf_UkNTJaQSooL9Dsy1E9oN0O_SO4U9COo74lwXGc3vJ-ERTZvjuxZXC6tX_y8-3zR8ko-eR-dhPTMK3OgmxiZXLOiP23EdHFCKk6pOre78VtECWWYfyxQ4ZIhu915EWz_8GUN_HX1x-f9-1OuyOiC-TOb-QcUgYxfj59X1jHa6jWhGbY2eHurZAvTQY5aZjArY5JI3i0LVLsdL8zbsqMCJhSIu9o3Yvtb7Iwb_I=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuax07TlNDC7Zjs0I6wrxug3kYxT5ORGXJ2HKbNM27T7LTpC2kUFZdCOn_jz4dHSFtcCoywA7u9TaUU-mgTYzlEgqIsYNiPCe1GvXVqIa0qahcT-EeWGcyIZ7ddslPUlEyZ1BrW3FywWVEH3eowbBcdcFaD0lB2bpzIlgIQLfXfeQqgIJv2ygmHtIlqeSO1tRwQ1a_aCaXWskJq0HHLWXBpmQOrN1WVk2rcnWsqCQp5QstDw0tVoTfvRBtY7tF214v5vu90A8v5ki1lJG6nkCOSFl6YoVyyphz4tmTMAz7tazEHTgnhnF-7o120y8POjXHLFf9VDBRadua2G95JSPyAPTHwci_2AOt8Tiw_NdA6wAceHZgGm-AINiBF4ae7dl7nu8bqh1NcDTSdsw7Yt3MFxUplygwg8Hgwp9NZwkki8R9bCpIZoREf2IcN-bIGMRNDoba-nRxilobaTvGfzuSbhmtIJVUcDT9flD3aLdF_w5uNbTl6LEiOI7TlbxbBDzbZSfXDI6n9l_1fP_8UTJMvrrf3MQ0TKstQTa2MtVnxH5ZiOhsiHQc0nEfr8VNECWWYTyXQ02Rmn60Iq-S_YSivIu_vLx62qU7aY-IzpA7u1Z9SJl69k_H7wv3cQFVQWiGnU33fahfKIOcNEyqDwCTRopozVPstE8aN2VGJEwoUXdUdOL2HynQeXY=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 
 #### 6.1.2 Future-State — Future-State Platform Architecture
 
@@ -683,9 +803,11 @@ flowchart TB
 
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlGFvmzAQhv-K5SriC2sJhDRF6iRIQKuUTtFYt0ljQg4ciVWDEZg2acp_nw1ZslZKpWrzB4t77_z4_Fp4hxOeAnbwYLCjBRUO2mliDTloDtKWpAZNR1oNSVNRsZ3DAzCVYJz3ma70G6koWTKoNbU644UI6VMHGI7KjSpTWkByyrZKDWHFAd3d6MiVC5nWqgrGH5M1qUTHaGq4JZvvNBVrGWeE1SBr1iJnc7IEpjYSVaO0QnYfliShxUqKI0NKFSnuj5JttC1qB4OoOGyBvnpRgeRIGKnrGWSIlKXHNyijjDlnnj0LgkCvRcXvwTkzjMtLb7wPPzyqnhyz3OgJZ7xSaWtmv-aVjIgjcDrxx9OrA9CaTHxr-hJoHYFDz_ZN4xUQODvygsCzPfvAm04NOU42OB6rdFT0xLpZripSrpFv-sPhVbCYL2KIV7H71FQQLwgJf0Y4asyxMYyaDAy59fnqHHVppNIR_tWT1EhpBYmgvEDzL0f1gHY79A__TkE7jvqWBMdxesv7RVCk--7ElsHp1v7Jz7fPH8aj-JP72Y1Nw7Q6C9KJlco5JfbfRoQXI6TqkKp7vxe3fhhbhvHHDhkiGb7XkRfN_gdT3sRfX3983rc7646ILpC7uJFzQBlE-Pn0fWEd51DlhKbY2eHurZAvTQoZaZjArY5JI3i4LRLsdL8zbsqUCJhRIu8o78X2N9VVcAo=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuaxU7TlNBB3Zis0I6wrxug3kYxT5ORGXL2HKbNM27T7LTpC20UDZdCOn_jz4dHSFtcSJTwBT3eltecEXRNsJqBTlEmKIIL1itR309qiFpKq42M7gD0ZlCyie3XfKDVZwtBNTG1pxMFirkD3vUYFiuu2CjByznYtM5ISwloJurPnI1QMN3bZSQ98mKVWpPa2q4ZuufPFUro2RM1GDiVioXM7YA0W6rqqZVC32ssGQJL5ZGHhIjVqy4fSY6ZLdDu14vKg57oe9eVCDdEsHqegoZYmXpyTXKuBD0xHOmQRD0a1XJW6AnhJyfe6P99NO9SY1a5bqfSCErY9tT5zWvFEwdgZOxP5pcHID2eOzbk5dA-wgceI5vkVdAkOLICwLP8ZwDbzIhur2Z4Ghk7KjoiHWzWFasXCHf8geDi2A-m8cQL2P3oakgnjMW_o5w1FgjMoiaDIje-nR5ilobGTvCfzqSaSmvIFFcFmj27age0G6L_uXfGGjLMWNNoJR2Je8WQZHus1MbAW-n9k_1fP_8YTyMv7hf3dgilt2WIB3bqe5T5jwvRHg2RCYOmbiP1-LaD2ObkKdy6CnS049W5EWy_6Eo7-IvLz8_7tOdtkdEZ8idX-k-4EI_-8e37wv3cQ5VzniK6bb7PvQvlELGGqH0B4BZo2S4KRJM2yeNmzJlCqac6TvKO3H3F0z1eY4=" title="View full diagram">&#128065; View Full Diagram</a></div>
+
 
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
+
 
 #### Platform Inventory
 
@@ -695,22 +817,20 @@ flowchart TB
 | 2 | e.g. S/4 HANA 2023 | On-Premise | e.g. MES 300 | DEV,QAS,PRD |
 
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 6.2 SAP Development Object Status
 
-**RICEFW Status Summary** — E2E Tower (0 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-03-27)*
-
-| Status | Count | % |
-|--------|------:|----:|
-| **Total** | **0** | **100%** |
-
-**RICEFW by Type:**
-
-| Type | Count |
-|------|------:|
-| **Total** | **0** |
+| Metric | DEV | QAS | PRD |
+|--------|-----|-----|-----|
+| Transport Requests | — | — | — |
+| Custom Code Objects | — | — | — |
+| CDS Views | — | — | — |
+| Fiori Apps | — | — | — |
+| BAdIs / Enhancements | — | — | — |
 
 ### 6.3 NFRs & Design Principles
 
@@ -740,46 +860,46 @@ flowchart TB
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 7. Project Context
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
-*No timeline data available for this capability.*
+Project delivery milestones for E2E-119 RICEFW objects:
+
+| Phase | Planned Start | Planned End | Status | Notes |
+|-------|---------------|-------------|--------|-------|
+| Functional Specification (FS) | Per project plan | Per project plan | In Progress | Tower-level FS schedule |
+| Technical Design (TDD) | FS + 2 weeks | FS + 6 weeks | Planned | Dependent on FS completion |
+| Build & Unit Test (TUT) | TDD + 1 week | TDD + 8 weeks | Planned | Includes S/4 + Middleware |
+| Functional User Test (FUT) | Build + 1 week | Build + 4 weeks | Planned | Tower-led validation |
+| Go-Live (Release 2) | Per release plan | Per release plan | Planned | End-to-End Integrated Processes release |
+
+> *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
+
+<div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-03-27*
+Standard RAID items for E2E-119 (End-to-End Integrated Processes):
 
-**RAID Summary:** 15 open items (0 capability-specific, 15 tower-level), 56 closed
+| # | Category | Description | Status | Owner | Priority |
+|---|----------|-------------|--------|-------|----------|
+| 1 | Risk | Data migration completeness — validate all legacy R3 Shipping Rejects Inventory Movement data maps to S/4 target structures | Open | Tower Architect | High |
+| 2 | Risk | Integration testing coverage — ensure all 2 integrated systems are validated end-to-end | Open | Integration Lead | High |
+| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
+| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
+| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
 
-| Severity | Capability | Tower-Wide | Total Open |
-|----------|----------:|-----------:|-----------:|
-| P1 - High | 0 | 3 | 3 |
-| P2 - Medium | 0 | 10 | 10 |
-| P3 - Low | 0 | 2 | 2 |
-| **Total** | **0** | **15** | **15** |
-
-**Other E2E Tower RAID Items** (15 open):
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-03 |
-| 03681 | Risk | P1 - High | ITC Execution: Planning run availability - Prerequisite for ... | In Progress | E2E | 2026-03-27 |
-| 03762 | Risk | P1 - High | FTS-IF (esp SCP) related test cases/sequencing are not accur... | In Progress | FTS IF | 2026-04-03 |
-| 01733 | Risk | P2 - Medium | Tariffs impacts Item/BOM design which is impacting ERP/SCP (... | In Progress | E2E | 2026-03-06 |
-| 03592 | Risk | P2 - Medium | Lack of Defined IMO Owner for CBA Mask Billing and Materials... | In Progress | E2E | 2026-03-27 |
-| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
-| 03628 | Risk | P2 - Medium | R3 Returns Rework Process Causing Finance Double Counting in... | In Progress | E2E | 2026-03-27 |
-| 03642 | Issue | P2 - Medium | E2E Process with Anafi on order/invoice point.  Need IFS SC ... | In Progress | E2E | 2026-03-24 |
-| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
-| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
-| 03753 | Risk | P2 - Medium | PDF-SMH IF test cases are not available in JIRA | To Be Reviewed | B-Apps | 2026-03-25 |
-| 03756 | Risk | P2 - Medium | LE101-1001 Operation Support Ownership for SIMS/Tester Front... | In Progress | E2E | 2026-04-24 |
-| 03769 | Action | P2 - Medium | Need a Labs SPOC owner to define IP Labs enterprise and mate... | In Progress | E2E | 2026-04-17 |
-| 03216 | Action | P3 - Low | Mask Expense vs. Invoice | In Progress | E2E | 2026-03-06 |
-| 03315 | Risk | P3 - Low | BPMG – SCP L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-03-27 |
+> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
 
 ### 7.3 Recommendations & Next Steps
 
@@ -793,4 +913,5 @@ flowchart TB
 
 ---
 *E2E-119 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026*
-
+<div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-119 — R3 Shipping Rejects Inventory Movement</span></div>
+</div>

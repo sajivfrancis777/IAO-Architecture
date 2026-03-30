@@ -1,9 +1,10 @@
+<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
-  <h1 style="font-size:36px; margin-top:24px;">DS-010 — DS-010</h1>
+  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <h1 style="font-size:36px; margin-top:24px;">DS-010 — Perform Overhead Accounting and Allocation</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Finance Plan To Report (FPR) Tower<br/>
-  Capability DS-010 · </p>
+  Capability DS-010 · DS Provide Decision Support</p>
   <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
   Generated: March 2026<br/>
   Sajiv Francis</p>
@@ -19,7 +20,14 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
+.page-section {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 40px);
+  box-sizing: border-box;
+}
 .page-footer {
+  margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid #ddd;
   display: flex;
@@ -27,81 +35,121 @@
   align-items: center;
   font-size: 11px;
   color: #888;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 20px;
+  padding: 6px 12px;
   background: #fff;
 }
 @media print {
-  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+  .page-section {
+    min-height: 100vh;
+  }
+  .page-footer {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
 .page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
 </style>
 
-<div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — DS-010</span></div>
+<div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 <a id="toc"></a>
 
 ## Table of Contents
 
-1. [Executive Summary](#1-executive-summary)
-2. [Business Context & Objectives](#2-business-context--objectives)
-   - 2.1 [Classification](#21-classification)
-   - 2.2 [Business Drivers](#22-business-drivers)
-   - 2.3 [Success Criteria](#23-success-criteria)
-   - 2.4 [Companion Documents](#24-companion-documents)
-3. [Business Architecture (TOGAF "B")](#3-business-architecture-togaf-b)
-   - 3.1 [Business Process Overview](#31-business-process-overview)
-   - 3.2 [Business Process Diagrams](#32-business-process-diagrams)
-   - 3.3 [Business Roles & Responsibilities](#33-business-roles--responsibilities)
-4. [Data Architecture (TOGAF "D")](#4-data-architecture-togaf-d)
-   - 4.1 [Data Entities & Ownership](#41-data-entities--ownership)
-   - 4.2 [Data Flow Diagrams](#42-data-flow-diagrams)
-   - 4.3 [Data Lineage](#43-data-lineage)
-   - 4.4 [RICEFW Data Objects](#44-ricefw-data-objects)
-   - 4.5 [Data Governance & Quality](#45-data-governance--quality)
-5. [Application Architecture (TOGAF "A")](#5-application-architecture-togaf-a)
-   - 5.1 [Current-State Application Landscape](#51-current-state--current-state-application-landscape)
-   - 5.2 [Future-State Application Landscape](#52-future-state--future-state-application-landscape)
-   - 5.3 [Change Impact Summary](#53-change-impact-summary)
-   - 5.4 [Component Overview](#54-component-overview)
-   - 5.5 [RICEFW Inventory](#55-ricefw-inventory)
-   - 5.6 [Integration Patterns](#56-integration-patterns)
-6. [Technology Architecture (TOGAF "T")](#6-technology-architecture-togaf-t)
-   - 6.1 [Platform & Infrastructure](#61-platform--infrastructure)
-   - 6.2 [SAP Development Object Status](#62-sap-development-object-status)
-   - 6.3 [NFRs & Design Principles](#63-nfrs--design-principles)
-   - 6.4 [Security & Governance](#64-security--governance)
-7. [Project Context](#7-project-context)
-   - 7.1 [Project Roadmap & Go-Live Plan](#71-project-roadmap--go-live-plan)
-   - 7.2 [RAID Log](#72-raid-log)
-   - 7.3 [Recommendations & Next Steps](#73-recommendations--next-steps)
+<nav class="toc">
+<ol>
+  <li><a href="#1-executive-summary">1. Executive Summary</a></li>
+  <li><a href="#2-business-context-objectives">2. Business Context &amp; Objectives</a>
+    <ul>
+      <li><a href="#21-classification">2.1 Classification</a></li>
+      <li><a href="#22-business-drivers">2.2 Business Drivers</a></li>
+      <li><a href="#23-success-criteria">2.3 Success Criteria</a></li>
+      <li><a href="#24-companion-documents">2.4 Companion Documents</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-business-architecture-togaf-b">3. Business Architecture (TOGAF &ldquo;B&rdquo;)</a>
+    <ul>
+      <li><a href="#31-business-process-overview">3.1 Business Process Overview</a></li>
+      <li><a href="#32-business-process-diagrams">3.2 Business Process Diagrams</a></li>
+      <li><a href="#33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
+    <ul>
+      <li><a href="#41-data-entities-ownership">4.1 Data Entities &amp; Ownership</a></li>
+      <li><a href="#42-data-flow-diagrams">4.2 Data Flow Diagrams</a></li>
+      <li><a href="#43-data-lineage">4.3 Data Lineage</a></li>
+      <li><a href="#44-ricefw-data-objects">4.4 RICEFW Data Objects</a></li>
+      <li><a href="#45-data-governance-quality">4.5 Data Governance &amp; Quality</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
+    <ul>
+      <li><a href="#51-current-state-current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
+      <li><a href="#52-future-state-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
+      <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
+      <li><a href="#54-component-overview">5.4 Component Overview</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
+    <ul>
+      <li><a href="#61-platform-infrastructure">6.1 Platform &amp; Infrastructure</a></li>
+      <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
+      <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
+      <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+    </ul>
+  </li>
+  <li><a href="#7-project-context">7. Project Context</a>
+    <ul>
+      <li><a href="#71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</a></li>
+      <li><a href="#72-raid-log">7.2 RAID Log</a></li>
+      <li><a href="#73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</a></li>
+    </ul>
+  </li>
+</ol>
+</nav>
 
-<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — DS-010</span></div>
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 1. Executive Summary
 
-This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **DS-010 DS-010** within the IAO program. It includes 4 BPMN process diagram(s) in Section 3.
+This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **DS-010 Perform Overhead Accounting and Allocation** within the IAO program. It includes 4 BPMN process diagram(s) in Section 3.
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Finance Plan To Report (FPR) |
-| **Process Group** |  |
-| **Capability** | DS-010 - DS-010 |
+| **Process Group** | DS Provide Decision Support |
+| **Capability** | DS-010 - Perform Overhead Accounting and Allocation |
 | **Release** | Release 3 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 17 Reports, 86 Interfaces, 25 Conversions, 219 Enhancements, 1 Forms, 18 Workflows |
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
-> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: "loose"` for click events.
+> All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
-<div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — DS-010</span></div>
+<div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 2. Business Context & Objectives
 
@@ -110,8 +158,8 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | Level | Value |
 |-------|-------|
 | **L0 Tower** | Finance Plan To Report |
-| **L1 Process** |  |
-| **L2 Capability** | DS-010 - DS-010 |
+| **L1 Process** | DS Provide Decision Support |
+| **L2 Capability** | DS-010 - Perform Overhead Accounting and Allocation |
 
 ### 2.2 Business Drivers
 
@@ -122,8 +170,11 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Regulatory Compliance Readiness | Ensure SOX compliance and audit trail continuity through the ERP transition period | Intel Corporate Compliance | Medium |
 | 4 | DS-010 Process Migration | Migrate DS-010 business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Finance | High |
 
-<div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — DS-010</span></div>
+<div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 2.3 Success Criteria
 
@@ -141,14 +192,17 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
-<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — DS-010</span></div>
+<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 3. Business Architecture (TOGAF "B")
 
 ### 3.1 Business Process Overview
 
-This capability includes **4 business process(es)** modeled in BPMN 2.0, covering the end-to-end workflow for DS-010 DS-010.
+This capability includes **4 business process(es)** modeled in BPMN 2.0, covering the end-to-end workflow for DS-010 Perform Overhead Accounting and Allocation.
 
 | # | Step ID | Process Name | Lanes | Tasks | Gateways |
 |---|---------|--------------|-------|-------|----------|
@@ -157,10 +211,14 @@ This capability includes **4 business process(es)** modeled in BPMN 2.0, coverin
 | 3 | DS-010-050_Transfer_Primary_Periodic_Costs | DS-010-050_Transfer_Primary_Periodic_Costs | Cost Accountant | 5 | 7 |
 | 4 | DS-010-100_Update_Statistical_Key_figures | DS-010-100_Update_Statistical_Key_figures | Cost Accountant | 6 | 1 |
 
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 ### 3.2 Business Process Diagrams
 
-<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — DS-010</span></div>
-<div style="page-break-before: always;"></div>
 
 #### BUSINESS ARCHITECTURE — 3.2.1 DS-010-010_Create_and_Maintain_Master_Data — DS-010-010_Create_and_Maintain_Master_Data
 
@@ -169,7 +227,7 @@ This capability includes **4 business process(es)** modeled in BPMN 2.0, coverin
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -242,10 +300,14 @@ flowchart TD
     class n17 subProc
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4jgU_StWqopWCpo4H4TmYSUaSLfaGe1qmJ15mK5WbnID3ho7sp22LOK_rwMJkDR0VrtIEO7xPedcXztxNlYqMrAi6_JyQznVEdoM9BJWMIjQ4JEoGNhoD3wlkpJHBmpQ5eSC6zn9e5eG_eK1SquwhKwoW1foHBYC0O_3NpoYIrORIlwNFUiaD-xBIemKyHUsmJBV9gWMcyffudVDt0JmII8JjhPiNDBURjkcYS_0Qz-peApSwbOWaB7k4zwdbKvimHhJl0TqXfmlgk_k9RvN9NLEOWEKTM5Sr9hH8gismqOWZYWlpXxumkFV5cNNw-YFSSlfGNx3DCQJfzpCgbPdou3l5QM_mKIv0weOzCdlRKkp5EhpA8-eNcopY9GFH0-SwLGVluIJogt3Fk49106rmURm6o5dNXf4AnSx1NGjYFmdOnyp5hC5xastXyPXseXa_Ha8gGdHp3jkjt3xwek2xDGOG6c8z_-Xk-mr_ELUU-018xI3mR68cDAKYuetXjPNqR9OcLdPIJ9pCieiSZJ4s2OrZqMAO-dFbxNv5MQd0QXR8ELWR8Gb2D8IJkGY4PCs4N6vW2X5-JsUaSPozYIkOAiGtziZuGcF_Qn2x3WFRmchSbFEsVAaTdJUlFwTrtEQ_foMcgkk2ydWH46_P1g5iXIyrPqO7jPgmuZrNGFMpEQLia7mZu1BXiPCswYGUOjqM6RAjeL1g_XHiaJ7dZAsmGlQLIFoKviO_4lQroETngISuQmVNq5Togm6N48OaqQzI3d9oucd9ZQWxb_Wi8WqYPBWz99sGj0ipXhRQ8I0KogkjAG72y_rg7XdnnCC_8AZfT_UnZtbAORQFMD35ZuHWpFVl90axabnIE2Zp20M36N_qOlmw-T0jMD4Xf96X6gO6eYMaUn4AtDdh4_niNjpZ9aFnixMl4j7ibuVNd_GEN1JURZvbN13befabBWlaUoY-gWqm3VRSngj4r3bKtPkvyDV6GcKksh0uUZXDTQ3T_hUG8nrrqTfL_lndYuDUuibkE_1ur0pJ_gB97MotTkmurTRD2jmmplqq1vnq3E1167CmT13j5KS74imjRPTlCPPPBr2f7iPhsOfzLZth7iJw30c1CHuxEGd3gzvQ68j1sTYa7Pr8VEdjnpHMe7ETju-aYfjOhy3xW4683A6Me73dptxtz1eh34nvRt35ZqZYr9jH3Tidit2Z03V3eaMbcHu4YWiBXv12d8C_eb8a6FBLzpqjrYWGvai4170phc1ve-FcT_s9sNeP-z3w0E_3D9FfJijZVsrkCtCMyvaWLt3YfO-nEFOSqatrW2RUov5mqdWtHtntMrd82tKiTnKV3tw-w-kZosk" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4jgU_StWqopWCpo4H4TmYSUaSLfaGe1qmJ15mK5WbnID3ho7sp22LOK_rwMJkDR0VrtIEO7xPedcXztxNlYqMrAi6_JyQznVEdoM9BJWMIjQ4JEoGNhoD3wlkpJHBmpQ5eSC6zn9e5eG_eK1SquwhKwoW1foHBYC0O_3NpoYIrORIlwNFUiaD-xBIemKyHUsmJBV9gWMcyffudVDt0JmII8JjhPiNDBURjkcYS_0Qz-peApSwbOWaB7k4zwdbKvimHhJl0TqXfmlgk_k9RvN9NLEOWEKTM5Sr9hH8gismqOWZYWlpXxumkFV5cNNw-YFSSlfGNx3DCQJfzpCgbPdou3l5QM_mKIv0weOzCdlRKkp5EhpA8-eNcopY9GFH0-SwLGVluIJogt3Fk49106rmURm6o5dNXf4AnSx1NGjYFmdOnyp5hC5xastXyPXseXa_Ha8gGdHp3jkjt3xwek2xDGOG6c8z_-Xk-mr_ELUU-018xI3mR68cDAKYuetXjPNqR9OcLdPIJ9pCieiSZJ4s2OrZqMAO-dFbxNv5MQd0QXR8ELWR8Gb2D8IJkGY4PCs4N6vW2X5-JsUaSPozYIkOAiGtziZuGcF_Qn2x3WFRmchSbFEsVAaTdJUlFwTrtEQ_foMcgkk2ydWH46_P1g5iXIyrPqO7jPgmuZrNGFMpEQLia7mZu1BXiPCswYGUOjqM6RAjeL1g_XHiaJ7dZAsmGlQLIFoKviO_4lQroETngISuQmVNq5Togm6N48OaqQzI3d9oucd9ZQWxb_Wi8WqYPBWz99sGj0ipXhRQ8I0KogkjAG72y_rg7XdnnCC_8AZfT_UnZtbAORQFMD35ZuHWpFVl90axabnIE2Zp20M36N_qOlmw-T0jMD4Xf96X6gO6eYMaUn4AtDdh4_niNjpZ9aFnixMl4j7ibuVNd_GEN1JURZvbN13befabBWlaUoY-gWqm3VRSngj4r3bKtPkvyDV6GcKksh0uUZXDTQ3T_hUG8nrrqTfL_lndYuDUuibkE_1ur0pJ_gB97MotTkmurTRD2jmmplqq1vnq3E1167CmT13j5KS74imjRPTlCPPPBr2f7iPhsOfzLZth7iJw30c1CHuxEGd3gzvQ68j1sTYa7Pr8VEdjnpHMe7ETju-aYfjOhy3xW4683A6Me73dptxtz1eh34nvRt35ZqZYr9jH3Tidit2Z03V3eaMbcHu4YWiBXv12d8C_eb8a6FBLzpqjrYWGvai4170phc1ve-FcT_s9sNeP-z3w0E_3D9FfJijZVsrkCtCMyvaWLt3YfO-nEFOSqatrW2RUov5mqdWtHtntMrd82tKiTnKV3tw-w-kZosk" title="View full diagram">&#128065; View Full Diagram</a></div>
 
-<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — DS-010</span></div>
+
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.2 DS-010-020_Post_Primary_Actual_Cost_to_Cost_Centers — DS-010-020_Post_Primary_Actual_Cost_to_Cost_Centers
 
@@ -254,7 +316,7 @@ flowchart TD
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -300,10 +362,14 @@ flowchart TD
     class n11 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVtuO4jgQ_RUrrRbdUtDkSiAPK0Ego5F2dlqid-Zh2AeTOI3Vjh05TgOL-PctkwRIBlZabR4QdVzn1MVUhYORiJQYofH4eKCcqhAdBmpDcjII0WCNSzIwUQ18x5LiNSPlQPtkgqsl_fvkZnvFTrtpLMY5ZXuNLsmbIOjPLyaaApGZqMS8HJZE0mxgDgpJcyz3kWBCau8HMs6s7BStOZoJmRJ5cbCswE58oDLKyQV2Ay_wYs0rSSJ42hHN_GycJYOjTo6JbbLBUp3Sr0ryFe9-0FRtwM4wKwn4bFTOfsdrwnSNSlYaSyr50TaDljoOh4YtC5xQ_ga4ZwEkMX-_QL51PKLj4-OKn4Oi1_mKI3gShstyTjJUKoAXHwpllLHwwYumsW-ZpZLinYQPziKYu46Z6EpCKN0ydXOHW0LfNipcC5Y2rsOtriF0ip0pd6FjmXIPn71YhKeXSNHIGTvjc6RZYEd21EbKsux_RYK-yldcvjexFm7sxPNzLNsf-ZH1q15b5twLpna_T0R-0IRcicZx7C4urVqMfNu6LzqL3ZEV9UTfsCJbvL8ITiLvLBj7QWwHdwXreP0sq_WLFEkr6C782D8LBjM7njp3Bb2p7Y2bDEHnTeJigyJRKjRNElFxhbmqT_XD7Z8rI8Nhhoe62ehFO-rYlYQh5apmPs0q9m6iCAaXJvDrRpin6DOMc_m8Mv66UnNuqM0qmDyOFruCcGB0Ce4NwpwUkiQUKyru0bwubcqYSOASkBLoW_RtiX7Mlp-gioxCAVAFkZ9eNPxKkg36AwauLqs-6kn7T2ftgsGlvtT7A7qnKsxqok4ThhN9gRUHeZIUJJ6vNEYXjVKJ4l81IpEXjPyqEYCE9iGprkqnKltqnTd6asoWsncL4y5V5Dk08mkJm4Okz9cSXdqkQ-vcwl2ObR0ObalYSrEth5gpVGBIlhH2uZ6MlXE8XpPs_0aChVN_4T4aDn_TURvbthqgZzs9223t2gwa06nNcWOOG7FWza3tSWMGveNJz7Ybda-xvdocXQ23zqBdah3YuQ27t2HvNuyfXwMdeNRs7A4Y3PYd34Ynt2Fob7P7urDdwoZp5ETmmKZGeDBOL374c5CSDFdMGUfTwJUSyz1PjPD0gjSqIgXmnGLYW3kNHv8BPW6hnA==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVtuO4jgQ_RUrrRbdUtDkSiAPK0Ego5F2dlqid-Zh2AeTOI3Vjh05TgOL-PctkwRIBlZabR4QdVzn1MVUhYORiJQYofH4eKCcqhAdBmpDcjII0WCNSzIwUQ18x5LiNSPlQPtkgqsl_fvkZnvFTrtpLMY5ZXuNLsmbIOjPLyaaApGZqMS8HJZE0mxgDgpJcyz3kWBCau8HMs6s7BStOZoJmRJ5cbCswE58oDLKyQV2Ay_wYs0rSSJ42hHN_GycJYOjTo6JbbLBUp3Sr0ryFe9-0FRtwM4wKwn4bFTOfsdrwnSNSlYaSyr50TaDljoOh4YtC5xQ_ga4ZwEkMX-_QL51PKLj4-OKn4Oi1_mKI3gShstyTjJUKoAXHwpllLHwwYumsW-ZpZLinYQPziKYu46Z6EpCKN0ydXOHW0LfNipcC5Y2rsOtriF0ip0pd6FjmXIPn71YhKeXSNHIGTvjc6RZYEd21EbKsux_RYK-yldcvjexFm7sxPNzLNsf-ZH1q15b5twLpna_T0R-0IRcicZx7C4urVqMfNu6LzqL3ZEV9UTfsCJbvL8ITiLvLBj7QWwHdwXreP0sq_WLFEkr6C782D8LBjM7njp3Bb2p7Y2bDEHnTeJigyJRKjRNElFxhbmqT_XD7Z8rI8Nhhoe62ehFO-rYlYQh5apmPs0q9m6iCAaXJvDrRpin6DOMc_m8Mv66UnNuqM0qmDyOFruCcGB0Ce4NwpwUkiQUKyru0bwubcqYSOASkBLoW_RtiX7Mlp-gioxCAVAFkZ9eNPxKkg36AwauLqs-6kn7T2ftgsGlvtT7A7qnKsxqok4ThhN9gRUHeZIUJJ6vNEYXjVKJ4l81IpEXjPyqEYCE9iGprkqnKltqnTd6asoWsncL4y5V5Dk08mkJm4Okz9cSXdqkQ-vcwl2ObR0ObalYSrEth5gpVGBIlhH2uZ6MlXE8XpPs_0aChVN_4T4aDn_TURvbthqgZzs9223t2gwa06nNcWOOG7FWza3tSWMGveNJz7Ybda-xvdocXQ23zqBdah3YuQ27t2HvNuyfXwMdeNRs7A4Y3PYd34Ynt2Fob7P7urDdwoZp5ETmmKZGeDBOL374c5CSDFdMGUfTwJUSyz1PjPD0gjSqIgXmnGLYW3kNHv8BPW6hnA==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
-<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — DS-010</span></div>
+
+<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.3 DS-010-050_Transfer_Primary_Periodic_Costs — DS-010-050_Transfer_Primary_Periodic_Costs
 
@@ -312,7 +378,7 @@ flowchart TD
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -370,10 +436,14 @@ flowchart TD
     class n14 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVtuu4jYU_RUrR0fMSEGNcyGQh0oQyGikqYTEaeeh9MEkNljH2JFtDlDEv9chFwgTpirNA2It77X2hbCTk5WKDFuR9fp6opzqCJx6eoO3uBeB3gop3LNBSfyBJEUrhlWviCGC6wX9-xIG_fxQhBVcgraUHQt2gdcCg9-_2mBshMwGCnHVV1hS0rN7uaRbJI-xYEIW0S94SBxyyVYdTYTMsLwGOE4I08BIGeX4SnuhH_pJoVM4FTxrmZKADEnaOxfFMbFPN0jqS_k7hX9Dh-800xuDCWIKm5iN3rJvaIVZ0aOWu4JLd_KjHgZVRR5uBrbIUUr52vC-YyiJ-PuVCpzzGZxfX5e8SQrepksOzJUypNQUE6C0oWcfGhDKWPTix-MkcGylpXjH0Ys7C6eea6dFJ5Fp3bGL4fb3mK43OloJllWh_X3RQ-TmB1seItex5dF83uXCPLtmigfu0B02mSYhjGFcZyKE_K9MZq7yDan3KtfMS9xk2uSCwSCInR_96janfjiG93PC8oOm-MY0SRJvdh3VbBBA57HpJPEGTnxnukYa79HxajiK_cYwCcIEhg8Ny3z3Ve5WcynS2tCbBUnQGIYTmIzdh4b-GPrDqkLjs5Yo34BYKA3GaSp2XCOuy9Pi4vDPpUVQRFC_GDYYMyZS0w6I59--gERefjcwO-SYK6yW1l83Uvdn0u9I4o0wBw_E3s_Ec4Y4N3c_QDwDC40IAZ_GWUY1FRyxz20n_4GTFmXbMeYaS_WLmSihDQQTs40yIDgw6wgsxE6muO0bPPZtW7Vlg0-NLmfmppiX-wfMzaoSGU0vRSnwZv7kihSFfDV7khrjzPh8vjEKr0ZKi_zfjWKxzRn-0Wh4OtVGSEqxV33ENMiRRIxh9qW8eZfW-XyjGT2hgc4zIviMyH1G5D0j8v-byOzG8gsfgH7_VzP8Cg5LCNvQqyCsTqtFwN0K1-Fehd0Kj0oc1PLq3K-xX-Kwxk6JRxWujmEdH9zhqjr3Tg6bcuE94T4gRneK0c2mK9quN3yLdrtpr5v2u-mgmx40j8oWHVZPtRY5rDd7ix11smZGnTTspt1u2uum_Zq2bGuL5RbRzIpO1uVFyrxsZZigHdPW2bbQTovFkadWdHnhsHZ5ZpRTisxzYFuS538A9T4KFA==" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVtuu4jYU_RUrR0fMSEGNcyGQh0oQyGikqYTEaeeh9MEkNljH2JFtDlDEv9chFwgTpirNA2It77X2hbCTk5WKDFuR9fp6opzqCJx6eoO3uBeB3gop3LNBSfyBJEUrhlWviCGC6wX9-xIG_fxQhBVcgraUHQt2gdcCg9-_2mBshMwGCnHVV1hS0rN7uaRbJI-xYEIW0S94SBxyyVYdTYTMsLwGOE4I08BIGeX4SnuhH_pJoVM4FTxrmZKADEnaOxfFMbFPN0jqS_k7hX9Dh-800xuDCWIKm5iN3rJvaIVZ0aOWu4JLd_KjHgZVRR5uBrbIUUr52vC-YyiJ-PuVCpzzGZxfX5e8SQrepksOzJUypNQUE6C0oWcfGhDKWPTix-MkcGylpXjH0Ys7C6eea6dFJ5Fp3bGL4fb3mK43OloJllWh_X3RQ-TmB1seItex5dF83uXCPLtmigfu0B02mSYhjGFcZyKE_K9MZq7yDan3KtfMS9xk2uSCwSCInR_96janfjiG93PC8oOm-MY0SRJvdh3VbBBA57HpJPEGTnxnukYa79HxajiK_cYwCcIEhg8Ny3z3Ve5WcynS2tCbBUnQGIYTmIzdh4b-GPrDqkLjs5Yo34BYKA3GaSp2XCOuy9Pi4vDPpUVQRFC_GDYYMyZS0w6I59--gERefjcwO-SYK6yW1l83Uvdn0u9I4o0wBw_E3s_Ec4Y4N3c_QDwDC40IAZ_GWUY1FRyxz20n_4GTFmXbMeYaS_WLmSihDQQTs40yIDgw6wgsxE6muO0bPPZtW7Vlg0-NLmfmppiX-wfMzaoSGU0vRSnwZv7kihSFfDV7khrjzPh8vjEKr0ZKi_zfjWKxzRn-0Wh4OtVGSEqxV33ENMiRRIxh9qW8eZfW-XyjGT2hgc4zIviMyH1G5D0j8v-byOzG8gsfgH7_VzP8Cg5LCNvQqyCsTqtFwN0K1-Fehd0Kj0oc1PLq3K-xX-Kwxk6JRxWujmEdH9zhqjr3Tg6bcuE94T4gRneK0c2mK9quN3yLdrtpr5v2u-mgmx40j8oWHVZPtRY5rDd7ix11smZGnTTspt1u2uum_Zq2bGuL5RbRzIpO1uVFyrxsZZigHdPW2bbQTovFkadWdHnhsHZ5ZpRTisxzYFuS538A9T4KFA==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
-<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — DS-010</span></div>
+
+<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 #### BUSINESS ARCHITECTURE — 3.2.4 DS-010-100_Update_Statistical_Key_figures — DS-010-100_Update_Statistical_Key_figures
 
@@ -382,7 +452,7 @@ flowchart TD
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial, sans-serif","primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5","lineColor": "#37474F", "secondaryColor": "#f5f8fc"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif','primaryColor': '#e8f0fe', 'primaryBorderColor': '#0071c5','lineColor': '#37474F', 'secondaryColor': '#f5f8fc'}, 'flowchart': {'useMaxWidth': false, 'htmlLabels': true, 'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 50}} }%%
 flowchart TD
     classDef startEvt fill:#4CAF50,stroke:#2E7D32,color:#000,font-weight:bold,stroke-width:2px,rx:20,ry:20
     classDef endEvt fill:#C62828,stroke:#B71C1C,color:#fff,font-weight:bold,stroke-width:2px,rx:20,ry:20
@@ -423,10 +493,15 @@ flowchart TD
     class n10 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlV1v2jAUhv-Klapik4KUT0JzMQkC2dA6rRrtdjF2YRIbrBo7sp0CQ_z32SRAQ6Gq1OUCcd6c85wP2ScbK-M5smLr-npDGFEx2LTUHC1QKwatKZSoZYNK-AkFgVOKZMv4YM7UmPzdublBsTJuRkvhgtC1UcdoxhF4GNmgpwOpDSRksi2RILhltwpBFlCsE065MN5XqIsdvMtWv-pzkSNxdHCcyM1CHUoJQ0fZj4IoSE2cRBlneQOKQ9zFWWtriqN8mc2hULvyS4m-wdUvkqu5tjGkEmmfuVrQWzhF1PSoRGm0rBRP-2EQafIwPbBxATPCZloPHC0JyB6PUuhst2B7fT1hh6TgfjBhQD8ZhVIOEAZSaXn4pAAmlMZXQdJLQ8eWSvBHFF95w2jge3ZmOol1645thtteIjKbq3jKaV67tpemh9grVrZYxZ5ji7X-PcmFWH7MlHS8rtc9ZOpHbuIm-0wY43dl0nMV91A-1rmGfuqlg0MuN-yEifOSt29zEEQ993ROSDyRDD2DpmnqD4-jGnZC17kM7ad-x0lOoDOo0BKuj8CbJDgA0zBK3egisMp3WmU5vRM82wP9YZiGB2DUd9OedxEY9NygW1eoOTMBizlIuFSgl2W8ZAoyVb01D3N_TywMYwzbZtigRynPdDvgyw_QRwxhoiR4kPokgi8I5hqkCRPrzzOC1ySM7kAbJLBQpWhQmkH-hbSKg1EKbr_3q5ITxBQSzdDgldC710PDk1LTt5TaefeEog8HREH1OXkocgPgGIwVVEQqkkEKvqI1SMlM1yLBSO9Oon1yDfr4jNT9b6SbI0kqXryBlPBFQdFLkutsNnsUFIIvZRtSBQooIKWIfq4ux8TabqsgvT6qPywC7fYnfYBq06vM-spqbmXf1LZfv64vC-tWdlibncr0azOszM4eVplBbQZN1u7iGaf9wmnI3nnZPy8H5-XwvNw5L0eHhd6Qu-flm3olN5tx9nvJsq0FEgtIciveWLuvr_5C5wjDkipra1uwVHy8ZpkV775SVrk7CwMC9fJYVOL2Hx_pewg=" title="View Full Diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlV1v2jAUhv-Klapik4KUT0JzMQkC2dA6rRrtdjF2YRIbrBo7sp0CQ_z32SRAQ6Gq1OUCcd6c85wP2ScbK-M5smLr-npDGFEx2LTUHC1QKwatKZSoZYNK-AkFgVOKZMv4YM7UmPzdublBsTJuRkvhgtC1UcdoxhF4GNmgpwOpDSRksi2RILhltwpBFlCsE065MN5XqIsdvMtWv-pzkSNxdHCcyM1CHUoJQ0fZj4IoSE2cRBlneQOKQ9zFWWtriqN8mc2hULvyS4m-wdUvkqu5tjGkEmmfuVrQWzhF1PSoRGm0rBRP-2EQafIwPbBxATPCZloPHC0JyB6PUuhst2B7fT1hh6TgfjBhQD8ZhVIOEAZSaXn4pAAmlMZXQdJLQ8eWSvBHFF95w2jge3ZmOol1645thtteIjKbq3jKaV67tpemh9grVrZYxZ5ji7X-PcmFWH7MlHS8rtc9ZOpHbuIm-0wY43dl0nMV91A-1rmGfuqlg0MuN-yEifOSt29zEEQ993ROSDyRDD2DpmnqD4-jGnZC17kM7ad-x0lOoDOo0BKuj8CbJDgA0zBK3egisMp3WmU5vRM82wP9YZiGB2DUd9OedxEY9NygW1eoOTMBizlIuFSgl2W8ZAoyVb01D3N_TywMYwzbZtigRynPdDvgyw_QRwxhoiR4kPokgi8I5hqkCRPrzzOC1ySM7kAbJLBQpWhQmkH-hbSKg1EKbr_3q5ITxBQSzdDgldC710PDk1LTt5TaefeEog8HREH1OXkocgPgGIwVVEQqkkEKvqI1SMlM1yLBSO9Oon1yDfr4jNT9b6SbI0kqXryBlPBFQdFLkutsNnsUFIIvZRtSBQooIKWIfq4ux8TabqsgvT6qPywC7fYnfYBq06vM-spqbmXf1LZfv64vC-tWdlibncr0azOszM4eVplBbQZN1u7iGaf9wmnI3nnZPy8H5-XwvNw5L0eHhd6Qu-flm3olN5tx9nvJsq0FEgtIciveWLuvr_5C5wjDkipra1uwVHy8ZpkV775SVrk7CwMC9fJYVOL2Hx_pewg=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
-<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — DS-010</span></div>
+
+
+<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 3.3 Business Roles & Responsibilities
 
@@ -435,8 +510,11 @@ flowchart TD
 | Cost Accountant - Overhead | DS-010-010_Create_and_Maintain_Master_Data,  | |
 | Cost Accountant | DS-010-020_Post_Primary_Actual_Cost_to_Cost_Centers, DS-010-050_Transfer_Primary_Periodic_Costs, DS-010-100_Update_Statistical_Key_figures | |
 
-<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — DS-010</span></div>
+<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 4. Data Architecture (TOGAF "D")
 
@@ -447,12 +525,19 @@ The following data entities are derived from the system integration flows for DS
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
-<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — DS-010</span></div>
+<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
+
+
+
 
 ### 4.3 Data Lineage
 
@@ -521,8 +606,11 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
-<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — DS-010</span></div>
+<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 5. Application Architecture (TOGAF "A")
 
@@ -532,9 +620,11 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 The Current-State architecture represents the **current / legacy** landscape for DS-010.
 
+
 #### Current-State Flow Narrative
 
 *(No current-state flows defined.)*
+
 
 ### 5.2 Future-State — Future-State Application Landscape
 
@@ -542,9 +632,11 @@ The Current-State architecture represents the **current / legacy** landscape for
 
 The Future-State architecture represents the **target** landscape for DS-010.
 
+
 #### Future-State Flow Narrative
 
 *(No future-state flows defined.)*
+
 
 ### 5.3 Change Impact Summary
 
@@ -560,8 +652,11 @@ The Future-State architecture represents the **target** landscape for DS-010.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
-<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — DS-010</span></div>
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.5 RICEFW Inventory
 
@@ -936,8 +1031,11 @@ The Future-State architecture represents the **target** landscape for DS-010.
 
 **Summary**: 17 Reports, 86 Interfaces, 25 Conversions, 219 Enhancements, 1 Forms, 18 Workflows
 
-<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — DS-010</span></div>
+<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 5.6 Integration Patterns
 
@@ -948,14 +1046,20 @@ Integration patterns identified from the system flow analysis for DS-010:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
-<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — DS-010</span></div>
+<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
+
+
 
 #### Platform Inventory
 
@@ -969,60 +1073,21 @@ Platform landscape inferred from integrated systems for DS-010:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
-<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — DS-010</span></div>
+<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 6.2 SAP Development Object Status
 
-**Capability RICEFW Status** (366 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-03-27)*
-
-| Status | Count | % |
-|--------|------:|----:|
-| 10. Object Complete | 349 | 95.4% |
-| 07. FUT Roadblock | 10 | 2.7% |
-| 99. Rejected/Cancelled/On Hold | 5 | 1.4% |
-| 06. Dev In Progress | 2 | 0.5% |
-| **Total** | **366** | **100%** |
-
-**RICEFW by Type:**
-
-| Type | Count |
-|------|------:|
-| Report (R) | 17 |
-| Interface (I) | 86 |
-| Conversion (C) | 25 |
-| Enhancement (E) | 219 |
-| Form (F) | 1 |
-| Workflow (W) | 18 |
-| **Total** | **366** |
-
-**Technical Complexity:**
-
-| Complexity | Count |
-|------------|------:|
-| 01.Very High | 5 |
-| 02.High | 64 |
-| 03.Medium | 201 |
-| 04.Low | 93 |
-| N/A | 3 |
-
-**Active (Non-Complete) Objects:**
-
-| Object ID | Type | Description | Status | Complexity |
-|-----------|------|-------------|--------|------------|
-| FPRI1669 | 02.Interface | Import Xeus/Mars volumes from ECA into S4.​ | 07. FUT Roadblock | 03.Medium |
-| FPRE1723_IP | 04.Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 07. FUT Roadblock | 04.Low |
-| FPRE1723_IF | 04.Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 07. FUT Roadblock | 04.Low |
-| FPRE1722_IP | 04.Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 07. FUT Roadblock | 04.Low |
-| FPRE1722_IF | 04.Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 07. FUT Roadblock | 04.Low |
-| FPRE1661_IP | 04.Enhancement | WBS transfer tool | 07. FUT Roadblock | 02.High |
-| FPRE1661_IF | 04.Enhancement | WBS transfer tool | 07. FUT Roadblock | 03.Medium |
-| FPRE1599_IP | 04.Enhancement | Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO line ... | 07. FUT Roadblock | 03.Medium |
-| FPRE1599_IF | 04.Enhancement | Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO line ... | 07. FUT Roadblock | 04.Low |
-| FPRE0880 | 04.Enhancement | Cash concentration functionality for cross-currency current accounts | 07. FUT Roadblock | 04.Low |
-| FPRC1724_IP | 03.Conversion | Creation of output template with consumption data | 06. Dev In Progress | 02.High |
-| FPRC1724_IF | 03.Conversion | Creation of output template with consumption data | 06. Dev In Progress | 03.Medium |
+| Metric | DEV | QAS | PRD |
+|--------|-----|-----|-----|
+| Transport Requests | — | — | — |
+| Custom Code Objects | — | — | — |
+| CDS Views | — | — | — |
+| Fiori Apps | — | — | — |
+| BAdIs / Enhancements | — | — | — |
 
 ### 6.3 NFRs & Design Principles
 
@@ -1051,92 +1116,59 @@ Platform landscape inferred from integrated systems for DS-010:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
-<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — DS-010</span></div>
+<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
+</div>
 <div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ## 7. Project Context
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
-*364 objects with timeline data (source: Object Tracker)*
-
 | ID | Description | FS | TDD | Build | FUT | Status |
 |----|-------------|----|-----|-------|-----|--------|
 | FPRW1449 | TPR : Workflow to handle Memo creation and cancellation process | Jul-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
 | FPRW1444 | TFR: Workflow to handle Memo creation and cancellation process | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Oct-25 (100%) | 1. On Track |
-| FPRW1064_IP | Custom Workflow will also be created with some predefined process/rules for approval/rejection. | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Feb-26 (100%) | 1. On Track |
-| FPRW1064_IF | Custom Workflow will also be created with some predefined process/rules for approval/rejection. | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Feb-26 (100%) | 1. On Track |
+| FPRW1064_IP | Custom Workflow will also be created with some predefined process/rules for a... | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Feb-26 (100%) | 1. On Track |
+| FPRW1064_IF | Custom Workflow will also be created with some predefined process/rules for a... | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Feb-26 (100%) | 1. On Track |
 | FPRW0930 | Workflow for Counterparty Approval | Apr-25 (100%) | Dec-25 (100%) | Dec-25 (100%) | Dec-25 (100%) | 5. Not Dispositioned |
 | FPRW0906_IP | Custom workflow: Change Order Create and Change Approval | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (100%) | 1. On Track |
 | FPRW0906_IF | Custom workflow: Change Order Create and Change Approval | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (100%) | 1. On Track |
 | FPRW0904_IP | Custom Workflow - WBS Element Request approval with WBS Element creation | Mar-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | 1. On Track |
 | FPRW0904_IF | Custom Workflow - WBS Element Request approval with WBS Element creation | Mar-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | 1. On Track |
-| FPRW0900_IP | Custom Workflow: Approval for Project creation and create a Project def and level n1 after approval using template | Feb-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 3. Off Track |
-| FPRW0900_IF | Custom Workflow: Approval for Project creation and create a Project def and level n1 after approval using template | Feb-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
+| FPRW0900_IP | Custom Workflow: Approval for Project creation and create a Project def and l... | Feb-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 3. Off Track |
+| FPRW0900_IF | Custom Workflow: Approval for Project creation and create a Project def and l... | Feb-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
 | FPRW0445_IP | Project budget approval workflow (Capex)​ | Aug-24 (100%) | Aug-25 (100%) | Aug-25 (100%) | Sep-25 (100%) | 1. On Track |
 | FPRW0445_IF | Project budget approval workflow (Capex)​ | Aug-24 (100%) | Aug-25 (100%) | Aug-25 (100%) | Sep-25 (100%) | 1. On Track |
 | FPRW0325_IP | Custom workflow to manage the approval process in bulk/individual requests | Jul-24 (100%) | Feb-25 (100%) | Feb-25 (100%) | Mar-25 (100%) |  |
 | FPRW0325_IF | Custom workflow to manage the approval process in bulk/individual requests | Jul-24 (100%) | Feb-25 (100%) | Feb-25 (100%) | Mar-25 (100%) |  |
-| FPRW0165_IP | Workflow is required to trigger the approvers based on the business requirement for Journal entry | May-24 (100%) | Aug-24 (100%) | Aug-24 (100%) | Sep-24 (100%) |  |
-| FPRW0165_IF | Workflow is required to trigger the approvers based on the business requirement for Journal entry | May-24 (100%) | Aug-24 (100%) | Aug-24 (100%) | Sep-24 (100%) |  |
-| FPRW0165_CFIN | Workflow is required to trigger the approvers based on the business requirement for Journal entry | May-24 (100%) | Aug-24 (100%) | Aug-24 (100%) | Sep-24 (100%) |  |
+| FPRW0165_IP | Workflow is required to trigger the approvers based on the business requireme... | May-24 (100%) | Aug-24 (100%) | Aug-24 (100%) | Sep-24 (100%) |  |
+| FPRW0165_IF | Workflow is required to trigger the approvers based on the business requireme... | May-24 (100%) | Aug-24 (100%) | Aug-24 (100%) | Sep-24 (100%) |  |
+| FPRW0165_CFIN | Workflow is required to trigger the approvers based on the business requireme... | May-24 (100%) | Aug-24 (100%) | Aug-24 (100%) | Sep-24 (100%) |  |
 | FPRR1514_IP | To generate reports out of the ITT documents that was created | Aug-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 4. Completed |
 | FPRR1514_IF | To generate reports out of the ITT documents that was created | Aug-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 4. Completed |
-| FPRR1240 | Custom report for Revenue Recognition by Stage for Product/Services Sale​ actual revenue vs planned revenue | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (100%) | 4. Completed |
-| FPRR1211 | Report for searching on and viewing government contract timesheets for Intel Federal. | Apr-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 1. On Track |
-| FPRR1210 | Report for searching on and viewing government contract timesheet changes for Intel Federal.​ | Apr-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Feb-26 (100%) | 4. Completed |
-| FPRR0907_IP | Workflow Status Report ( Order Request / Approval Request / Others ) | Mar-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Oct-25 (100%) | 2. At Risk |
-| FPRR0907_IF | Workflow Status Report ( Order Request / Approval Request / Others ) | Mar-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Oct-25 (100%) | 1. On Track |
-| FPRR0497 | CFR - Report to support multiple Treasury Funding requests from Multiple Intel teams | Mar-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Sep-25 (100%) | 1. On Track |
-| FPRR0496 | TPR-Report to support multiple Treasury Payment Requests from Multiple Intel teams | Mar-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Nov-25 (100%) | 1. On Track |
-| FPRR0461 | Inter-company Outage Pre-consolidate Report (ACDOCA) | Aug-24 (100%) | Jan-25 (100%) | Jan-25 (100%) | Mar-25 (100%) |  |
-| FPRR0380 | GL Interface – Reconciliation Report/Dashboard | Aug-24 (100%) | Feb-25 (100%) | Feb-25 (100%) | Sep-25 (100%) |  |
-| FPRR0327_IP | Report to display the requests/change IDs and status of the workflow approval and Error handling | Jul-24 (100%) | Feb-25 (100%) | Feb-25 (100%) | Mar-25 (100%) | 1. On Track |
+*... and 346 more objects (see full Object Tracker)*
 
-*... and 334 more objects (see full Object Tracker)*
+<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-03-27*
+Standard RAID items for DS-010 (Finance Plan To Report):
 
-**Mapped sub-tower(s):** 3.1 FPR - GL Close & Consolidate, 3.10 FPR - Accounts Receivable & Collections, 3.11 FPR - Project Accounting, 3.2 FPR - Tax, 3.3 FPR - Revenue Recognition & Reporting, 3.4 FPR - Intercompany, 3.5 FPR - Fixed Assets, 3.6 FPR - Cost and Profitability Analysis, 3.7 FPR - Product Costing and Inventory Valuation, 3.8 FPR - Financial Planning & Analysis, 3.9 FPR - Treasury and Cash Management
+| # | Category | Description | Status | Owner | Priority |
+|---|----------|-------------|--------|-------|----------|
+| 1 | Risk | Data migration completeness — validate all legacy Perform Overhead Accounting and Allocation data maps to S/4 target structures | Open | Tower Architect | High |
+| 2 | Risk | Integration testing coverage — ensure all 0 integrated systems are validated end-to-end | Open | Integration Lead | High |
+| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
+| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
+| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
 
-**RAID Summary:** 18 open items (6 capability-specific, 12 tower-level), 234 closed
-
-| Severity | Capability | Tower-Wide | Total Open |
-|----------|----------:|-----------:|-----------:|
-| P1 - High | 0 | 1 | 1 |
-| P2 - Medium | 4 | 10 | 14 |
-| P3 - Low | 2 | 1 | 3 |
-| **Total** | **6** | **12** | **18** |
-
-**Capability-Specific RAID Items:**
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03633 | Action | P2 - Medium | Conversion RICEFW (FPRC1724_IF/IP) has dependency on the enh... | In Progress | FPR | 2026-03-13 |
-| 02226 | Action | P3 - Low | DMEE related FPR objects not ready for development | In Progress | FPR | 2026-03-31 |
-| 03729 | Action | P2 - Medium | AN and CC invoices are fetching wrong tax codes and posting ... | In Progress | FPR | 2026-03-23 |
-| 02680 | Action | P2 - Medium | T042A table config in IP and IF | In Progress | FPR | 2026-04-03 |
-| 03782 | Risk | P2 - Medium | Auto processing of JPMC lockbox BAI2 for AR Cashapp not work... | Not Started | FPR | 2026-04-10 |
-| 03473 | Action | P3 - Low | Manual Service PIR creation for IP-IF Service Procurement. | In Progress | FPR | 2026-05-29 |
-
-**Other FPR Tower RAID Items** (12 open):
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-03 |
-| 03197 | Issue | P2 - Medium | Company Code address disappearing in DI0 250 | Not Started |  |  |
-| 03564 | Risk | P2 - Medium | Development of the AMT impacting FPR Capital Tool report | In Progress | FTS IP | 2026-03-27 |
-| 03624 | Issue | P2 - Medium | Test Data not provided for CR "INT-Build-CR0918" | In Progress | FPR | 2026-03-20 |
-| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
-| 03628 | Risk | P2 - Medium | R3 Returns Rework Process Causing Finance Double Counting in... | In Progress | E2E | 2026-03-27 |
-| 03629 | Risk | P2 - Medium | Consensus Demand Data for ICOST | In Progress | FTS IP | 2026-03-27 |
-| 02799 | Risk | P2 - Medium | Deloite FPR objects FPRXV490, FPRXV038 and FPRXV048 are dela... | In Progress | FPR | 2026-03-25 |
-| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
-| 03740 | Action | P2 - Medium | Provide count of report with list of names due in ITC1 and I... | In Progress | FPR | 2026-03-20 |
-| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
-| 03333 |  | P3 - Low | FPR NRT : IF and IP  Power BI Workspace Provisioning | In Progress | Analytics (Reporting) | 2026-01-12 |
+> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
 
 ### 7.3 Recommendations & Next Steps
 
@@ -1150,4 +1182,5 @@ Platform landscape inferred from integrated systems for DS-010:
 
 ---
 *DS-010 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: March 2026*
-
+<div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
+</div>
