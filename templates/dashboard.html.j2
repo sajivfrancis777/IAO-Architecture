@@ -841,8 +841,8 @@ applyFilters();
     chartIds.forEach(function(id){
       var div=document.getElementById(id);
       if(!div) return;
-      var plot=div.querySelector('.js-plotly-plot');
-      if(!plot) return;
+      // Plotly adds .js-plotly-plot on the div itself, not a child
+      if(!div.classList.contains('js-plotly-plot') && !div.querySelector('.js-plotly-plot')) return;
       snapshots[id]={html:div.innerHTML, w:div.style.width, h:div.style.height};
       var w=id==='chart-sankey'?900:500;
       var h=id==='chart-sankey'?400:320;
@@ -867,9 +867,12 @@ applyFilters();
     setTimeout(function(){ applyFilters(); },100);
   }
 
-  // PDF button: freeze all charts FIRST (async), then print once images are ready
+  // PDF button: freeze charts, wait for images to render, then print
   document.getElementById('btn-pdf').addEventListener('click', function(){
     freezeCharts().then(function(){
+      // Allow browser a paint frame so <img> tags are fully rendered
+      return new Promise(function(resolve){ requestAnimationFrame(function(){ setTimeout(resolve,200); }); });
+    }).then(function(){
       window.print();
       restoreCharts();
     });
