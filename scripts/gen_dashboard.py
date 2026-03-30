@@ -37,33 +37,10 @@ DASHBOARD_TEMPLATE = "dashboard.html.j2"
 _COMPLETED_STATUSES = {"10. object complete", "10. Object Complete"}
 _REJECTED_STATUSES = {"99. rejected/cancelled/on hold", "99. Rejected/Cancelled/On Hold"}
 
-_TOWER_MAP = {
-    "fpr": "FPR", "finance plan to report": "FPR", "finance": "FPR",
-    "fts-if": "FTS-IF", "fts - if": "FTS-IF", "fts if": "FTS-IF",
-    "forecast to stock - if": "FTS-IF",
-    "fts-ip": "FTS-IP", "fts - ip": "FTS-IP", "fts ip": "FTS-IP",
-    "forecast to stock - ip": "FTS-IP",
-    "otc-if": "OTC-IF", "otc - if": "OTC-IF", "otc if": "OTC-IF",
-    "order to cash - if": "OTC-IF",
-    "otc-ip": "OTC-IP", "otc - ip": "OTC-IP", "otc ip": "OTC-IP",
-    "order to cash - ip": "OTC-IP",
-    "ptp": "PTP", "procure to pay": "PTP",
-    "mdm": "MDM", "master data management": "MDM",
-    "e2e": "E2E", "end to end": "E2E", "end-to-end": "E2E",
-}
-
-_TOWER_DISPLAY = {
-    "FPR": "Finance Plan To Report",
-    "FTS-IF": "Forecast to Stock — Intel Foundry",
-    "FTS-IP": "Forecast to Stock — Intel Products",
-    "OTC-IF": "Order to Cash — Intel Foundry",
-    "OTC-IP": "Order to Cash — Intel Products",
-    "PTP": "Procure to Pay",
-    "MDM": "Master Data Management",
-    "E2E": "End-to-End",
-}
-
-_TOWER_ORDER = ["FPR", "OTC-IF", "OTC-IP", "FTS-IF", "FTS-IP", "PTP", "MDM", "E2E"]
+# Tower metadata loaded from centralized registry (config/tower_registry.json)
+import sys as _sys
+_sys.path.insert(0, str(WORKSPACE))
+from src.tower_registry import normalize_tower as _normalize_tower_reg, TOWER_ORDER as _TOWER_ORDER, TOWER_DISPLAY as _TOWER_DISPLAY
 
 _TYPE_CODE = {
     "01.report": "R", "report": "R",
@@ -82,8 +59,7 @@ _TYPE_LABEL = {
 
 
 def _normalize_tower(raw: str) -> str:
-    key = re.sub(r"^\d{1,2}[A-Za-z]?\.\s*", "", raw.strip()).lower()
-    return _TOWER_MAP.get(key, "")
+    return _normalize_tower_reg(raw)
 
 
 def _type_code(raw: str) -> str:

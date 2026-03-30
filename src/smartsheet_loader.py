@@ -140,48 +140,16 @@ class SmartsheetData:
         return ", ".join(parts) if parts else "No RICEFW objects"
 
 
-# Tower name normalization (Smartsheet tower names → tower shortcodes)
-_TOWER_MAP = {
-    "fpr": "FPR",
-    "finance plan to report": "FPR",
-    "finance": "FPR",
-    "fts-if": "FTS-IF",
-    "fts - if": "FTS-IF",
-    "fts if": "FTS-IF",
-    "forecast to stock - if": "FTS-IF",
-    "forecast to stock (if)": "FTS-IF",
-    "fts-ip": "FTS-IP",
-    "fts - ip": "FTS-IP",
-    "fts ip": "FTS-IP",
-    "forecast to stock - ip": "FTS-IP",
-    "forecast to stock (ip)": "FTS-IP",
-    "otc-if": "OTC-IF",
-    "otc - if": "OTC-IF",
-    "otc if": "OTC-IF",
-    "order to cash - if": "OTC-IF",
-    "order to cash (if)": "OTC-IF",
-    "otc-ip": "OTC-IP",
-    "otc - ip": "OTC-IP",
-    "otc ip": "OTC-IP",
-    "order to cash - ip": "OTC-IP",
-    "order to cash (ip)": "OTC-IP",
-    "ptp": "PTP",
-    "procure to pay": "PTP",
-    "mdm": "MDM",
-    "master data": "MDM",
-    "master data management": "MDM",
-    "e2e": "E2E",
-    "end to end": "E2E",
-}
+# Tower name normalization — uses centralized registry
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from src.tower_registry import normalize_tower as _normalize_tower_central
 
 
 def _normalize_tower(raw: str) -> str:
     """Normalize a Smartsheet tower name to shortcode."""
-    key = raw.strip().lower()
-    # Strip leading numbering like "03. " or "09A. "
-    import re
-    key = re.sub(r"^\d+[a-z]?\.\s*", "", key)
-    return _TOWER_MAP.get(key, raw.strip())
+    result = _normalize_tower_central(raw)
+    return result if result else raw.strip()
 
 
 class SmartsheetLoader:

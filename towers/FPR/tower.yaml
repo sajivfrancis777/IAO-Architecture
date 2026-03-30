@@ -1,44 +1,97 @@
 # tower.yaml — Finance Plan To Report
 tower:
-  shortcode: "FPR"
-  name: "Finance Plan To Report"
-  owner: ""
-  contact: ""
-
-# --------------------------------------------------------------------------
-# views: (per-capability, optional)
-#   Maps CSV source files to named architecture views in the generated SAD.
-#   If omitted, defaults to:
-#     current:  { label: "Current-State", description: "" }
-#     future:   { label: "Future-State",  description: "" }
-#
-#   Supported keys under views:
-#     current:
-#       label:       Display name for the current/legacy architecture section
-#       description: One-line narrative for the section overview paragraph
-#     future:
-#       label:       Display name for the target architecture section
-#       description: One-line narrative for the section overview paragraph
-#
-#   The CSV file names (CurrentFlows.csv, FutureFlows.csv) remain unchanged.
-#   Release-scoped CSVs ({Release}_CurrentFlows.csv, {Release}_FutureFlows.csv)
-#   inherit the same labels unless overridden.
-# --------------------------------------------------------------------------
-
+  shortcode: FPR
+  name: Finance Plan To Report
+  owner: ''
+  contact: ''
 capabilities:
-  - id: DS-020
-    name: "Perform Product Costing and Inventory Valuation"
-    l1: "DS Provide Decision Support"
-    status: active
-    views:
-      current:
-        label: "ICOST"
-        description: "Legacy and transitional product costing landscape. ICOST remains the primary costing engine during Release 3, with ECC as the book-of-record ERP."
-      future:
-        label: "S/4 HANA"
-        description: "Target S/4 HANA-based landscape with SAP PAPM for allocation, ECA lakehouse for analytics, and Power BI for self-service reporting."
-
+- id: DC-010
+  name: Perform Transaction Processing
+  l1: DC Manage Accounting and Control Data
+  status: active
+- id: DC-020
+  name: Manage the General Ledger
+  l1: DC Manage Accounting and Control Data
+  status: active
+- id: DC-030
+  name: Perform Closing
+  l1: DC Manage Accounting and Control Data
+  status: active
+- id: DC-040
+  name: Perform Fixed Asset Accounting
+  l1: DC Manage Accounting and Control Data
+  status: active
+- id: DC-050
+  name: Project Accounting
+  l1: DC Manage Accounting and Control Data
+  status: active
+- id: DC-060
+  name: Manage Taxes
+  l1: DC Manage Accounting and Control Data
+  status: active
+- id: DC-100
+  name: Revenue Recognition
+  l1: DC Manage Accounting and Control Data
+  status: active
+- id: DC-110
+  name: Manage Intercompany
+  l1: DC Manage Accounting and Control Data
+  status: active
+- id: DC-120
+  name: Maintenance & Management Accounting
+  l1: DC Manage Accounting and Control Data
+  status: active
+- id: DS-010
+  name: Perform Overhead Accounting and Allocation
+  l1: DS Provide Decision Support
+  status: active
+- id: DS-020
+  name: Perform Product Costing and Inventory Valuation
+  l1: DS Provide Decision Support
+  status: active
+  views:
+    current:
+      label: ICOST
+      description: Legacy and transitional product costing landscape. ICOST remains
+        the primary costing engine during Release 3, with ECC as the book-of-record
+        ERP.
+    future:
+      label: S/4 HANA
+      description: Target S/4 HANA-based landscape with SAP PAPM for allocation, ECA
+        lakehouse for analytics, and Power BI for self-service reporting.
+- id: DS-030
+  name: Perform Customer and Product Profitability Analysis
+  l1: DS Provide Decision Support
+  status: active
+- id: MB-060
+  name: Plan the Business
+  l1: MB Plan and Manage Business
+  status: active
+- id: MB-070
+  name: Prepare Budgets
+  l1: MB Plan and Manage Business
+  status: active
+- id: MR-010
+  name: Manage Liquidity
+  l1: MR Manage Capital and Risk
+  status: active
+- id: MR-020
+  name: Manage Capital Structure
+  l1: MR Manage Capital and Risk
+  status: active
+- id: MR-030
+  name: Manage Financial Risk
+  l1: MR Manage Capital and Risk
+  status: active
+- id: MR-070
+  name: In-House Banking
+  l1: MR Manage Capital and Risk
+  status: active
+- id: OR-140
+  name: Process Receipts
+  l1: OR Receivables Management
+  status: active
 releases:
-  - id: R3
-    name: "Release 3"
-    go_live: "2027-04-05"
+- id: R3
+  name: Release 3
+  go_live: '2027-04-05'

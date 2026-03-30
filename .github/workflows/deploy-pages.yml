@@ -113,19 +113,21 @@ jobs:
             fi
           done
 
-          # ── Tower metadata (description + icon) ────────────────────
+          # ── Tower metadata from centralized registry ────────────────
+          # Reads config/tower_registry.json instead of hardcoded case statements.
+          # This means adding a new tower only requires updating the JSON file.
           tower_desc() {
-            case "$1" in
-              E2E)     echo "End-to-End Integrated Scenarios|Cross-tower integration flows spanning the full business cycle|🔗";;
-              FPR)     echo "Finance Plan to Report|Financial planning, accounting, decision support, capital and risk management|💰";;
-              FTS-IF)  echo "Forecast to Stock — IF|Supply chain planning, manufacturing, logistics and quality (Front-End IF)|🏭";;
-              FTS-IP)  echo "Forecast to Stock — IP|Supply chain planning, manufacturing, logistics and quality (Back-End IP)|📦";;
-              MDM)     echo "Master Data Management|Enterprise master data governance and harmonization|🗂️";;
-              OTC-IF)  echo "Order to Cash — IF|Order management, billing, credit, trade and returns (Front-End IF)|📋";;
-              OTC-IP)  echo "Order to Cash — IP|Order management, billing, credit, trade and returns (Back-End IP)|🛒";;
-              PTP)     echo "Plan to Procure|Procurement, supplier management, logistics and quality (incoming)|🔧";;
-              *)       echo "$1|Architecture documents|📄";;
-            esac
+            local sc="$1"
+            local reg="config/tower_registry.json"
+            if [ -f "$reg" ]; then
+              local name desc icon
+              name=$(python3 -c "import json; d=json.load(open('$reg')); print(d['towers'].get('$sc',{}).get('name','$sc'))" 2>/dev/null || echo "$sc")
+              desc=$(python3 -c "import json; d=json.load(open('$reg')); print(d['towers'].get('$sc',{}).get('description','Architecture documents'))" 2>/dev/null || echo "Architecture documents")
+              icon=$(python3 -c "import json; d=json.load(open('$reg')); print(d['towers'].get('$sc',{}).get('icon','📄'))" 2>/dev/null || echo "📄")
+              echo "${name}|${desc}|${icon}"
+            else
+              echo "$sc|Architecture documents|📄"
+            fi
           }
 
           # ── Build navigation manifest (nav.json) ──────────────────
