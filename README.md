@@ -1,289 +1,224 @@
 # IAO Architecture Pipeline
 
-Python-based automation pipeline for generating **TOGAF BDAT-aligned** Solution Architecture Documents (SADs) across the IDM 2.0 (SAP S/4HANA transformation) program.
+Automated generation of **TOGAF BDAT Architecture Documents** for the IDM 2.0 (SAP S/4HANA transformation) program.
 
-Pulls live data from enterprise APIs (Smartsheet, IAPM, SAP BIC, SAP S/4HANA OData), enriches it, and produces per-capability architecture documents — Business, Data, Application, and Technology architecture — for each tower.
+This pipeline produces three document types per capability — **SAD** (Systems Architecture Document), **BPD** (Business Process Document), and **PM** (Project Management) — by consuming structured inputs (Excel workbooks + live API data) and rendering them through Jinja2 templates into HTML, PDF, and Markdown outputs.
 
-## Towers
+---
 
-| Tower | Description |
-|-------|-------------|
-| FPR | Forecast, Planning & Replenishment |
-| OTC-IF | Order to Cash — Intel Foundry |
-| OTC-IP | Order to Cash — Intel Products |
-| FTS-IF | Forecast to Stock — Intel Foundry |
-| FTS-IP | Forecast to Stock — Intel Products |
-| PTP | Procure to Pay |
-| MDM | Master Data Management |
-| E2E | End-to-End (cross-tower) |
-
-## Project Structure
+## How It Works
 
 ```
-├── README.md                   # This file
-├── requirements.txt            # Python dependencies
-├── .env.example                # Credential template (copy to .env)
-├── .gitignore
-│
-├── scripts/                    # Pipeline CLI entry points
-│   ├── update_sad_from_smartsheet.py
-│   ├── gen_pdf.py
-│   ├── gen_xlsx_templates.py
-│   ├── scaffold_inputs.py
-│   ├── backfill_bpmn_to_xlsx.py
-│   ├── backfill_sample_data.py
-│   ├── cleanup_csvs.py
-│   └── sync_sharepoint.py
-│
-├── src/                        # Reusable Python library modules
-│   ├── smartsheet_loader.py    #   Smartsheet data loader
-│   ├── bpmn_parser.py          #   BPMN XML parser
-│   ├── csv_parser.py           #   CSV parsing utilities
-│   ├── xlsx_loader.py          #   Excel workbook loader
-│   ├── mermaid_builder.py      #   Mermaid diagram generator
-│   ├── gen_systems_arch.py     #   Systems architecture doc generator
-│   ├── diff_engine.py          #   Document diff engine
-│   ├── context_loader.py       #   Tower/capability context loader
-│   ├── iapm_lookup.py          #   IAPM application lookup
-│   └── config.py               #   Configuration management
-│
-├── mcp_servers/                # MCP tool servers for Copilot integration
-│   ├── smartsheet_server.py    #   Smartsheet API tools (live + CSV fallback)
-│   ├── iapm_server.py          #   IAPM application portfolio tools
-│   ├── jira_server.py          #   JIRA integration tools (placeholder)
-│   ├── sap_odata_server.py     #   SAP OData tools (placeholder)
-│   └── bic_server.py           #   SAP BIC process design tools (placeholder)
-│
-├── templates/                  # Jinja2 templates for doc generation
-│   ├── capability_architecture.md.j2
-│   ├── systems_architecture.md.j2
-│   ├── CurrentFlows_TEMPLATE.xlsx
-│   └── FutureFlows_TEMPLATE.xlsx
-│
-├── towers/                     # Tower data (one subfolder per tower)
-│   ├── FPR/                    #   See "Capability Folder Structure" below
-│   ├── OTC-IF/
-│   ├── OTC-IP/
-│   ├── FTS-IF/
-│   ├── FTS-IP/
-│   ├── PTP/
-│   ├── MDM/
-│   └── E2E/
-│
+  ┌─────────────────────────────────┐
+  │         INPUTS (You Maintain)   │
+  │                                 │
+  │  Excel Workbooks (.xlsx)        │  ← Architect-editable, synced via SharePoint
+  │  BPMN Process Models (.bpmn)    │  ← Exported from Signavio/BIC
+  │  Tower Config (tower.yaml)      │  ← Capability registry per tower
+  │  API Credentials (.env)         │  ← Smartsheet, IAPM, SAP, JIRA tokens
+  └──────────────┬──────────────────┘
+                 │
+                 ▼
+  ┌─────────────────────────────────┐
+  │     PIPELINE (Automated)        │
+  │                                 │
+  │  1. Parse xlsx + BPMN inputs    │
+  │  2. Query live APIs             │
+  │  3. Resolve system metadata     │
+  │  4. Generate Mermaid diagrams   │
+  │  5. Render BDAT templates       │
+  │  6. Inject Smartsheet data      │
+  │  7. Produce HTML + PDF          │
+  │  8. Sync to SharePoint + Pages  │
+  └──────────────┬──────────────────┘
+                 │
+                 ▼
+  ┌─────────────────────────────────┐
+  │       OUTPUTS (Generated)       │
+  │                                 │
+  │  <CAP>-Architecture.html        │  → GitHub Pages + SharePoint
+  │  <CAP>-Architecture.pdf         │  → SharePoint
+  │  <CAP>-Architecture.md          │  → GitHub repo
+  │  svg/ diagrams                  │  → Embedded in HTML
+  └─────────────────────────────────┘
 ```
 
-### Capability Folder Structure
+**Key principle**: You maintain the inputs. The pipeline does everything else. Schedule it to run daily, hourly, or on every input change — the outputs always reflect the latest data.
 
-Each capability under a tower follows this layout:
+---
 
-```
-towers/<TOWER>/<Process Group>/<CAP-ID>/
-├── input/
-│   └── data/                              # ◀ Architect-editable Excel inputs
-│       ├── CurrentFlows.xlsx               #   Current-state process flows
-│       ├── FutureFlows.xlsx                #   Future-state process flows
-│       ├── R3_CurrentFlows.xlsx            #   Release 3 current-state flows
-│       └── R3_FutureFlows.xlsx             #   Release 3 future-state flows
-└── output/
-    └── docs/
-        └── systems-architecture/
-            ├── <CAP-ID>-Architecture.html  # ◀ Generated HTML (synced to SharePoint)
-            ├── <CAP-ID>-Architecture.pdf   # ◀ Generated PDF (synced to SharePoint)
-            ├── <CAP-ID>-Architecture.md    #   Generated Markdown (GitHub only)
-            └── svg/                        #   Rendered Mermaid diagrams
-```
+## Quick Start
 
-**Example** (FPR tower, DS-020 capability):
-
-```
-towers/FPR/DS Provide Decision Support/DS-020/
-├── input/data/
-│   ├── CurrentFlows.xlsx
-│   ├── FutureFlows.xlsx
-│   ├── R3_CurrentFlows.xlsx
-│   └── R3_FutureFlows.xlsx
-└── output/docs/systems-architecture/
-    ├── DS-020-Architecture.html
-    ├── DS-020-Architecture.pdf
-    └── DS-020-Architecture.md
-```
-
-> **What gets synced to SharePoint?** Only **HTML, PDF, and SVG** files from `output/`. Markdown files remain in GitHub only.
->
-> **What do architects edit?** The **`.xlsx` files** in `input/data/`. These drive the Business, Data, Application, and Technology architecture sections.
-
-```
-├── data/                       # Cached/extracted data
-│   ├── smartsheet/             #   Smartsheet CSV exports
-│   ├── iapm/                   #   IAPM application data
-│   ├── bic/                    #   BIC process model data
-│   ├── sap_odata/              #   SAP OData extractions
-│   ├── enriched/               #   Enriched flow data
-│   ├── mermaid/                #   Generated Mermaid diagrams
-│   └── xref/                   #   Cross-reference mappings
-│
-├── docs/                       # Planning & architecture documentation
-├── notebooks/                  # Jupyter notebooks (future)
-├── config/                     # Configuration files
-├── .github/workflows/          # GitHub Actions (scheduled generation)
-├── reference/                  # Reference scripts & audit data
-└── _archive/                   # Archived exploration/probe scripts
-```
-
-## Pipeline Scripts
-
-All scripts live in `scripts/` and are run from the project root:
-
-| Script | Purpose |
-|--------|---------|
-| `scripts/update_sad_from_smartsheet.py` | Update all SADs with live Smartsheet data (roadmap, RICEFW status, RAID log) |
-| `scripts/gen_pdf.py` | Convert architecture Markdown to styled HTML and PDF |
-| `scripts/gen_xlsx_templates.py` | Generate multi-tab Excel input templates for tower architects |
-| `scripts/scaffold_inputs.py` | Deploy input templates and upgrade flow CSVs across all capabilities |
-| `scripts/backfill_bpmn_to_xlsx.py` | Populate Business Architecture tabs from BPMN XML exports |
-| `scripts/backfill_sample_data.py` | Pre-fill supplementary tabs with contextually grounded sample data |
-| `scripts/cleanup_csvs.py` | Remove legacy CSV inputs superseded by xlsx workbooks |
-| `scripts/sync_sharepoint.py` | Upload generated architecture docs to SharePoint Online |
-
-## Setup
-
-### Prerequisites
-
-- Python 3.12+
-- Access to Smartsheet API (token)
-- Optional: IAPM, SAP BIC, SAP S/4HANA credentials for full pipeline
-
-### Installation
+### Step 1 — Clone & Install
 
 ```bash
-# Clone the repository
 git clone <repo-url>
 cd IAO-JPNotebookPython
-
-# Create virtual environment
 python -m venv .venv
-
-# Activate (Windows)
-.venv\Scripts\Activate.ps1
-
-# Activate (Linux/macOS)
-source .venv/bin/activate
-
-# Install dependencies
+.venv\Scripts\Activate.ps1          # Windows
 pip install -r requirements.txt
 ```
 
-### Configuration
+### Step 2 — Configure Credentials
 
 ```bash
-# Copy the environment template
 cp .env.example .env
-
-# Edit .env and add your credentials
-# At minimum, set SMARTSHEET_TOKEN for the core pipeline
+# Edit .env with your API tokens (see "API Access" section below)
 ```
 
-See [.env.example](.env.example) for all available configuration variables.
+### Step 3 — Populate Inputs
 
-## Usage
+Place your Excel workbooks in the correct tower/capability folders:
 
-### Generate / Update Architecture Documents
+```
+towers/<TOWER>/<Process Group>/<CAP-ID>/input/data/
+  ├── CurrentFlows.xlsx     ← Current-state process flows
+  └── FutureFlows.xlsx      ← Future-state process flows
+```
+
+Or deploy blank templates to all capabilities:
 
 ```bash
-# Update all tower SADs with live Smartsheet data
+python scripts/gen_xlsx_templates.py --deploy
+```
+
+### Step 4 — Generate Documents
+
+```bash
+# Generate all architecture documents (all towers, all capabilities)
+python -m src.gen_systems_arch --all
+
+# Update with live Smartsheet data (RICEFW, RAID, roadmap)
 python scripts/update_sad_from_smartsheet.py
 
-# Update a specific tower
-python scripts/update_sad_from_smartsheet.py --tower FPR
-
-# Preview changes without writing
-python scripts/update_sad_from_smartsheet.py --dry-run
-```
-
-### Generate Output Formats
-
-```bash
-# Generate HTML + PDF for all towers
+# Produce HTML + PDF outputs
 python scripts/gen_pdf.py
-
-# Generate HTML only for a specific tower
-python scripts/gen_pdf.py --tower FPR --html-only
 ```
 
-### Scaffold New Capabilities
+### Step 5 — View Results
+
+- **GitHub Pages**: `https://<org>.github.io/IAO-Architecture/`
+- **SharePoint**: Synced to `Shared Documents / Architecture/SAD/`
+- **Local**: Open any `output/docs/systems-architecture/*.html` in browser
+
+---
+
+## Inputs — What You Maintain
+
+Everything the pipeline needs comes from two sources: **files you edit** and **APIs it queries**.
+
+### Excel Workbooks (Primary Input)
+
+Each capability has two multi-tab workbooks in `towers/<TOWER>/<L1>/<CAP>/input/data/`:
+
+| File | Tabs | Purpose |
+|------|------|---------|
+| `CurrentFlows.xlsx` | Flows, Business Drivers, Success Criteria, Business Architecture, NFRs, Security Controls, SAP Dev Status, Recommendations | Current-state architecture across all BDAT domains |
+| `FutureFlows.xlsx` | Same 8 tabs | Future-state architecture (S/4HANA target) |
+
+**The Flows tab is the core input** — each row defines a flow chain (source → interface → target) with lane assignments, system names, and status. The pipeline parses these into Mermaid diagrams, IAPM-linked nodes, and change impact analysis.
+
+The remaining 7 tabs provide supplementary context for each BDAT section. If blank, the pipeline generates placeholder text.
+
+> **Tip**: Use `python scripts/backfill_sample_data.py` to pre-fill supplementary tabs with contextually grounded sample data based on the systems and flows already defined.
+
+### BPMN Process Models (Optional)
+
+Place Signavio/BIC-exported `.bpmn` XML files in `towers/<TOWER>/<L1>/<CAP>/input/bpmn/`. The pipeline parses swim lanes, tasks, gateways, and sequence flows into Section 3 (Business Process Diagrams).
+
+Naming convention: `<CAP-ID>-<step>_<Step_Name>.bpmn` (e.g., `DS-020-020_Perform Cumulative Costing Run.bpmn`)
+
+### Tower Configuration
+
+Each tower has a `tower.yaml` defining its capabilities:
+
+```yaml
+tower:
+  name: Finance Plan To Report
+  shortcode: FPR
+capabilities:
+  DS-020:
+    name: "Perform Product Costing and Inventory Valuation"
+    l1: "DS Provide Decision Support"
+```
+
+If a capability name is missing from `tower.yaml`, the pipeline auto-resolves it from BPMN XML definitions, Smartsheet sub-tower names, or the L1 directory name.
+
+### API Credentials (.env)
+
+Copy `.env.example` to `.env` and populate the tokens you have access to:
+
+| Variable | Source | Impact |
+|----------|--------|--------|
+| `SMARTSHEET_TOKEN` | Smartsheet API admin | Live RICEFW status, RAID items, delivery timelines |
+| `IAPM_BEARER_TOKEN` | Azure AD | Application portfolio metadata (hosting, lifecycle, ownership) |
+| `BIC_AUTH_TOKEN` | Browser DevTools | BPMN process model names from Signavio/BIC |
+| `SAP_BI0_HOST/USER/PASS` | SAP access request | Dev object inventory, transport status, CDS views |
+| `SAP_DI0_HOST/USER/PASS` | SAP access request | Same for Products system |
+| `JIRA_BASE_URL/USER_EMAIL/API_TOKEN` | JIRA PAT | Test case readiness, defect counts, sprint status |
+| `SP_TENANT_ID/CLIENT_ID/CLIENT_SECRET` | Azure AD app | SharePoint two-way sync |
+| `SP_SITE_URL/DOC_LIBRARY/TARGET_FOLDER` | SharePoint admin | SharePoint upload path |
+
+**Graceful degradation**: Every API is optional. Without a token, the pipeline falls back to cached CSV/Excel data or generates placeholder sections. Add tokens as access is provisioned — no code changes needed.
+
+---
+
+## Pipeline Scripts
+
+All scripts run from the project root. The three bolded scripts form the core generation pipeline.
+
+| Script | What It Does |
+|--------|-------------|
+| **`python -m src.gen_systems_arch --all`** | **Generate** all architecture Markdown documents from inputs |
+| **`python scripts/update_sad_from_smartsheet.py`** | **Enrich** with live Smartsheet data (RICEFW, RAID, roadmap) |
+| **`python scripts/gen_pdf.py`** | **Produce** HTML + PDF outputs from Markdown |
+| `python scripts/sync_sharepoint.py --all` | Upload outputs to SharePoint |
+| `python scripts/gen_xlsx_templates.py --deploy` | Deploy blank Excel templates to all capabilities |
+| `python scripts/scaffold_inputs.py` | Deploy input templates + upgrade legacy CSVs to 47-column xlsx |
+| `python scripts/backfill_bpmn_to_xlsx.py` | Populate Business Architecture tab from BPMN XML |
+| `python scripts/backfill_sample_data.py` | Pre-fill supplementary tabs with contextual sample data |
+| `python scripts/cleanup_csvs.py` | Remove legacy CSVs superseded by xlsx workbooks |
+
+### Targeting Specific Towers / Capabilities
+
+Most scripts accept `--tower` and `--cap` flags:
 
 ```bash
-# Deploy input templates to all capabilities
-python scripts/gen_xlsx_templates.py --deploy
-
-# Backfill BPMN data into workbooks
-python scripts/backfill_bpmn_to_xlsx.py --tower FPR
+python -m src.gen_systems_arch --tower FPR              # One tower
+python -m src.gen_systems_arch --tower FPR --cap DS-020 # One capability
+python scripts/gen_pdf.py --tower FPR --html-only       # HTML only, one tower
+python scripts/update_sad_from_smartsheet.py --dry-run   # Preview without writing
 ```
 
-## MCP Servers & API Access
+---
 
-The `mcp_servers/` directory contains [Model Context Protocol](https://modelcontextprotocol.io/) servers that expose enterprise data as tools for GitHub Copilot. These are registered in `.vscode/settings.json` and run as stdio subprocesses.
+## CI/CD — Automated Execution
 
-### Why API Access Matters
+Three GitHub Actions workflows automate the full lifecycle. Once inputs and credentials are set, documents regenerate automatically.
 
-Direct API access is critical for producing accurate, up-to-date architecture documents. Without it, the pipeline relies on stale CSV/Excel exports that drift out of sync with source systems. Each API enables a specific layer of automation:
+### Workflows
 
-| API | Architecture Impact | Without It |
-|-----|--------------------|-----------|
-| **Smartsheet** | Live RICEFW status, RAID items, delivery timelines per capability | Manual CSV export, data goes stale within days |
-| **IAPM** | Application portfolio lookup — hosting, lifecycle, ownership for Application Architecture | Offline CSV (30K apps) — works but may miss recent changes |
-| **JIRA** | Test case readiness, defect counts, sprint status for Build Readiness sections | No automated QA/test visibility |
-| **SAP OData** | Dev object inventory, transport status, CDS views for Technology Architecture | Manual collection from SAP GUI |
-| **SAP BIC** | BPMN process models — swim lanes, tasks, gateways for Business Architecture | Manual BPMN XML export from BIC UI |
+| Workflow | Trigger | What It Does |
+|----------|---------|-------------|
+| `generate-architecture.yml` | Schedule (cron), push to `main`, manual | Full pipeline: generate MDs → enrich from Smartsheet → produce HTML/PDF → sync to SharePoint |
+| `sharepoint-reverse-sync.yml` | Power Automate webhook, manual | Pull updated xlsx from SharePoint → commit → triggers generation |
+| `deploy-pages.yml` | After generation completes, manual | Deploy HTML outputs to GitHub Pages |
 
-### Server Status
+### Scheduling
 
-| Server | MCP Name | Status | Tools | Required Credentials |
-|--------|----------|--------|-------|---------------------|
-| Smartsheet | `iao-smartsheet` | **Working** | `get_ricefw_objects`, `get_raid_items`, `get_timeline`, `get_tower_summary`, `read_sheet_live`, `list_known_sheets` | `SMARTSHEET_TOKEN` (falls back to CSV cache if missing) |
-| IAPM | `iao-iapm` | **Working** | `lookup_application`, `search_applications`, `get_app_status` | None — reads from `data/iapm/IAPM_All_Solutions.csv` |
-| JIRA | `iao-jira` | Placeholder | `get_test_cases`, `get_defects`, `get_sprint_status`, `search_issues` | `JIRA_BASE_URL`, `JIRA_USER_EMAIL`, `JIRA_API_TOKEN` |
-| SAP OData | `iao-sap-odata` | Placeholder | `get_dev_objects`, `get_transport_status`, `get_cds_views`, `get_fiori_apps` | `SAP_BI0_HOST`, `SAP_BI0_USER`, `SAP_BI0_PASS` (+ `S_SERVICE` SAP role) |
-| SAP BIC | `iao-bic` | Placeholder | `get_process_models`, `get_process_detail`, `search_processes`, `export_bpmn` | `BIC_AUTH_TOKEN` (browser extraction; expires frequently) |
+Edit the cron in `.github/workflows/generate-architecture.yml`:
 
-### Setting Up MCP Servers
+```yaml
+on:
+  schedule:
+    - cron: "0 6 * * *"     # Daily at 06:00 UTC
+    # - cron: "0 * * * *"   # Hourly
+    # - cron: "0 6 * * 1"   # Weekly (Monday)
+```
 
-The servers are pre-registered in `.vscode/settings.json`. To activate them:
+Or trigger manually: **Actions → Generate Architecture Docs → Run workflow**
 
-1. **Install the MCP SDK** (included in `requirements.txt`):
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. **Add credentials** to `.env` for each API you have access to (see `.env.example`)
-
-3. **Restart VS Code** — Copilot auto-discovers the servers via settings.json
-
-4. **Verify** by asking Copilot: _"List the available Smartsheet tools"_ or _"Search IAPM for SAP"_
-
-### Requesting API Access
-
-For Intel enterprise systems, API access requires formal provisioning:
-
-| System | Access Method | What to Request |
-|--------|--------------|----------------|
-| **Smartsheet** | API token from Smartsheet admin | Bearer token with read access to IAO workspace sheets |
-| **IAPM** | Azure AD Bearer token | Access to the IAPM application portfolio (auto-granted for most Intel employees) |
-| **JIRA** | Personal Access Token | Create at JIRA profile → Personal Access Tokens; needs read access to IDM 2.0 projects |
-| **SAP S/4HANA** | SAP Gateway access | Request `S_SERVICE` authorization role for OData catalog on BI0/DI0 systems via SAP access request form |
-| **SAP BIC** | Session token (browser) | Access to BIC process design portal; token extracted from browser DevTools (F12 → Network → Authorization header) |
-
-## CI/CD Workflows
-
-Three GitHub Actions workflows automate the full document lifecycle:
-
-| Workflow | Trigger | Purpose |
-|----------|---------|---------|
-| `generate-architecture.yml` | Weekly (Mon 06:00 UTC), push to main, manual | Regenerate MDs, update from Smartsheet, generate HTML, sync to SharePoint |
-| `sharepoint-reverse-sync.yml` | Power Automate webhook, manual | Pull updated Excel inputs from SharePoint → commit → triggers forward generation |
-| `deploy-pages.yml` | After `Generate Architecture Docs` completes, manual | Deploy HTML outputs to GitHub Pages for browser viewing |
-
-### Pipeline Flow
+### End-to-End Pipeline Flow
 
 ```
  SharePoint (architect edits xlsx)
@@ -293,16 +228,16 @@ Three GitHub Actions workflows automate the full document lifecycle:
         │
         ▼
  sharepoint-reverse-sync.yml
-   ├── Download updated file from SharePoint via Graph API
+   ├── Download updated xlsx from SharePoint via Graph API
    ├── Commit to towers/<TOWER>/<CAP>/input/data/
    └── Push to main  ───────────────────────┐
                                              ▼
                                 generate-architecture.yml
                                   ├── Generate architecture MDs
                                   ├── Update SADs from Smartsheet
-                                  ├── Generate HTML outputs
+                                  ├── Generate HTML/PDF outputs
                                   ├── Commit outputs to repo
-                                  ├── Sync HTML/PDF/SVG to SharePoint
+                                  ├── Sync to SharePoint
                                   └── Trigger deploy-pages.yml
                                              │
                                              ▼
@@ -310,279 +245,239 @@ Three GitHub Actions workflows automate the full document lifecycle:
                                         └── Deploy HTML to GitHub Pages
 ```
 
+### GitHub Secrets Required
+
+Configure in **Settings → Secrets and variables → Actions**:
+
+| Secret | Required For |
+|--------|-------------|
+| `SMARTSHEET_TOKEN` | Smartsheet live data injection |
+| `SP_TENANT_ID` | SharePoint sync |
+| `SP_CLIENT_ID` | SharePoint sync |
+| `SP_CLIENT_SECRET` | SharePoint sync |
+| `SP_SITE_URL` | SharePoint sync |
+| `SP_DOC_LIBRARY` | SharePoint sync (default: `Shared Documents`) |
+| `SP_TARGET_FOLDER` | SharePoint sync (default: `Architecture/SAD`) |
+
+Optional: `IAPM_BEARER_TOKEN`, `BIC_AUTH_TOKEN`, `JIRA_*`, `SAP_*`
+
+---
+
+## Towers
+
+| Tower | Shortcode | Description |
+|-------|-----------|-------------|
+| Forecast, Planning & Replenishment | FPR | Financial planning, costing, capital management |
+| Order to Cash — Intel Foundry | OTC-IF | Sales, billing, receivables (Foundry) |
+| Order to Cash — Intel Products | OTC-IP | Sales, billing, receivables (Products) |
+| Forecast to Stock — Intel Foundry | FTS-IF | Demand planning, inventory, logistics (Foundry) |
+| Forecast to Stock — Intel Products | FTS-IP | Demand planning, inventory, logistics (Products) |
+| Procure to Pay | PTP | Procurement, AP, vendor management |
+| Master Data Management | MDM | Material, customer, vendor master data |
+| End-to-End | E2E | Cross-tower integration scenarios |
+
+---
+
+## Project Structure
+
+```
+IAO-JPNotebookPython/
+│
+├── src/                          # Core library modules
+│   ├── gen_systems_arch.py       #   Main orchestrator (tower.yaml → template rendering)
+│   ├── cap_name_resolver.py      #   Multi-source capability name resolution
+│   ├── bpmn_parser.py            #   BPMN 2.0 XML parser
+│   ├── csv_parser.py             #   Flow CSV parser (25/47 column schemas)
+│   ├── xlsx_loader.py            #   Multi-tab Excel workbook parser
+│   ├── mermaid_builder.py        #   Mermaid diagram generator
+│   ├── iapm_lookup.py            #   IAPM application metadata resolver
+│   ├── diff_engine.py            #   Current vs. future flow change analysis
+│   ├── smartsheet_loader.py      #   Smartsheet data loader (API + CSV fallback)
+│   ├── context_loader.py         #   Supplementary context CSV loader
+│   ├── doc_format.py             #   Document formatting utilities
+│   └── config.py                 #   Centralized configuration (.env loader)
+│
+├── scripts/                      # Pipeline CLI entry points
+│   ├── update_sad_from_smartsheet.py
+│   ├── gen_pdf.py
+│   ├── gen_xlsx_templates.py
+│   ├── scaffold_inputs.py
+│   ├── backfill_bpmn_to_xlsx.py
+│   ├── backfill_sample_data.py
+│   ├── cleanup_csvs.py
+│   └── sync_sharepoint.py
+│
+├── templates/                    # Jinja2 document templates
+│   ├── systems_architecture.md.j2    # BDAT architecture template
+│   ├── capability_architecture.md.j2 # SAP-level architecture template
+│   ├── CurrentFlows_TEMPLATE.xlsx    # Blank input workbook (current-state)
+│   ├── FutureFlows_TEMPLATE.xlsx     # Blank input workbook (future-state)
+│   └── assets/                       # Cover banner, CSS assets
+│
+├── mcp_servers/                  # MCP tool servers (Copilot integration)
+│   ├── smartsheet_server.py      #   ✅ Working — RICEFW, RAID, timelines
+│   ├── iapm_server.py            #   ✅ Working — 30K+ app portfolio lookups
+│   ├── jira_server.py            #   🟡 Placeholder — needs JIRA credentials
+│   ├── sap_odata_server.py       #   🟡 Placeholder — needs SAP gateway access
+│   └── bic_server.py             #   🟡 Placeholder — needs BIC auth token
+│
+├── towers/                       # Tower data (8 towers)
+│   ├── FPR/                      #   tower.yaml + L1 process groups + L2 capabilities
+│   ├── OTC-IF/                   #   Each capability: input/data/*.xlsx → output/docs/*.html
+│   ├── OTC-IP/
+│   ├── FTS-IF/
+│   ├── FTS-IP/
+│   ├── PTP/
+│   ├── MDM/
+│   └── E2E/
+│
+├── data/                         # Cached API data (CSV fallbacks)
+│   ├── smartsheet/               #   Object trackers, RAID logs
+│   ├── iapm/                     #   IAPM_All_Solutions.csv (30K+ apps)
+│   ├── bic/                      #   BIC process data (when provisioned)
+│   └── sap_odata/                #   SAP OData extractions (when provisioned)
+│
+├── .github/workflows/            # CI/CD automation
+│   ├── generate-architecture.yml #   Full generation + SharePoint sync
+│   ├── sharepoint-reverse-sync.yml # SharePoint → GitHub reverse sync
+│   └── deploy-pages.yml          #   Deploy to GitHub Pages
+│
+├── docs/                         # Planning documentation (reference only)
+├── reference/                    # API probe utilities (reference only)
+├── _archive/                     # Archived exploration scripts (inactive)
+│
+├── requirements.txt              # Python dependencies
+├── .env.example                  # Credential template
+└── .gitignore
+```
+
+### Capability Folder Structure
+
+Each capability under a tower follows this layout:
+
+```
+towers/<TOWER>/<Process Group>/<CAP-ID>/
+├── input/
+│   ├── bpmn/                              # BPMN XML exports (optional)
+│   │   └── <CAP>-<step>_<name>.bpmn
+│   └── data/                              # ◀ ARCHITECT-EDITABLE INPUTS
+│       ├── CurrentFlows.xlsx              #   Current-state flows + context
+│       └── FutureFlows.xlsx               #   Future-state flows + context
+└── output/
+    └── docs/
+        └── systems-architecture/
+            ├── <CAP>-Architecture.html    # ◀ Generated → SharePoint + Pages
+            ├── <CAP>-Architecture.pdf     # ◀ Generated → SharePoint
+            └── <CAP>-Architecture.md      #   Generated → GitHub only
+```
+
+---
+
+## API Access
+
+Each API enriches a specific BDAT domain. All are optional — the pipeline degrades gracefully.
+
+| API | BDAT Domain | What It Provides | Without It |
+|-----|-------------|-----------------|-----------|
+| **Smartsheet** | All | Live RICEFW object status, RAID items, delivery timelines | Cached CSV — goes stale within days |
+| **IAPM** | Application | App portfolio (30K+ apps) — hosting, lifecycle, ownership | Offline CSV — works but may miss changes |
+| **SAP BIC** | Business | BPMN process model names, capability titles from Signavio | Manual BPMN XML export from BIC UI |
+| **SAP OData** | Technology | Dev object inventory, transport status, CDS views | Manual collection from SAP GUI |
+| **JIRA** | Project Mgmt | Test readiness, defect counts, sprint burn-down | No automated QA visibility |
+| **SharePoint** | Delivery | Two-way sync of inputs/outputs with architect workspace | Manual file copy |
+
+### Requesting Access (Intel Internal)
+
+| System | How to Request |
+|--------|---------------|
+| Smartsheet | API token from Smartsheet admin — Bearer token with read access to IAO workspace |
+| IAPM | Auto-granted via Azure AD for most Intel employees |
+| JIRA | Create Personal Access Token at JIRA profile → needs IDM 2.0 project read access |
+| SAP S/4HANA | Request `S_SERVICE` authorization role for BI0/DI0 OData catalog via SAP access form |
+| SAP BIC | Access to BIC portal; extract token from browser DevTools (F12 → Network → Authorization header) |
+| SharePoint | Azure AD App Registration with `Sites.ReadWrite.All` + GitHub PAT for Power Automate |
+
+---
+
+## MCP Servers (Copilot Integration)
+
+Five [Model Context Protocol](https://modelcontextprotocol.io/) servers in `mcp_servers/` expose enterprise data as tools for GitHub Copilot. Registered in `.vscode/settings.json`, they run as stdio subprocesses.
+
+| Server | Status | Sample Query |
+|--------|--------|-------------|
+| `iao-smartsheet` | ✅ Working | _"Get RICEFW objects for FPR DS-020"_ |
+| `iao-iapm` | ✅ Working | _"Search IAPM for SAP S/4HANA"_ |
+| `iao-jira` | 🟡 Placeholder | _"Get defects for PTP tower"_ |
+| `iao-sap-odata` | 🟡 Placeholder | _"Get dev objects for transport K9xxxxx"_ |
+| `iao-bic` | 🟡 Placeholder | _"Search BIC for DS-020 process models"_ |
+
+Placeholder servers return stub data with instructions for provisioning credentials. Once tokens are added to `.env`, they activate automatically.
+
 ---
 
 ## SharePoint Two-Way Sync
 
-The pipeline supports two-way sync between GitHub and SharePoint so that tower architects can update Excel input files directly on SharePoint without needing Git access.
+### Forward Sync (GitHub → SharePoint)
 
-### How It Works
-
-1. **Forward sync** (GitHub → SharePoint): After docs are generated, `sync_sharepoint.py` uploads **HTML, PDF, and SVG** files to the SharePoint document library. Markdown files stay in GitHub only.
-2. **Reverse sync** (SharePoint → GitHub): When an architect updates an Excel input file (CurrentFlows.xlsx, FutureFlows.xlsx, etc.) on SharePoint, a Power Automate flow triggers `sharepoint-reverse-sync.yml` to pull the file into the repo and regenerate docs.
-
-### Folder Structure on SharePoint
-
-The sync maps the GitHub `towers/` structure to SharePoint:
-
-```
-SharePoint: Shared Documents / Architecture/SAD /
-├── FPR/
-│   └── docs/systems-architecture/
-│       ├── DS-020-Architecture.html    ◀ Viewable in browser / downloadable
-│       ├── DS-020-Architecture.pdf     ◀ Downloadable
-│       └── svg/
-│           └── *.svg
-├── OTC-IF/
-├── PTP/
-└── ...
-```
-
-**SharePoint HTML viewing**: Architects can click an HTML file to open it in the browser preview, or download it locally. If the browser preview strips JavaScript (preventing Mermaid rendering), the PDF version is the reliable fallback.
-
-**Default mapping** (from `.env`):
-- `SP_DOC_LIBRARY` = `Shared Documents`
-- `SP_TARGET_FOLDER` = `Architecture/SAD`
-
-### Syncing Specific Towers
-
-To sync only certain towers instead of all:
+After documents are generated, `sync_sharepoint.py` uploads HTML/PDF/SVG to SharePoint:
 
 ```bash
-# Sync a single tower to SharePoint
-python scripts/sync_sharepoint.py --tower FPR
-
-# Sync all towers
-python scripts/sync_sharepoint.py --all
+python scripts/sync_sharepoint.py --all                    # All towers
+python scripts/sync_sharepoint.py --tower FPR              # One tower
+python scripts/sync_sharepoint.py --all --include-inputs   # Include xlsx inputs (first-time bootstrap)
 ```
 
-In the GitHub Actions manual dispatch, enter a tower shortcode to limit the scope:
+### Reverse Sync (SharePoint → GitHub)
 
-> **Actions → Generate Architecture Docs → Run workflow → Tower shortcode**: `FPR`
+When an architect edits an xlsx on SharePoint, a Power Automate flow triggers `sharepoint-reverse-sync.yml`:
 
-### Setting Up Reverse Sync (SharePoint → GitHub)
+1. Architect saves `CurrentFlows.xlsx` on SharePoint
+2. Power Automate sends `repository_dispatch` to GitHub
+3. Workflow downloads the file, commits to `towers/<TOWER>/<CAP>/input/data/`
+4. Push triggers `generate-architecture.yml` → regenerates docs → syncs back
 
-#### Prerequisites
+Manual alternative: **Actions → SharePoint Reverse Sync → Run workflow** with tower, capability, and file name.
 
-1. **Azure AD App Registration** with `Sites.ReadWrite.All` Graph API permission
-2. **GitHub Personal Access Token** (PAT) with `repo` scope for Power Automate to call the dispatch API
-3. **Power Automate** (or Logic App) flow on the SharePoint site
+### Power Automate Setup
 
-#### Step 1: Configure GitHub Secrets
-
-Go to **Settings → Secrets and variables → Actions** and add:
-
-| Secret | Description |
-|--------|-------------|
-| `SMARTSHEET_TOKEN` | Smartsheet API token |
-| `SP_TENANT_ID` | Azure AD tenant ID |
-| `SP_CLIENT_ID` | Azure AD app client ID |
-| `SP_CLIENT_SECRET` | Azure AD app client secret |
-| `SP_SITE_URL` | SharePoint site URL (e.g., `https://intel.sharepoint.com/sites/IAO-Architecture`) |
-| `SP_DOC_LIBRARY` | Document library name (default: `Shared Documents`) |
-| `SP_TARGET_FOLDER` | Target folder path (default: `Architecture/SAD`) |
-
-Optional (for full pipeline): `IAPM_BEARER_TOKEN`, `BIC_AUTH_TOKEN`
-
-#### Step 2: Create Power Automate Flow
-
-Create a flow that fires when an `.xlsx` file changes in the SharePoint document library:
-
-1. **Trigger**: _When a file is modified (properties only)_ in the `Architecture/SAD` folder
-2. **Filter**: File extension = `.xlsx`
-3. **Parse path**: Extract tower and capability from the file path
-   - Example: `Architecture/SAD/FPR/DS-001/input/data/CurrentFlows.xlsx`
-   - Tower = `FPR`, Capability = `DS-001`, File = `CurrentFlows.xlsx`
-4. **HTTP action**: Send `repository_dispatch` to GitHub:
+Create a flow triggered on `.xlsx` file change in the SharePoint document library:
 
 ```json
 POST https://api.github.com/repos/<OWNER>/<REPO>/dispatches
 Headers:
   Authorization: Bearer <GITHUB_PAT>
-  Accept: application/vnd.github+json
 Body:
 {
   "event_type": "sharepoint-file-updated",
   "client_payload": {
     "tower": "FPR",
-    "capability": "DS-001",
+    "capability": "DS-020",
     "file_name": "CurrentFlows.xlsx",
-    "sp_path": "Architecture/SAD/FPR/DS-001/input/data/CurrentFlows.xlsx"
+    "sp_path": "Architecture/SAD/FPR/DS-020/input/data/CurrentFlows.xlsx"
   }
 }
 ```
 
-#### Step 3: Manual Reverse Sync (Alternative)
+---
 
-If Power Automate is not configured, you can trigger the reverse sync manually:
+## Viewing Documents
 
-> **Actions → SharePoint Reverse Sync → Run workflow**
->
-> - Tower shortcode: `FPR`
-> - Capability ID: `DS-001`
-> - File name: `CurrentFlows.xlsx`
-
-This downloads the specified file from SharePoint and commits it to the repo. The push then triggers the forward generation workflow automatically.
-
-### Sync Sequence Summary
-
-| Step | What Happens | Triggered By |
-|------|-------------|--------------|
-| 1 | Architect edits Excel on SharePoint | Manual |
-| 2 | Power Automate sends `repository_dispatch` | SharePoint file change trigger |
-| 3 | `sharepoint-reverse-sync.yml` downloads file, commits | `repository_dispatch` event |
-| 4 | `generate-architecture.yml` regenerates docs | Push to `main` (paths: `towers/**/input/**`) |
-| 5 | Updated HTML/PDF/SVG uploaded to SharePoint | End of generation workflow |
-| 6 | `deploy-pages.yml` deploys HTML to GitHub Pages | After generation workflow completes |
+| Method | URL / Path | Best For |
+|--------|-----------|----------|
+| **GitHub Pages** | `https://<org>.github.io/IAO-Architecture/` | Interactive browsing with Mermaid diagrams, sidebar navigation |
+| **SharePoint** | `Shared Documents > Architecture/SAD > ...` | Architect access, PDF download |
+| **Local** | `towers/<TOWER>/<L1>/<CAP>/output/docs/systems-architecture/*.html` | Development / preview |
 
 ---
 
-## Security & Credential Management
+## Security
 
-### Repository Visibility
-
-**The repository must be PRIVATE.** Architecture documents, process flow data, IAPM application inventory (30K+ apps), and Smartsheet CSV exports contain Intel confidential information. A public repository would expose this content to the internet.
-
-### GitHub Pages (Enterprise Cloud — Private Pages Enabled)
-
-This repository is hosted on **GitHub Enterprise Cloud**, which supports **private GitHub Pages**. The Pages site is only accessible to repository collaborators — not the public internet.
-
-**Pages Site**: `https://sajivfrancis777.github.io/IAO-Architecture/`
-
-The `deploy-pages.yml` workflow automatically deploys all HTML outputs after each generation run. The index page lists every tower and capability with direct links.
-
-**Setup** (if not already enabled):
-1. Go to **Settings → Pages**
-2. Source: **GitHub Actions**
-3. Visibility: **Private** (only repo collaborators can access)
-
-> **Note:** Clicking an HTML file in the GitHub **repo browser** always shows source code — this is standard GitHub behavior. Use the **Pages site URL** above or **SharePoint** to view rendered architecture documents.
-
-### Where Secrets Live
-
-| Location | What's Stored | Exposed? |
-|----------|-------------|----------|
-| **GitHub Secrets** | API tokens, SP credentials | Never — masked in logs, only available during workflow execution |
-| **`.env` (local)** | Same credentials for local runs | Never committed — in `.gitignore` |
-| **`.env.example`** | Placeholder template only | Safe — contains no real values |
-| **Workflow YAML** | References `${{ secrets.X }}` | Safe — resolved at runtime, not stored in file |
-| **Generated HTML/PDF** | Architecture content only | No credentials — but contains internal IP |
-
-### Secure Handling Checklist
-
-- [x] `.env` is in `.gitignore` — never committed
-- [x] `.env.example` contains only placeholders
-- [x] All API tokens are stored in GitHub Secrets (Settings → Secrets → Actions)
-- [x] Azure AD app uses `client_credentials` grant (no user passwords in pipelines)
-- [x] Workflow YAML uses `${{ secrets.X }}` — values never appear in source
-- [x] SharePoint sync uses OAuth2 with scoped permissions (`Sites.ReadWrite.All`)
-- [x] Repository is set to **Private** (verify in Settings → General → Danger Zone)
-- [x] GitHub Pages set to **Private** visibility (Enterprise Cloud — only repo collaborators can access)
-
----
-
-## Viewing Architecture Documents
-
-> **Important:** Clicking an HTML file in the GitHub repo browser shows raw source code — GitHub never renders HTML inline. Use one of the options below to view rendered documents.
-
-### Option 1: GitHub Pages (Recommended)
-
-The Pages site is live and auto-deployed after each pipeline run:
-
-**`https://sajivfrancis777.github.io/IAO-Architecture/`**
-
-The index page lists all 8 towers with every capability linked. Click any capability to view the full BDAT architecture document with rendered Mermaid diagrams and IAPM-linked system nodes.
-
-### Option 2: SharePoint
-
-After the forward sync runs, architecture HTML and PDF files are available on SharePoint:
-
-```
-SharePoint > Shared Documents > Architecture/SAD > <TOWER> > <ProcessGroup> > <CAP> > output/docs/systems-architecture/
-  ├── DS-020-Architecture.html   ← Open in browser
-  └── DS-020-Architecture.pdf    ← Download
-```
-
-- **HTML**: Click to open in the SharePoint browser preview. If JavaScript is stripped (Mermaid diagrams won't render), download the file and open locally.
-- **PDF**: Always works — click to view or download.
-
-### Option 3: Local
-
-```bash
-# Open a specific HTML file in your default browser (Windows)
-start "towers\FPR\DS Provide Decision Support\DS-020\output\docs\systems-architecture\DS-020-Architecture.html"
-```
-
----
-
-## SharePoint Folder Structure
-
-The sync uploads both **input files** (for architect editing) and **output files** (generated docs) to SharePoint, mirroring the repository layout:
-
-```
-SharePoint: Shared Documents / Architecture/SAD /
-├── FPR/
-│   └── DS Provide Decision Support/
-│       └── DS-020/
-│           ├── input/data/                          ◀ Architects edit here
-│           │   ├── CurrentFlows.xlsx
-│           │   ├── FutureFlows.xlsx
-│           │   ├── R3_CurrentFlows.xlsx
-│           │   └── R3_FutureFlows.xlsx
-│           └── output/docs/systems-architecture/    ◀ Generated docs appear here
-│               ├── DS-020-Architecture.html
-│               ├── DS-020-Architecture.pdf
-│               └── svg/
-├── OTC-IF/
-├── PTP/
-└── ...
-```
-
-### Initial Bootstrap — Upload Input Files to SharePoint
-
-On first setup, upload the existing input Excel files to SharePoint so architects can start editing:
-
-```bash
-# Upload both outputs AND input xlsx files for all towers
-python scripts/sync_sharepoint.py --all --include-inputs
-
-# Upload for a single tower
-python scripts/sync_sharepoint.py --tower FPR --include-inputs
-```
-
-After the initial upload, the regular workflow handles the sync cycle:
-- **Forward** (GitHub → SharePoint): `sync_sharepoint.py --all` uploads outputs only (HTML/PDF/SVG)
-- **Reverse** (SharePoint → GitHub): `sharepoint-reverse-sync.yml` pulls updated xlsx files back
-
-### Architect Workflow
-
-1. Navigate to `Shared Documents > Architecture/SAD > FPR > DS Provide Decision Support > DS-020 > input/data/`
-2. Open and edit `CurrentFlows.xlsx` (or `FutureFlows.xlsx`, `R3_CurrentFlows.xlsx`, `R3_FutureFlows.xlsx`)
-3. Save — Power Automate detects the change and triggers the pipeline
-4. Updated HTML/PDF appears in the `output/` folder within minutes
-
----
-
-## Scheduling Options
-
-The `generate-architecture.yml` workflow runs weekly by default. To change the schedule:
-
-| Frequency | Cron Expression | Description |
-|-----------|----------------|-------------|
-| Daily | `0 6 * * *` | Every day at 06:00 UTC |
-| Weekly (default) | `0 6 * * 1` | Every Monday at 06:00 UTC |
-| Bi-weekly | `0 6 1,15 * *` | 1st and 15th of each month |
-| Monthly | `0 6 1 * *` | First day of each month |
-
-Edit the `cron` line in `.github/workflows/generate-architecture.yml`:
-
-```yaml
-on:
-  schedule:
-    - cron: "0 6 * * *"   # Change to desired frequency
-```
-
-Or trigger an ad-hoc run from **Actions → Generate Architecture Docs → Run workflow**.
+- Repository is **Private** (GitHub Enterprise Cloud)
+- GitHub Pages is **Private** (only repo collaborators)
+- `.env` is in `.gitignore` — never committed
+- All API tokens stored in GitHub Secrets for CI/CD
+- SharePoint sync uses OAuth2 client credentials (no user passwords)
+- Generated docs contain Intel confidential architecture data — do not make public
 
 ---
 

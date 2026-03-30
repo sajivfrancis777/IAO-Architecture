@@ -1,10 +1,16 @@
 # IAO Architecture Pipeline — Python Dependencies
-openpyxl>=3.1.5
-PyYAML>=6.0
-Jinja2>=3.1
-requests>=2.31
-python-dotenv>=1.0
-Markdown>=3.6
-pymdown-extensions>=10.0
-fpdf2>=2.8
-pandas>=2.0
+# ── Core Pipeline ──────────────────────────────────
+openpyxl>=3.1.5          # Excel workbook read/write (input xlsx files)
+PyYAML>=6.0              # Tower configuration (tower.yaml)
+Jinja2>=3.1              # Document template rendering
+requests>=2.31           # HTTP client (Smartsheet, SharePoint, SAP APIs)
+python-dotenv>=1.0       # Load .env credentials
+pandas>=2.0              # Data manipulation (Smartsheet CSV, IAPM lookup)
+
+# ── Document Generation ───────────────────────────
+Markdown>=3.6            # Markdown → HTML conversion
+pymdown-extensions>=10.0 # Extended Markdown (tables, admonitions)
+fpdf2>=2.8               # PDF generation from HTML
+
+# ── Enterprise Auth ───────────────────────────────
+requests-ntlm>=1.3       # NTLM auth for SAP OData gateways
