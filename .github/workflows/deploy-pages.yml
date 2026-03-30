@@ -412,6 +412,21 @@ jobs:
           TOWERFOOT
           done
 
+          # ── PIN MERMAID CDN VERSION ────────────────────────────────
+          # Guard: rewrite any unpinned mermaid@10/ or mermaid@10.x/ to the
+          # exact tested version. Prevents CDN auto-upgrades from breaking
+          # diagram rendering with "Syntax error in text" errors.
+          MERMAID_PIN="10.6.1"
+          echo "Pinning Mermaid CDN to v${MERMAID_PIN} in all deployed HTML..."
+          pinned=0
+          find _site -name "*.html" -type f | while read f; do
+            if grep -q "mermaid@10/" "$f" 2>/dev/null || grep -q 'mermaid@10\.[0-9]' "$f" 2>/dev/null; then
+              sed -i "s|mermaid@10/|mermaid@${MERMAID_PIN}/|g; s|mermaid@10\.[0-9]\+\(\.[0-9]\+\)\?/|mermaid@${MERMAID_PIN}/|g" "$f"
+              pinned=$((pinned + 1))
+            fi
+          done
+          echo "  Pinned Mermaid in ${pinned} files"
+
           # ── INJECT PORTAL TOOLBAR + SIDEBAR INTO SAD HTML PAGES ────
           # Adds a floating toolbar (← Portal, Tower, 📄 PDF) and slide-in
           # sidebar to every Architecture HTML document within _site/towers/.
