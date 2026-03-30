@@ -165,14 +165,14 @@ This capability includes **{{ bpmn_processes|length }} business process(es)** mo
 
 {{ bpmn_inventory_table }}
 
+<div style="page-break-before: always;"></div>
+
 ### 3.2 Business Process Diagrams
 
 {% set ns = namespace(page_nodes=0) %}
 {% for proc in bpmn_processes %}
 {% set is_large = proc.node_count > 12 or proc.lanes|length > 1 %}
-{% if loop.first %}
-<div style="page-break-before: always;"></div>
-{% elif is_large or ns.page_nodes + proc.node_count > 20 %}
+{% if not loop.first and (is_large or ns.page_nodes + proc.node_count > 20) %}
 <div style="page-break-before: always;"></div>
 {% set ns.page_nodes = 0 %}
 {% endif %}

@@ -600,6 +600,19 @@ def generate_capability(
     if not cap_cfg:
         cap_cfg = CapabilityConfig(cap_id=cap_id, name=cap_id)
 
+    # Avoid duplicate title like "DC-050 — DC-050" when name wasn't populated
+    if cap_cfg.name == cap_cfg.cap_id:
+        # Use L1 process group as meaningful name, or directory-derived name
+        if cap_cfg.l1 and cap_cfg.l1 != cap_cfg.cap_id:
+            cap_cfg.name = cap_cfg.l1
+        else:
+            # Derive from the capability directory name
+            cap_dir_name = cap_dir.parent.name if cap_dir.parent.name != cap_id else ""
+            if cap_dir_name and cap_dir_name != cap_id:
+                cap_cfg.name = cap_dir_name
+            else:
+                cap_cfg.name = f"{cap_id} Architecture"
+
     # Locate flow files — prefer multi-tab xlsx over individual CSVs
     current_xlsx = find_xlsx_workbook(input_data, tower_cfg.release.release_id, "CurrentFlows")
     future_xlsx = find_xlsx_workbook(input_data, tower_cfg.release.release_id, "FutureFlows")
