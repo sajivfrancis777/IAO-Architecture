@@ -1,0 +1,182 @@
+<div style="text-align:center; padding-top:20px;">
+  <img src="{{ cover_banner_path }}" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <h1 style="font-size:36px; margin-top:24px;">{{ title }}</h1>
+  <h2 style="font-size:24px;">RICEFW Object Tracker</h2>
+  <p style="font-size:18px; color:#555;">{{ tower_name }} ({{ tower_short }}) Tower{% if cap_id %}<br/>
+  Capability {{ cap_id }} · {{ l1_process }}{% endif %}</p>
+  <p style="font-size:14px; color:#888;">IAO Program · {{ release_name }}<br/>
+  Generated: {{ generated_date }}<br/>
+  {{ author }}</p>
+  <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
+</div>
+
+<style>
+@media print {
+  @page { margin: 0.75in; }
+  pre, table { page-break-inside: avoid; }
+  h2, h3, h4 { page-break-after: avoid; }
+}
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
+.page-footer {
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.status-complete { color: #2e7d32; font-weight: 600; }
+.status-active { color: #0071c5; font-weight: 600; }
+.status-blocked { color: #d32f2f; font-weight: 600; }
+.pct-bar { display: inline-block; height: 8px; border-radius: 4px; background: #0071c5; }
+.pct-track { display: inline-block; width: 60px; height: 8px; border-radius: 4px; background: #e0e0e0; }
+</style>
+
+<div style="page-break-before: always;"></div>
+
+<a id="toc"></a>
+
+## Table of Contents
+
+<nav class="toc">
+<ol>
+  <li><a href="#1-executive-summary">1. Executive Summary</a></li>
+  <li><a href="#2-ricefw-inventory">2. RICEFW Inventory</a>
+    <ul>
+      <li><a href="#21-summary-by-type">2.1 Summary by Type</a></li>
+      <li><a href="#22-summary-by-status">2.2 Summary by Status</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-detailed-object-listing">3. Detailed Object Listing</a>
+    <ul>
+      <li><a href="#31-interfaces">3.1 Interfaces</a></li>
+      <li><a href="#32-conversions">3.2 Conversions</a></li>
+      <li><a href="#33-enhancements">3.3 Enhancements</a></li>
+      <li><a href="#34-reports">3.4 Reports</a></li>
+      <li><a href="#35-forms">3.5 Forms</a></li>
+      <li><a href="#36-workflows">3.6 Workflows</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-build-progress">4. Build Progress</a>
+    <ul>
+      <li><a href="#41-phase-completion">4.1 Phase Completion</a></li>
+      <li><a href="#42-delivery-timeline">4.2 Delivery Timeline</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-risk-items">5. Risk Items</a></li>
+</ol>
+</nav>
+
+<div style="page-break-before: always;"></div>
+
+## 1. Executive Summary
+
+This tracker provides the RICEFW object inventory and build progress for **{{ tower_name }} ({{ tower_short }}){% if cap_id %} — {{ cap_id }} {{ cap_name }}{% endif %}**.
+
+| Metric | Value |
+|--------|-------|
+| **Total RICEFW Objects** | {{ total_objects }} |
+| **Active (In Progress)** | {{ active_count }} |
+| **Completed** | {{ completed_count }} |
+| **Rejected / Cancelled** | {{ rejected_count }} |
+| **Breakdown** | {{ ricefw_summary }} |
+{% if timeline_items %}| **Avg FS Completion** | {{ avg_fs_pct }}% |
+| **Avg Build Completion** | {{ avg_build_pct }}% |
+| **Avg FUT Completion** | {{ avg_fut_pct }}% |{% endif %}
+
+<div style="page-break-before: always;"></div>
+
+## 2. RICEFW Inventory
+
+### 2.1 Summary by Type
+
+| Type | Code | Count | % of Total |
+|------|------|-------|------------|
+{% for t in type_summary -%}
+| {{ t.label }} | {{ t.code }} | {{ t.count }} | {{ t.pct }}% |
+{% endfor -%}
+| **Total** | | **{{ total_objects }}** | **100%** |
+
+### 2.2 Summary by Status
+
+| Status | Count | % of Total |
+|--------|-------|------------|
+{% for s in status_summary -%}
+| {{ s.label }} | {{ s.count }} | {{ s.pct }}% |
+{% endfor %}
+
+<div style="page-break-before: always;"></div>
+
+## 3. Detailed Object Listing
+
+{% for section in type_sections %}
+### 3.{{ loop.index }} {{ section.label }}s
+
+{% if section.objects -%}
+| Object ID | Description | Status | Source → Target | Middleware | Complexity | Build % |
+|-----------|-------------|--------|----------------|-----------|-----------|---------|
+{% for obj in section.objects -%}
+| {{ obj.object_id }} | {{ obj.description|tc }} | {{ obj.status|tc }} | {{ obj.source_system|tc }}{% if obj.target_system %} → {{ obj.target_system|tc }}{% endif %} | {{ obj.middleware|tc }} | {{ obj.technical_complexity|tc }} | {{ obj.build_pct|tc }} |
+{% endfor %}
+{% else -%}
+*No {{ section.label|lower }} objects for this {{ scope_label }}.*
+
+{% endif -%}
+{% endfor %}
+
+<div style="page-break-before: always;"></div>
+
+## 4. Build Progress
+
+### 4.1 Phase Completion
+
+{% if timeline_items -%}
+| Object ID | Description | FS | TDD | Build | FUT | Status |
+|-----------|-------------|----|----|-------|-----|--------|
+{% for tl in timeline_items -%}
+| {{ tl.object_id }} | {{ tl.description|tc(40) }} | {{ phase_cell(tl.fs_end, tl.fs_pct) }} | {{ phase_cell(tl.tdd_end, tl.tdd_pct) }} | {{ phase_cell(tl.build_end, tl.build_pct) }} | {{ phase_cell(tl.fut_end, tl.fut_pct) }} | {{ tl.overall_status|tc }} |
+{% endfor %}
+{% else -%}
+*Timeline data will be populated from Smartsheet Object Tracker.*
+{% endif %}
+
+### 4.2 Delivery Timeline
+
+{% if timeline_items -%}
+| Phase | On Track | Off Track | Not Started | Avg Completion |
+|-------|----------|-----------|-------------|----------------|
+| Functional Spec | {{ phase_stats.fs.on_track }} | {{ phase_stats.fs.off_track }} | {{ phase_stats.fs.not_started }} | {{ phase_stats.fs.avg_pct }}% |
+| Technical Design | {{ phase_stats.tdd.on_track }} | {{ phase_stats.tdd.off_track }} | {{ phase_stats.tdd.not_started }} | {{ phase_stats.tdd.avg_pct }}% |
+| Build & TUT | {{ phase_stats.build.on_track }} | {{ phase_stats.build.off_track }} | {{ phase_stats.build.not_started }} | {{ phase_stats.build.avg_pct }}% |
+| FUT | {{ phase_stats.fut.on_track }} | {{ phase_stats.fut.off_track }} | {{ phase_stats.fut.not_started }} | {{ phase_stats.fut.avg_pct }}% |
+{% else -%}
+*Phase statistics will be populated from Smartsheet Object Tracker.*
+{% endif %}
+
+<div style="page-break-before: always;"></div>
+
+## 5. Risk Items
+
+{% if raid_items -%}
+| # | Object ID | Category | Description | Severity | Status | Assigned To | Due Date |
+|---|-----------|----------|-------------|----------|--------|-------------|----------|
+{% for r in raid_items -%}
+| {{ loop.index }} | {{ r.object_id|tc }} | {{ r.category|tc }} | {{ r.raid_text|tc(60) }} | {{ r.severity|tc }} | {{ r.status|tc }} | {{ r.assigned_to|tc }} | {{ r.due_date|tc }} |
+{% endfor %}
+{% else -%}
+*RAID items will be populated from the Master RAID Log.*
+{% endif %}
+
+---
+
+<p style="font-size:10px; color:#aaa; text-align:center;">
+Generated by IAO Architecture Pipeline · {{ generated_date }} · Intel Confidential
+</p>

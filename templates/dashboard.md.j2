@@ -1,0 +1,181 @@
+<div style="text-align:center; padding-top:20px;">
+  <img src="{{ cover_banner_path }}" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <h1 style="font-size:36px; margin-top:24px;">{{ title }}</h1>
+  <h2 style="font-size:24px;">Program Dashboard</h2>
+  <p style="font-size:14px; color:#888;">IAO Program · {{ release_name }}<br/>
+  Generated: {{ generated_date }}<br/>
+  {{ author }}</p>
+  <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
+</div>
+
+<style>
+@media print {
+  @page { margin: 0.75in; }
+  pre, table { page-break-inside: avoid; }
+  h2, h3, h4 { page-break-after: avoid; }
+}
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 20px 0; }
+.kpi-card { border: 1px solid #e0e4ea; border-radius: 8px; padding: 16px; text-align: center; }
+.kpi-card .value { font-size: 28px; font-weight: 700; color: #00285a; }
+.kpi-card .label { font-size: 12px; color: #666; margin-top: 4px; }
+.tower-card { border-left: 4px solid #0071c5; padding: 12px 16px; margin: 8px 0; background: #f5f8fc; border-radius: 0 4px 4px 0; }
+.tower-card h4 { margin: 0 0 8px 0; color: #00285a; }
+@media print {
+  .kpi-grid { display: table; width: 100%; }
+  .kpi-card { display: table-cell; border: 1px solid #ddd; padding: 8px; }
+}
+</style>
+
+<div style="page-break-before: always;"></div>
+
+<a id="toc"></a>
+
+## Table of Contents
+
+<nav class="toc">
+<ol>
+  <li><a href="#1-program-overview">1. Program Overview</a></li>
+  <li><a href="#2-tower-summary">2. Tower Summary</a></li>
+  <li><a href="#3-ricefw-status">3. RICEFW Status</a>
+    <ul>
+      <li><a href="#31-by-tower">3.1 By Tower</a></li>
+      <li><a href="#32-by-object-type">3.2 By Object Type</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-build-progress">4. Build Progress</a></li>
+  <li><a href="#5-raid-summary">5. RAID Summary</a></li>
+  <li><a href="#6-document-inventory">6. Document Inventory</a></li>
+</ol>
+</nav>
+
+<div style="page-break-before: always;"></div>
+
+## 1. Program Overview
+
+<div class="kpi-grid">
+<div class="kpi-card">
+  <div class="value">{{ program.total_objects }}</div>
+  <div class="label">Total RICEFW Objects</div>
+</div>
+<div class="kpi-card">
+  <div class="value">{{ program.completed_pct }}%</div>
+  <div class="label">Objects Completed</div>
+</div>
+<div class="kpi-card">
+  <div class="value">{{ program.active_count }}</div>
+  <div class="label">Active (In Progress)</div>
+</div>
+<div class="kpi-card">
+  <div class="value">{{ program.tower_count }}</div>
+  <div class="label">Towers</div>
+</div>
+</div>
+
+| Metric | Value |
+|--------|-------|
+| **Total RICEFW Objects** | {{ program.total_objects }} |
+| **Completed** | {{ program.completed_count }} ({{ program.completed_pct }}%) |
+| **Active** | {{ program.active_count }} |
+| **Rejected / Cancelled** | {{ program.rejected_count }} |
+| **Towers** | {{ program.tower_count }} |
+| **Capabilities** | {{ program.capability_count }} |
+| **Avg FS Completion** | {{ program.avg_fs }}% |
+| **Avg Build Completion** | {{ program.avg_build }}% |
+| **Avg FUT Completion** | {{ program.avg_fut }}% |
+| **Open RAID Items** | {{ program.raid_count }} |
+
+<div style="page-break-before: always;"></div>
+
+## 2. Tower Summary
+
+| Tower | RICEFW | Completed | Active | Completion % | Build % | FUT % | RAIDs |
+|-------|--------|-----------|--------|-------------|---------|-------|-------|
+{% for t in towers -%}
+| **{{ t.short }}** — {{ t.name }} | {{ t.total }} | {{ t.completed }} | {{ t.active }} | {{ t.completed_pct }}% | {{ t.avg_build }}% | {{ t.avg_fut }}% | {{ t.raid_count }} |
+{% endfor -%}
+| **TOTAL** | **{{ program.total_objects }}** | **{{ program.completed_count }}** | **{{ program.active_count }}** | **{{ program.completed_pct }}%** | **{{ program.avg_build }}%** | **{{ program.avg_fut }}%** | **{{ program.raid_count }}** |
+
+{% for t in towers %}
+<div class="tower-card">
+<h4>{{ t.short }} — {{ t.name }}</h4>
+
+{{ t.ricefw_summary }} · {{ t.completed_pct }}% complete · {{ t.active }} active · {{ t.raid_count }} open RAIDs
+
+</div>
+{% endfor %}
+
+<div style="page-break-before: always;"></div>
+
+## 3. RICEFW Status
+
+### 3.1 By Tower
+
+| Tower | Interfaces | Conversions | Enhancements | Reports | Forms | Workflows | Total |
+|-------|-----------|------------|-------------|---------|-------|-----------|-------|
+{% for t in towers -%}
+| {{ t.short }} | {{ t.interfaces }} | {{ t.conversions }} | {{ t.enhancements }} | {{ t.reports }} | {{ t.forms }} | {{ t.workflows }} | {{ t.total }} |
+{% endfor -%}
+| **Total** | **{{ program.type_totals.I }}** | **{{ program.type_totals.C }}** | **{{ program.type_totals.E }}** | **{{ program.type_totals.R }}** | **{{ program.type_totals.F }}** | **{{ program.type_totals.W }}** | **{{ program.total_objects }}** |
+
+### 3.2 By Object Type
+
+| Type | Total | Completed | Active | Rejected | Completion % |
+|------|-------|-----------|--------|----------|-------------|
+{% for t in program.type_rows -%}
+| {{ t.label }} | {{ t.total }} | {{ t.completed }} | {{ t.active }} | {{ t.rejected }} | {{ t.completed_pct }}% |
+{% endfor %}
+
+<div style="page-break-before: always;"></div>
+
+## 4. Build Progress
+
+| Tower | FS Avg | TDD Avg | Build Avg | FUT Avg | Overall |
+|-------|--------|---------|-----------|---------|---------|
+{% for t in towers -%}
+| {{ t.short }} | {{ t.avg_fs }}% | {{ t.avg_tdd }}% | {{ t.avg_build }}% | {{ t.avg_fut }}% | {{ t.completed_pct }}% |
+{% endfor %}
+
+<div style="page-break-before: always;"></div>
+
+## 5. RAID Summary
+
+| Tower | Open RAIDs | Highest Severity |
+|-------|-----------|-----------------|
+{% for t in towers -%}
+| {{ t.short }} | {{ t.raid_count }} | {{ t.highest_severity or "—" }} |
+{% endfor -%}
+| **Total** | **{{ program.raid_count }}** | |
+
+{% if top_raids %}
+### Top RAID Items (P0/P1)
+
+| RAID ID | Tower | Type | Title | Severity | Status | Due Date |
+|---------|-------|------|-------|----------|--------|----------|
+{% for r in top_raids -%}
+| {{ r.raid_id|tc }} | {{ r.tower }} | {{ r.category|tc }} | {{ r.title|tc(50) }} | {{ r.severity|tc }} | {{ r.status|tc }} | {{ r.due_date|tc }} |
+{% endfor %}
+{% endif %}
+
+<div style="page-break-before: always;"></div>
+
+## 6. Document Inventory
+
+| Tower | SAD Documents | RICEFW Trackers | Testing Reports | Dashboard |
+|-------|-------------|----------------|-----------------|-----------|
+{% for t in towers -%}
+| {{ t.short }} | {{ t.sad_count }} | {{ t.ricefw_doc_count }} | {{ t.testing_doc_count }} | ✅ |
+{% endfor -%}
+| **Total** | **{{ program.total_sads }}** | **{{ program.total_ricefw_docs }}** | **{{ program.total_testing_docs }}** | **{{ program.tower_count }}** |
+
+---
+
+<p style="font-size:10px; color:#aaa; text-align:center;">
+Generated by IAO Architecture Pipeline · {{ generated_date }} · Intel Confidential
+</p>

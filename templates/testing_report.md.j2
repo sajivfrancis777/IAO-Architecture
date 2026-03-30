@@ -1,0 +1,277 @@
+<div style="text-align:center; padding-top:20px;">
+  <img src="{{ cover_banner_path }}" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <h1 style="font-size:36px; margin-top:24px;">{{ title }}</h1>
+  <h2 style="font-size:24px;">Testing &amp; Quality Report</h2>
+  <p style="font-size:18px; color:#555;">{{ tower_name }} ({{ tower_short }}) Tower{% if cap_id %}<br/>
+  Capability {{ cap_id }} · {{ l1_process }}{% endif %}</p>
+  <p style="font-size:14px; color:#888;">IAO Program · {{ release_name }}<br/>
+  Generated: {{ generated_date }}<br/>
+  {{ author }}</p>
+  <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
+</div>
+
+<style>
+@media print {
+  @page { margin: 0.75in; }
+  pre, table { page-break-inside: avoid; }
+  h2, h3, h4 { page-break-after: avoid; }
+}
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
+.page-footer {
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.badge-pass { background: #2e7d32; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 11px; }
+.badge-fail { background: #d32f2f; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 11px; }
+.badge-blocked { background: #ef6c00; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 11px; }
+.badge-notrun { background: #757575; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 11px; }
+</style>
+
+<div style="page-break-before: always;"></div>
+
+<a id="toc"></a>
+
+## Table of Contents
+
+<nav class="toc">
+<ol>
+  <li><a href="#1-executive-summary">1. Executive Summary</a></li>
+  <li><a href="#2-test-coverage">2. Test Coverage</a>
+    <ul>
+      <li><a href="#21-coverage-by-ricefw-type">2.1 Coverage by RICEFW Type</a></li>
+      <li><a href="#22-test-case-summary">2.2 Test Case Summary</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-test-execution-status">3. Test Execution Status</a>
+    <ul>
+      <li><a href="#31-functional-unit-testing-fut">3.1 Functional Unit Testing (FUT)</a></li>
+      <li><a href="#32-integration-testing">3.2 Integration Testing</a></li>
+      <li><a href="#33-user-acceptance-testing-uat">3.3 User Acceptance Testing (UAT)</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-defect-analysis">4. Defect Analysis</a>
+    <ul>
+      <li><a href="#41-defects-by-severity">4.1 Defects by Severity</a></li>
+      <li><a href="#42-defect-aging">4.2 Defect Aging</a></li>
+      <li><a href="#43-open-defects">4.3 Open Defects</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-sprint-status">5. Sprint Status</a></li>
+  <li><a href="#6-go-live-readiness">6. Go-Live Readiness</a></li>
+</ol>
+</nav>
+
+<div style="page-break-before: always;"></div>
+
+## 1. Executive Summary
+
+{% if jira_connected -%}
+This report provides the testing and quality status for **{{ tower_name }} ({{ tower_short }}){% if cap_id %} — {{ cap_id }} {{ cap_name }}{% endif %}** sourced from JIRA.
+{% else -%}
+> **Note**: JIRA API access is not yet configured. This report shows build-phase data derived from the Smartsheet Object Tracker. Once `JIRA_BASE_URL`, `JIRA_USER_EMAIL`, and `JIRA_API_TOKEN` are set in `.env`, this report will auto-populate with live test cases, defects, and sprint data.
+{% endif %}
+
+| Metric | Value |
+|--------|-------|
+| **Total RICEFW Objects** | {{ total_objects }} |
+| **Objects with Test Coverage** | {{ tested_count }} ({{ tested_pct }}%) |
+{% if jira_connected -%}
+| **Test Cases** | {{ test_summary.total }} |
+| **Pass Rate** | {{ test_summary.pass_pct }}% |
+| **Open Defects** | {{ defect_summary.open }} |
+| **Critical Defects** | {{ defect_summary.critical }} |
+{% endif -%}
+| **FUT Avg Completion** | {{ avg_fut_pct }}% |
+| **Build Avg Completion** | {{ avg_build_pct }}% |
+
+{% if not jira_connected -%}
+### Build Phase Progress (from Smartsheet)
+
+The following data is sourced from the Object Tracker while JIRA integration is pending.
+{% endif %}
+
+<div style="page-break-before: always;"></div>
+
+## 2. Test Coverage
+
+### 2.1 Coverage by RICEFW Type
+
+| RICEFW Type | Total Objects | FUT Started | FUT % Avg | Build % Avg |
+|------------|--------------|-------------|-----------|-------------|
+{% for t in type_coverage -%}
+| {{ t.label }} | {{ t.total }} | {{ t.fut_started }} | {{ t.fut_avg }}% | {{ t.build_avg }}% |
+{% endfor -%}
+| **Total** | **{{ total_objects }}** | **{{ fut_started_count }}** | **{{ avg_fut_pct }}%** | **{{ avg_build_pct }}%** |
+
+### 2.2 Test Case Summary
+
+{% if jira_connected -%}
+| Status | Count | % |
+|--------|-------|---|
+| Passed | {{ test_summary.passed }} | {{ test_summary.pass_pct }}% |
+| Failed | {{ test_summary.failed }} | {{ test_summary.fail_pct }}% |
+| Blocked | {{ test_summary.blocked }} | {{ test_summary.blocked_pct }}% |
+| Not Run | {{ test_summary.not_run }} | {{ test_summary.not_run_pct }}% |
+| **Total** | **{{ test_summary.total }}** | **100%** |
+{% else -%}
+*Test case data will be auto-populated from JIRA when API access is provisioned.*
+
+**Estimated coverage from Object Tracker**:
+
+| Phase | Objects with % > 0 | Avg Completion |
+|-------|-------------------|----------------|
+| Functional Spec (FS) | {{ fs_started_count }} / {{ total_objects }} | {{ avg_fs_pct }}% |
+| Technical Design (TDD) | {{ tdd_started_count }} / {{ total_objects }} | {{ avg_tdd_pct }}% |
+| Build & TUT | {{ build_started_count }} / {{ total_objects }} | {{ avg_build_pct }}% |
+| FUT | {{ fut_started_count }} / {{ total_objects }} | {{ avg_fut_pct }}% |
+{% endif %}
+
+<div style="page-break-before: always;"></div>
+
+## 3. Test Execution Status
+
+### 3.1 Functional Unit Testing (FUT)
+
+{% if fut_objects -%}
+| Object ID | Type | Description | FUT % | FUT Status | Build % |
+|-----------|------|-------------|-------|------------|---------|
+{% for obj in fut_objects -%}
+| {{ obj.object_id }} | {{ obj.type_code }} | {{ obj.description|tc(40) }} | {{ obj.fut_display }} | {{ obj.fut_status }} | {{ obj.build_display }} |
+{% endfor %}
+{% else -%}
+*No objects have started FUT for this {{ scope_label }}.*
+{% endif %}
+
+### 3.2 Integration Testing
+
+{% if jira_connected -%}
+| Test Scenario | Status | Related RICEFW | Defects |
+|--------------|--------|---------------|---------|
+{% for test in integration_tests -%}
+| {{ test.name|tc }} | {{ test.status }} | {{ test.ricefw_ids|tc }} | {{ test.defect_count }} |
+{% endfor %}
+{% else -%}
+*Integration test data will be populated from JIRA when API access is provisioned.*
+{% endif %}
+
+### 3.3 User Acceptance Testing (UAT)
+
+{% if jira_connected -%}
+| Test Scenario | Status | Sign-off | Business Owner |
+|--------------|--------|----------|----------------|
+{% for test in uat_tests -%}
+| {{ test.name|tc }} | {{ test.status }} | {{ test.signoff }} | {{ test.owner|tc }} |
+{% endfor %}
+{% else -%}
+*UAT data will be populated from JIRA when API access is provisioned.*
+{% endif %}
+
+<div style="page-break-before: always;"></div>
+
+## 4. Defect Analysis
+
+### 4.1 Defects by Severity
+
+{% if jira_connected -%}
+| Severity | Open | In Progress | Resolved | Total |
+|----------|------|-------------|----------|-------|
+{% for d in defect_by_severity -%}
+| {{ d.severity }} | {{ d.open }} | {{ d.in_progress }} | {{ d.resolved }} | {{ d.total }} |
+{% endfor -%}
+| **Total** | **{{ defect_summary.open }}** | **{{ defect_summary.in_progress }}** | **{{ defect_summary.resolved }}** | **{{ defect_summary.total }}** |
+{% else -%}
+*Defect data will be populated from JIRA when API access is provisioned.*
+
+> **Interim**: RAID items with severity ratings from the Master RAID Log are shown in Section 5 below.
+{% endif %}
+
+### 4.2 Defect Aging
+
+{% if jira_connected -%}
+| Age Bucket | Critical | High | Medium | Low |
+|-----------|----------|------|--------|-----|
+{% for a in defect_aging -%}
+| {{ a.bucket }} | {{ a.critical }} | {{ a.high }} | {{ a.medium }} | {{ a.low }} |
+{% endfor %}
+{% else -%}
+*Available when JIRA API is connected.*
+{% endif %}
+
+### 4.3 Open Defects
+
+{% if jira_connected -%}
+| Defect ID | Severity | Summary | Status | Assignee | Days Open |
+|-----------|----------|---------|--------|----------|-----------|
+{% for d in open_defects -%}
+| {{ d.id }} | {{ d.severity }} | {{ d.summary|tc(50) }} | {{ d.status }} | {{ d.assignee|tc }} | {{ d.days_open }} |
+{% endfor %}
+{% else -%}
+*Available when JIRA API is connected.*
+{% endif %}
+
+<div style="page-break-before: always;"></div>
+
+## 5. Sprint Status
+
+{% if jira_connected -%}
+| Sprint | Start | End | Committed | Completed | Velocity |
+|--------|-------|-----|-----------|-----------|----------|
+{% for s in sprints -%}
+| {{ s.name }} | {{ s.start }} | {{ s.end }} | {{ s.committed }} | {{ s.completed }} | {{ s.velocity }} |
+{% endfor %}
+{% else -%}
+*Sprint data will be populated from JIRA when API access is provisioned.*
+
+### Build Phase RAID Items (from Smartsheet)
+
+{% if raid_items -%}
+| # | RAID ID | Type | Title | Severity | Status | Due Date |
+|---|---------|------|-------|----------|--------|----------|
+{% for r in raid_items -%}
+| {{ loop.index }} | {{ r.raid_id|tc }} | {{ r.category|tc }} | {{ r.title|tc(50) }} | {{ r.severity|tc }} | {{ r.status|tc }} | {{ r.due_date|tc }} |
+{% endfor %}
+{% else -%}
+*No open RAID items for this {{ scope_label }}.*
+{% endif %}
+{% endif %}
+
+<div style="page-break-before: always;"></div>
+
+## 6. Go-Live Readiness
+
+{% if jira_connected -%}
+| Criterion | Status | Evidence |
+|-----------|--------|----------|
+| All critical defects resolved | {% if defect_summary.critical == 0 %}✅ Pass{% else %}❌ {{ defect_summary.critical }} open{% endif %} | JIRA defect query |
+| Test pass rate ≥ 95% | {% if test_summary.pass_pct >= 95 %}✅ {{ test_summary.pass_pct }}%{% else %}⚠️ {{ test_summary.pass_pct }}%{% endif %} | JIRA test execution |
+| UAT sign-off obtained | {{ uat_signoff_status }} | JIRA UAT board |
+| No P0/P1 blockers open | {% if blocker_count == 0 %}✅ Clear{% else %}❌ {{ blocker_count }} blockers{% endif %} | JIRA issue tracker |
+{% else -%}
+| Criterion | Status | Evidence |
+|-----------|--------|----------|
+| RICEFW objects complete | {{ completed_count }} / {{ total_objects }} ({{ completed_pct }}%) | Smartsheet Object Tracker |
+| FUT phase started | {{ fut_started_count }} / {{ total_objects }} | Smartsheet Object Tracker |
+| Build phase avg completion | {{ avg_build_pct }}% | Smartsheet Object Tracker |
+| Open RAID items | {{ raid_count }} items | Master RAID Log |
+| JIRA integration | ⏳ Pending — set `JIRA_*` in `.env` | Configuration |
+
+> **Go-Live readiness assessment will be fully automated once JIRA API access is provisioned.** Until then, this section reflects build-phase progress from the Smartsheet Object Tracker.
+{% endif %}
+
+---
+
+<p style="font-size:10px; color:#aaa; text-align:center;">
+Generated by IAO Architecture Pipeline · {{ generated_date }} · Intel Confidential
+</p>
