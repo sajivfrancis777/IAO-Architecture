@@ -134,7 +134,7 @@ def _render_mermaid_svgs(rendered: str, output_dir: Path, cap_id: str) -> str:
         if live_url:
             link_line += (
                 f' &nbsp;|&nbsp; '
-                f'<a href="{live_url}" title="View in Mermaid Live">&#128065; View in Mermaid Live</a>'
+                f'<a href="{live_url}" title="View full diagram">&#128065; View Full Diagram</a>'
             )
         link_line += '</div>\n'
 
@@ -563,7 +563,7 @@ def _inject_mermaid_live_links(rendered: str) -> str:
 
         link_line = (
             f'\n\n<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;">'
-            f'<a href="{url}" title="View in Mermaid Live">&#128065; View in Mermaid Live</a>'
+            f'<a href="{url}" title="View full diagram">&#128065; View Full Diagram</a>'
             f'</div>\n'
         )
         return full + link_line
