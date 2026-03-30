@@ -178,6 +178,7 @@ All scripts run from the project root. The three bolded scripts form the core ge
 | `python scripts/backfill_bpmn_to_xlsx.py` | Populate Business Architecture tab from BPMN XML |
 | `python scripts/backfill_sample_data.py` | Pre-fill supplementary tabs with contextual sample data |
 | `python scripts/cleanup_csvs.py` | Remove legacy CSVs superseded by xlsx workbooks |
+| `python build_capability_master.py --apply` | Extract L1/L2/L3 hierarchy from Signavio manifest → update tower.yaml files |
 
 ### Targeting Specific Towers / Capabilities
 
@@ -293,6 +294,7 @@ IAO-JPNotebookPython/
 │   ├── iapm_lookup.py            #   IAPM application metadata resolver
 │   ├── diff_engine.py            #   Current vs. future flow change analysis
 │   ├── smartsheet_loader.py      #   Smartsheet data loader (API + CSV fallback)
+│   ├── tower_registry.py         #   Centralized tower metadata (single source of truth)
 │   ├── context_loader.py         #   Supplementary context CSV loader
 │   ├── doc_format.py             #   Document formatting utilities
 │   └── config.py                 #   Centralized configuration (.env loader)
@@ -330,6 +332,10 @@ IAO-JPNotebookPython/
 │   ├── PTP/
 │   ├── MDM/
 │   └── E2E/
+│
+├── config/                        # Centralized configuration
+│   ├── tower_registry.json       #   Single source of truth for tower metadata
+│   └── capability_master.yaml    #   L1/L2/L3 hierarchy (auto-generated)
 │
 ├── data/                         # Cached API data (CSV fallbacks)
 │   ├── smartsheet/               #   Object trackers, RAID logs
@@ -470,14 +476,311 @@ Body:
 
 ---
 
+## Operations Architecture
+
+This section describes the end-to-end pipeline from an **operations** perspective: how credentials are managed, how inputs are validated, how data flows from source APIs through generation to published outputs, and how MCP servers integrate with Copilot for chatbot-driven architecture queries.
+
+### Credential & Secret Management
+
+```
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │                     SECRET MANAGEMENT FLOW                         │
+  │                                                                    │
+  │   Developer Machine                  GitHub Actions Runner         │
+  │   ─────────────────                  ──────────────────────        │
+  │                                                                    │
+  │   .env.example ──(copy)──> .env      Settings > Secrets > Actions  │
+  │                             │         ┌──────────────────────┐     │
+  │     Never committed         │         │ SMARTSHEET_TOKEN     │     │
+  │     (.gitignore)            │         │ IAPM_BEARER_TOKEN    │     │
+  │                             │         │ BIC_AUTH_TOKEN       │     │
+  │                             ▼         │ SP_TENANT_ID         │     │
+  │                    src/config.py      │ SP_CLIENT_ID         │     │
+  │                    (dotenv loader)    │ SP_CLIENT_SECRET     │     │
+  │                             │         │ SAP_BI0_USER/PASS    │     │
+  │                             │         │ SAP_DI0_USER/PASS    │     │
+  │                             ▼         │ JIRA_API_TOKEN       │     │
+  │                    All Python         └─────────┬────────────┘     │
+  │                    scripts + MCP                │                  │
+  │                    servers read                  ▼                  │
+  │                    from os.environ     Workflow writes temp .env    │
+  │                                        at runtime (never persisted)│
+  │                                                 │                  │
+  │                                                 ▼                  │
+  │                                        src/config.py loads it      │
+  │                                        (same code path as local)   │
+  └─────────────────────────────────────────────────────────────────────┘
+```
+
+**Why `.env` is never in the repo**: The `.env` file contains plaintext API tokens and is excluded by `.gitignore`. In GitHub Actions, the workflow dynamically writes a temporary `.env` from encrypted GitHub Secrets (`${{ secrets.XXX }}`), which exists only during the workflow run and is destroyed when the runner terminates. This means:
+
+- **Local development**: Developer copies `.env.example` → `.env` and fills in their own tokens
+- **CI/CD execution**: GitHub Secrets are injected at runtime — no `.env` file is ever committed
+- **Same code path**: `src/config.py` calls `load_dotenv()` in both cases — scripts don't care where the env vars came from
+
+**Token rotation**: Smartsheet and IAPM tokens expire periodically. Update the GitHub Secret value in Settings when tokens are refreshed — no code changes needed.
+
+### End-to-End Pipeline Flow
+
+```
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │                                                                     │
+  │  PHASE 1: CREDENTIAL SETUP                                         │
+  │  ──────────────────────────                                         │
+  │                                                                     │
+  │  GitHub Secrets ──> Workflow writes .env ──> src/config.py loads    │
+  │  (.env.example)     (runtime only)          (os.environ fallback)  │
+  │                                                                     │
+  ├─────────────────────────────────────────────────────────────────────┤
+  │                                                                     │
+  │  PHASE 2: INPUT VALIDATION & DATA EXTRACTION                       │
+  │  ───────────────────────────────────────────                        │
+  │                                                                     │
+  │  ┌──────────────────┐   ┌────────────────┐   ┌──────────────────┐  │
+  │  │  Signavio/BIC     │   │  Smartsheet    │   │  SharePoint      │  │
+  │  │  BPMN Manifest    │   │  Object Tracker│   │  Excel Workbooks │  │
+  │  │  (CSV export)     │   │  RAID Log      │   │  (CurrentFlows,  │  │
+  │  └────────┬─────────┘   └───────┬────────┘   │   FutureFlows)   │  │
+  │           │                     │             └────────┬─────────┘  │
+  │           ▼                     ▼                      ▼            │
+  │  build_capability        smartsheet_loader       xlsx_loader.py    │
+  │  _master.py              .py (API or CSV)        bpmn_parser.py    │
+  │           │                     │                      │            │
+  │           ▼                     ▼                      ▼            │
+  │  config/capability       data/smartsheet/       towers/*/input/     │
+  │  _master.yaml            (cached CSVs)          data/*.xlsx         │
+  │  towers/*/tower.yaml                            input/bpmn/*.bpmn   │
+  │                                                                     │
+  ├─────────────────────────────────────────────────────────────────────┤
+  │                                                                     │
+  │  PHASE 3: DOCUMENT GENERATION                                      │
+  │  ────────────────────────────                                       │
+  │                                                                     │
+  │  tower.yaml ──> gen_systems_arch.py ──> Jinja2 templates           │
+  │  xlsx data        (orchestrator)         systems_architecture.md.j2│
+  │  BPMN files           │                  ricefw_tracker.md.j2      │
+  │  IAPM metadata        │                  testing_report.md.j2      │
+  │  Smartsheet data      │                  dashboard.html.j2         │
+  │                       ▼                                             │
+  │            ┌──────────────────────────────┐                        │
+  │            │  Per-Capability Outputs       │                        │
+  │            │  ─────────────────────────    │                        │
+  │            │  <CAP>-Architecture.md        │                        │
+  │            │  <CAP>-RICEFW-Tracker.md      │                        │
+  │            │  <CAP>-Testing-Report.md      │                        │
+  │            └──────────────┬───────────────┘                        │
+  │                           │                                         │
+  │                           ▼                                         │
+  │                    gen_pdf.py                                       │
+  │                    (MD → HTML with Mermaid.js)                     │
+  │                           │                                         │
+  │                           ▼                                         │
+  │            ┌──────────────────────────────┐                        │
+  │            │  <CAP>-Architecture.html      │                        │
+  │            │  <CAP>-RICEFW-Tracker.html    │                        │
+  │            │  <CAP>-Testing-Report.html    │                        │
+  │            │  <TOWER>-Dashboard.html       │                        │
+  │            └──────────────┬───────────────┘                        │
+  │                           │                                         │
+  ├─────────────────────────────────────────────────────────────────────┤
+  │                                                                     │
+  │  PHASE 4: PUBLISH & DISTRIBUTE                                     │
+  │  ─────────────────────────────                                      │
+  │                           │                                         │
+  │              ┌────────────┼────────────┐                           │
+  │              ▼            ▼            ▼                            │
+  │      deploy-pages.yml  sync_share   Git commit                     │
+  │      (GitHub Pages)    point.py     (versioned                     │
+  │           │            (SharePoint)  in repo)                      │
+  │           ▼                │                                        │
+  │   ┌──────────────┐  ┌────┴──────┐  ┌────────────┐                │
+  │   │ GitHub Pages  │  │SharePoint │  │ GitHub Repo │                │
+  │   │ (HTML + nav)  │  │(HTML+PDF) │  │ (MD + HTML) │                │
+  │   │ Interactive   │  │Architect  │  │ Version     │                │
+  │   │ dashboards    │  │workspace  │  │ history     │                │
+  │   └──────────────┘  └───────────┘  └────────────┘                │
+  │                                                                     │
+  ├─────────────────────────────────────────────────────────────────────┤
+  │                                                                     │
+  │  PHASE 5: MCP SERVERS (Copilot Chatbot Integration)                │
+  │  ──────────────────────────────────────────────────                 │
+  │                                                                     │
+  │  VS Code / Copilot Chat                                            │
+  │        │                                                            │
+  │        ▼                                                            │
+  │  .vscode/settings.json (MCP server registration)                   │
+  │        │                                                            │
+  │        ├──> iao-smartsheet ──> Smartsheet API (or CSV fallback)    │
+  │        ├──> iao-iapm ──────> IAPM CSV (30K+ apps)                 │
+  │        ├──> iao-jira ──────> JIRA REST API (placeholder)          │
+  │        ├──> iao-sap-odata ─> SAP Gateway OData (placeholder)      │
+  │        └──> iao-bic ───────> BIC/Signavio API (placeholder)       │
+  │                                                                     │
+  │  User asks: "What RICEFW objects are in FPR DS-020?"               │
+  │  Copilot invokes: iao-smartsheet > get_ricefw_objects(tower, cap)  │
+  │  Response: Live data from Smartsheet (or cached CSV)               │
+  │                                                                     │
+  └─────────────────────────────────────────────────────────────────────┘
+```
+
+### Single Source of Truth — Configuration Files
+
+The pipeline eliminates manual mapping by centralizing metadata in two files:
+
+| File | Purpose | Updated By |
+|------|---------|-----------|
+| `config/tower_registry.json` | Tower shortcodes, display names, icons, Signavio folder mappings, aliases | Manual (add new tower) or future API auto-discovery |
+| `config/capability_master.yaml` | L1/L2/L3 hierarchy — 131 capabilities, 309 process steps | `build_capability_master.py --apply` (auto-extracted from Signavio manifest) |
+
+Adding a new tower requires **one** edit to `tower_registry.json`. The capability master auto-regenerates from the Signavio BPMN manifest. All downstream consumers (`gen_dashboard.py`, `gen_ricefw_tracker.py`, `gen_testing_report.py`, `smartsheet_loader.py`, `deploy-pages.yml`) read from the centralized registry — no code changes needed.
+
+### Input Validation Checkpoints
+
+| Stage | What's Checked | Action on Failure |
+|-------|---------------|-------------------|
+| **Credential load** | `src/config.py` reads `.env` or `os.environ` | Missing token → graceful fallback to CSV cache |
+| **Manifest parse** | `build_capability_master.py` parses Signavio CSV | Unknown tower folder → `[WARN]` printed, tower skipped |
+| **Tower discovery** | `gen_systems_arch.py --all` scans `towers/*/` directories | Missing `tower.yaml` → capabilities discovered from directory structure |
+| **Capability resolution** | `cap_name_resolver.py` multi-source fallback | tower.yaml → BIC API → Smartsheet → BPMN XML → L1 directory name |
+| **Excel workbook parse** | `xlsx_loader.py` reads multi-tab `.xlsx` | Missing/empty tabs → placeholder text generated |
+| **BPMN parse** | `bpmn_parser.py` reads `.bpmn` XML | Missing BPMN → Section 3 shows "No BPMN files" |
+| **Smartsheet injection** | `smartsheet_loader.py` queries API | No token → falls back to `data/smartsheet/` CSV cache |
+| **IAPM lookup** | `iapm_lookup.py` resolves application metadata | No token → loads from `data/iapm/IAPM_All_Solutions.csv` |
+| **HTML generation** | `gen_pdf.py` converts MD → HTML with Mermaid.js | Template not found → error (non-recoverable) |
+| **Deploy workflow** | `deploy-pages.yml` reads `tower_registry.json` | Unknown tower → generic name/icon fallback |
+
+### MCP Server — Chatbot Readiness
+
+Each MCP server follows the same pattern to ensure Copilot chatbot queries always return useful responses:
+
+```
+  ┌─────────────────────────────────────────────────────────────────┐
+  │                      MCP SERVER PATTERN                         │
+  │                                                                 │
+  │  User query via Copilot Chat                                   │
+  │         │                                                       │
+  │         ▼                                                       │
+  │  .vscode/settings.json (stdio transport registration)          │
+  │         │                                                       │
+  │         ▼                                                       │
+  │  mcp_servers/<name>_server.py                                  │
+  │         │                                                       │
+  │         ├──(1) Check: API token in os.environ?                 │
+  │         │       YES ──> Call live API endpoint                  │
+  │         │       NO  ──> Load CSV fallback from data/           │
+  │         │                                                       │
+  │         ├──(2) Normalize tower name (tower_registry.py)        │
+  │         │                                                       │
+  │         ├──(3) Filter data by tower / capability / status      │
+  │         │                                                       │
+  │         └──(4) Return structured JSON to Copilot               │
+  │                                                                 │
+  │  Copilot formats response for user                             │
+  └─────────────────────────────────────────────────────────────────┘
+```
+
+**Ensuring accuracy**: MCP servers use the same `tower_registry.py` normalization as the generation pipeline, so tower names from Smartsheet (e.g., "03. FPR") resolve identically whether queried via chatbot or processed during document generation.
+
+### Output Document Uniformity
+
+All generated documents follow a consistent structure enforced by Jinja2 templates:
+
+| Document Type | Template | Sections | Styling |
+|--------------|----------|----------|---------|
+| Systems Architecture | `systems_architecture.md.j2` | Title page, TOC, Business Architecture, Data Architecture, Application Architecture, Technology Architecture, RICEFW, RAID, Roadmap | Canonical page footers, Mermaid diagrams, PDF download button |
+| RICEFW Tracker | `ricefw_tracker.md.j2` | Title page, TOC, per-type object tables, status summary | Same page footers, capability names resolved from tower.yaml |
+| Testing Report | `testing_report.md.j2` | Title page, TOC, test phases, defect summary, readiness | Same page footers, capability names resolved from tower.yaml |
+| Dashboard | `dashboard.html.j2` | KPI cards, 7 Plotly charts, filter chips, detailed tables | Plotly.js 2.32.0, responsive layout, print-friendly chart snapshots |
+
+**Consistency enforcement**: All templates share canonical CSS for page footers, title pages, and table formatting. The `gen_pdf.py` script wraps all MD outputs in an identical HTML shell with Mermaid.js rendering and a PDF download button.
+
+---
+
 ## Security
 
-- Repository is **Private** (GitHub Enterprise Cloud)
-- GitHub Pages is **Private** (only repo collaborators)
-- `.env` is in `.gitignore` — never committed
-- All API tokens stored in GitHub Secrets for CI/CD
-- SharePoint sync uses OAuth2 client credentials (no user passwords)
-- Generated docs contain Intel confidential architecture data — do not make public
+### Credential Security Model
+
+```
+  ┌─────────────────────────────────────────────────────────────────┐
+  │                    SECURITY BOUNDARIES                          │
+  │                                                                 │
+  │  ┌─────────────────────────────────────────────────────────┐   │
+  │  │  TRUSTED ZONE: Developer Machine                        │   │
+  │  │                                                         │   │
+  │  │  .env (gitignored, never committed)                     │   │
+  │  │  Contains: API tokens, passwords                        │   │
+  │  │  Access: Single developer only                          │   │
+  │  └─────────────────────────────────────────────────────────┘   │
+  │                                                                 │
+  │  ┌─────────────────────────────────────────────────────────┐   │
+  │  │  TRUSTED ZONE: GitHub Actions                           │   │
+  │  │                                                         │   │
+  │  │  GitHub Secrets (AES-256 encrypted at rest)             │   │
+  │  │  Injected at runtime: ${{ secrets.XXX }}                │   │
+  │  │  Written to temp .env (destroyed with runner)           │   │
+  │  │  Access: Repo admins only                               │   │
+  │  └─────────────────────────────────────────────────────────┘   │
+  │                                                                 │
+  │  ┌─────────────────────────────────────────────────────────┐   │
+  │  │  PUBLIC ZONE: Repository & GitHub Pages                 │   │
+  │  │                                                         │   │
+  │  │  NO credentials stored in code or committed files       │   │
+  │  │  .env in .gitignore (line 1)                            │   │
+  │  │  .env.example has placeholders only (no real values)    │   │
+  │  │  Generated HTML contains no API tokens or secrets       │   │
+  │  │  Repo is Private (GitHub Enterprise Cloud)              │   │
+  │  │  GitHub Pages is Private (collaborators only)           │   │
+  │  └─────────────────────────────────────────────────────────┘   │
+  │                                                                 │
+  └─────────────────────────────────────────────────────────────────┘
+```
+
+### Security Controls
+
+| Control | Implementation | Status |
+|---------|---------------|--------|
+| **No secrets in code** | `.env` excluded by `.gitignore`; `.env.example` has placeholders only | Active |
+| **GitHub Secrets encryption** | AES-256 at rest; injected as masked env vars at runtime | Active |
+| **Temp .env in CI/CD** | Written by workflow step, destroyed when runner terminates | Active |
+| **OAuth2 for SharePoint** | Client credentials flow (`SP_CLIENT_ID` + `SP_CLIENT_SECRET`) — no user passwords | Active |
+| **Graceful degradation** | Missing tokens → fallback to CSV cache (no hard failures) | Active |
+| **Private repository** | GitHub Enterprise Cloud — only authorized collaborators | Active |
+| **Private GitHub Pages** | Access restricted to repository collaborators | Active |
+| **No secrets in outputs** | Generated HTML/PDF contain zero credentials or tokens | Active |
+| **Token isolation** | Each API system has its own credential — compromise of one doesn't affect others | Active |
+
+### How GitHub Actions Gets Credentials Without `.env` in the Repo
+
+The workflow dynamically creates a temporary `.env` file from GitHub Secrets:
+
+```yaml
+# In generate-architecture.yml (runtime only — never persisted)
+- name: Write .env from secrets
+  run: |
+    cat > .env <<EOF
+    SMARTSHEET_TOKEN=${{ secrets.SMARTSHEET_TOKEN }}
+    IAPM_BEARER_TOKEN=${{ secrets.IAPM_BEARER_TOKEN }}
+    BIC_AUTH_TOKEN=${{ secrets.BIC_AUTH_TOKEN }}
+    SP_TENANT_ID=${{ secrets.SP_TENANT_ID }}
+    SP_CLIENT_ID=${{ secrets.SP_CLIENT_ID }}
+    SP_CLIENT_SECRET=${{ secrets.SP_CLIENT_SECRET }}
+    SP_SITE_URL=${{ secrets.SP_SITE_URL }}
+    SP_DOC_LIBRARY=${{ secrets.SP_DOC_LIBRARY }}
+    SP_TARGET_FOLDER=${{ secrets.SP_TARGET_FOLDER }}
+    EOF
+```
+
+This file exists **only during the workflow run**. GitHub Actions runners are ephemeral — the entire VM (and its filesystem) is destroyed after the job completes. The `.env` file is never committed, never cached, and never visible in logs (GitHub automatically masks secret values in output).
+
+### Managing Secrets
+
+| Action | Where | Who |
+|--------|-------|-----|
+| **Add/update a secret** | GitHub → Settings → Secrets and variables → Actions | Repo admin |
+| **Rotate a token** | Replace the secret value in GitHub Settings; update local `.env` | Repo admin |
+| **Revoke access** | Delete the secret from GitHub Settings; regenerate token at source | Repo admin |
+| **Audit access** | GitHub → Settings → Audit log → filter by `secret` events | Repo admin |
+| **Local development** | Edit `.env` directly — changes stay on developer machine only | Developer |
 
 ---
 
