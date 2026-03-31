@@ -255,16 +255,312 @@ The chatbot layer is what transforms this pipeline from a static document site i
   └─────────────────────────────────────────────────────────────────────────┘
 ```
 
-#### Web Chatbot — Implementation Path
+#### Web Chatbot — Detailed Implementation Guide
 
-| Step | What | How |
-|------|------|-----|
-| 1 | **Chat UI widget** | Embed lightweight JS chat component in GitHub Pages HTML (e.g., a floating panel on every page) |
-| 2 | **Backend API** | Azure Function (Python) that holds LLM key + source credentials. Exposes a single `/chat` POST endpoint |
-| 3 | **Tool definitions** | Reuse MCP server tool logic — same Python code, HTTP transport instead of stdio |
-| 4 | **LLM integration** | Anthropic Messages API with tool_use (Claude calls tools, backend executes, Claude responds) |
-| 5 | **Auth** | Azure AD SSO (Intel employees only) — user authenticates via SSO before chatbot access |
-| 6 | **Context injection** | Each page sends its tower + capability ID with the query so Claude knows the context |
+**Why Azure Functions?** GitHub Pages serves static HTML only — no server-side code. You need a backend to (a) hold API keys securely and (b) proxy calls between the browser, the LLM, and source systems. Azure Functions is the simplest option because Intel already uses Azure, it's serverless (no VMs to manage), and it scales to zero when idle (no cost when nobody's chatting).
+
+##### Prerequisites
+
+| Requirement | What You Need | How to Get It |
+|------------|---------------|---------------|
+| Azure subscription | Intel Azure tenant access | IT self-service portal or Azure request form |
+| Anthropic API key | `ANTHROPIC_API_KEY` | [console.anthropic.com](https://console.anthropic.com) → API Keys (or Intel-approved LLM endpoint) |
+| Azure Functions Core Tools | Local development/testing | `npm install -g azure-functions-core-tools@4` |
+| Python 3.11+ | Azure Functions runtime | Already in this workspace |
+| Source system credentials | Same `.env` vars from the pipeline | Copy from local `.env` to Azure Function App Settings |
+
+##### Step 1: Create the Azure Function App
+
+```bash
+# Login to Azure (Intel tenant)
+az login --tenant <INTEL_TENANT_ID>
+
+# Create resource group (one-time)
+az group create --name rg-iao-architecture --location westus2
+
+# Create Function App (Python, consumption plan = pay-per-execution)
+az functionapp create \
+  --resource-group rg-iao-architecture \
+  --consumption-plan-location westus2 \
+  --runtime python \
+  --runtime-version 3.11 \
+  --functions-version 4 \
+  --name iao-architecture-chat \
+  --storage-account iaoarchstorage \
+  --os-type Linux
+```
+
+##### Step 2: Add Credentials to Azure Function App Settings
+
+```bash
+# LLM provider
+az functionapp config appsettings set --name iao-architecture-chat \
+  --resource-group rg-iao-architecture \
+  --settings \
+    ANTHROPIC_API_KEY="sk-ant-..." \
+    LLM_MODEL="claude-sonnet-4-20250514"
+
+# Source system credentials (same as local .env)
+az functionapp config appsettings set --name iao-architecture-chat \
+  --resource-group rg-iao-architecture \
+  --settings \
+    SMARTSHEET_TOKEN="..." \
+    IAPM_BEARER_TOKEN="..." \
+    JIRA_BASE_URL="https://jira.intel.com" \
+    JIRA_USER_EMAIL="..." \
+    JIRA_API_TOKEN="..."
+```
+
+These are stored encrypted in Azure (equivalent to GitHub Secrets). They are **never** sent to the browser.
+
+##### Step 3: Build the Chat Backend (`/api/chat` endpoint)
+
+The backend is a single Python Azure Function that:
+1. Receives the user's question from the browser
+2. Sends it to Claude with tool definitions (reused from MCP servers)
+3. Executes any tool calls Claude requests (Smartsheet, IAPM, etc.)
+4. Returns Claude's final answer to the browser
+
+```
+  ┌─────────────────────────────────────────────────────────────────┐
+  │  AZURE FUNCTION: /api/chat                                      │
+  │                                                                 │
+  │  Request (from browser):                                        │
+  │  {                                                              │
+  │    "message": "What RICEFW objects are in FPR DC-020?",        │
+  │    "tower": "FPR",                                              │
+  │    "capability": "DC-020",                                      │
+  │    "history": [ ... previous messages ... ]                    │
+  │  }                                                              │
+  │                                                                 │
+  │  Processing:                                                    │
+  │                                                                 │
+  │  (1) Build messages array with system prompt + tools            │
+  │      System prompt: "You are an IAO architecture assistant.     │
+  │      The user is viewing {tower} {capability}. Use the          │
+  │      provided tools to answer from live data."                  │
+  │                                                                 │
+  │  (2) Call Anthropic Messages API                                │
+  │      POST https://api.anthropic.com/v1/messages                │
+  │      Headers: x-api-key: $ANTHROPIC_API_KEY                    │
+  │      Body: { model, messages, tools, max_tokens }              │
+  │                                                                 │
+  │  (3) If Claude response contains tool_use blocks:              │
+  │      → Execute tool calls locally:                             │
+  │        get_ricefw_objects(tower="FPR", capability="DC-020")    │
+  │        → Calls Smartsheet API (or CSV fallback)                │
+  │      → Send tool results back to Claude                         │
+  │      → Claude formats final answer                              │
+  │                                                                 │
+  │  (4) Return final text to browser                               │
+  │                                                                 │
+  │  Response (to browser):                                         │
+  │  {                                                              │
+  │    "response": "FPR DC-020 has 14 RICEFW objects: ..."         │
+  │  }                                                              │
+  │                                                                 │
+  └─────────────────────────────────────────────────────────────────┘
+```
+
+The key insight: **the tool logic is identical to the MCP servers**. You import the same `smartsheet_server.py`, `iapm_server.py`, etc. functions — the only difference is transport (HTTP instead of stdio).
+
+##### Step 4: Add the Chat Widget to GitHub Pages
+
+Add to `deploy-pages.yml` output HTML (or to a shared template):
+
+```html
+<!-- Chat widget — floating button + panel -->
+<div id="iao-chat-widget" style="position:fixed; bottom:20px; right:20px; z-index:9999;">
+  <button id="chat-toggle"
+    style="width:56px; height:56px; border-radius:50%; background:#00285a;
+           color:#fff; border:none; font-size:24px; cursor:pointer;
+           box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+    💬
+  </button>
+  <div id="chat-panel" style="display:none; width:400px; height:500px;
+       background:#fff; border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.2);
+       flex-direction:column; overflow:hidden; margin-bottom:8px;">
+    <div style="background:#00285a; color:#fff; padding:12px 16px; font-weight:600;">
+      IAO Architecture Assistant
+    </div>
+    <div id="chat-messages" style="flex:1; overflow-y:auto; padding:12px;"></div>
+    <div style="padding:8px; border-top:1px solid #eee; display:flex; gap:8px;">
+      <input id="chat-input" type="text" placeholder="Ask about this architecture..."
+        style="flex:1; padding:8px 12px; border:1px solid #ddd; border-radius:6px;" />
+      <button id="chat-send"
+        style="background:#0071c5; color:#fff; border:none; border-radius:6px;
+               padding:8px 16px; cursor:pointer;">Send</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const CHAT_API = 'https://iao-architecture-chat.azurewebsites.net/api/chat';
+
+  // Extract tower + capability from the current page URL or h1 tag
+  const pageTitle = document.querySelector('h1')?.textContent || '';
+  const capMatch = pageTitle.match(/^([A-Z]{1,4}-\d{2,4})/);
+  const pageContext = {
+    capability: capMatch ? capMatch[1] : '',
+    tower: document.title.split('—')[0]?.trim() || ''
+  };
+
+  document.getElementById('chat-toggle').onclick = () => {
+    const panel = document.getElementById('chat-panel');
+    panel.style.display = panel.style.display === 'none' ? 'flex' : 'none';
+  };
+
+  document.getElementById('chat-send').onclick = async () => {
+    const input = document.getElementById('chat-input');
+    const msg = input.value.trim();
+    if (!msg) return;
+
+    // Show user message
+    appendMessage('You', msg);
+    input.value = '';
+
+    // Call backend
+    try {
+      const res = await fetch(CHAT_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: msg,
+          tower: pageContext.tower,
+          capability: pageContext.capability
+        })
+      });
+      const data = await res.json();
+      appendMessage('Assistant', data.response);
+    } catch (e) {
+      appendMessage('Assistant', 'Error connecting to chat service.');
+    }
+  };
+
+  // Enter key sends
+  document.getElementById('chat-input').onkeydown = (e) => {
+    if (e.key === 'Enter') document.getElementById('chat-send').click();
+  };
+
+  function appendMessage(role, text) {
+    const div = document.createElement('div');
+    div.style.cssText = 'margin-bottom:8px; padding:8px; border-radius:8px; ' +
+      (role === 'You' ? 'background:#e8f0fe; text-align:right;' : 'background:#f5f5f5;');
+    div.innerHTML = '<strong>' + role + '</strong><br>' + text;
+    document.getElementById('chat-messages').appendChild(div);
+    div.scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+```
+
+##### Step 5: CORS — Allow GitHub Pages to Call Azure Function
+
+```bash
+az functionapp cors add --name iao-architecture-chat \
+  --resource-group rg-iao-architecture \
+  --allowed-origins "https://sajivfrancis777.github.io"
+```
+
+##### Step 6 (Optional): Azure AD Authentication
+
+To restrict chatbot access to Intel employees only:
+
+```bash
+# Enable AAD auth on the Function App
+az webapp auth update --name iao-architecture-chat \
+  --resource-group rg-iao-architecture \
+  --enabled true \
+  --action LoginWithAzureActiveDirectory \
+  --aad-client-id <APP_CLIENT_ID> \
+  --aad-allowed-token-audiences "https://iao-architecture-chat.azurewebsites.net"
+```
+
+The browser chat widget would then acquire an AAD token via MSAL.js and include it in the `Authorization` header. Unauthenticated users get a 401.
+
+##### Step 7: Deploy the Function
+
+```bash
+# From the azure-function/ directory (to be created)
+func azure functionapp publish iao-architecture-chat
+```
+
+##### Complete Request Flow
+
+```
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │                                                                      │
+  │   Browser (GitHub Pages)                                             │
+  │   ──────────────────────                                             │
+  │   User clicks 💬, types: "What RICEFW objects are in FPR DC-020?"  │
+  │                                                                      │
+  │   chat-widget.js:                                                    │
+  │     POST https://iao-architecture-chat.azurewebsites.net/api/chat  │
+  │     Body: { message, tower: "FPR", capability: "DC-020" }          │
+  │     Header: Authorization: Bearer <AAD_TOKEN> (optional)            │
+  │                                                                      │
+  ├──────────────────────────────────────────────────────────────────────┤
+  │                                                                      │
+  │   Azure Function (/api/chat)                                        │
+  │   ──────────────────────────                                         │
+  │                                                                      │
+  │   1. Validate request (AAD token if auth enabled)                   │
+  │                                                                      │
+  │   2. Build Claude messages:                                          │
+  │      system: "You are an IAO architecture assistant..."             │
+  │      user: "What RICEFW objects are in FPR DC-020?"                │
+  │      tools: [get_ricefw_objects, get_raid_items,                    │
+  │              search_applications, lookup_application, ...]          │
+  │                                                                      │
+  │   3. POST https://api.anthropic.com/v1/messages                     │
+  │      x-api-key: $ANTHROPIC_API_KEY (from App Settings)             │
+  │      model: claude-sonnet-4-20250514                                         │
+  │                                                                      │
+  │   4. Claude responds with tool_use:                                  │
+  │      { "type": "tool_use",                                          │
+  │        "name": "get_ricefw_objects",                                │
+  │        "input": { "tower": "FPR", "capability": "DC-020" } }      │
+  │                                                                      │
+  │   5. Execute tool (same code as mcp_servers/smartsheet_server.py): │
+  │      → Calls Smartsheet API with $SMARTSHEET_TOKEN                  │
+  │      → Returns: 14 objects (8 Interfaces, 3 Enhancements, ...)     │
+  │                                                                      │
+  │   6. Send tool result back to Claude                                │
+  │                                                                      │
+  │   7. Claude formats final answer:                                    │
+  │      "FPR DC-020 (Manage the General Ledger) has 14 RICEFW         │
+  │       objects: 8 Interfaces, 3 Enhancements, 2 Reports,            │
+  │       1 Conversion. 11 are Deployed, 3 are Developing..."          │
+  │                                                                      │
+  │   8. Return to browser: { "response": "FPR DC-020 has..." }       │
+  │                                                                      │
+  ├──────────────────────────────────────────────────────────────────────┤
+  │                                                                      │
+  │   Browser renders response in chat panel                            │
+  │   User can ask follow-up questions (conversation history sent)     │
+  │                                                                      │
+  └──────────────────────────────────────────────────────────────────────┘
+```
+
+##### Cost Estimate
+
+| Component | Cost | Notes |
+|-----------|------|-------|
+| Azure Functions (Consumption) | ~$0 for low usage | Free grant: 1M executions/month + 400K GB-seconds |
+| Anthropic Claude API | ~$3 per 1M input tokens, ~$15 per 1M output tokens | A typical query = ~2K tokens ≈ $0.01 per question |
+| Azure Storage (Function state) | ~$0.05/month | Minimal storage for function app |
+| **Estimated monthly** | **< $5 for team of 20** | Assuming ~100 queries/day |
+
+##### Alternative: No Azure (Simpler but Less Secure)
+
+If Azure setup is blocked, a lighter alternative:
+
+| Option | Pros | Cons |
+|--------|------|------|
+| **GitHub Actions as API** | No Azure needed; trigger via `repository_dispatch`, poll for result | Slow (30-60s cold start); not real-time; awkward UX |
+| **Cloudflare Workers** | Free tier, edge-deployed, fast | Not Intel-approved vendor; credential governance concern |
+| **Self-hosted FastAPI** | Full control, same Python code | Need a VM/container; ops overhead |
+
+> **Recommendation**: Azure Functions is the cleanest path given Intel's existing Azure tenant. Total setup time is approximately 2-3 hours for a working prototype.
 
 #### LLM Provider Options
 
