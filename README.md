@@ -153,16 +153,27 @@ Every API integration follows the same pattern: **API-first with graceful fallba
 | 13 | `JIRA_USER_EMAIL` | JIRA | Basic / PAT | **Pending** | JIRA profile → Personal Access Token |
 | 14 | `JIRA_API_TOKEN` | JIRA | PAT | **Pending** | Needs IDM 2.0 project read access |
 
+#### LLM Provider Credentials (AI Chatbot)
+
+| # | Variable | System | Auth Method | Status | Provisioning |
+|---|----------|--------|-------------|--------|-------------|
+| 15 | `ANTHROPIC_API_KEY` | Anthropic Claude API | API key | **Required for web chatbot** | [console.anthropic.com](https://console.anthropic.com) → API Keys; or Intel-approved Azure OpenAI endpoint |
+| 16 | `LLM_MODEL` | LLM model selector | — | **Config** | Default: `claude-sonnet-4-20250514`; alternatives: `claude-opus-4-20250514`, Azure OpenAI deployment name |
+
+> **VS Code + Copilot Chat**: No separate LLM key needed — GitHub Copilot Pro/Enterprise subscription provides the LLM. MCP servers connect via stdio transport.
+>
+> **GitHub Pages web chatbot**: Requires a server-side LLM API key (Anthropic or Azure OpenAI) because the browser cannot safely hold API keys. The key is stored in the backend service, never exposed to the client.
+
 #### SharePoint & Delivery Credentials
 
 | # | Variable | System | Auth Method | Status | Provisioning |
 |---|----------|--------|-------------|--------|-------------|
-| 15 | `SP_TENANT_ID` | Azure AD | OAuth2 client creds | **Working** | Azure portal → App Registration |
-| 16 | `SP_CLIENT_ID` | Azure AD | OAuth2 client creds | **Working** | Same app registration |
-| 17 | `SP_CLIENT_SECRET` | Azure AD | OAuth2 client creds | **Working** | App Registration → Certificates & Secrets |
-| 18 | `SP_SITE_URL` | SharePoint Online | — | **Working** | `https://intel.sharepoint.com/sites/IAO-Architecture` |
-| 19 | `SP_DOC_LIBRARY` | SharePoint | — | **Working** | Default: `Shared Documents` |
-| 20 | `SP_TARGET_FOLDER` | SharePoint | — | **Working** | Default: `Architecture/SAD` |
+| 17 | `SP_TENANT_ID` | Azure AD | OAuth2 client creds | **Working** | Azure portal → App Registration |
+| 18 | `SP_CLIENT_ID` | Azure AD | OAuth2 client creds | **Working** | Same app registration |
+| 19 | `SP_CLIENT_SECRET` | Azure AD | OAuth2 client creds | **Working** | App Registration → Certificates & Secrets |
+| 20 | `SP_SITE_URL` | SharePoint Online | — | **Working** | `https://intel.sharepoint.com/sites/IAO-Architecture` |
+| 21 | `SP_DOC_LIBRARY` | SharePoint | — | **Working** | Default: `Shared Documents` |
+| 22 | `SP_TARGET_FOLDER` | SharePoint | — | **Working** | Default: `Architecture/SAD` |
 
 #### GitHub Actions Runtime
 
@@ -174,11 +185,96 @@ All credentials above are stored as **GitHub Actions Secrets** (AES-256 encrypte
 | **CSV fallback** | 1 | IAPM (30K apps from CSV cache) |
 | **Placeholder** | 6 | BIC, SAP hosts, SAP clients, JIRA URL |
 | **Pending enterprise access** | 6 | SAP BI0/DI0 user/pass, JIRA user/token |
-| **Total** | **20** | |
+| **LLM provider** | 2 | Anthropic API key + model config (for web chatbot) |
+| **Total** | **22** | |
 
-### AI Chatbot Integration (MCP Servers)
+### AI Chatbot Integration
 
 The chatbot layer is what transforms this pipeline from a static document site into an **interactive AI-powered architecture knowledge base**. Without it, the site is a Wikipedia — searchable but passive. With it, architects and support teams can query live build data conversationally.
+
+#### Two Deployment Modes
+
+```
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │                    CHATBOT DEPLOYMENT ARCHITECTURE                      │
+  │                                                                         │
+  │  MODE 1: VS CODE + COPILOT (Current — Working)                         │
+  │  ─────────────────────────────────────────────                          │
+  │                                                                         │
+  │  Developer / Architect                                                  │
+  │       │                                                                 │
+  │       ▼                                                                 │
+  │  VS Code + GitHub Copilot Chat (Pro/Enterprise subscription)           │
+  │       │                                                                 │
+  │       │  LLM: Copilot handles (no separate API key needed)             │
+  │       │  Transport: stdio (local subprocess)                            │
+  │       ▼                                                                 │
+  │  .vscode/settings.json → MCP servers (5 servers, 21 tools)            │
+  │       │                                                                 │
+  │       └──> Smartsheet API / IAPM CSV / JIRA / SAP / BIC               │
+  │                                                                         │
+  │  ✅ Works today. Limited to VS Code users with Copilot license.        │
+  │                                                                         │
+  ├─────────────────────────────────────────────────────────────────────────┤
+  │                                                                         │
+  │  MODE 2: GITHUB PAGES WEB CHATBOT (Target — Planned)                   │
+  │  ───────────────────────────────────────────────────                     │
+  │                                                                         │
+  │  Any team member (browser)                                              │
+  │       │                                                                 │
+  │       ▼                                                                 │
+  │  GitHub Pages site (chat widget embedded in HTML)                      │
+  │       │                                                                 │
+  │       │  User types: "What interfaces does FPR DC-020 use?"           │
+  │       │                                                                 │
+  │       ▼                                                                 │
+  │  API Gateway (Azure Functions / GitHub Actions API)                    │
+  │       │                                                                 │
+  │       │  Holds: ANTHROPIC_API_KEY + source system credentials          │
+  │       │  (API keys NEVER sent to browser)                               │
+  │       │                                                                 │
+  │       ├──(1) Send user query + tool definitions to Claude API          │
+  │       │       (Anthropic claude-sonnet-4-20250514 or Azure OpenAI)               │
+  │       │                                                                 │
+  │       ├──(2) Claude decides which tools to call                        │
+  │       │       (same MCP tool logic, refactored to HTTP)                │
+  │       │                                                                 │
+  │       ├──(3) Execute tool calls against source APIs                    │
+  │       │       Smartsheet → RICEFW data                                 │
+  │       │       IAPM → App metadata                                       │
+  │       │       JIRA → Defects, test cases                               │
+  │       │                                                                 │
+  │       ├──(4) Return tool results to Claude                             │
+  │       │                                                                 │
+  │       └──(5) Claude formats final answer → browser                     │
+  │                                                                         │
+  │  🎯 Target: Any team member queries live architecture from browser.    │
+  │     No VS Code, no Copilot license needed.                              │
+  │     Works for support teams, test leads, program managers.             │
+  │                                                                         │
+  └─────────────────────────────────────────────────────────────────────────┘
+```
+
+#### Web Chatbot — Implementation Path
+
+| Step | What | How |
+|------|------|-----|
+| 1 | **Chat UI widget** | Embed lightweight JS chat component in GitHub Pages HTML (e.g., a floating panel on every page) |
+| 2 | **Backend API** | Azure Function (Python) that holds LLM key + source credentials. Exposes a single `/chat` POST endpoint |
+| 3 | **Tool definitions** | Reuse MCP server tool logic — same Python code, HTTP transport instead of stdio |
+| 4 | **LLM integration** | Anthropic Messages API with tool_use (Claude calls tools, backend executes, Claude responds) |
+| 5 | **Auth** | Azure AD SSO (Intel employees only) — user authenticates via SSO before chatbot access |
+| 6 | **Context injection** | Each page sends its tower + capability ID with the query so Claude knows the context |
+
+#### LLM Provider Options
+
+| Provider | Model | Pros | Cons |
+|----------|-------|------|------|
+| **Anthropic Claude** | claude-sonnet-4-20250514 / claude-opus-4-20250514 | Best tool_use support, large context window, strong reasoning | Requires external API key |
+| **Azure OpenAI** | GPT-4o / GPT-4o-mini | Intel-approved Azure tenant, no external vendor | Tool calling slightly less reliable for complex queries |
+| **GitHub Copilot** | (managed by GitHub) | Already licensed for VS Code users, zero config | Only works inside VS Code, not embeddable in web pages |
+
+> **Recommendation**: Use **Anthropic Claude** (claude-sonnet-4-20250514) for the web chatbot via Azure Functions backend. For VS Code users, continue using **GitHub Copilot + MCP** (no additional cost). Both modes share the same tool definitions and source system credentials.
 
 #### MCP Server Inventory
 
