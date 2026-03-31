@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import json
 import os
 import re
 from collections import Counter
@@ -37,6 +38,7 @@ TOWERS_DIR = WORKSPACE / "towers"
 TEMPLATES_DIR = WORKSPACE / "templates"
 OBJECT_TRACKER_CSV = WORKSPACE / "data" / "smartsheet" / "object_trackers" / "s4_r3_object_tracker.csv"
 RAID_CSV = WORKSPACE / "data" / "smartsheet" / "raid" / "master_raid_log.csv"
+JIRA_CACHE = WORKSPACE / "data" / "jira" / "jira_cache.json"
 
 TESTING_TEMPLATE = "testing_report.md.j2"
 
@@ -153,6 +155,47 @@ def _load_raids(csv_path: Path) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
+# JIRA data loading
+# ---------------------------------------------------------------------------
+_JIRA_DATA: dict | None = None
+
+
+def _load_jira_data() -> dict | None:
+    """Load cached JIRA data from data/jira/jira_cache.json."""
+    global _JIRA_DATA
+    if _JIRA_DATA is not None:
+        return _JIRA_DATA if _JIRA_DATA else None
+    if not JIRA_CACHE.exists():
+        _JIRA_DATA = {}  # sentinel: tried but not found
+        return None
+    try:
+        with open(JIRA_CACHE, encoding="utf-8") as f:
+            _JIRA_DATA = json.load(f)
+        print(f"  Loaded JIRA cache: {len(_JIRA_DATA.get('defects', []))} defects, "
+              f"{len(_JIRA_DATA.get('test_cases', []))} test cases")
+        return _JIRA_DATA
+    except Exception as exc:
+        print(f"  WARNING: Failed to load JIRA cache: {exc}")
+        _JIRA_DATA = {}
+        return None
+
+
+def _jira_defects_for_tower(jira_data: dict, tower: str) -> list[dict]:
+    """Filter defects to a specific tower."""
+    return [d for d in jira_data.get("defects", []) if d.get("tower") == tower]
+
+
+def _jira_tests_for_tower(jira_data: dict, tower: str) -> list[dict]:
+    """Filter test cases to a specific tower."""
+    return [tc for tc in jira_data.get("test_cases", []) if tc.get("tower") == tower]
+
+
+def _get_tower_summary(jira_data: dict, tower: str) -> dict | None:
+    """Get pre-computed tower summary from JIRA cache."""
+    return jira_data.get("tower_summaries", {}).get(tower)
+
+
+# ---------------------------------------------------------------------------
 # Build context
 # ---------------------------------------------------------------------------
 def build_context(
@@ -165,12 +208,9 @@ def build_context(
 ) -> dict:
     """Build Jinja2 context for a Testing Report."""
 
-    # Check JIRA connectivity
-    jira_connected = bool(
-        os.environ.get("JIRA_BASE_URL")
-        and os.environ.get("JIRA_USER_EMAIL")
-        and os.environ.get("JIRA_API_TOKEN")
-    )
+    # Check JIRA data availability (cached JSON from fetch_jira_data.py)
+    jira_data = _load_jira_data()
+    jira_connected = jira_data is not None and len(jira_data.get("defects", [])) > 0
 
     # Filter objects
     tower_objs = [o for o in all_objects if o["tower"] == tower_short]
@@ -290,7 +330,7 @@ def build_context(
         "fut_objects": fut_objects,
         "raid_items": tower_raids,
         "raid_count": len(tower_raids),
-        # JIRA placeholders (populated when connected)
+        # JIRA data (populated from cached JSON when available)
         "test_summary": {"total": 0, "passed": 0, "failed": 0, "blocked": 0,
                          "not_run": 0, "pass_pct": 0, "fail_pct": 0,
                          "blocked_pct": 0, "not_run_pct": 0},
@@ -305,6 +345,32 @@ def build_context(
         "uat_signoff_status": "⏳ Pending",
         "blocker_count": 0,
     }
+
+    # ── Populate JIRA data from cache ────────────────────────────
+    if jira_connected and jira_data:
+        tower_sum = _get_tower_summary(jira_data, tower_short)
+        if tower_sum:
+            # Defect data
+            ds = tower_sum.get("defect", {})
+            if ds:
+                ctx["defect_summary"] = ds.get("defect_summary", ctx["defect_summary"])
+                ctx["defect_by_severity"] = ds.get("defect_by_severity", [])
+                ctx["defect_aging"] = ds.get("defect_aging", [])
+                ctx["open_defects"] = ds.get("open_defects", [])
+
+            # Test case data
+            ts = tower_sum.get("test", {})
+            if ts:
+                ctx["test_summary"] = ts
+
+            # Readiness data
+            rd = tower_sum.get("readiness", {})
+            if rd:
+                ctx["blocker_count"] = rd.get("critical_open", 0)
+                if rd.get("critical_open", 0) == 0:
+                    ctx["uat_signoff_status"] = "⏳ Pending"
+                else:
+                    ctx["uat_signoff_status"] = f"❌ {rd['critical_open']} critical blockers"
 
     return ctx
 

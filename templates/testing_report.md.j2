@@ -90,9 +90,9 @@ nav.toc a:hover { text-decoration: underline; }
 ## 1. Executive Summary
 
 {% if jira_connected -%}
-This report provides the testing and quality status for **{{ tower_name }} ({{ tower_short }}){% if cap_id %} — {{ cap_id }} {{ cap_name }}{% endif %}** sourced from JIRA.
+This report provides the testing and quality status for **{{ tower_name }} ({{ tower_short }}){% if cap_id %} — {{ cap_id }} {{ cap_name }}{% endif %}** sourced from JIRA (cached {{ generated_date }}).
 {% else -%}
-> **Note**: JIRA API access is not yet configured. This report shows build-phase data derived from the Smartsheet Object Tracker. Once `JIRA_BASE_URL`, `JIRA_USER_EMAIL`, and `JIRA_API_TOKEN` are set in `.env`, this report will auto-populate with live test cases, defects, and sprint data.
+> **Note**: JIRA data is not yet available. This report shows build-phase data derived from the Smartsheet Object Tracker. Run `python scripts/fetch_jira_data.py` to populate live test cases, defects, and sprint data from JIRA.
 {% endif %}
 
 | Metric | Value |
@@ -277,9 +277,9 @@ The following data is sourced from the Object Tracker while JIRA integration is 
 | FUT phase started | {{ fut_started_count }} / {{ total_objects }} | Smartsheet Object Tracker |
 | Build phase avg completion | {{ avg_build_pct }}% | Smartsheet Object Tracker |
 | Open RAID items | {{ raid_count }} items | Master RAID Log |
-| JIRA integration | ⏳ Pending — set `JIRA_*` in `.env` | Configuration |
+| JIRA integration | ⏳ Pending — run `fetch_jira_data.py` | Configuration |
 
-> **Go-Live readiness assessment will be fully automated once JIRA API access is provisioned.** Until then, this section reflects build-phase progress from the Smartsheet Object Tracker.
+> **Go-Live readiness assessment will be fully automated once JIRA data is fetched.** Run `python scripts/fetch_jira_data.py` to populate. Until then, this section reflects build-phase progress from the Smartsheet Object Tracker.
 {% endif %}
 
 ---

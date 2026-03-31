@@ -59,6 +59,7 @@ jobs:
           IAPM_BEARER_TOKEN=${{ secrets.IAPM_BEARER_TOKEN }}
           BIC_AUTH_TOKEN=${{ secrets.BIC_AUTH_TOKEN }}
           JIRA_BASE_URL=${{ secrets.JIRA_BASE_URL }}
+          JIRA_PAT=${{ secrets.JIRA_PAT }}
           JIRA_USER_EMAIL=${{ secrets.JIRA_USER_EMAIL }}
           JIRA_API_TOKEN=${{ secrets.JIRA_API_TOKEN }}
           ANTHROPIC_API_KEY=${{ secrets.ANTHROPIC_API_KEY }}
@@ -77,6 +78,18 @@ jobs:
             python -m src.gen_systems_arch --tower "${{ github.event.inputs.tower }}"
           else
             python -m src.gen_systems_arch --all
+          fi
+
+      - name: Fetch JIRA data
+        continue-on-error: true
+        run: python scripts/fetch_jira_data.py
+
+      - name: Generate Testing Reports
+        run: |
+          if [ -n "${{ github.event.inputs.tower }}" ]; then
+            python scripts/gen_testing_report.py --tower "${{ github.event.inputs.tower }}"
+          else
+            python scripts/gen_testing_report.py --all
           fi
 
       - name: Update SADs from Smartsheet
