@@ -83,6 +83,7 @@ def _load_ricefw_objects() -> list[dict]:
                 "sub_tower": (r.get("Sub-Tower Name") or "").strip(),
                 "status": status_raw,
                 "type": (r.get("Object Type") or "").strip(),
+                "description": (r.get("Description") or "").strip(),
             })
     return rows
 
@@ -130,13 +131,22 @@ def _load_cap_map() -> dict:
 # ── Reverse map: capability → sub-tower ──────────────────────────
 
 def _build_cap_to_subtower(cap_map: dict) -> dict[str, str]:
+    """Build tower:cap_id -> sub_tower reverse map.
+
+    Uses 'TOWER:CAP_ID' keys so the same capability ID in different
+    towers (e.g. L-040 in FTS-IF and PTP) doesn't collide.
+    Also stores plain 'CAP_ID' as fallback for backward compatibility.
+    """
     result = {}
     for tower_key, st_map in cap_map.items():
         if tower_key.startswith("_"):
             continue
         for sub_tower, cap_ids in st_map.items():
             for cap_id in cap_ids:
-                result[cap_id] = sub_tower
+                result[f"{tower_key}:{cap_id}"] = sub_tower
+                # Only set plain key if not already claimed by another tower
+                if cap_id not in result:
+                    result[cap_id] = sub_tower
     return result
 
 
@@ -421,7 +431,7 @@ td a:hover{{text-decoration:underline}}
         # Find matching sub-towers for this L1 group
         l1_subtowers = set()
         for cap in caps:
-            st = cap_to_subtower.get(cap["id"], "")
+            st = cap_to_subtower.get(f"{tower}:{cap['id']}", cap_to_subtower.get(cap["id"], ""))
             if st:
                 l1_subtowers.add(st)
 
@@ -505,19 +515,51 @@ def generate_capability_page(
 
     docs = _find_cap_docs(tower, l1_name, cap_id)
 
-    # Get RICEFW data for this capability's sub-tower
-    sub_tower = cap_to_subtower.get(cap_id, "")
-    cap_ricefw = {"total": 0, "completed": 0, "pending": 0}
+    # Get RICEFW data for this capability — multi-tier matching
+    sub_tower = cap_to_subtower.get(f"{tower}:{cap_id}", cap_to_subtower.get(cap_id, ""))
+    tower_objs = [o for o in ricefw_objects if o["tower"] == tower]
     cap_objs = []
+
+    # Tier 1: Explicit sub-tower mapping from config
     if sub_tower:
-        for o in ricefw_objects:
-            if o["tower"] == tower and o["sub_tower"] == sub_tower:
-                cap_objs.append(o)
-                cap_ricefw["total"] += 1
-                if "complete" in o["status"].lower():
-                    cap_ricefw["completed"] += 1
-                else:
-                    cap_ricefw["pending"] += 1
+        cap_objs = [o for o in tower_objs if o["sub_tower"] == sub_tower]
+
+    # Tier 2: Object ID prefix match (e.g. DS-020 → FPRDS020*)
+    if not cap_objs:
+        cap_prefix = cap_id.replace("-", "")[:4].upper()
+        if cap_prefix:
+            cap_objs = [o for o in tower_objs
+                        if o["object_id"].upper().replace("-", "").replace("_", "").startswith(cap_prefix)]
+
+    # Tier 3: Sub-tower name contains capability ID
+    if not cap_objs:
+        cap_objs = [o for o in tower_objs if cap_id.lower() in o["sub_tower"].lower()]
+
+    # Tier 4: Fuzzy match — capability name keywords against sub-tower name
+    if not cap_objs and cap_name:
+        # Extract meaningful words from capability name (drop short/common words)
+        stop = {"and", "the", "of", "for", "in", "to", "a", "an", "fts", "if", "ip"}
+        cap_words = {w.lower() for w in re.findall(r'[A-Za-z]{3,}', cap_name)} - stop
+        if cap_words:
+            best_st, best_score = "", 0
+            seen_sts = {o["sub_tower"] for o in tower_objs if o["sub_tower"]}
+            for st in seen_sts:
+                st_words = {w.lower() for w in re.findall(r'[A-Za-z]{3,}', st)} - stop
+                score = len(cap_words & st_words)
+                if score > best_score:
+                    best_score = score
+                    best_st = st
+            if best_score >= 2:
+                sub_tower = best_st
+                cap_objs = [o for o in tower_objs if o["sub_tower"] == best_st]
+
+    cap_ricefw = {"total": 0, "completed": 0, "pending": 0}
+    for o in cap_objs:
+        cap_ricefw["total"] += 1
+        if "complete" in o["status"].lower():
+            cap_ricefw["completed"] += 1
+        else:
+            cap_ricefw["pending"] += 1
 
     # Get JIRA data
     jira_st = jira_data.get("subtower_summaries", {})
@@ -658,12 +700,16 @@ tr:hover td{{background:#f5f8fc}}
 
         # Object detail table
         html += """<table>
-<tr><th>Object ID</th><th>Type</th><th>Status</th></tr>
+<tr><th>Object ID</th><th>Type</th><th>Description</th><th>Status</th></tr>
 """
         for obj in sorted(cap_objs, key=lambda o: o["object_id"]):
             status_color = "#1a7f37" if "complete" in obj["status"].lower() else "#9a6700"
+            desc = obj.get("description", "")
+            if len(desc) > 80:
+                desc = desc[:77] + "..."
             html += (f'<tr><td><strong>{obj["object_id"]}</strong></td>'
                      f'<td>{obj["type"]}</td>'
+                     f'<td style="font-size:12px;color:#555">{desc}</td>'
                      f'<td style="color:{status_color}">{obj["status"]}</td></tr>\n')
         html += "</table>\n"
 
