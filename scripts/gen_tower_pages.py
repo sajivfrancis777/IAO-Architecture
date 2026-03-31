@@ -358,7 +358,8 @@ td a:hover{{text-decoration:underline}}
 </div>
 <nav class="sidebar">
   <div style="padding:12px 16px 0">
-    <a href="dashboard/index.html" style="display:block;padding:10px 14px;background:linear-gradient(135deg,#00285a,#0060a9);color:#fff;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;text-align:center;margin-bottom:8px;transition:opacity .15s" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">📊 Program Dashboard</a>
+    <a href="index.html" style="display:block;padding:8px 14px;background:#f5f8fc;color:#00285a;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;text-align:center;margin-bottom:4px;border:1px solid #e4e8ed">🏠 Portal Home</a>
+    <a href="dashboard/index.html" style="display:block;padding:8px 14px;background:linear-gradient(135deg,#00285a,#0060a9);color:#fff;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;text-align:center;margin-bottom:8px;transition:opacity .15s" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">📊 Program Dashboard</a>
   </div>
   <div class="search-box"><input type="text" placeholder="Search capabilities..." aria-label="Search capabilities"></div>
   <div class="nav-tree"></div>
@@ -539,7 +540,7 @@ def generate_capability_page(
     html = f"""<!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="base-path" content="">
+<meta name="base-path" content="../">
 <title>{cap_id} — {cap_name}</title>
 <style>
 *,*::before,*::after{{box-sizing:border-box}}
@@ -607,13 +608,14 @@ tr:hover td{{background:#f5f8fc}}
 </head><body>
 <div class="topbar">
   <button class="sidebar-toggle" aria-label="Toggle navigation">☰</button>
-  <img src="templates/assets/cover_banner.svg" alt="IAO">
+  <img src="../templates/assets/cover_banner.svg" alt="IAO">
   <h1>IAO Architecture Portal</h1>
-  <a class="back-link" href="tower-{tower}.html">← {tower} Tower</a>
+  <a class="back-link" href="../tower-{tower}.html">← {tower} Tower</a>
 </div>
 <nav class="sidebar">
   <div style="padding:12px 16px 0">
-    <a href="dashboard/index.html" style="display:block;padding:10px 14px;background:linear-gradient(135deg,#00285a,#0060a9);color:#fff;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;text-align:center;margin-bottom:8px;transition:opacity .15s" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">📊 Program Dashboard</a>
+    <a href="../index.html" style="display:block;padding:8px 14px;background:#f5f8fc;color:#00285a;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;text-align:center;margin-bottom:4px;border:1px solid #e4e8ed">🏠 Portal Home</a>
+    <a href="../dashboard/index.html" style="display:block;padding:8px 14px;background:linear-gradient(135deg,#00285a,#0060a9);color:#fff;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;text-align:center;margin-bottom:8px;transition:opacity .15s" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">📊 Program Dashboard</a>
   </div>
   <div class="search-box"><input type="text" placeholder="Search capabilities..." aria-label="Search capabilities"></div>
   <div class="nav-tree"></div>
@@ -622,7 +624,7 @@ tr:hover td{{background:#f5f8fc}}
 <div class="page-body">
 <div class="container">
 <div class="breadcrumb">
-  <a href="index.html">Home</a> / <a href="tower-{tower}.html">{tower}</a> / <strong>{cap_id}</strong>
+  <a href="../index.html">Home</a> / <a href="../tower-{tower}.html">{tower}</a> / <strong>{cap_id}</strong>
 </div>
 
 <div class="cap-hero">
@@ -690,8 +692,8 @@ tr:hover td{{background:#f5f8fc}}
 
     html += f"""
 <div style="margin-top:24px;display:flex;gap:12px">
-  <a href="tower-{tower}.html" style="color:#0071c5;text-decoration:none;font-weight:600">← Back to {tower} Tower</a>
-  <a href="index.html" style="color:#0071c5;text-decoration:none;font-weight:500;margin-left:auto">Home</a>
+  <a href="../tower-{tower}.html" style="color:#0071c5;text-decoration:none;font-weight:600">← Back to {tower} Tower</a>
+  <a href="../index.html" style="color:#0071c5;text-decoration:none;font-weight:500;margin-left:auto">Home</a>
 </div>
 <div class="footer">
   IAO Architecture Pipeline · Intel IDM 2.0 · {tower} / {cap_id} · Intel Confidential<br>

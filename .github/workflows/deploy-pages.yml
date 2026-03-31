@@ -338,7 +338,8 @@ jobs:
             cat <<SIDEBAR
           <nav class="sidebar">
             <div style="padding:12px 16px 0">
-              <a href="dashboard/index.html" style="display:block;padding:10px 14px;background:linear-gradient(135deg,#00285a,#0060a9);color:#fff;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;text-align:center;margin-bottom:8px;transition:opacity .15s" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">📊 Program Dashboard</a>
+              <a href="index.html" style="display:block;padding:8px 14px;background:#f5f8fc;color:#00285a;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;text-align:center;margin-bottom:4px;border:1px solid #e4e8ed">🏠 Portal Home</a>
+              <a href="dashboard/index.html" style="display:block;padding:8px 14px;background:linear-gradient(135deg,#00285a,#0060a9);color:#fff;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;text-align:center;margin-bottom:8px;transition:opacity .15s" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">📊 Program Dashboard</a>
             </div>
             <div class="search-box">
               <input type="text" placeholder="Search capabilities..." aria-label="Search capabilities">
@@ -433,12 +434,13 @@ jobs:
           done
           echo "  Pinned Mermaid in ${pinned} files"
 
-          # ── INJECT PORTAL TOOLBAR + SIDEBAR INTO SAD HTML PAGES ────
-          # Adds a floating toolbar (← Portal, Tower, 📄 PDF) and slide-in
-          # sidebar to every Architecture HTML document within _site/towers/.
+          # ── INJECT PORTAL TOOLBAR + SIDEBAR INTO ALL DOCUMENT PAGES ──
+          # Adds a floating toolbar (🏠 Home, Tower, 📄 PDF) and slide-in
+          # sidebar (Home, Dashboard, capability search) to every HTML doc
+          # in _site/towers/ (SAD, RICEFW, Testing) and _site/dashboard/.
           # All injected elements are hidden in @media print so PDFs stay clean.
 
-          echo "Injecting portal toolbar + sidebar into SAD HTML pages..."
+          echo "Injecting portal toolbar + sidebar into all document HTML pages..."
           python3 - <<'PYINJECT'
           import os, re, glob
 
@@ -521,8 +523,16 @@ jobs:
           </script>
           """
 
+          # Collect ALL HTML pages that need toolbar+sidebar injection:
+          # - towers/**/*.html  (SAD, RICEFW Tracker, Testing Report)
+          # - dashboard/**/*.html (Program + Tower dashboards)
+          html_files = sorted(
+              glob.glob("_site/towers/**/*.html", recursive=True)
+              + glob.glob("_site/dashboard/**/*.html", recursive=True)
+          )
+
           count = 0
-          for html_file in sorted(glob.glob("_site/towers/**/*-Architecture.html", recursive=True)):
+          for html_file in html_files:
               with open(html_file, "r", encoding="utf-8") as f:
                   content = f.read()
               if "portal-toolbar" in content:
@@ -530,25 +540,51 @@ jobs:
 
               # Determine tower from path
               parts = html_file.replace("\\", "/").split("/")
-              tower_idx = parts.index("towers") + 1
-              tower = parts[tower_idx] if tower_idx < len(parts) else "Unknown"
+              tower = "Unknown"
+              if "towers" in parts:
+                  tower_idx = parts.index("towers") + 1
+                  tower = parts[tower_idx] if tower_idx < len(parts) else "Unknown"
+              elif "dashboard" in parts:
+                  dash_idx = parts.index("dashboard") + 1
+                  if dash_idx < len(parts) and parts[dash_idx] != "index.html":
+                      tower = parts[dash_idx]
 
               # Compute relative base path to _site root
               rel = html_file.replace("_site/", "", 1)
               depth = rel.count("/")
               base = "../" * depth
 
+              # Determine document type label for the toolbar
+              fname = os.path.basename(html_file)
+              if "RICEFW" in fname:
+                  doc_label = "RICEFW Tracker"
+              elif "Testing" in fname:
+                  doc_label = "Testing Report"
+              elif "Architecture" in fname:
+                  doc_label = "Architecture"
+              elif "dashboard" in html_file:
+                  doc_label = "Dashboard"
+              else:
+                  doc_label = ""
+
+              # Tower link — only show when tower is known
+              tower_link = f'<a href="{base}tower-{tower}.html">{tower} Tower</a>' if tower != "Unknown" else ""
+
               # Build toolbar HTML
               toolbar_html = f'''
           <div class="portal-toolbar">
             <button class="sidebar-btn" title="Browse capabilities">&#9776;</button>
-            <a href="{base}index.html">Portal</a>
-            <a href="{base}tower-{tower}.html">{tower} Tower</a>
-            <span class="tb-title">IAO Architecture</span>
+            <a href="{base}index.html">&#127968; Home</a>
+            {tower_link}
+            <span class="tb-title">{doc_label}</span>
             <button class="pdf-btn" title="Print / Save as PDF">&#128196; Download PDF</button>
           </div>
           <div class="portal-sidebar-overlay"></div>
           <nav class="portal-sidebar">
+            <div style="padding:12px 16px 0">
+              <a href="{base}index.html" style="display:block;padding:8px 14px;background:#f5f8fc;color:#00285a;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;text-align:center;margin-bottom:4px;border:1px solid #e4e8ed">&#127968; Portal Home</a>
+              <a href="{base}dashboard/index.html" style="display:block;padding:8px 14px;background:linear-gradient(135deg,#00285a,#0060a9);color:#fff;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;text-align:center;margin-bottom:8px">&#128202; Program Dashboard</a>
+            </div>
             <div class="ps-search"><input type="text" placeholder="Search capabilities..." aria-label="Search"></div>
             <div class="ps-tree"></div>
             <div class="ps-empty">No matching capabilities</div>
@@ -566,7 +602,7 @@ jobs:
                   f.write(content)
               count += 1
 
-          print(f"  Injected toolbar + sidebar into {count} SAD documents")
+          print(f"  Injected toolbar + sidebar into {count} documents (SAD + RICEFW + Testing + Dashboard)")
           PYINJECT
 
           # ── CUSTOM DOMAIN (CNAME) ──────────────────────────────────
