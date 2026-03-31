@@ -43,11 +43,6 @@ CANONICAL_STYLE = """\
     text-decoration: underline !important;
     font-size: 10pt !important;
   }
-  a[title="View full diagram"]::after {
-    content: " (opens mermaid.live)";
-    font-size: 8pt;
-    color: #666;
-  }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }

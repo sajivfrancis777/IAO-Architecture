@@ -144,8 +144,8 @@ blockquote {
     background: #fafbfd;
     border: 1px solid #e0e4ea;
     border-radius: 6px;
-    padding: 20px 12px;
-    margin: 16px 0;
+    padding: 16px 12px;
+    margin: 12px 0;
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
@@ -154,6 +154,7 @@ blockquote {
 .mermaid svg {
     max-width: 100%;
     height: auto;
+    max-height: 85vh;
 }
 .header-bar {
     background: #00285a;
@@ -229,25 +230,31 @@ strong { color: #00285a; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print, .pdf-download-btn { display: none !important; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
-    /* Page sections: do NOT use min-height in print — the page-break divs
-       already handle pagination.  min-height:100vh forces every section to
-       fill a full page, which creates blank trailing space before the next
-       page-break, producing blank pages in the PDF output. */
+
+    /* Page sections: auto height in print — page-break divs handle pagination */
     .page-section {
         min-height: auto;
         display: block;
     }
     .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
         page-break-inside: avoid;
+        break-inside: avoid;
         overflow: visible;
+        max-height: 85vh;
+        margin: 8px 0;
     }
     .mermaid svg {
         max-width: 100%;
+        max-height: 80vh;
         height: auto;
+        width: auto;
     }
+
     /* Diagram links: visible + clickable in PDF */
     a[title="View full diagram"],
     a[title="Open full-size SVG"] {
@@ -255,6 +262,13 @@ strong { color: #00285a; }
         text-decoration: underline !important;
         font-size: 10pt !important;
     }
+
+    /* Tighten spacing in print for professional PDF output */
+    h2 { margin-top: 18px; margin-bottom: 8px; }
+    h3 { margin-top: 14px; margin-bottom: 6px; }
+    h4 { margin-top: 10px; margin-bottom: 4px; }
+    table { margin: 8px 0; }
+    blockquote { margin: 8px 0; padding: 6px 14px; }
 }
 """
 

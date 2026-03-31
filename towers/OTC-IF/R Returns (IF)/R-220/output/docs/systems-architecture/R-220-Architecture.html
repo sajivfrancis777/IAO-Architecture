@@ -120,8 +120,8 @@ blockquote {
     background: #fafbfd;
     border: 1px solid #e0e4ea;
     border-radius: 6px;
-    padding: 20px 12px;
-    margin: 16px 0;
+    padding: 16px 12px;
+    margin: 12px 0;
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
@@ -130,6 +130,7 @@ blockquote {
 .mermaid svg {
     max-width: 100%;
     height: auto;
+    max-height: 85vh;
 }
 .header-bar {
     background: #00285a;
@@ -205,25 +206,31 @@ strong { color: #00285a; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print, .pdf-download-btn { display: none !important; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
-    /* Page sections: do NOT use min-height in print — the page-break divs
-       already handle pagination.  min-height:100vh forces every section to
-       fill a full page, which creates blank trailing space before the next
-       page-break, producing blank pages in the PDF output. */
+
+    /* Page sections: auto height in print — page-break divs handle pagination */
     .page-section {
         min-height: auto;
         display: block;
     }
     .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
         page-break-inside: avoid;
+        break-inside: avoid;
         overflow: visible;
+        max-height: 85vh;
+        margin: 8px 0;
     }
     .mermaid svg {
         max-width: 100%;
+        max-height: 80vh;
         height: auto;
+        width: auto;
     }
+
     /* Diagram links: visible + clickable in PDF */
     a[title="View full diagram"],
     a[title="Open full-size SVG"] {
@@ -231,6 +238,13 @@ strong { color: #00285a; }
         text-decoration: underline !important;
         font-size: 10pt !important;
     }
+
+    /* Tighten spacing in print for professional PDF output */
+    h2 { margin-top: 18px; margin-bottom: 8px; }
+    h3 { margin-top: 14px; margin-bottom: 6px; }
+    h4 { margin-top: 10px; margin-bottom: 4px; }
+    table { margin: 8px 0; }
+    blockquote { margin: 8px 0; padding: 6px 14px; }
 }
 </style>
     
@@ -666,7 +680,7 @@ flowchart LR
     class n11 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVlGPokgQ_isdJhP3EkwAQRweLlGUyyRzt5t19_ZhvYcWGu1M0026m1HP-N-vWkCFcV72fDDWR9X3VX00hUcrFRmxIuvx8Ug51RE6DvSWFGQQocEaKzKwUQ38jSXFa0bUwOTkgusl_fec5vrl3qQZLMEFZQeDLslGEPT92UZTKGQ2UpiroSKS5gN7UEpaYHmIBRPSZD-QSe7kZ7Xm0kzIjMhrguOEbhpAKaOcXOFR6Id-YuoUSQXPOqR5kE_ydHAyzTGxS7dY6nP7lSJ_4v0PmuktxDlmikDOVhfsBa8JMzNqWRksreRbawZVRoeDYcsSp5RvAPcdgCTmr1cocE4ndHp8XPGLKHr5uuIIPinDSs1JjpQGePGmUU4Zix78eJoEjq20FK8kevAW4Xzk2amZJILRHduYO9wRutnqaC1Y1qQOd2aGyCv3ttxHnmPLA3z3tAjPrkrx2Jt4k4vSLHRjN26V8jz_X0rgq_yG1WujtRglXjK_aLnBOIid93ztmHM_nLp9n4h8oym5IU2SZLS4WrUYB67zMeksGY2duEe6wZrs8OFK-BT7F8IkCBM3_JCw1ut3Wa2_SJG2hKNFkAQXwnDmJlPvQ0J_6vqTpkPg2UhcblFcKS0KItGsUnDelUJTjtlB6TrPfLj7c2XlOMrx0NiOvpcZjIWWW1oWhGv0TeL0FU4keua5kAXWVHBEOZpBj0jk6AVn5mpCCctM_JXoSnI0J4y-EXlYWf_caHk_L2Kp2KBYEqNVl6jbmtuiEdQs4fgTFGMpKfQ4TVNRQW9_VcUawh3V11G7gj7Ufl5rDA3fG6SbHH66dAdc5bu-Gm8yqPrtpmzSK_ugy_MI2btmb5megKjx77NZW41BWbdN1z0eW0GQEjs1xEyjEkvMGGF_1KdyZZ1OdRE8t71jAVZwVQqp67v5hWHOQe3TsipLdkDx1vgFJqFluwzRnMLBo-vKFNy2HEDLz7DxqbmR93iN44bq_oEY97xb7ElaAdMzX4N3WY-xZ5fr_KIRPEDD4e-GoIm9Jm7WBvyogaAX-008qsNJE_pNeZvt1PG4iZ_q0OtdHrVxHYY3y8CA7RLswN7tJutcGTf7uQOG98DJPfDp8irptuG0W64Luy1s2Rac4wLTzIqO1vkVD38DMpLjimnrZFu40mJ54KkVnV-FVnV-huYUw1EsavD0Hy2hpJA=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVlGPokgQ_isdJhP3EkwAQRweLlGUyyRzt5t19_ZhvYcWGu1M0026m1HP-N-vWkCFcV72fDDWR9X3VX00hUcrFRmxIuvx8Ug51RE6DvSWFGQQocEaKzKwUQ38jSXFa0bUwOTkgusl_fec5vrl3qQZLMEFZQeDLslGEPT92UZTKGQ2UpiroSKS5gN7UEpaYHmIBRPSZD-QSe7kZ7Xm0kzIjMhrguOEbhpAKaOcXOFR6Id-YuoUSQXPOqR5kE_ydHAyzTGxS7dY6nP7lSJ_4v0PmuktxDlmikDOVhfsBa8JMzNqWRksreRbawZVRoeDYcsSp5RvAPcdgCTmr1cocE4ndHp8XPGLKHr5uuIIPinDSs1JjpQGePGmUU4Zix78eJoEjq20FK8kevAW4Xzk2amZJILRHduYO9wRutnqaC1Y1qQOd2aGyCv3ttxHnmPLA3z3tAjPrkrx2Jt4k4vSLHRjN26V8jz_X0rgq_yG1WujtRglXjK_aLnBOIid93ztmHM_nLp9n4h8oym5IU2SZLS4WrUYB67zMeksGY2duEe6wZrs8OFK-BT7F8IkCBM3_JCw1ut3Wa2_SJG2hKNFkAQXwnDmJlPvQ0J_6vqTpkPg2UhcblFcKS0KItGsUnDelUJTjtlB6TrPfLj7c2XlOMrx0NiOvpcZjIWWW1oWhGv0TeL0FU4keua5kAXWVHBEOZpBj0jk6AVn5mpCCctM_JXoSnI0J4y-EXlYWf_caHk_L2Kp2KBYEqNVl6jbmtuiEdQs4fgTFGMpKfQ4TVNRQW9_VcUawh3V11G7gj7Ufl5rDA3fG6SbHH66dAdc5bu-Gm8yqPrtpmzSK_ugy_MI2btmb5megKjx77NZW41BWbdN1z0eW0GQEjs1xEyjEkvMGGF_1KdyZZ1OdRE8t71jAVZwVQqp67v5hWHOQe3TsipLdkDx1vgFJqFluwzRnMLBo-vKFNy2HEDLz7DxqbmR93iN44bq_oEY97xb7ElaAdMzX4N3WY-xZ5fr_KIRPEDD4e-GoIm9Jm7WBvyogaAX-008qsNJE_pNeZvt1PG4iZ_q0OtdHrVxHYY3y8CA7RLswN7tJutcGTf7uQOG98DJPfDp8irptuG0W64Luy1s2Rac4wLTzIqO1vkVD38DMpLjimnrZFu40mJ54KkVnV-FVnV-huYUw1EsavD0Hy2hpJA=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IF)</span></div>
 

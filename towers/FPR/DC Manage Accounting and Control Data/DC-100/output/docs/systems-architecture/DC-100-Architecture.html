@@ -120,8 +120,8 @@ blockquote {
     background: #fafbfd;
     border: 1px solid #e0e4ea;
     border-radius: 6px;
-    padding: 20px 12px;
-    margin: 16px 0;
+    padding: 16px 12px;
+    margin: 12px 0;
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
@@ -130,6 +130,7 @@ blockquote {
 .mermaid svg {
     max-width: 100%;
     height: auto;
+    max-height: 85vh;
 }
 .header-bar {
     background: #00285a;
@@ -205,25 +206,31 @@ strong { color: #00285a; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print, .pdf-download-btn { display: none !important; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
-    /* Page sections: do NOT use min-height in print — the page-break divs
-       already handle pagination.  min-height:100vh forces every section to
-       fill a full page, which creates blank trailing space before the next
-       page-break, producing blank pages in the PDF output. */
+
+    /* Page sections: auto height in print — page-break divs handle pagination */
     .page-section {
         min-height: auto;
         display: block;
     }
     .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
         page-break-inside: avoid;
+        break-inside: avoid;
         overflow: visible;
+        max-height: 85vh;
+        margin: 8px 0;
     }
     .mermaid svg {
         max-width: 100%;
+        max-height: 80vh;
         height: auto;
+        width: auto;
     }
+
     /* Diagram links: visible + clickable in PDF */
     a[title="View full diagram"],
     a[title="Open full-size SVG"] {
@@ -231,6 +238,13 @@ strong { color: #00285a; }
         text-decoration: underline !important;
         font-size: 10pt !important;
     }
+
+    /* Tighten spacing in print for professional PDF output */
+    h2 { margin-top: 18px; margin-bottom: 8px; }
+    h3 { margin-top: 14px; margin-bottom: 6px; }
+    h4 { margin-top: 10px; margin-bottom: 4px; }
+    table { margin: 8px 0; }
+    blockquote { margin: 8px 0; padding: 6px 14px; }
 }
 </style>
     
@@ -704,7 +718,7 @@ flowchart TD
     class n9 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVW2vojgU_isNNzfOJpgAgigfdsJF2Zjs7Bq9M5PNOB8qHLS50LJt8WUd__u2gi843k9DosnzcM5zTp-2h4ORsBSMwHh-PhBKZIAOHbmGAjoB6iyxgI6JauIL5gQvcxAdHZMxKufkv1OY7ZY7Haa5GBck32t2DisG6PPERKFKzE0kMBVdAZxkHbNTclJgvo9YzriOfoJBZmWnas2rF8ZT4NcAy_LtxFOpOaFwpXu-67uxzhOQMJq2RDMvG2RJ56iby9k2WWMuT-1XAj7h3VeSyrXCGc4FqJi1LPI_8RJyvUbJK80lFd-czSBC16HKsHmJE0JXinctRXFM366UZx2P6Pj8vKCXouh1tKBIPUmOhRhBhoRU9HgjUUbyPHhyozD2LFNIzt4geHLG_qjnmIleSaCWbpna3O4WyGotgyXL0ya0u9VrCJxyZ_Jd4Fgm36v_u1pA02ulqO8MnMGl0otvR3Z0rpRl2S9VUr7yVyzemlrjXuzEo0st2-t7kfWz3nmZI9cP7XufgG9IAjeicRz3xlerxn3Ptt4XfYl7fSu6E11hCVu8vwoOI_ciGHt-bPvvCtb17rusllPOkrNgb-zF3kXQf7Hj0HlX0A1td9B0qHRWHJdrNAtnaPKK5lVZMnV8QorzvZB1kH6o_W1hZDjIcFd7jmYgWL4BpK4qGnPOOMrUT6tEajs5TiTCNFVhpWoThFgY32_E3G8XtYSt0BS4yi5UNM7RKykATessdb4RyxS_AVoBCpOEVVRqdiKh0KK3qoPD4aqaQneprkmyRhMlEE4QEYhQNGVCloxCiuYSy0roBVBEJKIAqUIMLeHaNaQfF8bxWNdQp_retHZfmN4a5rQN-0Jge7LkE6Z4BS2r2ub02okjIspcnZ05VrMQ_a2H1E9etwW8DxeFU-YM_q1ASL24iIM6ii2tGSRANpAqjd9uRPpXESFZ2d7aWibVhs7D6V2mrxLf2zHUbarWqNFptz98vI2wS_JKqE7_qC_Tg42hHup2f1cONrBXQ7-BTg37DRzW0GmgXcNhAwca_lgY_4A6Zj_U64Z367BBA_0aundZf7FT0vDm2uoK53HVop3HdO8x7d5OqNYb7zLjW3S_Gcct0n8cOzhPqhY7PLOGaRTAC0xSIzgYp6-0-pKnkOEql8bRNHAl2XxPEyM4fc2MqkxV5ohgdV-Kmjz-D0WLjh0=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVW2vojgU_isNNzfOJpgAgigfdsJF2Zjs7Bq9M5PNOB8qHLS50LJt8WUd__u2gi843k9DosnzcM5zTp-2h4ORsBSMwHh-PhBKZIAOHbmGAjoB6iyxgI6JauIL5gQvcxAdHZMxKufkv1OY7ZY7Haa5GBck32t2DisG6PPERKFKzE0kMBVdAZxkHbNTclJgvo9YzriOfoJBZmWnas2rF8ZT4NcAy_LtxFOpOaFwpXu-67uxzhOQMJq2RDMvG2RJ56iby9k2WWMuT-1XAj7h3VeSyrXCGc4FqJi1LPI_8RJyvUbJK80lFd-czSBC16HKsHmJE0JXinctRXFM366UZx2P6Pj8vKCXouh1tKBIPUmOhRhBhoRU9HgjUUbyPHhyozD2LFNIzt4geHLG_qjnmIleSaCWbpna3O4WyGotgyXL0ya0u9VrCJxyZ_Jd4Fgm36v_u1pA02ulqO8MnMGl0otvR3Z0rpRl2S9VUr7yVyzemlrjXuzEo0st2-t7kfWz3nmZI9cP7XufgG9IAjeicRz3xlerxn3Ptt4XfYl7fSu6E11hCVu8vwoOI_ciGHt-bPvvCtb17rusllPOkrNgb-zF3kXQf7Hj0HlX0A1td9B0qHRWHJdrNAtnaPKK5lVZMnV8QorzvZB1kH6o_W1hZDjIcFd7jmYgWL4BpK4qGnPOOMrUT6tEajs5TiTCNFVhpWoThFgY32_E3G8XtYSt0BS4yi5UNM7RKykATessdb4RyxS_AVoBCpOEVVRqdiKh0KK3qoPD4aqaQneprkmyRhMlEE4QEYhQNGVCloxCiuYSy0roBVBEJKIAqUIMLeHaNaQfF8bxWNdQp_retHZfmN4a5rQN-0Jge7LkE6Z4BS2r2ub02okjIspcnZ05VrMQ_a2H1E9etwW8DxeFU-YM_q1ASL24iIM6ii2tGSRANpAqjd9uRPpXESFZ2d7aWibVhs7D6V2mrxLf2zHUbarWqNFptz98vI2wS_JKqE7_qC_Tg42hHup2f1cONrBXQ7-BTg37DRzW0GmgXcNhAwca_lgY_4A6Zj_U64Z367BBA_0aundZf7FT0vDm2uoK53HVop3HdO8x7d5OqNYb7zLjW3S_Gcct0n8cOzhPqhY7PLOGaRTAC0xSIzgYp6-0-pKnkOEql8bRNHAl2XxPEyM4fc2MqkxV5ohgdV-Kmjz-D0WLjh0=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
 
@@ -835,7 +849,7 @@ flowchart TD
     class n33 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq9WFFv2zYQ_iuEisAbYAOSKFmyHjbYslVkSNsgaTcMzR5oiYqF0KQnUUnc1P99pCzKFkNnaIvGD4b18e67u49H0tSTlbIMW5F1dvZU0IJH4GnAV3iNBxEYLFGFB0OwB_5EZYGWBFcDaZMzyq-LL42Z420epZnEErQuyFai1_iWYfDpfAimwpEMQYVoNapwWeSD4WBTFmtUbmNGWCmt3-Awt_MmWjs0Y2WGy4OBbQdO6gtXUlB8gGHgBV4i_SqcMpr1SHM_D_N0sJPJEfaQrlDJm_TrCr9Dj38VGV-J5xyRCgubFV-TC7TERNbIy1piaV3eKzGKSsahQrDrDUoLeitwzxZQiejdAfLt3Q7szs5uaBcUfJzfUCA-KUFVNcc5qLiAF_cc5AUh0Rsvnia-Pax4ye5w9MZdBHPoDlNZSSRKt4dS3NEDLm5XPFoykrWmowdZQ-RuHoflY-Taw3IrvrVYmGaHSPHYDd2wizQLnNiJVaQ8z38oktC1_IiquzbWAiZuMu9iOf7Yj-3nfKrMuRdMHV0nXN4XKT4iTZIELg5SLca-Y58mnSVwbMca6S3i-AFtD4ST2OsIEz9InOAk4T6enmW9vCxZqgjhwk_8jjCYOcnUPUnoTR0vbDMUPLcl2qzAFb7HtMZgmqasphxRvjeQH-p8vrFyFOVoJPUG8QrRWwyuOeJ1BTgDg3MKYsIq2Y4gZyW4ml6BS7HyWHZj_XNE5PaJ3jLp_Y6JfUA4ScdLVCJCMAGyOlxJRnBVU4BoBt6hOyzy_LcuSpyBmJUlTnnBaNWPAU0xrldFzoUP5SVKuUTe40duzNF7hRz9H8xx_Ao5Bj-YY9j3v8KliD9DPF2BP9gSTPvWk5etZ31rx37ZPNbMtQb-tMnEggR5TcT6WWPKAcuFLLRGBCQHUB5HmaxNKLpGNMXgw5IUYi0LsbQA7ucuQsr2Uh-VCiLwUWzZVd6k2iw04d8jgC8RzARBjEhaE5l2p_60qjBvpvRCnJQFKfhWp_Veoo2jbtlfsoq3PaJT-C9SNN0m1z4-cKlm6NGMf-loNkRshXKLaPeMpoQreZqmoohGXnAueln8xJLn12Oe4MBTcbY5qNG05nP78BvtJ99m79qa_f_UFbP1hmADj2xRfTY6Y1BQkJyP3l5o26n79HSYmwyPlqLLxMycJ2BKt2BRlmJyPqTiL4Vc6XyFOKAYZ82evZQTVjFyL0Z-v7F2u2NeaObdEyq3Z16e2WvOcKWfL02v7bcgTWFtT3kWxDcHwY8pqaviHr_dH7W62_gnKRV8l1Lhayg1-S6loP1zlILO9ygF3VdQCsJvVUr8wd3_EPsaGI1-k0eMAtpnVz27e8BVgNsAX2-sv7E4cb8KQA20hlA9w9bwPdvbeWrA0xiUB2xjB8rQbwGoeypKX4-lKEM1MNYGVBJem20XK9QMFbXKoWOctEBXTqB5TpR0bT3uWLdU6StOaGsUyqOdHahmBzp9BqjEh_qsqLqCNtsuqbZwaCtPpXqnZdsCrq1zq6BQ10zV0wVpRXOf5a3ScxR52Fr6ens9m-LxiWDtfHTPnZh6uo7dlt4BqtmPbidyBahbWQ92zTA0w54Z9s3w2AwHZjg0wxMzLKo24yfqFAv-6A7ZH4Knh7zTQ_7poXF3r-_jQXsH76OhEZ2YUNc2oo45nmi69orbh6EZ9sywb4bHZjgww6EZnhhh0epG2DHD5iphV6U1tNZYXBWKzIqerOYtlnjTleEc1YRbu6GFas6utzS1ouZtj1U3F5F5gcQlfL0Hd_8BGDX6mQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq9WFFv2zYQ_iuEisAbYAOSKFmyHjbYslVkSNsgaTcMzR5oiYqF0KQnUUnc1P99pCzKFkNnaIvGD4b18e67u49H0tSTlbIMW5F1dvZU0IJH4GnAV3iNBxEYLFGFB0OwB_5EZYGWBFcDaZMzyq-LL42Z420epZnEErQuyFai1_iWYfDpfAimwpEMQYVoNapwWeSD4WBTFmtUbmNGWCmt3-Awt_MmWjs0Y2WGy4OBbQdO6gtXUlB8gGHgBV4i_SqcMpr1SHM_D_N0sJPJEfaQrlDJm_TrCr9Dj38VGV-J5xyRCgubFV-TC7TERNbIy1piaV3eKzGKSsahQrDrDUoLeitwzxZQiejdAfLt3Q7szs5uaBcUfJzfUCA-KUFVNcc5qLiAF_cc5AUh0Rsvnia-Pax4ye5w9MZdBHPoDlNZSSRKt4dS3NEDLm5XPFoykrWmowdZQ-RuHoflY-Taw3IrvrVYmGaHSPHYDd2wizQLnNiJVaQ8z38oktC1_IiquzbWAiZuMu9iOf7Yj-3nfKrMuRdMHV0nXN4XKT4iTZIELg5SLca-Y58mnSVwbMca6S3i-AFtD4ST2OsIEz9InOAk4T6enmW9vCxZqgjhwk_8jjCYOcnUPUnoTR0vbDMUPLcl2qzAFb7HtMZgmqasphxRvjeQH-p8vrFyFOVoJPUG8QrRWwyuOeJ1BTgDg3MKYsIq2Y4gZyW4ml6BS7HyWHZj_XNE5PaJ3jLp_Y6JfUA4ScdLVCJCMAGyOlxJRnBVU4BoBt6hOyzy_LcuSpyBmJUlTnnBaNWPAU0xrldFzoUP5SVKuUTe40duzNF7hRz9H8xx_Ao5Bj-YY9j3v8KliD9DPF2BP9gSTPvWk5etZ31rx37ZPNbMtQb-tMnEggR5TcT6WWPKAcuFLLRGBCQHUB5HmaxNKLpGNMXgw5IUYi0LsbQA7ucuQsr2Uh-VCiLwUWzZVd6k2iw04d8jgC8RzARBjEhaE5l2p_60qjBvpvRCnJQFKfhWp_Veoo2jbtlfsoq3PaJT-C9SNN0m1z4-cKlm6NGMf-loNkRshXKLaPeMpoQreZqmoohGXnAueln8xJLn12Oe4MBTcbY5qNG05nP78BvtJ99m79qa_f_UFbP1hmADj2xRfTY6Y1BQkJyP3l5o26n79HSYmwyPlqLLxMycJ2BKt2BRlmJyPqTiL4Vc6XyFOKAYZ82evZQTVjFyL0Z-v7F2u2NeaObdEyq3Z16e2WvOcKWfL02v7bcgTWFtT3kWxDcHwY8pqaviHr_dH7W62_gnKRV8l1Lhayg1-S6loP1zlILO9ygF3VdQCsJvVUr8wd3_EPsaGI1-k0eMAtpnVz27e8BVgNsAX2-sv7E4cb8KQA20hlA9w9bwPdvbeWrA0xiUB2xjB8rQbwGoeypKX4-lKEM1MNYGVBJem20XK9QMFbXKoWOctEBXTqB5TpR0bT3uWLdU6StOaGsUyqOdHahmBzp9BqjEh_qsqLqCNtsuqbZwaCtPpXqnZdsCrq1zq6BQ10zV0wVpRXOf5a3ScxR52Fr6ens9m-LxiWDtfHTPnZh6uo7dlt4BqtmPbidyBahbWQ92zTA0w54Z9s3w2AwHZjg0wxMzLKo24yfqFAv-6A7ZH4Knh7zTQ_7poXF3r-_jQXsH76OhEZ2YUNc2oo45nmi69orbh6EZ9sywb4bHZjgww6EZnhhh0epG2DHD5iphV6U1tNZYXBWKzIqerOYtlnjTleEc1YRbu6GFas6utzS1ouZtj1U3F5F5gcQlfL0Hd_8BGDX6mQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
 
@@ -915,7 +929,7 @@ flowchart TD
     class n18 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllluPozYUx7-KxWiUViISdxgeKiUkVJW62tVkun1o-uAYk1hDbGRMLhvlu9dOIBfWaLJbHqKcv8_5HZ_DAXwwEMuwERvPzwdCiYjBYSBWeI0HMRgsYIUHJjgLXyEncFHgaqB8ckbFjHw7udleuVNuSkvhmhR7pc7wkmHw1x8mGMnAwgQVpNWwwpzkA3NQcrKGfJ-wgnHl_YSj3MpP2ZqlMeMZ5lcHywpt5MvQglB8ld3QC71UxVUYMZrdQXM_j3I0OKrNFWyLVpCL0_brCn-Cu79JJlbSzmFRYemzEuviT7jAhapR8FppqOabthmkUnmobNishIjQpdQ9S0oc0ver5FvHIzg-P8_pJSl4m8wpkBcqYFVNcA4qIeXpRoCcFEX85CWj1LfMSnD2juMnZxpOXMdEqpJYlm6ZqrnDLSbLlYgXrMga1-FW1RA75c7ku9ixTL6Xv51cmGbXTEngRE50yTQO7cRO2kx5nv-vTLKv_A1W702uqZs66eSSy_YDP7G-57VlTrxwZHf7hPmGIHwDTdPUnV5bNQ182-qHjlM3sJIOdAkF3sL9FfiSeBdg6oepHfYCz_m6u6wXXzhDLdCd-ql_AYZjOx05vUBvZHtRs0PJWXJYrsAr3mBaYzBCiNVUQCrODuqi9j9zI4dxDoeq32C6w6gWGCTyxnGIBBjDAlKEJaRkXFRz49-bYEcfPCEVXC45lq0hjAKWy2jElpR8Uw_9ZT9apPs48pZyD_H0kFe8hvLFRJfgC-Y54-tTZZ8XBWmwQ7AlYgXeyBrLwmlWaen-T9J1rKCPdS4ugQKthnWpjQ0fvnWn2SI5Qf0biR6EfWIb-QKnQt-al18umLKQD8Xr6LXxU32ZqfcUzmTIr7cTaF2DKsHKvtkDX2FBMqgB2B3AD81fP9Z5APsYye2QfnoQ-1N4P5riI6D_HVA7kv2A4OPbqp3LfmL4EbE7nP2o6HBoUZBztq2GsBCAUFTUFdng388v9blxPJ6j5Gfv_IfaYDj8TU1tYzuN3Xxs6EtjR43tNrbTxkdnwe3Y3fWW5zVm6-83ttfx9xs7aNb9znrQ2GGz3tpturDj37Wjju3dfLZUV9rP9Z3s6GVXL3t62dfLgV4O9XKkl18uh6f7cqzmoHOv2lrV0aquVvW0qq9VA60aatWoPYcYprHG8mknmREfjNNpW57IM5zDuhDG0TRgLdhsT5ERn06lRl2qB2RCoDwsrM_i8T-IS8Gx" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllluPozYUx7-KxWiUViISdxgeKiUkVJW62tVkun1o-uAYk1hDbGRMLhvlu9dOIBfWaLJbHqKcv8_5HZ_DAXwwEMuwERvPzwdCiYjBYSBWeI0HMRgsYIUHJjgLXyEncFHgaqB8ckbFjHw7udleuVNuSkvhmhR7pc7wkmHw1x8mGMnAwgQVpNWwwpzkA3NQcrKGfJ-wgnHl_YSj3MpP2ZqlMeMZ5lcHywpt5MvQglB8ld3QC71UxVUYMZrdQXM_j3I0OKrNFWyLVpCL0_brCn-Cu79JJlbSzmFRYemzEuviT7jAhapR8FppqOabthmkUnmobNishIjQpdQ9S0oc0ver5FvHIzg-P8_pJSl4m8wpkBcqYFVNcA4qIeXpRoCcFEX85CWj1LfMSnD2juMnZxpOXMdEqpJYlm6ZqrnDLSbLlYgXrMga1-FW1RA75c7ku9ixTL6Xv51cmGbXTEngRE50yTQO7cRO2kx5nv-vTLKv_A1W702uqZs66eSSy_YDP7G-57VlTrxwZHf7hPmGIHwDTdPUnV5bNQ182-qHjlM3sJIOdAkF3sL9FfiSeBdg6oepHfYCz_m6u6wXXzhDLdCd-ql_AYZjOx05vUBvZHtRs0PJWXJYrsAr3mBaYzBCiNVUQCrODuqi9j9zI4dxDoeq32C6w6gWGCTyxnGIBBjDAlKEJaRkXFRz49-bYEcfPCEVXC45lq0hjAKWy2jElpR8Uw_9ZT9apPs48pZyD_H0kFe8hvLFRJfgC-Y54-tTZZ8XBWmwQ7AlYgXeyBrLwmlWaen-T9J1rKCPdS4ugQKthnWpjQ0fvnWn2SI5Qf0biR6EfWIb-QKnQt-al18umLKQD8Xr6LXxU32ZqfcUzmTIr7cTaF2DKsHKvtkDX2FBMqgB2B3AD81fP9Z5APsYye2QfnoQ-1N4P5riI6D_HVA7kv2A4OPbqp3LfmL4EbE7nP2o6HBoUZBztq2GsBCAUFTUFdng388v9blxPJ6j5Gfv_IfaYDj8TU1tYzuN3Xxs6EtjR43tNrbTxkdnwe3Y3fWW5zVm6-83ttfx9xs7aNb9znrQ2GGz3tpturDj37Wjju3dfLZUV9rP9Z3s6GVXL3t62dfLgV4O9XKkl18uh6f7cqzmoHOv2lrV0aquVvW0qq9VA60aatWoPYcYprHG8mknmREfjNNpW57IM5zDuhDG0TRgLdhsT5ERn06lRl2qB2RCoDwsrM_i8T-IS8Gx" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
 
@@ -950,7 +964,7 @@ flowchart TD
     class n3 subProc
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViitFKR8EppDJQhEqtSqq7JtD8sejGODtY4d2Q4sRfz3PvO5S7Wn5hDhYd7MeyO_7DyiauoVXq-345LbAu18u6IN9QvkL7ChfoCOwC-sOV4IanzHYUraGf9zoEVp--JoDqtww8XWoTO6VBT9_BKgERSKABksTd9QzZkf-K3mDdbbUgmlHfuODlnIDm6nv8ZK11RfCWGYRySDUsElvcJJnuZp5eoMJUrWb0RZxoaM-HvXnFAbssLaHtrvDP2GX37z2q7gzLAwFDgr24iveEGFm9HqzmGk0-tzGNw4HwmBzVpMuFwCnoYAaSyfr1AW7vdo3-vN5cUUPUzmEsFDBDZmQhkyFuDp2iLGhSju0nJUZWFgrFbPtLiLp_kkiQPiJilg9DBw4fY3lC9XtlgoUZ-o_Y2boYjbl0C_FHEY6C28b7yorK9O5SAexsOL0ziPyqg8OzHG_ssJctUP2DyfvKZJFVeTi1eUDbIy_FfvPOYkzUfRbU5Urzmhr0Srqkqm16imgywK3xcdV8kgLG9El9jSDd5eBT-V6UWwyvIqyt8VPPrddtkt7rUiZ8FkmlXZRTAfR9UoflcwHUXp8NQh6Cw1blfoB11T2VE0IkR10mJpjwT3yOjD49xjuGC43woYY4ZhLdF3ty-o1BSGq-fe08dXFfG1wljVoge4sQYTy5VE9xryRTAF7NVtXfJ4qWNwFajuq5ZKIFuqG-Cje6qZ0g2WIPF9ITgkC5pm3sVhuACxp6MY3MDjDxmhfv8zCJ-OyfEYv8rTcc7b8QaOTxf5DZics_cCr4GmMK-9YucdPlnwWaspw52w3j7wcGfVbCuJVxxW2-vaGpKacAyJN0dw_xdlcqDw" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViitFKR8EppDJQhEqtSqq7JtD8sejGODtY4d2Q4sRfz3PvO5S7Wn5hDhYd7MeyO_7DyiauoVXq-345LbAu18u6IN9QvkL7ChfoCOwC-sOV4IanzHYUraGf9zoEVp--JoDqtww8XWoTO6VBT9_BKgERSKABksTd9QzZkf-K3mDdbbUgmlHfuODlnIDm6nv8ZK11RfCWGYRySDUsElvcJJnuZp5eoMJUrWb0RZxoaM-HvXnFAbssLaHtrvDP2GX37z2q7gzLAwFDgr24iveEGFm9HqzmGk0-tzGNw4HwmBzVpMuFwCnoYAaSyfr1AW7vdo3-vN5cUUPUzmEsFDBDZmQhkyFuDp2iLGhSju0nJUZWFgrFbPtLiLp_kkiQPiJilg9DBw4fY3lC9XtlgoUZ-o_Y2boYjbl0C_FHEY6C28b7yorK9O5SAexsOL0ziPyqg8OzHG_ssJctUP2DyfvKZJFVeTi1eUDbIy_FfvPOYkzUfRbU5Urzmhr0Srqkqm16imgywK3xcdV8kgLG9El9jSDd5eBT-V6UWwyvIqyt8VPPrddtkt7rUiZ8FkmlXZRTAfR9UoflcwHUXp8NQh6Cw1blfoB11T2VE0IkR10mJpjwT3yOjD49xjuGC43woYY4ZhLdF3ty-o1BSGq-fe08dXFfG1wljVoge4sQYTy5VE9xryRTAF7NVtXfJ4qWNwFajuq5ZKIFuqG-Cje6qZ0g2WIPF9ITgkC5pm3sVhuACxp6MY3MDjDxmhfv8zCJ-OyfEYv8rTcc7b8QaOTxf5DZics_cCr4GmMK-9YucdPlnwWaspw52w3j7wcGfVbCuJVxxW2-vaGpKacAyJN0dw_xdlcqDw" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
 
@@ -1006,7 +1020,7 @@ flowchart TD
     class n9 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVuP6jYQ_itWVitaKUhJSAjkoRULpFqpp4tge6rq0AeTTMDaYKe2w6Uc_nvHJFxCl6dGAun7PPPNJePJwUpEClZkPT8fGGc6IoeWXsEaWhFpLaiClk0q4iuVjC5yUC1jkwmuZ-yfk5nrFztjZriYrlm-N-wMlgLI7682GaBjbhNFuWorkCxr2a1CsjWV-6HIhTTWT9DLnOwUrT56ETIFeTVwnNBNAnTNGYcr3Qn90I-Nn4JE8LQhmgVZL0taR5NcLrbJikp9Sr9U8IXu_mCpXiHOaK4AbVZ6nf9KF5CbGrUsDZeUcnNuBlMmDseGzQqaML5E3neQkpR_XKnAOR7J8fl5zi9Byftozgk-SU6VGkFGlEZ6vNEkY3kePfnDQRw4ttJSfED05I3DUcezE1NJhKU7tmluewtsudLRQuRpbdremhoir9jZchd5ji33-H8XC3h6jTTsej2vd4n0ErpDd3iOlGXZ_4qEfZXvVH3Uscad2ItHl1hu0A2Gzn_1zmWO_HDg3vcJ5IYlcCMax3FnfG3VuBu4zmPRl7jTdYZ3okuqYUv3V8H-0L8IxkEYu-FDwSrefZblYiJFchbsjIM4uAiGL2488B4K-gPX79UZos5S0mJFpoMpeX0ns7IoBI7PgNN8r3RlZB7ufptbGY0y2jY9J1NQIt8AwatKxlIKSTL8Td5eCOUpnhaYHSg1t_660fC_XUQSsSQTkOi0Rmuak3e2BjKpvHCsiciQ3wAvgQySRJRcG_ZVw1qdQ6H4rXrvcLiqp9Be4C1JVuQVhQavhCnCOJkIpQvBISUzTXWpTP6cME04QIpIkAVcs4f057l1PFYxcKjve9bMj_LbfnnNfn1lsD215gvldAnn2jFDIG-LnOGEMMGb7eo0JUZMFTkO0YziUiRvZlvddOLGL_jh4nhymMLfJShtqhtKwFFsSEwhAbaBFDV-vBHpXkWUFsWDhNW89BxnUevea4Qo8fAltuv4FboK3Pj3P3-jsEvyUmHOv1TX6pN3xAPSbv-ELaxhp4JhDcMK-jX0KtitoV_BXg37FfRq2DPw-9z6Tcyt73h6R_8J6sTXe4W7lXf_5gIb8ry4GrT3Od35nPZvd1XjJLhs-wbdrRdzgww_t-2dd1aD7Z9Zy7bWgNPAUis6WKfvNX7TU8homWvraFu01GK254kVnb5rVlmk6DliFK_OuiKP_wK8PZKs" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVuP6jYQ_itWVitaKUhJSAjkoRULpFqpp4tge6rq0AeTTMDaYKe2w6Uc_nvHJFxCl6dGAun7PPPNJePJwUpEClZkPT8fGGc6IoeWXsEaWhFpLaiClk0q4iuVjC5yUC1jkwmuZ-yfk5nrFztjZriYrlm-N-wMlgLI7682GaBjbhNFuWorkCxr2a1CsjWV-6HIhTTWT9DLnOwUrT56ETIFeTVwnNBNAnTNGYcr3Qn90I-Nn4JE8LQhmgVZL0taR5NcLrbJikp9Sr9U8IXu_mCpXiHOaK4AbVZ6nf9KF5CbGrUsDZeUcnNuBlMmDseGzQqaML5E3neQkpR_XKnAOR7J8fl5zi9Byftozgk-SU6VGkFGlEZ6vNEkY3kePfnDQRw4ttJSfED05I3DUcezE1NJhKU7tmluewtsudLRQuRpbdremhoir9jZchd5ji33-H8XC3h6jTTsej2vd4n0ErpDd3iOlGXZ_4qEfZXvVH3Uscad2ItHl1hu0A2Gzn_1zmWO_HDg3vcJ5IYlcCMax3FnfG3VuBu4zmPRl7jTdYZ3okuqYUv3V8H-0L8IxkEYu-FDwSrefZblYiJFchbsjIM4uAiGL2488B4K-gPX79UZos5S0mJFpoMpeX0ns7IoBI7PgNN8r3RlZB7ufptbGY0y2jY9J1NQIt8AwatKxlIKSTL8Td5eCOUpnhaYHSg1t_660fC_XUQSsSQTkOi0Rmuak3e2BjKpvHCsiciQ3wAvgQySRJRcG_ZVw1qdQ6H4rXrvcLiqp9Be4C1JVuQVhQavhCnCOJkIpQvBISUzTXWpTP6cME04QIpIkAVcs4f057l1PFYxcKjve9bMj_LbfnnNfn1lsD215gvldAnn2jFDIG-LnOGEMMGb7eo0JUZMFTkO0YziUiRvZlvddOLGL_jh4nhymMLfJShtqhtKwFFsSEwhAbaBFDV-vBHpXkWUFsWDhNW89BxnUevea4Qo8fAltuv4FboK3Pj3P3-jsEvyUmHOv1TX6pN3xAPSbv-ELaxhp4JhDcMK-jX0KtitoV_BXg37FfRq2DPw-9z6Tcyt73h6R_8J6sTXe4W7lXf_5gIb8ry4GrT3Od35nPZvd1XjJLhs-wbdrRdzgww_t-2dd1aD7Z9Zy7bWgNPAUis6WKfvNX7TU8homWvraFu01GK254kVnb5rVlmk6DliFK_OuiKP_wK8PZKs" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-326-dc-100-070_allocate_transaction_price-dc-100-070_allocate_transaction_price">BUSINESS ARCHITECTURE — 3.2.6 DC-100-070_Allocate_Transaction_Price — DC-100-070_Allocate_Transaction_Price</h4>
 <p><strong>Swim Lanes</strong>: Revenue Accountant | <strong>Tasks</strong>: 0 | <strong>Gateways</strong>: 0</p>
@@ -1034,7 +1048,7 @@ flowchart TD
     class n3 subProc
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllNuK2zAQhl9FeAlpwQEf49QXhcSJodDSpdm2F5u9UORRIlaWjCTn0JB3r5TjbpbtTX1hrN-j758Zj7zziKzAy71OZ8cEMznadc0SaujmqDvHGro-Ogq_sGJ4zkF3XQyVwkzZn0NYmDQbF-a0EteMb506hYUE9POLj4Z2I_eRxkL3NChGu363UazGaltILpWLvoMBDejB7fRqJFUF6hoQBFlIUruVMwFXOc6SLCndPg1EiuoVlKZ0QEl375Ljck2WWJlD-q2Gb3jzm1VmadcUcw02Zmlq_hXPgbsajWqdRlq1OjeDaecjbMOmDSZMLKyeBFZSWDxfpTTY79G-05mJiyl6GM8EshfhWOsxUKSNlScrgyjjPL9LimGZBr42Sj5DfhdNsnEc-cRVktvSA981t7cGtliafC55dQrtrV0NedRsfLXJo8BXW3u_8QJRXZ2KfjSIBhenURYWYXF2opT-l5Ptq3rA-vnkNYnLqBxfvMK0nxbBW965zHGSDcPbPoFaMQIvoGVZxpNrqyb9NAzeh47KuB8UN9AFNrDG2yvwU5FcgGWalWH2LvDod5tlO79XkpyB8SQt0wswG4XlMHoXmAzDZHDK0HIWCjdL9ANWIFpAQ0JkKwwW5hjgLhF-eJx5FOcU9xpuy3iw86cxMUwKdK9st9CQc0nwQZi6QYNq5j19fIGIrghtZPNvRCHrhsNbSPx4gVA7KKB6sgGBxjZU1faUontQVKoaC8v7PudsceDpWRsFwdzCno4wO5_HBxGjXu-zze60DI_L-EW3nXg-O6_k6DTmr8T4_GU836ttUphVXr7zDj80-9OrgOKWG2_ve7g1croVxMsPB99rm8oOyZhh-z3qo7j_C4-mrM4=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllNuK2zAQhl9FeAlpwQEf49QXhcSJodDSpdm2F5u9UORRIlaWjCTn0JB3r5TjbpbtTX1hrN-j758Zj7zziKzAy71OZ8cEMznadc0SaujmqDvHGro-Ogq_sGJ4zkF3XQyVwkzZn0NYmDQbF-a0EteMb506hYUE9POLj4Z2I_eRxkL3NChGu363UazGaltILpWLvoMBDejB7fRqJFUF6hoQBFlIUruVMwFXOc6SLCndPg1EiuoVlKZ0QEl375Ljck2WWJlD-q2Gb3jzm1VmadcUcw02Zmlq_hXPgbsajWqdRlq1OjeDaecjbMOmDSZMLKyeBFZSWDxfpTTY79G-05mJiyl6GM8EshfhWOsxUKSNlScrgyjjPL9LimGZBr42Sj5DfhdNsnEc-cRVktvSA981t7cGtliafC55dQrtrV0NedRsfLXJo8BXW3u_8QJRXZ2KfjSIBhenURYWYXF2opT-l5Ptq3rA-vnkNYnLqBxfvMK0nxbBW965zHGSDcPbPoFaMQIvoGVZxpNrqyb9NAzeh47KuB8UN9AFNrDG2yvwU5FcgGWalWH2LvDod5tlO79XkpyB8SQt0wswG4XlMHoXmAzDZHDK0HIWCjdL9ANWIFpAQ0JkKwwW5hjgLhF-eJx5FOcU9xpuy3iw86cxMUwKdK9st9CQc0nwQZi6QYNq5j19fIGIrghtZPNvRCHrhsNbSPx4gVA7KKB6sgGBxjZU1faUontQVKoaC8v7PudsceDpWRsFwdzCno4wO5_HBxGjXu-zze60DI_L-EW3nXg-O6_k6DTmr8T4_GU836ttUphVXr7zDj80-9OrgOKWG2_ve7g1croVxMsPB99rm8oOyZhh-z3qo7j_C4-mrM4=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
 

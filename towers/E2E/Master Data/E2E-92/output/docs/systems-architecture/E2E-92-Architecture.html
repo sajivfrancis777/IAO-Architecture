@@ -120,8 +120,8 @@ blockquote {
     background: #fafbfd;
     border: 1px solid #e0e4ea;
     border-radius: 6px;
-    padding: 20px 12px;
-    margin: 16px 0;
+    padding: 16px 12px;
+    margin: 12px 0;
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
@@ -130,6 +130,7 @@ blockquote {
 .mermaid svg {
     max-width: 100%;
     height: auto;
+    max-height: 85vh;
 }
 .header-bar {
     background: #00285a;
@@ -205,25 +206,31 @@ strong { color: #00285a; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print, .pdf-download-btn { display: none !important; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
-    /* Page sections: do NOT use min-height in print — the page-break divs
-       already handle pagination.  min-height:100vh forces every section to
-       fill a full page, which creates blank trailing space before the next
-       page-break, producing blank pages in the PDF output. */
+
+    /* Page sections: auto height in print — page-break divs handle pagination */
     .page-section {
         min-height: auto;
         display: block;
     }
     .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
         page-break-inside: avoid;
+        break-inside: avoid;
         overflow: visible;
+        max-height: 85vh;
+        margin: 8px 0;
     }
     .mermaid svg {
         max-width: 100%;
+        max-height: 80vh;
         height: auto;
+        width: auto;
     }
+
     /* Diagram links: visible + clickable in PDF */
     a[title="View full diagram"],
     a[title="Open full-size SVG"] {
@@ -231,6 +238,13 @@ strong { color: #00285a; }
         text-decoration: underline !important;
         font-size: 10pt !important;
     }
+
+    /* Tighten spacing in print for professional PDF output */
+    h2 { margin-top: 18px; margin-bottom: 8px; }
+    h3 { margin-top: 14px; margin-bottom: 6px; }
+    h4 { margin-top: 10px; margin-bottom: 4px; }
+    table { margin: 8px 0; }
+    blockquote { margin: 8px 0; padding: 6px 14px; }
 }
 </style>
     
@@ -722,7 +736,7 @@ flowchart LR
     class n25 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1tv4jgY_StWqooZKezGuRDIw64okC7StFMNnZmHZR9M4pSoJolsU2AZ_vvaxAnEDZW25aHqd3LO-S52nGRvRHmMjcC4vt6nWcoDsO_wJV7hTgA6C8RwxwQl8APRFC0IZh3JSfKMz9J_jzToFltJk1iIVinZSXSGn3IMvk9NMBRCYgKGMtZlmKZJx-wUNF0huhvlJKeSfYX7iZUcs6lLNzmNMT0RLMuHkSekJM3wCXZ813dDqWM4yrO4YZp4ST-JOgdZHMk30RJRfix_zfAd2v5MY74UcYIIw4Kz5CvyBS0wkT1yupZYtKYv1TBSJvNkYmCzAkVp9iRw1xIQRdnzCfKswwEcrq_nWZ0UfPk2z4D4RQQxNsYJYFzAkxcOkpSQ4ModDUPPMhmn-TMOruyJP3ZsM5KdBKJ1y5TD7W5w-rTkwSInsaJ2N7KHwC62Jt0GtmXSnfir5cJZfMo06tl9u19nuvHhCI6qTEmSfCiTmCt9ROxZ5Zo4oR2O61zQ63kj67Vf1ebY9YdQnxOmL2mEz0zDMHQmp1FNeh60LpvehE7PGmmmT4jjDdqdDAcjtzYMPT-E_kXDMp9e5XrxQPOoMnQmXujVhv4NDIf2RUN3CN2-qlD4PFFULMFNvj7uZTAsClZek7-s9_fc-F7Eon4wRhyBNAO3UpByPDf-OSP6JyIiBHwV9zDVXBv8geAnKEhQV64hUFJhP7l__A38hTLU5EOrVTAZDcGnacYxAaFMRnefNR1s1VXNfMOEp7kmsT_VmoKIZfshNnROwR1iXDgcpcpGLgJmDEzFUZYKIBZOn8-t-icrxvPistUr5WC_r5TyyOwuxE0fLcFkmzIu7nvlxP6cG4fDmc622nV4G5E1S1_wbbkXdZlzkiFK8w3rIsJBgahYTUwuiNz3iLz_JxJtant18vMOjHGEMy4k4pkQn4_ttA0bu6I5eG29HW2Rjgnk0qz1pXldzO3j7Ly596R3tfTCEsSt6csc8KMDbJYGZsMHMPvdPUvhvKcNT2tDWL7e25eKETdSvI54WzGuXkzFfauY3vuKucebYwV349szt_6bR4jUSH6jANv-6CLJMkbh9P7M1HvPsvj6JJTvG-MQJyDodv8Qp38VwzKGAwX0y9i2Veyr6_1KoGJHxa6KK0NPxb6Ke8pPPefEP4oAK6BS1AynBCoHW5VsQx2oFHAggV9zQ03ra7bIEY3FWTo3fomWdNr0AaAsBtOwOmqPNNtt-AteKLxqUsnxtBr0uK5RzWWgxbXBQMXVHG012GrulV9VlBoK1BM62lzrKUFLz6AU7tkbh1zv6k2rAQ_aYWHajsMLuF2_njZxR71KNlG3FfVa0V4r6rei_VZ0UL29NWAxyFYYtsN2O-y0w2477FWwYRorTFcojY1gbxy_lsQXVYwTtCbcOJgGWvN8tssiIzh-VRjlg2ScInG0rErw8B-UxSWp" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1tv4jgY_StWqooZKezGuRDIw64okC7StFMNnZmHZR9M4pSoJolsU2AZ_vvaxAnEDZW25aHqd3LO-S52nGRvRHmMjcC4vt6nWcoDsO_wJV7hTgA6C8RwxwQl8APRFC0IZh3JSfKMz9J_jzToFltJk1iIVinZSXSGn3IMvk9NMBRCYgKGMtZlmKZJx-wUNF0huhvlJKeSfYX7iZUcs6lLNzmNMT0RLMuHkSekJM3wCXZ813dDqWM4yrO4YZp4ST-JOgdZHMk30RJRfix_zfAd2v5MY74UcYIIw4Kz5CvyBS0wkT1yupZYtKYv1TBSJvNkYmCzAkVp9iRw1xIQRdnzCfKswwEcrq_nWZ0UfPk2z4D4RQQxNsYJYFzAkxcOkpSQ4ModDUPPMhmn-TMOruyJP3ZsM5KdBKJ1y5TD7W5w-rTkwSInsaJ2N7KHwC62Jt0GtmXSnfir5cJZfMo06tl9u19nuvHhCI6qTEmSfCiTmCt9ROxZ5Zo4oR2O61zQ63kj67Vf1ebY9YdQnxOmL2mEz0zDMHQmp1FNeh60LpvehE7PGmmmT4jjDdqdDAcjtzYMPT-E_kXDMp9e5XrxQPOoMnQmXujVhv4NDIf2RUN3CN2-qlD4PFFULMFNvj7uZTAsClZek7-s9_fc-F7Eon4wRhyBNAO3UpByPDf-OSP6JyIiBHwV9zDVXBv8geAnKEhQV64hUFJhP7l__A38hTLU5EOrVTAZDcGnacYxAaFMRnefNR1s1VXNfMOEp7kmsT_VmoKIZfshNnROwR1iXDgcpcpGLgJmDEzFUZYKIBZOn8-t-icrxvPistUr5WC_r5TyyOwuxE0fLcFkmzIu7nvlxP6cG4fDmc622nV4G5E1S1_wbbkXdZlzkiFK8w3rIsJBgahYTUwuiNz3iLz_JxJtant18vMOjHGEMy4k4pkQn4_ttA0bu6I5eG29HW2Rjgnk0qz1pXldzO3j7Ly596R3tfTCEsSt6csc8KMDbJYGZsMHMPvdPUvhvKcNT2tDWL7e25eKETdSvI54WzGuXkzFfauY3vuKucebYwV349szt_6bR4jUSH6jANv-6CLJMkbh9P7M1HvPsvj6JJTvG-MQJyDodv8Qp38VwzKGAwX0y9i2Veyr6_1KoGJHxa6KK0NPxb6Ke8pPPefEP4oAK6BS1AynBCoHW5VsQx2oFHAggV9zQ03ra7bIEY3FWTo3fomWdNr0AaAsBtOwOmqPNNtt-AteKLxqUsnxtBr0uK5RzWWgxbXBQMXVHG012GrulV9VlBoK1BM62lzrKUFLz6AU7tkbh1zv6k2rAQ_aYWHajsMLuF2_njZxR71KNlG3FfVa0V4r6rei_VZ0UL29NWAxyFYYtsN2O-y0w2477FWwYRorTFcojY1gbxy_lsQXVYwTtCbcOJgGWvN8tssiIzh-VRjlg2ScInG0rErw8B-UxSWp" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-92 — R3 Vendor Master Data</span></div>
 
@@ -849,7 +863,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1rozAYx79KyCjcQbtz7Wyvwgbx7VZwYze7u4N5SKqxDUtVNN7adf3ul6h1u67uxhKQ5Hn5P_H3SNzAIAkJ1GCns6Ex5RrYeJAvyJJ4UAMenOFcrLpilZOgyChfO-QPYZWTJcnOW6b8wBnFM0Zy6RY6URJzlz7WUidquqqCpd3GS8rWlccl84SA20kXICEgxLdlFEseggXOeK1W5OQSr37SkC-kJcIsJzJuwZfMwTPCyrI8K0prLF7LTXFA47k0D1RpzHB8_8J4qm63YNvpeHFTC0x1LwZiBAznuUkigNNUT1YgooxpR7pq2rbdzXmW3BPtSFFGI31Yb3sP8mhaP111g4QlmXQPTHVfL5wZa1bLIdUcolEj17dG5qDfKneiq1Zf2ZMjCXs-nm3rqq42eoahiNGqNxxKtxdXinkxm2c4XQCrb437hokMxyf-3EePRUZ897tz50GB8HcVLUdIMxJwmsQNNDl26ajM_mXduiKRHM-PgVwLAU3TKqavc8y9ip886BXh10EonmFw6hURUcQrS7EyCIggD36WkiXWt04Bese987ZKVSKJw5oFXzPSCmIHG8nZwLYUOf-FfSK--P_gddG1f4Gu0IfoXlquP1CUHWCxBWL7HsZN2TcQixggY95DuD7JIci7Uu9hvIv9EOLDZcHZ2flTDcgsmYIvAF1PxNOmTNxNT-0fxV7rHDIXx797QSwIFWCiKQLoxriYTC1jentjAcf6Zl2ZLd10bp6tji_7jtKU0QBL7-HWOb7Z0icTc1xd0Yda5PiWkLfisJdEPYdGpJKvroyD7ajecEdflbOhPx6PX6GHXbgk2RLTEGqb6icg_iUhiXDBuLjGIS544q7jAGrlxQyLNMScmBQLosvKuP0Lngn-_Q==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1rozAYx79KyCjcQbtz7Wyvwgbx7VZwYze7u4N5SKqxDUtVNN7adf3ul6h1u67uxhKQ5Hn5P_H3SNzAIAkJ1GCns6Ex5RrYeJAvyJJ4UAMenOFcrLpilZOgyChfO-QPYZWTJcnOW6b8wBnFM0Zy6RY6URJzlz7WUidquqqCpd3GS8rWlccl84SA20kXICEgxLdlFEseggXOeK1W5OQSr37SkC-kJcIsJzJuwZfMwTPCyrI8K0prLF7LTXFA47k0D1RpzHB8_8J4qm63YNvpeHFTC0x1LwZiBAznuUkigNNUT1YgooxpR7pq2rbdzXmW3BPtSFFGI31Yb3sP8mhaP111g4QlmXQPTHVfL5wZa1bLIdUcolEj17dG5qDfKneiq1Zf2ZMjCXs-nm3rqq42eoahiNGqNxxKtxdXinkxm2c4XQCrb437hokMxyf-3EePRUZ897tz50GB8HcVLUdIMxJwmsQNNDl26ajM_mXduiKRHM-PgVwLAU3TKqavc8y9ip886BXh10EonmFw6hURUcQrS7EyCIggD36WkiXWt04Bese987ZKVSKJw5oFXzPSCmIHG8nZwLYUOf-FfSK--P_gddG1f4Gu0IfoXlquP1CUHWCxBWL7HsZN2TcQixggY95DuD7JIci7Uu9hvIv9EOLDZcHZ2flTDcgsmYIvAF1PxNOmTNxNT-0fxV7rHDIXx797QSwIFWCiKQLoxriYTC1jentjAcf6Zl2ZLd10bp6tji_7jtKU0QBL7-HWOb7Z0icTc1xd0Yda5PiWkLfisJdEPYdGpJKvroyD7ajecEdflbOhPx6PX6GHXbgk2RLTEGqb6icg_iUhiXDBuLjGIS544q7jAGrlxQyLNMScmBQLosvKuP0Lngn-_Q==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-92 — R3 Vendor Master Data</span></div>
 
@@ -893,7 +907,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1rozAYx79KyCjcQbtz7Wyvwgax6q3gxm52dwfzkFRjG5aqaLy16_rdL_Ftu67uxhKQ5Hn5P_H3SNxCPw4I1GCns6UR5RrYupAvyYq4UAMunONMrLpilRE_Tynf2OQPYaWTxXHtLVJ-4JTiOSOZdAudMI64Qx8rqRM1WZfB0m7hFWWb0uOQRUzA7bQLkBAQ4rsiisUP_hKnvFLLM3KJ1z9pwJfSEmKWERm35Ctm4zlhRVme5oU1Eq_lJNin0UKaB6o0pji6f2E8VXc7sOt03KipBWa6GwExfIazzCAhwEmix2sQUsa0I101LMvqZjyN74l2pCijkT6str0HeTStn6y7fsziVLoHhrqvF8wnG1bJIdUYolEj1zdHxqDfKneiq2Zf2ZMjMXs-nmXpqq42epOJIkar3nAo3W5UKmb5fJHiZAnMvjnuWwaa2B7xFh56zFPiOd_tOxcKhL_LaDkCmhKf0zhqoMlRp6Mi-5d564hEcrw4BnItBDRNK5m-zjH2Kn5yoZsHXweBeAb-qZuHRBGvLMWKICCCXPhZShZY3zoF6B33ztsqlYkkCioWfMNIK4gaNpKzgW0qcv4L-0R88f_B66Br7wJdoQ_RvTQdb6AoNWCxBWL7HsZN2TcQixggY95DuDrJIch1qfcwrmM_hPhwWXB2dv5UATIKpuALQNdT8bQoE3fTU_tHsdc6myzE8e9eEPMDBRhohgC6mVxMZ-ZkdntjAtv8Zl4ZLd20b56ttif7jpKEUR9L7-HW2Z7R0icDc1xe0YdaZHumkDejoBeHPZuGpJQvr4yD7SjfsKavytnQH4_Hr9DDLlyRdIVpALVt-RMQ_5KAhDhnXFzjEOc8djaRD7XiYoZ5EmBODIoF0VVp3P0FGb3_Jw==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1rozAYx79KyCjcQbtz7Wyvwgax6q3gxm52dwfzkFRjG5aqaLy16_rdL_Ftu67uxhKQ5Hn5P_H3SNxCPw4I1GCns6UR5RrYupAvyYq4UAMunONMrLpilRE_Tynf2OQPYaWTxXHtLVJ-4JTiOSOZdAudMI64Qx8rqRM1WZfB0m7hFWWb0uOQRUzA7bQLkBAQ4rsiisUP_hKnvFLLM3KJ1z9pwJfSEmKWERm35Ctm4zlhRVme5oU1Eq_lJNin0UKaB6o0pji6f2E8VXc7sOt03KipBWa6GwExfIazzCAhwEmix2sQUsa0I101LMvqZjyN74l2pCijkT6str0HeTStn6y7fsziVLoHhrqvF8wnG1bJIdUYolEj1zdHxqDfKneiq2Zf2ZMjMXs-nmXpqq42epOJIkar3nAo3W5UKmb5fJHiZAnMvjnuWwaa2B7xFh56zFPiOd_tOxcKhL_LaDkCmhKf0zhqoMlRp6Mi-5d564hEcrw4BnItBDRNK5m-zjH2Kn5yoZsHXweBeAb-qZuHRBGvLMWKICCCXPhZShZY3zoF6B33ztsqlYkkCioWfMNIK4gaNpKzgW0qcv4L-0R88f_B66Br7wJdoQ_RvTQdb6AoNWCxBWL7HsZN2TcQixggY95DuDrJIch1qfcwrmM_hPhwWXB2dv5UATIKpuALQNdT8bQoE3fTU_tHsdc6myzE8e9eEPMDBRhohgC6mVxMZ-ZkdntjAtv8Zl4ZLd20b56ttif7jpKEUR9L7-HW2Z7R0icDc1xe0YdaZHumkDejoBeHPZuGpJQvr4yD7SjfsKavytnQH4_Hr9DDLlyRdIVpALVt-RMQ_5KAhDhnXFzjEOc8djaRD7XiYoZ5EmBODIoF0VVp3P0FGb3_Jw==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-92 — R3 Vendor Master Data</span></div>
 
@@ -1041,7 +1055,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzzaQoQqpU06dUoBETY2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpfygBacTAVK7EWeapSrkD2uog05-b4K1fUgXXCyNJ4RZBuT7qElcBBBNImkqWxIKPo2sVZUhsrtkTgu1Ri4ljOn9DWdqri1TKiTouLlaiIBOQFRTUEVZWVNcYpjThKczbT62tbGg6d-asW2vVmTVaETpSy1y3Y9SgqPRIK0Wzi2Z8zFV0OKpzHkBjEi1FEASQaUEiTEmvPr2YEompeQpSEmqMeVCOHtDHP12U6oi-wvOXv_kpGP315-tO70g5zC_byaZyApnz7btLUya52QzDGa_rVFfMG272-13_gOTUUV3Mb2TDzAPXmE--xiVSF5Bl8gpaW9VWnDGBNzRAuqMeB13w4jf7Qw3aJ-YPWRihxHNcY3lwcC2P8I0qLKczAqaz4kb_I6sqGQnRwyf7KhN3MvLYDRwr0cX5yRwf_lXkfXHJOnBUBCJ4llKgquN1T_0Tw8HMcSzeOyH8ZFt11ET6BD4MvtC0EfQh4CO42CH3wT46X8P38zWjndTxzdVsvtQFhCHUNzyBOJ-KV-t7qBrkKooso4iGGVgN13bRvf8Cn2QSRX7Ao-AVPXqU0yODbAOIOuAs0mx3zvjPeMIf5B9MvKyBP--hRfnZ_u8Z6pqVZp6kLLn_uwSituu9xRZFZpXNQGR3MsRPodc4Nnz9AETdeD3YnSR7V7oKa1FUx0D_aC2xYf2R1u8nuq-pNqf2ck7Yg1ghhy9EgezSeB_9c-9T6g0iFHb29Jy81zwhOrgN8QVxOObbQmNNzJ5VzZB7PnbCvH08eOnCi-X7c6bFP_CbMbDDjvGQNbKpq2AT9dlcP_XZLIh1ZDyTGxb_16IPT093TnLrKa1gGJBObOcR3Oh4b3IYEpLofAasmipsnCZJpZTXSxWmeNEweMUm7AwxtU_8t9HBQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzzaQoQqpU06dUoBETY2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpfygBacTAVK7EWeapSrkD2uog05-b4K1fUgXXCyNJ4RZBuT7qElcBBBNImkqWxIKPo2sVZUhsrtkTgu1Ri4ljOn9DWdqri1TKiTouLlaiIBOQFRTUEVZWVNcYpjThKczbT62tbGg6d-asW2vVmTVaETpSy1y3Y9SgqPRIK0Wzi2Z8zFV0OKpzHkBjEi1FEASQaUEiTEmvPr2YEompeQpSEmqMeVCOHtDHP12U6oi-wvOXv_kpGP315-tO70g5zC_byaZyApnz7btLUya52QzDGa_rVFfMG272-13_gOTUUV3Mb2TDzAPXmE--xiVSF5Bl8gpaW9VWnDGBNzRAuqMeB13w4jf7Qw3aJ-YPWRihxHNcY3lwcC2P8I0qLKczAqaz4kb_I6sqGQnRwyf7KhN3MvLYDRwr0cX5yRwf_lXkfXHJOnBUBCJ4llKgquN1T_0Tw8HMcSzeOyH8ZFt11ET6BD4MvtC0EfQh4CO42CH3wT46X8P38zWjndTxzdVsvtQFhCHUNzyBOJ-KV-t7qBrkKooso4iGGVgN13bRvf8Cn2QSRX7Ao-AVPXqU0yODbAOIOuAs0mx3zvjPeMIf5B9MvKyBP--hRfnZ_u8Z6pqVZp6kLLn_uwSituu9xRZFZpXNQGR3MsRPodc4Nnz9AETdeD3YnSR7V7oKa1FUx0D_aC2xYf2R1u8nuq-pNqf2ck7Yg1ghhy9EgezSeB_9c-9T6g0iFHb29Jy81zwhOrgN8QVxOObbQmNNzJ5VzZB7PnbCvH08eOnCi-X7c6bFP_CbMbDDjvGQNbKpq2AT9dlcP_XZLIh1ZDyTGxb_16IPT093TnLrKa1gGJBObOcR3Oh4b3IYEpLofAasmipsnCZJpZTXSxWmeNEweMUm7AwxtU_8t9HBQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-92 — R3 Vendor Master Data</span></div>
 
@@ -1121,7 +1135,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9A5wuoiyEZbtxwM9Q4X-7N3c1S1gM0lm1ZOxWV_35PV5QJGr0lGdt5eU77nKfts5VkDCzHajSeecqVQ54jS01hBpHlkMgaUYlvTXyTkJQFV_MA7kEYp8iyV2-VckMLTkcCpHYjzjhLVcifllC7nfzRBGt7n864mBtPCJMMyPWgSVwEEE0iaSpbEgo-jqxFlSGyh2RKC7VELiUM6eMtZ2qqLWMqJOi4qZqJgI5AVFNQRVlZU1ximNOEpxNtPrC1saDpXc3YthcLsmg0ovStFrnqRSnB0WiQVgvnlkz5kCpo8VTmvABGpJoLIImgUoLEGBNefXswJqNS8hSkJNUYcyGcrT6OXrspVZHdgbPVOzrq2L3lZ-tBL8jZyx-bSSaywtmybXsNk-Y5WQ2D2Wtr1DdM2z487HX-A5NRRTcxvaMvMHffYb76GJVIXkHnyClpr1WaccYEPNAC6ox4HXfFiH_Y6a_QvjF7yMQGI5rjGsunp7b9FaZBleVoUtB8StzgT2RFJTvaZ_hk-23iXlwEg1P3anB-RgL3t38ZWX9Nkh4MBZEonqUkuFxZ_T3_eK8fQzyJh34Y79t2HTWBDoHtyTZBH0EfAjqOgx3-EOCXfx1-mK0dn6YOb6tk96ksIA6huOcJxL1Svlvd7qFBqqLIMopglIFddW0d3fMr9NNMqtgXeASkqlufYnJggHUAWQacjIqd7gnvGkd4Q3bIwMsS_PsZnp-d7PCuqapVaepByl77s0kobrvuS2RVaF7VBERyLwb47HOBZ8_LF0zUgT-L0UXWe6GntBRNdQz0gtoW79tfbfF6qvuWan9nJ2-INYAJcvROHMwmgf_DP_O-odIgRm2vS8vNc8ETqoM_EFcQD2_XJTRcyeRT2QSx568rxNPHj58qvFzWO29S_HOzGfc67AADWSsbtwI-XpbB_V-TyYpUQ8orsW39eyP2-Ph44yyzmtYMihnlzHKezYWG9yKDMS2FwmvIoqXKwnmaWE51sVhljhMFj1NswswYF_8AOV9HHQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9A5wuoiyEZbtxwM9Q4X-7N3c1S1gM0lm1ZOxWV_35PV5QJGr0lGdt5eU77nKfts5VkDCzHajSeecqVQ54jS01hBpHlkMgaUYlvTXyTkJQFV_MA7kEYp8iyV2-VckMLTkcCpHYjzjhLVcifllC7nfzRBGt7n864mBtPCJMMyPWgSVwEEE0iaSpbEgo-jqxFlSGyh2RKC7VELiUM6eMtZ2qqLWMqJOi4qZqJgI5AVFNQRVlZU1ximNOEpxNtPrC1saDpXc3YthcLsmg0ovStFrnqRSnB0WiQVgvnlkz5kCpo8VTmvABGpJoLIImgUoLEGBNefXswJqNS8hSkJNUYcyGcrT6OXrspVZHdgbPVOzrq2L3lZ-tBL8jZyx-bSSaywtmybXsNk-Y5WQ2D2Wtr1DdM2z487HX-A5NRRTcxvaMvMHffYb76GJVIXkHnyClpr1WaccYEPNAC6ox4HXfFiH_Y6a_QvjF7yMQGI5rjGsunp7b9FaZBleVoUtB8StzgT2RFJTvaZ_hk-23iXlwEg1P3anB-RgL3t38ZWX9Nkh4MBZEonqUkuFxZ_T3_eK8fQzyJh34Y79t2HTWBDoHtyTZBH0EfAjqOgx3-EOCXfx1-mK0dn6YOb6tk96ksIA6huOcJxL1Svlvd7qFBqqLIMopglIFddW0d3fMr9NNMqtgXeASkqlufYnJggHUAWQacjIqd7gnvGkd4Q3bIwMsS_PsZnp-d7PCuqapVaepByl77s0kobrvuS2RVaF7VBERyLwb47HOBZ8_LF0zUgT-L0UXWe6GntBRNdQz0gtoW79tfbfF6qvuWan9nJ2-INYAJcvROHMwmgf_DP_O-odIgRm2vS8vNc8ETqoM_EFcQD2_XJTRcyeRT2QSx568rxNPHj58qvFzWO29S_HOzGfc67AADWSsbtwI-XpbB_V-TyYpUQ8orsW39eyP2-Ph44yyzmtYMihnlzHKezYWG9yKDMS2FwmvIoqXKwnmaWE51sVhljhMFj1NswswYF_8AOV9HHQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-92 — R3 Vendor Master Data</span></div>
 
@@ -1318,7 +1332,7 @@ flowchart TB
     E2E92CPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E92CPLP_e_g_Azure_PaaS
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1jp2nKaCDmzHZoV0hHndBvMwin2ciMqWseU2aZr_PsnOR1tIoWy6ENL7Hj06OkLa4ESkgAnu9TasYJKgTYTlEnKIMEERntNajfpqVEPSVEyup_AAvDO5EHu3XfKDVozOOdTaVpxMFDJkTzvUYFiuumCtBzRnfN05ISwEoLubPnIUQMG3bRQXj8mSVnJHa2q4paufLJVLrWSU16DjljLnUzoH3m4rq6ZVC3WssKQJKxZaHhparGhx_0K0je0WbXu9qDjshb67UYFUSzit6wlkiJalK1YoY5yTM9eeBEHQr2Ul7oGcGcblpTvaTT896tSIWa76ieCi0rY1sd_ySk7lEeiN_ZF3dQBa47Fvea-B1hE4cG3fNN4AQfAjLwhc27UPPM8zVDuZ4Gik7ajoiHUzX1S0XCLf9K9MbzadxRAvYuepqSCeURr-jnDUmCNjEDUZGGrn88U5am2k7Qj_6UC6payCRDJRoOm3o7onOy35l3-nmS1GjxWAENIVvFsDRbrLTa45nEzsn4r57uHDeBh_cb46sWmYVnv-dGylqk-p_bIK4cUQ6Tik4z5ciFs_jC3D2NdCTZGafrAcr1L9DxV5j359_fl5l-ykPR-6QM7sRvUB4-q9P5-8KtzHOVQ5ZSkmm-7bUL9PChltuFQPH9NGinBdJJi0Txk3ZUolTBhV15N34vYvyFJ39g==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1jp2nKaCDmzHZoV0hHndBvMwin2ciMqWseU2aZr_PsnOR1tIoWy6ENL7Hj06OkLa4ESkgAnu9TasYJKgTYTlEnKIMEERntNajfpqVEPSVEyup_AAvDO5EHu3XfKDVozOOdTaVpxMFDJkTzvUYFiuumCtBzRnfN05ISwEoLubPnIUQMG3bRQXj8mSVnJHa2q4paufLJVLrWSU16DjljLnUzoH3m4rq6ZVC3WssKQJKxZaHhparGhx_0K0je0WbXu9qDjshb67UYFUSzit6wlkiJalK1YoY5yTM9eeBEHQr2Ul7oGcGcblpTvaTT896tSIWa76ieCi0rY1sd_ySk7lEeiN_ZF3dQBa47Fvea-B1hE4cG3fNN4AQfAjLwhc27UPPM8zVDuZ4Gik7ajoiHUzX1S0XCLf9K9MbzadxRAvYuepqSCeURr-jnDUmCNjEDUZGGrn88U5am2k7Qj_6UC6payCRDJRoOm3o7onOy35l3-nmS1GjxWAENIVvFsDRbrLTa45nEzsn4r57uHDeBh_cb46sWmYVnv-dGylqk-p_bIK4cUQ6Tik4z5ciFs_jC3D2NdCTZGafrAcr1L9DxV5j359_fl5l-ykPR-6QM7sRvUB4-q9P5-8KtzHOVQ5ZSkmm-7bUL9PChltuFQPH9NGinBdJJi0Txk3ZUolTBhV15N34vYvyFJ39g==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
@@ -1353,7 +1367,7 @@ flowchart TB
     E2E92FPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E92FPLP_e_g_Azure_PaaS
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1jp2nKaCDuzEZoV0hHndBvMwin2ciMqWseU2aer_PsnOR1tIoWy6ENL7Hj06OkLa4lgkgAnu9bYsZ5KgbYjlCjIIMUEhXtBKjfpqVEFcl0xuZvAAvDO5EHu3XfKDlowuOFTaVpxU5DJgTzvUYFisu2Ct-zRjfNM5ASwFoLubPnIUQMGbNoqLx3hFS7mj1RXc0vVPlsiVVlLKK9BxK5nxGV0Ab7eVZd2quTpWUNCY5UstDw0tljS_fyHaRtOgptcL88Ne6Lsb5ki1mNOqmkKKaFG4Yo1Sxjk5c-2p7_v9SpbiHsiZYVxeuqPd9NOjTo2YxbofCy5KbVtT-y2v4FQegZOxN5pcHYDWeOxZk9dA6wgcuLZnGm-AIPiR5_uu7doH3mRiqHYywdFI22HeEat6sSxpsUKe6V2Z_nw2jyBaRs5TXUI0pzT4HeKwNkfGIKxTMNTO58tz1NpI2yH-04F0S1gJsWQiR7NvR3VPdlryL-9OM1uMHisAIaQreLcG8mSXm9xwOJnYPxXz3cMH0TD64nx1ItMwrfb8ydhKVJ9Q-2UVgosh0nFIx324ELdeEFmGsa-FmiI1_WA5XqX6HyryHv36-vPzLtlpez50gZz5jep9xtV7fz55VbiPMygzyhJMtt23oX6fBFJac6kePqa1FMEmjzFpnzKui4RKmDKqrifrxOYv6yN4Dg==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1jp2nKaCDuzEZoV0hHndBvMwin2ciMqWseU2aer_PsnOR1tIoWy6ENL7Hj06OkLa4lgkgAnu9bYsZ5KgbYjlCjIIMUEhXtBKjfpqVEFcl0xuZvAAvDO5EHu3XfKDlowuOFTaVpxU5DJgTzvUYFisu2Ct-zRjfNM5ASwFoLubPnIUQMGbNoqLx3hFS7mj1RXc0vVPlsiVVlLKK9BxK5nxGV0Ab7eVZd2quTpWUNCY5UstDw0tljS_fyHaRtOgptcL88Ne6Lsb5ki1mNOqmkKKaFG4Yo1Sxjk5c-2p7_v9SpbiHsiZYVxeuqPd9NOjTo2YxbofCy5KbVtT-y2v4FQegZOxN5pcHYDWeOxZk9dA6wgcuLZnGm-AIPiR5_uu7doH3mRiqHYywdFI22HeEat6sSxpsUKe6V2Z_nw2jyBaRs5TXUI0pzT4HeKwNkfGIKxTMNTO58tz1NpI2yH-04F0S1gJsWQiR7NvR3VPdlryL-9OM1uMHisAIaQreLcG8mSXm9xwOJnYPxXz3cMH0TD64nx1ItMwrfb8ydhKVJ9Q-2UVgosh0nFIx324ELdeEFmGsa-FmiI1_WA5XqX6HyryHv36-vPzLtlpez50gZz5jep9xtV7fz55VbiPMygzyhJMtt23oX6fBFJac6kePqa1FMEmjzFpnzKui4RKmDKqrifrxOYv6yN4Dg==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>

@@ -120,8 +120,8 @@ blockquote {
     background: #fafbfd;
     border: 1px solid #e0e4ea;
     border-radius: 6px;
-    padding: 20px 12px;
-    margin: 16px 0;
+    padding: 16px 12px;
+    margin: 12px 0;
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
@@ -130,6 +130,7 @@ blockquote {
 .mermaid svg {
     max-width: 100%;
     height: auto;
+    max-height: 85vh;
 }
 .header-bar {
     background: #00285a;
@@ -205,25 +206,31 @@ strong { color: #00285a; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print, .pdf-download-btn { display: none !important; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
-    /* Page sections: do NOT use min-height in print — the page-break divs
-       already handle pagination.  min-height:100vh forces every section to
-       fill a full page, which creates blank trailing space before the next
-       page-break, producing blank pages in the PDF output. */
+
+    /* Page sections: auto height in print — page-break divs handle pagination */
     .page-section {
         min-height: auto;
         display: block;
     }
     .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
         page-break-inside: avoid;
+        break-inside: avoid;
         overflow: visible;
+        max-height: 85vh;
+        margin: 8px 0;
     }
     .mermaid svg {
         max-width: 100%;
+        max-height: 80vh;
         height: auto;
+        width: auto;
     }
+
     /* Diagram links: visible + clickable in PDF */
     a[title="View full diagram"],
     a[title="Open full-size SVG"] {
@@ -231,6 +238,13 @@ strong { color: #00285a; }
         text-decoration: underline !important;
         font-size: 10pt !important;
     }
+
+    /* Tighten spacing in print for professional PDF output */
+    h2 { margin-top: 18px; margin-bottom: 8px; }
+    h3 { margin-top: 14px; margin-bottom: 6px; }
+    h4 { margin-top: 10px; margin-bottom: 4px; }
+    table { margin: 8px 0; }
+    blockquote { margin: 8px 0; padding: 6px 14px; }
 }
 </style>
     
@@ -694,7 +708,7 @@ flowchart TD
     class n6 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV1vozgU_SsWVZUXIgGBkOFhpZTAqlJHW026Mw-TeXDMNVg1dtY2bdIo_33tkI8m287L8oByT-49597jD7YekRV4mXd7u2WCmQxtB6aBFgYZGiyxhoGPeuA7VgwvOeiBy6FSmDl726eF8Wrt0hxW4pbxjUPnUEtAf9_7aGoLuY80FnqoQTE68AcrxVqsNrnkUrnsG5jQgO7VDn_dSVWBOicEQRqSxJZyJuAMj9I4jUtXp4FIUV2Q0oROKBnsXHNcvpIGK7Nvv9PwFa9_sMo0NqaYa7A5jWn5A14CdzMa1TmMdOrlaAbTTkdYw-YrTJioLR4HFlJYPJ-hJNjt0O72diFOouhpthDIPoRjrWdAkTYWLl4Moozz7CbOp2US-Noo-QzZTVSks1HkEzdJZkcPfGfu8BVY3ZhsKXl1SB2-uhmyaLX21TqLAl9t7PtKC0R1VsrH0SSanJTu0jAP86MSpfR_KVlf1RPWzwetYlRG5eykFSbjJA_-y3cccxan0_DaJ1AvjMA70rIsR8XZqmKchMHnpHflaBzkV6Q1NvCKN2fCL3l8IiyTtAzTTwl7vesuu-WjkuRIOCqSMjkRpndhOY0-JYynYTw5dGh5aoVXDSqf5ui-REM0A81qgQpR220Pqk9zjwh_LjyKM4qHznV0X4EwjG6QawS0Rt-A2zErNLc7mZhOgV54v97Vx7a-sNtwyZlu0KPkjDDQCIuqp6hcCaJSoa9Y4NpeAcIgSdFjs9GMYI6mWoO5Ik0saS7bthM2xYAtZcKAwIKALWRcarlqNpc14-32OIm7jIZLe5xIg2BNeKfZC_zZr9bC2-36KrufP7Pr3qpxNMMGo2nVMvFOJrr0yy6bdRSVnSCGSWHneZC2Zftzb0HxT8dWbuTLXkcXpv2laizYW1_1G79PDYsIDYd_WJpDGPfh-BAml-G4Dw9HQoR9GL3bew48nrkLOPoYHp3unQs4_hhOPobHx_Pj-V4LqsWs8rKtt_9K2C9JBRR33Hg738OdkfONIF62v029blXZyhnDdtXaHtz9C0I_GTQ=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV1vozgU_SsWVZUXIgGBkOFhpZTAqlJHW026Mw-TeXDMNVg1dtY2bdIo_33tkI8m287L8oByT-49597jD7YekRV4mXd7u2WCmQxtB6aBFgYZGiyxhoGPeuA7VgwvOeiBy6FSmDl726eF8Wrt0hxW4pbxjUPnUEtAf9_7aGoLuY80FnqoQTE68AcrxVqsNrnkUrnsG5jQgO7VDn_dSVWBOicEQRqSxJZyJuAMj9I4jUtXp4FIUV2Q0oROKBnsXHNcvpIGK7Nvv9PwFa9_sMo0NqaYa7A5jWn5A14CdzMa1TmMdOrlaAbTTkdYw-YrTJioLR4HFlJYPJ-hJNjt0O72diFOouhpthDIPoRjrWdAkTYWLl4Moozz7CbOp2US-Noo-QzZTVSks1HkEzdJZkcPfGfu8BVY3ZhsKXl1SB2-uhmyaLX21TqLAl9t7PtKC0R1VsrH0SSanJTu0jAP86MSpfR_KVlf1RPWzwetYlRG5eykFSbjJA_-y3cccxan0_DaJ1AvjMA70rIsR8XZqmKchMHnpHflaBzkV6Q1NvCKN2fCL3l8IiyTtAzTTwl7vesuu-WjkuRIOCqSMjkRpndhOY0-JYynYTw5dGh5aoVXDSqf5ui-REM0A81qgQpR220Pqk9zjwh_LjyKM4qHznV0X4EwjG6QawS0Rt-A2zErNLc7mZhOgV54v97Vx7a-sNtwyZlu0KPkjDDQCIuqp6hcCaJSoa9Y4NpeAcIgSdFjs9GMYI6mWoO5Ik0saS7bthM2xYAtZcKAwIKALWRcarlqNpc14-32OIm7jIZLe5xIg2BNeKfZC_zZr9bC2-36KrufP7Pr3qpxNMMGo2nVMvFOJrr0yy6bdRSVnSCGSWHneZC2Zftzb0HxT8dWbuTLXkcXpv2laizYW1_1G79PDYsIDYd_WJpDGPfh-BAml-G4Dw9HQoR9GL3bew48nrkLOPoYHp3unQs4_hhOPobHx_Pj-V4LqsWs8rKtt_9K2C9JBRR33Hg738OdkfONIF62v029blXZyhnDdtXaHtz9C0I_GTQ=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-020 — Identify Maintenance Structure (IF)</span></div>
 
@@ -737,7 +751,7 @@ flowchart TD
     class n5 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU1v4jAQ_StWKsQlSPls2BxWooFIldrdVWF3D8sejDMGq8ZGttOWIv772iR8tpw2B5R5mXlv5jFONh6RFXi51-lsmGAmR5uuWcASujnqzrCGro8a4BdWDM846K7LoVKYMXvfpYXJ6s2lOazES8bXDh3DXAL6ee-jgS3kPtJY6J4GxWjX764UW2K1LiSXymXfQJ8GdKfWPrqTqgJ1TAiCLCSpLeVMwBGOsyRLSlengUhRnZHSlPYp6W5dc1y-kgVWZtd-reERv_1mlVnYmGKuweYszJI_4BlwN6NRtcNIrV72ZjDtdIQ1bLzChIm5xZPAQgqL5yOUBtst2nY6U3EQRZPhVCB7EY61HgJF2lh49GIQZZznN0kxKNPA10bJZ8hvolE2jCOfuElyO3rgO3N7r8DmC5PPJK_a1N6rmyGPVm--esujwFdr-3uhBaI6KhW3UT_qH5TusrAIi70SpfS_lKyvaoL1c6s1isuoHB60wvQ2LYKPfPsxh0k2CC99AvXCCJyQlmUZj45WjW7TMLhOelfGt0FxQTrHBl7x-kj4pUgOhGWalWF2lbDRu-yynv1QkuwJ41FapgfC7C4sB9FVwmQQJv22Q8szV3i1QEPQbC7QSMzttoNqnrpLhH-mHsU5xT1nNrqvQBhG1-gRM2FAYEEAfVdzLNg7NkwKNLabTEytAA2Ikloje5xRIZcrLNZT7-8JdWqpR3YxZ5zpBXIDgU1_Am7tqo48-lBlF-ui73IyRvcl6qH7CfpmxS1JhZ4khxOZ6HwC65-d8az_HxwLoxEW1e5W2HO1b_50tPPu4yvGOJZWY8eLxkBcdcP_IAluohN3dnnn7Ill_6TTJ9CyVvbm6LJjHXDe8n70SqSo1_tq_8g2DJswasO4CZM2jJowPlk4V7I_aGdw9Dkcfw4nh3fQGZweYM_3lqCWmFVevvF2HwH7oaiA4pobb-t7uDZyvBbEy3cvS69eVXZThgzbXVg24PYfkscRgQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU1v4jAQ_StWKsQlSPls2BxWooFIldrdVWF3D8sejDMGq8ZGttOWIv772iR8tpw2B5R5mXlv5jFONh6RFXi51-lsmGAmR5uuWcASujnqzrCGro8a4BdWDM846K7LoVKYMXvfpYXJ6s2lOazES8bXDh3DXAL6ee-jgS3kPtJY6J4GxWjX764UW2K1LiSXymXfQJ8GdKfWPrqTqgJ1TAiCLCSpLeVMwBGOsyRLSlengUhRnZHSlPYp6W5dc1y-kgVWZtd-reERv_1mlVnYmGKuweYszJI_4BlwN6NRtcNIrV72ZjDtdIQ1bLzChIm5xZPAQgqL5yOUBtst2nY6U3EQRZPhVCB7EY61HgJF2lh49GIQZZznN0kxKNPA10bJZ8hvolE2jCOfuElyO3rgO3N7r8DmC5PPJK_a1N6rmyGPVm--esujwFdr-3uhBaI6KhW3UT_qH5TusrAIi70SpfS_lKyvaoL1c6s1isuoHB60wvQ2LYKPfPsxh0k2CC99AvXCCJyQlmUZj45WjW7TMLhOelfGt0FxQTrHBl7x-kj4pUgOhGWalWF2lbDRu-yynv1QkuwJ41FapgfC7C4sB9FVwmQQJv22Q8szV3i1QEPQbC7QSMzttoNqnrpLhH-mHsU5xT1nNrqvQBhG1-gRM2FAYEEAfVdzLNg7NkwKNLabTEytAA2Ikloje5xRIZcrLNZT7-8JdWqpR3YxZ5zpBXIDgU1_Am7tqo48-lBlF-ui73IyRvcl6qH7CfpmxS1JhZ4khxOZ6HwC65-d8az_HxwLoxEW1e5W2HO1b_50tPPu4yvGOJZWY8eLxkBcdcP_IAluohN3dnnn7Ill_6TTJ9CyVvbm6LJjHXDe8n70SqSo1_tq_8g2DJswasO4CZM2jJowPlk4V7I_aGdw9Dkcfw4nh3fQGZweYM_3lqCWmFVevvF2HwH7oaiA4pobb-t7uDZyvBbEy3cvS69eVXZThgzbXVg24PYfkscRgQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-323-pe-020-030_define_maintenance_resource_structure_and_allocation-pe-020-030_define_maintenance_resource_structure_and_allocation">BUSINESS ARCHITECTURE — 3.2.3 PE-020-030_Define_Maintenance_Resource_Structure_and_Allocation — PE-020-030_Define_Maintenance_Resource_Structure_and_Allocation</h4>
 <p><strong>Swim Lanes</strong>: FTS IF - Design Engineer | <strong>Tasks</strong>: 3 | <strong>Gateways</strong>: 0</p>
@@ -771,7 +785,7 @@ flowchart TD
     class n5 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVd9r2zAQ_leES8kGDvPPOvPDIHViCGysLNn6sO5BkU-JqCwFSW6Tlvzvk-Ikrtv1aQYb3-e777s7Sednj8gKvNy7vHxmgpkcPQ_MGmoY5GiwxBoGPmqBX1gxvOSgB86HSmHm7OngFiabrXNzWIlrxncOncNKAvo589HYBnIfaSz0UINidOAPNorVWO0KyaVy3hcwogE9qB0_XUtVgeocgiALSWpDORPQwXGWZEnp4jQQKaoeKU3piJLB3iXH5SNZY2UO6TcavuHtLavM2toUcw3WZ21q_hUvgbsajWocRhr1cGoG005H2IbNN5gwsbJ4ElhIYXHfQWmw36P95eWdOIuixeROIHsRjrWeAEXaWHj6YBBlnOcXSTEu08DXRsl7yC-iaTaJI5-4SnJbeuC75g4fga3WJl9KXh1dh4-uhjzabH21zaPAVzv7fKUFouqUiqtoFI3OStdZWITFSYlS-l9Ktq9qgfX9UWsal1E5OWuF6VVaBG_5TmVOkmwcvu4TqAdG4AVpWZbxtGvV9CoNg_dJr8v4Kiheka6wgUe86wg_F8mZsEyzMszeJWz1XmfZLG-UJCfCeJqW6Zkwuw7LcfQuYTIOk9ExQ8uzUnizRuVijmYlGqIJaLYSaCpWdtuDat3cJcLfdx7FOcVD13U0q0AYRnfoG2bCgMCCAPoBWjaKgEa3a4luQFGp6p7HmBj2wAwDfef9ecEe9dmndr8uOdNrhEWFZvWG25EgDJoJ6sbG7tOiuEG2BTb7Wh98biRn5A1t3Kcda1fdpzHnktg1eSd3I3sfFoBr9OFWqntiUwClP_Y1EqthF8X2qw2ztxtcaGagRl-ZNvaYork938Q0CvqxqY3tav2uVliwJ2yYFDYfblOsusiuNHvA2heRouHwi12boxm2ZnQ0o9aMj2bcmsmLzeRCToeoB0f_huN_w8l5vvTg9Ax7vleDqjGrvPzZOwx4-xOogOKGG2_ve7gxcr4TxMsPg9BrNpWtfsKwW-EW3P8FUIAGaA==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVd9r2zAQ_leES8kGDvPPOvPDIHViCGysLNn6sO5BkU-JqCwFSW6Tlvzvk-Ikrtv1aQYb3-e777s7Sednj8gKvNy7vHxmgpkcPQ_MGmoY5GiwxBoGPmqBX1gxvOSgB86HSmHm7OngFiabrXNzWIlrxncOncNKAvo589HYBnIfaSz0UINidOAPNorVWO0KyaVy3hcwogE9qB0_XUtVgeocgiALSWpDORPQwXGWZEnp4jQQKaoeKU3piJLB3iXH5SNZY2UO6TcavuHtLavM2toUcw3WZ21q_hUvgbsajWocRhr1cGoG005H2IbNN5gwsbJ4ElhIYXHfQWmw36P95eWdOIuixeROIHsRjrWeAEXaWHj6YBBlnOcXSTEu08DXRsl7yC-iaTaJI5-4SnJbeuC75g4fga3WJl9KXh1dh4-uhjzabH21zaPAVzv7fKUFouqUiqtoFI3OStdZWITFSYlS-l9Ktq9qgfX9UWsal1E5OWuF6VVaBG_5TmVOkmwcvu4TqAdG4AVpWZbxtGvV9CoNg_dJr8v4Kiheka6wgUe86wg_F8mZsEyzMszeJWz1XmfZLG-UJCfCeJqW6Zkwuw7LcfQuYTIOk9ExQ8uzUnizRuVijmYlGqIJaLYSaCpWdtuDat3cJcLfdx7FOcVD13U0q0AYRnfoG2bCgMCCAPoBWjaKgEa3a4luQFGp6p7HmBj2wAwDfef9ecEe9dmndr8uOdNrhEWFZvWG25EgDJoJ6sbG7tOiuEG2BTb7Wh98biRn5A1t3Kcda1fdpzHnktg1eSd3I3sfFoBr9OFWqntiUwClP_Y1EqthF8X2qw2ztxtcaGagRl-ZNvaYork938Q0CvqxqY3tav2uVliwJ2yYFDYfblOsusiuNHvA2heRouHwi12boxm2ZnQ0o9aMj2bcmsmLzeRCToeoB0f_huN_w8l5vvTg9Ax7vleDqjGrvPzZOwx4-xOogOKGG2_ve7gxcr4TxMsPg9BrNpWtfsKwW-EW3P8FUIAGaA==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-324-pe-020-040_define_maintainable_item_listing_structure-pe-020-040_define_maintainable_item_listing_structure">BUSINESS ARCHITECTURE — 3.2.4 PE-020-040_Define_Maintainable_Item_Listing_Structure — PE-020-040_Define_Maintainable_Item_Listing_Structure</h4>
 <p><strong>Swim Lanes</strong>: FTS IF - Design Engineer | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 0</p>
@@ -799,7 +813,7 @@ flowchart TD
     class n3 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuO2jAU_RUrI8QmSHkSmkUlXpGQOmpVaLsoXRjnmrjj2NR2Biji32vzhnZW9SKyT47Puff62juPyBK83Gu1dkwwk6Nd21RQQztH7QXW0PbREfiKFcMLDrrtOFQKM2W_D7QwWW0czWEFrhnfOnQKSwnoy8RHfbuR-0hjoTsaFKNtv71SrMZqO5RcKsd-gh4N6MHt9GsgVQnqSgiCLCSp3cqZgCscZ0mWFG6fBiJFeSdKU9qjpL13wXG5JhVW5hB-o-EZb76x0lR2TTHXYDmVqfkHvADucjSqcRhp1Ou5GEw7H2ELNl1hwsTS4klgIYXFyxVKg_0e7VutubiYotloLpAdhGOtR0CRNhYevxpEGef5UzLsF2nga6PkC-RP0TgbxZFPXCa5TT3wXXE7a2DLyuQLycsTtbN2OeTRauOrTR4Fvtra74MXiPLqNOxGvah3cRpk4TAcnp0opf_lZOuqZli_nLzGcREVo4tXmHbTYfC33jnNUZL1w8c6gXplBG5Ei6KIx9dSjbtpGLwtOijibjB8EF1iA2u8vQq-GyYXwSLNijB7U_Do9xhls_ikJDkLxuO0SC-C2SAs-tGbgkk_THqnCK3OUuFVhYrZFE0K1EEj0Gwp0FgsbduDOtLcEOH3uUdxTnHHVR1NShCG0S2aAakEI5ijj4ufQIxGpsIGYQVo2hwQZCR6xkwYEFgQmHs_bmQjK2tTsm63HDQRVKoaGyYFmm61gRp9hpVUxva8nf1qmLKPhDD6Xi3-t9pn0LJRdjK114yYxsaGRYn6nEty8Lio2N49TkSMOp33Nu3TMjwuo5uTcOC5A-_g6HLd7uD4Anu-V4NNj5VevvMO7519E0uguOHG2_seboycbgXx8sO74DWr0vbQiGF7XPUR3P8BFJ64pw==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuO2jAU_RUrI8QmSHkSmkUlXpGQOmpVaLsoXRjnmrjj2NR2Biji32vzhnZW9SKyT47Puff62juPyBK83Gu1dkwwk6Nd21RQQztH7QXW0PbREfiKFcMLDrrtOFQKM2W_D7QwWW0czWEFrhnfOnQKSwnoy8RHfbuR-0hjoTsaFKNtv71SrMZqO5RcKsd-gh4N6MHt9GsgVQnqSgiCLCSp3cqZgCscZ0mWFG6fBiJFeSdKU9qjpL13wXG5JhVW5hB-o-EZb76x0lR2TTHXYDmVqfkHvADucjSqcRhp1Ou5GEw7H2ELNl1hwsTS4klgIYXFyxVKg_0e7VutubiYotloLpAdhGOtR0CRNhYevxpEGef5UzLsF2nga6PkC-RP0TgbxZFPXCa5TT3wXXE7a2DLyuQLycsTtbN2OeTRauOrTR4Fvtra74MXiPLqNOxGvah3cRpk4TAcnp0opf_lZOuqZli_nLzGcREVo4tXmHbTYfC33jnNUZL1w8c6gXplBG5Ei6KIx9dSjbtpGLwtOijibjB8EF1iA2u8vQq-GyYXwSLNijB7U_Do9xhls_ikJDkLxuO0SC-C2SAs-tGbgkk_THqnCK3OUuFVhYrZFE0K1EEj0Gwp0FgsbduDOtLcEOH3uUdxTnHHVR1NShCG0S2aAakEI5ijj4ufQIxGpsIGYQVo2hwQZCR6xkwYEFgQmHs_bmQjK2tTsm63HDQRVKoaGyYFmm61gRp9hpVUxva8nf1qmLKPhDD6Xi3-t9pn0LJRdjK114yYxsaGRYn6nEty8Lio2N49TkSMOp33Nu3TMjwuo5uTcOC5A-_g6HLd7uD4Anu-V4NNj5VevvMO7519E0uguOHG2_seboycbgXx8sO74DWr0vbQiGF7XPUR3P8BFJ64pw==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-020 — Identify Maintenance Structure (IF)</span></div>
 
@@ -841,7 +855,7 @@ flowchart TD
     class n5 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVdFuozoQ_RWLqsoLqYBAyeVhpZQEqautttpk7z7c7oMDQ7BibGSbpNkq_37HISFNevt0kUCaw_icmcPYvDm5LMBJnNvbNyaYScjbwFRQwyAhgyXVMHBJB_xNFaNLDnpgc0opzJz9OaT5YfNq0yyW0ZrxnUXnsJJAfj66ZIILuUs0FXqoQbFy4A4axWqqdqnkUtnsGxiXXnlQO756kKoAdU7wvNjPI1zKmYAzPIrDOMzsOg25FMUFaRmV4zIf7G1xXG7ziipzKL_V8ERff7HCVBiXlGvAnMrU_BtdArc9GtVaLG_V5mQG01ZHoGHzhuZMrBAPPYQUFeszFHn7Pdnf3r6IXpQspi-C4JVzqvUUSqINwrONISXjPLkJ00kWea42Sq4huQlm8XQUuLntJMHWPdeaO9wCW1UmWUpeHFOHW9tDEjSvrnpNAs9VO3xeaYEozkrpfTAOxr3SQ-ynfnpSKsvyfymhr2pB9fqoNRtlQTbttfzoPkq9j3ynNqdhPPGvfQK1YTm8I82ybDQ7WzW7j3zvc9KHbHTvpVekK2pgS3dnwr_SsCfMojjz408JO73rKtvls5L5iXA0i7KoJ4wf_GwSfEoYTvxwfKwQeVaKNhXJFnPymJEheaJMGBBU5EAWkFeC5YyKLttewv_nxSlpUtKhNZ_8gA2DLaGiID-bAvskT0xrHEzyS6o1-W43FZlSQ4mRJKWNaRXgIg4bKkz_Anf83d3di_P7ndAIhU7snNsU8lUuyVTmbQ3CUMOkIJytgcwbyF1i7CfjTJsrngh50DPcxV1zeNtzhTwaqMk3zLfFznH75ba2fi0O8WcePT8RfD4u0CBav1MKLq05iirQjRSaLRlnBmdAKuQ2eC6hrG2KCYTqrh1ro9wKULpiDZElmU-eUe6DN-GhJ81W4uKD_ZB4Xh5IJq2ppGJ_OlqcFZwU0B-bExEZDr-g2cdw1IXHXSGCLgyPod-FwbtptOBpF17AwX_DYX8SXcBRDzuuUwP6wQoneXMOvwL8XRRQ0pYbZ-86tDVyvhO5kxyOTKc9jN2UUfxKdQfu_wXSXA-k" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVdFuozoQ_RWLqsoLqYBAyeVhpZQEqautttpk7z7c7oMDQ7BibGSbpNkq_37HISFNevt0kUCaw_icmcPYvDm5LMBJnNvbNyaYScjbwFRQwyAhgyXVMHBJB_xNFaNLDnpgc0opzJz9OaT5YfNq0yyW0ZrxnUXnsJJAfj66ZIILuUs0FXqoQbFy4A4axWqqdqnkUtnsGxiXXnlQO756kKoAdU7wvNjPI1zKmYAzPIrDOMzsOg25FMUFaRmV4zIf7G1xXG7ziipzKL_V8ERff7HCVBiXlGvAnMrU_BtdArc9GtVaLG_V5mQG01ZHoGHzhuZMrBAPPYQUFeszFHn7Pdnf3r6IXpQspi-C4JVzqvUUSqINwrONISXjPLkJ00kWea42Sq4huQlm8XQUuLntJMHWPdeaO9wCW1UmWUpeHFOHW9tDEjSvrnpNAs9VO3xeaYEozkrpfTAOxr3SQ-ynfnpSKsvyfymhr2pB9fqoNRtlQTbttfzoPkq9j3ynNqdhPPGvfQK1YTm8I82ybDQ7WzW7j3zvc9KHbHTvpVekK2pgS3dnwr_SsCfMojjz408JO73rKtvls5L5iXA0i7KoJ4wf_GwSfEoYTvxwfKwQeVaKNhXJFnPymJEheaJMGBBU5EAWkFeC5YyKLttewv_nxSlpUtKhNZ_8gA2DLaGiID-bAvskT0xrHEzyS6o1-W43FZlSQ4mRJKWNaRXgIg4bKkz_Anf83d3di_P7ndAIhU7snNsU8lUuyVTmbQ3CUMOkIJytgcwbyF1i7CfjTJsrngh50DPcxV1zeNtzhTwaqMk3zLfFznH75ba2fi0O8WcePT8RfD4u0CBav1MKLq05iirQjRSaLRlnBmdAKuQ2eC6hrG2KCYTqrh1ro9wKULpiDZElmU-eUe6DN-GhJ81W4uKD_ZB4Xh5IJq2ppGJ_OlqcFZwU0B-bExEZDr-g2cdw1IXHXSGCLgyPod-FwbtptOBpF17AwX_DYX8SXcBRDzuuUwP6wQoneXMOvwL8XRRQ0pYbZ-86tDVyvhO5kxyOTKc9jN2UUfxKdQfu_wXSXA-k" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-326-pe-020-060_design_maintenance_roles_and_authorization_profiles-pe-020-060_design_maintenance_roles_and_authorization_profiles">BUSINESS ARCHITECTURE — 3.2.6 PE-020-060_Design_Maintenance_Roles_and_Authorization_Profiles — PE-020-060_Design_Maintenance_Roles_and_Authorization_Profiles</h4>
 <p><strong>Swim Lanes</strong>: FTS IF - PM  - IT Team | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 1</p>
@@ -875,7 +889,7 @@ flowchart TD
     class n5 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE1v2kAQ_SsrRxEXk_ozpj5UIgZXkRo1CrQ9lB4WexZWsXfp7jpAEf-9s5iPQJNTLWF5HjPvzTzt7MYpZAlO6lxfb7jgJiWbjplDDZ2UdKZUQ8clLfCdKk6nFeiOzWFSmBH_s0vzo8XKplkspzWv1hYdwUwC-Xbvkj4WVi7RVOiuBsVZx-0sFK-pWmeykspmX0GPeWyntv_rTqoS1CnB8xK_iLG04gJOcJhESZTbOg2FFOUZKYtZjxWdrW2ukstiTpXZtd9oeKCrH7w0c4wZrTRgztzU1Rc6hcrOaFRjsaJRLwczuLY6Ag0bLWjBxQzxyENIUfF8gmJvuyXb6-uJOIqS8WAiCD5FRbUeACPaIDx8MYTxqkqvoqyfx56rjZLPkF4Fw2QQBm5hJ0lxdM-15naXwGdzk05lVe5Tu0s7QxosVq5apYHnqjW-L7RAlCel7DboBb2j0l3iZ352UGKM_ZcS-qrGVD_vtYZhHuSDo5Yf38aZ9y_fYcxBlPT9S59AvfACXpHmeR4OT1YNb2Pfe5_0Lg9vveyCdEYNLOn6RPgxi46EeZzkfvIuYat32WUzfVSyOBCGwziPj4TJnZ_3g3cJo74f9fYdIs9M0cWc5OMRuc9Jlzw-EHzfj8kYaN0m2Uf4PycOoymjXes5wSZwLcgD5cKAoKIA8iRxWckYz6ZmoBSUhClZk3vB7KKviZFk9CEiTCoyXEHRGC4Fkezm5mbi_HqlFKBSm3DO_9Xu53lqiKmZAnSXUFG22fg7K3ug2mDDT7itqtTn9RHWvzEJtixVTXcNjtZYXmP5QiqD-4Zfvxuu8IIS5oIt3mwOHtlLrjtFK4o5gVVRNZq_wOf2FEyc7batwj1pP0REut1PaPI-9Nsw3odxGwbnYfjqTNiSwy6cwcFx8c_g8G04ehuODwfYcZ0a0BleOunG2V3TeJWXwGhTGWfrOrQxcrQWhZPurjOnWZRYOeAUT1ndgtu_3vfvPg==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE1v2kAQ_SsrRxEXk_ozpj5UIgZXkRo1CrQ9lB4WexZWsXfp7jpAEf-9s5iPQJNTLWF5HjPvzTzt7MYpZAlO6lxfb7jgJiWbjplDDZ2UdKZUQ8clLfCdKk6nFeiOzWFSmBH_s0vzo8XKplkspzWv1hYdwUwC-Xbvkj4WVi7RVOiuBsVZx-0sFK-pWmeykspmX0GPeWyntv_rTqoS1CnB8xK_iLG04gJOcJhESZTbOg2FFOUZKYtZjxWdrW2ukstiTpXZtd9oeKCrH7w0c4wZrTRgztzU1Rc6hcrOaFRjsaJRLwczuLY6Ag0bLWjBxQzxyENIUfF8gmJvuyXb6-uJOIqS8WAiCD5FRbUeACPaIDx8MYTxqkqvoqyfx56rjZLPkF4Fw2QQBm5hJ0lxdM-15naXwGdzk05lVe5Tu0s7QxosVq5apYHnqjW-L7RAlCel7DboBb2j0l3iZ352UGKM_ZcS-qrGVD_vtYZhHuSDo5Yf38aZ9y_fYcxBlPT9S59AvfACXpHmeR4OT1YNb2Pfe5_0Lg9vveyCdEYNLOn6RPgxi46EeZzkfvIuYat32WUzfVSyOBCGwziPj4TJnZ_3g3cJo74f9fYdIs9M0cWc5OMRuc9Jlzw-EHzfj8kYaN0m2Uf4PycOoymjXes5wSZwLcgD5cKAoKIA8iRxWckYz6ZmoBSUhClZk3vB7KKviZFk9CEiTCoyXEHRGC4Fkezm5mbi_HqlFKBSm3DO_9Xu53lqiKmZAnSXUFG22fg7K3ug2mDDT7itqtTn9RHWvzEJtixVTXcNjtZYXmP5QiqD-4Zfvxuu8IIS5oIt3mwOHtlLrjtFK4o5gVVRNZq_wOf2FEyc7batwj1pP0REut1PaPI-9Nsw3odxGwbnYfjqTNiSwy6cwcFx8c_g8G04ehuODwfYcZ0a0BleOunG2V3TeJWXwGhTGWfrOrQxcrQWhZPurjOnWZRYOeAUT1ndgtu_3vfvPg==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-020 — Identify Maintenance Structure (IF)</span></div>
 

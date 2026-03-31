@@ -120,8 +120,8 @@ blockquote {
     background: #fafbfd;
     border: 1px solid #e0e4ea;
     border-radius: 6px;
-    padding: 20px 12px;
-    margin: 16px 0;
+    padding: 16px 12px;
+    margin: 12px 0;
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
@@ -130,6 +130,7 @@ blockquote {
 .mermaid svg {
     max-width: 100%;
     height: auto;
+    max-height: 85vh;
 }
 .header-bar {
     background: #00285a;
@@ -205,25 +206,31 @@ strong { color: #00285a; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print, .pdf-download-btn { display: none !important; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
-    /* Page sections: do NOT use min-height in print — the page-break divs
-       already handle pagination.  min-height:100vh forces every section to
-       fill a full page, which creates blank trailing space before the next
-       page-break, producing blank pages in the PDF output. */
+
+    /* Page sections: auto height in print — page-break divs handle pagination */
     .page-section {
         min-height: auto;
         display: block;
     }
     .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
         page-break-inside: avoid;
+        break-inside: avoid;
         overflow: visible;
+        max-height: 85vh;
+        margin: 8px 0;
     }
     .mermaid svg {
         max-width: 100%;
+        max-height: 80vh;
         height: auto;
+        width: auto;
     }
+
     /* Diagram links: visible + clickable in PDF */
     a[title="View full diagram"],
     a[title="Open full-size SVG"] {
@@ -231,6 +238,13 @@ strong { color: #00285a; }
         text-decoration: underline !important;
         font-size: 10pt !important;
     }
+
+    /* Tighten spacing in print for professional PDF output */
+    h2 { margin-top: 18px; margin-bottom: 8px; }
+    h3 { margin-top: 14px; margin-bottom: 6px; }
+    h4 { margin-top: 10px; margin-bottom: 4px; }
+    table { margin: 8px 0; }
+    blockquote { margin: 8px 0; padding: 6px 14px; }
 }
 </style>
     
@@ -703,7 +717,7 @@ As-Is"| n4
     class n27 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4jgU_StWRhUdCaQ4HwTysBINpELaqhV0dx-WfTCJA1ZNkrWdtgzDf1-b2IGkdFazy0MrH5977ofvdXywkiLFVmjd3BxITkQIDj2xxTvcC0FvjTju9UEN_I4YQWuKeU9xsiIXS_LtRINe-a5oCovRjtC9Qpd4U2Dw27wPJtKQ9gFHOR9wzEjW6_dKRnaI7aOCFkyxv-BRZmcnb3rrrmApZmeCbQcw8aUpJTk-w27gBV6s7DhOijxtiWZ-NsqS3lEFR4u3ZIuYOIVfcfyA3v8gqdjKdYYox5KzFTv6K1pjqnIUrFJYUrFXUwzClZ9cFmxZooTkG4l7toQYyl_OkG8fj-B4c7PKG6fgebrKgfwlFHE-xRngQsKzVwEyQmn4xYsmsW_3uWDFCw6_OLNg6jr9RGUSytTtviru4A2TzVaE64Kmmjp4UzmETvneZ--hY_fZXv7t-MJ5evYUDZ2RM2o83QUwgpHxlGXZ__Ik68qeEX_RvmZu7MTTxhf0h35kf9QzaU69YAK7dcLslST4QjSOY3d2LtVs6EP7c9G72B3aUUd0gwR-Q_uz4DjyGsHYD2IYfCpY--tGWa2fWJEYQXfmx34jGNzBeOJ8KuhNoDfSEUqdDUPlFswfFmBJBAazSG-pXw7_XFkRwzJ8MM_XRZWnYIopecVsv7L-uiA6kvhUcAHuiyLlYIETXIo2xT1rPVVMtinH4FHNXJvmSdoCl4gwEBW7kmKB0zbDl4zJAih3cgBAzIodiEmO8gS3iXAomRkKMzRQjQK09_gx-mEEMGibLbekHDxWAtRh4RSUasTElhXVRpZu-dCxH982AlwUJdDBnvL4elk0_3AwRMRY8cYHiAqljijF9L7umpV1PNZGcq66x5YLTIFshbRKBAfyMgG3Maqo2J9ivHSmarGs1rKo-Tn7Bf67IpwIUuTtHIKaPWjTrxRrJInPjGw2slD3z0sQbXHy0qaM1cEjmlRUVf8ZvWPeKZgtGbLAP2owqFqxbq455xUGt3IOcCIkFTxIXXXnf-2YqKbsti1AG0Ry2agqu1Nyjx0rt3GkupiU4tKktgC3j_Lfds9Jgqihdb17_14Z6Ndl1qrz_LVICDad3eGOzl1VUnmZSANRy8uOzNQQzBfzZbfF7E4vNpE009W1gB2L04GB5gA_NLHz0x7cjoXKW965nwyJ12Gfz32nzx0Q1RHp5TmB5mhbWsOfG7jaKPiPU5oPwWDwi5wlvQzqpTPUa0fvj_R6pPftzv5Yr8d6H3b2oTGAtgY-MIxLaACz1pKGXy9dvXTV8ru82DHLCrbT998qn_DBXI7wd3lZa6anZU2qvl6b0KHJ3TeeDMPpAIYAdSyOkYTah9NYaE3odgETFXQ10IhqJ44xgbrmTX1MQbyLD-6pbOal0caDT_BR895q42P9Nmqhjn0VhVdR5yrqXkW9q6hvniNteHgdDgxs9a0dZjtEUis8WKcnunzGpzhTnxvr2LdQJYrlPk-s8PSUtaoylZZTguSnaleDx38AMw-j7g==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4jgU_StWRhUdCaQ4HwTysBINpELaqhV0dx-WfTCJA1ZNkrWdtgzDf1-b2IGkdFazy0MrH5977ofvdXywkiLFVmjd3BxITkQIDj2xxTvcC0FvjTju9UEN_I4YQWuKeU9xsiIXS_LtRINe-a5oCovRjtC9Qpd4U2Dw27wPJtKQ9gFHOR9wzEjW6_dKRnaI7aOCFkyxv-BRZmcnb3rrrmApZmeCbQcw8aUpJTk-w27gBV6s7DhOijxtiWZ-NsqS3lEFR4u3ZIuYOIVfcfyA3v8gqdjKdYYox5KzFTv6K1pjqnIUrFJYUrFXUwzClZ9cFmxZooTkG4l7toQYyl_OkG8fj-B4c7PKG6fgebrKgfwlFHE-xRngQsKzVwEyQmn4xYsmsW_3uWDFCw6_OLNg6jr9RGUSytTtviru4A2TzVaE64Kmmjp4UzmETvneZ--hY_fZXv7t-MJ5evYUDZ2RM2o83QUwgpHxlGXZ__Ik68qeEX_RvmZu7MTTxhf0h35kf9QzaU69YAK7dcLslST4QjSOY3d2LtVs6EP7c9G72B3aUUd0gwR-Q_uz4DjyGsHYD2IYfCpY--tGWa2fWJEYQXfmx34jGNzBeOJ8KuhNoDfSEUqdDUPlFswfFmBJBAazSG-pXw7_XFkRwzJ8MM_XRZWnYIopecVsv7L-uiA6kvhUcAHuiyLlYIETXIo2xT1rPVVMtinH4FHNXJvmSdoCl4gwEBW7kmKB0zbDl4zJAih3cgBAzIodiEmO8gS3iXAomRkKMzRQjQK09_gx-mEEMGibLbekHDxWAtRh4RSUasTElhXVRpZu-dCxH982AlwUJdDBnvL4elk0_3AwRMRY8cYHiAqljijF9L7umpV1PNZGcq66x5YLTIFshbRKBAfyMgG3Maqo2J9ivHSmarGs1rKo-Tn7Bf67IpwIUuTtHIKaPWjTrxRrJInPjGw2slD3z0sQbXHy0qaM1cEjmlRUVf8ZvWPeKZgtGbLAP2owqFqxbq455xUGt3IOcCIkFTxIXXXnf-2YqKbsti1AG0Ry2agqu1Nyjx0rt3GkupiU4tKktgC3j_Lfds9Jgqihdb17_14Z6Ndl1qrz_LVICDad3eGOzl1VUnmZSANRy8uOzNQQzBfzZbfF7E4vNpE009W1gB2L04GB5gA_NLHz0x7cjoXKW965nwyJ12Gfz32nzx0Q1RHp5TmB5mhbWsOfG7jaKPiPU5oPwWDwi5wlvQzqpTPUa0fvj_R6pPftzv5Yr8d6H3b2oTGAtgY-MIxLaACz1pKGXy9dvXTV8ru82DHLCrbT998qn_DBXI7wd3lZa6anZU2qvl6b0KHJ3TeeDMPpAIYAdSyOkYTah9NYaE3odgETFXQ10IhqJ44xgbrmTX1MQbyLD-6pbOal0caDT_BR895q42P9Nmqhjn0VhVdR5yrqXkW9q6hvniNteHgdDgxs9a0dZjtEUis8WKcnunzGpzhTnxvr2LdQJYrlPk-s8PSUtaoylZZTguSnaleDx38AMw-j7g==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-122 — Forecast to Stock</span></div>
 
@@ -815,7 +829,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtumzAUhl_F8hRpk5KOkJKsSK1kbmslWnUl3SaVCTlgEqsOIDBr0jTvPhsI7bLQVbUlZM7lP_Z3kNnAMI0I1GGvt6EJ5TrY-JAvyJL4UAc-nOFCrPpiVZCwzClfu-Q3YbWTpenOW6V8xznFM0YK6RY6cZpwjz42UkMtW9XB0u7gJWXr2uOReUrA7UUfICEgxLdVFEsfwgXOeaNWFuQSr37QiC-kJcasIDJuwZfMxTPCqrI8LytrIo7lZTikyVyaR5o05ji5f2E81rZbsO31_KStBaaGnwAxQoaLwiIxwFlmpCsQU8b0D4ZmOY7TL3ie3hP9g6JMJsa4eR08yK3parbqhylLc-keWdq-XjQz16yRQ5o1RpNWTrUn1kjtlBsamq0qe3IkZc_bcxxDM7RWzzQVMTr1xmPp9pNasShn8xxnC2Cr9lBVTQuZbkCCeYAey5wE3jf3zoeC4a86XI6I5iTkNE1aanK0-ahK_2nfeiKTHM2PgFwLBV3Xa6oHkqy9mh996JfRl1EknlF47JcxUcSppVoVBESQDz9JzYrsq_sAg6PBWWetOpUkUQOErxnpprFDjuRskduKnH8jH4rv_n-QPXQdnKMr9D7Gl7YXjBRlh1m8AvH6JtJt4VdAixggY97EudnLQdS7Ym8ivQt-F-iOwuD09OypoWRVZMFngK4vxNOhTFxUT698HXstdMlcnODuBbYwUoCFpgigG_P8Ymqb09sbG7j2V_vK6miqe_NsdQPZfpRljIZYeg830A2sjmZZmOP6wj7UJzewhbydRIM0Hrg0JrV8fYEc7Eh9wh1_Tc6W_8nJyT_wYR8uSb7ENIL6pv4liD9LRGJcMi4udYhLnnrrJIR6dU3DMoswJxbFguiyNm7_AOHBAVg=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtumzAUhl_F8hRpk5KOkJKsSK1kbmslWnUl3SaVCTlgEqsOIDBr0jTvPhsI7bLQVbUlZM7lP_Z3kNnAMI0I1GGvt6EJ5TrY-JAvyJL4UAc-nOFCrPpiVZCwzClfu-Q3YbWTpenOW6V8xznFM0YK6RY6cZpwjz42UkMtW9XB0u7gJWXr2uOReUrA7UUfICEgxLdVFEsfwgXOeaNWFuQSr37QiC-kJcasIDJuwZfMxTPCqrI8LytrIo7lZTikyVyaR5o05ji5f2E81rZbsO31_KStBaaGnwAxQoaLwiIxwFlmpCsQU8b0D4ZmOY7TL3ie3hP9g6JMJsa4eR08yK3parbqhylLc-keWdq-XjQz16yRQ5o1RpNWTrUn1kjtlBsamq0qe3IkZc_bcxxDM7RWzzQVMTr1xmPp9pNasShn8xxnC2Cr9lBVTQuZbkCCeYAey5wE3jf3zoeC4a86XI6I5iTkNE1aanK0-ahK_2nfeiKTHM2PgFwLBV3Xa6oHkqy9mh996JfRl1EknlF47JcxUcSppVoVBESQDz9JzYrsq_sAg6PBWWetOpUkUQOErxnpprFDjuRskduKnH8jH4rv_n-QPXQdnKMr9D7Gl7YXjBRlh1m8AvH6JtJt4VdAixggY97EudnLQdS7Ym8ivQt-F-iOwuD09OypoWRVZMFngK4vxNOhTFxUT698HXstdMlcnODuBbYwUoCFpgigG_P8Ymqb09sbG7j2V_vK6miqe_NsdQPZfpRljIZYeg830A2sjmZZmOP6wj7UJzewhbydRIM0Hrg0JrV8fYEc7Eh9wh1_Tc6W_8nJyT_wYR8uSb7ENIL6pv4liD9LRGJcMi4udYhLnnrrJIR6dU3DMoswJxbFguiyNm7_AOHBAVg=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-122 — Forecast to Stock</span></div>
 
@@ -859,7 +873,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtumzAUhl_F8hRpk5KOJCVZkVrJBFgr0aor6TapTMgBk1h1MAKzJk3z7rOB0C4LXVVbQuZc_mN_B5kNDHlEoAE7nQ1NqDDAxodiQZbEhwbw4QznctWVq5yERUbF2iW_CaucjPOdt0z5jjOKZ4zkyi11Yp4Ijz7WUn09XVXByu7gJWXryuOROSfg9qILkBSQ4tsyivGHcIEzUasVObnEqx80EgtliTHLiYpbiCVz8YywsqzIitKayGN5KQ5pMlfmoa6MGU7uXxiP9e0WbDsdP2lqganpJ0COkOE8t0gMcJqafAViypjxwdQtx3G6ucj4PTE-aNp4bI7q196D2poxSFfdkDOeKffQ0vf1otlkzWo5pFsjNG7kBvbYGg5a5fqmbg-0PTnC2fP2HMfUTb3Rm0w0OVr1RiPl9pNKMS9m8wynC2AP7P5g4Fho4gYkmAfoschI4H1z73woGf6qwtWIaEZCQXnSUFOjyUdl-k_71pOZ5Gh-BNRaKhiGUVE9kGTt1fzoQ7-Ivgwj-YzCY7-IiSZPrdTKICCDfPhJaZZkX90H6B31zlprVakkiWogYs1IO40dcqRmg9zW1PwbeV9-9_-D7KHr4BxdofcxvrS9YKhpO8zyFcjXN5FuCr8CWsYAFfMmzvVeDqLeFXsT6V3wu0C3FAanp2dPNSWrJAs-A3R9IZ8OZfKienrl69hroUvm8gR3L7CFkQYsNEUA3UzOL6b2ZHp7YwPX_mpfWS1NdW-erW6g2o_SlNEQK-_hBrqB1dIsCwtcXdiH-uQGtpS3k6jH455LY1LJVxfIwY5UJ9zx19Vs-J-cnPwDH3bhkmRLTCNobKpfgvyzRCTGBRPyUoe4ENxbJyE0ymsaFmmEBbEolkSXlXH7B16GAYI=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtumzAUhl_F8hRpk5KOJCVZkVrJBFgr0aor6TapTMgBk1h1MAKzJk3z7rOB0C4LXVVbQuZc_mN_B5kNDHlEoAE7nQ1NqDDAxodiQZbEhwbw4QznctWVq5yERUbF2iW_CaucjPOdt0z5jjOKZ4zkyi11Yp4Ijz7WUn09XVXByu7gJWXryuOROSfg9qILkBSQ4tsyivGHcIEzUasVObnEqx80EgtliTHLiYpbiCVz8YywsqzIitKayGN5KQ5pMlfmoa6MGU7uXxiP9e0WbDsdP2lqganpJ0COkOE8t0gMcJqafAViypjxwdQtx3G6ucj4PTE-aNp4bI7q196D2poxSFfdkDOeKffQ0vf1otlkzWo5pFsjNG7kBvbYGg5a5fqmbg-0PTnC2fP2HMfUTb3Rm0w0OVr1RiPl9pNKMS9m8wynC2AP7P5g4Fho4gYkmAfoschI4H1z73woGf6qwtWIaEZCQXnSUFOjyUdl-k_71pOZ5Gh-BNRaKhiGUVE9kGTt1fzoQ7-Ivgwj-YzCY7-IiSZPrdTKICCDfPhJaZZkX90H6B31zlprVakkiWogYs1IO40dcqRmg9zW1PwbeV9-9_-D7KHr4BxdofcxvrS9YKhpO8zyFcjXN5FuCr8CWsYAFfMmzvVeDqLeFXsT6V3wu0C3FAanp2dPNSWrJAs-A3R9IZ8OZfKienrl69hroUvm8gR3L7CFkQYsNEUA3UzOL6b2ZHp7YwPX_mpfWS1NdW-erW6g2o_SlNEQK-_hBrqB1dIsCwtcXdiH-uQGtpS3k6jH455LY1LJVxfIwY5UJ9zx19Vs-J-cnPwDH3bhkmRLTCNobKpfgvyzRCTGBRPyUoe4ENxbJyE0ymsaFmmEBbEolkSXlXH7B16GAYI=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-122 — Forecast to Stock</span></div>
 
@@ -1007,7 +1021,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9AJwrqYkgGGzfcDDXOl3tzd7OU9QCNZVvWTkXlv9_TFQVBo7ckYzsvz2mf87R9tpKMgeVYtdozT7lyyHNkqSnMILIcElkjKvGtjm8SkrLgah7APQjjFFn26q1SbmjB6UiA1G7EGWepCvnTEmq_nT-aYG3v0xkXc-MJYZIBuR7UiYsAok4kTWVDQsHHkbWoMkT2kExpoZbIpYQhfbzlTE21ZUyFBB03VTMR0BGIagqqKCtriksMc5rwdKLNh7Y2FjS9WzO27MWCLGq1KH2rRa66UUpw1Gqk0cC5JVM-pAoaPJU5L4ARqeYCSCKolCAxxoRX3x6MyaiUPAUpSTXGXAhnp4-j26pLVWR34Ox0j4_bdnf52XjQC3Ka-WM9yURWODu2bW9g0jwnq2Ewuy2N-oZp20dH3fZ_YDKq6Damd_wF5v47zFcfoxLJK-gcOSWtjUozzpiAB1rAOiNe210x4h-1-yu0b8weMrHFiOZ4jeVez7a_wjSoshxNCppPiRv8iayoZMcHDJ_soEXci4tg0HOvBudnJHB_-5eR9dck6cFQEIniWUqCy5XVb_r7zWYvhngSD_0wPrDtddgE2gR2J7sEfQR9iOg4Drb4Y4Rf_nX4Ybp2fJ47vK2y3aeygDiE4p4nEHdL-W6B-0cGqooiyyiCUQZ31bgteM-v4HuZVLEv8BhIVWd9ksmhQdYBZBlwOir2Oqe8YxzhDdkjAy9L8O9neH52usc7pqxWpikIKXvt0Qek4t7rvERWBedVnUAo92KAzz4XeAC9fEXGO-jPgnSZrY7oaS3FUx0H3WBtq_ftr7b6eqr7lmp_Z0dviTaACfL0TiLMJoH_wz_zvqHWIEaNbwrMzXPBE6qDP5BYEA9vN3U0XGnlU-0EsedvqsTTx5CfKrxkNrtvUvxzsymbbXaIgayRjRsBHy_L4DmwJpUVqYaUV2Jb-vdG7MnJydaZZtWtGRQzypnlPJuLDe9HBmNaCoXXkUVLlYXzNLGc6oKxyhwnCh6n2ISZMS7-AaWWSFU=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9AJwrqYkgGGzfcDDXOl3tzd7OU9QCNZVvWTkXlv9_TFQVBo7ckYzsvz2mf87R9tpKMgeVYtdozT7lyyHNkqSnMILIcElkjKvGtjm8SkrLgah7APQjjFFn26q1SbmjB6UiA1G7EGWepCvnTEmq_nT-aYG3v0xkXc-MJYZIBuR7UiYsAok4kTWVDQsHHkbWoMkT2kExpoZbIpYQhfbzlTE21ZUyFBB03VTMR0BGIagqqKCtriksMc5rwdKLNh7Y2FjS9WzO27MWCLGq1KH2rRa66UUpw1Gqk0cC5JVM-pAoaPJU5L4ARqeYCSCKolCAxxoRX3x6MyaiUPAUpSTXGXAhnp4-j26pLVWR34Ox0j4_bdnf52XjQC3Ka-WM9yURWODu2bW9g0jwnq2Ewuy2N-oZp20dH3fZ_YDKq6Damd_wF5v47zFcfoxLJK-gcOSWtjUozzpiAB1rAOiNe210x4h-1-yu0b8weMrHFiOZ4jeVez7a_wjSoshxNCppPiRv8iayoZMcHDJ_soEXci4tg0HOvBudnJHB_-5eR9dck6cFQEIniWUqCy5XVb_r7zWYvhngSD_0wPrDtddgE2gR2J7sEfQR9iOg4Drb4Y4Rf_nX4Ybp2fJ47vK2y3aeygDiE4p4nEHdL-W6B-0cGqooiyyiCUQZ31bgteM-v4HuZVLEv8BhIVWd9ksmhQdYBZBlwOir2Oqe8YxzhDdkjAy9L8O9neH52usc7pqxWpikIKXvt0Qek4t7rvERWBedVnUAo92KAzz4XeAC9fEXGO-jPgnSZrY7oaS3FUx0H3WBtq_ftr7b6eqr7lmp_Z0dviTaACfL0TiLMJoH_wz_zvqHWIEaNbwrMzXPBE6qDP5BYEA9vN3U0XGnlU-0EsedvqsTTx5CfKrxkNrtvUvxzsymbbXaIgayRjRsBHy_L4DmwJpUVqYaUV2Jb-vdG7MnJydaZZtWtGRQzypnlPJuLDe9HBmNaCoXXkUVLlYXzNLGc6oKxyhwnCh6n2ISZMS7-AaWWSFU=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-122 — Forecast to Stock</span></div>
 
@@ -1087,7 +1101,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9AJwroYkiGGzfcDDXOl3tzd7OU9QCNZVvWTkXlv9_TFQVBo7ckYzsvz2mf87R9tpKMgeVYtdozT7lyyHNkqSnMILIcElkjKvGtjm8SkrLgah7APQjjFFn26q1SbmjB6UiA1G7EGWepCvnTEmq_nT-aYG3v0xkXc-MJYZIBuR7UiYsAok4kTWVDQsHHkbWoMkT2kExpoZbIpYQhfbzlTE21ZUyFBB03VTMR0BGIagqqKCtriksMc5rwdKLNh7Y2FjS9WzO27MWCLGq1KH2rRa56UUpw1Gqk0cC5JVM-pAoaPJU5L4ARqeYCSCKolCAxxoRX3x6MyaiUPAUpSTXGXAhnp4-j16pLVWR34Oz0jo7adm_52XjQC3Ka-WM9yURWODu2bW9g0jwnq2Ewey2N-oZp251Or_0fmIwquo3pHX2Buf8O89XHqETyCjpHTklro9KMMybggRawzojXdleM-J12f4X2jdlDJrYY0RyvsXx6attfYRpUWY4mBc2nxA3-RFZUsqMDhk920CLuxUUwOHWvBudnJHB_-5eR9dck6cFQEIniWUqCy5XVb_r7zWY_hngSD_0wPrDtddgE2gR2J7sEfQR9iOg4Drb4Y4Rf_nX4Ybp2fJ47vK2y3aeygDiE4p4nEPdK-W6B-x0DVUWRZRTBKIO7atwWvOdX8KeZVLEv8BhIVXd9ksmhQdYBZBlwMir2uie8axzhDdkjAy9L8O9neH52sse7pqxWpikIKXvt0Qek4t7rvkRWBedVnUAo92KAzz4XeAC9fEXGO-jPgnSZrY7oaS3FUx0HvWBtq_ftr7b6eqr7lmp_Z0dviTaACfL0TiLMJoH_wz_zvqHWIEaNbwrMzXPBE6qDP5BYEA9vN3U0XGnlU-0EsedvqsTTx5CfKrxkNrtvUvxzsymbbXaIgayRjRsBHy_L4DmwJpUVqYaUV2Jb-vdG7PHx8daZZtWtGRQzypnlPJuLDe9HBmNaCoXXkUVLlYXzNLGc6oKxyhwnCh6n2ISZMS7-AexbSG0=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9AJwroYkiGGzfcDDXOl3tzd7OU9QCNZVvWTkXlv9_TFQVBo7ckYzsvz2mf87R9tpKMgeVYtdozT7lyyHNkqSnMILIcElkjKvGtjm8SkrLgah7APQjjFFn26q1SbmjB6UiA1G7EGWepCvnTEmq_nT-aYG3v0xkXc-MJYZIBuR7UiYsAok4kTWVDQsHHkbWoMkT2kExpoZbIpYQhfbzlTE21ZUyFBB03VTMR0BGIagqqKCtriksMc5rwdKLNh7Y2FjS9WzO27MWCLGq1KH2rRa56UUpw1Gqk0cC5JVM-pAoaPJU5L4ARqeYCSCKolCAxxoRX3x6MyaiUPAUpSTXGXAhnp4-j16pLVWR34Oz0jo7adm_52XjQC3Ka-WM9yURWODu2bW9g0jwnq2Ewey2N-oZp251Or_0fmIwquo3pHX2Buf8O89XHqETyCjpHTklro9KMMybggRawzojXdleM-J12f4X2jdlDJrYY0RyvsXx6attfYRpUWY4mBc2nxA3-RFZUsqMDhk920CLuxUUwOHWvBudnJHB_-5eR9dck6cFQEIniWUqCy5XVb_r7zWY_hngSD_0wPrDtddgE2gR2J7sEfQR9iOg4Drb4Y4Rf_nX4Ybp2fJ47vK2y3aeygDiE4p4nEPdK-W6B-x0DVUWRZRTBKIO7atwWvOdX8KeZVLEv8BhIVXd9ksmhQdYBZBlwMir2uie8axzhDdkjAy9L8O9neH52sse7pqxWpikIKXvt0Qek4t7rvkRWBedVnUAo92KAzz4XeAC9fEXGO-jPgnSZrY7oaS3FUx0HvWBtq_ftr7b6eqr7lmp_Z0dviTaACfL0TiLMJoH_wz_zvqHWIEaNbwrMzXPBE6qDP5BYEA9vN3U0XGnlU-0EsedvqsTTx5CfKrxkNrtvUvxzsymbbXaIgayRjRsBHy_L4DmwJpUVqYaUV2Jb-vdG7PHx8daZZtWtGRQzypnlPJuLDe9HBmNaCoXXkUVLlYXzNLGc6oKxyhwnCh6n2ISZMS7-AexbSG0=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-122 — Forecast to Stock</span></div>
 
@@ -1284,7 +1298,7 @@ flowchart TB
     E2E122CPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E122CPLP_e_g_Azure_PaaS
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuax07TjNBB7Zjs0I6wrxug3kYxT5ORGXL2PKaNM27T7LdpC2kUDZdCOn_jz4dHSHtcCJSwAQPBjtWMEnQLsJyDTlEmKAIL2mtRkM1qiFpKia3c_gDvDO5EE9uu-Q7rRhdcqi1rTiZKGTIHnrUaFxuumCtBzRnfNs5IawEoNvrIXIUQMH3bRQX98maVrKnNTXc0M0Plsq1VjLKa9Bxa5nzOV0Cb7eVVdOqhTpWWNKEFSstjw0tVrS4eybaxn6P9oNBVBz2Qt_cqECqJZzW9QwyRMvSFRuUMc7JmWvPgiAY1rISd0DODOPy0p300w_3OjVilpthIriotG3N7Ne8klN5BHpTf-J9PACt6dS3vJdA6wgcubZvGq-AIPiRFwSu7doHnucZqp1McDLRdlR0xLpZriparpFv-iPT9BbzRQzxKnYemgriBaXhrwhHjTkxRlGTgaG2Pl-do9ZG2o7w746kW8oqSCQTBZp_PaoHtNOif_q3Gtpy9FgRCCFdybtFUKR9dnLL4XRq_1TPt88fxuP4s_PFiU3DtNoSpFMrVX1K7eeFCC_GSMchHff-Wtz4YWwZxlM51BSp6Xsr8iLZ_1CUN_FXV58e-3Rn7RHRBXIW16oPGFfP_vH0feEhzqHKKUsx2XXfh_qFUshow6X6ADBtpAi3RYJJ-6RxU6ZUwoxRdUd5J-7_AuNPeUY=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuax07TjNBB7Zjs0I6wrxug3kYxT5ORGXL2PKaNM27T7LdpC2kUDZdCOn_jz4dHSHtcCJSwAQPBjtWMEnQLsJyDTlEmKAIL2mtRkM1qiFpKia3c_gDvDO5EE9uu-Q7rRhdcqi1rTiZKGTIHnrUaFxuumCtBzRnfNs5IawEoNvrIXIUQMH3bRQX98maVrKnNTXc0M0Plsq1VjLKa9Bxa5nzOV0Cb7eVVdOqhTpWWNKEFSstjw0tVrS4eybaxn6P9oNBVBz2Qt_cqECqJZzW9QwyRMvSFRuUMc7JmWvPgiAY1rISd0DODOPy0p300w_3OjVilpthIriotG3N7Ne8klN5BHpTf-J9PACt6dS3vJdA6wgcubZvGq-AIPiRFwSu7doHnucZqp1McDLRdlR0xLpZriparpFv-iPT9BbzRQzxKnYemgriBaXhrwhHjTkxRlGTgaG2Pl-do9ZG2o7w746kW8oqSCQTBZp_PaoHtNOif_q3Gtpy9FgRCCFdybtFUKR9dnLL4XRq_1TPt88fxuP4s_PFiU3DtNoSpFMrVX1K7eeFCC_GSMchHff-Wtz4YWwZxlM51BSp6Xsr8iLZ_1CUN_FXV58e-3Rn7RHRBXIW16oPGFfP_vH0feEhzqHKKUsx2XXfh_qFUshow6X6ADBtpAi3RYJJ-6RxU6ZUwoxRdUd5J-7_AuNPeUY=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
@@ -1319,7 +1333,7 @@ flowchart TB
     E2E122FPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E122FPLP_e_g_Azure_PaaS
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuax07TjNDB3Zis0I6wrxug3kYxT5ORGXJyPKaNM27T7LTpC2kUDZdCOn_jz4dHSFtcSZywB7u9baUU-WhbYLVCkpIsIcSvCC1HvX1qIaskVRtZvAHWGcyIZ7cdsl3IilZMKiNrTmF4CqmD3vUYFitu2CjR6SkbNM5MSwFoNvrPvI1QMN3bRQT99mKSLWnNTXckPUPmquVUQrCajBxK1WyGVkAa7dVsmlVro8VVySjfGnkoWVESfjdM9G1dju06_USftgLfQsSjnTLGKnrKRSIVFUg1qigjHlngTuNoqhfKynuwDuzrMvLYLSffrg3qXl2te5ngglpbGfqvuZVjKgjcDIOR5OPB6AzHofO5CXQOQIHgRva1isgCHbkRVHgBu6BN5lYup1McDQydsI7Yt0slpJUKxTa4cC2o_lsnkK6TP2HRkI6JyT-leCksUfWIGkKsPTW58tz1NrI2An-3ZFMy6mETFHB0ezrUT2g_Rb9M7w10JZjxprgeV5X8m4R8HyfndowOJ3aP9Xz7fPH6TD97H_xU9uynbYE-djJdZ8T93kh4oshMnHIxL2_FjdhnDqW9VQOPUV6-t6KvEj2PxTlTfzV1afHfbrT9ojoAvnza91HlOln_3j6vnAflyBLQnPsbbvvQ_9CORSkYUp_AJg0SsQbnmGvfdK4qXKiYEqJvqOyE3d_AQaDeV4=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuax07TjNDB3Zis0I6wrxug3kYxT5ORGXJyPKaNM27T7LTpC2kUDZdCOn_jz4dHSFtcSZywB7u9baUU-WhbYLVCkpIsIcSvCC1HvX1qIaskVRtZvAHWGcyIZ7cdsl3IilZMKiNrTmF4CqmD3vUYFitu2CjR6SkbNM5MSwFoNvrPvI1QMN3bRQT99mKSLWnNTXckPUPmquVUQrCajBxK1WyGVkAa7dVsmlVro8VVySjfGnkoWVESfjdM9G1dju06_USftgLfQsSjnTLGKnrKRSIVFUg1qigjHlngTuNoqhfKynuwDuzrMvLYLSffrg3qXl2te5ngglpbGfqvuZVjKgjcDIOR5OPB6AzHofO5CXQOQIHgRva1isgCHbkRVHgBu6BN5lYup1McDQydsI7Yt0slpJUKxTa4cC2o_lsnkK6TP2HRkI6JyT-leCksUfWIGkKsPTW58tz1NrI2An-3ZFMy6mETFHB0ezrUT2g_Rb9M7w10JZjxprgeV5X8m4R8HyfndowOJ3aP9Xz7fPH6TD97H_xU9uynbYE-djJdZ8T93kh4oshMnHIxL2_FjdhnDqW9VQOPUV6-t6KvEj2PxTlTfzV1afHfbrT9ojoAvnza91HlOln_3j6vnAflyBLQnPsbbvvQ_9CORSkYUp_AJg0SsQbnmGvfdK4qXKiYEqJvqOyE3d_AQaDeV4=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>

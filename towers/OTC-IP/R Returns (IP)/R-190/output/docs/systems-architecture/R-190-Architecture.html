@@ -120,8 +120,8 @@ blockquote {
     background: #fafbfd;
     border: 1px solid #e0e4ea;
     border-radius: 6px;
-    padding: 20px 12px;
-    margin: 16px 0;
+    padding: 16px 12px;
+    margin: 12px 0;
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
@@ -130,6 +130,7 @@ blockquote {
 .mermaid svg {
     max-width: 100%;
     height: auto;
+    max-height: 85vh;
 }
 .header-bar {
     background: #00285a;
@@ -205,25 +206,31 @@ strong { color: #00285a; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print, .pdf-download-btn { display: none !important; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
-    /* Page sections: do NOT use min-height in print — the page-break divs
-       already handle pagination.  min-height:100vh forces every section to
-       fill a full page, which creates blank trailing space before the next
-       page-break, producing blank pages in the PDF output. */
+
+    /* Page sections: auto height in print — page-break divs handle pagination */
     .page-section {
         min-height: auto;
         display: block;
     }
     .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
         page-break-inside: avoid;
+        break-inside: avoid;
         overflow: visible;
+        max-height: 85vh;
+        margin: 8px 0;
     }
     .mermaid svg {
         max-width: 100%;
+        max-height: 80vh;
         height: auto;
+        width: auto;
     }
+
     /* Diagram links: visible + clickable in PDF */
     a[title="View full diagram"],
     a[title="Open full-size SVG"] {
@@ -231,6 +238,13 @@ strong { color: #00285a; }
         text-decoration: underline !important;
         font-size: 10pt !important;
     }
+
+    /* Tighten spacing in print for professional PDF output */
+    h2 { margin-top: 18px; margin-bottom: 8px; }
+    h3 { margin-top: 14px; margin-bottom: 6px; }
+    h4 { margin-top: 10px; margin-bottom: 4px; }
+    table { margin: 8px 0; }
+    blockquote { margin: 8px 0; padding: 6px 14px; }
 }
 </style>
     
@@ -764,7 +778,7 @@ flowchart LR
     class n38 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1v2zYQ_iuEiyApYC_Wm2X7wwZHjoJ0dRvEaYuiGQZaomwisihQVF6a5r_vKImSxUgDluVDCz5399wLj0daz4OAhWQwHxwdPdOEijl6PhY7sifHc3S8wRk5HqIS-Io5xZuYZMdSJ2KJWNOfhZphp49STWI-3tP4SaJrsmUEfbkcogUYxkOU4SQbZYTT6Hh4nHK6x_zJYzHjUvsdmUbjqPBWic4YDwlvFMZj1wgcMI1pQhrYcm3X9qVdRgKWhC3SyImmUXD8IoOL2UOww1wU4ecZWeHHbzQUO1hHOM4I6OzEPv6INySWOQqeSyzI-b0qBs2knwQKtk5xQJMt4PYYII6TuwZyxi8v6OXo6DapnaKP17cJgr8gxlm2JBHKBMDn9wJFNI7n72xv4TvjYSY4uyPzd-a5u7TMYSAzmUPq46Es7uiB0O1OzDcsDivV0YPMYW6mj0P-ODfHQ_4E_2q-SBI2nryJOTWntacz1_AMT3mKouh_eYK68huc3VW-zi3f9Je1L8OZON74NZ9Kc2m7C0OvE-H3NCAHpL7vW-dNqc4njjHuJz3zrcnY00i3WJAH_NQQzjy7JvQd1zfcXsLSnx5lvrniLFCE1rnjOzWhe2b4C7OX0F4Y9rSKEHi2HKc7dMFZnoTIg73gLI4JL-XyL7F-3A4iPI_wSJYbXREeMb5HSxbcQQMiWKBrInKekBCtIFN5_G4Hfx0w2D0MNAs4SXESPCFvR4K7rJss-61N53TTXbFMoAvGwgwoAkJT0TabtM1KN7UTJBjy8kywPchyQWP6U2Z3uV4hnzJOYbS06dw23TqAQr4i7SZCJzhDCcSYZTA_3rd5p21eb3WNLkhCOBaUJegShiYF9rAo1WEFF0FAUimAzgjzQGRtWsP6URMHbIuWJKb3hD9JDsHpJpemNEHn31Zg2LK025Zf0hACqFLNGqK1wCLPJEdZR3RTzG-dzWmzrfAdcPke8nBcbAIEIP9bwxRR5fwsR7PilzIMvJB_QHTySZvcJyLY9UYacQiyzCZsxdxTB7ezDq2OOyiC7lVjM42Tmi2NYTjccLrdNn3ZyvkygX6KcEDQyRmWKX1gG9k27w8JrYYQUkmbJqwP1EGL68a2Zqw3ctHeKQl1O3kWF8jjRJYCw5YV-wbrkIrTJdlQgVZkz9DJ5dX7vy9ittFng2U8PzdVDcloA7cbZEgegzjPoHIX5fC8Hby8HJqZbzOz3mZmv81s0phhztlDNsKxQCnm0Osk7jFy32I0_W9GsEnaDaDadZ2SADYchsJh62uzTsDsh_6PGS5mhmxP2WZbmFDQK-eJoOIJfaVc5LC8inGijWJTm3Fl-3zOxaa4huqDKs_6jtbdqCabxJckEzQph-L1aoG-YU52DOi0sTfuPLS1hwcqdsj_DIDANH41rIx_GX3tIwpl6B9LZpumsq-DKPMPD26_rCTXeWZAU8VQvI8TAWMDl_ewT2Mtd3PcqF-TjMV5US3ppbQOyiN7mRT35-s3QJvN7B4RrSqoaapXozUz5EUsny9w_VUkp59YMuJqTBWMWTEytBDc7mNY9QWqGYrJXt_mEMyHq9Mvf56uvsOrZS8bJ0B_aCfInHZze_hgCm5IOejvSfjKftZtL3tzcQ-9JS8W3cgadxvVDm8YOiPNAL9pBvgrKuf_TgDopCRLGRfloZLHFp4d6GSdp2ksX2iYls2zVr98mrcDGBxu8Ux7oXEKnXqZlKfbuzy9-iiJ9tUV7PPi9V-3_GHHT9snR7VNV6zqMfr6wq1zBT40Gv0ux4ICxiVgzhQwqwClYSqNaQVY5dpylULB-et28IndDn7JTa0Ek8rQqtZutbYV0bgy_C5fSWA50QUVo_JkmJVrRyk6VTpTHVA-7cqiVjAqBRWEqQDFaVQUlqlMKq-GCs-wNQ2j4jBroErdMBRHBVg6YKjcrKo6trZuLKqtc7R1raDirsOsGFTqlb6pCMxZu8qGagFTxWbqmmqjTLclOQRcrRnURqgSKb1yOdPNlAeVVMVf05gq67pOajOUH0tX0IDiR6SMR_14bsFmN2x1w3Y37HTDk27Y7Yan3fCsG4ZzfPDTvS0y-kVmv8jqF9n9IqdfNOkXuf2iaa8ITq76qtPGzeoLTBu1OlG7E3V6mCc9uKs-cbThaTc864Rh6HXCRjdsdsNWN2x3w043POmGu7O06iwHwwFczHtMw8H8eVB8xYQvnSGJcB6LwctwgHPB1k9JMJgXX_sGefFaWlIMF_C-BF_-Ac9npJ4=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1v2zYQ_iuEiyApYC_Wm2X7wwZHjoJ0dRvEaYuiGQZaomwisihQVF6a5r_vKImSxUgDluVDCz5399wLj0daz4OAhWQwHxwdPdOEijl6PhY7sifHc3S8wRk5HqIS-Io5xZuYZMdSJ2KJWNOfhZphp49STWI-3tP4SaJrsmUEfbkcogUYxkOU4SQbZYTT6Hh4nHK6x_zJYzHjUvsdmUbjqPBWic4YDwlvFMZj1wgcMI1pQhrYcm3X9qVdRgKWhC3SyImmUXD8IoOL2UOww1wU4ecZWeHHbzQUO1hHOM4I6OzEPv6INySWOQqeSyzI-b0qBs2knwQKtk5xQJMt4PYYII6TuwZyxi8v6OXo6DapnaKP17cJgr8gxlm2JBHKBMDn9wJFNI7n72xv4TvjYSY4uyPzd-a5u7TMYSAzmUPq46Es7uiB0O1OzDcsDivV0YPMYW6mj0P-ODfHQ_4E_2q-SBI2nryJOTWntacz1_AMT3mKouh_eYK68huc3VW-zi3f9Je1L8OZON74NZ9Kc2m7C0OvE-H3NCAHpL7vW-dNqc4njjHuJz3zrcnY00i3WJAH_NQQzjy7JvQd1zfcXsLSnx5lvrniLFCE1rnjOzWhe2b4C7OX0F4Y9rSKEHi2HKc7dMFZnoTIg73gLI4JL-XyL7F-3A4iPI_wSJYbXREeMb5HSxbcQQMiWKBrInKekBCtIFN5_G4Hfx0w2D0MNAs4SXESPCFvR4K7rJss-61N53TTXbFMoAvGwgwoAkJT0TabtM1KN7UTJBjy8kywPchyQWP6U2Z3uV4hnzJOYbS06dw23TqAQr4i7SZCJzhDCcSYZTA_3rd5p21eb3WNLkhCOBaUJegShiYF9rAo1WEFF0FAUimAzgjzQGRtWsP6URMHbIuWJKb3hD9JDsHpJpemNEHn31Zg2LK025Zf0hACqFLNGqK1wCLPJEdZR3RTzG-dzWmzrfAdcPke8nBcbAIEIP9bwxRR5fwsR7PilzIMvJB_QHTySZvcJyLY9UYacQiyzCZsxdxTB7ezDq2OOyiC7lVjM42Tmi2NYTjccLrdNn3ZyvkygX6KcEDQyRmWKX1gG9k27w8JrYYQUkmbJqwP1EGL68a2Zqw3ctHeKQl1O3kWF8jjRJYCw5YV-wbrkIrTJdlQgVZkz9DJ5dX7vy9ittFng2U8PzdVDcloA7cbZEgegzjPoHIX5fC8Hby8HJqZbzOz3mZmv81s0phhztlDNsKxQCnm0Osk7jFy32I0_W9GsEnaDaDadZ2SADYchsJh62uzTsDsh_6PGS5mhmxP2WZbmFDQK-eJoOIJfaVc5LC8inGijWJTm3Fl-3zOxaa4huqDKs_6jtbdqCabxJckEzQph-L1aoG-YU52DOi0sTfuPLS1hwcqdsj_DIDANH41rIx_GX3tIwpl6B9LZpumsq-DKPMPD26_rCTXeWZAU8VQvI8TAWMDl_ewT2Mtd3PcqF-TjMV5US3ppbQOyiN7mRT35-s3QJvN7B4RrSqoaapXozUz5EUsny9w_VUkp59YMuJqTBWMWTEytBDc7mNY9QWqGYrJXt_mEMyHq9Mvf56uvsOrZS8bJ0B_aCfInHZze_hgCm5IOejvSfjKftZtL3tzcQ-9JS8W3cgadxvVDm8YOiPNAL9pBvgrKuf_TgDopCRLGRfloZLHFp4d6GSdp2ksX2iYls2zVr98mrcDGBxu8Ux7oXEKnXqZlKfbuzy9-iiJ9tUV7PPi9V-3_GHHT9snR7VNV6zqMfr6wq1zBT40Gv0ux4ICxiVgzhQwqwClYSqNaQVY5dpylULB-et28IndDn7JTa0Ek8rQqtZutbYV0bgy_C5fSWA50QUVo_JkmJVrRyk6VTpTHVA-7cqiVjAqBRWEqQDFaVQUlqlMKq-GCs-wNQ2j4jBroErdMBRHBVg6YKjcrKo6trZuLKqtc7R1raDirsOsGFTqlb6pCMxZu8qGagFTxWbqmmqjTLclOQRcrRnURqgSKb1yOdPNlAeVVMVf05gq67pOajOUH0tX0IDiR6SMR_14bsFmN2x1w3Y37HTDk27Y7Yan3fCsG4ZzfPDTvS0y-kVmv8jqF9n9IqdfNOkXuf2iaa8ITq76qtPGzeoLTBu1OlG7E3V6mCc9uKs-cbThaTc864Rh6HXCRjdsdsNWN2x3w043POmGu7O06iwHwwFczHtMw8H8eVB8xYQvnSGJcB6LwctwgHPB1k9JMJgXX_sGefFaWlIMF_C-BF_-Ac9npJ4=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-190 — Manage Returns and Exchanges (IP)</span></div>
 
@@ -905,7 +919,7 @@ flowchart TD
     class n38 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1v2zYQ_iuEisAbYGOiXm1_2OD4pSuwbkWdtRiafaAlyuYiixolOXFT__cdLVGWaClAM3-Io-fuuefueKQkPxsBD6kxNW5unlnC8il6HuQ7uqeDKRpsSEYHQ1QCn4hgZBPTbCB9Ip7ka_b17Iad9Em6SWxF9iw-SnRNt5yiP98N0QyI8RBlJMlGGRUsGgwHqWB7Io5zHnMhvd_QcWRGZ7XKdMtFSMXFwTR9HLhAjVlCL7DtO76zkryMBjwJW0EjNxpHweAkk4v5Y7AjIj-nX2T0PXn6zMJ8B9cRiTMKPrt8H_9GNjSWNeaikFhQiINqBsukTgINW6ckYMkWcMcESJDk4QK55umETjc390ktiu4W9wmCTxCTLFvQCGU5wMtDjiIWx9M3zny2cs1hlgv-QKdvrKW_sK1hICuZQunmUDZ39EjZdpdPNzwOK9fRo6xhaqVPQ_E0tcyhOMJfTYsm4UVp7llja1wr3fp4judKKYqi_6UEfRV3JHuotJb2ylotai3seu7cvI6nylw4_gzrfaLiwALaCLparezlpVVLz8Vmf9Dble2Zcy3oluT0kRwvASdzpw64cv0V9nsDlnp6lsXmg-CBCmgv3ZVbB_Rv8Wpm9QZ0ZtgZVxlCnK0g6Q59pHkhkgytUxrA7mFZXjrIT4K_3BsRmUZkJPuN5oJCPRUFvv4tKLgbfzcYVpvxkUZU0CSgKOfoXXLg0OE2wf5SMwK-VUHRJ0glJDnjCbg3_Z22_68wN41Mmp5u23O-o8EDenu3RnO-T2NGknMqTYbXxYB2h0WQo2WSszyG8ynRhfw27U6w7RZq_8zFg9yXKOICzdJU8AOJNepYr_4RSDLBDpmJ7vsPhbSuFqNJwWabs4YNimZFvuOCfT13Fy14UHSIYaz1orX0f8gTU2dYLzEWNGYHKo46ye4kwVfIcvSe7nlfZdoc3BYZnNZZhj4WcOcol06naAPxoRBwZGYU_QpDz8Wxf-awB8RZQuLj15enH_vgKPfnOZOXHMfg2LeCTb_JD3XOaQwHSduZhuD-Y3P7mS_6wxZkOSMdPHzhQTNSnVemek2zrmgv-9uvk3G-U8ZtLUNAWZojHlVqNETvoQXyWUE7u-QyVxNIYKOcd0s5ij8t6KYaSI3jPz9fhiqkow3cooOdOusaB6DMmUGwX-6N06kZYdwdgT4FMQz1gb4t7yE6bdJN0w5QKFYXtM1XCdr4ZUESBDTt1LNep2e_juZ008oDuCs9t68umJsDPGghocYmrW4FVyG87hB9J8z1ENiNMSJC8MdsROIcpUSQOKZxT6nj7yPBOJf_JBYajX6Wo1dd29X1RF2bJWBX1051WT2NwPFVEbAC_MqjBrwSwL6SPHt8uzf-otm98Q0A5TnRksFVKHXtlteOClTlhj2VbJW9Uqpys1XyKjUVQOkpO1YB69xVBq5ScLXccZ286qRyxaqVdXa44v7OS-pYN9QNUQXYVptiKTVrolHqGmtLRakzd9r4RMfLJ46zbazb6mpNvQ-qllpe9fxqtVUJdfBqNVSv7Yrp6Xa1WtjRxgFX82DXFE_viqlbVBYqqMK1Zzu5LSXf0hei7oTbeByXk6peQ1qw1Q3bzVeMlsXptbi9Fq_X4vdaxr2WSa8FdkevCfebrH5Tfx9wfyNwfyfgAFHvuO1lMHtwXL2ntlGrE7U7UacTdXv0vB7cV6-HbXjcDU86YTipO2HcDVvdsN0NO92w2w173XB3lXZdpTE09lTsCQuN6bNx_gUIfiUKaUSKODdOQ4MUOV8fk8CYnn8pMYpU3kIXjMAL7L4ET_8B5D2vmw==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1v2zYQ_iuEisAbYGOiXm1_2OD4pSuwbkWdtRiafaAlyuYiixolOXFT__cdLVGWaClAM3-Io-fuuefueKQkPxsBD6kxNW5unlnC8il6HuQ7uqeDKRpsSEYHQ1QCn4hgZBPTbCB9Ip7ka_b17Iad9Em6SWxF9iw-SnRNt5yiP98N0QyI8RBlJMlGGRUsGgwHqWB7Io5zHnMhvd_QcWRGZ7XKdMtFSMXFwTR9HLhAjVlCL7DtO76zkryMBjwJW0EjNxpHweAkk4v5Y7AjIj-nX2T0PXn6zMJ8B9cRiTMKPrt8H_9GNjSWNeaikFhQiINqBsukTgINW6ckYMkWcMcESJDk4QK55umETjc390ktiu4W9wmCTxCTLFvQCGU5wMtDjiIWx9M3zny2cs1hlgv-QKdvrKW_sK1hICuZQunmUDZ39EjZdpdPNzwOK9fRo6xhaqVPQ_E0tcyhOMJfTYsm4UVp7llja1wr3fp4judKKYqi_6UEfRV3JHuotJb2ylotai3seu7cvI6nylw4_gzrfaLiwALaCLparezlpVVLz8Vmf9Dble2Zcy3oluT0kRwvASdzpw64cv0V9nsDlnp6lsXmg-CBCmgv3ZVbB_Rv8Wpm9QZ0ZtgZVxlCnK0g6Q59pHkhkgytUxrA7mFZXjrIT4K_3BsRmUZkJPuN5oJCPRUFvv4tKLgbfzcYVpvxkUZU0CSgKOfoXXLg0OE2wf5SMwK-VUHRJ0glJDnjCbg3_Z22_68wN41Mmp5u23O-o8EDenu3RnO-T2NGknMqTYbXxYB2h0WQo2WSszyG8ynRhfw27U6w7RZq_8zFg9yXKOICzdJU8AOJNepYr_4RSDLBDpmJ7vsPhbSuFqNJwWabs4YNimZFvuOCfT13Fy14UHSIYaz1orX0f8gTU2dYLzEWNGYHKo46ye4kwVfIcvSe7nlfZdoc3BYZnNZZhj4WcOcol06naAPxoRBwZGYU_QpDz8Wxf-awB8RZQuLj15enH_vgKPfnOZOXHMfg2LeCTb_JD3XOaQwHSduZhuD-Y3P7mS_6wxZkOSMdPHzhQTNSnVemek2zrmgv-9uvk3G-U8ZtLUNAWZojHlVqNETvoQXyWUE7u-QyVxNIYKOcd0s5ij8t6KYaSI3jPz9fhiqkow3cooOdOusaB6DMmUGwX-6N06kZYdwdgT4FMQz1gb4t7yE6bdJN0w5QKFYXtM1XCdr4ZUESBDTt1LNep2e_juZ008oDuCs9t68umJsDPGghocYmrW4FVyG87hB9J8z1ENiNMSJC8MdsROIcpUSQOKZxT6nj7yPBOJf_JBYajX6Wo1dd29X1RF2bJWBX1051WT2NwPFVEbAC_MqjBrwSwL6SPHt8uzf-otm98Q0A5TnRksFVKHXtlteOClTlhj2VbJW9Uqpys1XyKjUVQOkpO1YB69xVBq5ScLXccZ286qRyxaqVdXa44v7OS-pYN9QNUQXYVptiKTVrolHqGmtLRakzd9r4RMfLJ46zbazb6mpNvQ-qllpe9fxqtVUJdfBqNVSv7Yrp6Xa1WtjRxgFX82DXFE_viqlbVBYqqMK1Zzu5LSXf0hei7oTbeByXk6peQ1qw1Q3bzVeMlsXptbi9Fq_X4vdaxr2WSa8FdkevCfebrH5Tfx9wfyNwfyfgAFHvuO1lMHtwXL2ntlGrE7U7UacTdXv0vB7cV6-HbXjcDU86YTipO2HcDVvdsN0NO92w2w173XB3lXZdpTE09lTsCQuN6bNx_gUIfiUKaUSKODdOQ4MUOV8fk8CYnn8pMYpU3kIXjMAL7L4ET_8B5D2vmw==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-190 — Manage Returns and Exchanges (IP)</span></div>
 

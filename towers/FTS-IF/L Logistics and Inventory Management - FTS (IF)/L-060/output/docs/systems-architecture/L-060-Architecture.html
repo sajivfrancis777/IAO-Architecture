@@ -120,8 +120,8 @@ blockquote {
     background: #fafbfd;
     border: 1px solid #e0e4ea;
     border-radius: 6px;
-    padding: 20px 12px;
-    margin: 16px 0;
+    padding: 16px 12px;
+    margin: 12px 0;
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
@@ -130,6 +130,7 @@ blockquote {
 .mermaid svg {
     max-width: 100%;
     height: auto;
+    max-height: 85vh;
 }
 .header-bar {
     background: #00285a;
@@ -205,25 +206,31 @@ strong { color: #00285a; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print, .pdf-download-btn { display: none !important; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
-    /* Page sections: do NOT use min-height in print — the page-break divs
-       already handle pagination.  min-height:100vh forces every section to
-       fill a full page, which creates blank trailing space before the next
-       page-break, producing blank pages in the PDF output. */
+
+    /* Page sections: auto height in print — page-break divs handle pagination */
     .page-section {
         min-height: auto;
         display: block;
     }
     .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
         page-break-inside: avoid;
+        break-inside: avoid;
         overflow: visible;
+        max-height: 85vh;
+        margin: 8px 0;
     }
     .mermaid svg {
         max-width: 100%;
+        max-height: 80vh;
         height: auto;
+        width: auto;
     }
+
     /* Diagram links: visible + clickable in PDF */
     a[title="View full diagram"],
     a[title="Open full-size SVG"] {
@@ -231,6 +238,13 @@ strong { color: #00285a; }
         text-decoration: underline !important;
         font-size: 10pt !important;
     }
+
+    /* Tighten spacing in print for professional PDF output */
+    h2 { margin-top: 18px; margin-bottom: 8px; }
+    h3 { margin-top: 14px; margin-bottom: 6px; }
+    h4 { margin-top: 10px; margin-bottom: 4px; }
+    table { margin: 8px 0; }
+    blockquote { margin: 8px 0; padding: 6px 14px; }
 }
 </style>
     
@@ -750,7 +764,7 @@ Between Storage Locations"| n17
     class n28 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG2P2jgQ_itWqhWtBL04L4Tlw514S4VUulXZa3Uq98EkDkQNNuckLNyW_37jxAkkJFV7y4dd8szM84zHM07Cs-Zxn2pD7e7uOWRhMkTPnWRLd7QzRJ01iWmni3LgMxEhWUc07kifgLNkGf6buWFrf5RuEnPJLoxOEl3SDafoz3kXjSAw6qKYsLgXUxEGnW5nL8IdEacJj7iQ3q_oINCDTE2Zxlz4VFwcdN3Bng2hUcjoBTYdy7FcGRdTjzO_QhrYwSDwOmeZXMSfvC0RSZZ-GtMFOX4J_WQL1wGJYgo-22QXvSdrGsk1JiKVmJeKQ1GMMJY6DAq23BMvZBvALR0gQdi3C2Tr5zM6392tWCmKHqcrhuDjRSSOpzRAcQLw7JCgIIyi4StrMnJtvRsngn-jw1fGzJmaRteTKxnC0vWuLG7viYabbTJc88hXrr0nuYahsT92xXFo6F1xgr81Lcr8i9KkbwyMQak0dvAETwqlIAhepAR1FY8k_qa0ZqZruNNSC9t9e6Lf8hXLnFrOCNfrRMUh9OgVqeu65uxSqlnfxno76dg1-_qkRrohCX0ipwvh_cQqCV3bcbHTSpjr1bNM1x8F9wpCc2a7dknojLE7MloJrRG2BipD4NkIst-iL0TQLYdyooc9FSThIneQH4a_rrSADAPSk_VGjyLcbOD_J_pPSuMEhQwt5u8eUMLBBEMXgG2ZcA8KKPgOzRfSMvuyWGl_X5EaP0eaMRIvCTmrCGTUD4yiBdRWDjxEgH3EOJweoiplvkxqTBJvK5HsS5XaelFpoCjSNK-Vxq6STgSFNaKPPE5g4NFkS9iGXu1Y1qtAs-AHqthlshF8oX4OVPn7NX7OglDs6gIZ7SEk6JOLlh5hDFx_WxCWQq2BX3nleo-nPQXw7du3VSXnf1UeOjDgkNDSg97cQ0pV0sHXktXjm6I8c7bmKfPRlEbhgYoTxFwH3VeDZkfqpRBV7kqx-GxfbvasaLIaKdZfxHrTWBVuXOWehjDQ4TptWOplvioERmOdHtLkh4XCZqvuTWiLsNXKUGuxax4FleP8Id2toUYE5EaJio_rSvYLlBqLLkfjE_UoOJddKicUHlVCWb2yJfMt_Qy3Ol47bbBs-rlPWRIGp2wod_Ad8aB2VM2OCUTDhF4mGaaLbHL311DXN4iLm5HCA6Cvjjose89j4B3DQMHktA0Ovn9dlmsfwf2oWKGMKZMrMy4W7QPLm-uTW7_QxAnfN4R-jOC8yKrExVW_0-SJUiYTF7BO9J57RM58jMIYTqHdPqINavjX1EpzKfsjcuPXyPOJ_Slms8Zc4bm00Y8orOfnS3f7tLcGXZAfpzE8ksYxsFAGT8kc_bHSzufrSLs5Ep4Z_NRLYN8jeiAs3_i83bNcWHZHumHrN7PRoxdBKgf6Ln-8qYc5zWH13b_VG_yqHsxR_oUZqNf7HU57dWnml1g9PzGcXw-Ky_v82rAKwFGArQBLERiFgxLApgIG6hoXDkrC6BcZ9RVQ5mDWPFQSuExCiRolp648iqywrTyKtIws5DscDEX_yueB-iSstO_gWg-p3oWqzsUqDVs5f-DodaVh5os3madVp725d6IVaz0AMgrs1NX-osqiDEUpi_1TZSgKiQu7U0_mMm_ysRlmJ6ct98hRftnNDCxFoY1iewtFp5YBVg6GWaea50zO1ZO77L_ijaUCG82w2QxbzbDdDPebYacZHly_AFUs960WaM9WE243Ge0ms91ktZvsdtN9-f5brbuu3lWrKG5EjUbUbESt4pWvCtvNcL8ZdprhQQFrXW1HxY6EvjZ81rIfTeCHFZ8GJI0S7dzVSJrw5Yl52jD7cUFL9z5ETkMC73y7HDz_B3Pglvw=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG2P2jgQ_itWqhWtBL04L4Tlw514S4VUulXZa3Uq98EkDkQNNuckLNyW_37jxAkkJFV7y4dd8szM84zHM07Cs-Zxn2pD7e7uOWRhMkTPnWRLd7QzRJ01iWmni3LgMxEhWUc07kifgLNkGf6buWFrf5RuEnPJLoxOEl3SDafoz3kXjSAw6qKYsLgXUxEGnW5nL8IdEacJj7iQ3q_oINCDTE2Zxlz4VFwcdN3Bng2hUcjoBTYdy7FcGRdTjzO_QhrYwSDwOmeZXMSfvC0RSZZ-GtMFOX4J_WQL1wGJYgo-22QXvSdrGsk1JiKVmJeKQ1GMMJY6DAq23BMvZBvALR0gQdi3C2Tr5zM6392tWCmKHqcrhuDjRSSOpzRAcQLw7JCgIIyi4StrMnJtvRsngn-jw1fGzJmaRteTKxnC0vWuLG7viYabbTJc88hXrr0nuYahsT92xXFo6F1xgr81Lcr8i9KkbwyMQak0dvAETwqlIAhepAR1FY8k_qa0ZqZruNNSC9t9e6Lf8hXLnFrOCNfrRMUh9OgVqeu65uxSqlnfxno76dg1-_qkRrohCX0ipwvh_cQqCV3bcbHTSpjr1bNM1x8F9wpCc2a7dknojLE7MloJrRG2BipD4NkIst-iL0TQLYdyooc9FSThIneQH4a_rrSADAPSk_VGjyLcbOD_J_pPSuMEhQwt5u8eUMLBBEMXgG2ZcA8KKPgOzRfSMvuyWGl_X5EaP0eaMRIvCTmrCGTUD4yiBdRWDjxEgH3EOJweoiplvkxqTBJvK5HsS5XaelFpoCjSNK-Vxq6STgSFNaKPPE5g4NFkS9iGXu1Y1qtAs-AHqthlshF8oX4OVPn7NX7OglDs6gIZ7SEk6JOLlh5hDFx_WxCWQq2BX3nleo-nPQXw7du3VSXnf1UeOjDgkNDSg97cQ0pV0sHXktXjm6I8c7bmKfPRlEbhgYoTxFwH3VeDZkfqpRBV7kqx-GxfbvasaLIaKdZfxHrTWBVuXOWehjDQ4TptWOplvioERmOdHtLkh4XCZqvuTWiLsNXKUGuxax4FleP8Id2toUYE5EaJio_rSvYLlBqLLkfjE_UoOJddKicUHlVCWb2yJfMt_Qy3Ol47bbBs-rlPWRIGp2wod_Ad8aB2VM2OCUTDhF4mGaaLbHL311DXN4iLm5HCA6Cvjjose89j4B3DQMHktA0Ovn9dlmsfwf2oWKGMKZMrMy4W7QPLm-uTW7_QxAnfN4R-jOC8yKrExVW_0-SJUiYTF7BO9J57RM58jMIYTqHdPqINavjX1EpzKfsjcuPXyPOJ_Slms8Zc4bm00Y8orOfnS3f7tLcGXZAfpzE8ksYxsFAGT8kc_bHSzufrSLs5Ep4Z_NRLYN8jeiAs3_i83bNcWHZHumHrN7PRoxdBKgf6Ln-8qYc5zWH13b_VG_yqHsxR_oUZqNf7HU57dWnml1g9PzGcXw-Ky_v82rAKwFGArQBLERiFgxLApgIG6hoXDkrC6BcZ9RVQ5mDWPFQSuExCiRolp648iqywrTyKtIws5DscDEX_yueB-iSstO_gWg-p3oWqzsUqDVs5f-DodaVh5os3madVp725d6IVaz0AMgrs1NX-osqiDEUpi_1TZSgKiQu7U0_mMm_ysRlmJ6ct98hRftnNDCxFoY1iewtFp5YBVg6GWaea50zO1ZO77L_ijaUCG82w2QxbzbDdDPebYacZHly_AFUs960WaM9WE243Ge0ms91ktZvsdtN9-f5brbuu3lWrKG5EjUbUbESt4pWvCtvNcL8ZdprhQQFrXW1HxY6EvjZ81rIfTeCHFZ8GJI0S7dzVSJrw5Yl52jD7cUFL9z5ETkMC73y7HDz_B3Pglvw=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IF)</span></div>
 
@@ -927,7 +941,7 @@ Offsite"| n15
     class n38 subProc
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1v47gR_iuEF9tcARtn6sWy_aFF4sSBgeRixNlbFJf7wEiULUQmVUpy4uby3zuUSFmiqbtiGwMBOC_PzDwcDiV9DEIe0cF88PXrR8KSYo4-Lood3dOLObp4ITm9GKJa8CsRCXlJaX4hbWLOik3yn8oMe9m7NJOyJdkn6VFKN3TLKfq2GqJLcEyHKCcsH-VUJPHF8CITyZ6I44KnXEjrL3Qaj-MqmlJdcRFRcTIYjwMc-uCaJoyexG7gBd5S-uU05CzqgMZ-PI3Di0-ZXMrfwh0RRZV-mdN78v49iYodrGOS5hRsdsU-vSMvNJU1FqKUsrAUB01Gkss4DAjbZCRM2Bbk3hhEgrDXk8gff36iz69fn1kTFN09PjMEf2FK8vyaxigvQHxzKFCcpOn8i7e4XPrjYV4I_krnX5yb4Np1hqGsZA6lj4eS3NEbTba7Yv7C00iZjt5kDXMnex-K97kzHooj_DdiURadIi0mztSZNpGuArzACx0pjuP_KxLwKp5I_qpi3bhLZ3ndxML-xF-Mz_F0mddecIlNnqg4JCFtgS6XS_fmRNXNxMfjftCrpTsZLwzQLSnoGzmeAGcLrwFc-sESB72AdTwzy_JlLXioAd0bf-k3gMEVXl46vYDeJfamKkPA2QqS7ZC7vkMrdqCs4OKI7gkjWyrQT480pMkB2gytU8KKv9de8o9h_7ffngcxmcdkFPIt-pZFUGWO1kn4-vOahK8oYRL2efD77223SdetipAViMfolvMoP_OCZvrfct2UWZYe7bmOu0FXMHkSyLaVrE7fkjHuOt9xElVRblc_W6wdOy0yacIi5F5hb4GuaUqlFCYdimiaHKg4mkCuDajOOJMZX4avjL-lNNrCtGRw3ATf29L3ujj3_EBb9C2l169AMhdowVmebBmNUMHRNyYotFASFjQyIJ3g4-MEGdHRCwykcIe-k7yqDwko70BkToBa7JIcZdCtNM__-Tz4_GwjTe1IC1J1AVqWqWzxiqdH-u8SMjqDmNkhVjW7m4IDV2cFwmLFCpqihzdYmpiuf8IkQvC3fETSAlozTMscNuu2Ps8nr_Mmvfl-L3e52tm6Idt7EnT3ZCEoIEbooSxeeAld0njCaQAkc0unXXezi6Met5nhRgXsz1428pnDeUFnJ66N3ODKgYyeRLKVR1L2wiPaAOMkBej2pnUz0Q6bp4emjaEHeYo2t2ujCtdCXcKZHCAr1mXP8DQOQj1u9PyRndpuebgwoXEMBGPkLfg-k-f4fIwYfhN7uWueFyqNVZ6X1PAymqSeGZYmMdym1rlRlVOTqw5D2D7tZf9pn_UT_lepOOOfGt8shQsQDmCcQMvdQ0ryKa2hXx3uen2AnOSsXNdDoxnXMrP2WHfwCR7qy4wt1dtz5uYYbs1pUxSb9q59wtD3vnFQu3l2N3hwA66rAh9hosCzrpxGmyRNYEd0zWdTzu-dckmBHuI4T2CT5bEBrAemV2cwkz8dlqfr_o6H9S5r6BOsVp0NzbF1aEK1JE1paifJxT_i5PyIk_sjTp7VSXerHBpNKz8dM4rOSGkd_RgebqkY8YwyNfHV7fQEm5DHMBAe5CuIOe8CO8JjydD94_rPRvbdwy1aLdEILmZBdxxmM3rIqCAwxatp3woytQcxJyq6TuSUeCmr3oC5Yb804OCj0egfkj8l8NXaUWuvXjvq8Zu5aj3RAEqg_V0FOFPribJv9IEKoAHcKsIfz4Pz4_Y8-EM6KEPl6OjMsPKrLq_KFDcqp6VbVDpHw2BdwVRXMFXG_5LXgYQZa42R2t-aOaAOf52gtp4p69bzSm3g61IVGa4OgFVNWOeCp0qg6XPVfmAdRRk0mFjn6C1wFa0py4g1U2U3jif-nDpNzZ7jK40aKc9M_4BOp6bamZ0Zy0tqV9QMBiYn5nNdbaabwgmMLQhMxS-8zrFpQ6zK07zg8WnLXcNW7bhvrLE2wDOj6V1FXtPkkxZX7K9-mraqRN-EqIdznaHeK1ftqtNUo609tTmN5tST3Xuoa-UaVrXWbHhFakOD7rVJ6yVWnjP98t4RO-038I7G7dV4vRq_VzPp1QS9mmmvZtargQbqVeF-VT8NuJ8H3E8E7mcC91OB-7nA_WTgfjbgXtAforpyrD4adaWOVerq7yldsWcX-3bxxC4O7OKpXTyziuGusoqxXezYxfYqXXuVrr1KuBnUl6KuOLCLp1o8GA72VOxJEg3mH4Pqcyx8so1oTMq0GHwOB6Qs-ObIwsG8-mw5KKuXjOuEwIPHvhZ-_hfZjtfK" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1v47gR_iuEF9tcARtn6sWy_aFF4sSBgeRixNlbFJf7wEiULUQmVUpy4uby3zuUSFmiqbtiGwMBOC_PzDwcDiV9DEIe0cF88PXrR8KSYo4-Lood3dOLObp4ITm9GKJa8CsRCXlJaX4hbWLOik3yn8oMe9m7NJOyJdkn6VFKN3TLKfq2GqJLcEyHKCcsH-VUJPHF8CITyZ6I44KnXEjrL3Qaj-MqmlJdcRFRcTIYjwMc-uCaJoyexG7gBd5S-uU05CzqgMZ-PI3Di0-ZXMrfwh0RRZV-mdN78v49iYodrGOS5hRsdsU-vSMvNJU1FqKUsrAUB01Gkss4DAjbZCRM2Bbk3hhEgrDXk8gff36iz69fn1kTFN09PjMEf2FK8vyaxigvQHxzKFCcpOn8i7e4XPrjYV4I_krnX5yb4Np1hqGsZA6lj4eS3NEbTba7Yv7C00iZjt5kDXMnex-K97kzHooj_DdiURadIi0mztSZNpGuArzACx0pjuP_KxLwKp5I_qpi3bhLZ3ndxML-xF-Mz_F0mddecIlNnqg4JCFtgS6XS_fmRNXNxMfjftCrpTsZLwzQLSnoGzmeAGcLrwFc-sESB72AdTwzy_JlLXioAd0bf-k3gMEVXl46vYDeJfamKkPA2QqS7ZC7vkMrdqCs4OKI7gkjWyrQT480pMkB2gytU8KKv9de8o9h_7ffngcxmcdkFPIt-pZFUGWO1kn4-vOahK8oYRL2efD77223SdetipAViMfolvMoP_OCZvrfct2UWZYe7bmOu0FXMHkSyLaVrE7fkjHuOt9xElVRblc_W6wdOy0yacIi5F5hb4GuaUqlFCYdimiaHKg4mkCuDajOOJMZX4avjL-lNNrCtGRw3ATf29L3ujj3_EBb9C2l169AMhdowVmebBmNUMHRNyYotFASFjQyIJ3g4-MEGdHRCwykcIe-k7yqDwko70BkToBa7JIcZdCtNM__-Tz4_GwjTe1IC1J1AVqWqWzxiqdH-u8SMjqDmNkhVjW7m4IDV2cFwmLFCpqihzdYmpiuf8IkQvC3fETSAlozTMscNuu2Ps8nr_Mmvfl-L3e52tm6Idt7EnT3ZCEoIEbooSxeeAld0njCaQAkc0unXXezi6Met5nhRgXsz1428pnDeUFnJ66N3ODKgYyeRLKVR1L2wiPaAOMkBej2pnUz0Q6bp4emjaEHeYo2t2ujCtdCXcKZHCAr1mXP8DQOQj1u9PyRndpuebgwoXEMBGPkLfg-k-f4fIwYfhN7uWueFyqNVZ6X1PAymqSeGZYmMdym1rlRlVOTqw5D2D7tZf9pn_UT_lepOOOfGt8shQsQDmCcQMvdQ0ryKa2hXx3uen2AnOSsXNdDoxnXMrP2WHfwCR7qy4wt1dtz5uYYbs1pUxSb9q59wtD3vnFQu3l2N3hwA66rAh9hosCzrpxGmyRNYEd0zWdTzu-dckmBHuI4T2CT5bEBrAemV2cwkz8dlqfr_o6H9S5r6BOsVp0NzbF1aEK1JE1paifJxT_i5PyIk_sjTp7VSXerHBpNKz8dM4rOSGkd_RgebqkY8YwyNfHV7fQEm5DHMBAe5CuIOe8CO8JjydD94_rPRvbdwy1aLdEILmZBdxxmM3rIqCAwxatp3woytQcxJyq6TuSUeCmr3oC5Yb804OCj0egfkj8l8NXaUWuvXjvq8Zu5aj3RAEqg_V0FOFPribJv9IEKoAHcKsIfz4Pz4_Y8-EM6KEPl6OjMsPKrLq_KFDcqp6VbVDpHw2BdwVRXMFXG_5LXgYQZa42R2t-aOaAOf52gtp4p69bzSm3g61IVGa4OgFVNWOeCp0qg6XPVfmAdRRk0mFjn6C1wFa0py4g1U2U3jif-nDpNzZ7jK40aKc9M_4BOp6bamZ0Zy0tqV9QMBiYn5nNdbaabwgmMLQhMxS-8zrFpQ6zK07zg8WnLXcNW7bhvrLE2wDOj6V1FXtPkkxZX7K9-mraqRN-EqIdznaHeK1ftqtNUo609tTmN5tST3Xuoa-UaVrXWbHhFakOD7rVJ6yVWnjP98t4RO-038I7G7dV4vRq_VzPp1QS9mmmvZtargQbqVeF-VT8NuJ8H3E8E7mcC91OB-7nA_WTgfjbgXtAforpyrD4adaWOVerq7yldsWcX-3bxxC4O7OKpXTyziuGusoqxXezYxfYqXXuVrr1KuBnUl6KuOLCLp1o8GA72VOxJEg3mH4Pqcyx8so1oTMq0GHwOB6Qs-ObIwsG8-mw5KKuXjOuEwIPHvhZ-_hfZjtfK" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IF)</span></div>
 
@@ -967,7 +981,7 @@ flowchart TD
     class n4 endEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVFtv2jAY_StWKpRNClquhOVhEgQiVVqlanTbQ-mDSWyw6tjIdriM8t9nk0CAlr3MD5F8fHzOd77Y3lk5L5CVWJ3OjjCiErCz1QKVyE6APYMS2Q6ogV9QEDijSNqGgzlTE_LnQPPC5cbQDJbBktCtQSdozhH4ee-Agd5IHSAhk12JBMG2Yy8FKaHYppxyYdh3qI9dfHBrloZcFEi0BNeNvTzSWylhqIWDOIzDzOyTKOesuBDFEe7j3N6b4ihf5wso1KH8SqIHuPlNCrXQcwypRJqzUCX9DmeImoxKVAbLK7E6NoNI48N0wyZLmBM213joakhA9tpCkbvfg32nM2UnU_A0mjKgR06hlCOEgVQaHq8UwITS5C5MB1nkOlIJ_oqSO38cjwLfyU2SREd3HdPc7hqR-UIlM06LhtpdmwyJv9w4YpP4riO2-nvlhVjROqU9v-_3T07D2Eu99OiEMf4vJ91X8QTla-M1DjI_G528vKgXpe57vWPMURgPvOs-IbEiOToTzbIsGLetGvciz70tOsyCnpteic6hQmu4bQW_puFJMIvizItvCtZ-11VWs0fB86NgMI6y6CQYD71s4N8UDAde2G8q1DpzAZcLEDx-B_dshZjiYgseIINzJGqOGcx7fp5aGCYYdnM-Bw98hc74WPDyIKE4mHwJwSOFTMmp9fJyJhF8OkksqW6GCYCkBByDHyhHZKVPs3ZWyFzfWlJTiipXhDNtRhTRi4VW_Vyr6mN2leJfCfzLBLXluxCmeh3CZPkwRNiGkIov23qhOuxtZD-qkgWg2_2mW9lMPTN9m1ph6k2tN11gg_s1LTz75YZ8djAvVvybK8Hp0l_AYXM_LccqkSghKaxkZx3eXP0uFwjDiipr71iwUnyyZbmVHN4mq1oWOu2IQN3ssgb3fwE9Wt2B" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVFtv2jAY_StWKpRNClquhOVhEgQiVVqlanTbQ-mDSWyw6tjIdriM8t9nk0CAlr3MD5F8fHzOd77Y3lk5L5CVWJ3OjjCiErCz1QKVyE6APYMS2Q6ogV9QEDijSNqGgzlTE_LnQPPC5cbQDJbBktCtQSdozhH4ee-Agd5IHSAhk12JBMG2Yy8FKaHYppxyYdh3qI9dfHBrloZcFEi0BNeNvTzSWylhqIWDOIzDzOyTKOesuBDFEe7j3N6b4ihf5wso1KH8SqIHuPlNCrXQcwypRJqzUCX9DmeImoxKVAbLK7E6NoNI48N0wyZLmBM213joakhA9tpCkbvfg32nM2UnU_A0mjKgR06hlCOEgVQaHq8UwITS5C5MB1nkOlIJ_oqSO38cjwLfyU2SREd3HdPc7hqR-UIlM06LhtpdmwyJv9w4YpP4riO2-nvlhVjROqU9v-_3T07D2Eu99OiEMf4vJ91X8QTla-M1DjI_G528vKgXpe57vWPMURgPvOs-IbEiOToTzbIsGLetGvciz70tOsyCnpteic6hQmu4bQW_puFJMIvizItvCtZ-11VWs0fB86NgMI6y6CQYD71s4N8UDAde2G8q1DpzAZcLEDx-B_dshZjiYgseIINzJGqOGcx7fp5aGCYYdnM-Bw98hc74WPDyIKE4mHwJwSOFTMmp9fJyJhF8OkksqW6GCYCkBByDHyhHZKVPs3ZWyFzfWlJTiipXhDNtRhTRi4VW_Vyr6mN2leJfCfzLBLXluxCmeh3CZPkwRNiGkIov23qhOuxtZD-qkgWg2_2mW9lMPTN9m1ph6k2tN11gg_s1LTz75YZ8djAvVvybK8Hp0l_AYXM_LccqkSghKaxkZx3eXP0uFwjDiipr71iwUnyyZbmVHN4mq1oWOu2IQN3ssgb3fwE9Wt2B" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IF)</span></div>
 
@@ -1033,7 +1047,7 @@ flowchart TD
     class n13 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllluPozYUx7-KxWiUGYlUXEPCQ6uEhGpWne1oshdVmz44xiTWEJvaJpdm891rcwkhzXQfygPi_Dnndy4Yw9FALMFGaNzfHwklMgTHnlzjDe6FoLeEAvdMUAlfICdwmWHR0z4po3JO_i7dbC_fazetxXBDsoNW53jFMPj8ZIKxCsxMICAVfYE5SXtmL-dkA_khYhnj2vsOD1MrLbPVtyaMJ5i3DpYV2MhXoRmhuJXdwAu8WMcJjBhNOtDUT4cp6p10cRnboTXksiy_EPgZ7r-SRK6VncJMYOWzlpvsN7jEme5R8kJrqODbZhhE6DxUDWyeQ0ToSumepSQO6Vsr-dbpBE739wt6Tgo-TRcUqANlUIgpToGQSp5tJUhJloV3XjSOfcsUkrM3HN45s2DqOibSnYSqdcvUw-3vMFmtZbhkWVK79ne6h9DJ9ybfh45l8oM6X-XCNGkzRQNn6AzPmSaBHdlRkylN0_-VSc2Vf4Lirc41c2Mnnp5z2f7Aj6x_85o2p14wtq_nhPmWIHwBjePYnbWjmg1823ofOondgRVdQVdQ4h08tMBR5J2BsR_EdvAusMp3XWWxfOEMNUB35sf-GRhM7HjsvAv0xrY3rCtUnBWH-Rp8hRyvmRon-D3HHErGKwd9UPvbwkhhmMK-njd4SjCVJD2AnLOkQFKALYEXhGemXmwFMP68YDhdRsSxmgmIDihTZ1ZQCR6i6BE80a2CM34AU4aKjbou4RMo0Rp8YEvAOHiGtIBZF-928WMkyVYneFkfBEEwuwHuArwrgBBkRavKlJmqtOW1euO6cX437gVz5bupW9Klv8ZgivWSErr2KRZvkuVdxuCKwYSsASz9rw5-6mKCLmaOJXhVe5TmzCWUhQCE_nAOw6s55Oohb1X2V_xXQThOylG0FXaDR9_O0Yitmof8Ee9-8BwuGbb1cIbkmXpp5nrnugW4WDyK8XjJ0Cv2c57o7K3_F5gVGDw8xY_dqm3neGzLTnB_qfZXtdzq4alH3nb_y8I4nS5j3duxeI-yQpAt_rV69dswtTlWF9QF_f7PauXVpleZfm36lWk7tW1XdmMGlTmqzUHtbTfeVi3UtlObbm2Prmy7Lqaxh5U5aG6X8d8Xxke2ML6r29f6H1iUN4KLjUrX3GzQHdm5Lbu3Ze-27N-WB7fl4LY8vC2PLj8D3Y6s85e0q9vv6E6z-Xdlt5EN09hgvoEkMcKjUf75qL-jBKewyKRxMg1YSDY_UGSE5R-CUZTLekqg2rg3lXj6B9hO-EU=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllluPozYUx7-KxWiUGYlUXEPCQ6uEhGpWne1oshdVmz44xiTWEJvaJpdm891rcwkhzXQfygPi_Dnndy4Yw9FALMFGaNzfHwklMgTHnlzjDe6FoLeEAvdMUAlfICdwmWHR0z4po3JO_i7dbC_fazetxXBDsoNW53jFMPj8ZIKxCsxMICAVfYE5SXtmL-dkA_khYhnj2vsOD1MrLbPVtyaMJ5i3DpYV2MhXoRmhuJXdwAu8WMcJjBhNOtDUT4cp6p10cRnboTXksiy_EPgZ7r-SRK6VncJMYOWzlpvsN7jEme5R8kJrqODbZhhE6DxUDWyeQ0ToSumepSQO6Vsr-dbpBE739wt6Tgo-TRcUqANlUIgpToGQSp5tJUhJloV3XjSOfcsUkrM3HN45s2DqOibSnYSqdcvUw-3vMFmtZbhkWVK79ne6h9DJ9ybfh45l8oM6X-XCNGkzRQNn6AzPmSaBHdlRkylN0_-VSc2Vf4Lirc41c2Mnnp5z2f7Aj6x_85o2p14wtq_nhPmWIHwBjePYnbWjmg1823ofOondgRVdQVdQ4h08tMBR5J2BsR_EdvAusMp3XWWxfOEMNUB35sf-GRhM7HjsvAv0xrY3rCtUnBWH-Rp8hRyvmRon-D3HHErGKwd9UPvbwkhhmMK-njd4SjCVJD2AnLOkQFKALYEXhGemXmwFMP68YDhdRsSxmgmIDihTZ1ZQCR6i6BE80a2CM34AU4aKjbou4RMo0Rp8YEvAOHiGtIBZF-928WMkyVYneFkfBEEwuwHuArwrgBBkRavKlJmqtOW1euO6cX437gVz5bupW9Klv8ZgivWSErr2KRZvkuVdxuCKwYSsASz9rw5-6mKCLmaOJXhVe5TmzCWUhQCE_nAOw6s55Oohb1X2V_xXQThOylG0FXaDR9_O0Yitmof8Ee9-8BwuGbb1cIbkmXpp5nrnugW4WDyK8XjJ0Cv2c57o7K3_F5gVGDw8xY_dqm3neGzLTnB_qfZXtdzq4alH3nb_y8I4nS5j3duxeI-yQpAt_rV69dswtTlWF9QF_f7PauXVpleZfm36lWk7tW1XdmMGlTmqzUHtbTfeVi3UtlObbm2Prmy7Lqaxh5U5aG6X8d8Xxke2ML6r29f6H1iUN4KLjUrX3GzQHdm5Lbu3Ze-27N-WB7fl4LY8vC2PLj8D3Y6s85e0q9vv6E6z-Xdlt5EN09hgvoEkMcKjUf75qL-jBKewyKRxMg1YSDY_UGSE5R-CUZTLekqg2rg3lXj6B9hO-EU=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IF)</span></div>
 
@@ -1116,7 +1130,7 @@ flowchart TD
     class n19 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVmtv4jgU_StWqopdKUh5EsiHXVEgO5XKqBKdVqthP5jEAatJjByHxzD8973OC5KGVTWL1Co-vufce48dxyfFZwFRXOX-_kQTKlx06okNiUnPRb0VTklPRQXwijnFq4ikPRkTskQs6I88TLe2BxkmMQ_HNDpKdEHWjKBvjyoaAzFSUYqTtJ8STsOe2ttyGmN-nLCIcRl9R4ahFubZyqkHxgPCLwGa5ui-DdSIJuQCm47lWJ7kpcRnSdAQDe1wGPq9sywuYnt_g7nIy89SMseHNxqIDYxDHKUEYjYijp7wikSyR8EzifkZ31Vm0FTmScCwxRb7NFkDbmkAcZy8XyBbO5_R-f5-mdRJ0ct0mSD4-RFO0ykJUSoAnu0ECmkUuXfWZOzZmpoKzt6Je2fMnKlpqL7sxIXWNVWa298Tut4Id8WioAzt72UPrrE9qPzgGprKj_C_lYskwSXTZGAMjWGd6cHRJ_qkyhSG4f_KBL7yF5y-l7lmpmd40zqXbg_sifZRr2pzajljve0T4TvqkytRz_PM2cWq2cDWtduiD5450CYt0TUWZI-PF8HRxKoFPdvxdOemYJGvXWW2eubMrwTNme3ZtaDzoHtj46agNdatYVkh6Kw53m7QG-Zkw8BONMcJXhNezMtfon9fKiF2Q9yXdqMJ45z4AsFbimacM46mWGBEE_RC4m0ErS6Vf67oRpP-bRsxHKBn7L_jNWxgtNgSn4bUx4KyWxpmU2N2ELDH0EIwDrWiJ1aSMYDtTmKSCPRKyT6VJc5BWh4P8JDCUzOL1WqUE4i-VWmTajepY1_Q3afJgxvkwioSfE7FaarMMU0E_KEvBDS4CuuWCOmFNOmJ7EiEpgQCohSFsIZyNStzmrrD77Wwz9boBQ6fNMwTSAeLxRcMzd7maEcxmjx6wL8WGAEfVoxj2DS1_zkt5CyGWtbYP6LFEeTiZmpdA-oz22bRf3hZbxm0p2KTC7dU5AZ-xRENPqPS4hq_1d3D9BHBaxdkeSN59_kekfRH-JhRoAfA__1awLwIpIJtb-YvdtsHunU6XdwPSH8F9vsb9JXsL17-uVTO52uS3U0q3laPZbADPnAG3Rxy8KMspTvyV3GGtWnOr9GGv0YbddO-ZHAKvLIoiwliYacxcF4UD7CpUL__h9wWFaCXgFMBgxIwK8ApAKMatwh2OR6UY6Mc2-V40Jq3inFFL9WraLMYDqtkufrPpfKVLZWfMG7jf5M0n6jUdas1oddSw0K66mtU1lXNl9P6qK1Upq7xURO3Krxq3GoH1qVcf8mkkdUXvAEb3bDZDVvdsN0ND7phpxseXl8ImqUb9Z2qiZvl_aeJWtUloAnb3fCgG3a64WE3PKpgRVViwmNMA8U9KfntGm7gAQlxFgnlrCo4E2xxTHzFzW-hSraVR-WUYrgcxAV4_hf8sbKe" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVmtv4jgU_StWqopdKUh5EsiHXVEgO5XKqBKdVqthP5jEAatJjByHxzD8973OC5KGVTWL1Co-vufce48dxyfFZwFRXOX-_kQTKlx06okNiUnPRb0VTklPRQXwijnFq4ikPRkTskQs6I88TLe2BxkmMQ_HNDpKdEHWjKBvjyoaAzFSUYqTtJ8STsOe2ttyGmN-nLCIcRl9R4ahFubZyqkHxgPCLwGa5ui-DdSIJuQCm47lWJ7kpcRnSdAQDe1wGPq9sywuYnt_g7nIy89SMseHNxqIDYxDHKUEYjYijp7wikSyR8EzifkZ31Vm0FTmScCwxRb7NFkDbmkAcZy8XyBbO5_R-f5-mdRJ0ct0mSD4-RFO0ykJUSoAnu0ECmkUuXfWZOzZmpoKzt6Je2fMnKlpqL7sxIXWNVWa298Tut4Id8WioAzt72UPrrE9qPzgGprKj_C_lYskwSXTZGAMjWGd6cHRJ_qkyhSG4f_KBL7yF5y-l7lmpmd40zqXbg_sifZRr2pzajljve0T4TvqkytRz_PM2cWq2cDWtduiD5450CYt0TUWZI-PF8HRxKoFPdvxdOemYJGvXWW2eubMrwTNme3ZtaDzoHtj46agNdatYVkh6Kw53m7QG-Zkw8BONMcJXhNezMtfon9fKiF2Q9yXdqMJ45z4AsFbimacM46mWGBEE_RC4m0ErS6Vf67oRpP-bRsxHKBn7L_jNWxgtNgSn4bUx4KyWxpmU2N2ELDH0EIwDrWiJ1aSMYDtTmKSCPRKyT6VJc5BWh4P8JDCUzOL1WqUE4i-VWmTajepY1_Q3afJgxvkwioSfE7FaarMMU0E_KEvBDS4CuuWCOmFNOmJ7EiEpgQCohSFsIZyNStzmrrD77Wwz9boBQ6fNMwTSAeLxRcMzd7maEcxmjx6wL8WGAEfVoxj2DS1_zkt5CyGWtbYP6LFEeTiZmpdA-oz22bRf3hZbxm0p2KTC7dU5AZ-xRENPqPS4hq_1d3D9BHBaxdkeSN59_kekfRH-JhRoAfA__1awLwIpIJtb-YvdtsHunU6XdwPSH8F9vsb9JXsL17-uVTO52uS3U0q3laPZbADPnAG3Rxy8KMspTvyV3GGtWnOr9GGv0YbddO-ZHAKvLIoiwliYacxcF4UD7CpUL__h9wWFaCXgFMBgxIwK8ApAKMatwh2OR6UY6Mc2-V40Jq3inFFL9WraLMYDqtkufrPpfKVLZWfMG7jf5M0n6jUdas1oddSw0K66mtU1lXNl9P6qK1Upq7xURO3Krxq3GoH1qVcf8mkkdUXvAEb3bDZDVvdsN0ND7phpxseXl8ImqUb9Z2qiZvl_aeJWtUloAnb3fCgG3a64WE3PKpgRVViwmNMA8U9KfntGm7gAQlxFgnlrCo4E2xxTHzFzW-hSraVR-WUYrgcxAV4_hf8sbKe" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IF)</span></div>
 

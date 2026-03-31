@@ -120,8 +120,8 @@ blockquote {
     background: #fafbfd;
     border: 1px solid #e0e4ea;
     border-radius: 6px;
-    padding: 20px 12px;
-    margin: 16px 0;
+    padding: 16px 12px;
+    margin: 12px 0;
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
@@ -130,6 +130,7 @@ blockquote {
 .mermaid svg {
     max-width: 100%;
     height: auto;
+    max-height: 85vh;
 }
 .header-bar {
     background: #00285a;
@@ -205,25 +206,31 @@ strong { color: #00285a; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print, .pdf-download-btn { display: none !important; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
-    /* Page sections: do NOT use min-height in print — the page-break divs
-       already handle pagination.  min-height:100vh forces every section to
-       fill a full page, which creates blank trailing space before the next
-       page-break, producing blank pages in the PDF output. */
+
+    /* Page sections: auto height in print — page-break divs handle pagination */
     .page-section {
         min-height: auto;
         display: block;
     }
     .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
         page-break-inside: avoid;
+        break-inside: avoid;
         overflow: visible;
+        max-height: 85vh;
+        margin: 8px 0;
     }
     .mermaid svg {
         max-width: 100%;
+        max-height: 80vh;
         height: auto;
+        width: auto;
     }
+
     /* Diagram links: visible + clickable in PDF */
     a[title="View full diagram"],
     a[title="Open full-size SVG"] {
@@ -231,6 +238,13 @@ strong { color: #00285a; }
         text-decoration: underline !important;
         font-size: 10pt !important;
     }
+
+    /* Tighten spacing in print for professional PDF output */
+    h2 { margin-top: 18px; margin-bottom: 8px; }
+    h3 { margin-top: 14px; margin-bottom: 6px; }
+    h4 { margin-top: 10px; margin-bottom: 4px; }
+    table { margin: 8px 0; }
+    blockquote { margin: 8px 0; padding: 6px 14px; }
 }
 </style>
     
@@ -698,7 +712,7 @@ Created"| n9
     class n12 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P2jgU_StWRiNmpSDlkzB5WAkCqUa77VSF2T6UPpjEAWuMHTnOMJTy3_eaJECyzUqrzQPinHt97oftmxyNRKTECI37-yPlVIXoOFBbsiODEA3WuCADE1XEX1hSvGakGGifTHC1oD_ObraXv2s3zcV4R9lBswuyEQS9PJloAguZiQrMi2FBJM0G5iCXdIflIRJMSO19R8aZlZ2j1aapkCmRVwfLCuzEh6WMcnKl3cALvFivK0gieNoSzfxsnCWDk06OiX2yxVKd0y8L8hG_f6Wp2gLOMCsI-GzVjv2J14TpGpUsNZeU8q1pBi10HA4NW-Q4oXwDvGcBJTF_vVK-dTqh0_39il-CouVsxRE8CcNFMSMZKhTQ8zeFMspYeOdFk9i3zEJJ8UrCO2cezFzHTHQlIZRumbq5wz2hm60K14Kltetwr2sInfzdlO-hY5nyAL-dWISn10jRyBk740ukaWBHdtREyrLsf0WCvsolLl7rWHM3duLZJZbtj_zI-qdeU-bMCyZ2t09EvtGE3IjGcezOr62aj3zb6hedxu7IijqiG6zIHh-ugo-RdxGM_SC2g17BKl43y3L9WYqkEXTnfuxfBIOpHU-cXkFvYnvjOkPQ2Uicb9FXLMlWQDvRc04kVkJWDvrh9rdvKyPDYYaHidigJRy_IiMSzQijb0QekBJo-RE9RLCTUjD0Bzn8tjK-f7-RcNoSMVHJFj3LDeb0B1ZUcLSAC5CoUhKQVZiyoqPgthXAicgdXE0Uy_PZQS8wTtC0pCyFa4G-lIx0FLxehRe0POQEPTzHT0E3c7-9KtqSBE6GkGiK4c8MdjaFQmB0FAjzFL3kKVCtpDqCo18JXlo5ZQKgVlpsab4jXKHPDHOua6psXwguBO-2J2ir_iINSLiAXKHV9T4x2ELoOvhtDh21cV_Rsw9oBwv0hL0tF-gnntJEHxxE-b-V_wjKuqLqGOVCqmr_H55i3frbY2eBayTJOUDTn09CkY6bfTw2yWIpxb4YYqZQjiWGEtmH6u6tjNPpdpHz3xbBSKv-cBsNh7_Dga6hU0G3hm4Fvca59h51cNDBfo39CtqN-qiDgw62rZqosVfDBtvn9H6ujNaG8Kqp6cr4CfvRSWVc43E71Hn06OpvBmTL4vRa3F6L12vxey2jXkvQaxn3Wh4vL8Z2mVYPbzezvE07DW2Yxg6mCqapER6N84cMfOykJMMlU8bJNHCpxOLAEyM8v_CN8nyBZhTDHN5V5OlvNxnkjQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P2jgU_StWRiNmpSDlkzB5WAkCqUa77VSF2T6UPpjEAWuMHTnOMJTy3_eaJECyzUqrzQPinHt97oftmxyNRKTECI37-yPlVIXoOFBbsiODEA3WuCADE1XEX1hSvGakGGifTHC1oD_ObraXv2s3zcV4R9lBswuyEQS9PJloAguZiQrMi2FBJM0G5iCXdIflIRJMSO19R8aZlZ2j1aapkCmRVwfLCuzEh6WMcnKl3cALvFivK0gieNoSzfxsnCWDk06OiX2yxVKd0y8L8hG_f6Wp2gLOMCsI-GzVjv2J14TpGpUsNZeU8q1pBi10HA4NW-Q4oXwDvGcBJTF_vVK-dTqh0_39il-CouVsxRE8CcNFMSMZKhTQ8zeFMspYeOdFk9i3zEJJ8UrCO2cezFzHTHQlIZRumbq5wz2hm60K14Kltetwr2sInfzdlO-hY5nyAL-dWISn10jRyBk740ukaWBHdtREyrLsf0WCvsolLl7rWHM3duLZJZbtj_zI-qdeU-bMCyZ2t09EvtGE3IjGcezOr62aj3zb6hedxu7IijqiG6zIHh-ugo-RdxGM_SC2g17BKl43y3L9WYqkEXTnfuxfBIOpHU-cXkFvYnvjOkPQ2Uicb9FXLMlWQDvRc04kVkJWDvrh9rdvKyPDYYaHidigJRy_IiMSzQijb0QekBJo-RE9RLCTUjD0Bzn8tjK-f7-RcNoSMVHJFj3LDeb0B1ZUcLSAC5CoUhKQVZiyoqPgthXAicgdXE0Uy_PZQS8wTtC0pCyFa4G-lIx0FLxehRe0POQEPTzHT0E3c7-9KtqSBE6GkGiK4c8MdjaFQmB0FAjzFL3kKVCtpDqCo18JXlo5ZQKgVlpsab4jXKHPDHOua6psXwguBO-2J2ir_iINSLiAXKHV9T4x2ELoOvhtDh21cV_Rsw9oBwv0hL0tF-gnntJEHxxE-b-V_wjKuqLqGOVCqmr_H55i3frbY2eBayTJOUDTn09CkY6bfTw2yWIpxb4YYqZQjiWGEtmH6u6tjNPpdpHz3xbBSKv-cBsNh7_Dga6hU0G3hm4Fvca59h51cNDBfo39CtqN-qiDgw62rZqosVfDBtvn9H6ujNaG8Kqp6cr4CfvRSWVc43E71Hn06OpvBmTL4vRa3F6L12vxey2jXkvQaxn3Wh4vL8Z2mVYPbzezvE07DW2Yxg6mCqapER6N84cMfOykJMMlU8bJNHCpxOLAEyM8v_CN8nyBZhTDHN5V5OlvNxnkjQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-322-lo-180-070_plan_transportation_-ftsif-lo-180-070_plan_transportation_-ftsif">BUSINESS ARCHITECTURE — 3.2.2 LO-180-070_Plan_Transportation_-<em>FTS</em>(IF) — LO-180-070_Plan_Transportation_-<em>FTS</em>(IF)</h4>
 <p><strong>Swim Lanes</strong>: Customer Business Analyst | <strong>Tasks</strong>: 4 | <strong>Gateways</strong>: 2</p>
@@ -743,7 +757,7 @@ flowchart TD
     class n8 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV1v4jgU_StWqopWCqt8kmweRoJARpVmtNXQmXlY9sEkDlh17Mh2ShnEf99rQoC05WE0kYhyTu459wPb2Vm5KIiVWLe3O8qpTtBuoNekIoMEDZZYkYGNWuIHlhQvGVEDE1MKruf01yHMDepXE2a4DFeUbQ07JytB0PcHG41ByGykMFdDRSQtB_aglrTCcpsKJqSJviFx6ZSHbMdXEyELIs8BjhO5eQhSRjk5034UREFmdIrkghc90zIs4zIf7E1xTGzyNZb6UH6jyFf8-pMWeg24xEwRiFnrin3BS8JMj1o2hssb-dINgyqTh8PA5jXOKV8BHzhAScyfz1To7Pdof3u74Kek6Gm64AiunGGlpqRESgM9e9GopIwlN0E6zkLHVlqKZ5LceLNo6nt2bjpJoHXHNsMdbghdrXWyFKw4hg43pofEq19t-Zp4ji23cH-Ti_DinCkdebEXnzJNIjd10y5TWZZ_lAnmKp-wej7mmvmZl01PudxwFKbOe7-uzWkQjd23cyLyhebkwjTLMn92HtVsFLrOddNJ5o-c9I3pCmuywduz4d9pcDLMwihzo6uGbb63VTbLRynyztCfhVl4Mowmbjb2rhoGYzeIjxWCz0rieo3SRmlREYkmjYL1rhQac8y2Srdx5uLuvwurxEmJh2bsKJUE2kJzam41yWlJczQnjOSaCo6gPqiOLKz_Liy8vsVXTLmGH_pMBBprLemy0UT1Nf4VzROtCPpGGBRRXBUHV8TjoqCmTMyuSsO7k7Zm8Oe9a62dgCEe4CSjpg5wuL-wGIFDKuBgodyM6gn2raqF1K3q7iG7R3ePDHMOG7lztdE_taYVnHUSUmoNrxSa6fyv-3550W7XlYelFBs1xEyjGkvMGGGf2xW3sPb7C038exrYx-0DD9Fw-AlWwBG6LYyOMGqh34deHwZH6LUwPsKgD_0-jFs4ulj-Jnu37Xu09zHtf0wHH9Ph6aDs0aOP6ajb2T027ljLtmBLVZgWVrKzDl81-PIVpMQN09betnCjxXzLcys5nP5WUxegnFIMm7Jqyf3_k6hNaw==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV1v4jgU_StWqopWCqt8kmweRoJARpVmtNXQmXlY9sEkDlh17Mh2ShnEf99rQoC05WE0kYhyTu459wPb2Vm5KIiVWLe3O8qpTtBuoNekIoMEDZZYkYGNWuIHlhQvGVEDE1MKruf01yHMDepXE2a4DFeUbQ07JytB0PcHG41ByGykMFdDRSQtB_aglrTCcpsKJqSJviFx6ZSHbMdXEyELIs8BjhO5eQhSRjk5034UREFmdIrkghc90zIs4zIf7E1xTGzyNZb6UH6jyFf8-pMWeg24xEwRiFnrin3BS8JMj1o2hssb-dINgyqTh8PA5jXOKV8BHzhAScyfz1To7Pdof3u74Kek6Gm64AiunGGlpqRESgM9e9GopIwlN0E6zkLHVlqKZ5LceLNo6nt2bjpJoHXHNsMdbghdrXWyFKw4hg43pofEq19t-Zp4ji23cH-Ti_DinCkdebEXnzJNIjd10y5TWZZ_lAnmKp-wej7mmvmZl01PudxwFKbOe7-uzWkQjd23cyLyhebkwjTLMn92HtVsFLrOddNJ5o-c9I3pCmuywduz4d9pcDLMwihzo6uGbb63VTbLRynyztCfhVl4Mowmbjb2rhoGYzeIjxWCz0rieo3SRmlREYkmjYL1rhQac8y2Srdx5uLuvwurxEmJh2bsKJUE2kJzam41yWlJczQnjOSaCo6gPqiOLKz_Liy8vsVXTLmGH_pMBBprLemy0UT1Nf4VzROtCPpGGBRRXBUHV8TjoqCmTMyuSsO7k7Zm8Oe9a62dgCEe4CSjpg5wuL-wGIFDKuBgodyM6gn2raqF1K3q7iG7R3ePDHMOG7lztdE_taYVnHUSUmoNrxSa6fyv-3550W7XlYelFBs1xEyjGkvMGGGf2xW3sPb7C038exrYx-0DD9Fw-AlWwBG6LYyOMGqh34deHwZH6LUwPsKgD_0-jFs4ulj-Jnu37Xu09zHtf0wHH9Ph6aDs0aOP6ajb2T027ljLtmBLVZgWVrKzDl81-PIVpMQN09betnCjxXzLcys5nP5WUxegnFIMm7Jqyf3_k6hNaw==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IF)</span></div>
 
@@ -874,7 +888,7 @@ flowchart TD
     class n31 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1WGuP2jgU_StWqhGtBGqcBwE-rMQE0h2ptKPCdLUq-8EEB6JJHOSYmaFT_vtehzgQk6jaVos0Dx_fc-7D15fAqxFma2qMjJub15jFYoReO2JLU9oZoc6K5LTTRSfgK-ExWSU070ibKGNiHn8vzLCze5FmEgtIGicHic7pJqPo4a6LxkBMuignLO_llMdRp9vZ8Tgl_OBnScal9Rs6iMyo8FZu3WZ8TfnZwDQ9HLpATWJGz7DtOZ4TSF5Ow4yta6KRGw2isHOUwSXZc7glXBTh73M6Iy9_xWuxhXVEkpyCzVakyUeyoonMUfC9xMI9f1LFiHPph0HB5jsSxmwDuGMCxAl7PEOueTyi483NklVO0WKyZAheYULyfEIjlAuAp08CRXGSjN44_jhwzW4uePZIR2-sqTexrW4oMxlB6mZXFrf3TOPNVoxWWbIuTXvPMoeRtXvp8peRZXb5AX5rvihbnz35fWtgDSpPtx72sa88RVH0W56grnxB8sfS19QOrGBS-cJu3_XNaz2V5sTxxlivE-VPcUgvRIMgsKfnUk37LjbbRW8Du2_6muiGCPpMDmfBoe9UgoHrBdhrFTz506Pcr-55FipBe-oGbiXo3eJgbLUKOmPsDMoIQWfDyW6Lgj0LRZwxkqAx_Drk4mQgXwx_WxoRGUWkJ-uNfE4hH3SfEMagAxFEAnHQpfHPBceqc2YkZgJ-rljonnCSUkF5XhewWwR8IhtfHNCcJrSIuTkA52cB-Fku4LiFgIXm223hft6JOIUpxMF5E6_fwrtjYZbuiIhXcRKLmGo0r4X2MSPrc7zNLgetZeI8LgJVVWrmD-v8h926ONs9hzmSU_SZbwiLvxOpUCdis5kJY4bB8ksGoxtBIAEvrjYowXjVJHCjRI2BbiGMNYL4_S1hGwrHxqCxk0TmJjjYbw6aalvrzQjbQ3__pKCWDGoiGzKFwY9mMH1RFqEFzNx8l3FRlAK9V_V9exe8Q2-vqv1OE5XdKB3rOj0ULOalyImsEQevryob8JE95z2SCLSDSwMlSD6cBsvSOB4vScNfINnmr5DwfyPBO4M2eM49Dt1xcYhX158ROHyten4WPu5irWRYu_n-loYwyzPZSvDPBGJal7110Z4P8DCSF1bjvchS0A-rTtH0telwTznQ0qv2CkDrjkEfMVJOVsLWDeqF00mW0hxQzZU2UM5tWb8ji8OOFjJ38xk00yx4_3UWaC2IvW-VWJhtqrAvkqyZD-rmdxEKHtCfJD_HLdOZvtBwX5zFbQKHgW5pSPZybkQQbBI_UX447ejyw7r8HN5xaHqR4KfgQ1OSsqjzxWdNzTL_12AtOVE-TtGCkhR9otA-iwx9gdsqJ-RiS6_Zl2T7d8ju-X7JB-feCi5AuEX0JUz2OdBaBkC_mfYp0w29ZsO_5VvU1aWFaYR6vT_gr7a2tbWjrfva2tPWA7Uu5Yfl2tbWjrbua2tPWw-0NS7Xlb_hCcAqAVx6xCoD2zwBSqEk2Fjbx6YOKAtsahSMNUBVwS3Xrl4FFbZOwOocsF44q6xU5VNVTvmwCic_lgZMjKXxQ953ZVoWEVda_dK0aIof8jrUduREVFxVHlUNq0zeqk7cK8VkK0q39Q15XfQIi-su3SpRrI5VtRUuK4YroF-Po3hulsevPi_UYKsZtpthpxl2m-F-M-w1w4NmeNgMQ2c14y154pZEcUumuCVV3JIrbkkWOuriU1V9a9C-NWzdgq5q3cLVJ906brXgdgvutOCu-jBXh_vNsNcMD5rhYSMME6URxgo2ukYK75okXhujV6P48gS-YFnTiOwTYRy7BoFnjvmBhcao-JLB2BfP2ZOYwCNYegKP_wITjXa2" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1WGuP2jgU_StWqhGtBGqcBwE-rMQE0h2ptKPCdLUq-8EEB6JJHOSYmaFT_vtehzgQk6jaVos0Dx_fc-7D15fAqxFma2qMjJub15jFYoReO2JLU9oZoc6K5LTTRSfgK-ExWSU070ibKGNiHn8vzLCze5FmEgtIGicHic7pJqPo4a6LxkBMuignLO_llMdRp9vZ8Tgl_OBnScal9Rs6iMyo8FZu3WZ8TfnZwDQ9HLpATWJGz7DtOZ4TSF5Ow4yta6KRGw2isHOUwSXZc7glXBTh73M6Iy9_xWuxhXVEkpyCzVakyUeyoonMUfC9xMI9f1LFiHPph0HB5jsSxmwDuGMCxAl7PEOueTyi483NklVO0WKyZAheYULyfEIjlAuAp08CRXGSjN44_jhwzW4uePZIR2-sqTexrW4oMxlB6mZXFrf3TOPNVoxWWbIuTXvPMoeRtXvp8peRZXb5AX5rvihbnz35fWtgDSpPtx72sa88RVH0W56grnxB8sfS19QOrGBS-cJu3_XNaz2V5sTxxlivE-VPcUgvRIMgsKfnUk37LjbbRW8Du2_6muiGCPpMDmfBoe9UgoHrBdhrFTz506Pcr-55FipBe-oGbiXo3eJgbLUKOmPsDMoIQWfDyW6Lgj0LRZwxkqAx_Drk4mQgXwx_WxoRGUWkJ-uNfE4hH3SfEMagAxFEAnHQpfHPBceqc2YkZgJ-rljonnCSUkF5XhewWwR8IhtfHNCcJrSIuTkA52cB-Fku4LiFgIXm223hft6JOIUpxMF5E6_fwrtjYZbuiIhXcRKLmGo0r4X2MSPrc7zNLgetZeI8LgJVVWrmD-v8h926ONs9hzmSU_SZbwiLvxOpUCdis5kJY4bB8ksGoxtBIAEvrjYowXjVJHCjRI2BbiGMNYL4_S1hGwrHxqCxk0TmJjjYbw6aalvrzQjbQ3__pKCWDGoiGzKFwY9mMH1RFqEFzNx8l3FRlAK9V_V9exe8Q2-vqv1OE5XdKB3rOj0ULOalyImsEQevryob8JE95z2SCLSDSwMlSD6cBsvSOB4vScNfINnmr5DwfyPBO4M2eM49Dt1xcYhX158ROHyten4WPu5irWRYu_n-loYwyzPZSvDPBGJal7110Z4P8DCSF1bjvchS0A-rTtH0telwTznQ0qv2CkDrjkEfMVJOVsLWDeqF00mW0hxQzZU2UM5tWb8ji8OOFjJ38xk00yx4_3UWaC2IvW-VWJhtqrAvkqyZD-rmdxEKHtCfJD_HLdOZvtBwX5zFbQKHgW5pSPZybkQQbBI_UX447ejyw7r8HN5xaHqR4KfgQ1OSsqjzxWdNzTL_12AtOVE-TtGCkhR9otA-iwx9gdsqJ-RiS6_Zl2T7d8ju-X7JB-feCi5AuEX0JUz2OdBaBkC_mfYp0w29ZsO_5VvU1aWFaYR6vT_gr7a2tbWjrfva2tPWA7Uu5Yfl2tbWjrbua2tPWw-0NS7Xlb_hCcAqAVx6xCoD2zwBSqEk2Fjbx6YOKAtsahSMNUBVwS3Xrl4FFbZOwOocsF44q6xU5VNVTvmwCic_lgZMjKXxQ953ZVoWEVda_dK0aIof8jrUduREVFxVHlUNq0zeqk7cK8VkK0q39Q15XfQIi-su3SpRrI5VtRUuK4YroF-Po3hulsevPi_UYKsZtpthpxl2m-F-M-w1w4NmeNgMQ2c14y154pZEcUumuCVV3JIrbkkWOuriU1V9a9C-NWzdgq5q3cLVJ906brXgdgvutOCu-jBXh_vNsNcMD5rhYSMME6URxgo2ukYK75okXhujV6P48gS-YFnTiOwTYRy7BoFnjvmBhcao-JLB2BfP2ZOYwCNYegKP_wITjXa2" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IF)</span></div>
 
@@ -922,7 +936,7 @@ flowchart TD
     class n7 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlldtu2zgQhl-FUBA4BeRdHS2vLnZhy1YQIEUKOG2A1r2gpaFNRCIFkkrsun73kpJ87PpmVxeG5x_ON5wRh9paGc_Biq3b2y1lVMVo21MrKKEXo94CS-jZqBW-YEHxogDZM2sIZ2pGfzTL3KBam2VGS3FJi41RZ7DkgD4_2GikAwsbScxkX4KgpGf3KkFLLDYJL7gwq29gSBzSZOtcYy5yEMcFjhO5WahDC8rgKPtREAWpiZOQcZafQUlIhiTr7czmCv6erbBQzfZrCR_x-oXmaqVtggsJes1KlcUjXkBhalSiNlpWi7d9M6g0eZhu2KzCGWVLrQeOlgRmr0cpdHY7tLu9nbNDUvQ8mTOkn6zAUk6AIKm0PH1TiNCiiG-CZJSGji2V4K8Q33jTaOJ7dmYqiXXpjm2a238HulypeMGLvFvafzc1xF61tsU69hxbbPTvRS5g-TFTMvCG3vCQaRy5iZvsMxFC_lcm3VfxjOVrl2vqp146OeRyw0GYOL_z9mVOgmjkXvYJxBvN4ASapqk_PbZqOghd5zp0nPoDJ7mALrGCd7w5Av9KggMwDaPUja4C23yXu6wXnwTP9kB_GqbhARiN3XTkXQUGIzcYdjvUnKXA1Qo9cpyjTwVmDETrMg9zv32bWwTHBPczvkSJAF0JSkXzttCTmZi59f37SYR3HnEPGmhiEs4kL2iu_-dojGlRAlMoeUCEC_SCCYg_JxQuYP5_gaX3F5Tg7kCRilfoqVZVrdBHkBIvAc0UVrVEn6sWdzers0y7kEFpdC3ggwZ-OAGGmpdwfV9QZnbzrMdRVlxoDuUM3TVt1KOJKsH1CwJpo6dK0VJfX0KfL6W0T6Kpyv4w4BPuYLs9lptDf6HB2UpXW5Y8p2qDnjcV_DO3druToOjfg2CdFbWkb3Dfnr1jlJ7O9g8LUb__t37Jnem25qAzvdaMOtM_N6PWDDpzYMyfc-vr7GUyt37q6N8cD7PG4Z8cZZPzZODOPN5Vj3_VE3RXz5kYHu6-M3mwn8ozNdqrlm2VIEpMcyveWs0XSX-1ciC4LpS1sy1cKz7bsMyKm5vbqpvzM6FYD1TZirtfE5k4Og==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlldtu2zgQhl-FUBA4BeRdHS2vLnZhy1YQIEUKOG2A1r2gpaFNRCIFkkrsun73kpJ87PpmVxeG5x_ON5wRh9paGc_Biq3b2y1lVMVo21MrKKEXo94CS-jZqBW-YEHxogDZM2sIZ2pGfzTL3KBam2VGS3FJi41RZ7DkgD4_2GikAwsbScxkX4KgpGf3KkFLLDYJL7gwq29gSBzSZOtcYy5yEMcFjhO5WahDC8rgKPtREAWpiZOQcZafQUlIhiTr7czmCv6erbBQzfZrCR_x-oXmaqVtggsJes1KlcUjXkBhalSiNlpWi7d9M6g0eZhu2KzCGWVLrQeOlgRmr0cpdHY7tLu9nbNDUvQ8mTOkn6zAUk6AIKm0PH1TiNCiiG-CZJSGji2V4K8Q33jTaOJ7dmYqiXXpjm2a238HulypeMGLvFvafzc1xF61tsU69hxbbPTvRS5g-TFTMvCG3vCQaRy5iZvsMxFC_lcm3VfxjOVrl2vqp146OeRyw0GYOL_z9mVOgmjkXvYJxBvN4ASapqk_PbZqOghd5zp0nPoDJ7mALrGCd7w5Av9KggMwDaPUja4C23yXu6wXnwTP9kB_GqbhARiN3XTkXQUGIzcYdjvUnKXA1Qo9cpyjTwVmDETrMg9zv32bWwTHBPczvkSJAF0JSkXzttCTmZi59f37SYR3HnEPGmhiEs4kL2iu_-dojGlRAlMoeUCEC_SCCYg_JxQuYP5_gaX3F5Tg7kCRilfoqVZVrdBHkBIvAc0UVrVEn6sWdzers0y7kEFpdC3ggwZ-OAGGmpdwfV9QZnbzrMdRVlxoDuUM3TVt1KOJKsH1CwJpo6dK0VJfX0KfL6W0T6Kpyv4w4BPuYLs9lptDf6HB2UpXW5Y8p2qDnjcV_DO3druToOjfg2CdFbWkb3Dfnr1jlJ7O9g8LUb__t37Jnem25qAzvdaMOtM_N6PWDDpzYMyfc-vr7GUyt37q6N8cD7PG4Z8cZZPzZODOPN5Vj3_VE3RXz5kYHu6-M3mwn8ozNdqrlm2VIEpMcyveWs0XSX-1ciC4LpS1sy1cKz7bsMyKm5vbqpvzM6FYD1TZirtfE5k4Og==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IF)</span></div>
 

@@ -120,8 +120,8 @@ blockquote {
     background: #fafbfd;
     border: 1px solid #e0e4ea;
     border-radius: 6px;
-    padding: 20px 12px;
-    margin: 16px 0;
+    padding: 16px 12px;
+    margin: 12px 0;
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
@@ -130,6 +130,7 @@ blockquote {
 .mermaid svg {
     max-width: 100%;
     height: auto;
+    max-height: 85vh;
 }
 .header-bar {
     background: #00285a;
@@ -205,25 +206,31 @@ strong { color: #00285a; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print, .pdf-download-btn { display: none !important; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
-    /* Page sections: do NOT use min-height in print — the page-break divs
-       already handle pagination.  min-height:100vh forces every section to
-       fill a full page, which creates blank trailing space before the next
-       page-break, producing blank pages in the PDF output. */
+
+    /* Page sections: auto height in print — page-break divs handle pagination */
     .page-section {
         min-height: auto;
         display: block;
     }
     .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
         page-break-inside: avoid;
+        break-inside: avoid;
         overflow: visible;
+        max-height: 85vh;
+        margin: 8px 0;
     }
     .mermaid svg {
         max-width: 100%;
+        max-height: 80vh;
         height: auto;
+        width: auto;
     }
+
     /* Diagram links: visible + clickable in PDF */
     a[title="View full diagram"],
     a[title="Open full-size SVG"] {
@@ -231,6 +238,13 @@ strong { color: #00285a; }
         text-decoration: underline !important;
         font-size: 10pt !important;
     }
+
+    /* Tighten spacing in print for professional PDF output */
+    h2 { margin-top: 18px; margin-bottom: 8px; }
+    h3 { margin-top: 14px; margin-bottom: 6px; }
+    h4 { margin-top: 10px; margin-bottom: 4px; }
+    table { margin: 8px 0; }
+    blockquote { margin: 8px 0; padding: 6px 14px; }
 }
 </style>
     
@@ -705,7 +719,7 @@ flowchart TD
     class n13 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP6jYQ_itWjlbsSlAlISFsHlqxgahUPdvVgT1VdeiDSRyw1tiR7bBLOfz3jnPhkkJVqXmAzOeZby4ej7O3EpESK7Tu7vaUUx2ifUevyYZ0QtRZYkU6XVQBX7GkeMmI6hidTHA9o3-Vao6Xfxg1g8V4Q9nOoDOyEgS9TrtoBIasixTmqqeIpFmn28kl3WC5iwQT0mh_IsPMzkpv9dKTkCmRJwXbDpzEB1NGOTnB_cALvNjYKZIInl6QZn42zJLOwQTHxHuyxlKX4ReKfMYfv9NUr0HOMFMEdNZ6w37FS8JMjloWBksKuW2KQZXxw6FgsxwnlK8A92yAJOZvJ8i3Dwd0uLtb8KNTNB8vOIInYVipMcmQ0gBPthpllLHwkxeNYt_uKi3FGwk_uZNg3He7ickkhNTtrilu753Q1VqHS8HSWrX3bnII3fyjKz9C1-7KHfy2fBGenjxFA3foDo-engIncqLGU5Zl_8sT1FXOsXqrfU36sRuPj74cf-BH9j_5mjTHXjBy2nUicksTckYax3F_cirVZOA79m3Sp7g_sKMW6Qpr8o53J8LHyDsSxn4QO8FNwspfO8pi-SJF0hD2J37sHwmDJyceuTcJvZHjDesIgWclcb5G0zmKnr-gWZHnAtpnlpMEDhFVutIzD3e-LawMhxnumbKjLyRnNIHM0FOh4IwohT7jPIeeXFh_npm5l2YvRGZCblAUT5_RKElEwTXYoCnXsIITcmndv2797y6960YTKYVEkZCSJJoKjn7GPGXG-f1oGj9ccvjtbLWkZEvQD4naopiyVpyDb0f9RKzQa84EThFMMjTGGiPKq4RnGq-Mw3k52oDinCO45GjCfuV0S6TCDP0iCsnhf8K13EHQ0fi3aPTQYhm2WBjUtAzEBK1MJLPRCxpTUwQhdy3rx-sxGFv0FToixWXl7mNAMTQKzGQEVYR9gFlo-ECVsFS1o3Ls-yNxzuAszGGIKWbaB7YQTT5g901qJYyr7SkrN4VbgoJaCoQP54TOiVBpkf9nwkhsckauELotwmehaWY63JjOCNdIC3NQmkMyJ3jT5ujv96fypaS3BO_J-rxysyJJoHGzgv20sA6HyhgmZvXCXdTr_QhtX4tBJTr1mOJOJbu16FViUIuDWrsW-5Xo1eKwEgcNlV3Jfi37lfhYi481VxOJU7J9X1h_mL79DnTthWdR4o57NqxMxM2QvoDd63D_Ouxdh_3r8OB8il-sBDdXhjdXHm-uQAWba_USd-or8BJ1r6L95nawutaGwKGiqRXurfIbCL6TUpLhgmnr0LVwocVsxxMrLL8VrCKHliJjimGEbyrw8De9Q_fe" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP6jYQ_itWjlbsSlAlISFsHlqxgahUPdvVgT1VdeiDSRyw1tiR7bBLOfz3jnPhkkJVqXmAzOeZby4ej7O3EpESK7Tu7vaUUx2ifUevyYZ0QtRZYkU6XVQBX7GkeMmI6hidTHA9o3-Vao6Xfxg1g8V4Q9nOoDOyEgS9TrtoBIasixTmqqeIpFmn28kl3WC5iwQT0mh_IsPMzkpv9dKTkCmRJwXbDpzEB1NGOTnB_cALvNjYKZIInl6QZn42zJLOwQTHxHuyxlKX4ReKfMYfv9NUr0HOMFMEdNZ6w37FS8JMjloWBksKuW2KQZXxw6FgsxwnlK8A92yAJOZvJ8i3Dwd0uLtb8KNTNB8vOIInYVipMcmQ0gBPthpllLHwkxeNYt_uKi3FGwk_uZNg3He7ickkhNTtrilu753Q1VqHS8HSWrX3bnII3fyjKz9C1-7KHfy2fBGenjxFA3foDo-engIncqLGU5Zl_8sT1FXOsXqrfU36sRuPj74cf-BH9j_5mjTHXjBy2nUicksTckYax3F_cirVZOA79m3Sp7g_sKMW6Qpr8o53J8LHyDsSxn4QO8FNwspfO8pi-SJF0hD2J37sHwmDJyceuTcJvZHjDesIgWclcb5G0zmKnr-gWZHnAtpnlpMEDhFVutIzD3e-LawMhxnumbKjLyRnNIHM0FOh4IwohT7jPIeeXFh_npm5l2YvRGZCblAUT5_RKElEwTXYoCnXsIITcmndv2797y6960YTKYVEkZCSJJoKjn7GPGXG-f1oGj9ccvjtbLWkZEvQD4naopiyVpyDb0f9RKzQa84EThFMMjTGGiPKq4RnGq-Mw3k52oDinCO45GjCfuV0S6TCDP0iCsnhf8K13EHQ0fi3aPTQYhm2WBjUtAzEBK1MJLPRCxpTUwQhdy3rx-sxGFv0FToixWXl7mNAMTQKzGQEVYR9gFlo-ECVsFS1o3Ls-yNxzuAszGGIKWbaB7YQTT5g901qJYyr7SkrN4VbgoJaCoQP54TOiVBpkf9nwkhsckauELotwmehaWY63JjOCNdIC3NQmkMyJ3jT5ujv96fypaS3BO_J-rxysyJJoHGzgv20sA6HyhgmZvXCXdTr_QhtX4tBJTr1mOJOJbu16FViUIuDWrsW-5Xo1eKwEgcNlV3Jfi37lfhYi481VxOJU7J9X1h_mL79DnTthWdR4o57NqxMxM2QvoDd63D_Ouxdh_3r8OB8il-sBDdXhjdXHm-uQAWba_USd-or8BJ1r6L95nawutaGwKGiqRXurfIbCL6TUpLhgmnr0LVwocVsxxMrLL8VrCKHliJjimGEbyrw8De9Q_fe" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
 
@@ -772,7 +786,7 @@ flowchart TD
     class n14 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2PqzYQ_SsWq1VaiejyGbI8tMqSUPWqlVY32_ah6YMDQ2ItYGqbTdLc_PfaYJKQJb0P5SHKnJlzzngwhqOR0BSM0Hh8PJKSiBAdR2ILBYxCNFpjDiMTtcDvmBG8zoGPVE1GS7Ek_zRltlftVZnCYlyQ_KDQJWwooN9-NtFMEnMTcVzyMQdGspE5qhgpMDtENKdMVT_ANLOyxk2nnilLgV0KLCuwE19Sc1LCBXYDL_BixeOQ0DLtiWZ-Ns2S0Uk1l9NdssVMNO3XHH7F-z9IKrYyznDOQdZsRZH_gteQqzUKVissqdl7NwzClU8pB7ascELKjcQ9S0IMl28XyLdOJ3R6fFyVZ1P0Ol-VSF5JjjmfQ4a4kPDiXaCM5Hn44EWz2LdMLhh9g_DBWQRz1zETtZJQLt0y1XDHOyCbrQjXNE916Xin1hA61d5k-9CxTHaQvzdeUKYXp2jiTJ3p2ek5sCM76pyyLPtfTnKu7BXzN-21cGMnnp-9bH_iR9ZHvW6Zcy-Y2bdzAvZOErgSjePYXVxGtZj4tnVf9Dl2J1Z0I7rBAnb4cBF8iryzYOwHsR3cFWz9brus1y-MJp2gu_Bj_ywYPNvxzLkr6M1sb6o7lDobhqstmiUJrUshNxRaHriAAi3rCpiab1uprtL-c2VkOMzwWCXQnPAql8v6AhWVe05QtNzSnQzlJmZK6vNiZfx1xXf6_MVeVgq4IixKwQ59jnvPs8dBc5rUBZSCoxcq-0_7Il5fJNricvMNX__GF3L4VquT4VZbN67m85_0QNK_wN818GaWEQO5bT4ND4kA75OnktwyPozmFQrZh4A-4em7c7dNly_ypKQpSdCsFrSQ5WlnhF4Z2WyANUP9_no7WBcNLmjVu_N6Yh849l2O2tHAubRNP9Kc47GjqTfIeC3PwGSrh4To3c306ceVcTpdK7l3lNo9Qe_d6g863rAO7JO85uQdfmof-gtNHovtn3KKxuMfpIQObR16Onba2NWh14YTHQa62tGxr2OrU9P1Xd7V-bNbA3yV26VZ8cr4Ki1uc-0Mmpyvc0-tTtCVOrpUD76ptd3bbHuDmuRU5yb95TaHmhpCd5j3YGcYdodhbxj2h-HJMPx0fln2G7T0i62P2oOo0535fdgdhr0ONkyjAFZgkhrh0Wi-g-S3UgoZrnNhnEwDy4dzeSgTI2y-F4y6SiVzTrA8xosWPP0LGIr5fw==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2PqzYQ_SsWq1VaiejyGbI8tMqSUPWqlVY32_ah6YMDQ2ItYGqbTdLc_PfaYJKQJb0P5SHKnJlzzngwhqOR0BSM0Hh8PJKSiBAdR2ILBYxCNFpjDiMTtcDvmBG8zoGPVE1GS7Ek_zRltlftVZnCYlyQ_KDQJWwooN9-NtFMEnMTcVzyMQdGspE5qhgpMDtENKdMVT_ANLOyxk2nnilLgV0KLCuwE19Sc1LCBXYDL_BixeOQ0DLtiWZ-Ns2S0Uk1l9NdssVMNO3XHH7F-z9IKrYyznDOQdZsRZH_gteQqzUKVissqdl7NwzClU8pB7ascELKjcQ9S0IMl28XyLdOJ3R6fFyVZ1P0Ol-VSF5JjjmfQ4a4kPDiXaCM5Hn44EWz2LdMLhh9g_DBWQRz1zETtZJQLt0y1XDHOyCbrQjXNE916Xin1hA61d5k-9CxTHaQvzdeUKYXp2jiTJ3p2ek5sCM76pyyLPtfTnKu7BXzN-21cGMnnp-9bH_iR9ZHvW6Zcy-Y2bdzAvZOErgSjePYXVxGtZj4tnVf9Dl2J1Z0I7rBAnb4cBF8iryzYOwHsR3cFWz9brus1y-MJp2gu_Bj_ywYPNvxzLkr6M1sb6o7lDobhqstmiUJrUshNxRaHriAAi3rCpiab1uprtL-c2VkOMzwWCXQnPAql8v6AhWVe05QtNzSnQzlJmZK6vNiZfx1xXf6_MVeVgq4IixKwQ59jnvPs8dBc5rUBZSCoxcq-0_7Il5fJNricvMNX__GF3L4VquT4VZbN67m85_0QNK_wN818GaWEQO5bT4ND4kA75OnktwyPozmFQrZh4A-4em7c7dNly_ypKQpSdCsFrSQ5WlnhF4Z2WyANUP9_no7WBcNLmjVu_N6Yh849l2O2tHAubRNP9Kc47GjqTfIeC3PwGSrh4To3c306ceVcTpdK7l3lNo9Qe_d6g863rAO7JO85uQdfmof-gtNHovtn3KKxuMfpIQObR16Onba2NWh14YTHQa62tGxr2OrU9P1Xd7V-bNbA3yV26VZ8cr4Ki1uc-0Mmpyvc0-tTtCVOrpUD76ptd3bbHuDmuRU5yb95TaHmhpCd5j3YGcYdodhbxj2h-HJMPx0fln2G7T0i62P2oOo0535fdgdhr0ONkyjAFZgkhrh0Wi-g-S3UgoZrnNhnEwDy4dzeSgTI2y-F4y6SiVzTrA8xosWPP0LGIr5fw==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
 
@@ -840,7 +854,7 @@ flowchart TD
     class n13 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v6jYY_itWqopzpKDlk9BcbKKBTK12pGrtdi7GLkzyBqwaO7MdCuPw3-eQD0garsZFy_v4eZ73A8fO0Uh4CkZo3N8fCSMqRMeR2sAWRiEarbCEkYkq4E8sCF5RkKOSk3GmXsm_Z5rt5fuSVmIx3hJ6KNFXWHNAfzyZaKaF1EQSMzmWIEg2Mke5IFssDhGnXJTsO5hmVnbOVi89cpGCuBAsK7ATX0spYXCB3cALvLjUSUg4SzummZ9Ns2R0Kouj_CPZYKHO5RcSvuH9d5KqjY4zTCVozkZt6W94BbTsUYmixJJC7JphEFnmYXpgrzlOCFtr3LM0JDB7v0C-dTqh0_39krVJ0dt8yZD-JBRLOYcMSaXhxU6hjFAa3nnRLPYtUyrB3yG8cxbB3HXMpOwk1K1bZjnc8QeQ9UaFK07Tmjr-KHsInXxvin3oWKY46L-9XMDSS6Zo4kydaZvpMbAjO2oyZVn2vzLpuYo3LN_rXAs3duJ5m8v2J35kffZr2px7wczuzwnEjiRwZRrHsbu4jGox8W3rtulj7E6sqGe6xgo-8OFi-BB5rWHsB7Ed3DSs8vWrLFYvgieNobvwY781DB7teObcNPRmtjetK9Q-a4HzDXrmhWCYogVT4oC-PC--ohcBORYgKmb5YfZfSyPDYYbH5eDRHCgoQPpxRS9YvEOK5jwptsDU0vj7SuZ0Zb_DDoSsdVyqmzq3r5OgUERBnwxsjTBLW6thvdfVv4DIuNiiJ5aSHUkL3W6lx7Sr84d13_Twbygm_Ur_KUAqpHgzo586XT8vblQcDGeOBNepI77NMTvo_-ml4xsFTb-0TjnVO69hSVTuG9BuT_r0JXpfplr49Ur5cFFKxfP-L1s31FfZVk_2pttMGw2ReqclZdqsoPSARDWLFHGB0mE_-3hs_MobY7zSZ16yaafIm933y9I4na6FzrDw-wbr3-OQa2nWTuOT2B0Wwz6hhSQ7-LV6kC8yfdRVX5iNxuOf9fjq0KlC22mWz-s_lkZV9tL4obH-Wt3debERTmqjhjyt4kkduvWyW8dBL_Z7sdeL7cbAagCnLqa33XVJfp8y-CRpotcnft7AZ17Q53Uf8TPHvTr6yik3R34HdoZhdxj2hmF_GJ4Mw8EwPG1v2g78UF-K3WasQdRu7osu7AzDbgMbprEFscUkNcKjcX6H0u9ZKWS4oMo4mQYuFH89sMQIz-8aRpGnWjknWF8B2wo8_Qc5zw0B" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v6jYY_itWqopzpKDlk9BcbKKBTK12pGrtdi7GLkzyBqwaO7MdCuPw3-eQD0garsZFy_v4eZ73A8fO0Uh4CkZo3N8fCSMqRMeR2sAWRiEarbCEkYkq4E8sCF5RkKOSk3GmXsm_Z5rt5fuSVmIx3hJ6KNFXWHNAfzyZaKaF1EQSMzmWIEg2Mke5IFssDhGnXJTsO5hmVnbOVi89cpGCuBAsK7ATX0spYXCB3cALvLjUSUg4SzummZ9Ns2R0Kouj_CPZYKHO5RcSvuH9d5KqjY4zTCVozkZt6W94BbTsUYmixJJC7JphEFnmYXpgrzlOCFtr3LM0JDB7v0C-dTqh0_39krVJ0dt8yZD-JBRLOYcMSaXhxU6hjFAa3nnRLPYtUyrB3yG8cxbB3HXMpOwk1K1bZjnc8QeQ9UaFK07Tmjr-KHsInXxvin3oWKY46L-9XMDSS6Zo4kydaZvpMbAjO2oyZVn2vzLpuYo3LN_rXAs3duJ5m8v2J35kffZr2px7wczuzwnEjiRwZRrHsbu4jGox8W3rtulj7E6sqGe6xgo-8OFi-BB5rWHsB7Ed3DSs8vWrLFYvgieNobvwY781DB7teObcNPRmtjetK9Q-a4HzDXrmhWCYogVT4oC-PC--ohcBORYgKmb5YfZfSyPDYYbH5eDRHCgoQPpxRS9YvEOK5jwptsDU0vj7SuZ0Zb_DDoSsdVyqmzq3r5OgUERBnwxsjTBLW6thvdfVv4DIuNiiJ5aSHUkL3W6lx7Sr84d13_Twbygm_Ur_KUAqpHgzo586XT8vblQcDGeOBNepI77NMTvo_-ml4xsFTb-0TjnVO69hSVTuG9BuT_r0JXpfplr49Ur5cFFKxfP-L1s31FfZVk_2pttMGw2ReqclZdqsoPSARDWLFHGB0mE_-3hs_MobY7zSZ16yaafIm933y9I4na6FzrDw-wbr3-OQa2nWTuOT2B0Wwz6hhSQ7-LV6kC8yfdRVX5iNxuOf9fjq0KlC22mWz-s_lkZV9tL4obH-Wt3debERTmqjhjyt4kkduvWyW8dBL_Z7sdeL7cbAagCnLqa33XVJfp8y-CRpotcnft7AZ17Q53Uf8TPHvTr6yik3R34HdoZhdxj2hmF_GJ4Mw8EwPG1v2g78UF-K3WasQdRu7osu7AzDbgMbprEFscUkNcKjcX6H0u9ZKWS4oMo4mQYuFH89sMQIz-8aRpGnWjknWF8B2wo8_Qc5zw0B" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-324-dc-010-080_exchange_rate_maintenance-dc-010-080_exchange_rate_maintenance">BUSINESS ARCHITECTURE — 3.2.4 DC-010-080_Exchange_Rate_Maintenance — DC-010-080_Exchange_Rate_Maintenance</h4>
 <p><strong>Swim Lanes</strong>: Treasury IT Support Specialist | <strong>Tasks</strong>: 2 | <strong>Gateways</strong>: 0</p>
@@ -874,7 +888,7 @@ flowchart TD
     class n5 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO2jAQ_RUrK5RWCmquhOahEgRSrdSVqsJ2H5Y-mGRMLIIT2Q6QIv69NpdwaXlqHghzPOccz2TsnZGWGRiR0ensKKMyQjtT5rACM0LmHAswLXQEfmJO8bwAYeocUjI5ob8PaY5fbXWaxhK8okWj0QksSkCvzxYaKGJhIYGZ6ArglJiWWXG6wryJy6LkOvsJ-sQmB7fT0rDkGfBLgm2HThooakEZXGAv9EM_0TwBacmyG1ESkD5Jzb3eXFFu0hxzedh-LeAFb99oJnMVE1wIUDm5XBXf8BwKXaPktcbSmq_PzaBC-zDVsEmFU8oWCvdtBXHMlhcosPd7tO90Zqw1RdPRjCH1pAUWYgQECang8VoiQosievLjQRLYlpC8XEL05I7Dkedaqa4kUqXblm5udwN0kctoXhbZKbW70TVEbrW1-DZybYs36vfOC1h2cYp7bt_tt07D0Imd-OxECPkvJ9VXPsViefIae4mbjFovJ-gFsf233rnMkR8OnPs-AV_TFK5EkyTxxpdWjXuBYz8WHSZez47vRBdYwgY3F8HPsd8KJkGYOOFDwaPf_S7r-XdepmdBbxwkQSsYDp1k4D4U9AeO3z_tUOksOK5yNOWARc0b9DxFk7qqSjVDkwpSdZKokMdk_TDn_X1mEBwR3E3LBXrOgElKGhSrs0AlLRmaNhXMjF-_rkjuLem1ylRD0HirZpUtAP3QERaoAq4rUgCkQNeQ3cl4H1qZqlDtPPBeMGUSGGbplaJuDgiBJnrqDzofr3R8JfMVGHDNj7HIE3VuuroEURZU7U2VoShXjEAxRljdNJ_QG8BSv1_U2OZozLI2U4398Q9zULf7RZV9Cr1jGJxC9xj6pzA4hteDqBWuBvFmxX244rWH_Ab2_w0HLWxYxgr4CtPMiHbG4fJVF3QGBNeFNPaWgWtZThqWGtHhkjLqw_cbUaxmZ3UE938A6z7gOA==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO2jAQ_RUrK5RWCmquhOahEgRSrdSVqsJ2H5Y-mGRMLIIT2Q6QIv69NpdwaXlqHghzPOccz2TsnZGWGRiR0ensKKMyQjtT5rACM0LmHAswLXQEfmJO8bwAYeocUjI5ob8PaY5fbXWaxhK8okWj0QksSkCvzxYaKGJhIYGZ6ArglJiWWXG6wryJy6LkOvsJ-sQmB7fT0rDkGfBLgm2HThooakEZXGAv9EM_0TwBacmyG1ESkD5Jzb3eXFFu0hxzedh-LeAFb99oJnMVE1wIUDm5XBXf8BwKXaPktcbSmq_PzaBC-zDVsEmFU8oWCvdtBXHMlhcosPd7tO90Zqw1RdPRjCH1pAUWYgQECang8VoiQosievLjQRLYlpC8XEL05I7Dkedaqa4kUqXblm5udwN0kctoXhbZKbW70TVEbrW1-DZybYs36vfOC1h2cYp7bt_tt07D0Imd-OxECPkvJ9VXPsViefIae4mbjFovJ-gFsf233rnMkR8OnPs-AV_TFK5EkyTxxpdWjXuBYz8WHSZez47vRBdYwgY3F8HPsd8KJkGYOOFDwaPf_S7r-XdepmdBbxwkQSsYDp1k4D4U9AeO3z_tUOksOK5yNOWARc0b9DxFk7qqSjVDkwpSdZKokMdk_TDn_X1mEBwR3E3LBXrOgElKGhSrs0AlLRmaNhXMjF-_rkjuLem1ylRD0HirZpUtAP3QERaoAq4rUgCkQNeQ3cl4H1qZqlDtPPBeMGUSGGbplaJuDgiBJnrqDzofr3R8JfMVGHDNj7HIE3VuuroEURZU7U2VoShXjEAxRljdNJ_QG8BSv1_U2OZozLI2U4398Q9zULf7RZV9Cr1jGJxC9xj6pzA4hteDqBWuBvFmxX244rWH_Ab2_w0HLWxYxgr4CtPMiHbG4fJVF3QGBNeFNPaWgWtZThqWGtHhkjLqw_cbUaxmZ3UE938A6z7gOA==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
 
@@ -1048,7 +1062,7 @@ Error"| n4
     class n45 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWGtvqzYY_itWjqq2UqJhMIHkw6aUlKPoXHp00rNpWvfBJSZlh-DIQC_r-t_3GmwaHKNtXaRW4fH7PO_Fry_heZTwDRvNRycnz1mRVXP0fFrdsR07naPTW1qy0zFqgZ-pyOhtzspTaZPyolpnfzZmmOwfpZnEYrrL8ieJrtmWM_RtNUYLIOZjVNKinJRMZOnp-HQvsh0VTxHPuZDW71iYOmnjTQ1dcLFh4tXAcQKc-EDNs4K9wl5AAhJLXskSXmx6oqmfhmly-iKDy_lDckdF1YRfl-wTffwl21R38JzSvGRgc1ft8o_0luUyx0rUEktqca-LkZXSTwEFW-9pkhVbwIkDkKDF91fId15e0MvJyU3ROUXXy5sCwSfJaVkuWYrKCuDL-wqlWZ7P35FoEfvOuKwE_87m79zLYOm540RmMofUnbEs7uSBZdu7an7L840ynTzIHObu_nEsHueuMxZP8N_wxYrNq6do6oZu2Hm6CHCEI-0pTdP_5QnqKq5p-V35uvRiN152vrA_9SPnWE-nuSTBApt1YuI-S9iBaBzH3uVrqS6nPnaGRS9ib-pEhuiWVuyBPr0KziLSCcZ-EONgULD1Z0ZZ334RPNGC3qUf-51gcIHjhTsoSBaYhCpC0NkKur9DUbz6jFbXaFHQ_Kms2lH5KfBvN6OUzlM6kcVGkWCQDOICfaJZUcEfWtKK3ox-P-C4fc7PNM82kgXGi_0-zxJaZbxAq6JiIqUJQ7GgO_bAxXd0tljF52idCMaKvqhnBMKFYEmFYLOAUPZ7WAt9e9K3_wKuuNihNaTHdjKBiBdptq1FG4zSg699Gb8v84nDrgXkeIW-8LICr2Xffmp3C_YrYMLOhD5yutHkPjcYqBsooEshuDB8hX37r3JHSrKcoQtWPUAB0ZrXAspLiw26pmLLKnR2GS0gmEl01ZlnbQG-sj0XVXnedzF7owutr2QNVeyYspXItlv41kxnVpZQG7TkSb1jRVXK2bq6_QOmxygAxqZOyfN71qi0BUNnqjmkhopV6543UQNH7o296TG8BL91bhK-7eYUGgjWWJ5L9YNm6FFDOzXOClpAKGfx6nyQOxtyW0KRo6tzVROD5jp2GmwYaVahiMlVh5ZwMN5T1e49Oh7wWsP6KJInmfU9E6WF6faZ6yrb1bns3-Hm7_G9Pv_bvmn-6OriQzNRi2_xB-gxuBOYRHLWEfc57LPtbnbo8bptLyZn9vyQKpd3Yx7lvGSySAkry8afzrzt4KPF6sqVrltJGrVUZjSPG_wrM895fn5NfsMmt3DIJ3dqu_qhv1c1rd3uwW1vN8BPN6OXl0NJbJfs2AWvjjiundMlcEdLtbKOqJ6dyh6TvC6ze_a-PQVNGnkbzbfTDjY1KNS6TmSx0zo36dN_pGc9_lG2wZvCJgf1pVDGh3JC8wrtqaB5zvIBkvcWEnkLyf9vJLjpGReJ94LXe7RIEl7D7aDo3SSMa0GzMOXlAaWC79pFW3H0_itcAqLlVfStXezm0eHZD1hYIbD3y_Py6AjHZOBcha2_zo_OFOPE_1oX6CKKDaPpgCRY2mXd8O07jTyEtb28C8RZmcDO9iujArmO60uBjG-QK-tHpIy8pJk7TPi2hTYb2BEgBsH2VB4JMUz2xlwhZGBHW5UIjiEVMW4a4IiK_7vPrhXh3ESTyY9y2SiAuC2AAxMITWCmNQJDwyUt4GkNxfDUD4jCa59dPe4pgqtdqMep5k-VANFAYADEMwAPS-Cvm9GvDJrrL3lomCOfeTPQpRG2Er561i50UJ7b5-l6-MpOZ-85yk4dR_27803RnAiNQpeNqk9XDpUM6bLTBXFMQFfUdRRFR09UWK4O38WGhUrX08-eb1Rsag6oxLtMXT2PWkI1k9cxp4ak65kjShPrzLDuLm2JlROsi4F1d-mJ81QmuJupWV-cdGVzjHiwjhyrcmEdOlYtR3SFidE2bmiK6oGZyehaMDQDPBpxdQk1MDWe9Sx2uao21WFix1h7XTv27j-t115ny18IWgT3e7r5LS1963cIPdi1w54dJnbYt8NTOxzY4dAOz-wwlMqOD-SJBxLFA5nigVTxQK54IFnYXw_etPSHwuGh2eAQbBaDQ3h4yB0e8oaHSPc6rY_7A_h0AA8G8HAAn9lxWA7qDVMfxnbYtcOeHSZ22LfDUzsc2OHQDs-sMLFnSexZEnuWxJ4lsWdJuixH49GOiR3NNqP586h5QQ0vsTcspXDTG72MR7Su-PqpSEbz5kXuqG5-vC4zCtfiXQu-_A10UBoq" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWGtvqzYY_itWjqq2UqJhMIHkw6aUlKPoXHp00rNpWvfBJSZlh-DIQC_r-t_3GmwaHKNtXaRW4fH7PO_Fry_heZTwDRvNRycnz1mRVXP0fFrdsR07naPTW1qy0zFqgZ-pyOhtzspTaZPyolpnfzZmmOwfpZnEYrrL8ieJrtmWM_RtNUYLIOZjVNKinJRMZOnp-HQvsh0VTxHPuZDW71iYOmnjTQ1dcLFh4tXAcQKc-EDNs4K9wl5AAhJLXskSXmx6oqmfhmly-iKDy_lDckdF1YRfl-wTffwl21R38JzSvGRgc1ft8o_0luUyx0rUEktqca-LkZXSTwEFW-9pkhVbwIkDkKDF91fId15e0MvJyU3ROUXXy5sCwSfJaVkuWYrKCuDL-wqlWZ7P35FoEfvOuKwE_87m79zLYOm540RmMofUnbEs7uSBZdu7an7L840ynTzIHObu_nEsHueuMxZP8N_wxYrNq6do6oZu2Hm6CHCEI-0pTdP_5QnqKq5p-V35uvRiN152vrA_9SPnWE-nuSTBApt1YuI-S9iBaBzH3uVrqS6nPnaGRS9ib-pEhuiWVuyBPr0KziLSCcZ-EONgULD1Z0ZZ334RPNGC3qUf-51gcIHjhTsoSBaYhCpC0NkKur9DUbz6jFbXaFHQ_Kms2lH5KfBvN6OUzlM6kcVGkWCQDOICfaJZUcEfWtKK3ox-P-C4fc7PNM82kgXGi_0-zxJaZbxAq6JiIqUJQ7GgO_bAxXd0tljF52idCMaKvqhnBMKFYEmFYLOAUPZ7WAt9e9K3_wKuuNihNaTHdjKBiBdptq1FG4zSg699Gb8v84nDrgXkeIW-8LICr2Xffmp3C_YrYMLOhD5yutHkPjcYqBsooEshuDB8hX37r3JHSrKcoQtWPUAB0ZrXAspLiw26pmLLKnR2GS0gmEl01ZlnbQG-sj0XVXnedzF7owutr2QNVeyYspXItlv41kxnVpZQG7TkSb1jRVXK2bq6_QOmxygAxqZOyfN71qi0BUNnqjmkhopV6543UQNH7o296TG8BL91bhK-7eYUGgjWWJ5L9YNm6FFDOzXOClpAKGfx6nyQOxtyW0KRo6tzVROD5jp2GmwYaVahiMlVh5ZwMN5T1e49Oh7wWsP6KJInmfU9E6WF6faZ6yrb1bns3-Hm7_G9Pv_bvmn-6OriQzNRi2_xB-gxuBOYRHLWEfc57LPtbnbo8bptLyZn9vyQKpd3Yx7lvGSySAkry8afzrzt4KPF6sqVrltJGrVUZjSPG_wrM895fn5NfsMmt3DIJ3dqu_qhv1c1rd3uwW1vN8BPN6OXl0NJbJfs2AWvjjiundMlcEdLtbKOqJ6dyh6TvC6ze_a-PQVNGnkbzbfTDjY1KNS6TmSx0zo36dN_pGc9_lG2wZvCJgf1pVDGh3JC8wrtqaB5zvIBkvcWEnkLyf9vJLjpGReJ94LXe7RIEl7D7aDo3SSMa0GzMOXlAaWC79pFW3H0_itcAqLlVfStXezm0eHZD1hYIbD3y_Py6AjHZOBcha2_zo_OFOPE_1oX6CKKDaPpgCRY2mXd8O07jTyEtb28C8RZmcDO9iujArmO60uBjG-QK-tHpIy8pJk7TPi2hTYb2BEgBsH2VB4JMUz2xlwhZGBHW5UIjiEVMW4a4IiK_7vPrhXh3ESTyY9y2SiAuC2AAxMITWCmNQJDwyUt4GkNxfDUD4jCa59dPe4pgqtdqMep5k-VANFAYADEMwAPS-Cvm9GvDJrrL3lomCOfeTPQpRG2Er561i50UJ7b5-l6-MpOZ-85yk4dR_27803RnAiNQpeNqk9XDpUM6bLTBXFMQFfUdRRFR09UWK4O38WGhUrX08-eb1Rsag6oxLtMXT2PWkI1k9cxp4ak65kjShPrzLDuLm2JlROsi4F1d-mJ81QmuJupWV-cdGVzjHiwjhyrcmEdOlYtR3SFidE2bmiK6oGZyehaMDQDPBpxdQk1MDWe9Sx2uao21WFix1h7XTv27j-t115ny18IWgT3e7r5LS1963cIPdi1w54dJnbYt8NTOxzY4dAOz-wwlMqOD-SJBxLFA5nigVTxQK54IFnYXw_etPSHwuGh2eAQbBaDQ3h4yB0e8oaHSPc6rY_7A_h0AA8G8HAAn9lxWA7qDVMfxnbYtcOeHSZ22LfDUzsc2OHQDs-sMLFnSexZEnuWxJ4lsWdJuixH49GOiR3NNqP586h5QQ0vsTcspXDTG72MR7Su-PqpSEbz5kXuqG5-vC4zCtfiXQu-_A10UBoq" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-010 — Perform Transaction Processing</span></div>
 

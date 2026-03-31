@@ -120,8 +120,8 @@ blockquote {
     background: #fafbfd;
     border: 1px solid #e0e4ea;
     border-radius: 6px;
-    padding: 20px 12px;
-    margin: 16px 0;
+    padding: 16px 12px;
+    margin: 12px 0;
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
@@ -130,6 +130,7 @@ blockquote {
 .mermaid svg {
     max-width: 100%;
     height: auto;
+    max-height: 85vh;
 }
 .header-bar {
     background: #00285a;
@@ -205,25 +206,31 @@ strong { color: #00285a; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print, .pdf-download-btn { display: none !important; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
-    /* Page sections: do NOT use min-height in print — the page-break divs
-       already handle pagination.  min-height:100vh forces every section to
-       fill a full page, which creates blank trailing space before the next
-       page-break, producing blank pages in the PDF output. */
+
+    /* Page sections: auto height in print — page-break divs handle pagination */
     .page-section {
         min-height: auto;
         display: block;
     }
     .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
         page-break-inside: avoid;
+        break-inside: avoid;
         overflow: visible;
+        max-height: 85vh;
+        margin: 8px 0;
     }
     .mermaid svg {
         max-width: 100%;
+        max-height: 80vh;
         height: auto;
+        width: auto;
     }
+
     /* Diagram links: visible + clickable in PDF */
     a[title="View full diagram"],
     a[title="Open full-size SVG"] {
@@ -231,6 +238,13 @@ strong { color: #00285a; }
         text-decoration: underline !important;
         font-size: 10pt !important;
     }
+
+    /* Tighten spacing in print for professional PDF output */
+    h2 { margin-top: 18px; margin-bottom: 8px; }
+    h3 { margin-top: 14px; margin-bottom: 6px; }
+    h4 { margin-top: 10px; margin-bottom: 4px; }
+    table { margin: 8px 0; }
+    blockquote { margin: 8px 0; padding: 6px 14px; }
 }
 </style>
     
@@ -704,7 +718,7 @@ flowchart LR
     class n26 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtVm1v6jYU_itWqopNAjVxEkL5MIkC2Sq193bQuztp3QeTOGDVxJHjQLmI_75jYvOS0ivdbXyo6sfPec6Lz3G8dRKRUqfvXF9vWc5UH21bakGXtNVHrRkpaauNauAPIhmZcVq2NCcTuZqyb3uaFxRvmqaxmCwZ32h0SueCoi_3bTQAQ95GJcnLTkkly1rtViHZksjNUHAhNfuK9jI323szW3dCplQeCa4beUkIppzl9Aj7URAFsbYraSLy9Ew0C7NelrR2Ojgu1smCSLUPvyrpI3n7ylK1gHVGeEmBs1BL_kBmlOsclaw0llRyZYvBSu0nh4JNC5KwfA544AIkSf56hEJ3t0O76-uX_OAUPUxecgS_hJOyHNEMlQrg8UqhjHHevwqGgzh026WS4pX2r_A4Gvm4nehM-pC629bF7awpmy9UfyZ4aqidtc6hj4u3tnzrY7ctN_C34Yvm6dHTsIt7uHfwdBd5Q29oPWVZ9p88QV3lMylfja-xH-N4dPDlhd1w6L7Xs2mOgmjgNetE5Yol9EQ0jmN_fCzVuBt67seid7HfdYcN0TlRdE02R8HbYXAQjMMo9qIPBWt_zSir2ZMUiRX0x2EcHgSjOy8e4A8Fg4EX9EyEoDOXpFig4de7m0n85xdW4_qXh3-9OM-SzedU3tzDrDLIAk3iNzRe0Vy9OH-fcLvAjalKFihmOeFoWhUFZ1SiCS0LkZcUPUmm-xVlQqLPldJThQZzSWHUm2IRiI2oonKpSe_IN-ipktDmIHqfZwJcJDC7aCgpUUzk51q9YxIXlL4rhJRA05vgXM-7_QkUM9LPSKfgcKaHgmj6TCvVlUrB7ucTQ-xtt9aQSCnWZYdwhQoiCeeU_1q3yIuz29VGMESNM5oOnvTdNiPoE1VrIV9Pw4KgnqoZZ-XiGI09hEMG39OcKgkhzFmCpgKqAkd1In8L8vuyfNgAnnuk6KOm6PdKwP-XqDrYs4YaFIUUK7gVG0QMxAldMbo2SU0q-CAgkqfomS11iOd8H_hTymmiDrmX5lhYvmL1oZwaBM2yNfb1CAzWBJriXS1rQvcY4buWb1B1V9-n4INlG_S5UJDAN5oiI5_QHD54omGju_dRQKlgaC7Eh_GP9VRt5P8bo-D_6F6Ypt8GnwYwI4pyaBORVom6qVexqPJUbk59nnTU_eQ8c33SjyQnc1q3K0UPrGxU5_Rwh_CRkSRRF2cau8eZLpUo7P2ir6tHUsJFhEZEkfpieD_Y4cXSsDzhVclW9IOCdn_Q6lBRuIJQp_ML3M9mbZaea_ddA3gW8AyALYAN4FsgMoDV7NbryCzNds_SfUMPLBDWQNese_USWzmzfWvpgdm3AWEbUK8JWAtjYAPGRjForHFjbfnWoQ0QN9Z-c98UAB-K2mtGYGtgTTxrcojJOPWiBoBtVtg7K9v-874_X_taO8Oxa15W56hnnxfnML4M-5fh4DIcXoa7FnbazhI-04SlTn_r7N_t8LZPaUYqrpxd2yGVEtNNnjj9_fvWqYoULEeMwKWwrMHdP9ubsu8=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtVm1v6jYU_itWqopNAjVxEkL5MIkC2Sq193bQuztp3QeTOGDVxJHjQLmI_75jYvOS0ivdbXyo6sfPec6Lz3G8dRKRUqfvXF9vWc5UH21bakGXtNVHrRkpaauNauAPIhmZcVq2NCcTuZqyb3uaFxRvmqaxmCwZ32h0SueCoi_3bTQAQ95GJcnLTkkly1rtViHZksjNUHAhNfuK9jI323szW3dCplQeCa4beUkIppzl9Aj7URAFsbYraSLy9Ew0C7NelrR2Ojgu1smCSLUPvyrpI3n7ylK1gHVGeEmBs1BL_kBmlOsclaw0llRyZYvBSu0nh4JNC5KwfA544AIkSf56hEJ3t0O76-uX_OAUPUxecgS_hJOyHNEMlQrg8UqhjHHevwqGgzh026WS4pX2r_A4Gvm4nehM-pC629bF7awpmy9UfyZ4aqidtc6hj4u3tnzrY7ctN_C34Yvm6dHTsIt7uHfwdBd5Q29oPWVZ9p88QV3lMylfja-xH-N4dPDlhd1w6L7Xs2mOgmjgNetE5Yol9EQ0jmN_fCzVuBt67seid7HfdYcN0TlRdE02R8HbYXAQjMMo9qIPBWt_zSir2ZMUiRX0x2EcHgSjOy8e4A8Fg4EX9EyEoDOXpFig4de7m0n85xdW4_qXh3-9OM-SzedU3tzDrDLIAk3iNzRe0Vy9OH-fcLvAjalKFihmOeFoWhUFZ1SiCS0LkZcUPUmm-xVlQqLPldJThQZzSWHUm2IRiI2oonKpSe_IN-ipktDmIHqfZwJcJDC7aCgpUUzk51q9YxIXlL4rhJRA05vgXM-7_QkUM9LPSKfgcKaHgmj6TCvVlUrB7ucTQ-xtt9aQSCnWZYdwhQoiCeeU_1q3yIuz29VGMESNM5oOnvTdNiPoE1VrIV9Pw4KgnqoZZ-XiGI09hEMG39OcKgkhzFmCpgKqAkd1In8L8vuyfNgAnnuk6KOm6PdKwP-XqDrYs4YaFIUUK7gVG0QMxAldMbo2SU0q-CAgkqfomS11iOd8H_hTymmiDrmX5lhYvmL1oZwaBM2yNfb1CAzWBJriXS1rQvcY4buWb1B1V9-n4INlG_S5UJDAN5oiI5_QHD54omGju_dRQKlgaC7Eh_GP9VRt5P8bo-D_6F6Ypt8GnwYwI4pyaBORVom6qVexqPJUbk59nnTU_eQ8c33SjyQnc1q3K0UPrGxU5_Rwh_CRkSRRF2cau8eZLpUo7P2ir6tHUsJFhEZEkfpieD_Y4cXSsDzhVclW9IOCdn_Q6lBRuIJQp_ML3M9mbZaea_ddA3gW8AyALYAN4FsgMoDV7NbryCzNds_SfUMPLBDWQNese_USWzmzfWvpgdm3AWEbUK8JWAtjYAPGRjForHFjbfnWoQ0QN9Z-c98UAB-K2mtGYGtgTTxrcojJOPWiBoBtVtg7K9v-874_X_taO8Oxa15W56hnnxfnML4M-5fh4DIcXoa7FnbazhI-04SlTn_r7N_t8LZPaUYqrpxd2yGVEtNNnjj9_fvWqYoULEeMwKWwrMHdP9ubsu8=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-40 — R3 Sourcing Request-Project to Contracts for Direct-Capital on Ariba with Pricing Updates</span></div>
 
@@ -826,7 +840,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtO2zAUhl_FMqq0SS0LLWlHJJCc20AKiJGyTSJT5CZOa-EmUeKMltJ3n50brDQMYUuRfS7_cb4TORsYJCGBGuz1NjSmXAMbD_IFWRIPasCDM5yLVV-schIUGeVrh_whrHKyJGm8ZcoPnFE8YySXbqETJTF36WMtdaSmqypY2m28pGxdeVwyTwi4vegDJASE-LaMYslDsMAZr9WKnFzi1U8a8oW0RJjlRMYt-JI5eEZYWZZnRWmNxWu5KQ5oPJfmkSqNGY7vXxiP1e0WbHs9L25rganuxUCMgOE8N0kEcJrqyQpElDHtQFdN27b7Oc-Se6IdKMpkoo_r7eBBHk0bpqt-kLAkk-6Rqe7qhTNjzWo5pJpjNGnlhtbEHA075Y501RoqO3IkYc_Hs21d1dVWzzAUMTr1xmPp9uJKMS9m8wynC2ANrWPFMJHh-MSf--ixyIjvfnfuPCgQ_q6i5QhpRgJOk7iFJkeTjsrsX9atKxLJ4fwQyLUQ0DStYvo6x9yp-MmDXhF-HYXiGQbHXhERRbyyFCuDgAjy4GcpWWJ96xRgcDg466pUJZI4rFnwNSOdIBrYSM4WtqXI-S_sI_HF_wevi679c3SFPkT30nL9kaI0gMUWiO17GLdl30AsYoCMeQ_h-iT7IDel3sO4if0Q4v1lwenp2VMNyCyZgi8AXV-Ip02ZuJueuj-KndY5ZC6Of_eCWBAqwERTBNCNcX4xtYzp7Y0FHOubdWV2dNO5ebY6vuw7SlNGAyy9-1vn-GZHn0zMcXVF72uR41tC3orDQRINHBqRSr66Mva2o3rDhr4qZ0v_5OTkFXrYh0uSLTENobapfgLiXxKSCBeMi2sc4oIn7joOoFZezLBIQ8yJSbEguqyM27980f6b" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtO2zAUhl_FMqq0SS0LLWlHJJCc20AKiJGyTSJT5CZOa-EmUeKMltJ3n50brDQMYUuRfS7_cb4TORsYJCGBGuz1NjSmXAMbD_IFWRIPasCDM5yLVV-schIUGeVrh_whrHKyJGm8ZcoPnFE8YySXbqETJTF36WMtdaSmqypY2m28pGxdeVwyTwi4vegDJASE-LaMYslDsMAZr9WKnFzi1U8a8oW0RJjlRMYt-JI5eEZYWZZnRWmNxWu5KQ5oPJfmkSqNGY7vXxiP1e0WbHs9L25rganuxUCMgOE8N0kEcJrqyQpElDHtQFdN27b7Oc-Se6IdKMpkoo_r7eBBHk0bpqt-kLAkk-6Rqe7qhTNjzWo5pJpjNGnlhtbEHA075Y501RoqO3IkYc_Hs21d1dVWzzAUMTr1xmPp9uJKMS9m8wynC2ANrWPFMJHh-MSf--ixyIjvfnfuPCgQ_q6i5QhpRgJOk7iFJkeTjsrsX9atKxLJ4fwQyLUQ0DStYvo6x9yp-MmDXhF-HYXiGQbHXhERRbyyFCuDgAjy4GcpWWJ96xRgcDg466pUJZI4rFnwNSOdIBrYSM4WtqXI-S_sI_HF_wevi679c3SFPkT30nL9kaI0gMUWiO17GLdl30AsYoCMeQ_h-iT7IDel3sO4if0Q4v1lwenp2VMNyCyZgi8AXV-Ip02ZuJueuj-KndY5ZC6Of_eCWBAqwERTBNCNcX4xtYzp7Y0FHOubdWV2dNO5ebY6vuw7SlNGAyy9-1vn-GZHn0zMcXVF72uR41tC3orDQRINHBqRSr66Mva2o3rDhr4qZ0v_5OTkFXrYh0uSLTENobapfgLiXxKSCBeMi2sc4oIn7joOoFZezLBIQ8yJSbEguqyM27980f6b" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-40 — R3 Sourcing Request-Project to Contracts for Direct-Capital on Ariba with Pricing Updates</span></div>
 
@@ -870,7 +884,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1L4zAYx79KiAzuYPPqZrezoJCt7SlU8ey8O7BHydp0C2ZNadNzc-67X9I3vbl6YgIleV7-T_p7SrqBAQ8JNGCns6ExFQbYeFAsyJJ40AAenOFMrrpylZEgT6lYO-QPYaWTcV57i5QfOKV4xkim3FIn4rFw6WMldaQnqzJY2W28pGxdelwy5wTcXnQBkgJSfFtEMf4QLHAqKrU8I5d49ZOGYqEsEWYZUXELsWQOnhFWlBVpXlhj-VpuggMaz5V5oCtjiuP7F8ZjfbsF207Hi5taYDr2YiBHwHCWmSQCOEnGfAUiyphxMNZN27a7mUj5PTEONG00Gg-rbe9BHc3oJ6tuwBlPlXtg6rt64WyyZpUc0s0hGjVyfWtkDvqtckdj3eprO3KEs-fj2fZYH-uN3mSiydGqNxwqtxeXilk-m6c4WQCrbx1rtokmjk_8uY8e85T47nfnzoMS4e8yWo2QpiQQlMcNNDXqdFRk_7JuXZlIDueHQK2lgGEYJdPXOeZOxU8e9PLw6yCUzzA49vKIaPKVlVgRBGSQBz8ryQLrW6cAvcPeWVulMpHEYcVCrBlpBVHDRmo2sC1NzX9hH8kv_j94XXTtn6Mr9CG6l5brDzStBiy3QG7fw7gp-wZiGQNUzHsIVyfZB7ku9R7GdeyHEO8vC05Pz54qQGbBFHwB6PpCPm3K5N301P5R7LTOIXN5_LsXxIJQAyaaIoBuJucXU2syvb2xgGN9s67Mlm46N89Wx1d9R0nCaICVd3_rHN9s6ZOJBS6v6H0tcnxLyltx2ONRz6ERKeXLK2NvO8o3rOnrajb0T05OXqGHXbgk6RLTEBqb8icg_yUhiXDOhLzGIc4Fd9dxAI3iYoZ5EmJBTIol0WVp3P4F-Hb-xQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1L4zAYx79KiAzuYPPqZrezoJCt7SlU8ey8O7BHydp0C2ZNadNzc-67X9I3vbl6YgIleV7-T_p7SrqBAQ8JNGCns6ExFQbYeFAsyJJ40AAenOFMrrpylZEgT6lYO-QPYaWTcV57i5QfOKV4xkim3FIn4rFw6WMldaQnqzJY2W28pGxdelwy5wTcXnQBkgJSfFtEMf4QLHAqKrU8I5d49ZOGYqEsEWYZUXELsWQOnhFWlBVpXlhj-VpuggMaz5V5oCtjiuP7F8ZjfbsF207Hi5taYDr2YiBHwHCWmSQCOEnGfAUiyphxMNZN27a7mUj5PTEONG00Gg-rbe9BHc3oJ6tuwBlPlXtg6rt64WyyZpUc0s0hGjVyfWtkDvqtckdj3eprO3KEs-fj2fZYH-uN3mSiydGqNxwqtxeXilk-m6c4WQCrbx1rtokmjk_8uY8e85T47nfnzoMS4e8yWo2QpiQQlMcNNDXqdFRk_7JuXZlIDueHQK2lgGEYJdPXOeZOxU8e9PLw6yCUzzA49vKIaPKVlVgRBGSQBz8ryQLrW6cAvcPeWVulMpHEYcVCrBlpBVHDRmo2sC1NzX9hH8kv_j94XXTtn6Mr9CG6l5brDzStBiy3QG7fw7gp-wZiGQNUzHsIVyfZB7ku9R7GdeyHEO8vC05Pz54qQGbBFHwB6PpCPm3K5N301P5R7LTOIXN5_LsXxIJQAyaaIoBuJucXU2syvb2xgGN9s67Mlm46N89Wx1d9R0nCaICVd3_rHN9s6ZOJBS6v6H0tcnxLyltx2ONRz6ERKeXLK2NvO8o3rOnrajb0T05OXqGHXbgk6RLTEBqb8icg_yUhiXDOhLzGIc4Fd9dxAI3iYoZ5EmJBTIol0WVp3P4F-Hb-xQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-40 — R3 Sourcing Request-Project to Contracts for Direct-Capital on Ariba with Pricing Updates</span></div>
 
@@ -1018,7 +1032,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzzaQoQqpU06dUoBETY2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpfygBacTAVK7EWeapSrkD2uog05-b4K1fUgXXCyNJ4RZBuT7qElcBBBNImkqWxIKPo2sVZUhsrtkTgu1Ri4ljOn9DWdqri1TKiTouLlaiIBOQFRTUEVZWVNcYpjThKczbT62tbGg6d-asW2vVmTVaETpSy1y3Y9SgqPRIK0Wzi2Z8zFV0OKpzHkBjEi1FEASQaUEiTEmvPr2YEompeQpSEmqMeVCOHtDHP12U6oi-wvOXv_kpGP315-tO70g5zC_byaZyApnz7btLUya52QzDGa_rVFfMG272-13_gOTUUV3Mb2TDzAPXmE--xiVSF5Bl8gpaW9VWnDGBNzRAuqMeB13w4jf7Qw3aJ-YPWRihxHNcY3lwcC2P8I0qLKczAqaz4kb_I6sqGQnRwyf7KhN3MvLYDRwr0cX5yRwf_lXkfXHJOnBUBCJ4llKgquN1T_0j-1BDPEsHvthfGTbddQEOgS-zL4Q9BH0IaDjONjhNwF--t_DN7O1493U8U2V7D6UBcQhFLc8gbhfylerO-gapCqKrKMIRhnYTde20T2_Qh9kUsW-wCMgVb36FJNjA6wDyDrgbFLs9854zzjCH2SfjLwswb9v4cX52T7vmapalaYepOy5P7uE4rbrPUVWheZVTUAk93KEzyEXePY8fcBEHfi9GF1kuxd6SmvRVMdAP6ht8aH90Ravp7ovqfZndvKOWAOYIUevxMFsEvhf_XPvEyoNYtT2trTcPBc8oTr4DXEF8fhmW0LjjUzelU0Qe_62Qjx9_Pipwstlu_Mmxb8wm_Gww44xkLWyaSvg03UZ3P81mWxINaQ8E9vWvxdiT09Pd84yq2ktoFhQzizn0VxoeC8ymNJSKLyGLFqqLFymieVUF4tV5jhR8DjFJiyMcfUPTiJGzQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzzaQoQqpU06dUoBETY2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpfygBacTAVK7EWeapSrkD2uog05-b4K1fUgXXCyNJ4RZBuT7qElcBBBNImkqWxIKPo2sVZUhsrtkTgu1Ri4ljOn9DWdqri1TKiTouLlaiIBOQFRTUEVZWVNcYpjThKczbT62tbGg6d-asW2vVmTVaETpSy1y3Y9SgqPRIK0Wzi2Z8zFV0OKpzHkBjEi1FEASQaUEiTEmvPr2YEompeQpSEmqMeVCOHtDHP12U6oi-wvOXv_kpGP315-tO70g5zC_byaZyApnz7btLUya52QzDGa_rVFfMG272-13_gOTUUV3Mb2TDzAPXmE--xiVSF5Bl8gpaW9VWnDGBNzRAuqMeB13w4jf7Qw3aJ-YPWRihxHNcY3lwcC2P8I0qLKczAqaz4kb_I6sqGQnRwyf7KhN3MvLYDRwr0cX5yRwf_lXkfXHJOnBUBCJ4llKgquN1T_0j-1BDPEsHvthfGTbddQEOgS-zL4Q9BH0IaDjONjhNwF--t_DN7O1493U8U2V7D6UBcQhFLc8gbhfylerO-gapCqKrKMIRhnYTde20T2_Qh9kUsW-wCMgVb36FJNjA6wDyDrgbFLs9854zzjCH2SfjLwswb9v4cX52T7vmapalaYepOy5P7uE4rbrPUVWheZVTUAk93KEzyEXePY8fcBEHfi9GF1kuxd6SmvRVMdAP6ht8aH90Ravp7ovqfZndvKOWAOYIUevxMFsEvhf_XPvEyoNYtT2trTcPBc8oTr4DXEF8fhmW0LjjUzelU0Qe_62Qjx9_Pipwstlu_Mmxb8wm_Gww44xkLWyaSvg03UZ3P81mWxINaQ8E9vWvxdiT09Pd84yq2ktoFhQzizn0VxoeC8ymNJSKLyGLFqqLFymieVUF4tV5jhR8DjFJiyMcfUPTiJGzQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-40 — R3 Sourcing Request-Project to Contracts for Direct-Capital on Ariba with Pricing Updates</span></div>
 
@@ -1098,7 +1112,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9A5wuoiyEZbtxwM9Q4X-7N3c1S1gM0lm1ZOxWV_35PV5QJGr0lGdt5eU77nKfts5VkDCzHajSeecqVQ54jS01hBpHlkMgaUYlvTXyTkJQFV_MA7kEYp8iyV2-VckMLTkcCpHYjzjhLVcifllC7nfzRBGt7n864mBtPCJMMyPWgSVwEEE0iaSpbEgo-jqxFlSGyh2RKC7VELiUM6eMtZ2qqLWMqJOi4qZqJgI5AVFNQRVlZU1ximNOEpxNtPrC1saDpXc3YthcLsmg0ovStFrnqRSnB0WiQVgvnlkz5kCpo8VTmvABGpJoLIImgUoLEGBNefXswJqNS8hSkJNUYcyGcrT6OXrspVZHdgbPVOzrq2L3lZ-tBL8jZyx-bSSaywtmybXsNk-Y5WQ2D2Wtr1DdM2z487HX-A5NRRTcxvaMvMHffYb76GJVIXkHnyClpr1WaccYEPNAC6ox4HXfFiH_Y6a_QvjF7yMQGI5rjGsunp7b9FaZBleVoUtB8StzgT2RFJTvaZ_hk-23iXlwEg1P3anB-RgL3t38ZWX9Nkh4MBZEonqUkuFxZ_T3_wO7HEE_ioR_G-7ZdR02gQ2B7sk3QR9CHgI7jYIc_BPjlX4cfZmvHp6nD2yrZfSoLiEMo7nkCca-U71a3e2iQqiiyjCIYZWBXXVtH9_wK_TSTKvYFHgGp6tanmBwYYB1AlgEno2Kne8K7xhHekB0y8LIE_36G52cnO7xrqmpVmnqQstf-bBKK2677ElkVmlc1AZHciwE--1zg2fPyBRN14M9idJH1XugpLUVTHQO9oLbF-_ZXW7ye6r6l2t_ZyRtiDWCCHL0TB7NJ4P_wz7xvqDSIUdvr0nLzXPCE6uAPxBXEw9t1CQ1XMvlUNkHs-esK8fTx46cKL5f1zpsU_9xsxr0OO8BA1srGrYCPl2Vw_9dksiLVkPJKbFv_3og9Pj7eOMuspjWDYkY5s5xnc6HhvchgTEuh8BqyaKmycJ4mllNdLFaZ40TB4xSbMDPGxT-Uk0bl" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9A5wuoiyEZbtxwM9Q4X-7N3c1S1gM0lm1ZOxWV_35PV5QJGr0lGdt5eU77nKfts5VkDCzHajSeecqVQ54jS01hBpHlkMgaUYlvTXyTkJQFV_MA7kEYp8iyV2-VckMLTkcCpHYjzjhLVcifllC7nfzRBGt7n864mBtPCJMMyPWgSVwEEE0iaSpbEgo-jqxFlSGyh2RKC7VELiUM6eMtZ2qqLWMqJOi4qZqJgI5AVFNQRVlZU1ximNOEpxNtPrC1saDpXc3YthcLsmg0ovStFrnqRSnB0WiQVgvnlkz5kCpo8VTmvABGpJoLIImgUoLEGBNefXswJqNS8hSkJNUYcyGcrT6OXrspVZHdgbPVOzrq2L3lZ-tBL8jZyx-bSSaywtmybXsNk-Y5WQ2D2Wtr1DdM2z487HX-A5NRRTcxvaMvMHffYb76GJVIXkHnyClpr1WaccYEPNAC6ox4HXfFiH_Y6a_QvjF7yMQGI5rjGsunp7b9FaZBleVoUtB8StzgT2RFJTvaZ_hk-23iXlwEg1P3anB-RgL3t38ZWX9Nkh4MBZEonqUkuFxZ_T3_wO7HEE_ioR_G-7ZdR02gQ2B7sk3QR9CHgI7jYIc_BPjlX4cfZmvHp6nD2yrZfSoLiEMo7nkCca-U71a3e2iQqiiyjCIYZWBXXVtH9_wK_TSTKvYFHgGp6tanmBwYYB1AlgEno2Kne8K7xhHekB0y8LIE_36G52cnO7xrqmpVmnqQstf-bBKK2677ElkVmlc1AZHciwE--1zg2fPyBRN14M9idJH1XugpLUVTHQO9oLbF-_ZXW7ye6r6l2t_ZyRtiDWCCHL0TB7NJ4P_wz7xvqDSIUdvr0nLzXPCE6uAPxBXEw9t1CQ1XMvlUNkHs-esK8fTx46cKL5f1zpsU_9xsxr0OO8BA1srGrYCPl2Vw_9dksiLVkPJKbFv_3og9Pj7eOMuspjWDYkY5s5xnc6HhvchgTEuh8BqyaKmycJ4mllNdLFaZ40TB4xSbMDPGxT-Uk0bl" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-40 — R3 Sourcing Request-Project to Contracts for Direct-Capital on Ariba with Pricing Updates</span></div>
 
@@ -1295,7 +1309,7 @@ flowchart TB
     E2E40CPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E40CPLP_e_g_Azure_PaaS
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1ip2nKaGDmzHZoV0hLndBvMwin2ciMqWseU1aZr_PsnOR1tIoWy6ENL7Hj06OkLa4ESkgG3c621YwaSNNhGWS8ghwjaK8JzWatRXoxqSpmJyPYU_wDuTC7F32yXfacXonEOtbcXJRCFD9rRDDYblqgvWekBzxtedE8JCALq_6SNHARR820Zx8ZgsaSV3tKaGW7r6wVK51EpGeQ06bilzPqVz4O22smpatVDHCkuasGKh5SHRYkWLhxeiRbZbtO31ouKwF7pzowKplnBa1xPIEC1LV6xQxji3z1xrEgRBv5aVeAD7jJDLS3e0m3561KnZRrnqJ4KLStvmxHrLKzmVR6A39kfe1QFojse-6b0GmkfgwLV8g7wBguBHXhC4lmsdeJ5HVDuZ4Gik7ajoiHUzX1S0XCLf8IfEm01nMcSL2HlqKohnlIa_Ihw1xogMoiYDonY-X5yj1kbajvDvDqRbyipIJBMFmn47qnuy05J_-vea2WL0WAFs2-4K3q2BIt3lJtccTib2T8V89_BhPIy_OF-d2CCG2Z4_HZup6lNqvaxCeDFEOg7puA8X4tYPY5OQfS3UFKnpB8vxKtX_UJH36NfXn593yU7a86EL5MxuVB8wrt7788mrwn2cQ5VTlmJ7030b6vdJIaMNl-rhY9pIEa6LBNvtU8ZNmVIJE0bV9eSduP0LdrV3vg==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1ip2nKaGDmzHZoV0hLndBvMwin2ciMqWseU1aZr_PsnOR1tIoWy6ENL7Hj06OkLa4ESkgG3c621YwaSNNhGWS8ghwjaK8JzWatRXoxqSpmJyPYU_wDuTC7F32yXfacXonEOtbcXJRCFD9rRDDYblqgvWekBzxtedE8JCALq_6SNHARR820Zx8ZgsaSV3tKaGW7r6wVK51EpGeQ06bilzPqVz4O22smpatVDHCkuasGKh5SHRYkWLhxeiRbZbtO31ouKwF7pzowKplnBa1xPIEC1LV6xQxji3z1xrEgRBv5aVeAD7jJDLS3e0m3561KnZRrnqJ4KLStvmxHrLKzmVR6A39kfe1QFojse-6b0GmkfgwLV8g7wBguBHXhC4lmsdeJ5HVDuZ4Gik7ajoiHUzX1S0XCLf8IfEm01nMcSL2HlqKohnlIa_Ihw1xogMoiYDonY-X5yj1kbajvDvDqRbyipIJBMFmn47qnuy05J_-vea2WL0WAFs2-4K3q2BIt3lJtccTib2T8V89_BhPIy_OF-d2CCG2Z4_HZup6lNqvaxCeDFEOg7puA8X4tYPY5OQfS3UFKnpB8vxKtX_UJH36NfXn593yU7a86EL5MxuVB8wrt7788mrwn2cQ5VTlmJ7030b6vdJIaMNl-rhY9pIEa6LBNvtU8ZNmVIJE0bV9eSduP0LdrV3vg==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
@@ -1330,7 +1344,7 @@ flowchart TB
     E2E40FPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E40FPLP_e_g_Azure_PaaS
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1ip2nGaGDuzEZoV0hHndBvMwin2ciMqSseU1aZr_PsnOR1tooWy6ENL7Hj06OkLa4lRmgF3c622ZYMpF2xirFRQQYxfFeEFrPerrUQ1pUzG1mcEf4J3JpTy47ZLvtGJ0waE2tubkUqiIPexRg2G57oKNHtKC8U3nRLCUgG6v-8jTAA3ftVFc3qcrWqk9ranhhq5_sEytjJJTXoOJW6mCz-gCeLutqppWFfpYUUlTJpZGHhIjVlTcPREdstuhXa8Xi-Ne6JsfC6RbymldTyFHtCx9uUY549w9851pGIb9WlXyDtwzQi4v_dF--uHepOZa5bqfSi4rY9tT5yWv5FSdgJNxMJp8PALt8TiwJ8-B9gk48J3AIi-AIPmJF4a-4ztH3mRCdHs1wdHI2LHoiHWzWFa0XKHACoYknM_mCSTLxHtoKkjmlEa_Yhw31ogM4iYHonc-X56j1kbGjvHvDmRaxipIFZMCzb6e1APZa8k_g1vDbDFmrAGu63YF79aAyPa5qQ2HVxP7p2K-efgoGSafvS9eYhHLbs-fje1M9xl1nlYhuhgiE4dM3LsLcRNEiU3IoRZ6ivT0neV4lup_qMhb9KurT4_7ZKft-dAF8ubXug8Z1-_98dWrwn1cQFVQlmF3230b-vfJIKcNV_rhY9ooGW1Eit32KeOmzKiCKaP6eopO3P0FmYZ31g==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1ip2nGaGDuzEZoV0hHndBvMwin2ciMqSseU1aZr_PsnOR1tooWy6ENL7Hj06OkLa4lRmgF3c622ZYMpF2xirFRQQYxfFeEFrPerrUQ1pUzG1mcEf4J3JpTy47ZLvtGJ0waE2tubkUqiIPexRg2G57oKNHtKC8U3nRLCUgG6v-8jTAA3ftVFc3qcrWqk9ranhhq5_sEytjJJTXoOJW6mCz-gCeLutqppWFfpYUUlTJpZGHhIjVlTcPREdstuhXa8Xi-Ne6JsfC6RbymldTyFHtCx9uUY549w9851pGIb9WlXyDtwzQi4v_dF--uHepOZa5bqfSi4rY9tT5yWv5FSdgJNxMJp8PALt8TiwJ8-B9gk48J3AIi-AIPmJF4a-4ztH3mRCdHs1wdHI2LHoiHWzWFa0XKHACoYknM_mCSTLxHtoKkjmlEa_Yhw31ogM4iYHonc-X56j1kbGjvHvDmRaxipIFZMCzb6e1APZa8k_g1vDbDFmrAGu63YF79aAyPa5qQ2HVxP7p2K-efgoGSafvS9eYhHLbs-fje1M9xl1nlYhuhgiE4dM3LsLcRNEiU3IoRZ6ivT0neV4lup_qMhb9KurT4_7ZKft-dAF8ubXug8Z1-_98dWrwn1cQFVQlmF3230b-vfJIKcNV_rhY9ooGW1Eit32KeOmzKiCKaP6eopO3P0FmYZ31g==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>

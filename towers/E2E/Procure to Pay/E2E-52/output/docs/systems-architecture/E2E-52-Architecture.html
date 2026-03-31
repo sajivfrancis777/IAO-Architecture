@@ -120,8 +120,8 @@ blockquote {
     background: #fafbfd;
     border: 1px solid #e0e4ea;
     border-radius: 6px;
-    padding: 20px 12px;
-    margin: 16px 0;
+    padding: 16px 12px;
+    margin: 12px 0;
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
@@ -130,6 +130,7 @@ blockquote {
 .mermaid svg {
     max-width: 100%;
     height: auto;
+    max-height: 85vh;
 }
 .header-bar {
     background: #00285a;
@@ -205,25 +206,31 @@ strong { color: #00285a; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print, .pdf-download-btn { display: none !important; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
-    /* Page sections: do NOT use min-height in print — the page-break divs
-       already handle pagination.  min-height:100vh forces every section to
-       fill a full page, which creates blank trailing space before the next
-       page-break, producing blank pages in the PDF output. */
+
+    /* Page sections: auto height in print — page-break divs handle pagination */
     .page-section {
         min-height: auto;
         display: block;
     }
     .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
         page-break-inside: avoid;
+        break-inside: avoid;
         overflow: visible;
+        max-height: 85vh;
+        margin: 8px 0;
     }
     .mermaid svg {
         max-width: 100%;
+        max-height: 80vh;
         height: auto;
+        width: auto;
     }
+
     /* Diagram links: visible + clickable in PDF */
     a[title="View full diagram"],
     a[title="Open full-size SVG"] {
@@ -231,6 +238,13 @@ strong { color: #00285a; }
         text-decoration: underline !important;
         font-size: 10pt !important;
     }
+
+    /* Tighten spacing in print for professional PDF output */
+    h2 { margin-top: 18px; margin-bottom: 8px; }
+    h3 { margin-top: 14px; margin-bottom: 6px; }
+    h4 { margin-top: 10px; margin-bottom: 4px; }
+    table { margin: 8px 0; }
+    blockquote { margin: 8px 0; padding: 6px 14px; }
 }
 </style>
     
@@ -850,7 +864,7 @@ flowchart LR
     class n80 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWVtzm0gW_itdSmVsV0kxzV162C1JthJXxbbKykxqK96HFrQk1ohmobGtdfzf9zR0I2ghz8S7eXDE4dwvXx_gpRewkPZGvY8fX6Ik4iP0csI3dEtPRuhkSXJ60kcV4Q-SRWQZ0_xE8KxYwhfRf0o2bKfPgk3QZmQbxTtBXdA1o-j3qz4ag2DcRzlJ8kFOs2h10j9Js2hLst2UxSwT3B-ovzJWpTV5a8KykGZ7BsPwcOCAaBwldE-2PNuzZ0IupwFLwpbSlbPyV8HJq3AuZk_BhmS8dL_I6TV5_h6FfAPXKxLnFHg2fBt_JUsaixh5VghaUGSPKhlRLuwkkLBFSoIoWQPdNoCUkeRhT3KM11f0-vHjfVIbRV_v7hME_4KY5PkFXaGcA_nykaNVFMejD_Z0PHOMfs4z9kBHH8xL78Iy-4GIZAShG32R3METjdYbPlqyOJSsgycRw8hMn_vZ88g0-tkO_mq2aBLuLU1d0zf92tLEw1M8VZZWq9X_ZAnymn0j-YO0dWnNzNlFbQs7rjM1DvWpMC9sb4z1PNHsMQpoQ-lsNrMu96m6dB1sHFc6mVmuMdWUrgmnT2S3Vzic2rXCmePNsHdUYWVP97JYzjMWKIXWpTNzaoXeBM_G5lGF9hjbvvQQ9Kwzkm7QhBVlL6NxmubVPfEvsX_c9_4gcRRCBOdfSBLGFF0-BzTlEUvQBAY2RPDjroBBhdzxIkURXFIS5mzF73v_bOhyQNcdDWj0SNFV8sggzedoYk7Ob1OafKPP_Pw7XYJLEZhCl1sSxW15tyE_i8CRSHiQPLS5POCak92WJhxJ7rDN4QPHF5KFaMrSHeIMLSlKIZs0F9HwTcaK9QYxCDEgMRLzRAJOM5TBwK8Bs0Tkp7fTuzMtPPsUFK_IaEUGOWcpUl5cEE7Q76lIofDkrBkSfnlRMgIYB0sY7WCD6HMQFzm4_rnqnPve62slBrOlle56Mm0WTER3XcQ8GojcQIxJQgMePUZ8h043LOcDzgbif819e_jrgofOLMZzgb9L0tCMReGmGYVQqnsICp4RkUfIL9jhIsFtb3BZxmIZR_mmZkFTyGTM1gXVmP29AdFH6Bp-iUMAPUV8wwqOgkow1-SGe7mrJIygwBzNiwxKnlNonn8XUV6Wuy1mGnuxG5YM5rd7D5W0ZsnETUucQrKgGVQ8pZvQzIuUcTQpdpqsWaYC2kJEokRgSLYanwV8CxqLIISNuPyblTmuhDR-e88vtKFVxrboCxR475km4TTQoDNR4H24puDlhgYPYj6rep9OSRqBQnQl7Nwm8e6s_-nTJ027-75qiE4B1MrY46_Jiaa5EuPcCuZWbAGodONQZFhW4pBTRxjLKKEqjQFBQPlnxsK8AqNU63MLV6DGkkAg2qJIQQjUSnzUEAbvESaN4Tw5Pk1IRaYjjmNqOuoUvNXKLQ2-hnOt8FAd9gHWOb-KdRWeN8RIlrGnfEBijlJA5Tim8REh9z1C3nuE_F8TegMy0Q3lTyx7aCJU48hrN57WmeUoJ-FBH7NkFWXbjl626mE7XxTLbcTP68E-2oTdvk9nVzdNxV6r93VlaA4AA3ur5o0Yxs80EY1M64MTVpyU5URbAywxhZfPNCgarHeFFp_dAOnx_Bpd0y0TPQpbvsYocjyvjn80mV7XKieEB4DK6_2WM4E2TQRbue5oasxmBMKi0iNWFY1XJP-OCf9h-5DYpVXUFug8ZVmJZkKd_C1AtkNjtVuBllwYn6MLWA5viu0SEg9LWzN6dAGQf9gPtrvfm3I0AwBgsA2eguW-yEpfrBnomgFYsEzfHKqKP0b0CQTBt7CO_at-hDhDDTyanu2xtIUbhiai4pPxHvC73ThzTZICELJKN_y4oaLksPP-XRtp1-tWIAsVHvD77wI2d9gtNiXQaVTV-9CcZ7wPR_H7xMz3iVndYlXNIPssEydFNXYwZAdBDt-Bxb7x_8DiWUTjcC2etJqgI8a72uHR4vb7-XfA6S4gtqzmigRdWpRzMF6TKMm5EC3nUTWhJmzvMestI46lneFt5np76VoC_ixmdQihpl8CXcahgA4O852j8VKsoqXFOc1WLNvCzDdi1MIS0FIdMuhbtKX5hlLeh8dIeOwrN7RycYD3NgmDNz_ZPmuw17S0dfu-OLfR6dUc_YauZmeo6fewWYv9kfTWvlor_CsbK26veb-wfGL8J5IdVceiBackDoq4fNAhz_oZhEXzifP1rY0T2-XeC28HCjBYH89VSe_ov0rM6d4_saP012JR555q_PixH_41KjeTjq2iJeMce3qWPScGJgrBtSWBUsG5uWCQLBiUXS5KBB1wDvXXd1VX0_pmjY7vro6n6Smzj-pqHJxB70NN9whqqt1pHIg3Lx0nkH1MTkarHojPF9XrrQO4td-JnPBwjwaDv4kHdkkwnYowVNeSwawZfCkhX70BvFQEy1UEKWJZkuBKDtNRBLMiuLZSOqwInuLAltRhKKVGRXB8SZA6XeWGW0r8vO_dsPveTzEoSpXyT0VgyQgsFaOlrCuCrYwpgjeUypuHXmnGUw7aWDqk0uC6bYdcX7_xD4EAP8VCqXTIqF3lqutpOmqHpIc21jmV0tqcJx2zVW49mX1bZchTGTJb4Yo8KIJqE51g1lZsSVAe-spDFYutzCoRW4rUKfRk1pVfjpRQ743hTZHMjwrFlEZUAi2pEtduSZ0m1gmmTrB0Qt2cMoGeUmqaOsHSCbZG8A48l1Y81S6eVbdYtWNV7YUPb-sdqCJRQ6WusTSBh1qdlU4Zl-J35DVWLmE1F6qE8tqsJ93STKqpVRZs1Uiu1hWOyoMlvbZqgvTaqsdlqHV2HTCWso7yz1H2bV1Wzk-dTlv2r1-Pr6pHPYsKYBSHK0toK_NqjOfjq5tPhmGiUzj0BjEjoXixT8-q2a4xxW-z4052PU8qMqzyVtdGNaWtDSCu3bOlQXlolPodQ7-rzpYKNC0dTVXScY3dCk5UXDJNStLXcNmS_E7jG4jwo_mppn0L11-72nTzCN06Qrfll6w21emkup1Ur5Pqd1KHXVTX6KRi9UmpTTa7yVY32e4mO91kt5vsdZP9bvKwkwxnUSe5O0qvO0qvO0qvO0qvO0qvO0qvO0qvO0qvO0q_jrLX720pvJWLwt7opVd-7YYv4iFdEfj80nvt90jB2WKXBL1R-VW4V5QPnhcRgaeebUV8_S9SqoHZ" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWVtzm0gW_itdSmVsV0kxzV162C1JthJXxbbKykxqK96HFrQk1ohmobGtdfzf9zR0I2ghz8S7eXDE4dwvXx_gpRewkPZGvY8fX6Ik4iP0csI3dEtPRuhkSXJ60kcV4Q-SRWQZ0_xE8KxYwhfRf0o2bKfPgk3QZmQbxTtBXdA1o-j3qz4ag2DcRzlJ8kFOs2h10j9Js2hLst2UxSwT3B-ovzJWpTV5a8KykGZ7BsPwcOCAaBwldE-2PNuzZ0IupwFLwpbSlbPyV8HJq3AuZk_BhmS8dL_I6TV5_h6FfAPXKxLnFHg2fBt_JUsaixh5VghaUGSPKhlRLuwkkLBFSoIoWQPdNoCUkeRhT3KM11f0-vHjfVIbRV_v7hME_4KY5PkFXaGcA_nykaNVFMejD_Z0PHOMfs4z9kBHH8xL78Iy-4GIZAShG32R3METjdYbPlqyOJSsgycRw8hMn_vZ88g0-tkO_mq2aBLuLU1d0zf92tLEw1M8VZZWq9X_ZAnymn0j-YO0dWnNzNlFbQs7rjM1DvWpMC9sb4z1PNHsMQpoQ-lsNrMu96m6dB1sHFc6mVmuMdWUrgmnT2S3Vzic2rXCmePNsHdUYWVP97JYzjMWKIXWpTNzaoXeBM_G5lGF9hjbvvQQ9Kwzkm7QhBVlL6NxmubVPfEvsX_c9_4gcRRCBOdfSBLGFF0-BzTlEUvQBAY2RPDjroBBhdzxIkURXFIS5mzF73v_bOhyQNcdDWj0SNFV8sggzedoYk7Ob1OafKPP_Pw7XYJLEZhCl1sSxW15tyE_i8CRSHiQPLS5POCak92WJhxJ7rDN4QPHF5KFaMrSHeIMLSlKIZs0F9HwTcaK9QYxCDEgMRLzRAJOM5TBwK8Bs0Tkp7fTuzMtPPsUFK_IaEUGOWcpUl5cEE7Q76lIofDkrBkSfnlRMgIYB0sY7WCD6HMQFzm4_rnqnPve62slBrOlle56Mm0WTER3XcQ8GojcQIxJQgMePUZ8h043LOcDzgbif819e_jrgofOLMZzgb9L0tCMReGmGYVQqnsICp4RkUfIL9jhIsFtb3BZxmIZR_mmZkFTyGTM1gXVmP29AdFH6Bp-iUMAPUV8wwqOgkow1-SGe7mrJIygwBzNiwxKnlNonn8XUV6Wuy1mGnuxG5YM5rd7D5W0ZsnETUucQrKgGVQ8pZvQzIuUcTQpdpqsWaYC2kJEokRgSLYanwV8CxqLIISNuPyblTmuhDR-e88vtKFVxrboCxR475km4TTQoDNR4H24puDlhgYPYj6rep9OSRqBQnQl7Nwm8e6s_-nTJ027-75qiE4B1MrY46_Jiaa5EuPcCuZWbAGodONQZFhW4pBTRxjLKKEqjQFBQPlnxsK8AqNU63MLV6DGkkAg2qJIQQjUSnzUEAbvESaN4Tw5Pk1IRaYjjmNqOuoUvNXKLQ2-hnOt8FAd9gHWOb-KdRWeN8RIlrGnfEBijlJA5Tim8REh9z1C3nuE_F8TegMy0Q3lTyx7aCJU48hrN57WmeUoJ-FBH7NkFWXbjl626mE7XxTLbcTP68E-2oTdvk9nVzdNxV6r93VlaA4AA3ur5o0Yxs80EY1M64MTVpyU5URbAywxhZfPNCgarHeFFp_dAOnx_Bpd0y0TPQpbvsYocjyvjn80mV7XKieEB4DK6_2WM4E2TQRbue5oasxmBMKi0iNWFY1XJP-OCf9h-5DYpVXUFug8ZVmJZkKd_C1AtkNjtVuBllwYn6MLWA5viu0SEg9LWzN6dAGQf9gPtrvfm3I0AwBgsA2eguW-yEpfrBnomgFYsEzfHKqKP0b0CQTBt7CO_at-hDhDDTyanu2xtIUbhiai4pPxHvC73ThzTZICELJKN_y4oaLksPP-XRtp1-tWIAsVHvD77wI2d9gtNiXQaVTV-9CcZ7wPR_H7xMz3iVndYlXNIPssEydFNXYwZAdBDt-Bxb7x_8DiWUTjcC2etJqgI8a72uHR4vb7-XfA6S4gtqzmigRdWpRzMF6TKMm5EC3nUTWhJmzvMestI46lneFt5np76VoC_ixmdQihpl8CXcahgA4O852j8VKsoqXFOc1WLNvCzDdi1MIS0FIdMuhbtKX5hlLeh8dIeOwrN7RycYD3NgmDNz_ZPmuw17S0dfu-OLfR6dUc_YauZmeo6fewWYv9kfTWvlor_CsbK26veb-wfGL8J5IdVceiBackDoq4fNAhz_oZhEXzifP1rY0T2-XeC28HCjBYH89VSe_ov0rM6d4_saP012JR555q_PixH_41KjeTjq2iJeMce3qWPScGJgrBtSWBUsG5uWCQLBiUXS5KBB1wDvXXd1VX0_pmjY7vro6n6Smzj-pqHJxB70NN9whqqt1pHIg3Lx0nkH1MTkarHojPF9XrrQO4td-JnPBwjwaDv4kHdkkwnYowVNeSwawZfCkhX70BvFQEy1UEKWJZkuBKDtNRBLMiuLZSOqwInuLAltRhKKVGRXB8SZA6XeWGW0r8vO_dsPveTzEoSpXyT0VgyQgsFaOlrCuCrYwpgjeUypuHXmnGUw7aWDqk0uC6bYdcX7_xD4EAP8VCqXTIqF3lqutpOmqHpIc21jmV0tqcJx2zVW49mX1bZchTGTJb4Yo8KIJqE51g1lZsSVAe-spDFYutzCoRW4rUKfRk1pVfjpRQ743hTZHMjwrFlEZUAi2pEtduSZ0m1gmmTrB0Qt2cMoGeUmqaOsHSCbZG8A48l1Y81S6eVbdYtWNV7YUPb-sdqCJRQ6WusTSBh1qdlU4Zl-J35DVWLmE1F6qE8tqsJ93STKqpVRZs1Uiu1hWOyoMlvbZqgvTaqsdlqHV2HTCWso7yz1H2bV1Wzk-dTlv2r1-Pr6pHPYsKYBSHK0toK_NqjOfjq5tPhmGiUzj0BjEjoXixT8-q2a4xxW-z4052PU8qMqzyVtdGNaWtDSCu3bOlQXlolPodQ7-rzpYKNC0dTVXScY3dCk5UXDJNStLXcNmS_E7jG4jwo_mppn0L11-72nTzCN06Qrfll6w21emkup1Ur5Pqd1KHXVTX6KRi9UmpTTa7yVY32e4mO91kt5vsdZP9bvKwkwxnUSe5O0qvO0qvO0qvO0qvO0qvO0qvO0qvO0qvO0q_jrLX720pvJWLwt7opVd-7YYv4iFdEfj80nvt90jB2WKXBL1R-VW4V5QPnhcRgaeebUV8_S9SqoHZ" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-52 — Purchase Requisition to Payments for Indirect Non-Mfg. &amp; Mfg. procurement</span></div>
 
@@ -1002,7 +1016,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtO2zAUhl_FMqq0SS0LLWlHJJCc20AKiJGyTSJT5CZOa-EmUeKMltJ3n50brDQMYUuRfS7_cb4TORsYJCGBGuz1NjSmXAMbD_IFWRIPasCDM5yLVV-schIUGeVrh_whrHKyJGm8ZcoPnFE8YySXbqETJTF36WMtdaSmqypY2m28pGxdeVwyTwi4vegDJASE-LaMYslDsMAZr9WKnFzi1U8a8oW0RJjlRMYt-JI5eEZYWZZnRWmNxWu5KQ5oPJfmkSqNGY7vXxiP1e0WbHs9L25rganuxUCMgOE8N0kEcJrqyQpElDHtQFdN27b7Oc-Se6IdKMpkoo_r7eBBHk0bpqt-kLAkk-6Rqe7qhTNjzWo5pJpjNGnlhtbEHA075Y501RoqO3IkYc_Hs21d1dVWzzAUMTr1xmPp9uJKMS9m8wynC2ANLXVomMhwfOLPffRYZMR3vzt3HhQIf1fRcoQ0IwGnSdxCk6NJR2X2L-vWFYnkcH4I5FoIaJpWMX2dY-5U_ORBrwi_jkLxDINjr4iIIl5ZipVBQAR58LOULLG-dQowOBycdVWqEkkc1iz4mpFOEA1sJGcL21Lk_Bf2kfji_4PXRdf-ObpCH6J7abn-SFEawGILxPY9jNuybyAWMUDGvIdwfZJ9kJtS72HcxH4I8f6y4PT07KkGZJZMwReAri_E06ZM3E1P3R_FTuscMhfHv3tBLAgVYKIpAujGOL-YWsb09sYCjvXNujI7uuncPFsdX_YdpSmjAZbe_a1zfLOjTybmuLqi97XI8S0hb8XhIIkGDo1IJV9dGXvbUb1hQ1-Vs6V_cnLyCj3swyXJlpiGUNtUPwHxLwlJhAvGxTUOccETdx0HUCsvZlikIebEpFgQXVbG7V_4rv7F" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtO2zAUhl_FMqq0SS0LLWlHJJCc20AKiJGyTSJT5CZOa-EmUeKMltJ3n50brDQMYUuRfS7_cb4TORsYJCGBGuz1NjSmXAMbD_IFWRIPasCDM5yLVV-schIUGeVrh_whrHKyJGm8ZcoPnFE8YySXbqETJTF36WMtdaSmqypY2m28pGxdeVwyTwi4vegDJASE-LaMYslDsMAZr9WKnFzi1U8a8oW0RJjlRMYt-JI5eEZYWZZnRWmNxWu5KQ5oPJfmkSqNGY7vXxiP1e0WbHs9L25rganuxUCMgOE8N0kEcJrqyQpElDHtQFdN27b7Oc-Se6IdKMpkoo_r7eBBHk0bpqt-kLAkk-6Rqe7qhTNjzWo5pJpjNGnlhtbEHA075Y501RoqO3IkYc_Hs21d1dVWzzAUMTr1xmPp9uJKMS9m8wynC2ANLXVomMhwfOLPffRYZMR3vzt3HhQIf1fRcoQ0IwGnSdxCk6NJR2X2L-vWFYnkcH4I5FoIaJpWMX2dY-5U_ORBrwi_jkLxDINjr4iIIl5ZipVBQAR58LOULLG-dQowOBycdVWqEkkc1iz4mpFOEA1sJGcL21Lk_Bf2kfji_4PXRdf-ObpCH6J7abn-SFEawGILxPY9jNuybyAWMUDGvIdwfZJ9kJtS72HcxH4I8f6y4PT07KkGZJZMwReAri_E06ZM3E1P3R_FTuscMhfHv3tBLAgVYKIpAujGOL-YWsb09sYCjvXNujI7uuncPFsdX_YdpSmjAZbe_a1zfLOjTybmuLqi97XI8S0hb8XhIIkGDo1IJV9dGXvbUb1hQ1-Vs6V_cnLyCj3swyXJlpiGUNtUPwHxLwlJhAvGxTUOccETdx0HUCsvZlikIebEpFgQXVbG7V_4rv7F" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-52 — Purchase Requisition to Payments for Indirect Non-Mfg. &amp; Mfg. procurement</span></div>
 
@@ -1046,7 +1060,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1L4zAYx79KiAzuYPPqZrezoJCt7SlU8ey8O7BHydp0C2ZNadNzc-67X9I3vbl6YgIleV7-T_p7SrqBAQ8JNGCns6ExFQbYeFAsyJJ40AAenOFMrrpylZEgT6lYO-QPYaWTcV57i5QfOKV4xkim3FIn4rFw6WMldaQnqzJY2W28pGxdelwy5wTcXnQBkgJSfFtEMf4QLHAqKrU8I5d49ZOGYqEsEWYZUXELsWQOnhFWlBVpXlhj-VpuggMaz5V5oCtjiuP7F8ZjfbsF207Hi5taYDr2YiBHwHCWmSQCOEnGfAUiyphxMNZN27a7mUj5PTEONG00Gg-rbe9BHc3oJ6tuwBlPlXtg6rt64WyyZpUc0s0hGjVyfWtkDvqtckdj3eprO3KEs-fj2fZYH-uN3mSiydGqNxwqtxeXilk-m6c4WQCrb-l920QTxyf-3EePeUp897tz50GJ8HcZrUZIUxIIyuMGmhp1Oiqyf1m3rkwkh_NDoNZSwDCMkunrHHOn4icPenn4dRDKZxgce3lENPnKSqwIAjLIg5-VZIH1rVOA3mHvrK1SmUjisGIh1oy0gqhhIzUb2Jam5r-wj-QX_x-8Lrr2z9EV-hDdS8v1B5pWA5ZbILfvYdyUfQOxjAEq5j2Eq5Psg1yXeg_jOvZDiPeXBaenZ08VILNgCr4AdH0hnzZl8m56av8odlrnkLk8_t0LYkGoARNNEUA3k_OLqTWZ3t5YwLG-WVdmSzedm2er46u-oyRhNMDKu791jm-29MnEApdX9L4WOb4l5a047PGo59CIlPLllbG3HeUb1vR1NRv6Jycnr9DDLlySdIlpCI1N-ROQ_5KQRDhnQl7jEOeCu-s4gEZxMcM8CbEgJsWS6LI0bv8CdGL-7w==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1L4zAYx79KiAzuYPPqZrezoJCt7SlU8ey8O7BHydp0C2ZNadNzc-67X9I3vbl6YgIleV7-T_p7SrqBAQ8JNGCns6ExFQbYeFAsyJJ40AAenOFMrrpylZEgT6lYO-QPYaWTcV57i5QfOKV4xkim3FIn4rFw6WMldaQnqzJY2W28pGxdelwy5wTcXnQBkgJSfFtEMf4QLHAqKrU8I5d49ZOGYqEsEWYZUXELsWQOnhFWlBVpXlhj-VpuggMaz5V5oCtjiuP7F8ZjfbsF207Hi5taYDr2YiBHwHCWmSQCOEnGfAUiyphxMNZN27a7mUj5PTEONG00Gg-rbe9BHc3oJ6tuwBlPlXtg6rt64WyyZpUc0s0hGjVyfWtkDvqtckdj3eprO3KEs-fj2fZYH-uN3mSiydGqNxwqtxeXilk-m6c4WQCrb-l920QTxyf-3EePeUp897tz50GJ8HcZrUZIUxIIyuMGmhp1Oiqyf1m3rkwkh_NDoNZSwDCMkunrHHOn4icPenn4dRDKZxgce3lENPnKSqwIAjLIg5-VZIH1rVOA3mHvrK1SmUjisGIh1oy0gqhhIzUb2Jam5r-wj-QX_x-8Lrr2z9EV-hDdS8v1B5pWA5ZbILfvYdyUfQOxjAEq5j2Eq5Psg1yXeg_jOvZDiPeXBaenZ08VILNgCr4AdH0hnzZl8m56av8odlrnkLk8_t0LYkGoARNNEUA3k_OLqTWZ3t5YwLG-WVdmSzedm2er46u-oyRhNMDKu791jm-29MnEApdX9L4WOb4l5a047PGo59CIlPLllbG3HeUb1vR1NRv6Jycnr9DDLlySdIlpCI1N-ROQ_5KQRDhnQl7jEOeCu-s4gEZxMcM8CbEgJsWS6LI0bv8CdGL-7w==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-52 — Purchase Requisition to Payments for Indirect Non-Mfg. &amp; Mfg. procurement</span></div>
 
@@ -1194,7 +1208,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzzaQoQqpU06dUoBETY2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpfygBacTAVK7EWeapSrkD2uog05-b4K1fUgXXCyNJ4RZBuT7qElcBBBNImkqWxIKPo2sVZUhsrtkTgu1Ri4ljOn9DWdqri1TKiTouLlaiIBOQFRTUEVZWVNcYpjThKczbT62tbGg6d-asW2vVmTVaETpSy1y3Y9SgqPRIK0Wzi2Z8zFV0OKpzHkBjEi1FEASQaUEiTEmvPr2YEompeQpSEmqMeVCOHtDHP12U6oi-wvOXv_kpGP315-tO70g5zC_byaZyApnz7btLUya52QzDGa_rVFfMG272-13_gOTUUV3Mb2TDzAPXmE--xiVSF5Bl8gpaW9VWnDGBNzRAuqMeB13w4jf7Qw3aJ-YPWRihxHNcY3lwcC2P8I0qLKczAqaz4kb_I6sqGQnRwyf7KhN3MvLYDRwr0cX5yRwf_lXkfXHJOnBUBCJ4llKgquN1T_024eDGOJZPPbD-Mi266gJdAh8mX0h6CPoQ0DHcbDDbwL89L-Hb2Zrx7up45sq2X0oC4hDKG55AnG_lK9Wd9A1SFUUWUcRjDKwm65to3t-hT7IpIp9gUdAqnr1KSbHBlgHkHXA2aTY753xnnGEP8g-GXlZgn_fwovzs33eM1W1Kk09SNlzf3YJxW3Xe4qsCs2rmoBI7uUIn0Mu8Ox5-oCJOvB7MbrIdi_0lNaiqY6BflDb4kP7oy1eT3VfUu3P7OQdsQYwQ45eiYPZJPC_-ufeJ1QaxKjtbWm5eS54QnXwG-IK4vHNtoTGG5m8K5sg9vxthXj6-PFThZfLdudNin9hNuNhhx1jIGtl01bAp-syuP9rMtmQakh5Jratfy_Enp6e7pxlVtNaQLGgnFnOo7nQ8F5kMKWlUHgNWbRUWbhME8upLharzHGi4HGKTVgY4-oflLNG5Q==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzzaQoQqpU06dUoBETY2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpfygBacTAVK7EWeapSrkD2uog05-b4K1fUgXXCyNJ4RZBuT7qElcBBBNImkqWxIKPo2sVZUhsrtkTgu1Ri4ljOn9DWdqri1TKiTouLlaiIBOQFRTUEVZWVNcYpjThKczbT62tbGg6d-asW2vVmTVaETpSy1y3Y9SgqPRIK0Wzi2Z8zFV0OKpzHkBjEi1FEASQaUEiTEmvPr2YEompeQpSEmqMeVCOHtDHP12U6oi-wvOXv_kpGP315-tO70g5zC_byaZyApnz7btLUya52QzDGa_rVFfMG272-13_gOTUUV3Mb2TDzAPXmE--xiVSF5Bl8gpaW9VWnDGBNzRAuqMeB13w4jf7Qw3aJ-YPWRihxHNcY3lwcC2P8I0qLKczAqaz4kb_I6sqGQnRwyf7KhN3MvLYDRwr0cX5yRwf_lXkfXHJOnBUBCJ4llKgquN1T_024eDGOJZPPbD-Mi266gJdAh8mX0h6CPoQ0DHcbDDbwL89L-Hb2Zrx7up45sq2X0oC4hDKG55AnG_lK9Wd9A1SFUUWUcRjDKwm65to3t-hT7IpIp9gUdAqnr1KSbHBlgHkHXA2aTY753xnnGEP8g-GXlZgn_fwovzs33eM1W1Kk09SNlzf3YJxW3Xe4qsCs2rmoBI7uUIn0Mu8Ox5-oCJOvB7MbrIdi_0lNaiqY6BflDb4kP7oy1eT3VfUu3P7OQdsQYwQ45eiYPZJPC_-ufeJ1QaxKjtbWm5eS54QnXwG-IK4vHNtoTGG5m8K5sg9vxthXj6-PFThZfLdudNin9hNuNhhx1jIGtl01bAp-syuP9rMtmQakh5Jratfy_Enp6e7pxlVtNaQLGgnFnOo7nQ8F5kMKWlUHgNWbRUWbhME8upLharzHGi4HGKTVgY4-oflLNG5Q==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-52 — Purchase Requisition to Payments for Indirect Non-Mfg. &amp; Mfg. procurement</span></div>
 
@@ -1274,7 +1288,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9A5wuoiyEZbtxwM9Q4X-7N3c1S1gM0lm1ZOxWV_35PV5QJGr0lGdt5eU77nKfts5VkDCzHajSeecqVQ54jS01hBpHlkMgaUYlvTXyTkJQFV_MA7kEYp8iyV2-VckMLTkcCpHYjzjhLVcifllC7nfzRBGt7n864mBtPCJMMyPWgSVwEEE0iaSpbEgo-jqxFlSGyh2RKC7VELiUM6eMtZ2qqLWMqJOi4qZqJgI5AVFNQRVlZU1ximNOEpxNtPrC1saDpXc3YthcLsmg0ovStFrnqRSnB0WiQVgvnlkz5kCpo8VTmvABGpJoLIImgUoLEGBNefXswJqNS8hSkJNUYcyGcrT6OXrspVZHdgbPVOzrq2L3lZ-tBL8jZyx-bSSaywtmybXsNk-Y5WQ2D2Wtr1DdM2z487HX-A5NRRTcxvaMvMHffYb76GJVIXkHnyClpr1WaccYEPNAC6ox4HXfFiH_Y6a_QvjF7yMQGI5rjGsunp7b9FaZBleVoUtB8StzgT2RFJTvaZ_hk-23iXlwEg1P3anB-RgL3t38ZWX9Nkh4MBZEonqUkuFxZ_T2_vdePIZ7EQz-M9227jppAh8D2ZJugj6APAR3HwQ5_CPDLvw4_zNaOT1OHt1Wy-1QWEIdQ3PME4l4p361u99AgVVFkGUUwysCuuraO7vkV-mkmVewLPAJS1a1PMTkwwDqALANORsVO94R3jSO8ITtk4GUJ_v0Mz89OdnjXVNWqNPUgZa_92SQUt133JbIqNK9qAiK5FwN89rnAs-flCybqwJ_F6CLrvdBTWoqmOgZ6QW2L9-2vtng91X1Ltb-zkzfEGsAEOXonDmaTwP_hn3nfUGkQo7bXpeXmueAJ1cEfiCuIh7frEhquZPKpbILY89cV4unjx08VXi7rnTcp_rnZjHsddoCBrJWNWwEfL8vg_q_JZEWqIeWV2Lb-vRF7fHy8cZZZTWsGxYxyZjnP5kLDe5HBmJZC4TVk0VJl4TxNLKe6WKwyx4mCxyk2YWaMi3_bJEb9" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9A5wuoiyEZbtxwM9Q4X-7N3c1S1gM0lm1ZOxWV_35PV5QJGr0lGdt5eU77nKfts5VkDCzHajSeecqVQ54jS01hBpHlkMgaUYlvTXyTkJQFV_MA7kEYp8iyV2-VckMLTkcCpHYjzjhLVcifllC7nfzRBGt7n864mBtPCJMMyPWgSVwEEE0iaSpbEgo-jqxFlSGyh2RKC7VELiUM6eMtZ2qqLWMqJOi4qZqJgI5AVFNQRVlZU1ximNOEpxNtPrC1saDpXc3YthcLsmg0ovStFrnqRSnB0WiQVgvnlkz5kCpo8VTmvABGpJoLIImgUoLEGBNefXswJqNS8hSkJNUYcyGcrT6OXrspVZHdgbPVOzrq2L3lZ-tBL8jZyx-bSSaywtmybXsNk-Y5WQ2D2Wtr1DdM2z487HX-A5NRRTcxvaMvMHffYb76GJVIXkHnyClpr1WaccYEPNAC6ox4HXfFiH_Y6a_QvjF7yMQGI5rjGsunp7b9FaZBleVoUtB8StzgT2RFJTvaZ_hk-23iXlwEg1P3anB-RgL3t38ZWX9Nkh4MBZEonqUkuFxZ_T2_vdePIZ7EQz-M9227jppAh8D2ZJugj6APAR3HwQ5_CPDLvw4_zNaOT1OHt1Wy-1QWEIdQ3PME4l4p361u99AgVVFkGUUwysCuuraO7vkV-mkmVewLPAJS1a1PMTkwwDqALANORsVO94R3jSO8ITtk4GUJ_v0Mz89OdnjXVNWqNPUgZa_92SQUt133JbIqNK9qAiK5FwN89rnAs-flCybqwJ_F6CLrvdBTWoqmOgZ6QW2L9-2vtng91X1Ltb-zkzfEGsAEOXonDmaTwP_hn3nfUGkQo7bXpeXmueAJ1cEfiCuIh7frEhquZPKpbILY89cV4unjx08VXi7rnTcp_rnZjHsddoCBrJWNWwEfL8vg_q_JZEWqIeWV2Lb-vRF7fHy8cZZZTWsGxYxyZjnP5kLDe5HBmJZC4TVk0VJl4TxNLKe6WKwyx4mCxyk2YWaMi3_bJEb9" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-52 — Purchase Requisition to Payments for Indirect Non-Mfg. &amp; Mfg. procurement</span></div>
 
@@ -1471,7 +1485,7 @@ flowchart TB
     E2E52CPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E52CPLP_e_g_Azure_PaaS
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1jp2nKaCDmzHZoV0hLndBvMwin2ciMqWseU1aZr_PsnOR1tIoWy6ENL7Hj06OkLa4ESkgAnu9TasYJKgTYTlEnKIMEERntNajfpqVEPSVEyup_AHeGdyIfZuu-Q7rRidc6i1rTiZKGTInnaowbBcdcFaD2jO-LpzQlgIQPc3feQogIJv2yguHpMlreSO1tRwS1c_WCqXWskor0HHLWXOp3QOvN1WVk2rFupYYUkTViy0PDS0WNHi4YVoG9st2vZ6UXHYC925UYFUSzit6wlkiJalK1YoY5yTM9eeBEHQr2UlHoCcGcblpTvaTT896tSIWa76ieCi0rY1sd_ySk7lEeiN_ZF3dQBa47Fvea-B1hE4cG3fNN4AQfAjLwhc27UPPM8zVDuZ4Gik7ajoiHUzX1S0XCLf9G3Tm01nMcSL2HlqKohnlIa_Ihw15sgYRE0Ghtr5fHGOWhtpO8K_O5BuKasgkUwUaPrtqO7JTkv-6d9rZovRYwUghHQF79ZAke5yk2sOJxP7p2K-e_gwHsZfnK9ObBqm1Z4_HVup6lNqv6xCeDFEOg7puA8X4tYPY8sw9rVQU6SmHyzHq1T_Q0Xeo19ff37eJTtpz4cukDO7UX3AuHrvzyevCvdxDlVOWYrJpvs21O-TQkYbLtXDx7SRIlwXCSbtU8ZNmVIJE0bV9eSduP0LmaZ31g==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1jp2nKaCDmzHZoV0hLndBvMwin2ciMqWseU1aZr_PsnOR1tIoWy6ENL7Hj06OkLa4ESkgAnu9TasYJKgTYTlEnKIMEERntNajfpqVEPSVEyup_AHeGdyIfZuu-Q7rRidc6i1rTiZKGTInnaowbBcdcFaD2jO-LpzQlgIQPc3feQogIJv2yguHpMlreSO1tRwS1c_WCqXWskor0HHLWXOp3QOvN1WVk2rFupYYUkTViy0PDS0WNHi4YVoG9st2vZ6UXHYC925UYFUSzit6wlkiJalK1YoY5yTM9eeBEHQr2UlHoCcGcblpTvaTT896tSIWa76ieCi0rY1sd_ySk7lEeiN_ZF3dQBa47Fvea-B1hE4cG3fNN4AQfAjLwhc27UPPM8zVDuZ4Gik7ajoiHUzX1S0XCLf9G3Tm01nMcSL2HlqKohnlIa_Ihw15sgYRE0Ghtr5fHGOWhtpO8K_O5BuKasgkUwUaPrtqO7JTkv-6d9rZovRYwUghHQF79ZAke5yk2sOJxP7p2K-e_gwHsZfnK9ObBqm1Z4_HVup6lNqv6xCeDFEOg7puA8X4tYPY8sw9rVQU6SmHyzHq1T_Q0Xeo19ff37eJTtpz4cukDO7UX3AuHrvzyevCvdxDlVOWYrJpvs21O-TQkYbLtXDx7SRIlwXCSbtU8ZNmVIJE0bV9eSduP0LmaZ31g==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
@@ -1506,7 +1520,7 @@ flowchart TB
     E2E52FPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E52FPLP_e_g_Azure_PaaS
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1jp2nGaGDuzEZoV0hHndBvMwin2ciMqSkeU1aZr_PsnOR1tooWy6ENL7Hj06OkLa4kzkgD3c620pp8pD2wSrFZSQYA8leEFqPerrUQ1ZI6nazOAPsM5kQhzcdsl3IilZMKiNrTmF4CqmD3vUYFitu2CjR6SkbNM5MSwFoNvrPvI1QMN3bRQT99mKSLWnNTXckPUPmquVUQrCajBxK1WyGVkAa7dVsmlVro8VVySjfGnkoWVESfjdE9G1dju06_USftwLfQsSjnTLGKnrKRSIVFUg1qigjHlngTuNoqhfKynuwDuzrMvLYLSffrg3qXl2te5ngglpbGfqvuRVjKgTcDIOR5OPR6AzHofO5DnQOQEHgRva1gsgCHbiRVHgBu6RN5lYur2a4Ghk7IR3xLpZLCWpVii0Q9eO5rN5Cuky9R8aCemckPhXgpPGHlmDpCnA0jufL89RayNjJ_h3BzItpxIyRQVHs68n9UD2W_LP8NYwW4wZa4DneV3BuzXA831uasPg1cT-qZhvHj5Oh-ln_4uf2pbttOfPx06u-5y4T6sQXwyRiUMm7t2FuAnj1LGsQy30FOnpO8vxLNX_UJG36FdXnx73yU7b86EL5M-vdR9Rpt_746tXhfu4BFkSmmNv230b-vfJoSANU_rhY9IoEW94hr32KeOmyomCKSX6espO3P0FvHd37g==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1jp2nGaGDuzEZoV0hHndBvMwin2ciMqSkeU1aZr_PsnOR1tooWy6ENL7Hj06OkLa4kzkgD3c620pp8pD2wSrFZSQYA8leEFqPerrUQ1ZI6nazOAPsM5kQhzcdsl3IilZMKiNrTmF4CqmD3vUYFitu2CjR6SkbNM5MSwFoNvrPvI1QMN3bRQT99mKSLWnNTXckPUPmquVUQrCajBxK1WyGVkAa7dVsmlVro8VVySjfGnkoWVESfjdE9G1dju06_USftwLfQsSjnTLGKnrKRSIVFUg1qigjHlngTuNoqhfKynuwDuzrMvLYLSffrg3qXl2te5ngglpbGfqvuRVjKgTcDIOR5OPR6AzHofO5DnQOQEHgRva1gsgCHbiRVHgBu6RN5lYur2a4Ghk7IR3xLpZLCWpVii0Q9eO5rN5Cuky9R8aCemckPhXgpPGHlmDpCnA0jufL89RayNjJ_h3BzItpxIyRQVHs68n9UD2W_LP8NYwW4wZa4DneV3BuzXA831uasPg1cT-qZhvHj5Oh-ln_4uf2pbttOfPx06u-5y4T6sQXwyRiUMm7t2FuAnj1LGsQy30FOnpO8vxLNX_UJG36FdXnx73yU7b86EL5M-vdR9Rpt_746tXhfu4BFkSmmNv230b-vfJoSANU_rhY9IoEW94hr32KeOmyomCKSX6espO3P0FvHd37g==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>

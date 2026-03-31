@@ -120,8 +120,8 @@ blockquote {
     background: #fafbfd;
     border: 1px solid #e0e4ea;
     border-radius: 6px;
-    padding: 20px 12px;
-    margin: 16px 0;
+    padding: 16px 12px;
+    margin: 12px 0;
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
@@ -130,6 +130,7 @@ blockquote {
 .mermaid svg {
     max-width: 100%;
     height: auto;
+    max-height: 85vh;
 }
 .header-bar {
     background: #00285a;
@@ -205,25 +206,31 @@ strong { color: #00285a; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print, .pdf-download-btn { display: none !important; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
-    /* Page sections: do NOT use min-height in print — the page-break divs
-       already handle pagination.  min-height:100vh forces every section to
-       fill a full page, which creates blank trailing space before the next
-       page-break, producing blank pages in the PDF output. */
+
+    /* Page sections: auto height in print — page-break divs handle pagination */
     .page-section {
         min-height: auto;
         display: block;
     }
     .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
         page-break-inside: avoid;
+        break-inside: avoid;
         overflow: visible;
+        max-height: 85vh;
+        margin: 8px 0;
     }
     .mermaid svg {
         max-width: 100%;
+        max-height: 80vh;
         height: auto;
+        width: auto;
     }
+
     /* Diagram links: visible + clickable in PDF */
     a[title="View full diagram"],
     a[title="Open full-size SVG"] {
@@ -231,6 +238,13 @@ strong { color: #00285a; }
         text-decoration: underline !important;
         font-size: 10pt !important;
     }
+
+    /* Tighten spacing in print for professional PDF output */
+    h2 { margin-top: 18px; margin-bottom: 8px; }
+    h3 { margin-top: 14px; margin-bottom: 6px; }
+    h4 { margin-top: 10px; margin-bottom: 4px; }
+    table { margin: 8px 0; }
+    blockquote { margin: 8px 0; padding: 6px 14px; }
 }
 </style>
     
@@ -712,7 +726,7 @@ flowchart LR
     class n29 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV11v4jgU_StWRhUzEkzjkBDgYSUaSIXUbqvSmT5s98EkDlg1duQ4LWyH_752YgdIqbQfPFS9J-fcL99rwruT8BQ7Y-fi4p0wIsfgvSPXeIM7Y9BZogJ3uqAGfiJB0JLioqM5GWdyQf6qaNDPt5qmsRhtCN1pdIFXHIMf8y6YKCHtggKxoldgQbJOt5MLskFiF3HKhWZ_wcPMzapo5tEVFykWB4LrhjAJlJQShg9wP_RDP9a6AiecpSdOsyAbZklnr5Oj_C1ZIyGr9MsC36LtE0nlWtkZogVWnLXc0Bu0xFTXKEWpsaQUr7YZpNBxmGrYIkcJYSuF-66CBGIvByhw93uwv7h4Zk1QcPPwzID6JBQVxRRnoJAKnr1KkBFKx1_8aBIHbreQgr_g8RdvFk77XjfRlYxV6W5XN7f3hslqLcdLTlND7b3pGsZevu2K7dhzu2Kn_rZiYZYeIkUDb-gNm0hXIYxgZCNlWfa_Iqm-ikdUvJhYs37sxdMmFgwGQeR-9GfLnPrhBLb7hMUrSfCR0ziO-7NDq2aDALqfO72K-wM3ajldIYnf0O7gcBT5jcM4CGMYfuqwjtfOslzeC55Yh_1ZEAeNw_AKxhPvU4f-BPpDk6HysxIoX4PZ022N6A_r__HszNmSlywFU0zJKxa7iuL8ecTyFesHoxylag4_Pg7U43teSHDNeVqAB5xgksuPvME_5IWaV8reRHcy4iwjYoMk4Qy8EbkGeJvgvDIjtTDFqXaotJHA6hjApZGCxld11h_CjZTkrpStJtzpSwJ8Vexvp3ToHkIgpWiikORFt0dj96j-_5wcnnZhXhQlPkf0_K-KmaFxhnqF5HmrjKTKILVF4lSpvx3LB-_vVo6E4G9FD1EJciQQpZhe14P67Oz3tUitcntSthILhqiqRkiGRXEJFmWeU4LFcT26nDsg9GG-4hQg2bDAjKWtmhR5sSb5BjMJGJckI0l9spIfnJ9K-q02NN5_r_THhX-sYTG5B4tLH8yZxBTE-ojF7jh7ndETypQ7lcES6zooIqqdSvKqsuRqFH7kqW516xz16kSlSmkD4vndwxxM8lw7USLl7YZLkGKJCG0NKPSrlbO-H9UNX-jwmVCO5rdg8f2GJ9-_qjsbfqu6ou16PsDDwgNcgMkCtnwGJz7LOl99FGrHvtcuWorBYYgfsCwFU-Ml1DdKge3kX2N15iQBt7fzaXuG9YY-CrJaKeL14wJEa5y8tDjVJiKalFQHeUTb9qrCUbXnJ1HNVLdGQG-cydLuZ4txbqkuTWWtsJ53GKicqnWaq7cTcmhEe4-C1vydm4sTQfjvFq8WDf-LaHRWRFhCy0J16fMdZ33Q6_2mLnZj-rUZGDOoTW9gbG9QA9aGlmAF5nlozLA2h8YcGraNBg3ds3zPCOCwDVgGHBlJw_AMw-ZkCNC1CtcA0CqMh36rKGiLgKYLlgBNk6BnAZOVN7LAsAV4NosGMFk0CmgUTVYV8OvZ-UkQeMLLoiQSPzu_1BPLsEHcFmBdQNsK_-jdoeqQfRU8xfvmte0U9c-iwVl0YN9zTuHwPDw8D48s7HSdDVbf8CR1xu9O9ZNA_WxIcYZKKp1910Gl5IsdS5xx9ers1PfblCB1x29qcP83lDDF6A==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV11v4jgU_StWRhUzEkzjkBDgYSUaSIXUbqvSmT5s98EkDlg1duQ4LWyH_752YgdIqbQfPFS9J-fcL99rwruT8BQ7Y-fi4p0wIsfgvSPXeIM7Y9BZogJ3uqAGfiJB0JLioqM5GWdyQf6qaNDPt5qmsRhtCN1pdIFXHIMf8y6YKCHtggKxoldgQbJOt5MLskFiF3HKhWZ_wcPMzapo5tEVFykWB4LrhjAJlJQShg9wP_RDP9a6AiecpSdOsyAbZklnr5Oj_C1ZIyGr9MsC36LtE0nlWtkZogVWnLXc0Bu0xFTXKEWpsaQUr7YZpNBxmGrYIkcJYSuF-66CBGIvByhw93uwv7h4Zk1QcPPwzID6JBQVxRRnoJAKnr1KkBFKx1_8aBIHbreQgr_g8RdvFk77XjfRlYxV6W5XN7f3hslqLcdLTlND7b3pGsZevu2K7dhzu2Kn_rZiYZYeIkUDb-gNm0hXIYxgZCNlWfa_Iqm-ikdUvJhYs37sxdMmFgwGQeR-9GfLnPrhBLb7hMUrSfCR0ziO-7NDq2aDALqfO72K-wM3ajldIYnf0O7gcBT5jcM4CGMYfuqwjtfOslzeC55Yh_1ZEAeNw_AKxhPvU4f-BPpDk6HysxIoX4PZ022N6A_r__HszNmSlywFU0zJKxa7iuL8ecTyFesHoxylag4_Pg7U43teSHDNeVqAB5xgksuPvME_5IWaV8reRHcy4iwjYoMk4Qy8EbkGeJvgvDIjtTDFqXaotJHA6hjApZGCxld11h_CjZTkrpStJtzpSwJ8Vexvp3ToHkIgpWiikORFt0dj96j-_5wcnnZhXhQlPkf0_K-KmaFxhnqF5HmrjKTKILVF4lSpvx3LB-_vVo6E4G9FD1EJciQQpZhe14P67Oz3tUitcntSthILhqiqRkiGRXEJFmWeU4LFcT26nDsg9GG-4hQg2bDAjKWtmhR5sSb5BjMJGJckI0l9spIfnJ9K-q02NN5_r_THhX-sYTG5B4tLH8yZxBTE-ojF7jh7ndETypQ7lcES6zooIqqdSvKqsuRqFH7kqW516xz16kSlSmkD4vndwxxM8lw7USLl7YZLkGKJCG0NKPSrlbO-H9UNX-jwmVCO5rdg8f2GJ9-_qjsbfqu6ou16PsDDwgNcgMkCtnwGJz7LOl99FGrHvtcuWorBYYgfsCwFU-Ml1DdKge3kX2N15iQBt7fzaXuG9YY-CrJaKeL14wJEa5y8tDjVJiKalFQHeUTb9qrCUbXnJ1HNVLdGQG-cydLuZ4txbqkuTWWtsJ53GKicqnWaq7cTcmhEe4-C1vydm4sTQfjvFq8WDf-LaHRWRFhCy0J16fMdZ33Q6_2mLnZj-rUZGDOoTW9gbG9QA9aGlmAF5nlozLA2h8YcGraNBg3ds3zPCOCwDVgGHBlJw_AMw-ZkCNC1CtcA0CqMh36rKGiLgKYLlgBNk6BnAZOVN7LAsAV4NosGMFk0CmgUTVYV8OvZ-UkQeMLLoiQSPzu_1BPLsEHcFmBdQNsK_-jdoeqQfRU8xfvmte0U9c-iwVl0YN9zTuHwPDw8D48s7HSdDVbf8CR1xu9O9ZNA_WxIcYZKKp1910Gl5IsdS5xx9ers1PfblCB1x29qcP83lDDF6A==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-116 — R3 Wafer Reclaim Process</span></div>
 
@@ -810,7 +824,7 @@ flowchart LR
     class n28 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1tv4jgU_itWqopWApGEhFAedsQt3UrToSpz0WrYB5M4YNXYkeMA3Q7_fY-TmEtKpZGmD1X9-XzfudnH6ZsViZhYfev6-o1yqvroraFWZE0afdRY4Iw0mqgEvmNJ8YKRrKFtEsHVjP5XmDleutNmGgvxmrJXjc7IUhD07aGJBkBkTZRhnrUyImnSaDZSSddYvo4EE1JbX5FeYieFt2prKGRM5NHAtgMn8oHKKCdHuBN4gRdqXkYiweMz0cRPeknU2OvgmNhGKyxVEX6ekUe8-0FjtYJ1gllGwGal1uwzXhCmc1Qy11iUy40pBs20Hw4Fm6U4onwJuGcDJDF_OUK-vd-j_fX1nB-cos_Pc47gJ2I4y8YkQZkCeLJRKKGM9a-80SD07WampHgh_St3Eow7bjPSmfQhdbupi9vaErpcqf5CsLgybW11Dn033TXlru_aTfkKv2u-CI-PnkZdt-f2Dp6GgTNyRsZTkiR_5AnqKr_i7KXyNemEbjg--HL8rj-y3-uZNMdeMHDqdSJyQyNyIhqGYWdyLNWk6zv2x6LDsNO1RzXRJVZki1-Pgncj7yAY-kHoBB8Klv7qUeaLJykiI9iZ-KF_EAyGTjhwPxT0Bo7XqyIEnaXE6QoNRV6cZTRI06zc0z_c-Tm3nklE6IagR8xzzBDlGwEVypBaSZEvV2g6ep5b_56Q3BPSA4_EGs6pobXR0B22pynhX8lOtX-QBQRBFTlX6BQKOJ6JRKHvmNEYKyp4e7KLSKr_Qn9jHjOtq4dGjACROQwL6J_K01o43tvb3EpwP8EtPX1aC7g_0UoHgoTU4X-aW_v9KcO_zCC7iOUZpHVfNvRIgyNfq-jkx-OJYg8SeuALXWU0JgwkoNYxhR7RRV4kpERBOYv8DljfOBM41pm-23Zs2H8SmUL3QsQZKmqeqguGuo1PuWoN9CkcCZ5QuS4qirZUQayHso4g26xG1u0cSQIptysqOmgV9-SdP9e9-WnqlymRHu2Vti_FYqNGYmDfntJ7x_JjKcU2a2GmUIolZoyw3yn-ThHJ4bA-wdTjRGZtNMvTlFEiT_x4-pRhmulTWhxOdGOs0ITHt-dJ-UUNJcxXIBSPBZLlIY8RVuiUeU7sAnEQvXCxZSRewtPGVRt6taFki84Fz3kB8MrGPtHoBbzkKboZQUHAyy2aFhHMVjTVgrWW3R3rnzIo-4n7o-tpvex2jfUADzSFYqNjFMXdOiM59VZPD2Wpm3b__FbNBk9o1vYgNEUYCvV9kq-nmXfMlTj0oxo8tQrp3g8ZvKNEHZswfd8ER7f9YThGeIkpB90DaVoz1G2-fz7Y1W97zTr43aurJ8dkg1mur8zBbkaUYsVRQjeT59ktACxpDeE5gElRu4ydWofMYU_B_fsmBZebZEiDSI8KEn-60CWYm6jV-gvGd7V2yqXrm31PA7_mVvFk_AKDaqNTGQbGsFsCXrX2qn2zduvCQSX8j55eWrhTdwnTvthx65QvosS71UaVg2tic-5KwOy7drk2sXYrne8UI_2czcrnTAdhwnW8D21MBiaawewL2rxXMmZOFV2vWvfK5V21rEJ1bGNexeoae7ciOE4dMOk5QQUYitOrFdup2uqYUjqmHQfA9LNz8t1SVNJ8hp7hUNHLuFN9Sp6j7kW0cxH1zLfXOexfhruX4eAy3DOw1bTWBB5UGlv9N6v47wX-w4lJgnOmrH3TwrkSs1ceWf3iK9_KU_ieIWOKYaitS3D_P3F1Bwc=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1tv4jgU_itWqopWApGEhFAedsQt3UrToSpz0WrYB5M4YNXYkeMA3Q7_fY-TmEtKpZGmD1X9-XzfudnH6ZsViZhYfev6-o1yqvroraFWZE0afdRY4Iw0mqgEvmNJ8YKRrKFtEsHVjP5XmDleutNmGgvxmrJXjc7IUhD07aGJBkBkTZRhnrUyImnSaDZSSddYvo4EE1JbX5FeYieFt2prKGRM5NHAtgMn8oHKKCdHuBN4gRdqXkYiweMz0cRPeknU2OvgmNhGKyxVEX6ekUe8-0FjtYJ1gllGwGal1uwzXhCmc1Qy11iUy40pBs20Hw4Fm6U4onwJuGcDJDF_OUK-vd-j_fX1nB-cos_Pc47gJ2I4y8YkQZkCeLJRKKGM9a-80SD07WampHgh_St3Eow7bjPSmfQhdbupi9vaErpcqf5CsLgybW11Dn033TXlru_aTfkKv2u-CI-PnkZdt-f2Dp6GgTNyRsZTkiR_5AnqKr_i7KXyNemEbjg--HL8rj-y3-uZNMdeMHDqdSJyQyNyIhqGYWdyLNWk6zv2x6LDsNO1RzXRJVZki1-Pgncj7yAY-kHoBB8Klv7qUeaLJykiI9iZ-KF_EAyGTjhwPxT0Bo7XqyIEnaXE6QoNRV6cZTRI06zc0z_c-Tm3nklE6IagR8xzzBDlGwEVypBaSZEvV2g6ep5b_56Q3BPSA4_EGs6pobXR0B22pynhX8lOtX-QBQRBFTlX6BQKOJ6JRKHvmNEYKyp4e7KLSKr_Qn9jHjOtq4dGjACROQwL6J_K01o43tvb3EpwP8EtPX1aC7g_0UoHgoTU4X-aW_v9KcO_zCC7iOUZpHVfNvRIgyNfq-jkx-OJYg8SeuALXWU0JgwkoNYxhR7RRV4kpERBOYv8DljfOBM41pm-23Zs2H8SmUL3QsQZKmqeqguGuo1PuWoN9CkcCZ5QuS4qirZUQayHso4g26xG1u0cSQIptysqOmgV9-SdP9e9-WnqlymRHu2Vti_FYqNGYmDfntJ7x_JjKcU2a2GmUIolZoyw3yn-ThHJ4bA-wdTjRGZtNMvTlFEiT_x4-pRhmulTWhxOdGOs0ITHt-dJ-UUNJcxXIBSPBZLlIY8RVuiUeU7sAnEQvXCxZSRewtPGVRt6taFki84Fz3kB8MrGPtHoBbzkKboZQUHAyy2aFhHMVjTVgrWW3R3rnzIo-4n7o-tpvex2jfUADzSFYqNjFMXdOiM59VZPD2Wpm3b__FbNBk9o1vYgNEUYCvV9kq-nmXfMlTj0oxo8tQrp3g8ZvKNEHZswfd8ER7f9YThGeIkpB90DaVoz1G2-fz7Y1W97zTr43aurJ8dkg1mur8zBbkaUYsVRQjeT59ktACxpDeE5gElRu4ydWofMYU_B_fsmBZebZEiDSI8KEn-60CWYm6jV-gvGd7V2yqXrm31PA7_mVvFk_AKDaqNTGQbGsFsCXrX2qn2zduvCQSX8j55eWrhTdwnTvthx65QvosS71UaVg2tic-5KwOy7drk2sXYrne8UI_2czcrnTAdhwnW8D21MBiaawewL2rxXMmZOFV2vWvfK5V21rEJ1bGNexeoae7ciOE4dMOk5QQUYitOrFdup2uqYUjqmHQfA9LNz8t1SVNJ8hp7hUNHLuFN9Sp6j7kW0cxH1zLfXOexfhruX4eAy3DOw1bTWBB5UGlv9N6v47wX-w4lJgnOmrH3TwrkSs1ceWf3iK9_KU_ieIWOKYaitS3D_P3F1Bwc=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-116 — R3 Wafer Reclaim Process</span></div>
 
@@ -932,7 +946,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtumzAUhl_F8hRpk5KOJCVZkVrJXLJWolVX0m1SmZADJrHqYARmTZrm3WcDoV0Wuqq2hMy5_Mf-DjIbGPKIQAN2OhuaUGGAjQ_FgiyJDw3gwxnO5aorVzkJi4yKtUt-E1Y5Gec7b5nyHWcUzxjJlVvqxDwRHn2spfp6uqqClX2Cl5StK49H5pyA24suQFJAim_LKMYfwgXORK1W5OQSr37QSCyUJcYsJypuIZbMxTPCyrIiK0prIo_lpTikyVyZh7oyZji5f2E81rdbsO10_KSpBaamnwA5Qobz3CYxwGlq8hWIKWPGB1O3J5NJNxcZvyfGB00bj81R_dp7UFszBumqG3LGM-Ue2vq-XjSz1qyWQ7o9QuNGbuCM7eGgVa5v6s5A25MjnD1vbzIxdVNv9CxLk6NVbzRSbj-pFPNiNs9wugDOwOn3R5aNLDcgwTxAj0VGAu-be-dDyfBXFa5GRDMSCsqThpoaTT4q0386t57MJEfzI6DWUsEwjIrqgSR7r-ZHH_pF9GUYyWcUHvtFTDR5aqVWBgEZ5MNPSrMk--o-QO-od9Zaq0olSVQDEWtG2mnskCM1G-SOpubfyPvyu_8fZA9dB-foCr2P8aXjBUNN22GWr0C-vol0U_gV0DIGqJg3ca73chD1rtibSO-C3wW6pTA4PT17qinZJVnwGaDrC_mcUCYvqqdXvo69FrpkLk9w9wJbGGnARlME0I11fjF1rOntjQNc56tzZbc01b15trqBaj9KU0ZDrLyHG-gGdkuzbCxwdWEf6pMbOFLeSaIej3sujUklX10gBztSnXDHX1ez4X9ycvIPfNiFS5ItMY2gsal-CfLPEpEYF0zISx3iQnBvnYTQKK9pWKQRFsSmWBJdVsbtH16iAYI=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtumzAUhl_F8hRpk5KOJCVZkVrJXLJWolVX0m1SmZADJrHqYARmTZrm3WcDoV0Wuqq2hMy5_Mf-DjIbGPKIQAN2OhuaUGGAjQ_FgiyJDw3gwxnO5aorVzkJi4yKtUt-E1Y5Gec7b5nyHWcUzxjJlVvqxDwRHn2spfp6uqqClX2Cl5StK49H5pyA24suQFJAim_LKMYfwgXORK1W5OQSr37QSCyUJcYsJypuIZbMxTPCyrIiK0prIo_lpTikyVyZh7oyZji5f2E81rdbsO10_KSpBaamnwA5Qobz3CYxwGlq8hWIKWPGB1O3J5NJNxcZvyfGB00bj81R_dp7UFszBumqG3LGM-Ue2vq-XjSz1qyWQ7o9QuNGbuCM7eGgVa5v6s5A25MjnD1vbzIxdVNv9CxLk6NVbzRSbj-pFPNiNs9wugDOwOn3R5aNLDcgwTxAj0VGAu-be-dDyfBXFa5GRDMSCsqThpoaTT4q0386t57MJEfzI6DWUsEwjIrqgSR7r-ZHH_pF9GUYyWcUHvtFTDR5aqVWBgEZ5MNPSrMk--o-QO-od9Zaq0olSVQDEWtG2mnskCM1G-SOpubfyPvyu_8fZA9dB-foCr2P8aXjBUNN22GWr0C-vol0U_gV0DIGqJg3ca73chD1rtibSO-C3wW6pTA4PT17qinZJVnwGaDrC_mcUCYvqqdXvo69FrpkLk9w9wJbGGnARlME0I11fjF1rOntjQNc56tzZbc01b15trqBaj9KU0ZDrLyHG-gGdkuzbCxwdWEf6pMbOFLeSaIej3sujUklX10gBztSnXDHX1ez4X9ycvIPfNiFS5ItMY2gsal-CfLPEpEYF0zISx3iQnBvnYTQKK9pWKQRFsSmWBJdVsbtH16iAYI=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-116 — R3 Wafer Reclaim Process</span></div>
 
@@ -976,7 +990,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtumzAUhl_F8hRpk5KOJCVZkVrJBFgr0aor6TapTMgBk1h1MAKzJk3z7rOB0C4LXVVbQuZc_mN_B5kNDHlEoAE7nQ1NqDDAxodiQZbEhwbw4QznctWVq5yERUbF2iW_CaucjPOdt0z5jjOKZ4zkyi11Yp4Ijz7WUn09XVXByu7gJWXryuOROSfg9qILkBSQ4tsyivGHcIEzUasVObnEqx80EgtliTHLiYpbiCVz8YywsqzIitKayGN5KQ5pMlfmoa6MGU7uXxiP9e0WbDsdP2lqganpJ0COkOE8t0gMcJqafAViypjxwdQtx3G6ucj4PTE-aNp4bI7q196D2poxSFfdkDOeKffQ0vf1otlkzWo5pFsjNG7kBvbYGg5a5fqmbg-0PTnC2fP2HMfUTb3Rm0w0OVr1RiPl9pNKMS9m8wynC2AP7H5_5Fho4gYkmAfoschI4H1z73woGf6qwtWIaEZCQXnSUFOjyUdl-k_71pOZ5Gh-BNRaKhiGUVE9kGTt1fzoQ7-Ivgwj-YzCY7-IiSZPrdTKICCDfPhJaZZkX90H6B31zlprVakkiWogYs1IO40dcqRmg9zW1PwbeV9-9_-D7KHr4BxdofcxvrS9YKhpO8zyFcjXN5FuCr8CWsYAFfMmzvVeDqLeFXsT6V3wu0C3FAanp2dPNSWrJAs-A3R9IZ8OZfKienrl69hroUvm8gR3L7CFkQYsNEUA3UzOL6b2ZHp7YwPX_mpfWS1NdW-erW6g2o_SlNEQK-_hBrqB1dIsCwtcXdiH-uQGtpS3k6jH455LY1LJVxfIwY5UJ9zx19Vs-J-cnPwDH3bhkmRLTCNobKpfgvyzRCTGBRPyUoe4ENxbJyE0ymsaFmmEBbEolkSXlXH7B9tYAaw=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtumzAUhl_F8hRpk5KOJCVZkVrJBFgr0aor6TapTMgBk1h1MAKzJk3z7rOB0C4LXVVbQuZc_mN_B5kNDHlEoAE7nQ1NqDDAxodiQZbEhwbw4QznctWVq5yERUbF2iW_CaucjPOdt0z5jjOKZ4zkyi11Yp4Ijz7WUn09XVXByu7gJWXryuOROSfg9qILkBSQ4tsyivGHcIEzUasVObnEqx80EgtliTHLiYpbiCVz8YywsqzIitKayGN5KQ5pMlfmoa6MGU7uXxiP9e0WbDsdP2lqganpJ0COkOE8t0gMcJqafAViypjxwdQtx3G6ucj4PTE-aNp4bI7q196D2poxSFfdkDOeKffQ0vf1otlkzWo5pFsjNG7kBvbYGg5a5fqmbg-0PTnC2fP2HMfUTb3Rm0w0OVr1RiPl9pNKMS9m8wynC2AP7H5_5Fho4gYkmAfoschI4H1z73woGf6qwtWIaEZCQXnSUFOjyUdl-k_71pOZ5Gh-BNRaKhiGUVE9kGTt1fzoQ7-Ivgwj-YzCY7-IiSZPrdTKICCDfPhJaZZkX90H6B31zlprVakkiWogYs1IO40dcqRmg9zW1PwbeV9-9_-D7KHr4BxdofcxvrS9YKhpO8zyFcjXN5FuCr8CWsYAFfMmzvVeDqLeFXsT6V3wu0C3FAanp2dPNSWrJAs-A3R9IZ8OZfKienrl69hroUvm8gR3L7CFkQYsNEUA3UzOL6b2ZHp7YwPX_mpfWS1NdW-erW6g2o_SlNEQK-_hBrqB1dIsCwtcXdiH-uQGtpS3k6jH455LY1LJVxfIwY5UJ9zx19Vs-J-cnPwDH3bhkmRLTCNobKpfgvyzRCTGBRPyUoe4ENxbJyE0ymsaFmmEBbEolkSXlXH7B9tYAaw=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-116 — R3 Wafer Reclaim Process</span></div>
 
@@ -1124,7 +1138,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9AhwrqYkgGGzfcDDXOl3tzd7OU9QCNZVvWTkXlv9_TFQVBo7ckYzsvz2mf87R9tpKMgeVYtdozT7lyyHNkqSnMILIcElkjKvGtjm8SkrLgah7APQjjFFn26q1SbmjB6UiA1G7EGWepCvnTEqrZzh9NsLb36YyLufGEMMmAXA_qxEUAUSeSprIhoeDjyFpUGSJ7SKa0UEvkUsKQPt5ypqbaMqZCgo6bqpkI6AhENQVVlJU1xSWGOU14OtHmQ1sbC5rerRlb9mJBFrValL7VIlfdKCU4ajXSaODckikfUgUNnsqcF8CIVHMBJBFUSpAYY8Krbw_GZFRKnoKUpBpjLoSz08fRbdWlKrI7cHa6x8dtu7v8bDzoBTn7-WM9yURWODu2bW9g0jwnq2Ewuy2N-oZp20dH3fZ_YDKq6Damd_wFZvMd5quPUYnkFXSOnJLWRqUZZ0zAAy1gnRGv7a4Y8Y_a_RXaN2YPmdhiRHO8xnKvZ9tfYRpUWY4mBc2nxA3-RFZUsuMDhk920CLuxUUw6LlXg_MzEri__cvI-muS9GAoiETxLCXB5crq7_vNZrsXQzyJh34YH9j2OmwCbQK7k12CPoI-RHQcB1v8McIv_zr8MF07Ps8d3lbZ7lNZQBxCcc8TiLulfLfA5pGBqqLIMopglMFdNW4L3vMr-F4mVewLPAZS1VmfZHJokHUAWQacjoq9zinvGEd4Q_bIwMsS_PsZnp-d7vGOKauVaQpCyl579AGpuPc6L5FVwXlVJxDKvRjgs88FHkAvX5HxDvqzIF1mqyN6WkvxVMdBN1jb6n37q62-nuq-pdrf2dFbog1ggjy9kwizSeD_8M-8b6g1iFHjmwJz81zwhOrgDyQWxMPbTR0NV1r5VDtB7PmbKvH0MeSnCi-Zze6bFP_cbMr9NjvEQNbIxo2Aj5dl8BxYk8qKVEPKK7Et_Xsj9uTkZOtMs-rWDIoZ5cxyns3FhvcjgzEthcLryKKlysJ5mlhOdcFYZY4TBY9TbMLMGBf_AOxrSG0=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9AhwrqYkgGGzfcDDXOl3tzd7OU9QCNZVvWTkXlv9_TFQVBo7ckYzsvz2mf87R9tpKMgeVYtdozT7lyyHNkqSnMILIcElkjKvGtjm8SkrLgah7APQjjFFn26q1SbmjB6UiA1G7EGWepCvnTEqrZzh9NsLb36YyLufGEMMmAXA_qxEUAUSeSprIhoeDjyFpUGSJ7SKa0UEvkUsKQPt5ypqbaMqZCgo6bqpkI6AhENQVVlJU1xSWGOU14OtHmQ1sbC5rerRlb9mJBFrValL7VIlfdKCU4ajXSaODckikfUgUNnsqcF8CIVHMBJBFUSpAYY8Krbw_GZFRKnoKUpBpjLoSz08fRbdWlKrI7cHa6x8dtu7v8bDzoBTn7-WM9yURWODu2bW9g0jwnq2Ewuy2N-oZp20dH3fZ_YDKq6Damd_wFZvMd5quPUYnkFXSOnJLWRqUZZ0zAAy1gnRGv7a4Y8Y_a_RXaN2YPmdhiRHO8xnKvZ9tfYRpUWY4mBc2nxA3-RFZUsuMDhk920CLuxUUw6LlXg_MzEri__cvI-muS9GAoiETxLCXB5crq7_vNZrsXQzyJh34YH9j2OmwCbQK7k12CPoI-RHQcB1v8McIv_zr8MF07Ps8d3lbZ7lNZQBxCcc8TiLulfLfA5pGBqqLIMopglMFdNW4L3vMr-F4mVewLPAZS1VmfZHJokHUAWQacjoq9zinvGEd4Q_bIwMsS_PsZnp-d7vGOKauVaQpCyl579AGpuPc6L5FVwXlVJxDKvRjgs88FHkAvX5HxDvqzIF1mqyN6WkvxVMdBN1jb6n37q62-nuq-pdrf2dFbog1ggjy9kwizSeD_8M-8b6g1iFHjmwJz81zwhOrgDyQWxMPbTR0NV1r5VDtB7PmbKvH0MeSnCi-Zze6bFP_cbMr9NjvEQNbIxo2Aj5dl8BxYk8qKVEPKK7Et_Xsj9uTkZOtMs-rWDIoZ5cxyns3FhvcjgzEthcLryKKlysJ5mlhOdcFYZY4TBY9TbMLMGBf_AOxrSG0=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-116 — R3 Wafer Reclaim Process</span></div>
 
@@ -1204,7 +1218,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9AhwroYkiGGzfcDDXOl3tzd7OU9QCNZVvWTkXlv9_TFQVBo7ckYzsvz2mf87R9tpKMgeVYtdozT7lyyHNkqSnMILIcElkjKvGtjm8SkrLgah7APQjjFFn26q1SbmjB6UiA1G7EGWepCvnTEqrZzh9NsLb36YyLufGEMMmAXA_qxEUAUSeSprIhoeDjyFpUGSJ7SKa0UEvkUsKQPt5ypqbaMqZCgo6bqpkI6AhENQVVlJU1xSWGOU14OtHmQ1sbC5rerRlb9mJBFrValL7VIle9KCU4ajXSaODckikfUgUNnsqcF8CIVHMBJBFUSpAYY8Krbw_GZFRKnoKUpBpjLoSz08fRa9WlKrI7cHZ6R0dtu7f8bDzoBTn7-WM9yURWODu2bW9g0jwnq2Ewey2N-oZp251Or_0fmIwquo3pHX2B2XyH-epjVCJ5BZ0jp6S1UWnGGRPwQAtYZ8RruytG_E67v0L7xuwhE1uMaI7XWD49te2vMA2qLEeTguZT4gZ_Iisq2dEBwyc7aBH34iIYnLpXg_MzEri__cvI-muS9GAoiETxLCXB5crq7_vNZrsfQzyJh34YH9j2OmwCbQK7k12CPoI-RHQcB1v8McIv_zr8MF07Ps8d3lbZ7lNZQBxCcc8TiHulfLfAZsdAVVFkGUUwyuCuGrcF7_kV_GkmVewLPAZS1V2fZHJokHUAWQacjIq97gnvGkd4Q_bIwMsS_PsZnp-d7PGuKauVaQpCyl579AGpuPe6L5FVwXlVJxDKvRjgs88FHkAvX5HxDvqzIF1mqyN6WkvxVMdBL1jb6n37q62-nuq-pdrf2dFbog1ggjy9kwizSeD_8M-8b6g1iFHjmwJz81zwhOrgDyQWxMPbTR0NV1r5VDtB7PmbKvH0MeSnCi-Zze6bFP_cbMr9NjvEQNbIxo2Aj5dl8BxYk8qKVEPKK7Et_Xsj9vj4eOtMs-rWDIoZ5cxyns3FhvcjgzEthcLryKKlysJ5mlhOdcFYZY4TBY9TbMLMGBf_ADM_SIU=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9AhwroYkiGGzfcDDXOl3tzd7OU9QCNZVvWTkXlv9_TFQVBo7ckYzsvz2mf87R9tpKMgeVYtdozT7lyyHNkqSnMILIcElkjKvGtjm8SkrLgah7APQjjFFn26q1SbmjB6UiA1G7EGWepCvnTEqrZzh9NsLb36YyLufGEMMmAXA_qxEUAUSeSprIhoeDjyFpUGSJ7SKa0UEvkUsKQPt5ypqbaMqZCgo6bqpkI6AhENQVVlJU1xSWGOU14OtHmQ1sbC5rerRlb9mJBFrValL7VIle9KCU4ajXSaODckikfUgUNnsqcF8CIVHMBJBFUSpAYY8Krbw_GZFRKnoKUpBpjLoSz08fRa9WlKrI7cHZ6R0dtu7f8bDzoBTn7-WM9yURWODu2bW9g0jwnq2Ewey2N-oZp251Or_0fmIwquo3pHX2B2XyH-epjVCJ5BZ0jp6S1UWnGGRPwQAtYZ8RruytG_E67v0L7xuwhE1uMaI7XWD49te2vMA2qLEeTguZT4gZ_Iisq2dEBwyc7aBH34iIYnLpXg_MzEri__cvI-muS9GAoiETxLCXB5crq7_vNZrsfQzyJh34YH9j2OmwCbQK7k12CPoI-RHQcB1v8McIv_zr8MF07Ps8d3lbZ7lNZQBxCcc8TiHulfLfAZsdAVVFkGUUwyuCuGrcF7_kV_GkmVewLPAZS1V2fZHJokHUAWQacjIq97gnvGkd4Q_bIwMsS_PsZnp-d7PGuKauVaQpCyl579AGpuPe6L5FVwXlVJxDKvRjgs88FHkAvX5HxDvqzIF1mqyN6WkvxVMdBL1jb6n37q62-nuq-pdrf2dFbog1ggjy9kwizSeD_8M-8b6g1iFHjmwJz81zwhOrgDyQWxMPbTR0NV1r5VDtB7PmbKvH0MeSnCi-Zze6bFP_cbMr9NjvEQNbIxo2Aj5dl8BxYk8qKVEPKK7Et_Xsj9vj4eOtMs-rWDIoZ5cxyns3FhvcjgzEthcLryKKlysJ5mlhOdcFYZY4TBY9TbMLMGBf_ADM_SIU=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-116 — R3 Wafer Reclaim Process</span></div>
 
@@ -1401,7 +1415,7 @@ flowchart TB
     E2E116CPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E116CPLP_e_g_Azure_PaaS
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuaxU7djNDB7Zjs0I6wrxug3kYxT5ORGXL2PKaNM27T7LTpC2kUDZdCOn_jz4dHSFtcSoywA4eDLasZNJB2xjLFRQQYwfFeEEbNRqqUQNpWzO5mcEf4L3JhXhyuyXfac3ogkOjbcXJRSkj9rBHjcbVug_WekgLxje9E8FSALq9HiJXARR810VxcZ-uaC33tLaBG7r-wTK50kpOeQM6biULPqML4N22sm47tVTHiiqasnKp5THRYk3Lu2eiRXY7tBsM4vKwF_rmxSVSLeW0aaaQI1pVnlijnHHunHnWNAzDYSNrcQfOGSGXl569n36416k5RrUepoKLWtvm1HrNqziVR6A_CWz_4wFoTiaB6b8EmkfgyLMCg7wCguBHXhh6lmcdeL5PVDuZoG1rOy57YtMuljWtVigwgtHI9uezeQLJMnEf2hqSOaXRrxjHrWGTUdzmQNTW58tz1NlI2zH-3ZN0y1gNqWSiRLOvR_WAdjv0z-BWQzuOHiuC4zh9yftFUGb77OSGw-nU_qmeb58_SsbJZ_eLmxjEMLsSZBMzU31GreeFiC7GSMchHff-WtwEUWIS8lQONUVq-t6KvEj2PxTlTfzV1afHfbrT7ojoArnza9WHjKtn_3j6vvAQF1AXlGXY2fbfh_qFMshpy6X6ADBtpYg2ZYqd7knjtsqohCmj6o6KXtz9BQaTeV4=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuaxU7djNDB7Zjs0I6wrxug3kYxT5ORGXL2PKaNM27T7LTpC2kUDZdCOn_jz4dHSFtcSoywA4eDLasZNJB2xjLFRQQYwfFeEEbNRqqUQNpWzO5mcEf4L3JhXhyuyXfac3ogkOjbcXJRSkj9rBHjcbVug_WekgLxje9E8FSALq9HiJXARR810VxcZ-uaC33tLaBG7r-wTK50kpOeQM6biULPqML4N22sm47tVTHiiqasnKp5THRYk3Lu2eiRXY7tBsM4vKwF_rmxSVSLeW0aaaQI1pVnlijnHHunHnWNAzDYSNrcQfOGSGXl569n36416k5RrUepoKLWtvm1HrNqziVR6A_CWz_4wFoTiaB6b8EmkfgyLMCg7wCguBHXhh6lmcdeL5PVDuZoG1rOy57YtMuljWtVigwgtHI9uezeQLJMnEf2hqSOaXRrxjHrWGTUdzmQNTW58tz1NlI2zH-3ZN0y1gNqWSiRLOvR_WAdjv0z-BWQzuOHiuC4zh9yftFUGb77OSGw-nU_qmeb58_SsbJZ_eLmxjEMLsSZBMzU31GreeFiC7GSMchHff-WtwEUWIS8lQONUVq-t6KvEj2PxTlTfzV1afHfbrT7ojoArnza9WHjKtn_3j6vvAQF1AXlGXY2fbfh_qFMshpy6X6ADBtpYg2ZYqd7knjtsqohCmj6o6KXtz9BQaTeV4=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
@@ -1436,7 +1450,7 @@ flowchart TB
     E2E116FPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E116FPLP_e_g_Azure_PaaS
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuaxU7djNDB3Zis0I6wrxug3kYxT5ORGXL2PKaNM27T7LdpC2kUDZdCOn_jz4dHSHtcCJSwA4eDHasYNJBuwjLNeQQYQdFeElrNRqqUQ1JUzG5ncMf4J3JhXhy2yXfacXokkOtbcXJRCFD9tCjRuNy0wVrPaA549vOCWElAN1eD5GrAAq-b6O4uE_WtJI9ranhhm5-sFSutZJRXoOOW8ucz-kSeLutrJpWLdSxwpImrFhpeUy0WNHi7plokf0e7QeDqDjshb55UYFUSzit6xlkiJalJzYoY5w7Z541C4JgWMtK3IFzRsjlpWf30w_3OjXHKDfDRHBRaducWa95JafyCJxOfHv68QA0JxPfnL4EmkfgyLN8g7wCguBHXhB4lmcdeNMpUe1kgrat7ajoiHWzXFW0XCPf8EcjO1jMFzHEq9h9aCqIF5SGvyIcNYZNRlGTAVFbn6_OUWsjbUf4d0fSLWUVJJKJAs2_HtUD2m3RP_1bDW05eqwIjuN0Je8WQZH22ckth9Op_VM93z5_GI_jz-4XNzaIYbYlSCdmqvqUWs8LEV6MkY5DOu79tbjxw9gk5KkcaorU9L0VeZHsfyjKm_irq0-Pfbqz9ojoArmLa9UHjKtn_3j6vvAQ51DllKXY2XXfh_qFUshow6X6ADBtpAi3RYKd9knjpkyphBmj6o7yTtz_BSm4eXY=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuaxU7djNDB3Zis0I6wrxug3kYxT5ORGXL2PKaNM27T7LdpC2kUDZdCOn_jz4dHSHtcCJSwA4eDHasYNJBuwjLNeQQYQdFeElrNRqqUQ1JUzG5ncMf4J3JhXhy2yXfacXokkOtbcXJRCFD9tCjRuNy0wVrPaA549vOCWElAN1eD5GrAAq-b6O4uE_WtJI9ranhhm5-sFSutZJRXoOOW8ucz-kSeLutrJpWLdSxwpImrFhpeUy0WNHi7plokf0e7QeDqDjshb55UYFUSzit6xlkiJalJzYoY5w7Z541C4JgWMtK3IFzRsjlpWf30w_3OjXHKDfDRHBRaducWa95JafyCJxOfHv68QA0JxPfnL4EmkfgyLN8g7wCguBHXhB4lmcdeNMpUe1kgrat7ajoiHWzXFW0XCPf8EcjO1jMFzHEq9h9aCqIF5SGvyIcNYZNRlGTAVFbn6_OUWsjbUf4d0fSLWUVJJKJAs2_HtUD2m3RP_1bDW05eqwIjuN0Je8WQZH22ckth9Op_VM93z5_GI_jz-4XNzaIYbYlSCdmqvqUWs8LEV6MkY5DOu79tbjxw9gk5KkcaorU9L0VeZHsfyjKm_irq0-Pfbqz9ojoArmLa9UHjKtn_3j6vvAQ51DllKXY2XXfh_qFUshow6X6ADBtpAi3RYKd9knjpkyphBmj6o7yTtz_BSm4eXY=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>

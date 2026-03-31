@@ -120,8 +120,8 @@ blockquote {
     background: #fafbfd;
     border: 1px solid #e0e4ea;
     border-radius: 6px;
-    padding: 20px 12px;
-    margin: 16px 0;
+    padding: 16px 12px;
+    margin: 12px 0;
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
@@ -130,6 +130,7 @@ blockquote {
 .mermaid svg {
     max-width: 100%;
     height: auto;
+    max-height: 85vh;
 }
 .header-bar {
     background: #00285a;
@@ -205,25 +206,31 @@ strong { color: #00285a; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print, .pdf-download-btn { display: none !important; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
-    /* Page sections: do NOT use min-height in print — the page-break divs
-       already handle pagination.  min-height:100vh forces every section to
-       fill a full page, which creates blank trailing space before the next
-       page-break, producing blank pages in the PDF output. */
+
+    /* Page sections: auto height in print — page-break divs handle pagination */
     .page-section {
         min-height: auto;
         display: block;
     }
     .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
         page-break-inside: avoid;
+        break-inside: avoid;
         overflow: visible;
+        max-height: 85vh;
+        margin: 8px 0;
     }
     .mermaid svg {
         max-width: 100%;
+        max-height: 80vh;
         height: auto;
+        width: auto;
     }
+
     /* Diagram links: visible + clickable in PDF */
     a[title="View full diagram"],
     a[title="Open full-size SVG"] {
@@ -231,6 +238,13 @@ strong { color: #00285a; }
         text-decoration: underline !important;
         font-size: 10pt !important;
     }
+
+    /* Tighten spacing in print for professional PDF output */
+    h2 { margin-top: 18px; margin-bottom: 8px; }
+    h3 { margin-top: 14px; margin-bottom: 6px; }
+    h4 { margin-top: 10px; margin-bottom: 4px; }
+    table { margin: 8px 0; }
+    blockquote { margin: 8px 0; padding: 6px 14px; }
 }
 </style>
     
@@ -659,7 +673,7 @@ flowchart TD
     class n3 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViiXoOaT0BwqQUikSl2pKtv2UHowzjNYm9jIdvgo4r_XJhAWqj01B4Inb2beG9k-OkRU4GTOYHBknOkMHV29hgbcDLlLrMD1UAf8wJLhZQ3KtTVUcD1nf85lQbzZ2zKLlbhh9cGic1gJQN8_e2hiiLWHFOZqqEAy6nruRrIGy0MuaiFt9ROMqU_PbpdPUyErkLcC308DkhhqzTjc4CiN07i0PAVE8OpOlCZ0TIl7ss3VYkfWWOpz-62CZ7z_ySq9NmuKawWmZq2b-gteQm1n1LK1GGnl9hoGU9aHm8DmG0wYXxk89g0kMX-9QYl_OqHTYLDgvSl6mS04Mg-psVIzoEhpAxdbjSir6-wpzidl4ntKS_EK2VNYpLMo9IidJDOj-54Nd7gDtlrrbCnq6lI63NkZsnCz9-Q-C31PHszvgxfw6uaUj8JxOO6dpmmQB_nViVL6X04mV_mC1evFq4jKsJz1XkEySnL_X73rmLM4nQSPOYHcMgJvRMuyjIpbVMUoCfz3RadlNPLzB9EV1rDDh5vgxzzuBcskLYP0XcHO77HLdvlVCnIVjIqkTHrBdBqUk_BdwXgSxONLh0ZnJfFmjV4krgAVeyCtZoKjCcf1Qemuyj48-LVwKM4oHtrQ0bxdNkwjc1TRDExfEp95WqBJMUdzw4Vm4fx-IxAagW9AgG0BcaEZZaTjUCkaRFqlRaMQbvVaSKYP9-TIkJ-FuTCERPmlFPYbIfUH1tgXqm5d9FSzEbs_PELD4SczxGUZdMvwTawWvG6nOzjsz84dHPWw4zkNyAazysmOzvnyMhdcBRS3tXZOnmNmEvMDJ052PuROu6nMhpgxbLJvOvD0FzUPp6k=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViiXoOaT0BwqQUikSl2pKtv2UHowzjNYm9jIdvgo4r_XJhAWqj01B4Inb2beG9k-OkRU4GTOYHBknOkMHV29hgbcDLlLrMD1UAf8wJLhZQ3KtTVUcD1nf85lQbzZ2zKLlbhh9cGic1gJQN8_e2hiiLWHFOZqqEAy6nruRrIGy0MuaiFt9ROMqU_PbpdPUyErkLcC308DkhhqzTjc4CiN07i0PAVE8OpOlCZ0TIl7ss3VYkfWWOpz-62CZ7z_ySq9NmuKawWmZq2b-gteQm1n1LK1GGnl9hoGU9aHm8DmG0wYXxk89g0kMX-9QYl_OqHTYLDgvSl6mS04Mg-psVIzoEhpAxdbjSir6-wpzidl4ntKS_EK2VNYpLMo9IidJDOj-54Nd7gDtlrrbCnq6lI63NkZsnCz9-Q-C31PHszvgxfw6uaUj8JxOO6dpmmQB_nViVL6X04mV_mC1evFq4jKsJz1XkEySnL_X73rmLM4nQSPOYHcMgJvRMuyjIpbVMUoCfz3RadlNPLzB9EV1rDDh5vgxzzuBcskLYP0XcHO77HLdvlVCnIVjIqkTHrBdBqUk_BdwXgSxONLh0ZnJfFmjV4krgAVeyCtZoKjCcf1Qemuyj48-LVwKM4oHtrQ0bxdNkwjc1TRDExfEp95WqBJMUdzw4Vm4fx-IxAagW9AgG0BcaEZZaTjUCkaRFqlRaMQbvVaSKYP9-TIkJ-FuTCERPmlFPYbIfUH1tgXqm5d9FSzEbs_PELD4SczxGUZdMvwTawWvG6nOzjsz84dHPWw4zkNyAazysmOzvnyMhdcBRS3tXZOnmNmEvMDJ052PuROu6nMhpgxbLJvOvD0FzUPp6k=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-322-gt-080-020_receive_notification_from_customs_authority_ip-gt-080-020_receive_notification_from_customs_authority_ip">BUSINESS ARCHITECTURE — 3.2.2 GT-080-020_Receive_notification_from_customs_authority_(IP) — GT-080-020_Receive_notification_from_customs_authority_(IP)</h4>
 <p><strong>Swim Lanes</strong>: Trade Execution Analyst | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 0</p>
@@ -687,7 +701,7 @@ flowchart TD
     class n3 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2L2zAQ_SvCS3ALDvVnnPpQSOwYFrpQyLY9ND0o8igRK0tBkjdJQ_57pXxuUvZUHYz1_Oa9mfFIO4_IBrzC6_V2TDBToJ1vltCCXyB_jjX4AToCP7BieM5B-45DpTBT9udAi9LVxtEcVuOW8a1Dp7CQgL4_BmhkA3mANBa6r0Ex6gf-SrEWq20puVSO_QBDGtKD2-nTWKoG1JUQhnlEMhvKmYArnORpntYuTgORorkRpRkdUuLvXXJcrskSK3NIv9PwhDc_WWOWdk8x12A5S9Pyr3gO3NVoVOcw0qnXczOYdj7CNmy6woSJhcXT0EIKi5crlIX7Pdr3ejNxMUXP1UwguwjHWldAkTYWnrwaRBnnxUNajuosDLRR8gWKh3iSV0kcEFdJYUsPA9fc_hrYYmmKueTNidpfuxqKeLUJ1KaIw0Bt7fPOC0RzdSoH8TAeXpzGeVRG5dmJUvpfTrav6hnrl5PXJKnjurp4RdkgK8N_9c5lVmk-iu77BOqVEXgjWtd1Mrm2ajLIovB90XGdDMLyTnSBDazx9ir4uUwvgnWW11H-ruDR7z7Lbv5NSXIWTCZZnV0E83FUj-J3BdNRlA5PGVqdhcKrJXpWuAE02QDpDJMCjQTmW22OLLdE9GvmUVxQ3HdNR09Y4AV8qphecVvZZLOSduwqsCkq7CQ06qMPpWzbTjByQJDB848z7_cb0diKPkl7D0iFSKeNbDWyp4oy1R5CbtmJZT8KA4piAqhhCojhW7RmZokW8hWUaEEc5s4eDKRt_tAiLBpXZssMaq7ZXYTtrB5fRIT6_S82pdM2OW7fzofjnCfuBo4vx-sGTi6wF3gt2JpY4xU773C_2TuwAYo7brx94OHOyOlWEK843ANet2rszFQM29_THsH9X1VJtIA=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2L2zAQ_SvCS3ALDvVnnPpQSOwYFrpQyLY9ND0o8igRK0tBkjdJQ_57pXxuUvZUHYz1_Oa9mfFIO4_IBrzC6_V2TDBToJ1vltCCXyB_jjX4AToCP7BieM5B-45DpTBT9udAi9LVxtEcVuOW8a1Dp7CQgL4_BmhkA3mANBa6r0Ex6gf-SrEWq20puVSO_QBDGtKD2-nTWKoG1JUQhnlEMhvKmYArnORpntYuTgORorkRpRkdUuLvXXJcrskSK3NIv9PwhDc_WWOWdk8x12A5S9Pyr3gO3NVoVOcw0qnXczOYdj7CNmy6woSJhcXT0EIKi5crlIX7Pdr3ejNxMUXP1UwguwjHWldAkTYWnrwaRBnnxUNajuosDLRR8gWKh3iSV0kcEFdJYUsPA9fc_hrYYmmKueTNidpfuxqKeLUJ1KaIw0Bt7fPOC0RzdSoH8TAeXpzGeVRG5dmJUvpfTrav6hnrl5PXJKnjurp4RdkgK8N_9c5lVmk-iu77BOqVEXgjWtd1Mrm2ajLIovB90XGdDMLyTnSBDazx9ir4uUwvgnWW11H-ruDR7z7Lbv5NSXIWTCZZnV0E83FUj-J3BdNRlA5PGVqdhcKrJXpWuAE02QDpDJMCjQTmW22OLLdE9GvmUVxQ3HdNR09Y4AV8qphecVvZZLOSduwqsCkq7CQ06qMPpWzbTjByQJDB848z7_cb0diKPkl7D0iFSKeNbDWyp4oy1R5CbtmJZT8KA4piAqhhCojhW7RmZokW8hWUaEEc5s4eDKRt_tAiLBpXZssMaq7ZXYTtrB5fRIT6_S82pdM2OW7fzofjnCfuBo4vx-sGTi6wF3gt2JpY4xU773C_2TuwAYo7brx94OHOyOlWEK843ANet2rszFQM29_THsH9X1VJtIA=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-323-gt-080-030_monitor_customs_confirmation_ip-gt-080-030_monitor_customs_confirmation_ip">BUSINESS ARCHITECTURE — 3.2.3 GT-080-030_Monitor_customs_confirmation_(IP) — GT-080-030_Monitor_customs_confirmation_(IP)</h4>
 <p><strong>Swim Lanes</strong>: Trade Execution Analyst | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 1</p>
@@ -721,7 +735,7 @@ flowchart TD
     class n5 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAQ_StWVohLkPJJaA6tIBCpUleqyrY9lB6MMwZrHRvZDh9l-e-1-YYup-aAMo83781MPN56RFbg5V6rtWWCmRxt22YONbRz1J5iDW0fHYAfWDE85aDbjkOlMGP2Z08Lk8Xa0RxW4prxjUPHMJOAvn_2Ud8mch9pLHRHg2K07bcXitVYbQrJpXLsJ-jRgO7djn8NpKpAXQhBkIUktamcCbjAcZZkSenyNBApqhtRmtIeJe2dK47LFZljZfblNxqe8fonq8zcxhRzDZYzNzX_gqfAXY9GNQ4jjVqehsG08xF2YOMFJkzMLJ4EFlJYvF6gNNjt0K7VmoizKXoZTgSyD-FY6yFQpI2FR0uDKOM8f0qKfpkGvjZKvkL-FI2yYRz5xHWS29YD3w23swI2m5t8Knl1pHZWroc8Wqx9tc6jwFcb-3vnBaK6OBXdqBf1zk6DLCzC4uREKf0vJztX9YL169FrFJdROTx7hWk3LYJ_9U5tDpOsH97PCdSSEbgSLcsyHl1GNeqmYfBYdFDG3aC4E51hAyu8uQh-KJKzYJlmZZg9FDz43VfZTL8qSU6C8Sgt07NgNgjLfvRQMOmHSe9YodWZKbyYoxeFK0CjNZDGMClQX2C-0ebAco8If008inOKO27o6Fna7ZUKFVJQpmrssjSiFulXtd1s626xJaChJE0NwuiJ9_tKLrJyJw0i6wUHAxWqwLao9mK39NjSCywIcEQabWStH3MTy_0GBJy7kIZRRvYsRJWsz-m4MXOpmNncJqfb7alPd1N1pnbXyNy22SgNSFLUJ07r08Tb7Q5p9rQfXkSCOp2PdlLHMDyE6TFMXfh26Xp4Xf-bncgd79juPS2-OgrO47QCN3B03vcbOH4fTt6H09O59XyvBvuNWeXlW29_O9sbvAKKG268ne_ZWcrxRhAv399iXrOobOaQYXu46gO4-wtZQvE3" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAQ_StWVohLkPJJaA6tIBCpUleqyrY9lB6MMwZrHRvZDh9l-e-1-YYup-aAMo83781MPN56RFbg5V6rtWWCmRxt22YONbRz1J5iDW0fHYAfWDE85aDbjkOlMGP2Z08Lk8Xa0RxW4prxjUPHMJOAvn_2Ud8mch9pLHRHg2K07bcXitVYbQrJpXLsJ-jRgO7djn8NpKpAXQhBkIUktamcCbjAcZZkSenyNBApqhtRmtIeJe2dK47LFZljZfblNxqe8fonq8zcxhRzDZYzNzX_gqfAXY9GNQ4jjVqehsG08xF2YOMFJkzMLJ4EFlJYvF6gNNjt0K7VmoizKXoZTgSyD-FY6yFQpI2FR0uDKOM8f0qKfpkGvjZKvkL-FI2yYRz5xHWS29YD3w23swI2m5t8Knl1pHZWroc8Wqx9tc6jwFcb-3vnBaK6OBXdqBf1zk6DLCzC4uREKf0vJztX9YL169FrFJdROTx7hWk3LYJ_9U5tDpOsH97PCdSSEbgSLcsyHl1GNeqmYfBYdFDG3aC4E51hAyu8uQh-KJKzYJlmZZg9FDz43VfZTL8qSU6C8Sgt07NgNgjLfvRQMOmHSe9YodWZKbyYoxeFK0CjNZDGMClQX2C-0ebAco8If008inOKO27o6Fna7ZUKFVJQpmrssjSiFulXtd1s626xJaChJE0NwuiJ9_tKLrJyJw0i6wUHAxWqwLao9mK39NjSCywIcEQabWStH3MTy_0GBJy7kIZRRvYsRJWsz-m4MXOpmNncJqfb7alPd1N1pnbXyNy22SgNSFLUJ07r08Tb7Q5p9rQfXkSCOp2PdlLHMDyE6TFMXfh26Xp4Xf-bncgd79juPS2-OgrO47QCN3B03vcbOH4fTt6H09O59XyvBvuNWeXlW29_O9sbvAKKG268ne_ZWcrxRhAv399iXrOobOaQYXu46gO4-wtZQvE3" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-080 — Customs Declaration Communication - Self Filing (IP)</span></div>
 

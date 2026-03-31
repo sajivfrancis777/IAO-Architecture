@@ -120,8 +120,8 @@ blockquote {
     background: #fafbfd;
     border: 1px solid #e0e4ea;
     border-radius: 6px;
-    padding: 20px 12px;
-    margin: 16px 0;
+    padding: 16px 12px;
+    margin: 12px 0;
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
@@ -130,6 +130,7 @@ blockquote {
 .mermaid svg {
     max-width: 100%;
     height: auto;
+    max-height: 85vh;
 }
 .header-bar {
     background: #00285a;
@@ -205,25 +206,31 @@ strong { color: #00285a; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print, .pdf-download-btn { display: none !important; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
-    /* Page sections: do NOT use min-height in print — the page-break divs
-       already handle pagination.  min-height:100vh forces every section to
-       fill a full page, which creates blank trailing space before the next
-       page-break, producing blank pages in the PDF output. */
+
+    /* Page sections: auto height in print — page-break divs handle pagination */
     .page-section {
         min-height: auto;
         display: block;
     }
     .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
         page-break-inside: avoid;
+        break-inside: avoid;
         overflow: visible;
+        max-height: 85vh;
+        margin: 8px 0;
     }
     .mermaid svg {
         max-width: 100%;
+        max-height: 80vh;
         height: auto;
+        width: auto;
     }
+
     /* Diagram links: visible + clickable in PDF */
     a[title="View full diagram"],
     a[title="Open full-size SVG"] {
@@ -231,6 +238,13 @@ strong { color: #00285a; }
         text-decoration: underline !important;
         font-size: 10pt !important;
     }
+
+    /* Tighten spacing in print for professional PDF output */
+    h2 { margin-top: 18px; margin-bottom: 8px; }
+    h3 { margin-top: 14px; margin-bottom: 6px; }
+    h4 { margin-top: 10px; margin-bottom: 4px; }
+    table { margin: 8px 0; }
+    blockquote { margin: 8px 0; padding: 6px 14px; }
 }
 </style>
     
@@ -706,7 +720,7 @@ flowchart LR
     class n20 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21zm0YQ_is7ZDyyZ6QEEAiJD81ISLROk0aJ7GY6cT-c4BA3Rhw9Dsuqo__ePQF6weJDW33QzL49u_vc3gIvWsBDqrna1dULS5l04aUjY7qmHRc6S5LTThdKxe9EMLJMaN5RPhFP5YL9vXczrOxZuSmdT9Ys2Srtgq44hfvbLowxMOlCTtK8l1PBok63kwm2JmLr8YQL5f2GDiM92merTBMuQiqODrruGIGNoQlL6VHddyzH8lVcTgOehmegkR0No6CzU8UlfBPERMh9-UVOP5HnbyyUMcoRSXKKPrFcJx_JkiaqRykKpQsK8VSTwXKVJ0XCFhkJWLpCvaWjSpD08aiy9d0OdldXD-khKXz8-pAC_oKE5PmURpBLVM-eJEQsSdw3ljf2bb2bS8EfqfvGnDnTvtkNVCcutq53Fbm9DWWrWLpLnoSVa2-jenDN7Lkrnl1T74ot_jdy0TQ8ZvIG5tAcHjJNHMMzvDpTFEX_KxPyKu5I_ljlmvV9058echn2wPb013h1m1PLGRtNnqh4YgE9AfV9vz87UjUb2IbeDjrx-wPda4CuiKQbsj0CjjzrAOjbjm84rYBlvmaVxXIueFAD9me2bx8AnYnhj81WQGtsWMOqQsRZCZLFMOHFfpZhnGV5aVO_1Pj-_UGLiBuRXsBXsAhiGhYJha80oCyTcJ-F2NuD9uefJ0HmeRD68vUahwK8mKQrmsNyC5M_4Hpe5PG7eZHgZf0it7W1Cx5JA4rKRcwykPymAW_Y1wf8LEFa79OYZNkW5kTGoHiheQ63uF0Y1haqbLeppAnC3JzCDI4wueQZOkVcrIlkPK36CoGlWOkxEJtoEOffLeB2Dj2VNyyCffCiyNQU5VycpHPOSfEExQQwLiRXKQO4o88S5l8bvQ4vRk0KloRYLx5xlRIrhzvs4T6DLwVJJZPbBtKoeSgJxXV7WvZntQBrpF7RimTo51AlV6-QmlHGxahXreTNOAvDqr5Ljj7D9Z43eGIEJkQGMXzgSzUlp2FO43TL7sbBY8o3CQ1XOJAShBrjp_KcF-8skLHgxQqHCI_UmQyaEzN6eakxiRB8k_dIIiEjgiQJTX4ub_mDttudXgb93wW9HrH53VyNWNnpYptLuoZ73FOnlZkXyT3whRCvblH_YoiHV5VJxYfH04jV9-GOLOG6grsB4oJj_wrfvllvDVi-BbMS7GOOC20kJE3xiQVTIgnExfKkmEYtHzjmfzWZBDfIolzPqqlQwSi_GvcXhDzv0TqH_UQeKUxpwHIFWq0FsaYh21_FlCRILi4c-MSfKPhcbIgIYcNwq5S7Ca69Aodp_f59k037PNOcCrVLMNmaHPYe3rm_CooZ6hVVoTWxBhfv_G90U_FwXV7Pm3fVkc2eWS4VARev3fA_jl9qQq_3E3JYiVYp2pVol-KgEp1SNGpvY1QqhjWYXspOQzZGlaLyr5_w6aCy1wBGVY5h1IpKriswhkrx40Fr0vFDbazaqSrbrOV-KfcruRIPOaxGlUZdttnMqo6HHxKOTp7XqtSTt4ozi9lq6bdarFaL3WoZtFqcVsuw1TJqtSA_raZ2Fox2Gox2HvAs65fac_2gegE91zoXtcP63excPbqoxqGt1FpXW-PmICzU3Bdt_72C3zQhjUiRSG3X1Qg-nxbbNNDc_Xu9Vuyv6pQR3IXrUrn7BxtuG9w=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21zm0YQ_is7ZDyyZ6QEEAiJD81ISLROk0aJ7GY6cT-c4BA3Rhw9Dsuqo__ePQF6weJDW33QzL49u_vc3gIvWsBDqrna1dULS5l04aUjY7qmHRc6S5LTThdKxe9EMLJMaN5RPhFP5YL9vXczrOxZuSmdT9Ys2Srtgq44hfvbLowxMOlCTtK8l1PBok63kwm2JmLr8YQL5f2GDiM92merTBMuQiqODrruGIGNoQlL6VHddyzH8lVcTgOehmegkR0No6CzU8UlfBPERMh9-UVOP5HnbyyUMcoRSXKKPrFcJx_JkiaqRykKpQsK8VSTwXKVJ0XCFhkJWLpCvaWjSpD08aiy9d0OdldXD-khKXz8-pAC_oKE5PmURpBLVM-eJEQsSdw3ljf2bb2bS8EfqfvGnDnTvtkNVCcutq53Fbm9DWWrWLpLnoSVa2-jenDN7Lkrnl1T74ot_jdy0TQ8ZvIG5tAcHjJNHMMzvDpTFEX_KxPyKu5I_ljlmvV9058echn2wPb013h1m1PLGRtNnqh4YgE9AfV9vz87UjUb2IbeDjrx-wPda4CuiKQbsj0CjjzrAOjbjm84rYBlvmaVxXIueFAD9me2bx8AnYnhj81WQGtsWMOqQsRZCZLFMOHFfpZhnGV5aVO_1Pj-_UGLiBuRXsBXsAhiGhYJha80oCyTcJ-F2NuD9uefJ0HmeRD68vUahwK8mKQrmsNyC5M_4Hpe5PG7eZHgZf0it7W1Cx5JA4rKRcwykPymAW_Y1wf8LEFa79OYZNkW5kTGoHiheQ63uF0Y1haqbLeppAnC3JzCDI4wueQZOkVcrIlkPK36CoGlWOkxEJtoEOffLeB2Dj2VNyyCffCiyNQU5VycpHPOSfEExQQwLiRXKQO4o88S5l8bvQ4vRk0KloRYLx5xlRIrhzvs4T6DLwVJJZPbBtKoeSgJxXV7WvZntQBrpF7RimTo51AlV6-QmlHGxahXreTNOAvDqr5Ljj7D9Z43eGIEJkQGMXzgSzUlp2FO43TL7sbBY8o3CQ1XOJAShBrjp_KcF-8skLHgxQqHCI_UmQyaEzN6eakxiRB8k_dIIiEjgiQJTX4ub_mDttudXgb93wW9HrH53VyNWNnpYptLuoZ73FOnlZkXyT3whRCvblH_YoiHV5VJxYfH04jV9-GOLOG6grsB4oJj_wrfvllvDVi-BbMS7GOOC20kJE3xiQVTIgnExfKkmEYtHzjmfzWZBDfIolzPqqlQwSi_GvcXhDzv0TqH_UQeKUxpwHIFWq0FsaYh21_FlCRILi4c-MSfKPhcbIgIYcNwq5S7Ca69Aodp_f59k037PNOcCrVLMNmaHPYe3rm_CooZ6hVVoTWxBhfv_G90U_FwXV7Pm3fVkc2eWS4VARev3fA_jl9qQq_3E3JYiVYp2pVol-KgEp1SNGpvY1QqhjWYXspOQzZGlaLyr5_w6aCy1wBGVY5h1IpKriswhkrx40Fr0vFDbazaqSrbrOV-KfcruRIPOaxGlUZdttnMqo6HHxKOTp7XqtSTt4ozi9lq6bdarFaL3WoZtFqcVsuw1TJqtSA_raZ2Fox2Gox2HvAs65fac_2gegE91zoXtcP63excPbqoxqGt1FpXW-PmICzU3Bdt_72C3zQhjUiRSG3X1Qg-nxbbNNDc_Xu9Vuyv6pQR3IXrUrn7BxtuG9w=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
 
@@ -754,7 +768,7 @@ flowchart TD
     class n6 endEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVcuO2zYU_RVCg4ETQAb0tBwtCtiyhQ7QIIPITReZLGjpUiaGIlWS8ow78L-XtDR-Je6mWti4r3POvSKv3pxSVOCkzv39G-VUp-htpDfQwChFozVWMHJR7_iGJcVrBmpkc4jguqD_HNL8qH21adaX44aynfUWUAtAfz64aGYKmYsU5mqsQFIycketpA2Wu0wwIW32HUyJRw5sQ2guZAXylOB5iV_GppRRDid3mERJlNs6BaXg1QUoicmUlKO9FcfES7nBUh_kdwo-49e_aKU3xiaYKTA5G92wP_AamO1Ry876yk5u34dBleXhZmBFi0vKa-OPPOOSmD-fXLG336P9_f0TP5Ki1eKJI_OUDCu1AIKUNu7lViNCGUvvomyWx56rtBTPkN4Fy2QRBm5pO0lN655rhzt-AVpvdLoWrBpSxy-2hzRoX135mgaeK3fm94oLeHViyibBNJgemeaJn_nZOxMh5H8xmbnKFVbPA9cyzIN8ceTy40mceT_jvbe5iJKZfz0nkFtawhlonufh8jSq5ST2vdug8zyceNkVaI01vODdCfBTFh0B8zjJ_eQmYM93rbJbP0pRvgOGyziPj4DJ3M9nwU3AaOZH00GhwaklbjdoLrrDWUaztlV9zD48_P79ySE4JXhcihqtJK1rkOiRYc6hMldN0i1mqKA1N39aoN-7tXpyfvw4w4g_HDFaZqbwFf7uQGlUANe2pLBHEy2gZWLXWN8B3Zxtg_OxxzEn6kpwvirQwyMaIzOHqis1FXxQJc-o_Uv5X6EEugXDKMpn04zZEMR0YwVRRS3GlfTgsj4TfAtG6-36vp-L6Be7V65wJ6eRKC3aXzVvyJqWgYbqv8bwsLK1Zn629owguhRemKUAP721D5-_fFt-PEk7wvMYjce_mbc_mH5vBoMZ9OZkMMPejAYz6s3zi2URzi7WRSS4GQlvRqKbkfi46C7ck2EnOa7TgGwwrZz0zTl8Z8y3qAKCO6advevgTotix0snPexjp2src3cXFJtxN71z_y-1uizQ" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVcuO2zYU_RVCg4ETQAb0tBwtCtiyhQ7QIIPITReZLGjpUiaGIlWS8ow78L-XtDR-Je6mWti4r3POvSKv3pxSVOCkzv39G-VUp-htpDfQwChFozVWMHJR7_iGJcVrBmpkc4jguqD_HNL8qH21adaX44aynfUWUAtAfz64aGYKmYsU5mqsQFIycketpA2Wu0wwIW32HUyJRw5sQ2guZAXylOB5iV_GppRRDid3mERJlNs6BaXg1QUoicmUlKO9FcfES7nBUh_kdwo-49e_aKU3xiaYKTA5G92wP_AamO1Ry876yk5u34dBleXhZmBFi0vKa-OPPOOSmD-fXLG336P9_f0TP5Ki1eKJI_OUDCu1AIKUNu7lViNCGUvvomyWx56rtBTPkN4Fy2QRBm5pO0lN655rhzt-AVpvdLoWrBpSxy-2hzRoX135mgaeK3fm94oLeHViyibBNJgemeaJn_nZOxMh5H8xmbnKFVbPA9cyzIN8ceTy40mceT_jvbe5iJKZfz0nkFtawhlonufh8jSq5ST2vdug8zyceNkVaI01vODdCfBTFh0B8zjJ_eQmYM93rbJbP0pRvgOGyziPj4DJ3M9nwU3AaOZH00GhwaklbjdoLrrDWUaztlV9zD48_P79ySE4JXhcihqtJK1rkOiRYc6hMldN0i1mqKA1N39aoN-7tXpyfvw4w4g_HDFaZqbwFf7uQGlUANe2pLBHEy2gZWLXWN8B3Zxtg_OxxzEn6kpwvirQwyMaIzOHqis1FXxQJc-o_Uv5X6EEugXDKMpn04zZEMR0YwVRRS3GlfTgsj4TfAtG6-36vp-L6Be7V65wJ6eRKC3aXzVvyJqWgYbqv8bwsLK1Zn629owguhRemKUAP721D5-_fFt-PEk7wvMYjce_mbc_mH5vBoMZ9OZkMMPejAYz6s3zi2URzi7WRSS4GQlvRqKbkfi46C7ck2EnOa7TgGwwrZz0zTl8Z8y3qAKCO6advevgTotix0snPexjp2src3cXFJtxN71z_y-1uizQ" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
 

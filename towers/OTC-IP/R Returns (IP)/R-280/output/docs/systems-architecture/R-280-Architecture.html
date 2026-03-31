@@ -120,8 +120,8 @@ blockquote {
     background: #fafbfd;
     border: 1px solid #e0e4ea;
     border-radius: 6px;
-    padding: 20px 12px;
-    margin: 16px 0;
+    padding: 16px 12px;
+    margin: 12px 0;
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
@@ -130,6 +130,7 @@ blockquote {
 .mermaid svg {
     max-width: 100%;
     height: auto;
+    max-height: 85vh;
 }
 .header-bar {
     background: #00285a;
@@ -205,25 +206,31 @@ strong { color: #00285a; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print, .pdf-download-btn { display: none !important; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
-    /* Page sections: do NOT use min-height in print — the page-break divs
-       already handle pagination.  min-height:100vh forces every section to
-       fill a full page, which creates blank trailing space before the next
-       page-break, producing blank pages in the PDF output. */
+
+    /* Page sections: auto height in print — page-break divs handle pagination */
     .page-section {
         min-height: auto;
         display: block;
     }
     .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
         page-break-inside: avoid;
+        break-inside: avoid;
         overflow: visible;
+        max-height: 85vh;
+        margin: 8px 0;
     }
     .mermaid svg {
         max-width: 100%;
+        max-height: 80vh;
         height: auto;
+        width: auto;
     }
+
     /* Diagram links: visible + clickable in PDF */
     a[title="View full diagram"],
     a[title="Open full-size SVG"] {
@@ -231,6 +238,13 @@ strong { color: #00285a; }
         text-decoration: underline !important;
         font-size: 10pt !important;
     }
+
+    /* Tighten spacing in print for professional PDF output */
+    h2 { margin-top: 18px; margin-bottom: 8px; }
+    h3 { margin-top: 14px; margin-bottom: 6px; }
+    h4 { margin-top: 10px; margin-bottom: 4px; }
+    table { margin: 8px 0; }
+    blockquote { margin: 8px 0; padding: 6px 14px; }
 }
 </style>
     
@@ -667,7 +681,7 @@ flowchart TD
     class n8 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduO2zYQ_RVCi4UTQC50tVw9JPDK1sJA0m5gb4oizgNNUTaxlGiQlC91_O8dSvI18VP0IGgOZ86ZGXKovUVERq3Yenzcs5LpGO07ekkL2olRZ44V7dioAb5iyfCcU9UxPrko9YT9V7u5wWpr3AyW4oLxnUEndCEoeh3baACB3EYKl6qrqGR5x-6sJCuw3CWCC2m8H2g_d_JarV16EjKj8uzgOJFLQgjlrKRn2I-CKEhNnKJElNkVaR7m_Zx0DiY5LjZkiaWu068U_Yy3_7BML8HOMVcUfJa64J_wnHJTo5aVwUgl18dmMGV0SmjYZIUJKxeABw5AEpdvZyh0Dgd0eHyclSdRNB3OSgQP4VipIc2R0gCP1hrljPP4IUgGaejYSkvxRuMHbxQNfc8mppIYSnds09zuhrLFUsdzwbPWtbsxNcTeamvLbew5ttzB-0aLltlZKel5fa9_UnqK3MRNjkp5nv-WEvRVTrF6a7VGfuqlw5OWG_bCxPmZ71jmMIgG7m2fqFwzQi9I0zT1R-dWjXqh69wnfUr9npPckC6wphu8OxP-mQQnwjSMUje6S9jo3WZZzV-kIEdCfxSm4YkwenLTgXeXMBi4Qb_NEHgWEq-W6FmKqsxQAnshBedUNuvmKd1vMyvHcY67pt3oRSiNnoXIFBorVdGZ9f3C2ft28iZigV5XGdSOhpSzNZU7tGF6iT4DZGYUDQWpClpqhGvtYsUpOBsBONkKiC-Z_WvmZEkJbJGQ6O9Kz-vs4XtcNp9fKlpRhUZSCqn-uGEKfpnj66fpT7UhViKMkkppUaCpuY5uqMJ3JyrwWYH-GuoRUGnLeqwqg8D3F4E9iOuiKUyyWgkYWNjOrCIaaYEmGi-gfrjHKEbvxi_vrzsc7ffn7DPanQMHWaKX5zGaVIRQpfKKo48z63C4iOr_OopuCa8U7M1zc0TPUTDEzUfpom73A-i2ZmTMHzPrXwo79AN2vMX9xq3fmv3GDFuz15juDclfoubwW9hrvILWDK4o69Nv0jlO_RXsXY7u1Yp_dyW4uxK2l9gV2DvdoldwdJzvK7R_RC3bKqgsMMuseG_V_zb4_2U0xxXX1sG2cKXFZFcSK67_AVZVn5whwzCaRQMe_gcCkU2G" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduO2zYQ_RVCi4UTQC50tVw9JPDK1sJA0m5gb4oizgNNUTaxlGiQlC91_O8dSvI18VP0IGgOZ86ZGXKovUVERq3Yenzcs5LpGO07ekkL2olRZ44V7dioAb5iyfCcU9UxPrko9YT9V7u5wWpr3AyW4oLxnUEndCEoeh3baACB3EYKl6qrqGR5x-6sJCuw3CWCC2m8H2g_d_JarV16EjKj8uzgOJFLQgjlrKRn2I-CKEhNnKJElNkVaR7m_Zx0DiY5LjZkiaWu068U_Yy3_7BML8HOMVcUfJa64J_wnHJTo5aVwUgl18dmMGV0SmjYZIUJKxeABw5AEpdvZyh0Dgd0eHyclSdRNB3OSgQP4VipIc2R0gCP1hrljPP4IUgGaejYSkvxRuMHbxQNfc8mppIYSnds09zuhrLFUsdzwbPWtbsxNcTeamvLbew5ttzB-0aLltlZKel5fa9_UnqK3MRNjkp5nv-WEvRVTrF6a7VGfuqlw5OWG_bCxPmZ71jmMIgG7m2fqFwzQi9I0zT1R-dWjXqh69wnfUr9npPckC6wphu8OxP-mQQnwjSMUje6S9jo3WZZzV-kIEdCfxSm4YkwenLTgXeXMBi4Qb_NEHgWEq-W6FmKqsxQAnshBedUNuvmKd1vMyvHcY67pt3oRSiNnoXIFBorVdGZ9f3C2ft28iZigV5XGdSOhpSzNZU7tGF6iT4DZGYUDQWpClpqhGvtYsUpOBsBONkKiC-Z_WvmZEkJbJGQ6O9Kz-vs4XtcNp9fKlpRhUZSCqn-uGEKfpnj66fpT7UhViKMkkppUaCpuY5uqMJ3JyrwWYH-GuoRUGnLeqwqg8D3F4E9iOuiKUyyWgkYWNjOrCIaaYEmGi-gfrjHKEbvxi_vrzsc7ffn7DPanQMHWaKX5zGaVIRQpfKKo48z63C4iOr_OopuCa8U7M1zc0TPUTDEzUfpom73A-i2ZmTMHzPrXwo79AN2vMX9xq3fmv3GDFuz15juDclfoubwW9hrvILWDK4o69Nv0jlO_RXsXY7u1Yp_dyW4uxK2l9gV2DvdoldwdJzvK7R_RC3bKqgsMMuseG_V_zb4_2U0xxXX1sG2cKXFZFcSK67_AVZVn5whwzCaRQMe_gcCkU2G" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-322-r-280-010_-process_goods_issue_for_stock_materialipcopy-r-280-010-process_goods_issue_for_stock_materialip_copy">BUSINESS ARCHITECTURE — 3.2.2 R-280-010_-<em>Process_Goods_Issue_for_Stock_Material</em>(IP)<em>(Copy) — R-280-010</em>-<em>Process_Goods_Issue_for_Stock_Material</em>(IP)_(Copy)</h4>
 <p><strong>Swim Lanes</strong>: Ground Controller | <strong>Tasks</strong>: 3 | <strong>Gateways</strong>: 2</p>
@@ -708,7 +722,7 @@ flowchart TD
     class n7 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduO2zYQ_RVCi4UTQC50tVw9tPDK1sJA0mzhTYsi7gNNjWxhadEgKV_q-N8zlOSL3O5T9SBoDmfOmRlyqKPFRAZWbD0-Houy0DE59vQK1tCLSW9BFfRs0gB_UFnQBQfVMz65KPWs-Kd2c4PN3rgZLKXrgh8MOoOlAPJ1apMRBnKbKFqqvgJZ5D27t5HFmspDIriQxvsBhrmT12rt0pOQGcirg-NELgsxlBclXGE_CqIgNXEKmCizDmke5sOc9U4mOS52bEWlrtOvFHym-z-LTK_QzilXgD4rveaf6AK4qVHLymCskttzMwpldEps2GxDWVEuEQ8chCQt365Q6JxO5PT4OC8vouR1PC8JPoxTpcaQE6URnmw1yQvO44cgGaWhYystxRvED94kGvuezUwlMZbu2Ka5_R0Uy5WOF4JnrWt_Z2qIvc3elvvYc2x5wPedFpTZVSkZeENveFF6itzETc5KeZ7_LyXsq3yl6q3Vmvipl44vWm44CBPn33znMsdBNHLv-wRyWzC4IU3T1J9cWzUZhK7zPulT6g-c5I50STXs6OFK-HMSXAjTMErd6F3CRu8-y2rxIgU7E_qTMA0vhNGTm468dwmDkRsM2wyRZynpZkWepajKjCS4F1JwDrJZN0_pfptbOY1z2jftJi9CafIsRKbIVKkK5tbfN87et4s3E0vydZNh7WQMvNiCPJBdoVfkM0JmRslYsGoNpSa01l5vOKCzEcCTrZD4ltnvMicrYLhFQpIvlV7U2eP3tGw-f6-gAkUmUgqpfrpjCj5cmJQWGwzaYhIC02vTPaeSYeDHm8AQ4_rkFcdPbQROGe5BVjFNtCAzTZeYNF4-QMmH6cvHblsGx-M1-Qz6C-RgK_LyPCWzijFQKq84-XVunU43UdF_R8Ge8UphQ5-bc3WNwslrPkqX9Pu_oG5rDoz5fW79BdjW77hNLe43blFrRo0ZtGbYmO4dyW-i5vBb2Otw1GfU6J9nswN7twPWWfHfXQnaC6UDhpcbrQMPzrPWQaMzatnWGuSaFpkVH636P4P_ogxyWnFtnWyLVlrMDiWz4vo-tqr6QIwLimOybsDTD3jqKYY=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduO2zYQ_RVCi4UTQC50tVw9tPDK1sJA0mzhTYsi7gNNjWxhadEgKV_q-N8zlOSL3O5T9SBoDmfOmRlyqKPFRAZWbD0-Houy0DE59vQK1tCLSW9BFfRs0gB_UFnQBQfVMz65KPWs-Kd2c4PN3rgZLKXrgh8MOoOlAPJ1apMRBnKbKFqqvgJZ5D27t5HFmspDIriQxvsBhrmT12rt0pOQGcirg-NELgsxlBclXGE_CqIgNXEKmCizDmke5sOc9U4mOS52bEWlrtOvFHym-z-LTK_QzilXgD4rveaf6AK4qVHLymCskttzMwpldEps2GxDWVEuEQ8chCQt365Q6JxO5PT4OC8vouR1PC8JPoxTpcaQE6URnmw1yQvO44cgGaWhYystxRvED94kGvuezUwlMZbu2Ka5_R0Uy5WOF4JnrWt_Z2qIvc3elvvYc2x5wPedFpTZVSkZeENveFF6itzETc5KeZ7_LyXsq3yl6q3Vmvipl44vWm44CBPn33znMsdBNHLv-wRyWzC4IU3T1J9cWzUZhK7zPulT6g-c5I50STXs6OFK-HMSXAjTMErd6F3CRu8-y2rxIgU7E_qTMA0vhNGTm468dwmDkRsM2wyRZynpZkWepajKjCS4F1JwDrJZN0_pfptbOY1z2jftJi9CafIsRKbIVKkK5tbfN87et4s3E0vydZNh7WQMvNiCPJBdoVfkM0JmRslYsGoNpSa01l5vOKCzEcCTrZD4ltnvMicrYLhFQpIvlV7U2eP3tGw-f6-gAkUmUgqpfrpjCj5cmJQWGwzaYhIC02vTPaeSYeDHm8AQ4_rkFcdPbQROGe5BVjFNtCAzTZeYNF4-QMmH6cvHblsGx-M1-Qz6C-RgK_LyPCWzijFQKq84-XVunU43UdF_R8Ge8UphQ5-bc3WNwslrPkqX9Pu_oG5rDoz5fW79BdjW77hNLe43blFrRo0ZtGbYmO4dyW-i5vBb2Otw1GfU6J9nswN7twPWWfHfXQnaC6UDhpcbrQMPzrPWQaMzatnWGuSaFpkVH636P4P_ogxyWnFtnWyLVlrMDiWz4vo-tqr6QIwLimOybsDTD3jqKYY=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-280 — Ship Orders (IP)</span></div>
 

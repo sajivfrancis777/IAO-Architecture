@@ -120,8 +120,8 @@ blockquote {
     background: #fafbfd;
     border: 1px solid #e0e4ea;
     border-radius: 6px;
-    padding: 20px 12px;
-    margin: 16px 0;
+    padding: 16px 12px;
+    margin: 12px 0;
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
@@ -130,6 +130,7 @@ blockquote {
 .mermaid svg {
     max-width: 100%;
     height: auto;
+    max-height: 85vh;
 }
 .header-bar {
     background: #00285a;
@@ -205,25 +206,31 @@ strong { color: #00285a; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print, .pdf-download-btn { display: none !important; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
-    /* Page sections: do NOT use min-height in print — the page-break divs
-       already handle pagination.  min-height:100vh forces every section to
-       fill a full page, which creates blank trailing space before the next
-       page-break, producing blank pages in the PDF output. */
+
+    /* Page sections: auto height in print — page-break divs handle pagination */
     .page-section {
         min-height: auto;
         display: block;
     }
     .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
         page-break-inside: avoid;
+        break-inside: avoid;
         overflow: visible;
+        max-height: 85vh;
+        margin: 8px 0;
     }
     .mermaid svg {
         max-width: 100%;
+        max-height: 80vh;
         height: auto;
+        width: auto;
     }
+
     /* Diagram links: visible + clickable in PDF */
     a[title="View full diagram"],
     a[title="Open full-size SVG"] {
@@ -231,6 +238,13 @@ strong { color: #00285a; }
         text-decoration: underline !important;
         font-size: 10pt !important;
     }
+
+    /* Tighten spacing in print for professional PDF output */
+    h2 { margin-top: 18px; margin-bottom: 8px; }
+    h3 { margin-top: 14px; margin-bottom: 6px; }
+    h4 { margin-top: 10px; margin-bottom: 4px; }
+    table { margin: 8px 0; }
+    blockquote { margin: 8px 0; padding: 6px 14px; }
 }
 </style>
     
@@ -729,7 +743,7 @@ flowchart LR
     class n30 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1uP4jYU_itWVlNmJejmSoCHVtyyQlpGaNhtVXX6YBJnsCbEyHFg2Fn-e48TO5CQeeiWB4hPvvOd-yF5M0IWEWNk3N290ZSKEXrriC3Zkc4IdTY4I50uKgV_YE7xJiFZR2Jiloo1_V7ALHf_KmFSFuAdTU5SuibPjKBviy4ag2LSRRlOs15GOI073c6e0x3mpylLGJfoD2QQm3FhTd2aMB4RfgGYpm-FHqgmNCUXseO7vhtIvYyELI1qpLEXD-Kwc5bOJewYbjEXhft5Rpb49U8aiS2cY5xkBDBbsUu-4A1JZIyC51IW5vygk0EzaSeFhK33OKTpM8hdE0Qcpy8XkWeez-h8d_eUVkbRl8enFMEnTHCWzUiMMgHi-UGgmCbJ6IM7HQee2c0EZy9k9MGe-zPH7oYykhGEbnZlcntHQp-3YrRhSaSgvaOMYWTvX7v8dWSbXX6C74YtkkYXS9O-PbAHlaWJb02tqbYUx_H_sgR55V9x9qJszZ3ADmaVLcvre1Pzlk-HOXP9sdXME-EHGpIr0iAInPklVfO-Z5nvk04Cp29OG6TPWJAjPl0Ih1O3Igw8P7D8dwlLe00v882Ks1ATOnMv8CpCf2IFY_tdQndsuQPlIfA8c7zfognLi15G4_0-K-_JT2r9_WQ8kpDQA0EBTQiiKZpA9z0Z_1yhbEB920cQJVrh046kAj2SHRUCpyGpQ63-PYBjPIpxLxNsXynMsMCoJIlA5WOpA63U8HQaLB6u-Bxgm7-SML-2nad1oy6AppxI_8arJVqSHQMHQ5j4Os4DnMwryTI0mS4rwgkW4RaGDS4yEiEGOcgzWAsAe8xhRdVZ-sDymaSEa3uaRiawDvVlepn0XTCZes4OhNchA-k745yEoiBT1xScuOUbFuUCjkxaXqEZ9MhDvtsQjnAaXQeOZiQhkqVRHhMYAgLhaq8zFOBQMGiNezDflXnpouVkipYM9jfjHxsEZcccKDmCIjgYVeF_Yc8NrH2dKQ2DAuxZhpMG1il49wkNJXid7-ESwlqkBwbzilYsE1ChhtKg0WzXCSgb4qrXSpVhQ0WnUaW1ibettzeNl39tvQ0sZ8jeEqc5TlRN4eKByK6CCfv9yTifrwnsdgLVDdEN3mnHk9cwgaY8kM_lsmmque1qUwzNTHRXtZjzfs5c_-fU_Ha1MvmQRsbhel-OKJT7xtvBRR9zzo5ZDycC7THHSUKSd4wOf0LJMVuVaPpefLebDIbouvHkklrmiaA9uWChImkq5_xABYzeFtq7J1hP_jYnzvvvirfOrMcrtP7kovvFCv2CFkFtJvz3djYRMOIZkp1KIxj1DQ5f5Cpbs5zDUK5PmSA7yflJMjYmR66auT3vuf0xenTQjBY7ThY356TgP1IBeyjBaSqX7yIVBJwtVl8Pjb_eRgMbBfV6v0F11Nkpj_ZAnd3ybOmzp-6rpwC4kIIfT8YDezJ-yGFTN3wFtDVQMff1WTF5-uw2iDRwqDwYao9NxawFdr8UVGetUfk4KAWuZrAUg68BvrKtp6bugUqRpc_KnuU2DOpQlTlbh2ap0C276WHlgIrJcppp_Uv-V4IzGqnlq_Hi4VfTtNE9tFYvYTiSjzbkYwG2KstuHW61w2t5KtJwWRhlKjShoxzV7WDbDT-r-ld3dD2r7KvCW-Zt9htmHbPZHNqMc_18J0ujHqHrUr9VOmiVDtukUBf9GlCXW_oJtS6228VOu9htF3vt4n672G8XD9rFw1YxVFWJja6xI3yHaWSM3ozitRJePSMSY1iXxrlr4Fyw9SkNjVHx-mXkxfPnjGLYM7tSeP4Xr56AuA==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1uP4jYU_itWVlNmJejmSoCHVtyyQlpGaNhtVXX6YBJnsCbEyHFg2Fn-e48TO5CQeeiWB4hPvvOd-yF5M0IWEWNk3N290ZSKEXrriC3Zkc4IdTY4I50uKgV_YE7xJiFZR2Jiloo1_V7ALHf_KmFSFuAdTU5SuibPjKBviy4ag2LSRRlOs15GOI073c6e0x3mpylLGJfoD2QQm3FhTd2aMB4RfgGYpm-FHqgmNCUXseO7vhtIvYyELI1qpLEXD-Kwc5bOJewYbjEXhft5Rpb49U8aiS2cY5xkBDBbsUu-4A1JZIyC51IW5vygk0EzaSeFhK33OKTpM8hdE0Qcpy8XkWeez-h8d_eUVkbRl8enFMEnTHCWzUiMMgHi-UGgmCbJ6IM7HQee2c0EZy9k9MGe-zPH7oYykhGEbnZlcntHQp-3YrRhSaSgvaOMYWTvX7v8dWSbXX6C74YtkkYXS9O-PbAHlaWJb02tqbYUx_H_sgR55V9x9qJszZ3ADmaVLcvre1Pzlk-HOXP9sdXME-EHGpIr0iAInPklVfO-Z5nvk04Cp29OG6TPWJAjPl0Ih1O3Igw8P7D8dwlLe00v882Ks1ATOnMv8CpCf2IFY_tdQndsuQPlIfA8c7zfognLi15G4_0-K-_JT2r9_WQ8kpDQA0EBTQiiKZpA9z0Z_1yhbEB920cQJVrh046kAj2SHRUCpyGpQ63-PYBjPIpxLxNsXynMsMCoJIlA5WOpA63U8HQaLB6u-Bxgm7-SML-2nad1oy6AppxI_8arJVqSHQMHQ5j4Os4DnMwryTI0mS4rwgkW4RaGDS4yEiEGOcgzWAsAe8xhRdVZ-sDymaSEa3uaRiawDvVlepn0XTCZes4OhNchA-k745yEoiBT1xScuOUbFuUCjkxaXqEZ9MhDvtsQjnAaXQeOZiQhkqVRHhMYAgLhaq8zFOBQMGiNezDflXnpouVkipYM9jfjHxsEZcccKDmCIjgYVeF_Yc8NrH2dKQ2DAuxZhpMG1il49wkNJXid7-ESwlqkBwbzilYsE1ChhtKg0WzXCSgb4qrXSpVhQ0WnUaW1ibettzeNl39tvQ0sZ8jeEqc5TlRN4eKByK6CCfv9yTifrwnsdgLVDdEN3mnHk9cwgaY8kM_lsmmque1qUwzNTHRXtZjzfs5c_-fU_Ha1MvmQRsbhel-OKJT7xtvBRR9zzo5ZDycC7THHSUKSd4wOf0LJMVuVaPpefLebDIbouvHkklrmiaA9uWChImkq5_xABYzeFtq7J1hP_jYnzvvvirfOrMcrtP7kovvFCv2CFkFtJvz3djYRMOIZkp1KIxj1DQ5f5Cpbs5zDUK5PmSA7yflJMjYmR66auT3vuf0xenTQjBY7ThY356TgP1IBeyjBaSqX7yIVBJwtVl8Pjb_eRgMbBfV6v0F11Nkpj_ZAnd3ybOmzp-6rpwC4kIIfT8YDezJ-yGFTN3wFtDVQMff1WTF5-uw2iDRwqDwYao9NxawFdr8UVGetUfk4KAWuZrAUg68BvrKtp6bugUqRpc_KnuU2DOpQlTlbh2ap0C276WHlgIrJcppp_Uv-V4IzGqnlq_Hi4VfTtNE9tFYvYTiSjzbkYwG2KstuHW61w2t5KtJwWRhlKjShoxzV7WDbDT-r-ld3dD2r7KvCW-Zt9htmHbPZHNqMc_18J0ujHqHrUr9VOmiVDtukUBf9GlCXW_oJtS6228VOu9htF3vt4n672G8XD9rFw1YxVFWJja6xI3yHaWSM3ozitRJePSMSY1iXxrlr4Fyw9SkNjVHx-mXkxfPnjGLYM7tSeP4Xr56AuA==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-103 — R3 Procurement of WIINGS Replacement Related Commodities</span></div>
 
@@ -817,7 +831,7 @@ flowchart LR
     class n22 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu2zgQ_RVCRdYtYCeiLpbjhwV8UxGgQY0o2X2o94GWKJsoTQkk5cum_vcd6uJbnMW264cgczRzZuZohtSrFWcJtfrWzc0rE0z30WtLL-mKtvqoNSeKttqoAv4gkpE5p6plfNJM6Ij9XbphL98aN4OFZMX4zqARXWQUvTy00QACeRspIlRHUcnSVruVS7YicjfKeCaN9wfaS-20zFY_GmYyofLoYNsBjn0I5UzQI-wGXuCFJk7ROBPJGWnqp700bu1NcTzbxEsidVl-oegj2f7JEr0EOyVcUfBZ6hX_QuaUmx61LAwWF3LdiMGUySNAsCgnMRMLwD0bIEnE9yPk2_s92t_czMQhKfryNBMIfjEnSo1pipQGeLLWKGWc9z94o0Ho222lZfad9j84k2DsOu3YdNKH1u22EbezoWyx1P15xpPatbMxPfSdfNuW275jt-UO_l7koiI5Zhp1nZ7TO2QaBniER02mNE3_VybQVT4T9b3ONXFDJxwfcmG_64_st3xNm2MvGOBLnahcs5iekIZh6E6OUk26PrbfJx2GbtceXZAuiKYbsjsS3o-8A2HoByEO3iWs8l1WWcynMosbQnfih_6BMBjicOC8S-gNsNerKwSehST5Eg2zopxlNMhzVT0zP4G_zawnGlO2pncRvFf0INJMrohmmUBMoBGRklEJ8DoD2dCTWYqYcVZ63I2ZygtNb29vZ9ZfJ7QO0E7WVGhU5AmIoxCRFMkqUWKIPz8_n4fg4PV1ZqWkn5KOOUM6c9iCeInoNuaFgrDPlcgza7-vwqDciy4nW02lIBxNYRkEleoORUWec9PBaSrTdUihkCdT290IVmoBNT4ITYFIZ1IhVyYoB5ZdMzFoVjg2dkGBZJNlyUXxpuFaq4sn7sdvTVs5hxkx75Uqk4xpUBGKGMKxmCDQ21RzKGawJoybAxL4Pp0SeheEpc4KTYs5Z2pJkwt_Bx91hQKzjeoQrk1vhHPK36haBTk_F_T2VUSDKYruPPTxYYp-Qw_haUkuNPCZwvsBGhTK8mhAL6AH-vj8-OlcP88IK-mp51dzkF9x9cF1SqWZ38PcvjTjB6M9IjwuuGGqNT4P75qZ3dK4-A-pApMqU_rgGFGtOdxqMPHjLC7Kf96G9Y7NRPVUTb8iKBiF0fiK_32TJppEaMP0Eg0KncEIcgozcyUA28cMIxMIC6olmxfltg4WVMQ7NIR1EmYE_6VS7B-nTOksR8-PKK8nF172mynDpXrOpON1B-jJhbyw7LoMKWSlS1n_lBMh4Fo77Jo5ZzpocHkY9H72MKjC7n8pzLF_-egRLup0focxrU2_MnGvtoPKbkx8X9l-bXcrs7n3hFeH39d27Y6b59iugYYA45oBN0BdED4AdQkHu8nhNIBTUzSAUwM4aAB8CTQhDcVFG4eApo_S_0dzJ1RLObN-nAiFayncxu5Vdre2a_NAWAsRnFycZfPNd9A57r2D-_W3zDnafcc7aC76c7h3Hb6_CkPhV2F8HXYa2GpbKwoXM0us_qtVfkHDV3ZCU1Jwbe3bFoGTIdqJ2OqXX5pWdfGOGYEtW1Xg_h8uS5b8" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu2zgQ_RVCRdYtYCeiLpbjhwV8UxGgQY0o2X2o94GWKJsoTQkk5cum_vcd6uJbnMW264cgczRzZuZohtSrFWcJtfrWzc0rE0z30WtLL-mKtvqoNSeKttqoAv4gkpE5p6plfNJM6Ij9XbphL98aN4OFZMX4zqARXWQUvTy00QACeRspIlRHUcnSVruVS7YicjfKeCaN9wfaS-20zFY_GmYyofLoYNsBjn0I5UzQI-wGXuCFJk7ROBPJGWnqp700bu1NcTzbxEsidVl-oegj2f7JEr0EOyVcUfBZ6hX_QuaUmx61LAwWF3LdiMGUySNAsCgnMRMLwD0bIEnE9yPk2_s92t_czMQhKfryNBMIfjEnSo1pipQGeLLWKGWc9z94o0Ho222lZfad9j84k2DsOu3YdNKH1u22EbezoWyx1P15xpPatbMxPfSdfNuW275jt-UO_l7koiI5Zhp1nZ7TO2QaBniER02mNE3_VybQVT4T9b3ONXFDJxwfcmG_64_st3xNm2MvGOBLnahcs5iekIZh6E6OUk26PrbfJx2GbtceXZAuiKYbsjsS3o-8A2HoByEO3iWs8l1WWcynMosbQnfih_6BMBjicOC8S-gNsNerKwSehST5Eg2zopxlNMhzVT0zP4G_zawnGlO2pncRvFf0INJMrohmmUBMoBGRklEJ8DoD2dCTWYqYcVZ63I2ZygtNb29vZ9ZfJ7QO0E7WVGhU5AmIoxCRFMkqUWKIPz8_n4fg4PV1ZqWkn5KOOUM6c9iCeInoNuaFgrDPlcgza7-vwqDciy4nW02lIBxNYRkEleoORUWec9PBaSrTdUihkCdT290IVmoBNT4ITYFIZ1IhVyYoB5ZdMzFoVjg2dkGBZJNlyUXxpuFaq4sn7sdvTVs5hxkx75Uqk4xpUBGKGMKxmCDQ21RzKGawJoybAxL4Pp0SeheEpc4KTYs5Z2pJkwt_Bx91hQKzjeoQrk1vhHPK36haBTk_F_T2VUSDKYruPPTxYYp-Qw_haUkuNPCZwvsBGhTK8mhAL6AH-vj8-OlcP88IK-mp51dzkF9x9cF1SqWZ38PcvjTjB6M9IjwuuGGqNT4P75qZ3dK4-A-pApMqU_rgGFGtOdxqMPHjLC7Kf96G9Y7NRPVUTb8iKBiF0fiK_32TJppEaMP0Eg0KncEIcgozcyUA28cMIxMIC6olmxfltg4WVMQ7NIR1EmYE_6VS7B-nTOksR8-PKK8nF172mynDpXrOpON1B-jJhbyw7LoMKWSlS1n_lBMh4Fo77Jo5ZzpocHkY9H72MKjC7n8pzLF_-egRLup0focxrU2_MnGvtoPKbkx8X9l-bXcrs7n3hFeH39d27Y6b59iugYYA45oBN0BdED4AdQkHu8nhNIBTUzSAUwM4aAB8CTQhDcVFG4eApo_S_0dzJ1RLObN-nAiFayncxu5Vdre2a_NAWAsRnFycZfPNd9A57r2D-_W3zDnafcc7aC76c7h3Hb6_CkPhV2F8HXYa2GpbKwoXM0us_qtVfkHDV3ZCU1Jwbe3bFoGTIdqJ2OqXX5pWdfGOGYEtW1Xg_h8uS5b8" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-103 — R3 Procurement of WIINGS Replacement Related Commodities</span></div>
 
@@ -946,7 +960,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtumzAUhl_F8hRpk5KOJCVZkVrJXLJWolVX0m1SmZADJrHqYARmTZrm3WcDoV0Wuqq2hMy5_Mf-DjIbGPKIQAN2OhuaUGGAjQ_FgiyJDw3gwxnO5aorVzkJi4yKtUt-E1Y5Gec7b5nyHWcUzxjJlVvqxDwRHn2spfp6uqqClX2Cl5StK49H5pyA24suQFJAim_LKMYfwgXORK1W5OQSr37QSCyUJcYsJypuIZbMxTPCyrIiK0prIo_lpTikyVyZh7oyZji5f2E81rdbsO10_KSpBaamnwA5Qobz3CYxwGlq8hWIKWPGB1O3J5NJNxcZvyfGB00bj81R_dp7UFszBumqG3LGM-Ue2vq-XjSz1qyWQ7o9QuNGbuCM7eGgVa5v6s5A25MjnD1vbzIxdVNv9CxLk6NVbzRSbj-pFPNiNs9wugDOwOlrQ8tGlhuQYB6gxyIjgffNvfOhZPirClcjohkJBeVJQ02NJh-V6T-dW09mkqP5EVBrqWAYRkX1QJK9V_OjD_0i-jKM5DMKj_0iJpo8tVIrg4AM8uEnpVmSfXUfoHfUO2utVaWSJKqBiDUj7TR2yJGaDXJHU_Nv5H353f8Psoeug3N0hd7H-NLxgqGm7TDLVyBf30S6KfwKaBkDVMybONd7OYh6V-xNpHfB7wLdUhicnp491ZTskiz4DND1hXxOKJMX1dMrX8deC10ylye4e4EtjDRgoykC6MY6v5g61vT2xgGu89W5slua6t48W91AtR-lKaMhVt7DDXQDu6VZNha4urAP9ckNHCnvJFGPxz2XxqSSry6Qgx2pTrjjr6vZ8D85OfkHPuzCJcmWmEbQ2FS_BPlniUiMCybkpQ5xIbi3TkJolNc0LNIIC2JTLIkuK-P2D7gFAUo=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtumzAUhl_F8hRpk5KOJCVZkVrJXLJWolVX0m1SmZADJrHqYARmTZrm3WcDoV0Wuqq2hMy5_Mf-DjIbGPKIQAN2OhuaUGGAjQ_FgiyJDw3gwxnO5aorVzkJi4yKtUt-E1Y5Gec7b5nyHWcUzxjJlVvqxDwRHn2spfp6uqqClX2Cl5StK49H5pyA24suQFJAim_LKMYfwgXORK1W5OQSr37QSCyUJcYsJypuIZbMxTPCyrIiK0prIo_lpTikyVyZh7oyZji5f2E81rdbsO10_KSpBaamnwA5Qobz3CYxwGlq8hWIKWPGB1O3J5NJNxcZvyfGB00bj81R_dp7UFszBumqG3LGM-Ue2vq-XjSz1qyWQ7o9QuNGbuCM7eGgVa5v6s5A25MjnD1vbzIxdVNv9CxLk6NVbzRSbj-pFPNiNs9wugDOwOlrQ8tGlhuQYB6gxyIjgffNvfOhZPirClcjohkJBeVJQ02NJh-V6T-dW09mkqP5EVBrqWAYRkX1QJK9V_OjD_0i-jKM5DMKj_0iJpo8tVIrg4AM8uEnpVmSfXUfoHfUO2utVaWSJKqBiDUj7TR2yJGaDXJHU_Nv5H353f8Psoeug3N0hd7H-NLxgqGm7TDLVyBf30S6KfwKaBkDVMybONd7OYh6V-xNpHfB7wLdUhicnp491ZTskiz4DND1hXxOKJMX1dMrX8deC10ylye4e4EtjDRgoykC6MY6v5g61vT2xgGu89W5slua6t48W91AtR-lKaMhVt7DDXQDu6VZNha4urAP9ckNHCnvJFGPxz2XxqSSry6Qgx2pTrjjr6vZ8D85OfkHPuzCJcmWmEbQ2FS_BPlniUiMCybkpQ5xIbi3TkJolNc0LNIIC2JTLIkuK-P2D7gFAUo=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-103 — R3 Procurement of WIINGS Replacement Related Commodities</span></div>
 
@@ -990,7 +1004,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtumzAUhl_F8hRpk5KOJCVZkVrJBFgr0aor6TapTMgBk1h1MAKzJk3z7rOB0C4LXVVbQuZc_mN_B5kNDHlEoAE7nQ1NqDDAxodiQZbEhwbw4QznctWVq5yERUbF2iW_CaucjPOdt0z5jjOKZ4zkyi11Yp4Ijz7WUn09XVXByu7gJWXryuOROSfg9qILkBSQ4tsyivGHcIEzUasVObnEqx80EgtliTHLiYpbiCVz8YywsqzIitKayGN5KQ5pMlfmoa6MGU7uXxiP9e0WbDsdP2lqganpJ0COkOE8t0gMcJqafAViypjxwdQtx3G6ucj4PTE-aNp4bI7q196D2poxSFfdkDOeKffQ0vf1otlkzWo5pFsjNG7kBvbYGg5a5fqmbg-0PTnC2fP2HMfUTb3Rm0w0OVr1RiPl9pNKMS9m8wynC2AP7L42dCw0cQMSzAP0WGQk8L65dz6UDH9V4WpENCOhoDxpqKnR5KMy_ad968lMcjQ_AmotFQzDqKgeSLL2an70oV9EX4aRfEbhsV_ERJOnVmplEJBBPvykNEuyr-4D9I56Z621qlSSRDUQsWakncYOOVKzQW5rav6NvC-_-_9B9tB1cI6u0PsYX9peMNS0HWb5CuTrm0g3hV8BLWOAinkT53ovB1Hvir2J9C74XaBbCoPT07OnmpJVkgWfAbq-kE-HMnlRPb3ydey10CVzeYK7F9jCSAMWmiKAbibnF1N7Mr29sYFrf7WvrJamujfPVjdQ7UdpymiIlfdwA93AammWhQWuLuxDfXIDW8rbSdTjcc-lMankqwvkYEeqE-7462o2_E9OTv6BD7twSbIlphE0NtUvQf5ZIhLjggl5qUNcCO6tkxAa5TUNizTCglgUS6LLyrj9AzTKAXQ=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtumzAUhl_F8hRpk5KOJCVZkVrJBFgr0aor6TapTMgBk1h1MAKzJk3z7rOB0C4LXVVbQuZc_mN_B5kNDHlEoAE7nQ1NqDDAxodiQZbEhwbw4QznctWVq5yERUbF2iW_CaucjPOdt0z5jjOKZ4zkyi11Yp4Ijz7WUn09XVXByu7gJWXryuOROSfg9qILkBSQ4tsyivGHcIEzUasVObnEqx80EgtliTHLiYpbiCVz8YywsqzIitKayGN5KQ5pMlfmoa6MGU7uXxiP9e0WbDsdP2lqganpJ0COkOE8t0gMcJqafAViypjxwdQtx3G6ucj4PTE-aNp4bI7q196D2poxSFfdkDOeKffQ0vf1otlkzWo5pFsjNG7kBvbYGg5a5fqmbg-0PTnC2fP2HMfUTb3Rm0w0OVr1RiPl9pNKMS9m8wynC2AP7L42dCw0cQMSzAP0WGQk8L65dz6UDH9V4WpENCOhoDxpqKnR5KMy_ad968lMcjQ_AmotFQzDqKgeSLL2an70oV9EX4aRfEbhsV_ERJOnVmplEJBBPvykNEuyr-4D9I56Z621qlSSRDUQsWakncYOOVKzQW5rav6NvC-_-_9B9tB1cI6u0PsYX9peMNS0HWb5CuTrm0g3hV8BLWOAinkT53ovB1Hvir2J9C74XaBbCoPT07OnmpJVkgWfAbq-kE-HMnlRPb3ydey10CVzeYK7F9jCSAMWmiKAbibnF1N7Mr29sYFrf7WvrJamujfPVjdQ7UdpymiIlfdwA93AammWhQWuLuxDfXIDW8rbSdTjcc-lMankqwvkYEeqE-7462o2_E9OTv6BD7twSbIlphE0NtUvQf5ZIhLjggl5qUNcCO6tkxAa5TUNizTCglgUS6LLyrj9AzTKAXQ=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-103 — R3 Procurement of WIINGS Replacement Related Commodities</span></div>
 
@@ -1138,7 +1152,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9A5wugiyEZbNxwM9Q4X-7N3c1S1gM0lm1ZOxWV_35PVxQEjd6SjO28PKd9ztP22UoyBpZj1WrPPOXKIc-RpaYwg8hySGSNqMS3Or5JSMqCq3kA9yCMU2TZq7dKuaEFpyMBUrsRZ5ylKuRPS6j9Vv5ogrW9T2dczI0nhEkG5HpQJy4CiDqRNJUNCQUfR9aiyhDZQzKlhVoilxKG9PGWMzXVljEVEnTcVM1EQEcgqimooqysKS4xzGnC04k2H9naWND0bs3YtBcLsqjVovStFrnqRinBUauRRgPnlkz5kCpo8FTmvABGpJoLIImgUoLEGBNefXswJqNS8hSkJNUYcyGcnT6ObrMuVZHdgbPTPT5u2d3lZ-NBL8g5yB_rSSaywtmxbXsDk-Y5WQ2D2W1q1DdM2263u63_wGRU0W1M7_gLzP13mK8-RiWSV9A5ckqaG5VmnDEBD7SAdUa8lrtixG-3-iu0b8weMrHFiOZ4jeVez7a_wjSoshxNCppPiRv8iayoZMeHDJ_ssEnci4tg0HOvBudnJHB_-5eR9dck6cFQEIniWUqCy5XVP_D37cNeDPEkHvphfGjb67AJtAjsTnYJ-gj6ENFxHGzxxwi__Ovww3Tt-Dx3eFtlu09lAXEIxT1PIO6W8t0C99sGqooiyyiCUQZ31bgteM-v4HuZVLEv8BhIVWd9ksmRQdYBZBlwOir2Oqe8YxzhDdkjAy9L8O9neH52usc7pqxWpikIKXvt0Qek4t7rvERWBedVnUAo92KAzz4XeAC9fEXGO-jPgnSZrY7oaS3FUx0H3WBtq_ftr7b6eqr7lmp_Z0dviTaACfL0TiLMJoH_wz_zvqHWIEaNbwrMzXPBE6qDP5BYEA9vN3U0XGnlU-0EsedvqsTTx5CfKrxkNrtvUvxzsykPWuwIA1kjGzcCPl6WwXNgTSorUg0pr8Q29e-N2JOTk60zzapbMyhmlDPLeTYXG96PDMa0FAqvI4uWKgvnaWI51QVjlTlOFDxOsQkzY1z8A43nSE0=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9A5wugiyEZbNxwM9Q4X-7N3c1S1gM0lm1ZOxWV_35PVxQEjd6SjO28PKd9ztP22UoyBpZj1WrPPOXKIc-RpaYwg8hySGSNqMS3Or5JSMqCq3kA9yCMU2TZq7dKuaEFpyMBUrsRZ5ylKuRPS6j9Vv5ogrW9T2dczI0nhEkG5HpQJy4CiDqRNJUNCQUfR9aiyhDZQzKlhVoilxKG9PGWMzXVljEVEnTcVM1EQEcgqimooqysKS4xzGnC04k2H9naWND0bs3YtBcLsqjVovStFrnqRinBUauRRgPnlkz5kCpo8FTmvABGpJoLIImgUoLEGBNefXswJqNS8hSkJNUYcyGcnT6ObrMuVZHdgbPTPT5u2d3lZ-NBL8g5yB_rSSaywtmxbXsDk-Y5WQ2D2W1q1DdM2263u63_wGRU0W1M7_gLzP13mK8-RiWSV9A5ckqaG5VmnDEBD7SAdUa8lrtixG-3-iu0b8weMrHFiOZ4jeVez7a_wjSoshxNCppPiRv8iayoZMeHDJ_ssEnci4tg0HOvBudnJHB_-5eR9dck6cFQEIniWUqCy5XVP_D37cNeDPEkHvphfGjb67AJtAjsTnYJ-gj6ENFxHGzxxwi__Ovww3Tt-Dx3eFtlu09lAXEIxT1PIO6W8t0C99sGqooiyyiCUQZ31bgteM-v4HuZVLEv8BhIVWd9ksmRQdYBZBlwOir2Oqe8YxzhDdkjAy9L8O9neH52usc7pqxWpikIKXvt0Qek4t7rvERWBedVnUAo92KAzz4XeAC9fEXGO-jPgnSZrY7oaS3FUx0H3WBtq_ftr7b6eqr7lmp_Z0dviTaACfL0TiLMJoH_wz_zvqHWIEaNbwrMzXPBE6qDP5BYEA9vN3U0XGnlU-0EsedvqsTTx5CfKrxkNrtvUvxzsykPWuwIA1kjGzcCPl6WwXNgTSorUg0pr8Q29e-N2JOTk60zzapbMyhmlDPLeTYXG96PDMa0FAqvI4uWKgvnaWI51QVjlTlOFDxOsQkzY1z8A43nSE0=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-103 — R3 Procurement of WIINGS Replacement Related Commodities</span></div>
 
@@ -1218,7 +1232,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWlP4zAQ_StWUL-1EI4WiFCllKSrrlJAhGNXm1XkxtPWwk2i2AEK9L_vOC49QbCulCZzvLHfPNuvVpIxsByrVnvlKVcOeY0sNYYJRJZDImtAJb7V8U1CUhZcTQN4BGGcIsvevVXKHS04HQiQ2o04wyxVIX-ZQ-238mcTrO1dOuFiajwhjDIgt706cRFA1ImkqWxIKPgwsmZVhsiekjEt1By5lNCnz_ecqbG2DKmQoOPGaiICOgBRTUEVZWVNcYlhThOejrT5yNbGgqYPK8amPZuRWa0WpYta5KYTpQRHrUYaDZxbMuZ9qqDBU5nzAhiRaiqAJIJKCRJjTHj17cGQDErJU5CSVGPIhXB2ujg6zbpURfYAzk7n5KRld-afjSe9IOcgf64nmcgKZ8e27Q1MmudkOQxmp6lRF5i2fXzcaf0HJqOKbmN6J19g7q9hvvsYlUheQafIKWluVJpwxgQ80QJWGfFa7pIR_7jVXaJ9Y_aQiS1GNMcrLJ-f2_ZXmAZVloNRQfMxcYM_kRWV7OSQ4ZMdNol7dRX0zt2b3uUFCdzf_nVk_TVJejAURKJ4lpLgemn1D_x9-7AbQzyK-34YH9r2KmwCLQK7o12CPoI-RHQcB1v8McIv_zb8MF07Ps_t31fZ7ktZQBxC8cgTiDulXFvg_rGBqqLIPIpglMFdNm4L3vMr-PNMqtgXeAykqr06yeTIIOsAMg84GxR77TPeNo7wjuyRnpcl-PczvLw42-NtU1Yr0xSElL336ANSce-13yKrgvOqTiCUe9XDZ5cLPIDeviJjDfqzIF1mqyN6WnPxVMdBJ1jZ6l37q62-muouUu3v7Ogt0QYwQp7WJMJsEvg__AvvG2oNYtT4psDcPBc8oTr4A4kFcf9-U0f9pVY-1U4Qe_6mSjx9DPmpwktms_smxb80m_KgxY4wkDWyYSPgw3kZPAdWpLIk1ZDyTmxT_xbEnp6ebp1pVt2aQDGhnFnOq7nY8H5kMKSlUHgdWbRUWThNE8upLhirzHGi4HGKTZgY4-wf1KxIZQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWlP4zAQ_StWUL-1EI4WiFCllKSrrlJAhGNXm1XkxtPWwk2i2AEK9L_vOC49QbCulCZzvLHfPNuvVpIxsByrVnvlKVcOeY0sNYYJRJZDImtAJb7V8U1CUhZcTQN4BGGcIsvevVXKHS04HQiQ2o04wyxVIX-ZQ-238mcTrO1dOuFiajwhjDIgt706cRFA1ImkqWxIKPgwsmZVhsiekjEt1By5lNCnz_ecqbG2DKmQoOPGaiICOgBRTUEVZWVNcYlhThOejrT5yNbGgqYPK8amPZuRWa0WpYta5KYTpQRHrUYaDZxbMuZ9qqDBU5nzAhiRaiqAJIJKCRJjTHj17cGQDErJU5CSVGPIhXB2ujg6zbpURfYAzk7n5KRld-afjSe9IOcgf64nmcgKZ8e27Q1MmudkOQxmp6lRF5i2fXzcaf0HJqOKbmN6J19g7q9hvvsYlUheQafIKWluVJpwxgQ80QJWGfFa7pIR_7jVXaJ9Y_aQiS1GNMcrLJ-f2_ZXmAZVloNRQfMxcYM_kRWV7OSQ4ZMdNol7dRX0zt2b3uUFCdzf_nVk_TVJejAURKJ4lpLgemn1D_x9-7AbQzyK-34YH9r2KmwCLQK7o12CPoI-RHQcB1v8McIv_zb8MF07Ps_t31fZ7ktZQBxC8cgTiDulXFvg_rGBqqLIPIpglMFdNm4L3vMr-PNMqtgXeAykqr06yeTIIOsAMg84GxR77TPeNo7wjuyRnpcl-PczvLw42-NtU1Yr0xSElL336ANSce-13yKrgvOqTiCUe9XDZ5cLPIDeviJjDfqzIF1mqyN6WnPxVMdBJ1jZ6l37q62-muouUu3v7Ogt0QYwQp7WJMJsEvg__AvvG2oNYtT4psDcPBc8oTr4A4kFcf9-U0f9pVY-1U4Qe_6mSjx9DPmpwktms_smxb80m_KgxY4wkDWyYSPgw3kZPAdWpLIk1ZDyTmxT_xbEnp6ebp1pVt2aQDGhnFnOq7nY8H5kMKSlUHgdWbRUWThNE8upLhirzHGi4HGKTZgY4-wf1KxIZQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-103 — R3 Procurement of WIINGS Replacement Related Commodities</span></div>
 
@@ -1415,7 +1429,7 @@ flowchart TB
     E2E103CPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E103CPLP_e_g_Azure_PaaS
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuaxU7TjNDB7Zjs0I6wrxug3kYxT5ORGXL2PKaNM27T7LdpC2kUDZdCOn_jz4dHSHtcCJSwDYeDHasYNJGuwjLNeQQYRtFeElrNRqqUQ1JUzG5ncMf4J3JhXhy2yXfacXokkOtbcXJRCFD9tCjRuNy0wVrPaA549vOCWElAN1eD5GjAAq-b6O4uE_WtJI9ranhhm5-sFSutZJRXoOOW8ucz-kSeLutrJpWLdSxwpImrFhpeUy0WNHi7plokf0e7QeDqDjshb65UYFUSzit6xlkiJalKzYoY5zbZ641C4JgWMtK3IF9RsjlpTvppx_udWq2UW6GieCi0rY5s17zSk7lEehN_Yn38QA0p1Pf9F4CzSNw5Fq-QV4BQfAjLwhcy7UOPM8jqp1McDLRdlR0xLpZriparpFv-CNieov5IoZ4FTsPTQXxgtLwV4SjxpiQUdRkQNTW56tz1NpI2xH-3ZF0S1kFiWSiQPOvR_WAdlr0T_9WQ1uOHiuCbdtdybtFUKR9dnLL4XRq_1TPt88fxuP4s_PFiQ1imG0J0qmZqj6l1vNChBdjpOOQjnt_LW78MDYJeSqHmiI1fW9FXiT7H4ryJv7q6tNjn-6sPSK6QM7iWvUB4-rZP56-LzzEOVQ5ZSm2d933oX6hFDLacKk-AEwbKcJtkWC7fdK4KVMqYcaouqO8E_d_AdeAeT4=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuaxU7TjNDB7Zjs0I6wrxug3kYxT5ORGXL2PKaNM27T7LdpC2kUDZdCOn_jz4dHSHtcCJSwDYeDHasYNJGuwjLNeQQYRtFeElrNRqqUQ1JUzG5ncMf4J3JhXhy2yXfacXokkOtbcXJRCFD9tCjRuNy0wVrPaA549vOCWElAN1eD5GjAAq-b6O4uE_WtJI9ranhhm5-sFSutZJRXoOOW8ucz-kSeLutrJpWLdSxwpImrFhpeUy0WNHi7plokf0e7QeDqDjshb65UYFUSzit6xlkiJalKzYoY5zbZ641C4JgWMtK3IF9RsjlpTvppx_udWq2UW6GieCi0rY5s17zSk7lEehN_Yn38QA0p1Pf9F4CzSNw5Fq-QV4BQfAjLwhcy7UOPM8jqp1McDLRdlR0xLpZriparpFv-CNieov5IoZ4FTsPTQXxgtLwV4SjxpiQUdRkQNTW56tz1NpI2xH-3ZF0S1kFiWSiQPOvR_WAdlr0T_9WQ1uOHiuCbdtdybtFUKR9dnLL4XRq_1TPt88fxuP4s_PFiQ1imG0J0qmZqj6l1vNChBdjpOOQjnt_LW78MDYJeSqHmiI1fW9FXiT7H4ryJv7q6tNjn-6sPSK6QM7iWvUB4-rZP56-LzzEOVQ5ZSm2d933oX6hFDLacKk-AEwbKcJtkWC7fdK4KVMqYcaouqO8E_d_AdeAeT4=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
@@ -1450,7 +1464,7 @@ flowchart TB
     E2E103FPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E103FPLP_e_g_Azure_PaaS
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuaxU7TjNBB3Zis0I6wrxug3kYxT5ORGXL2PKaNM27T7LTpC2kUDZdCOn_jz4dHSFtcSJTwBT3eltecEXRNsJqBTlEmKIIL1itR309qiFpKq42M_gDojOFlE9uu-Q7qzhbCKiNrTmZLFTIH_aowbBcd8FGD1jOxaZzQlhKQLfXfeRqgIbv2igh75MVq9Se1tRww9Y_eKpWRsmYqMHErVQuZmwBot1WVU2rFvpYYckSXiyNPCRGrFhx90x0yG6Hdr1eVBz2Qt-8qEC6JYLV9RQyxMrSk2uUcSHomedMgyDo16qSd0DPCLm89Eb76Yd7kxq1ynU_kUJWxranzmteKZg6AidjfzT5eADa47FvT14C7SNw4Dm-RV4BQYojLwg8x3MOvMmE6HYywdHI2FHREetmsaxYuUK-5Q-IHcxn8xjiZew-NBXEc8bCXxGOGmtEBlGTAdFbny_PUWsjY0f4d0cyLeUVJIrLAs2-HtUD2m3RP_1bA205ZqwJlNKu5N0iKNJ9dmoj4HRq_1TPt88fxsP4s_vFjS1i2W0J0rGd6j5lzvNChBdDZOKQiXt_LW78MLYJeSqHniI9fW9FXiT7H4ryJv7q6tPjPt1pe0R0gdz5te4DLvSzfzx9X7iPc6hyxlNMt933oX-hFDLWCKU_AMwaJcNNkWDaPmnclClTMOVM31Heibu_-qV5Vg==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuaxU7TjNBB3Zis0I6wrxug3kYxT5ORGXL2PKaNM27T7LTpC2kUDZdCOn_jz4dHSFtcSJTwBT3eltecEXRNsJqBTlEmKIIL1itR309qiFpKq42M_gDojOFlE9uu-Q7qzhbCKiNrTmZLFTIH_aowbBcd8FGD1jOxaZzQlhKQLfXfeRqgIbv2igh75MVq9Se1tRww9Y_eKpWRsmYqMHErVQuZmwBot1WVU2rFvpYYckSXiyNPCRGrFhx90x0yG6Hdr1eVBz2Qt-8qEC6JYLV9RQyxMrSk2uUcSHomedMgyDo16qSd0DPCLm89Eb76Yd7kxq1ynU_kUJWxranzmteKZg6AidjfzT5eADa47FvT14C7SNw4Dm-RV4BQYojLwg8x3MOvMmE6HYywdHI2FHREetmsaxYuUK-5Q-IHcxn8xjiZew-NBXEc8bCXxGOGmtEBlGTAdFbny_PUWsjY0f4d0cyLeUVJIrLAs2-HtUD2m3RP_1bA205ZqwJlNKu5N0iKNJ9dmoj4HRq_1TPt88fxsP4s_vFjS1i2W0J0rGd6j5lzvNChBdDZOKQiXt_LW78MLYJeSqHniI9fW9FXiT7H4ryJv7q6tPjPt1pe0R0gdz5te4DLvSzfzx9X7iPc6hyxlNMt933oX-hFDLWCKU_AMwaJcNNkWDaPmnclClTMOVM31Heibu_-qV5Vg==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>

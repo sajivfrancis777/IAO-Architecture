@@ -120,8 +120,8 @@ blockquote {
     background: #fafbfd;
     border: 1px solid #e0e4ea;
     border-radius: 6px;
-    padding: 20px 12px;
-    margin: 16px 0;
+    padding: 16px 12px;
+    margin: 12px 0;
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
@@ -130,6 +130,7 @@ blockquote {
 .mermaid svg {
     max-width: 100%;
     height: auto;
+    max-height: 85vh;
 }
 .header-bar {
     background: #00285a;
@@ -205,25 +206,31 @@ strong { color: #00285a; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print, .pdf-download-btn { display: none !important; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
-    /* Page sections: do NOT use min-height in print — the page-break divs
-       already handle pagination.  min-height:100vh forces every section to
-       fill a full page, which creates blank trailing space before the next
-       page-break, producing blank pages in the PDF output. */
+
+    /* Page sections: auto height in print — page-break divs handle pagination */
     .page-section {
         min-height: auto;
         display: block;
     }
     .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
         page-break-inside: avoid;
+        break-inside: avoid;
         overflow: visible;
+        max-height: 85vh;
+        margin: 8px 0;
     }
     .mermaid svg {
         max-width: 100%;
+        max-height: 80vh;
         height: auto;
+        width: auto;
     }
+
     /* Diagram links: visible + clickable in PDF */
     a[title="View full diagram"],
     a[title="Open full-size SVG"] {
@@ -231,6 +238,13 @@ strong { color: #00285a; }
         text-decoration: underline !important;
         font-size: 10pt !important;
     }
+
+    /* Tighten spacing in print for professional PDF output */
+    h2 { margin-top: 18px; margin-bottom: 8px; }
+    h3 { margin-top: 14px; margin-bottom: 6px; }
+    h4 { margin-top: 10px; margin-bottom: 4px; }
+    table { margin: 8px 0; }
+    blockquote { margin: 8px 0; padding: 6px 14px; }
 }
 </style>
     
@@ -729,7 +743,7 @@ flowchart LR
     class n30 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1tv4kYU_isjryISCbq-YsNDK27eIi0RCt1WVenDYI_DKMZjjcckNMt_7xk8Y8A4D93ykHiOv_Od-7H9bkQsJsbQuLt7pxkVQ_TeEVuyI50h6mxwQTpdVAl-x5ziTUqKjsQkLBMr-s8JZrn5m4RJWYh3ND1I6Yo8M4K-zbtoBIppFxU4K3oF4TTpdDs5pzvMDxOWMi7Rn0iQmMnJmro1Zjwm_AwwTd-KPFBNaUbOYsd3fTeUegWJWBZfkSZeEiRR5yidS9lrtMVcnNwvC7LAb3_QWGzhnOC0IIDZil36FW9IKmMUvJSyqOR7nQxaSDsZJGyV44hmzyB3TRBxnL2cRZ55PKLj3d06q42ir0_rDMEvSnFRTEmCCgHi2V6ghKbp8JM7GYWe2S0EZy9k-Mme-VPH7kYykiGEbnZlcnuvhD5vxXDD0lhBe68yhqGdv3X529A2u_wAfxu2SBafLU36dmAHtaWxb02sibaUJMn_sgR55b_h4kXZmjmhHU5rW5bX9ybmLZ8Oc-r6I6uZJ8L3NCIXpGEYOrNzqmZ9zzI_Jh2HTt-cNEifsSCv-HAmHEzcmjD0_NDyPySs7DW9LDdLziJN6My80KsJ_bEVjuwPCd2R5QbKQ-B55jjfojErT72MRnleVPfkL7P-WhtPJCJ0T1BIU4JohsbQfWvj7wuUDahveQxRoiU-7Egm0BPZUSFwFpFrqOXfAzjBwwT3CsHyWmGKBUYVSQwqD5UOtFLD00k4f7zgc4Bt9kai8tJ2mV0bdQE04UT6N1ou0ILsGDgYwcRf4zzAybySokDjyaImHGMRbWHY4KIgMWKQg7KAtQCwpxJW1DVLH1i-kIxwbU_TyAReQ32ZXiZ9F0ymnrM94deQQPrOOCeROJGpawpO3PINTuUCjkJaXqIp9MhjudsQjnAWXwaOpiQlkqVRHhMYQgLhaq8LFOJIMGiNezDflXnposV4ghYM9jfjDw2CqmP2lLyCIjgY1-F_Zc8NrH2ZKQ2DAuSswGkD65x485RGErwqc7iEsObZnsG8oiUrBFSooTRoNNtlAqqGuOi1qpXNhopOo0rrDd56f9d4-WjrbWA5Q_YWOCtxqmoKF49EdhVM2C9r43i8JLDbCVQ3xDd4px1P3qIUmnJPvlTLpqnmtqtNMDQz0V3VYs77MXP9H1Pz29Wq5EMaGYfrvBpRKPeNt8FZH3POXoseTgXKMcdpStIPjA5-QMkxW5Vo9lF8t5sMhuiyV-WSWpSpoD25YKEiWSbnfE8FjN4W2rsnWE_-b06c998Vb51ZjZZo9dn9dfQ4QvPlJX3_PBB5Cg-xevQuBva0MeX7HG0ZKSv4aOUTARuiQLLRaQybYoOjF7kJV6zkMNOrQyHIDt3Pl5_n4UPLQwE2COr1foZqqLNTHe1And3qbA3U2VP31VMfLqTg-9p4ZGvjuxwudcNXQFsDFXNfnxWTp89ug0gDB4rI1B6bSqBdsvuVoD4rDUv7aFlKw9cIX9nSU3FtUaXE0nDFb7kNAzq0QB11KJYK1bKbHgXNrP0pH31gW5vS8uVo_viTadroHkrdSxmO5ZsKeTiBrdqQew232uHaaFBHfZ7_KnJN6Kjc1n7aDT_r8tZ3dLl0cixVV8u8TXbDrGM2a6_N1HcsnXvnKgjoy4v3uRNMv55fy331Kn0tDVqlgzapbbZKLf1Gei2228VOu9htF3vt4n672G8XB-3iQasYyq7ERtfYEb7DNDaG78bpMxI-NWOSYFiPxrFr4FKw1SGLjOHpc8soT--bU4phCe4q4fFfwlR9cQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1tv4kYU_isjryISCbq-YsNDK27eIi0RCt1WVenDYI_DKMZjjcckNMt_7xk8Y8A4D93ykHiOv_Od-7H9bkQsJsbQuLt7pxkVQ_TeEVuyI50h6mxwQTpdVAl-x5ziTUqKjsQkLBMr-s8JZrn5m4RJWYh3ND1I6Yo8M4K-zbtoBIppFxU4K3oF4TTpdDs5pzvMDxOWMi7Rn0iQmMnJmro1Zjwm_AwwTd-KPFBNaUbOYsd3fTeUegWJWBZfkSZeEiRR5yidS9lrtMVcnNwvC7LAb3_QWGzhnOC0IIDZil36FW9IKmMUvJSyqOR7nQxaSDsZJGyV44hmzyB3TRBxnL2cRZ55PKLj3d06q42ir0_rDMEvSnFRTEmCCgHi2V6ghKbp8JM7GYWe2S0EZy9k-Mme-VPH7kYykiGEbnZlcnuvhD5vxXDD0lhBe68yhqGdv3X529A2u_wAfxu2SBafLU36dmAHtaWxb02sibaUJMn_sgR55b_h4kXZmjmhHU5rW5bX9ybmLZ8Oc-r6I6uZJ8L3NCIXpGEYOrNzqmZ9zzI_Jh2HTt-cNEifsSCv-HAmHEzcmjD0_NDyPySs7DW9LDdLziJN6My80KsJ_bEVjuwPCd2R5QbKQ-B55jjfojErT72MRnleVPfkL7P-WhtPJCJ0T1BIU4JohsbQfWvj7wuUDahveQxRoiU-7Egm0BPZUSFwFpFrqOXfAzjBwwT3CsHyWmGKBUYVSQwqD5UOtFLD00k4f7zgc4Bt9kai8tJ2mV0bdQE04UT6N1ou0ILsGDgYwcRf4zzAybySokDjyaImHGMRbWHY4KIgMWKQg7KAtQCwpxJW1DVLH1i-kIxwbU_TyAReQ32ZXiZ9F0ymnrM94deQQPrOOCeROJGpawpO3PINTuUCjkJaXqIp9MhjudsQjnAWXwaOpiQlkqVRHhMYQgLhaq8LFOJIMGiNezDflXnposV4ghYM9jfjDw2CqmP2lLyCIjgY1-F_Zc8NrH2ZKQ2DAuSswGkD65x485RGErwqc7iEsObZnsG8oiUrBFSooTRoNNtlAqqGuOi1qpXNhopOo0rrDd56f9d4-WjrbWA5Q_YWOCtxqmoKF49EdhVM2C9r43i8JLDbCVQ3xDd4px1P3qIUmnJPvlTLpqnmtqtNMDQz0V3VYs77MXP9H1Pz29Wq5EMaGYfrvBpRKPeNt8FZH3POXoseTgXKMcdpStIPjA5-QMkxW5Vo9lF8t5sMhuiyV-WSWpSpoD25YKEiWSbnfE8FjN4W2rsnWE_-b06c998Vb51ZjZZo9dn9dfQ4QvPlJX3_PBB5Cg-xevQuBva0MeX7HG0ZKSv4aOUTARuiQLLRaQybYoOjF7kJV6zkMNOrQyHIDt3Pl5_n4UPLQwE2COr1foZqqLNTHe1And3qbA3U2VP31VMfLqTg-9p4ZGvjuxwudcNXQFsDFXNfnxWTp89ug0gDB4rI1B6bSqBdsvuVoD4rDUv7aFlKw9cIX9nSU3FtUaXE0nDFb7kNAzq0QB11KJYK1bKbHgXNrP0pH31gW5vS8uVo_viTadroHkrdSxmO5ZsKeTiBrdqQew232uHaaFBHfZ7_KnJN6Kjc1n7aDT_r8tZ3dLl0cixVV8u8TXbDrGM2a6_N1HcsnXvnKgjoy4v3uRNMv55fy331Kn0tDVqlgzapbbZKLf1Gei2228VOu9htF3vt4n672G8XB-3iQasYyq7ERtfYEb7DNDaG78bpMxI-NWOSYFiPxrFr4FKw1SGLjOHpc8soT--bU4phCe4q4fFfwlR9cQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
 
@@ -817,7 +831,7 @@ flowchart LR
     class n22 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu2zgQ_RVCReAWsBNJlizHDwv4pm6AZmtE6e5DvQ-0RNlEaUogKV-a-t93KIm-KM7udtcPQeZo5szM0XCoFyvOEmINrJubF8qpGqCXllqRNWkNUGuBJWm1UQX8jgXFC0ZkS_ukGVcR_V66OV6-024aC_Gasr1GI7LMCPry0EZDCGRtJDGXHUkETVvtVi7oGov9OGOZ0N7vSD-10zJb_WiUiYSIk4NtB07sQyijnJzgbuAFXqjjJIkznlyQpn7aT-PWQRfHsm28wkKV5ReSPOLdHzRRK7BTzCQBn5Vas094QZjuUYlCY3EhNkYMKnUeDoJFOY4pXwLu2QAJzL-dIN8-HNDh5mbOj0nRp6c5R_CLGZZyQlIkFcDTjUIpZWzwzhsPQ99uSyWyb2Twzp0Gk67bjnUnA2jdbmtxO1tClys1WGQsqV07W93DwM13bbEbuHZb7OFvIxfhySnTuOf23f4x0yhwxs7YZErT9H9lAl3FM5bf6lzTbuiGk2Mux-_5Y_s1n2lz4gVDp6kTERsakzPSMAy705NU057v2G-TjsJuzx43SJdYkS3enwjvx96RMPSD0AneJKzyNassFjORxYawO_VD_0gYjJxw6L5J6A0dr19XCDxLgfMVGmVFOctomOeyeqZ_3Pk6t55ITOiG3EXwXtEDTzOxxopmHFGOxlgISgTAmwxkQ0_6UMSU0dLjbkJlXihye3s7t_48o3WBdrohXKEiT0AcibAgSFSJEk388fn5MsQJXl7mVooHKe7oHdJZwCmIV4jsYlZICPtYiTy3DocqDMptdDndKSI4ZmgGh4ETIe9QVOQ50x2cp9JdhwQKedK13Y3hSC2hxgeuCBCpTEjUFQnKgWVvJgbNC9d2uqBAss2ypFG8brjWqvHEe__VtJUzmBH9XonUyagCFaGIEazFBIHeuppjMcMNpkwvSOD7cE7oNwhLnSWaFQtG5YokDX_XPukKBWZb2cFM6d4wY4S9UrUKcn4u6PWriIYzFN15vw5_G6KH2Rl1F6r_SODlAAcKRbkX0BcQA71_fvxwKZ6nVRXk3POz3uJXXH1wnRGhh_c4tF_M7MFcjzGLC6aZaoEvw3t6YHckLv5FqkCnyqQ6OkZEKQZXGoz7JIuL8p_XYf1TM1E9UrPPCApGYTS54n9v0kTTCG2pWqFhoTKYP0ZgYK4EOPYpw1gHwulUgi6K8qgOl4THezSCs8T1_P1NpU63MWLPcBRlnglV7YVHzPGy6tdMMz1Oc1npA1_ohYMmhN0257d3Ipcqy9HzI8prFhijV_Pr9H92L1Rh9_8pzHWvDj7l_7iEeBd1Or_AzNamX5lOv7aDyjamc1_Zfm17tft9bdePHdv42zXQM4BTAe7Rw1A4BqhTHm1TkmsAt6YwHm7N6QQGsJuAydp0MHWXlD_M9q9O4Nz6cSaE069CTCO1aQh6dYJjkQ3brYs2FTm17t2zK7REzRfRJe69gftv4L36a-cSDcyVfwn3r8P3V2GQ7irsXIddA1tta03giqaJNXixym9p-N5OSIoLpqxD28KwJqI9j61B-c1pVVfwhGLYzOsKPPwFPmmdZg==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu2zgQ_RVCReAWsBNJlizHDwv4pm6AZmtE6e5DvQ-0RNlEaUogKV-a-t93KIm-KM7udtcPQeZo5szM0XCoFyvOEmINrJubF8qpGqCXllqRNWkNUGuBJWm1UQX8jgXFC0ZkS_ukGVcR_V66OV6-024aC_Gasr1GI7LMCPry0EZDCGRtJDGXHUkETVvtVi7oGov9OGOZ0N7vSD-10zJb_WiUiYSIk4NtB07sQyijnJzgbuAFXqjjJIkznlyQpn7aT-PWQRfHsm28wkKV5ReSPOLdHzRRK7BTzCQBn5Vas094QZjuUYlCY3EhNkYMKnUeDoJFOY4pXwLu2QAJzL-dIN8-HNDh5mbOj0nRp6c5R_CLGZZyQlIkFcDTjUIpZWzwzhsPQ99uSyWyb2Twzp0Gk67bjnUnA2jdbmtxO1tClys1WGQsqV07W93DwM13bbEbuHZb7OFvIxfhySnTuOf23f4x0yhwxs7YZErT9H9lAl3FM5bf6lzTbuiGk2Mux-_5Y_s1n2lz4gVDp6kTERsakzPSMAy705NU057v2G-TjsJuzx43SJdYkS3enwjvx96RMPSD0AneJKzyNassFjORxYawO_VD_0gYjJxw6L5J6A0dr19XCDxLgfMVGmVFOctomOeyeqZ_3Pk6t55ITOiG3EXwXtEDTzOxxopmHFGOxlgISgTAmwxkQ0_6UMSU0dLjbkJlXihye3s7t_48o3WBdrohXKEiT0AcibAgSFSJEk388fn5MsQJXl7mVooHKe7oHdJZwCmIV4jsYlZICPtYiTy3DocqDMptdDndKSI4ZmgGh4ETIe9QVOQ50x2cp9JdhwQKedK13Y3hSC2hxgeuCBCpTEjUFQnKgWVvJgbNC9d2uqBAss2ypFG8brjWqvHEe__VtJUzmBH9XonUyagCFaGIEazFBIHeuppjMcMNpkwvSOD7cE7oNwhLnSWaFQtG5YokDX_XPukKBWZb2cFM6d4wY4S9UrUKcn4u6PWriIYzFN15vw5_G6KH2Rl1F6r_SODlAAcKRbkX0BcQA71_fvxwKZ6nVRXk3POz3uJXXH1wnRGhh_c4tF_M7MFcjzGLC6aZaoEvw3t6YHckLv5FqkCnyqQ6OkZEKQZXGoz7JIuL8p_XYf1TM1E9UrPPCApGYTS54n9v0kTTCG2pWqFhoTKYP0ZgYK4EOPYpw1gHwulUgi6K8qgOl4THezSCs8T1_P1NpU63MWLPcBRlnglV7YVHzPGy6tdMMz1Oc1npA1_ohYMmhN0257d3Ipcqy9HzI8prFhijV_Pr9H92L1Rh9_8pzHWvDj7l_7iEeBd1Or_AzNamX5lOv7aDyjamc1_Zfm17tft9bdePHdv42zXQM4BTAe7Rw1A4BqhTHm1TkmsAt6YwHm7N6QQGsJuAydp0MHWXlD_M9q9O4Nz6cSaE069CTCO1aQh6dYJjkQ3brYs2FTm17t2zK7REzRfRJe69gftv4L36a-cSDcyVfwn3r8P3V2GQ7irsXIddA1tta03giqaJNXixym9p-N5OSIoLpqxD28KwJqI9j61B-c1pVVfwhGLYzOsKPPwFPmmdZg==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
 
@@ -946,7 +960,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtumzAUhl_F8hRpk5KOJCVZkVrJXLJWolVX0m1SmZADJrHqYARmTZrm3WcDoV0Wuqq2hMy5_Mf-DjIbGPKIQAN2OhuaUGGAjQ_FgiyJDw3gwxnO5aorVzkJi4yKtUt-E1Y5Gec7b5nyHWcUzxjJlVvqxDwRHn2spfp6uqqClX2Cl5StK49H5pyA24suQFJAim_LKMYfwgXORK1W5OQSr37QSCyUJcYsJypuIZbMxTPCyrIiK0prIo_lpTikyVyZh7oyZji5f2E81rdbsO10_KSpBaamnwA5Qobz3CYxwGlq8hWIKWPGB1O3J5NJNxcZvyfGB00bj81R_dp7UFszBumqG3LGM-Ue2vq-XjSz1qyWQ7o9QuNGbuCM7eGgVa5v6s5A25MjnD1vbzIxdVNv9CxLk6NVbzRSbj-pFPNiNs9wugDOwOlrmmUjyw1IMA_QY5GRwPvm3vlQMvxVhasR0YyEgvKkoaZGk4_K9J_OrSczydH8CKi1VDAMo6J6IMneq_nRh34RfRlG8hmFx34RE02eWqmVQUAG-fCT0izJvroP0DvqnbXWqlJJEtVAxJqRdho75EjNBrmjqfk38r787v8H2UPXwTm6Qu9jfOl4wVDTdpjlK5CvbyLdFH4FtIwBKuZNnOu9HES9K_Ym0rvgd4FuKQxOT8-eakp2SRZ8Buj6Qj4nlMmL6umVr2OvhS6ZyxPcvcAWRhqw0RQBdGOdX0wda3p74wDX-epc2S1NdW-erW6g2o_SlNEQK-_hBrqB3dIsGwtcXdiH-uQGjpR3kqjH455LY1LJVxfIwY5UJ9zx19Vs-J-cnPwDH3bhkmRLTCNobKpfgvyzRCTGBRPyUoe4ENxbJyE0ymsaFmmEBbEplkSXlXH7BzslASA=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtumzAUhl_F8hRpk5KOJCVZkVrJXLJWolVX0m1SmZADJrHqYARmTZrm3WcDoV0Wuqq2hMy5_Mf-DjIbGPKIQAN2OhuaUGGAjQ_FgiyJDw3gwxnO5aorVzkJi4yKtUt-E1Y5Gec7b5nyHWcUzxjJlVvqxDwRHn2spfp6uqqClX2Cl5StK49H5pyA24suQFJAim_LKMYfwgXORK1W5OQSr37QSCyUJcYsJypuIZbMxTPCyrIiK0prIo_lpTikyVyZh7oyZji5f2E81rdbsO10_KSpBaamnwA5Qobz3CYxwGlq8hWIKWPGB1O3J5NJNxcZvyfGB00bj81R_dp7UFszBumqG3LGM-Ue2vq-XjSz1qyWQ7o9QuNGbuCM7eGgVa5v6s5A25MjnD1vbzIxdVNv9CxLk6NVbzRSbj-pFPNiNs9wugDOwOlrmmUjyw1IMA_QY5GRwPvm3vlQMvxVhasR0YyEgvKkoaZGk4_K9J_OrSczydH8CKi1VDAMo6J6IMneq_nRh34RfRlG8hmFx34RE02eWqmVQUAG-fCT0izJvroP0DvqnbXWqlJJEtVAxJqRdho75EjNBrmjqfk38r787v8H2UPXwTm6Qu9jfOl4wVDTdpjlK5CvbyLdFH4FtIwBKuZNnOu9HES9K_Ym0rvgd4FuKQxOT8-eakp2SRZ8Buj6Qj4nlMmL6umVr2OvhS6ZyxPcvcAWRhqw0RQBdGOdX0wda3p74wDX-epc2S1NdW-erW6g2o_SlNEQK-_hBrqB3dIsGwtcXdiH-uQGjpR3kqjH455LY1LJVxfIwY5UJ9zx19Vs-J-cnPwDH3bhkmRLTCNobKpfgvyzRCTGBRPyUoe4ENxbJyE0ymsaFmmEBbEplkSXlXH7BzslASA=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
 
@@ -990,7 +1004,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtumzAUhl_F8hRpk5KOJCVZkVrJBFgr0aor6TapTMgBk1h1MAKzJk3z7rOB0C4LXVVbQuZc_mN_B5kNDHlEoAE7nQ1NqDDAxodiQZbEhwbw4QznctWVq5yERUbF2iW_CaucjPOdt0z5jjOKZ4zkyi11Yp4Ijz7WUn09XVXByu7gJWXryuOROSfg9qILkBSQ4tsyivGHcIEzUasVObnEqx80EgtliTHLiYpbiCVz8YywsqzIitKayGN5KQ5pMlfmoa6MGU7uXxiP9e0WbDsdP2lqganpJ0COkOE8t0gMcJqafAViypjxwdQtx3G6ucj4PTE-aNp4bI7q196D2poxSFfdkDOeKffQ0vf1otlkzWo5pFsjNG7kBvbYGg5a5fqmbg-0PTnC2fP2HMfUTb3Rm0w0OVr1RiPl9pNKMS9m8wynC2AP7L6mORaauAEJ5gF6LDISeN_cOx9Khr-qcDUimpFQUJ401NRo8lGZ_tO-9WQmOZofAbWWCoZhVFQPJFl7NT_60C-iL8NIPqPw2C9ioslTK7UyCMggH35SmiXZV_cBeke9s9ZaVSpJohqIWDPSTmOHHKnZILc1Nf9G3pff_f8ge-g6OEdX6H2ML20vGGraDrN8BfL1TaSbwq-AljFAxbyJc72Xg6h3xd5Eehf8LtAthcHp6dlTTckqyYLPAF1fyKdDmbyonl75OvZa6JK5PMHdC2xhpAELTRFAN5Pzi6k9md7e2MC1v9pXVktT3Ztnqxuo9qM0ZTTEynu4gW5gtTTLwgJXF_ahPrmBLeXtJOrxuOfSmFTy1QVysCPVCXf8dTUb_icnJ__Ah124JNkS0wgam-qXIP8sEYlxwYS81CEuBPfWSQiN8pqGRRphQSyKJdFlZdz-AbfbAUo=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtumzAUhl_F8hRpk5KOJCVZkVrJBFgr0aor6TapTMgBk1h1MAKzJk3z7rOB0C4LXVVbQuZc_mN_B5kNDHlEoAE7nQ1NqDDAxodiQZbEhwbw4QznctWVq5yERUbF2iW_CaucjPOdt0z5jjOKZ4zkyi11Yp4Ijz7WUn09XVXByu7gJWXryuOROSfg9qILkBSQ4tsyivGHcIEzUasVObnEqx80EgtliTHLiYpbiCVz8YywsqzIitKayGN5KQ5pMlfmoa6MGU7uXxiP9e0WbDsdP2lqganpJ0COkOE8t0gMcJqafAViypjxwdQtx3G6ucj4PTE-aNp4bI7q196D2poxSFfdkDOeKffQ0vf1otlkzWo5pFsjNG7kBvbYGg5a5fqmbg-0PTnC2fP2HMfUTb3Rm0w0OVr1RiPl9pNKMS9m8wynC2AP7L6mORaauAEJ5gF6LDISeN_cOx9Khr-qcDUimpFQUJ401NRo8lGZ_tO-9WQmOZofAbWWCoZhVFQPJFl7NT_60C-iL8NIPqPw2C9ioslTK7UyCMggH35SmiXZV_cBeke9s9ZaVSpJohqIWDPSTmOHHKnZILc1Nf9G3pff_f8ge-g6OEdX6H2ML20vGGraDrN8BfL1TaSbwq-AljFAxbyJc72Xg6h3xd5Eehf8LtAthcHp6dlTTckqyYLPAF1fyKdDmbyonl75OvZa6JK5PMHdC2xhpAELTRFAN5Pzi6k9md7e2MC1v9pXVktT3Ztnqxuo9qM0ZTTEynu4gW5gtTTLwgJXF_ahPrmBLeXtJOrxuOfSmFTy1QVysCPVCXf8dTUb_icnJ__Ah124JNkS0wgam-qXIP8sEYlxwYS81CEuBPfWSQiN8pqGRRphQSyKJdFlZdz-AbfbAUo=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
 
@@ -1138,7 +1152,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtv2jAU_StWKr7B6j6gbVQhBRImptBWTbduWqbIxBewZpIodtqyjv--65gWCq3aGSkk93Gufe6x_eikOQfHdRqNR5EJ7ZLH2NEzmEPsuCR2xkzhWxPfFKRVKfQihDuQ1inz_Mlbp3xjpWBjCcq4EWeSZzoSf1ZQB53iwQYb-4DNhVxYTwTTHMjXYZN4CCCbRLFMtRSUYhI7yzpD5vfpjJV6hVwpGLGHW8H1zFgmTCowcTM9lyEbg6ynoMuqtma4xKhgqcimxnxMjbFk2e8NY5sul2TZaMTZcy1y04szgqPRIK0Wzi2diRHT0BKZKkQJnCi9kEBSyZQChTE2vP72YULGlRIZKEXqMRFSunsDHL12U-ky_w3uXu_0tEN7q8_WvVmQe1g8NNNc5qW7RyndwmRFQdbDYvbaBvUZk9KTk17nPzA502wX0z99B_PgBeaTjzOF5JVsgZyS9lalueBcwj0rYZMRv-OtGQlOOoM12gdmD7ncYcRwvMFyv0_pe5gWVVXjacmKGfHCn7ETV_z0iOOTH7WJd3UVDvvezfDygoTej-A6dn7ZJDM4CiLVIs9IeL22BofBAaX9BJJpMgqi5IjSTdgUOgQ-TT8R9BH0IaLrutji1xG-B1-jV9ON4-3c0W2d7f2pSkgiKO9ECkmvUi8WeHBioeoosooiGGVx143bgfeDGr6fK50EEo-BTHc3J5keW2QTQFYB5-Nyv3suutYRfSP7ZOjnKf59iS4vzvdF15Y1yrQFIeNPPXqFVNx73b-xU8P5dScQyrsa4nMgJB5Af98j4wX0W0GmzE5HzLRW4qmPg164sdUH9L2tvpnqPafSj-zoHdGGMEWeXkiEUxIGn4ML_wNqDRPU-LbAvKKQImUm-BWJhcnodltHo7VW3tROmPjBtkp8cwwFmcZLZrv7NiW4tJvysMOPMZC38kkrFJNVGTwHNqSyJtWS8kRs2_yeiT07O9s505ymM4dyzgR33Ed7seH9yGHCKqnxOnJYpfNokaWOW18wTlXgRMEXDJswt8blP0cKSDU=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtv2jAU_StWKr7B6j6gbVQhBRImptBWTbduWqbIxBewZpIodtqyjv--65gWCq3aGSkk93Gufe6x_eikOQfHdRqNR5EJ7ZLH2NEzmEPsuCR2xkzhWxPfFKRVKfQihDuQ1inz_Mlbp3xjpWBjCcq4EWeSZzoSf1ZQB53iwQYb-4DNhVxYTwTTHMjXYZN4CCCbRLFMtRSUYhI7yzpD5vfpjJV6hVwpGLGHW8H1zFgmTCowcTM9lyEbg6ynoMuqtma4xKhgqcimxnxMjbFk2e8NY5sul2TZaMTZcy1y04szgqPRIK0Wzi2diRHT0BKZKkQJnCi9kEBSyZQChTE2vP72YULGlRIZKEXqMRFSunsDHL12U-ky_w3uXu_0tEN7q8_WvVmQe1g8NNNc5qW7RyndwmRFQdbDYvbaBvUZk9KTk17nPzA502wX0z99B_PgBeaTjzOF5JVsgZyS9lalueBcwj0rYZMRv-OtGQlOOoM12gdmD7ncYcRwvMFyv0_pe5gWVVXjacmKGfHCn7ETV_z0iOOTH7WJd3UVDvvezfDygoTej-A6dn7ZJDM4CiLVIs9IeL22BofBAaX9BJJpMgqi5IjSTdgUOgQ-TT8R9BH0IaLrutji1xG-B1-jV9ON4-3c0W2d7f2pSkgiKO9ECkmvUi8WeHBioeoosooiGGVx143bgfeDGr6fK50EEo-BTHc3J5keW2QTQFYB5-Nyv3suutYRfSP7ZOjnKf59iS4vzvdF15Y1yrQFIeNPPXqFVNx73b-xU8P5dScQyrsa4nMgJB5Af98j4wX0W0GmzE5HzLRW4qmPg164sdUH9L2tvpnqPafSj-zoHdGGMEWeXkiEUxIGn4ML_wNqDRPU-LbAvKKQImUm-BWJhcnodltHo7VW3tROmPjBtkp8cwwFmcZLZrv7NiW4tJvysMOPMZC38kkrFJNVGTwHNqSyJtWS8kRs2_yeiT07O9s505ymM4dyzgR33Ed7seH9yGHCKqnxOnJYpfNokaWOW18wTlXgRMEXDJswt8blP0cKSDU=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
 
@@ -1218,7 +1232,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1wzxaIEKVUpJOnVJAy4BNyxS58W1rzU2i2AEK9L_vOi60tCCYK6XJfZxrn3tsPzppzsFxnUbjUWRCu-QxdvQUZhA7LomdEVP41sQ3BWlVCj0P4Rakdco8f_bWKdesFGwkQRk34ozzTEfiYQm11ynubbCx99lMyLn1RDDJgVwNmsRDANkkimWqpaAU49hZ1Bkyv0unrNRL5ErBkN3fCK6nxjJmUoGJm-qZDNkIZD0FXVa1NcMlRgVLRTYx5kNqjCXL_q4Z23SxIItGI85eapEfvTgjOBoN0mrh3NKpGDINLZGpQpTAidJzCSSVTClQGGPD628fxmRUKZGBUqQeYyGlu9PH0Ws3lS7zv-Du9I6PO7S3_GzdmQW5-8V9M81lXro7lNINTFYUZDUsZq9tUF8wKT066nX-A5MzzbYx_eMPMPdeYT77OFNIXsnmyClpb1SaCc4l3LES1hnxO96KkeCo01-hfWL2kMstRgzHayyfnVH6EaZFVdVoUrJiSrzwd-zEFT8-4PjkB23iXV6GgzPvx-DinITer-B77PyxSWZwFESqRZ6R8PvKGuwHe5T2E0gmyTCIkgNK12FT6BD4MvlC0EfQh4iu62KL30b4GVxFb6Ybx_u5w5s623uoSkgiKG9FCkmvUq8WuHdkoeoosowiGGVxV43bgveDGv4sVzoJJB4Dme6uTzI9tMgmgCwDTkflbvdUdK0juia7ZODnKf59iy7OT3dF15Y1yrQFIePPPXqDVNx73afYqeH8uhMI5V0O8NkXEg-gp4_IeAX9XpAps9URM62leOrjoBeubfU-_Wirr6d6L6n0Mzt6S7QhTJCnVxLhlITB1-Dc_4RawwQ1vikwryikSJkJfkNiYTK82dTRcKWVd7UTJn6wqRLfHENBpvGS2ey-TQku7Kbc7_BDDOStfNwKxXhZBs-BNamsSLWkPBPbNr8XYk9OTrbONKfpzKCcMcEd99FebHg_chizSmq8jhxW6TyaZ6nj1heMUxU4UfAFwybMrHHxD43PSE0=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1wzxaIEKVUpJOnVJAy4BNyxS58W1rzU2i2AEK9L_vOi60tCCYK6XJfZxrn3tsPzppzsFxnUbjUWRCu-QxdvQUZhA7LomdEVP41sQ3BWlVCj0P4Rakdco8f_bWKdesFGwkQRk34ozzTEfiYQm11ynubbCx99lMyLn1RDDJgVwNmsRDANkkimWqpaAU49hZ1Bkyv0unrNRL5ErBkN3fCK6nxjJmUoGJm-qZDNkIZD0FXVa1NcMlRgVLRTYx5kNqjCXL_q4Z23SxIItGI85eapEfvTgjOBoN0mrh3NKpGDINLZGpQpTAidJzCSSVTClQGGPD628fxmRUKZGBUqQeYyGlu9PH0Ws3lS7zv-Du9I6PO7S3_GzdmQW5-8V9M81lXro7lNINTFYUZDUsZq9tUF8wKT066nX-A5MzzbYx_eMPMPdeYT77OFNIXsnmyClpb1SaCc4l3LES1hnxO96KkeCo01-hfWL2kMstRgzHayyfnVH6EaZFVdVoUrJiSrzwd-zEFT8-4PjkB23iXV6GgzPvx-DinITer-B77PyxSWZwFESqRZ6R8PvKGuwHe5T2E0gmyTCIkgNK12FT6BD4MvlC0EfQh4iu62KL30b4GVxFb6Ybx_u5w5s623uoSkgiKG9FCkmvUq8WuHdkoeoosowiGGVxV43bgveDGv4sVzoJJB4Dme6uTzI9tMgmgCwDTkflbvdUdK0juia7ZODnKf59iy7OT3dF15Y1yrQFIePPPXqDVNx73afYqeH8uhMI5V0O8NkXEg-gp4_IeAX9XpAps9URM62leOrjoBeubfU-_Wirr6d6L6n0Mzt6S7QhTJCnVxLhlITB1-Dc_4RawwQ1vikwryikSJkJfkNiYTK82dTRcKWVd7UTJn6wqRLfHENBpvGS2ey-TQku7Kbc7_BDDOStfNwKxXhZBs-BNamsSLWkPBPbNr8XYk9OTrbONKfpzKCcMcEd99FebHg_chizSmq8jhxW6TyaZ6nj1heMUxU4UfAFwybMrHHxD43PSE0=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
 
@@ -1415,7 +1429,7 @@ flowchart TB
     E2E100CPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E100CPLP_e_g_Azure_PaaS
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuaxU7TjNDB7Zjs0I6wrxug3kYxT5ORGXL2PKaNM27T7LdpC2kUDZdCOn_jz4dHSHtcCJSwDYeDHasYNJGuwjLNeQQYRtFeElrNRqqUQ1JUzG5ncMf4J3JhXhy2yXfacXokkOtbcXJRCFD9tCjRuNy0wVrPaA549vOCWElAN1eD5GjAAq-b6O4uE_WtJI9ranhhm5-sFSutZJRXoOOW8ucz-kSeLutrJpWLdSxwpImrFhpeUy0WNHi7plokf0e7QeDqDjshb65UYFUSzit6xlkiJalKzYoY5zbZ641C4JgWMtK3IF9RsjlpTvppx_udWq2UW6GieCi0rY5s17zSk7lEehN_Yn38QA0p1Pf9F4CzSNw5Fq-QV4BQfAjLwhcy7UOPM8jqp1McDLRdlR0xLpZriparpFv-CNCvMV8EUO8ip2HpoJ4QWn4K8JRY0zIKGoyIGrr89U5am2k7Qj_7ki6payCRDJRoPnXo3pAOy36p3-roS1HjxXBtu2u5N0iKNI-O7nlcDq1f6rn2-cP43H82fnixAYxzLYE6dRMVZ9S63khwosx0nFIx72_Fjd-GJuEPJVDTZGavrciL5L9D0V5E3919emxT3fWHhFdIGdxrfqAcfXsH0_fFx7iHKqcshTbu-77UL9QChltuFQfAKaNFOG2SLDdPmnclCmVMGNU3VHeifu_tEN5Jg==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuaxU7TjNDB7Zjs0I6wrxug3kYxT5ORGXL2PKaNM27T7LdpC2kUDZdCOn_jz4dHSHtcCJSwDYeDHasYNJGuwjLNeQQYRtFeElrNRqqUQ1JUzG5ncMf4J3JhXhy2yXfacXokkOtbcXJRCFD9tCjRuNy0wVrPaA549vOCWElAN1eD5GjAAq-b6O4uE_WtJI9ranhhm5-sFSutZJRXoOOW8ucz-kSeLutrJpWLdSxwpImrFhpeUy0WNHi7plokf0e7QeDqDjshb65UYFUSzit6xlkiJalKzYoY5zbZ641C4JgWMtK3IF9RsjlpTvppx_udWq2UW6GieCi0rY5s17zSk7lEehN_Yn38QA0p1Pf9F4CzSNw5Fq-QV4BQfAjLwhcy7UOPM8jqp1McDLRdlR0xLpZriparpFv-CNCvMV8EUO8ip2HpoJ4QWn4K8JRY0zIKGoyIGrr89U5am2k7Qj_7ki6payCRDJRoPnXo3pAOy36p3-roS1HjxXBtu2u5N0iKNI-O7nlcDq1f6rn2-cP43H82fnixAYxzLYE6dRMVZ9S63khwosx0nFIx72_Fjd-GJuEPJVDTZGavrciL5L9D0V5E3919emxT3fWHhFdIGdxrfqAcfXsH0_fFx7iHKqcshTbu-77UL9QChltuFQfAKaNFOG2SLDdPmnclCmVMGNU3VHeifu_tEN5Jg==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
@@ -1450,7 +1464,7 @@ flowchart TB
     E2E100FPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E100FPLP_e_g_Azure_PaaS
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuaxU7TjNBB3Zis0I6wrxug3kYxT5ORGXL2PKaNM27T7LTpC2kUDZdCOn_jz4dHSFtcSJTwBT3eltecEXRNsJqBTlEmKIIL1itR309qiFpKq42M_gDojOFlE9uu-Q7qzhbCKiNrTmZLFTIH_aowbBcd8FGD1jOxaZzQlhKQLfXfeRqgIbv2igh75MVq9Se1tRww9Y_eKpWRsmYqMHErVQuZmwBot1WVU2rFvpYYckSXiyNPCRGrFhx90x0yG6Hdr1eVBz2Qt-8qEC6JYLV9RQyxMrSk2uUcSHomedMgyDo16qSd0DPCLm89Eb76Yd7kxq1ynU_kUJWxranzmteKZg6AidjfzT5eADa47FvT14C7SNw4Dm-RV4BQYojLwg8x3MOvMmE6HYywdHI2FHREetmsaxYuUK-5Q8ICeazeQzxMnYfmgriOWPhrwhHjTUig6jJgOitz5fnqLWRsSP8uyOZlvIKEsVlgWZfj-oB7bbon_6tgbYcM9YESmlX8m4RFOk-O7URcDq1f6rn2-cP42H82f3ixhax7LYE6dhOdZ8y53khwoshMnHIxL2_Fjd-GNuEPJVDT5GevrciL5L9D0V5E3919elxn-60PSK6QO78WvcBF_rZP56-L9zHOVQ54ymm2-770L9QChlrhNIfAGaNkuGmSDBtnzRuypQpmHKm7yjvxN1f12h5Pg==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuaxU7TjNBB3Zis0I6wrxug3kYxT5ORGXL2PKaNM27T7LTpC2kUDZdCOn_jz4dHSFtcSJTwBT3eltecEXRNsJqBTlEmKIIL1itR309qiFpKq42M_gDojOFlE9uu-Q7qzhbCKiNrTmZLFTIH_aowbBcd8FGD1jOxaZzQlhKQLfXfeRqgIbv2igh75MVq9Se1tRww9Y_eKpWRsmYqMHErVQuZmwBot1WVU2rFvpYYckSXiyNPCRGrFhx90x0yG6Hdr1eVBz2Qt-8qEC6JYLV9RQyxMrSk2uUcSHomedMgyDo16qSd0DPCLm89Eb76Yd7kxq1ynU_kUJWxranzmteKZg6AidjfzT5eADa47FvT14C7SNw4Dm-RV4BQYojLwg8x3MOvMmE6HYywdHI2FHREetmsaxYuUK-5Q8ICeazeQzxMnYfmgriOWPhrwhHjTUig6jJgOitz5fnqLWRsSP8uyOZlvIKEsVlgWZfj-oB7bbon_6tgbYcM9YESmlX8m4RFOk-O7URcDq1f6rn2-cP42H82f3ixhax7LYE6dhOdZ8y53khwoshMnHIxL2_Fjd-GNuEPJVDT5GevrciL5L9D0V5E3919elxn-60PSK6QO78WvcBF_rZP56-L9zHOVQ54ymm2-770L9QChlrhNIfAGaNkuGmSDBtnzRuypQpmHKm7yjvxN1f12h5Pg==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>

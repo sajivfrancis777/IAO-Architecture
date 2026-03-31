@@ -120,8 +120,8 @@ blockquote {
     background: #fafbfd;
     border: 1px solid #e0e4ea;
     border-radius: 6px;
-    padding: 20px 12px;
-    margin: 16px 0;
+    padding: 16px 12px;
+    margin: 12px 0;
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
@@ -130,6 +130,7 @@ blockquote {
 .mermaid svg {
     max-width: 100%;
     height: auto;
+    max-height: 85vh;
 }
 .header-bar {
     background: #00285a;
@@ -205,25 +206,31 @@ strong { color: #00285a; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print, .pdf-download-btn { display: none !important; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
-    /* Page sections: do NOT use min-height in print — the page-break divs
-       already handle pagination.  min-height:100vh forces every section to
-       fill a full page, which creates blank trailing space before the next
-       page-break, producing blank pages in the PDF output. */
+
+    /* Page sections: auto height in print — page-break divs handle pagination */
     .page-section {
         min-height: auto;
         display: block;
     }
     .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
         page-break-inside: avoid;
+        break-inside: avoid;
         overflow: visible;
+        max-height: 85vh;
+        margin: 8px 0;
     }
     .mermaid svg {
         max-width: 100%;
+        max-height: 80vh;
         height: auto;
+        width: auto;
     }
+
     /* Diagram links: visible + clickable in PDF */
     a[title="View full diagram"],
     a[title="Open full-size SVG"] {
@@ -231,6 +238,13 @@ strong { color: #00285a; }
         text-decoration: underline !important;
         font-size: 10pt !important;
     }
+
+    /* Tighten spacing in print for professional PDF output */
+    h2 { margin-top: 18px; margin-bottom: 8px; }
+    h3 { margin-top: 14px; margin-bottom: 6px; }
+    h4 { margin-top: 10px; margin-bottom: 4px; }
+    table { margin: 8px 0; }
+    blockquote { margin: 8px 0; padding: 6px 14px; }
 }
 </style>
     
@@ -706,7 +720,7 @@ flowchart LR
     class n27 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21v4jgQ_itWVhW7EmiTkBDKhztBSlZI3d0ubK93ut4Hkzhg1diR7fCyXf772cQmEOjpTocErR_PPDPzjMeEVydlGXIGzs3NK6ZYDsBrSy7RCrUGoDWHArXaoAJ-gxzDOUGipW1yRuUM_ziYeUGx1WYaS-AKk51GZ2jBEHictMFQOZI2EJCKjkAc5612q-B4BfkuZoRxbf0O9XM3P0QzWyPGM8RrA9eNvDRUrgRTVMPdKIiCRPsJlDKanZHmYd7P09ZeJ0fYJl1CLg_plwJ9htsnnMmlWueQCKRslnJF7uEcEV2j5KXG0pKvrRhY6DhUCTYrYIrpQuGBqyAO6UsNhe5-D_Y3N8_0GBTcT58pUK-UQCHuUA6EVPB4LUGOCRm8C-JhErptITl7QYN3_ji66_rtVFcyUKW7bS1uZ4PwYikHc0YyY9rZ6BoGfrFt8-3Ad9t8pz4bsRDN6khxz-_7_WOkUeTFXmwj5Xn-vyIpXfl3KF5MrHE38ZO7Yywv7IWxe8lny7wLoqHX1AnxNU7RCWmSJN1xLdW4F3ru26SjpNtz4wbpAkq0gbua8DYOjoRJGCVe9CZhFa-ZZTl_4Cy1hN1xmIRHwmjkJUP_TcJg6AV9k6HiWXBYLEH8NPo4TX5_xBWuX7T_57PznePFAvGPEzWrWFUBpskWjNeIymfnrxNb332vrHM4yGGnIKrUox2QDMwRsASZ8vtw6hi8vlpHfTV05upwp0twr6YOTCRagXu0RgTEUELCFmC4hpjoe-HXZ2e_r4jUeWuUMxs-6GtgDsGo3KkpAScRA5VozJEuxpLmnK1ArM4hh6msQ5-XGGo_RilSJkfbJ8ZfhJpEpMscb7GQOtowlXiti7URzpl6lxk8TAGmJuVPJc6Ua5X5uWdUez6UXI26QOCrvrca3fDrbgjJioYxqCguWtG93gq0TUkp8Bp9qo7xvxP-C5IbJc4Jv6dyeijnBItlfTRmZVEQfFFApXWl8YTmjK-gxIyCWcMNvB89fO1MhvFH9f5wTtLV8ZiQtfGErpkabjBcQExF3cZGcK-hnnXTZKeq_VP5M0Us0QKnYMaU-LqTdYTbuo1vzJPnnnSa6-DfSqb-v2aqdT2bz2FRcLZWXzINQ63qFK0x2hj9p6X6fgWQZuA7Xl0cNk8LOENEH3groTDjjOkaV1qcOgTNDjf29QgNN5Bnb7Td69UZHps2RaJgVKCGqR6FSaZi4HwHvhZSFfBDTY2hTxFVzw-s4dM_GbzLCdY6PBbZ2S6xd0FTS93Cz0ypzvjV-zC8PkvxEqUvAOfAHFug3PWfk9us8u_V_pBzthEdSCQoIIeEIHIxiZVT9N-cjudXHTfQ6fyiz5IFPAP4FvAN0LVAZIDQAl0DBAboV-tbux-a_b4FjIFvGfxAAz-fnS-qcT_VjWtw4-jb0L6J1DPrXrWMzPLWxHGtebW23iZv31bmG3fvmKgxiJpp_YHEIS9boBcYS5uIb2TsN6mtg11balOIbw2CRqXebTMXq_oxZNhIzm9uGDH94OQZ4pCqfSQ8xz3z-HaO-lfRrn2yOYeD63B4He5dhyMLO21nhdT9jzNn8Oocfhuo3w8ZymFJpLNvO7CUbLajqTM4PEM75WGG7zBUd_KqAvd_A7PE0Gs=" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21v4jgQ_itWVhW7EmiTkBDKhztBSlZI3d0ubK93ut4Hkzhg1diR7fCyXf772cQmEOjpTocErR_PPDPzjMeEVydlGXIGzs3NK6ZYDsBrSy7RCrUGoDWHArXaoAJ-gxzDOUGipW1yRuUM_ziYeUGx1WYaS-AKk51GZ2jBEHictMFQOZI2EJCKjkAc5612q-B4BfkuZoRxbf0O9XM3P0QzWyPGM8RrA9eNvDRUrgRTVMPdKIiCRPsJlDKanZHmYd7P09ZeJ0fYJl1CLg_plwJ9htsnnMmlWueQCKRslnJF7uEcEV2j5KXG0pKvrRhY6DhUCTYrYIrpQuGBqyAO6UsNhe5-D_Y3N8_0GBTcT58pUK-UQCHuUA6EVPB4LUGOCRm8C-JhErptITl7QYN3_ji66_rtVFcyUKW7bS1uZ4PwYikHc0YyY9rZ6BoGfrFt8-3Ad9t8pz4bsRDN6khxz-_7_WOkUeTFXmwj5Xn-vyIpXfl3KF5MrHE38ZO7Yywv7IWxe8lny7wLoqHX1AnxNU7RCWmSJN1xLdW4F3ru26SjpNtz4wbpAkq0gbua8DYOjoRJGCVe9CZhFa-ZZTl_4Cy1hN1xmIRHwmjkJUP_TcJg6AV9k6HiWXBYLEH8NPo4TX5_xBWuX7T_57PznePFAvGPEzWrWFUBpskWjNeIymfnrxNb332vrHM4yGGnIKrUox2QDMwRsASZ8vtw6hi8vlpHfTV05upwp0twr6YOTCRagXu0RgTEUELCFmC4hpjoe-HXZ2e_r4jUeWuUMxs-6GtgDsGo3KkpAScRA5VozJEuxpLmnK1ArM4hh6msQ5-XGGo_RilSJkfbJ8ZfhJpEpMscb7GQOtowlXiti7URzpl6lxk8TAGmJuVPJc6Ua5X5uWdUez6UXI26QOCrvrca3fDrbgjJioYxqCguWtG93gq0TUkp8Bp9qo7xvxP-C5IbJc4Jv6dyeijnBItlfTRmZVEQfFFApXWl8YTmjK-gxIyCWcMNvB89fO1MhvFH9f5wTtLV8ZiQtfGErpkabjBcQExF3cZGcK-hnnXTZKeq_VP5M0Us0QKnYMaU-LqTdYTbuo1vzJPnnnSa6-DfSqb-v2aqdT2bz2FRcLZWXzINQ63qFK0x2hj9p6X6fgWQZuA7Xl0cNk8LOENEH3groTDjjOkaV1qcOgTNDjf29QgNN5Bnb7Td69UZHps2RaJgVKCGqR6FSaZi4HwHvhZSFfBDTY2hTxFVzw-s4dM_GbzLCdY6PBbZ2S6xd0FTS93Cz0ypzvjV-zC8PkvxEqUvAOfAHFug3PWfk9us8u_V_pBzthEdSCQoIIeEIHIxiZVT9N-cjudXHTfQ6fyiz5IFPAP4FvAN0LVAZIDQAl0DBAboV-tbux-a_b4FjIFvGfxAAz-fnS-qcT_VjWtw4-jb0L6J1DPrXrWMzPLWxHGtebW23iZv31bmG3fvmKgxiJpp_YHEIS9boBcYS5uIb2TsN6mtg11balOIbw2CRqXebTMXq_oxZNhIzm9uGDH94OQZ4pCqfSQ8xz3z-HaO-lfRrn2yOYeD63B4He5dhyMLO21nhdT9jzNn8Oocfhuo3w8ZymFJpLNvO7CUbLajqTM4PEM75WGG7zBUd_KqAvd_A7PE0Gs=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-41 — R3 Sourcing Request</span></div>
 
@@ -833,7 +847,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtq2zAUhl9FqAQ2SDonqZPV0IJ8yRpwS1en26AeRrHlRFSxjS2vSdO8-yTf2qVxVyqBkc7lP_J3jLyFfhwQqMFOZ0sjyjWwdSFfkhVxoQZcOMeZWHXFKiN-nlK-sckfwkoni-PaW6T8wCnFc0Yy6RY6YRxxhz5WUn01WZfB0j7BK8o2pcchi5iA22kXICEgxHdFFIsf_CVOeaWWZ-QSr3_SgC-lJcQsIzJuyVfMxnPCirI8zQtrJF7LSbBPo4U0D1VpTHF0_8J4ou52YNfpuFFTC8x0NwJi-AxnmUlCgJNEj9cgpIxpR7pqTiaTbsbT-J5oR4oyHuujatt7kEfTBsm668csTqV7aKr7esHc2LBKDqnmCI0buYE1NoeDVrm-rloDZU-OxOz5eJOJrupqo2cYihiteqORdLtRqZjl80WKkyWwBtZJ3zCRYXvEW3joMU-J53y371woEP4uo-UIaEp8TuOogSZHnY6K7F_WrSMSyfHiGMi1ENA0rWT6Osfcq_jJhW4efB0G4hn4J24eEkW8shQrgoAIcuFnKVlgfesUoHfcO2-rVCaSKKhY8A0jrSBq2EjOBralyPkv7L744v-D10HX3gW6Qh-ie2k53lBRasBiC8T2PYybsm8gFjFAxryHcHWSQ5DrUu9hXMd-CPHhsuDs7PypAmQWTMEXgK6n4jmhTNxNT-0fxV7rbLIQx797QcwPFGCiGQLoxriYzixjdntjAdv6Zl2ZLd20b56ttif7jpKEUR9L7-HW2Z7Z0icTc1xe0YdaZHuWkLeioBeHPZuGpJQvr4yD7SjfsKavytnQPz09fYUeduGKpCtMA6hty5-A-JcEJMQ54-IahzjnsbOJfKgVFzPMkwBzYlIsiK5K4-4vphb-qQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtq2zAUhl9FqAQ2SDonqZPV0IJ8yRpwS1en26AeRrHlRFSxjS2vSdO8-yTf2qVxVyqBkc7lP_J3jLyFfhwQqMFOZ0sjyjWwdSFfkhVxoQZcOMeZWHXFKiN-nlK-sckfwkoni-PaW6T8wCnFc0Yy6RY6YRxxhz5WUn01WZfB0j7BK8o2pcchi5iA22kXICEgxHdFFIsf_CVOeaWWZ-QSr3_SgC-lJcQsIzJuyVfMxnPCirI8zQtrJF7LSbBPo4U0D1VpTHF0_8J4ou52YNfpuFFTC8x0NwJi-AxnmUlCgJNEj9cgpIxpR7pqTiaTbsbT-J5oR4oyHuujatt7kEfTBsm668csTqV7aKr7esHc2LBKDqnmCI0buYE1NoeDVrm-rloDZU-OxOz5eJOJrupqo2cYihiteqORdLtRqZjl80WKkyWwBtZJ3zCRYXvEW3joMU-J53y371woEP4uo-UIaEp8TuOogSZHnY6K7F_WrSMSyfHiGMi1ENA0rWT6Osfcq_jJhW4efB0G4hn4J24eEkW8shQrgoAIcuFnKVlgfesUoHfcO2-rVCaSKKhY8A0jrSBq2EjOBralyPkv7L744v-D10HX3gW6Qh-ie2k53lBRasBiC8T2PYybsm8gFjFAxryHcHWSQ5DrUu9hXMd-CPHhsuDs7PypAmQWTMEXgK6n4jmhTNxNT-0fxV7rbLIQx797QcwPFGCiGQLoxriYzixjdntjAdv6Zl2ZLd20b56ttif7jpKEUR9L7-HW2Z7Z0icTc1xe0YdaZHuWkLeioBeHPZuGpJQvr4yD7SjfsKavytnQPz09fYUeduGKpCtMA6hty5-A-JcEJMQ54-IahzjnsbOJfKgVFzPMkwBzYlIsiK5K4-4vphb-qQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-41 — R3 Sourcing Request</span></div>
 
@@ -877,7 +891,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1rozAYx79KyCjcQbuz7Wxvwgax6q3gxm52dwfzkFRjG5aqaLy16_rdL_Ftu67uxhKQ5Hn5P_H3SNxCPw4I1GCns6UR5RrYupAvyYq4UAMunONMrLpilRE_Tynf2OQPYaWTxXHtLVJ-4JTiOSOZdAudMI64Qx8rqb6arMtgabfwirJN6XHIIibgdtoFSAgI8V0RxeIHf4lTXqnlGbnE65804EtpCTHLiIxb8hWz8ZywoixP88IaiddyEuzTaCHNQ1UaUxzdvzCeqLsd2HU6btTUAjPdjYAYPsNZZpAQ4CTR4zUIKWPaka4almV1M57G90Q7UpTxWB9V296DPJo2SNZdP2ZxKt1DQ93XC-aTDavkkGqM0LiRG5hjYzholevrqjlQ9uRIzJ6PZ1m6qquN3mSiiNGqNxpJtxuVilk-X6Q4WQJzYJ70LQNNbI94Cw895inxnO_2nQsFwt9ltBwBTYnPaRw10OSo01GR_cu8dUQiOV4cA7kWApqmlUxf5xh7FT-50M2Dr8NAPAP_xM1DoohXlmJFEBBBLvwsJQusb50C9I57522VykQSBRULvmGkFUQNG8nZwDYVOf-F3Rdf_H_wOujau0BX6EN0L03HGypKDVhsgdi-h3FT9g3EIgbImPcQrk5yCHJd6j2M69gPIT5cFpydnT9VgIyCKfgC0PVUPC3KxN301P5R7LXOJgtx_LsXxPxAAQaaIYBuJhfTmTmZ3d6YwDa_mVdGSzftm2er7cm-oyRh1MfSe7h1tme09MnAHJdX9KEW2Z4p5M0o6MVhz6YhKeXLK-NgO8o3rOmrcjb0T09PX6GHXbgi6QrTAGrb8icg_iUBCXHOuLjGIc557GwiH2rFxQzzJMCcGBQLoqvSuPsLIcr-0w==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1rozAYx79KyCjcQbuz7Wxvwgax6q3gxm52dwfzkFRjG5aqaLy16_rdL_Ftu67uxhKQ5Hn5P_H3SNxCPw4I1GCns6UR5RrYupAvyYq4UAMunONMrLpilRE_Tynf2OQPYaWTxXHtLVJ-4JTiOSOZdAudMI64Qx8rqb6arMtgabfwirJN6XHIIibgdtoFSAgI8V0RxeIHf4lTXqnlGbnE65804EtpCTHLiIxb8hWz8ZywoixP88IaiddyEuzTaCHNQ1UaUxzdvzCeqLsd2HU6btTUAjPdjYAYPsNZZpAQ4CTR4zUIKWPaka4almV1M57G90Q7UpTxWB9V296DPJo2SNZdP2ZxKt1DQ93XC-aTDavkkGqM0LiRG5hjYzholevrqjlQ9uRIzJ6PZ1m6qquN3mSiiNGqNxpJtxuVilk-X6Q4WQJzYJ70LQNNbI94Cw895inxnO_2nQsFwt9ltBwBTYnPaRw10OSo01GR_cu8dUQiOV4cA7kWApqmlUxf5xh7FT-50M2Dr8NAPAP_xM1DoohXlmJFEBBBLvwsJQusb50C9I57522VykQSBRULvmGkFUQNG8nZwDYVOf-F3Rdf_H_wOujau0BX6EN0L03HGypKDVhsgdi-h3FT9g3EIgbImPcQrk5yCHJd6j2M69gPIT5cFpydnT9VgIyCKfgC0PVUPC3KxN301P5R7LXOJgtx_LsXxPxAAQaaIYBuJhfTmTmZ3d6YwDa_mVdGSzftm2er7cm-oyRh1MfSe7h1tme09MnAHJdX9KEW2Z4p5M0o6MVhz6YhKeXLK-NgO8o3rOmrcjb0T09PX6GHXbgi6QrTAGrb8icg_iUBCXHOuLjGIc557GwiH2rFxQzzJMCcGBQLoqvSuPsLIcr-0w==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-41 — R3 Sourcing Request</span></div>
 
@@ -1025,7 +1039,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzzaQoQqpU06dUoBETY2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpfygBacTAVK7EWeapSrkD2uog05-b4K1fUgXXCyNJ4RZBuT7qElcBBBNImkqWxIKPo2sVZUhsrtkTgu1Ri4ljOn9DWdqri1TKiTouLlaiIBOQFRTUEVZWVNcYpjThKczbT62tbGg6d-asW2vVmTVaETpSy1y3Y9SgqPRIK0Wzi2Z8zFV0OKpzHkBjEi1FEASQaUEiTEmvPr2YEompeQpSEmqMeVCOHtDHP12U6oi-wvOXv_kpGP315-tO70g5zC_byaZyApnz7btLUya52QzDGa_rVFfMG272-13_gOTUUV3Mb2TDzAPXmE--xiVSF5Bl8gpaW9VWnDGBNzRAuqMeB13w4jf7Qw3aJ-YPWRihxHNcY3lwcC2P8I0qLKczAqaz4kb_I6sqGQnRwyf7KhN3MvLYDRwr0cX5yRwf_lXkfXHJOnBUBCJ4llKgquN1T_0jw8GMcSzeOyH8ZFt11ET6BD4MvtC0EfQh4CO42CH3wT46X8P38zWjndTxzdVsvtQFhCHUNzyBOJ-KV-t7qBrkKooso4iGGVgN13bRvf8Cn2QSRX7Ao-AVPXqU0yODbAOIOuAs0mx3zvjPeMIf5B9MvKyBP--hRfnZ_u8Z6pqVZp6kLLn_uwSituu9xRZFZpXNQGR3MsRPodc4Nnz9AETdeD3YnSR7V7oKa1FUx0D_aC2xYf2R1u8nuq-pNqf2ck7Yg1ghhy9EgezSeB_9c-9T6g0iFHb29Jy81zwhOrgN8QVxOObbQmNNzJ5VzZB7PnbCvH08eOnCi-X7c6bFP_CbMbDDjvGQNbKpq2AT9dlcP_XZLIh1ZDyTGxb_16IPT093TnLrKa1gGJBObOcR3Oh4b3IYEpLofAasmipsnCZJpZTXSxWmeNEweMUm7AwxtU_ZaVG1Q==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzzaQoQqpU06dUoBETY2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpfygBacTAVK7EWeapSrkD2uog05-b4K1fUgXXCyNJ4RZBuT7qElcBBBNImkqWxIKPo2sVZUhsrtkTgu1Ri4ljOn9DWdqri1TKiTouLlaiIBOQFRTUEVZWVNcYpjThKczbT62tbGg6d-asW2vVmTVaETpSy1y3Y9SgqPRIK0Wzi2Z8zFV0OKpzHkBjEi1FEASQaUEiTEmvPr2YEompeQpSEmqMeVCOHtDHP12U6oi-wvOXv_kpGP315-tO70g5zC_byaZyApnz7btLUya52QzDGa_rVFfMG272-13_gOTUUV3Mb2TDzAPXmE--xiVSF5Bl8gpaW9VWnDGBNzRAuqMeB13w4jf7Qw3aJ-YPWRihxHNcY3lwcC2P8I0qLKczAqaz4kb_I6sqGQnRwyf7KhN3MvLYDRwr0cX5yRwf_lXkfXHJOnBUBCJ4llKgquN1T_0jw8GMcSzeOyH8ZFt11ET6BD4MvtC0EfQh4CO42CH3wT46X8P38zWjndTxzdVsvtQFhCHUNzyBOJ-KV-t7qBrkKooso4iGGVgN13bRvf8Cn2QSRX7Ao-AVPXqU0yODbAOIOuAs0mx3zvjPeMIf5B9MvKyBP--hRfnZ_u8Z6pqVZp6kLLn_uwSituu9xRZFZpXNQGR3MsRPodc4Nnz9AETdeD3YnSR7V7oKa1FUx0D_aC2xYf2R1u8nuq-pNqf2ck7Yg1ghhy9EgezSeB_9c-9T6g0iFHb29Jy81zwhOrgN8QVxOObbQmNNzJ5VzZB7PnbCvH08eOnCi-X7c6bFP_CbMbDDjvGQNbKpq2AT9dlcP_XZLIh1ZDyTGxb_16IPT093TnLrKa1gGJBObOcR3Oh4b3IYEpLofAasmipsnCZJpZTXSxWmeNEweMUm7AwxtU_ZaVG1Q==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-41 — R3 Sourcing Request</span></div>
 
@@ -1105,7 +1119,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9A5wuoiyEZbtxwM9Q4X-7N3c1S1gM0lm1ZOxWV_35PV5QJGr0lGdt5eU77nKfts5VkDCzHajSeecqVQ54jS01hBpHlkMgaUYlvTXyTkJQFV_MA7kEYp8iyV2-VckMLTkcCpHYjzjhLVcifllC7nfzRBGt7n864mBtPCJMMyPWgSVwEEE0iaSpbEgo-jqxFlSGyh2RKC7VELiUM6eMtZ2qqLWMqJOi4qZqJgI5AVFNQRVlZU1ximNOEpxNtPrC1saDpXc3YthcLsmg0ovStFrnqRSnB0WiQVgvnlkz5kCpo8VTmvABGpJoLIImgUoLEGBNefXswJqNS8hSkJNUYcyGcrT6OXrspVZHdgbPVOzrq2L3lZ-tBL8jZyx-bSSaywtmybXsNk-Y5WQ2D2Wtr1DdM2z487HX-A5NRRTcxvaMvMHffYb76GJVIXkHnyClpr1WaccYEPNAC6ox4HXfFiH_Y6a_QvjF7yMQGI5rjGsunp7b9FaZBleVoUtB8StzgT2RFJTvaZ_hk-23iXlwEg1P3anB-RgL3t38ZWX9Nkh4MBZEonqUkuFxZ_T3_YLcfQzyJh34Y79t2HTWBDoHtyTZBH0EfAjqOgx3-EOCXfx1-mK0dn6YOb6tk96ksIA6huOcJxL1Svlvd7qFBqqLIMopglIFddW0d3fMr9NNMqtgXeASkqlufYnJggHUAWQacjIqd7gnvGkd4Q3bIwMsS_PsZnp-d7PCuqapVaepByl77s0kobrvuS2RVaF7VBERyLwb47HOBZ8_LF0zUgT-L0UXWe6GntBRNdQz0gtoW79tfbfF6qvuWan9nJ2-INYAJcvROHMwmgf_DP_O-odIgRm2vS8vNc8ETqoM_EFcQD2_XJTRcyeRT2QSx568rxNPHj58qvFzWO29S_HOzGfc67AADWSsbtwI-XpbB_V-TyYpUQ8orsW39eyP2-Ph44yyzmtYMihnlzHKezYWG9yKDMS2FwmvIoqXKwnmaWE51sVhljhMFj1NswswYF_8ArBZG7Q==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9A5wuoiyEZbtxwM9Q4X-7N3c1S1gM0lm1ZOxWV_35PV5QJGr0lGdt5eU77nKfts5VkDCzHajSeecqVQ54jS01hBpHlkMgaUYlvTXyTkJQFV_MA7kEYp8iyV2-VckMLTkcCpHYjzjhLVcifllC7nfzRBGt7n864mBtPCJMMyPWgSVwEEE0iaSpbEgo-jqxFlSGyh2RKC7VELiUM6eMtZ2qqLWMqJOi4qZqJgI5AVFNQRVlZU1ximNOEpxNtPrC1saDpXc3YthcLsmg0ovStFrnqRSnB0WiQVgvnlkz5kCpo8VTmvABGpJoLIImgUoLEGBNefXswJqNS8hSkJNUYcyGcrT6OXrspVZHdgbPVOzrq2L3lZ-tBL8jZyx-bSSaywtmybXsNk-Y5WQ2D2Wtr1DdM2z487HX-A5NRRTcxvaMvMHffYb76GJVIXkHnyClpr1WaccYEPNAC6ox4HXfFiH_Y6a_QvjF7yMQGI5rjGsunp7b9FaZBleVoUtB8StzgT2RFJTvaZ_hk-23iXlwEg1P3anB-RgL3t38ZWX9Nkh4MBZEonqUkuFxZ_T3_YLcfQzyJh34Y79t2HTWBDoHtyTZBH0EfAjqOgx3-EOCXfx1-mK0dn6YOb6tk96ksIA6huOcJxL1Svlvd7qFBqqLIMopglIFddW0d3fMr9NNMqtgXeASkqlufYnJggHUAWQacjIqd7gnvGkd4Q3bIwMsS_PsZnp-d7PCuqapVaepByl77s0kobrvuS2RVaF7VBERyLwb47HOBZ8_LF0zUgT-L0UXWe6GntBRNdQz0gtoW79tfbfF6qvuWan9nJ2-INYAJcvROHMwmgf_DP_O-odIgRm2vS8vNc8ETqoM_EFcQD2_XJTRcyeRT2QSx568rxNPHj58qvFzWO29S_HOzGfc67AADWSsbtwI-XpbB_V-TyYpUQ8orsW39eyP2-Ph44yyzmtYMihnlzHKezYWG9yKDMS2FwmvIoqXKwnmaWE51sVhljhMFj1NswswYF_8ArBZG7Q==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-41 — R3 Sourcing Request</span></div>
 
@@ -1302,7 +1316,7 @@ flowchart TB
     E2E41CPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E41CPLP_e_g_Azure_PaaS
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1jp2nKaCDmzHZoV0hLndBvMwin2ciMqWseU1aZr_PsnOR1tIoWy6ENL7Hj06OkLa4ESkgAnu9TasYJKgTYTlEnKIMEERntNajfpqVEPSVEyup_AHeGdyIfZuu-Q7rRidc6i1rTiZKGTInnaowbBcdcFaD2jO-LpzQlgIQPc3feQogIJv2yguHpMlreSO1tRwS1c_WCqXWskor0HHLWXOp3QOvN1WVk2rFupYYUkTViy0PDS0WNHi4YVoG9st2vZ6UXHYC925UYFUSzit6wlkiJalK1YoY5yTM9eeBEHQr2UlHoCcGcblpTvaTT896tSIWa76ieCi0rY1sd_ySk7lEeiN_ZF3dQBa47Fvea-B1hE4cG3fNN4AQfAjLwhc27UPPM8zVDuZ4Gik7ajoiHUzX1S0XCLf9IcDbzadxRAvYuepqSCeURr-inDUmCNjEDUZGGrn88U5am2k7Qj_7kC6payCRDJRoOm3o7onOy35p3-vmS1GjxWAENIVvFsDRbrLTa45nEzsn4r57uHDeBh_cb46sWmYVnv-dGylqk-p_bIK4cUQ6Tik4z5ciFs_jC3D2NdCTZGafrAcr1L9DxV5j359_fl5l-ykPR-6QM7sRvUB4-q9P5-8KtzHOVQ5ZSkmm-7bUL9PChltuFQPH9NGinBdJJi0Txk3ZUolTBhV15N34vYvglh3xg==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1jp2nKaCDmzHZoV0hLndBvMwin2ciMqWseU1aZr_PsnOR1tIoWy6ENL7Hj06OkLa4ESkgAnu9TasYJKgTYTlEnKIMEERntNajfpqVEPSVEyup_AHeGdyIfZuu-Q7rRidc6i1rTiZKGTInnaowbBcdcFaD2jO-LpzQlgIQPc3feQogIJv2yguHpMlreSO1tRwS1c_WCqXWskor0HHLWXOp3QOvN1WVk2rFupYYUkTViy0PDS0WNHi4YVoG9st2vZ6UXHYC925UYFUSzit6wlkiJalK1YoY5yTM9eeBEHQr2UlHoCcGcblpTvaTT896tSIWa76ieCi0rY1sd_ySk7lEeiN_ZF3dQBa47Fvea-B1hE4cG3fNN4AQfAjLwhc27UPPM8zVDuZ4Gik7ajoiHUzX1S0XCLf9IcDbzadxRAvYuepqSCeURr-inDUmCNjEDUZGGrn88U5am2k7Qj_7kC6payCRDJRoOm3o7onOy35p3-vmS1GjxWAENIVvFsDRbrLTa45nEzsn4r57uHDeBh_cb46sWmYVnv-dGylqk-p_bIK4cUQ6Tik4z5ciFs_jC3D2NdCTZGafrAcr1L9DxV5j359_fl5l-ykPR-6QM7sRvUB4-q9P5-8KtzHOVQ5ZSkmm-7bUL9PChltuFQPH9NGinBdJJi0Txk3ZUolTBhV15N34vYvglh3xg==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
@@ -1337,7 +1351,7 @@ flowchart TB
     E2E41FPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E41FPLP_e_g_Azure_PaaS
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1ip2nGaGDuzEZoV0hHndBvMwin2ciMqWkeU1aZr_PsnOR1tooWy6ENL7Hj06OkLa4lRkgF3c621ZyZSLtjFWKyggxi6K8YLWetTXoxrSRjK1mcEf4J3JhTi47ZLvVDK64FAbW3NyUaqIPexRg2G17oKNHtKC8U3nRLAUgG6v-8jTAA3ftVFc3KcrKtWe1tRwQ9c_WKZWRskpr8HErVTBZ3QBvN1WyaZVS32sqKIpK5dGHhIjSlrePREdstuhXa8Xl8e90Dc_LpFuKad1PYUc0aryxRrljHP3zHemYRj2ayXFHbhnhFxe-qP99MO9Sc21qnU_FVxIY9tT5yWv4lSdgJNxMJp8PALt8TiwJ8-B9gk48J3AIi-AIPiJF4a-4ztH3mRCdHs1wdHI2HHZEetmsZS0WqHACoaDcD6bJ5AsE--hkZDMKY1-xThurBEZxE0ORO98vjxHrY2MHePfHci0jElIFRMlmn09qQey15J_BreG2WLMWANc1-0K3q2BMtvnpjYcXk3sn4r55uGjZJh89r54iUUsuz1_NrYz3WfUeVqF6GKITBwyce8uxE0QJTYhh1roKdLTd5bjWar_oSJv0a-uPj3uk52250MXyJtf6z5kXL_3x1evCvdxAbKgLMPutvs29O-TQU4brvTDx7RRItqUKXbbp4ybKqMKpozq6yk6cfcXpSl33g==" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1ip2nGaGDuzEZoV0hHndBvMwin2ciMqWkeU1aZr_PsnOR1tooWy6ENL7Hj06OkLa4lRkgF3c621ZyZSLtjFWKyggxi6K8YLWetTXoxrSRjK1mcEf4J3JhTi47ZLvVDK64FAbW3NyUaqIPexRg2G17oKNHtKC8U3nRLAUgG6v-8jTAA3ftVFc3KcrKtWe1tRwQ9c_WKZWRskpr8HErVTBZ3QBvN1WyaZVS32sqKIpK5dGHhIjSlrePREdstuhXa8Xl8e90Dc_LpFuKad1PYUc0aryxRrljHP3zHemYRj2ayXFHbhnhFxe-qP99MO9Sc21qnU_FVxIY9tT5yWv4lSdgJNxMJp8PALt8TiwJ8-B9gk48J3AIi-AIPiJF4a-4ztH3mRCdHs1wdHI2HHZEetmsZS0WqHACoaDcD6bJ5AsE--hkZDMKY1-xThurBEZxE0ORO98vjxHrY2MHePfHci0jElIFRMlmn09qQey15J_BreG2WLMWANc1-0K3q2BMtvnpjYcXk3sn4r55uGjZJh89r54iUUsuz1_NrYz3WfUeVqF6GKITBwyce8uxE0QJTYhh1roKdLTd5bjWar_oSJv0a-uPj3uk52250MXyJtf6z5kXL_3x1evCvdxAbKgLMPutvs29O-TQU4brvTDx7RRItqUKXbbp4ybKqMKpozq6yk6cfcXpSl33g==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>

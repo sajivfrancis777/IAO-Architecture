@@ -120,8 +120,8 @@ blockquote {
     background: #fafbfd;
     border: 1px solid #e0e4ea;
     border-radius: 6px;
-    padding: 20px 12px;
-    margin: 16px 0;
+    padding: 16px 12px;
+    margin: 12px 0;
     overflow: visible;
     text-align: center;
     page-break-inside: avoid;
@@ -130,6 +130,7 @@ blockquote {
 .mermaid svg {
     max-width: 100%;
     height: auto;
+    max-height: 85vh;
 }
 .header-bar {
     background: #00285a;
@@ -205,25 +206,31 @@ strong { color: #00285a; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print, .pdf-download-btn { display: none !important; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-    table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
+    table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
-    /* Page sections: do NOT use min-height in print — the page-break divs
-       already handle pagination.  min-height:100vh forces every section to
-       fill a full page, which creates blank trailing space before the next
-       page-break, producing blank pages in the PDF output. */
+
+    /* Page sections: auto height in print — page-break divs handle pagination */
     .page-section {
         min-height: auto;
         display: block;
     }
     .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
         page-break-inside: avoid;
+        break-inside: avoid;
         overflow: visible;
+        max-height: 85vh;
+        margin: 8px 0;
     }
     .mermaid svg {
         max-width: 100%;
+        max-height: 80vh;
         height: auto;
+        width: auto;
     }
+
     /* Diagram links: visible + clickable in PDF */
     a[title="View full diagram"],
     a[title="Open full-size SVG"] {
@@ -231,6 +238,13 @@ strong { color: #00285a; }
         text-decoration: underline !important;
         font-size: 10pt !important;
     }
+
+    /* Tighten spacing in print for professional PDF output */
+    h2 { margin-top: 18px; margin-bottom: 8px; }
+    h3 { margin-top: 14px; margin-bottom: 6px; }
+    h4 { margin-top: 10px; margin-bottom: 4px; }
+    table { margin: 8px 0; }
+    blockquote { margin: 8px 0; padding: 6px 14px; }
 }
 </style>
     
@@ -754,7 +768,7 @@ flowchart LR
     class n33 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWG1vozgQ_isWqyp3EpEwhpDkw53yxm6lzTZKdnN32uwHF0xilQBnIG2um_9-NtiEULKnbS9Sq_jxPPPMjMc25FnzYp9oQ-3m5plGNBuC5062I3vSGYLOPU5JRwclsMaM4vuQpB1hE8RRtqL_FGbQSp6EmcBcvKfhUaArso0J-HKrgxEnhjpIcZR2U8Jo0NE7CaN7zI6TOIyZsH5H-oERFGpyahwzn7CzgWE40LM5NaQROcPIsRzLFbyUeHHkXzgN7KAfeJ2TCC6MH70dZlkRfp6SOX76g_rZjo8DHKaE2-yyffgR35NQ5JixXGBezg6qGDQVOhEv2CrBHo22HLcMDjEcPZwh2zidwOnmZhNVouDjchMB_vFCnKZTEoA04_DskIGAhuHwnTUZubahpxmLH8jwnTlzpsjUPZHJkKdu6KK43UdCt7tseB-HvjTtPoochmbypLOnoWno7Mj_N7RI5J-VJj2zb_YrpbEDJ3CilIIgeJMSryv7jNMHqTVDrulOKy1o9-yJ8dKfSnNqOSPYrBNhB-qRmlPXddHsXKpZz4bGdadjF_WMScPpFmfkER_PDgcTq3Lo2o4LnasOS71mlPn9gsWecohmtmtXDp0xdEfmVYfWCFp9GSH3s2U42YFxnBe9DEZJkpZz4hPZX79utAAPA9z14i1YEBbEbA8WIY4i3n2Aj8CcZye2XLrRvn2rcXtv4Dpv4ML-LxU5CXnZ21nglp8_lI98zv-1xjft5-ezuE-693y_eTvw-ZgQEAfAJ3sc-b9vtNOpzuq1s8iTF-YpPZD3ZRM0ac51sVSoTeL9PvZ5pCR9Idl_lSRCZxpmLH5MuzjMwHy5KFP8864mxPdyo1XmOOUVBFOcYbAS_plfd16VXuxNbkyjjP8Blz6BJSnOWLCIOciLXk9l0J6KCuo_IiqXtFxowuq9cBnOLBKhuzEjHs9CtMQBhzkv9BxHOQ7DY9kiqhLrdSPKt3kzL71Z7T0-JQlPkUQZ_yYaTThodPiAE5fEI3yJZc4-uBOlTS8VoMENz0tQC7RYPRHdKM_iHy0MhHUXkzhK832S0TgqXDRsRX1UGtWiLMnfOWX8RucZVTtxmUcNLqrnlDN-jaWk5KZU6DXMrZ8zt3_OvCcSod4DWJcLKqq0xxn1ilVdU3xRiR_2DHTe4KvRMabxujMGvo5mttPq4X6gaRaLa-OAaSge116cUeh12tb_oI2M1oPuy-JWbq0XBNhKSDDja0XCK8ep2Uqi0bUEXx5gi88LMMYZz0-cKzXf_csjgmd_IPzpbrEEfNcu7poX3-B88fHSJOdOLw4HMGHk8rqrIokQ6HZ_EztYjqFZAuqJK7LluCfHfUkYyHGvMT8ox0jxoSQgpACjoQBhAzClBVQUJIPqK4aMGqmoTSniyLEjHViKILNAUBFU2IphFpTvG231ZbzSwWx-O9bBfDbXwe2H1Ub7LjSUM6vhDMFmOMoZ7zgduO8LvioYMuRktds_TS8FzEHTYg0LC3TVxaJ0ofJFSBr8RdLSt92c-RSXEyosmRRUhlBVSGUJG2NTArACTCU6KysGe82ZT3flhHIp18lUiZnNsWrPqjWspobTnJEa1VrYEl-SA4lyIk-AwsZu2syiLX_p49eXuCnPdr3rC7MuxczrFmZpYdWe5EUx1RvMBWy2w6gdtuovLRcz9tWZ3tUZ5-pM_-oM39zq_fISH8h3wcvsDPVCdAnDdthsh1E7bLXDdjvca4eddrjfDg9aYdSeJWrPErVniaosNV3bE7bH1NeGz1rxCwn_FcUnAc7DTDvpGuaPFatj5GnD4pcELU98zpxSzK-YfQme_gXcS2wg" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWG1vozgQ_isWqyp3EpEwhpDkw53yxm6lzTZKdnN32uwHF0xilQBnIG2um_9-NtiEULKnbS9Sq_jxPPPMjMc25FnzYp9oQ-3m5plGNBuC5062I3vSGYLOPU5JRwclsMaM4vuQpB1hE8RRtqL_FGbQSp6EmcBcvKfhUaArso0J-HKrgxEnhjpIcZR2U8Jo0NE7CaN7zI6TOIyZsH5H-oERFGpyahwzn7CzgWE40LM5NaQROcPIsRzLFbyUeHHkXzgN7KAfeJ2TCC6MH70dZlkRfp6SOX76g_rZjo8DHKaE2-yyffgR35NQ5JixXGBezg6qGDQVOhEv2CrBHo22HLcMDjEcPZwh2zidwOnmZhNVouDjchMB_vFCnKZTEoA04_DskIGAhuHwnTUZubahpxmLH8jwnTlzpsjUPZHJkKdu6KK43UdCt7tseB-HvjTtPoochmbypLOnoWno7Mj_N7RI5J-VJj2zb_YrpbEDJ3CilIIgeJMSryv7jNMHqTVDrulOKy1o9-yJ8dKfSnNqOSPYrBNhB-qRmlPXddHsXKpZz4bGdadjF_WMScPpFmfkER_PDgcTq3Lo2o4LnasOS71mlPn9gsWecohmtmtXDp0xdEfmVYfWCFp9GSH3s2U42YFxnBe9DEZJkpZz4hPZX79utAAPA9z14i1YEBbEbA8WIY4i3n2Aj8CcZye2XLrRvn2rcXtv4Dpv4ML-LxU5CXnZ21nglp8_lI98zv-1xjft5-ezuE-693y_eTvw-ZgQEAfAJ3sc-b9vtNOpzuq1s8iTF-YpPZD3ZRM0ac51sVSoTeL9PvZ5pCR9Idl_lSRCZxpmLH5MuzjMwHy5KFP8864mxPdyo1XmOOUVBFOcYbAS_plfd16VXuxNbkyjjP8Blz6BJSnOWLCIOciLXk9l0J6KCuo_IiqXtFxowuq9cBnOLBKhuzEjHs9CtMQBhzkv9BxHOQ7DY9kiqhLrdSPKt3kzL71Z7T0-JQlPkUQZ_yYaTThodPiAE5fEI3yJZc4-uBOlTS8VoMENz0tQC7RYPRHdKM_iHy0MhHUXkzhK832S0TgqXDRsRX1UGtWiLMnfOWX8RucZVTtxmUcNLqrnlDN-jaWk5KZU6DXMrZ8zt3_OvCcSod4DWJcLKqq0xxn1ilVdU3xRiR_2DHTe4KvRMabxujMGvo5mttPq4X6gaRaLa-OAaSge116cUeh12tb_oI2M1oPuy-JWbq0XBNhKSDDja0XCK8ep2Uqi0bUEXx5gi88LMMYZz0-cKzXf_csjgmd_IPzpbrEEfNcu7poX3-B88fHSJOdOLw4HMGHk8rqrIokQ6HZ_EztYjqFZAuqJK7LluCfHfUkYyHGvMT8ox0jxoSQgpACjoQBhAzClBVQUJIPqK4aMGqmoTSniyLEjHViKILNAUBFU2IphFpTvG231ZbzSwWx-O9bBfDbXwe2H1Ub7LjSUM6vhDMFmOMoZ7zgduO8LvioYMuRktds_TS8FzEHTYg0LC3TVxaJ0ofJFSBr8RdLSt92c-RSXEyosmRRUhlBVSGUJG2NTArACTCU6KysGe82ZT3flhHIp18lUiZnNsWrPqjWspobTnJEa1VrYEl-SA4lyIk-AwsZu2syiLX_p49eXuCnPdr3rC7MuxczrFmZpYdWe5EUx1RvMBWy2w6gdtuovLRcz9tWZ3tUZ5-pM_-oM39zq_fISH8h3wcvsDPVCdAnDdthsh1E7bLXDdjvca4eddrjfDg9aYdSeJWrPErVniaosNV3bE7bH1NeGz1rxCwn_FcUnAc7DTDvpGuaPFatj5GnD4pcELU98zpxSzK-YfQme_gXcS2wg" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-020 — Supply Planning & Management (IF)</span></div>
 
@@ -884,7 +898,7 @@ flowchart LR
     class n33 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWG1vozgQ_isWqyp3EpGwgZDkw53yxm6lzTZKdnN32u4HF0xqlQBnIG2um_9-NtiEUNjTtheplfx4npl5xmMbeNa82CfaWLu6eqYRzcbguZfdkz3pjUHvDqekp4MS2GJG8V1I0p6wCeIo29B_CjNoJU_CTGAu3tPwKNAN2cUEfLnWwYQTQx2kOEr7KWE06Om9hNE9ZsdZHMZMWL8jw8AIimhyahozn7CzgWE40LM5NaQROcOmYzmWK3gp8eLIv3Aa2MEw8HonkVwYP3r3mGVF-nlKlvjpD-pn93wc4DAl3OY-24cf8R0JhcaM5QLzcnZQxaCpiBPxgm0S7NFox3HL4BDD0cMZso3TCZyurm6jKij4uL6NAP95IU7TOQlAmnF4cchAQMNw_M6aTVzb0NOMxQ9k_A4tnLmJdE8oGXPphi6K238kdHefje_i0Jem_UehYYySJ509jZGhsyP_34hFIv8caTZAQzSsIk0dOIMzFSkIgjdF4nVln3H6IGMtTBe58yoWtAf2zHjpT8mcW84ENutE2IF6pObUdV1zcS7VYmBDo9vp1DUHxqzhdIcz8oiPZ4ejmVU5dG3HhU6nwzJeM8v8bsViTzk0F7ZrVw6dKXQnqNOhNYHWUGbI_ewYTu7BNM6LXgaTJEnLOfGL7K9fb7UAjwPc9-IdWBEWxGwPViGOIt59gI_AkqsTWy691b59q3EHb-A6b-DC4S8VOQl52dtZ4JqfP5SPfM7_tcZH9vPzObhP-nd8v3n34PMxISAOwJzsceT_fqudTnXWoJ1FnrwwT-mBvC-boElzuoOlItos3u9jn2dK0hchh68KaZpnGmYsfkz7OMzAcr0CmZD4p1ELxPdyo1WWOOUVBHOcYbAR_plfd16VXuxNbkyjjP8Blz6BNSnOWLCKOciLXpcyapcikhKl-I-MyiUtF5qwei9cprOIROpuzIjHVYiWOOAw54Ve4ijHYXgsW0QGBdttI8u3eUOX3qz2Hp-ThEskUSYbTThodPiIE9fEI3yJpWYf3IjSppcRoMENz0tQS7RYPZHdJM_iHy0MhHUXszhK832S0TgqXDRsRX2UjGpR1uTvnDJ-o3NF1U5c51GDa9Y15YxfYykpuSkV8Rrm1s-Z2z9nPhBCqPcAtuWCiirtcUa9YlW3FF9U4oc9A503-Gp0DDJed8bA19FQO62e7geaZrG4Ng6YhuJx7cUZZb4utvU_xDaN1oPuy-q64ww3YSshwYyvFQk7jlPUSqJRl8CXB9jq8wpMccb1iXOl5nt4eURw9QfCn-5Wa8B37eqmefGNzhcfL01y7vTicAAzRi6vuyqTyAT9_m9iB8sxRCWgnrgiW44HcjyUhJEcDxrzo3JsKr5pCOA7P0tUc6_mt9p3fgqqiEYjIoQNAEkLaCqfMsmhYkgVplKBZJaOHDvSQRVTqjKhIigZioEcmfbmy3Sjg8XyeqqD5WKpg-sPmyJ_VEW3Gs5M2ExHOeMdqAP3fcEfdRbo0_wyABo1LbawsFD1gFKuqQCZEbSVgZKnUoTNsawQUh5Qc2zJHP5alPKh05z5dFOmrXAZA1Y1Vr1WrastmWtyIFFO5OYsvNhNm0W04-9j_GYRl9jZTrUdQs38Bt3V25aJom4LVFpYTe9SY7XSZiMqspszqiqj2pO8qL96g7mAUTtstsNW_aXlYsbunBl0zjidM8POGd546v3yEh_Jd8FLdYZ6IbqEYTuM2mGzHbbaYbsdHrTDTjs8bIdHrbDZrtJsV2m2qzQrlZqu7QnbY-pr42et-ELCv6L4JMB5mGknXcP8sWJzjDxtXHxJ0PLE58w5xfyK2Zfg6V95-muh" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWG1vozgQ_isWqyp3EpGwgZDkw53yxm6lzTZKdnN32u4HF0xqlQBnIG2um_9-NtiEUNjTtheplfx4npl5xmMbeNa82CfaWLu6eqYRzcbguZfdkz3pjUHvDqekp4MS2GJG8V1I0p6wCeIo29B_CjNoJU_CTGAu3tPwKNAN2cUEfLnWwYQTQx2kOEr7KWE06Om9hNE9ZsdZHMZMWL8jw8AIimhyahozn7CzgWE40LM5NaQROcOmYzmWK3gp8eLIv3Aa2MEw8HonkVwYP3r3mGVF-nlKlvjpD-pn93wc4DAl3OY-24cf8R0JhcaM5QLzcnZQxaCpiBPxgm0S7NFox3HL4BDD0cMZso3TCZyurm6jKij4uL6NAP95IU7TOQlAmnF4cchAQMNw_M6aTVzb0NOMxQ9k_A4tnLmJdE8oGXPphi6K238kdHefje_i0Jem_UehYYySJ509jZGhsyP_34hFIv8caTZAQzSsIk0dOIMzFSkIgjdF4nVln3H6IGMtTBe58yoWtAf2zHjpT8mcW84ENutE2IF6pObUdV1zcS7VYmBDo9vp1DUHxqzhdIcz8oiPZ4ejmVU5dG3HhU6nwzJeM8v8bsViTzk0F7ZrVw6dKXQnqNOhNYHWUGbI_ewYTu7BNM6LXgaTJEnLOfGL7K9fb7UAjwPc9-IdWBEWxGwPViGOIt59gI_AkqsTWy691b59q3EHb-A6b-DC4S8VOQl52dtZ4JqfP5SPfM7_tcZH9vPzObhP-nd8v3n34PMxISAOwJzsceT_fqudTnXWoJ1FnrwwT-mBvC-boElzuoOlItos3u9jn2dK0hchh68KaZpnGmYsfkz7OMzAcr0CmZD4p1ELxPdyo1WWOOUVBHOcYbAR_plfd16VXuxNbkyjjP8Blz6BNSnOWLCKOciLXpcyapcikhKl-I-MyiUtF5qwei9cprOIROpuzIjHVYiWOOAw54Ve4ijHYXgsW0QGBdttI8u3eUOX3qz2Hp-ThEskUSYbTThodPiIE9fEI3yJpWYf3IjSppcRoMENz0tQS7RYPZHdJM_iHy0MhHUXszhK832S0TgqXDRsRX2UjGpR1uTvnDJ-o3NF1U5c51GDa9Y15YxfYykpuSkV8Rrm1s-Z2z9nPhBCqPcAtuWCiirtcUa9YlW3FF9U4oc9A503-Gp0DDJed8bA19FQO62e7geaZrG4Ng6YhuJx7cUZZb4utvU_xDaN1oPuy-q64ww3YSshwYyvFQk7jlPUSqJRl8CXB9jq8wpMccb1iXOl5nt4eURw9QfCn-5Wa8B37eqmefGNzhcfL01y7vTicAAzRi6vuyqTyAT9_m9iB8sxRCWgnrgiW44HcjyUhJEcDxrzo3JsKr5pCOA7P0tUc6_mt9p3fgqqiEYjIoQNAEkLaCqfMsmhYkgVplKBZJaOHDvSQRVTqjKhIigZioEcmfbmy3Sjg8XyeqqD5WKpg-sPmyJ_VEW3Gs5M2ExHOeMdqAP3fcEfdRbo0_wyABo1LbawsFD1gFKuqQCZEbSVgZKnUoTNsawQUh5Qc2zJHP5alPKh05z5dFOmrXAZA1Y1Vr1WrastmWtyIFFO5OYsvNhNm0W04-9j_GYRl9jZTrUdQs38Bt3V25aJom4LVFpYTe9SY7XSZiMqspszqiqj2pO8qL96g7mAUTtstsNW_aXlYsbunBl0zjidM8POGd546v3yEh_Jd8FLdYZ6IbqEYTuM2mGzHbbaYbsdHrTDTjs8bIdHrbDZrtJsV2m2qzQrlZqu7QnbY-pr42et-ELCv6L4JMB5mGknXcP8sWJzjDxtXHxJ0PLE58w5xfyK2Zfg6V95-muh" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-020 — Supply Planning & Management (IF)</span></div>
 
@@ -992,7 +1006,7 @@ flowchart LR
     class n25 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1Fv4kYQ_isrRxGtBIptbAw8tCKAq0i5Jgq59uFyD4u9hlWM112vIZTjv3fW9gJe7F7V4yHRfjPzzcw33sEcjICFxBgbt7cHmlAxRoeOWJMN6YxRZ4kz0umiEvgDc4qXMck60idiiVjQvws3y0k_pJvEfLyh8V6iC7JiBH1-6KIJBMZdlOEk62WE06jT7aScbjDfT1nMuPS-IcPIjIpsleme8ZDws4NpelbgQmhME3KG-57jOb6My0jAkrBGGrnRMAo6R1lczHbBGnNRlJ9n5BP--JOGYg3nCMcZAZ-12MSPeEli2aPgucSCnG-VGDSTeRIQbJHigCYrwB0TII6T9zPkmscjOt7eviWnpOjx5S1B8AlinGUzEqFMADzfChTROB7fONOJ75rdTHD2TsY39tyb9e1uIDsZQ-tmV4rb2xG6WovxksVh5drbyR7GdvrR5R9j2-zyPfzVcpEkPGeaDuyhPTxluvesqTVVmaIo-qFMoCt_xdl7lWve921_dspluQN3al7zqTZnjjexdJ0I39KAXJD6vt-fn6WaD1zLbCe99_sDc6qRrrAgO7w_E46mzonQdz3f8loJy3x6lfnymbNAEfbnru-eCL17y5_YrYTOxHKGVYXAs-I4XaN7lhfPMpqkaVba5Cexvnx5MyI8jnAvYCs05QRaQZA7zANBWYKeY5ygHRVrtHhCz2S1gmfyzfj69YLDrnO8kIDQbY3kSV49NMMCl1RPuZAnkmlMlvPTiSqNQdAHWCFUVrTBmQCKC85FsCZhHpfl_HxJMjiTZIKl6HMaAkXYXJAWbFuHw7mZkPSWcBeDdSnD6z4lv74Zx2MZANdAU9l_XaAHH_Ua6iT8IovXrDrkSKDOojhdmmE95JXT1QpaeGQC3V1kK5YcCgrCUKMYNc9pIVjwDoSwTiOIfSF_5TSjku1qPENN2cXrCxIM_j2hKUu2hJdJa4KaEHKlPHhHlG9wAd0VXUzZJo0JyMCruiLONujTfAGEl3zOeUCYc7bLejgWKMUcxzGJfytv4r8OCQeCwU1Y5KncBRm7nIxl1kV6JjxifFN_2mqaWI2q3qmhQmvZd-6PZTfP9ko1KfXkWY_u_6exyodLjxzp47wOUXRXY7Wb7wn5COI8g4CrQZRh7o9O7-EVzQj4iw1JxAWzpsKMbml4vchoIjUUeHW1epx6_AIyo8n9i9oRl65uo-Dhec_ITMXEtMCBluP7E3K1fagqko_CksCXGVRZ3JP5dKKvQU-bbm29lCyqYpo0ENj9_zkrWOOo1_tFLlMFlOd-deyXR09ZK7NlK8AtAac623blYCoHs0rgKo8qwrI04ORQ5PhWW0Wl4N8gSnf6nYgd4-9nj0HlMajyqk7sqpWRdrZODpUUQ60uW_Vm2RqgelUpVWdKrVF1VoxeFa_Ec7SzpUpSNQ4rByWmrcS8eAeRI7t4U6pZ7FZLv9XitFrcVsug1eK1WoatllGrBR6mVlO7Cla7DFa7DnAz1It6HXdb8EH1sl1HvUZ02IiOmlCYeWM-uAHVu2wdtpvhfjPsNMOugo2usSHw7U9DY3wwil-D8IsxJBHOY2EcuwbOBVvsk8AYF7-ajLzYUzOK4TtgU4LHfwB0PIEh" title="View full diagram">&#128065; View Full Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1Fv4kYQ_isrRxGtBIptbAw8tCKAq0i5Jgq59uFyD4u9hlWM112vIZTjv3fW9gJe7F7V4yHRfjPzzcw33sEcjICFxBgbt7cHmlAxRoeOWJMN6YxRZ4kz0umiEvgDc4qXMck60idiiVjQvws3y0k_pJvEfLyh8V6iC7JiBH1-6KIJBMZdlOEk62WE06jT7aScbjDfT1nMuPS-IcPIjIpsleme8ZDws4NpelbgQmhME3KG-57jOb6My0jAkrBGGrnRMAo6R1lczHbBGnNRlJ9n5BP--JOGYg3nCMcZAZ-12MSPeEli2aPgucSCnG-VGDSTeRIQbJHigCYrwB0TII6T9zPkmscjOt7eviWnpOjx5S1B8AlinGUzEqFMADzfChTROB7fONOJ75rdTHD2TsY39tyb9e1uIDsZQ-tmV4rb2xG6WovxksVh5drbyR7GdvrR5R9j2-zyPfzVcpEkPGeaDuyhPTxluvesqTVVmaIo-qFMoCt_xdl7lWve921_dspluQN3al7zqTZnjjexdJ0I39KAXJD6vt-fn6WaD1zLbCe99_sDc6qRrrAgO7w_E46mzonQdz3f8loJy3x6lfnymbNAEfbnru-eCL17y5_YrYTOxHKGVYXAs-I4XaN7lhfPMpqkaVba5Cexvnx5MyI8jnAvYCs05QRaQZA7zANBWYKeY5ygHRVrtHhCz2S1gmfyzfj69YLDrnO8kIDQbY3kSV49NMMCl1RPuZAnkmlMlvPTiSqNQdAHWCFUVrTBmQCKC85FsCZhHpfl_HxJMjiTZIKl6HMaAkXYXJAWbFuHw7mZkPSWcBeDdSnD6z4lv74Zx2MZANdAU9l_XaAHH_Ua6iT8IovXrDrkSKDOojhdmmE95JXT1QpaeGQC3V1kK5YcCgrCUKMYNc9pIVjwDoSwTiOIfSF_5TSjku1qPENN2cXrCxIM_j2hKUu2hJdJa4KaEHKlPHhHlG9wAd0VXUzZJo0JyMCruiLONujTfAGEl3zOeUCYc7bLejgWKMUcxzGJfytv4r8OCQeCwU1Y5KncBRm7nIxl1kV6JjxifFN_2mqaWI2q3qmhQmvZd-6PZTfP9ko1KfXkWY_u_6exyodLjxzp47wOUXRXY7Wb7wn5COI8g4CrQZRh7o9O7-EVzQj4iw1JxAWzpsKMbml4vchoIjUUeHW1epx6_AIyo8n9i9oRl65uo-Dhec_ITMXEtMCBluP7E3K1fagqko_CksCXGVRZ3JP5dKKvQU-bbm29lCyqYpo0ENj9_zkrWOOo1_tFLlMFlOd-deyXR09ZK7NlK8AtAac623blYCoHs0rgKo8qwrI04ORQ5PhWW0Wl4N8gSnf6nYgd4-9nj0HlMajyqk7sqpWRdrZODpUUQ60uW_Vm2RqgelUpVWdKrVF1VoxeFa_Ec7SzpUpSNQ4rByWmrcS8eAeRI7t4U6pZ7FZLv9XitFrcVsug1eK1WoatllGrBR6mVlO7Cla7DFa7DnAz1It6HXdb8EH1sl1HvUZ02IiOmlCYeWM-uAHVu2wdtpvhfjPsNMOugo2usSHw7U9DY3wwil-D8IsxJBHOY2EcuwbOBVvsk8AYF7-ajLzYUzOK4TtgU4LHfwB0PIEh" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-020 — Supply Planning & Management (IF)</span></div>
 
