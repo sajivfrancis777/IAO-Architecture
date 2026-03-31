@@ -294,11 +294,11 @@ def build_context(
     if cap_id:
         title = f"{cap_id} — {cap_name or cap_id}" if cap_name else cap_id
         scope_label = "capability"
-        cover_banner_path = "../../../../../../../templates/assets/cover_banner.svg"
+        cover_banner_path = "../../../../../../../templates/assets/testing_banner.svg"
     else:
         title = f"{tower_display} ({tower_short})"
         scope_label = "tower"
-        cover_banner_path = "../../templates/assets/cover_banner.svg"
+        cover_banner_path = "../../templates/assets/testing_banner.svg"
 
     ctx = {
         "title": title,

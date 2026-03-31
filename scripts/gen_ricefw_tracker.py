@@ -339,9 +339,9 @@ def build_context(
 
     # Cover banner path
     if cap_id:
-        cover_banner_path = "../../../../../../../templates/assets/cover_banner.svg"
+        cover_banner_path = "../../../../../../../templates/assets/ricefw_banner.svg"
     else:
-        cover_banner_path = "../../templates/assets/cover_banner.svg"
+        cover_banner_path = "../../templates/assets/ricefw_banner.svg"
 
     return {
         "title": title,

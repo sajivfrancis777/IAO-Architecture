@@ -98,9 +98,11 @@ jobs:
             cp "$f" "$dest"
           done
 
-          # Copy banner asset so relative paths from HTML files resolve
+          # Copy banner assets so relative paths from HTML files resolve
           mkdir -p _site/templates/assets
           cp templates/assets/cover_banner.svg _site/templates/assets/
+          cp templates/assets/ricefw_banner.svg _site/templates/assets/
+          cp templates/assets/testing_banner.svg _site/templates/assets/
 
           # Copy favicon to site root
           [ -f favicon.ico ] && cp favicon.ico _site/favicon.ico
@@ -183,7 +185,7 @@ jobs:
           *,*::before,*::after{box-sizing:border-box}
           body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:#f0f2f5;color:#1a1a2e}
           .topbar{background:linear-gradient(135deg,#00285a 0%,#0071c5 100%);padding:0 32px;display:flex;align-items:center;height:56px;box-shadow:0 2px 8px rgba(0,0,0,.15);position:fixed;top:0;left:0;right:0;z-index:100}
-          .topbar img{height:36px;margin-right:16px;border-radius:4px}
+          .topbar img{height:28px;width:28px;object-fit:contain;margin-right:12px;border-radius:4px}
           .topbar h1{color:#fff;font-size:18px;font-weight:600;margin:0;letter-spacing:.5px}
           .topbar a.back-link{color:rgba(255,255,255,.85);text-decoration:none;font-size:14px;margin-left:auto}
           .topbar a.back-link:hover{color:#fff}
@@ -365,7 +367,7 @@ jobs:
           </head><body>
           <div class="topbar">
             <button class="sidebar-toggle" aria-label="Toggle navigation">☰</button>
-            <img src="templates/assets/cover_banner.svg" alt="IAO">
+            <img src="favicon.ico" alt="IAO" style="height:28px;width:28px;object-fit:contain">
             <h1>IAO Architecture Portal</h1>
           </div>
           $(sidebar_html "")
@@ -487,7 +489,8 @@ jobs:
             var sb=document.querySelector(".portal-sidebar"),ov=document.querySelector(".portal-sidebar-overlay");
             document.querySelector(".sidebar-btn").addEventListener("click",function(){sb.classList.toggle("open");ov.classList.toggle("open")});
             ov.addEventListener("click",function(){sb.classList.remove("open");ov.classList.remove("open")});
-            document.querySelector(".pdf-btn").addEventListener("click",function(){window.print()});
+            var pdfBtn=document.querySelector(".portal-toolbar .pdf-btn");
+            if(pdfBtn) pdfBtn.addEventListener("click",function(){window.print()});
             var depth=location.pathname.replace(/^\\/[^\\/]*\\//,"").split("/").length;
             var base="";for(var i=1;i<depth;i++)base+="../";
             fetch(base+"nav.json").then(function(r){return r.json()}).then(function(data){
@@ -574,6 +577,11 @@ jobs:
               # Tower link — only show when tower is known
               tower_link = f'<a href="{base}tower-{tower}.html">{tower} Tower</a>' if tower != "Unknown" else ""
 
+              # Dashboard pages already have their own PDF button (id="btn-pdf")
+              # with Plotly chart-freeze logic — skip the generic one to avoid duplicates
+              is_dashboard = "dashboard" in html_file
+              pdf_btn = '' if is_dashboard else '<button class="pdf-btn" title="Print / Save as PDF">&#128196; Download PDF</button>'
+
               # Build toolbar HTML
               toolbar_html = f'''
           <div class="portal-toolbar">
@@ -581,7 +589,7 @@ jobs:
             <a href="{base}index.html">&#127968; Home</a>
             {tower_link}
             <span class="tb-title">{doc_label}</span>
-            <button class="pdf-btn" title="Print / Save as PDF">&#128196; Download PDF</button>
+            {pdf_btn}
           </div>
           <div class="portal-sidebar-overlay"></div>
           <nav class="portal-sidebar">

@@ -281,7 +281,7 @@ def generate_tower_page(
 *,*::before,*::after{{box-sizing:border-box}}
 body{{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:#f0f2f5;color:#1a1a2e}}
 .topbar{{background:linear-gradient(135deg,#00285a 0%,#0071c5 100%);padding:0 32px;display:flex;align-items:center;height:56px;box-shadow:0 2px 8px rgba(0,0,0,.15);position:fixed;top:0;left:0;right:0;z-index:100}}
-.topbar img{{height:36px;margin-right:16px;border-radius:4px}}
+.topbar img{{height:28px;width:28px;object-fit:contain;margin-right:12px;border-radius:4px}}
 .topbar h1{{color:#fff;font-size:18px;font-weight:600;margin:0;letter-spacing:.5px}}
 .topbar a.back-link{{color:rgba(255,255,255,.85);text-decoration:none;font-size:14px;margin-left:auto}}
 .topbar a.back-link:hover{{color:#fff}}
@@ -353,7 +353,7 @@ td a:hover{{text-decoration:underline}}
 </head><body>
 <div class="topbar">
   <button class="sidebar-toggle" aria-label="Toggle navigation">☰</button>
-  <img src="templates/assets/cover_banner.svg" alt="IAO">
+  <img src="favicon.ico" alt="IAO">
   <h1>IAO Architecture Portal</h1>
   <a class="back-link" href="index.html">← All Towers</a>
 </div>
@@ -548,7 +548,7 @@ def generate_capability_page(
 *,*::before,*::after{{box-sizing:border-box}}
 body{{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:#f0f2f5;color:#1a1a2e}}
 .topbar{{background:linear-gradient(135deg,#00285a 0%,#0071c5 100%);padding:0 32px;display:flex;align-items:center;height:56px;box-shadow:0 2px 8px rgba(0,0,0,.15);position:fixed;top:0;left:0;right:0;z-index:100}}
-.topbar img{{height:36px;margin-right:16px;border-radius:4px}}
+.topbar img{{height:28px;width:28px;object-fit:contain;margin-right:12px;border-radius:4px}}
 .topbar h1{{color:#fff;font-size:18px;font-weight:600;margin:0;letter-spacing:.5px}}
 .topbar a.back-link{{color:rgba(255,255,255,.85);text-decoration:none;font-size:14px;margin-left:auto}}
 .topbar a.back-link:hover{{color:#fff}}
@@ -610,7 +610,7 @@ tr:hover td{{background:#f5f8fc}}
 </head><body>
 <div class="topbar">
   <button class="sidebar-toggle" aria-label="Toggle navigation">☰</button>
-  <img src="../templates/assets/cover_banner.svg" alt="IAO">
+  <img src="../favicon.ico" alt="IAO">
   <h1>IAO Architecture Portal</h1>
   <a class="back-link" href="../tower-{tower}.html">← {tower} Tower</a>
 </div>
