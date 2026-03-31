@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Page Not Found — IAO Architecture Portal</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+         background: #f5f7fa; color: #333; min-height: 100vh;
+         display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .container { text-align: center; max-width: 600px; padding: 40px 24px; }
+  .icon { font-size: 72px; margin-bottom: 16px; }
+  h1 { font-size: 28px; color: #0071c5; margin-bottom: 8px; }
+  .subtitle { font-size: 16px; color: #666; margin-bottom: 32px; }
+  .message-box { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px;
+                 padding: 24px; margin-bottom: 24px; text-align: left; }
+  .message-box h3 { font-size: 15px; color: #0071c5; margin-bottom: 12px; }
+  .message-box ul { padding-left: 20px; font-size: 14px; line-height: 1.8; color: #555; }
+  .message-box ul li { margin-bottom: 4px; }
+  .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 10px 24px; border-radius: 6px;
+         text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s; }
+  .btn-primary { background: #0071c5; color: #fff; }
+  .btn-primary:hover { background: #005a9e; }
+  .btn-secondary { background: #fff; color: #0071c5; border: 1px solid #0071c5; }
+  .btn-secondary:hover { background: #f0f7ff; }
+  .footer { margin-top: 40px; font-size: 11px; color: #aaa; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="icon">📄</div>
+  <h1>Document Not Found</h1>
+  <p class="subtitle">The requested architecture document does not exist at this path.</p>
+
+  <div class="message-box">
+    <h3>Why might this happen?</h3>
+    <ul>
+      <li><strong>Standard solution</strong> — This capability may be met by standard SAP configuration with no custom RICEFW objects or test cases required.</li>
+      <li><strong>Not yet generated</strong> — The document may not have been generated for this capability in the current pipeline run.</li>
+      <li><strong>URL mismatch</strong> — The link may reference a <code>.md</code> file instead of <code>.html</code>. Try changing the extension.</li>
+    </ul>
+  </div>
+
+  <div class="actions">
+    <a class="btn btn-primary" href="/" id="homeLink">← Portal Home</a>
+    <a class="btn btn-secondary" href="javascript:history.back()">Go Back</a>
+  </div>
+
+  <p class="footer">IAO Architecture Portal · Intel Confidential</p>
+</div>
+
+<script>
+  // Fix home link for GitHub Pages base path
+  var base = '/IAO-Architecture/';
+  var loc = window.location.pathname;
+  if (loc.indexOf(base) === 0) {
+    document.getElementById('homeLink').href = base;
+  }
+</script>
+</body>
+</html>

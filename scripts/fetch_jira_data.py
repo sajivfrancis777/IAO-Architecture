@@ -513,6 +513,42 @@ def main() -> None:
         "readiness": compute_readiness(defects),
     }
 
+    # ── Compute sub-tower summaries ──────────────────────────────
+    # Group defects by JIRA subteam (maps to Smartsheet Sub-Tower Name)
+    subtower_summaries: dict[str, dict] = {}
+    for d in defects:
+        st = d.get("subteam", "").strip()
+        if not st:
+            st = d.get("assigned_team", "").strip()
+        if st:
+            subtower_summaries.setdefault(st, []).append(d)
+
+    subtower_data: dict[str, dict] = {}
+    for st, st_defects in subtower_summaries.items():
+        subtower_data[st] = {
+            "defect": compute_defect_summary(st_defects),
+            "readiness": compute_readiness(st_defects),
+        }
+
+    # ── Build capability mapping ─────────────────────────────────
+    cap_map_path = WORKSPACE / "config" / "subtower_capability_map.json"
+    capability_summaries: dict[str, dict] = {}
+    if cap_map_path.exists():
+        with open(cap_map_path, encoding="utf-8") as f:
+            cap_map = json.load(f)
+        for tower_key, st_map in cap_map.items():
+            if tower_key.startswith("_"):
+                continue
+            for sub_tower, cap_ids in st_map.items():
+                st_data = subtower_data.get(sub_tower, {})
+                for cap_id in cap_ids:
+                    capability_summaries[cap_id] = {
+                        "sub_tower": sub_tower,
+                        "defect": st_data.get("defect", {}),
+                        "readiness": st_data.get("readiness", {}),
+                    }
+        print(f"  Mapped {len(capability_summaries)} capabilities from {len(subtower_data)} sub-towers")
+
     # ── Save JSON ────────────────────────────────────────────────
     payload = {
         "fetched_at": datetime.now(timezone.utc).isoformat(),
@@ -521,6 +557,8 @@ def main() -> None:
         "test_cases": test_cases,
         "cross_tower_summary": cross_tower,
         "tower_summaries": tower_summaries,
+        "subtower_summaries": subtower_data,
+        "capability_summaries": capability_summaries,
     }
 
     if args.dry_run:
@@ -545,6 +583,8 @@ def main() -> None:
         "total_test_cases": len(test_cases),
         "cross_tower_summary": cross_tower,
         "tower_summaries": tower_summaries,
+        "subtower_summaries": subtower_data,
+        "capability_summaries": capability_summaries,
     }
     summary_path.write_text(json.dumps(summary_payload, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"Wrote: {summary_path} ({summary_path.stat().st_size:,} bytes)")

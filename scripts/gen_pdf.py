@@ -31,7 +31,7 @@ os.chdir(str(WORKSPACE))
 DOCUMENT_CSS = """
 @page {
     size: A4;
-    margin: 0;   /* zero margin suppresses browser default header/footer */
+    margin: 10mm 0;   /* 10mm top/bottom: too small for browser header/footer text but gives page breathing room */
 }
 body {
     font-family: "Segoe UI", Calibri, Arial, sans-serif;

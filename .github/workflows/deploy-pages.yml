@@ -88,6 +88,9 @@ jobs:
         run: |
           mkdir -p _site
 
+          # Custom 404 page
+          cp 404.html _site/404.html
+
           # Copy all HTML and SVG outputs from towers
           find towers -name "*.html" -o -name "*.svg" | while read f; do
             dest="_site/$f"
@@ -164,7 +167,7 @@ jobs:
                 [ -z "$cap_name" ] && cap_name="$cap"
                 $first_cap || printf ',' >> _site/nav.json
                 first_cap=false
-                echo "{\"id\":\"${cap}\",\"name\":\"${cap_name}\",\"href\":\"${html}\"}" >> _site/nav.json
+                echo "{\"id\":\"${cap}\",\"name\":\"${cap_name}\",\"href\":\"cap/${tower}-${cap}.html\"}" >> _site/nav.json
               done
               echo ']}'  >> _site/nav.json
             done
@@ -409,83 +412,11 @@ jobs:
           </body></html>
           HEREDOC
 
-          # ── PER-TOWER PAGES ────────────────────────────────────────
-          for tower_dir in towers/*/; do
-            tower=$(basename "$tower_dir")
-            info=$(tower_desc "$tower")
-            full_name=$(echo "$info" | cut -d'|' -f1)
-            desc=$(echo "$info" | cut -d'|' -f2)
-            icon=$(echo "$info" | cut -d'|' -f3)
-            cap_count=$(find "$tower_dir" -name "*-Architecture.html" -type f | wc -l | tr -d ' ')
-
-            cat > "_site/tower-${tower}.html" <<TOWERHEAD
-          <!DOCTYPE html>
-          <html lang="en"><head>
-          <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-          <meta name="base-path" content="">
-          <title>${tower} — IAO Architecture</title>
-          <style>${SHARED_CSS}</style>
-          </head><body>
-          <div class="topbar">
-            <button class="sidebar-toggle" aria-label="Toggle navigation">☰</button>
-            <img src="templates/assets/cover_banner.svg" alt="IAO">
-            <h1>IAO Architecture Portal</h1>
-            <a class="back-link" href="index.html">← All Towers</a>
-          </div>
-          $(sidebar_html "")
-          <div class="page-body">
-          <div class="container">
-          <div class="breadcrumb"><a href="index.html">Home</a> / <strong>${tower}</strong></div>
-          <div class="hero">
-            <h2>${icon} ${tower} — ${full_name}</h2>
-            <p>${desc}</p>
-            <span class="badge">${cap_count} capabilities · Release 3</span>
-            <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
-              <a href="dashboard/${tower}/index.html" style="display:inline-block;padding:8px 20px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:8px;color:#fff;text-decoration:none;font-weight:600;font-size:14px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.3)'" onmouseout="this.style.background='rgba(255,255,255,.18)'">📊 Tower Dashboard</a>
-              <a href="dashboard/index.html" style="display:inline-block;padding:8px 20px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.25);border-radius:8px;color:rgba(255,255,255,.85);text-decoration:none;font-weight:500;font-size:14px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.2)'" onmouseout="this.style.background='rgba(255,255,255,.1)'">📊 Program Dashboard</a>
-            </div>
-          </div>
-          TOWERHEAD
-
-            # Group capabilities by process area (L1 subfolder)
-            for proc_dir in "$tower_dir"*/; do
-              [ -d "$proc_dir" ] || continue
-              proc_name=$(basename "$proc_dir")
-              html_files=$(find "$proc_dir" -name "*-Architecture.html" -type f | sort)
-              [ -z "$html_files" ] && continue
-              proc_cap_count=$(echo "$html_files" | wc -l | tr -d ' ')
-
-              cat >> "_site/tower-${tower}.html" <<PROCHDR
-          <h2 class="section-title">${proc_name} <span style="font-size:14px;color:#666;font-weight:400">(${proc_cap_count} capabilities)</span></h2>
-          <table>
-          <tr><th style="width:120px">ID</th><th>Capability</th><th style="width:100px">View</th></tr>
-          PROCHDR
-
-              echo "$html_files" | while read html; do
-                cap=$(basename "$html" | sed 's/-Architecture.html//')
-                # Extract the real capability title from the generated HTML <h1> tag
-                cap_title=$(grep -oP '<h1 style="font-size:36px[^>]*>\K[^<]+' "$html" 2>/dev/null | head -1)
-                cap_name=$(echo "$cap_title" | sed "s/^${cap} — //")
-                [ -z "$cap_name" ] && cap_name="$cap"
-                cat >> "_site/tower-${tower}.html" <<ROW
-          <tr><td><strong>${cap}</strong></td><td>${cap_name}</td><td><a href="${html}">Open →</a></td></tr>
-          ROW
-              done
-
-              echo "</table>" >> "_site/tower-${tower}.html"
-            done
-
-            cat >> "_site/tower-${tower}.html" <<TOWERFOOT
-          <div style="margin-top:24px"><a href="index.html" style="color:#0071c5;text-decoration:none;font-weight:600">← Back to All Towers</a></div>
-          <div class="footer">
-            IAO Architecture Pipeline · Intel IDM 2.0 · ${tower} Tower · Intel Confidential<br>
-            Generated: $(date -u +"%B %Y")
-          </div>
-          </div></div>
-          ${SHARED_JS}
-          </body></html>
-          TOWERFOOT
-          done
+          # ── PER-TOWER + CAPABILITY PAGES (Python) ────────────────
+          # Generates tower-{TOWER}.html with sub-tower RICEFW + JIRA summaries
+          # and cap/{CAP_ID}.html capability landing pages with 3-button doc nav
+          echo "Generating tower + capability landing pages..."
+          python3 scripts/gen_tower_pages.py || echo "Tower page generation completed with warnings"
 
           # ── PIN MERMAID CDN VERSION ────────────────────────────────
           # Guard: rewrite any unpinned mermaid@10/ or mermaid@10.x/ to the
@@ -541,7 +472,7 @@ jobs:
           .portal-sidebar .ps-cap .cid{font-weight:600;color:#00285a;margin-right:4px}
           .portal-sidebar .ps-cap.active .cid{color:#fff}
           .portal-sidebar .ps-empty{padding:16px;font-size:13px;color:#999;text-align:center;font-style:italic;display:none}
-          @page{size:A4;margin:0}@media print{.portal-toolbar,.portal-sidebar,.portal-sidebar-overlay{display:none !important}body{padding:20mm 15mm !important}h1,h2,h3,h4{page-break-after:avoid;break-after:avoid}table,pre,blockquote,.mermaid{page-break-inside:avoid;break-inside:avoid}p{orphans:3;widows:3}.page-section{min-height:auto;display:block}a[title="View full diagram"],a[title="Open full-size SVG"]{color:#0071c5 !important;text-decoration:underline !important;font-size:10pt !important}.mermaid{max-height:85vh;overflow:visible}.mermaid svg{max-width:100%;max-height:80vh;height:auto}}
+          @page{size:A4;margin:10mm 0}@media print{.portal-toolbar,.portal-sidebar,.portal-sidebar-overlay{display:none !important}body{padding:10mm 15mm !important}h1,h2,h3,h4{page-break-after:avoid;break-after:avoid}table,pre,blockquote,.mermaid{page-break-inside:avoid;break-inside:avoid}p{orphans:3;widows:3}.page-section{min-height:auto;display:block}a[title="View full diagram"],a[title="Open full-size SVG"]{color:#0071c5 !important;text-decoration:underline !important;font-size:10pt !important}.mermaid{max-height:85vh;overflow:visible}.mermaid svg{max-width:100%;max-height:80vh;height:auto}}
           """
 
           TOOLBAR_JS = """

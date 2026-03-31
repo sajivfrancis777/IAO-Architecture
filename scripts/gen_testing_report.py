@@ -348,10 +348,26 @@ def build_context(
 
     # ── Populate JIRA data from cache ────────────────────────────
     if jira_connected and jira_data:
-        tower_sum = _get_tower_summary(jira_data, tower_short)
-        if tower_sum:
+        jira_sum = None
+
+        if cap_id:
+            # Capability-level: try capability_summaries first, then sub-tower match
+            jira_sum = jira_data.get("capability_summaries", {}).get(cap_id)
+            if not jira_sum:
+                # Try matching by sub-tower name from the objects we found
+                sub_towers_found = {o.get("sub_tower", "") for o in tower_objs if o.get("sub_tower")}
+                st_summaries = jira_data.get("subtower_summaries", {})
+                for st in sub_towers_found:
+                    if st in st_summaries:
+                        jira_sum = st_summaries[st]
+                        break
+        else:
+            # Tower-level: use tower_summaries
+            jira_sum = _get_tower_summary(jira_data, tower_short)
+
+        if jira_sum:
             # Defect data
-            ds = tower_sum.get("defect", {})
+            ds = jira_sum.get("defect", {})
             if ds:
                 ctx["defect_summary"] = ds.get("defect_summary", ctx["defect_summary"])
                 ctx["defect_by_severity"] = ds.get("defect_by_severity", [])
@@ -359,18 +375,22 @@ def build_context(
                 ctx["open_defects"] = ds.get("open_defects", [])
 
             # Test case data
-            ts = tower_sum.get("test", {})
+            ts = jira_sum.get("test", {})
             if ts:
                 ctx["test_summary"] = ts
 
             # Readiness data
-            rd = tower_sum.get("readiness", {})
+            rd = jira_sum.get("readiness", {})
             if rd:
                 ctx["blocker_count"] = rd.get("critical_open", 0)
                 if rd.get("critical_open", 0) == 0:
                     ctx["uat_signoff_status"] = "⏳ Pending"
                 else:
                     ctx["uat_signoff_status"] = f"❌ {rd['critical_open']} critical blockers"
+
+    # Flag for template: does this capability have any RICEFW or defect data?
+    ctx["has_data"] = (total > 0 or ctx["defect_summary"]["total"] > 0
+                       or ctx["test_summary"]["total"] > 0)
 
     return ctx
 

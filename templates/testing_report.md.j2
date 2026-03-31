@@ -12,7 +12,7 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   pre, table { page-break-inside: avoid; break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
   p { orphans: 3; widows: 3; }
@@ -89,12 +89,23 @@ nav.toc a:hover { text-decoration: underline; }
 
 ## 1. Executive Summary
 
-{% if jira_connected -%}
+{% if not has_data -%}
+> **Standard Solution** — This {{ scope_label }} does not have any custom RICEFW objects or associated test cases. The business requirements are met by standard SAP S/4HANA configuration. No custom development, testing, or defect tracking is required.
+
+| Metric | Value |
+|--------|-------|
+| **RICEFW Objects** | 0 |
+| **Test Cases** | 0 |
+| **Defects** | 0 |
+| **Status** | Standard solution — no custom development required |
+
+{% elif jira_connected -%}
 This report provides the testing and quality status for **{{ tower_name }} ({{ tower_short }}){% if cap_id %} — {{ cap_id }} {{ cap_name }}{% endif %}** sourced from JIRA (cached {{ generated_date }}).
 {% else -%}
 > **Note**: JIRA data is not yet available. This report shows build-phase data derived from the Smartsheet Object Tracker. Run `python scripts/fetch_jira_data.py` to populate live test cases, defects, and sprint data from JIRA.
 {% endif %}
 
+{% if has_data -%}
 | Metric | Value |
 |--------|-------|
 | **Total RICEFW Objects** | {{ total_objects }} |
@@ -281,6 +292,8 @@ The following data is sourced from the Object Tracker while JIRA integration is 
 
 > **Go-Live readiness assessment will be fully automated once JIRA data is fetched.** Run `python scripts/fetch_jira_data.py` to populate. Until then, this section reflects build-phase progress from the Smartsheet Object Tracker.
 {% endif %}
+
+{% endif %}{# end if has_data #}
 
 ---
 
