@@ -276,7 +276,7 @@ def generate_tower_page(
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="base-path" content="">
 <title>{tower} — IAO Architecture</title>
-<link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
 <style>
 *,*::before,*::after{{box-sizing:border-box}}
 body{{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:#f0f2f5;color:#1a1a2e}}
@@ -543,7 +543,7 @@ def generate_capability_page(
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="base-path" content="../">
 <title>{cap_id} — {cap_name}</title>
-<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
 <style>
 *,*::before,*::after{{box-sizing:border-box}}
 body{{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:#f0f2f5;color:#1a1a2e}}

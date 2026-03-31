@@ -103,7 +103,7 @@ jobs:
           cp templates/assets/cover_banner.svg _site/templates/assets/
 
           # Copy favicon to site root
-          [ -f favicon.png ] && cp favicon.png _site/favicon.png
+          [ -f favicon.ico ] && cp favicon.ico _site/favicon.ico
 
           # Copy generated dashboards into _site
           if [ -f "output/docs/dashboard/Program-Dashboard.html" ]; then
@@ -360,7 +360,7 @@ jobs:
           <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
           <meta name="base-path" content="">
           <title>IAO Architecture — IDM 2.0</title>
-          <link rel="icon" type="image/png" href="favicon.png">
+          <link rel="icon" type="image/x-icon" href="favicon.ico">
           <style>${SHARED_CSS}</style>
           </head><body>
           <div class="topbar">
@@ -597,7 +597,7 @@ jobs:
 
               # Inject CSS before </head> (includes hiding standalone PDF button)
               # Inject favicon + CSS before </head>
-              favicon_tag = f'<link rel="icon" type="image/png" href="{base}favicon.png">'
+              favicon_tag = f'<link rel="icon" type="image/x-icon" href="{base}favicon.ico">'
               content = content.replace("</head>", f"{favicon_tag}\n<style>{TOOLBAR_CSS} .pdf-download-btn{{display:none !important}}</style>\n</head>", 1)
               # Inject toolbar HTML after <body> (handles <body> or <body ...>)
               content = re.sub(r"(<body[^>]*>)", r"\1\n" + toolbar_html, content, count=1)
