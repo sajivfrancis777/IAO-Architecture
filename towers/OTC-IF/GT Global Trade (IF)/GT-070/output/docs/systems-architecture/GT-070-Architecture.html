@@ -183,15 +183,15 @@ strong { color: #00285a; }
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
-    top: 16px;
-    right: 16px;
+    top: 72px;
+    right: 24px;
     z-index: 9999;
     background: #00285a;
     color: #fff;
     border: none;
     border-radius: 6px;
-    padding: 10px 18px;
-    font-size: 13px;
+    padding: 8px 16px;
+    font-size: 12px;
     font-family: "Segoe UI", Arial, sans-serif;
     font-weight: 600;
     cursor: pointer;
@@ -207,7 +207,14 @@ strong { color: #00285a; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
     table, pre, blockquote, .mermaid { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
-    .page-section { min-height: 100vh; }
+    /* Page sections: do NOT use min-height in print — the page-break divs
+       already handle pagination.  min-height:100vh forces every section to
+       fill a full page, which creates blank trailing space before the next
+       page-break, producing blank pages in the PDF output. */
+    .page-section {
+        min-height: auto;
+        display: block;
+    }
     .page-footer { page-break-inside: avoid; break-inside: avoid; }
     .mermaid {
         page-break-inside: avoid;
@@ -223,11 +230,6 @@ strong { color: #00285a; }
         color: #0071c5 !important;
         text-decoration: underline !important;
         font-size: 10pt !important;
-    }
-    a[title="View full diagram"]::after {
-        content: " (opens mermaid.live)";
-        font-size: 8pt;
-        color: #666;
     }
 }
 </style>
