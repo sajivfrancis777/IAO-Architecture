@@ -32,7 +32,7 @@ PAGE_BREAK = '<div style="page-break-before: always;"></div>'
 CANONICAL_STYLE = """\
 <style>
 @media print {
-  @page { margin: 0.75in; }
+  @page { size: A4; margin: 0; }
   .mermaid { page-break-inside: avoid; break-inside: avoid; overflow: visible; }
   pre, table, blockquote { page-break-inside: avoid; break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; break-after: avoid; }

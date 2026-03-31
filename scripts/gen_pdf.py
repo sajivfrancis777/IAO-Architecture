@@ -31,7 +31,7 @@ os.chdir(str(WORKSPACE))
 DOCUMENT_CSS = """
 @page {
     size: A4;
-    margin: 20mm 15mm 20mm 15mm;
+    margin: 0;   /* zero margin suppresses browser default header/footer */
 }
 body {
     font-family: "Segoe UI", Calibri, Arial, sans-serif;
@@ -226,7 +226,7 @@ strong { color: #00285a; }
 .pdf-download-btn:hover { background: #0071c5; }
 
 @media print {
-    body { padding: 0; max-width: none; }
+    body { padding: 20mm 15mm; max-width: none; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print, .pdf-download-btn { display: none !important; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }

@@ -12,7 +12,7 @@
 
 <style>
 @media print {
-  @page { margin: 0.75in; }
+  @page { size: A4; margin: 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
