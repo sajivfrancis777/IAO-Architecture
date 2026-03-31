@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">E2E-44 — R3 - Intel Owned Consignment with Planning Integration</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **E2E-44 R3 - Intel Owned Consignment with Planning Integration** within the IAO program. It includes 5 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | End-to-End Integrated Processes (E2E) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 2 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 2 Pending IAPM |
 | **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Process Visibility & Monitoring | Provide end-to-end process visibility across tower boundaries with integrated monitoring | Operational Excellence | Medium |
 | 4 | E2E-44 Process Migration | Migrate R3 - Intel Owned Consignment with Planning Integration business processes and 2 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Cross-Functional / End-to-End | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -208,16 +175,17 @@ This capability includes **5 business process(es)** modeled in BPMN 2.0, coverin
 |---|---------|--------------|-------|-------|----------|
 | 1 | E2E-44_R3_CFIN | E2E-44_R3_CFIN | Boundary Apps, CFIN, MBC, SAP S/4 (IP & IF) | 15 | 10 |
 | 2 | E2E-44_R3_SAP_Transportation_Management | E2E-44_R3_SAP_Transportation_Management | Boundary Apps, External Partners/
+
 Supplier
 , SAP S/4 (IP & IF) | 12 | 6 |
+
 | 3 | E2E_44A_R3_Intel_Owned_Consignment_with_Planning_Integration-Procurement_from_Component_supplier_and | E2E_44A_R3_Intel_Owned_Consignment_with_Planning_Integration-Procurement_from_Component_supplier_and | Boundary Apps, External Partners/Suppliers, SAP S/4HANA IP | 26 | 10 |
 | 4 | E2E_44B_R3_-_Intel_Owned_Consignment_with_Planning_Integration-Shipment_of_components_from_Intel_War | E2E_44B_R3_-_Intel_Owned_Consignment_with_Planning_Integration-Shipment_of_components_from_Intel_War | Boundary Apps, External Partner/Supplier, SAP S/4HANA IP | 45 | 28 |
 | 5 | E2E_44C_R3_Intel_Owned_Consignment_with_Planning_Integration_-_Subcontracting_Process_with_ODM_Suppl | E2E_44C_R3_Intel_Owned_Consignment_with_Planning_Integration_-_Subcontracting_Process_with_ODM_Suppl | Boundary Apps, External Partners/Supplier, SAP S/4HANA IP | 34 | 14 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -329,10 +297,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV99z4jYQ_lc0vklJZqDnnxh4aAcMvslMyDGh106n9EHYcvDEWB5ZJqE5_veubMlg4zz0moc76_O3365Wu2vxrgU0JNpEu7l5j9OYT9B7j-_InvQmqLfFOen1UQX8jlmMtwnJe4IT0ZSv439KmmFnb4ImMB_v4-Qo0DV5pgR9u--jKRgmfZTjNB_khMVRr9_LWLzH7OjRhDLB_kRGkR6V3uSrGWUhYWeCrrtG4IBpEqfkDFuu7dq-sMtJQNOwIRo50SgKeicRXEJfgx1mvAy_yMkSv_0Rh3wH6wgnOQHOju-TB7wlidgjZ4XAgoIdVDLiXPhJIWHrDAdx-gy4rQPEcPpyhhz9dEKnm5tNWjtFD0-bFMFfkOA8n5MI5RzgxYGjKE6SySfbm_qO3s85oy9k8slcuHPL7AdiJxPYut4XyR28kvh5xydbmoSSOngVe5iY2VufvU1Mvc-O8G_LF0nDsydvaI7MUe1p5hqe4SlPURT9L0-QV_Ybzl-kr4Xlm_689mU4Q8fTr_XUNue2OzXaeSLsEAfkQtT3fWtxTtVi6Bj6x6Iz3xrqXkv0GXPyio9nwbFn14K-4_qG-6Fg5a8dZbFdMRooQWvh-E4t6M4Mf2p-KGhPDXskIwSdZ4azHZrRoqxlNM2yvHon_lLjr432RAISHwjy44SgOEUzqL6N9vcFywTWtyyEXaIVPu5JytET2cec4zQgTarh3gI5wpMID3JOs9pgjjlGlUgIJneVDZRSK1LPv3-80LNAbfFGguLSd5E2ndpA8hgR8U1XS7QkewoBBtDxTZ4DPJFXkudo5i1rwRnmwQ6aDR5yEiIKOShyGAtAeypgRDVVhqDyhaSEKX9KRiSwSXVFeqmInVORekYPhDUpIxE7ZYwEvBSTzzEEca03Lo8LNHLheYXmUCOPxX5LGMJpeLlxNCcJESqt49FBwSewXRV1jnwccAqlcQvu-yIvfbSceWhJYX5TdtcSqCrmEJNXMIQAw3r7D_S5xTUvM6VocAAZzXHS4lqlbpbEgSCviwweYVv36YFCv6IVzTmcUMto3Cq2ywRUBXFRa1Up6y0TlUaZ1iu-8f6u-OLTNtjCcIbsLXFa4ESeKTw8ElFV0GG_brTT6VLA7BaQ1RBe8a1uPnkLEijKA_lSDZu2md1t5mEoZqKqqsOd82Puhj9m5nabVcmHNFIGz1nVonDcV9GOzvaYMfqaD3DCUYYZThKSfOB0_ANGlt5pFKcf7e96kkETXdaqGFLLIuHxQAxYOJE0FX1-iDm03g7Ke8DpQPzf7jjnvxteB7OertD6s41u71foJ3TvX9a4MTz3RJbAd6yz-6DTbz26z2hadvHXcuKsiy3Eg1YFg3sJDKWv4pIlht3X-fKu1UrG6KNPA-EwSXIkGiIOwc8WBy9CZE1BF4bBEbzvReifReDXHw-YNGgw-AVOTa6tammO5Nqu1sZYrh35Xt4O4EEA3zfaI91o30UTyheuJJqKKJWHai2VHLW2W0KKOJZCuopYl4AKyRxWQL2WFkYd46gCbKVgSAVXEVzpW3VTMwKZIkPRpT_DbjlUW5XuTLU1Q27dMNsRjtpZ_FN8MsG3cqXw1fT-8WddN9EtHP0goTgUNxxyV5KN2pHdpBvd9EZayl2f50a1cyVoyVzXcZqtOOvjrt-o46uTLc_Z0K-T3XJr6e1aUG7qN4bKvXVx7ythdY1v4q68cjfRUSc67kJNvRM11M21CZvdsNUN292w0w0Pu2G3Gx51w-NOGI5Zwlpf2xO2x3GoTd618ucm_CQNSYRhjGqnvoYLTtfHNNAm5c8yrSjvpfMYw7DcV-DpX1SFiV0=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 E2E-44_R3_SAP_Transportation_Management — E2E-44_R3_SAP_Transportation_Management
@@ -418,10 +385,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_RVCQeosYCeiLFmOHwrYshUE2GCNKGkf1n2gJcomQksCSfnSrP-9Q118UZy22_ohyBzNnJk5miH1boRpRI2BcX39zhKmBui9pZZ0RVsD1JoTSVttVAK_EcHInFPZ0j5xmqiA_Vm4YTvbajeN-WTF-E6jAV2kFL0-ttEQAnkbSZLIjqSCxa12KxNsRcTOS3kqtPcV7cdmXGSrHo1SEVFxdDBNF4cOhHKW0CPcdW3X9nWcpGGaRGeksRP347C118XxdBMuiVBF-bmkT2T7O4vUEuyYcEnBZ6lW_CuZU657VCLXWJiLdS0GkzpPAoIFGQlZsgDcNgESJHk7Qo6536P99fUsOSRFX59nCYJfyImUYxojqQCerBWKGeeDK9sb-o7Zlkqkb3RwZU3ccddqh7qTAbRutrW4nQ1li6UazFMeVa6dje5hYGXbttgOLLMtdvC3kYsm0TGT17P6Vv-QaeRiD3t1pjiO_1cm0FW8EPlW5Zp0fcsfH3Jhp-d45ke-us2x7Q5xUycq1iykJ6S-73cnR6kmPQebn5OO_G7P9BqkC6LohuyOhPeefSD0HdfH7qeEZb5mlfl8KtKwJuxOHN85ELoj7A-tTwntIbb7VYXAsxAkW6JRmhezjIZZJstn-pfg7zPjmYaUreldAO8VPSZxKlZEsTRBLEEeEYJRAfA6BdnQs16KkHFWeNyNmcxyRW9vb2fGHye0FtBO1jRRKM8iEEciIigSZaJIEz-8vJyHYPf9fWbEZBCTjj5DOnPYgnCJ6DbkuYSwh1LkmbHfl2FQbqPLyVZRkRCOprAMCRXyDgV5lnHdwWkq3bVPoZBnXdudByu1gBofE0WBSKVCoq6IUAYsu3pi0Cy3TNwFBaJNmkaN4nXDlVaNJ_bN97qtjMOM6PdKpU7GFKgIRYzgWIwQ6K2rORQzXBPG9QEJfF9OCZ0GYaGzRNN8zplc0qjhb5lHXaHAdCM7hCvdG-Gc8g-qlkH454I-vopgOEXBnY1uHqfoF_Ton5bUhQYeKLwfoEG-KI4G9Ap6oJuXpy_n-tlaWEFPPb_pg_yCqwOuUyr0_B7m9rUePxhtj_Aw55qp0vg8vKdndkvD_F-kcnWqVKqDY0CV4nCrwcSP0zAv_vkY1j82E1RTNf2GoGDkB-ML_vd1mmASoA1TSzTMVQojyCnMzIUAbB4zeDoQFlQJNs-LbR0uaBLu0AjWKdEj-DeV4m5jyrx0laWJdoaKtZpBPvdgZsF6HI0PqwNpmvPaOzJJlWbo5Qll1Q7A2HyYV9z_2XOgDLv_T2GWdXHQWfKPh07SRZ3OrzCglemUJu5XtlvatYnvS9upbLtyv6_s6jE2a3-zAno1gEvAOnjUFLgGqpQHuy7JqgGroqg9rIoTuzVgNoE6a9Ohrrug_FGf9uW6zYwfJ0LgfhlSN1KZNQGudOxWdq9KeCi6YVtVE-7JlVmw1F9A57j9Ce58gveqr5tz1K2v-HO4fxm-vwiDdBdhfBm2athoGysKVzKLjMG7UXw7w_d1RGOSc2Xs2waBMyHYJaExKL4xjfLKHTMCC7kqwf1fVJKVCA==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 E2E_44A_R3_Intel_Owned_Consignment_with_Planning_Integration-Procurement_from_Component_supplier_and — E2E_44A_R3_Intel_Owned_Consignment_with_Planning_Integration-Procurement_from_Component_supplier_and
@@ -548,10 +514,9 @@ Power BI"| n22
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv4jgU_isWo6odCUSuQHnYFVDoIE1bVDozWg37YBIHrBo76ziUbof_vseJzSVD59LlAeHP5_Kdi48TXmqRiEmtWzs7e6Gcqi56OVdLsiLnXXQ-xxk5r6MS-IwlxXNGsnMtkwiupvTfQswN0o0W09gIryh71uiULARBn8Z11ANFVkcZ5lkjI5Im5_XzVNIVls8DwYTU0u9IJ3GSwpvZ6gsZE7kXcJy2G4Wgyigne9hvB-1gpPUyEgkeHxlNwqSTROdbTY6Jp2iJpSro5xm5wZsvNFZLWCeYZQRklmrFPuI5YTpGJXONRblc22TQTPvhkLBpiiPKF4AHDkAS88c9FDrbLdqenc34zin6eD_jCD4Rw1l2RRKUKYCHa4USylj3XTDojUKnnikpHkn3nTdsX_lePdKRdCF0p66T23gidLFU3blgsRFtPOkYul66qctN13Pq8hm-K74Ij_eeBi2v43V2nvptd-AOrKckSf6XJ8irfMDZo_E19Efe6Grnyw1b4cD53p4N8ypo99xqnohc04gcGB2NRv5wn6phK3Sd1432R37LGVSMLrAiT_h5b_ByEOwMjsL2yG2_arD0V2WZzydSRNagPwxH4c5gu--Oet6rBoOeG3QMQ7CzkDhdor7Ii15GvTTNyj394W74dVa7kwvM4fChB2i8LBVSNcZcEYbuRa6gB9F1TmOCLsb31-9ntb8P1Vugfk9wPBWJQp8xozFWVPDmcBORVP9CHzCPmTaiT3-MAJE5nHoohMrTirU2WBvzSKy0POVrAZVqor7Xb96lhD-QjWp-IXOIiipSUe2A6g3mOWZWMUNqKUW-WKK7wf2xtO-_vMxqCe4muKHnVWMOgUdLRDYRyzO6JtdlQWe17fZQLTitpgmWvv-saoS_6wjOVqV0w40ikkNcEzjhnMisOc3TlFH4dZiAS0jApxTST9BISBLhTKGBWK1yTqOiJggKUSBUHWfDc4oiRgT4oMkdwoViKjjhCllfFRUXVEpb6E7PVdSLHrl4YiRewGznVQ8eiE8hNG0-OiKlBLq7unnNjV_oMRIBJSwlCKA1xehUdy5FpogOkDE8F7K0PoFexqxiNLBkSubTJU1PUA4Pk7J8zoAwuNRAqpBI0A1kWl9ECC8w5ZDsMnM_CEafFbsFIegmBfoVoc7FV9swmRLpTxOGpiX19wdGAmffdZA18ZQ1MFMoxRIzRtgv9Ny0N0HTZvChd9tD48lhm-m6S6K7bJJLuIsyAkn5J6cZ1ewqweyFzdH8uY6uOMwoKda_4iE4Qaeo6rGYruWDpIsF5Ov6YYoGSxI9Hovo4gwwi3KmjT3gDcmOBcrZBBz0fi-HMoz5XE9VdEUYNIl8PpbvHPTPtRBxtmuei89UKshGZZZeHpB8uEHD1ZzEMYkrc06f1eEas1zTsBanRClWnDt0MbyfvgeAJY0-XB7fNZirKzjOspzsO7jaUhdh4FYHva7lBI4YqnRwdQ7r-k3yOaPZ8oclcXXpDoZGcyB4QuXqh0pee386UgYX7qkOQUVD6B-2XHHlfHg61UNv2AgCdO8Xzb67-UpNaFd8apD5zpHmYDS-rQi4pwe-SRaMSX0vkvi7i8J7243U-r2TXiq136LUeYvS5RsHEfdQo_EHGLBLs_Y6BvBbJRBagUCvv0FLTW_R0NOPCzNeDp1Z7Zse51YwLBXbZt02juzaN0Cnsr40646R3-0bwHWqgGsB3wAtA7jWp-XkG06-DdcPjEqnCliarlNVcU0C_tKD65s-sdWdW1GmwvLwTA79wBrtVIhZARt8WFm7JrTABu8ant6ucIanZ7Ph2WxYH5dGYGfTlt6plNrS9o2Ga30EjgkQng0nd80ZN_Uvgt0xM9y9XbA2OMvMUPdbVbNlGzVNW4H9iXiC-dcflx5snj3X8Np5MAZ3hTCR2X3P9MFu_1i-eBkopOy73THeMe9hx-jlaWnfeQV37cvLMeydhv3TcHAaDk_DrdNw-zTcOQ1fnoShZgau1WsrIleYxrXuS634xwH-lYhJgnOmatt6DcMVPn3mUa1bvJnX8uLZ-YpieAJaleD2PwrtJd4=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 E2E_44B_R3_-_Intel_Owned_Consignment_with_Planning_Integration-Shipment_of_components_from_Intel_War — E2E_44B_R3_-_Intel_Owned_Consignment_with_Planning_Integration-Shipment_of_components_from_Intel_War
@@ -801,10 +766,9 @@ from R3 onwards"| n68
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWllv20gS_isNBVk7gByLZ9N62IWsw2MgjgVLSbAY70ObbFlEKJJDNn2s4_--1WQXJbXaMwln_WCYxTq-OrvU8ksvzCLeG_bev3-J01gMycuRWPMNPxqSoztW8qM-aQhfWRGzu4SXR5JnlaViEf-3ZrPc_EmySdqMbeLkWVIX_D7j5Mtln4xAMOmTkqXlScmLeHXUP8qLeMOK53GWZIXkfseD1WBVW1OvzrMi4sWWYTCgVuiBaBKnfEt2qEvdmZQreZil0Z7SlbcKVuHRqwSXZI_hmhWihl-V_Io9fYsjsYbnFUtKDjxrsUk-sTueSB9FUUlaWBUPGIy4lHZSCNgiZ2Gc3gPdHQCpYOn3LckbvL6S1_fvb9PWKFlOblMCP2HCynLCV6QUQJ4-CLKKk2T4zh2PZt6gX4oi-86H7-wpnTh2P5SeDMH1QV8G9-SRx_drMbzLkkixnjxKH4Z2_tQvnob2oF88w2_NFk-jraWxbwd20Fo6p9bYGqOl1Wr1tyxBXIslK78rW1NnZs8mrS3L873x4FAfujlx6cjS48SLhzjkO0pns5kz3YZq6nvW4G2l5zPHH4w1pfdM8Ef2vFV4NnZbhTOPziz6psLGno6yupsXWYgKnak381qF9Nyajew3Fbojyw0UQtBzX7B8Tc6zqq5lMsrzsnknf1LH-_22d8NDHj_w0wUkllymq6zYMBFnKYlTMmZFEfMCyA8ZxI3cyK4I4ySuOU4ncZlXgn_8-PG2958dvb7_8nLbW7Hhip3IiXByBzUdrgl_CpOqBGMXTchue6-vjRjY1jBPnwQvUpaQOZR2yovTRZXnCYDZxe8DfsQ4ztJVjNhvskpA_5CLKo746fjmah-gQ0FwHoffgUd7E8g3zPTmDN58ylh08MYdSJmsFGS-fi7jEEDXQc0FyVbkCnyVM4uwexanwLRYXhMmyPXkirQ-7euzFDpyLacWWazjfMNTQS6yLCrJsfL4gyZlg9SM84jcgMXydAyj4p6XkDvBIaQiK0riFBHJIZ7P2AnktrIHlgN4o0dQrml0QON5ln0_XUJ-AIjI2op4iBk5_-x-0iRckFiM5qZX3jZX2pvg-HesljyBRpLFz0uJPBZQaeDROZwdEZF5hcfWs9EDixN5ioC-D7sKzzSFqMiEflfQG2iC0wcIe0nm1V0Sl2se6fz-lr8UWQ5Fy8OqLkDeSKKhk4vlEqznoioOtPj0V7ulEQs6idGzrRhEI3ssT1giZFWwJOGJWSgYdBGyugjZXYScLkLurwkdjihZ6ItT97fR5xG5nO-olv07LrisuIXIoI-XkJoyz-Dorjt6v_7rvo1h1MEGVHdrgnVabgsfhoY2jkBqWcT391DOF8sFGa95-F1rrC2M60rcyUOATHgCpVE873M2vZmEVSKZl-yJl9pEl9auyHRzx6OIa3MCh2mfyMFJGJj5kkegaZ8twCnZjLHLsqw0Djlhp091nPDEOZ7zoj6StGlnyZk7zjYbXoRyuG75i8zIX-dExoiMlvOaLapCQUZJkoXNmaHGCZxuMB9rVl2HvQ3oqIJheJn-WVAtZ3u6Kp_VsXD8NS5ExRJdv0xYHZbtoQFWdg8Kcuy5li4ms3c5bkMAxSbPKCi94iNAy-XsToUm4_9Vxi3aOnuq0klmRb3IkS8wT-s0G6rZkmle8IRDcI3j3jrbM62GudYSA-NZNmwRQIofmTQOx6Fsw-WVFhTbqmtJjuMt7uY4lcAXgomqVH6VJK_L8lJTYe_kDzcfgKQtRcelbtp5O3ILLkTC68N8koXV5iAx9k7TLtQZPb8-JdNUwP62WHOuC8jsqyre2hmDQ6UsHixNcin4Ru4O16fz0QeSFdsS-8qSqu4ATbGP_ToKw6JqahH1Q5fytOTyFXSAOIwB_YUEfovFGpbNwxzKUrrgsPz97CSVpdUe9nIqHqtxMuGwXRe1l5oRpxkk9e5omLKyjK5Yyu654aX99py_4X9UvNRy5WwrA8Kfypj-nJwsCtjdi-zhJy25_v97p6Jv7VR_7gip3W2Ka291srTVyTDLMfUHa5d9sHbVJuO_knM0ubYF6qEb6cNWF3c18Z_qCyJb6BCKp-n6W42Lp9ihmTdWy3GRQS00lyL_0vYir9te6Z1122IH3cSsbmJ2NzHHLPb2EpFwPay-2820102sy5ZPu2z5tMuWT7ts-bTLlk_dLkJeFyG_ixDtIhR0_OSSWuTk5J-yOtSzf9YQHPXsNo9U3UjBH0oAn9V7C5-VQo8qgldz_Ljt_VuudD_kWNDffM7qFxbacJRSJ0BCoKy0ooqADBRR6274LvqhcLloBK44Gp026rAbguUhh_Ldw1hY6GzLoWBYaNZSZvHiEv5QIojDVjgoBtBWZm20YitgdiuCOUAOihyIw_YUUiS4SmmAaXEVUhe99X0VMRQJsBLazLo6wdMIPkJHpQ5yIMFVVmysBluF0G-BKV8CW8fRcmAa0KynYuq23nqqkGbX5B_kt9G3czgR87y-lfuxg1ehoy0YLCsso0BpDtrQq3x6CCZQcL1AJ2AJKJ0-GqHKY7stZg0FVRK21mFBW0MqU-iGhRHCevAdrcWctpMsrQ1aVtVzjqU1jKeh8ltVA42And4SfMwLPqvEWWjD8TXPAlcLFhIcJDhnCu_ODQFem96m7UaUZvJq4YdMhz6HMOyWQme3MwRV1wXDhGAh3OeRW3nfDZ88cD_GKmoni8qni15ZODccfZC0gVDPVG-kNvgKrNWCVRxW23tKhx9o3WlbOoetT4l20igOD3EFtopAe50My3p9zy2_FpCRKLINuXHgI4H8ZNbUVovAVRXjOnvqdt3CodMO4YEy6J7b5OKmmfrt8FB4HeR2UF_b53guoEXH1Th8jJt6xqK2984JAFB_DQcpjlOBCaY737nUkwu_Qtun0zfowRv0MzMdhpiZbqmv0_aptpHqGKmukeoZqb6RSvEbrH1yYCafGckwDYxky0y2zWTHTHbNZM9M9s1ks5e-2Uvf7CU1e0nNXlKzl9TsJTV7Sc1eUrOX1OwlNXtJzV4GZi8Ds5eB2cvA7GXQetnr9-Dz_obFUW_40qv_KQD-cSDiK1Ylovfa7zG4YV08p2FvWH953qvqm7RJzODyfdMQX_8HqIDVWw==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 E2E_44C_R3_Intel_Owned_Consignment_with_Planning_Integration_-_Subcontracting_Process_with_ODM_Suppl — E2E_44C_R3_Intel_Owned_Consignment_with_Planning_Integration_-_Subcontracting_Process_with_ODM_Suppl
@@ -972,10 +936,9 @@ Power BI"| n21
 
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -987,17 +950,18 @@ Power BI"| n21
 | MBC | E2E-44_R3_CFIN,  | |
 | SAP S/4 (IP & IF) | E2E-44_R3_CFIN, E2E-44_R3_SAP_Transportation_Management,  | |
 | External Partners/
+
 Supplier
+
  | E2E-44_R3_SAP_Transportation_Management,  | |
 | External Partners/Suppliers | E2E_44A_R3_Intel_Owned_Consignment_with_Planning_Integration-Procurement_from_Component_supplier_and,  | |
 | SAP S/4HANA IP | E2E_44A_R3_Intel_Owned_Consignment_with_Planning_Integration-Procurement_from_Component_supplier_and, E2E_44B_R3_-_Intel_Owned_Consignment_with_Planning_Integration-Shipment_of_components_from_Intel_War, E2E_44C_R3_Intel_Owned_Consignment_with_Planning_Integration_-_Subcontracting_Process_with_ODM_Suppl | |
 | External Partner/Supplier | E2E_44B_R3_-_Intel_Owned_Consignment_with_Planning_Integration-Shipment_of_components_from_Intel_War,  | |
 | External Partners/Supplier | E2E_44C_R3_Intel_Owned_Consignment_with_Planning_Integration_-_Subcontracting_Process_with_ODM_Suppl | |
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -1008,10 +972,9 @@ Supplier
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 | 1 | e.g. Cost Element | e.g. MES 300 | e.g. XEUS | Data steward | e.g. Intel Confidential | e.g. 10K rows/day | Master / Transaction |
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -1059,10 +1022,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -1106,10 +1068,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.3 Data Lineage
@@ -1138,10 +1099,9 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1195,10 +1155,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVf9P4jAU_1eaGX6DcyqgLoZksHHhMtTcTr3L7bKU9QHNlW1ZOxWV__1eV5QJGr2SjO19-bz28z5tH60kY2A5VqPxyFOuHPIYWWoOC4gsh0TWhEp8a-KbhKQsuFoGcAvCOEWWPXurlGtacDoRILUbcaZZqkL-sIY66Ob3Jljbh3TBxdJ4QphlQK5GTeIigGgSSVPZklDwaWStqgyR3SVzWqg1cilhTO9vOFNzbZlSIUHHzdVCBHQCopqCKsrKmuISw5wmPJ1pc9vWxoKmf2vGjr1akVWjEaUvtciPfpQSHI0GabVwbsmcj6mCFk9lzgtgRKqlAJIIKiVIjDHh1bcHUzIpJU9BSlKNKRfC2Rvi6HeaUhXZX3D2-icnXbu__mzd6QU5h_l9M8lEVjh7tm1vYdI8J5thMPsdjfqCadvHx_3uf2AyqugupnfyAebBK8xnH6MSySvoEjklna1KC86YgDtaQJ0Rr-tuGPGPu8MN2idmD5nYYURzXGN5MLDtjzANqiwns4Lmc-IGvyMrKtnJEcMnO-oQ9_IyGA3cH6OLcxK4v_zvkfXHJOnBUBCJ4llKgu8bq3_ot9uDGOJZPPbD-Mi266gJdAl8mX0h6CPoQ0DHcbDDbwL89K_CN7O1493U8U2V7D6UBcQhFLc8gbhfylerOzg2SFUUWUcRjDKwm65to3t-hT7IpIp9gUdAqnr1KSZtA6wDyDrgbFLs9854zzjCa7JPRl6W4N-38OL8bJ_3TFWtSlMPUvbcn11Ccdv1niKrQvOqJiCSeznC55ALPHuePmCiDvxejC6y3Qs9pbVoqmOgH9S2-ND-aIvXU92XVPszO3lHrAHMkKNX4mA2Cfyv_rn3CZUGMWp7W1pungueUB38hriCeHyzLaHxRibvyiaIPX9bIZ4-fvxU4eWy3XmT4l-YzXjYZW0MZK1s2gr4dF0G939NJhtSDSnPxHb074XY09PTnbPMaloLKBaUM8t5NBca3osMprQUCq8hi5YqC5dpYjnVxWKVOU4UPE6xCQtjXP0DrC5G7Q==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Current-State Flow Narrative
@@ -1207,10 +1166,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.2 Future-State — Future-State Application Landscape
@@ -1262,10 +1220,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1I0AfEKFKKUmnTikgwsamZYrc-La15iZR7AAF-t93HRcaWhDMldLkPs61zz22H60kY2A5VqPxyFOuHPIYWWoOC4gsh0TWhEp8a-KbhKQsuFoGcAvCOEWWPXurlB-04HQiQGo34kyzVIX8YQ110M3vTbC2D-mCi6XxhDDLgHwfNYmLAKJJJE1lS0LBp5G1qjJEdpfMaaHWyKWEMb2_4UzNtWVKhQQdN1cLEdAJiGoKqigra4pLDHOa8HSmzW1bGwua_q0ZO_ZqRVaNRpS-1CLXgyglOBoN0mrh3JI5H1MFLZ7KnBfAiFRLASQRVEqQGGPCq28PpmRSSp6ClKQaUy6EszfEMeg0pSqyv-DsDY6Pu_Zg_dm60wtyDvP7ZpKJrHD2bNvewqR5TjbDYA46GvUF07Z7vUH3PzAZVXQX0zv-APPgFeazj1GJ5BV0iZySzlalBWdMwB0toM6I13U3jPi97nCD9onZQyZ2GNEc11g-O7PtjzANqiwns4Lmc-IGvyMrKtnxEcMnO-oQ9_IyGJ2516OLcxK4v_yryPpjkvRgKIhE8SwlwdXG6h_67fYwhngWj_0wPrLtOmoCXQJfZl8I-gj6ENBxHOzwmwA__e_hm9na8W7q-KZKdh_KAuIQilueQDwo5avVHfQMUhVF1lEEowzspmvb6J5foZ9lUsW-wCMgVf36FJO2AdYBZB1wOin2-6e8bxzhD7JPRl6W4N-38OL8dJ_3TVWtSlMPUvbcn11Ccdv1nyKrQvOqJiCSeznC55ALPHuePmCiDvxejC6y3Qs9pbVoqmNgENS2-ND-aIvXU92XVPszO3lHrAHMkKNX4mA2Cfyv_rn3CZUGMWp7W1pungueUB38hriCeHyzLaHxRibvyiaIPX9bIZ4-fvxU4eWy3XmT4l-YzXjYZW0MZK1s2gr4dF0G939NJhtSDSnPxHb074XYk5OTnbPMaloLKBaUM8t5NBca3osMprQUCq8hi5YqC5dpYjnVxWKVOU4UPE6xCQtjXP0D8p9HBQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Future-State Flow Narrative
@@ -1274,10 +1231,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.3 Change Impact Summary
@@ -1297,10 +1253,9 @@ flowchart TB
 | e.g. MES 300 | - | N/A |
 | e.g. XEUS | - | N/A |
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1315,10 +1270,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 
 > *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1327,10 +1281,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 |---|---------|-----------|-----------|----------|------|
 | 1 | e.g. Pub-Sub / P2P / ETL | e.g. MES Route to ICOST | e.g. Azure Service Bus | e.g. REST / RFC / SFTP | e.g. OAuth / NTLM / Cert |
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1371,10 +1324,9 @@ flowchart TB
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
 
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -1416,10 +1368,9 @@ flowchart TB
 | 1 | e.g. Azure PaaS | Cloud / SaaS | e.g. XEUS | DEV,QAS,PRD |
 | 2 | e.g. S/4 HANA 2023 | On-Premise | e.g. MES 300 | DEV,QAS,PRD |
 
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1459,10 +1410,9 @@ flowchart TB
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1481,10 +1431,9 @@ Project delivery milestones for E2E-44 RICEFW objects:
 
 > *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
 
+
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1513,5 +1462,5 @@ Standard RAID items for E2E-44 (End-to-End Integrated Processes):
 
 ---
 *E2E-44 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026*
+
 <div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-44 — R3 - Intel Owned Consignment with Planning Integration</span></div>
-</div>

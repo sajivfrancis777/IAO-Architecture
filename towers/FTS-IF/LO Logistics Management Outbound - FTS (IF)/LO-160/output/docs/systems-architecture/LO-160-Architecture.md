@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">LO-160 — Pick Orders - FTS (IF)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IF) (FTS-IF) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **LO-160 Pick Orders - FTS (IF)** within the IAO program. It includes 10 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Forecast to Stock (IF) (FTS-IF) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 2 Reports, 18 Interfaces, 3 Conversions, 19 Enhancements, 9 Forms, 3 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Production Planning Optimization | Enable MRP-driven production planning with real-time material availability | Manufacturing Excellence | Medium |
 | 4 | LO-160 Process Migration | Migrate Pick Orders - FTS (IF) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Supply Chain (Intel Foundry) | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -217,10 +184,9 @@ This capability includes **10 business process(es)** modeled in BPMN 2.0, coveri
 | 9 | LO-160-080_Confirm_Quantity_and_Location_Picked_-_FTS_(IF) | LO-160-080_Confirm_Quantity_and_Location_Picked_-_FTS_(IF) | Picker/Packer | 1 | 1 |
 | 10 | LO-160-090_Transport_Product_to_Staging_Area_-_FTS_(IF) | LO-160-090_Transport_Product_to_Staging_Area_-_FTS_(IF) | Picker/Packer | 1 | 0 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -317,10 +283,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P4jYU_StWRiNaKVHjfJCQh1ZMIKuVuqtRoV1VSx9McgPWGBs5CR9l-e-1SQIkwzw1D8A9Pueeey-2czJSkYERGc_PJ8ppGaHToFzDBgYRGixJAQMT1cBfRFKyZFAMNCcXvJzRfy807G0PmqaxhGwoO2p0BisB6M_PJhorITNRQXhhFSBpPjAHW0k3RB5jwYTU7CcIczu_uDVLL0JmIG8E2w5w6ispoxxusBt4gZdoXQGp4Fknae7nYZ4Ozro4JvbpmsjyUn5VwBdy-Eazcq3inLACFGddbtjvZAlM91jKSmNpJXftMGihfbga2GxLUspXCvdsBUnC326Qb5_P6Pz8vOBXUzSfLDhST8pIUUwgR0Wp4OmuRDllLHry4nHi22ZRSvEG0ZMzDSauY6a6k0i1bpt6uNYe6GpdRkvBsoZq7XUPkbM9mPIQObYpj-qz5wU8uznFQyd0wqvTS4BjHLdOeZ7_Lyc1VzknxVvjNXUTJ5lcvbA_9GP7fb62zYkXjHF_TiB3NIW7pEmSuNPbqKZDH9sfJ31J3KEd95KuSAl7crwlHMXeNWHiBwkOPkxY-_WrrJavUqRtQnfqJ_41YfCCk7HzYUJvjL2wqVDlWUmyXaNXmr6B_OWV6K96TT8cf18YOYlyYulRo1iCagV9IzsoFsY_d0SnS_wDGKjT_Ijpfr9SU7F6x7ynel1q465rVTtfKSSshbJD-t_qSX2l_AQcZKtAc91i2StmqGhfhaIQnqlSUnUJoOkhhW1JBS-QhZL5DP30Ofm5KwuU7JURjiZEXT91_kQdvi4rPJ1u5WdgLdW5TddoftwCEvml47b93xbG-XwnHT2WwiFlVUF38KneUT0Vth_LtFPfAeMbl0gp9oVFWIm2RBLGgL0zUIe6_sEDZFm_arMmxnUcNqFTh6MmdLvhqA69Jgx1-GNhfCG8Imxh_FD6ZslrbHBr0_gMe7HfxnaT62-9j1Qi3PMYV6XYqLayy6rbl30VF3x0d9R0b-0V04Gdx7B7f310VrwPV_zr1dyBh4_h4DEctldMBx09RFXDD2HcwoZpbEBuCM2M6GRcXsbqhZ1BTipWGmfTIGqQsyNPjejy0jKqbaaUE0rUXbKpwfN_ii57rQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 LO-160-030_Consolidate_Appropriate_Pick_Items_-_FTS_(IF)_GXO — LO-160-030_Consolidate_Appropriate_Pick_Items_-_FTS_(IF)_GXO
@@ -421,10 +386,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViiXoOaT0BwqQSDVSltpK7btofRgHBssHDuynQUW8d9rJxAWqj01hyiezJt5bxL76CBRYidzBoMj5VRn4OjqDa6wmwF3BRV2PdABP6GkcMWwci2HCK4X9K2lBXG9tzSLFbCi7GDRBV4LDH48emBiCpkHFORqqLCkxPXcWtIKykMumJCW_YDHxCet2_nVVMgSyyvB99MAJaaUUY6vcJTGaVzYOoWR4OWNKEnImCD3ZJtjYoc2UOq2_Ubhb3D_i5Z6Y9YEMoUNZ6Mr9gRXmNkZtWwshhr5egmDKuvDTWCLGiLK1waPfQNJyLdXKPFPJ3AaDJa8NwUvsyUH5kIMKjXDBCht4PmrBoQylj3E-aRIfE9pKbY4ewjn6SwKPWQnyczovmfDHe4wXW90thKsPFOHOztDFtZ7T-6z0PfkwdzvvDAvr075KByH495pmgZ5kF-cCCH_5WRylS9Qbc9e86gIi1nvFSSjJPf_1buMOYvTSXCfE5avFOF3okVRRPNrVPNREvgfi06LaOTnd6JrqPEOHq6Cn_O4FyyStAjSDwU7v_sum9WzFOgiGM2TIukF02lQTMIPBeNJEI_PHRqdtYT1BnyVouElyM23kIIxLD_ljdKiwhIsukS6Anvx4PfSITAjcGjzB8-Scg2eKdqCJ6r00vnzjhsarlElVFbgewO5pvoAoLF6EghqKnhbiMvbqqirUoLR0mQHJnUthdmo9rk1etS4Un2N-eG6Bx6A4fCLcT0vo275_iNbzuW3uYHDfo_cwFEPO55j8qggLZ3s6LSHlDnISkxgw7Rz8hzYaLE4cORk7WZ2mto2P6PQZFx14OkvQuOdsw==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 LO-160-050_Pick_Order_Items_-_FTS_(IF) — LO-160-050_Pick_Order_Items_-_FTS_(IF)
@@ -477,10 +441,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVuPozYY_SsWo1FaiWiBQMjw0Co3RiPNrLKb2Varpg-O-UisATuyzSRsNv-9NpALaUZ9KA8J3_E557uAzd4iPAErsu7v95RRFaF9R60hh06EOkssoWOjGvgDC4qXGciO4aScqTn9UdFcf7MzNIPFOKdZadA5rDigb082GmphZiOJmexKEDTt2J2NoDkW5ZhnXBj2HQxSJ62yNUsjLhIQZ4LjhC4JtDSjDM5wL_RDPzY6CYSzpGWaBukgJZ2DKS7jW7LGQlXlFxJe8O5Pmqi1jlOcSdCctcqzZ7yEzPSoRGEwUoj34zCoNHmYHth8gwllK437joYEZm9nKHAOB3S4v1-wU1L0OlkwpC-SYSknkCKpNDx9VyilWRbd-eNhHDi2VIK_QXTnTcNJz7OJ6STSrTu2GW53C3S1VtGSZ0lD7W5ND5G32dliF3mOLUr9e5ULWHLONO57A29wyjQK3bE7PmZK0_R_ZdJzFa9YvjW5pr3YiyenXG7QD8bOv_2ObU78cOhezwnEOyVwYRrHcW96HtW0H7jOx6ajuNd3xlemK6xgi8uz4cPYPxnGQRi74YeGdb7rKovlTHByNOxNgzg4GYYjNx56Hxr6Q9cfNBVqn5XAmzWaUfIG4tMMm796zVzM_WthpThKcdeMGs1ApFzkFb3YoF-WJfoaozFnkmfw68L6-0Lq_ad0Ppyhx29PV7qe1r1gReqi0DOVCm2p0uG6lJTgDD0pyGVb5GtRRddnB9KjSQqiX0DBczRXXOAVoBFlbUmgJZ-5AoRZgr7qzSwSNN0R2Ciq-2lz-5qru0ypbuBLgZmiqqx0z5xgw68HmLRVoVY9AgOhH3_dzKthqTZrsN8fB2XOxu5S7-5j8y-g1jxBvy-sw-FC8nBbAjuSFZK-w2P9vl2pXOe2bMjKc-MXqfQ2rm_YAHW7v_1cWPpZ149vYf3Ufs2qa1Z1UU3otcOHOvSb0K9D1zmKncb7M69M-w0e1rxeE_bqcHBVkH57Livyrk2_g6wWgov9Ywo-nhst2LsNB6ezswX3b8PhbXhwPANa6MNNVFffwJZt5SByTBMr2lvVZ1F_OhNIcZEp62BbuFB8XjJiRdXnwyo2iVZOKNa7Oq_Bwz8i8ljP" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 LO-160-050_Pick_Order_Items_-_FTS_(IF)_GXO — LO-160-050_Pick_Order_Items_-_FTS_(IF)_GXO
@@ -539,10 +502,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P6jYQ_StWVitaKahJSAjkoRVfWa26e0WXva2q0geTTMDaxEa2w0e5_Pfa-QCSy6oPzQPg4zlnfMajCScjYjEYgfH4eCKUyACdOnIDGXQC1FlhAR0TlcDvmBO8SkF0dEzCqFyQf4ow290edJjGQpyR9KjRBawZoK_PJhopYmoiganoCuAk6ZidLScZ5scJSxnX0Q8wSKykyFZtjRmPgV8DLMu3I09RU0LhCvd813dDzRMQMRo3RBMvGSRR56wPl7J9tMFcFsfPBbziwx8klhu1TnAqQMVsZJa-4BWk2qPkucainO_qYhCh81BVsMUWR4SuFe5aCuKYflwhzzqf0fnxcUkvSdH7dEmReqIUCzGFBAmp4NlOooSkafDgTkahZ5lCcvYBwYMz86c9x4y0k0BZt0xd3O4eyHojgxVL4yq0u9ceAmd7MPkhcCyTH9VnKxfQ-Jpp0ncGzuCSaezbE3tSZ0qS5H9lUnXl71h8VLlmvdAJp5dcttf3Jtb3erXNqeuP7HadgO9IBDeiYRj2ZtdSzfqebX0uOg57fWvSEl1jCXt8vAoOJ-5FMPT80PY_FSzztU-Zr-acRbVgb-aF3kXQH9vhyPlU0B3Z7qA6odJZc7zdoDmJPoD_NMf6q9zTD7X_Whpz4AnjWRGTb9HqiH5lWYZpjEa5ZGghGYel8fcNy1GsBAcJ7uoLQi2BH5TCW4gmjAqWwo9Nau8_qYvRHD19fW7xXMV7xTIqraAXIiTaE6mWm6MgEU7Rs4RMNEmedqfD1cRBqqBxHqm25SwrTOE1oDGhTUpfUb4wCUj7f1MjgMdodohgK4ny04z1VaxymRBl4LccU0nkseC9sAjr-LLscZM1UKwnoMBV05Rm3nWUbEYNT6e6UHqidldqJtTmX0FuWIx-WRrn8-1dWvc5cIjSXJAdPJVt2qbZ92kjerw6_y6Xc5_0BinsVCWQutWifYTunhu2mh3lDzpE3e7P35aGapXy9pfGN9Va1a6jd7Wnam1bJeBVa6_at-t9u5L7wgodv8IHZZxbLd1yOWyz_gRR0Pqtw6lGvD2dXR-v1z5ee-3cF-i19y81aqS5GQe6FPUYbMC9-3D_8ipowP59eHAfHtYjrYGqO7gL2_dhp4YN08iAZ5jERnAyire_-ocQQ4LzVBpn08CqCIsjjYygeEsa-TZWzCnBanhlJXj-F3GFn5c=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 LO-160-070_Note_and_Record_Exceptions_-_FTS_(IF) — LO-160-070_Note_and_Record_Exceptions_-_FTS_(IF)
@@ -595,10 +557,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU2T2jgQ_SsqT01xMbX-xODDpsDgZKqS2tkwSQ5hD0JuY9XYMiXJM3gJ_z0StvHgnak5LAegn16_12pL7aNBygSM0Li9PVJGZYiOI5lBAaMQjbZYwMhEDfAdc4q3OYiR5qQlk2v675lme_uDpmksxgXNa42uYVcC-nZnorlKzE0kMBNjAZymI3O057TAvI7KvOSafQPT1ErPbu3SouQJ8J5gWYFNfJWaUwY97AZe4MU6TwApWXIlmvrpNCWjky4uL59Jhrk8l18J-IIPP2giMxWnOBegOJks8s94C7neo-SVxkjFn7pmUKF9mGrYeo8JZTuFe5aCOGaPPeRbpxM63d5u2MUUPSw3DKkPybEQS0iRkApePUmU0jwPb7xoHvuWKSQvHyG8cVbB0nVMoncSqq1bpm7u-BnoLpPhtsyTljp-1nsInf3B5IfQsUxeq--BF7Ckd4omztSZXpwWgR3ZUeeUpun_clJ95Q9YPLZeKzd24uXFy_YnfmT9V6_b5tIL5vawT8CfKIEXonEcu6u-VauJb1tviy5id2JFA9EdlvCM615wFnkXwdgPYjt4U7DxG1ZZbe95STpBd-XH_kUwWNjx3HlT0Jvb3rStUOnsON5n6J6SR-B_3GP906zpD7N_bowUhyke61ajr-rM8wRFGWY7QJShvyvMJJX1xvjnRZbzTtYnzBJ1rXbomxoB16nuO6kLLEkG4jrJU0ktc0kF4bDHjNSarveF7iQUAilPdJ_VghKcI9W9pCIDb1_JRBmojHZZaIm1LDlW5gvKBraTnq9tEpCY5gNOoDklSykvLs06l_K5JFjSsikRkuusqco6a_6lh1KzgWvG7HjsGqUn6nirZgLJukY91Hv4sDFOp5eP0no9BQ4krwR9go_NKe3T1D1u_jAfjcd_qj63oW01cdDGThPaVrc-iKdNPGnDSRP6beg14awNZzr8tTEuT_qXOhXtmjsQ7rj9MVRke7A4OG2K4by4Trraboxcwc7rsPs6HFwm7BU8fR2edSPhuhCrgw3TKIAXmCZGeDTO70P1zkwgxVUujZNp4EqW65oRIzy_N4xqn6jMJcXqOhcNePoN6AJXIg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.8 LO-160-070_Note_and_Record_Exceptions_-_FTS_(IF)_GXO — LO-160-070_Note_and_Record_Exceptions_-_FTS_(IF)_GXO
@@ -725,10 +686,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -738,10 +698,9 @@ flowchart TD
 | Picker/Packer | LO-160-020_Plan_Daily_Pick_Flow_-_FTS_(IF), LO-160-030_Consolidate_Appropriate_Pick_Items_-_FTS_(IF), LO-160-030_Consolidate_Appropriate_Pick_Items_-_FTS_(IF)_GXO, LO-160-050_Pick_Order_Items_-_FTS_(IF), LO-160-050_Pick_Order_Items_-_FTS_(IF)_GXO, LO-160-070_Note_and_Record_Exceptions_-_FTS_(IF), LO-160-070_Note_and_Record_Exceptions_-_FTS_(IF)_GXO, LO-160-080_Confirm_Quantity_and_Location_Picked_-_FTS_(IF), LO-160-090_Transport_Product_to_Staging_Area_-_FTS_(IF) | |
 | Ground Controller/Customer Service | LO-160-040_Generate_Pick_Tickets_-_FTS_(IF),  | |
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -753,10 +712,9 @@ The following data entities are derived from the system integration flows for LO
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -797,10 +755,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -843,10 +800,9 @@ The Future-State architecture represents the **target** landscape for LO-160.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -910,10 +866,9 @@ The Future-State architecture represents the **target** landscape for LO-160.
 
 **Summary**: 2 Reports, 18 Interfaces, 3 Conversions, 19 Enhancements, 9 Forms, 3 Workflows
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -925,10 +880,9 @@ Integration patterns identified from the system flow analysis for LO-160:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -952,10 +906,9 @@ Platform landscape inferred from integrated systems for LO-160:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -995,10 +948,9 @@ Platform landscape inferred from integrated systems for LO-160:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1027,12 +979,12 @@ Platform landscape inferred from integrated systems for LO-160:
 | LOGI1040 | STO based Outbound Delivery PGI confirmation for returns from S/4 to 3PL - 3B2 | Apr-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 4. Completed |
 | LOGI1038 | STO based Outbound Delivery Notification from S/4 to 3PL - 3B12 | Mar-25 (100%) | Apr-25 (100%) | Apr-25 (100%) | Jul-25 (100%) | 2. At Risk |
 | LOGI1037 | Inventory Movement from S/4 to 3PL – 4C1 (Outbound) | May-25 (100%) | Jun-25 (100%) | Jun-25 (100%) | Aug-25 (100%) |  |
+
 *... and 34 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1061,5 +1013,5 @@ Standard RAID items for LO-160 (Forecast to Stock (IF)):
 
 ---
 *LO-160 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: March 2026*
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IF)</span></div>
-</div>

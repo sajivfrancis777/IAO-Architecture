@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">PE-070 — Identify and Plan Plant Maintenance (IF)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IF) (FTS-IF) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **PE-070 Identify and Plan Plant Maintenance (IF)** within the IAO program. It includes 13 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Forecast to Stock (IF) (FTS-IF) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 2 Reports, 12 Interfaces, 11 Conversions, 53 Enhancements, 1 Forms, 1 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Production Planning Optimization | Enable MRP-driven production planning with real-time material availability | Manufacturing Excellence | Medium |
 | 4 | PE-070 Process Migration | Migrate Identify and Plan Plant Maintenance (IF) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Supply Chain (Intel Foundry) | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -220,10 +187,9 @@ This capability includes **13 business process(es)** modeled in BPMN 2.0, coveri
 | 12 | PE-070-150_Define_Requirements_for_Each_Operation_and_Create_Job_Plan | PE-070-150_Define_Requirements_for_Each_Operation_and_Create_Job_Plan | Boundary Apps | 6 | 1 |
 | 13 | PE-070-160_Identify_Required_Spare_Parts | PE-070-160_Identify_Required_Spare_Parts | FTS IF - PM Maintenance Technician | 2 | 0 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -262,10 +228,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO2jAQ_RUrK5RWClKuhOahEiSkqtRWVdl2H5Z9MM4YLIKdOg6XIv69NuFe8dRIuczxzDmeY8c7i4gCrMTqdHaMM5Wgna3msAQ7QfYU12A7qAV-YcnwtITaNjlUcDVmfw5pXlhtTJrBcrxk5dagY5gJQD8_O2igC0sH1ZjX3Roko7ZjV5ItsdymohTSZD9Bn7r0oHYcGgpZgLwkuG7skUiXlozDBQ7iMA5zU1cDEby4IaUR7VNi783kSrEmcyzVYfpNDV_x5oUVaq5jissadM5cLcsveAql6VHJxmCkkauTGaw2OlwbNq4wYXym8dDVkMR8cYEid79H-05nws-i6DmbcKQvUuK6zoCiWml4tFKIsrJMnsJ0kEeuUyspFpA8-aM4C3yHmE4S3brrGHO7a2CzuUqmoiyOqd216SHxq40jN4nvOnKrn3dawIuLUtrz-37_rDSMvdRLT0qU0v9S0r7KZ1wvjlqjIPfz7KzlRb0odf_lO7WZhfHAu_cJ5IoRuCLN8zwYXawa9SLPfUw6zIOem96RzrCCNd5eCD-k4Zkwj-Lcix8Stnr3s2ym36UgJ8JgFOXRmTAeevnAf0gYDrywf5yh5plJXM3RUDSHvYwGVVW3Y-bi3uvrxKI4obhLxAxloIDo3SVEiTKx5mi6vSmdWG9vV9X-bfWgUQJ9Ag5S-4G-CcUoI1gxwe_qgnfnuqrUvv2A3w3USr8JsBUUiAqJvmLGFXDMCaAXIRea4_0VR6gpUglGCfOizdb3vWxboXds-8ED1O1-1H0fQ68N_WPot2F4tRwm52rT3Iz4D0eC8w95A4dn2HKsJcglZoWV7KzDiahPzQIobkpl7R0LazPHW06s5HByWE1V6F4zhvWCLltw_xeSxL7O" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 PE-070-020_Create_and_Maintain_Notification — PE-070-020_Create_and_Maintain_Notification
@@ -417,10 +382,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuu2jAU_BUrVyiboOZJaBaVIBCpUm9VldvbRenCOMdgkdjUdngU8e-1eYRHe1fNIsqZzJnxmTjeO0SU4GROp7NnnOkM7V29gBrcDLkzrMD10Al4xZLhWQXKtRwquJ6w30daEK-2lmaxAtes2ll0AnMB6NtHDw1MY-UhhbnqKpCMup67kqzGcpeLSkjLfoI-9enR7fxqKGQJ8krw_TQgiWmtGIcrHKVxGhe2TwERvLwTpQntU-Ie7OIqsSELLPVx-Y2CZ7z9zkq9MDXFlQLDWei6-oRnUNkZtWwsRhq5voTBlPXhJrDJChPG5waPfQNJzJdXKPEPB3TodKa8NUUvoylH5iIVVmoEFClt4PFaI8qqKnuK80GR-J7SUiwhewrH6SgKPWInyczovmfD7W6AzRc6m4mqPFO7GztDFq62ntxmoe_Jnbk_eAEvr055L-yH_dZpmAZ5kF-cKKX_5WRylS9YLc9e46gIi1HrFSS9JPf_1ruMOYrTQfCYE8g1I3AjWhRFNL5GNe4lgf-26LCIen7-IDrHGjZ4dxV8n8etYJGkRZC-KXjye1xlM_siBbkIRuOkSFrBdBgUg_BNwXgQxP3zCo3OXOLVAhWYaCF3aNKsbABKyBPBXjz4MXUoziju2rzRF5BUyBo9jyfvBo0Wx6xGDM-5UJoRNXV-3jSH981fYc1gg_IFkGXFlH5gR4ZtJwOl0GehGWUEayb4PSs2rLPQLQlhXqJXXLHS5G2cfjWgzDYUEj1jxjVwzAm0SmaXnh54jLrdD2bMcxmcyvBchqcyuvkElnPZendw-G84an-_OzhuYcdzapA1ZqWT7Z3j-WfOyBIobirtHDwHm5wnO06c7HhOOM3KzmhDl7g-gYc_ip66Vw==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 PE-070-080_Check_Warranty — PE-070-080_Check_Warranty
@@ -581,10 +545,9 @@ Financial Credit"| n3
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWG1v4zYS_iuEF4tkAXujV8v2hxaJYxUBNl03Tro4NP1AS5Sti0yqFBUnTfPfbyhRskVTd-j2AuwmGs4z88xwZkjpbRCxmAxmg48f31Kaihl6OxNbsiNnM3S2xgU5G6Ja8CvmKV5npDiTOgmjYpX-WanZXv4i1aQsxLs0e5XSFdkwgh5uhugSgNkQFZgWo4LwNDkbnuU83WH-OmcZ41L7A5kkVlJ5U0tXjMeEHxQsK7AjH6BZSslB7AZe4IUSV5CI0bhjNPGTSRKdvUtyGdtHW8xFRb8syC1--ZbGYgvPCc4KAjpbscu-4DXJZIyCl1IWlfy5SUZaSD8UErbKcZTSDcg9C0Qc06eDyLfe39H7x4-PtHWKvtw9UgQ_UYaL4pokqBAgXjwLlKRZNvvgzS9D3xoWgrMnMvvgLIJr1xlGMpIZhG4NZXJHe5JutmK2ZlmsVEd7GcPMyV-G_GXmWEP-Cv9rvgiND57mY2fiTFpPV4E9t-eNpyRJ_pEnyCu_x8WT8rVwQye8bn3Z_tifW6f2mjCvveDS1vNE-HMakSOjYRi6i0OqFmPftvqNXoXu2JprRjdYkD1-PRiczr3WYOgHoR30Gqz96SzL9ZKzqDHoLvzQbw0GV3Z46fQa9C5tb6IYgp0Nx_kWhfcrdBOiEbrCItqiB0hDrSF_qPfbb4-DBM8SPIrYBj3kMQSE5hlOd-iaReWOUIFWAouyeBz8_vsR0u8i55wYkOfXHCfikwYdG6F3RJScouUdukDLrxok6ELuoU-KXSo0fxpoYgzuG-aAFq_ohiaM77BIGUUpRYs_yjSvWGMao1tcCMIPyvdyYiEAfP78WXNje-etn0KwXE_CPGMFiQH06Rjk6yDGOYlE-kwuriAhTzHbQzKgFEhRwCIVKS1PrYw1Kz8z5V0hTxGBhmgjrNOj6zsOqLc68y2JnmQWjrJ1A8M-VchjoAvAlEISdySW6_dbzvaL53qbjhUnb2-HbYrJaA2-oFLDlOIMDoa4jgh-13WIfnwcvL8fG5iaDZCXKCsLSOhPdZNqMNf6Pphtht1Q9MvD5RednOv0qAuyu1jKgf5A4-NCOzHgfh9Nr5fmqoQjA46-GBpt8SJgpsOfJ27973M77nFboCrYOXsm3OQuMOMOZfY_0uQdbQvosH0xwplAOeY4y0h2whai7huUy1voflm5FCgQdE-iLU2jFNPjNmqbSB5U7fRrexhSW3UxTAFo46_yAqJVfdfAknA5jA7x1V38K3RAXE-oJctHZd41YksaFVf4h8IMb6rePJpwcRphwTTftnOYAXkGp5fW38cd3Zkd7v9jZjkWGFm9wnjdoTKvhq1q7LuSUrj4aImSMd4v5l_RudoJ2FBgynZ5RoDjJ03d7y1AwViGgGb8Cn-iNUFrzkq4m0gWIMg5i8uoyvXJhOmp6msmC0wUaIthy29vb65PkEEvHdKWdlmV9l5twklrTI2V3e5ZXhdG6VjWGv2Izvep2LbGUCR3dM1e4IRTtYBiIocyTNcqVjifSX2odfvJ-nv9VIMcIyilfTPD0IVp3XW3mOJN56ridk_zJSuE0oaXAtmBMdwHzr9dcJJANmFDI9lC-t3DnsrqA78N4pbsmNRelXmepUdtespteb-UE6K-SJXdi9TUeKcJOSHoJ8ZiGH93OhOrC1EtsSGUcMBKxMXJPcieaC3Y8QD6bfst6EnjeQBVxOorjhocx9POMKrcyd89CtrUwahBo9EP8Fs9e3b97KtnN5DPfz0O_kXggvmXPF71lZ9ZveA0C44OcZsVtzY-aZ5tzYTXLHi6ibG-0kBaouNer-MeSBNrY1ulwmsCmarUNHQ99dywdCbK8GUOs-kZTs2qtbWaAo_T_w54pHqb1DwblK9F1ryLwcWqZhQ0zyogp3Ho-opymz6FcNocqKCdZlsdSwk0hNs4da1uOm1fX2h4erZeEfoOTBS9QA-1sd3mQNF0G01P0XSnmsBpiDe5GOvFdlIgvrbvY4VsC0ixbLdRLzXP0lcUf6ehays2dqupd89EX2iM220WVbacpv7sJgcTvb6qqzm8sP2bVOdlTfLoRVZmp3mB74gds9g9fjnvrHi9K37vyrh3JehdmfSuTHtXID-9S077WaYrd9UnlK7UM0p9o3RslAZG6cQonZq5QWea5XaPvCdGx-2Rez1yv_mK0hWPzeLALJ6YxVOjGEaJUWybxY5Z7JrFnllsjtI1R-mao3TNUbrmKD1zlJ45Sq-NcjAc7OCCiNN4MHsbVJ9s4bNuTBJcZmLwPhzgUrDVK40Gs-rT5qCsvhxcpxiuSbta-P4fTcTcKw==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 PE-070-090_Process_Notification — PE-070-090_Process_Notification
@@ -654,10 +617,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuu2jAU_BUrVyibIOVJaBaVIBCpUltV5bZdlC6McwzWdezUdngU8e-1eV6o7qpZRPFkzsw5k9h7j8gavMLr9fZMMFOgvW9W0IBfIH-BNfgBOgHfsWJ4wUH7jkOlMDP250iL0nbraA6rcMP4zqEzWEpA3z4EaGQLeYA0FrqvQTHqB36rWIPVrpRcKsd-giEN6dHt_GosVQ3qRgjDPCKZLeVMwA1O8jRPK1engUhR34nSjA4p8Q-uOS43ZIWVObbfafiEtz9YbVZ2TTHXYDkr0_CPeAHczWhU5zDSqfUlDKadj7CBzVpMmFhaPA0tpLB4uUFZeDigQ683F1dT9DyZC2QvwrHWE6BIGwtP1wZRxnnxlJajKgsDbZR8geIpnuaTJA6Im6Swo4eBC7e_AbZcmWIheX2m9jduhiJut4HaFnEYqJ29P3iBqG9O5SAexsOr0ziPyqi8OFFK_8vJ5qqesX45e02TKq4mV68oG2Rl-K_eZcxJmo-ix5xArRmBV6JVVSXTW1TTQRaFb4uOq2QQlg-iS2xgg3c3wXdlehWssryK8jcFT36PXXaLL0qSi2AyzarsKpiPo2oUvymYjqJ0eO7Q6iwVbleowsRItUOzrnUBaKlOBHeJ6Ofco7iguO_yRjMwaGaw6TQyEn0FLfka6rn361VJbEu-Age7o9H0d8faBoRxdNt23RHDpLgvSGyBGwm0Rp-lYZQRfMeyP9XpQSSo339vuzovo9MyfhWRAy-_xh0cX_fBHZxcYS_wGlANZrVX7L3jQWQPqxoo7rjxDoGHOyNnO0G84rhhva6t7cedMGxzbE7g4S_EmZQK" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.9 PE-070-110_Create_and_Maintain_Maintenance_Order — PE-070-110_Create_and_Maintain_Maintenance_Order
@@ -747,10 +709,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViiXIOWT0BwqQcDSSrvqStD2UHowiZ1YGAfZzgJd8d9rkxA2FE6NBMob3sy8NyT-sLIqx1ZiDQYflFOVgA9blXiL7QTYaySx7YAG-IEERWuGpW16SMXVgv45t3nh7mDaDAbRlrKjQRe4qDD4_uyAiSYyB0jE5VBiQYnt2DtBt0gc04pVwnQ_4TFxydmt_WlaiRyLa4Prxl4WaSqjHF_hIA7jEBqexFnF854oiciYZPbJDMeqfVYioc7j1xK_osNPmqtS1wQxiXVPqbbsBa0xMzsqURssq8X7JQwqjQ_XgS12KKO80HjoakggvrlCkXs6gdNgsOKdKVjOVhzoK2NIyhkmQCoNz98VIJSx5ClMJzByHalEtcHJkz-PZ4HvZGaTRK_uOibc4R7TolTJumJ52zrcmx0Sf3dwxCHxXUcc9feNF-b51Skd-WN_3DlNYy_10osTIeS_nHSuYonkpvWaB9CHs87Li0ZR6v6rd1lzFsYT7zYnLN5phj-JQgiD-TWq-Sjy3MeiUxiM3PRGtEAK79HxKvglDTtBGMXQix8KNn63U9brN1FlF8FgHsGoE4ynHpz4DwXDiReO2wm1TiHQrgRwuQDPEAzBK6JcYY54hsEbQ5xj0bSai3u_VhZBCUFDkzxIBdab9TgLJTRUHFfW7088v8-bSEkLfpcHVAXO4b9QqfoiQV_kzNaf_sgo26AC94lhnzijcsf0v9FaUizBshRVXZSPnCMtcGdXk0-_cXRtRDy_P-I3c850NP2uNDd8BIbDrzritvSa0m_LoCnDtgybMmpLvymDT4-JUbi8Hj3Yvw8H9-HwPhx1B0oPHnWw5VhbLLaI5lbyYZ1PdH3q55igminr5FioVtXiyDMrOZ98Vr3LdWwzivQDuW3A018r9fot" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.11 PE-070-130_Create_Maintenance_Plan — PE-070-130_Create_Maintenance_Plan
@@ -818,10 +779,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2PokgU_SsVOh1nEoh8is3DbmyUzSTTs53V3X1Y96GEi1a6LExR-LGO_32rFFAQM9msico93HPOvReo4qjFWQJaoD0_HwkjIkDHnljBGnoB6i1wDj0dXYA_MCd4QSHvqZw0Y2JK_jmnWe5mr9IUFuE1oQeFTmGZAfr9i45Gkkh1lGOWGzlwkvb03oaTNeaHMKMZV9lPMEzN9OxWnnrNeAL8mmCavhV7kkoJgyvs-K7vRoqXQ5yxpCGaeukwjXsnVRzNdvEKc3Euv8jhDe__JIlYyTjFNAeZsxJr-hUvgKoeBS8UFhd8Ww2D5MqHyYFNNzgmbClx15QQx-zjCnnm6YROz89zVpui2XjOkPzEFOf5GFKUCwlPtgKlhNLgyQ1HkWfqueDZBwRP9sQfO7Yeq04C2bqpq-EaOyDLlQgWGU3KVGOnegjszV7n-8A2dX6Qvy0vYMnVKRzYQ3tYO736VmiFlVOapv_LSc6Vz3D-UXpNnMiOxrWX5Q280LzXq9ocu_7Ias8J-JbEcCMaRZEzuY5qMvAs87Hoa-QMzLAlusQCdvhwFXwJ3Vow8vzI8h8KXvzaVRaLd57FlaAz8SKvFvRfrWhkPxR0R5Y7LCuUOkuONysUzaboS4QM9IYJE8AwiwG9U8wY8Euq-jDrr7mW4iDFhpo8CjnIztBU3ocUUHiI5W9bwAizQgK8_y2rj-fa3zeidkt0hdkS-m-y1fL4TrPJd5r8KQg0BgqCZAxFFC-b2W4zewyynrV8xO9M0OywgSbX625fcPm3PBivcv1K7nU-vQNPM75WSH9G1oDOiZ-b2oNO7beCCrJRwy2nOJZ8lsvWHrg1Rf3WaOIVJAX90UCHn2paLrLNfUfn8UIiWZ9vaC-SVZaNWVmZ_Dbov6pFtulmmQ943zJBUhJjdSFbFHUf_gZbArsftGLZx2PVi9p5jIVcO-NV45bt11ewfzfvn-fa6XSr53TrwT6mRU628MvlUW_T3P9Kk2vo5YB5yDB-Us5lPGjFVjt2LoBdxvYl9MvQLdOr01bJd6v4nP99rlVDmWvfZRHts-1BnbMGZZZfetSapanTil9asVWuc6xsYXhX081lOzveLt9qFNWG0IDtbtjpht1u2OuGB92w3w0Py72xAb7Um3OzGfMBbj3A7WqfacJON-xWsKZra7kEYpJowVE7v3vJ97MEUiwvsXbSNVyIbHpgsRac31G0YpNI5phguXWsL-DpX0JkHmI=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.12 PE-070-150_Define_Requirements_for_Each_Operation_and_Create_Job_Plan — PE-070-150_Define_Requirements_for_Each_Operation_and_Create_Job_Plan
@@ -910,10 +870,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -930,10 +889,9 @@ flowchart TD
 | PTP IF Batch user | PE-070-080_Check_Warranty,  | |
 | FTS IF - PM Batch User | PE-070-110_Create_and_Maintain_Maintenance_Order,  | |
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -945,10 +903,9 @@ The following data entities are derived from the system integration flows for PE
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -997,10 +954,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1043,10 +999,9 @@ The Future-State architecture represents the **target** landscape for PE-070.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1136,10 +1091,9 @@ The Future-State architecture represents the **target** landscape for PE-070.
 
 **Summary**: 2 Reports, 12 Interfaces, 11 Conversions, 53 Enhancements, 1 Forms, 1 Workflows
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1151,10 +1105,9 @@ Integration patterns identified from the system flow analysis for PE-070:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1178,10 +1131,9 @@ Platform landscape inferred from integrated systems for PE-070:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1221,10 +1173,9 @@ Platform landscape inferred from integrated systems for PE-070:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1253,12 +1204,12 @@ Platform landscape inferred from integrated systems for PE-070:
 | FTSI1527 | Interface to get Cu flag from XEUS | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | 1. On Track |
 | FTSI1371 | CMMS – Equipment create and update (status and collateral name) | — | — | — | — | 5. Not Dispositioned |
 | FTSI1370 | Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou... | — | — | — | — | 5. Not Dispositioned |
+
 *... and 60 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1280,5 +1231,5 @@ Platform landscape inferred from integrated systems for PE-070:
 
 ---
 *PE-070 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: March 2026*
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
-</div>

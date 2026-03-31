@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">LO-190 — Ship/Deliver Orders - OTC (IP)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **LO-190 Ship/Deliver Orders - OTC (IP)** within the IAO program. It includes 17 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Order To Cash (IP) (OTC-IP) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 6 Conversions, 3 Enhancements, 1 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Returns & Rebate Automation | Automate returns processing, rebate management, and chargeback handling | Revenue Assurance | Medium |
 | 4 | LO-190 Process Migration | Migrate Ship/Deliver Orders - OTC (IP) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Order Management (Intel Products) | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -224,10 +191,9 @@ This capability includes **17 business process(es)** modeled in BPMN 2.0, coveri
 | 16 | LO-190-190_Audit_Shipment_Transportation_Charges_-_OTC_(IP) | LO-190-190_Audit_Shipment_Transportation_Charges_-_OTC_(IP) | Boundary Apps and other source data, Freight Payment Analyst | 10 | 1 |
 | 17 | LO-190-200_Monitor_Shipment_Status_-_OTC_(IP) | LO-190-200_Monitor_Shipment_Status_-_OTC_(IP) | Transportation Planner | 13 | 12 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -366,10 +332,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVF1v2jAU_StWKpRNClI-CcvDJAhEqtSpSHTtw9iDSa6JhWNHtilliP8-m8_C2qflIYpPzj3n3uPEW6cUFTiZ0-lsKac6Q1tX19CAmyF3jhW4HjoAz1hSPGegXMshgusp_bOnBXH7ZmkWK3BD2caiU1gIQD_vPTQwhcxDCnPVVSApcT23lbTBcpMLJqRl30Gf-GTvdnw1FLICeSH4fhqUiSlllMMFjtI4jQtbp6AUvLoSJQnpk9Ld2eaYWJc1lnrf_krBD_z2QitdmzXBTIHh1LphD3gOzM6o5cpi5Uq-nsKgyvpwE9i0xSXlC4PHvoEk5ssLlPi7Hdp1OjN-NkVPoxlH5ioZVmoEBClt4PGrRoQylt3F-aBIfE9pKZaQ3YXjdBSFXmknyczovmfD7a6BLmqdzQWrjtTu2s6Qhe2bJ9-y0PfkxtxvvIBXF6e8F_bD_tlpmAZ5kJ-cCCH_5WRylU9YLY9e46gIi9HZK0h6Se7_q3cacxSng-A2J5CvtIR3okVRRONLVONeEvifiw6LqOfnN6ILrGGNNxfBb3l8FiyStAjSTwUPfrddruYTKcqTYDROiuQsmA6DYhB-KhgPgrh_7NDoLCRua_SCJdTCxIkeW5BYC3kg2IsHv2YOwRnBXZs3ymsolwjzCr3YXUPTmrYNcD1zfr8rCq-LJiCJkA2KJs_XvMjwHgSu0DPUtGSAuujxKUdf7idfr4mxIZ5U9gW54EowWmFNBf-ozHyHhwceoG73u-npuIwPy-Pe8_CwjN6FbEtOH9cVHH4MR-cf7AqOz7DjOQ3IBtPKybbO_oQzp2AFBK-Ydnaeg1daTDe8dLL9SeCsWjMYjCg2G9QcwN1febGqZw==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 LO-190-060_Validate_and_Record_Shipping_Information_-_OTC_(IP) — LO-190-060_Validate_and_Record_Shipping_Information_-_OTC_(IP)
@@ -453,10 +418,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVtFy6jYQ_RWNMxmSGZjaxsbED-2AwWnmkkka0uSh9EHYMtbEWK4kh3C5_HtXGEOsOg9tecDsYffs7tFa0s6IWEwM37i83NGcSh_tOjIla9LxUWeJBel0UQW8YE7xMiOio3wSlss5_X5ws5ziQ7kpLMRrmm0VOicrRtDvd100gsCsiwTORU8QTpNOt1NwusZ8G7CMceV9QYaJmRyyHf8aMx4TfnYwTc-KXAjNaE7OcN9zPCdUcYJELI8bpImbDJOos1fFZWwTpZjLQ_mlIPf445XGMgU7wZkg4JPKdTbDS5KpHiUvFRaV_L0WgwqVJwfB5gWOaL4C3DEB4jh_O0Ouud-j_eXlIj8lRc-TRY7gE2VYiAlJkJAAT98lSmiW-RdOMApdsyskZ2_Ev7Cn3qRvdyPViQ-tm10lbm9D6CqV_pJl8dG1t1E9-Hbx0eUfvm12-Ra-tVwkj8-ZgoE9tIenTGPPCqygzpQkyf_KBLryZyzejrmm_dAOJ6dcljtwA_OffHWbE8cbWbpOhL_TiHwiDcOwPz1LNR24lvk16TjsD8xAI11hSTZ4eya8CZwTYeh6oeV9SVjl06ssl4-cRTVhf-qG7onQG1vhyP6S0BlZzvBYIfCsOC5S9Io5SRnIiR4KwrFkvHJQn9z6Y2Ek2E9wT-mNbkmuXAiasRUVkkYCPZGCcbkw_vwUZTejRjnOtt8Jug1mD2gWzJ8qBIYcTbBIlwzzuEnQbxJMSEbf4RnCviFSEqNbxuI6NfqtJHzbjHea8QEnquj56BE9sRJ-BfBitVbuNgNfqChxBpsPmkLp0_vpCIW3aF4WRbZFQYpp3gwf6OFkg-YEXmwqt-hXmHP0grOSVFWIZqzXEqsaz_8qSR5t626vxuOfgtfrZuywGXvPYH9lHD2ofQ30gRZkTeCrDr4RKL8Ukq0JF-hOCKjpmePojfAm8U07cYA5p2A_Ep4wvsZ5BNOTCwrS9hpgRQ3TsoJVozm6m903E1imlgHneEWOlYdlpsZ8TXJ56qLXwmG1SHcLCxbyw94C-YUaNYnVMYOuwtlkfP3V6Fn21YmtyLCSLSIwffCEhRASSXZ-DSpJ1UJef6bonylA46Jeujos1v2d3a72V2dkbwm7fJSieyJTFv-yMPb7z97u2RuWgW1ED2cSxI2yUkCht9WOo0cN_lOU9y-jYP-vfoCOqNf7GZ61fTSd2nYrwNbsvmbr_q5mDzXb0-xBbQ-OBVg6YGrAzdE-Elg1o6PZfc22NXuo2Z5mDzTbsnTA1IAb3aGmPIl2qPHHwpgGo4XxQ6mg_zNm5eHqgkZFUbkMPp0wap3qk7UB2-1wvx122mG3HR60w147PGyHb9ph0LAd_6JPGNv6vtTE-8e7TRN16gO-Cbvt8KAd9mrY6BqwIa8xjQ1_ZxzuwnBfjkmCy0wa-66BS8nm2zwy_MOd0SiLGCInFMNRvq7A_d-Qtom-" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 LO-190-070_Monitor_Carrier_Performance_on_Site_-_OTC_(IP) — LO-190-070_Monitor_Carrier_Performance_on_Site_-_OTC_(IP)
@@ -532,10 +496,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4jgU_StWqoqOFKR8EpqHXdFARiO1glno9GHYB5M44G2wI9tpYSj_fe18AEnT2RltHhD3-N5z7r2xb3zQIhojzdeurw-YYOGDQ09s0Bb1fNBbQY56OiiBb5BhuEoR7ymfhBIxxz8KN9PJdspNYSHc4nSv0DlaUwQev-hgJANTHXBIeJ8jhpOe3ssY3kK2D2hKmfK-QsPESAq1aumOshixs4NheGbkytAUE3SGbc_xnFDFcRRREjdIEzcZJlHvqJJL6Wu0gUwU6eccPcDdE47FRtoJTDmSPhuxTe_hCqWqRsFyhUU5e6mbgbnSIbJh8wxGmKwl7hgSYpA8nyHXOB7B8fp6SU6iYDFeEiCfKIWcj1ECuJDw5EWABKepf-UEo9A1dC4YfUb-lTXxxralR6oSX5Zu6Kq5_VeE1xvhr2gaV679V1WDb2U7ne18y9DZXv62tBCJz0rBwBpaw5PSnWcGZlArJUnyv5RkX9kC8udKa2KHVjg-aZnuwA2M93x1mWPHG5ntPiH2giN0QRqGoT05t2oycE3jY9K70B4YQYt0DQV6hfsz4W3gnAhD1wtN70PCUq-dZb6aMRrVhPbEDd0ToXdnhiPrQ0JnZDrDKkPJs2Yw24B7CmMwSyEhiJVL6iHm96WWQD-BfdVp8BnJZVkL-AtllAkOMAHz0Qws5IbkCoECUwIeIIFreYSJWGp_X7BZTbZHjsAMMU4JTDFHMZiu_kGRAE-UPUtAgJvZ9On-U5PDfs8RYsowGGUZb7o6_5H8I5fnB3zNEds3A92fBlZxI5n1XuCIdygPfk6QUAZCVux4MFVTB0x2KMrL3lE5FWU9ZN2k9H6X8msOicBiXyYqZwm4Gd3PWt0cvu9m610GNHrOcOtF3v5SZye7IjVB5b8IpWCaKcYmk2n8Sq8nwagVZt6c4rigWe1eh8fS_dOlv9p6AZUjHhPF3ipyugjAzZd2c0z7cKhF1Ferv5JR0QYs9hkCNKk0_1xqx-NllNMdhXZRmnP8gj6Xw6Ad5naHPSCxoTF_pzL4XRU5lMs_xAL9_h_yeFSmXZpuZbqladqVPajs2t1r2WZl1_GmUwGDGqgZqlFL2g7D0r6tzNt2fJHR21JT02CpvckC2isf7VnpO6x97cr3dNSK5ZOI8ZHq5XSRAXZ7vdibb4qhXqn6a7aV6xNZuHsXE101sf6SNWCrG7a7YacbdrvhQTfsdcPDbvi2G5bd7MbN6m7QRK3T7aSJ2_WHswk73bDbDQ9qWNO1LWJbiGPNP2jFHVPeQ2OUwDwV2lHXYC7ofE8izS_uYlqexTJyjKH8RG5L8PgvUeRjLw==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 LO-190-080_Record_Carrier_Information_-_OTC_(IP) — LO-190-080_Record_Carrier_Information_-_OTC_(IP)
@@ -621,10 +584,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV9-TojgQ_ldSTE05V4W1BEGQh7tSlL2pml83zu7W1boPEYLmREIFdMZz_d-vI0SUlafzYcbu_r7-ujshwb0W8ohqnnZ7u2cpKzy07xRLuqYdD3XmJKcdHZWOr0QwMk9o3pGYmKfFlP17hGEr-5Aw6QvImiU76Z3SBafoy72OhkBMdJSTNO_mVLC4o3cywdZE7HyecCHRN9SNjfioVoVGXERU1ADDcHBoAzVhKa3dPcdyrEDychryNLpIGtuxG4edgywu4e_hkojiWP4mp4_k4xuLiiXYMUlyCphlsU4eyJwmssdCbKQv3IitGgbLpU4KA5tmJGTpAvyWAS5B0lXtso3DAR1ub2fpSRS9jWcpgk-YkDwf0xjlBbgn2wLFLEm8G8sfBrah54XgK-rdmBNn3DP1UHbiQeuGLofbfadssSy8OU-iCtp9lz14Zvahiw_PNHSxg78NLZpGtZLfN13TPSmNHOxjXynFcfy_lGCu4o3kq0pr0gvMYHzSwnbf9o1f86k2x5YzxM05UbFlIT1LGgRBb1KPatK3sdGedBT0-obfSLogBX0nuzrhwLdOCQPbCbDTmrDUa1a5mb8IHqqEvYkd2KeEzggHQ7M1oTXElltVCHkWgmRL9MBJhF4SkqZUlCH5SfH37zMtJl5MuiFfoDfBFgsq0JP_-jjTfvw4Q5qXyM8UEkHXyCdCMKA8sLxAJI3QFHYHeg3-avB7l3yfp1sK-xiAOWJpwdFkTVhSZwBPlfruPg2TTUQj9OcuowIe15WMjp6sB2Q0VKxLlVcaUrati3ylecbTnDZY9iXrqzxTdiewrA89PD_WtcVcoGGWCb4lCbobUehcKUxpQsOCRr81JPrXB33K8o2LlXy6GzTnkjZd8nc1MhQ81xU98YLFLCQF4yl6lIOECUHNjXTu9SoUQRV_6kY2GrAU6oP1iplYHwUaSQctMz9joFjwtcraoGPjkv8li873FZeNNimNbVvWjZ7hXqnX-JPq7g0GBCuaLtBwQVizemy2zGSTFGzOoia8dx0-zXiBRr_CrevwV_oPVHy-WKWnnn0zkX09UfnUXF1s3AfGdMky9CxvPtRFz28-urt_kXvzHOcAbkwLKtZwE6JHuI4Qj0EB7teMi-K4gp_UerRmcff7usCIdufAD5fVDqfRHzPtcDjHD67jYVe_sHC1ydBxG9hoTHZ5k2wa18n0A06KHHbf5_JArmmwB8ov0C7qdn-H_5XdK02rMu3S7FdmvwK7lV2RlemW5qAyBxXaUFpG5VDpcGUrAq7U1cUHXyqHApgNAD5q_JxpT3ym_ZQZFLMEKhNblZTqU9m2AlSdnmzcVHIrpb9pfpRymgFVgtWsTTGweXavye7Pbt-LiNka6bVGrNaI3Rrpt0ac1ojbGhm0RmDhW0PtU8DtY8Dtc8Dtg8Dtk8D90yvjpd9p8bvqLefSPbjqhm1cuTVdW8PJQlikeXvt-OYPvw4iGhM4YLWDrpFNwae7NNS84xuytjme_2NG4MVlXToP_wHjL9lw" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.8 LO-190-090_Create_Proforma_Based_Delivery_Notice_-_OTC_(IP) — LO-190-090_Create_Proforma_Based_Delivery_Notice_-_OTC_(IP)
@@ -669,10 +631,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P2jgU_StWRiNaKUj5JDQPu2JC0p2q7aAybbVa-mCSG-IdY0e2MwOl_PfaCYGBnXnaPEDuybnnXN_4Ojsr5wVYsXV9vSOMqBjtBqqCNQxiNFhiCQMbdcA3LAheUpADwyk5U3Pys6W5Qb0xNINleE3o1qBzWHFAX29tNNGJ1EYSMzmUIEg5sAe1IGsstgmnXBj2FYxLp2zdDo9uuChAnAiOE7l5qFMpYXCC_SiIgszkScg5K85Ey7Acl_lgb4qj_CmvsFBt-Y2ET3jznRSq0nGJqQTNqdSafsRLoGaNSjQGyxvx2DeDSOPDdMPmNc4JW2k8cDQkMHs4QaGz36P99fWCHU3R_XTBkL5yiqWcQomk0nD6qFBJKI2vgmSShY4tleAPEF95aTT1PTs3K4n10h3bNHf4BGRVqXjJaXGgDp_MGmKv3thiE3uOLbb698ILWHFySkbe2BsfnW4iN3GT3qksy__lpPsq7rF8OHilfuZl06OXG47CxPmvXr_MaRBN3Ms-gXgkOTwTzbLMT0-tSkeh67wuepP5Iye5EF1hBU94exJ8lwRHwSyMMjd6VbDzu6yyWc4Ez3tBPw2z8CgY3bjZxHtVMJi4wfhQodZZCVxX6DsWUHHdTnRXg8CKi45gLub-s7BKHJd4aPqNZoIwhdLbyQeUcbFeWD-ecb1zbrpRAucKTYGSRxBbdMtKnYMV4ew80deJMxDmaafdTgb6ZgaY5G0CwqxA93rzy1JLK47-0kAFtNDy5qWdCwZacK7wClCmTxpZQYHec15I9OZ29vacGhpv3U-QEs1w_qDnqvX6AquGmmZs9UJqrufqC5g_iYbo7j55QWm02_XrNwfdcKmrzSs0r0htCv6Aa8zQXfpJV5E1_xIlGxt9TpPWbYYZlpyR_O2fC2u_f6YavawKm5w2Uvf1fbe_Tll6Arsb5qLh8A-tcAhHJvy1sP4GubB-6dd1gX_mLdzTwy57dAj9LjzMDPO60D-EURcGz_aq8e9n9Az2XoaD4zl1Bocvw6N-sM7QqEct21qD3muksOKd1X5U9IengBI3VFl728KN4vMty624PXytpi505pRgPRPrDtz_BnV7IPQ=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.9 LO-190-100_Ship_Order_-_OTC_(IP) — LO-190-100_Ship_Order_-_OTC_(IP)
@@ -797,10 +758,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1z2jgQ_isad3LkZmBqyTYmfLgOGNzLTd6mJM21TT8IWwZNjMVJdgKX8t9PMrIBBfeuvXzIjJ7dfXb1eLWyebEiFhOrb52cvNCM5n3w0srnZEFafdCaYkFabbAFPmJO8TQloqV8EpblE_p36Qbd5Uq5KSzEC5quFTohM0bA3XkbDGRg2gYCZ6IjCKdJq91acrrAfB2wlHHl_Yb0Ejsps2nTkPGY8J2Dbfsw8mRoSjOygx3f9d1QxQkSsSw-IE28pJdErY0qLmXP0RzzvCy_EOQSr-5pnM_lOsGpINJnni_SCzwlqdpjzguFRQV_qsSgQuXJpGCTJY5oNpO4a0uI4-xxB3n2ZgM2JycPWZ0U3I4eMiD_ohQLMSIJELmEx085SGia9t-4wSD07LbIOXsk_Tdo7I8c1I7UTvpy63Zbidt5JnQ2z_tTlsbatfOs9tBHy1Wbr_rIbvO1_G_kIlm8yxR0UQ_16kxDHwYwqDIlSfK_Mkld-S0WjzrX2AlROKpzQa_rBfZrvmqbI9cfQFMnwp9oRPZIwzB0xjupxl0P2s2kw9Dp2oFBOsM5ecbrHeFZ4NaEoeeH0G8k3OYzqyymN5xFFaEz9kKvJvSHMBygRkJ3AN2erlDyzDhezsEFwzG4SXGWEb41qb8MfvnyYCW4n-BOxGYgmONsRsB4RaIipywDkxznhQAsAeE1yBlonWc7a-vB-vp1jwwdkt0tYykLCO_AM83n4PfB_RBcFYupLOAwzjHismnKokcgpwQIedk3EqO5EeX-VJR3tEYVtFcfoFnNca2mhkHSNUgEARO8IEqjtyDgRFFekWe1Ph0I8IH8VVBO4l8NGv-Q5oOaNxFNyWFucK_UkyrO8ZOcB9tMzWL2DklDuvruVs4O3W85nc1kziHOozn4g03VQ__8Z3BuhEH7eNzn4G5yevmp_fHK3CyE_yXT5HxixqGGTDcfAtPVaXQdm65G9wxifTqUwsOykfZ6QPWRMBmMThqRjrxIHgFO020P3gmQcLY4aMjtAx2vIrKU45NxcJ19t1sRkjlGJKVPMkwOhLiIctAB17cBOD2_URLvOzulc074Qt5o4FJeK-rg3srLRCwZlydZntm3AeacSrZGFvflZbevmHSmMl4-IbKK0kLIQt5vZ92Dtdnsh3k_F9b9uTD_eFjAiizn63eme-_H3M9-tCh5IRrz9h5zMmfy-gLXS8Jxzg6mrjFAJjIeOEOIylFBRA7OM9kdi_KJqXPhcNme8n5fyzk-oyKnkdhlMBvz9VghsuYt_yURAs9ehRhD44bJEt4zFgtwLkTxyr1haMgMzukNjR47Nzh6NAcAso-O3qofsZTg8JjsZrE-AWuTER5lrLz_9dqxd49ZFsGeRQenOVhiLs8wSY93ngN_LKjuDHk8Qafzm9JBA9DbAtDVgLtdd_XS3y57eqnDvYrO1tGVOyrDvz1YV-zB-ibZNK6zoCqwa6yRdvCrsjQxqol1BKwcdGHwrAL0GlVrpAGnAqqtVx49va5z6q2jmlLndCqxnGq7ngnUHLoMVAl2Zu7DrwS6KAWqcjlV_T0DQPWONZVTAajirtbQqB_pVPLaVrcCidUpTnR7lx8i78oakGsWdy3vCw4mNCdi61GX39MeH6_al59KG6xbqWfutXIORgZL1SWfNL9jFlDSg1-AjoT7L9DqWe-9QB9YUKPFabS4jRav0dJttPiNll6j5azRIs9Bo6lZBdgsA2zWATYLAZuVgM1SwGYtYLMYsFkN1KwG-k5PoPq79BB3GnC3-pQ6hL3jcPc47B-He8fhs6OwHC9HYVjBVttayDctTGOr_2KVv2jIXz1ikuAiza1N28JFzibrLLL65Ze_VZS304hi-YKw2IKbfwD5A0tO" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.10 LO-190-110_Update_Inventory_Status_-_OTC_(IP) — LO-190-110_Update_Inventory_Status_-_OTC_(IP)
@@ -839,10 +799,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE1v4jAQ_StWqopdKWjz2bA5rASBVEhbtdq020Pbg0nGYNWxI9uhZSv--9qEAmXLaXOIMs8z7828WPPmlKICJ3XOz98opzpFbz29gBp6KerNsIKeizrgN5YUzxions0hguuC_tmk-VHzatMsluOaspVFC5gLQHdTFw1NIXORwlz1FUhKem6vkbTGcpUJJqTNPoMB8chGbXs0ErICuU_wvMQvY1PKKIc9HCZREuW2TkEpePWBlMRkQMre2jbHxEu5wFJv2m8VXOHXe1rphYkJZgpMzkLX7CeeAbMzatlarGzl8t0MqqwON4YVDS4pnxs88gwkMX_eQ7G3XqP1-fkj34mi2_EjR-YpGVZqDAQpbeDJUiNCGUvPomyYx56rtBTPkJ4Fk2QcBm5pJ0nN6J5rze2_AJ0vdDoTrNqm9l_sDGnQvLryNQ08V67M-0gLeLVXyi6CQTDYKY0SP_OzdyVCyH8pGV_lLVbPW61JmAf5eKflxxdx5v3L9z7mOEqG_rFPIJe0hAPSPM_Dyd6qyUXse6dJR3l44WVHpHOs4QWv9oTfs2hHmMdJ7icnCTu94y7b2Y0U5TthOInzeEeYjPx8GJwkjIZ-NNh2aHjmEjcLdI8lLISxE103ILEWskuwD_cfHh4dglOC-6WYo8L8XxSOAnRzOUUFnXPMHp2np4OC4GPBXVMZAzbplKPrVs9EayjGwOgS5OqoOPy0eMqXwE1bK1RorFt1VBSZmi7z2y9QoFHW1nXLsDYKqFjQpoEKESENrrSoQSrUR9e3GfoyvflquA6oYkNlzQWl0KUQlUJTpVrYVBdalM_oysjYHfMZhfGm--A-6vd_GC-2YdCF4TaMu3B7_XjYhdHBf7YMB7fxw0lw8iQ8eRLtdsAHON7BjusYY2pMKyd9czZL2CzqCghumXbWroNbLYoVL510s6ycdmP4mGJzh-oOXP8FlebgGw==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.11 LO-190-120_Send_Advanced_Shipping_Notice_-_OTC_(IP) — LO-190-120_Send_Advanced_Shipping_Notice_-_OTC_(IP)
@@ -951,10 +910,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMtu2zAQ_JWFgsAtIAN6Rq4OBWzZKgL0EdRpe0hyoKWlTEQiBZJO4gb-95KSX3HrU3UwvMPdmd0Rta9OIUp0Uufy8pVxplN4HeglNjhIYbAgCgcu9MBPIhlZ1KgGNocKrufsd5fmR-2LTbNYThpWry06x0og_Lh2YWwKaxcU4WqoUDI6cAetZA2R60zUQtrsCxxRj3Zq26OJkCXKQ4LnJX4Rm9KacTzAYRIlUW7rFBaCl29IaUxHtBhsbHO1eC6WROqu_ZXCL-TlFyv10sSU1ApNzlI39WeywNrOqOXKYsVKPu3MYMrqcGPYvCUF45XBI89AkvDHAxR7mw1sLi_v-V4Ubqf3HMxT1ESpKVJQ2sCzJw2U1XV6EWXjPPZcpaV4xPQimCXTMHALO0lqRvdca-7wGVm11OlC1OU2dfhsZ0iD9sWVL2nguXJtfk-0kJcHpewqGAWjvdIk8TM_2ylRSv9Lyfgqb4l63GrNwjzIp3stP76KM-9vvt2Y0ygZ-6c-oXxiBR6R5nkezg5Wza5i3ztPOsnDKy87Ia2IxmeyPhB-yKI9YR4nuZ-cJez1TrtcLW6kKHaE4SzO4z1hMvHzcXCWMBr70WjboeGpJGmX8ItIXApjJ3xrURItZJ9gH-7f3d07lKSUDAtRwa1kVYUSwkkAVIoG5uaFm6sINzXh-t55eDiqDf5dG5nar0IzygqimeAgKMyXrG2Qa_iOBbL2lCl8y9QlPWHXBeEl_GhL4zJMsTaoXJ8UR-_2xUqLFq65RtnafjvZ1rb_HSumDLxrEktD8v6IJDYc1nZUCj4JUSq4VmqFQIWEuRbFI3wxLdjtA0P4dpvBu-ub94ajpzAm9X94DMPhR2PrNvT7MNyGYR8G2zDow-joBtiSo3v65iQ4exKePYm2X-wbMN6vDMd1GpQNYaWTvjrdcjYLvERKVrV2Nq5DVlrM17xw0m6JOavuVUwZMXer6cHNH4Oy6VI=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.13 LO-190-150_Deliver_Product_-_OTC_(IP) — LO-190-150_Deliver_Product_-_OTC_(IP)
@@ -1077,10 +1035,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuK2zAU_RXhIXgKDvUzTr0oOE4MAy0zNNPOoulCkaVYjCwZSc6jIf9eKe9JGbqoF8E6Ofece48lbR0kKuxkTq-3pZzqDGxdXeMGuxlw51Bh1wMH4AeUFM4ZVq7lEMH1lP7e04K4XVuaxUrYULax6BQvBAbfHzyQm0LmAQW56issKXE9t5W0gXJTCCakZd_hIfHJ3u3410jICssLwffTACWmlFGOL3CUxmlc2jqFkeDVG1GSkCFB7s42x8QK1VDqffudwl_h-oVWujZrApnChlPrhn2Bc8zsjFp2FkOdXJ7CoMr6cBPYtIWI8oXBY99AEvLXC5T4ux3Y9XozfjYFz-MZB-ZBDCo1xgQobeDJUgNCGcvu4iIvE99TWopXnN2Fk3QchR6yk2RmdN-z4fZXmC5qnc0Fq47U_srOkIXt2pPrLPQ9uTG_N16YVxenYhAOw-HZaZQGRVCcnAgh_-VkcpXPUL0evSZRGZbjs1eQDJLC_1vvNOY4TvPgNicslxThK9GyLKPJJarJIAn890VHZTTwixvRBdR4BTcXwU9FfBYsk7QM0ncFD363XXbzJynQSTCaJGVyFkxHQZmH7wrGeRAPjx0anYWEbQ1eoMS1MHGCxxZLqIU8EOzDg58zh8CMwL7NGxSiaTpOkRkKjKlCEreQow34CMaYmSkpB9Oatg3mGmgBik5p0Zi6UafMUVIK5ByyjdLgvhjlH2bOryur8P7sZaraKy8qjOxJcpSDb3gBZWVOwL96MAYfrhwiY2A4dGk6MhlWHdKgDx6fC3D_8HTpxuzhwwsPQL__2XR2XEaH5fW-sZzTTnwDh8ej8AaMzmfR8RyTSwNp5WRbZ3_rmZuxwgR2TDs7z4GdFtMNR062vx2crq1M6GMKzUdrDuDuD96TtyY=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.16 LO-190-190_Audit_Shipment_Transportation_Charges_-_OTC_(IP) — LO-190-190_Audit_Shipment_Transportation_Charges_-_OTC_(IP)
@@ -1148,10 +1105,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1vozgU_SsWVZVdiWj5DCkPK6UkjCpNNVXT2X2YzoMDJrFqbGSbppko_31tcEhgy75sHqrer3PuPVwbjlbGcmTF1u3tEVMsY3CcyB0q0SQGkw0UaGKD1vEX5BhuCBITnVMwKtf4V5PmBtWHTtO-FJaYHLR3jbYMge8PNlioQmIDAamYCsRxMbEnFccl5IeEEcZ19g2aF07RsJnQPeM54pcEx4ncLFSlBFN0cftREAWprhMoYzTvgRZhMS-yyUk3R9g-20Eum_ZrgR7hx984lztlF5AIpHJ2siRf4QYRPaPktfZlNX8_i4GF5qFKsHUFM0y3yh84ysUhfbu4Qud0Aqfb21fakYKvz68UqF9GoBBLVAAhlXv1LkGBCYlvgmSRho4tJGdvKL7xVtHS9-xMTxKr0R1bizvdI7zdyXjDSG5Sp3s9Q-xVHzb_iD3H5gf1d8CFaH5hSmbe3Jt3TPeRm7jJmakoiv_FpHTlL1C8Ga6Vn3rpsuNyw1mYOP_GO4-5DKKFO9QJ8XecoSvQNE391UWq1Sx0nXHQ-9SfOckAdAsl2sPDBfAuCTrANIxSNxoFbPmGXdabJ86yM6C_CtOwA4zu3XThjQIGCzeYmw4VzpbDagfuWd3sMlhUlQCQ5oCpU8iBYDXPEMihhG2F_tHox49Xq4BxAacZ24J1vSmxBJi-MyUdkAwkL-uHV-vnz6uaeb_mEb4hsJASlZXUFY9QZjvwTZ9BsEQSYtK28aRkU52ABHKOER-A3n3ayINpBFOw_iMAcAsxFVLfCxsInr4NMFynD_JcU-DMHc1cIqrWmPHP5nH937oyIVnV5a_rLENCFDUhB5CwsiJIolxV_35dHRyP52o1GduLKSQSVJBDQhD50i7Mq3U6tUXqSA2eWMqbI9PRLigkByGvOfpzJZBkNVHAIFFXxBa1-i6x2hO8qbWbCSn67SsFzzzNoxlo4A0YONLw_1Xh9yu-V_l1QwVnZaO1Jn55BFCASu2Dfv7mmeZgUapVlQPY4NNGmv1RQ3UdCSQlQY1cS5bV-p8BUPgp0JM6BDv1cjL7qXHXq7XZrwHCrI_wBVHEoVH3ojZmdKwF170sVkXU-j-o9yTWEEqRJwIpVdf-cJ28wTKOsxnN82aKZ0SQmivXJ3CRZVrZHni3dtQF0-mf6uQbM2rNuTH91gyMGbRmaMywNWfGvGtN1zlDG2zP2DMTP9uuYxy-ccyNfaZzDZ8_sO-M7Zn8q0tUD3R11fci3mjEH40Eo5FwNDIbjUSjkflo5G40ovQbDbndh0Hf75mXeN_rf-oNzu83y7ZKxEuIcys-Ws1XnPrSy1EBayKtk23BWrL1gWZW3HztWHWziksM1ZVWts7TP32oNzA=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.17 LO-190-200_Monitor_Shipment_Status_-_OTC_(IP) — LO-190-200_Monitor_Shipment_Status_-_OTC_(IP)
@@ -1281,10 +1237,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -1298,10 +1253,9 @@ flowchart TD
 | Freight Payment Analyst | LO-190-190_Audit_Shipment_Transportation_Charges_-_OTC_(IP),  | |
 | Transportation Planner | LO-190-200_Monitor_Shipment_Status_-_OTC_(IP) | |
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -1313,10 +1267,9 @@ The following data entities are derived from the system integration flows for LO
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -1358,10 +1311,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1404,10 +1356,9 @@ The Future-State architecture represents the **target** landscape for LO-190.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1427,10 +1378,9 @@ The Future-State architecture represents the **target** landscape for LO-190.
 
 **Summary**: 6 Conversions, 3 Enhancements, 1 Workflows
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1442,10 +1392,9 @@ Integration patterns identified from the system flow analysis for LO-190:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1469,10 +1418,9 @@ Platform landscape inferred from integrated systems for LO-190:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1512,10 +1460,9 @@ Platform landscape inferred from integrated systems for LO-190:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1535,10 +1482,9 @@ Platform landscape inferred from integrated systems for LO-190:
 | OTCC0679 | Open Dispute Case Conversion | Jun-25 (100%) | Jul-25 (100%) | Aug-25 (100%) | Oct-25 (100%) | 4. Completed |
 | OTCC0678 | Collection Master Conversion | Mar-25 (100%) | May-25 (100%) | Jun-25 (100%) | Aug-25 (100%) |  |
 
+
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1567,5 +1513,5 @@ Standard RAID items for LO-190 (Order To Cash (IP)):
 
 ---
 *LO-190 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: March 2026*
+
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - OTC (IP)</span></div>
-</div>

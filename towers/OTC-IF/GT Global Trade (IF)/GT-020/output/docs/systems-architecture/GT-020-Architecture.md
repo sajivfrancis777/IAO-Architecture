@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">GT-020 — Product Classification (IF)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IF) (OTC-IF) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **GT-020 Product Classification (IF)** within the IAO program. It includes 5 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Order To Cash (IF) (OTC-IF) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 11 Interfaces, 64 Enhancements, 11 Forms, 1 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Revenue Recognition Accuracy | Ensure compliant revenue recognition aligned with ASC 606 through S/4 HANA billing | Finance & Compliance | Medium |
 | 4 | GT-020 Process Migration | Migrate Product Classification (IF) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Order Management (Intel Foundry) | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -212,10 +179,9 @@ This capability includes **5 business process(es)** modeled in BPMN 2.0, coverin
 | 4 | GT-020-040_Determine_&amp;_Assign_ECCN_Classification_(IF) | GT-020-040_Determine_&amp;_Assign_ECCN_Classification_(IF) | Trade Execution Analyst | 4 | 3 |
 | 5 | GT-020-070_Classification_reporting_(IF) | GT-020-070_Classification_reporting_(IF) | Trade Execution Analyst | 2 | 2 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -263,10 +229,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU1v2zgQ_SuEgsBdQAb0aXl1aOHIFhCgWxS12x7We6AlUiZCkS5JJXFd__cOJX9FG7eH6mB4nmbeGz5yqJ1TyJI4qXN7u2OCmRTtBmZNajJI0WCFNRm4qAO-YMXwihM9sDlUCjNn39s0P9o82zSL5bhmfGvROakkQZ_vXTSBQu4ijYUeaqIYHbiDjWI1VttMcqls9g0ZU4-2aodXd1KVRJ0TPC_xixhKORPkDIdJlES5rdOkkKJ8QUpjOqbFYG-b4_KpWGNl2vYbTf7Bz19ZadYQU8w1gZy1qfl7vCLcrtGoxmJFox6PZjBtdQQYNt_ggokK8MgDSGHxcIZib79H-9vbpTiJosV0KRA8BcdaTwlF2gA8ezSIMs7Tmyib5LHnaqPkA0lvglkyDQO3sCtJYemea80dPhFWrU26krw8pA6f7BrSYPPsquc08Fy1hd-eFhHlWSkbBeNgfFK6S_zMz45KlNI_UgJf1QLrh4PWLMyDfHrS8uNRnHn_5zsucxolE7_vE1GPrCAXpHmeh7OzVbNR7HvXSe_ycORlPdIKG_KEt2fCv7PoRJjHSe4nVwk7vX6XzeqjksWRMJzFeXwiTO78fBJcJYwmfjQ-dAg8lcKbNVooXBJ0v0ATgflWm-61fYT_79KhOKV4aN1GU2KIqmEm0CfCySMWBr0nFeYQVg3Hhkmhl85_FwTBbwk-NPUKBlVUaF7Y2e8RhG9ODBsONmbWBkZZ0aoBzbeGKSgTRrcB0Qbdw-XCwPYSqP664IqA6twBFiWaAFclUCbrWpbMAD0MnO6JvGwovkaygEuL0pbhlwSjawSzLPvwy8pktzt6YW_S4QrugmJ9LNlaD-FklE0BXlCp0Luls9939TCW3R8RouHwLezsIfS7MDiEQRcmhzCx4Y-lc7E22J8f4EIvoTsGGYyzkrzNGPUyeh63OdHF0batHEf6BRy8Doena-0FHL0Ox6_Do9fh5Di1juvUsFGYlU66c9pvE3y_SkJxw42zdx3cGDnfisJJ2zvcaTYlVE4ZhtGqO3D_E5TjQL4=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 GT-020-020_Determine_&amp;_Assign_Commodity_codes_classification_(IF) — GT-020-020_Determine_&amp;_Assign_Commodity_codes_classification_(IF)
@@ -332,10 +297,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP4jYU_itWRiO2UhC5EiYPrZhARit12tVcuqqWPhjHAWsSmzoOkLL899q5AAmhUts8QM7nc77vnONbDhpiEdZ87f7-QCgRPjgMxBqneOCDwRJmeKCDCvgNcgKXCc4GyidmVLySv0o309nslZvCQpiSpFDoK14xDN4_62AqAxMdZJBmwwxzEg_0wYaTFPIiYAnjyvsOT2IjLtXqoUfGI8zPDobhmciVoQmh-AzbnuM5oYrLMGI0apHGbjyJ0eCokkvYDq0hF2X6eYaf4f4ricRa2jFMMix91iJNfoZLnKgaBc8VhnK-bZpBMqVDZcNeNxARupK4Y0iIQ_pxhlzjeATH-_sFPYmCt9mCAvmgBGbZDMcgExKebwWISZL4d04wDV1DzwRnH9i_s-bezLZ0pCrxZemGrpo73GGyWgt_yZKodh3uVA2-tdnrfO9bhs4L-dvRwjQ6KwVja2JNTkqPnhmYQaMUx_H_UpJ95W8w-6i15nZohbOTlumO3cC45mvKnDne1Oz2CfMtQfiCNAxDe35u1XzsmsZt0sfQHhtBh3QFBd7B4kz4EDgnwtD1QtO7SVjpdbPMl184Qw2hPXdD90ToPZrh1LpJ6ExNZ1JnKHlWHG7W4I3DCIP5HqNcEEbBlMKkyETlpR5qfltoMfRjOFRNBy8YwSQZBYxzjASQ2US5_A9UhiQmCCqahfbHBYN1xVA5F010Bp4hzSVtAT59TjeMi9F8r_5-aBPZbaJgjdHHjQxAwKjcRwJTVLRJnA7JVS47ItZAHkUy0QRvIZXULE1ZREQh32S3_qlW99uJHrFVb61izVm-qiTeNwmDEWAxgCAkidJEmGxxBGLOUlWErKDs8pbIU0pqXYqNpdYMC8xTeVQBSCMwlVorCn59mo6-PE3LdNv5eTLkBUeyM5wsqymX4le9i3AGPr2OHDACz7OnzjRMWrKd2Bf8Z064PMepyNphD4fDuTURHi7laYbWAO9Rkmey5qdqsyy04_Fy-Rn_LczsD_sqd-NVwT91g63-4GrBkfg8rZ2qoysm-99mL8_Q6oU-gOHwR9WA2jaNCrBr26rMh9q0a_dm2KyBccf2attth5sl3feF9juW8_ZddbAZMeuR900ks60Gu2NXHWlWebXCyyD3ZlBxOgBKR6ub0y-sUj21op37pDKd2nTqTlgXh6eKaS6NFmz1w3Y_7PTD7uX10RoZny7gFuz1w5N--KG5SNoFGf2w2Q9b_bDdwJqupXJLQxJp_kErP8Xk51qEY5gnQjvqGswFey0o0vzyk0XLy-UwI1DeJGkFHv8Gc9Isug==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 GT-020-030_Determine_&amp;_Assign_Tariff_codes_classification_(IF) — GT-020-030_Determine_&amp;_Assign_Tariff_codes_classification_(IF)
@@ -443,10 +407,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P2jgU_StWRiOmUlDzSZg87IoJZFWpHVWdaavV0gfj2GCNsVnb4aOU_16bJEAyzFPzQLgn955zfGVf7x0kCuykzu3tnnKqU7Dv6QVe4l4KejOocM8FFfANSgpnDKuezSGC6yf685jmR6utTbNYDpeU7Sz6hOcCg68fXDAyhcwFCnLVV1hS0nN7K0mXUO4ywYS02Td4SDxyVKs_PQhZYHlO8LzER7EpZZTjMxwmURLltk5hJHjRIiUxGRLUO1hzTGzQAkp9tF8q_Aluv9NCL0xMIFPY5Cz0kn2EM8zsGrUsLYZKuW6aQZXV4aZhTyuIKJ8bPPIMJCF_OUOxdziAw-3tlJ9EwfN4yoF5EINKjTEBSht4staAUMbSmygb5bHnKi3FC05vgkkyDgMX2ZWkZumea5vb32A6X-h0JlhRp_Y3dg1psNq6cpsGnit35rejhXlxVsoGwTAYnpQeEj_zs0aJEPJHSqav8hmql1prEuZBPj5p-fEgzrzXfM0yx1Ey8rt9wnJNEb4gzfM8nJxbNRnEvvc26UMeDrysQzqHGm_g7kx4n0UnwjxOcj95k7DS67osZ5-lQA1hOInz-ESYPPj5KHiTMBr50bB2aHjmEq4W4FnCAoPJFqNSU8HBiEO2U7rKsg_3_5s6BKYE9m3TwReMIGPvMyElRhoYN0Vp3pl1SAlF0NJMnR8XDMErhip511Qr8Any0tDuwN2H5UpI_X6yta93baKwTZQtMHp5wwHIBDfnSGOOdm2SqEPyysuG6gUwo8gYZXgNuQaVGUtpWsu6So_lcmaI7iZZ9tgxHN-dxJQWq7NG16xdCS5M8buL6oEpHmON5dJMom7JF_x_SaWZl1yrtmiy3zeidub2Z2ZqoEXdLUrO_e9QFX9PncPhgmh4nei72dCCdPx0a--v1-ItYqWia_xPdTLOVWZ2VH94APr9vwxDHYZVGNeh3_46tOGvqXOxqZq9NHV-GbI6L6nz_sXqiA879V9XhXF0_FRPBn5fKYUdhkdxzGoMDKqsqA6jKkwuzq313MyrFhxch8PrcHQdjuup2wIHp7HfgpNmILXQ4VX0vkEd11maLQhp4aR753hFm2u8wASWTDsH14GlFk87jpz0eJU55bGVYwrNhFlW4OE3tPCUOQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 GT-020-070_Classification_reporting_(IF) — GT-020-070_Classification_reporting_(IF)
@@ -490,10 +453,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -503,10 +465,9 @@ flowchart TD
 | Trade IT Analyst | GT-020-010_Determine_Classification_Requirements_(which_legal_reg._Numbering_scheme_to_be_defined)_(,  | |
 | Trade Execution Analyst | GT-020-020_Determine_&amp;_Assign_Commodity_codes_classification_(IF), GT-020-030_Determine_&amp;_Assign_Tariff_codes_classification_(IF), GT-020-040_Determine_&amp;_Assign_ECCN_Classification_(IF), GT-020-070_Classification_reporting_(IF) | |
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -518,10 +479,9 @@ The following data entities are derived from the system integration flows for GT
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -561,10 +521,9 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -607,10 +566,9 @@ The Future-State architecture represents the **target** landscape for GT-020.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -707,10 +665,9 @@ The Future-State architecture represents the **target** landscape for GT-020.
 
 **Summary**: 11 Interfaces, 64 Enhancements, 11 Forms, 1 Workflows
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -722,10 +679,9 @@ Integration patterns identified from the system flow analysis for GT-020:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -749,10 +705,9 @@ Platform landscape inferred from integrated systems for GT-020:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -792,10 +747,9 @@ Platform landscape inferred from integrated systems for GT-020:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -824,12 +778,12 @@ Platform landscape inferred from integrated systems for GT-020:
 | OTCE1200 | Enhancement to transfer fields from Sales Orders to Purchase Requisition duri... | Jul-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
 | OTCE1124 | Enhancement to support Inbound interface to change the ship to party record a... | Apr-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Jan-26 (100%) | 3. Off Track |
 | OTCE1123 | Determine Confirmed Delivery date in sales orders at schedule line level base... | Jun-25 (100%) | Nov-25 (60%) | Nov-25 (60%) | Nov-25 (100%) | 4. Completed |
+
 *... and 67 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -858,5 +812,5 @@ Standard RAID items for GT-020 (Order To Cash (IF)):
 
 ---
 *GT-020 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: March 2026*
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-020 — Product Classification (IF)</span></div>
-</div>

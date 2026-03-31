@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">PM-110 — Procure Subcontracting</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Procure To Pay (PTP) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **PM-110 Procure Subcontracting** within the IAO program. It includes 8 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Procure To Pay (PTP) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Payment Automation | Automate invoice verification, three-way matching, and payment execution | Finance Efficiency | Medium |
 | 4 | PM-110 Process Migration | Migrate Procure Subcontracting business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Procurement | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -215,10 +182,9 @@ This capability includes **8 business process(es)** modeled in BPMN 2.0, coverin
 | 7 | PM-110-100_Verify_Subcontractor’s_Ability_to_Meet_Schedule | PM-110-100_Verify_Subcontractor’s_Ability_to_Meet_Schedule | Planner, Procurement Agent | 10 | 8 |
 | 8 | PM-110-110_Manage_Subcontractor_Located_Inventory | PM-110-110_Manage_Subcontractor_Located_Inventory | ODM Supplier | 3 | 1 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -285,10 +251,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4jgU_StWqopZKWiSkBCah13RQKpK052qzOxoNMyDSW7AqrGztkNhGf772iQQSGFfNg-R7sc5597rj2RrpTwDK7Jub7eEERWhbUctYAmdCHVmWELHRpXjLywInlGQHZOTc6Ym5J99musXa5NmfAleErox3gnMOaCvjzYaaiC1kcRMdiUIknfsTiHIEotNzCkXJvsGBrmT79Xq0D0XGYgmwXFCNw00lBIGjbsX-qGfGJyElLPsjDQP8kGednamOMrf0gUWal9-KeEJr7-RTC20nWMqQecs1JJ-wjOgpkclSuNLS7E6DINIo8P0wCYFTgmba7_vaJfA7LVxBc5uh3a3t1N2FEWfXqYM6SelWMoR5Egq7R6vFMoJpdGNHw-TwLGlEvwVohtvHI56np2aTiLdumOb4XbfgMwXKppxmtWp3TfTQ-QVa1usI8-xxUa_W1rAskYp7nsDb3BUug_d2I0PSnme_y8lPVfxBcvXWmvcS7xkdNRyg34QO-_5Dm2O_HDotucEYkVSOCFNkqQ3bkY17geuc530Pun1nbhFOscK3vCmIbyL_SNhEoSJG14lrPTaVZazZ8HTA2FvHCTBkTC8d5Ohd5XQH7r-oK5Q88wFLhbIsJVCHzum0HCu31XcPMz98WNq5TjKcTflcxQL0O2g51LorSYBfTbnZmr9_HkCCT8cIQXVjb_A3yWp6R8z_SY5gUyDfjsB3TUgqXhREaMRVhhNTEXHbL2_WuV_0SdCFlworAhn6AkzPNfYDxf9popTXf9if4nYb8mL7QXniBegoCfxMeYsJ2KJks-t_P5_KnzV92ADeN_cNyxgwUsz6gIEVlycUHsXqR_ZjJcsQyOgZAVi06qndw565lKhB84zqVtJgRSqlT9oLefDS7Us--zVu4V0ndZK6vyYLwsK6n2uu902tWTQneklS_WKPtWrlaHZRvejgP4xtXa7U6h3GQrrlJZS1_VQHbsGdpwtc1G3-7vecrXZq0y3PmfMq-36dmBBbXu17Vd2UJv9yvRrc1CZh-SwBh-k99q_ptaffGr9OiF1a9VeO_E7yH1m_-QWMC2c3FVnEe9qpHc14l-NBFcj_auR8Pi9OXMPLrvv6i_GeXvORa97uEzP3d7BbdnWEsQSk8yKttb-T0L_bWSQ45Iqa2dbuFR8smGpFe2_uFZZZBo5IlgftmXl3P0LF366Sg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 PM-110-030_Create_3rd_Party_PO-_Components_to_be_delivered_directly_to_Subcontractor — PM-110-030_Create_3rd_Party_PO-_Components_to_be_delivered_directly_to_Subcontractor
@@ -426,10 +391,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv4jgU_itWRhWzEqi5B3jYVQtNhVS2qHR2tBrmwSQORA1x1knash3--54QO4BxKrXLA5K_c77vXHxL8qYFNCTaULu4eIvTuBiit06xJhvSGaLOEuek00U18BdmMV4mJO9UPhFNi3n8797NsLPXyq3CfLyJk22FzsmKEvRt0kVXQEy6KMdp3ssJi6NOt5OxeIPZdkQTyirvL6Qf6dE-GjddUxYSdnDQdc8IHKAmcUoOsOXZnu1XvJwENA1PRCMn6kdBZ1cll9CXYI1ZsU-_zMkUv36Pw2IN4wgnOQGfdbFJ7vCSJFWNBSsrLCjZs2hGnFdxUmjYPMNBnK4At3WAGE6fDpCj73Zod3GxSJug6O5hkSL4BQnO8zGJUF4AfPNcoChOkuEXe3TlO3o3Lxh9IsMv5o03tsxuUFUyhNL1btXc3guJV-tiuKRJyF17L1UNQzN77bLXoal32Rb-pVgkDQ-RRq7ZN_tNpGvPGBkjESmKov8VCfrKHnH-xGPdWL7pj5tYhuM6I_1cT5Q5tr0rQ-4TYc9xQI5Efd-3bg6tunEdQ28XvfYtVx9JoitckBe8PQgORnYj6Dueb3itgnU8OctyOWM0EILWjeM7jaB3bfhXZqugfWXYfZ4h6KwYztaoUisZbLu0QFcr-K_t1S-1fvxYaBEeRrgX0BUaMQLloFnJYKnlBN1X-2ah_fx5RLGVlHlBgyf0CKs3zygsUhXTcL821CyBnj2Qf8qYZzYJ4T-OYhIC67cjlmkcWHlBs1oajXGB0byqRnLvv70d8gtJbwk5BdCF-0s0f7z_Y6HtdrU7LGWpU036uIhpiqY4xSsI9VWJV1kfBx4o--Kz_epH3-BAlNuhv8tQdtA4pTyQhMA8XY5oGsVsg_x7mWB-PIb10Rj2Byo_b_p3zMialtVqywjDBWXH2o1ydRygGc0LdEtpmKNJnpcEdI-nXuEMWeflJqvm7dTZUSY9SZe0TEM0Jkn8TNhWKtU9JR2l80ACEmfyFHvKIPdl8W6UvhSFsIhC44_qRgVF9-MpmpdZlsTnU-iAwCyGDYkhygwHT6e1G560EW8f6v20r-L5bAsafdl_8r7_4GP6pi75H83a-0RTOhsg0IhusoQU576W5Cu6336U2BJjtt7mcYATPhUqiiNTRKtUzq7kfFx2tbbOa_AkxiR9Bl0KRUwp7DPKzikD9Xk4mV5as7uj47C-D3S1N3kNkjKHdt3W151MMz5HM9W0xyk_Y0O03EKNBUnOErU-F9H-fETncxHdAw0zRl_yHk4KlGGGk4QkLSRPSXrcZgTRCPKrDoT9ZaS6z-CiRb3e79VdyAGLj_kTUSrsJh_b9djjQ68eWsJsOBzQBdCXAT4WCpZeAyKgISQbYCABIoTNx9xuNBGEoiBYoqiB8BBJWALgHpYjKNxDjA2TazYM3ghDVG7uC_210ODRYaH9gk4JKV6QeQYIcZMnfCY1q5VETEtU7nKA99Zseslny5XGzeTaXPhPWgs7suFvku8tRpOsKVEs2SAoornmgBvg0NgbTEu2TKZ1kKYBvA736AG3Winiwf4ENtWwdfzQfmKxWy1Oq8VttXitln6rZdBqgbXaajLaTWa7qb0PRnsj4BgQr4anuNeC91vwgRqHFa7GDf6aeIqaStRSorYSdZSoq0Q9JdoX72un8EAJwyGmhA01bKphSw3bathRw64a9gSsdbUNgSshDrXhm7b_yAIfYkIS4TIptF1Xw2VB59s00Ib7jxFamYXAHMcYHsI3Nbj7D4a0c88=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 PM-110-040_Deliver_Component_Materials_to_Subcontractor — PM-110-040_Deliver_Component_Materials_to_Subcontractor
@@ -522,10 +486,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV11v4jgU_StWqopZCdR8kpCHHVEgFVKZotLZ2VXZB5M4ENXEke20ZRj--9qJQyANlXaXB8Q9Pueee2_sJOy1kERI87Xr632SJtwH-w7foC3q-KCzggx1uqAE_oA0gSuMWEdyYpLyRfKzoBl29i5pEgvgNsE7iS7QmiDwfdoFQyHEXcBgynoM0STudDsZTbaQ7kYEEyrZV8iL9bhwU0u3hEaI1gRdd43QEVKcpKiGLdd27UDqGApJGp0ljZ3Yi8POQRaHyVu4gZQX5ecMzeD7jyTiGxHHEDMkOBu-xfdwhbDskdNcYmFOX6thJEz6pGJgiwyGSboWuK0LiML0pYYc_XAAh-vrZXo0BfePyxSIT4ghY2MUA8YFPHnlIE4w9q_s0TBw9C7jlLwg_8qcuGPL7IayE1-0rnflcHtvKFlvuL8iOFLU3pvswTez9y599029S3fiu-GF0qh2GvVNz_SOTreuMTJGlVMcx__LScyVPkH2orwmVmAG46OX4fSdkf4xX9Xm2HaHRnNOiL4mITpJGgSBNalHNek7hn456W1g9fVRI-kacvQGd3XCwcg-JgwcNzDciwlLv2aV-WpOSVgltCZO4BwTurdGMDQvJrSHhu2pCkWeNYXZBshsORXHLuVguBbf5br8pIbzvNRGFIkmwBxDcbU46RU_wJPYiSxGFDzIw7PU_j6V9WsZTKPCAjEG5jkVe5ShVo273y-1GPox7MkbRW8lDMINQO8hzlnyiu7KSS61w6GUib3WaKWoKSOUQ56QFMxgCteiwi-tuGz4t5MCnOfn2n8NVPkBLbYn-C7uWKLg04r7nwqqFk8V7rniEWEkpnEzImmc0C0IHmr-x-Z-QIo2JJfTyxCFnNDT6R0Ty3MB5oRxcEdIxMCUsRydj9psLXyarkguLtYYYTFtumvUbp2LThweUYiSrDkdu9XkIeefunhCNE_Cl3LbwPDlvPLBl2PSDItTdTcFY8hhWcIrigT79JIaepP_-DnfqPmMk0zyR2SbYcQ_cs0Gt-qodFjIg9RQWA3FfLNjSQixmmObxG5Kqo7byF77CZrObqz5_df64JTswb89b-Xe0dtlTzN1rCKw2om9xBFuOprGf3M0axmklLyxHsTi_rPLECCxsIoJ3RYH-2vLvSG1QK_3u7y0KvZUPFDxoBEbZWyaVVwRVOyUYV-F_TJ0VWgqueEpwFXpKrlpKoLVBOzKUEmOceH4a6k9jGc3tw9_gkW-Eq8fS-2X5FakviJ9E_e3z4jKrXI3dFVftayrPH8hVgid5sI3UuDHhgxPLYg9VlpVuWyVWm8yp7OC6J082eTcqyf6GWyePpbPVqyLK_bFFefiSv_iintxZXB8tTrvRL-AG-r16Bw1W1GrFbVbUeeCX_8C7lZvJeew1w4PWmGxH1phox02K1jralskzmsSaf5eK173xV-CCMUwx1w7dDWYc7LYpaHmF6_FWp5FQjlOoHgKbkvw8A8bsNCb" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 PM-110-050_Manage_component_stock_provided_to_subcontracting_vendor — PM-110-050_Manage_component_stock_provided_to_subcontracting_vendor
@@ -658,10 +621,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWF1v4jgU_StWRhW7EmjiOCGBh1210IyQhgWVzoxWwzyYxAGrIc46CS3b4b-vAzYfxhmpXR4i-dx77sfJtZPwakUsJlbfurl5pRkt--C1Va7ImrT6oLXABWm1wQH4ijnFi5QUrdonYVk5o__u3aCbv9RuNRbiNU23NTojS0bAl1Eb3Api2gYFzopOQThNWu1Wzuka8-2ApYzX3h9IkNjJPps03TEeE35ysG0fRp6gpjQjJxj5ru-GNa8gEcvii6CJlwRJ1NrVxaXsOVphXu7Lrwoyxi_faFyuxDrBaUGEz6pcp5_xgqR1jyWvaiyq-EaJQYs6TyYEm-U4otlS4K4tII6zpxPk2bsd2N3czLNjUvD5YZ4B8YtSXBRDkoCiFPD9pgQJTdP-B3dwG3p2uyg5eyL9D869P0ROO6o76YvW7XYtbueZ0OWq7C9YGkvXznPdQ9_JX9r8pe_Ybb4VVy0XyeJTpkHXCZzgmOnOhwM4UJmSJPlfmYSu_BEXTzLXPQqdcHjMBb2uN7Cv46k2h65_C3WdCN_QiJwFDcMQ3Z-kuu960G4Oeheirj3Qgi5xSZ7x9hSwN3CPAUPPD6HfGPCQT6-yWkw5i1RAdO-F3jGgfwfDW6cxoHsL3UBWKOIsOc5XoI5WcbHtshLcLsX1YK9_Gfr-fW4luJ_gTsSWYMCJaAdMKy5GrSBgUu-bufXjxxnFNVJmJYuewKOY3iJnYkhNTNj97UjNU6HZA_mnorKyUSyuNKEkFqzfz1iOfWIVJcsPocEQlxjM6m409-7r66m-mHQWoqZIqDD5CGaPkz_n1m53cBejrCl1LB-XlGVgjDO8FKl-M-J11eeJe0ZdQr6ffvBFHIi6HPYvGUYF4SXlgaRE3KePA5YllK9BONEJzttzoLfmcN_Q-bXo3zAnK1bV05YTjkvGz2MfI9fHARgzEYxxMGDrnGXiBhRy8MSMb2hMYlAy8FXkYHVX51NxGWfKihJ8YiwuwKgoKnLp7Bn7GWULVmUxGJKUbgjfaip0L0lnGR5IRGiu331f8yc8YULds6LqXibDMZhVeZ7Sq_sUGKucVOUvy4SeYE2pkAwLpymOni57h762Rz89HLbavovN1e6Ege4_-rV_723xHajtfuFf3_2UlNe-juY7yjZiRhjfqsG5piCNomRrPl9cjTFdbQsa4VTeOhPF0ylKJJOzbz6_RuOPaPr57Pg6eAdmb_ISpVUhOvl0eDzptN67aMg20x7H8kyMwWIrVC9JqheK4PsyOu_PiN6X0T3RMOfsuejgtAQ55jhNSdpA8owkmjWlOh6D4qEIOp0_6ueWBJBc22rtHoCutvbl2j8s5ctOpsKpNZRrR64lO5DL4LBEKpuzD_dzbo3Gc-tnfV6oOJ4MpJgw0ABHhlIMRzkogqzU6SmgpwEyBVIMaYeqOGhLQDWHVHdKDCgBdPSQciJXeSgAqTJllmPZXanAdLJXAOnKiG24NzjKAmXn8AhIkaGjxxRvIHuuqgYpVa8AVQ6yJfVvUuypSizkaAbo6pa_2KEDpMdShvM35HpU1Dv3BeyYYXT-Pn1hcRstXqOl22jxGy1Bo6XXaBEj1GiCzSan2dSsA2wWQux69dV2ifsNeNCA98y4Y8svtUsUGlHHiCIj6hpRz4h21cfRJeyb4cAM94ywmGQjDM2wY4aRGXbNsKdgq22tCV9jGlv9V2v_j4b41yMmCa7S0tq1LVyVbLbNIqu___K3qjwWzCHF4o13fQB3_wFui0iq" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 PM-110-070_Post_component_stock_adjustment_-_PTP — PM-110-070_Post_component_stock_adjustment_-_PTP
@@ -699,10 +661,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVFGvmjAU_isNN4YtwQQQxPGwRFGWm2yZmXfbw_U-1NJiI7SkLV6d8b-vFUX07j6NB8L5es73nfPR9mAhnmErtnq9A2VUxeBgqzUusR0DewUlth3QAL-goHBVYGmbHMKZWtA_pzQvqHYmzWApLGmxN-gC5xyDn48OGOvCwgESMtmXWFBiO3YlaAnFPuEFFyb7AY-IS05q56UJFxkW1wTXjTwU6tKCMnyFB1EQBampkxhxlt2QkpCMCLKPprmCv6I1FOrUfi3xN7j7TTO11jGBhcQ6Z63K4itc4cLMqERtMFSL7cUMKo0O04YtKogoyzUeuBoSkG2uUOgej-DY6y1ZKwqepksG9IMKKOUUEyCVhmdbBQgtivghSMZp6DpSCb7B8YM_i6YD30FmkliP7jrG3P4rpvlaxSteZOfU_quZIfarnSN2se86Yq_fd1qYZVelZOiP_FGrNIm8xEsuSoSQ_1LSvoonKDdnrdkg9dNpq-WFwzBx3_JdxpwG0di79wmLLUW4Q5qm6WB2tWo2DD33fdJJOhi6yR1pDhV-hfsr4ackaAnTMEq96F3CRu--y3o1FxxdCAezMA1bwmjipWP_XcJg7AWjc4eaJxewWoNHtsVMcbEH3yCDORbNunmY9_y8tAiMCewjnoNx3w1cMOdSgSlUECScybqsFOUMjHNImV5Y1Ct9OJSASOk9Cubfl9bLS4fS_9BSVoU2pstxIv2BEaZbnOm6j526wbVOKl6B-XovKYIF-MJ5JsFCz3BXEdxVdJXMDG8kQp3feAAQLyvONKc-PRxtQCX4lmY4A4ob57oTavcyLjRVw6Sj5oOFoN__rBs_h34Tnncd85ow6PxeA3Y24c2K3x7jG3hwPnE3YPAvMGwJLMcqsSghzaz4YJ1uXH0rZ5jAulDW0bFgrfhiz5AVn24mq64yvYunFOoNUzbg8S9QHd5s" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 PM-110-090_Notify_Subcontractor_of_Schedule_Requirements — PM-110-090_Notify_Subcontractor_of_Schedule_Requirements
@@ -805,10 +766,9 @@ Relevant"| n17
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV12P4jYU_StWRiNaCTRxPgjw0IqvrFba6Yxg2qpa-mASB6wJdmo7M9BZ_ntt4gQSwkN3eUDy8b333Ht8fTEfVsRibI2s-_sPQokcgY-O3OId7oxAZ40E7nRBAfyBOEHrFIuOtkkYlUvy78kMetlem2ksRDuSHjS6xBuGwe-fu2CsHNMuEIiKnsCcJJ1uJ-Nkh_hhylLGtfUdHiR2cmIzWxPGY8zPBrYdwMhXrimh-Ay7gRd4ofYTOGI0rgVN_GSQRJ2jTi5l79EWcXlKPxf4Ee3_JLHcqnWCUoGVzVbu0i9ojVNdo-S5xqKcv5ViEKF5qBJsmaGI0I3CPVtBHNHXM-TbxyM43t-vaEUKvixWFKhPlCIhZjgBQip4_iZBQtJ0dOdNx6Fvd4Xk7BWP7px5MHOdbqQrGanS7a4Wt_eOyWYrR2uWxsa0965rGDnZvsv3I8fu8oP6bnBhGp-Zpn1n4AwqpkkAp3BaMiVJ8kNMSlf-gsSr4Zq7oRPOKi7o9_2pfR2vLHPmBWPY1AnzNxLhi6BhGLrzs1Tzvg_t20Enodu3p42gGyTxOzqcAw6nXhUw9IMQBjcDFnzNLPP1M2dRGdCd-6FfBQwmMBw7NwN6Y-gNTIYqzoajbAueU0Qp5gWqPxR-XVkJGiWop0UGU45VEUCxxnkkCaPgSd8XQChYPngr6-8LV6fuusAiUzcFSAZCxnGEhASLlxAghc2mi7qvW_d9ZDFJDle0dR-vyZdiNUkundi10-CnyitL1dnM8E4n9DnGVJKE4FiZ_3xhP1TmxiYxVeBYl59p6dRNBHO6UaOizgLtk1tK3rSGbKeEUPHBo9JSTymhRVnmazVJJEeRZI0kIfwxd30Sk5ykqi6q-qFQQ4AXNUDEjkh5qvLSQcv_vAgf9PnM92qW0E2zIq22bj4sRJUImDw9Nsz8Nmowjl4pe09xvFEjXlWywBFWxTXT6H98lIejfy96a5VwtD3TfeIsz35dWcfjpVfQ7qV7W2tGqMRUIdi07nxPhLwKMvgu6mG7l2kYxosLdu4SMOOqbNqM49jtcfA-SnOhPD4Vk6TpBr_Pzf1a3YFETV7MeyzDtGoPo9Opx7IsJacrVLvoXnuAR0TRppS5ceTnEOpnojmFVFvlvOiM8UYbn7n8xjxiVN0JCZ4XOr_np3oD9duHV85VR6vJsMD_5ESQU0eqy2yukE47R2l6qMcKzjVGbAN69rBne3YVcwHeidyCzxLvwFQhG8YPoPOl05TK-b9HVMlDPdDr_aJniVkPzLpv1o5dAIFZB8XSccp9pwD8cg2Ldek_NPEGZg1PAb6trL-wWFnfNEHpaSKXa7dYe2bpm223NDf7TmnglKXAkqpvqMLxBKyoHt1vSDfJN51GaWTilmFN-rCsD5q0YFkg9Bp5wqGh-Y0VBVX8A7PxNHsENXanmaHquPMcA7yW6bDJc6Vcv3Emlca3M1qOX-opwUoAo-uVitrn4aqU4cXrQatXvppqsNMOu-2w1w777XC_HQ4uX1u1nUH1Xq3Bw3YY2jdweAN3buDuDdy7gfs38H754qvDQTs8aIeHrbC6660wbIeddtgtX5B12Cthq2vtMN8hElujD-v0f0z9Z4txgvJUWseuhXLJlgcaWaPT_xYrz2LFMyNIDfJdAR7_AxOeWl0=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 PM-110-100_Verify_Subcontractor’s_Ability_to_Meet_Schedule — PM-110-100_Verify_Subcontractor’s_Ability_to_Meet_Schedule
@@ -916,10 +876,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1V21v6jYU_itWrio2CdS8EuDDJgrk3krrWpVu03S5H0zigHWNzZykhdvLf99x4oSQJtrUaf1Qyc85z3NefOyYVyMUETEmxtXVK-U0naDXXrolO9KboN4aJ6TXRwXwO5YUrxlJesonFjxd0m-5m-XuD8pNYQHeUXZU6JJsBEG_3fbRFIisjxLMk0FCJI17_d5e0h2Wx5lgQirvD2QUm3EeTZtuhIyIPDuYpm-FHlAZ5eQMO77ru4HiJSQUPLoQjb14FIe9k0qOiZdwi2Wap58l5A4f_qBRuoV1jFlCwGeb7tgveE2YqjGVmcLCTD6XzaCJisOhYcs9DinfAO6aAEnMv54hzzyd0OnqasWroOhpvuII_kKGk2ROYpSkAC-eUxRTxiYf3Nk08Mx-kkrxlUw-2At_7tj9UFUygdLNvmru4IXQzTadrAWLtOvgRdUwsfeHvjxMbLMvj_C_EYvw6BxpNrRH9qiKdONbM2tWRorj-D9Fgr7KJ5x81bEWTmAH8yqW5Q29mflWryxz7vpTq9knIp9pSGqiQRA4i3OrFkPPMrtFbwJnaM4aohuckhd8PAuOZ24lGHh-YPmdgkW8ZpbZ-kGKsBR0Fl7gVYL-jRVM7U5Bd2q5I50h6Gwk3m_RA8OcE1mg6o-PP39eGTGexHgQig2aSQJFaL8I3avDgmIhUZAxhj4JSb8JvjK-fKlJWGa7hhRRFqZUcC3zQtMt5WhxIGGWw2_kYKKaCUP5mYR7gqdouoH_9bhVVDUf6E5END5ezzAPCUMP9-j6TQoQqca3L_ll2pmEs5UQ9Ej-ymhCc7bqwDJbw02A7jDPMGPHSy2nvQWPjVa5DTfBnwkc44dHlAqV8j-3KJfxLmWe4KJIdjRFNxllEbrlMBO6bJBdZvs9o3nxdY3hpcaD2GdM5RzXNhqJuGhDsQMJgtzy0YAbCX3K1teL2bQh6_8_sqNL2dsIeLDbdRl0A7sWIZCfkx3mEVrSDcesOazWD5XSnsFh1c6BkCTESQoK9WwWfAPfBdD4sa6hJudOwHctH4uiveiBSBiTnRq_y9mwHHD_l2HqNBdob3e03GyQaPh74F-ctG6fYZ4Ko89q4MVuL7jq3B3skPqaJsW8qDlPJQ6hvAbdB3pVMPDV0D2SkIBeM9Lo9fW8YxEZrCGncFuFQh-lyPY_r4zTqc4at7PIIWRZAlE-Fldsg2ab7bRzqhgOLiEpgjcHWoZbEmWMNIPb1ntStu12ltpb1VnKU8LVUOhbcHGgSZq8UXHeV7j7Ppr3PlrtzojhE07kQOzJeSR1ha13TnW18zEaDH6Ci0Iv3WJpD_XaMgvA02t7WKytEvD02i0JWtAqFe1c4fvK-JMkK-O7Oq9Ny6-iMGjc0TlUkhqwRiWx9CjXDYKtq6jW9mUg2ymVR9pwv5w-5aZxSbFqluv7-V2RYUW0dMgyZ0uHtEoBy2sCvqaYJaAdylbrztplZ7W_VfqPtL3MwdYRnGaVZaMrpXOZuo5hs8oArwuK3bTAR7G67XKXUe1VpIooX4MXsN0OO_WX3oXF7bR4nZZhp8XvtIw6LeNOC5yBTpNVvfEvcbsDdzpwtwP3OvBhB-534KPyOXwJj1thOJitsNUO2-2w0w677bDXDg_LV7fRN3YEvuc0MiavRv5jFX7QRiTGGUuNU9_AWSqWRx4ak_xHnZHtIxCcUwxP110Bnv4GGjy6QA==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.8 PM-110-110_Manage_Subcontractor_Located_Inventory — PM-110-110_Manage_Subcontractor_Located_Inventory
@@ -966,10 +925,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -983,10 +941,9 @@ flowchart TD
 | Planner | PM-110-090_Notify_Subcontractor_of_Schedule_Requirements, PM-110-100_Verify_Subcontractor’s_Ability_to_Meet_Schedule,  | |
 | ODM Supplier | PM-110-110_Manage_Subcontractor_Located_Inventory | |
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -998,10 +955,9 @@ The following data entities are derived from the system integration flows for PM
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -1056,10 +1012,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1102,10 +1057,9 @@ The Future-State architecture represents the **target** landscape for PM-110.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1493,10 +1447,9 @@ The Future-State architecture represents the **target** landscape for PM-110.
 
 **Summary**: 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1508,10 +1461,9 @@ Integration patterns identified from the system flow analysis for PM-110:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1535,10 +1487,9 @@ Platform landscape inferred from integrated systems for PM-110:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1578,10 +1529,9 @@ Platform landscape inferred from integrated systems for PM-110:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1610,12 +1560,12 @@ Platform landscape inferred from integrated systems for PM-110:
 | PTPI1529_IF | An interface to retrieve the list of approvers from a custom MDG table(MDG sy... | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Dec-25 (100%) | 4. Completed |
 | PTPI1458 | Develop an interface between PEGA and S/4 HANA system to transmit MSL informa... | Jul-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
 | PTPI1428_IP | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... | Jun-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Nov-25 (100%) | 1. On Track |
+
 *... and 358 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1644,5 +1594,5 @@ Standard RAID items for PM-110 (Procure To Pay):
 
 ---
 *PM-110 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: March 2026*
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-110 — Procure Subcontracting</span></div>
-</div>

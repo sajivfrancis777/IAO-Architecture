@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">R-220 — Manage In-bound Transportation (IP)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **R-220 Manage In-bound Transportation (IP)** within the IAO program. It includes 8 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Order To Cash (IP) (OTC-IP) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 5 Reports, 71 Interfaces, 20 Conversions, 167 Enhancements, 28 Forms, 1 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Returns & Rebate Automation | Automate returns processing, rebate management, and chargeback handling | Revenue Assurance | Medium |
 | 4 | R-220 Process Migration | Migrate Manage In-bound Transportation (IP) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Order Management (Intel Products) | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -215,10 +182,9 @@ This capability includes **8 business process(es)** modeled in BPMN 2.0, coverin
 | 7 | R-220-090_TM_Events_reporting_(IP) | R-220-090_TM_Events_reporting_(IP) | Transportation Planner | 17 | 16 |
 | 8 | R-220-100_TM_Freight_Settlement_(IP) | R-220-100_TM_Freight_Settlement_(IP) | Returns Functional Analyst, Returns Load Planner | 10 | 1 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -294,10 +260,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4jgU_StWqoqOFKR8EpqHXaVARiO1KrPQ7cOyDyZxwEuws7bTwjL897XzASQNszNaHoB77j3nXt_42jloEY2R5mu3twdMsPDBoSfWaIt6PugtIUc9HZTA75BhuEwR76mYhBIxw_8UYaaT7VSYwkK4xeleoTO0ogi8fNFBIImpDjgkvM8Rw0lP72UMbyHbj2hKmYq-QcPESIpsleuBshixc4BheGbkSmqKCTrDtud4Tqh4HEWUxA3RxE2GSdQ7quJS-h6tIRNF-TlHT3D3imOxlnYCU45kzFps00e4RKlao2C5wqKcvdXNwFzlIbJhswxGmKwk7hgSYpBszpBrHI_geHu7IKekYD5eECA_UQo5H6MEcCHhyZsACU5T_8YZBaFr6FwwukH-jTXxxralR2olvly6oavm9t8RXq2Fv6RpXIX239UafCvb6WznW4bO9vK7lQuR-JxpNLCG1vCU6cEzR-aozpQkyf_KJPvK5pBvqlwTO7TC8SmX6Q7ckfFRr17m2PECs90nxN5whC5EwzC0J-dWTQauaVwXfQjtgTFqia6gQO9wfxa8HzknwdD1QtO7Kljma1eZL6eMRrWgPXFD9yToPZhhYF0VdALTGVYVSp0Vg9ka_IZEzggHjxTGYJpCQhArQ9SHmH8stAT6CeyrjoPPSLrlmiQto0xwgAmYBVMwlxuTKwQKTAl4ggSu5CgTsdD-vFCzmmovHIEpYpwSmGKOYvC8_AtFArxStpGAAHfT59fHT00N-z8qeuFyOMDXHLF9k-h8l1jxAlnKXuCIgyDLeFPA_b5AQhkIWbGdwbM6UsBkh6K8bAiVRx5lMkNTcvCzkl9zSAQW-7JQeVCAu-Bx2mqR97HNrQc0otEmw62nM_yhzk52RWmCyn8RSsFzphSbSvc_0urJKGiyTOPuxOOCZjL87xwzuS8qXq0TS96nS6LapfOncvsq6bsv7ZaY1uFQa6uLqL-UDYnWYL7PEKBJleHXhXY8XrLsbhbaRWnO8Rv6XM53m-Z0056QWNOYf8ji_mwWec6Wf-TSQb__i_ytbKs07cp0Kq9V2W5l1_5By67VnNq2K8CtgVqhOphIO8Ar7WFl3rf5RUXfFlrx9L_JgLZDjXzhsdqeEMsJquZS-k81WrVkPW6Fu844vFbBtZGQXK8tXY9d4R1cnMmqZfVd1ICtbtjuhp1u2O2GB92w1w0Pu-H7btg0qlu8iZqn94gmbtVXXBO2u2GnG3ZrWNO1LWJbiGPNP2jF26B8Y4xRAvNUaEddg7mgsz2JNL94a9LyLJbMMYbyMtuW4PFfOVBJyw==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 R-220-020_TM_Order_Management_(IP) — R-220-020_TM_Order_Management_(IP)
@@ -358,10 +323,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVt9v4jgQ_lesVBU9KeiSkBCah5MgkFV1h64q9PZh2Qc3ccCqsZHtlGYR__uNScKP7ObhdDxEzMw33zczsQcOVioyYkXW_f2BcqojdOjpDdmSXoR6b1iRno0qxz9YUvzGiOoZTC64XtAfJ5jr7z4NzPgSvKWsNN4FWQuCXp9sNIZEZiOFueorImnes3s7SbdYlrFgQhr0HRnlTn5Sq0MTITMiLwDHCd00gFRGObm4B6Ef-onJUyQVPLshzYN8lKe9oymOiX26wVKfyi8UmePPrzTTG7BzzBQBzEZv2V_4jTDTo5aF8aWF_GiGQZXR4TCwxQ6nlK_B7zvgkpi_X1yBczyi4_39ip9F0XK64gg-KcNKTUmOlAb37EOjnDIW3fnxOAkcW2kp3kl0583C6cCzU9NJBK07thluf0_oeqOjN8GyGtrfmx4ib_dpy8_Ic2xZwrOlRXh2UYqH3sgbnZUmoRu7caOU5_n_UoK5yiVW77XWbJB4yfSs5QbDIHZ-5mvanPrh2G3PicgPmpIr0iRJBrPLqGbDwHW6SSfJYOjELdI11mSPywvhY-yfCZMgTNywk7DSa1dZvD1LkTaEg1mQBGfCcOImY6-T0B-7_qiuEHjWEu826IXoQnKFkoKnmgqOGRrDo1S6ApoPd799W1k5jnLcT8UaLeEYqpxINCWMfhBZIi3Qcv4QwwuVgqE_Sfnbyvr-_YrBu2VIiE436G-5xpz-wEYXLeAepFALAVaNKVMthsEtA4CI3MINRYk8HSH0ClsFTQrKMrgd6KVgpMXgdzK8omW5I-jhaZ78Hr8k7eKD28R4Q9L3S-8TJsB8IVgJ3koc3ia-7jI4D62CYfVlCPqvh8dgrDAKwK3LFlv4qzJyAa_hC5pDgtl-KDYnheY0raaKedbIAuqJZyYAKZTflNFSGrWUJGnX3Up4BPxyjp4Z5txM_-Hp2Qzx-gg5ADFHlygFw0oJ3Wkk8vr8wQjOHfwi1z0cmnqwlGKv-phptMMSw7zYl-qSrazj8TrJ-29JsLuqL9xF_f4fcGRr06vMQW0OKtNvwDU6qO2gMt0m269tt4UPazts4V2ndjR2LT-q7WFlPtbmqDKHV2vCNHC1zG4iXmdk0BnxOyNBZ2TYGQk7I6POyOP5R-y2TafD7zZ799btNW7LtrZw9THNrOhgnf50wB-TjOS4YNo62hYutFiUPLWi04-zVZxu0JRi2Jnbynn8F4sIynI=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 R-220-030_TM_Planning_(IP) — R-220-030_TM_Planning_(IP)
@@ -471,10 +435,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV2FvozgQ_SsWVZU9KdFhAiHhw0kpKatKW23VZO8-XO-DAyaxagwyTttslP9-4wQnjQtaXS9Skfw6772Z8WBg56RlRp3Iub7eMcFUhHY9taYF7UWotyQ17fXREfiTSEaWnNY9HZOXQs3Zz0MY9qs3HaaxhBSMbzU6p6uSoh93fTQFIu-jmoh6UFPJ8l6_V0lWELmNS15KHX1Fx7mbH9yaf92UMqPyHOC6IU4DoHIm6Bkehn7oJ5pX07QU2YVoHuTjPO3tdXK8fE3XRKpD-pua3pO3v1im1rDOCa8pxKxVwb-RJeW6RiU3Gks38sU0g9XaR0DD5hVJmVgB7rsASSKez1Dg7vdof339JE6maDF7Egh-KSd1PaM5qhXAty8K5Yzz6MqPp0ng9msly2caXXm34Wzo9VNdSQSlu33d3MErZau1ipYlz5rQwauuIfKqt758izy3L7dwtbyoyM5O8cgbe-OT002IYxwbpzzP_5cT9FUuSP3ceN0OEy-ZnbxwMApi96OeKXPmh1Ns94nKF5bSd6JJkgxvz626HQXY7Ra9SYYjN7ZEV0TRV7I9C05i_ySYBGGCw07Bo5-d5Wb5IMvUCA5vgyQ4CYY3OJl6nYL-FPvjJkPQWUlSrdEjVRspapRsRKpYKQhHU7hsa3UM1D-B_35ychLlZKD7jmJJoS70wIkQMIkIMoJ86JPzzzuOd8m5J0wo-EMx0fOrtmhOOT1YtvOHHfyTa1zWCnZNKVjUl1y_g_u9UqyAw0SCeRsv6ODdibQsKqLYknGmGLVoo85SpWQHM1Npu23Y2t4505eKpixn6a-6Ne5I4Sst0VQpyZYbZac96eAsWEFhLjgkkXWSsdvBnmYZM4PUxbXmaUYVlQWctuhhI-EYqyn6LldEsJ9EK1lkr5MMB50A5LGEhweCVBJ5OFxADA54S8Uarx9Vpnt-wUA3kEmGoOXxmogVhYkTcGtxrrdUSYhfbS1Vvyu3S-HFtqLoy9198nv8mPxmaQS_GvxmAHS9pNAOdnv1MCzu0ZcP82dbTY6Bx6TuiSAreP4KBak9WKGeu9uZtEC1fK0HhCtUQQrQD_71eM49Ofv9exL-DMn7DGn4GZL_GVLw30jwSOw4cb-VJDtuKgznu035cJrobUELePTXVSnV4ZaAUUyfK6as_bQOkgcq81IWem7rkrPs8m46ZQabiwaDP_ToWYBnrYfW2o4fNWscNHxsAqz10Frb8SObj5sMjYPnNwC2AZMjNh6BHWGqwtiKwJ5NafLCY6tQv1n7Vp7YACYgbNanTjYWE2uNXaNgWm_qmFhr3EhiY4GbZuHQAA3DSHpNJ0ySY0vR5GCKxI1l-O7dQ6uad64L2GuHh-2w3w4H7fCoHQ7b4XE7PGmHoc_teEeduKNQ3FEp7igVd9SKO4rFHdXi8enN_hKftOMwuc3L6CWM22GvHR62w347HBjY6TsFPAgJy5xo5xy-8uBLMKM52XDl7PsO2ahyvhWpEx2-hpzN4XE8YwSOzOII7v8FDLFu1g==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 R-220-040_TM_Master_Data_(IP) — R-220-040_TM_Master_Data_(IP)
@@ -601,10 +564,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1v4jgQ_isWqwpWCmqcFwJ8OKkNTW-ldouW7p502_vgJg5EG-KcHUrZiv9-YxLzYuLVqscHyDzj55nxeOwkvHViltDOuHNx8ZYVWTVGb91qQZe0O0bdZyJo10I18I3wjDznVHTlmJQV1Sz7uRuGvfJVDpNYRJZZvpHojM4ZRV8_WegKiLmFBClEX1CepV2rW_JsSfgmZDnjcvQHOkztdBetcV0znlB-GGDbAY59oOZZQQ-wG3iBF0meoDErkhPR1E-HadzdyuRyto4XhFe79FeC3pPXv7KkWoCdklxQGLOolvkdeaa5nGPFVxKLV_xFFSMTMk4BBZuVJM6KOeCeDRAnxY8D5NvbLdpeXDwV-6DocfJUIPjEORFiQlMkKoBvXiqUZnk-_uCFV5FvW6Li7Acdf3BugonrWLGcyRimbluyuP01zeaLavzM8qQZ2l_LOYyd8tXir2PHtvgGvrVYtEgOkcKBM3SG-0jXAQ5xqCKlafq_IkFd-SMRP5pYN27kRJN9LOwP_NA-11PTnHjBFdbrRPlLFtMj0SiK3JtDqW4GPrbNoteRO7BDTXROKromm4PgKPT2gpEfRDgwCtbx9CxXz1POYiXo3viRvxcMrnF05RgFvSvsDZsMQWfOSblA4UpUbEk5el4J6HchEClIvhFVPU5-Cvz9-1MnJeOU9GM2RyGnMC00XXFoOUHRA5-TIvtJqowVwE4OnlvOViXqPZTSRfKPT51__jnSdVp171hcS_Vmi6wsodXRlGVF9RH1Hjcl7UNRXF3JPVX6WiZSKSQ5lRsVfaGCQU4UpYwjUE0r9CcA4nLC1gV6zJZU0_N-mVlPFU1Y6BtEYLzJDWHbwXpu_qkWLF9JZF-ge_iSJxZcCLhCEZyLYkETdMtYIi4_Qwmi28uQlFkFg3agJj0wSV-rxZzC5i9A-wuDA7U3g12GKrZDN5asRLk39bSD1hJ8o4sszum-ohpp2Eq6p3AiI5aiRzi_RMl4pdFG7TQ4_37FwnZ7X8JItRzQK_q8cHs374PUvfc3K_S5Yed3iHfknOi2Es-6U6dpTQjbH9YUzcKrEIWyNLKZQ8J5But7PdXZWtt9rbIcbqNoViXAXhUV3-xUdNrAkGsdZlYfkuiOvtBcpwa9PbXM4dDbcWVNYA1_-7D4BM8GGYRMQP3jsfpQUz89HC6nOSkqKGVMs5dz8kgjn7XWIVlTAo5tmt5Duus5YaZijdqkqS_ECcfRU9ZOC3kbkDv8C_13RYVx6o4LMo_3SNankOXqfZrKLXE8xKuHPMjnIJAvyBwew6CaLUN9GNr0xNkZsz8WVYoTUhGrPiAt1UG64OAgOKE5TADK8ZmB1YsYXxOe6ITg7e3QoAntP8MSxgtEX-McEnqht_Ut96mz3R7ThgcaZMLWok_yCpWEkzynuYE0egfJtd9Dwu8hOe8hua2krDCVD5avvoANjvr9P-C3sZ1BbQ-Uf1Tbo8ZuzKFyD2vbUTZu5BSg_IrvNALY1YBA2SohlZFX266y3SaEqxQGmu34DaBycJ0a8DQbK8BRWftqGk1QrMrgqHmoIL4WFNsNYCvAbRj7Uvk64OiJN7ZKUymoNANNwGli4n1MPamz0gw1QIUItOIeANsAHDSbtP2jp1qZytGz94nHMXpco8czenyjZ2D0BEbP0OgZGT2w8kaXuQrYXAZsrgM2FwKbK4HNpYDtr94lT_GhAR-149CK7Tg24I4Bdw24Z8B9Az4w4IF6fTuFh-3wqBWGLdAK43bYaYddBXesDtxflyRLOuO3zu7vEvhLJaEpWeVVZ2t1yKpis00Rd8a7vxU6q92b0CQj8La3rMHtf9KTczc=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 R-220-050_TM_Carrier_Selection_(IP) — R-220-050_TM_Carrier_Selection_(IP)
@@ -714,10 +676,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21v4jgQ_itWqoo9CdQ4LwT4cCcKpKrU7laFu9Vp2Q8mccCqiZHttHAs__0mIQmQJvfS5QPgZ-aZZ2YydpK9EYiQGgPj-nrPYqYHaN_SK7qmrQFqLYiirTY6An8QyciCU9VKfSIR6yn7K3PDzmabuqWYT9aM71J0SpeCot_v22gIRN5GisSqo6hkUavd2ki2JnI3ElzI1PuK9iIzytRy062QIZUnB9P0cOAClbOYnmDbczzHT3mKBiIOL4JGbtSLgtYhTY6Lt2BFpM7STxR9JNuvLNQrWEeEKwo-K73mD2RBeVqjlkmKBYl8LZrBVKoTQ8OmGxKweAm4YwIkSfxyglzzcECH6-t5XIqi2XgeI_gEnCg1phFSGuDJq0YR43xw5YyGvmu2lZbihQ6urIk3tq12kFYygNLNdtrczhtly5UeLAQPc9fOW1rDwNps23I7sMy23MF3RYvG4Ulp1LV6Vq9UuvXwCI8KpSiKfkoJ-ipnRL3kWhPbt_xxqYXdrjsy38cryhw73hBX-0TlKwvoWVDf9-3JqVWTrovN5qC3vt01R5WgS6LpG9mdAvZHThnQdz0fe40Bj3rVLJPFkxRBEdCeuL5bBvRusT-0GgM6Q-z08gwhzlKSzQo9U53IWKEHQUL0xEkcU3l0ST8x_vZtbkRkEJFOIJZoTDWVa9gXyJfZhUNf0s2DZrsNnRvfv58xrUumz-IQjZ59CBGyANoCKyIlA7VLnn3JGyrFlnHhi7RA_pcKw6lnTJ9xSWPxe5pbk-CDCAhHM5kELyX307P9S4XaraHeP9bUVsP1LrmjFQWtGWxstRFSE81EjB5ITFWF16vjFTnex4FYb4C8YJzpHZpSreGMqMbo_wftIefQhPRvhYzNS_YdhVGBYssknuFwAlH0wJTOOn4-ItVguO6iQeM-j54fEVEoOL9y6GYGRwuc6BA9HX-qqpXhyriNCA8SnmUHx-KSKiRqRgDbdQ25TRRMuFJoCtTqWGPnQ0IukGaPaLKlQZK1WSR6k2jVhgI1ha2YgW9Mr9Dk6-PN3Wx6g-ynB0R1gD7dP6VDdB6uewxXduUGTZMF3JW0JEF64es43pGT7fEGl95-f6otpJ0FjEawyratkOmE_zY3DodzRr-e8W4jIF8kcVilW2Y9nW4DDhfhld4dz88qDf-cqvVv9PNjoD6E_bHEnYYG_2O67se0uicahBdvqkO4RhsiCeeUN5C8_0eC-Tv-gfFCnc6v8Fus82UvX1v5up-v3ePasvK1na_Nwt_MCW4OOBWHbr4uBHP9Qg_nfMspgCKjbgEUKRURezmjcLByiSLlfm73igB2BbCKHhRFWbmHXTCKIgrAytuAnYomLilZVj_mBuy-ufEDGlc1wO7MDKWolRs-iwwvy8E5_md6b0kJbtWSM8oC-1WGXbXkDKeq_V7DaYpVWvJY-PzJLB2ksyezC4vVaLEbLU6jxW20dBstXqOl12jpN1pgZBtNzV3AzW3AzX3AzY3AbvnOcIl3G3CvAe8Vj7-XcL8Whv1eC-N62KqH7XrYqYfderhbD3sFbLSNNTwFExYag72RvbPCe21II5JwbRzaBkm0mO7iwBhk73ZGsgmBOWYE7vPrI3j4G_PRqXM=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 R-220-070_TM_Charge_Management_(IP) — R-220-070_TM_Charge_Management_(IP)
@@ -764,10 +725,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVtr2zAU_ivCJWQDB3yNMz8MUieGQsdK020PbR8U-ygRVaQgyW2zkP8-yXZuXrOX-cFwLt_3nXN0LG-dQpTgpE6vt6Wc6hRt-3oJK-inqD_HCvouahw_saR4zkD1bQ4RXM_o7zrNj9bvNs36cryibGO9M1gIQD9uXDQ2QOYihbkaKJCU9N3-WtIVlptMMCFt9hWMiEdqtTZ0LWQJ8pjgeYlfxAbKKIejO0yiJMotTkEheHlGSmIyIkV_Z4tj4q1YYqnr8isF3_D7L1rqpbEJZgpMzlKv2C2eA7M9allZX1HJ1_0wqLI63AxstsYF5Qvjjzzjkpi_HF2xt9uhXa_3xA-i6GHyxJF5CoaVmgBBShv39FUjQhlLr6JsnMeeq7QUL5BeBdNkEgZuYTtJTeuea4c7eAO6WOp0LljZpg7ebA9psH535XsaeK7cmHdHC3h5VMqGwSgYHZSuEz_zs70SIeS_lMxc5QNWL63WNMyDfHLQ8uNhnHl_8-3bnETJ2O_OCeQrLeCENM_zcHoc1XQY-95l0us8HHpZh3SBNbzhzZHwSxYdCPM4yf3kImGj162ymt9JUewJw2mcxwfC5NrPx8FFwmjsR6O2QsOzkHi9RPegK8kVyiteaCo4ZmhsXhulm0T7cP_x8ckhOCV4UIgFyjArKmZaQ5nZuQWoJ-f5-SQ9OE-_A0mEXBmYlBQkujdLbBa4Awr_DZoBg7rADiw6h83MCqL8_juagMaUKaQFyh5mNx3U8NMBtWbmfHJZryH6bq8ClEnAVgrdmIuKmj5LA__cwA3_hQneClyiO4Y5B3kiFXcK1EJCq7OvkfKPakyONSot1h1MzfNRXXyIBoOv5sxa02_MoDWDxgxbM2zMqDXjxkxaM2rM-GQJLeHJp3IWCS5GwouR6GIkvhgZHi61M3fS3j-O66xArjAtnXTr1P8U898pgeCKaWfnOrjSYrbhhZPWd69TrUtzyBOKzYGuGufuDwkyIQc=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 R-220-090_TM_Events_reporting_(IP) — R-220-090_TM_Events_reporting_(IP)
@@ -930,10 +890,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWFtv4jgU_itWRhUzEqhx4lzgYVctkFGl2WlV6F40nQc3OBA1JJET2rId_vvaiR3AOGXoLKqq-DvnfD7XGPxqhNmMGAPj7Ow1TuNyAF475YIsSWcAOg-4IJ0uqIE_MY3xQ0KKDteJsrScxP9WahDlL1yNYwFexsmaoxMyzwi4u-qCC2aYdEGB06JXEBpHnW4np_ES0_UwSzLKtT8QPzKjajchuszojNCtgml6MHSYaRKnZAvbHvJQwO0KEmbpbI80ciI_Cjsb7lySPYcLTMvK_VVB_sAvf8WzcsHWEU4KwnQW5TL5gh9IwmMs6Ypj4Yo-yWTEBd8nZQmb5DiM0znDkckgitPHLeSYmw3YnJ3dp82mYDq6TwH7hAkuihGJQFEyePxUgihOksEHNLwIHLNblDR7JIMP1tgb2VY35JEMWOhmlye390zi-aIcPGTJTKj2nnkMAyt_6dKXgWV26Zr9V_Yi6Wy709C1fMtvdrr04BAO5U5RFP3STiyvdIqLR7HX2A6sYNTsBR3XGZqHfDLMEfIuoJonQp_ikOyQBkFgj7epGrsONNtJLwPbNYcK6RyX5Bmvt4T9IWoIA8cLoNdKWO-nerl6uKFZKAntsRM4DaF3CYMLq5UQXUDkCw8Zz5zifAGmrKWKPKMlLuMsBTcJTlNCayX-SeG3b_dGhAcR7oXZnOnH8zmh4Gp0PQRRRsEtKVc0LcCIJPEToWtwl89Y1PfG9-87LNapLENKKo8UHlvlweEjmCzifEnSEoyycMUfzqd3IE63eKXGZgZc5LlCiPYJa-fB-ImZFZxjf4dCw-DsM9ySkLAQwBdclDUPwAVgRcsiwP5kgAqJqye5SllylnVpIpotwee_J4qlpw1gf3fufk5mYHgbKNb-QT7TIiKaepQZ-DydKtZ9XTUOTFkWry9HIFglvGurghxmEZr7XDerJDkMf3KOwMfLNZgEoyG4RcNPKovSrZfMobLyavxCwhUnOmd-sYmcsIZfVRWeXB9zzTqWYsYS0OpFBq75YaIS2Eea7E1j9JOj0zIx0PlJe-3cQvdIg1Qu67sDem-1R224nTBZhbYi-B8bspwXUDcagNZzM2PGn3aN-1vjosxyME5nfBj5q5QUhaJtmSdpQ1VbdprssTqxM12h94gshehrdjhLh5RsJFQi-yT_0Unazv8Vrdsebd0akojPMG8wTaDeSa77J2n3mbIQCcfOv2Zpj1aPzK3KyQJ8vLrhL6HdI8p8fd22_Yz0HtjMhIvmcGJsCXnC7IFPHxub3--NzWaXAP4qgaUnCK7BdJ3zU-WgbAcUtp6CvITJqmC9-Ln-ZqOaofeZOUcipscidn-VwNsSYEqz56KHkxLkmOIkIUmL2_57jPrvMELme4zge4ys9xjZ7zFCWqM4fbNVkHOiFftNUj-wwQS93m8_7o1_CJv2H-xYkAJLEdhSwHE-DGLtKmtYrxESa0tZQ7MGrAbwa8CVG4i1I9ZIGEBTAWxLWkDFVylAqNb0xbovmGSQUDhrNUzCoC8VhPeWtBC-2Uhx1lPWjYIjwm9cEoxQAp6qIHyypdNQZNxyFA3YpFzUADZeuGpVpa3tqBLpKBKeQlkHKDyzGkDGIskgUgAkm8NTu-hrVhfGVksmBabakEIAZSnsvhDofxbx7ze8S5v-9VrUa7W-minph68mSgq8vRh3iOuTec8J521dcYrXuq7qcHB3zg6l3W-hPcl-vmuJZMos0daoSa4oQ1NasYRHU7nn2e7vbD7XO7cBexKrVWK3SlCrxGmVuK0Sr1Xit0r6rRL2hmoVtWcBtqcBtucBticCtmcCtqcCtueCvWjlxdc-3heXVPtVNbUo1KKWFrW1KNKijhZ1tainRX0t2tfHzF4z4h5qH4Z62NLDth5GetjRw64e9vSwr4f7Whjpo0T6KJE-SqSPEumjRE2URtdYEvZrNJ4Zg1ejusZmV90zEuFVUhqbroFXZTZZp6ExqK57jVX18hnFmN3CLWtw8x8C4DKQ" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.8 R-220-100_TM_Freight_Settlement_(IP) — R-220-100_TM_Freight_Settlement_(IP)
@@ -1002,10 +961,9 @@ flowchart LR
 
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -1017,10 +975,9 @@ flowchart LR
 | Customer business analyst | R-220-040_TM_Master_Data_(IP),  | |
 | Transportation Planner | R-220-090_TM_Events_reporting_(IP),  | |
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -1032,10 +989,9 @@ The following data entities are derived from the system integration flows for R-
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -1096,10 +1052,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1142,10 +1097,9 @@ The Future-State architecture represents the **target** landscape for R-220.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1447,10 +1401,9 @@ The Future-State architecture represents the **target** landscape for R-220.
 
 **Summary**: 5 Reports, 71 Interfaces, 20 Conversions, 167 Enhancements, 28 Forms, 1 Workflows
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1462,10 +1415,9 @@ Integration patterns identified from the system flow analysis for R-220:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1489,10 +1441,9 @@ Platform landscape inferred from integrated systems for R-220:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1532,10 +1483,9 @@ Platform landscape inferred from integrated systems for R-220:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1564,12 +1514,12 @@ Platform landscape inferred from integrated systems for R-220:
 | OTCI1187 | Interface for BP Create/ Change in GTS - CAAS | May-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Dec-25 (100%) | 4. Completed |
 | OTCI1180 | EMS_Inbound Interface for Capturing Hardware SO and Line-Item Details into se... | Jun-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Nov-25 (100%) | 4. Completed |
 | OTCI1179 | EMS_Outbound interface to OL (Orchestration layer) for activation key generat... | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 4. Completed |
+
 *... and 272 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1598,5 +1548,5 @@ Standard RAID items for R-220 (Order To Cash (IP)):
 
 ---
 *R-220 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: March 2026*
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IP)</span></div>
-</div>

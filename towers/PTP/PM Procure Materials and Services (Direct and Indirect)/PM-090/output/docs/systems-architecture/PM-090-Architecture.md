@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">PM-090 — Manage Contracts</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Procure To Pay (PTP) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **PM-090 Manage Contracts** within the IAO program. It includes 7 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Procure To Pay (PTP) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Payment Automation | Automate invoice verification, three-way matching, and payment execution | Finance Efficiency | Medium |
 | 4 | PM-090 Process Migration | Migrate Manage Contracts business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Procurement | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -214,10 +181,9 @@ This capability includes **7 business process(es)** modeled in BPMN 2.0, coverin
 | 6 | PM-090-070_Define_Contract_Execution_and_Amendments | PM-090-070_Define_Contract_Execution_and_Amendments | Commodity Manager | 10 | 6 |
 | 7 | PM-090_Manage_Contracts | PM-090_Manage_Contracts |  | 2 | 2 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -286,10 +252,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVtuO4kYQ_ZWWRyMSyWh9xeCHRIzB0UrZ1SpMsopCHhq7Da1p2k53m0tY_j3V-MLY41EUhQdEna46p-rYLnwxkjwlRmg8Pl4opypEl5HakT0ZhWi0wZKMTFQBv2FB8YYROdI5Wc7Viv59S7O94qTTNBbjPWVnja7INifo148mmkMhM5HEXI4lETQbmaNC0D0W5yhnudDZD2SaWdlNrT56ykVKxD3BsgI78aGUUU7usBt4gRfrOkmSnKcd0szPplkyuurmWH5MdlioW_ulJJ_w6StN1Q7iDDNJIGen9uxnvCFMz6hEqbGkFIfGDCq1DgfDVgVOKN8C7lkACcxf7pBvXa_o-vi45q0oel6sOYJPwrCUC5IhqQBeHhTKKGPhgxfNY98ypRL5CwkfnGWwcB0z0ZOEMLplanPHR0K3OxVucpbWqeOjniF0ipMpTqFjmeIM3z0twtO7UjRxps60VXoK7MiOGqUsy_6XEvgqnrF8qbWWbuzEi1bL9id-ZL3la8ZceMHc7vtExIEm5BVpHMfu8m7VcuLb1vukT7E7saIe6RYrcsTnO-Es8lrC2A9iO3iXsNLrd1luvog8aQjdpR_7LWHwZMdz511Cb25707pD4NkKXOxQlO_3eUrVGX3CHG-JqM71h9t_rI0Mhxkea7vRZ3jQFIWJ0DMRe4kwT6GcQzHNuURfqdqhVVkUjAKL8ecrIqdLtBA4U7pUCZyobqrbTY0EAcEPSxAZVO0We93iFTwR5MO_tH18v22_S_cLSQg9kDYZAFkABel1MelNSxTowi5BK5hXke0ZfQc9oS8M8--7lQFUVhPfRYZtmkJmdcHahF4Xs8ulaUNv3vEGdkeyQ-SUsFLCGD9Vt-bauF5fX3JruGzOzzDIAWwE0xDlb034sc9kDzN9lEPXAc2LQuQHkr6hcYZpul4W2kskyBjfaDCD33-VVJC0T-f-V1tgp1U_-BSNxz8ARR3aVejUoVOFszp0q9Crw1kVunXo11T14829KvYbakvH39bG53xtfNNeNgd276BRt5364Hd9N8LJpE_VHMz6FQ1V09uk7q2Jbbc7WdtDwxi82lHalmY3d2BnGHaHYW8Y9ofhyTActP99HXg6DM-aZd2dxhqG7WHYGYbdBjZMYw83P6apEV6M2-sOvBKlJMMlU8bVNHCp8tWZJ0Z4ey0wyiKFygXFsK33FXj9B3zt8YU=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 PM-090-030_Create_Scheduling_Agreement — PM-090-030_Create_Scheduling_Agreement
@@ -353,10 +318,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllluv2jgQx7-KlaMjWimouRJOHnYFgVQrtdXZctruquyDSZxgnRBHtsNlKd-941wgofCwWh6A-XvmN-OxM3DUIhYTzdceH480p9JHx4Fckw0Z-GiwwoIMdFQLXzGneJURMVA-Ccvlgv5buZlOsVduSgvxhmYHpS5Iygj68oeOJhCY6UjgXAwF4TQZ6IOC0w3mh4BljCvvBzJOjKTK1ixNGY8JvzgYhmdGLoRmNCcX2fYczwlVnCARy-MeNHGTcRINTqq4jO2iNeayKr8U5CPef6OxXIOd4EwQ8FnLTfYBr0im9ih5qbSo5Nu2GVSoPDk0bFHgiOYp6I4BEsf560VyjdMJnR4fl_k5KXqZLXMEryjDQsxIgoQEeb6VKKFZ5j84wSR0DV1Izl6J_2DNvZlt6ZHaiQ9bN3TV3OGO0HQt_RXL4sZ1uFN78K1ir_O9bxk6P8D7VS6Sx5dMwcgaW-NzpqlnBmbQZkqS5H9lgr7yFyxem1xzO7TC2TmX6Y7cwPiV125z5ngT87pPhG9pRDrQMAzt-aVV85FrGveh09AeGcEVNMWS7PDhAnwKnDMwdL3Q9O4C63zXVZarZ86iFmjP3dA9A72pGU6su0BnYjrjpkLgpBwXaxSwzYbFVB7QR5zjlPB6Xb1y8_tSS7Cf4KFqN1oUJKKJcpREPWkCMRDrtgkkGVoRwG0JJzFaHdCiLIqMAlD7p8O0bjP_LHEuVRUsQe8Zi0U_yv5-DotYigJOoIZ3X4oYPtAiWpO4hKc1RZOUExghuYTwbrzTj1_ARb0ZVm2jU3iX4fYZL5ym0K66FspyVfktZEV0rlijPqtuPZrvI1Io1pW31_d-ZkWZqY0_c6omATQ9hxOEOIESzjZoyspqPqFJUaA3wbfpu8_hXzAh315xx2_O3CLDlxNDkx2GmRiD-9uO-xN4fyYZgWHd3ekHGJN13jsH0b1RBjCa3ULVkuNIXh21aR6Pl93GZLiCoRet0WLSXrHq8OPm9GP0-1I7nboA6zaA7KOsFHRL3tcP5XWY_V_D4BLVX3IbDYe_AaIxzdq0GtOqTacxndp8asxxbbqN6dam16IatN3aFfvHUvvEltoPuEit3iQx2xpGjd0WYRqN8AvpbyIq1HnF64dWs0dtqp25Pdm6Ldvdedpbce6uuHdXRndXvLsr4_MvX09-ui1De27rZjvD-7J1W7ZbWdO1DeEbTGPNP2rV_xr47xOTBJeZ1E66hkvJFoc80vzq918rq9s8oxjG8qYWTz8BPg3qrg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 PM-090-040_Create_Supplier_Contract — PM-090-040_Create_Supplier_Contract
@@ -414,10 +378,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVuP8jYQ_StWVitegpQrYfPQig2kWqm7Woltq6r0wSQOsdaJI9vhUj7-e8fkAqHw1EigzPGcM5fY46OR8JQYofH8fKQlVSE6jlROCjIK0WiNJRmZqAF-x4LiNSNypH0yXqol_efsZnvVXrtpLMYFZQeNLsmGE_Tbm4lmQGQmkriUY0kEzUbmqBK0wOIQccaF9n4i08zKztHapVcuUiIuDpYV2IkPVEZLcoHdwAu8WPMkSXiZDkQzP5tmyeikk2N8l-RYqHP6tSTveP8HTVUOdoaZJOCTq4L9iteE6RqVqDWW1GLbNYNKHaeEhi0rnNByA7hnASRw-X2BfOt0Qqfn51XZB0Vf81WJ4EkYlnJOMiQVwIutQhllLHzyolnsW6ZUgn-T8MlZBHPXMRNdSQilW6Zu7nhH6CZX4ZqztHUd73QNoVPtTbEPHcsUB_i_iUXK9BIpmjhTZ9pHeg3syI66SFmW_a9I0FfxheV3G2vhxk4872PZ_sSPrP_qdWXOvWBm3_aJiC1NyJVoHMfu4tKqxcS3rceir7E7saIb0Q1WZIcPF8GXyOsFYz-I7eChYBPvNst6_Sl40gm6Cz_2e8Hg1Y5nzkNBb2Z70zZD0NkIXOUo4kXBU6oO6B2XeENEs66f0v5rZWQ4zPBYtxt98qpmUBD6IAmREg4AeicKozlWeGX8fUV0hsRZmqLZDsMxS9GngCYjxRGcdbSsq4pRiDlgu0P2sl4XVEGipRI4gd3FQbGqBN9iNiR6N_nWa0Zl3jOHzv7QORJEl9Zl9IA0GZLeYJBRTeuTm9Uq5wKO55AXDHkfMLIa4hcRhUS4TLUEfAbKS4l2VOUPejMFIdgHMJkuMRd7ktSaedaZFXAK4afkkPkCzOYT98wbD9s6Hrs09bAer2HcJDl6k1f1nRtP0p9Xxul0zbXvc8k-YbWkW_JLcxIuNMiyeSltNB7_BJumNZ3GdFvTbUzb6rwtDfxYGX8SyP8HfPV2wWscp6350ph-a_qNOWnNSatqd6ptEkFrB-36bdAPfo5pX08PXUE3jwawcx9278Pefdi_D0_uw8F9eNpfAwP45T4M1baDawjbHWyYRgEbF9PUCI_G-daGmz0lGa6ZMk6mgWvFl4cyMcLz7WbUVQrMOcUwdIoGPP0LnI6PVQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 PM-090-050_Create_Service_Agreement — PM-090-050_Create_Service_Agreement
@@ -491,10 +454,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4kYU_isjRxGJZCRfMfHDVsbgNmq3iZZsVtXSh8Eewyhmxh2PAyzLf-8ZbAP2gtQLD1HOd873ncvcvNNinhDN125vd5RR6aNdTy7JivR81JvjgvR0VAGvWFA8z0jRUzEpZ3JKvx3CTCffqDCFRXhFs61Cp2TBCfr8qKMAiJmOCsyKfkEETXt6Lxd0hcU25BkXKvqGDFMjPWSrXSMuEiJOAYbhmbEL1IwycoJtz_GcSPEKEnOWtERTNx2mcW-visv4Ol5iIQ_llwX5iDdfaCKXYKc4KwjELOUq-w3PSaZ6lKJUWFyK92YYtFB5GAxsmuOYsgXgjgGQwOztBLnGfo_2t7czdkyKXsYzhuAXZ7goxiRFhQR48i5RSrPMv3HCIHINvZCCvxH_xpp4Y9vSY9WJD60buhpuf03oYin9Oc-SOrS_Vj34Vr7Rxca3DF1s4W8nF2HJKVM4sIbW8Jhp5JmhGTaZ0jT9X5lgruIFF291rokdWdH4mMt0B25o_KjXtDl2vMDszomIdxqTM9EoiuzJaVSTgWsa10VHkT0wwo7oAkuyxtuT4EPoHAUj14tM76pgla9bZTl_FjxuBO2JG7lHQW9kRoF1VdAJTGdYVwg6C4HzJQr5asUTKrfoI2Z4QUTlVz9mfp1pKfZT3FfjRqEg0A56KqU6GShYCALHlUm0pnKJfiEYjhEaY4ln2p9nKlZb5RVnNFE6v5ItegrQmEhMswI9MkmgJEkSlAq-QiNeHg4ZCvK8LWi3BSPKQPIbFBbMSssw5u1opx1ddYkmm5jkknLWDna_HqNjvmg6nlZbA909BfentoF5Th20qc88LzNFfhZUHVcYNIMxQ8YCUYamDnqluNvkuZ73z_V-mBe6C7-M7o_TOJcdtmVfBF0smrUFMcRTtSiHCjvMh7sjM89gT0_LPM8ocIM1hhs0gfD7881jQHg9QMwSGDxlsNIMPZcCrqqCoE_kr5IWVQ_tZTDVzqtXCvqUAseyG2LtdqdGEtKfw90YLxHZxFlZ0Hfyc3X0Ztp-f06zL9Og58-52pbJT12Gc5nxmMAeoOkW0RTBuyUIogU0etjTkqM5QeUVQfe_VT74tzS4jat_YJ6o3_8A27u23co0rcZv1UBj16bd2LYCvs-0Pwgsw3c407Wj5g1qc1CZDc2uZepLjD1U9rA2vdrdsM26LKeb9Xd-SGo25ZtOp5xjI8NKwWsC64LMRtLppnQupzjct2oOzTvTgq3LsH0Zdi7D7vmL0_IMrnq8q57hVc_D8Qug3ZpxBTev4FbzmLVh-zLsXIbdy_CggTVdWxGxwjTR_J12-ByET8aEpLjMpLbXNVxKPt2yWPMPn01adcbGFMPTsarA_d-TsEVW" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 PM-090-060_Monitor_and_Manage_Supplier_Contracts — PM-090-060_Monitor_and_Manage_Supplier_Contracts
@@ -564,10 +526,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVt-PozYQ_lcsVqu0EpH4GbI8VEpIqE7q6lbNXu_h0gcHDLHW2NSYTdIo_3vtYBLgloe78hBlvpn5vpnBDJyNhKXICI3HxzOmWITgPBF7VKBJCCY7WKGJCRrgL8gx3BFUTVRMxqjY4H-vYbZXHlWYwmJYYHJS6AblDIEvn0ywkInEBBWk1bRCHGcTc1JyXEB-ihhhXEU_oHlmZVc17VoyniJ-D7CswE58mUowRXfYDbzAi1VehRJG0x5p5mfzLJlcVHGEHZI95OJafl2hZ3j8ilOxl3YGSYVkzF4U5A-4Q0T1KHitsKTm7-0wcKV0qBzYpoQJprnEPUtCHNK3O-Rblwu4PD5u6U0UvK62FMgrIbCqVigDlZDw-l2ADBMSPnjRIvYtsxKcvaHwwVkHK9cxE9VJKFu3TDXc6QHhfC_CHSOpDp0eVA-hUx5Nfgwdy-Qn-TvQQjS9K0UzZ-7Mb0rLwI7sqFXKsux_Kcm58ldYvWmttRs78eqmZfszP7K-52vbXHnBwh7OCfF3nKAOaRzH7vo-qvXMt61x0mXszqxoQJpDgQ7wdCd8irwbYewHsR2MEjZ6wyrr3QtnSUvorv3YvxEGSzteOKOE3sL25rpCyZNzWO5BxIqCpVicwDOkMEe88auL2t-2RgbDDE7VuMEr4gWmsiOZRAWHidgaf3fCnW-3-ITl4JN8yrGKfmbyH-PyzAJIU61TICoAy8CmLkuCJXvLWUnSLqvbZ33lOM9V-B7SHFUAU_B5MUjx-ila_y6lGvk40-9nvrCyJqqFF47VM6eKlLPCjA6rnA17TxgvGb8OS1cqmNQDv3QKlwsokY9-ojsHQtX164A56DP_iSg6dG9AN3bej_1Spt0CpOL3fSh044F3DMGS1de1BhZlOSB-kryxvPdEbuJmat1jYklvxJHSam4wpgIqtZrLpVQhWfQ_Na5ug-vmqjMmD7ZctbemwPqIkloFX-kW8qik6rgMU53zue0Wcs4O1RQSAUrIISGI_N48elvjcukmuT-T5P1Mkv9jSbLJ5o-cCZhOf1MNtoDTAEPb1bY2PW26jelr09dsbbSn7Tbc1sCstd1BwKyxA20G2t2Ga7OVs7XefEjXBswb-0mbT9rd3XSKtd3wPdjprumexx31eKMef9QzG_UEo575qMe2bm_hPm6P4E774ujD7sew9zHst7BhGoXcLBCnRng2rt9Y8jssRRmsiTAupgFrwTYnmhjh9VvEqK97Y4WhfEUUDXj5DwFRFBs=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 PM-090-070_Define_Contract_Execution_and_Amendments — PM-090-070_Define_Contract_Execution_and_Amendments
@@ -651,10 +612,9 @@ ID for Updated"| n6
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P4jYU_StWRiNaCbRxSAjkoRVfqUbq7E47s11VSx9M4oA1waG2M0BZ_nuvEyeQDDx0izQj7vG55374YvtoRVlMrcC6vz8yzlSAjh21phvaCVBnSSTtdFEJ_EEEI8uUyo7mJBlXz-yfgobd7V7TNBaSDUsPGn2mq4yizw9dNAbHtIsk4bInqWBJp9vZCrYh4jDN0kxo9h0dJnZSRDNLk0zEVJwJtu3jyAPXlHF6hvu-67uh9pM0ynjcEE28ZJhEnZNOLs120ZoIVaSfS_pI9l9YrNZgJySVFDhrtUl_JUua6hqVyDUW5eKtagaTOg6Hhj1vScT4CnDXBkgQ_nqGPPt0Qqf7-wWvg6KX2YIj-EQpkXJGEyQVwPM3hRKWpsGdOx2Hnt2VSmSvNLhz5v6s73QjXUkApdtd3dzejrLVWgXLLI0NtbfTNQTOdt8V-8Cxu-IA_1uxKI_PkaYDZ-gM60gTH0_xtIqUJMn_igR9FS9EvppY837ohLM6FvYG3tR-r1eVOXP9MW73iYo3FtEL0TAM-_Nzq-YDD9u3RSdhf2BPW6IrouiOHM6Co6lbC4aeH2L_pmAZr51lvnwSWVQJ9ude6NWC_gSHY-emoDvG7tBkCDorQbZrNM02myxm6oAeCScrKsp1_eH468JKSJCQnm43Gu-IiNFveaZoDz3ly5TJNXoS0DSkMjT9MllYf114O03vR7JFH-mucIDxhcAcwrKMyw8vVGyk1vg0Roy_V-q3lXSiaL6P6FYLNMlukzzf0yhXFE3XhK-o1PplOMLjKpemgNcUCBknKRxAkFyTN_haE6NshX6nSrAVNFBX8Xkbw86jHVPQ4Uf0wLe5kuB-6e83_aeCapdPudLnDhqvBIXDkKuW1xCcYBA0BTqoBImUqRE6URQ1Bq9Ye8pmviPwLNZqx-Y6tmtCu1SMf6hzlSrbnkMXfBoD_cdLvt57U5BO6ZEwruAPpkbAMSUpdOvvnMly_1ux9G6bLa7CtCnumaLHkbyfAuwdj-fuxrS3hKMzWiO6j9Jcsjf6S_nLXFin06Xb4Pvc_OtuDzFsA0sOeiReMjShZjBi9HNbYXhdAYZnRiPoVMZ79YiMP0D_IiP8Tmn0XSU49n91g40vv8CWoV7vJ5hNY49KE-Nq3dheZXsl4Bh7aNYH1fqgBEYtfk1wjO1XBF8D3xbWx2xhfYMDw-AmL1wlhqvMzLHK3dKuE7NL2zV2lWdF91t2HfdPKovAuErZMUq4qhGbUFVPTIm1Ax4aKbPJ-qjUP0MQ9dsUuAHeWKwHAS34wwwlmagGq3AYXFwauvvVZdmAnetw_zrsXoe96_Dg8jZtrPg3VzA2z4cm6tQPmCbev4G7N3Cvuoub8OA67F-Hh9fh0VUYRsDAVtfawJ1DWGwFR6t45MJDOKYJyVNlnboWyVX2fOCRFRSPQSsvNnPGCNzRmxI8_Qs1r367" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 PM-090_Manage_Contracts — PM-090_Manage_Contracts
@@ -718,10 +678,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -731,10 +690,9 @@ flowchart TD
 | Commodity Manager | PM-090-020_Negotiate_Terms_and_Conditions_With_Supplier, PM-090-030_Create_Scheduling_Agreement, PM-090-040_Create_Supplier_Contract, PM-090-050_Create_Service_Agreement, PM-090-060_Monitor_and_Manage_Supplier_Contracts, PM-090-070_Define_Contract_Execution_and_Amendments,  | |
 |  | PM-090_Manage_Contracts | |
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -746,10 +704,9 @@ The following data entities are derived from the system integration flows for PM
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -804,10 +761,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -850,10 +806,9 @@ The Future-State architecture represents the **target** landscape for PM-090.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1241,10 +1196,9 @@ The Future-State architecture represents the **target** landscape for PM-090.
 
 **Summary**: 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1256,10 +1210,9 @@ Integration patterns identified from the system flow analysis for PM-090:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1283,10 +1236,9 @@ Platform landscape inferred from integrated systems for PM-090:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1326,10 +1278,9 @@ Platform landscape inferred from integrated systems for PM-090:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1358,12 +1309,12 @@ Platform landscape inferred from integrated systems for PM-090:
 | PTPI1529_IF | An interface to retrieve the list of approvers from a custom MDG table(MDG sy... | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Dec-25 (100%) | 4. Completed |
 | PTPI1458 | Develop an interface between PEGA and S/4 HANA system to transmit MSL informa... | Jul-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
 | PTPI1428_IP | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... | Jun-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Nov-25 (100%) | 1. On Track |
+
 *... and 358 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1392,5 +1343,5 @@ Standard RAID items for PM-090 (Procure To Pay):
 
 ---
 *PM-090 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: March 2026*
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
-</div>

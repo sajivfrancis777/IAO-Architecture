@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">Order_to_Cash_IF — Order to Cash (IF)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **Order_to_Cash_IF Order to Cash (IF)** within the IAO program. It includes 3 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | End-to-End Integrated Processes (E2E) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 2 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 2 Pending IAPM |
 | **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Process Visibility & Monitoring | Provide end-to-end process visibility across tower boundaries with integrated monitoring | Operational Excellence | Medium |
 | 4 | Order_to_Cash_IF Process Migration | Migrate Order to Cash (IF) business processes and 2 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Cross-Functional / End-to-End | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -208,15 +175,16 @@ This capability includes **3 business process(es)** modeled in BPMN 2.0, coverin
 |---|---------|--------------|-------|-------|----------|
 | 1 | E2E-10__R3_-_Intel_Foundry__RMA_for_Direct_Customers_with_no_physical_receipt_of_the_defective_produ | E2E-10__R3_-_Intel_Foundry__RMA_for_Direct_Customers_with_no_physical_receipt_of_the_defective_produ | Boundary Apps, SAP S/4 Intel Foundry | 14 | 6 |
 | 2 | E2E_93__R3_Product_&amp;_Service_Sales_-_'Standard_sales_order_scenario_with_Combined_orders_(Physic | E2E_93__R3_Product_&amp;_Service_Sales_-_'Standard_sales_order_scenario_with_Combined_orders_(Physic | External Partners/ B2B
+
 , SAP CFIN, SAP S/4 Intel Foundry 
 , SAP S/4 Intel Foundry - Foreign LE
+
  | 64 | 33 |
 | 3 | R3_E2E-80__Intel_Foundry-_Customer_Requests_Expedite_-_Service_Fee | R3_E2E-80__Intel_Foundry-_Customer_Requests_Expedite_-_Service_Fee | Boundary Apps , Customer Business Analyst, SAP CFIN, SAP S/4 Intel Foundry | 30 | 23 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -316,10 +284,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1tz4jYU_isa72TIzsCs5QsmPHTHMbhNZ7NJQ3Y7ndIHxZZBjS9UkpPQLP-9R7YM2Jin8gCjT9_5zkVHF96NqIipMTUuLt5ZzuQUvQ_kmmZ0MEWDJyLoYIhq4DvhjDylVAwUJylyuWD_VjTsbN4UTWEhyVi6VeiCrgqKvt0MkQ-G6RAJkouRoJwlg-Fgw1lG-DYo0oIr9gc6Scyk8qanrgseU34gmKaHIxdMU5bTA2x7jueEyk7QqMjjlmjiJpMkGuxUcGnxGq0Jl1X4paC35O13Fss1jBOSCgqctczSL-SJpipHyUuFRSV_aYrBhPKTQ8EWGxKxfAW4YwLESf58gFxzt0O7i4tlvneKHmfLHMEnSokQM5ogIQGev0iUsDSdfnACP3TNoZC8eKbTD9bcm9nWMFKZTCF1c6iKO3qlbLWW06cijTV19KpymFqbtyF_m1rmkG_hu-OL5vHBUzC2JtZk7-nawwEOGk9JkvwvT1BX_kjEs_Y1t0MrnO19YXfsBuapXpPmzPF83K0T5S8sokeiYRja80Op5mMXm-dFr0N7bAYd0RWR9JVsD4JXgbMXDF0vxN5ZwdpfN8ry6Z4XUSNoz93Q3Qt61zj0rbOCjo-diY4QdFacbNbouiirXkb-ZiPqOfXJ8Z9L457ypOAZuud05AtBhchoLpfGX0c864j3tchHoY8uQ8LSklPk5yTdQjN_bJvYYPJtE0NpkP8lfJgvgjvlHYEGbOFozV5IiooEBXeztiFWQSVkmpCRWn_U-P315sFHv5UkZXL7CQIgZ2LF7uVeYJPCsjxQWfIcfv4pqZDwG1H2QmOU8CJDQSlkkVEOGh-PRcYHESBs9tac_k0jCdZ3SaKODkTyGAVFlpU5i4iakMVZUa8j2ipMXay4Y2Ph9_fGRp2toyc4HaI1ggLclTICL5-Xxm5XW8DO7Cz8wr9Hi08OusklTVGo2oBvj-Sdo4W9Uyck-g4FhkBYkbfL6gLzF9i_nXK2SWMgPVQV0rT2tAfTAaeqJ8K7ACiwPhFVS1g7b7MnBzb8xEyiW5oV_Y6vgPtInkG3SOGUhGIiPzpNApuKx9lqBZn-_LhAwZpGzx2O1e4_HYJOuy7Spf9w2-l3bLfNGi8Pt75aXl5Av3csnLaFbkwUUC5ZUnWT2iAzSJaXVTLQaHnCeNazPHjS6a3eAkMfMMl62gxfdcyPK37OyDJPNolujXqPdOlWfyvTtygtBWT-c32OHvq5NrP7zW7EUW1p_Llr5pzZOJ0GObFz--3q-r3sd0fdOlAbCD6Gm7pqp0UZRXAoJWX6-UR3fNAlnBevYkRSiTaEkzSl6Unu-72cYzQa_QQCemjVQ4ybaQ1Ye4IGnIZga4LdEJwa8DrjiR5faX4j4GmPzfxEj6_0eKz5ZuNQ61ljDegAcOMQuxrQY83HewFTC7hNhJXCj6XxBxVL44dyoWfcbvI6mCY23FSv8WVhLXVfCGhr2G_L_BJu2xi2GNxtsFGeyfZj7cTq2nylcNeDDeB7GyaOTZqULbcbsd2d-VpUEyc5anzcycg-eiRUeTWvozZuncHtM7hzBnf3b8o2Ptbvvzbq9aKTXvSqD7XMXhQ3j6s2bPXDdj_s9MNuPzxuYGNowB2eERYb03ej-tcC_2ximpAylcZuaJBSFottHhnT6nVvlNUNPmME7t6sBnf_AXD-Bkk=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 E2E_93__R3_Product_&amp;_Service_Sales_-_'Standard_sales_order_scenario_with_Combined_orders_(Physic — E2E_93__R3_Product_&amp;_Service_Sales_-_'Standard_sales_order_scenario_with_Combined_orders_(Physic
@@ -327,6 +294,7 @@ flowchart TD
 **Swim Lanes**: External Partners/ B2B
  · SAP CFIN · SAP S/4 Intel Foundry 
  · SAP S/4 Intel Foundry - Foreign LE
+
  | **Tasks**: 64 | **Gateways**: 33
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -646,10 +614,9 @@ for Commercial Invoice"| n3
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlGtlu20jyVxrKZu0BJIT3oYddyDoyBmJbGzkzO1jvQ5tsWkQoUuDhWJP437e62UWRLTLJaAMkiIp1V3UdTX4dBVnIRtPR27df4zQup-TrRbllO3YxJRePtGAXY1IDfqN5TB8TVlxwnChLy038p0DTrf0LR-OwFd3FyYFDN-wpY-TT9ZjMgDAZk4KmxaRgeRxdjC_2ebyj-WGeJVnOsd8wL9IiIU0-usrykOVHBE1z9cAG0iRO2RFsupZrrThdwYIsDTtMIzvyouDilSuXZF-CLc1LoX5VsBv68nscllv4HdGkYICzLXfJB_rIEm5jmVccFlT5MzojLricFBy22dMgTp8AbmkAymn6-QiytddX8vr27UPaCCX3i4eUwJ8goUWxYBEpSgAvn0sSxUkyfWPNZytbGxdlnn1m0zfG0l2YxjjglkzBdG3MnTv5wuKnbTl9zJJQok6-cBumxv5lnL9MDW2cH-BfRRZLw6OkuWN4htdIunL1uT5HSVEU_V-SwK_5PS0-S1lLc2WsFo0s3XbsuXbKD81cWO5MV_3E8uc4YC2mq9XKXB5dtXRsXRtmerUyHW2uMH2iJftCD0eG_txqGK5sd6W7gwxreaqW1eM6zwJkaC7tld0wdK_01cwYZGjNdMuTGgKfp5zut2T5UrI8pQlZQ5qkLC_ekSvjitRY_E9qG_95GM3pvqxyRu74WSHPMSXLxfW7j-SWlQ-j_7axTcD-yAIWPzOyoCUlcUqurNsPCpoFaLdZGUcHMqd5HrO8i-C4l4AR0WlEJ_sEXCgkF0SyDkmUZzsyr4oy2wnaX2piSEHFws1sTear69sWc8sD3muWR1m-I-DPKC7pY5zE5YHMwBeHoiq62lh-y6o1PexYWtaq7Mtakys4mYqJGtC8Z-BTSAIwstiS2X6fxAEt4yxVcPWWQrOPZJ0VJZxxQtOQzKoyI_OEQVlMn7pkrn50EjhifyKFoPzw6KGa0lAoGy_E3AtUeCEuyL7W6YTe179-RXpe2CePUJqCLbnbs5Rcp88ZHKWCrLIKDIAE-MhLZgAeFlr982H0-tpmZvQzYy9BUhXg8vf1MTqS9Ud5884C2SVLasH5gXTy2G7HMKFpCllU5_Pl5v1qoum_KEFxgGD5woIK4gf-CatA-LSm2ZRsr2SJ7QoJEKqih0A-UEjamXhXlY_CYwuWgJL54XL5-42qlN8i2Nx_hL93p4Rg0TtLoXS0dtLHwed36_fXpEeE007G91kWFk2qX_5Gk4qRWRiyUKUyWu5VqE5luKaSf4ACrQpcSoJst0_Yacr65l_NEkGma86RDipN9qWY0KQke5rTJGHJEJV7FpXfSxWn31dR1_4i2c_m_wT-l0OHTcmHZfsstCNcZycENg57KhOP6n0ePz0Bzvv7DQm2LFAKnSn6QxJUCS909_SFqdWzJW1-D9X4lAc_mxuwSmozz9Ioznd1DePlT9Z5yOu6TZPrku0IPISynfBK-ZhkwWc1JYHpp33ItfoAs9xE0NyzF6VluR3913kcnBRafkoXMFFCat_cXC9k81nfdrHaR3OeszAua1PJJW-Yq81cPQU6P5I3UGyfGDQQQKybnIIkglWV3NpfYUxSnhroOXBTK9igBEFfiS5SFGz3mBxIyYqyX47500mhWz_lD91uF5L-5NGdH3tfd7-jmbAu5iVDNGXKu2UnKRRePxdK_S_H0tB-bIihKw7pOQmG8aPjZIgDJ5QpD3tGsqip-wqi9b3mouDaSncQfl3zpKyPUCHKOFSUBVT1tIQyCFuZ2gQMpz3H4FEnl5_SHNIOXAJlHTrn6VE1XMUz9zkNYWrivSCGMq-0TcPrzFZYHeTgQS559q-3MMEEfLKtO7Eq0Vf9rFQ1rdXMr2RCXfGEEp4J6gqFa4NCq_9YPXk4Fa1MQ8wc-wxWOYk-5l4A8gCW2yMMfKRQmh2ZJyTkcg8jHriXqiJ5lmy28V527euiqFR77DZv7W_QmWqeX-JyS9KM8N0TahgcveA4kbcZiFOeM3EyIKe4L5O4UAqx6fZjiXkjDaudgt5Jgg2FK4Oui2_-GJPfYlamdAdO3MYpVRj4P-xc7ZlplkD065oze6ZxgitDzyG2Thtsu6UpyE0Jx5Mm9qv5TEHjAV4xOED9j60-LuvFrwpa-5xvoCCHlchsGNLvt3Eeij3wwHcIcglV7k5JFuvYU4u6dHIkHvib5UYcjIKrwJ55La4kHjzlo4lABzSFIw_6v5efNmJ0gWFGOPgDPZxshGYzMfLtn-BKWgdeOFkhsLoEaDU03EqUBZ4od1AK8zhUEt6xle1T0mQSm_ArrLhnr3IchbDjqzpoHXxPmYPFygxhLFVEX13Y5AEZGpddTSHgVRVKAOxlwzO2K5Lo6FDyKZWFjilzh2srmDxvoNzAhDEfoOCpU-OGcc5EK4DMgMDP636ioLuKgCG23llrgesPLLBDxpCs4w11h_W0s9Tw9PPIBjbmzqSyqQIe7KhKTpQ9b5XyrH6ya6jO9U0Ov6aKI7x8uILWGfKxNeaD93XaNAeyvjtRye7n3UxJ3zPHOc8cd8CJndFKFpYu5UDOXRcQgawoJvWdMt7EwGX2icr-WSr752WZb52xzPr2OUTnLNv-Obu2751D5J-11WtnUelnURlnUZlnUVlnUdlnUXnnXnGkOplM_gFHRv70rfq3Y6kA-dtx69-2IQGGZGAjgV0DXGTpSA4-YjgSw0cZridJEMGUPE0JkM99FCEfowooAOldieBaKgBVcCWJpyEAdUI7Pa0G6IjhSU81jnEUFgjw0XBb8tQbHjaioGG2i1JQLiBLByPEksrbDReJ4euomojBt4fRH3zE_gYxaZipjkTM20wgeo25lnxwBbO32PVvIGf4Kz-42VLeBnzjFyMoQYbfQaM9W9GlyQPPQXeoqKoyvvSK6yuAxrWYIMgKcw4zwJcZg_G2MUubjJDKOOgZdLvVhFPvauc2aqNwV_Xd7zSCvvR3kjO-8oS4vko_NBGW9Drq4ijnQ5fJqTcATKSGhaPYb2lShU1W5TB4L2D8zHewkzWXOA9pBi-Ac6gJYk0VcGhsW5o-SQUbZp4rmalLvrjoqy8Hp8CQr7UiVR4qQwOrbjPyTe6IfHaeADueBOmn7AZR_lVRGGZgBRLTS51KaBMeBYyxLmOoYxbo8iAYSGLI9MYXmPAfCWiKk6E46lzbwJAT4yAxfmSbqYrFW8NGWi-Ld79CGNt8msom2eB69pFBxjG4wZEL1wOPbs_9hOByTHWZPjZ61kZXayjIxqLTNAaZtbbbcJEBczQV0pQ3R8bDVUR_ExezVUQDsIK7s34RxHPyIb1csH19l0UL3vhKPiiuYFJdwXt49NTSWBKXv4T5xl-poDiZD04Tfqm0j4Ya0lADAY5MEAM19H2p4DEf3hADcqK54uPqqNlTV13rezx0ziOFpSdukmiQkfc9RiYwOk0jEeDmHMgKYmDBMLD24jtvwK0hJjrPxKOCrvG8bgE0TfUBlngT_W2aCg-QJzVxTyBY3QysblpTCjTsW54K8TUVYqKNprTRRFGmTEez6Roy-k5joq9w9dErGEqzUQ6tN7E6a00P1KTrTFuF2A0Vanv0DB6oppr5J6JOIDa6AWX7UpDlqW0Lg9Og2igQbTOwzaL1loHymtYkfWo1o5ZkYh1jJZ1qIY2lI5ejOxqfoZqW9KvVtDTNVnFcqZ9lnuIc3YiFShHGSzx7epLHLMnK-qbseOVR8EqiPQofWUhsob2YQ5arznCWpepg4fhqtL4nEVMsfkjThVsDcLv5nKgLdwbg7gDck58KdaF-H9TVeqF6L9TohZq9UKtfN3fARnfARnfARtgY5Nc_XbDfC4ZZvhes94ONfrDZD7b6wXY_2OkHu_3gfiu9fiv9fiv9fiv9fiv9fiv9fiv9fiv9fiv9fiv9fiv9fit5_-iH6wNwYwBuDsCtAbg9AHcG4O4A3BuAD9irN_aOxiMY63Y0DkfTryPxOSd88hmyiFZJOXodj_jr2c0hDUZT8dnjqH5FsIgpXPzvauDr_wBon7T5" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 R3_E2E-80__Intel_Foundry-_Customer_Requests_Expedite_-_Service_Fee — R3_E2E-80__Intel_Foundry-_Customer_Requests_Expedite_-_Service_Fee
@@ -853,10 +820,9 @@ Pricing condition types"| n50
 
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -875,10 +841,9 @@ Pricing condition types"| n50
 | Boundary Apps  | R3_E2E-80__Intel_Foundry-_Customer_Requests_Expedite_-_Service_Fee | |
 | Customer Business Analyst | R3_E2E-80__Intel_Foundry-_Customer_Requests_Expedite_-_Service_Fee | |
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -889,10 +854,9 @@ Pricing condition types"| n50
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 | 1 | e.g. Cost Element | e.g. MES 300 | e.g. XEUS | Data steward | e.g. Intel Confidential | e.g. 10K rows/day | Master / Transaction |
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -940,10 +904,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -987,10 +950,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.3 Data Lineage
@@ -1019,10 +981,9 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1076,10 +1037,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWFP2zAQ_StWUL-1IwxaIEKV0iadOqWACBublily42trzU0i2wE61v--c1xoKQM6V0qTu_O78_Pz-cHJCgaO5zQaDzzn2iMPiaNnMIfE8UjijKnCtya-KcgqyfUiglsQ1imK4tFbT_lKJadjAcq4EWdS5Drmv1dQB53y3gYb-4DOuVhYTwzTAsiXYZP4CCCaRNFctRRIPkmcZT1DFHfZjEq9Qq4UjOj9DWd6ZiwTKhSYuJmei4iOQdQlaFnV1hyXGJc04_nUmI9cY5Q0_7VhbLvLJVk2Gkn-lItc95Kc4Gg0SKuFtWUzPqIaWjxXJZfAiNILASQTVClQGGPD6-8AJmRcKZ6DUqQeEy6EtzfA0Ws3lZbFL_D2eicnHbe3-mzdmQV5H8v7ZlaIQnp7rutuYdKyJOthMXttg_qE6brHx73Of2AyqulLzODkHcyDZ5iPPkYVkifpAjkl7a1Mc86YgDsqYZORoOOvGQmPO4M12g7VQyFeMGI43mC533fd9zAtqqrGU0nLGfGjH4mTVOzkkOGTHbaJf3kZDfv-9fDinET-9_AqcX7aSWYwFESmeZGT6GptvZAMZKqLtI-spMNBP4V0mo7COD103c0EGXQIfJh-IOgj6ENsz_Nws9_D-hZ-if8JZBy7oIxuahz_dyUhjUHe8gzSXqWeLf_g2ILWUWQVRTDKZlhv6xuJgrBO1C-UTkOB7SLX3c3CsyObwwSQVcDZWO53z3jXOuKvZJ8MgyLDv8_xxfnZPu_aAoyCbWrI2eNevkk-ntbun8SpgYN67xDUvxzic8AFtqw_u1P1SrrXwk3qN3bTlL8SY91eetFG6xi477WOzan-01R3lw7x4hBEMEU-n8mLuSQKP4XnwQ7qj1I8M9vi9MtS8Iya4H_IM0pHN9vKG63V9araojQIt9UUmLYW5hovrW2V2CnhhT3kHzvsCANZq5i0Ij5ZpcG-siGpNamWlEdi2-b3ROzp6emLHuk0nTnIOeXM8R7sRYn3LYMJrYTG682hlS7iRZ45Xn1hOVWJhULAKW7C3BqXfwHOs24d" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Current-State Flow Narrative
@@ -1088,10 +1048,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.2 Future-State — Future-State Application Landscape
@@ -1143,10 +1102,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWFP2zAQ_StWUL-1IwxaIEKV0iadOqWACBublily42trzU0i2wE61v--c1xoKQM6V0qTu_O78_Pz-cHJCgaO5zQaDzzn2iMPiaNnMIfE8UjijKnCtya-KcgqyfUiglsQ1imK4tFbT_lKJadjAcq4EWdS5Drmv1dQB53y3gYb-4DOuVhYTwzTAsiXYZP4CCCaRNFctRRIPkmcZT1DFHfZjEq9Qq4UjOj9DWd6ZiwTKhSYuJmei4iOQdQlaFnV1hyXGJc04_nUmI9cY5Q0_7VhbLvLJVk2Gkn-lItc95Kc4Gg0SKuFtWUzPqIaWjxXJZfAiNILASQTVClQGGPD6-8AJmRcKZ6DUqQeEy6EtzfA0Ws3lZbFL_D2eicnHbe3-mzdmQV5H8v7ZlaIQnp7rutuYdKyJOthMXttg_qE6brHx73Of2AyqulLzODkHcyDZ5iPPkYVkifpAjkl7a1Mc86YgDsqYZORoOOvGQmPO4M12g7VQyFeMGI43mC533fd9zAtqqrGU0nLGfGjH4mTVOzkkOGTHbaJf3kZDfv-9fDinET-9_AqcX7aSWYwFESmeZGT6GptvZAMZKqLtI-spMPBIIV0mo7COD103c0EGXQIfJh-IOgj6ENsz_Nws9_D-hZ-if8JZBy7oIxuahz_dyUhjUHe8gzSXqWeLf_g2ILWUWQVRTDKZlhv6xuJgrBO1C-UTkOB7SLX3c3CsyObwwSQVcDZWO53z3jXOuKvZJ8MgyLDv8_xxfnZPu_aAoyCbWrI2eNevkk-ntbun8SpgYN67xDUvxzic8AFtqw_u1P1SrrXwk3qN3bTlL8SY91eetFG6xi477WOzan-01R3lw7x4hBEMEU-n8mLuSQKP4XnwQ7qj1I8M9vi9MtS8Iya4H_IM0pHN9vKG63V9araojQIt9UUmLYW5hovrW2V2CnhhT3kHzvsCANZq5i0Ij5ZpcG-siGpNamWlEdi2-b3ROzp6emLHuk0nTnIOeXM8R7sRYn3LYMJrYTG682hlS7iRZ45Xn1hOVWJhULAKW7C3BqXfwEYz241" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Future-State Flow Narrative
@@ -1155,10 +1113,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.3 Change Impact Summary
@@ -1178,10 +1135,9 @@ flowchart TB
 | e.g. MES 300 | - | N/A |
 | e.g. XEUS | - | N/A |
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1196,10 +1152,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 
 > *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1208,10 +1163,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 |---|---------|-----------|-----------|----------|------|
 | 1 | e.g. Pub-Sub / P2P / ETL | e.g. MES Route to ICOST | e.g. Azure Service Bus | e.g. REST / RFC / SFTP | e.g. OAuth / NTLM / Cert |
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1252,10 +1206,9 @@ flowchart TB
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
 
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -1297,10 +1250,9 @@ flowchart TB
 | 1 | e.g. Azure PaaS | Cloud / SaaS | e.g. XEUS | DEV,QAS,PRD |
 | 2 | e.g. S/4 HANA 2023 | On-Premise | e.g. MES 300 | DEV,QAS,PRD |
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1340,10 +1292,9 @@ flowchart TB
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1362,10 +1313,9 @@ Project delivery milestones for Order_to_Cash_IF RICEFW objects:
 
 > *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
 
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1394,5 +1344,5 @@ Standard RAID items for Order_to_Cash_IF (End-to-End Integrated Processes):
 
 ---
 *Order_to_Cash_IF — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026*
+
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
-</div>

@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">R-250 — Receive and Put-away Product (IP)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **R-250 Receive and Put-away Product (IP)** within the IAO program. It includes 13 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Order To Cash (IP) (OTC-IP) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 5 Reports, 71 Interfaces, 20 Conversions, 167 Enhancements, 28 Forms, 1 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Returns & Rebate Automation | Automate returns processing, rebate management, and chargeback handling | Revenue Assurance | Medium |
 | 4 | R-250 Process Migration | Migrate Receive and Put-away Product (IP) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Order Management (Intel Products) | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -220,10 +187,9 @@ This capability includes **13 business process(es)** modeled in BPMN 2.0, coveri
 | 12 | R-250-120_Resolve_Discrepancies_(IP)_(Copy) | R-250-120_Resolve_Discrepancies_(IP)_(Copy) | Ground Controller | 23 | 13 |
 | 13 | R-250-130_Receive_Actual_Count_Quantity_(IP) | R-250-130_Receive_Actual_Count_Quantity_(IP) | Ground Controller | 1 | 0 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -262,10 +228,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuO2jAU_RUrI5SpFNQ8Cc2iEgRSVWqlUWHaRenCODaxcOzIdhgo4t9rEx4D7azqRZR7fM85vtePvYNEiZ3M6fX2lFOdgb2rK1xjNwPuEirseqADvkNJ4ZJh5docIrie0d_HtCButjbNYgWsKdtZdIZXAoPnzx4YGSLzgIJc9RWWlLie20haQ7nLBRPSZj_gIfHJ0e00NRayxPKa4PtpgBJDZZTjKxylcRoXlqcwEry8ESUJGRLkHuzimHhBFZT6uPxW4a9w-4OWujIxgUxhk1Ppmn2BS8xsjVq2FkOt3JybQZX14aZhswYiylcGj30DScjXVyjxDwdw6PUW_GIK5pMFB2YgBpWaYAKUNvB0owGhjGUPcT4qEt9TWoo1zh7CaTqJQg_ZSjJTuu_Z5vZfMF1VOlsKVp5S-y-2hixstp7cZqHvyZ353nlhXl6d8kE4DIcXp3Ea5EF-diKE_JeT6aucQ7U-eU2jIiwmF68gGSS5_7feucxJnI6C-z5huaEIvxItiiKaXls1HSSB_7bouIgGfn4nuoIav8DdVfBDHl8EiyQtgvRNwc7vfpXt8kkKdBaMpkmRXATTcVCMwjcF41EQD08rNDorCZsKfJKi5SXIzV5IwRiW3bwdPPi5cAjMCOzbdoORUnTFwVy2aK2AFmAihFw4v14xwltGXmG07lPLMXeyEVJDTQUHz-YBeJw_v7slR4aci7phWGMwq2jTmGP-_htGmG7Mn7FDbY15p3FLjQ3VJJqbDI75jQbQViWx2QDrjtZW4XjnwOPnp6uzObLdDw9Bv__RFH0K4y4MT2HQhdGr_bDg-RzewOG_4ehyF2_g-AI7nlNjWUNaOtneOT6G5sEsMYEt087Bc2CrxWzHkZMdHw2nbUpT34RCs5d1Bx7-AK5tvRo=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 R-250-040_Record_Receipt_and_Create_Tracking_Label_(IP) — R-250-040_Record_Receipt_and_Create_Tracking_Label_(IP)
@@ -414,10 +379,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtT4zYU_iua7OwAM8nia5zkoZ2sEzPMcEkJtNNZ-qDYMvHgWK4sAynLf--RLTm2sdst5WEXnaPzfecqCb8OfBqQwWzw-fNrlER8hl6P-JbsyNEMHW1wRo6GqBT8ilmENzHJjsSekCZ8Hf1VbNOt9EVsEzIP76J4L6Rr8kAJujsfojkYxkOU4SQbZYRF4dHwKGXRDrO9S2PKxO5PZBJqYcEmVV8pCwg7bNA0R_dtMI2jhBzEpmM5lifsMuLTJGiAhnY4Cf2jN-FcTJ_9LWa8cD_PyCV--S0K-BbWIY4zAnu2fBdf4A2JRYyc5ULm5-xJJSPKBE8CCVun2I-SB5BbGogYTh4PIlt7e0Nvnz_fJxUpul3cJwh-_Bhn2YKEKOMgXj5xFEZxPPtkuXPP1oYZZ_SRzD4ZS2dhGkNfRDKD0LWhSO7omUQPWz7b0DiQW0fPIoaZkb4M2cvM0IZsD_-2uEgSHJjcsTExJhXTV0d3dVcxhWH4v5ggr-wWZ4-Sa2l6hreouHR7bLvaezwV5sJy5no7T4Q9RT6pgXqeZy4PqVqObV3rB_3qmWPNbYE-YE6e8f4AOHWtCtCzHU93egFLvraX-WbFqK8AzaXt2RWg81X35kYvoDXXrYn0EHAeGE636IzRPAmQC7VgNI4JK_XiJ9G_3Q9CPAvxSKQbrQgLKduhBfUfoQERLNAN4TlLSIAuIVIxfugXvh-iu-tLhAF2gXf4gYge5HmGOEUb8uXLl_vBHzUWo8kCnoSRYIkyn5EUJ_4euVviP2bdhBkSp0eAaAI6n0RP4No7DrM7khXNODqjNMhK25Q3zax_ToB0FfMIyEuYMuCg9LhIASM4A7ULw9yTALvJskwgMHR8B7-foJvLOYpqkSGRFJIUqYDTEgXgCtCJbSHh_hZ-DxndoQBzLPLSZBp3MS0IxxGkEWjW-UYceuick13h_Bo_FV67OIW0E5UlJA7ASIQ9LOr9LiSnSQS1TGMYg-tU2ECTgPeXgI85ZXvkRSSG1OWZiO8Q6bqMFOrMopdTlsON0CSZNEnO4VaJoCmQe3mDzkhCWFkYkap6M819n6QcEgWDFOQ-b6FOv1WwPn0QlsC_yQF3QeLoiYDDkKnlb5dgVrfTtabhXRoIZxrdhdblIIjUloGSoroXmg4qysSsXFC_8LsNr3fCl-OQHXyTDIDq5hmHTrgt7tI2mtFEU519e4d80bkjsD_N_Ofd6e1d29Rsmo7GGvLg5KDP6Ox2DQ79mUcMrvGEF5n3YwL3OZQzhWOLZO8csXrCUl2gulNg3V3comMPflkXkw-vgkC2x0kb1m7CVr1x47nIx3FcTsl6vhKVFB2-PrXEf3nJL0ZLpfZaPA-KknFaNnqDadzDNF-d15kwFAFi8ItxqvFmcGeioNaejGQ0zrs6wPk3JoBbXl-A83CmP8DRvlzDcYETmITi7E1lketsRbWzjrAmP0Lmzg8hyDqJPBWgaJGnceQLG1E3Ub-r66tRB9X0R6gSHvG4bKtrBgQwleV4X-A9lKcWXm3W35MZ-nFFBuORyoYLVN8G71sPEE7qCEYLoewT2Sb1m042U1BUvFZ_WR7Vim18s4XvglcRRzuyo7VjrW0lripwmLCdOMBXOcfi3REfDpP65vHr6yHjARlt4F3pb9F5WIxweXet4MVBgp_vB29vdVOn27S0KYY0IS8p8WsHbBti0g1RP6NvqiFAVVDvfZn2hJEV8yvZizEgiTgFA9SGMLVuCPLix3AfPZGz8gHXNtM_ZmZ8zMw6mGHG6HM2wjFHKWbQPSTuMbI_YjT-iJHzEaPJR4ymnUZR0pc-OJhaz111qK-hRcUVkvF6Q7WucDnZ1d0Kk1jM8-EdKm-H9iEjXnSr8r6TG0-vaDJi6u1aGGXo-Hx10nqnmv-1Q6oQgRWNRj8JDCkw5dpSa0MKHGWhlYKp2jAt17quBJa0UDt0BTGWAmVhqA3lWlEqe02pJaNR-TSRAFpboHboEsNQTo3luvJaxm2rqByx_n4_uKL3g--wvy3_XTyHvotHgtJM2xqnrZFY-kR5Jb0wq8CV38otmSmjspCpMlUcjtyguGQYTjv3CsCU9TSqVI2lc79GjOfwqj5cXar5jq-o-mvlpAjAtBvG4JZaq8qodOlmq3bGuJULs61Q6atI9HZL6rI_DJU2Y9K2fadRdMoxU2EoTKeVWFMJ2utpK7Uqs7J0hln7Y1u0svrI0BAb3WKzW2x1i-1u8bhb7HSLJ93iaf1TRjMirV-l96uMfpXZr7L6VXa_atyvcvpVk35VfzaM_mwYuvyU1ZQanVKzU2pVH96acrtHPlbfippip1s86RZPO8Uw2p1ivVtsdIvNbrHVLba7xd1Rmt1Rmt1RmlWUg-FgB29DHAWD2eug-HgMH5gDEuI85oO34QDnnK73iT-YFR9ZB-WDfBFheAzsSuHb38iZHU0=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 R-250-040_Record_Receipt_and_Create_Tracking_Label_-Revised — R-250-040_Record_Receipt_and_Create_Tracking_Label_-Revised
@@ -559,10 +523,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFlv47oV_iuEB4MkgD1jbZbthxaOlzRAFjeO56K46QMtUbYQWVRJKombm__eQ4nUFqlL6ofE-shzvrOT1nvPoz7pTXvfv7-HcSim6P1MHMiRnE3R2Q5zctZHOfALsxDvIsLP5J6AxmIT_jPbZtjJm9wmsRU-htFJohuypwRtr_toBoJRH3Ec8wEnLAzO-mcJC4-YneY0okzu_kbGwTDI2NTSJWU-YeWG4dA1PAdEozAmJWy5tmuvpBwnHo39mtLACcaBd_YhjYvoq3fATGTmp5zc4rffQl8c4DnAESew5yCO0Q3ekUj6KFgqMS9lLzoYIZc8MQRsk2AvjPeA20OAGI6fS8gZfnygj-_fn-KCFD0unmIEHy_CnC9IgLgAePkiUBBG0fSbPZ-tnGGfC0afyfSbuXQXltn3pCdTcH3Yl8EdvJJwfxDTHY18tXXwKn2Ymslbn71NzWGfneBvg4vEfsk0H5ljc1wwXbrG3JhrpiAI_i8miCt7xPxZcS2tlblaFFyGM3Lmw8_6tJsL250ZzTgR9hJ6pKJ0tVpZyzJUy5FjDLuVXq6s0XDeULrHgrziU6lwMrcLhSvHXRlup8Kcr2llulsz6mmF1tJZOYVC99JYzcxOhfbMsMfKQtCzZzg5oCtG09hHc8gFo1FEWL4uP7Hx-1MvwNMAD2S40ZqwgLIjWlDvGQoQwQN6ICJlMfHRLXgq2w_9VZz6aHt_izCoXeAj3hNZgyLlSFC0Iz9-_Hjq_b3CYtZZwJIglCwh9xhJcOyd0PxAvGfeTsiRnB4-ojGseSR8AdM-cVj_3hPFiUUIWq4o9bmy3M-pM18YwRyW59CVHZ7YdZZlDBai8y18v0APtzMUVkxE0jsSZz7B2EM-mAJ0cltAhHeA7wGjR-RjgaWDdSanjekWrMSCslNm7n0ivYGELIjAIYQJ2DfpTg41dC3Isa5wVFe4zTIRhTLq4LM08JccqCd0mQohEYr2RJQkkrHkX4Uk8jNGkPwUJrfOdQ2nQQjJRPPbB3RFYsLyPMjIVItg5nkkERAXaAA_9QSvax23eODVPNCVVbqg62BNuVB5zxKUNJVPOkyera-Rh6NIKoMkhCKCAyyGuDDIIPRh7skNPslCWP5F7r-Qe5Oc-FNojOHvBZNH99J_wcJdClQLEoUvBIILUV3-dgtyNUGjLrhNfGlfzSe0ydtQ5iqvQ5KV5M3QgCXKZKfeUC-zuanebFWfNyMvbVMMoHWecgHl-5id5E1tVl2bTsPjFnmy3QYg_5N7r8efj9umqF0XHYyGaAVzi76iq8cNGPSPNGR5DmT9eBGB2wR0WwJDk_BPhjh1bUVeH1bzPK9ZD25maxlymbjNT1v-S3P_ZVXpGNzLW0QWW0HzvNaYRh1MRQXlTBiiBYZ72Yip8HI4WpFf6QZGOI3StlS5_4lJ1ur9DRgPo38PJ8ByA8MIx9B4vFKbNbYsLbzFrXGdbINfMsvnOIGokKLy5IUplMb28_NBlxtcpbIOOV8eEwHDJYz5RR9dYhiALWST_8az-ayMl5p8MimZB2iRJjASpMz25jGrkLv7u8FnKtM4L6igjhOVZZXk6nGmSsHP8lXJngquLiTQf1HVbzb0zxmBAKEjOdLKDGxKyWMMxjlhRznF16nA8nIRlT1b3ey8v5fR8slgB5dH74Cug6xT8nNtDdcK4v_5qffxURUdtYvmMjJq25i8JZC7cho3VbjtKqoD_aEoYVQ49dmWcYcbPOs-xZ4VMYnlsPHRJxWTdhXkzYtSDoPrKr-lNcSs4dfEjK-JWaUYZoy-8gGOBEowg-ohUYeQ_RUh5ytCo68Iua1CYdwVCWjaxvVUT9cNVBtc9uA4rCa2cVqqJi1OI2iqrDXLe6Ma081ulxe3dX5CqI0_72g8YPqumQlxdH69vmjcK83_NdmFi8CKBoM_SR0aGOaAoS79ED8F6B2WpURcBRgacDSgdVgaUBu0hvzRnOhnZYStt4_UfkMbpQQ0o6WBwkhHAn889X6FTKRwFSyvuDqk53dUX7Uhfn9I1pow0Gq2idKu_TG19juaSRp2c-Fv8npR1WloC7VSS8VkrDeosFraBfVs6jAbdiNK6nmkuUcNbqMIv9PM6ahuv96o9pnaJnPcVOk2V3QECjfGKnbaSmPS8EttsAq73YYqvaCj3txXxNZoFGBRDapcJo3nokAtXX9FPSrAtBoqjeoPclm3-id-DTbbYasdttthpx0etcNuOzxuhyftMPRl5QVDfcnoXjK7l6zuJbt7yeleGnUvud1L4-6lSeeS2R0N01Bvkeqo2YpaxdutOm534I5-IVOHR-2w2w6P2-FJKwyzpxU22mGzHbbaYbsdbvfSavfSKrzs9XtHuITh0O9N33vZq1h4XeuTAKeR6H30ezgVdHOKvd40e2XZy2--ixDDUX3MwY9_AaAh5tE=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 R-250-050_Determine_Put-away_Location_(IP) — R-250-050_Determine_Put-away_Location_(IP)
@@ -641,10 +604,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtVm1v6jYU_itWrio2CbQkJITmwyZemqpTu3Vwu2n3sg_GOQGrwc61nbaMy3-fTRIgaZg2bXxAnOec85wXPzjZWYTHYIXW1dWOMqpCtOuoNWygE6LOEkvodFEB_IoFxcsUZMfEJJypOf3zEOZ42ZsJM1iENzTdGnQOKw7o6a6LRjox7SKJmexJEDTpdDuZoBssthOecmGiP8AwsZNDtdI15iIGcQqw7cAhvk5NKYMT3A-8wItMngTCWVwjTfxkmJDO3jSX8leyxkId2s8lPOC332is1tpOcCpBx6zVJr3HS0jNjErkBiO5eKmWQaWpw_TC5hkmlK007tkaEpg9nyDf3u_R_upqwY5F0f1swZD-kBRLOYUESaXhmxeFEpqm4QdvMop8uyuV4M8QfnBvgmnf7RIzSahHt7tmub1XoKu1Cpc8jcvQ3quZIXSzt654C127K7b6u1ELWHyqNBm4Q3d4rDQOnIkzqSolSfKfKum9io9YPpe1bvqRG02PtRx_4E_s93zVmFMvGDnNPYF4oQTOSKMo6t-cVnUz8B37Muk46g_sSYN0hRW84u2J8HriHQkjP4ic4CJhUa_ZZb58FJxUhP0bP_KPhMHYiUbuRUJv5HjDskPNsxI4W6NbwXMWo4k-C8HTFEThNx_mfV5YCQ4T3DPrRjN4ofCKplRmXFJFOUNTIFSaH5Sh-ZpmaEQO-C855IDmRAAw9M2nx9n07tuF9ccZt1_nfgSRcLFBT6wXn_Fj3dpcq0oXUpimEimOHjDLcVproyhULzCoF3jgL4D06uKcKMMygy85FaDpFRd4BeieE3wgG-vLKEZmuFOFOrVjfz6SE77SXAToiV6abcxA5YK9Y9dENSanznQLDITWDLpjMoNil1NO8g0w1Ux1deZcGfJqLL1BNMoywfXNZkg-cQaHwWWj_75ONTICKYvmM4V4Uvash3_Q2eYubaQFu92p2Rh6S30dkXXtJEaEQKbM9f3Dwtrvi2x9gA3VPaaYsZrWnPpxFYdeU9pRAJeEVu_WbRdYi3po7aj_hrL_f_cY1E__KYvNsTV6m-RS8U0N_TlXhG8AfTSLbuhi2NBmbkSotUdqDGOs9Mn9yJeN7Ov32dMt08_af5bueO0SKTr4ro1qlqeANlCoV4syoQpNtNzFuYIKcr-dHN5Imkv9B7wtbttm2uDfph31qv_pqNf7Xi-1sj1jf11YP_GF9dW0VDmKOGdQ2l5pB5XfLwC3tIPSX5puYfZLs99gcwYF4FV2UG-j6mJYhF2X5nVJU6WVLE7VhFPVsSugHGPQHPd3c4XoQtU45TSn8YNGoHP-eDXrqR7YNdhth_vtsNcO--3woB0Ozh_0Nc_wouf6okfr46LLuexyj29ldbx_AfeqF4k67LfDg3Y4qGCra21AbDCNrXBnHd659Xt5DAnOU2XtuxbOFZ9vGbHCw7uplR_upSnF-vLeFOD-L_RgxmM=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 R-250-050_Determine_Put-away_Location_(IP)_(Copy) — R-250-050_Determine_Put-away_Location_(IP)_(Copy)
@@ -734,10 +696,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtV11z6jYQ_Ssa38nwArn-xMBDOwTwnXaSThqSZtpLH4S9Bk2MxMgyCeXy37vCNmDHdG7T8sCgs7vnrFa7wt4ZoYjAGBhXVzvGmRqQXUstYQWtAWnNaQqtNsmB36hkdJ5A2tI-seBqyv46uFnu-k27aSygK5ZsNTqFhQDy9FObDDEwaZOU8rSTgmRxq91aS7aicjsSiZDa-xP0YjM-qBWmGyEjkCcH0_St0MPQhHE4wY7v-m6g41IIBY8qpLEX9-KwtdfJJeI1XFKpDulnKdzRt2cWqSWuY5qkgD5LtUpu6RwSvUclM42FmdyUxWCp1uFYsOmahowvEHdNhCTlLyfIM_d7sr-6mvGjKLl9mHGCnzChaTqGmKQK4clGkZglyeCTOxoGntlOlRQvMPhkT_yxY7dDvZMBbt1s6-J2XoEtlmowF0lUuHZe9R4G9vqtLd8GttmWW_yuaQGPTkqjrt2ze0elG98aWaNSKY7j_6SEdZWPNH0ptCZOYAfjo5bldb2R-Z6v3ObY9YdWvU4gNyyEM9IgCJzJqVSTrmeZl0lvAqdrjmqkC6rglW5PhP2ReyQMPD-w_IuEuV49y2x-L0VYEjoTL_COhP6NFQzti4Tu0HJ7RYbIs5B0vSRfpMh4REZ4FlIkCcjcrj_c_TozYjqIaUeXW_vETK4-P8CGwSsZs3QtUqaY4GQMIUv1D8bJdMnWZBge8F8zyIBMQwnAZ8afZ9xelfseZCzkijzxTnTGSzG1KXYVCijKkpQoUdG9zN9tzJ08PxLUwaEQ4QtZiQ3eNxwbVooVeYAQ2AYni0wTrHBNSWNVBcv8etQIxaKIB4LnE2WhSnUtHkBlEoOVkHQB5FaEVLMhUYXJqjKNJGDfkGcqYSkwfZI3JeaNF-Qpa4H9JUSU1tNX4vr6ui5ho8JU6SSK_A58w_VaCrwHtdwfggO5Q_K0tk8HQ3XTQZrmKuuDdr43iMgdRuubtxbm73anTUXQmePlFS7xhKNKZX-cGfv9eVzvg3H9j8XZZnMcvIVJluKBfsln-BSG_VgbovuEcl4ZHavafnkPVwbm2M_fNy9287zcUZ7RpEKNbdeAPrIEqozO_52iX-3ip3Wk26qW2j9M7zlXrzZbmR4inJ2wQnBDFZ7Uz2Jei-6_jx5vOT4xfF-45Ta3RJ7B5yaqhyzByYR8qnBYYqbICIdUwrs-9f5tv-Vh3Q-3Kd5UpNP5AYtarl29_jYzfhEz45tOqTTkfla3XHs5YBdrv7AXSztfOsWyly_7xbJfOLslmVMAZj2N3_WVg3n4paFbeJaAU8vLLdZlIpZf3VApWfKUKVm9qt9xn_1aQex6QJmibdZD3lv8S5aimqdyl_UuD8YuDso7-9fXp1I-7VRguxl2mmG3Gfaa4W4z7J8_JVUsvYuW_kULtuVFk3XZZB8faau4cwF3y6ewKuw1w91m2G-Ge81wvxHG0y1go22sQK4oi4zBzji89eCbUQQxzRJl7NsGzZSYbnloDA5vB0Z2uEvHjOL_zSoH938DZh89pg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 R-250-060_Stage_Product_for_Appropriate_Zone_Moves_(IP) — R-250-060_Stage_Product_for_Appropriate_Zone_Moves_(IP)
@@ -847,10 +808,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU1v2zAM_SuCiyIb4GD-jDMfBiROPBRYgWLZx2HdQbGpRKssBZKc1ivy3yfZjpN062k-GOYT-R5JifKzU4gSnNS5vn6mnOoUPY_0FioYpWi0xgpGLuqAb1hSvGagRtaHCK5X9Hfr5ke7J-tmsRxXlDUWXcFGAPp646KZCWQuUpirsQJJycgd7SStsGwywYS03lcwJR5p1fqluZAlyJOD5yV-EZtQRjmc4DCJkii3cQoKwcsLUhKTKSlGB5scE4_FFkvdpl8ruMVP32mpt8YmmCkwPltdsU94DczWqGVtsaKW-2MzqLI63DRstcMF5RuDR56BJOYPJyj2Dgd0uL6-54Mo-rK458g8BcNKLYAgpQ283GtEKGPpVZTN8thzlZbiAdKrYJkswsAtbCWpKd1zbXPHj0A3W52uBSt71_GjrSENdk-ufEoDz5WNeb_QAl6elLJJMA2mg9I88TM_OyoRQv5LyfRVfsHqoddahnmQLwYtP57Emfc337HMRZTM_Jd9ArmnBZyR5nkeLk-tWk5i33uddJ6HEy97QbrBGh5xcyJ8n0UDYR4nuZ-8StjpvcyyXt9JURwJw2WcxwNhMvfzWfAqYTTzo2mfoeHZSLzboo9S1LxEmdkLKRgD2a3bh_s_7h2CU4LHtt3omx2pBq20KB4Q5fZD4g2gtfneU4xWszt0K8xsC3nv_DzjCS55Ppv5keUQPjfhn0SBNRUcCYJuTc_sILec7ZRcsoWXbF93pQlAN3wP3DA2CNtytmBy7DI96gwaNvV3EVo1SkN1yR39GMgLsTly39Ua211sz4bpFKGyGqhu-Lrt4AIY3YNsDOE5Y_xmYFRa7P5yR1QZymrHQENpYt-exU5MaC_3Ds3KX7XSQxVvbu7eDrmbues--ASNxx9MHb0ZdWbQm0Fn9kef-50Z9mbYmfHZkbM-x1G7gIN_w-G_4eh8ui5W4v7OuAAnw6XluE4Fptm0dNJnp_09mF9ICQTXTDsH18G1FquGF07aXqNO3e7YgmJzuqsOPPwBXhEUgA==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.9 R-250-100_Check_Material_for_Proper_Quantity_(IP) — R-250-100_Check_Material_for_Proper_Quantity_(IP)
@@ -946,10 +906,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAQ_StWViitFKR8EppDJQhkW6krbcu2PZQejGODhWNHjsNHEf-9NoEE2O6pPkSZ55n3ZsZjHywkcmwlVq93oJyqBBxstcIFthNgL2CFbQc0wA8oKVwwXNnGhwiuZvTPyc0Ly51xM1gGC8r2Bp3hpcDg-2cHjHQgc0AFedWvsKTEduxS0gLKfSqYkMb7AQ-JS05q562xkDmWnYPrxh6KdCijHHdwEIdxmJm4CiPB8xtSEpEhQfbRJMfEFq2gVKf06wo_wd1PmquVtglkFdY-K1WwL3CBmalRydpgqJabSzNoZXS4btishIjypcZDV0MS8nUHRe7xCI693py3ouBlMudAL8RgVU0wAZXS8HSjAKGMJQ9hOsoi16mUFGucPPjTeBL4DjKVJLp01zHN7W8xXa5UshAsP7v2t6aGxC93jtwlvuvIvf7eaWGed0rpwB_6w1ZpHHupl16UCCH_paT7Kl9gtT5rTYPMzyatlhcNotR9zXcpcxLGI---T1huKMJXpFmWBdOuVdNB5Llvk46zYOCmd6RLqPAW7jvCD2nYEmZRnHnxm4SN3n2W9eJZCnQhDKZRFrWE8djLRv6bhOHIC4fnDDXPUsJyBR6lqHkOUn0WUjCGZbNvFvd-zS0CEwL7pt3gG0aYbjB40kWZmwYoB5_0uelhBF8EgooKbrAxE2iNczN5Cs-t31eM_i3jM5ZEyAI8CpFXDX-pbiOCd21IpUTZiT-JjdZQ4lUKOv79FUGo49MVRusuNBNaWopSZ_C1hlxRtW9F9Qg3PzwE_f5HnfLZ9BvzPDbca8zg6nwMeJnLG9j_Nxyc78sNGLYX1nKsAssC0txKDtbpadTPZ44JrJmyjo4FayVme46s5PSEWHWZ6wonFOqTLRrw-BcubsHw" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.11 R-250-120_Resolve_Discrepancies_(IP) — R-250-120_Resolve_Discrepancies_(IP)
@@ -1110,10 +1069,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWFtv2zga_SuEiyItYHd1oSzbD7twfSkCJI2nTrYYNPvASFQsVJY8JNXEk8l_348SKUsMhZlJJw9Fechzvisv1tMgKmI6mA3evn1K81TM0NOZ2NE9PZuhszvC6dkQ1cB_CUvJXUb5mVyTFLnYpr9Xy1x8eJTLJLYm-zQ7SnRL7wuKbs6HaA7EbIg4yfmIU5YmZ8OzA0v3hB0XRVYwufoNnSROUllTUx8LFlN2WuA4oRsFQM3SnJ5gP8QhXksep1GRxx3RJEgmSXT2LJ3LiodoR5io3C85vSSPX9NY7GCckIxTWLMT--yC3NFMxihYKbGoZD90MlIu7eSQsO2BRGl-Dzh2AGIk_36CAuf5GT2_fXubN0bR9fI2R_AXZYTzJU0QFwCvfgiUpFk2e4MX83XgDLlgxXc6e-OtwqXvDSMZyQxCd4YyuaMHmt7vxOyuyGK1dPQgY5h5h8che5x5zpAd4V_DFs3jk6XF2Jt4k8bSx9BduAttKUmSn7IEeWXXhH9Xtlb-2lsvG1tuMA4Wzks9HeYSh3PXzBNlP9KItkTX67W_OqVqNQ5cp1_049ofOwtD9J4I-kCOJ8HpAjeC6yBcu2GvYG3P9LK827Ai0oL-KlgHjWD40V3PvV5BPHfxRHkIOveMHHboEyvKPEYLqAUrsoyyel7-5e6320FCZgkZyXSjLzSi6Q-K5pEoSYZ-KUkuUnG8HfyvxfG6nBtOkXSYcg42YoquC3RziCEtaEkzUGMG3-_yFzsafUdp0lhDrPYiRilHV8BHvwBYgKU8rgddPfyKGALDhyJPUrZHy5RHjB5IHh1rvzhKCikpSpaDQ5cQlTyBOJLnWYyKXJmD3frhw4eujXHXxoYy0NqjTcEF-lQUMa-5B9GlhV3aKgeTKKaCpGA2zdG2vJPHFjoXdI8IFHZLIFpRoAU5gJtUqyJ5hKUiLfKhzNnwhX-TrqFzOLJTWbXF5Rf0ieaUEUmuEtDOyzyK6EFA8FD0uIwE76pOvzWyUXF_UgV-rZfTBwinboxKnOkMIhLXDsuyiaN0t63sOl1p1WTbNXpIxa5N_k3UynHL7UiW01R0rYqd4qCtIKLkVaZ1a0EVvlw4LkwVjNxTdFFEVWymvGeVr7uJN7tDWwDV1ddLtCi5KPbourogTUW_R1FncKn6REZ_c3GN3m2rfoXbtWpelj6-NyVxV3K-OUcRyTKUMPBiS8AJEIuqDtvON5WL8F8OF0Env4zyIittWQh6OqKxBHKrqwskdnBQ3cN5tdoiHpEcOpDLuYPaOC-qyeuW7hgbd41tpZvvtKX3zT6SJhfzqqj1-bMsD1kaSbdk2mT6Pl99HqHF5kYushgK_0pU8uTJ4MGTC3TFwGc4t-tNcEGOsOVawbV2mMXY5O80kkme_gTZc3rCXOjtXCTos7mj4ZGH9inn0JH_OsDbJK33pKktLx-V_VP0xl3jvWvsw7Y4KO_lVvytTBmNX_Y-CLxvK_iGQqulZRPLoxw8kC63G6zdKLLjVW9CdU19bOjrxDYZ4c323mJU1v6bIsE_ITI2RKBGcCSiS7ovWge6yQr_CdPyLoH8U7aXV9OmFES-ibLTudhePIXFUDZ4lDeHbLURZUvB84FBPWQ9q-czene-eW-8H5yf5J_6Tt_nVdfCfXaQ7wv9DBmhq-uFje89PZ32RExHd_Bmj3YnYqub_3M7eH5uc_0_4VZ-vWBhO4s-RlnJoUqf6keoSQvstPZt_qU5tlFTv_iF_bFd6Dw5HdbyutJPghf88HX-T15Hm55ohLHigY9IJhAcRHAs08xOws5rSO5rSN5rSP5rSNhKSvO-9MFxWP8HzmY0Gv1b9roCfDX29QI1DtUYqzFW42k9xuo3WK70sNbDlcAft4N55813O_gDuGrNWGnqMXaUiHbCVareRAPKTU-bCZXEWC9QfmJHA8qIqwMJFCPQC7SEtuErCU3wtRM6VF8xsDF2pwagf_JCVlUy6l87zS8WyIVrLtmo-7Q5MdClumlhZfMLST9V40qkSbpy1XVMoEmgSrHnd-rUKqw_Vo78Kl-n0kOdKX9SL20yF5iZCxT1c1EzsTmhNZvy-KqPtARWBR4bY4wNQgNgVS7XM1a4rgk0va2ToAvmqhUeNvLmN22kYvd08HrcNJ7KoxeaedTJ0Ct9z0iGb04ohi5J9eVA7jD9xaQDe3bYt8PYDgd2eGyHQzs8scPT9neZbkRO_5TbP-X1T_n9U7h_KuifGvdPhf1Tk_6p_mx4_dnwPPVdrov6VhRb0cCKjq1oaEUnzXfILj61477Tg7s9uKc_tXVh3w5jOxzY4bEdDu3wxA5PrTBcWlbYtcP2KLE9StxEORgO9vB4I2k8mD0Nqo_s8CE-pgkpMzF4Hg5IKYrtMY8Gs-pj9KB-xy9TAt8I9zX4_H995HQA" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.12 R-250-120_Resolve_Discrepancies_(IP)_(Copy) — R-250-120_Resolve_Discrepancies_(IP)_(Copy)
@@ -1271,10 +1229,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWFtv2zYU_iuEiyAtYHe6WrYfNjiy3QXIrXGyYlj2wEhULFSWNJJK4qX57zuUSFqSJXRLl4fA-sjvOxeeQ1J6GQRZSAazwdHRS5zGfIZejvmGbMnxDB3fY0aOh6gCfsM0xvcJYcdiTpSlfB3_XU4znfxZTBPYCm_jZCfQNXnICLo9HaI5EJMhYjhlI0ZoHB0Pj3MabzHd-VmSUTH7HZlERlRak0MnGQ0J3U8wDM8MXKAmcUr2sO05nrMSPEaCLA0bopEbTaLg-FU4l2RPwQZTXrpfMHKOn7_EId_Ac4QTRmDOhm-TM3xPEhEjp4XAgoI-qmTETNhJIWHrHAdx-gC4YwBEcfp1D7nG6yt6PTq6S7VRdLO4SxH8BQlmbEEixDjAy0eOojhJZu8cf75yjSHjNPtKZu-spbewrWEgIplB6MZQJHf0ROKHDZ_dZ0kop46eRAwzK38e0ueZZQzpDv63bJE03Fvyx9bEmmhLJ57pm76yFEXRD1mCvNIbzL5KW0t7Za0W2pbpjl3fONRTYS4cb26280ToYxyQmuhqtbKX-1Qtx65p9IuerOyx4bdEHzAnT3i3F5z6jhZcud7K9HoFK3ttL4v7K5oFStBeuitXC3on5mpu9Qo6c9OZSA9B54HifIM-0axIQ-TDWtAsSQitxsVfav5xN7jNsxTMx8FXlEViWhTTLZqHYczjLMUJEl2CYk626Al8QvcEBZRA2CGKUwQNjW5T8pyTAJCPHz_eDf6sGbDAwAV5QmdCQ9FxGFbk5XPMOFQ6WmPYDdClaNMm3wZ-hGcRHol6QNckIPEjQfOAF-DZ5wKnPOa7Jsdpcm4ZQSKjhDGILiToJkO3eQgBoAVJQI22-G6T728IpCaOtDVEKy8gBPAZ-OgzgBlYSsPqoak3fkMMXssHuSqLmEHuc5wGu8ovhqJMSPKCpuDQOUQltkiGxIYbIljZyhwk-WBtJk0byxS4oAAbH8_oDsEPdJnLGlgQjmOQhUVbF_dlRZxCRTQFp03BUzgEYpFm__wafSIpoViolR7XA5kHAclFOcEqhUXAWVPVNA7Wk1b1ykR8ogBVek4KzgWUoStCwcwWXWWMo09ZFrIqEfmButnj9PzqFAUYChbUlmKFEji5Ug5FGmwINGAVyxneAen98lcx_4OYm1eWD7JtWn9oS0H2sDdUNpPQSqFPQlmRZZKoWjrRMaobobyEckPabkrL6l6voOP4pk7-i1fKYS39gaijtqLTqVjVGdN9g9Yc84K1ye6PkMc9afJVmmCTumhnShTBNmYMcvVTDqdhXMXa1vY6HWuUh_SqrH7VqVD012eGCUMZxQ8EnWVB6UpbftLjui6liGbbaq8DpwMiymU9v0LLL-fiJ4PDtbEylLAsKbosTZuW1vixFPNxDjkmOhZxiymXfijKZqgDgPtNmcr3y20OFXESp-zDEJ1gHmyqum1s4cb3whId4s_3Ici9QqSwLC60KHLoV8G5PbspF-zi8mLUYcr8N6Yuz2C94VB7gLNtuUYswCnsLazWfIf1zTqMWf-lTEUR-AXjsIA35d21rSZOquqoqO1trcPQea8tglJeLwWRObFrA18Ucz0AlU8Ru6gUGTvkBOQ_1PXdlr6KRfcK07GsHVSUAYdtkfH_IeK1RKB7oRLRlmyz2lHQZk06TVf3AmUWsgBXCGm27KBaP8nUXK_8slza-uKAgt6A1wHdIqJIy60F7gUUsi922_Lijt6fXn1oXUaMH-SLswZOUkK34gC9KjgWV8dkv53UJ1u6oNSpXnYOHJK5uGWoy8gIXd74Xcbsl5d9eYdkdA-vFsFmT6yV6S93g9fXOtf5Drf064DldrPIc5AUDGrnU3VXbtPGb6N53bT6zeJab6BIpz08cHvSLXTKyk6Ul5JyqyGpaP0QHUhM3xSCY7yNZu5pmNLsiY1wwhGce1DyJOkhWW8h2W8hOW8huZ2kOO3LBGyX1Q_YedFo9LMoeAm48tmRz458HsvnsXx25bPkO5aabwng291g3rh13Q2-iVucIlkVy1JWbSk7bj2bbhvQMxxpp3qH0O8BYMZuT7mSlxrdgehcXndgpn7vUDeWsBTR8ZvSsN0G1AxTpsByGimo5ciUzltTBcgsW25L1DbUDJl3S8dry2B-F6cnOOi2By6yKnptdSKXRml60oanmFMZiZogny01QQrYE0WYNE2ZOh7FVEqWIal6hgQcnTUZsbLlyCwqgiMTYJoKUApqIUwVj9mSMJWmpcpMByDzrp-9VlJ1rvSIClVRHLV0qpZNaUR5IeNSw3LUqX9PEV2jvtA0YKcbdrvhcTfsdcOTbnjaDcN6deNmD27VvxA1h-z-Iad_yO0fGvcPef1Dk_6hae8QFHLvkNk_1J8Ny5GfAZuo24mOO1GvE510olP9gbNZf0YPbvbgVg9uq294Tdjpht1ueNwNe93wpBuedsKwa3TCZjdsdcPdUTrdUTo6ysFwsIV7E47DwexlUH69hy_8IYlwkfDB63CAC56td2kwmJVfuQfVxXwRY_j4uK3A138AtKaYbg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.13 R-250-130_Receive_Actual_Count_Quantity_(IP) — R-250-130_Receive_Actual_Count_Quantity_(IP)
@@ -1307,10 +1264,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -1323,10 +1279,9 @@ flowchart TD
 | Warehouse Operator | R-250-060_Stage_Product_for_Appropriate_Zone_Moves_(IP),  | |
 | OTC IP - Returns Ground Controller | R-250-080_Transport_Product_to_Storage_(IP),  | |
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -1338,10 +1293,9 @@ The following data entities are derived from the system integration flows for R-
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -1402,10 +1356,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1448,10 +1401,9 @@ The Future-State architecture represents the **target** landscape for R-250.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1753,10 +1705,9 @@ The Future-State architecture represents the **target** landscape for R-250.
 
 **Summary**: 5 Reports, 71 Interfaces, 20 Conversions, 167 Enhancements, 28 Forms, 1 Workflows
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1768,10 +1719,9 @@ Integration patterns identified from the system flow analysis for R-250:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1795,10 +1745,9 @@ Platform landscape inferred from integrated systems for R-250:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1838,10 +1787,9 @@ Platform landscape inferred from integrated systems for R-250:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1870,12 +1818,12 @@ Platform landscape inferred from integrated systems for R-250:
 | OTCI1187 | Interface for BP Create/ Change in GTS - CAAS | May-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Dec-25 (100%) | 4. Completed |
 | OTCI1180 | EMS_Inbound Interface for Capturing Hardware SO and Line-Item Details into se... | Jun-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Nov-25 (100%) | 4. Completed |
 | OTCI1179 | EMS_Outbound interface to OL (Orchestration layer) for activation key generat... | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 4. Completed |
+
 *... and 272 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1904,5 +1852,5 @@ Standard RAID items for R-250 (Order To Cash (IP)):
 
 ---
 *R-250 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: March 2026*
+
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-250 — Receive and Put-away Product (IP)</span></div>
-</div>

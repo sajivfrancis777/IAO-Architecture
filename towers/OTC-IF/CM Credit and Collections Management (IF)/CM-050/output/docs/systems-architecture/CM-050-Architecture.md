@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">CM-050 — Manage Customer Credit Exposure (IF)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IF) (OTC-IF) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **CM-050 Manage Customer Credit Exposure (IF)** within the IAO program. It includes 7 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Order To Cash (IF) (OTC-IF) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 11 Interfaces, 64 Enhancements, 11 Forms, 1 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Revenue Recognition Accuracy | Ensure compliant revenue recognition aligned with ASC 606 through S/4 HANA billing | Finance & Compliance | Medium |
 | 4 | CM-050 Process Migration | Migrate Manage Customer Credit Exposure (IF) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Order Management (Intel Foundry) | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -214,10 +181,9 @@ This capability includes **7 business process(es)** modeled in BPMN 2.0, coverin
 | 6 | CM-050-070_Request_Pre-payment,_Down-payment_or_Letter_of_Credit_(LOC)_(IF) | CM-050-070_Request_Pre-payment,_Down-payment_or_Letter_of_Credit_(LOC)_(IF) | Accounts Receivable Analyst, Credit Manager, Customer Business Analyst, Logistics Team | 13 | 0 |
 | 7 | CM-050-090_Modify_Customer_Profile_(IF) | CM-050-090_Modify_Customer_Profile_(IF) | Credit Manager | 6 | 3 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -295,10 +261,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2v4jYQ_StWrq7YlYIa54Nw89AKAtm9q-2HltutqqUPxnHAwsTITuBmWf57bZJAkiWV2vIAzJmZM2fsiZ2TgXlMjMB4fDzRlGYBOA2yDdmRQQAGKyTJwAQl8BkJilaMyIGOSXiaLejXSxh09686TGMR2lFWaHRB1pyA359NMFGJzAQSpXIoiaDJwBzsBd0hUYSccaGjH8g4sZJLtco15SIm4hZgWT7EnkplNCU32PFd3410niSYp3GLNPGScYIHZy2O8SPeIJFd5OeS_Ixe_6BxtlF2gpgkKmaT7dhHtCJM95iJXGM4F4d6MajUdVK1YIs9wjRdK9y1FCRQur1BnnU-g_Pj4zK9FgUvs2UK1AczJOWMJEBmCp4fMpBQxoIHN5xEnmXKTPAtCR7suT9zbBPrTgLVumXqxR0eCV1vsmDFWVyFDo-6h8Dev5riNbAtUxTqu1OLpPGtUjiyx_b4WmnqwxCGdaUkSf5XJbWu4gXJbVVr7kR2NLvWgt7IC63v-eo2Z64_gd11IuJAMWmQRlHkzG9LNR950OonnUbOyAo7pGuUkSMqboRPoXsljDw_gn4vYVmvqzJf_SY4rgmduRd5V0J_CqOJ3UvoTqA7rhQqnrVA-w0Ic5nxHRFgmks171KCSYpYIbMyTn9S-GVphBuCt-A5PZA046IAkwOiDK0oo1mxNP5qRNtfVHiCggQNMV8DLVfT_qqfMhXZDHXaoZ8Ro7FasTJWFcMsj9Wog1CQmGYApTF497IAFy0dKrdNVcr9lKtjpBPo3QusCnyku6rMRUrZWjN51E6GLohRIcF7LuhXntY09_T57cxPhBF16FWdThn_LmHcTljgDYlVO2CK8HYteK5EfuArkHABZmorih_e81yw4p80PL25UqpN3zeLk1hJ2vGD-l3kWG9YkjOm23_bHARLTwJKMWFV8pvn6G17-6GelgvndcubXvvqnRFGD0SN0h0OR9cRRM_CIkP6sI3vsrmn022RYjJcqQMSb1rbaTZnwWxtrmo1SSimaqR_Whrnc5PZuzEjIfhRDhHLwB4JxBhh78rnups0-i9J_r9LUmds-UetEhgOf1QPXG17pe12bK-y3dKEo8r2OrZf2k91-qjyV7Zdmk7tLs06eVyafmXWubWWSiqstcCLmG9L40_9gH5T-V3HL_yCw5oRVvKg1QVgF7Abh6bW3TjaWx6n1-P2erxez6jX4_d6xr2ep-oybYHQul7nbRz24HYP7vTgbn1jtWHvPjy6D_s1bJiGull2iMZGcDIuL3fqBTAmCcpZZpxNA-UZXxQpNoLLS5CR7_XxP6NI3U27Ejz_DU0hMeU=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 CM-050-030_Block_Delivery_(IF) — CM-050-030_Block_Delivery_(IF)
@@ -370,10 +335,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm2P4jYQ_itWTivupCDllbD50AoCaU_au6uWXqvq6AfjTCDa4KR2sgvl-O8dkzeSZaVWzYeAn5ln3jwe56SxLALN1-7uTglPCp-cRsUO9jDyyWhDJYx0UgG_UZHQTQpypHTijBer5O-LmunkB6WmsJDuk_So0BVsMyBfP-pkhsRUJ5JyOZYgknikj3KR7Kk4BlmaCaX9DqaxEV-81aJ5JiIQnYJheCZzkZomHDrY9hzPCRVPAst41DMau_E0ZqOzCi7NXtiOiuISfinhEz38nkTFDtcxTSWgzq7Ypw90A6nKsRClwlgpnptiJFL54ViwVU5ZwreIOwZCgvKnDnKN85mc7-7WvHVKHh7XnODDUirlAmIiC4SXzwWJkzT13znBLHQNXRYiewL_nbX0FralM5WJj6kbuiru-AWS7a7wN1ka1arjF5WDb-UHXRx8y9DFEd8DX8CjzlMwsabWtPU098zADBpPcRz_L09YV_ErlU-1r6UdWuGi9WW6EzcwXttr0lw43swc1gnEc8LgymgYhvayK9Vy4prG20bnoT0xgoHRLS3ghR47g_eB0xoMXS80vTcNVv6GUZabX0TGGoP20g3d1qA3N8OZ9aZBZ2Y60zpCtLMVNN-RQECUFOQT5XQLohKqh9vf1lpM_ZiOVa2VHubSqD8ke3w_wl8lyGKt_XnFc7-1RJZtG8LPuL_k_TzN2BNZQJo8gzh-QOI1c9JnPkIKOBfIhQRRSxuw7pEUlLLI9hilqCLCXwaoHJE4E4RVIaSXmIHvKGc4ZvggbtM8nTr3EYw3eNjYrp_x8sAAIoh-XGvn8zXZuk2GA0tLiZH8VDXCkGb_C591lcksz0X2fMO309UtxjKDGGc5cBLsAItdm3qkBc4MQnlUWZVdFfHQDnuiKeccY-cgJZlxmh5xp6-83myPqz260rX6unPsXRVMkbWe-vre-5aQp3h6VhRvA_JFjenaUYSED9fRGP-1_q-zXmGCsCdfZe8YOK_aWeU5eyRfVI0_ImPQj9MueMwtb9sYs50xlpVc7ajqzssd1-XRBsRdMh7_gI1dLyfV0qxHAf6pAKtZm2r9fa39ocx9V83YSKxK063XXm3JaeRODdSzkNf6jfy-Wtr10q61m7VpDxxPhoLP2SAgcyBo8EGKdVzTq-GnlJqh34Ot27B9G3au53xP4r4pmbwp8drbtQdP64uwB97f1sXdrC-JPmzehq3bsH0bdpr7QtM1PGV7mkSaf9Iun1n4KRZBTMu00M66RssiWx050_zL54hW5hEaXCQUz8a-As__AJkIE-0=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 CM-050-040_Block_Order_(IF) — CM-050-040_Block_Order_(IF)
@@ -433,10 +397,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2v4jYQ_StWrq7YlYKahIRAHrqCQNpb3W1X0A9VSx-MMyERxqZ2woWy_Pfa5AOScp-ah0g-PnPOzDhjOBuEx2AExvPzOWNZHqBzL09hB70A9dZYQs9EJfA7FhleU5A9zUk4y5fZP1ea7e6PmqaxCO8yetLoEjYc0G8vJpqoQGoiiZnsSxBZ0jN7e5HtsDiFnHKh2U8wSqzk6lZtTbmIQdwIluXbxFOhNGNwgwe-67uRjpNAOItboomXjBLSu-jkKH8jKRb5Nf1Cwmd8_COL81StE0wlKE6a7-grXgPVNeai0BgpxKFuRia1D1MNW-4xydhG4a6lIIHZ9gZ51uWCLs_PK9aYotfFiiH1EIqlnEGCZK7g-SFHSUZp8OSGk8izTJkLvoXgyZn7s4FjEl1JoEq3TN3c_htkmzQP1pzGFbX_pmsInP3RFMfAsUxxUu-OF7D45hQOnZEzapymvh3aYe2UJMn_clJ9Fb9iua285oPIiWaNl-0NvdD6r15d5sz1J3a3TyAOGYE70SiKBvNbq-ZDz7beF51Gg6EVdkQ3OIc3fLoJjkO3EYw8P7L9dwVLv26WxfqL4KQWHMy9yGsE_akdTZx3Bd2J7Y6qDJXORuB9ikIBcZajz5jhDYhyUz_M_royEhwkuK97XfNes516L-DvAmS-Mv66C3DaAQugoMYa_aKnq810vzZUwjdoSVKICwpoisl2I3jBYvQTX6OECzTDasq_-5EXgp7qHMIUyFYp3kt6HxpJmfN96VrnEKNlQQhImRSUnlTkx_s6rfP5lk0M_bUaMpI-LBhN9nvBDxB_WhmXy72I_VgEjoQWMjvAD-WHcAtTo9I9iUJlvlNZT1UEU9miCcP0pNp88xm0OzelnGybDt_3Y6h4C5CcHqCu5EVKVQP68BJ9bB-Hr7iNuagqFUBA5R1fT6HVizlLVW3qomadD2CkdfTZ1PwFztVFhbA6z2voI_Px48Z9wSdtoBpfpvHpQeeYg_r979XZV0u_XFaDzexqWa8H5Xpcb9f71Ygxt8O3LQ18Wxl_glwZ35RdtTHu4G4H_5lfYb-CR6XuoCtb0YZ3E66Trm-2Fuw8hgf3t1Zrx313x6tu6RY4bH4mWrD_GB49hsf1ddeuyHoM2zVsmIb68HY4i43gbFz_Aqi_CTEkuKC5cTENXOR8eWLECK4_lUaxj1XkLMNqbnYlePkXzCGnQg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 CM-050-050_Resolve_Credit_Issues_(IF) — CM-050-050_Resolve_Credit_Issues_(IF)
@@ -490,10 +453,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVd-P2jgQ_lesrFa0UlCTkBA2Dz1BIHcr3epOS3unU-mDScZgkdic7fDjKP97bZIA4Vj1oXlAzOeZb2a-eCYHK-UZWJH1-HigjKoIHTpqCQV0ItSZYwkdG1XAX1hQPM9BdowP4UxN6X8nN9df74ybwRJc0Hxv0CksOKDPzzYa6sDcRhIz2ZUgKOnYnbWgBRb7mOdcGO8HGBCHnLLVRyMuMhAXB8cJ3TTQoTllcIF7oR_6iYmTkHKWtUhJQAYk7RxNcTnfpkss1Kn8UsIL3v1NM7XUNsG5BO2zVEX-O55DbnpUojRYWopNIwaVJg_Tgk3XOKVsoXHf0ZDAbHWBAud4RMfHxxk7J0WfxjOG9JPmWMoxECSVhicbhQjN8-jBj4dJ4NhSCb6C6MGbhOOeZ6emk0i37thG3O4W6GKpojnPs9q1uzU9RN56Z4td5Dm22Ovfm1zAskumuO8NvME50yh0YzduMhFCfiqT1lV8wnJV55r0Ei8Zn3O5QT-Inf_zNW2O_XDo3uoEYkNTuCJNkqQ3uUg16Qeu8zbpKOn1nfiGdIEVbPH-QvgU-2fCJAgTN3yTsMp3W2U5_1PwtCHsTYIkOBOGIzcZem8S-kPXH9QVap6FwOsligVkVKEXzPACRHVoHuZ-mVkERwR3jdboFTYUtkhPKBrlPF1Bhv4wcyMRZw3JK-SgJxmNsVzOORbZzPp6xei1GcegQBR6xhAlCLM9muxSWCvKmUQpZmgOqMAZIMU1seT5Bpo8z1KWINvkvXdndqn4uioOGa1ASjCVvL_y9m-8X7heSVx8iJeQrurYqcKqlDeBgY479V85tWvo68NXKPim1uhDXe9v-nKjd8_J-7Z7eDg0RZjd2J3r6U6XrSarzksjiv77b0n12S8z63i8ohncp4FdmpeSbuDX6g7eRD19OStAdHkgunwNTAuRUbJHcallKSoB9VWDpvrr8l3nPsWPFKg59K6o_jAXdbsf9fWoTa8yw9oMKnNQm6Exv82sf8wF-Kb7qPFB5VZPNevfidKvvTafamenqcCpgN7VtJm6mi3Tgr37cK_efi3QvwcG553cgvv34bBZIi10cBd9avZDuw-ngS3b0i-1wDSzooN1-trqL3IGBJe5so62hUvFp3uWWtHpq2SV60ynGVOsl0VRgcfva8x4HA==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 CM-050-060_Cancel_Order_(IF) — CM-050-060_Cancel_Order_(IF)
@@ -549,10 +511,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2v2jgQ_StWrq7oSkHKJ-HmYSsIRKrUdlel7WpV-mCcCbjXOKztcGEp_31tkkCS5T41D4nmeM6cmbE9OVmkyMCKrcfHE-VUxeg0UBvYwiBGgxWWMLBRBXzFguIVAzkwPnnB1YL-e3Fzg93BuBksxVvKjgZdwLoA9OWdjSaayGwkMZdDCYLmA3uwE3SLxTEpWCGM9wOMcye_qNVL00JkIG4OjhO5JNRURjncYD8KoiA1PAmk4FknaB7m45wMziY5VryQDRbqkn4p4QM-_EUztdF2jpkE7bNRW_Yer4CZGpUoDUZKsW-aQaXR4bphix0mlK81HjgaEpg_36DQOZ_R-fFxya-i6PNsyZF-CMNSziBHUml4vlcop4zFD0EySUPHlkoUzxA_ePNo5ns2MZXEunTHNs0dvgBdb1S8KlhWuw5fTA2xtzvY4hB7ji2O-t3TAp7dlJKRN_bGV6Vp5CZu0ijlef5LSrqv4jOWz7XW3E-9dHbVcsNRmDj_j9eUOQuiidvvE4g9JdAKmqapP7-1aj4KXef1oNPUHzlJL-gaK3jBx1vApyS4BkzDKHWjVwNWev0sy9WfoiBNQH8epuE1YDR104n3asBg4gbjOkMdZy3wboMSARlV6APmeA2iWjQP974trRzHOR6aXqNPIAu2h8b_nZQlyKX1vcXwu4xkA-S58X9Pt_o92WPK8Ioyqo5dbvTmSpaq2KE_zJ1ECeYEGIMMLUpCQMq8ZMwwf6uo-rz1yyk1faup01Lq6yslmnDMjlK1tNxenheRSrGbVPDt6kmKNZqyQhfU-LUdw1727ZC6c__oVin9_QFEQXZL_8Id_QJ3rKmdNn_CSo8GhHlWdby3Q0-n062gDIYrPU_IRm9md5vgQAAyyN4urfO53TjnPr9zJpqT0mZf94mP0XD4u06kNoPK9GvTr0yvNr3KdOtLwN3KjmrzyZg_l9bf5iD-1MF6-MfiAocN2-n5j_oLNaE9GYxoM2s6sHcf9u_DQXu8dFbCemh2wNE9MLoHjq_zvQM_NZOnW4rTwJZt6UuyxTSz4pN1-e3qX3MGOS6Zss62hUtVLI6cWPHl92SVu0wzZxTra7atwPN_HaV6og==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 CM-050-070_Request_Pre-payment,_Down-payment_or_Letter_of_Credit_(LOC)_(IF) — CM-050-070_Request_Pre-payment,_Down-payment_or_Letter_of_Credit_(LOC)_(IF)
@@ -636,10 +597,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4jgU_itWqooZCapcCeRhJQhEi9TuVqUzq9V0H0ziQNRgR7YDZSv--x6TC5AEaVbDQ6vz-XzfufjE9qcWsohonnZ__5nQRHrosyc3ZEt6HuqtsCC9PiqA75gneJUS0VM-MaNymfx7cjPs7EO5KSzA2yQ9KHRJ1oygb4s-mgAx7SOBqRgIwpO41-9lPNlifvBZyrjyviOjWI9P0cqlKeMR4WcHXXeN0AFqmlByhi3Xdu1A8QQJGY2uRGMnHsVh76iSS9k-3GAuT-nngjzhj7-SSG7AjnEqCPhs5DZ9xCuSqholzxUW5nxXNSMRKg6Fhi0zHCZ0DbitA8QxfT9Djn48ouP9_Rutg6LHlzeK4BemWIgZiZGQAM93EsVJmnp3tj8JHL0vJGfvxLsz5-7MMvuhqsSD0vW-au5gT5L1Rnorlkal62CvavDM7KPPPzxT7_MD_G3EIjQ6R_KH5sgc1ZGmruEbfhUpjuNfigR95a9YvJex5lZgBrM6luEMHV9v61Vlzmx3YjT7RPguCcmFaBAE1vzcqvnQMfTbotPAGup-Q3SNJdnjw1lw7Nu1YOC4geHeFCziNbPMV8-chZWgNXcCpxZ0p0YwMW8K2hPDHpUZgs6a42yDJmHIcioFeiEhSXbqw0MTitODkIWn-tHhjzctxl6MB6rxaDLQHR19x2kSQYHoGR-2hMpCIpNv2j8XVLdJhaJ-kmo4X2qykCxDM7anNUX1gQiBfLbNUiJJBOSvl-zhj5odw3gRPmAZAT4TEvk5CG4hn1INuFeR3W5u0SRypl9m1NQY_ZIGfEuNrfI5iRKJnjDFa8IvIpmt3RnqEGbLIMr022KGlhLLXKDfIYvrDlstpl0znxI4gyWjoAHDBicOek4xRdOUhe_XKnZLZfxTKihmHE0x2CFRI5GTa12nNTpGrQv_MNwjoNfWFQjTCPkv8-7KOzpbbcU0F3Dow1C1PwGjVSQkA1uipniJoUj0p7pH0D6RG7Qqc8pUTpykZIdhYheSbJGP5Sk9HEWV28PDw3XhF5MTsrWKZepokmXpodjPrvIEYhTBBYoeoYJTqMY8jluirupmSuDyLXNX1MEpyy-Soenfpw2avD5_bY623tIa6WghRH7eZhCo2tpkGy229T_YZpNtWPVGLOiOwSF-yvulavvl7qjiRFPRPh8zsGGHelclVtd8VFDPp0t7fh7ZOhEyCQV6JXh7KW21kjXrZGckhXOAH9AfTJKOD58aaDD4DaahNM3CHFerw8I2nApwC2BY2uW6WS2PCtst7dK7YjulmlW5WyVQ88v4RqVv2CVQ2qV-JVDxq2WjLMeoEhgXtl2alZpe-eslMLq4A1VTqrv_Cja7YasbtrthpxsedsNuNzy6fEpcrYxvrkCtN5eM20vm7SXr9pJdvwmvcad8v12jw-rNcQ273fCogrW-Bt8unNGR5n1qp4c9PP4jEuM8ldqxr-FcsuWBhpp3egBreaYeBLMEwye1LcDjf029z4s=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 CM-050-090_Modify_Customer_Profile_(IF) — CM-050-090_Modify_Customer_Profile_(IF)
@@ -706,10 +666,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -722,10 +681,9 @@ flowchart TD
 | Accounts Receivable Analyst | CM-050-070_Request_Pre-payment,_Down-payment_or_Letter_of_Credit_(LOC)_(IF),  | |
 | Logistics Team | CM-050-070_Request_Pre-payment,_Down-payment_or_Letter_of_Credit_(LOC)_(IF),  | |
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -737,10 +695,9 @@ The following data entities are derived from the system integration flows for CM
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -780,10 +737,9 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -826,10 +782,9 @@ The Future-State architecture represents the **target** landscape for CM-050.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -926,10 +881,9 @@ The Future-State architecture represents the **target** landscape for CM-050.
 
 **Summary**: 11 Interfaces, 64 Enhancements, 11 Forms, 1 Workflows
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -941,10 +895,9 @@ Integration patterns identified from the system flow analysis for CM-050:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -968,10 +921,9 @@ Platform landscape inferred from integrated systems for CM-050:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1011,10 +963,9 @@ Platform landscape inferred from integrated systems for CM-050:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1043,12 +994,12 @@ Platform landscape inferred from integrated systems for CM-050:
 | OTCE1200 | Enhancement to transfer fields from Sales Orders to Purchase Requisition duri... | Jul-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
 | OTCE1124 | Enhancement to support Inbound interface to change the ship to party record a... | Apr-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Jan-26 (100%) | 3. Off Track |
 | OTCE1123 | Determine Confirmed Delivery date in sales orders at schedule line level base... | Jun-25 (100%) | Nov-25 (60%) | Nov-25 (60%) | Nov-25 (100%) | 4. Completed |
+
 *... and 67 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1077,5 +1028,5 @@ Standard RAID items for CM-050 (Order To Cash (IF)):
 
 ---
 *CM-050 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: March 2026*
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IF)</span></div>
-</div>

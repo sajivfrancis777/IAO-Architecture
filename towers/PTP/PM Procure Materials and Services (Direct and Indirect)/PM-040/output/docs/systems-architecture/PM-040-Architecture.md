@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">PM-040 — Maintain Supplier Certification and Monitor Performance</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Procure To Pay (PTP) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **PM-040 Maintain Supplier Certification and Monitor Performance** within the IAO program. It includes 21 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Procure To Pay (PTP) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Payment Automation | Automate invoice verification, three-way matching, and payment execution | Finance Efficiency | Medium |
 | 4 | PM-040 Process Migration | Migrate Maintain Supplier Certification and Monitor Performance business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Procurement | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -228,10 +195,9 @@ This capability includes **21 business process(es)** modeled in BPMN 2.0, coveri
 | 20 | PM-040-230_Collect_Supplier_Performance_Data | PM-040-230_Collect_Supplier_Performance_Data | Commodity Manager | 7 | 2 |
 | 21 | PM-040_Maintain_Supplier_Certification_and_Monitor_Performance | PM-040_Maintain_Supplier_Certification_and_Monitor_Performance |  | 3 | 9 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -353,10 +319,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllE2P2jAQhv-KldWKS5DyuaE5VIJApEql2opteyg9mGQM1jp2ZDuwFPHfa5NAFrrbS5FAmTczz-sZbB-cQpTgpM79_YFyqlN0GOgNVDBI0WCFFQxc1ArfsaR4xUANbA4RXC_o71OaH9UvNs1qOa4o21t1AWsB6NsnF41NIXORwlwNFUhKBu6glrTCcp8JJqTNvoMR8cjJrXs1EbIE2Sd4XuIXsSlllEMvh0mURLmtU1AIXl5BSUxGpBgc7eKY2BUbLPVp-Y2COX75QUu9MTHBTIHJ2eiKfcYrYLZHLRurFY3cnodBlfXhZmCLGheUr40eeUaSmD_3Uuwdj-h4f7_kF1P0NF1yZD4Fw0pNgSCljTzbakQoY-ldlI3z2HOVluIZ0rtglkzDwC1sJ6lp3XPtcIc7oOuNTleClV3qcGd7SIP6xZUvaeC5cm9-b7yAl71T9hCMgtHFaZL4mZ-dnQgh_-Vk5iqfsHruvGZhHuTTi5cfP8SZ9zfv3OY0Ssb-7ZxAbmkBr6B5noezflSzh9j33odO8vDBy26ga6xhh_c98EMWXYB5nOR-8i6w9btdZbN6lKI4A8NZnMcXYDLx83HwLjAa-9GoW6HhrCWuNygTVSVKqvdojjleg2zf2w_3fy4dglOCh3bcaGa20opRZYqkUGqI8oYXmgqOGVqIRtpdiZ4AV2rp_HqFCa4xpg1zsDrGK8SpEmFenp7QHKoVyBtUeI3KqSk0l0Nv_wWgPDFmW8wabNHIDgyUQjuqN_9gR4Y9hS0wUaNFU9eMGoevjTEgtGhJFpyB1L3SseGGFRvWHFOuzbeHXZda2FyYq1BI9AiSCFlhXsAFZA5T-8BjNBx-NH9HF_ptGHRh0IZhF4ZtGL3aOLbkfGCu5OBtOXxbji53yZUcX2THdSowXdDSSQ_O6TI3F34JBDdMO0fXwY0Wiz0vnPR06TlNXZoDMqXY7MWqFY9_AP8-AAw=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 PM-040-040_Develop_Supplier_Qualification_and_Certification_Processes — PM-040-040_Develop_Supplier_Qualification_and_Certification_Processes
@@ -474,10 +439,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2PmzAQ_SsWq4gLUflcUg6VEgjSSl2pVbbtoduDA0NirbGpbfLRKP-9dkhgk9Wqh3JAzOPNezPjj4NV8BKsxBqNDoQRlaCDrdZQg50ge4kl2A7qgO9YELykIG3DqThTC_LnRPPCZmdoBstxTejeoAtYcUDfHhw01YnUQRIzOZYgSGU7diNIjcU-5ZQLw76DSeVWJ7fzrxkXJYiB4LqxV0Q6lRIGAxzEYRzmJk9CwVl5JVpF1aQq7KMpjvJtscZCncpvJTzi3Q9SqrWOK0wlaM5a1fQzXgI1PSrRGqxoxeYyDCKND9MDWzS4IGyl8dDVkMDsZYAi93hEx9HomfWm6Cl7Zkg_BcVSZlAhqTQ83yhUEUqTuzCd5pHrSCX4CyR3_jzOAt8pTCeJbt11zHDHWyCrtUqWnJZn6nhrekj8ZueIXeK7jtjr940XsHJwSu_9iT_pnWaxl3rpxamqqv9y0nMVT1i-nL3mQe7nWe_lRfdR6r7Vu7SZhfHUu50TiA0p4JVonufBfBjV_D7y3PdFZ3lw76Y3oiusYIv3g-DHNOwF8yjOvfhdwc7vtsp2-UXw4iIYzKM86gXjmZdP_XcFw6kXTs4Vap2VwM0apbyueUnUHj1ihlcguv_mYd7PZ2u-wbTVXaD5jkil9x1atE1DiSZav15xfc19KIEpUu3RQ633qEKc_Ssr0FkZKBC1Pms9x5ZouiTUFKU4egRQSN8MKBVEMwm-lgi1xNcWU-37ISPyd_f51lhep0Un5w1Q3vQU1OmQAiuia8esRCkINSBm9CAlDFp6x3cfzEfj8Sfd0TkMujA8h1EXnjcd87rQf7W6mtuf1Ss46mHLsWo9KkxKKzlYp8tSX6glVLilyjo6Fm4VX-xZYSWnS8Vqm1IvXUawXuu6A49_AafZyWI=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 PM-040-080_Assess_Suppliers — PM-040-080_Assess_Suppliers
@@ -526,10 +490,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU2P4jgQ_StWWi0uQUpCQkIOu4JARiNtr2ZF745GyxxMUgGrHRvZTjcMw3_fMgmf230aDoj3UvVeVeFy9k4hS3BS5_FxzwQzKdn3zBpq6KWkt6Qaei5piX-oYnTJQfdsTCWFmbMfxzA_3GxtmOVyWjO-s-wcVhLI359dMsZE7hJNhe5rUKzqub2NYjVVu0xyqWz0AySVVx3dukcTqUpQlwDPi_0iwlTOBFzoQRzGYW7zNBRSlDeiVVQlVdE72OK4fCvWVJlj-Y2GJ7r9ykqzRlxRrgFj1qbmf9AlcNujUY3lika9nobBtPUROLD5hhZMrJAPPaQUFS8XKvIOB3J4fFyIsyl5ni4EwU_BqdZTqIg2SM9eDakY5-lDmI3zyHO1UfIF0odgFk8HgVvYTlJs3XPtcPtvwFZrky4lL7vQ_pvtIQ02W1dt08Bz1Q6_77xAlBenbBgkQXJ2msR-5mcnp6qqfskJ56qeqX7pvGaDPMinZy8_GkaZ93-9U5vTMB7793MC9coKuBLN83wwu4xqNox872PRST4Yetmd6IoaeKO7i-AoC8-CeRTnfvyhYOt3X2Wz_KJkcRIczKI8OgvGEz8fBx8KhmM_TLoKUWel6GZNMlnXsmRmR56ooCtQ7XP7Ef6_C6eiaUX7dtzEGoPWZN5sNpwh8VcjDTVMCr1wvl_lBbd5GSjDqt05T5NK2mTKrS2qYiX1ncQAJcZaX9vdRYQY8QUUStXkGevg2Io25AmXhpOxoHyHa3SbEmFKhqvbFIbkDENIa1GDMGSCd1BJpEAZoSVn5bEzMqWG3qoMUeU8gjlwKGzgbUyMMe08L0O6jUj2-9OQ7MXYX-JqF-vzVK4KEwAllL8vnMPhKn_0fj5sC95o9gqf2pN3ycLdbH-ImPT7v-GIOzhoYbcPwm9h2MGwhVEHgxaOOhi1MOngqIXDDiYW_lw43wD_iJ-YfMf_KY_06OqMW__Tbt_Qwfv08Hy_3dDx-3RyWsgbdnRiHdepQdWUlU66d44vI3xhlVDRhhvn4Dq0MXK-E4WTHi9tp9ngKYEpo_YEt-ThP4vhM7o=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.8 PM-040-090_Certify_Suppliers_for_Quality_Programs — PM-040-090_Certify_Suppliers_for_Quality_Programs
@@ -593,10 +556,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P6jYQ_StWVitegpRPwuahFRvI1UqXdivuh6rSB5NMwNokjmyHhXL577XzQTa54aVFAjHHc86MT5xJLlpEY9B87fHxQnIifHSZiANkMPHRZIc5THRUA98wI3iXAp-onITmYkP-qdJMpzipNIWFOCPpWaEb2FNAX190tJDEVEcc53zKgZFkok8KRjLMzgFNKVPZDzBPjKSq1iw9UxYD6xIMwzMjV1JTkkMH257jOaHicYhoHvdEEzeZJ9HkqppL6Xt0wExU7Zcc1vj0ncTiIOMEpxxkzkFk6We8g1TtUbBSYVHJjq0ZhKs6uTRsU-CI5HuJO4aEGM7fOsg1rld0fXzc5rei6MtymyP5iVLM-RISxIWEV0eBEpKm_oMTLELX0Llg9A38B2vlLW1Lj9ROfLl1Q1fmTt-B7A_C39E0blKn72oPvlWcdHbyLUNnZ_k7qAV53FUKZtbcmt8qPXtmYAZtpSRJ_lcl6Sv7gvlbU2tlh1a4vNUy3ZkbGD_rtdtcOt7CHPoE7Egi-CAahqG96qxazVzTuC_6HNozIxiI7rGAd3zuBJ8C5yYYul5oencF63rDLsvdK6NRK2iv3NC9CXrPZriw7go6C9OZNx1KnT3DxQEFNMtoTMQZrXGO98DqdfXJzb-2WoL9BE-V3SgAJkhyRpuyKFICjKOEMvRHiVNFl21JxYxvtb8_SFh9iQ2ImpCQCAtCcxQwIuStihHOY7QRWN1YcSV8K9NXtPuKn7AcGl3yQH2JBe7TnT59URSMHuEOv091-1S54SOJAYUA8Q5Hb0hQJHu5SfXJsz75axHLo4FeBGSK9_z7Gi3Wn_sUT1JeYsgr018ZJMAYxLVR7Qi659JccteY5EJ-u83VV7A1RwmtqZzF0uxXYNLzDOcR9IWepJA8eHIUdjLtZRrUNI0q9wgpLe5dEFWz34U6zsA5DMXMy6V1TD05pjs5-6IDglOUlpwc4VN9a2216_UjzfpvNHuc9sJ_2gjEv3ZkOfDqP_kcTae_qLab2DQboImfhut1bDWh1Sy3sdkAdhPbzXobm8ZQr8r4sdX-VE7-kAd9uPAbrXC3wZ1aYNaEszr0mtDt91PNH9V0O3d7sDUO2-OwMw674_BsHPZuz7UePB-Hn8ZhaeI4braDuw9b47DdwpquZSBvIhJr_kWrXmbkC08MCS5ToV11DZeCbs55pPnVQ18rqymwJFhNzhq8_guBQuv9" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.9 PM-040-100_Communicate_Approval — PM-040-100_Communicate_Approval
@@ -651,10 +613,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU2P4jgQ_StWWi0uQUpCQugcVqKBrFqaGfUsszuHYQ8mKYPVxs7YDh-D-O9bhgBNhj5tJD7q-dV7rlLK3nuFKsHLvMfHPZfcZmTfsUtYQScjnTk10PHJCfiHak7nAkzHcZiSdsp_HWlhXG0dzWE5XXGxc-gUFgrI3y8-GWKi8Imh0nQNaM46fqfSfEX1bqSE0o79AAMWsKNbs_SsdAn6SgiCNCwSTBVcwhXupXEa5y7PQKFkeSPKEjZgRefgNifUplhSbY_brw18ptvvvLRLjBkVBpCztCvxic5BuBqtrh1W1Hp9bgY3zkdiw6YVLbhcIB4HCGkq365QEhwO5PD4OJMXU_JtPJMEn0JQY8bAiLEIT9aWMC5E9hCPhnkS-MZq9QbZQzRJx73IL1wlGZYe-K653Q3wxdJmcyXKhtrduBqyqNr6eptFga93-N3yAllenUb9aBANLk7PaTgKR2cnxtj_csK-6m_UvDVek14e5eOLV5j0k1Hwu965zHGcDsN2n0CveQHvRPM8702urZr0kzD4WPQ57_WDUUt0QS1s6O4q-DSKL4J5kuZh-qHgya-9y3r-qlVxFuxNkjy5CKbPYT6MPhSMh2E8aHaIOgtNqyUZqdVKldzuyGcq6QL0ad09Mvwx89x6LXmBhZBhVWm1pmLm_fuOFbVYX2BrydRCZYhVBEeaTOuqEhylb_J6Lk-DS6GyRHsuLX7Ia63xVTZA_oKfNTfcciXNbWqMqaft4v6l1bSwLUZyZDSKZ3_0MBZ_xtTSW3of6S8lSMvZjrxqYKA1lMd9Tc_TfpFpWaXXOr7WylI8hnBMF3iSSXvLHFyZTZE4x-RFMoW1FngM3dKfbmpQmAHkEzct0TDY72ceoxmjXXfEdufoXiwJbAtRG76GP0_v4Mw7HN6nhdc0qrXamC4VllRUUyFA_JaEo336IxPS7f7hfJs4PMVRE0bNcjNfst-mBw3QxGlrfdCKn9r5jV-vFcfvJgVXL-feDRzfh5P7cP8-nN6HB_fhp_swtqE5HG7h8Ax7vrcCvaK89LK9d7wZ8fYsgdFaWO_ge7S2arqThZcdbxCvrkrMHHOKg706gYf_ANejXJk=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.10 PM-040-120_Identify_Preferred_and_Secondary_Suppliers — PM-040-120_Identify_Preferred_and_Secondary_Suppliers
@@ -749,10 +710,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1tv4jgY_StWqooZCdRcCeRhVzSQVaVW6gwz25WGfTCJA1aDnbWdAsPw39cmV9LkYbtIrfiOz3e-i6-ctJBGSPO029sTJlh44DQQW7RDAw8M1pCjwRDkwJ-QYbhOEB8oTkyJWOKfF5phpwdFU1gAdzg5KnSJNhSB7w9DMJOOyRBwSPiII4bjwXCQMryD7OjThDLFvkGTWI8v0Yqhe8oixGqCrrtG6EjXBBNUw5Zru3ag_DgKKYmuRGMnnsTh4KySS-g-3EImLulnHD3BwwuOxFbaMUw4kpyt2CWPcI0SVaNgmcLCjL2VzcBcxSGyYcsUhphsJG7rEmKQvNaQo5_P4Hx7uyJVUPBtviJAfsIEcj5HMeBCwos3AWKcJN6N7c8CRx9ywegr8m7MhTu3zGGoKvFk6fpQNXe0R3izFd6aJlFBHe1VDZ6ZHobs4Jn6kB3l_1YsRKI6kj82J-akinTvGr7hl5HiOP5fkWRf2TfIX4tYCyswg3kVy3DGjq-_1yvLnNvuzGj3CbE3HKKGaBAE1qJu1WLsGHq_6H1gjXW_JbqBAu3hsRac-nYlGDhuYLi9gnm8dpbZ-pnRsBS0Fk7gVILuvRHMzF5Be2bYkyJDqbNhMN0Cn-52NMLiCJ4ggRvE8nH1IcaPlRZDL4Yj1W7wPY1kOeCZoRgxhiKwzNI0wYgNOJipbyEUmJKV9ndDw-zRwGoNA0HB0gYxozvgv9zffQ3-khv5WsDqFJDxGJUbWH1fHrlAu2sv-0flFtJN6bVMkUx79vQI9lhs60ruQLWnpUxTx-nUmSUCMXJRLFrAASbgBZMo3MqZaYmMpcZDhIjA8bHRPkhkC8u4tdJ1Ie6nKgEuaNooIc8lkvTPDf6kxe9KtfBsp9yUmUoVnyHlp9J8gpgI-QeeMybPGY7AV_RPhjlWE97K2NCl7_u6QNEBfEm5yVfL7P2i6uebdW7LfNOC2YYheXUQ0aJaDWq4RVGWqFXXx7ZrdlGnYj-QmMpyQ3lNtPiO5FedWVLpgsAj5m1ZNf0-YpfZrychpgx8yWCitp7c0nI37tqNdE-nevFFaLSWx3-oli2mTHb-J7oDG0azVO7mUlXdpBGgRToqfXkayII2x99X2vncVJ90q6NDmGQcv6E_8rOr7Tb9kJupf8zN-JibWbtBxuiej2AiQAoZTBKU9DhZ_81JXnb5FzIGo9Fvar4K25jkgFXaekGYlIDRBlwF_Grsg5X2S_HK8SLEuLRzc1qYZm6aZUDTKvTNNvCOYbcBpwCc3C4ztHOzLNE0i4QfSIQZCkWeb3t03hibtmutz4gV-fQQ50eKLP1zzi-uPlIkZla1FN2s7KIZTssu3wx1NvLlxBC_qJtVZ6c5227ZVy8O1fDyxXEFm92w1Q3bzUfG1YjTO-IWj6orcNIFTqun3nXmeg9u9OBmD2714HYP7vTg4x7cLV9L1_CkG552wnJtdMJGN2x2w1YJa0Nth9gO4kjzTtrl14n8BROhGGaJ0M5DDWaCLo8k1LzLK17LLjfrHEN1nOfg-V942xYh" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.11 PM-040-130_Create_Purchasing_Info_Record — PM-040-130_Create_Purchasing_Info_Record
@@ -822,10 +782,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P4jYU_StWRiNaKUj5JEweWoWPVKPudEfLdqpq6YNJHLDGsVPbGWAZ_nvtkATIBKlqeUDcc8859_omueRgJCxFRmjc3x8wxTIEh4HcoBwNQjBYQYEGJjgBL5BjuCJIDDQnY1Qu8PeKZnvFTtM0FsMck71GF2jNEPj90QSREhITCEjFUCCOs4E5KDjOId9PGWFcs-_QOLOyqlqdmjCeIn4mWFZgJ76SEkzRGXYDL_BirRMoYTS9Ms38bJwlg6NujrBtsoFcVu2XAj3B3R84lRsVZ5AIpDgbmZNPcIWIPqPkpcaSkr81w8BC16FqYIsCJpiuFe5ZCuKQvp4h3zoewfH-fknbouDrbEmB-iQECjFDGRBSwfM3CTJMSHjnTaPYt0whOXtF4Z0zD2auYyb6JKE6umXq4Q63CK83MlwxktbU4VafIXSKncl3oWOZfK--O7UQTc-VpiNn7IzbSpPAntrTplKWZf-rkpor_wrFa11r7sZOPGtr2f7In1of_ZpjzrwgsrtzQvwNJ-jCNI5jd34e1Xzk29Zt00nsjqxpx3QNJdrC_dnwYeq1hrEfxHZw0_BUr9tluXrmLGkM3bkf-61hMLHjyLlp6EW2N647VD5rDosNmLI8ZymWe_AEKVwjfsrrD7W_LY0Mhhkc6nGDZ1aURB0IPHOs70ClpUqJGRUAU7DwwAuGYMLK6uEAUVEsjb8u7JxvrV_ClJqjyuzxi6Jd8txr3gskONXMX9Fes8EMSYiJAI9UInUIiVKQcZZ3K19aev-ytH_NizFVxb_3MUc_tMyCqCu8KIuCYDWlaAvVPkkV_ccLeqDYTxBT1bmaFCt5gsAnLOT1hMaKVfcGaQpawbPib9SOBF_Q3yUWp5lfSx_O0sXpTgbRmiO1T2mniG1VveiLra-g5DCRHTPbPhzOc0jRcKUWT7Kppj_fqbbFz0vjeLxUOP2KzxFgXOs-CNx-AdolpBT4Df1yenS6Mu-_yfyzDHLOtmIIiQQF5JAQRD6I1CI7_VDTAsPhT7pwDTh1XO8POqpjpxHYGnhfGr-xpfGubr0u_icSVcKtE25t0MReJ7YbQhOfQr8O_TrbxHYNBE1c-7X9OXUf1T39fnGyRjnuMj9HFfHhYhfpNpodfAU7l4v0KuPezHg3M_7NzKj9Y7uCg3543A8_9MPqmvfjdrPQr2GnH3b7Ya8f9hvYMI0c8Rzi1AgPRvVKpF6bUpTBkkjjaBqwlGyxp4kRVq8ORlno9TjDUC3D_AQe_wE5lfOX" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.12 PM-040-140_Maintain_Source_List — PM-040-140_Maintain_Source_List
@@ -917,10 +876,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVW2P2jgQ_itWVit6UtAmISE0H66CQE4rlYpb2p5OpR9MYoO1jh05Dgul_Pcbk_ASdvfTRSJinsw8z8zYY--tVGbEiqz7-z0TTEdo39FrkpNOhDpLXJKOjWrgO1YMLzkpO8aHSqHn7NfRzfWLrXEzWIJzxncGnZOVJOjbo42GEMhtVGJRdkuiGO3YnUKxHKtdLLlUxvuODKhDj2rNp5FUGVEXB8cJ3TSAUM4EucC90A_9xMSVJJUia5HSgA5o2jmY5Lh8SddY6WP6VUmmePsPy_QabIp5ScBnrXP-GS8JNzVqVRksrdTm1AxWGh0BDZsXOGViBbjvAKSweL5AgXM4oMP9_UKcRdHX8UIgeFKOy3JMKCo1wJONRpRxHt358TAJHLvUSj6T6M6bhOOeZ6emkghKd2zT3O4LYau1jpaSZ41r98XUEHnF1lbbyHNstYP3jRYR2UUp7nsDb3BWGoVu7MYnJUrp_1KCvqqvuHxutCa9xEvGZy036Aex85rvVObYD4fubZ-I2rCUXJEmSdKbXFo16Qeu8z7pKOn1nfiGdIU1ecG7C-HH2D8TJkGYuOG7hLXebZbVcqZkeiLsTYIkOBOGIzcZeu8S-kPXHzQZAs9K4WKNRtWOqBozj3B_LCyKI4q7psUoVgRKQH9XUmOYL9h_KxhRoRfWz6sgrx30CPPNTNiMYyFgrz6YnCt1jESTjXl_mD7NHqZYVJij2VOtw6T4o03c-3FmTuUKxWuSPjfJzLDCOdFElYhKhaZT9Dh-MIIaxTJfMnHkA7prPr_NN-RcpibR77BzJTCN4CDKkBSvNT7UyBOwQj1NP-rwJu1rnQBkIIu8EuzIPywKJTeYt6vrg9djBt1gdIdmilCiFMhjkaH56YxB86ooOIMU2rHhfn-pJCPdJSxNun69UGiKmdDwI9mnhXU4XFEM3qYg25RXJduQv-rNe4mCJtV_RB91u3_CZmlMtza9xvRqM2zM0Ji_F9a_BGr4DYva4L3azW9MvzYHN1Ff5DHoBA9qr-BqLoz-6Txowd7bcO961ltf_He_BOdztAX334bD0-C30MEJtWwrJyrHLLOivXW89OBizAjFFdfWwbZwpeV8J1IrOl4OVlVkEDlmGGY2r8HDf5_RWQI=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.14 PM-040-170_Monitor_Supplier_Performance — PM-040-170_Monitor_Supplier_Performance
@@ -983,10 +941,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P4jYU_StWRiNegpRPwuRhKwhkNWpnO112W1WlDya5AWtMHNkOH2X577VDQiCTeWnzgPC559xzfR3bORkJS8EIjcfHE8mJDNFpIDewhUGIBissYGCiC_A75gSvKIiB5mQslwvyT0WzveKgaRqL8ZbQo0YXsGaAvj-baKKE1EQC52IogJNsYA4KTraYHyNGGdfsBxhnVla51aEp4ynwlmBZgZ34SkpJDi3sBl7gxVonIGF5epc087NxlgzOujjK9skGc1mVXwp4wYc_SCo3apxhKkBxNnJLf8EroHqOkpcaS0q-a5pBhPbJVcMWBU5Ivla4ZymI4_ythXzrfEbnx8dlfjVF32bLHKknoViIGWRISAXPdxJlhNLwwYsmsW-ZQnL2BuGDMw9mrmMmeiahmrpl6uYO90DWGxmuGE1r6nCv5xA6xcHkh9CxTH5Uvx0vyNPWKRo5Y2d8dZoGdmRHjVOWZf_LSfWVf8Pirfaau7ETz65etj_yI-t9vmaaMy-Y2N0-Ad-RBG6SxnHszttWzUe-bX2cdBq7IyvqJF1jCXt8bBM-Rd41YewHsR18mPDi162yXL1yljQJ3bkf-9eEwdSOJ86HCb2J7Y3rClWeNcfFBkVsu2UpkUf0gnO8Bn6J6ye3_1oaL0xtVsbRoiwKSoCjV-AZ41ucJ7A0_r5hO4qtSlSbBv1aAMeSsBxT9PPrs7gnuor4Gau9zrtENMMS35M9XUNVGfoKOwJ7xLIqp-KKzYphnt4LfCVQG5NCInuL7vEYKcmUsuStFSg2ikteFflddGYaKH5M8fqePgMKeir33HHblSt7IbE-P9JOX54q6g4oK1rubyWmJCNJ1SWkdCgCLltEvw0gBHRy2dbptDQyHGZ4qA_e4UodHckGwSGhpSA7-Hx5M5fG-Xwrs_tlem2ehSgBPaeQa3tIf-pqnf9m6fbLnnOcSKVCqrXV4rzz81oh5pztxRBTiQrMsVp9-s5NHU6XP_kYDYefdMH12L6Mm6FTh60mbF0Atx67l6FXD72abjf0Kt2PpfGFLY0ft3maxM24Vvpd4Z96NbWysbDdOtI0pQoH3WjVpio0qkNP3Zl6DVXduCnS78_Nzog4keraxBdz9-boUUVeL5I7eNQPB_3wuB9-6odV3-vz8x62-2GnH3b7Ya-BDdPYgmoASY3wZFRfIOorJYUMl1QaZ9PApWSLY54YYXVTG2WRKuWMYHWAbi_g-V8BUMzS" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.15 PM-040-180_Perform_Periodic_Supplier_Evaluation_and_Ranking — PM-040-180_Perform_Periodic_Supplier_Evaluation_and_Ranking
@@ -1105,10 +1062,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2PmzAQ_SsWq4gLkfhcshwqERKklbrVqtntHpoeHBgnVoyNbJOPRvnvNSFfmzancgDmMfPezMP2zipECVZi9Xo7yqlO0M7WC6jATpA9wwpsB3XADywpnjFQdptDBNcT-vuQ5oX1pk1rsRxXlG1bdAJzAej92UGpKWQOUpirvgJJie3YtaQVlttMMCHb7AcYEJcc1I6fhkKWIC8Jrht7RWRKGeVwgYM4jMO8rVNQCF5-IiURGZDC3rfNMbEuFljqQ_uNghe8-aClXpiYYKbA5Cx0xb7iGbB2Ri2bFisauTqZQVWrw41hkxoXlM8NHroGkpgvL1Dk7vdo3-tN-VkUvY2mHJmrYFipERCktIHHK40IZSx5CLM0j1xHaSmWkDz443gU-E7RTpKY0V2nNbe_Bjpf6GQmWHlM7a_bGRK_3jhyk_iuI7fmfqMFvLwoZY_-wB-clYaxl3nZSYkQ8l9Kxlf5htXyqDUOcj8fnbW86DHK3L_5TmOOwjj1bn0CuaIFXJHmeR6ML1aNHyPPvU86zINHN7shnWMNa7y9ED5l4Zkwj-Lci-8Sdnq3XTazVymKE2EwjvLoTBgPvTz17xKGqRcOjh0anrnE9QJloqpESfUWvWCO5yC77-3FvZ9Ti-CE4H5rNxrBCpioTYmUUGi6ApSah-DolWGOciGR6c3s3ApNmrpmFKSaWr-uCP1bQmK2GPoGa2Rq3-vSuFWi56qWYmUOAq474g-qF_cYA8OYcsy2vwGNN1RpszNQlr4qhHmJcoByhosl0uIeQXhFcEqZNr7rPSn0HVTD9KXALO_uhYeo3_9iDDqGXhf6x9DvwuDq37U5pzX7Cfb_DQfnffsJDs-w5VgVyArT0kp21uHgNIdrCQSblq29Y-FGi8mWF1ZyOGCs5mDviGLz36sO3P8BHOfNjA==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.18 PM-040-210_Analyze_Existing_CAPs_and_Feedback_to_Suppliers — PM-040-210_Analyze_Existing_CAPs_and_Feedback_to_Suppliers
@@ -1198,10 +1154,9 @@ Management Actions"| n5
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2PqzYQ_SsWq1VeiAoEQpaHVvmiWqkrrZrtvQ9NHxwYEmuNTW2zSW5u_nvHgXzebFWpPESZw8w5Mwcz7JxM5uAkzuPjjglmErLrmBWU0ElIZ0E1dFzSAF-oYnTBQXdsTiGFmbFvhzQ_rDY2zWIpLRnfWnQGSwnkj2eXDLGQu0RTobsaFCs6bqdSrKRqO5ZcKpv9AIPCKw5q7a2RVDmoc4LnxX4WYSlnAs5wLw7jMLV1GjIp8ivSIioGRdbZ2-a4XGcrqsyh_VrDC918ZblZYVxQrgFzVqbkv9EFcDujUbXFslp9HM1g2uoINGxW0YyJJeKhh5Ci4v0MRd5-T_aPj3NxEiVvk7kgeGWcaj2BgmiD8PTDkIJxnjyE42Eaea42Sr5D8hBM40kvcDM7SYKje641t7sGtlyZZCF53qZ213aGJKg2rtokgeeqLf7eaIHIz0rjfjAIBielUeyP_fFRqSiK_6WEvqo3qt9brWkvDdLJScuP-tHY-5HvOOYkjIf-rU-gPlgGF6RpmvamZ6um_cj3Picdpb2-N74hXVIDa7o9Ez6NwxNhGsWpH39K2OjddlkvXpXMjoS9aZRGJ8J45KfD4FPCcOiHg7ZD5FkqWq3IWJalzJnZkhcq6BJUc99ewv9z7hQ0KWjX2k2e8bVlOBCxHYDWRBb27wfL8TiSFCBf0OydGElmdVVxBkrPnb8u-ALkawrglHKuWzOzIq_SgEAVbslnsgTytq3ABr_jW7e0HUhxzdq7YL3XBBnhdsmJFOS5rDAPV4ww5JVTQajIyTCzlBr5_66ZgvyaPERya1EtWGZHb7Mshf6XSSMse5HYrVTnPl5BFVKVVGRwnd3H7KGgfPsNyHTDtLF-joev-tDgfzA23u2OT8pu2e4C90S2uqtMXgDMT9NNhqwa1SrIDG0cwF5HgIvkCv1l7uz3F1KD-1KwyXit2Qf82pz4m6qncxVVSq51l3JDKqoo58B_qME90vwRfdLt_ownsQ39JozbsNeET20YNOGgDZ-uw0EThpd3v-PRufBmLpqX4HBC2oMxd77j82yL4rbo4BNil04dEns3iZdu38sPLt5vO95xr13B4WmJX8HRfbh_H46Py-gKHdxFn46o4zoloDksd5Kdc_g84yc8h4LW3Dh716G1kbOtyJzk8Blz6irHygmjuF3KBtz_AxJEmSA=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.20 PM-040-230_Collect_Supplier_Performance_Data — PM-040-230_Collect_Supplier_Performance_Data
@@ -1253,10 +1208,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVuP4jYY_StWRiNegporYfJQiQmkGqkjrZZt92Hpg0lssMaxqe1wWcR_7-ckEKAz7VbNA-I7Pud8l9jO0SlkSZzUeXw8MsFMio4DsyYVGaRosMSaDFzUAr9jxfCSEz2wHCqFmbPvDc2PNntLs1iOK8YPFp2TlSTotxcXTUDIXaSx0ENNFKMDd7BRrMLqkEkulWU_kDH1aJOtW3qWqiSqJ3he4hcxSDkTpIfDJEqi3Oo0KaQob0xpTMe0GJxscVzuijVWpim_1uQV77-y0qwhpphrApy1qfiveEm47dGo2mJFrbbnYTBt8wgY2HyDCyZWgEceQAqLtx6KvdMJnR4fF-KSFH2ZLgSCp-BY6ymhSBuAZ1uDKOM8fYiySR57rjZKvpH0IZgl0zBwC9tJCq17rh3ucEfYam3SpeRlRx3ubA9psNm7ap8GnqsO8HuXi4iyz5SNgnEwvmR6TvzMz86ZKKX_KxPMVX3B-q3LNQvzIJ9ecvnxKM68v_ud25xGycS_nxNRW1aQK9M8z8NZP6rZKPa9j02f83DkZXemK2zIDh96w6csuhjmcZL7yYeGbb77KuvlJyWLs2E4i_P4Ypg8-_kk-NAwmvjRuKsQfFYKb9Yok1UlS2YO6BULvCKqXbeP8L8tnM-kIGxL0GxviBKYo09EUakqLAqCptjghfPHlSS4kryIH5KEV5J5vdlwRtQ7tAhocOA4KUxP-2fnGCQvJRGG0QPCVlLYiwX9WWNuO94oCUOoNMKiRCWhcN77NQwrBBrQt54j8Jw21J8u1nNZq4JoBKX8S0VJ04TQkrMStsaPNjIGWcewTAYvrOi1sy3mNTZMiqaRz3BHMHFr8AQGrxKuXajwvZy3bN87HhcOxSnFQ6yU3Okh5qYZCcyf_9Ju6oVzOl2L_P8mgrui_SOe0HD4M7zgLozaMO7CURv63UmAPx1wFwd3cXiOO_qZH9zF4V3sd4Kki5M2HHdh3Iajq3MJi5db9gZ-eh-GCrt74Rb2z7DjOhWBF8NKJz06zUcRPpywQXHNjXNyHVwbOT-Iwkmbj4dTb-xumjJst3MLnv4Ce8xb9g==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.21 PM-040_Maintain_Supplier_Certification_and_Monitor_Performance — PM-040_Maintain_Supplier_Certification_and_Monitor_Performance
@@ -1399,10 +1353,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -1413,10 +1366,9 @@ flowchart TD
 | Buyer | PM-040-150_Create_Quota_Arrangement,  | |
 |  | PM-040_Maintain_Supplier_Certification_and_Monitor_Performance | |
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -1428,10 +1380,9 @@ The following data entities are derived from the system integration flows for PM
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -1486,10 +1437,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1532,10 +1482,9 @@ The Future-State architecture represents the **target** landscape for PM-040.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1923,10 +1872,9 @@ The Future-State architecture represents the **target** landscape for PM-040.
 
 **Summary**: 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1938,10 +1886,9 @@ Integration patterns identified from the system flow analysis for PM-040:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1965,10 +1912,9 @@ Platform landscape inferred from integrated systems for PM-040:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -2008,10 +1954,9 @@ Platform landscape inferred from integrated systems for PM-040:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -2040,12 +1985,12 @@ Platform landscape inferred from integrated systems for PM-040:
 | PTPI1529_IF | An interface to retrieve the list of approvers from a custom MDG table(MDG sy... | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Dec-25 (100%) | 4. Completed |
 | PTPI1458 | Develop an interface between PEGA and S/4 HANA system to transmit MSL informa... | Jul-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
 | PTPI1428_IP | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... | Jun-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Nov-25 (100%) | 1. On Track |
+
 *... and 358 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -2074,5 +2019,5 @@ Standard RAID items for PM-040 (Procure To Pay):
 
 ---
 *PM-040 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: March 2026*
+
 <div class="page-footer"><span>Page 29</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-040 — Maintain Supplier Certification and Monitor Performance</span></div>
-</div>

@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">DC-100 — Revenue Recognition</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Finance Plan To Report (FPR) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **DC-100 Revenue Recognition** within the IAO program. It includes 6 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Finance Plan To Report (FPR) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 1 Reports, 1 Interfaces, 12 Enhancements |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Regulatory Compliance Readiness | Ensure SOX compliance and audit trail continuity through the ERP transition period | Intel Corporate Compliance | Medium |
 | 4 | DC-100 Process Migration | Migrate DC-100 business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Finance | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -213,10 +180,9 @@ This capability includes **6 business process(es)** modeled in BPMN 2.0, coverin
 | 5 | DC-100-060_Determine_Performance_Obligations | DC-100-060_Determine_Performance_Obligations | RAR IT Support Analyst, Revenue Accountant | 4 | 2 |
 | 6 | DC-100-070_Allocate_Transaction_Price | DC-100-070_Allocate_Transaction_Price | Revenue Accountant | 0 | 0 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -273,10 +239,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVW2vojgU_isNNzfOJpgAgigfdsJF2Zjs7Bq9M5PNOB8qHLS50LJt8WUd__u2gi843k9DosnzcM5zTp-2h4ORsBSMwHh-PhBKZIAOHbmGAjoB6iyxgI6JauIL5gQvcxAdHZMxKufkv1OY7ZY7Haa5GBck32t2DisG6PPERKFKzE0kMBVdAZxkHbNTclJgvo9YzriOfoJBZmWnas2rF8ZT4NcAy_LtxFOpOaFwpXu-67uxzhOQMJq2RDMvG2RJ56iby9k2WWMuT-1XAj7h3VeSyrXCGc4FqJi1LPI_8RJyvUbJK80lFd-czSBC16HKsHmJE0JXinctRXFM366UZx2P6Pj8vKCXouh1tKBIPUmOhRhBhoRU9HgjUUbyPHhyozD2LFNIzt4geHLG_qjnmIleSaCWbpna3O4WyGotgyXL0ya0u9VrCJxyZ_Jd4Fgm36v_u1pA02ulqO8MnMGl0otvR3Z0rpRl2S9VUr7yVyzemlrjXuzEo0st2-t7kfWz3nmZI9cP7XufgG9IAjeicRz3xlerxn3Ptt4XfYl7fSu6E11hCVu8vwoOI_ciGHt-bPvvCtb17rusllPOkrNgb-zF3kXQf7Hj0HlX0A1td9B0qHRWHJdrNAtnaPKK5lVZMnV8QorzvZB1kH6o_W1hZDjIcFd7jmYgWL4BpK4qGnPOOMrUT6tEajs5TiTCNFVhpWoThFgY32_E3G8XtYSt0BS4yi5UNM7RKykATessdb4RyxS_AVoBCpOEVVRqdiKh0KK3qoPD4aqaQneprkmyRhMlEE4QEYhQNGVCloxCiuYSy0roBVBEJKIAqUIMLeHaNaQfF8bxWNdQp_retHZfmN4a5rQN-0Jge7LkE6Z4BS2r2ub02okjIspcnZ05VrMQ_a2H1E9etwW8DxeFU-YM_q1ASL24iIM6ii2tGSRANpAqjd9uRPpXESFZ2d7aWibVhs7D6V2mrxLf2zHUbarWqNFptz98vI2wS_JKqE7_qC_Tg42hHup2f1cONrBXQ7-BTg37DRzW0GmgXcNhAwca_lgY_4A6Zj_U64Z367BBA_0aundZf7FT0vDm2uoK53HVop3HdO8x7d5OqNYb7zLjW3S_Gcct0n8cOzhPqhY7PLOGaRTAC0xSIzgYp6-0-pKnkOEql8bRNHAl2XxPEyM4fc2MqkxV5ohgdV-Kmjz-D0WLjh0=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 DC-100-030_RAR_Closing_and_Reconciliation — DC-100-030_RAR_Closing_and_Reconciliation
@@ -405,10 +370,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq9WFFv2zYQ_iuEisAbYAOSKFmyHjbYslVkSNsgaTcMzR5oiYqF0KQnUUnc1P99pCzKFkNnaIvGD4b18e67u49H0tSTlbIMW5F1dvZU0IJH4GnAV3iNBxEYLFGFB0OwB_5EZYGWBFcDaZMzyq-LL42Z420epZnEErQuyFai1_iWYfDpfAimwpEMQYVoNapwWeSD4WBTFmtUbmNGWCmt3-Awt_MmWjs0Y2WGy4OBbQdO6gtXUlB8gGHgBV4i_SqcMpr1SHM_D_N0sJPJEfaQrlDJm_TrCr9Dj38VGV-J5xyRCgubFV-TC7TERNbIy1piaV3eKzGKSsahQrDrDUoLeitwzxZQiejdAfLt3Q7szs5uaBcUfJzfUCA-KUFVNcc5qLiAF_cc5AUh0Rsvnia-Pax4ye5w9MZdBHPoDlNZSSRKt4dS3NEDLm5XPFoykrWmowdZQ-RuHoflY-Taw3IrvrVYmGaHSPHYDd2wizQLnNiJVaQ8z38oktC1_IiquzbWAiZuMu9iOf7Yj-3nfKrMuRdMHV0nXN4XKT4iTZIELg5SLca-Y58mnSVwbMca6S3i-AFtD4ST2OsIEz9InOAk4T6enmW9vCxZqgjhwk_8jjCYOcnUPUnoTR0vbDMUPLcl2qzAFb7HtMZgmqasphxRvjeQH-p8vrFyFOVoJPUG8QrRWwyuOeJ1BTgDg3MKYsIq2Y4gZyW4ml6BS7HyWHZj_XNE5PaJ3jLp_Y6JfUA4ScdLVCJCMAGyOlxJRnBVU4BoBt6hOyzy_LcuSpyBmJUlTnnBaNWPAU0xrldFzoUP5SVKuUTe40duzNF7hRz9H8xx_Ao5Bj-YY9j3v8KliD9DPF2BP9gSTPvWk5etZ31rx37ZPNbMtQb-tMnEggR5TcT6WWPKAcuFLLRGBCQHUB5HmaxNKLpGNMXgw5IUYi0LsbQA7ucuQsr2Uh-VCiLwUWzZVd6k2iw04d8jgC8RzARBjEhaE5l2p_60qjBvpvRCnJQFKfhWp_Veoo2jbtlfsoq3PaJT-C9SNN0m1z4-cKlm6NGMf-loNkRshXKLaPeMpoQreZqmoohGXnAueln8xJLn12Oe4MBTcbY5qNG05nP78BvtJ99m79qa_f_UFbP1hmADj2xRfTY6Y1BQkJyP3l5o26n79HSYmwyPlqLLxMycJ2BKt2BRlmJyPqTiL4Vc6XyFOKAYZ82evZQTVjFyL0Z-v7F2u2NeaObdEyq3Z16e2WvOcKWfL02v7bcgTWFtT3kWxDcHwY8pqaviHr_dH7W62_gnKRV8l1Lhayg1-S6loP1zlILO9ygF3VdQCsJvVUr8wd3_EPsaGI1-k0eMAtpnVz27e8BVgNsAX2-sv7E4cb8KQA20hlA9w9bwPdvbeWrA0xiUB2xjB8rQbwGoeypKX4-lKEM1MNYGVBJem20XK9QMFbXKoWOctEBXTqB5TpR0bT3uWLdU6StOaGsUyqOdHahmBzp9BqjEh_qsqLqCNtsuqbZwaCtPpXqnZdsCrq1zq6BQ10zV0wVpRXOf5a3ScxR52Fr6ens9m-LxiWDtfHTPnZh6uo7dlt4BqtmPbidyBahbWQ92zTA0w54Z9s3w2AwHZjg0wxMzLKo24yfqFAv-6A7ZH4Knh7zTQ_7poXF3r-_jQXsH76OhEZ2YUNc2oo45nmi69orbh6EZ9sywb4bHZjgww6EZnhhh0epG2DHD5iphV6U1tNZYXBWKzIqerOYtlnjTleEc1YRbu6GFas6utzS1ouZtj1U3F5F5gcQlfL0Hd_8BGDX6mQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 DC-100-040_RAR_Reports — DC-100-040_RAR_Reports
@@ -486,10 +450,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllluPozYUx7-KxWiUViISdxgeKiUkVJW62tVkun1o-uAYk1hDbGRMLhvlu9dOIBfWaLJbHqKcv8_5HZ_DAXwwEMuwERvPzwdCiYjBYSBWeI0HMRgsYIUHJjgLXyEncFHgaqB8ckbFjHw7udleuVNuSkvhmhR7pc7wkmHw1x8mGMnAwgQVpNWwwpzkA3NQcrKGfJ-wgnHl_YSj3MpP2ZqlMeMZ5lcHywpt5MvQglB8ld3QC71UxVUYMZrdQXM_j3I0OKrNFWyLVpCL0_brCn-Cu79JJlbSzmFRYemzEuviT7jAhapR8FppqOabthmkUnmobNishIjQpdQ9S0oc0ver5FvHIzg-P8_pJSl4m8wpkBcqYFVNcA4qIeXpRoCcFEX85CWj1LfMSnD2juMnZxpOXMdEqpJYlm6ZqrnDLSbLlYgXrMga1-FW1RA75c7ku9ixTL6Xv51cmGbXTEngRE50yTQO7cRO2kx5nv-vTLKv_A1W702uqZs66eSSy_YDP7G-57VlTrxwZHf7hPmGIHwDTdPUnV5bNQ182-qHjlM3sJIOdAkF3sL9FfiSeBdg6oepHfYCz_m6u6wXXzhDLdCd-ql_AYZjOx05vUBvZHtRs0PJWXJYrsAr3mBaYzBCiNVUQCrODuqi9j9zI4dxDoeq32C6w6gWGCTyxnGIBBjDAlKEJaRkXFRz49-bYEcfPCEVXC45lq0hjAKWy2jElpR8Uw_9ZT9apPs48pZyD_H0kFe8hvLFRJfgC-Y54-tTZZ8XBWmwQ7AlYgXeyBrLwmlWaen-T9J1rKCPdS4ugQKthnWpjQ0fvnWn2SI5Qf0biR6EfWIb-QKnQt-al18umLKQD8Xr6LXxU32ZqfcUzmTIr7cTaF2DKsHKvtkDX2FBMqgB2B3AD81fP9Z5APsYye2QfnoQ-1N4P5riI6D_HVA7kv2A4OPbqp3LfmL4EbE7nP2o6HBoUZBztq2GsBCAUFTUFdng388v9blxPJ6j5Gfv_IfaYDj8TU1tYzuN3Xxs6EtjR43tNrbTxkdnwe3Y3fWW5zVm6-83ttfx9xs7aNb9znrQ2GGz3tpturDj37Wjju3dfLZUV9rP9Z3s6GVXL3t62dfLgV4O9XKkl18uh6f7cqzmoHOv2lrV0aquVvW0qq9VA60aatWoPYcYprHG8mknmREfjNNpW57IM5zDuhDG0TRgLdhsT5ERn06lRl2qB2RCoDwsrM_i8T-IS8Gx" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 DC-100-050_Define_Transaction_Price — DC-100-050_Define_Transaction_Price
@@ -522,10 +485,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViitFKR8EppDJQhEqtSqq7JtD8sejGODtY4d2Q4sRfz3PvO5S7Wn5hDhYd7MeyO_7DyiauoVXq-345LbAu18u6IN9QvkL7ChfoCOwC-sOV4IanzHYUraGf9zoEVp--JoDqtww8XWoTO6VBT9_BKgERSKABksTd9QzZkf-K3mDdbbUgmlHfuODlnIDm6nv8ZK11RfCWGYRySDUsElvcJJnuZp5eoMJUrWb0RZxoaM-HvXnFAbssLaHtrvDP2GX37z2q7gzLAwFDgr24iveEGFm9HqzmGk0-tzGNw4HwmBzVpMuFwCnoYAaSyfr1AW7vdo3-vN5cUUPUzmEsFDBDZmQhkyFuDp2iLGhSju0nJUZWFgrFbPtLiLp_kkiQPiJilg9DBw4fY3lC9XtlgoUZ-o_Y2boYjbl0C_FHEY6C28b7yorK9O5SAexsOL0ziPyqg8OzHG_ssJctUP2DyfvKZJFVeTi1eUDbIy_FfvPOYkzUfRbU5Urzmhr0Srqkqm16imgywK3xcdV8kgLG9El9jSDd5eBT-V6UWwyvIqyt8VPPrddtkt7rUiZ8FkmlXZRTAfR9UoflcwHUXp8NQh6Cw1blfoB11T2VE0IkR10mJpjwT3yOjD49xjuGC43woYY4ZhLdF3ty-o1BSGq-fe08dXFfG1wljVoge4sQYTy5VE9xryRTAF7NVtXfJ4qWNwFajuq5ZKIFuqG-Cje6qZ0g2WIPF9ITgkC5pm3sVhuACxp6MY3MDjDxmhfv8zCJ-OyfEYv8rTcc7b8QaOTxf5DZics_cCr4GmMK-9YucdPlnwWaspw52w3j7wcGfVbCuJVxxW2-vaGpKacAyJN0dw_xdlcqDw" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 DC-100-060_Determine_Performance_Obligations — DC-100-060_Determine_Performance_Obligations
@@ -611,10 +573,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -624,10 +585,9 @@ flowchart TD
 | RAR IT Support Analyst | DC-100-010_Create_Revenue_Accounting_Contracts, DC-100-060_Determine_Performance_Obligations,  | |
 | Revenue Accountant | DC-100-010_Create_Revenue_Accounting_Contracts, DC-100-030_RAR_Closing_and_Reconciliation, DC-100-040_RAR_Reports, DC-100-050_Define_Transaction_Price, DC-100-060_Determine_Performance_Obligations, DC-100-070_Allocate_Transaction_Price | |
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -639,10 +599,9 @@ The following data entities are derived from the system integration flows for DC
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -679,10 +638,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -725,10 +683,9 @@ The Future-State architecture represents the **target** landscape for DC-100.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -752,10 +709,9 @@ The Future-State architecture represents the **target** landscape for DC-100.
 
 **Summary**: 1 Reports, 1 Interfaces, 12 Enhancements
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -767,10 +723,9 @@ Integration patterns identified from the system flow analysis for DC-100:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -794,10 +749,9 @@ Platform landscape inferred from integrated systems for DC-100:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -837,10 +791,9 @@ Platform landscape inferred from integrated systems for DC-100:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -864,10 +817,9 @@ Platform landscape inferred from integrated systems for DC-100:
 | FPRE0475 | Accounting for reserves for unissued returns credit note & Rebate Return Accr... | Sep-24 (100%) | Jan-25 (100%) | Jan-25 (100%) | Mar-25 (100%) |  |
 | FPRE0474 | Accounting for technical return reserve | Aug-24 (100%) | Dec-24 (100%) | Dec-24 (100%) | Feb-25 (100%) |  |
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -896,5 +848,5 @@ Standard RAID items for DC-100 (Finance Plan To Report):
 
 ---
 *DC-100 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: March 2026*
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
-</div>

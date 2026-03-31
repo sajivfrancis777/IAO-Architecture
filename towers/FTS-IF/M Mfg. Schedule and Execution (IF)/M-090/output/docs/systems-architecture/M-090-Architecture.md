@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">M-090 — Schedule Production (IF)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IF) (FTS-IF) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **M-090 Schedule Production (IF)** within the IAO program. It includes 12 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Forecast to Stock (IF) (FTS-IF) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 5 Reports, 92 Interfaces, 31 Conversions, 118 Enhancements, 15 Forms, 4 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Production Planning Optimization | Enable MRP-driven production planning with real-time material availability | Manufacturing Excellence | Medium |
 | 4 | M-090 Process Migration | Migrate Schedule Production (IF) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Supply Chain (Intel Foundry) | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -219,10 +186,9 @@ This capability includes **12 business process(es)** modeled in BPMN 2.0, coveri
 | 11 | M-090-300_Process_Reference_Operation_Set_(IF) | M-090-300_Process_Reference_Operation_Set_(IF) | IT Department, Master Data Steward - Production, Production Supervisor | 35 | 8 |
 | 12 | M-090-430_Process_Production_Version_(IF) | M-090-430_Process_Production_Version_(IF) | FTS IF - Production - Master Data Steward, FTS IF Batch System ID, IT Department, Production Supervisor | 13 | 5 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -319,10 +285,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV9uO4jgQ_RUroxa7UpDiXAidhx1xy2xLgxY107sPwzy4EwesTpysnXTDMvz7lnMDMmEeppFA-LjOqXKVy3GOWpCGVPO0u7sj4yz30HGQ72hCBx4aPBNJBzqqgL-JYOQ5pnKgbKKU52v2X2mG7WyvzBTmk4TFB4Wu6Tal6OlBRxMgxjqShMuhpIJFA32QCZYQcZilcSqU9Qc6joyo9FZPTVMRUnE2MAwXBw5QY8bpGbZc27V9xZM0SHl4JRo50TgKBicVXJy-BTsi8jL8QtIl2f_DwnwH44jEkoLNLk_iz-SZxmqNuSgUFhTitUkGk8oPh4StMxIwvgXcNgAShL-cIcc4ndDp7m7DW6fo8-OGI_gEMZFyTiMkc4AXrzmKWBx7H-zZxHcMXeYifaHeB3Phzi1TD9RKPFi6oavkDt8o2-5y7zmNw9p0-KbW4JnZXhd7zzR0cYDfji_Kw7On2cgcm-PW09TFMzxrPEVR9C5PkFfxhciX2tfC8k1_3vrCzsiZGT_qNcuc2-4Ed_NExSsL6IWo7_vW4pyqxcjBxm3RqW-NjFlHdEty-kYOZ8H7md0K-o7rY_emYOWvG2XxvBJp0AhaC8d3WkF3iv2JeVPQnmB7XEcIOltBsh2akjzYoSdYfTWhPtz--nWjRcSLyDBIt2hFRZSKBM1pBhWmPId_CeEhWj6uNtq3bxdMF4hLwngOX-SnggZE5rBb0ZzkBIEKmhR5ih5p2XRolYIpSFwojC8VZimXRZLlLOWlwrXpPZg2sS0h06r9Qfrfggk4RyDMVUw4V94fC35Nxfi3dokyTzO0KgQ0kKQVX7LS5UxQkA2B-vsl1z0ez-kJ6fAZ2hKSSPdBXEj2Sj9VVd9op9MlbXymESHSNzkkcY6eVg91Oj92Cfe9hIwIEsc07vdi4l4S47dig4p2t0RalMcbmmSZvIynf1e0SVbVbcogO_vCfAfXegcXG-c6ZzF0Yj8LPcAjifXV2uyv9ZdDRlEa3aqc9Ws7xL7tTCpvszRJ0hAipfIHl84vuTSN3u0CjY1WJN99_Nk-WUJrQw-Xnb1W4iK8UB5dnQRsf93zw047jvqjV3Go1f80DjgQwyIoG3Yd7GhYxFeHmQOBVI1cFZ-G6C8ViGxDaCX5CA2Hf8DBUg_vqyF267FZj616jI0KaB5P3O0Qxp0xdiqgFbBqA7sBbAV832jrp-laR4vlw1RHy8VSRw9_rjfadyXRmNbRmbjLhSNFR_6n0ry1rkOxO-OzXL32UWfsdsbjetxE3uQKu51wTFxbtIBRx6d2FrJ0G-mjakmjXgusm9W0WU_bXZdmbb7gW7irQSurB03ZkSWx4eFu2RreI32lvKCXnCbYulB4fPEAVkoX14SrGfPmjHVzxr45Axurubdd47i-Y12jZnPRuIatftjuh51-eNQPu_3wuB--74Wh3L0wbmBN1xIqEsJCzTtq5dsBvEGENCJFnGsnXSNwmVgfeKB55S1aK7IQmHNG4GRIKvD0P1P_4Rw=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 M-090-060_Schedule_Consumable_Material_Requirements_(IF) — M-090-060_Schedule_Consumable_Material_Requirements_(IF)
@@ -406,10 +371,9 @@ RICEFW"| n11
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtVm1v4jgQ_itWVhVdCboJJITy4U4UyB5Su42gvdVpuQ8mcYJFsFnbKeW6_Pcb5wVItjmddMeHqvP2zPiZ8cRvRsBDYgyNq6s3yqgaoreWWpMtaQ1Ra4UlabVRrvgdC4pXCZEt7RNxphb0r8zNsnev2k3rPLylyUFrFyTmBD3P2mgEgUkbScxkRxJBo1a7tRN0i8VhzBMutPcHMojMKMtWmO64CIk4O5imawUOhCaUkbO659qu7ek4SQLOwgpo5ESDKGgddXEJ3wdrLFRWfirJA379SkO1BjnCiSTgs1bb5B6vSKLPqESqdUEqXkoyqNR5GBC22OGAshj0tgkqgdnmrHLM4xEdr66W7JQU3c-XDMEvSLCUExIhqUA9fVEookky_GCPR55jtqUSfEOGH7pTd9LrtgN9kiEc3Wxrcjt7QuO1Gq54Ehaunb0-w7C7e22L12HXbIsD_K3lIiw8Zxr3u4Pu4JTpzrXG1rjMFEXRf8oEvIonLDdFrmnP63qTUy7L6Ttj82e88pgT2x1ZdZ6IeKEBuQD1PK83PVM17TuW2Qx65_X65rgGGmNF9vhwBrwd2ydAz3E9y20EzPPVq0xXvuBBCdibOp5zAnTvLG_UbQS0R5Y9KCoEnFjg3Rp5Tws081AHPUCp-v5I5CeYMSJyR_1j1relEeFhhDuad-QTEXGxRXOiScOKcgb_v1CyR6sD6vn3S-PPi2j72yk84DEaCwKp0GLkVwD2VK1R17TQA3-BLcAUgFyiOFWUBczaqeZz2suIfjViTgJCXwiKOQ8lokxxBPsGfcWCrDmcqxZtOdencKn4Di2CNQnThKAxZzLd6hV1LmBOvqdUZHVLcNjuEqJICJAfLyH7_yckEFDr5f3jZ93LO6yCNXqWlRa67zbhMVUrngKTE5IAN-JQI2FQjSobn2eYQD1iS1nev2vdN7Qtq48E3yLYk5LGjISwhXiwQUD5jCmS3Nzc1BLd1hLRYPPJx8Gm3hTz_YI-Zz2dSZn-1EarIWKGcIwpk6oyhe8OkuW-vZ0xQtJZwR4GAvafEI8iSYFICPp1aRyPTa05dfU3zMKk0plurcAEB9AY_U1CUNAXuFTPs2v_4SOCupGHA8XFAflcqGxGdtr9nevSq6KOgg3j-4SEMckvwq4eYNnn4QRQSAF7hkh9U6iiUH6o2yf_7cT-05z6Tz5aHKQiWzSbXJZQo-IzgTWU7Yqnx-z0-riEUbnWKfIReywaoJ8QoW7f_NFHD3O_frre-8sAkM-ep0qBDNTp_AK9KeRuLtqFWFit0jsXnVIsZMstFUW41SsVvVxROri5OCjEQS7eFuJtEW2W0Wau6Bdyv7CXspPLZbIs14-l4cMnBD2tBU_jdTaGHRhehEIBiwgk2IsQcK0EjWMici7z4SuHLdvQKUs4DuH9gWTCA2jxks1n46n3dWn80Ecva3SLrH9MF7nFqVu-POaG7sUnTnNZftor6u7l97li6TVa7EaL02jpN1rcRsug0XLbaIEeNpqsZlMzDVYzDzDM5SOwqneKB1tV239X65ZvGaNtbGHtYxoawzcje7HDqz4kEU4TZRzbBk4VXxxYYAyzl62R7kKInFAMl3-bK49_A3CE0Zs=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 M-090-080_Re-schedule_Planned_Order_(IF) — M-090-080_Re-schedule_Planned_Order_(IF)
@@ -478,10 +442,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P6jYQ_StWVitaKUj5JGweWkEg1Up3926Xva2q0geTOGBtYqe2s0C5_Pfa-YKErFSpPCDNGZ8zZya2k5MW0RhpvnZ_f8IECx-cRmKHMjTywWgDORrpoAJ-gwzDTYr4SK1JKBEr_E-5zHTyg1qmsBBmOD0qdIW2FIFvjzqYSWKqAw4JH3PEcDLSRznDGWTHgKaUqdV3aJoYSVmtTs0pixG7LDAMz4xcSU0xQRfY9hzPCRWPo4iSuCOauMk0iUZnZS6l-2gHmSjtFxw9wcPvOBY7GScw5Uiu2Yks_QI3KFU9ClYoLCrYRzMMzFUdIge2ymGEyVbijiEhBsn7BXKN8xmc7-_XpC0KvryuCZC_KIWcL1ACuJDw8kOABKepf-cEs9A1dC4YfUf-nbX0FralR6oTX7Zu6Gq44z3C253wNzSN66XjverBt_KDzg6-ZejsKP97tRCJL5WCiTW1pm2luWcGZtBUSpLkf1WSc2VvkL_XtZZ2aIWLtpbpTtzAuNVr2lw43szszwmxDxyhK9EwDO3lZVTLiWsan4vOQ3tiBD3RLRRoD48XwYfAaQVD1wtN71PBql7fZbF5YTRqBO2lG7qtoDc3w5n1qaAzM51p7VDqbBnMd2BOi3Ivg1me8yqnfsT9c60FDEn_QBaMi0hgSsBLCglIKAPP6CDAa0HW2l9XJO8HyUqgn8Bxnsq2H-VBx1IiVhoR4rzkvqIxj3YoLlJUChKZ_6rOoBT7sVKTG6nnM3xbgccQjK_drGoVdmXBbB2oLQICmuWQIfAkXVS3g6oodLCQgA5-LWSAxbHbhtXTqMbwjPY3dq9Idpf0LY_L2V0TPinn_AemsttlTS-z5oLmt_Zq3_FlqiXvoc-jQN4cZIvkc_m7wOyGYBo9xq2z2vMN0zydGqa6_ccbeX9Fu57A8oC54D-vtfP5mmsNc5sRggwK-fg5uCHaw8TS51NFuuE4wxx0iNKC4w_0S3WOL7TbDfr4BhZI7jWRISKutCdyeC-IyY2fgZWAW3l1A5o0E-sfrvYZtwWIB8bjn-SBrEO3Cid1OKnC-jYjZh02sVXF0yZd5r-vtT8QX2vf1Zj7mWdaJlrc7uJOH2-UHpqE1SXYDe7U1hrArmOnT2y9NZmGeX0Zqlabl0AHtoZhexh2hmGvfW124Gn9huuAD0OgaQyiZvNG6MLWMGwPw04Da7qWIZZBHGv-SSs_nuQHVowSWKRCO-saLARdHUmk-eVHhlaUm26BodyyWQWe_wWoQgQj" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 M-090-090_Check_for_Material_Availability_(IF) — M-090-090_Check_for_Material_Availability_(IF)
@@ -568,10 +531,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV9tu4zYQ_RVCi8AJYGN1tRw_tPBNRYBkE8Rpt8WmD7RE2URoSqWoxN6s_71DiZItRX7Y1g-G55BzZuZwNKLfjTCJiDE2Li7eKadyjN57ckO2pDdGvRXOSK-PSuAPLCheMZL11J444XJJvxfbLDfdqW0KC_CWsr1Cl2SdEPT7TR9NwJH1UYZ5NsiIoHGv30sF3WKxnyUsEWr3JzKKzbiIppemiYiIOG4wTd8KPXBllJMj7Piu7wbKLyNhwqMGaezFozjsHVRyLHkLN1jIIv08I3d495VGcgN2jFlGYM9GbtktXhGmapQiV1iYi9dKDJqpOBwEW6Y4pHwNuGsCJDB_OUKeeTigw8XFM6-Doqf5M0fwCRnOsjmJUSYBXrxKFFPGxp_c2STwzH4mRfJCxp_shT937H6oKhlD6WZfiTt4I3S9keNVwiK9dfCmahjb6a4vdmPb7Is9fLdiER4dI82G9sge1ZGmvjWzZlWkOI7_VyTQVTzh7EXHWjiBHczrWJY39GbmR76qzLnrT6y2TkS80pCckAZB4CyOUi2GnmWeJ50GztCctUjXWJI3vD8SXs_cmjDw_MDyzxKW8dpZ5qsHkYQVobPwAq8m9KdWMLHPEroTyx3pDIFnLXC6QcHTEt0EaICANspDSROOHhjmnIhyp_pw69uzEeNxjAdKeLTMt-iR_JNTAc8rlxmKE4EwY9ozQvfqkcoQ5egx5whLdCPJFt2SV8Kejb9PiO0m8WxDwpdy8-QVU4ZXlFG5V0S3SYjLABJhHiHn4bZJ5XRR3Sby55ncbzVVmKw1U6O0wSwXAipHczjgguRP9JWQl-yzAoDtlM7roltimHAlGbpc3l-hW5g26IGs1_BsF3o2tWxxDpucj0QKCuqiWbJNE050ZUdL6XDD4wTFIgFts4xsV2yPpjllEXiHMAPR5WT6eIWe1OxtRfOb0eZEErFV-d5wSZgizz7P8kwmW6hGhVpOHtAUy3BTpFFK_bYhAhLUwi1lAiosdjST7dpGnXrB8cHYPZZUdNf0_q7lfA2-S5hDaMKIKFV4JGkCP2VS9Sxo-sZLTU973ATXMhiNdc40Q18g6PzucfJ5sYOqOXTOJE3R5SzhMV3nQqmlGrzcX3T4VYvXqnnLzlvmacr26pgLp9Zu-7KuPmUwOlTOJJPqkAh9hdyhjpJNNckdtJt66zWaHBivTimdIyWcUaqlWapj6BSl4ey2nDsjlhmRqO3svb8fjzIigxW8wKApOg6z7AR1po2-__XZOBxOGYfdjGQXsjwDfX4rJ27bze92-zAeyjQ-RB11u38cVGf8r_9T1rZ5Puui0-D5g2FfTu2s7pB2dNv62ejw_JQ_uIsGg1_gkdTmsDR9bfqlaQ21ben16nUNDaCAH8_GXwQa6wfMQr0w0p6V7Wi7Yra1XQW2rkvgurJ9TfwlKXitekFnUJmjM_tss5WZ016oPDSuE7CcBrNSVwNeaVda2DoTy60cdE1uu4Qqg5qpVq1KoZbT1Jz1Tqt5AsU9QYlQ3Y8asN0NO92we3olaqx4Z1eGZ1f8syujsyugWHV7beKOvmk2UbcT9apLWBMedsN-Nzzqhq87YeigTtiqYKNvwItyi2lkjN-N4k8P_DGKSIxzJo1D38C5TJZ7Hhrj4s-BkacReM4phjvbtgQP_wKBkTGF" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 M-090-110_Initiate_Production_Order_Creation_(IF) — M-090-110_Initiate_Production_Order_Creation_(IF)
@@ -666,10 +628,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21v4jgQ_itWqopWAinOCwE-3IkCWVVqrxW0ezptVyc3OGDVxDnHact1-e83zhvE0A-7x4eq83jmmZknMyZ8WJFYUmtknZ9_sISpEfroqDXd0M4IdZ5JRjtdVAJfiWTkmdOso31ikagF-7dww176rt00FpIN41uNLuhKUPR43UVjCORdlJEk62VUsrjT7aSSbYjcTgQXUnuf0UFsx0W26uhKyCWVewfbDnDkQyhnCd3DbuAFXqjjMhqJZNkijf14EEednS6Oi7doTaQqys8zekve_2RLtQY7Jjyj4LNWG35DninXPSqZayzK5WstBst0ngQEW6QkYskKcM8GSJLkZQ_59m6HdufnT0mTFN3MnxIEn4iTLJvSGGUK4NmrQjHjfHTmTcahb3czJcULHZ05s2DqOt1IdzKC1u2uFrf3RtlqrUbPgi8r196b7mHkpO9d-T5y7K7cwl8jF02W-0yTvjNwBk2mqwBP8KTOFMfx_8oEusoHkr1UuWZu6ITTJhf2-_7EPuar25x6wRibOlH5yiJ6QBqGoTvbSzXr-9j-nPQqdPv2xCBdEUXfyHZPOJx4DWHoByEOPiUs85lV5s_3UkQ1oTvzQ78hDK5wOHY-JfTG2BtUFQLPSpJ0jcKHBboOUQ_dQql6fzJ0z0mSUFk66k-Cv317smIyikkvEis0kRScERSyzCPFRILu9Ao9Wd-_Hwb1IejvOeUUtvuU86Hv8ONjn2FJe88w6dH6KArN3lmmst-frN3uINyxT4fT94jnGXulX8rnsA-DSTWFIJEScosWeaonIROHAjjQypSCQBu4E9CUKIJmHO6qRGXtRlxwnNOIQk50B0SkqP1B32coFhJUTvIYMuUSVhhd3IZfLtFCkRU19PAvGsVTDgN0I1Qpu6ab039ymilUJVpC7OVhsXivBpFSvGU9whVKiSScU36kRRnk_FzQsYDXD2hKwV9pWQ6YPeikmpiJSLdIxKYy7d598A8ZB7GLru_eYBZRKMXmSNCLh-llO1aP3GRNoxfEDrOwrBD_YJoW-lZELEG34pWKXO2d24RBQ_jJKBbE8L1VPkV0MV4sbo2iBq3hKTPDCBltD1teB9m-Upkd1YXtlvssgf_g-wwWbU4zkcuIlmtcTNlsfn-J5tAlWAYNbmeFEGV4tEf_MWEwe3V56HpqeLst71Koh21qjrfX3idG0Q19pRyB1BJ28J5FL0Xl05sJlK4Eery_ht1J0-MOgtOrryPROE05i_SsmDcGHvzsjVFuifsrq-X94molHur1foONqEy_NPuV6bilHdR25Y7dChiUtlPbeKiBH0_WXxSurR_63jRDTWBY2UOTqsqN6-TYNjwaSmwCTh2CTVLHAPqV7RkUA7OhP0TRT52qJm66qYrDtXRBZdft4Upapym2pjDsprvquDmvgLpS1zjHdfNN6YHxLLBnntRNNSHG8yxeCnSzB68u7RO_eftr4_1P8KB-YWnDg9Pw8CQMWp-E8WnYOQ27p2Gvhq2utYHbg7ClNfqwit8N8NtiSWOSc2XtuhbJlVhsk8gaFe_XVp4uIXLKCHxZbUpw9x9VYt80" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 M-090-180_Expedite_Missing_Material_(IF) — M-090-180_Expedite_Missing_Material_(IF)
@@ -756,10 +717,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV11v4jgU_StWRhWtBJokJITysCu-sqrUTqvS3dnVdB9M4oBVY2dtp4Xp8N_3Oh9A0vAwuzwgfOx7zr3H1054tyIRE2tkXVy8U071CL139JpsSGeEOkusSKeLCuAPLCleMqI6Zk0iuF7Q7_kyx0u3ZpnBQryhbGfQBVkJgn6_6aIxBLIuUpirniKSJp1uJ5V0g-VuKpiQZvUnMkzsJFcrpyZCxkQeF9h24EQ-hDLKyRHuB17ghSZOkUjwuEaa-MkwiTp7kxwTb9EaS52nnylyh7dfaazXME4wUwTWrPWG3eIlYaZGLTODRZl8rcygyuhwMGyR4ojyFeCeDZDE_OUI-fZ-j_YXF8_8IIqeZs8cwSdiWKkZSZDSAM9fNUooY6NP3nQc-nZXaSleyOiTOw9mfbcbmUpGULrdNeb23ghdrfVoKVhcLu29mRpGbrrtyu3ItbtyB98NLcLjo9J04A7d4UFpEjhTZ1opJUnyv5TAV_mE1UupNe-Hbjg7aDn-wJ_aH_mqMmdeMHaaPhH5SiNyQhqGYX9-tGo-8B37POkk7A_saYN0hTV5w7sj4fXUOxCGfhA6wVnCQq-ZZbZ8kCKqCPtzP_QPhMHECcfuWUJv7HjDMkPgWUmcrlH4tEA3IeohoI2zSFPB0QPDnBNZrDQf7nx7thI8SnDPGI8W2QY9kn8yKuG8cq1QIiTCjKE0j4xRfqQUohzJjCOs0Y0mG8TIK2HP1t8nxG6deLom0UuxePyKKcNLyqjeGaJbEWGWp6YR5jHqP9zWqfptVLdC_zyT9-1AFYlVyfRQlnZvSutNMymhcjSDDc5J_kRfCXlRnw0AbKd0fhvdAsMNV5Chy8X9FbqF2wY9kNUKznbuZ01QNTgHdc5HoiUFd9FUbFLBSVnZcWR8uOGJQIkU4K1SZLNkOzTJKIshOoINQ5fjyeMVejJ3b0MtqKvNiCZyY_K94ZowQ64-TzOlxQaqMVKL8QOaYB2t8zQKq9_WREKCpXELLcCF-ZYq3axt2OoXbB9cu8eS8u6a3N81gq8hdgH3EBozIgsXHkkq4KcWVc-Cp2-88PS0x20ILcRoUuZMFfoCorO7x_Hn-Raq5tA54zRFl1PBE7rKpHHLNHix_tZ0-FWD1znwFp23yNKU7cw250GN1e7loXo4Tbs8Z6K02SRCXyF3qKNgM01yB-1mnnq1JgfGq1PK_pES9igtrVmYbWg1pRbsNYJbFYuMSNwM9t_fj1sZk94SHmDQFC2bWXSC2dNa3__6bO33p4yDdkayjVimwJ_fihu3GRa0h324Hoo0PqgO28M_XlRn4q__U9aufT7rvNPg_MFlX9za6tAhTXXX-Vl1OD_FD-6hXu8XOJLlcFAMg3IYFENnUI6dcr56XEMDGODHs_UXgcb6AXdhOTEsI6txvxxXzG45roSd6wK4rsZBSfxF5LzOYaLMoOKxGwn0mxMVQYmXOk61zi_GVYVuye94lV6ZqddMrBJ0naYXleLBJLvkPKx0mr4Oz1U7PKOWvzAYN6oXpRrstsP9dtg7fTeqzfhnZwZnZ4KzM8OzM2By9Rpbx_vlK2cd9VpRv3obq8ODdjhoh4ft8HUrDD3WCjsVbHUteGJuMI2t0buV__uBf0gxSXDGtLXvWjjTYrHjkTXK_yVYWRpD5IxieHnbFOD-Xy0JNSo=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 M-090-210_Identify_Change_in_Production_Data_(IF) — M-090-210_Identify_Change_in_Production_Data_(IF)
@@ -829,10 +789,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4kgQ_ZWSo4iMBBrb2IHwsBIBvEJKMlFIdrQa5qGxy9BKY3u720nYDP--1b4AZkn2YXmIUuXqc05d-vJuhWmE1sA6P3_nCdcDeG_pFa6xNYDWgilstaF0_MEkZwuBqmVi4jTRM_53EeZ42ZsJM76ArbnYGO8MlynC07QNQ1oo2qBYojoKJY9b7VYm-ZrJzSgVqTTRZ9iP7bhgqz5dpzJCuQ-w7Z4T-rRU8AT37m7P63mBWacwTJOoARr7cT8OW1sjTqSv4YpJXcjPFd6yt-880iuyYyYUUsxKr8UNW6AwOWqZG1-Yy5e6GFwZnoQKNstYyJMl-T2bXJIlz3uXb2-3sD0_nyc7Urh5mCdAv1AwpcYYg9LknrxoiLkQgzNvNAx8u620TJ9xcOZOeuOu2w5NJgNK3W6b4nZekS9XerBIRVSFdl5NDgM3e2vLt4Frt-WG_h5xYRLtmUaXbt_t75iue87IGdVMcRz_Lyaqq3xk6rnimnQDNxjvuBz_0h_Z_8ar0xx7vaFzXCeULzzEA9AgCLqTfakml75jfwx6HXQv7dER6JJpfGWbPeDVyNsBBn4vcHofApZ8xyrzxb1MwxqwO_EDfwfYu3aCofshoDd0vH6lkHCWkmUrCB5nMA2gA9dMhyt4ojKUEeaX-D9-zK2YDWLWCdMlPGURJQRDIeAhzTVNoYLvK07rqB_wgDFKTEKEbxlKpnmawAz1PHdtewHDXKdrcoZMiM3c-vnzgMZxL3Y8SqcZjFYsWSLwBCjbKA8LrDHTDKYRJprHHCPC-HKI4b2_77VG2FnQZiFl-BaKXPEX_L3sxdzabstlNK0fFeOAtQO3TGmUJf3MYMjogNfbKTczSUVQqXhBmEiZSnjlegXTR2BJRDBJHrNQ55LqRuL_U8RsQ7zrqjHTMVw8BKOiQY20beIfUU3heng_BZ3WTfq0G5_Qk9oxZnRmrKnQB0TdZp5VHzZUEUadmmUYUldCCOgkgnvBkq9mQlBVctQRbwF5SZAzUkADhXR03aWmsWEhtRnYo8AxUhPWdCR_lBksNiV7tmOHO7bGovilSvOf0aZPqek3SMoJVMD0nsXcMMiA-npL4yEQbvAFxSmsK8K6l6aMtFuyTFRZwT3KOJVrZsRPE-KigUC4oM59IYkyN9OBQCFgmmnaerJwTvf0rE9jCBgXhPHZlB8M9yzPzLGn0sNN7zQ7Xc3TrrGqKGPZ3aYst7mwSnZXStrNBuSrATnKx9nvf-rehlr8V45KU1sTbWZ6Si8GXquoAb4cJUgw0On8Rjoqu1uavcrslWa_MvuleVUvtkvb6VYOv7JrNLey6_jSrKMvS9OrTK8Krm2ncviVfVV9t-vvhdZfc-tPU9RfhHf84S4t_DVicSMYFfVN2HC7p93d027vtNs_vBObrM7uWdH0u9UToOnt1vdg0-3VbqttrWnbMR5Zg3ereATSQzHCmOVCW9u2xejumG2S0BoUjyUrL0ZyzBkN9Lp0bv8BwtVHXg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.8 M-090-250_Execute_Change_(IF) — M-090-250_Execute_Change_(IF)
@@ -902,10 +861,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4kgQ_ZWWo4hEAo1tbCB-WImbV0hJJgrJjlbDPDR2GVppbG93m8Aw_PtW-wKYgX1ZPyCqXHVOXbu9M4IkBMMzbm93LGbKI7uGWsIKGh5pzKmERpMUir-oYHTOQTa0TZTEasp-5maWk260mdb5dMX4VmunsEiAvE-apI-OvEkkjWVLgmBRo9lIBVtRsR0mPBHa-gZ6kRnlbOWrQSJCEEcD0-xagYuunMVwVLe7TtfxtZ-EIInDGmjkRr0oaOx1cDz5DJZUqDz8TMIT3XxjoVqiHFEuAW2WasUf6Ry4zlGJTOuCTKyrYjCpeWIs2DSlAYsXqHdMVAkafxxVrrnfk_3t7Sw-kJLH11lM8Ak4lXIEEZEK1eO1IhHj3Ltxhn3fNZtSieQDvBt73B217WagM_EwdbOpi9v6BLZYKm-e8LA0bX3qHDw73TTFxrPNptji7xkXxOGRadixe3bvwDToWkNrWDFFUfS_mLCu4o3Kj5Jr3PZtf3TgstyOOzR_x6vSHDndvnVeJxBrFsAJqO_77fGxVOOOa5nXQQd-u2MOz0AXVMEn3R4BH4bOAdB3u77VvQpY8J1Hmc1fRBJUgO2x67sHwO7A8vv2VUCnbzm9MkLEWQiaLon_NiUTn7TIgKpgSd6xDIWFfmL3-_eZEVEvoq0gWZD3NMSESJ9z8ppkCqdQkm9Lhn7YD_IKEQiIAyBfUxBUsSQmU1CzzDbNOelnKlmhMqCcb2fGjx8nNJZ9d-CRKknJcEnjBZDxBoJMQUhYTDDtMAty0K96YRHivoDAqbuW1HQrFazK3CYjcvfqD_Mc70_ZTSQfYlhk0H-ZEJVUeZ4mdMwEia_xTt7ICFLctxXE6oShfchOzy2ZhPiaRVsyVRSznKYQsIgFxMctJi-cxl90dUGWccgz3hyyg5BTjACbAbj2z4nSEHnR64ZdNByBArHC4-xaj8h8W7CnB3byTFdAKDIUUep_OjZ1KZpejaToniRUHVn06QyUJII8YR85kEdYA7-E9YBYL0KXESctTXmZFXkBESViRXXwkxi5Ior_7rBl9xiiwNnI0ANNiO6i7ufFwlnt3e440yG05nio4nTAJuCZZGv4s9jZmbHfn7o5l90mEfEp40h9dPh9MJ4ozqEgI6ooxorwIsTpPI70CZFTn5VXkAlf4yoIgZl9MpVPmW7GE40zLAFmjXv4H0N5sjjTLNWnnExOd9yqE5azf5hFmZMVA1mvpF13LPtz6D7urAb5okHOWmAd1x0HbotJ_pOBVDiJsdL7N8EPBFZFUQGcbzvCkFbrD4yjlNuF2C3FbiH2SrFXiA-l-FCIVnnAxm4pV2B2KVdchdguRad8W8lWrvg1M_7WRfqF61m-6BSGTmVnlo4HRRm0ew70nOQ4FUN-AegwqouvprYvq9uX1c5ltXt6BdZZrcNXRF1vlzd-Xduurr262qnURtNY4UlBWWh4OyP_5sPvwhAimnFl7JsGxatiuo0Dw8u_jYwsH8kRozjQq0K5_xfdpUIn" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.9 M-090-280_Process_Work_Centers_(IF) — M-090-280_Process_Work_Centers_(IF)
@@ -964,10 +922,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P2jgU_StWRiN2pSDlk4Q8rMQEUlXbSqthtn3o9MEkDlhjbGo7zLAj_vtekxASGqRK5WE053DPOb7XscO7lYuCWIl1f_9OOdUJeh_pDdmSUYJGK6zIyEY18QVLileMqJGpKQXXS_rfqcwNdm-mzHAZ3lJ2MOySrAVB_3600QyEzEYKczVWRNJyZI92km6xPKSCCWmq70hcOuUprfnqQciCyEuB40RuHoKUUU4utB8FUZAZnSK54EXPtAzLuMxHR7M4Jl7zDZb6tPxKkc_47Sst9AZwiZkiULPRW_YJrwgzPWpZGS6v5P48DKpMDoeBLXc4p3wNfOAAJTF_uVChczyi4_39M29D0afHZ47gkzOs1JyUSGmgF3uNSspYcheksyx0bKWleCHJnbeI5r5n56aTBFp3bDPc8Suh641OVoIVTen41fSQeLs3W74lnmPLA_y9yiK8uCSlEy_24jbpIXJTNz0nlWX5W0kwV_mE1UuTtfAzL5u3WW44CVPnZ79zm_MgmrnXcyJyT3PSMc2yzF9cRrWYhK5z2_Qh8ydOemW6xpq84sPFcJoGrWEWRpkb3TSs865XWa3-kSI_G_qLMAtbw-jBzWbeTcNg5gZxs0LwWUu826DsaYk-ZmiMwLaock0FB5AKpdEsz0XFNea61pgPn3x7tkqclHhstsCo9rQgaAllcCQK9AWziqhn63tHEw1rTiEp4Ro4UEOepnuqD-jpsCMK7Qec4mGnTMhtxTCCCZm7BXroy6bfWl0u1lAGkVs43eiR_KioJAX8w8geOkVfhXxpFmWyuy6u80drs2Owq51alEqCT8M7W4L4z1oMp-KXhv4ZK-M0xxrDPOG5kUU3vd_6KY8gIUFGYZMoRx8IJxKz2qCEbzrr68_D63u1Ds0cr4bu36ju7zn6mxxOqY-i0nA_9T2CGx7dZ8Csu68Kb6j6T0pf47qXXVJa7Ho72oxtaHN4iMbjv2A2DXSdGk8bPK3hpIFeDd3mGuF-jYOzuoZ-A4Mahg2c1DBqYFTDuIFxY905-sbwfOX1aG-Y9ofpYJgOh-nJMB0N0_EwPe1erP2OnPbd1Ofd5j1i2dYWzimmhZW8W6ffBvD7oSAlrpi2jraFKy2WB55byekdalW7AjZ3TjGcsm1NHv8HKvyv-Q==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.10 M-090-290_Process_Routing_(IF) — M-090-290_Process_Routing_(IF)
@@ -1055,10 +1012,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV11v4jgU_StWRhUzEkhJSAjwsCMKZFRppls10xmtln0wiQNWg521nbZsh_--1xCHJA0a7SwPLT6-95z75cS8WjFPiDW1rq5eKaNqil57akt2pDdFvTWWpNdHJ-AbFhSvMyJ72iblTEX0n6OZ4-Uv2kxjId7RbK_RiGw4QQ83fTQDx6yPJGZyIImgaa_fywXdYbGf84wLbf2OjFM7PaqVW9dcJEScDWw7cGIfXDPKyBkeBl7ghdpPkpizpEGa-uk4jXsHHVzGn-MtFuoYfiHJF_zynSZqC-sUZ5KAzVbtss94TTKdoxKFxuJCPJliUKl1GBQsynFM2QZwzwZIYPZ4hnz7cECHq6sVq0TR5_sVQ_CJMyzlgqRIKoCXTwqlNMum77z5LPTtvlSCP5LpO3cZLIZuP9aZTCF1u6-LO3gmdLNV0zXPktJ08KxzmLr5S1-8TF27L_bwt6VFWHJWmo_csTuulK4DZ-7MjVKapv9LCeoqvmL5WGoth6EbLiotxx_5c_stn0lz4QUzp10nIp5oTGqkYRgOl-dSLUe-Y18mvQ6HI3veIt1gRZ7x_kw4mXsVYegHoRNcJDzptaMs1neCx4ZwuPRDvyIMrp1w5l4k9GaONy4jBJ6NwPkWhV8jdBOiAbrGKt6iByjDyUJ_2OjPlZXiaYoHuuBoLggkhB7ubhYoyklMUxqje14omEf0SfAiR-s9mklJN0xD9yQlgrCYoN9zIrCinKGIqJX1V00j6NSYZYoIpr8Z_meqtqXInBcMtn9BbNwpBiVNivjo8Y0ICf-bXs7k9dX46cfYYA0HEapFXuKskPSJfDr1eWUdDjU31-52a1Zs-UKlkijlQhcWYYXgMYjuMszUxzMhHK1LnatFP0BfsNSVWWCFUaSDEkktIr-Z_j2RPHsiaCkEqB8LfPMVYZYADStSHKtCQKBVMd4GAeYLksMTZkeYqgkNm0KRttGVrloj0fUeAsQbaDXondp4Apq195pMd8U6o3KLviyj5mREoZ5KHXsHyQRIIqJ1MgIPyVuu9OgeA2l12gbLmwSSoekePTD6d1GNBypxCmG8h1Z9QKngu5Nwv8xF6x9b16J16rQXJlWPs0mLoFu8Iz9jdYF1viXx40XKWQYTnphjQhKkuJmyLsLhmfAnM9rl7b-veiUVz3XdYiJlxXU6bQl4fai7jS6ckl9M6WPrFDpBN_9NikJMs0KAQAxvX_nGcfxfT_3b81E7m1GR61eM5PUHrNOc7vIY3JJnFG2hgmHGoeQ1Ehjx98eB-4C-66mv5qXZCrdJ-5njpHFiYNKOLK0GeucG5hm8thqN0_L35O-CinoLq5SZgwaD30DaLL3T2jHrct8xBqNyPSnXxr585TH3tB4a_8lpPS7X49I8KNdBi254WnuGzdbrHyvrDyJX1g-wb2_c8iM-Mnp2SVglUAbkGAu_XJuIHBOSb4BRk9oZtjdMMGeOoLUzaW8YrsqjTNRckVhZJ792c9DNMTemBux2w8Nu2OuG_W541A0H3fC4G4YpMhfYJu6Xl80mOjI3riYcdMPjbnjSCcOclLDVt3ZE7DBNrOmrdfzNAr9rEpLiIlPWoW_hQvFoz2JrerzbW0WegOeCYngm7E7g4V-8fRtt" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.11 M-090-300_Process_Reference_Operation_Set_(IF) — M-090-300_Process_Reference_Operation_Set_(IF)
@@ -1198,10 +1154,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1vozgQ_isWqypdXaJiAyHJhzuleTlV2narTXer0_U-OGASrgRy2LTNdfPfbww2BEp3014-VGWYZ56ZZ8bG8Gx4ic-MkXFy8hzGoRih545Ysw3rjFBnSTnrdFFh-EbTkC4jxjvSJ0hisQj_zd2wvX2SbtI2p5sw2knrgq0Shr5edNEYgFEXcRrzHmdpGHS6nW0abmi6myRRkkrvD2wQmEHOpm6dJ6nP0srBNF3sOQCNwphVZsu1XXsucZx5SezXggZOMAi8zl4mFyWP3pqmIk8_4-ySPt2GvljDdUAjzsBnLTbRJ7pkkaxRpJm0eVn6oMUIueSJQbDFlnphvAK7bYIppfF9ZXLM_R7tT07u4pIU3UzvYgQ_L6KcT1mAuADz7EGgIIyi0Qd7Mp47ZpeLNLlnow9k5k4t0vVkJSMo3exKcXuPLFytxWiZRL5y7T3KGkZk-9RNn0bE7KY7-NvgYrFfMU36ZEAGJdO5iyd4opmCIPhfTKBrekP5veKaWXMyn5Zc2Ok7E_NlPF3m1HbHuKkTSx9Cjx0Enc_n1qySatZ3sPl60PO51TcnjaArKtgj3VUBhxO7DDh33Dl2Xw1Y8DWzzJbXaeLpgNbMmTtlQPccz8fk1YD2GNsDlSHEWaV0u0YXN2jKtjAiGxaL4p78xeTPO2MB_UTjiMFYXSUiDEKPijCJ74y_DhytYx0dcJykDBRBn7cszT04wgj-h5XLaN27D95jzsNVjCZJFguUBIcwytFVtlkCFOzXEY1j5qPL5IFxFMZoRr115V0P7ELgKRMs3cDyRlQmXtDcJuk9moAKEHS5a0lpIFPyfbQQVC5_H32jUQaEsoCKLCOmuawDhz-o_DLxs4jV_bF5ZI4K3EKJcS1Em4StNWLZ929y79w1fFsTtXJJ_s64KJtQtaVox0_VwbbS9Yo9HnKGQW6Zj8_zPFEANfjoMRTr11rfGt05RssgSVF8QNYaqf_e_mNXIYHlC9tAqpV_Tt2q7aDqxIL9k7HYY_UONvyH7yAh5pvUocuWkSH4FV0krN7TBpC0rovL2eLsdoGS9uVLrKO6UMfoCRt7InwIxQ7d7Lasmc0xg9KA9N-Ri5yFyZp599ClgKV5W6tGnX75vPgI_RZo9hRyka-8L0kGCl3RDUNy72ecS8JVkaNcAKJBMXjb9lEHD9875ZZ5hMqWHJa2wmXJxSz4DQT5EWJN49ULRPFIgodaY7Kg5Eo4JUluaODluFxnyyjkazmNaA6nq27eBjh3dQtI9yBwt-hC0Y-iQ42I9dlajK_b-ma5p-AW0FFAe1wkW_Tzqj8ewgfHwkuZD-G2-fys4fKo3lvCYRMeo4VicjuncRZQT2QpqPDbnbHfH6JxOxrGWU3yCwRpR7AnL8p4-MB-L85OTZj1v9K030fqtMMuAtgTwyhLQWIPDvAvi-y_HQhnqcYZ7ZJyuWKnVFCoE_KDVdmTk-ZnXr4aD54C5QjIEzKMAE8ieBLM0hQ24_zZCQc-Oac1mRpzOGwMUoFWsfwc_rbRtN23yv5ShKpctMi28rDOk_SQo9xX9ZLN19hZvuctBMz8Ru2kuQzVptoovl8Vv43g6P7DVSQvLuBtNqwvqDJ72EtQr_er3Pa1oV8YbHXtFJd9danuam-3uByoy2FxidVbAZzylMHSBksZdHis-LGjDYoQa0asE9KQQXFtaRIVwdIcdk76_c74g_Gzot93xne5MnVEFQEPtUHlrd_i4B9lwDqmqWJ-hk8AKc_jEaK9VVFEZ0hUSnbpQZSHrpKoKomukigl7ReMt5_GOZ1O1lJslo5lqVhWqaliw7pLRBVMyoIVG9GNI7ghciniVXJW7MeFhlohy2yUiLVkWmXSb3jYKi2rLFF3TntYOotSpmEzLUurQmHq0Sf2wCL5pGSbZbRDp6DVxzxPTJoywtkwVa99v5x_vbzO3UoJVWp2v8lzAEOncPpW4XUJqhe2Vtp2qtkrhkTfUIproKrUGjYJDwYMD5pRr5L8hlXe6DforOYNjShHoZ5w_t4us9HfK2pm2Av015m63VVfUurWQat12GaFtqhPD3UzbjeTdrPVbrbbzU67ud9udrXZ6BobOBfR0DdGz0b-BRC-EvosoFkkjH3XoJlIFrvYM0b5lzIj2_qAnIYUngubwrj_D8f1PQY=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.12 M-090-430_Process_Production_Version_(IF) — M-090-430_Process_Production_Version_(IF)
@@ -1290,10 +1245,9 @@ flowchart LR
 
 
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -1320,10 +1274,9 @@ flowchart LR
 | FTS IF - Production - Cost Accountant | M-090-280_Process_Work_Centers_(IF),  | |
 | FTS IF Batch System ID | M-090-430_Process_Production_Version_(IF) | |
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -1335,10 +1288,9 @@ The following data entities are derived from the system integration flows for M-
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -1410,10 +1362,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1456,10 +1407,9 @@ The Future-State architecture represents the **target** landscape for M-090.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1734,10 +1684,9 @@ The Future-State architecture represents the **target** landscape for M-090.
 
 **Summary**: 5 Reports, 92 Interfaces, 31 Conversions, 118 Enhancements, 15 Forms, 4 Workflows
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1749,10 +1698,9 @@ Integration patterns identified from the system flow analysis for M-090:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1776,10 +1724,9 @@ Platform landscape inferred from integrated systems for M-090:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1819,10 +1766,9 @@ Platform landscape inferred from integrated systems for M-090:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1851,12 +1797,12 @@ Platform landscape inferred from integrated systems for M-090:
 | LOGM005_IF | UPLOAD TRANSPORTATION ZONES (TM) | Jun-25 (100%) | — | — | Sep-25 (100%) |  |
 | LOGM004_IF | UPLOAD TRANSPORTATION LANES | Jun-25 (100%) | — | — | Sep-25 (100%) |  |
 | LOGI1718 | To align on batch attributes for straddle in S4 | Feb-26 (100%) | Mar-26 (100%) | Mar-26 (100%) | Mar-26 (5%) | 3. Off Track |
+
 *... and 245 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1888,5 +1834,5 @@ Platform landscape inferred from integrated systems for M-090:
 
 ---
 *M-090 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: March 2026*
+
 <div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-090 — Schedule Production (IF)</span></div>
-</div>

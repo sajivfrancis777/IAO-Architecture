@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">PM-070 — Create and Maintain Purchase Requisitions</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Procure To Pay (PTP) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **PM-070 Create and Maintain Purchase Requisitions** within the IAO program. It includes 7 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Procure To Pay (PTP) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Payment Automation | Automate invoice verification, three-way matching, and payment execution | Finance Efficiency | Medium |
 | 4 | PM-070 Process Migration | Migrate Create and Maintain Purchase Requisitions business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Procurement | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -214,10 +181,9 @@ This capability includes **7 business process(es)** modeled in BPMN 2.0, coverin
 | 6 | PM-070-080_Manage_Purchase_Requisitions | PM-070-080_Manage_Purchase_Requisitions | Procurement Agent | 2 | 3 |
 | 7 | PM-070_Create_and_Maintain_Purchase_Requisitions | PM-070_Create_and_Maintain_Purchase_Requisitions |  | 7 | 11 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -293,10 +259,9 @@ Commodities"| n7
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4jgU_itWqoqOFNRcCc3DriiQUaVhBzXdnYeyDyZxwNvEydpOC8vw3_c4Ny4FaaVFAuHP5_vOxceXnRblMdF87fZ2RxmVPtr15JpkpOej3hIL0tNRDfyBOcXLlIiesklyJkP6T2VmOsVGmSkswBlNtwoNySon6PcnHY2AmOpIYCb6gnCa9PRewWmG-XacpzlX1jdkmBhJ5a2Zesx5TPjBwDA8M3KBmlJGDrDtOZ4TKJ4gUc7iE9HETYZJ1Nur4NL8I1pjLqvwS0FmePODxnIN4wSngoDNWmbpN7wkqcpR8lJhUcnf22JQofwwKFhY4IiyFeCOARDH7O0AucZ-j_a3twvWOUXfnhcMwSdKsRATkiAhAZ6-S5TQNPVvnPEocA1dSJ6_Ef_GmnoT29IjlYkPqRu6Km7_g9DVWvrLPI0b0_6HysG3io3ON75l6HwLv2e-CIsPnsYDa2gNO0-Pnjk2x62nJEn-lyeoK3_B4q3xNbUDK5h0vkx34I6Nz3ptmhPHG5nndSL8nUbkSDQIAnt6KNV04JrGddHHwB4Y4zPRFZbkA28Pgg9jpxMMXC8wvauCtb_zKMvlnOdRK2hP3cDtBL1HMxhZVwWdkekMmwhBZ8VxsUZjXFCJUzRiON0KWc-qD3NfF1qC_QT3VbHRmBNIBv1G5EfO39BdOJrfz8P7p_nTOPyy0P48Yg4uMe-DksUIgv-LRBL9eAxPOQ93HalIoWIzoKjtDH-E7ERiIH05YpnObtfS1PnSX8IOiSCrnEEVykjSnKGXbUF-XWj7fU2EJj2rQeNigiVGoVowHh_58E6zmWHKJHzR7HmO5pjjjABZIIUcdLrkPnubp5gxwo-zOPUw3ZCohFJXhrDTkVzzvFytlcf7DpyyFZxP4rSK1n9U6oAQ1pxkAt1NZ6E-m76cL6V9KviVQOSqDeYlh_NGEPRM_i6poKrQp0znGrNKP0bf1al7Fv7w9fWwmqvKVHVMkQs4OMH02NY0wPYJbhJaqfI8bpa7Eq775VNQpir1nPAk59lx6GhUFDx_h3ZTu4uIs7hM63KbKeOSw53F5HmX1Tz7Mo9sorQU9J18rc-HC83JHlC__4vq8GZsOgr4udCmEHVR-RQLdtzoC-0n7NrG3K3pg2boNWrNcFAPrVa7Hg6b4bAx7qat1vUG-hsOisqTaZ9PP7Gj6TZupxEzWmu7Blq21cy342baNM_z_g6vA45UylmWx7BsqvnBkXd0RKpU2qvhBLYuw_Zl2LkMu5fhwWXYuwwPj2-ak5mH7q4-zci4gptXcKu9dk5h-zLstLCmaxnhGaax5u-06ikGz7WYJLhMpbbXNVzKPNyySPOrJ4tWFjEwJxTDuZbV4P5fyFMlhQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 PM-070-020_Identify_Non-MRP_Requirements — PM-070-020_Identify_Non-MRP_Requirements
@@ -405,10 +370,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm2PqkYU_isTNhvbBFNeBfnQhgVpTa4bs962aWo_jDDoZHGwM8Ou1ut_7xkBXyib26ZGCefhPM95wXPgqKVlRrRAe3w8UkZlgI4DuSFbMgjQYIUFGeioBn7BnOJVQcRA-eQlkwv619nNdHZ75aawBG9pcVDogqxLgn6e6igEYqEjgZkYCsJpPtAHO063mB-isii58n4gfm7k52jNpaeSZ4RfHQzDM1MXqAVl5ArbnuM5ieIJkpYsuxPN3dzP08FJJVeU7-kGc3lOvxJkhve_0kxuwM5xIQj4bOS2-IRXpFA1Sl4pLK34W9sMKlQcBg1b7HBK2RpwxwCIY_Z6hVzjdEKnx8cluwRFn-MlQ_BJCyxETHIkJMCTN4lyWhTBgxOFiWvoQvLylQQP1sSLbUtPVSUBlG7oqrnDd0LXGxmsyiJrXIfvqobA2u11vg8sQ-cHOHZiEZZdI0Ujy7f8S6Qnz4zMqI2U5_n_igR95Z-xeG1iTezESuJLLNMduZHxT722zNjxQrPbJ8LfaEpuRJMksSfXVk1Grml8LPqU2CMj6oiusSTv-HAVHEfORTBxvcT0PhSs43WzrFZzXqatoD1xE_ci6D2ZSWh9KOiEpuM3GYLOmuPdBim1isPYMYnCNRzr6-rDzN-XWo6DHA9Vu1G0IekrojmaSrJFkz0VEmGBZlCjGjw4EXC21P64kbA6EpyAN4opJ6lE84rDn1YQ9EL-rKigkpbsnm730r_Oc765EHcF9H-aQWU0P8DcoOeSodnLvCbXlQs0hZVEQTsDnW9vhFzQmc88ow2NWQZ1Uibh9y_yGCk6dJiIr_TJOx7bhNWeHK5g0tNN06iSI_hOWda07XrLflhqp9ONjN8vM5uhaYySsoLspwwtwjlafOf8FD6HXYFxvwBs1hVG85euu2n0-5N9WlSCvpEf6wHo0sz_SoPNUp8wBw2H30PDGtOsTb8xrdo0m-lmdsceK_vLUvuNiKX2Ba63Mo2O29pGbVuN7TW89iacyeOO6HN5hk2jQ4qvlDYPv5PHhePfa41u5l8V2-69O9jqh-1-2Lk8Eu5gtx8e9cNeu9ruUL8XHfei0OFe2GxhTde2hG8xzbTgqJ1fDeD1ISM5rgqpnXQNV7JcHFiqBedHqFbtMmDGFMNm29bg6W9_569Q" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 PM-070-060_Plant_Maintenance_Requisition_Management — PM-070-060_Plant_Maintenance_Requisition_Management
@@ -502,10 +466,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21v2kgQ_isrVxGpBCe_YuDDnYjBVaXkgkJ66V3ph8VewyrLrrteJ3Ap__1mwcbYNVKry4dI83jmeWZmZ8fmzYhETIyRcXX1RjlVI_TWUWuyIZ0R6ixxRjpddAT-wpLiJSNZR_skgqs5_ffgZrnpVrtpLMQbynYanZOVIOjTxy4aQyDrogzzrJcRSZNOt5NKusFyFwgmpPZ-RwaJmRzUikc3QsZEVg6m6VuRB6GMclLBju_6bqjjMhIJHtdIEy8ZJFFnr5Nj4jVaY6kO6ecZucPbJxqrNdgJZhkBn7XasFu8JEzXqGSusSiXL2UzaKZ1ODRsnuKI8hXgrgmQxPy5gjxzv0f7q6sFP4mi24cFR_AXMZxlE5KgTAE8fVEooYyN3rnBOPTMbqakeCajd_bUnzh2N9KVjKB0s6ub23sldLVWo6VgceHae9U1jOx025XbkW125Q7-N7QIjyuloG8P7MFJ6ca3AisolZIk-V9K0Ff5iLPnQmvqhHY4OWlZXt8LzB_5yjInrj-2mn0i8oVG5Iw0DENnWrVq2vcs8zLpTej0zaBBusKKvOJdRTgM3BNh6Pmh5V8kPOo1s8yXMymiktCZeqF3IvRvrHBsXyR0x5Y7KDIEnpXE6RrdYcoV4ZhHBM0Y5pzIo4f-45b55cvCSPAowb1IrFAgCVSEZnfoSchndK9vzsL4-vU8xLk-haQMatesqqZzCEPTLYlyRWKIf38eP3h7qyRj0lvC0Ec6UUX0_UbjF0yZXhCIcnQrIoCOEk9YkrWAyUB_LIz9_pxz-CucHz7fI0afCXJmt4XAifqMGYa90cvZA3og33KSKVFrotXaxHEUiRzSHmcZXXESo_njA7oej4MeCrvooyIbFIDfSsgdWuS2aTno0_uq2S3yMBi5hA0KpDf5rn6Qpwz0zSlTmG5TElM4A5369QTm6nGXklLtn-nnGSzVQ0Ja-IzOrtPNiEyE3KB5nqaMAqA7Nxe51IsKXc8FtC8rWjkhqVANOqdOV6ZV8c0e6gFuPeA-JfxQwgcmlqDxkb9AE3TjgjWJnhtq3gW1O8xzzNiu7t1vdE4ToonYwCnTqAsHvqKCgybmMejCPHGsjshhKrM6m996Dj83Cr_VxuD8cPVxBALeY5Tj87bNlYBk2-uydBsKfZ27nh6SZWgGp7aG9_Hpcp_H9KuYQ3U9JXrHy_cINypL9Fm0hPnt149sI5Zn9IV8OK7Jxq21zSoMSylesx5mCqVYQjWEXQiyfi3ox2tUrZGAEfl8xj1on_r7XC3h-GIYbQbFwNQpgaZPdxVTvR3D1nXwQPQb6DA7CGhRmDNY8ofLnEixQaxt0zV3r1vtXlhC6U-kVlZxvodPPYH9j3q93_VSLoDh0S5Na6Dt7wvjT7EwvutF23zwN8kOT04PnIKxeLPxQWG7hW0XknbDdhp26V_weSV_QVfadmGXdO7R7hdm_2j6hekX3qVtWQ3AK5KzSge7AdhlROlQUpaK1rDesvLTpnpQtsw6_0TRlZUfPTXYboeddthth712uN8O--3woB0enn9a1SsyLz-yLj9yTt-0ddwtvj_rqHfBu38B98uPtjo8aIeHrTDMaCtslbDRNTZEbjCNjdGbcfjZAz-NYpLgnClj3zVwrsR8xyNjdPh5YORpDJETimFHbY7g_j_gzix6" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 PM-070-070_Perform_Requisition_Approval_Process — PM-070-070_Perform_Requisition_Approval_Process
@@ -617,10 +580,9 @@ Approval Required"| n24
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1tv4kYU_isjRxGtBKrHV-ChFQG8u9ImQSFtVS19GOwxTGNsdmyT0IT_3jN4bPBgb9MtD8j-zvm-c5mrXzU_Cag21K6vX1nMsiF67WRruqGdIeosSUo7XVQAvxHOyDKiaUf4hEmczdnfRzdsbV-Em8A8smHRXqBzukoo-vVTF42AGHVRSuK0l1LOwk63s-VsQ_h-nEQJF95XtB_q4TGaNN0kPKD85KDrLvZtoEYspifYdC3X8gQvpX4SBzXR0A77od85iOSi5NlfE54d089TektefmdBtob3kEQpBZ91tok-kyWNRI0ZzwXm53xXNoOlIk4MDZtvic_iFeCWDhAn8dMJsvXDAR2urxdxFRQ9ThYxgp8fkTSd0BClGcDTXYZCFkXDK2s88my9m2Y8eaLDK2PqTkyj64tKhlC63hXN7T1Ttlpnw2USBdK19yxqGBrbly5_GRp6l-_hX4lF4-AUaewYfaNfRbpx8RiPy0hhGP6vSNBX_kjSJxlranqGN6liYduxx_qlXlnmxHJHWO0T5Tvm0zNRz_PM6alVU8fGervojWc6-lgRXZGMPpP9SXAwtipBz3Y97LYKFvHULPPljCd-KWhObc-uBN0b7I2MVkFrhK2-zBB0Vpxs10io5RyWXZyh0Qr-C7v4xfjLQgvJMCQ90W70QCMKCxXNcg5zDR4e6NecpSxjSbzQ_jwjGnXibRKwcI_ukhjdPszewTfVwF9zmmboJsopuiHBiqLRdsuTHYnqPKsx7vti2mrMjLPVCp5mDy3RnC8VxU9W6AONKYfxFgQWo_lPFvo4uhuhH25JnJPoRyCfs91vsmErWxKF0a8zxkm8o7DigZAlaHaveA_q3hOaUb6BHa0qBn1kEBHasleYWG9P7TMoqO5YyYvTo3NDx2VfVAHj3QIq03x_keWY7BhB4zzNkg16FMeMKinm0CPss-mGZeheHA2ivfN8u41Aqj4DsJg0cpYdB-Dc5oDtUwArSlhjOfePtRTLLVX83XP_f_Htv76e6g5obwkJ-2s0T6BnFM33aUY3vyy0w-GcNGgm0Rc_ylO2ox-KzUqhGXozregwdGdCfRidJFbjGfj74hnNtNl9sZ4ZDS4imc2Us_1CbiEJv-BazdwJ3ZA4QI_7Lb2g2N_syGV6zvc1wv2vNDh-iwcYNNTr_fy20B7oX9TPaLDQ3gCVViyMYoDku1u840Fp16WDWcpJRl--96W9EnSkQumAXRn_LkGLuFqMckbLbKxS3aycj4YyKpZRcZWGJR3nGxJFYgOEoy73i43hTeQtHR2loIHMt7Qb0sGwy1CmBBwJWMV7aTeMeorYUlOaQmVbsVQLO1aJf9C0sFSSZdfVISunUdEkVw00gsrv4aLMC7lqCPqlvTg5wOaqpvloVh1LR4-yWiwbVPbLUPqndsewlapOadr1Rl2M8QXDVrSxUZ-dx6uPmLPlla8GG82w2QxbzbDdDDvnd8KaxW219Fstg1YLLLdWE243Ge0ms91kVR8EddxuwZ0W3G3B--Wdtw4PGmGY840wboaNZthshq1m2G6GnWbYLWGtq23gbkFYoA1fteOHKnzMBjQkeZRph65G8iyZ72NfGx4_6LR8GwBzwgjcszcFePgHX5KqIQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 PM-070-080_Manage_Purchase_Requisitions — PM-070-080_Manage_Purchase_Requisitions
@@ -674,10 +636,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P4jYU_StWRiNaKUj5JJCHVgyQaqXOarRsu1qVPpjkGqwxdmo7DJTlv9cmCRDKrCo1D1F87j3n3HsTOwcnFwU4qfP4eKCc6hQdenoNG-ilqLfECnouqoHfsaR4yUD1bA4RXM_p36c0Pyp3Ns1iGd5QtrfoHFYC0G8fXDQ2ROYihbnqK5CU9NxeKekGy_1EMCFt9gMMiUdObk3oScgC5CXB8xI_jw2VUQ4XOEyiJMosT0EueNERJTEZkrx3tMUx8ZavsdSn8isFz3j3hRZ6bdYEMwUmZ6037Fe8BGZ71LKyWF7JbTsMqqwPNwOblzinfGXwyDOQxPz1AsXe8YiOj48LfjZFn6cLjsyVM6zUFAhS2sCzrUaEMpY-RJNxFnuu0lK8QvoQzJJpGLi57SQ1rXuuHW7_DehqrdOlYEWT2n-zPaRBuXPlLg08V-7N_cYLeHFxmgyCYTA8Oz0l_sSftE6EkP_lZOYqP2P12njNwizIpmcvPx7EE-_fem2b0ygZ-7dzArmlOVyJZlkWzi6jmg1i33tf9CkLB97kRnSFNbzh_UVwNInOglmcZH7yrmDtd1tltXyRIm8Fw1mcxWfB5MnPxsG7gtHYj4ZNhUZnJXG5RlatkmbbcY3GK3Ov4_bi_h8Lh-CU4L4dN5oCAw3opZLmU1OAPsFfFVVUU8EXzp9XvKDLexYFJfv_wAt_OBOVFuVdRlNFYZg_XlEjw3wBSYTcdLLHZSnFFrNTn6BU1zC2rNbk2bwre4AohHmB5vXncEMYGMKHwkzJNvRR8P7zp5farx5hNzu5zv5u5vBwaDu3x2R_aTZ6vkawy1ml6BZ-qb-jhXM8XrFG91nNexLfnfzPN1q-d1_sPMCm9uKKaLZ7_cAHqN__ybTRLJPuclgvR81yZJffFk5d58L5ZtxvQnXhp1DQhIJaxG92hHlocj-KU158i3-1L88EojZQC4RXO8qC7UnSgYP7cNiccB0wOh-xHTi-Dw_uw8l9eNieIB10dBc1jTew4zobkBtMCyc9OKefqvnxFkBwxbRzdB1caTHf89xJTz8fpyoLw5xSbM6ETQ0e_wGOlHXZ" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 PM-070_Create_and_Maintain_Purchase_Requisitions — PM-070_Create_and_Maintain_Purchase_Requisitions
@@ -786,10 +747,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -806,10 +766,9 @@ flowchart TD
 | Warehouse Clerk | PM-070-060_Plant_Maintenance_Requisition_Management,  | |
 |  | PM-070_Create_and_Maintain_Purchase_Requisitions | |
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -821,10 +780,9 @@ The following data entities are derived from the system integration flows for PM
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -879,10 +837,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -925,10 +882,9 @@ The Future-State architecture represents the **target** landscape for PM-070.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1316,10 +1272,9 @@ The Future-State architecture represents the **target** landscape for PM-070.
 
 **Summary**: 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1331,10 +1286,9 @@ Integration patterns identified from the system flow analysis for PM-070:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1358,10 +1312,9 @@ Platform landscape inferred from integrated systems for PM-070:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1401,10 +1354,9 @@ Platform landscape inferred from integrated systems for PM-070:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1433,12 +1385,12 @@ Platform landscape inferred from integrated systems for PM-070:
 | PTPI1529_IF | An interface to retrieve the list of approvers from a custom MDG table(MDG sy... | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Dec-25 (100%) | 4. Completed |
 | PTPI1458 | Develop an interface between PEGA and S/4 HANA system to transmit MSL informa... | Jul-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
 | PTPI1428_IP | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... | Jun-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Nov-25 (100%) | 1. On Track |
+
 *... and 358 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1467,5 +1419,5 @@ Standard RAID items for PM-070 (Procure To Pay):
 
 ---
 *PM-070 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: March 2026*
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
-</div>

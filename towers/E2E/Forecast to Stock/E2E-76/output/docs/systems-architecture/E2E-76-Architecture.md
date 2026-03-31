@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **E2E-76 Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus** within the IAO program. It includes 4 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | End-to-End Integrated Processes (E2E) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 2 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 2 Pending IAPM |
 | **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Process Visibility & Monitoring | Provide end-to-end process visibility across tower boundaries with integrated monitoring | Operational Excellence | Medium |
 | 4 | E2E-76 Process Migration | Migrate Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus business processes and 2 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Cross-Functional / End-to-End | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -207,22 +174,29 @@ This capability includes **4 business process(es)** modeled in BPMN 2.0, coverin
 | # | Step ID | Process Name | Lanes | Tasks | Gateways |
 |---|---------|--------------|-------|-------|----------|
 | 1 | E2E-76-Process_Overview | E2E-76-Process_Overview | Boundary Apps, SAP S/4 Intel Foundry
+
 Core SAP | 18 | 13 |
+
 | 2 | E2E-76A__Expedite_requested_by_Customer_(IFS_Customer_or_Intel_Product) | E2E-76A__Expedite_requested_by_Customer_(IFS_Customer_or_Intel_Product) | Boundary Apps, SAP S/4 CFIN, SAP S/4 Intel Foundry
+
 Core SAP | 33 | 18 |
+
 | 3 | E2E-76B-Cancellation_requested_by_Customer_(IFS_Customer_or_Intel_Product) | E2E-76B-Cancellation_requested_by_Customer_(IFS_Customer_or_Intel_Product) | Boundary Apps, SAP S/4 Intel Foundry
+
 Core SAP | 30 | 20 |
+
 | 4 | E2E-76C-Push-Out_by_Intel_Foundry_(undesirable_business_scenario) | E2E-76C-Push-Out_by_Intel_Foundry_(undesirable_business_scenario) | Boundary Apps
+
 Intel Foundry, SAP S/4
 Intel Foundry (LE-500)
 , SAP S/4 
 Intel Foundry (LE-101)
+
  | 8 | 2 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -357,10 +331,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWG1v4jgQ_itWVhWtBN04LwT4cCfecldpX9DS3dNqex_cxIGoTszZSQvX5b-fTewA3kTa4w6pRX7G88zMk_Ek4dWKaIytkXV19ZrmaTECr51ijTPcGYHOI-K40wUV8AWxFD0SzDtyT0LzYpn-fdgGvc1WbpNYiLKU7CS6xCuKwee7LhgLR9IFHOW8xzFLk063s2FphthuSgllcvcbPEjs5BBNmSaUxZgdN9h2ACNfuJI0x0fYDbzAC6UfxxHN4zPSxE8GSdTZy-QIfYnWiBWH9EuO36PtH2lcrMU6QYRjsWddZOQdesRE1liwUmJRyZ61GCmXcXIh2HKDojRfCdyzBcRQ_nSEfHu_B_urq4e8DgruZw85EJ-IIM5nOAG8EPD8uQBJSsjojTcdh77d5QWjT3j0xpkHM9fpRrKSkSjd7kpxey84Xa2L0SMlsdrae5E1jJzNtsu2I8fusp34b8TCeXyMNO07A2dQR5oEcAqnOlKSJP8pktCV3SP-pGLN3dAJZ3Us6Pf9qf0jny5z5gVjaOqE2XMa4RPSMAzd-VGqed-HdjvpJHT79tQgXaECv6DdkXA49WrC0A9CGLQSVvHMLMvHBaORJnTnfujXhMEEhmOnldAbQ2-gMhQ8K4Y2azCh5aGXwXiz4ZVNfnL47cGa4QKzTJwC8AEVJcOAJmC6RvkKg_l2g-O0wOA6LAl5uxA9Js7eDZiiPMKEoCKl-dtFyde9j2Vxe3v7YP15Qu4I8snXKuSZwRWGEEUFFQmhPAafsKDCccNO6H4TexM0SlAvoiuRF46eQJqAd7QAS9nzOBYeZy7eucuYc8x5hvMCTMQAigHNwT3tTTCYlFxUzTmQWotvk8g_J_qEVykXUmlxPuG_SszFOWA0A9OSFzTDzOToN-UfYnH4H1OSFjsp9k8RBQYRzbIyTyOhG9BShoRSBmYpw1FBdqJI8B494YNUv4s_-X2XgDSX9a6YKPjWDDI4D_J5E0v-DUF5LoT7KCfoNb85XLMNo3EZyQYAh8lqUg2vayrhv9OisdNao2OtN6d90399PaYR496jGIjRGuBtRMQle8a_VeftwdrvT92CZjctb6U6wb-afoNmv7rFwA8ew4sSdOHRDTFGX3gPkQJsEEOEYNLi5Fzi5F7i5P07J3EbMKbMcrwAy7ceuMsLTEAoZ45oyykVM0WYTkJ5dW_ICQ-mDMs-WyLxOFB1mWo9Dq7nW3HoxI0QvJMT6q7A2c35iPB_nmtZDf8jlTwMWAc4bDbIzeOLSFTKWSWOUCpvz0bXB-bEiLDoBjC-X6iTr1Ix3AbNbur4TWmepCwTB_CkKINheM6wwCyhLFP1K4LDtDaPqf3_nXjYSLU4ejUlDp3mzH-jNOaVEpsCXH9BpJS3iBstDgMLkWNhsDn2ceqI0bJpaIPYHDbQcDETbvNzLhtS7mVu3mVu_mWDyr5wEoh7Juj1fpEjXAHOQALfH6yvsuu_yxuZaflAK8NAGVxYcUCod_YVoIOoZR0jMGI4rrIE1U5XPV_lQ5Wdoz2dCtChHbda-zqSWjt6A3QMBmgrwNMANADHU4BOX0tkm-lrIXwjG82kiHTZShXHN3XTxHCgyq-FU_XXEVxdjlprh1oftdZ6uiojWBenitEX1VVyDI11zagZjlkroA6hljqCq6qGrgnUl0ALoYM6-jLrrKB3vuPwnC311O8XZ7DfDPdP3x3OLEGrZdBqGbZaREe1mmC7yWk3ue0mr93kt5vapYDtWsB2MURf6vfXM9yx1bvmOQobUUe_hp3DbjPsNcN-M9xvhoNmeNAMDxthcUIaYdgMN1fpNlfp1lVaXUs8Z2coja3Rq3X4AUb8SBPjBJWksPZdC5UFXe7yyBodfqiwysNNb5Yi8WSXVeD-H4MTjig=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 E2E-76A__Expedite_requested_by_Customer_(IFS_Customer_or_Intel_Product) — E2E-76A__Expedite_requested_by_Customer_(IFS_Customer_or_Intel_Product)
@@ -562,10 +535,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWW1v2zgS_iuEiyIp4KQWJVq2P9zBkaPdAN0miLNdHDb3gZEom1dZ8lGSE1-a_75DiZQtmjqguQuQFw35zMszwxlGfh1EecwGs8HHj6884-UMvZ6Va7ZhZzN09kQLdjZEjeAbFZw-paw4k3uSPCuX_D_1NsfbvshtUhbSDU_3Urpkq5yh32-GaA7AdIgKmhUXBRM8ORuebQXfULEP8jQXcvcHNklGSW1NLV3lImbisGE08p2IADTlGTuIXd_zvVDiChblWdxRmpBkkkRnb9K5NH-O1lSUtftVwX6jL3_wuFzDc0LTgsGedblJv9AnlsoYS1FJWVSJnSaDF9JOBoQttzTi2Qrk3ghEgmbfDyIyentDbx8_PmatUfSweMwQfEUpLYoFS1BRgvh6V6KEp-nsgxfMQzIaFqXIv7PZB3ztL1w8jGQkMwh9NJTkXjwzvlqXs6c8jdXWi2cZwwxvX4biZYZHQ7GHn4YtlsUHS8EYT_CktXTlO4ETaEtJkvxPloBX8UCL78rWtRvicNHacsiYBKNTfTrMhefPHZMnJnY8YkdKwzB0rw9UXY-JM-pXehW641FgKF3Rkj3T_UHhNPBahSHxQ8fvVdjYM72snu5EHmmF7jUJSavQv3LCOe5V6M0db6I8BD0rQbdrdJVXdS2j-XZbNGvyK3P-fByENCpzWKJZjO5ZCrHEzbbBP492YtgZrFn0HYUMSveJp7zcozwByL8rVpQoFPkGBVVR5hsmulhXYvPNNmUlQ7lAd1CrcIYRe9mymINMdoYY5RmiK8GgOWQleublGkVWddj_ExQmdJbQiyhfIVC9qTIegedIBxOmORhacMGiMt2jhxz9Rr8z9CUv0a_wLX_fJIhnCHgGm0VxCTY6RiZdI79vY6l_m9IsA19vZTc5Lz7VrG1FHldRySGAusuYqqaGvzWNPKm9WMqDy-K_GxhXcnbHRJKLDbieVUCXYCsOWaeNoeRAn1ApSI5TgMr88vLSSAQ5bz2BSPaN9YbrFqcSCshPR1Bv8vp6CCJmF0_QpaL1IQYEIby9HSOmdkRbMHUdpewESEZ2YACtb8XQdR12nWzGTrCOHcteorQq-I790pxVEzY-wKgQ-XNxQdMSbamgacrSExC0QOOELed3aPnZQ0F48_WY8VE39zql83t0lxcldHgz8Y4dENBiXR9LNIdK2_GSs8KEYjv0ju7rI3XPIsa3pYmaHGoCKmDb3b5jsVEIBP8sw_1k3WQlS1EomxOc2SAXTC4d11DrmhwFyDgQdwJaObrdMSF4zLqlTrrIQDBZMUsKN47m8KLzr-y5-fMTAq2qrmBTwgxd466ue7bjBTvshzI8dLBgsah7AmRJuriA-BbSspQ91D8Do7P6Nu2fbwVf8Qw0dMxc1WZuM9Ab8QL6QFeV0bNsQS-bAYi-wLUH3ZRsI5sge-F1LSo6jAox2xdNo0qOiZr_0wp2jJJXdYTmD3eq9TW91Cxfx7HjVOcN8izhYgPhH8Vjqug5AU3sSkPdP02g2wOsyidZnTKP4IvYmzjPjvslz-MC3RRFxUwEseZIdt9LOA-7XCbnXNZjritA3lARVMDGTIwzts6oQ2of2It53B3_J7Np1NSvcIXrVtS8grkBpEYn7lnnHozdZbRmcQWdHwr5gW_qCdCdmCcltONwWFtG9OSLm3kLow5FTXJRsebbun3BgGyyIBf1bIPz1wzFjjXHSuM9-xdrhvo9TCr4JRVBq2Opicf_rQhU10Xn32haycvVJ13Z0M_gNmEmCLs_OTGw11tRdcxtUR13EjNXmPz_rjv2qrw7oGxH1_WMq0mnx7Mdy8wbiTs2B5dhQVk2B5jrG7jjag7qBKenoOm77hXe6H2wnlvM0cEp4dyc3Ljw-6y5dpiuvHoiSVZP7Hk9bt42RQiYzyoJJ1DyPlfH74P577sVuj93K2xA3ntA5J33T5i26OLib3L0aYGnBEQJ1DPRz6R59kZ6XWvwtYaJEky1YKogjoZgtWOid_hqh_bCc6Tgx-Pga_44-GFb-Ie8APyQvV7rcJVSTwmUVUdvcJVAu4WV42P1PFY-uNqU2_UBa_dVfK5WRBQSj02B5gwrCNE7XOWsDksR4mmVapm0JCvWsQ4Oq7Rg7a3rKIhWSZROt9UxNahrA52YnPrmiqZgYnKjIRqhE9lGrqgg2hgmhsDRsWtuPAVxNN-OCs1pdSiBq626KpWu9g_rkmsrjBiOeZ6KoGkwdRATc03NQrjp1-ttUK7Btau5bl1W2WlLRCFcHSQ2o8aKOdzmT8VEdMqJSrnndQoa3FSz7luBqL5MFTBm6_uYvNnA1Jb9t9xvVbbaw0vM06wFTlup2mpbEzrFOtSxsUGrmBr5dN1OZLKqbhtaNWvEMXa2Javqr93p6io6fkEne5V-5dcRE7t4bBf7dvHk-OVfZ2XauwLdtXfJ6V_C_Utu_5LXv0T6l8b9S37_Uj8ZTj8buJ8N3M8G7mcD97OB-9nA_WzgfjZwPxu4nw3cz4bbz4bbz4bbzwacVP0avysnPfKxehXflfpW6cQqnep3191TOLKLHbsY28WuXezZxcQuHtvFvl08sYvtURJ7lMQeJbFHSexREnuUxB4laaMcDAfwL9uG8ngwex3UH5TBh2kxS2iVloO34UDOh-U-iwaz-gOlQVUPvwWHF-d00wjf_gIFfoLn" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 E2E-76B-Cancellation_requested_by_Customer_(IFS_Customer_or_Intel_Product) — E2E-76B-Cancellation_requested_by_Customer_(IFS_Customer_or_Intel_Product)
@@ -764,10 +736,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWWtv27Ya_iuEiyItYLcWRVq2P5wh8WUo0CZBnG4YlvOBkSibiyx5lOQky_Lfz0uJlC2GGk69AC3ih-_14XuRlZdemEW8N-29f_8iUlFM0ctZseFbfjZFZ_cs52d9VAO_MCnYfcLzMyUTZ2mxEn9VYh7ZPSkxhS3ZViTPCl3xdcbR9y99dA6KSR_lLM0HOZciPuuf7aTYMvk8y5JMKul3fBwP48qbPrrIZMTlQWA4DLyQgmoiUn6A_YAEZKn0ch5madQyGtN4HIdnryq4JHsMN0wWVfhlzr-xp19FVGzgc8ySnIPMptgmX9k9T1SOhSwVFpZyb8gQufKTAmGrHQtFugacDAGSLH04QHT4-ope37-_Sxun6HZ-lyL4CROW53Meo7wAeLEvUCySZPqOzM6XdNjPC5k98Ok7vAjmPu6HKpMppD7sK3IHj1ysN8X0PksiLTp4VDlM8e6pL5-meNiXz_C_5Yun0cHTbITHeNx4ugi8mTcznuI4_leegFd5y_IH7WvhL_Fy3vjy6IjOhm_tmTTnJDj3bJ643IuQHxldLpf-4kDVYkS9YbfRi6U_Gs4so2tW8Ef2fDA4mZHG4JIGSy_oNFj7s6Ms769lFhqD_oIuaWMwuPCW57jTIDn3yFhHCHbWku026CIrq1pG57tdXp-pn9T7_a432_DwAS05FOS9SETxjLIY3fA_S54XaCmzLZqVeZFtubzr_fdIFyvdbLtLeMFRJtE1VCB0JuJPOx4JwFS_RyhLEVtLDi2fFuhRFBsUOs35YO4CCr-NEoX-Zjke_Q5ozKYxG4TZGtUJiBh9zQq0Uo3Ao59ApaUTtHVuudyKFO4N7WQWlWEhVJxphPIQCEMi3UO4GRD2AeyKdLAVkaJly9IyZmFRSujNj7aPsRUXVL5IS46uDy5iICouQZ9Dy2bhA5ip3Eq-zfYcwTB6YGuOigytGAxHdKWmlu1n8n_mcsgC7FXuLEv-EAxdcwlRbdE3yA2uT_K1gNpilRVIublOqUsiPi4JsPzp0yfrJr0PTXy7BPqiuhO0UMFMD5q6xED347Hy6KAMgrsmOxWOagqe58iUXWQrB_9CmdCXlwOtER_cwxwON4eqQlBUr6_HGiO3RtM8VU8l_K1i4FacwXCH27_mKUugD5ecv9EcuzX5U5iUudjzn-tZZKtNTlKjR5QwKbPHfACBoR2TLEl40qE0OkUp-DEl2EHWiFudX6PVZ4K-pAVP0FINPCj8WQadBkfHrpoSUesFWeV_LWE9oKs9l1JEvF3Yo7bmTHLVdEeNij5c8sf6149Vqy9M88TcshW0bX3fRcpWCuo383lbdOx0qzwduf485_eiQN9gjjT1pyI4qqW21cmbYRULoME1cLxhW_aGhxxqRgedqxF_fntdz2Fb1fsnVeMV1kT3uPOwFWmdfzNHvqT7DO7M1vLbWr-wRFQub9kTz21h0hbW0X2FR0P0peBbmCNPha1DrbBYEpaJUlMlBHPdlre2lqk7SAcqRC-xD3vB0HI1-2bvFi9w7TzY5jLbV0P7zY3bBqzlVKtydCgbW8EqkBW0HLrMChGLsB6oRVNpaqnBP8n_4NX2sRfW0HmDx42zeIKlo5ah4nxQcV5fgm3Kc97UDUxavV1vuoKwymgOK0AtB44eNxy-kqhVZiIDM9Bqh6BWV__ALPad2emy_NxJMCY_UKGYuqvn59uVs-98bG3CGcx7niT1zelygba7fz40UudW9e2tqgJs4n0jTn5MnFrih64rd06F01ag37ECzYA0vfRm4w67drXqQFUWLWp_FWmUPaJzaJaL74iZBoWnyMvZ5Q3K6gHX9uC5PcBDR1HmbfPHo311ZRvCpz0c-G61o_J_Qwo57XlieMqjgXeKEj5FyT9FiZz45AKLDQ0G_1GrygAjDQQGCGqA6q-x8MCuJYxA_ZGM9GdtkRgDpLL4913vNzVR_gYBfTDRdowhrF0TqgHtmRDjSXuemM_aNTUWsRYgxiTBtm_9NTcd15L-2GSlAc84pyZNk5enJaihCvs1gE18VMfjTywAG6PEs-Px7JPLrDow7GHj1YRBNUt-w7fm0W9uTMflN4ESDTREGhVDHDF0GHpIYMK5qsIhY_s27QPf1EEjqQMPWibVEjRhmUppnA4tdgi2TzQ7xKRG_PbB2MaNKcPWyLp3qqNsYtBhewagJuyRBTRliU3m5tqJptcIENoOEjf1YboPW0BjqqnC5upMwOazuVsD-BMrc29sn-gwaFO3ppANq9SQMLEkDio6DDy2gaZwA6twGxZMYJQevXJSN2FetbXgkRsO3PDYDU-OX7q1TmCmdB553Ue4-8jvPiLdR7T7aNR9FHQfjbuPutnA3WzgbjZwNxu4mw3czQbuZgN3s4G72cDdbOBuNmCkmXfabRzr989t1HeixIlSJzpyooETHZtXvm144oRhfjphzw1jN-y7YeKGqRseueHADbuzJO4sqTtL6s6SurOk7iypO0vqzpK6s6RNlr1-D77ubJmIetOXXvXXKPiLVcRjViZF77XfY2WRrZ7TsDet_mrTq7-HzAW8x2bbGnz9H3QjVLc=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 E2E-76C-Push-Out_by_Intel_Foundry_(undesirable_business_scenario) — E2E-76C-Push-Out_by_Intel_Foundry_(undesirable_business_scenario)
@@ -777,6 +748,7 @@ Intel Foundry · SAP S/4
 Intel Foundry (LE-500)
  · SAP S/4 
 Intel Foundry (LE-101)
+
  | **Tasks**: 8 | **Gateways**: 2
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -839,10 +811,9 @@ schedule and quantity)"| n4
 
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -851,21 +822,28 @@ schedule and quantity)"| n4
 |------------|-------------------|-------------|
 | Boundary Apps | E2E-76-Process_Overview, E2E-76A__Expedite_requested_by_Customer_(IFS_Customer_or_Intel_Product), E2E-76B-Cancellation_requested_by_Customer_(IFS_Customer_or_Intel_Product),  | |
 | SAP S/4 Intel Foundry
+
 Core SAP | E2E-76-Process_Overview, E2E-76A__Expedite_requested_by_Customer_(IFS_Customer_or_Intel_Product), E2E-76B-Cancellation_requested_by_Customer_(IFS_Customer_or_Intel_Product),  | |
+
 | SAP S/4 CFIN | E2E-76A__Expedite_requested_by_Customer_(IFS_Customer_or_Intel_Product),  | |
 | Boundary Apps
+
 Intel Foundry | E2E-76C-Push-Out_by_Intel_Foundry_(undesirable_business_scenario) | |
+
 | SAP S/4
+
 Intel Foundry (LE-500)
+
  | E2E-76C-Push-Out_by_Intel_Foundry_(undesirable_business_scenario) | |
 | SAP S/4 
+
 Intel Foundry (LE-101)
+
  | E2E-76C-Push-Out_by_Intel_Foundry_(undesirable_business_scenario) | |
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -876,10 +854,9 @@ Intel Foundry (LE-101)
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 | 1 | e.g. Cost Element | e.g. MES 300 | e.g. XEUS | Data steward | e.g. Intel Confidential | e.g. 10K rows/day | Master / Transaction |
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -927,10 +904,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -974,10 +950,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.3 Data Lineage
@@ -1006,10 +981,9 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1063,10 +1037,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzzaQoQqpU06dUoBETY2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpfygBacTAVK7EWeapSrkD2uog05-b4K1fUgXXCyNJ4RZBuT7qElcBBBNImkqWxIKPo2sVZUhsrtkTgu1Ri4ljOn9DWdqri1TKiTouLlaiIBOQFRTUEVZWVNcYpjThKczbT62tbGg6d-asW2vVmTVaETpSy1y3Y9SgqPRIK0Wzi2Z8zFV0OKpzHkBjEi1FEASQaUEiTEmvPr2YEompeQpSEmqMeVCOHtDHP12U6oi-wvOXv_kpGP315-tO70g5zC_byaZyApnz7btLUya52QzDGa_rVFfMG272-13_gOTUUV3Mb2TDzAPXmE--xiVSF5Bl8gpaW9VWnDGBNzRAuqMeB13w4jf7Qw3aJ-YPWRihxHNcY3lwcC2P8I0qLKczAqaz4kb_I6sqGQnRwyf7KhN3MvLYDRwr0cX5yRwf_lXkfXHJOnBUBCJ4llKgquN1T_E5QxiiGfx2A_jI9uuoybQIfBl9oWgj6APAR3HwQ6_CfDT_x6-ma0d76aOb6pk96EsIA6huOUJxP1SvlrdQdcgVVFkHUUwysBuuraN7vkV-iCTKvYFHgGp6tWnmBwbYB1A1gFnk2K_d8Z7xhH-IPtk5GUJ_n0LL87P9nnPVNWqNPUgZc_92SUUt13vKbIqNK9qAiK5lyN8DrnAs-fpAybqwO_F6CLbvdBTWoumOgb6QW2LD-2Ptng91X1JtT-zk3fEGsAMOXolDmaTwP_qn3ufUGkQo7a3peXmueAJ1cFviCuIxzfbEhpvZPKubILY87cV4unjx08VXi7bnTcp_oXZjIcddoyBrJVNWwGfrsvg_q_JZEOqIeWZ2Lb-vRB7enq6c5ZZTWsBxYJyZjmP5kLDe5HBlJZC4TVk0VJl4TJNLKe6WKwyx4mCxyk2YWGMq38h5EcV" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Current-State Flow Narrative
@@ -1075,10 +1048,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.2 Future-State — Future-State Application Landscape
@@ -1130,10 +1102,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9A5wuoiyEZbtxwM9Q4X-7N3c1S1gM0lm1ZOxWV_35PV5QJGr0lGdt5eU77nKfts5VkDCzHajSeecqVQ54jS01hBpHlkMgaUYlvTXyTkJQFV_MA7kEYp8iyV2-VckMLTkcCpHYjzjhLVcifllC7nfzRBGt7n864mBtPCJMMyPWgSVwEEE0iaSpbEgo-jqxFlSGyh2RKC7VELiUM6eMtZ2qqLWMqJOi4qZqJgI5AVFNQRVlZU1ximNOEpxNtPrC1saDpXc3YthcLsmg0ovStFrnqRSnB0WiQVgvnlkz5kCpo8VTmvABGpJoLIImgUoLEGBNefXswJqNS8hSkJNUYcyGcrT6OXrspVZHdgbPVOzrq2L3lZ-tBL8jZyx-bSSaywtmybXsNk-Y5WQ2D2Wtr1DdM2z487HX-A5NRRTcxvaMvMHffYb76GJVIXkHnyClpr1WaccYEPNAC6ox4HXfFiH_Y6a_QvjF7yMQGI5rjGsunp7b9FaZBleVoUtB8StzgT2RFJTvaZ_hk-23iXlwEg1P3anB-RgL3t38ZWX9Nkh4MBZEonqUkuFxZ_T29nBjiSTz0w3jftuuoCXQIbE-2CfoI-hDQcRzs8IcAv_zr8MNs7fg0dXhbJbtPZQFxCMU9TyDulfLd6nYPDVIVRZZRBKMM7Kpr6-ieX6GfZlLFvsAjIFXd-hSTAwOsA8gy4GRU7HRPeNc4whuyQwZeluDfz_D87GSHd01VrUpTD1L22p9NQnHbdV8iq0LzqiYgknsxwGefCzx7Xr5gog78WYwust4LPaWlaKpjoBfUtnjf_mqL11Pdt1T7Ozt5Q6wBTJCjd-JgNgn8H_6Z9w2VBjFqe11abp4LnlAd_IG4gnh4uy6h4Uomn8omiD1_XSGePn78VOHlst55k-Kfm82412EHGMha2bgV8PGyDO7_mkxWpBpSXolt698bscfHxxtnmdW0ZlDMKGeW82wuNLwXGYxpKRReQxYtVRbO08RyqovFKnOcKHicYhNmxrj4B2hVRy0=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Future-State Flow Narrative
@@ -1142,10 +1113,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.3 Change Impact Summary
@@ -1165,10 +1135,9 @@ flowchart TB
 | e.g. MES 300 | - | N/A |
 | e.g. XEUS | - | N/A |
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1183,10 +1152,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 
 > *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1195,10 +1163,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 |---|---------|-----------|-----------|----------|------|
 | 1 | e.g. Pub-Sub / P2P / ETL | e.g. MES Route to ICOST | e.g. Azure Service Bus | e.g. REST / RFC / SFTP | e.g. OAuth / NTLM / Cert |
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1239,10 +1206,9 @@ flowchart TB
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
 
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -1284,10 +1250,9 @@ flowchart TB
 | 1 | e.g. Azure PaaS | Cloud / SaaS | e.g. XEUS | DEV,QAS,PRD |
 | 2 | e.g. S/4 HANA 2023 | On-Premise | e.g. MES 300 | DEV,QAS,PRD |
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1327,10 +1292,9 @@ flowchart TB
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1349,10 +1313,9 @@ Project delivery milestones for E2E-76 RICEFW objects:
 
 > *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
 
+
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1381,5 +1344,5 @@ Standard RAID items for E2E-76 (End-to-End Integrated Processes):
 
 ---
 *E2E-76 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026*
+
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-76 — Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</span></div>
-</div>

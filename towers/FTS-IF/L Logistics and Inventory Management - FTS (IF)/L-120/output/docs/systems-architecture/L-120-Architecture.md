@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">L-120 — Manage Line Replenishment - FTS (IF)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IF) (FTS-IF) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-120 — Manage Line Replenishment - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-120 — Manage Line Replenishment - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **L-120 Manage Line Replenishment - FTS (IF)** within the IAO program. It includes 5 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Forecast to Stock (IF) (FTS-IF) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 2 Reports, 18 Interfaces, 3 Conversions, 19 Enhancements, 9 Forms, 3 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-120 — Manage Line Replenishment - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Production Planning Optimization | Enable MRP-driven production planning with real-time material availability | Manufacturing Excellence | Medium |
 | 4 | L-120 Process Migration | Migrate Manage Line Replenishment - FTS (IF) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Supply Chain (Intel Foundry) | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-120 — Manage Line Replenishment - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-120 — Manage Line Replenishment - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -212,10 +179,9 @@ This capability includes **5 business process(es)** modeled in BPMN 2.0, coverin
 | 4 | L-120-140_Issue_Material_to_Production_Order_-_FTS_(IF) | L-120-140_Issue_Material_to_Production_Order_-_FTS_(IF) | FTS IF - Materials Planner, LOG IF - Warehouse Manager, Material Handler | 6 | 0 |
 | 5 | L-120-150_Deliver_Materials_to_Production_-_FTS_(IF) | L-120-150_Deliver_Materials_to_Production_-_FTS_(IF) | FTS IF - Batch System User, Material Handler - DMRA, Warehouse Manager - 3PL | 16 | 1 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-120 — Manage Line Replenishment - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -260,10 +226,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU1v2zgQ_SuEgsBdQAb0aXl1KODIUhFsgy6q7PbQ9EBLQ5kIRaok5cQb-L8vackfcZteqoOBeZx5b-aJGr84lajBSZ3r6xfKqU7Ry0SvoYVJiiYrrGDiogH4F0uKVwzUxOYQwXVJ_9un-VH3bNMsVuCWsq1FS2gEoH9uXbQwhcxFCnM1VSApmbiTTtIWy20mmJA2-wrmxCN7tfHoRsga5CnB8xK_ik0poxxOcJhESVTYOgWV4PUrUhKTOakmO9scE0_VGku9b79XcIefv9Bar01MMFNgcta6ZR_xCpidUcveYlUvNwczqLI63BhWdriivDF45BlIYv54gmJvt0O76-sHfhRF98sHjsxTMazUEghS2sD5RiNCGUuvomxRxJ6rtBSPkF4FebIMA7eyk6RmdM-15k6fgDZrna4Eq8fU6ZOdIQ26Z1c-p4Hnyq35vdACXp-UslkwD-ZHpZvEz_zsoEQI-S0l46u8x-px1MrDIiiWRy0_nsWZ9yPfYcxllCz8S59AbmgFZ6RFUYT5yap8Fvve26Q3RTjzsgvSBmt4wtsT4Z9ZdCQs4qTwkzcJB73LLvvV31JUB8Iwj4v4SJjc-MUieJMwWvjRfOzQ8DQSd2tU3JfotkBTdId5T3Cle2kuFyq3SkOLct6YjwAkendX5n8Mpfbh_tevDw7BKcHTSjToXtKmMWl_Yb7CHOVtp7eorDB_cL59OysLXpd9hgroBpAZqe4rTQVHS2gxry_KQlNVmst14C9pwzEzSWc58bsjdceM5Z_hew9Ko1uzbKh5DUgLQ86MnDSzarC7QlnwJG4IxxmN1oVPHz99GHy65RvgWsgtysz9lYIxkGdtRKaLw1iDDb_oeXbqWWnRXdi3Lzh4VP-kOR6h6fS9oRlDfwjDMQyGcLzoPB7CYAzDIYzOLphlOPsMXp0Eb57ExxXzCp6N28BxnRZki2ntpC_OfsObf4EaCO6Zdnaug3styi2vnHS_CZ2-q83rWVJsjG8HcPc_fsX9Mw==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-120 — Manage Line Replenishment - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 L-120-020_Generate_Kanban_Replenishment_Order_-_FTS_(IF) — L-120-020_Generate_Kanban_Replenishment_Order_-_FTS_(IF)
@@ -326,10 +291,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVk2PozgQ_SsWrVZmJSLxGdIcVkpIWLV2WrNqemYOkz04YIjVxrC26XQmyn9fOxhCmI72sByi1HPVq1flsuFopFWGjNC4vz9iikUIjhOxQyWahGCyhRxNTNAC3yDDcEsQnyifvKIiwT_PbrZXvys3hcWwxOSg0AQVFQJfH02wkIHEBBxSPuWI4XxiTmqGS8gOUUUqprzv0Dy38nM2vbSsWIbYxcGyAjv1ZSjBFF1gN_ACL1ZxHKUVza5Icz-f5-nkpMSRap_uIBNn-Q1HT_D9O87ETto5JBxJn50oyWe4RUTVKFijsLRhb10zMFd5qGxYUsMU00LiniUhBunrBfKt0wmc7u83tE8KPj9vKJBPSiDnK5QDLiS8fhMgx4SEd160iH3L5IJVryi8c9bBynXMVFUSytItUzV3uke42IlwW5FMu073qobQqd9N9h46lskO8neUC9HskimaOXNn3mdaBnZkR12mPM__VybZV_YC-avOtXZjJ171uWx_5kfWr3xdmSsvWNjjPiH2hlM0II3j2F1fWrWe-bZ1m3QZuzMrGpEWUKA9PFwIHyKvJ4z9ILaDm4RtvrHKZvsXq9KO0F37sd8TBks7Xjg3Cb2F7c21QslTMFjvwLJqzrMMFnXN2zX10PmPjfGMUoTfEEhevmyMvweLtv1JLucwzOGUi6oGf0K6hRQ8o5ogivmuRFSAL-pcgYgh2YRMEvw2ZHDO_KrpUOCKtm7qT4ILCglIJEOfVM7VSHb8koDHGEzBEop0B5IDF6gEXyXfMEkvUo2LVvJrNc61W1f1uqzFoausVTXqgns8dpGQsWrPp5AIUEMGCUHkj3bvN8bp9J9VPEHa5DAVDZMnu6tmTQt5A0lFn56S9bB57o9ecVoV4IXhopBuWmqrO0khlXKHer3rsK5OOU9Zk557v0IlpNkozJdREayltg96N5OLcqsy8Hq7T8E1wYc7fHZ8uExVTeSpeUb_NIgL8CjfF1htnaikRCJFM9kxgdR1zxV4KWE8ZtZoUIcj90jzipV6_Fp9gzHtd4u6YDr9XZaqTb81bX00adDavjYfWtPTptearjZtTRZo29Fk2py1ptN569Uueq5te8Rm9wGabz64NhRNd11ewc7HsDu8Cq9WvJsrD_1r5jqxpV8J16j9Ierc4HC7W9QwjRLJDcOZER6N87eC_J7IUA4bIoyTacBGVMmBpkZ4fqcaTZ3JyBWG8rSVLXj6F6X-q9s=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-120 — Manage Line Replenishment - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 L-120-120_Receive_Kanban_Materials_-_External_Procurement_-_FTS_(IF) — L-120-120_Receive_Kanban_Materials_-_External_Procurement_-_FTS_(IF)
@@ -381,10 +345,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVdtu2zgQ_RVCQeAUkFFdLUcPBXzTItgNGlRu-9D0gaYomTBNCiSV2Bv43zu05Fua9KUCbOCMZs7MnBGHLw6RBXVS5_r6hQlmUvTSM0u6pr0U9RZY056LWsM3rBhecKp71qeUwuTs_72bH9Ub62ZtGV4zvrXWnFaSoq93LhpBIHeRxkL3NVWs7Lm9WrE1VtuJ5FJZ7ys6LL1yn617NZaqoOrk4HmJT2II5UzQkzlMoiTKbJymRIrigrSMy2FJejtbHJfPZImV2ZffaHqPN99ZYZaAS8w1BZ-lWfP_8IJy26NRjbWRRj0dxGDa5hEgWF5jwkQF9sgDk8JidTLF3m6HdtfXj-KYFM2njwLBQzjWekpLpA2YZ08GlYzz9CqajLLYc7VRckXTq2CWTMPAJbaTFFr3XCtu_5myamnSheRF59p_tj2kQb1x1SYNPFdt4f9VLiqKU6bJIBgGw2OmceJP_MkhU1mWf5UJdFVzrFddrlmYBdn0mMuPB_HE-53v0OY0Skb-a52oemKEnpFmWRbOTlLNBrHvvU86zsKBN3lFWmFDn_H2RHg7iY6EWZxkfvIuYZvvdZXN4kFJciAMZ3EWHwmTsZ-NgncJo5EfDbsKgadSuF6ibJ6juwz10RgbskT5Vhu6Rl9BjdbRPiL48eiUOC1x3-qOvlBC2RNF_0hZaDSqMBPaoHz--dH5eRYVvh31LxYLLFDWcI5yVgnML8Nub45x2sgaTSmHMIXuQUt7wDUyEoEIRUMMkwKCP7TR8PW919w9Fk2JiWkUnJxDkzNRwQkH5pv7fPbhrILox7ECIis04VLTrr3zQmPw8gOvb39e6HVyqLbNAuFOly_UflrY1or0vl_41oS5bHoAXHPFqgrKORdIEywuPRPwzKHVP-n4uxLfsaJLCXNAn2uqoBgYxM1sY8ATSj29BaFwBUtYmHNB_MtJ3mndHKYPswBl0MdxMEb7RXpZ7fA0zJrDQXhgZPXxAZOVnSChWiMi1zWnhuo3BikC1O9_AqU7GLcw6mDUwkEHBy1MOpi0MOxg2MLbDvotDDo4bOH5UrA-hzVzYQ7eNodvm6PzzXLxZnjczRfm226NOq6zpmqNWeGkL87-aoTrs6Albrhxdq6DGyPzrSBOur9CnKYu4IhMGYaRr1vj7hfGhFsR" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-120 — Manage Line Replenishment - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 L-120-140_Issue_Material_to_Production_Order_-_FTS_(IF) — L-120-140_Issue_Material_to_Production_Order_-_FTS_(IF)
@@ -436,10 +399,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P2jgU_StWRiNaKUj5JGweVmICaZE6W1Sm7UOnD8ZxEmuMHdkODDviv69NQiBpUR82D4h7fe8595zE9puFeIat2Lq_fyOMqBi8jVSJt3gUg9EGSjyyQZP4BgWBG4rlyNTknKk1-fdU5gbVqykzuRRuCT2Y7BoXHIOvSxvMdCO1gYRMjiUWJB_Zo0qQLRSHhFMuTPUdnuZOfmJrlx64yLC4FDhO5KJQt1LC8CXtR0EUpKZPYsRZ1gPNw3yao9HRDEf5HpVQqNP4tcSP8PU7yVSp4xxSiXVNqbb0E9xgajQqUZscqsXubAaRhodpw9YVRIQVOh84OiUge7mkQud4BMf7-2fWkYKn-TMD-kEUSjnHOZBKpxc7BXJCaXwXJLM0dGypBH_B8Z23iOa-ZyOjJNbSHduYO95jUpQq3nCataXjvdEQe9WrLV5jz7HFQf8OuDDLLkzJxJt6047pIXITNzkz5Xn-v5i0r-IJypeWa-GnXjrvuNxwEibOr3hnmfMgmrlDn7DYEYSvQNM09RcXqxaT0HVugz6k_sRJBqAFVHgPDxfAv5KgA0zDKHWjm4AN33DKerMSHJ0B_UWYhh1g9OCmM-8mYDBzg2k7ocYpBKxKkD6twTIFY_CoRzX7R4IVhYxh0RSah7k_nq0cxjkcG9_BCouciy34go1pUBHO9P8dwXuwOYDvUOCS68Jn6-cVRvCjA0G8AInAmhCsZ6sezJ6oEniOCx75Tp8FTGmQa5Swj7LWX1w3-ZC87dMlA82fPn9oNHfVGoPBoqd50mdqNUvwYQlmBSRMquvBB2NO33XNUvEKLKWs8WVQxYF-i1mNTpo_m_PHJBCWEiR8W1GscKYh399S0CF9hCyjvbm9wdwUItxSaAEneM60sRKoUvC6KME_-r2tuFAa7usSvFs-fgEpRIqLw_uBLL-PPUMvjO8pzgqsvUCYVMq8g7Z50BtdLKmo3hJnvUt9GRAtJzOu_Nmn37jCIjAe_62Vt6HXhEEbBk3Y7nfmNmHYhmET-m3oN-GkDSdNOL3ahQbhfPr00t71EdJb8W-uBDdXwpsrk5srUXfY99LT9ly2bGuLxRaSzIrfrNNdq-_jDOewpso62hasFV8fGLLi051k1VWm38ScQP3RbZvk8T9Hqn7L" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-120 — Manage Line Replenishment - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 L-120-150_Deliver_Materials_to_Production_-_FTS_(IF) — L-120-150_Deliver_Materials_to_Production_-_FTS_(IF)
@@ -524,10 +486,9 @@ flowchart LR
 
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-120 — Manage Line Replenishment - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -545,10 +506,9 @@ flowchart LR
 | Material Handler - DMRA | L-120-150_Deliver_Materials_to_Production_-_FTS_(IF) | |
 | Warehouse Manager - 3PL | L-120-150_Deliver_Materials_to_Production_-_FTS_(IF) | |
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-120 — Manage Line Replenishment - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -560,10 +520,9 @@ The following data entities are derived from the system integration flows for L-
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-120 — Manage Line Replenishment - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -604,10 +563,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-120 — Manage Line Replenishment - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -650,10 +608,9 @@ The Future-State architecture represents the **target** landscape for L-120.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-120 — Manage Line Replenishment - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -717,10 +674,9 @@ The Future-State architecture represents the **target** landscape for L-120.
 
 **Summary**: 2 Reports, 18 Interfaces, 3 Conversions, 19 Enhancements, 9 Forms, 3 Workflows
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-120 — Manage Line Replenishment - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -732,10 +688,9 @@ Integration patterns identified from the system flow analysis for L-120:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-120 — Manage Line Replenishment - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -759,10 +714,9 @@ Platform landscape inferred from integrated systems for L-120:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-120 — Manage Line Replenishment - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -802,10 +756,9 @@ Platform landscape inferred from integrated systems for L-120:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-120 — Manage Line Replenishment - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -834,12 +787,12 @@ Platform landscape inferred from integrated systems for L-120:
 | LOGI1040 | STO based Outbound Delivery PGI confirmation for returns from S/4 to 3PL - 3B2 | Apr-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 4. Completed |
 | LOGI1038 | STO based Outbound Delivery Notification from S/4 to 3PL - 3B12 | Mar-25 (100%) | Apr-25 (100%) | Apr-25 (100%) | Jul-25 (100%) | 2. At Risk |
 | LOGI1037 | Inventory Movement from S/4 to 3PL – 4C1 (Outbound) | May-25 (100%) | Jun-25 (100%) | Jun-25 (100%) | Aug-25 (100%) |  |
+
 *... and 34 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-120 — Manage Line Replenishment - FTS (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -868,5 +821,5 @@ Standard RAID items for L-120 (Forecast to Stock (IF)):
 
 ---
 *L-120 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: March 2026*
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-120 — Manage Line Replenishment - FTS (IF)</span></div>
-</div>

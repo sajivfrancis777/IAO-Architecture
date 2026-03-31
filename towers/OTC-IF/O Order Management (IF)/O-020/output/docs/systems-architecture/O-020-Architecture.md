@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">O-020 — Capture Orders (IF)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IF) (OTC-IF) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **O-020 Capture Orders (IF)** within the IAO program. It includes 6 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Order To Cash (IF) (OTC-IF) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 11 Interfaces, 64 Enhancements, 11 Forms, 1 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Revenue Recognition Accuracy | Ensure compliant revenue recognition aligned with ASC 606 through S/4 HANA billing | Finance & Compliance | Medium |
 | 4 | O-020 Process Migration | Migrate Capture Orders (IP) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Order Management (Intel Foundry) | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -213,10 +180,9 @@ This capability includes **6 business process(es)** modeled in BPMN 2.0, coverin
 | 5 | O-020-190_Create_Sample_Order_(IF) | O-020-190_Create_Sample_Order_(IF) | Customer Business Analyst | 1 | 1 |
 | 6 | O-020-200_Create_Prototype_Order_(IF) | O-020-200_Create_Prototype_Order_(IF) | Customer Business Analyst, Pricing Manager | 14 | 8 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -307,10 +273,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP4jYY_StWRiNaKUhxLgTy0AoCqUbqbEdlulW19ME4DlhjEmQnDCzLf69NLuBM0mpVHkbzHZ9zvktix2cDZzExAuPx8UxTmgfgPMi3ZEcGARiskSADE5TAZ8QpWjMiBoqTZGm-pF-vNOjuj4qmsAjtKDspdEk2GQF_PJlgKoXMBAKlYigIp8nAHOw53SF-CjOWccV-IOPESq7ZqqVZxmPCbwTL8iH2pJTRlNxgx3d9N1I6QXCWxppp4iXjBA8uqjiWveMt4vm1_EKQZ3T8k8b5VsYJYoJIzjbfsV_RmjDVY84LheGCH-phUKHypHJgyz3CNN1I3LUkxFH6doM863IBl8fHVdokBa_zVQrkDzMkxJwkQOQSXhxykFDGggc3nEaeZYqcZ28keLAX_tyxTaw6CWTrlqmGO3wndLPNg3XG4oo6fFc9BPb-aPJjYFsmP8m_rVwkjW-ZwpE9tsdNppkPQxjWmZIk-V-Z5Fz5KxJvVa6FE9nRvMkFvZEXWh_96jbnrj-F7TkRfqCY3JlGUeQsbqNajDxo9ZvOImdkhS3TDcrJOzrdDCeh2xhGnh9Bv9ewzNeusli_8AzXhs7Ci7zG0J_BaGr3GrpT6I6rCqXPhqP9FoSFyLMd4WBWCPm-CwGmKWInkZc89Uvhl5WRoCBBQzV28BkxGsvGwG9q46yMv--otk6N6BEsjpjsc5qlOtPRmeEWpRsCQvlOcIRznevq3N8JJvRAwLJ8ZI0IzEmOKBO62Gsl4kTV_kHb0cxIV0p3wndySCUXvJ72RBf4bQFXZT4_P82Bmu4GhC-fdMW4s7gQMTbMkqSrqMmXRoKzjaLiginRC6fqXJDsezq0Wvz_aF_TQl374cFrZLtd2D4v-L8-JE3u6PKeYWsSty3pHrem8b5zfKMfGv6eyZ3c1079UsbgGaWFfH4n6fTjvZPfcmp2Xr_VghEsN3NKsTIEB4rAYv7UNlbvkDoU1ObteGHg5Hy-tRyT4Vp-RfBW7vPTbW-Kn1fG5XK_ka1uFTliJod7IL-UR1tbBr9XJr8Z5T-pDYbDn-TBUIVOGdZHv3yTSwBWJ3fqVXEVumU4qsJRGXq1unKHtT2s_GHjXyncKvbLcFJXV6Uf13RY6Wt-Ffs1v16vDWBVIKxLmlQN1g1Arw1UJUC7AsZV3NRwtfi2Mj5lK-Pb_azqhb-IKFfuviOq1Pr7qcF2N-x0w2437HXDo27Y74bH3fDk_iutd2T1L8H-Jbt_yelfcvuXvP6lUXMV03G_Bx_34JP6VqE_O6sbhjVsmIY8bHaIxkZwNq43bXkbj0mCCpYbF9NARZ4tTyk2guuN1Cj26qyfUyQvCrsSvPwDrUmqtQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 O-020-120_Create_Customer_Contract_Order_(IF) — O-020-120_Create_Customer_Contract_Order_(IF)
@@ -398,10 +363,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P4jYU_StWRiNaKUhxPkjIQysIpBqpsx11pltVSx-M44A1JkF2wkBZ_ntt4gAJibar8jCae3zPuR_xtX00cJ4QIzQeH480o0UIjoNiTTZkEILBEgkyMEEFfEacoiUjYqB80jwrXuk_ZzfobvfKTWEx2lB2UOgrWeUE_PFkgokkMhMIlImhIJymA3Ow5XSD-CHKWc6V9wMJUis9R9NL05wnhF8dLMuH2JNURjNyhR3f9d1Y8QTBeZY0RFMvDVI8OKnkWP6B14gX5_RLQZ7R_k-aFGtpp4gJIn3WxYb9ipaEqRoLXioMl3xXN4MKFSeTDXvdIkyzlcRdS0IcZe9XyLNOJ3B6fFxkl6DgbbbIgPxhhoSYkRSIQsLzXQFSylj44EaT2LNMUfD8nYQP9tyfObaJVSWhLN0yVXOHH4Su1kW4zFmiXYcfqobQ3u5Nvg9ty-QH-bcVi2TJNVI0sgM7uESa-jCCUR0pTdP_FUn2lb8h8a5jzZ3YjmeXWNAbeZF1r1eXOXP9CWz3ifAdxeRGNI5jZ35t1XzkQatfdBo7Iytqia5QQT7Q4So4jtyLYOz5MfR7Bat47SzL5QvPcS3ozL3Yuwj6UxhP7F5BdwLdQGcodVYcbdcgKkWRbwgH01LI_S4EmGSIHURR-alfBr8sjBSFKRqqtoPPiNFEFgZ-U4OzMP6-cbWbrhFiuGTK94VTtWub3k7TO6Z7MN9jsi1onjU93ZbuGmUrck0-kluJI1w0SV47mW1R8g4WmJECUSaa7FGLzYmq457c0QW_SZ3Js2hHwPPz0wyoLq9A9PKpyQi6gyHGhnmadsUYf7lQcL5SJRC-kV-w8gVvhy2RhFsGtJqUb1bUIMMm-W4TNJztVqT_0PkG3_n-4tx2yPud1_D32iG6v1GDM_rhwtkyOdb39fxOMJE6CXhGWSm_3kFK_Hgr4X9TQrfkKjVnBMuRzihWgmBHEZjPntrCagepo0GNcMd2gePj8VpvQoZLeZfgtZz2w3XmxM8L43S6HWerm0X2mMku7cgv1QHXpsHvpcmbo_onc8Bw-JMceG26lVlfAHITVwDU53c20rY2vcoca3NcmaOabWtvpwZ0OHjR13qetn0dX5uBdg-0bet0LjbUDnUCUCcE64K0g1-bNaEOqDO064Kg2wZ0SrDOCZ6L_Low_iJykL7eNqte-ZSfF5yb20RlUt-iDdjuhp1u2O2GvW541A373XDQDY9v7-pmRVb_EuxfsvuXnP4lt3_J618aXR5kTdzvwYMefFy_LZrfzuqGYQ0bpiEPmw2iiREejfN7W77JE5KikhXGyTRQWeSvhwwb4fldapRbdcrPKJLPhU0Fnv4FOYat1w==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 O-020-140_Create_No-charge_Order_(IF) — O-020-140_Create_No-charge_Order_(IF)
@@ -464,10 +428,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2PokgU_SsVOh13Ekz4FJuHTRRk0sn0zmTtnX0Y56GEQisWVaSq0GaN_32rBFRYfdiMD8Z76pxzP4CLRyNlGTJC4_n5iCmWITiO5BYVaBSC0RoKNDJBA3yHHMM1QWKkOTmjcon_OdNsr_zQNI0lsMCk1ugSbRgCf72aYKaExAQCUjEWiON8ZI5KjgvI64gRxjX7CU1zKz9na4_mjGeIXwmWFdipr6QEU3SF3cALvETrBEoZzXqmuZ9P83R00sURdki3kMtz-ZVAb_Djb5zJrYpzSARSnK0syBe4RkT3KHmlsbTi-24YWOg8VA1sWcIU043CPUtBHNLdFfKt0wmcnp9X9JIUvMcrCtQnJVCIGOVASAUv9hLkmJDwyYtmiW-ZQnK2Q-GTswhi1zFT3UmoWrdMPdzxAeHNVoZrRrKWOj7oHkKn_DD5R-hYJq_V9yAXotk1UzRxps70kmke2JEddZnyPP-lTGqu_B2KXZtr4SZOEl9y2f7Ej6z_-nVtxl4ws4dzQnyPU3RjmiSJu7iOajHxbeux6TxxJ1Y0MN1AiQ6wvhq-RN7FMPGDxA4eGjb5hlVW62-cpZ2hu_AT_2IYzO1k5jw09Ga2N20rVD4bDsstiCohWYE4mFdC3e9CgBmFpBay4ekPtX-sjByGORzrsYOI0RzzAiRfI_BVPzsr4-cN2-mzv0OCMzWGe1S3T43VM7tH4O3tNQa6mg2Ivv3RV3hDhUS8UHU37uC9LlFf4A9q5-hBLZMfF2bKVOYtSnfg8_tSsW5pwT3aK90jKhmvwWwPMYFrTLCsB8rpbxdlSdQ90VSsOlAKAf5EKVLNZ0r06Ub0ojT6gusLEyOiGLzu121bitJ4zdIdZQeCso1ao1QOePaF115AKDGjA5JzPHZFQs7ZQYwhkaCEHBKCyOfmdl4Zp9OtyP1_IrUlmh_UBuPx79qgjZ0m7kK3CSdt6Deh04bTJvTaMGi9uuNJEwddqtbbtoZAF7fZXgax3RG8JvZvnkjdQbeJerBzH3bvw9592L8PT25XVe8keHgyvbwGevDLfdi2HuD2A9zpFl0fdjvYMA21YgqIMyM8Gue3vPonkKEcVkQaJ9OAlWTLmqZGeH4bGlWpV0aMoVpSRQOe_gVT0pYz" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 O-020-150_Create_Subsequent_Delivery_Free_of_Charge_(FOC)_Order_(IF) — O-020-150_Create_Subsequent_Delivery_Free_of_Charge_(FOC)_Order_(IF)
@@ -539,10 +502,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P4jYU_StWRiNaCaR8EiYPrSCQ1UpttxqmW1VLH0xyAy7GTm0HhrL899okAZKFh6p5QNzjc8_9sH2To5XyDKzIen4-EkZUhI49tYYt9CLUW2IJvT6qgM9YELykIHuGk3Om5uSfM83xi3dDM1iCt4QeDDqHFQf028c-GmtH2kcSMzmQIEje6_cKQbZYHGJOuTDsJxjldn6OVi9NuMhAXAm2HTppoF0pYXCFvdAP_cT4SUg5y1qieZCP8rR3MslRvk_XWKhz-qWEn_H77yRTa23nmErQnLXa0p_wEqipUYnSYGkpdk0ziDRxmG7YvMApYSuN-7aGBGabKxTYpxM6PT8v2CUoepsuGNJPSrGUU8iRVBqe7RTKCaXRkx-Pk8DuSyX4BqIndxZOPbefmkoiXbrdN80d7IGs1ipacprV1MHe1BC5xXtfvEeu3RcH_duJBSy7RoqH7sgdXSJNQid24iZSnuf_K5Luq3jDclPHmnmJm0wvsZxgGMT2t3pNmVM_HDvdPoHYkRRuRJMk8WbXVs2GgWM_Fp0k3tCOO6IrrGCPD1fBl9i_CCZBmDjhQ8EqXjfLcvmr4Gkj6M2CJLgIhhMnGbsPBf2x44_qDLXOSuBijeJSKr4FgSal1OddSjRmmB6kqnjmYc6XhZXjKMcD03b0GVOS6cLQJ3NxFtafN1S3TZ2CArHVuhUXvR0KaDt4bYdYwANlv0PkLCdii-blUsLfJTClg1GyA3FAyaf4nkLQVniFLd_B1WtCebppewy7Hn9Bqu5Jh18uzJSvULyGdIM-vM0165Y2ukf7yHY6e64zGO8woXhJKFGHjufLdxfPguoD9QqqFKzu6ivkIIClkGmv7283zr666W0uLnxTx7dss8_mdJlT0LSlXadj9rcSGacbxvcUspWe2Ux1eN6FV28UVoSzDsk_Hq_tyGCw1OMtXddJjotC6P3JflxYp9OtV3D1wkLwvRxgqlCBBaYU6IfqxnWdhv_NSQ-y6g9z0WDwgz6mtelVZj082EtlurXp16vD2h7VdlDbTmWHtRlW5qg2hzW7vvMsqO0mmHOW_7qw_gC5sL5qQnfhF37Gm_BOreB3bKfJ12lCel3Av5k7Ju9m3rZg9z7s3Yf9-3BwHx7eh8PbOd1aGT1cebm8A9tF2fX7qo06D9juA9x7gPvN8G_DwX142MBW39LTeItJZkVH6_xBpD-aMshxSZV16lu4VHx-YKkVnT8crLIws3hKsJ7n2wo8_QtKB_JC" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 O-020-190_Create_Sample_Order_(IF) — O-020-190_Create_Sample_Order_(IF)
@@ -584,10 +546,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO0zAQ_RUrq6ogJVKuTckDqE0bCQkWRBcQ2vLgJuPWWuci2-mFbv4du016g-WFPETxyZlzPKOZ2RtpmYERGb3enhZURmjflyvIoR-h_gIL6JvoCHzDnOIFA9HXHFIWckZ_HWiOX201TWMJzinbaXQGyxLQ1_cmGqlAZiKBC2EJ4JT0zX7FaY75Li5ZyTX7DobEJge39te45BnwM8G2QycNVCijBZxhL_RDP9FxAtKyyK5ESUCGJO03-nKs3KQrzOXh-rWAj3j7nWZypc4EMwGKs5I5-4AXwHSOktcaS2u-7opBhfYpVMFmFU5psVS4byuI4-LpDAV206Cm15sXJ1P0MJkXSD0pw0JMgCAhFTxdS0QoY9GdH4-SwDaF5OUTRHfuNJx4rpnqTCKVum3q4loboMuVjBYly1qqtdE5RG61Nfk2cm2T79T7xguK7OwUD9yhOzw5jUMnduLOiRDyX06qrvwBi6fWa-olbjI5eTnBIIjtP_W6NCd-OHJu6wR8TVO4EE2SxJueSzUdBI79sug48QZ2fCO6xBI2eHcWfBP7J8EkCBMnfFHw6Hd7y3rxmZdpJ-hNgyQ4CYZjJxm5Lwr6I8cftjdUOkuOqxWKayHLHDga10L1uxBoVGC2E_LI00_hPM4NgiOCLV12FHNQaaFPemzmxs8LovvqxKyYSvtAQROQmDKBvkAKdA2Zinl9EeSpGJ0TQIY2VK7QTGI9XlkbfvgnxLWTfxt0X1p6AJbwr6hgv-_up7eRtVDzlCpDnFesC6QCHYX0Dno3N5rmQmDweEqQqI4FbpUVFDpD4LkqX6vxsKtAObfWaiqOH8UAWdZbVc_26ByPQXsM9PF5btyXc-NZpXgD_wBxwL0Wd4_Rg4sO0ZLdZFzB7mkNXMHe32H_73DQtfMVOuh60jAN1Uc5ppkR7Y3DKlfrPgOCayaNxjRwLcvZrkiN6LDyjLrKlN6EYtWJ-RFsfgOFVvfb" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 O-020-200_Create_Prototype_Order_(IF) — O-020-200_Create_Prototype_Order_(IF)
@@ -696,10 +657,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -709,10 +669,9 @@ flowchart TD
 | Customer Business Analyst | O-020-110_Create_Service_Contract_Order_(IF), O-020-120_Create_Customer_Contract_Order_(IF), O-020-140_Create_No-charge_Order_(IF), O-020-150_Create_Subsequent_Delivery_Free_of_Charge_(FOC)_Order_(IF), O-020-190_Create_Sample_Order_(IF), O-020-200_Create_Prototype_Order_(IF) | |
 | Pricing Manager | O-020-200_Create_Prototype_Order_(IF) | |
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -724,10 +683,9 @@ The following data entities are derived from the system integration flows for O-
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -767,10 +725,9 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -813,10 +770,9 @@ The Future-State architecture represents the **target** landscape for O-020.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -913,10 +869,9 @@ The Future-State architecture represents the **target** landscape for O-020.
 
 **Summary**: 11 Interfaces, 64 Enhancements, 11 Forms, 1 Workflows
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -928,10 +883,9 @@ Integration patterns identified from the system flow analysis for O-020:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -955,10 +909,9 @@ Platform landscape inferred from integrated systems for O-020:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -998,10 +951,9 @@ Platform landscape inferred from integrated systems for O-020:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1030,12 +982,12 @@ Platform landscape inferred from integrated systems for O-020:
 | OTCE1200 | Enhancement to transfer fields from Sales Orders to Purchase Requisition duri... | Jul-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
 | OTCE1124 | Enhancement to support Inbound interface to change the ship to party record a... | Apr-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Jan-26 (100%) | 3. Off Track |
 | OTCE1123 | Determine Confirmed Delivery date in sales orders at schedule line level base... | Jun-25 (100%) | Nov-25 (60%) | Nov-25 (60%) | Nov-25 (100%) | 4. Completed |
+
 *... and 67 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1064,5 +1016,5 @@ Standard RAID items for O-020 (Order To Cash (IF)):
 
 ---
 *O-020 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: March 2026*
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
-</div>

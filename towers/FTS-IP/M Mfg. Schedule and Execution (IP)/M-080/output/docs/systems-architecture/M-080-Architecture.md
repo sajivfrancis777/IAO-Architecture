@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">M-080 — Perform Materials Requirement Planning (IP)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IP) (FTS-IP) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **M-080 Perform Materials Requirement Planning (IP)** within the IAO program. It includes 5 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Forecast to Stock (IP) (FTS-IP) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 2 Reports, 34 Interfaces, 20 Conversions, 35 Enhancements, 7 Forms, 3 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Demand-Supply Matching | Implement responsive demand and supply matching (RDSM) for IP product lines | Supply Chain Agility | Medium |
 | 4 | M-080 Process Migration | Migrate Perform Materials Requirement Planning (IP) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Supply Chain (Intel Products) | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -212,10 +179,9 @@ This capability includes **5 business process(es)** modeled in BPMN 2.0, coverin
 | 4 | M-080-060_Analyze_Alternatives_and_Determine_Changes_(MRP)_(IP) | M-080-060_Analyze_Alternatives_and_Determine_Changes_(MRP)_(IP) | IT Department, Master Data Steward, Material Planner | 3 | 0 |
 | 5 | M-080-070_Edit_MRP_List_(IP) | M-080-070_Edit_MRP_List_(IP) | Material Planner | 1 | 0 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -283,10 +249,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4jgU_StWqopWCpokJITmYSW-slup7CCYmX3Y7oNJHLDq2Fk7gTKI_77X5APIDNWulodW93DvOfceX5wcjEjExAiM-_sD5TQP0KGTb0hKOgHqrLAiHROVwDcsKV4xojo6JxE8X9LvpzTbzd51msZCnFK21-iSrAVBX59NNIRCZiKFueoqImnSMTuZpCmW-7FgQursOzJIrOSkVn01EjIm8pxgWb4deVDKKCdnuOe7vhvqOkUiweMr0sRLBknUOermmNhFGyzzU_uFIjP8_geN8w3ECWaKQM4mT9kLXhGmZ8xlobGokNvaDKq0DgfDlhmOKF8D7loASczfzpBnHY_oeH__yhtR9LJ45Qg-EcNKTUiCVA7wdJujhDIW3LnjYehZpsqleCPBnTP1Jz3HjPQkAYxumdrc7o7Q9SYPVoLFVWp3p2cInOzdlO-BY5lyD39bWoTHZ6Vx3xk4g0Zp5Ntje1wrJUnyv5TAV_kFq7dKa9oLnXDSaNle3xtbP_LVY05cf2i3fSJySyNyQRqGYW96tmra92zrNuko7PWtcYt0jXOyw_sz4dPYbQhDzw9t_yZhqdfusljNpYhqwt7UC72G0B_Z4dC5SegObXdQdQg8a4mzDRqJ4rTLaJhlqvxOf_jgz1djTmQiZIrmDHMOK4cob-Ubf12UPEHJElagzCfwX4q4iHIqODr9xlAu0NK9LrKdByhLcJDgbsbAqme4HCjYhiT5uyAKtklIlH3QwWPJBsKt0Z6_oAnJYPtTwvMLyT4ILkhE6Jb8rNXPp1ZDKdKPhvU_GPbzedjfhr8Pm8IfW5zBoPrSqljkpTGNLXrX0UyAL-BEU7EAe6gkerbzAT3MFvPH60ada56xJMDwaUG2VBHwJ8U8Vp8quBnmmcckg3Y1-aWQPovhy3x5LdHThhYcgXiZwVjTZ8s2F1JrrULClQVNnAQUPVlXCzT11-XeRXnL79ZaWa21WlTbVB18rI_nqueW6OMlmf0vyOQF2QwrIEITnGMEM_I1UW1K7dmQY7b_TsAvyOY4ByqF4DzgWABI4fGDxmV1ebDo4bl9urZ7ONStYSnFTnUxyxFsPWaMsF_L--fVOB4vi7z_VtTsLcihbvcXWKo6tsvYrmOrit0KGJTxUxU-lWG_TnfKeFDFXlXtVbHbiu06oVcBVX0d2i31XhnXYb8M_Ys7VdfUz5Ir2Pk5DAPWD9Rr3L6BOzfw3g3crZ8Z17BXw4ZppLAbmMZGcDBOL0zwUhWTBBcsN46mgYtcLPc8MoLTi4VRZDFUTiiGGyctweM_rSYENg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 M-080-020_Run_MRP_for_Single_Material_(IP) — M-080-020_Run_MRP_for_Single_Material_(IP)
@@ -361,10 +326,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_RVCQeANIKO6WooeCji21QbYbAx7u_vQ9IGRKJsIRaqklMRr-N87tC62lThot36QMYczZ2YORxS3RiJSYkTG5eWWclpGaDso1yQngwgNHrEiAxPVwDcsKX5kRA20TyZ4uaQ_9m62V7xqN43FOKdso9ElWQmC_rg10RgCmYkU5mqoiKTZwBwUkuZYbiaCCam9L0iYWdk-W7N0I2RK5MHBsgI78SGUUU4OsBt4gRfrOEUSwdMT0szPwiwZ7HRxTLwkayzLffmVInf49TtNyzXYGWaKgM-6zNln_EiY7rGUlcaSSj63YlCl83AQbFnghPIV4J4FkMT86QD51m6HdpeXD7xLij4vHjiCX8KwUlOSIVUCPHsuUUYZiy68yTj2LVOVUjyR6MKZBVPXMRPdSQStW6YWd_hC6GpdRo-CpY3r8EX3EDnFqylfI8cy5QaevVyEp4dMk5ETOmGX6SawJ_akzZRl2f_KBLrKr1g9NblmbuzE0y6X7Y_8ifWWr21z6gVju68Tkc80IUekcRy7s4NUs5FvW-dJb2J3ZE16pCtckhe8ORBeT7yOMPaD2A7OEtb5-lVWj3MpkpbQnfmx3xEGN3Y8ds4SemPbC5sKgWclcbFGN6LazzIaF4Wq1_SPX__5YMyJzITM0ZxhzmHkEOU9f-OvoxDbgpglzEAdQOBfirRKSio42r9kqBRo6fWi3E8QluEow8OCgVa3cDpQ0A1J8ndFFIyTkKj4oISrmg0S93q7_YqmpIDxzwkvj1IGkHBBEkKfyXul3u9LjaXIP-o2_KDZ-0Ozv4-_jLvAtyXeQaP61GpY5LEwnSx62NGdAF1AiS5iAfJQSXRvhx36dLeYX8ETK_BCU1xiNFljviIKDDgwr06bcE5zTCQB9l8W5JkqAtrlmKe9tl2tXcUR5NlvzBKyMtJVdersgXPNieaVhAMKWPdlK6p1OnX2j5x7c3PqODpybLS_f-tl2725WjTj1Ox8qvfnuJMxY10bR2NVkzn_guywQ2fE75NqecYcs80PAtkhhuMSyBQC2UF9AHL4BHUczd7eznubaPvbbVscllK8qCFmJYLBx4wR9lt9Bj0Yu91x0OhngoKfCQr_W1D3kkA6NBz-ClPa2k5t261tN3bQAM2625hus-y3_n4NjHq219o9umbZbv29nm2PGqAlaO2wdQhroC0g7K1fN7bV-jcVX7e2VdttQY0e4dFHQVfdfgxPYOd9GDRrbwSnuHMGd8_g3hncbz96p_DofTh4Hw5b2DCNHF4DTFMj2hr7-yHcIVOS4YqVxs40cFWK5YYnRrS_RxlVkULklGI4X_Ma3P0DFddJMA==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 M-080-030_Run_MRP_for_All_Programs_(Mfg.)_(IP) — M-080-030_Run_MRP_for_All_Programs_(Mfg.)_(IP)
@@ -439,10 +403,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v6kYQ_SsrRxGJZFR_m_ihEgHcRrq0CG7bh6YPi72GVdZed9dOQhH_vbN4bcA3XN3e8pBojufMmTk7_tgbCU-JERm3t3ta0CpC-0G1JTkZRGiwxpIMTNQAv2NB8ZoROVA5GS-qFf3nmGZ75btKU1iMc8p2Cl2RDSfotycTjYHITCRxIYeSCJoNzEEpaI7FbsIZFyr7howyKzuq6UuPXKREnBIsK7QTH6iMFuQEu6EXerHiSZLwIr0omvnZKEsGB9Uc42_JFovq2H4tyRy__0HTagtxhpkkkLOtcvYJrwlTM1aiVlhSi9fWDCqVTgGGrUqc0GIDuGcBJHDxcoJ863BAh9vb56ITRZ-WzwWCX8KwlFOSIVkBPHutUEYZi268yTj2LVNWgr-Q6MaZhVPXMRM1SQSjW6Yyd_hG6GZbRWvOUp06fFMzRE75bor3yLFMsYO_PS1SpCelSeCMnFGn9BjaE3vSKmVZ9r-UwFfxGcsXrTVzYyeedlq2H_gT68t67ZhTLxzbfZ-IeKUJOSsax7E7O1k1C3zbul70MXYDa9IrusEVecO7U8GHidcVjP0wtsOrBRu9fpf1eiF40hZ0Z37sdwXDRzseO1cLemPbG-kOoc5G4HKLHnl93GU0LkvZXFO_4uHPZ2NBRMZFjhYMFwWsHKJFL9_464xiW8BZwQ40BAL_BU_rpKK8QL-qmwxVHK28Hsu9A1qGowwPSwZePcHTgYJvSJC_ayJhnbhA5VdauG-qgXBvtqfPaEpKWP-cFNWZZAiCS5IQ-kqutxoLnn9t2tG3Dfvz-JdxR_yyxTkMqp5auoo4N6azRS07mnPwBZyYLxfobo4l8NAUVxhNtrjYEAkBPBDvL5t0LmtMBAG9H5bklUoC3uQY-lf2jhlD8PDt2unN6kKZhosWtYAHDbCXcDpUUjXvZbKn3K0LFNeMnVZnvlihpvvLbP-stDby6F6vg-Asredzb53s3jot9RbpA0_Vsaj2OuePgwiiduTU7h00et9ZA5JwXPnZsjVazjdoded27cj6Rb1TUVnx8njgquF-M2jKC9In-_t9S8ZC8Dc5xKxCcA9gxgj7qXkcPRuHwzkp-B5S-D2k0X8jdfcLHCsaDn9UshpwdRzo2NOx3xL8BujHbhs7mtDGYRM7bdzTswMNeBrQ_DZ80JetNl83-NDGVhO39bTcSIdBb5yRjtvrfi-2dUJw9n5QTbfvxQvY-RgGT9uPg0vcuYK7V3BPv_gvUb99-13Cwcdw-DE8amHDNHIickxTI9obxw9F-JhMSYZrVhkH08B1xVe7IjGi4weVUZcpMKcUq5ulAQ__Aqi7SzA=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 M-080-060_Analyze_Alternatives_and_Determine_Changes_(MRP)_(IP) — M-080-060_Analyze_Alternatives_and_Determine_Changes_(MRP)_(IP)
@@ -517,10 +480,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -532,10 +494,9 @@ flowchart TD
 | Material Planner | M-080-010_Run_MRP_for_All_Materials_(IP), M-080-020_Run_MRP_for_Single_Material_(IP), M-080-030_Run_MRP_for_All_Programs_(Mfg.)_(IP), M-080-060_Analyze_Alternatives_and_Determine_Changes_(MRP)_(IP), M-080-070_Edit_MRP_List_(IP) | |
 | Master Data Steward | M-080-060_Analyze_Alternatives_and_Determine_Changes_(MRP)_(IP),  | |
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -547,10 +508,9 @@ The following data entities are derived from the system integration flows for M-
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -608,10 +568,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -654,10 +613,9 @@ The Future-State architecture represents the **target** landscape for M-080.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -768,10 +726,9 @@ The Future-State architecture represents the **target** landscape for M-080.
 
 **Summary**: 2 Reports, 34 Interfaces, 20 Conversions, 35 Enhancements, 7 Forms, 3 Workflows
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -783,10 +740,9 @@ Integration patterns identified from the system flow analysis for M-080:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -810,10 +766,9 @@ Platform landscape inferred from integrated systems for M-080:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -853,10 +808,9 @@ Platform landscape inferred from integrated systems for M-080:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -885,12 +839,12 @@ Platform landscape inferred from integrated systems for M-080:
 | LOGI1679 | Receive 4C1 Inventory movement Stock type change and cycle count from IF | Jan-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (100%) | 3. Off Track |
 | LOGI1678 | Receive 4C1 Inventory Reconciliation Snapshot from IF | Jan-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (100%) | 3. Off Track |
 | LOGI1576 | ECD_Interface between S4 to ECD for inventory status response | Sep-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (95%) | 4. Completed |
+
 *... and 81 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -919,5 +873,5 @@ Standard RAID items for M-080 (Forecast to Stock (IP)):
 
 ---
 *M-080 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IP) · Generated: March 2026*
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>
-</div>

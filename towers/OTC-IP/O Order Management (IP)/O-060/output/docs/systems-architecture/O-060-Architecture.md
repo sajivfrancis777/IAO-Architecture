@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">O-060 — Manage and Track Orders (IP)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-060 — Manage and Track Orders (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-060 — Manage and Track Orders (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **O-060 Manage and Track Orders (IP)** within the IAO program. It includes 6 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Order To Cash (IP) (OTC-IP) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 5 Reports, 71 Interfaces, 20 Conversions, 167 Enhancements, 28 Forms, 1 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-060 — Manage and Track Orders (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Returns & Rebate Automation | Automate returns processing, rebate management, and chargeback handling | Revenue Assurance | Medium |
 | 4 | O-060 Process Migration | Migrate Manage and Track Orders (IP) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Order Management (Intel Products) | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-060 — Manage and Track Orders (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-060 — Manage and Track Orders (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -213,10 +180,9 @@ This capability includes **6 business process(es)** modeled in BPMN 2.0, coverin
 | 5 | O-060-170_Change_Order_(IP) | O-060-170_Change_Order_(IP) | Customer Business Analyst | 8 | 15 |
 | 6 | O-060-180_Cancel_Order_(IP) | O-060-180_Cancel_Order_(IP) | Customer Business Analyst | 11 | 15 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-060 — Manage and Track Orders (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -354,10 +320,9 @@ Changes"| n8
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWFtv2zYU_iuEisAtYCO6WoofNji-DAbapHXaBkWzB1qibC405erixEv933dokZJFyxuQzg-J9fGc71x5RPrFCJOIGAPj4uKFcpoP0EsnX5E16QxQZ4Ez0umiEviKU4oXjGQdIRMnPL-jfx_ELHfzLMQENsVrynYCvSPLhKAvsy4agiLrogzzrJeRlMadbmeT0jVOd6OEJamQfkOC2IwP1uTSdZJGJK0FTNO3Qg9UGeWkhh3f9d2p0MtImPCoQRp7cRCHnb1wjiVP4Qqn-cH9IiMf8PM9jfIVPMeYZQRkVvmavccLwkSMeVoILCzSrUoGzYQdDgm72-CQ8iXgrglQivljDXnmfo_2FxcPvDKKPo8fOIJPyHCWjUmMshzgyTZHMWVs8MYdDaee2c3yNHkkgzf2xB87djcUkQwgdLMrktt7InS5ygeLhEVStPckYhjYm-du-jywzW66g7-aLcKj2tKobwd2UFm69q2RNVKW4jj-JUuQ1_Qzzh6lrYkztafjypbl9b2Recqnwhy7_tDS80TSLQ3JEel0OnUmdaomfc8yz5NeT52-OdJIlzgnT3hXE16N3Ipw6vlTyz9LWNrTvSwWH9MkVITOxJt6FaF_bU2H9llCd2i5gfQQeJYp3qzQqMjyZE1SdF1k0O9ZhoYcs12Wl3Liw63vD0aMBzHuibSjLxuW4AgNN5s02ZIIjZOwWBOeI8rzBN1h2LroVuypB-PPIxa7yQLqbIdGK8yXJGtKOk3JOQkJ3ZLa1QM5mvEfBU13TVW3qTomOUnXEJcyhMDDg-WmmtdU-4oZjaB0IiKSQj7gS4ux_vdKLUyWYIKEj9K5m9HNfI5GMCdoThMuAjzW9Ns0Z7GKLIPg0AjzkDCGhT66pzxKnjSWoMmiZ_RY9OptJbph0JBVLufkR0GyXCU5QnGSSg6geHfcBabGUTpbyrbwpMm6NrOlGE3GM53S-kXKe7KQOh8wx0si2lC3YWs2VDvNVG3rRmroOb_o2xi2LMVcp3VrWhDe1DozDqlfAxVeJIVg_ouEh9onsW71kM01pkwn9_4v8vEMQR_c337QLfTBQNmZbXvc8mF5yFgSit0DkyoqwlzsuYOsts2tQAiXU-RyThiBU4DM8tvZx3ea8NXLS93sEekt4F0YrhB5DhlMri35oxy1D8Z-fzx0zHa1mRxR6K5YiFRAZsBLsWt_1xms_2CY8YxGpG27nlDZ7VSyAGqgnqg5rwvdfZ2a164GG6zA7BINC-goLBImJ82Ju_3X2fXP5LncnSglDMsyhWW-KEfz8RhhHqFPBeY5zXdidfJMsxwOSMdvohMfg3-txJGtlIgWFjUFc58-f9OJXteWzvm2HBMGahDwTQJbaLiFXS5Ow4e5fHdrods5_LP1gBzrdX7Yr1N7XUc6bv3CiuHAR9JesiFcDif0kUERL-9xSlYJvIbFaDqeuZfHO0x7vTleO_NQvlpHUEYKYw8fGkN0zHu6pnmmBo3kgvNr-YVfoV7vNzF15LNTPjuOfLZMTcCyNMA-SPx8ML6Jl_FPkWu50i8l1ZmW-_LZUprSmF1xy2dXCdgadaUpBfvqOZCCN8lBrsJVeF4DAMEpdNm1fV2yBmrVldErjx0FKMOOclEROsoVFbRtnUvHCddJ4lTclnS7KoI0oox6WpEclUhfKThakQI9YbI2ThWH5LQUhe1r3tmBviKTXZfLbC74ehklblUKnlyoZ-0Dr851IBnoguVwBvRYytYTKu24eklOHA70_uofXUNEP6rrVwO222GnHXbbYa8d7h_fzxor_tmV4OzKVXUrbsZlnsGtM7h9BnfO4K68ITdRrxXtn-Hwz-DBGfxKXUKbtTLbYasdttthpx1222GvHe63w347HLTD7VE67VE67VE67VE67VHCDJSX8SbsKdjoGnDyhlN6ZAxejMNPW_DzV0RiXLDc2HcNDLv7bsdDY3D4CcgoNuLOOaYYbubrEtz_A8D9BBI=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-060 — Manage and Track Orders (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 O-060-020_Receive_Request_for_Status_by_User_(IP) — O-060-020_Receive_Request_for_Status_by_User_(IP)
@@ -492,10 +457,9 @@ Changes"| n8
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWFtv2zYU_iuEisAtYCO6WoofNji-DAbapHXaBkWzB1qibC405erixEv933dokZJFyxuQzg-J9fGc71x5RPrFCJOIGAPj4uKFcpoP0EsnX5E16QxQZ4Ez0umiEviKU4oXjGQdIRMnPL-jfx_ELHfzLMQENsVrynYCvSPLhKAvsy4agiLrogzzrJeRlMadbmeT0jVOd6OEJamQfkOC2IwP1uTSdZJGJK0FTNO3Qg9UGeWkhh3f9d2p0MtImPCoQRp7cRCHnb1wjiVP4Qqn-cH9IiMf8PM9jfIVPMeYZQRkVvmavccLwkSMeVoILCzSrUoGzYQdDgm72-CQ8iXgrglQivljDXnmfo_2FxcPvDKKPo8fOIJPyHCWjUmMshzgyTZHMWVs8MYdDaee2c3yNHkkgzf2xB87djcUkQwgdLMrktt7InS5ygeLhEVStPckYhjYm-du-jywzW66g7-aLcKj2tKobwd2UFm69q2RNVKW4jj-JUuQ1_Qzzh6lrYkztafjypbl9b2Recqnwhy7_tDS80TSLQ3JEel0OnUmdaomfc8yz5NeT52-OdJIlzgnT3hXE16N3Ipw6vlTyz9LWNrTvSwWH9MkVITOxJt6FaF_bU2H9llCd2i5gfQQeJYp3qzQqMjyZE1SdF1k0O9ZhoYcs12Wl3Liw63vD0aMBzHuibSjLxuW4AgNN5s02ZIIjZOwWBOeI8rzBN1h2LroVuypB-PPIxa7yQLqbIdGK8yXJGtKOk3JOQkJ3ZLa1QM5mvEfBU13TVW3qTomOUnXEJcyhMDDg-WmmtdU-4oZjaB0IiKSQj7gS4ux_vdKLUyWYIKEj9K5m9HNfI5GMCdoThMuAjzW9Ns0Z7GKLIPg0AjzkDCGhT66pzxKnjSWoMmiZ_RY9OptJbph0JBVLufkR0GyXCU5QnGSSg6geHfcBabGUTpbyrbwpMm6NrOlGE3GM53S-kXKe7KQOh8wx0si2lC3YWs2VDvNVG3rRmroOb_o2xi2LMVcp3VrWhDe1DozDqlfAxVeJIVg_ouEh9onsW71kM01pkwn9_4v8vEMQR_c337QLfTBQNmZbXvc8mF5yFgSit0DkyoqwlzsuYOsts2tQAiXU-RyThiBU4DM8tvZx3ea8NXLS93sEekt4F0YrhB5DhlMri35oxy1D8Z-fzx0zHa1mRxR6K5YiFRAZsBLsWt_1xms_2CY8YxGpG27nlDZ7VSyAGqgnqg5rwvdfZ2a164GG6zA7BINC-goLBImJ82Ju_3X2fXP5LncnSglDMsyhWW-KEfz8RhhHqFPBeY5zXdidfJMsxwOSMdvohMfg3-txJGtlIgWFjUFc58-f9OJXteWzvm2HBMGahDwTQJbaLiFXS5Ow4e5fHdrods5_LP1gBzrdX7Yr1N7XUc6bv3CiuHAR9JesiFcDif0kUERL-9xSlYJvIbFaDqeuZfHO0x7vTleO_NQvlpHUEYKYw8fGkN0zHu6pnmmBo3kgvNr-YVfoV7vNzF15LNTPjuOfLZMTcCyNMA-SPx8ML6Jl_FPkWu50i8l1ZmW-_LZUprSmF1xy2dXCdiS-iY5MFsnC8pmRSkZ-upZxec1ANCcQptd29eldqBWXRm-ctlRgDLgKB8VoaNMqqht61w-TrhOMqfis6TbVRWkEWXU06rkqEz6SsHRqhToiZHFcao4JKelKOxAz3FfX5FlqXBf07ADfUVq1BU2mwu-nkRdwdEUKiJP4vXYfuDVEREEA12wnPOAHkvZR9cQ0Y_q-tWA7XbYaYfddthrh_vH97PGin92JTi7clXdiptxmWdw6wxun8GdM7grb8hN1GtF-2c4_DN4cAa_UpfQZq3Mdthqh-122GmH3XbYa4f77bDfDgftcHuUTnuUTnuUTnuUTnuUMALlZbwJewo2ugacvOGUHhmDF-Pw0xb8_BWRGBcsN_ZdA8OWvNvx0BgcfgIyio24c44phpv5ugT3_wCoEwQS" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-060 — Manage and Track Orders (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 O-060-110_Review_Status_and_Determine_Options_(IP) — O-060-110_Review_Status_and_Determine_Options_(IP)
@@ -608,10 +572,9 @@ Customer Hold"| n4
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21z2jgQ_isadzKkMzD4FQMf7gZM3GYmbXNHev1Q7oNiy-CJsH2SgNCU_96VXwAL-4a540NiPdp9VrvaXUlvWpCGRBtrNzdvcRKLMXrriBVZk84YdZ4xJ50uKoC_MIvxMyW8I2WiNBHz-EcuZtjZqxSTmI_XMd1LdE6WKUFf77toAoq0izhOeI8TFkedbidj8RqzvZfSlEnpd2QY6VFurZyapiwk7CSg664ROKBK44ScYMu1XduXepwEaRLWSCMnGkZB5yAXR9NdsMJM5MvfcPIJv36LQ7GCcYQpJyCzEmv6gJ8JlT4KtpFYsGHbKhgxl3YSCNg8w0GcLAG3dYAYTl5OkKMfDuhwc7NIjkbR02yRIPgFFHM-IxHiAuC7rUBRTOn4ne1NfEfvcsHSFzJ-Z965M8vsBtKTMbiud2VwezsSL1di_JzSsBTt7aQPYzN77bLXsal32R7-KrZIEp4seQNzaA6Plqau4RleZSmKov9lCeLKnjB_KW3dWb7pz462DGfgePolX-XmzHYnhhonwrZxQM5Ifd-37k6huhs4ht5OOvWtge4ppEssyA7vT4Qjzz4S-o7rG24rYWFPXeXm-ZGlQUVo3Tm-cyR0p4Y_MVsJ7YlhD8sVAs-S4WyFvA0X6ZowNN1wyHfO0STBdM9FISd_ifF9oUV4HOGeDDvyViR4QXMMJYq-yNpBU5oGL7yPPsIu8r5P8ZIvtL_PGMw6Qy5fY4hShu4TQWjOUVe2rlH-Y56RoBxfUtjXUHhf50-neFySOHUSVd2PX0mIPsGOyzaEZBTq-oNr9B8pTkSDsvvvyrMUfU4Ful9nLN0SdDv7fP--gWV4TRymm5iGffTISIb3awLLuYzF6BqiTzGMRZoQNIV0hZ7VQGTodaZJltE9mhEabwnbl8SS7IxcYTC-HymCdNm2lvlDZb2mbDYpczUzGAljUUyqBNY1BB-e5s3a9jVr96BRMhyIRgec2yNDRqHV_En-2UDU4X9AIIYhEil8b2OyQ3OBxYYjnIQQYEjTNRQ8-pKJOE1kvb4_p5XJmneCHwT1z8QZwTxN8mU954uFjxUsC93eP75XNkbmbGk6d6xfxvFji7zMTm-FkyVp3GeZcx5OAmgSDdOmTKT7BBa2Loqo_w0zskohq1AaldEs2PsFC8XSc4VF9rrJMYhQA72yCLpQY7ukGkm3H4iAqEjy0q_bhy-e4pNpvr2dNjgkvWc4woMVetpn-bKKuJSNMy9Y_vtCOxzOKaxmCvIaUOjZW_KhOGRUNfu_qTknNcxYuuM9TAXKMMOUEnqhBEd-8QGVgHq932TqVIBZAm4FGAVgWiVgKmPDKTWqcTlvVvKlCdOpgEphpALDErAUE7ZqUgUcZTxQxq7qQ6WgV0Du1c-Fljd0AM9b-k8gbJNTjg4QdVTRUxf7KcOpTp_VVyFhqhKyEZ2mrQuCeqeRMvaFjDwmF4lyUILohWT9UILZ82MJFKq8GJYRrAhGytis9ujC4bYTBshHquz59QLmL0LTduyBbJVMhq5u_tHV2oFVRO4iIfI7CoDntxQQtM7ueDLnq7ttDTabYasZtpthpxkeNMNuMzxshkfNMISsGTfOb9z1KbN9ymqfstunnOMrqI4PWnC3BR-24KNm3NRbcKMFN6sHQx22mmG7GXYqWOtqUJ9rHIfa-E3L39bw_g5JhDdUaIeuhjcine-TQBvnb1Btk4WgOYsxPA3WBXj4BWm24d8=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-060 — Manage and Track Orders (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 O-060-130_Create_Backorder_(Delinquent_)_(IP) — O-060-130_Create_Backorder_(Delinquent_)_(IP)
@@ -810,10 +773,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWe9v4jYY_lciTqduEuhix04oHzZRKNtJd2t13N00rftgEgeimgQ5Acq6_u97A3YCxp5WygdEnvd93t-2k_DciYuEdwad9--fszyrBt7zVbXgS3418K5mrORXXe8AfGcyYzPBy6taJy3yapr9vVdDZPVUq9XYhC0zsavRKZ8X3Pv2sesNgSi6XsnysldymaVX3auVzJZM7kaFKGSt_Y73Uz_de1Oim0ImXLYKvh-hmAJVZDlv4SAiEZnUvJLHRZ6cGE1p2k_jq5c6OFFs4wWT1T78dck_s6ffs6RawHXKRMlBZ1EtxSc246LOsZLrGovXcqOLkZW1nxwKNl2xOMvngBMfIMnyxxai_suL9_L-_UPeOPW-jh9yDz6xYGU55qlXVgDfbiovzYQYvCOj4YT63bKSxSMfvMO30TjA3bjOZACp-926uL0tz-aLajArRKJUe9s6hwFePXXl0wD7XbmDb8MXz5PW0yjEfdxvPN1EaIRG2lOapm_yBHWVX1n5qHzdBhM8GTe-EA3pyD-3p9Mck2iIzDpxuclifmR0MpkEt22pbkOKfLfRm0kQ-iPD6JxVfMt2rcHrEWkMTmg0QZHT4MGfGeV6di-LWBsMbumENgajGzQZYqdBMkSkryIEO3PJVgtvtC6rYsmld7MuYd7L0hvmTOzK6qBXf3L050MnZYOU9eqye1O24fAFK9S7q5fOQ-evI2V8qvxtlUAN3OrBa2yT1yjTPxvtuJh7owWPH73pB-JVhXfzx4HhfWcigwCzIm8L8GUNFsHWsbHQMMZW1VpyZSQDMosfBQi-8FUhK4McnZJVSf6T0j-lfGY5mx8ohcr0WPv6LdEh_01sZLJFvBZ1fqPx2Ks39sSD4o4-D8cmE1sbtF6txM5UDWyqQyGKeN87U51YC346KScEY1Ysg3WiHlrtjxYshyZ9cpYqep0XYwZ-4TmXtZ9bKQvpcPGmScD-q6YOG63_KrP5HNzc3-EP0ztsatvbfffpIwQj-IblMTcpwQ8NBXaplUpDJZWc5wPTE8ewhNO12M_Qj8fGiGGsSUvlmfwnmxrs26esOm6eN40l57lJCy-jRZfR-sAaSV4PiSpVkaeZXOpFcqx7beoO48e82AqezJc8r4xd2n-VNvr_cQT4VZbr46I-AOt92naakNbamItsw-XO-62ouKFGW7V7weA2pCp6-x8wxHD3mEIYNush0Ma84nIJJ4X3a7GtzxK1DXHvY76BgAvwOOPVFtrTjlhpGIpa_9OK1TeTidVh__m5XTMJ780gunhRH19SrxlvBbcGPPn5ofPycky9tlP5UyzgoNvwXw63JgaN-Hbar6zc7-GQGuS1ksUmS86dEuRmfyv3vY35qoKlBhlAG1dFycSZEew2ArQSauwxL-fbfUBn7MDOrjfbD-YyOiOTt5DpW8ihO2mWqy1_BIJDA-5VA7zZDmpyd39mLrqs-455my6KtUgOm_WMH1qwv4s683s0dQxi3pY9JioYUcmE4MLulfqXkNAlJHwJKbiERC4h0UtI4SWko1uRFB69uOwVK5gr2KcrFlftUwHsTXC2loWAW5X7O2-clXDwrGAoMpjkHz7e_9ge2fDwd_iRY6_X-6negtR1EB0AjBVArhWgNcjhmqrHHfihTJhAqE0qC1Rd95VBovWRAvoGoD0idU3Uc2AeKoL2qORUy6nKCgVaIVAaDYANoKE0ee8p_zx06u3gofNPfV9hiurtYi_SVlSmpDGClOYf9VMKKOoICTFNoEiHpgqMtDtEVay6YEjlj5qKa0poAIH2p7pKI6Or-lrVhzQl1wQdBFVBBDo1pLpMtU-k-kqaRJQP3VZCzZyJYRw1M6bck8a9Hkt9rQPWJcAqHNw0VBUp0ABWUxJQQwMjk6LjwmooSJMCVin8VuwTaJInfaPR7YIyJbTJQXnrmzaU8SA0TSgBCcwpamc0NCdPc4jZhZbTDEVocBqBb44xMiWaEpq2GspZDRsJOXpxUi9m_cLoBMZ2OLDDxA7T41dHJ5LQKYmckr5Tcu2UwLJxipBbhN2iwC0ibpG7EshdCuSuBXIXA7mrgd3VwO5qYHc1cKBebJ6ixIpSKxpa0ciK9ptXtqf4tR0PfAeOHDh24IEDJw6cOvDQgUcOvK_fkp7C11YY9gYrjOwwtsOBHSZ2mNrh0A5HdtieJbFnSe1ZUnuW1J4ltWdJ7VlSe5bUniUcnepNdKfbgfvEJcuSzuC5s_8DB_7kSXjK1qLqvHQ7bF0V010edwb7Pzo66_3LsnHG4P3z8gC-_Av4MATz" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-060 — Manage and Track Orders (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 O-060-170_Change_Order_(IP) — O-060-170_Change_Order_(IP)
@@ -948,10 +910,9 @@ Changes"| n8
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWNtu2zgQ_RVCReAWsBFdLcUPu3B8WRhok9ZpGxTNPtASZXNDU64uTryp_32HFilbtLQLpOuHxDqcOYczHI5IvxhhEhFjYFxcvFBO8wF66eQrsiadAeoscEY6XVQCX3FK8YKRrCNs4oTnd_Tvg5nlbp6FmcCmeE3ZTqB3ZJkQ9GXWRUNwZF2UYZ71MpLSuNPtbFK6xululLAkFdZvSBCb8UFNDl0naUTSo4Fp-lbogSujnBxhx3d9dyr8MhImPKqRxl4cxGFnLybHkqdwhdP8MP0iIx_w8z2N8hU8x5hlBGxW-Zq9xwvCRIx5WggsLNKtSgbNhA6HhN1tcEj5EnDXBCjF_PEIeeZ-j_YXFw-8EkWfxw8cwSdkOMvGJEZZDvBkm6OYMjZ4446GU8_sZnmaPJLBG3vijx27G4pIBhC62RXJ7T0Rulzlg0XCImnaexIxDOzNczd9HthmN93BX02L8OioNOrbgR1USte-NbJGSimO419Sgrymn3H2KLUmztSejisty-t7I_OcT4U5dv2hpeeJpFsakhPS6XTqTI6pmvQ9y2wnvZ46fXOkkS5xTp7w7kh4NXIrwqnnTy2_lbDU02dZLD6mSagInYk39SpC_9qaDu1WQndouYGcIfAsU7xZoVGR5cmapOi6yKDeswwNOWa7LC_txIdb3x-MGA9i3BNpR182LMERGm42abIlERonYbEmPEeU5wm6w7B10a3YUw_Gnycsdp0F3NkOjVaYL0lWt3TqlnMSErolx6keyNGM_yhouqu7unXXMclJuoa4lBCCGR6U625e3e0rZjSCpRMRkRTyAV8axPrfK7cwWYIECR_l5G5GN_M5GkGfoDlNuAjw1NNv8pzFKrIMgkMjzEPCGBb-6J7yKHnSWII6i57RU9Ort5XphkFBVrmckx8FyXKV5AjFSSo5gOLdaRWYGkc52dK2gSdN1keZLcVoMp7plNYvUt6ThfT5gDleElGGuoataahymqm1PRZSzc_5xbmNYctSzHVa90gLxpujz4xD6tdAhRdJIZj_IuFh7ZNYVz1kc40p08m9_4t8PENQB_e3H3SFPgiUldm0xy0fhoeMJaHYPdCpoiLMxZ472Grb3AqEcdlFLueEETgFyCy_nX18pxlfvbwciz0ivQW8C8MVIs8hg861JX-UrfbB2O9Pm47Z7DaTLQrdFQuRCsgMzFLs2t91Bus_GGY8oxFp2q5nVHYzlVwA1VDP3JzXhe6-zs1rdoMNVmB2iYYFVBQWCZOd5my6_dfp-i15LncnSgnDcpnCMl-Uo_l4jDCP0KcC85zmOzE6eaZZDgek0zfR2RyDf12JE62UiBIWawpynz5_04leV5ZOe1mOCQM3CPgmgS003MIuF6fhQ1--u7XQ7Rz-2XpAjvW6edivc3tdRTru8YUVw4GPpL1kQ7hsTugjg0W8vMcpWSXwGhat6bTnXp7uMO315njNzEP5ah3BMlJoe_hQGKJi3tM1zTPVaCQXnF_LL_wK9Xq_ia4jn53y2XHks2VqBpalAfbB4ueD8U28jH-KXMuRfmmpzrTcl8-W8pRidsUtn11lYEvqm-TAbJ0NKM2K0tcG7ECNSO6-eg50irMRqVrhKldeDQDDKZTstX1d0lSCrkylCt9RgJqso-JVhI5ZV1bhOmryKrO21ZbzKgGSosrlmfjZsilLS8ZZlYBUV7P0tBJx1DL6ag6epD620AdeHddAKtANy54L6KnVWbB6SLaWLqVvOVqJBvray8p0qsTLmCz_5Boi6lFdv2qw3Qw7zbDbDHvNcP_0flYb8VtHgtaRq-pWXI_LbMGtFtxuwZ0W3JU35DrqNaL9Fg6_BQ9a8Ct1Ca2vldkMW82w3Qw7zbDbDHvNcL8Z9pvhoBlujtJpjtJpjtJpjtJpjhLalryM12FPwUbXgJM3nNIjY_BiHH7agp-_IhLjguXGvmtgaAN3Ox4ag8NPQEaxEXfOMcVwM1-X4P4fuc8EEg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-060 — Manage and Track Orders (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 O-060-180_Cancel_Order_(IP) — O-060-180_Cancel_Order_(IP)
@@ -1084,10 +1045,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-060 — Manage and Track Orders (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -1096,10 +1056,9 @@ flowchart TD
 |------------|-------------------|-------------|
 | Customer Business Analyst | O-060-010_Receive_Customer_Order_Inquiry_(IP), O-060-020_Receive_Request_for_Status_by_User_(IP), O-060-110_Review_Status_and_Determine_Options_(IP), O-060-130_Create_Backorder_(Delinquent_)_(IP), O-060-170_Change_Order_(IP), O-060-180_Cancel_Order_(IP) | |
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-060 — Manage and Track Orders (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -1111,10 +1070,9 @@ The following data entities are derived from the system integration flows for O-
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-060 — Manage and Track Orders (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -1175,10 +1133,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-060 — Manage and Track Orders (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1221,10 +1178,9 @@ The Future-State architecture represents the **target** landscape for O-060.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-060 — Manage and Track Orders (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1526,10 +1482,9 @@ The Future-State architecture represents the **target** landscape for O-060.
 
 **Summary**: 5 Reports, 71 Interfaces, 20 Conversions, 167 Enhancements, 28 Forms, 1 Workflows
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-060 — Manage and Track Orders (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1541,10 +1496,9 @@ Integration patterns identified from the system flow analysis for O-060:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-060 — Manage and Track Orders (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1568,10 +1522,9 @@ Platform landscape inferred from integrated systems for O-060:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-060 — Manage and Track Orders (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1611,10 +1564,9 @@ Platform landscape inferred from integrated systems for O-060:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-060 — Manage and Track Orders (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1643,12 +1595,12 @@ Platform landscape inferred from integrated systems for O-060:
 | OTCI1187 | Interface for BP Create/ Change in GTS - CAAS | May-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Dec-25 (100%) | 4. Completed |
 | OTCI1180 | EMS_Inbound Interface for Capturing Hardware SO and Line-Item Details into se... | Jun-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Nov-25 (100%) | 4. Completed |
 | OTCI1179 | EMS_Outbound interface to OL (Orchestration layer) for activation key generat... | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 4. Completed |
+
 *... and 272 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-060 — Manage and Track Orders (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1677,5 +1629,5 @@ Standard RAID items for O-060 (Order To Cash (IP)):
 
 ---
 *O-060 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: March 2026*
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-060 — Manage and Track Orders (IP)</span></div>
-</div>

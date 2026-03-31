@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **IF_Simplified_PO-SO_Model IF Simplified PO-SO Model** within the IAO program. It includes 15 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | End-to-End Integrated Processes (E2E) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 2 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 2 Pending IAPM |
 | **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Process Visibility & Monitoring | Provide end-to-end process visibility across tower boundaries with integrated monitoring | Operational Excellence | Medium |
 | 4 | IF_Simplified_PO-SO_Model Process Migration | Migrate IF Simplified PO-SO Model business processes and 2 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Cross-Functional / End-to-End | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -207,79 +174,102 @@ This capability includes **15 business process(es)** modeled in BPMN 2.0, coveri
 | # | Step ID | Process Name | Lanes | Tasks | Gateways |
 |---|---------|--------------|-------|-------|----------|
 | 1 | IF_Simplified_PO-SO_Model_-_1A_Intel_Products_-_Wafer_Procurement_from_External_Foundry_and_Shipment | IF_Simplified_PO-SO_Model_-_1A_Intel_Products_-_Wafer_Procurement_from_External_Foundry_and_Shipment | Boundary
+
 Apps
 (Intel Prod)
 , External Partners/Supplier
 , Intel Product
+
  | 31 | 10 |
 | 2 | IF_Simplified_PO-SO_Model_-_1B_Bailment_of_Procured_Wafer_by_Intel_Products_via_External_Foundry | IF_Simplified_PO-SO_Model_-_1B_Bailment_of_Procured_Wafer_by_Intel_Products_via_External_Foundry | External Partners/B2B
+
 , Intel Foundry (LE500) - Ireland
 , Intel Product
+
  | 21 | 3 |
 | 3 | IF_Simplified_PO-SO_Model_-_1C_Payment_Process_in_CFIN | IF_Simplified_PO-SO_Model_-_1C_Payment_Process_in_CFIN | Boundary Apps, CFIN, MBC, SAP S/4 (IP & IF) | 15 | 10 |
 | 4 | IF_Simplified_PO-SO_Model_-_1D_Intel_Foundry_Standard_Sales_Order_to_Cash_Scenario_for_PROC_&amp;_CO | IF_Simplified_PO-SO_Model_-_1D_Intel_Foundry_Standard_Sales_Order_to_Cash_Scenario_for_PROC_&amp;_CO | Boundary Apps, External Partners/ B2B
+
 , S/4 Intel Product, SAP S/4 Intel Foundry - LE500 Ireland
 , SAP S/4 Intel Foundry - LE778 (China)
 , SAP S/4 Intel Foundry - LE798 | 66 | 54 |
+
 | 5 | IF_Simplified_PO-SO_Model_-_1E_Intel_Products_–_Bailing_the_Sorted_Die_to_LE778_back_Virtually | IF_Simplified_PO-SO_Model_-_1E_Intel_Products_–_Bailing_the_Sorted_Die_to_LE778_back_Virtually | External Partners/B2B
+
 , Intel Foundry (LE778) – China
 , Intel Product
+
  | 15 | 2 |
 | 6 | IF_Simplified_PO-SO_Model_-_1F_IP_IF_Cash_Settlement | IF_Simplified_PO-SO_Model_-_1F_IP_IF_Cash_Settlement | Boundary Apps
+
 Intel Foundry
 , External Partners/ B2B
 , LE798 – SG -  Virtual
 , S/4 Intel Products, SAP CFIN Intel Foundry AR
 , SAP CFIN Intel Product AP
 , SAP S/4 Intel Foundry - LE778 (China)
+
  | 15 | 6 |
 | 7 | IF_Simplified_PO-SO_Model_-_1G_IP_IF_-_Inhouse_Settlement | IF_Simplified_PO-SO_Model_-_1G_IP_IF_-_Inhouse_Settlement | Boundary Apps
+
 Intel Foundry
 , External Partners/ B2B
 , LE 101, S/4 Intel Products, SAP CFIN Intel Foundry AR
 , SAP CFIN Intel Product AP
 , SAP S/4 Intel Foundry - LE778 (China)
+
  | 14 | 5 |
 | 8 | IF_Simplified_PO-SO_Model_-_2A_IP_requests_to_move_the_inventory_from_LE778_to_LE101_(Chandler)_late | IF_Simplified_PO-SO_Model_-_2A_IP_requests_to_move_the_inventory_from_LE778_to_LE101_(Chandler)_late | LE101 – Chandler
+
 , LE778 – China
 , Mirror LE101 Chandler
 , Mirror LE778 China
+
  | 14 | 2 |
 | 9 | IF_Simplified_PO-SO_Model_-_3A_IF_Sales_Order_Process_for_Sales_to_IP_(PROC_&amp;_COPO) | IF_Simplified_PO-SO_Model_-_3A_IF_Sales_Order_Process_for_Sales_to_IP_(PROC_&amp;_COPO) | Boundary Apps, External Partners/ B2B
+
 , S/4 Intel Product, SAP S/4 Intel Foundry - LE500 Ireland
 , SAP S/4 Intel Foundry - LE778 (China)
 , SAP S/4 Intel Foundry - LE798 | 68 | 57 |
+
 | 10 | IF_Simplified_PO-SO_Model_-_3B_Intel_Products_Bailing_Sorted_Die_to_LE778_back_virtually | IF_Simplified_PO-SO_Model_-_3B_Intel_Products_Bailing_Sorted_Die_to_LE778_back_virtually | External Partners/B2B
+
 , Intel Foundry (LE778) – China
 , Intel Product
+
  | 15 | 2 |
 | 11 | IF_Simplified_PO-SO_Model_-_3C_Intel_Products_requests_to_move_inventory_from_LE778_to_LE101_Chandle | IF_Simplified_PO-SO_Model_-_3C_Intel_Products_requests_to_move_inventory_from_LE778_to_LE101_Chandle | LE101 – Chandler
+
 , LE778 – China
 , Mirror LE101 Chandler
 , Mirror LE778 China
+
  | 14 | 2 |
 | 12 | IF_Simplified_PO-SO_Model_-_3D_IP_IF_Cash_Settlement | IF_Simplified_PO-SO_Model_-_3D_IP_IF_Cash_Settlement | Boundary Apps
+
 Intel Foundry
 , External Partners/ B2B
 , LE798 – SG -  Virtual
 , S/4 Intel Products, SAP CFIN Intel Foundry AR
 , SAP CFIN Intel Product AP
 , SAP S/4 Intel Foundry - LE778 (China)
+
  | 15 | 6 |
 | 13 | IF_Simplified_PO-SO_Model_-_3E_IP_IF_Inhouse_Settlement | IF_Simplified_PO-SO_Model_-_3E_IP_IF_Inhouse_Settlement | Boundary Apps
+
 Intel Foundry
 , External Partners/ B2B
 , LE 101, S/4 Intel Products, SAP CFIN Intel Foundry AR
 , SAP CFIN Intel Product AP
 , SAP S/4 Intel Foundry - LE778 (China)
+
  | 14 | 5 |
 | 14 | IF_Simplified_PO-SO_Model_-_4A_Month_End_Recon_Intel_Foundry_raising_Debit_Memo_for_Delta_charges | IF_Simplified_PO-SO_Model_-_4A_Month_End_Recon_Intel_Foundry_raising_Debit_Memo_for_Delta_charges | LE798 | 20 | 15 |
 | 15 | IF_Simplified_PO-SO_Model_-_4B_Month_End_Recon_-_Intel_Foundry_raising_Cebit_Memo_for_Delta_charges | IF_Simplified_PO-SO_Model_-_4B_Month_End_Recon_-_Intel_Foundry_raising_Cebit_Memo_for_Delta_charges | LE798 | 19 | 15 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -292,6 +282,7 @@ Apps
 (Intel Prod)
  · External Partners/Supplier
  · Intel Product
+
  | **Tasks**: 31 | **Gateways**: 10
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -434,10 +425,9 @@ PIP 3B2"| n18
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv4kgW_islWq0QCRpfuT3sCgxkkaYbhOmORss-FHYZSilsT9nOZdP573PKrjK4Qkaanjwk8ce5n--cKvPaCpKQtMatz59faUzzMXq9yY_kRG7G6GaPM3LTQRXwA3OK94xkN0ImSuLcp_8vxUwnfRZiAlvgE2UvAvXJISHo-7KDJqDIOijDcdbNCKfRTecm5fSE-YuXsIQL6U9kGBlR6U1-NE14SPhZwDAGZuCCKqMxOcP2wBk4C6GXkSCJw4bRyI2GUXDzJoJjyVNwxDwvwy8y8hU_39MwP8JzhFlGQOaYn9hveE-YyDHnhcCCgj-qYtBM-ImhYH6KAxofAHcMgDiOH86Qa7y9obfPn3dx7RRtZ7sYwU_AcJbNSISyHOD5Y44iytj4k-NNFq7RyXKePJDxJ2s-mNlWJxCZjCF1oyOK230i9HDMx_uEhVK0-yRyGFvpc4c_jy2jw1_gt-aLxOHZk9e3htaw9jQdmJ7pKU9RFP0jT1BXvsXZg_Q1txfWYlb7Mt2-6xnv7ak0Z85gYup1IvyRBuTC6GKxsOfnUs37rml8bHS6sPuGpxk94Jw84ZezwZHn1AYX7mBhDj40WPnToyz2a54EyqA9dxdubXAwNRcT60ODzsR0hjJCsHPgOD2iaVKUXEaTNM1QexnnhCFwEd6iSlL8xOZ_d6014VHCT7vCMLAxIycch2jNcBwDGdFyut61_nehYZ01kF-kKXs5C09_b8raQlZ9GCYxQaCG7nFEeFPQAcEJizjJggS1J95X_7Yp4ILA3Js0wT6AGxIQ-khQkYbQkgxtCA79JMrRD8woQDSJe_PngKTiP_QfyI2JYMRiChEgvICFBBzJi7RpfADGl3GQnIQ4jR8T4FAPza1VSuLePdlDpWlOmjpD0PmK4wIzpZGh_MiT4nBEK2_TFB6B8HcZdUbiHOUJWsUBQVlScPiT42eEUy0q226DWoTHEe5meZJWxTx3YAZFBo3bS5Xh66tSwZwnT1kXsxylmGPGCLurmLxrvb1dKo1-QclxrirROGBFBk36QMv9m1qwjDSuz59zwmOo-hpWYkx41iuZSaEyl8x1LviyXiGco1psDjabNBeM88EVmgQPcfLESHiAMyzONbFLDvrbFYKzBygOrbSnFvLpAaLSNASxJv63HlqJ4wllR5oKu-geljxY0KQFpbacHg6iy8eXjAaQZukwzVESoSmmEBry8yR4EBlVc74Qww-z7wNFUXv1JGoCfr58-aKZFyS8S5Iwq216SRxRfionR-OeIYQJ2IKOgCNBcOCcJiQ2yiR8xILJlQxEsIzEGmIQPJz_2mjb1pnSKYOdqmuLvUiyDInbBQXXoUZwx_oVrtq_otT_x1Q97-EiyBubWFTX40TUdg0L4AgbSlKkvV6Zt-fuL9flvGtMNEXhPcyCggkTW_xMMk3CuuDS3dZH3pEED5pMubKLPaPZUQtDEyxX9nk0epI3f63kXslxQ_4oaEbf883sn6X97Qa1n2BCRCk0scGl2Ar5QHS0TcZoudAEh-VK34vZQDPCoGEwIu3761bFZPygPBfLvDkh7e8xHFQ5p0GuJu9WHCWwUq70xTIuDswPqm6Zl5N1t0H4gGmcXdsHVplDNQho_ohZISaijs0nec7KPYXa841_CwCLulO4VLybVMu-NFVvwnrqkix_P92OdvxUBNVWJJILUR9U29W0RbvUdHvJKWXk_XTbggU-nOUEuUPkLZbf4OZLUo3b9uA8meJ9pLuHG3VwrLOZBOIKQMJ_6xNt_MoaMP-eUr0FYMhRt_sv4VYCjgRMUwcspWJKFSVhWhrgSAnTloDlVIDlKhX5rD6vHu2hfLaHEtCeHUd50J8loOzbUl8ZcGVAtX8FqLRNacBWFs3SxE-45M2WaOgavfkJDrZdvPk23yJ74vTsiTnatX6K5LQozb6y0ZfAQOXpXhgFq26vomvjiCtdjIWP0rypzFvSmlVbG8gq1J2RAah3GPhHBjBSdZKVtlSlLdkJW1XGGsoQHbgutO82t1WOda9Hl2Xpm3ABvagL6FTiyp81kiGqRjiyM05fAyyVhMzSrkNWgEpKZq0ycGQrlUFFlZoKAxnx7-L4EcHZ-iffkvKDOiZL0acGLN2oYqyqi21qedlGgz-DRqGgu55d-lS9tGWhbB1QZRhpEZgq-Gq1iat2uevHcISrU2K5qDC0KywDCP3b3DUMtOSEiTeqXbyGgxtoXEVi9Rsc-VneCUGoir-vxGWHzeHF62JZD_X238Rt-abeRJ2rqHsV7X9geaBeeZvw8Do8ugrDbrsKm9dh6zpsX4ed67B7He4ruNVpnQjsAhq2xq-t8nsq-C4rJBEuWN5667RwkSf-Sxy0xuX3Oa3qRXNGMdznThX49idZE7s1" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 IF_Simplified_PO-SO_Model_-_1B_Bailment_of_Procured_Wafer_by_Intel_Products_via_External_Foundry — IF_Simplified_PO-SO_Model_-_1B_Bailment_of_Procured_Wafer_by_Intel_Products_via_External_Foundry
@@ -445,6 +435,7 @@ PIP 3B2"| n18
 **Swim Lanes**: External Partners/B2B
  · Intel Foundry (LE500) - Ireland
  · Intel Product
+
  | **Tasks**: 21 | **Gateways**: 3
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -543,10 +534,9 @@ IP STO as reference"| n12
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21P4zgQ_itWVqhFarVJmjSlH06ipUGVFogou3y43gc3cahFake2A3Sh__3GSZy2oZx0d0hAPZ555sXPjN13K-YJscbW2dk7ZVSN0XtHrcmGdMaos8KSdHqoEvzCguJVRmRH66ScqQX9Xao5Xv6m1bQsxBuabbV0QZ44QT_nPXQJhlkPScxkXxJB006vkwu6wWI75RkXWvsbGaV2WnqrtyZcJETsFWw7cGIfTDPKyF48CLzAC7WdJDFnyRFo6qejNO7sdHAZf43XWKgy_EKSG_z2SBO1hnWKM0lAZ6022Q-8IpnOUYlCy-JCvJhiUKn9MCjYIscxZU8g92wQCcye9yLf3u3Q7uxsyRqn6Mf9kiH4iTMs5RVJkVQgnr0olNIsG3_zppehb_ekEvyZjL-5s-Bq4PZinckYUrd7urj9V0Kf1mq84llSq_ZfdQ5jN3_ribexa_fEFv62fBGW7D1Nh-7IHTWeJoEzdabGU5qm_8sT1FU8YPlc-5oNQje8anw5_tCf2p_xTJpXXnDptOtExAuNyQFoGIaD2b5Us6Hv2F-DTsLB0J62QJ-wIq94uwe8mHoNYOgHoRN8CVj5a0dZrCLBYwM4mPmh3wAGEye8dL8E9C4db1RHCDhPAudrNHtTRDCcoQhowoiQ3yfuBFVK-oc59p9LK7pDgsSEvpAEYYUWRZ5nlAg0Y7CG35hvNlQpkiytvw5tHbC9XNx-R3e6x5Bc03xDmEKPwNTFw11L2wXtCaYZOLmBwuluRpGgmu1ozlKOunFWrFaw_UrVGg0m7nkLYQAI91WgGh9Bi3OBFNe6aEGfINHGAsjaqsWcKZKhkBcsEVvU_THzbfsc9dFckExneejJA09TnKtCkCbGK6IgegkIArXz6C4UVlQqGuOsHbUPWHO20n4BI4PgxbalMixVXqB2HEL7mSeAi7pz1n-AkSCpakMGoH_NeSJRWY5coW603srSO-rectb_hbMCQJK25UgfNxEpFxt0_bBA0zWJn1s6FycCRt3Z400LzNXcub4vKRIVCmHdC6f0NE9SPE5xXzc26AqYZpLUtOlGmnxJWWIet229bmMsFc_RQaHLkyGoPidNzvNDS79lWY4vKHFb7-L93ehhIfir7ONMoRwLnGUku656fGntdv9MLGjcpIjVEY00iwTRh3mccyvHvdri4R51X6F9ojunVYnBodYdWkCzoQc-RvPwWM87eXqPJzE1NX9RoQooZotPP5kgMGpoDCSCovP4-RxxBhgogm5Rxziav3eFajlNBd-geVQZIPyEKZPlYIAjh3EEffM9LLJ2v2huRxwUq4DmUhbkyNjA5p_jGJ3KHeaDyXEefg7mGOHiU2cdxU3ZIVYZQZuw7p52sL8FdlBIFU6NmFmc1iMoh1EPxC1Hpv5MpGxzc9DisJ47pf6Ub_KMqM-s10fRDHCYKVy3SNSgH6oG_474ldHoP3YLc1C__4e-cMzargRuvXar5cBsD2r9-iZnXrX266VfWwfGPKgEw3o9rJZmu94d1ctRbW3WTu3d8YygducagWvib0xMBBdGULt0jE-n9uKYmN2LWjBsCxqMWmBeRPChFjQYJnRTl7JOH-Zi1FO0pPgYBtEn2i8L14bCLll5-Zmbb2l96HqbEJwaEG520JxdzdHIh4Dvb2cP5UXbhY3z0sbUxgTdQAQ1hKfVr-8rbZOja2p9dHIfn2m7ZA1vPzSzjyoA-hEMAQhoyeB_ndlNdFs-ddBtsVkR0YMETPK9_bumvsnL3ahsbCzhBZQSQRi4LcvhHjzNytM3b9Jjudu8wI_lg_q1fCz1Tkr9k9LhF8iBeXYei0enxRdGbPWsDREbTBNr_G6VX8Xg61pCUlxkytr1LFwovtiy2BqXX1msonyFXFEMl9ymEu7-BjZMPqU=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 IF_Simplified_PO-SO_Model_-_1C_Payment_Process_in_CFIN — IF_Simplified_PO-SO_Model_-_1C_Payment_Process_in_CFIN
@@ -655,10 +645,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV9tu4zYQ_RVCi9RZQO7qatl-aOFLtAgQB0bcbVHUfaAlKhYiiwJJOXGz_vcOLVK2ZOWhWz8k4tGZMxfOUNK7EdGYGGPj5uY9zVMxRu89sSU70huj3gZz0jNRBfyOWYo3GeE9yUloLlbpPyea7RVvkiaxEO_S7CDRFXmmBH27N9EEDDMTcZzzPicsTXpmr2DpDrPDjGaUSfYnMkys5ORN3ZpSFhN2JlhWYEc-mGZpTs6wG3iBF0o7TiKaxw3RxE-GSdQ7yuAy-hptMROn8EtOFvjtjzQWW1gnOOMEOFuxyx7whmQyR8FKiUUl2-tipFz6yaFgqwJHaf4MuGcBxHD-coZ863hEx5ubdV47RQ9P6xzBL8ow53OSIC4AvtsLlKRZNv7kzSahb5lcMPpCxp-cu2DuOmYkMxlD6pYpi9t_JenzVow3NIsVtf8qcxg7xZvJ3saOZbID_G35Inl89jQbOENnWHuaBvbMnmlPSZL8L09QV_Yb5i_K150bOuG89mX7A39mXevpNOdeMLHbdSJsn0bkQjQMQ_fuXKq7gW9bH4tOQ3dgzVqiz1iQV3w4C45mXi0Y-kFoBx8KVv7aUZabJaORFnTv_NCvBYOpHU6cDwW9ie0NVYSg88xwsUVTWp56GU2Kglf35C-3_1obTyQi6Z6gMM0ISnM0he5bG39fsBxgfStiyBIt8WFHcoGeyC4VAucRaVLtwS2QEzxOcJ8LWtQGcywwqkRiMPlc2UArtSKdhfePF3ouqN29kai89F3mTacekGaMyPgmywVakB2FACOY-CbPB56sK-EcTWeLWnCKRbSFYYMLTmJEoQYlh2MBaE8lHFFNlQGofCU5YdqflpEFbFIDWV4qYxdUlp7RPWFNylDGThkjkTiJqesUgrjWG522CzS49LxEc-iRx3K3IQzhPL5MHM1JRqRKa3ssUAgJpKuj5ijEkaDQGrfg3pR1MdFiOkMLCuc3ZZ9bAlXH7FPyCoYQYFyn_0CfW1znslKaBhtQUI6zFtc96RZZGknyqizgEtK6z_cU5hUtKRewQy2jYavZLgtQNcRFr1Umo5aJLqMqa5vv2O_vmi8fbf0NHM5QvQXOS5ypPYWLRyK7Cibs17VxPF4KON0CqhviK77bzSdvUQZNuSdfq8OmbeZ1m80wNDPRXdXhzv8xd4MfMwu6zariQxkpg-uiGlHY7qtoh2d7zBh95X2cCVRghrOMZB84Hf2AkWt1GqX5R_ldn2QwRJeNJw-pRZmJtC8PWNiRPJdzvk8FjN4W2rsvaF_-b0-c_98Nr4NZTZZo9cVDt_dL9BO6DxszEXx0ZhMBI86R7NQ0hlHf4OhFHmUrWjIYytWBC7KTml-kYmty5FGzysAO-b7pB9fBwQGB-v1foNhq7VZLZ6jWXrW29dpX99VDHS4k8H1tPNK18V3OjroRKKKjiUp5oNdKyddrryWkiSMVwUhHbCllDTiDCqjX2qKOcVgBnlawlUKgCYHyrYegGYEqka3Xyp_ttRzqVJU7R6dmq9Rtpx1hHYDKyXbbZf1TPvogGM3U-HJy__izZTnoFjqln1EcyzcV8vlEtmvPXpNud9MbdTqV4Tz_VSm0oKsC1e3gOK046_2v7-j9rKuvNt62rqvfcuta7ebQbtzL1zW5NeqNuIkGneiwEx11obAv-q2-idv6hbMJO92w2w173bDfDQ-64aAbHnbDo04YdlXBhmnsCNvhNDbG78bpKxG-JGOSYDj9jKNp4FLQ1SGPjPHpa8ooT6-T8xTDGberwOO_a0tvag==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 IF_Simplified_PO-SO_Model_-_1D_Intel_Foundry_Standard_Sales_Order_to_Cash_Scenario_for_PROC_&amp;_CO — IF_Simplified_PO-SO_Model_-_1D_Intel_Foundry_Standard_Sales_Order_to_Cash_Scenario_for_PROC_&amp;_CO
@@ -1079,10 +1068,9 @@ from Customer"| n13
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1W1tv2zoS_iuED7pJcWIckbr7YRfxLWugabyx24PFZh8UmU6EypKhS5psm_--Q4mkZErsOVF3-1DAo5nh3DjziVS-jcJ0R0eT0bt336IkKibo21nxSA_0bILO7oOcnl2gmvA5yKLgPqb5GePZp0mxif5TsWHr-MzYGG0ZHKL4hVE39CGl6NPqAl2CYHyB8iDJxznNov3Zxdkxiw5B9jJL4zRj3L9Qb2_sq9X4o2ma7WjWMBiGi0MbROMooQ3ZdC3XWjK5nIZpsjtRurf33j48e2XGxenX8DHIisr8MqfXwfPv0a54hN_7IM4p8DwWh_hDcE9j5mORlYwWltmTCEaUs3USCNjmGIRR8gB0ywBSFiRfGpJtvL6i13fv7hK5KNrO7xIE_8I4yPM53aO8APLiqUD7KI4nv1izy6VtXORFln6hk1_Iwp2b5CJknkzAdeOCBXf8lUYPj8XkPo13nHX8lfkwIcfni-x5QoyL7AX-V9aiya5ZaeYQj3hypamLZ3gmVtrv9z-1EsQ12wb5F77WwlyS5VyuhW3HnhldfcLNueVeYjVONHuKQtpSulwuzUUTqoVjY0OvdLo0HWOmKH0ICvo1eGkU-jNLKlza7hK7WoX1eqqV5f06S0Oh0FzYS1sqdKd4eUm0Cq1LbHncQtDzkAXHRzRNy6qW0eXxmNfP2L8Ee_-6G61ptk-zA7qM4zQMiihN0OVTEMXBfRRHxQuaPdLwy93o3205vyV3w3YWmqXJPsoOlfwpMzHewoxbzJvwke5K2KEPKErQ9jHKdmgNhV75gc6Xm9nNe0WcgPgtDWn0RNGcFuBGzmRnq-mtwmn-WU6XnAPrPpjsg3FepEfJzaV3wP6-zW--jd_H374JftY-x_fQAMJHRJ_DuMxB4Kqur7vR62s7B9hr5IIsS7_m4yAu0DHIgjimcUcK9q1SFovngmZJEFdBTWiW_4amZIraUbLAlVlwLMqM8tw9RQFazFe_3aKPtFBiardjGhQBC-jU-vhBYXP-HJsLbB_TItpDDYKDEc2UxFhqoJkuXZTJW6PcjdfmNwutkoJCwLJ0V4ZFS7_D6mmWUdAinrKdVMfsfH07v7nFSrE6LLhb-lyg9Q2Cgkfr25sZOp-WUbyDdWCHcyXy2a9odgO8qh6vicMxhka0SbOC7tA8oqgae8ygkOY5KI2KCCxUg4NNu7eWouQNwblctwK0ZB0HGs4YfVjYhoFWGY2DZNeuLcttIraaoc32Fp1zy38P9jRTvLQ8hf3mx-x-q8jWsHYCjDwbm6vl2FCzYbM2tXimYdmXwU1BoXOeCuDW3ri6RZcPQQRJ68gqUqQl9SnJKKQ5CpkXmyJV-6xdFRXrv2i1RwCcoJfE4BAE9h9lkBSsPUd5tX0BFEGy0bKMY0UHq7LNYwQN8ypNd1AEeV5S1Xm7cv4I8YQEPqUwIy-gSx8ONAuZZkm72m4USbaZryh0D5aYrgg6P2Yp6-aBumSV_vRwjCkI3pTFPSuZxkHoCR_SQo2594dCLAIyOop0e2xdbtf1aEPn3TSoO6w9wiAEaJsFu8rbYxxBG6EKOz4pVRmJKcxztE0nsCdc11PXIG3jbtE6zQs2-diuuSyLFM1iCqA5eVBGsWEOGx-G1S_XDSqsfQ9bojYNIgRBFhUn4vy3jnZ7oFVOv9wqR7MszfNxDeQZAIijkL1BdJd2By7t9cux5lGwbbb4_RpdB0nwADGArbaSv7om-ANHutEvx7bvkRXDpgxZI9-XcWdNPBBGEPdtMIJLeYOk_CFSpjFICg-SIoOkzEFS1iAp719y2u_hhYpm4_RIE7QgizH2ZpNqEG-vYfIuDvd0t4NiHUOtQtc4aRum_yM10341sAMaPW-BANDu0PnsMUqC9yfw0nsTBCD-myCAabTYE6WpnQqirzD4QJ-ioNXH69lZAYpj8eNlTxr5-s82ctPUAhaG_X5lyE-RsN6IWEx7CGIxnTcgFnPIVDd_aqqbQ6e69bapbuFeIFWh85s5GAmp3URbdI6uVjdzdS0yFGBZ5kCAZVknu2VWwjsSyEq5FhrBBlZk7dOdFsBJnUTPN-Q96lajxcqE1Tq4j_ZZeqjiUw0tFpSr1fJzn5hrKy9xAH2qndJsHFEZ6luLxxIC_Qptp3O0iSPInWWeaveHgSP__4mN_GHQyHf-V_DEHwaQfO9noZk_EBYZPwGLjIGwyCADIdwgiEMGQRwyCOKQQRCHDII4ZBDEIfYgKWcQnHJ-FgdxPe5PwrI3wSnfa6_dOV_9HEA37DtdZQdOWfTwADxs4IXdo93qxCGIwzJmvX8bPFNlWFut1WZy2gJ0qE6oWOsO0-MLSqE9su7Y7fhstGzA256zYCawWivvxcD-6bhj1nyAu5rxqqAHxE7NlDlyYvcaxn4HYTGUMYcbI8BX19ereT2kZuuPysho-5fRXVQIQMFOPuHM-fq9-gYOEnWrRdMAGCu_lKjh0yOBdZnBTU4uzlS7QcIViCwLFti_QzkpT00RQwjYMs3gegVw1aKCIpv6iqMeonlOD_cxjClAQv12WW10wUZ9ydp3Cyb02GbLSX_LDABslTHnP4jrg89RVpQwAc-vbrebeuhD2XKqooulVxxL1iiNwbAkB1xdQ6ooGVcEyEM96n6ozlVBSEdcI-nYcvuyayckAK8CfeDUsCSGcd8-j60pijrnVJ2oKKgTFhlWn5B82CMZwBZF1FWOc7lMyrlRpDnFdfy-83Aok0K9oTAGYy4XK6LVbWDPEsz_duw-JWG90alSy66rcHL8BFU700iwjVzz7qKMVvgeCuXTBs3AkEzNrOsrC2jUegaHk-MGTzqkCoxjQT3k0JFpUcRwe50ozccbBhY8DTrVxoHhulYg2U_5TEU-njXMpmHo1NOg05MOqodp3jBI6ukg6Q5SVN0bsSvVaB_xxjSFlrtjLTViQ2SVoFC8FK1vOiZpwCqbm3_kjm8MBI-DoBkeBM3wIGiGB0EzPAiaYXfgBWeC0Xj8V0ih-IlJTXCcDoUT-E_P57_d-rfJfzr1Twi1VGByCSJYOjyOKyiCx-PLuILD5koEwat_Cyt8_lhY6fI1PEsQ5BKC4lmcYggCX8OSlluKEkmB7EoSt4RgESBBELZZvlhI-GsbNcUWMjbPgy38B15OEdbBISiPtKCYXIsptDhciyMjzaNoSrWY20IEhYhAy8hXkft-N_onw7PfgUPIEjUFIqSq5Me0EvQb07ldIiKer6wha8PnPjWF4GuUiqoSibBFZlzpKyd1UgWvrGpQiWTy-HqbFJBn9cEDzQ5wHFu1xfpiNoX7RYa5qrOkig7t6jFIHoQ3QhnBauYJX89vEs1ZxBYkgiAp0kgHSyGeCyJ4LJ4Ly1NZLBkPwzoNpS15icik1GeLcBpSXNS1LXeDoSTcdjpPRIJtmSano1jaJZnFI1vYZUhxT6U0xhvN8mLHkWYRkVf2Jvm9uh2Qjzreg3ZOMmUbI3IXS__FBrR9leKIKrWFVLNJDZXSqJZb2zYFpalUwh3oHq3dwRtVfT5dHcx_r1QKTbwMbOGI5amqxfJW44ZYHksbTaxGxJa9UG5J0UtEbqQQFqqFZl9okV1NyvDQmyKbPhcxLbWJNckRO1uq9ZVal9n21WIzRYmYvAx8aYmnEOAIhFOEjC_qvDrnqMpKFqHU12GWJSifiHIjTbnxMvGl16KZmL5KsWQCZN2L3FqGSpGaMWkKUOTbaEika5JIuGyWFmfyG5PEDBWKfO80EZapPhCJsKTNZker6Joyi75qii83sQiYMMWVBK7XbTzi-Wx85Au5IqKW7OCGKmRZHTUSIwmCSLAr7MUNrjIU_3GrwOWqXoedx7G1NY2OJtJ0Qq7JdzrcQpHMuUA7IhieyTlP3ki_M3Clcsg3sLtkdsrqqqynz1tASnboZi81DUk234bkdUgCKiwpe3fZo-b1r36pvUvqgx32DlzdG1YHXwziyORiMZ78DkXGG0uEEFev09WtUAUNqjsvdpTHX5bqupb9RGgi3VoSEbUEj9xiYtPJ4hC9QmZUiLiqVk-azDeHK4cQD54jEbgcOGJhR-w5uZN5KckN5gtA2AAVbpujsjRqPZHl6kIY_QWxz93YuQT_4LiuYNdT2afwYSg7ToAzHgBk7NYIPvOujiXbsZZvFMJYR6zregoBy6D4KqWxtgll-8vj6nVEfHJ9Snc0dFd-eH5K9zR0n388fkJ1jV4q7qWSXqrZS7V6qXYv1em32NV46Go8hI7YS_cMDR1r6ER8VX5KNvvJVj_Z7ic7_WS3n-z1k_1eMrzo9JJxP7nfS7_fS7_fS7_fS7_fS7_fS7_fS7_fSzZt-ulYQycauqmhWxq6raE7GrqroXsausZfrPEXa_zFGn-xxl-s8Rdr_MUaf7HGX6zxF2v8JRp_icZfovGXaPwlGn-Jxl-i8Zdo_CUaf4nGX1Pjr6nx19T4a2r8NTX-mhp_AVPwv4FR6K6G7mnovqCPLkYwTQ9BtBtNvo2qP0GDP1Pb0X1QxsXo9WIUwJdZm5ckHE2qP9UaldWV4zwK4C72UBNf_wtRTWPt" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 IF_Simplified_PO-SO_Model_-_1E_Intel_Products_–_Bailing_the_Sorted_Die_to_LE778_back_Virtually — IF_Simplified_PO-SO_Model_-_1E_Intel_Products_–_Bailing_the_Sorted_Die_to_LE778_back_Virtually
@@ -1090,6 +1078,7 @@ from Customer"| n13
 **Swim Lanes**: External Partners/B2B
  · Intel Foundry (LE778) – China
  · Intel Product
+
  | **Tasks**: 15 | **Gateways**: 2
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -1158,10 +1147,9 @@ IP STO as reference"| n9
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtVltv4jgU_itWRhVUCpo4EELzsFKhpEJqp6h0ZrQa9sEkDlg1dmQ7vUyH_77HuXBJ26ddHlqdk-985zsXO3lzEplSJ3LOzt6YYCZCbx2zoVvaiVBnRTTtuKhy_CCKkRWnumMxmRRmwX6XMDzIXyzM-mKyZfzVehd0LSn6PnPRJQRyF2kidE9TxbKO28kV2xL1OpFcKov-QkeZl5XZ6kdjqVKqDgDPC3ESQChngh7c_XAQDmIbp2kiRXpCmgXZKEs6OyuOy-dkQ5Qp5Rea3pKXnyw1G7AzwjUFzMZs-Q1ZUW5rNKqwvqRQT00zmLZ5BDRskZOEiTX4Bx64FBGPB1fg7XZod3a2FPuk6OZ-KRD8Ek60vqIZ0gbc0yeDMsZ59GUwuYwDz9VGyUcaffGn4VXfdxNbSQSle65tbu-ZsvXGRCvJ0xrae7Y1RH7-4qqXyPdc9Qp_W7moSA-ZJkN_5I_2mcYhnuBJkynLsv-UCfqqHoh-rHNN-7EfX-1z4WAYTLz3fE2ZV4PwErf7RNUTS-gRaRzH_emhVdNhgL3PScdxf-hNWqRrYugzeT0QXkwGe8I4CGMcfkpY5WurLFZzJZOGsD8N4mBPGI5xfOl_Sji4xINRrRB41orkGzR9MVQJwtEc1kRQpb-O_TGqQPYnwl9LZ0wYpym6hWrsEUNzxewKopnIJOomvFit4PEzMxvUH_vnS-efIwI8entbOhmJMtIjSsln3SPcoJwowjnl11WLls5uVwXBErU0zoShHMWyEKl6Rd2baRiOztGy8D3cR5MNE-RY8AgET0huCkX3Qq-ogRI0cCjULqa7MMQwbVhCeEv6BVDNCwUnS1N0Z68J1J0rmtC0JJXJOZrf9VvlehA0EyurFvJy9kSt6B9MmeJdAoxL8BMVRgLqe56CKtSdid4DHHXNTBvvA_5aylSje5DBcnNgRt1vUvR-EF4AR9oO7NtSqMqk2qLrhwW0jSaPLczgQ-XTn7dtssCquEcEcPPCIGJX_CPcsPurmbw2Mn83jnpMKYSdH8eFrbgF9AeBdAQ52tiL_2e74FSlRWKOF8nOZvFwj7r29ZQiKeCqZus1LEGm5BaN_26V65f4O7TYsBw9yAjN4lOAncFdYVoNLslmczTnBKoka8KENsgSde2ZhBX9Ghe8vTl2VnMJwGobZloX9CS4oc1L2k_2L_ho4kaiGg0VvJd1yjB8t5AnFTBxzFVqOUjYz0Jg1Ov9BR2sTb8y-7XZr8xBbQ4qM6jNoDLxqLbDym5MPKrssLYvanhDjr3acdE4ajG4UYNrOcParglxY-NaH_YaR5MDtx1NCbiuATdF4KaK8ET2HxgyzBAu1aWA__WVdzv_Vl7X6FuxXVHlwtI2g3LRoshzzmBJ60NWPp2X0yAaKZpRRUVCl84f6MXR28UWVL_AT73hh95R8247dV80bsd1tlRtCUud6M0pP-zg4y-lGSm4cXauQwojF68icaLyA8gpyrvvihE4ldvKufsXm4ghRQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 IF_Simplified_PO-SO_Model_-_1F_IP_IF_Cash_Settlement — IF_Simplified_PO-SO_Model_-_1F_IP_IF_Cash_Settlement
@@ -1173,6 +1161,7 @@ Intel Foundry
  · S/4 Intel Products · SAP CFIN Intel Foundry AR
  · SAP CFIN Intel Product AP
  · SAP S/4 Intel Foundry - LE778 (China)
+
  | **Tasks**: 15 | **Gateways**: 6
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -1270,10 +1259,9 @@ ACH/WIRE"| n4
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV12P2jgU_StWqhFTCdo4JAR4WAkCmUVqOwi67UPZB09wBqsmRnHCwE7573ud2CFkmFa75WE0PtyPc8-9_uDZisSaWkPr5uaZJSwboudWtqFb2hqi1gORtNVGJfCFpIw8cCpbyiYWSbZk_xRm2N0dlJnCQrJl_KjQJX0UFP01a6MROPI2kiSRHUlTFrfarV3KtiQ9BoKLVFm_of3Yjots-quxSNc0PRvYto8jD1w5S-gZ7vqu74bKT9JIJOuLoLEX9-OodVLkuHiKNiTNCvq5pB_J4StbZxtYx4RLCjabbMs_kAfKVY1ZmissytO9EYNJlScBwZY7ErHkEXDXBiglyfcz5NmnEzrd3KySKin6sFglCD4RJ1JOaIxkBvB0n6GYcT584waj0LPbMkvFdzp840z9SddpR6qSIZRut5W4nSfKHjfZ8EHwtTbtPKkahs7u0E4PQ8dup0f428hFk_U5U9Bz-k6_yjT2cYADkymO49_KBLqmn4n8rnNNu6ETTqpc2Ot5gf0ynilz4voj3NSJpnsW0VrQMAy707NU056H7deDjsNuzw4aQR9JRp_I8RxwELhVwNDzQ-y_GrDM12SZP8xTEZmA3akXelVAf4zDkfNqQHeE3b5mCHEeU7LboLHIi1lGo91OolmSUY5ChQFUmqpP4n5bWXNy3NIkQzsgQKWka8QSNIaJlCvr75qtg5-fV1ZMhjHpkDQVT7JDOLiRlHBO-V2pyco6nUonmJoGqekho2lCOJrD7CY0le_R2BnX-XjAZwbHCINgKIAsjKboUYi1RFuxp4png5Tzu6Q-TP1BH61yx8ZdtLxDHYS-sDTLgWYtD-4CszsKpBWz-f0ELWhE2a5BB7t1syCXmdhCBbNkL2AIUXA_v284qIoDwqOcK4_P5EAbsuPB7TdTIYTblTao8lmD-du6Iu7vKrJ87-qJgZlc51Ema-EH9Q7Nkgc1U2hCOdtTGK2vcFR9pocMFLpWrF1X565oq5YRjR4JS-RPvXHd-wvwFpWyDUtHicqFpKYCJhJ0r-4DNF9M7he4Yd9vSPzCqwj2QmnvqtIsiXguQY8XUpdevf_odaVBozkKwtmnxr4eLeoT21Nbm6axSLfIbHEj9m3xD3Ts7aUQfs0nIHKjTg_OIqKUuLTs1ywh71zIDC6vhqx-Q9azIQrEdsfpxfT-sk7dFQRoPUudyfw6E-eaFnmCbkOM7YYG3Z_pBsAL0XCvOT2veEemZhSryZ0D3V9Vf96KpskddWD5fXQbbFhC3taVcNT2wpOGwzIj6iZYoyWBx5ee50yU_V1GNIF3mSgYzRf3AQLjYu-9e_euoWH3f54rwAt1On-oCAboloBn1k65xpWBVwIDvR7o7-2Gg2MiFPY_oHGbo4R55dVtgUQMJuUNsmcERfpOAQEifTqvrB8qoo6Esc5l1jqTyawTVUe7bvIqGQV_vv86W0yLcK42d7W3iaYLxz0TTofvNtbm-1659PXSN9k5ha7BNpqXd3aRs6-N-jqHccImqSGFDasK0HJjo7ejLbDXAJyKuGaGK510k3ElpGlq_6LrwB7eM2i0_FTq7tVeQkoY_di8RP2raP8qOriGwgiaB_Mljs1b7hJ2rsPd67B7Hfauwz0DW20LJmhL2NoaPlvFjyT4IbWmMcl5Zp3aFskzsTwmkTUsfkxY-W4NnhNG4IDYluDpX3G5KLc=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 IF_Simplified_PO-SO_Model_-_1G_IP_IF_-_Inhouse_Settlement — IF_Simplified_PO-SO_Model_-_1G_IP_IF_-_Inhouse_Settlement
@@ -1284,6 +1272,7 @@ Intel Foundry
  · LE 101 · S/4 Intel Products · SAP CFIN Intel Foundry AR
  · SAP CFIN Intel Product AP
  · SAP S/4 Intel Foundry - LE778 (China)
+
  | **Tasks**: 14 | **Gateways**: 5
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -1373,10 +1362,9 @@ ACH/WIRE"| n4
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV12P2jgU_StWqhFTCdo4JIThYSUIZIo020HDbPtQ9sGTOBCNsZGdMLBT_vteEyeElGlXWx4QPtyPc8-9dpxXKxIxtQbW1dVrytNsgF5b2YquaWuAWk9E0VYbFcAXIlPyxKhqaZtE8Gye_nM0w-5mp800FpJ1yvYandOloOivaRsNwZG1kSJcdRSVadJqtzYyXRO5DwQTUlu_o_3ETo7ZzF8jIWMqTwa27ePIA1eWcnqCu77ru6H2UzQSPD4LmnhJP4laB02OiZdoRWR2pJ8r-ifZfU3jbAXrhDBFwWaVrdkdeaJM15jJXGNRLrelGKnSeTgINt-QKOVLwF0bIEn48wny7MMBHa6uFrxKiu4eFhzBJ2JEqTFNkMoAnmwzlKSMDd65wTD07LbKpHimg3fOxB93nXakKxlA6XZbi9t5oelylQ2eBIuNaedF1zBwNru23A0cuy338N3IRXl8yhT0nL7TrzKNfBzgoMyUJMlvZQJd5SNRzybXpBs64bjKhb2eF9g_xivLHLv-EDd1onKbRrQWNAzD7uQk1aTnYfvtoKOw27ODRtAlyegL2Z8C3gRuFTD0_BD7bwYs8jVZ5k8zKaIyYHfihV4V0B_hcOi8GdAdYrdvGEKcpSSbFRqJ_DjLaLjZKDTlGWUo1BhAhan-cPfbwpqR_ZryDG2AAFWKxmibEnBBnwS0A41gNtXC-rvmhW9eXxdWQgYJ6RApxYvqEAYBiCSMUXZbqLOwDofCCeanQW-yy6jkhKEZTDGnUn1EI2dUZ-YBsykcKCkEQwFkSalESyFihdZiSzXjc1KO_buk7iYI27hepwMkbinw0yRm92P0QCOabhqZcbduFuQqE2sgO-VbAZOHgvvZfcNByx4QFuVMezySHW0q7F9_K4uBcJvCBlU-MZi_rxfv_G7x84-uGRMYxDiPMlULf1NvxpQ_6UFCY8rSLYV5-grn0yPdZaDQpWLtujq3xw4aGdFwSVKufuqN695fgLeolG30v3tRgpRHLFdA9L9oMJyhIJx-buyX4UN9MHt6y1CZCLlG5dYp67k-_gBR3p9z82s-AVErvStZGpEsFfzcsl-zhLwzoTJ4KDQ06TWG42SIArHeMHo2IL-s0zQcAVrPUmcyu8zEuaRFztF1iLHd0KD7M90A-EE07DXKfMs7KmtGiR6OGdD9VfWnaS-b3IHt7_t9dB2sUk7enymhmzJxJp3H0bjhNc-IPmZjNCdws0H3-sqBMlE0eR5RDpcecaQ1e7gPEBh_-PChoSH-n1sXeKFO5w8dwQAOLgCvXNvFGjtnBt8X1nD-eWF915um_KdbmN6Y9Y3xtBuhKgfPRJqt9gommVWnMhIJmBQntX6QRObsBlUiczQWqcvQ2LAuqzDLirNJVJ2rpv0LPgw-ffw6fZgcw7nG3DXBykJMXbjUBJvKuo11z6x7xdI3S7_Mzii0EjbYrHhKHnP2jZHpAy5jYMcAVRLDwimLwiXNMo9TupR14LJ39QuNrsPcxs7R3kXUv4j2q7vjOX5TXmvOYGj8RRhfhp3LcLeErbYFPVyTNLYGr9bxxQBeHmKakJxl1qFtkTwT8z2PrMHxAm3lmxg8xymBzbsuwMO_UavZjg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.8 IF_Simplified_PO-SO_Model_-_2A_IP_requests_to_move_the_inventory_from_LE778_to_LE101_(Chandler)_late — IF_Simplified_PO-SO_Model_-_2A_IP_requests_to_move_the_inventory_from_LE778_to_LE101_(Chandler)_late
@@ -1385,6 +1373,7 @@ ACH/WIRE"| n4
  · LE778 – China
  · Mirror LE101 Chandler
  · Mirror LE778 China
+
  | **Tasks**: 14 | **Gateways**: 2
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -1451,10 +1440,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_RVCQWAHkFFRF0vRQwHftAiQdIM4zaKo-0BLlE2EJl2SSuJ6_e-lLDK2lXi3QP1gYM6cOXPhiNLWyXmBndS5vNwSRlQKth21xCvcSUFnjiTuuKABnpAgaE6x7NSckjM1Jf_saTBcv9W0GsvQitBNjU7xgmPw-40LBjqQukAiJnsSC1J23M5akBUSmxGnXNTsC5yUXrnPZlxDLgosDgTPi2Ee6VBKGD7AQRzGYVbHSZxzVpyIllGZlHlnVxdH-Wu-RELty68kvkNv30ihltouEZVYc5ZqRW_RHNO6RyWqGssr8WKHQWSdh-mBTdcoJ2yh8dDTkEDs-QBF3m4HdpeXM_aeFNw-zBjQv5wiKce4BFJpePKiQEkoTS_C0SCLPFcqwZ9xeuFP4nHgu3ndSapb99x6uL1XTBZLlc45LQy191r3kPrrN1e8pb7nio3-b-XCrDhkGvX9xE_eMw1jOIIjm6ksy_-VSc9VPCL5bHJNgszPxu-5YNSPRt5HPdvmOIwHsD0nLF5Ijo9EsywLJodRTfoR9M6LDrOg741aoguk8CvaHASvR-G7YBbFGYzPCjb52lVW83vBcysYTKIseheMhzAb-GcFwwEME1Oh1lkItF6C2wn0IJhVvgcDMFoiVlAsQEOqf-z6z5kzfXyYOX8dgdDbo1_BdEnW4JGn4CZrMaBm3LA5r1gBxpiSFyw2QHGTEC0QYVIBrdGK8z-L606-3V21iIEmfnkAumJwXymA6jl_xgtrHueFBA84x2StQPeJCFUhegW6v3HWe0K00udUHAL1Hn8YUxwnhzERho5nFOsUXyvVKroUfGUC7yliOu-9fhT1FfVLVlHaKjPREvdcT6Qp9UbKCh9P6UjtB2XeESG4MDP-7DSD5jRBt75yC8CZvn7IYqFJe_3hH62ywp-dc_RhusdFdwnTEbas_RRaCfpn1uSkk2Z853cm6mqVEqUl6q2pXoO6Q4H_rrBm3-iXDamPV8dcHQf1D0FS8TUYUS6xET8hxtutJSJd1KvsIarAGglEKaZfmkd85ux2x0HJp0GE5bSSuskPUT84y3qBPqxc_XiZNQZnVu9E4Ocb6P_3DQTdRvuTJ0YfBuj1ftWbZuygMUNjho0JY0uPDWDsa2N61u81gOUbemLd0PB9C_gGsPkNwfqNu2_MvmFbPVM8tH6YNEBkbdMODE_q_z5zgoFO6XzXHRhPYh1Df49D2yIMjSe0nuTolt9P0L60T_G-ecGeorF9y5zCiYUd11lhsUKkcNKts__E0p9hBS5RRZWzcx1UKT7dsNxJ958iTrUudOSYIL2Hqwbc_QsdTfPw" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.9 IF_Simplified_PO-SO_Model_-_3A_IF_Sales_Order_Process_for_Sales_to_IP_(PROC_&amp;_COPO) — IF_Simplified_PO-SO_Model_-_3A_IF_Sales_Order_Process_for_Sales_to_IP_(PROC_&amp;_COPO)
@@ -1891,10 +1879,9 @@ and Bailed material"| n138
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1W1tv2zgW_iuEB92kmBgVSV3zsIv4ljHQNt447WAx2QdFpmOhsmRIcptum_--hxJJyZTYmai7fSjgo3MOee6fSOXbKMo2bHQ5evXqW5zG5SX6dlbu2J6dXaKzh7BgZxeoJnwM8zh8SFhxxnm2WVqu4_9UbNg-PHE2TluE-zj5yqlr9pgx9GF5ga5AMLlARZgW44Ll8fbs4uyQx_sw_zrNkizn3L8wf2ttq9XEo0mWb1jeMFiWhyMHRJM4ZQ2ZerZnL7hcwaIs3Zwo3TpbfxudPfPNJdmXaBfmZbX9Y8HehU-_x5tyB7-3YVIw4NmV--Rt-MASbmOZHzktOuafpTPigq-TgsPWhzCK00eg2xaQ8jD91JAc6_kZPb96dZ-qRdHd7D5F8C9KwqKYsS0qSiDPP5doGyfJ5S_29GrhWBdFmWef2OUvZO7NKLmIuCWXYLp1wZ07_sLix115-ZAlG8E6_sJtuCSHp4v86ZJYF_lX-F9bi6WbZqWpS3ziq5UmHp7iqVxpu93-1Erg1_wuLD6JteZ0QRYztRZ2XGdqdfVJM2e2d4V1P7H8cxyxltLFYkHnjavmroMts9LJgrrWVFP6GJbsS_i1URhMbaVw4XgL7BkV1uvpuzw-rPIskgrp3Fk4SqE3wYsrYlRoX2HbFzsEPY95eNihSXaschldHQ5F_Yz_S3Hwx_1oxfJtlu_RVZJkUVjGWYquPodxEj7ESVx-RdMdiz7dj_7dkiNWS-6GVxaaZuk2zveVvMaMX8JMWszraMc2R6jQRxSn6G4X5xu0gkSv7EDni_X05rUmTkH8lkUs_szQjJVgRsFlp8vJrcZp_2VOBzjrfX84bCDWKK_FNqd8nn0OjNvwchuOizI7KK23DfvrNr_zMv6Afvsm-XmbHT9Ao4h2iD1FybEAges6D-9Hz8_tGBPcyIV5nn0pxmFSokOYh0nCEoMUDXql4tS0GLQFLevmTyXL0zCpYpayvHiDJmSC2q51wQPT8FAecyZS43Mcovls-eYWvWelFgivHbKwDHm8Jvb7txqb_9fYeO6_z8p4CykOFsYs1-Lp6vHhukzBsV8anK6_1m9stExLBg7Ls80xKlv6XZ6E05zx9BNPeaHWPjtf3c5ubrFWCy537h17KtHqBkE9odXtzRSdT45xsoF1oIEIJerZr2h6A7yaHs9q_HBIoM-ts7xkGzSLGaqmKt9QxIoClMZlDDvUnYNt66eTaX21ajlowRsa9LMxejt3LAstc5aE6aadW3bQeGw5Reu7W3Qudv57uGW5ZqVjaew3P2bHrSRbwdopMIporK8XY0uPhsMb2_yJRce-CK5LBo35VIC2auP6Fl09hjEErSOrSdktqQ9pziDMccStWJeZ3sadKql4e0fLLQJcBi0oAYPAsf88hmnJu39cVOULmAuCjRbHJNF08Cxb72Lox9dZtoEkKIoj0433KuMP4E8I4OcMRvAFDIH9nuUR16xo13drTZIX8zWD7sED0xVB54c848Mi1Jeswp_tDwkDwZtj-cBTpjEQesLbrNR87lp_KsQ9oLyjSbcH3dXdqp6c6LwbBr1S20MPXIDu8nBTWXtIYmgjTGOnJ6mqPDEBuIDuskuoCc_z9TXs9uZu0SorSj5YedVcHcsMTRMGmDx9PBXDljNs6lhuv1zXqbD2A5REvTXwEDhZZpz08z862r2Bu_L75ZYFmuZZUYzr9wSOL5I44i8o3aWDYUtjq1-ON4-Sl9n893foXZiGj-ADKLWl-tXZAsYDt0D65Xj5HngyrI8Rb-TbY9JdcyD6oNYg9DEMs5BBUnSQlD1Iyhkk5Q6S8oZI2fQPNe238L7G8nF2YCmak_kY-9PLahDfvYPJO98_sM0GknUMuQpd46Rt2PaP1Ez61UAFNHpeAgGg3aHz6S5Ow9dtCECtF0EAil8EAShpsadaUzsVRF9g8IE-TUGrj9ezswIUh_LHy5408tVfbeTUMQIWjv1-5chPk3BfiFioNwSxUP8FiIUOmer2T011e-hUt1821W3aC6QqdH4zg01CaNfxHTpH18ubmb6WPRRg2c5AgGW7J9UyPcI7EsgquRYawRbWZL3TSgvhIFCh5xvyGnWz0eZpwnMdzEfbPNtX_qmGFnfK9XLxsU_M87SXOIA-VaU0hSMzQ39r8XlAoF-hu8kMrZMYYmfTU-3BMHAU_D-xUTAMGgX-_wqeBAMBkmX9PDYbCIysnwBG1kBgZNkDj3MGgRwyCOSQQSCHDAI5ZBDIIYNADvEHSQWDABX-WSQk9JCfBGYvAlSB3167c4D7MYR-2Hd8y4-c8vjxEXj4yIu6Z8f1sUYSHRPe_e_CJ6aP69ZqUzVvATxUZ1S8eUfZ4SvKoEHy_tjt-XyircHansNmLrBcaW_GwC4Odt_CZdB4WbI94udm2iQ52fcKBn8HY_ERNYMrKUBY794tZ_WYmq7ea0OjbV_ONnEpIQU_-4RD7Xev9XdwkKibLZqEwFjZpXkNn4LX1TGHq6JCnqp2nYQrdHIsuWN_g3TSnlLpQ3DYIsvh_gaQ1bwCI-v6DqUeo0XB9g8JDCrAQv37stv4gg_7I-_fLaDQszdHzfpbvgFAVzk3_q28n_gY5-URZuD59e3duh77kLaCquni4ZUHkzVO40AsLQBZ16AqTscVAeJQD7sfqvN0GNIRN0n6TZ59mC3Q-dXk9jXkP8wxLR89Vef8AgxJbKyhJDhgPBLLemgf3dYUTZ1_qk6mHiQUdyFPZMgSKKYcEI4mGmgnv0ImE9woNhz4erjv6BzyqdQZyWB45lFNtLqX7FmC29_23Yc0qjtC5wIn0DgF1IL0nvZL-Ja6GtrEcCvEXwUgoz6s0RQ2kusp4GNtAZPa6s0yLHZvlukug6iB68oygWvzVGtK_jAQ4Rtwq9FsjvhafuM_1TMdEfnusD0Nw62-AbeedFYzfPOHgdXAhFU3EKLqRonf5cbbWDSsCbTiDW-1MR8uyxRF8nVpddPBzwYQy-fpn5kTkIEng4OAHh4E9PAgoIcHAT08COjhQUCPDDvp9IdejaUYjcd_hxSWP7FdE9wuRRBI_TMQn0WkXv2bip9u_RPiqhQ4Yg1bsvg6jxtIiuTxxaqe5BDLYPmBRyqUBOKn0ODLfXviuS_37ak1JMWXe1UqxSK22rqrKVEUyCVJIsKHhAgKtYRLpIscLBeSBjvCi450m0MFQa1tCbc5Ui0cxgq9aiGhhSrnCy2ucrVwI1VqiZAhUoYIGU-5vvLc9_vRvziq_g4cSlZ4Q_rcly7VJd9nlWDQbF2sITkDrK2hkiMgMtA6q65U6PRlIBwZmUAFSzjM0UMFL866U4mKZyDWW2eAf6vvOli-h2PhqgnXF8QZ3HNy5FedaVV0aI67MH2U1khl0ttN5IlIoKAJtGCR21abJFjfpEuVkAyszF1bxMKxdBZb-cNyT13pKl6ZsrjJWVlwlhKnYmOOqgZLC7jjd57IADsqTH5HsdqXYpaPHJlhlmoElk5pNm81TUv6UPkH136GRfj77PfqlkKtH-jWg3ZJUsZSFcuGJOsNdygyS121E1WTRKc0qlUlOzKbqUpe6ggDukd89_BeV5-TVxcE3yuVUpNIA0f1HktXrQLbmKHanHIStXWPOIpJlaTs2jI20h24aY7CsEAtLrRQJSPbnIxmIESaUMiyop3KVmoDLddtS38gk43KZKMiDQK5E9vSCHAQIyhq7Mg8r05bqrRSTrSJiVmloGpyarw1NgrXBQ1FFjTuUKQeW_UO6Qeb6BSlGcQVSY1CFW_idLekdilDY8uksJo9ifpulZelhcLpPJGxsOWObKerWHWkpsVhfUOBLGXVz6WYpwCMTNLGIUKo8YdkUX6VLrOILmS7HTVyM9IVRA1MuV_cdCqiuQCrQsBybGJsddiFL1sFanU0kabDymTyO9xSkYq8sN2X7vFl3zl56f3OIZbOod767tPpKWugs54-b8Ep1aebimrCItMNN0VGdRKRChaMvy9tUfPKWb8336f1IRN_za5uMatDuMr1DXSQobN0SrM0VkAhqV7Zq0uqCiFUV3D8XFG8odW5rRqc1ERoJ5lUYUkeVceyQpUzZIWo_JMcnq7VV-vIWpAET3Q4VyFxqVX1S1cCFikTCI-rvhCIqATKV7JxujpLoxZjuTmsU1pMygLVKGVwJ_CZKz_LgPMkwGf8Mgs-bq_OSts-x6eb5nKdTxdheELIuD7IkL3QJqRVucjZoDCZao9NzsiUaSa2oLgyIr4avb5uT3VNj_6G-EeI_AhIfGUu8GTjEEvD4IqiWortaelVfRNevULJj-FP6b6BHqg_CTihQ87007H4rP-USnqptJdq91KdXqrbS_V6qb5hxwYLfYOF0L776cRApwa6Lb_3PyU7_WS3n-z1k_1-ctBLhvTrJeN-Mukn035yv5VBv5VBv5VBv5VBv5VBv5UcZ_TTsYFODHRqoNsGumOguwa6Z6D7BrrBXmywFxvsxQZ7scFebLAXG-zFBnuxwV5ssBcb7CUGe4nBXmKwlxjsJQZ7icFeYrCXGOwlBnuJwV5qsJca7KUGe6nBXmqwlxrspQZ7qcFearCXGuy1DfbC6474OyeNTgx0aqDbkj66GAF22IfxZnT5bVT9mSH8KeKGbcNjUo6eL0YhfB63_ppGo8vqz_FGx-o2bhaHcB2-r4nP_wWOdfRf" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.10 IF_Simplified_PO-SO_Model_-_3B_Intel_Products_Bailing_Sorted_Die_to_LE778_back_virtually — IF_Simplified_PO-SO_Model_-_3B_Intel_Products_Bailing_Sorted_Die_to_LE778_back_virtually
@@ -1902,6 +1889,7 @@ and Bailed material"| n138
 **Swim Lanes**: External Partners/B2B
  · Intel Foundry (LE778) – China
  · Intel Product
+
  | **Tasks**: 15 | **Gateways**: 2
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -1970,10 +1958,9 @@ IP STO as reference"| n9
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtVltv4jgU_itWRhVUCpo4EELzsFKhpEJqp6h0ZrQa9sEkDlg1dmQ7vUyH_77HuXBJ26ddHlqdk-985zsXO3lzEplSJ3LOzt6YYCZCbx2zoVvaiVBnRTTtuKhy_CCKkRWnumMxmRRmwX6XMDzIXyzM-mKyZfzVehd0LSn6PnPRJQRyF2kidE9TxbKO28kV2xL1OpFcKov-QkeZl5XZ6kdjqVKqDgDPC3ESQChngh7c_XAQDmIbp2kiRXpCmgXZKEs6OyuOy-dkQ5Qp5Rea3pKXnyw1G7AzwjUFzMZs-Q1ZUW5rNKqwvqRQT00zmLZ5BDRskZOEiTX4Bx64FBGPB1fg7XZod3a2FPuk6OZ-KRD8Ek60vqIZ0gbc0yeDMsZ59GUwuYwDz9VGyUcaffGn4VXfdxNbSQSle65tbu-ZsvXGRCvJ0xrae7Y1RH7-4qqXyPdc9Qp_W7moSA-ZJkN_5I_2mcYhnuBJkynLsv-UCfqqHoh-rHNN-7EfX-1z4WAYTLz3fE2ZV4PwErf7RNUTS-gRaRzH_emhVdNhgL3PScdxf-hNWqRrYugzeT0QXkwGe8I4CGMcfkpY5WurLFZzJZOGsD8N4mBPGI5xfOl_Sji4xINRrRB41orkGzR9MVQJwtEc1kRQpb-O_TGqQPYnwl9LZ0wYpym6hWrsEUNzxewKopnIJOomvFit4PEzMxvUH_vnS-efIwI8entbOhmJMtIjSsln3SPcoJwowjnl11WLls5uVwXBErU0zoShHMWyEKl6Rd2baRiOztGy8D3cR5MNE-RY8AgET0huCkX3Qq-ogRI0cCjULqa7MMQwbVhCeEv6BVDNCwUnS1N0Z68J1J0rmtC0JJXJOZrf9VvlehA0EyurFvJy9kSt6B9MmeJdAoxL8BMVRgLqe56CKtSdid4DHHXNTBvvA_5aylSje5DBcnNgRt1vUvR-EF4AR9oO7NtSqMqk2qLrhwW0jSaPLczgQ-XTn7dtssCquEcEcPPCIGJX_CPcsPurmbw2Mn83jnpMKYSdH8eFrbgF9AeBdAQ52tiL_2e74FSlRWKOF8nOZvFwj7r29ZQiKeCqZus1LEGm5BaN_26V65f4O7TYsBw9yAjN4lOAncFdYVoNLslmczTnBKoka8KENsgSde2ZhBX9Ghe8vTl2VnMJwGobZloX9CS4oc1L2k_2L_ho4kaiGg0VvJd1yjB8t5AnFTBxzFVqOUjYz0Jg1Ov9BR2sTb8y-7XZr8xBbQ4qM6jNoDLxqLbDym5MPKrssLYvanhDjr3acdE4ajG4UYNrOcParglxY-NaH_YaR5MDtx1NCbiuATdF4KaK8ET2HxgyzBAu1aWA__WVdzv_Vl7X6FuxXVHlwtI2g3LRoshzzmBJ60NWPp2X0yAaKZpRRUVCl84f6MXR28UWVL_AT73hh95R8247dV80bsd1tlRtCUud6M0pP-zg4y-lGSm4cXauQwojF68icaLyA8gpyrvvihE4ldvKufsXm4ghRQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.11 IF_Simplified_PO-SO_Model_-_3C_Intel_Products_requests_to_move_inventory_from_LE778_to_LE101_Chandle — IF_Simplified_PO-SO_Model_-_3C_Intel_Products_requests_to_move_inventory_from_LE778_to_LE101_Chandle
@@ -1982,6 +1969,7 @@ IP STO as reference"| n9
  · LE778 – China
  · Mirror LE101 Chandler
  · Mirror LE778 China
+
  | **Tasks**: 14 | **Gateways**: 2
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -2048,10 +2036,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4jgU_StWqgoqBW0cEpLmYaUWyKhSu1OVbkejYR9M4oBVY2dtp5RF_Pe1icNHWmZWWh6Q7vG553742s7GyXiOncS5vNwQRlQCNh21wEvcSUBnhiTuuKAGXpAgaEax7BhOwZmakH92NBiU74ZmsBQtCV0bdILnHIM_71xwox2pCyRisiexIEXH7ZSCLJFYDznlwrAvcFx4xS6aXbrlIsfiQPC8CGahdqWE4QPcj4IoSI2fxBln-YloERZxkXW2JjnKV9kCCbVLv5L4Ab1_I7laaLtAVGLNWaglvUczTE2NSlQGyyrx1jSDSBOH6YZNSpQRNtd44GlIIPZ6gEJvuwXby8sp2wcF909TBvQvo0jKES6AVBoevylQEEqTi2B4k4aeK5Xgrzi58MfRqO-7makk0aV7rmlub4XJfKGSGae5pfZWpobEL99d8Z74nivW-r8VC7P8EGk48GM_3ke6jeAQDptIRVH8r0i6r-IZyVcba9xP_XS0jwXDQTj0Puo1ZY6C6Aa2-4TFG8nwkWiapv3xoVXjQQi986K3aX_gDVuic6TwCq0PgtfDYC-YhlEKo7OCdbx2ltXsUfCsEeyPwzTcC0a3ML3xzwoGNzCIbYZaZy5QuQD3Y-hBMK18D_bBcIFYTrEANcn82PWPqTN5fpo6fx2B0NuhX8FkQUrwzBNwl7YYUDPu2IxXLAcjTMkbFmuguA2I5ogwqYDWaPn5n_l1x98erlrEviZ-eQI6Y_BYKYBMnz_jBYbHeS7BE84wKRXovhChKkSvQPcPznoviFZ6n_KDo57jD22KovjQJsLQcY8iHeJrpVpJF4IvreMjRUzHfdRHUV9Rv6UVpa00Yy3xyHVH6lTvpKzwcZeO1H6S5gMRggvb4892s1_vJuiaKzcHnOnrh8znmrTTv_3eSiv41T6HH7p7nHSXMO3RpLXrQivA4MyYnFRSt-_8zIRdrVKgpEC9kuoxMBUK_HeFNftOPzbEbK_2uTp2GhycpOIlGFIusRU_IUabTUNEOqmV7CGqQIkEohTTL_URnzrb7bFT_KkTYRmtpC7yg9dP9tIM0IeRM8fLjjE4M3onAr-eQP-_TyDo1tqfnBi9GaDX-11PmrX7tRlYM6hNGDX0yAIt-9ra13bZa9a9Gmj8LT22ZmzpezloAb8BfAs0-VlCs26XB9YcWHajb4uDzTq0AcPGDloO0NYPg6ObfNel5mE-xQf2ET1Fo-YlOYXjBnZcZ4nFEpHcSTbO7jNKf2rluEAVVc7WdVCl-GTNMifZfW44VZlrzxFBetaWNbj9F5XK6-0=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.12 IF_Simplified_PO-SO_Model_-_3D_IP_IF_Cash_Settlement — IF_Simplified_PO-SO_Model_-_3D_IP_IF_Cash_Settlement
@@ -2063,6 +2050,7 @@ Intel Foundry
  · S/4 Intel Products · SAP CFIN Intel Foundry AR
  · SAP CFIN Intel Product AP
  · SAP S/4 Intel Foundry - LE778 (China)
+
  | **Tasks**: 15 | **Gateways**: 6
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -2160,10 +2148,9 @@ ACH/WIRE"| n4
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV12P2jgU_StWqhFTCdQ4HwR4WAkCmUWadtDQbR_KPngSB6yaBNkJAzvlv-81sSFkmFa75WE0Ptx77rnH1054seI8odbAurl5YRkrBuilVazomrYGqPVEJG21UQV8IYKRJ05lS8WkeVbM2T_HMOxtdipMYRFZM75X6Jwuc4r-mrbREBJ5G0mSyY6kgqWtdmsj2JqIfZjzXKjod7SX2umxmv5qlIuEinOAbQc49iGVs4yeYTfwAi9SeZLGeZZckKZ-2kvj1kGJ4_lzvCKiOMovJf1Idl9ZUqxgnRIuKcSsijW_J0-Uqx4LUSosLsXWmMGkqpOBYfMNiVm2BNyzARIk-36GfPtwQIebm0V2KoruHxcZgk_MiZRjmiJZADzZFihlnA_eeeEw8u22LET-nQ7eOZNg7DrtWHUygNbttjK380zZclUMnnKe6NDOs-ph4Gx2bbEbOHZb7OFvoxbNknOlsOv0nN6p0ijAIQ5NpTRNf6sS-Co-E_ld15q4kRONT7Ww3_VD-zWfaXPsBUPc9ImKLYtpjTSKIndytmrS9bH9Nukocrt22CBdkoI-k_2ZsB96J8LIDyIcvElY1WuqLJ9mIo8NoTvxI_9EGIxwNHTeJPSG2OtphcCzFGSzQqO8PM4yGm42Ek2zgnIUKQygKlR9Mu_bwpqR_ZpmBdqAAColTRDL0AgmUi6sv2uxDn55WVgpGaSkQ4TIn2WHcEgjgnBO-V3lycI6HKokmJqGqMmuoCIjHM1gdjMq5Ac0ckZ1PT7omcI1woAMhVCFUYGWeZ5ItM63VOlsiHJ-V9T9JOj30KJ0bOyi-R3qIPSFiaIEmbU62AVldxREK2WzhzF6pDFlm4Yc7NXDwlIW-Ro6mGbbHIYQhQ-zh0aC6jgkPC65yvhMdrRhO-7ffjMdAt2mikGnnATC39cd8X7XkfkHT08MzGRSxoWs0ffrOzTNntRMoTHlbEthtL7CVfWZ7gpw6Fqzdt2du-O2ahvRcElYJn-ajevZX0B3fnK2EekoU3kuqemA5Rl6UM8DNHscPzziRnyvYfGrrCPZK6f9q06zLOalBD9eWV1ldf9j1pUNGs5QGE0_Nc718LE-sV11tKlIc7FG5ogbs2-P_8COvb80IqjlhESu1O3BWUyUE5eRvVok1J3lsoCHV8PWoGHrORCF-XrD6cX0_rJPvSsI0HqVupLZdSXONS_KDN1GGNsND9yf-QbAK9Nwtzk9b2THpmeUqsmdgdxfdX8-imaTO-rCCnroNlyxjLyvO-Go4zXnLKEowKgdOO3Abfjg_s-7AbhRp_OHYjCAWwG-WTvVGp8C_Aro63Vff283EhzDcIz_Aeav9hJmjp9ufJSnEFI9BbaMoFg_F4ocxfqGXVg_FKNmwljXMmtdyVTWhU7Xs96oRTYM__zwdfo4OdJ5OtzT2YZNN467hk7Tu421-b5bLQO9DEx1TuGNGI7CrHruHmv2dFBP1zBJ2BQ1orBRdQK03dj47egI7DcA5yRcK8P4Yk9B23D-qXLU5GK9_fhksdnuXu1NRpmiXxYv0eAq2ruK9q-hMH7mhfcSx-Zd7BJ2rsPuddi7DvvX4a6BrbYF07MmLLEGL9bxRw78EEpoSkpeWIe2Rcoin--z2BocfwxY5SaBzDEjcMDXFXj4FzPnErU=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.13 IF_Simplified_PO-SO_Model_-_3E_IP_IF_Inhouse_Settlement — IF_Simplified_PO-SO_Model_-_3E_IP_IF_Inhouse_Settlement
@@ -2174,6 +2161,7 @@ Intel Foundry
  · LE 101 · S/4 Intel Products · SAP CFIN Intel Foundry AR
  · SAP CFIN Intel Product AP
  · SAP S/4 Intel Foundry - LE778 (China)
+
  | **Tasks**: 14 | **Gateways**: 5
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -2263,10 +2251,9 @@ ACH/WIRE"| n4
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV12P2jgU_StWqhFTCdo4JIThYSUIZIo020HDbPtQ9sGTOBCNsZGdMLBT_vteEyeElGlXWx4QPtyPc8-9dpxXKxIxtQbW1dVrytNsgF5b2YquaWuAWk9E0VYbFcAXIlPyxKhqaZtE8Gye_nM0w-5mp800FpJ1yvYandOloOivaRsNwZG1kSJcdRSVadJqtzYyXRO5DwQTUlu_o_3ETo7ZzF8jIWMqTwa27ePIA1eWcnqCu77ru6H2UzQSPD4LmnhJP4laB02OiZdoRWR2pJ8r-ifZfU3jbAXrhDBFwWaVrdkdeaJM15jJXGNRLrelGKnSeTgINt-QKOVLwF0bIEn48wny7MMBHa6uFrxKiu4eFhzBJ2JEqTFNkMoAnmwzlKSMDd65wTD07LbKpHimg3fOxB93nXakKxlA6XZbi9t5oelylQ2eBIuNaedF1zBwNru23A0cuy338N3IRXl8yhT0nL7TrzKNfBzgoMyUJMlvZQJd5SNRzybXpBs64bjKhb2eF9g_xivLHLv-EDd1onKbRrQWNAzD7uQk1aTnYfvtoKOw27ODRtAlyegL2Z8C3gRuFTD0_BD7bwYs8jVZ5k8zKaIyYHfihV4V0B_hcOi8GdAdYrdvGEKcpSSbFRqJ_DjLaLjZKDTlGWUo1BhAhan-cPfbwpqR_ZryDG2AAFWKxmibEnBBnwS0A41gNtXC-rvmhW9eXxdWQgYJ6RApxYvqEAYBiCSMUXZbqLOwDofCCeanQW-yy6jkhKEZTDGnUn1EI2dUZ-YBsykcKCkEQwFkSalESyFihdZiSzXjc1KO_buk7iYI27hepwMkbinw0yRm92P0QCOabhqZcbduFuQqE2sgO-VbAZOHgvvZfcNByx4QFuVMezySHW0q7F9_K4uBcJvCBlU-MZi_rxfv_G7x84-uGRMYxDiPMlULf1NvxpQ_6UFCY8rSLYV5-grn0yPdZaDQpWLtujq3xw4aGdFwSVKufuqN695fgLeolG30v3tRgpRHLFdA9L9oMJyhIJx-buyX4UN9MHt6y1CZCLlG5dYp67k-_gBR3p9z82s-AVErvStZGpEsFfzcsl-zhLwzoTJ4KDQ06TWG42SIArHeMHo2IL-s0zQcAVrPUmcyu8zEuaRFztF1iLHd0KD7M90A-EE07DXKfMs7KmtGiR6OGdD9VfWnaS-b3IHt7_t9dB2sUk7enymhmzJxJp3H0bjhNc-IPmZjNCdws0H3-sqBMlE0eR5RDpcecaQ1e7gPEBh_-PChoSH-n1sXeKFO5w8dwQAOLgCvXNvFGjtnBt8X1nD-eWF915um_KdbmN6Y9Y3xtBuhKgfPRJqt9gommVWnMhIJmBQntX6QRObsBlUiczQWqcvQ2LAuqzDLirNJVJ2rpv0LPgw-ffw6fZgcw7nG3DXBykJMXbjUBJvKuo11z6x7xdI3S7_Mzii0EjbYrHhKHnP2jZHpAy5jYMcAVRLDwimLwiXNMo9TupR14LJ39QuNrsPcxs7R3kXUv4j2q7vjOX5TXmvOYGj8RRhfhp3LcLeErbYFPVyTNLYGr9bxxQBeHmKakJxl1qFtkTwT8z2PrMHxAm3lmxg8xymBzbsuwMO_UavZjg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.14 IF_Simplified_PO-SO_Model_-_4A_Month_End_Recon_Intel_Foundry_raising_Debit_Memo_for_Delta_charges — IF_Simplified_PO-SO_Model_-_4A_Month_End_Recon_Intel_Foundry_raising_Debit_Memo_for_Delta_charges
@@ -2410,10 +2397,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWF1v2zYU_SuEisAtYAOiRFmyHzY4djQEaNoiSVsMyx5oiYq50KJGyY6z1P99pETKFiMPm5cHIzy659xzLz9M-dVJeEqcqXNx8UpzWk3B66BakTUZTMFgiUsyGIIG-IYFxUtGyoGKyXhe3dG_6jCIip0KU1iM15S9KPSOPHICvl4PwUwS2RCUOC9HJRE0GwwHhaBrLF7mnHGhot-RKHOzOpt-dMlFSsQhwHVDmASSymhODrAfohDFileShOdpRzQLsihLBntljvHnZIVFVdvflOQG777TtFrJcYZZSWTMqlqzj3hJmKqxEhuFJRuxNc2gpcqTy4bdFTih-aPEkSshgfOnAxS4-z3YX1w85G1ScL94yIH8SxguywXJQFlJ-GpbgYwyNn2H5rM4cIdlJfgTmb7zrsKF7w0TVclUlu4OVXNHz4Q-rqrpkrNUh46eVQ1Tr9gNxW7quUPxIj-tXCRPD5nmYy_yojbTZQjncG4yZVn2vzLJvop7XD7pXFd-7MWLNhcMxsHcfatnylygcAbtPhGxpQk5Eo3j2L86tOpqHED3tOhl7I_duSX6iCvyjF8OgpM5agXjIIxheFKwyWe73Cy_CJ4YQf8qiINWMLyE8cw7KYhmEEXaodR5FLhYgY9X4SRqMPWXw98enOuU5BXNXsCCEvBFyK6AWfrHpqzWEi9BJvga3KpNID8LLqoH5_cjBU8qfBb0keaYgblk8TUR4DrfcinUDfVl6HxFEtlxLsCCLCmtgCC45Hk51ZlTmmVEkNzmIsn9WqSyweCj3KjguiJrcE92lpugk2K2xZThJWW0egE8k_61dr-_sSTfEiYNEXApOy63HbhkPHnqhoUqB2bJhik3yrYM7IZEnZB7vCNlN2CiAmTp8qnqQwVuyJp3Q6Bb23nm4gnI0LQ_SE3gJ15P3_xyZj1Uc_MNM1q3bZYkfCMn2vYK_eOoHq8QNWaVg6a3779RDOK7-c0HKzKoLReMJkpLLh9BSQkqDubx9ScrVnU7w9MMj9TuBm-6IWfrzw0pK_BeTpvS0HNm5wz_tc53Wq34pjosA1sq6kp9IUKuojW4wflGLu5mgX7eEiFoai0dOOlSZ0Uh-JYcT5xc6bUPa_u4lv0Vzh9Jz0x78H0bWTB5yBxVqM4IUpZAfdNSWX0qqR-OuZ7F1RVxXctpon8gyp1dWHsPNDvyDQtZrNt6j4O5_IY7RQksSmf_Ab0r37DGFqtevaDeeX1JQiv8qIWFbmHC1wUjPdzocADpcswhVgE5WNzcWvM1eX01ydRdaLSU3-bJClyXb48hc1Ax8vODs98fH5luvwrZJWxT0i35pfnKsWnwPJrXT2tWs1wwaglTuaTf2PTPy4cONCwEfy5HmFWgwAIzRtgJUnAOaXwOKTyHFJ1DmpxBQu45JNhLovk_ThTyzmL5_5ElL5TNP_K0A6PRT_Jc1WM99PXQR80YWWMYmfixJgQGiDQwNhmasXnu6bHfSgYN4EUWgKANeBpAWiM0OUM7QEuaMjxtyjNJjeu2TlfXZVz7vo5wbaB1ZTpnXGgTvhn7xpVvAaZQpBXsnF7bS-PK5EQ6Apo6TF1GYqI9tL3UAdCzAWMK6RwTk9NIGAY0hbcRZg0YwNjWQzOf5rFXK_54cH5VF54fRz1tn3zizYO2t2NrQqFulddOh6ep-gKQ1gKoVXat3jdlKhNgCtRVT73aAbyp1HWhuYku9TfhsrmJ_jhegbopsJ0ZU2Ro-9EXyVt9gNc60NiCXreX9ftHvYnMi1cXD0_g0Ql80o_LbvTjsH2N7eLeCdzXr6JdFPWiQS867kXDXjQ64WJi3v86sNzCvTDsh71-2O-HUT8c9MPjfjjsh6N-uL9K1F8l6q8S9VeJ2iqdoSPfIteYps701al_J5K_JaUkwxtWOfuho3bI3UueONP69xRnU9_MFhTL19x1A-7_Bu_dpiY=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.15 IF_Simplified_PO-SO_Model_-_4B_Month_End_Recon_-_Intel_Foundry_raising_Cebit_Memo_for_Delta_charges — IF_Simplified_PO-SO_Model_-_4B_Month_End_Recon_-_Intel_Foundry_raising_Cebit_Memo_for_Delta_charges
@@ -2556,10 +2542,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -2567,8 +2552,10 @@ flowchart TD
 | Role / Lane | Processes Involved | Description |
 |------------|-------------------|-------------|
 | Boundary
+
 Apps
 (Intel Prod)
+
  | IF_Simplified_PO-SO_Model_-_1A_Intel_Products_-_Wafer_Procurement_from_External_Foundry_and_Shipment,  | |
 | External Partners/Supplier
  | IF_Simplified_PO-SO_Model_-_1A_Intel_Products_-_Wafer_Procurement_from_External_Foundry_and_Shipment,  | |
@@ -2593,7 +2580,9 @@ Apps
 | Intel Foundry (LE778) – China
  | IF_Simplified_PO-SO_Model_-_1E_Intel_Products_–_Bailing_the_Sorted_Die_to_LE778_back_Virtually, IF_Simplified_PO-SO_Model_-_3B_Intel_Products_Bailing_Sorted_Die_to_LE778_back_virtually,  | |
 | Boundary Apps
+
 Intel Foundry
+
  | IF_Simplified_PO-SO_Model_-_1F_IP_IF_Cash_Settlement, IF_Simplified_PO-SO_Model_-_1G_IP_IF_-_Inhouse_Settlement, IF_Simplified_PO-SO_Model_-_3D_IP_IF_Cash_Settlement, IF_Simplified_PO-SO_Model_-_3E_IP_IF_Inhouse_Settlement,  | |
 | LE798 – SG -  Virtual
  | IF_Simplified_PO-SO_Model_-_1F_IP_IF_Cash_Settlement, IF_Simplified_PO-SO_Model_-_3D_IP_IF_Cash_Settlement,  | |
@@ -2613,10 +2602,9 @@ Intel Foundry
  | IF_Simplified_PO-SO_Model_-_2A_IP_requests_to_move_the_inventory_from_LE778_to_LE101_(Chandler)_late, IF_Simplified_PO-SO_Model_-_3C_Intel_Products_requests_to_move_inventory_from_LE778_to_LE101_Chandle,  | |
 | LE798 | IF_Simplified_PO-SO_Model_-_4A_Month_End_Recon_Intel_Foundry_raising_Debit_Memo_for_Delta_charges, IF_Simplified_PO-SO_Model_-_4B_Month_End_Recon_-_Intel_Foundry_raising_Cebit_Memo_for_Delta_charges | |
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -2627,10 +2615,9 @@ Intel Foundry
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 | 1 | e.g. Cost Element | e.g. MES 300 | e.g. XEUS | Data steward | e.g. Intel Confidential | e.g. 10K rows/day | Master / Transaction |
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -2678,10 +2665,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -2725,10 +2711,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.3 Data Lineage
@@ -2757,10 +2742,9 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -2814,10 +2798,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P2zAQ_itWUL-1I7y0QIQqpU06dUopWgZsWqbIjS-thZtEsQMU6H_fOS60lE0UV0qTe3nu_Nz5_GQlOQPLsRqNJ55x5ZCnyFIzmENkOSSyJlTiWxPfJCRVydUigDsQRiny_EVbu1zTktOJAKnViJPmmQr54wrqoFM8GGMtH9A5FwujCWGaA7kaNomLAKJJJM1kS0LJ08ha1h4iv09mtFQr5ErCiD7ccKZmWpJSIUHbzdRcBHQCok5BlVUtzXCLYUETnk21-NjWwpJmtxvCtr1ckmWjEWWvsciPXpQRXI0GabUwt2TGR1RBi2ey4CUwItVCAEkElRIk2hjz-tuDlEwqyTOQktQr5UI4ewNcvXZTqjK_BWevd3rasXurz9a93pBzWDw0k1zkpbNn2_YWJi0Ksl4Gs9fWqK-Ytn1y0ut8ApNRRd9jeqcfYB68wXzRMSqRvJIukFPS3oo054wJuKclbDLiddw1I_5JZ7BG2yF7yMU7RjTHGyz3-7b9EaZBldVkWtJiRtzgd2RFFTs9YvhkR23iXl4Gw777Yzi-IIH7y_8eWX-Mk14MGyJRPM9I8H0tHQ7ikM8LwVMOLL4ch-N4hM0o-jHE03jkh_GRbW8GSqBD4Mv0C0EdQR3GcBwHi74r5k__KvwnoFZ8Bm10U-O5j1UJcQjlHU8g7lXyDS0HJwa8tiIrK4JWJtK63DsE9Pw6YD-XKvYFjpNMdTc3khybWNqArAzOJ-V-95x3jSK8Jvtk6OUJ_n0Lxxfn-7xrEtEdblKAjL3Ueqfi4KnuPkdWHcCra4zg7uUQnwMucLQ9f57CD8L_z02nskP19fZWzVyPp16wMXoG9kejZ9PVfXW1d5kw7w5RAFPk-007MpsE_lf_wtvh9AQxnrntZnYL3HxCtfE_2jmIRzfbHTpad-F_uzKIPX-72zw9Fv1M4aW33UXGxR-bIXHYYcdoyFp52gp4ugqDc2mj5dakGlJeiG3r3yuxZ2dn72as1bTmUM4pZ5bzZC5avK8ZpLQSCq9Hi1YqDxdZYjn1hWdVBSYKHqdYhLkRLv8CEkuE7Q==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Current-State Flow Narrative
@@ -2826,10 +2809,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.2 Future-State — Future-State Application Landscape
@@ -2881,10 +2863,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1v2jAQ_itWKr7Bmr5A26hCCk2YmEKpmm7dtEyRiS9g1SRR7LRlHf9955gWCpugRgrJvTx3fu58frGSnIHlWI3GC8-4cshLZKkpzCCyHBJZYyrxrYlvEpKq5GoewCMIoxR5_qqtXb7RktOxAKnViJPmmQr57yXUUad4NsZa3qczLuZGE8IkB_J10CQuAogmkTSTLQklTyNrUXuI_CmZ0lItkSsJQ_p8z5maaklKhQRtN1UzEdAxiDoFVVa1NMMthgVNeDbR4lNbC0uaPawJ2_ZiQRaNRpS9xSJ3vSgjuBoN0mphbsmUD6mCFs9kwUtgRKq5AJIIKiVItDHm9bcHKRlXkmcgJalXyoVwDvq4eu2mVGX-AM5B7_y8Y_eWn60nvSHnuHhuJrnIS-fAtu0NTFoUZLUMZq-tUd8wbfvsrNf5ACajim5jeuc7MI_eYb7qGJVIXknnyClpb0SaccYEPNES1hnxOu6KEf-s01-h7ZE95GKLEc3xGstXV7a9C9Ogymo8KWkxJW7wM7Kiip2fMHyykzZxb26CwZV7Nxhdk8D94d9G1i_jpBfDhkgUzzMS3K6kg34c8lkheMqBxTejcBQPsRlFP4Z4Eg_9MD6x7fVACXQIfJp8IqgjqMMYjuNg0ffF_O5_Df8JqBUfQRve13ju76qEOITykScQ9yr5jpajMwNeW5GlFUErE2lV7j0Cen4d8CqXKvYFjpNMddc3kpyaWNqALA0ux-Vh95J3jSL8Rg7JwMsT_PsSjq4vD3nXJKI73KQAGXut9V7FwVPd_RNZdQCvrjGCuzcDfPa5wNH25-MU7gj_Pzedyh7V19tbNnM9nnrB2ujp27tGz7qr--Zq7zNhtg5RABPk-107MpsE_mf_2tvj9AQxnrnNZnYL3HxCtfE_2jmIh_ebHTpcdeF_uzKIPX-z2zw9Fv1M4aW32UXGxR-ZIXHcYadoyFp52gp4ugyDc2mt5VakGlJeiW3r3xuxFxcXWzPWalozKGeUM8t5MRct3tcMUloJhdejRSuVh_MssZz6wrOqAhMFj1MswswIF38BXviFBQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 29</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Future-State Flow Narrative
@@ -2893,10 +2874,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 30</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.3 Change Impact Summary
@@ -2916,10 +2896,9 @@ flowchart TB
 | e.g. MES 300 | - | N/A |
 | e.g. XEUS | - | N/A |
 
+
 <div class="page-footer"><span>Page 31</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -2934,10 +2913,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 
 > *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
 
+
 <div class="page-footer"><span>Page 32</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -2946,10 +2924,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 |---|---------|-----------|-----------|----------|------|
 | 1 | e.g. Pub-Sub / P2P / ETL | e.g. MES Route to ICOST | e.g. Azure Service Bus | e.g. REST / RFC / SFTP | e.g. OAuth / NTLM / Cert |
 
+
 <div class="page-footer"><span>Page 33</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -2990,10 +2967,9 @@ flowchart TB
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
 
 
+
 <div class="page-footer"><span>Page 34</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -3035,10 +3011,9 @@ flowchart TB
 | 1 | e.g. Azure PaaS | Cloud / SaaS | e.g. XEUS | DEV,QAS,PRD |
 | 2 | e.g. S/4 HANA 2023 | On-Premise | e.g. MES 300 | DEV,QAS,PRD |
 
+
 <div class="page-footer"><span>Page 35</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -3078,10 +3053,9 @@ flowchart TB
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 36</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -3100,10 +3074,9 @@ Project delivery milestones for IF_Simplified_PO-SO_Model RICEFW objects:
 
 > *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
 
+
 <div class="page-footer"><span>Page 37</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -3132,5 +3105,5 @@ Standard RAID items for IF_Simplified_PO-SO_Model (End-to-End Integrated Process
 
 ---
 *IF_Simplified_PO-SO_Model — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026*
+
 <div class="page-footer"><span>Page 38</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
-</div>

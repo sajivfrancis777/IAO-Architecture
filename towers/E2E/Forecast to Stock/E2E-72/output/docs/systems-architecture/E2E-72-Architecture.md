@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">E2E-72 — IP</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **E2E-72 IP** within the IAO program. It includes 4 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | End-to-End Integrated Processes (E2E) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 2 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 2 Pending IAPM |
 | **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Process Visibility & Monitoring | Provide end-to-end process visibility across tower boundaries with integrated monitoring | Operational Excellence | Medium |
 | 4 | E2E-72 Process Migration | Migrate IP business processes and 2 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Cross-Functional / End-to-End | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -207,30 +174,37 @@ This capability includes **4 business process(es)** modeled in BPMN 2.0, coverin
 | # | Step ID | Process Name | Lanes | Tasks | Gateways |
 |---|---------|--------------|-------|-------|----------|
 | 1 | E2E-72-_Intel_Foundry_-_Request_and_Response_process_with_planning_integration_(Process_for_Type_A_a | E2E-72-_Intel_Foundry_-_Request_and_Response_process_with_planning_integration_(Process_for_Type_A_a | Boundary Apps, External Partners/
+
 Supplier
 , SAP S/4  Intel Foundry
 Purchase Req – Purchase Order
+
  | 12 | 6 |
 | 2 | E2E-72A-_FTS_-_Intel_Product_-_Request_and_Response_process_with_planning_integration_(Process_for_T | E2E-72A-_FTS_-_Intel_Product_-_Request_and_Response_process_with_planning_integration_(Process_for_T | Boundary Apps, External Partners/
+
 Supplier
 , SAP S/4  Intel Foundry
 Purchase Req – Purchase Order
+
  | 19 | 10 |
 | 3 | E2E-72B-_FTS_-_Intel_Product_-_Request_and_Response_process_with_planning_integration_(Process_for_T | E2E-72B-_FTS_-_Intel_Product_-_Request_and_Response_process_with_planning_integration_(Process_for_T | Boundary Apps, External Partners/
+
 Supplier
 , SAP S/4  Intel Foundry
 Purchase Req – Purchase Order
+
  | 19 | 10 |
 | 4 | E2E-72C-_FTS_-_Intel_Product_-_Request_and_Response_process_with_planning_integration_(Process_for_T | E2E-72C-_FTS_-_Intel_Product_-_Request_and_Response_process_with_planning_integration_(Process_for_T | Boundary Apps, External Partners/
+
 Supplier
 , SAP S/4  Intel Foundry
 Purchase Req – Purchase Order
+
  | 19 | 10 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -242,6 +216,7 @@ Purchase Req – Purchase Order
 Supplier
  · SAP S/4  Intel Foundry
 Purchase Req – Purchase Order
+
  | **Tasks**: 12 | **Gateways**: 6
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -329,10 +304,9 @@ Order Confirmation E2Open"| n18
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV22P2jgQ_itWqhVdCdS8EpYPJ_GWdqWuFpXunU7lPpjEAWuNnToO7HbLf79xSEKSEp3U4wOSH88843lmxpg3IxQRMcbGzc0b5VSN0VtP7cie9Maot8Ep6fXRGfgTS4o3jKQ9bRMLrlb0R25mucmLNtNYgPeUvWp0RbaCoKf7PpqAI-ujFPN0kBJJ416_l0i6x_J1JpiQ2vodGcVmnEcrtqZCRkReDEzTt0IPXBnl5AI7vuu7gfZLSSh41CCNvXgUh72TPhwTx3CHpcqPn6XkAb_8RSO1g3WMWUrAZqf27DPeEKZzVDLTWJjJQykGTXUcDoKtEhxSvgXcNQGSmD9fIM88ndDp5mbNq6Do85c1R_AJGU7TOYlRqgBeHBSKKWPjd-5sEnhmP1VSPJPxO3vhzx27H-pMxpC62dfiDo6EbndqvBEsKkwHR53D2E5e-vJlbJt9-QrfrViER5dIs6E9skdVpKlvzaxZGSmO4_8VCXSVX3H6XMRaOIEdzKtYljf0ZuavfGWac9efWG2diDzQkNRIgyBwFhepFkPPMrtJp4EzNGct0i1W5IhfL4R3M7ciDDw_sPxOwnO89imzzVKKsCR0Fl7gVYT-1AomdiehO7HcUXFC4NlKnOzQVGR5L6NJkqTnPf3h1re18YWEhB4IovxAuBJgJMn3jKQKELRkmHPoQ_Qp26yNf2quNrgGRIU7dF85zrHCKJZij1YJIVHTwakcpo8PNdOH-cemoXuFOSJ7zKOzw_Tvpr1XS-IpiaAYKTpQjJbzT01Dy3kPpjEex3iQMCjYPVxRFOxrgcrcE9CfpCkQ3NYZ7t7eSgYspTimA8zAGEvMGGEfz42wNk6nulLm7zjZV50oD1mWQqa_eMFUtoq-eFFEcszQEu4GTmT6Aa2yJGGUSFSLNARNlo-oUDBCWFVmTfl8MHzUtyiahM9cHBmJtnCTcwVTBV9KoNUHt-kyApcVnAzp4pU1CoQkIQaNQ7HfZ5yGWFHB8xVVrYp5rYp1-OZ9sZhN2uUaXtxTJZJr7nmb3nZpuJosdVYIOkQRBv4wR9Aly0zCRZwSyOk7Wme2aTkX7KxR7Rh336pThGKLZpLonqtzwBEaaZtNjyew6j3MTbeHAiok1WOs9U534oiWX3J1V0qEz4iRA_zetOmsJh14wG_bgUhIXtNA9d9P4SQRErWJn5OUbjn6BPF-CH7b5rSbnHMB_RaCRE8JExiYJHrAPIPuy9OFIrUJ3K5h_G-eRo11W1KojtyTSPt_3cG0LPQ8t3ppdJko_UoZbOB3Fi4Z8tI1UudBtH5nep3fnV4oFhoM_tBxC8Ap1mZpcFcAxdpu7Q_Pa780H53XVsln5wF-rg1nAn39fjG_RyPPvEUL-zEhoO5PoGiFcst1cRbrrgCKfctscOuilB5mAYxKwC2A8vhWeX6n5CiClDEKB7tyaK3tgsAr1l6brzxCK6ly36_JkasBcnjQYecxngkeU7k_XzM1iaqESnkrzYr4o9pvuhaq9vJo7IBCnVtW95bdveVUr8Em7nbgXgc-LF56TdTvsB6Vz6AmfHcVhppcha3rsH0ddkrY6Bt7mH9MI2P8ZuT_L-A_SERinDFlnPoGzpRYvfLQGOfvcCPLnwlziuGW35_B07_-GfTz" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 E2E-72A-_FTS_-_Intel_Product_-_Request_and_Response_process_with_planning_integration_(Process_for_T — E2E-72A-_FTS_-_Intel_Product_-_Request_and_Response_process_with_planning_integration_(Process_for_T
@@ -341,6 +315,7 @@ Order Confirmation E2Open"| n18
 Supplier
  · SAP S/4  Intel Foundry
 Purchase Req – Purchase Order
+
  | **Tasks**: 19 | **Gateways**: 10
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -459,10 +434,9 @@ Order Confirmation E2Open"| n23
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFuP2jgU_itWqhGtBGquBHjYFbe0I3U6aOhFVWcfTOKANSFJbQdmOuW_73GIQ-LC7rbLA5LPOd93rj4JPBthFhFjZFxdPdOUihF67ogN2ZLOCHVWmJNOFx0FnzCjeJUQ3pE2cZaKJf1emllu_ijNpCzAW5o8SemSrDOCPl530RiASRdxnPIeJ4zGnW4nZ3SL2dM0SzImrV-QQWzGpbdKNclYRNjJwDR9K_QAmtCUnMSO7_puIHGchFkatUhjLx7EYecgg0uyfbjBTJThF5zc4MfPNBIbOMc44QRsNmKbvMMrksgcBSukLCzYThWDcuknhYItcxzSdA1y1wQRw-nDSeSZhwM6XF3dp7VT9O7uPkXwCRPM-YzEiAsQz3cCxTRJRi_c6TjwzC4XLHsgoxf23J85djeUmYwgdbMri9vbE7reiNEqS6LKtLeXOYzs_LHLHke22WVP8K35Iml08jTt2wN7UHua-NbUmipPcRz_L09QV_YB84fK19wJ7GBW-7K8vjc1f-ZTac5cf2zpdSJsR0PSIA2CwJmfSjXve5Z5mXQSOH1zqpGusSB7_HQiHE7dmjDw_MDyLxIe_elRFqsFy0JF6My9wKsJ_YkVjO2LhO7YcgdVhMCzZjjfoElWlLOMxnnOjzr5Sa2v98YdCQndEUTTHUlFBkaMfCsIFyBBiwSnKcwhelus7o2_GlAboAER4QZd18AZFhjFLNuiZU5I1AY4NWBye9MwvZm9aRu6Z5gjssVpdARMvrTtvUYSH_MImsHRjmK0mL3VQjZfgmmMRzHu5Qk07BpWFAX7hiOVew71J5wDwasmw-D5WTFgxrI97-EEjDHDSUKSN8dBuDcOhyZo-Bsgxz4LommYFBwy_QkFt1Jr-vxREJbiBC1gN6SE8ddoWeR5QglDDU99qMniFlUVjBAWtVm7fD4Y3sotisbhQ5rtExKtYZOnAm4VfIkMLV-7bchAchMWZ2x78j0OBd1B4QnX2mOf2sNFliOI6tjPqCQ_BdVqiX8qlHz49FawPmF2yON_r9RyvJCxI5gDQRIUyNsCs7AoGKxbTqA239B9YZuWc5IdK9EIZPj16ymONZoyIieryQGRN_O1zDbiI1jdzEwXBTRjVF5VmTbfZHu0uENy_JciCx9QQnbwTNHJrDYZIOD5tSOsqt7iVgfYWrwbAtw0lkhwzbJyFjjKIct6C0SE03WqMzltpk84obJr6BNUOmNIbFhWrDfoLiuEJBHlc18ncS-EU48N5Whuz9FtTlJooeSIdA6vzXEDOUDiHV6Oj8Br8K5D-m3IEkKuIXNbOtMRfhsxsSey0jFdo5fS_AN5FK90zEBrzm05TUNe35zPZLUsqCA6cPgP4cGL0Aq2nL3QQLb18z0CoNAvjvOrF-cIc8_D6j4dq4bmxxb9qcO9f4FDm2VJ6w630f3z6LcwqOP31zN9iZq_s3mtXwPV6wQuNOr1_pBXSwmso8CpHvCpczzbw-psa-f-8ewrdWVvWQpfevhxbzhj2FYv57NrNPDMV_Wk_gAKhR1UvtV5WHGp2Cq13aKWt1kZKOeuErhVtEpgu1U0X-R1_iFvkzL1KlNPmXq6qcrRb2RUJgQZeTCnx_06lTeLbbGgWdrM0q6j9CtPis8aaAK7shhUZ6Wvm6SaUFNWXbAtPfj3WencqRV9PathqzTSQjetOCxVGWtYKcZJoi0GsGisBgRPUXivIftyizXDqIqtfDtVQsqDU7XaGmij4WpnVRFXGw27Gg1bEahRar63Smnj7bqlgYtxUWVdVtmXVc5llXtZ5V1W9S-r_MuqwWXV5WpAOdXPtbbcqn5ataX2WamjfnW0xe55sXde3D8v9s-LB-fFw7NiWCdnxdZ5sa3ERtfYErjwNDJGz0b5VwH8nRCRGBeJMA5dAxciWz6loTEqf1IbRfmGOKMYXuW2R-Hhb3KXEic=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 E2E-72B-_FTS_-_Intel_Product_-_Request_and_Response_process_with_planning_integration_(Process_for_T — E2E-72B-_FTS_-_Intel_Product_-_Request_and_Response_process_with_planning_integration_(Process_for_T
@@ -471,6 +445,7 @@ Order Confirmation E2Open"| n23
 Supplier
  · SAP S/4  Intel Foundry
 Purchase Req – Purchase Order
+
  | **Tasks**: 19 | **Gateways**: 10
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -586,10 +561,9 @@ Order Confirmation E2Open"| n22
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv2zYU_iuEisAtYKO6WrIfNvimNkDTGHEvKJo90BJlE5FFjaTsZIn_-w4tUbZUe1u7PBjgOef7zp2S8mxELCbG0Li6eqYZlUP03JFrsiGdIeossSCdLioFXzCneJkS0VE2Ccvkgv51MLPc_FGZKVmINzR9UtIFWTGCPl930QiAaRcJnImeIJwmnW4n53SD-dOEpYwr61ckSMzk4K1SjRmPCT8amKZvRR5AU5qRo9jxXd8NFU6QiGVxgzTxkiCJOnsVXMp20RpzeQi_EOQGP36lsVzDOcGpIGCzlpv0A16SVOUoeaFkUcG3uhhUKD8ZFGyR44hmK5C7Jog4zh6OIs_c79H-6uo-q52iD3f3GYK_KMVCTEmChATxbCtRQtN0-MqdjELP7ArJ2QMZvrJn_tSxu5HKZAipm11V3N6O0NVaDpcsjSvT3k7lMLTzxy5_HNpmlz_Bb8sXyeKjp0nfDuyg9jT2rYk10Z6SJPlfnqCu_BMWD5WvmRPa4bT2ZXl9b2L-yKfTnLr-yGrXifAtjcgJaRiGzuxYqlnfs8zLpOPQ6ZuTFukKS7LDT0fCwcStCUPPDy3_ImHprx1lsZxzFmlCZ-aFXk3oj61wZF8kdEeWG1QRAs-K43yNxqw4zDIa5bkodeovs77fG3ckInRLEM22JJMMjDj5syBCggTNU5xlMIfofbG8N_44gdoADYmM1miKJUYJZxu0yAmJm2ZObTa-vTkxvZm-axq6teF1HUhMNjiLS8D4W9PeOwn9cx5DCwTaUozm0_etQM3XYJrgYYJ7eQptuqvSuyMiZ5kgSNWaCAGOqaRApFJ4c8rgPz9rBsw524keTiXKMcdpStJ3Zfvvjf3-FBT8AsixzoJoFqWFgEx_QMEutlo9e5SEZzhFc7gRMsLFW7Qo8jylhKMTT32oyfwWVRWMEZa1WbN8PhjeqrsTjaKHjO1SEq_g_s4k7BL8SIYWb90mJFDchCeMb46-R5GkW6gvEa32WMf2CMlyBFEVh37GB_JjUI2W9I-FUo-c3hIuTZgd8vjfK7UYzVXsCPouSYpCtSMwdPOCwyULYwFzgu4L27Sco6ysxEkgg-_fj3Gs0IQTcNzggMhP87XMJuIzWHVupqbbQSFlnKoVVYmLNduh-R1SC7CQLHpAKdnCs6RNZzXpAAHPrS3hdf2WvQmDRb5tA-1W5GsCPmiiGCAEzg5TIVAO-da3QEwEXWVtJqfJ9AWnVPUPfYGaM47kmrNitUZ3rJCKRB6e-20S90I49QBRgWb2DN3mJINmKo64zeE1OW4gB0i8Iw6FkHgF3tuQfhOygJBryMxWztoIv4kY22NV8YSu0Gtl_ok8yjdtTNBq0u1hrgai3qGvZLkoqCRt4OAfwoMXoSXcd_a8BbLtn92NEuach9UNKMuBZmXtf2_D3X-BQ_9UrerWNdHeefR7mMDRx-tp23zwK5er-XOg-saAnUW93m9qZ7TAKgX2oBLYfiXQ5-oYVOd-efa1utJbVgvv6HNQGehzFYGtGSy3EmiE5VUCtxIcGF_uDWfkotez6TVCgefBHVpeYRM1snyDJYXLQQ_6i4qsgjsVHB7UKIHHukCxenirTXJLS52bpXPv62AHJ65L34Fnvjl1o00tp8pTR21rv9_UFfGiNlQHpJug_dpu29Rvaz6yg8IxtTvdl7qROtRRmrbWEixOFhPB0wzeL8jucIc0OIN2-l7Tu6WHpOqQPlYz5Ogeu62zngldGqcCeNV5UNXDbJRd1bQdSF0gDbWredSl1ClY7S5UKdjeyRuq8nzyHt3QwKZcVFmXVfZllXNZ5V5WeZdV_csq_7IquKy6XA3YWv1h1pRb1UdUU2rrL4mm2Dkvds-LvfPi_nmxf14cnBcPzophMc-KLS02usaGwF1DY2P4bBw-_-FfBDFJcJFKY981cCHZ4imLjOHhM9ko3_-mFMOL2qYU7v8Gt-MGbw==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 E2E-72C-_FTS_-_Intel_Product_-_Request_and_Response_process_with_planning_integration_(Process_for_T — E2E-72C-_FTS_-_Intel_Product_-_Request_and_Response_process_with_planning_integration_(Process_for_T
@@ -598,6 +572,7 @@ Order Confirmation E2Open"| n22
 Supplier
  · SAP S/4  Intel Foundry
 Purchase Req – Purchase Order
+
  | **Tasks**: 19 | **Gateways**: 10
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -714,10 +689,9 @@ Order Confirmation E2Open"| n22
 
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -726,16 +700,19 @@ Order Confirmation E2Open"| n22
 |------------|-------------------|-------------|
 | Boundary Apps | E2E-72-_Intel_Foundry_-_Request_and_Response_process_with_planning_integration_(Process_for_Type_A_a, E2E-72A-_FTS_-_Intel_Product_-_Request_and_Response_process_with_planning_integration_(Process_for_T, E2E-72B-_FTS_-_Intel_Product_-_Request_and_Response_process_with_planning_integration_(Process_for_T, E2E-72C-_FTS_-_Intel_Product_-_Request_and_Response_process_with_planning_integration_(Process_for_T | |
 | External Partners/
+
 Supplier
+
  | E2E-72-_Intel_Foundry_-_Request_and_Response_process_with_planning_integration_(Process_for_Type_A_a, E2E-72A-_FTS_-_Intel_Product_-_Request_and_Response_process_with_planning_integration_(Process_for_T, E2E-72B-_FTS_-_Intel_Product_-_Request_and_Response_process_with_planning_integration_(Process_for_T, E2E-72C-_FTS_-_Intel_Product_-_Request_and_Response_process_with_planning_integration_(Process_for_T | |
 | SAP S/4  Intel Foundry
+
 Purchase Req – Purchase Order
+
  | E2E-72-_Intel_Foundry_-_Request_and_Response_process_with_planning_integration_(Process_for_Type_A_a, E2E-72A-_FTS_-_Intel_Product_-_Request_and_Response_process_with_planning_integration_(Process_for_T, E2E-72B-_FTS_-_Intel_Product_-_Request_and_Response_process_with_planning_integration_(Process_for_T, E2E-72C-_FTS_-_Intel_Product_-_Request_and_Response_process_with_planning_integration_(Process_for_T | |
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -746,10 +723,9 @@ Purchase Req – Purchase Order
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 | 1 | e.g. Cost Element | e.g. MES 300 | e.g. XEUS | Data steward | e.g. Intel Confidential | e.g. 10K rows/day | Master / Transaction |
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -797,10 +773,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -844,10 +819,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.3 Data Lineage
@@ -876,10 +850,9 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -933,10 +906,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzzaQoQqpU06dUoBLQM2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpVzTgtOJAKndiDPNUhXyhzXUQSe_N8HaPqQLLpbGE8IsA3I1ahIXAUSTSJrKloSCTyNrVWWI7C6Z00KtkUsJY3p_w5maa8uUCgk6bq4WIqATENUUVFFW1hSXGOY04elMm49tbSxo-rdmbNurFVk1GlH6Uov86EcpwdFokFYL55bM-ZgqaPFU5rwARqRaCiCJoFKCxBgTXn17MCWTUvIUpCTVmHIhnL0hjn67KVWR_QVnr39y0rH768_WnV6Qc5jfN5NMZIWzZ9v2FibNc7IZBrPf1qgvmLbd7fY7_4HJqKK7mN7JB5gHrzCffYxKJK-gS-SUtLcqLThjAu5oAXVGvI67YcTvdoYbtE_MHjKxw4jmuMbyYGDbH2EaVFlOZgXN58QNfkdWVLKTI4ZPdtQm7uVlMBq4P0YX5yRwf_nfI-uPSdKDoSASxbOUBN83Vv_Q7x4OYohn8dgP4yPbrqMm0CHwZfaFoI-gDwEdx8EOvwnw078K38zWjndTxzdVsvtQFhCHUNzyBOJ-KV-t7qBrkKooso4iGGVgN13bRvf8Cn2QSRX7Ao-AVPXqU0yODbAOIOuAs0mx3zvjPeMIr8k-GXlZgn_fwovzs33eM1W1Kk09SNlzf3YJxW3Xe4qsCs2rmoBI7uUIn0Mu8Ox5-oCJOvB7MbrIdi_0lNaiqY6BflDb4kP7oy1eT3VfUu3P7OQdsQYwQ45eiYPZJPC_-ufeJ1QaxKjtbWm5eS54QnXwG-IK4vHNtoTGG5m8K5sg9vxthXj6-PFThZfLdudNin9hNuNhhx1jIGtl01bAp-syuP9rMtmQakh5Jratfy_Enp6e7pxlVtNaQLGgnFnOo7nQ8F5kMKWlUHgNWbRUWbhME8upLharzHGi4HGKTVgY4-ofw8lG9Q==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Current-State Flow Narrative
@@ -945,10 +917,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.2 Future-State — Future-State Application Landscape
@@ -1000,10 +971,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1Izz6IEKVUpJOnVJAhI1NyxS58W1rzU2i2AEK9L_vOi40tCCYK6XJfZxrn3tsP1pJxsByrEbjkadcOeQxstQcFhBZDomsCZX41sQ3CUlZcLUM4BaEcYose_ZWKT9owelEgNRuxJlmqQr5wxrqoJPfm2BtH9IFF0vjCWGWAfk-ahIXAUSTSJrKloSCTyNrVWWI7C6Z00KtkUsJY3p_w5maa8uUCgk6bq4WIqATENUUVFFW1hSXGOY04elMm49tbSxo-rdmbNurFVk1GlH6UotcD6KU4Gg0SKuFc0vmfEwVtHgqc14AI1ItBZBEUClBYowJr749mJJJKXkKUpJqTLkQzt4Qx6DdlKrI_oKzN-j1OvZg_dm60wtyDvP7ZpKJrHD2bNvewqR5TjbDYA7aGvUF07a73UHnPzAZVXQX0-t9gHnwCvPZx6hE8gq6RE5Je6vSgjMm4I4WUGfE67gbRvxuZ7hB-8TsIRM7jGiOayyfndn2R5gGVZaTWUHzOXGD35EVlax3xPDJjtrEvbwMRmfu9ejinATuL_8qsv6YJD0YCiJRPEtJcLWx-od-93AYQzyLx34YH9l2HTWBDoEvsy8EfQR9COg4Dnb4TYCf_vfwzWzteDd1fFMluw9lAXEIxS1PIB6U8tXqDroGqYoi6yiCUQZ207VtdM-v0M8yqWJf4BGQqn59ismxAdYBZB1wOin2-6e8bxzhD7JPRl6W4N-38OL8dJ_3TVWtSlMPUvbcn11Ccdv1nyKrQvOqJiCSeznC55ALPHuePmCiDvxejC6y3Qs9pbVoqmNgENS2-ND-aIvXU92XVPszO3lHrAHMkKNX4mA2Cfyv_rn3CZUGMWp7W1pungueUB38hriCeHyzLaHxRibvyiaIPX9bIZ4-fvxU4eWy3XmT4l-YzXjYYccYyFrZtBXw6boM7v-aTDakGlKeiW3r3wuxJycnO2eZ1bQWUCwoZ5bzaC40vBcZTGkpFF5DFi1VFi7TxHKqi8Uqc5woeJxiExbGuPoHCklHDQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Future-State Flow Narrative
@@ -1012,10 +982,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.3 Change Impact Summary
@@ -1035,10 +1004,9 @@ flowchart TB
 | e.g. MES 300 | - | N/A |
 | e.g. XEUS | - | N/A |
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1053,10 +1021,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 
 > *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1065,10 +1032,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 |---|---------|-----------|-----------|----------|------|
 | 1 | e.g. Pub-Sub / P2P / ETL | e.g. MES Route to ICOST | e.g. Azure Service Bus | e.g. REST / RFC / SFTP | e.g. OAuth / NTLM / Cert |
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1109,10 +1075,9 @@ flowchart TB
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
 
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -1154,10 +1119,9 @@ flowchart TB
 | 1 | e.g. Azure PaaS | Cloud / SaaS | e.g. XEUS | DEV,QAS,PRD |
 | 2 | e.g. S/4 HANA 2023 | On-Premise | e.g. MES 300 | DEV,QAS,PRD |
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1197,10 +1161,9 @@ flowchart TB
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1219,10 +1182,9 @@ Project delivery milestones for E2E-72 RICEFW objects:
 
 > *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
 
+
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1251,5 +1213,5 @@ Standard RAID items for E2E-72 (End-to-End Integrated Processes):
 
 ---
 *E2E-72 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026*
+
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-72 — IP</span></div>
-</div>

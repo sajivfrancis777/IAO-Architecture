@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">MB-060 — Plan the Business</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Finance Plan To Report (FPR) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **MB-060 Plan the Business** within the IAO program. It includes 13 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Finance Plan To Report (FPR) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 17 Reports, 86 Interfaces, 25 Conversions, 219 Enhancements, 1 Forms, 18 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Regulatory Compliance Readiness | Ensure SOX compliance and audit trail continuity through the ERP transition period | Intel Corporate Compliance | Medium |
 | 4 | MB-060 Process Migration | Migrate MB-060 business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Finance | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -220,10 +187,9 @@ This capability includes **13 business process(es)** modeled in BPMN 2.0, coveri
 | 12 | MB-060-190_Review_Final_Profitability_Analysis_Reports | MB-060-190_Review_Final_Profitability_Analysis_Reports | Corp. FP&A Analyst | 11 | 5 |
 | 13 | MB-060-200_Perform_CAPEX_Planning | MB-060-200_Perform_CAPEX_Planning | Corp. FP&A Analyst | 13 | 6 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -323,10 +289,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1Vdtu4zYQ_RVCQeoWkANdLVcPBRzZagNssMY63T5s-kBLpE2EIgWSsq0N_O8dWvItmwAFiupB1hzNnDMzHo5enUKWxEmd29tXJphJ0evArElFBikaLLEmAxd1wFesGF5yogfWh0phFuz7wc2P6p11s1iOK8Zbiy7IShL054OLJhDIXaSx0ENNFKMDd1ArVmHVZpJLZb1vyJh69KDWv7qXqiTq7OB5iV_EEMqZIGc4TKIkym2cJoUU5RUpjemYFoO9TY7LbbHGyhzSbzR5xLu_WGnWYFPMNQGftan4J7wk3NZoVGOxolGbYzOYtjoCGraoccHECvDIA0hh8XKGYm-_R_vb22dxEkVP02eB4Co41npKKNIG4NnGIMo4T2-ibJLHnquNki8kvQlmyTQM3MJWkkLpnmubO9wStlqbdCl52bsOt7aGNKh3rtqlgeeqFu5vtIgoz0rZKBgH45PSfeJnfnZUopT-JyXoq3rC-qXXmoV5kE9PWn48ijPvR75jmdMomfhv-0TUhhXkgjTP83B2btVsFPvex6T3eTjysjekK2zIFrdnwl-z6ESYx0nuJx8Sdnpvs2yWcyWLI2E4i_P4RJjc-_kk-JAwmvjRuM8QeFYK12uUSVXfoXz-0wRNBOatNp2DvYT_7dmhOKV4aPuN5kRRqSr0iEWDOXoQdWMQNggyKpvCoD8YUVgV6xZ9IhvCn52_L7iCa64chpgzA_1Bk6V9apGR6CsjWwRbALg3RBipWvRQwbwbjeafv6ApNhgxYT3u7u6u-cN_zX9ggbQXTQ2OvyvZ1O7xZ8o2TDMpXFsUZeYHmehaZrYjRQMauVSkwNrAwURZW3ByHRV_O4UVcoVyQkpElawu6vxC7AQSKA_yzKSGzoqyzwL3FTzCRrBtvaQe_XyirjmM2hPsCE0htQWGHYrmHItO6pqq-7OZtl3pPK3cZ-gIPhRh47rif7kQS85i2sj6fxODRdI9iBANh7_BJPZm0Jlhb_qdGfVm3JlBb446M-7NqDOTiyNlGY6r5AoO3ofD9-HofTi-XCpXb0antXwFJ_0GdVynIqrCrHTSV-fwVYQvZ0kobrhx9q6DGyMXrSic9PD1cJq6hEmfMgyHuurA_T8vQGY8" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 MB-060-060_Analyze_Alternatives_and_Determine_Changes — MB-060-060_Analyze_Alternatives_and_Determine_Changes
@@ -422,10 +387,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllVuP4jYUx7-KldGIVgpSrgTyUAkCqUbtaqfDbKtq2Qfj2GCNsVPbgaGI717nQkiY5aFtHlD-59i_c8E-OVlIZNiKrcfHE-VUx-A00Fu8w4MYDNZQ4YENasPvUFK4ZlgNyjVEcL2kf1fL3CB_L5eVthTuKDuW1iXeCAy-PNlgajYyGyjI1VBhScnAHuSS7qA8JoIJWa5-wGPikCpa45oJmWF5XeA4kYtCs5VRjq9mPwqiIC33KYwEz3pQEpIxQYNzmRwTB7SFUlfpFwp_gu9_0ExvjSaQKWzWbPWO_QrXmJU1almUNlTI_aUZVJVxuGnYMoeI8o2xB44xScjfrqbQOZ_B-fFxxdug4HW-4sA8iEGl5pgApY15sdeAUMbihyCZpqFjKy3FG44fvEU09z0blZXEpnTHLps7PGC62ep4LVjWLB0eyhpiL3-35XvsObY8mt-bWJhn10jJyBt74zbSLHITN7lEIoT8r0imr_IVqrcm1sJPvXTexnLDUZg4H3mXMudBNHVv-4TlniLcgaZp6i-urVqMQte5D52l_shJbqAbqPEBHq_ASRK0wDSMUje6C6zj3WZZrJ-lQBegvwjTsAVGMzedeneBwdQNxk2GhrORMN-CRCgNpgiJgmvIde0tH-5-_bqyCIwJHCKxAS8YYbrH4JlBznEGTBpZgTQVHMyhhoBIsQOzP1fWt28diPd9yIsotDnD4IkTIXewolSAZXAD8L8P-Jxj3k3hc3mHO4l84AR9TgIZKpj5d8Ancwq37FjVBQQxvdB0T_UR_FaYfpiXG1DYB33Js5Lyy7M3Ageqtx_3X2NlN6jRDy0qZ_DYtrZFvOC_CirNTORaAdOpbsWvZhYoYop-MtOUNvQfO_ToSlda5P-RnohdzvBH-vh0utChlOKghpBpkEMJGcPs5_rcr6zzubNn8u_2mGlSv_ARGA5_MjEbOa6l25deX_qNdGs5aaTXl35fTmoZNDKoZdjIsJZR506W_M7k6Hm8ux7_rie46wnvekbtjO-Zo2Yc94zjy0jqWScXq2VbO2wuJM2s-GRVn2Pzyc4wgQXT1tm2YKHF8siRFVefLauojv-cQjNNdrXx_A_Bx4rS" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 MB-060-100_Prepare_Planning_Structure — MB-060-100_Prepare_Planning_Structure
@@ -491,10 +455,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVu1v-jYQ_lesVB2bBFNeCeXDpDSQ3yq1GyrtOmndB5M4YNXYme1AGeJ_3zkvQBj9svEh4h7fPXf32Dlnb6UiI9bYur3dU071GO17ekXWpDdGvQVWpNdHNfAblhQvGFE945MLruf078rN8YtP42awBK8p2xl0TpaCoNeHPoogkPWRwlwNFJE07_V7haRrLHexYEIa7xsyyu28ytYs3QuZEXlysO3QSQMIZZSTE-yFfugnJk6RVPCsQ5oH-ShPewdTHBPbdIWlrsovFXnCn2800yuwc8wUAZ-VXrNHvCDM9KhlabC0lJtWDKpMHg6CzQucUr4E3LcBkph_nKDAPhzQ4fb2nR-Tosfnd47glzKs1ITkSGmApxuNcsrY-MaPoySw-0pL8UHGN-40nHhuPzWdjKF1u2_EHWwJXa70eCFY1rgOtqaHsVt89uXn2LX7cgfPi1yEZ6dM8dAduaNjpvvQiZ24zZTn-f_KBLrKF6w-mlxTL3GTyTGXEwyD2P43X9vmxA8j51InIjc0JWekSZJ405NU02Hg2F-T3ife0I4vSJdYky3enQjvYv9ImARh4oRfEtb5LqssFzMp0pbQmwZJcCQM750kcr8k9CPHHzUVAs9S4mKFYiGLH1Ey-y5CEcdsp3TtYH589Me7leNxjgdGbzTlGp6P0JPSKPkdPZt_79afZxF33YjXIgMf4xsLviFSUcEVuofXPUOCt1RxKSXh6a4mRNEGU2YmQJfacYB7QqCENbyY6NeCSKyBDzOEeYZ-EXyQCtldeCZ_lVTCUOH6olDH2-_bUrGUYqsGmGlUYIkZI-xbvXHv1uFQB8HRvlDu4QVFGZRyTtrtfk40Kgs0j2L0BO8yQ29Ur1C0lATafy1AgAmF0ipRutW5XaKZKEpmhDz5o63hgt2TJNUnHD2R9QJ0riSJlBIphbgM_UxBFJmudt08XjfPhCi65BeJsEKzcsFoigRUIukG1rss_iVLu0dnLHqFNXoTJYOdMu1rgRYEFIKxR7IuXdClexQ4a0_KE1bmCE6wxufkuRRr9DT51uUZXuGJUl3CEK7keYFpqnBqjkrF2I0Ou9GxJEYXEzcFhTP4t2uPV1YXFFVUl-fM_v5IVDBcx5hWQICZJHDeCJoxzDmMdDSHuwAKBOgBrshq54Dth3M69z8eWygEDQY_GYYWcBugtWuzXW5Wvcb0atNvTL82g8YManPYmMPaDC8yjRp7VJt3jRk2dbSp7i5sp8ntnI9sU297CXRg9zrsXYf963BwHR5eh8Pr8Og6fHcdhv1pr-ou7nyBu-3t0oW9Frb61hreQ0wza7y3qk8r-PzKSI5Lpq1D38KlFvMdT61x9QlildWwnlAM821dg4d_AHckGLc=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 MB-060-110_Process_Material_Changes — MB-060-110_Process_Material_Changes
@@ -560,10 +523,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlll1vozgUhv-KRVVlViJaPkPKxUiUhNlK02qkdHcuJnPhgEmsGhvZpmk2yn9fO3wkMMloOstFlPP6nOf1seDA3khZhozQuL3dY4plCPYjuUEFGoVgtIICjUxQC_9AjuGKIDHSOTmjcoH_PabZXvmm07SWwAKTnVYXaM0Q-PvBBJEqJCYQkIqxQBznI3NUclxAvosZYVxn36BpbuVHt2bpnvEM8VOCZQV26qtSgik6yW7gBV6i6wRKGc160NzPp3k6OujNEbZNN5DL4_YrgR7h21ecyY2Kc0gEUjkbWZDPcIWI7lHySmtpxV_bw8BC-1B1YIsSppiule5ZSuKQvpwk3zocwOH2dkk7U_A8W1KgrpRAIWYoB0Iqef4qQY4JCW-8OEp8yxSSsxcU3jjzYOY6Zqo7CVXrlqkPd7xFeL2R4YqRrEkdb3UPoVO-mfwtdCyT79TvwAvR7OQUT5ypM-2c7gM7tuPWKc_z_-WkzpU_Q_HSeM3dxElmnZftT_zY-pHXtjnzgsgenhPirzhFZ9AkSdz56ajmE9-2rkPvE3dixQPoGkq0hbsT8C72OmDiB4kdXAXWfsNdVqsvnKUt0J37id8Bg3s7iZyrQC-yvWmzQ8VZc1huwMMziLJCPZGqCkrG62V9Ufvb0shhmMOxPm0Qw1JWHIEFq3iKwCMUUqkzKCHIOSvA4-zT0vh-Vu-8rz5OHp76APd9gEX0BUCagSdGx-p_n-X9lPWsHiwBU4kZheQc-af3V_QU9VF-H7VAElSlco_Bo3piVTkuEBVHFJa745YiKTleVRKJjnu-_z5_8q0zSNla8VF2pNfdfW5ctlhuLuxboc5ZwRWWnrg1SPwiafqhI5VE3dL6NkRCqDZUF2rugngD6Vo1-KCmO1ZipgB_nAHuTgAhWXkdELOiJOhHgG3t9y0Bcs62YgyJBCXkkBBEPtXP2tI4HM6L7N8pcn6nyH1fkRqW9R86BePxR91fE9t17LSh1awPYncQe03sNOldfsPzm9gdrjcFk0EcNLHf5Ld-k0EcDGKvibv9N4Z3Z7NMN9nO8J7sXJbdy7J3WfYvy5PzId9bCa6uTLsXaE--a951_ZasduD3Zfuy7FyW3VY2TKNAvIA4M8K9cfw2Ut9PGcphRaRxMA1YSbbY0dQIj98QRlVmqnKGoRrtRS0e_gPb3fti" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 MB-060-120_Process_Organizational_and_Financial_Elements — MB-060-120_Process_Organizational_and_Financial_Elements
@@ -659,10 +621,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq9V22P4jYQ_itWVitaCVZJSAjwoRUL5HTqXhct21ZV6QeTOGBt4qS2A8tx_PeOSRxILttTt1KR9sWPZ56ZeTwekqMRpCExxsbt7ZEyKsfo2JFbkpDOGHXWWJBOFxXAr5hTvI6J6CibKGVyST-fzSwne1VmCvNxQuODQpdkkxL0y8cumoBj3EUCM9EThNOo0-1knCaYH6ZpnHJlfUOGkRmdo5Vb9ykPCb8YmKZnBS64xpSRC9z3HM_xlZ8gQcrCGmnkRsMo6JxUcnG6D7aYy3P6uSCf8OtvNJRbWEc4FgRstjKJH_CaxKpGyXOFBTnfaTGoUHEYCLbMcEDZBnDHBIhj9nKBXPN0Qqfb2xWrgqKHpxVD8AliLMSMREhIgOc7iSIax-MbZzrxXbMrJE9fyPjGnnuzvt0NVCVjKN3sKnF7e0I3Wzlep3FYmvb2qoaxnb12-evYNrv8AL8bsQgLL5GmA3toD6tI9541taY6UhRF_ykS6MqfsXgpY837vu3PqliWO3Cn5td8usyZ402spk6E72hArkh93-_PL1LNB65lvk167_cH5rRBusGS7PHhQjiaOhWh73q-5b1JWMRrZpmvFzwNNGF_7vpuRejdW_7EfpPQmVjOsMwQeDYcZ1s0TXl2hxYxZozwYk99mPXHyojwOMI9JTV6hs4TEfzzEw1e0ihaGX9eGdt144kQdMPQE-k98g1m9DOWNGXo46zu1a97PZEdJXuEWYhUiUSIKmrdz1K5zagIcjBZBmkG1-eZJnAnzs6Pe6gEpVEzfoNE5TxhLM1ZQL5h2v-uyjSL4TR1etcuOD4H9ynDLIAxhOYxzDImBfoI045CH4TA-v01rXOhFTLNIIm0ICQhmmGJ0QIHL3hD0BJ4kEzR4hziASUwGOIm2-B41Gxq0vbWoF2wRUonTjKVFBHIh3LDH1fG6VS4woVt9MMTCQjd1Vph1HpOSxoStD4Uf6dpksHYFnDKIPyCk-IYUyER11UVTbBgD2iSZTzdkbu7u4bQZj0SsCY5owGIh_ZUbpUQYbMbbLO98HlIQfwn8ldOOQgK8sG3S9VRVxoULNZ75Ctc7XZX8hrEuQAtPxRD4J9ULwu7kDqtN2oKE5PTdS7Thghu3fyebCi73NmFqoC3dPagoTeOgzxWan_41EWP8ENkcHc-ymfMN0ReKCcJSCHrbN7_1SfDb7RJ1cP17lIiPZGY7DC7quR80-ZMEtUlkOeVxmhHMVzfLJdw8jxp0Hnv7hhr-G87pnAbvbvRYIahXu8HNTs1YJWArQG7BPS6WOrtctcpl06xdMulW_oOtXMJDMr1oFh65dIrzfXaOgNfVsbP6cr4oiotN4aFoV6OypyqHMt9S-dhmaWFqdO26sy2rkfroTO0Bo0UdKW2WW78TkSxM2zulC79ZjVfeVhlARWD1txsZqFdq3yrQirS0dWjgTou_UhUg-12uN8OO-2w2w4P2mGvHR62w6N2GA6yHe9XD7R13CkfPuuo-4b1QD-Z1WGvHR62w6NWGLqiFbbaYVvDRtdICE8wDY3x0Ti_CcHbUkginMfSOHUNDCNpeWCBMT6_MRh5FoLnjGL4CkkK8PQ3aTY1Sg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.8 MB-060-130_Plan_Types_of_Work_and_Develop_Rates — MB-060-130_Plan_Types_of_Work_and_Develop_Rates
@@ -754,10 +715,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1VV2P4jYU_StWRiNaKUj5JJCHShBItepWGpXZ9mHpg3FuwBrHjmwHhiL-e20SPsLuSK2q5gFxju895_rGvjk6RBTgpM7z85FyqlN0HOgtVDBI0WCNFQxc1BK_Y0nxmoEa2JhScL2kf53D_Kh-t2GWy3FF2cGyS9gIQF8-uWhqEpmLFOZqqEDScuAOakkrLA-ZYELa6CcYl155duuWZkIWIG8Bnpf4JDapjHK40WESJVFu8xQQwYueaBmX45IMTrY4JvZki6U-l98o-BW__0ELvTW4xEyBidnqin3Ga2B2j1o2liON3F2aQZX14aZhyxoTyjeGjzxDSczfblTsnU7o9Py84ldT9DpfcWQewrBScyiR0oZe7DQqKWPpU5RN89hzlZbiDdKnYJHMw8Aldiep2brn2uYO90A3W52uBSu60OHe7iEN6ndXvqeB58qD-X3wAl7cnLJRMA7GV6dZ4md-dnEqy_I_OZm-yles3jqvRZgH-fzq5cejOPO-1btscx4lU_-xTyB3lMCdaJ7n4eLWqsUo9r2PRWd5OPKyB9EN1rDHh5vgJIuugnmc5H7yoWDr91hls36RglwEw0Wcx1fBZObn0-BDwWjqR-OuQqOzkbjeokwojaaEiIZrzHW7ah_uf105JU5LPLTNRi8gSyErE6sbzNCLyTOnEFGOXtp71EplwDXIlfPnnVLQV5oyJohpzDlBoVKKCi1rc3as3p2IQlqgVyBb9Bl2wHpLfYPw_zaIvl4diNigL3Vh5Ze_5J36zLTPTgSE69qm3ufG_dzfgADdwa2gXEgg2Di3dU4zhPWtp1lb24Pm6IerZs3M-ZpT89LputFUcIUwL9BUKVCqMptRyJ4YA6zZJzN6qam9MII_3gkmN0GlRf3PBTNR1Qy-FRwfjxdBLKXYqyFmGtVYYsaA_dzei5VzOt3lTP5djulf-4eP0HD4k3lLHYxaOO7guIVxH3b3n8ctDDrotzDsYNDCSQfDPpy0MLm7pFbhMpx6dPB9Ovw-Hd3Po95K_OHK6Drre3TSjeUeOb6Mph47ubCO61QgK0wLJz0658-y-XQXUOKGaefkOrjRYnngxEnPny-nOd-IOcVmqlQtefobDF2PBA==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.10 MB-060-170_Reconciliation_and_Alignment_of_Functional_and_Product_Plans — MB-060-170_Reconciliation_and_Alignment_of_Functional_and_Product_Plans
@@ -830,10 +790,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm2P4jYQ_itWVltaKVR5JWw-tGIDqU6609Hj2mtV-sE4DljrOJHtsFCO_147JEBCOGl1fFjtPDPzPPZkPPbBQHmCjdB4fDwQRmQIDgO5wRkehGCwggIPTHAC_oScwBXFYqBj0pzJBfmvCrO9YqfDNBbDjNC9Rhd4nWPwxzsTTFQiNYGATAwF5iQdmIOCkwzyfZTTnOvoBzxOrbRSq13POU8wvwRYVmAjX6VSwvAFdgMv8GKdJzDKWdIiTf10nKLBUS-O5q9oA7msll8K_AHuvpBEbpSdQiqwitnIjL6HK0z1HiUvNYZKvm2KQYTWYapgiwIiwtYK9ywFccheLpBvHY_g-Pi4ZGdR8Hm6ZED9EIVCTHEKhFTwbCtBSigNH7xoEvuWKSTPX3D44MyCqeuYSO8kVFu3TF3c4Ssm640MVzlN6tDhq95D6BQ7k-9CxzL5Xv3taGGWXJSikTN2xmel58CO7KhRStP0u5RUXflnKF5qrZkbO_H0rGX7Iz-ybvmabU69YGJ364T5liB8RRrHsTu7lGo28m3rPulz7I6sqEO6hhK_wv2F8CnyzoSxH8R2cJfwpNddZbma8xw1hO7Mj_0zYfBsxxPnLqE3sb1xvULFs-aw2IAo58XPIJ7_MAETBuleyFOA_jH7n6WRwjCFQ11vFZsVkGMQlZxjJkGcc4ygkKobQbRHFINXIjdgzvGW5KW49S-Nf6_YnW-z_16qxlV4w3It0fgmSJbqTLV53X7euKQU_I0hv7fuS0AvrdemnSCEhQDVtGIIg9muoJBBSXKmBTIwJUpF0j0gDKjBBoSqLc7anH6bc1GuMiJ7OQVIcw4-4S1mZaeOozeSRB8XALIEfJzP_gKLQh1aVYg2ZfBGyg-Qrwlrc4zbHJ9wkfN7HDKvG3GuMHaznKdeqnm1i_f3KWc71SOqqesE_bkXEr7gjRo2mHc-r239eFZRNHuVpMY8IpScvqnWmlCyZpluzjxV7cKQ9ih-7VPHMimRrHYgwDt1xalEnCiRn65V7IuKkHnxfSq6tSnuUXEOh0ZFX7vDlbo40AZ82cD6GAnAME50kVa4OSHJr0vjeLymcftp8A7RUpAt_u003rpp3jfUyZ0jo7voRt9_q77q5dM_6nOC4fAXXYoGcDTwdWncnS9V7ZuT_1XNpyazZnJr2-3YTse26wCvtr3a39ij2vZr2-_YQce264BxbY9P5lNtPtXhdnejtwPvZovuveKceq0zx-vWqTLPal6dWQ2SyjXqus5TSzn9rrMZHcoXXF12uuzNJd-CnX7Y7Ye9ftjvh0f9cNAPj_vhp35YNWTzFGvjdv1saqNO83Zow24_7PXDfgMbppFhnkGSGOHBqJ7Z6ime4BSWVBpH04ClzBd7hoyweo4aZZGozCmB6pWQncDj_wpUyEY=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.11 MB-060-180_Transfer_Detailed_Financial_Plans_to_Profitability_Analysis — MB-060-180_Transfer_Detailed_Financial_Plans_to_Profitability_Analysis
@@ -913,10 +872,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm1v2zYQ_iuEiswtYGd6tRx_2ODIUVcgWbyo6zDM-0BLVMyFJgWSsuOl_u872pJtqcqwtf4Q5B7ePQ_veCfyxUpFRqyxdXHxQjnVY_TS00uyIr0x6i2wIr0-OgCfsKR4wYjqGZ9ccJ3Qv_dujl88GzeDxXhF2dagCXkUBP36oY8mEMj6SGGuBopImvf6vULSFZbbSDAhjfcbMsrtfK9WLV0LmRF5crDt0EkDCGWUkxPshX7oxyZOkVTwrEGaB_koT3s7szkmNukSS73ffqnIHX7-jWZ6CXaOmSLgs9QrdosXhJkctSwNlpZyXReDKqPDoWBJgVPKHwH3bYAk5k8nKLB3O7S7uJjzoyi6fZhzBL-UYaWmJEdKA3yz1iinjI3f-NEkDuy-0lI8kfEb9yacem4_NZmMIXW7b4o72BD6uNTjhWBZ5TrYmBzGbvHcl89j1-7LLfxtaRGenZSioTtyR0el69CJnKhWyvP8m5SgrvIjVk-V1o0Xu_H0qOUEwyCyv-Sr05z64cRp14nINU3JGWkcx97NqVQ3w8CxXye9jr2hHbVIH7EmG7w9EV5F_pEwDsLYCV8lPOi1d1kuZlKkNaF3E8TBkTC8duKJ-yqhP3H8UbVD4HmUuFiiSMjiEk0YEynWVHCFbgnODk7mx50_5laOxzkemJqjCBe6lAQlBRw2tCF6ex_dJ-8Q1mgGjcaNi1AaRYRr-B_zDMGG_yKpnlt_ntG6TdoHkhK6Jnv_T5jRDAqHkmRytjN0X-qihO6SYgVas7smodciLDmaXU8amVGOkknU2N8dzBhrEo3eHpkKBmc3JRpTRjIUU455Cp8YNGPwiUFamNRyqvGCMqq3aMIx28Lwoo8wpyoH-g_wpaOQSgYS786L6ry81CLmuzhYQES6rFM32SZlmhKl8pL9OLd2u_NgtzuYPKesVFDF94eua4cFpzAspdioAWYaFVhixgh7JWj4_4KgKTobLJ59N6nqo8_o_eah3Qqc1ScGBW_32BRrvG-0fdXrI6QcDuIOy0c43o7jDJoSM0kGM1GUzDQYGGsqSoV-KaF3YfX7n6jSQtIUDnmS6hK-1wd-uJkqDdUlMmx385qSDZpBow1O6cRCkhSrRmaQTVIWEPJeirKA2Vu3qcPW_onMhVwdmljkKMFwU9ZjdtaLD6QQUu8lYO3YmcZIUsLhjhWXl5dNqatW5_-n8nAC-UCFFlDOqq5fdLt9Iob44ptGKhKrgpEOEa97Kqqz-Jdx8r9unMKvnAw-QoPBD2YeK9sJKqBtuxXgVvbR4WB7tbm3P8-t34maW5_N0FYrXhVY21cHuxaudcKaKKwAvwaGLQ__YNd89fJxJ15rJ3VcTWzXjlVKbjuFn8Uhg-NCpei3FWpH_-yCNJWpHwYN2O2GvW7Y74aDbnjYDYfd8Oj4HmvAV92wY1dPqibq1O-KJux2w1437HfDQTc87IbDGrb61orIFaaZNX6x9u94eOtnJMcl09aub-FSi2TLU2u8f-9aZWGu-CnFcEusDuDuHyPU3mc=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.12 MB-060-190_Review_Final_Profitability_Analysis_Reports — MB-060-190_Review_Final_Profitability_Analysis_Reports
@@ -999,10 +957,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1tv4jgU_itWRl12pdDmSigPK9FAKkbtlpZ2R6NhH0zigFVjR7ZTylb89z2BhEsKU02XB8T5js_3nYvjmDcjFgkxOsbZ2RvlVHfQW0PPyJw0OqgxwYo0TLQB_saS4gkjqlGsSQXXI_rvepntZa_FsgKL8JyyZYGOyFQQ9DQwURcCmYkU5qqpiKRpw2xkks6xXIaCCVms_kLaqZWu1UrXlZAJkbsFlhXYsQ-hjHKyg93AC7yoiFMkFjw5IE39tJ3GjVWRHBOLeIalXqefK3KLX7_RRM_ATjFTBNbM9Jzd4AlhRY1a5gUW5_KlagZVhQ6Hho0yHFM-BdyzAJKYP-8g31qt0OrsbMy3ouixN-YIPjHDSvVIipQGuP-iUUoZ63zxwm7kW6bSUjyTzhenH_Rcx4yLSjpQumUWzW0uCJ3OdGciWFIubS6KGjpO9mrK145jmXIJ3zUtwpOdUthy2k57q3QV2KEdVkppmv4vJeirfMTqudTqu5ET9bZatt_yQ-s9X1Vmzwu6dr1PRL7QmOyRRlHk9net6rd82zpNehW5LSuskU6xJgu83BFeht6WMPKDyA5OEm706lnmk6EUcUXo9v3I3xIGV3bUdU4Sel3ba5cZAs9U4myGQiGzcxQNf-uiLsdsqfRmQfHh9o-xkeJOiptFv1E3y9gSfc2TKTymXCMtUHg3QlgjyCmlGoWAwrob8kIYjAh26Ti3LGz1sMZNJXIZE5RQiFVU8LHxz56Ucyj1lCXQOnSL5ZRyhW7hUWCIcjTqhigVEl1LoVTpRpgnRQZJHusSOuR2D7lDnOlcEvRAMiG12qe9F_cm-i6-m-j69mJ4i9ZnEYesN72h6pDY-5C4H3aPEV_cHeFe1_ENs-eaiv9jKxOLKRrA6UmL5hRdRUzgRKHiAE2Q4Gh494AuUHj_hIYMcw4TgKwYKY4rIN1nbR2yXhOY54ygSEgSY6WBbsBfYJ5CLtFgDmcOPNdSzNEARv4IpcHwi67Vh2-en5_XlIIPle6KbbRmD4XabqPN0BdUz8oJ1bXeS7U_lHqAvclzUtZyNfxJJds9td7PNaXL40rdWOdwyG_oRx4Ko8Ffn5WwrUONGxg1usv1ROSwUdbTB17YYfU4-8MuhHfXo3fj_Hmu75ttO79vdTIGp1xEYSeXUXhCGdXL3eauHgoYACWLchczeLMnQPvHPq27o1VaZL9EG4p5xoh-T-q9vVWkWEqxUE3MNMqwxIwRdr05p8fGarUf5H8mqPWZoOAzQe1fC4JTYPMDJoeazT_hZCltf2PaXuX3SsCuAa2aHdTsds2-rGy7JKwUWzXbrlIo7aA0t4I1u12zL-vrSwGntMuC7W3CpYBbs22rAqwNULXELf1VhV7NtquM3L03dpF3dVM5gJ3jsHsc9o7D_v6d5cDTOukJTnraJz2XJz3QpJMu-7TL2V5KD3G3vEAeol51izqE_eNw6zgcHIfbFWyYxpzIOaaJ0Xkz1v9D4L9KQlKcM22sTAPnWoyWPDY66_u6ka8vKD2K4Ro134Cr_wAXhQ2g" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.13 MB-060-200_Perform_CAPEX_Planning — MB-060-200_Perform_CAPEX_Planning
@@ -1096,10 +1053,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -1116,10 +1072,9 @@ flowchart TD
 | Sender | MB-060-120_Process_Organizational_and_Financial_Elements,  | |
 | Corp. Allocations Lead | MB-060-180_Transfer_Detailed_Financial_Plans_to_Profitability_Analysis,  | |
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -1131,10 +1086,9 @@ The following data entities are derived from the system integration flows for MB
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -1212,10 +1166,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1258,10 +1211,9 @@ The Future-State architecture represents the **target** landscape for MB-060.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1637,10 +1589,9 @@ The Future-State architecture represents the **target** landscape for MB-060.
 
 **Summary**: 17 Reports, 86 Interfaces, 25 Conversions, 219 Enhancements, 1 Forms, 18 Workflows
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1652,10 +1603,9 @@ Integration patterns identified from the system flow analysis for MB-060:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1679,10 +1629,9 @@ Platform landscape inferred from integrated systems for MB-060:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1722,10 +1671,9 @@ Platform landscape inferred from integrated systems for MB-060:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1754,12 +1702,12 @@ Platform landscape inferred from integrated systems for MB-060:
 | FPRW0165_CFIN | Workflow is required to trigger the approvers based on the business requireme... | May-24 (100%) | Aug-24 (100%) | Aug-24 (100%) | Sep-24 (100%) |  |
 | FPRR1514_IP | To generate reports out of the ITT documents that was created | Aug-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 4. Completed |
 | FPRR1514_IF | To generate reports out of the ITT documents that was created | Aug-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 4. Completed |
+
 *... and 346 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1788,5 +1736,5 @@ Standard RAID items for MB-060 (Finance Plan To Report):
 
 ---
 *MB-060 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: March 2026*
+
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-060 — Plan the Business</span></div>
-</div>

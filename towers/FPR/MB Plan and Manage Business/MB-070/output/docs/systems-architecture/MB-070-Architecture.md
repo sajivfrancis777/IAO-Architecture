@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">MB-070 — Prepare Budgets</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Finance Plan To Report (FPR) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **MB-070 Prepare Budgets** within the IAO program. It includes 15 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Finance Plan To Report (FPR) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 17 Reports, 86 Interfaces, 25 Conversions, 219 Enhancements, 1 Forms, 18 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Regulatory Compliance Readiness | Ensure SOX compliance and audit trail continuity through the ERP transition period | Intel Corporate Compliance | Medium |
 | 4 | MB-070 Process Migration | Migrate MB-070 business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Finance | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -222,10 +189,9 @@ This capability includes **15 business process(es)** modeled in BPMN 2.0, coveri
 | 14 | MB-070-180_Implications_on_Expected_Corporate_Financial_Results_and_Make_Adjustments | MB-070-180_Implications_on_Expected_Corporate_Financial_Results_and_Make_Adjustments | Corp. FP&A Analyst | 8 | 2 |
 | 15 | MB-070-190_Prepare_Draft_Budgets_by_Department | MB-070-190_Prepare_Draft_Budgets_by_Department | Corp. FP&A Analyst, FP&A BU Analyst, IT Admin | 6 | 2 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -287,10 +253,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVmuL6zYQ_SuDl21uwen1M078oZCXexe63NDsbQtNKYotJ2JlKUhyNm7If68U52U3WxbqD4Y5mjlnZiSNvbdSnmErth4f94QRFcO-o9a4wJ0YOkskcceGGvgVCYKWFMuO8ck5U3Py99HNDTY742awBBWEVgad4xXH8O3JhqEOpDZIxGRXYkHyjt3ZCFIgUY055cJ4P-B-7uRHtdPSiIsMi6uD40RuGupQShi-wn4UREFi4iROOcsapHmY9_O0czDJUf6WrpFQx_RLiZ_R7jeSqbW2c0Ql1j5rVdCf0RJTU6MSpcHSUmzPzSDS6DDdsPkGpYStNB44GhKIvV6h0Dkc4PD4uGAXUXiZLBjoJ6VIygnOQSoNT7cKckJp_BCMh0no2FIJ_orjB28aTXzPTk0lsS7dsU1zu2-YrNYqXnKanVy7b6aG2NvsbLGLPccWlX63tDDLrkrjntf3-helUeSO3fFZKc_z_6Wk-ypekHw9aU39xEsmFy037IVj59985zInQTR0233CYktSfEOaJIk_vbZq2gtd533SUeL3nHGLdIUUfkPVlXAwDi6ESRglbvQuYa3XzrJczgRPz4T-NEzCC2E0cpOh9y5hMHSD_ilDzbMSaLOGMRebHyCZfTeEIUO0kqp2MA_z_lhYOYpz1DX9hhlFDL7Opr_DhAicKkAsgyGlPNVlZjDf6P3XJxMmQmdnrjAoDqNvC-vPG06_yTnH1DA9Y7XmGXSeMswUySt4IQXWi4Jg-flFaOKuGRJaLk15yZSEnAtIuE4DSWWuQ1Ml-JjKM2IlovDENqWCKVOiugi0CMOPEY55sSQMKcIZ8FyTKc0v4TPMBLlJGEaNYlpavY9p6TZvsej-J1Wkqf66qNYREj5pXuCMVscuolSRLVEV1B1eltkKm5Z-36Qa7PfntMwo7y71MErX5-zM2WBm8-s0F9bhcBPrOveD8S6lpdRJ_VRflGuY3vHWSZ0ghWCYFYTdEjdbpSfyMZsvRCouSKr39rwFueAFzL_-Ap98qDASslVeXzPNBN4gga_FzPVw1vECX3wveTEXut0f9R05mV5tDk7moDZ7TdNvmkHTDE9mrzbd0-VnfssOWnbYsl2nBqKT3T-t38wSk_55hjZg7z7s34eD-3B4H-7dh6PLN6oB9-_Dg_NQbVbjnGHLtgosCkQyK95bxz8K_deR4RyVVFkH20Kl4vOKpVZ8_PJa5SbTkROC9DEravDwD8z5wzQ=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 MB-070-020_Forecast_Drivers_(use_only_for_activity_based_budgeting) — MB-070-020_Forecast_Drivers_(use_only_for_activity_based_budgeting)
@@ -355,10 +320,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVstu4zYU_RVCQeoWkAtRD8vRooUjW0WABgjGk5nFeBa0RNlEaFIlqcSux_9eUg87khWgRbUwfA_vOfdB8kpHK-UZtiLr9vZIGFEROI7UFu_wKAKjNZJ4ZIMa-IIEQWuK5cj45JypJfm7coN-sTduBkvQjtCDQZd4wzF4frDBTBOpDSRiciyxIPnIHhWC7JA4xJxyYbxv8DR38ipas3TPRYbFxcFxQpgGmkoJwxfYC_3QTwxP4pSzrCOaB_k0T0cnkxzlb-kWCVWlX0r8iPZfSaa22s4RlVj7bNWO_onWmJoalSgNlpbitW0GkSYO0w1bFiglbKNx39GQQOzlAgXO6QROt7crdg4KPs9XDOgnpUjKOc6BVBpevCqQE0qjGz-eJYFjSyX4C45u3EU491w7NZVEunTHNs0dv2Gy2apozWnWuI7fTA2RW-xtsY9cxxYH_duLhVl2iRRP3Kk7PUe6D2EM4zZSnuf_K5Luq_iM5EsTa-ElbjI_x4LBJIida722zLkfzmC_T1i8khS_E02SxFtcWrWYBND5WPQ-8SZO3BPdIIXf0OEieBf7Z8EkCBMYfihYx-tnWa6fBE9bQW8RJMFZMLyHycz9UNCfQX_aZKh1NgIVWxBzUfwKkqefZmDGED1IVTuYh8FvKytHUY7Gpt8gFljXA_QtBQkXOEVSgbkgr1jIlfX9Hc_t8uZYYbHTt-mKBnIuwAKlW_CoDzvtqniD0RE7gFmWEUW4zhdkQ_H9LvMJCx1nB1al68D06xYp8JBXRgaWKWZ64HAJnqW-VeCLFtPK4BExtNHTiKmudNCVfi6yf9eSSb8lFDfFfMJZqccJU8O1hF3iUhNTBWZFIbgeYCZ4W0LVzISYrjxRxLoy05_POgXVJ_JqJx70UDZymeb98o54dyFKxYtrYsx3hSmmT4TO8dgyzewfr_X00jtd7aNpMW_aYP5_wn-VRODs95V1Or0XgcMieJ_SUuoE_qhvWJ_mDtOukmcYZ0BxsMbN-cpMWvWuXifj_ddk9ECs_zAXjMe_mcQa22vsZgyxoLG9xp7WdusOYW3ftbZj7B8rq856Zf3Qku1aTwo2sfzWdq-5sL9Wt6BaC5q1SS_lcw71Ya58J82aX_uGjRk21PfjzCTajvEO7A7D3jDsD8PBMDwZhsNheHp-e3bgu-ZF1y3Gaad9F4bDsDsMey1s2dZOD01EMis6WtWHkf54ynCOSqqsk22hUvHlgaVWVH1AWGW1YXOC9Fzf1eDpHwIm_8Q=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 MB-070-040_Preparation_of_Budgeting_Instructions_and_Templates_Package — MB-070-040_Preparation_of_Budgeting_Instructions_and_Templates_Package
@@ -430,10 +394,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P4jYU_StWRlO6UpjmkzB5aBUCWY3EVGiZ7aoqfTCJA-44TmQ7MJTlv9cmCRA2szPq8oC4x_eec--xg7PX4jxBmq_d3u4xxcIH-55Yowz1fNBbQo56OqiAPyDDcEkQ76mcNKdijv89pplO8aLSFBbBDJOdQudolSPw-UEHgSwkOuCQ8j5HDKc9vVcwnEG2C3OSM5V9g4apkR7V6qVRzhLEzgmG4ZmxK0sJpugM257jOZGq4yjOadIiTd10mMa9g2qO5Nt4DZk4tl9y9AhfvuBErGWcQsKRzFmLjEzhEhE1o2ClwuKSbRozMFc6VBo2L2CM6UrijiEhBunzGXKNwwEcbm8X9CQKpp8WFMhPTCDnY5QCLiQ82QiQYkL8GycMItfQuWD5M_JvrIk3ti09VpP4cnRDV-b2twiv1sJf5iSpU_tbNYNvFS86e_EtQ2c7-X2lhWhyVgoH1tAanpRGnhmaYaOUpukPKUlf2RPkz7XWxI6saHzSMt2BGxrf8jVjjh0vMK99QmyDY3RBGkWRPTlbNRm4pvE66SiyB0Z4RbqCAm3h7kx4Hzonwsj1ItN7lbDSu-6yXM5YHjeE9sSN3BOhNzKjwHqV0AlMZ1h3KHlWDBZrMPoMAgrJjotqQX2o9ddCS6Gfwr7yGTzQohRgRiAFYyggwBTMgxA8QraSPx_lMSUL7e-Levtd9WHOBQgRFYj98mU07yJy2kQzxNKcZSCaAUgTEIDgaQqC5J-Si0zycHks5JNR60Uyk6sSGUtLyljgnPI2v_sG_-hN_qLN36Y3nf2-EYCM5Vveh0SAAjJICCIfq9Ox0A6Hqkg-P1fbE-asuJP9_BR0bNPgXTZXs0y77PXeGL9i_FjiBB2R0Xvsvru7a6sM2yqf0Aaj7eusVxYaP5_KucgLMGNI-afMBnkKRmWyQqJq47zLR94nlBVEWiy7gvEzXCHppkSQQInU-HApYp33SV1T_aX8o43XICgKlm9Q8tv3tujhSXafYXrJd-VruSSYr4-7MZWdqW5nqp8tFuvvnM778-hykN0Pjf4g71wMO0Y3u0dHLzGR27tB3xzSqsz-nyeb3oN-_1dJUIdmHZ5iuwKsOraq0KnDetWtQ6eubpbdq9isEwZ1PKhCrw69KhzW4bCubrTNpjm7AY7dfF1ov-cL7etl183Cn4hXK8bVPPbFH7maurnAWrDVDdvdsNMNu93woBv2uuFhN3x_ep1oj2PUV38bNZv7rw1b3bDdDTsNrOlahlgGcaL5e-34qihfJxOUwpII7aBrsBT5fEdjzT--UmllkcjKMYbyOc0q8PAf77pVTg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 MB-070-050_Input_Operating_Budget — MB-070-050_Input_Operating_Budget
@@ -495,10 +458,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2PokgU_SsVOr3OJNgDCGLzsImidEy6t804-5V1H6qhUNJlFakqtF3jf59bCiosTrJZHozncO85dW8VF_ZGzBNiBMb9_T5jmQrQvqNWZE06Aeq8YUk6JjoRv2GR4TdKZEfHpJypefbPMcx28w8dprkIrzO60-ycLDlBv05NNIREaiKJmexKIrK0Y3Zyka2x2IWccqGj78ggtdKjW3lrxEVCxCXAsnw79iCVZoxc6J7v-m6k8ySJOUtqoqmXDtK4c9CLo3wbr7BQx-UXkrzgj9-zRK0Ap5hKAjErtabP-I1QXaMShebiQmyqZmRS-zBo2DzHccaWwLsWUAKz9wvlWYcDOtzfL9jZFH0bLxiCK6ZYyjFJkVRATzYKpRmlwZ0bDiPPMqUS_J0Ed87EH_ccM9aVBFC6ZermdrckW65U8MZpUoZ2t7qGwMk_TPEROJYpdvDb8CIsuTiFfWfgDM5OI98O7bByStP0fzlBX8U3LN9Lr0kvcqLx2cv2-l5o_VuvKnPs-kO72SciNllMrkSjKOpNLq2a9D3bui06inp9K2yILrEiW7y7CD6G7lkw8vzI9m8KnvyaqyzeZoLHlWBv4kXeWdAf2dHQuSnoDm13UK4QdJYC5ysUcpE_oGj20xANGaY7qU4B-mL2XwsjxUGKu7rfaLrOuT5iK0EI-pNgIRFP0UxkXCDMEhQWQhCmjrfQMFYFHHcUCb5G8y_uwvj7StmpK4d8nVOiCBrBJNDPHZoTksAp_zJleQEnChyg7jRTKAQHyHgmG0LR7Oj7jGYUMwbhdZNewwTTuKCwIyh8fZqjiAsSY6kQVlo7KWJVqmYMzYchesFiCX9f4DGkdWG3tS-v4euVainySXH0JLiUNbnPdT2vrqdrR1O2gUq52KGvRJ9NmBHzGLbsWDE4Ylju7RJS6PrDw0Pdpt9i8wtRYABWBfmB3HETp6MZgmp-3Bq_vTWzyR-trQm5PG9pW2cGn856OYUH6XQcXnMisIL9RqMiWUIFU3ijZLCzCWR_vkp_vKRLxfNb6dXxa6bb1n5f5WMh-FZ2MVUoxwJTSujT6eleGIfDdZL935JgaJ7-sAHqdn_WAiXul7gcAsxtYL-Bew3sNbBzwo8ltK0TdircCLcrooH7DdxrYK-B3Qb2r2aadq1meY122uleO-2201473W-n_XZ6cH6F1ujH8m1XL8aqRn6dtivaMI01EWucJUawN47fO_BNlJAUF1QZB9PAheLzHYuN4PhdYBR5ApnjDMO4Xp_Iw3dNs-zN" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 MB-070-060_Collection_and_Consolidation_of_the_Operating_Budgets — MB-070-060_Collection_and_Consolidation_of_the_Operating_Budgets
@@ -610,10 +572,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllduO2jAQhl_FyoqmlUKVI6G5qASBVEhbLRI9XJRemMQGax07ss0CRbx7bRIOoYuqqrmImJ-Z77fHh-ytnBfISqxOZ08YUQnY22qFSmQnwF5AiWwH1MI3KAhcUCRtk4M5UzPy65jmhdXWpBktgyWhO6PO0JIj8HXigIEupA6QkMmuRIJg27ErQUoodimnXJjsB9THLj66NX8NuSiQuCS4buzlkS6lhKGLHMRhHGamTqKcs6IFxRHu49w-mMFRvslXUKjj8NcSfYbb76RQKx1jSCXSOStV0ke4QNTMUYm10fK1eDk1g0jjw3TDZhXMCVtqPXS1JCB7vkiReziAQ6czZ2dT8GU0Z0A_OYVSjhAGUml5_KIAJpQmD2E6yCLXkUrwZ5Q8-ON4FPhObmaS6Km7jmlud4PIcqWSBadFk9rdmDkkfrV1xDbxXUfs9PvGC7Hi4pT2_L7fPzsNYy_10pMTxvi_nHRfxRconxuvcZD52ejs5UW9KHX_5J2mOQrjgXfbJyReSI6uoFmWBeNLq8a9yHPvQ4dZ0HPTG-gSKrSBuwvwQxqegVkUZ158F1j73Y5yvZgKnp-AwTjKojMwHnrZwL8LDAde2G9GqDlLAasVSLmo3oNs-mYABgzSnVR1gnmY92NuYZhg2DX9BhnRGfosgimArACPYEohY3ovAswFmGRz6-dVsf9PxdN2cdAuniKhs0owg_pecED69GnmgAl7QUxxsQOTUs_BUJ_SpxkYU1JqM0U4k21qeGdIE6YQ1a1gklNS6DUrTqNs10dvz4CK6mXVFcU6V8cmcqHrrhjaXXOJIganMe-uOL0LRype_ZWT8rKiqMXRR63-wSLQ7X7Ua9WEXh36TejXYdCEQR2GTRjWYe9qlxnC6XS1ZP91OXhdDl-Xo_N91JJ7zdVhOVaJRAlJYSV76_g50J-MAmG4pso6OBZcKz7bsdxKjtemta7Mco0I1Lu5rMXDb-RVDEU=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 MB-070-100_Review_and_Approve_Budgets — MB-070-100_Review_and_Approve_Budgets
@@ -678,10 +639,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2PozYU_SsWo2laCSo-Q4aHVgkJ1Uoz1WizbVU1fXDAJO4YG9kmH5vNf68dIAksU2nVPES6x_ece--xMZyMlGXIiIzHxxOmWEbgNJJbVKBRBEZrKNDIBDXwO-QYrgkSI52TMyqX-PMlzfHLg07TWAILTI4aXaINQ-C3DyaYKiIxgYBUWAJxnI_MUclxAfkxZoRxnf2AJrmdX6o1SzPGM8RvCbYdOmmgqARTdIO90A_9RPMEShnNOqJ5kE_ydHTWzRG2T7eQy0v7lUAv8PAHzuRWxTkkAqmcrSzIM1wjomeUvNJYWvFdawYWug5Vhi1LmGK6UbhvK4hD-naDAvt8BufHxxW9FgXPH1cUqF9KoBBzlAMhFbzYSZBjQqIHP54mgW0Kydkbih7cRTj3XDPVk0RqdNvU5lp7hDdbGa0ZyZpUa69niNzyYPJD5NomP6r_Xi1Es1uleOxO3Mm10ix0YiduK-V5_r8qKV_5JyjemloLL3GT-bWWE4yD2P5arx1z7odTp-8T4jucojvRJEm8xc2qxThw7PdFZ4k3tuOe6AZKtIfHm-BT7F8FkyBMnPBdwbpev8tq_cpZ2gp6iyAJroLhzEmm7ruC_tTxJ02HSmfDYbkFMePljyB5_W4KphSSo5B1gv5R56-VkcMoh5b2G0yzDHxCB2np5zUDi0NJIIUSMwokAy-QbzAFL-rUkpXx952M-y0yMRMSxIhKlbks1YkaUvS6ii_wDSnZfyohC8UUQPURMyoYwZnagQy8AqiEnoek_H5zWqXuQnOU2zmWcI0JlscuM_z-SlUTHMFHtMNof2FNy5KzHQKzKtsg1c8HdeNh3YlS-OFO4ul0aiX09Wit1QOebgE6pKQSeId-qc_Pyjif77fFudEg52wvLEgkKCGHhCDyDsn9NpJyfvioYKp6RAOnJeg6-Yp4zngB5owQyJvNvtukrpnjYXJtYGNtlzG52S8kK__L_pgVJUFf2-_Yw_43_OznATtoCCzrJ7V1Teg4dez0YreJ3Wa5jZ1-3CR4PX7QxEEv36vjcROOm2W7pdsa-LIy_kTK4S_KpmbhqUls-_R7Y7S8X9mF5t9dPLrp9sLtwO4w7A3D_jAcDMPjYTi8vtA68KR593TAp_b-7c5iD8POMOy2sGEaBeIFxJkRnYzLp4r6nMlQDisijbNpwEqy5ZGmRnR5pRtVqS-fOYbq8Slq8PwvuGfaag==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.8 MB-070-110_Prepare_Legal_Entity_Consolidation — MB-070-110_Prepare_Legal_Entity_Consolidation
@@ -753,10 +713,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm1v6jYY_StWqo5NClteCc2HTTSQrtK9t2j07kVjH0zyBKw6dmQ7tIzLf58DCZAs3TQtHxDn5DnneYljZ28kPAUjNG5v94QRFaL9QG0gh0GIBissYWCiE_EzFgSvKMhBFZNxphbkz2OY7RVvVVjFxTgndFexC1hzQJ8fTTTRQmoiiZkcShAkG5iDQpAci13EKRdV9A2MMys7Zqtv3XORgrgEWFZgJ76WUsLgQruBF3hxpZOQcJa2TDM_G2fJ4FAVR_lrssFCHcsvJXzEb7-QVG00zjCVoGM2Kqcf8Apo1aMSZcUlpdg2wyCyysP0wBYFTghba96zNCUwe7lQvnU4oMPt7ZKdk6Ln6ZIhfSUUSzmFDEml6dlWoYxQGt540ST2LVMqwV8gvHFmwdR1zKTqJNStW2Y13OErkPVGhStO0zp0-Fr1EDrFmyneQscyxU7_dnIBSy-ZopEzdsbnTPeBHdlRkynLsv-VSc9VPGP5UueaubETT8-5bH_kR9bf_Zo2p14wsbtzArElCVyZxnHszi6jmo1823rf9D52R1bUMV1jBa94dzG8i7yzYewHsR28a3jK162yXM0FTxpDd-bH_tkwuLfjifOuoTexvXFdofZZC1xsUMRF8S2K519N0IRhupPqFFBdzP59aWQ4zPCwmjda8FIkgCaJKvVCRlOsMMoEz9HiO29p_HEldNrCnyDT7xL6BEr_3QIrAcVcQIKlunJ5vJ-3Xdxel-jpYdEnJ9HT4rlt4PUaPDJdguJihx5z_S4pNKeYXRnN8fxj28fv9XnSCbvaxSRqS0f90vns13-VBh0ppxR9Lk4KxdGiLDT7IHhZmOjH3RkgqkdMUcaFfrhMckpSvQpTnbrgQumdo51l3M4yB6GV-mEwBULCOtejQpil6AOsMUUzpojaoRklOWFYEZ2gbXf39dmvoHrlt2SXerSw6mEFaC6gwAJSbfPN9dKzLkZS8eKfjN6zsPf7xqI6fIYrvX0mGzQpCsG3kP6wNA6H63inPx7eElpKsoWH09vclbkXGRaCv8ohpgrpijClQN8Ref9NpHfW0x92h4bD76tia2y7NdHB3ft-B4862O1gr8aj2r7Bfgd7Hex2sNPBdhfXBkGNgxMc13Bch5_bO-q_LI3fQK-8L9VCae40mdxu6Cd-inSuNtOqkOYQadFOP-32014_7ffTo3466KfH_fTd-Uhvt2PVx2-btZszqE07_bTbT3sNbZhGDiLHJDXCvXH8XNOfdClkuKTKOJgGLhVf7FhihMfPGqMsqs1nSrA-bfITefgLzY4ipA==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.9 MB-070-120_Prepare_Updated_Financial_Results — MB-070-120_Prepare_Updated_Financial_Results
@@ -857,10 +816,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21z4jYQ_isa36S0M9CzjF-AD-0Qg9N0kgtz5PoypR8UWwY3wvJIMoTm-O9dgc2LztzMpXxg2Ifd59ldaS351Yp5Qq2BdXX1muWZGqDXllrQJW0NUOuJSNpqoz3wGxEZeWJUtrRPynM1zf7duWG3eNFuGovIMmMbjU7pnFP06baNhhDI2kiSXHYkFVnaarcKkS2J2ISccaG939Feaqc7teqvay4SKo4Oth3g2INQluX0CHcDN3AjHSdpzPPkjDT10l4at7Y6OcbX8YIItUu_lPSevPyeJWoBdkqYpOCzUEt2R54o0zUqUWosLsWqbkYmtU4ODZsWJM7yOeCuDZAg-fMR8uztFm2vrmb5QRQ9jmY5gk_MiJQjmiKpAB6vFEozxgbv3HAYeXZbKsGf6eCdMw5GXacd60oGULrd1s3trGk2X6jBE2dJ5dpZ6xoGTvHSFi8Dx26LDXwbWjRPjkqh7_Sc3kHpOsAhDmulNE3_lxL0VTwS-VxpjbuRE40OWtjzvdD-kq8uc-QGQ2z2iYpVFtMT0iiKuuNjq8a-h-3LpNdR17dDg3ROFF2TzZGwH7oHwsgLIhxcJNzrmVmWTxPB45qwO_Yi70AYXONo6FwkdIfY7VUZAs9ckGKBQi6KH1E0-W6IhjlhG6n2DvqT479mVkoGKenofqOQFKoUFE15KWKKhrEqYUOjEVEERYIv0fS9O7P-PiFwzgk-csZQWaBERyiOpmUB6I3gZdFGv2wOBrqjK8pQykGT55KzDCJogj7SggsFm_9cpWuo0BQmF4UPN1MUcUFjItU-yXSX5DBE90TMsxzdw4Sxcy63keshfJiiCSP5abHAA9lK-RU2r5HtNl_RXHGxQbdLGGZlMmeg9vh-Qib352x-I9sHquAnMJbUKHdHdns9OWcJmiucjP9oqjDkwBZCuuDaUGDPJIv5cgmPgWMmw-SfUirAlDwP7Zuhq4yu0a9lMqfae7f6w6IQfEUMUWwb-1JQ2B7okdcb56bMEnpZGeNG6bOtNkEEqrirtpxJYOzre_Ks1yGmUsKx8BVhY6dGGYwcHG7fIu1-f-AoGDxaJoIWBIbyU7GP1px5DAchxMuSKQnbLVOZ_g-Yfjil8o5UUkHzbvOiVOgBxpDoIUPXei1g9fmyYLQh3n99reP14d55guMpXlSLRpOfZ9Z2e-ofNPvTl5iVMlvRm_3T0gzrXZBJEqiLQwdPGw7LQJMG7f6btB37GEaE4GvZIUwhaDhhjLILQfgtQc5bgrrfFgSDuf8B2wh1Oj9phgrwK7s6cHLXsAPD7hq2Z9hOZePatiugTsD0r4BeZff2Ju5Xdr-yfcMfHwgqRRzUCrXiQbIOqTVwVRSuk8Q71c8z6wOfWZ_1vNZ_fEFee_5J5d71oFJ1Bnt1YjVg2L5hdw3bjHcN-5BK1Zq6U9g3Ujs2wDfK65_cLvSS1LeqM9hphrvNsNsMe82w3wwHzXCvGe43w7D-zfiFOvGFQvGFSmGE6rv1Oe5V9-Bz1K8vg-dw0Az3muF-Iwyz1QjjZthphrs1bLWtJRVLkiXW4NXavZPBe1tCUwLHibVtW6RUfLrJY2uwe3exyt3RM8oIXCmXe3D7H06HVX4=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.10 MB-070-130_Prepare_Tax_Forecast — MB-070-130_Prepare_Tax_Forecast
@@ -925,10 +883,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P4jYU_StWRiNaKUj5JEweWmWAjEaaWY0GdlfV0geTOMEdY0eOw0BZ_nuvSQKEwkNVHhD3-Nxz7rWdS3ZGIlJihMb9_Y5yqkK066klWZFeiHoLXJKeiWrgG5YULxgpe5qTCa6m9O8DzfaKjaZpLMYryrYanZJcEPT12UQRJDITlZiX_ZJImvXMXiHpCsvtSDAhNfuODDMrO7g1S49CpkSeCJYV2IkPqYxycoLdwAu8WOeVJBE87YhmfjbMkt5eF8fEZ7LEUh3Kr0ryijffaaqWEGeYlQQ4S7ViL3hBmO5RyUpjSSXX7WbQUvtw2LBpgRPKc8A9CyCJ-ccJ8q39Hu3v7-f8aIpm4zlH8EkYLssxyVCpAJ6sFcooY-GdN4pi3zJLJcUHCe-cSTB2HTPRnYTQumXqze1_EpovVbgQLG2o_U_dQ-gUG1NuQscy5Ra-L7wIT09Oo4EzdIZHp8fAHtmj1inLsv_lBPsqZ7j8aLwmbuzE46OX7Q_8kfVvvbbNsRdE9uU-EbmmCTkTjePYnZy2ajLwbeu26GPsDqzRhWiOFfnE25Pgw8g7CsZ-ENvBTcHa77LKavEmRdIKuhM_9o-CwaMdR85NQS-yvWFTIejkEhdL9EJyzNCEK6q2KEoSUXGFuapZ-sPtH3Mjw2GG-3rT0SumwKAcvUwQ5imavc2NP8_oTpcepX9VpULvB-4YzfAGjSRJqSpN9ATXWZVoTTH6qrnPvKggni2lqPIlmkajGkKxkKuya-N2bWLKMYMxoavSHpBBEgzGI8ySimFFBUeZgHpmryYaP09nMC_i6PFQVlNc18DrGjwRTiScJnonhZBQpRZ7k0Sdmy224N-V8bsyb0RC4grFrNqgCGrewsPezRj8OKYkIkdRnkui75F26-ve3g7lvqAxVvhgeX6EGFoWum_CFfi9kDVhoH9uEHQN3klC6JqgGZxGmekaJdUDBk5aflSFLjkBMZyTC53hL0edgsEl7-y7EmhxKLnAcNyQ-etZ5sMps1Si6GbeyLGt3e5Udkr6C6g3WaKoKKRYk_T3ubHfn_Pt63yySVhVQsNP9bN5meac0rCU4rPsY6YQVIQZI-xGkvvfkmBO1j_4EPX7v2nXJh40sdvEQR23y7ZTx4M2dus4aOOL9JbfDDve0G2rXbc08HNu_EHgFv6E69ouNEruJfGLOPDsVtGreQ9N2Pq1y34de2djTFfZju8O7FyH3euwdx32r8OD8_neWQlurgyP_50d-KH5m-u2ZLWzvgvb12HnOuy2sGEaKyJXmKZGuDMOr0Xw6pSSDFdMGXvTwJUS0y1PjPDw-mBURQqZY4phqq9qcP8PrR75jA==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.11 MB-070-150_Present_Updated_Financial_Results_to_Board_of_Directors — MB-070-150_Present_Updated_Financial_Results_to_Board_of_Directors
@@ -977,10 +934,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllV2P4jYUhv-KldGUVgpVEhJCc9EKCKlWO1ONlt2tqtILk5yANcaObIePYfnvtfMBhGV6Uy4izpvj5_U5cU6OVsozsCLr8fFIGFEROvbUGjbQi1BviSX0bFQLX7EgeElB9kxOzpmak7cqzfWLvUkzWoI3hB6MOocVB_Tlg43GeiG1kcRM9iUIkvfsXiHIBovDlFMuTPYDjHInr9yaWxMuMhCXBMcJ3TTQSylhcJEHoR_6iVknIeUs60DzIB_lae9kNkf5Ll1joartlxKe8f5Pkqm1jnNMJeictdrQJ7wEampUojRaWopt2wwijQ_TDZsXOCVspXXf0ZLA7PUiBc7phE6Pjwt2NkWf4wVD-pdSLGUMOZJKy7OtQjmhNHrwp-MkcGypBH-F6MGbhfHAs1NTSaRLd2zT3P4OyGqtoiWnWZPa35kaIq_Y22IfeY4tDvp64wUsuzhNh97IG52dJqE7daetU57n_8tJ91V8xvK18ZoNEi-Jz15uMAymzve8tszYD8fubZ9AbEkKV9AkSQazS6tmw8B13odOksHQmd5AV1jBDh8uwF-m_hmYBGHihu8Ca7_bXZbLF8HTFjiYBUlwBoYTNxl77wL9seuPmh1qzkrgYo2mXBQ_o-TlhzEaM0wPUtUJ5sfcvxdWjqMc902_dS6TnJJMF4VeEGYZekIxVhhhhT4wBRQ9wVZfc97JzdAnKLhQ-tAurH-u8F4X_yKgwAJq5FciS0zJG1ZEk2w020NaKrIFNC835rWt_GMs10uORSa75EGX_Am2BHYoIQyzVM8ILciSKlkxqrLfAH2EA3oGJUh6A_O_26YEpu7QFK8gMaRE6l2jZ_wKossKfjzDCqoPRgv7UtSdugudmAoRz1FMBKSKC6nbTRQxKzT-pyv-8MKXihf_wW2c9b27Djfc8HhsuWaO95d6EqVrNC4KwbeQ_bawTqer9NH9dNintJT6If5evxeXVXpy1H9YgPr9X_XRa0K3DkdN6NXhoAkHdRg24agOvSYMTfhtYf0Fupxv-kHe6H_wSm7Zfr16ePXKGf921HRk7748uC_79-XgPJw78rCZox0xbGdJRx21qmVbGxAbTDIrOlrVd1R_azPIsX7Y1sm2cKn4_MBSK6q-N1ZZHYyYYD0GNrV4-hcKdHV5" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.12 MB-070-160_Obtain_Executive_Approval — MB-070-160_Obtain_Executive_Approval
@@ -1054,10 +1010,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP6jYQ_itWVltaCdpcCZuHHrFAjlba7aLl9FRV6YNJHHA3ODm2w6Uc_nvHuUHSULVqHkDzzcw3M5_txCctSEKiedr9_YkyKj106skN2ZKeh3orLEivjwrgM-YUr2IieiomSphc0D_zMMNODypMYT7e0vio0AVZJwT9_NRHY0iM-0hgJgaCcBr1-r2U0y3mx0kSJ1xF35FRpEd5tdL1mPCQ8EuArrtG4EBqTBm5wJZru7av8gQJEhY2SCMnGkVB76yai5N9sMFc5u1ngrzgwy80lBuwIxwLAjEbuY2f8YrEakbJM4UFGd9VYlCh6jAQbJHigLI14LYOEMfs_QI5-vmMzvf3S1YXRc9vS4bgCWIsxJRESEiAZzuJIhrH3p09GfuO3heSJ-_EuzNn7tQy-4GaxIPR9b4Sd7AndL2R3iqJwzJ0sFczeGZ66PODZ-p9foTfVi3CwkulydAcmaO60qNrTIxJVSmKov9VCXTln7B4L2vNLN_0p3Utwxk6E_3vfNWYU9sdG22dCN_RgFyR-r5vzS5SzYaOod8mffStoT5pka6xJHt8vBA-TOya0Hdc33BvEhb12l1mqzlPgorQmjm-UxO6j4Y_Nm8S2mPDHpUdAs-a43SDJglPv0f-_JsxGjMcH4UsAtTDnN-WWoS9CA-U3mjCCcyD5pzu1P9nwgVNGNpTuUHjNOUJnCjl8GkswbfUfr_iGja55oRHCd-iF9jkcNDWCLOw7IC2Mt1m5gL2-Y0mFikJaEQDmKfgQ88EhwL9gBYvsybpqEn6xAIQIuF5-4SEKxy85xTzbBVTsanrjcM_MiG3hEmBsCjcQZPasE6nily99AYrOLbBBmThQhZC7XCMPgIqSfhhqZ3P19l2dzY5BHEm6I58LPbUJQ1OXWtRbyznQ0tImBOkeWJpJpGfcBJg6G-KJa7nuUGtVL3itVpaCpEpoUIqYWXUpBkNYQaCKCsFq5atKZzd6o-uGXqNIpS00xBsHfRGBCy3BEXQPMaMqU00OQYxaa2G2a3nG9lRsgcF8o2SLwoYqyN6TcWHfxL36RPMtqXsukb3OSl6rpWtmk-if9u72eR9TmBT3mL9L5Lo39bEaQyvp9mBBFmeVu_ON_Ilo5yEkPnddapxSRUySbtSX1cSw6fzKrUWEUqjweBH-C9tpzTt0h4Wtluabum2SntU2JVplW6ztO3CrkyzdFfFHgrbqXopzIfKzNm-LrVfCbyAvkKxylHSDivbbAXabcdPSY7XU9XULUf-WleNVJ-zBmx2w1Y3bHfDTjc87IbdbnjUDT90w7DG1aWjiRvlBaGJmtVXsglb3bBdwVpf2xK-xTTUvJOW3xzhdhmSCGex1M59DWcyWRxZoHn5DUvL0hAypxTDMd4W4PkvqSFbmA==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.13 MB-070-170_Execute_Budget — MB-070-170_Execute_Budget
@@ -1111,10 +1066,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P4jYU_StWRlNaKVT5JJCHViGQ1aza3VFht6pKH4zjgDWOHdnOAGX577VJAoSdeSoPSPfk3HPvPXZujhbiObZi6_HxSBhRMTgO1BaXeBCDwRpKPLBBA3yFgsA1xXJgOAVnakH-PdPcoNobmsEyWBJ6MOgCbzgGX55skOhEagMJmRxKLEgxsAeVICUUh5RTLgz7AY8LpzhXax9NucixuBIcJ3JRqFMpYfgK-1EQBZnJkxhxlvdEi7AYF2hwMs1RvkNbKNS5_Vri3-H-T5KrrY4LSCXWnK0q6W9wjamZUYnaYKgWr50ZRJo6TBu2qCAibKPxwNGQgOzlCoXO6QROj48rdikKlrMVA_qHKJRyhgsglYbnrwoUhNL4IUiTLHRsqQR_wfGDN49mvmcjM0msR3dsY-5wh8lmq-I1p3lLHe7MDLFX7W2xjz3HFgf9f1cLs_xaKR15Y298qTSN3NRNu0pFUfyvStpXsYTypa019zMvm11queEoTJ3v9boxZ0GUuPc-YfFKEL4RzbLMn1-tmo9C13lfdJr5Iye9E91AhXfwcBWcpMFFMAujzI3eFWzq3XdZr58FR52gPw-z8CIYTd0s8d4VDBI3GLcdap2NgNUWpFxUP4Ps-YcEJAzSg1QNwfyY9_fKKmBcwKHxG_yBESavGCx5BWZ8x8ASig1WEqwPYFFXmvFB8LpaWf_caPh9jWcsCi5KMOVK8VKCL5VOgqymUD-jkDF9tfsCQV_gK6Qk17YCUoCMC4ygVCChZMMk2BG17Zrqi4R9kaSqBNeTXATSA6IYfK5VVat-ZvTjJVUqPfi0zrU8mO8xqhXhTDtYVhQrnOu8n24Sx8djl2hW33Ctx0TbrnT-68o6nW7ok7fpeI9oLbXrH5qrdM3SL9vdWT4tQZKXhN2ouv25F7rzugIf-Ros0BbntR56qpdvDs6DmKvQ2GeYSh8FSCHFZtn1TRldTamovt_fmfKkVzyBPVMu_bIRGA5_0b21oduEXht6TThpQ78JgzYMmjBsw7EJv62sv7A-8G_6tFo8bGjjNpw0oX-X9YmfkyY3L5lpp1suPdh7G_bfhoO34fBteHTZ0j04ahdqDxx3S6WHTjrUsq0SixKS3IqP1vmDqj-6OS5gTZV1si1YK744MGTF5w-PVVfmbZoRqO9Q2YCn_wCbAnFM" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.14 MB-070-180_Implications_on_Expected_Corporate_Financial_Results_and_Make_Adjustments — MB-070-180_Implications_on_Expected_Corporate_Financial_Results_and_Make_Adjustments
@@ -1175,10 +1129,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P4jYU_StWVlNmpICSkBAmD60gkNWoO93RsN1VVfpgkhtwJ9iR7fCxLP-9dj6AUKYvzQPintx7zr0ntpODEbMEjMC4uzsQSmSADh25gjV0AtRZYAEdE1XAV8wJXmQgOjonZVTOyPcyzXbznU7TWITXJNtrdAZLBuj3JxONVGFmIoGp6ArgJO2YnZyTNeb7kGWM6-wPMEyttFSrb40ZT4CfEyzLt2NPlWaEwhnu-67vRrpOQMxo0iJNvXSYxp2jbi5j23iFuSzbLwQ84903ksiVilOcCVA5K7nOPuEFZHpGyQuNxQXfNGYQoXWoMmyW45jQpcJdS0Ec07cz5FnHIzre3c3pSRR9mcwpUlecYSEmkCIhFTzdSJSSLAs-uOEo8ixTSM7eIPjgTP1J3zFjPUmgRrdMbW53C2S5ksGCZUmd2t3qGQIn35l8FziWyffq90oLaHJWCgfO0BmelMa-Hdpho5Sm6f9SUr7yL1i81VrTfuREk5OW7Q280Po3XzPmxPVH9rVPwDckhgvSKIr607NV04FnW--TjqP-wAqvSJdYwhbvz4SPoXsijDw_sv13CSu96y6LxQtncUPYn3qRdyL0x3Y0ct4ldEe2O6w7VDxLjvMVChnPeyh6-WmERhRneyGrBH1R-8-5keIgxV3tN3pKgEqS7tGvsEcTTjbABbqf9pY9tfdmLyb6yrJirRZzyIR8QCnjaBYDVfuZoWe1mNWGWs6Nvy4EnLZAyEEZdipS5GOsN8w3xoU0Eci494C2RK7QSIhinUvCqCh1pjhe1S21FfpthdeCnnuaYInRKC5Z2lVuu6p05jugp7XaexJJhl4Qpgn6hO5fYQNUb-CPnAmBnjFfEmqiz8rUJxoz7UbZdpvf-w9jX4l4EyX95zxnXBbqtCRw1eDgqsHk70LI0zPRxa_Q5RfDXtX7V8YrB1hGEu3-K4gik5WtajoC23bpsF36jN8ARUQ5VHexVrMI7VHEOMRYLahW-eP9qT7P1NZQnmYkxtWjZBRNdznEEpJyZTKuO9LsNFZnO5rPm-70iKX0hWiv11NaD5cL2DqrCclyNC6SJUglAnGhJZWK0geld11pHw5NpX5zdRfq7FVrbJTnnG0g-WVuHI-X-c7tfNjFWSHUY_lYHQXnMnVYVn_oI-p2f1YUdWhXoVOHThX267BfhW4dulXo1aFXUzXFgyr2G-qS-8fc-EMvqB_qYdY3_Lqu6WFYx1ZTWHcxuCb6jZU8jWB5UOkRmgO6BTu34f5t2L0Ne7fhwW3Yvw0Pb8OPp9dlexyrfrW1Ubs539uw08CGaayBrzFJjOBglB836gMogRSrJWwcTQMXks32NDaC8iPAKHK9AycEq7N5XYHHfwCvU-x4" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.15 MB-070-190_Prepare_Draft_Budgets_by_Department — MB-070-190_Prepare_Draft_Budgets_by_Department
@@ -1238,10 +1191,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -1258,10 +1210,9 @@ flowchart TD
 | FP&A Lead | MB-070-160_Obtain_Executive_Approval,  | |
 | FP&A BU Analyst | MB-070-190_Prepare_Draft_Budgets_by_Department | |
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -1273,10 +1224,9 @@ The following data entities are derived from the system integration flows for MB
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -1354,10 +1304,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1400,10 +1349,9 @@ The Future-State architecture represents the **target** landscape for MB-070.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1779,10 +1727,9 @@ The Future-State architecture represents the **target** landscape for MB-070.
 
 **Summary**: 17 Reports, 86 Interfaces, 25 Conversions, 219 Enhancements, 1 Forms, 18 Workflows
 
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1794,10 +1741,9 @@ Integration patterns identified from the system flow analysis for MB-070:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1821,10 +1767,9 @@ Platform landscape inferred from integrated systems for MB-070:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1864,10 +1809,9 @@ Platform landscape inferred from integrated systems for MB-070:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1896,12 +1840,12 @@ Platform landscape inferred from integrated systems for MB-070:
 | FPRW0165_CFIN | Workflow is required to trigger the approvers based on the business requireme... | May-24 (100%) | Aug-24 (100%) | Aug-24 (100%) | Sep-24 (100%) |  |
 | FPRR1514_IP | To generate reports out of the ITT documents that was created | Aug-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 4. Completed |
 | FPRR1514_IF | To generate reports out of the ITT documents that was created | Aug-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 4. Completed |
+
 *... and 346 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 29</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1930,5 +1874,5 @@ Standard RAID items for MB-070 (Finance Plan To Report):
 
 ---
 *MB-070 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: March 2026*
+
 <div class="page-footer"><span>Page 30</span><span><a href="#toc">↑ Back to TOC</a></span><span>MB-070 — Prepare Budgets</span></div>
-</div>

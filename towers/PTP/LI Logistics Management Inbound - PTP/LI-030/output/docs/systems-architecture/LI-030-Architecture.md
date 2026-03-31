@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">LI-030 — Manage In-bound Transportation - PTP</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Procure To Pay (PTP) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **LI-030 Manage In-bound Transportation - PTP** within the IAO program. It includes 8 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Procure To Pay (PTP) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Payment Automation | Automate invoice verification, three-way matching, and payment execution | Finance Efficiency | Medium |
 | 4 | LI-030 Process Migration | Migrate Manage In-bound Transportation - PTP business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Procurement | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -215,10 +182,9 @@ This capability includes **8 business process(es)** modeled in BPMN 2.0, coverin
 | 7 | LI-030-240_Audit_and_Pay_Freight_Bills_-_PTP | LI-030-240_Audit_and_Pay_Freight_Bills_-_PTP | Boundary Apps and other source data, Functional Analyst | 10 | 1 |
 | 8 | LI-030-260_Monitor_Carrier_Performance_-_PTP | LI-030-260_Monitor_Carrier_Performance_-_PTP | Load Planner | 9 | 4 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -266,10 +232,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVctu4zYU_RVCQeAUkFE9LVeLArZsAUETTDCx28VkFrRE2kQo0iCpJJrA_95LSfGr0KpaCLqHh-fce_nQp1PIkjipc3v7yQQzKfocmR2pyChFow3WZOSiDvgbK4Y3nOiR5VApzDP71dL8aP9haRbLccV4Y9FnspUEre9dNIOJ3EUaCz3WRDE6ckd7xSqsmkxyqSz7hkypR1u3fmguVUnUieB5iV_EMJUzQU5wmERJlNt5mhRSlBeiNKZTWowONjku34sdVqZNv9bkEX_8w0qzg5hirglwdqbiD3hDuK3RqNpiRa3evprBtPUR0LDnPS6Y2AIeeQApLF5PUOwdDuhwe_sijqZotXgRCJ6CY60XhCJtAF6-GUQZ5-lNlM3y2HO1UfKVpDfBMlmEgVvYSlIo3XNtc8fvhG13Jt1IXvbU8butIQ32H676SAPPVQ28r7yIKE9O2SSYBtOj0zzxMz_7cqKU_i8n6KtaYf3aey3DPMgXRy8_nsSZ91-9rzIXUTLzr_tE1BsryJlonufh8tSq5ST2vWHReR5OvOxKdIsNecfNSfCPLDoK5nGS-8mgYOd3nWW9eVKy-BIMl3EeHwWTuZ_PgkHBaOZH0z5D0NkqvN-hvBaFYVJgjmbwarTpCPYR_o8fLw7FKcXjQm7RCrafpkShp2-_Lwhnb0Q1yEi0ekT2BJdICvTNHiaERYlOjGZP7jJYbCU5-os0v704P3-euQSXLgtiiKrg7KEHuWXasEKje2EI5GsTRVA_VE_Q3cP907VUeCm13pewAChfn_LLZFXJkpkGvkpyNT0ayiRX7TZFa7i50LxmvIQTiL7XNo18Pf9-nUc8KLRGK2jHFX0CbGjiE8dCWOG7rrIzRgKMRyzwlkAvxhtZQ4Pb5dhLZdq-HPlwCLsPEaDx-E-oqg-TLuw3voi6MO7DuAvDPgy7cNKHfhcGZ9vRgmeH5mIkGBwJB0eiwZF4cGRyvN4u4OQIO65TQesxK53002n_L_APKgnFNTfOwXVwbeRzIwonbe9hp263zIJh2G5VBx7-BacRJak=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 LI-030-060_Negotiate_Freight_Allowances_-_PTP — LI-030-060_Negotiate_Freight_Allowances_-_PTP
@@ -336,10 +301,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVtuO4jgQ_RUrrRa7UpByJXQedkUHsmppeqY1MLMPwzyYpAJRGxvZ5rYM_742OEDSRFppeYioqnNOXXxJDlbGcrBi6_HxUNJSxujQkQtYQidGnRkW0LHR2fEd8xLPCIiOxhSMynH5zwnmBqudhmlfipcl2WvvGOYM0LcXGw0UkdhIYCq6AnhZdOzOipdLzPcJI4xr9AP0C6c4ZTOhZ8Zz4FeA40RuFioqKSlc3X4UREGqeQIyRvOaaBEW_SLrHHVxhG2zBebyVP5awCve_V3mcqHsAhMBCrOQS_IJz4DoHiVfa1-25ptqGKXQeaga2HiFs5LOlT9wlItj-n51hc7xiI6Pj1N6SYomwylF6pcRLMQQCiSkco82EhUlIfFDkAzS0LGF5Owd4gdvFA19z850J7Fq3bH1cLtbKOcLGc8YyQ20u9U9xN5qZ_Nd7Dk236tnIxfQ_Jop6Xl9r3_J9By5iZtUmYqi-F-Z1Fz5BIt3k2vkp146vORyw16YOB_1qjaHQTRwm3MCvikzuBFN09QfXUc16oWu0y76nPo9J2mIzrGELd5fBZ-S4CKYhlHqRq2C53zNKtezN86yStAfhWl4EYye3XTgtQoGAzfomwqVzpzj1QJ9YjhHbwRTCvwc0j_q_vgxtQocF7ibsTkaA4FMogRzXiqc9fPnDdarYxNMsjVRjaNE7cg5CMQoSr-glLOlepzWGw3mHNRZp7Kh5f8nrQYpqJO-66O_Ry90w9SCNrBhHfuK3wG94b0uBUnW0mGvTvq2ynVJX9VDoIJxlKaopCiZjF_QEEusr7OGQlRX-AoZlBtAk9ePE1E1CQn8pGTUG2L9-2IvVIJaVMm4ONfWoD39dqGtiNqUVeYv-v5DCQfFyRXn99t94FxJQrJVNVX0xsQdtNtAV9MwI_uA9w6Hayc5dGfqgssWep6q75fPkz-n1vF4S_DvE2CXkbVQQ_jrfOCatOBKUwvMtqKLiUQrzDEhQD6Q1D12_kOfULf7hxIwpmtMz9jB2Q6NGZqwObXUN7Zf0Y0jMLbXiPfPdmVGJlzBXZPOa9g9Y_cM_lLtSf_X1FKTnFq_lH4zoLeW8kc3t4xu8uYurEW81ojfGglaI2FrpNcaiVoj_dbI0-UdWG_TMe-rute96_Wqq7zu9u-7g8pt2dYS-BKXuRUfrNPnjfoEyqHAayKto23htWTjPc2s-PQZYK1P52RYYnWQl2fn8V_KGeJe" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 LI-030-090_Identify_Appropriate_Modes_of_Outbound_and_Inbound_Transportation_-_PTP — LI-030-090_Identify_Appropriate_Modes_of_Outbound_and_Inbound_Transportation_-_PTP
@@ -502,10 +466,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv4jgU_isWo4qOBGqcCwEeVqKBdCu1UzS0s9JM58FNHIga4qyTlDIV_32PSRxaE49GbB8qzmd_5_Ll-OTy1glYSDvjztnZW5zGxRi9dYsVXdPuGHWfSE67PVQB3wiPyVNC867YE7G0WMS_9tuwnb2KbQLzyTpOtgJd0CWj6OG6hyZATHooJ2nezymPo26vm_F4TfjWYwnjYvcnOoyMaB-tXrpkPKT8sMEwXBw4QE3ilB5gy7Vd2xe8nAYsDT84jZxoGAXdnUguYZtgRXixT7_M6S15_ScOixXYEUlyCntWxTq5IU80ETUWvBRYUPIXKUacizgpCLbISBCnS8BtAyBO0ucD5Bi7HdqdnT2mTVB0P31MEfwFCcnzKY1QXgA8eylQFCfJ-JPtTXzH6OUFZ890_MmcuVPL7AWikjGUbvSEuP0NjZerYvzEkrDe2t-IGsZm9trjr2PT6PEt_Fdi0TQ8RPIG5tAcNpEuXexhT0aKouh_RQJd-T3Jn-tYM8s3_WkTCzsDxzOO_ckyp7Y7wapOlL_EAX3n1Pd9a3aQajZwsKF3eulbA8NTnC5JQTdke3A48uzGoe-4Pna1Dqt4apbl05yzQDq0Zo7vNA7dS-xPTK1De4LtYZ0h-Flykq2QV-YFW1OOLssc-j3P0SQlyTYvqn3iL8U_fjx2IjKOSD9gS-RxCmWhecmh5XKK7viSpPEvUsQsRSQNDytXnJUZOr_LxBJJPj92fv5859ds9XvDgsrV-f02o33QwFKJ1kfiQxYKokcSKs4l-kpzBilQFDGOFqs4KtDfAOQXU7ZJ0X28poo_-7eJnEuN8h76BhEY_1zlhrBhYjU356MvuFoZEW2AbuGfGFDwI4dfyIcxmK9oiK4YC_OLL1Cxf3XhkSwuYNMeVFwPdK6bazeHs56C768M5uf5Ag4VKtge3faEEtnB_G7NPTV3t1WHb3QVBwltZFVIw1bSLYUpjFiE7mFm5RnjhUIbtdNg5v2OhY32XoSd8ppAw6h14fYOfvhycXPn3U1n6vb2xrye3E_UnVbrzib7qpG_s1QVDdt_Qrwhx0SnlXjU-ypN6R2YJdAxaOFNPOQJzcVR8QjnsRgFc5Xd3hizf8s4W9MU7jqgvMpp74s5CZ7JkrYylJZ4KOIE7vxoUYSQY5kWfLvPVZ0i7S0BFZIyKeAolMURBbcOECF3juIUXacFTfZMuNGiqzI-DmpqLkOl4KK6maAb-kITldreM4sAZkEJx1bdbp8327ME7iX7_aI74Jj88Qy-hkeuGMKE4P3ze--O4l0MiUxUPWdxWlzMEwKX9ysNaPxyTB4o5KPTe0hWm4CrK-8u2h_rXE8dnk4dKdS6QrXP3nMsAygzeJx6SmBuy1Gbi6G6iYuVVFxod34nHilh0KfQ6uKAiIH03hUGV3NOM8LpxzaDIXaLhOgpQCrLBFbdLUcTv7lJydvLlBSkV92uerItVYfWPg0WCEfK7UnZaR9CT2kCSoFGXxhY5z7jG8JD1bXz9nZo8pD2n6AlghWir0ECqb_Qq-rJ6LGz272nDU6juafRhgcaKMQ2eZ_AxICrQpKEJhrS6ASSbZxCwqeQzFNI1ikku5UUpzrNoRerHzDTUL__F0z82rasynakXa8P5P5BZY9qe1SZQ7nsVLZZ27h2h-0aGFa2JflW7QA7CuBKu_aIrRqoE7JlxjauARlCtQeKbQ1VwKwBmbUtAcXGUgW3tmWSWAKNDrIsWSeu0zZl2qaapozZ1FlLp9ryBQyGbh2jcSmzaNSvSzebwozap0zcrtOyDEUcSzp1VHXrvC2pBTYVwKqj4iZRS_HRlNboV-dlN2nUpZiWkvlBLlNNTGYurwF2VGCkAI0cjtJLDWAptqmksX8bFC337p31w4qpXbG0K7Z2xdGuDLQrrnZlqF0ZaVfgSmmX9CpgvQxYrwPWC4H1SmC9FFivBdaLgfVqmHo1zN_0hF4NU68GTGr5Aekj7mjwgQZ3NfhQg4_accvQ4FiDmxrc0uCaeuGGUH_L-QgP2mG3HR62w6NWGOZEK4zbYbMdttphW8KdXgceGtckDjvjt87-Ayx8pA2rl6fOrtchZcEW2zTojPcfKjvl_l1pGhP4frSuwN1_BhG_sA==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 LI-030-100_Select_Inbound_and_Outbound_Transportation_Carriers_-_PTP — LI-030-100_Select_Inbound_and_Outbound_Transportation_Carriers_-_PTP
@@ -591,10 +554,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1uP2jgU_itWqhFTCbS5kpCHXUEg3ZHmtjBttSrVyiQOeCfEkROYoZT_vsckJuCSp-VhhnPO933nYscOey1iMdF87eZmTzNa-mjfKVdkTTo-6ixwQTpdVDm-YE7xIiVFR2ASlpUz-uMIM-z8XcCEL8Rrmu6Ed0aWjKDPd100BGLaRQXOil5BOE063U7O6RrzXcBSxgX6A_ESPTlmq0MjxmPCG4Cuu0bkADWlGWnclmu7dih4BYlYFl-IJk7iJVHnIIpL2Vu0wrw8lr8pyAN-_0rjcgV2gtOCAGZVrtN7vCCp6LHkG-GLNnwrh0ELkSeDgc1yHNFsCX5bBxfH2WvjcvTDAR1ububZKSl6Gc8zBJ8oxUUxJgkqSnBPtiVKaJr6H-xgGDp6tyg5eyX-B3Piji2zG4lOfGhd74rh9t4IXa5Kf8HSuIb23kQPvpm_d_m7b-pdvoO_Si6SxU2moG96pnfKNHKNwAhkpiRJ_lcmmCt_wcVrnWtihWY4PuUynL4T6L_qyTbHtjs01DkRvqURORMNw9CaNKOa9B1DbxcdhVZfDxTRJS7JG941goPAPgmGjhsabqtglU-tcrN45iySgtbECZ2ToDsywqHZKmgPDdurKwSdJcf5Ct0zHKPnFGcZ4VVIfDLj27e5lmA_wb2ILdELp8sl4egxmD7Mte_fz5DmJfITASHoGgWYcwqUe1qUCGcxmsHuQNPwL4VvXfIDlm0J7GMAFohmJUOTNaZpowCeWvr2LovSTUxi9OcuJxwe11cRHT3a90hXstiXWaYkInTbFDklRc6ygigs55L1RZwpuxNY1Ifunx6a2hLG0TDPOdviFN2OCHQuM8xISqKSxB-VFP3rgz6pfGX8VTzdCs29pM1W7E2ODIVPTUWPrKQJjXBJWYYexCBhQlCzIuddr0ISZPGnbkSjIc2gPlivhPL1MYEiOmiZ-RkDJZytpapCN_RL_uc8Pt9XTDSqUpRtW9WNnuBeadb4N9ndCwwIVjRbouESU7V6w2yZySYt6YLGKty6Dp_lrESjX-H2dfiU_AsVny9W5Wlmrwo514Wqp-bqYht9YMxWNEdP4uZDPfT0EqDbu_DjP1MLsOdQF6BjUhK-hssQPcCNhFgCSeCKzRkvq0WUS9Iu4-33TZEx6S1AIFrVu5zEf8y1w-EcP7iOh539TKPXTY6OW8FBY7wrVLKpXyeTdzgtCtiBn6pDuaHBPqi-QL-o1_sd_te2VZl2bTqV2a_Nfg32arsmS9OrzEFtDmq0LnPptUPKGbUtCUadXV5-8KV2SICpAirbknG7VpTtSNuRgLqhk20ogsax6J9z7W9SzLWfIqUaeWRV4JTUUyiuGpAM--xuE92f3cAXEbM1YrVG7NaI0xrpt0bc1ojXGhm0RmDhW0PtUzDax2C0z8FoH4TRPgmjf3ptvPS7LX5PvulcugdX3bCNa7fW1dZwtGAaa_5eO779wy-EmCQYDlnt0NXwpmSzXRZp_vEtWdsc74AxxfDysq6ch_8AqhHayA==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 LI-030-190_Complete_Inbound_Transportation_Schedule_and_Transmit_to_Carriers_-_PTP — LI-030-190_Complete_Inbound_Transportation_Schedule_and_Transmit_to_Carriers_-_PTP
@@ -677,10 +639,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4jgU_StWRhUzEmjzSSAPu6KBVJU6bVXYXa2GeTDJDVg1DrKdFpbhv68dkgApWe0HDyH33HvO8bVjJ3sjzhIwAuPmZk8YkQHad-QK1tAJUGeBBXS66Aj8hjnBCwqio2vSjMkp-bMos9zNVpdpLMJrQncancIyA_TrfReNFJF2kcBM9ARwkna6nQ0na8x3YUYzrqs_wSA108KtTN1mPAF-KjBN34o9RaWEwQl2fNd3I80TEGcsuRBNvXSQxp2DHhzN3uMV5rIYfi7gK97-ThK5UnGKqQBVs5Jr-oAXQHWPkucai3P-Vk0GEdqHqQmbbnBM2FLhrqkgjtnrCfLMwwEdbm7mrDZFs_GcIfWLKRZiDCkSUsGTN4lSQmnwyQ1HkWd2heTZKwSf7Ik_duxurDsJVOtmV09u7x3IciWDRUaTsrT3rnsI7M22y7eBbXb5Tl0bXsCSk1PYtwf2oHa69a3QCiunNE3_l5OaVz7D4rX0mjiRHY1rL8vre6H5Ua9qc-z6I6s5T8DfSAxnolEUOZPTVE36nmW2i95GTt8MG6JLLOEd706Cw9CtBSPPjyy_VfDo1xxlvnjmWVwJOhMv8mpB_9aKRnaroDuy3EE5QqWz5HizQlHOYkkyhikaqctOyGOB_jHr27e5keIgxb04W6KQg-oHRbxYM_Sk981PU7LOaQE_oc_3L3df5sb372ca9qVGRFiCnt6Ac5IACrH6B96gOA3bFcSvaKaefbHJuMR6uOgBMxANnnuNV1qgexZn640iLwglcoemIKXaRk0N75rGbS7UWSAEmqo9Bg1G_x-MdkRpFhe3DbLfIGMaH2czVE5LEEiRo6cGaXBJugMGvOCUrb6oU0K1hh6IkFcFhpcC9-o8JlrgMXz5ivTzpXptUCzzkjMSgixZbUkYmq3go5Nl_Tea_bmmCZlt0KweFyICTbYQ5xISxfpyznI-so6leg1OfV1wXEUZoYk6JheUiBWaxitIcgqJWmyyQWO1exVTbZY16qHR9FFdn2fPSuVcxNvvT10m0Fuo5Y9XaAwJUcuutKqGoyxnyS9z43A4p_ev0_-e5F8nwTam6nF9g7vj2dOkDU40JZ-9ix6mEm0wx5QCbSEN_x1JvQeON8xGvd7PeoLK2DnGbhm6ZXpQxtbgCHiNuF_GXlk_LON-Ix6WsV_GJd2q-FZlWMVWGTsV4JeAXQFmQ7IsqEdcWlZpqxjij7nxhz6efmiLZuYxKxK1Zf8SHzbxWsmsMkdL--zdoMGzN9hFxm7NOK0ZtzXjtWb6rRm_NTNozQxbM2pJWlPts2DZ5efJJepcRd36s-kS96o3-iXcvw771-HBdXhYwUbXWANfY5IYwd4ovonVd3MCKc6pNA5dA-cym-5YbATFt6ORbxLFHBOsT6kjePgLJyeRYg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 LI-030-230_Manage_Dock_Scheduling_-_PTP — LI-030-230_Manage_Dock_Scheduling_-_PTP
@@ -738,10 +699,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVtuO2joU_RUroxHnSEHNlTB5aMUEMqrUaUeFaVWVPhjHAWuMjWyHgUP592PnwiWdPDUPiLX3Xmtfku3kYCGeYSu2bm8PhBEVg0NPrfAa92LQW0CJezaoDN-gIHBBseyZmJwzNSX_lWFusNmZMGNL4ZrQvbFO8ZJj8PzRBiNNpDaQkMm-xILkPbu3EWQNxT7hlAsTfYOHuZOX2WrXPRcZFucAx4lcFGoqJQyfzX4UREFqeBIjzrIr0TzMhznqHU1xlL-iFRSqLL-Q-BHuvpNMrTTOIZVYx6zUmn6CC0xNj0oUxoYKsW2GQaTJw_TAphuICFtqe-Bok4Ds5WwKneMRHG9v5-yUFMzGcwb0hSiUcoxzIJU2T7YK5ITS-CZIRmno2FIJ_oLjG28SjX3PRqaTWLfu2Ga4_VdMlisVLzjN6tD-q-kh9jY7W-xiz7HFXv-2cmGWnTMlA2_oDU-Z7iM3cZMmU57nf5VJz1XMoHypc0381EvHp1xuOAgT50-9ps1xEI3c9pyw2BKEL0TTNPUn51FNBqHrdIvep_7ASVqiS6jwK9yfBe-S4CSYhlHqRp2CVb52lcXiSXDUCPqTMA1PgtG9m468TsFg5AbDukKtsxRwswKfOMzAE4WMYVG5zMXcnz_nVg7jHPYRX4JEYN0JSL_MrV-_LsK8VtgKoxcdBSY7jApFOANTBVUhWzT_mvYVI0y2GCSc5USsYUmELGvSfmQLXmg4xlSHiX1LLXir1nfPm6wsWZQPGPhilrxFDK-JU_34gmdG9UT0fumsepAFKotRHEy-P7bogzZdmda_YpjpG84FmOltlRsuVNXQaSYtmejtYUy2mCkJcsHXJve7h9msRRz-cyJKxTenVnUhiuqDlKlqFlXKfy-Yd5o4Ao-QwSUGD5xnEhBW1UsU6IMEboiCFMwLz3F98DR70gKXT4dzOJxrznB_oaloBUbTz039Gfgwt47HS5L7NgnvEC2kpjxUy3Km6ftR_WEe6Pff645reFdBt94O5lc4qGFQwbCGYQUHNRxUMKqh61bYq3FUa7uN3zGG33PrM59bvzVu7F1xP7AsA_2L1TXhFwfMlcfr9PidnqDTE3Z6Bp2eqNMzrI_0K-Pd6Z1y3aHTHHfXZrcxW7a1xnq9SWbFB6t81-vvgQznsKDKOtoWLBSf7hmy4vKdaBXlCo8J1EfVujIe_wdgtJxY" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 LI-030-240_Audit_and_Pay_Freight_Bills_-_PTP — LI-030-240_Audit_and_Pay_Freight_Bills_-_PTP
@@ -809,10 +769,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVktv4zYQ_iuEgsAtYKN6Wo4OBRzZWgTYYIM42x42e6ApyiZCkQJJxfEa_u8lJfohNeqlPgieb2a-eXD4ODiI59hJnNvbA2FEJeAwUltc4lECRmso8WgMWuAvKAhcUyxHxqbgTK3Ir8bMC6sPY2awDJaE7g26whuOwfeHMZhrRzoGEjI5kViQYjQeVYKUUOxTTrkw1jd4VrhFE82q7rnIsbgYuG7soUi7UsLwBQ7iMA4z4ycx4izvkBZRMSvQ6GiSo3yHtlCoJv1a4kf48TfJ1VbLBaQSa5utKulXuMbU1KhEbTBUi_dTM4g0cZhu2KqCiLCNxkNXQwKytwsUuccjON7evrJzUPD1-ZUB_UMUSrnABZBKw8t3BQpCaXITpvMscsdSCf6Gkxt_GS8Cf4xMJYku3R2b5k52mGy2KllzmlvTyc7UkPjVx1h8JL47Fnv97cXCLL9ESqf-zJ-dI93HXuqlp0hFUfyvSLqv4gXKNxtrGWR-tjjH8qJplLr_5juVuQjjudfvExbvBOEr0izLguWlVctp5LnDpPdZMHXTHukGKryD-wvhXRqeCbMozrx4kLCN18-yXj8Jjk6EwTLKojNhfO9lc3-QMJx74cxmqHk2AlZbcM_rZpbBvKokgCwHXO9CASSvBcIghwq2HubH4h8_Xp0CJgWcIL4Bq3pdEgUIe-e6dUBxkL6sHl6dnz-vfGZdn7lSuKyUMX6ECm3BN7P9wAIrSGibwZPumE4CpFAIgkWP7-7THB5sDoSB1R8hgBtImFTmSFhD8PStx-G5XZLnmgF35prIJWZ6grn4rBQv-O3sJhWvzvarGiEsZVFTugcpLyuKFc619-_X3uHhcPLWlfGdnECqQAUFpBTTL-2svDrHY-ukd1NvsbKaIUU4gxTM9Wcv1TV9t6RUYE0IMtFssLbLvXL8ngekqKbGKdVHyQa3i7Egep7IujYwl0p2a9Xt_q8IQTfC9yq_pi8EL5s2G5qXRwAlqPQomKW3y5mDeakHVPVow09LbUZHp3jOSGKlKG4WaMFRbf70iKJPiZ706G_1lWRH0_Culis7Wj2GaZfhC2ZYQNurS-_0mg2l4HmXmaqonvwHfTsSQ6E78kQhY_qw70-S35vD4Wi253lTxTOmWNeVm803R8h0tkN-njjmg8nkT73frRi34syKQSuGVgxbMbJi1IpTK961omePMl2wBaw8taJ_0rsWCCwws_IpnGfjBT357iS3on91dBrw6oDvaPxBTTCoCQc10aBmOqiJBzWzQc3doEb3b1DlnZ8DXdy3V3cXDT5Fw9Ot5oydEosSktxJDk7zdtPvuxwXsKbKOY4dWCu-2jPkJM0bx6mbUVwQqE-zsgWP_wDWKjPe" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.8 LI-030-260_Monitor_Carrier_Performance_-_PTP — LI-030-260_Monitor_Carrier_Performance_-_PTP
@@ -886,10 +845,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -901,10 +859,9 @@ flowchart TD
 | Customer Business Analyst | LI-030-090_Identify_Appropriate_Modes_of_Outbound_and_Inbound_Transportation_-_PTP,  | |
 | Boundary Apps and other source data | LI-030-240_Audit_and_Pay_Freight_Bills_-_PTP,  | |
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -916,10 +873,9 @@ The following data entities are derived from the system integration flows for LI
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -974,10 +930,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1020,10 +975,9 @@ The Future-State architecture represents the **target** landscape for LI-030.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1411,10 +1365,9 @@ The Future-State architecture represents the **target** landscape for LI-030.
 
 **Summary**: 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1426,10 +1379,9 @@ Integration patterns identified from the system flow analysis for LI-030:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1453,10 +1405,9 @@ Platform landscape inferred from integrated systems for LI-030:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1496,10 +1447,9 @@ Platform landscape inferred from integrated systems for LI-030:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1528,12 +1478,12 @@ Platform landscape inferred from integrated systems for LI-030:
 | PTPI1529_IF | An interface to retrieve the list of approvers from a custom MDG table(MDG sy... | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Dec-25 (100%) | 4. Completed |
 | PTPI1458 | Develop an interface between PEGA and S/4 HANA system to transmit MSL informa... | Jul-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
 | PTPI1428_IP | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... | Jun-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Nov-25 (100%) | 1. On Track |
+
 *... and 358 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1562,5 +1512,5 @@ Standard RAID items for LI-030 (Procure To Pay):
 
 ---
 *LI-030 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: March 2026*
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-</div>

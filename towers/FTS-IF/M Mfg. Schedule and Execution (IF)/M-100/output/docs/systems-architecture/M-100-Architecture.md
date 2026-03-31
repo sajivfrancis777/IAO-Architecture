@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">M-100 — Execute Production (IF)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IF) (FTS-IF) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **M-100 Execute Production (IF)** within the IAO program. It includes 9 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Forecast to Stock (IF) (FTS-IF) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 5 Reports, 92 Interfaces, 31 Conversions, 118 Enhancements, 15 Forms, 4 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Production Planning Optimization | Enable MRP-driven production planning with real-time material availability | Manufacturing Excellence | Medium |
 | 4 | M-100 Process Migration | Migrate Execute Production (IF) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Supply Chain (Intel Foundry) | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -216,10 +183,9 @@ This capability includes **9 business process(es)** modeled in BPMN 2.0, coverin
 | 8 | M-100-240_Reconcile_and_Close_Production_Order_(IF) | M-100-240_Reconcile_and_Close_Production_Order_(IF) | FTS IF - Production - Cost Accountant, FTS IF Batch System ID, Production Scheduler | 5 | 0 |
 | 9 | M-100-250_Archive_Production_Order_(IF) | M-100-250_Archive_Production_Order_(IF) | FTS IF - Firefighter ID | 4 | 0 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -269,10 +235,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV1v4joQ_SujVBWtFKQkJISbh5UgEAmpq62W7r0P230wiQNWEzuyHShb8d93TEL4qLgvywPSTMbnzDnjjw8rFRm1Iuv-_oNxpiP46Ok1LWkvgt6SKNqzoUn8SyQjy4KqnqnJBdcL9vtQ5vrVuykzuYSUrNiZ7IKuBIUfcxvGuLCwQRGu-opKlvfsXiVZSeQuFoWQpvqOjnInP7C1nyZCZlSeChwndNMAlxaM01N6EPqhn5h1iqaCZxegeZCP8rS3N80VYpuuidSH9mtFv5L3_1im1xjnpFAUa9a6LJ7IkhZGo5a1yaW13BzNYMrwcDRsUZGU8RXmfQdTkvC3Uypw9nvY39-_8o4UXqavHPCXFkSpKc1BaUzPNhpyVhTRnR-Pk8CxlZbijUZ33iycDjw7NUoilO7Yxtz-lrLVWkdLUWRtaX9rNERe9W7L98hzbLnD_ysuyrMTUzz0Rt6oY5qEbuzGR6Y8z_-KCX2VL0S9tVyzQeIl047LDYZB7HzGO8qc-uHYvfaJyg1L6RlokiSD2cmq2TBwndugk2QwdOIr0BXRdEt2J8B_Yr8DTIIwccObgA3fdZf18lmK9Ag4mAVJ0AGGEzcZezcB_bHrj9oOEWclSbWGCdHpGn6g-uaD-XH3589XKydRTvqpWMFcqZpCLKSkqsKtj7sPFuPnZi1VoAVgU1mdaiY4fDPH6dX69esMcIh4saToxqdK2DK9hgXBA98mnvDcwVzTUgFRMNZasmWtKUKeIY4euhaVFtVVd42qQ9_ZjfYeGzDcsleOzF9gSis8NCXl-ozRQ8LvNKVsQ2FSsyKDOUerW9gp0aSV8g0ezuQ8AuGZSRpZlxrCk4aqwF3yCVWBbAgzSKQoIa5Ra_n_7Z9JnfEVcqKjfZgylUqK9n8lvM5JqmuJPp31MsBWnuuigMkcHj438tgIzIWEBc48q42-o9xnuloZtAtxPgIuzN0DT0J3pYfZ3p5qcPC4ErhqrBQt8RmA2QbnoHDAXNWlGe7RBVhUNGU5Q3eQQnVInSc8hH7_C06uDb0mHLThoAn9NvSbMGjDYRO21wR3m3DUhkETDs-Op6k5u0QuvoTdNXyRHrU3pmVbqKckLLOiD-vwCuJLmdGc1IW29rZFai0WO55a0eG1sOoqw7M0ZQRnXjbJ_R-OnF-n" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 M-100-140_Confirm_Completion_of_Production_Operation_Order_(IF) — M-100-140_Confirm_Completion_of_Production_Operation_Order_(IF)
@@ -397,10 +362,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv4kYY_SsjryISCbQeX7DhoRUBvEXaZKOQdlWVPkzMGNwYDx2PSWiW_95vxhfMYFTtlococ-Z894sN70bIltQYGldX73EaiyF674g13dDOEHWeSUY7XVQAvxEek-eEZh3JiVgq5vE_ioad7ZukSSwgmzjZS3ROV4yiX2ddNALBpIsykma9jPI46nQ7Wx5vCN-PWcK4ZH-gfmRGylp5dcv4kvIjwTQ9HLogmsQpPcK253hOIOUyGrJ0eaI0ciM_CjsH6VzCXsM14UK5n2f0jrx9jZdiDeeIJBkFzlpsks_kmSYyRsFziYU531XJiDNpJ4WEzbckjNMV4I4JECfpyxFyzcMBHa6uFmltFH1-XKQIPmFCsmxCI5QJgKc7gaI4SYYfnPEocM1uJjh7ocMP1tSb2FY3lJEMIXSzK5Pbe6Xxai2GzyxZltTeq4xhaG3fuvxtaJldvoe_mi2aLo-Wxn3Lt_za0q2Hx3hcWYqi6H9ZgrzyJ5K9lLamdmAFk9oWdvvu2DzXV4U5cbwR1vNE-S4OaUNpEAT29Jiqad_F5mWlt4HdN8ea0hUR9JXsjwoHY6dWGLhegL2LCgt7upf58wNnYaXQnrqBWyv0bnEwsi4qdEbY8UsPQc-Kk-0aBU9zNAvQLRHhGs33maAbNJsUJPlJsf3Hwuhhy0QPLBNodoeuZ-mOpoLxPbojKVnBzKbiBj1Bc2YR5dnC-LMp7yh5u5QfszSK-YaImKUa0VVEF4iUR4yDH7Wd-TaJha64r_jOkf9FDnI711Ncr033HeUrqtF9Re_rqtuoA0X1j-mZh5DYU5JlKtLgP3NgOdfAjMgwIr1MsO0JVQnTJUjcNEVcTUTPWhXDuWT_oqQK9LKg9_1eDt7fKxH5IOg9Q7dAx9G3MMmzeEc_FZOyMA6HhphttouNSZKgx2D8s87H7fxZhAISJzmniIWwabMzQetHBe0fFXS-XxD2qz6-JCxKnW_l_soYbyZddp2JTTShgvINPM7QhAiCpokaWW1GLHys6jaBpfWZQatyWlT1kf6dU-jdRxpSKFejvudOzZ7A4hYeO9JKc1akP5ZpgpItg2fVlHPG0Shdol9g_aN7-gbY7twztYFM2EBBnEAgyrEvryn8F3AGswmhF04-yfcGdH3P0t7TBE3vPxX9taQ3pwrVSjJhJY3XNHxBcdTQEWcImh7Bll3moULm8gmK4hTdsR1luTiST7Wq_WXCPvrEkGBNDcX2ULnU1ofaYabbLJHaoyQss57QHbSFJqW2mdlvSqm8nbLUEjO9Jktm7uvsAUGA9bCfCql1ZvpNoflHB40eZmguW-DMF6x2mzk4kZArUKXxkf5Fw_aqYtUO8IhDoyyLVykaCcHj51xQnaj6GEMfF2Nf5ETI-b9-pBsmKArytEiYZNx8vAV3tea2tJV1Vp1QVedsb9maXNGzRQPT5aXmPVHhXxj0oNF1swwFLV2n7wz3qIqAI69ZjyQCwahB2DS5sEP73ydUz3Nqo17vJ5iW8ugUR8svz5ZfAK52tivAdgugr5097exr54F2xqYOYB2wSgBbpQ-Vzb529rSzr50H2hm6TgOwDpRpwlWecKnDqt2unKgAXAK4yhQu3cB1apTZbwsDmlztnYXxTZqq-GUt7CoRuEyEXSeiCrQSsapAKjdtXJq4Z0q5VV9Y2kVdT1u7qAvraBetYajXkSKOfmuYxduVvPfP7tUeKS4HutXf5caQZgd6BOc39sUbfOmmLLhVZ7Ksb5X7MvVWlfqqBatjJd94lVdo9c3sFLfKb1GnqN2KOq2o24r2W1GvFfWrLy6n8KAVhhq1wrgdttphux122mG3He5XsNE1NvAsIvHSGL4b6mcF-OlhSSOSJ8I4dA2SCzbfp6ExVF-_jXy7BMlJTOANZlOAh38B3QAEWQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 M-100-150_Backflush_Raw_Materials_(IF) — M-100-150_Backflush_Raw_Materials_(IF)
@@ -477,10 +441,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuu2jAQ_RUrV4hWClKehGZRCQKpkIpaldt2UbowiQ0Wjo1sh0cR_94x4V3dVbOIMscz58xMPHNwClkSJ3VarQMTzKTo0DZLUpF2itpzrEnbRQ3wAyuG55zotvWhUpgp-3Ny86P1zrpZLMcV43uLTslCEvR97KI-BHIXaSx0RxPFaNttrxWrsNpnkktlvV9Ij3r0pHY-GkhVEnVz8LzEL2II5UyQGxwmURLlNk6TQorygZTGtEeL9tEmx-W2WGJlTunXmkzw7icrzRJsirkm4LM0Ff-M54TbGo2qLVbUanNpBtNWR0DDpmtcMLEAPPIAUlisblDsHY_o2GrNxFUUvQ5nAsFTcKz1kFCkDcCjjUGUcZ6-RFk_jz1XGyVXJH0JRskwDNzCVpJC6Z5rm9vZErZYmnQueXl27WxtDWmw3rlqlwaeq_bwftIiorwpZd2gF_SuSoPEz_zsokQp_S8l6Kt6xXp11hqFeZAPr1p-3I0z71--S5nDKOn7z30iasMKckea53k4urVq1I19723SQR52veyJdIEN2eL9jfBDFl0J8zjJ_eRNwkbvOct6_lXJ4kIYjuI8vhImAz_vB28SRn0_6p0zBJ6Fwuslyl-naJyjDgLasi4MkwJNiyUpa05U42sf4f-aORSnFHds69FXoqhUFfokZYnGWtcE9ReYCW0QDPE92Rc7XTPn9x1XAFwTCUtAApGEEFsS0RpuNZIUjZSCg28wZarUiCpZoX5tZIUNK06CGk3kBjaFMI-8IfCOS4AZ3Vsum0lDlmHIukTzfZMdaML5Y3D07lqhNnKNcsw4hAxwsaK81ktIaN2kSUqIfH8XGkPknR_eogn8d7uM9FUDRqP5EDHqdD5CE85m2Jjn6yiCxgzPpt-Y0d01sODl-j_A0Xn-HsD4ugAc16mIqjArnfTgnFYtrOOSUFxz4xxdB0OTp3tROOlpJTn1uoQyhgzDTaka8PgXurfbiQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 M-100-180_Assign_Batch_Number_and_Link_to_Order_(IF) — M-100-180_Assign_Batch_Number_and_Link_to_Order_(IF)
@@ -553,10 +516,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVt9v8jYU_VesVBWtFKQkJITmYRIFUlVq10-FfntY92ASB6waO7MdKEP877smPyDpOmlaHhD35J5z7r12nBysRKTEiqzr6wPlVEfo0NNrsiG9CPWWWJGejUrgJ5YULxlRPZOTCa7n9K9TmuvnnybNYDHeULY36JysBEFvjzYaA5HZSGGu-opImvXsXi7pBsv9RDAhTfYVGWVOdnKrbt0LmRJ5TnCc0E0CoDLKyRkehH7ox4anSCJ42hLNgmyUJb2jKY6JXbLGUp_KLxR5xp-_0VSvIc4wUwRy1nrDnvCSMNOjloXBkkJu62FQZXw4DGye44TyFeC-A5DE_OMMBc7xiI7X1--8MUVPr-8cwZUwrNSUZEhpgGdbjTLKWHTlT8Zx4NhKS_FBoitvFk4Hnp2YTiJo3bHNcPs7QldrHS0FS6vU_s70EHn5py0_I8-x5R5-O16Ep2enydAbeaPG6T50J-6kdsqy7H85wVzlAquPyms2iL142ni5wTCYOF_16janfjh2u3MicksTciEax_Fgdh7VbBi4zvei9_Fg6Ew6oiusyQ7vz4J3E78RjIMwdsNvBUu_bpXF8ocUSS04mAVx0AiG92489r4V9MeuP6oqBJ2VxPka3WOdrNEbdF_eMBd3f3-3MhxluG_mjN7yFPpAL4XOC10xdlSv0ZPQ6NdiswSy9ccF32vzx0rRFa-IY60lXRaaqDbHHQBpIolxghbTItFUcPRiHk6EeYrGhRYbrGnSLuSBcCKBlHbkgpumCKVF_sW9qurEuy2JsH0704lxooXco3mRm-2hxOWUTMFTooncwEGBplhjNGNwgHHdbc0_15Iz2A7PmBcZSBcSHmR08xw_3KKX3LRhWl6Y0w-9koTQ7b-X97hAU5LD821MLwz98ygnIt8jkXXl2wUGkB9TBq2clvRlByNFsRSbL1XdLKa3be7QeK1J8oHopQtVKBPyciXn5iBClKNnsSUC1q9JbguGrbGWLBhup-RRK-vC5ieR6ovmXSt7xuEfnP7KTFmJQiagwDDnp9WYvf64Ra9QIESddXTapkDRnQy3lfHG6Z9FUx16nHayvVZ2udUX-7zTqjs8HOrtg6UUO9XHTCNYd8wYYQ_lGfNuHY-XpPC_kZrNxX3U7_8Ce6IKgzIcVqEblrHrVUAddxPuOvGoikfdfK8D3H0j6DpdwK0Bp0txO8CwisOORB0PytCvb1czGNRxzW-AitBUUIb1TOqWgovT2yTVb60W7P0zDDXUr-42HlSv2TY6rN81bTisYcu2NrDPME2t6GCdPrTgYywlGS6Yto62heF4ne95YkWnDxKrOB36U4rhqNmU4PFvCXgHMA==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 M-100-220_Transfer_Materials_from_Quality_Inspection_to_Stock_(IF) — M-100-220_Transfer_Materials_from_Quality_Inspection_to_Stock_(IF)
@@ -713,10 +675,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWFtz2jgU_isaOpm0MzD1FQMPu0MAt8w0bQpp87Dsg7Dl4MbYrCSTsCn_fY9syWDFdFt285CJPp3rp3OOFD-3giwkrUHr4uI5TmM-QM-XfEXW5HKALpeYkcs2KoGvmMZ4mRB2KWSiLOXz-O9CzHQ2T0JMYD5ex8lOoHNynxH0ZdpGQ1BM2ojhlHUYoXF02b7c0HiN6W6UJRkV0q9ILzKiwpvcuspoSOhBwDA8M3BBNYlTcoBtz_EcX-gxEmRpWDMauVEvCi73IrgkewxWmPIi_JyRa_x0F4d8BesIJ4yAzIqvkw94SRKRI6e5wIKcbhUZMRN-UiBsvsFBnN4D7hgAUZw-HCDX2O_R_uJikVZO0YfZIkXwEySYsTGJEOMAT7YcRXGSDF45o6HvGm3GafZABq-siTe2rXYgMhlA6kZbkNt5JPH9ig-WWRJK0c6jyGFgbZ7a9GlgGW26g9-aL5KGB0-jrtWzepWnK88cmSPlKYqi_-QJeKW3mD1IXxPbt_xx5ct0u-7IeGlPpTl2vKGp80ToNg7IkVHf9-3JgapJ1zWN00avfLtrjDSj95iTR7w7GOyPnMqg73q-6Z00WPrTo8yXNzQLlEF74vpuZdC7Mv2hddKgMzSdnowQ7NxTvFmhqywvahkNNxtW7omf1Pxj0ZoHKxLmCUGfco7GkApDUUbR3fQGfcj4ovXnkbwl5OH8EYT3jQSchGi4xXEiOlnq-jRbo7u388LIlzRnxR5YYnVTNpgCK9s4LDQxyqKaOLpbxcEKYUrQuww6AfEMLcnBXd2a85OBXU_-NTDLeQ3GIjyIcGeTwLEW0d1CU7KIUOEgIIzJcKYw5GIwH4KNN8fZCWaH4beccVQR_Hrqv9FIsJ6flS8xOTtLcANZk6cgyVm8Je_K0lq09vvjbO2DGqY0e2QdnHC0wRQnCUlOKDm_pgRsalXk387R1EdXmEOI8x3jZI2m42PqDHGohALDazi1LGToOtvCtE-54GtOuFTGDE6AEqjhOCjJO7ZivrCyPsOK9fOxzE7ZsP8HG96hnBjPNoo-0C3iP1Y7riCrd6Ze_0d6s1NqtnGeWu-sArb7zWrTCPnQtTk0fRbAXcl-14vYOFfRPFfR-nXFhtbBAc9g_s7zjbiBWEaPXLhqeBVDBiTjLC2mTr2Suj8nZrna_JqRv3I4v8OsErVbzbNrQMSLCqa-GJCfc5zEfAfCbENKF6LSeRY86EdvNxMjB8MXVjpqjBjpLNvOr9bRS46nt2hMYJxx0Z9Htj2gY7QiwQO6nl3BCazFe7DOWa8SmRGSoJv3n9FXnABrdbF-JSYuqMnTJqZY5FSXMo1KbHgvLiIOvbPMuW7NNCu529l4-nbuv5ui9_BEOq0hZtqYwIGt4dWK4qiII4ZxUFxmbz_CqvxT07NP6E3TLXAlCrO88TU15zw1Uc8zssngoTqBi4YiDCVQJPaRPPHjYtAUuzV_8-HNIjcMbMCVG-alfLH-JJ7ymqqnq1aF3S5HWRvdJDjlbVHLFN-Lmz8oDo-1D0P9drchi9wyjKVmvnd-ZP2fjEzr4q42j0smS1qhqH5Eaa1L3ebGOkQEZ_qiG7vnKHlnKDnuOS-Z7jlK3pnPn9RFnc5vYkTJtSMBT1v3tHVfW5vymQ9_lIDTlUBfW_e0taet7cLi90XruOG_i4ZVHmwZc6XRlRpFtwrRFztVU5f7enamqWybWjSWIsiWQFcjzHakhqsAuVYG1H7FsARsbW2ptfTgqCBlSLaK0fb0dHv6jpauOixLno2tALtfcV1IWhUxprZRnbdV37Crc5dhWyovSxGhErMsCahELEW2suEYmtcqMVtuwL84xY6rb9xl9AGecQSvi_0XxXRcSHYtF_HOq2V9DBgaYPd1CVm-psrSVEbdmgSEMIN_k1hJmhK2ZTOYStiU5WZV9ScpUjGbqnqq6pARWdVByIisKiLpxFK8O5pNRzVUFZb0evyBoahk9SWmjrsn8K78mlJHvUa014j2m1DbaETN5iggF_kJow7bzbDTDLvNcLcZ9prhXjPcb4Sh9BphsxluztJpztJpztJpztJpztKpsmy1W2u4BXEctgbPreILKHwlDUmE84S39u0Wznk236VBa1B8KWzlmxA0xzGGt-26BPf_AKljiZc=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 M-100-230_Rework_(IF) — M-100-230_Rework_(IF)
@@ -814,10 +775,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21v4jgQ_itWVhW7EujivBDgw51oILpK3e2q9FqdjvtgEgdyDXFkO225lv9-Y2IHSMtW2-NDy0yeZ2ae8dgxz1bMEmqNrLOz56zI5Ag9d-SKrmlnhDoLImini2rHLeEZWeRUdBQmZYWcZf_uYNgrnxRM-SKyzvKN8s7oklH0x0UXjYGYd5EghegJyrO00-2UPFsTvglZzrhCf6KD1E532fSjc8YTyvcA2w5w7AM1zwq6d7uBF3iR4gkasyI5Cpr66SCNO1tVXM4e4xXhcld-JehX8nSXJXIFdkpyQQGzkuv8kixorjRKXilfXPEH04xMqDwFNGxWkjgrluD3bHBxUtzvXb693aLt2dm8aJKiy-t5geAT50SICU2RkOCePkiUZnk--uSF48i3u0Jydk9Hn5xpMHGdbqyUjEC63VXN7T3SbLmSowXLEw3tPSoNI6d86vKnkWN3-Qb-tnLRItlnCvvOwBk0mc4DHOLQZErT9H9lgr7yGyLuda6pGznRpMmF_b4f2q_jGZkTLxjjdp8of8hiehA0iiJ3um_VtO9j-3TQ88jt22Er6JJI-kg2-4DD0GsCRn4Q4eBkwDpfu8pq8Z2z2AR0p37kNwGDcxyNnZMBvTH2BrpCiLPkpFyh6GaGLiLUQxA2qWKZsQLN4hVNqpzyGqs-hYP_mlvX9JHx-0Poldo7aMlYIhCnMc1KObf-PuQ5e95VSTnZ0UJWpBlf06QFdn-QJOYUutlmDD4DJSWjlPSEZCXS7JCty5zW8C81HoazrZ3EkvENmlWlWnzBDgUrveEupYl5ydra3ocoQV_ZA_3lmv5DYykQyNHYvI31VDhd9-mc3l5wmcNoXcBhmh2UoMaDCvEj3Rc3aEJLOBbWtJAHsX1VwIrG9yhi3MQbS8mzRSWpOC6kD-AJVMrXcEwacL1SN5uSHoODI_DB0t5SLuD_MXqg6iB5jj5fR-GX15Oge64yqoPvmDwE8kUCwrJ0g07M0jED24eUOyCE8P0VSg3Ed676RtEYgj1kcoNuSV61O4Odo_pfTX1t3L1ZPd4NDCnIksJ4ZnkFyUiRgJCyXlc4-VsM77D6SyLkwT67SnULWhz_55vUP14UGMxmk53SEux2c8ngtTTlHEZKKfkdTnr0jT5JdANvM0F2GVvEwUeJw1fdE--0z1GL33Nchj6S0PFfHT-7IA0dbjRo-qC2WbMfa2L_HeLNKWLw0YzD52dDVFex3gJExatmyq5iuIGI3-bWdnt4ftkfYuGfZDVnFJxvqNf7FZZS27g2HfO4Nn1t-rXZ12a_NgNtBrU50OZAhxqaWEPleJlb39jcelFvH_PA1TUYpLaNOdSPbVOjrR1N0bpqbMrGum7XUFy7lbsRqJHYFGP64ZlQxmF6gHV1DUDLdvy2zj_VSfWiEAZqWmIaiHUHXaPE0dIcQ3FxK5i5msENQUMHbajRiNvim4IMBevWGvFYLzDuH9yDdkNirrXHfl9fQY-9_Te9wZvewZveobnJHblBx5tubNxW11rDO49kiTV6tna_buAXUEJTUuXS2nYtUkk22xSxNdr9CrCqMgHmJCPwol7Xzu1_LoUMAA==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.8 M-100-240_Reconcile_and_Close_Production_Order_(IF) — M-100-240_Reconcile_and_Close_Production_Order_(IF)
@@ -905,10 +865,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -926,10 +885,9 @@ flowchart TD
 | Production Scheduler | M-100-240_Reconcile_and_Close_Production_Order_(IF),  | |
 | FTS IF - Firefighter ID | M-100-250_Archive_Production_Order_(IF) | |
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -941,10 +899,9 @@ The following data entities are derived from the system integration flows for M-
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -1016,10 +973,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1062,10 +1018,9 @@ The Future-State architecture represents the **target** landscape for M-100.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1340,10 +1295,9 @@ The Future-State architecture represents the **target** landscape for M-100.
 
 **Summary**: 5 Reports, 92 Interfaces, 31 Conversions, 118 Enhancements, 15 Forms, 4 Workflows
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1355,10 +1309,9 @@ Integration patterns identified from the system flow analysis for M-100:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1382,10 +1335,9 @@ Platform landscape inferred from integrated systems for M-100:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1425,10 +1377,9 @@ Platform landscape inferred from integrated systems for M-100:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1457,12 +1408,12 @@ Platform landscape inferred from integrated systems for M-100:
 | LOGM005_IF | UPLOAD TRANSPORTATION ZONES (TM) | Jun-25 (100%) | — | — | Sep-25 (100%) |  |
 | LOGM004_IF | UPLOAD TRANSPORTATION LANES | Jun-25 (100%) | — | — | Sep-25 (100%) |  |
 | LOGI1718 | To align on batch attributes for straddle in S4 | Feb-26 (100%) | Mar-26 (100%) | Mar-26 (100%) | Mar-26 (5%) | 3. Off Track |
+
 *... and 245 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1494,5 +1445,5 @@ Platform landscape inferred from integrated systems for M-100:
 
 ---
 *M-100 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: March 2026*
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IF)</span></div>
-</div>

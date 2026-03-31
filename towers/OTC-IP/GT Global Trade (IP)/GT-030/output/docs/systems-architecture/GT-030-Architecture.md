@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">GT-030 — Compliance Screening (IP)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **GT-030 Compliance Screening (IP)** within the IAO program. It includes 8 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Order To Cash (IP) (OTC-IP) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 5 Reports, 71 Interfaces, 20 Conversions, 167 Enhancements, 28 Forms, 1 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Returns & Rebate Automation | Automate returns processing, rebate management, and chargeback handling | Revenue Assurance | Medium |
 | 4 | GT-030 Process Migration | Migrate Compliance Screening (IP) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Order Management (Intel Products) | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -215,10 +182,9 @@ This capability includes **8 business process(es)** modeled in BPMN 2.0, coverin
 | 7 | GT-030-100_Notify_responsible_process_owner_to_proceed_with_transaction_or_cancel_the_order_(IP) | GT-030-100_Notify_responsible_process_owner_to_proceed_with_transaction_or_cancel_the_order_(IP) | Trade Execution Analyst | 3 | 5 |
 | 8 | GT-030-110_Manage_Compliance_Reporting_(including_Audit_Trail)_(IP) | GT-030-110_Manage_Compliance_Reporting_(including_Audit_Trail)_(IP) | Trade Execution Analyst | 10 | 5 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -317,10 +283,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV11v4jgU_StWRhWtBGoSEgI87IqvjCq1I3aYndFqOg8mccCqiZHttGU6_Pe9Dk5C0rAPs0it8PE99-P4-ia8WRGPiTW2rq7eaErVGL111JbsSGeMOmssSaeLTsBXLCheMyI72ibhqVrRn7mZ4-1ftZnGQryj7KDRFdlwgv6-66IJEFkXSZzKniSCJp1uZy_oDovDjDMutPUHMkzsJI9mtqZcxERUBrYdOJEPVEZTUsH9wAu8UPMkiXga15wmfjJMos5RJ8f4S7TFQuXpZ5I84NdvNFZbWCeYSQI2W7Vj93hNmK5RiUxjUSaeCzGo1HFSEGy1xxFNN4B7NkACp08V5NvHIzpeXT2mZVB0__kxRfCJGJZyThIkFcCLZ4USytj4gzebhL7dlUrwJzL-4C6Ced_tRrqSMZRud7W4vRdCN1s1XnMWG9Pei65h7O5fu-J17NpdcYD_jVgkjatIs4E7dIdlpGngzJxZESlJkv8VCXQVX7B8MrEW_dAN52Usxx_4M_u9v6LMuRdMnKZORDzTiJw5DcOwv6ikWgx8x77sdBr2B_as4XSDFXnBh8rhaOaVDkM_CJ3gosNTvGaW2XopeFQ47C_80C8dBlMnnLgXHXoTxxuaDMHPRuD9Fk15lvcymuz38rSnP-nw-_dHK8HjBPcivkErOFr0V0bAUHG0mizRxy8r_XVDFFoprDL5aP34ceZgVHfwmUSEPhNji2iKHmgcM1BHkAbTsa9L6p6Beqe4dzA1KOgZ67AhhXyML56g6VKHvzl34lZOpOL7wtjkEesMzmuv6FBpQ6MvAscELV5JlCnKUzRJMTtIdR6tjKUbEz3gFG8ImjIePUGoJdzAlAid4hnHbeUsuYQyQah7KhXqmcrOaP1W2icCrfZfNK9-HCcxGVot79EqEoSkMFIqJc-Zfp052-JU17aUaBLHgkhZOWgwB3XmnDCF0QqnkVbR6HI4ZXwNidw0MskkDGBwX8iHriHoTSNG0MyORE-1xmg2l9Poi_dhqiy0OjO-2zMCbddsMH0QeSf8JOgWilNE7MATEgRLaJKEC7TWDYDgyxbGG7q-W97UD8XxwMcDpqmCv1MkCvIQOFUJ7tAcg2AtNP-cdguHCcYJBt4sg5p2RNx-hS7m4nYKzwuJHuZtTgZvb5VyMemt4eESQbMf9kQrV6rw56N1PJ4Tg3YieY0YaPlMPp6GXpM2bKeVspvb8i7cqJ33DQYDpJn3vz6rnF56a3px7d9K2nV-j-ZWNCwEf5E9zBTaY4EZI-wdqRw56QD1en9ojc3aa6z9xtoZauDXo_UPgXv7CwCz4drGsgCcgbF8f4Fzot-0K0dEdbvBzCvMRsbsE9duaD4YYTDr23xKpN-0vEvrYyo3a7OqzcDcyi2sjB5uWZXfAFzH1D0wQN8Y2IVBY10q-ImfQtlNIczcqslQeHeMzMNibaKPzHpk1kUBgYlerF2TjlM4GDYP2DCCGgGyyp_IZtCtMbQ-iF9_oEGao7PXB51c8dpUg912uN8Oe-dvSrUd_-LO4OJOcHFneHFndHEHTqN43a3jjnk1raNuK9q_4MO7gPsX8EHx9leHg3Z42A6PWmG43K2w0w67BWx1LXg47DCNrfGblf_agl9kMUlwxpR17Fo4U3x1SCNrnP8qsbJ9DMw5xfAitDuBx38BmORQ3A==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 GT-030-030_Check_if_block_exists_(transactions)_(IP) — GT-030-030_Check_if_block_exists_(transactions)_(IP)
@@ -443,10 +408,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWNuO2zYQ_RVCwcIJYCcSJVmyH1r4pmKB3FBvWhTZPNASZRMrSyoprdfZ-N871NWmpS2a-mG9Opw5M2c4vMjPmp8EVJtqNzfPLGbZFD0Psh3d08EUDTZE0MEQlcAfhDOyiagYSJswibM1-16YGVb6JM0k5pE9i44SXdNtQtGX2yGagWM0RILEYiQoZ-FgOEg52xN-XCRRwqX1K-qGelhEq4bmCQ8obw103TF8G1wjFtMWNh3LsTzpJ6ifxMEFaWiHbugPTjK5KDn4O8KzIv1c0A_k6U8WZDt4DkkkKNjssn30nmxoJDVmPJeYn_PHuhhMyDgxFGydEp_FW8AtHSBO4ocWsvXTCZ1ubu7jJii6W97HCD5-RIRY0hCJDODVY4ZCFkXTV9Zi5tn6UGQ8eaDTV3jlLE089KWSKUjXh7K4owNl21023SRRUJmODlLDFKdPQ_40xfqQH-GvEovGQRtpMcYudptIc8dYGIs6UhiG_ysS1JXfEfFQxVqZHvaWTSzDHtsL_Zqvlrm0nJmh1onyR-bTM1LP88xVW6rV2Db0ftK5Z471hUK6JRk9kGNLOFlYDaFnO57h9BKW8dQs881nnvg1obmyPbshdOaGN8O9hNbMsNwqQ-DZcpLu0DzJi15GszQV5Zj8xPbXr_daSKYhGfnJFv1OfcoeKXz_nVMBU5xwtOAU5L37kgbwhZIQ3UF7CuJnLInRMvHzPY3Bkid7NJf099q3b2cRxt0RbmFzgGWMFsk-jRiJfYrWGclyISPUrAqV87qhSiMod8kBSTVZFKmFlIPjmzPHSesosiRt7a-jV_kFLQN0u1JMiBJQtHqifl4UYRaT6Ciys4AGxCvrdl4tkLskGQHqM1PcpCabHX0gMdlSNI8S_4EGTabi0sm8dFoyURTkjvq7mPkkimRxfCmOQgqLHFTvRR-Z1U3WWKPXZ2Uq85P4m0sWV6lxoQCx-LwAAi12VOpS5sfQwbeo4neK3qElJM33sC0jKKGAAss23BR88M8O9hD0-vazEt-QNf-YZCw8gptIIRqD4wWlsI6ogLY6xCAuS0oASntg2Q525baXgduXGiMEB9Tbt28VftzO6ZrAuYU-yQMFqoNuPTUXOT-LHYlhJgsryPfKxmr5PuXZRi5QUB5B88Ey7bC3W_vbuDQPXjAft-afcw6nhqBNxtfWTqc4qe2qzu61tiubSWvz78Gx_nIlVHYsZ_rTJiPQXARMYcnC2Y7WO5amcGKioglgFRST2hEO_yf3q-jmi_NwZW69VIora_ulWbuyHj8_t3trQEcb6GYf9qdjWmzU5RL89V47nc69nG4v-uRHuQAdv5Wnmerm_pzbpNut2YLrnU5N09RbR8J5chAjEmUoJRy2Nxp1RzONn3HCnU4s7hPWnAiQJBqNfpEbmApU9w7YNkoAuzVgqYCpAmMVsFXAUQFXBSYKgHUVMFRAzRSriWE1dawmVuVl1-NFFj_utb8onDk_ZMfWI-NqpOfIKrqicDErj6ook-pRjYyrCjR1r8Ynaiofk4LWqiessnNqO_W5kmTi2qGyMHVVytkp2aZfu1WlM-v8zCpBV3lW4gDtGtoN-S23KC8qcJI1lzoib10QbHx2jZRS6uvzBWx2w1Y3bJ_fmC9Gxr0jTvM2cgG71YvDBTjpAg29m8EwenDcg5s9uNWD2z34uAfvUQrLsRufdOO4Ry_u0Yt79OIevbhHL-7RCy1dvdJcwk437HbDk04YdshO2OiGcQ1rQ20Pt0LCAm36rBU_IcDPDAENSR5l2mmokTxL1sfY16bFq7aWFy8sS0bg0r4vwdM_ilAnfQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 GT-030-050_Business_decision_on_SPL_analysis_result_+_take_action_(IP) — GT-030-050_Business_decision_on_SPL_analysis_result_+_take_action_(IP)
@@ -536,10 +500,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtV2uP2jgU_StWqhEzEqh5EsiHXfFKVWlmF5XpVqtOP5jEgWiCHdnODJTy3_c6L0gmrLoPPiB84nPO9fXNtTlqAQuJ5mk3N8eYxtJDx57ckh3peai3xoL0-qgA_sA8xuuEiJ6aEzEqV_H3fJphp3s1TWE-3sXJQaErsmEEff7YRxMgJn0kMBUDQXgc9fq9lMc7zA8zljCuZr8jo0iPcrfy0ZTxkPDzBF13jcABahJTcoYt13ZtX_EECRgNG6KRE42ioHdSwSXsNdhiLvPwM0Ee8P5LHMotjCOcCAJztnKX3OM1SdQaJc8UFmT8pUpGLJQPhYStUhzEdAO4rQPEMX0-Q45-OqHTzc0TrU3R4_yJIvgECRZiTiIkJMCLF4miOEm8d_Zs4jt6X0jOnon3zly4c8vsB2olHixd76vkDl5JvNlKb82SsJw6eFVr8Mx03-d7z9T7_ADfLS9Cw7PTbGiOzFHtNHWNmTGrnKIo-k9OkFf-iMVz6bWwfNOf116GM3Rm-lu9aplz250Y7TwR_hIH5ELU931rcU7VYugY-nXRqW8N9VlLdIMlecWHs-B4ZteCvuP6hntVsPBrR5mtl5wFlaC1cHynFnSnhj8xrwraE8MelRGCzobjdIumLMtrGU3SVBTP1IcOv3590iLsRXgQsA36RAISvxA0Y7s0iTENiCosmQkUcbZDHx5XT9q3bxf88W3NF5Kll8RVQSwlQyDeXRBN_XismJhz9ioGOJEopkGSCZj_oUjpk3Y6FSwoutaaHjkOCVrsSZDJmFE0oTg5CHlhYtTBqUJCKqVECPQwRysIUZFIiJbw4hzQfSwkul0t7-_QNGHBM4R7GW1TaBKGaAphUqWm-JRwgW6nyzsk2ZKJWKokKsmmjNWU-UQSAi0RgWthiiLG0ZwF2Y7QFtXuiGAJbug3AtXXbec0OTNGo5jvfsrObe3rmfNZSc1JEAuV83y_iSSt3R39TVkEnBAKna3mtkvD0IGcb-Z3gt6DlyR8B7lGHLIFnirqdR4L_NhCR0G3H5d3zfgN43_QMM8lqk61wRr6crBFZH-tRgua1U37Ag2CRegBU7xRy8_TWdafqp9f2zp2t87jISVKaI4lfsNxujkTekC_w7HLL3ciD-Ct7fDfrdrtplU1XpWZQG8MR52dIMUcJwlJrtiN_xmp7h5QGWgw-EWltwTscmyWY7M1NiwF_HjSWm_aD6C2p7TefZhSq7iVCstxp8KHpV0FOOV42Cb-SUTOtMoHJXFczRsVY7cat5cxLoBRObbaPnbp84CFVK84lBe6fZjf5aaG1V5qsbFQyO_LvlLXdEFoy0K3pgLnTRcnuXoxr463ynsVoOE0M2aM2w-qjBh6Y43wZAX7DTeuS8fyHIOOeXkWFnukN3JY8aG_rn6CZOpF4MOLM1ylv7q7NGCzG7a6Ybsbdrrh4eXlpvHELa9sDXDUBY67QEOvr5dN3LiCm9WNqAlb3bDdDTvd8LAbdrvhUTc87oRhJ0tY62s7ODBwHGreUcv_r8B_mpBEOEukduprOJNsdaCB5uX3ei1LQ2DOYwxXk10Bnv4ChqIb1g==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 GT-030-060_Business_decision_on_Embargo_analysis_result_+_take_action_(IP) — GT-030-060_Business_decision_on_Embargo_analysis_result_+_take_action_(IP)
@@ -630,10 +593,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU2P4jgQ_StWWi1mpaDNJ2Fz2BEkZDVSjzTa7t05LHMwTplYGBvZTjcMw39fmxBomO7T5IBSj1fvVZU_sveIrMHLvfv7PRPM5Gg_MA2sYZCjwQJrGPioA_7FiuEFBz1wHCqFeWTfj7Qw2WwdzWEVXjO-c-gjLCWgfz75aGITuY80FnqoQTE68AcbxdZY7QrJpXLsOxjTgB7dTn9NpapBXQhBkIUktamcCbjAcZZkSeXyNBAp6itRmtIxJYODK47LF9JgZY7ltxo-4-1XVpvGxhRzDZbTmDV_wAvgrkejWoeRVj33w2Da-Qg7sMcNJkwsLZ4EFlJYrC5QGhwO6HB_PxdnU_RUzgWyD-FY6xIo0sbCs2eDKOM8v0uKSZUGvjZKriC_i2ZZGUc-cZ3ktvXAd8MdvgBbNiZfSF6fqMMX10Mebba-2uZR4Kud_b3xAlFfnIpRNI7GZ6dpFhZh0TtRSn_Jyc5VPWG9OnnN4iqqyrNXmI7SIvhZr2-zTLJJeDsnUM-MwCvRqqri2WVUs1EaBu-LTqt4FBQ3okts4AXvLoJ_FMlZsEqzKszeFez8bqtsF1-UJL1gPEur9CyYTcNqEr0rmEzCZHyq0OosFd406EnhGtBsC6Q1TAo0EZjvtOlY7hHhf3OP4pzioRs6cvagNXqwwxIaUGFXUUmOplyS1dz79iozus4sGiyWl4QSG4yoVL2Svk6ObfLfQBogq04balRK0q5BGI0-fPry2zU_sfxj8d8B_Y5KMKDW9gAjBVjbvpzRwskg-9LY3faGRLrf9wW7y2q4sMeNNOgzmEbWSNLbnj_OvcPhVf7o7XzYEt5q9gx_dbvhkmXPS_ciEjQc_mkrOIVhF45O4agL41OYuvDH3OuXYqaUVHPvh827YZxG_gBLzPuqj8ToRIyujI7bzLn3x-sKjt6G4_MVcwUnb8Npfyau0FGPer63tguHWe3le-_4PbDfjBoobrnxDr6HWyMfd4J4-fHe9NpNbTNLhu12Xnfg4X9FiQ6X" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 GT-030-090_Recheck_Blocked_Documents_(IP) — GT-030-090_Recheck_Blocked_Documents_(IP)
@@ -716,10 +678,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4jgU_StWqopWC90kJITysCu-MppVO6rK7K5WwzwYxwEvIY5sp8Aw_Pe9zgeQNDzMLA9Vc3zPOffeONc-GIQH1BgYt7cHFjM1QIeWWtENbQ1Qa4ElbbVRDvyFBcOLiMqWjgl5rGbsWxZmOclOh2nMxxsW7TU6o0tO0Z8f22gIxKiNJI5lR1LBwla7lQi2wWI_5hEXOvqG9kMzzNyKpREXARXnANP0LOICNWIxPcNdz_EcX_MkJTwOKqKhG_ZD0jrq5CK-JSssVJZ-Kukz3v3NArWC5xBHkkLMSm2iJ7ygka5RiVRjJBVvZTOY1D4xNGyWYMLiJeCOCZDA8foMuebxiI63t_P4ZIqeXucxgh-JsJQTGiKpAJ6-KRSyKBrcOOOh75ptqQRf08GNPfUmXbtNdCUDKN1s6-Z2tpQtV2qw4FFQhHa2uoaBnezaYjewzbbYw9-aF42Ds9O4Z_ft_slp5Flja1w6hWH4v5ygr-IzluvCa9r1bX9y8rLcnjs23-uVZU4cb2jV-0TFGyP0QtT3_e703Kppz7XM66Ijv9szxzXRJVZ0i_dnwcexcxL0Xc-3vKuCuV89y3TxIjgpBbtT13dPgt7I8of2VUFnaDn9IkPQWQqcrNCIp9leRsMkkfma_sXdL1_mRogHIe4QvkSvlFD2RtGYb5KI4ZhQNFNYpXJufP16QevdnWhS8aQIKukBYnHFEdj3ORu2Ti2zzwIHFE13lKSK8RgNYxztpbows05eejtokxUlazSKOFmD14STdENjBSYXJLuZVAZL9IzjFEfRvkpzgPY-VpeDyXopdE3oboEVWaF_-ULeV9lurS1nhVcaUZh-wbkTGcGD-HFmxkK00AUhumMSCHcKhoDERPdE3qO7jy81rz5QP3HFwj0SVCYQxWCaogS2DZUS8W0MZSueA9CmLVMrdCGKuEBEv-EIwTx-eHioyj_-fGaWCdzsNX6j6Fc0oYqKDQxZyBNLMA7BOVeEf1YwEZo09EsfpRJoUExACZNZzjGavTwhnO0RJnXlaaTQL0jhNUVFYQ1q9jW16WaBxZL_uGL3muITTJdYUgSHB3yg0Y8rO4fD-ZMMaGcB7Ybt9gz_Ix6i7KXAwXDeXL_PjePxUsFtVigJ5Zfzjtdr5tEdiaDSN_ohH3N1mnemYSH4VnYw1JlgAZ8Xja6Q-j9DemwksfhafqdpA-8LdTq_aYkCeKw9W3YdMGtAGVCuW3WCo4HvcyOfLHPjO3DKtSK2Vz73CsAtAKce4OWAV3vul89l_k7dfZQNpz_4IkvgtOwWy594hlsnoX4uVCZS9KlX5_1DZU70KkRYmUGXLw8MmZ8FMHqqRwCQuxfHnG5KebxXYLsZ7l4e3ZUVt7iQVMBeE-idrkkVuN8MPzbDsDGacesKbl_Bu1dwp7xPVGG3Ge41w14z3G-GH0vYaBsbmNaYBcbgYGQXdbjMBzTEMLuMY9vAqeKzfUyMQXahNdIkAOaEYTjNNzl4_A_vd80_" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 GT-030-100_Notify_responsible_process_owner_to_proceed_with_transaction_or_cancel_the_order_(IP) — GT-030-100_Notify_responsible_process_owner_to_proceed_with_transaction_or_cancel_the_order_(IP)
@@ -782,10 +743,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4jgU_StWqopWCtp8EpqHXdFARiNtu9W0M6vVMA8muQGrxs7aToFl-O_rhIRAgJfdPCDuyT3n3HsT29kaCU_BCI3b2y1hRIVo21MLWEIvRL0ZltAz0R74hgXBMwqyV-ZknKlX8k-VZnv5ukwrsRgvCd2U6CvMOaCvn0000kRqIomZ7EsQJOuZvVyQJRabiFMuyuwbGGZWVrnVtx65SEG0CZYV2ImvqZQwaGE38AIvLnkSEs7SE9HMz4ZZ0tuVxVG-ShZYqKr8QsITXv9JUrXQcYapBJ2zUEv6O54BLXtUoiixpBAfzTCILH2YHthrjhPC5hr3LA0JzN5byLd2O7S7vZ2ygyl6G08Z0ldCsZRjyJBUGp58KJQRSsMbLxrFvmVKJfg7hDfOJBi7jpmUnYS6dcssh9tfAZkvVDjjNK1T-6uyh9DJ16ZYh45lio3-7XgBS1unaOAMneHB6TGwIztqnLIs-19Oeq7iDcv32mvixk48PnjZ_sCPrHO9ps2xF4zs7pxAfJAEjkTjOHYn7agmA9-2ros-xu7Aijqic6xghTet4EPkHQRjP4jt4Krg3q9bZTF7ETxpBN2JH_sHweDRjkfOVUFvZHvDukKtMxc4X6A3gVNAkzUkhSKcoRHDdCPVPqu8mP39-9TIcJjhfsLn6Jkrkm3QF5A5Z5LohYrKikBK9MeKgUCKowizBCga86RYAlO_jPJc8A9Mp8aPH0fKzkXlM7UKgBStiKrqZRInZa0dNVeLfYG_C5AKveh3vmY_Up68I8LQ0_iTZhwRvLuDvVQ8P5AYV3sWpJpwf8TwrzDq7NblmDTokJrko05wOyv0hBmenzkHWiNaQNlJhmZVS7AmUkl0p1odeY_uPr_cn7Y5rOaSVOTGu3GTF_Ifttv2qaTQn2n9ZHHo9Vk_ClkOdgaN3G9TY7c7fmOsyxIRL4QExDM0qso949mXebBOaCHJB3zaL6cuzflvNLelYSH4SvYxVSjHAlMK9IykN7f9Hxagfv_X0reOh53YdmqgXr2sie0moRs3gNsA7h54qOOHMvw5Nf4COTV-6ne9xus0v0MbNLFV8_YLEA7PvRJxulmdZVsl2Z0KnnkFe0f7UtnP0e55cse5eserT4sT0L8EDi6BweFgO4GHl-GHZic-Ldu6DNuXYecy7DawYRpLEEtMUiPcGtW3jP7eSSHDBVXGzjRwofjrhiVGWJ35RpGnmjkmWG_Fyz24-xefNeZ_" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.8 GT-030-110_Manage_Compliance_Reporting_(including_Audit_Trail)_(IP) — GT-030-110_Manage_Compliance_Reporting_(including_Audit_Trail)_(IP)
@@ -870,10 +830,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -883,10 +842,9 @@ flowchart TD
 | Boundary Apps | GT-030-010_Business_Partners_Screening_SPL_(IP), GT-030-030_Check_if_block_exists_(transactions)_(IP), GT-030-050_Business_decision_on_SPL_analysis_result_+_take_action_(IP), GT-030-060_Business_decision_on_Embargo_analysis_result_+_take_action_(IP), GT-030-090_Recheck_Blocked_Documents_(IP),  | |
 | Trade Execution Analyst | GT-030-010_Business_Partners_Screening_SPL_(IP), GT-030-030_Check_if_block_exists_(transactions)_(IP), GT-030-050_Business_decision_on_SPL_analysis_result_+_take_action_(IP), GT-030-060_Business_decision_on_Embargo_analysis_result_+_take_action_(IP), GT-030-070_Business_decision_on_License_control_analysis_result_+_take_action_(IP), GT-030-090_Recheck_Blocked_Documents_(IP), GT-030-100_Notify_responsible_process_owner_to_proceed_with_transaction_or_cancel_the_order_(IP), GT-030-110_Manage_Compliance_Reporting_(including_Audit_Trail)_(IP) | |
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -898,10 +856,9 @@ The following data entities are derived from the system integration flows for GT
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -962,10 +919,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1008,10 +964,9 @@ The Future-State architecture represents the **target** landscape for GT-030.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1313,10 +1268,9 @@ The Future-State architecture represents the **target** landscape for GT-030.
 
 **Summary**: 5 Reports, 71 Interfaces, 20 Conversions, 167 Enhancements, 28 Forms, 1 Workflows
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1328,10 +1282,9 @@ Integration patterns identified from the system flow analysis for GT-030:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1355,10 +1308,9 @@ Platform landscape inferred from integrated systems for GT-030:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1398,10 +1350,9 @@ Platform landscape inferred from integrated systems for GT-030:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1430,12 +1381,12 @@ Platform landscape inferred from integrated systems for GT-030:
 | OTCI1187 | Interface for BP Create/ Change in GTS - CAAS | May-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Dec-25 (100%) | 4. Completed |
 | OTCI1180 | EMS_Inbound Interface for Capturing Hardware SO and Line-Item Details into se... | Jun-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Nov-25 (100%) | 4. Completed |
 | OTCI1179 | EMS_Outbound interface to OL (Orchestration layer) for activation key generat... | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 4. Completed |
+
 *... and 272 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1464,5 +1415,5 @@ Standard RAID items for GT-030 (Order To Cash (IP)):
 
 ---
 *GT-030 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: March 2026*
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-</div>

@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">DC-050 — Project Accounting</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Finance Plan To Report (FPR) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **DC-050 Project Accounting** within the IAO program. It includes 25 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Finance Plan To Report (FPR) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 4 Reports, 9 Interfaces, 12 Conversions, 51 Enhancements, 10 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Regulatory Compliance Readiness | Ensure SOX compliance and audit trail continuity through the ERP transition period | Intel Corporate Compliance | Medium |
 | 4 | DC-050 Process Migration | Migrate DC-050 business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Finance | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -232,10 +199,9 @@ This capability includes **25 business process(es)** modeled in BPMN 2.0, coveri
 | 24 | DC-050-780_Reduce_Budget | DC-050-780_Reduce_Budget | Corporate Capital Finance Analyst | 3 | 3 |
 | 25 | DC-050-790_Transfer_Budget | DC-050-790_Transfer_Budget | Capital Analyst, Corporate Capital Finance Analyst | 6 | 3 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -283,10 +249,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU2P4jgQ_StWWi0uQZtPwuSwEgQyamlW22p6Z6TZnoNxKsSDsSPboWFa_PexSYAOS582hyj1XPVeVbnsvDlEFOCkzv39G-VUp-htoCvYwCBFgyVWMHBRC3zFkuIlAzWwPqXgekF_Hd38qN5ZN4vleEPZ3qILWAlA_zy4aGICmYsU5mqoQNJy4A5qSTdY7jPBhLTedzAuvfKo1i1NhSxAXhw8L_FJbEIZ5XCBwyRKotzGKSCCFz3SMi7HJRkcbHJMvJIKS31Mv1HwF959o4WujF1ipsD4VHrDvuAlMFujlo3FSCO3p2ZQZXW4adiixoTylcEjz0AS8_UFir3DAR3u71_4WRQ9z144Mg9hWKkZlEhpA8-3GpWUsfQuyiZ57LlKS7GG9C6YJ7MwcImtJDWle65t7vAV6KrS6VKwonMdvtoa0qDeuXKXBp4r9-Z9pQW8uChlo2AcjM9K08TP_OykVJbl_1IyfZXPWK07rXmYB_nsrOXHozjz_st3KnMWJRP_uk8gt5TAO9I8z8P5pVXzUex7H5NO83DkZVekK6zhFe8vhJ-y6EyYx0nuJx8StnrXWTbLRynIiTCcx3l8Jkymfj4JPiSMJn407jI0PCuJ6wpluKYaMzThmO2Vblftw_1_X5wSpyUe2majJzC8lGhkBlc08o_5rgauAC2FWJtxRLqSollVx52xQ6cb9eL8eMcX9Pk-Awdp2oOE4UGPfyMJtZC6HxP2Yx5BlkJuUE5NtmgBWjNzYXB9pRT1o7IKyNrkhzXCjKEHvhVmoxWq8NakD0b9CQjQLRR9mvgWzaTJ0BQzzC0DloC-gxT9uJGJy5gwvTFb9RPIVU2JWX5quC2GioKSrvBLDeYUtR88RMPhn4awM_3WDDozac1ukHnUmmFnBq0Zd2bcmtG7ebKEp3PUg4PbcHgbjm7D8W14dL6QenByhh3X2YDcYFo46Ztz_COYv0YBJW6Ydg6ugxstFntOnPR4czpNXZgxmlFsBnrTgoffPJANNA==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 DC-050-120_Close_Project — DC-050-120_Close_Project
@@ -421,10 +386,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1z2zYM_is893JO7pxWr5btD-v5dZed2-biZu3W7AMtUbZWWfRIyomX-r8PlEjZkqUu6_whOQLE8wAgAJp-bvk0IK1B6-LiOUoiMUDPbbEmG9IeoPYSc9LuoFzwK2YRXsaEt-WekCZiEf2dbTOd7ZPcJmUzvInivZQuyIoSdH_TQUMwjDuI44Rfc8KisN1pb1m0wWw_pjFlcvcr0guNMGNTqhFlAWHHDYbhmb4LpnGUkKPY9hzPmUk7TnyaBCXQ0A17od8-SOdi-uivMROZ-ykn7_DTpygQa1iHOOYE9qzFJp7jJYlljIKlUuanbKeTEXHJk0DCFlvsR8kK5I4BIoaTr0eRaxwO6HBx8ZAUpGh-95Ag-Pgx5nxCQsQFiKc7gcIojgevnPFw5hodLhj9SgavrKk3sa2OLyMZQOhGRyb3-pFEq7UYLGkcqK3XjzKGgbV96rCngWV02B7-VrhIEhyZxl2rZ_UKppFnjs2xZgrD8H8xQV7ZR8y_Kq6pPbNmk4LLdLvu2DjH02FOHG9oVvNE2C7yyQnobDazp8dUTbuuaTSDjmZ21xhXQFdYkEe8PwL2x04BOHO9mek1AuZ8VS_T5S2jvga0p-7MLQC9kTkbWo2AztB0espDwFkxvF2jERb-Gt1D9LlCfhLT-fLloRXiQYivfbpCCzhYNI-4QDREn0YLNI2hURPB0cfp-AMa4ySIAgiVo5AyNNxuGd3hGF2OoK8DRBM0WUyuHlp__JFzAFrFi_F4hoYJjvdcnLrRBS8y7iljAHxHtpQB6S7CaLrBUYwElaaA3Ag8XaA36CYRJEaQuCD1wX6Mt5EA_2ZRghOfnDB2i7BlgQEhp_GOnIaMxjHlKSO5SwVzZm2bz8_HtAXkegn9CtklT36c8mhHfs7L4aF1ODQ6rHyryQb4JskJur19hyJBNujydvFGLnAqKN8nUBZp4ouIJldlx5xKWGmChmCywSLyz4IjMlHgDMDLROcF8gtdVjDdMmZ-6KRcHbIaMsgALQQWKS9D9MtVdr-VNZQhLCB0iC83kqec1VlRTrrCjiWVZ8h4IeDHKiBE_CfxBYIWk5cTZFAWR8TXaAIIVRqzTJMn7QZ6YBcFKZxdKQeXc_PN3LpCnwFqz9EwFJCtOYZeylyow7fq8OFurHGzamp_p3FvqQCPoqqDkN0l0cfU0L-fX79-XaGyjMuCigu6VR2ZUBGFkY-zHHJZU4B_R_5KCWxib2Q_CoI3AHZ1CmbXd47uhjsSQ55gDjxtScKLRLw9dlIO49TDDO_H6Iaj3wmjZybuf-3Z3Kz7Y2ZevdlZD0LDpL5POA_TON6fOd1riDOOG-swhz1D6v9QHPZJiYZwdRN2TeFk0C1hUEEbdLPZ5rx5HQzTIBKV-rHteohhNp50pS-IEDnSd68PVSZTmPMMvtZBhSxonEpuaECouau6eeq-5HapjOPyvDfqkzdKgxURAAgoCXxVkx00Jzu4gsy3L5n96l6q8dl74dCVo-U7t2IzgVUmgPRn3w1OJvH4_XyC4MKvn9GVBJ2jla3kVFInLaHni0kZoFcdZwKmGBNQLxFFN2V6ZV0ahzJfH5YCjuE41UJGNwXrO5zgFbgm7fXdJxVlN8we4NwEcnqG-8JWJnpCMFy4O6xm8alNvzIftZmfNWJ1AMrb_V-653S71TAvh7fTzwj8-gD_62otsdD19U9wMnpp5mvLUgLTUwK17uVLs68NMoBvkFZgeGh9k8lRKjvfqpemNvWUwFHIjt6vfLEKZ1zlnCa3bEX2G-E5l6E1jtK8p5nCcrWiq1g1qKkj1G5YXgXU6lU1CtTWbLZRVpiazdQem1rQrQhsRd_VHL2K41qhDIt1EWHhpj4CWyVa59E0lGm_6m6RtjP2QmNVzzUroUpO-xXf1Nq2q-ek81O4ps5c514Vl3bUVJFoIpVNs8im4tXnYKqKOX27yZLWr8GS2K4XO_Vit17crRd79eLe6SuypOk3auD0GlVms8pqVtnNKqdZ1Vev93JqjVqpWfyqUJZb-sFbFtv1Yqde7NaLu_Vir17cqxf3a8XQL7Vis15s6Vd4WWxrcavT2hAGd3_QGjy3st-04HevgIQ4jUXr0GnJ59oCnmutQfbbTyvN3imTCMtXVy48_AOvf_jD" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 DC-050-300_Manage_IM_Program_Positions_(PPM_Portfolio_and_Buckets) — DC-050-300_Manage_IM_Program_Positions_(PPM_Portfolio_and_Buckets)
@@ -512,10 +476,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV2uP4jYU_StWRiN2JZDyJCEfWjGBtCt1VmiZvrT0g0luwBrHobYzDMvy32uThEcmSO0UCQYfn3vOvdfG8eyNpEjBCI37-z1hRIZo35NryKEXot4SC-j1UQX8hjnBSwqipzlZweScfDvSLHfzqmkai3FO6E6jc1gVgH791EdjFUj7SGAmBgI4yXr93oaTHPNdVNCCa_YdBJmZHd3qqYeCp8DPBNP0rcRToZQwOMOO7_purOMEJAVLr0QzLwuypHfQydFim6wxl8f0SwGP-PV3ksq1GmeYClCctczpL3gJVNcoeamxpOQvTTOI0D5MNWy-wQlhK4W7poI4Zs9nyDMPB3S4v1-wkyl6miwYUq-EYiEmkCEhFTx9kSgjlIZ3bjSOPbMvJC-eIbyzp_7EsfuJriRUpZt93dzBFshqLcNlQdOaOtjqGkJ789rnr6Ft9vlOfba8gKVnp2hoB3ZwcnrwrciKGqcsy_6Xk-orf8LiufaaOrEdT05eljf0IvOtXlPmxPXHVrtPwF9IAheicRw703OrpkPPMm-LPsTO0IxaoissYYt3Z8FR5J4EY8-PLf-mYOXXzrJczniRNILO1Iu9k6D_YMVj-6agO7bcoM5Q6aw43qxRhDdEYooiYJKrvzFhmCWAxgzTnZAVW7-Y9XVhZDjM8EA3H0UcVHFoVnCZFZQUC-OvC7J9TX7EhEn1vkV3OrUfyuQZJMIsRfNyOaiG4jrSvWH0b2K9TtdI95pkJMGSFAz9TIBjnqx317HDr6fgpFihudr6Lc9mOAGVEBVIFmg-jtBcdRVyJXap5n84qW2o2i-fHpFaZrVCueqYIDoRgRhAepRZgqqT4RWkSubjhUxwlhGy2OisZOU7094t9kiRB7VSl6MqIF2pAj7MZo964Y7rdqyu7ubH65ZYphKM1pitQKDPKllIEeagGwA8V4dpipY7NM4ySKT6_gQ4by2IZV0o6NAcp4BwpuKv41BU5HnJ9BpppkpJncUULwt-BLZEqp09nR-5LQt7vz8vXAqDpTpTkzWC14SWgrzAT9VPdmEcDpdhTnfYJ3Fzv6Av8HdJOKQ_trXcbq1oPJv-cRE_flH7Rj8J3wh476th2B32BQq-wox8qwq4mbb_PtfgHIY5L7ZigKlEG6xOGwr0RtDoHUG2-d-C1E-2-sIsNBj8oATqoV0NnWa2HlvN2NHj7wvjszrFvuvlqCe8mme3iX-CODIbol8T3YbotohniVpzVI-dOjJo5oetXPxmIqiZwwYYVcBp3CTRlOnWTTCbLpg1wW8Do7b5Ke0m1qo7-qbAdsusRtNq592YDKtxcPEg1AvWXACuYLsbdrphtxv2uuHh5Q3hasY_3bGu4KC-Dl2Bo26uakM3bt3A7eZqcQ073bDbDXvd8LAb9rvhoBsedcJqC9Ww0Tdy9VTAJDXCvXG8-Kt_DlLIcEmlcegbuJTFfMcSIzxekI1yk6rICcH6GVWBh38AknLeSQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 DC-050-310_Manage_IM_Program_Position_Budget_(PPM_Portfolio_and_Buckets) — DC-050-310_Manage_IM_Program_Position_Budget_(PPM_Portfolio_and_Buckets)
@@ -596,10 +559,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlll2P4jYUhv-KldGIrhTUOB8kk4tWEEg10s52tOzsqFp6YRIH3Ak2tR0YyvLfa5MESDZInSkXwHnP8XM-wI73RsJSbITG7e2eUCJDsO_JJV7hXgh6cyRwzwSl8BVxguY5Fj0dkzEqp-SfYxh01686TGsxWpF8p9UpXjAMnu5NMFQLcxMIREVfYE6yntlbc7JCfBexnHEdfYODzMqO2SrXiPEU83OAZfkw8dTSnFB8lh3f9d1YrxM4YTRtQDMvC7Kkd9DF5WybLBGXx_ILgR_Q6zNJ5VLZGcoFVjFLuco_ojnOdY-SF1pLCr6ph0GEzkPVwKZrlBC6ULprKYkj-nKWPOtwAIfb2xk9JQVfxjMK1CvJkRBjnAEhlTzZSJCRPA9v3GgYe5YpJGcvOLyxJ_7Ysc1EdxKq1i1TD7e_xWSxlOGc5WkV2t_qHkJ7_Wry19C2TL5T761cmKbnTNHADuzglGnkwwhGdaYsy_5XJjVX_gWJlyrXxInteHzKBb2BF1k_8uo2x64_hO05Yb4hCb6AxnHsTM6jmgw8aF2HjmJnYEUt6AJJvEW7M_Auck_A2PNj6F8FlvnaVRbzR86SGuhMvNg7Af0RjIf2VaA7hG5QVag4C47WSxChNZEoBxGmkqvPmFBEEwyGFOU7Icto_aLw28zIUJihvh4--Iw3BG_B75ws1JIcjIp0gSX46ZFxmbGcMIBoqtTkBcsPM-PPC5LdSXpap2paaQ36ivICi__Ec5q8e7ou5LmwxxxRwPhbCnS7gGV9Akj2jhK9JrFkvWt4gybpAb1g8AknWAh1IoFoieiiLFIdpt0zbfL8Jm9M1N-HzIuO6qp2n4lcEgpGT01O8FaOnuNTr1XN3bcTJmELEDEqitUbBnXJglY3rGLUv2cnS3wAGWcrMB1GbareB_2L9u4fgNqSajetwCMTRBJG6xSqReX6CydS_Pw8mjZbhXobPCCKFp0MXdijkjuLa5Gc_f7caIr7c_WcSJZguF5ztsHprzPjcLiMd98Y73XH49ckLwTZ4N_KY669bPC-Zf6V6jg-_Waf8d8F4R2VBm9NqR5Z5Rfqg37_F52-suFR-D4z_tBb5rs6FSpHUAb-EPeJHcNgUDuqQAhrwaqEU4RdCk5tV_7artywzgydVkl3tcNtOaDVXlJV59W6V7EruzZrv9OyTxkqzqDWB2WgXdmVCWu_27LvSju4eK7pvuvneUO2u2WnW3a7Za9bHnTLfrccdMt3l7eGZkfWdRc83cmaun1Fd-prRFN2u2WvWx50y363HNSyYRorzFeIpEa4N473c3WHT3GGilwaB9NAhWTTHU2M8HiPNYrjDh0TpA-zUjz8C1pdyds=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 DC-050-340_Workflow_project_for_approval — DC-050-340_Workflow_project_for_approval
@@ -701,10 +663,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllluP4jYUx7-KldGIXSmouRImDx2FQKpKtKqGvWhV-mASB9wxdmo7DJTlu6-dG4QB9aF5QPifc37nYuckRyNlGTJC4_HxiCmWITgO5AZt0SAEgxUUaGCCWvgCOYYrgsRA2-SMygX-tzKzvWKvzbSWwC0mB60u0Joh8PlXE0TKkZhAQCqGAnGcD8xBwfEW8kPMCOPa-gGNcyuvojW3JoxniJ8NLCuwU1-5EkzRWXYDL_AS7SdQymjWg-Z-Ps7TwUknR9hbuoFcVumXAv0G919xJjdqnUMikLLZyC2ZwxUiukbJS62lJd-1zcBCx6GqYYsCppiule5ZSuKQvp4l3zqdwOnxcUm7oODTdEmBulIChZiiHAip5NlOghwTEj54cZT4likkZ68ofHBmwdR1zFRXEqrSLVM3d_iG8HojwxUjWWM6fNM1hE6xN_k-dCyTH9TvVSxEs3OkeOSMnXEXaRLYsR23kfI8_1-RVF_5Jyhem1gzN3GSaRfL9kd-bL3ntWVOvSCyr_uE-A6n6AKaJIk7O7dqNvJt6z50krgjK76CrqFEb_BwBj7FXgdM_CCxg7vAOt51luXqD87SFujO_MTvgMHETiLnLtCLbG_cZKg4aw6LDYhhgSUkIKKQHISs7-qL2n8ujRyGORzqZoMpVly8KiUCKoO_USrBqszWSALJgDp-yoSgHSLg62QBEFEPMpVL468LoNMHzvYo1bQXVDBeUb5AgjPVMTCpwdGWlVQCRivm7BbT7TM_F5W_miPvGVp8Qf-UmKPsPtDrA6Oi4GzX0XLGwdy57-3_t7d333v0oXMXkhUgStMq-UgIvKba_qd51eh512gsml1AmWJ9vIAFV7C5fbkzTUrvvMbK6UXZqIEMYGPUT_LpeGy5eqIPV2ompZvL4zHpjsU5W35Z9TP4sNhCQkDMqPIqU4nV_jBKDs8fl8bpdHkIrdvh6o0W3YY-X_vZt_3QPiWlwDv0S_1knt3U7Kr_0DEYDn9WhTZLu17azcCgT3r9fWn8zpbGd9XnRnYaM6t1sxq7b0hUhqP2RgN0mrV7xffqtX8VrsV4je43btfhmrTci8Gha2gHZk92bsvubdm7Lfu35VHzNuiJwS1x3L2jevJTOz37lVi3ZbuVDdPYIr6FODPCo1F9UaivjgzlsCTSOJkGLCVbHGhqhNWb1yirozTFUA3EbS2efgDhssEj" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 DC-050-410_Simulate_Depreciation — DC-050-410_Simulate_Depreciation
@@ -745,10 +706,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVF1v2jAU_StWKsRL0PJJWB4mQSBSpVWqlnZ9GHswjg1eHTuynQJD_PfZBMJH26flIck9ufecc29s7xwkSuykTq-3o5zqFOz6eoUr3E9BfwEV7rugBX5CSeGCYdW3OURwXdC_hzQ_qjc2zWI5rCjbWrTAS4HB870LxqaQuUBBrgYKS0r6br-WtIJymwkmpM2-wyPikYPa8dNEyBLLc4LnJT6KTSmjHJ_hMImSKLd1CiPByytSEpMRQf29NcfEGq2g1Af7jcIPcPNCS70yMYFMYZOz0hX7DheY2R61bCyGGvl2GgZVVoebgRU1RJQvDR55BpKQv56h2Nvvwb7Xm_NOFDxN5xyYCzGo1BQToLSBZ28aEMpYehdl4zz2XKWleMXpXTBLpmHgIttJalr3XDvcwRrT5UqnC8HKY-pgbXtIg3rjyk0aeK7cmvuNFublWSkbBqNg1ClNEj_zs5MSIeS_lMxc5RNUr0etWZgH-bTT8uNhnHnv-U5tTqNk7N_OCcs3ivAFaZ7n4ew8qtkw9r3PSSd5OPSyG9Il1HgNt2fCr1nUEeZxkvvJp4St3q3LZvEoBToRhrM4jzvCZOLn4-BTwmjsR6OjQ8OzlLBegWxWgC_gnmvMgGEuG6QVyGBNNWQgpxxyhNsSe_Hw19whMCVwYP8AeK5L0yGY4lpiRKGmgoOCVg1rX6dQQ2CeL5MCzJjZ21zPnd8XdLGhe4AcLrEV_4ORBo9m44qSIlBgrW9qzPq6tX90OuaQbZW-oPavnf5o-LXNXJh3qDT4gWshb3wF18WFETYzIkJWbbEWoBhn1zWRqbEqXQPyQKzeu-cxGAy-mWEew7ANjyuS-20YHMOgDaOLlWBzTjvgCg4-hsOP4ag7HK7guIMd16mw6ZmWTrpzDqezOcFLTGDDtLN3HdhoUWw5ctLDKeY0h_UwpdD8naoF9_8AoRPrFQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.8 DC-050-520_Form_Core_Project_Team — DC-050-520_Form_Core_Project_Team
@@ -831,10 +791,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtVmtvqzYY_isWVZVTKWmBQEj5sCk3ziq1W9Wcy4dlHxwwiVfHZrZpm6X573tNgFxKJk1n-RDJD-_zvHfDxopFQqzQurzcUE51iDYtvSQr0gpRa44VabXRDviGJcVzRlTL2KSC6yn9uzBzvOzNmBkswivK1gadkoUg6OtdGw2AyNpIYa46ikiattqtTNIVluuRYEIa6wvST-208FY-GgqZELk3sO3AiX2gMsrJHu4GXuBFhqdILHhyJJr6aT-NW1sTHBOv8RJLXYSfK_KA377TRC_hnGKmCNgs9Yrd4zlhJkctc4PFuXypikGV8cOhYNMMx5QvAPdsgCTmz3vIt7dbtL28nPHaKbp_mnEEv5hhpcYkRUoDPHnRKKWMhRfeaBD5dltpKZ5JeOFOgnHXbccmkxBSt9umuJ1XQhdLHc4FS0rTzqvJIXSzt7Z8C127Ldfwf-KL8GTvadRz-26_9jQMnJEzqjylafpDnqCu8gtWz6WvSTdyo3Hty_F7_sj-qFelOfaCgXNaJyJfaEwORKMo6k72pZr0fMc-LzqMuj17dCK6wJq84vVe8Hbk1YKRH0ROcFZw5-80ynz-KEVcCXYnfuTXgsHQiQbuWUFv4Hj9MkLQWUicLdFoMkU36I5rwhAoJ3msFRrhjGrMUEQ55jHZUcyPe7_PrBSHKe6YDqCBUnTB0WSVMbEmRKFPoPEniTX6Ppxezaw_Dqh-I3UEQyAxEJ6IErmMiTpm9RpZj0QqwQ0nE1xRuC32nh8wxwsir5AW6CCaY9lbkC21aseGYNp_EoFjg-2YvBAmMjThC7gV4G7hi5tKfEyMzgnJBdI3zGgCE1CHMYVdj3UuyYlxb7OpsjS3ZGcOex4v0VdFEjRfmxqpgkkhZyHRb3BPSvXzzNpuD1X6exUspXhVHcw0yrDEjBH2eTeKexIs6-kslG0fcMzWSh9qH3ehTmxXwhXh-jij4FNNyBjMfyTkCtKQ-1J8IXgFY0c1BZ0E2FcH9D6wd21Edw-GAvGt0KNQtCjBME8WREPHH-GhkDoVjAqEeQJP4mei1cnkOc6_6qn_oNQ906nMlEPBLP2VU0mSD73xmnkwl6ahhfuyML9QIrGMl-sPGsH_1d8RMTtXr3dDv93Gras35eZJwPsZpRD6IIaz2q2xYAjrsnLo3mzMfis_S5FnJ9XsHnvZFbF0BpP_A-6ur69PGuc3N4C8xSxX9IWcLx-MD-p0fjINqIDy3K3OXQO8z6xfxcx6h_E9wiHP6uyXxPIclEevel4CbnV2S4NasF8CvRLwdme_eu6VgTQOVBHbPonKtrgb3w-89EondmXZKy13905hXAVQZnR7anp4ZRWEKseyJE4Vsnt8Ll50psLVC_4IdpvhbjPsNcN-M9xrhoP6A-oI7jfDt82wY5_BnTO4ewbvVl8Ux7DXDPvNcK8ZDprhfgVbbWtF5ArTxAo3VvGpDp_zCUlxzrS1bVs412K65rEVFp-0Vl7s85hic9vuwO0_fgrROQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.9 DC-050-530_Assign_Resources_to_Tasks — DC-050-530_Assign_Resources_to_Tasks
@@ -879,10 +838,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P4jYU_StWRiNegjafhOahFRNItVK7qhZ2V1Xpg3FuiDuOHdkOA2X577VDAgM789Q8RNyTc8-593LjHB0iCnBS5_HxSDnVKTqOdAU1jFI02mAFIxedga9YUrxhoEaWUwqul_TfjuZHzd7SLJbjmrKDRZewFYC-fHTRzCQyFynM1ViBpOXIHTWS1lgeMsGEtOwHmJZe2bn1j56ELEBeCZ6X-CQ2qYxyuMJhEiVRbvMUEMGLG9EyLqclGZ1scUy8kApL3ZXfKvgd77_RQlcmLjFTYDiVrtlveAPM9qhlazHSyt0wDKqsDzcDWzaYUL41eOQZSGL-fIVi73RCp8fHNb-YotV8zZG5CMNKzaFESht4sdOopIylD1E2y2PPVVqKZ0gfgkUyDwOX2E5S07rn2uGOX4BuK51uBCt66vjF9pAGzd6V-zTwXHkw9zsv4MXVKZsE02B6cXpK_MzPBqeyLP-Xk5mrXGH13HstwjzI5xcvP57Emfej3tDmPEpm_v2cQO4ogVeieZ6Hi-uoFpPY994XfcrDiZfdiW6xhhd8uAr-lEUXwTxOcj95V_Dsd19lu_lDCjIIhos4jy-CyZOfz4J3BaOZH037Co3OVuKmQtliiT6gj1wDQ0a5aIlWKMMN1ZihnHLMCZxT7MWDv9ZOidMSj-0_gGZK0S1Hn0GJVhJQSAtkJ9j9WLZNI8xKjtGK1oCyCvOtWdy18_dZ0GzLfTG974xjdlD6la9_6_ulKcxk0QpIxSmxGaYQs-mmWPTZPFGoFKY6oumO6sPFsZMKjdQcdsBEgxa2IjBHBd9-MN3_A0SjOdiebnMik5MLWaNMSEADcwW4vuXFx-NQpz3uxhvzwpLqxyxEFTK-BRS_rJ3T6ZXC5G0F2BPWKrqDX88bdc26TJH7aDz-2Sj0YXAO-z3n0TmM-zC24fe18yeotfPdsHt8cqaFd7RPomNNXq2jNRxewxs4eBsOL0fRDRy9DcfDu3ODTgbUcZ0aZI1p4aRHp_tumG9LASVumXZOroNbLZYHTpy0O1-dttuYOcVm0-ozePoPHjocNg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.10 DC-050-560_Determine_Total_Planned_Project_Costs — DC-050-560_Determine_Total_Planned_Project_Costs
@@ -988,10 +946,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq9WOFz2jYU_1d07mW0d5BZxgbCh-3A4C67tGElXXfX7IOwZVAjbCrJJCzlf9-TbUFM7G1d78qHBP0k_X7vPb33ZPNohWlEraF1dvbIEqaG6LGlVnRNW0PUWhBJW21UAL8TwciCU9nSa-I0UXP2V74Mu5sHvUxjAVkzvtPonC5Tit5fttEINvI2kiSRHUkFi1vt1kawNRE7P-Wp0Ktf0EFsx7laOTVORUTFcYFt93HowVbOEnqEu3237wZ6n6RhmkQV0tiLB3HY2mvjeHofrohQufmZpG_IwwcWqRWMY8IlhTUrteZXZEG59lGJTGNhJrYmGExqnQQCNt-QkCVLwF0bIEGSuyPk2fs92p-d3SYHUXQzuU0QfEJOpJzQGEkF8HSrUMw4H75w_VHg2W2pRHpHhy-caX_Sddqh9mQIrtttHdzOPWXLlRouUh6VSzv32oehs3loi4ehY7fFDv6eaNEkOir5PWfgDA5K4z72sW-U4jj-JiWIq7gh8q7UmnYDJ5gctLDX83z7OZ9xc-L2R_g0TlRsWUifkAZB0J0eQzXtedhuJh0H3Z7tn5AuiaL3ZHckvPDdA2Hg9QPcbyQs9E6tzBYzkYaGsDv1Au9A2B_jYOQ0Eroj7A5KC4FnKchmhcbv0SghfCdVMaE_Cf54a8VkGJOOjjOaURGnYo1AecskSxOUxsgnG6YIR9OHDU0kRTNOkgTyEt3Q9YaD30ilaJoo2O-PZtM_8gW31p9PZJyqzCj6lEmFglTQkMAXkkSgoqC8BTQAxBIgvJkF6OUoU6s28tP1minZRnMwIIL_1_71_FVVoVtVmEoFJQ-m3aTa9NxkGmm_PtFQAaNUEi0oOEvRbxnUDRV8h_zZCM2zxZpJ7XtVAPc-HiTCdImuUhKB4ylHV3RL-Y-GOh8dXAPNwmggq7D1q2yzjHPwG_3CpIIghGBzsQ9NiCI6wJdJfjI5mgdfwJdT1kE96yhUGTSkYnPBGIsUyNwTAsd5eSCAo92hCYXIrKE9_mMgL6HNM4i2tufVUzr38fFoT0Q7C2hr4apMk1Sga_j_86213xebtEfVpPVTsTlHweyHUU3yuidnnsgMjhOuFnQZoDeTPK0uky2Vak0TaJi7DdUZHsKALCkisBj44aBU9ai9Rt6JYFsqJIKjQG_TpLMpw_CO6jqITInInHu0JYzr-63K3quyQ3UpQ1_EuI64TIbFLo848qkutypv_994Z42cH8bzPFgzKIRE723SGFQ1JkyS5VLQZdkEdF3qAlI60lMG0hC9z5B6eqUSbJGpvKcIpJ8DIpQm5-fnVYWLqsIbcgcHlezKlqHPUer9v2bRkhYjFoNHnzMm8vR7Wg12lesGkk_mRaRjMhO0M-I8DfNYmCqbac-PMMTm6nqMoBXBt9l4BFW_ZOGJzGkPZdtU1YT9tCXkEZ_TPKmgTCfpfZKfr__ufftZWPBJB-10cM-uZPzsWzIed79D8mD3_5ytqD9brynoqino8uuDflFtpz7hYVZceCD07m0R7yLpTVsel4mNAs42Oq1o7tPxEE47rv0dNHBV43khkK8uBF4WQkWne7w94Brb_MfbA673Dac1t4dXf3tAqoO3l8GTi6NY36tfTx9Cnklo3K-LZ7Sa-wYuPiipn_SNZQBXA19urfyuurW-QDqUU7hYintm3CuBvgH6JTAwwKBkN-TFsHuqdW2kHM9MeeXUZZBPGPPcgsEs84qhsag0yNhjzLkw5lwUgDGvtM5Ml7PYNsvtEsDPjJoVgTF-4dIxbDzD3dJxw-UYLuMILj1xDuQmvMY3XAKO8c4p3XOMSvdkAfaqQP5Mrc_NvEtUYKce7tbDbj3s1cO9erhfDw_q4Yt6GI6lHm_wEzc4ihs8xQ2u4gZfoQyevFlVp_rNU4PmqYvGKUijxincPOUc3pGreLd8n62irnmpq8JePdwzsNW21tD1CIus4aOV_9ABP4ZENCYZV9a-bZFMpfNdElrD_AcBK9tEsHPCCDzyrgtw_zebMnNC" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.11 DC-050-570_Load_Project_Plan_(Forecast) — DC-050-570_Load_Project_Plan_(Forecast)
@@ -1117,10 +1074,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq9WG1v2kgQ_isrVznuJEj9ioEPdzIGt5GSFpX0elVzHxZ7DW6M11qvSbiU_36z9tpgx0htrjo-JOwzM8_sztvaPCk-DYgyUS4unqIk4hP01OMbsiW9CeqtcEZ6fVQCf2IW4VVMsp7QCWnCl9E_hZpmpo9CTWAe3kbxXqBLsqYEfbzqIwcM4z7KcJINMsKisNfvpSzaYrZ3aUyZ0H5FRqEaFt6kaEpZQNhRQVVtzbfANI4ScoQN27RNT9hlxKdJ0CANrXAU-r2D2FxMH_wNZrzYfp6RG_z4KQr4BtYhjjMCOhu-ja_xisTijJzlAvNztquCEWXCTwIBW6bYj5I14KYKEMPJ_RGy1MMBHS4u7pLaKbqd3SUIPn6Ms2xGQpRxgOc7jsIojievTNfxLLWfcUbvyeSVPrdnht73xUkmcHS1L4I7eCDResMnKxoHUnXwIM4w0dPHPnuc6Gqf7eFvyxdJgqMnd6iP9FHtaWprruZWnsIw_E-eIK7sFmf30tfc8HRvVvvSrKHlqs_5qmPOTNvR2nEibBf55ITU8zxjfgzVfGhp6nnSqWcMVbdFusacPOD9kXDsmjWhZ9meZp8lLP21d5mvFoz6FaExtzyrJrSnmufoZwlNRzNHcofAs2Y43aDpR-QkON5nvBSIT6J9uVNCPAnxQMQZOcHXPOPIo4z4GL7gJEAunGxNGXQmihJOkZPzTR-5dLuNeNZHyxRqAf6_d98v75S_T7j1JreLU54zgoquT3yC5o9pjBPMI5o0DY2m4Qeyi8gDcp3F_C-0ABP0EPENuiYYujnbRGnT2mxa30InZSF8ga3DFiKOY3SL2ZrA6Thy8xVBMdmRuEliNUlu8D2BTED4IAwBCqv4CE6ScAacHkjhVE0azfhSE_l0ja4pDtAUZqCYOGiGOUYho1u0fG2K3dxSGsO5YDeIMgTp_0p8LgGRijovZdDBV8OZ-X3O5q7zE5yNf62dQRr3pbeKpcjSFQz_CIonANPfTutCPZpmnKYdplBdaUw6TI2np-MRAzJYQXb9jawNOMZ7-P_HnXI4nBqZ3Ubk0Y_zLNqRN2Xvts2sbjMnTRndkeCZm_FRHzNGH7IBjjlKMVRHTOJuJ4b6Y0aQiVZbu5Sll8hb_OJ0tPewuwXh9m3G28myfJuKTsxEcaMrr1nH9kt5Fk2eUZNnnmSCZprDvZygD3DYDGEAPqaBrJsT23HTVjwqdGzA9-GSh0tTtKaQtncE2kHu86zVp-pPIX9HEzQ446E1acsjPvdxl-uqZqC3btGDb5YzlIn2K_o4QMC_uHbRTQQPTZxCV6_2lfnl5WXLo96e7UExrygUll_suaVvdYyPT9Pl62p_NzP0NiIMM3-zL28GCtNBzD8xIU-FxZi5mb0pL4yl47aHx_D_c2U3XcmSE3G_8uBqiUWhIQN9JphlkGGew5NbUYTODkexeDxtM47OMy5qxpLv-1l1rTUUIV2kI2GNaai3bBqV9IGI789H6LB7rMHei8Z_Ntbsl03P0Y9NT0N7yfTUXzg94fpCg8Hv4kKRgG6WgFYpSHklLpeWXBpSWq11SwDf7pTPBJL0DR5CpECyVk-1R8V3tNDTK0XdkAJxg5WiYSUaSpGYyt9Eoz4TLEpBZaFZpdt6PSzXtlzLpVatbbkeVfojue1KQZcatYLdUpAGRhU-Q8Zv3FprVSBk_I0qwJraAgwZcq3OSJWSehNSQ6809FEruHpbUKVHqyVyH5rRzkPxSFHSjNvKVdI0WQdGdSrNbAGGPFadZ5kZ4-RpXxRb9ZbTgPVu2OiGzW7Y6oaH3bDdDY-64XE3DLnsxs-cUztzUAjvybtaU2SeF1nnRcPzIvu8aHReNK7fupuZU-UbchPVOlG9EzWqV8ombHbDVjc87IbtbnjUDY87YajsTljrhvUKVvrKlrAtjgJl8qQUvwPBb0UBCXEec-XQV3DO6XKf-Mqk-L1EyYsnpVmE4Xl3W4KHfwElQ7rL" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.12 DC-050-580_Validate_Plan — DC-050-580_Validate_Plan
@@ -1224,10 +1180,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1V12TmzYU_Ssa0h0nMzhFfBivH9phsUl3ZtN44m3STrcPMgijLAYqCe-6G__3SiCwYXGbpFM_MNZBOufeI90LPGlhHmFtpl1cPJGM8Bl4GvEEb_FoBkZrxPBIBzXwAVGC1ilmIzknzjO-In9V06BdPMppEgvQlqR7ia7wJsfgl2sdeGJhqgOGMjZmmJJ4pI8KSraI7v08zamc_QJPYyOu1NStq5xGmB4nGIYLQ0csTUmGj7Dl2q4dyHUMh3kWdUhjJ57G4eggg0vzhzBBlFfhlwy_RY8fScQTMY5RyrCYk_BteoPWOJU5clpKLCzprjGDMKmTCcNWBQpJthG4bQiIouz-CDnG4QAOFxd3WSsKbud3GRC_MEWMzXEMGBfwYsdBTNJ09sL2vcAxdMZpfo9nL8yFO7dMPZSZzETqhi7NHT9gskn4bJ2nkZo6fpA5zMziUaePM9PQ6V5ce1o4i45K_sScmtNW6cqFPvQbpTiO_5OS8JXeInavtBZWYAbzVgs6E8c3nvM1ac5t14N9nzDdkRCfkAZBYC2OVi0mDjTOk14F1sTwe6QbxPED2h8JL327JQwcN4DuWcJarx9luV7SPGwIrYUTOC2hewUDzzxLaHvQnqoIBc-GoiIBXobSPeM1Kn-Z-_udFqNZjMbSZOCFIWYMvFsufgVBTnGIGP9-maIMvMcsL2mIxZ8_S0JF6WYcoCwC3wFvm5cZZ2C9Bz_5OnizmuuvX7--0_440Zl2dd7jmGKWAFHs4nSDOeIIkAwsdphuKMZZK95lueyyLDGNc7oFfu6DqpFkoSiu6yzMaZFTsRstChaPhcgCcZJnrMsJjWHSj9eB8ouwKtEtusfAiz6VjFfJ81ywEsZlAsPhQtilXpXrLeG1u8t374HQATcYiYbEElIAryhovkNpj8TsW7cj-KGK6ANKSSTTFKfkEw5FP1gGvcVWd_EtJZuNjCRDBUty3mpKCrn1veV2d_lNHt6fy9V92c5lPC9OgpPHR9GLrdoWKeY4qpKXTgiaV6c88qS8LVNOxnuMaKt2XNnVNc2np0ZXPnTGa9E2wwTMSSRFo1LYcnJkRQQJyjYYCHVEMRAPIXH1YhFNhNYkJXwvlDJRVYiI2T_eaYfDqZo1rIYfw7RkZIff1D2gv8weXtaehHobhCuiho4n4pm687Xqokf3WoCPCsLFfj9vBXCwFfheE-PLTkN4JUP1lx7wSp7kVDy0I13ukTjgcnfl8VwVWPaHZ73A_PcqrtZ_ZSFb_1sd24NlfHTmi-rY-aoyBrcJzctNUlns78MU17KMicS7xJMvr1HnWKPCxf2ZGr0Wb2wE1ZXWKc3JN5R45VKf6HL4HNeOqr7w7PAb31Z68J-0vqj22iISBoLx-AeZQANcSuDznabS_Cyg5lY9tXmZEX8U0IzroaWGVj201dCuh44aKl2zITeh0v0Ns0p1om5MVICT_sSf82peG04b-bsmcFfdcZVWG6jZ0zKbmKf1zMYMU-UwVeNLFUsrqRyArUXKI9hIQWWK2dgAlYTZGGE2O9DEAJVTsAkfqihgw2HaPQus_o02MaefsloCpydvZnJrmzfSDmwOw9YwbA_DzjA8GYbdYXg6DF8Ow2JfhvEzecIzicIzmcIzqYpqar5XuvhEfVt0UXcQnZ7huGxex7tbZAzDcBg2h2FrGLaHYaeBNV3bYrpFJNJmT1r1-Ss-kSMcI_G6ox10DZU8X-2zUJtVn4laWcjuOidIPLq3NXj4G1Sr0Ug=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.13 DC-050-590_Copy_Plan_Version — DC-050-590_Copy_Plan_Version
@@ -1319,10 +1274,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1FzozYQ_isablK3M3YKGIzth3YcbHqZyV08516unaYPMghbjYyoJJy4Of_3rgDZgSOd9uqHBH3a_b7VarWIZyvmCbGm1sXFM82omqLnntqSHelNUW-NJen1UQXcYUHxmhHZ0zYpz9SK_lWaOV7-pM00FuEdZQeNrsiGE_Txuo9m4Mj6SOJMDiQRNO31e7mgOywOIWdcaOs3ZJzaaalWT11xkRBxNrDtwIl9cGU0I2d4GHiBF2k_SWKeJQ3S1E_Hadw76uAYf4y3WKgy_EKSd_jpE03UFsYpZpKAzVbt2A1eE6bXqEShsbgQe5MMKrVOBglb5Tim2QZwzwZI4OzhDPn28YiOFxf32UkU3Xy4zxD8YoalnJMUSQXwYq9QShmbvvHCWeTbfakEfyDTN-4imA_dfqxXMoWl232d3MEjoZutmq45S2rTwaNew9TNn_riaerafXGAvy0tkiVnpXDkjt3xSekqcEInNEppmv4vJcir-BnLh1prMYzcaH7ScvyRH9pf8pllzr1g5rTzRMSexuQFaRRFw8U5VYuR79ivk15Fw5Edtkg3WJFHfDgTTkLvRBj5QeQErxJWeu0oi_VS8NgQDhd-5J8IgysnmrmvEnozxxvXEQLPRuB8i2YZZgepKlT_Mue3eyvF0xQPdJLRLI6JlGjxRKWCskNLhjM0xwrfW7-_8HKbXiHPD9rnn1yGLRdBIFsITBe7XB3QHRGS8qzp43XI3GbsgKB1lBLwgBWiEt1RSaGLoCvoLQniWWkRFkKQTKGV4uIAUgla4g1BEWUK1JpSfktqizMw1SyVObrDrCASpVyU6Hvy2B3zqEn0FosE3fD4oeLigsRYKoixDF_HZDKBlsWa0bibNWiyrniq_i2roHt4-l5CwwCDTnbH_fbEnzOo4DLT5UbW9ugaujgFngQ8v3vpOjy7SsXzDteQ73JGOlz952fjql8XgzU0vHj7ImXlIjTFB_JnQSH8H--t4_ElxaibIpwtF78g2Kpb-P-FU9Dt9DFjWlRnb5FQ9brouNufPMWskHRPfqr6QNtt8l_doMG2zm_IRX6JouU3s46jPG4d5SQpq6PaOQaFwP8gsar2BkuUg83yJkTvQFa_Ss16d3BkZJmFtwQnMS8ydXl52SyYSVPqY57oYtNqJml610umVqXZTc_rBGxoekBzwhQEpbaCFxtoVLEq4PWJ9hItbz-cKhytckhKFVxYFhZcH-QX5ey8Gt5KYVVIONOEJeVZ_nS91HUyy3PB97p1wLOIt7AdSYvU--pCd-2vKhjX6XYzsf7YUSlwlNFg8IM-GQaoxm49rKeH9XBYDb166FVDvx76NdfEcJXA53vrVwL7-hmanZkY1RPlwSun6jduFtQcQZvjPS_tDD6q7cbGblwDJlRnUgMmOidoRXOOM2hqnEhdu-Iw41rD-BkF2_DU5o5ZjGOyaQDXaSqZq8t54hSc187VrUlV476jd8zcdxqw2w0Pu2GvG_a74VE3HHTD42540g1DErvxV9YJFWxusU18WN84m6jXifrmMtaER91w0A2Pu-FJJwyl1Qk7Brb61o6IHaaJNX22yo8f-EBKSIoLpqxj38KF4qtDFlvT8iPBKsq2NacYev-uAo9_A6kuMAw=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.14 DC-050-600_Reload_Cost_Plan — DC-050-600_Reload_Cost_Plan
@@ -1405,10 +1359,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm1v2zYQ_iuEgswbIAd6tRR92KDI1pCha426aTfM-0BLlM1GFjWScuy6_u8l9WZLVoB184cE9_Ce547HO1JHJSIxUjzl9vaIM8w9cBzxDdqikQdGK8jQSAUV8BFSDFcpYiPpk5CML_CX0k238r10k1gItzg9SHSB1gSBp0cV-IKYqoDBjI0ZojgZqaOc4i2kh4CkhErvG-QmWlJGq5ceCI0RPTtomqNHtqCmOENn2HQsxwolj6GIZHFHNLETN4lGJ5lcSl6iDaS8TL9g6He4_4RjvhF2AlOGhM-Gb9M3cIVSuUdOC4lFBd01xcBMxslEwRY5jHC2FrilCYjC7PkM2drpBE63t8usDQrevF9mQPyiFDI2RQlgXMCzHQcJTlPvxgr80NZUxil5Rt6NMXOmpqFGciee2LqmyuKOXxBeb7i3Imlcu45f5B48I9-rdO8ZmkoP4m8vFsric6RgYriG20Z6cPRAD5pISZL8r0iirvQDZM91rJkZGuG0jaXbEzvQrvWabU4tx9f7dUJ0hyN0IRqGoTk7l2o2sXXtddGH0JxoQU90DTl6gYez4H1gtYKh7YS686pgFa-fZbGaUxI1gubMDu1W0HnQQ994VdDydcutMxQ6awrzDXh4An4G0wPj1YL8ZfpfSyWBXgLHss7AjyLEGJjtMeOi88A8hRmYQg6Xyt8XLKPLeo92GL0IMi9gKiY4BjCLQUIoiiDjwmS56BfW1TC7Go9ZXnDwWxGvxcWQccCJkBXTF-EUgUXJF2Nf8I0KArLdYs4AZGAuB4Ek4MM87Kpb_QxTAmPgx5-LMiG5ry7h_seWkafiHGtGQBivqvAorjIsDjkWvJ8uK6idmYyTvPKu6NfOxvHYOMtbcrwScx5tmgouirL-SZH-slROp0uiOUwM_PnsD0AoeCf-X5GsYZKf55TsUHzlbw_7o32UFgzv0K9Vk_dpk--lidPsNWdAaH4HwvkP_kCT2tftxhAQTwgI6x4Dq4M43Fi27FtRRzE4n1FUHZwKZjHmFy19sXZ3d9ftgklvHOJYRPunwBTFZduJzmSyscvg5UEHG5itUa-3na7MUx6LCpScBYe8YCDEKC0nBHx6nMvj82m0EZWKuzpuf-M5oSIBMRuLYiteNDFr5aiJ1HJIqwhBQakcoI-IMkwysGNgkcGcbUiLsat96_r3NLHz39rE_dfd2PZHdg_G459l-9e2XtlGbRr1cmPrpgS-LpVyLpbKV9md9ZpZ-1qNr1H7_imPT3razYrVW2kpdqVh9h3fkq6CVcfSGkenApr1WqdJbVKZTm3Wzm5turVYY-tuP3G9v9Lk4_Tr8q4tS7tUB9f7ZWk0JhcPkzyA5kHuwMYwbA7D1jBsD8OTYdgZht1h-L79POpuR6s_ZbqoPogazSvfhc1h2BqG7WF4Mgw7w7DbwIqqbBHdQhwr3lEpv6rFl3eMElikXDmpCiw4WRyySPHKr0-lKO-iKYbi3t1W4OkbtdWp9g==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.15 DC-050-610_Define_a_Budget — DC-050-610_Define_a_Budget
@@ -1512,10 +1465,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P2jgU_StWRiNegpRPwuShKwhktdLuqirtVquyD8a5BneMw9oOA6X899okgUmWeVg1D1HuybnnXF_52ieHlAU4qfP4eGKC6RSdBnoDWxikaLDCCgYuqoG_sGR4xUENLIeWQi_YtwvNj3YHS7NYjreMHy26gHUJ6NNvLpqYRO4ihYUaKpCMDtzBTrItlses5KW07AcYU49e3Jpf01IWIG8Ez0t8EptUzgTc4DCJkii3eQpIKYqOKI3pmJLB2RbHyxeywVJfyq8U_IEPn1mhNyammCswnI3e8t_xCrhdo5aVxUgl920zmLI-wjRsscOEibXBI89AEovnGxR75zM6Pz4uxdUUfZwtBTIP4VipGVCktIHne40o4zx9iLJJHnuu0rJ8hvQhmCezMHCJXUlqlu65trnDF2DrjU5XJS8a6vDFriENdgdXHtLAc-XRvHteIIqbUzYKxsH46jRN_MzPWidK6U85mb7Kj1g9N17zMA_y2dXLj0dx5v1Xr13mLEomfr9PIPeMwCvRPM_D-a1V81Hse2-LTvNw5GU90TXW8IKPN8GnLLoK5nGS-8mbgrVfv8pq9V6WpBUM53EeXwWTqZ9PgjcFo4kfjZsKjc5a4t0GZXjHNOZoIjA_Kl3_tY_wvywdilOKh7bZaAYa5NaMBJpWxRq0zUS0lOi92V9m7lr4A3Aw47x0_nmlFXS1Gk6bYse_QKVAq6tyNz3spn_aFaavr-rosiPDnjG146bxkz1m3J4mDbvLjGumlmxVGUHT2a9AdFuGLhEmpKyERqb7bC22YD4_TxddkdHp1FZnj7jhygwp2bRFfoB_Kyah-GXpnM-vspL7WXAgvFJsD7_WO6eXNb6f1evnW55P_9fTzHP9IWI0HL4z_k0Y1OGoCf06TJpwZMPvS-fPcul8N7Y9-G9QFzxs8KTODpow7IqNe1nN3Iqnmhb1aF3Py9zY-trzogMH9-HwPhxdj9IOHN-HR-3sd9DkLjq-iz61qOM6WzN6mBVOenIud6S5RwuguOLaObsOrnS5OAripJe7xKkuW2_GsBnxbQ2efwCrcGOn" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.17 DC-050-630_Display_Available_Budget — DC-050-630_Display_Available_Budget
@@ -1588,10 +1540,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO2jAQ_RUrK0QrBSlXQvNQCQKRWrXqqmzbh9IH44zBXWMj2-FSxL_X5hIWyj41D1HmZM45M6Oxdx6RFXi512rtmGAmR7u2mcMC2jlqT7GGto-OwHesGJ5y0G2XQ6UwY_bnkBYmy41Lc1iJF4xvHTqGmQT07YOP-pbIfaSx0B0NitG2314qtsBqW0gulct-gB4N6MHt9GsgVQXqkhAEWUhSS-VMwAWOsyRLSsfTQKSorkRpSnuUtPeuOC7XZI6VOZRfa_iMNz9YZeY2pphrsDlzs-Cf8BS469Go2mGkVqvzMJh2PsIObLzEhImZxZPAQgqL5wuUBvs92rdaE9GYoqfhRCD7EI61HgJF2lh4tDKIMs7zh6Tol2nga6PkM-QP0SgbxpFPXCe5bT3w3XA7a2Czucmnklen1M7a9ZBHy42vNnkU-Gpr3zdeIKqLU9GNelGvcRpkYREWZydK6X852bmqJ6yfT16juIzKYeMVpt20CP7VO7c5TLJ-eDsnUCtG4IVoWZbx6DKqUTcNg9dFB2XcDYob0Rk2sMbbi-C7ImkEyzQrw-xVwaPfbZX19FFJchaMR2mZNoLZICz70auCST9MeqcKrc5M4eUclUxgQQD1BeZbbY5_3SPCnxOP4pzijhs2Gm2A1AbQR1krm4tGwigGeuL9esGJ7nO-gi2fzcQChEGSokJapytifJ_4ZQVqDrhCfc4lwYZJceOYWOJnLPAMkB3MbyAGPdqjLytG0BiM4eBMrzmp5Zwd7JXTEN882rrQkz1kGpOD19uGaFf7-CFC1Om8t62ewugYxqcwPobJKUyP4ctlcwrn9b2Co_twfB9OmpN9BacN7PneAtQCs8rLd97harXXbwUU19x4e9_DtZHjrSBefriCvHpZ2XUdMmw3Y3EE938BlnTVng==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.19 DC-050-670_Release_WBS — DC-050-670_Release_WBS
@@ -1666,10 +1617,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm2PozYQ_isWq1VaiUi8hiwfWhEWqpNue6vLvbS63AfHmMRdYyLb7CbN5b_XJkACZVv1ygckPzPzPDNjj-FooDLDRmjc3h4JIzIEx4nc4gJPQjBZQ4EnJjgDnyAncE2xmGifvGRySf6s3Wxvt9duGkthQehBo0u8KTH4-MYEkQqkJhCQianAnOQTc7LjpID8EJe05Nr7Bs9zK6_VGtOi5BnmFwfLCmzkq1BKGL7AbuAFXqrjBEYly3qkuZ_PczQ56eRo-YK2kMs6_UrgB7j_TDK5VescUoGVz1YW9C1cY6prlLzSGKr4c9sMIrQOUw1b7iAibKNwz1IQh-zpAvnW6QROt7cr1omCt-9XDKgHUSjEPc6BkApOniXICaXhjRdHqW-ZQvLyCYc3ThLcu46JdCWhKt0ydXOnL5hstjJclzRrXKcvuobQ2e1Nvg8dy-QH9R5oYZZdlOKZM3fmndIisGM7bpXyPP9fSqqv_AMUT41W4qZOet9p2f7Mj62_87Vl3ntBZA_7hPkzQfiKNE1TN7m0Kpn5tvU66SJ1Z1Y8IN1AiV_g4UJ4F3sdYeoHqR28SnjWG2ZZrR95iVpCN_FTvyMMFnYaOa8SepHtzZsMFc-Gw90WLMqqPssg2u3E2aYf5nz5sjJyGOZwisoNeKNGlqhiwOTzYgkSquaUSfAeU6xHF0SVLAsoCYKUHlbG169XTK4i0kGs7AIy5XLl4SmPZI9RpfjVFQBUhX9gJMEPj6WQ4IM69AIiSUomfuwH-g11SwvykoO4LAoi6_wgy0CEZKXGrh84U4HRxxjEHKuisn7-gDCwgOhpw3Vv-oGBCvwEKcl0L9o8l2qElQrHfd_58XhpYYana1UI2oI4ekx--3llnE5Xvnfjvq3Coso2WCU6DLOt8Ti8R7QS5Bn_cj6AwzD7-8Kc8bDkYTn0dL9PwPuHlgG1t-9GWmf7_1VLXVODKYjhjkhIQUqYir3sbMQgPQh5rdaNhb6C_m0uHiCrmpEYSLMATKc_6R1s1nO9_rYyfsfqrH5TJ6LB7wa4bQ8Mv5Y17jawbTXEzoC48evibWdgaHH3TDBv1w1fJ9AAfrP2G7vX2hugXc8ae-vvDgq3vSaPepfrVGZD07vW0rF02bd9act1-unWN6cuov1i9GDn-trvWdzuw9mDvXHYH4dn43AwDs_bz0UPvRtF1S6PwvY47IzD7jjsjcN-CxumUWBeQJIZ4dGof9rUj12Gc1hRaZxMA6rrdHlgyAjrnxuj2un78p5ANW3FGTz9Bf0mJ30=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.20 DC-050-690_Validate_Project_Reports — DC-050-690_Validate_Project_Reports
@@ -1717,10 +1667,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P4jYU_StWRiO2UpDySdI8bMUEUlXqtqOd7e5WSx8ujg3uGDuynQHK8t9r8xEmlHlqHiLu8T3n3HuxnZ2HZU28wru_3zHBTIF2A7MkKzIo0GAOmgx8dAQ-g2Iw50QPXA6Vwjyxfw5pYdJsXJrDKlgxvnXoE1lIgv74xUdjS-Q-0iD0UBPF6MAfNIqtQG1LyaVy2XckpwE9uJ2WHqSqibokBEEW4tRSORPkAsdZkiWV42mCpah7ojSlOcWDvSuOyzVegjKH8ltNPsDmC6vN0sYUuCY2Z2lW_FeYE-56NKp1GG7Vy3kYTDsfYQf21ABmYmHxJLCQAvF8gdJgv0f7-_uZ6EzRp8lMIPtgDlpPCEXaWHj6YhBlnBd3STmu0sDXRslnUtxF02wSRz52nRS29cB3wx2uCVssTTGXvD6lDteuhyJqNr7aFFHgq619X3kRUV-cylGUR3nn9JCFZVienSil_8vJzlV9Av188prGVVRNOq8wHaVl8F-9c5uTJBuH13Mi6oVh8kq0qqp4ehnVdJSGwduiD1U8Csor0QUYsobtRfDHMukEqzSrwuxNwaPfdZXt_FFJfBaMp2mVdoLZQ1iNozcFk3GY5KcKrc5CQbNEJTTMAEdjAXyrzXHVPSL8NvMoFBSGbtjoM3BW23aQ9f-bYIM-kkYqo2feX69IkSX9PjfABBpjTBoDAhNEpepoJZe6VaRPiy1tuiG4tfr2EuiS3z1Kbfe03fYasGFS6B_6xMQSP4CABUHl-HH69VSVPR_9vNTmfWwFerTXgqwZRupW9aM3stA7RpEgpCb1lX-2252n5O634dyWipeHJrsufpp5-_0rTn7hgFJyrYfADWpAAeeE_3zcMheOPVTHHyJEw-F763kKk2OYn8L8GJ72tUj7q6N-mLnw-8z7k9gRfLf_2xX-mzzA8avt5_zPx64HR90d04Pj23ByG05vw6PbcHY-WT00P6Oe762IWgGrvWLnHb4q9stTEwotN97e96A18mkrsFccbl-vbdzWnjCwh2J1BPf_AhInIdI=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.21 DC-050-700_Supplement_Budget — DC-050-700_Supplement_Budget
@@ -1796,10 +1745,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P4jYU_StWRiNaKUj5JJCHVsCQaqXZajVsd7Ra-mASB9wxdmo7fJTlv9fOF5MQHrblYTT3-N5zzr22k5yNmCXICI3HxzOmWIbgPJBbtEODEAzWUKCBCUrgC-QYrgkSA52TMiqX-J8izfayo07TWAR3mJw0ukQbhsAfH0wwVYXEBAJSMRSI43RgDjKOd5Cf5owwrrMf0Di10kKtWpoxniB-TbCswI59VUowRVfYDbzAi3SdQDGjSYs09dNxGg8u2hxhh3gLuSzs5wJ9hMdXnMitilNIBFI5W7kjz3CNiO5R8lxjcc739TCw0DpUDWyZwRjTjcI9S0Ec0rcr5FuXC7g8Pq5oIwqeX1YUqF9MoBBPKAVCKnixlyDFhIQP3nwa-ZYpJGdvKHxwFsGT65ix7iRUrVumHu7wgPBmK8M1I0mVOjzoHkInO5r8GDqWyU_qb0cL0eSqNB85Y2fcKM0Ce27Pa6U0Tf-Xkpor_wzFW6W1cCMnemq0bH_kz61bvrrNJy-Y2t05Ib7HMXpHGkWRu7iOajHybes-6SxyR9a8Q7qBEh3g6Uo4mXsNYeQHkR3cJSz1ui7z9SfO4prQXfiR3xAGMzuaOncJvantjSuHimfDYbYFc5hhCQmIMIU0RkCx_4ViCaYUkpOQZbb-Uf_bykhhmMKhHj6YCoE3FCzzLCPq1lIJZnmyQRJIBp7ZQWU8oz0i4HW2BIsyY2X8WfKpc9K1wXjGuJrWjaFbI3bHCCEs1pVXK6q8MpNyttM9KZWddvZBol1jo2Bz2myf1RUTqfrnLpum0FTVpNps7h1vFUGLdH0CXxHkbYKRInhBBKknIoBVWTsjUBmLI4pzRasemM2O_fSJCVn6h7HEjIqf24VjVfjK-Jt-WICsqkoZBzBT0R6SdvrkfK570Y_u4Voxx9vCMjnVDVUNKjXwgv7OMUfJryvjcnm_XVY_UcVQN3u33O4vR8eY5ALv0W_lHeuWOf1lt-e1Fi5GUZ5c0j25N6bcHzV1e-TvH3Cvc4iK7UGg2TttdLmDhKhrQ9Vtz4vtbu-e7f1g_3dYwU3r_n9unY7BcPiLoqhCuwydKnTKcFKFEx1-XxlfkVgZ39XVqquszsKou_A7K_CgxisduxZyq9juKFV1DW7XiVYNOB1p26tW_CrT7WbWnM1ClenXsdehrBm9ivEmsWb0370a9CzrV2ILdvphtx_2-mG_Hx413xYtOOiHx_3wpH5Htrux-mG7H3b6Ybcf9vphv4YN09ghvoM4McKzUXyTqu_WBKUwJ9K4mAbMJVueaGyExbebkWeJqnzCUL9lSvDyL-_Rfgc=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.22 DC-050-720_Run_Periodic_reports_(if_needed) — DC-050-720_Run_Periodic_reports_(if_needed)
@@ -1869,10 +1817,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm2v2jYY_StWrq5opSDFeSHcfNgEgUyV2q0abbdp7INJHPCu40S2c4FR_nvtvBBIQ9dp-YB4jp9znuPHjp2TEecJNgLj8fFEGJEBOI3kDmd4FIDRBgk8MkENfEKcoA3FYqRz0pzJFfmnSoNucdBpGotQRuhRoyu8zTH4-MYEM0WkJhCIibHAnKQjc1RwkiF-DHOac539gKeplVbVmqF5zhPMuwTL8mHsKSolDHew47u-G2mewHHOkhvR1EunaTw6a3M038c7xGVlvxT4HTr8RhK5U3GKqMAqZycz-hZtMNVzlLzUWFzyl7YZROg6TDVsVaCYsK3CXUtBHLHnDvKs8xmcHx_X7FIUfFisGVBPTJEQC5wCIRW8fJEgJZQGD244izzLFJLnzzh4sJf-wrHNWM8kUFO3TN3c8R6T7U4Gm5wmTep4r-cQ2MXB5IfAtkx-VL-9WpglXaVwYk_t6aXS3IchDNtKaZr-r0qqr_wDEs9NraUT2dHiUgt6Ey-0vtZrp7lw_Rns9wnzFxLjK9Eoipxl16rlxIPWfdF55EyssCe6RRLv0bETfArdi2Dk-RH07wrW9fouy817nsetoLP0Iu8i6M9hNLPvCroz6E4bh0pny1GxAyEqiEQUzBiiRyHrUf0w-OfaSFGQorFuNlgecFxKDGbJTtVXJv7GsQQrtXtjWXIMfsVFzqVYG39dadjfo_FWvWfgjcTZsIbzPRphnmVEZphdyYlG71bO_Zbcqsz0kdAaAWnOwbxMtliaYFWo7S0AYslVtZ5X75viWEqKK49Dxib_1VhlqO8HvIpe3-r6ry7CBVV7MZy9X_5e0X7Rf2pFdaCotVQnBU4U-_UVfdrRhcyLuysPPiFKEvS1wFNPoFof0i33XSK0esy2CYSp6WdIkpzdJ8MeeWiH_KsDu--gv4T3qc7p1FL1zTfeqLM73tXd_3FtnM_Xye5wMj7EtBTkBf9UnyN9mtfREOf5XowRlao991hqv9R_GATj8Q9qcZvQrsOnJpzUIXSb2G9ir2W7DdAcT8ztEaBXAy3BacZhbxw6PaAf231CE7fhZbyq8Hlt_IHVK_lZOeoP_JxX-OTqQNVtaC-SG9gehp1h2B2GvWF4Mgz7l4v6Bp42d-oN-DQEQmsQhYOoPYg67X11C7vDsNfChmlkWL2PJDGCk1F9w6nvvASnqKTSOJsGKmW-OrLYCKpvHaMs9BuzIEhdQVkNnr8A0o4zDw==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.23 DC-050-740_Obtain_Acceptance_for_Project_Closure — DC-050-740_Obtain_Acceptance_for_Project_Closure
@@ -1975,10 +1922,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllVuP4jYYhv-KldGIWSlIORLIRSsIpBppZzUq066qpRfGscEdY1Pb4VCW_16bhAApszfNBYrffO_zHYidg4NEgZ3UeXw8UE51Cg4dvcQr3ElBZw4V7rigEn6HksI5w6pjY4jgekr_OYX50Xpnw6yWwxVle6tO8UJg8NuzC4bGyFygIFddhSUlHbezlnQF5T4TTEgb_YD7xCOnbPWjkZAFlpcAz0t8FBsroxxf5DCJkii3PoWR4MUNlMSkT1DnaItjYouWUOpT-aXCL3D3lRZ6adYEMoVNzFKv2Gc4x8z2qGVpNVTKzXkYVNk83AxsuoaI8oXRI89IEvL3ixR7xyM4Pj7OeJMUvI1nHJgLMajUGBOgtJEnGw0IZSx9iLJhHnuu0lK84_QhmCTjMHCR7SQ1rXuuHW53i-liqdO5YEUd2t3aHtJgvXPlLg08V-7NbysX5sUlU9YL-kG_yTRK_MzPzpkIIf8rk5mrfIPqvc41CfMgHze5_LgXZ95_eec2x1Ey9NtzwnJDEb6C5nkeTi6jmvRi3_sYOsrDnpe1oAuo8RbuL8BBFjXAPE5yP_kQWOVrV1nOX6VAZ2A4ifO4ASYjPx8GHwKjoR_16woNZyHhegkyIddCmjJBBtdUQwZyyiFHGAw5ZHulq3h7cf_bzCEwJbBrxw9-xbqUHIzKYoE10AJ8xhvMgA--jqZgwsxW5nrm_HkFCH4EIFKswLPGK4syTZr6Vrf28FvjR2IB3sxuUMRwakCNO3GM_y-MTlVZpOFcg6KnBqS0WLcAXNjbv0sqcWGMn66MsfG9QA4XGDy_nIsEr0JRTUXTydPrq3kopCaCUQEgL8wT9I61-nTbUM_gJjuMSjN-c_Y1VT8Zoq76g8iS28bkcLhMosDduQlFy1Yf5x5-njnH45W5_0PzkDGBzPtQAHM-ie29P7UNHNwH4h1ipaIb_Eu1Cy4uc05UN7wHut2fTD_1MrHL7zPnD6xmzndTaq33W3q9eblf2cN6GVbLQYv2RZxMUS0PqqigXgbVMm6lqk2Dqw1o850Pnhs5uC-H14fKzZOoPipvxLg5q2_k3n05OR8uN2r_rjo4q47rrLBcQVo46cE5fW7NJ7nABJZMO0fXgaUW0z1HTnr6LDnlujDOMYX2Ra_E479gH31D" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.25 DC-050-790_Transfer_Budget — DC-050-790_Transfer_Budget
@@ -2042,10 +1988,9 @@ flowchart LR
 
 
 
+
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -2067,10 +2012,9 @@ flowchart LR
 | Capital Finance Project Analyst | DC-050-670_Release_WBS, DC-050-700_Supplement_Budget,  | |
 | Corporate Capital Finance Analyst | DC-050-700_Supplement_Budget, DC-050-780_Reduce_Budget, DC-050-790_Transfer_Budget | |
 
+
 <div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -2082,10 +2026,9 @@ The following data entities are derived from the system integration flows for DC
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 29</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -2137,10 +2080,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 30</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -2183,10 +2125,9 @@ The Future-State architecture represents the **target** landscape for DC-050.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 31</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -2282,10 +2223,9 @@ The Future-State architecture represents the **target** landscape for DC-050.
 
 **Summary**: 4 Reports, 9 Interfaces, 12 Conversions, 51 Enhancements, 10 Workflows
 
+
 <div class="page-footer"><span>Page 32</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -2297,10 +2237,9 @@ Integration patterns identified from the system flow analysis for DC-050:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 33</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -2324,10 +2263,9 @@ Platform landscape inferred from integrated systems for DC-050:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 34</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -2367,10 +2305,9 @@ Platform landscape inferred from integrated systems for DC-050:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 35</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -2399,12 +2336,12 @@ Platform landscape inferred from integrated systems for DC-050:
 | FPRI1238 | Pull Foundry WBS from HAT and create in LE 199 in IP S/4 for Foundry Employee... | Mar-25 (100%) | Apr-25 (100%) | Apr-25 (100%) | Aug-25 (100%) |  |
 | FPRI0981_IP | Interface of SAP PPM module to SPEED | Feb-25 (100%) | Apr-25 (100%) | Apr-25 (100%) | Sep-25 (100%) |  |
 | FPRI0981_IF | Interface of SAP PPM module to SPEED | Feb-25 (100%) | Apr-25 (100%) | Apr-25 (100%) | Sep-25 (100%) |  |
+
 *... and 66 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 36</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -2433,5 +2370,5 @@ Standard RAID items for DC-050 (Finance Plan To Report):
 
 ---
 *DC-050 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: March 2026*
+
 <div class="page-footer"><span>Page 37</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>
-</div>

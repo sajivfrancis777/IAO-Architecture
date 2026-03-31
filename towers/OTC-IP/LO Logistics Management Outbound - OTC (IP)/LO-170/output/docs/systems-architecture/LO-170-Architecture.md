@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">LO-170 — Pack Orders - OTC (IP)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **LO-170 Pack Orders - OTC (IP)** within the IAO program. It includes 10 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Order To Cash (IP) (OTC-IP) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 6 Conversions, 3 Enhancements, 1 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Returns & Rebate Automation | Automate returns processing, rebate management, and chargeback handling | Revenue Assurance | Medium |
 | 4 | LO-170 Process Migration | Migrate Pack Orders - OTC (IP) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Order Management (Intel Products) | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -217,10 +184,9 @@ This capability includes **10 business process(es)** modeled in BPMN 2.0, coveri
 | 9 | LO-170-130_Process_Goods_Issue_for_Stock_Material_-_OTC_(IP) | LO-170-130_Process_Goods_Issue_for_Stock_Material_-_OTC_(IP) | Warehouse Operator | 7 | 4 |
 | 10 | LO-170-140_Process_Goods_Issue_for_Consignment_-_OTC_(IP) | LO-170-140_Process_Goods_Issue_for_Consignment_-_OTC_(IP) | Warehouse Operator | 6 | 4 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -330,10 +296,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViitFNR8EppDJQhEXanVrsq2eyg9GOcZLBI7tZ0FivjvtflcqPbUHFA8jGfem_h56xBRgpM5nc6WcaYztHX1AmpwM-TOsALXQwfgB5YMzypQruVQwfWE_dnTgrhZW5rFClyzamPRCcwFoO_3HhqYjZWHFOaqq0Ay6npuI1mN5SYXlZCWfQd96tO92_GvoZAlyAvB99OAJGZrxThc4CiN07iw-xQQwcsrUZrQPiXuzhZXiRVZYKn35bcKvuL1Myv1wqwprhQYzkLX1Rc8g8r2qGVrMdLKl1MYTFkfbgKbNJgwPjd47BtIYr68QIm_26FdpzPlZ1P0NJpyZB5SYaVGQJHSBh6_aERZVWV3cT4oEt9TWoolZHfhOB1FoUdsJ5lp3fdsuN0VsPlCZzNRlUdqd2V7yMJm7cl1Fvqe3JjfGy_g5cUp74X9sH92GqZBHuQnJ0rpfzmZXOUTVsuj1zgqwmJ09gqSXpL7_-qd2hzF6SC4zQnkCyPwSrQoimh8iWrcSwL_bdFhEfX8_EZ0jjWs8OYi-DGPz4JFkhZB-qbgwe-2ynb2KAU5CUbjpEjOgukwKAbhm4LxIIj7xwqNzlziZoGesYSFMHGihwYk1kIeCPbhwc-pQ3FGcdfmjR5mGjOOxuvGfGg7ougRkyWem9OIqJDIVFa2RKup8-uVSGhELA892DlD9xpqhd7dP76_pkWGNgINsjZjhyYNEDPM6DPmpZnD-QerYH2-we-WSXNNcH2jYmo6vPAIdbufTPXHZXBYhq-itODpCF3B4XleruDoDDueU5saMSudbOvsLyxzqZVAcVtpZ-c5uNVisuHEyfaD7bRNaQ7BiGGTd30Ad38BpNGgiA==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 LO-170-070_Pack_Order_Items_-_OTC_(IP) — LO-170-070_Pack_Order_Items_-_OTC_(IP)
@@ -424,10 +389,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV9uO4kYQ_ZWWVyMSCRTb2Bh4SMTNWaTdGTTMRdGSh8YuQ2sam7TbXJbl31PtC4w95iEbHpjpU1XnVJWr281J8yIftL52d3diIZN9cmrINWyg0SeNJY2h0SQZ8EIFo0sOcUP5BFEo5-x76mZY24NyU5hLN4wfFTqHVQTkedokAwzkTRLTMG7FIFjQaDa2gm2oOI4iHgnl_Qm6gR6karlpGAkfxNVB1x3DszGUsxCucNuxHMtVcTF4UeiXSAM76AZe46yS49HeW1Mh0_STGL7Swyvz5RrXAeUxoM9abvgXugSuapQiUZiXiF3RDBYrnRAbNt9Sj4UrxC0dIUHDtytk6-czOd_dLcKLKHkaL0KCH4_TOB5DQGKJ8GQnScA473-yRgPX1puxFNEb9D-ZE2fcNpueqqSPpetN1dzWHthqLfvLiPu5a2uvauib20NTHPqm3hRH_K5oQehflUYds2t2L0pDxxgZo0IpCIL_pYR9FU80fsu1Jm3XdMcXLcPu2CP9I19R5thyBka1TyB2zIN3pK7rtifXVk06tqHfJh267Y4-qpCuqIQ9PV4JeyPrQujajms4NwkzvWqWyXImIq8gbE9s174QOkPDHZg3Ca2BYXXzDJFnJeh2TV6pgHWE7SQPWxBURiJzUJ_Q-LbQAtoPaEv1m8yo90ZQ3k88SVgoIzJtDaMDxAvt73dRZk3Ug9pjZCphU_Ztl30fdiC2yv-jp3U7lxiTQYBzkJVU7HLQaA0YRUOfvKjj4Ug-D16H5D7ZLEGUAzsVNew5gE_2TK7JcDQjcwnbipZTDnne8oj6xGUcCHbqeevjLJAZwwR-y7Ifg6SMV1i63y40XrQiT4KtVsjWHhptdHzv2St7znHzkUnrK1KSAQc8ClB1lMQy2mD8PJvuCoWhlzluJ6k6PL6vhhvl8BmIIBIb8oznO_kCO-CYP_WALhln8liNVnOSNjaOUy081NJn8wirhKtJPJLJYRthJY-g_sTkl-ns13K7DDVAj7BjsC9xfMYvrhbTELcDzgiLwtp463S6luBDa4lHrLe-cKWDJSS-V0gkiJtwTnDi_1ho5_N7FrueBQ4eT2K2gz-zc6Aa1qkPm8b5NLPvVCWO9f-TMAH-B13n53S79WEvlDM_Vfwg1KuPmEsqkzifG5_ME089zQDbdKxSmPpP5Woa_zUM90H2Dw4HabV-Vw-5APK1na_NytqwM6Cdr4v4TmF3MuDi31HrHwvtPlpoP5Q9N-Q83XzZy5bFWyzsZOvC29BznV6RVw4UurmsaRT2ohCzmshf6jDGTIqKrdyxkOrm6yIzo1eu4JKi0c0NLm7_1NSrWmb4TsrKvgRZF1O6ZzKrUbUW2yhTLKxFTdXMipLM929s9SyLO0AJNuvhdj1s1cN2Pdyph516uPv-SlGy9G5acBJumozbJvNyyyvj7Ru4VVxMyrBdD3fqYace7tbDvVoYB70WNgpYa2r4-tpQ5mv9k5b-PsDfED4ENOFSOzc1mshofgw9rZ_eo7UkPYrGjOL1ZpOB538BGkTkcw==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 LO-170-080_Process_Packing_and_Regulatory_Export_Reports_-_OTC_(IP) — LO-170-080_Process_Packing_and_Regulatory_Export_Reports_-_OTC_(IP)
@@ -557,10 +521,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViitFNR8EppDJQikWqmVVst291B6MMkzsXAcZDsLFPHfaxMIC-2emkPEm8yb8Rts7628LsBKrF5vTzlVCdrbqoQK7ATZCyzBdlALPGNB8YKBtA2H1FzN6O8jzQvXW0MzWIYrynYGncGyBvTj3kEj3cgcJDGXfQmCEtux14JWWOzSmtXCsO9gSFxydDt9GteiAHEhuG7s5ZFuZZTDBQ7iMA4z0ychr3lxJUoiMiS5fTCLY_UmL7FQx-U3Er7j7QstVKlrgpkEzSlVxb7hBTAzoxKNwfJGvJ7DoNL4cB3YbI1zypcaD10NCcxXFyhyDwd06PXmvDNFT5M5R_rJGZZyAgRJpeHpq0KEMpbchekoi1xHKlGvILnzp_Ek8J3cTJLo0V3HhNvfAF2WKlnUrDhR-xszQ-Kvt47YJr7riJ1-33gBLy5O6cAf-sPOaRx7qZeenQgh_-WkcxVPWK5OXtMg87NJ5-VFgyh1_9Y7jzkJ45F3mxOIV5rDG9Esy4LpJarpIPLc90XHWTBw0xvRJVawwbuL4Oc07ASzKM68-F3B1u92lc3iQdT5WTCYRlnUCcZjLxv57wqGIy8cnlaodZYCr0v0ggWUtY4TpQzEqv1qHu79nFsEJwT3Tdjo2RyoHdLuRZMriTZUlajdxHPr15s-_7pvRAjdnojoE5rUeVMBVzdNgW561OdKFOgRVCO4uQFQqncI1qdQoFlJ16YNfbh_-HjdGurWr6BJOuuzzxVL78r2Bw9Rv_9FT3Yqvbb0T6XflsGbyA3nvNWuYP_fcNAdtys47GDLsSoQFaaFleyt432n78QCCG6Ysg6OhRtVz3Y8t5LjvWA160LPNaFY_11VCx7-AGwpsao=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.8 LO-170-120_Stage_Finished_Goods_-_OTC_(IP) — LO-170-120_Stage_Finished_Goods_-_OTC_(IP)
@@ -593,10 +556,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAQ_StWViitFKR8EppDJQikWqlVV2LbPZQeTDImFk4c2c4CRfz32gTCQrWn5hDFzzPvzbx4fLByXoCVWIPBgdZUJehgqxIqsBNkr7AE20Ed8BMLilcMpG1iCK_Vgv45hXlhszNhBstwRdneoAtYc0A_Hh000YnMQRLXcihBUGI7diNohcU-5YwLE_0AY-KSk9p5a8pFAeIa4Lqxl0c6ldEarnAQh3GYmTwJOa-LG1ISkTHJ7aMpjvFtXmKhTuW3Er7h3QstVKnXBDMJOqZUFfuKV8BMj0q0Bstb8Xoxg0qjU2vDFg3Oab3WeOhqSOB6c4Ui93hEx8FgWfei6Hm2rJF-coalnAFBUml4_qoQoYwlD2E6ySLXkUrwDSQP_jyeBb6Tm04S3brrGHOHW6DrUiUrzopz6HBrekj8ZueIXeK7jtjr950W1MVVKR35Y3_cK01jL_XSixIh5L-UtK_iGcvNWWseZH4267W8aBSl7r98lzZnYTzx7n0C8UpzeEOaZVkwv1o1H0We-z7pNAtGbnpHusYKtnh_JfyUhj1hFsWZF79L2OndV9mungTPL4TBPMqinjCeetnEf5cwnHjh-Fyh5lkL3JToBQsoubYTfW9AYMVFF2Ce2vu1tAhOCB4av9FC4TWgTI-vLKFAXzgv5NL6_SbB1wmmPpCy20aPUraACDfZPN-gb9oRM6bow-PTx9vkQCdPCKE71M1Gv6uPVfdRe2g4_KxlzsugW779lSbmcjhuYL-fhBs46GHLsSoQFaaFlRys01Wkr6sCCG6Zso6OhVvFF_s6t5LTyFptU-hmZhRrJ6sOPP4FS_CSsg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.9 LO-170-130_Process_Goods_Issue_for_Stock_Material_-_OTC_(IP) — LO-170-130_Process_Goods_Issue_for_Stock_Material_-_OTC_(IP)
@@ -665,10 +627,9 @@ Direct DN, 2nd DN"| n9
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4jgU_StWRhUzUpDySWgedgWBVJW2nWrpzGg17INJHLBqbGQ7bRmG_77X-QBC4WnzgLjn3nPu9YnjZGdlIidWbN3c7CinOka7nl6RNenFqLfAivRsVAPfsaR4wYjqmZpCcD2jv6oyN9i8mzKDpXhN2dagM7IUBH27t9EIiMxGCnPVV0TSomf3NpKusdwmgglpqj-RYeEUVbcmNRYyJ_JY4DiRm4VAZZSTI-xHQRSkhqdIJnjeES3CYlhkvb0Zjom3bIWlrsYvFXnA7z9orlcQF5gpAjUrvWZ_4QVhZo1algbLSvnamkGV6cPBsNkGZ5QvAQ8cgCTmL0codPZ7tL-5mfNDU_Q8mXMEV8awUhNSIKUBnr5qVFDG4k9BMkpDx1ZaihcSf_Km0cT37MysJIalO7Yxt_9G6HKl44VgeVPafzNriL3Nuy3fY8-x5RZ-z3oRnh87JQNv6A0PncaRm7hJ26koiv_VCXyVz1i9NL2mfuqlk0MvNxyEifNRr13mJIhG7rlPRL7SjJyIpmnqT49WTQeh61wXHaf-wEnORJdYkze8PQreJsFBMA2j1I2uCtb9zqcsF09SZK2gPw3T8CAYjd105F0VDEZuMGwmBJ2lxJsV-oElWQmwE33dEIm1kHWBubj7c24VOC5w3_iNTGdCcvRG9QqNkyc002Sj5ta_JxTvjEJkIeQaPWBeYoaehNLoTohcoXulSoJEgSaE0Vcit10d_-dBKBPLj0RQhfYiewFpTcyDD_xTgaAr8CzpcgkD-WPvrDDsFs5gE6Np_wFThkaMwCOlBUpKpcUa6LN6l5xJDLoS3zY5zPRxZspPF3sqEHUFEkmMwD1fiBKmuUIafj6QYLrNweu7v6Hwy0nhLdQ1M93zV8LhJm_BPKxLhT7fP33pOu86UA7ZJUEpnNRqBXe8XsWFWne3Ow6ek_4CTqhshb5jRqEfFRx9LXUG1v05t_b7U6Z3mdmMVY-bo1mZZUSpomRs-0HCvyxB3jNWKnDsrn76zmnBZZoLd2vyiGBfTagkmQls5Bn7H086w-6o_4BPqN__A3ZqE_t1GDRhWIdum3br2GvCQZNuY7ehN8cS95qwlQuauM27ld7vuZXCRp1bv6HheeYJzowqM2gzXpN5FBV-nK1N_ENqxqGtGzSZ2p0qGV3OGefm_IN3FeW2oUT1KoYnp5pxpj3NO7B3GfZPT-pOJriaCa9mBlcz0dXMsHnPdcDbw4u2uzbnCu6274Yu7F2G_ctw0MKWbcHptMY0t-KdVX1GwadWTgpcMm3tbQuXWsy2PLPi6nPDKqvna0IxvAXWNbj_D2GKA-8=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.10 LO-170-140_Process_Goods_Issue_for_Consignment_-_OTC_(IP) — LO-170-140_Process_Goods_Issue_for_Consignment_-_OTC_(IP)
@@ -731,10 +692,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -744,10 +704,9 @@ flowchart TD
 | Warehouse Operator | LO-170-010_Receive_Product_in_Staging_Area_-_OTC_(IP), LO-170-020_Review_Packing_and_Handling_Instructions_-_OTC_(IP), LO-170-050_Obtain_Expendable_Packaging_-_OTC_(IP), LO-170-070_Pack_Order_Items_-_OTC_(IP), LO-170-080_Process_Packing_and_Regulatory_Export_Reports_-_OTC_(IP), LO-170-090_Generate_Labels_-_OTC_(IP), LO-170-120_Stage_Finished_Goods_-_OTC_(IP), LO-170-130_Process_Goods_Issue_for_Stock_Material_-_OTC_(IP), LO-170-140_Process_Goods_Issue_for_Consignment_-_OTC_(IP) | |
 | Warehouse Clerk | LO-170-100_Affix_Labels_-_OTC_(IP),  | |
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -759,10 +718,9 @@ The following data entities are derived from the system integration flows for LO
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -804,10 +762,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -850,10 +807,9 @@ The Future-State architecture represents the **target** landscape for LO-170.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -873,10 +829,9 @@ The Future-State architecture represents the **target** landscape for LO-170.
 
 **Summary**: 6 Conversions, 3 Enhancements, 1 Workflows
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -888,10 +843,9 @@ Integration patterns identified from the system flow analysis for LO-170:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -915,10 +869,9 @@ Platform landscape inferred from integrated systems for LO-170:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -958,10 +911,9 @@ Platform landscape inferred from integrated systems for LO-170:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -981,10 +933,9 @@ Platform landscape inferred from integrated systems for LO-170:
 | OTCC0679 | Open Dispute Case Conversion | Jun-25 (100%) | Jul-25 (100%) | Aug-25 (100%) | Oct-25 (100%) | 4. Completed |
 | OTCC0678 | Collection Master Conversion | Mar-25 (100%) | May-25 (100%) | Jun-25 (100%) | Aug-25 (100%) |  |
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1013,5 +964,5 @@ Standard RAID items for LO-170 (Order To Cash (IP)):
 
 ---
 *LO-170 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: March 2026*
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
-</div>

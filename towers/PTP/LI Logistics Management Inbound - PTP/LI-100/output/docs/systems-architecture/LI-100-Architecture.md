@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">LI-100 — Manage Supplier Consignment Stock</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Procure To Pay (PTP) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-100 — Manage Supplier Consignment Stock</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-100 — Manage Supplier Consignment Stock</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **LI-100 Manage Supplier Consignment Stock** within the IAO program. It includes 6 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Procure To Pay (PTP) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-100 — Manage Supplier Consignment Stock</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Payment Automation | Automate invoice verification, three-way matching, and payment execution | Finance Efficiency | Medium |
 | 4 | LI-100 Process Migration | Migrate Manage Supplier Consignment Stock business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Procurement | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-100 — Manage Supplier Consignment Stock</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-100 — Manage Supplier Consignment Stock</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -213,10 +180,9 @@ This capability includes **6 business process(es)** modeled in BPMN 2.0, coverin
 | 5 | LI-100-080_Receive_and_Bill_Invoice_Without_Goods_Receipt_or_P.O. | LI-100-080_Receive_and_Bill_Invoice_Without_Goods_Receipt_or_P.O. | Accounts Payable Accountant, Warehouse Manager | 3 | 3 |
 | 6 | LI-100-100_Vendor_Managed_Inventory_(Pay_upon_consumption_Third_Party_VMI) | LI-100-100_Vendor_Managed_Inventory_(Pay_upon_consumption_Third_Party_VMI) | AP Processor, Buyer, MRP Controller, Supplier, Warehouse Manager | 9 | 0 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-100 — Manage Supplier Consignment Stock</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -258,10 +224,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVF1v2jAU_StWKpROCmo-CcvDJAhEqrSqVdN1D2MPJrHBqrEj2ykwxH-fTUL4WPu0PETcw73n3Hti351V8BJZidXr7QgjKgE7Wy3RCtkJsOdQItsBDfAKBYFziqRtcjBnKid_DmleWG1MmsEyuCJ0a9AcLTgCP-4dMNKF1AESMtmXSBBsO3YlyAqKbcopFyb7Bg2xiw9q7V9jLkokTgmuG3tFpEspYegEB3EYh5mpk6jgrLwgxREe4sLem-YoXxdLKNSh_VqiB7j5SUq11DGGVCKds1Qr-h3OETUzKlEbrKjF-9EMIo0O04blFSwIW2g8dDUkIHs7QZG734N9rzdjnSh4mcwY0E9BoZQThIFUGp6-K4AJpclNmI6yyHWkEvwNJTf-NJ4EvlOYSRI9uusYc_trRBZLlcw5LdvU_trMkPjVxhGbxHcdsdXvKy3EypNSOvCH_rBTGsde6qVHJYzxfylpX8ULlG-t1jTI_GzSaXnRIErdf_mOY07CeORd-4TEOynQGWmWZcH0ZNV0EHnu56TjLBi46RXpAiq0htsT4dc07AizKM68-FPCRu-6y3r-JHhxJAymURZ1hPHYy0b-p4ThyAuHbYeaZyFgtQRPtdAHRw_f4OZh3q-ZhWGCYd_YDHKk6grkdVVRosOUM0kWbIWYAvcMc_Cs74MowZqoJXjVR4CLuwc9t7mMXdXM-n0m4F8K6MH0VTPESsBCSYD5pYxWQKRS8pIluGRJBdKq4OnxLh8Bs1FKwBkozmiKo8AlT3jbEVVUf6wPJ80VL97AA2RwgUpd_-WMINL1rfozokhLg0ezU4Ay5lQUMSKXDYMEt_Nt69KXrg0dNj9YCPr9b_oLtKHXhH4b-k0YtGHQhNHZGTElx7txAfsfw8HHcNitjQs46mDLsVZIrCAprWRnHfa23u0lwrCmyto7FqwVz7essJLDfrPqqtT-TAjUx27VgPu_76r2rg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-100 — Manage Supplier Consignment Stock</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 LI-100-030_Create_Release_Order_to_Replenish_Stocks_(by_Customer) — LI-100-030_Create_Release_Order_to_Replenish_Stocks_(by_Customer)
@@ -326,10 +291,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP2jgU_itWRiNaKXRzJUwedsUAWVWadkZD21VV9sEkTrAm2Mh2uCzlv-8x5AJpRlrN8gA5n8_3nYvtQw5GzBNihMbt7YEyqkJ06KklWZFeiHoLLEnPRGfgGxYUL3Iie9on5UzN6D8nN9tb77SbxiK8ovleozOScYK-fjTRCIi5iSRmsi-JoGnP7K0FXWGxH_OcC-19Q4aplZ6ilUv3XCRENA6WFdixD9ScMtLAbuAFXqR5ksScJVeiqZ8O07h31MnlfBsvsVCn9AtJPuHdXzRRS7BTnEsCPku1yh_wguS6RiUKjcWF2FTNoFLHYdCw2RrHlGWAexZAArOXBvKt4xEdb2_nrA6KvkzmDMEnzrGUE5IiqQCebhRKaZ6HN954FPmWKZXgLyS8cabBxHXMWFcSQumWqZvb3xKaLVW44HlSuva3uobQWe9MsQsdyxR7-G7FIixpIo0HztAZ1pHuA3tsj6tIaZr-r0jQV_EFy5cy1tSNnGhSx7L9gT-2ftWrypx4wchu94mIDY3JhWgURe60adV04NvW66L3kTuwxi3RDCuyxftG8G7s1YKRH0R28KrgOV47y2LxJHhcCbpTP_JrweDejkbOq4LeyPaGZYagkwm8XqKnQsDBgeLPuP4w-8fcSHGY4r5uMxoLAmWgyewB4QxTJhWaxUuSFHBBMjTKBIFby9Tc-PtCw-nUqKKhR33n0PaD-KDQmDNJM6Y19LMSOG6JuT9qtZhnldgl7-kZGJcUDxgzOI_tkIpf8b6BCxfX0fyKWlZJ0ANMAvlfqIN3daLrHPb9gWQ4r4sqE0_Qlqplt9b7C7GgJfaUY8Z0y58LhqY7Eheg1eIM38C5A8oziQndwCaTHH4EhXIpg4I_sg3kx8UevfvMFfpOFHrcMpK8_63KH8pZQVF69F73wrYOh2bXEtJfwPSKl51nB1KjUsk_5sbxeClhd0uQXZwXEhL983y_2jTnbTT3bTSvOZ0pjDEi-nxNGLQyhWPTbH7KxdWen1q-VrI5uHAIzg_QO9Tv__5zbnwnsP5T59Ze-czPC0654Ggczn3ldzb9yiztu8r2zrZdDhg2KGUf14pypvdSi9dqpXqdhVvSS7s0q1wq8WrZb9lBaVf-w9J2L6adLqGa8lew0w27lxP8amVQ_wdewUE3POyG77ph2I5yxl_DdjfsdMNuN-xV494wjRURK0wTIzwYp7ckeJNKSIqLXBlH08CF4rM9i43w9DZhFOsEBCcUw5BfncHjv6gBBQk=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-100 — Manage Supplier Consignment Stock</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 LI-100-040_Create_Release_Order_to_Replenish_Stocks_(by_Vendor) — LI-100-040_Create_Release_Order_to_Replenish_Stocks_(by_Vendor)
@@ -377,10 +341,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV1vmzAU_SsWVZVNIhqfgfEwKYEgVVrVaum2h3YPDlwSq46NbJM0q_LfZwPNV9On8YByju89594b27xaBS_BSqzr61fCiErQ60AtYQWDBA3mWMLARh3xCwuC5xTkwMRUnKkZ-duGuUH9YsIMl-MVoVvDzmDBAf28sdFYJ1IbSczkUIIg1cAe1IKssNimnHJhoq8grpyqdeuXJlyUIA4BjhO5RahTKWFwoP0oiILc5EkoOCtPRKuwiqtisDPFUb4plliotvxGwi1--U1KtdS4wlSCjlmqFf2O50BNj0o0hisasX4bBpHGh-mBzWpcELbQfOBoSmD2fKBCZ7dDu-vrJ7Y3RQ_ZE0P6KSiWMoMKSaXp6VqhilCaXAXpOA8dWyrBnyG58qZR5nt2YTpJdOuObYY73ABZLFUy57TsQ4cb00Pi1S-2eEk8xxZb_T7zAlYenNKRF3vx3mkSuambvjlVVfVfTnqu4gHL595r6udenu293HAUps57vbc2syAau-dzArEmBRyJ5nnuTw-jmo5C1_lYdJL7Iyc9E11gBRu8PQh-TYO9YB5GuRt9KNj5nVfZzO8FL94E_WmYh3vBaOLmY-9DwWDsBnFfodZZCFwv0aTZgug48zD38fHJqnBS4WHBFygVoFtAKWeSLNgKmEL3jdBbTQK6M-fmyfrz5yjdu5h-w-a8YSXKgJI1iO1Zkv9pn1RTPa0bttZGXGzRD6i53tRY594S9kUfJZRhhdEDRxNAM1OO4uhueotmTV1T0tbz-Ug6OEhLxet3lfQVlmdpoc468m49jZsOO4oa6aj7uwsLkV6YLUndzisDhQmVupcCtGd5Ghp3GuPimfENhXIBbdK7YH20uh8sQsPhN_1H9dDt4KiHXgeDHoYdjHrodzDs4aiDcQ_jDnpHe87oH52MkxXvwxV_f-uc0EF_QZyQ4eXY0WU6ukzHe9qyrRWIFSallbxa7QdFf3RKqHBDlbWzLdwoPtuywkrai9dq6lJvgIxgfR5WHbn7BwSwHKQ=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-100 — Manage Supplier Consignment Stock</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 LI-100-060_Note_Vendor_for_Consumed_Consignment_Goods — LI-100-060_Note_Vendor_for_Consumed_Consignment_Goods
@@ -427,10 +390,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2PozYU_SsWo1F2JaLyGVIeKmVIqFbqbkfNdFfVpg8OXCfWGBvZJpk0yn-vDYF8dOepPAD3cO659x6wOTqFKMFJncfHI-VUp-g40luoYJSi0RorGLmoA75iSfGagRpZDhFcL-k_Lc2P6jdLs1iOK8oOFl3CRgD685OLZiaRuUhhrsYKJCUjd1RLWmF5yAQT0rIfYEo80lY7P3oSsgR5IXhe4hexSWWUwwUOkyiJcpunoBC8vBElMZmSYnSyzTGxL7ZY6rb9RsFn_PaNlnprYoKZAsPZ6or9htfA7IxaNhYrGrnrzaDK1uHGsGWNC8o3Bo88A0nMXy9Q7J1O6PT4uOJDUfQyX3FkjoJhpeZAkNIGXuw0IpSx9CHKZnnsuUpL8QrpQ7BI5mHgFnaS1Izuudbc8R7oZqvTtWDlmTre2xnSoH5z5VsaeK48mPNdLeDlpVI2CabBdKj0lPiZn_WVCCH_q5LxVb5g9XqutQjzIJ8Ptfx4Emfef_X6MedRMvPvfQK5owVcieZ5Hi4uVi0mse-9L_qUhxMvuxPdYA17fLgI_pxFg2AeJ7mfvCvY1bvvslk_S1H0guEizuNBMHny81nwrmA086PpuUOjs5G43qJZUYiGa4We8cGuuh7AXHdMe_Dg-8ohOCV4bI1HmQQzGMoEV3TDK-AaLUFrBu3tJ74TxsmV8_eVQvh9kCjExnCIkBX6ar4YIZEgrVZT1ZoKjp6F0lCa_GuB6MMgoLSo-9ROqGV_vGLHhrzg7UBmMNvWbTvJ8dirYSnFXo0x06jGEjMG7Nfuta2c06nLMbXufPuGJWyFcQN9xhxvQF6J-7duvZhVq4i5-X3PQaotrW97mRj6H1AA3QGaAzMXSUEhyrWwXprehTygD1-ERn-BblXKjz_17kOJKtOu3foG2aFdPkHj8S-mo3Pod2FwDoMuTM5h0oXxbRiew7ALo6sv0gr2K_EGDn4Mh9er7OZJdN47bsB42Lxu4MmP4aRfbY7rVCArTEsnPTrtP8X8d0oguGHaObkObrRYHnjhpO3e6zR1aTLnFJtXW3Xg6V-_NiWV" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-100 — Manage Supplier Consignment Stock</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 LI-100-080_Receive_and_Bill_Invoice_Without_Goods_Receipt_or_P.O. — LI-100-080_Receive_and_Bill_Invoice_Without_Goods_Receipt_or_P.O.
@@ -488,10 +450,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtVl2P2jgU_StWRiNaKUj5JJCHXTGBVNVut6PSdrQqfTDJDVhj7Mh2GFjKf1-bJEAooz7s5gFxj33P8T22b7K3Mp6DFVv393vCiIrRvqdWsIZejHoLLKFnoxr4igXBCwqyZ-YUnKkZ-ec4zQ3KrZlmsBSvCd0ZdAZLDujLexuNdSK1kcRM9iUIUvTsXinIGotdwikXZvYdDAunOKo1Qw9c5CDOExwncrNQp1LC4Az7URAFqcmTkHGWd0iLsBgWWe9gFkf5S7bCQh2XX0n4gLdPJFcrHReYStBzVmpN_8QLoKZGJSqDZZXYtGYQaXSYNmxW4oywpcYDR0MCs-czFDqHAzrc38_ZSRR9nswZ0k9GsZQTKJBUGp5uFCoIpfFdkIzT0LGlEvwZ4jtvGk18z85MJbEu3bGNuf0XIMuVihec5s3U_oupIfbKrS22sefYYqd_r7SA5WelZOANveFJ6SFyEzdplYqi-E9K2lfxGcvnRmvqp146OWm54SBMnJ_52jInQTR2r30CsSEZXJCmaepPz1ZNB6HrvE76kPoDJ7kiXWIFL3h3JhwlwYkwDaPUjV4lrPWuV1ktHgXPWkJ_GqbhiTB6cNOx9yphMHaDYbNCzbMUuFyhcZbxiimJHvHO3LoWwEzVM83D_G_f5laB4wL3M75E74CB0KWh92zDtWmo4AIlnEmyZGtgCs1AKQrm79z6_r0m0ofjSvsJC1hxvZXoA2Z4CeJC0T0Jmq1GnyADsoGuiOLZM3oiSnMo9PgRvQkdF_3xVkteEHldIkNQrW8QdbMCnTVlR0O0MU0hF-OhHq8XjWZVWVIC4leUg_3-7GEO_YW-zNlKW6iANgbkxlCdzsXu97l1OFxkR7ezT-K_JBjeJoBtRiuprX1XH9WrrNF54wt9RUH0eQkMJQLM9n8CCrp1o4-mgyLFNVBSYESuagMkerPYoaSSiq9BvD2fhXqLnf-B_Ks-VvyS-nTMWIj6_d-07004MOGPufUXn1s_tKFX8N8gj_iowaMr3G2uInNrWq8JvTr021GnjodN7HfDUTcc1mFwpdks8bJFGd226XVg7zbsXza0zkhweiV04PA2PGh7WAeNbqLDm-iobVrdapwWtmxLH441JrkV763jJ4D-TMihwBVV1sG2cKX4bMcyKz6-Kq2qzLXMhGDdRdY1ePgXkmysng==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-100 — Manage Supplier Consignment Stock</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 LI-100-100_Vendor_Managed_Inventory_(Pay_upon_consumption_Third_Party_VMI) — LI-100-100_Vendor_Managed_Inventory_(Pay_upon_consumption_Third_Party_VMI)
@@ -575,10 +536,9 @@ flowchart LR
 
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-100 — Manage Supplier Consignment Stock</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -593,10 +553,9 @@ flowchart LR
 | MRP Controller | LI-100-100_Vendor_Managed_Inventory_(Pay_upon_consumption_Third_Party_VMI) | |
 | Supplier | LI-100-100_Vendor_Managed_Inventory_(Pay_upon_consumption_Third_Party_VMI) | |
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-100 — Manage Supplier Consignment Stock</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -608,10 +567,9 @@ The following data entities are derived from the system integration flows for LI
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-100 — Manage Supplier Consignment Stock</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -666,10 +624,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-100 — Manage Supplier Consignment Stock</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -712,10 +669,9 @@ The Future-State architecture represents the **target** landscape for LI-100.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-100 — Manage Supplier Consignment Stock</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1103,10 +1059,9 @@ The Future-State architecture represents the **target** landscape for LI-100.
 
 **Summary**: 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-100 — Manage Supplier Consignment Stock</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1118,10 +1073,9 @@ Integration patterns identified from the system flow analysis for LI-100:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-100 — Manage Supplier Consignment Stock</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1145,10 +1099,9 @@ Platform landscape inferred from integrated systems for LI-100:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-100 — Manage Supplier Consignment Stock</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1188,10 +1141,9 @@ Platform landscape inferred from integrated systems for LI-100:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-100 — Manage Supplier Consignment Stock</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1220,12 +1172,12 @@ Platform landscape inferred from integrated systems for LI-100:
 | PTPI1529_IF | An interface to retrieve the list of approvers from a custom MDG table(MDG sy... | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Dec-25 (100%) | 4. Completed |
 | PTPI1458 | Develop an interface between PEGA and S/4 HANA system to transmit MSL informa... | Jul-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
 | PTPI1428_IP | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... | Jun-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Nov-25 (100%) | 1. On Track |
+
 *... and 358 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-100 — Manage Supplier Consignment Stock</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1254,5 +1206,5 @@ Standard RAID items for LI-100 (Procure To Pay):
 
 ---
 *LI-100 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: March 2026*
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-100 — Manage Supplier Consignment Stock</span></div>
-</div>

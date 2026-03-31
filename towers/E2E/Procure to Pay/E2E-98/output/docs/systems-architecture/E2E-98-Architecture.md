@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **E2E-98 R3 Equipment Product Supporting Items (PSI) Procurement** within the IAO program. It includes 3 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | End-to-End Integrated Processes (E2E) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 2 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 2 Pending IAPM |
 | **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Process Visibility & Monitoring | Provide end-to-end process visibility across tower boundaries with integrated monitoring | Operational Excellence | Medium |
 | 4 | E2E-98 Process Migration | Migrate R3 Equipment Product Supporting Items (PSI) Procurement business processes and 2 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Cross-Functional / End-to-End | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -207,16 +174,18 @@ This capability includes **3 business process(es)** modeled in BPMN 2.0, coverin
 | # | Step ID | Process Name | Lanes | Tasks | Gateways |
 |---|---------|--------------|-------|-------|----------|
 | 1 | E2E-98A_R3_Equipment_Product_Supporting_Items_(PSI)_Procurement | E2E-98A_R3_Equipment_Product_Supporting_Items_(PSI)_Procurement | Boundary Apps, External Partners/Supplier
+
 , SAP S/4HANA IF | 26 | 15 |
+
 | 2 | E2E-98B_R3_CFIN | E2E-98B_R3_CFIN | Boundary Apps, CFIN, MBC, SAP S/4 (IP & IF) | 17 | 10 |
 | 3 | E2E-98C_R3_SAP_Transportation_Management | E2E-98C_R3_SAP_Transportation_Management | Boundary Apps, External Partners/
+
 Supplier
 , SAP S/4 (IP & IF) | 12 | 6 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -365,10 +334,9 @@ Transport only"| n23
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1v4joW_isWo1E7EgjyAqF8uCtIoYM0M-VC7x2ttvvBJA5YDXbWTgpsp_99jxM7gJteaXv7oRJPznPez7GTl1bEY9IatT5_fqGM5iP0cpVvyY5cjdDVGkty1UYV8CcWFK9TIq-UTMJZvqL_LcUcPzsoMYXN8I6mR4WuyIYT9Me8jcZATNtIYiY7kgiaXLWvMkF3WBxDnnKhpD-RYdJLSmv60YSLmIiTQK8XOFEfqCll5AR7gR_4M8WTJOIsvlCa9JNhEl29KudSvo-2WOSl-4Uk3_HhJ43zLfxOcCoJyGzzXfoNr0mqYsxFobCoEM8mGVQqOwwStspwRNkGcL8HkMDs6QT1e6-v6PXz50dWG0Xflo8MwV-UYilvSYJkDvD0OUcJTdPRJz8cz_q9tswFfyKjT-40uPXcdqQiGUHovbZKbmdP6Gabj9Y8jbVoZ69iGLnZoS0OI7fXFkf4b9kiLD5ZCgfu0B3WliaBEzqhsZQkyd-yBHkVD1g-aVtTb-bObmtbTn_QD3tv9Zkwb_1g7Nh5IuKZRuRM6Ww286anVE0Hfaf3vtLJzBv0QkvpBudkj48nhTehXyuc9YOZE7yrsLJne1msF4JHRqE37c_6tcJg4szG7rsK_bHjD7WHoGcjcLZFE16UvYzGWSarZ-qPOf96bC2ISLjYoVWRZekRLVLMGHQemocrdL3YcsLo4ctj699nNBdoSxIR-kyQcrQQMNEsP-MypRLnlLNLplcynynZI8xi5Y7g7ykBMOMSp2h9BIU5SRUSF1GOJn_IS7X-mUNnthFlaBqOL2X7IHsvNpjBvkEPMGsy4yLvVBaWvMiV7buCxgRdz5d3VuiDM0vfMSvAPcqeOfSURPlW8GKzRffh8pIUXLgX8Z0yoWldNHEn3fuMsAdyyLs_yRrKRnNyqWFYasDxiic5-hOnNC4D7E4PEcnKUL9CPlOlV63ZGAEiCliv0PF5kVnlC65BXYJHCe5kKVbZpTmFJn7TA6ouRKpkfznnD098mfPsIuU6ztjieM7Li-GoM6KzhsxHW0QOUVpIINxVQ_TYen09p7nNNMgZ4kJl-h82w_uYoeGJhoXge9nBaY4yLHCakvQNCZagNWPTQ04Eg35YwCpmRMhumU1KBDrPnXs2cotCwD6XBN2rwwnBSZPiNRdVIp8pRqv5bDlfWdXzzjSE4KuysCIpiWpaUy9vucyhLy5tLKDzcWrpV8O0oNETuuM8luha2_iivZRbmqlBtVhqrGZckAjLHKzsdgWjUWVFTbpCqM0phwlTqaaiHAZ0XedsymJr9LzBxyobfIjm9_9uQ6zGC7Tq-l_HP8ZoPjtTfQNhh4Kogas7YEn-U1BJy3yFW8w2kAt4mqYdyrqLQm47UE0rIU7vfA83aar2q11hx2lwoCyuJVf2qtWj2rffC8xymh-7q2hLYtg06BbUSdtD762Gb3Dh6sxzskO30LRvjwhH9d-DoJsNCN89rMAkiZ4sGdVtIU6jIlVBPOADsU4EZ1BaXqdUbv86SLWcx9ET4_uUxBvSDTlL6JvhtEjDUwbnbK1OVxUN1AHO2D3Nt-grh8sLGlOhLgZrOMcRK3ZriOj66_jnxE6T6oiH72gKEnFc7s7zMVFlXsD46oEsK57Zs-QYoXqC9AFjySlTU3fauRmGaOmVTVofgtW4wrGGN-TtiHu9mjpR1HA2_2FJ-M2jZnXAGHTH5Vn_gxAI980K7zerMUtiHKlDr4F38_-NbDXnvY-QnI-Q3I-QvI-Q_A_uLnaDOp3flFX92-lVgHejAU9LeL4BfAX8UsMGy2qul9V9Ac3zS60QWyyEUhI4g6rBVyLGludUqg3F8bSpgQG0gF9LaAF9y2eu_j00v4MKMM-9oRawfptYfO2A4WsHTOy-Tobj20DfONTXCo1Fx7cAX_vsmKBcbaRWEehEwWGqD_Lf9wxO7kdWzync7tJjmTzXhKINu7VrOhd-zwDajmMA11TEm7ioi6auuoNWFTHxOyY_tVYdjnNjAebVDZ5owEi4fW2m3ktLAkEwCXfT6oqznKkrzq-zOlZ1-XV2oZDw2qvuMhbDNVnzdHTG84EudF1pV2ss7-bArNNvesgEYFqk1qx7yDUMzwT0g1deB0aVMWraM7CdMMx_qtNKue9Y1aozYKp1am1TT-OXryvuGPPOwBoXTwNuPS6uLWGyAtfp0qHAmnLn_P25nCfzoeESH-qPApfoTbO013sHd8yb9CXsNsNeM-w3w_1meNAMB83wsBm-aYRhOTTCzVH6zVH6zVH6zVH6dZStdmtH4JWMxq3RS6v84gZf5WKS4CLNW6_tFi5yvjqyqDUqv0y1igzeKMktxXB33VXg6_8AHwkVxw==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 E2E-98B_R3_CFIN — E2E-98B_R3_CFIN
@@ -487,10 +455,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtzozYU_isadlInU7tFXHx7aMc3djyzTj1xt51O3QcZRKxZjKgAJ27W_71HIGGDyUO3eUjQ4TvfuR8gb4bPA2qMjbu7NxazbIzeOtmeHmhnjDo7ktJOF5WC34hgZBfRtCMxIY-zDfungGEneZUwKfPIgUUnKd3QZ07R52UXTUAx6qKUxGkvpYKFnW4nEexAxGnGIy4k-gMdhmZYWFO3plwEVFwApjnAvguqEYvpRWwPnIHjSb2U-jwOaqShGw5Dv3OWzkX8xd8TkRXu5yldkdffWZDt4RySKKWA2WeH6BPZ0UjGmIlcyvxcHHUyWCrtxJCwTUJ8Fj-D3DFBJEj85SJyzfMZne_utnFlFH162sYIfvyIpOmchijNQLw4ZihkUTT-4Mwmnmt200zwL3T8wVoM5rbV9WUkYwjd7Mrk9l4oe95n4x2PAgXtvcgYxlby2hWvY8vsihP8btiicXCxNOtbQ2tYWZoO8AzPtKUwDP-XJcir-JWkX5Sthe1Z3ryyhd2-OzNv-XSYc2cwwc08UXFkPr0i9TzPXlxStei72HyfdOrZfXPWIH0mGX0hpwvhaOZUhJ478PDgXcLSXtPLfLcW3NeE9sL13IpwMMXexHqX0JlgZ6g8BJ5nQZI9mvK86GU0SZK0vCd_Yvzn1niiPmVHijwWUcRiNIXu2xp_XaEsQH1OAogSrcnpQOMMPdEDyzIS-7QOxaN7AIdkHJJemvGkUpiTjKCSJACVh1IHWqnh6cxbPl7x2cC2eKV-fm07j-tGHQDNBJX-TdYrtKIHDg76MPF1nAs4mVeapmg6W1WEU5L5exg2uEhpgDjkIE9hLQDsKYcVVWfpA8tHGlOh7WkamcA6dCDTy6XvGZepF_xIRR0ylL5zIaifFWTqmoETt3yjolzAkUrLazSHHnnMDzsqEImD68DRnEZUsjTKYwKDRyFc7XWKPOJnHFrjHsx3ZV66aDWdoRWH_c3FQ4Og7Jgjoy-gCA4GVfif-HMDa11nSsOgAAlPSdTA2gVvEjFfgjd5ApcQ1jI-cphXtOZpBhVqKMnCyzuQtSgCPUEitHhNaAz5mcGifKY74n9B29wysY2WnjQeMoCDI0B-P4kiDvYgTWkzTldRQ4BX5LPCWMEcVLTrOm2DaHgZiCSCJbGEtDIZY0kDPQceqq68DEY5d7gxTNcFLhs-aKpYDRXdJqptbvB2A9_iFUR9SKCbbpXdtzetLJ_7vR08uaC1ViTOIVllw8PFI5U0sH5-3hrn8zVBv51AjUpwgx-04-mrH8HEHunHchM31YbtajMCk071yLWYG32TOdv8NjXcrlZWDtLIBVwnZU1gFpre2tZFnwjBX9IeiTKUEGjciEbvGLW_RclpVWLxe_HdrnnYMNdDInfqKo8y1pNPH6hIHMsleGQZ7KU9DF0v4z35tzmmg_-ueOvMZrJGmx8ddA-j_B2siVqPm-890GgG-y9FslNZAOugWDWw5zc8F7CxNidYHgfJ-aNkbEyO3FwLa9EbDSfoyUaLv3OW6PUY5PAskBuQC7nz0BJ4UnS_3iwfipHMBZXQ24Bg46Je7ycokDrb6mips1OeLfVWFLvq7KqzVQi-bo1HvjW-ynlTNwYK2NdAJajOo_JcEQ3rRLZ6w4kVztIeYVO5WLmsBCN9VjFg7bOtYnQ0A1YMFQAr23pw6h4odawN9NW53zCoPRyqo8Zj7ZDVVKgsqDRju5nWP-S7BDij06o9XU-Wjz-YpgVFJqdexEkgX_3oQwHGFbpfh-N2eC1PRRouO6OsapVb5ehQ-9lv-FnVv7qjG0OrYNUI2LzNfsOs7TSbQ5up7mDdkDpz2FHQX6CUewqBqsc73P8ebcqXefXMKrmwbkGsCoedq5frQqy_lerykfquqUkts1WKW6VWq9RulTrtXkCnqI-JurjfLh60i4ft4lGrGAauVYzbxVa72G4XO1psdI0DFQfCAmP8ZhT_AYD_EgQ0JLC8jXPXIHnGN6fYN8bFl7KRF58Kc0ZgRR9K4flf0GQFJw==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 E2E-98C_R3_SAP_Transportation_Management — E2E-98C_R3_SAP_Transportation_Management
@@ -577,10 +544,9 @@ flowchart LR
 
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -595,13 +561,14 @@ flowchart LR
 | MBC | E2E-98B_R3_CFIN,  | |
 | SAP S/4 (IP & IF) | E2E-98B_R3_CFIN, E2E-98C_R3_SAP_Transportation_Management | |
 | External Partners/
+
 Supplier
+
  | E2E-98C_R3_SAP_Transportation_Management | |
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -612,10 +579,9 @@ Supplier
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 | 1 | e.g. Cost Element | e.g. MES 300 | e.g. XEUS | Data steward | e.g. Intel Confidential | e.g. 10K rows/day | Master / Transaction |
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -663,10 +629,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -710,10 +675,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.3 Data Lineage
@@ -742,10 +706,9 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -799,10 +762,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzxaSoQqpU06dUoBLQM2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpVzTgtOJAKndiDPNUhXyhzXUQSe_N8HaPqQLLpbGE8IsA3I1ahIXAUSTSJrKloSCTyNrVWWI7C6Z00KtkUsJY3p_w5maa8uUCgk6bq4WIqATENUUVFFW1hSXGOY04elMm49tbSxo-rdmbNurFVk1GlH6Uov86EcpwdFokFYL55bM-ZgqaPFU5rwARqRaCiCJoFKCxBgTXn17MCWTUvIUpCTVmHIhnL0hjn67KVWR_QVnr9_tduz--rN1pxfkHOb3zSQTWeHs2ba9hUnznGyGwey3NeoLpm2fnPQ7_4HJqKK7mF73A8yDV5jPPkYlklfQJXJK2luVFpwxAXe0gDojXsfdMOKfdIYbtE_MHjKxw4jmuMbyYGDbH2EaVFlOZgXN58QNfkdWVLLuEcMnO2oT9_IyGA3cH6OLcxK4v_zvkfXHJOnBUBCJ4llKgu8bq3_on3YHMcSzeOyH8ZFt11ET6BD4MvtC0EfQh4CO42CH3wT46V-Fb2Zrx7up45sq2X0oC4hDKG55AnG_lK9Wd3BikKooso4iGGVgN13bRvf8Cn2QSRX7Ao-AVPXqU0yODbAOIOuAs0mx3zvjPeMIr8k-GXlZgn_fwovzs33eM1W1Kk09SNlzf3YJxW3Xe4qsCs2rmoBI7uUIn0Mu8Ox5-oCJOvB7MbrIdi_0lNaiqY6BflDb4kP7oy1eT3VfUu3P7OQdsQYwQ45eiYPZJPC_-ufeJ1QaxKjtbWm5eS54QnXwG-IK4vHNtoTGG5m8K5sg9vxthXj6-PFThZfLdudNin9hNuNhhx1jIGtl01bAp-syuP9rMtmQakh5Jratfy_Enp6e7pxlVtNaQLGgnFnOo7nQ8F5kMKWlUHgNWbRUWbhME8upLharzHGi4HGKTVgY4-ofgABHNQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Current-State Flow Narrative
@@ -811,10 +773,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.2 Future-State — Future-State Application Landscape
@@ -866,10 +827,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1Izz6IEKVUpJOnVJAhI1NyxS58W1rzU2i2AEK9L_vOi40tCCYK6XJfZxrn3tsP1pJxsByrEbjkadcOeQxstQcFhBZDomsCZX41sQ3CUlZcLUM4BaEcYose_ZWKT9owelEgNRuxJlmqQr5wxrqoJPfm2BtH9IFF0vjCWGWAfk-ahIXAUSTSJrKloSCTyNrVWWI7C6Z00KtkUsJY3p_w5maa8uUCgk6bq4WIqATENUUVFFW1hSXGOY04elMm49tbSxo-rdmbNurFVk1GlH6UotcD6KU4Gg0SKuFc0vmfEwVtHgqc14AI1ItBZBEUClBYowJr749mJJJKXkKUpJqTLkQzt4Qx6DdlKrI_oKzN-j1OvZg_dm60wtyDvP7ZpKJrHD2bNvewqR5TjbDYA7aGvUF07a73UHnPzAZVXQX0-t9gHnwCvPZx6hE8gq6RE5Je6vSgjMm4I4WUGfE67gbRvxuZ7hB-8TsIRM7jGiOayyfndn2R5gGVZaTWUHzOXGD35EVlax3xPDJjtrEvbwMRmfu9ejinATuL_8qsv6YJD0YCiJRPEtJcLWx-of-SW8YQzyLx34YH9l2HTWBDoEvsy8EfQR9COg4Dnb4TYCf_vfwzWzteDd1fFMluw9lAXEIxS1PIB6U8tXqDroGqYoi6yiCUQZ207VtdM-v0M8yqWJf4BGQqn59ismxAdYBZB1wOin2-6e8bxzhD7JPRl6W4N-38OL8dJ_3TVWtSlMPUvbcn11Ccdv1nyKrQvOqJiCSeznC55ALPHuePmCiDvxejC6y3Qs9pbVoqmNgENS2-ND-aIvXU92XVPszO3lHrAHMkKNX4mA2Cfyv_rn3CZUGMWp7W1pungueUB38hriCeHyzLaHxRibvyiaIPX9bIZ4-fvxU4eWy3XmT4l-YzXjYYccYyFrZtBXw6boM7v-aTDakGlKeiW3r3wuxJycnO2eZ1bQWUCwoZ5bzaC40vBcZTGkpFF5DFi1VFi7TxHKqi8Uqc5woeJxiExbGuPoHxnFHTQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Future-State Flow Narrative
@@ -878,10 +838,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.3 Change Impact Summary
@@ -901,10 +860,9 @@ flowchart TB
 | e.g. MES 300 | - | N/A |
 | e.g. XEUS | - | N/A |
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -919,10 +877,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 
 > *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -931,10 +888,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 |---|---------|-----------|-----------|----------|------|
 | 1 | e.g. Pub-Sub / P2P / ETL | e.g. MES Route to ICOST | e.g. Azure Service Bus | e.g. REST / RFC / SFTP | e.g. OAuth / NTLM / Cert |
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -975,10 +931,9 @@ flowchart TB
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
 
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -1020,10 +975,9 @@ flowchart TB
 | 1 | e.g. Azure PaaS | Cloud / SaaS | e.g. XEUS | DEV,QAS,PRD |
 | 2 | e.g. S/4 HANA 2023 | On-Premise | e.g. MES 300 | DEV,QAS,PRD |
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1063,10 +1017,9 @@ flowchart TB
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1085,10 +1038,9 @@ Project delivery milestones for E2E-98 RICEFW objects:
 
 > *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
 
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1117,5 +1069,5 @@ Standard RAID items for E2E-98 (End-to-End Integrated Processes):
 
 ---
 *E2E-98 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026*
+
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
-</div>

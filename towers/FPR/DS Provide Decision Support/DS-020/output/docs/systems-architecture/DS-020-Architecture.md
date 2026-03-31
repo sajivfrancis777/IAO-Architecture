@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">DS-020 — Perform Product Costing and Inventory Valuation</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Finance Plan To Report (FPR) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **DS-020 Perform Product Costing and Inventory Valuation** within the IAO program. It includes 15 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Finance Plan To Report (FPR) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 60 |
 | **System Status** | 46 Deployed, 8 Developing, 4 EOL, 2 Pending IAPM |
 | **RICEFW Objects** | 10 Interfaces, 2 Conversions, 15 Enhancements |
+
 **Change Summary**: 22 new flow chains, 27 removed, 0 modified, 0 unchanged between ICOST and S/4 HANA states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Regulatory Compliance Readiness | Ensure SOX compliance and audit trail continuity through the ERP transition period | Intel Corporate Compliance | Medium |
 | 4 | DS-020 Process Migration | Migrate Perform Product Costing and Inventory Valuation business processes and 42 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Finance | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -222,10 +189,9 @@ This capability includes **15 business process(es)** modeled in BPMN 2.0, coveri
 | 14 | DS-020-160 | Execute Order Settlement | Cost Accountant | 4 | 3 |
 | 15 | DS-020-170 | Product Costing Reports | TBD | 7 | 0 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -299,10 +265,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtVm2P4jYQ_itWTivupCDllbCR2goCqVa6bVfL3lXV0Q8mcSBax0a2w0I5_nvHJAHChat0bT5A5vHM88xMEo_3RsJTYoTG3d0-Z7kK0b6nVqQgvRD1FliSnokq4DMWOV5QInvaJ-NMzfK_j262t95qN43FuMjpTqMzsuQEfXow0QgCqYkkZrIvicizntlbi7zAYhdxyoX2fkeGmZUd1eqlMRcpEWcHywrsxIdQmjNyht3AC7xYx0mScJa2SDM_G2ZJ76CTo_wtWWGhjumXkjzi7R95qlZgZ5hKAj4rVdCPeEGorlGJUmNJKTZNM3KpdRg0bLbGSc6WgHsWQAKz1zPkW4cDOtzdzdlJFL1M5gzBlVAs5YRkSCqApxuFspzS8J0XjWLfMqUS_JWE75xpMHEdM9GVhFC6Zerm9t9IvlypcMFpWrv233QNobPemmIbOpYpdvB7pUVYelaKBs7QGZ6UxoEd2VGjlGXZf1KCvooXLF9rrakbO_HkpGX7Az-yvuVrypx4wci-7hMRmzwhF6RxHLvTc6umA9-2bpOOY3dgRVekS6zIG96dCe8j70QY-0FsBzcJK73rLMvFk-BJQ-hO_dg_EQZjOx45Nwm9ke0N6wyBZynweoUiLhUaMUx3UlVL-mL2l7mR4TDDfd1pFK1I8ooeoRr9icGNhDs0wQrPjb8uwpyuMEg4LROVc4Y-EyH1_8uKMDTdriEvgsZQC-LZiV6i9-PfHz8gzFL0zEsFL3tbxb1SwTQpKQQj2D_QTGH9caYgC48TjWFrSRFIAuVtRu8W4y22p4dnxAV6opgx0qxe1FC3qK3it1U-rdP_XWLQKfHDfQm6nmcGWU23udTu1fszhftCC-klLfYEGfK0zTVscz0TSdTRuZtLfpfs_suJLeHLiwf2yDeaarQhAi9JXWzD1LQOuC7JbKvNVnfth6js9yeqNYUvH5KHkAJFZaETzDfkWKYmfi4ZeoBRmAOVLu_DJY9z5pGKr_-NJ-LFmpIOHne_P5eWkv4CRkiyQg-yrieCTVhwin5CM_TL3DgcLoO97wRzGFgwrRmMnN2aQPz0m3C_O5xsE1pKqODXanc8h8H8qG6gj6jf_xn-G7s23cZ2NfB1bvxJ5Nz4Cm_q9cJv_IjfN7jXxr1rvCFy6gWnUmwEvcr0a9OtzEHD4tf5NdGN3fgPruz72q73dzas7SatoLKHDb_Vjj_OA92VZg62YKcbdrthrxv2u-FBNxx0w8Nu-P5y2rYrsm4v2aezTBt36nNHG3Wb4duGvW7Yb2DDNAoiCpynRrg3jgdSOLSmJMMlVcbBNHCp-GzHEiM8HtyM8rhZTHIM87SowMM_2fl10w==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 DS-020-030 — Analyze and Review Cost Estimates for Accuracy
@@ -381,10 +346,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4jgU_itWRhW7Eki5EpqHXdFAVtVOp1XpzGq17INJnGLV2JHtQBmG_77HkHAJoQ-zPKD4O-d85-JzbG-sVGTEiqybmw3lVEdo09FzsiCdCHVmWJFOF-2Bb1hSPGNEdYxOLrie0O87Nccv3o2awRK8oGxt0Al5FQR9ve-iIRiyLlKYq54ikuadbqeQdIHlOhZMSKP9iQxyO995q0R3QmZEHhVsO3TSAEwZ5eQIe6Ef-omxUyQVPDsjzYN8kKedrQmOiVU6x1Lvwi8VecDvf9FMz2GdY6YI6Mz1gn3GM8JMjlqWBktLuayLQZXxw6FgkwKnlL8C7tsASczfjlBgb7doe3Mz5Qen6GU05Qh-KcNKjUiOlAZ4vNQop4xFn_x4mAR2V2kp3kj0yR2HI8_tpiaTCFK3u6a4vRWhr3MdzQTLKtXeyuQQucV7V75Hrt2Va_hv-CI8O3qK--7AHRw83YVO7MS1pzzP_5cnqKt8weqt8jX2EjcZHXw5QT-I7Uu-Os2RHw6dZp2IXNKUnJAmSeKNj6Ua9wPHvk56l3h9O26QvmJNVnh9JLyN_QNhEoSJE14l3PtrRlnOnqRIa0JvHCTBgTC8c5Khe5XQHzr-oIoQeF4lLuYoFkqjYZqKkmvM9V5qftz5Z2rlOMpxzxQbxXOSviGYUGQCKCVMKod2WxcEPUCWZvTgQ8HX1Pr3hMa9RnP3-HCu6V3THKaaLqleg2fYIYVyIdGzKDVMQS2jRJ2T-Vejv39GlH8cc3DNeAI1gsnP9pEgke9R6HsTyxMzFTxj6l8voiGIMUtLhjUVHGGFClAxwm-YlXtwdxg2ScNzUtCmGaTzQYR1tuc8g18ORAWDLh1yzNbfCQIG9EyWlKz27TFWGk5KXVUemqWUOF2jezjGKcAZsP56Qnt7pFVaFB9uXywWheDQSWr3ycglnWMD3RORYLZAj3nei9cpgxPzK4egOSfZLkhD9lzy8wQdZ7OpQzHXT28GB2g6R_fqsonv-VxAOY0gK1NT_N-n1nZ7yua2s520R0FS01On5H-StdkUXaoLPq-dj7ynrFR0Sf7Ynx5NM__nzIJ2sxFVqSQFfMMMoQTOgewi0P7PeQyPZlhKsVI9zDQqsMSMEXZhBFO0_-AO6vV-M9tXrQfV2qvlO4UfU-tvM_Y_jKum5IvYC9xa4FUc9Trcrw-UbmU4eXncWQaVoLbzq7XfjKUC6giCSt6v1v3GuvLr1PxOcB7xbY33G44Pioek7UYuda5uM8RDbuUMhoVrGF8zMDsWv6n0RVzr451-_-RGMjtV38RnsNsOe-2w3w4H7XC_HQ7b4cHhAXQG31ZvlfNk7HZlaKrqIj-H3XbYa4f9djhoh_vtcFjDVtdaELnANLOijbV7OMPjOiM5Lpm2tl0Ll1pM1jy1ot0D0yoLc0eMKIZ7f7EHt_8BioqrBQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 DS-020-040 — Release Cost Estimates
@@ -445,10 +409,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P4jYU_StWRiNaKUj5JJk8tGICqVbqrFbLtlVV-mAcByyMQ21nBpblv_fmE5LNqA_NA_I9ueec64tzk4tB8pQakfH4eGGC6QhdJnpHD3QSockGKzoxUQ38jiXDG07VpMzJcqFX7GuVZnvHU5lWYgk-MH4u0RXd5hT99sFEcyByEyks1FRRybKJOTlKdsDyHOc8l2X2Aw0zK6vcmlvPuUypvCVYVmATH6icCXqD3cALvKTkKUpykfZEMz8LMzK5lsXx_I3ssNRV-YWiL_j0B0v1DuIMc0UhZ6cP_Fe8obzco5ZFiZFCvrbNYKr0EdCw1RETJraAexZAEov9DfKt6xVdHx_XojNFXxZrgeAiHCu1oBlSGuDlq0YZ4zx68OJ54lum0jLf0-jBWQYL1zFJuZMItm6ZZXOnb5Rtdzra5DxtUqdv5R4i53gy5SlyLFOe4XfgRUV6c4pnTuiEndNzYMd23DplWfa_nKCv8gtW-8Zr6SZOsui8bH_mx9b3eu02F14wt4d9ovKVEXonmiSJu7y1ajnzbet90efEnVnxQHSLNX3D55vgU-x1gokfJHbwrmDtN6yy2HySOWkF3aWf-J1g8Gwnc-ddQW9ue2FTIehsJT7uUJwrjeaE5IXQWOj6bnkJ-6-1keEow9Oy2SiWFDaDcMWA84c-F2Jt_H1HcPqEFeWUaPQCrPK5VCjLZUvuE90-cXmipACr0VyvnzsXmJ-_UgSTo8pXKMacFBxM0z7R7xNfsNx3LLQEpwNw-pRZn_IZNgSD6r9YwaBvO0pqp08SzhdiomsJLBSs-vRwWOeegvM_BZM0BVspoaksF6rPevqhox05HLi21l6dCn2Aycua3vx4_19bN77S-XHIa-S-o9mXS0srx_t0AwOK7BA9EV4o9kp_qc__2rhe72nOOG3BFJH0CGsGngkcyfTnGxWGS70QT2g6_QlkmtCtQ68JZ3UYNKFdh04T-nU4a0KnkWq17CbdbWKvud_S7YrwbW18zNfGN5Br8HCgEzSxNeT9SVVFDO8e7LLIdqD1YGccdsdhbxz2x-HZOByMw-E4_NS9XvrbsZpXQR-123nYh50WNkzjQOUBs9SILkb1MQAfDCnNcMG1cTUNXOh8dRbEiKqXplEcU2AuGIZZdqjB67-mKKZ0" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 DS-020-050 — Perform Off-Cycle, Unplanned Costing Run
@@ -519,10 +482,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P4jYU_StWRiNaKUj5JJCHVkwg1Uqd7aqzu1VV-mAcByyMQ21nBsry33tNEiBp0KrbPCDu8T3n-N4k1zlapMioFVuPj0cmmI7RcaDXdEsHMRossaIDG1XAZywZXnKqBiYnL4R-YX-f09xgtzdpBkvxlvGDQV_oqqDo0zsbTYHIbaSwUENFJcsH9mAn2RbLQ1LwQprsBzrOnfzsVi89FTKj8prgOJFLQqByJugV9qMgClLDU5QUImuJ5mE-zsngZDbHizeyxlKft18q-oz3v7FMryHOMVcUctZ6y3_GS8pNjVqWBiOlfG2awZTxEdCwlx0mTKwADxyAJBabKxQ6pxM6PT4uxMUUfZwtBIKLcKzUjOZIaYDnrxrljPP4IUimaejYSstiQ-MHbx7NfM8mppIYSnds09zhG2WrtY6XBc_q1OGbqSH2dntb7mPPseUBfjteVGRXp2Tkjb3xxekpchM3aZzyPP9fTtBX-RGrTe0191MvnV283HAUJs6_9ZoyZ0E0dbt9ovKVEXojmqapP7-2aj4KXee-6FPqj5ykI7rCmr7hw1VwkgQXwTSMUje6K1j5dXdZLj_IgjSC_jxMw4tg9OSmU--uYDB1g3G9Q9BZSbxbo6RQGk0JKUqhsdDVqrmE-8fCynGc46FpNvqMOcugHAQv6ZkFzyD6lXKAMvSMlYacGdZ4Yf15I-K1RRJJjcTZdA4SW4jaBL9NeMYbCi5_lUyCTVJISYlmhVBtVtBlyc1ln3eMwjYFKqEwhb7GGnXqWVNSOX2Q8PAgJsAbOgFzqO5Jmx59U3XjNmu-p6TUNzehFO38yZ07ZwjtTNf57pK74_Cg_pLnw-RAOEykTwIQIc4buxihdzC7mbnnIPT9rZJ7VVK62H1dKSm2O057lLzjsVEyZ8ZwCVOPrNGMKSLpDv4zqlAKD2z248I6nW6pfj-V7gkvFXulP1XvY5cWfLtj-F8dYUZWf4SLhsMfTL1N7NSA3wB-DdSx31kPqjisw7AKRw3bM_GXhfW-WFhf4FWs8XGVNqlDrxZtVNxaZlzHUWd9UsdBkx-0bRp8VOe53e38TtU50e8KNAvRzcwzXWpmfQv2-mG_Hw764bAfHvXDUT887ocn_TDc5OZEbuNufXq2Ua85Qtqw3w8H_XDYwJZtbancYpZZ8dE6f23BF1lGc1xybZ1sC5e6eDkIYsXnrxKr3JnBMWMYDottBZ7-AVDaE0I=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 DS-020-060 — Analyze Material Ledger
@@ -588,10 +550,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P4jYU_StWRiNaKUj5JEweWjGBSCvttKOyu1VV-mAcB6IxNrIdGJblv_c6JAGy4aHbPCB8fM65H4lvcrSIyKgVW4-Px4IXOkbHgV7TDR3EaLDEig5sdAa-YFngJaNqYDi54HpefK1obrB9NzSDpXhTsINB53QlKPr8wUYTEDIbKczVUFFZ5AN7sJXFBstDIpiQhv1Ax7mTV9HqrWchMyovBMeJXBKClBWcXmA_CqIgNTpFieDZjWke5uOcDE4mOSb2ZI2lrtIvFX3B738WmV7DOsdMUeCs9YZ9xEvKTI1algYjpdw1zSiUicOhYfMtJgVfAR44AEnM3y5Q6JxO6PT4uOBtUPRpuuAILsKwUlOaI6UBnu00ygvG4ocgmaShYystxRuNH7xZNPU9m5hKYijdsU1zh3tarNY6XgqW1dTh3tQQe9t3W77HnmPLA_x2YlGeXSIlI2_sjdtIz5GbuEkTKc_z_xUJ-io_YfVWx5r5qZdO21huOAoT53u_psxpEE3cbp-o3BWEXpmmaerPLq2ajULXuW_6nPojJ-mYrrCme3y4GD4lQWuYhlHqRncNz_G6WZbLVylIY-jPwjRsDaNnN514dw2DiRuM6wzBZyXxdo0SoTSaECJKrjHX511zcffvhZXjOMdD02z0B90VdI_mwIJnP0OvErqFRI7g0KIXqNMcPpQLWQGvsBTZwvrnytDrNWylL2IHp59rdavye1XVkOCEdshBL3lCdAkBqlI7Cd_Kw59a_ZbBbWtz-0izFfhNOGYHOJ3oA0ywAjZNhT9fGYwuBkqL7X2DRGy2jH5vEIG-In2lCBrdVFClPlMaBpamquoy3LNSYnK4rWAM-loDz0lWEl0Ijn43E67TqidgJpiRkoHlvX66jsnn0j6YOx2Cezw2FZsBP1zCiCLr9mkpCXiqvGS_LqzT6Vro_ajQ_1Fh8N-FMNDOf3iIhsNfwKReuvWyXVfAt4X1l2nhN3jYmw2vs-HXG17t0BL9DjGoN_ya2AiDet3su0FHOOrm9Juo8KibUo2PuxnU-FM3QI2710PJtKIZxjew1w_7_XDQD4ft6-sGHtVvmhsw6ueO--Gnfth17uBuM8tvYa8f9vvhoIEt29pQucFFZsVHq_rsgU-jjOa4ZNo62RYutZgfOLHi6vPAKrcZKKcFhqm9OYOnfwHJ0fMF" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 DS-020-080 — Verify Standard Cost
@@ -687,10 +648,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV12P4jYU_StWViNaKUix80keWjGBVKvuVKNhd6uq9MEkzmBNcKjtzAxl-e-1QwyTNLQaygPCx_ecc--NHZu9lVU5sWLr5mZPGZUx2I_kmmzIKAajFRZkZIMj8BVzilclESMdU1RMLuhfTRj0tq86TGMp3tByp9EFeawI-PLRBlNFLG0gMBNjQTgtRvZoy-kG811SlRXX0R9IVDhF49ZO3VY8J_wc4DghzHxFLSkjZ9gNvdBLNU-QrGJ5R7Twi6jIRgedXFm9ZGvMZZN-Lcgdfv2V5nKtxgUuBVExa7kpP-EVKXWNktcay2r-bJpBhfZhqmGLLc4oe1S45yiIY_Z0hnzncACHm5slO5mCz7MlA-qTlViIGSmAkAqeP0tQ0LKMP3jJNPUdW0hePZH4A5qHMxfZma4kVqU7tm7u-IXQx7WMV1WZt6HjF11DjLavNn-NkWPznfrueRGWn52SAEUoOjndhjCBiXEqiuJ_Oam-8s9YPLVeczdF6ezkBf3AT5x_6pkyZ144hf0-Ef5MM_JGNE1Td35u1TzwoXNZ9DZ1AyfpiT5iSV7w7iw4SbyTYOqHKQwvCh79-lnWq3teZUbQnfupfxIMb2E6RRcFvSn0ojZDpfPI8XYNkkpIMM2yqmYSM3mc1R8Gf19aBY4LPNbNBsmaZE9A7VBwp4rSOw3cc9WwpfXHGxLqkr7qXbhrWI3RfYkZU4u3S3K7pDv8RMAD-bOmnOSKxznJJK2YALL6NxnvovdU8Z-p3F0g-heJi5_TC5ygx8ElzVVfjvkttiWV3fjwQrx20Q7gQY1ElxMN5rVQz0m9ffLGqkuYvKOR_9ET6LxD63KbIPzupLMt1U5o-vNQM5BwgrUA-KhOA6qKzxXz-7dUdKYKWW3PhTfrToAvW93BHFB2XpJ3WKhffSV3vzdK-hQar9R7NFuDGRUZJ1v1myq5VG2B_MeldTi8pXrDVPKalbWgz-Sn4w7v0_zrHYPrqeH11Oh66uRqKnKu6i6C19HQe2nqPDv-YBCMxz_o5dCOUTt2zbx3BJAZtwRkALcn0MZD3xCagG9L65dqaX3TrelP_KZfD2rGWPqtQmAC_Z5Ce8KxoA0M23HYjqN2HLXjiRGadIWgqQE5x0hTw6St0aSK2qJPNbXxp0xg0KsFOv3kzcwpmbBPMe4wujSDzNPpa7QFhX2FFo_6abZ40G-McTRPtzme9SIx15IOjIZhdxj2hmF_GA6G4XAYjobhyTCsHt8wDk-Xyi6O2gtgF3XNLagLe8OwPwwHw3A4DEfD8GQQVqt6EIbDMDKwZVsbwjeY5la8t5q_LurvTU4KXJfSOtgWrmW12LHMipsrvlU359WMYnXz2hzBw98_VBcQ" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 DS-020-090 — Review Production Orders
@@ -795,10 +755,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1uP4jYU_itWViN2JZDiXCEPrRggo5E67eyybVWVPpjEGawxcWQ7MJTlv9cODpdMUnVpHhD-zvm-c_FJ4uythKXYiqy7uz3JiYzAvidXeI17EegtkcC9PjgCvyFO0JJi0dM-GcvlnPxduUGveNNuGovRmtCdRuf4hWHw62MfjBWR9oFAuRgIzEnW6_cKTtaI7yaMMq69P-BhZmdVNGO6ZzzF_Oxg2yFMfEWlJMdn2A290Is1T-CE5emVaOZnwyzpHXRylG2TFeKySr8U-Am9_U5SuVLrDFGBlc9KrulPaImprlHyUmNJyTd1M4jQcXLVsHmBEpK_KNyzFcRR_nqGfPtwAIe7u0V-Cgq-Thc5UFdCkRBTnAEhFTzbSJARSqMP3mQc-3ZfSM5ecfTBmYVT1-knupJIlW73dXMHW0xeVjJaMpoa18FW1xA5xVufv0WO3ec79duIhfP0HGkSOENneIp0H8IJnNSRsiz7X5FUX_lXJF5NrJkbO_H0FAv6gT-x3-vVZU69cAybfcJ8QxJ8IRrHsTs7t2oW-NDuFr2P3cCeNERfkMRbtDsLjibeSTD2wxiGnYLHeM0sy-UzZ0kt6M782D8JhvcwHjudgt4YekOTodJ54ahYgQkTEoyThJW5RLk8WvWVwz8XVoaiDA10s8GUiIKqUo6EHNGdGlPAMqDySctEEpaDX_SdtLD-ulBx2lX-neRek77gDcFb8ExRnuP0mAHK0xPwuVSZE7m7FvFaRcaJLBEFn-Wukqi0MsZPeKuU3yVFNsq3EhGVinqAtdUTtPK185Ql5RrnUlXxwFgqwBPbYA2Ia4WwU6HZSTCXSJYN-vDjid_aflErqi19VE9nouY2VRKfLjRGZw0hWdGtMWHrguL3AtBWArM3nJTyOu0Cc6T_CfDxMf50nTmE_4H03CQ5t0Ryb4mkp2yCaFJS1bJqpFBR0B1Q28hXGKXVWCBKwVP8AKo3TWNroB4ufU9jIcwMfMEJJoWaS87Wl5m05Bx8B_ld7nqoJizPCF_Xm6Y9G_d0Xb4Zr5YkhrfpvMtntN_XE6YPC4Olet0lq3qs5mWiy8xK-uPCOhwunzH2rUR4K9G5lejeSvTORMQ524oBohIUiKvhwvTh-KJpkvxbSMEtpPD7SOqkcPyTO2Aw-EFtvlkOj0vHLH2zrM2u8R6ZNTyuXbP0jLtdm0ca-Law_sDqtvumHOqodsPgG0NgFOoEHNhwDGqD0zCExhAahTonx204jq6S01tbe5r0od0E6vId0w_oNAG3WdjPrArm1IU5pjL4DjhVZDKHYRMYNkupxcNmM2pD0GyfMUDv4kCjt68-yF3BTjvstsNeO-y3w0E7HLbDw9P5-QoemaPudTF2uzOEHbjTgbsduNeB-x140IGHHXhHsWpOzTn2epPsdhi2w0477LbDXjvst8NBOxzWsNW31pivEUmtaG9VX5nqSzTFGSqptA59C5WSzXd5YkXV15hVFqliTglSh-T1ETz8A7qQpQk=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.8 DS-020-100 — Actual Costing
@@ -906,10 +865,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P2jgU_StWRiO6UpDySUIetmICWVVqV1Vpd7Va-mAcG6wxdmQ7fJTy39cmAYY0I63aPCDu8bnnXN_E10cHiRI7mfP4eKSc6gwcB3qNN3iQgcESKjxwQQP8BSWFS4bVwHKI4HpOv51pflTtLc1iBdxQdrDoHK8EBl_euWBiEpkLFORqqLCkZOAOKkk3UB5ywYS07AecEo-c3dqlJyFLLG8Ez0t8FJtURjm-wWESJVFh8xRGgpd3oiQmKUGDky2OiR1aQ6nP5dcKf4D7v2mp1yYmkClsOGu9Ye_hEjO7Ry1ri6Fabi_NoMr6cNOweQUR5SuDR56BJOTPNyj2Tidwenxc8Ksp-DxdcGAexKBSU0yA0gaebTUglLHsIconRey5SkvxjLOHYJZMw8BFdieZ2brn2uYOd5iu1jpbCla21OHO7iELqr0r91ngufJgfjtemJc3p3wUpEF6dXpK_NzPL06EkF9yMn2Vn6F6br1mYREU06uXH4_i3PtR77LNaZRM_G6fsNxShF-IFkURzm6tmo1i33td9KkIR17eEV1BjXfwcBMc59FVsIiTwk9eFWz8ulXWy49SoItgOIuL-CqYPPnFJHhVMJr4UdpWaHRWElZrkAulwQQhUXMNuW5W7cP9fxcOgRmBQ9ts8AlvKd6B8-nkCKuF8_UFOeglz42kOSgl-ChNa8FWGSddQ9bEytAqIfW9Utir9IXDpRJyicvXKojeXBMrZlr-qebcHBMgCPhg3oIdDeA9LldnTWsL3pkxRM1SaYR-e6EU35SUFtX_UMrFpmL4R6WREZpwyA7fcDf1vvjkeLxY2jE5XJqDjtbXNtbIbFeRmr1dOKfTi7z0J_PGP5nne_2JeI9YregW_9F88Lc0MxKaPzwCw-Hv5ktpw7AJx20YNGHShn4Tpm04tuH3hfOPfevfzStq8bSDhy2edHD_Ius1uqMO70_R0LyObhcf9-Pn42mLvoylOzjoh8N-OLpO7Ds4bofrHTjq5yaXuXOHpr3ouBc1fWphx3U2WG4gLZ3s6JwvaHOJl5jAmmnn5Dqw1mJ-4MjJzheZU1elyZxSaObLpgFP_wGOeIp7" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.10 DS-020-120 — Calculate and apply overhead for all MFG orders
@@ -964,10 +922,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P4jYU_StWRiNaKUj5JEweKjGBtCt1Ndsyu_uw9ME4Dlhj7Mh2YCjiv9fOB0kYqFQ1D5B77HPOvRd8fbIQz7AVW4-PJ8KIisFppLZ4h0cxGK2hxCMb1MA3KAhcUyxHZk_OmVqSv6ttblC8m20GS-GO0KNBl3jDMfj6yQYzTaQ2kJDJscSC5CN7VAiyg-KYcMqF2f2Ap7mTV27N0jMXGRbdBseJXBRqKiUMd7AfBVGQGp7EiLNsIJqH-TRHo7NJjvID2kKhqvRLiT_D9-8kU1sd55BKrPds1Y7-DteYmhqVKA2GSrFvm0Gk8WG6YcsCIsI2Gg8cDQnI3joodM5ncH58XLGLKXidrxjQD6JQyjnOgVQaXuwVyAml8UOQzNLQsaUS_A3HD94imvuejUwlsS7dsU1zxwdMNlsVrznNmq3jg6kh9op3W7zHnmOLo_688sIs65ySiTf1phen58hN3KR1yvP8fznpvopXKN8ar4Wfeun84uWGkzBxPuq1Zc6DaOZe9wmLPUG4J5qmqb_oWrWYhK5zX_Q59SdOciW6gQof4LETfEqCi2AaRqkb3RWs_a6zLNdfBEetoL8I0_AiGD276cy7KxjM3GDaZKh1NgIWW5BwqcAMIV4yBZmqV83D3B8rK4dxDsem2eALFjkXO_CKdwXVZYEZpRxBRTgDegEkL7-trL96fO82f4ZUCan5InuijuBPo5VAikpaiQ1F_H8VMcnrozCkBD8uHMQ3F4puW1aiKt0Xc-C7DBLOciJ2rXtfKxxqfS2yqvKW-UepW2ZezADLgJa-1R3FP5jLpl19r8nQa1YU9AiW-kfRoyYDL3ssthhmVb-kseppfkjoSjr66SKtszt2Yr2-g096KhMtnmnyzz3ytCNLxYvb5ITruvFH8tPp1JKhEPwgx5AqUEABKcX01_p4rKzzuf_Hc_4bSU-d-oVFYDz-RZs2oVuHYRNO6tBrwqc6DIZhMxZY0ITNAWThVew6NTBpYq8O_Sb063DaO74mn3ZsDWDvNuzfhoP-pBqshHdXJndXosv9MICnzSgfgE_tOBsW5bSwZVs7rM8Ryaz4ZFV3ub7vM5zDkirrbFuwVHx5ZMiKqzvPKqvjNCdQj6JdDZ7_AS-ing4=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.11 DS-020-130 — Calculate WIP
@@ -1026,10 +983,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P4jYU_StWRiNaKUhJSEjIQysmkGql3XZUtruqSh-Mcw3WmBjZDh9l-e-1QwIDk2kflgfEPb7nnHsv8k2ODhEFOKnz-HhkJdMpOvb0CtbQS1FvgRX0XHQGvmDJ8IKD6tkcKko9Y__UaX642ds0i-V4zfjBojNYCkB_fHDR2BC5ixQuVV-BZLTn9jaSrbE8ZIILabMfIKEerd2aoychC5DXBM-LfRIZKmclXOFBHMZhbnkKiCiLG1Ea0YSS3skWx8WOrLDUdfmVgk94_5UVemViirkCk7PSa_4RL4DbHrWsLEYquW2HwZT1Kc3AZhtMWLk0eOgZSOLy5QpF3umETo-P8_Jiij5P5iUyH8KxUhOgSGkDT7caUcZ5-hBm4zzyXKWleIH0IZjGk0HgEttJalr3XDvc_g7YcqXTheBFk9rf2R7SYLN35T4NPFcezPedF5TF1SkbBkmQXJyeYj_zs9aJUvpdTmau8jNWL43XdJAH-eTi5UfDKPPe6rVtTsJ47N_PCeSWEXglmuf5YHod1XQY-d77ok_5YOhld6JLrGGHD1fBURZeBPMozv34XcGz332V1eJZCtIKDqZRHl0E4yc_HwfvCoZjP0yaCo3OUuLNCmVCaTQmRFSlxqU-n9pP6f81dyhOKe7bYaPpHkilAWWYk4pjzUSJBEVfPzzPnb9f0YJb2hfMWWGmgMzdtslovLZWiApZQ1klJZj42dxXUdxKDf5H6nfYglSYt5qmHHv0LGHLRKU6NcNbTSPBYGcooqhI3dNvdhugj0aav20u-uFC33Dzv74dBprZ-wbW9cdXxOGVqLTYdBEzsd5weEuNDfOdMtVtdcnx2JrYZdtfmHVBVu3cLGtWEQJK0Yr_PHdOp1fc0Xdwfa-b3FT9H0S_mwh7wivFtvDL-f5caWbDnH-UEer3fzISTeifw6AJg3OYNOHgHI6aMLHht7nzJ5gJfjPHDT66w8MGDxsvrzXz7hKH7UFTRnyf-Kuo83z_zukeT7rx-v7bJtu9dwMH3fCgGw674ejypLiBh81SvwHj7tyk3Xc36KgTNZPphP0WdlxnDXKNWeGkR6d-MzBvDwVQXHHtnFwHV1rMDiVx0voJ6lQbuxwmDJvFtj6Dp38BkEKuuA==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.12 DS-020-140 — Calculate Variances
@@ -1158,10 +1114,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWF1v2zYU_SuEisAtYAP6luyHDY5tFQWWrW26FUOzB0aiYiGUKJCUEy_1fx8pi7LFUMXm-SEID-8590OXFKkXKyUZshbW1dVLURV8AV4mfItKNFmAyT1kaDIFR-APSAt4jxGbSJucVPy2-Ls1c_z6WZpJLIFlgfcSvUUPBIHfP0zBUhDxFDBYsRlDtMgn00lNixLS_YpgQqX1GxTndt5666auCc0QPRnYduSkgaDiokIn2Iv8yE8kj6GUVNlANA_yOE8nBxkcJk_pFlLeht8wdAOfvxYZ34pxDjFDwmbLS_wLvEdY5shpI7G0oTtVjIJJP5Uo2G0N06J6ELhvC4jC6vEEBfbhAA5XV3dV7xR8Wd9VQPxSDBlboxwwLuDNjoO8wHjxxl8tk8CeMk7JI1q8cTfR2nOnqcxkIVK3p7K4sydUPGz54p7grDOdPckcFm79PKXPC9ee0r34q_lCVXbytArd2I17T9eRs3JWylOe5__Lk6gr_QLZY-dr4yVusu59OUEYrOzXeirNtR8tHb1OiO6KFJ2JJknibU6l2oSBY4-LXideaK800QfI0RPcnwTnK78XTIIocaJRwaM_Pcrm_iMlqRL0NkES9ILRtZMs3VFBf-n4cReh0HmgsN6CFWEcLNOUNBWHFT_Oyl_lfLuzcrjI4UwWG6wLVmORypFQQbwXbQpIDkQ8WZPyglTgN7mS7qy_zlRcs8qPSd6Q9BntCvQEPmJYVSg7RgCrrAc-NSLygu-HIr5RZJnyBmLwie9biVYrJ7THjVLBmFSxE7atCGtVxAZmyic08qXxmqRNiSousnhPSMbADdkhCbChQjSqoFcS3HLIG40eD-mbZ5Q2HIF2q61SBFYQpw2GrcoXJEpSir1nKDE3RtArLEvZQaxXQtmQ7thDfm_XSzDwteBb0vA2Ao3tvO3pbf-cSOehi4b8IN4tRef-3bmCqynodWMqpR-JeCcRxkk9LrIiZY2RQcHXFEYTGVWQzage4Ln_GtGWzMDbD8k7rX7hvyB91EnRJZ7iSzzJ5jp1hFyYsK7xHojFQLcIZu3ighiDm-Q9aN_XWoO7sr3kzogY61bSZ5Sioharm5LyPJLXMbvOfyDrsbtyh1uRKi9oqR6atNR2RpV-t0gNQXiX6byKx395UR0mj1yze3FoSLeqMW-bVKaZN_jnO-twOCcGlxLDS4nRpcT4UuLcTFS7F6RiLySUopTrVM82U9FzihtW7ND747tepzknGqSUPLEZxBzUkIp2RniE5F5C8i4h-ZeQgm_9JpaLgxuiM1Kjqn9P65uiaNCuQ8UB8fhP5YLZ7Cex8ruh043dbhx0w7Abe93YV_bHsdcN_W46UOot8P3O-hMJ79-FgZoItAnFCDuFSBmGmqGKxI20CcWIOoVYGcaaoeMNopO9obLr0nECHejzV_WKdCDWM_uVtN48VUpP1c7Wgd69Kp-rA56eixL39WqoCU-vXzfhzNWTU4-uD6d71iqR-DhU9vMuFDV253pZeyG7Uw50UxWcsnQ6S8c_O17LplLXigHsmmHPDPtmODDDoRmOzHBshudmWGRpxp3-UjjE3RHc6y52Q9Q3osGIRjiCRyN4PILPzbhrj-AjubojubreCO6ru9wQDsxwaIYjMxyb4bkRFl1uhB0z7JphzwybsxQrtLt3WlOrRLSERWYtXqz2c434pJOhHDaYW4epBRtObvdVai3azxpWU2dCcF1Acdssj-DhH_Viqe0=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.13 DS-020-150 — Generate Variances Report
@@ -1302,10 +1257,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWF1v2zYU_SuEisAtYAMiJVmyHzY4thUUWLe26VYMzR4YiYqFyqJAUU7c1P99pEzKFkN1m5eHIDq859wPXt5QenYSmhJn7lxdPedlzufgecQ3ZEtGczC6xzUZjcER-AOzHN8XpB5Jm4yW_Db_1ppBv3qSZhKL8TYv9hK9JQ-UgN_fjsFCEIsxqHFZT2rC8mw0HlUs32K2X9KCMmn9ikSZm7Xe1NI1ZSlhJwPXDWESCGqRl-QEe6Ef-rHk1SShZdoTzYIsypLRQQZX0Mdkgxlvw29q8g4_fc5TvhHPGS5qImw2fFv8gu9JIXPkrJFY0rCdLkZeSz-lKNhthZO8fBC47wqI4fLrCQrcwwEcrq7uys4p-LS6K4H4SQpc1yuSgZoLeL3jIMuLYv7KXy7iwB3XnNGvZP4KrcOVh8aJzGQuUnfHsriTR5I_bPj8nhapMp08yhzmqHoas6c5csdsL34bvkiZnjwtpyhCUefpOoRLuNSesiz7X55EXdknXH9VvtZejOJV5wsG02DpvtTTaa78cAHNOhG2yxNyJhrHsbc-lWo9DaA7LHode1N3aYg-YE4e8f4kOFv6nWAchDEMBwWP_swom_v3jCZa0FsHcdAJhtcwXqBBQX8B_UhFKHQeGK42YElrDhZJQpuS45IfV-VPCb_cOesnkjScgI-koozXIKMMtOezTEh95_x1Zo6E-aLExf4bAeIcD5l5wizD8wxP5BaCVV5XhSjQMQxJF80PaAZElmmT8JyW4Dd5Pvsqvl3lx6SgT_pIdjl5BO8LXJYkPUaAy7QDPjSiHjnf90WmVpFFwhtcgA9830q0WrJWGrdKhUNS-U7YtiLHistyWvKJrHxpvKJJsyUlF1ncUJrW4B3dEQkYmzEbVDArCW455o1Bh26fr7tFbz1Y4iJpCtzKfCKiJlsx0gwNaI2hk1hsZWfWnRRJDT7q8zu7UwOCzznf0Ia3IRhs73VHbzuo83vseHBDSsKOCYi-fCv-ceUqhjfnMv6ATN0rwY8UAkPB3IBaV-ZHItOTSM1p9Q_ZLOm2KohFJjRkBmMZVIgGAnlRj0GF2dn0OfdfqQRq8Ppt_MYYQe6_IL03SfAST-gST3L2nfpTDgpcVcUeiMPJNgSn7WHHRQHexTegvZWYM1bOPTn_SV2rk_2RJCSvxLRhdHseiSXm4D-QX8Qu596SllnOtnrTpKUxqXX6amhYgggv03kRT_T8rDtMXiwn9-JqlGx0Y942iUwza4qf75zD4Zw4u5DouZcS4aVEdCnRsxP1LMVMjGbKGEn4C6pvp5KnpGjqfEdujjcakxacaJgx-lhPcMFBhZloZ1IMkKaXkMJLSNElpNmXbohl4npK2IRWpLT9hxG92buduHamvnGY4_REFxfo4x-lDyaTn0QQ6hEGx2dfPYdqWd0PS7WMIvXsHZ8D9ThVyzP1jCIJfL9z_pTBfxcGemFmLIRqIVIOoXbgGoadZ2gsaJ8zpYC0ITIMYdiLTnaVNlXpwZkB6PcC0UsKgCaAzMx-pa03T6fsqVoi3wQ69yoeNDWB0MxFi7-ohl4IzfqpBdTttN55HY7vquR1rlADOlcIFUVreJ5Z2q7oSt13TVMdoHYLkfKiU4Gqp7xuE9SOdmGoouiCq9Xp2SuMbEz96taDfTsc2OGpHQ7tcGSHZ3ZYVNeOwwEcDeBe9-rdx_0BPBjAp-q1uo-GVjSyojO7MnIHcDiAowF8IFM0kCkayBRNB_BwAI_0-3UfnllhceCsMLTDyA57dti3w4Edntrh0A7bsxSHT30L6J8jV8PO2NkStsV56syfnfbLmvj6lpIMNwV3DmMHN5ze7svEmbdfoJymSoWfVY7Fh4HtETz8DV6YLGE=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.14 DS-020-160 — Execute Order Settlement
@@ -1410,10 +1364,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -1424,10 +1377,9 @@ flowchart TD
 | Cost Accountant | DS-020-030, DS-020-040, DS-020-050, DS-020-060, DS-020-080, DS-020-090, DS-020-100, DS-020-110, DS-020-120, DS-020-130, DS-020-140, DS-020-150, DS-020-160,  | |
 | TBD | DS-020-170 | |
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -1447,10 +1399,9 @@ The following data entities are derived from the system integration flows for DS
 | 7 | Capacity Forecast Data Store Business Data | Capacity Forecast Data Store | SAP S/4HANA | FPR Data Steward | Intel Confidential | Per transaction | Transaction |
 | 8 | Corp / IP S/4 Business Data | Corp / IP S/4 | SAP S/4HANA | FPR Data Steward | Intel Confidential | Per transaction | Transaction |
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -1597,10 +1548,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -1753,10 +1703,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.3 Data Lineage
@@ -1792,10 +1741,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1937,10 +1885,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWQtvozgQ_isWVaU9qWnIu4lWlQiPXlZJG5Xudk-XU-SA06ISiIBct9v2v59fEAiYODpWWjUz_uazx-Px2H5XnNBFykg5P3_3Ai8ZgfeFkjyjDVooI7BQVjDGf13gv2Lk7CIveZuif5HPlH4YploK-QEjD658FBM1trMOg8T2fnNTrf72F2tM5BbceP4b09joKUTg--QCaNiAfwFiGMSNGEXeeqF8UoQfvjrPMEq45V2MZvDXo-cmz0Syhn6MSLvnZONP4Qr5tAtJtKPSAA_R3kLHC56IuKsSYQSDl5ywp35-gs_z80WQcYGH8SIA-Ds_B40G7pvz7M1gghpeEG-9CLkgTt58BBwfxjGKcRvWnP420BqsdrEXoDgG9Ft7vj86s_A37l3ESRS-oNHZ-Oqqr475z8YrGdCovf114YR-GI3OVFU9sAm3W7D_mM1xj1jNbKrqYDDun2DThQks2zSujthsFWymOhfG2HkRfMM-Bb0Dpo3nuj56hRHKe8Toa3uPmIO-tbcm0XsU-iWPEB_nvKzrqnrMJrMa71ZPEdw-A23690JZ7Nyrjov_dzs9oM3n04muPUzubsFU-8u8Xyj_MBD5XBwQTuKFAZje76WGrbZVfanNJzemmTfooD5gUmxlNBrhaS2hxnfjb4cYIhMjdGtyu7SX3eWf2q12CCVKYDe7gChrbEzG9yUoltUg7mZzzbZLICauwYXRdjmZkw6XsFgFmmAyJx3-uoqa11-9a8P88bXpXYsNGnqpE1gkbm9qDyUAkaWE5t10T4jDrGxAL3kZi2oIdW2pGVO7AtQg8nqkgZfpOPKcl7gKv9fWW7GD8NXy4QuqMpIpa2wYjyWk8Shub5V9ZNX5yPICGDioMoS57kgET_Q7--EQSoVizBQ9QedtOTNuDoFMA7BGjJ5p96U5JbIahGkvO6paApk2wGIxbm7elLxCZGKErc3xvOuHICzGM67X4ybjeRUOi4_g9J-VOP1nPW5-VwWb39Wg5tptCYNldQjTNMoQLKzBeC7SYVRCMbEY9xhGL3YSIbg5hO41YvRP83spqojsAIECN929isGFC5Lrj4Vi0J1poXzk7RbaE4GoMVs3QeWgRBga-sHB-pAnIClYvjWdOt48jZaPg-AXAkr2SSoLKvNCiri3wBeSa8E92vqeA-meb0Vwgy4vL49Qk320rqtkgQTltSTq7BEKGecxC2mfpg-51oViosiR11Ri05URlBcRb68ZFvZgnJAqCO_0tvUw_zL2w9Uf-cng22UxOriQ2_mODy1vQMcT4odPB9jclhgI99K0_3jnW5OdD9ceQYD9FkakW1i69bbowPB-mwyq65kTHVqwKZo9WoQJpnoSJCgKoF-_rnTtlOZUwgGWh8855CzoHgm_POibCeZhnNADloQTirFoPkxrliX-XdmuYtCCliVvWpl3_ue6yRcwRYacIl0F_AjwUTwpFGBMJALQzf8IS2lA9BRxBFSZoLAgKO3ZJyVfVlUI069-kGnYGUJ-YnC9f8rWod2mrRG-JAh5Zv_hRckO-t5vmtz_KNtIT6A4fxzM0nOET6TkHiLZxqNm04PbzaWHV5t_6YSb5lkT79rNdnswxCUeSGeTXC5MtPkMnKWa5crHtxMVLGTipDhag36vRTkoJGNI5UKGYm6Xoeq2h8MOpSqcMPecaQMxJ0lkUp7rDBgRy3yp16hUbJ3HkJTb-t3OkFFkkZd6jqvEPLn0L-W3VqfP_ZY_7eb8xhsIGUmwS42q2-13KRNbHumIuFhonxZiUgQt5jReuaX2W7X-ItuRlJ86mXk9H1Wd4_ZZoSAVWb3BsJuSNHh9kcYX19Uy5QoKucnv9q4yvkI1ks0-a1HLui8aZEg7vatWKyPNFxycM20g5sS7qdTw1BbLcGz7TYfEpELrlmxEdIc8gVqFiOBisf38LndaasvfPJyQ2Vg5JEM1VFUWD2kFxSm4XMiQO6DITYzaZzz7e438BDGtkI0e5KRCrdPjuZqf_dII43IxAz-7yi2i9qDHSNi9SX71MJWQh9RNsumHp2kKyeef-uyc1ohS6QfnMjYSfi-Tyz5cVctDSiq56R-ow4yHFWLZ3DNVPQ8-jJ4-HnaEPWU8uKg8nYZWotIspPaT5Ohxl7Fycc_Qq_cXvWeQWiytXmvAKdjdRLpauELMwc_UpyWz_UlcNo_l7nykBjS4GrCNpnBZlI6Ka4Vs9D5KbkPrt9qUh19hZfsYk6cM_G2HvtaNp7mXOEs99hKXh2oZVJV5cCu9KeGUiy_rCld6rgqm5o15a0g8Jk3xIaN0H6tts1uoipvE6XJWuK13WwMwy97gGGD_JpfHGeZ1nsnpAno0MoME37cwIHk2zEPwcwnlavfdLm7oNsJ1Y-qt0cH7Cb2v3DuVOSV1bI_8yxw7HA5LT47KhbJB0QZ6rjJ6Z-_O-PnaRWu48xP8WqzAXRLab4GjjOj7r7Lb4o4iw4N4EjZM-PkfXIcEgw==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### ICOST Flow Narrative
@@ -1975,10 +1922,9 @@ flowchart TB
 | 26 | SPEED BOM to EDW | SPEED → EDW | Direct | Batch |
 | 27 | WorkStream Routes to ICOST | WorkStream → MARS → ICOST | Direct (×2) | Near Real-Time |
 
+
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.2 S/4 HANA — Future-State Application Landscape
@@ -2159,10 +2105,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq9W41vo7gS_1esVD31pLYh3x9aVSIh2c0p2aLSve3p8oRocBpUAgjItX27_d-fjU0wX8Y0ey8rrdIZz2_s8Xjs8Tg_GhvXhI1x4_z8h-VY4Rj8WDfCHdzDdWMM1o1HI0DfLtG3AG4OvhW-LeE_0CZM23VjbiTyp-FbxqMNA8xGOFvXCTXrvxSq1fdeSWNMnxt7y34jHA0-uRB8W1wCGQHYlyAwnOAqgL61XTfeIwnbfdnsDD-kyIcArozX75YZ7jBla9gBxO124d5eGo_QjroQ-oeI6qAhap6xsZwnTO5KmOgbzjND7Env7-D9_HztHHWB-8naAehzfg6urlDfNjtrZYTwynICz_KhCYLwzYZgYxtBAAPUhjSP_lbgFjweAsuBQQCiz9ay7fHZHH0mvcsg9N1nOD6bDId9aUL_vHrBAxq3vdfLjWu7_vhMkqQMpuF5IPkQzEkPox4xJWkwmPRrYJpGaOQxlWEFZiuFGfNMI0DG8403ZFPQy2jaW6ZpwxfDh6xFlL6cWGQ26M8TNIHeQ9fOWQTbmLHydCpJVZgENTg8PvmGtwPy8u91Y30whx0T_W92ekBW1eViKt8vbr-CpfzX7G7d-A8Rwh8TOcQmtFwHLO8SqqJJbWmuy_fTOxZuA_sA0xDCeDxGU5qTmM4XX3VN7-pf5K9yVhQzgdbsAszkYBjYvcM3fe6ivhlBqCtoonUtRH_mIGlbELcFuC2I2nI0uL6nL9TyjiI-aIKFeuztp0e_efPJulFmf35qWjfl0MrqNm-ziMiReSgQeeBJzKayLitLLSuF6FeYzpfEJpr41uY5KJJPuHwUzXFf5rbxDItAjkwexkr_bjkmik62ncdYgYsj9_dylPk0ZwREiqdrdrtMpgstuJz4Z7xorBBOXcdB6yALlWGXd2Mx1XR150LHes1iIBa4oDzOQBZzfWIfoP6X65jQz4HMAeYCwuWiqMoX5OBOcNh7eF0bdgEWagNSbSoR5-7BQfGWB8g2qcS7M15KYBCHK122aJF47dWKYgDP6Kqg0VUBo6t5o9fpZuUcqLk5qAtfNCVqPCXCYCv5LrciMY0jMdP0jiTlhGYaQORyOVVBzrD6kpVD5CtEFu5w5dTVWCxVsyS-TEompHKBqMpKv0dnxMA20B6YF1-BhMtBcV-gr08WuiLfTXMgmAkmC3CBuZyQpsmqjk7Gj0YWATFAxODLTm4nfxSJYrpwhMdAi4lahIPI_A6osroqEsR0Yf_CQDhmrZTPRVg4ZiFWhbw8LZSVpxy5_M6o1dgZNXU2U3IAmMhRaZlwauS8jpLL5b5r6vesEKZxJFz_WQt9aOxzckdOufTD7FvONpiWkYCOGZ-v06EKpUw3P9cNJTo7rxs_WdxUe0woa0zDV6o9pVGRmbwA9OSBF-vPgk0wJc3QKYK2vGfkUofzlGRitLLeRiHcycT5OkNLHfeoYDYc_SyOYhkTsawqIGbxpVAYejyIuzkKaDh5uIOebW2iCA3mvrGH19fXAtY_ATKbj6Rx8Zo7wWCsvKzMUV9QliSrC5TgaPN79WJiu4-_M1BxbpGZPUKkON8cnHNN0dBs9ykjy-QPTmniEfsnShO2OE1I_Bx3C1E9y4MZ4CSncMpP8BR4dbCh5m5D8Bsar43sLuATVcsnDmMOJ5MUF2TXorAUpZ06myhDKlu6vOQ7PQBOQ6Z_TaBMQMpdEOl-l_b_Upc7TnlmWpuTW0UTiYhJWnbygPHFx8kg2i-wPL4aOB0EX0mcjII36TKQ8iWbTnWrnGXq5uIvPRxnQSm5rvcVZLhFyCy_IgwWZeFFkKkGvy4kFq2cO7h3QwjmB4fc9smm4YUQQ6_S1ojPven-qifNmFo8Y-qHZ0ytmDG19oypVTOm_psz9i_Z4Vcb4f_ss2XRnn9cIulS3DP0LTqBzV49F5VGNOj_Y20guJDV_BZU3LMsoApuo8JDQKAC8GKFO7BxnRrHxPpw3DHXMl5pEvDRnnEBcShhEBdOCFGhIgpB2gEd27Cf7A1x030Er9Jf0EXAL9qFjlceMZ5nPUHcqXg6BIcpilHbLYSXauoKqOwQmr2tidPlDcp2nouPujsf1b5wxTP0gnGzaRne_tpCs2hfb9x986yJsu9mtyX12usGapYqGeFq5gLP_1ncQH-0UTm0SCfvdCrShc6gPeySLnBKTEmP4vblPcpmCmKG6PQ7pBe5khRrDdKqVDc57IkobHXiYccHRKojZpTreKiv4qGWhmMOKmS5Tqs1irTENTHGXpTH1cTkqvX1pRLdOlqT5VpfKbvUxXWytzJCC2M4GPSozlSNjlkLtEmpVpx_iugatUeDSBVJWCk8pZaiZ28EhEbV74yGkar8fUI8KtqkVC-bbAothFF3QIaXKhEyK4I2KNeYTqQEQ2tXIkpTJcVUbI1a8LTmD4JCuqVBdxDrzlVVmB7QdlU9SB1tP9SBzOG4pn58Yv-QWnLUr6Htg5sGUxKtsVtkkj1Br-qQQJSumaa8qjOq0Pphr-pJsW6-V_UkgR58xKvSHSj1KiH9NbwqrTbrVXxt0f29UGjs9DrEe-mVfxwPKb1cAy2WiDlQm-4qtOzLek6bv5vERRMRPb1Re0jWBi0TJ3piFkfPaUHvlIh3Yrg7IdZ9LNDVj3KpfENIW7_T75Ggk6lIJ1rjJqVak1xLbMfu9YnGYwWb3a0Jk6sLJ0liqlodejiIK96MJsrjasI5reCcScmYSCaczJlUOaIoIRdb4l2pdVRE8_jjGic8riZ8NyGWurGKyI3GMUsT0UOLeGLWk_rDRBep5bMWJOxyfYIn4TbKjqg7sEfhmFyOHxX_hKzW6rWoBlowjG1GGeU66H2AkL3aoxGJv8ktQmwryirVExUbxDyNZkW0PHF0Mn4uxBTBxdxsOCBulqqeHz2NcEu1RU8DhPT0-i1yGUJfE8QaKD3WQB8CR0-7J0vm2fZcqnq2zYrKR1FJ5HV27gHyEj6hdxOp1xWmBJazz7OvisDL46WO3ivn3hx7x_J5waOOpb5KvR4xWwOwOj7YJgLJA25WTpndsJo2XXpX7ITovocI4htQVgS9m4l0tftmFzU0r9zt1dLawsxDmujpSGJUYpTYsD3872jY0WiUe5_euGzsob83LLMx_kF-pIB-62DCrXGwQ_TTgoZxCF3tzdk0xtGPBRoHD3UUKpaBJmFPiO__A_oqyfA=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### S/4 HANA Flow Narrative
@@ -2192,10 +2137,9 @@ flowchart TB
 | 21 | WSPW Direct to ECA | WSPW → ECA-SnowFlake → IF S/4 HANA | Direct → MuleSoft/BODS | Batch / On-demand |
 | 22 | WorkStream Routes to S/4 | WorkStream → MARS → PDF-SMH → IF S/4 HANA → CFIN S/4 HANA | Direct (×2) → EAI Connector → SLT | Batch / On-demand |
 
+
 <div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.3 Change Impact Summary
@@ -2321,10 +2265,9 @@ flowchart TB
 | WorkStream | 37871 | Deployed |
 | XEUS | 35612 | Deployed |
 
+
 <div class="page-footer"><span>Page 29</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -2361,10 +2304,9 @@ flowchart TB
 
 **Summary**: 10 Interfaces, 2 Conversions, 15 Enhancements
 
+
 <div class="page-footer"><span>Page 30</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -2384,10 +2326,9 @@ Integration patterns identified from the system flow analysis for DS-020:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 31</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -2497,10 +2438,9 @@ flowchart TB
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
 
 
+
 <div class="page-footer"><span>Page 32</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -2676,10 +2616,9 @@ Platform landscape inferred from integrated systems for DS-020:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 33</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -2719,10 +2658,9 @@ Platform landscape inferred from integrated systems for DS-020:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 34</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -2751,12 +2689,12 @@ Platform landscape inferred from integrated systems for DS-020:
 | FPRE0701_IF | Mixed Costing ratio auto update | Jan-25 (100%) | May-25 (100%) | May-25 (100%) | Jul-25 (100%) |  |
 | FPRE0700_IP | Representative material ID – Q2-Q8 Forecast | Jan-25 (100%) | May-25 (100%) | May-25 (100%) | Jul-25 (100%) | 2. At Risk |
 | FPRE0700_IF | Representative material ID – Q2-Q8 Forecast | Jan-25 (100%) | May-25 (100%) | May-25 (100%) | Jun-25 (100%) |  |
+
 *... and 7 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 35</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -2786,5 +2724,5 @@ Standard RAID items for DS-020 (Finance Plan To Report):
 
 ---
 *DS-020 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: March 2026*
+
 <div class="page-footer"><span>Page 36</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
-</div>

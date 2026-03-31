@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IP) (FTS-IP) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **L-060 Manage Storage & Internal Movement of Inventory - FTS (IP)** within the IAO program. It includes 7 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Forecast to Stock (IP) (FTS-IP) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 2 Reports, 20 Interfaces, 3 Conversions, 17 Enhancements, 6 Forms, 3 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Demand-Supply Matching | Implement responsive demand and supply matching (RDSM) for IP product lines | Supply Chain Agility | Medium |
 | 4 | L-060 Process Migration | Migrate Manage Storage & Internal Movement of Inventory - FTS (IP) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Supply Chain (Intel Products) | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -214,10 +181,9 @@ This capability includes **7 business process(es)** modeled in BPMN 2.0, coverin
 | 6 | L-060-080_Confirm_Material_Receipt_by_Requester_-_FTS_(IP) | L-060-080_Confirm_Material_Receipt_by_Requester_-_FTS_(IP) | 3PL Inventory Manager (Receiving Plant), 3PL Inventory Manager (Supplying Plant), Inventory Manager, Planner, Trade Execution Analyst | 32 | 9 |
 | 7 | L-060-130_Manage_Inventory_Placement_and_Movement_-_FTS_(IP) | L-060-130_Manage_Inventory_Placement_and_Movement_-_FTS_(IP) | 3PL Inventory Manager, Warehouse Operator | 10 | 2 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -351,10 +317,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWF1vozgU_SsWoyodKZH4DCQPu0rS0K3UTruTzIxW031wwSRWic0aaJvt5L_vNTEQCMyutHloyrHPved--AJ51wIeEm2qXVy8U0azKXofZFuyI4MpGjzhlAyG6Ah8xYLip5ikA7kn4ixb0b-LbYadvMltEvPxjsZ7ia7IhhP05WaIZkCMhyjFLB2lRNBoMBwkgu6w2C94zIXc_YF4kR4V3tTSnIuQiHqDrrtG4AA1pozUsOXaru1LXkoCzsKG0ciJvCgYHKS4mL8GWyyyQn6ekjv89o2G2RauIxynBPZss118i59ILGPMRC6xIBcvZTJoKv0wSNgqwQFlG8BtHSCB2XMNOfrhgA4XF4-scopuPz8yBJ8gxml6RSKUZgAvXzIU0TiefrAXM9_Rh2km-DOZfjCX7pVlDgMZyRRC14cyuaNXQjfbbPrE41BtHb3KGKZm8jYUb1NTH4o9_G35IiysPS3Gpmd6lae5ayyMRekpiqL_5QnyKtY4fVa-lpZv-leVL8MZOwv93F4Z5pXtzox2noh4oQE5Mer7vrWsU7UcO4beb3TuW2N90TK6wRl5xfva4GRhVwZ9x_UNt9fg0V9bZf70IHhQGrSWju9UBt254c_MXoP2zLA9pRDsbAROtuiGvRCWcbFHd5jhDRHHdflhxvdHLcLTCI9kutFn8ldO0gxlHN3xF4I-cVbRaUpCsJAReQQftT9PrJhNKw9ERFzsSndoliSCv7RJVpO0yp92NEOrLU0S6H10R3a8SbC7vTzg4FkSZNJImjY5TosjKMvQgu92RAQQhgyOQ0tURm4pRH-5uHm4_dg0NO52vobjmkYS4GkmDdwzglYZSZpst8n-koSQR3TFf6Lc61I-52-omCrNvYb9vdod8A1aCCLtN3IJoSKfQhllOYDe4DtNfhndnOfFFEQ4SVK02JLguc0cN5lf5UzeVxUvGooKGPkgPhJ8hxZ5msHXWo7_ti23W4VMLbrmPEzRTZrmZzSvSVsLupFdt9xhGstOhlsOugeQMgxtjDALQVZAEypF8eis5RrGJ52ZvSIxfSFi39ptmpfVbggzqbpiscVsQ2TjJTHJSAi8j6c8q8VrVu7YLiF6pdkWPVzfVHag03CWp21r7vt7rTkkoydo0mBbiUbzGBoP7P36qB0Op0SvmyhHQVHB9T4h56xJDwuzHDqgOCEJF_LYwW1YFoFy1jZi6d1GyFsQ5ynIvj6O2TbN6KYd-4-EZ26supwR3I-IGPGEsFoaqfUWOtEI-esVurx5-FjXGu6BrRH7EGPGmoPV6p6sazVZ19CU_2WyGnVnJDHcZuaQDQbDAq0CwuAxCs51CEZoRM-7atzuqvW9auD2Vsus84iF4K_pCMdZJRqOYaWvaIKzvNo9eVWDKIOGq2flvXwaQ5cg56dJhf0hQcs3EuRFKWYMx_s0O3E76R7K11CxYljBND49qqfl0ZvUWRjW5wMmpTRxx-EhlosWsXXH_A2ibeTpbOj-npNiZp0aMf9FeKsJ9O7BKLef3FsbFLtV-yq4Qk4Z23nPOD-dRL3kqnpsjEajX-QoVNeWrYCxAkxPAj8etW8wzigrzk72qP0AqtphWIrilcDx2rDLa2XTcErAUUBpYqIsuOUGTwGWAhRhUopylag_SFpoMdRjGVOuvLb6Qra8vRz_gUBWeHcc8Zjt4TskhSGrFG1OFPMTPy6UUtyjB6v0aFltQD8CpSXLrCyx0ekQOSovQ1Ys027HqAQYbltZGXy1oBJvlcU0VHVL6UqpUaVRuSyVm0qDVYqyjJaGs4VSg1naNJQIsyq2SphRtUdZbXWtam1UqpUsp52_89xZJw_jsu_Kl5AGbHbDVjdsd8NONzzuht1u2OuGJ90wdEQ33hOn0ROo0RMpHMuTV6zmktO_NO5fcvuXvP6lSe8S9GPvklG9RzdxU73zNlGrE7U7UacTHXeibvlC2YS9bnjSCcO86ISNbtjshq3yTbQJ2yWsDTV4i4KH7FCbvmvF7zrw209IIpzHmXYYajjP-GrPAm1a_P6h5cVj7BXFcHvfHcHDPymkrHY=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 L-060-020_Receive_Request_for_Material_Movement_-_FTS_(IP) — L-060-020_Receive_Request_for_Material_Movement_-_FTS_(IP)
@@ -491,10 +456,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWNtu4zYQ_RXCi8BZwEZ1l-2HFr5payDZuHF2i6LpAyNRNhFZVCkpiZv1v3cokbIlS-lD87ALnZk5w7lwRvJ7z2cB6U16V1fvNKbZBL33sx3Zk_4E9Z9wSvoDVALfMaf4KSJpX-iELM429J9CTbeSN6EmMA_vaXQQ6IZsGUHfVgM0BcNogFIcp8OUcBr2B_2E0z3mhzmLGBfan8go1MLCmxTNGA8IPylomqv7NphGNCYn2HQt1_KEXUp8Fgc10tAOR6HfP4rDRezV32GeFcfPU3KL336nQbaD5xBHKQGdXbaPbvATiUSMGc8F5uf8RSWDpsJPDAnbJNin8RZwSwOI4_j5BNna8YiOV1ePceUU3dw_xgj-_Ain6YKEKM0AXr5kKKRRNPlkzaeerQ3SjLNnMvlkLN2FaQx8EckEQtcGIrnDV0K3u2zyxKJAqg5fRQwTI3kb8LeJoQ34Af5t-CJxcPI0d4yRMao8zVx9rs-VpzAM_5cnyCt_wOmz9LU0PcNbVL5027Hn2iWfCnNhuVO9mSfCX6hPzkg9zzOXp1QtHVvXuklnnulo8wbpFmfkFR9OhOO5VRF6tuvpbidh6a95yvxpzZmvCM2l7dkVoTvTvanRSWhNdWskTwg8W46THVrFLyTOGD-gWxzjLeGlXPzF-p-PvRBPQjwU6Ub35O-cpBnKGLplLwR9ZfFQmdOUBMCQEXEFH3t_nbEYdZY14SHje-UOTZOEs5emkVk32uRPe5qhzY4mCfQ-uiV7Vjew2r2ssf8sDETSSJrWbeyGDadxhuZsvyfchzBEbhi0REVyQyH66_lqffO5TuTUib4lAWQCLdgHvt023zP2hoq5UNfVjT8rbZ9t0QbuGXqAWZCGwpSlmXCzikXEOKMsFiUy1zfoLiEcQ3VQtuMs34pqQ4VCDDFdLxcrEUXNj1n3M-dExFHLOqIx8igUXBSuaW_V7VURvi6maL4j_nNT367rfxcz-1B1RNFwlMNKgNSEnO3RPE8z-O9BrIcml9N69gWJ6Avhh6a2235SkUv0hbEgRas0zS-cjBpO2D6JCLj5L7tx3e4W8-cLG4RT5GEakaBhbWh16wdOt-LmLPegLUoNaxPdAUjjotgYuuOe-DShInEsvLg2NXLruiKH5CZlX-1pmoo-AmPokyrOAC6iL3o5zKNI5PTzOZPdYKr3TXkpAvRKsx1afzmRok2GszxtsjkNNlVJ0f3FDKqA33IC2YP6wViCNwvozXjbZBu_v59SGJDhE0Tp72SrkeCXx97xeD5-tHb9yucsgssN0VwY6u2GGwL7nWaH8h6cpRFdQ5qn_nPMXqHy27LZNz4nJP58yW60s8MszeG-FKVLGBdDDF5qRDtAES9IzHYS8uZHeQrhfSmXVtPs7LKGsK0JH7KExCdX5OS_HEJD5D1s0PVqfTZnYHI1FtA6wnFcXzuNvSOvslo_otCta6fYSiJ_jf1jfDgZCr7Nw13zXpin_ksiWOEzyE0MNYPikBheURlaBeCLhrS4sOfdZlqnDGPO2Ws6xFFWC6A688MhIRcVcjpSLedxBr13mv934vUVXUMIH-YZ9AOClm_QiEV1pjGODml25nbUvkK_QBHLrgWrs3l6ZjmuW06D4JRe2BeCQV7NxmLT6oa_QrC1NF2snuKuN-qrt8_y5ep285NwffaGUbNzuyZMOVDkiS-qa4w-nHOdxlVJoLfQcPiz6BMJmE4JGIYEdEMCSkMvn3VTPUsKvVKwJGArwJYUuvIqnarHsXj-8dj7g8Ds_QGAOowkctSzJhW_skJPd5UHVzIqD_pIutSapsrHWAqkoqkUdZkAszqEUXdqqrBkmOoM8ghKOpYHUGJDk4BSUH5UFky7Ccjwq7wqhpECZClMp3lUFWQl0BsCfdSUqJSqvMjTKD1D-jKUXFcBVj6siqn-Ml7yNmut_GlN80vTylaFZ850476UGWdfJaI31ddYDTbaYbMdttphux122mG3HR61w-N2GCrejnfECXf17NuxLjK7RVa3yO4WOd0it1s06haNO0VwdzpFereoOxsw9tSPEXXckj8c1FG7FXVaUbcVHbWiY_VVXm9LrR3W22GjHTbbYasdttXnfB12FNwb9OBTFN7yg97kvVf8OAY_oAUkxHmU9Y6DHs4ztjnEfm9S_IjUy4t37AXFsPL3JXj8F1O1Fcw=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 L-060-030_Receive_Material_from_Production_or_Receiving_-_FTS_(IP) — L-060-030_Receive_Material_from_Production_or_Receiving_-_FTS_(IP)
@@ -560,10 +524,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVk1vo0gQ_SstosiJhCXAYBwOu7KxiSJloijOzGg1nkMbCtMK7ma72068Hv_3LQz4g4n3sj5YqqpX71VVFw1bIxYJGIFxfb1lnOmAbDs6gyV0AtKZUwUdk1SOb1QyOs9BdUpMKriesn_2MNstPkpY6YvokuWb0juFhQDy9cEkQ0zMTaIoV10FkqUds1NItqRyE4pcyBJ9BYPUSvdqdWgkZALyCLAs3449TM0Zh6O757u-G5V5CmLBkzPS1EsHadzZlcXl4j3OqNT78lcKvtCP7yzRGdopzRUgJtPL_JHOIS971HJV-uKVXDfDYKrU4TiwaUFjxhfody10Scrfji7P2u3I7vp6xg-i5PFlxgn-4pwqNYaUKI3uyVqTlOV5cOWGw8izTKWleIPgypn4455jxmUnAbZumeVwu-_AFpkO5iJPamj3vewhcIoPU34EjmXKDf63tIAnR6Ww7wycwUFp5NuhHTZKaZr-LyWcq3yl6q3WmvQiJxoftGyv74XW73xNm2PXH9rtOYFcsxhOSKMo6k2Oo5r0Pdu6TDqKen0rbJEuqIZ3ujkS3oXugTDy_Mj2LxJWeu0qV_NnKeKGsDfxIu9A6I_saOhcJHSHtjuoK0SehaRFRnrPj-SBr4FrITfkC-V0AbLClD_e__FjZqQ0SGk3FgsyxSMm90IkirxADKzQJBQ8ZXJJNRN8Zvz8eZLsY-4etoYTkedso1hM83yD8BO0bSH8FVdc0bgkU0i9LHLQkBDGyWT84I6cVoqz3R7LS6A7x_Q4I_AR5yuFsvfVAcyM3a5Kw_pbE_iv7r3z7p-F0ufdtxq-uznglRZFa1L3wEFiQQlm3V4qp5oXPuBkWkCMFxpT-kShd15RKAEJsYe5WOHJjCHHprGVm4fR-LZVnPt56mh8xP1ezncqIRP4uJEwB_l2Ovtzuuacm2ZFSobTp1YJzifbhCiiRbmILfDgOMwix4domKzxcHEZphkrinJCT0KzFFep3BZyg0S3VVel-QJ_rwCPCzX0cd5V5fbnW_OaMZmQZ7wvN-RRLHDwLFbkBiu7rXcjOZnHn58sFbdJt_sHnlJt9irTri8b7lS2X5t-ZfZrc1CjG6492a-Z8ReomfELs-tAv8ZZDdCqHQ3ArnW82nbb8Yb5SeyJ3drvVbi7k0unbOnkajyLOBcjvYsR92LEuxjpX4wMDq-3M_dd_SY678P6HIzDqK_pc7fTuA3TWAJecCwxgq2x_0bB75gEUrrKtbEzDbrSYrrhsRHs3-XGqkgwc8woPkLLyrn7FyCa1iU=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 L-060-040_Create_Transfer_posting_for_Plant-to-Plant_Transfer_-_FTS_(IP) — L-060-040_Create_Transfer_posting_for_Plant-to-Plant_Transfer_-_FTS_(IP)
@@ -732,10 +695,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv6zYS_iuEDw6SADZqSpRvD104vmQNJCfe47RF0ewDI1G2EFlUKSmJm-a_71AiZYum0habhyT-OPPNlUOa7x2fB6wz6Xz9-h4lUT5B7xf5ju3ZxQRdPNGMXXRRBfxMRUSfYpZdSJmQJ_km-qMUwyR9k2ISW9J9FB8kumFbztBPqy6agmLcRRlNsl7GRBRedC9SEe2pOMx4zIWU_sJGYT8sramlay4CJo4C_f4Q-x6oxlHCjrA7JEOylHoZ83kSNEhDLxyF_sWHdC7mr_6Oirx0v8jYHX37JQryHXwOaZwxkNnl-_iWPrFYxpiLQmJ-IV50MqJM2kkgYZuU-lGyBZz0ARI0eT5CXv_jA318_fqY1EbR7ffHBMGPH9Msm7MQZTnAi5cchVEcT76Q2XTp9btZLvgzm3xxFsO563R9GckEQu93ZXJ7ryza7vLJE48DJdp7lTFMnPStK94mTr8rDvDbsMWS4GhpNnBGzqi2dD3EMzzTlsIw_L8sQV7FA82ela2Fu3SW89oW9gberH_Op8Ock-EUm3li4iXy2Qnpcrl0F8dULQYe7reTXi_dQX9mkG5pzl7p4Ug4npGacOkNl3jYSljZM70sntaC-5rQXXhLryYcXuPl1GklJFNMRspD4NkKmu6Qu75Fq-SFJTkXB3RHE7plopKRPwn-7bET0klIezLlaC2iJEfX_A2V_fvY-e-JrGOTna3Wt00xPPytFvT5Fq0j_xka-oc1Lf-CcEN61JSe8X0as5yhNc9ydMN5kKFVlhXsqAdtaET5WYRu0-vv7PeCAXPO0R1_YegbT2r1KGMBMORMDppmUMSInYmQi702h6ZpKviLqeQ1lTbF0z7K0WYXpSkkAt2xPW8qDOxWVOaQbA2WZU2dobUqfL9nwocwZHAcGr8muY0g-ktZtqsm0ahJ9FMaQCbQnH9ie_wPugf3m8I3LGFCWrB00LjZExuoOHqA4ZiF0go0hvRolcjk0DyCCkI1Zaffp5KSC5TvBC-2sjGgmCGF8C8X89WV0XtO3-g9waRDjQKhKEHLCHpD1tjUx0anq3p9m0_RbMf8Z1Peacr_LA-xQ908ZW9GAs5IyGIo-B7NiiyHPw_yvDS5XKvvcxZHL0wcTGli97R9k1Vq3j_enJXeoKl3R8XzmQ6aZmhJo5gFprYxQB5EtJWbbLEHaVlquEegewCjpCw2he74zvwojWTieHi2wxrkrfNGjSlkn1PO2NRLwkjsYWD8RS5c57JWhGqmRntV2yxAr1G-Q-ub1dGhTU7zQm64q1M212DTBZebpJxqNfCfgkGSocww6OBGBi1cBtVgIwbbWY3Utq-9CkyG0fv7MS0B6z3BNvV3qqdZ8K_HzsfHqfzYLl97fR3DwIF8mIqkb1fcMLhZRfmh2nAwY33pb1jE6BLBYJj6zwl_hR7bVttq4wvGkqszdmxnh_lewMYsZ0_KhRyscJ2UfQdT54zEsZOwNz8uMgjvproumGonmyyEexITPZ6y5GiKHe1X066Hlg8bdLlaX312KK5jmiTNw944kIyZUfbK5uHeGMaDzw9Q6-FZja_7hJVelMLThMO-FU1yFx8bMI3hJqXZYT8zcCqozTSZS9ZeznvlP0ZPEnKsAxWCv2Y9Guc1dbkjNNvDIWVndRy0FEQdDzl06PE4updfL9Al5O3TaoB8wNDiDdq1rOE0ofEhy08Tje2n_w3UumpuUAuO8_1U1biaTYPgWFU4wCTFvhoChqJxO_o3hNtI1NlZWE4Vg4R8Yh3qJ62rEWRTd_v2s2mxutv8IHVPLlcNPa9tFFaTT5k8H1mDTwfyXygP_6ZRGfgyeqvGqDnFiWufFHWpT1qybiXoS9Tr_Si3sQKccQW4RAFu9Vl_nYJ_FIA1gBXgaI2RBP587PwqnfwTjGhjlaA25Sk9V-uNld43Xqo5Ws9RiqT2QasOFYCVD-7Y5NI-YO0dVmRurasidAeaXQFER0hw0zGiI1C5qpkcxVQnc6gAbdxR6XZdM1eKGusFokIkWnVkfCbKmPZaMesEEFITJ73TeVqacc3IdJpGeqFv1GJgLmgNRweLlQekzqNOhy6bq1rH1VawrhJcpJF7Dfn7XmWhzuiwKeBWJrW-o5JSF8pV4vIOWAhWkRFz9XigV3Ta2KhhzKkWdUJVKbG2pToO982EnyUb64RgVVOsOVWCcJ0PlSBSt4eyQsjJl3ppWz9mNGDHDrt2mNhhzw4P7PDQDo_s8NgOQ9h2vCVO3BIobokUt4SKW2LFLcFCN548-TSXRu1L49YlmKWtS7h9yWlfctuXSPuS1740aF9qz4bTng2nPRtuezZgH-hHySbuqAfEJupaUWJFPSs6sKJDKzrSb3ZNeGyFYX5aYWyHHTvs2mFihz39BtiEBxrudDvwsgPfhIPO5L1TvqjDq3vAQlrEeeej26FFzjeHxO9MypfnTlF-wZxHFO6h-wr8-B9PuVpc" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 L-060-050_Create_Transfer_posting_for_Intra-Facility_Transfer_-_FTS_(IP) — L-060-050_Create_Transfer_posting_for_Intra-Facility_Transfer_-_FTS_(IP)
@@ -818,10 +780,9 @@ Yes"| n4
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4jgY_StWRhUdCdRcCc3Drlogs5XaXTS0M1oN-2ASB6waO2s7tCzDf187iQNJYV8WJFqf7zvnu_i6txKWIiuyrq72mGIZgX1PrtEG9SLQW0KBen1QAd8gx3BJkOhpn4xROcf_lG6On79rN43FcIPJTqNztGIIvDz0wZ0ikj4QkIqBQBxnvX4v53gD-W7MCOPa-xMaZXZWRqtN94yniB8dbDt0kkBRCaboCHuhH_qx5gmUMJq2RLMgG2VJ76CTI-wtWUMuy_QLgZ7g-3ecyrUaZ5AIpHzWckMe4RIRXaPkhcaSgm9NM7DQcahq2DyHCaYrhfu2gjikr0cosA8HcLi6WtAmKHj8uqBAfRIChZigDAip4OlWggwTEn3yx3dxYPeF5OwVRZ_caTjx3H6iK4lU6XZfN3fwhvBqLaMlI2ntOnjTNURu_t7n75Fr9_lO_XZiIZoeI42H7sgdNZHuQ2fsjE2kLMv-VyTVV_4MxWsda-rFbjxpYjnBMBjbH_VMmRM_vHO6fUJ8ixN0IhrHsTc9tmo6DBz7suh97A3tcUd0BSV6g7uj4O3YbwTjIIyd8KJgFa-bZbGccZYYQW8axEEjGN478Z17UdC_c_xRnaHSWXGYr4E3ewQPdIuoZHwHniCFK8QrH_2h7o-FlcEogwPdcvCSp6okMJcseQWPLIESM3ozl1AWQmstrL9OyF6b_BX9XSAha_aMCanWMcAUPK8xT8FMLdSdEl1hZUgEuFZ6n9uCflcwQXir0sErCgmAsiznO-RozZQDkAzMEM8Y34BntXVEpjgm7Gy9EziBhOyaEGr5drrzX51x2rlcDKTqe3r48gdQVvW_5HCQqQ1MsKq18X1iW3XyUQmedzkCnuO0yw5-NLEStlJZYYn1NDT8jLMNmN_4umKtBdRJepL89W9qe9280LX6ozt6qj1sa-usVbES6bMUTFhSlHlBmlbCjWhHJmzLtH11WjqjCRJ6piRKm7UDrnEGYJ4TNRfq0O9mN2rLjtkmJ-i08rrLHdqtYpnFYVad7v_Dhf5_wxBMNxCTdt8d-7oJnxN4QjBTkCrC51OGc2QIyfLTFWTm2BTxget2uB-W0kWmt98f25SiwVIxk2pzVws3Pe6KXxfW4XBK9s-T0XtCCqE6-KU6xLq04EiDnLM3MYBEghxytacQuUAaniVheilUsyXpEAwGv-hS67Fj10BggKACbutxWNudjt34e9XQrYe3tbvxLs0_F9bvbGH91F0yBr9yHJmxSczvAKEZV8NhPXRrdzMe1WOTR1DHnU4egD92yuBeNyljpO3vn0iU_iYVvx2rvEV0Qub2bMHuedg7D_vn4eD0Hm1Zhhct4UXL6KJFzb552LRxp36EtFH3LOqZ-7kN--fh4Dw8NLDVtzaIq0MktaK9VT5l1XM3RRksiLQOfQsWks13NLGi8slnFeVdOsFQ3TWbCjz8C0p8igQ=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 L-060-080_Confirm_Material_Receipt_by_Requester_-_FTS_(IP) — L-060-080_Confirm_Material_Receipt_by_Requester_-_FTS_(IP)
@@ -1004,10 +965,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWVtv67gR_iuEDw6SADZW1MWy_dDCcew0QC7usXcXi00fGImyiciiSkmJ3Wz-e4cSKVu0lHbbACc5Hs59vpmh5I9ewEPam_S-f_9gCcsn6OMi39IdvZigixeS0Ys-qgi_EMHIS0yzC8kT8SRfsX-VbNhN95JN0hZkx-KDpK7ohlP0810fTUEw7qOMJNkgo4JFF_2LVLAdEYcZj7mQ3N_oKLKi0po6uuYipOLIYFk-DjwQjVlCj2THd313IeUyGvAkbCiNvGgUBRef0rmYvwdbIvLS_SKjD2T_KwvzLXyOSJxR4Nnmu_ievNBYxpiLQtKCQrzpZLBM2kkgYauUBCzZAN21gCRI8nokedbnJ_r8_v05qY2i-x_PCYKfICZZdkMjlOVAnr_lKGJxPPnmzqYLz-pnueCvdPLNnvs3jt0PZCQTCN3qy-QO3inbbPPJC49DxTp4lzFM7HTfF_uJbfXFAX4btmgSHi3NhvbIHtWWrn08wzNtKYqi_8sS5FWsSfaqbM2dhb24qW1hb-jNrHN9Oswb159iM09UvLGAnihdLBbO_Jiq-dDDVrfS64UztGaG0g3J6Ts5HBWOZ26tcOH5C-x3KqzsmV4WL0vBA63QmXsLr1boX-PF1O5U6E6xO1Iegp6NIOkWOct7dJe80STn4oAeSEI2VKDLHzSg7A1ghpYxSfKrSkr-JBj__tyLyCQiA1kFVLHSEy3L7SFjAYnjw3PvHyeSjvV7LRrwTS05Dd9IEtAQrbYsTaXRR56zCFTkjCfocrp6vEKR4Du0KtI0PkgO6XcqXQMTygag778L7qjlLLhxM7alYEmOrvkele3aDAdbTeZplMPvrAgCmmVREaPb9QoFWxq8Kj2zO_DnUlJnJfXeRfcDa2gNLBf-ja2rpn571EzXkgWv4PRPS1L-PQZecY-b3GvBNjLaJc9ydMt5mKG7LCuoIeZ6Hx9ajAjB37MBiXOUEgH1o_FtBeDn3ufnqdCwVegppcma7nP0wMIwBjlBTUH_z1k7L-lZOU8LYgLznwWF4HOOHjjA7BGwpMUZoO0BrMmNYWS9Hd0aPNM0FfzNFHKaQqviZcfyI5wf6I43BVwDZ1REXOyQKi2SPQ4gasp4bdic8d2OigDCkLFxmGC1knsGwV9K0BnAGjYV_ZyGkAl0w7-w7f-Jvhg1eW9pQoU0ID0xOmjYxOwK6o1uaAwJhwLDEJBTRSamGgRQSNnRADPQxwXKt4IXG4kJKGREIPTL-c3dlYFw7DeNQMbSmILqqinKAqe5KTTqENJNiNq7EI-75L5uQ9sYjTNBZcoaCEIsQQsG2JUgNOWxMSsUoB5vptWwMfntJv8v8rp0qNFd9g4TcBuDMpeTd1ZkOfxZy5uZqctp9V3X0eR22z39Twny_sfEGhB7IOL1TAZNM7QgLKahKe23D9X5DrglHuHGip6AyJISkQTwC4BiKZOJ49HZCGgMDfeyVg7JTZuArCOUPp2uKMczxGob0MGFrFhW99yZ7LBLtgRYNQlC9M7yLVre3h2zvMpJXmSmNt_QVrfuSoYP6akJfy8opBkKDaMYbv8A4rJ1TrW51nE3yGeFwQvcdoOtwiQN_2ruEtzOX9u8jmGiQTRngna74IrCHZzlB7WdV8dFfgnDZxq8JvwdILKpumIVCEqTqzPlTrty2B8F9NUaPmUpF7K88NwhYQOT7UyJ266E7oO4yCC6jrV8MnwiuFBTMeCwko-m6NF-NVEHaAG3kcu75dVX1yh5S0qam9bYRUbLl4VerZ-MJSlXq7mU64WcdW5kxznCDK58UB-eRAxGhmavW0YrV0vbRL87ar19aKkSnVrl-pBSsyye1ZFfNaxzwFuV4Qhy8iQfK-GyuX76MrnAH1I03wP4ypJMExIfsvw02Xb7ZeF4kQSxk2l7KmpcTKbhyX6FdSJVqIY0BI0Lyt8g3EaizjZT2eFG4TqW0vzuYfWTNH1ymWrIjbrmSjVGlMcAGEDRgu2rIX42ncZfzjpD1VG4LhHcHNBg8Bc5qBXBsSoCxpqj-qwfT-E_iqAZbM1ha4KtdGoOR3G4tQ7FoM-VAv3ZLU388dz7TUb8B5xoX5SgqzW7WHE-8opRh2G7irN2ylNGfC1qK9HjEKxUeCaDXJuFvOfL06Hpo7KMXdMl7TzWYeGhOoEbHHKuIZgflc6R9lElwq0T4TSNuGN9UDHqWFQRtecqVFynTel1akO66joae6gIWiNWFpza4lj5puMcGp9dnXH1WfPXGjVutEZ73EiHLbdxFWWdYx2I9ttVRrHWgZUVpy7aqM5YMjgdvFUpDMV1cCof2g4eGc7XhdBF1S5iBW3sN1w8iQqe7EsJR4PfUSD2aoIuuzbv6R7UUWGdiKEZ5lmITg14zQJIc6q8anUqOnz65kU2un7j1CDb7WSnney2k7128rCd7LeTR-3kcTsZ8NZO74gTdwSKOyLFHaHijlih-0_evzWP_O6jUffRuPMIZnTnEe4-sruPnO4jt_vI6z7qzobdnQ27Oxt2dzac7mw43dmArtTvlZt0V70DblK9Vuqwleq3Uket1HEbFZaPeu3aJON2st1OdtrJbjvZaycP28l-O3nUTh7rl77NoWFpcq_fgzdA8EAa9iYfvfIrFPiaJaQRKeK899nvkSLnq0MS9CblVw29onzKu2EELqC7ivj5b6XE8u0=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 L-060-130_Manage_Inventory_Placement_and_Movement_-_FTS_(IP) — L-060-130_Manage_Inventory_Placement_and_Movement_-_FTS_(IP)
@@ -1081,10 +1041,9 @@ flowchart LR
 
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -1101,10 +1060,9 @@ flowchart LR
 | 3PL Inventory Manager (Supplying Plant) | L-060-080_Confirm_Material_Receipt_by_Requester_-_FTS_(IP),  | |
 | Warehouse Operator | L-060-130_Manage_Inventory_Placement_and_Movement_-_FTS_(IP) | |
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -1116,10 +1074,9 @@ The following data entities are derived from the system integration flows for L-
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -1160,10 +1117,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1206,10 +1162,9 @@ The Future-State architecture represents the **target** landscape for L-060.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1270,10 +1225,9 @@ The Future-State architecture represents the **target** landscape for L-060.
 
 **Summary**: 2 Reports, 20 Interfaces, 3 Conversions, 17 Enhancements, 6 Forms, 3 Workflows
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1285,10 +1239,9 @@ Integration patterns identified from the system flow analysis for L-060:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1312,10 +1265,9 @@ Platform landscape inferred from integrated systems for L-060:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1355,10 +1307,9 @@ Platform landscape inferred from integrated systems for L-060:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1387,12 +1338,12 @@ Platform landscape inferred from integrated systems for L-060:
 | LOGI1074_IP | Send data via API to retrieve the tracking ID - interface + Enhancement | Mar-25 (100%) | May-25 (100%) | May-25 (100%) | Oct-25 (100%) | 3. Off Track |
 | LOGI0951 | Inbound interface to receive Finished Goods “Goods Receipt” (4B2) signal from... | Feb-25 (100%) | May-25 (100%) | May-25 (100%) | Aug-25 (100%) |  |
 | LOGI0950 | Interface to receive 4B2 signal from Factory and return shipments from ODM/OS... | Feb-25 (100%) | May-25 (100%) | May-25 (100%) | Aug-25 (100%) |  |
+
 *... and 31 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1421,5 +1372,5 @@ Standard RAID items for L-060 (Forecast to Stock (IP)):
 
 ---
 *L-060 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IP) · Generated: March 2026*
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
-</div>

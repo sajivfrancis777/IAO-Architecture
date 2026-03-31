@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **E2E-100 R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box** within the IAO program. It includes 2 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | End-to-End Integrated Processes (E2E) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 2 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 2 Pending IAPM |
 | **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Process Visibility & Monitoring | Provide end-to-end process visibility across tower boundaries with integrated monitoring | Operational Excellence | Medium |
 | 4 | E2E-100 Process Migration | Migrate R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box business processes and 2 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Cross-Functional / End-to-End | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -208,13 +175,13 @@ This capability includes **2 business process(es)** modeled in BPMN 2.0, coverin
 |---|---------|--------------|-------|-------|----------|
 | 1 | E2E-100_R3_CFIN | E2E-100_R3_CFIN | Boundary Apps, CFIN, MBC, SAP S/4HANA IP | 15 | 10 |
 | 2 | E2E-100_R3_SAP_Transportation_Management | E2E-100_R3_SAP_Transportation_Management | Boundary Apps, External Partners/
+
 Supplier
 , SAP S/4HANA IP | 12 | 6 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -326,10 +293,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1tv4kYU_isjryISCbq-YsNDK27eIi0RCt1WVenDYI_DKMZjjcckNMt_7xk8Y8A4D93ykHiOv_Od-7H9bkQsJsbQuLt7pxkVQ_TeEVuyI50h6mxwQTpdVAl-x5ziTUqKjsQkLBMr-s8JZrn5m4RJWYh3ND1I6Yo8M4K-zbtoBIppFxU4K3oF4TTpdDs5pzvMDxOWMi7Rn0iQmMnJmro1Zjwm_AwwTd-KPFBNaUbOYsd3fTeUegWJWBZfkSZeEiRR5yidS9lrtMVcnNwvC7LAb3_QWGzhnOC0IIDZil36FW9IKmMUvJSyqOR7nQxaSDsZJGyV44hmzyB3TRBxnL2cRZ55PKLj3d06q42ir0_rDMEvSnFRTEmCCgHi2V6ghKbp8JM7GYWe2S0EZy9k-Mme-VPH7kYykiGEbnZlcnuvhD5vxXDD0lhBe68yhqGdv3X529A2u_wAfxu2SBafLU36dmAHtaWxb02sibaUJMn_sgR55b_h4kXZmjmhHU5rW5bX9ybmLZ8Oc-r6I6uZJ8L3NCIXpGEYOrNzqmZ9zzI_Jh2HTt-cNEifsSCv-HAmHEzcmjD0_NDyPySs7DW9LDdLziJN6My80KsJ_bEVjuwPCd2R5QbKQ-B55jjfojErT72MRnleVPfkL7P-WhtPJCJ0T1BIU4JohsbQfWvj7wuUDahveQxRoiU-7Egm0BPZUSFwFpFrqOXfAzjBwwT3CsHyWmGKBUYVSQwqD5UOtFLD00k4f7zgc4Bt9kai8tJ2mV0bdQE04UT6N1ou0ILsGDgYwcRf4zzAybySokDjyaImHGMRbWHY4KIgMWKQg7KAtQCwpxJW1DVLH1i-kIxwbU_TyAReQ32ZXiZ9F0ymnrM94deQQPrOOCeROJGpawpO3PINTuUCjkJaXqIp9MhjudsQjnAWXwaOpiQlkqVRHhMYQgLhaq8LFOJIMGiNezDflXnposV4ghYM9jfjDw2CqmP2lLyCIjgY1-F_Zc8NrH2ZKQ2DAuSswGkD65x485RGErwqc7iEsObZnsG8oiUrBFSooTRoNNtlAqqGuOi1qpXNhopOo0rrDd56f9d4-WjrbWA5Q_YWOCtxqmoKF49EdhVM2C9r43i8JLDbCVQ3xDd4px1P3qIUmnJPvlTLpqnmtqtNMDQz0V3VYs77MXP9H1Pz29Wq5EMaGYfrvBpRKPeNt8FZH3POXoseTgXKMcdpStIPjA5-QMkxW5Vo9lF8t5sMhuiyV-WSWpSpoD25YKEiWSbnfE8FjN4W2rsnWE_-b06c998Vb51ZjZZo9dn9dfQ4QvPlJX3_PBB5Cg-xevQuBva0MeX7HG0ZKSv4aOUTARuiQLLRaQybYoOjF7kJV6zkMNOrQyHIDt3Pl5_n4UPLQwE2COr1foZqqLNTHe1And3qbA3U2VP31VMfLqTg-9p4ZGvjuxwudcNXQFsDFXNfnxWTp89ug0gDB4rI1B6bSqBdsvuVoD4rDUv7aFlKw9cIX9nSU3FtUaXE0nDFb7kNAzq0QB11KJYK1bKbHgXNrP0pH31gW5vS8uVo_viTadroHkrdSxmO5ZsKeTiBrdqQew232uHaaFBHfZ7_KnJN6Kjc1n7aDT_r8tZ3dLl0cixVV8u8TXbDrGM2a6_N1HcsnXvnKgjoy4v3uRNMv55fy331Kn0tDVqlgzapbbZKLf1Gei2228VOu9htF3vt4n672G8XB-3iQasYyq7ERtfYEb7DNDaG78bpMxI-NWOSYFiPxrFr4FKw1SGLjOHpc8soT--bU4phCe4q4fFfwlR9cQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 E2E-100_R3_SAP_Transportation_Management — E2E-100_R3_SAP_Transportation_Management
@@ -416,10 +382,9 @@ flowchart LR
 
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -431,13 +396,14 @@ flowchart LR
 | MBC | E2E-100_R3_CFIN,  | |
 | SAP S/4HANA IP | E2E-100_R3_CFIN, E2E-100_R3_SAP_Transportation_Management | |
 | External Partners/
+
 Supplier
+
  | E2E-100_R3_SAP_Transportation_Management | |
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -448,10 +414,9 @@ Supplier
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 | 1 | e.g. Cost Element | e.g. MES 300 | e.g. XEUS | Data steward | e.g. Intel Confidential | e.g. 10K rows/day | Master / Transaction |
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -499,10 +464,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -546,10 +510,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.3 Data Lineage
@@ -578,10 +541,9 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -635,10 +597,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtv2jAU_StWKr7B6j6gbVQhBRImptBWTbduWqbIxBewZpIodtqyjv--65gWCq3aGSkk93Gufe6x_eikOQfHdRqNR5EJ7ZLH2NEzmEPsuCR2xkzhWxPfFKRVKfQihDuQ1inz_Mlbp3xjpWBjCcq4EWeSZzoSf1ZQB53iwQYb-4DNhVxYTwTTHMjXYZN4CCCbRLFMtRSUYhI7yzpD5vfpjJV6hVwpGLGHW8H1zFgmTCowcTM9lyEbg6ynoMuqtma4xKhgqcimxnxMjbFk2e8NY5sul2TZaMTZcy1y04szgqPRIK0Wzi2diRHT0BKZKkQJnCi9kEBSyZQChTE2vP72YULGlRIZKEXqMRFSunsDHL12U-ky_w3uXu_0tEN7q8_WvVmQe1g8NNNc5qW7RyndwmRFQdbDYvbaBvUZk9KTk17nPzA502wX0z99B_PgBeaTjzOF5JVsgZyS9lalueBcwj0rYZMRv-OtGQlOOoM12gdmD7ncYcRwvMFyv0_pe5gWVVXjacmKGfHCn7ETV_z0iOOTH7WJd3UVDvvezfDygoTej-A6dn7ZJDM4CiLVIs9IeL22BofBAaX9BJJpMgqi5IjSTdgUOgQ-TT8R9BH0IaLrutji1xG-B1-jV9ON4-3c0W2d7f2pSkgiKO9ECkmvUi8WeHBioeoosooiGGVx143bgfeDGr6fK50EEo-BTHc3J5keW2QTQFYB5-Nyv3suutYRfSP7ZOjnKf59iS4vzvdF15Y1yrQFIeNPPXqFVNx73b-xU8P5dScQyrsa4nMgJB5Af98j4wX0W0GmzE5HzLRW4qmPg164sdUH9L2tvpnqPafSj-zoHdGGMEWeXkiEUxIGn4ML_wNqDRPU-LbAvKKQImUm-BWJhcnodltHo7VW3tROmPjBtkp8cwwFmcZLZrv7NiW4tJvysMOPMZC38kkrFJNVGTwHNqSyJtWS8kRs2_yeiT07O9s505ymM4dyzgR33Ed7seH9yGHCKqnxOnJYpfNokaWOW18wTlXgRMEXDJswt8blP0cKSDU=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Current-State Flow Narrative
@@ -647,10 +608,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.2 Future-State — Future-State Application Landscape
@@ -702,10 +662,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1wzxaIEKVUpJOnVJAy4BNyxS58W1rzU2i2AEK9L_vOi60tCCYK6XJfZxrn3tsPzppzsFxnUbjUWRCu-QxdvQUZhA7LomdEVP41sQ3BWlVCj0P4Rakdco8f_bWKdesFGwkQRk34ozzTEfiYQm11ynubbCx99lMyLn1RDDJgVwNmsRDANkkimWqpaAU49hZ1Bkyv0unrNRL5ErBkN3fCK6nxjJmUoGJm-qZDNkIZD0FXVa1NcMlRgVLRTYx5kNqjCXL_q4Z23SxIItGI85eapEfvTgjOBoN0mrh3NKpGDINLZGpQpTAidJzCSSVTClQGGPD628fxmRUKZGBUqQeYyGlu9PH0Ws3lS7zv-Du9I6PO7S3_GzdmQW5-8V9M81lXro7lNINTFYUZDUsZq9tUF8wKT066nX-A5MzzbYx_eMPMPdeYT77OFNIXsnmyClpb1SaCc4l3LES1hnxO96KkeCo01-hfWL2kMstRgzHayyfnVH6EaZFVdVoUrJiSrzwd-zEFT8-4PjkB23iXV6GgzPvx-DinITer-B77PyxSWZwFESqRZ6R8PvKGuwHe5T2E0gmyTCIkgNK12FT6BD4MvlC0EfQh4iu62KL30b4GVxFb6Ybx_u5w5s623uoSkgiKG9FCkmvUq8WuHdkoeoosowiGGVxV43bgveDGv4sVzoJJB4Dme6uTzI9tMgmgCwDTkflbvdUdK0juia7ZODnKf59iy7OT3dF15Y1yrQFIePPPXqDVNx73afYqeH8uhMI5V0O8NkXEg-gp4_IeAX9XpAps9URM62leOrjoBeubfU-_Wirr6d6L6n0Mzt6S7QhTJCnVxLhlITB1-Dc_4RawwQ1vikwryikSJkJfkNiYTK82dTRcKWVd7UTJn6wqRLfHENBpvGS2ey-TQku7Kbc7_BDDOStfNwKxXhZBs-BNamsSLWkPBPbNr8XYk9OTrbONKfpzKCcMcEd99FebHg_chizSmq8jhxW6TyaZ6nj1heMUxU4UfAFwybMrHHxD43PSE0=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Future-State Flow Narrative
@@ -714,10 +673,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.3 Change Impact Summary
@@ -737,10 +695,9 @@ flowchart TB
 | e.g. MES 300 | - | N/A |
 | e.g. XEUS | - | N/A |
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -755,10 +712,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 
 > *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -767,10 +723,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 |---|---------|-----------|-----------|----------|------|
 | 1 | e.g. Pub-Sub / P2P / ETL | e.g. MES Route to ICOST | e.g. Azure Service Bus | e.g. REST / RFC / SFTP | e.g. OAuth / NTLM / Cert |
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -811,10 +766,9 @@ flowchart TB
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
 
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -856,10 +810,9 @@ flowchart TB
 | 1 | e.g. Azure PaaS | Cloud / SaaS | e.g. XEUS | DEV,QAS,PRD |
 | 2 | e.g. S/4 HANA 2023 | On-Premise | e.g. MES 300 | DEV,QAS,PRD |
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -899,10 +852,9 @@ flowchart TB
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -921,10 +873,9 @@ Project delivery milestones for E2E-100 RICEFW objects:
 
 > *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -953,5 +904,5 @@ Standard RAID items for E2E-100 (End-to-End Integrated Processes):
 
 ---
 *E2E-100 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026*
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
-</div>

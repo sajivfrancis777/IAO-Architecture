@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">R-240 — Manage Storage & Internal Movement of Inventory (IP)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-240 — Manage Storage & Internal Movement of Inventory (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-240 — Manage Storage & Internal Movement of Inventory (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **R-240 Manage Storage & Internal Movement of Inventory (IP)** within the IAO program. It includes 8 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Order To Cash (IP) (OTC-IP) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 1 Forms |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-240 — Manage Storage & Internal Movement of Inventory (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Returns & Rebate Automation | Automate returns processing, rebate management, and chargeback handling | Revenue Assurance | Medium |
 | 4 | R-240 Process Migration | Migrate Manage Storage & Internal Movement of Inventory (IP) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Order Management (Intel Products) | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-240 — Manage Storage & Internal Movement of Inventory (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-240 — Manage Storage & Internal Movement of Inventory (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -215,10 +182,9 @@ This capability includes **8 business process(es)** modeled in BPMN 2.0, coverin
 | 7 | R-240-090_-_Create_Transfer_posting_for_Plant-to-Plant_Transfer_(IP) | R-240-090_-_Create_Transfer_posting_for_Plant-to-Plant_Transfer_(IP) | Ground Controller | 8 | 0 |
 | 8 | R-240-100_-_Create_Transfer_posting_for_Intra-Facility_Transfer_(IP) | R-240-100_-_Create_Transfer_posting_for_Intra-Facility_Transfer_(IP) | Warehouse Operator | 4 | 0 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-240 — Manage Storage & Internal Movement of Inventory (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -285,10 +251,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP4jYY_StWRiNmpFDlSiAPrSCQalad7WjYi6qlDyb5AtYEO7UdLmX577WTcAllug_lAeWcfOd8FztO9kbCUjBC4_5-TyiRIdp35BJW0AlRZ44FdExUE18wJ3ieg-jomIxROSV_V2G2V2x1mOZivCL5TrNTWDBAn59MNFTC3EQCU9EVwEnWMTsFJyvMdxHLGdfRd9DPrKzK1twaMZ4CPwdYVmAnvpLmhMKZdgMv8GKtE5AwmrZMMz_rZ0nnoIvL2SZZYi6r8ksBz3j7laRyqXCGcwEqZilX-W94DrnuUfJSc0nJ18dhEKHzUDWwaYETQheK9yxFcUzfzpRvHQ7ocH8_o6ek6NN4RpH6JTkWYgwZElLRk7VEGcnz8M6LhrFvmUJy9gbhnTMJxq5jJrqTULVumXq43Q2QxVKGc5anTWh3o3sInWJr8m3oWCbfqf-rXEDTc6ao5_Sd_inTKLAjOzpmyrLsf2VSc-WfsHhrck3c2InHp1y23_Mj699-xzbHXjC0r-cEfE0SuDCN49idnEc16fm29b7pKHZ7VnRlusASNnh3NhxE3skw9oPYDt41rPNdV1nOXzhLjobuxI_9k2EwsuOh866hN7S9flOh8llwXCzRV8xhydQ40e8FcCwZrwP0j9rfZkaGwwx39bzRUwpUkmyHRoQKtCb4Qv3M1EOtxMafF3qnrY84qHmgaJfk6p-VVKKHKHpET3StjBnfoTFLypW6rsxHWCZL9IHNEePoGdMS5217t20_TCRZ6wQvy50gCc5vGLcNvCsDIciC1pUpmKm01bV62to6v617YUI2_bDsv7L_1LbptW2mINGrOlu0z1RiWQpE6A97CNomr_BXCaocXfywKDhbq0o0OBfZ1vevegGuoldopE6_tGlKL8ZrjMagHxChV2MM4k2you00-HayStjiuNofYfODBbn0sK2Hk0mRqyfnhvRy_zypXUdUmlT5PF766K37uUh1BWflF5yXgB6eXh7bldvOfn8uPYXuXB20au81q6HWv5or4ZCiX2bG4XCpdW9rYZvkpSBr-LU-A84ydUrWF9RF3e7Pahs20K6h08BeDQcN9Gto28doqyEa7DTQbfDgCttNthOuBN9nxkc2M76rjXTN_wGiutFrbgS13m-gV8N-A_tNOufixNItHU_qFu3cpt3btHeb9m_Tvdt0cJvu36YHl--DdkfW6ZXa5u13eOf4FmjT7pE2TGMFfIVJaoR7o_oEUp9JKWS4zKVxMA1cSjbd0cQIq08Fo6y29ZhgdYKvavLwDzY4-ww=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-240 — Manage Storage & Internal Movement of Inventory (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 R-240-030_-_Perform_Physical_Inventory_Count_(IP) — R-240-030_-_Perform_Physical_Inventory_Count_(IP)
@@ -351,10 +316,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVtuO4jgQ_RUrrRaNFKRcCZ2HXXHLCmlnBg0zPRoN-2AcB6wOdtZ2uCzDv6-dCyQMPKw2Dyh1fM6pchFXcjIQi7ERGs_PJ0KJDMGpIzd4izsh6KygwB0TlMAb5ASuUiw6mpMwKhfkn4Jme9lB0zQWwS1Jjxpd4DXD4OvMBEMlTE0gIBU9gTlJOmYn42QL-XHMUsY1-wkPEispslVLI8ZjzK8Eywps5CtpSii-wm7gBV6kdQIjRuOWaeIngwR1zrq4lO3RBnJZlJ8L_AEevpFYblScwFRgxdnIbfonXOFU71HyXGMo57u6GUToPFQ1bJFBROha4Z6lIA7p-xXyrfMZnJ-fl_SSFHyZLClQF0qhEBOcACEVPN1JkJA0DZ-88TDyLVNIzt5x-ORMg4nrmEjvJFRbt0zd3N4ek_VGhiuWxhW1t9d7CJ3sYPJD6FgmP6rfm1yYxtdM474zcAaXTKPAHtvjOlOSJP8rk-or_wLFe5Vr6kZONLnksv2-P7Z-9au3OfGCoX3bJ8x3BOGGaRRF7vTaqmnft63HpqPI7VvjG9M1lHgPj1fD17F3MYz8ILKDh4Zlvtsq89WcM1QbulM_8i-GwciOhs5DQ29oe4OqQuWz5jDbgG-Q4w1T7QSfMsyhZLwk6IvaP5ZGAsME9nS_wWcsOcE7DIZZlhKkDykYESrAG4ENow9MnW_lY_zVsHLaVmOOVWvAfHMUyigFM7rDVImO4GU-64IJQ_lWAW0Pt-0xRJLsCpfZA4F3IxCCrCkYs5xKFSaMl_fqNLV1fls3LegFtdjq5wgsEKRUgcqCUDDB4l2yrG3Sb5vMmZBV6lh1UuSpFFr731oQtE0XWCovVFS2kFDmpeWjfgx-XOSIres_4SPeNyXgZZhLtoWSoK6SN_WvSj6LFYckx3uF191UNf2dE47jdnrbernkz1LY4LPknt1MPUdEVahtuk0f_Vx-zWJd_JX9BtMcg5fZvNu9SeucTtdtx7i3UmMUberGNesFvy-N87mpde9r8QGluSA7_Ed5wq8yNQPLG2qDXu839eRX4WsZVnOHemXoV6FfrdbsoIwHVeiWoVdbV7Fbxf1KXZvbjgZ-Lo2PbGn8VOsVPqh4tc65iS-671gUwqBesErma2Me6R3Wc7gFO_dh9z7s3Yf9-3D_PhzchwfNsd4u3bq8Gdu4_QB36mHeht0aNkxji_kWktgIT0bxJaO-dmKcQHXSjbNpQHWqFkeKjLB44xt58QBPCFSDeFuC538BsUnlsQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-240 — Manage Storage & Internal Movement of Inventory (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 R-240-040_-_Update_Inventory_Value_(IP) — R-240-040_-_Update_Inventory_Value_(IP)
@@ -446,10 +410,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNlu4jAU_RUrFaKVgpSVMHkYCQIZVWqlaujyUObBJNfgqWMj26EwiH8fmyUsoz6NH6Lc4-Nz7r1eNk4hSnBSp9XaUE51ijZtPYcK2ilqT7GCtov2wCuWFE8ZqLblEMH1mP7Z0fxosbI0i-W4omxt0THMBKCXexf1zULmIoW56iiQlLTd9kLSCst1JpiQln0DPeKRndthaiBkCfJE8LzEL2KzlFEOJzhMoiTK7ToFheDlhSiJSY8U7a1NjonPYo6l3qVfK3jEqzda6rmJCWYKDGeuK_aAp8BsjVrWFitquTw2gyrrw03DxgtcUD4zeOQZSGL-cYJib7tF21ZrwhtT9DyccGRGwbBSQyBIaQOPlhoRylh6E2X9PPZcpaX4gPQmGCXDMHALW0lqSvdc29zOJ9DZXKdTwcoDtfNpa0iDxcqVqzTwXLk23ysv4OXJKesGvaDXOA0SP_OzoxMh5L-cTF_lM1YfB69RmAf5sPHy426cef_qHcscRknfv-4TyCUt4Ew0z_NwdGrVqBv73teigzzsetmV6Axr-MTrk-C3LGoE8zjJ_eRLwb3fdZb19EmK4igYjuI8bgSTgZ_3gy8Fo74f9Q4ZGp2ZxIs5uudL4FrItbk9gNEj5ngGck-yg_vvE4fglOCO7Tl6k1RDRxCC-uXvWunKrEZESPQglAKFzN8PTLmaOL_ORIL3RqUQM_SyKE1jTt6GfM4Obxu20mJxlmMmamP3017AgjKKNRXcgNWCgYbSyNydyURG5doJvWJWA7q9f7prMjSndv_DI9TpfDfZHsJgHx5OCvf3YXi2JRY8HsULODg_Txcz4eGWXIBRc00d16lAVpiWTrpxdg-ieTRLILhm2tm6Dq61GK954aS7h8OpdxUOKTb7We3B7V9dwL6s" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-240 — Manage Storage & Internal Movement of Inventory (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 R-240-070_-_Identify_Need_to_Move_Material_within_Facility_(IP) — R-240-070_-_Identify_Need_to_Move_Material_within_Facility_(IP)
@@ -526,10 +489,9 @@ from Bin to Bin"| n5
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1vozgU_SsWVZUZKelgAiHlYVf5KDuVpjvVJLt9mOyDAyaxSmxkSNtsJv99r8EQoESa3c1D6T2-99x7jz-PRiBCanjG9fWRcZZ56NjLtnRHex7qrUlKe31UAH8Sycg6pmlP-USCZwv2d-6G7eRNuSnMJzsWHxS6oBtB0R_3fTSBwLiPUsLTQUoli3r9XiLZjsjDTMRCKu8rOo7MKM-mh6ZChlSeHUzTxYEDoTHj9AwPXdu1fRWX0kDwsEEaOdE4CnonVVwsXoMtkVle_j6lD-TtiYXZFuyIxCkFn222i7-QNY1Vj5ncKyzYy5dSDJaqPBwEWyQkYHwDuG0CJAl_PkOOeTqh0_X1ildJ0XK-4gh-QUzSdE4jlGYA371kKGJx7F3Zs4nvmP00k-KZelfWnTsfWv1AdeJB62ZfiTt4pWyzzby1iEPtOnhVPXhW8taXb55l9uUB_rZyUR6eM81G1tgaV5mmLp7hWZkpiqL_lQl0lUuSPutcd0Pf8udVLuyMnJn5nq9sc267E9zWicoXFtAaqe_7w7uzVHcjB5uXSaf-cGTOWqQbktFXcjgT3s7sitB3XB-7FwmLfO0q9-tHKYKScHjn-E5F6E6xP7EuEtoTbI91hcCzkSTZoici6VaAnOhrQiXJhCwc1I_j7ysjIl5EBkpvNJMU-kGPIs1gAaLZlvANrTHk2mUCPYgXqr7TWATPNESLDL4r468as9ViFjxictemzglfGEHffLQICOfg-umB8D2JFb_2yunR8pCopDc3N81Mw__Ww3vuSEjk_9Ykt7vbaNH9mw66sjjNLI9UgtcOTeaP377O0RIOhZQEGRM8j54ynosPn3woorJJN-ouuhanJnBHedZqpEnjdle1CGBdJUpbEUEnXZM__l6FBmKTzwV6gFlRxzeai2Cf555EgNToclXqNLc_RaMkyWVWHF1C1ymx2eTUq-Vp2Va2VKgdj3-mpnaQ2gz5ninKgxRzliYihRDI1dQOq_V8HwILiw7odwrbq9xxRXTXAsL2h6qsJIbzSBOwgOTLBmZquk_huktTEJxyuIEFuodbmkHpIXB9rJM5Z7I0E0ld1GI9v4sYtSIqRb4IXcGFQLedqloNM7FLYtpR3fh4PM9ASAdr2APBtqO_X1fG6VREwr1V_MOHaDD4Bfa1Nm8LEzvatgv7Vpu4MC1tjrW3q21L2-U41kA57hbmuBzO43-sjJqg5Q5GH5bVefrpM1yWheofV8YPKFoTODqfWRKaBTDS9kiP43Jc149LB6zbx1VJumE8bNdYFVbNJbxCpKgfI3ltzrvmyinMh-u3sNKzvNcbsNUND7thuxt2uuFRN-x2w-P6M6ExcntxBGbh4hC-PGRXL7cm7uhXVhMddaJuJzounyVG39hRuSMsNLyjkT--4YEe0ojs48w49Q2yz8TiwAPDyx-pxj4JIXLOCLwddgV4-gf-LL2H" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-240 — Manage Storage & Internal Movement of Inventory (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 R-240-080_-_Receive_Request_for_Material_Movement_(IP) — R-240-080_-_Receive_Request_for_Material_Movement_(IP)
@@ -587,10 +549,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVk1v4zYQ_SuEgsAtIKeSLFmODi38JWCBDTaI0-aw7oGmKJuITKoklcT1-r93qC9bWudUH2zN48x7w-Fo6KNFREKtyLq9PTLOdISOA72jezqI0GCDFR3YqAL-wpLhTUbVwPikgusV-7d0c_38w7gZLMZ7lh0MuqJbQdGfX2w0hcDMRgpzNVRUsnRgD3LJ9lge5iIT0njf0EnqpKVavTQTMqHy7OA4oUsCCM0Yp2d4FPqhH5s4RYngSYc0DdJJSgYnk1wm3skOS12mXyj6gD9eWKJ3YKc4UxR8dnqffcUbmpk9alkYjBTyrSkGU0aHQ8FWOSaMbwH3HYAk5q9nKHBOJ3S6vV3zVhQ9L9YcwYdkWKkFTZHSAC_fNEpZlkU3_nwaB46ttBSvNLrxluFi5NnE7CSCrTu2Ke7wnbLtTkcbkSW16_Dd7CHy8g9bfkSeY8sDfPe0KE_OSvOxN_EmrdIsdOfuvFFK0_R_KUFd5TNWr7XWchR78aLVcoNxMHd-5mu2ufDDqduvE5VvjNAL0jiOR8tzqZbjwHU-J53Fo7Ez75Fusabv-HAmvJ_7LWEchLEbfkpY6fWzLDaPUpCGcLQM4qAlDGduPPU-JfSnrj-pMwSercT5Dr1gSXcCyom-5VRiLWTlYD7c_b62UhyleGjqjeaSwn7Qo1AaGhDNd5hv6QVDWTst0IN4o2ilBSmtWQYPNKmAtfX3Bb_X4xc8ZXLfFyhp3xhGTzFaEcw5uP72gHmBM8Nfe1V6z4ecAnh3d9dVGnWVHqlMBShNF49P3xboGd4rhYlmgiPA0YzxMnP4KZdSKrt0_vXEL-JMDfaU6155ujTB95aHiG1T35fnfhINGURfho-74aZs6AEYzBhEC0GKKzEhhDxRQhkc0RP9p6AQAypfYCQzI74i0BY5VL9XwAnEdc91wVQuFCiZDE3CbWg38v6XNss8g3ehUTUhbbZtuZpEEiD59bIVnTON0iJHjxl0gumSjjRiCk5jn2f0CoXbo2jVvwqCy8OveumnQO94PBc6ocMNNAXZoVmh4IpQCuQph1tL_LG2TqcqEEZh9cBdNBz-Dr1em5PKdOs3m48qO6jNoDL92vQrc1yb4zq4Hl48rO3a9CpzUpv39Woj7ZbrP9bW1f7-Abn0HS-OFJbDi2Fk9tUM4Q7sXYdH12H_OhxcjuPOyvjTlfv2quum6dTXUhd1r6JeM7Et29pTuccssaKjVf4vgf8uCU1xkWnrZFu40GJ14MSKyvvbKvIEIhcMw1jdV-DpPw252KI=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-240 — Manage Storage & Internal Movement of Inventory (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 R-240-090_-_Create_Transfer_posting_for_Plant-to-Plant_Transfer_(IP) — R-240-090_-_Create_Transfer_posting_for_Plant-to-Plant_Transfer_(IP)
@@ -684,10 +645,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-240 — Manage Storage & Internal Movement of Inventory (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -699,10 +659,9 @@ flowchart TD
 | Logistics Ground Controller | R-240-040_-_Update_Inventory_Value_(IP),  | |
 | Ground Controller | R-240-090_-_Create_Transfer_posting_for_Plant-to-Plant_Transfer_(IP),  | |
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-240 — Manage Storage & Internal Movement of Inventory (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -714,10 +673,9 @@ The following data entities are derived from the system integration flows for R-
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-240 — Manage Storage & Internal Movement of Inventory (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -757,10 +715,9 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-240 — Manage Storage & Internal Movement of Inventory (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -803,10 +760,9 @@ The Future-State architecture represents the **target** landscape for R-240.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-240 — Manage Storage & Internal Movement of Inventory (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -817,10 +773,9 @@ The Future-State architecture represents the **target** landscape for R-240.
 
 **Summary**: 1 Forms
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-240 — Manage Storage & Internal Movement of Inventory (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -832,10 +787,9 @@ Integration patterns identified from the system flow analysis for R-240:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-240 — Manage Storage & Internal Movement of Inventory (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -859,10 +813,9 @@ Platform landscape inferred from integrated systems for R-240:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-240 — Manage Storage & Internal Movement of Inventory (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -902,10 +855,9 @@ Platform landscape inferred from integrated systems for R-240:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-240 — Manage Storage & Internal Movement of Inventory (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -916,10 +868,9 @@ Platform landscape inferred from integrated systems for R-240:
 |----|-------------|----|-----|-------|-----|--------|
 | LOGF0349_IP | ISM - Generate Packing List - IF/IP | Aug-24 (100%) | Feb-25 (100%) | Feb-25 (100%) | Apr-25 (100%) |  |
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-240 — Manage Storage & Internal Movement of Inventory (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -948,5 +899,5 @@ Standard RAID items for R-240 (Order To Cash (IP)):
 
 ---
 *R-240 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: March 2026*
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-240 — Manage Storage & Internal Movement of Inventory (IP)</span></div>
-</div>

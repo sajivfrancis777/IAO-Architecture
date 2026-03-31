@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">LO-180 — Manage Outbound Transportation - FTS (IP)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IP) (FTS-IP) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **LO-180 Manage Outbound Transportation - FTS (IP)** within the IAO program. It includes 6 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Forecast to Stock (IP) (FTS-IP) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 2 Reports, 20 Interfaces, 3 Conversions, 17 Enhancements, 6 Forms, 3 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Demand-Supply Matching | Implement responsive demand and supply matching (RDSM) for IP product lines | Supply Chain Agility | Medium |
 | 4 | LO-180 Process Migration | Migrate Manage Outbound Transportation - FTS (IP) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Supply Chain (Intel Products) | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -213,10 +180,9 @@ This capability includes **6 business process(es)** modeled in BPMN 2.0, coverin
 | 5 | LO-180-140_Record_Transportation_Information_-_FTS_(IP) | LO-180-140_Record_Transportation_Information_-_FTS_(IP) | Load Planner | 3 | 0 |
 | 6 | LO-180-150_Generate_Shipping_Documentation_-_FTS_(IP) | LO-180-150_Generate_Shipping_Documentation_-_FTS_(IP) | Load Planner | 3 | 2 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -283,10 +249,9 @@ Created"| n9
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP4jYU_itWRiNaKai5EiYPlSCQ1aid7mhhdh-WfTCJA9YYO7LNMCzLf-8xSbikm0pV84ByvnPOd272IQcrEzmxYuv-_kA51TE69PSabEgvRr0lVqRnowr4jCXFS0ZUz9gUgusZ_X4yc4Py3ZgZLMUbyvYGnZGVIOjl0UYjcGQ2UpirviKSFj27V0q6wXKfCCaksb4jw8IpTtFq1VjInMiLgeNEbhaCK6OcXGA_CqIgNX6KZILnN6RFWAyLrHc0yTGxy9ZY6lP6W0We8PsXmus1yAVmioDNWm_Yn3hJmKlRy63Bsq18a5pBlYnDoWGzEmeUrwAPHIAk5q8XKHSOR3S8v1_wc1A0nyw4gidjWKkJKZDSAE_fNCooY_FdkIzS0LGVluKVxHfeNJr4np2ZSmIo3bFNc_s7QldrHS8Fy2vT_s7UEHvluy3fY8-x5R5-W7EIzy-RkoE39IbnSOPITdykiVQUxf-KBH2Vc6xe61hTP_XSyTmWGw7CxPknX1PmJIhGbrtPRL7RjFyRpmnqTy-tmg5C1-kmHaf-wElapCusyQ7vL4QPSXAmTMModaNOwipeO8vt8lmKrCH0p2EangmjsZuOvE7CYOQGwzpD4FlJXK7RFyzJWkA70ceSSKyFrAzMw92vXxdWgeMC9zOxQnM4fqogEk0Io29E7pEWaP6EfklgklIw9AfZ_7qwvn27ovBuKVKiszX6KFeY0-9YU8HRDC5ApreSAK3GlKkWg3_LAEZEbuBqolSezg56gXWCxlvKcrgW6NOWkRZD0Mnwgub7kqBCSPQ4g0Ien9LfPj-l7SLCW4JkTbLXk9MYw8sEhpxDTbBFFMI8Ry9lDtBNfi3Cwc8Iz10dMwGiYZqtabkhXKNnhjk35VW6TwQrwdudim5Zf5IGJKwgV-h6PTIG04QBgN1q32IbdhU9-YA24GCW7XW5AD_ynGbmDCHK_638B2A2FVUnqhRSV0ehj9L5DKbwbAZwfQ4dcEgkOYVpuvSX0KRl5h4OTcpYSrFTfcw0KrHEUCj7UF3GhXU8Xjt5_80Jdlz1wl3U7_8OJ7wWvUr0G22tHrTkqCWHtRxWotvQDVpy1JJdpwZq2a_EoBaDWuu2wg1redimO6X_Y2HdjI1XTc8X1g-Y2tUuMtVfbcwbjdep8Ts1Qacm7NQMOjVRp2bYqXk4_1Pelul04G6z3G9hr4Et29rAmsE0t-KDdfqyga-fnBR4y7R1tC281WK255kVn74ArO3pGk0ohsW8qcDj31Ln6UA=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 LO-180-050_Prepare_Delivery_Schedule_for_Non-orders_-_FTS_(IP) — LO-180-050_Prepare_Delivery_Schedule_for_Non-orders_-_FTS_(IP)
@@ -400,10 +365,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWNtu4zYQ_RVCi8AJYG8tWbJsP7TwTYGBZJuus10Umz7Q0sgmIosqRfnSrP-9Q1uULUVu0dYPAXjIc-bCGZLKm-HzAIyBcXPzxmImB-StIVewhsaANBY0hUaTnIBfqWB0EUHaUGtCHss5-_O4zLSTnVqmMI-uWbRX6ByWHMiXWZMMkRg1SUrjtJWCYGGj2UgEW1OxH_OIC7X6A_TCdni0lk-NuAhAnBe0267pO0iNWAxnuOParu0pXgo-j4OSaOiEvdBvHJRzEd_6Kyrk0f0shUe6-8oCucJxSKMUcM1KrqMHuoBIxShFpjA_ExudDJYqOzEmbJ5Qn8VLxO02QoLGr2fIaR8O5HBz8xIXRsnz5CUm-PMjmqYTCEkqEZ5uJAlZFA0-2OOh57SbqRT8FQYfrKk76VhNX0UywNDbTZXc1hbYciUHCx4F-dLWVsUwsJJdU-wGVrsp9vi3Ygvi4Gxp3LV6Vq-wNHLNsTnWlsIw_F-WMK_imaavua1px7O8SWHLdLrOuP1eT4c5sd2hWc0TiA3z4ULU87zO9Jyqadcx29dFR16n2x5XRJdUwpbuz4L9sV0Ieo7rme5VwZO9qpfZ4klwXwt2po7nFILuyPSG1lVBe2javdxD1FkKmqzILN5ALLnYk0ca0yWI07z6xc63FyOkg5C2VLrJZ_gjg1QSyckj3wD5xOOWprMUAlSQoFrwxfj9QqVbVplnizWTZL5iSYJlTB5hzcntHKjwV2pcmrgrS7llqSfBYknGfL0G4aNdFQzHPSRP1H9VEg8M3b0dz54e7giNA5yXECENWgIiwEOHPHAaf_z4sWymVzbzJQkwMDLhJ1GVf0jTMqVf59mI78ixzY_Gx1QIhnNHpMw22xU6iJCLtd4SMkwSwTfVxJpmPWs6e5z_MKYJk5gSmlPJdgUCNrgMkYj56oStyFn1cjqZtXGbnTIJPc7QWJ4yHbIK_yvdj7BoK3T77-hIWSCFoBvE42JL1UFdEeh-KxR8viRjAYpZri4WE49hjao8Ir3Ed2v5E4gY5mqvChMPZib3ZLwC__UYyWfwWcKw7MnQf435NoJgifdWLO-q4r2yeJFRjmV5z3mQklmaZlCl9cu0Z8GWqgqma8oi1X14TZKfEWQxxdar-MTDcvQVcat9W4gnER5NoyzFey5NydyHGK9eTmYB6rCQQYDcu0tu58xNJU8qaT7tWkC2TK7I0_1MdWYSgdoOSWWWkltsoUwlihybfYPMu6oJ--3tHHsArQVeef7qvCGjCNsQjfz0YhwOl0SnnphX1DOO0oQLdVzgfa8yx3j8TqRbLwI7P8I0beD-dJ5Xae4_OH2snXfGLqojxOsPRIsnEJ8dhLPXR29Ji3jPc3I7e6oWmtW_InWqZtV3apd0-s9svLAr9wGaDIBMd1j2R5vDmEb7VF6WZ_0xcY-unXoEWTrycrNWDphhEJxThD2qFB45vg15pck7_9mi_R8tmk595yrCxWFcCs6sNEdh6JcMMtB23jeV9a95xa5hN5NW60e8qfOxcxqa3XzczceuXm8r4PuL8QnPhe_qhNITTnnCKiZOClb-XIrNfGznYze3UDXwG6QnIc3TC9sayH3Trpra94KhTTtVH7V24WMu1ddjt7KwCL-X29Dem3ZuQ3uhF3T0gk5lQf801vN6WlvQekUQWlD7ZuYCVuGsBgqT-Z6aRcrznJtONb58s-yLR6LaIf04LsFWPdyph-162KmHu_WwWw_36uF-PYzpqMevxGleCdS8Eql5JVSsx4tPgvJU9_qUe32qd32qf3UKO1x_wZVxM__aKqNWLdqpRW39eVKGnXq4Ww-79XBPf6mU4b6GjaaBj3Z80ATG4M04fvfj_wYCCGkWSePQNGgm-Xwf-8bg-H1sZMfHxYRRvKbWJ_DwFwWwHG8=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 LO-180-070_Plan_Transportation_-_FTS_(IP) — LO-180-070_Plan_Transportation_-_FTS_(IP)
@@ -453,10 +417,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduO2jAQ_RUrqxWtFKRcSZqHShBItVIrrQptH0ofTDIGa40d2c6yFPHvtQm3bJeHqpGIMoc558xMbGfnlKICJ3Pu73eUU52hXU-vYA29DPUWWEHPRS3wHUuKFwxUz-YQwfWU_j6k-VH9YtMsVuA1ZVuLTmEpAH17cNHQEJmLFOaqr0BS0nN7taRrLLe5YELa7DtIiUcObse_RkJWIC8Jnpf4ZWyojHK4wGESJVFheQpKwauOKIlJSsre3hbHxKZcYakP5TcKvuCXH7TSKxMTzBSYnJVes894Acz2qGVjsbKRz6dhUGV9uBnYtMYl5UuDR56BJOZPFyj29nu0v7-f87Mpmo3nHJmrZFipMRCktIEnzxoRylh2F-XDIvZcpaV4guwumCTjMHBL20lmWvdcO9z-BuhypbOFYNUxtb-xPWRB_eLKlyzwXLk191dewKuLUz4I0iA9O40SP_fzkxMh5L-czFzlDKuno9ckLIJifPby40Gce3_rndocR8nQfz0nkM-0hCvRoijCyWVUk0Hse7dFR0U48PJXokusYYO3F8EPeXQWLOKk8JObgq3f6yqbxaMU5UkwnMRFfBZMRn4xDG4KRkM_So8VGp2lxPUK5Y3SYg0SjRpl1rtSaMgx2yrd5tmL-z_nDsEZwX07dpRLMG2hKbW3GkpKaImmwKDUVHBk6jPVwdz5dSURdCW-YMq1-aFPINBQa0kXjQbV5YQ3ODO6BvQVmCmiukmObpCHVUVtmZjdpMbvztyamZf3V2vtBCzwYE4yauswCu-vJAZGIRfmYKHcjmpm9q2qhdQtq4-K2RS9e3h83zVOdruTMZZSbFQfM41qLDFjwD61a2nu7PdXnPTfOGaHtg88Rv3-R_Nuj6HfhskxTNow7IZBN4yOYdCG6TGMumHYDdM2HFwtbOt-2tAdOHgbDt-Go7fh-HwEduDB23By2rMdND2hjuuYzbLGtHKynXP4XplvWgUEN0w7e9fBjRbTLS-d7HCuO01dGeaYYrPd1i24_wMg0D9M" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 LO-180-130_Coordinate_Transportation_-_FTS_(IP) — LO-180-130_Coordinate_Transportation_-_FTS_(IP)
@@ -581,10 +544,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1WP9v2jgU_1esTBV3EmhxSEjgh5MgkF2ldqsG3em03g8mOBA1sZHjtGUd__ueQxKIm-h0mw6pUH_83ud99cPh1Qj5hhoT4-rqNWaxnKDXntzRlPYmqLcmGe310Qn4QkRM1gnNekom4kwu42-FGLb3L0pMYQFJ4-Sg0CXdcorur_toCopJH2WEZYOMijjq9Xt7EadEHHyecKGk31EvMqPCWrk142JDxVnANF0cOqCaxIye4aFru3ag9DIacrZpkEZO5EVh76icS_hzuCNCFu7nGb0lL3_FG7mDdUSSjILMTqbJDVnTRMUoRa6wMBdPVTLiTNlhkLDlnoQx2wJumwAJwh7PkGMej-h4dfXAaqNoNX9gCF5hQrJsTiOUSYAXTxJFcZJM3tn-NHDMfiYFf6STd9bCnQ-tfqgimUDoZl8ld_BM4-1OTtY82ZSig2cVw8Tav_TFy8Qy--IA75otyjZnS_7I8iyvtjRzsY_9ylIURb9kCfIqViR7LG0thoEVzGtb2Bk5vvmWrwpzbrtTrOeJiqc4pBekQRAMF-dULUYONrtJZ8FwZPoa6ZZI-kwOZ8Kxb9eEgeMG2O0kPNnTvczXd4KHFeFw4QROTejOcDC1OgntKba90kPg2Qqy36EgZ6GMOSMJmsLbIZMnAfVi-OuDEZFJRAYq38gXFOJBdwlhDDoQgSfgB30w_rnQsZo6tyRmEv7eaKE7IkhKJRVZk2DYQeAT1fjygJY0oYXP7Q7Y_-aAzzMJ5ZYSFpptp6l7v98UAecCDldG0SexJSz-RpTxpuKow-invYxTGF8CvG4z6HboXbOQp3swtI6TWMZUU_M61G442ZwDbTc57syvEHHhaJXedn1sticJxgyD5WcOoxsBXyCKow1Jg_GqUeBWioYGmkHGNwjc8HeEbSmUjUFjJ4lyUQqQ3x60zlOOzVVHpTC50S2MT8QjtIKhme25kEXZ3tdxDlCwWqLfru9-12hUA6ocaprdCu7raxUOcPPnbEASifbQ3-Bt8uE0Ax6M4_FSyfsZpfFPKA3N_6YEQ1ybEeeugkJeVPHNUWcE6qRlzefh4z6WWgNoh9zf0RDGLldVh3_m4BOUvmiDi066h3tDVkhNc8lT4A_rZtf4tSFwRwWopcrFHCZdfUIC4Lpm0DGMlEOQsE0Le2F0zlOaAaqZ0mbGuQGb7bw67GlBc728hSa6Dd5_uQ20TsKjrzVZyLe12xdBNsTdpvh1hIJ79CfJzn6rcBYvNMyLWswSKAaa0ZDkappF4GwSP1FxOO3o9N7_Sz9u0i_hu4eml_n70JZCVbLl6pNGZqmJcrNAK0pS9JFC96w4-gyTTI3t1Y6-deVS2foVZft8vNQVd7CG_g936CPXD6_TLvi3Gu5NyVG7JH0JkzwDT7rPLAwjNBj8AZ_aeqit7WpdinvleqitbW3taWtcrt1qXRLiyqBTCowrA2YpYOoArihMTQVjDaiCGJXrkeaUVUZRMVrjUsDUCHTCKoqxRujqBkqgXhdp-v5gFMX8rvqx2qnirwqCqww6DQnQVR3zXQ2BBqkaZpVq5UYNVNWqVUYlV3FCFFldpzJHuA659ANbui4MqJNuXdMyhqFesioEPNYEcOW6c3F_Vc1S3dsbsNUOD9thux122uFRO-y2w147PG6HoVHb8Y44cUeguCNS3BEq7ogVanzxFNPccru3vO6tceeWZdZPlk0cd-BWBz7swO3q4akJO-3wqB1222GvHR63wtDsJWz0jRS-m0i8MSavRvFjBfygsaERyRNpHPsGgYvD8sBCY1I81Bt5ca-dxwTuUekJPP4AX1BKWg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 LO-180-140_Record_Transportation_Information_-_FTS_(IP) — LO-180-140_Record_Transportation_Information_-_FTS_(IP)
@@ -668,10 +630,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -685,10 +646,9 @@ flowchart TD
 | Functional Analyst | LO-180-130_Coordinate_Transportation_-_FTS_(IP),  | |
 | Load Planner | LO-180-130_Coordinate_Transportation_-_FTS_(IP), LO-180-140_Record_Transportation_Information_-_FTS_(IP), LO-180-150_Generate_Shipping_Documentation_-_FTS_(IP) | |
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -700,10 +660,9 @@ The following data entities are derived from the system integration flows for LO
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -744,10 +703,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -790,10 +748,9 @@ The Future-State architecture represents the **target** landscape for LO-180.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -854,10 +811,9 @@ The Future-State architecture represents the **target** landscape for LO-180.
 
 **Summary**: 2 Reports, 20 Interfaces, 3 Conversions, 17 Enhancements, 6 Forms, 3 Workflows
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -869,10 +825,9 @@ Integration patterns identified from the system flow analysis for LO-180:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -896,10 +851,9 @@ Platform landscape inferred from integrated systems for LO-180:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -939,10 +893,9 @@ Platform landscape inferred from integrated systems for LO-180:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -971,12 +924,12 @@ Platform landscape inferred from integrated systems for LO-180:
 | LOGI1074_IP | Send data via API to retrieve the tracking ID - interface + Enhancement | Mar-25 (100%) | May-25 (100%) | May-25 (100%) | Oct-25 (100%) | 3. Off Track |
 | LOGI0951 | Inbound interface to receive Finished Goods “Goods Receipt” (4B2) signal from... | Feb-25 (100%) | May-25 (100%) | May-25 (100%) | Aug-25 (100%) |  |
 | LOGI0950 | Interface to receive 4B2 signal from Factory and return shipments from ODM/OS... | Feb-25 (100%) | May-25 (100%) | May-25 (100%) | Aug-25 (100%) |  |
+
 *... and 31 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1005,5 +958,5 @@ Standard RAID items for LO-180 (Forecast to Stock (IP)):
 
 ---
 *LO-180 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IP) · Generated: March 2026*
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
-</div>

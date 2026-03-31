@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **E2E-88 R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme** within the IAO program. It includes 6 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | End-to-End Integrated Processes (E2E) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 2 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 2 Pending IAPM |
 | **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Process Visibility & Monitoring | Provide end-to-end process visibility across tower boundaries with integrated monitoring | Operational Excellence | Medium |
 | 4 | E2E-88 Process Migration | Migrate R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme business processes and 2 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Cross-Functional / End-to-End | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -209,18 +176,21 @@ This capability includes **6 business process(es)** modeled in BPMN 2.0, coverin
 | 1 | E2E-88A_R3_Portfolio_and_Project_Management | E2E-88A_R3_Portfolio_and_Project_Management | Boundary Apps, SAC, SAP S/4 (IP & IF) | 15 | 6 |
 | 2 | E2E-88B_R3_Project_Systems_1 | E2E-88B_R3_Project_Systems_1 | Boundary Apps, SAP S/4 (IP & IF) | 25 | 14 |
 | 3 | E2E-88C_R3_Procurement | E2E-88C_R3_Procurement | Boundary Apps, External Partners/
+
 Supplier
 , SAP S/4 (IP & IF) | 24 | 11 |
+
 | 4 | E2E-88D_R3_CFIN | E2E-88D_R3_CFIN | Boundary Apps, CFIN, MBC, SAP S/4 (IP & IF) | 15 | 10 |
 | 5 | E2E-88E_R3_SAP_Transportation_Management | E2E-88E_R3_SAP_Transportation_Management | Boundary Apps, External Partners/
+
 Supplier
 , SAP S/4 (IP & IF) | 12 | 6 |
+
 | 6 | E2E-88F_R3_Project_Systems_2 | E2E-88F_R3_Project_Systems_2 | SAP S/4 (IP & IF) | 9 | 6 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -313,10 +283,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_RVCi9RZwEZ0tWQ_tPBNXQNJ14i3LYq6D7RE2WxoUaAox16v_71DifJFcVB064cgPJw5Z-aQI-lgRDwmRt-4uzvQlMo-OrTkmmxIq49aS5yTVhtVwG9YULxkJG-pmISnck6_lmGWm-1UmMJCvKFsr9A5WXGCfp220QASWRvlOM07ORE0abVbmaAbLPYjzrhQ0R9IkJhJqaa3hlzERJwDTNO3Ig9SGU3JGXZ813dDlZeTiKfxFWniJUEStY6qOMZfozUWsiy_yMkT3v1OY7mGdYJZTiBmLTfsES8JUz1KUSgsKsS2NoPmSicFw-YZjmi6Atw1ARI4fTlDnnk8ouPd3SI9iaLH50WK4BcxnOdjkqBcAjzZSpRQxvof3NEg9Mx2LgV_If0P9sQfO3Y7Up30oXWzrcztvBK6Wsv-krNYh3ZeVQ99O9u1xa5vm22xh78NLZLGZ6VR1w7s4KQ09K2RNaqVkiT5X0rgq_iC8xetNXFCOxyftCyv643Mt3x1m2PXH1hNn4jY0ohckIZh6EzOVk26nmW-TzoMna45apCusCSveH8m7I3cE2Ho-aHlv0tY6TWrLJYzwaOa0Jl4oXci9IdWOLDfJXQHlhvoCoFnJXC2RkNelHcZDbIsr_bUL7X-XBgjnm4J3KnZ03T-8Ins8IqnaC4FNLWiERrhjErM0IzhFEmOvuBI0giAzxmBGMpTvbkw_rpgtoG5TJkPZmg6nKF5kWVsX0amcLGvox1VhyAg-QAVCr4l1-WAG3-TSF4nWf49pCW4n-BOLnmGpmlWwL3koimGnklE6JbEQPDxskjzcKgZ1IOrs4TRi9YILAF7i0h1V2v_tDCOx8tc-5yLheCveQcziTIsMGOE_VzdiXMSTE3jUOaD0WU3rnKs0kIhTaEQqp1965flqWAioNfNO2dV9v2AhkW8IvKS4FYhcDwPLrqfztAPaBpeWqSqeuQ4PnEvS8Ic0RQuw4wLmXBG-cOwiF4Avi7TOx3r7RPswv6YgtV0WUDMZ0FXVF2nqmh126aSbK5z_DNnXVIIl1t1W51ZIci_1RVc1FVHIgpS6B7qzHiO2cfrjB5kTLaYFbqXMgbdzyMulDJOY0ApLCT9Wg5FI98ygeB0tXV-I-RyGJW3-i7cz2ZPN3yw1IQ9c-WbuvHaskriDbVzrV7yVhmNwO55pDIGj7QpvMTppddJ0-vGSFlBYyh1YTAUPAKiWLWWnUxXb9_S-SZNabg96QTBED07p6Ln-_yNE7Z1e4rJLmJFDmP_ZharNOe_DXCV5H5Pkvedj4rUR53Oj0pVr4Nq3dPLXrW09PsDnNCAfu3BPxqoCSxXA3YNOFrCqzm8Cmiuu_VaM7iNtVUnWN0K8Ou1qRVORdk6w6kBLWHXgK0j7Mb6tK8Jagm7lPi2MP4gMOnfYKdm1jw1kdMoRZdqBU2iX3jJU-Nus8CaqHZed2D1Lt7kpRX1h9k17uuPqGs0uIn2bnNAqfq74xq2bsP2bdi5Dbu3Ya-GjbaxIWKDaWz0D0b5QQ8f_TFJcMGkcWwbuJB8vk8jo19--BpFFkPmmGJ442wq8PgPKIvDnQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 E2E-88B_R3_Project_Systems_1 — E2E-88B_R3_Project_Systems_1
@@ -460,10 +429,9 @@ Activated"| n34
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv2zYU_iuEiywtYCOiLr49bHB82QI0TRC3DYZ6D7RE2Vxk0iNpJ26a_75DmVRsVunQLA-B9emc79wPJT02UpHRRr9xcvLIONN99Hiql3RFT_vodE4UPW2iPfCZSEbmBVWnRiYXXE_Z11IMx-sHI2awCVmxYmfQKV0Iij5dNNEAFIsmUoSrlqKS5afN07VkKyJ3Q1EIaaTf0G4e5KU1e-tcyIzKZ4Eg6OA0AdWCcfoMR524E0-MnqKp4NkRaZ7k3Tw9fTLOFeI-XRKpS_c3il6Sh1uW6SVc56RQFGSWelW8J3NamBi13Bgs3citSwZTxg6HhE3XJGV8AXgcACQJv3uGkuDpCT2dnMx4ZRR9HM04gr-0IEqNaI6UBni81ShnRdF_Ew8HkyRoKi3FHe2_CcedURQ2UxNJH0IPmia5rXvKFkvdn4sis6KtexNDP1w_NOVDPwyacgf_PVuUZ8-Whu2wG3YrS-cdPMRDZynP8_9lCfIqPxJ1Z22No0k4GVW2cNJOhsH3fC7MUdwZYD9PVG5ZSg9IJ5NJNH5O1bid4OBl0vNJ1A6GHumCaHpPds-EvWFcEU6SzgR3XiTc2_O93MyvpUgdYTROJklF2DnHk0H4ImE8wHHXegg8C0nWS3QuNmUvo8F6rfb3zB_HX2aNG5pStqXo9nyKRlQTVqALngu5IpoJPmv8dSAfgvwFzDWDiJFxcSNhlrk-looOWA-o0B_0gSwEP5uuTA_f0JxKylMKVhVbcPR2ejN6d8wUH9obLglfUHRlBvlYLAExiEyK7Y-kouTxcdbIST8nLSKluFctUmi0JpIUBS1-31dx1nh6OlRq_5wSDIeX--ngGk3PYvT24hr9gi4m7w7Y2-D4UFKbzb9p6mWy83z_Vsg7dA6_7zJxz9EUFkqqIf2I8Ax9uB0cK3ZNRlSZ1qFQGg2hSJKeXa2phFqUdclYSrSQ6lixB4rQgrAUkYBFLdHV3LilSjMTRotMQSQ8LTYZrCc0_nQxQrkUKzS-nB4z4QCoxrCY5gVTSygIWzBOCnS-yRZUI6LRe7qlBcKm8zxVXK9qc3RIIe7Bxz2RaeBxUdOP2LTtAAh2X6nVNbPwgVIIBtqzPvd438YFhWPLankC8YHAgfGz76qBTYNeKLWh6BJqaQ4wT8A0wnVZKLJmGkKFg0N4_YtNN1xvJBwBYPCG_rNh--k7q8Cy672KYtMLn0mxMV30uxAQczmcaz-cXhmO2ZAvuRkGR5O9FbBKPQlTuU_rzNi64MBBlT672lK5pCTzHAtNWcwSoUqhSzgmlmdjaLKPcPwpkpqN4SuUFdlwdA2-CehfCGQtpPbFTF2u5rDJOBqkKV1rYraMFmhdEPgBc0GhoeHudH8aeOrJYZpHsONMjn0b7bdf3FpQWqzR9wpon4YMFA9HPjRVHIfjVrc7RDfRy1s07FaCEytYNv90pzRdKRR64r2fEo-CSnxQikMec1EwUQ66U74knCzqNjx-3ormia81h6KlSzTIMmYKZ8a8WlW2U7Pf_NUa1pPQB9guClrshY0c_bftasaH0FZSFOWs13gQv86DzmsOku5rlHqvUIqD1yjh1yiFtUqM_zB9cfQqrfgntaqTmLdRq_UrHKb2srO_jNx1ZIGuvcbYCoROILRA5IDIAN9mjT8p7IVv5oRxulYUV6KxBWILxE6i7QOV_WQPxI4Dt32g6wE966CjiKwADpxGz6cIrAp2KtiPCfsOJh4QVzFFlqznABe1A6w_7hK7BA628LxJ5qxgeodm3I3rjA_gANju1-c3k0XftHPO1ir0o_gg9oqhXzJ3I_aqX-XBGnCXthgubzYwPxXu1QV-eIlOvFy5XnLlj6yCuw5dRM7z0JlwjKF1Max8tMUNXQyh9TKsWsoCsSONrdXQBRJaP8O210JhVVPrGHZzg23m4sAnrSar7VVr7ylU4bognJsHSC2g3Ct4edqadW0-EWRImIfW1QpOeL3bFyvxCB1QvjEZp-1L6THaqV6Lj_HuC3ivHocK1ePYvfkdw2E9HNXDcT2c1MPterhTD3fr4V4tDNWrheujjOujjOujjKsoG83GisILIcsa_cdG-SkIPhdlNCebQjeemg2y0WK642mjX34yaWzKp6gRI_A2tdqDT_8CWGSWhw==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 E2E-88C_R3_Procurement — E2E-88C_R3_Procurement
@@ -591,10 +559,9 @@ Business Rule"| n17
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWF1zokgU_StdTGWdqdJVQER92C01krFqMrFCZlJb4z600GhvsJvthsRsxv--t6FBJWS2atYHkz7cc7_vBXwxAh4SY2xcXLxQRtMxemmlW7IjrTFqrbEkrTYqgK9YULyOiWwpmYiz1Kf_5GJmP9krMYV5eEfjZ4X6ZMMJ-rJoowkQ4zaSmMmOJIJGrXYrEXSHxfOMx1wo6XdkGPWi3Jq-NOUiJOIo0Ou5ZuAANaaMHGHb7bt9T_EkCTgLz5RGTjSMgtZBORfzp2CLRZq7n0lyjff3NEy3cI5wLAnIbNNd_AmvSaxiTEWmsCATj2UyqFR2GCTMT3BA2Qbwfg8ggdnDEXJ6hwM6XFysWGUUfbpdMQSfIMZSXpIIyRTg-WOKIhrH43f92cRzem2ZCv5Axu-suXtpW-1ARTKG0HttldzOE6GbbTpe8zjUop0nFcPYSvZtsR9bvbZ4hu-aLcLCo6XZwBpaw8rS1DVn5qy0FEXR_7IEeRV3WD5oW3Pbs7zLypbpDJxZ77W-MszLvjsx63ki4pEG5ESp53n2_Jiq-cAxe28rnXr2oDerKd3glDzh56PC0axfKfQc1zPdNxUW9upeZuul4EGp0J47nlMpdKemN7HeVNifmP2h9hD0bAROtmjKs7yX0SRJZHFNfZj5bWUsMwFNJQm6UROCoN1jvOYCp5Qz5C9uvYXfvSdr5Gc0JSvjzxO6BfRbEhD6SNCCRVzscta5kH0idI1ZhmNE2SOHKkiUbgXPNlt0M7s9J_XPNAd8B7NQ0rpoak27Nwlhd2Sf5r7J1745uQYc-jxK0Vcc0zD3rTvfByTJY_uIWRgrvWoxhQgQkcFCgh5Js6QW6OjlZWVEeBzhjtpwnTXMaLBVjiAulPu_r4zD4TTqXjOD7IM4kxDWVdE0RxqMVa1q831KBIN8LWG4GRGyC0VIkphCmU6dU1WccRZRsev6JCZBimZYCBCTtTBUwW7EBjPYtegOPJIJF2lNyM6FVC_4W5rsCEvRFeehREsaPECi3mvlH2q805pVfuqa1VrC-v_J8SdL5Hf76P1iiX5BC-_Dif6BSoggoARV3X1L_s6opHnln2i6RfdT_9wrF1gwH4I_NtPOpYcNNoqsNWsfgfydoJsNSFzd-Wi2JcFD_h_UISQwdzvIGKShliuzpwzhOMhiZesO72vXixlex1Rua57UBFXxJ8ED408xCTekq1vmxyTVDEsi1GzDIK7VHkGXJIYawTbJI_3IYU2jCRXoHj-vYWMhlu3WEOXHyf20pu20RYqeyk9JilKuhvRXNI153mQyhb81tvMmOxJ8d84HfV-YILAlaZDmTcuZzHbF5GcJfF3d1hrYVG2z5DKtKZ8pCG8wZfD3VV1N99gIc-iVYmCusUxf5VK1zJckbJJEkGA0VcnjEUCAwENO3hOcgVRtjs28ma7RHPIchiSsDWKvjOPHU2g577-VUwjpTl47VTir1J9Ol6XyNLfmneFwjm7tfBKrXVLcNmDP4w1Rqmom3Yp6qagzb_G5JjGsJKZKAu6Df6mF5j-DRzuJzNomMZs3yaIIGE0Cte1J-Go920cebDP-JDs4TlGCBY5jEr_aPwWp_zMk52dIg0bStLxRTWFLMiKhR-GOVee6P2Nw-DOkUSOJsv_c4sxFnc5vsET10baL86h2NvWTERsUZ1cfR8XR7uvzUJ9tfTZ7NQG7rxWapYSpAX22rOJslSosLWBZJUMTqnPJqFQ62uigBHQUdum2qcOwndItTTErIJf4vjKqUq9Yrdjf1c4pFerArZJv6sxYgzOF6pZbSujUl-fS6TIK29Qe_EFkbqx8KgcVmlkm1dJJtUZ17meeUyujlvaz9MqyteDE_wzbOF-JjxSjk-dMFWZVC52lsl0sXV6rzIN2xK5crZ2tkbaXP2gqz-oX4Ekuv1A1jDZRFUanzRzVgYqhU29W5S-9qrp8WC9_CYxOXgBUNfU71jk6qN7yznH3DXz4Bj4qX1jOYAi4ETabYasZtpvhfjPsNMODZththofNcBWl0TZ2BN5MaGiMX4z8xwf4gSIkEc7i1Di0DZyl3H9mgTHOX9KNoh8vKYYHzV0BHv4FdsAl8w==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 E2E-88D_R3_CFIN — E2E-88D_R3_CFIN
@@ -703,10 +670,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV11v6kYQ_SsrX6UkEvT6ExseWoHBV5FChEJvq6r0YbHXwYrxWus1Cc3lv3cW7xpsnIemPCTe4zNnZmdnhuVdC2lEtLF2c_OeZAkfo_ce35Id6Y1Rb4ML0uujCvgdswRvUlL0BCemGV8l_5xohp2_CZrAArxL0oNAV-SZEvT9vo8mYJj2UYGzYlAQlsS9fi9nyQ6zg09TygT7C_FiPT55k6-mlEWEnQm67hqhA6ZpkpEzbLm2awfCriAhzaKGaOzEXhz2jiK4lL6GW8z4KfyyIAv89kcS8S2sY5wWBDhbvksf8IakYo-clQILS7ZXyUgK4SeDhK1yHCbZM-C2DhDD2csZcvTjER1vbtZZ7RQ9PK0zBJ8wxUUxIzEqOMDzPUdxkqbjL7Y_CRy9X3BGX8j4izl3Z5bZD8VOxrB1vS-SO3glyfOWjzc0jSR18Cr2MDbztz57G5t6nx3gb8sXyaKzJ39oeqZXe5q6hm_4ylMcx__LE-SV_YaLF-lrbgVmMKt9Gc7Q8fVrPbXNme1OjHaeCNsnIbkQDYLAmp9TNR86hv6x6DSwhrrfEn3GnLziw1lw5Nu1YOC4geF-KFj5a0dZbpaMhkrQmjuBUwu6UyOYmB8K2hPD9mSEoPPMcL5FU1qeahlN8ryo3olPZvy11p5ISJI9QUGSEpRkaArVt9b-vmCZwPqeR7BLtMSHHck4eiK7hHOchaRJNYa3QI7xOMaDgtO8NphhjlElEoHJXWUDpdSK1A_uHy_0LFCbv5GwvPRdZk2nNpB8RkR8k-UCLciOQoAhdHyT5wBP5JUUBZr6i1pwinm4hWaDh4JEiEIOygLGAtCeShhRTZUhqHwjGWHKn5IRCWxSXZFeKmLnVKSe0T1hTYonYqeMkZCfxORzAkFc641OxwUahfC8RDOokcdytyEM4Sy63DiakZQIldbx6KAQENiuirpAAQ45hdK4Bfd9kZc-Wkx9tKAwvym7awlUFbNPyCsYQoBRvf0H-tzimpeZUjQ4gJwWOG1xrZNuniahIK_KHB5hW_fZnkK_oiUtOJxQy8hrFdtlAqqCuKi1ymTUMlFplGlt803j_V3xxVfbYAPDGbK3wFmJU3mm8PBIRFVBh_261o7HSwGzW0BWQ3TFt7r55C1MoSj35Fs1bNpmdreZj6GYiaqqDnfO59wNP2fmdptVyYc0UgbPedWicNxX0Xpne8wYfS0GOOUoxwynKUk_cDr6hJGldxol2Uf7u55k0ESXhSeG1KJMeTIQAxZOJMtEn-8TDq23hfIecDoQ_9sd5_x3w-tgVpMlWn210e39Ev2E7oNGT7gfzWzCocULJCo1iaDVNzh8EaNsRUsGTbk6FJzshOZXodjqHDFq5uZ84Hk-erJE38Plhwjh6zhhVqDB4BfIu1xb1dL05Nqu1oZaO_K9_H6HBwH8WGuPdK39EG0kX7iSaCqiVB6qtVRy1NpuCSniSEYwUhHrUlkB5rAC6rWyqGP0KsBWCoZUcBXBlb5VPzQjkCky1Fr6M-yWQ7VV6c5UWzPk1g2zHWEdgNyTYbXT-qf4FoRgFFPhy8n948-6bqJbKJpBSnEkLi3k7kQ2as92k2500xt5OqXhPAqqVChBSwaqysE0W3HW51-_UedZZ18evKFfZ7_l1tLbxaHcWJc3N3E08nLcRN1O1OtER10onIu64DdxQ909m7DZDVvdsN0NO93wsBt2u2GvGx51wnCqEtb62o6wHU4ibfyunX4wwo_KiMQYBqF27Gu45HR1yEJtfPphpZWnm-UswTDudhV4_BfnQHNM" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 E2E-88E_R3_SAP_Transportation_Management — E2E-88E_R3_SAP_Transportation_Management
@@ -792,10 +758,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_RVCQeosYCeiLpbjhwK2bAUBNlgjStqHdR9oibKJ0JJAUr4063_vUBff4hTdrR-CzNHMmZnD4eXdiLKYGn3j-vqdpUz10XtLLeiStvqoNSOSttqoAv4ggpEZp7KlfZIsVSH7u3TDTr7RbhoLyJLxrUZDOs8oen1sowEE8jaSJJUdSQVLWu1WLtiSiK2f8Uxo7yvaS8ykzFZ_GmYipuLgYJoejlwI5SylB9j2HM8JdJykUZbGJ6SJm_SSqLXTxfFsHS2IUGX5haRPZPMni9UC7IRwScFnoZb8K5lRrntUotBYVIhVIwaTOk8KgoU5iVg6B9wxARIkfTtArrnbod319TTdJ0Vfn6cpgl_EiZQjmiCpAB6vFEoY5_0rxx8ErtmWSmRvtH9ljb2RbbUj3UkfWjfbWtzOmrL5QvVnGY9r185a99C38k1bbPqW2RZb-HuWi6bxIZPftXpWb59p6GEf-02mJEn-VybQVbwQ-VbnGtuBFYz2ubDbdX3zI1_T5sjxBvhcJypWLKJHpEEQ2OODVOOui83PSYeB3TX9M9I5UXRNtgfCe9_ZEwauF2DvU8Iq33mVxWwisqghtMdu4O4JvSEOBtanhM4AO726QuCZC5Iv0DAryllGgzyX1Tf9S_H3qfFMI8pW9C6EdUWPaZKJJVEsSxFLkU-EYFQAvMpANvSsN0XEOCs97kZM5oWit7e3U-OvI1oLaMcrmipU5DGIIxERFIkqUayJH15eTkOw9_4-NRLST0hHnyGdGeyCaIHoJuKFhLCHSuSpsdtVYVDuWZfjjaIiJRxNYDOkVMg7FBZ5znUHx6l01wGFQp51bXc-bKk51PiYKgpEKhMS2SJGObBsm4lB08IysQ0KxOssi8-K1w3XWp19sW--N23lHGZEryuVOhlToCIUMYRjMUagt65mX8xgRRjXByTwfTkmdM4IS50lmhQzzuSCxmf-Fj7oCgVma9khXOneCOeUf1C1CrJ-LujjUoSDCQrvHHTzOEG_ocfguCQbGnigsD5AgwJRHg3oFfRANy9PX071c7Swgh57ftMH-QVXF1wnVOj53c_tazN-MNo-4VHBNVOt8Wl4V8_shkbFf0jl6VSZVHvHkCrF4VaDiR9lUVH-8zGsd2gmrKdq8g1BwSgIRxf875s04ThEa6YWaFCoDEaQU5iZCwHYPGTwdSBsUCXYrCh362BO02iLhrCdUj2C_1Ipdg9TJlWWo5cnlNeTC4v9YcpwqZ417vR6Pnq2yykvRCnIGXHvZ7d5FXb_S2GW-cuHSmqjTud3GMDadCsT92rbq-zGxPeV7dZ2tzKbGy116vD72q7dcfMdmzXQEGBcM-AGqAvCe6AuYW83OawGsGqKBrBqAHsNgM-BJqShOGtjH9D0Ufr_aE77artNjR9HQuFaCruxe5Xdre3a3BPWQnhHV2LZfPPCOcWdT3C3fqWcot1PvL3mCj-Fe5fh-4swFH4Rxpdhq4GNtrGkcOWy2Oi_G-XbGN7PMU1IwZWxaxsE9ny4TSOjX74hjepKHTECJ-2yAnf_APLjiZA=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 E2E-88F_R3_Project_Systems_2 — E2E-88F_R3_Project_Systems_2
@@ -870,10 +835,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -884,15 +848,16 @@ flowchart TD
 | SAC | E2E-88A_R3_Portfolio_and_Project_Management,  | |
 | SAP S/4 (IP & IF) | E2E-88A_R3_Portfolio_and_Project_Management, E2E-88B_R3_Project_Systems_1, E2E-88C_R3_Procurement, E2E-88D_R3_CFIN, E2E-88E_R3_SAP_Transportation_Management, E2E-88F_R3_Project_Systems_2 | |
 | External Partners/
+
 Supplier
+
  | E2E-88C_R3_Procurement, E2E-88E_R3_SAP_Transportation_Management,  | |
 | CFIN | E2E-88D_R3_CFIN,  | |
 | MBC | E2E-88D_R3_CFIN,  | |
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -903,10 +868,9 @@ Supplier
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 | 1 | e.g. Cost Element | e.g. MES 300 | e.g. XEUS | Data steward | e.g. Intel Confidential | e.g. 10K rows/day | Master / Transaction |
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -954,10 +918,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -1001,10 +964,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.3 Data Lineage
@@ -1033,10 +995,9 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1090,10 +1051,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzxaSoQqpU06dUoBLQM2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpVzTgtOJAKndiDPNUhXyhzXUQSe_N8HaPqQLLpbGE8IsA3I1ahIXAUSTSJrKloSCTyNrVWWI7C6Z00KtkUsJY3p_w5maa8uUCgk6bq4WIqATENUUVFFW1hSXGOY04elMm49tbSxo-rdmbNurFVk1GlH6Uov86EcpwdFokFYL55bM-ZgqaPFU5rwARqRaCiCJoFKCxBgTXn17MCWTUvIUpCTVmHIhnL0hjn67KVWR_QVnr9_tduz--rN1pxfkHOb3zSQTWeHs2ba9hUnznGyGwey3NeoLpm2fnPQ7_4HJqKK7mF73A8yDV5jPPkYlklfQJXJK2luVFpwxAXe0gDojXsfdMOKfdIYbtE_MHjKxw4jmuMbyYGDbH2EaVFlOZgXN58QNfkdWVLLuEcMnO2oT9_IyGA3cH6OLcxK4v_zvkfXHJOnBUBCJ4llKgu8bq3_od7uDGOJZPPbD-Mi266gJdAh8mX0h6CPoQ0DHcbDDbwL89K_CN7O1493U8U2V7D6UBcQhFLc8gbhfylerOzgxSFUUWUcRjDKwm65to3t-hT7IpIp9gUdAqnr1KSbHBlgHkHXA2aTY753xnnGE12SfjLwswb9v4cX52T7vmapalaYepOy5P7uE4rbrPUVWheZVTUAk93KEzyEXePY8fcBEHfi9GF1kuxd6SmvRVMdAP6ht8aH90Ravp7ovqfZndvKOWAOYIUevxMFsEvhf_XPvEyoNYtT2trTcPBc8oTr4DXEF8fhmW0LjjUzelU0Qe_62Qjx9_Pipwstlu_Mmxb8wm_Gww44xkLWyaSvg03UZ3P81mWxINaQ8E9vWvxdiT09Pd84yq2ktoFhQzizn0VxoeC8ymNJSKLyGLFqqLFymieVUF4tV5jhR8DjFJiyMcfUPaHVHLQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Current-State Flow Narrative
@@ -1102,10 +1062,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.2 Future-State — Future-State Application Landscape
@@ -1157,10 +1116,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1Izz6IEKVUpJOnVJAhI1NyxS58W1rzU2i2AEK9L_vOi40tCCYK6XJfZxrn3tsP1pJxsByrEbjkadcOeQxstQcFhBZDomsCZX41sQ3CUlZcLUM4BaEcYose_ZWKT9owelEgNRuxJlmqQr5wxrqoJPfm2BtH9IFF0vjCWGWAfk-ahIXAUSTSJrKloSCTyNrVWWI7C6Z00KtkUsJY3p_w5maa8uUCgk6bq4WIqATENUUVFFW1hSXGOY04elMm49tbSxo-rdmbNurFVk1GlH6UotcD6KU4Gg0SKuFc0vmfEwVtHgqc14AI1ItBZBEUClBYowJr749mJJJKXkKUpJqTLkQzt4Qx6DdlKrI_oKzN-j1OvZg_dm60wtyDvP7ZpKJrHD2bNvewqR5TjbDYA7aGvUF07a73UHnPzAZVXQX0-t9gHnwCvPZx6hE8gq6RE5Je6vSgjMm4I4WUGfE67gbRvxuZ7hB-8TsIRM7jGiOayyfndn2R5gGVZaTWUHzOXGD35EVlax3xPDJjtrEvbwMRmfu9ejinATuL_8qsv6YJD0YCiJRPEtJcLWx-od-rzeMIZ7FYz-Mj2y7jppAh8CX2ReCPoI-BHQcBzv8JsBP_3v4ZrZ2vJs6vqmS3YeygDiE4pYnEA9K-Wp1B12DVEWRdRTBKAO76do2uudX6GeZVLEv8AhIVb8-xeTYAOsAsg44nRT7_VPeN47wB9knIy9L8O9beHF-us_7pqpWpakHKXvuzy6huO36T5FVoXlVExDJvRzhc8gFnj1PHzBRB34vRhfZ7oWe0lo01TEwCGpbfGh_tMXrqe5Lqv2Znbwj1gBmyNErcTCbBP5X_9z7hEqDGLW9LS03zwVPqA5-Q1xBPL7ZltB4I5N3ZRPEnr-tEE8fP36q8HLZ7rxJ8S_MZjzssGMMZK1s2gr4dF0G939NJhtSDSnPxLb174XYk5OTnbPMaloLKBaUM8t5NBca3osMprQUCq8hi5YqC5dpYjnVxWKVOU4UPE6xCQtjXP0DruZHRQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Future-State Flow Narrative
@@ -1169,10 +1127,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.3 Change Impact Summary
@@ -1192,10 +1149,9 @@ flowchart TB
 | e.g. MES 300 | - | N/A |
 | e.g. XEUS | - | N/A |
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1210,10 +1166,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 
 > *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1222,10 +1177,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 |---|---------|-----------|-----------|----------|------|
 | 1 | e.g. Pub-Sub / P2P / ETL | e.g. MES Route to ICOST | e.g. Azure Service Bus | e.g. REST / RFC / SFTP | e.g. OAuth / NTLM / Cert |
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1266,10 +1220,9 @@ flowchart TB
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
 
 
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -1311,10 +1264,9 @@ flowchart TB
 | 1 | e.g. Azure PaaS | Cloud / SaaS | e.g. XEUS | DEV,QAS,PRD |
 | 2 | e.g. S/4 HANA 2023 | On-Premise | e.g. MES 300 | DEV,QAS,PRD |
 
+
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1354,10 +1306,9 @@ flowchart TB
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1376,10 +1327,9 @@ Project delivery milestones for E2E-88 RICEFW objects:
 
 > *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
 
+
 <div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1408,5 +1358,5 @@ Standard RAID items for E2E-88 (End-to-End Integrated Processes):
 
 ---
 *E2E-88 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026*
+
 <div class="page-footer"><span>Page 29</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-88 — R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme</span></div>
-</div>

@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">E2E-68 — -Intel Foundry   NPI planning and execution processes</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **E2E-68 -Intel Foundry   NPI planning and execution processes** within the IAO program. It includes 9 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | End-to-End Integrated Processes (E2E) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 2 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 2 Pending IAPM |
 | **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Process Visibility & Monitoring | Provide end-to-end process visibility across tower boundaries with integrated monitoring | Operational Excellence | Medium |
 | 4 | E2E-68 Process Migration | Migrate -Intel Foundry   NPI planning and execution processes business processes and 2 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Cross-Functional / End-to-End | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -209,20 +176,26 @@ This capability includes **9 business process(es)** modeled in BPMN 2.0, coverin
 | 1 | E2E-68A-_NPI_setup_for_IF | E2E-68A-_NPI_setup_for_IF | Boundary Apps, SAP S/4 Intel Foundry
  | 2 | 0 |
 | 2 | E2E-68B-_Raising_Purchase_Order_by_Intel_Products_to_Intel_Foundry_(LE-101) | E2E-68B-_Raising_Purchase_Order_by_Intel_Products_to_Intel_Foundry_(LE-101) | SAP S/4 
+
 Intel Foundry (LE-101)
 , SAP S/4 
 Intel Prod
+
  | 14 | 4 |
 | 3 | E2E-68C-_Order_Confirmation_&amp;_Planned_order_trigger | E2E-68C-_Order_Confirmation_&amp;_Planned_order_trigger | LE101 US Virtual , LE500 Ireland
+
 , SAP S/4 Intel Foundry
 
 LE778 China
+
  | 11 | 1 |
 | 4 | E2E-68D-_Manufacturing_process_in_IF | E2E-68D-_Manufacturing_process_in_IF | Boundary
+
 Apps
 Intel Foundry
 , SAP S/4
 Intel Foundry (LE-500)
+
  | 20 | 6 |
 | 5 | E2E-68E-_Manufacturing_process_in_IF_(NPI_Planning_and_Execution_Process) | E2E-68E-_Manufacturing_process_in_IF_(NPI_Planning_and_Execution_Process) | Boundary Apps
 
@@ -230,6 +203,7 @@ Intel Foundry (LE-500)
 Intel Foundry LE500 Ireland
 , SAP S/4
 LE778 China
+
  | 21 | 6 |
 | 6 | E2E-68F-_TM_Steps | E2E-68F-_TM_Steps | Boundary Apps
 
@@ -237,6 +211,7 @@ LE778 China
 Supplier
 , SAP S/4
 LE778 China
+
  | 12 | 1 |
 | 7 | E2E-68G-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte | E2E-68G-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte | Boundary Apps
 
@@ -248,19 +223,21 @@ LE101 US Virtual
 
  | 24 | 7 |
 | 8 | E2E-68H-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte | E2E-68H-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte | CFIN
+
 , LE101 US Virtual
 , SAP S/4
 Intel Product | 7 | 3 |
+
 | 9 | E2E-68I-_TM_Steps | E2E-68I-_TM_Steps | Boundary Apps
 
 , SAP S/4
 LE778 China
+
  | 10 | 1 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -269,6 +246,7 @@ LE778 China
 #### BUSINESS ARCHITECTURE — 3.2.1 E2E-68A-_NPI_setup_for_IF — E2E-68A-_NPI_setup_for_IF
 
 **Swim Lanes**: Boundary Apps · SAP S/4 Intel Foundry
+
  | **Tasks**: 2 | **Gateways**: 0
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -300,10 +278,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuO2jAU_RUrI5RWCpo8Cc2iUghYQmqrkZhpF6ULk9hgjWNHtjMMRfx7bR7h0bJqFlHu8b3nnHtje-uUosJO5vR6W8qpzsDW1StcYzcD7gIp7HrgAHxHkqIFw8q1OURwPaO_92lB3LzbNItBVFO2segMLwUGL1MP5KaQeUAhrvoKS0pcz20krZHcFIIJabMf8JD4ZK92XBoJWWF5TvD9NCgTU8oox2c4SuM0hrZO4VLw6oqUJGRISndnzTGxLldI6r39VuGv6P0HrfTKxAQxhU3OStfsC1pgZnvUsrVY2cq30zCosjrcDGzWoJLypcFj30AS8dczlPi7Hdj1enPeiYLn8ZwD85QMKTXGBCht4MmbBoQylj3ERQ4T31NailecPYSTdByFXmk7yUzrvmeH219julzpbCFYdUztr20PWdi8e_I9C31Pbsz7Rgvz6qxUDMJhOOyURmlQBMVJiRDyX0pmrvIZqdej1iSCIRx3WkEySAr_b75Tm-M4zYPbOWH5Rkt8QQohjCbnUU0GSeDfJx3BaOAXN6RLpPEabc6En4q4I4RJCoP0LuFB79Zlu3iSojwRRpMEJh1hOgpgHt4ljPMgHh4dGp6lRM0KjES738sgbxp1WLMPD3_OHYIygvp21KCQ2LQCcsbAt6cp-GoCe9gUoBxMoYl5ixjbzJ1fFxzRh46kYWYKtlJh3TaACGnLbCtYKTA1FwI1lJWp_3ggMFvpxuksfwKzx9gka8wAtL6N7Qu5wKgdfD6-NJW1e7JpPpT5unYXn90pLZr77gpRNwz_2x0PQL__2ZAdw-gQhhe_zUTddr2Co-5sXsHx8Rg5nlNjWSNaOdnW2V-N5vqsMEEt087Oc1CrxWzDSyfbXyFOu296TJGZV30Ad38Ajaq_tQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 E2E-68B-_Raising_Purchase_Order_by_Intel_Products_to_Intel_Foundry_(LE-101) — E2E-68B-_Raising_Purchase_Order_by_Intel_Products_to_Intel_Foundry_(LE-101)
@@ -312,6 +289,7 @@ flowchart TD
 Intel Foundry (LE-101)
  · SAP S/4 
 Intel Prod
+
  | **Tasks**: 14 | **Gateways**: 4
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -403,10 +381,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1tvo0YU_isjoshZCVqGi8E8tHKw2VpKNtY6m6pa92EMgz3KeHAHSOx6_d87Yy42BPrQ5iHSfOf7zo3DGXxUwiTCiqfc3h4JI5kHjoNsg7d44IHBCqV4oIICeEGcoBXF6UBy4oRlC_L3mQat3V7SJBagLaEHiS7wOsHg20wFYyGkKkgRS7UUcxIP1MGOky3iBz-hCZfsG-zGenyOVpruEx5hfiHougNDW0gpYfgCm47lWIHUpThMWNRwGtuxG4eDk0yOJu_hBvHsnH6e4ke0_51E2UacY0RTLDibbEsf0ApTWWPGc4mFOX-rmkFSGYeJhi12KCRsLXBLFxBH7PUC2frpBE63t0tWBwUPX5cMiL-QojSd4BikmYCnbxmICaXejeWPA1tX04wnr9i7MabOxDTUUFbiidJ1VTZXe8dkvcm8VUKjkqq9yxo8Y7dX-d4zdJUfxP9WLMyiSyR_aLiGW0e6d6AP_SpSHMf_K5LoK39G6WsZa2oGRjCpY0F7aPv6R39VmRPLGcN2nzB_IyG-choEgTm9tGo6tKHe7_Q-MIe633K6Rhl-R4eLw5Fv1Q4D2wmg0-uwiNfOMl_NeRJWDs2pHdi1Q-ceBmOj16E1hpZbZij8rDnabcBiPAeLny0AZizDFARJziJ-AHcPUw3q8BMo6PKPGd-XSoy8GGmy-8DnWFQHFki8quBJvkPpUvnzim82-Y-I5YiCORddBk9vmHMS4abC_l5LwmQN5pjHCd8WzsELoiRCGUmYEF2rhk3VRLz5bxg8PoLZBMQ82QJ__qUlcboDiZIikgF_g8NXcPdC0E8gWPiPn1pqt6l-5mS9Fgl-fl4U0hZ91KT_Jka9xYB6dz59HiFs8n1Ew5zKpyG7K5ZDm2_08Z_RHqdtttlkF-33ExYTvu16ANBqCr7tIun7QexPbZbhLcjwPmtrhne1ZkfFK1KORzUYYh5JRoQb2atP10LnIkyzZCdLkAXlRUUf6G6LXvdUVLTdUdwhGQnF1JhqQ9fXOqoHiEVgThFjOALny0Ps8PMINKfZ0I_HS1sirK3E-g43AO9DmqdiRj8X22GpnE7XMtgtux7OX9sa47-FMi8yxHnynmqIZmCHOKIU0w8isd__fX2I3RRdrwzYuTLmOReXVYoBx381W9YapDb__Czag2S3BukrIql4BcD8CawOYDYHzwmYBfVGuzzsuhoGgab9IqJXR7s4l1cEM4pjdQkxqzyXx5I9LI_D4uiUR6ck187OwX4slS_JUvkhtkOJuyWv8mroBWCX51ErCaPMCn4AqkiwLMswK4ZZMow2UDGqc92JshiznfwfcmuI7N2KaLXSh5Wrqj5YpVc1BpYFQvfqjpPPorrbG7DRDZvdsHV9nTcsdq9l2Gtxei1ur2XUaxF195pgv8noN5n9pv5GiCGvPg2b-LAHd8rPuybqdqKjbh9ipssvoiYMu2GjGzYrWFGVLRZLmUSKd1TOPx7ED4wIxyinmXJSFZRnyeLAQsU7f2Qr-flimhAklte2AE__ANlQ3gw=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 E2E-68C-_Order_Confirmation_&amp;_Planned_order_trigger — E2E-68C-_Order_Confirmation_&amp;_Planned_order_trigger
@@ -415,6 +392,7 @@ flowchart LR
  · SAP S/4 Intel Foundry
 
 LE778 China
+
  | **Tasks**: 11 | **Gateways**: 1
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -493,10 +471,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltvozgU_isWVZVWCh0g3MLDSikJVaTOTlRmZh-m--CCSawSw9qmaTbKf99DuCSkYbS7wwPS-c53rj6-7JQoi4niKdfXO8qo9NBuIFdkTQYeGrxgQQZDVAHfMaf4JSViUHKSjMmQ_n2g6Wb-XtJKLMBrmm5LNCTLjKBv8yGagGE6RAIzoQrCaTIYDnJO15hv_SzNeMm-Im6iJYdoteo-4zHhR4KmOXpkgWlKGTnCI8d0zKC0EyTKWNxxmliJm0SDfZlcmm2iFebykH4hyGf8_geN5QrkBKeCAGcl1-kjfiFpWaPkRYlFBX9rmkFFGYdBw8IcR5QtATc1gDhmr0fI0vZ7tL--fmZtUPT49MwQfFGKhZiSBAkJ8OxNooSmqXdl-pPA0oZC8uyVeFfGzJmOjGFUVuJB6dqwbK66IXS5kt5LlsY1Vd2UNXhG_j7k756hDfkW_mexCIuPkXzbcA23jXTv6L7uN5GSJPmlSNBX_hWL1zrWbBQYwbSNpVu25Wsf_TVlTk1nop_3ifA3GpETp0EQjGbHVs1sS9f6nd4HI1vzz5wusSQbvD06HPtm6zCwnEB3eh1W8c6zLF4WPIsah6OZFVitQ-deDyZGr0NzoptunSH4WXKcr9DjTNd09C1E3ymXBU5RpS8_pv94VhLsJVgt242eSEToG0F-xhLK1yRGIYZtir6U-0c8K3-emBpdU58T6ARaFBymVBDEyV9d_ujn_EOIroXugsnMmKm2O1HR74s5rKAscpRkHM2Dlgsj-aFiS9PQnJMUs_i0XPtyDkBjUOulFLQfrUmULRuLuY_Cr09A7XD1fu4XdBMGD6qm354bmTetUZ7CHHWSqXzQjKE5HKgU3MVgf3tq74C57U7Vz5gVCY5kweHkQDlMEBECUbAM0E3H6e1POhdOFij8ZEI4SVIUZAWL-RZBQx3HRf6KMnzaTvNiO_tHxvqv7Xe6HV0QDmu_hjHNiYR-wKSGkuQCSdgr6HDIo6ga3UPXznrt_vu1HP-fpTTOltLHYoUCOLc_3WOoMYJsV4TIquBylfT-ZR394lhYR3shsxwt6oGYsQ9Uu91lD9Uuy5v8yt0zeydRcYjVuCi3XwAXvFhBPg9ZFldjVk7M3d3d2f4Z73ZNHpjzbCNUnErgR2khYP0eqtPzWdnvz0aSGUhVf4NjoxZHlWjWolmJTi26laiPa9mu5Uavjyug0deirjX6OprbyHU4q5HreHYja7WD-o5hVi03BKeWWwdNho1ciUYj6t0CDrdByWpuwQ5sXIZHl2HzMmxdhu3LsHN6e3Y0bq9m3KuB9vWq9H6V0T51uvioBzd7cKt-xnRRu4ft9OBuDz5u3gTKUFkTOIporHg75fDyhddxTBJcpFLZDxVcyCzcskjxDi9EpchjsJxSDIfxugL3_wBvz4F6" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 E2E-68D-_Manufacturing_process_in_IF — E2E-68D-_Manufacturing_process_in_IF
@@ -506,6 +483,7 @@ Apps
 Intel Foundry
  · SAP S/4
 Intel Foundry (LE-500)
+
  | **Tasks**: 20 | **Gateways**: 6
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -613,10 +591,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV11vozgU_SsWoyqtlKjYQCB52FVKw6irqdqddHa1ms6DAyaxSmxkTNtslf--5sNJcMOOtpuHqpx77tfxtTFvVswTYk2ts7M3yqicgreBXJMNGUzBYIkLMhiCBvgDC4qXGSkGFSflTC7o3zUNuvlrRauwCG9otq3QBVlxAr7dDMFMOWZDUGBWjAoiaDoYDnJBN1hsQ55xUbE_kSC10zpba7riIiHiQLBtH8aecs0oIwfY8V3fjSq_gsScJZ2gqZcGaTzYVcVl_CVeYyHr8suC3OLXP2ki1-o5xVlBFGctN9kXvCRZ1aMUZYXFpXjWYtCiysOUYIscx5StFO7aChKYPR0gz97twO7s7JHtk4KH60cG1C_OcFFckxQUUsHzZwlSmmXTT244izx7WEjBn8j0E5r71w4axlUnU9W6PazEHb0QulrL6ZJnSUsdvVQ9TFH-OhSvU2QPxVb9NXIRlhwyhWMUoGCf6cqHIQx1pjRN_1cmpat4wMVTm2vuRCi63ueC3tgL7ffxdJvXrj-Dpk5EPNOYHAWNosiZH6Sajz1o9we9ipyxHRpBV1iSF7w9BJyE7j5g5PkR9HsDNvnMKsvlveCxDujMvcjbB_SvYDRDvQHdGXSDtkIVZyVwvgZXvKxnGczyvAA3TJIMRBWmoIZa_Rh0v39_tFI8TfEo5iuwyDMqL2-JWBHAU5ALnpSxpJyBejc9Wj9-HHt7Xe8vXIJFNZcmb9zl3RRFSUDMNzlnhL1j-132LX8mqoPL5p-78h0_6PLviUi52IDfS6ya2YJwTeIn02fS9fmWJ2pJwSJW4l3-RUmWGA7Ift9qqBrIiCQm1X17O1ATMlqq7R2vwS1Vh59UHStHllKxwbWwdXng10drtzsOEhyCYCH4SzHCmQQ5FjjLSPa5GUDTafLfnNS-NsZmMbsHi0vXGJjzL_ORZ9sXncnZy1HtWRAKUgl4n2HGSALu2mk5Lq4r4GfOk6KdBMwSvQI37FlNBBdbQ1Tn9Bo3Ub6SmNDcnAtjtGuSGqDGhTLwjQm1HoLGUhW8kPzdkHincz7MwzvwWCIbOuCBxGtGY5zpYVArakQxZl9tcyVPTkS7-kejYDga20ArfNiSdye2ZGA2nRH1Ev6Z1-R0p6HeodWuXqmXk7mL7NN-97yQiq1GGzN1kJzf335tylf5L8wY8HSMNiOoDm7TBf3c5d-EhU5fu6woN3mtUjWSxyN6fouZOk8uf-NLswMEz_fh8ky9FSpqimNZiqoadYbGpKgn7iZS800lVetYnS8Xx0HQIYg6JPJmyvQJ847tKPL8lcRlOxGK2Ui-kCQvjI3nfeQoGX_Eyf_g-aPeJGA0-qV6U2hg3AK-BvwGQIEGgpYx0cCkZWgAaUZgAq52aZ51jjaFprdspGtCuiZbu9stADXQBoRIu7QhJ0YItG8LGUDbBHQ0wWkJ7XP7qDtwW6unE7RCIscANKEtYG_WFbfP2h0ZkiGdEGmVj68wlZL66taB0fH9q2Nxei1ur8XrtYx7LX6vJei1THotasV7TbDf1C8D7NcB9gsB-5WA_VLAfi1gvxiwXw3Ur4aaK_2F0sVR-zXRRZ0etquv2l3YOw2PT8P-aTg4DU80bA2tDVFvEJpY0zer_oZV37kJSXGZSWs3tHAp-WLLYmtaf-tZZX2FuaZY3aU2Dbj7B12Ztp4=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 E2E-68E-_Manufacturing_process_in_IF_(NPI_Planning_and_Execution_Process) — E2E-68E-_Manufacturing_process_in_IF_(NPI_Planning_and_Execution_Process)
@@ -627,6 +604,7 @@ flowchart TD
 Intel Foundry LE500 Ireland
  · SAP S/4
 LE778 China
+
  | **Tasks**: 21 | **Gateways**: 6
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -745,10 +723,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWF1z4jYU_Ssa72QgMzC1_A0P7RCD08xkGxqS7sPSB2Fk0MTIrmwnoVn-e6_8AcGxZrbb8sBYR7rn6h7de2V408JkTbWxdnHxxjjLx-itl2_pjvbGqLciGe0NUAX8QQQjq5hmPbkmSni-YH-Xy7CVvsplEgvIjsV7iS7oJqHo8WaAJmAYD1BGeDbMqGBRb9BLBdsRsfeTOBFy9SfqRXpUequnrhKxpuK0QNddHNpgGjNOT7DpWq4VSLuMhglfn5FGduRFYe8gNxcnL-GWiLzcfpHRz-T1C1vnWxhHJM4orNnmu_iWrGgsY8xFIbGwEM-NGCyTfjgItkhJyPgGcEsHSBD-dIJs_XBAh4uLJT86Rbf3S47gE8Yky6Y0QlkO8Ow5RxGL4_Eny58Etj7IcpE80fEnY-ZOTWMQykjGELo-kOIOXyjbbPPxKonX9dLhi4xhbKSvA_E6NvSB2MN3yxfl65Mn3zE8wzt6unKxj_3GUxRF_8kT6CoeSPZU-5qZgRFMj76w7di-_pGvCXNquRPc1omKZxbSd6RBEJizk1Qzx8a6mvQqMB3db5FuSE5fyP5EOPKtI2FguwF2lYSVv_Yui9VcJGFDaM7swD4Sulc4mBhKQmuCLa_eIfBsBEm36CopylxGkzTNEKpm5Ycb-OvXpRaRcUSGYbJBcyqiROzQnIRPA_SZCPgukxgt5jP_4f7xM-rDAuQXWZ7sqKgml9qff1akkBwt34vJHC1-stANz4ElkDuBjdzObF1HN4LGhK_fbwjDdm58WP2cwEEtC0PXV-gKhEAPyRjMXNerQPD5Po7zMKY0p2IHpQ1PMXum4PH3gvCc5fvTXktDszv-64cF8pNdGjPCQ4r8LQ2fWpaWQjkWPkHloi-_ojLNfEFJzhKO-l_IMwVJOdlAA-T5ZYvP7uYLRFk86BH6KZJiNcCd7GhH-haZ852bS3jExK6LwVUnhmToL7YsTeVTlR5zwUBevrks99isumVZ3uL1unlvE7Iuee9SuRkSt-UZnduVcVM0e00TaIhNupybYF19uP3ackqh7ER1Qo8LdMfjfdszxp2uIT2gAEK4jRr3qA9lKz2QDxRGJ4WsCRFCmhG-P5FAkcYslLcjkqX2W8KHsLMQKicXjGYfuFspLA8G9a-TZJ2hmywr6AeDVuZO7tE8yeThlWc3KfIE-TGFG5pv2qaKJL0r8pWs7FO59YMCarYpug9bcP4nHvf7eEA21H9h-RalcFHKI_urYpR6ItlQsAkpmCOj5cAw-kcH0PHS7iOrjnMNtpfvbc2WbdlUZCepWgvtMHHAYmbMho43HcpeUUQkzAt5EiiFK4FmGWIc3QSt7ue-vZ1kWNPhCt4hwi2ir2FcZCDAdXVFLbXD4b2Z1202rzWC5DtT_5e2_eiH3Jr6j5nhkxkRInnJhiTO5YGSOKaxwsj4d0bq-6u8euD4GCdn95X348U06k7eG96ugUVwPdTxJXqBhrV4uGvnqKrNlS3gnoaUpfmRpG1stZIUwlUGoM5bu8pb5HjXx9Q8askNNBz-LPOtGY8qANsN4FZAM7aroVUPrWro1EOnGrr1sLY165c9eKgArzUe1ePGef3aBQ810BDg2gAbNeDVY7NZUFM0b6zwUANNAGYdMm6cQn-pdtlw4joofBSl9PJtqZ3V3FL7JvVq1tShG2c2sqQav00sThto1MK1XMYRcNqA3QZqL0ZzHrg50GYfdXDGUaDaqdWW492brkyLd-_jZzOmcsZSztjKGUc54ypnPOXMSDkDiaScwuoptQxYrQNWC4HVSmC1FFitBVaLgdVqGGo1DLUahlH_wDxHzU7U6kTt48_hc9xR4G7zC-4c9rrhUScMZdYJ427YaGBtoMFL5I6wtTZ-08q_RuDvkzWNSBHn2mGgEei_iz0PtXH5F4JWpGuwnDICt9OuAg__ADSKa6k=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 E2E-68F-_TM_Steps — E2E-68F-_TM_Steps
@@ -759,6 +736,7 @@ flowchart LR
 Supplier
  · SAP S/4
 LE778 China
+
  | **Tasks**: 12 | **Gateways**: 1
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -827,10 +805,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4jgU_itWqooZCdRcCc3DShRIVanVoKbdfRjmwSQOWDV2ZDulDOK_78mNS5bMy-YBcW7fOefz8WVvxCIhRmDc3u4ppzpA-55ekw3pBai3xIr0-qhS_I0lxUtGVK_wSQXXEf1dullu9lW4FboQbyjbFdqIrARB7099NIZA1kcKczVQRNK01-9lkm6w3E0EE7LwviGj1EzLbLXpQciEyJODafpW7EEoo5yc1I7v-m5YxCkSC55cgKZeOkrj3qEojoltvMZSl-Xnirzgr39ootcgp5gpAj5rvWHPeElY0aOWeaGLc_nZkEFVkYcDYVGGY8pXoHdNUEnMP04qzzwc0OH2dsGPSdHz64Ij-GKGlZqSFCkN6tmnRillLLhxJ-PQM_tKS_FBght75k8dux8XnQTQutkvyB1sCV2tdbAULKldB9uih8DOvvryK7DNvtzBbysX4ckp02Roj-zRMdODb02sSZMpTdP_lQl4lW9YfdS5Zk5oh9NjLssbehPzv3hNm1PXH1ttnoj8pDE5Aw3D0JmdqJoNPcvsBn0InaE5aYGusCZbvDsB3k_cI2Do-aHldwJW-dpV5su5FHED6My80DsC-g9WOLY7Ad2x5Y7qCgFnJXG2Rg8iL2cZjbNMIVRZi49bP38ujBQHKR7EYoXmRKZCbtAES0mJRE_8UwBf6LXYDTFlFGsq-B2aUpXlmqAXzPEKtjPXCPMEzfGu-K8Wxq9fVRIYllYtsy9NJMcMnKXmRKo7FOVZxop0Z4XZl4W9AsfqbgLTvyIKytIE0LSQCjkyQRlA7ZrFRYvcNi0Hak62QiSnWkpc5xK3bvRPBUfjOYruXPQ88_0Rmqwpx-eFutcZDGU58-gdjkH0SKDRkjr07e3le6skr1WSJNDsEeBHcXC1IoaXEe9ZUkQ0i1ZyVa5HXPKFYszinHXm9__cQVkALBuJ8y6E0XWEuVD6CBMRrVk1KlMR5-WfK1D3V8mI6qWd_0CAjMJoei3WMq8HzyK0pXqNxrkWMBaMwE10Nb5rNxR9wMhrSZclB3fjFeHxDj3kCq4PpU4dVSmTq-j2dfTHtwimisQfbX_n29E_Y3C-PMEo0aKhtxdUnA-QGEK-n4e4pxClRdZdYDvQawUei4LmNxkjV0KG-30TAoMntmqAmS62ImaMsMfqUFwYh0NrY3EXDQZ_wdjX4rAS_Vr0K3FUi6NKvK9Fy6xkqz7ZuVfLw8ahhmvLll0r7mvZbBysWuE2CqdSHGW7dvDOjmkQzy-TC4vdaXE6LW6nxeu0DDstfqdl1Gm577QA552mbhasbhqA4ebBcql368fFpda7qh02967RNzZEbjBNjGBvlK9LeIEmJMU508ahb2DY9tGOx0ZQvsKMvDwupxTD-b6plId_ASAGYss=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 E2E-68G-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte — E2E-68G-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte
@@ -977,10 +954,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv4jgU_isWowoqgSZxEgI8rMQtFVI7ZRs68zDdBzc4EDXEkeP0sh3--x4ncQCX7Gq6PCDlO_6-c_GxD-G9FbA1bY1aFxfvURKJEXpviy3d0fYItR9JRttdVALfCY_IY0yztlwTskT40d_FMtNOX-UyiXlkF8VvEvXphlF0v-iiMRDjLspIkvUyyqOw3W2nPNoR_jZlMeNy9Rc6CI2w8FaZJoyvKT8sMAzXDBygxlFCD7Dl2q7tSV5GA5asT0RDJxyEQXsvg4vZS7AlXBTh5xm9Ia8_orXYwnNI4ozCmq3YxdfkkcYyR8FziQU5f1bFiDLpJ4GC-SkJomQDuG0AxEnydIAcY79H-4uLh6R2iq7vHhIEnyAmWTajIcoEwPNngcIojkdf7OnYc4xuJjh7oqMveO7OLNwNZCYjSN3oyuL2Xmi02YrRI4vX1dLei8xhhNPXLn8dYaPL3-Bb80WT9cHTtI8HeFB7mrjm1JwqT2EY_i9PUFe-ItlT5Wtuedib1b5Mp-9MjY96Ks2Z7Y5NvU6UP0cBPRL1PM-aH0o17zum0Sw68ay-MdVEN0TQF_J2EBxO7VrQc1zPdBsFS396lPnjkrNACVpzx3NqQXdiemPcKGiPTXtQRQg6G07SLZqwvOhlNE7TDKHSKj8Jtn_-fGiFZBSSXsA2aEl5yPgOLUnw1EU3hMN30cTIX86nq7v7G9SBBWiaZ4LtKC-ND62__ipFoTk03_NXQXlCYpDkIqE8-4omeHIcwwAimBLOI8pBqEnHHy-R_9VGi0RANJ7MCBK6njuGgRacxiRZH4uaIOpvoxRdMbZGiyzLKZKB385QlAiG_GiFOuhqcTu7rJ2WFQHikmUCbCjkbFdw4SiWjKuF910jWDJ8TqEJ0GJ6KMwieWbQamgCm4hWbAShmoZ5Sh3WtZetjiqVJeSS0DW6lVfWKcE0zm-XLyhsrJCuoHMqKpSeBrmIWAIpB3G-llnArZblu7RAWYgeSRSDqx34lffqYSNLd-apO1nLDN3RgEapQGRDogQKdfCo0_Ep_T7hFPo2CgS49AULnnSCdUoYr5ZouqXBE-rkx9xMci91ckMrX638UkRf75yuL9J6hvJH4E92kzwD6D5dQ20y1Jn_uPngsX-qUIYahbCRLMtQOXPQjAWZTnTPh3o7maGHHBumVZwW2BD0p3hDnWsm0LcP3gf_KeLlcaGgM4e_797U3WOtFavmnb-mDCZU1f06x_wEB3-CY32C43RqThrDdf5tuSiPojw2HvycybbQeuUR6Cy8S9n3AYV9XsAvnQj016B4eazYPyhCx6anbbGGtkAbCjfiOaqrUQ8nodqsj5SBRqn7vpFiyUtyjue9_sDrodVNeY1otxt-fz-Uck17j_DzJNiiGY3hsMANLDtkpPrlq-y4h9Z-f6xgnVegr3AnZSByVc5PnWYfaDAc2EvWI7FAKeEkjmncQHI-Q-p_huR-hjT4PVLzFCyGCbr30feIixwO6vHss-sRdofkqBOMkw1F1ywgxb2vOJ2ru5WvTTNHzk15vaIVbFMWQqcW8zJKegUQieJQiFNWXx-a_77cPRmZfp6mcXQYmdo8Hup9DcdSupqyXRrTj2fHMjSCv7qtz2rwkVQXGe5F1Ov9Ia_nCsBOCQyrZ2U3FMGoAFMBZgVgBeASsBRgFcCvh1Z5Un7Je1yZrIrsKHLl3lKA5ZYAxjpg6YChAypEXIVoKbcY64ClA4YG1ElUx77MQ1XJqsI2-yqPfsVXdVUhqAWWXTE0BctWEVTPyl4-KrkqRUvlXKmpqlVitbMqGqw9K1_KPNSCG-jB1dEOKkadbxUfrvOtJLDSMFXIKiNzoAF1M3wA7KO3BdmS6i3pBIbOPHrXOTWZzSbcbLKaTXazyWk29ZtNbrNp0GwaNppwczVwczVwczVwczVwczXgOlEv6qd4v3qpPkXds-jgLDo8h1rGWdQ8HwUc6upN9hS2zsP2edg5D_fPw-55eKDgVrcF71I7Eq1bo_dW8c8R_Lu0piHJY9Had1skF8x_S4LWqPiHpZUXP9dnEYFxuSvB_T-dGahB" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.8 E2E-68H-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte — E2E-68H-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte
@@ -1048,10 +1024,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2PmzoQ_SsWq1VaiaiYQMjycCVCwtVK295V2W4fmj44YBJrjY1sk49G-e_XBMgHXR6q8hBpzpw5Z2YcPg5GwlNs-Mb9_YEwonxwGKg1zvHAB4Mlknhgghp4RYKgJcVyUHEyzlRMfp1o0Cl2Fa3CIpQTuq_QGK84Bt8eTRDoQmoCiZgcSixINjAHhSA5EvuQUy4q9h2eZFZ2cmtSUy5SLC4Ey_Jg4upSShi-wCPP8ZyoqpM44Sy9Ec3cbJIlg2PVHOXbZI2EOrVfSvwZ7b6TVK11nCEqseasVU6f0BLTakYlygpLSrFpl0Fk5cP0wuICJYStNO5YGhKIvV0g1zoewfH-fsHOpuDp64IBfSUUSTnDGZBKw_ONAhmh1L9zwiByLVMqwd-wf2fPvdnINpNqEl-PbpnVcodbTFZr5S85TRvqcFvN4NvFzhQ737ZMsde_HS_M0otTOLYn9uTsNPVgCMPWKcuyv3LSexUvSL41XvNRZEezsxd0x25o_a7XjjlzvAB294TFhiT4SjSKotH8sqr52IVWv-g0Go2tsCO6Qgpv0f4i-BA6Z8HI9SLo9QrWft0uy-Wz4EkrOJq7kXsW9KYwCuxeQSeAzqTpUOusBCrWIIwev4Aaqy7m_PixMDLkZ2iY8BV4RvscMwW-4gSTQi2Mnz-vyO4tOURyDYKioCRBinDWYT98OLOl4sVvdFBNhqUEIc8LihVOtcDHWkD_szqNP82hBcG3GLwSoUpEr4cYd_oSWJ8DCEttm2MBHtmG66PutOd1h6FJSau6F7TDskOG8HBo2UgIvpVDRBUokECUYvpvfe4L43js6z8OnkH8ydHNKEyr0dMyUdcO787wqoV43wT2bcmLIKuVHneJCD0dYhB_AYoDhncK_BcHL53y0W356cg3GHxoFvyxQ590jnPa2jS-18dXT2T92c7qIvvdIsISWkrdXv-mmQOGw3_0n7QJ3Tp8aEJo1bHdieEZsBugiUdN2NySrElPmnDcpFs6hDXgdeKzvlfH4zZfh87VDV-BV4-lm4zdmxn1ZpzejNubGfdmvN7MpHkR3IAP74F66c0j8haG78N2CxumoW_kHJHU8A_G6bNBf1qkOEMlVcbRNFCpeLxnieGfXq9GWaS6ckaQvvnyGjz-D1rWsRo=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.9 E2E-68I-_TM_Steps — E2E-68I-_TM_Steps
@@ -1060,6 +1035,7 @@ flowchart LR
 
  · SAP S/4
 LE778 China
+
  | **Tasks**: 10 | **Gateways**: 1
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -1123,10 +1099,9 @@ flowchart LR
 
 
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -1137,10 +1112,14 @@ flowchart LR
 | SAP S/4 Intel Foundry
  | E2E-68A-_NPI_setup_for_IF,  | |
 | SAP S/4 
+
 Intel Foundry (LE-101)
+
  | E2E-68B-_Raising_Purchase_Order_by_Intel_Products_to_Intel_Foundry_(LE-101),  | |
 | SAP S/4 
+
 Intel Prod
+
  | E2E-68B-_Raising_Purchase_Order_by_Intel_Products_to_Intel_Foundry_(LE-101),  | |
 | LE101 US Virtual  | E2E-68C-_Order_Confirmation_&amp;_Planned_order_trigger,  | |
 | LE500 Ireland
@@ -1148,29 +1127,41 @@ Intel Prod
 | SAP S/4 Intel Foundry
 
 LE778 China
+
  | E2E-68C-_Order_Confirmation_&amp;_Planned_order_trigger,  | |
 | Boundary
+
 Apps
 Intel Foundry
+
  | E2E-68D-_Manufacturing_process_in_IF,  | |
 | SAP S/4
+
 Intel Foundry (LE-500)
+
  | E2E-68D-_Manufacturing_process_in_IF,  | |
 | Boundary Apps
 
  | E2E-68E-_Manufacturing_process_in_IF_(NPI_Planning_and_Execution_Process), E2E-68F-_TM_Steps, E2E-68G-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte, E2E-68I-_TM_Steps | |
 | SAP S/4
+
 Intel Foundry LE500 Ireland
+
  | E2E-68E-_Manufacturing_process_in_IF_(NPI_Planning_and_Execution_Process), E2E-68G-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte,  | |
 | SAP S/4
+
 LE778 China
+
  | E2E-68E-_Manufacturing_process_in_IF_(NPI_Planning_and_Execution_Process), E2E-68F-_TM_Steps, E2E-68I-_TM_Steps | |
 | External Partners/
+
 Supplier
+
  | E2E-68F-_TM_Steps,  | |
 | External Partners/ B2B
  | E2E-68G-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte,  | |
 | SAP S/4
+
 LE101 US Virtual
 
  | E2E-68G-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte,  | |
@@ -1179,12 +1170,12 @@ LE101 US Virtual
 | LE101 US Virtual
  | E2E-68H-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte,  | |
 | SAP S/4
+
 Intel Product | E2E-68H-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods_in_Intel_Foundry_with_Planning_inte,  | |
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -1195,10 +1186,9 @@ Intel Product | E2E-68H-_NPI_planning_&amp;_Execution_Process_for_Finished_Goods
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 | 1 | e.g. Cost Element | e.g. MES 300 | e.g. XEUS | Data steward | e.g. Intel Confidential | e.g. 10K rows/day | Master / Transaction |
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -1246,10 +1236,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -1293,10 +1282,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.3 Data Lineage
@@ -1325,10 +1313,9 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1382,10 +1369,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzxaSoQqpU06dUoBLQM2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpVzTgtOJAKndiDPNUhXyhzXUQSe_N8HaPqQLLpbGE8IsA3I1ahIXAUSTSJrKloSCTyNrVWWI7C6Z00KtkUsJY3p_w5maa8uUCgk6bq4WIqATENUUVFFW1hSXGOY04elMm49tbSxo-rdmbNurFVk1GlH6Uov86EcpwdFokFYL55bM-ZgqaPFU5rwARqRaCiCJoFKCxBgTXn17MCWTUvIUpCTVmHIhnL0hjn67KVWR_QVnr9_tduz--rN1pxfkHOb3zSQTWeHs2ba9hUnznGyGwey3NeoLpm2fnPQ7_4HJqKK7mF73A8yDV5jPPkYlklfQJXJK2luVFpwxAXe0gDojXsfdMOKfdIYbtE_MHjKxw4jmuMbyYGDbH2EaVFlOZgXN58QNfkdWVLLuEcMnO2oT9_IyGA3cH6OLcxK4v_zvkfXHJOnBUBCJ4llKgu8bq3_od7qDGOJZPPbD-Mi266gJdAh8mX0h6CPoQ0DHcbDDbwL89K_CN7O1493U8U2V7D6UBcQhFLc8gbhfylerOzgxSFUUWUcRjDKwm65to3t-hT7IpIp9gUdAqnr1KSbHBlgHkHXA2aTY753xnnGE12SfjLwswb9v4cX52T7vmapalaYepOy5P7uE4rbrPUVWheZVTUAk93KEzyEXePY8fcBEHfi9GF1kuxd6SmvRVMdAP6ht8aH90Ravp7ovqfZndvKOWAOYIUevxMFsEvhf_XPvEyoNYtT2trTcPBc8oTr4DXEF8fhmW0LjjUzelU0Qe_62Qjx9_Pipwstlu_Mmxb8wm_Gww44xkLWyaSvg03UZ3P81mWxINaQ8E9vWvxdiT09Pd84yq2ktoFhQzizn0VxoeC8ymNJSKLyGLFqqLFymieVUF4tV5jhR8DjFJiyMcfUPOV9HHQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Current-State Flow Narrative
@@ -1394,10 +1380,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.2 Future-State — Future-State Application Landscape
@@ -1449,10 +1434,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1Izz6IEKVUpJOnVJAhI1NyxS58W1rzU2i2AEK9L_vOi40tCCYK6XJfZxrn3tsP1pJxsByrEbjkadcOeQxstQcFhBZDomsCZX41sQ3CUlZcLUM4BaEcYose_ZWKT9owelEgNRuxJlmqQr5wxrqoJPfm2BtH9IFF0vjCWGWAfk-ahIXAUSTSJrKloSCTyNrVWWI7C6Z00KtkUsJY3p_w5maa8uUCgk6bq4WIqATENUUVFFW1hSXGOY04elMm49tbSxo-rdmbNurFVk1GlH6UotcD6KU4Gg0SKuFc0vmfEwVtHgqc14AI1ItBZBEUClBYowJr749mJJJKXkKUpJqTLkQzt4Qx6DdlKrI_oKzN-j1OvZg_dm60wtyDvP7ZpKJrHD2bNvewqR5TjbDYA7aGvUF07a73UHnPzAZVXQX0-t9gHnwCvPZx6hE8gq6RE5Je6vSgjMm4I4WUGfE67gbRvxuZ7hB-8TsIRM7jGiOayyfndn2R5gGVZaTWUHzOXGD35EVlax3xPDJjtrEvbwMRmfu9ejinATuL_8qsv6YJD0YCiJRPEtJcLWx-od-pzeMIZ7FYz-Mj2y7jppAh8CX2ReCPoI-BHQcBzv8JsBP_3v4ZrZ2vJs6vqmS3YeygDiE4pYnEA9K-Wp1B12DVEWRdRTBKAO76do2uudX6GeZVLEv8AhIVb8-xeTYAOsAsg44nRT7_VPeN47wB9knIy9L8O9beHF-us_7pqpWpakHKXvuzy6huO36T5FVoXlVExDJvRzhc8gFnj1PHzBRB34vRhfZ7oWe0lo01TEwCGpbfGh_tMXrqe5Lqv2Znbwj1gBmyNErcTCbBP5X_9z7hEqDGLW9LS03zwVPqA5-Q1xBPL7ZltB4I5N3ZRPEnr-tEE8fP36q8HLZ7rxJ8S_MZjzssGMMZK1s2gr4dF0G939NJhtSDSnPxLb174XYk5OTnbPMaloLKBaUM8t5NBca3osMprQUCq8hi5YqC5dpYjnVxWKVOU4UPE6xCQtjXP0Df9BHNQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Future-State Flow Narrative
@@ -1461,10 +1445,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.3 Change Impact Summary
@@ -1484,10 +1467,9 @@ flowchart TB
 | e.g. MES 300 | - | N/A |
 | e.g. XEUS | - | N/A |
 
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1502,10 +1484,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 
 > *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
 
+
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1514,10 +1495,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 |---|---------|-----------|-----------|----------|------|
 | 1 | e.g. Pub-Sub / P2P / ETL | e.g. MES Route to ICOST | e.g. Azure Service Bus | e.g. REST / RFC / SFTP | e.g. OAuth / NTLM / Cert |
 
+
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1558,10 +1538,9 @@ flowchart TB
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
 
 
+
 <div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -1603,10 +1582,9 @@ flowchart TB
 | 1 | e.g. Azure PaaS | Cloud / SaaS | e.g. XEUS | DEV,QAS,PRD |
 | 2 | e.g. S/4 HANA 2023 | On-Premise | e.g. MES 300 | DEV,QAS,PRD |
 
+
 <div class="page-footer"><span>Page 29</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1646,10 +1624,9 @@ flowchart TB
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 30</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1668,10 +1645,9 @@ Project delivery milestones for E2E-68 RICEFW objects:
 
 > *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
 
+
 <div class="page-footer"><span>Page 31</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1700,5 +1676,5 @@ Standard RAID items for E2E-68 (End-to-End Integrated Processes):
 
 ---
 *E2E-68 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026*
+
 <div class="page-footer"><span>Page 32</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-</div>

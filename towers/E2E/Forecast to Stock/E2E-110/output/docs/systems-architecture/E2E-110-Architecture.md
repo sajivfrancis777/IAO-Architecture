@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">E2E-110 — IMR Flow</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **E2E-110 IMR Flow** within the IAO program. It includes 10 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | End-to-End Integrated Processes (E2E) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 2 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 2 Pending IAPM |
 | **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Process Visibility & Monitoring | Provide end-to-end process visibility across tower boundaries with integrated monitoring | Operational Excellence | Medium |
 | 4 | E2E-110 Process Migration | Migrate IMR Flow business processes and 2 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Cross-Functional / End-to-End | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -207,29 +174,37 @@ This capability includes **10 business process(es)** modeled in BPMN 2.0, coveri
 | # | Step ID | Process Name | Lanes | Tasks | Gateways |
 |---|---------|--------------|-------|-------|----------|
 | 1 | E2E-110A_IF_to_IMR_-_Variation_1_–_IMR_facility_is_within_the_plant | E2E-110A_IF_to_IMR_-_Variation_1_–_IMR_facility_is_within_the_plant | 
+
  LE ++ Faulty Part, EWM, IMR Repair Plant  | 20 | 3 |
+
 | 2 | E2E-110B__IF_to_IMR_-_Variation_2_–_IMR_facility_is_within_the_same_LE_but_different_plant | E2E-110B__IF_to_IMR_-_Variation_2_–_IMR_facility_is_within_the_same_LE_but_different_plant | IMR EWM, IMR Repair Plant  (Different Plant), LE ++ Faulty Part | 32 | 5 |
 | 3 | E2E-110C__IF_to_IMR_-_Variation_3_–_IMR_facility_is_in_different_LE_–_with_STO | E2E-110C__IF_to_IMR_-_Variation_3_–_IMR_facility_is_in_different_LE_–_with_STO | IMR EWM, IMR Repair Plant  (Different Plant), LE ++ Faulty Part | 33 | 7 |
 | 4 | E2E-110D__IP_to_IMR | E2E-110D__IP_to_IMR | IF EWM (101), IMR EWM, IMR Legal Entity (LE101), IMR Malaysia, Intel Product (Faulty Part), LE 798 | 55 | 15 |
 | 5 | E2E-110E__IP_to_IMR_cash_settlement | E2E-110E__IP_to_IMR_cash_settlement | Boundary Apps Intel Foundry, S/4 Intel Product , SAP CFIN
+
 Intel Foundry AR, SAP CFIN
 Intel Product AP , SAP S/4
 Intel Foundry (LE798) | 10 | 2 |
+
 | 6 | E2E-110F__IP_to_IMR_in_house_settlement | E2E-110F__IP_to_IMR_in_house_settlement | Inhouse Bank , Intel Foundry LE798, S/4 Intel Product , SAP CFIN
+
 Intel Foundry AR, SAP CFIN
 Intel Product AP  | 10 | 4 |
+
 | 7 | E2E-110G__Altera_to_IF | E2E-110G__Altera_to_IF | Boundary Apps, Customer, IF EWM (101), IMR EWM, IMR LE Malaysia, IMR Legal Entity (LE101), LE798 | 45 | 14 |
 | 8 | E2E-110H__Altera_to_IMR_cash_settlement | E2E-110H__Altera_to_IMR_cash_settlement | LE798, S/4 Intel Product , SAP CFIN
  | 7 | 3 |
 | 9 | E2E-110I__IMR_Manufacturing | E2E-110I__IMR_Manufacturing | SAP S/4 Intel Foundry
+
 IMR Legal Entity | 13 | 3 |
+
 | 10 | E2E-110J__TM_Steps | E2E-110J__TM_Steps | External Partners B2B, SAP S/4 Intel Foundry
+
 IMR Legal Entity | 10 | 1 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -342,10 +317,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV99v4jgQ_lesrCrutKCL84NQHk5qgVRIRa3au-vD9h5M4oDVEEeOgbIV__uNwQ5JSq673T5U-JuZb2Y-j53kzYp4TK2hdXHxxjImh-itI5d0RTtD1JmTgna66Aj8QwQj85QWHeWT8Ew-su8HN-zlr8pNYSFZsXSn0Ee64BT9Pe2iKwhMu6ggWdErqGBJp9vJBVsRsRvxlAvl_YUOEjs5ZNOmay5iKk4Oth3gyIfQlGX0BLuBF3ihiitoxLO4Rpr4ySCJOntVXMq30ZIIeSh_XdAZeX1isVzCOiFpQcFnKVfpLZnTVPUoxVph0VpsjBisUHkyEOwxJxHLFoB7NkCCZC8nyLf3e7S_uHjOyqTo9uE5Q_AXpaQoxjRBhQR4spEoYWk6_OKNrkLf7hZS8Bc6_OJMgrHrdCPVyRBat7tK3N6WssVSDuc8jbVrb6t6GDr5a1e8Dh27K3bwv5GLZvEp06jvDJxBmek6wCM8MpmSJPmlTKCr-IsULzrXxA2dcFzmwn7fH9nv-UybYy-4wk2dqNiwiFZIwzB0JyepJn0f2-2k16Hbt0cN0gWRdEt2J8LLkVcShn4Q4qCV8JivWeV6fi94ZAjdiR_6JWFwjcMrp5XQu8LeQFcIPAtB8iX8vJ2gr19RSNap3KF7GJajh_rL3G_PVkKGCekpwdEM2lFnDM34Bk5qJmF42WJBRYHkUvD1Yolm05s7tGVyiQQlBc-QOvbP1r8VUhx8K2kjvkDTGJhYsjM1wIALFVKLGdRj7qlIuFihaTbn6yxGY5qyDRW7ZthlPUzVXW0VSX5q6oFuGN2ilEdEMp41qBz7PVVVAhqXGtzP0NPdH8CnZurAdU6RGjn-rSTPUxiYaahKm84e0OE6PHBglMPW06JA6gIFkMZA83uVpv_2ZmiIEHxb9EgqEehJ0pSmN8dpfLb2-2pQ8HNBcMgbMzR5mlU1bwg1ZjCQbL6W9N1unWyqP2hYMTV2EJ_f-BvO4wIkjijL5bk453zc3Vo2arhT138z2v0gegR7CQ0R9ZNnCQPbPYte4F5uMnn_V_-0KNbvRt3_sVFH8cfi9T8nnuOexrGQPD8EHP03MOcs0zG12fN-Kub9FKlhf6A5YQLdpwQOVrWR-j2k1dfeZgOrxdT9tePhQQ-n8HQsQQ0UkxVZQIW5ug_UhkZ8lfMMjnbxwUXW2Frda3mhNERt2VZdW-XuaLRV5ej_wh3UoAo-daE2ruFHKmVK4QgUIBaMoPqBRlDRuwv88gePY3MSncZUHTIc08aILAjLVMZa2tpU-p-83OAphXq9P9UjRANO_wiYd5EScE3EpXboGwdbA4EG3MbaMTkGhkJHYGwARwNlEs2BPQ14x7Wvl_5xaUrQJZqEWJtxWaIGBo01NnwO1kBJoXsw9uPSiKQlwMaMjWhl_QPtYVTEhtA0hHVHZq0DHEOpNXP8yquRKsu8EtZg5zzsnoe96ltgzeK3WvqtlqDVMmi1XLZaYDRaTbjd5LSb3HZTuxC4XQncLgVu1wK3i4Hb1XDa1YCJNd88ddzR3yd11D2LemdR37zQ1-H-eTgwsNW1VlSsCIut4Zt1-MiFD-GYJupF1Np3LbKW_HGXRdbw8DForfMYIseMwJNxdQT3_wH7xchk" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 E2E-110B__IF_to_IMR_-_Variation_2_–_IMR_facility_is_within_the_same_LE_but_different_plant — E2E-110B__IF_to_IMR_-_Variation_2_–_IMR_facility_is_within_the_same_LE_but_different_plant
@@ -505,10 +479,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWN9v2joU_lcspopdDbTYTgjwcKUWyIS0qlXb3T2sezCJA1ZDEjkJLbfif78nYAeSxlvb3T5U5Du_P59jO3nu-EnAO-PO2dmziEU-Rs_dfMXXvDtG3QXLeLeHDsA_TAq2iHjWLXXCJM5vxb97NWynT6VaiXlsLaJtid7yZcLRt3kPnYNh1EMZi7N-xqUIu71uKsWaye0kiRJZan_gw9AK99GU6CKRAZdHBctyse-AaSRifoSpa7u2V9pl3E_ioOY0dMJh6Hd3ZXJR8uivmMz36RcZv2RP30WQr-A5ZFHGQWeVr6OvbMGjssZcFiXmF3KjyRBZGScGwm5T5ot4CbhtASRZ_HCEHGu3Q7uzs_u4Coq-3tzHCP78iGXZlIcoywGebXIUiigaf7An555j9bJcJg98_IHM3CklPb-sZAylW72S3P4jF8tVPl4kUaBU-49lDWOSPvXk05hYPbmF_41YPA6OkSYDMiTDKtKFiyd4oiOFYfhHkYBXeceyBxVrRj3iTatY2Bk4E-ulP13m1HbPcZMnLjfC5ydOPc-jsyNVs4GDLbPTC48OrEnD6ZLl_JFtjw5HE7ty6Dmuh12jw0O8ZpbF4lomvnZIZ47nVA7dC-ydE6ND-xzbQ5Uh-FlKlq7Q_PIGzb5fHtDyL8bWjx_3nZCNQ9b3kyW65jJM5BpdFfkiKeIATSSHshCDnzAIoQBZKvwH6Mn7zs-fp55wu6cvSRJkaJ5lBW9akLpFFTPgkdhwuUVX5bA2rej_lrH95oydX1nccJ-LNEf3BbEwRZMiy5M1lzCUif-APsKKcj-HwtAl5FfuXn813Q9-U9pUEdO0c-t2-0Qgzvxi-v5chm8mZ9RuMY_ryaOpgKYViyIXSYzyZN-RdVfEeg3PLXb4lQS2dhZp9OM1dM2-ja4Z_PiWBkBVdgCkiHMobJPAJtL0Qt9KHLFfUW3DhjofKxtY0_RUecMD0P7rVHvQol0pIxErLms27q9sGsq29fx8LCHg_QUcXv4K8Sc_KjIw-HLYG-87u93BDE6Pls3phqdMSHQdMeAX2lSEIZccfu-R04ikSq48HfTQK3u9uqfltOozdDn_cgWnMtwimF82ZN2KOO-bSDJon0g9bVlT322Po_mAU4BnL4waI3qZbOBGBWTBdC2XwFuA8pVMiuUKXV-i71efwV158DFVZ81XY3gVP7d3N59v766azWe9jxX6-yMCffTEEyRu2pYoMbi4u0WTFfcfmvr2sYvTCA7nOVxHRVlafR5rnT9sdr52jibJOo14_nLARg2Tai3u9Fo0J8Y-TgyTMnnM-izKUcokiyIevWJevs7Qp0_IY0WUb2GLkvnpXlzvds3mixbJqg7Zz8GjyFcIVj6Djbkc4_owNLapeQCORLjVKcBVVTa3Nud1R0LDavCyr0_rLM-MqqIbvhH8EUWJ39bW7h9MSBsbp76Hv5qYMsdsJVK4y-iTNi2XqO5i9M45os2m9sp45Qa6f5_aZ0_0rlG1_IsWxG9rwYMReY8RfWezxzbq9_-GjtCP-PDsNp7V_T4eHB5t_azENtH65AA4Wj46POtXDrhBKEBbYEtFqFwqF5hqn1rDVgClKqq2cJVCFVUp4KEGhsqiSkPVTXXhWFWGKw2loGOqtHUIovSJZoqoJIiOSVTpVHukmiydt0pqpOU6ZJW1o4AqqGKCVkF1oRpQFlj7JMon0XVgVTjRSRBtUjGhV0gDqjC7Wg_aXHRNThVVVUZHDQ1dme4KveZUL7F2SfX6aA1bA6QB2KcvdWVD6pfZGkzaYdoO26fvrzWJY5QMjBLXKBkaJSOjBObFKMJmETGLqFlkJgKbmcBmKrCZC2wmA5vZIGY2iJkNYmaDmNkgZjaImQ1iZoOY2SBmNoiZDWpmg5rZoGY2YKfVX7zquG3AHfXVqo4OWlG3FR22oqM2FA4G9UmoDuN2mLTDtB22NdzpdeDFfs1E0Bk_d_YfVeHDK1w7ygtTZ9frsCJPbrex3xnvPz52iv2L7FQwuEauD-DuP8Uvt6Y=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 E2E-110C__IF_to_IMR_-_Variation_3_–_IMR_facility_is_in_different_LE_–_with_STO — E2E-110C__IF_to_IMR_-_Variation_3_–_IMR_facility_is_in_different_LE_–_with_STO
@@ -683,10 +656,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWN9v2joU_lcspopNo1ps5wfwcKUWSMXVUKvS3T2sezCJA1ZDEjmBllvxv18n2IG48dZ2tw8V_nzO53M-n2Mnee4EaUg7w87Z2TNLWDEEz91iRde0OwTdBclptwcOwD-EM7KIad4tbaI0Kebs38oM2tlTaVZiPlmzeFeic7pMKfg27YEL4Rj3QE6S_DynnEXdXjfjbE34bpTGKS-tP9B-ZEXVanLqMuUh5UcDy_Jg4AjXmCX0CGPP9my_9MtpkCZhgzRyon4UdPdlcHH6GKwIL6rwNzmdkafvLCxWYhyROKfCZlWs469kQeMyx4JvSizY8K0Sg-XlOokQbJ6RgCVLgduWgDhJHo6QY-33YH92dp_Ui4K78X0CxF8Qkzwf0wjkhYAn2wJELI6HH-zRhe9Yvbzg6QMdfkATb4xRLygzGYrUrV4p7vkjZctVMVykcShNzx_LHIYoe-rxpyGyenwn_mtr0SQ8rjRyUR_165UuPTiCI7VSFEV_tJLQld-R_EGuNcE-8sf1WtBxnZH1kk-lOba9C6jrRPmWBfSE1Pd9PDlKNXEdaJlJL33sWiONdEkK-kh2R8LByK4JfcfzoWckPKynR7lZ3PA0UIR44vhOTehdQv8CGQntC2j3ZYSCZ8lJtgLT2S2YfJ8d0PIvgejHj_tORIYROQ_SJbihPEr5GlxvikW6SUIw4lSkBYj4KRohYmIuY8GDqMn7zs-fp0y4nekqTcMcTPN8Q3UPu-lRrxnSmG0p34Hrsll1L-d_i9h9c8TerzxuaUBZVoD7DbIgBqNNXqRrykVTpsED-Ch2lAaFSAzMRHzl6fVJp-__JrWxFEb3G7T7TZOmGxgzUS5ssSlYmoAirWqhSYWs12TY4gdfGXrrniK9CsV-VRt4Q8SPb1koBMsPAGdJIRLbpqJ9dZY3VyCyX5Gt7qPVnyy36cgQFXY-1vaiErJT8i0NhfWnU2u31boKPgQskdI3XLwWl5rf4NP_lY9mbLvPz8qYcJ4-5uckLkBGOIljGl8djr37zn5_6uS9zUncJi2H1S3NCOPgJiZi10ULsSiinIrfFXIaJBT53M3AZL2gYVilcBpMnWx5lagtu5kpflWTJy5OqwsBs-nVtbjFxVMHCco2anq5rV7zu9sv87vrpily39fsSDuD5KbVh0qu2xsOFSWtuGBo_sJJO1Fm6VY8rAndxfGxXIotCEGx4ulmuSpV_H79RdCVdyqRkjQawHpfohj-tp3BR589iVhMByo23G5Xd3MwWtHgQbfHb-ztgdZGtU53Sie9lyy98VQoYJSus5gWL12g5nIMRwb4wgMJh7-HQPTDvKBZrjVD_z3tPPjTdv46AZ8_A59s4mInznVenJZbs23Udr4ou7yuuqoNH1mxAkKBXNxm5QtHM0_8q14sb798xTLxrKFu5ayMqcGgddo0FKGwaKeSEM_mXK-I_utuYs2rpdtOlSqDrTW5pVtGH0GcBm3NBq0_aNw2QRvk8J2dbB8rOIvFE_LUL1MqD_jq_a9aG6ujSIjFCtZW1vg9hWu_x8l5Z7UnHjg__0tsqBza-DCGlgYgOR4chjaWYyTHtrK3D0BfjqF0UO9I4sFLAooRSgqoKKGkgI7idCXgSgBLC09xyjFWAOxLD7WINFCMjoxBESIpA1JhI0mAlDAyBKzSwJZMXHko4aBaUTJgBUC5BlZBIEmB60WlEqhWQmmlOJBapU5UZmLX0kgXu95RuQEY6QDWAKQCgzJZu9ZXbUBfSw7aOqAoJEO9yUquek8drXCQCmugWbjauBZHVaaKUoVQEyjBXQ1Aak2sqrfeVclpQ00bpW_1qltWvXrFb8C4HbbbYacddtth7_QbQGOmb5wZGGfEfhinoHkKmaeweco2TznmKdc8ZdYCmsWAZjWQWQ1kVgOZ1UBmNZBZDWRWA5nVQGY1kFkNZFYDm9XAZjWwWQ1sVkOc5OoTYBN35Oe6Juq2ol4r2m9FB22obbWisBVF7RGLi1J-T2vCdjvstMNuO-y1w_12eKDgTq8jvuesCQs7w-dO9f1afOMWT5Dlo1pn3-uQTZHOd0nQGVbfeTub6svFmBHxCLw-gPv_AKRgHMY=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 E2E-110D__IP_to_IMR — E2E-110D__IP_to_IMR
@@ -970,10 +942,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1Wl1z4jYX_isadnaSnYHW-rIMF30nIbBDJ5nNhLS9aHrhGDnxxNi8_khC0_z3ylgSIKRsINu92F0_Pp-PzjmSgJdOlM94Z9D5_PklyZJqAF6Oqns-50cDcHQblvyoC1rg97BIwtuUl0eNTJxn1TT5eyUGyeK5EWuwcThP0mWDTvldzsFvky44EYppF5RhVvZKXiTxUfdoUSTzsFgO8zQvGulPPIi9eOVNvjrNixkv1gKex2BEhWqaZHwNY0YYGTd6JY_ybLZlNKZxEEdHr01waf4U3YdFtQq_LvlF-PxHMqvuxXMcpiUXMvfVPD0Pb3na5FgVdYNFdfGoyEjKxk8mCJsuwijJ7gROPAEVYfawhqj3-gpeP3--ybRTcH51kwHxJ0rDsjzjMSgrAY8eKxAnaTr4RIYnY-p1y6rIH_jgExqxM4y6UZPJQKTudRtye088ubuvBrd5OpOivacmhwFaPHeL5wHyusVS_G344tls7WnoowAF2tMpg0M4VJ7iOP6QJ8FrcR2WD9LXCI_R-Ez7gtSnQ2_XnkrzjLATaPLEi8ck4htGx-MxHq2pGvkUem6jp2Pse0PD6F1Y8adwuTbYHxJtcEzZGDKnwdafGWV9e1nkkTKIR3RMtUF2CscnyGmQnEASyAiFnbsiXNyDyRiM_rgAx9CDX9pXzZ8s-PPPm04cDuKwF-V34JIXcV7MwSS7zetsBs54mjzyYnnT-euvDa2-Xetrns9KcMUjniwqcFMjD2IwrMsqn_NCFGgePYBjkR2PKmEVXAjSmk7-YliHnt38t7rajgp8azra1IZvBTcpy5qbGug7_mZv-sPf0R4WXCQKQvFfMU_iRLxbJNGDaG3TEtk3coZfXpRGWBT5U9kL0woswiJMU55-bavypvP62iqJvjXL4uKqqYsNm5gdVBI4-E9rAvc_skbE25dZAj_kD_2omiB438h9fKw1BL2LTdGZkN3sfobW9dNs271bsfFE94A_R2ldivx2KqhV6-9Xdu2k8X5ErZ7zuzAFo6xKqiU4Ph8Z44zo1JuNQ9F8xRdhUoDjq5MvYBqKE4detA1ValW9vFDaFhVkLI7UuZh8_SZ2e3E6iXcqA5F3zjZTj76nvZ5-Kn6qmpiLNubcUpvIt1tq0zSFjWEwzOeLlGtKTenDdhP0nu3EnAfeYTzi7-8O4HicPPOZexQ5mvvr9RQM73n0YMobVTIVlS0oeczFKQRUOZhcGgq0b-3gFRGPOz3se4a0Ml3yrNL2tzSgaV9EHjWRi2HUru_OoPAOGxT0gEHB_EOU2I-YLhdhGi7LJNzclAVV1xdgNL_ls9mKl02v-88MQvaeGYQeVuvE37-vCNtjOpBgn-lA-gdNB-rtnwWFhzFG0YenA8X7TQdqr4fJUPfxqbgCgOt8AM5HrB-Y6kZtnFyBy7ysxEFidbg4qcUAGKZcXLV3jhY-2WvMUENalrhrYvj-3kPGb9rp1wEQ7Tat-KLcbpwAHnLoQB8eC1nFUyDuYrM6qsTih3UqTh6X4q69GTqyDoJpfdsb5hm4rAtxaS-bvvh_nZRJleTZdnL4ffqWeQKNApjMxNhP4iWQkYpPEYqdC49_UCdCYzZMxMc7ycb5qrmw8rI0tYJ39NQ7LoX9N_qqKahEbEjc2mLIs7aYYLc5fIt_F0JbsC4bztSG7zl5HUsOXOEjdHD4dKOTFmJ_Ehv6alsfK8L1QpgNRZmlB4dv9iAN9m_bwH42aJdWRLo6pYvabQcY-J_Ro37fri8ZTbLWwM-tuqnNyEc7_HwEmrm6EdDhlwhMLGc9fdt969CHjT4ehmlUp43j6_CZm02F_cPHPjJWWOrunvngYWe-4MAFEaMM9Hq_NHNGAqh9xvIxaB_7StyT4lCJ4xZARAHSIPIlQH2pQpUNJiXks7TgKx-MSAXfBHQUymSgnMqwkLIJZdy-koAyL6gSg9ItUwCC0ob8WDCTXpmKm6nMlE31rC2oOJUFJKPQYfbbZ6oSkc9IPSOZGNKrIblinhHEGpCpYwVgCTBlA8vEmOZTesHIBFQmTJIDiSGh2YIyV6QKASr6FF1YJkc0n1KFKAkijRIVqUyWKK9UpuIrgCgJvQTSa6BSoXKdAxVXICUoNgFl1F-t0j83nXZm_ja96fyzrnisVkCTpTok2NVvRq2-zzRWtBaRXokGVKB6IRVffQNQ7ASSDaIy8ZWA5ksyTDXDqrewYZOa9OgwAhkXRQagF1qaZFtRKPpWWat4oPKmy1kZV9wxZU0Zkxlp9lUCurqlBV-Fw-T6YBOAer5Io76mXg0HaqRIlA2q3Kq4sBoGOnBpA-tyl42Jda0qQOVC1Popo0TSg3WnSqNUZUuVDX-X7N1ag0ZsbPNrmGayqy92tmBsh4kdpnbYt8PMDgebXwhtvek734idx_kKul8h9yvsfkXcr6j7le9-xdyv3GRANxvIzQZys4HcbCA3G8jNBnKzgdxsIDcbyM0GcrOB3WxgNxvYzQZ2s4HdbGA3G9jNBnazgd1sYDcbxM0GcbNB3GwQNxvEzQZxs0HcbBA3G8TNBnGzQd1sUDcb1M0GdbNB3WxQNxvigKx-R7CNM_md_zYaWNG-DfU9KwqtKLKi2IoSK0qtqG9FmT1ncZaSX-tvw30rLM6-VhjaYWSHsR0mdpjaYd8OMztsz5LZswzsWQb2LAOdZafbERfgeZjMOoOXzurnP-InQjMeNx9SdV67nVDcWKfLLOoMVj-T6dSLmdA8S0JxR5-34Ou_l-QTow==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 E2E-110E__IP_to_IMR_cash_settlement — E2E-110E__IP_to_IMR_cash_settlement
@@ -1051,10 +1022,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4jgU_itWqopWCpo4FwJ5WAkCWVXb2UWlO_Mw7INJHIhq4sh2uAzDf187Fwhpo660eUCc75zzffbnk8tJC2mENU-7vz8laSI8cOqJDd7ingd6K8RxTwcl8A2xBK0I5j1VE9NULJKfRRm0s4MqU1iAtgk5KnSB1xSDv590MJaNRAccpbzPMUvint7LWLJF7OhTQpmqvsPD2IgLtSo1oSzC7FpgGC4MHdlKkhRfYcu1XTtQfRyHNI1uSGMnHsZh76wWR-g-3CAmiuXnHH9Fh-9JJDYyjhHhWNZsxJY8oxUmao-C5QoLc7arzUi40kmlYYsMhUm6lrhtSIih9O0KOcb5DM7398v0IgqeX5YpkFdIEOdTHAMuJDzbCRAnhHh3tj8OHEPngtE37N2ZM3dqmXqoduLJrRu6Mre_x8l6I7wVJVFV2t-rPXhmdtDZwTMNnR3lb0sLp9FVyR-YQ3N4UZq40Id-rRTH8f9Skr6yV8TfKq2ZFZjB9KIFnYHjG-_56m1ObXcM2z5htktC3CANgsCaXa2aDRxodJNOAmtg-C3SNRJ4j45XwpFvXwgDxw2g20lY6rVXma_mjIY1oTVzAudC6E5gMDY7Ce0xtIfVCiXPmqFsAyY0L2YZjLOMg6dUYAIChbFjWamuFP5YahM5e3yp_VPC8qhbTIsvdtUvVxjloQANgtEPyRAjL0b9kK6Bz7B0BnyTLJTJrh2V1kvubvLxHPjB05-3KwTjl4bG4FZjjllM2VbWgDnlQt4yV4Gi3v24fo6OW5wK8IJDnGQCPBR_dpg9tvqHH_f7iG-UmyQJkUho2uqC8OHSxgXNyvoFFoLgQledL-Yc-HSbESxwJAkemwRmi6DaYLPwUwPrI5Jog9r6j45I4L0ddof98w77nU_E8hQ8BBAaj5_NxXXw6rF4eJ65o2HTNFNqVUP3JI3IpXFb3Jy8psFGa1gRCXOiWl_RAfP2eVqKukUIXqnUadHap1NNixije95HRIAMMUQIJr-Xj4qldj43m5wPm5I0JDmXQ_mu62JRaoN-_zdpcxWOytCuQqsM3SqEVQzrcljGVhW6ZTiswkFVbVbxsIph3V2I_1pqX8d_zMDTK5j89Txdar9kZ1VhVh32TYcyvwacEqgloNFaYZVvPsfVthrP8ZuM3ZlxOjODzozbmRl2ZkadGbm3zhSs3qq3qPkhal3e9re4Xb-IbmGnhjVdk8O7RUmkeSet-AqTX2oRjlFOhHbWNZQLujimoeYVXytankWyc5ogeRduS_D8L2Y-FA0=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 E2E-110F__IP_to_IMR_in_house_settlement — E2E-110F__IP_to_IMR_in_house_settlement
@@ -1132,10 +1102,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2PozYU_SsWo1F2JaJiPkLCQ6WECdVIs1U0mW4fJvvggEmscWxkm3w0yn-vCZAQJqhbLQ9R7rn3nuN7DIajEfMEG4Hx-HgkjKgAHHtqjTe4F4DeEkncM0EJfEeCoCXFslfUpJypOfnnXAbdbF-UFViENoQeCnSOVxyDv55NMNaN1AQSMdmXWJC0Z_YyQTZIHEJOuSiqH_AwtdKzWpWacJFgcS2wLB_Gnm6lhOEr7Piu70ZFn8QxZ8kNaeqlwzTunYrFUb6L10io8_Jzib-h_d8kUWsdp4hKrGvWakNf0BLTYkYl8gKLc7GtzSCy0GHasHmGYsJWGnctDQnEPq6QZ51O4PT4uGAXUfDyumBAXzFFUj7hFEil4elWgZRQGjy44TjyLFMqwT9w8GBP_SfHNuNikkCPbpmFuf0dJqu1CpacJlVpf1fMENjZ3hT7wLZMcdC_LS3MkqtSOLCH9vCiNPFhCMNaKU3TX1LSvoo3JD8qrakT2dHTRQt6Ay-0PvPVYz65_hi2fcJiS2LcII2iyJlerZoOPGh1k04iZ2CFLdIVUniHDlfCUeheCCPPj6DfSVjqtVeZL2eCxzWhM_Ui70LoT2A0tjsJ3TF0h9UKNc9KoGwNntmaazPBRN9ZoMwVF4PvC6OZWxg_mlnneFwYKQpS1EdC8J3sI6pAhgSiFNM_yrEXxulUNukb45OuwhREPGeJOICXqT8aNvhtrR4KrGnA8wyEuVR8g4Vu2nK9R621WO_v9VpivgIhonFOi9Y3tMdSF99UF4O1CcEb1zotWvf_jVg2eXebCItpLskW_4Qx89_cyhy90Ukeq-aujFqjlhZ91yy86c6PTvKxdjN6_rNl__i1oTG41ZhhkXKx0TVgxqXSJ0_LUf9-_QwdNpgp8IpjTDIFvpz_bLH42uof3u8PkVyDcZZREiNFOGvvo_2rd2DLi9ptjTZknJ8cTgOfJ3M7nJx1OOn9h1jOwJcIQuvrnS1mLuj3f9ccVTgqQ7cKISxjWOfr2Kliv4yrh5DZVfrSX9FDuw1YNeCVwKXAaitWnIMqHrYYq35Ylztl7Ldip3Ei6qh5bt9k3M6M15kZdGb8zsywMzPqzGhvOlPw8sa-xe36ZXILO_dh9z7s1bBhGvr82yCSGMHROH936W-zBKcop8o4mQbKFZ8fWGwE5-8TI88S3flEkH54NiV4-heJkhIH" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 E2E-110G__Altera_to_IF — E2E-110G__Altera_to_IF
@@ -1388,15 +1357,15 @@ Manually"| n41
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1Wdty2zYQ_RWMMhk7M3JL3EhJD-3IspS6Ezcey20f6j7AFGhxTJEqL77U8b93SQGUBANOJKd-SMSDvR7sLkHyqRNmM9kZdN6_f4rTuBygp4NyLhfyYIAOrkUhD7poBfwh8lhcJ7I4qGWiLC2n8b-NGGbLh1qsxiZiESePNTqVN5lEv5920RAUky4qRFocFTKPo4PuwTKPFyJ_HGVJltfS72Qv8qLGm1o6zvKZzNcCnhfgkINqEqdyDdOABWxS6xUyzNLZltGIR70oPHiug0uy-3Au8rIJvyrkmXj4M56Vc7iORFJIkJmXi-STuJZJnWOZVzUWVvmdJiMuaj8pEDZdijBObwBnHkC5SG_XEPeen9Hz-_dXaesUfbq4ShH8hYkoihMZoaIEeHxXoihOksE7NhpOuNctyjy7lYN3ZBycUNIN60wGkLrXrck9upfxzbwcXGfJTIke3dc5DMjyoZs_DIjXzR_hX8OXTGdrTyOf9Eiv9XQc4BEeaU9RFL3JE_CaX4riVvka0wmZnLS-MPf5yHtpT6d5woIhNnmS-V0cyg2jk8mEjtdUjX2OPbfR4wn1vZFh9EaU8l48rg32R6w1OOHBBAdOgyt_ZpTV9XmehdogHfMJbw0Gx3gyJE6DbIhZT0UIdm5ysZyj46xqahkNl8titVb_pZj99ddVJxKDSByF2Q0azWV4i84TkaIoy9GFXIo4v-r8_feGju89Pa11ZvLoGuo1nCthFKfo0xh7-Ef4L-j3fr7qPD9vamO79scsmxXotCgq-YoJKD0js1FVlNlC5ptJ8e2khkkpc4F-ROMH-JGKBIVKCd0Dwei3rIyjR5TLfypZlE3i-SoXVS0GAcw_bO0vE9h35eAyQ6cTVG-cLCAVGH8xFMYMtD-4ogf58Z9n6BCS_bCZAdi_PEPjxbWczRoLG4vBdnbnMoeIF-Dvut5kdCKT-E7mj0bQPbvWivYLGcp4WaKriniYtpzCVMmgHA6hJGVYglV0BgnV4_eDYb1vt_65KreDQp_rKWwoY--12JqSMDXwV_zNXvVHvqI9yiXkiQT8hHtAFMPaMg5vYRybluiukbPeunaA3eWm6EalNLLcB9FfBwgqYVpK6NutMuB9eyPJhzCpCsj-42oqmf1H12oiz7P74kgkJVqKXCSJTBxKbDclS6GfXdSVvmGTev9rRdI3lQglu24spW_yx75XSVK-a-ScfntJ-v09qifwvkf1fBrDXsO0LWKxYZu8Nin9Nq_6IKE5PD_Ttyq9E5v0-cYNcaVzdvrxMxzh4MgZvdy74BuHn6n3LSPZ1HEMWuuNmhkdNsoWy0RCNnZpvF8a7Outgg4n8YOcOXuVucbo5XR1IjHlmXWTTkdwE7zL4IaNjuv7-mU2WB0gTHXzfHCBzrOihF5q-mtYlRkaJRIeUF50F2dmr0CIYXNoChW7L6Y4N1RU8Y1c8r3Xpn6A92lA8l0aUN7A0WmclnH5iA6bA9pm3NTabCrZw4vhBzQV8Lhnazq2e5_i3fsU79mn-JuOTvc_5D-Udczq6JjZDh67dC_ZqXsJ3utUSMjuM4jQ_Xgk7M2DgvDdBgUxqmQKld3OCOjy1cHdHA-BcbyHTW0qUB_p4yw1epb1rbfQhr-7lx3u7T5EAtD4ZaCfNCD0uiNDUczhGaUsE3ihkpbGzY_sdz7k-5wP_X2UgrdOpdVw32Bp_xFEAkultKfOr5UMMUbESCRhldTOL8WDLEzp_v73H2yUDtiHMkiqsALuXpYNMcSVq5fnut6ee5H20dHRT_UznLrGvgICDfQU0NcAVgDRAFkBPlMAVddcXft8BRD1NidlyoKvroky2fpUUekXSvBDmdQ-feWTUC2hnWobRDnxtRNfZUbasHQY1JBoE8HKLe7pzFSgVMdBlQrVbqmii2q6tIAOg6rcmM6N6eS1TaZyCzRdgZJg1ARaxlX2tAVUboH2EqhUqM6eKQmmAap2iZteWhtM14ZWwZrjtnpUHEwTRlQuTNOh6CHtRio6_K3rL1cd1fbTUpRVgX5fzqCGr9IzkUKnJFDKX2rmdKTaCzEASo0SbAuIBUpFC-gKa22qa22Bq0B7Zjn5WxYg8uZo1QRIXy7BxFs_B9Uy3AhZB6guufanNoO37hTVOl6qAqYtoDnQFphuw7aTlUpbquqaMAPA2iZRSfO2y3TRtJ2qaOJtHmrHedv8KnCuvTBFPW8bU-faNwDqGcm3EkSHrpPV-91uly68wAD8_sbL23p26ZfWWzCzw9wO-3Y42Hx9vbXSc670nSswnJxL2L1E3EvUvcTcS9y95LuX3FxgNxnYzQZxs0HcbBA3G8TNBnGzQdxsEDcbxM0GcbNB3GxQNxvUzQZ1s0HdbFA3G9TNBnWzQd1sUDcb1M0Gc7PB3GwwNxvMzQZzs8HcbMCdVX8B3MYDB95TX_G20b4N5Z4VxVaUWFFqRZkV5VbUkR935Md7DryvP9Ztz1vPDmM7TOwwtcPMDnM77NvhwA737LA9y8CeZWDPMmiz7HQ78BC0EPGsM3jqNF_v4Qv_TEaiSsrOc7cj4Ill-piGnUHzlbtTNYetk1jAY9piBT7_B2opzMw=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.8 E2E-110H__Altera_to_IMR_cash_settlement — E2E-110H__Altera_to_IMR_cash_settlement
 
 **Swim Lanes**: LE798 · S/4 Intel Product  · SAP CFIN
+
  | **Tasks**: 7 | **Gateways**: 3
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -1455,10 +1424,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2vojgY_isNJyfOJpgBBFEuJkGUjcmZjRnPzlyMc1GhaHNKS9rixxr_-xb5EBm52CwXJu_zPs_zfgjtRYtYjDRPe329YIqlBy4DuUcpGnhgsIUCDXRQAt8hx3BLkBgUnIRRucb_3GimnZ0KWoGFMMXkXKBrtGMI_L3Uga-ERAcCUjEUiONkoA8yjlPIzwEjjBfsFzRJjORWrUrNGI8RvxMMwzUjR0kJpugOj1zbtcNCJ1DEaPxgmjjJJIkG16I5wo7RHnJ5az8X6Cs8_cCx3Ks4gUQgxdnLlLzBLSLFjJLnBRbl_FAvA4uiDlULW2cwwnSncNtQEIf04w45xvUKrq-vG9oUBW_fNhSoJyJQiDlKgJAKXhwkSDAh3osd-KFj6EJy9oG8F2vhzkeWHhWTeGp0Qy-WOzwivNtLb8tIXFGHx2IGz8pOOj95lqHzs_rt1EI0vlcKxtbEmjSVZq4ZmEFdKUmS_1VJ7ZW_Q_FR1VqMQiucN7VMZ-wExu9-9Zhz2_XN7p4QP-AItUzDMBwt7qtajB3T6DedhaOxEXRMd1CiIzzfDaeB3RiGjhuabq9hWa_bZb5dcRbVhqOFEzqNoTszQ9_qNbR9055UHSqfHYfZHrwt3OmkxIqHmj83WsCR6hssVyDIhWQp4mBJD0xtZ6P9anHdn4qcQC-Bw4jtQABJlJNC-Q5PSChumzxVXJ9IxCF4Z2AZPlqZ5uVSe0HO2VEMIZEggxwSgsif5R432vXaFllPRZhGJBf4gH5TqfezM_76s61mk4gAtdY4jyRo-Vuq5Zn64kTT6xMDX20pXP7V1o0e97JCPGE8BSt4ThGV4BuKEM5kZz_2c5GyXzEh1Qff4Ts9RThLsIRbTLA8A59CclbHSUc7fq4NoNgDP8sIjqDEjHZUk0-NSr0VWU8pELA0I0iiWMn_aP9bxn_7i5tdUxsMh1_UxFU4LUPTquJRGY-r0CnD6qWmZsU269iqgDquCG4Vux33Om8aNWCUgF3F406-8h-1vtyix9b58pCxezNOb2bcm3F7M5PqdH4Ap8318ACrEauT6xE2n8NWDWu6pg6LFOJY8y7a7TZXN36MEpgTqV11DeaSrc800rzbraflWayUcwzVx5SW4PVfXGmO2g==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.9 E2E-110I__IMR_Manufacturing — E2E-110I__IMR_Manufacturing
@@ -1538,10 +1506,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4jgU_itWqopWCto4JCTNw0o0kBHSoEEw3XmYzoObOGDV2FnHgbKI_752LlwyZFa7ywPKuXzfufj4cjBinmAjMO7vD4QRGYBDT67xBvcC0HtDOe6ZoFL8gQRBbxTnPe2TciaX5K_SDTrZh3bTughtCN1r7RKvOAYvUxOMFJCaIEcs7-dYkLRn9jJBNkjsQ0650N532E-ttIxWm565SLA4O1iWB2NXQSlh-KweeI7nRBqX45iz5Io0dVM_jXtHnRzlu3iNhCzTL3I8Qx_fSCLXSk4RzbHyWcsN_YzeMNU1SlFoXVyIbdMMkus4TDVsmaGYsJXSO5ZSCcTezyrXOh7B8f7-lZ2Cgq_jVwbUL6Yoz8c4BblU6slWgpRQGtw54ShyLTOXgr_j4M6eeOOBbca6kkCVbpm6uf0dJqu1DN44TWrX_k7XENjZhyk-AtsyxV79t2JhlpwjhUPbt_1TpGcPhjBsIqVp-r8iqb6Kryh_r2NNBpEdjU-xoDt0Q-tnvqbMseONYLtPWGxJjC9IoygaTM6tmgxdaHWTPkeDoRW2SFdI4h3anwmfQudEGLleBL1OwipeO8vibS543BAOJm7kngi9ZxiN7E5CZwQdv85Q8awEytZgOZqD5W8OmDKJKYh4wRKxB9PZAnzGK0TBhEki9xVI_xj8_v3VSFGQon7MV2CORcrFBixwv9xHYM4Jk2BOEWNqSl-NHz8uwPZtcOmNE5VEgjM1RFgxLPCfBRHqPFDfD_Pp4rFFNbhNNVvMwaJgLWfn2jkUWC3MKewXnXgL4d5GCJ4UsSSc3QQNr0ELTLE62f4J5d2uJOSbjDNd_lKi1c-99G_DPnGe5GCa5wUGDwu0AzOVuD4YHwFiCXjJEl3IlG0VMxf7FulTu4IYk-11BRkWqPwKOUuJ2JRCiwZav0quZM1kG9OarBcmsBplEku1REvJ4_c2oD1NhUR6sz1Mvs3a0wIHt9ezEOrYVEtUTltOyrpUpgB_qKYxNf-Z2m1FNYZtSufhRJlRVG2aGWJFimJZCLVgum0xztVqqAuPqHiJoni8pHDPFLnk2S8o9DRQfINieDg0FEgIvsv7iEqQIYEoxfRTdQC9GsfjJcj7LyD_34HUPq4-mA36_d91qrUM2_KwUgxqeVDbvVp2KtmtRbcSG3QNbpy9SvRr0a_Ep1p8qqmtJrRVK2CjaJKzG0VN6LRk2GQLm_Ka_GCdL2xygHUSdku-vIJ0Vy6uoCuL3WkZdFqcTovbaRl2WrxOi99peeq0qKZ3mrq7ALvbALv7oBajeQFd6936tXKtHTZX9rXau632G7VhGhusjkKSGMHBKJ-x6qmb4BQVVBpH00CF5Ms9i42gfO4ZRXkMjwlSt_CmUh7_Bsz6glA=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.10 E2E-110J__TM_Steps — E2E-110J__TM_Steps
@@ -1605,10 +1572,9 @@ flowchart LR
 
 
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -1616,7 +1582,9 @@ flowchart LR
 | Role / Lane | Processes Involved | Description |
 |------------|-------------------|-------------|
 | 
+
  LE ++ Faulty Part | E2E-110A_IF_to_IMR_-_Variation_1_–_IMR_facility_is_within_the_plant,  | |
+
 | EWM | E2E-110A_IF_to_IMR_-_Variation_1_–_IMR_facility_is_within_the_plant,  | |
 | IMR Repair Plant  | E2E-110A_IF_to_IMR_-_Variation_1_–_IMR_facility_is_within_the_plant,  | |
 | IMR EWM | E2E-110B__IF_to_IMR_-_Variation_2_–_IMR_facility_is_within_the_same_LE_but_different_plant, E2E-110C__IF_to_IMR_-_Variation_3_–_IMR_facility_is_in_different_LE_–_with_STO, E2E-110D__IP_to_IMR, E2E-110G__Altera_to_IF,  | |
@@ -1630,11 +1598,17 @@ flowchart LR
 | Boundary Apps Intel Foundry | E2E-110E__IP_to_IMR_cash_settlement,  | |
 | S/4 Intel Product  | E2E-110E__IP_to_IMR_cash_settlement, E2E-110F__IP_to_IMR_in_house_settlement, E2E-110H__Altera_to_IMR_cash_settlement,  | |
 | SAP CFIN
+
 Intel Foundry AR | E2E-110E__IP_to_IMR_cash_settlement, E2E-110F__IP_to_IMR_in_house_settlement,  | |
+
 | SAP CFIN
+
 Intel Product AP  | E2E-110E__IP_to_IMR_cash_settlement, E2E-110F__IP_to_IMR_in_house_settlement,  | |
+
 | SAP S/4
+
 Intel Foundry (LE798) | E2E-110E__IP_to_IMR_cash_settlement,  | |
+
 | Inhouse Bank  | E2E-110F__IP_to_IMR_in_house_settlement,  | |
 | Intel Foundry LE798 | E2E-110F__IP_to_IMR_in_house_settlement,  | |
 | Boundary Apps | E2E-110G__Altera_to_IF,  | |
@@ -1644,13 +1618,14 @@ Intel Foundry (LE798) | E2E-110E__IP_to_IMR_cash_settlement,  | |
 | SAP CFIN
  | E2E-110H__Altera_to_IMR_cash_settlement,  | |
 | SAP S/4 Intel Foundry
+
 IMR Legal Entity | E2E-110I__IMR_Manufacturing, E2E-110J__TM_Steps | |
+
 | External Partners B2B | E2E-110J__TM_Steps | |
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -1661,10 +1636,9 @@ IMR Legal Entity | E2E-110I__IMR_Manufacturing, E2E-110J__TM_Steps | |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 | 1 | e.g. Cost Element | e.g. MES 300 | e.g. XEUS | Data steward | e.g. Intel Confidential | e.g. 10K rows/day | Master / Transaction |
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -1712,10 +1686,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -1759,10 +1732,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.3 Data Lineage
@@ -1791,10 +1763,9 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1848,10 +1819,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9AhwrqYkgGGzfcDDXOl3tzd7OU9QCNZVvWTkXlv9_TFQVBo7ckYzsvz2mf87R9tpKMgeVYtdozT7lyyHNkqSnMILIcElkjKvGtjm8SkrLgah7APQjjFFn26q1SbmjB6UiA1G7EGWepCvnTEqrZzh9NsLb36YyLufGEMMmAXA_qxEUAUSeSprIhoeDjyFpUGSJ7SKa0UEvkUsKQPt5ypqbaMqZCgo6bqpkI6AhENQVVlJU1xSWGOU14OtHmQ1sbC5rerRlb9mJBFrValL7VIlfdKCU4ajXSaODckikfUgUNnsqcF8CIVHMBJBFUSpAYY8Krbw_GZFRKnoKUpBpjLoSz08fRbdWlKrI7cHa6x8dtu7v8bDzoBTn7-WM9yURWODu2bW9g0jwnq2Ewuy2N-oZp20dH3fZ_YDKq6Damd_wFZvMd5quPUYnkFXSOnJLWRqUZZ0zAAy1gnRGv7a4Y8Y_a_RXaN2YPmdhiRHO8xnKvZ9tfYRpUWY4mBc2nxA3-RFZUsuMDhk920CLuxUUw6LlXg_MzEri__cvI-muS9GAoiETxLCXB5crq7_vNpt2LIZ7EQz-MD2x7HTaBNoHdyS5BH0EfIjqOgy3-GOGXfx1-mK4dn-cOb6ts96ksIA6huOcJxN1Svltg88hAVVFkGUUwyuCuGrcF7_kVfC-TKvYFHgOp6qxPMjk0yDqALANOR8Ve55R3jCO8IXtk4GUJ_v0Mz89O93jHlNXKNAUhZa89-oBU3Hudl8iq4LyqEwjlXgzw2ecCD6CXr8h4B_1ZkC6z1RE9raV4quOgG6xt9b791VZfT3XfUu3v7Ogt0QYwQZ7eSYTZJPB_-GfeN9QaxKjxTYG5eS54QnXwBxIL4uHtpo6GK618qp0g9vxNlXj6GPJThZfMZvdNin9uNuV-mx1iIGtk40bAx8syeA6sSWVFqiHlldiW_r0Re3JysnWmWXVrBsWMcmY5z-Ziw_uRwZiWQuF1ZNFSZeE8TSynumCsMseJgscpNmFmjIt_XrFIPQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Current-State Flow Narrative
@@ -1860,10 +1830,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.2 Future-State — Future-State Application Landscape
@@ -1915,10 +1884,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9AhwroYkiGGzfcDDXOl3tzd7OU9QCNZVvWTkXlv9_TFQVBo7ckYzsvz2mf87R9tpKMgeVYtdozT7lyyHNkqSnMILIcElkjKvGtjm8SkrLgah7APQjjFFn26q1SbmjB6UiA1G7EGWepCvnTEqrZzh9NsLb36YyLufGEMMmAXA_qxEUAUSeSprIhoeDjyFpUGSJ7SKa0UEvkUsKQPt5ypqbaMqZCgo6bqpkI6AhENQVVlJU1xSWGOU14OtHmQ1sbC5rerRlb9mJBFrValL7VIle9KCU4ajXSaODckikfUgUNnsqcF8CIVHMBJBFUSpAYY8Krbw_GZFRKnoKUpBpjLoSz08fRa9WlKrI7cHZ6R0dtu7f8bDzoBTn7-WM9yURWODu2bW9g0jwnq2Ewey2N-oZp251Or_0fmIwquo3pHX2B2XyH-epjVCJ5BZ0jp6S1UWnGGRPwQAtYZ8RruytG_E67v0L7xuwhE1uMaI7XWD49te2vMA2qLEeTguZT4gZ_Iisq2dEBwyc7aBH34iIYnLpXg_MzEri__cvI-muS9GAoiETxLCXB5crq7_vNpt2PIZ7EQz-MD2x7HTaBNoHdyS5BH0EfIjqOgy3-GOGXfx1-mK4dn-cOb6ts96ksIA6huOcJxL1Svltgs2OgqiiyjCIYZXBXjduC9_wK_jSTKvYFHgOp6q5PMjk0yDqALANORsVe94R3jSO8IXtk4GUJ_v0Mz89O9njXlNXKNAUhZa89-oBU3Hvdl8iq4LyqEwjlXgzw2ecCD6CXr8h4B_1ZkC6z1RE9raV4quOgF6xt9b791VZfT3XfUu3v7Ogt0QYwQZ7eSYTZJPB_-GfeN9QaxKjxTYG5eS54QnXwBxIL4uHtpo6GK618qp0g9vxNlXj6GPJThZfMZvdNin9uNuV-mx1iIGtk40bAx8syeA6sSWVFqiHlldiW_r0Re3x8vHWmWXVrBsWMcmY5z-Ziw_uRwZiWQuF1ZNFSZeE8TSynumCsMseJgscpNmFmjIt_pXZIVQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Future-State Flow Narrative
@@ -1927,10 +1895,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.3 Change Impact Summary
@@ -1950,10 +1917,9 @@ flowchart TB
 | e.g. MES 300 | - | N/A |
 | e.g. XEUS | - | N/A |
 
+
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1968,10 +1934,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 
 > *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
 
+
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1980,10 +1945,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 |---|---------|-----------|-----------|----------|------|
 | 1 | e.g. Pub-Sub / P2P / ETL | e.g. MES Route to ICOST | e.g. Azure Service Bus | e.g. REST / RFC / SFTP | e.g. OAuth / NTLM / Cert |
 
+
 <div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -2024,10 +1988,9 @@ flowchart TB
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
 
 
+
 <div class="page-footer"><span>Page 29</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -2069,10 +2032,9 @@ flowchart TB
 | 1 | e.g. Azure PaaS | Cloud / SaaS | e.g. XEUS | DEV,QAS,PRD |
 | 2 | e.g. S/4 HANA 2023 | On-Premise | e.g. MES 300 | DEV,QAS,PRD |
 
+
 <div class="page-footer"><span>Page 30</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -2112,10 +2074,9 @@ flowchart TB
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 31</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -2134,10 +2095,9 @@ Project delivery milestones for E2E-110 RICEFW objects:
 
 > *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
 
+
 <div class="page-footer"><span>Page 32</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -2166,5 +2126,5 @@ Standard RAID items for E2E-110 (End-to-End Integrated Processes):
 
 ---
 *E2E-110 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026*
+
 <div class="page-footer"><span>Page 33</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-110 — IMR Flow</span></div>
-</div>

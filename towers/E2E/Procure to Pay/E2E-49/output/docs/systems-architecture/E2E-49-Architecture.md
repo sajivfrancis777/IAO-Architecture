@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **E2E-49 R3 Purchase Requisition to Payments for procurement with financial planning and asset managem** within the IAO program. It includes 6 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | End-to-End Integrated Processes (E2E) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 2 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 2 Pending IAPM |
 | **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Process Visibility & Monitoring | Provide end-to-end process visibility across tower boundaries with integrated monitoring | Operational Excellence | Medium |
 | 4 | E2E-49 Process Migration | Migrate R3 Purchase Requisition to Payments for procurement with financial planning and asset managem business processes and 2 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Cross-Functional / End-to-End | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -209,18 +176,21 @@ This capability includes **6 business process(es)** modeled in BPMN 2.0, coverin
 | 1 | E2E-49A_R3_Portfolio_and_Project_Management | E2E-49A_R3_Portfolio_and_Project_Management | Boundary Apps, SAC, SAP S/4 (IP & IF) | 15 | 7 |
 | 2 | E2E-49B_R3_Project_Systems_1 | E2E-49B_R3_Project_Systems_1 | Boundary Apps, SAP S/4 (IP & IF) | 25 | 14 |
 | 3 | E2E-49C_R3_Procurement | E2E-49C_R3_Procurement | Boundary Apps, External Partners/
+
 Supplier
 , SAP S/4 (IP & IF) | 22 | 9 |
+
 | 4 | E2E-49D_R3_CFIN | E2E-49D_R3_CFIN | Boundary Apps, CFIN, MBC, SAP S/4 (IP & IF) | 15 | 10 |
 | 5 | E2E-49E_R3_SAP_Transportation_Management | E2E-49E_R3_SAP_Transportation_Management | Boundary Apps, External Partners/
+
 Supplier
 , SAP S/4 (IP & IF) | 12 | 6 |
+
 | 6 | E2E-49F_R3_Project_Systems_2 | E2E-49F_R3_Project_Systems_2 | SAP S/4 (IP & IF) | 9 | 6 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -317,10 +287,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV12P4jYU_StWVlNmJdDkkzA8tAKGtEgzXTRsW1WdPpjEAXdMHDkOAzvLf-91YgfIMKq6ywPCJ_eec--xbxJerZgnxBpaV1evNKNyiF47ck02pDNEnSUuSKeLauB3LCheMlJ0VEzKM7mgX6owx893KkxhEd5Qtlfogqw4Qb_NumgEiayLCpwVvYIImna6nVzQDRb7CWdcqOgPZJDaaaWmL425SIg4Bth26MQBpDKakSPshX7oRyqvIDHPkjPSNEgHadw5qOIYf4nXWMiq_LIgD3j3B03kGtYpZgWBmLXcsHu8JEz1KEWpsLgUW2MGLZROBoYtchzTbAW4bwMkcPZ8hAL7cECHq6unrBFF949PGYJPzHBR3JEUFRLg6VailDI2_OBPRlFgdwsp-DMZfnCn4Z3ndmPVyRBat7vK3N4Loau1HC45S3Ro70X1MHTzXVfshq7dFXv4bmmRLDkqTfruwB00SuPQmTgTo5Sm6Xcpga_iMy6etdbUi9zortFygn4wsd_ymTbv_HDktH0iYktjckIaRZE3PVo17QeO_T7pOPL69qRFusKSvOD9kfB24jeEURBGTvguYa3XrrJczgWPDaE3DaKgIQzHTjRy3yX0R44_0BUCz0rgfI3GvKzOMhrleVFfU5_M-evJmvBsS-BMzR9mi5tfyA6veIYWUkBTKxqjCc6pxAzNGc6Q5OgzjiWNAfiUE4ihPNMXn6y_T5hdYK5SFqM5mo3naFHmOdtXkRkc7PNoT9UhCEjeQIWCb8l5OeDGPySW50lOeA1pKR6muFdInqNZlpdwLrloi6FHEhO6JQkQfDwt0n59NQzqxtVbwujFawSWgL1lrLoz2j89WYfDaa53zMVC8Jeih5lEORaYMcJ-rs_EMQmmprUpi9HktBtfOVZroYhmUAjVzr71ywlUMBHQ6-advar6vkHjMlkR-YbA7X9_9bCnNz66ns3RD2gWnfqqWrnnOGkKWlZVFIhmcILmXMiUM8pvxmX8DPB5aUFzFi5vex-u31HYH7osIeaToCuqzmDdqTqiM0k25znhkdOUFMFEKIvqjS4F-a-6Bid1mUhEQQpdQ505LzD7eJ5xCxnTLWal7qWKQdeLmAuljLMEUAoLSb9Uk9TKd2wgaOZB57dCTidYeasP0PV8_nDBB0eN5SNXvqkx0ZbVEm-ovXP1irfOaAX2j3OYM7gPzuDJT0-9Tttet-bQGbQmWRcGZ5HHQJSo1vLGdPXIrpxv01SGu9OefztGj15T9GJfQHBrO13n8uyTXczKAm4Wb2agTnO_Lc3_f_NWJwXfOKRZiHq9H1Wxej2o17d6eVsvHf3cAS80oB-X8EMDvgF8DRhGx9MSgeEIaqC97pu1W6_91toxCU6_BkKztrVCU5TJ8AygJdxGwxTVWpsEQ2Ak3Eri65P1J4HT8RWuGGbNYxK9Vim6VGfQJvqVVzwG1665TdMGMM7rDhyzM26_ndE_38rqHaEyy7zyneOhfj07RwcX0dvLHNCMfqM5h53LsHsZ9i7D_mU4uAz3DWx1rQ0RG0wTa_hqVf8g4F9GQlJcMmkduhYuJV_ss9gaVm_aVpknkHlHMTytNjV4-BdXPOWO" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 E2E-49B_R3_Project_Systems_1 — E2E-49B_R3_Project_Systems_1
@@ -464,10 +433,9 @@ Activated"| n34
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv2zYU_iuEiywtYCOiLr49bHB82QI0TRC3DYZ6D7RE2Vxk0iNpJ26a_75DmVRsVunQLA-B9emc79wPJT02UpHRRr9xcvLIONN99Hiql3RFT_vodE4UPW2iPfCZSEbmBVWnRiYXXE_Z11IMx-sHI2awCVmxYmfQKV0Iij5dNNEAFIsmUoSrlqKS5afN07VkKyJ3Q1EIaaTf0G4e5KU1e-tcyIzKZ4Eg6OA0AdWCcfoMR524E0-MnqKp4NkRaZ7k3Tw9fTLOFeI-XRKpS_c3il6Sh1uW6SVc56RQFGSWelW8J3NamBi13Bgs3citSwZTxg6HhE3XJGV8AXgcACQJv3uGkuDpCT2dnMx4ZRR9HM04gr-0IEqNaI6UBni81ShnRdF_Ew8HkyRoKi3FHe2_CcedURQ2UxNJH0IPmia5rXvKFkvdn4sis6KtexNDP1w_NOVDPwyacgf_PVuUZ8-Whu2wG3YrS-cdPMRDZynP8_9lCfIqPxJ1Z22No0k4GVW2cNJOhsH3fC7MUdwZYD9PVG5ZSg9IJ5NJNH5O1bid4OBl0vNJ1A6GHumCaHpPds-EvWFcEU6SzgR3XiTc2_O93MyvpUgdYTROJklF2DnHk0H4ImE8wHHXegg8C0nWS3QuNmUvo8F6rfb3zB_HX2aNG5pStqXo9nyKRlQTVqALngu5IpoJPmv8dSAfgvwFzDWDiJFxcSNhlrk-looOWA-o0B_0gSwEP5uuTA_f0JxKylMKVhVbcPR2ejN6d8wUH9obLglfUHRlBvlYLAExiEyK7Y-kouTxcdbIST8nLSKluFctUmi0JpIUBS1-31dx1nh6OlRq_5wSDIeX--ngGk3PYvT24hr9gi4m7w7Y2-D4UFKbzb9p6mWy83z_Vsg7dA6_7zJxz9EUFkqqIf2I8Ax9uB0cK3ZNRlSZ1qFQGg2hSJKeXa2phFqUdclYSrSQ6lixB4rQgrAUkYBFLdHV3LilSjMTRotMQSQ8LTYZrCc0_nQxQrkUKzS-nB4z4QCoxrCY5gVTSygIWzBOCnS-yRZUI6LRe7qlBcKm8zxVXK9qc3RIIe7Bxz2RaeBxUdOP2LTtAAh2X6nVNbPwgVIIBtqzPvd438YFhWPLankC8YHAgfGz76qBTYNeKLWh6BJqaQ4wT8A0wnVZKLJmGkKFg0N4_YtNN1xvJBwBYPCG_rNh--k7q8Cy672KYtMLn0mxMV30uxAQczmcaz-cXhmO2ZAvuRkGR5O9FbBKPQlTuU_rzNi64MBBlT672lK5pCTzHAtNWcwSoUqhSzgmlmdjaLKPcPwpkpqN4SuUFdlwdA2-CehfCGQtpPbFTF2u5rDJOBqkKV1rYraMFmhdEPgBc0GhoeHudH8aeOrJYZpHsONMjn0b7bdf3FpQWqzR9wpon4YMFA9HPjRVHIfjVtwbopvIo-1WNydws2r46U5pulIo9MR7PyUeBZX4oBSH3OWiYKIcbqd8SThZ1G11_LwJzVNeaw6FSpdokGXMFMuMdrWebHdmv_nrNKwnoQ-wURS01QtbOPpv29VcD6GVpCjK-a7xIH6dB53XHB7d1yj1XqEUB69Rwq9RCmuVGP9h-uLoVVrxT2pVpy9vo1brVzhA7WVnfxm568gCXXuNsRUInUBogcgBkQG-zRp_UtgF38yp4nStKK5EYwvEFoidRNsHKvvJHogdB277QNcDetZBRxFZARw4jZ5PEVgV7FSwHxP2HUw8IK5iiixZzwEuagdYf9wldgkcbOEZk8xZwfQOzbgb1xkfwNLf7lfmN5NF37RzztYq9KP4IPaKoV8ydyP2ql_lwRpwl7YYLm82MD8V7nUFfniJTrxcuV5y5Y-sgrsOXUTO89CZcIyhdTGsfLTFDV0MofUyrFrKArEjja3V0AUSWj_DttdCYVVT6xh2c4Nt5uLAJ60mq-1Va-8pVOG6IJybh0YtoNwreGHamnVtPgtkSJgH1dUKTnW92xcr8QgdUL4lGafti-gx2qlehY_x7gt4rx6HCtXj2L3tHcNhPRzVw3E9nNTD7Xq4Uw936-FeLQzVq4Xro4zro4zro4yrKBvNxorCSyDLGv3HRvn5Bz4RZTQnm0I3npoNstFiuuNpo19-JmlsyienESPwBrXag0__AtPdkcc=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 E2E-49C_R3_Procurement — E2E-49C_R3_Procurement
@@ -591,10 +559,9 @@ Business Rule"| n15
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtz2kYU_is7yrhOZqBGNwQ8tAMYHGbi2GM58XRCHxZpBVtLu-pKsnEd_nvPSloBa9GZNDyA99P5zv0cSX41Ah4SY2Scnb1SRvMRej3PNyQh5yN0vsIZOe-gCviKBcWrmGTnUibiLPfpP6WY6aRbKSaxOU5o_CJRn6w5QV8WHTQGYtxBGWZZNyOCRued81TQBIuXKY-5kNLvyCDqRaW1-tKEi5CIvUCv55mBC9SYMrKHbc_xnLnkZSTgLDxSGrnRIArOd9K5mD8HGyzy0v0iI9d4-0DDfAPnCMcZAZlNnsSf8IrEMsZcFBILCvGkkkEzaYdBwvwUB5StAXd6AAnMHveQ29vt0O7sbMkao-jT3ZIh-AQxzrJLEqEsB3j2lKOIxvHonTMdz91eJ8sFfySjd9bMu7StTiAjGUHovY5MbveZ0PUmH614HNai3WcZw8hKtx2xHVm9jniBb80WYeHe0rRvDaxBY2nimVNzqixFUfRTliCv4h5nj7WtmT235peNLdPtu9PeW30qzEvHG5t6noh4ogE5UDqfz-3ZPlWzvmv2TiudzO1-b6opXeOcPOOXvcLh1GkUzl1vbnonFVb2dC-L1a3ggVJoz9y52yj0JuZ8bJ1U6IxNZ1B7CHrWAqcbNOFF2ctonKZZdU1-mPltadwWApoqI-hGTgiCdo_xigucU86Qv7ibL_yLB7JCfkFzsjT-PKBbQL8jAaFPBC1YxEVSso6F7AOha8wKHCPKnjhUIUP5RvBivUE307tjknOkOeAJzIKiXaCJNbm4SQm7J9u89C1765tbasChz6McfcUxDUvfLmbbgKRlbB8xC2OpVy6mEAEiClhI0CN5kWqBDl9fl0aERxHuyg3XXcGMBhvpCOJCuv_70tjtDqPutTPINoiLDMK6qppmT4Ox0qo22-ZEMMjXLQw3IyK7gCKkaUyhTIdFHEKoU84iKpILn8QkyNEUCwFimRZGDyRvxBoz2LXoHjzKUi5yTcgshWQv-BuaJoTl6IrzMEO3NHiERL2vlX_QeIfd0PhZ10xrCfvnk-OPb5F_4aD3i1v0C1rMPxzo78uECAJKUNPdd-Tvgma0rPwzzTfoYeIfe-UBC-ZD8Kd22rH0oMVGlbV27bJI94Ku1yBxde-j6YYEj-VfUIeQwNwlkDFIg5YrU9ZsiuOgiKWte7zVrpczTIScPhiVlZx0dEliyCLMe-nLRw6LFI2pQA_4ZQU7BbEiWYEfH8cPE03bYRGrqpenNEc5l2P0K5rEvGyDLIdfjW2fZEeCJ8d80PeFCQJ7jAZ52VacZUVSzWaRwtfVndZiplwLtzzLNeVTCeE1pgx-32TedPelmkE1q5a-xhlMlyYpG-dLGrZJIkgwmsjk8QggQOAxpKwaZyClTZopm2kGSQ5DCO3-Wrs6UHH895xY9vtvak4g3elbpypnQ6Ad9r_laLzylg00Xc7V5GQ7BmVjBrIdSYtqmaKZNes6wxm6s8sxbBZJdc-AJY_XJKnMHVK9hnopqdP54rMmMWgkJlICboJ_yW3mv0CwiZZi22xfIosqk2gcyEVPwjeb2frR5VPRnD0N9h9_zro4zlGKBY5jEp8guf-H1G8lTdRdagJeMpJB-8PtSud6P2aw2avMQ93ubzI79dl2KmConc36YYX1q7NXHwc136nPVq8CrPoRDG5TNaAUmHZN6SvArAGl06xt2q5ywq2dsBVQevF9aTTZWTItP9_lBlAKLU2hWUdhHSuUtyglUZtUeamPtgrLNmsP_iBZZWygrtTxWYpq1datoc79zEtqY9Sqs6kyYynBsf8ZdmO5oJ4oRgfPZdKy8qm2YzaJrdVZKrHWUKXNmpRUVTW7rlqT8DpaVTNHOzeKyic4GYIi1v1kejpg6YCybdaApdy26zgGegsqwomWNVV-TdWDyoRqQffggVsWv36nOUadVtRtRfvNG9gx7p3AByfwoXqZOIKhKq2w2Q5b7bDdDjvtsNsO99thT8FGx0gIvAfQ0Bi9GuWrPvw7ICQRLuLc2HUMXOTcf2GBMSpfiY2qmy8phse6pAJ3_wJ_4faj" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 E2E-49D_R3_CFIN — E2E-49D_R3_CFIN
@@ -703,10 +670,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV11v4kYU_Ssjr1KyEnT9iYGHVmDwKlKIUOi2qpo-DPY4WDEea2ZMQrP8997BMwYb56FbHhLP8bnnfsy9Y_vdiGhMjIlxc_Oe5qmYoPee2JId6U1Qb4M56fVRBfyOWYo3GeE9yUloLtbpPyea5RZvkiaxEO_S7CDRNXmmBH2766MpGGZ9xHHOB5ywNOn1ewVLd5gdAppRJtmfyCgxk5M3dWtGWUzYmWCavhV5YJqlOTnDju_6bijtOIloHjdEEy8ZJVHvKIPL6Gu0xUycwi85WeK3P9JYbGGd4IwT4GzFLrvHG5LJHAUrJRaVbK-LkXLpJ4eCrQscpfkz4K4JEMP5yxnyzOMRHW9unvLaKbp_fMoR_KIMcz4nCeIC4MVeoCTNssknN5iGntnngtEXMvlkL_y5Y_cjmckEUjf7sriDV5I-b8VkQ7NYUQevMoeJXbz12dvENvvsAH9bvkgenz0FQ3tkj2pPM98KrEB7SpLkf3mCurLfMH9RvhZOaIfz2pflDb3AvNbTac5df2q160TYPo3IhWgYhs7iXKrF0LPMj0VnoTM0g5boMxbkFR_OguPArQVDzw8t_0PByl87ynKzYjTSgs7CC71a0J9Z4dT-UNCdWu5IRQg6zwwXWzSj5amX0bQoeHVP_nLrryfjkUQk3RMUphlBaY5m0H1Pxt8XLBtY34oYskQrfNiRXKBHskuFwHlEmlRreAvkBE8SPOCCFrXBHAuMKpEYTD5XNtBKrUiD8O7hQs8BtcUbicpL32XedOoCKWBExjddLdGS7CgEGMHEN3ke8GRdCedoFixrwRkW0RaGDS44iRGFGpQcjgWgPZZwRDVVhqDyleSEaX9aRhawSfVleamMXVBZekb3hDUpIxk7ZYxE4iSmrlMI4lpvfNou0ODS8wrNoUceyt2GMITz-DJxNCcZkSqt7TFBISSQro6aoxBHgkJr3IL7vqxLHy1nAVpSOL8p-9wSqDpmn5JXMIQA4zr9e_rc4tqXldI02ICCcpy1uM5Jt8jSSJLXZQGXkNZdvqcwr2hFuYAdahmNWs12WYCqIS56rTIZt0x0GVVZ23zben_XfPloG2zgcIbqLXFe4kztKVw8ENlVMGG_PhnH46WA3S2guiG-4jvdfPIWZdCUe_K1OmzaZm63WYChmYnuqg533o-5G_6Ymd9tVhUfykgZXBfViMJ2X0U7OttjxugrH-BMoAIznGUk-8Dp-AeMHLPTKM0_yu_6JIMhumw8eUgty0ykA3nAwo7kuZzzfSpg9LbQ3gNBB_J_e-K8_254Hcx6ukLrLy66vVuhn9Bd2JgJ_6MzmwgYcY5kp6YxjPoGRy_yKFvTksFQrg9ckJ3U_CIVW5Mjj5qFvRi44wA9OtexwfmABoNfoNZq7VRLe6TWbrW29NpT99UzHS4k8P3JeKBPxnc5OuqGr4i2JirloV4rJU-v3ZaQJo5VBGMdsamUNWAPK6Bea4s6xlEFuFrBUgq-JvjKt56BZgSqRJZeK3-W23KoU1XubJ2apVK37HaEdQAqJ8tpl_VP-eSDYDRT46vp3cPPpmmjW2iUQUZxLF9UyOcT2ao9u0261U1v1OlUhvP4V6XQgo4KVLeDbbfirPe_vqP3s66-2njLvK5-y61jtptDu3Eu39bk1qgX4ibqd6KjTnTchcK-6Jf6Jm7p980mbHfDTjfsdsNeNzzshv1ueNQNjzth2FUFG31jR9gOp7ExeTdOH4nwIRmTBMPhZxz7Bi4FXR_yyJicPqaM8vQ2OU8xHHG7Cjz-C4VlbpU=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 E2E-49E_R3_SAP_Transportation_Management — E2E-49E_R3_SAP_Transportation_Management
@@ -792,10 +758,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVtuO2zYQ_RVCwdYJYGdFXSzbDwV8U7BAFjFWm_Yh7gMtUTYRWhJIypdu_O8dSpRv622b1g-LnaOZMzOHw8uLFecJtQbW3d0Ly5gaoJeWWtE1bQ1Qa0EkbbVRDfxGBCMLTmVL-6R5piL2Z-WGvWKn3TQWkjXje41GdJlT9PWhjYYQyNtIkkx2JBUsbbVbhWBrIvbjnOdCe7-jvdROq2zm0ygXCRUnB9sOcOxDKGcZPcFu4AVeqOMkjfMsuSBN_bSXxq2DLo7n23hFhKrKLyV9JLvfWaJWYKeESwo-K7Xmn8mCct2jEqXG4lJsGjGY1HkyECwqSMyyJeCeDZAg2fcT5NuHAzrc3c2zY1L0-WmeIfjFnEg5oSmSCuDpRqGUcT54542HoW-3pRL5dzp450yDieu0Y93JAFq321rczpay5UoNFjlPjGtnq3sYOMWuLXYDx26LPfy9ykWz5JRp3HV6Tu-YaRTgMR43mdI0_V-ZQFfxTOR3k2vqhk44OebCftcf26_5mjYnXjDE1zpRsWExPSMNw9CdnqSadn1sv006Ct2uPb4iXRJFt2R_IuyPvSNh6AchDt4krPNdV1kuZiKPG0J36of-kTAY4XDovEnoDbHXMxUCz1KQYoVGeVnNMhoWhay_6V-Gv82tJxpTtqH3EawresjSXKyJYnmGWIbGRAhGBcCbHGRDT3pTxIyzyuN-wmRRKvrx48e59ccZrQO00w3NFCqLBMSRiAiKRJ0o0cSfnp8vQ3Dw8jK3UjJISUefIZ0F7IJ4hegu5qWEsE-1yHPrcKjDoNyrLqc7RUVGOJrBZsiokPcoKouC6w7OU-muQwqFPOna7sewpZZQ40OmKBCpXEjkigQVwLJvJgbNS8fGLiiQbPM8uSpeN2y0uvrivv_WtFVwmBG9rlTqZEyBilDECI7FBIHeuppjMcMNYVwfkMD34ZzQuyKsdJZoVi44kyuaXPk79klXKDDfyg7hSvdGOKf8lap1EP65oNdLEQ1nKLr30PuHGfoFPYTnJbnQwCcK6wM0KBTV0YC-gh7o_fPjh0v9PC2soOeeX_RBfsPVB9cZFXp-j3P7tRk_GO0x4XHJNZPR-DK8q2d2R-PyX6QKdKpcqqNjRJXicKvBxE_yuKz-eR3WOzUTmamafUFQMAqjyQ3_fpMmmkZoy9QKDUuVwwhyCjNzIwDbpwxjHQgbVAm2KKvdOlzSLN6jEWynTI_g31SK_dOUSZUX6PkRFWZyYbFfTRmu1HOmHa8_Rk_uFVnvZ7d2Hdb_T2GOc3N2WfaP50jmok7nV5g5Y_q1iXvGDmq7MXG_tn1jd2vTcYztmfC-sY07tpt42wANAcaG4ehhCsK4AUwJR7vJ0eTEjqFoPBzDiYMGsK-BJmtDcdXGMaDpo0rxozng6x02t36cCYWNFG5j92q7a2xjHglN0cHZLVg13zxqLnHvDdw3D5NLtPuGd9Dc2pdw7zbcvwmDNDdhfBt2GthqW2sKtyxLrMGLVT2H4cmc0JSUXFmHtkVgm0f7LLYG1bPRqm_RCSNwuK5r8PAX76aEqQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 E2E-49F_R3_Project_Systems_2 — E2E-49F_R3_Project_Systems_2
@@ -868,10 +833,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -882,15 +846,16 @@ flowchart TD
 | SAC | E2E-49A_R3_Portfolio_and_Project_Management,  | |
 | SAP S/4 (IP & IF) | E2E-49A_R3_Portfolio_and_Project_Management, E2E-49B_R3_Project_Systems_1, E2E-49C_R3_Procurement, E2E-49D_R3_CFIN, E2E-49E_R3_SAP_Transportation_Management, E2E-49F_R3_Project_Systems_2 | |
 | External Partners/
+
 Supplier
+
  | E2E-49C_R3_Procurement, E2E-49E_R3_SAP_Transportation_Management,  | |
 | CFIN | E2E-49D_R3_CFIN,  | |
 | MBC | E2E-49D_R3_CFIN,  | |
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -901,10 +866,9 @@ Supplier
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 | 1 | e.g. Cost Element | e.g. MES 300 | e.g. XEUS | Data steward | e.g. Intel Confidential | e.g. 10K rows/day | Master / Transaction |
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -952,10 +916,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -999,10 +962,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.3 Data Lineage
@@ -1031,10 +993,9 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1088,10 +1049,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzzaQoQqpU06dUoBETY2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpfygBacTAVK7EWeapSrkD2uog05-b4K1fUgXXCyNJ4RZBuT7qElcBBBNImkqWxIKPo2sVZUhsrtkTgu1Ri4ljOn9DWdqri1TKiTouLlaiIBOQFRTUEVZWVNcYpjThKczbT62tbGg6d-asW2vVmTVaETpSy1y3Y9SgqPRIK0Wzi2Z8zFV0OKpzHkBjEi1FEASQaUEiTEmvPr2YEompeQpSEmqMeVCOHtDHP12U6oi-wvOXv_kpGP315-tO70g5zC_byaZyApnz7btLUya52QzDGa_rVFfMG272-13_gOTUUV3Mb2TDzAPXmE--xiVSF5Bl8gpaW9VWnDGBNzRAuqMeB13w4jf7Qw3aJ-YPWRihxHNcY3lwcC2P8I0qLKczAqaz4kb_I6sqGQnRwyf7KhN3MvLYDRwr0cX5yRwf_lXkfXHJOnBUBCJ4llKgquN1T_0j08HMcSzeOyH8ZFt11ET6BD4MvtC0EfQh4CO42CH3wT46X8P38zWjndTxzdVsvtQFhCHUNzyBOJ-KV-t7qBrkKooso4iGGVgN13bRvf8Cn2QSRX7Ao-AVPXqU0yODbAOIOuAs0mx3zvjPeMIf5B9MvKyBP--hRfnZ_u8Z6pqVZp6kLLn_uwSituu9xRZFZpXNQGR3MsRPodc4Nnz9AETdeD3YnSR7V7oKa1FUx0D_aC2xYf2R1u8nuq-pNqf2ck7Yg1ghhy9EgezSeB_9c-9T6g0iFHb29Jy81zwhOrgN8QVxOObbQmNNzJ5VzZB7PnbCvH08eOnCi-X7c6bFP_CbMbDDjvGQNbKpq2AT9dlcP_XZLIh1ZDyTGxb_16IPT093TnLrKa1gGJBObOcR3Oh4b3IYEpLofAasmipsnCZJpZTXSxWmeNEweMUm7AwxtU_IcxHFQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Current-State Flow Narrative
@@ -1100,10 +1060,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.2 Future-State — Future-State Application Landscape
@@ -1155,10 +1114,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9A5wuoiyEZbtxwM9Q4X-7N3c1S1gM0lm1ZOxWV_35PV5QJGr0lGdt5eU77nKfts5VkDCzHajSeecqVQ54jS01hBpHlkMgaUYlvTXyTkJQFV_MA7kEYp8iyV2-VckMLTkcCpHYjzjhLVcifllC7nfzRBGt7n864mBtPCJMMyPWgSVwEEE0iaSpbEgo-jqxFlSGyh2RKC7VELiUM6eMtZ2qqLWMqJOi4qZqJgI5AVFNQRVlZU1ximNOEpxNtPrC1saDpXc3YthcLsmg0ovStFrnqRSnB0WiQVgvnlkz5kCpo8VTmvABGpJoLIImgUoLEGBNefXswJqNS8hSkJNUYcyGcrT6OXrspVZHdgbPVOzrq2L3lZ-tBL8jZyx-bSSaywtmybXsNk-Y5WQ2D2Wtr1DdM2z487HX-A5NRRTcxvaMvMHffYb76GJVIXkHnyClpr1WaccYEPNAC6ox4HXfFiH_Y6a_QvjF7yMQGI5rjGsunp7b9FaZBleVoUtB8StzgT2RFJTvaZ_hk-23iXlwEg1P3anB-RgL3t38ZWX9Nkh4MBZEonqUkuFxZ_T3_4LgfQzyJh34Y79t2HTWBDoHtyTZBH0EfAjqOgx3-EOCXfx1-mK0dn6YOb6tk96ksIA6huOcJxL1Svlvd7qFBqqLIMopglIFddW0d3fMr9NNMqtgXeASkqlufYnJggHUAWQacjIqd7gnvGkd4Q3bIwMsS_PsZnp-d7PCuqapVaepByl77s0kobrvuS2RVaF7VBERyLwb47HOBZ8_LF0zUgT-L0UXWe6GntBRNdQz0gtoW79tfbfF6qvuWan9nJ2-INYAJcvROHMwmgf_DP_O-odIgRm2vS8vNc8ETqoM_EFcQD2_XJTRcyeRT2QSx568rxNPHj58qvFzWO29S_HOzGfc67AADWSsbtwI-XpbB_V-TyYpUQ8orsW39eyP2-Ph44yyzmtYMihnlzHKezYWG9yKDMS2FwmvIoqXKwnmaWE51sVhljhMFj1NswswYF_8AaD1HLQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Future-State Flow Narrative
@@ -1167,10 +1125,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.3 Change Impact Summary
@@ -1190,10 +1147,9 @@ flowchart TB
 | e.g. MES 300 | - | N/A |
 | e.g. XEUS | - | N/A |
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1208,10 +1164,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 
 > *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1220,10 +1175,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 |---|---------|-----------|-----------|----------|------|
 | 1 | e.g. Pub-Sub / P2P / ETL | e.g. MES Route to ICOST | e.g. Azure Service Bus | e.g. REST / RFC / SFTP | e.g. OAuth / NTLM / Cert |
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1264,10 +1218,9 @@ flowchart TB
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
 
 
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -1309,10 +1262,9 @@ flowchart TB
 | 1 | e.g. Azure PaaS | Cloud / SaaS | e.g. XEUS | DEV,QAS,PRD |
 | 2 | e.g. S/4 HANA 2023 | On-Premise | e.g. MES 300 | DEV,QAS,PRD |
 
+
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1352,10 +1304,9 @@ flowchart TB
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1374,10 +1325,9 @@ Project delivery milestones for E2E-49 RICEFW objects:
 
 > *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
 
+
 <div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1406,5 +1356,5 @@ Standard RAID items for E2E-49 (End-to-End Integrated Processes):
 
 ---
 *E2E-49 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026*
+
 <div class="page-footer"><span>Page 29</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
-</div>

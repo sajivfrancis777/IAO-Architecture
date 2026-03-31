@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">PM-150 — Enable Payment</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Procure To Pay (PTP) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **PM-150 Enable Payment** within the IAO program. It includes 12 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Procure To Pay (PTP) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 26 Interfaces, 21 Enhancements |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Payment Automation | Automate invoice verification, three-way matching, and payment execution | Finance Efficiency | Medium |
 | 4 | PM-150 Process Migration | Migrate Enable Payment business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Procurement | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -219,10 +186,9 @@ This capability includes **12 business process(es)** modeled in BPMN 2.0, coveri
 | 11 | PM-150-200_Update_Financial_Records | PM-150-200_Update_Financial_Records | Payment Processor | 3 | 1 |
 | 12 | PM-150_Enable_Payment | PM-150_Enable_Payment | Accounts Payable Accountant | 1 | 5 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -327,10 +293,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P6jYQ_StWVitegpRPQvPQigXSrtSrrgptHy59MM4YrHXsyHZYUi7_vTYJn7371Dwg5sycc2ZGdnLwiCzBy73n5wMTzOToMDBbqGCQo8Eaaxj4qAP-xIrhNQc9cDVUCrNg_5zKwqTeuzKHFbhivHXoAjYS0B-vPppYIveRxkIPNShGB_6gVqzCqp1KLpWrfoIxDejJrU-9SFWCuhYEQRaS1FI5E3CF4yzJksLxNBApyjtRmtIxJYOja47LD7LFypzabzR8wfu_WGm2NqaYa7A1W1PxX_EauJvRqMZhpFG78zKYdj7CLmxRY8LExuJJYCGFxfsVSoPjER2fn1fiYoqWs5VA9iEcaz0DirSx8HxnEGWc50_JdFKkga-Nku-QP0XzbBZHPnGT5Hb0wHfLHX4A22xNvpa87EuHH26GPKr3vtrnUeCr1v4-eIEor07TUTSOxhenlyychtOzE6X0fznZvaol1u-91zwuomJ28QrTUToN_qt3HnOWZJPwcU-gdozAjWhRFPH8uqr5KA2Dz0VfingUTB9EN9jAB26vgj9Mk4tgkWZFmH0q2Pk9dtms35QkZ8F4nhbpRTB7CYtJ9KlgMgmTcd-h1dkoXG_RhBDZCKPRG27drTsDWJiu0j0i_LryKM4pHrrFI9cCaI1exU7anaEvWDSY83bl_X1Dir5eWERu0HwPpDGAlrIhW35L7-XsobYCtwrxvcKb1OZC-h0IsNo8MBJLeC1BGEZb9FttWNVUaMkqq42oVKjGbWWz942mljTfE7DlUqBfsCh518tNzehwuLZSwnBtryLZ9kM52rKt4aeVdzzekLLvk2BPeKPZDn7ujseVZS9Q90dEaDj80Sr0YdyFSR-G99msC-M-HLnw28pbGFmvvG-2_CExaYw8bfOUjfps2qmMbo6cczpftTs4ur0vd5n400xyeRfdwen34dH58tyh2Rn1fK8CVWFWevnBO3047MelBIobbryj72E746IVxMtPL1ivqUvLnDFsz33Vgcd_AbT2G-M=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 PM-150-030_Receive_Invoice_from_Vendor — PM-150-030_Receive_Invoice_from_Vendor
@@ -366,10 +331,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO2jAU_BUrK5RWCmquhOahEptLtVIrrZZt-7BUlUmOwVrHRra5FfHvdQiES7tPzQPiTObMzDlJvLNKUYGVWL3ejnKqE7Sz9RxqsBNkT7EC20Et8B1LiqcMlN1wiOB6TH8faF642DS0BitwTdm2QccwE4C-PThoZBqZgxTmqq9AUmI79kLSGsttKpiQDfsOhsQlB7fjrXshK5BnguvGXhmZVkY5nOEgDuOwaPoUlIJXV6IkIkNS2vsmHBPrco6lPsRfKviKNz9opeemJpgpMJy5rtkXPAXWzKjlssHKpVydlkFV48PNwsYLXFI-M3joGkhi_nqGIne_R_teb8I7U_ScTTgyV8mwUhkQpLSB85VGhDKW3IXpqIhcR2kpXiG58_M4C3ynbCZJzOiu0yy3vwY6m-tkKlh1pPbXzQyJv9g4cpP4riO35vfGC3h1dkoH_tAfdk73sZd66cmJEPJfTmav8hmr16NXHhR-kXVeXjSIUvdvvdOYWRiPvNs9gVzREi5Ei6II8vOq8kHkuW-L3hfBwE1vRGdYwxpvz4If07ATLKK48OI3BVu_25TL6aMU5UkwyKMi6gTje68Y-W8KhiMvHB4TGp2ZxIs5euArYcZGGdYY5VzLbUtoLu69vEwsghOC-6WYobF5vl2DFugJcKUE0RPr58-LLt80NSFBKURbtmFcEAJDGKFUgtkOwkbzCRiYIwDlDEoTntMSPeJtDVyjd3nx_CF7eP_rMxNTzK6FQiN0yvMEJdAVVB3DhG3_cA_1-59MrmMZtGV4LMO2vHwfmpaL9-Hqjt99UVdw8G847GDLsWqQNaaVleysw0lnTsMKCF4ybe0dCy-1GG95aSWHE8FaLiqzn4xi86DqFtz_AUugr48=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 PM-150-060_Process_Non-PO_Invoice — PM-150-060_Process_Non-PO_Invoice
@@ -437,10 +401,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm2P2jgQ_itWVivupKDmlbD5cCcI5LRSr0Vl21NV-sEkE7DWxJFtWDjKfz-bJARSotPp8gFlnpl5npmxsXM0EpaCERqPj0eSExmiY0-uYQO9EPWWWEDPRCXwBXOClxRET8dkLJdz8vc5zPaKvQ7TWIw3hB40OocVA_T52UQjlUhNJHAu-gI4yXpmr-Bkg_khYpRxHf0Aw8zKzmqVa8x4CrwJsKzATnyVSkkODewGXuDFOk9AwvL0hjTzs2GW9E66OMrekjXm8lz-VsCfeP8XSeVa2RmmAlTMWm7oe7wEqnuUfKuxZMt39TCI0Dq5Gti8wAnJVwr3LAVxnL82kG-dTuj0-LjIL6LoZbLIkXoSioWYQIaEVPB0J1FGKA0fvGgU-5YpJGevED4402DiOmaiOwlV65aph9t_A7Jay3DJaFqF9t90D6FT7E2-Dx3L5Af129KCPG2UooEzdIYXpXFgR3ZUK2VZ9r-U1Fz5CxavldbUjZ14ctGy_YEfWT_z1W1OvGBkt-cEfEcSuCKN49idNqOaDnzb6iYdx-7AilqkKyzhDR8awqfIuxDGfhDbQSdhqdeucruccZbUhO7Uj_0LYTC245HTSeiNbG9YVah4VhwXa_Sc75hqG02wxGiaS34oA_ST29--LYwMhxnuJ2ylYokkqiM0V_uPAhoVBWc7TNEMeE20ML5_v2JwbhnmaodcJJ_zjPENloTlSDL0CXAqWCZbDO4tw4wJiT6wvD_72CHpdRRdVysQyfVRscRojLCup0Xg_wuBzp9Ga0he0QtjtJU9-OWSXVC19JcBg8REiX8uKMMppCrt16u0oCMt4qC029HD_xT91BH9CRIgO0h1Q1-IkLBvJdpWO3MUIcbRePbxnX69R3SebJvHbniEZAUqpzfdJ1Do5RfteKcVXwup_SPRGKtctWHUbYHGW6FOaaHGqlapzeIqkvN-aTbKtds7Hpt1TqG_VKdrsq6WGdLfF8bpdB3v34-HfUJVFTv4o_yzN2lqs5cv-QD1-78pisq0K9Or7KfSdmu3p-0fC-MrqMn80NKVx6sSa9v2S8Cp7KDlH5Z2bfrtdKsE6jrcyv9TIR9YWUet41SB14eobuvqEL3xOJ0et9PjdXr8Ts_gct3dwMF9eHgffroPq2Hdx-3q3rtFnbuo28Hh1VfFLezXsGEaG1CHJUmN8Gicv5PUt1QKGd5SaZxMA28lmx_yxAjP3xPGtkhV5oRgdcxvSvD0D3Po-iw=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 PM-150-080_Match_Receipt_of_Goods_and_Services_to_Invoice_(2-way_match) — PM-150-080_Match_Receipt_of_Goods_and_Services_to_Invoice_(2-way_match)
@@ -499,10 +462,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluPozYY_SsWo1G2EkhcQ8LDVpkkVCu11Wgy3apq-uDAR-Idgqltcmk2_712wCSwGa2q8hDlO5xzvoux4WQkNAUjMh4fT6QgIkKngdjAFgYRGqwwh4GJauAzZgSvcuADxcloIRbknwvN8cuDoiksxluSHxW6gDUF9NsnE02kMDcRxwW3ODCSDcxBycgWs-OU5pQp9gOMMju7ZGtuPVGWArsSbDt0kkBKc1LAFfZCP_RjpeOQ0CLtmGZBNsqSwVkVl9N9ssFMXMqvOPyCD7-TVGxknOGcg-RsxDb_Ga8gVz0KViksqdhOD4NwlaeQA1uUOCHFWuK-LSGGi7crFNjnMzo_Pi6LNil6nS0LJK8kx5zPIENcSHi-EygjeR49-NNJHNgmF4y-QfTgzsOZ55qJ6iSSrdumGq61B7LeiGhF87ShWnvVQ-SWB5MdItc22VH-9nJBkV4zTYfuyB21mZ5CZ-pMdaYsy_5XJjlX9or5W5Nr7sVuPGtzOcEwmNrf-uk2Z344cfpzArYjCdyYxnHsza-jmg8Dx37f9Cn2hva0Z7rGAvb4eDUcT_3WMA7C2AnfNazz9ausVs-MJtrQmwdx0BqGT048cd819CeOP2oqlD5rhssN-lTsqGwbvQCneSUILdAr4G3NUlfh_Lk0Mhxl2FJDR5OyZHSHc6lIgOwgXRp_3bDdLlvbL6AQaIWTNyQoWlRlmRNgXaXXVb7AjsAerY5o8oxUz8A5ZUo-AwFsKzen5FiCkfVa0qlSfIFEdE39D60rF7T8bj0_3GiDnvaZcqENetShZDbzaFNkjG7RZ7klaK_R8HTSvupMtFZyVyeb62B1f1itxo9L43y-EY_ui1_g7wpkeRm9WSGr-QvpdTyQ9h3H9x3hkOQVlw39VD_DPZVjv1dIuyQv8aSfy3H-azI5v_pPMUSW9VFZNHGo4q9L4w_gS-OrnEyDjxpc9365qUVubeI3oVOH457lr_Qi0rDXZLa1ym54-omTXFffayzDJh7XYdArTi_GRet966uHWBd_e1apovXp14Hd-7B3H_abw7oDBvfAYfsK6cChPtw66OguOr6Lynbvwo6GDdPYyp2ASWpEJ-PycSA_IFLIcJUL42wauBJ0cSwSI7q8RI2qTKVyRrA827Y1eP4XhkCxYQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 PM-150-090_Receive_Procurement_Card_Invoice — PM-150-090_Receive_Procurement_Card_Invoice
@@ -608,10 +570,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU2P2kgQ_Sstj0ZkJaP4E4MPKzEGZ0fKrEYhyR7CHhq7DK1p2qS7PQNB_PetxsZgljmFg0W9qvfqw93lvZWVOVixdX-_Z4LpmOx7egVr6MWkt6AKejapge9UMrrgoHompiiFnrFfxzA32GxNmMFSumZ8Z9AZLEsg3x5tMkYit4miQvUVSFb07N5GsjWVu6TkpTTRdzAsnOKYrXE9lDIHeQ5wnMjNQqRyJuAM-1EQBanhKchKkXdEi7AYFlnvYIrj5Vu2olIfy68UPNHtPyzXK7QLyhVgzEqv-We6AG561LIyWFbJ19MwmDJ5BA5stqEZE0vEAwchScXLGQqdw4Ec7u_nok1Kvk7mguAv41SpCRREaYSnr5oUjPP4LkjGaejYSsvyBeI7bxpNfM_OTCcxtu7YZrj9N2DLlY4XJc-b0P6b6SH2NltbbmPPseUOn1e5QOTnTMnAG3rDNtND5CZucspUFMVvZcK5yq9UvTS5pn7qpZM2lxsOwsT5v96pzUkQjd3rOYF8ZRlciKZp6k_Po5oOQtd5X_Qh9QdOciW6pBre6O4sOEqCVjANo9SN3hWs811XWS2eZZmdBP1pmIatYPTgpmPvXcFg7AbDpkLUWUq6WRGjVkm8dkKT8RKftd_8hPtjbhU0LmjfjJs85uhmxY58gZ8VqzmKjDmePTyPHaWEypx8U3QJ88pznMXc-vdC1-vqPlcSz67CO6xu6XS5fpc7rvSqlLgfSPKc1Gn_wqMEsssKfrS0rFySJyqwNPLcPxJO-RVyLknhh5a04fgSHzWsyd8AOeREl2QBLdPU-McFc4DEtqsnPANmMSlCRU5m9TFT3foiQ6C7Y88zjYT6n3kdnbghxk2F2Y6kCe_6R-j_9PljUiqcHXpxQrMN3kp8TZmuKMdBXc3Tdfb782hy6C9wx2QrAtuMV4q9wqf6CM-tw6GmoVz9R4Sk3_8TJRrTrU2_Mb3G65zcTg0EjR3UZtSYUW2OGnNUm8Mr8qCx_dr0Lq6HKeC0Fjqwdxv2b8PB5SboeMJ2l3bgwW04ug0Pb8Oj2zC23awQy7bWINeU5Va8t44fSvyY5lDQimvrYFu00uVsJzIrPn5QrGqTI3PCKN7zdQ0e_gO2SmJS" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.8 PM-150-130_Notify_Appropriate_Party — PM-150-130_Notify_Appropriate_Party
@@ -712,10 +673,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVWuPozYU_SsWo1FaiahAIGT40CpDoBppt11tpq2qTT845pJYY2xkmzyazX-vCZAHm1FVlQ9R7rnnnPsAzMEiIgMrsh4fD5RTHaHDQK-hgEGEBkusYGCjBvgdS4qXDNSg5uSC6zn9-0Rz_XJX02osxQVl-xqdw0oA-u3FRlMjZDZSmKuhAknzgT0oJS2w3MeCCVmzH2CSO_mpWpt6FjIDeSE4TuiSwEgZ5XCBR6Ef-mmtU0AEz25M8yCf5GRwrJtjYkvWWOpT-5WCj3j3B8302sQ5ZgoMZ60L9gEvgdUzalnVGKnkplsGVXUdbhY2LzGhfGVw3zGQxPztAgXO8YiOj48Lfi6KXmcLjsxFGFZqBjlS2sDJRqOcMhY9-PE0DRxbaSneIHrwknA28mxSTxKZ0R27Xu5wC3S11tFSsKylDrf1DJFX7my5izzHlnvz26sFPLtUisfexJucKz2HbuzGXaU8z_9XJbNX-YrVW1srGaVeOjvXcoNxEDvf-nVjzvxw6vb3BHJDCVyZpmk6Si6rSsaB67xv-pyOxk7cM11hDVu8vxg-xf7ZMA3C1A3fNWzq9buslp-kIJ3hKAnS4GwYPrvp1HvX0J-6_qTt0PisJC7X6BPeF8A1ql1BKSGbfH1x98vCejHvKjVT9IkL668rpndilpVJY4kL0CAVmoHGlCmUC9mpb1Ujo0p2QCpj_xHzCrPrKqVQmN0KfCP4DBsK238hBqd-NoJt4DIZ0gLFDLD5swYUC05A8t4g4y9GmeMox0MiVqjrbk7WkFUMsnt1r_WhkccS6oVhnqHPYOopQAkDYu4Kp-Rs8F2Svv6QzF6-v21gUneeGQLN9-jXUtOiKtArLcwb__4inw6HS9cZDJfmnCBr9Lov4aeFdTxe31PnPjeRUph7loqKZ99o3Psa2BFWKbqBn5vHvC_z_qvMnB_NHz5Bw-GPZrA2dJvQa0OvCUdtOGpCt0s_1fHXhdU8Uwvrq8m1Kb-lOp2x03L_BHUiBj2PaaVFgTUlp-y4zQatjdu3-UU05c6JtlW_jce9Vt12svDqPa9ZV6fRTSY8n-c38OQ-_NQdQDeoafYu7N6HvQ62bKsAWWCaWdHBOn2rzfc8gxxXTFtH28JmV_M9J1Z0-qZZVZkZ5Yxic9QUDXj8B8r-iS0=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.10 PM-150-170_Identify_Optimum_Timing_for_Payment — PM-150-170_Identify_Optimum_Timing_for_Payment
@@ -820,10 +780,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduO2jAQ_RUrqxWtFKRcCc1DpRBIValIq6WXh9IH40zA3cSObGeBIv69NgnXlr40D1HmeM45MyPb2VmE52DF1uPjjjKqYrTrqRVU0ItRb4El9GzUAl-xoHhRguyZnIIzNaO_DmluUG9MmsEyXNFya9AZLDmgLx9tlGhiaSOJmexLELTo2b1a0AqLbcpLLkz2AwwLpzi4dUsjLnIQ5wTHiVwSampJGZxhPwqiIDM8CYSz_Eq0CIthQXp7U1zJ12SFhTqU30iY4s03mquVjgtcStA5K1WVn_ACStOjEo3BSCNej8Og0vgwPbBZjQllS40HjoYEZi9nKHT2e7R_fJyzkyn6PJ4zpB9SYinHUCCpNDx5VaigZRk_BGmShY4tleAvED94k2jsezYxncS6dcc2w-2vgS5XKl7wMu9S-2vTQ-zVG1tsYs-xxVa_b7yA5WendOANveHJaRS5qZsenYqi-C8nPVfxGcuXzmviZ142Pnm54SBMnT_1jm2Ogyhxb-cE4pUSuBDNssyfnEc1GYSuc190lPkDJ70RXWIFa7w9C75Lg5NgFkaZG90VbP1uq2wWT4KTo6A_CbPwJBiN3Czx7goGiRsMuwq1zlLgeoWe8LYCppBRBSm5aNfNw9zv3-dWgeMC9wlfnlJn5qU4GunNiL5SjKajdG79-HHB9K6ZX-pcDwLNFFaNRJShKWZ4Ca3CVNvqQKKkrm9k_GuZZyBAXwEl5IXxdQn5Eg4FZbQEVAhe_auk4M1JSypen7tpi3o2h5pooVzz3l7wQk0bHZZFjlIuBBBFOZOojzIuWsdn-NmhmnzBHWhu8ndu8jS9zo12u3OvOfQX-qyTFYINKRupu_7QbqW5td-3LH3Y2g_mon7_vZ5WF_pt6HWh14ZBF4ZtGHXh4DqM2vDycBj9i8NxteLdXfHvrgTdNXEFhqd76goe_B2OjgfLsq0KRIVpbsU76_D70L-YHArclMra2xZuFJ9tGbHiwzVrNYedOKZY7_6qBfe_ARcQGl8=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.12 PM-150_Enable_Payment — PM-150_Enable_Payment
@@ -916,10 +875,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -932,10 +890,9 @@ flowchart TD
 | Procurement Agent | PM-150-090_Receive_Procurement_Card_Invoice, PM-150-100_Process_Procurement_Card_Invoice,  | |
 | Payment Processor | PM-150-130_Notify_Appropriate_Party, PM-150-160_Propose_Vendor_Payment, PM-150-200_Update_Financial_Records,  | |
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -947,10 +904,9 @@ The following data entities are derived from the system integration flows for PM
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -990,10 +946,9 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1036,10 +991,9 @@ The Future-State architecture represents the **target** landscape for PM-150.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1096,10 +1050,9 @@ The Future-State architecture represents the **target** landscape for PM-150.
 
 **Summary**: 26 Interfaces, 21 Enhancements
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1111,10 +1064,9 @@ Integration patterns identified from the system flow analysis for PM-150:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1138,10 +1090,9 @@ Platform landscape inferred from integrated systems for PM-150:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1181,10 +1132,9 @@ Platform landscape inferred from integrated systems for PM-150:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1213,12 +1163,12 @@ Platform landscape inferred from integrated systems for PM-150:
 | PTPI0691_IF | Custom program to send the supplier master data from S4 system to Illumis. | Dec-24 (100%) | May-25 (100%) | May-25 (100%) | Sep-25 (100%) |  |
 | PTPI0685 | Custom program to send the Transactions (Invoices) from IF system to Illumis | Aug-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Jan-26 (100%) | 4. Completed |
 | PTPI0470 | Payment Proposal after invoice posted from SAP S/4 HANA CFIN to Ariba | Nov-25 (100%) | Dec-25 (100%) | Dec-25 (100%) | Nov-25 (100%) | 1. On Track |
+
 *... and 27 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1247,5 +1197,5 @@ Standard RAID items for PM-150 (Procure To Pay):
 
 ---
 *PM-150 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: March 2026*
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>
-</div>

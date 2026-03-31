@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **E2E-94 R3 Intel Foundry Maintenance process through spare parts (SWAP)** within the IAO program. It includes 15 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | End-to-End Integrated Processes (E2E) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 2 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 2 Pending IAPM |
 | **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 1 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Process Visibility & Monitoring | Provide end-to-end process visibility across tower boundaries with integrated monitoring | Operational Excellence | Medium |
 | 4 | E2E-94 Process Migration | Migrate R3 Intel Foundry Maintenance process through spare parts (SWAP) business processes and 2 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Cross-Functional / End-to-End | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -222,12 +189,12 @@ This capability includes **15 business process(es)** modeled in BPMN 2.0, coveri
 | 14 | E2E-94V_R3_De_Contamination | E2E-94V_R3_De_Contamination | EWM  Decentralized, External Partners / B2B, Factory UI Portal, SAP S/4 Intel Foundry
  | 20 | 5 |
 | 15 | E2E-94W_R3_TM_steps | E2E-94W_R3_TM_steps | External Partner Supplier B2B, SAP S/4 
+
 Intel Product/ Intel Foundry | 9 | 1 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -297,10 +264,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtVltv4jgU_itWRhUdKXRyJZCHlSiQqtKwg6C7fZjOg0kcsGpsZDtQFvHf95iEW6Z52s0D4juX75zz5cTJ3kpFRqzYurvbU051jPYtvSQr0opRa44VadmoNPyNJcVzRlTLxOSC6xn95xjmBusPE2ZsCV5RtjPWGVkIgv56tlEfEpmNFOaqrYikecturSVdYbkbCCakif5CurmTH6tVrkchMyIvAY4TuWkIqYxycjH7URAFiclTJBU8uyHNw7ybp62DaY6JbbrEUh_bLxQZ449Xmukl4BwzRSBmqVfsO54TZmbUsjC2tJCbkxhUmTocBJutcUr5AuyBAyaJ-fvFFDqHAzrc3b3xc1H0ffrGEVwpw0oNSY6UBvNoo1FOGYu_BIN-Ejq20lK8k_iLN4qGvmenZpIYRndsI257S-hiqeO5YFkV2t6aGWJv_WHLj9hzbLmD31otwrNLpUHH63rdc6XHyB24g1OlPM__UyXQVb5g9V7VGvmJlwzPtdywEw6c3_lOYw6DqO_WdSJyQ1NyRZokiT-6SDXqhK7TTPqY-B1nUCNdYE22eHch7A2CM2ESRokbNRKW9epdFvOJFOmJ0B-FSXgmjB7dpO81EgZ9N-hWHQLPQuL1Eo1ex-h-SFLCtcQMHrTsaxlhLt75-fPNynGc43YqFmhIgZvOC03Qj0LPRcEzNCSMbojcoR_mMXqzfv26yo9u8weSgCAIQ9pA8JzKFZrQ9B22-Wib4PL_PTT1tcbUvWUaiw2BeKkV0gL-KIVellIUi2Utr3ebNyEyF1D2SYhMoWelCnJJgPWtqTPrT9DsW4CeuSYMJWZgmPSK3gX28XSCpgUHniuHV5t8SVLYKyERPL6yar3Wqv-pWFNiNhNrKjh6nb4cxx1_KnZQG1UoXc1p1FrBHa4lhJ9r89utraW5DqSNvFG7F_TR1EdjTEEejnkKc8FyErgZ94_Q_XsmtvzbhGHOzVrd6OMa5WawdnDaCwREJrOQxzaRyNHr8_OfTzOYfs1wWlqnhIEgZnVWK5FRTYmqcXrnxgZlY5qYVwLqbzBleE4Z1bvjpp09J2XQ6GNNgPMywZbq5cPDQ62C_3-MHuz3J92xlGKr2phpBHuBGSPsqTwz3qzDobaWPEDt9h9w3yrYKWFUwaiE3Qp2S9irYFjCTgVdv8RehXsldKsDh1duNzjFV7Xr2D3hCp6wV2K_Hu5dHWgm6urYvfH4jZ6g0RM2ejqNnqjR02309Bo9rnN-397a3Qa712D3G-zB6ZVi2daKyBWmmRXvreOHE3xcZSTHBdPWwbZwocVsx1MrPn5gWMU6g8whxXCyrUrj4V83ggKZ" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 E2E-94C_R3_Material_Availability_&amp;_Material_Movement_Expedite_Process_with_MMID — E2E-94C_R3_Material_Availability_&amp;_Material_Movement_Expedite_Process_with_MMID
@@ -415,10 +381,9 @@ on the work order
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWNtu2zgQ_RXCReAEsBtdLccPu3B8yQZoGiNOt91t9oGWKJsITQokFceb-t93qIsvqtTtYv1gmIfDMzNHnCHlt1YoItIatM7O3iineoDe2npF1qQ9QO0FVqTdQTnwO5YULxhRbWMTC67n9O_MzPaSV2NmsCleU7Y16JwsBUGfbjtoCAtZBynMVVcRSeN2p51IusZyOxJMSGP9jvRjK868FVPXQkZEHgwsK7BDH5YyyskBdgMv8KZmnSKh4NEJaezH_Ths70xwTGzCFZY6Cz9V5A6_fqaRXsE4xkwRsFnpNfuAF4SZHLVMDRam8qUUgyrjh4Ng8wSHlC8B9yyAJObPB8i3dju0Ozt74nun6HH8xBF8QoaVGpMYKQ3w5EWjmDI2eOeNhlPf6igtxTMZvHMmwdh1OqHJZACpWx0jbndD6HKlBwvBosK0uzE5DJzktSNfB47VkVv4rvgiPDp4GvWcvtPfe7oO7JE9Kj3Fcfy_PIGu8hGr58LXxJ060_Hel-33_JH1PV-Z5tgLhnZVJyJfaEiOSKfTqTs5SDXp-bbVTHo9dXvWqEK6xJps8PZAeDXy9oRTP5jaQSNh7q8aZbqYSRGWhO7En_p7wuDang6dRkJvaHv9IkLgWUqcrNDk8x3KIfPhtvf161MrxoMYd0OxRCNJIAV0n-qFSHmExoTRFyK36N4UDTqfSSok1duLp9Zffx3z-LU8GChGgsdUrtGMhs-wjzNshvPf5xDOxVPqWNaiStg7JbwTLwSWSa2QFvBDKfS4kiJdrqoLg9OFMyJjAe5vhIgUulUqJdUV_drYb3lFgg3VK1QKUOW4qvc6u3kw8d5hyjXhmIekVPLu9ub-ch5izkGIqpxO7-2tpMNSio3qYqYR5SFLFURzk--zp9Zud7wq-I-roH4r22M-nKH5pQfJa8LQ1AgAmR8nuk_TlKR5uKCNRrMszclrQiKqSQSEScIoGMzuc92Sg27HEVfYViR8RpFYE6Vp2EEfsaaCY4bgoOBZTJKXUMIw1-qUzj2l-5RE5kFCQGsUwq-lgFzM9sui25oNmLGAQujPyZcZZHHK59XykdcsDnZI8gWEFBLxdL2AURNbfYl8vzV-tM8qVTFNGXQGFEuxRh9ECDFtsCQrAeHmNJKYPpdphs6ThuINagM7PMz5_mE-IFOstpvllzngAimRSgh-qBRdcjD_Ufz1pfZwFCWUTV25NDWeproTShclbzrHmnBdrVjrJztfdfuekNgVkqIc5o9ZPWQ7NhTrBPPtpRlJXIzA4v7HzM5Phmf0-lcyt0ElaMmdrBnnXfnmttqHrPP9QiiVbc2TyQIzD-4WbnkUYoyA4-KYw7SMiTPpXnnX6MEFChAFLm5o-IIpwwvKvm8Lzn7JMF9y8GqOQwLd__waHD9HYsMvZ1DEsPEu8u6O8BLM4fEfrXr__n3Fg3toleai2l3AVStcZSdMGRgjppTzsrq8-XKPZlmz-Pzbr9W-69WT7evGnX1Ac1Ml2ZkHFzooS8Qy4ogkQl9ArDyF0RGGQtMMq5782g4PhJgxwhqOhaOii-HeRWRXJNBPx0RDnlCwpKh02D4CrqVZtcA9kiQKQaTQOpmxilMJbVgixWhE1GGj7A8R7qNu9xcTZDF2XAN8e2r9Yey_QfcqJnq54VUxvMqHdnH5gUtJAZREdsFslwR2wWAHJdAvgJLTtgrfhzaWnQNUwWkWEdiCa2qalXkViQCCDQzZoY2Qzyh7QQCeQzV9M0dywRwUWXqlp2LcL7MuDOw9kI_d0r5YYDslUBjYpYVTClkFSka7UGwfk1PqUQblWDlQKljI4xS3YF4qXAzdYmhXn9xHkSVfyuyUPHvd3QrgeJVn7lUnCsp99kGB38GbhN4mBA16np2bOEe3YSN0-RZwAjv1sFsPe_Wwf_w-cDLTa5wJGmf6jTNXjTOwYRun7OYpp3nKbZ7ymqealbCbpbCbtbCbxbCb1YD9W77InuJ2A-404G75TnYKe_WwXw_36uGgHu6Xb22tTmsNfQbTqDV4a2V_dsAfIhGJccp0a9dp4VSL-ZaHrUH2p0ArzS6YY4rhMr7Owd0_pLx5kQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 E2E-94D_R3_Procurement_of_Spare-_Epart_-_with_MMID — E2E-94D_R3_Procurement_of_Spare-_Epart_-_with_MMID
@@ -555,10 +520,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1v2zYQ_iuEiyItYKeiXvz2YYPt2EmAZDXirMHQ7AMtUTYRWtQoyU6W5r_vKFGyTUvr2vlDED68e4733PFk-bXli4C2hq33719ZxNIhej1L13RDz4bobEkSetZGBfCFSEaWnCZnyiYUUbpgf-dm2I2flZnCZmTD-ItCF3QlKPr9uo1G4MjbKCFR0kmoZOFZ-yyWbEPky0RwIZX1O9oPrTCPprfGQgZU7g0sq4d9D1w5i-gednpuz50pv4T6IgqOSEMv7If-2Zs6HBc7f01kmh8_S-gteX5gQbqGdUh4QsFmnW74DVlSrnJMZaYwP5PbUgyWqDgRCLaIic-iFeCuBZAk0dMe8qy3N_T2_v1jVAVFN3ePEYKPz0mSXNAQJSnA022KQsb58J07Gc08q52kUjzR4Tt72rtw7LavMhlC6lZbidvZUbZap8Ol4IE27exUDkM7fm7L56FtteUL_DVi0SjYR5p07b7dryKNe3iCJ2WkMAz_VyTQVd6T5EnHmjoze3ZRxcJe15tYp3xlmhdub4RNnajcMp8ekM5mM2e6l2ra9bDVTDqeOV1rYpCuSEp35GVPOJi4FeHM681wr5GwiGeeMlvOpfBLQmfqzbyKsDfGs5HdSOiOsNvXJwSelSTxGo1FlvcyGsVxUuypT4S_fn1shWQYko4vVuizXJEIriG6hxZMYiHTznWUUo7uRJZCN6LLjAUUfbi-u_z4mNmWtXxs_fnnAZ99zDenMhRyg74QzgKSMhF9mj77NFb_oSsSBVyRqrkQIEDuMpgHaEHTLK5ntz5U9DEHwf-d9xoGEIPSBEDz8ZBmACxTe9oZuBN056BbsFEzBY22hHGyZJylLwhY9ju3YgszK0rR9DmmAUspUvWhSYJ2LF2fn59DiCICXA5D--kzkERAMocrGlGZoMMCeMeK3VGfsi3QZxJuekKhJDC2EEnRIotjzuD_KUSoUwd3j6lG_lMkdpwGq-Lon-7oltEdKpyNCPWMvfpyToiU6iQLyqmfa75lBNV1yliIBAqAYIaCsELmtUJzaCzCzWD9-mCXQgQJmjP_CXiyGH3Q0T-WiRQKJWsWqzTrExkccy-gSntBr6OtgJlgNltv32xJKuITe8WSGq3ldF9fSyc4ptglHcJTxCKfZwnU9bKYFI-tt7emdilknKkLC_e1gx6uDvvFOU5kIikwQp8y8IpI5JcNo9oSepQJCb1sZObWcpSdHajOOIdG_OvcYKlT1mjfiYi2FJ5P8zuUioPLctzN36c1WvlestUKHC_vF2iypv6TYW706YRwP-MqqXvyTBPDuKnPFLfYQIlzGfMwaDG_aaPp7digGNQqeB0tVdXQBeVQaihenueVgKcYGjGJHsgLzBaOomyzhGSuRg_j-m61jOxv0RQ8goA2XHxjihc3Jp8kcapGR0j8VMB5boSfX0DT35ja-vyaB-o40_731F9HzAeB6s9hNOcc7v73bhl2_1M1oA75QD4thY2NZ8LpXcjLo-ZO4wPB_t5Vn-djzHRzDLeqPcs0Tl3cH3fxTJe8LLpIp-Zdwzy_AvsrcWLfrx6GD-phCM0GqcZJ9UArxo61n2vqG35nCV8Q_HWlz8hXT1-YHb_uR1vhiGsHYkwk4Zzyk3lYONk_4-T8jJP7g_O68PJ-dspHDup0flEMeu3qtavXnl7j0h4XQNdY9_S6Wyz75bbmK-mx5sOlP-5poFzrZUkw0PHtktDWBlYJ6AywbQBOGUJ7OJWHPiMelIClgG-Prd_EY-vbgWe18Yca2t_URCmPqYPYZVTc16bTsY0-Te3PMa2GEjiWofrazTmSD9yckXvqhT1DZVzKjLWudlknrC2c6oQ6bbvksEuLklOXomSwB0Yr6MrYVam6Rm9UtagoLO1SemhKuzp2adA3KQ7fi1QXHLwXHe3YjTtO447buOM17nQbd3qNO_3GnUHjDijSuNWsAm6WATfrgJuFwM1K4GYpcLMWuFkM3KwGNFD5w8ExjhtwW7_8H6NOLerWol4t2q1Fe7Vov-Fsg3ochop-Pz-GcT1s18NOPezWw1493C3hVru1oXJDWNAavrby38PgN7OAhiTjaeut3SJZKhYvkd8a5r8btbIYXnPpBSPwjrApwLd_AMxUCZM=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 E2E-94E_R3_Procurement_of_Spare-_Epart_–_for_Non_MMID — E2E-94E_R3_Procurement_of_Spare-_Epart_–_for_Non_MMID
@@ -691,10 +655,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1z2jgQ_isaOpkkM9BafsHAh7sBAklmmpaBXDM3zX0QtgyaCMkn23m5NP_9VrYMsWO31x4fGLTafXb30e7K5rkTyJB2Rp2jo2cmWDpCz8fplu7o8Qgdr0lCj7uoEHwhipE1p8mx1omkSFfsn1wNu_GjVtOyOdkx_qSlK7qRFP1x2UVjMORdlBCR9BKqWHTcPY4V2xH1NJVcKq39jg4iK8q9ma2JVCFVBwXL8nHggSlngh7Eju_67lzbJTSQIqyARl40iILjFx0clw_Blqg0Dz9L6BV5vGFhuoV1RHhCQWeb7vhHsqZc55iqTMuCTN2XZLBE-xFA2ComARMbkLsWiBQRdweRZ728oJejo1uxd4o-Lm8Fgk_ASZKc0QglKYhn9ymKGOejd-50PPesbpIqeUdH7-yZf-bY3UBnMoLUra4mt_dA2WabjtaSh0a196BzGNnxY1c9jmyrq57gu-aLivDgadq3B_Zg72ni4ymelp6iKPpfnoBXdU2SO-Nr5szt-dneF_b63tR6i1emeeb6Y1zniap7FtBXoPP53JkdqJr1PWy1g07mTt-a1kA3JKUP5OkAOJy6e8C558-x3wpY-KtHma0XSgYloDPz5t4e0J_g-dhuBXTH2B2YCAFno0i8RROZ5bWMxnGcFHv6I9yvX287ERlFpBfIDfqsNkRAG6JrKMEklirtXYqUcrSUWQrViM4zFlJ0crk8P73NbMta33b--usVnlfFW1AVSbVDXwhnIUmZFB9mjwGN9S90QUTINaieCyECyTKDeYBWNM3iRnTbPtnDxxwI_z7uJQwgBkcTAsxpAQOlW2Nm9phSJQhHC2ggQVWCXjnEfjWfJQ0ou6dokSnow4QCYTBUEEnRKotjzuD3DDw0xY4HVahxcCfkA6fhBoahSNGHJb1n9AEVxjUPzYjDZrKnRCkdyYpyGuSM3DOCms5xImUC9CCYcJyspcqZRAs4dsLr1FtVZ-dShglasOAO7LMYnRivp2UCBTPJlsU6vebjxFXMFZzOgchLcS-hU2s2jnUogSSV8Rt9jZJ-78ALIua6IaAfeujmonLigH59hWa7NQ1DejjK12GDSpF-Xg5xis4oh6pQKJXomgZbwQJGBDrB1vAUiJEiyXZFaWYxfJ0vT6uADgAu4CTQFRSrvtzQlbwvqqKHsOVXtftV0qaKghWYMshLEBGUJVPlzW-0-gThXF1dnuUteKi5Jf07YwnLQz4ZB8F7NE4SthH52WIHzZubf_AzPor6-An0WrVfK7bZAML59QpNtzS4q3dHrWCnhAcZ1wFdk0ea1LVxcy_l6HIHFZYzmztCq8XHLppdTeoYdjPGpVjrYiur5Ak9sHSLLiRcbmjMFLohT2uY80hkUHQKXYxvJs397rTEWKnFqS4kXU26zckGyiIvLCbef2-U1O6BVwU9J0EqIehDYTcj1Ce_DuMHvYz7_4l0oBvBSG9g3HZq98GbLmi6AwpT90dzZJHPxrqZVzPbl18Z_VuT_s-b-HWT_IjNqbxVHzSqm4pIWjIZ1ozytji0SV3f0ZNxZs96Q_cGLR0EQxJQ46Q2yuzn58ORhrS3hgeJYLsnFdodbmm4Mn6_7by8vDZ0DoZwk8iHpEd4imKiCOeUnxdPWHUj91eMvF8x6jcaMRHwLIFDeWO1v3dEH_V6v8EANku_WDp9sx6YtWPWjlMIhrU1Ns-IYmjWuFQwDgZmjQc1D9i4xHsNA-GatVssy6dvGGQGoVTwzNouXeYK3247f-pB-k13f2lqVO3S1LaM6mxiow8z-3NM9wNEG5aQGBtDr5I3GDpjt8HOr9Oz58tkg_fpG37svaDMt8TABsMuCbKNoF_P95PMvdsl99gylqV321BXZmGbtByrFl553CXV-7QNgditC0qLEnF__iaEigOI9TLSD_ucBfotuyDt1VuGPvVX70KVHa91p9-647fuDFp3hq07wGvrFm7fstu3nPatdiJwOxO4nQrczgVuJwO3s2G3s2G3swGlWP4pUJU7LXLXvNhXpV6jtN8o9Rulg0bpsEnqWI1S3BwxtKV5866KnWax2yz2msX9UtzpdnZU7QgLO6PnTv7fFfy_FdKIZDztvHQ7JEvl6kkEnVH-H08ni-GVlJ4xAu8bu0L48i9t7OYN" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 E2E-94F_R3_Return_to_EWM_Process — E2E-94F_R3_Return_to_EWM_Process
@@ -781,10 +744,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4jgU_itWqoqOBGqcCwEedkWBdCtNd6syM9VqmAeTOMWqsZHjlDIM_32Pc-ESwsNqeECc23fO-c7B9taKZEytgXV9vWWC6QHatvSCLmlrgFpzktJWGxWKb0QxMuc0bRmfRAo9ZT9zN-ytPoyb0YVkyfjGaKf0VVL09aGNhhDI2yglIu2kVLGk1W6tFFsStRlJLpXxvqK9xE7ybKXpTqqYqoODbQc48iGUM0EPajfwAi80cSmNpIhPQBM_6SVRa2eK43IdLYjSeflZSh_JxwuL9QLkhPCUgs9CL_lnMqfc9KhVZnRRpt4rMlhq8gggbLoiEROvoPdsUCki3g4q397t0O76eib2SdHn55lA8Ik4SdMxTVCqQT151yhhnA-uvNEw9O12qpV8o4MrZxKMXacdmU4G0LrdNuR21pS9LvRgLnlcunbWpoeBs_poq4-BY7fVBr5ruaiID5lGXafn9PaZ7gI8wqMqU5Ikv5UJeFVfSPpW5pq4oROO97mw3_VH9jle1ebYC4a4zhNV7yyiR6BhGLqTA1WTro_ty6B3odu1RzXQV6LpmmwOgP2RtwcM_SDEwUXAIl-9ymz-pGRUAboTP_T3gMEdDofORUBviL1eWSHgvCqyWqDJy2OhMR_hfJ9ZoeSwTWgagR2ZZDRNZ9aPIy8XvO6ljFP0TCPKVtqgoJuvQlHIzSJN40-nER5EjBQFNhARMRpJkTC1RE-Z7hDDzwtRdCFhqEgb_m8Ar4bgN-e84zJ6O0vX_e10_e8AkZBBQjqRfEVjZhqbZwD4IOYyA9Ax5eydqg3SMifR-nEcj-2bPUCq5eqUTlRwTGOI-nQchetRGtpDTzLV577O__A17E2cSafv_YWeXdM_nCR60zxe3N9uD83HtDMH52gBxJNUCmAzpn_OrN3ueG_s5pDjlUBSoXJch2g4MWoLOR0-oemtBzxryoEo4BpIPi4PenmiKpEw0YfHZyhrRZhqbiU4HWO1E-jx4f4f9AVqTEmkmRS16fUaw-qTr4_c_C2G6CE0G2EK66D8KjP4CKNZ5tjYzQ0JHOCcAf0sRWumF0wguPnQisNMaqPw9oO7h0Z1poRB_wa0SVVz7e5dh2bGj4QBgwLGQPdrd3MHnbzFci1unyCZOPvj4KB5ji8LChUqxDSKiEBzilTOOo3rm4B7zQhmnEoQfjv5KH7UNwgf4mA75TrtEK7RiijCOeX3xUFaD3Iag5iIeJbCjM6i9usmAtTp_AGTLsVeIfZLEXcLOShlpxCxXdnz8F8z618KG_fLtF1ZeqWlargwVzi4BKqAK9kt5X4p9-uJ_pY5kFNPc6DTWCuzUxXsVf790v98iY7jGtzyY6Xwsute1TlS9OifgxCzJEVwRYFbVFYV5pWF7hmyy-DjoyNHcE884EYoZb8Qu6VYTg47RzenGffR_X5i6V209C9asF0-dU61uFHrNGrd_cPsVO9d0PsX9N0L-qB6e5yqe83qfqMamG5U42a1U6mttrWkaklYbA22Vv6oh4d_TBOScW3t2hbJtJxuRGQN8sevla1iiBwzAlfAslDu_gOE8ccL" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 E2E-94I_R3_Maintenance_process_through_spare_parts_(SWAP)_–_Warranty_Process_(Non_MMID)​ — E2E-94I_R3_Maintenance_process_through_spare_parts_(SWAP)_–_Warranty_Process_(Non_MMID)​
@@ -843,10 +805,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1Vm1vo0YQ_isjosiJhHWAwTh8aOU3TpEuFyu-9lTV_bCGxV4FdumyxHZ9_u-d5cVvbXSqquODrWd25pkXZmbZG5GIqREYt7d7xpkKYN9Ra5rRTgCdJSlox4Ra8CuRjCxTWnS0TiK4mrO_KjXbzbdaTctCkrF0p6VzuhIUfnk0YYiGqQkF4UW3oJIlHbOTS5YRuRuLVEitfUMHiZVU3pqjkZAxlScFy_LtyEPTlHF6Evd813dDbVfQSPD4gjTxkkESdQ46uFRsojWRqgq_LOgT2X5lsVojTkhaUNRZqyz9RJY01TkqWWpZVMq3this0H44Fmyek4jxFcpdC0WS8NeTyLMOBzjc3i740Sl8ellwwCdKSVFMaAKFQvH0TUHC0jS4ccfD0LPMQknxSoMbZ-pPeo4Z6UwCTN0ydXG7G8pWaxUsRRo3qt2NziFw8q0pt4FjmXKHv1e-KI9PnsZ9Z-AMjp5Gvj22x62nJEn-lyesq_xCitfG17QXOuHk6Mv2-t7Y-idfm-bE9Yf2dZ2ofGMRPSMNw7A3PZVq2vds633SUdjrW-Mr0hVRdEN2J8KHsXskDD0_tP13CWt_11GWy5kUUUvYm3qhdyT0R3Y4dN4ldIe2O2giRJ6VJPkaQhIpIXcwE1KRFMeoPtcPt39fGGMhJY0Ue6PwYSQpeY3FhsOzHpmF8ce5sn2H6gkJEtLNU8z5zLIyhMnREh5xAzBFY6S4rzmwda4imw9nMP_goq6iKYSi5DHGeebRQX_DOMZZAC549-npcQJ3X-hWwROWXe-Ce2Ac48hywSlXcPeYwPTPkuWZRoID7hvYEIlTpXb3l-n0kHy-KxTNIMLoFS0gkZSCSEAP2orC7AU2TK2BRBHGpgDfEFtxGsPdVyFfodoqV6Tu90mf_zOpp99SxQaPo4nOGKt2qdKvXmSWlZxFWk8JmJd5nrLrl-j_iKwHPyLrh-9nbVuoM6MyETKDjy9AVoTxQkHF-W8d7Jw6uFAi1zYRNk9KLzq11u3t962uvti6S2yiaA3TbU5j3dk_L4zD4dzAPRlgx4lN0SWpwrijtCxwRj7Wm-JkdRwInCzodn_C_xbX0Gmg05z2GtyrsdtAt4ZeA70a9hvo13DQwEENHxr40FC3XHbF_W1h_DadL4xvaN4eNF7sZl_x_nuWn58rwzZY22oUnbNFV6Xc3luXcqe5Yy6lvXbRXordVmyYRkZlRlhsBHuj-srAL5GYJqRMlXEwDVIqMd_xyAiq29go8xgtJ4zgKspq4eFvdZe8pg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 E2E-94J_R3_Kit_Forecast_for_Assembly_&amp;_Component_Procurement — E2E-94J_R3_Kit_Forecast_for_Assembly_&amp;_Component_Procurement
@@ -898,10 +859,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2PozYU_SsWo1Faiah8hoSHSgmBdrU7ajTZ7jxs-uCASawxdmpMPjbKf-81EPKxmafygHQP1-fce8y1j0YqMmKExvPzkXKqQnTsqTUpSC9EvSUuSc9EDfANS4qXjJQ9nZMLrub0R51me5u9TtNYggvKDhqdk5Ug6O9PJhrDQmaiEvOyXxJJ857Z20haYHmIBBNSZz-RYW7ltVr7aSJkRuQlwbICO_VhKaOcXGA38AIv0etKkgqe3ZDmfj7M095JF8fELl1jqeryq5K84P0bzdQa4hyzkkDOWhXsC14SpntUstJYWsnt2Qxaah0Ohs03OKV8BbhnASQxf79AvnU6odPz84J3oujrdMERPCnDZTklOSoVwPFWoZwyFj550TjxLbNUUryT8MmJg6nrmKnuJITWLVOb298RulqrcClY1qb2d7qH0NnsTbkPHcuUB3jfaRGeXZSigTN0hp3SJLAjOzor5Xn-v5TAV_kVl--tVuwmTjLttGx_4EfWz3znNqdeMLbvfSJyS1NyRZokiRtfrIoHvm19TDpJ3IEV3ZGusCI7fLgQjiKvI0z8ILGDDwkbvfsqq-VMivRM6MZ-4neEwcROxs6HhN7Y9oZthcCzknizRvHbS4Poh3vfF0aOwxz3tcEokgQaQN_Gc_SXHpKF8c9V8hCSYyfuj7wX9Oqiz1ShVBQbwQlXJYKCSQFjnCHK0SeuiOSYobc_Ow74We5q0VkMJaLimTxcCdkgNCMyF7JAL68z9Frx20qc27K_CJwhGDs0Y5ijKVZY1zD_zUNbilG8TwlbVI5lLW9Z3FuWSXWAtxIoXZP0HcHZBCxb6E3IA1oSqIagVBsEw1hbJH62yP_ecaZidfZzVkkY1pKgV_JvRUuqqOAI-GoLo4uFXZHXlINfOsoNg19Lr0mglhSXqiYZt8aDncAMehkw_HrFEHT79vnBvm3g96okbBvmGQJaQrf1HoIRj3axZhwdj-easJRiV_YxU2iDJWaMsD-aIVgYp9PdzvMB6vd_h_1rQ6cJ29Hkoyb029BuwlEb-k0YtKHXhMPbtW4buk3oXY2TljsfIzew-xj2HsP-9clx82XQnb03cPAYHj6GR-czxDCNgsgC08wIj0Z9U8JtmpEcV0wZJ9PAlRLzA0-NsL5RjGqTwcopxTBcRQOe_gO_NWJI" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.8 E2E-94K_R3_Kit_components_procured_and_received_into_Internal_WH — E2E-94K_R3_Kit_components_procured_and_received_into_Internal_WH
@@ -1014,10 +974,9 @@ E2 Open"| n27
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21v4jgQ_itWVhWtBGocEgJ8uBPQ0O1de4tKb6vTdj-YxAGrxs45CS_X5b_fOCQBUlLdCx-qztszM4_Hk-TN8GVAjb5xcfHGBEv66K2RLOiSNvqoMSMxbTTRXvGVKEZmnMYN7RNKkUzZX5kbtqONdtO6MVkyvtXaKZ1Lin6_a6IBBPImiomIWzFVLGw0G5FiS6K2I8ml0t6faDc0wyxbbhpKFVB1cDBNF_sOhHIm6EHddm3XHuu4mPpSBCegoRN2Q7-x08VxufYXRCVZ-WlMH8jmmQXJAuSQ8JiCzyJZ8nsyo1z3mKhU6_xUrQoyWKzzCCBsGhGfiTnobRNUiojXg8oxdzu0u7h4EWVSdP_4IhD8fE7i-IaGKE5A7a0SFDLO-5_s0WDsmM04UfKV9j9ZnnvTtpq-7qQPrZtNTW5rTdl8kfRnkge5a2ute-hb0aapNn3LbKot_K3koiI4ZBp1rK7VLTMNXTzCoyJTGIb_KxPwqp5I_Jrn8tpja3xT5sJOxxmZ7_GKNm9sd4CrPFG1Yj49Ah2Px23vQJXXcbBZDzoctzvmqAI6Jwldk-0BsDeyS8Cx446xWwu4z1etMp1NlPQLwLbnjJ0S0B3i8cCqBbQH2O7mFQLOXJFogYYyzWYZDaIoRnuj_gnc-fbtxQhJPyQtX87RhKpQqiX6SjgLSMKkuPY2Po30f-gzEQFclznSNzlAoFEp3GAgNUmjl9QyzdmL8f37Mbx7Cv9FzYmAe46eYMbjSKqkdScSytGjTBONfJuygKLLu8fbqyogjF2lK-_54ShX7zTVDQOG2CxNKLoTM90_uqGcrSiwUNp0V4nMgCqFm-d5uZUyiNEj9SmLEsQE-pUlWeHTezgvkHU7ShCOnj__gwY2ufMEbq-gKr4eWsPjKvBpFVneFUWTVMEeiCnwCUsNkQRN0yjiDP73IMnZk7BOoQb-q5BrToM5LGORoOtHumJ0jfbBlQznEdvnKRoRpXQlU8qpnzG8YgSdO-bPMk5gjmDBcjKTKhs3NIGhILyay_7oOCbMfwWcNEKXefKrnJnpgkW6vSqcc57XksU7sZKwJj46u-lgkjc11sOltsf4p_AjRWFDHDh9pH-mLGa63Uph1seB-8M4DamcwohwP-U66olsaFxxrtD4pNh8Du3ePk3RaEH914q7U8O6dpdLoIoIn-4j0XRy30Tew7ACUd0vcOQf0JyFuGdJeHeJ1yxZwAjBMwINmELPZDuDdQlL6rlaQ_cUsCyfMF0-FI5gsSFveFsdk-5lGRgnMtpTeqA4AP-rY_9exb_ktaDuXYhlVkKq3GSMvQ_D_z6TBRGe5bV69jN6bKOnB3hpoJGekGOvdun1i_aC9QbzrahP4NwAFw3imC5nfJtRplmUQq8P_bhKFc3v2jGg_fZ2ID-grRlsfn9Rtjfw9dOFBj-_GLvdcZxziIM7Lddxi_AERUQRzim_3T9yq0Gd_xLkng2C2eBpDKP2LqrcBQKjVusnjZDLVi47uWzv5UK03NxeyM5etityu4DP8XERgLMEP16M9sBGl_sVN5IiZGqZLc8reLR7FvoSUVgsP44Kw508czUVLnO1c0UZkheLixCcd1M4FM10crmX-5tFCjsv9g-9hqCawtHKi-lV5G4uF5V0T2rdd33tWWV3OH-5E0UvBWDRbFFJN5cLf6vIUK30N7kHLg4MF8jV0i3r6I1Nz8HRe-WJxaq1tGstdq3FqbV0ai1uraVba-nVWrBZb6pnAdfTgOt5wPVE4HomcD0VuJ4L3M0_a061vXNayzyrxWe1Vvlpdqpv1-jt4mviVO2cV3fOq91CbTSNJYXlwAKj_2ZkH97wcR7QkKQ8MXZNg6SJnG6Fb_SzD1QjjeCtn94wAi85y71y9zfwS_C0" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.9 E2E-94M_R3_Kit_components_assembled_in_Internal_WH — E2E-94M_R3_Kit_components_assembled_in_Internal_WH
@@ -1094,10 +1053,9 @@ will be stored separately​"| n5
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVk2P4jgQ_StWRr3MSKBNQkKAw0p8pRfNzE4LeqcPyx5M4jQWxo5sB5pl-O9bJh-Q9LCX5YBUz1WvXpXLdk5WJGJiDa2HhxPlVA_RqaU3ZEdaQ9RaY0VabZQD37GkeM2IahmfRHC9pP9c3BwvfTNuBgvxjrKjQZfkVRD057yNRhDI2khhrjqKSJq02q1U0h2Wx4lgQhrvD6Sf2MklW7E0FjIm8upg24ET-RDKKCdXuBt4gReaOEUiweMaaeIn_SRqnY04Jg7RBkt9kZ8p8hW_vdBYb8BOMFMEfDZ6x77gNWGmRi0zg0WZ3JfNoMrk4dCwZYojyl8B92yAJObbK-Tb5zM6PzyseJUUfVmsOIJfxLBSU5IgpQGe7TVKKGPDD95kFPp2W2kptmT4wZ0F067bjkwlQyjdbpvmdg6Evm70cC1YXLh2DqaGoZu-teXb0LXb8gj_jVyEx9dMk57bd_tVpnHgTJxJmSlJkv-VCfoqn7HaFrlm3dANp1Uux-_5E_s9X1nm1AtGTrNPRO5pRG5IwzDszq6tmvV8x75POg67PXvSIH3Fmhzw8Uo4mHgVYegHoRPcJczzNVVm6ycpopKwO_NDvyIMxk44cu8SeiPH6xcKgedV4nSDZi9fUQ6ZH-_9tbImkoBs9G08RYmQ6PP8GU3ELhWccK1W1t837gG4PxEJbjv0RKMtzGXdoW8chNLAwFW2SzUVHInkP0kHRgOsMQIqvo-W6Js5oHUfx74KnfO1yHiMpoTRPZHHhqdzq_FxgTC4VvRPmcawQY0QD0ISPExwx8wZKvLck2JqnLmzzsCbo0UXfaYahUKSCEPZpoEjpchuzY5V5kvRyOxjJuHC47pO6NqnU5kfSykOqoOZRpRHLFNQ4WM-VCvrfM6j4Ng1dnXONWGgAtoC_bjRClIXJGU0KneYcrT81WsIuOnYoxCxQnOlMoJeFs8mpu7crVHO71B67ygXJCI01ShLYwiMTdS8ye1fuPeUHK7NL_cOBqmxD25j1zYk2qKP4-xI5Kebvo_2mDK8pozq5r536wxTEuX7c93PorbMte11I9j_WEWnDM78zzMWsubwBFJTN5B8umXpXVmUFuk1cyXmfUxQDeCTGcAlzAMcRASvKdrCMGqBJoxgbrBEit1lOiTHDL38jjowh6Rab5Q0-Okgplhixgi7P4fQDNTp_Gb2pAS8HOgVdq9YL5dzMyjMIDf7hdnPzZLLzc1BYQ4KKrvksnOgW9jdYr3KVSTzCrtQ5pR8pfQy3ikJSu1ukcApGZxCkVtJ6DeBUmRQA36Yiy5NYdR-gUv4D8E7hbniB7jg0ZrA8w0DEMPrZLoOh_pYzt4PUHrzOFxUlK9iHe_ewb07uF99M9TxXvG-19Hgjnf_Dj4oH8UaDD0tYKtt7YjcYRpbw5N1-SKEr8aYJDhj2jq3LZxpsTzyyBpevpys_AKZUgxX3y4Hz_8C0pg2Pw==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.10 E2E-94P_R3_Sending_the_kit_to_Cleaning_from_Internal_WH_-_Pre_Cleaning — E2E-94P_R3_Sending_the_kit_to_Cleaning_from_Internal_WH_-_Pre_Cleaning
@@ -1231,10 +1189,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWNtu2zgQ_RXCReEUsBFdfXvYhe3YadBk443TBkWzD7RE2URkUSClXDbNv-9QImWLllu064dEHM7MmTmcGVp-bQUsJK1R6_37V5rQbIRe29mGbEl7hNorLEi7g0rBF8wpXsVEtKVOxJJsSf8t1GwvfZZqUjbHWxq_SOmSrBlBny86aAyGcQcJnIiuIJxG7U475XSL-cuUxYxL7XdkEFlRgaa2JoyHhO8ULKtvBz6YxjQhO7Hb9_reXNoJErAkrDmN_GgQBe03GVzMnoIN5lkRfi7IFX6-o2G2gXWEY0FAZ5Nt40u8IrHMMeO5lAU5f9RkUCFxEiBsmeKAJmuQexaIOE4ediLfentDb-_f3ycVKLq8uU8QfIIYC3FGIiQyEM8eMxTROB6986bjuW91RMbZAxm9c2b9M9fpBDKTEaRudSS53SdC15tstGJxqFS7TzKHkZM-d_jzyLE6_AX-GlgkCXdI054zcAYV0qRvT-2pRoqi6H8hAa_8FosHhTVz5878rMKy_Z4_tQ796TTPvP7YNnki_JEGZM_pfD53ZzuqZj3fto47nczdnjU1nK5xRp7wy87hcOpVDud-f273jzos8cwo89WCs0A7dGf-3K8c9if2fOwcdeiNbW-gIgQ_a47TDZqwvKhlNE5TgcpN-Unsb_eta77GCTQfuoXCEynjWfciyUiMblieQQ2i85yGBJ1c3Jx_uM8dy1rdt_7Z9zH8Bl4iPIpwN2BrtCA8YnyLvuCYhjijLDmdPQcklU_oI07CWDqV0yBEILnJYQqgJcnytPK-795xTir3aQw0_9jvBYwdCgcSgpsPpRsoWIOP2d3VPgseAJxRYJSu8oyg6zxbScLQGYnpIwHaruXwqGftg43OdEGDBwQBoAWGh88pREdEXb23p37OWCjQhRA5qSv1QemKPRJoZwaOIs62aBLDIzCVMfQ54UQGGZTZHU3uOSM8wTFEw7OEcHE6cSb76Q4A5oYEBHJDi5zDSBGkTBHhDC3zNI0pPM-SsB7eEOzGwUPCnmISrsnpDXmk5MlwYdSGtYd1BbTI4b2P0haHOLa9R9YUcy6jWZKYBMVRP1KMmgp0wpgAZhAM7BivGC9KBC2gnnFsADgHpyGPEGzzFJ0oxA-oLEfFjNjQdEuSrKkDHKveAUs4lB2PF8kjg5ljlrW7K2s47vRAX3rJdkVcGnmGkaZUIEVyaFi4w9dXbQF5sSfRxXGGaBLEuQD983J23bfe3o7VU8n1XHYEtEIX3X2sTRAXIppyAn5A0-ibJ5pt0EcGcxyNKUd3-GUFIw0l-XYFiX4c300aB4rsx9srNAOtMCRmdfgHh1fknsqsIDhDu9Z4t0uoji3QjBNJ8OKy6NrZVXMY_V8BcmxjCkIx_rQGfOM4iwA3BHpf4R6cp9P7Wdksii4wzWQuM2fWHXp36MZFwC5opcaQcgaV1t9S6xPNIOUUw9HJ-4gIU39Y6d9KfRgIMG6ItCv6EmiSxVMMI5Mv19kVpvzS2F3B7RNsqjTGgRzt0JJ_7mqzNHSbDcsGkLAQK3yz3Jp23jG7EN3i9Rr-fbq4NY16je2TYo7jmMQH3VMa9X_N6LDlluMFWp56RuvtM79ruoPbyuAZNJfFdZIX91KIsKjdJMUpXRmlP6iKTH4HQwpqma-gf2Cm3pwurg0YqyqFS106AbQaS2CKCcAUZAuHEv64JuzmIyrjp0Jfhibf_u8c0uB3ByOYom73D8mSEjjl2lNLW-27vhJ45Vov_XLZ0-7U2qmtv9-33LF3OnPQdUqS-9Z3uLeVgnI_VMueisYy_Nm2jsdWAr1WSw1oOxpw4pyifUTb1SquSqkKWqN6pkBr2Erg6LQdSwm00-EuT3RS3rJQXRHl2-Lq_gChFJGo2fxdMq99KcptTYKjknIq-KGKuKJVCfRbBlwkSqOvNTQPf7ESbWhufJVf675LNL3TVz6qs9dJVrwogVuxr6rBqWBtDXtdT7La-DpbFjvaQoNqPbUcGEfhVgpuHcH2zQ2NYFdBeUZQw9qGnP2mpvbhDPZeZ4pu0O9xdflw_22stgWVcnTLPr7lVK_BdbmrXlnrUq9R6jdKe43S_hG8wRH5sFkOFdIst_WbZV3sNIvdZrHXLPabxb1mcb9ZPGgWD7W41WltCXQzDVuj11bxuw_8NhSSCOdx1nrrtHCeseVLErRGxe8jrfKKOqMYrsFtKXz7D_yCmso=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.11 E2E-94Q_R3_Kit_Repair_Process — E2E-94Q_R3_Kit_Repair_Process
@@ -1298,10 +1255,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P4jYU_StWRiN2paDmk0AeKkEgU9RdLYLpzkPpg0mcwcKxI9uBoYj_XpskQLLLvpQHpHt87znH1185GQlLkREaz88nTLEMwakntyhHvRD0NlCgngkq4DvkGG4IEj2dkzEqV_jfS5rtFR86TWMxzDE5anSF3hkCf81NMFaFxAQCUtEXiOOsZ_YKjnPIjxEjjOvsJzTMrOyiVg9NGE8RvyVYVmAnviolmKIb7AZe4MW6TqCE0bRFmvnZMEt6Z22OsEOyhVxe7JcCfYUfbziVWxVnkAikcrYyJ1_gBhE9R8lLjSUl3zfNwELrUNWwVQETTN8V7lkK4pDubpBvnc_g_Py8pldR8GW5pkD9EgKFmKIMCKng2V6CDBMSPnnROPYtU0jOdih8cmbB1HXMRM8kVFO3TN3c_gHh960MN4ykdWr_oOcQOsWHyT9CxzL5Uf13tBBNb0rRwBk6w6vSJLAjO2qUsiz7X0qqr_wVil2tNXNjJ55etWx_4EfWj3zNNKdeMLa7fUJ8jxN0RxrHsTu7tWo28G3rMekkdgdW1CF9hxId4PFGOIq8K2HsB7EdPCSs9Louy82Cs6QhdGd-7F8Jg4kdj52HhN7Y9oa1Q8XzzmGxBbO3r6CC9I_6f6-NiCNlG3ybTEHGOPhz_goilheMIirF2vjnLn2g0heIq7QcLHCyU_uynRDoBCakYqCizAuJGQUs-yXpUHtQYwQpF9_HK_BNH9B2zujmc043rKQpmCKC94gf24m2dW_xZQmgSr2yL0oJ1fp0ShxVksEwg329zUCt88CJrVs2c2b9kbcASxes1CFQbQDqLgM7LIFkICIIUo1lnOXKr0ScQgLe_gB9sODoOt4hHpxOjQ_IOTuIPiQSYJqQUqiZvlR7a22cz1WVEu4s7mq8AKvfvIskAbFuEz_eL7etvC9RQXDSrDimuqLtxLlr4QtjqQBzIUoE3pavuqad7LYo5w8ovR8olyhBuJCgLFJVmOqqeZfbtjsrs0XJDnyalEfEP9_2ExjvISZwgwmW3bV1P10pCqJO5s-Laua5eqiwdqNIPt-zeDcWIVnRmUKhNvx9zXVhlDzo93_XE2kApwL8Ovbr8Wa4Cgd1OKjCoA6DKnTqsKYa1uGwCkd1OKpCtw4bI1ajZFWA18S1lt2w27UXuzFj-x3Aq2Pv7s661DWXdRt3HuDu9clq4179vLRR_0H2oLl7DdPIEc8hTo3wZFy-MNRXSIoyWBJpnE0DlpKtjjQxwstLbFQbcIqhOkN5BZ7_A_Nbr8Y=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.12 E2E-94T_R3_Reverse_Kitting_in_Internal_WH — E2E-94T_R3_Reverse_Kitting_in_Internal_WH
@@ -1403,10 +1359,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1tv4jgY_StWRhUzEmhzJcDDShRIF8122y2dqVZlH0zigFWTIMeBsgz_fT8HJyFpWE27PLTy8Tnnu_iCOWh-HBBtoF1dHWhExQAdWmJF1qQ1QK0FTkirjU7Ad8wpXjCStCQnjCMxo_9kNMPevEqaxDy8pmwv0RlZxgR9m7bREISsjRIcJZ2EcBq22q0Np2vM96OYxVyyP5FeqIdZNDV1HfOA8JKg667hOyBlNCIlbLm2a3tSlxA_joKKaeiEvdBvHWVyLN75K8xFln6akFv8-kQDsYJxiFlCgLMSa_Y7XhAmaxQ8lZif8m3eDJrIOBE0bLbBPo2WgNs6QBxHLyXk6McjOl5dzaMiKHoczyMEH5_hJBmTECUC4MlWoJAyNvhkj4aeo7cTweMXMvhkTtyxZbZ9WckAStfbsrmdHaHLlRgsYhYoamcnaxiYm9c2fx2Yepvv4W8tFomCMtKoa_bMXhHp2jVGxiiPFIbh_4oEfeWPOHlRsSaWZ3rjIpbhdJ2R_tYvL3Nsu0Oj3ifCt9QnZ6ae51mTslWTrmPol02vPaurj2qmSyzIDu9Lw_7ILgw9x_UM96LhKV49y3Rxz2M_N7QmjucUhu614Q3Ni4b20LB7KkPwWXK8WaHJ0y06QfITWc9zbcQJpI3urscojDn6On1Eo3i9iSMSiWSu_X1Gt0v6E-ZkFcO6oKyFIs5EjMDU9-EMDX1Bt1Tsq3qn1E9_IlwX6LJ8kiTogWwJh2hfqRBwHKpE94x4E8dBgqZJkpIsAFwyWZAVwXDuEY4CdPNQmfHL8Kmp64uqdx-8QzwIcUduQqTSlzXeyYukSjb0KrugoR0VK3SLoxSz84BVdQ_UE3PS6dt_ogdL1gp1bzDlSFVX4_cL_r3kz-BAQm-ywl5AKxeFERxJLOTxGk0jQXgEGTz9hjrgSYr5qrGpHw55HfIe7yzgJvJXkEwAy71cwj_Iba4dj-cisxRhzuNd0sFMoA3mmDHCbk5noy6yPiKyPyJyGkU08lma0C25oOp-SOW-UwULVzuocqkY8uI0Cvj-fM1hyWFPMOrnh5ZGaPaLXVvACmt6gdWrbe0V8V_Q5-t0T_iX8lCi4RZThheUvTnPhvH8XO6TJbonHA7WWp3BB-ITuhHo2yaQWUAGkC4YVBzM9zlM3zpYnwuHDYPLN78IpvDsoCALssNelpOVCSZfzk3s0iQR8SZrbNHAoM52auzpf7K7NXZTbUHZnorW_Vnt9I3WNN53Soo9CC1Fnc6vsD_UuH8amq4a26dxVw17alp9xUZKbZpqbJonIJ831NCuzTtq7Ci9lc8rw4Kv9Dm_exrn2blKXtBVuoZRB_IEjTyjvCIjD-HWUihKUgozz8FUSffzsS7HP-baH3dz7ccZ0cibqdeZf01mJ2qehakKM_R61IKhas07Zei1lSpK7Z09LOSK5Q-qCtxvhsG1GTfOX1HVKfPylFW8Uau4rd6TVdRpRLuNqNuI9i7E6zfjsB7qGVeFjWbYbIatZthuhp1muNsMuzmstbU14WtMA21w0LJfU_CLKyAhTpnQjm0NpyKe7SNfG2S_OrQ0uy_GFMN3zPoEHv8F17gwxQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.13 E2E-94U_R3_Quenching — E2E-94U_R3_Quenching
@@ -1563,15 +1518,15 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWNtu2zgQ_RXCRZAUsBGJknx72IXjSxMgab1x22DR9IGWqJiILAkUlcum-fcdSqRs0VKveSiqw5nDmcOZoayXjp8EtDPuHB29sJiJMXo5Fhu6pcdjdLwmGT3uohL4TDgj64hmx9ImTGKxYv8VZrabPkkziS3IlkXPEl3Ru4SiTxddNAHHqIsyEme9jHIWHnePU862hD9Pkyjh0voNHYZWWOymls4SHlC-M7Csge174BqxmO5gZ-AO3IX0y6ifxEGNNPTCYegfv8rgouTR3xAuivDzjF6RpxsWiA08hyTKKNhsxDa6JGsayRwFzyXm5_xBi8EyuU8Mgq1S4rP4DnDXAoiT-H4HedbrK3o9OrqNq03R5fVtjODPj0iWzWiIMgHw_EGgkEXR-I07nSw8q5sJntzT8Rs8H8wc3PVlJmNI3epKcXuPlN1txHidRIEy7T3KHMY4ferypzG2uvwZ_jX2onGw22nax0M8rHY6G9hTe6p3CsPwj3YCXflHkt2rvebOAi9m1V621_em1iGfTnPmDia2qRPlD8yne6SLxcKZ76Sa9z3baic9Wzh9a2qQ3hFBH8nzjnA0dSvChTdY2INWwnI_M8p8veSJrwmdubfwKsLBmb2Y4FZCd2K7QxUh8Nxxkm7Q_OYKncyoT2PBSQSNFrxFpYn8i-3Bly-3nZCMQ9Lzkzs0Y8DO1rmg6CJeJ3kcoBmN2APlz0gkku228_XrPsGwTrCkPEz4Fr1LkiBD17AxSwViMZol_j26THwiWBKbJKM6yZRTEBYR2H2axCEDvmUu0ERKfUM43SRQH0gepUGErdZ0PuTCyOeDnAsmgd2czpJB9DKeJYH_fEoDiC8zffH3pLjIspwaHg4-qTwykaRGcpD8No2ooAH4vd3zc_HLi_YjnCePWY9EAqUEjjii0buyKm87r6-lE_StWRZPgvKYRJAPFzHlGTpFZ_isVhoQWnF-DxRdAaMcvmj9jFZ5mkaMcjSPZVz7Aux5LHMOAwsSKVRGRHzHzwG_iX8fJ48RDe7giojF6TV9YPTRoKm7ueC2gtR2zBfxQwI9XjfzwEwfxT85jf0NTNdaQFKeHFvWuu7Y33Msz1BWAQ1QnqKTKegOvtBMhadKM9uwVIbfRDfQ4RI03xIWofeJYCErG0I2VxUPXD-C-MIQyTFqxcwaJlwsjEJxhrtCkfdzbw03jL9B9MmP8gzO6SdKZQGhJNAuny7QMuECimBvA6Nxr6nIeVwUVYYemdgoxWGBZJDlFGKotKlNAKu5dz7DzAoKhU7nTz5NC63OoREjeYjyvSJAgFzn8D6BVrB72kiPhzvx0gimyPd5L-AFhpHDvsMjg0bOappl8vRqqTcQHAp7EQsaoYUcSiDvzfm-rthpnIgHM7nQ-LyYGBPGYX48r-HmQHG-XUNlnE9uzpr1cOv0H6-gJtc0CIqIa5beT873m3PTs9_i-XFVDjYGpUjRanlZDNb5VUuoxg21TDLR1PG1XnGNXin23FAY3SqKg6N1vB-1l9z40E0OiTme90buDbp2pJBglWZG746a21BTT3xZglDKf-8asRxxzp8O-tVkiVanrlFse1sMq7TlO1d19aLllZppRYnt928tNdv-jQlg9D7-qVo3vYwOKe9kI-x316aX2_ymoaNcHjh4P3D4YDr0Gx0OXj_MkrXM0aITKQjkeGqbSo5tlG7lWmpyYD_41UuhrEXr12qxdLJ_x8ltdGLxDy8tkBH1en9BVavnYfnoDNSzbZeAa2kAl4BdWQwUoClsxeFiBbjaZVQDvt12nIl7OsfoQ0rhDfebrFFtocKyNYftKlJXWyjA9rSFpyxsbaFCt_vaol8C-scTvLwqQO-iAtVROLsw0YkqrvL1uiiwt2iOi9DVGP62F56jVdHRjAxhsaPCrVJWAPZMwDUBnRBWCTnaAivp7SpDFYajSZ2Ryulf-Tr-TVpodZTkjj4lR5-j5lICO0OT631SUFUL6mgcnRpWyWtmW4tRna7KzLHN83eNw6xOShlg7YF1kWnK8lHnrWLXyvX1yZ7hWgHiKmSdQ3_vB6dsD_1DuwaP9n8t11ZA1dYlu30Jty857Utu-5LXvtRvXxq0Lw3bl9rVwO1q4HY1cLsauF0N3K4GblcDt6uB29WAvtOfler4qBmHqduM2-qTUR3FjajTiLqNqNeI9luiGOjvNHV42AyPGmHo4EbYboZxM-w0w66GO93OlsI4ZkFn_NIpPpfCJ9WAhiSPROe12yG5SFbPsd8ZF58VO3lxw88Ygbe9bQm-_g_Px6UM" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.14 E2E-94V_R3_De_Contamination — E2E-94V_R3_De_Contamination
 
 **Swim Lanes**: EWM  Decentralized · External Partners / B2B · Factory UI Portal · SAP S/4 Intel Foundry
+
  | **Tasks**: 20 | **Gateways**: 5
 
 > **Legend**: <span style="color:#000;background:#4CAF50;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● Start</span> · <span style="color:#fff;background:#C62828;padding:2px 6px;border-radius:10px;font-weight:bold;font-size:9pt">● End</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">User Task</span> · <span style="background:#FFF3E0;padding:2px 6px;border:1px solid #E65100;font-size:9pt">Service Task</span> · <span style="background:#FFF9C4;padding:2px 6px;border:1px solid #F57F17;font-size:9pt">◇ Gateway</span> · <span style="background:#F3E5F5;padding:2px 6px;border:1px solid #7B1FA2;font-size:9pt">Sub-Process</span>
@@ -1695,10 +1650,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWN9v4jgQ_les7FXcSqCN84MADye1QFaVtioqu7cP230wiQNRQ4wch5ar-N9vnNiBuGTvdpeHFo_n-2bm89hOeLUiFlNrYl1dvaZ5KibotSc2dEt7E9RbkYL2-qg2_E14SlYZLXrSJ2G5WKb_VG7Y271IN2kLyTbNDtK6pGtG0ZfbProGYNZHBcmLQUF5mvT6vR1Pt4QfpixjXHq_o6PETqpoauqG8Zjyk4NtBzjyAZqlOT2Z3cALvFDiChqxPG6RJn4ySqLeUSaXsedoQ7io0i8Lekdevqax2MA4IVlBwWcjttknsqKZrFHwUtqiku-1GGkh4-Qg2HJHojRfg92zwcRJ_nQy-fbxiI5XV495ExR9enjMEXyijBTFjCaoEGCe7wVK0iybvPOm16Fv9wvB2ROdvHPmwcx1-pGsZAKl230p7uCZpuuNmKxYFivXwbOsYeLsXvr8ZeLYfX6Av0YsmsenSNOhM3JGTaSbAE_xVEdKkuS3IoGu_DMpnlSsuRs64ayJhf2hP7Xf8ukyZ15wjU2dKN-nET0jDcPQnZ-kmg99bHeT3oTu0J4apGsi6DM5nAjHU68hDP0gxEEnYR3PzLJcLTiLNKE790O_IQxucHjtdBJ619gbqQyBZ83JboPmX-8QmtGI5oKTDDZaXDvIT46db98erYRMEjKI2BotKE8Y36L7UqxYmccAzNI95Qd0L_fQo_X9-znaNdBp9IQIoBYEvnzZxSBOYWK8yxE_MhYX6LYoSmoi_MuI29xIcZaCMOmqFCnLkWCycpNq-KPgDyBSuhMozVHMoICMRURymSRBm2TKKdRZ1T1leZIC36IUAyLb4ivhdMOgl1HVdn9CSu8NOtd5fdV0hHP2XAxIJtCOwGplNPtYN9ijdTzWINiC5gq_CMpzkoHsXOSUF-gDunFuzlOGhKvq9hRy43CQQEbViiIi0LLc7bIUvs-B2mqVOrqwwHeQkTyH0erQQE2Jxm3cEpI-hbnN9ww2IiJrkuaFQJ_pi0CLe4PDcf5sOHYZObzFwxKvqOQWAH1_Dg1O0EKw3SllWQCNjcxb0JEBheROklUXCeK1knFLO1pp975rjUISCQY9-uUWLRgXJDuPabfVeqCi5Hm1mgV6TsUGWly2loAbMZetVkTACW6kgEafwiViSuca0tVUivcWLucUaGKjdNf93UZcXi_Q8oMHEQTNUCh3J5R8nliTljzem52DFneqG6tq24WdZ_iTOi3_Qyfv4kY2zxUD5P_PE9OADS8fGk0R93UFf9gGzjhs6kPVEOzjg3wIEKV51o46YtYb7gFB4rB9qlvRhI5_CDX3KrZ_dK5yda7KcB14fDGcuePNNsdGm8PyR83yy0tA3qS0KDpb3vGM3f7mjKkzeYPzDdzZBbJ_6z00vJvVW1arphb1DWz8c_ux3iL2r4DwL-58WAI0GPwF__W4HrpqOFSzYzUe1WM9HCtv9QwETyO1AWs8dpXB0_wKMjLGvhr7yl_ng7VhqA0qJVd7uDpmoD10STomtpVBB3GVAdumQY9VDD3GKkusDY7d1gkrYZwmCTXWdQZqrMvwFGGTkgJ4xtjVERyVk9NorSkaKbUQY0MZnZOrKBopg3aM6hFWtoB-dG-Z3fPn79aM1znjd84MO2eCzplR58y4cwbWvnMKd0853VPdOuBuIXC3ErhbCtytBe4WA3er4XSrAQeBfg9t250Ou9th99Q7ZtvqX7QOL1qDi9bRRetYv8C1e9W-bMaXzc5ls6vNVt_aUr4laWxNXq3qJxD4mSSmCSkzYR37FikFWx7yyJpUPxVYZXUfzFICj1Xb2nj8F2ktZZQ=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.15 E2E-94W_R3_TM_steps — E2E-94W_R3_TM_steps
@@ -1756,10 +1710,9 @@ flowchart LR
 
 
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -1790,12 +1743,12 @@ flowchart LR
  | E2E-94V_R3_De_Contamination,  | |
 | External Partner Supplier B2B | E2E-94W_R3_TM_steps | |
 | SAP S/4 
+
 Intel Product/ Intel Foundry | E2E-94W_R3_TM_steps | |
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -1806,10 +1759,9 @@ Intel Product/ Intel Foundry | E2E-94W_R3_TM_steps | |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 | 1 | e.g. Cost Element | e.g. MES 300 | e.g. XEUS | Data steward | e.g. Intel Confidential | e.g. 10K rows/day | Master / Transaction |
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -1857,10 +1809,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -1904,10 +1855,9 @@ flowchart TB
 
 
 
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.3 Data Lineage
@@ -1936,10 +1886,9 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1993,10 +1942,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzzaQoQqpU06dUoBETY2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpfygBacTAVK7EWeapSrkD2uog05-b4K1fUgXXCyNJ4RZBuT7qElcBBBNImkqWxIKPo2sVZUhsrtkTgu1Ri4ljOn9DWdqri1TKiTouLlaiIBOQFRTUEVZWVNcYpjThKczbT62tbGg6d-asW2vVmTVaETpSy1y3Y9SgqPRIK0Wzi2Z8zFV0OKpzHkBjEi1FEASQaUEiTEmvPr2YEompeQpSEmqMeVCOHtDHP12U6oi-wvOXv_kpGP315-tO70g5zC_byaZyApnz7btLUya52QzDGa_rVFfMG272-13_gOTUUV3Mb2TDzAPXmE--xiVSF5Bl8gpaW9VWnDGBNzRAuqMeB13w4jf7Qw3aJ-YPWRihxHNcY3lwcC2P8I0qLKczAqaz4kb_I6sqGQnRwyf7KhN3MvLYDRwr0cX5yRwf_lXkfXHJOnBUBCJ4llKgquN1T_0T48HMcSzeOyH8ZFt11ET6BD4MvtC0EfQh4CO42CH3wT46X8P38zWjndTxzdVsvtQFhCHUNzyBOJ-KV-t7qBrkKooso4iGGVgN13bRvf8Cn2QSRX7Ao-AVPXqU0yODbAOIOuAs0mx3zvjPeMIf5B9MvKyBP--hRfnZ_u8Z6pqVZp6kLLn_uwSituu9xRZFZpXNQGR3MsRPodc4Nnz9AETdeD3YnSR7V7oKa1FUx0D_aC2xYf2R1u8nuq-pNqf2ck7Yg1ghhy9EgezSeB_9c-9T6g0iFHb29Jy81zwhOrgN8QVxOObbQmNNzJ5VzZB7PnbCvH08eOnCi-X7c6bFP_CbMbDDjvGQNbKpq2AT9dlcP_XZLIh1ZDyTGxb_16IPT093TnLrKa1gGJBObOcR3Oh4b3IYEpLofAasmipsnCZJpZTXSxWmeNEweMUm7AwxtU_IfRHFQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Current-State Flow Narrative
@@ -2005,10 +1953,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.2 Future-State — Future-State Application Landscape
@@ -2060,10 +2007,9 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9A5wuoiyEZbtxwM9Q4X-7N3c1S1gM0lm1ZOxWV_35PV5QJGr0lGdt5eU77nKfts5VkDCzHajSeecqVQ54jS01hBpHlkMgaUYlvTXyTkJQFV_MA7kEYp8iyV2-VckMLTkcCpHYjzjhLVcifllC7nfzRBGt7n864mBtPCJMMyPWgSVwEEE0iaSpbEgo-jqxFlSGyh2RKC7VELiUM6eMtZ2qqLWMqJOi4qZqJgI5AVFNQRVlZU1ximNOEpxNtPrC1saDpXc3YthcLsmg0ovStFrnqRSnB0WiQVgvnlkz5kCpo8VTmvABGpJoLIImgUoLEGBNefXswJqNS8hSkJNUYcyGcrT6OXrspVZHdgbPVOzrq2L3lZ-tBL8jZyx-bSSaywtmybXsNk-Y5WQ2D2Wtr1DdM2z487HX-A5NRRTcxvaMvMHffYb76GJVIXkHnyClpr1WaccYEPNAC6ox4HXfFiH_Y6a_QvjF7yMQGI5rjGsunp7b9FaZBleVoUtB8StzgT2RFJTvaZ_hk-23iXlwEg1P3anB-RgL3t38ZWX9Nkh4MBZEonqUkuFxZ_T3_-KAfQzyJh34Y79t2HTWBDoHtyTZBH0EfAjqOgx3-EOCXfx1-mK0dn6YOb6tk96ksIA6huOcJxL1Svlvd7qFBqqLIMopglIFddW0d3fMr9NNMqtgXeASkqlufYnJggHUAWQacjIqd7gnvGkd4Q3bIwMsS_PsZnp-d7PCuqapVaepByl77s0kobrvuS2RVaF7VBERyLwb47HOBZ8_LF0zUgT-L0UXWe6GntBRNdQz0gtoW79tfbfF6qvuWan9nJ2-INYAJcvROHMwmgf_DP_O-odIgRm2vS8vNc8ETqoM_EFcQD2_XJTRcyeRT2QSx568rxNPHj58qvFzWO29S_HOzGfc67AADWSsbtwI-XpbB_V-TyYpUQ8orsW39eyP2-Ph44yyzmtYMihnlzHKezYWG9yKDMS2FwmvIoqXKwnmaWE51sVhljhMFj1NswswYF_8AaGVHLQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 29</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### Future-State Flow Narrative
@@ -2072,10 +2018,9 @@ flowchart TB
 |---|-----------|------|-----------|------|
 | 1 | e.g. MES Route to ICOST | e.g. MES 300 → e.g. XEUS | e.g. Direct / API / File | e.g. Near Real-Time |
 
+
 <div class="page-footer"><span>Page 30</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.3 Change Impact Summary
@@ -2095,10 +2040,9 @@ flowchart TB
 | e.g. MES 300 | - | N/A |
 | e.g. XEUS | - | N/A |
 
+
 <div class="page-footer"><span>Page 31</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -2113,10 +2057,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 
 > *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
 
+
 <div class="page-footer"><span>Page 32</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -2125,10 +2068,9 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 |---|---------|-----------|-----------|----------|------|
 | 1 | e.g. Pub-Sub / P2P / ETL | e.g. MES Route to ICOST | e.g. Azure Service Bus | e.g. REST / RFC / SFTP | e.g. OAuth / NTLM / Cert |
 
+
 <div class="page-footer"><span>Page 33</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -2169,10 +2111,9 @@ flowchart TB
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
 
 
+
 <div class="page-footer"><span>Page 34</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 
@@ -2214,10 +2155,9 @@ flowchart TB
 | 1 | e.g. Azure PaaS | Cloud / SaaS | e.g. XEUS | DEV,QAS,PRD |
 | 2 | e.g. S/4 HANA 2023 | On-Premise | e.g. MES 300 | DEV,QAS,PRD |
 
+
 <div class="page-footer"><span>Page 35</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -2257,10 +2197,9 @@ flowchart TB
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 36</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -2279,10 +2218,9 @@ Project delivery milestones for E2E-94 RICEFW objects:
 
 > *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
 
+
 <div class="page-footer"><span>Page 37</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -2311,5 +2249,5 @@ Standard RAID items for E2E-94 (End-to-End Integrated Processes):
 
 ---
 *E2E-94 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026*
+
 <div class="page-footer"><span>Page 38</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
-</div>

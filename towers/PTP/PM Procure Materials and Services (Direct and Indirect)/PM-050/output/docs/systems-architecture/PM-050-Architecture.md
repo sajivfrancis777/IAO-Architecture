@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">PM-050 — Manage Quotation</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Procure To Pay (PTP) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **PM-050 Manage Quotation** within the IAO program. It includes 19 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Procure To Pay (PTP) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Payment Automation | Automate invoice verification, three-way matching, and payment execution | Finance Efficiency | Medium |
 | 4 | PM-050 Process Migration | Migrate Manage Quotation business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Procurement | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -226,10 +193,9 @@ This capability includes **19 business process(es)** modeled in BPMN 2.0, coveri
 | 18 | PM-050-170_Identify_Approved_Suppliers | PM-050-170_Identify_Approved_Suppliers | Commodity Manager | 5 | 3 |
 | 19 | PM-050_Manage_Quotation | PM-050_Manage_Quotation |  | 3 | 8 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -329,10 +295,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVe-P2jgQ_VesrFbcSUHKTxLy4So2kFOla3VX2judSj8YxwFrTRzZzgJH-d9vTAKB7CJVKh9Q5nneezOjeHKwiMiplViPjwdWMp2gw0Cv6YYOEjRYYkUHNmqAv7FkeMmpGpicQpR6zv47pblBtTNpBsvwhvG9Qed0JSj68t5GEyByGylcqqGikhUDe1BJtsFynwoupMl-oHHhFCe39uhJyJzKLsFxIpeEQOWspB3sR0EUZIanKBFlfiNahEVckMHRFMfFlqyx1Kfya0U_4N0_LNdriAvMFYWctd7wP_CSctOjlrXBSC1fzsNgyviUMLB5hQkrV4AHDkASl88dFDrHIzo-Pi7Kiyn6PF2UCH6EY6WmtEBKAzx70ahgnCcPQTrJQsdWWopnmjx4s2jqezYxnSTQumOb4Q63lK3WOlkKnrepw63pIfGqnS13iefYcg__PS9a5p1TOvJiL744PUVu6qZnp6IofsoJ5io_Y_Xces38zMumFy83HIWp81rv3OY0iCZuf05UvjBCr0SzLPNn3ahmo9B17os-Zf7ISXuiK6zpFu87wXEaXASzMMrc6K5g49evsl7-KQU5C_qzMAsvgtGTm028u4LBxA3itkLQWUlcrVEqNhuRM71HH3CJV1Q25-ZXul8XVoGTAg_NuFEqKbQDeZqaiwYPCp4W1rcrivf1wiFihaYUMjZwjzrWvKKEFYxgzUSpgH1N92_pKa50LX-UHNySZ_DmLzlT644Oo4PB0R4v7PF2lNSnPk17aIo1Rp9oxVvXHnn0y4VccbzvT6cZGtDQe1h6DA5zEPj1SiACfjN69Fct9NnjKiM-HLr6cjpcwhYga0R3hNeKvdDfm5dsYR2PV6xxx8JSiq0aYq5flTfbMaVhm7zrsV3nTXqFJeac8leWcPObh3KEhsPfoOg2jJuwvW2l24TjNvSa0G9DvwmDNgxabnsJyrCJozYcm_D7wvqXwpvwHcTOHk6TF_byPopTWnwNd-qnK2YKPK-WG9i73g83J_7dk-DuSXj3ZHTZ1zdw9DYcnxfMDTp-E4WptLBlWxu4lZjlVnKwTt9c-C7ntMA119bRtnCtxXxfEis5fZususqBOWUYVsamAY__A78UfHk=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 PM-050-030_Establish_Material_Profile — PM-050-030_Establish_Material_Profile
@@ -460,10 +425,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViiXIOWT0BwqQSBVpa60Fdv2UHowyTNY69iR7SxQxH-vTSAstHtqDlHeZN6M38TxwSlFBU7mDAYHyqnO0MHVG6jBzZC7wgpcD3XAdywpXjFQruUQwfWC_j7RgrjZWZrFClxTtrfoAtYC0LfPHpqYRuYhhbkaKpCUuJ7bSFpjuc8FE9KyH2BMfHJyO7-aClmBvBJ8Pw3KxLQyyuEKR2mcxoXtU1AKXt2IkoSMSeke7eKY2JYbLPVp-a2CR7z7QSu9MTXBTIHhbHTNvuAVMDujlq3Fyla-XsKgyvpwE9iiwSXla4PHvoEk5i9XKPGPR3QcDJa8N0XPsyVH5ioZVmoGBClt4PmrRoQylj3E-aRIfE9pKV4gewjn6SwKvdJOkpnRfc-GO9wCXW90thKsOlOHWztDFjY7T-6y0Pfk3tzvvIBXV6d8FI7Dce80TYM8yC9OhJD_cjK5ymesXs5e86gIi1nvFSSjJPf_1ruMOYvTSXCfE8hXWsIb0aIoovk1qvkoCfz3RadFNPLzO9E11rDF-6vghzzuBYskLYL0XcHO736V7epJivIiGM2TIukF02lQTMJ3BeNJEI_PKzQ6a4mbDcpFXYuK6j16xByvQXbv7cWDn0uH4IzgoY0bfa6Aa0r26Elo-4QZWrRNwyhItXR-vWkMbxs_AQdpkujpiFGlb1si05Kb36otNXqSMFzRCn1thcaaCo4eAbTZ87ctsWnpFn1l9gyzFbsHHqPh8KMZ5lwGXRmey7Arozc5W85lf93A4b_hqP_HbuC4hx3PqUHWmFZOdnBOh5w5CCsguGXaOXoObrVY7HnpZKfDwGmbysQ1o9h8o7oDj38ABD6wJw==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 PM-050-050_Identify_Supplier_Rationalization_Opportunities — PM-050-050_Identify_Supplier_Rationalization_Opportunities
@@ -520,10 +484,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduO4jgQ_RUrrRa7UlAnISF0HmZFA1mNNNemd0erYR5MUgarkziyHS7N8O9TTsJ1up8WCUSdHJ-qOrYrOysRKViRdXu74wXXEdl19BJy6ESkM6cKOjZpgH-p5HSegeoYDhOFnvKXmub65cbQDBbTnGdbg05hIYD8894mQ1yY2UTRQnUVSM46dqeUPKdyOxKZkIZ9AwPmsDpb--hByBTkieA4oZsEuDTjBZzgXuiHfmzWKUhEkV6IsoANWNLZm-IysU6WVOq6_ErBR7r5xlO9xJjRTAFyljrPPtA5ZKZHLSuDJZVcHczgyuQp0LBpSRNeLBD3HYQkLZ5PUODs92R_ezsrjknJ03hWEPwkGVVqDIwojfBkpQnjWRbd-KNhHDi20lI8Q3TjTcJxz7MT00mErTu2Mbe7Br5Y6mgusrSldtemh8grN7bcRJ5jyy3-XuWCIj1lGvW9gTc4ZnoI3ZE7OmRijP2vTOirfKLquc016cVePD7mcoN-MHJ-1zu0OfbDoXvtE8gVT-BMNI7j3uRk1aQfuM7bog9xr--MrkQXVMOabk-C9yP_KBgHYeyGbwo2-a6rrOZfpEgOgr1JEAdHwfDBjYfem4L-0PUHbYWos5C0XJKRyHORcr0lH2lBFyCb5-ZTuN9n1vsUCs3Zlkyrssw4SPJINRcFzfhL_Yd8LkshdYV3moOaWT_OBDwUGCJ1-wJkWuLpII9gyJes3nmaJ8qzhntJ8pH0CCsOa4IGpFWi76bNjhEmJLZRKJHxtC7pblrNlea6MsGlTIAyoyUkz4QWW7NKS5rgrQGZX9XeP6_qiwQGUkJ6tEERJkVOnkR5cuYDV1ethX-gCqMRo12lkVonFJkid-QzDjtJpphfwwKdI1qQvN6CSw_-PJMbmOol4Iqz7Yi_Xua8R1Kzl-RrJTT93QTXQconHJuaG6m6efQjNeXhUUC-It-4Xh6TXC13d7tDV2aod-c4lpIlgU2SVYqv4O_m1M-s_f58mff6stPWwWnj4K_r1b3vRysZDguQXYEO4anlhcbvyRA8Hng7AGtuizY-Fo01pNt9Z7Ta2O21wCFuw2PsXAMtw2tjrwkPeq2c34Z-EwZtGDRhvw37rfZBy63Ffs6s_8w1-om7ff3gk6jx8GwmYNRO3QtwcBz7F_D96zC2-TruHgbYJey9DvcO08myrRzPFOWpFe2s-qWOL_4UGK0ybe1ti1ZaTLdFYkX1y8-qSrP7Y05xJuUNuP8FRceYmg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 PM-050-060_Manage_Tendering_Process — PM-050-060_Manage_Tendering_Process
@@ -585,10 +548,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP4jYU_itWRiNegjZXAnloxQBZrdStdoZtq2rZB5M4YI2xU9vhUpb_vsckAcJkXlqEIs7Hdzk-iQ1HKxUZsWLr8fFIOdUxOvb0mmxIL0a9JVakZ6MK-BNLipeMqJ7h5ILrOf33THODYm9oBkvwhrKDQedkJQj645ONxiBkNlKYq74ikuY9u1dIusHyMBFMSMN-IMPcyc9p9VdPQmZEXgmOE7lpCFJGObnCfhREQWJ0iqSCZy3TPMyHedo7meaY2KVrLPW5_VKRz3j_F830GuocM0WAs9Yb9hteEmbWqGVpsLSU22YYVJkcDgObFzilfAV44AAkMX-9QqFzOqHT4-OCX0LR1-mCI3ilDCs1JTlSGuDZVqOcMhY_BJNxEjq20lK8kvjBm0VT37NTs5IYlu7YZrj9HaGrtY6XgmU1tb8za4i9Ym_Lfew5tjzA9S6L8OyaNBl4Q294SXqK3Ik7aZLyPP9fSTBX-RWr1zpr5ideMr1kueEgnDhv_ZplToNo7N7PicgtTcmNaZIk_uw6qtkgdJ33TZ8Sf-BM7kxXWJMdPlwNR5PgYpiEUeJG7xpWefddlssvUqSNoT8Lk_BiGD25ydh71zAYu8Gw7hB8VhIXa2TcSgnbjms0XsG1-t68uPttYeU4znHfjBvNMqrRS_K8sL7fkLw26Uu5ZFSt3_L8Ni8RDJ5ZVBZoR_UazcuiYBRwwRGcAmiusS4VEvlbo6BtNBdsS9CYH9AnpUqiPjzDRVPwgTeI0WxrVtWyCMHihaSEgvKS_FwKCAWhapMHQP6MOV6RK6XNiI7HpiVzyPWXsE3TNfSDxkUhxRYz9EL-Kakk2a8L63S6kQ67pabvSvtWMuqWkH3KSgUr-lg9c3cq1_lvMvfbZdw57FEi-6IgHE0kAf51eNVduh2K63Urz3epzYdjo_oAcajf_8WIG6Cqo7qMTPljYf1N4Cb9gPHV-LDGfxdneFTDXqX269KvyqAuR3VWE-VUtXeXVXu69Vbkg1rW6IKqDhubOnR011rTsnu7pc0Cm6OsBXvdsN8NB91weDn8W_CgG46a06qFDjvRUScKE-yE3ebYasNeA1u2tSFyg2lmxUfr_CcA_ihkJMcl09bJtnCpxfzAUys-_1haZZFBzpRiOMM2FXj6CTPAofo=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.8 PM-050-070_Create_Supplier_RFQ — PM-050-070_Create_Supplier_RFQ
@@ -694,10 +656,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVd9vwjYQ_lesVBUvQcpPAnnYRAOZKq3TCt2maezBJDZYTWxmOy2M8r_vTBLSUPq0PCDuy9333Z19l6OViZxYsXV_f2Sc6RgdB3pLSjKI0WCNFRnYqAZ-x5LhdUHUwPhQwfWS_Xt2c4Pd3rgZLMUlKw4GXZKNIOi3RxtNIbCwkcJcDRWRjA7swU6yEstDIgohjfcdGVOHntWaVw9C5kR2Do4TuVkIoQXjpIP9KIiC1MQpkgme90hpSMc0G5xMcoV4z7ZY6nP6lSJPeP8Hy_UWbIoLRcBnq8viZ7wmhalRy8pgWSXf2mYwZXQ4NGy5wxnjG8ADByCJ-WsHhc7phE739yt-EUUvsxVH8GQFVmpGKFIa4PmbRpQVRXwXJNM0dGylpXgl8Z03j2a-Z2emkhhKd2zT3OE7YZutjteiyBvX4bupIfZ2e1vuY8-x5QF-r7QIzzulZOSNvfFF6SFyEzdplSil_0sJ-ipfsHpttOZ-6qWzi5YbjsLE-crXljkLoql73Sci31hGPpGmaerPu1bNR6HrfE_6kPojJ7ki3WBN3vGhI5wkwYUwDaPUjb4lrPWus6zWv0qRtYT-PEzDC2H04KZT71vCYOoG4yZD4NlIvNuiRJSlyJk-oCfM8YbI-r15uPvXyqI4pnho2o1AHyYCPcL0wpyhxXOKFuSfikkYWq7Vyvr7U6zXj31UqiJokT73vfy-14IUBFaB8UNUgCKDWti60kzwfmBwHah2MJNIC7SsdruCAfZcEfU1MOwHPgmoBpQwBL9InL02VIpc1TOCuAXJCHur03vkkGCJjQBi3KyeNe5HRBBR9xS9wGDAPuIbZA6PqCvuMXgmksBd6bL_0qrJ8dhmbjbpcA27INtCATmjLLsk8gQs8nw83dH8uLJOp8_n6tzmIvusqBRU-FN9bbswyL_-w8doOPwB2tGYo9p0m3vK3dr2GtOrTb8x_doMGjOozUljhrUZNebEmB8r6xexsj7gbavgNJJXbn-aE_voUjmPjEmoXRU92LsN-7fh4DYc3oajy87twePb8KRdEv20nRa2bKskcNNYbsVH6_yFhK9oTiiuCm2dbAtXWiwPPLPi85fEqnY5RM4YhgEva_D0H48CXzE=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.10 PM-050-090_Conduct_Pre-bid_Quotation_Meeting — PM-050-090_Conduct_Pre-bid_Quotation_Meeting
@@ -786,10 +747,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuO2jAU_RUrI8QmSHkSmkUlCESq1JGmZdouhi5Mcg3WJHZkOzyK-PfaJIRHh1WziLjH53F9cXywMp6DFVu93oEyqmJ06Ks1lNCPUX-JJfRt1AA_saB4WYDsGw7hTM3pnxPNDaqdoRksxSUt9gadw4oD-vHFRmMtLGwkMZMDCYKSvt2vBC2x2Ce84MKwn2BEHHJKa5cmXOQgLgTHidws1NKCMrjAfhREQWp0EjLO8htTEpIRyfpH01zBt9kaC3Vqv5bwjHe_aK7Wuia4kKA5a1UWX_ESCrNHJWqDZbXYnIdBpclhemDzCmeUrTQeOBoSmL1foNA5HtGx11uwLhS9ThcM6ScrsJRTIEgqDc82ChFaFPFTkIzT0LGlEvwd4idvFk19z87MTmK9dcc2wx1sga7WKl7yIm-pg63ZQ-xVO1vsYs-xxV6_77KA5ZekZOiNvFGXNIncxE3OSYSQ_0rScxWvWL63WTM_9dJpl-WGwzBx_vU7b3MaRGP3fk4gNjSDK9M0Tf3ZZVSzYeg6j00nqT90kjvTFVawxfuL4ack6AzTMErd6KFhk3ffZb18ETw7G_qzMA07w2jipmPvoWEwdoNR26H2WQlcrVHCy5LnVO3RM2Z4BaJZNw9z3xYWwTHBAzNu9AKCcFGiFwEFLSnTXwD6DhsKW8QJ-lZzhRXlbGH9vvLwbj1MXM1opueCFEfzuqoKqkNvNP6t5jvISn9w13ydBmJ_qwreOlnGV1qVAd3AtaRtUGrdtTDUOjNUkPIB-4o81ORmUuhVH3d9y7AVatUdUy80P9gQDQafdW9tGTRle_aY25ReW3pN6bel35Th1REwkvPRv4G9j2H_Yzi4Pu03K2F3X9zAww62bKsEUWKaW_HBOl3Y-lLPgeC6UNbRtnCt-HzPMis-XWxWXeX6z55SrM9b2YDHv1eS8To=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.12 PM-050-110_Process_Supplier_Quotations — PM-050-110_Process_Supplier_Quotations
@@ -886,10 +846,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVctu4zgQ_BVCQeCLDOhpKTos4JeAATZAZpzdHDZ7oCXSJkKRBknZ8QT-92lKshx5nL2sDoar1NXVbJKtD6eQJXEy5_7-gwlmMvQxMltSkVGGRmusychFLfE3VgyvOdEjG0OlMCv2swnzo927DbNcjivGj5ZdkY0k6K9vLpqCkLtIY6HHmihGR-5op1iF1XEuuVQ2-o6k1KONW_dqJlVJ1CXA8xK_iEHKmSAXOkyiJMqtTpNCinKQlMY0pcXoZIvj8lBssTJN-bUmj_j9hZVmC5hirgnEbE3F_8Rrwu0ajaotV9Rqf24G09ZHQMNWO1wwsQE-8oBSWLxdqNg7ndDp_v5V9KboefEqEDwFx1ovCEXaAL3cG0QZ59ldNJ_msedqo-Qbye6CZbIIA7ewK8lg6Z5rmzs-ELbZmmwtedmFjg92DVmwe3fVexZ4rjrC75UXEeXFaT4J0iDtnWaJP_fnZydK6f9ygr6qZ6zfOq9lmAf5ovfy40k8937Pd17mIkqm_nWfiNqzgnxKmud5uLy0ajmJfe_rpLM8nHjzq6QbbMgBHy8JH-ZRnzCPk9xPvkzY-l1XWa-flCzOCcNlnMd9wmTm59Pgy4TR1I_SrkLIs1F4t0VzWVWyZOaIHrHAG6La9_YR_j-vDsUZxWPbbgT-cCPQqiACrqjUr86_n4KDYfAPYhQjewivdzvOgJmx8koSDiVTgfnx538qoqHiiSgqVYWeFOwcWrGq5tgwKYaieChaFVJ9NoHZUyIp0EtzEqEFQ_VkqM4ZVAnzCC33mNeNG5IUfa-lIVfFJkPlI34j0MOC6UYj0PSAVQk3eahKh6pvMCsZnCJkt51oDfHWry_fGjdVXJk_QJo-aEU4KX5vjO9B0LmHz5CHw3HQBj3C4OHtdsAo6jVwu9s_wkfj8R-w5R0MWhh2MGxh1MGohXEH4xZOOjhpYdLBpIUPHUxb6J99vRann26FreY8DQZ0cJsOb9PRbTq-TU9u08ltOr1NP_Szebgcr-cd16mIqjArnezDab6O8AUtCcU1N87JdXBt5OooCidrviJOvSvhrCwYhstdteTpF0PxX-k=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.14 PM-050-130_Perform_Total_Cost_Model_Analysis — PM-050-130_Perform_Total_Cost_Model_Analysis
@@ -1009,10 +968,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuK2zAU_RXhIXjjgJ9x6kUh8QMKHWhJH4umC0W-TsTIkpHkSdKQf6-UhzNJmVUNNr7H555z78H2wSGiBidzRqMD5VRn6ODqDbTgZshdYQWuh87ADywpXjFQruU0gusF_XOiBXG3szSLVbilbG_RBawFoO-fPDQzjcxDCnM1ViBp43puJ2mL5T4XTEjLfoJp4zcnt8ujuZA1yBvB99OAJKaVUQ43OErjNK5snwIieH0n2iTNtCHu0Q7HxJZssNSn8XsFz3j3k9Z6Y-oGMwWGs9Et-4xXwOyOWvYWI718vYZBlfXhJrBFhwnla4PHvoEk5i83KPGPR3QcjZZ8MEXfiiVH5iAMK1VAg5Q2cPmqUUMZy57ifFYlvqe0FC-QPYVlWkShR-wmmVnd92y44y3Q9UZnK8HqC3W8tTtkYbfz5C4LfU_uzfXBC3h9c8on4TScDk7zNMiD_OrUNM1_OZlc5TesXi5eZVSFVTF4Bckkyf1_9a5rFnE6Cx5zAvlKCbwRraoqKm9RlZMk8N8XnVfRxM8fRNdYwxbvb4If8ngQrJK0CtJ3Bc9-j1P2qy9SkKtgVCZVMgim86Cahe8KxrMgnl4mNDpribsNykXbiprqPXrGHK9Bnp_bgwe_lk65A9JrQIu-6xgFiRbAgGgq-NL5_YYbGq7V6jkl2PKvNFQAocreaDGo3PdGpvcZU67NeTMye5ot4Z4an6h2UPS1FxrfDWJev_MNj9F4_NEscCmDcxleyvBcRm-yNdXwpdzB8QA7ntOCbDGtnezgnH5V5ndWQ4N7pp2j5-Bei8WeEyc7fdJO39UmiYJik3R7Bo9_AZ_XnVE=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.17 PM-050-160_Maintain_Supplier_Profile — PM-050-160_Maintain_Supplier_Profile
@@ -1110,10 +1068,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2PokgU_SsVOh13E0wAQZSH3SjKppPt2d1xPrIZ96GAKq00VJGqwtZ1_O9zSwE_un0aHtR7OPecey_eYm9lIidWZD0-7hlnOkL7nl6TkvQi1EuxIj0bnYAvWDKcFkT1DIcKrhfs_yPN9autoRkswSUrdgZdkJUg6POTjSaQWNhIYa76ikhGe3avkqzEcheLQkjDfiAj6tCjW3NrKmRO5JngOKGbBZBaME7O8CD0Qz8xeYpkgudXojSgI5r1Dqa4Qrxmayz1sfxakWe8_cpyvYaY4kIR4Kx1WfyJU1KYHrWsDZbVctMOgynjw2FgiwpnjK8A9x2AJOYvZyhwDgd0eHxc8s4UfZotOYIrK7BSM0KR0gDPNxpRVhTRgx9PksCxlZbihUQP3jycDTw7M51E0Lpjm-H2XwlbrXWUiiJvqP1X00PkVVtbbiPPseUOPm-8CM_PTvHQG3mjzmkaurEbt06U0p9ygrnKT1i9NF7zQeIls87LDYZB7LzVa9uc-eHEvZ0TkRuWkQvRJEkG8_Oo5sPAde6LTpPB0IlvRFdYk1e8OwuOY78TTIIwccO7gie_2yrr9G8pslZwMA-SoBMMp24y8e4K-hPXHzUVgs5K4mqNYlGWImd6h54xxysiT_fNxd1vSwtMYQ3QpKqk2OACxZJpWC28tP67YHrAnChFlEKLuqoKRiSawlLnSPA7KQNIecoJ14zuGnmgt9nXXN8UIrK6BPpbLpphfSMeQALMacNyghJC8hRnL0iLO_LDX4BOcURxX2lRoY-kBIOzPpWiRB-TLTKjhx4h-9eL9BCyO-5fPBVY5rCg1x4jIMVwbNSZBhnST1mO_qmFxprBiJ4J0W9Sxvt9W5Y5O_spbH-2Rk-qmyjkaZTuukp_X1qHw-UDdN6X6Ko1vhdymMJ3N7A3au77amSbFbViG_LH6d9-ToPz4PSDD1C__xs8yCb0T2HYhGMTfl9a_xKY7Xdg3-AfxBEOGth1rvHhLd7quM2S89HJrw3dJuziBvCa2DuF4yYMGvrlMoJrc9xdgWF33l7Bo_fhcXtAXKHQxruw28KWbZVElpjlVrS3ji9NeLHmhOK60NbBtnCtxWLHMys6vlysusohc8Yw7Hx5Ag8_AMLMZFM=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.19 PM-050_Manage_Quotation — PM-050_Manage_Quotation
@@ -1231,10 +1188,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -1247,10 +1203,9 @@ flowchart TD
 | Supplier Administrator | PM-050-140_Supplier_Onboarding,  | |
 |  | PM-050_Manage_Quotation | |
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -1262,10 +1217,9 @@ The following data entities are derived from the system integration flows for PM
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -1320,10 +1274,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1366,10 +1319,9 @@ The Future-State architecture represents the **target** landscape for PM-050.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1757,10 +1709,9 @@ The Future-State architecture represents the **target** landscape for PM-050.
 
 **Summary**: 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1772,10 +1723,9 @@ Integration patterns identified from the system flow analysis for PM-050:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1799,10 +1749,9 @@ Platform landscape inferred from integrated systems for PM-050:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1842,10 +1791,9 @@ Platform landscape inferred from integrated systems for PM-050:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1874,12 +1822,12 @@ Platform landscape inferred from integrated systems for PM-050:
 | PTPI1529_IF | An interface to retrieve the list of approvers from a custom MDG table(MDG sy... | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Dec-25 (100%) | 4. Completed |
 | PTPI1458 | Develop an interface between PEGA and S/4 HANA system to transmit MSL informa... | Jul-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
 | PTPI1428_IP | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... | Jun-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Nov-25 (100%) | 1. On Track |
+
 *... and 358 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1908,5 +1856,5 @@ Standard RAID items for PM-050 (Procure To Pay):
 
 ---
 *PM-050 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: March 2026*
+
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
-</div>

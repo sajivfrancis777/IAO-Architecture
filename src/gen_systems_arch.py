@@ -202,6 +202,13 @@ TEMPLATES_DIR = WORKSPACE / "templates"
 IAPM_CSV = WORKSPACE / "data" / "iapm" / "IAPM_All_Solutions.csv"
 OBJECT_TRACKER_CSV = WORKSPACE / "data" / "smartsheet" / "object_trackers" / "s4_r3_object_tracker.csv"
 
+# Banner SVG as base64 data URI (self-contained — works in any deployment context)
+_BANNER_SVG_PATH = TEMPLATES_DIR / "assets" / "cover_banner.svg"
+_BANNER_DATA_URI = ""
+if _BANNER_SVG_PATH.exists():
+    _svg_bytes = _BANNER_SVG_PATH.read_bytes()
+    _BANNER_DATA_URI = "data:image/svg+xml;base64," + base64.b64encode(_svg_bytes).decode("ascii")
+
 # New template (TOGAF D+A+T)
 BDAT_TEMPLATE = "systems_architecture.md.j2"
 # Legacy template (application-only, kept for backward compat)
@@ -521,8 +528,47 @@ def extract_tech_platforms(current: FlowSet, future: FlowSet) -> list[TechPlatfo
 _PAGE_BREAK = '<div style="page-break-before: always;"></div>'
 
 
+def _ensure_blank_line_before_tables(text: str) -> str:
+    """Ensure a blank line precedes every Markdown table.
+
+    Jinja2's trim_blocks=True strips the newline after block tags ({% endif %},
+    {% endfor %}), which can merge a preceding paragraph with the table's first
+    row.  Python-Markdown's TableExtension requires a blank line before the table
+    header for it to be parsed as a proper <table>.
+
+    Also ensures a blank line AFTER a table's last row if followed by non-table
+    Markdown content (e.g., **Change Summary**: ...).
+    """
+    lines = text.split('\n')
+    result: list[str] = []
+    for i, line in enumerate(lines):
+        stripped = line.strip()
+        is_table_row = stripped.startswith('|')
+        prev_stripped = result[-1].strip() if result else ''
+        prev_is_table = prev_stripped.startswith('|')
+
+        # Insert blank line before a table row if previous line is non-blank,
+        # non-table, and not an HTML tag
+        if is_table_row and not prev_is_table and prev_stripped and not prev_stripped.startswith('<'):
+            result.append('')
+
+        # Insert blank line after a table row if this line is non-table, non-blank,
+        # and not an HTML tag
+        if not is_table_row and prev_is_table and stripped and not stripped.startswith('<'):
+            result.append('')
+
+        result.append(line)
+    return '\n'.join(result)
+
+
 def _inject_page_footers(rendered: str, cap_id: str, cap_name: str) -> str:
-    """Wrap each page-break section in a flex container with footer at bottom."""
+    """Insert footer HTML before each page break.
+
+    IMPORTANT: Does NOT wrap in <div class="page-section"> — that would
+    break Python-Markdown processing (MD inside block-level HTML is treated
+    as raw text).  The page-section wrapping is done later in gen_pdf.py
+    during the HTML post-processing stage.
+    """
     parts = rendered.split(_PAGE_BREAK)
     if len(parts) <= 1:
         return rendered
@@ -531,16 +577,15 @@ def _inject_page_footers(rendered: str, cap_id: str, cap_name: str) -> str:
     for i, part in enumerate(parts):
         page = i + 1
         footer = (
-            f'<div class="page-footer">'
+            f'\n<div class="page-footer">'
             f'<span>Page {page}</span>'
             f'<span><a href="#toc">\u2191 Back to TOC</a></span>'
             f'<span>{title}</span>'
             f'</div>\n'
         )
-        wrapped = f'<div class="page-section">\n{part}{footer}</div>\n'
+        result.append(part + footer)
         if i < len(parts) - 1:
-            wrapped += f'{_PAGE_BREAK}\n'
-        result.append(wrapped)
+            result.append(f'{_PAGE_BREAK}\n')
     return "".join(result)
 
 
@@ -731,6 +776,7 @@ def generate_capability(
     # Render template (TOGAF BDAT)
     template = jinja_env.get_template(BDAT_TEMPLATE)
     rendered = template.render(
+        banner_src=_BANNER_DATA_URI,
         cap_id=cap_id,
         cap_name=cap_cfg.name,
         tower_name=tower_cfg.name,
@@ -789,6 +835,12 @@ def generate_capability(
     if dry_run:
         print(f"  DRY RUN {cap_id}: would write {len(rendered)} chars")
         return None
+
+    # Fix Jinja2 trim_blocks side-effect: ensure blank lines before tables
+    # trim_blocks=True strips the newline after {% endif %}/{% endfor %}, which
+    # can merge a paragraph with the next table row. Python-Markdown requires a
+    # blank line before a table for the TableExtension to process it.
+    rendered = _ensure_blank_line_before_tables(rendered)
 
     # Inject page footers (page number, back-to-TOC link, doc title)
     rendered = _inject_page_footers(rendered, cap_id, cap_cfg.name)

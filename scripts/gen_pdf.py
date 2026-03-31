@@ -311,6 +311,31 @@ MERMAID_JS = """
 </script>
 """
 
+_PAGE_BREAK_HTML = '<div style="page-break-before: always;"></div>'
+
+
+def _wrap_page_sections(html_body: str) -> str:
+    """Wrap each page-break section in a <div class="page-section"> flex container.
+
+    This pushes the .page-footer to the bottom of each page via CSS flex
+    (margin-top: auto).  Must be called AFTER markdown conversion — doing
+    this at the Markdown stage would cause Python-Markdown to skip processing
+    inside block-level HTML elements.
+    """
+    parts = re.split(
+        r'<div style="page-break-before:\s*always;\s*">\s*</div>',
+        html_body,
+    )
+    if len(parts) <= 1:
+        return html_body
+
+    wrapped = []
+    for i, part in enumerate(parts):
+        wrapped.append(f'<div class="page-section">\n{part}\n</div>')
+        if i < len(parts) - 1:
+            wrapped.append(_PAGE_BREAK_HTML)
+    return "\n".join(wrapped)
+
 
 def md_to_html(md_content: str, title: str = "", md_path: Path | None = None) -> str:
     """Convert Markdown content to a standalone HTML document."""
@@ -358,6 +383,13 @@ def md_to_html(md_content: str, title: str = "", md_path: Path | None = None) ->
         "markdown.extensions.smarty",
     ]
     html_body = markdown.markdown(processed, extensions=extensions)
+
+    # Post-processing: wrap each page section in a flex container
+    # so that footers are pushed to the bottom of each page.
+    # This MUST happen after markdown conversion — wrapping raw Markdown
+    # in <div> tags causes Python-Markdown to skip Markdown processing
+    # inside the block-level HTML elements.
+    html_body = _wrap_page_sections(html_body)
 
     # Wrap in full HTML document
     html = f"""<!DOCTYPE html>

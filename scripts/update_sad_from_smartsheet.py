@@ -39,12 +39,6 @@ _OBJ_ID_RE = re.compile(r'[A-Z]{2,5}[RICEFWXVM]\d{3,5}(?:_[A-Z]+)?', re.IGNORECA
 _PAGE_BREAK = '<div style="page-break-before: always;"></div>'
 
 _FOOTER_CSS = """\
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
 .page-footer {
   margin-top: auto;
   padding-top: 8px;
@@ -58,7 +52,6 @@ _FOOTER_CSS = """\
   background: #fff;
 }
 @media print {
-  .page-section { min-height: 100vh; }
   .page-footer { page-break-inside: avoid; break-inside: avoid; }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
@@ -111,8 +104,13 @@ def inject_page_footers(content: str) -> str:
     content = re.sub(r'<div class="page-footer">.*?</div>\n?', '', content)
     content = re.sub(r'<div class="page-section">\n?', '', content)
     content = content.replace('</div>\n' + _PAGE_BREAK, _PAGE_BREAK)
+    # Also remove orphan </div> left from old page-section wrappers
+    content = re.sub(r'</div>\n?(?=<div style="page-break-before)', '', content)
 
-    # Inject page-section wrappers with footers at each page break
+    # Inject bare footers before each page break.
+    # Do NOT wrap in <div class="page-section"> here — that breaks
+    # Python-Markdown processing (MD inside block-level HTML = raw text).
+    # Page-section wrapping is done in gen_pdf.py during HTML post-processing.
     parts = content.split(_PAGE_BREAK)
     if len(parts) <= 1:
         return content
@@ -121,16 +119,15 @@ def inject_page_footers(content: str) -> str:
     for i, part in enumerate(parts):
         page = i + 1
         footer = (
-            f'<div class="page-footer">'
+            f'\n<div class="page-footer">'
             f'<span>Page {page}</span>'
             f'<span><a href="#toc">\u2191 Back to TOC</a></span>'
             f'<span>{title}</span>'
             f'</div>\n'
         )
-        wrapped = f'<div class="page-section">\n{part}{footer}</div>\n'
+        result.append(part + footer)
         if i < len(parts) - 1:
-            wrapped += f'{_PAGE_BREAK}\n'
-        result.append(wrapped)
+            result.append(f'{_PAGE_BREAK}\n')
     return "".join(result)
 
 

@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">PM-080 — Purchase Materials and Services</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Procure To Pay (PTP) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **PM-080 Purchase Materials and Services** within the IAO program. It includes 21 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Procure To Pay (PTP) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Payment Automation | Automate invoice verification, three-way matching, and payment execution | Finance Efficiency | Medium |
 | 4 | PM-080 Process Migration | Migrate Purchase Materials and Services business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Procurement | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -228,10 +195,9 @@ This capability includes **21 business process(es)** modeled in BPMN 2.0, coveri
 | 20 | PM-080-220_Vendor_Managed_Inventory_(Pay_upon_Receipt_Third_Party_VMI) | PM-080-220_Vendor_Managed_Inventory_(Pay_upon_Receipt_Third_Party_VMI) | AP Processor, Buyer, MRP Controller, Supplier, Warehouse Manager | 9 | 0 |
 | 21 | PM-080_Purchase_Materials_and_Services | PM-080_Purchase_Materials_and_Services | Procurement Agent | 8 | 23 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -316,10 +282,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVmuP4jYU_StWViNaCaQ8CeRDKwZIVanMjoZpq2rpB5M44E6IU9sZYFn-e6-TOBA2rKo2EhE5vufch68fJyNiMTEC4-HhRDMqA3TqyS3ZkV6AemssSK-PKuA3zClep0T0lE3CMrmkn0szy80PykxhId7R9KjQJdkwgn79uY8mQEz7SOBMDAThNOn1ezmnO8yPU5Yyrqw_kFFiJqW3euiR8Zjwi4Fp-lbkATWlGbnAju_6bqh4gkQsi1uiiZeMkqh3VsGlbB9tMZdl-IUgC3z4ncZyC98JTgUBm63cpb_gNUlVjpIXCosK_q6LQYXyk0HBljmOaLYB3DUB4jh7u0CeeT6j88PDKmucotfZKkPwRCkWYkYSJCTA83eJEpqmwQd3Ogk9sy8kZ28k-GDP_Zlj9yOVSQCpm31V3MGe0M1WBmuWxrXpYK9yCOz80OeHwDb7_AjvG18kiy-epkN7ZI8aT4--NbWm2lOSJP_LE9SVv2LxVvuaO6Edzhpfljf0pubXejrNmetPrNs6Ef5OI3IlGoahM7-Uaj70LPO-6GPoDM3pjegGS7LHx4vgeOo2gqHnh5Z_V7DydxtlsX7mLNKCztwLvUbQf7TCiX1X0J1Y7qiOEHQ2HOdbpNQKDssuk2iygXc1rp7M-rQyEhwkeKDKjaacQDro-SPaU7lFvVdykGgBkFp2orcy_rzi2m3ujKREcQsObSoIeiF_F1RQSVnW5jlt3oLFNDn-C577XUPMU6j480sVZTvIOocYuN9fkb0LWUiWd7qrU7ilDoH5UW0g6BUWp9hRCTZIMrQs8jylgC-PQpJdO1ofWC8kIvSdXAWHsxgtqzYUbftR42USvWVsn5J4U05ZLRK3zcdgvsA0k_C7BDIlXNKERrhMRzlbMNiJGUfPhCeM73AWkbaQZYIStMhfJIL2iCJWZBL2nhsj1SeT5dOdYCz7dNLVVWfAYA2FirZqhiZ5zhkQflwZ5_M1xemmkEOUFgJc_FStq1ua-99oXjet7ln2zS78KvThp6aXEtjUCB-wnGS6xJ0aoi4ETsvlSISa_VYJ_W5R3XKo6o2rrrsVGHULLHCGNwR1ttadUMbfVJrE76qLoI-3NM-hVdATuzTdlRgcFdUfqBgaDH5QfaIBWwFfVsYTWxlf1PzoAa8eqGamHNQkuxLRpm6t6Whq_e3rb78ChvV3HcNIDzu1vR63tOBtjH-opaqCdPWIWVtqYFxbNutwgWFDgC0RS3xD1flV_VYO6gRGtWoToQaaiHSKYw2MK0Cn7LRLUh4pqjD6KG3BdjfsdMNuc8towV59IWiBw25bvxsedcPjbhhq341bd3Bbn9Bt2OmG3W7Y64aH-rBuw343POqGxxo2-saOwBZNYyM4GeVFGS7TMUlwkUrj3DdwIdnymEVGUF4ojSKPIaoZxXDO7yrw_A_rWKRh" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 PM-080-020_Release_Scheduling_Line_from_Scheduling_Agreement — PM-080-020_Release_Scheduling_Line_from_Scheduling_Agreement
@@ -374,10 +339,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVW2PozYQ_isWq1VaiUhAIGT50FM2CdVJd9fVZXun6tIPDowTax1DbbObNJf_3nGAvDWp1JYPiHmYeZ6ZwTNsnazIwUmc-_stl9wkZNsxS1hBJyGdOdXQcUkNfKGK07kA3bE-rJBmyv_cu_lhubZuFkvpiouNRaewKID8-t4lQwwULtFU6q4GxVnH7ZSKr6jajApRKOt9BwPmsb1a8-qxUDmoo4PnxX4WYajgEo5wLw7jMLVxGrJC5mekLGIDlnV2NjlRvGVLqsw-_UrDR7r-ynOzRJtRoQF9lmYlPtA5CFujUZXFskq9ts3g2upIbNi0pBmXC8RDDyFF5csRirzdjuzu72fyIEqexzNJ8MoE1XoMjGiD8OTVEMaFSO7C0TCNPFcbVbxAchdM4nEvcDNbSYKle65tbvcN-GJpknkh8sa1-2ZrSIJy7ap1Eniu2uD9QgtkflQa9YNBMDgoPcb-yB-1Soyx_6WEfVXPVL80WpNeGqTjg5Yf9aOR93e-tsxxGA_9yz6BeuUZnJCmadqbHFs16Ue-d5v0Me31vdEF6YIaeKObI-HDKDwQplGc-vFNwlrvMstq_qSKrCXsTaI0OhDGj346DG4ShkM_HDQZIs9C0XJJLFulcOykIcMF3uv39pL-t5nDaMJo17abfAYBOKhkDIK_gtqQabaEvBJAPuCkEKaKVQvh-UQ2BXvemfP7CWnww4FVm6K8xfaMR12vuDGQE1OQaVWWgoNCrh9PyHrINVKAXSZU5vtiQGvyVCmcBkz1Fzva5_ohhrzPMS3ONuTj5ycs64-K1x3Q567RqeunQnb_2b2_3baV2V3XnWMJ2ZLAOhOVxhp_rg_DzNntTqLi61HXGkkma66NfvfugmLwLyia9PNLjof_lLzvfTt8TYYjDKpblCBJ801unIamabgt6gcZkm73J2xgY0bnZr8248aMrfl95vwG2P_vmPkF_qnYw4MGHpzDvQu4ZfGbSZMPtVqzHhCv7VbFr83gZC4t2O6jMzhoFuIZ2Dts5DM4vA5H1-F-u1nO0PgqOriKPlxFsdpmwziuswK1ojx3kq2z_zHjzzsHRithnJ3r0MoU043MnGT_A3OqMkfCMae4V1Y1uPsLUYOMEA==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 PM-080-030_Create_and_Release_Contract_Order — PM-080-030_Create_and_Release_Contract_Order
@@ -436,10 +400,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllluP4jYUx7-KldGIXSlZ5UoyediKCaQaaWcXDdNW1dIHk9hgTXBS2xlgWb772uQCSTOVtuUBcf4553cucU44akmeIi3Ubm-PhBIRguNIbNAWjUIwWkGORjqohN8hI3CVIT5SPjinYkG-nd0st9grN6XFcEuyg1IXaJ0j8NuDDiYyMNMBh5QbHDGCR_qoYGQL2SHKs5wp7xsUYBOfs9WX7nOWInZxME3fSjwZmhGKLrLju74bqziOkpymHSj2cICT0UkVl-W7ZAOZOJdfcvQI93-QVGykjWHGkfTZiG32Ca5QpnoUrFRaUrLXZhiEqzxUDmxRwITQtdRdU0oM0peL5JmnEzjd3i5pmxQ8T5cUyE-SQc6nCAMupDx7FQCTLAtv3GgSe6bOBctfUHhjz_ypY-uJ6iSUrZu6Gq6xQ2S9EeEqz9La1dipHkK72OtsH9qmzg7yu5cL0fSSKRrbgR20me59K7KiJhPG-H9lknNlz5C_1LlmTmzH0zaX5Y29yPwnr2lz6voTqz8nxF5Jgq6gcRw7s8uoZmPPMt-G3sfO2Ix60DUUaAcPF-Bd5LbA2PNjy38TWOXrV1mu5ixPGqAz82KvBfr3Vjyx3wS6E8sN6golZ81gsQGKVjL52FEBJmv5XV1XH2p9XWoYhhgaatwgYki2AyJ52xhMBPiinhvwbv4F7D6wD6K98H6p_XVFsQcpj5CWMAPzkslzy1ENq0Dzpy7B6RKeUIZUyM8W4r5rOVzkxSW-AVacZ_mQ8S0RAqVA5GBRFkVGEJOs91cwT7IeUjkvgg_g8WkuIX-XpBok7-YdX7t-zqnx7-7-8diUqVamsZL1JBuA9klWcvKKfq3O1FI7na6iguGopvpLs7M94YL_0gu_Gw5vb88DxbmsOZG78g2CZf6nui3ra3tXsFwCiBl5gWhzTCBNz0cUcd47K3Jo9dTk1ql-UA8Yxkc5wdocd02_MoPaDJT5fal9zpfadzmBWr6r5T8RP-tWvShkg1W829hWZVtmL7IG2rVs99yCfoKGV_k5tel0w84bQDk1m68j28OyMyy79aLuiF77pujI42HZb1ZbRw0G1btBVY5zULaaHafp2haxLSSpFh61818D-fchRRiWmdBOugZLkS8ONNHC8ytUK4tUAqcEys22rcTTD0Agr1M=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 PM-080-040_Create_Plant-to-Plant_Transfer_Order — PM-080-040_Create_Plant-to-Plant_Transfer_Order
@@ -499,10 +462,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP2jgU_itWRiN2paDNlTB56AoCWVXqDGhC96KyDyZxwJpgs7bDQCn_vXZukBS0D81DlPOd833nEtvJSYtpgjRfe3w8YYKFD049sUFb1PNBbwU56umgBP6EDMNVhnhPxaSUiAh_LcJMZ3dQYQoL4RZnR4VGaE0R-PxRByNJzHTAIeF9jhhOe3pvx_AWsmNAM8pU9AMapkZaZKtcY8oSxC4BhuGZsSupGSboAtue4zmh4nEUU5K0RFM3HaZx76yKy-h7vIFMFOXnHD3Dw184ERtppzDjSMZsxDb7BFcoUz0Klissztm-HgbmKg-RA4t2MMZkLXHHkBCD5O0Cucb5DM6Pj0vSJAWLyZIAecUZ5HyCUsCFhKd7AVKcZf6DE4xC19C5YPQN-Q_W1JvYlh6rTnzZuqGr4fbfEV5vhL-iWVKF9t9VD761O-js4FuGzo7y3smFSHLJFAysoTVsMo09MzCDOlOapj-VSc6VLSB_q3JN7dAKJ00u0x24gfGjXt3mxPFGZndOiO1xjK5EwzC0p5dRTQeuadwXHYf2wAg6omso0Ds8XgSfAqcRDF0vNL27gmW-bpX5as5oXAvaUzd0G0FvbIYj666gMzKdYVWh1FkzuNsApZYzue2IAKO1vJd-dRHzy1JLoZ_Cvho3-JhIN06P4Fl2VW61KN_tsqNcjWCeQSJ08IpihPcNsNT-vdKz2nqRXC5gFL2AlEpjMQOCloIYMd5m2m1mwJAsAcxysaK5FJmgDO8ROwJMuiW1dZybOpGg8RtYyM3FU4nO1HnQ5rlfGmJM13d4r-i_HHMsMCWSfU0fdOiUyGqF7Pm16LktM5912N4vDZsLuitGFqGitV-vwoadsB-nU5ad3J7StdSTVGre9gsl_efXedleuVI6b8c0ruP_J9Y8nS6zSFB_JfuON8X7r-tT62EWjRYAyurHs79_C-afLyvj96V2Pl8rWrcV0SHOci47_6PchBeaXHflA3kC_f4HKVGZVml6lWmayv621P5Bsotv0t91vNACH1a4XcnVemZpO5XpVO5Gpspn17ZR2m5lu6U5qMxBm16cCSpHfRa2YOs2bN-Gnduwe30qtjyDux6v-gq0wOEt8Kn5NrUbMu7gZn2ctmGrhjVd2yK2hTjR_JNW_EvI_40EpTDPhHbWNZgLGh1JrPnFN1fLd4lkTjCUR-G2BM_fAZZovWI=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.5 PM-080-050_Create_and_Process_Purchase_Order — PM-080-050_Create_and_Process_Purchase_Order
@@ -571,10 +533,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluPozYY_SsWs6PsSmTKNWR4aJVJwmqktjOaTLeqmj44YBJ3HINsk0uz-e_7OUASWOZlywOJD-ec7wL-4GDEWUKM0Li9PVBOVYgOPbUia9ILUW-BJemZqAS-YEHxghHZ05w042pG_zvRbC_faZrGIrymbK_RGVlmBP3xaKIRCJmJJOayL4mgac_s5YKusdiPM5YJzb4hw9RKT9GqSw-ZSIi4ECwrsGMfpIxycoHdwAu8SOskiTOeNExTPx2mce-ok2PZNl5hoU7pF5L8hnd_0kStYJ1iJglwVmrNfsULwnSNShQaiwuxqZtBpY7DoWGzHMeULwH3LIAE5m8XyLeOR3S8vZ3zc1D0OplzBEfMsJQTkiKpAJ5uFEopY-GNNx5FvmVKJbI3Et4402DiOmasKwmhdMvUze1vCV2uVLjIWFJR-1tdQ-jkO1PsQscyxR7OrViEJ5dI44EzdIbnSA-BPbbHdaQ0Tf9XJOireMXyrYo1dSMnmpxj2f7AH1vf-9VlTrxgZLf7RMSGxuTKNIoid3pp1XTg29b7pg-RO7DGLdMlVmSL9xfD-7F3Noz8ILKDdw3LeO0si8WzyOLa0J36kX82DB7saOS8a-iNbG9YZQg-S4HzFdJuhYBtxxUaLeFcXtcHt_-eGykOU9zX7UZjQaAc9PyEKEezn7y58c8V2WmSXwVdLuEX2KM8F9kGsybfbfK_YEaTyn5CFKZMIswT9FSovFBNqdeUvpBY0XQPyibN_3jm5QxuwiOMHVqFONVCMw6KT1eSwUUiVZZr5iNPM7E-kdFMd0llaLpTRHDM0DPDnMNmRFO-hGnRcgvA7BW2rFxThZ70lNHiWZHnjBLRTHZ4ONSR9aDsL0AXr9CjRDAUzxmTBEEjC4I-OP4byoRt3aKP2xWNV2QD7lQiGAREfEJYonG2zrEABcR8frm7u5sbx-NVxPvuiGQXs0LSDflcPrstlW11y67uM5oprArZFtrvVlhqGY312EfQ7ovVL20X58eydn9M5l1kWIhsK_uYKQRtxYwR9p0I5l_5h_uo3_8ZDKrlUC-_zo2_CLTlK2yWCndK2n2L9nt2YtXwfWVWDQNIqwQGjTXonnL9mOqdBmq3uuqW5KAmWxW57DFJTmS7zsiuUrK9GrBbudtu2-mF_AtbsHI666q4w2pd5XxR281iLxlUxOsBrdF65Ddgpxt2u2GvG_bPL8kGPKjeZw0w6OYO61HfQO87UehbJ2x3w0437HbDXg0bprEmMLhoYoQH4_RlBV9fCUlxwZRxNA1cqGy257ERnr5AjCLX83dCMbwY1iV4_AYeDQ09" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 PM-080-060_Transmit_Order_to_Supplier — PM-080-060_Transmit_Order_to_Supplier
@@ -671,10 +632,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1tv4kYU_isjRxGtZCRfsfFDKyC4ipTdREu6UbXsw2CPzSjGY43HAZblv_cMvgCOXbUpD4j5zvm-c5krByVgIVE85fb2QFMqPHQYiDXZkIGHBiuck4GKSuAr5hSvEpIPpE_EUrGgP05uupXtpJvEfLyhyV6iCxIzgv68V9EEiImKcpzmw5xwGg3UQcbpBvP9jCWMS-8b4kZadIpWmaaMh4SfHTTN0QMbqAlNyRk2HcuxfMnLScDS8Eo0siM3CgZHmVzCtsEac3FKv8jJJ7x7oaFYwzjCSU7AZy02yQNekUTWKHghsaDgb3UzaC7jpNCwRYYDmsaAWxpAHKevZ8jWjkd0vL1dpk1Q9Hy3TBF8ggTn-R2JUC4Anr8JFNEk8W6s2cS3NTUXnL0S78aYO3emoQayEg9K11TZ3OGW0HgtvBVLwsp1uJU1eEa2U_nOMzSV7-G7FYuk4TnSbGS4httEmjr6TJ_VkaIo-l-RoK_8GeevVay56Rv-XRNLt0f2THuvV5d5ZzkTvd0nwt9oQC5Efd835-dWzUe2rvWLTn1zpM1aojEWZIv3Z8HxzGoEfdvxdadXsIzXzrJYPXEW1ILm3PbtRtCZ6v7E6BW0JrrlVhmCTsxxtkZSreCw7VKBJjF8l3b5SfVv35ZKhL0IDwMWoxknUA6aYb5iKZqxbI9YhJ4eK0OIaCq34Aovle_fL2SMa5kvJBA02qM554y3XM2WKysg4AOLKVTMeKkOEVssq58FiX6FVQnc-1BFTwmGMnEaooVgHMfSK8CCsrSlaP-j4r-WGV3LLCAT2S_B0AtZ5QUVpEVwwP8ZNnm-oQI9ynNJOi-KLEsokc268HV_acSzBNYYCAfvJ-LXC8b4zMgFy5p2ysSEDDQtcjjz8hx9JmLL-GuLr2vA_4RTWXGZ3CR4Tdk2IWF8WkByMQH9Ok9dB9ZFkO5qdAO8vpCEwFWAFsGahAWcvzF6gIRQxNnmEpzEnJyWbEvDBI1qlcrZqdJBTwWHwzGvkm5xrDMHkoTqCpwke_RCxRotC0PTx89kJ8AgiLxe8hJridiHw3miQzJcwRwGa0R2QQItfSN_lOfAUjkeL2mjbtppZ_zedna6nZtJfN5n5B3J7SbVc4BojqbGFM1TeeOG7-jjD9VlaB-j6WcahhZs8yFOBMowhxkhSQ_J-AjJ_G8k2Lflj9RFw-FvMtVqbOglUI91oxrbNWC2AasNtMd2CTjV2Knso9o-ksDPpfIXgZ32E3KoDU7LYLYNn9kJ193KUOc2rh3dtrTRttQSNcWoCrZa46aacTmus6-KM-rcRtVYq_lalVPTYbPlYbUUmn7UqTlXcwOG-1QQuO3kAf3uqAPf6rA73TCP6YphOCXCi2MKNJsG1ZPVpHs9ead7Wk7pxWviymL0Wsxei9VrsXsto16L27wIr-Bx9Xi7rkPrdoY2dONGD2724FYPbtcvp2t41A073bDbDY87YVh3nbDeDRvdsFnDiqpsCN9gGireQTn9r4H_PiGJcJEI5agquBBssU8DxTu9_5UiC4F5RzEs1E0JHv8GHm4drg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 PM-080-070_Manage_Order_Acknowledgment_Process — PM-080-070_Manage_Order_Acknowledgment_Process
@@ -724,10 +684,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVtv4jgU_itWqopZKWhzJWkedgSBSCvtTKuhs6vVMA8mOQarxs7aTinD8N_HJuHa9ml5QD2fv4vPSU_YOqWowMmc29st5VRnaNvTS1hBL0O9OVbQc1EL_I0lxXMGqmc5RHA9pT_2ND-qXyzNYgVeUbax6BQWAtDXP100NELmIoW56iuQlPTcXi3pCstNLpiQln0DKfHIPq07GglZgTwRPC_xy9hIGeVwgsMkSqLC6hSUglcXpiQmKSl7O3s5JtblEku9v36j4BN--YdWemlqgpkCw1nqFfsLz4HZHrVsLFY28vkwDKpsDjcDm9a4pHxh8MgzkMT86QTF3m6Hdre3M34MRY_jGUfmUzKs1BgIUtrAk2eNCGUsu4nyYRF7rtJSPEF2E0yScRi4pe0kM617rh1ufw10sdTZXLCqo_bXtocsqF9c-ZIFnis35vsqC3h1SsoHQRqkx6RR4ud-fkgihPyvJDNX-YjVU5c1CYugGB-z_HgQ595rv0Ob4ygZ-tdzAvlMSzgzLYoinJxGNRnEvve-6agIB15-ZbrAGtZ4czK8y6OjYREnhZ-8a9jmXd-ymT9IUR4Mw0lcxEfDZOQXw-Bdw2joR2l3Q-OzkLheolGzAfn7A8Ocg2zP7If7377NHIIzgvulWCAbCkqhe7sraFg-cbFmUC3MvnI9c75_P5MGRvkFSqDP8C7_jB4a-sM9mr46iMzBJ2HeFUJ2PlONdaMuWbFlYY4Xr8Ns1uHml6KBEeUSzNNBmFfH7h4aabZIdU6XksRI2oBccELlCmsqOPpwn_-Gum6rS0W63Z5GWEF_bra3XF4Pw4j_a6iE6uPM2e3O5HenJ0DMdoDsixo4ejQuakV1160WaNrUNaP7-3bxZg_bP_gA9ft_GK-uvGvLsCvDtky7MrXlz5nzL5hx_TQtd3jS0oKuDNrSv1J9FntR1MF-y4rP_oEteLZmFyfh8UV1AUdvw_Hb8OBtOHkbTg_reYHeHXbMcZ0VmMdMKyfbOvufJvPzVQHBDdPOznVwo8V0w0sn27_CnaaujN-YYrNZqxbc_QJYcTbm" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.8 PM-080-080_Monitor_Order_Status — PM-080-080_Monitor_Order_Status
@@ -802,10 +761,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2PozYU_SsWo1FeiMo3GR5aZUioRup0R5Ntq2rTBwcuwRpiqG3y0Wz-e-3wkYFl-rDNA4qP7znH99q-cNbiIgEt0O7vz4QSEaDzRGSwg0mAJhvMYaKjGvgdM4I3OfCJikkLKlbkn2uY6ZRHFaawCO9IflLoCrYFoN-edDSXxFxHHFM-5cBIOtEnJSM7zE5hkRdMRd_BLDXSq1sz9ViwBNgtwDB8M3YlNScUbrDtO74TKR6HuKBJTzR101kaTy5qcXlxiDPMxHX5FYdnfPyDJCKT4xTnHGRMJnb5L3gDucpRsEphccX2bTEIVz5UFmxV4pjQrcQdQ0IM07cb5BqXC7rc369pZ4o-L9YUyV-cY84XkCIuJLzcC5SSPA_unHAeuYbOBSveILizlv7CtvRYZRLI1A1dFXd6ALLNRLAp8qQJnR5UDoFVHnV2DCxDZyf5HHgBTW5OoWfNrFnn9OiboRm2Tmma_i8nWVf2GfO3xmtpR1a06LxM13ND41u9Ns2F48_NYZ2A7UkM70SjKLKXt1ItPdc0PhZ9jGzPCAeiWyzggE83wYfQ6QQj149M_0PB2m-4ymrzwoq4FbSXbuR2gv6jGc2tDwWduenMmhVKnS3DZYaUWsXktaMCzbfyWc-rHzW_rLUUBymeqnKj50Le24Khl09oJbCo-Fr761201Y9-hT2Bgwp-ErBDCxCY5BxhmqAww3QLA7o9braqyjInEpjHbzW5oClhOyxIQQcSTl8izEByFjK_a3aRvCP9eHdomZD0hF5e0YGIrFlln-FJRohpDDn6xMiWUJyjl4rJq8dBIrKP9ON9Gf8KMZA9oGd5FlSDqmuwqo_bIIOZ0mcgI69BanOA8_-0eDif2yxUh51uZI-IMwTHOK-49P25PoJr7XJ5v7XGOO2J8wr4D9ceLNPk6CmRtSMpgeSnoYT5kQRaHgkXskep3X-FvyvCRujWh3TZxze45uawx1R8w7XHufOyZMV-xMv5viK530fzvnQHK5V9Ddi0KIF252u4mc1uyuZZ_6EzNJ3-KHe2GT7Uw6ZhUbMeWs3QamaNdtpQwNe19mux1r7Ke9XiZh_3Gtyp-X4ztOuh07KsPst0mwm3sbWHtn-qM60izaFxN2MNxbuZzrZZVetm2oNldIFev1Zmuy5vyOw83HctVVWzfZX0YGsctsdhZxx2x2Gveyf3YH8cno3DD-27pZ-NMQ6b47A1DtvjsDMOu-Ow176rNF3bgWzYJNGCs3b9xJOfgQmkuMqFdtE1XIlidaKxFlw_hbSqTKTggmD5htrV4OVf2uI2_g==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.9 PM-080-090_Resolve_Order_Issues_with_Supplier — PM-080-090_Resolve_Order_Issues_with_Supplier
@@ -846,10 +804,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuO2jAU_RUrI5RWClKehGZRCQKRRup0UJm2i9KFSWywMHZkOzyK-PfaJIRHh1WziLgn53F9sX2wcl4gK7E6nQNhRCXgYKslWiM7AfYcSmQ7oAZ-QEHgnCJpGw7mTE3JnxPNC8udoRksg2tC9wadogVH4PuzAwZaSB0gIZNdiQTBtmOXgqyh2KeccmHYT6iPXXxKaz4NuSiQuBBcN_bySEspYegCB3EYh5nRSZRzVtyY4gj3cW4fTXOUb_MlFOrUfiXRC9z9JIVa6hpDKpHmLNWafoFzRM0alagMlldicx4GkSaH6YFNS5gTttB46GpIQLa6QJF7PIJjpzNjbSh4G80Y0E9OoZQjhIFUGh5vFMCE0uQpTAdZ5DpSCb5CyZM_jkeB7-RmJYleuuuY4Xa3iCyWKplzWjTU7tasIfHLnSN2ie86Yq_fd1mIFZektOf3_X6bNIy91EvPSRjj_0rScxVvUK6arHGQ-dmozfKiXpS6__qdlzkK44F3PyckNiRHV6ZZlgXjy6jGvchzH5sOs6DnpnemC6jQFu4vhp_SsDXMojjz4oeGdd59l9V8Inh-NgzGURa1hvHQywb-Q8Nw4IX9pkPtsxCwXALjVgl97JgCg4V-19_Nw7xfMwvDBMOuGTeYcKlAyhkmYg0V4Wxm_b5i-7fsb0hyukFg8toViOo5FOBZygrJW1XwoZWVVE_qK1cEk_zkrz1yRDao0JKPV5rwTnPd0yNNdNFIxcuml3OX9-yeJr_wguA9mFRCnyyJwKu5Jtrm9VavfzAfdLufdUBTenXpN2VQl72mDOvyevMZyXk738D--3DQHukbOHwfjppDeQP2Wq7lWGukR0cKKzlYp_tX39EFwrCiyjo6FqwUn-5ZbiWne8qqykL_lyMC9fZZ1-DxL5Wu3s4=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.10 PM-080-100_Modify_Purchase_Order — PM-080-100_Modify_Purchase_Order
@@ -928,10 +885,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltvozgY_SsW3SgzEqm4k_KwqzQJo0rTiyadWa0m8-CASbwFjGyTNpvJf187mAQo0Wp381DV5zvnfBeDzV6LSIy0QBsM9jjHPAD7Id-gDA0DMFxBhoY6qIBvkGK4ShEbSk5Ccr7Afx1pplO8SZrEQpjhdCfRBVoTBL7e6WAihKkOGMzZiCGKk6E-LCjOIN1NSUqoZF-hcWIkx2wqdEtojOiZYBi-GblCmuIcnWHbd3wnlDqGIpLHLdPETcZJNDzI4lLyGm0g5cfyS4bu4dvvOOYbsU5gypDgbHiWfoYrlMoeOS0lFpV0Ww8DM5knFwNbFDDC-VrgjiEgCvOXM-QahwM4DAbL_JQUPM-WORC_KIWMzVACGBfwfMtBgtM0uHKmk9A1dMYpeUHBlTX3Z7alR7KTQLRu6HK4o1eE1xserEgaK-roVfYQWMWbTt8Cy9DpTvzt5EJ5fM409ayxNT5luvXNqTmtMyVJ8r8yibnSZ8heVK65HVrh7JTLdD13arz3q9ucOf7E7M4J0S2OUMM0DEN7fh7V3HNN47LpbWh7xrRjuoYcvcLd2fBm6pwMQ9cPTf-iYZWvW2W5eqIkqg3tuRu6J0P_1gwn1kVDZ2I6Y1Wh8FlTWGzAU0nFgyOar3D5y83vSy2BQQJHcsxAJkSMgadHMCkKSrYwXWo_GnyrzX-meL2Wukcw3cB8jS7I7LbsHuYlTNMd-FrEYmxHOckTTDPIMcnbWqet_YIijpOd0LRp7vcTLyLr2rlpy8BdXsmaOq9XV88KPMoTA3wW5wO44yjriP0PJ3GRwl3VSJZhLstEeItikFCSgUVZFCkWk9d-fGzIx2c546QADwRMIlkqeEAoRnGHfiPYz-JcYDJBVRgnTe_mxhr7_bmvGI1WQhhtwB0D4uhtbNg3mJYIfKJItC38BAh-sdwXQKhpDMCH1w2ONmgrQpgBcfQg-hFAdn19vdQOh2Y-sz8feovSkolJfKrej67M6pc19-08y9-6artffU_i4yPS2sR3Yqdf3Hj2wYJDXrKu0P2n0U7kjkTyZgMJod1X410h3n8bnf9vZeLMrv7JXTAa_Srnp9a-WltqbRoS-LnU_kCi-5_ivVcBSxHNmmgqoF6rpVOvLWX0QI4-dhevE7gqYHcqM-0O0esGlPO4W7rCz6V6lfVNvXYUsdoX-bZJutcNf0F_iiNHhU991RNTp3buqLVfE9xO3e8jdYF1RlWf6TYuAjnR-gJswVY_bPfDTj_sNq_CVsS7GPFPnxkteKy-CFrgTT9XbJG6Lduw2Q9b_bDdDzv9sNsPe_2wX8OarmVInEM41oK9dvxoFR-2MUpgmXLtoGuw5GSxyyMtOH7caeXx_phhKO7crAIPfwOXhHZU" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.11 PM-080-110_Cancel_Original_Purchase_Order — PM-080-110_Cancel_Original_Purchase_Order
@@ -1053,10 +1009,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWO9v6jYU_VesPFVsEmhxfpDAh000kKrae68M3vY0ve6DmzhgNcQscWhZH__7rkkcSEharUNVpRz7nHvv8bVxeNECHlJtrF1dvbCEiTF66Yk13dDeGPUeSEZ7fVQAf5CUkYeYZj05J-KJWLJ_jtOwtX2W0yTmkw2L9xJd0hWn6PfbPpoAMe6jjCTZIKMpi3r93jZlG5LuPR7zVM7-QN1Ij47RyqFrnoY0PU3QdQcHNlBjltATbDqWY_mSl9GAJ2FNNLIjNwp6B5lczJ-CNUnFMf08o5_I81cWijU8RyTOKMxZi038kTzQWNYo0lxiQZ7ulBksk3ESMGy5JQFLVoBbOkApSR5PkK0fDuhwdXWfVEHRl-l9guATxCTLpjRCmQB4thMoYnE8_mB5E9_W-5lI-SMdfzBmztQ0-oGsZAyl631p7uCJstVajB94HJZTB0-yhrGxfe6nz2ND76d7-N-IRZPwFMkbGq7hVpGuHexhT0WKouh_RQJf0y8keyxjzUzf8KdVLGwPbU-_1FNlTi1ngps-0XTHAnom6vu-OTtZNRvaWO8WvfbNoe41RFdE0CeyPwmOPKsS9G3Hx06nYBGvmWX-ME95oATNme3blaBzjf2J0SloTbDllhmCziol2zXyeCbQJAh4ngiSiGJUfhL7270WkXFEBtJsJMPSLEPLfLuNGQC3yY6DYSjiKVrQgLIdDdFvOYgwsb_X_jqTGr4hNSf7DYXgNZL7rWIFfIVuaEJTsBPNFksVGwjnDGz8UFEywbdonqewKzKK7uQWRx5JAhrTEGg_ntMcYKlqVCX1XIzRy8spmZAOHmAnBmtEn4M4z2D-TbHQ99rhcEYz9f9Kgx3UWCBVQ3qecd3PBQ1zSH1-V9mPBEefiIBQN4ufbhcdy2K0L8vN4jPyubIrJoLxBPmUoo9wINYVzLrCFNyFFapsX9C_c5YxKVDnWa_ziuX6ysSa5-Iij6yu5dT7RGndHdPNEElCNAnDzmrOpUan_tnGsG2ndCPp3pokK4puQ-hRFrHLBtIbvKqxpyksclIKZOfNVePj1_v2NkO_0q1ossxj28L22xRF3UWy6qLOAllebCosnZ9tCIuPg7JPpmBXugEzEHz9vmU2lqeCx5OIqajwB1Hbtw0eVtGqEwLmvxXDbd813poGj-gWqlwglsHJlexoKkASipjf_dLYe3j0mgo7eqUsUOvV1DD01zTkwXfDeViu61Zc0PFb9Nqp0yJgdAicrbFsZTi_oT_kpelCwWxXmMOlAC5L5fEwhy8B8FFmBK5caFjvOvwMu50mz-9qg1zEGr4vlvM-mvvu8zkZocHgZ9ms5TN2JfD9XvtT9vN32YDliGGUI595MYCbA4pimGrErFMMS0Upop6ezRKwm8wqDTVQTFTpuiWvSrKsZ6iEncaEYfFs6s16VYqKaaiZ5bNVClXKozpRlWLoTTeq1HGdoWq1S2VHzbObCs0BtQKKgfVSQtlilL5gFQOrIHozTVW308yyil6NlBao59JaXK22AqpVLQm48qz01FAVmWXiuAKayzNqZuOeXSVlI6krdA022mGzHbbaYbsdHrbDzvnVuzbido6MqteaelF6B47LV5M6arSiZoeG1YHbHfiwA3c6cFe9LdThUSsMXdgK43bYaIfNdthqh-12eNgOO-1we5VGe5VmVaXW1zZwSyEs1MYv2vF3AvgtIaQRyWOhHfoayQVf7pNAGx_fp7V8GwJzygjcojcFePgXaaUgOg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.12 PM-080-120_Determine_Alternate_Materials_and_Approaches — PM-080-120_Determine_Alternate_Materials_and_Approaches
@@ -1155,10 +1110,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVuPozYU_isWo1FeiMQ1UB5aJSSsRup0R820VbXZBweOE2scw9omk2w2_702kAtp5ml5sDifz_ediziHg5WXBViJ9fh4oJyqBB0Gag0bGCRosMQSBjZqgb-xoHjJQA6MDym5mtPvjZsbVDvjZrAMbyjbG3QOqxLQX082Gmsis5HEXA4lCEoG9qASdIPFPi1ZKYz3A8TEIU207mpSigLExcFxIjcPNZVRDhfYj4IoyAxPQl7yoidKQhKTfHA0ybHyPV9joZr0awnPePcPLdRa2wQzCdpnrTbsd7wEZmpUojZYXovtqRlUmjhcN2xe4ZzylcYDR0MC87cLFDrHIzo-Pi74OSh6nS440k_OsJRTIEgqDc-2ChHKWPIQpOMsdGypRPkGyYM3i6a-Z-emkkSX7timucN3oKu1SpYlKzrX4bupIfGqnS12iefYYq_Pm1jAi0ukdOTFXnyONInc1E1PkQghPxVJ91W8YvnWxZr5mZdNz7HccBSmzv_1TmVOg2js3vYJxJbmcCWaZZk_u7RqNgpd52PRSeaPnPRGdIUVvOP9RfCXNDgLZmGUudGHgm282yzr5Yso85OgPwuz8CwYTdxs7H0oGIzdIO4y1Dorgas1Mmq10GPHFRqv9Nnem4e7XxYWwQnBQ9Nu9FToa0r2aMwUCK5LQ_O6qhgFIRfW1yui1yfOgUGu7tD6LL_PSgUY35da6C9bAvoTvtVUUkVL3ucFmvcCgpRic-2ExlUlyi1mTY0gb3IMNSvFPAeGPgu6otw4nmJ9Niuh7z86HE7pmU02XOpZzNcX7vMzepqi1xJNTKrNToHit4V1PF6JRPdFYJezWtItfGq_lxtW_OXcGaLnBMSwrICjKeh-bvSSuurssz7MFpQI86LtAM7XYGrvitEz2r7wEA2Hv-rCOtNtTa8zvdaMOjNqTb8zR8b8sbD-NdI_NPkG_6Ns4LiD_ZYddGbc024-bhP_NNQ92LsP-_fh4LzvenB4Hx6dBrSHRnfR-DR7lm1tdN8xLazkYDW_LP1bK4DgminraFu4VuV8z3MraVa7VVeF1ptSrCdu04LH_wCxSkJ9" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.14 PM-080-140_Verify_Requirements_and_Terms_with_New_Supplier — PM-080-140_Verify_Requirements_and_Terms_with_New_Supplier
@@ -1257,10 +1211,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVdtu4zYQ_RVCQeAWkLG6Wq4eWiiytS2QZoM63cVi3QdaGtpEZFIgKV_W8b-XlGQ71iZPqwdBPJxzzsyAQx2snBdgxdbt7YEyqmJ0GKgVrGEQo8ECSxjYqAU-Y0HxogQ5MDGEMzWj35swN6h2JsxgGV7Tcm_QGSw5oH__slGiiaWNJGZyKEFQMrAHlaBrLPYpL7kw0TcwJg5p3LqtOy4KEJcAx4ncPNTUkjK4wH4UREFmeBJyzoorURKSMckHR5Ncybf5CgvVpF9L-BvvvtBCrfSa4FKCjlmpdXmPF1CaGpWoDZbXYnNqBpXGh-mGzSqcU7bUeOBoSGD2fIFC53hEx9vbOTuboqfJnCH95CWWcgIESaXh6UYhQssyvgnSJAsdWyrBnyG-8abRxPfs3FQS69Id2zR3uAW6XKl4wcuiCx1uTQ2xV-1ssYs9xxZ7_e55ASsuTunIG3vjs9Nd5KZuenIihPyUk-6reMLyufOa-pmXTc5ebjgKU-dHvVOZkyBK3H6fQGxoDq9Esyzzp5dWTUeh67wvepf5IyftiS6xgi3eXwR_S4OzYBZGmRu9K9j69bOsF4-C5ydBfxpm4VkwunOzxHtXMEjcYNxlqHWWAlcrZNRqoceOKZQs9bvdNw9zv80tgmOCh6bd6JFLhVLOCBVrrChnc-u_V9HeL-dwqXiFJjVj-pyie1BKs5_02ZVrqr8Lzfv1FdHvET9yXqB_IAdaqcYUCkQZmiWPaPYh-DN5SHoCgeanAnSvEWZFUxJIiR5roWdCAvpkBvw62fBwOHmae2m40NnlK5Tkz4xvSyiWTUc-JLOHNpMNFH_MrePxlcTobYnZilZNN9_jRW_zYJeXtdSEj-2ZubD0VLUfzEXD4e_auVtG7dLrliOzfJlbD3xuvejdHvwVZIP7HR728G4gWNCqhr2wa9XmQJqEToN4BXvdTXAF-m-Bwfl-uoLD0-RcoaM30eiEWra1Bn00aWHFB6v5l-j_TQEE16WyjraFa8Vne5ZbcXPnWnVVaOaEYj0K6xY8_g9UdB7q" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.16 PM-080-160_Manage_Advanced_Shipping_Notifications — PM-080-160_Manage_Advanced_Shipping_Notifications
@@ -1363,10 +1316,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduO2jAQ_RUrqxWtFNRcCeShEgTSrtStUOnlofTBJA5Y6zip7SxLEf_eMQmBUPapPETMmTlnLhk7eyMpUmKExv39nnKqQrTvqQ3JSS9EvRWWpGeiGviOBcUrRmRPx2QFVwv65xhme-WLDtNYjHPKdhpdkHVB0LcHE42ByEwkMZd9SQTNemavFDTHYhcVrBA6-o4MMys7Zmtck0KkRJwDLCuwEx-ojHJyht3AC7xY8yRJCp52RDM_G2ZJ76CLY8U22WChjuVXkjzilx80VRuwM8wkgZiNytknvCJM96hEpbGkEs-nYVCp83AY2KLECeVrwD0LIIH50xnyrcMBHe7vl7xNir5OlxzBL2FYyinJkFQAz54Vyihj4Z0XjWPfMqUSxRMJ75xZMHUdM9GdhNC6Zerh9reErjcqXBUsbUL7W91D6JQvpngJHcsUO3he5SI8PWeKBs7QGbaZJoEd2dEpU5Zl_5UJ5iq-YvnU5Jq5sRNP21y2P_Aj61-9U5tTLxjb13Mi4pkm5EI0jmN3dh7VbODb1uuik9gdWNGV6BorssW7s-Ao8lrB2A9iO3hVsM53XWW1mosiOQm6Mz_2W8FgYsdj51VBb2x7w6ZC0FkLXG6QVqsEHDuu0HgNz9qvf9z-uTQyHGa4r8eNHlJw02yHvpDfFa05Eo0Z7B7sY0cpwiJF3yRek2XlWNZqafy60HW6uvNKwO5KOMPylk6X63a540ptCgH3A4rmUZ32I6wSEV2W97OlJcUaPWIOpaF5_0g45ZfAuST5b1pSyeAlPiiSo8-EpCRFqkAr0jJ1jW8vmAMgtl09wg7oi0kizFO0qNdMdusLgDCBs40WCqKPrS_0u-gEDSFoxvXViOZ4l__jH4H_w6d3USFhcOCF8SxKOJLwjhJVYQZTuhqmbe33pxaxEMVW9jFTqMQCM0bYh3p7l8bhUJNArP7DfdTvvweBxrRr021Mp_FaJ7dVA15je7UZNGZQm6PGHNXm8Io8aGy3Np2Lk6ELON0IHdi5Dbu3Ye_yEuh4_PYa7cCD23BwGx7ehke3YWi7uT0M08iJyDFNjXBvHL-R8B1NSYYrpoyDaeBKFYsdT4zw-C0xqjIF5pRiOOJ5DR7-AorgYDs=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.18 PM-080-180_Create_and_Maintain_Internal_Catalogue — PM-080-180_Create_and_Maintain_Internal_Catalogue
@@ -1433,10 +1385,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4jgU_itWqopdCTS5EpqHXVFKVpU6VVW2M1qVeTCJA946dtZ2aFmG_77H5AKhdB5m8wA6n4-_79xiZ2slIiVWZF1ebimnOkLbnl6RnPQi1FtgRXp9VAFfsKR4wYjqGZ9McD2j_-7dHL94M24Gi3FO2cagM7IUBD3d9tEYNrI-UpirgSKSZr1-r5A0x3IzEUxI431BRpmd7dXqpWshUyIPDrYdOkkAWxnl5AB7oR_6sdmnSCJ42iHNgmyUJb2dCY6J12SFpd6HXyryGb99palegZ1hpgj4rHTO7vCCMJOjlqXBklKum2JQZXQ4FGxW4ITyJeC-DZDE_OUABfZuh3aXl3PeiqK7xzlH8CQMK3VDMqQ0wNO1RhllLLrwJ-M4sPtKS_FCogt3Gt54bj8xmUSQut03xR28Erpc6WghWFq7Dl5NDpFbvPXlW-TafbmB3xMtwtOD0mTojtxRq3QdOhNn0ihlWfa_lKCu8k-sXmqtqRe78U2r5QTDYGK_52vSvPHDsXNaJyLXNCFHpHEce9NDqabDwLE_Jr2OvaE9OSFdYk1e8eZAeDXxW8I4CGMn_JCw0juNslw8SJE0hN40iIOWMLx24rH7IaE_dvxRHSHwLCUuVui63BD56YFhzoms1szDnee5leEowwNTavRUMIFTdMs1kRwzdKtJjiZYYyaWKBMSTSSBXD89FSn8za1vR1Rul-qhXDCqVhXFHVkThiYwCRInGn0V8kXBfJ8weF2GSgs9kn9KqqimgqPFBj0peCvQuCikWJO0CU51mUa_tFQFg8acT6gSSGHrr0d7rw57lRZFR__8DsdUsSGlCt3R9Ulmjr_dNqTmgBws4BVPVoi8JaxU4P5HNUFza7ertsE7dtLCRmCc5nCyQvexFset9J-fDxLLfdhE6bpSkLrIDp2UIt_XxPQkz0VK9QZ9xhwvYTisb8eRB0B6LzTNNmhWFgWj0Bi8EKVuyR7J3yTZVyctCdICfcGMwngY5LGEA75biiEQPpKEQNItRUwZQZRXU4pm4wdzxi8wuif6FUalSxCe9HbfEyOGeQpJUEiLw2iZfNu2N0K3cCVR00EE_k0-PYWm_F1PbdPT2xgJM8rQq-OUq9cEWOiB5UchO-759rctbaYZ5vtdQ34_DEVF5v30LHEfDQa_mXhq26vsq9oc1cu16bjG_j63_jJN_G7GuFlxKk-vsRvidmtlNzpuvdzsH1Z2S2dX9rC2w9q9pa_jdOpzkgenDk2k92IfaHB0nppgmnukA7vnYe887B9fHZ2VsL18O_DoPHxVX5_dCO3zzlDn87jb3Dld2DsP-w1s9a2cyBzT1Iq21v47DL7VUpLhkmlr17dwqcVswxMr2n-vWOX-oL-hGM6gvAJ3_wETmyV1" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.19 PM-080-210_Vendor_Managed_Inventory_(Pay_Upon_Receipt_OEM) — PM-080-210_Vendor_Managed_Inventory_(Pay_Upon_Receipt_OEM)
@@ -1503,10 +1454,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4jgU_itWqopdKWhzJTQPK1Egq0rDFMFu52G6DyZxwGqwI9uhZSv--x7nBsnAvEwekM53vvOdC_ZJPo2YJ8QIjfv7T8qoCtHnQO3IngxCNNhgSQYmqoAXLCjeZEQONCflTK3pfyXN9vIPTdNYhPc0O2p0TbacoH-eTDSBwMxEEjM5lETQdGAOckH3WBynPONCs-_IOLXSMlvteuQiIeJMsKzAjn0IzSgjZ9gNvMCLdJwkMWdJRzT103EaD066uIy_xzssVFl-IckCf3yjidqBneJMEuDs1D77gjck0z0qUWgsLsShGQaVOg-Dga1zHFO2BdyzABKYvZ0h3zqd0On-_pW1SdGX1StD8MQZlnJGUiQVwPODQinNsvDOm04i3zKlEvyNhHfOPJi5jhnrTkJo3TL1cIfvhG53KtzwLKmpw3fdQ-jkH6b4CB3LFEf47eUiLDlnmo6csTNuMz0G9tSeNpnSNP2lTDBX8TeWb3WuuRs50azNZfsjf2r9qNe0OfOCid2fExEHGpML0SiK3Pl5VPORb1u3RR8jd2RNe6JbrMg7Pp4FH6ZeKxj5QWQHNwWrfP0qi81S8LgRdOd-5LeCwaMdTZybgt7E9sZ1haCzFTjfockSaUEiJReVSz_M-f5qpDhM8VBPGr3gjCbQC3piBw5TejX-vSCPvrfsmG8bPTRfrS_4lwHj39oAqXjesNo0CfB_v-DbLvAb0orEhB5KTkWBU9dr6rE4kstu3G6Ba4jQOQlTXBxBMOdwczCAC8r-gPuKZljhXs1eV2MqiJ7HshBw7yRBz3qJ9EL8qyFPbMMLyDUjGbQhjr2g4DybPIOjs3pe_lAaWnBYoVyQBG2OaLZ-6c3rASQuuipDoGnV_dtsC2jL52sepxQo54zWO5rvgQIFK0wz-ZO5f8OC7DicGLTADG87_4HdPVGN-gJGote2LCtdV5dQ9srRsX-t0FeuaEpjrChn3arbUpiLhsM_YQK1-VCZtlPbXm3X94rZtV1vA-bXduO2KttvbKeyvcau40e1HVSmW5ujWq2x7bq6pppabXxxyXVJzXLrwM512L1cXB2Pd9Pj3_SMbnqC9kXSgcf1zu-AD9e5MMzruH0Dd27gbosbprEnYo9pYoSfRvn5AJ8YCUlxkSnjZBq4UHx9ZLERlq9Zo8j1fplRDAd2X4Gn_wHt86_O" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.20 PM-080-220_Vendor_Managed_Inventory_(Pay_upon_Receipt_Third_Party_VMI) — PM-080-220_Vendor_Managed_Inventory_(Pay_upon_Receipt_Third_Party_VMI)
@@ -1586,10 +1536,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v6jgQ_StWqopdKWjzSWgeVuIrq0qXW1Tu7X24vQ8mccCqsbN2QstW_PcdEwcIbfZleUDMmZkzM8fOkHcrFRmxYuv29p1yWsbovVduyJb0YtRbYUV6NqqBJywpXjGiejomF7xc0n-OYW5QvOkwjSV4S9leo0uyFgR9v7fRCBKZjRTmqq-IpHnP7hWSbrHcTwQTUkffkGHu5MdqxjUWMiPyHOA4kZuGkMooJ2fYj4IoSHSeIqngWYs0D_NhnvYOujkmXtMNluWx_UqROX77QbNyA3aOmSIQsym37AteEaZnLGWlsbSSu0YMqnQdDoItC5xSvgY8cACSmL-codA5HNDh9vaZn4qiL4_PHMEnZVipKcmRKgGe7UqUU8bim2AySkLHVqUULyS-8WbR1PfsVE8Sw-iOrcXtvxK63pTxSrDMhPZf9QyxV7zZ8i32HFvu4fuqFuHZudJk4A294anSOHIn7qSplOf5_6oEuspvWL2YWjM_8ZLpqZYbDsKJ85GvGXMaRCP3WicidzQlF6RJkvizs1SzQeg63aTjxB84kyvSNS7JK96fCe8mwYkwCaPEjToJ63rXXVarhRRpQ-jPwiQ8EUZjNxl5nYTByA2GpkPgWUtcbNBogTQhUUrI2qU__O7nz2crx3GO-6lYNyFo9rhE93wnQKhn69evOgFO_Yp0XO3JJZt7ItPnhp4woxkoc0F1ERy0S08k0aGLSsIFVwQ9kr8rqmhJBT-3cEwMP028H6MpYXRH5P4qfvDfhR70WrhKidopc5HRfI8WD2gBYz3M5mhZFQWjYEwEz6nc4k_6dN3fTiyqFEUjw0mXDBJ-v0zwIB6KLAkv21q5fu2557lAS1gAJEO5kNAYrFghYU1cxQcQP1p-BRVTAppkV-6wprtsvit0AKFN4x9CPl6J-eNC08LVZKx1N7z23TCSzkEGvc3hhyqPx3BZ2zkLWDB4vB4fFgjzDM0p_wPWLZriEjcagCKrPZoun86ifuyuObaLIsOrJ4BIEHZ7nGPBMOe1tp3z_oCz2AgYCSbgeN2i9tsjm4v3lxCZqqUsyo9Kwtmhfv9PuObGDmvTb9xebbuN33VqwDO2SR8Yc2DCG7frGyAwQGTsUwFTMDK2ib8z5p0Jb_jdpkBjG7OxTbtDYw5rM7jYdzqn2fMt2Psc9j-Hg8vV3vKEnZ5Bpyfq9Aw7PXedHjij5v-5jbvmv7SNeh3RfgcedOBhBz444ZZtbQlsAJpZ8bt1fC-Dd7eM5LhipXWwLVyVYrnnqRUf31-sqtCba0oxXP9tDR7-BdiaGJ4=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.21 PM-080_Purchase_Materials_and_Services — PM-080_Purchase_Materials_and_Services
@@ -1787,10 +1736,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -1808,10 +1756,9 @@ flowchart TD
 | MRP Controller | PM-080-220_Vendor_Managed_Inventory_(Pay_upon_Receipt_Third_Party_VMI),  | |
 | Supplier | PM-080-220_Vendor_Managed_Inventory_(Pay_upon_Receipt_Third_Party_VMI),  | |
 
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -1823,10 +1770,9 @@ The following data entities are derived from the system integration flows for PM
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -1881,10 +1827,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1927,10 +1872,9 @@ The Future-State architecture represents the **target** landscape for PM-080.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -2318,10 +2262,9 @@ The Future-State architecture represents the **target** landscape for PM-080.
 
 **Summary**: 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows
 
+
 <div class="page-footer"><span>Page 29</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -2333,10 +2276,9 @@ Integration patterns identified from the system flow analysis for PM-080:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 30</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -2360,10 +2302,9 @@ Platform landscape inferred from integrated systems for PM-080:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 31</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -2403,10 +2344,9 @@ Platform landscape inferred from integrated systems for PM-080:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 32</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -2435,12 +2375,12 @@ Platform landscape inferred from integrated systems for PM-080:
 | PTPI1529_IF | An interface to retrieve the list of approvers from a custom MDG table(MDG sy... | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Dec-25 (100%) | 4. Completed |
 | PTPI1458 | Develop an interface between PEGA and S/4 HANA system to transmit MSL informa... | Jul-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
 | PTPI1428_IP | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... | Jun-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Nov-25 (100%) | 1. On Track |
+
 *... and 358 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 33</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -2469,5 +2409,5 @@ Standard RAID items for PM-080 (Procure To Pay):
 
 ---
 *PM-080 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: March 2026*
+
 <div class="page-footer"><span>Page 34</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
-</div>

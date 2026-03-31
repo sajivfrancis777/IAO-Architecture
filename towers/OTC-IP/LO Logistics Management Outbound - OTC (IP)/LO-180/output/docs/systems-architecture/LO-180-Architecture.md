@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">LO-180 — Manage Outbound Transportation - OTC (IP)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **LO-180 Manage Outbound Transportation - OTC (IP)** within the IAO program. It includes 10 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Order To Cash (IP) (OTC-IP) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 4 Reports, 12 Interfaces, 18 Enhancements, 9 Forms |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Returns & Rebate Automation | Automate returns processing, rebate management, and chargeback handling | Revenue Assurance | Medium |
 | 4 | LO-180 Process Migration | Migrate Manage Outbound Transportation - OTC (IP) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Order Management (Intel Products) | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -217,10 +184,9 @@ This capability includes **10 business process(es)** modeled in BPMN 2.0, coveri
 | 9 | LO-180-150_Generate_Shipping_Documentation_-_OTC_(IP) | LO-180-150_Generate_Shipping_Documentation_-_OTC_(IP) | Load Planner, Warehouse Operator | 8 | 5 |
 | 10 | LO-180-170_Create_Delivery_Note_-_OTC_(IP) | LO-180-170_Create_Delivery_Note_-_OTC_(IP) | CBA Business Manager, Transportation Manager (Transportation Management), Warehouse Operator | 14 | 12 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -295,10 +261,9 @@ Created"| n11
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv2zYU_iuEgsAdIGe6Wo4eBtiyVQRdtiJO1oe6D7RE2URoUiDpOK7r_76ji29cNWCYHgx_5_KdG3mkvZWJnFixdXu7p5zqGO17ekXWpBej3gIr0rNRI_gLS4oXjKheZVMIrmf0e23mBuV7ZVbJUrymbFdJZ2QpCHp5sNEIHJmNFOaqr4ikRc_ulZKusdwlgglZWd-QYeEUdbRWNRYyJ_Js4DiRm4XgyignZ7EfBVGQVn6KZILnV6RFWAyLrHeokmNim62w1HX6G0Ue8fsXmusV4AIzRcBmpdfsd7wgrKpRy00lyzby7dgMqqo4HBo2K3FG-RLkgQMiifnrWRQ6hwM63N7O-Skoep7MOYInY1ipCSmQ0iCevmlUUMbimyAZpaFjKy3FK4lvvGk08T07qyqJoXTHrprb3xK6XOl4IVjemva3VQ2xV77b8j32HFvu4NeIRXh-jpQMvKE3PEUaR27iJsdIRVH8r0jQV_mM1Wsba-qnXjo5xXLDQZg4_-Q7ljkJopFr9onIN5qRC9I0Tf3puVXTQeg63aTj1B84iUG6xJps8e5MeJ8EJ8I0jFI36iRs4plZbhafpciOhP40TMMTYTR205HXSRiM3GDYZgg8S4nLFUo2Sos1kWi8UXDelUIjjtlO6cauerj79evcKnBc4H4mlugZTqEqwGVCGH0jcoe0QM-PHxKYpxQMfSK7X-bWt28XDN41Q0p0tkJ_yiXm9DvWVHA0g2uQ6Y0kwKoxZcpg8K8ZwIjINSSMUlmfIPQCSwWKoCyHy4GeNowYDEEnwwt63pUEfXh4TH9NnlIz-fDaMVmRDI6IgJZh-DOBEedQC-wQhTDP0UuZg-gqL4Nw0JXJbEVLNFoRnKMvlOdiazhGP8vkNIUxEwCfCFaCG47Da8efpAjFKKgDJtGOkcGAYShgt9wZbPddDZl8RI_gUK1hlFRHlhY0a-Z70RmweuB5pQAXyv-tU65jHJzLjLdwB9CCoEySegZbqleQMl4SGIRCJRQALxSIBSXIJotSCrg55O7uzgzkQpzPDPPmdJdC6toDzC6tPLBK6nDntv8hNDHM_P3-mDWWUmxVHzONSiwxtJV9bJbC3DocLp2C_-YEu7b5w13U7_8Gd6yFXgP9FvoNDI7GLR4YODJw2OKwge7Rf2DgyMBDA7ttOu265UELfSPefYvvTf_a4cfcujolvBlCPrd-VLMzuIYGdp2jwLlmr9dq1cCL5X-l8To1fqcm6NSEnZpBpybq1Aw7NfedGmhAp8o9fSpcy70OuX98u12Lg6PYsi14r6wxza14b9WfdvD5l5MCb5i2DraFN1rMdjyz4voTyNrU62FCMdzWdSM8_A1W0DgV" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 LO-180-050_Prepare_Delivery_Schedule_for_Non-orders_-_OTC_(IP) — LO-180-050_Prepare_Delivery_Schedule_for_Non-orders_-_OTC_(IP)
@@ -397,10 +362,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE1v4jAU_CtWKkQrJVI-CZvDShBIhbTdVqLdHkoPJrHBwtiR7RRYxH9fm4TPXU6bA-KN38w8TxxvrZwXyEqsVmtLGFEJ2LbVHC1ROwHtKZSobYMa-AUFgVOKZNv0YM7UmPzet3lhuTZtBsvgktCNQcdoxhF4G9mgp4nUBhIy6UgkCG7b7VKQJRSblFMuTPcd6mIX792apT4XBRKnBteNvTzSVEoYOsFBHMZhZngS5ZwVF6I4wl2ct3dmOMpX-RwKtR-_kugJrt9Joea6xpBKpHvmakl_wCmiZo9KVAbLK_F1CINI48N0YOMS5oTNNB66GhKQLU5Q5O52YNdqTdjRFLwOJgzoJ6dQygHCQCoND78UwITS5C5Me1nk2lIJvkDJnT-MB4Fv52Ynid66a5twnRUis7lKppwWTauzMntI_HJti3Xiu7bY6N8rL8SKk1Pa8bt-9-jUj73USw9OGOP_ctK5ilcoF43XMMj8bHD08qJOlLp_6x22OQjjnnedExJfJEdnolmWBcNTVMNO5Lm3RftZ0HHTK9EZVGgFNyfBb2l4FMyiOPPim4K13_WU1fRF8PwgGAyjLDoKxn0v6_k3BcOeF3abCbXOTMByDt6hQHOu4wTPJRJQcVE3mId5Hx8TC8MEQyfnMzDW7xcEfR-8PI7AmMwYpBPr8_OM4F8SelLqLs0zHyb4WS2nSFwxgvsjQypeXvY2AqjQpIczUqg5b2WhwwUj9oWYnnoDxgqqSgIHPL-m4H708qBJZ5xIc0x0SErwyHkhwUjKCgHMhabyfAGetN7e_JZEZ7s9zAqF4CvpQKpACQWkFNHH-l1PrN2u5ui06j8sAo7zXcfZlF5ddpqyU5fhZek3pV-XwdlBMApnx_Vixb-5EjSf5wUYHu-HCzj6N9w5HGjLtpZILCEprGRr7a9tfbUXCMOKKmtnW7BSfLxhuZXsrzer2r-tAYH61C1rcPcHtTjtXQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 LO-180-070_Plan_Transportation_-_OTC_(IP) — LO-180-070_Plan_Transportation_-_OTC_(IP)
@@ -481,10 +445,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuOmzAU_RWLUcSGSDxDyqJSAkEaqaOOlGln0XThGDtYMTayTR6N8u-18yCTVLMqC4QP555z78Hm4CBRYSdzBoMD5VRn4ODqGjfYzYC7hAq7HjgDP6GkcMmwci2HCK7n9M-JFsTtztIsVsKGsr1F53glMPjx7IGJKWQeUJCrocKSEtdzW0kbKPe5YEJa9hMeE5-c3C6vpkJWWN4Ivp8GKDGljHJ8g6M0TuPS1imMBK_uRElCxgS5R9scE1tUQ6lP7XcKv8DdO610bdYEMoUNp9YN-waXmNkZtewshjq5uYZBlfXhJrB5CxHlK4PHvoEk5OsblPjHIzgOBgvem4K3YsGBuRCDShWYAKUNPNtoQChj2VOcT8rE95SWYo2zp3CWFlHoITtJZkb3PRvucIvpqtbZUrDqQh1u7QxZ2O48uctC35N7c3_wwry6OeWjcByOe6dpGuRBfnUihPyXk8lVvkG1vnjNojIsi94rSEZJ7v-rdx2ziNNJ8JgTlhuK8AfRsiyj2S2q2SgJ_M9Fp2U08vMH0RXUeAv3N8EvedwLlklaBumngme_xy675asU6CoYzZIy6QXTaVBOwk8F40kQjy8dGp2VhG0N3qHEtTBxgu8tllALeSbYiwe_Fg6BGYFDmzd45kTIBuRQSoqlAoIDc2LBK0Xrrl04vz9UhqaywIxuTJlpuOqQvidEJ4LGsjGnDLyYrQ4EAW9mg6tWSA01NeoXp77S7K_zA4_AcPjVNHhZBudl-CEtC153yR0c9kfiDo562PGcxvQFaeVkB-f0TzL_rQoT2DHtHD0HdlrM9xw52ensOl1bme9cUGgibc7g8S8TFJeS" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.6 LO-180-120_Schedule_Shipping_Labor_-_OTC_(IP) — LO-180-120_Schedule_Shipping_Labor_-_OTC_(IP)
@@ -540,10 +503,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVdtu4zYQ_RVCQeAYkFFdLUcPLXwTECDdGHXaRbHeB1oaWURkUSWpOK7X_96hJV_kOkCB6sHGHM6cMzMckjsj5gkYoXF_v2MFUyHZdVQGa-iEpLOkEjomqYE_qGB0mYPsaJ-UF2rO_j642V75od00FtE1y7cancOKA_n9ySRDDMxNImkhexIESztmpxRsTcV2zHMutPcdDFIrPag1SyMuEhBnB8sK7NjH0JwVcIbdwAu8SMdJiHmRtEhTPx2kcWevk8v5Js6oUIf0Kwm_0o-vLFEZ2inNJaBPptb5M11CrmtUotJYXIn3YzOY1DoFNmxe0pgVK8Q9CyFBi7cz5Fv7Pdnf3y-Kkyh5nSwKgl-cUyknkBKpEJ6-K5KyPA_vvPEw8i1TKsHfILxzpsHEdcxYVxJi6Zapm9vbAFtlKlzyPGlcextdQ-iUH6b4CB3LFFv8vdKCIjkrjfvOwBmclEaBPbbHR6U0Tf-XEvZVvFL51mhN3ciJJict2-_7Y-vffMcyJ14wtK_7BOKdxXBBGkWROz23atr3betz0lHk9q3xFemKKtjQ7ZnwceydCCM_iOzgU8Ja7zrLajkTPD4SulM_8k-EwciOhs6nhN7Q9gZNhsizErTMyCuOlCy5UFQxXpBZTosCBHmYV2WZb8k4o6wgKRdkfpx6MmGowJaVDujWdPor_G_fFkZKw5T2Yr7CUIjfCEtJJA57TF70OSMP0UuXMEnGArA5CUHqL1wtjO_fL6gGyKTrBCnJBHL2DqjLU_KMR5I8KVhL8vA062LURdAjBtWs5xikBpTkYkNF0r0RZFu73TnrBHpLbEic_aekf1kY-33NhZN_1divVEDGcU7JSwmCKi4uVU-d0oNMfoMYMF_ijmwHjb8qkKqdptMOmMcZJFUOZJ6xssTbgOB1wivRDnKvgtC3rqft5rXdZgy37Scyo_h3w7vf3uU5Vt7KmzwVOC7repwUJ65IkEuoLXnmK5wcFstzb662PXg4cUvFy3Z156oTDOte9b3wSa_3s97PxrYtDfxYGH-CXBg_MPFmod84NqZTm94xrDadxnRrM2jMx9r0rzW-8IPEoMG92s29OLya-XhptWDnNuzehr3bsH95fbVW-p-uBM113QIHp_eiBT_ehrH-5oYzTGMNuOssMcKdcXjH8a1PIKVVroy9adBK8fm2iI3w8N4ZVZlg5IRRPC3rGtz_Ay2gk7s=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 LO-180-130_Coordinate_Transportation_-_OTC_(IP) — LO-180-130_Coordinate_Transportation_-_OTC_(IP)
@@ -636,10 +598,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV2Fv4jgQ_StWVhU9CXpJSEjIh5NoaE6VWm21bW-lu94HkzhgNbEj25SyiP9-45BAcROdbg-pqPOYeTNvPB7Czkp5RqzIurjYUUZVhHYDtSIlGURosMCSDIboAPyBBcWLgsiB9sk5U4_0R-3meNW7dtNYgktabDX6SJacoOfbIZpBYDFEEjM5kkTQfDAcVIKWWGxjXnChvb-QMLfzOlvz0TUXGREnB9sOnNSH0IIycoLHgRd4iY6TJOUsOyPN_TzM08FeF1fwTbrCQtXlryW5x-_faaZWYOe4kAR8Vqos7vCCFFqjEmuNpWvx1jaDSp2HQcMeK5xStgTcswESmL2eIN_e79H-4uKFHZOiu28vDMErLbCUc5IjqQC-eVMop0URffHiWeLbQ6kEfyXRF_cmmI_dYaqVRCDdHurmjjaELlcqWvAia1xHG60hcqv3oXiPXHsotvBu5CIsO2WKJ27ohsdM14ETO3GbKc_z_5UJ-iqesHxtct2MEzeZH3M5_sSP7c98rcy5F8wcs09EvNGUfCBNkmR8c2rVzcR37H7S62Q8sWODdIkV2eDtiXAae0fCxA8SJ-glPOQzq1wvHgRPW8LxjZ_4R8Lg2klmbi-hN3O8sKkQeJYCVyuUrFmqKGe4QDN420p1cNAv5vz1YuU4yvFI9xvFgoAe9FBgxmACEVQCdZAX6-8PMe55zD2mTMHfpyj0gAUuiSJCnhOMewhirAdfbdEjKUhdc3cB3r8VEHOp4LiVAsPI7ffEfq0ULWELCUjeFTfpibtlKS8rrOiCFlRRYoQFvVKFoHWyVml32vA8_rnK6vNZC9gFkqCvYokZ_YE1w3ng9DxwTiSw1356XywJ2sB8oQVB65oyA1ut0J9j6B2TdMmI0XPH7qwkEfXthkJgw6JrqClDkCJeYQY5gAsmtSi0UCXAf7k1WB2zTJiWErayQfy0rQi6vL1Pfo2_Jb8YHPpIT4H3sFMRz9ETbFJZcaEOotuGX37qvEmnT1pPkslw-Xksj4dmcgS7XasL0vGNHOFCoQruAzSj-P2wM16s_f5jUPgzQdOfCHLt_xYES9_YKXccZ4frRsTHaj6tBqZHzTwKnr5WVBktM5ZCvCIprGmuhwr-mdczWn-PI8wyFK-l4iUY3ynL-AbBlWon5hmePaSOvLq6MnIYi-OBCHAr65HnBc3Or9FRNRwnGo1-g74Z9tiwPcOeGHbQ2O7BdMLGHhu2Z9gTww4M22kdWrsx23xO2ABHAW0FRwXTAxAatmO3gN20wDY8po0dGp9PDdttCBzfaEpr-6aotivHrray2pRO26ePX_RaffvocAa73fC4G_a6Yb8bnnTDQTccdsPTbhg634336HR6hDo9Sp0eqY5_fLA8xyc9eNA-C53DYTc87YRhShrYGlpwvUtMMyvaWfXPBvhpkZEcrwtl7YcWXiv-uGWpFdWP19bhe2xOMWyo8gDu_wEKvfIU" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.8 LO-180-140_Record_Transportation_Information_-_OTC_(IP) — LO-180-140_Record_Transportation_Information_-_OTC_(IP)
@@ -686,10 +647,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduO0zAQ_RUrq1VBSkWuTckDUps20kosVHSBB5YH1xm3Vh072M7ullX_HadJr9An8hBpzpw5c_E4eXWILMBJndvbVyaYSdFrz6yghF6KegusoeeiFviGFcMLDrrXcKgUZs5-72h-VL00tAbLccn4pkHnsJSAvt65aGQDuYs0FrqvQTHac3uVYiVWm0xyqRr2DQypR3fZOtdYqgLUkeB5iU9iG8qZgCMcJlES5U2cBiJFcSZKYzqkpLdtiuPymaywMrvyaw33-OU7K8zK2hRzDZazMiX_iBfAmx6NqhuM1OppPwymmzzCDmxeYcLE0uKRZyGFxfoIxd52i7a3t4_ikBQ9TB4Fsg_hWOsJUKSNhadPBlHGeXoTZaM89lxtlFxDehNMk0kYuKTpJLWte24z3P4zsOXKpAvJi47af256SIPqxVUvaeC5amPfF7lAFMdM2SAYBsNDpnHiZ362z0Qp_a9Mdq7qAet1l2sa5kE-OeTy40GceX_r7ducRMnIv5wTqCdG4EQ0z_NwehzVdBD73nXRcR4OvOxCdIkNPOPNUfB9Fh0E8zjJ_eSqYJvvssp6MVOS7AXDaZzHB8Fk7Oej4KpgNPKjYVeh1VkqXK3QR4kLNONYCFCtq3mE_-PHo0NxSnGfyCX6WhW2E5TV2sgS5Qx4oRETKFe740Ofmyv06Pz8eSIxsArzFataJ3pzN3trGSeExBImYECV9qKhe7vtSFL0YHdcV1IZbJgU71CGlWJdPHqzt-bAgTSEo6ZdvovevmMFK2lXBX2uQGEjTzsMzjv8AgTYE6Bw7AfoHrTGS7hoKDyPmDGyfjfDZH1Bi85pc1tXq_oFftWgDboTVKpy1x4yEoXKHoC9oxt7FkumDSP6WPmFdvzPY5kAt6WrDfokzUnEYSAiQP3-B9tAZyat2d0AEbVm0Jlhaw4602_NuDPj1oxO9rLhnNyeM09w1RNe9URXPfFVz-DwnTuDkwPsuE5pNw2zwklfnd2Pxv6MCqC45sbZug6ujZxvBHHS3QfZqXeznTBsd6lswe0fmCcnfg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.9 LO-180-150_Generate_Shipping_Documentation_-_OTC_(IP) — LO-180-150_Generate_Shipping_Documentation_-_OTC_(IP)
@@ -764,10 +724,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm1vozgQ_isWVZWuRE5AIKR8uFNKQlWp3Uab7e5dN_vBAZNYdTCyTZtcNv_9xgTywpaT9o4PJDPPzDMvNmNvjZgnxAiMy8stzagK0LajlmRFOgHqzLEkHRPtFV-woHjOiOxom5Rnakr_Ls1sN19rM62L8IqyjdZOyYIT9HRnoiE4MhNJnMmuJIKmHbOTC7rCYhNyxoW2viCD1ErLaBV0w0VCxNHAsnw79sCV0Ywc1T3f9d1I-0kS8yw5I029dJDGnZ1OjvG3eImFKtMvJHnA6680UUuQU8wkAZulWrF7PCdM16hEoXVxIV7rZlCp42TQsGmOY5otQO9aoBI4ezmqPGu3Q7vLy1l2CIruP80yBE_MsJQjkiKpQD1-VSiljAUXbjiMPMuUSvAXElw4Y3_Uc8xYVxJA6Zapm9t9I3SxVMGcs6Qy7b7pGgInX5tiHTiWKTbwbsQiWXKMFPadgTM4RLrx7dAO60hpmv6vSNBX8RnLlyrWuBc50egQy_b6Xmj9zFeXOXL9od3sExGvNCYnpFEU9cbHVo37nm21k95Evb4VNkgXWJE3vDkSXofugTDy_Mj2Wwn38ZpZFvOJ4HFN2Bt7kXcg9G_saOi0ErpD2x1UGQLPQuB8ie45TtCE4SwjYg_pJ7O_fZsZKQ5S3I35AoWCQCUoEuVqoUf9xcyM799PPJxzj1sChNrnOXyaNkx7LaYhFoISgSaCoCEjQjX83DY_nknOaAL_EzRe5xy-g_AOpVyg6BZdPU_vph8aVF4bVSEVX_1LDv22Mv8M7xqm11cHUyDN0WOh8kKhByIlXhA0VVgVEj3l-7yvpkUcA4R01piyQhCd9IfTRbGAMOQwr2imY36GcSB1tVhRnqGrchlhNKBccNggRJroMVd0BeNTwP5WCjCJxir-TTOfEtvb7bGqhHTnwBwvEVnHrJD0ldzu9_HM2O1O3Zz33UJeZEps_mia9341CsyTxnb9igVZcvj6oTLdeH66af3GpuWrnBHo04TGL2iC4cVThBlDcM6ghDAICftNNpZt0MZye3fqP2rzt91f64r3n7sCGwJ1u7_Dby3be_m6lveiX4l-Ze1WslvJTiV7lVzT9RqyU8leTV8a_JgZz5NP4cz4AR414lTIw1_ml48lVAex3Qq6KjEzHH0ocfcd0nGJeE3S4cO0BPoV0G_mVRUyqORBhf-UXTgqeY6OdW6PsMJCnoHlCNYtPTkozhCnFem1Im4r4rUi_VbEb0UGrch1dWifF2kdrg3ners-0c7Vzvvq3vtq9321V6sN04AJvMI0MYKtUd4J4d6YkBQXTBk708CF4tNNFhtBeXcyinKEjiiGGbHaK3f_ADXsRe0=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.10 LO-180-170_Create_Delivery_Note_-_OTC_(IP) — LO-180-170_Create_Delivery_Note_-_OTC_(IP)
@@ -897,10 +856,9 @@ flowchart LR
 
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -916,10 +874,9 @@ flowchart LR
 | Load Planner | LO-180-130_Coordinate_Transportation_-_OTC_(IP), LO-180-140_Record_Transportation_Information_-_OTC_(IP), LO-180-150_Generate_Shipping_Documentation_-_OTC_(IP),  | |
 | CBA Business Manager | LO-180-170_Create_Delivery_Note_-_OTC_(IP) | |
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -931,10 +888,9 @@ The following data entities are derived from the system integration flows for LO
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -974,10 +930,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1020,10 +975,9 @@ The Future-State architecture represents the **target** landscape for LO-180.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1076,10 +1030,9 @@ The Future-State architecture represents the **target** landscape for LO-180.
 
 **Summary**: 4 Reports, 12 Interfaces, 18 Enhancements, 9 Forms
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1091,10 +1044,9 @@ Integration patterns identified from the system flow analysis for LO-180:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1118,10 +1070,9 @@ Platform landscape inferred from integrated systems for LO-180:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1161,10 +1112,9 @@ Platform landscape inferred from integrated systems for LO-180:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1193,12 +1143,12 @@ Platform landscape inferred from integrated systems for LO-180:
 | LOGF1149_IP | Consolidated Packing list for Chengdu | May-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Oct-25 (100%) | 4. Completed |
 | LOGF0805 | EIAJ form to be generated for OEM customers (Japan) | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
 | LOGF0353_IP | Generate Consolidated Export Commercial Invoice - Finished Goods (IF and IP) | Aug-24 (100%) | Aug-25 (100%) | Aug-25 (100%) | Jan-26 (100%) | 1. On Track |
+
 *... and 23 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1227,5 +1177,5 @@ Standard RAID items for LO-180 (Order To Cash (IP)):
 
 ---
 *LO-180 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: March 2026*
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
-</div>

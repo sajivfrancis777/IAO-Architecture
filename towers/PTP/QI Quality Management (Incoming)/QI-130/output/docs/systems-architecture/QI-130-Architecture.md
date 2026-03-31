@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">QI-130 — Perform Incoming Quality Assurance</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Procure To Pay (PTP) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **QI-130 Perform Incoming Quality Assurance** within the IAO program. It includes 4 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Procure To Pay (PTP) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Payment Automation | Automate invoice verification, three-way matching, and payment execution | Finance Efficiency | Medium |
 | 4 | QI-130 Process Migration | Migrate Perform Incoming Quality Assurance business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Procurement | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -211,10 +178,9 @@ This capability includes **4 business process(es)** modeled in BPMN 2.0, coverin
 | 3 | QI-130-090_Record_Material_Inspection_Results | QI-130-090_Record_Material_Inspection_Results | Inspection Owner | 6 | 4 |
 | 4 | QI-130-100_Review_Testing_Documentation | QI-130-100_Review_Testing_Documentation | Inspection Owner | 6 | 4 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -272,10 +238,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVk2P2kgQ_Sstj0Ykki35E4MPWTEGr0aaUSbLJDmEPTTtNvSO3Y262zMQwn_famw-TJjLLgdDPVe9qnpdLrO1iMiplVi3t1vGmU7QtqeXtKK9BPXmWNGejRrgG5YMz0uqesanEFxP2c-9mxeu1sbNYBmuWLkx6JQuBEVf7200gsDSRgpz5SgqWdGzeyvJKiw3qSiFNN43dFC4xT5be-tOyJzKk4Prxh6JILRknJ7gIA7jMDNxihLB8w5pERWDgvR2prhSvJEllnpffq3oI15_Z7legl3gUlHwWeqqfMBzWpoetawNRmr5ehCDKZOHg2DTFSaMLwAPXYAk5i8nKHJ3O7S7vZ3xY1L0PJ5xBB9SYqXGtEBKAzx51ahgZZnchOkoi1xbaSleaHLjT-Jx4NvEdJJA665txHXeKFssdTIXZd66Om-mh8RfrW25TnzXlhu4XuSiPD9lSvv-wB8cM93FXuqlh0xFUfyvTKCrfMbqpc01CTI_Gx9zeVE_St3f-Q5tjsN45F3qROUrI_SMNMuyYHKSatKPPPd90rss6LvpBekCa_qGNyfCYRoeCbMozrz4XcIm32WV9fxJCnIgDCZRFh0J4zsvG_nvEoYjLxy0FQLPQuLVEn2pccn0Bo04LjdKN3fNh3s_ZlaBkwI7Rmw04Rqu8ISie65WlGiao2-4rKlCeIEZV3p_00whhpuSKc3IzPr7jDECxjbY5OWaaazZK0WY520hjZ12SFSXJQaWB4iAZwA94QVFDvpy73iB67i-i1JJQfNDjUxw9CD0kQAG9J3-J3wBjzt0-GGy1uAG3YHQed1wfF5Ric0v9fGsEr-r0IgQutL7ZtJSKLrXo9sK-jCFFmuFoo_dpoIu1V_0HyPSf6IabLcHLrNynTksDbJE9wpYVV1q801g5xn9WorvTC8ZR0Kiz7VWLKfogVVMqz9m1m53Rj28Tk3XpKwVHNyfzbifot7X-xFzODt5Rh52JXiishCyQl-VOeMxJUyB_t1W-xDyDDWoAgIesZEGNiwqpKiOic4mQQtoWJCX38eBx8hxPsGEtmbUmO2O4ANj_ppZrU6NODPrF4xA6-E3AcPWDLrmsDHD1gwbs9-aXmMOLpJ1j2KfLTjbBibusAU7sH8dDq7D4XW4f3xvdOD4Ojw4LLoOOjyglm1VVFaY5VaytfYvefgjkNMCwzhaO9vCtRbTDSdWsn8ZWvUqh8gxwzAzVQPu_gVgY6l0" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 QI-130-050_Log_Samples_and_Batch_Number — QI-130-050_Log_Samples_and_Batch_Number
@@ -343,10 +308,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_RVCQeAWkFFdLUcPLRzbAgL0kq43XRTrPtDS0CYikVqSiuN6_e8lLclX5SGpHwzzcM45M2OKo62V8gys2Lq93VJGVYy2PbWCAnox6i2whJ6NauAvLChe5CB7JoZwpmb0332YG5SvJsxgCS5ovjHoDJYc0NODjUaamNtIYib7EgQlPbtXClpgsRnznAsTfQND4pC9W7N1z0UG4hjgOJGbhpqaUwZH2I-CKEgMT0LKWXYmSkIyJGlvZ5LL-TpdYaH26VcSfsOvX2imVnpNcC5Bx6xUkf-KF5CbGpWoDJZW4qVtBpXGh-mGzUqcUrbUeOBoSGD2fIRCZ7dDu9vbOTuYos-TOUP6k-ZYygkQJJWGpy8KEZrn8U0wHiWhY0sl-DPEN940mvienZpKYl26Y5vm9tdAlysVL3ieNaH9takh9spXW7zGnmOLjf6-8AKWHZ3GA2_oDQ9O95E7dsetEyHkfznpvorPWD43XlM_8ZLJwcsNB-HYudZry5wE0ci97BOIF5rCiWiSJP702KrpIHSdt0XvE3_gjC9El1jBGm-Ognfj4CCYhFHiRm8K1n6XWVaLR8HTVtCfhkl4EIzu3WTkvSkYjNxg2GSodZYClyv0wGQJqaKcoT_WDES9bT7M_Tq3CI4J7ptuo0cQhIsCPUm8BDSBlErNmlv_nFC8CwqXCumHGn2CAuunni3RTPH0Gf1ZYaao2iDF0RMToFOmqYLsp_tcb0N2ruq_P5GgI5FZVSBO0BeqVpnAa4YeVxtJU5zrG6Moc0Df6qwoSJNXA445k1VRqiuLsMPiWKf8QJ2DHw6SZa5PzazO4IERrpVToC97xo8nlOj9lOGRopMszygzYOoi_O4y_LwwU_aVheu8z8N1P2LibbctycyW_kLfjqk-0RKNGNenThz_4Mb_E3yrqIAM6fNzcvJ_mVu73amy_2HlK6ng66Eyou84EH1eAkMTnlaFboQmyipXUtd2ehLc8L00ffXWP9gA9fs_G-dmHTXrsFm7QQN4LeAZ4Pvc-p3Pre963eJ13FXY3yD3ccNmw6vj7tq4sNH3W8C_ILrO5U7j3DL8WqGtoEm4LaDVP73BTbbtTDiDvW7Y74aDbjjshgeH4XoGR93wsBmPZ-BdF-g6najbiXrtkDmH_W44aCfIORy2sGVbBQh9iWVWvLX272P6nS0DgvVxs3a2hSvFZxuWWvH-vcWqykz7TCjW46Sowd1_JyAlIA==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 QI-130-090_Record_Material_Inspection_Results — QI-130-090_Record_Material_Inspection_Results
@@ -407,10 +371,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlll1v4jgUhv-KlaqiIwUpnwRyMSsKZFWpM9NZOjNaDXthHAe8DTaynQLL8N_3OCRAmHSl3eWC9rw-fs6HnUP2FhEptWLr9nbPONMx2nf0kq5oJ0adOVa0Y6Oj8BVLhuc5VR3jkwmup-yv0s0N1lvjZrQEr1i-M-qULgRFXx5sNISNuY0U5qqrqGRZx-6sJVthuRuJXEjjfUP7mZOV0aqleyFTKs8OjhO5JIStOeP0LPtREAWJ2acoETxtQLMw62ekczDJ5WJDlljqMv1C0Q94-42legl2hnNFwWepV_kjntPc1KhlYTRSyNe6GUyZOBwaNl1jwvgC9MABSWL-cpZC53BAh9vbGT8FRc_jGUfwITlWakwzpDTIk1eNMpbn8U0wGiahYystxQuNb7xJNPY9m5hKYijdsU1zuxvKFksdz0WeVq7djakh9tZbW25jz7HlDr6vYlGeniONel7f658i3UfuyB3VkbIs-1-RoK_yGauXKtbET7xkfIrlhr1w5PzMq8scB9HQve4Tla-M0AtokiT-5NyqSS90nbeh94nfc0ZX0AXWdIN3Z-BgFJyASRglbvQm8BjvOsti_iQFqYH-JEzCEzC6d5Oh9yYwGLpBv8oQOAuJ10v0wNWaEs0ER582nMrjsvlw9_vMynCc4a7pNppwDd_wiNZ7aIq-4rygCuEFZlzpctFcQwyLkinNiJpZf1wgvSbyN_oncBDmKVQoFG0BoLupxrpQKHzXRPlN1JAQuv6PqKCJeqIyE3KFvii8oGhMCVPQnuaW8LoQsaa8jP4Aw43BsYOmilzDHwIDBh5YNDRdamJ6gKm6iT4XmGsGGbJXWpJAyGt79E9djYDyDKNBZZDKB2y8YNCgTIpVBdldnrMWaKoFeWlC-gB5hLAm0ydTeBd9fui6vtN1PAeNJDU1XVAehW4CBvt93RMz6rtzyIjABVNVJ9RFK6qD-Mb0kgGKrRgs_zKzDofL--e0E-mW5IWCrvx6fLqut7nt24byeClklc1awpnJfAeCSQtu808JeP82ARiAx394H3W77-GAK7N3NKuhw93K9Crbq-zqcef-le06lXAClIQfM-t3CpfhB9zh64WPotTDWq9CDCo7OJpRZQ7OOHTXOJZ3Jca_8vso0N2nQiuW0oZfXVDYLLCcX6bsem43ZK9d9tvloF0O2-Xo9APYkPvt8qCe2M20nXbZbZe9WrZsa0XlCrPUivdW-XIDL0ApzTBcQOtgW7jQYrrjxIrLlwCrWKewc8wwzObVUTz8Dddp8X0=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 QI-130-100_Review_Testing_Documentation — QI-130-100_Review_Testing_Documentation
@@ -472,10 +435,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -487,10 +449,9 @@ flowchart TD
 | Quality Manager | QI-130-040_Document_Results,  | |
 | Inspection Owner | QI-130-050_Log_Samples_and_Batch_Number, QI-130-090_Record_Material_Inspection_Results, QI-130-100_Review_Testing_Documentation | |
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -502,10 +463,9 @@ The following data entities are derived from the system integration flows for QI
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -560,10 +520,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -606,10 +565,9 @@ The Future-State architecture represents the **target** landscape for QI-130.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -997,10 +955,9 @@ The Future-State architecture represents the **target** landscape for QI-130.
 
 **Summary**: 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1012,10 +969,9 @@ Integration patterns identified from the system flow analysis for QI-130:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1039,10 +995,9 @@ Platform landscape inferred from integrated systems for QI-130:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1082,10 +1037,9 @@ Platform landscape inferred from integrated systems for QI-130:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1114,12 +1068,12 @@ Platform landscape inferred from integrated systems for QI-130:
 | PTPI1529_IF | An interface to retrieve the list of approvers from a custom MDG table(MDG sy... | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Dec-25 (100%) | 4. Completed |
 | PTPI1458 | Develop an interface between PEGA and S/4 HANA system to transmit MSL informa... | Jul-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
 | PTPI1428_IP | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... | Jun-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Nov-25 (100%) | 1. On Track |
+
 *... and 358 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1148,5 +1102,5 @@ Standard RAID items for QI-130 (Procure To Pay):
 
 ---
 *QI-130 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: March 2026*
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
-</div>

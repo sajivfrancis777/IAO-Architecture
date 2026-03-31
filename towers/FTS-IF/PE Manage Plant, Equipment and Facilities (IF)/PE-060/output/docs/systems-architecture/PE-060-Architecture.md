@@ -1,6 +1,5 @@
-<div class="page-section">
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">PE-060 — Maintain and Manage Master Maintenance Records (IF)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IF) (FTS-IF) Tower<br/>
@@ -20,35 +19,6 @@
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-section {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 40px);
-  box-sizing: border-box;
-}
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-section {
-    min-height: 100vh;
-  }
-  .page-footer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 nav.toc { margin: 16px 0 24px 0; }
 nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
 nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -58,10 +28,9 @@ nav.toc a { color: #0071c5; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 <a id="toc"></a>
@@ -123,15 +92,15 @@ nav.toc a:hover { text-decoration: underline; }
 </ol>
 </nav>
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 1. Executive Summary
 
 This Architecture Document defines the **Business, Data, Application, and Technology** (BDAT) architecture for **PE-060 Maintain and Manage Master Maintenance Records (IF)** within the IAO program. It includes 17 BPMN process diagram(s) in Section 3.
+
 | Dimension | Value |
 |-----------|-------|
 | **Tower** | Forecast to Stock (IF) (FTS-IF) |
@@ -141,14 +110,14 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 5 Reports, 92 Interfaces, 31 Conversions, 118 Enhancements, 15 Forms, 4 Workflows |
+
 **Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 2. Business Context & Objectives
@@ -170,10 +139,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Production Planning Optimization | Enable MRP-driven production planning with real-time material availability | Manufacturing Excellence | Medium |
 | 4 | PE-060 Process Migration | Migrate Maintain and Manage Master Maintenance Records (IF) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Supply Chain (Intel Foundry) | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 2.3 Success Criteria
@@ -192,10 +160,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 3. Business Architecture (TOGAF "B")
@@ -224,10 +191,9 @@ This capability includes **17 business process(es)** modeled in BPMN 2.0, coveri
 | 16 | PE-060-250_Process_Work_Centers | PE-060-250_Process_Work_Centers | FTS IF - Intel Data Admin | 1 | 0 |
 | 17 | PE-060-290_Maintain_Other_Characteristics | PE-060-290_Maintain_Other_Characteristics | FTS IF - PM Maintenance Planner | 10 | 7 |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.2 Business Process Diagrams
@@ -285,10 +251,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P6jYQ_StWVitaKUj5JNk8tGIDqVbqVquy915VpQ8mmYC1xqa2swvl8t9rkwRICtWtGgnEHOacMzPg8d7KeQFWYt3f7wkjKkH7gVrBGgYJGiywhIGNauAzFgQvKMiBySk5UzPy1zHNDTZbk2awDK8J3Rl0BksO6NOTjcaaSG0kMZNDCYKUA3uwEWSNxS7llAuTfQdx6ZRHt-arRy4KEOcEx4ncPNRUShicYT8KoiAzPAk5Z0VHtAzLuMwHB1Mc5R_5Cgt1LL-S8Iy3X0ihVjouMZWgc1ZqTX_GC6CmRyUqg-WVeG-HQaTxYXpgsw3OCVtqPHA0JDB7O0Ohczigw_39nJ1M0etkzpB-coqlnECJpNLw9F2hklCa3AXpOAsdWyrB3yC586bRxPfs3HSS6NYd2wx3-AFkuVLJgtOiSR1-mB4Sb7O1xTbxHFvs9HvPC1hxdkpHXuzFJ6fHyE3dtHUqy_J_Oem5ilcs3xqvqZ952eTk5YajMHX-qde2OQmisdufE4h3ksOFaJZl_vQ8qukodJ3boo-ZP3LSnugSK_jAu7PgQxqcBLMwytzopmDt16-yWrwInreC_jTMwpNg9OhmY--mYDB2g7ipUOssBd6sUPY6Q08ZGqKXZ_SMCVPAMMsBvVDMGIg62zzM_X1ulTgp8dAMH6UCdHMIs6Lm6VdH4BlLpdN-1YdFFHPrjwslr6s0AQoKvpXsd8n_1Tvo0p8KYIqUu2-lh9-d-FLxDUr5emOqL-ouCGeIl_8q9v2F2kiLXa3gCxdvmvJnRQT0Kog0x_wFQMoOJdWnSXCKJljhLiPe79uazQ4eLvQWyVdowkHerhRNt0SqH-fW4XAh9XBDqv0FLwT6VNe5zoVtTitJ3uGn-qycaXqb1B-Yi4bDH4xEGzs1MGpirw7DJgzqMG7CqA6DJoxN-HVu_QZybn3VPfXwX_gRbvYD83veDz2618Mbun9xcE0D7cLqwN512L8OB9fhsFm7HXB02vsdOLoOx-2i6qAPV1E9-wa2bGsNYo1JYSV763h36_u9gBJXVFkH28KV4rMdy63keMdZ1abQzAnBevWsa_DwN9JFlRI=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.2 PE-060-030_Maintain_Process_Equipment_Records — PE-060-030_Maintain_Process_Equipment_Records
@@ -421,10 +386,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWF2P2jgU_StWqhG7EqiJ8wkPu2KAdEcq7ahMt1rt7IMJDlgTEmonM0On_Pe1EzskwWm1szwgcnzPub5fTsKLEWUbbEyMq6sXkpJ8Al4G-Q7v8WACBmvE8GAIKuBPRAlaJ5gNhE2cpfmKfCvNLOfwLMwEFqI9SY4CXeFthsHnmyGYcmIyBAylbMQwJfFgODhQskf0OMuSjArrNziIzbj0JpeuM7rB9Gxgmr4VuZyakBSfYdt3fCcUPIajLN20RGM3DuJocBKbS7KnaIdoXm6_YHiJnr-QTb7j1zFKGOY2u3yfvEdrnIgYc1oILCroo0oGYcJPyhO2OqCIpFuOOyaHKEofzpBrnk7gdHV1n9ZOwd38PgX8EyWIsTmOAcs5vHjMQUySZPLGmU1D1xyynGYPePIGLvy5DYeRiGTCQzeHIrmjJ0y2u3yyzpKNNB09iRgm8PA8pM8TaA7pkX93fOF0c_Y082AAg9rTtW_NrJnyFMfx__LE80rvEHuQvhZ2CMN57ctyPXdmXuqpMOeOP7W6ecL0kUS4IRqGob04p2rhuZbZL3od2p4564huUY6f0PEsOJ45tWDo-qHl9wpW_rq7LNa3NIuUoL1wQ7cW9K-tcAp7BZ2p5QRyh1xnS9FhB8K7FbgJwQjcLsESkTTHKUojDG4TlKaYVtbik1p_3xsxmsRoJJIPpoyRbQoWXwty2OM0BzOxx7cz3oUoyvn0sZxE7N74pyEB2xIiEszYWaNtbbetP6ck5c2cJA2fMc32ICzSKCdZihLwPouQ-NkWcjpChw0vS0NllaO86GzVbXPmhB0SXsgz6T0PsE3x2pQZxcLNcnkzB3FGwQqL44l802zQbzNvLuLkdcl-Hmfwkz23rcfarFS54A7BYrlqEyyzzfiEvxaY5VWEZbQXO7JE06z4sVAZ8SBW01uweuuAP6Yfph1b0R2fcITJY7M4HOEHdKc6lv1LvReWZwcwKyg9l1KS8Iazfm3SnA7togMb7lpE93X-REuUU4VIc1S-IMpP8vyo_HeCE-1ws-GGJD62hvJLRh_KtBNa-mqSAr2ra35QgCzmMnnZf11foguWGLGC8pnPOF2_J2jq5cvj8nIUoKi7HAAkqq-YzWiWiOVlG2kKDEUzqOpUkwM-FPs1P5HadnaPI82wsB97dKr24ytqAEtWKctHac8Lxp8ItiKZPRMF3WaSPvKnGX4K_PA89F5eVFuJx6PRmrdFtFP-39ZH3u_3xunUJPp64sXIXxCDH3oEmeZUvtAY6zXkHUF7H-hq2KZeAz9HScH4CfCuunN2adbraPB1NPt1NOd1NPdM4-dD9sRGKMnBgecxSXDSQ_L-G4kfxdWP1Aaj0W_83igvYXUJfXXtSMBT9q4Avt8b5X3hO79_KEupBAMJWFYHqKkfbu5KqgXlinRiu0pLUi353JMG1bVa96TQcv6uErKUC08S1XYtU0orCwg7gC191QFKg3pdxlVnRDmXs1JuwLa7q_XMVutKzJTLmmcebqbyAWW8ttnlXTwTtN37kqfKaavyqSq5HQPoq5pkldLFwl-YlSvtKjYkodKsdz_uaHrdBaVZU1TdoNkt5LgLBF1AFWYsr1UuLFVIFZJqKrfxMC1Q9RLRgqEetvWwo4ddPezpYV8PB3p4rId5w-txW76WtVFHi7pa1KtfItu434MHPfhYj0OzB7d6cNiD2z2404O7Pbin3tvasK-HAz081sJ8nrWwpYehHrb1sKOHXT1cR2kMjT2me0Q2xuTFKP-D4f_TbHCMiiQ3TkMDFXm2OqaRMSn_qzCK8lVhThB_hdxX4Olf9gOS4w==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.3 PE-060-040_Record_Installation_and_Dismantling_of_Equipment — PE-060-040_Record_Installation_and_Dismantling_of_Equipment
@@ -507,10 +471,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_RVCQeAWsFHdpeihhWNbRbDJdhFntyjqPtASZRORSJek4rhe__uSullS5KbYCvCFZzjnzAxHJI9aRGOkBdr19RETLAJwHIktytAoAKM15Gg0BiXwBTIM1yniIzUnoUQs8T_FNMPevappCgthhtODQpdoQxH4fDcGU-mYjgGHhE84YjgZjUc7hjPIDjOaUqZmXyE_0ZNCrTLdUhYjdp6g654ROdI1xQSdYcuzPTtUfhxFlMQd0sRJ_CQanVRwKd1HW8hEEX7O0QN8_R3HYivHCUw5knO2Ikvv4RqlKkfBcoVFOXupi4G50iGyYMsdjDDZSNzWJcQgeT5Djn46gdP19Yo0ouD-cUWAfKIUcj5HCeBCwosXARKcpsGVPZuGjj7mgtFnFFyZC29umeNIZRLI1PWxKu5kj_BmK4I1TeNq6mSvcgjM3euYvQamPmYH-d3TQiQ-K81c0zf9RunWM2bGrFZKkuR_Kcm6sifInyuthRWa4bzRMhzXmelv-eo057Y3Nfp1QuwFR6hFGoahtTiXauE6hn6Z9Da0XH3WI91AgfbwcCa8mdkNYeh4oeFdJCz1-lHm60-MRjWhtXBCpyH0bo1wal4ktKeG7VcRSp4Ng7stuKV50ctgutvx0qYecvPnSktgkMCJKjWYco43BCz-zvEuQ0QAQYE7B08IZivtr9JPrn6PPHxagrsQTMCnB_AAuZBEcyggmMYZJi0xoyv2mWAi2zZNW3oJoxkIcxIJTAlMwT2NoPrbqBdEZpfo7g0NJjLwd2msHk0sXXFyaIdDG_afmnC7JHYvqV0sm6FFsTzIgmRgKaDIedfV-U9pfET791Nxu1RPKNtRptZ7KeTvBl1w8y5U4F09__uzNowfGmcu6K7lNZdbbpZh2YSF3o9tL7XmD1BWRH7Ab_IIYWAmt0IYyXbDXOCoL2O1HdTbhDhvaT1KLRb3nezvcXKOxzohdfpN1nL_jrbNetLBVv9lpZ1ObRZ3mKVdE0X1iN6n8v41oGI5m3UFHwjdkzcU_jAFeo3SnOMX9Gu55Z3dLm4LclOYgAca56lsELKRpy1ibSW920pLlKJIVRpyGdxMahdvYa81eprEBJPJz6pLqrFhl4BVja3K7tR2RwFfV1rrrf4q4cpceRu1u6GXwE01dsqhXZur6W41dsuxXw39cuj1te9ayk3gbmVs1rkMrHH2KvsfiJcWv2_5SAtDHYxXBdfMq8KpS3FT2Y1-BN2SK6n2MaWyro_nDmwOw9YwbA_DzjDsDsPeMOwPwzfDsFzjYdyoLjxd1GyuXF3cuoDbF3Cnvj10YXcY9oZhv4a1sZYhlkEca8FRKy7a8jIeowTmqdBOYw3mgi4PJNKC4kKq5cXOPcdQvrNZCZ6-AfY2v1E=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.4 PE-060-050_Process_Serial_Number — PE-060-050_Process_Serial_Number
@@ -634,10 +597,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuOmzAU_RWLUcSGSDxDyqISASxV6khVM-0smi4csBNrwFDbTJJG-ffagUCSznRTpKDcw3n4XoyPRl4X2IiMyeRIGZUROJpyiytsRsBcI4FNC3TAd8QpWpdYmJpDaiaX9PeZ5vjNXtM0BlFFy4NGl3hTY_DtkwViJSwtIBATU4E5JaZlNpxWiB-Suqy5Zj_gObHJOa1_tKh5gflIsO3QyQMlLSnDI-yFfuhDrRM4r1lxY0oCMie5edKLK-tdvkVcnpffCvyI9s-0kFtVE1QKrDhbWZWf0RqXukfJW43lLX-9DIMKncPUwJYNyinbKNy3FcQRexmhwD6dwGkyWbEhFDylKwbUlZdIiBQTIKSCs1cJCC3L6MFPYhjYlpC8fsHRg5uFqedaue4kUq3blh7udIfpZiujdV0WPXW60z1EbrO3-D5ybYsf1P0uC7NiTEpm7tydD0mL0Emc5JJECPmvJDVX_oTES5-VedCF6ZDlBLMgsf_2u7SZ-mHs3M8J81ea4ytTCKGXjaPKZoFjv2-6gN7MTu5MN0jiHTqMhh8SfzCEQQid8F3DLu9-le36C6_zi6GXBTAYDMOFA2P3XUM_dvx5v0Lls-Go2QL4tASr1rUdD3yC4BEJiTlIkUQgLirKOra-mPNjZRAUETTVwwexEHTDLopnxNXelAcga5D9amlTYSZXxs8rvfumfhCqTCz-IfeU_BFRJtUP6BlgIUYu-Ko-Sl6IW41_rRm5Q2ZvM4jU_u3-MB9Mpx9Vz33pdKXbl25XelcvR3Mum_IGdt-GveHDvIH9ATYso8K8QrQwoqNxPhnV6VlggtpSGifLQK2slweWG9H5BDHaplAjTClSL7bqwNMfBgDBxQ==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.7 PE-060-080_Return_to_Manufacturer — PE-060-080_Return_to_Manufacturer
@@ -675,10 +637,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuO2jAU_RUrI5RWClKehGZRCQKRRupI1UA7i9KFca6JNcFObWeAIv69Nm9oZ9VIgHy453FvbG8dIkpwMqfT2TLOdIa2rq5gCW6G3DlW4HroAHzHkuF5Dcq1NVRwPWG_92VB3KxtmcUKvGT1xqITWAhA3x49NDDE2kMKc9VVIBl1PbeRbInlJhe1kLb6AfrUp3u3419DIUuQlwLfTwOSGGrNOFzgKI3TuLA8BUTw8kaUJrRPibuz4WqxIhWWeh-_VfCE1y-s1JVZU1wrMDWVXtZf8Bxq26OWrcVIK99Ow2DK-nAzsEmDCeMLg8e-gSTmrxco8Xc7tOt0ZvxsiqajGUfmITVWagQUKW3g8ZtGlNV19hDngyLxPaWleIXsIRynoyj0iO0kM637nh1udwVsUelsLuryWNpd2R6ysFl7cp2Fvic35vvOC3h5ccp7YT_sn52GaZAH-cmJUvpfTmaucorV69FrHBVhMTp7BUkvyf2_9U5tjuJ0ENzPCeQbI3AlWhRFNL6MatxLAv990WER9fz8TnSBNazw5iL4KY_PgkWSFkH6ruDB7z5lO_8qBTkJRuOkSM6C6TAoBuG7gvEgiPvHhEZnIXFToWI6QY8F6qInzLgGjjkBNAVScUYY5odq-_Dgx8yhOKO4a4ePctzoVgJ6BqwER7nZrGrm_LwixIawVzUfZFODUmj8q2XNErg2RGJO3oVjNs9dthcsoRLGDU3axr4eJeSVfngb6BlMHo60MK3wlmJi48nbSNGHM0dp0Zw4p3D739LQFHosTUZGGZRovrlu0gh-vAvMY9TtfjYTOi7DwzI6LoPDMrx6lRY8beEbOPw3HB2P1g0Yn8-24zlLkEvMSifbOvtb1Ny0JVDc1trZeQ5utZhsOHGy_W3jtE1pduaIYTPo5QHc_QFX-tCx" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.8 PE-060-090_Create_and_Maintain_Functional_Locations_Master_Records — PE-060-090_Create_and_Maintain_Functional_Locations_Master_Records
@@ -755,10 +716,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P4jYU_StWRiNeghrnE_KwFRNIO9LOtlpmu1qVPpjEAWsch9rOAGX577VJAiQTOmobCZR7cs651zeO7YORFCk2QuP-_kAYkSE4DOQa53gQgsESCTwwQQX8hjhBS4rFQHOygsk5-etEg-5mp2kai1FO6F6jc7wqMPjyaIKJElITCMTEUGBOsoE52HCSI76PClpwzb7Do8zKTtnqRw8FTzG_ECwrgImnpJQwfIGdwA3cWOsETgqWtkwzLxtlyeCoi6PFNlkjLk_llwI_od1Xksq1ijNEBVactczpR7TEVI9R8lJjSclfm2YQofMw1bD5BiWErRTuWgriiL1cIM86HsHx_n7BzknB83TBgLoSioSY4gwIqeDZqwQZoTS8c6NJ7FmmkLx4weGdPQumjm0meiShGrpl6uYOt5is1jJcFjStqcOtHkNob3Ym34W2ZfK9-u_kwiy9ZIp8e2SPzpkeAhjBqMmUZdn_yqT6yp-ReKlzzZzYjqfnXNDzvch669cMc-oGE9jtE-avJMFXpnEcO7NLq2a-B63bpg-x41tRx3SFJN6i_cVwHLlnw9gLYhjcNKzydassl7_yImkMnZkXe2fD4AHGE_umoTuB7qiuUPmsONqsQfw8B4vStqADHmPwhITEHEyRRGCS5oRVbH0x-PvCyFCYoaFuPnhMMZMk24O4ZIkkBUMUfCwSpG_BzwRzxJP1fmH8cWVhty0ijlV_-gzaMqctmwhBVgxEuic_RGrWo0QVTYQkiWgL3bZQdw4L8X5Cr637skl1nb0JAcnAZ_xnSThO2yZ-x4QRpr5FSsFMsTe56h7IeJG_X03QW01f2-cSybLTg1FbPSViQ9H-_azjzut-UzxhsgCf8PZ9K2gpryekBOp3fgsXp89qQeVpp26o51vD_VrwFxApLuZdmn3t_YvaQdS8-qc5AZ3DoRmZ3pKGS7WoJmswLXDvzACznbL5cWEcj9cu7g0XTHH_y3nj4PU74F1CS0Fe8U_V2tGV-f9NFvxbmVrLqxsGwXD4QX28dWhXIfTq2K1jt469OvYbeVcAa0Po1MCojq2G4Gjg-8L4VCyM7yqu8aDr3PC-YXEiNiX4FXFch-MqDBpZ_XjUxLVvU59Tpznz6xE15UK3k9bvPmjqDq5Wb93HZtdqwXY_7PTDbj_s9cN-Pxz0w6N-eNwPQ-t8tmjj8AZu38CdZptsw24_7PXDfj8cNLBhGjnmOSKpER6M00FTHUZTnKGSSuNoGqiUxXzPEiM8HciM8rTMTglS-2Regce_AQpXaRc=" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.9 PE-060-110_Maintain_Equipment_Bill_of_Materials — PE-060-110_Maintain_Equipment_Bill_of_Materials
@@ -853,10 +813,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVFtv2jAU_itWKpSXIOVKWB4mQYKlSq1UjW57GHswyTFYdRxkOwWG-O-zuSSFqU-LBLI_vss5BzsHp2wqcDJnMDgwwXSGDq5eQw1uhtwlUeB66Az8IJKRJQflWg5thJ6zPydaEG92lmYxTGrG9xadw6oB9P3RQxMj5B5SRKihAsmo67kbyWoi93nDG2nZDzCmPj2lXX6aNrIC2RN8Pw3KxEg5E9DDURqnMbY6BWUjqhtTmtAxLd2jLY4323JNpD6V3yp4JrufrNJrs6eEKzCcta75E1kCtz1q2VqsbOX7dRhM2RxhBjbfkJKJlcFj30CSiLceSvzjER0Hg4XoQtFrsRDIPCUnShVAkdIGnr1rRBnn2UOcT3Die0rL5g2yh3CWFlHolbaTzLTue3a4wy2w1Vpny4ZXF-pwa3vIws3Ok7ss9D25N993WSCqPikfheNw3CVN0yAP8msSpfS_ksxc5StRb5esWYRDXHRZQTJKcv9fv2ubRZxOgvs5gXxnJXwwxRhHs35Us1ES-J-bTnE08vM70xXRsCX73vBLHneGOElxkH5qeM67r7JdvsimvBpGswQnnWE6DfAk_NQwngTx-FKh8VlJslkj_DpHjxgN0aPQwFFBNEGTqmbizLOPCH4tHEoySoZ27OiZMKHNB5mTKAG9mPOl0BNTeuH8_qAKjaqj2qJBKaPVYG-pXSmzvJVERpJLMBxERNUHnRYgiCjhokPfzCWUler05uidFyJAw-FXE3_ZRuftx7_bcq4H6AYOu9tyA0cd7HhODbImrHKyg3N6XZlXWgWUtFw7R88hrW7me1E62elaO-2mMt0UjJhp12fw-Bem9p8h" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.11 PE-060-140_Maintain_Process_Materials_Master — PE-060-140_Maintain_Process_Materials_Master
@@ -966,10 +925,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuO2kAQ_JWRV8gXI_mJiQ-RwODVSiFaLZvkEHJo7DaMdhg7MwMsQf73jG3eWU6xZOQuqqu6ex57Iy0yNCKj09lTTlVE9qZa4grNiJhzkGhapAW-g6AwZyjNmpMXXE3pn4bm-OV7TauxBFaU7Wp0iosCybcniwx0IrOIBC67EgXNTcssBV2B2MUFK0TNfsB-bueN2-GvYSEyFGeCbYdOGuhURjmeYS_0Qz-p8ySmBc-uRPMg7-epWdXFsWKbLkGopvy1xAm8_6CZWuo4ByZRc5Zqxb7AHFndoxLrGkvXYnMcBpW1D9cDm5aQUr7QuG9rSAB_O0OBXVWk6nRm_GRKXkczTvSTMpByhDmRSsPjjSI5ZSx68ONBEtiWVKJ4w-jBHYcjz7XSupNIt25b9XC7W6SLpYrmBcsO1O627iFyy3dLvEeubYmd_r3xQp6dneKe23f7J6dh6MROfHTK8_y_nPRcxSvIt4PX2EvcZHTycoJeENv_6h3bHPnhwLmdE4oNTfFCNEkSb3we1bgXOPZ90WHi9ez4RnQBCrewOwt-iv2TYBKEiRPeFWz9bqtcz59FkR4FvXGQBCfBcOgkA_euoD9w_P6hQq2zEFAuSfI6JU8J6ZLnCZkA5Qo58BTJMwPOUbTs-uHOz5mRQ5RDtx4-0dXo80GAZ_pzg6woCZBmel-o1HugEORrIVbAyAuWQIWcGb8u1Fyt1vjpl4x_r2m5Qq7OAtds75L9iLowrXuH62tuLFBPvinulHbZ3QSk0j286JMsspvKgv3-2CgIUWxlF5giJWhLhuyxXdGZUVVtjt7z7Qf3Sbf7Wc_pEDptGBzCoA3d69C7WN865bivr2D3dIivYO9j2P8YDo6b0bCMFeqFoZkR7Y3mytXXcoY5rJkyKsuAtSqmO54aUXM1Gesy05kjCnrHrFqw-gswGNyX" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.14 PE-060-170_Maintain_Equipment_Task_List — PE-060-170_Maintain_Equipment_Task_List
@@ -1049,10 +1007,9 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm1v6jYU_itWqopNClIS8tZ82ESBTJXau6rcu2ka-2ASB6wGm9lOC-Py33cckkDSIHVaJJDO4_M85y2xfTASnhIjMm5vD5RRFaHDQK3JhgwiNFhiSQYmOgG_YUHxMidyoH0yztSc_lO62e52p900FuMNzfcanZMVJ-jbg4nGQMxNJDGTQ0kEzQbmYCvoBov9hOdcaO8bEmZWVkarlu65SIk4O1hWYCceUHPKyBkeBW7gxponScJZ2hLNvCzMksFRJ5fz92SNhSrTLyR5wrvfaarWYGc4lwR81mqTP-IlyXWNShQaSwrxVjeDSh2HQcPmW5xQtgLctQASmL2eIc86HtHx9nbBmqDo8WXBEDxJjqWckgxJBfDsTaGM5nl0407GsWeZUgn-SqIbZxZMR46Z6EoiKN0ydXOH74Su1ipa8jytXIfvuobI2e5MsYscyxR7-O_EIiw9R5r4TuiETaT7wJ7YkzpSlmX_KxL0VXzF8rWKNRvFTjxtYtme702sj3p1mVM3GNvdPhHxRhNyIRrH8Wh2btXM92zruuh9PPKtSUd0hRV5x_uz4N3EbQRjL4jt4KrgKV43y2L5LHhSC45mXuw1gsG9HY-dq4Lu2HbDKkPQWQm8XaP46xw9xGiInp_QE6ZMEYZZQtC82OqGSC5OBP0w-8-FMZaSrhia8M2WM8KURIqjX8EZK8qZRDRDL-TvggqSLoy_LsgOkKdUbnPoxwwcthtgo7Lfj1SqtvMInDMcZXioJ40eUvCl2SeIbpv4bZvCCPpo6IFlXGzKrNsSXkeC4VPJJfWsVIpkgm9afXvOcUfOb8s9YfHamw9kg6YkJx8TCtoKE0Gu1NSmhW1aNbjWkBVMjaz2bd5dL-8zI7btHxquVHzbW6d-c6BKAtQfL7nOJ7hlf8qoLap-W8q64If090GkvOC_wIYtUtnJ1T0c6nj6aBouYXNN1mjKieyNPdvB_88L43i8VPGuqJSJ9ul8UPD7FZ4FeQMitPyNtIZ2XSnoVyK7JC8kyPxy2o26tPC_0mCb799FYA8ZoieeFjmUzlZwfpLW9mG136w5NClR5yY1A2oCwGjRcPgT7AeVXZm2W6-7Gvi-MP4gMN_veiDVinfy9GtH62QHlR1UQvV6WNn1ul053FX2XbVeL1dmWNlOZTfrlZ7TzfMLP6VZbezMr4iNo99xDLoLdaV1aLeTiu21FbwuXgu4F2eL7mx9prZgtx_2-mG_Hw764bAfvuuHYYL9uF3dO9qo04uOmvtQG3fro7oNe_2w3w8H_XBYw4ZpbAgcOTQ1ooNRXnbhQpySDBe5Mo6mgQvF53uWGFF5KTSK8vSaUgxf2eYEHv8Fx0ON9w==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.15 PE-060-190_Maintain_General_Task_List — PE-060-190_Maintain_General_Task_List
@@ -1158,10 +1115,9 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViiXRMonoTlUCgmWVmqlldh2D6UHkzyDheMg2yxQxH-vzUdYqPZUH6J4Mm_mvZHjg1N3DTi5MxgcmGA6RwdXL6EFN0funChwPXQGfhLJyJyDci2HdkJP2Z8TLUzWO0uzGCYt43uLTmHRAfrx7KHCFHIPKSKUr0Ay6nruWrKWyH3Z8U5a9hOMaEBPbpdP4042IG-EIMjCOjWlnAm4wXGWZAm2dQrqTjR3ojSlI1q7R9sc77b1kkh9an-j4DvZvbFGL82eEq7AcJa65d_IHLidUcuNxeqNfL-GwZT1ESaw6ZrUTCwMngQGkkSsblAaHI_oOBjMRG-KXquZQGbVnChVAUVKG3jyrhFlnOdPSVngNPCUlt0K8qdoklVx5NV2ktyMHng2XH8LbLHU-bzjzYXqb-0MebTeeXKXR4En9-b54AWiuTmVw2gUjXqncRaWYXl1opT-l5PJVb4Stbp4TWIc4ar3CtNhWgb_6l3HrJKsCB9zAvnOavggijGOJ7eoJsM0DD4XHeN4GJQPoguiYUv2N8EvZdIL4jTDYfap4NnvscvN_EV29VUwnqQ47QWzcYiL6FPBpAiT0aVDo7OQZL1E-HWKnjHy0bPQwFFFNEFF0zJx5tklwl8zh5KcEt_GjkoJZiz01skVKsGUyZnz-wM9MnTbJChluVtUEntk9f6eFhvaxFajF5At06hQii1EaxR7ojlQ5xcRI9__alq5bMPzNvoQjwWvx-IOjvp_4A6Oe9jxnNa0QFjj5AfndAmZi6oBSjZcO0fPIRvdTfeidvLTz-ps1o1JoGLEZNieweNfDUuPtg==" title="View full diagram">&#128065; View Full Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 #### BUSINESS ARCHITECTURE — 3.2.17 PE-060-290_Maintain_Other_Characteristics — PE-060-290_Maintain_Other_Characteristics
@@ -1254,10 +1210,9 @@ flowchart TD
 
 
 
+
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 3.3 Business Roles & Responsibilities
@@ -1276,10 +1231,9 @@ flowchart TD
 | Intel Data Admin | PE-060-140_Maintain_Process_Materials_Master,  | |
 | FTS IF - PM Maintenance Supervisor | PE-060-170_Maintain_Equipment_Task_List, PE-060-190_Maintain_General_Task_List,  | |
 
+
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 4. Data Architecture (TOGAF "D")
@@ -1291,10 +1245,9 @@ The following data entities are derived from the system integration flows for PE
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 4.2 Data Flow Diagrams
@@ -1366,10 +1319,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 5. Application Architecture (TOGAF "A")
@@ -1412,10 +1364,9 @@ The Future-State architecture represents the **target** landscape for PE-060.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.5 RICEFW Inventory
@@ -1690,10 +1641,9 @@ The Future-State architecture represents the **target** landscape for PE-060.
 
 **Summary**: 5 Reports, 92 Interfaces, 31 Conversions, 118 Enhancements, 15 Forms, 4 Workflows
 
+
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 5.6 Integration Patterns
@@ -1705,10 +1655,9 @@ Integration patterns identified from the system flow analysis for PE-060:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -1732,10 +1681,9 @@ Platform landscape inferred from integrated systems for PE-060:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 6.2 SAP Development Object Status
@@ -1775,10 +1723,9 @@ Platform landscape inferred from integrated systems for PE-060:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ## 7. Project Context
@@ -1807,12 +1754,12 @@ Platform landscape inferred from integrated systems for PE-060:
 | LOGM005_IF | UPLOAD TRANSPORTATION ZONES (TM) | Jun-25 (100%) | — | — | Sep-25 (100%) |  |
 | LOGM004_IF | UPLOAD TRANSPORTATION LANES | Jun-25 (100%) | — | — | Sep-25 (100%) |  |
 | LOGI1718 | To align on batch attributes for straddle in S4 | Feb-26 (100%) | Mar-26 (100%) | Mar-26 (100%) | Mar-26 (5%) | 3. Off Track |
+
 *... and 245 more objects (see full Object Tracker)*
 
+
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
 <div style="page-break-before: always;"></div>
-<div class="page-section">
 
 
 ### 7.2 RAID Log
@@ -1844,5 +1791,5 @@ Platform landscape inferred from integrated systems for PE-060:
 
 ---
 *PE-060 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: March 2026*
+
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-060 — Maintain and Manage Master Maintenance Records (IF)</span></div>
-</div>
