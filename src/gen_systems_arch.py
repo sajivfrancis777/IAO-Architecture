@@ -716,6 +716,69 @@ def generate_capability(
     current_platform_mermaid = build_platform_arch_mermaid(current_flows, iapm, prefix_cur + "PL") if current_flows.hops else ""
     future_platform_mermaid = build_platform_arch_mermaid(future_flows, iapm, prefix_fut + "PL") if future_flows.hops else ""
 
+    # ── Release-specific flows ──────────────────────────────────
+    # When a specific release is active (e.g. R3), look for Rx_CurrentFlows / Rx_FutureFlows
+    # These are separate from the universal flows and provide release-scoped detail
+    rel_id = tower_cfg.release.name  # "R3" when --release R3, "R1 – R5" otherwise
+    has_release_flows = False
+    rel_current_mermaid = ""
+    rel_future_mermaid = ""
+    rel_current_archimate = ""
+    rel_future_archimate = ""
+    rel_current_flows = FlowSet(label="", source_file="")
+    rel_future_flows = FlowSet(label="", source_file="")
+    rel_diff = None
+
+    # Only look for release-specific files if a single release is active
+    if rel_id and "–" not in rel_id and "-" not in rel_id:
+        rel_cur_xlsx = find_xlsx_workbook(input_data, rel_id, "CurrentFlows")
+        rel_fut_xlsx = find_xlsx_workbook(input_data, rel_id, "FutureFlows")
+        rel_cur_csv = _find_flow_csv(input_data, rel_id, "CurrentFlows")
+        rel_fut_csv = _find_flow_csv(input_data, rel_id, "FutureFlows")
+
+        # Only proceed if we found release-specific files (not the universal fallback)
+        rel_cur_file = rel_cur_xlsx or rel_cur_csv
+        rel_fut_file = rel_fut_xlsx or rel_fut_csv
+        # Check that the file actually has the release prefix in its name
+        def _is_release_specific(p: Optional[Path]) -> bool:
+            return p is not None and p.name.startswith(rel_id)
+
+        if _is_release_specific(rel_cur_file) or _is_release_specific(rel_fut_file):
+            has_release_flows = True
+            rel_label_cur = f"{rel_id} Current State"
+            rel_label_fut = f"{rel_id} Future State"
+            rprefix_cur = cap_id.replace("-", "") + "RC"
+            rprefix_fut = cap_id.replace("-", "") + "RF"
+
+            # Load release-specific flows
+            if rel_cur_xlsx and _is_release_specific(rel_cur_xlsx):
+                rel_cur_wb = load_xlsx_workbook(str(rel_cur_xlsx), rel_label_cur)
+                rel_current_flows = rel_cur_wb.flows if rel_cur_wb.has_flows else FlowSet(label=rel_label_cur, source_file="")
+                print(f"    REL-XLSX: loaded {rel_cur_xlsx.name}")
+            elif rel_cur_csv and _is_release_specific(rel_cur_csv):
+                rel_current_flows = parse_flow_csv(str(rel_cur_csv), rel_label_cur)
+                print(f"    REL-CSV: loaded {rel_cur_csv.name}")
+
+            if rel_fut_xlsx and _is_release_specific(rel_fut_xlsx):
+                rel_fut_wb = load_xlsx_workbook(str(rel_fut_xlsx), rel_label_fut)
+                rel_future_flows = rel_fut_wb.flows if rel_fut_wb.has_flows else FlowSet(label=rel_label_fut, source_file="")
+                print(f"    REL-XLSX: loaded {rel_fut_xlsx.name}")
+            elif rel_fut_csv and _is_release_specific(rel_fut_csv):
+                rel_future_flows = parse_flow_csv(str(rel_fut_csv), rel_label_fut)
+                print(f"    REL-CSV: loaded {rel_fut_csv.name}")
+
+            # Build diagrams for release-specific flows
+            if rel_current_flows.hops:
+                rel_current_mermaid = build_mermaid(rel_current_flows, iapm, rprefix_cur)
+                rel_current_archimate = build_archimate_mermaid(rel_current_flows, iapm, rprefix_cur)
+            if rel_future_flows.hops:
+                rel_future_mermaid = build_mermaid(rel_future_flows, iapm, rprefix_fut)
+                rel_future_archimate = build_archimate_mermaid(rel_future_flows, iapm, rprefix_fut)
+
+            # Release-specific diff
+            if rel_current_flows.hops or rel_future_flows.hops:
+                rel_diff = diff_flows(rel_current_flows, rel_future_flows)
+
     # Diff
     diff = diff_flows(current_flows, future_flows)
 
@@ -830,6 +893,16 @@ def generate_capability(
         ricefw=smartsheet,
         # Supplementary context CSVs (§2.2, §2.3, §5.2, §5.3, §5.4, §6.3)
         ctx=ctx,
+        # Release-specific flows (§4.x, §5.x) — only when --release is active
+        has_release_flows=has_release_flows,
+        release_id=rel_id if has_release_flows else "",
+        rel_current_flows=rel_current_flows,
+        rel_future_flows=rel_future_flows,
+        rel_current_mermaid=rel_current_mermaid,
+        rel_future_mermaid=rel_future_mermaid,
+        rel_current_archimate=rel_current_archimate,
+        rel_future_archimate=rel_future_archimate,
+        rel_diff=rel_diff,
     )
 
     if dry_run:

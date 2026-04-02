@@ -197,6 +197,70 @@ def _jira_tests_for_tower(jira_data: dict, tower: str) -> list[dict]:
     return [tc for tc in jira_data.get("test_cases", []) if tc.get("tower") == tower]
 
 
+def _normalize_jira_release(raw: str) -> str:
+    """Normalize JIRA release names like 'Release 3' → 'R3'."""
+    m = re.search(r'(\d)', raw)
+    return f"R{m.group(1)}" if m else "Unknown"
+
+
+def _filter_jira_by_release(jira_data: dict, release: str) -> dict:
+    """Return a copy of jira_data with defects and test_cases filtered to the given release."""
+    filtered = dict(jira_data)
+    filtered["defects"] = [
+        d for d in jira_data.get("defects", [])
+        if _normalize_jira_release(d.get("release", "")) == release
+    ]
+    filtered["test_cases"] = [
+        tc for tc in jira_data.get("test_cases", [])
+        if _normalize_jira_release(tc.get("release", "")) == release
+    ]
+    # Invalidate pre-aggregated summaries so they get rebuilt from filtered data
+    filtered.pop("tower_summaries", None)
+    filtered.pop("capability_summaries", None)
+    filtered.pop("subtower_summaries", None)
+    return filtered
+
+
+def _build_defect_summary(defects: list[dict]) -> dict:
+    """Build defect summary metrics from a list of raw defects."""
+    _RESOLVED = {"Closed", "Done", "Resolved", "Verified", "Won't Fix", "Duplicate"}
+    _IN_PROGRESS = {"In Progress", "In Review", "In Development"}
+    total = len(defects)
+    resolved = sum(1 for d in defects if d.get("status", "") in _RESOLVED)
+    in_progress = sum(1 for d in defects if d.get("status", "") in _IN_PROGRESS)
+    open_count = total - resolved - in_progress
+    critical = sum(1 for d in defects
+                   if (d.get("severity", "") or d.get("priority", "")).lower()
+                   in ("critical", "blocker", "1-critical", "s1"))
+    return {
+        "total": total,
+        "open": open_count,
+        "in_progress": in_progress,
+        "resolved": resolved,
+        "critical": critical,
+    }
+
+
+def _build_test_summary(test_cases: list[dict]) -> dict:
+    """Build test summary metrics from a list of raw test cases."""
+    total = len(test_cases)
+    passed = sum(1 for tc in test_cases if tc.get("status", "").lower() in ("pass", "passed"))
+    failed = sum(1 for tc in test_cases if tc.get("status", "").lower() in ("fail", "failed"))
+    blocked = sum(1 for tc in test_cases if tc.get("status", "").lower() == "blocked")
+    not_run = total - passed - failed - blocked
+    return {
+        "total": total,
+        "passed": passed,
+        "failed": failed,
+        "blocked": blocked,
+        "not_run": not_run,
+        "pass_pct": round(passed / total * 100) if total else 0,
+        "fail_pct": round(failed / total * 100) if total else 0,
+        "blocked_pct": round(blocked / total * 100) if total else 0,
+        "not_run_pct": round(not_run / total * 100) if total else 0,
+    }
+
+
 def _get_tower_summary(jira_data: dict, tower: str) -> dict | None:
     """Get pre-computed tower summary from JIRA cache."""
     return jira_data.get("tower_summaries", {}).get(tower)
@@ -212,6 +276,7 @@ def build_context(
     cap_id: str = "",
     cap_name: str = "",
     l1_process: str = "",
+    release_filter: str = "",
 ) -> dict:
     """Build Jinja2 context for a Testing Report."""
 
@@ -355,22 +420,40 @@ def build_context(
 
     # ── Populate JIRA data from cache ────────────────────────────
     if jira_connected and jira_data:
+        # Filter JIRA data by release if specified
+        jd = _filter_jira_by_release(jira_data, release_filter) if release_filter else jira_data
+
         jira_sum = None
 
         if cap_id:
             # Capability-level: try capability_summaries first, then sub-tower match
-            jira_sum = jira_data.get("capability_summaries", {}).get(cap_id)
+            jira_sum = jd.get("capability_summaries", {}).get(cap_id)
             if not jira_sum:
                 # Try matching by sub-tower name from the objects we found
                 sub_towers_found = {o.get("sub_tower", "") for o in tower_objs if o.get("sub_tower")}
-                st_summaries = jira_data.get("subtower_summaries", {})
+                st_summaries = jd.get("subtower_summaries", {})
                 for st in sub_towers_found:
                     if st in st_summaries:
                         jira_sum = st_summaries[st]
                         break
         else:
             # Tower-level: use tower_summaries
-            jira_sum = _get_tower_summary(jira_data, tower_short)
+            jira_sum = _get_tower_summary(jd, tower_short)
+
+        # If release filter removed pre-aggregated summaries, rebuild from raw defects
+        if not jira_sum and release_filter:
+            tower_defects = _jira_defects_for_tower(jd, tower_short)
+            tower_tests = _jira_tests_for_tower(jd, tower_short)
+            if tower_defects or tower_tests:
+                jira_sum = {
+                    "defect": {
+                        "defect_summary": _build_defect_summary(tower_defects),
+                        "open_defects": [d for d in tower_defects
+                                         if d.get("status", "") not in
+                                         {"Closed", "Done", "Resolved", "Verified", "Won't Fix", "Duplicate"}],
+                    },
+                    "test": _build_test_summary(tower_tests),
+                }
 
         if jira_sum:
             # Defect data
@@ -456,6 +539,7 @@ def generate_tower_report(
     cap_filter: str = "",
     dry_run: bool = False,
     release_label: str = "R1 \u2013 R5",
+    release_filter: str = "",
 ) -> list[Path]:
     tower_dir = TOWERS_DIR / tower_short
     if not tower_dir.exists():
@@ -473,7 +557,7 @@ def generate_tower_report(
 
     # Tower-level report
     if not cap_filter:
-        ctx = build_context(tower_short, all_objects, all_raids)
+        ctx = build_context(tower_short, all_objects, all_raids, release_filter=release_filter)
         ctx["release_name"] = release_label
         rendered = template.render(**ctx)
         rendered = _inject_page_footers(rendered, f"{ctx['title']} — Testing Report")
@@ -507,6 +591,7 @@ def generate_tower_report(
                 cap_id=cid,
                 cap_name=resolved_name,
                 l1_process=l1_dir.name,
+                release_filter=release_filter,
             )
             ctx["release_name"] = release_label
 
@@ -582,14 +667,16 @@ def main() -> None:
             print(f"Tower: {t}")
             outputs = generate_tower_report(t, all_objects, all_raids, jinja_env,
                                             dry_run=args.dry_run,
-                                            release_label=args.release or "R1 \u2013 R5")
+                                            release_label=args.release or "R1 \u2013 R5",
+                                            release_filter=args.release or "")
             all_outputs.extend(outputs)
         print(f"\n{'='*60}")
         print(f"TOTAL: {len(all_outputs)} testing report(s) generated")
     else:
         generate_tower_report(args.tower, all_objects, all_raids, jinja_env,
                               cap_filter=args.cap or "", dry_run=args.dry_run,
-                              release_label=args.release or "R1 \u2013 R5")
+                              release_label=args.release or "R1 \u2013 R5",
+                              release_filter=args.release or "")
 
 
 if __name__ == "__main__":

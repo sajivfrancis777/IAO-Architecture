@@ -69,6 +69,9 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
       <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
+{% if has_release_flows %}
+      <li><a href="#57-release-specific-architecture-{{ release_id | lower }}">5.7 Release-Specific Architecture ({{ release_id }})</a></li>
+{% endif %}
     </ul>
   </li>
   <li><a href="#6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
@@ -520,6 +523,78 @@ Integration patterns identified from the system flow analysis for {{ cap_id }}:
 {% endif %}
 
 <div style="page-break-before: always;"></div>
+
+{% if has_release_flows %}
+## 5.7 Release-Specific Architecture ({{ release_id }})
+
+This section presents the **{{ release_id }}-scoped** current and future state flows, providing a focused view of the architecture changes planned for this release. The universal transformation analysis in §5.1–5.2 covers the full AS-IS → TO-BE picture; this section narrows to {{ release_id }}-specific scope.
+
+{% if rel_current_flows.hops or rel_future_flows.hops %}
+### 5.7.1 {{ release_id }} Current-State Flows
+
+{% if rel_current_mermaid %}
+{% if rel_current_archimate %}
+#### {{ release_id }} Current-State ArchiMate View
+
+```mermaid
+{{ rel_current_archimate }}
+```
+
+{% else %}
+#### {{ release_id }} Current-State Flow
+
+```mermaid
+{{ rel_current_mermaid }}
+```
+
+{% endif %}
+
+**{{ release_id }} Current-State Flow Summary**: {{ rel_current_flows.hops | length }} integration hops across {{ rel_current_flows.chains | length }} flow chains.
+{% else %}
+*(No {{ release_id }}-specific current-state flows defined.)*
+{% endif %}
+
+<div style="page-break-before: always;"></div>
+
+### 5.7.2 {{ release_id }} Future-State Flows
+
+{% if rel_future_mermaid %}
+{% if rel_future_archimate %}
+#### {{ release_id }} Future-State ArchiMate View
+
+```mermaid
+{{ rel_future_archimate }}
+```
+
+{% else %}
+#### {{ release_id }} Future-State Flow
+
+```mermaid
+{{ rel_future_mermaid }}
+```
+
+{% endif %}
+
+**{{ release_id }} Future-State Flow Summary**: {{ rel_future_flows.hops | length }} integration hops across {{ rel_future_flows.chains | length }} flow chains.
+{% else %}
+*(No {{ release_id }}-specific future-state flows defined.)*
+{% endif %}
+
+{% if rel_diff %}
+### 5.7.3 {{ release_id }} Change Impact
+
+| Change Type | Flow Chain | Detail |
+|-------------|-----------|--------|
+{% for c in rel_diff.changes -%}
+| **{{ c.change_type }}** | {{ c.flow_chain }} | {{ c.detail }} |
+{% endfor %}
+
+**{{ release_id }} Totals**: {{ rel_diff.summary_str }}
+{% endif %}
+{% endif %}
+
+<div style="page-break-before: always;"></div>
+{% endif %}
 
 ## 6. Technology Architecture (TOGAF "T")
 
