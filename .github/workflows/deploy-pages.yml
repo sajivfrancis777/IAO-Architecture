@@ -245,6 +245,14 @@ jobs:
           done
           echo ']' >> _site/nav.json
 
+          # Copy nav.json into release subfolders so sidebar works in /R3/, /R4/ docs
+          RELEASES="R3 R4"
+          for REL in $RELEASES; do
+            if [ -d "_site/${REL}" ]; then
+              cp _site/nav.json "_site/${REL}/nav.json"
+            fi
+          done
+
           # ── SHARED CSS ─────────────────────────────────────────────
           SHARED_CSS='
           *,*::before,*::after{box-sizing:border-box}
@@ -591,6 +599,42 @@ jobs:
             ov.addEventListener("click",function(){sb.classList.remove("open");ov.classList.remove("open")});
             var pdfBtn=document.querySelector(".portal-toolbar .pdf-btn");
             if(pdfBtn) pdfBtn.addEventListener("click",function(){window.print()});
+
+            // ── Release filter logic ──
+            var relSel=document.getElementById("doc-release-filter");
+            if(relSel){
+              var saved=localStorage.getItem("iao-release-filter");
+              var path=location.pathname;
+              // Detect current release from URL path: /R3/towers/... => R3
+              var pathMatch=path.match(/\/(R[1-5])\/towers\//);
+              var currentRel=pathMatch?pathMatch[1]:null;
+              // Sync dropdown: prefer URL path, then localStorage
+              if(currentRel){relSel.value=currentRel;localStorage.setItem("iao-release-filter",currentRel)}
+              else if(saved&&saved!=="All"){relSel.value=saved}
+              else{relSel.value="All"}
+              // On dropdown change: navigate to selected release path
+              relSel.addEventListener("change",function(){
+                var r=relSel.value;
+                localStorage.setItem("iao-release-filter",r);
+                var p=location.pathname;
+                if(r&&r!=="All"){
+                  // If already on a release path /Rx/towers/..., swap the release
+                  if(/\/R[1-5]\/towers\//.test(p)){p=p.replace(/\/R[1-5]\/towers\//,"/"+r+"/towers/")}
+                  // If on root /towers/..., insert release prefix
+                  else if(/\/towers\//.test(p)){p=p.replace(/\/towers\//,"/"+r+"/towers/")}
+                }else{
+                  // "All" selected: go back to root /towers/ path
+                  p=p.replace(/\/R[1-5]\/towers\//,"/towers/");
+                }
+                if(p!==location.pathname){location.href=p}
+              });
+              // Auto-redirect: if localStorage says R3 but we are on /towers/ (no release prefix)
+              if(saved&&saved!=="All"&&!currentRel&&/\/towers\//.test(path)){
+                var newP=path.replace(/\/towers\//,"/"+saved+"/towers/");
+                if(newP!==path){location.href=newP;return}
+              }
+            }
+
             var depth=location.pathname.replace(/^\\/[^\\/]*\\//,"").split("/").length;
             var base="";for(var i=1;i<depth;i++)base+="../";
             fetch(base+"nav.json").then(function(r){return r.json()}).then(function(data){
@@ -632,9 +676,11 @@ jobs:
 
           # Collect ALL HTML pages that need toolbar+sidebar injection:
           # - towers/**/*.html  (SAD, RICEFW Tracker, Testing Report)
+          # - R3/towers/**/*.html, R4/towers/**/*.html (per-release docs)
           # - dashboard/**/*.html (Program + Tower dashboards)
           html_files = sorted(
               glob.glob("_site/towers/**/*.html", recursive=True)
+              + glob.glob("_site/R[0-9]/towers/**/*.html", recursive=True)
               + glob.glob("_site/dashboard/**/*.html", recursive=True)
           )
 

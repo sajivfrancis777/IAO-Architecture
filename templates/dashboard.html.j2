@@ -927,8 +927,28 @@ applyFilters();
     if(activeRelease === 'All') url.searchParams.delete('release');
     else url.searchParams.set('release', activeRelease);
     window.history.replaceState({}, '', url);
+    rewriteDocTableLinks();
     applyFilters();
   });
+
+  // Rewrite doc inventory "View" links to include release prefix
+  function rewriteDocTableLinks(){
+    document.querySelectorAll('.doc-table tbody a[href*="towers/"]').forEach(function(a){
+      var orig = a.getAttribute('data-orig-href') || a.getAttribute('href');
+      a.setAttribute('data-orig-href', orig);
+      if(activeRelease && activeRelease !== 'All'){
+        var pat = /(\.\.\/)*towers\//;
+        var newHref = orig.replace(pat, function(m){
+          return m.replace('towers/', activeRelease + '/towers/');
+        });
+        a.setAttribute('href', newHref);
+      } else {
+        a.setAttribute('href', orig);
+      }
+    });
+  }
+  // Rewrite on initial load if release was set
+  rewriteDocTableLinks();
 })();
 
 // ---- Print/PDF: freeze Plotly charts to static PNG images, then print ----
