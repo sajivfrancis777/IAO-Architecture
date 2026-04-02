@@ -236,8 +236,8 @@ class CapabilityConfig:
 
 @dataclass
 class ReleaseConfig:
-    release_id: str = "R3"
-    name: str = "Release 3"
+    release_id: str = "R1-R5"
+    name: str = "R1 – R5"
     go_live: str = ""
 
 
@@ -280,8 +280,8 @@ def load_tower_config(tower_dir: Path) -> TowerConfig:
     if releases:
         r = releases[0]
         tc.release = ReleaseConfig(
-            release_id=str(r.get("id", "R3")),
-            name=r.get("name", "Release 3"),
+            release_id=str(r.get("id", "R1-R5")),
+            name=r.get("name", "R1 – R5"),
             go_live=str(r.get("go_live", "")),
         )
 

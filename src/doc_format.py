@@ -87,7 +87,7 @@ class DocFormatter:
         subtitle: str = "TOGAF BDAT",
         gen_date: str | None = None,
         author: str = "Sajiv Francis",
-        release: str = "Release 3",
+        release: str = "R1 – R5",
         confidentiality: str = "IAO Architecture Pipeline — Intel Confidential",
         banner_path: str | None = None,
     ):

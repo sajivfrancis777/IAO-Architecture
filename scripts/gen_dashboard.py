@@ -477,7 +477,7 @@ def build_dashboard_context(
 
     return {
         "title": title_text,
-        "release_name": "Release 3",
+        "release_name": "R1 – R5",
         "available_releases": available_releases,
         "available_releases_json": json.dumps(available_releases),
         "generated_date": datetime.now().strftime("%B %Y"),

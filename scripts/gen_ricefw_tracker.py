@@ -350,7 +350,7 @@ def build_context(
         "cap_id": cap_id,
         "cap_name": cap_name,
         "l1_process": l1_process,
-        "release_name": "Release 3",
+        "release_name": "R1 – R5",
         "generated_date": datetime.now().strftime("%B %Y"),
         "author": "Sajiv Francis",
         "cover_banner_path": cover_banner_path,

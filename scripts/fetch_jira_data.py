@@ -58,9 +58,9 @@ BUG_FIELDS = (
     f"{F_ASSIGNED_SUBTEAM},{F_DETECTED_SUBTEAM},{F_DEFECT_TYPE}"
 )
 
-# Only "Release 3" exists currently; extend when R4/R5 created
-JIRA_ACTIVE_RELEASES = ('"Release 3"',)
-ACTIVE_RELEASES = {"R3", "R4", "R5", "Release 3", "Release 4", "Release 5"}
+# All releases (R1-R5) are fetched — no release restriction
+JIRA_ACTIVE_RELEASES = ('"Release 1"', '"Release 2"', '"Release 3"', '"Release 4"', '"Release 5"',)
+ACTIVE_RELEASES = {"R1", "R2", "R3", "R4", "R5", "Release 1", "Release 2", "Release 3", "Release 4", "Release 5"}
 
 # ── Tower mapping ────────────────────────────────────────────────
 _SUB_TEAM_TO_TOWER: dict[str, str] = {
@@ -143,21 +143,14 @@ def _resolve_tower_from_subteam(sub_team: str) -> str:
 
 
 def _is_active_release(release_str: str) -> bool:
-    if not release_str:
-        return True
-    r = release_str.strip()
-    if r in ACTIVE_RELEASES:
-        return True
-    m = re.search(r"(\d+)", r)
-    if m:
-        return int(m.group(1)) >= 3
+    """All releases are active — no filtering."""
     return True
 
 
 # ── Data fetchers ────────────────────────────────────────────────
 
 def fetch_all_defects() -> list[dict]:
-    """Paginate through all R3+ bugs in IAODTM."""
+    """Paginate through all bugs in IAODTM across all releases."""
     rel_clause = " OR ".join(f'"{JQL_ACTUAL_RELEASE}" = {r}' for r in JIRA_ACTIVE_RELEASES)
     jql = (
         f"project = {PROJECT_KEY} AND issuetype = Bug AND "
@@ -220,7 +213,7 @@ def fetch_all_defects() -> list[dict]:
 
 
 def fetch_all_test_cases(max_pages: int = 40) -> list[dict]:
-    """Paginate through all Zephyr Scale test cases, filter to R3+."""
+    """Paginate through all Zephyr Scale test cases across all releases."""
     all_cases: list[dict] = []
     start = 0
     batch = 50
@@ -273,7 +266,7 @@ def fetch_all_test_cases(max_pages: int = 40) -> list[dict]:
         start += batch
         page += 1
 
-    print(f"  Total R3+ test cases fetched: {len(all_cases)}")
+    print(f"  Total test cases fetched: {len(all_cases)}")
     return all_cases
 
 
@@ -552,7 +545,7 @@ def main() -> None:
     # ── Save JSON ────────────────────────────────────────────────
     payload = {
         "fetched_at": datetime.now(timezone.utc).isoformat(),
-        "release": "Release 3",
+        "release": "All Releases (R1-R5)",
         "defects": defects,
         "test_cases": test_cases,
         "cross_tower_summary": cross_tower,
@@ -578,7 +571,7 @@ def main() -> None:
     summary_path = OUTPUT_DIR / "jira_summary.json"
     summary_payload = {
         "fetched_at": payload["fetched_at"],
-        "release": "Release 3",
+        "release": "All Releases (R1-R5)",
         "total_defects": len(defects),
         "total_test_cases": len(test_cases),
         "cross_tower_summary": cross_tower,

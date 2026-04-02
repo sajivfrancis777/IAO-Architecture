@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Finance Plan To Report (FPR) Tower<br/>
   Capability DS-020 · DS Provide Decision Support</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,12 +106,12 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Finance Plan To Report (FPR) |
 | **Process Group** | DS Provide Decision Support |
 | **Capability** | DS-020 - Perform Product Costing and Inventory Valuation |
-| **Release** | Release 3 |
-| **Total Systems** | 60 |
-| **System Status** | 46 Deployed, 8 Developing, 4 EOL, 2 Pending IAPM |
+| **Release** | R1 – R5 |
+| **Total Systems** | 61 |
+| **System Status** | 47 Deployed, 8 Developing, 4 EOL, 2 Pending IAPM |
 | **RICEFW Objects** | 10 Interfaces, 2 Conversions, 15 Enhancements |
 
-**Change Summary**: 22 new flow chains, 27 removed, 0 modified, 0 unchanged between ICOST and S/4 HANA states.
+**Change Summary**: 22 new flow chains, 24 removed, 0 modified, 0 unchanged between ICOST and S/4 HANA states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
@@ -1392,12 +1392,12 @@ The following data entities are derived from the system integration flows for DS
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 | 1 | APIGEE Business Data | APIGEE | SAP S/4HANA | FPR Data Steward | Intel Confidential | Per transaction | Transaction |
 | 2 | ATCR Business Data | ATCR | SAP S/4HANA | FPR Data Steward | Intel Confidential | Per transaction | Transaction |
-| 3 | BOBJ Business Data | BOBJ | SAP S/4HANA | FPR Data Steward | Intel Confidential | Per transaction | Transaction |
-| 4 | CFIN S/4 HANA Business Data | CFIN S/4 HANA | SAP S/4HANA | FPR Data Steward | Intel Confidential | Per transaction | Transaction |
-| 5 | CIBR Business Data | CIBR | SAP S/4HANA | FPR Data Steward | Intel Confidential | Per transaction | Transaction |
-| 6 | COMPASS Business Data | COMPASS | SAP S/4HANA | FPR Data Steward | Intel Confidential | Per transaction | Transaction |
-| 7 | Capacity Forecast Data Store Business Data | Capacity Forecast Data Store | SAP S/4HANA | FPR Data Steward | Intel Confidential | Per transaction | Transaction |
-| 8 | Corp / IP S/4 Business Data | Corp / IP S/4 | SAP S/4HANA | FPR Data Steward | Intel Confidential | Per transaction | Transaction |
+| 3 | Azure ADF Business Data | Azure ADF | SAP S/4HANA | FPR Data Steward | Intel Confidential | Per transaction | Transaction |
+| 4 | BOBJ Business Data | BOBJ | SAP S/4HANA | FPR Data Steward | Intel Confidential | Per transaction | Transaction |
+| 5 | CFIN S/4 Business Data | CFIN S/4 | SAP S/4HANA | FPR Data Steward | Intel Confidential | Per transaction | Transaction |
+| 6 | CFIN S/4 HANA Business Data | CFIN S/4 HANA | SAP S/4HANA | FPR Data Steward | Intel Confidential | Per transaction | Transaction |
+| 7 | CIBR Business Data | CIBR | SAP S/4HANA | FPR Data Steward | Intel Confidential | Per transaction | Transaction |
+| 8 | Capacity Forecast Data Store Business Data | Capacity Forecast Data Store | SAP S/4HANA | FPR Data Steward | Intel Confidential | Per transaction | Transaction |
 
 
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
@@ -1418,22 +1418,6 @@ flowchart TB
     classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
     classDef eolBox fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#660000
 
-    subgraph DS020CDACL_Azure_Data_Lake[" "]
-        direction TB
-        DS020CDAA_ECA_ADLS["ECA-ADLS"]:::appBox
-        DS020CDAD_Azure_Data_Lake[("🗄️ Azure Data Lake")]:::dbCyl
-        DS020CDAA_ECA_ADLS -.-> DS020CDAD_Azure_Data_Lake
-    end
-    style DS020CDACL_Azure_Data_Lake fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
-
-    subgraph DS020CDACL_Delta_Lake[" "]
-        direction TB
-        DS020CDAA_ECA_DataBricks["ECA-DataBricks"]:::appBox
-        DS020CDAD_Delta_Lake[("🗄️ Delta Lake")]:::dbCyl
-        DS020CDAA_ECA_DataBricks -.-> DS020CDAD_Delta_Lake
-    end
-    style DS020CDACL_Delta_Lake fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
-
     subgraph DS020CDACL_MSSQL[" "]
         direction TB
         DS020CDAA_MARS["MARS"]:::appBox
@@ -1447,23 +1431,17 @@ flowchart TB
     subgraph DS020CDACL_Oracle_DB[" "]
         direction TB
         DS020CDAA_CIBR["CIBR"]:::appBox
-        DS020CDAA_COMPASS["COMPASS"]:::appBox
-        DS020CDAA_DCS["DCS"]:::appBox
         DS020CDAA_EATS["EATS"]:::eolBox
         DS020CDAA_FCA["FCA"]:::appBox
         DS020CDAA_ICOST["ICOST"]:::appBox
         DS020CDAA_SAP_ECC["SAP ECC"]:::appBox
-        DS020CDAA_SAP_ICX["SAP ICX"]:::appBox
         DS020CDAA_SPEED["SPEED"]:::appBox
         DS020CDAD_Oracle_DB[("🗄️ Oracle DB")]:::dbCyl
         DS020CDAA_CIBR -.-> DS020CDAD_Oracle_DB
-        DS020CDAA_COMPASS -.-> DS020CDAD_Oracle_DB
-        DS020CDAA_DCS -.-> DS020CDAD_Oracle_DB
         DS020CDAA_EATS -.-> DS020CDAD_Oracle_DB
         DS020CDAA_FCA -.-> DS020CDAD_Oracle_DB
         DS020CDAA_ICOST -.-> DS020CDAD_Oracle_DB
         DS020CDAA_SAP_ECC -.-> DS020CDAD_Oracle_DB
-        DS020CDAA_SAP_ICX -.-> DS020CDAD_Oracle_DB
         DS020CDAA_SPEED -.-> DS020CDAD_Oracle_DB
     end
     style DS020CDACL_Oracle_DB fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
@@ -1483,14 +1461,12 @@ flowchart TB
     subgraph DS020CDACL_SAP_HANA[" "]
         direction TB
         DS020CDAA_BOBJ["BOBJ"]:::appBox
-        DS020CDAA_CFIN_S_4_HANA["CFIN S/4 HANA"]:::appBox
         DS020CDAA_Corp_IP_S_4["Corp / IP S/4"]:::appBox
         DS020CDAA_Finance_HANA["Finance HANA"]:::appBox
         DS020CDAA_SAP_IBP["SAP IBP"]:::appBox
         DS020CDAA_SideCar["SideCar"]:::appBox
         DS020CDAD_SAP_HANA[("🗄️ SAP HANA")]:::dbCyl
         DS020CDAA_BOBJ -.-> DS020CDAD_SAP_HANA
-        DS020CDAA_CFIN_S_4_HANA -.-> DS020CDAD_SAP_HANA
         DS020CDAA_Corp_IP_S_4 -.-> DS020CDAD_SAP_HANA
         DS020CDAA_Finance_HANA -.-> DS020CDAD_SAP_HANA
         DS020CDAA_SAP_IBP -.-> DS020CDAD_SAP_HANA
@@ -1501,10 +1477,8 @@ flowchart TB
     subgraph DS020CDACL_Snowflake[" "]
         direction TB
         DS020CDAA_ECA["ECA"]:::appBox
-        DS020CDAA_ECA_SnowFlake["ECA-SnowFlake"]:::appBox
         DS020CDAD_Snowflake[("🗄️ Snowflake")]:::dbCyl
         DS020CDAA_ECA -.-> DS020CDAD_Snowflake
-        DS020CDAA_ECA_SnowFlake -.-> DS020CDAD_Snowflake
     end
     style DS020CDACL_Snowflake fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
 
@@ -1516,21 +1490,21 @@ flowchart TB
     end
     style DS020CDACL_Teradata fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
 
-    DS020CDAA_Legacy_MDG["Legacy MDG"]:::appBox
-    DS020CDAA_APIGEE["APIGEE"]:::appBox
     DS020CDAA_SAP_PO["SAP PO"]:::appBox
-    DS020CDAA_SPAN["SPAN"]:::appBox
+    DS020CDAA_Legacy_MDG["Legacy MDG"]:::appBox
+    DS020CDAA_Azure_ADF["Azure ADF"]:::appBox
+    DS020CDAA_DataBricks["DataBricks"]:::appBox
+    DS020CDAA_SnowFlake["SnowFlake"]:::appBox
+    DS020CDAA_SAP_BODS["SAP BODS"]:::appBox
+    DS020CDAA_CFIN_S_4["CFIN S/4"]:::appBox
+    DS020CDAA_APIGEE["APIGEE"]:::appBox
 
-    DS020CDAD_PostgreSQL ==>|"Direct"| DS020CDAD_Oracle_DB
-    DS020CDAD_MSSQL ==>|"Direct"| DS020CDAD_Oracle_DB
+    DS020CDAD_PostgreSQL ==>|"Internal"| DS020CDAD_Oracle_DB
+    DS020CDAD_MSSQL ==>|"Internal"| DS020CDAD_Oracle_DB
     DS020CDAD_Oracle_DB ==>|"Direct"| DS020CDAD_Teradata
     DS020CDAD_Oracle_DB ==>|"SLT"| DS020CDAD_SAP_HANA
-    DS020CDAD_SAP_HANA ==>|"ADF Rest API / SFTP(Blob)"| DS020CDAD_Azure_Data_Lake
-    DS020CDAD_Azure_Data_Lake ==>|"Unity Catalog"| DS020CDAD_Delta_Lake
-    DS020CDAD_Delta_Lake ==>|"Snowflake Connector / Snowpipe"| DS020CDAD_Snowflake
-    DS020CDAD_Snowflake ==>|"Direct"| DS020CDAD_Oracle_DB
+    DS020CDAD_SAP_HANA ==>|"SLT"| DS020CDAD_Snowflake
     DS020CDAD_Snowflake ==>|"Internal"| DS020CDAD_Oracle_DB
-    DS020CDAD_Oracle_DB ==>|"JE Posting"| DS020CDAD_SAP_HANA
     DS020CDAD_Oracle_DB ==>|"ETL"| DS020CDAD_Teradata
     DS020CDAD_Teradata ==>|"ETL"| DS020CDAD_Oracle_DB
     DS020CDAD_SAP_HANA ==>|"Direct"| DS020CDAD_Snowflake
@@ -1544,7 +1518,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWQtv2kgQ_isrV5FaKVzJg-SC1Ep-plRO8GFyqVROaLEXYsXYljGX0DT__Wb8BGOzmMNIeB_fN7v7zexgL2-C5dtM6AonJ2-O50Rd8jYSoic2ZyOhS0bChC6gdAqlBbOWoROtdPYvc5NO1_ez3pjyNw0dOnHZArvBztT3ItP5lZo66wSvCRjbNTp33FXSY7KZz8hD75SIYACMv8co13-xnmgYpdaWC3ZHXx8dO3rClil1FwxxT9Hc1emEufGwUbiMWz1YlhlQy_Fm2HzRwcaQes9rjZed93fyfnIy8vKxyFAaeQQuy6WLhcKmhAaB5L-SqeO63Q9SR9E07XQRhf4z635ot6-vpau02nrBqXXPg9dTy3f9ELsvlE7Znj2RV25qTuwoV-J1bu5cvVYuzmvNnUkd9bxdMsd8t5iepkkdqZPbk-U2XLX2rq6we-QlFhfLySykwRNRzPZ5W1ZEWR-Lv5YhGys0omOdPrOfIwFE_CfB42U7IbMix_dy2fDKDIhjVRbHoqKbQIRiC4vA73a7iajbFGVryI8jYbS0_7yw4du2LkfLKWtPSYwiiCKIGgmf0Gos7a55kNYfra_1gyVU5tmpItHKZTvkyEQX8ZOLrrbxsyn6GUT-DpkV5v4fhXFCUuhYz4tU56KBp_bayNVCx4C9NS4GLitdDMQTuUAeTd870_xLbyztnTjAwMXbbhnF8aMfPptRyOgcCEWFp34yr2rh4z6e5ji3stIJceckd1Dq_RKDjuaSfkgtF_aS1Ngtck8aAAlvPLfI_TtDNNGJaYlHUGQEwzcPqIrDOKnBLYEmabgKqskiIOGbZ7Mn980hQOM7D2yKBuw4GeBQIlDah9CTf6QEKHEJhqoqCMc7L5ILd1ZHc9JPFIkX0ejWcnjmxnf4uBEHHNwIj25uRABvN8LHLm_ESP3fmAOOb8ZB73MY9TkjBx4tbxj-IpqF7KB8rprji3YbU7pqEijxdoCh3uLWxRsP-kN9wHyAN95WWVtB9V4pANz0n6yo7J41AzWrasbAVfEY9TFQII8WBBjI38R7sXEISH3pO5Dwxv3t0Hr3Y3N8mQ2EdWJ-viRY55L9MBj3DOQjFWrkM-kZyOdRNcejnsWyYdPqXqPG-1syshQvGVyCYzOZhkhISrzYzYWvjlwcNpno7rhF_csBlZnm-qIRsfBDE9q6D5rwUgc0oiTC76bUb64Md7yt5fkvU_fAN5Hk9YP77AQvCjiMlg6Dbyx5nRuB-fxqQjDr3-N1ZUv0nMubNYe5w18Z8GgOG7KQ2vDa1dxfyiOKrzzyJM9HqFY86-YKrjyWZcupHNUy3EGiFTPQ2Yxaq_GdcgsLTyoEKtvrLyii0btVVYAnhV1Q3IpGP02-Rn8n1BDv4ydr8X4Ttglc_5UlX758_Q2vJrFTR8Lv-qex0mvdIcTisa2evOm7eq6pDzeJm6ltuz3liYpGBmwREVAefjxNbWh8lFx_8mnTWuUJTm13avsBDjpXRIZW159t2iufU1T1ZCvL97Lsex4I5Ic4UWgNnICVFr2ZICo6DvFTmdzzIhZ6eIB6kJu_q_GzZ3w4uo_Hynx1qO8XI_l-ruHVL3gzRqrEWlO6lDRhx0OK-bmWxCy7TRRxKBJxIH_rDVV5-DBQia7eqvdKTS7VB0UrHAhiZggC17Eo9lZnUjjSqjtcAw2SA_aq1KmPMfGont3ypy3dmbLtk4ZSykxWmGXJDn7yLHlzc7OVIoVTYc7COXVsofuWHOHDPwE2m9KlG8EhvECXkW-uPEvoxsfqwjIAtzHFoaDoPGl8_w-JrQrA" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWA1vozgQ_SsWq0p3UntLP9JukXYlwKabFW2yIb2ctJyQC06LSiACcm222_9-Hr6SEMBLVSLFY3ve4Hl-HhJeJDfymKRIBwcvfuinCnqxpfSBLZgtKciW7mjCrUNuJcxdxX66Ntl_LMgngygqZzPI3zT26V3AEpjmceZRmFr-zyLU8WD5nDvDuEEXfrDOZyx2HzF0OzxEKg_Ag79mXkH05D7QOC2irRJ2TZ9nvpc-wMicBgkDv4d0EZj0jgXZbdN4lY2GPC1rSV0_vIfh0wEMxjR83Bo8G7y-oteDAzus7oWmmh0ifrkBTRLM5ogul1r0jOZ-ECgftAE2DOMwSePokSkfZPniQjsvukdPsDTlZPl86EZBFMP0KR7U43l3-joowqkDfK5eVOFOyAU-PWkNd6wNyIlcC8eiYLM8w9AG2qCKp-syv1rjnZ_DtB3mEZPV3X1Mlw8IW_KJrGNVN51ry_pu_rAlTt2_uRdcnh8zN_WjsCILrhKmOtfqxOIgaDhOUZScwibXWRQ_WmnM6IIDNp1uGC7W9Yct2Svv06nHvz33zF7NmTxH2Zwt_QkRMq7bloiO_jr6Ug_avcgOCAu9gsd0HbA9EssNUuFTbRCR4bO7Qcf8lHRsySimbsAcrPXeFn2oTTgIGtG2EHUKOwhN7pqrrMnV0FXuyb9FMYf6yJpy16wVOVvq2CG6zt25hbglBIwJweAOrUg-Gw6bJZTPI6yJZARc1jVRBW8jtheAE9vLP2O3F6Kguh8GWBYg2g9E5fhuh2IcJel9zN5UrIjlnMoy1CtiIW6JlDYmV6B4aESu_5BbOEbQiCS5lUGzJjcOwtqWZ1Tfnq0ALVn1Q0BWIkS7Bjae7yYCEPJX9UbtLQFtpH3jIGhEO6pH8dIZjh3LOYNSynvoIxqOkfXxTAQ1_JCGLiuXWHQRdH-nGg61cVENuSUE-B7TaQyA3BLJr-KuWXxw23yh3dIDCuuaKEML6OwD26ayD67gsRck568b0i7z0u_9RB5GT_OAPrLeKifZg5qIHtR46xYtYijnRWog-8-uDVZEXOn4bsxNWUw9mtL-xOEZEIdnIuKqOzTzVk4LacOzOm0VVMBa6fcm0nbPyXhUlJvxaD_vjavJ7qm7dq7xFXfPO4h3uiDqz1XMHBUbHJHZiNtdAMwz0mLffUw4YtPpgoB8jOKYVHYngKesjbBVJA1ml7tuDG_KhwA3m-v_Vsrj4RUhkG9m7LruOm8_RNHnz19-8V_MYcriEP4X_2r_uVX7U_I26OaXWQ7H2dHYBe9qsR1rmdNd4G7N3B9vxe3WjIaJ90mWTM3fy7Q6ZS241jvWMm1idyvZWinjh4sf_B9bpcX1ZITVqYrUif51OCX69HZCkEmuyA1uqXDmZDNqOvBAUJfLwHcpzDbXN9PBLQUNjmL-fqipoJkOCJ6E3lE0PzL9Odv_J1krZHmGZe0awKeqXZeXl3uFSzqUFixeUN-TlJf8DRR_keWxOV0FKX-HJNFVGlnr0JWU7K2QtFrybWPYp5zRRT74-j-GiYaA" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -1719,7 +1693,7 @@ Data lineage traces the origin and transformation path of key data objects acros
 | 3 | WorkStream | WorkStream master tables | MARS | MARS staging tables | ETL / API replication |
 | 4 | MARS | MARS master tables | ICOST | ICOST staging tables | ETL / API replication |
 | 5 | EATS | EATS master tables | ICOST | ICOST staging tables | ETL / API replication |
-| 6 | SPEED | SPEED master tables | SAP ECC | SAP ECC staging tables | ETL / API replication |
+| 6 | SPEED | SPEED master tables | SAP PO | SAP PO staging tables | ETL / API replication |
 
 > *Lineage detail will be refined when tower architects validate source/target schema object mappings.*
 
@@ -1752,7 +1726,7 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 #### Overview
 
-The ICOST architecture represents the **current / legacy** landscape for DS-020. Legacy and transitional product costing landscape. ICOST remains the primary costing engine during Release 3, with ECC as the book-of-record ERP.This view is generated from `R3_CurrentFlows.xlsx` (42 flow hops across 27 flow chains).
+The ICOST architecture represents the **current / legacy** landscape for DS-020. Legacy and transitional product costing landscape. ICOST remains the primary costing engine during Release 3, with ECC as the book-of-record ERP.This view is generated from `CurrentFlows.xlsx` (36 flow hops across 24 flow chains).
 
 #### APPLICATION ARCHITECTURE — Architecture Diagram (ArchiMate-Inspired)
 
@@ -1771,59 +1745,79 @@ flowchart TB
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
-        DS020C_APIGEE["📦 APIGEE"]:::app
-        DS020C_BOBJ["📦 BOBJ"]:::app
-        DS020C_CFIN_S_4_HANA["📦 CFIN S/4 HANA"]:::app
-        DS020C_CIBR["📦 CIBR"]:::app
-        DS020C_COMPASS["📦 COMPASS"]:::app
-        DS020C_Corp_IP_S_4["📦 Corp / IP S/4<br/><i>DEV</i>"]:::app
-        DS020C_DCS["📦 DCS"]:::app
-        DS020C_EATS["📦 EATS<br/><i>EOL</i>"]:::eol
-        DS020C_ECA["📦 ECA"]:::app
-        DS020C_ECA_ADLS["📦 ECA-ADLS"]:::app
-        DS020C_ECA_DataBricks["📦 ECA-DataBricks"]:::app
-        DS020C_ECA_SnowFlake["📦 ECA-SnowFlake"]:::app
-        DS020C_EDW["📦 EDW"]:::app
-        DS020C_FCA["📦 FCA"]:::app
-        DS020C_Finance_HANA["📦 Finance HANA"]:::app
-        DS020C_ICOST["📦 ICOST"]:::app
-        DS020C_Legacy_MDG["📦 Legacy MDG"]:::app
-        DS020C_MARS["📦 MARS"]:::app
-        DS020C_MES_300["📦 MES 300"]:::app
-        DS020C_PEGA["📦 PEGA"]:::app
-        DS020C_SAP_ECC["📦 SAP ECC"]:::app
-        DS020C_SAP_IBP["📦 SAP IBP"]:::app
-        DS020C_SAP_ICX["📦 SAP ICX"]:::app
-        DS020C_SAP_PO["📦 SAP PO"]:::app
-        DS020C_SPAN["📦 SPAN"]:::app
-        DS020C_SPEED["📦 SPEED"]:::app
-        DS020C_SideCar["📦 SideCar"]:::app
-        DS020C_WorkStream["📦 WorkStream"]:::app
-        DS020C_XEUS["📦 XEUS"]:::app
+        subgraph DS020CLN_Boundary_Applications[" ⬛ Boundary Applications"]
+            direction LR
+            DS020C_MARS["📦 MARS"]:::app
+            DS020C_SPEED["📦 SPEED"]:::app
+            DS020C_XEUS["📦 XEUS"]:::app
+        end
+        subgraph DS020CLN_Cloud_Products_Legacy[" ⬛ Cloud Products (Legacy)"]
+            direction LR
+            DS020C_SAP_IBP["📦 SAP IBP"]:::app
+        end
+        subgraph DS020CLN_Data_Warehouse[" ⬛ Data Warehouse"]
+            direction LR
+            DS020C_Azure_ADF["📦 Azure ADF"]:::app
+            DS020C_DataBricks["📦 DataBricks"]:::app
+            DS020C_Finance_HANA["📦 Finance HANA"]:::app
+            DS020C_SnowFlake["📦 SnowFlake"]:::app
+        end
+        subgraph DS020CLN_ECA_Platform[" ⬛ ECA Platform"]
+            direction LR
+            DS020C_CIBR["📦 CIBR"]:::app
+            DS020C_EATS["📦 EATS<br/><i>EOL</i>"]:::eol
+            DS020C_ECA["📦 ECA"]:::app
+            DS020C_ICOST["📦 ICOST"]:::app
+        end
+        subgraph DS020CLN_ERP_Systems[" ⬛ ERP Systems"]
+            direction LR
+            DS020C_CFIN_S_4["📦 CFIN S/4"]:::app
+            DS020C_Corp_IP_S_4["📦 Corp / IP S/4<br/><i>DEV</i>"]:::app
+            DS020C_SAP_ECC["📦 SAP ECC"]:::app
+        end
+        subgraph DS020CLN_MES_Systems[" ⬛ MES Systems"]
+            direction LR
+            DS020C_MES_300["📦 MES 300"]:::app
+            DS020C_WorkStream["📦 WorkStream"]:::app
+        end
+        subgraph DS020CLN_Middleware_Integration[" ⬛ Middleware & Integration"]
+            direction LR
+            DS020C_APIGEE["📦 APIGEE"]:::app
+            DS020C_Legacy_MDG["📦 Legacy MDG"]:::app
+            DS020C_SAP_BODS["📦 SAP BODS"]:::app
+            DS020C_SAP_PO["📦 SAP PO"]:::app
+            DS020C_SideCar["📦 SideCar"]:::app
+        end
+        subgraph DS020CLN_Reporting[" ⬛ Reporting"]
+            direction LR
+            DS020C_BOBJ["📦 BOBJ"]:::app
+            DS020C_EDW["📦 EDW"]:::app
+            DS020C_FCA["📦 FCA"]:::app
+            DS020C_PEGA["📦 PEGA"]:::app
+        end
     end
 
     DS020C_MES_300 -->|"Direct"| DS020C_XEUS
-    DS020C_XEUS -->|"Direct"| DS020C_ICOST
+    DS020C_XEUS -->|"Internal"| DS020C_ICOST
     DS020C_WorkStream -->|"Direct"| DS020C_MARS
-    DS020C_MARS -->|"Direct"| DS020C_ICOST
-    DS020C_EATS -->|"Direct"| DS020C_ICOST
-    DS020C_SPEED -->|"SAP PO"| DS020C_SAP_ECC
+    DS020C_MARS -->|"Internal"| DS020C_ICOST
+    DS020C_EATS -->|"Internal"| DS020C_ICOST
+    DS020C_SPEED -->|"SAP PO"| DS020C_SAP_PO
+    DS020C_SAP_PO -->|"SAP PO"| DS020C_SAP_ECC
     DS020C_SPEED -->|"Direct"| DS020C_EDW
-    DS020C_Legacy_MDG -->|"DRF (Data Replication Frame..."| DS020C_SAP_ECC
-    DS020C_CIBR -->|"SAP PO"| DS020C_SAP_ICX
-    DS020C_SAP_ICX -->|"Direct"| DS020C_SAP_ECC
-    DS020C_CIBR -->|"Direct"| DS020C_ICOST
-    DS020C_SAP_ECC -->|"SLT"| DS020C_CFIN_S_4_HANA
-    DS020C_CFIN_S_4_HANA -->|"SLT"| DS020C_SideCar
-    DS020C_SideCar -->|"ADF Rest API / SFTP(Blob)"| DS020C_ECA_ADLS
-    DS020C_ECA_ADLS -->|"Unity Catalog"| DS020C_ECA_DataBricks
-    DS020C_ECA_DataBricks -->|"Snowflake Connector / Snowpipe"| DS020C_ECA_SnowFlake
-    DS020C_Corp_IP_S_4 -->|"SLT"| DS020C_CFIN_S_4_HANA
-    DS020C_ECA_SnowFlake -->|"Direct"| DS020C_CIBR
+    DS020C_Legacy_MDG -->|"MDG"| DS020C_SAP_ECC
+    DS020C_CIBR -->|"SAP PO"| DS020C_SAP_PO
+    DS020C_SAP_ECC -->|"SLT"| DS020C_SideCar
+    DS020C_SideCar -->|"CIF"| DS020C_Azure_ADF
+    DS020C_Azure_ADF -->|"ADF Pipeline"| DS020C_DataBricks
+    DS020C_DataBricks -->|"Internal"| DS020C_SnowFlake
+    DS020C_Corp_IP_S_4 -->|"SLT"| DS020C_ECA
+    DS020C_ECA -->|"Internal"| DS020C_CIBR
     DS020C_CIBR -->|"Internal"| DS020C_ICOST
     DS020C_ECA -->|"Internal"| DS020C_ICOST
-    DS020C_ICOST -->|"File based"| DS020C_SAP_ECC
-    DS020C_ICOST -->|"JE Posting"| DS020C_CFIN_S_4_HANA
+    DS020C_ICOST -->|"SAP BODS"| DS020C_SAP_BODS
+    DS020C_SAP_BODS -->|"SAP BODS"| DS020C_SAP_ECC
+    DS020C_SAP_ECC -->|"Replication"| DS020C_CFIN_S_4
     DS020C_SAP_ECC -->|"ETL"| DS020C_EDW
     DS020C_EDW -->|"ETL"| DS020C_ICOST
     DS020C_EDW -->|"ETL"| DS020C_CIBR
@@ -1833,24 +1827,17 @@ flowchart TB
     DS020C_APIGEE -->|"APIGEE"| DS020C_PEGA
     DS020C_Finance_HANA -->|"Direct"| DS020C_BOBJ
     DS020C_Finance_HANA -->|"SAP PO"| DS020C_SAP_PO
-    DS020C_SAP_PO -->|"SAP PO"| DS020C_SAP_ECC
     DS020C_SAP_IBP -->|"Direct"| DS020C_ECA
-    DS020C_COMPASS -->|"Direct"| DS020C_ICOST
-    DS020C_DCS -->|"Direct"| DS020C_ICOST
-    DS020C_SPAN -->|"Denodo (Data Virtualization)"| DS020C_ICOST
 
     click DS020C_APIGEE href "https://iapm.intel.com/#/app/22790" "APIGEE -- IAPM #22790" _blank
+    click DS020C_Azure_ADF href "https://iapm.intel.com/#/app/25794" "Azure ADF -- IAPM #25794" _blank
     click DS020C_BOBJ href "https://iapm.intel.com/#/app/17651" "BOBJ -- IAPM #17651" _blank
-    click DS020C_CFIN_S_4_HANA href "https://iapm.intel.com/#/app/42993" "CFIN S/4 HANA -- IAPM #42993" _blank
+    click DS020C_CFIN_S_4 href "https://iapm.intel.com/#/app/41052" "CFIN S/4 -- IAPM #41052" _blank
     click DS020C_CIBR href "https://iapm.intel.com/#/app/237" "CIBR -- IAPM #237" _blank
-    click DS020C_COMPASS href "https://iapm.intel.com/#/app/16439" "COMPASS -- IAPM #16439" _blank
     click DS020C_Corp_IP_S_4 href "https://iapm.intel.com/#/app/41363" "Corp / IP S/4 -- IAPM #41363" _blank
-    click DS020C_DCS href "https://iapm.intel.com/#/app/14464" "DCS -- IAPM #14464" _blank
+    click DS020C_DataBricks href "https://iapm.intel.com/#/app/41458" "DataBricks -- IAPM #41458" _blank
     click DS020C_EATS href "https://iapm.intel.com/#/app/119" "EATS -- IAPM #119" _blank
     click DS020C_ECA href "https://iapm.intel.com/#/app/43119" "ECA -- IAPM #43119" _blank
-    click DS020C_ECA_ADLS href "https://iapm.intel.com/#/app/25794" "ECA-ADLS -- IAPM #25794" _blank
-    click DS020C_ECA_DataBricks href "https://iapm.intel.com/#/app/41458" "ECA-DataBricks -- IAPM #41458" _blank
-    click DS020C_ECA_SnowFlake href "https://iapm.intel.com/#/app/35811" "ECA-SnowFlake -- IAPM #35811" _blank
     click DS020C_EDW href "https://iapm.intel.com/#/app/4010" "EDW -- IAPM #4010" _blank
     click DS020C_FCA href "https://iapm.intel.com/#/app/44990" "FCA -- IAPM #44990" _blank
     click DS020C_Finance_HANA href "https://iapm.intel.com/#/app/42993" "Finance HANA -- IAPM #42993" _blank
@@ -1859,13 +1846,13 @@ flowchart TB
     click DS020C_MARS href "https://iapm.intel.com/#/app/33537" "MARS -- IAPM #33537" _blank
     click DS020C_MES_300 href "https://iapm.intel.com/#/app/41275" "MES 300 -- IAPM #41275" _blank
     click DS020C_PEGA href "https://iapm.intel.com/#/app/43163" "PEGA -- IAPM #43163" _blank
-    click DS020C_SAP_ECC href "https://iapm.intel.com/#/app/21195" "SAP ECC -- IAPM #21195" _blank
+    click DS020C_SAP_BODS href "https://iapm.intel.com/#/app/19207" "SAP BODS -- IAPM #19207" _blank
+    click DS020C_SAP_ECC href "https://iapm.intel.com/#/app/23736" "SAP ECC -- IAPM #23736" _blank
     click DS020C_SAP_IBP href "https://iapm.intel.com/#/app/40709" "SAP IBP -- IAPM #40709" _blank
-    click DS020C_SAP_ICX href "https://iapm.intel.com/#/app/21195" "SAP ICX -- IAPM #21195" _blank
     click DS020C_SAP_PO href "https://iapm.intel.com/#/app/21195" "SAP PO -- IAPM #21195" _blank
-    click DS020C_SPAN href "https://iapm.intel.com/#/app/21159" "SPAN -- IAPM #21159" _blank
     click DS020C_SPEED href "https://iapm.intel.com/#/app/31517" "SPEED -- IAPM #31517" _blank
     click DS020C_SideCar href "https://iapm.intel.com/#/app/42993" "SideCar -- IAPM #42993" _blank
+    click DS020C_SnowFlake href "https://iapm.intel.com/#/app/35811" "SnowFlake -- IAPM #35811" _blank
     click DS020C_WorkStream href "https://iapm.intel.com/#/app/37871" "WorkStream -- IAPM #37871" _blank
     click DS020C_XEUS href "https://iapm.intel.com/#/app/35612" "XEUS -- IAPM #35612" _blank
 
@@ -1882,7 +1869,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWQtvozgQ_isWVaU9qWnIu4lWlQiPXlZJG5Xudk-XU-SA06ISiIBct9v2v59fEAiYODpWWjUz_uazx-Px2H5XnNBFykg5P3_3Ai8ZgfeFkjyjDVooI7BQVjDGf13gv2Lk7CIveZuif5HPlH4YploK-QEjD658FBM1trMOg8T2fnNTrf72F2tM5BbceP4b09joKUTg--QCaNiAfwFiGMSNGEXeeqF8UoQfvjrPMEq45V2MZvDXo-cmz0Syhn6MSLvnZONP4Qr5tAtJtKPSAA_R3kLHC56IuKsSYQSDl5ywp35-gs_z80WQcYGH8SIA-Ds_B40G7pvz7M1gghpeEG-9CLkgTt58BBwfxjGKcRvWnP420BqsdrEXoDgG9Ft7vj86s_A37l3ESRS-oNHZ-Oqqr475z8YrGdCovf114YR-GI3OVFU9sAm3W7D_mM1xj1jNbKrqYDDun2DThQks2zSujthsFWymOhfG2HkRfMM-Bb0Dpo3nuj56hRHKe8Toa3uPmIO-tbcm0XsU-iWPEB_nvKzrqnrMJrMa71ZPEdw-A23690JZ7Nyrjov_dzs9oM3n04muPUzubsFU-8u8Xyj_MBD5XBwQTuKFAZje76WGrbZVfanNJzemmTfooD5gUmxlNBrhaS2hxnfjb4cYIhMjdGtyu7SX3eWf2q12CCVKYDe7gChrbEzG9yUoltUg7mZzzbZLICauwYXRdjmZkw6XsFgFmmAyJx3-uoqa11-9a8P88bXpXYsNGnqpE1gkbm9qDyUAkaWE5t10T4jDrGxAL3kZi2oIdW2pGVO7AtQg8nqkgZfpOPKcl7gKv9fWW7GD8NXy4QuqMpIpa2wYjyWk8Shub5V9ZNX5yPICGDioMoS57kgET_Q7--EQSoVizBQ9QedtOTNuDoFMA7BGjJ5p96U5JbIahGkvO6paApk2wGIxbm7elLxCZGKErc3xvOuHICzGM67X4ybjeRUOi4_g9J-VOP1nPW5-VwWb39Wg5tptCYNldQjTNMoQLKzBeC7SYVRCMbEY9xhGL3YSIbg5hO41YvRP83spqojsAIECN929isGFC5Lrj4Vi0J1poXzk7RbaE4GoMVs3QeWgRBga-sHB-pAnIClYvjWdOt48jZaPg-AXAkr2SSoLKvNCiri3wBeSa8E92vqeA-meb0Vwgy4vL49Qk320rqtkgQTltSTq7BEKGecxC2mfpg-51oViosiR11Ri05URlBcRb68ZFvZgnJAqCO_0tvUw_zL2w9Uf-cng22UxOriQ2_mODy1vQMcT4odPB9jclhgI99K0_3jnW5OdD9ceQYD9FkakW1i69bbowPB-mwyq65kTHVqwKZo9WoQJpnoSJCgKoF-_rnTtlOZUwgGWh8855CzoHgm_POibCeZhnNADloQTirFoPkxrliX-XdmuYtCCliVvWpl3_ue6yRcwRYacIl0F_AjwUTwpFGBMJALQzf8IS2lA9BRxBFSZoLAgKO3ZJyVfVlUI069-kGnYGUJ-YnC9f8rWod2mrRG-JAh5Zv_hRckO-t5vmtz_KNtIT6A4fxzM0nOET6TkHiLZxqNm04PbzaWHV5t_6YSb5lkT79rNdnswxCUeSGeTXC5MtPkMnKWa5crHtxMVLGTipDhag36vRTkoJGNI5UKGYm6Xoeq2h8MOpSqcMPecaQMxJ0lkUp7rDBgRy3yp16hUbJ3HkJTb-t3OkFFkkZd6jqvEPLn0L-W3VqfP_ZY_7eb8xhsIGUmwS42q2-13KRNbHumIuFhonxZiUgQt5jReuaX2W7X-ItuRlJ86mXk9H1Wd4_ZZoSAVWb3BsJuSNHh9kcYX19Uy5QoKucnv9q4yvkI1ks0-a1HLui8aZEg7vatWKyPNFxycM20g5sS7qdTw1BbLcGz7TYfEpELrlmxEdIc8gVqFiOBisf38LndaasvfPJyQ2Vg5JEM1VFUWD2kFxSm4XMiQO6DITYzaZzz7e438BDGtkI0e5KRCrdPjuZqf_dII43IxAz-7yi2i9qDHSNi9SX71MJWQh9RNsumHp2kKyeef-uyc1ohS6QfnMjYSfi-Tyz5cVctDSiq56R-ow4yHFWLZ3DNVPQ8-jJ4-HnaEPWU8uKg8nYZWotIspPaT5Ohxl7Fycc_Qq_cXvWeQWiytXmvAKdjdRLpauELMwc_UpyWz_UlcNo_l7nykBjS4GrCNpnBZlI6Ka4Vs9D5KbkPrt9qUh19hZfsYk6cM_G2HvtaNp7mXOEs99hKXh2oZVJV5cCu9KeGUiy_rCld6rgqm5o15a0g8Jk3xIaN0H6tts1uoipvE6XJWuK13WwMwy97gGGD_JpfHGeZ1nsnpAno0MoME37cwIHk2zEPwcwnlavfdLm7oNsJ1Y-qt0cH7Cb2v3DuVOSV1bI_8yxw7HA5LT47KhbJB0QZ6rjJ6Z-_O-PnaRWu48xP8WqzAXRLab4GjjOj7r7Lb4o4iw4N4EjZM-PkfXIcEgw==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdWQtvozgQ_isWVU93Ursh7yZaVSKBdHOiLWq62ztdTsgBp0ElgIBcN9v2v59fgAmPkLLSKp3xzOcZz4zH9ptk-TaSxtL5-ZvjOfEYvC2leIO2aCmNwVJawQj_usC_ImTtQife6-g_5DKm6_sJl4r8gKEDVy6KCBvrWftevHB-cVXtQfCTDSb0Gdw67p5xFujZR-D7_AIoWIF7ASLoRZcRCp31UvqgEq7_am1gGHPNuwjdwp9Pjh1vCGUN3QiRcZt46-pwhVw6hTjcUaqHTVwE0HK8Z0LuyYQYQu9FIPbljw_wcX6-9FIs8DhZegB_5-fg8hLPzdo4tzBGl44XBU6IbBDFexcBy4VRhCI8hg2nf6toDVa7yPFQFAH6rR3XHZ_N8DfpX0Rx6L-g8dnk6mogT_ifl6_EoHEn-Hlh-a4fjs9kWT7QCYMAZB_TOekTralOWR4OJ4MTdNowhkWd6tURne2czoRnwwg7L4R77FPQP0DaOrbtolcYItEj6kDJPKINB7NMW4PZI98teIT4WPDydCrLx3QyrdFu9RzCYAMU_Z-ltNzZV10b_293-0AxDH0-VR7n93dAV_7WHpbSv0yIfDYOCCt2fA_oDxk1Vacu5I481e_Mib_zbBjuTSUIXMeCRCTCUGC566zaK5DwgcjPIVWjkY8BmbfKw0I0wEIDQGhY03g8xkFUKrUwNE09FKPEerm_tO8FNEIrkUKeXeeeqevvbNMIfXtnxZGpo2do7QX3UD5I-OB3NuCP0x20UAxzPjEKxioGwOTTJ67iHDKfcGBvfFychBkTBkgZp09U-bULkamos8OpUgbAjPq1IfiT0LFeokMFGadew8zxoGch85typxzq4DxAeEdiy_NfZy58QQWXJ4zTna5NFdNwYbz2w63gckwGCfl0h0_nk4fDORJavXma8lhIAUL7ugpb11-da-1e_9pyrpkSXLLKlUwLDsakeuD59H7xeChFiZ_w54NhLvZRjLZiScJUwKmf8OZsfmcuzF7Bo5gOFq1evXFTPwzMuVGqALNAC8wNoiXxsqr9yLxcGYk49bXptCz1Mfl0r91qixKvYernvUZUdmW5UMGxTkyuN-_JD18WcYjg9lA843zCyHTnNudejDCXzF-0N9vafwPCkE9UPGN-o2mFckep9aaz3cC8VW8OpRkHYM7x2Jjcq4uy4CD049LGfZmscX9E0rHRFIYFUUY-fbkeUOCHMe5thRVKaacvyeR-8ufh3AjtSE1UnwrlTH06stkUS-DsWAk0tJuCEKHVuY3-YD_zOYfb-Ov3paRSlyyld7HHyY0nBD6YhHvoQVcYziqwV5qXVRC0QfMOurhTIMiGc8p42tpxgSRK3_PBnB9PSXUCpIBWIRTsJcHglaYvl6DpWqufbMwnGoBVJBL6ozic55pXTEs-fjqfCePTxiwnkVK5DPllOAFy8UlQEBZ6L6-0Watexqxf8sp3ylLrSB_h5VuNagja7lS4uVkg1mkvDqcUYRlZpX0_LMqFpSTEerFCPOYCAFfE5IwlWs9blhpB7VGviWP8d-m4Ej9VjCwswCx1aCGLStK6JsrFZj6PIDCS2OVb7nt-Z87HOyVVCdAqfASlYBDdWI4INU12fJarrD4kI5K7BJxyBxZtQny3QG6U4iAat1oODLZfHBzM7hfL37bOWnhbaXU6w5FMNlgpdQOYK8YtOEs45srF90xlKGmdaATUH456DCg59QlYnFmJRRzaCKY9HPTbFIaKpAgJvRIhSZlGKL223O9QlOQQkCElvGokUokauaw7ZBisdCW-otRq7UIVbWZKd9BlMOJxRLSHDahEFCp-M8Be_4oC5raKFI1xK9Fog9AoEtojisI7iiQOKLVaOy5SjYzopuppWUtm3z2mH1fLRvrlNstKVl4T9YxaqX3WdPa9EU_6WW72nFytX6xijYA6oxELLvGWRUDk_EpEtq02gRrJMouqZCfmEJxeiSB0bM0WRh4wnOw8Ji4Q41ai0Xa4CU632-fZzztojpDQqxH4GaBZKnaGfQbCjuViHjJWJQ7ZF5umCi8wVETMlfq6krZHjbJ91JGZv5I2Ssh5zqtFIt1Gw6LcHaRArEfJKjNl1eKQ7bxZoA3lUYrDmoA0yhirFgcfchqZgwtWP4WhJ6PEGs6pRqEHo0bB3O63-eLww1QSzZxRjcFPL6cVm-zM07TOpCeSZvb0r9qsycjkMps4sxJLOEU3AhteDRlY7vidoHFuJRo94zczatBmPQ2_FkjtYfQEgb8y0XfDiS68Cc7kY2-CoqiSispNnv4Kr1u4_OILkNydiS0DXbvR7tQGz1o6bpILTyfCg1XJxYtu3uYug-z2ULgyZALZ66Aop2rXIpLVY08qmhfj12gmSB4wRRF82U6xOgO7hwfal_76UnfW6OD2Pb0MYk5lTkkc2yf_UseORqPC46d0IW1RuIWOLY3f2As4fki30Rru3Bi_W0twF_uLvWdJY_oSLe0CPFGkOhAvwpYRP_4HxXsmnA==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -1894,33 +1881,30 @@ flowchart TB
 
 | # | Flow Chain | Path | Interface | Freq |
 |---|-----------|------|-----------|------|
-| 1 | ATM Cycle Times to ICOST | EATS → ICOST | Direct | Near Real-Time |
-| 2 | CIBR Inv to ICOST | CIBR → ICOST | Direct | Event-Driven |
-| 3 | CIBR RM Inv to ECC | CIBR → SAP ICX → SAP ECC | SAP PO → Direct | Near Real-Time |
-| 4 | COMPASS LRP to ICOST | COMPASS → ICOST | Direct | Batch |
-| 5 | DCS MyDeals to ICOST | DCS → ICOST | Direct | Batch |
-| 6 | ECA Costing Chain | CIBR → ICOST | Internal (×2) | Near Real-Time |
-| 7 | ECC BOH to EDW | SAP ECC → EDW | ETL | Batch |
-| 8 | ECC GL to EDW | SAP ECC → EDW | ETL | Batch |
-| 9 | ECC Replication to ECA | SAP ECC → CFIN S/4 HANA → SideCar → ECA-ADLS → ECA-DataBricks → ECA-SnowFlake | SLT (×2) → ADF Rest API / SFTP(Blob) → Unity Catalog → Snowflake Connector / Snowpipe | Batch / Near Real-Time / Real-Time/NRT |
-| 10 | ECC to EDW Reporting | SAP ECC → EDW | ETL | Batch |
-| 11 | ECC to Finance HANA | SAP ECC → Finance HANA | SLT | Real-Time/NRT |
-| 12 | EDW Feedback to CIBR | EDW → CIBR | ETL | Batch |
-| 13 | EDW Feedback to ICOST | EDW → ICOST | ETL | Batch |
-| 14 | FCA to ICOST | FCA → ICOST | Direct | Batch |
-| 15 | Finance HANA to BOBJ | Finance HANA → BOBJ | Direct | Batch |
-| 16 | GL Posting to CFIN | ICOST → CFIN S/4 HANA | JE Posting | Batch |
-| 17 | GL Posting to ECC | ICOST → SAP ECC | File based | Batch |
-| 18 | IBP Demand Planning (Legacy) | SAP IBP → ECA | Direct | Event-Driven |
-| 19 | MES Route to ICOST | MES 300 → XEUS → ICOST | Direct (×2) | Near Real-Time |
-| 20 | Master Data to ECC | Legacy MDG → SAP ECC | DRF (Data Replication Framework) with Web Services (SOAP/File/Idoc/RFC) | Event-Driven |
-| 21 | RM Std Cost Update to ECC | Finance HANA → SAP PO → SAP ECC | SAP PO (×2) | Event-Driven |
-| 22 | RM Std Fluctuations Alert | Finance HANA → APIGEE → PEGA | APIGEE (×2) | Event-Driven |
-| 23 | S/4 Inv. Mvt to CIBR | Corp / IP S/4 → CFIN S/4 HANA → SideCar → ECA-ADLS → ECA-DataBricks → ECA-SnowFlake → CIBR | SLT (×2) → ADF Rest API / SFTP(Blob) → Unity Catalog → Snowflake Connector / Snowpipe → Direct | Near Real-Time |
-| 24 | SPAN Planning to ICOST | SPAN → ICOST | Denodo (Data Virtualization) | Batch |
-| 25 | SPEED BOM to ECC | SPEED → SAP ECC | SAP PO | Event-Driven |
-| 26 | SPEED BOM to EDW | SPEED → EDW | Direct | Batch |
-| 27 | WorkStream Routes to ICOST | WorkStream → MARS → ICOST | Direct (×2) | Near Real-Time |
+| 1 | ATM Cycle Times to ICOST | EATS → ICOST | Internal | Near Real-Time |
+| 2 | CIBR RM Inv to ECC | CIBR → SAP PO → SAP ECC | SAP PO (×2) | Event-Driven / Near Real-Time |
+| 3 | Corp/IP Inv Mvt to ECA | Corp / IP S/4 → ECA | SLT | Near Real-Time |
+| 4 | Corp/IP Master Data to ECA | Corp / IP S/4 → ECA | SLT | Near Real-Time |
+| 5 | ECA Costing Chain | ECA → CIBR → ICOST | Internal (×3) | Near Real-Time |
+| 6 | ECC BOH to EDW | SAP ECC → EDW | ETL | Batch |
+| 7 | ECC GL to EDW | SAP ECC → EDW | ETL | Batch |
+| 8 | ECC Replication to DWH | SAP ECC → SideCar → Azure ADF → DataBricks → SnowFlake | SLT → CIF → ADF Pipeline → Internal | Batch / Near Real-Time / Real-Time/NRT |
+| 9 | ECC to EDW Reporting | SAP ECC → EDW | ETL | Batch |
+| 10 | ECC to Finance HANA | SAP ECC → Finance HANA | SLT | Real-Time/NRT |
+| 11 | EDW Feedback to CIBR | EDW → CIBR | ETL | Batch |
+| 12 | EDW Feedback to ICOST | EDW → ICOST | ETL | Batch |
+| 13 | FCA to ICOST | FCA → ICOST | Direct | Batch |
+| 14 | Finance HANA to BOBJ | Finance HANA → BOBJ | Direct | Batch |
+| 15 | GL Posting to ECC/CFIN | ICOST → SAP BODS → SAP ECC → CFIN S/4 | SAP BODS (×2) → Replication | Batch / Near Real-Time |
+| 16 | IBP Demand Planning (Legacy) | SAP IBP → ECA | Direct | Event-Driven |
+| 17 | MES Route to ICOST | MES 300 → XEUS → ICOST | Direct → Internal | Near Real-Time |
+| 18 | Master Data to ECC | Legacy MDG → SAP ECC | MDG | Event-Driven |
+| 19 | RM Std Cost Update to ECC | Finance HANA → SAP PO → SAP ECC | SAP PO (×2) | Event-Driven |
+| 20 | RM Std Fluctuations Alert | Finance HANA → APIGEE → PEGA | APIGEE (×2) | Event-Driven |
+| 21 | SPEED BOM to ECC | SPEED → SAP PO → SAP ECC | SAP PO (×2) | Event-Driven |
+| 22 | SPEED BOM to EDW | SPEED → EDW | Direct | Batch |
+| 23 | WS Forecast to ICOST | MARS → ICOST | Internal | Near Real-Time |
+| 24 | WorkStream Route to ICOST | WorkStream → MARS | Direct | Near Real-Time |
 
 
 <div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
@@ -1931,7 +1915,7 @@ flowchart TB
 
 #### Overview
 
-The S/4 HANA architecture represents the **target** landscape for DS-020. Target S/4 HANA-based landscape with SAP PAPM for allocation, ECA lakehouse for analytics, and Power BI for self-service reporting.This view is generated from `R3_FutureFlows.xlsx` (114 flow hops across 22 flow chains).
+The S/4 HANA architecture represents the **target** landscape for DS-020. Target S/4 HANA-based landscape with SAP PAPM for allocation, ECA lakehouse for analytics, and Power BI for self-service reporting.This view is generated from `FutureFlows.xlsx` (114 flow hops across 22 flow chains).
 
 #### APPLICATION ARCHITECTURE — Architecture Diagram (ArchiMate-Inspired)
 
@@ -1950,48 +1934,81 @@ flowchart TB
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
-        DS020F_ATCR["📦 ATCR"]:::app
-        DS020F_CFIN_S_4_HANA["📦 CFIN S/4 HANA"]:::app
-        DS020F_Capacity_Forecast_Data_Store["📦 Capacity Forecast Data Store"]:::app
-        DS020F_Corp_IP_S_4_HANA["📦 Corp / IP S/4 HANA<br/><i>DEV</i>"]:::app
-        DS020F_DMOCR["📦 DMOCR"]:::app
-        DS020F_DXCR["📦 DXCR"]:::app
-        DS020F_ECA_ADLS["📦 ECA-ADLS"]:::app
-        DS020F_ECA_DataBricks["📦 ECA-DataBricks"]:::app
-        DS020F_ECA_SnowFlake["📦 ECA-SnowFlake"]:::app
-        DS020F_ECM_Windchill["📦 ECM (Windchill)"]:::app
-        DS020F_FCS["📦 FCS<br/><i>EOL</i>"]:::eol
-        DS020F_GraphiteConnect["📦 GraphiteConnect"]:::app
-        DS020F_ICS_Phoenix["📦 ICS (Phoenix)"]:::app
-        DS020F_IF_Blue_Yonder["📦 IF Blue Yonder"]:::app
-        DS020F_IF_PDH_Consumptional["📦 IF PDH Consumptional"]:::app
-        DS020F_IF_PDH_Foundational["📦 IF PDH Foundational"]:::app
-        DS020F_IF_PDH_Raw["📦 IF PDH Raw"]:::app
-        DS020F_IF_S_4_HANA["📦 IF S/4 HANA<br/><i>DEV</i>"]:::app
-        DS020F_IP_Blue_Yonder["📦 IP Blue Yonder"]:::app
-        DS020F_IP_PDH_Consumptional["📦 IP PDH Consumptional<br/><i>DEV</i>"]:::app
-        DS020F_IP_PDH_Foundational["📦 IP PDH Foundational<br/><i>DEV</i>"]:::app
-        DS020F_IP_PDH_Raw["📦 IP PDH Raw<br/><i>DEV</i>"]:::app
-        DS020F_MARS["📦 MARS"]:::app
-        DS020F_MES_300["📦 MES 300"]:::app
-        DS020F_PDF_SMH["📦 PDF-SMH<br/><i>DEV</i>"]:::app
-        DS020F_PDH_Consumptional["📦 PDH Consumptional"]:::app
-        DS020F_PDH_Foundational["📦 PDH Foundational"]:::app
-        DS020F_PDH_Raw["📦 PDH Raw"]:::app
-        DS020F_PDM_Translator["📦 PDM Translator"]:::app
-        DS020F_Power_BI_DARC["📦 Power BI (DARC)"]:::app
-        DS020F_SAP_Ariba["📦 SAP Ariba"]:::app
-        DS020F_SAP_BOBJ["📦 SAP BOBJ<br/><i>EOL</i>"]:::eol
-        DS020F_SAP_IBP["📦 SAP IBP"]:::app
-        DS020F_SAP_PAPM["📦 SAP PAPM<br/><i>DEV</i>"]:::app
-        DS020F_SAP_S_4_MDG["📦 SAP S/4 MDG"]:::app
-        DS020F_SAP_SAC["📦 SAP SAC"]:::app
-        DS020F_SCS["📦 SCS<br/><i>EOL</i>"]:::eol
-        DS020F_SPEED["📦 SPEED"]:::app
-        DS020F_SideCar["📦 SideCar"]:::app
-        DS020F_WSPW["📦 WSPW"]:::app
-        DS020F_WorkStream["📦 WorkStream"]:::app
-        DS020F_XEUS["📦 XEUS"]:::app
+        subgraph DS020FLN_Boundary_Applications[" ⬛ Boundary Applications"]
+            direction LR
+            DS020F_ECM_Windchill["📦 ECM (Windchill)"]:::app
+            DS020F_GraphiteConnect["📦 GraphiteConnect"]:::app
+            DS020F_MARS["📦 MARS"]:::app
+            DS020F_SPEED["📦 SPEED"]:::app
+            DS020F_XEUS["📦 XEUS"]:::app
+        end
+        subgraph DS020FLN_Cloud_Products[" ⬛ Cloud Products"]
+            direction LR
+            DS020F_IF_Blue_Yonder["📦 IF Blue Yonder"]:::app
+            DS020F_IP_Blue_Yonder["📦 IP Blue Yonder"]:::app
+            DS020F_SAP_Ariba["📦 SAP Ariba"]:::app
+            DS020F_SAP_IBP["📦 SAP IBP"]:::app
+            DS020F_SAP_PAPM["📦 SAP PAPM<br/><i>DEV</i>"]:::app
+            DS020F_SAP_SAC["📦 SAP SAC"]:::app
+        end
+        subgraph DS020FLN_ECA_Platform[" ⬛ ECA Platform"]
+            direction LR
+            DS020F_Capacity_Forecast_Data_Store["📦 Capacity Forecast Data Store"]:::app
+            DS020F_ECA_ADLS["📦 ECA-ADLS"]:::app
+            DS020F_ECA_DataBricks["📦 ECA-DataBricks"]:::app
+            DS020F_ECA_SnowFlake["📦 ECA-SnowFlake"]:::app
+            DS020F_IF_PDH_Consumptional["📦 IF PDH Consumptional"]:::app
+            DS020F_IF_PDH_Foundational["📦 IF PDH Foundational"]:::app
+            DS020F_IF_PDH_Raw["📦 IF PDH Raw"]:::app
+            DS020F_IP_PDH_Consumptional["📦 IP PDH Consumptional<br/><i>DEV</i>"]:::app
+            DS020F_IP_PDH_Foundational["📦 IP PDH Foundational<br/><i>DEV</i>"]:::app
+            DS020F_IP_PDH_Raw["📦 IP PDH Raw<br/><i>DEV</i>"]:::app
+        end
+        subgraph DS020FLN_ECA_Platform_PDH[" ⬛ ECA Platform (PDH)"]
+            direction LR
+            DS020F_PDH_Consumptional["📦 PDH Consumptional"]:::app
+            DS020F_PDH_Foundational["📦 PDH Foundational"]:::app
+            DS020F_PDH_Raw["📦 PDH Raw"]:::app
+        end
+        subgraph DS020FLN_ERP[" ⬛ ERP"]
+            direction LR
+            DS020F_CFIN_S_4_HANA["📦 CFIN S/4 HANA"]:::app
+            DS020F_Corp_IP_S_4_HANA["📦 Corp / IP S/4 HANA<br/><i>DEV</i>"]:::app
+            DS020F_IF_S_4_HANA["📦 IF S/4 HANA<br/><i>DEV</i>"]:::app
+        end
+        subgraph DS020FLN_ERP_Extension_Standalone[" ⬛ ERP Extension (Standalone)"]
+            direction LR
+            DS020F_SAP_S_4_MDG["📦 SAP S/4 MDG"]:::app
+        end
+        subgraph DS020FLN_Manufacturing_Execution_Systems[" ⬛ Manufacturing Execution Systems"]
+            direction LR
+            DS020F_MES_300["📦 MES 300"]:::app
+            DS020F_WorkStream["📦 WorkStream"]:::app
+        end
+        subgraph DS020FLN_Manufacturing_Reporting_Systems[" ⬛ Manufacturing Reporting Systems"]
+            direction LR
+            DS020F_ATCR["📦 ATCR"]:::app
+            DS020F_DMOCR["📦 DMOCR"]:::app
+            DS020F_DXCR["📦 DXCR"]:::app
+            DS020F_FCS["📦 FCS<br/><i>EOL</i>"]:::eol
+            DS020F_ICS_Phoenix["📦 ICS (Phoenix)"]:::app
+            DS020F_SCS["📦 SCS<br/><i>EOL</i>"]:::eol
+            DS020F_WSPW["📦 WSPW"]:::app
+        end
+        subgraph DS020FLN_Middleware_Integration[" ⬛ Middleware & Integration"]
+            direction LR
+            DS020F_PDF_SMH["📦 PDF-SMH<br/><i>DEV</i>"]:::app
+            DS020F_PDM_Translator["📦 PDM Translator"]:::app
+        end
+        subgraph DS020FLN_Reporting[" ⬛ Reporting"]
+            direction LR
+            DS020F_Power_BI_DARC["📦 Power BI (DARC)"]:::app
+            DS020F_SAP_BOBJ["📦 SAP BOBJ<br/><i>EOL</i>"]:::eol
+        end
+        subgraph DS020FLN_SideCar_Hana_DB[" ⬛ SideCar Hana DB"]
+            direction LR
+            DS020F_SideCar["📦 SideCar"]:::app
+        end
     end
 
     DS020F_MES_300 -->|"Direct"| DS020F_XEUS
@@ -2102,7 +2119,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq9W41vo7gS_1esVD31pLYh3x9aVSIh2c0p2aLSve3p8oRocBpUAgjItX27_d-fjU0wX8Y0ey8rrdIZz2_s8Xjs8Tg_GhvXhI1x4_z8h-VY4Rj8WDfCHdzDdWMM1o1HI0DfLtG3AG4OvhW-LeE_0CZM23VjbiTyp-FbxqMNA8xGOFvXCTXrvxSq1fdeSWNMnxt7y34jHA0-uRB8W1wCGQHYlyAwnOAqgL61XTfeIwnbfdnsDD-kyIcArozX75YZ7jBla9gBxO124d5eGo_QjroQ-oeI6qAhap6xsZwnTO5KmOgbzjND7Env7-D9_HztHHWB-8naAehzfg6urlDfNjtrZYTwynICz_KhCYLwzYZgYxtBAAPUhjSP_lbgFjweAsuBQQCiz9ay7fHZHH0mvcsg9N1nOD6bDId9aUL_vHrBAxq3vdfLjWu7_vhMkqQMpuF5IPkQzEkPox4xJWkwmPRrYJpGaOQxlWEFZiuFGfNMI0DG8403ZFPQy2jaW6ZpwxfDh6xFlL6cWGQ26M8TNIHeQ9fOWQTbmLHydCpJVZgENTg8PvmGtwPy8u91Y30whx0T_W92ekBW1eViKt8vbr-CpfzX7G7d-A8Rwh8TOcQmtFwHLO8SqqJJbWmuy_fTOxZuA_sA0xDCeDxGU5qTmM4XX3VN7-pf5K9yVhQzgdbsAszkYBjYvcM3fe6ivhlBqCtoonUtRH_mIGlbELcFuC2I2nI0uL6nL9TyjiI-aIKFeuztp0e_efPJulFmf35qWjfl0MrqNm-ziMiReSgQeeBJzKayLitLLSuF6FeYzpfEJpr41uY5KJJPuHwUzXFf5rbxDItAjkwexkr_bjkmik62ncdYgYsj9_dylPk0ZwREiqdrdrtMpgstuJz4Z7xorBBOXcdB6yALlWGXd2Mx1XR150LHes1iIBa4oDzOQBZzfWIfoP6X65jQz4HMAeYCwuWiqMoX5OBOcNh7eF0bdgEWagNSbSoR5-7BQfGWB8g2qcS7M15KYBCHK122aJF47dWKYgDP6Kqg0VUBo6t5o9fpZuUcqLk5qAtfNCVqPCXCYCv5LrciMY0jMdP0jiTlhGYaQORyOVVBzrD6kpVD5CtEFu5w5dTVWCxVsyS-TEompHKBqMpKv0dnxMA20B6YF1-BhMtBcV-gr08WuiLfTXMgmAkmC3CBuZyQpsmqjk7Gj0YWATFAxODLTm4nfxSJYrpwhMdAi4lahIPI_A6osroqEsR0Yf_CQDhmrZTPRVg4ZiFWhbw8LZSVpxy5_M6o1dgZNXU2U3IAmMhRaZlwauS8jpLL5b5r6vesEKZxJFz_WQt9aOxzckdOufTD7FvONpiWkYCOGZ-v06EKpUw3P9cNJTo7rxs_WdxUe0woa0zDV6o9pVGRmbwA9OSBF-vPgk0wJc3QKYK2vGfkUofzlGRitLLeRiHcycT5OkNLHfeoYDYc_SyOYhkTsawqIGbxpVAYejyIuzkKaDh5uIOebW2iCA3mvrGH19fXAtY_ATKbj6Rx8Zo7wWCsvKzMUV9QliSrC5TgaPN79WJiu4-_M1BxbpGZPUKkON8cnHNN0dBs9ykjy-QPTmniEfsnShO2OE1I_Bx3C1E9y4MZ4CSncMpP8BR4dbCh5m5D8Bsar43sLuATVcsnDmMOJ5MUF2TXorAUpZ06myhDKlu6vOQ7PQBOQ6Z_TaBMQMpdEOl-l_b_Upc7TnlmWpuTW0UTiYhJWnbygPHFx8kg2i-wPL4aOB0EX0mcjII36TKQ8iWbTnWrnGXq5uIvPRxnQSm5rvcVZLhFyCy_IgwWZeFFkKkGvy4kFq2cO7h3QwjmB4fc9smm4YUQQ6_S1ojPven-qifNmFo8Y-qHZ0ytmDG19oypVTOm_psz9i_Z4Vcb4f_ss2XRnn9cIulS3DP0LTqBzV49F5VGNOj_Y20guJDV_BZU3LMsoApuo8JDQKAC8GKFO7BxnRrHxPpw3DHXMl5pEvDRnnEBcShhEBdOCFGhIgpB2gEd27Cf7A1x030Er9Jf0EXAL9qFjlceMZ5nPUHcqXg6BIcpilHbLYSXauoKqOwQmr2tidPlDcp2nouPujsf1b5wxTP0gnGzaRne_tpCs2hfb9x986yJsu9mtyX12usGapYqGeFq5gLP_1ncQH-0UTm0SCfvdCrShc6gPeySLnBKTEmP4vblPcpmCmKG6PQ7pBe5khRrDdKqVDc57IkobHXiYccHRKojZpTreKiv4qGWhmMOKmS5Tqs1irTENTHGXpTH1cTkqvX1pRLdOlqT5VpfKbvUxXWytzJCC2M4GPSozlSNjlkLtEmpVpx_iugatUeDSBVJWCk8pZaiZ28EhEbV74yGkar8fUI8KtqkVC-bbAothFF3QIaXKhEyK4I2KNeYTqQEQ2tXIkpTJcVUbI1a8LTmD4JCuqVBdxDrzlVVmB7QdlU9SB1tP9SBzOG4pn58Yv-QWnLUr6Htg5sGUxKtsVtkkj1Br-qQQJSumaa8qjOq0Pphr-pJsW6-V_UkgR58xKvSHSj1KiH9NbwqrTbrVXxt0f29UGjs9DrEe-mVfxwPKb1cAy2WiDlQm-4qtOzLek6bv5vERRMRPb1Re0jWBi0TJ3piFkfPaUHvlIh3Yrg7IdZ9LNDVj3KpfENIW7_T75Ggk6lIJ1rjJqVak1xLbMfu9YnGYwWb3a0Jk6sLJ0liqlodejiIK96MJsrjasI5reCcScmYSCaczJlUOaIoIRdb4l2pdVRE8_jjGic8riZ8NyGWurGKyI3GMUsT0UOLeGLWk_rDRBep5bMWJOxyfYIn4TbKjqg7sEfhmFyOHxX_hKzW6rWoBlowjG1GGeU66H2AkL3aoxGJv8ktQmwryirVExUbxDyNZkW0PHF0Mn4uxBTBxdxsOCBulqqeHz2NcEu1RU8DhPT0-i1yGUJfE8QaKD3WQB8CR0-7J0vm2fZcqnq2zYrKR1FJ5HV27gHyEj6hdxOp1xWmBJazz7OvisDL46WO3ivn3hx7x_J5waOOpb5KvR4xWwOwOj7YJgLJA25WTpndsJo2XXpX7ITovocI4htQVgS9m4l0tftmFzU0r9zt1dLawsxDmujpSGJUYpTYsD3872jY0WiUe5_euGzsob83LLMx_kF-pIB-62DCrXGwQ_TTgoZxCF3tzdk0xtGPBRoHD3UUKpaBJmFPiO__A_oqyfA=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq9Wwtv2zgS_iuEixxSIInld2wUBWTLbr2wE8FKt12cDwJt0YkQWTIkeZNcm_9-pEhJ1Juyu5cFFu7McD5yOBxyhtTPxtYxUGPUuLj4adqmPwI_1w3_Ce3RujEC68YGevjXFf7loe3RNf23BfobWZRpOU7IDZr8CV0TbizkETbWs3NsXzP_y1S1-odXKkzoM7g3rTfK0dCjg8C3-RWQsQLrCnjQ9q495Jq7deM9aGE5L9sn6PpM89FDS_j63TT8J0LZQctDRO7J31sLuEFW0AXfPQZUGw9RO8CtaT8SclciRBfazxyxJ72_g_eLi7UdYYGH8doG-O_iAlxf475tn8wl9NG1aXsH00UG8Pw3C4GtBT0PeViGigf_VtAObI6eaSPPA8HfzrSs0YcZ_hv3rjzfdZ7R6MP49rYvjdk_r1_IgEbtw-vV1rEcd_RBkqSUTng4gPiP6hz3iNZIpyQNBuN-DZ0G9GFWp3JbobOV0BnyDOhh47nwDdsU9FJIe9MwLPQCXcRbROnLsUWmg_4s1ibQe-RYGYsQG3NWnkwkqUon1eodN48uPDwBefHvdWN9NG47Bv6_0ekBWVUX84n8ML-_Awv5r-lq3fgPbUT-DOwQW990bLBYxdRInaJJbWm2uNPHztE2oPumy4eDZW4haeJhKLA-tjetDQj5gOcnkIrRyB8F0qeTpf7dtA3sspbFj2SL-gAzwWXE_Yi1j0Yj7Fi5mr6Q_ps-mji2jTHTulLscl1LeaWlFRBaeStNnU6VdLOAWN7ux_RbBo3Qcloh2yibtInlHA1ddR3juPX52QoYIGTUn6b5TB9bR6T_5dgGctOdnc8A4QLKLR_sXC3VpIpr0mRVx3F4AzMml1UQMKrbz8dqXmtMrm6ryuoyrzGhf9q4zc-fzM_K9M9PTfNztTJNnuTpwuT6XjCdyLpqQX_nuHvOBzAZhOT6HjCBZA_y3_SZgyWh5-sKjsa65uN_pnseyoJQFhBZEMiWm4J0XVYWWjYSyNeEXt2aII1dc_vs5emIudWaNNt5mVnwGeUpipgV3j7TVeWrjoOOd9wfiH2hlbN6sAxIyAhpnQUhuFQpLyKkcwVfClRhTuXKrh6rmh1rrbXCQEqHrmaGfgpEniXU0BLVCmusUQJXsE7BJeZ9rL9aKyeipsdV2byerxWYt9jLqoy5Unn7rdQTwttsfqdrelf_Kt_JmXiGmUBrdgFhlg9t4rgH4kGFqjAfNIknhfrq-easUDNepuIqqw2qT199ZHvYZDjGQzyxlmOjpJVBJAIuY5kTvDXYAPGwlsqX3E0QDwuz6g9jCe3jDm59nA_aj3hAODP0gwG9eT7a8-ejhCSIJAGTrD-k5VTTO5KUOURONYDJ5ZP83XGfNd9FcJ9uHnPONcYKHRzXJ7-qjBFJnm4M-WGySg-F0MrNoCzvs80CYkW7HznNflS1mk0yhw5MClfS9H4RryScyOUvzommq08Oss3XzOKcaDiUU15FHqNlO6LV7Mh3Tf2ecR1MO8FpojxYn9s-wlwyz7yvxInyvwAncsqWhce-_JrdFGbXmFwrSqrKUn_AdRMP76KOm9W4BDG3vk2iBcGZIaKdMG7nBbn6eK4r8iqTAwRMMJ6DS8L9WJ1HjO_Hf-TFUEKv9qGKkWumgSbQ1b9CG-rKmBs_4wDCAcr4hC2AKsh0nZLLJin4QX8mYy-uc33-tW4oAfS68YtPtxPyhFAkzLwyIc9orMlUngNWVCDe9Ctnq0605uhMg7Z44NolTiKJlnH0L-ptUKOwU4WMOkNLlGNYw_R6-ZW_zFIm4llVirj9P6GFo4eDWM3wUiDJJF5xYdkJzFy4Rzc3NwLWP0Nl-miX1EvKPGcYjG8vKzPcF5w1y-ocnxW12YN6ObaczUdOVZgop2aPEpmebzbJwSd4aJbzmGrLJcJ2YQYd-ifOdXck1439nHQLUw_mAaUUx4mxXVycY4qXRwtpzs7HW8cKWdjuAj5RtXzCiGGXHMrFG_JrUbhVGAzPnE18_ChaumXFmOQASgS5_jVxzAYJd8Gkh6ek_xe6XDTlqWltju8VTSQixuemswdMjpVnK9F-g-XJifN8JeS0e7YWcvQrUlK8ZJMl3ypnmTiZ-Muy_LRSRq7rfTk1rzzNPL8iDObV5vJUJgR-X0jMWzkrtHd8BGZHmx6WZAMefERUL5PWCOvPyf6qZ82Ymj9j6skzplbMmFp7xtSqGVP_yRn7h-zwu43wf_bZomhfflyiVx5hz_Cv4AQ2fSVpFNCQ-7e5ReBSVrNbUH7P0gpVcB_cFntUlQdeTP8JbB27xjGxvrrSMdcyXmEScGrPShWSUMJp5PJ4oB3xsY34yR6Km-4UfZX-gi_lftMuFN0chvoO5iMinQqnQ3CYojpqu4XwUk0UD4oOoen6QJgub3G285x_1H1y8YMF8kzFP3ijZtOEh_2NiWfRutk6--aHJk7Fm92W1GuTEkAjUR8nT1DmZP4_hAL6xsJvWPIwy06nIl3oDNq3XdqFkivHuEehfHGP0pmCmCE6_Q7tRaa6z1uDShVi08OeCGCrEw47PCAyjJBRjPGjPsSPWghRDipkuU6rNQxQwgtezl6MV4rE5ar18RKJbh3UeLnWB-WXujgmX5URWhi3g0GPYSbe0HBrgYkUopL8UwRr2B4OAiiasDL1jFqoPV0REBpVvzO8DaCy9YRwVEykEJdPNoUWwrA7oMNL1PC5FcEEihGTiZRgaO1KFDTxtCYRWwOJMtTsQVAIWxp0ByF25pqY6wGTq-pB4mh7UgdSh-Oa-OTEfhIsPerXQDtx0-AubmvsFqlkT9CrOjQQJZ9ZJbyqM6xAPdmrelKIXe5VPUmgB6d4VbIDhV4lhF_Dq5Kwaa8qRwvq90KhsdPrUO9lJf8wHjJ6MQK7LBFzoDbbVdg9Nu857fLdJLw0EcHpDdu3dG2w278YJ2SV4JwX9M6JeGeGuzNi3WmBrn6US-QbQmj9Tr9Hg07qLjNGDUUKUeNcS2zH7vUpYvQQlN-tKbMUiyRJYlCtDjschHesHBLjlSKRnFZwzqR4TDQTjudMqhxRkJCLLfGu1IqAWB4frXHKK0UitQmx1I0HohWNKEsTwWGXeGLWk_q3MRZ9TsRbkLKL8QRPwm2cHTF34I_CIblYf3D5J2S1Vq_FENiFYWgzxijGYPUAIXu1h0Maf-MqQmgrxirECS4bxDyNZUXseiJysvJciLsEF3Oz2wF1s8TteeRplFuIFjwNEMLp9Vu0GMJeE4QIjB4isK83gu9xxgvuW5uZVPWtDd9UjppKIp_UZL4aWaBH_G4i8drCkMBi-mV6pwh8LrLQ8UcmmRdd8YcgOe81Fvoy8SbJaA24x0O0QfzVDd9OmX7mkbZdViu2fVzvoQ1JBZRvgl-4BFjtvtHFgsa1s7temDuUevISvSGhRqVGCQ3bI_9Fhh0Oh5mPihpXjT1y99A0GqOf9Msy_IGagXbwaPn4e7AGPPqO9mZvG6PgC6_G8YA7ihQT4knYU-L7_wB9smPu" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -2169,34 +2186,31 @@ flowchart TB
 | **NEW** | WSPW Direct to ECA | Added in future state |
 | **NEW** | WorkStream Routes to S/4 | Added in future state |
 | **REMOVED** | ATM Cycle Times to ICOST | Not present in future state |
-| **REMOVED** | CIBR Inv to ICOST | Not present in future state |
 | **REMOVED** | CIBR RM Inv to ECC | Not present in future state |
-| **REMOVED** | COMPASS LRP to ICOST | Not present in future state |
-| **REMOVED** | DCS MyDeals to ICOST | Not present in future state |
+| **REMOVED** | Corp/IP Inv Mvt to ECA | Not present in future state |
+| **REMOVED** | Corp/IP Master Data to ECA | Not present in future state |
 | **REMOVED** | ECA Costing Chain | Not present in future state |
 | **REMOVED** | ECC BOH to EDW | Not present in future state |
 | **REMOVED** | ECC GL to EDW | Not present in future state |
-| **REMOVED** | ECC Replication to ECA | Not present in future state |
+| **REMOVED** | ECC Replication to DWH | Not present in future state |
 | **REMOVED** | ECC to EDW Reporting | Not present in future state |
 | **REMOVED** | ECC to Finance HANA | Not present in future state |
 | **REMOVED** | EDW Feedback to CIBR | Not present in future state |
 | **REMOVED** | EDW Feedback to ICOST | Not present in future state |
 | **REMOVED** | FCA to ICOST | Not present in future state |
 | **REMOVED** | Finance HANA to BOBJ | Not present in future state |
-| **REMOVED** | GL Posting to CFIN | Not present in future state |
-| **REMOVED** | GL Posting to ECC | Not present in future state |
+| **REMOVED** | GL Posting to ECC/CFIN | Not present in future state |
 | **REMOVED** | IBP Demand Planning (Legacy) | Not present in future state |
 | **REMOVED** | MES Route to ICOST | Not present in future state |
 | **REMOVED** | Master Data to ECC | Not present in future state |
 | **REMOVED** | RM Std Cost Update to ECC | Not present in future state |
 | **REMOVED** | RM Std Fluctuations Alert | Not present in future state |
-| **REMOVED** | S/4 Inv. Mvt to CIBR | Not present in future state |
-| **REMOVED** | SPAN Planning to ICOST | Not present in future state |
 | **REMOVED** | SPEED BOM to ECC | Not present in future state |
 | **REMOVED** | SPEED BOM to EDW | Not present in future state |
-| **REMOVED** | WorkStream Routes to ICOST | Not present in future state |
+| **REMOVED** | WS Forecast to ICOST | Not present in future state |
+| **REMOVED** | WorkStream Route to ICOST | Not present in future state |
 
-**Totals**: 22 new - 27 removed - 0 modified - 0 unchanged
+**Totals**: 22 new - 24 removed - 0 modified - 0 unchanged
 
 ### 5.4 Component Overview
 
@@ -2206,21 +2220,22 @@ flowchart TB
 |--------|---------|--------|
 | APIGEE | 22790 | Deployed |
 | ATCR | - | N/A |
+| Azure ADF | 25794 | Deployed |
 | BOBJ | 17651 | Deployed |
-| CFIN S/4 HANA | 42993 | Deployed |
+| CFIN S/4 | 41052 | Deployed |
+| CFIN S/4 HANA | 41052 | Deployed |
 | CIBR | 237 | Deployed |
-| COMPASS | 16439 | Deployed |
 | Capacity Forecast Data Store | 37284 | Deployed |
 | Corp / IP S/4 | 41363 | Developing |
 | Corp / IP S/4 HANA | 41363 | Developing |
-| DCS | 14464 | Deployed |
 | DMOCR | 13284 | Deployed |
 | DXCR | 13284 | Deployed |
+| DataBricks | 41458 | Deployed |
 | EATS | 119 | End of Life |
 | ECA | 43119 | Deployed |
-| ECA-ADLS | 25794 | Deployed |
-| ECA-DataBricks | 41458 | Deployed |
-| ECA-SnowFlake | 35811 | Deployed |
+| ECA-ADLS | 43119 | Deployed |
+| ECA-DataBricks | 43119 | Deployed |
+| ECA-SnowFlake | 43119 | Deployed |
 | ECM (Windchill) | 38775 | Deployed |
 | EDW | 4010 | Deployed |
 | FCA | 44990 | Deployed |
@@ -2250,17 +2265,17 @@ flowchart TB
 | Power BI (DARC) | 63659 | Deployed |
 | SAP Ariba | 19569 | Deployed |
 | SAP BOBJ | 11377 | End of Life |
-| SAP ECC | 21195 | Deployed |
+| SAP BODS | 19207 | Deployed |
+| SAP ECC | 23736 | Deployed |
 | SAP IBP | 40709 | Deployed |
-| SAP ICX | 21195 | Deployed |
 | SAP PAPM | 41401 | Developing |
 | SAP PO | 21195 | Deployed |
 | SAP S/4 MDG | 40068 | Deployed |
 | SAP SAC | 37401 | Deployed |
 | SCS | 21327 | End of Life |
-| SPAN | 21159 | Deployed |
 | SPEED | 31517 | Deployed |
 | SideCar | 42993 | Deployed |
+| SnowFlake | 35811 | Deployed |
 | WSPW | 4119 | Deployed |
 | WorkStream | 37871 | Deployed |
 | XEUS | 35612 | Deployed |
@@ -2316,13 +2331,13 @@ Integration patterns identified from the system flow analysis for DS-020:
 | # | Pattern | Flow Chain | Middleware | Protocol | Auth |
 |---|---------|-----------|-----------|----------|------|
 | 1 | Point-to-Point | MES Route to ICOST | Direct | REST / IDoc | SSO / Certificate |
-| 2 | Point-to-Point | MES Route to ICOST | Direct | REST / IDoc | SSO / Certificate |
-| 3 | Point-to-Point | WorkStream Routes to ICOST | Direct | REST / IDoc | SSO / Certificate |
-| 4 | Point-to-Point | WorkStream Routes to ICOST | Direct | REST / IDoc | SSO / Certificate |
-| 5 | Point-to-Point | ATM Cycle Times to ICOST | Direct | REST / IDoc | SSO / Certificate |
+| 2 | Point-to-Point | MES Route to ICOST | Internal | REST / IDoc | SSO / Certificate |
+| 3 | Point-to-Point | WorkStream Route to ICOST | Direct | REST / IDoc | SSO / Certificate |
+| 4 | Point-to-Point | WS Forecast to ICOST | Internal | REST / IDoc | SSO / Certificate |
+| 5 | Point-to-Point | ATM Cycle Times to ICOST | Internal | REST / IDoc | SSO / Certificate |
 | 6 | API-Led | SPEED BOM to ECC | SAP PO | REST / IDoc | SSO / Certificate |
-| 7 | Point-to-Point | SPEED BOM to EDW | Direct | REST / IDoc | SSO / Certificate |
-| 8 | API-Led | Master Data to ECC | DRF (Data Replicatio | REST / IDoc | SSO / Certificate |
+| 7 | API-Led | SPEED BOM to ECC | SAP PO | REST / IDoc | SSO / Certificate |
+| 8 | Point-to-Point | SPEED BOM to EDW | Direct | REST / IDoc | SSO / Certificate |
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
@@ -2350,9 +2365,6 @@ flowchart TB
     subgraph DS020CPLP_Azure_Cloud["☁️ Azure Cloud"]
         direction LR
         DS020CPLA_ECA["ECA"]:::appBox
-        DS020CPLA_ECA_ADLS["ECA-ADLS"]:::appBox
-        DS020CPLA_ECA_DataBricks["ECA-DataBricks"]:::appBox
-        DS020CPLA_ECA_SnowFlake["ECA-SnowFlake"]:::appBox
     end
     style DS020CPLP_Azure_Cloud fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
 
@@ -2365,7 +2377,6 @@ flowchart TB
     subgraph DS020CPLP_On_Prem_Linux["🖥️ On-Prem (Linux)"]
         direction LR
         DS020CPLA_CIBR["CIBR"]:::appBox
-        DS020CPLA_COMPASS["COMPASS"]:::appBox
         DS020CPLA_EATS["EATS"]:::eolBox
         DS020CPLA_EDW["EDW"]:::appBox
         DS020CPLA_FCA["FCA"]:::appBox
@@ -2379,7 +2390,6 @@ flowchart TB
 
     subgraph DS020CPLP_On_Prem_Windows["🖥️ On-Prem (Windows)"]
         direction LR
-        DS020CPLA_DCS["DCS"]:::appBox
         DS020CPLA_MARS["MARS"]:::appBox
         DS020CPLA_WorkStream["WorkStream"]:::appBox
     end
@@ -2393,7 +2403,6 @@ flowchart TB
 
     subgraph DS020CPLP_SAP_HEC_On_Prem["🖥️ SAP HEC (On-Prem)"]
         direction LR
-        DS020CPLA_CFIN_S_4_HANA["CFIN S/4 HANA"]:::appBox
         DS020CPLA_Corp_IP_S_4["Corp / IP S/4"]:::appBox
         DS020CPLA_Finance_HANA["Finance HANA"]:::appBox
         DS020CPLA_SideCar["SideCar"]:::appBox
@@ -2404,26 +2413,25 @@ flowchart TB
         direction LR
         DS020CPLA_BOBJ["BOBJ"]:::appBox
         DS020CPLA_SAP_ECC["SAP ECC"]:::appBox
-        DS020CPLA_SAP_ICX["SAP ICX"]:::appBox
     end
     style DS020CPLP_SAP_On_Prem_Linux fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
 
     subgraph DS020CPLP_Unassigned["📋 Other / Unassigned Platform"]
         direction LR
-        DS020CPLA_Legacy_MDG["Legacy MDG"]:::appBox
         DS020CPLA_SAP_PO["SAP PO"]:::appBox
-        DS020CPLA_SPAN["SPAN"]:::appBox
+        DS020CPLA_Legacy_MDG["Legacy MDG"]:::appBox
+        DS020CPLA_Azure_ADF["Azure ADF"]:::appBox
+        DS020CPLA_DataBricks["DataBricks"]:::appBox
+        DS020CPLA_SnowFlake["SnowFlake"]:::appBox
+        DS020CPLA_SAP_BODS["SAP BODS"]:::appBox
+        DS020CPLA_CFIN_S_4["CFIN S/4"]:::appBox
     end
     style DS020CPLP_Unassigned fill:#FFF9C4,stroke:#F9A825,stroke-width:2px,color:#5D4037
 
-    DS020CPLP_On_Prem_Windows ==>|"Direct"| DS020CPLP_On_Prem_Linux
-    DS020CPLP_On_Prem_Linux ==>|"SAP PO"| DS020CPLP_SAP_On_Prem_Linux
+    DS020CPLP_On_Prem_Windows ==>|"Internal"| DS020CPLP_On_Prem_Linux
     DS020CPLP_SAP_On_Prem_Linux ==>|"SLT"| DS020CPLP_SAP_HEC_On_Prem
-    DS020CPLP_SAP_HEC_On_Prem ==>|"ADF Rest API / SFTP(Blob)"| DS020CPLP_Azure_Cloud
-    DS020CPLP_Azure_Cloud ==>|"Direct"| DS020CPLP_On_Prem_Linux
+    DS020CPLP_SAP_HEC_On_Prem ==>|"SLT"| DS020CPLP_Azure_Cloud
     DS020CPLP_Azure_Cloud ==>|"Internal"| DS020CPLP_On_Prem_Linux
-    DS020CPLP_On_Prem_Linux ==>|"File based"| DS020CPLP_SAP_On_Prem_Linux
-    DS020CPLP_On_Prem_Linux ==>|"JE Posting"| DS020CPLP_SAP_HEC_On_Prem
     DS020CPLP_SAP_On_Prem_Linux ==>|"ETL"| DS020CPLP_On_Prem_Linux
     DS020CPLP_SAP_HEC_On_Prem ==>|"APIGEE"| DS020CPLP_Google_Cloud_SaaS
     DS020CPLP_Google_Cloud_SaaS ==>|"APIGEE"| DS020CPLP_On_Prem_Linux
@@ -2432,7 +2440,7 @@ flowchart TB
 
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq9WGlvo0gQ_SstRpEykqMhvuIgzUqcGY-cGAVnHWlZoTa0bWTcbXFM7En837ca8BEfg0nk5QN9vXp0v6q-eBVc5hFBEi4uXn3qxxJ6tYV4TKbEFiRkCwMcQa4CuYi4SejHiw75RYKsMWBs1Zqa_I1DHw8CEvFm4BkyGlv-75zquj6bZ2Beb-CpHyyyFouMGEFP7QqSgQDIlykqYC_uGIdxzpZE5B7P-74Xj3nNEAcR4bhxPA06eECC9LNxmKS1FIZlzbDr0xGvrou8MsR0slXZEJdLtLy4sOn6W6in2BTB4wY4ijQyRHg2U9gcDf0gkL4oDc0wjEoUh2xCpC-ieHOjNPPi1QvvmlSdzSsuC1jIm2taY5dvFuB4Q6i29KZ6uyastVp6TX1PWNsQXisNvSruEBIWbPgMQ2kojTWfqorwHO1gs8mbbZoxRslgFOLZGGmWWBVVs2M68u8kJI4asMT7xxbspNoUr-1kSMQhSptQ2mQL_2YM_PH8kLixzyjqPG5qV5Syo6syUMEbrCRJyuQ9AnRkrWNl6CuePcVEwzFWQt-dRLnhpuIUc4uyFyPAE5Jbr8v7xoR6uXDxIiCHVfuUm4-65Y6xUZB_wbEwtnadkwEy76BLjvhaykmy2b7TdWDNMiXGvte18yjQpY4ZkqnT8WkyT0fvtWoevD3cyDXo0isOQZcpptz41bbyCKw8KQoatXtvyhb3QJ4rjDK5l8Y0JBk0m8AHoVqfI7V-EaeRTiqjeFK11a7VA2iaFoHvdcupiSLAIYcgV2Rg6ne8HzwpglqmrmuATdMi8LP-xCXjSYlQfBcj5w3Dvk899hIVBGKOKheKmsqHDu9Cb8mPHMmTImifhRMrDgmegsGm8AFt8yGdR11LNh2lZ-4ublCNoLqUipyqrXAqbg25EmPNu3G-Mf7Q1ZWghyOI9xlA6DIPpZKLmdF-cCyn7vyQH_j05GVkfasjXi5c3lg4c9omt-emUELfUNvk9oWLkk8xdcnqs3nxpK9avkdUHHJ3ZbmS7tpS9HxuO2EP4o77zD6kdJWfwMyTQsmgR7qq5hEOuVMM2urzakqozyU1_h-W1ycKZ1x_RIm3La_rDlAXLhwhROIGgUw4WA9ZOC0lcIeMsLtw7rU7-EJWQFA4RTuzm0tndos3O_kh3evkhxIib41tdbg3btX6Wl3jVm5VG0cP9w2tLtZuVuoeX7q_f__rDTaYVChbeDu2gR6jydyfkazUePtTqOwS7cdSTtbp7TNtTexDPNvzPmORNQM9kihGcJKFeLGMnnmpBGzw9T331pF9l3f7NP9BrfYp2jQmIeV33U8JbvgQMfyO7pUU_RDZTx2ZLIrTy3FJ3Q_R6b1OidEd8V5-_Xj70w1jl2r_CnKc7AN9OuT9k4KcnyGOU2zFiFARpiScYt8TpNfs1wr8ofHIECdBDD9HBJzEzFpQV5DS3x1CMvNwTDQfwwI6zSqX_wFrlm9D" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq9V21v4jgQ_itWVpV6EqtNeSuNtCfltcuJLlFDj5Mup8gkBiKCjZzkCtvy32-chEIDXDa7x_EBj-3HT2aeTCaTF8lnAZEU6erqJaRhoqAXV0rmZElcSUGuNMExWA2wYuKnPEw2A_I3ifLNiLHdbnbkd8xDPIlILLaBZ8po4oTfCqqb9mqdg8W6hZdhtMl3HDJjBD31G0gFAiDfZqiIPftzzJOCLY3JA16PwyCZi5UpjmIicPNkGQ3whETZZROeZqsUwnJW2A_pTCy3ZbHIMV0cLHbk7RZtr65c-nYtNNJciuDnRziODTJFeLXS2BpNwyhSPmgdw7KsRpxwtiDKB1m-vdW6xfTjs3BNaa7WDZ9FjIvtltEp860inOwJ9Z7Z1e_eCFu9ntnS3xO29oQ3WsdsyiVCwqI9n2VpHa3zxqfrMvzOOtjtim2X5oxxOplxvJojw5Gbsm4PbE_9lnLi6RFLgz9dyU2bXfnGTadEnqJsC2VbrvRXziB-QciJn4SMosHjfnVHqXqmrgIV_MMpRVFyeXMgoUHhSbKJyGk3fkq3s3HeMzaLiit4DsZOOdockIeLrgXil1pRq3b_3jSBNTdqxH7k2mUUGFLP5mTpDUKarrPog14rgP8AdwoNhvSjgKDrDFMvfr2vPQKrGI5jLyWIOhLyiyGH5gl-EmqMBdIYV3FaWdJZp5LuPbCvD50RQLOxCvxgOl5LlgEOFgKr6oBt3gs_xFAFdWzTNACbjVXgP8wnIZkYamTWu1t-2awahzRgz3FFXhWoepn1oD6K2MVQJdOY8YWTcIKXcGA_-QHJCk8vI5qj2p42ssslCJYRLNcSR1D1NUElToNVI9bCjcvF-MXUd4KeTgzhM4DQdZEhNUsO4yuvD5fy2qLywAx9Qn0bOZ_aleUipJj6xPuifs3qRj5FYlr53IYB0TEXiudWTcUPRLmc8t9R7IX2P1PwtaH2GzCLoVIy8MjU9SJJwaop2f9Qx54oNFvhjJLgUC3fn6AhdL4cEmuPQDZ0eFPGl7WfVHtYaGAPqzQbkBn2N96DcQ9H8gmCSdWxvJFSDUt0IlkDB3bVIQMnWOOhvxD1ez-pvK2UPVsRXhAR1M7-nlzQhoZTCCHMqiO61f-6e8jBPP18n02gg_u266CtO739ljnWndprds520B2jLbdud5lz_kXx-fOvr9BV0IRwKr5wXs-9h8tExwmeUzmD0XuWUvE4xXNYW86wHHTaZYbDJvw_D8ccDWqyHAeza61f_617LlMdt9fnyX7AJyN77I_vVCWVePOepzi4F1JDWhK-xGEgKS_5dzh8zgdkitMogS9pCacJczbUl5Ts21hKVwFOiBFiKHLLfHH7D0kz5Oc=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
@@ -2568,51 +2576,51 @@ Platform landscape inferred from integrated systems for DS-020:
 | 3 | MuleSoft Anypoint | Cloud / iPaaS | API-led integrations | DEV, QAS, PRD |
 | 4 | APIGEE Platform | On-Premise | APIGEE | DEV, QAS, PRD |
 | 5 | ATCR Platform | On-Premise | ATCR | DEV, QAS, PRD |
-| 6 | BOBJ Platform | On-Premise | BOBJ | DEV, QAS, PRD |
-| 8 | CIBR Platform | On-Premise | CIBR | DEV, QAS, PRD |
-| 9 | COMPASS Platform | On-Premise | COMPASS | DEV, QAS, PRD |
-| 10 | Capacity Forecast Data Store Platform | On-Premise | Capacity Forecast Data Store | DEV, QAS, PRD |
-| 13 | DCS Platform | On-Premise | DCS | DEV, QAS, PRD |
+| 6 | Azure ADF Platform | On-Premise | Azure ADF | DEV, QAS, PRD |
+| 7 | BOBJ Platform | On-Premise | BOBJ | DEV, QAS, PRD |
+| 10 | CIBR Platform | On-Premise | CIBR | DEV, QAS, PRD |
+| 11 | Capacity Forecast Data Store Platform | On-Premise | Capacity Forecast Data Store | DEV, QAS, PRD |
 | 14 | DMOCR Platform | On-Premise | DMOCR | DEV, QAS, PRD |
 | 15 | DXCR Platform | On-Premise | DXCR | DEV, QAS, PRD |
-| 16 | EATS Platform | On-Premise | EATS | DEV, QAS, PRD |
-| 17 | ECA Platform | On-Premise | ECA | DEV, QAS, PRD |
-| 18 | ECA-ADLS Platform | On-Premise | ECA-ADLS | DEV, QAS, PRD |
-| 19 | ECA-DataBricks Platform | On-Premise | ECA-DataBricks | DEV, QAS, PRD |
-| 20 | ECA-SnowFlake Platform | On-Premise | ECA-SnowFlake | DEV, QAS, PRD |
-| 21 | ECM (Windchill) Platform | On-Premise | ECM (Windchill) | DEV, QAS, PRD |
-| 22 | EDW Platform | On-Premise | EDW | DEV, QAS, PRD |
-| 23 | FCA Platform | On-Premise | FCA | DEV, QAS, PRD |
-| 24 | FCS Platform | On-Premise | FCS | DEV, QAS, PRD |
-| 25 | Finance HANA Platform | On-Premise | Finance HANA | DEV, QAS, PRD |
-| 26 | GraphiteConnect Platform | On-Premise | GraphiteConnect | DEV, QAS, PRD |
-| 27 | ICOST Platform | On-Premise | ICOST | DEV, QAS, PRD |
-| 28 | ICS (Phoenix) Platform | On-Premise | ICS (Phoenix) | DEV, QAS, PRD |
-| 29 | IF Blue Yonder Platform | On-Premise | IF Blue Yonder | DEV, QAS, PRD |
-| 30 | IF PDH Consumptional Platform | On-Premise | IF PDH Consumptional | DEV, QAS, PRD |
-| 31 | IF PDH Foundational Platform | On-Premise | IF PDH Foundational | DEV, QAS, PRD |
-| 32 | IF PDH Raw Platform | On-Premise | IF PDH Raw | DEV, QAS, PRD |
-| 34 | IP Blue Yonder Platform | On-Premise | IP Blue Yonder | DEV, QAS, PRD |
-| 35 | IP PDH Consumptional Platform | On-Premise | IP PDH Consumptional | DEV, QAS, PRD |
-| 36 | IP PDH Foundational Platform | On-Premise | IP PDH Foundational | DEV, QAS, PRD |
-| 37 | IP PDH Raw Platform | On-Premise | IP PDH Raw | DEV, QAS, PRD |
-| 38 | Legacy MDG Platform | On-Premise | Legacy MDG | DEV, QAS, PRD |
-| 39 | MARS Platform | On-Premise | MARS | DEV, QAS, PRD |
-| 40 | MES 300 Platform | On-Premise | MES 300 | DEV, QAS, PRD |
-| 41 | PDF-SMH Platform | On-Premise | PDF-SMH | DEV, QAS, PRD |
-| 42 | PDH Consumptional Platform | On-Premise | PDH Consumptional | DEV, QAS, PRD |
-| 43 | PDH Foundational Platform | On-Premise | PDH Foundational | DEV, QAS, PRD |
-| 44 | PDH Raw Platform | On-Premise | PDH Raw | DEV, QAS, PRD |
-| 45 | PDM Translator Platform | On-Premise | PDM Translator | DEV, QAS, PRD |
-| 46 | PEGA Platform | On-Premise | PEGA | DEV, QAS, PRD |
-| 47 | Power BI (DARC) Platform | On-Premise | Power BI (DARC) | DEV, QAS, PRD |
-| 57 | SCS Platform | On-Premise | SCS | DEV, QAS, PRD |
-| 58 | SPAN Platform | On-Premise | SPAN | DEV, QAS, PRD |
+| 16 | DataBricks Platform | On-Premise | DataBricks | DEV, QAS, PRD |
+| 17 | EATS Platform | On-Premise | EATS | DEV, QAS, PRD |
+| 18 | ECA Platform | On-Premise | ECA | DEV, QAS, PRD |
+| 19 | ECA-ADLS Platform | On-Premise | ECA-ADLS | DEV, QAS, PRD |
+| 20 | ECA-DataBricks Platform | On-Premise | ECA-DataBricks | DEV, QAS, PRD |
+| 21 | ECA-SnowFlake Platform | On-Premise | ECA-SnowFlake | DEV, QAS, PRD |
+| 22 | ECM (Windchill) Platform | On-Premise | ECM (Windchill) | DEV, QAS, PRD |
+| 23 | EDW Platform | On-Premise | EDW | DEV, QAS, PRD |
+| 24 | FCA Platform | On-Premise | FCA | DEV, QAS, PRD |
+| 25 | FCS Platform | On-Premise | FCS | DEV, QAS, PRD |
+| 26 | Finance HANA Platform | On-Premise | Finance HANA | DEV, QAS, PRD |
+| 27 | GraphiteConnect Platform | On-Premise | GraphiteConnect | DEV, QAS, PRD |
+| 28 | ICOST Platform | On-Premise | ICOST | DEV, QAS, PRD |
+| 29 | ICS (Phoenix) Platform | On-Premise | ICS (Phoenix) | DEV, QAS, PRD |
+| 30 | IF Blue Yonder Platform | On-Premise | IF Blue Yonder | DEV, QAS, PRD |
+| 31 | IF PDH Consumptional Platform | On-Premise | IF PDH Consumptional | DEV, QAS, PRD |
+| 32 | IF PDH Foundational Platform | On-Premise | IF PDH Foundational | DEV, QAS, PRD |
+| 33 | IF PDH Raw Platform | On-Premise | IF PDH Raw | DEV, QAS, PRD |
+| 35 | IP Blue Yonder Platform | On-Premise | IP Blue Yonder | DEV, QAS, PRD |
+| 36 | IP PDH Consumptional Platform | On-Premise | IP PDH Consumptional | DEV, QAS, PRD |
+| 37 | IP PDH Foundational Platform | On-Premise | IP PDH Foundational | DEV, QAS, PRD |
+| 38 | IP PDH Raw Platform | On-Premise | IP PDH Raw | DEV, QAS, PRD |
+| 39 | Legacy MDG Platform | On-Premise | Legacy MDG | DEV, QAS, PRD |
+| 40 | MARS Platform | On-Premise | MARS | DEV, QAS, PRD |
+| 41 | MES 300 Platform | On-Premise | MES 300 | DEV, QAS, PRD |
+| 42 | PDF-SMH Platform | On-Premise | PDF-SMH | DEV, QAS, PRD |
+| 43 | PDH Consumptional Platform | On-Premise | PDH Consumptional | DEV, QAS, PRD |
+| 44 | PDH Foundational Platform | On-Premise | PDH Foundational | DEV, QAS, PRD |
+| 45 | PDH Raw Platform | On-Premise | PDH Raw | DEV, QAS, PRD |
+| 46 | PDM Translator Platform | On-Premise | PDM Translator | DEV, QAS, PRD |
+| 47 | PEGA Platform | On-Premise | PEGA | DEV, QAS, PRD |
+| 48 | Power BI (DARC) Platform | On-Premise | Power BI (DARC) | DEV, QAS, PRD |
+| 58 | SCS Platform | On-Premise | SCS | DEV, QAS, PRD |
 | 59 | SPEED Platform | On-Premise | SPEED | DEV, QAS, PRD |
 | 60 | SideCar Platform | On-Premise | SideCar | DEV, QAS, PRD |
-| 61 | WSPW Platform | On-Premise | WSPW | DEV, QAS, PRD |
-| 62 | WorkStream Platform | On-Premise | WorkStream | DEV, QAS, PRD |
-| 63 | XEUS Platform | On-Premise | XEUS | DEV, QAS, PRD |
+| 61 | SnowFlake Platform | On-Premise | SnowFlake | DEV, QAS, PRD |
+| 62 | WSPW Platform | On-Premise | WSPW | DEV, QAS, PRD |
+| 63 | WorkStream Platform | On-Premise | WorkStream | DEV, QAS, PRD |
+| 64 | XEUS Platform | On-Premise | XEUS | DEV, QAS, PRD |
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
@@ -2704,7 +2712,7 @@ Standard RAID items for DS-020 (Finance Plan To Report):
 | # | Category | Description | Status | Owner | Priority |
 |---|----------|-------------|--------|-------|----------|
 | 1 | Risk | Data migration completeness — validate all legacy Perform Product Costing and Inventory Valuation data maps to S/4 target structures | Open | Tower Architect | High |
-| 2 | Risk | Integration testing coverage — ensure all 60 integrated systems are validated end-to-end | Open | Integration Lead | High |
+| 2 | Risk | Integration testing coverage — ensure all 61 integrated systems are validated end-to-end | Open | Integration Lead | High |
 | 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
 | 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
 | 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
@@ -2723,6 +2731,6 @@ Standard RAID items for DS-020 (Finance Plan To Report):
 | 6 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*DS-020 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: March 2026*
+*DS-020 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: April 2026*
 
 <div class="page-footer"><span>Page 36</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
