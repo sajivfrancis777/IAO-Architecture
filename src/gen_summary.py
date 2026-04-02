@@ -452,6 +452,7 @@ def _render_summary_doc(
 def generate_l2_summaries(
     tower_short: str,
     iapm: IAPMLookup,
+    release_label: str = "R1 \u2013 R5",
 ) -> list[str]:
     """Generate L2 summaries: one per L1 process group within a tower."""
     tower_dir = TOWERS_DIR / tower_short
@@ -523,7 +524,7 @@ def generate_l2_summaries(
         doc = _render_summary_doc(
             level="L2",
             title=f"{l1_name}",
-            scope_label=f"Tower: {tower_cfg.name} ({tower_cfg.shortcode}) · L1 Process: {l1_name}",
+            scope_label=f"Tower: {tower_cfg.name} ({tower_cfg.shortcode}) · L1 Process: {l1_name} · {release_label}",
             current_summary=cur_summary,
             future_summary=fut_summary,
             iapm=iapm,
@@ -547,6 +548,7 @@ def generate_l2_summaries(
 def generate_l1_summary(
     tower_short: str,
     iapm: IAPMLookup,
+    release_label: str = "R1 \u2013 R5",
 ) -> Optional[str]:
     """Generate L1 summary: tower-level aggregation of all capabilities."""
     tower_dir = TOWERS_DIR / tower_short
@@ -604,7 +606,7 @@ def generate_l1_summary(
     doc = _render_summary_doc(
         level="L1",
         title=f"{tower_cfg.name} ({tower_cfg.shortcode})",
-        scope_label=f"Tower: {tower_cfg.name} ({tower_cfg.shortcode})",
+        scope_label=f"Tower: {tower_cfg.name} ({tower_cfg.shortcode}) \u00b7 {release_label}",
         current_summary=cur_summary,
         future_summary=fut_summary,
         iapm=iapm,
@@ -621,7 +623,7 @@ def generate_l1_summary(
     return str(output_path)
 
 
-def generate_l0_summary(iapm: IAPMLookup) -> Optional[str]:
+def generate_l0_summary(iapm: IAPMLookup, release_label: str = "R1 \u2013 R5") -> Optional[str]:
     """Generate L0 summary: program-level aggregation across all towers."""
     print(f"\n{'='*60}")
     print(f"Program-Level — L0 Summary")
@@ -677,7 +679,7 @@ def generate_l0_summary(iapm: IAPMLookup) -> Optional[str]:
     doc = _render_summary_doc(
         level="L0",
         title="IAO Program Architecture Summary",
-        scope_label="IDM 2.0 — All Towers (R1 – R5)",
+        scope_label=f"IDM 2.0 — All Towers ({release_label})",
         current_summary=cur_summary,
         future_summary=fut_summary,
         iapm=iapm,
@@ -713,6 +715,7 @@ def main() -> None:
     parser.add_argument("--tower", type=str, help="Tower shortcode (e.g. FPR)")
     parser.add_argument("--level", type=str, choices=["L0", "L1", "L2"],
                         help="Summary level to generate")
+    parser.add_argument("--release", type=str, help="Filter by release (e.g. R3, R4)")
     parser.add_argument("--all", action="store_true",
                         help="Generate all levels for all towers")
     parser.add_argument("--iapm-csv", type=str, default=str(IAPM_CSV),
@@ -722,6 +725,8 @@ def main() -> None:
     if not args.level and not args.all:
         parser.error("Specify --level (L0|L1|L2) or --all")
 
+    release_label = args.release or "R1 \u2013 R5"
+
     # Load IAPM
     print("Loading IAPM lookup...")
     iapm = IAPMLookup()
@@ -729,7 +734,7 @@ def main() -> None:
         iapm.load_csv(args.iapm_csv)
         print(f"  Loaded {iapm.app_count:,} applications")
     else:
-        print(f"  WARNING: IAPM CSV not found — status lookups disabled")
+        print(f"  WARNING: IAPM CSV not found \u2014 status lookups disabled")
 
     outputs = []
 
@@ -737,27 +742,27 @@ def main() -> None:
         # Generate everything
         towers = sorted(d.name for d in TOWERS_DIR.iterdir() if d.is_dir())
         for t in towers:
-            outputs.extend(generate_l2_summaries(t, iapm))
-            result = generate_l1_summary(t, iapm)
+            outputs.extend(generate_l2_summaries(t, iapm, release_label=release_label))
+            result = generate_l1_summary(t, iapm, release_label=release_label)
             if result:
                 outputs.append(result)
-        result = generate_l0_summary(iapm)
+        result = generate_l0_summary(iapm, release_label=release_label)
         if result:
             outputs.append(result)
     elif args.level == "L0":
-        result = generate_l0_summary(iapm)
+        result = generate_l0_summary(iapm, release_label=release_label)
         if result:
             outputs.append(result)
     elif args.level == "L1":
         if not args.tower:
             parser.error("--tower required for L1 summary")
-        result = generate_l1_summary(args.tower, iapm)
+        result = generate_l1_summary(args.tower, iapm, release_label=release_label)
         if result:
             outputs.append(result)
     elif args.level == "L2":
         if not args.tower:
             parser.error("--tower required for L2 summaries")
-        outputs = generate_l2_summaries(args.tower, iapm)
+        outputs = generate_l2_summaries(args.tower, iapm, release_label=release_label)
 
     print(f"\n{'='*60}")
     print(f"TOTAL: {len(outputs)} summary documents generated")

@@ -51,31 +51,75 @@ jobs:
         run: |
           pip install jinja2 pyyaml markdown
 
-      - name: Regenerate SADs with name resolver
+      - name: Regenerate SADs (all releases)
         run: |
-          echo "Regenerating SAD Markdown + HTML for all towers..."
+          echo "Regenerating SAD Markdown + HTML for all towers (all releases)..."
           python -m src.gen_systems_arch --all || echo "SAD MD generation completed with warnings"
           echo "SAD MD generation complete"
           find towers -name "*-Architecture.md" | wc -l | xargs -I{} echo "  Total SAD MD files: {}"
 
-      - name: Generate RICEFW Trackers
+      - name: Generate RICEFW Trackers (all releases)
         run: |
-          echo "Generating RICEFW Tracker docs for all towers..."
+          echo "Generating RICEFW Tracker docs for all towers (all releases)..."
           python scripts/gen_ricefw_tracker.py --all || echo "RICEFW generation completed with warnings"
           find towers -name "*-RICEFW-Tracker.*" | wc -l | xargs -I{} echo "  Total RICEFW docs: {}"
 
-      - name: Generate Testing Reports
+      - name: Generate Testing Reports (all releases)
         run: |
-          echo "Generating Testing Reports for all towers..."
+          echo "Generating Testing Reports for all towers (all releases)..."
           python scripts/gen_testing_report.py --all || echo "Testing report generation completed with warnings"
           find towers -name "*-Testing-Report.*" | wc -l | xargs -I{} echo "  Total Testing docs: {}"
 
-      - name: Convert all MD docs to HTML
+      - name: Convert all MD docs to HTML (all releases)
         run: |
           echo "Converting all MD docs (Architecture + RICEFW + Testing) to HTML..."
           python scripts/gen_pdf.py --html-only || echo "MD-to-HTML conversion completed with warnings"
           find towers -name "*-RICEFW-Tracker.html" | wc -l | xargs -I{} echo "  RICEFW HTML files: {}"
           find towers -name "*-Testing-Report.html" | wc -l | xargs -I{} echo "  Testing HTML files: {}"
+
+      - name: Snapshot all-releases output
+        run: |
+          echo "Saving all-releases output as baseline..."
+          mkdir -p /tmp/all-releases
+          find towers -name "*.html" -o -name "*.md" | while read f; do
+            dest="/tmp/all-releases/$f"
+            mkdir -p "$(dirname "$dest")"
+            cp "$f" "$dest"
+          done
+          find /tmp/all-releases -name "*.html" | wc -l | xargs -I{} echo "  Snapshot: {} HTML files"
+
+      - name: Generate per-release documents
+        run: |
+          # For each release with data, regenerate with --release filter
+          # Output overwrites towers/ files, which we then copy to _site/Rx/
+          RELEASES="R3 R4"
+          for REL in $RELEASES; do
+            echo ""
+            echo "=========================================="
+            echo "Generating documents for release: $REL"
+            echo "=========================================="
+
+            # Restore all-releases baseline before each release run
+            rsync -a /tmp/all-releases/towers/ towers/
+
+            # Regenerate with release filter
+            python -m src.gen_systems_arch --all --release "$REL" || echo "SAD ($REL) completed with warnings"
+            python scripts/gen_ricefw_tracker.py --all --release "$REL" || echo "RICEFW ($REL) completed with warnings"
+            python scripts/gen_testing_report.py --all --release "$REL" || echo "Testing ($REL) completed with warnings"
+            python scripts/gen_pdf.py --html-only || echo "MD-to-HTML ($REL) completed with warnings"
+
+            # Copy release-specific outputs to staging area
+            mkdir -p "/tmp/release-${REL}"
+            find towers -name "*.html" | while read f; do
+              dest="/tmp/release-${REL}/$f"
+              mkdir -p "$(dirname "$dest")"
+              cp "$f" "$dest"
+            done
+            echo "  $REL: $(find /tmp/release-${REL} -name '*.html' | wc -l) HTML files"
+          done
+
+          # Restore all-releases baseline for the default site
+          rsync -a /tmp/all-releases/towers/ towers/
 
       - name: Generate dashboards
         run: |
@@ -96,6 +140,27 @@ jobs:
             dest="_site/$f"
             mkdir -p "$(dirname "$dest")"
             cp "$f" "$dest"
+          done
+
+          # Copy per-release HTML outputs into _site/R3/, _site/R4/, etc.
+          RELEASES="R3 R4"
+          for REL in $RELEASES; do
+            if [ -d "/tmp/release-${REL}" ]; then
+              echo "Copying release ${REL} outputs to _site/${REL}/..."
+              find "/tmp/release-${REL}/towers" -name "*.html" -o -name "*.svg" | while read f; do
+                rel_path="${f#/tmp/release-${REL}/}"
+                dest="_site/${REL}/${rel_path}"
+                mkdir -p "$(dirname "$dest")"
+                cp "$f" "$dest"
+              done
+              # Copy shared assets into release subfolder
+              mkdir -p "_site/${REL}/templates/assets"
+              cp templates/assets/cover_banner.svg "_site/${REL}/templates/assets/"
+              cp templates/assets/ricefw_banner.svg "_site/${REL}/templates/assets/"
+              cp templates/assets/testing_banner.svg "_site/${REL}/templates/assets/"
+              [ -f favicon.ico ] && cp favicon.ico "_site/${REL}/favicon.ico"
+              echo "  ${REL}: $(find _site/${REL} -name '*.html' | wc -l) HTML files deployed"
+            fi
           done
 
           # Copy banner assets so relative paths from HTML files resolve
@@ -369,13 +434,13 @@ jobs:
             <button class="sidebar-toggle" aria-label="Toggle navigation">☰</button>
             <img src="favicon.ico" alt="IAO" style="height:28px;width:28px;object-fit:contain">
             <h1>IAO Architecture Portal</h1>
-            <select id="release-filter" style="margin-left:auto;margin-right:12px;padding:6px 12px;border-radius:6px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.15);color:#fff;font-size:13px;font-weight:600;cursor:pointer;outline:none" title="Filter by Release">
-              <option value="All" style="color:#000">All Releases</option>
-              <option value="R1" style="color:#000">R1</option>
-              <option value="R2" style="color:#000">R2</option>
-              <option value="R3" style="color:#000">R3</option>
-              <option value="R4" style="color:#000">R4</option>
-              <option value="R5" style="color:#000">R5</option>
+            <select id="release-filter" style="margin-left:auto;margin-right:12px;padding:6px 12px;border-radius:6px;border:1px solid rgba(255,255,255,.3);background:#fff;color:#00285a;font-size:13px;font-weight:600;cursor:pointer;outline:none" title="Filter by Release">
+              <option value="All">All Releases</option>
+              <option value="R1">R1</option>
+              <option value="R2">R2</option>
+              <option value="R3">R3</option>
+              <option value="R4">R4</option>
+              <option value="R5">R5</option>
             </select>
           </div>
           $(sidebar_html "")

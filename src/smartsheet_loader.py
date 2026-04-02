@@ -152,6 +152,13 @@ def _normalize_tower(raw: str) -> str:
     return result if result else raw.strip()
 
 
+def _normalize_release(raw: str) -> str:
+    """Normalize release names like '03.R3' → 'R3', '04.R4' → 'R4'."""
+    import re
+    m = re.search(r'R(\d)', raw, re.IGNORECASE)
+    return f"R{m.group(1)}" if m else "Unknown"
+
+
 class SmartsheetLoader:
     """Load and filter Object Tracker data."""
 
@@ -173,6 +180,19 @@ class SmartsheetLoader:
             reader = csv.DictReader(f)
             self._rows = [row for row in reader]
         self._loaded = True
+
+    def filter_by_release(self, release: str) -> int:
+        """Filter internal rows to only those matching the given release (e.g. 'R3').
+
+        Returns the number of rows removed. Subsequent get_tower_data / get_capability_data
+        calls will only see rows for this release.
+        """
+        before = len(self._rows)
+        self._rows = [
+            r for r in self._rows
+            if _normalize_release((r.get("Release Name") or "").strip()) == release
+        ]
+        return before - len(self._rows)
 
     def get_tower_data(self, tower_short: str) -> SmartsheetData:
         """Extract RICEFW, RAID, and timeline for a specific tower."""

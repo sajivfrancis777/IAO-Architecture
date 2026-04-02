@@ -365,7 +365,7 @@ td a:hover{{text-decoration:underline}}
   <button class="sidebar-toggle" aria-label="Toggle navigation">☰</button>
   <img src="favicon.ico" alt="IAO">
   <h1>IAO Architecture Portal</h1>
-  <select id="release-filter" style="margin-left:auto;margin-right:12px;padding:6px 12px;border-radius:6px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.15);color:#fff;font-size:13px;font-weight:600;cursor:pointer;outline:none" title="Filter by Release">
+  <select id="release-filter" style="margin-left:auto;margin-right:12px;padding:6px 12px;border-radius:6px;border:1px solid rgba(255,255,255,.3);background:#fff;color:#00285a;font-size:13px;font-weight:600;cursor:pointer;outline:none" title="Filter by Release">
     <option value="All">All Releases</option>
     <option value="R1">R1</option>
     <option value="R2">R2</option>
@@ -662,7 +662,7 @@ tr:hover td{{background:#f5f8fc}}
   <button class="sidebar-toggle" aria-label="Toggle navigation">☰</button>
   <img src="../favicon.ico" alt="IAO">
   <h1>IAO Architecture Portal</h1>
-  <select id="release-filter" style="margin-left:auto;margin-right:12px;padding:6px 12px;border-radius:6px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.15);color:#fff;font-size:13px;font-weight:600;cursor:pointer;outline:none" title="Filter by Release">
+  <select id="release-filter" style="margin-left:auto;margin-right:12px;padding:6px 12px;border-radius:6px;border:1px solid rgba(255,255,255,.3);background:#fff;color:#00285a;font-size:13px;font-weight:600;cursor:pointer;outline:none" title="Filter by Release">
     <option value="All">All Releases</option>
     <option value="R1">R1</option>
     <option value="R2">R2</option>
@@ -841,14 +841,37 @@ def _sidebar_js() -> str:
       if(nr){nr.style.display=anyVisible?"none":"block"}
     });
   }
-  // ── Release filter persistence ──
+  // ── Release filter persistence + document link rewriting ──
   var sel=document.getElementById("release-filter");
   if(sel){
     var saved=localStorage.getItem("iao-release-filter");
     if(saved){sel.value=saved}
+
+    function rewriteDocLinks(){
+      var r=sel.value;
+      // Rewrite doc-btn links: when a release is selected, prefix href with /Rx/
+      document.querySelectorAll("a.doc-btn").forEach(function(a){
+        var orig=a.getAttribute("data-orig-href")||a.getAttribute("href");
+        a.setAttribute("data-orig-href",orig);
+        if(r&&r!=="All"){
+          // Replace "../towers/" with "../Rx/towers/" (relative from cap/ dir)
+          // or "towers/" with "Rx/towers/" (from root)
+          var pat=new RegExp("(\\.\\.\\/)?towers\\/");
+          var newHref=orig.replace(pat,"$1"+r+"/towers/");
+          a.setAttribute("href",newHref);
+        }else{
+          a.setAttribute("href",orig);
+        }
+      });
+    }
+
     sel.addEventListener("change",function(){
       localStorage.setItem("iao-release-filter",sel.value);
+      rewriteDocLinks();
     });
+    // Rewrite on initial load if a release was saved
+    rewriteDocLinks();
+
     document.querySelectorAll("a[href*='dashboard']").forEach(function(a){
       a.addEventListener("click",function(e){
         var r=sel.value;

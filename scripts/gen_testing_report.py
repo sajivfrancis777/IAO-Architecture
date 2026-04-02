@@ -74,6 +74,12 @@ def _type_code(raw: str) -> str:
     return _TYPE_CODE.get(raw.strip().lower(), raw[:1].upper() if raw else "?")
 
 
+def _normalize_release(raw: str) -> str:
+    """Normalize release names like '03.R3' → 'R3', '04.R4' → 'R4'."""
+    m = re.search(r'R(\d)', raw, re.IGNORECASE)
+    return f"R{m.group(1)}" if m else "Unknown"
+
+
 def _safe_float(val: str) -> float:
     try:
         v = float(val)
@@ -120,6 +126,7 @@ def _load_objects(csv_path: Path) -> list[dict]:
                 "tower": tower,
                 "sub_tower": r.get("Sub-Tower Name", "").strip(),
                 "status": r.get("Object Status", "").strip(),
+                "release": _normalize_release(r.get("Release Name", "").strip()),
                 "source_system": r.get("Source System", "").strip(),
                 "target_system": r.get("Target System", "").strip(),
                 "fs_pct": r.get("FS % Complete", "").strip(),
@@ -448,6 +455,7 @@ def generate_tower_report(
     jinja_env: Environment,
     cap_filter: str = "",
     dry_run: bool = False,
+    release_label: str = "R1 \u2013 R5",
 ) -> list[Path]:
     tower_dir = TOWERS_DIR / tower_short
     if not tower_dir.exists():
@@ -466,6 +474,7 @@ def generate_tower_report(
     # Tower-level report
     if not cap_filter:
         ctx = build_context(tower_short, all_objects, all_raids)
+        ctx["release_name"] = release_label
         rendered = template.render(**ctx)
         rendered = _inject_page_footers(rendered, f"{ctx['title']} — Testing Report")
 
@@ -499,6 +508,7 @@ def generate_tower_report(
                 cap_name=resolved_name,
                 l1_process=l1_dir.name,
             )
+            ctx["release_name"] = release_label
 
             rendered = template.render(**ctx)
             rendered = _inject_page_footers(rendered, f"{cid} \u2014 {resolved_name}")
@@ -525,6 +535,7 @@ def main() -> None:
     parser.add_argument("--tower", type=str, help="Tower shortcode (e.g. FPR)")
     parser.add_argument("--cap", type=str, help="Single capability ID")
     parser.add_argument("--all", action="store_true", help="Generate for all towers")
+    parser.add_argument("--release", type=str, help="Filter by release (e.g. R3, R4)")
     parser.add_argument("--dry-run", action="store_true", help="Preview only")
     args = parser.parse_args()
 
@@ -534,6 +545,11 @@ def main() -> None:
     print("Loading Object Tracker...")
     all_objects = _load_objects(OBJECT_TRACKER_CSV)
     print(f"  Loaded {len(all_objects):,} objects")
+
+    # Filter by release if specified
+    if args.release:
+        all_objects = [o for o in all_objects if o.get("release") == args.release]
+        print(f"  Filtered to {len(all_objects):,} objects for release {args.release}")
 
     print("Loading RAID Log...")
     all_raids = _load_raids(RAID_CSV)
@@ -565,13 +581,15 @@ def main() -> None:
             print(f"\n{'='*60}")
             print(f"Tower: {t}")
             outputs = generate_tower_report(t, all_objects, all_raids, jinja_env,
-                                            dry_run=args.dry_run)
+                                            dry_run=args.dry_run,
+                                            release_label=args.release or "R1 \u2013 R5")
             all_outputs.extend(outputs)
         print(f"\n{'='*60}")
         print(f"TOTAL: {len(all_outputs)} testing report(s) generated")
     else:
         generate_tower_report(args.tower, all_objects, all_raids, jinja_env,
-                              cap_filter=args.cap or "", dry_run=args.dry_run)
+                              cap_filter=args.cap or "", dry_run=args.dry_run,
+                              release_label=args.release or "R1 \u2013 R5")
 
 
 if __name__ == "__main__":

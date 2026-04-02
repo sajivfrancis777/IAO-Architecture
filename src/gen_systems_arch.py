@@ -868,7 +868,8 @@ def generate_capability(
 def generate_tower(tower_short: str, iapm: IAPMLookup, jinja_env: Environment,
                    ss_loader: Optional[SmartsheetLoader] = None,
                    cap_filter: Optional[str] = None, dry_run: bool = False,
-                   render_svg: bool = False) -> list[str]:
+                   render_svg: bool = False,
+                   release_override: str = "R1 \u2013 R5") -> list[str]:
     """Generate SADs for all (or filtered) capabilities in a tower."""
     tower_dir = TOWERS_DIR / tower_short
     if not tower_dir.is_dir():
@@ -882,8 +883,11 @@ def generate_tower(tower_short: str, iapm: IAPMLookup, jinja_env: Environment,
             return []
 
     tower_cfg = load_tower_config(tower_dir)
+    # Override release label if a specific release was requested
+    if release_override and release_override != "R1 \u2013 R5":
+        tower_cfg.release.name = release_override
     print(f"\n{'='*60}")
-    print(f"Tower: {tower_cfg.name} ({tower_cfg.shortcode})")
+    print(f"Tower: {tower_cfg.name} ({tower_cfg.shortcode}) \u2014 {tower_cfg.release.name}")
     print(f"{'='*60}")
 
     # Load tower-level Smartsheet data once
@@ -931,6 +935,7 @@ def main() -> None:
     parser.add_argument("--tower", type=str, help="Tower shortcode (e.g. FPR)")
     parser.add_argument("--cap", type=str, help="Single capability ID (e.g. DS-020)")
     parser.add_argument("--all", action="store_true", help="Generate for all towers")
+    parser.add_argument("--release", type=str, help="Filter by release (e.g. R3, R4)")
     parser.add_argument("--dry-run", action="store_true", help="Preview only, don't write files")
     parser.add_argument("--svg", action="store_true", help="Pre-render mermaid diagrams to SVG files (slower)")
     parser.add_argument("--iapm-csv", type=str, default=str(IAPM_CSV),
@@ -959,8 +964,13 @@ def main() -> None:
         ss_loader = SmartsheetLoader()
         ss_loader.load_csv(str(tracker_path))
         print(f"  Loaded {len(ss_loader._rows):,} tracker rows")
+        if args.release:
+            removed = ss_loader.filter_by_release(args.release)
+            print(f"  Filtered to {len(ss_loader._rows):,} rows for release {args.release} ({removed:,} excluded)")
     else:
         print(f"  WARNING: Object Tracker not found at {tracker_path} — RICEFW/RAID disabled")
+
+    release_label = args.release or "R1 \u2013 R5"
 
     # Setup Jinja2
     jinja_env = Environment(
@@ -1005,14 +1015,15 @@ def main() -> None:
         all_outputs = []
         for t in towers:
             outputs = generate_tower(t, iapm, jinja_env, ss_loader=ss_loader,
-                                    dry_run=args.dry_run, render_svg=args.svg)
+                                    dry_run=args.dry_run, render_svg=args.svg,
+                                    release_override=release_label)
             all_outputs.extend(outputs)
         print(f"\n{'='*60}")
         print(f"TOTAL: {len(all_outputs)} documents generated across {len(towers)} towers")
     else:
         generate_tower(args.tower, iapm, jinja_env, ss_loader=ss_loader,
                        cap_filter=args.cap, dry_run=args.dry_run,
-                       render_svg=args.svg)
+                       render_svg=args.svg, release_override=release_label)
 
 
 if __name__ == "__main__":

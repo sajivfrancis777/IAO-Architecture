@@ -73,6 +73,12 @@ def _type_code(raw: str) -> str:
     return _TYPE_CODE.get(raw.strip().lower(), raw[:1].upper() if raw else "?")
 
 
+def _normalize_release(raw: str) -> str:
+    """Normalize release names like '03.R3' \u2192 'R3', '04.R4' \u2192 'R4'."""
+    m = re.search(r'R(\d)', raw, re.IGNORECASE)
+    return f"R{m.group(1)}" if m else "Unknown"
+
+
 def _safe_float(val: str) -> float:
     try:
         v = float(val)
@@ -93,6 +99,7 @@ class ObjRow:
     tower: str
     sub_tower: str
     status: str
+    release: str
     source_system: str
     target_system: str
     middleware: str
@@ -161,6 +168,7 @@ def load_object_tracker(csv_path: Path) -> list[ObjRow]:
                 tower=tower,
                 sub_tower=r.get("Sub-Tower Name", "").strip(),
                 status=r.get("Object Status", "").strip(),
+                release=_normalize_release(r.get("Release Name", "").strip()),
                 source_system=r.get("Source System", "").strip(),
                 target_system=r.get("Target System", "").strip(),
                 middleware=r.get("Middleware", "").strip(),
@@ -425,6 +433,7 @@ def generate_tower_tracker(
     jinja_env: Environment,
     cap_filter: str = "",
     dry_run: bool = False,
+    release_label: str = "R1 \u2013 R5",
 ) -> list[Path]:
     """Generate RICEFW tracker(s) for a tower. Returns list of output paths."""
     tower_dir = TOWERS_DIR / tower_short
@@ -445,6 +454,7 @@ def generate_tower_tracker(
     # Tower-level tracker
     if not cap_filter:
         ctx = build_context(tower_short, obj_rows, raid_rows)
+        ctx["release_name"] = release_label
         rendered = template.render(**ctx)
         rendered = _inject_page_footers(rendered, f"{ctx['title']} — RICEFW Tracker")
 
@@ -478,6 +488,7 @@ def generate_tower_tracker(
                 cap_name=resolved_name,
                 l1_process=l1_dir.name,
             )
+            ctx["release_name"] = release_label
             # Skip capabilities with no RICEFW data
             if ctx["total_objects"] == 0 and not cap_filter:
                 continue
@@ -507,6 +518,7 @@ def main() -> None:
     parser.add_argument("--tower", type=str, help="Tower shortcode (e.g. FPR)")
     parser.add_argument("--cap", type=str, help="Single capability ID (e.g. DS-020)")
     parser.add_argument("--all", action="store_true", help="Generate for all towers")
+    parser.add_argument("--release", type=str, help="Filter by release (e.g. R3, R4)")
     parser.add_argument("--dry-run", action="store_true", help="Preview only")
     parser.add_argument("--tracker-csv", type=str, default=str(OBJECT_TRACKER_CSV))
     parser.add_argument("--raid-csv", type=str, default=str(RAID_CSV))
@@ -519,6 +531,11 @@ def main() -> None:
     print("Loading Object Tracker...")
     obj_rows = load_object_tracker(Path(args.tracker_csv))
     print(f"  Loaded {len(obj_rows):,} objects")
+
+    # Filter by release if specified
+    if args.release:
+        obj_rows = [o for o in obj_rows if o.release == args.release]
+        print(f"  Filtered to {len(obj_rows):,} objects for release {args.release}")
 
     print("Loading RAID Log...")
     raid_rows = load_raid_log(Path(args.raid_csv))
@@ -567,13 +584,15 @@ def main() -> None:
         for t in towers:
             print(f"\n{'='*60}")
             print(f"Tower: {t}")
-            outputs = generate_tower_tracker(t, obj_rows, raid_rows, jinja_env, dry_run=args.dry_run)
+            outputs = generate_tower_tracker(t, obj_rows, raid_rows, jinja_env, dry_run=args.dry_run,
+                                             release_label=args.release or "R1 \u2013 R5")
             all_outputs.extend(outputs)
         print(f"\n{'='*60}")
         print(f"TOTAL: {len(all_outputs)} RICEFW tracker(s) generated across {len(towers)} towers")
     else:
         generate_tower_tracker(args.tower, obj_rows, raid_rows, jinja_env,
-                               cap_filter=args.cap or "", dry_run=args.dry_run)
+                               cap_filter=args.cap or "", dry_run=args.dry_run,
+                               release_label=args.release or "R1 \u2013 R5")
 
 
 if __name__ == "__main__":
