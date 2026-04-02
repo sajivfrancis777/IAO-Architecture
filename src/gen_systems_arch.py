@@ -959,6 +959,7 @@ def generate_tower(tower_short: str, iapm: IAPMLookup, jinja_env: Environment,
     # Override release label if a specific release was requested
     if release_override and release_override != "R1 \u2013 R5":
         tower_cfg.release.name = release_override
+        tower_cfg.release.release_id = release_override  # e.g. "R3" → finds R3_CurrentFlows.xlsx
     print(f"\n{'='*60}")
     print(f"Tower: {tower_cfg.name} ({tower_cfg.shortcode}) \u2014 {tower_cfg.release.name}")
     print(f"{'='*60}")
