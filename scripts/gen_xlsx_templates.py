@@ -407,6 +407,8 @@ def main():
     parser.add_argument("--migrate", action="store_true", help="Migrate existing CSVs into xlsx workbooks")
     parser.add_argument("--tower", help="Single tower shortcode (e.g. FPR)")
     parser.add_argument("--cap", help="Single capability ID (e.g. DS-020)")
+    parser.add_argument("--releases", nargs="*", default=["R1", "R2", "R3", "R4", "R5"],
+                        help="Release IDs for per-release templates (default: R1-R5)")
     parser.add_argument("--dry-run", action="store_true", help="Preview only")
     args = parser.parse_args()
 
@@ -468,8 +470,12 @@ def main():
                             total_actions += 1
 
             elif args.deploy:
-                # Deploy blank templates
-                for flow_type in ["CurrentFlows", "FutureFlows"]:
+                # Deploy blank templates (universal + per-release)
+                deploy_names = ["CurrentFlows", "FutureFlows"]
+                for rel in args.releases:
+                    deploy_names.append(f"{rel}_CurrentFlows")
+                    deploy_names.append(f"{rel}_FutureFlows")
+                for flow_type in deploy_names:
                     target = data_dir / f"{flow_type}.xlsx"
                     if target.exists():
                         print(f"    {flow_type}.xlsx: exists")
