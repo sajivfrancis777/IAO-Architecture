@@ -157,11 +157,12 @@ class MermaidBuilder:
         lines.append("flowchart LR")
         lines.append("")
 
-        # Subgraphs by lane
+        # Swim lanes: wrap all lanes in a container, each lane is a horizontal band
         sorted_lanes = sorted(self._lanes.keys())
         for lane in sorted_lanes:
             sg_id = _sanitize_lane_id(self.prefix, lane)
-            lines.append(f'    subgraph {sg_id}["{lane}"]')
+            lines.append(f'    subgraph {sg_id}[" ⬛ {lane}"]')
+            lines.append(f'        direction LR')
             for nid in sorted(self._lanes[lane]):
                 node = self._nodes[nid]
                 lines.append(f'        {nid}["{node.label}"]')
@@ -408,17 +409,33 @@ def build_archimate_mermaid(
     lines.append(ARCHIMATE_CLASSDEFS)
     lines.append("")
 
-    # Application Layer
+    # Application Layer — swim lanes by Source/Target Lane
     if view in ("full", "app", "data"):
+        # Group apps by their lane
+        lane_groups: dict[str, list[str]] = {}
+        for nid, info in apps.items():
+            lane = info.get("lane") or "Other"
+            lane_groups.setdefault(lane, []).append(nid)
+
         lines.append('    subgraph AL["🔵 APPLICATION LAYER"]')
         lines.append("        direction LR")
-        for nid, info in sorted(apps.items(), key=lambda x: x[1]["name"]):
-            ia = info["iapm_app"]
-            status_str = ""
-            if ia and ia.status_label:
-                status_str = f"<br/><i>{ia.status_label}</i>"
-            cls = "eol" if (ia and ia.style_class == "eol") else "app"
-            lines.append(f'        {nid}["{EMOJI["app"]} {info["name"]}{status_str}"]:::{cls}')
+
+        # Create swim lane subgraphs within the application layer
+        for lane_name in sorted(lane_groups.keys()):
+            lane_id = _sanitize_lane_id(pfx + "LN", lane_name)
+            lines.append(f'        subgraph {lane_id}[" ⬛ {lane_name}"]')
+            lines.append(f'            direction LR')
+            for nid in sorted(lane_groups[lane_name]):
+                info = apps[nid]
+                ia = info["iapm_app"]
+                status_str = ""
+                if ia and ia.status_label:
+                    status_str = f"<br/><i>{ia.status_label}</i>"
+                cls = "eol" if (ia and ia.style_class == "eol") else "app"
+                lines.append(f'            {nid}["{EMOJI["app"]} {info["name"]}{status_str}"]:::{cls}')
+            lines.append(f'        end')
+
+        # Middleware and data entities (not in lanes)
         for mw_id, mw_name in sorted(middlewares.items()):
             lines.append(f'        {mw_id}["{EMOJI["middleware"]} {mw_name}"]:::middleware')
         for de_id, de_label in sorted(data_entities.items()):
