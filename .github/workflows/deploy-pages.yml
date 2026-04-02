@@ -92,7 +92,7 @@ jobs:
         run: |
           # For each release with data, regenerate with --release filter
           # Output overwrites towers/ files, which we then copy to _site/Rx/
-          RELEASES="R3 R4"
+          RELEASES="R1 R2 R3 R4 R5"
           for REL in $RELEASES; do
             echo ""
             echo "=========================================="
@@ -142,8 +142,8 @@ jobs:
             cp "$f" "$dest"
           done
 
-          # Copy per-release HTML outputs into _site/R3/, _site/R4/, etc.
-          RELEASES="R3 R4"
+          # Copy per-release HTML outputs into _site/R1/, _site/R2/, ..., _site/R5/
+          RELEASES="R1 R2 R3 R4 R5"
           for REL in $RELEASES; do
             if [ -d "/tmp/release-${REL}" ]; then
               echo "Copying release ${REL} outputs to _site/${REL}/..."
@@ -245,8 +245,8 @@ jobs:
           done
           echo ']' >> _site/nav.json
 
-          # Copy nav.json into release subfolders so sidebar works in /R3/, /R4/ docs
-          RELEASES="R3 R4"
+          # Copy nav.json into release subfolders so sidebar works in all release docs
+          RELEASES="R1 R2 R3 R4 R5"
           for REL in $RELEASES; do
             if [ -d "_site/${REL}" ]; then
               cp _site/nav.json "_site/${REL}/nav.json"
