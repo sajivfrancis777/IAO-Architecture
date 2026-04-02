@@ -365,6 +365,14 @@ td a:hover{{text-decoration:underline}}
   <button class="sidebar-toggle" aria-label="Toggle navigation">☰</button>
   <img src="favicon.ico" alt="IAO">
   <h1>IAO Architecture Portal</h1>
+  <select id="release-filter" style="margin-left:auto;margin-right:12px;padding:6px 12px;border-radius:6px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.15);color:#fff;font-size:13px;font-weight:600;cursor:pointer;outline:none" title="Filter by Release">
+    <option value="All">All Releases</option>
+    <option value="R1">R1</option>
+    <option value="R2">R2</option>
+    <option value="R3">R3</option>
+    <option value="R4">R4</option>
+    <option value="R5">R5</option>
+  </select>
   <a class="back-link" href="index.html">← All Towers</a>
 </div>
 <nav class="sidebar">
@@ -382,7 +390,7 @@ td a:hover{{text-decoration:underline}}
 <div class="hero">
   <h2>{icon} {tower} — {full_name}</h2>
   <p>{desc}</p>
-  <span class="badge">{cap_count} capabilities · R3 / R4 / R5</span>
+  <span class="badge">{cap_count} capabilities · R1 – R5</span>
   <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
     <a href="dashboard/{tower}/index.html" style="display:inline-block;padding:8px 20px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:8px;color:#fff;text-decoration:none;font-weight:600;font-size:14px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.3)'" onmouseout="this.style.background='rgba(255,255,255,.18)'">📊 Tower Dashboard</a>
     <a href="dashboard/index.html" style="display:inline-block;padding:8px 20px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.25);border-radius:8px;color:rgba(255,255,255,.85);text-decoration:none;font-weight:500;font-size:14px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.2)'" onmouseout="this.style.background='rgba(255,255,255,.1)'">📊 Program Dashboard</a>
@@ -654,6 +662,14 @@ tr:hover td{{background:#f5f8fc}}
   <button class="sidebar-toggle" aria-label="Toggle navigation">☰</button>
   <img src="../favicon.ico" alt="IAO">
   <h1>IAO Architecture Portal</h1>
+  <select id="release-filter" style="margin-left:auto;margin-right:12px;padding:6px 12px;border-radius:6px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.15);color:#fff;font-size:13px;font-weight:600;cursor:pointer;outline:none" title="Filter by Release">
+    <option value="All">All Releases</option>
+    <option value="R1">R1</option>
+    <option value="R2">R2</option>
+    <option value="R3">R3</option>
+    <option value="R4">R4</option>
+    <option value="R5">R5</option>
+  </select>
   <a class="back-link" href="../tower-{tower}.html">← {tower} Tower</a>
 </div>
 <nav class="sidebar">
@@ -823,6 +839,26 @@ def _sidebar_js() -> str:
       });
       var nr=document.querySelector(".no-results");
       if(nr){nr.style.display=anyVisible?"none":"block"}
+    });
+  }
+  // ── Release filter persistence ──
+  var sel=document.getElementById("release-filter");
+  if(sel){
+    var saved=localStorage.getItem("iao-release-filter");
+    if(saved){sel.value=saved}
+    sel.addEventListener("change",function(){
+      localStorage.setItem("iao-release-filter",sel.value);
+    });
+    document.querySelectorAll("a[href*='dashboard']").forEach(function(a){
+      a.addEventListener("click",function(e){
+        var r=sel.value;
+        if(r&&r!=="All"){
+          e.preventDefault();
+          var url=a.href;
+          url+=(url.indexOf("?")>-1?"&":"?")+"release="+r;
+          location.href=url;
+        }
+      });
     });
   }
 })();

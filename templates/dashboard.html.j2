@@ -909,16 +909,19 @@ applyFilters();
 (function(){
   var sel = document.getElementById('release-filter');
   if(!sel) return;
-  // Check URL param for initial release
+  // Check URL param first, then localStorage
   var urlParams = new URLSearchParams(window.location.search);
   var urlRel = urlParams.get('release');
-  if(urlRel && AVAIL_REL.indexOf(urlRel) !== -1){
-    activeRelease = urlRel;
-    sel.value = urlRel;
+  var savedRel = localStorage.getItem('iao-release-filter');
+  var initRel = urlRel || savedRel;
+  if(initRel && initRel !== 'All'){
+    activeRelease = initRel;
+    sel.value = initRel;
     applyFilters();
   }
   sel.addEventListener('change', function(){
     activeRelease = sel.value;
+    localStorage.setItem('iao-release-filter', sel.value);
     // Update URL without reload
     var url = new URL(window.location);
     if(activeRelease === 'All') url.searchParams.delete('release');
