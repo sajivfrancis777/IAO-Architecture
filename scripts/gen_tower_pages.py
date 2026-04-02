@@ -382,7 +382,7 @@ td a:hover{{text-decoration:underline}}
 <div class="hero">
   <h2>{icon} {tower} — {full_name}</h2>
   <p>{desc}</p>
-  <span class="badge">{cap_count} capabilities · Release 3</span>
+  <span class="badge">{cap_count} capabilities · R3 / R4 / R5</span>
   <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
     <a href="dashboard/{tower}/index.html" style="display:inline-block;padding:8px 20px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:8px;color:#fff;text-decoration:none;font-weight:600;font-size:14px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.3)'" onmouseout="this.style.background='rgba(255,255,255,.18)'">📊 Tower Dashboard</a>
     <a href="dashboard/index.html" style="display:inline-block;padding:8px 20px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.25);border-radius:8px;color:rgba(255,255,255,.85);text-decoration:none;font-weight:500;font-size:14px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.2)'" onmouseout="this.style.background='rgba(255,255,255,.1)'">📊 Program Dashboard</a>

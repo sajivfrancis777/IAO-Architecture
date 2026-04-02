@@ -200,7 +200,8 @@ def scaffold_capability(cap_dir: Path, dry_run: bool = False,
     if not deploy_only:
         flow_patterns = ["CurrentFlows.csv", "FutureFlows.csv",
                          "R3_CurrentFlows.csv", "R3_FutureFlows.csv",
-                         "R4_CurrentFlows.csv", "R4_FutureFlows.csv"]
+                         "R4_CurrentFlows.csv", "R4_FutureFlows.csv",
+                         "R5_CurrentFlows.csv", "R5_FutureFlows.csv"]
         for pattern in flow_patterns:
             csv_path = data_dir / pattern
             if csv_path.exists():

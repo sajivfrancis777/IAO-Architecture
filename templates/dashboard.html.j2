@@ -44,7 +44,7 @@
     }
     .topbar h1 { font-size: 1.2rem; font-weight: 600; flex: 1; }
     .topbar .meta { font-size: 0.85rem; opacity: 0.8; }
-    .topbar .nav-links { display: flex; gap: 8px; }
+    .topbar .nav-links { display: flex; gap: 8px; align-items: center; }
     .topbar .nav-links a {
       color: rgba(255,255,255,0.85);
       text-decoration: none;
@@ -71,6 +71,25 @@
     }
     .topbar .nav-links button.pdf-btn:hover {
       background: rgba(255,255,255,0.25);
+    }
+    .topbar .release-select {
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      appearance: auto;
+    }
+    .topbar .release-select:focus {
+      outline: none;
+      border-color: rgba(255,255,255,0.7);
+    }
+    .topbar .release-select option {
+      color: #333;
+      background: #fff;
     }
 
     /* ---- Breadcrumb / tower nav ---- */
@@ -383,6 +402,12 @@
   <h1>{{ title }} — Dashboard</h1>
   <span class="meta">{{ release_name }} &middot; Generated {{ generated_date }}</span>
   <div class="nav-links">
+    <select id="release-filter" class="release-select" title="Filter by Release">
+      <option value="All">All Releases</option>
+      {% for rel in available_releases %}
+      <option value="{{ rel }}">{{ rel }}</option>
+      {% endfor %}
+    </select>
     {% if tower_filter %}
     <a href="{{ program_dashboard_url }}">📊 Program Dashboard</a>
     {% endif %}
@@ -582,6 +607,8 @@ var DOC_INV    = {{ doc_inventory_json }};
 var towerUrls  = {{ tower_urls_json }};
 var capUrls    = {{ cap_urls_json }};
 var IS_TOWER   = {{ 'true' if tower_filter else 'false' }};
+var AVAIL_REL  = {{ available_releases_json }};
+var activeRelease = 'All';  // global release filter state
 
 // ---- Constants ----
 var COLORS = {
@@ -609,16 +636,50 @@ var selected = new Set();
 })();
 
 // ---- Filtered accessors ----
-// On tower pages: charts always show full tower data (Object Tracker has no
-// per-capability mapping). Capability filter only affects tables.
-// On program pages: tower filter chips control both charts and tables.
-function fTowers(){
-  if(IS_TOWER) return ALL_TOWERS;  // always full tower — no per-cap object data
-  return ALL_TOWERS.filter(function(t){return selected.has(t.short)});
-}
+// ---- Filtered accessors (respect both tower/capability chips AND release dropdown) ----
 function fObjs(){
-  if(IS_TOWER) return RAW_OBJS;  // all objects for this tower
-  return RAW_OBJS.filter(function(o){return selected.has(o.t)});
+  var objs = RAW_OBJS;
+  if(activeRelease !== 'All') objs = objs.filter(function(o){ return o.r === activeRelease; });
+  if(IS_TOWER) return objs;
+  return objs.filter(function(o){return selected.has(o.t)});
+}
+function fTowers(){
+  // When release filter is active, re-derive tower stats from filtered objects
+  var objs = fObjs();
+  if(activeRelease === 'All'){
+    if(IS_TOWER) return ALL_TOWERS;
+    return ALL_TOWERS.filter(function(t){return selected.has(t.short)});
+  }
+  // Build synthetic tower stats from filtered objects
+  var tMap = {};
+  objs.forEach(function(o){
+    if(!tMap[o.t]) tMap[o.t] = {short:o.t,total:0,completed:0,active:0,rejected:0,
+      raid_count:0,avg_fs:0,avg_tdd:0,avg_build:0,avg_fut:0,
+      interfaces:0,conversions:0,enhancements:0,reports:0,forms:0,workflows:0,
+      sad_count:0,ricefw_doc_count:0,testing_doc_count:0};
+    var t = tMap[o.t];
+    t.total++;
+    if(o.s===1) t.completed++;
+    else if(o.s===2) t.rejected++;
+    else t.active++;
+    var tc = o.tc;
+    if(tc==='I') t.interfaces++;
+    else if(tc==='C') t.conversions++;
+    else if(tc==='E') t.enhancements++;
+    else if(tc==='R') t.reports++;
+    else if(tc==='F') t.forms++;
+    else if(tc==='W') t.workflows++;
+  });
+  // Apply tower/cap chip filter
+  var result = [];
+  var keys = IS_TOWER ? Object.keys(tMap) : Object.keys(tMap).filter(function(k){return selected.has(k)});
+  keys.forEach(function(k){
+    // Merge raid count from original data
+    var orig = ALL_TOWERS.find(function(t){return t.short===k});
+    if(orig) tMap[k].raid_count = orig.raid_count;
+    result.push(tMap[k]);
+  });
+  return result;
 }
 
 // ---- KPI update ----
@@ -843,6 +904,29 @@ function applyFilters(){
 
 // ---- Initial render ----
 applyFilters();
+
+// ---- Release dropdown handler ----
+(function(){
+  var sel = document.getElementById('release-filter');
+  if(!sel) return;
+  // Check URL param for initial release
+  var urlParams = new URLSearchParams(window.location.search);
+  var urlRel = urlParams.get('release');
+  if(urlRel && AVAIL_REL.indexOf(urlRel) !== -1){
+    activeRelease = urlRel;
+    sel.value = urlRel;
+    applyFilters();
+  }
+  sel.addEventListener('change', function(){
+    activeRelease = sel.value;
+    // Update URL without reload
+    var url = new URL(window.location);
+    if(activeRelease === 'All') url.searchParams.delete('release');
+    else url.searchParams.set('release', activeRelease);
+    window.history.replaceState({}, '', url);
+    applyFilters();
+  });
+})();
 
 // ---- Print/PDF: freeze Plotly charts to static PNG images, then print ----
 (function(){

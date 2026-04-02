@@ -66,6 +66,13 @@ def _type_code(raw: str) -> str:
     return _TYPE_CODE.get(raw.strip().lower(), raw[:1].upper() if raw else "?")
 
 
+def _normalize_release(raw: str) -> str:
+    """Normalize release names like '03.R3' → 'R3', '04.R4' → 'R4'."""
+    import re as _re
+    m = _re.search(r'R(\d)', raw, _re.IGNORECASE)
+    return f"R{m.group(1)}" if m else "R3"  # default to R3 if missing
+
+
 def _safe_float(val: str) -> float:
     try:
         v = float(val)
@@ -94,6 +101,7 @@ def _load_objects(csv_path: Path) -> list[dict]:
                 "tower": tower,
                 "sub_tower": r.get("Sub-Tower Name", "").strip(),
                 "status": r.get("Object Status", "").strip(),
+                "release": _normalize_release(r.get("Release Name", "").strip()),
                 "fs_pct": r.get("FS % Complete", "").strip(),
                 "tdd_pct": r.get("S/4 TDD % Complete", "").strip(),
                 "build_pct": r.get("S/4 Build & TUT % Complete", "").strip(),
@@ -445,7 +453,7 @@ def build_dashboard_context(
         if first_url:
             cap_urls[row["cap_id"]] = first_url
 
-    # Raw objects for client-side filtering (compact: t=tower, tc=type, s=status)
+    # Raw objects for client-side filtering (compact: t=tower, tc=type, s=status, r=release)
     # s: 0=active, 1=completed, 2=rejected
     raw_objects_compact = []
     for o in objects:
@@ -453,8 +461,13 @@ def build_dashboard_context(
             continue
         s = 1 if o["status"] in _COMPLETED_STATUSES else (2 if o["status"] in _REJECTED_STATUSES else 0)
         raw_objects_compact.append({
-            "t": o["tower"], "tc": o["type_code"], "s": s,
+            "t": o["tower"], "tc": o["type_code"], "s": s, "r": o.get("release", "R3"),
         })
+
+    # Discover available releases from the data
+    available_releases = sorted(set(o.get("release", "R3") for o in objects))
+    if not available_releases:
+        available_releases = ["R3"]
 
     # Title
     if tower_filter:
@@ -465,6 +478,8 @@ def build_dashboard_context(
     return {
         "title": title_text,
         "release_name": "Release 3",
+        "available_releases": available_releases,
+        "available_releases_json": json.dumps(available_releases),
         "generated_date": datetime.now().strftime("%B %Y"),
         "author": "Sajiv Francis",
         "tower_filter": tower_filter,
