@@ -489,8 +489,8 @@ def generate_tower_tracker(
                 l1_process=l1_dir.name,
             )
             ctx["release_name"] = release_label
-            # Skip capabilities with no RICEFW data
-            if ctx["total_objects"] == 0 and not cap_filter:
+            # Skip capabilities with no RICEFW data (only for all-releases default)
+            if ctx["total_objects"] == 0 and not cap_filter and release_label == "R1 \u2013 R5":
                 continue
 
             rendered = template.render(**ctx)

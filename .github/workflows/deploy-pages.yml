@@ -606,8 +606,8 @@ jobs:
           <script>
           (function(){
             var sb=document.querySelector(".portal-sidebar"),ov=document.querySelector(".portal-sidebar-overlay");
-            document.querySelector(".sidebar-btn").addEventListener("click",function(){sb.classList.toggle("open");ov.classList.toggle("open")});
-            ov.addEventListener("click",function(){sb.classList.remove("open");ov.classList.remove("open")});
+            var sidebarBtn=document.querySelector(".sidebar-btn");
+            if(sidebarBtn&&sb&&ov){sidebarBtn.addEventListener("click",function(){sb.classList.toggle("open");ov.classList.toggle("open")});ov.addEventListener("click",function(){sb.classList.remove("open");ov.classList.remove("open")})}
             var pdfBtn=document.querySelector(".portal-toolbar .pdf-btn");
             if(pdfBtn) pdfBtn.addEventListener("click",function(){window.print()});
 
