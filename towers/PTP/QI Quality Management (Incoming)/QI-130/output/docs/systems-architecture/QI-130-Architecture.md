@@ -1,5 +1,6 @@
 <div style="text-align:center; padding-top:20px;">
-  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMGFlZWY7c3RvcC1vcGFjaXR5OjEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjE1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4wMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDcpIiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgPC9wYXR0ZXJuPgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2JnKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNncmlkKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPgoKICA8IS0tIERlY29yYXRpdmUgY2lyY3VpdC9hcmNoaXRlY3R1cmUgbGluZXMgLS0+CiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+CiAgICA8cGF0aCBkPSJNIDAgMTAwIEwgMTIwIDEwMCBMIDE2MCAxNDAgTCAyODAgMTQwIi8+CiAgICA8cGF0aCBkPSJNIDAgMjYwIEwgODAgMjYwIEwgMTIwIDIyMCBMIDIwMCAyMjAgTCAyNDAgMjYwIEwgMzYwIDI2MCIvPgogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPgogICAgPHBhdGggZD0iTSA0NDAgMzQwIEwgNTYwIDM0MCBMIDYwMCAzMDAgTCA3MjAgMzAwIEwgNzYwIDM0MCBMIDgwMCAzNDAiLz4KICAgIDxwYXRoIGQ9Ik0gNjAwIDQwMCBMIDY4MCA0MDAgTCA3MjAgNDQwIi8+CiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+CiAgICA8cGF0aCBkPSJNIDIwMCA0MjAgTCAzMjAgNDIwIEwgMzYwIDM4MCBMIDQ4MCAzODAiLz4KICAgIDxwYXRoIGQ9Ik0gNjUwIDQ0MCBMIDc1MCA0NDAgTCA4MDAgNDgwIi8+CiAgPC9nPgoKICA8IS0tIERlY29yYXRpdmUgbm9kZXMgLS0+CiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+CiAgICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjI4MCIgY3k9IjE0MCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSIzNjAiIGN5PSIyNjAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjYwMCIgY3k9IjEwMCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI1NjAiIGN5PSIzNDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjgwIiBjeT0iMzYwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjMyMCIgY3k9IjQyMCIgcj0iNCIvPgogIDwvZz4KCiAgPCEtLSBUT0dBRiBCREFUIGJveGVzIC0tPgogIDxnIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI2MDAiPgogICAgPCEtLSBCIC0tPgogICAgPHJlY3QgeD0iMTUwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIyMTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QnVzaW5lc3M8L3RleHQ+CiAgICA8IS0tIEQgLS0+CiAgICA8cmVjdCB4PSIyOTAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjM1MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5EYXRhPC90ZXh0PgogICAgPCEtLSBBIC0tPgogICAgPHJlY3QgeD0iNDMwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSI0OTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QXBwbGljYXRpb248L3RleHQ+CiAgICA8IS0tIFQgLS0+CiAgICA8cmVjdCB4PSI1NzAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjYzMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5UZWNobm9sb2d5PC90ZXh0PgogIDwvZz4KCiAgPCEtLSBDb25uZWN0aW5nIGxpbmVzIGJldHdlZW4gQkRBVCBib3hlcyAtLT4KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+CiAgICA8bGluZSB4MT0iMjcwIiB5MT0iMTYwIiB4Mj0iMjkwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNDEwIiB5MT0iMTYwIiB4Mj0iNDMwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+CiAgPC9nPgoKICA8IS0tIE1haW4gdGl0bGUgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIyNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmZmZmYiIGxldHRlci1zcGFjaW5nPSIxIj4KICAgIElBTyBBcmNoaXRlY3R1cmUKICA8L3RleHQ+CiAgPHRleHQgeD0iNDAwIiB5PSIzMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC44KSIgbGV0dGVyLXNwYWNpbmc9IjIiPgogICAgVE9HQUYgQkRBVCDCtyBJQU8gUHJvZ3JhbSDCtyBJRE0gMi4wCiAgPC90ZXh0PgoKICA8IS0tIEJvdHRvbSBhY2NlbnQgYmFyIC0tPgogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgoKICA8IS0tIEludGVsIHRleHQgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPgogICAgSU5URUwgQ09ORklERU5USUFMCiAgPC90ZXh0Pgo8L3N2Zz4K" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">QI-130 — Perform Incoming Quality Assurance</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Procure To Pay (PTP) Tower<br/>
@@ -12,20 +13,30 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-nav.toc { margin: 16px 0 24px 0; }
-nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
-nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
-nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
-nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
-nav.toc a { color: #0071c5; text-decoration: none; }
-nav.toc a:hover { text-decoration: underline; }
+.page-footer {
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  padding: 6px 12px;
+  background: #fff;
+}
+@media print {
+  .page-footer { display: none !important; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 </style>
 
 
@@ -185,7 +196,6 @@ This capability includes **4 business process(es)** modeled in BPMN 2.0, coverin
 
 ### 3.2 Business Process Diagrams
 
-
 #### BUSINESS ARCHITECTURE — 3.2.1 QI-130-040_Document_Results — QI-130-040_Document_Results
 
 **Swim Lanes**: Quality Analyst · Quality Engineer (Extended Production Operations) · Quality Manager | **Tasks**: 5 | **Gateways**: 2
@@ -236,7 +246,6 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm1v4jgQ_itWqoo9KZHySiAf9kQDOVVqtd2ju_thOZ2M44CviY1sp4Vl-e83JuElLP1ylw_APJl5ZubxZMjWIiKnVmLd3m4ZZzpB255e0or2EtSbY0V7NmqAr1gyPC-p6hmfQnA9ZT_2bl64Whs3g2W4YuXGoFO6EBR9ubfRCAJLGynMlaOoZEXP7q0kq7DcpKIU0njf0EHhFvts7a07IXMqTw6uG3skgtCScXqCgziMw8zEKUoEzzukRVQMCtLbmeJK8UaWWOp9-bWij3j9jeV6CXaBS0XBZ6mr8gHPaWl61LI2GKnl60EMpkweDoJNV5gwvgA8dAGSmL-coMjd7dDu9nbGj0nR83jGEVykxEqNaYGUBnjyqlHByjK5CdNRFrm20lK80OTGn8TjwLeJ6SSB1l3biOu8UbZY6mQuyrx1dd5MD4m_WttynfiuLTfweZGL8vyUKe37A39wzHQXe6mXHjIVRfG_MoGu8hmrlzbXJMj8bHzM5UX9KHV_5Tu0OQ7jkXepE5WvjNAz0izLgslJqkk_8tz3Se-yoO-mF6QLrOkb3pwIh2l4JMyiOPPidwmbfJdV1vMnKciBMJhEWXQkjO-8bOS_SxiOvHDQVgg8C4lXS1RiTv92v8-szzUumd6gEcflRumZ9VfjaS7ugUOBkwI7Rng04Ro-4WlF91ytKNE0R19xWVOF8AIzrvT-pplIDDclU5qRLmMEjG0wgtRcM401e6UI8xw1tTR22iFRXZYYWB4gAp4H9IQXFDno873jBa7j-i5KJQX9DzUywdGDODUGw3pNC-9MiwlfwA6AVj9M1hr8oU1QP68bsk8rKrH5pX7rVuV31RoRQld631haCkX32nTbQh-m0G6tUHRBFXSp_qT_GMH-E9Vguz1wmVXszGGZkCW6V8Cq6lKbbwK70GjZUnxjesk4EhJ9qrViOUUPrGJa_T6zdrsz6uF1aromZa3gEP9oHoNT1Dva-2faP2IOByq7PYRdOZ6oLISs0Bdlzn5MCVNwHN2QPoQ8Qz2qgIBHbGSCLYwKKSp0yHU2IVpA84K8_DomPEaO8xEmtzWjxmz3CB8Y8-fMajVrhJpZP2EcWg-_CRi2ZtA1h40ZtmbYmP3W9BpzcJGseyz7bMHZxjBxh03Zgf3rcHAdDq_D_eN_SweOr8ODwzLsoMMDatlWRWWFWW4lW2v_IgAvCzktMIymtbMtXGsx3XBiJfs_TKte5RA5Zhjmp2rA3b-707Ug" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
@@ -308,7 +317,6 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVu1v4jYY_1esVBWbFLS8EpoPmygQqdJu647rnaZjmkzyBKwmds52ShnH_342SUgD6Yd2fED459_L8xjHzt6IWQJGaFxf7wklMkT7gdxADoMQDVZYwMBEFfAZc4JXGYiB5qSMygX570izveJZ0zQW4ZxkO40uYM0APdyZaKKEmYkEpmIogJN0YA4KTnLMd1OWMa7ZVzBOrfSYVk_dMp4AbwmWFdixr6QZodDCbuAFXqR1AmJGk45p6qfjNB4cdHEZ28YbzOWx_FLAB_z8hSRyo8YpzgQozkbm2e94BZnuUfJSY3HJn5rFIELnULVgiwLHhK4V7lkK4pg-tpBvHQ7ocH29pKdQ9Gm2pEh94gwLMYMUCang-ZNEKcmy8MqbTiLfMoXk7BHCK2cezFzHjHUnoWrdMvXiDrdA1hsZrliW1NThVvcQOsWzyZ9DxzL5Tn2fZQFN2qTpyBk741PSbWBP7WmTlKbp_0pS68o_YfFYZ83dyIlmpyzbH_lT69KvaXPmBRP7fJ2AP5EYXphGUeTO26Waj3zbet30NnJH1vTMdI0lbPGuNbyZeifDyA8iO3jVsMo7r7Jc3XMWN4bu3I_8k2Fwa0cT51VDb2J747pC5bPmuNigDFP41_q6NO6oKCCWhFH055YCXxr_VFT9obZipDhM8VCvPLoHnjKeoweB14BmEBOhhF2JcyZhQiL1gKOPkGN1AtA1WkgWP6K_SkwlkTskGXqgHFT5JJaQ_HKbqWlIuq7u2wvxegpZlDliKfpC5CbheEvR_WYnSIwzdXrkRQboW1UVAaHrqsEpo6LMC3kR4fdEtH2Kd_Q5-ulkWWRqBy2qCu5oypRzDOTpqPj5hSR4u2TcSlSRRUeyACrP6Dfn9G5juu2LCNt6W4ZtvyfE2e8bkb5nhit1UsYbdCfQhDK163j7B9f5H-FbSTgkSO0f1G7-35bG4fDS2X2384WV9_XUWarOO-BDVgBFMxaXuVoIJRRlJoXqrfPo-W-VqWO4-kFHaDj8VSfX46Ae-_XY9mrAaQBHA9-Xxh9saXxX4waveBe0v0EceeN6wql4Nw3Pr_3dBnDPhLZ1PlMnNwq3cmg6qAtuGmj8X57mutrmfujATj_s9sNeP-z3w6PTRduBg354XF-VHfCmD7StXtTuRZ3mwunCbj_sNbdJF_Yb2DCNHLg6xBIj3BvHdzP1_pZAitV2Mw6mgUvJFjsaG-HxHcYoi0TlzAhWV0tegYcfxdYpAw==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -369,7 +377,6 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllm2P4jYQx7-KldWKPSmR8kggL1qxQKqV9u72yt6dqlJVxnHA3WAj21ngOL57xyEBwrGV2vKC3fl7_JsHO0N2FhEZtRLr9nbHONMJ2nX0gi5pJ0GdGVa0Y6OD8AVLhmcFVR3jkwuuJ-xb5eaFq41xM1qKl6zYGnVC54Kizw82GsDGwkYKc-UoKlnesTsryZZYboeiENJ439Be7uZVtHrpXsiMypOD68YeiWBrwTg9yUEcxmFq9ilKBM9a0DzKeznp7E1yhViTBZa6Sr9U9D3efGWZXoCd40JR8FnoZfGIZ7QwNWpZGo2U8rVpBlMmDoeGTVaYMD4HPXRBkpi_nKTI3e_R_vZ2yo9B0fNoyhF8SIGVGtEcKQ3y-FWjnBVFchMOB2nk2kpL8UKTG38cjwLfJqaSBEp3bdNcZ03ZfKGTmSiy2tVZmxoSf7Wx5SbxXVtu4fsiFuXZKdKw6_f83jHSfewNvWETKc_z_xUJ-iqfsXqpY42D1E9Hx1he1I2G7o-8psxRGA-8yz5R-coIPYOmaRqMT60adyPPfRt6nwZdd3gBnWNN13h7AvaH4RGYRnHqxW8CD_EusyxnT1KQBhiMozQ6AuN7Lx34bwLDgRf26gyBM5d4tUAF5vRP9_ep9cDVihLNBEcf15zKqfXHwdV8uAceOU5y7JjOozHX8A2PK6q30Qx9wUVJFcJzzLjS1aK5khgWJVOaEdVG-m3kr_Qv4CDMM6hWKHoFgO4mGutSoehdGxW0UQNC6Oo_osI26onKXMgl-qzwnKIRJUxBh9pbostCxIryKvoDDDoGVwA0VRYa_hAYNvDwooHpUhvTPR0C-lRirhlkyF5pRQKhaOzhP3U1BsozjAmVQyrvsfGCoYNyKZY1ZIvOjloLNNGCvLQhPYA8QliT6ZMp3EGfHhwvcB3Xd9FQUlPTGeVR6Dagv9s1PTFj35lBRmSBHlTdCXXWivogvjK9YIBiSwbLP0-t_f78_rnXiXRDilJBV345PGmX27zr2wbycClknc1KwpnJYguCSQtu8w8J-P82ARiGh394DznOT3DAtdk9mPUA4l5t-rXt13b96PPgwvbcWjgCKsL3qfUbhcvwHe7w5cIHUelRo9ch-rUdHsy4NvsnHLprHcu7ChNc-H0Q6O5jqRXLaMuvKShqF1jNMlN2M8Nbsn9dDq7L4XU5ui7Hxx_Dlty7Lveb6d1O270ue9dlv5Et21pSucQss5KdVb3owMtQRnMMF9Da2xYutZhsObGS6oXAKlcZ7BwxDHN6eRD3fwO-SPVg" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
@@ -434,8 +441,6 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllm2P4jYQx7-KldWKPSmR8kggL1qxQKqV9u72yt6dqlJVxnHA3WAj21ngOL57xyEBwrGV2vKC3fl7_JsHO0N2FhEZtRLr9nbHONMJ2nX0gi5pJ0GdGVa0Y6OD8AVLhmcFVR3jkwuuJ-xb5eaFq41xM1qKl6zYGnVC54Kizw82GsDGwkYKc-UoKlnesTsryZZYboeiENJ439Be7uZVtHrpXsiMypOD68YeiWBrwTg9yUEcxmFq9ilKBM9a0DzKeznp7E1yhViTBZa6Sr9U9D3efGWZXoCd40JR8FnoZfGIZ7QwNWpZGo2U8rVpBlMmDoeGTVaYMD4HPXRBkpi_nKTI3e_R_vZ2yo9B0fNoyhF8SIGVGtEcKQ3y-FWjnBVFchMOB2nk2kpL8UKTG38cjwLfJqaSBEp3bdNcZ03ZfKGTmSiy2tVZmxoSf7Wx5SbxXVtu4fsiFuXZKdKw6_f83jHSfewNvWETKc_z_xUJ-iqfsXqpY42D1E9Hx1he1I2G7o-8psxRGA-8yz5R-coIPYOmaRqMT60adyPPfRt6nwZdd3gBnWNN13h7AvaH4RGYRnHqxW8CD_EusyxnT1KQBhiMozQ6AuN7Lx34bwLDgRf26gyBM5d4tUAF5vRP9_ep9cDVihLNBEcf15zKqfXHwdV8uAceOU5y7JjOozHX8A2PK6q30Qx9wUVJFcJzzLjS1aK5khgWJVOaEdVG-m3kr_Qv4CDMM6hWKHoFgO4mGutSoehdGxW0UQNC6Oo_osI26onKXMgl-qzwnKIRJUxBh9pbostCxIryKvoDDDoGVwA0VRYa_hAYNvDwooHpUhvTPR0C-lRirhlkyF5pRQKhaOzhP3U1BsozjAmVQyrvsfGCoYNyKZY1ZIvOjloLNNGCvLQhPYA8QliT6ZMp3EGfHhwvcB3Xd9FQUlPTGeVR6Dagv9s1PTFj35lBRmSBHlTdCXXWivogvjK9YIBiSwbLP0-t_f78_rnXiXRDilJBV345PGmX27zr2wbycClknc1KwpnJYguCSQtu8w8J-P82ARiGh394DznOT3DAtdk9mPUA4l5t-rXt13b96PPgwvbcWjgCKsL3qfUbhcvwHe7w5cIHUelRo9ch-rUdHsy4NvsnHLprHcu7ChNc-H0Q6O5jqRXLaMuvKShqF1jNMlN2M8Nbsn9dDq7L4XU5ui7Hxx_Dlty7Lveb6d1O270ue9dlv5Et21pSucQss5KdVb3owMtQRnMMF9Da2xYutZhsObGS6oXAKlcZ7BwxDHN6eRD3fwO-SPVg" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-
-
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -471,10 +476,6 @@ The following data entities are derived from the system integration flows for QI
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
-
-
-
-
 
 ### 4.3 Data Lineage
 
@@ -533,11 +534,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 The Current-State architecture represents the **current / legacy** landscape for QI-130.
 
-
 #### Current-State Flow Narrative
 
 *(No current-state flows defined.)*
-
 
 ### 5.2 Future-State — Future-State Application Landscape
 
@@ -545,11 +544,9 @@ The Current-State architecture represents the **current / legacy** landscape for
 
 The Future-State architecture represents the **target** landscape for QI-130.
 
-
 #### Future-State Flow Narrative
 
 *(No future-state flows defined.)*
-
 
 ### 5.3 Change Impact Summary
 
@@ -974,15 +971,11 @@ Integration patterns identified from the system flow analysis for QI-130:
 <div style="page-break-before: always;"></div>
 
 
-
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
-
-
-
 
 #### Platform Inventory
 
@@ -1003,13 +996,58 @@ Platform landscape inferred from integrated systems for QI-130:
 
 ### 6.2 SAP Development Object Status
 
-| Metric | DEV | QAS | PRD |
-|--------|-----|-----|-----|
-| Transport Requests | — | — | — |
-| Custom Code Objects | — | — | — |
-| CDS Views | — | — | — |
-| Fiori Apps | — | — | — |
-| BAdIs / Enhancements | — | — | — |
+**Capability RICEFW — Active Items** (7 of 378 objects)
+*Data source: Smartsheet Object Tracker (cached 2026-04-06)*
+
+> **Completion Context:** 371 of 378 objects (98%) are complete/closed. The **7 active items** below require attention. See the **RICEFW Register** for full detail.
+>
+> | Type | Completed | Active | Total |
+> |------|----------:|-------:|------:|
+> | Report (R) | 3 | 0 | 3 |
+> | Interface (I) | 169 | 2 | 171 |
+> | Conversion (C) | 16 | 0 | 16 |
+> | Enhancement (E) | 166 | 5 | 171 |
+> | Form (F) | 7 | 0 | 7 |
+> | Workflow (W) | 10 | 0 | 10 |
+> | **Total** | **371** | **7** | **378** |
+
+| Status | Count | % |
+|--------|------:|----:|
+| 06. Dev In Progress | 2 | 28.6% |
+| 08. FUT In Progress | 2 | 28.6% |
+| 04. FS In Progress | 2 | 28.6% |
+| 01. Pending Approval | 1 | 14.3% |
+| **Total Active** | **7** | **100%** |
+
+**Active RICEFW by Type:**
+
+| Type | Count |
+|------|------:|
+| Interface (I) | 2 |
+| Enhancement (E) | 5 |
+| **Total** | **7** |
+
+**Technical Complexity:**
+
+| Complexity | Count |
+|------------|------:|
+| 02.High | 3 |
+| 03.Medium | 3 |
+| 04.Low | 1 |
+
+**Objects Requiring Attention:**
+
+| Object ID | Type | Description | Status | Complexity |
+|-----------|------|-------------|--------|------------|
+| PTPI0473 | 02.Interface | Demand Change - Automatic update of PR/PO/STR/STO/Scheduling agreement and Produ... | 06. Dev In Progress | 02.High |
+| PTPE1644 | 04.Enhancement | New Enhancement required for to make PO price updates for HVM OSAT and SIFO orde... | 06. Dev In Progress | 02.High |
+| PTPE1628_IP | 04.Enhancement | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparison ... | 08. FUT In Progress | 04.Low |
+| PTPE1628_IF | 04.Enhancement | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparison ... | 08. FUT In Progress | 03.Medium |
+| LOGI1726 | 02.Interface | GR replication for raw materials for Straddle Sites from ECC to S4 IP via ECA​ | 04. FS In Progress | 03.Medium |
+| LOGE1728 | 04.Enhancement | Automate Outbound delivery note creation for 250K annual Subcon POs for repair/r... | 04. FS In Progress | 03.Medium |
+| PTPE1740 | 04.Enhancement | Fair Market value Determination using custom code/logic during the replication o... | 01. Pending Approval | 02.High |
+
+**Tower Context:** PTP has 7 active / 371 completed RICEFW objects
 
 ### 6.3 NFRs & Design Principles
 
@@ -1047,49 +1085,68 @@ Platform landscape inferred from integrated systems for QI-130:
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
+*6 active objects with timeline data (source: Object Tracker)*
+*371 completed objects excluded — see RICEFW Register for full detail.*
+
 | ID | Description | FS | TDD | Build | FUT | Status |
 |----|-------------|----|-----|-------|-----|--------|
-| PTPW0367_IP | Workflow for Email Functionality and Notification to PO approver(IP) | Dec-24 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
-| PTPW0367_IF | Workflow for Email Functionality and Notification to PO approver(IF) | Dec-24 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
-| PTPW0366_IP | Workflow to trigger PO approvals in S4_IF | Dec-24 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
-| PTPW0366_IF | Workflow to trigger PO approvals in S4_IF | Dec-24 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
-| PTPW0363_IP | Workflow for Email Functionality and Notification to PR approver - IF | Sep-24 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
-| PTPW0363_IF | Workflow for Email Functionality and Notification to PR approver - IF | Sep-24 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
-| PTPW0362_IP | Workflow to Trigger PR approvals in S/4 – IF | Sep-24 (100%) | Aug-25 (100%) | Aug-25 (100%) | Dec-25 (100%) | 1. On Track |
-| PTPW0362_IF | Workflow to Trigger PR approvals in S/4 – IF | Sep-24 (100%) | Aug-25 (100%) | Aug-25 (100%) | Dec-25 (100%) | 1. On Track |
-| PTPR1530_IP | Develop a custom report in SAP S/4 HANA for auto PR to PO conversion failures... | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | 1. On Track |
-| PTPR1530_IF | Develop a custom report in SAP S/4 HANA for auto PR to PO conversion failures... | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | 1. On Track |
-| PTPM0008 | Quality Info record upload [T-Code - QI01] | May-25 (100%) | — | — | Jun-25 (100%) |  |
-| PTPM0007 | Inspection Plan upload [T-Code - QP01] | May-25 (100%) | — | — | Jun-25 (100%) |  |
-| PTPM0006 | Master Inspection Characteristics upload [T-Code - QS21] | May-25 (100%) | — | — | Jun-25 (100%) |  |
-| PTPI1689 | New custom API needed to process GET and DELETE function for Document Info Re... | Jan-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Jan-26 (100%) | 1. On Track |
-| PTPI1657 | Interface to send Invoice PAID Status from CFIN to IP | Aug-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 4. Completed |
-| PTPI1533 | Pay@accept – Inbound Interface to fetch the values from FCE ODS to SAP S/4 HA... | Sep-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | 1. On Track |
-| PTPI1529_IP | An interface to retrieve the list of approvers from a custom MDG table(MDG sy... | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Dec-25 (100%) | 4. Completed |
-| PTPI1529_IF | An interface to retrieve the list of approvers from a custom MDG table(MDG sy... | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Dec-25 (100%) | 4. Completed |
-| PTPI1458 | Develop an interface between PEGA and S/4 HANA system to transmit MSL informa... | Jul-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
-| PTPI1428_IP | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... | Jun-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Nov-25 (100%) | 1. On Track |
-
-*... and 358 more objects (see full Object Tracker)*
-
-
-<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
-<div style="page-break-before: always;"></div>
-
+| PTPI0473 | Demand Change - Automatic update of PR/PO/STR/STO/Scheduling agreement and Production Order in S/4 based on input signal from planning engine (IP) | Feb-25 (100%) | Oct-25 (95%) | Oct-25 (95%) | Mar-26 (15%) | 3. Off Track |
+| PTPE1644 | New Enhancement required for to make PO price updates for HVM OSAT and SIFO orders for no GR and partial GR posted. | Dec-25 (100%) | Feb-26 (75%) | Feb-26 (75%) | Mar-26 (80%) | 3. Off Track |
+| PTPE1628_IP | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparison and automatic changes based on Product BOM changes – IP and IF | Dec-25 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (80%) | 3. Off Track |
+| PTPE1628_IF | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparison and automatic changes based on Product BOM changes – IP and IF | Dec-25 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (80%) | 3. Off Track |
+| LOGI1726 | GR replication for raw materials for Straddle Sites from ECC to S4 IP via ECA​ | Apr-26 (92%) | Apr-26 (0%) | Apr-26 (0%) | — |  |
+| LOGE1728 | Automate Outbound delivery note creation for 250K annual Subcon POs for repair/rework including Quench returns. | Apr-26 (87%) | May-26 (0%) | May-26 (0%) | — |  |
 
 ### 7.2 RAID Log
 
-Standard RAID items for QI-130 (Procure To Pay):
+*Live data from Smartsheet Master RAID Log — extracted 2026-04-06*
 
-| # | Category | Description | Status | Owner | Priority |
-|---|----------|-------------|--------|-------|----------|
-| 1 | Risk | Data migration completeness — validate all legacy Perform Incoming Quality Assurance data maps to S/4 target structures | Open | Tower Architect | High |
-| 2 | Risk | Integration testing coverage — ensure all 0 integrated systems are validated end-to-end | Open | Integration Lead | High |
-| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
-| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
-| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
+**Mapped sub-tower(s):** 6.2 PTP - Procurement, 6.3 PTP - EWM, 6.4 PTP - Logistics Management Inbound, 6.5 PTP - TM, 6.6 PTP - GTS, 6.7 PTP - Enable Payments, 6.8 PTP - QM
 
-> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
+**RAID Summary:** 26 open items (2 capability-specific, 24 tower-level), 329 closed
+
+| Severity | Capability | Tower-Wide | Total Open |
+|----------|----------:|-----------:|-----------:|
+| P1 - High | 0 | 3 | 3 |
+| P2 - Medium | 1 | 17 | 18 |
+| P3 - Low | 1 | 3 | 4 |
+| **Total** | **2** | **24** | **26** |
+
+**Capability-Specific RAID Items:**
+
+| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
+|---------|------|----------|-------|--------|-------------|----------|
+| 03461 | Risk | P2 - Medium | PTP ECA DCM Process Changes and impacts to delivered self se... | In Progress | PTP | 2026-04-10 |
+| 03373 | Risk | P3 - Low | incoterm location id value to be used for import requisition... | In Progress | PTP | 2026-05-01 |
+
+**Other PTP Tower RAID Items** (24 open):
+
+| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
+|---------|------|----------|-------|--------|-------------|----------|
+| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-15 |
+| 03681 | Risk | P1 - High | ITC Execution: Planning run availability - Prerequisite for ... | In Progress | E2E | 2026-04-10 |
+| 03757 | Risk | P1 - High | IF Planning data not available in ITC1 until W4, leaving too... | In Progress | FTS IF | 2026-04-10 |
+| 03234 | Action | P2 - Medium | Process code information missing from PTP | Not Started | PTP | 2025-12-12 |
+| 03355 | Risk | P2 - Medium | PTP ECA OSAT Predictive Tool Test Self-Service Query View cr... | In Progress | FTS IP | 2026-04-03 |
+| 03729 | Action | P2 - Medium | AN and CC invoices are fetching wrong tax codes and posting ... | In Progress | FPR | 2026-04-03 |
+| 03540 | Issue | P2 - Medium | FPR Tower help required for GR/IR Clearing document and Data... | To Be Reviewed | PTP | 2026-02-11 |
+| 03542 | Action | P2 - Medium | T042A table data in IF & IP | In Progress |  | 2026-02-13 |
+| 03548 | Risk | P2 - Medium | IAPMID 1532 SIC-Supplier Hub MRP data needs not aligned | In Progress | B-Apps | 2026-04-03 |
+| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
+| 03628 | Risk | P2 - Medium | R3 Returns Rework Process Causing Finance Double Counting in... | In Progress | E2E | 2026-03-27 |
+| 03462 | Risk | P2 - Medium | PTP ECA Demand Analytics dependency on MP PRF & RTF | In Progress | FTS IP | 2026-04-10 |
+| 02173 | Risk | P2 - Medium | LE Restructuring : Jan 1 ‘26 EE+Asset changes reduced to Mal... | In Progress | Legal Entity | 2025-09-30 |
+| 03669 | Action | P2 - Medium | Pending Hot Lots Resolution | In Progress | PTP | 2026-03-30 |
+| 03735 | Issue | P2 - Medium | Box CPU Supplier Moduslink Queries | In Progress | FTS IP | 2026-03-21 |
+| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
+| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
+| 03749 | Action | P2 - Medium | Logistics Data Intake and Creation Process Definition | In Progress | Test Management | 2026-03-27 |
+| 03756 | Risk | P2 - Medium | LE101-1001 Operation Support Ownership for SIMS/Tester Front... | In Progress | E2E | 2026-04-24 |
+| 03758 | Action | P2 - Medium | IMR Repair Order Creation Ownership | In Progress | PTP | 2026-04-24 |
+| 03317 | Risk | P3 - Low | BPMG – E2E L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-05-29 |
+| 03525 | Issue | P3 - Low | Vendor determination in PDH for 2DN PR's & STR's. | Not Started | FTS IP | 2026-03-06 |
+| 03473 | Action | P3 - Low | Manual Service PIR creation for IP-IF Service Procurement. | In Progress | FPR | 2026-05-29 |
+| 02358 |  |  | METs/SOM Bapp is not ready for E2E Testing | Not Started |  |  |
 
 ### 7.3 Recommendations & Next Steps
 
@@ -1104,4 +1161,6 @@ Standard RAID items for QI-130 (Procure To Pay):
 ---
 *QI-130 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: April 2026*
 
-<div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
+
+
+<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>

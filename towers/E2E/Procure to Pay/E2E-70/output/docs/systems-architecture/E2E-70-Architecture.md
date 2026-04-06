@@ -1,5 +1,6 @@
 <div style="text-align:center; padding-top:20px;">
-  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMGFlZWY7c3RvcC1vcGFjaXR5OjEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjE1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4wMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDcpIiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgPC9wYXR0ZXJuPgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2JnKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNncmlkKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPgoKICA8IS0tIERlY29yYXRpdmUgY2lyY3VpdC9hcmNoaXRlY3R1cmUgbGluZXMgLS0+CiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+CiAgICA8cGF0aCBkPSJNIDAgMTAwIEwgMTIwIDEwMCBMIDE2MCAxNDAgTCAyODAgMTQwIi8+CiAgICA8cGF0aCBkPSJNIDAgMjYwIEwgODAgMjYwIEwgMTIwIDIyMCBMIDIwMCAyMjAgTCAyNDAgMjYwIEwgMzYwIDI2MCIvPgogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPgogICAgPHBhdGggZD0iTSA0NDAgMzQwIEwgNTYwIDM0MCBMIDYwMCAzMDAgTCA3MjAgMzAwIEwgNzYwIDM0MCBMIDgwMCAzNDAiLz4KICAgIDxwYXRoIGQ9Ik0gNjAwIDQwMCBMIDY4MCA0MDAgTCA3MjAgNDQwIi8+CiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+CiAgICA8cGF0aCBkPSJNIDIwMCA0MjAgTCAzMjAgNDIwIEwgMzYwIDM4MCBMIDQ4MCAzODAiLz4KICAgIDxwYXRoIGQ9Ik0gNjUwIDQ0MCBMIDc1MCA0NDAgTCA4MDAgNDgwIi8+CiAgPC9nPgoKICA8IS0tIERlY29yYXRpdmUgbm9kZXMgLS0+CiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+CiAgICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjI4MCIgY3k9IjE0MCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSIzNjAiIGN5PSIyNjAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjYwMCIgY3k9IjEwMCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI1NjAiIGN5PSIzNDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjgwIiBjeT0iMzYwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjMyMCIgY3k9IjQyMCIgcj0iNCIvPgogIDwvZz4KCiAgPCEtLSBUT0dBRiBCREFUIGJveGVzIC0tPgogIDxnIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI2MDAiPgogICAgPCEtLSBCIC0tPgogICAgPHJlY3QgeD0iMTUwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIyMTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QnVzaW5lc3M8L3RleHQ+CiAgICA8IS0tIEQgLS0+CiAgICA8cmVjdCB4PSIyOTAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjM1MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5EYXRhPC90ZXh0PgogICAgPCEtLSBBIC0tPgogICAgPHJlY3QgeD0iNDMwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSI0OTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QXBwbGljYXRpb248L3RleHQ+CiAgICA8IS0tIFQgLS0+CiAgICA8cmVjdCB4PSI1NzAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjYzMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5UZWNobm9sb2d5PC90ZXh0PgogIDwvZz4KCiAgPCEtLSBDb25uZWN0aW5nIGxpbmVzIGJldHdlZW4gQkRBVCBib3hlcyAtLT4KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+CiAgICA8bGluZSB4MT0iMjcwIiB5MT0iMTYwIiB4Mj0iMjkwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNDEwIiB5MT0iMTYwIiB4Mj0iNDMwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+CiAgPC9nPgoKICA8IS0tIE1haW4gdGl0bGUgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIyNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmZmZmYiIGxldHRlci1zcGFjaW5nPSIxIj4KICAgIElBTyBBcmNoaXRlY3R1cmUKICA8L3RleHQ+CiAgPHRleHQgeD0iNDAwIiB5PSIzMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC44KSIgbGV0dGVyLXNwYWNpbmc9IjIiPgogICAgVE9HQUYgQkRBVCDCtyBJQU8gUHJvZ3JhbSDCtyBJRE0gMi4wCiAgPC90ZXh0PgoKICA8IS0tIEJvdHRvbSBhY2NlbnQgYmFyIC0tPgogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgoKICA8IS0tIEludGVsIHRleHQgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPgogICAgSU5URUwgQ09ORklERU5USUFMCiAgPC90ZXh0Pgo8L3N2Zz4K" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">E2E-70 — R3 - Substrates - (PTP) PR to PO scope for Internal Manufacturing (Intel Foundry) & Exte</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -12,20 +13,30 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-nav.toc { margin: 16px 0 24px 0; }
-nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
-nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
-nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
-nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
-nav.toc a { color: #0071c5; text-decoration: none; }
-nav.toc a:hover { text-decoration: underline; }
+.page-footer {
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  padding: 6px 12px;
+  background: #fff;
+}
+@media print {
+  .page-footer { display: none !important; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 </style>
 
 
@@ -194,7 +205,6 @@ Supplier
 
 ### 3.2 Business Process Diagrams
 
-
 #### BUSINESS ARCHITECTURE — 3.2.1 E2E-70A_Procurement_for_External_Subcontracting_-_OSAT_-_(Intel_Products) — E2E-70A_Procurement_for_External_Subcontracting_-_OSAT_-_(Intel_Products)
 
 **Swim Lanes**: Boundary Apps · External Partners/
@@ -312,8 +322,7 @@ E2Open(post IAO)"| n18
     class n37 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWFtv4kYU_isjr7YhEjS-YsJDKyCQRdpsEGZ3VS1VNdhjGGXwuONxAs3mv_eM8XCZJdV2Wx6i-ON8537OjHm2Yp4Qq2u9fftMMyq76PlCrsiaXHTRxQIX5KKJdsAnLCheMFJcKJmUZzKif1Vijp9vlJjCRnhN2VahEVlygj6Om6gHRNZEBc6KVkEETS-aF7mgayy2A864UNJvSCe108pa_VWfi4SIg4Bth04cAJXRjBxgL_RDf6R4BYl5lpwoTYO0k8YXL8o5xp_iFRaycr8syB3efKaJXMFzillBQGYl1-w9XhCmYpSiVFhcikedDFooOxkkLMpxTLMl4L4NkMDZwwEK7JcX9PL27TzbG0Xvp_MMwSdmuChuSIoKCfDwUaKUMtZ94w96o8BuFlLwB9J94w7DG89txiqSLoRuN1VyW0-ELleyu-AsqUVbTyqGrptvmmLTde2m2MJfwxbJkoOlQdvtuJ29pX7oDJyBtpSm6X-yBHkVM1w81LaG3sgd3extOUE7GNjf6tNh3vhhzzHzRMQjjcmR0tFo5A0PqRq2A8d-XWl_5LXtgaF0iSV5wtuDwuuBv1c4CsKRE76qcGfP9LJcTASPtUJvGIyCvcKw74x67qsK_Z7jd2oPQc9S4HyFGM7IH_aXudXnZdXUqJfnxdz6fSenPpkDX9-LJc5gDtEMerDIuZCtcSYJQ1NeSmhHdFvShKDGeHp7ecp2gT0lOIl4KtEnzGiCJeXZ1XATk1z9h97hLGFKh9oDCQJElDD_UBJZ5qfKPFA2zmK-VuI0e-RQsivUd_tX9znJZmQjrz6TBYRHJTll-sC8w1mJmeYVSK4EL5crdD-YGj53np_nVoq7KW6pvdVaQNTxCpFNzMqCPpLbXWHn1svLMe36PE35t7P9q8Hw2gcGFoI_FS3MJHj4mh0YsXMVVCUabiQRGcQ3gYnPiCiuUFTmOaNEGPUMqpLEBAwg5VeKY1kKldJ7tQsN6TZIf8yhagRNSgFrpiCo2plonKVcrKtyosZnQh7Y1ii-EwJ5wNc5I9K0hZeYZoX8Dg86R_5O7hGW-8DQEPJxKnwNwhFhJJZoAClVQo8Uo3Pd-o4XEhoO9jjDCy52gUygtzEz-sGum3iLJEfRiuaG1-PskWSSw_g0onIBEwjZKsxBcI7CqMKsNK2BiFLB169Uy1UDtI93XPUumDSE_MYX3UeF5PmhUjtDu_qpVF0ed1_4_3Sf8vA-6s0Mn7zjsq22BY2hOSsgl6qIioLe87jKu8ENjHgGcFjQrIRqnSZebUNSFHt1jSlJVVu4w1YQ7iBF-FkLXpopCM6mIMcCM0bY92ZAhRr1Jii68mEHTtBPaDwyyq-GbiDIyRhNyZ8lLehugEYEoqsa4a7Xm0QGvX2GfmZW1LzNBF0uIQm3swgNViR-OBVR0zTALC6ZUjbDG2Ls--uDqXG2UOcCuiEMqii2xqzZR9Zmd2i4XpAkIeZEHvf9LedJoZug8YkKCVvRXBqqn4aPmJXKBd0wEZGSkWpaGsNpdAkAS1t9OAi_mQZHlWMCw42MuTHOBEcdCpNywWix-sesuir7qqdCG009pCq9Pwd3WwOaDC8r7wxmeMIcjMYfjBPNPn9m1A6jXqyOSZJ8c3I4_65xdyT3R0jej5D8H5wrOG9Qq_WLWmk1UD979Y0N_tkBHU0Ia0J9Wcqua4KrCe4OcLSA69USgVZRq3T2FFsBX-fWBz63vqolrKmd2pgWDOpnrUqrbhvGXU_b0oD2v9agCU797ITapFP74vWBiuB-E6nrDbpqqKtOL_pwWbl4rfl2rV8rdOt8-Mazdqj2x7PN2H9Ti-GrGietug7O1a45fs3Vuj1f-9rz4ZKAvJ5zrR0GkaQ-LXv382zoqitbI1djCsAuCGdf1DrPzj6s2ut9F9S-ONp0TfA8o020r6Hxff21t0-zbQCe7ivHqLWjAVeXUjvptY3a-qfdUN3jVWvXr0qnaHAWbe9f4U7x8BW8o986TuHrszDU-izsnIfd87B3HvbPw8F5uH0eDjVsNa01gdsmTazus1X9VAA_JyQkxSWT1kvTwqXk0TaLrW71Sm2V1Z3nhmI4p9c78OVvxgQQvg==" title="View full diagram">&#128065; View Diagram</a></div>
-
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWFtv4kYU_isjr7YhEjS-YsJDKyCQRdpsEGZ3VS1VNdhjGGXwuONxAs3mv_eM8XCZJdV2Wx4i_HG-cz9nxnm2Yp4Qq2u9fftMMyq76PlCrsiaXHTRxQIX5KKJdsAnLCheMFJcKJmUZzKif1Vijp9vlJjCRnhN2VahEVlygj6Om6gHRNZEBc6KVkEETS-aF7mgayy2A864UNJvSCe108pa_VOfi4SIg4Bth04cAJXRjBxgL_RDf6R4BYl5lpwoTYO0k8YXL8o5xp_iFRaycr8syB3efKaJXMFzillBQGYl1-w9XhCmYpSiVFhcikedDFooOxkkLMpxTLMl4L4NkMDZwwEK7JcX9PL27TzbG0Xvp_MMwSdmuChuSIoKCfDwUaKUMtZ94w96o8BuFlLwB9J94w7DG89txiqSLoRuN1VyW0-ELleyu-AsqUVbTyqGrptvmmLTde2m2MJfwxbJkoOlQdvtuJ29pX7oDJyBtpSm6X-yBHkVM1w81LaG3sgd3extOUE7GNjf6tNh3vhhzzHzRMQjjcmR0tFo5A0PqRq2A8d-XWl_5LXtgaF0iSV5wtuDwuuBv1c4CsKRE76qcGfP9LJcTASPtUJvGIyCvcKw74x67qsK_Z7jd2oPQc9S4HyFGM7IH_aXudXnZdXUqJfnxdz6fSenPpkDP9-LJc5gDtEMerDIuZCtcSYJQ1NeSmhHdFvShKDGeHp7ecp2gT0lOIl4KtEnzGiCJeXZ1XATk1x9Q-9wljClQ-2BBAEiSph_KIks81NlHigbZzFfK3GaPXIo2RXqu_2r-5xkM7KRV5_JAsKjkpwyfWDe4azETPMKJFeCl8sVuh9MDZ87z89zK8XdFLfU3motIOp4hcgmZmVBH8ntrrBz6-XlmHZ9nqb829n-1WB47QMDC8GfihZmEjx8zQ6M2LkKqhINN5KIDOKbwMRnRBRXKCrznFEijHoGVUliAgaQ8ivFsSyFSum92oWGdBukP-ZQNYImpYA1UxBU7Uw0zlIu1lU5UeMzIQ9saxTfCYE84OucEWnawktMs0J-hwedI38n9wjLfWBoCPk4Fb4G4YgwEks0gJQqoUeK0blufccLCQ0He5zhBRe7QCbQ25gZ_WDXTbxFkqNoRXPD63H2SDLJYXwaUbmACYRsFeYgOEdhVGFWmtZARKng61eq5aoB2sc7rnoXTBpCfuOL7qNC8vxQqZ2hXf1Uqi6Puy_8f7pPeXgf9WaGT95x2VbbgsbQnBWQS1VERUHveVzl3eAGRjwDOCxoVkK1ThOvtiEpir26xpSkqi3cYSsId5Ai_KwFL80UBGdTkGOBGSPsezOgQo16ExRd-bADJ-gnNB4Z5VdDNxDkZIym5M-SFnQ3QCMC0VWNcNfrTSKD3j5DPzMrat5mgi6XkITbWYQGKxI_nIqoaRpgFpdMKZvhDTH2_fXB1DhbqHMB3RAGVRRbY9bsI2uzOzRcL0iSEHMij_v-lvOk0E3Q-ESFhK1oLg3VT8NHzErlgm6YiEjJSDUtjeE0ugSApa0-HITfTIOjyjGB4UbG3BhngqMOhUm5YLRY_WNWXZV91VOhjaYeUpXen4O7rQFNhpeVdwYzPGEORuMPxolmnz8zaodRL1bHJEm-OTmcf9e4O5L7IyTvR0j-D84VnDeo1fpFrbQaqJ-9-sYGX3ZARxPCmlBflrLrmuBqgrsDHC3gerVEoFXUKp09xVbA17n1gc-tr2oJa2qnNqYFg_pZq9Kq24Zx19O2NKD9rzVoglM_O6E26dS-eH2gIrjfROp6g64a6qrTiz5cVi5ea75d69cK3TofvvGsHar98Wwz9t_UYviqxkmrroNztWuOX3O1bs_XvvZ8uCQgr-dca4dBJKlPy979PBu66srWyNWYArALwtkXtc6zsw-r9nrfBbUvjjZdEzzPaBPta2j8Xv_s7dNsG4Cn-8oxau1owNWl1E56baO2_mk3VPd41dr1q9IpGpxF2_tXuFM8fAXv6LeOU_j6LAy1Pgs752H3POydh_3zcHAebp-HQw1bTWtN4LZJE6v7bFX_KrC6VkJSXDJpvTQtXEoebbPY6lav1FZZ3XluKIZzer0DX_4GxgQQvg==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-70 — R3 - Substrates - (PTP) PR to PO scope for Internal Manufacturing (Intel Foundry) & Exte</span></div>
@@ -452,8 +461,7 @@ E2Open(post IAO)"| n20
     class n44 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1v4joW_itWRrPtSKDmDQJ82BWk0EGaTrlNZ0arYbUyiQNRTZzrOBRup__9Hoc4EDdode_yoWoO53nO-7HDqxGyiBgj4-PH1yRNxAi9XokN2ZKrEbpa4ZxcddBR8B3zBK8oya-kTsxSESR_lGqWm-2lmpTN8DahBykNyJoR9G3eQWMA0g7KcZp3c8KT-KpzlfFki_nBZ5Rxqf2BDGIzLq1VX00Yjwg_KZimZ4U9gNIkJSex47meO5O4nIQsjRqkcS8exOHVm3SOspdwg7ko3S9yco_3P5JIbOA5xjQnoLMRW_oFrwiVMQpeSFlY8J1KRpJLOykkLMhwmKRrkLsmiDhOn0-invn2ht4-flymtVH05XGZIviEFOf5LYlRLkA83QkUJ5SOPrj-eNYzO7ng7JmMPthT79axO6GMZAShmx2Z3O4LSdYbMVoxGlWq3RcZw8jO9h2-H9lmhx_gr2aLpNHJkt-3B_agtjTxLN_ylaU4jv8vS5BX_oTz58rW1JnZs9valtXr93zzPZ8K89b1xpaeJ8J3SUjOSGezmTM9pWra71nmZdLJzOmbvka6xoK84MOJcOi7NeGs580s7yLh0Z7uZbFacBYqQmfam_VqQm9izcb2RUJ3bLmDykPgWXOcbRDFKfmv-XNpTFhRNjUaZ1m-NP5z1JOf1IKvH_gapzCH6Al6MM8YF915KghFj6wQ0I7orkgigq7nj3efmmgb0I8ERwGLBfqOaRJhkbD0ZroPSSb_Q59xGlHJIfdAhEDCC5h_KIkosiaZA2TzNGRbqZ6kOwYlu0ETe3LzkJH0iezFzQ-ygvASQZpIF5D3OC0wVbgciQ1nxXqDHvxHzUzv9XVpxHgU467cW90VRB1uENmHtMiTHbk7FnZpvL2dw_rtMOnf0fa_NITrnhCYc_aSdzEV4OElOzBibRWUJZruBeEpxLeAiU8Jz29QUGQZTQjX6umVJQkJGEDSrxiHouAypQ9yF2raA9D-lkHVCFoUHNZMTlC5M9E8jRnfluVE1z8IeaYHrfjWEMA-22aUCN0WXuMkzcX_9sA2z_xdPCAs6sDQFPLRVJapCAgloUA-pFQq7RKM2rr1M8sFNBzscYpXjB8DWUBvY6qRqiY-IMFQsEkyzet5uiOpYDA-10GxggmEbOX6IDhnYZRhlkxbAKKYs-2Fatmyc-t452XvgklNqQdKkBqYjG2RJuExFPDVWXzRNPtlftIIjYOvEHp2aFeTPbLYHHLggrRJrzMhM_9O0zGvf6oWzgXLTk1yjPHYOrJKn85Rlo56QFVu3qna71X9RpyXgMO_OsUXpktWPxgvUHDjwoZboH-g-Uwrrsy_z0ljSB7J70WSJ9LFpnK_Rbml72UJnniyXkMW754C5G9I-NxUkbPpYxoWVJI94T3RdvfwZGqeruSOR7eEQuz8oE2qeWbt6R5NtysSRUSbLss66-E7xqK87o1AsPAZfUs5gfZPQvEOKrO4gIlDWjNri9qSYzLdYVpIp2t2IgQl5axcTx-DTyCgcXcCx-C7WbDc0sctbBfZ2ucewW2I6Sm0ZOnu2Y6cDTHAJhQ0ARG0IGT9FsWKJvkGmlEbnIHWreWlCHi15rSHmt7JunQmavOh0dxlmuxp1zPRo4Nke9ZH83EqYEPhdZkybWDdBtKfzb9qCl773FTlQuNQntwk0g8zZ3Bh3nzmy2sFL-OCqtz_5gf6QWi2HoQZ5phSQtvPW9f6OyD774CcvwaqFwkcn6jb_adck5Wgf3x21bNrHgWD6tm2K8CwEgwrgKUA1lFgKQbHk4JfS-MrWxq_5ImhvugdNe3quXrsK0uKSLnqVc_KslOZth2FcCpLzgS8RHDVCuRNC91cy1sXHCifSgcU3tIisapQnZqvevb0SP4t99gvuTQUVKmq2GzFVXuvnFUQZ6CTKaylHFM5t5xK0FPsVaqcJpnU1NmrpFsKWim6CulWnlsq7ZbqAEXl1lkdu3CzQs7YGqrUgkpUXTHGD8t0ast77nUm1ygIjum2TZ1oaiOph26QuhYfFXsNRdkBKt7KJ9trNBlQNQnqGNxKv86garW6d_oVAVx-S6zT-AIsKNMVldPXBkK54ukJdbViVcG4itHVnm3V1-fvfNL36oW1KR22SR2zVWq1Su1WqVO_ijfl7gV5T709NsX9drHXLh60i4etYkh8q9hqF9vtYqdd7Cqx0TG2BN4aksgYvRrlTz7ws1BEYlxQYbx1DFwIFhzS0BiVP40YRXmBvE0w3Mi2R-Hbn8thkPk=" title="View full diagram">&#128065; View Diagram</a></div>
-
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1v4joW_itWRrPtSKDmDQJ82BWk0EGaTrlNZ0arYbUyiQNRTZzrOBRup__9Hoc4EDdode_yoWoO53nO-7HDqxGyiBgj4-PH1yRNxAi9XokN2ZKrEbpa4ZxcddBR8B3zBK8oya-kTsxSESR_lGqWm-2lmpTN8DahBykNyJoR9G3eQWMA0g7KcZp3c8KT-KpzlfFki_nBZ5Rxqf2BDGIzLq1VX00Yjwg_KZimZ4U9gNIkJSex47meO5O4nIQsjRqkcS8exOHVm3SOspdwg7ko3S9yco_3P5JIbOA5xjQnoLMRW_oFrwiVMQpeSFlY8J1KRpJLOykkLMhwmKRrkLsmiDhOn0-invn2ht4-flymtVH05XGZIviEFOf5LYlRLkA83QkUJ5SOPrj-eNYzO7ng7JmMPthT79axO6GMZAShmx2Z3O4LSdYbMVoxGlWq3RcZw8jO9h2-H9lmhx_gr2aLpNHJkt-3B_agtjTxLN_ylaU4jv8vS5BX_oTz58rW1JnZs9valtXr93zzPZ8K89b1xpaeJ8J3SUjOSGezmTM9pWra71nmZdLJzOmbvka6xoK84MOJcOi7NeGs580s7yLh0Z7uZbFacBYqQmfam_VqQm9izcb2RUJ3bLmDykPgWXOcbRDFKfmv-XNpTFhRNjUaZ1m-NP5z1JOf1IKvH_gapzCH6Al6MM8YF915KghFj6wQ0I7orkgigq7nj3efmmgb0I8ERwGLBfqOaRJhkbD0ZroPSSb_Q59xGlHJIfdAhEDCC5h_KIkosiaZA2TzNGRbqZ6kOwYlu0ETe3LzkJH0iezFzQ-ygvASQZpIF5D3OC0wVbgciQ1nxXqDHvxHzUzv9XVpxHgU467cW90VRB1uENmHtMiTHbk7FnZpvL2dw_rtMOnf0fa_NITrnhCYc_aSdzEV4OElOzBibRWUJZruBeEpxLeAiU8Jz29QUGQZTQjX6umVJQkJGEDSrxiHouAypQ9yF2raA9D-lkHVCFoUHNZMTlC5M9E8jRnfluVE1z8IeaYHrfjWEMA-22aUCN0WXuMkzcX_9sA2z_xdPCAs6sDQFPLRVJapCAgloUA-pFQq7RKM2rr1M8sFNBzscYpXjB8DWUBvY6qRqiY-IMFQsEkyzet5uiOpYDA-10GxggmEbOX6IDhnYZRhlkxbAKKYs-2Fatmyc-t452XvgklNqQdKkBqYjG2RJuExFPDVWXzRNPtlftIIjYOvEHp2aFeTPbLYHHLggrRJrzMhM_9O0zGvf6oWzgXLTk1yjPHYOrJKn85Rlo56QFVu3qna71X9RpyXgMO_OsUXpktWPxgvUHDjwoZboH-g-Uwrrsy_z0ljSB7J70WSJ9LFpnK_Rbml72UJnniyXkMW754C5G9I-NxUkbPpYxoWVJI94T3RdvfwZGqeruSOR7eEQuz8oE2qeWbt6R5NtysSRUSbLss66-E7xqK87o1AsPAZfUs5gfZPQvEOKrO4gIlDWjNri9qSYzLdYVpIp2t2IgQl5axcTx-DTyCgcXcCx-C7WbDc0sctbBfZ2ucewW2I6Sm0ZOnu2Y6cDTHAJhQ0ARG0IGT9FsWKJvkGmlEbnIHWreWlCHi15rSHmt7JunQmavOh0dxlmuxp1zPRo4Nke9ZH83EqYEPhdZkybWDdBtKfzb9qCl773FTlQuNQntwk0g8zZ3Bh3nzmy2sFL-OCqtz_5gf6QWi2HoQZ5phSQtvPW9f6OyD774CcvwaqFwkcn6jb_adck5Wgf3x21bNrHgWD6tm2K8CwEgwrgKUA1lFgKQbHk4JfS-MrWxq_5ImhvugdNe3quXrsK0uKSLnqVc_KslOZth2FcCpLzgS8RHDVCuRNC91cy1sXHCifSgcU3tIisapQnZqvevb0SP4t99gvuTQUVKmq2GzFVXuvnFUQZ6CTKaylHFM5t5xK0FPsVaqcJpnU1NmrpFsKWim6CulWnlsq7ZbqAEXl1lkdu3CzQs7YGqrUgkpUXTHGD8t0ast77nUm1ygIjum2TZ1oaiOph26QuhYfFXsNRdkBKt7KJ9trNBlQNQnqGNxKv86garW6d_oVAVx-S6zT-AIsKNMVldPXBkK54ukJdbViVcG4itHVnm3V1-fvfNL36oW1KR22SR2zVWq1Su1WqVO_ijfl7gV5T709NsX9drHXLh60i4etYkh8q9hqF9vtYqdd7Cqx0TG2BN4aksgYvRrlTz7GyIhIjAsqjLeOgQvBgkMaGqPypxGjKC-QtwmGG9n2KHz7E8thkPk=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-70 — R3 - Substrates - (PTP) PR to PO scope for Internal Manufacturing (Intel Foundry) & Exte</span></div>
@@ -566,7 +574,6 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1tv4kYU_isjr1KyEnR9xcBDK25eIS0RCrutqqaqBnscRjEeNB5DaJb_3jP2jMGOeeg2D4nn4zvfuc6JeTNCFhFjZNzdvdGUihF664gt2ZHOCHU2OCOdLiqB3zCneJOQrCM5MUvFmv5T0Cx3_yppEgvwjiYnia7JMyPo26KLxmCYdFGG06yXEU7jTrez53SH-WnKEsYl-wMZxGZceFMfTRiPCL8QTNO3Qg9ME5qSC-z4ru8G0i4jIUujmmjsxYM47JxlcAk7hlvMRRF-npElfv2dRmIL5xgnGQHOVuySL3hDEpmj4LnEwpwfdDFoJv2kULD1Hoc0fQbcNQHiOH25QJ55PqPz3d1TWjlFXx6fUgQ_YYKzbEZilAmA5weBYpokow_udBx4ZjcTnL2Q0Qd77s8cuxvKTEaQutmVxe0dCX3eitGGJZGi9o4yh5G9f-3y15FtdvkJfjd8kTS6eJr27YE9qDxNfGtqTbWnOI7_lyeoK_-Ksxfla-4EdjCrfFle35ua7_V0mjPXH1vNOhF-oCG5Eg2CwJlfSjXve5Z5W3QSOH1z2hB9xoIc8ekiOJy6lWDg-YHl3xQs_TWjzDcrzkIt6My9wKsE_YkVjO2bgu7YcgcqQtB55ni_RQlOyd_mn0_GhOXFUKPxfp89GX-VPPmTWvDxIwkJPRAU0IQgmqIJTGKdZQPr2z6CjNEKn3YkFeiR7KgQOA1JQ7B_D-QYj2LcywTbVwYzLDAqRSIw-VjawFi1RS3DmgaLh7q2A-j8lYT5dRx5Wie50pQTGet4tURLsmMQbAiboM7zgCfrTbIMTabLSnCCRbiFSwgPGYkQg3rkGawLoD3msLrqKn1Q-UxSwrU_LSOLWaf6stRMxi6Y7ARnB8LrlIGMnXFOQlGIqWcKQbzXGxatA41Mel6hGczOQ77bEI5wGl0njmYkIVKl0So5GwGBdHXUGQpwKBhMyj2478q6dNFyMkVLBnud8Y8NgXJ6DpQcwRACjKr0v7DnBte-rpSmQQP2LMNJg-sUuvuEhpK8zvfwCGkt0gODe4xWLBPQoYbRoDF41wUoB-Jq7kqTYcNEl1GVtcm3rbc3zZf_8nobWNpQvSVOc5yonsLDA5FTBRfu1yfjfL4WsNsF1DRE7_hOO5-8hgkM5YF8LpdQ08xtN5tiGGaip6rFnfdj7vo_Zua3m5XFhzIyDs_78opCu99FO7jYY87ZMevhRKA95jhJSHLD6fAHjByz1Yimt_K7sdXkFYDb1JhbubCWeSJoTy5e6E6ayjt_oAKu4RZGvSdYT_5t3j7vvxveCEzet_V4hdafXHS_WKGf0CJoevNv7XUi4OpnSE4wjWAFbHD4IlfcmuUcLuv6lAmyk7KfStHajZIraG7Pe25_jB4dNKPF7pNNzzkp9I9UwH6CMFO5lBepIBB4sRJ7aPz1fWawaVCv9wt0TZ2d8mgP1Nktz5Y-e-pz9dYADxL4_mQ8sCfju7yE6gNfEW1NVMp9fVZKnj67DSFNHKoIhjpiUylrwO6XQHXWFlWMgxJwtYKlFHxN8JVvfZvqEagSWfqs_Fluw6FOVbmzdWqWSt2ymxFWAaicLKdZ1j_k_1AIRjM1vhovHn42TRvdw2j1EoYj-SpEPhZkq_Ls1ulWO71Wp6IMl0VSlkILOipQPQ623Yiz6n_1ie5nVX3VeMt8X_2GW8dsDod241y_D8rWqFfuOuq3ooNWdNiGQl_014Y6buk32jpst8NOO-y2w1473G-H_XZ40A4PW2HoqoKNrrEjfIdpZIzejOJrKHxVjUiMYXUa566Bc8HWpzQ0RsXXNSMv3lFnFMOe2ZXg-V-oaZBK" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-70 — R3 - Substrates - (PTP) PR to PO scope for Internal Manufacturing (Intel Foundry) & Exte</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -654,8 +661,6 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu2zgQ_RVCQdYtYCeiLpbjhwV8UxGgRY0o3X2oFwtaomyiNCWQlB039b_vUBc7VpzFtuuHIHM0c2bmcHh5tuIsodbQur5-ZoLpIXru6DXd0M4QdZZE0U4XVcAfRDKy5FR1jE-aCR2x76Ub9vIn42awkGwY3xs0oquMoi_3XTSCQN5FigjVU1SytNPt5JJtiNxPMp5J431FB6mdltnqT-NMJlSeHGw7wLEPoZwJeoLdwAu80MQpGmciOSNN_XSQxp2DKY5nu3hNpC7LLxT9RJ7-ZIleg50Srij4rPWGfyRLyk2PWhYGiwu5bcRgyuQRIFiUk5iJFeCeDZAk4tsJ8u3DAR2urxfimBR9fFgIBL-YE6WmNEVKAzzbapQyzodX3mQU-nZXaZl9o8MrZxZMXacbm06G0LrdNeL2dpSt1nq4zHhSu_Z2poehkz915dPQsbtyD39buahITpkmfWfgDI6ZxgGe4EmTKU3T_5UJdJWPRH2rc83c0Amnx1zY7_sT-zVf0-bUC0a4rROVWxbTF6RhGLqzk1Szvo_tt0nHodu3Jy3SFdF0R_YnwruJdyQM_SDEwZuEVb52lcVyLrO4IXRnfugfCYMxDkfOm4TeCHuDukLgWUmSrxEngv5tf11Y46wohxqN8lwtrL8qP_MTGD4_0JiyLb2NYI3RvUgzuSGaZQIxgSZESkYlwNsMJEQPZoPEjLPS43bKVF5oenNzc07rAO1sS4VGRZ6AUAoRSZGsEiWG-MPjY6uS4Pl5YaVkmJKeOU96S9gR8RrRp5gXCsI-VIIvrMOhCoNyL3VsWpo9aSoF4WgOO0RQqW5RVOQ5N6200hr3kEJRD6bO2wlstRXUey80BVKdSYVcmaAciPbNJKFF4djYBTWSXZYlLUbTfK1b64v77mvTYs5hdsx6U2WSMQ2KQhFjOC4TBNqbao7FjLaEcXNwAt_7l4Rei7DUXKF5seRMrWnS8nfwSWMoMNupHuHa9EY4p_yVwlWQ83NBbyyLUSUazVF066F393P0G7oP35_r44LLBwrLBZQolOXxgb6ANujd46eWr2dElvSl52dz2F9w9cF1TqWZ6-M8f2nGEkZ-QnhccMNU630e3i_nicbFf0gVmFSZ0kfHiGrN4eaDnTDN4qL853XY4NRMVE_Y_DOCglEYTS_43zVpolmEdkyv0ajQGYwjpzA_FwKwfcowMYGwcbVky6LcxaMVFfEejWGbCTOO_1Ip9k8Tp3SWo8dPKK-nGBb-1cThUj1n1vP6I_TgQl44BHQZUshKl7L-OcyIgKvvuO_M-dNDo_YhMfjZQ6IKu_ulMMf-5SNJuKjX-x3GtDb9ysSD2g4quzHxXWX7td2vzOZuFF4dflfbtTtuvmO7BhoCjGsG3AB1QfgI1CUc7SaH0wBOTdEATg3goAFwG2hCGopWG8eApo_S_0dzV1SbcmH9eCEUrqVwG3tQ2f3ars0jYS1E8OJyLZtv3krnuPcG7tfvnXO0_4Z30DwGzuHBZfjuIgyFX4TxZdhpYKtrbShc2Cyxhs9W-cqGl3hCU1JwbR26FoGTIdqL2BqWr1GrupCnjMAu21Tg4R-QjKKo" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-
-
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-70 — R3 - Substrates - (PTP) PR to PO scope for Internal Manufacturing (Intel Foundry) & Exte</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -701,7 +706,6 @@ Supplier
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
 
-
 #### 4.2.1 Current-State — Current-State Data Flows
 
 ```mermaid
@@ -741,11 +745,8 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtO2zAUhl_FMqq0SS0LLWlHJJCc20AKiJGyTSJT5CZOa-EmUeKMltJ3n50brDQMYUuRfS7_cb4TORsYJCGBGuz1NjSmXAMbD_IFWRIPasCDM5yLVV-schIUGeVrh_whrHKyJGm8ZcoPnFE8YySXbqETJTF36WMtdaSmqypY2m28pGxdeVwyTwi4vegDJASE-LaMYslDsMAZr9WKnFzi1U8a8oW0RJjlRMYt-JI5eEZYWZZnRWmNxWu5KQ5oPJfmkSqNGY7vXxiP1e0WbHs9L25rganuxUCMgOE8N0kEcJrqyQpElDHtQFdN27b7Oc-Se6IdKMpkoo_r7eBBHk0bpqt-kLAkk-6Rqe7qhTNjzWo5pJpjNGnlhtbEHA075Y501RoqO3IkYc_Hs21d1dVWzzAUMTr1xmPp9uJKMS9m8wynC2CJYyiGiQzHJ_7cR49FRnz3u3PnQYHwdxUtR0gzEnCaxC00OZp0VGb_sm5dkUgO54dAroWApmkV09c55k7FTx70ivDrKBTPMDj2iogo4pWlWBkERJAHP0vJEutbpwCDw8FZV6UqkcRhzYKvGekE0cBGcrawLUXOf2EfiS_-P3hddO2foyv0IbqXluuPFKUBLLZAbN_DuC37BmIRA2TMewjXJ9kHuSn1HsZN7IcQ7y8LTk_PnmpAZskUfAHo-kI8bcrE3fTU_VHstM4hc3H8uxfEglABJpoigG6M84upZUxvbyzgWN-sK7Ojm87Ns9XxZd9RmjIaYOnd3zrHNzv6ZGKOqyt6X4sc3xLyVhwOkmjg0IhU8tWVsbcd1Rs29FU5W_onJyev0MM-XJJsiWkItU31ExD_kpBEuGBcXOMQFzxx13EAtfJihkUaYk5MigXRZWXc_gX4yv7F" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-
-
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-70 — R3 - Substrates - (PTP) PR to PO scope for Internal Manufacturing (Intel Foundry) & Exte</span></div>
 <div style="page-break-before: always;"></div>
-
 
 
 #### 4.2.2 Future-State — Future-State Data Flows
@@ -785,8 +786,6 @@ flowchart TB
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1L4zAYx79KiAzuYPPqZrezoJCt7SlU8ey8O7BHydp0C2ZNadNzc-67X9I3vbl6YgIleV7-T_p7SrqBAQ8JNGCns6ExFQbYeFAsyJJ40AAenOFMrrpylZEgT6lYO-QPYaWTcV57i5QfOKV4xkim3FIn4rFw6WMldaQnqzJY2W28pGxdelwy5wTcXnQBkgJSfFtEMf4QLHAqKrU8I5d49ZOGYqEsEWYZUXELsWQOnhFWlBVpXlhj-VpuggMaz5V5oCtjiuP7F8ZjfbsF207Hi5taYDr2YiBHwHCWmSQCOEnGfAUiyphxMNZN27a7mUj5PTEONG00Gg-rbe9BHc3oJ6tuwBlPlXtg6rt64WyyZpUc0s0hGjVyfWtkDvqtckdj3eprO3KEs-fj2fZYH-uN3mSiydGqNxwqtxeXilk-m6c4WQBLHkOzTTRxfOLPffSYp8R3vzt3HpQIf5fRaoQ0JYGgPG6gqVGnoyL7l3XrykRyOD8Eai0FDMMomb7OMXcqfvKgl4dfB6F8hsGxl0dEk6-sxIogIIM8-FlJFljfOgXoHfbO2iqViSQOKxZizUgriBo2UrOBbWlq_gv7SH7x_8Hromv_HF2hD9G9tFx_oGk1YLkFcvsexk3ZNxDLGKBi3kO4Osk-yHWp9zCuYz-EeH9ZcHp69lQBMgum4AtA1xfyaVMm76an9o9ip3UOmcvj370gFoQaMNEUAXQzOb-YWpPp7Y0FHOubdWW2dNO5ebY6vuo7ShJGA6y8-1vn-GZLn0wscHlF72uR41tS3orDHo96Do1IKV9eGXvbUb5hTV9Xs6F_cnLyCj3swiVJl5iG0NiUPwH5LwlJhHMm5DUOcS64u44DaBQXM8yTEAtiUiyJLkvj9i90fv7v" title="View full diagram">&#128065; View Diagram</a></div>
-
-
 
 
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-70 — R3 - Substrates - (PTP) PR to PO scope for Internal Manufacturing (Intel Foundry) & Exte</span></div>
@@ -864,7 +863,6 @@ flowchart TB
     E2E70C_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E70CMW_e_g_Azure_Service_Bus
     E2E70CMW_e_g_Azure_Service_Bus --> E2E70C_e_g_XEUS
 
-
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -879,7 +877,6 @@ flowchart TB
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlm1v2kgQgP_KyhHfoHFegMSKkGxsTpxMEtVtc6dzZS3eAVZdbMu7bkJT_ntnvQQcaESuiwT2vDwzHs_O8mylOQPLsVqtZ55x5ZDn2FILWEJsOSS2plTiVRuvJKRVydUqhO8gjFLk-Yu2dvlCS06nAqRWI2eWZyriPzaos17xZIy1fESXXKyMJoJ5DuTzuE1cBIg2kTSTHQkln8XWuvYQ-WO6oKXakCsJE_r0wJlaaMmMCgnabqGWIqRTEHUKqqxqaYaPGBU05dlciy9tLSxp9q0h7NrrNVm3WnG2jUU-eXFGcLVapNPB3NIFn1AFHZ7JgpfAiFQrASQVVEqQaGPM63sfZmRaSZ6BlKReMy6EczLC5XXbUpX5N3BOvKurnu1tbjuP-oGc8-KpneYiL50T27b3mLQoyG4ZptfV1C3Ttvt9r_c_mIwqesj0r44wz14xX3SMSixeSVdYU9Ldi7TkjAl4pCU0K-L33F1Fgn5vtKO9I3vIxUFFdI0bVR4ObfsY01BlNZ2XtFgQN_wvtuKKXV0w_GYXXeLe34fjoftpfHdLQvff4GNsfTVOejFsiFTxPCPhx510iwvOg749DG8TSOaJl1cZo-UqcYtCYhgSV-fTsymBD_MP5EVJtPJViLfD6GUi1Px_gs9RM_sUeoatFYh0HAfbaOcOGTuW8iSIkmglFSwPEkYV2aj-LF3NvrDt32as4ag7lrShTR5qnvujKiGJoPzOU0i8Sr56k2d9Q66tyMaKoJWJsevQfbof1PRhLlUSCBx3mRo0U04vDVgbkI3BzbQ8HdzwgVFEX8gpGft5ij9_R3e3N6d8YKLqHWji1Y9lLg9LhCNm8DO2appflxZJ7v0Yv0dc4Jz9eaQSTfBbNjrIfjfplDYbpB55XtgYZyP72DhrurpbV_s9U-tgY4Ywxxq9ahZmkzD4K7j137EjwwT38X6r4VYTPKXa-DedFiaTh_0Wmuza5M22CRM_2O8QX4_aIFN4kO6_eeMS3JnBc95jl2jIOvmsE_LZJgzOukab7IpqivJS2K7-bAt7fX19MLettrWEckk5s5xnc3jjfwAGM1oJhUeuRSuVR6sstZz6ELWqAhMFn1N8CUsjXP8C_TKKpw==" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-70 — R3 - Substrates - (PTP) PR to PO scope for Internal Manufacturing (Intel Foundry) & Exte</span></div>
@@ -935,7 +932,6 @@ flowchart TB
     E2E70F_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E70FMW_e_g_Azure_Service_Bus
     E2E70FMW_e_g_Azure_Service_Bus --> E2E70F_e_g_XEUS
 
-
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -950,7 +946,6 @@ flowchart TB
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdln1v2jwQwL-KlYr_YE1fgDaqkJImTEyhrZZt3fRkikx8gDWTRLGzlnV8951jCimsos-MBMm9_O5yOZ95stKcgeVYrdYTz7hyyFNsqTksILYcElsTKvGqjVcS0qrkahnCTxBGKfL8WVu7fKElpxMBUquRM80zFfFfa9RJr3g0xlo-pAsulkYTwSwH8nnUJi4CRJtImsmOhJJPY2tVe4j8IZ3TUq3JlYQxfbznTM21ZEqFBG03VwsR0gmIOgVVVrU0w0eMCprybKbF57YWljT70RB27dWKrFqtONvEIp-8OCO4Wi3S6WBu6ZyPqYIOz2TBS2BEqqUAkgoqJUi0Meb1vQ9TMqkkz0BKUq8pF8I5GuLyum2pyvwHOEfexUXP9ta3nQf9QM5p8dhOc5GXzpFt2ztMWhRkuwzT62rqhmnb_b7X-x9MRhXdZ_oXB5gnL5jPOkYlFq-kS6wp6e5EWnDGBDzQEpoV8XvutiJBvzfc0t6QPeRiryK6xo0qX1_b9iGmocpqMitpMSdu-F9sxRW7OGP4zc66xL27C0fX7qfR7Q0J3W_Bx9j6bpz0YtgQqeJ5RsKPW-kGF5wGfXsY3iSQzBIvrzJGy2XiFoXEMCSuTicnEwLvZu_Is5Jo5YsQr4fRy0So-V-Dz1Ez-xR6hq0ViHQcB9to6w4ZO5TyOIiSaCkVLPYSRhVZq_4tXc0-s-2_ZqzhqDuUtKGN72ue-6sqIYmg_MlTSLxKvniTJ31Drq3I2oqglYmx7dBduh_U9OtcqiQQOO4yNWimnJ4bsDYga4OrSXk8uOIDo4i-kGMy8vMUfz5EtzdXx3xgouodaOLVj2Uu90uEI2bwO7Zqml-XFknu3Qi_h1zgnP19oBJN8Gs2OshuN-mU1hukHnle2BhnQ_vQOGu6uhtX-y1Ta29jhjDDGr1oFmaTMHgf3Phv2JFhgvt4t9VwqwmeUm38l04Lk_H9bguNt23yatuEiR_sdoivR22QKTxId9-8cQluzeA57bFzNGSdfNoJ-XQdBmddo022RTVFeS5sV382hb28vNyb21bbWkC5oJxZzpM5vPE_AIMprYTCI9eilcqjZZZaTn2IWlWBiYLPKb6EhRGu_gBgL4rF" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-70 — R3 - Substrates - (PTP) PR to PO scope for Internal Manufacturing (Intel Foundry) & Exte</span></div>
@@ -1018,13 +1013,11 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 <div style="page-break-before: always;"></div>
 
 
-
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
-
 
 #### 6.1.1 Current-State — Current-State Platform Architecture
 
@@ -1053,14 +1046,11 @@ flowchart TB
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1ip2nGSGDmzHZoV0hHndBvMwin2ciMqWseU1aZr_PsnOR1tIoWy6ENL7Hj06OkLa4kSkgG3c621ZwaSNthGWK8ghwjaK8ILWatRXoxqSpmJyM4M_wDuTC3Fw2yXfacXogkOtbcXJRCFD9rhHDYblugvWekBzxjedE8JSALq76SNHARR810Zx8ZCsaCX3tKaGW7r-wVK50kpGeQ06biVzPqML4O22smpatVDHCkuasGKp5SHRYkWL-2eiRXY7tOv1ouK4F_rmRgVSLeG0rqeQIVqWrlijjHFuX7jWNAiCfi0rcQ_2BSHjsTvaTz886NRso1z3E8FFpW1zar3mlZzKE9Cb-CPv4xFoTia-6b0EmifgwLV8g7wCguAnXhC4lmsdeZ5HVDub4Gik7ajoiHWzWFa0XCHf8MfEm8_mMcTL2HlsKojnlIa_Ihw1xogMoiYDona-XF6i1kbajvDvDqRbyipIJBMFmn09qQey05J_-nea2WL0WAFs2-4K3q2BIt3nJjcczib2T8V88_BhPIw_O1-c2CCG2Z4_nZip6lNqPa9CeDVEOg7puHcX4tYPY5OQQy3UFKnpO8vxItX_UJG36NfXn572yU7b86Er5MxvVB8wrt7709mrwn2cQ5VTlmJ7230b6vdJIaMNl-rhY9pIEW6KBNvtU8ZNmVIJU0bV9eSduPsLmbZ31g==" title="View full diagram">&#128065; View Diagram</a></div>
 
-
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
-
 
 
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-70 — R3 - Substrates - (PTP) PR to PO scope for Internal Manufacturing (Intel Foundry) & Exte</span></div>
 <div style="page-break-before: always;"></div>
-
 
 
 #### 6.1.2 Future-State — Future-State Platform Architecture
@@ -1090,9 +1080,7 @@ flowchart TB
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1ip2nGSGDuzEZoV0hHndBvMwin2ciMqWseU1aer_PsnOR1tIoWy6ENL7Hj06OkLa4VgkgG3c6-1YzqSNdiGWa8ggxDYK8ZJWatRXowriumRyO4c_wDuTC3Fw2yXfacnokkOlbcVJRS4D9rhHDYbFpgvWuk8zxredE8BKALq76SNHARS8aaO4eIjXtJR7Wl3BLd38YIlcayWlvAIdt5YZn9Ml8HZbWdatmqtjBQWNWb7S8pBosaT5_TPRIk2Dml4vzI97oW9umCPVYk6ragYpokXhig1KGef2hWvNfN_vV7IU92BfEDIeu6P99MODTs02ik0_FlyU2jZn1mtewak8AacTbzT9eASak4lnTl8CzRNw4FqeQV4BQfATz_ddy7WOvOmUqHY2wdFI22HeEat6uSppsUae4Y2Jv5gvIohWkfNYlxAtKA1-hTisjREZhHUKRO18ubpErY20HeLfHUi3hJUQSyZyNP96Ug9kpyX_9O40s8XosQLYtt0VvFsDebLPTW45nE3sn4r55uGDaBh9dr44kUEMsz1_MjET1SfUel6F4GqIdBzSce8uxK0XRCYhh1qoKVLTd5bjRar_oSJv0a-vPz3tk52150NXyFncqN5nXL33p7NXhfs4gzKjLMH2rvs21O-TQEprLtXDx7SWItjmMbbbp4zrIqESZoyq68k6sfkLvId37g==" title="View full diagram">&#128065; View Diagram</a></div>
 
-
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
-
 
 #### Platform Inventory
 
@@ -1108,13 +1096,10 @@ flowchart TB
 
 ### 6.2 SAP Development Object Status
 
-| Metric | DEV | QAS | PRD |
-|--------|-----|-----|-----|
-| Transport Requests | — | — | — |
-| Custom Code Objects | — | — | — |
-| CDS Views | — | — | — |
-| Fiori Apps | — | — | — |
-| BAdIs / Enhancements | — | — | — |
+**RICEFW Active Items** — E2E Tower (0 of 0 objects)
+*Data source: Smartsheet Object Tracker (cached 2026-04-06)*
+
+**All 0 objects are completed** — no active items requiring attention.
 
 ### 6.3 NFRs & Design Principles
 
@@ -1152,36 +1137,42 @@ flowchart TB
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
-Project delivery milestones for E2E-70 RICEFW objects:
-
-| Phase | Planned Start | Planned End | Status | Notes |
-|-------|---------------|-------------|--------|-------|
-| Functional Specification (FS) | Per project plan | Per project plan | In Progress | Tower-level FS schedule |
-| Technical Design (TDD) | FS + 2 weeks | FS + 6 weeks | Planned | Dependent on FS completion |
-| Build & Unit Test (TUT) | TDD + 1 week | TDD + 8 weeks | Planned | Includes S/4 + Middleware |
-| Functional User Test (FUT) | Build + 1 week | Build + 4 weeks | Planned | Tower-led validation |
-| Go-Live (R1 – R5) | Per release plan | Per release plan | Planned | End-to-End Integrated Processes release |
-
-> *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
-
-
-<div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-70 — R3 - Substrates - (PTP) PR to PO scope for Internal Manufacturing (Intel Foundry) & Exte</span></div>
-<div style="page-break-before: always;"></div>
-
+*No timeline data available for this capability.*
 
 ### 7.2 RAID Log
 
-Standard RAID items for E2E-70 (End-to-End Integrated Processes):
+*Live data from Smartsheet Master RAID Log — extracted 2026-04-06*
 
-| # | Category | Description | Status | Owner | Priority |
-|---|----------|-------------|--------|-------|----------|
-| 1 | Risk | Data migration completeness — validate all legacy R3 - Substrates - (PTP) PR to PO scope for Internal Manufacturing (Intel Foundry) & Exte data maps to S/4 target structures | Open | Tower Architect | High |
-| 2 | Risk | Integration testing coverage — ensure all 2 integrated systems are validated end-to-end | Open | Integration Lead | High |
-| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
-| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
-| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
+**RAID Summary:** 17 open items (0 capability-specific, 17 tower-level), 57 closed
 
-> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
+| Severity | Capability | Tower-Wide | Total Open |
+|----------|----------:|-----------:|-----------:|
+| P1 - High | 0 | 4 | 4 |
+| P2 - Medium | 0 | 10 | 10 |
+| P3 - Low | 0 | 3 | 3 |
+| **Total** | **0** | **17** | **17** |
+
+**Other E2E Tower RAID Items** (17 open):
+
+| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
+|---------|------|----------|-------|--------|-------------|----------|
+| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-15 |
+| 03681 | Risk | P1 - High | ITC Execution: Planning run availability - Prerequisite for ... | In Progress | E2E | 2026-04-10 |
+| 03762 | Risk | P1 - High | FTS-IF (esp SCP) related test cases/sequencing are not accur... | In Progress | FTS IF | 2026-04-10 |
+| 03805 | Key Decision | P1 - High | BY - OTC IF : Replace virtual plant on SO with actual plant | Not Started | E2E | 2026-04-03 |
+| 01733 | Risk | P2 - Medium | Tariffs impacts Item/BOM design which is impacting ERP/SCP (... | In Progress | E2E | 2026-03-06 |
+| 03592 | Risk | P2 - Medium | Lack of Defined IMO Owner for CBA Mask Billing and Materials... | In Progress | E2E | 2026-11-02 |
+| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
+| 03628 | Risk | P2 - Medium | R3 Returns Rework Process Causing Finance Double Counting in... | In Progress | E2E | 2026-03-27 |
+| 03642 | Issue | P2 - Medium | E2E Process with Anafi on order/invoice point.  Need IFS SC ... | In Progress | E2E | 2026-03-24 |
+| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
+| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
+| 03756 | Risk | P2 - Medium | LE101-1001 Operation Support Ownership for SIMS/Tester Front... | In Progress | E2E | 2026-04-24 |
+| 03802 | Risk | P2 - Medium | Automated Bailed Value Calculation | In Progress | E2E | 2026-04-10 |
+| 03808 | Action | P2 - Medium | Shipping Transformation test strategy is skipping ITC1 | To Be Reviewed | FTS IF | 2026-04-03 |
+| 03216 | Action | P3 - Low | Mask Expense vs. Invoice | In Progress | E2E | 2026-03-06 |
+| 03315 | Risk | P3 - Low | BPMG – SCP L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-03-27 |
+| 03769 | Action | P3 - Low | Need a Labs SPOC owner to define IP Labs enterprise and mate... | In Progress | E2E | 2026-04-17 |
 
 ### 7.3 Recommendations & Next Steps
 
@@ -1196,4 +1187,6 @@ Standard RAID items for E2E-70 (End-to-End Integrated Processes):
 ---
 *E2E-70 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: April 2026*
 
-<div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-70 — R3 - Substrates - (PTP) PR to PO scope for Internal Manufacturing (Intel Foundry) & Exte</span></div>
+
+
+<div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-70 — R3 - Substrates - (PTP) PR to PO scope for Internal Manufacturing (Intel Foundry) & Exte</span></div>

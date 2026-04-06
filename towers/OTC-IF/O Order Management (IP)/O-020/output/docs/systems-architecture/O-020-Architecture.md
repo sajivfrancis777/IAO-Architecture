@@ -12,7 +12,7 @@
 
 <style>
 @media print {
-  @page { margin: 0.75in; }
+  @page { size: A4; margin: 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -20,6 +20,7 @@
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
 .page-footer {
+  margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid #ddd;
   display: flex;
@@ -27,22 +28,20 @@
   align-items: center;
   font-size: 11px;
   color: #888;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 20px;
+  padding: 6px 12px;
   background: #fff;
 }
 @media print {
-  .page-footer { position: fixed; bottom: 0; left: 0.75in; right: 0.75in; }
+  .page-footer { display: none !important; }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
 .page-footer a:hover { color: #0071c5; text-decoration: underline; }
 </style>
 
+
 <div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
 <div style="page-break-before: always;"></div>
+
 
 <a id="toc"></a>
 
@@ -81,8 +80,10 @@
    - 7.2 [RAID Log](#72-raid-log)
    - 7.3 [Recommendations & Next Steps](#73-recommendations--next-steps)
 
+
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
 <div style="page-break-before: always;"></div>
+
 
 ## 1. Executive Summary
 
@@ -100,8 +101,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
+
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
 <div style="page-break-before: always;"></div>
+
 
 ## 2. Business Context & Objectives
 
@@ -122,8 +125,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | 3 | Revenue Recognition Accuracy | Ensure compliant revenue recognition aligned with ASC 606 through S/4 HANA billing | Finance & Compliance | Medium |
 | 4 | O-020 Process Migration | Migrate Capture Orders (IP) business processes and 0 integrated systems from legacy to S/4 HANA target architecture | IDM 2.0 Order Management (Intel Foundry) | High |
 
+
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
 <div style="page-break-before: always;"></div>
+
 
 ### 2.3 Success Criteria
 
@@ -141,8 +146,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Business Architecture** | Included in this document (Section 3) — process flows from BPMN diagrams |
 | **This Document** | Full BDAT Architecture — Business + Data + Application + Technology |
 
+
 <div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
 <div style="page-break-before: always;"></div>
+
 
 ## 3. Business Architecture (TOGAF "B")
 
@@ -159,8 +166,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | Technical Developer | O-020 | Responsible for RICEFW build and unit testing |
 | Integration Architect | O-020 | Designs and validates integration patterns and middleware flows |
 
+
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
 <div style="page-break-before: always;"></div>
+
 
 ## 4. Data Architecture (TOGAF "D")
 
@@ -171,8 +180,10 @@ The following data entities are derived from the system integration flows for O-
 | # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
 |---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
 
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
 <div style="page-break-before: always;"></div>
+
 
 ### 4.2 Data Flow Diagrams
 
@@ -207,8 +218,10 @@ Reports and Conversions for this capability will be populated from the Smartshee
 | Data Retention | Per Intel corporate retention policies |
 | Data Quality | Validated at source; reconciliation at target |
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
 <div style="page-break-before: always;"></div>
+
 
 ## 5. Application Architecture (TOGAF "A")
 
@@ -246,8 +259,10 @@ The Future-State architecture represents the **target** landscape for O-020.
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
 <div style="page-break-before: always;"></div>
+
 
 ### 5.5 RICEFW Inventory
 
@@ -343,8 +358,10 @@ The Future-State architecture represents the **target** landscape for O-020.
 
 **Summary**: 11 Interfaces, 64 Enhancements, 11 Forms, 1 Workflows
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
 <div style="page-break-before: always;"></div>
+
 
 ### 5.6 Integration Patterns
 
@@ -355,8 +372,10 @@ Integration patterns identified from the system flow analysis for O-020:
 
 > *Integration pattern details will be refined when tower architects validate middleware assignments.*
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
 <div style="page-break-before: always;"></div>
+
 
 ## 6. Technology Architecture (TOGAF "T")
 
@@ -376,44 +395,51 @@ Platform landscape inferred from integrated systems for O-020:
 
 > *Platform assignments will be validated when tower architects populate technology platform columns.*
 
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
+
 ### 6.2 SAP Development Object Status
 
-**Capability RICEFW Status** (87 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-03-27)*
+**Capability RICEFW — Active Items** (1 of 87 objects)
+*Data source: Smartsheet Object Tracker (cached 2026-04-06)*
+
+> **Completion Context:** 86 of 87 objects (99%) are complete/closed. The **1 active items** below require attention. See the **RICEFW Register** for full detail.
+>
+> | Type | Completed | Active | Total |
+> |------|----------:|-------:|------:|
+> | Interface (I) | 11 | 0 | 11 |
+> | Enhancement (E) | 63 | 1 | 64 |
+> | Form (F) | 11 | 0 | 11 |
+> | Workflow (W) | 1 | 0 | 1 |
+> | **Total** | **86** | **1** | **87** |
 
 | Status | Count | % |
 |--------|------:|----:|
-| 10. Object Complete | 86 | 98.9% |
-| 06. Dev In Progress | 1 | 1.1% |
-| **Total** | **87** | **100%** |
+| 06. Dev In Progress | 1 | 100.0% |
+| **Total Active** | **1** | **100%** |
 
-**RICEFW by Type:**
+**Active RICEFW by Type:**
 
 | Type | Count |
 |------|------:|
-| Interface (I) | 11 |
-| Enhancement (E) | 64 |
-| Form (F) | 11 |
-| Workflow (W) | 1 |
-| **Total** | **87** |
+| Enhancement (E) | 1 |
+| **Total** | **1** |
 
 **Technical Complexity:**
 
 | Complexity | Count |
 |------------|------:|
-| 01.Very High | 2 |
-| 02.High | 8 |
-| 03.Medium | 48 |
-| 04.Low | 29 |
+| 02.High | 1 |
 
-**Active (Non-Complete) Objects:**
+**Objects Requiring Attention:**
 
 | Object ID | Type | Description | Status | Complexity |
 |-----------|------|-------------|--------|------------|
 | OTCE1123 | 04.Enhancement | Determine Confirmed Delivery date in sales orders at schedule line level based o... | 06. Dev In Progress | 02.High |
+
+**Tower Context:** OTC-IF has 1 active / 86 completed RICEFW objects
 
 ### 6.3 NFRs & Design Principles
 
@@ -442,86 +468,60 @@ Platform landscape inferred from integrated systems for O-020:
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
 <div style="page-break-before: always;"></div>
+
 
 ## 7. Project Context
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
-*87 objects with timeline data (source: Object Tracker)*
+*1 active objects with timeline data (source: Object Tracker)*
+*86 completed objects excluded — see RICEFW Register for full detail.*
 
 | ID | Description | FS | TDD | Build | FUT | Status |
 |----|-------------|----|-----|-------|-----|--------|
-| OTCW0638 | Dispute Write-off Workflow | Aug-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 2. At Risk |
-| OTCI1162 | Inbound interface to change the sales order via Build Instructions | Mar-25 (100%) | Jun-25 (100%) | Jun-25 (100%) | Mar-26 (100%) | 2. At Risk |
-| OTCI1161 | Inbound interface from BY-PDH to S4 to update CMAD in IF sales orders | Jun-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 1. On Track |
-| OTCI1126 | Inbound interface to create and change sales order via Subcon, STO & SIMS PO | Apr-25 (100%) | Jul-25 (100%) | Jul-25 (100%) | Jan-26 (100%) | 4. Completed |
-| OTCI0442 | IF: Interface requirement from SAC to S4 | Sep-24 (100%) | Mar-25 (100%) | Mar-25 (100%) | Dec-25 (100%) | 4. Completed |
-| OTCF0681_IF | Form development for Intercompany Invoice. | Nov-24 (100%) | Mar-25 (100%) | Mar-25 (100%) | Jul-25 (100%) |  |
-| OTCF0460_IF | Form Development for Invoice list. | Sep-24 (100%) | Jan-25 (100%) | Jan-25 (100%) | Jan-25 (100%) |  |
-| OTCF0431 | Generate Custom Late Payment Interest Charge Output Form | Aug-24 (100%) | Jan-25 (100%) | Jan-25 (100%) | May-25 (100%) |  |
-| OTCF0290 | Dunning output form customization | Jul-24 (100%) | Jan-25 (100%) | Jan-25 (100%) | Mar-25 (100%) |  |
-| OTCE1698 | Additional material attributes for transfer from MDG to GTS to support product classification | Nov-24 (100%) | Mar-25 (100%) | Mar-25 (100%) | Dec-25 (100%) |  |
-| OTCE1668_IF | Enhancement to transfer Customs value from S4 to GTS for Sales orders and delivery documents | Jan-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (100%) | 1. On Track |
-| OTCE1662 | BADI Enhancement for Dispute Write off (workflow Trigger) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 2. At Risk |
-| OTCE1658 | Dispute Write-off Enhancement | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 2. At Risk |
-| OTCE1655 | Enhancement to AIF capabilities on access and notifications | Jun-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Jan-26 (100%) | 1. On Track |
-| OTCE1625 | Credit hold release dashboard at line-item level | Jul-24 (100%) | Sep-25 (100%) | Sep-25 (100%) | Feb-26 (100%) | 1. On Track |
-| OTCE1558 | Business users want the capability to have CMIR updated for the specific Materials which will go under FERT To HALB Conversion during R3 Cutover, this activity will be specific for IF system, CMIR to be deleted automatically for materials which will undergo FERT to HALB Conversion and new records to be created for new Material code | Oct-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
-| OTCE1557 | Business users want the capability to have sales order updated for the specific Materials which will go under FERT To HALB Conversion during R3 Cutover, this activity will be specific for IF system, orders to be updated automatically. | Oct-25 (100%) | Dec-25 (100%) | Dec-25 (100%) | Jan-26 (100%) | 4. Completed |
-| OTCE1200 | Enhancement to transfer fields from Sales Orders to Purchase Requisition during Sales Order creation and change. | Jul-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
-| OTCE1124 | Enhancement to support Inbound interface to change the ship to party record at the sales order | Apr-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Jan-26 (100%) | 3. Off Track |
 | OTCE1123 | Determine Confirmed Delivery date in sales orders at schedule line level based on CMAD received from Blue yonder | Jun-25 (100%) | Nov-25 (60%) | Nov-25 (60%) | Nov-25 (100%) | 4. Completed |
-| OTCE1122 | Enhancement for IMR to update the Repair Sales Order post Repair work order is complete | Mar-25 (100%) | Apr-25 (100%) | Apr-25 (100%) | Jun-25 (100%) | 4. Completed |
-| OTCE1106 | Enhancement to support Inbound interface and manual upload to create the sales order via Build Instructions | Jun-25 (100%) | Dec-25 (100%) | Dec-25 (100%) | Mar-26 (100%) | 3. Off Track |
-| OTCE1013 | SIMS Enhancement to determine the order type based on the Material Characteristic | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Oct-25 (100%) | 1. On Track |
-| OTCE0974 | Screen enhancement to populate the assignment priority at SO line item | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Sep-25 (100%) |  |
-| OTCE0659 | IF : Apply a Delivery Block Hold for Items with Multiple Schedule lines (MSL) which have price differences identified | Jan-25 (100%) | Mar-25 (100%) | Mar-25 (100%) | Mar-25 (100%) |  |
-| OTCE0651_IF | Enrich the delivery data transfer data from S/4 IF to GTS with the 'new' vs 'used indicator | Jul-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Dec-25 (100%) | 4. Completed |
-| OTCE0614_IF | Implement Standard Credit/Collection BADI | Mar-25 (100%) | Aug-25 (100%) | Apr-25 (100%) | Sep-25 (100%) |  |
-| OTCE0486 | Price Swamp: For Order Repricing | Sep-24 (100%) | Feb-25 (100%) | Feb-25 (100%) | Apr-25 (100%) |  |
-| OTCE0235 | Credit and Collections - Credit Check Step Configuration | Jul-24 (100%) | Jan-25 (100%) | Jan-25 (100%) | Jun-25 (100%) |  |
-| OTCE0234 | Implement mapping between customer’s risk class and credit check steps | Jul-24 (100%) | Dec-24 (100%) | Dec-24 (100%) | Feb-25 (100%) |  |
-
-*... and 57 more objects (see full Object Tracker)*
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-03-27*
+*Live data from Smartsheet Master RAID Log — extracted 2026-04-06*
 
 **Mapped sub-tower(s):** 4.10 OTC IF - Logistics Management Outbound, 4.11 OTC IF - Order Management, 4.12 OTC IF - TM, 4.3 OTC IF - Billing and Rebates, 4.6 OTC IF - Credit and Collections, 4.8 OTC IF - EWM, 4.9 OTC IF - GTS, 7.6 FTS IF - Logistics & Inventory Management
 
-**RAID Summary:** 14 open items (1 capability-specific, 13 tower-level), 175 closed
+**RAID Summary:** 16 open items (2 capability-specific, 14 tower-level), 177 closed
 
 | Severity | Capability | Tower-Wide | Total Open |
 |----------|----------:|-----------:|-----------:|
-| P1 - High | 0 | 1 | 1 |
-| P2 - Medium | 0 | 10 | 10 |
+| P1 - High | 0 | 2 | 2 |
+| P2 - Medium | 1 | 10 | 11 |
 | P3 - Low | 1 | 2 | 3 |
-| **Total** | **1** | **13** | **14** |
+| **Total** | **2** | **14** | **16** |
 
 **Capability-Specific RAID Items:**
 
 | RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
 |---------|------|----------|-------|--------|-------------|----------|
+| 03802 | Risk | P2 - Medium | Automated Bailed Value Calculation | In Progress | E2E | 2026-04-10 |
 | 03381 | Risk | P3 - Low | New requirement raised for enabling Israel as virtual site | Not Started | OTC IF | 2026-03-31 |
 
-**Other OTC-IF Tower RAID Items** (13 open):
+**Other OTC-IF Tower RAID Items** (14 open):
 
 | RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
 |---------|------|----------|-------|--------|-------------|----------|
-| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-03 |
-| 03592 | Risk | P2 - Medium | Lack of Defined IMO Owner for CBA Mask Billing and Materials... | In Progress | E2E | 2026-03-27 |
+| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-15 |
+| 03805 | Key Decision | P1 - High | BY - OTC IF : Replace virtual plant on SO with actual plant | Not Started | E2E | 2026-04-03 |
+| 03309 |  | P2 - Medium | Identify source system for Anafi material conversion | Not Started | OTC IF |  |
+| 03592 | Risk | P2 - Medium | Lack of Defined IMO Owner for CBA Mask Billing and Materials... | In Progress | E2E | 2026-11-02 |
 | 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
 | 03628 | Risk | P2 - Medium | R3 Returns Rework Process Causing Finance Double Counting in... | In Progress | E2E | 2026-03-27 |
-| 03634 | Risk | P2 - Medium | Gaps in mapping of ITC test cases to automated controls and ... | Not Started | OTC IF | 2026-03-27 |
+| 03642 | Issue | P2 - Medium | E2E Process with Anafi on order/invoice point.  Need IFS SC ... | In Progress | E2E | 2026-03-24 |
 | 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
 | 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
 | 03749 | Action | P2 - Medium | Logistics Data Intake and Creation Process Definition | In Progress | Test Management | 2026-03-27 |
 | 03756 | Risk | P2 - Medium | LE101-1001 Operation Support Ownership for SIMS/Tester Front... | In Progress | E2E | 2026-04-24 |
-| 03758 | Action | P2 - Medium | IMR Repair Order Creation Ownership | In Progress | PTP |  |
-| 03763 | Risk | P2 - Medium | IP to IF Regression Testing for LE Merge | Not Started | B-Apps | 2026-03-26 |
+| 03758 | Action | P2 - Medium | IMR Repair Order Creation Ownership | In Progress | PTP | 2026-04-24 |
 | 03315 | Risk | P3 - Low | BPMG – SCP L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-03-27 |
 | 03317 | Risk | P3 - Low | BPMG – E2E L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-05-29 |
 
@@ -538,3 +538,5 @@ Platform landscape inferred from integrated systems for O-020:
 ---
 *O-020 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: March 2026*
 
+
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>

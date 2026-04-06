@@ -1,5 +1,6 @@
 <div style="text-align:center; padding-top:20px;">
-  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMGFlZWY7c3RvcC1vcGFjaXR5OjEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjE1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4wMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDcpIiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgPC9wYXR0ZXJuPgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2JnKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNncmlkKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPgoKICA8IS0tIERlY29yYXRpdmUgY2lyY3VpdC9hcmNoaXRlY3R1cmUgbGluZXMgLS0+CiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+CiAgICA8cGF0aCBkPSJNIDAgMTAwIEwgMTIwIDEwMCBMIDE2MCAxNDAgTCAyODAgMTQwIi8+CiAgICA8cGF0aCBkPSJNIDAgMjYwIEwgODAgMjYwIEwgMTIwIDIyMCBMIDIwMCAyMjAgTCAyNDAgMjYwIEwgMzYwIDI2MCIvPgogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPgogICAgPHBhdGggZD0iTSA0NDAgMzQwIEwgNTYwIDM0MCBMIDYwMCAzMDAgTCA3MjAgMzAwIEwgNzYwIDM0MCBMIDgwMCAzNDAiLz4KICAgIDxwYXRoIGQ9Ik0gNjAwIDQwMCBMIDY4MCA0MDAgTCA3MjAgNDQwIi8+CiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+CiAgICA8cGF0aCBkPSJNIDIwMCA0MjAgTCAzMjAgNDIwIEwgMzYwIDM4MCBMIDQ4MCAzODAiLz4KICAgIDxwYXRoIGQ9Ik0gNjUwIDQ0MCBMIDc1MCA0NDAgTCA4MDAgNDgwIi8+CiAgPC9nPgoKICA8IS0tIERlY29yYXRpdmUgbm9kZXMgLS0+CiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+CiAgICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjI4MCIgY3k9IjE0MCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSIzNjAiIGN5PSIyNjAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjYwMCIgY3k9IjEwMCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI1NjAiIGN5PSIzNDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjgwIiBjeT0iMzYwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjMyMCIgY3k9IjQyMCIgcj0iNCIvPgogIDwvZz4KCiAgPCEtLSBUT0dBRiBCREFUIGJveGVzIC0tPgogIDxnIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI2MDAiPgogICAgPCEtLSBCIC0tPgogICAgPHJlY3QgeD0iMTUwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIyMTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QnVzaW5lc3M8L3RleHQ+CiAgICA8IS0tIEQgLS0+CiAgICA8cmVjdCB4PSIyOTAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjM1MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5EYXRhPC90ZXh0PgogICAgPCEtLSBBIC0tPgogICAgPHJlY3QgeD0iNDMwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSI0OTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QXBwbGljYXRpb248L3RleHQ+CiAgICA8IS0tIFQgLS0+CiAgICA8cmVjdCB4PSI1NzAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjYzMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5UZWNobm9sb2d5PC90ZXh0PgogIDwvZz4KCiAgPCEtLSBDb25uZWN0aW5nIGxpbmVzIGJldHdlZW4gQkRBVCBib3hlcyAtLT4KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+CiAgICA8bGluZSB4MT0iMjcwIiB5MT0iMTYwIiB4Mj0iMjkwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNDEwIiB5MT0iMTYwIiB4Mj0iNDMwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+CiAgPC9nPgoKICA8IS0tIE1haW4gdGl0bGUgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIyNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmZmZmYiIGxldHRlci1zcGFjaW5nPSIxIj4KICAgIElBTyBBcmNoaXRlY3R1cmUKICA8L3RleHQ+CiAgPHRleHQgeD0iNDAwIiB5PSIzMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC44KSIgbGV0dGVyLXNwYWNpbmc9IjIiPgogICAgVE9HQUYgQkRBVCDCtyBJQU8gUHJvZ3JhbSDCtyBJRE0gMi4wCiAgPC90ZXh0PgoKICA8IS0tIEJvdHRvbSBhY2NlbnQgYmFyIC0tPgogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgoKICA8IS0tIEludGVsIHRleHQgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPgogICAgSU5URUwgQ09ORklERU5USUFMCiAgPC90ZXh0Pgo8L3N2Zz4K" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">E2E-114 — R4 SIMS Harvest Process</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -12,20 +13,30 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-nav.toc { margin: 16px 0 24px 0; }
-nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
-nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
-nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
-nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
-nav.toc a { color: #0071c5; text-decoration: none; }
-nav.toc a:hover { text-decoration: underline; }
+.page-footer {
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  padding: 6px 12px;
+  background: #fff;
+}
+@media print {
+  .page-footer { display: none !important; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 </style>
 
 
@@ -193,7 +204,6 @@ This capability includes **4 business process(es)** modeled in BPMN 2.0, coverin
 
 ### 3.2 Business Process Diagrams
 
-
 #### BUSINESS ARCHITECTURE — 3.2.1 E2E-114A_SIMS_Harvest_Process — E2E-114A_SIMS_Harvest_Process
 
 **Swim Lanes**: External Partners/Supplier  · LE750 ODM Virtual
@@ -295,7 +305,6 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV2tv4jgU_StWRhUdCTpJSAjwYaWWRxepqFVpZ0ZaViuTOBDV2FnbaWE7_Pe9TmIeaRjtox_a3pN7z7kvm_BuhTwiVt-6uHhPWKL66L2hVmRNGn3UWGBJGk1UAF-xSPCCEtnQPjFnapb8lbs5XrrRbhob43VCtxqdkSUn6HnSRNcQSJtIYiZbkogkbjQbqUjWWGwHnHKhvT-RbmzHuVr56IaLiIiDg20HTuhDKE0YOcDtwAu8sY6TJOQsOiGN_bgbh42dTo7yt3CFhcrTzySZ4s23JFIrsGNMJQGflVrTO7wgVNeoRKaxMBOvphmJ1DoMGjZLcZiwJeCeDZDA7OUA-fZuh3YXF3O2F0V3j3OG4CekWMohiZFUAI9eFYoTSvufvMH12LebUgn-Qvqf3FEwbLvNUFfSh9Ltpm5u640ky5XqLziNStfWm66h76abptj0XbsptvC7okVYdFAadNyu290r3QTOwBkYpTiO_5cS9FU8YflSao3aY3c83Gs5fscf2B_5TJlDL7h2qn0i4jUJyRHpeDxujw6tGnV8xz5PejNud-xBhXSJFXnD2wNhb-DtCcd-MHaCs4SFXjXLbPEgeGgI2yN_7O8JgxtnfO2eJfSuHa9bZgg8S4HTFaKYkT_s3-bWaKOIYJiiB9gXRoT8MsvSlCZEoLn1exGlf5ijvR9JeIV-xbCyUpEoj5EIK3Q_nCITtw-DtahTdYDnbhT4dh71NREqA_mKmHYaCAJ9RBO24BmL0JDQ5JWIbcXTBc8HLhW65TySCDIkSarQMxOQo0hCnedM8fAFXZZanysM7YPWDMMFhO71zVBx8sEpxv0Yt_QOIpPblwGaPd23HPSWqFXegiv0AGUqhCW6G33__r3C073cE6UUVmQCl2KSS-c5PsFRlzEI5DkgPXQiJXB8PiJxvQOJVDw9msiEvRKmuNgWjXgFqBzPHQ-xSjircunCbtBsMp0ZmiPVY8fe-7sRxULwN9nCVKEUC0wpobfFys-t3e6n03fz6UNf0OXoannVQgOYHW49JiH-XF0CcH1OKcdRbYF5x4ckgkj9YDqdDNHlty8cKocGEhaSyqDdw5zvM_WzpdIb8TRFo_WCRBGJTh96euGS8AUuY4SZPgTF_89pBNSVrvmn2zmRMiOnHh3wuCVw8sw-QYUcbqRTr-CQ-0Mm4M6XpG5NuzpxkSyXsDu3TzM0WJHw5dSlp5kwDTOqyZ7wppqy49Wu-l72kfx5hS4fSZqJlIMN2xJloaqeqs65Ra-bZTHmymo6wTmK41xQzAU6ZJMW2VSpepUTk5-zlAuVnwk0xQwv4SUEzu1oQ8JMkWoyrv0PzlxRxsdYpxI7YXDphnydYrY180ZmCT5Eu9Xc9cxQiGlWDPFDQLsSoDch1JuAtCYlNSGdf3e4i6DgvwR1_-M1AhuFWq1f4K-x_cJ2S9stzY6xS_92xfZKu13S9UrbK2y_NA17YMKDAuhUbMepArZJ0CkpjILbKz1Myk6paTRKBrdrAroFULUNoWNr-8fc8m7cufXjSMopq3NNOSaXfXIllWMcyu64-_aafpp-OaY-r5KNYzpcluea8srnbvvobSYv2rzGneL-Gbyzf5k9xYMzePcM3itfVE9Q165FnVrUrUXbtahXi_r1ucFulu-Mp3BQD3fr4Z6Braa1JmKNk8jqv1v51yv4ChaRGGdUWbumhTPFZ1sWWv38a4iV5Z9dwwTDJ_W6AHd_AxsoOFM=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-114 — R4 SIMS Harvest Process</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -385,7 +394,6 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4jgU_itWqoqOBNPYJITmYSUayGylIlBhuw_b1cokDlh1nKzjAB3Ef1-bXCCZoh3t8oB0vnznfOfi28EIkpAYrnF7e6CcShccOnJDYtJxQWeFM9LpggJ4xYLiFSNZR3OihMsF_X6iQSvda5rGfBxT9qHRBVknBPz21AUj5ci6IMM862VE0KjT7aSCxlh8eAlLhGbfkGFkRie18tNjIkIizgTTdGBgK1dGOTnDfcdyLF_7ZSRIeNgIGtnRMAo6R50cS3bBBgt5Sj_PyBTvf6eh3Cg7wiwjirORMXvGK8J0jVLkGgtysa2aQTOtw1XDFikOKF8r3DIVJDB_P0O2eTyC4-3tG69FwXL8xoH6BQxn2ZhEIJMKnmwliChj7o3ljXzb7GZSJO_EvUETZ9xH3UBX4qrSza5ubm9H6Hoj3VXCwpLa2-kaXJTuu2LvIrMrPtR_S4vw8KzkDdAQDWulRwd60KuUoij6X0qqr2KJs_dSa9L3kT-utaA9sD3zx3hVmWPLGcF2n4jY0oBcBPV9vz85t2oysKF5Peij3x-YXivoGkuywx_ngA-eVQf0bceHztWAhV47y3w1F0lQBexPbN-uAzqP0B-hqwGtEbSGZYYqzlrgdAMY5uQv8483Y7KXRHDMwFytF05Edr_I05RRIsCb8WfhpX8cKvILCQjdEjCfASzBbDwFFbnJRYo7JyJKRAxmepuBUfDOkx0j4VptdS7vvSSOqay91Ar6LEGt-TxxbPOk9UqFzFWmTa3-D1qvmNEQS5rwJtNSzLE6H1QB0yl4GgN9_oQg4SDIM5nEyjXVe4nn8apdkX2h4gkSUgm8DQnewd2WYuAvvOmXpsNAOSwFXa9V1G_LRcFuUhxF8TALcqaWC5gLqvd3kzK8kJ1irqvXPAJmWyIEDUmT_nBBHy3nVYp1nc8Eh0DSmLSShXoleAmPaNXE1nc9CFW2znORrxQTzHOhTp6MgBfy91dw90LSXKRJputIwjyQbQV0EWH50kOnlfMVzNWcJcAZKMbsC3U4gFkUqRpbAfrXUyjG3pvPUMvH-vchQLsxhSXek6zF0KO8WL_3VaOa-i0nPdxWgsEp-7BFHN4pZoTdCPdSps6MJ3VLUp3KtXl_ufTWE_fA4mm6AL9idZNkUg8gIFmrCKQnPP4Zoh716GeI6HCoEtd3fG-lbqlgA8g-YHmmNtm34hB8M47HS7f-2Q0LkeyyHmZSbzzMGGFXnKz_4mR_6kT5tfzqQ4j3Qa_3izowStMqTLs07cIclOagMBEqbTgsgGFpI1TYTmkPW3ynsB9K86EwoVmFM0t-v4pXZgdhG6gzKAFUFQDLFGAlgsqSYM0oPdrfq5pRSaiSgKUN66xKu-oKrNpS11G2DVUhodUCUMmAVadg2ZrLO_vU3-px08QfPseReQWHV3BU3d9NuP85bH0O2xVsdA11s8SYhoZ7ME5PXfUcDkmEcyaNY9fAuUwWHzww3NOT0MhTdXmRMcXqIowL8PgP_G9utQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-114 — R4 SIMS Harvest Process</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -461,7 +469,6 @@ flowchart LR
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm1vozgQ_isWVZVdKbkFAiHlw0nNC3uRGjVq2r0Pl9PJAZNYNTayTdtsNv_9bDB5YclJd8eHiHkyzzOe8Xjw3opZgqzQur3dY4plCPYduUUZ6oSgs4YCdbqgAr5BjuGaINHRPimjcom_l26Ol39oN41FMMNkp9El2jAEXmZdcK-IpAsEpKInEMdpp9vJOc4g340ZYVx736BhaqdlNPPXiPEE8ZODbQdO7CsqwRSd4H7gBV6keQLFjCYXoqmfDtO4c9CLI-w93kIuy-UXAs3hx-84kVtlp5AIpHy2MiMPcI2IzlHyQmNxwd_qYmCh41BVsGUOY0w3CvdsBXFIX0-Qbx8O4HB7u6LHoODhaUWBemIChZigFAip4OmbBCkmJLzxxveRb3eF5OwVhTfuNJj03W6sMwlV6nZXF7f3jvBmK8M1I4lx7b3rHEI3_-jyj9C1u3ynfhuxEE1OkcYDd-gOj5FGgTN2xnWkNE3_VyRVV_4MxauJNe1HbjQ5xnL8gT-2f9ar05x4wb3TrBPibzhGZ6JRFPWnp1JNB75jXxcdRf2BPW6IbqBE73B3Erwbe0fByA8iJ7gqWMVrrrJYLziLa8H-1I_8o2AwcqJ796qgd-94Q7NCpbPhMN8CAin6y_5jZU0_JOIUErBQ_UIRF1-WRZ4TrN5W1p8VSz90oJyfUIzwGwJjluWMIioFgBI8TuagJq0K17bXl8ygDIPiQiIwf1qAp4Jq2rJYjxn9otlTmrQRh4r4kieqmOAJQdKTONOxqSiyXGJG2zhO_5NipTBMYS8nag_qiDM1fbCSSpT_54qg-ratLI4SeJj6gQ0irnoVPKap6hBwGedOOY050mt7LOSaFTQBE0RUdfiusSJd5meVZLZGSYJaM3V0zAWOX9UJB1BJLWD1XqUvWjmu5jAhwVfGEgFmQhSo4TI4FUNIloNnNUlEzriEun5gDincqNmrkqw2SBf1WJ5K4m6_ryUg5-xd9CCRIIccEoLI16rTV9bhcEZy7X9HurIRbrkRgW-XLfYNc1moRm2keNqH5fNjzwVVqcqG_AUslI4EUIBK5nw_20rqnsRm9J_2tK9Lj3jKeGaqXx6NXIIXypE6iThWnQaWksWv4JNZ-WfQFtP7SarcSMBSEJ-O2VHDpLd4dNvE_Lolzk4JmLO3ao99r9_aSF6jS47H-0LGtCIwQyBpNop_TcVklADJLmdFQ0DPiRFYzuZL8BtUX0WVhh56SDQmkTP8j91F70Cv96vuaWM7NWA3AacGHAO4NeBWQP1pUi8VMGjYNcH4O8NaYFgBfWMPtPljZXkjd2X9OHPsV36eMYPKPMpUZp2JEfWN6ZugNdkzdv2_Y8SD2jaLduosHBPu_HNZ0up7xSXumTvAJeq3ooNWNLiiPKw_ppfwXSusam9gq2tliGcQJ1a4t8oLprqEJiiFBZHWoWvBQrLljsZWWF7ErKLs7gmGav5kFXj4GxhiUFw=" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-114 — R4 SIMS Harvest Process</span></div>
@@ -574,8 +581,6 @@ applicable for ERS"| n29
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21v4jgQ_itWVhWtBNu8EKB8uBXQ0EVqlwq6256W08kkDkRr4shxWnpd_vuNEztAGk53e_1Q4SeeZ8Yzz0ycN8NnATH6xtnZWxRHoo_eGmJNNqTRR40lTkmjiQrgG-YRXlKSNuSekMViHv2Vb7PayVZuk9gYbyL6KtE5WTGCvk6aaACGtIlSHKetlPAobDQbCY82mL-OGGVc7v5AeqEZ5t7UoyHjAeH7DabZtXwXTGkUkz3sdNvd9ljapcRncXBEGrphL_QbOxkcZS_-GnORh5-l5A5vH6NArGEdYpoS2LMWG3qLl4TKMwqeSczP-LNORpRKPzEkbJ5gP4pXgLdNgDiOf-wh19zt0O7sbBGXTtHtbBEj-PMpTtNrEqJUAOw9CxRGlPY_tEeDsWs2U8HZD9L_YHvda8du-vIkfTi62ZTJbb2QaLUW_SWjgdraepFn6NvJtsm3fdts8lf4X_FF4mDvadSxe3av9DTsWiNrpD2FYfi_PEFe-QNOfyhfnjO2x9elL8vtuCPzPZ8-5nW7O7CqeSL8OfLJAel4PHa8faq8jmuZp0mHY6djjiqkKyzIC37dE16N2iXh2O2Ore5JwsJfNcpsec-Zrwkdzx27JWF3aI0H9knC9sBq91SEwLPiOFkjimPyp_l9YQxZlosaDZIkXRh_FPvkX2x14fmUr3AMjYgeQIRpwrhoTWJBKJqxTIAe0U0WBQSdT2Y3F4vMNs1lhaQHJDOCgzkLBfqGaRRgEbH40tv6JJG_0GccB1RSyXkQIEB4BnMASiOypMJ2lbP5JHomaJ4lCY0IR5P4mUENL5FnTxMSXz6SJZw0EuTY2DYPjO9wnGGqTVP0sOYsW63RdDSrWF29vS2MEPdD3JKzrLWERPhrRLY-zVKguimKvTB2uwMzx6w3G9pDxLh082lvAQ1UVx8L4vW2gvAYIr2Hfo4JTy_1sSvVasPme8JDxjdohDmXiZkTSvw8x88RRnV1W7NUQM5hpFG8ZDwvDbqHKmNaV033wMkNY0GK7iP_B8oSdK58XqDCDk3leEXpOko2JBbHNB2gmcMTJBi69Z6enpD3cfURooCp1ZpFPj7eLnU4w1FKdLlQyNkGTa_vSg1UaiYdDNF8cjcHdcGATQWS_UPSfdJO5NwGy1vP7Zo5_beIC5DJMXvvXRJyUSVCHR2vcBSDx3m29GU2p-hc8VwcE10dEE3ipexEdE0oaAr68SUSa_SZwcRDg4g_wjQZQvOjL9lmCXk9_zx4HNY3nFT5wx3yYF8QkKDy1Drw6T1jmmFZf32AORGCElkwdO7N5hdSQWFLOgbJVJjsA6ZpJirhjzjJxVQxcg6MpHSkEqH9Qd3F768JjAdSHUS5tkEcKt2TNM3IqaRaUqM3BFoFiNDkclSKphAbArWdS7m1DvRW5ZD6UYJ5N2YqUmuff9d9ngqWvNuO7vMWA6uLQzO3YlaO16IFYTzhVVEIb0v8TKXyiKL7S4PJ7tWb6XAHvpzLoIlP1Ylm7Q2h19lL2sJUoARzTCmhJ8ag_d-MTnSlk3flky4dUrVDdbU72Z1YqGGjG_R-2rIq1fzXdXf-oXcrnFal1MdR1cvD_jVVORUzHVmg2zIpQj60LFMet1Gr9Zt876u11S0AV62viqWj7lDwowB6lbVlVoCOWveKpa0d2MqBZVUBW4fgKKCtARWko3fYKipLR2FpLxqwc-DnwvhdDpafsr2rT76w_IGOy7EVp1sBHO2jo3zosGwFlGGaaoNmsCzlymnJWb7BAnouZvDOiLEsrS-_fRDUBsHczYOxr7Spjqb0rrjLOpiKO7-8SFOz-gSuHcXRS1KVttKLbVYBtS5L4SpArVWpHO3L1Qcc2vDexHAZQ_I2lrvVnCpLZeCK0Tm47spzqS-KY9SuRZ1atF2LurVop_xWOsa7-hp_DPfq4ataGPJfC1v1sK1ho2lsCN_gKDD6b0b-fQzf0AEJcUaFsWsaOBNs_hr7Rj__jjSy_L15HWEYmpsC3P0N3RXB5g==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-
-
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-114 — R4 SIMS Harvest Process</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -620,7 +625,6 @@ applicable for ERS"| n29
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
 
-
 #### 4.2.1 Current-State — Current-State Data Flows
 
 ```mermaid
@@ -660,11 +664,8 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtumzAUhl_F8hRpk5KOJCVZkVrJXLJWolVX0m1SmZADJrHqYARmTZrm3WcDoV0Wuqq2hMy5_Mf-DjIbGPKIQAN2OhuaUGGAjQ_FgiyJDw3gwxnO5aorVzkJi4yKtUt-E1Y5Gec7b5nyHWcUzxjJlVvqxDwRHn2spfp6uqqClX2Cl5StK49H5pyA24suQFJAim_LKMYfwgXORK1W5OQSr37QSCyUJcYsJypuIZbMxTPCyrIiK0prIo_lpTikyVyZh7oyZji5f2E81rdbsO10_KSpBaamnwA5Qobz3CYxwGlq8hWIKWPGB1O3J5NJNxcZvyfGB00bj81R_dp7UFszBumqG3LGM-Ue2vq-XjSz1qyWQ7o9QuNGbuCM7eGgVa5v6s5A25MjnD1vbzIxdVNv9CxLk6NVbzRSbj-pFPNiNs9wugDOwOn3jy0bWW5AgnmAHouMBN43986HkuGvKlyNiGYkFJQnDTU1mnxUpv90bj2ZSY7mR0CtpYJhGBXVA0n2Xs2PPvSL6Mswks8oPPaLmGjy1EqtDAIyyIeflGZJ9tV9gN5R76y1VpVKkqgGItaMtNPYIUdqNsgdTc2_kffld_8_yB66Ds7RFXof40vHC4aatsMsX4F8fRPppvAroGUMUDFv4lzv5SDqXbE3kd4Fvwt0S2Fwenr2VFOyS7LgM0DXF_I5oUxeVE-vfB17LXTJXJ7g7gW2MNKAjaYIoBvr_GLqWNPbGwe4zlfnym5pqnvzbHUD1X6UpoyGWHkPN9AN7JZm2Vjg6sI-1Cc3cKS8k0Q9HvdcGpNKvrpADnakOuGOv65mw__k5OQf-LALlyRbYhpBY1P9EuSfJSIxLpiQlzrEheDeOgmhUV7TsEgjLIhNsSS6rIzbPwtiAWY=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-
-
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-114 — R4 SIMS Harvest Process</span></div>
 <div style="page-break-before: always;"></div>
-
 
 
 #### 4.2.2 Future-State — Future-State Data Flows
@@ -704,8 +705,6 @@ flowchart TB
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtumzAUhl_F8hRpk5KOJCVZkVrJBFgr0aor6TapTMgBk1h1MAKzJk3z7rOB0C4LXVVbQuZc_mN_B5kNDHlEoAE7nQ1NqDDAxodiQZbEhwbw4QznctWVq5yERUbF2iW_CaucjPOdt0z5jjOKZ4zkyi11Yp4Ijz7WUn09XVXByu7gJWXryuOROSfg9qILkBSQ4tsyivGHcIEzUasVObnEqx80EgtliTHLiYpbiCVz8YywsqzIitKayGN5KQ5pMlfmoa6MGU7uXxiP9e0WbDsdP2lqganpJ0COkOE8t0gMcJqafAViypjxwdQtx3G6ucj4PTE-aNp4bI7q196D2poxSFfdkDOeKffQ0vf1otlkzWo5pFsjNG7kBvbYGg5a5fqmbg-0PTnC2fP2HMfUTb3Rm0w0OVr1RiPl9pNKMS9m8wynC2AP7H7_2LHQxA1IMA_QY5GRwPvm3vlQMvxVhasR0YyEgvKkoaZGk4_K9J_2rSczydH8CKi1VDAMo6J6IMnaq_nRh34RfRlG8hmFx34RE02eWqmVQUAG-fCT0izJvroP0DvqnbXWqlJJEtVAxJqRdho75EjNBrmtqfk38r787v8H2UPXwTm6Qu9jfGl7wVDTdpjlK5CvbyLdFH4FtIwBKuZNnOu9HES9K_Ym0rvgd4FuKQxOT8-eakpWSRZ8Buj6Qj4dyuRF9fTK17HXQpfM5QnuXmALIw1YaIoAupmcX0ztyfT2xgau_dW-slqa6t48W91AtR-lKaMhVt7DDXQDq6VZFha4urAP9ckNbClvJ1GPxz2XxqSSry6Qgx2pTrjjr6vZ8D85OfkHPuzCJcmWmEbQ2FS_BPlniUiMCybkpQ5xIbi3TkJolNc0LNIIC2JRLIkuK-P2D4gYAZA=" title="View full diagram">&#128065; View Diagram</a></div>
-
-
 
 
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-114 — R4 SIMS Harvest Process</span></div>
@@ -783,7 +782,6 @@ flowchart TB
     E2E114C_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E114CMW_e_g_Azure_Service_Bus
     E2E114CMW_e_g_Azure_Service_Bus --> E2E114C_e_g_XEUS
 
-
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -798,7 +796,6 @@ flowchart TB
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdln1v2jwQwL-KlYr_YA1toW1UIQUSJqbQVsu2bnryKDLxAdZMEsXOWtbx3XeOU15b0ecxEiT38rvL5Xzm2UoyBpZjNRrPPOXKIc-RpeawgMhySGRNqMSrJl5JSMqCq2UAv0AYpciyF23l8o0WnE4ESK1GzjRLVch_16h2N38yxlo-pAsulkYTwiwD8nXUJC4CRJNImsqWhIJPI2tVeYjsMZnTQtXkUsKYPj1wpuZaMqVCgrabq4UI6ARElYIqykqa4iOGOU14OtPiC1sLC5r-3BJ27NWKrBqNKF3HIl_6UUpwNRqk1cLckjkfUwUtnsqcF8CIVEsBJBFUSpBoY8yrew-mZFJKnoKUpFpTLoRzMsTV7zSlKrKf4Jz0r666dr--bT3qB3LO8qdmkomscE5s295j0jwnm2WY_Y6mrpm2fXnZ7_4HJqOKHjK9qyPM9g7zRceoxOIVdIk1JZ29SAvOmIBHWsB2Rbyuu6mIf9kdbmjvyB4ycVARXeOtKg8Gtn2MaaiynMwKms-JG_wTWVHJrs4ZfrPzDnHv74PRwP0yurslgfvD_xxZ_xonvRg2RKJ4lpLg80a6xvlnfrt9MQhuY4hncT8rU0aLZezmucQ4JCrPJu0JgQ-zD-RFSbRyJ8bbcfSqQ1QBvvtfw-38E-gauFYg03EcbKSNP6TsaNJjP4zDpVSwOEgZVaRW_c-ENfzctl_NWdNRdyztGjd-qIDu77KAOITiF08g7pdy53W2Lw26siK1FUErE2TTpgd4z6_wg0yq2Bc49FLV2046uTBkbUBqg5tJcdq74T2jCL-RUzLysgR_PoV3tzenvGfC6n1oAlYPZi5fqRJOmt6fyKpwXlVeRLn3I_wecoHj9s-xYuyg3zLSYQ66SqdVb5Vq-PWDrcE2tI8Ntm1Xd-1qv2d-HWzRAGZYp52WYTYJ_I_-rfeOvRnEuKP3Gw73nOAJ1cav9FsQjx_2-2i86ZU3eyeIPX-_Szw9dP1U4ZG6__aNi39nRtBZl12gIWtl01bAp3UYnHpbrbIpqinKS2E7-rMu7PX19cEEt5rWAooF5cxyns0xjv8GGExpKRQevhYtVRYu08RyquPUKnNMFDxO8SUsjHD1FzYRjH0=" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-114 — R4 SIMS Harvest Process</span></div>
@@ -854,7 +851,6 @@ flowchart TB
     E2E114F_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E114FMW_e_g_Azure_Service_Bus
     E2E114FMW_e_g_Azure_Service_Bus --> E2E114F_e_g_XEUS
 
-
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -869,7 +865,6 @@ flowchart TB
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlm1vozgQgP-KRZVvyZa0TdqiKhIUcsqJtNWyu73TcUIOniTWOoCw2TbbzX_fMaZ5bZXeOVIC8_LMMIzHebHSnIHlWK3WC8-4cshLbKk5LCC2HBJbEyrxqo1XEtKq5GoZwg8QRiny_FVbu3yjJacTAVKrkTPNMxXxnw2q2y-ejbGWD-mCi6XRRDDLgXwdtYmLANEmkmayI6Hk09ha1R4if0rntFQNuZIwps-PnKm5lkypkKDt5mohQjoBUaegyqqWZviIUUFTns20-MLWwpJm37eEPXu1IqtWK87WscgXL84IrlaLdDqYWzrnY6qgwzNZ8BIYkWopgKSCSgkSbYx5fe_DlEwqyTOQktRryoVwToa4vF5bqjL_Ds6Jd3XVt73mtvOkH8g5K57baS7y0jmxbXuPSYuCbJZhej1NXTNt-_LS6_8HJqOKHjL9qyPM7g7zVceoxOKVdIk1Jb29SAvOmIAnWsJ2Rfy-u6lIcNkfbmgfyB5ycVARXeOtKt_e2vYxpqHKajIraTEnbvhPbMUVuzpn-M3Oe8R9eAhHt-6X0f0dCd2_g8-x9a9x0othQ6SK5xkJP2-ka1xwFnS7F8PwLoFklnh5lTFaLhO3KCTGIXF1NulOCHyafSKvSqKVOzHej6NXE6IO8FfwNdrOP4W-gWsFMh3HwUba-EPGjiY9DqIkWkoFi4OUUUUa1f9MWMPPbfvNnDUddcfSbnDjxxro_qxKSCIof_AUEq-SO6-ze2nQtRVprAhamSCbNj3A-0GNv82lSgKBQy9Tg-2k0wtD1gakMbiZlKeDGz4wiugbOSUjP0_x58_o_u7mlA9MWL0PTcD6wczlG1XCSTP4FVs1zq_Liyj3YYTfQy5w3P46Vowd9HtGOsxBV-m0mq1SDz8v3BpsQ_vYYNt2ddeu9kfm18EWDWGGddppGWaTMPgjuPM_sDfDBHf0fsPhnhM8pdr4jX4Lk_Hjfh-NN73ybu-EiR_sd4mvh26QKTxS99--cQnuzQg667MLNGSdfNoJ-bQJg1Nvq1U2RTVFeS1sT3_Whb2-vj6Y4FbbWkC5oJxZzos5xvHfAIMprYTCw9eilcqjZZZaTn2cWlWBiYLPKb6EhRGufgOZhoyb" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-114 — R4 SIMS Harvest Process</span></div>
@@ -937,13 +932,11 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 <div style="page-break-before: always;"></div>
 
 
-
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
-
 
 #### 6.1.1 Current-State — Current-State Platform Architecture
 
@@ -972,14 +965,11 @@ flowchart TB
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuax07TjNDB7Zjs0I6wrxug3kYxT5ORGXLyPKaNM27T7LdpC2kUDZdCOn_jz4dHSHtcMozwA4eDHa0pNJBuxjLNRQQYwfFeElqNRqqUQ1pI6jczuEPsM5knD-57ZLvRFCyZFBrW3FyXsqIPvSo0bjadMFaD0lB2bZzIlhxQLfXQ-QqgILv2yjG79M1EbKnNTXckM0Pmsm1VnLCatBxa1mwOVkCa7eVomnVUh0rqkhKy5WWx4YWBSnvnom2sd-j_WAQl4e90DcvLpFqKSN1PYMckary-AbllDHnzLNnYRgOayn4HThnhnF56U366Yd7nZpjVpthyhkX2rZm9mtexYg8Av1pMPE_HoDWdBpY_kugdQSOPDswjVdA4OzIC0PP9uwDz_cN1U4mOJloOy47Yt0sV4JUaxSYwWg09hfzRQLJKnEfGgHJgpDoV4zjxpwYo7jJwVBbn6_OUWsjbcf4d0fSLaMCUkl5ieZfj-oB7bbon8GthrYcPVYEx3G6kneLoMz67OSWwenU_qmeb58_SsbJZ_eLm5iGabUlyKZWpvqM2M8LEV2MkY5DOu79tbgJosQyjKdyqClS0_dW5EWy_6Eob-Kvrj499unO2iOiC-QurlUfUqae_ePp-8JDXIAoCM2ws-u-D_ULZZCThkn1AWDSSB5tyxQ77ZPGTZURCTNK1B0Vnbj_C-8GeU4=" title="View full diagram">&#128065; View Diagram</a></div>
 
-
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
-
 
 
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-114 — R4 SIMS Harvest Process</span></div>
 <div style="page-break-before: always;"></div>
-
 
 
 #### 6.1.2 Future-State — Future-State Platform Architecture
@@ -1009,9 +999,7 @@ flowchart TB
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuaxU7TjNDB3Zis0I6wrxug3kYxT5ORGXJ2PKaNM27T7LTpC2kUDZdCOn_jz4dHSFtcSozwC7u9bZMMOWibYzVCgqIsYtivKC1HvX1qIa0qZjazOAP8M7kUj657ZLvtGJ0waE2tubkUqiIPexRg2G57oKNHtKC8U3nRLCUgG6v-8jTAA3ftVFc3qcrWqk9ranhhq5_sEytjJJTXoOJW6mCz-gCeLutqppWFfpYUUlTJpZGHhIjVlTcPRMdstuhXa8Xi8Ne6JsfC6RbymldTyFHtCx9uUY549w9851pGIb9WlXyDtwzQi4v_dF--uHepOZa5bqfSi4rY9tT5zWv5FQdgZNxMJp8PADt8TiwJy-B9hE48J3AIq-AIPmRF4a-4zsH3mRCdDuZ4Ghk7Fh0xLpZLCtarlBgBYPBMJzP5gkky8R7aCpI5pRGv2IcN9aIDOImB6K3Pl-eo9ZGxo7x745kWsYqSBWTAs2-HtUD2mvRP4NbA205ZqwJrut2Je8Wgcj22akNh9Op_VM93z5_lAyTz94XL7GIZbclyMZ2pvuMOs8LEV0MkYlDJu79tbgJosQm5Kkceor09L0VeZHsfyjKm_irq0-P-3Sn7RHRBfLm17oPGdfP_vH0feE-LqAqKMuwu-2-D_0LZZDThiv9AWDaKBltRIrd9knjpsyogimj-o6KTtz9BRI6eWY=" title="View full diagram">&#128065; View Diagram</a></div>
 
-
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
-
 
 #### Platform Inventory
 
@@ -1027,13 +1015,10 @@ flowchart TB
 
 ### 6.2 SAP Development Object Status
 
-| Metric | DEV | QAS | PRD |
-|--------|-----|-----|-----|
-| Transport Requests | — | — | — |
-| Custom Code Objects | — | — | — |
-| CDS Views | — | — | — |
-| Fiori Apps | — | — | — |
-| BAdIs / Enhancements | — | — | — |
+**RICEFW Active Items** — E2E Tower (0 of 0 objects)
+*Data source: Smartsheet Object Tracker (cached 2026-04-06)*
+
+**All 0 objects are completed** — no active items requiring attention.
 
 ### 6.3 NFRs & Design Principles
 
@@ -1071,36 +1056,42 @@ flowchart TB
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
-Project delivery milestones for E2E-114 RICEFW objects:
-
-| Phase | Planned Start | Planned End | Status | Notes |
-|-------|---------------|-------------|--------|-------|
-| Functional Specification (FS) | Per project plan | Per project plan | In Progress | Tower-level FS schedule |
-| Technical Design (TDD) | FS + 2 weeks | FS + 6 weeks | Planned | Dependent on FS completion |
-| Build & Unit Test (TUT) | TDD + 1 week | TDD + 8 weeks | Planned | Includes S/4 + Middleware |
-| Functional User Test (FUT) | Build + 1 week | Build + 4 weeks | Planned | Tower-led validation |
-| Go-Live (R1 – R5) | Per release plan | Per release plan | Planned | End-to-End Integrated Processes release |
-
-> *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
-
-
-<div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-114 — R4 SIMS Harvest Process</span></div>
-<div style="page-break-before: always;"></div>
-
+*No timeline data available for this capability.*
 
 ### 7.2 RAID Log
 
-Standard RAID items for E2E-114 (End-to-End Integrated Processes):
+*Live data from Smartsheet Master RAID Log — extracted 2026-04-06*
 
-| # | Category | Description | Status | Owner | Priority |
-|---|----------|-------------|--------|-------|----------|
-| 1 | Risk | Data migration completeness — validate all legacy R4 SIMS Harvest Process data maps to S/4 target structures | Open | Tower Architect | High |
-| 2 | Risk | Integration testing coverage — ensure all 2 integrated systems are validated end-to-end | Open | Integration Lead | High |
-| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
-| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
-| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
+**RAID Summary:** 17 open items (0 capability-specific, 17 tower-level), 57 closed
 
-> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
+| Severity | Capability | Tower-Wide | Total Open |
+|----------|----------:|-----------:|-----------:|
+| P1 - High | 0 | 4 | 4 |
+| P2 - Medium | 0 | 10 | 10 |
+| P3 - Low | 0 | 3 | 3 |
+| **Total** | **0** | **17** | **17** |
+
+**Other E2E Tower RAID Items** (17 open):
+
+| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
+|---------|------|----------|-------|--------|-------------|----------|
+| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-15 |
+| 03681 | Risk | P1 - High | ITC Execution: Planning run availability - Prerequisite for ... | In Progress | E2E | 2026-04-10 |
+| 03762 | Risk | P1 - High | FTS-IF (esp SCP) related test cases/sequencing are not accur... | In Progress | FTS IF | 2026-04-10 |
+| 03805 | Key Decision | P1 - High | BY - OTC IF : Replace virtual plant on SO with actual plant | Not Started | E2E | 2026-04-03 |
+| 01733 | Risk | P2 - Medium | Tariffs impacts Item/BOM design which is impacting ERP/SCP (... | In Progress | E2E | 2026-03-06 |
+| 03592 | Risk | P2 - Medium | Lack of Defined IMO Owner for CBA Mask Billing and Materials... | In Progress | E2E | 2026-11-02 |
+| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
+| 03628 | Risk | P2 - Medium | R3 Returns Rework Process Causing Finance Double Counting in... | In Progress | E2E | 2026-03-27 |
+| 03642 | Issue | P2 - Medium | E2E Process with Anafi on order/invoice point.  Need IFS SC ... | In Progress | E2E | 2026-03-24 |
+| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
+| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
+| 03756 | Risk | P2 - Medium | LE101-1001 Operation Support Ownership for SIMS/Tester Front... | In Progress | E2E | 2026-04-24 |
+| 03802 | Risk | P2 - Medium | Automated Bailed Value Calculation | In Progress | E2E | 2026-04-10 |
+| 03808 | Action | P2 - Medium | Shipping Transformation test strategy is skipping ITC1 | To Be Reviewed | FTS IF | 2026-04-03 |
+| 03216 | Action | P3 - Low | Mask Expense vs. Invoice | In Progress | E2E | 2026-03-06 |
+| 03315 | Risk | P3 - Low | BPMG – SCP L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-03-27 |
+| 03769 | Action | P3 - Low | Need a Labs SPOC owner to define IP Labs enterprise and mate... | In Progress | E2E | 2026-04-17 |
 
 ### 7.3 Recommendations & Next Steps
 
@@ -1115,4 +1106,6 @@ Standard RAID items for E2E-114 (End-to-End Integrated Processes):
 ---
 *E2E-114 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: April 2026*
 
-<div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-114 — R4 SIMS Harvest Process</span></div>
+
+
+<div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-114 — R4 SIMS Harvest Process</span></div>

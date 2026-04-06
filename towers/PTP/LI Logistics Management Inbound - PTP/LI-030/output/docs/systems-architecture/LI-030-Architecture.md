@@ -1,5 +1,6 @@
 <div style="text-align:center; padding-top:20px;">
-  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMGFlZWY7c3RvcC1vcGFjaXR5OjEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjE1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4wMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDcpIiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgPC9wYXR0ZXJuPgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2JnKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNncmlkKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPgoKICA8IS0tIERlY29yYXRpdmUgY2lyY3VpdC9hcmNoaXRlY3R1cmUgbGluZXMgLS0+CiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+CiAgICA8cGF0aCBkPSJNIDAgMTAwIEwgMTIwIDEwMCBMIDE2MCAxNDAgTCAyODAgMTQwIi8+CiAgICA8cGF0aCBkPSJNIDAgMjYwIEwgODAgMjYwIEwgMTIwIDIyMCBMIDIwMCAyMjAgTCAyNDAgMjYwIEwgMzYwIDI2MCIvPgogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPgogICAgPHBhdGggZD0iTSA0NDAgMzQwIEwgNTYwIDM0MCBMIDYwMCAzMDAgTCA3MjAgMzAwIEwgNzYwIDM0MCBMIDgwMCAzNDAiLz4KICAgIDxwYXRoIGQ9Ik0gNjAwIDQwMCBMIDY4MCA0MDAgTCA3MjAgNDQwIi8+CiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+CiAgICA8cGF0aCBkPSJNIDIwMCA0MjAgTCAzMjAgNDIwIEwgMzYwIDM4MCBMIDQ4MCAzODAiLz4KICAgIDxwYXRoIGQ9Ik0gNjUwIDQ0MCBMIDc1MCA0NDAgTCA4MDAgNDgwIi8+CiAgPC9nPgoKICA8IS0tIERlY29yYXRpdmUgbm9kZXMgLS0+CiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+CiAgICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjI4MCIgY3k9IjE0MCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSIzNjAiIGN5PSIyNjAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjYwMCIgY3k9IjEwMCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI1NjAiIGN5PSIzNDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjgwIiBjeT0iMzYwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjMyMCIgY3k9IjQyMCIgcj0iNCIvPgogIDwvZz4KCiAgPCEtLSBUT0dBRiBCREFUIGJveGVzIC0tPgogIDxnIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI2MDAiPgogICAgPCEtLSBCIC0tPgogICAgPHJlY3QgeD0iMTUwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIyMTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QnVzaW5lc3M8L3RleHQ+CiAgICA8IS0tIEQgLS0+CiAgICA8cmVjdCB4PSIyOTAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjM1MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5EYXRhPC90ZXh0PgogICAgPCEtLSBBIC0tPgogICAgPHJlY3QgeD0iNDMwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSI0OTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QXBwbGljYXRpb248L3RleHQ+CiAgICA8IS0tIFQgLS0+CiAgICA8cmVjdCB4PSI1NzAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjYzMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5UZWNobm9sb2d5PC90ZXh0PgogIDwvZz4KCiAgPCEtLSBDb25uZWN0aW5nIGxpbmVzIGJldHdlZW4gQkRBVCBib3hlcyAtLT4KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+CiAgICA8bGluZSB4MT0iMjcwIiB5MT0iMTYwIiB4Mj0iMjkwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNDEwIiB5MT0iMTYwIiB4Mj0iNDMwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+CiAgPC9nPgoKICA8IS0tIE1haW4gdGl0bGUgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIyNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmZmZmYiIGxldHRlci1zcGFjaW5nPSIxIj4KICAgIElBTyBBcmNoaXRlY3R1cmUKICA8L3RleHQ+CiAgPHRleHQgeD0iNDAwIiB5PSIzMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC44KSIgbGV0dGVyLXNwYWNpbmc9IjIiPgogICAgVE9HQUYgQkRBVCDCtyBJQU8gUHJvZ3JhbSDCtyBJRE0gMi4wCiAgPC90ZXh0PgoKICA8IS0tIEJvdHRvbSBhY2NlbnQgYmFyIC0tPgogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgoKICA8IS0tIEludGVsIHRleHQgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPgogICAgSU5URUwgQ09ORklERU5USUFMCiAgPC90ZXh0Pgo8L3N2Zz4K" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">LI-030 — Manage In-bound Transportation - PTP</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Procure To Pay (PTP) Tower<br/>
@@ -12,20 +13,30 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-nav.toc { margin: 16px 0 24px 0; }
-nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
-nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
-nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
-nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
-nav.toc a { color: #0071c5; text-decoration: none; }
-nav.toc a:hover { text-decoration: underline; }
+.page-footer {
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  padding: 6px 12px;
+  background: #fff;
+}
+@media print {
+  .page-footer { display: none !important; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 </style>
 
 
@@ -189,7 +200,6 @@ This capability includes **8 business process(es)** modeled in BPMN 2.0, coverin
 
 ### 3.2 Business Process Diagrams
 
-
 #### BUSINESS ARCHITECTURE — 3.2.1 LI-030-030_Establish_Partnership_with_Purchasing_-_PTP — LI-030-030_Establish_Partnership_with_Purchasing_-_PTP
 
 **Swim Lanes**: Functional Analyst | **Tasks**: 5 | **Gateways**: 0
@@ -230,7 +240,6 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVdtu4zYQ_RVCQeAUkFFdLVcPBWzZBIIm2GBjtw-boqAlyiZCkQZJJdEG_vcOJcW3Qk_Vg6AZHp4zc3jRp5PLgjqpc3v7yQQzKfocmR2t6ChFow3RdOSiLvEnUYxsONUjiymlMM_sZwvzo_2HhdkcJhXjjc0-062kaH3vohlM5C7SROixpoqVI3e0V6wiqskkl8qib-i09MpWrR-aS1VQdQJ4XuLnMUzlTNBTOkyiJMJ2nqa5FMUFaRmX0zIfHWxxXL7nO6JMW36t6SP5-IsVZgdxSbimgNmZij-QDeW2R6Nqm8tr9fZlBtNWR4Bhz3uSM7GFfORBShHxekrF3uGADre3L-IoilaLF4HgyTnRekFLpA2kl28GlYzz9CbKZjj2XG2UfKXpTbBMFmHg5raTFFr3XGvu-J2y7c6kG8mLHjp-tz2kwf7DVR9p4LmqgfeVFhXFSSmbBNNgelSaJ37mZ19KZVn-LyXwVa2Ifu21liEO8OKo5ceTOPP-y_fV5iJKZv61T1S9sZyekWKMw-XJquUk9r1h0jkOJ152Rbolhr6T5kT4WxYdCXGcYD8ZJOz0rqusN09K5l-E4TLG8ZEwmft4FgwSRjM_mvYVAs9Wkf0OcSLoP96PFwfXIjdMCsLRDF6NNi_O3x3YPsL_AaCSpCUZ53KLVrAVdUkVevr264Jy9kZVg4xEq0dkT3OBpEDf7MFCRBTohGj29C6DhVeSoz9o8wuInKsElyoLaqiq4ByiB7ll2rBco3thKNRua0XgBThB0d3D_dM1VXhJtd4XsBgIr0_1ZbKqZMFMA18FvZoeDVWCVbtl0RpuMTSvGS_gNKLvtS0Dr-ffr-uIB4nWaAV2XMEngAYTn2BhhCW-6zo7QySAeCSCbCl4Md7IGgxul2MvlWl9OeLhQHYfIkDj8e_QVR8mXdgfAhF1YdyHcReGfRh24aQP_S4MzramTZ4doIuRYHAkHByJBkfiwZHJ8aq7SCfHtOM6FVhPWOGkn077r4H_UUFLUnPjHFyH1EY-NyJ30vZOdup2yywYge1WdcnDv-IlKYw=" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
@@ -299,7 +308,6 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP4jYU_itWRiNaKUi5EiYPrZhAqpF2dkcLu31YqsokJxCNsZFtbmX577WDwyVDpErlIeKc833fufiSHKyM5WDF1uPjoaSljNGhIxewhE6MOjMsoGOjk-M75iWeERAdjSkYlePynwrmBqudhmlfipcl2WvvGOYM0LcXGw0UkdhIYCq6AnhZdOzOipdLzPcJI4xr9AP0C6eospnQM-M58AvAcSI3CxWVlBQubj8KoiDVPAEZo_mNaBEW_SLrHHVxhG2zBeayKn8t4BXv_ixzuVB2gYkAhVnIJfmEZ0B0j5KvtS9b8009jFLoPFQNbLzCWUnnyh84ysUxfb-4Qud4RMfHxyk9J0WT4ZQi9csIFmIIBRJSuUcbiYqSkPghSAZp6NhCcvYO8YM3ioa-Z2e6k1i17th6uN0tlPOFjGeM5Aba3eoeYm-1s_ku9hyb79WzkQtofsmU9Ly-1z9neo7cxE3qTEVR_K9Maq58gsW7yTXyUy8dnnO5YS9MnI96dZvDIBq4zTkB35QZXImmaeqPLqMa9ULXaRd9Tv2ekzRE51jCFu8vgk9JcBZMwyh1o1bBU75mlevZG2dZLeiPwjQ8C0bPbjrwWgWDgRv0TYVKZ87xaoEIpvC382NqfWI4R2_KpMCn1l8nmP5R94cKFzgucDdjczQGAplECea8rKDXWO8Wm2CSrYkaAkrU7pyDQIyi9AtKOVuqR7X2aDDnoM49lQ0t_z9pNUjBLem7vgb26IVumFrcBja8xb7id0BveK9LQZK1dNi7JX1b5bqkr-ohUME4SlNUUpRMxi9oiCXWV1tDIbpV-AoZlBtAk9ePE1E1CQm8UjLqDbH-fbEXKkEtsGRcnGpr0J5-OdNWRG3QOvMXfReihIPi5Irz6_U-cC4kIdmqnip6Y-IO2m2g62mYkX3Ae4fDpZMcujN12WULPU_V98vnye9T63i8Jvj3CbDLyFqoIfxxOnxNWnChqQVmW9HFRKIV5pgQIB9I6k47_aFPqNv9TQkY0zWmZ-zgZIfGDE3YnGDqG9uv6cYRGNtrxPsnuzYjE67hrknnNeyesXsGf6620v85tdQkp9ZPpd8M6K2l_NHVjaObvLoXbyJea8RvjQStkbA10muNRK2Rfmvk6fw-vG3TMe-uW6971-vV1_qt27_vDmq3ZVtL4Etc5lZ8sKpPHfU5lEOB10RaR9vCa8nGe5pZcfVJYK2rczIssTrIy5Pz-C-2peZB" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
@@ -463,8 +471,7 @@ flowchart TD
     class n44 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWGtvozgU_StWRlVaKVExj5Dkw0opCd2R2mk0aWelma5WLpgElWDWQNNMlf--1wGT1sGjUbYfqtxjn_s4XK6Bt07AQtoZd87O3uI0LsborVus6Jp2x6j7RHLa7aEK-EZ4TJ4SmnfFnoilxSL-ud-G7exVbBOYT9ZxshXogi4ZRQ-fe2gCxKSHcpLm_ZzyOOr2uhmP14RvPZYwLnZ_osPIiPbR6qUrxkPKDxsMw8WBA9QkTukBtlzbtX3By2nA0vCD08iJhlHQ3YnkErYJVoQX-_TLnN6S17_isFiBHZEkp7BnVayTG_JEE1FjwUuBBSV_kWLEuYiTgmCLjARxugTcNgDiJH0-QI6x26Hd2dlj2gRF99PHFMFfkJA8n9II5QXAs5cCRXGSjD_Z3sR3jF5ecPZMx5_MmTu1zF4gKhlD6UZPiNvf0Hi5KsZPLAnrrf2NqGFsZq89_jo2jR7fwn8lFk3DQyRvYA7NYRPpysUe9mSkKIr-VyTQld-T_LmONbN80582sbAzcDzj2J8sc2q7E6zqRPlLHNB3Tn3ft2YHqWYDBxt6p1e-NTA8xemSFHRDtgeHI89uHPqO62NX67CKp2ZZPs05C6RDa-b4TuPQvcL-xNQ6tCfYHtYZgp8lJ9kKJSSl_xg_HjtemRdsTTm6KnNo_DxHk5Qk27x47PxdccRfin_A3oiMI9IP2BJ5nEKJaF5yaL-coju-JGn8kxQxSxFJw8PKNWdlhs7vMrFEkgtw-96v2er3hgWVq_P7bUb7oIelEq2PxIcsFESPJFTco-grzRmkQFHEOFqs4qhAfwKQX07ZJkX38Zoq_uxfJnIuZcp76BtEYPyiyg1hw8Rqbs5HX3DlMiJaAt3CPzGs4EcOv5APIzFf0RBdMxbml1-gYv_60iNZXMCmPai4HuhcN5dvDvd9Cr6_Mpil5wu4wVDB9ui2J5TIDuZ3a-6pubutOnyjqzhIaCOrQhq2km4pTGTEInQP8yvPGC8U2qidBvPvVyxstPci7JTXBBpGrQu3d_DDl8ubO-9uOlO3tzfm58n9RN1pte5ssq8a-TtLVdGw_TvEG3JMdFqJR72v0pTegbkCHYMW3sRDntBc3Coe4TwW02CustsbY_ZvGWdrmsIJBMqrnPa-mJPgmSxpK0NpiYciTuApAC2KEHIs04Jv97mqU6S9JaBCUiYF3AplcUTBrQNEyJ2jOEWf04ImeyYcuui6jI-DmprLUCm4qA4WdENfaKJS23tmEcAsKOG2Vbfb5832LIFzZb9fdAfcJr89gz_D41cMYULwfvHeu6N4F0MiE1XPWZwWl3M4K0BDGtD45Zg8UMhHd-8hWW0Crq68u2h_W-d66vB06kih1hWqffaeY4kTcwaPVk8JzG05anMxVDdxsZKKC-3O78TjJQz6FFpd3CAXHw9UC4OrOacZ4fRjm8EQu0VC9BQglWWKI7vqlqOJ3xxS8niZkoL0quOqJ9tSdWjt02CBcKQcT8pO-xB6ShNQCjT6wsA69xnfEB6qrp23t0OTh7T_BC0RrBB9DRJI_YVeV09Jj53d7j1tcBrNPY02PNBAIbbJ-wQmBlwVkiQ00ZBGJ5Bs4xQSPoVknkKyTiHZraQ41WkOvVj9gJmG-v0_YOLXtmVVtiPten0g9w8qe1Tbo8ocymWnss3axrU7bNfAsLItybdqB9hRAFfatUds1UCdkC0ztnENyBCqPVBsa6gCZg3IrG0JKDaWKri1LZPEEmh0kGXJOnGdtinTNtU0Zcymzlo61ZYvYzB06xiNS5lFo35dutkUZtQ-ZeJ2nZZlKOJY0qmjqlvnbUktsKkAVh0VN4laio-mtEa_Oi-7SaMuxbSUzA9ymWpiMnN5DbCjAiMFaORwlF5qAEuxTSWN_ZuhaLl3768fVkztiqVdsbUrjnZloF1xtStD7cpIuwJXSrukVwHrZcB6HbBeCKxXAuulwHotsF4MrFfD1Kth_qIn9GqYejVgUsuPSR9xR4MPNLirwYcafNSOW4YGxxrc1OCWBtfUCwdC_V3nIzxoh912eNgOj1phmBOtMG6HzXbYaodtCXd6HXhoXJM47IzfOvuPsfDBNqxenjq7XoeUBVts06Az3n-07JT7d6VpTOBb0roCd_8BE-HDkw==" title="View full diagram">&#128065; View Diagram</a></div>
-
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWGtv4jgU_StWRhWtBGqcBwE-rEQDdEdqp2hoZ6WZrlZu4kDUEGedpJSp-O97TeLQmng0Yvuh4h773MfJ9XXgzQhYSI2RcXb2FqdxMUJvnWJF17QzQp0nktNOF1XAN8Jj8pTQvCP2RCwtFvHP_TbsZK9im8BmZB0nW4Eu6JJR9PC5i8ZATLooJ2neyymPo063k_F4TfjWZwnjYvcnOojMaB-tXrpiPKT8sME0PRy4QE3ilB5g23M8ZyZ4OQ1YGn5wGrnRIAo6O5FcwjbBivBin36Z01vy-lccFiuwI5LkFPasinVyQ55oImoseCmwoOQvUow4F3FSEGyRkSBOl4A7JkCcpM8HyDV3O7Q7O3tMm6DofvKYIvgLEpLnExqhvAB4-lKgKE6S0SfHH89cs5sXnD3T0Sdr6k1sqxuISkZQutkV4vY2NF6uitETS8J6a28jahhZ2WuXv44ss8u38F-JRdPwEMnvWwNr0ES68rCPfRkpiqL_FQl05fckf65jTe2ZNZs0sbDbd33z2J8sc-J4Y6zqRPlLHNB3TmezmT09SDXtu9jUO72a2X3TV5wuSUE3ZHtwOPSdxuHM9WbY0zqs4qlZlk9zzgLp0J66M7dx6F3h2djSOnTG2BnUGYKfJSfZCiUkpf-YPx4Nv8wLtqYcXZU5NH6eo3FKkm1ePBp_Vxzxl-IfsDcio4j0ArZEPqdQIpqXHNovp-iOL0ka_yRFzFJE0vCwcs1ZmaHzu0wskeQC3L73a7X6vWFB5er8fpvRHuhhq0T7I_EhCwXRJwkVZxR9pTmDFCiKGEeLVRwV6E8A8ssJ26ToPl5TxZ_zy0TOpUx5F32DCIxfVLkhbFpYzc396AueXEZES6Bb-CeGFXzI4ROawUjMVzRE14yF-eUXqHh2femTLC5g0x5UXPd1rpvHN4dzn4Lvrwxm6fkCDhgq2B7ddoUS2cH8bs99NXevVYdvdBUHCW1kVUiDVtIthYmMWITuYX7lGeOFQhu202D-_YqFzfZehJ3ymUDDqHXh9g5--HJ5c-ffTabq9vbG_Dy-H6s77dadTfZVI39nqSoadn6HeEOOiW4r8aj3VZrSOzBXoGPQwh_7yBeai6PiE85jMQ3mKru9Mab_lnG2pincQKC8ymnvizkJnsmStjKUlngo4gTeAtCiCCHHMi34dp-rOkXaWwIqJGVSwFEoiyMKbh0gQu4cxSn6nBY02TPh0kXXZXwc1NI8hkrBRXWxoBv6QhOV2t4ziwBmQQnHVt3unDfbswTulf1-0R1wTH57Bn-G168YwoTg_eK9d1fxLoZEJqqeszgtLudwV4CGNKDxyzG5r5CPTu8hWW0Cnq68u2h_rHM9dXA6dahQ6wrVPnvPscWNOYVXq6cE5rYctbkYqpu4WEnFhXbnd-L1EgZ9Cq0uDsjFxwvVxuBqzmlGOP3YZjDEbpEQPQVIZVniyq665WjiN5eUvF4mpCDd6rrqyrZUHdr7NFggHCnXk7LTOYSe0ASUAo2-MLDOZ4xvCA9V1-7b26HJQ9p7gpYIVoi-Bgmk_kKvq7ekR2O3e0_rn0bzTqMNDjRQiG3yHoGJAU-FJAlNNKThCSTHPIWETyFZp5DsU0hOKylOdZpDL1YfYKahXu8PmPi1bduV7Uq7Xu_L_f3KHtb2sDIHctmtbKu2ce0OOzUwqGxb8u3aAXYVwJN27RHbNVAn5MiMHVwDMoRq9xXbHqiAVQMya0cCio2lCl5tyySxBBodZFmyTlynbcm0LTVNGbOps5ZOteWXMRi6dYzGpcyiUb8u3WoKM2ufMnGnTss2FXFs6dRV1a3ztqUW2FIAu46Km0RtxUdTWqNfnZfTpFGXYtlK5ge5LDUxmbl8BthVgaECNHK4Si81gK3YlpLG_puhaLl3318_rFjaFVu74mhXXO1KX7viaVcG2pWhdgWelHZJrwLWy4D1OmC9EFivBNZLgfVaYL0YWK-GpVfD-kVP6NWw9GrApJY_Jn3EXQ3e1-CeBh9o8GE7bpsaHGtwS4PbGlxTL1wI9e86H-F-O-y1w4N2eNgKw5xohXE7bLXDdjvsSNjoGvDSuCZxaIzejP2PscbICKsvT8aua5CyYIttGhij_Y-WRrn_rjSJyZKTdQXu_gMT4cOT" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
@@ -554,7 +561,6 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1uP2jgU_itWqhFTCbRxLiTkYVcQSHekuS1MW63KqjKJA94JceQEZijlv-8xSQi45Gl5mOGc833fudixw14LeUQ1T7u52bOUFR7ad4oVXdOOhzoLktNOF5WOL0Qwskho3pGYmKfFjP04wrCVvUuY9AVkzZKd9M7oklP0-a6LhkBMuignad7LqWBxp9vJBFsTsfN5woVEf6BurMfHbFVoxEVERQPQdQeHNlATltLGbTqWYwWSl9OQp9GFaGzHbhx2DrK4hL-FKyKKY_mbnD6Q968sKlZgxyTJKWBWxTq5JwuayB4LsZG-cCO29TBYLvOkMLBZRkKWLsFv6eASJH1tXLZ-OKDDzc08PSVFL-N5iuATJiTPxzRGeQHuybZAMUsS74PlDwNb7-aF4K_U-2BMnLFpdEPZiQet61053N4bZctV4S14ElXQ3pvswTOy96549wy9K3bwV8lF06jJ5PcN13BPmUYO9rFfZ4rj-H9lgrmKF5K_VrkmZmAE41MubPdtX_9Vr25zbDlDrM6Jii0L6ZloEATmpBnVpG9jvV10FJh93VdEl6Sgb2TXCA586yQY2E6AnVbBMp9a5WbxLHhYC5oTO7BPgs4IB0OjVdAaYsutKgSdpSDZCiUkpd_1b3PtnpMIPYOZUjHX_ilh8pPibxCOiReTXsiX6EWw5ZIK9OhPHwB4jjQukZ8oaMEEkE-EYEC5Z3mBSBqhGewUNA3-UvjmJd_n6ZbCngZgjlhacDRZE5Y0CuCppG_v0jDZRDRCf-4yKuDRfZXR0aN1j3Qli3WZZUpDyrZNkVOaZzzNqcKyL1lf5PmyO4Flfej-6aGpLeYCDbNM8C1J0O2IQud1hhlNaFjQ6KOSon990CeVr1y8yiddoTmXtNmKv9UjQ8FTU9EjL1jMQlIwnqIHOUiYENSsyLnXq6gJdfGnbmSjAUuhPlivmIn1MYEiOmiZ-RkDxYKva1WFjvVL_ucsOt9XXDaqUpRtW9aNnuCOadb4t7q7FxgQrGi6RMMlYWr12GiZySYp2IJFKty8Dp9lvECjX-HWdfiU_gsVny9W6WlmrwrZ14XKp-bqYuM-MGYrlqEneQuiHnp68dHtXfDx-9RUjgEHoGNaULGGixE9wO2EeAxJ4LrNuCjKRayXpF3G3e-bIiPaW4BAuKp2OY3-mGuHwzl-cB0PO_uZha-bDB23go3GZJerZEO_TqbvcFrksAM_lQd0Q4N9UH6BflGv9zv8r2yzNK3KtEuzX5n9CuxWdkWuTbc0B5U5qNB6nUuvHLUcruyagKvs9UUIXypHDTBUQGmbddyqFOt2atuuAVVDJxsrgvhY9M-59jfN59pPmVKNPPIycErqKhRHDdQM6-yek92f3cYXEaM1YrZGrNaI3Rrpt0ac1ojbGhm0RmDhW0PtU8DtY8Dtc8Dtg8Dtk8D90yvkpd9p8bv1W8-le3DVDdu4cmtdbQ1HC2GR5u214y8B-LUQ0ZjAIasduhrZFHy2S0PNO74xa5vjHTBmBF5k1qXz8B-4zt6r" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -639,7 +645,6 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm1v6jYU_itWrirulUDLK4F82EQDqSr1tlVhm6bLNJnEAavGQbbTwrj89x1DEkhKpr3wIXCec57n8bGx470RZwkxAuPmZk85VQHad9SKrEknQJ0FlqTTRSfgFywoXjAiO7omzbia0j-PZZa72eoyjUV4TdlOo1OyzAj6-b6LRkBkXSQxlz1JBE073c5G0DUWuzBjmdDVn8ggNdOjW5G6zURCxLnANH0r9oDKKCdn2PFd3400T5I440lNNPXSQRp3DnpwLHuPV1io4_BzSb7i7a80USuIU8wkgZqVWrMHvCBM96hErrE4F2_lZFCpfThM2HSDY8qXgLsmQALz1zPkmYcDOtzczHllimbjOUfwiRmWckxSJBXAkzeFUspY8MkNR5FndqUS2SsJPtkTf-zY3Vh3EkDrZldPbu-d0OVKBYuMJUVp7133ENibbVdsA9vsih08G16EJ2ensG8P7EHldOtboRWWTmma_i8nmFcxw_K18Jo4kR2NKy_L63uh-VGvbHPs-iOrOU9EvNGYXIhGUeRMzlM16XuW2S56Gzl9M2yILrEi73h3FhyGbiUYeX5k-a2CJ7_mKPPFs8jiUtCZeJFXCfq3VjSyWwXdkeUOihGCzlLgzQoxzMkf5re5EeU8VjTjmKERPHZSzY3fT8X6w61vUJTiIMW9OFuiUBDoDUXiuH7oSe-hH6Z0nbMj_IQ-37_cfQGJSw27rhFRnqCnNyIETQgKMXwT0aA4DdsViV_RDPaB3GRCYT1i9AA9yAbPvcYrLNA9j7P1BsgLyqjaoSlRCrZUU8O7pnGbSzgXpERT2G-kwej_g9GOGMvi488G2W-QMYtPsxmC05JIBOToqUEa1El3hBNx5BStvsCJAa2hByrVVYFhXeAezmaqBR7Dl69I_9eg1wbFMuuckZR0yStLytFsRT46WdZ_o9mfK5pU2QbNqnEhKtFkS-JckQRYXy5ZzkfWqVSvwbmvGscFyghN4MhcMCpXaBqvSJIzksBi0w0aw04GJmycNeqh0fQRns-z58Y-8fb7c5cJ6S1g-eMVGpOEwrKDVtlwlOU8-WluHA6X9P51-t-T_Oskso0Z_F3fyN3pHGrSBmcayGfvsoeZQhssMGOEtZCG_44E74TTD26jXu9HPUFF7JxitwjdIj0oYmtwArxG3C9ir6gfFnG_EQ-L2C_igm6VfKs0LGOriJ0S8AvALgGzIVkUVCMuLMu0dRzi97nxmz6evmuLZuYxOyYqy34dHzbxSsksMydL--I9ocGLt1ktY7dmnNaM25rxWjP91ozfmhm0ZoatGViS1lT7LFh2cVWpo85V1K2uUHXcK9_udbh_Hfavw4Pr8LCEja6xJmKNaWIEe-N4P4Y7dEJSnDNlHLoGzlU23fHYCI73SCPfJMAcU6xPqRN4-Auq5ZVF" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -697,7 +702,6 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP2jgU_itWRiNaKai5EiYPXTGBjCp12lFhWq1KtTLJCVhjbGQ7DCzlv69z45JOnjYPiO-c7zu35Dg5GAlPwQiN29sDYUSF6NBTK1hDL0S9BZbQM1Fl-I4FwQsKsldwMs7UlPxb0mxvsytohS3Ga0L3hXUKSw7o-ZOJRlpITSQxk30JgmQ9s7cRZI3FPuKUi4J9A8PMyspsteueixTEmWBZgZ34WkoJg7PZDbzAiwudhISz9Cpo5mfDLOkdi-Iof01WWKiy_FzCI979IKlaaZxhKkFzVmpNP-MF0KJHJfLCluRi2wyDyCIP0wObbnBC2FLbPUubBGYvZ5NvHY_oeHs7Z6ekaDaeM6SvhGIpx5AhqbR5slUoI5SGN140in3LlErwFwhvnEkwdh0zKToJdeuWWQy3_wpkuVLhgtO0pvZfix5CZ7MzxS50LFPs9W8rF7D0nCkaOENneMp0H9iRHTWZsiz7X5n0XMUMy5c618SNnXh8ymX7Az-y_ozXtDn2gpHdnhOILUngImgcx-7kPKrJwLet7qD3sTuwolbQJVbwivfngHeRdwoY-0FsB50Bq3ztKvPFk-BJE9Cd-LF_Chjc2_HI6QzojWxvWFeo4ywF3qwQxQz-sX7Ojc8cp-hJQwZibvyqaMXF7J_aneEww_2EL1EkQHeF4q-adUlzWrQVJC-ahSY7SHJFOENThVUuWzL3WvYNEiBbQBFnGRFrXAoxS5u0n9iC5xqOgWqa2LeieW_V-uF5k5Yli_JhQ1-LhW8J_WvhVD_K6JlRPRS9azqrHmqelMUojiY_HlvyQVuuita_AU71zecCzfTmyg0XqmroNJNWmODtYUy2wJREmeDrIveHh9msJRy-Owml4ptTq7oQRfWhylQ1iyrl-wvlnRaO0CNmeAnogfNUIsKqeolCfRThDVGYonnuWLaLnmZPrafDOhzONafQX2hpskKj6Zem_hT9NTeOx0uR_bYIdgnNpZY8VItzlun7Uf1hDur3P-qOa3hXQbveFOZW2KuhV0G_hn4FBzUcVDCooW1X2KlxUMe2G79VGH7PjS98bvzWuLF38f4GWRLdizUu6BeHzZXH6fS4nR6v0-N3egadnqDTM6yP9yvj3en9ct2h1Rx912a7MRumsQa93iQ1woNRvvf1t0EKGc6pMo6mgXPFp3uWGGH5fjTycoXHBOtja10Zj_8BnIugOw==" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
@@ -767,7 +771,6 @@ flowchart LR
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_RVCQeAWsFFdLUcPBRzZWgTYYIM42z5sioKmKJsIRQoklcRr-N9LSvRFqtWX-kHwnJk5c-HwsncQz7GTOLe3e8KISsB-pLa4xKMEjNZQ4tEYtMAfUBC4pliOjE3BmVqRn42ZF1afxsxgGSwJ3Rl0hTccg-8PYzDXjnQMJGRyIrEgxWg8qgQpodilnHJhrG_wrHCLJppV3XORY3E2cN3YQ5F2pYThMxzEYRxmxk9ixFneIS2iYlag0cEkR_kH2kKhmvRriR_h558kV1stF5BKrG22qqRf4RpTU6MStcFQLd6PzSDSxGG6YasKIsI2Gg9dDQnI3s5Q5B4O4HB7-8pOQcHX51cG9A9RKOUCF0AqDS_fFSgIpclNmM6zyB1LJfgbTm78ZbwI_DEylSS6dHdsmjv5wGSzVcma09yaTj5MDYlffY7FZ-K7Y7HT314szPJzpHTqz_zZKdJ97KVeeoxUFMX_iqT7Kl6gfLOxlkHmZ4tTLC-aRqn7b75jmYswnnv9PmHxThC-IM2yLFieW7WcRp47THqfBVM37ZFuoMIfcHcmvEvDE2EWxZkXDxK28fpZ1usnwdGRMFhGWXQijO-9bO4PEoZzL5zZDDXPRsBqCyhk-G_3x6tzz-tmqMG8qiSALAdcb0cBJK8FwiCHCr46f7Xe5sfiH9qrgEkBJ4hvwKpel0QBwt65biNQHKQvqwftcukz6_rMlcJlpYzxI1RoC76ZrQgWWEFC2ySedPd0HiCFQhAsenx3V3N4sDkQBla_hQBuIGFSmeNhDcHTtx6H53ZJnmsG3JlrIpeY6Wnm4lopXvDLyU0qXp3sVzVCWMqipnQHUl5WFCuca-9fL73D_f7orSvjH3ICqQIVFJBSTL-0c_PqHA6tk95Z1xbO0ylkNUOKcAYpmOvPTqruOnnd8lKBNTnIRLPx2o73SvN7HpCimhqnVB8xG9wuzILoOSPr2sBcKtmtW7f-vyIE3Qjfq_ySvhC8bFpuaF4eAZSg0mNhxsAubQ7mpZ5X1aMNr5bajJFO8ZSRxEpR3CzWgqPa_OkRRVeJnvRO2Oqryo6p4V0tV3bMegzTLsMXzLCAtlfn3ullG0rB887zVVG9Cx70rUkMhe7Ik159pi-B_lT5vZkcjmZ7njdVPGOKdV252YhzhExnO-Sn6WM-mEx-13vfinErzqwYtGJoxbAVIytGrTi14l0revaI0wVbwMpTK_pHvWuBwAIzKx_DeTZe0JPvjnIr-hdHqgEvDv6Oxh_UBIOacFATDWqmg5p4UDMb1NwNanT_BlXe6ZnQxX17pXfR4CoaHm87Z-yUWJSQ5E6yd5o3nX735biANVXOYezAWvHVjiEnad4-Tt2M4oJAfbKVLXj4B48qO6U=" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
@@ -844,8 +847,6 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_RVCQeBdQAZ0tRw9tHBsa1EgQdw6aR6aoqAlymIjkwJJJXa9_vcOZcmOFGW7i-rB8BzOOXPRkNTeiHlCjNC4vNxTRlWI9gOVkQ0ZhGiwwpIMTHQEfseC4lVO5ED7pJypJf2ncrO9YqvdNBbhDc13Gl2SNSfo4RcTTYCYm0hiJoeSCJoOzEEh6AaL3ZTnXGjvCzJOrbSKVi9dc5EQcXawrMCOfaDmlJEz7AZe4EWaJ0nMWdISTf10nMaDg04u569xhoWq0i8lucXbR5qoDOwU55KAT6Y2-Q1ekVzXqESpsbgUL00zqNRxGDRsWeCYsjXgngWQwOz5DPnW4YAOl5dP7BQU3c-eGIInzrGUM5IiqQCevyiU0jwPL7zpJPItUyrBn0l44cyDmeuYsa4khNItUzd3-EroOlPhiudJ7Tp81TWETrE1xTZ0LFPs4LcTi7DkHGk6csbO-BTpOrCn9rSJlKbp_4oEfRX3WD7XseZu5ESzUyzbH_lT671eU-bMCyZ2t09EvNCYvBGNosidn1s1H_m29bHodeSOrGlHdI0VecW7s-DV1DsJRn4Q2cGHgsd43SzL1ULwuBF0537knwSDazuaOB8KehPbG9cZgs5a4CJDOWbkL-uPJ-OG4wQtwGREPBl_Ht30w2xYTXGY4qHuOvpCwAPqQr-RgsPEPUiYRjRhON8pGks0KQrZFnC-KSARZWg5WaB7mG6pEawoZ-gWM7yG84Cptpr7H2rHfH4tidi1id731DGfTtosv816kAQtiJAc6kV3q79JrNAjF885lQp9Wtw93nxu80fv-Z1Cpzx-LminyuC7qpxvq9QVh38xgYQKrdhWGn-77JQLFIlqF6I7fRJC6zBTVO2O7xQOo7be1Y_qzbckLo-vlMPJzwVk3pkw69NJVCpeNFqNdgLun9_665Gcw8m2grZnaBlnJClzkqBlRgs0gw0HmwTme4OGaHG_6ARz9vsmmL6Thit4HXGGbonKeCJ_fjIOh7fubr872cZ5KekL-XLc412a10-73xUE8bSu8F0w_0eDwZF7_AOJouHwJ93MGnBq26nt0dEOatOrl92GX9teY1f8r9BovSW-AqFZqD0b3aua6Nf2uGPbfidSbbvdQHr3VJFOTK9JoRmhavmqXg46um63okY4ojB09cEEfLsrDxOfw8BXi-Mu-aPdCr6jN6ezbmBzK7Vgpx92-2GvH_b74VE_HPTD4374qh-2rfo-b6P26YuijTvNZdeG3X7Y64f9BjZMY0PEBtPECPdG9V0I344JSXGZK-NgGrhUfLljsRFW309GWSTAnFGst_0RPPwLeNVNYg==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-
-
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -881,10 +882,6 @@ The following data entities are derived from the system integration flows for LI
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
-
-
-
-
 
 ### 4.3 Data Lineage
 
@@ -943,11 +940,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 The Current-State architecture represents the **current / legacy** landscape for LI-030.
 
-
 #### Current-State Flow Narrative
 
 *(No current-state flows defined.)*
-
 
 ### 5.2 Future-State — Future-State Application Landscape
 
@@ -955,11 +950,9 @@ The Current-State architecture represents the **current / legacy** landscape for
 
 The Future-State architecture represents the **target** landscape for LI-030.
 
-
 #### Future-State Flow Narrative
 
 *(No future-state flows defined.)*
-
 
 ### 5.3 Change Impact Summary
 
@@ -1384,15 +1377,11 @@ Integration patterns identified from the system flow analysis for LI-030:
 <div style="page-break-before: always;"></div>
 
 
-
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
-
-
-
 
 #### Platform Inventory
 
@@ -1413,13 +1402,58 @@ Platform landscape inferred from integrated systems for LI-030:
 
 ### 6.2 SAP Development Object Status
 
-| Metric | DEV | QAS | PRD |
-|--------|-----|-----|-----|
-| Transport Requests | — | — | — |
-| Custom Code Objects | — | — | — |
-| CDS Views | — | — | — |
-| Fiori Apps | — | — | — |
-| BAdIs / Enhancements | — | — | — |
+**Capability RICEFW — Active Items** (7 of 378 objects)
+*Data source: Smartsheet Object Tracker (cached 2026-04-06)*
+
+> **Completion Context:** 371 of 378 objects (98%) are complete/closed. The **7 active items** below require attention. See the **RICEFW Register** for full detail.
+>
+> | Type | Completed | Active | Total |
+> |------|----------:|-------:|------:|
+> | Report (R) | 3 | 0 | 3 |
+> | Interface (I) | 169 | 2 | 171 |
+> | Conversion (C) | 16 | 0 | 16 |
+> | Enhancement (E) | 166 | 5 | 171 |
+> | Form (F) | 7 | 0 | 7 |
+> | Workflow (W) | 10 | 0 | 10 |
+> | **Total** | **371** | **7** | **378** |
+
+| Status | Count | % |
+|--------|------:|----:|
+| 06. Dev In Progress | 2 | 28.6% |
+| 08. FUT In Progress | 2 | 28.6% |
+| 04. FS In Progress | 2 | 28.6% |
+| 01. Pending Approval | 1 | 14.3% |
+| **Total Active** | **7** | **100%** |
+
+**Active RICEFW by Type:**
+
+| Type | Count |
+|------|------:|
+| Interface (I) | 2 |
+| Enhancement (E) | 5 |
+| **Total** | **7** |
+
+**Technical Complexity:**
+
+| Complexity | Count |
+|------------|------:|
+| 02.High | 3 |
+| 03.Medium | 3 |
+| 04.Low | 1 |
+
+**Objects Requiring Attention:**
+
+| Object ID | Type | Description | Status | Complexity |
+|-----------|------|-------------|--------|------------|
+| PTPI0473 | 02.Interface | Demand Change - Automatic update of PR/PO/STR/STO/Scheduling agreement and Produ... | 06. Dev In Progress | 02.High |
+| PTPE1644 | 04.Enhancement | New Enhancement required for to make PO price updates for HVM OSAT and SIFO orde... | 06. Dev In Progress | 02.High |
+| PTPE1628_IP | 04.Enhancement | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparison ... | 08. FUT In Progress | 04.Low |
+| PTPE1628_IF | 04.Enhancement | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparison ... | 08. FUT In Progress | 03.Medium |
+| LOGI1726 | 02.Interface | GR replication for raw materials for Straddle Sites from ECC to S4 IP via ECA​ | 04. FS In Progress | 03.Medium |
+| LOGE1728 | 04.Enhancement | Automate Outbound delivery note creation for 250K annual Subcon POs for repair/r... | 04. FS In Progress | 03.Medium |
+| PTPE1740 | 04.Enhancement | Fair Market value Determination using custom code/logic during the replication o... | 01. Pending Approval | 02.High |
+
+**Tower Context:** PTP has 7 active / 371 completed RICEFW objects
 
 ### 6.3 NFRs & Design Principles
 
@@ -1457,49 +1491,68 @@ Platform landscape inferred from integrated systems for LI-030:
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
+*6 active objects with timeline data (source: Object Tracker)*
+*371 completed objects excluded — see RICEFW Register for full detail.*
+
 | ID | Description | FS | TDD | Build | FUT | Status |
 |----|-------------|----|-----|-------|-----|--------|
-| PTPW0367_IP | Workflow for Email Functionality and Notification to PO approver(IP) | Dec-24 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
-| PTPW0367_IF | Workflow for Email Functionality and Notification to PO approver(IF) | Dec-24 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
-| PTPW0366_IP | Workflow to trigger PO approvals in S4_IF | Dec-24 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
-| PTPW0366_IF | Workflow to trigger PO approvals in S4_IF | Dec-24 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
-| PTPW0363_IP | Workflow for Email Functionality and Notification to PR approver - IF | Sep-24 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
-| PTPW0363_IF | Workflow for Email Functionality and Notification to PR approver - IF | Sep-24 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
-| PTPW0362_IP | Workflow to Trigger PR approvals in S/4 – IF | Sep-24 (100%) | Aug-25 (100%) | Aug-25 (100%) | Dec-25 (100%) | 1. On Track |
-| PTPW0362_IF | Workflow to Trigger PR approvals in S/4 – IF | Sep-24 (100%) | Aug-25 (100%) | Aug-25 (100%) | Dec-25 (100%) | 1. On Track |
-| PTPR1530_IP | Develop a custom report in SAP S/4 HANA for auto PR to PO conversion failures... | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | 1. On Track |
-| PTPR1530_IF | Develop a custom report in SAP S/4 HANA for auto PR to PO conversion failures... | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | 1. On Track |
-| PTPM0008 | Quality Info record upload [T-Code - QI01] | May-25 (100%) | — | — | Jun-25 (100%) |  |
-| PTPM0007 | Inspection Plan upload [T-Code - QP01] | May-25 (100%) | — | — | Jun-25 (100%) |  |
-| PTPM0006 | Master Inspection Characteristics upload [T-Code - QS21] | May-25 (100%) | — | — | Jun-25 (100%) |  |
-| PTPI1689 | New custom API needed to process GET and DELETE function for Document Info Re... | Jan-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Jan-26 (100%) | 1. On Track |
-| PTPI1657 | Interface to send Invoice PAID Status from CFIN to IP | Aug-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 4. Completed |
-| PTPI1533 | Pay@accept – Inbound Interface to fetch the values from FCE ODS to SAP S/4 HA... | Sep-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | 1. On Track |
-| PTPI1529_IP | An interface to retrieve the list of approvers from a custom MDG table(MDG sy... | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Dec-25 (100%) | 4. Completed |
-| PTPI1529_IF | An interface to retrieve the list of approvers from a custom MDG table(MDG sy... | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Dec-25 (100%) | 4. Completed |
-| PTPI1458 | Develop an interface between PEGA and S/4 HANA system to transmit MSL informa... | Jul-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
-| PTPI1428_IP | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... | Jun-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Nov-25 (100%) | 1. On Track |
-
-*... and 358 more objects (see full Object Tracker)*
-
-
-<div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
-<div style="page-break-before: always;"></div>
-
+| PTPI0473 | Demand Change - Automatic update of PR/PO/STR/STO/Scheduling agreement and Production Order in S/4 based on input signal from planning engine (IP) | Feb-25 (100%) | Oct-25 (95%) | Oct-25 (95%) | Mar-26 (15%) | 3. Off Track |
+| PTPE1644 | New Enhancement required for to make PO price updates for HVM OSAT and SIFO orders for no GR and partial GR posted. | Dec-25 (100%) | Feb-26 (75%) | Feb-26 (75%) | Mar-26 (80%) | 3. Off Track |
+| PTPE1628_IP | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparison and automatic changes based on Product BOM changes – IP and IF | Dec-25 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (80%) | 3. Off Track |
+| PTPE1628_IF | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparison and automatic changes based on Product BOM changes – IP and IF | Dec-25 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (80%) | 3. Off Track |
+| LOGI1726 | GR replication for raw materials for Straddle Sites from ECC to S4 IP via ECA​ | Apr-26 (92%) | Apr-26 (0%) | Apr-26 (0%) | — |  |
+| LOGE1728 | Automate Outbound delivery note creation for 250K annual Subcon POs for repair/rework including Quench returns. | Apr-26 (87%) | May-26 (0%) | May-26 (0%) | — |  |
 
 ### 7.2 RAID Log
 
-Standard RAID items for LI-030 (Procure To Pay):
+*Live data from Smartsheet Master RAID Log — extracted 2026-04-06*
 
-| # | Category | Description | Status | Owner | Priority |
-|---|----------|-------------|--------|-------|----------|
-| 1 | Risk | Data migration completeness — validate all legacy Manage In-bound Transportation - PTP data maps to S/4 target structures | Open | Tower Architect | High |
-| 2 | Risk | Integration testing coverage — ensure all 0 integrated systems are validated end-to-end | Open | Integration Lead | High |
-| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
-| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
-| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
+**Mapped sub-tower(s):** 6.2 PTP - Procurement, 6.3 PTP - EWM, 6.4 PTP - Logistics Management Inbound, 6.5 PTP - TM, 6.6 PTP - GTS, 6.7 PTP - Enable Payments, 6.8 PTP - QM
 
-> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
+**RAID Summary:** 26 open items (2 capability-specific, 24 tower-level), 329 closed
+
+| Severity | Capability | Tower-Wide | Total Open |
+|----------|----------:|-----------:|-----------:|
+| P1 - High | 0 | 3 | 3 |
+| P2 - Medium | 1 | 17 | 18 |
+| P3 - Low | 1 | 3 | 4 |
+| **Total** | **2** | **24** | **26** |
+
+**Capability-Specific RAID Items:**
+
+| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
+|---------|------|----------|-------|--------|-------------|----------|
+| 03461 | Risk | P2 - Medium | PTP ECA DCM Process Changes and impacts to delivered self se... | In Progress | PTP | 2026-04-10 |
+| 03373 | Risk | P3 - Low | incoterm location id value to be used for import requisition... | In Progress | PTP | 2026-05-01 |
+
+**Other PTP Tower RAID Items** (24 open):
+
+| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
+|---------|------|----------|-------|--------|-------------|----------|
+| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-15 |
+| 03681 | Risk | P1 - High | ITC Execution: Planning run availability - Prerequisite for ... | In Progress | E2E | 2026-04-10 |
+| 03757 | Risk | P1 - High | IF Planning data not available in ITC1 until W4, leaving too... | In Progress | FTS IF | 2026-04-10 |
+| 03234 | Action | P2 - Medium | Process code information missing from PTP | Not Started | PTP | 2025-12-12 |
+| 03355 | Risk | P2 - Medium | PTP ECA OSAT Predictive Tool Test Self-Service Query View cr... | In Progress | FTS IP | 2026-04-03 |
+| 03729 | Action | P2 - Medium | AN and CC invoices are fetching wrong tax codes and posting ... | In Progress | FPR | 2026-04-03 |
+| 03540 | Issue | P2 - Medium | FPR Tower help required for GR/IR Clearing document and Data... | To Be Reviewed | PTP | 2026-02-11 |
+| 03542 | Action | P2 - Medium | T042A table data in IF & IP | In Progress |  | 2026-02-13 |
+| 03548 | Risk | P2 - Medium | IAPMID 1532 SIC-Supplier Hub MRP data needs not aligned | In Progress | B-Apps | 2026-04-03 |
+| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
+| 03628 | Risk | P2 - Medium | R3 Returns Rework Process Causing Finance Double Counting in... | In Progress | E2E | 2026-03-27 |
+| 03462 | Risk | P2 - Medium | PTP ECA Demand Analytics dependency on MP PRF & RTF | In Progress | FTS IP | 2026-04-10 |
+| 02173 | Risk | P2 - Medium | LE Restructuring : Jan 1 ‘26 EE+Asset changes reduced to Mal... | In Progress | Legal Entity | 2025-09-30 |
+| 03669 | Action | P2 - Medium | Pending Hot Lots Resolution | In Progress | PTP | 2026-03-30 |
+| 03735 | Issue | P2 - Medium | Box CPU Supplier Moduslink Queries | In Progress | FTS IP | 2026-03-21 |
+| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
+| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
+| 03749 | Action | P2 - Medium | Logistics Data Intake and Creation Process Definition | In Progress | Test Management | 2026-03-27 |
+| 03756 | Risk | P2 - Medium | LE101-1001 Operation Support Ownership for SIMS/Tester Front... | In Progress | E2E | 2026-04-24 |
+| 03758 | Action | P2 - Medium | IMR Repair Order Creation Ownership | In Progress | PTP | 2026-04-24 |
+| 03317 | Risk | P3 - Low | BPMG – E2E L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-05-29 |
+| 03525 | Issue | P3 - Low | Vendor determination in PDH for 2DN PR's & STR's. | Not Started | FTS IP | 2026-03-06 |
+| 03473 | Action | P3 - Low | Manual Service PIR creation for IP-IF Service Procurement. | In Progress | FPR | 2026-05-29 |
+| 02358 |  |  | METs/SOM Bapp is not ready for E2E Testing | Not Started |  |  |
 
 ### 7.3 Recommendations & Next Steps
 
@@ -1514,4 +1567,6 @@ Standard RAID items for LI-030 (Procure To Pay):
 ---
 *LI-030 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: April 2026*
 
-<div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>
+
+
+<div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-030 — Manage In-bound Transportation - PTP</span></div>

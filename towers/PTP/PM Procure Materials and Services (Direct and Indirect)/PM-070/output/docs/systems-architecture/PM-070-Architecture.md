@@ -1,5 +1,6 @@
 <div style="text-align:center; padding-top:20px;">
-  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMGFlZWY7c3RvcC1vcGFjaXR5OjEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjE1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4wMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDcpIiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgPC9wYXR0ZXJuPgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2JnKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNncmlkKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPgoKICA8IS0tIERlY29yYXRpdmUgY2lyY3VpdC9hcmNoaXRlY3R1cmUgbGluZXMgLS0+CiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+CiAgICA8cGF0aCBkPSJNIDAgMTAwIEwgMTIwIDEwMCBMIDE2MCAxNDAgTCAyODAgMTQwIi8+CiAgICA8cGF0aCBkPSJNIDAgMjYwIEwgODAgMjYwIEwgMTIwIDIyMCBMIDIwMCAyMjAgTCAyNDAgMjYwIEwgMzYwIDI2MCIvPgogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPgogICAgPHBhdGggZD0iTSA0NDAgMzQwIEwgNTYwIDM0MCBMIDYwMCAzMDAgTCA3MjAgMzAwIEwgNzYwIDM0MCBMIDgwMCAzNDAiLz4KICAgIDxwYXRoIGQ9Ik0gNjAwIDQwMCBMIDY4MCA0MDAgTCA3MjAgNDQwIi8+CiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+CiAgICA8cGF0aCBkPSJNIDIwMCA0MjAgTCAzMjAgNDIwIEwgMzYwIDM4MCBMIDQ4MCAzODAiLz4KICAgIDxwYXRoIGQ9Ik0gNjUwIDQ0MCBMIDc1MCA0NDAgTCA4MDAgNDgwIi8+CiAgPC9nPgoKICA8IS0tIERlY29yYXRpdmUgbm9kZXMgLS0+CiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+CiAgICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjI4MCIgY3k9IjE0MCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSIzNjAiIGN5PSIyNjAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjYwMCIgY3k9IjEwMCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI1NjAiIGN5PSIzNDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjgwIiBjeT0iMzYwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjMyMCIgY3k9IjQyMCIgcj0iNCIvPgogIDwvZz4KCiAgPCEtLSBUT0dBRiBCREFUIGJveGVzIC0tPgogIDxnIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI2MDAiPgogICAgPCEtLSBCIC0tPgogICAgPHJlY3QgeD0iMTUwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIyMTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QnVzaW5lc3M8L3RleHQ+CiAgICA8IS0tIEQgLS0+CiAgICA8cmVjdCB4PSIyOTAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjM1MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5EYXRhPC90ZXh0PgogICAgPCEtLSBBIC0tPgogICAgPHJlY3QgeD0iNDMwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSI0OTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QXBwbGljYXRpb248L3RleHQ+CiAgICA8IS0tIFQgLS0+CiAgICA8cmVjdCB4PSI1NzAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjYzMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5UZWNobm9sb2d5PC90ZXh0PgogIDwvZz4KCiAgPCEtLSBDb25uZWN0aW5nIGxpbmVzIGJldHdlZW4gQkRBVCBib3hlcyAtLT4KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+CiAgICA8bGluZSB4MT0iMjcwIiB5MT0iMTYwIiB4Mj0iMjkwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNDEwIiB5MT0iMTYwIiB4Mj0iNDMwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+CiAgPC9nPgoKICA8IS0tIE1haW4gdGl0bGUgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIyNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmZmZmYiIGxldHRlci1zcGFjaW5nPSIxIj4KICAgIElBTyBBcmNoaXRlY3R1cmUKICA8L3RleHQ+CiAgPHRleHQgeD0iNDAwIiB5PSIzMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC44KSIgbGV0dGVyLXNwYWNpbmc9IjIiPgogICAgVE9HQUYgQkRBVCDCtyBJQU8gUHJvZ3JhbSDCtyBJRE0gMi4wCiAgPC90ZXh0PgoKICA8IS0tIEJvdHRvbSBhY2NlbnQgYmFyIC0tPgogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgoKICA8IS0tIEludGVsIHRleHQgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPgogICAgSU5URUwgQ09ORklERU5USUFMCiAgPC90ZXh0Pgo8L3N2Zz4K" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">PM-070 — Create and Maintain Purchase Requisitions</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Procure To Pay (PTP) Tower<br/>
@@ -12,20 +13,30 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-nav.toc { margin: 16px 0 24px 0; }
-nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
-nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
-nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
-nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
-nav.toc a { color: #0071c5; text-decoration: none; }
-nav.toc a:hover { text-decoration: underline; }
+.page-footer {
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  padding: 6px 12px;
+  background: #fff;
+}
+@media print {
+  .page-footer { display: none !important; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 </style>
 
 
@@ -188,7 +199,6 @@ This capability includes **7 business process(es)** modeled in BPMN 2.0, coverin
 
 ### 3.2 Business Process Diagrams
 
-
 #### BUSINESS ARCHITECTURE — 3.2.1 PM-070-010_Identify_MRP_Requirements — PM-070-010_Identify_MRP_Requirements
 
 **Swim Lanes**: Capital Analyst · Master Data Steward · Planner | **Tasks**: 8 | **Gateways**: 3
@@ -259,7 +269,6 @@ Commodities"| n7
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm1v4jgQ_itWqoquFNS8EpoPd6KBrCotu6j0bj-U08kkDuSaODnbaeFY_vuN8wZhg3TSIYHw45nnmRlPxjkoQRYSxVVubw8xjYWLDgOxJSkZuGiwxpwMVFQBv2MW43VC-EDaRBkVy_if0ky38p00k5iP0zjZS3RJNhlBvz2paAKOiYo4pnzICYujgTrIWZxitveyJGPS-oaMIy0q1eqtx4yFhJ0MNM3RAxtck5iSE2w6lmP50o-TIKNhhzSyo3EUDI4yuCT7CLaYiTL8gpM53n2PQ7GFdYQTTsBmK9LkC16TROYoWCGxoGDvTTFiLnUoFGyZ4yCmG8AtDSCG6dsJsrXjER1vb1e0FUVfnlcUwSdIMOdTEiEuAJ69CxTFSeLeWN7EtzWVC5a9EffGmDlT01ADmYkLqWuqLO7wg8SbrXDXWRLWpsMPmYNr5DuV7VxDU9kefi-0CA1PSt7IGBvjVunR0T3da5SiKPpfSlBX9oL5W601M33Dn7Zauj2yPe1nvibNqeVM9Ms6EfYeB-SM1Pd9c3Yq1Wxk69p10kffHGneBekGC_KB9yfCB89qCX3b8XXnKmGldxllsV6wLGgIzZnt2y2h86j7E-MqoTXRrXEdIfBsGM63KMGU_Km9rhQP57HACZpQnOy5WCl_VJbyQ20wiLAb4aEsPPIYgcTQVyI-MvaG7paTxf1ief-0ePKWn7qeoz7Pe7-gIYJE_iKBQN8fl12fh7vWKU-genNwkY82_OGiJQnB6dOZl24dDo2bnDXDNTwtwRZ5GYWKFIGIM4pe9jn5daUcj5UjNGxfPXTQr7WmWGC0lKfIwm6UTjezOY6pgC-aPy_QAjOcEvDnSCInqpbiirIBpAv4RwnrquldtdmOBAUcQWkL0wCJLcuKzVaq37fgjG5ghvEuk_EfmVpgCe1AUo7uZvOlOp-9XB6x2SX8TCB42R6LgsFM4gQ9k7-LmMfyALqe1jXPsgIh-iYn80X449fX0ylvSlPZSXnGYbiCaadosrGf4LaJS1aWhXUblMRVH_0UlC5LvSAsylh6Hjqa5DnL3qEN5RNI-EVcutHfftK4YHCvUXHZfZWf2e9HdkFS8PidfK5mSE_T0gc0HP4iO79e65YEfqyUGUSdl5p8Rc8fgJXyA57m2tyu3Ef10qnZ6uWoWhoNd7Uc18txbdxuG430DnodZkippJuX20_0bLuJ26rJtMbarIDG26j3m3W9reuXeX-DNwiGZMppmoVwbLL5Qcg5G6Myleb66MBGP2z2w1Y_bPfDo37Y6YfH57dRZ-ehvc-7GWlXcP0KbjRXUxc2-2GrgRVVSQlLcRwq7kEpX9fglS4kES4SoRxVBRciW-5poLjla41S5CF4TmMMMy6twOO_zEYxMQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -311,8 +320,6 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVW1v6jYU_itWqopNClJeSciHTTSQqdK4qtq7ezWNaTKJDVaNk9lOC5fLf98xSYAwKk0aEhHn4Xk5PomdvZWXBbES6_5-zwTTCdoP9JpsyCBBgyVWZGCjBviCJcNLTtTAcGgp9Av7dqS5QbU1NINleMP4zqAvZFUS9NujjSYg5DZSWKihIpLRgT2oJNtguUtLXkrDviMxdegxrf3roZQFkWeC40RuHoKUM0HOsB8FUZAZnSJ5KYqeKQ1pTPPBwTTHy_d8jaU-tl8rMsfbr6zQa6gp5ooAZ603_Fe8JNysUcvaYHkt37phMGVyBAzspcI5EyvAAwcgicXrGQqdwwEd7u8X4hSKPk8XAsEn51ipKaFIaYBnbxpRxnlyF6STLHRspWX5SpI7bxZNfc_OzUoSWLpjm-EO3wlbrXWyLHnRUofvZg2JV21tuU08x5Y7uF5lEVGck9KRF3vxKekhclM37ZIopf8rCeYqP2P12mbN_MzLpqcsNxyFqfNvv26Z0yCauNdzIvKN5eTCNMsyf3Ye1WwUus7Hpg-ZP3LSK9MV1uQd786G4zQ4GWZhlLnRh4ZN3nWX9fJJlnln6M_CLDwZRg9uNvE-NAwmbhC3HYLPSuJqjTgW5C_nj4VlbGsJ-09oNFnBdWH92XDNR7hAoTiheGhGj1JcaWCjZ_J3zRqV6gu8K4EkMAs0x6LGHD3VEh5X1eoV06wUfbn_w0lfcZjgYwERjLIcGy4qKfpUiuH8-anXAnqEo4VBUAFuP17YBWc7pcvqZgNtj9fSEJTQNl6R_9D26EhmQsMXwUiLOtfA5sYXTbHGfXq033dtmeNxuIQNnq_RfI4ep93Cip8X1uFwIYpvi8g257Vib-SX5qG7Uo1vq-DMXGL09HwRAru4-SF8NBz-BPe-Ld2mjNoyMuX3hfU7gVv_Hfpq8XGLfyp7cNSHxy0cN6ZeW3pNGVx5dRlhi48aWnyxPUx_3bHQg73bsH86Gntw0J5iPTC8zR3dhqNu3_fQ-CY67lDLtjZEbjArrGRvHd-E8LYsCMU119bBtnCty5edyK3k-Maw6qoA5ZRh2MibBjz8A5gkWxE=" title="View full diagram">&#128065; View Diagram</a></div>
-
-
 
 #### BUSINESS ARCHITECTURE — 3.2.3 PM-070-030_Determine_if_Item_Exists_as_a_Material_Master — PM-070-030_Determine_if_Item_Exists_as_a_Material_Master
 
@@ -368,7 +375,6 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm2PqkYU_isTNhvbBHN5FeTDbViQ1qRuzHrb5qY2zQiDThYHOzPsar3-954R0JWyub0pUcJ5OM9zXoY5cNTSMiNaoN3fHymjMkDHgdyQLRkEaLDCggx0VAO_Yk7xqiBioHzykskF_fvsZjq7vXJTWIK3tDgodEHWJUG_THUUArHQkcBMDAXhNB_ogx2nW8wPUVmUXHnfET838nO05tZDyTPCrw6G4ZmpC9SCMnKFbc_xnETxBElLlt2I5m7u5-ngpJIrytd0g7k8p18JMsP732gmN2DnuBAEfDZyW_yMV6RQNUpeKSyt-EvbDCpUHAYNW-xwStkacMcAiGP2fIVc43RCp_v7JbsERZ_iJUNwpAUWIiY5EhLgyYtEOS2K4M6JwsQ1dCF5-UyCO2vixbalp6qSAEo3dNXc4Suh640MVmWRNa7DV1VDYO32Ot8HlqHzA5w7sQjLrpGikeVb_iXSg2dGZtRGyvP8f0WCvvJPWDw3sSZ2YiXxJZbpjtzI-LdeW2bseKHZ7RPhLzQlb0STJLEn11ZNRq5pvC_6kNgjI-qIrrEkr_hwFRxHzkUwcb3E9N4VrON1s6xWc16mraA9cRP3Iug9mElovSvohKbjNxmCzprj3QYVmJE_jd-XmpKtOOw_JlG4hvNS-6P2VQczwSXHQY6HqvUo2pD0GdEcTSXZosmeComwQDOoV21CuBBwdSthdSQ4AW8UU05SieYVhwdYEPRE_qqooJKW7JZu99K_znO-uxB3BazFNIPiaH6APYQeS4ZmT_OaXBcv0BTGEwXtDHS-fyPkqi7NPKMNjVkGdVIm4f8f8hg1TSbiK33yjsc2YTUzhyvY9emmaVTJEfymLGvadl21H5ba6fRGxu-Xmc3QNEZJWUH2U4YW4RwtPjg_hY9hV2DcLwBTdoXR_Knrbhr9_mSfFpWgL-THejN0aea30mDK1BfMQcPhR2hYY5q16TemVZtms9OZ3bHHyv6y1D4TsdS-wP1WptFxW9uobauxvYbXLsKZPO6IPpZn2DQ6pPhKafPwO3lcOP6t1ujNLFDFtjPwBrb6Ybsfdi6vhxvY7YdH_bDXjrkb1O9Fx70odLgXNltY07Ut4VtMMy04aufPBPiUyEiOq0JqJ13DlSwXB5Zqwfl1qlW7DJgxxTDltjV4-gd0zLMz" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
@@ -464,7 +470,6 @@ flowchart LR
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21v4jgQ_itWVhVdCU55JcCHO9FAViu1V1S6171bTieTOGDV2FnHaeG6_PcbQ0JINki7Oj4gzeOZZ148HjtvRiRiYoyMq6s3yqkaobeOWpMN6YxQZ4kz0umiI_AHlhQvGck6WicRXM3pvwc1y023Wk1jId5QttPonKwEQZ8-dtEYDFkXZZhnvYxImnS6nVTSDZa7QDAhtfY7MkjM5OCtWLoRMiayUjBN34o8MGWUkwp2fNd3Q22XkUjwuEaaeMkgiTp7HRwTr9EaS3UIP8_IHd4-0VitQU4wywjorNWG3eIlYTpHJXONRbl8KYtBM-2HQ8HmKY4oXwHumgBJzJ8ryDP3e7S_ulrwk1N0-7DgCH4Rw1k2IQnKFMDTF4USytjonRuMQ8_sZkqKZzJ6Z0_9iWN3I53JCFI3u7q4vVdCV2s1WgoWF6q9V53DyE63Xbkd2WZX7uC_4YvwuPIU9O2BPTh5uvGtwApKT0mS_C9PUFf5iLPnwtfUCe1wcvJleX0vML_nK9OcuP7YataJyBcakTPSMAydaVWqad-zzMukN6HTN4MG6Qor8op3FeEwcE-EoeeHln-R8OivGWW-nEkRlYTO1Au9E6F_Y4Vj-yKhO7bcQREh8KwkTteIYU7-Mb8sjDtMuSIc84igGaCcyIXx91Fb_7hlfgG1BI8S3IvECgWSQHZodoeehHxG9_oUgUXNxLk-maQM6qCJFTp3dTBD0y2JckVisH9_bj94e6tcxqS3hAMQrYFAEX3W0fgFU6aHBaIc3YoIoKOLJyzJWkCXoN8Wxn5_zjn8Gc4Pn-8Ro88EObPbwsGJ-owZGr-trhZkP3tAD-RrTjIlmgW1Wgs6jiKRQwrjLKMrTmI0f3xA1-Nx0ENhF31UZIMC0FsJuUOL3DYtB316XxX-Qii2DgU6J5cwYoH9Jt99t8GnaPTpKsOZblMSU9gbBJlcT6D3HncpKT3_Nf08g8F7CO59nc6u082ITITcoHmepowCoCs6F7nUwwxdzwWUNStKPCGpUA06p05XhlXxzR7qBm7d4D4l_JDCByaW4OMjf4E66CIGaxI9N7x5F7zdYZ5jxnZ17X6jcpoQTcQGNp1GXdj_FRUcfGIeg1_oM47VETl0a1Zn81v34cfa4pdaS5xvrt6OQMBdRzk-L9tcCQi2PS9Ll6Hwr2PXDUSyDM1g19ZwZ58O_blNv7I5ZNdTonc8lI9w0rJE70WLmd9-LMk2YnlGX8iH4yhtnGbbrMywlOI162GmUIolZEPYBSPr54wuHCndkdWcCRiRz_WcBu0n4D5XS9jKGNqcQWLQgUqg6dNdNVnqNMPWMfFA9I116CMEtCjMGVwKh7OdSLFBrG0aNuezW81nmE_pD4RWZnE-q0_1gTsC9Xq_6sFdAMOjXIrWQMvfFsbvYmF808O4ufAnyQ4rpwWnYCxuQj4oZLeQ7cKl3ZCdhlzqF3xeyV_QlbJdyCWde5T7hdg_in4h-oV2KVtWA_CK4KxSwW4AdmlRKpSUpUdrWC9Z-RSqFsqSWedPGp1Z-UiqwXY77LTDbjvstcP9dthvhwft8PD8KVbPyLy8ZF1eck5v4DruFu_VOupd0O5fwP3ykVeHB-3wsBWGHm2FrRI2usaGyA2msTF6Mw6fSfApFZME50wZ-66BcyXmOx4Zo8PnhJGnMVhOKIZ5tTmC-_8AIu88DA==" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
@@ -580,7 +585,6 @@ Approval Required"| n24
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV2uP2kYU_SsjRytaCVSPn8CHVizgNFI2i5ZtqypU1WCPYRo_yNhml274772DxwYPdrpN-YDsc-859zFPv2h-GlBtrN3cvLCE5WP00su3NKa9MeqtSUZ7fVQCvxLOyDqiWU_4hGmSL9nfJzds7Z6Fm8A8ErPoINAl3aQU_fKujyZAjPooI0k2yChnYa_f23EWE36YplHKhfcbOgz18BRNmm5THlB-dtB1F_s2UCOW0DNsupZreYKXUT9NgoZoaIfD0O8dRXJR-uRvCc9P6RcZvSPPv7Eg38J7SKKMgs82j6P3ZE0jUWPOC4H5Bd9XzWCZiJNAw5Y74rNkA7ilA8RJ8ukM2frxiI43N6ukDooeZ6sEwc-PSJbNaIiyHOD5Pkchi6LxG2s68Wy9n-U8_UTHb4y5OzONvi8qGUPpel80d_BE2Wabj9dpFEjXwZOoYWzsnvv8eWzofX6AfyUWTYJzpKljDI1hHenWxVM8rSKFYfi_IkFf-SPJPslYc9MzvFkdC9uOPdWv9aoyZ5Y7wWqfKN8zn16Iep5nzs-tmjs21rtFbz3T0aeK6Ibk9IkczoKjqVULerbrYbdTsIynZlmsFzz1K0Fzbnt2LejeYm9idApaE2wNZYags-Fkt0URSeif-seVJmQLDusvydFkA_8r7Y_SV_wSDC4hGYdkIFqPHmhEYdGiRcFh3sHDA_1csIzlLE2aRKNJvEsDFh7QhzRBdw-LV_BNNfDngmY5uo0Kim5JsKFostvxdE-iJs9qjfu6mLYaM-dss4GnxUNHNOdjTfHTDXpLE8ph7AWBJWj5g4V-nnyYoO_uSFKQ6HsgX7Ldr7JhW1sThTFsMqZpsqew-oGQp2hxr3iPmt4zmlMew-5WF4N-ZhAR2nJQmFjvTu09KKjuWMmL05NzS8dlX1QB49UCKtN8fZHVmOwZQdMiy9MYPYojR5UUc-gR9twsZjm6F8eEaO-y2O0ikFIWiJg0cpadBuDS5oDtXQCLSlgTOfdPtZQrLlP83Uv_f_Edvryc6w7oYA0J-1u0TKFnFC0PWU7jn1ba8XhJGrWT6LMfFRnb07flxqXQDL2dVnYYujOjPoxOmqjxDPxt8Yx22uK-XM-MBleRzHbKxX4ht5CUX3Gtdu6MxiQJ0ONhR68o9lc7cp2e822NcP8rDY7i8gEGDQ0GP35ZaQ_0L-rnNFhpXwCVViyMYoDku1u-41Fl16WDWclJxlC-D6W9FnSkQuWAXRn_Q4pWSb0Y5YyW2ViVulk7nwxVVCyj4joNSzouYxJFYgOEY6_wy43hi8hbOjpKQSOZb2U3pINhV6FMCTgSsMr3ym4YzRSxpaY0h8p28ekIFXasEn-nWWmpJauuq0NWTaOySa4aaAKV38OlmZdy9RAMK3t5coDNVU3LyaI-lk4eVbVYNqjql6H0T-2OYStVndO0m426GuMrhq1oY6M5O0_XIDFnq-tfAzbaYbMdttphux12Lu-HDYvbaRl2WkadFlhunSbcbTK6TWa3yao_Dpq43YE7HbjbgQ-r-28THrXCMOdbYdwOG-2w2Q5b7bDdDjvtsFvBWl-L4W5BWKCNX7TTRyt82AY0JEWUa8e-Roo8XR4SXxufPu60YhcAc8YI3LnjEjz-A8_YrgQ=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -634,7 +638,6 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVWuP4jYU_StWRiNaKUh5EsiHVgyQaqXOarRsW1WlqkxyDdYYO7UdBpblv9cmCRDKrCo1H6L4-JxzH4lvDk4uCnBS5_HxQDnVKTr09Bo20EtRb4kV9FxUA79iSfGSgepZDhFcz-mXE82Pyp2lWSzDG8r2Fp3DSgD65YOLxkbIXKQwV30FkpKe2ysl3WC5nwgmpGU_wJB45BSt2XoSsgB5IXhe4uexkTLK4QKHSZREmdUpyAUvOqYkJkOS9442OSbe8jWW-pR-peAZ736jhV6bNcFMgeGs9Yb9jJfAbI1aVhbLK7ltm0GVjcNNw-YlzilfGTzyDCQxf71AsXc8ouPj44Kfg6LP0wVH5soZVmoKBClt4NlWI0IZSx-iyTiLPVdpKV4hfQhmyTQM3NxWkprSPdc2t_8GdLXW6VKwoqH232wNaVDuXLlLA8-Ve3O_iQW8uESaDIJhMDxHekr8iT9pIxFC_lck01f5GavXJtYszIJseo7lx4N44v3bry1zGiVj_7ZPILc0hyvTLMvC2aVVs0Hse--bPmXhwJvcmK6whje8vxiOJtHZMIuTzE_eNazj3WZZLV-kyFvDcBZn8dkwefKzcfCuYTT2o2GTofFZSVyuEcMc_vL-WDjWtpLm_HGNxitzXzh_1lx7cd9QCE4J7tvWoykw0IBeKmk-OwXoE_xdUUU1FbyrC7q6Z1FQsv8PuvC7s1BpUd5VNFkURvn9lTSy1YAkQm467HFZSrHFDNlSQaluwNiq2iDP5r3ZYaIQ5gWa15_GjWBgBB8K0yhb0EfB-8-fXup4dRe77OSa_U3m8HBoK7cjs780hz5fI9jlrFJ0Cz_V39TCOR6vVKP7quY9iW92_scbL9-7b3ZuYJN7cSU0R79-4APU7_9gymiWSXc5rJejZjmyy68Lp85z4Xw10W-26sRPW0GzFdQmfnM6zEPD_ShOvPgW_92-PLMRtRu1QXh1uizYTpUOHNyHw2badcDoPG47cHwfHtyHk_vwsJ0mHXR0FzWFN7DjOhuQG0wLJz04px-s-QkXQHDFtHN0HVxpMd_z3ElPPyKnKgujnFJs5sOmBo__AIG6ebw=" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
@@ -746,8 +749,6 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1tv4kYU_isjryJ2JVB9xcBDqwRwhbTZRWTbqmr6MLHHYRoz486MQ2iW_94zvozBa9pGjRRkvjnnO_cz5tWKeUKsmXV19UoZVTP0OlBbsiODGRo8YEkGQ1QBP2NB8UNG5EDLpJypO_pXKeb4-YsW01iEdzQ7aPSOPHKCfloN0TUoZkMkMZMjSQRNB8NBLugOi8OcZ1xo6Xdkktppaa0-uuEiIaIVsO3QiQNQzSgjLeyFfuhHWk-SmLPkjDQN0kkaD47auYzv4y0WqnS_kOQWv_xCE7WF7ynOJAGZrdplH_EDyXSMShQaiwvx3CSDSm2HQcLuchxT9gi4bwMkMHtqocA-HtHx6uqeGaPoy-KeIfiLMyzlgqRIKoCXzwqlNMtm7_z5dRTYQ6kEfyKzd-4yXHjuMNaRzCB0e6iTO9oT-rhVsweeJbXoaK9jmLn5y1C8zFx7KA7w2bFFWNJamo_diTsxlm5CZ-7MG0tpmv4vS5BX8QXLp9rW0ovcaGFsOcE4mNvf8jVhLvzw2unmiYhnGpMT0iiKvGWbquU4cOzLpDeRN7bnHdJHrMgeH1rC6dw3hFEQRk54kbCy1_WyeFgLHjeE3jKIAkMY3jjRtXuR0L92_EntIXN-u7dWLCE51IwwhTbkz4IKGD-m5L31ey3lgtSaiJSLHbrdrL9D6wwzBt3XinggMhcEAkXrQkATSlKRSaooZ-j9nqotWguSEiFIgu6KPM8oESgVfIfWqw3CDFAOugR9pFJ9aLl94L7lCU0PvdwnjgatFxAVBBKrXpVWY9xq3MKHXh3wIOGplQm1DGfPBAarjBz8_6y3BVK8n3XyHlRSPEvxKM-g8JvPkLRbykawBUDqQy02bcWk4nl_5hYkI4okJ2qODWpLprcjWuODLlZr2tElHUEMlCn4h5TzpIh1ZTOIL0ELrPCJtC7tLWb4kfxbbh1d4rJsB1P_smiVuvYCvV-tT-rm6MKtdF_p0n3iEP5mfaHFnKB1BHKtBI7PjsflcR2TaZ45lISmNMZlpkpnONwqXKC6XTGLyQlL-PraJFzfQ6MH2KTxFpGXOCskfSY_VoN6bx2PjcqkX2W-JfEToilaKbIDAuhYhOW3PdQSTf8LEZUIZ9COyQGV95Guu6Fw7X6KVYo-kX1re5U0SU5-OFV33hy9675dxfunOMHV6zwX_Bnc7PXRf7vB4O0q41YFC8H3coQzhXIscJaRrEchfKvC5Dcz2ilcakSMOOzYpi3PBtwkRK90InXXm8U7vUDTjGpTc1mtz-ryOmXw7H6GDVGFYGgEDzGBJF1ggomOPpzQOWg0-l4PklkKNdAsvu55WAGuWQm1wMTMlwa-3lu_are_6jnpnnzi5UFz-UMfVxxeE2JtwjVNWwOeacmODddYn3ZsOCbxtQ3b5LF23HhRR-JOz6zoA9NlNXlVYD3KX_uON-QPuKea49C0XEXXiPudKINu1PZ5KEEXb4IfNzdfHZAJufre2G8K53RTZQplatq4Ephl3QHcoEPWBGdyV_eNOz550dHd1Ly2nsHT-g3zDHTsfmHHuYC7F3DvAu5fwIML-PgCHjavg-fwpB-e9sJQ1F7Y6Yfdftjrh_1-OOiHx_1wf5RQ5_rV9Rye9sIwczVsDa0dgducJtbs1Sp_H8JvyISkuMiUdRxauFD87sBia1b-jrKKPAHzC4ofBd5V4PFv7XqY4w==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-
-
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -788,10 +789,6 @@ The following data entities are derived from the system integration flows for PM
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
-
-
-
-
 
 ### 4.3 Data Lineage
 
@@ -850,11 +847,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 The Current-State architecture represents the **current / legacy** landscape for PM-070.
 
-
 #### Current-State Flow Narrative
 
 *(No current-state flows defined.)*
-
 
 ### 5.2 Future-State — Future-State Application Landscape
 
@@ -862,11 +857,9 @@ The Current-State architecture represents the **current / legacy** landscape for
 
 The Future-State architecture represents the **target** landscape for PM-070.
 
-
 #### Future-State Flow Narrative
 
 *(No future-state flows defined.)*
-
 
 ### 5.3 Change Impact Summary
 
@@ -1291,15 +1284,11 @@ Integration patterns identified from the system flow analysis for PM-070:
 <div style="page-break-before: always;"></div>
 
 
-
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
-
-
-
 
 #### Platform Inventory
 
@@ -1320,13 +1309,58 @@ Platform landscape inferred from integrated systems for PM-070:
 
 ### 6.2 SAP Development Object Status
 
-| Metric | DEV | QAS | PRD |
-|--------|-----|-----|-----|
-| Transport Requests | — | — | — |
-| Custom Code Objects | — | — | — |
-| CDS Views | — | — | — |
-| Fiori Apps | — | — | — |
-| BAdIs / Enhancements | — | — | — |
+**Capability RICEFW — Active Items** (7 of 378 objects)
+*Data source: Smartsheet Object Tracker (cached 2026-04-06)*
+
+> **Completion Context:** 371 of 378 objects (98%) are complete/closed. The **7 active items** below require attention. See the **RICEFW Register** for full detail.
+>
+> | Type | Completed | Active | Total |
+> |------|----------:|-------:|------:|
+> | Report (R) | 3 | 0 | 3 |
+> | Interface (I) | 169 | 2 | 171 |
+> | Conversion (C) | 16 | 0 | 16 |
+> | Enhancement (E) | 166 | 5 | 171 |
+> | Form (F) | 7 | 0 | 7 |
+> | Workflow (W) | 10 | 0 | 10 |
+> | **Total** | **371** | **7** | **378** |
+
+| Status | Count | % |
+|--------|------:|----:|
+| 06. Dev In Progress | 2 | 28.6% |
+| 08. FUT In Progress | 2 | 28.6% |
+| 04. FS In Progress | 2 | 28.6% |
+| 01. Pending Approval | 1 | 14.3% |
+| **Total Active** | **7** | **100%** |
+
+**Active RICEFW by Type:**
+
+| Type | Count |
+|------|------:|
+| Interface (I) | 2 |
+| Enhancement (E) | 5 |
+| **Total** | **7** |
+
+**Technical Complexity:**
+
+| Complexity | Count |
+|------------|------:|
+| 02.High | 3 |
+| 03.Medium | 3 |
+| 04.Low | 1 |
+
+**Objects Requiring Attention:**
+
+| Object ID | Type | Description | Status | Complexity |
+|-----------|------|-------------|--------|------------|
+| PTPI0473 | 02.Interface | Demand Change - Automatic update of PR/PO/STR/STO/Scheduling agreement and Produ... | 06. Dev In Progress | 02.High |
+| PTPE1644 | 04.Enhancement | New Enhancement required for to make PO price updates for HVM OSAT and SIFO orde... | 06. Dev In Progress | 02.High |
+| PTPE1628_IP | 04.Enhancement | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparison ... | 08. FUT In Progress | 04.Low |
+| PTPE1628_IF | 04.Enhancement | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparison ... | 08. FUT In Progress | 03.Medium |
+| LOGI1726 | 02.Interface | GR replication for raw materials for Straddle Sites from ECC to S4 IP via ECA​ | 04. FS In Progress | 03.Medium |
+| LOGE1728 | 04.Enhancement | Automate Outbound delivery note creation for 250K annual Subcon POs for repair/r... | 04. FS In Progress | 03.Medium |
+| PTPE1740 | 04.Enhancement | Fair Market value Determination using custom code/logic during the replication o... | 01. Pending Approval | 02.High |
+
+**Tower Context:** PTP has 7 active / 371 completed RICEFW objects
 
 ### 6.3 NFRs & Design Principles
 
@@ -1364,49 +1398,68 @@ Platform landscape inferred from integrated systems for PM-070:
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
+*6 active objects with timeline data (source: Object Tracker)*
+*371 completed objects excluded — see RICEFW Register for full detail.*
+
 | ID | Description | FS | TDD | Build | FUT | Status |
 |----|-------------|----|-----|-------|-----|--------|
-| PTPW0367_IP | Workflow for Email Functionality and Notification to PO approver(IP) | Dec-24 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
-| PTPW0367_IF | Workflow for Email Functionality and Notification to PO approver(IF) | Dec-24 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
-| PTPW0366_IP | Workflow to trigger PO approvals in S4_IF | Dec-24 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
-| PTPW0366_IF | Workflow to trigger PO approvals in S4_IF | Dec-24 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
-| PTPW0363_IP | Workflow for Email Functionality and Notification to PR approver - IF | Sep-24 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
-| PTPW0363_IF | Workflow for Email Functionality and Notification to PR approver - IF | Sep-24 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
-| PTPW0362_IP | Workflow to Trigger PR approvals in S/4 – IF | Sep-24 (100%) | Aug-25 (100%) | Aug-25 (100%) | Dec-25 (100%) | 1. On Track |
-| PTPW0362_IF | Workflow to Trigger PR approvals in S/4 – IF | Sep-24 (100%) | Aug-25 (100%) | Aug-25 (100%) | Dec-25 (100%) | 1. On Track |
-| PTPR1530_IP | Develop a custom report in SAP S/4 HANA for auto PR to PO conversion failures... | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | 1. On Track |
-| PTPR1530_IF | Develop a custom report in SAP S/4 HANA for auto PR to PO conversion failures... | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | 1. On Track |
-| PTPM0008 | Quality Info record upload [T-Code - QI01] | May-25 (100%) | — | — | Jun-25 (100%) |  |
-| PTPM0007 | Inspection Plan upload [T-Code - QP01] | May-25 (100%) | — | — | Jun-25 (100%) |  |
-| PTPM0006 | Master Inspection Characteristics upload [T-Code - QS21] | May-25 (100%) | — | — | Jun-25 (100%) |  |
-| PTPI1689 | New custom API needed to process GET and DELETE function for Document Info Re... | Jan-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Jan-26 (100%) | 1. On Track |
-| PTPI1657 | Interface to send Invoice PAID Status from CFIN to IP | Aug-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 4. Completed |
-| PTPI1533 | Pay@accept – Inbound Interface to fetch the values from FCE ODS to SAP S/4 HA... | Sep-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | 1. On Track |
-| PTPI1529_IP | An interface to retrieve the list of approvers from a custom MDG table(MDG sy... | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Dec-25 (100%) | 4. Completed |
-| PTPI1529_IF | An interface to retrieve the list of approvers from a custom MDG table(MDG sy... | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Dec-25 (100%) | 4. Completed |
-| PTPI1458 | Develop an interface between PEGA and S/4 HANA system to transmit MSL informa... | Jul-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 1. On Track |
-| PTPI1428_IP | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... | Jun-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Nov-25 (100%) | 1. On Track |
-
-*... and 358 more objects (see full Object Tracker)*
-
-
-<div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
-<div style="page-break-before: always;"></div>
-
+| PTPI0473 | Demand Change - Automatic update of PR/PO/STR/STO/Scheduling agreement and Production Order in S/4 based on input signal from planning engine (IP) | Feb-25 (100%) | Oct-25 (95%) | Oct-25 (95%) | Mar-26 (15%) | 3. Off Track |
+| PTPE1644 | New Enhancement required for to make PO price updates for HVM OSAT and SIFO orders for no GR and partial GR posted. | Dec-25 (100%) | Feb-26 (75%) | Feb-26 (75%) | Mar-26 (80%) | 3. Off Track |
+| PTPE1628_IP | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparison and automatic changes based on Product BOM changes – IP and IF | Dec-25 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (80%) | 3. Off Track |
+| PTPE1628_IF | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparison and automatic changes based on Product BOM changes – IP and IF | Dec-25 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (80%) | 3. Off Track |
+| LOGI1726 | GR replication for raw materials for Straddle Sites from ECC to S4 IP via ECA​ | Apr-26 (92%) | Apr-26 (0%) | Apr-26 (0%) | — |  |
+| LOGE1728 | Automate Outbound delivery note creation for 250K annual Subcon POs for repair/rework including Quench returns. | Apr-26 (87%) | May-26 (0%) | May-26 (0%) | — |  |
 
 ### 7.2 RAID Log
 
-Standard RAID items for PM-070 (Procure To Pay):
+*Live data from Smartsheet Master RAID Log — extracted 2026-04-06*
 
-| # | Category | Description | Status | Owner | Priority |
-|---|----------|-------------|--------|-------|----------|
-| 1 | Risk | Data migration completeness — validate all legacy Create and Maintain Purchase Requisitions data maps to S/4 target structures | Open | Tower Architect | High |
-| 2 | Risk | Integration testing coverage — ensure all 0 integrated systems are validated end-to-end | Open | Integration Lead | High |
-| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
-| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
-| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
+**Mapped sub-tower(s):** 6.2 PTP - Procurement, 6.3 PTP - EWM, 6.4 PTP - Logistics Management Inbound, 6.5 PTP - TM, 6.6 PTP - GTS, 6.7 PTP - Enable Payments, 6.8 PTP - QM
 
-> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
+**RAID Summary:** 26 open items (2 capability-specific, 24 tower-level), 329 closed
+
+| Severity | Capability | Tower-Wide | Total Open |
+|----------|----------:|-----------:|-----------:|
+| P1 - High | 0 | 3 | 3 |
+| P2 - Medium | 1 | 17 | 18 |
+| P3 - Low | 1 | 3 | 4 |
+| **Total** | **2** | **24** | **26** |
+
+**Capability-Specific RAID Items:**
+
+| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
+|---------|------|----------|-------|--------|-------------|----------|
+| 03461 | Risk | P2 - Medium | PTP ECA DCM Process Changes and impacts to delivered self se... | In Progress | PTP | 2026-04-10 |
+| 03373 | Risk | P3 - Low | incoterm location id value to be used for import requisition... | In Progress | PTP | 2026-05-01 |
+
+**Other PTP Tower RAID Items** (24 open):
+
+| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
+|---------|------|----------|-------|--------|-------------|----------|
+| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-15 |
+| 03681 | Risk | P1 - High | ITC Execution: Planning run availability - Prerequisite for ... | In Progress | E2E | 2026-04-10 |
+| 03757 | Risk | P1 - High | IF Planning data not available in ITC1 until W4, leaving too... | In Progress | FTS IF | 2026-04-10 |
+| 03234 | Action | P2 - Medium | Process code information missing from PTP | Not Started | PTP | 2025-12-12 |
+| 03355 | Risk | P2 - Medium | PTP ECA OSAT Predictive Tool Test Self-Service Query View cr... | In Progress | FTS IP | 2026-04-03 |
+| 03729 | Action | P2 - Medium | AN and CC invoices are fetching wrong tax codes and posting ... | In Progress | FPR | 2026-04-03 |
+| 03540 | Issue | P2 - Medium | FPR Tower help required for GR/IR Clearing document and Data... | To Be Reviewed | PTP | 2026-02-11 |
+| 03542 | Action | P2 - Medium | T042A table data in IF & IP | In Progress |  | 2026-02-13 |
+| 03548 | Risk | P2 - Medium | IAPMID 1532 SIC-Supplier Hub MRP data needs not aligned | In Progress | B-Apps | 2026-04-03 |
+| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
+| 03628 | Risk | P2 - Medium | R3 Returns Rework Process Causing Finance Double Counting in... | In Progress | E2E | 2026-03-27 |
+| 03462 | Risk | P2 - Medium | PTP ECA Demand Analytics dependency on MP PRF & RTF | In Progress | FTS IP | 2026-04-10 |
+| 02173 | Risk | P2 - Medium | LE Restructuring : Jan 1 ‘26 EE+Asset changes reduced to Mal... | In Progress | Legal Entity | 2025-09-30 |
+| 03669 | Action | P2 - Medium | Pending Hot Lots Resolution | In Progress | PTP | 2026-03-30 |
+| 03735 | Issue | P2 - Medium | Box CPU Supplier Moduslink Queries | In Progress | FTS IP | 2026-03-21 |
+| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
+| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
+| 03749 | Action | P2 - Medium | Logistics Data Intake and Creation Process Definition | In Progress | Test Management | 2026-03-27 |
+| 03756 | Risk | P2 - Medium | LE101-1001 Operation Support Ownership for SIMS/Tester Front... | In Progress | E2E | 2026-04-24 |
+| 03758 | Action | P2 - Medium | IMR Repair Order Creation Ownership | In Progress | PTP | 2026-04-24 |
+| 03317 | Risk | P3 - Low | BPMG – E2E L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-05-29 |
+| 03525 | Issue | P3 - Low | Vendor determination in PDH for 2DN PR's & STR's. | Not Started | FTS IP | 2026-03-06 |
+| 03473 | Action | P3 - Low | Manual Service PIR creation for IP-IF Service Procurement. | In Progress | FPR | 2026-05-29 |
+| 02358 |  |  | METs/SOM Bapp is not ready for E2E Testing | Not Started |  |  |
 
 ### 7.3 Recommendations & Next Steps
 
@@ -1421,4 +1474,6 @@ Standard RAID items for PM-070 (Procure To Pay):
 ---
 *PM-070 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: April 2026*
 
-<div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
+
+
+<div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>

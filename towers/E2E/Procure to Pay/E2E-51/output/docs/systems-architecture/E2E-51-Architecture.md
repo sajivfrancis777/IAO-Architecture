@@ -1,5 +1,6 @@
 <div style="text-align:center; padding-top:20px;">
-  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMGFlZWY7c3RvcC1vcGFjaXR5OjEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjE1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4wMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDcpIiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgPC9wYXR0ZXJuPgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2JnKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNncmlkKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPgoKICA8IS0tIERlY29yYXRpdmUgY2lyY3VpdC9hcmNoaXRlY3R1cmUgbGluZXMgLS0+CiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+CiAgICA8cGF0aCBkPSJNIDAgMTAwIEwgMTIwIDEwMCBMIDE2MCAxNDAgTCAyODAgMTQwIi8+CiAgICA8cGF0aCBkPSJNIDAgMjYwIEwgODAgMjYwIEwgMTIwIDIyMCBMIDIwMCAyMjAgTCAyNDAgMjYwIEwgMzYwIDI2MCIvPgogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPgogICAgPHBhdGggZD0iTSA0NDAgMzQwIEwgNTYwIDM0MCBMIDYwMCAzMDAgTCA3MjAgMzAwIEwgNzYwIDM0MCBMIDgwMCAzNDAiLz4KICAgIDxwYXRoIGQ9Ik0gNjAwIDQwMCBMIDY4MCA0MDAgTCA3MjAgNDQwIi8+CiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+CiAgICA8cGF0aCBkPSJNIDIwMCA0MjAgTCAzMjAgNDIwIEwgMzYwIDM4MCBMIDQ4MCAzODAiLz4KICAgIDxwYXRoIGQ9Ik0gNjUwIDQ0MCBMIDc1MCA0NDAgTCA4MDAgNDgwIi8+CiAgPC9nPgoKICA8IS0tIERlY29yYXRpdmUgbm9kZXMgLS0+CiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+CiAgICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjI4MCIgY3k9IjE0MCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSIzNjAiIGN5PSIyNjAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjYwMCIgY3k9IjEwMCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI1NjAiIGN5PSIzNDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjgwIiBjeT0iMzYwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjMyMCIgY3k9IjQyMCIgcj0iNCIvPgogIDwvZz4KCiAgPCEtLSBUT0dBRiBCREFUIGJveGVzIC0tPgogIDxnIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI2MDAiPgogICAgPCEtLSBCIC0tPgogICAgPHJlY3QgeD0iMTUwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIyMTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QnVzaW5lc3M8L3RleHQ+CiAgICA8IS0tIEQgLS0+CiAgICA8cmVjdCB4PSIyOTAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjM1MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5EYXRhPC90ZXh0PgogICAgPCEtLSBBIC0tPgogICAgPHJlY3QgeD0iNDMwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSI0OTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QXBwbGljYXRpb248L3RleHQ+CiAgICA8IS0tIFQgLS0+CiAgICA8cmVjdCB4PSI1NzAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjYzMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5UZWNobm9sb2d5PC90ZXh0PgogIDwvZz4KCiAgPCEtLSBDb25uZWN0aW5nIGxpbmVzIGJldHdlZW4gQkRBVCBib3hlcyAtLT4KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+CiAgICA8bGluZSB4MT0iMjcwIiB5MT0iMTYwIiB4Mj0iMjkwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNDEwIiB5MT0iMTYwIiB4Mj0iNDMwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+CiAgPC9nPgoKICA8IS0tIE1haW4gdGl0bGUgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIyNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmZmZmYiIGxldHRlci1zcGFjaW5nPSIxIj4KICAgIElBTyBBcmNoaXRlY3R1cmUKICA8L3RleHQ+CiAgPHRleHQgeD0iNDAwIiB5PSIzMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC44KSIgbGV0dGVyLXNwYWNpbmc9IjIiPgogICAgVE9HQUYgQkRBVCDCtyBJQU8gUHJvZ3JhbSDCtyBJRE0gMi4wCiAgPC90ZXh0PgoKICA8IS0tIEJvdHRvbSBhY2NlbnQgYmFyIC0tPgogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgoKICA8IS0tIEludGVsIHRleHQgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPgogICAgSU5URUwgQ09ORklERU5USUFMCiAgPC90ZXh0Pgo8L3N2Zz4K" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">E2E-51 — Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -12,20 +13,30 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-nav.toc { margin: 16px 0 24px 0; }
-nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
-nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
-nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
-nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
-nav.toc a { color: #0071c5; text-decoration: none; }
-nav.toc a:hover { text-decoration: underline; }
+.page-footer {
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  padding: 6px 12px;
+  background: #fff;
+}
+@media print {
+  .page-footer { display: none !important; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 </style>
 
 
@@ -185,7 +196,6 @@ This capability includes **1 business process(es)** modeled in BPMN 2.0, coverin
 
 
 ### 3.2 Business Process Diagrams
-
 
 #### BUSINESS ARCHITECTURE — 3.2.1 E2E-51_Purchase_Requisition_to_Payments_for_Indirect_Materials_(Non-IPN_and_Non-Inventoried)_​ — E2E-51_Purchase_Requisition_to_Payments_for_Indirect_Materials_(Non-IPN_and_Non-Inventoried)_​
 
@@ -420,9 +430,7 @@ flowchart LR
     class n80 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWVtv28oR_isLHaR2ACnm8i49tJBkKzEQ24KVc4IiLooVuZLYUFyWF9uq4__eWXKHEldU2rjNgyMO5375dki-9AIR8t6o9-7dS5RExYi8nBUbvuVnI3K2ZDk_65Oa8AfLIraMeX4meVYiKRbRvyo2aqfPkk3SZmwbxTtJXfC14OT36z4Zg2DcJzlL8kHOs2h11j9Ls2jLst1UxCKT3L9xf2WsKmvq1kRkIc_2DIbh0cAB0ThK-J5sebZnz6RczgORhC2lK2flr4KzV-lcLJ6CDcuKyv0y5zfs-WsUFhu4XrE458CzKbbxZ7bksYyxyEpJC8rsEZMR5dJOAglbpCyIkjXQbQNIGUu-70mO8fpKXt-9e0gao-Tz_UNC4F8Qszy_5CuSF0C-eizIKorj0W_2dDxzjH5eZOI7H_1mXnmXltkPZCQjCN3oy-QOnni03hSjpYhDxTp4kjGMzPS5nz2PTKOf7eCvZosn4d7S1DV9028sTTw6pVO0tFqt_idLkNfsC8u_K1tX1sycXTa2qOM6U-NYH4Z5aXtjqueJZ49RwA-UzmYz62qfqivXocZppZOZ5RpTTemaFfyJ7fYKh1O7UThzvBn1Tiqs7elelst5JgJUaF05M6dR6E3obGyeVGiPqe0rD0HPOmPphsQs4X83vj30JqKsmpqM0zR_6P2t5pP_Ehtu_8HiKIRoLj6xJIw5uXoOeFpEIiETGN6QwI_7EoYW8liUKYngkrMwF6uircsBXfc84NEjJ9fJo4CUX5CJObm4S3nyhT8XF1_5EtyLwBS52rIobsu7B_KzCByJpAfJ9zaXB1xzttvypCCKO2xz-MDxiWUhmYp0RwpBlpykkFmey2iKTSbK9YYICDFgMZGzxYKCZySD4V8DfsnIz--m9--18OxzULxioxUb5IVICXpxyQpGfk9lCqUn7w9Doi8vKCNBcrCEMQ82hD8HcZmD6x_rLnrovb7WYjBnXWWkYPpmMtWKJyO9KeMiGsg8QbxJwoMieoyKHTnfiLwYFGIg_9dCsYe_LnjCMRM0LcZzCdBL1rZCZUGnGYcQ69sEGiFjMr-Qd7BZyMRrMlV5y2Uc5ZuGhUwhw7FYl1xj9vcGZH-RG_glDwryFBUbURYkqAW1pqfDvdx1EkZQ-ILMywxaIefQVP8so7xqg7aYaezFbkUymN_tPURpzZJJDy0VHBIHTYLxVG5Cky9SUZBJudNkzSoV0C4yEhSB4dlqfJYsAY9lENJGXP3NqhzXQhq_veeX2sgqE1vyCYq990yTcA5QojNR4H245uDlhgff5dzW9T6fsjQCheRa2rlL4t37_ocPHzTt7tuqITsFAC0Tj78mJ5vmWo55K5g7uSmQyo1jkWFViWNOHXkso4KwNAZkAeUfhQjzGqRSrc8tWoOdSAKJdIsyBSFQq3BTQx66R540hjPn9DQRjExHIsfUdDQp-FkrtzT4Gv61wiNN2EcY6PwqBtY4fyDGskw85QMWFyQFtI5jHp8Qct8i5L1FyP81oRPwaR3CJ7nlxZPItAOPHhyL7SbUurQa6yQ86mmRrKJs29HXVjN4F4tyuY2Ki2bITzbkiThsFcd0dn2rGfFaM6ErJnMAHth5NSE5pB95IhucNwctrEepyJm2NlhyOq-eeVAesN6XWqz2AXiP5zfkhm-F7F14QtAYZb7n9bpAJtObRuWEFQGg9Xq_FU2gfRPJVq1HmhrzMAJpEfXI1UbjlYW4F9J_2FYUpmnVtWWGpyKrUE6qU78l-HZorHcx0JJL43NyCYvlbbldQuJhyTuMnlzCUXDcG7a737NyMgNgELBAnoPlvsxKn8A2Qm4EgIjI9O2irvhjxJ9AEHwLm9g_60eLM9RA5dCzPca28MTQRDA-Fe8Rv9uNPzcsKQE563TDj1suSw5r8l-0UXe9bgWqUOERv_8mwHOH3WJTBp3Gsd7H5jzjbfhK3yZmvk3M6harawbZF5k8QeqxgyE7CnL4Boz2jf8LRjsK22YRj8O1fFzTAEiOer3_k8Xd14uvAOFdAG1Zh2sUdGxZzcR4zaIkL6RoNZvYkJqwvcevnxlxLO2cbzM3G07XonAifvcofjyoiOajzNQ4lJBSwNznZLyUq2tlfc6zlci2gAUH8WrilaHqICJfoi3PN5wXfXgchcfHaqOrFg14F5QIeJuU7TMIe1BL24k4PBXH4sIm59dz8idyPXtPtBiGhzXaH1s_23Ubnf_NtkvbK-IvLK6U_gfJjm6gsjWnLA7KuHpIYs_6OUVlU8oz-GfbKrWrnRnePpRgsDnC6_Le839UuNS9u1IH9TdiUeeOa3z7tgeINak2mY4tpCXjnHoiV_0nBykKwbUlg1LB2boQkCwYoF0uSwRNcAEtoO-5rqb1pzU6vfc6nqanyj5pqnF0Tr0NWd0TyIr71TiQb3M6Tin7lJyKFh-mLxb167MjSLbfiK7wYoAMBn-WD_uKYDo1YYjXisFsGHwloV7tAdTUBMtFghKxLEVwFYfpIMGsCa6NSoc1wUMOaikdBio1aoLjK4LS6aIbbiXx46F3Kx56P-SgoCr0DyOwVAQWxmihdSTYaAwJ3lApPzwYKzMeOmhT5RCmwXXbDrm-fuOvEgF-yKUTdaioXXTV9TQdjUPKQ5vqnKi0Mecpx2zMraeyb2OGPMyQ2QpX5gEJ2CY6wWys2IqAHvroIcZio1kUsZVIk0JPZR39cpQEvpeGt0wqPxiKqYxgAi2lkjZuKZ0m1QmmTrB0QtOcKoEeKjVNnWDpBFsjeEeeKysetotnNS1W72F1e9Hj23oHYiQ4VHhNlQk61OqMOlVcyO-oa4ouUZwLLKG6NptJtzSTOLVowcZGcrWucDAPlvLaagjKa6sZl6HW2U3AVMk66J-D9m1dVs1Pk05b9a_fjC_Wo5lFBBjkcFUJbTSPYzwfX99-MAyTnMOhN4gFC-WHA_6-nu0GU_w2O-1k1_OEkVHMW1MbbEpbG0DauGcrg-rQqPQ7hn4Xz5YaNC0dTTHptMFuhBOMS6UJJX0Nly3F7xx8Y5F-HH4Kat-izde0Nt08QbdO0G31paxNdTqpbifV66T6ndRhF9U1OqkUP1m1yWY32eom291kp5vsdpO9brLfTR52kuEs6iR3R-l1R-l1R-l1R-l1R-l1R-l1R-l1R-l1R-k3Ufb6vS2Ht3hR2Bu99Kqv6fDFPeQrBp9xeq_9HisLsdglQW9UfXXuldUD6WXE4AloWxNf_w00iaEN" title="View full diagram">&#128065; View Diagram</a></div>
-
-
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWW1z2joW_isaOt0kM1Asv8OH3QES2sw0CRN6b-dOs7MjbAHeGstry0nYNP_9HtmSwcJkN-z2QwqH8_YcnfPoGF46AQtpZ9j5-PElSiI-RC9nfE039GyIzhYkp2ddVAl-J1lEFjHNz4TOkiV8Hv27VMN2-izUhGxKNlG8FdI5XTGKfrvuohEYxl2UkyTv5TSLlmfdszSLNiTbTljMMqH9gfpLY1lGkx-NWRbSbKdgGB4OHDCNo4TuxJZne_ZU2OU0YEnYcLp0lv4yOHsVycXsKViTjJfpFzm9Ic_fo5Cv4f2SxDkFnTXfxF_JgsYCI88KIQuK7FEVI8pFnAQKNk9JECUrkNsGiDKS_NyJHOP1Fb1-_PiQ1EHR1_uHBMG_ICZ5fkmXKOcgvnrkaBnF8fCDPRlNHaOb84z9pMMP5pV3aZndQCAZAnSjK4rbe6LRas2HCxaHUrX3JDAMzfS5mz0PTaObbeGvFosm4S7SxDV9068jjT08wRMVablc_k-RoK7ZN5L_lLGurKk5vaxjYcd1JsahPwXz0vZGWK8TzR6jgO45nU6n1tWuVFeug43jTsdTyzUmmtMV4fSJbHcOBxO7djh1vCn2jjqs4ulZFotZxgLl0Lpypk7t0Bvj6cg86tAeYduXGYKfVUbSNYpJQv9h_HjojFlRNjUapWn-0Pl7pSf-JTZ8_DuJoxDQ9L-QJIwpunoOaMojlqAxDG-I4MV9AUMLdeRFiiJ4S0mYsyVv-nLA1z0NaPRI0XXyyKDkfTQ2x_27lCbf6DPvf6cLSC-CUOhqQ6K4ae_u2U8jSCQSGSQ_m1oeaM3IdkMTjqR22NTwQeMLyUI0YekWcYYWFKVQWZoLNHydsWK1RgwgBiRGYrZIwGmGMhj-FfCXQH5-N7m_0ODZ5-B4SYZL0ss5S5HK4pJwgn5LRQlFJhf7kPDLi7IRJNlbwJgHa0Sfg7jIIfXPVRc9dF5fKzOYs7ZjxBD6ZjzRDk8gvSliHvVEnQBvktCAR48R36LzNct5j7Oe-F-DYg_eb3gkMRM8zUczQdAL0oyCxYFOMgoQq48RNEJGRH2h7hCTi8JrNuXxFos4yte1CppAhWO2Kqim7O8CiP5CN_BKXBToKeJrVnAUVIZa0-PBzu46CSM4eI5mRQatkFNoqn8VUV62QdPMNHZmtyzpze52GSprLZKJ9yNxCoWDJlF4yjShyecp42hcbDVbsywFtItAokxgeDaaniWOgMYChIgRl3-zssaVkaZv7_SFN7TM2AZ9gcPeZaZZOHss0VooyD5cUchyTYOfYm6r8z6fkDQCh-haxLlL4u1F99OnT5p397TTEJ0ChJaxx_fZiaa5FmPeAHMnNgVUpnFoMihP4lBTZx7LKCksjYFZwPlnxsK8IqlU63MLV2THkkAw3bxIwQjcSt7UmAfvmCeN4c45Pk1IIdOZyDE1H3UJ3mrlhgdf478GPFTDPuBA570cWPH8nhnJMvaU90jMUQpsHcc0PmLknmLknWLkv8_oCH1a-_SJbil_Ypl24eG9a7HZhFqXlmOdhAc9zZJllG1a-tqqB68_LxabiPfrIT_akEdw2BLHZHp9qwXxGjOhO0YzIB7YeTUjMaSfaSIanNYXLaxHKcuJtjZYYjqvnmlQ7KneFxpWe4-8R7MbdEM3TPQuPCFoiqLes2pdQOPJTe1yTHgAbL3abUVjaN9EqJXrkebG3EcgIio_YrXRdMVB3DORP2wrktO007VFhScsK1lOuJOvBfm2eKx2MfCSi-AzdAmL5W2xWUDhYcnbR48u4So47A3b3e1ZOZoCMTBYIM8hcldUpYtgG0E3DEiEZfp2UZ34Y0SfwBByC2vsX_WrxRlopLKf2Y5jG3xiaCYKn8R7oO-2888NSQpgzqrc8OKWiiOHNflv2qi7XrsDeVDhgb5_EuG5g3azCYFOo-q8D8N5xmn8ik8zM08zs9rNqjOD6rNM3CDV2MGQHYAcnMDRvvF_4WhHcts0onG4Eo9rGgGJUa_2fzS_-97_DhTeRtCWtb9GQccW5UyMViRKci5My9lUDakZ2zv-eiuIY2n3fFO53nDaFoUj-N0D_OqiQlqOolKjUFAKh7nP0WghVtcy-oxmS5ZtgAv28GrmZaDyIkLfog3N15TyLjyOwuNjudGVi0YXjRLG1wClriDsQQ1vR3B4Ese8b6Pz6xn6C7qeXiANw2D_jHbX1lu7bu3zv9l2cXNFfMfiivF_sGzpBixac0LioIjLhyTyrN9TWDSluIPf2laxXe7MOc8KCFhf4dXx3tN_lrzUvrtiR_mvzaLWHdf48WNHECtUbjItW0jDxjn2RC77TwxSFEJqCwJHBXfrnEGxYIC2uTgiaII-tIC-57qa1zfP6Pje63ian7L6qD6Ng3vqNGZ1jzCr2q9Ggfg2p-WWso_ZSbTqYbo_r74-O6Bk-0R2TbCLer2_iod9KTCdSjBQ76WCWSv40kJ-tQdUUwksVwmkiWVJgSs1TEcJzErg2srpoBJ4SgNb0oehnBqVwPGlQPp0VRpuafHroXPLHjq_xKAoVyo_hcCSCCyF0VLRlcBWwZTAG0jn-xdjGcZTCdpYJqTK4LrNhFxf_-APwQC_xNKpfEjUrkrV9TQfdUIyQxvrmsppHc6Tidmqtp6svq0q5KkKmQ24og5KoNpEF5h1FFsKVIa-ylBhsVVYZWJLk7qEnqy6ysuRFup76QTLk3MVFFMGUQW0pEtcpyV9mlgXmLrA0gV1c8oCesqpaeoCSxfYmsA7yFxG8VS7eFbdYtUeVrUXPvxY70CFRA2Veo9lCDzQzln5lLiUviPfY5USVnOhjlC-N-tJt7SQampVBFs1kqt1haPqYMmsrVogs7bqcRlonV0DxtLWUfk5Kr6t28r5qctpy_716_FV51HPoiIYpeHKI7RVeDXGs9H17SfDMNE5XHq9mJFQ_HBAL6rZrjnFb6rjVnW9TgoZVnWrz0Y1pa0NIK7Ts2VAeWmU_h1D_1TdLRVpWjqbqqLjmrsVnShcskzK0td42ZL6zt5vLCKP_Z-Cmh_h-te0ptw8IreOyG35S1lT6rRK3Vap1yr1W6WDNqlrtEqx-smqKTbbxVa72G4XO-1it13stYv9dvGgVQx3Uau4HaXXjtJrR-m1o_TaUXrtKL12lF47Sq8dpV-j7HQ7G5ptSBR2hi-d8tf0zrAT0iUpYt557XZIwdl8mwSdYfmrc6coH0gvIwJPQJtK-PonNImhDQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-51 — Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​</span></div>
@@ -466,7 +474,6 @@ flowchart LR
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
 
-
 #### 4.2.1 Current-State — Current-State Data Flows
 
 ```mermaid
@@ -506,11 +513,8 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtq2zAUhl9FqAQ2SDonqZPV0IJ8yRpwS1en26AeRrHlRFSxjS2vSdO8-yTf2qVxVyqBkc7lP_J3jLyFfhwQqMFOZ0sjyjWwdSFfkhVxoQZcOMeZWHXFKiN-nlK-sckfwkoni-PaW6T8wCnFc0Yy6RY6YRxxhz5WUn01WZfB0j7BK8o2pcchi5iA22kXICEgxHdFFIsf_CVOeaWWZ-QSr3_SgC-lJcQsIzJuyVfMxnPCirI8zQtrJF7LSbBPo4U0D1VpTHF0_8J4ou52YNfpuFFTC8x0NwJi-AxnmUlCgJNEj9cgpIxpR7pqTiaTbsbT-J5oR4oyHuujatt7kEfTBsm668csTqV7aKr7esHc2LBKDqnmCI0buYE1NoeDVrm-rloDZU-OxOz5eJOJrupqo2cYihiteqORdLtRqZjl80WKkyWwBpbaN0xk2B7xFh56zFPiOd_tOxcKhL_LaDkCmhKf0zhqoMlRp6Mi-5d164hEcrw4BnItBDRNK5m-zjH3Kn5yoZsHX4eBeAb-iZuHRBGvLMWKICCCXPhZShZY3zoF6B33ztsqlYkkCioWfMNIK4gaNpKzgW0pcv4Luy---P_gddC1d4Gu0IfoXlqON1SUGrDYArF9D-Om7BuIRQyQMe8hXJ3kEOS61HsY17EfQny4LDg7O3-qAJkFU_AFoOupeE4oE3fTU_tHsdc6myzE8e9eEPMDBZhohgC6MS6mM8uY3d5YwLa-WVdmSzftm2er7cm-oyRh1MfSe7h1tme29MnEHJdX9KEW2Z4l5K0o6MVhz6YhKeXLK-NgO8o3rOmrcjb0T09PX6GHXbgi6QrTAGrb8icg_iUBCXHOuLjGIc557GwiH2rFxQzzJMCcmBQLoqvSuPsLz2n-tw==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-
-
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-51 — Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​</span></div>
 <div style="page-break-before: always;"></div>
-
 
 
 #### 4.2.2 Future-State — Future-State Data Flows
@@ -550,8 +554,6 @@ flowchart TB
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlQ1rozAYx79KyCjcQbuz7Wxvwgax6q3gxm52dwfzkFRjG5aqaLy16_rdL_Ftu67uxhKQ5Hn5P_H3SNxCPw4I1GCns6UR5RrYupAvyYq4UAMunONMrLpilRE_Tynf2OQPYaWTxXHtLVJ-4JTiOSOZdAudMI64Qx8rqb6arMtgabfwirJN6XHIIibgdtoFSAgI8V0RxeIHf4lTXqnlGbnE65804EtpCTHLiIxb8hWz8ZywoixP88IaiddyEuzTaCHNQ1UaUxzdvzCeqLsd2HU6btTUAjPdjYAYPsNZZpAQ4CTR4zUIKWPaka4almV1M57G90Q7UpTxWB9V296DPJo2SNZdP2ZxKt1DQ93XC-aTDavkkGqM0LiRG5hjYzholevrqjlQ9uRIzJ6PZ1m6qquN3mSiiNGqNxpJtxuVilk-X6Q4WQJzYKp9y0AT2yPewkOPeUo857t950KB8HcZLUdAU-JzGkcNNDnqdFRk_zJvHZFIjhfHQK6FgKZpJdPXOcZexU8udPPg6zAQz8A_cfOQKOKVpVgRBESQCz9LyQLrW6cAvePeeVulMpFEQcWCbxhpBVHDRnI2sE1Fzn9h98UX_x-8Drr2LtAV-hDdS9PxhopSAxZbILbvYdyUfQOxiAEy5j2Eq5McglyXeg_jOvZDiA-XBWdn508VIKNgCr4AdD0VT4sycTc9tX8Ue62zyUIc_-4FMT9QgIFmCKCbycV0Zk5mtzcmsM1v5pXR0k375tlqe7LvKEkY9bH0Hm6d7RktfTIwx-UVfahFtmcKeTMKenHYs2lISvnyyjjYjvINa_qqnA3909PTV-hhF65IusI0gNq2_AmIf0lAQpwzLq5xiHMeO5vIh1pxMcM8CTAnBsWC6Ko07v4CSx3-4Q==" title="View full diagram">&#128065; View Diagram</a></div>
-
-
 
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-51 — Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​</span></div>
@@ -629,7 +631,6 @@ flowchart TB
     E2E51C_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E51CMW_e_g_Azure_Service_Bus
     E2E51CMW_e_g_Azure_Service_Bus --> E2E51C_e_g_XEUS
 
-
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -644,7 +645,6 @@ flowchart TB
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlv9v2joQwP8VKxW_wRraQtuoQkpIeOIptNWyre_pZYpMfIA1k0Sxs5Z1_O87xxRSWEXfjATJffnc5XI-82ylOQPLsVqtZ55x5ZDn2FILWEJsOSS2plTiVRuvJKRVydUqhO8gjFLk-Yu2dvlCS06nAqRWI2eWZyriPzaobr94MsZaPqJLLlZGE8E8B_J53CYuAkSbSJrJjoSSz2JrXXuI_DFd0FJtyJWECX164EwttGRGhQRtt1BLEdIpiDoFVVa1NMNHjAqa8myuxRe2FpY0-9YQ9uz1mqxbrTjbxiKfvDgjuFot0ulgbumCT6iCDs9kwUtgRKqVAJIKKiVItDHm9b0PMzKtJM9ASlKvGRfCORnh8nptqcr8Gzgn3tVV3_Y2t51H_UDOWfHUTnORl86Jbdt7TFoUZLcM0-tp6pZp25eXXv9_MBlV9JDpXx1hdl8xX3SMSixeSVdYU9Lbi7TkjAl4pCU0K-L33V1Fgsv-aEd7R_aQi4OK6Bo3qjwc2vYxpqHKajovabEgbvhfbMUVuzpn-M3Oe8S9vw_HQ_fT-O6WhO6_wcfY-mqc9GLYEKnieUbCjzvpFhecBb3uMLxNIJknXl5ljJarxC0KiWFIXJ1Nu1MCH-YfyIuSaOWrEG-H0ctEqPn_BJ-jZvYp9A1bKxDpOA620c4dMnYs5UkQJdFKKlgeJIwqslH9WbqafW7bv81Yw1F3LGlDmzzUPPdHVUISQfmdp5B4lXz1JruXhlxbkY0VQSsTY9eh-3Q_qOnDXKokEDjuMjVoppxeGLA2IBuDm2l5OrjhA6OIvpBTMvbzFH_-ju5ub075wETVO9DEqx_LXB6WCEfM4Gds1TS_Li2S3Psxfo-4wDn780glmuC3bHSQ_W7SKW02SD3yvLAxzkb2sXHWdHW3rvZ7ptbBxgxhjjV61SzMJmHwV3Drv2NHhgnu4_1Ww60meEq18W86LUwmD_stNNm1yZttEyZ-sN8hvh61QabwIN1_88YluDOD56zPLtCQdfJZJ-SzTRicdY022RXVFOWlsD392Rb2-vr6YG5bbWsJ5ZJyZjnP5vDG_wAMZrQSCo9ci1Yqj1ZZajn1IWpVBSYKPqf4EpZGuP4F3BqKnQ==" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-51 — Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​</span></div>
@@ -700,7 +700,6 @@ flowchart TB
     E2E51F_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E51FMW_e_g_Azure_Service_Bus
     E2E51FMW_e_g_Azure_Service_Bus --> E2E51F_e_g_XEUS
 
-
     style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
     style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
 
@@ -715,7 +714,6 @@ flowchart TB
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdln1v2jwQwL-KlYr_YA1toW1UISVNmJhCWy3buunJFJn4AGsmiWJnLev47jvHFFJYRZ8ZCZJ7-d3lcj7zZKU5A8uxWq0nnnHlkKfYUnNYQGw5JLYmVOJVG68kpFXJ1TKEnyCMUuT5s7Z2-UJLTicCpFYjZ5pnKuK_1qhuv3g0xlo-pAsulkYTwSwH8nnUJi4CRJtImsmOhJJPY2tVe4j8IZ3TUq3JlYQxfbznTM21ZEqFBG03VwsR0gmIOgVVVrU0w0eMCprybKbFZ7YWljT70RD27NWKrFqtONvEIp-8OCO4Wi3S6WBu6ZyPqYIOz2TBS2BEqqUAkgoqJUi0Meb1vQ9TMqkkz0BKUq8pF8I5GuLyem2pyvwHOEfexUXf9ta3nQf9QM5J8dhOc5GXzpFt2ztMWhRkuwzT62nqhmnb5-de_38wGVV0n-lfHGB2XzCfdYxKLF5Jl1hT0tuJtOCMCXigJTQr4vfdbUWC8_5wS3tD9pCLvYroGjeqfH1t24eYhiqryaykxZy44X-xFVfs4pThNzvtEffuLhxdu59GtzckdL8FH2Pru3HSi2FDpIrnGQk_bqUbXHAS9LrD8CaBZJZ4eZUxWi4TtygkhiFxdTLpTgi8m70jz0qilS9CvB5GLxOh5n8NPkfN7FPoG7ZWINJxHGyjrTtk7FDK4yBKoqVUsNhLGFVkrfq3dDX71Lb_mrGGo-5Q0oY2vq957q-qhCSC8idPIfEq-eJNds8NubYiayuCVibGtkN36X5Q069zqZJA4LjL1KCZcnpmwNqArA2uJuXx4IoPjCL6Qo7JyM9T_PkQ3d5cHfOBiap3oIlXP5a53C8RjpjB79iqaX5dWiS5dyP8HnKBc_b3gUo0wa_Z6CC73aRTWm-QeuR5YWOcDe1D46zp6m5c7bdMrb2NGcIMa_SiWZhNwuB9cOO_YUeGCe7j3VbDrSZ4SrXxXzotTMb3uy003rbJq20TJn6w2yG-HrVBpvAg3X3zxiW4NYPnpM_O0JB18mkn5NN1GJx1jTbZFtUU5bmwPf3ZFPby8nJvblttawHlgnJmOU_m8Mb_AAymtBIKj1yLViqPlllqOfUhalUFJgo-p_gSFka4-gM_F4q7" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-51 — Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​</span></div>
@@ -783,13 +781,11 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 <div style="page-break-before: always;"></div>
 
 
-
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
-
 
 #### 6.1.1 Current-State — Current-State Platform Architecture
 
@@ -818,14 +814,11 @@ flowchart TB
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1jp2nKaCDmzHZoV0hLndBvMwin2ciMqWseU1aZr_PsnOR1tIoWy6ENL7Hj06OkLa4ESkgAnu9TasYJKgTYTlEnKIMEERntNajfpqVEPSVEyup_AHeGdyIfZuu-Q7rRidc6i1rTiZKGTInnaowbBcdcFaD2jO-LpzQlgIQPc3feQogIJv2yguHpMlreSO1tRwS1c_WCqXWskor0HHLWXOp3QOvN1WVk2rFupYYUkTViy0PDS0WNHi4YVoG9st2vZ6UXHYC925UYFUSzit6wlkiJalK1YoY5yTM9eeBEHQr2UlHoCcGcblpTvaTT896tSIWa76ieCi0rY1sd_ySk7lEeiN_ZF3dQBa47Fvea-B1hE4cG3fNN4AQfAjLwhc27UPPM8zVDuZ4Gik7ajoiHUzX1S0XCLf9O2BN5vOYogXsfPUVBDPKA1_RThqzJExiJoMDLXz-eIctTbSdoR_dyDdUlZBIpko0PTbUd2TnZb807_XzBajxwpACOkK3q2BIt3lJtccTib2T8V89_BhPIy_OF-d2DRMqz1_OrZS1afUflmF8GKIdBzScR8uxK0fxpZh7GuhpkhNP1iOV6n-h4q8R7--_vy8S3bSng9dIGd2o_qAcfXen09eFe7jHKqcshSTTfdtqN8nhYw2XKqHj2kjRbguEkzap4ybMqUSJoyq68k7cfsXjgN3zg==" title="View full diagram">&#128065; View Diagram</a></div>
 
-
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
-
 
 
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-51 — Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​</span></div>
 <div style="page-break-before: always;"></div>
-
 
 
 #### 6.1.2 Future-State — Future-State Platform Architecture
@@ -855,9 +848,7 @@ flowchart TB
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlF1r2zAUhv-KUMld1jp2nGaGDuzEZoV0hHndBvMwin2ciMqSkeU1aZr_PsnOR1tooWy6ENL7Hj06OkLa4kzkgD3c620pp8pD2wSrFZSQYA8leEFqPerrUQ1ZI6nazOAPsM5kQhzcdsl3IilZMKiNrTmF4CqmD3vUYFitu2CjR6SkbNM5MSwFoNvrPvI1QMN3bRQT99mKSLWnNTXckPUPmquVUQrCajBxK1WyGVkAa7dVsmlVro8VVySjfGnkoWVESfjdE9G1dju06_USftwLfQsSjnTLGKnrKRSIVFUg1qigjHlngTuNoqhfKynuwDuzrMvLYLSffrg3qXl2te5ngglpbGfqvuRVjKgTcDIOR5OPR6AzHofO5DnQOQEHgRva1gsgCHbiRVHgBu6RN5lYur2a4Ghk7IR3xLpZLCWpVii0Q3cQzWfzFNJl6j80EtI5IfGvBCeNPbIGSVOApXc-X56j1kbGTvDvDmRaTiVkigqOZl9P6oHst-Sf4a1hthgz1gDP87qCd2uA5_vc1IbBq4n9UzHfPHycDtPP_hc_tS3bac-fj51c9zlxn1YhvhgiE4dM3LsLcRPGqWNZh1roKdLTd5bjWar_oSJv0a-uPj3uk52250MXyJ9f6z6iTL_3x1evCvdxCbIkNMfetvs29O-TQ0EapvTDx6RRIt7wDHvtU8ZNlRMFU0r09ZSduPsLsNR35g==" title="View full diagram">&#128065; View Diagram</a></div>
 
-
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
-
 
 #### Platform Inventory
 
@@ -873,13 +864,10 @@ flowchart TB
 
 ### 6.2 SAP Development Object Status
 
-| Metric | DEV | QAS | PRD |
-|--------|-----|-----|-----|
-| Transport Requests | — | — | — |
-| Custom Code Objects | — | — | — |
-| CDS Views | — | — | — |
-| Fiori Apps | — | — | — |
-| BAdIs / Enhancements | — | — | — |
+**RICEFW Active Items** — E2E Tower (0 of 0 objects)
+*Data source: Smartsheet Object Tracker (cached 2026-04-06)*
+
+**All 0 objects are completed** — no active items requiring attention.
 
 ### 6.3 NFRs & Design Principles
 
@@ -917,36 +905,42 @@ flowchart TB
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
-Project delivery milestones for E2E-51 RICEFW objects:
-
-| Phase | Planned Start | Planned End | Status | Notes |
-|-------|---------------|-------------|--------|-------|
-| Functional Specification (FS) | Per project plan | Per project plan | In Progress | Tower-level FS schedule |
-| Technical Design (TDD) | FS + 2 weeks | FS + 6 weeks | Planned | Dependent on FS completion |
-| Build & Unit Test (TUT) | TDD + 1 week | TDD + 8 weeks | Planned | Includes S/4 + Middleware |
-| Functional User Test (FUT) | Build + 1 week | Build + 4 weeks | Planned | Tower-led validation |
-| Go-Live (R1 – R5) | Per release plan | Per release plan | Planned | End-to-End Integrated Processes release |
-
-> *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
-
-
-<div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-51 — Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​</span></div>
-<div style="page-break-before: always;"></div>
-
+*No timeline data available for this capability.*
 
 ### 7.2 RAID Log
 
-Standard RAID items for E2E-51 (End-to-End Integrated Processes):
+*Live data from Smartsheet Master RAID Log — extracted 2026-04-06*
 
-| # | Category | Description | Status | Owner | Priority |
-|---|----------|-------------|--------|-------|----------|
-| 1 | Risk | Data migration completeness — validate all legacy Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​ data maps to S/4 target structures | Open | Tower Architect | High |
-| 2 | Risk | Integration testing coverage — ensure all 2 integrated systems are validated end-to-end | Open | Integration Lead | High |
-| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
-| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
-| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
+**RAID Summary:** 17 open items (0 capability-specific, 17 tower-level), 57 closed
 
-> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
+| Severity | Capability | Tower-Wide | Total Open |
+|----------|----------:|-----------:|-----------:|
+| P1 - High | 0 | 4 | 4 |
+| P2 - Medium | 0 | 10 | 10 |
+| P3 - Low | 0 | 3 | 3 |
+| **Total** | **0** | **17** | **17** |
+
+**Other E2E Tower RAID Items** (17 open):
+
+| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
+|---------|------|----------|-------|--------|-------------|----------|
+| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-15 |
+| 03681 | Risk | P1 - High | ITC Execution: Planning run availability - Prerequisite for ... | In Progress | E2E | 2026-04-10 |
+| 03762 | Risk | P1 - High | FTS-IF (esp SCP) related test cases/sequencing are not accur... | In Progress | FTS IF | 2026-04-10 |
+| 03805 | Key Decision | P1 - High | BY - OTC IF : Replace virtual plant on SO with actual plant | Not Started | E2E | 2026-04-03 |
+| 01733 | Risk | P2 - Medium | Tariffs impacts Item/BOM design which is impacting ERP/SCP (... | In Progress | E2E | 2026-03-06 |
+| 03592 | Risk | P2 - Medium | Lack of Defined IMO Owner for CBA Mask Billing and Materials... | In Progress | E2E | 2026-11-02 |
+| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
+| 03628 | Risk | P2 - Medium | R3 Returns Rework Process Causing Finance Double Counting in... | In Progress | E2E | 2026-03-27 |
+| 03642 | Issue | P2 - Medium | E2E Process with Anafi on order/invoice point.  Need IFS SC ... | In Progress | E2E | 2026-03-24 |
+| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
+| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
+| 03756 | Risk | P2 - Medium | LE101-1001 Operation Support Ownership for SIMS/Tester Front... | In Progress | E2E | 2026-04-24 |
+| 03802 | Risk | P2 - Medium | Automated Bailed Value Calculation | In Progress | E2E | 2026-04-10 |
+| 03808 | Action | P2 - Medium | Shipping Transformation test strategy is skipping ITC1 | To Be Reviewed | FTS IF | 2026-04-03 |
+| 03216 | Action | P3 - Low | Mask Expense vs. Invoice | In Progress | E2E | 2026-03-06 |
+| 03315 | Risk | P3 - Low | BPMG – SCP L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-03-27 |
+| 03769 | Action | P3 - Low | Need a Labs SPOC owner to define IP Labs enterprise and mate... | In Progress | E2E | 2026-04-17 |
 
 ### 7.3 Recommendations & Next Steps
 
@@ -961,4 +955,6 @@ Standard RAID items for E2E-51 (End-to-End Integrated Processes):
 ---
 *E2E-51 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: April 2026*
 
-<div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-51 — Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​</span></div>
+
+
+<div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-51 — Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​</span></div>

@@ -1,5 +1,6 @@
 <div style="text-align:center; padding-top:20px;">
-  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMGFlZWY7c3RvcC1vcGFjaXR5OjEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjE1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4wMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDcpIiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgPC9wYXR0ZXJuPgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2JnKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNncmlkKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPgoKICA8IS0tIERlY29yYXRpdmUgY2lyY3VpdC9hcmNoaXRlY3R1cmUgbGluZXMgLS0+CiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+CiAgICA8cGF0aCBkPSJNIDAgMTAwIEwgMTIwIDEwMCBMIDE2MCAxNDAgTCAyODAgMTQwIi8+CiAgICA8cGF0aCBkPSJNIDAgMjYwIEwgODAgMjYwIEwgMTIwIDIyMCBMIDIwMCAyMjAgTCAyNDAgMjYwIEwgMzYwIDI2MCIvPgogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPgogICAgPHBhdGggZD0iTSA0NDAgMzQwIEwgNTYwIDM0MCBMIDYwMCAzMDAgTCA3MjAgMzAwIEwgNzYwIDM0MCBMIDgwMCAzNDAiLz4KICAgIDxwYXRoIGQ9Ik0gNjAwIDQwMCBMIDY4MCA0MDAgTCA3MjAgNDQwIi8+CiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+CiAgICA8cGF0aCBkPSJNIDIwMCA0MjAgTCAzMjAgNDIwIEwgMzYwIDM4MCBMIDQ4MCAzODAiLz4KICAgIDxwYXRoIGQ9Ik0gNjUwIDQ0MCBMIDc1MCA0NDAgTCA4MDAgNDgwIi8+CiAgPC9nPgoKICA8IS0tIERlY29yYXRpdmUgbm9kZXMgLS0+CiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+CiAgICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjI4MCIgY3k9IjE0MCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSIzNjAiIGN5PSIyNjAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjYwMCIgY3k9IjEwMCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI1NjAiIGN5PSIzNDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjgwIiBjeT0iMzYwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjMyMCIgY3k9IjQyMCIgcj0iNCIvPgogIDwvZz4KCiAgPCEtLSBUT0dBRiBCREFUIGJveGVzIC0tPgogIDxnIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI2MDAiPgogICAgPCEtLSBCIC0tPgogICAgPHJlY3QgeD0iMTUwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIyMTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QnVzaW5lc3M8L3RleHQ+CiAgICA8IS0tIEQgLS0+CiAgICA8cmVjdCB4PSIyOTAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjM1MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5EYXRhPC90ZXh0PgogICAgPCEtLSBBIC0tPgogICAgPHJlY3QgeD0iNDMwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSI0OTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QXBwbGljYXRpb248L3RleHQ+CiAgICA8IS0tIFQgLS0+CiAgICA8cmVjdCB4PSI1NzAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjYzMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5UZWNobm9sb2d5PC90ZXh0PgogIDwvZz4KCiAgPCEtLSBDb25uZWN0aW5nIGxpbmVzIGJldHdlZW4gQkRBVCBib3hlcyAtLT4KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+CiAgICA8bGluZSB4MT0iMjcwIiB5MT0iMTYwIiB4Mj0iMjkwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNDEwIiB5MT0iMTYwIiB4Mj0iNDMwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+CiAgPC9nPgoKICA8IS0tIE1haW4gdGl0bGUgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIyNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmZmZmYiIGxldHRlci1zcGFjaW5nPSIxIj4KICAgIElBTyBBcmNoaXRlY3R1cmUKICA8L3RleHQ+CiAgPHRleHQgeD0iNDAwIiB5PSIzMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC44KSIgbGV0dGVyLXNwYWNpbmc9IjIiPgogICAgVE9HQUYgQkRBVCDCtyBJQU8gUHJvZ3JhbSDCtyBJRE0gMi4wCiAgPC90ZXh0PgoKICA8IS0tIEJvdHRvbSBhY2NlbnQgYmFyIC0tPgogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgoKICA8IS0tIEludGVsIHRleHQgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPgogICAgSU5URUwgQ09ORklERU5USUFMCiAgPC90ZXh0Pgo8L3N2Zz4K" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">OR-140 — Process Receipts</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Finance Plan To Report (FPR) Tower<br/>
@@ -12,20 +13,30 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-nav.toc { margin: 16px 0 24px 0; }
-nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
-nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
-nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
-nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
-nav.toc a { color: #0071c5; text-decoration: none; }
-nav.toc a:hover { text-decoration: underline; }
+.page-footer {
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  padding: 6px 12px;
+  background: #fff;
+}
+@media print {
+  .page-footer { display: none !important; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 </style>
 
 
@@ -194,7 +205,6 @@ This capability includes **13 business process(es)** modeled in BPMN 2.0, coveri
 
 ### 3.2 Business Process Diagrams
 
-
 #### BUSINESS ARCHITECTURE — 3.2.1 OR-140-010_Receive_Electronic_Payment — OR-140-010_Receive_Electronic_Payment
 
 **Swim Lanes**: AR Cash Applier | **Tasks**: 4 | **Gateways**: 3
@@ -244,7 +254,6 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P4jYU_StWRiNaKUhJSAjkoSsIpEJqq9Ey26paVivjOGCNE0e2MwNl-e-9JgkfGeZp84C4x-eec33jXB8sIlJqRdbj44EVTEfo0NNbmtNehHprrGjPRjXwN5YMrzlVPcPJRKGX7L8TzfXLnaEZLME543uDLulGUPRlYaMJJHIbKVyovqKSZT27V0qWY7mPBRfSsB_oKHOyk1uzNBUypfJCcJzQJQGkclbQCzwI_dBPTJ6iRBTpjWgWZKOM9I6mOC7eyBZLfSq_UvRPvPuHpXoLcYa5osDZ6pz_gdeUmz1qWRmMVPK1bQZTxqeAhi1LTFixAdx3AJK4eLlAgXM8ouPj46o4m6Ln2apA8BCOlZrRDCkN8PxVo4xxHj348SQJHFtpKV5o9ODNw9nAs4nZSQRbd2zT3P4bZZutjtaCpw21_2b2EHnlzpa7yHNsuYffjhct0otTPPRG3ujsNA3d2I1bpyzLfsoJ-iqfsXppvOaDxEtmZy83GAax816v3ebMDydut09UvjJCr0STJBnML62aDwPX-Vh0mgyGTtwR3WBN3_D-IjiO_bNgEoSJG34oWPt1q6zWT1KQVnAwD5LgLBhO3WTifSjoT1x_1FQIOhuJyy3iuKDfna8ra_IZxVht0aQsOaNyZX2rmeYpXCBkOMpw3zQePQmlkamDKgVH8ZbrfT2TidigRV4KOJdzTgnUVTCCpnCI0VJDa3JaaJQw-NaRFmg5eQKla6nBrdTJNq6UFrkpAu9NfifFh4wYDhYm4DldomeKcyTkyfS2zuCXs3jJ4R1dVdhIN6UtYFwxqDZF6_3ZHrR-vRIbXsRgvbwn9pkSyl5p2skMO5kLpSoKZCX4e_LocLg0JKX9NQwEsn3XE7SsiHk3WcX5_tQ2mn5aWcfjldT4vtRCNRUsNRwx9KWQTSXdfNe5L0B3hFcKNvp7ffYvaTAd6j-Fh_r93-D1NuGgDkdNODLhj5X1l1hZP8CogYOa5TWhW4fjJhw3Sf9SdcryW5pT84Yd8ZbnOh2B1rXF_To_vPoQjXk7gG5g73qK3KwMPlwJzhP6Bh42w_QGDO-Bo3bK3KDjuyh0o4Et24IDk2OWWtHBOl28cDmnNMMV19bRtnClxXJfECs6XVBWVaaQOWMY5kZeg8f_AXXdfEg=" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — Process Receipts</span></div>
@@ -305,8 +314,6 @@ flowchart TD
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P4jYU_StWRiNaKUj5JEweWmUCqVbarUbDblerpaqM44A1jh3ZzgBl-e-1yQeEhafygLjH555z78W5OViI59iKrcfHA2FExeAwUhtc4lEMRiso8cgGDfAXFASuKJYjwyk4Uwvy74nmBtXO0AyWwZLQvUEXeM0x-PLBBolOpDaQkMmxxIIUI3tUCVJCsU855cKwH_C0cIqTW3v0zEWOxZngOJGLQp1KCcNn2I-CKMhMnsSIs3wgWoTFtECjoymO8i3aQKFO5dcSf4K7ryRXGx0XkEqsORtV0o9whanpUYnaYKgW790wiDQ-TA9sUUFE2FrjgaMhAdnbGQqd4xEcHx-XrDcFn2dLBvQHUSjlDBdAKg3P3xUoCKXxQ5AmWejYUgn-huMHbx7NfM9GppNYt-7YZrjjLSbrjYpXnOYtdbw1PcRetbPFLvYcW-z195UXZvnZKZ14U2_aOz1HbuqmnVNRFP_LSc9VfIbyrfWa-5mXzXovN5yEqfOzXtfmLIgS93pOWLwThC9Esyzz5-dRzSeh69wXfc78iZNeia6hwlu4Pws-pUEvmIVR5kZ3BRu_6yrr1YvgqBP052EW9oLRs5sl3l3BIHGDaVuh1lkLWG0AhQz_43xfWskrSKHcgIRBupdqaf3dMM2HuZpQwLiAYzN4kHJWEFECXUrFJaRDsjckv3CpgOLgC4NVRQnOh2z_e09HfA0-lBXX1_gjR28rvtPUS24w5KYUQwH00gDJ6xUz_KVnSsWrTg-8wH2JmQKvGGHyfqrl14u0ic76xPV64uJc72kuw6IjzesldX_XTU31eWsBEoR4rS0XSl8GYy6H3KfD4dxUjscr_ZCjTV9xMxBdxaJGCEtZ1JTuAWR5a_z70joeL_8q57Ye3iFaS13QH82dvE5zz2lQCL6VY0gVqKCAlGL6U5J-1JsfzAfj8W-6jTZ03SZ2u7gN25vMnkz8Y2n9yZfWD0Nv8ajhBV2a08RhGwd3ZL5hedKJruy9NvaacNKG0yb0Lx4rU2K3Tgawdxv2L1fF4CS4exK2q3EATvrdPICj2_D0NvzU7ZhhR85t2O1gy7ZKLEpIcis-WKf3rn4357iANVXW0bZgrfhiz5AVn95PVl3lOnNGoF4bZQMe_wMnP3fX" title="View full diagram">&#128065; View Diagram</a></div>
 
-
-
 #### BUSINESS ARCHITECTURE — 3.2.3 OR-140-040_Receive_Bill-of-Exchange — OR-140-040_Receive_Bill-of-Exchange
 
 **Swim Lanes**: AR Cash Analyst | **Tasks**: 3 | **Gateways**: 2
@@ -348,7 +355,6 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVW2P4jYQ_itWVitaKZHySrh8aAWBVCf1qtOxvVNVqso4Y7DW2Mh2dqEc_702SWDhdtWqzYeIeTzzPDODZ3LwiKzBK7z7-wMTzBToMDBr2MCgQIMl1jDwUQt8xorhJQc9cD5UCjNnf53conS7c24Oq_CG8b1D57CSgH5976OxDeQ-0ljoQINidOAPtoptsNqXkkvlvO9gREN6UuuOJlLVoC4OYZhHJLOhnAm4wEme5mnl4jQQKeorUprRESWDo0uOy2eyxsqc0m80fMC7L6w2a2tTzDVYn7XZ8J_xErir0ajGYaRRT30zmHY6wjZsvsWEiZXF09BCCovHC5SFxyM63t8vxFkUPUwXAtmHcKz1FCjSxsKzJ4Mo47y4S8txlYW-Nko-QnEXz_JpEvvEVVLY0kPfNTd4BrZam2Iped25Bs-uhiLe7ny1K-LQV3v7vtECUV-UymE8ikdnpUkelVHZK1FK_5eS7at6wPqx05olVVxNz1pRNszK8Fu-vsxpmo-j2z6BemIEXpBWVZXMLq2aDbMofJt0UiXDsLwhXWEDz3h_IXxXpmfCKsurKH-TsNW7zbJZflSS9ITJLKuyM2E-iapx_CZhOo7SUZeh5VkpvF0jjgX8Gf6-8MafUIn1Go0F5nttFt4frad7RGQdKC4oDlzj0WfMWW1LQ3Zg0QOojUZY1Ki0Y8EMk0IjSU9nE5tmIGkw29nbKVZwzRpfs763a4E51o94vwFh0MSuhRpJ8Q80yTVNKZUCYs65_afU0u_OpFtu_0DXdNAaGYk-AQH29C1Bf1Bbpu9fUGUXKm3k9l_HDQ-HPs6tzmBph5-s-97bUtC8IS4p2vAfF97x-CI2fz0WdoQ32mr91N7LS5Sd3PaHiFAQ_GDVOzNtzW5aRNyaWWcOnfl14f0GeuF9tbodnrducWcmrZnfRP0iT0HJizvu9PvZvoLj1-HkdTg9r70rOOs21BU47Kf0Cs171PO9jb1FmNVecfBOXyj7FauB4oYb7-h7uDFyvhfEK06b3Gu2bjSmDNsB27Tg8W8Cizy0" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — Process Receipts</span></div>
@@ -415,8 +421,6 @@ flowchart TD
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm2PozYQ_isWq1XuJCLxGrJ8qJQloVqpva4u1ztVl6pyYEisdWyKTV6ay3-vHSAJXLh-KB8Q88zMMy-2xxyNhKdghMbj45EwIkN0HMg1bGAQosESCxiYqAI-44LgJQUx0DYZZ3JO_jmb2V6-12Yai_GG0ING57DigH5_MdFEOVITCczEUEBBsoE5yAuywcUh4pQX2voBxpmVnaPVqmdepFBcDSwrsBNfuVLC4Aq7gRd4sfYTkHCWtkgzPxtnyeCkk6N8l6xxIc_plwJ-xfsvJJVrJWeYClA2a7mhv-AlUF2jLEqNJWWxbZpBhI7DVMPmOU4IWyncsxRUYPZ2hXzrdEKnx8cFuwRFn6YLhtSTUCzEFDIkpIJnW4kyQmn44EWT2LdMIQv-BuGDMwumrmMmupJQlW6ZurnDHZDVWoZLTtPadLjTNYROvjeLfehYZnFQ704sYOk1UjRyxs74Euk5sCM7aiJlWfa_Iqm-Fp-weKtjzdzYiaeXWLY_8iPre76mzKkXTOxun6DYkgRuSOM4dmfXVs1Gvm31kz7H7siKOqQrLGGHD1fCp8i7EMZ-ENtBL2EVr5tluXwteNIQujM_9i-EwbMdT5xeQm9ie-M6Q8WzKnC-RhQz-Mv6ujAmScJLJgX6CAmQrT6BaMIwPQi5MP6svPTDbGWc4TDDQ70IKCpAFYmmfMfQKz5sgElF8XcJQqJ3H7iEFL1I2LxvkzgdEgq4QOr43-fZEbm-p9WJQtpmdr9eqBO-UkY5JYnOsJcdC_RbDqyb7S2p1yU9R27TbQlGs-c5igmFjrvfdv9xtR3fUdv3lauMJx_RC9tytV07xkFfoF6P8Y_adfW6NEl3p0Px9O5CkVO12ZvuRKWQfKNWt1Xlixr-RAXQy_b-dltZVxrll_8HTcQ3OYU7NPbxeC0oheFSzcxkjV4EImqp2yTzBJi6bfjCOJ1uOZz7HLBPaClUTj9Xx7rrdrP1MjXPoBhy3TJ9YEGIayHfrYSam9UHc9Fw-JPab7XoV6Jbi0-VaNezS31o4NvC-APEwvimgK7iA6_whsGuGPxadGpCp1HXwKiWR5UY1GJQieNaHNfeVuPtdui8SnZuhphOoRneLdi5D7u3g7ml8Xo1fq9m1KsJejXjXs3T5XJtF2jVF2EbtZvboA0792G3GfWGaag9s8EkNcKjcf5DUn9RKWS4pNI4mQYuJZ8fWGKE5z8Jo8xTRTglWA34TQWe_gUEsAES" title="View full diagram">&#128065; View Diagram</a></div>
 
-
-
 #### BUSINESS ARCHITECTURE — 3.2.5 OR-140-060_Deposit_Funds — OR-140-060_Deposit_Funds
 
 **Swim Lanes**: AR Cash Analyst | **Tasks**: 2 | **Gateways**: 0
@@ -448,7 +452,6 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViitFKR8EppDJUiItFIrVcu2PZSqMokN1jp2ajsLLOK_1yYhWWj31BwiPMybeW9i-2gVvERWYo1GR8KISsDRVltUITsB9hpKZDugBb5BQeCaImkbDuZMLcnLmeaF9d7QDJbDitCDQZdowxH4eu-AmS6kDpCQybFEgmDbsWtBKigOKadcGPYdmmIXn926v-ZclEgMBNeNvSLSpZQwNMBBHMZhbuokKjgrr0RxhKe4sE-mOcp3xRYKdW6_kegz3H8npdrqNYZUIs3Zqop-gmtEzYxKNAYrGvF8CYNI48N0YMsaFoRtNB66GhKQPQ1Q5J5O4DQarVhvCh6zFQP6KSiUMkMYSKXhxbMCmFCa3IXpLI9cRyrBn1By5y_iLPCdwkyS6NFdx4Q73iGy2apkzWnZUcc7M0Pi13tH7BPfdcRBv2-8ECsHp3TiT_1p7zSPvdRLL04Y4_9y0rmKRyifOq9FkPt51nt50SRK3b_1LmNmYTzzbnNC4pkU6JVonufBYohqMYk8923ReR5M3PRGdAMV2sHDIPghDXvBPIpzL35TsPW77bJZfxG8uAgGiyiPesF47uUz_03BcOaF065DrbMRsN4CChn65f5YWbMHkEK5BTMG6UGqlfWzZZqHeZqAYYLh2ATfcl4QyFDNJVGoBHnDSgkgK8Fcb1GwVHrwCjElr3X8a52MyJrqePS5B2kjFa8MiBQk9KYweNdXnise0O8GSQXu9VVCoOlA8Us7bTO6_v0rgXAQ0D5113A_wMDWe7j9wQIwHn_UPXdLv112-4Z57TJ89YEMeNmYV7D_bzjoD-cVHHbnyHIsnUcFSWklR-t8N-r7s0QYNlRZJ8eCjeLLAyus5HyHWE1d6igyAvWnrVrw9Ac8BcEZ" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — Process Receipts</span></div>
@@ -497,8 +500,6 @@ flowchart TD
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllW2P4jYQx7-KldWKVgpSHgnNi1YQSLVS73S63baqjqoyiUOsdezUdoCU47t3TAIBerxqXkDm75nfzDgZ52BlIidWbD0_HyinOkaHkS5JRUYxGq2xIiMbdcJvWFK8ZkSNjE8huH6l_5zc3KDeGzejpbiirDXqK9kIgn59sdEMApmNFOZqrIikxcge1ZJWWLaJYEIa7ycyLZzilK1fmguZEzk4OE7kZiGEMsrJIPtREAWpiVMkEzy_gRZhMS2y0dEUx8QuK7HUp_IbRT7g_e801yXYBWaKgE-pK_YLXhNmetSyMVrWyO15M6gyeThs2GuNM8o3oAcOSBLz90EKneMRHZ-fV_ySFL0tVhzBlTGs1IIUSGmQl1uNCspY_BQkszR0bKWleCfxk7eMFr5nZ6aTGFp3bLO54x2hm1LHa8Hy3nW8Mz3EXr235T72HFu28HuXi_B8yJRMvKk3vWSaR27iJudMRVH8r0ywr_INq_c-19JPvXRxyeWGkzBx_ss7t7kIopl7v09EbmlGrqBpmvrLYauWk9B1HkPnqT9xkjvoBmuyw-0A_CEJLsA0jFI3egjs8t1X2aw_SZGdgf4yTMMLMJq76cx7CAxmbjDtKwTORuK6RAxz8pfzZWXNPqMEqxLNOGat0ivrz87TXNz9Ah4Fjgs8zsQGHFnWMOgNwcQiKKgWiuRoQVUmGq7RrDr9zbFRBUdQOcxSjhJJNcwlBvg13bulv-SEa1q0HRy3FZjojchK3cX5t3GzumYt-iiGOnYlZaRvCxZphjUV_I4SfHeh1Aye1Wfyd0OURlqg5RazxrR5Ib7A0UVByQHy_RUkHCBKi3oIOCPuAyaHw1B7TsZrGO2svGkX7aguB9InLHFFYP9-WlnH4xUq-jaK7DPWKLolP3cv4RAFY9rdcA-Nxz9CMb0ZdKbXm25nRr05MebXlfUHgQfxFZZ7Percwt70vx31UZyC_KsX2mS4GrubFe_hiv9wJbgcdjdy2J9LN-LkPJs3anRWLduq4BFgmlvxwTp9l-DblZMCN0xbR9vCjRavLc-s-HR-W02dQ-SCYhirqhOP_wJXLDr8" title="View full diagram">&#128065; View Diagram</a></div>
 
-
-
 #### BUSINESS ARCHITECTURE — 3.2.7 OR-140-080_Manage_Bill-of-Exchange — OR-140-080_Manage_Bill-of-Exchange
 
 **Swim Lanes**: AR Cash Analyst | **Tasks**: 5 | **Gateways**: 0
@@ -539,7 +540,6 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV1v2jAU_StWKsQmBSmfhOVhEoREqtRqVdttD2OaTHINVh0b2YbCKv77bBKgoe3T8hBxT849594rX_PilKICJ3V6vRfKqU7RS18voYZ-ivpzrKDvogb4gSXFcwaqbzlEcP1A_x5ofrTaWprFClxTtrPoAywEoO_XLhqbROYihbkaKJCU9N3-StIay10mmJCWfQUj4pGDW_tpImQF8kzwvMQvY5PKKIczHCZREhU2T0EpeNURJTEZkbK_t8Ux8VwusdSH8tcKbvH2J6300sQEMwWGs9Q1u8FzYLZHLdcWK9dycxwGVdaHm4E9rHBJ-cLgkWcgifnTGYq9_R7te70ZP5mix-mMI_OUDCs1BYKUNnC-0YhQxtKrKBsXsecqLcUTpFdBnkzDwC1tJ6lp3XPtcAfPQBdLnc4Fq1rq4Nn2kAarrSu3aeC5cmfeF17Aq7NTNgxGwejkNEn8zM-OToSQ_3Iyc5WPWD21XnlYBMX05OXHwzjz3uod25xGydi_nBPIDS3hlWhRFGF-HlU-jH3vY9FJEQ697EJ0gTU8491Z8EsWnQSLOCn85EPBxu-yyvX8ToryKBjmcRGfBJOJX4yDDwWjsR-N2gqNzkLi1RIxzOGP92vmjO9RhtUSjTlmO6Vnzu-GaR_uGwLBKcEDO3iUc23ek285usO7GvgFO-iyb_ETfEwOu-QpVStmJmb5N_SyjqhLvocNSGXEzTQMG88po3rXTYm7KXdCaXTNS1GbHTpWhIiQKFsrLWqQ3fThp1O--bw6WA0EGeRbs298AaY7jhdQmazPr9ISk3UPJdANvEk5GZh1aX5wHw0GX83g2jBqwrANkyZsTywPm3DYhkETxm0YN2H06uBY_ePCdODgfTh8H47eh-P34WF7G3TA5HQdOa5jZl1jWjnpi3O4-M2fQwUEr5l29q6D11o87HjppIcL0lmvKrNMU4rNua0bcP8PBCIARg==" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — Process Receipts</span></div>
@@ -629,7 +629,6 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21v4kYQ_isrnyJaCVTb2JjwoRUxuELK3UUh7ak6qmpjj_Eqy667a5LQHP-9s2Ab7BipL3xAzDPzPPOya-_yZsUyAWtiXV29McGKCXnrFRlsoDchvUeqodcnR-BXqhh95KB7JiaVoliyvw5hjpe_mjCDRXTD-M6gS1hLIL8s-mSKRN4nmgo90KBY2uv3csU2VO1CyaUy0R9gnNrpIVvpupEqAXUKsO3AiX2kcibgBA8DL_Aiw9MQS5E0RFM_Hadxb2-K4_IlzqgqDuVvNXykr19YUmRop5RrwJis2PBb-gjc9FiorcHirXquhsG0ySNwYMucxkysEfdshBQVTyfIt_d7sr-6Wok6KXmYrQTBT8yp1jNIiS4Qnj8XJGWcTz544TTy7b4ulHyCyQd3HsyGbj82nUywdbtvhjt4AbbOismj5EkZOngxPUzc_LWvXieu3Vc7_G7lApGcMoUjd-yO60w3gRM6YZUpTdP_lQnnqh6ofipzzYeRG83qXI4_8kP7vV7V5swLpk57TqCeWQxnolEUDeenUc1HvmNfFr2JhiM7bImuaQEvdHcSvA69WjDyg8gJLgoe87Wr3D7eKRlXgsO5H_m1YHDjRFP3oqA3dbxxWSHqrBXNM8KpgD_srytrek9CqjMyFZTvdLGyfj9Gmo9wMCClk5QOzODJPcTAnoHc0d0GREGeGSXzmyWRinykYkv5UYrmOWcxLZgUTTm3KXcndYGamiWGWoo2GcMOxgsrMqRRLQUJ8VlpMryvNSWWaxIqwLUgC_EscZVJkSm5XWdkOSNmnqC1KT5aoMa5iN8UeYA4E9gR5zsScqCq1mOCLO5-WERkibODTUtm1JS5h-NcoOSciYTR4hPRXRpBq59D-s85YGIM1q3ocTN6xnTOcR_OlcI2B2inKSgQZhJSkluq1ubXUbUldd05SCqOycOtLuQGl-QW35aHUlp0x_5HC3Fzv_jYZjpdLZdEbaYVLcIpVpKcTRSPEDwANmaY2E-0mN63Vd3vatXDTO7hzy3gdsLww7aqO6p29wKPK4baCSp9f640PCkhJb9AD-Um59BB997eTu0lMHjEt3uckTCD-ImwtBZg-rDVsd8HycEEwU8ra78_1_K7tc6eDiIAEkjMNheyeCcw6haA15hvNT7rPx_fZG1a0E1b4PIU5ItiuCIyTas6TMi7zOP_lvn6RKO4q1_0gPKC5FTh0wm8m-Ta_46E59nxB-4aMhj8aNKWgHe0q4NJjEp_FV-aXmUf4r-trE9yZX3D57PEx2WcX9rD0h61eb-BPhBPnjJjUNpByRyWdllwVe91W9hvFuRUFTlBK2Ml6JS1uu3Adwp-u-aqRv-oUNdQFuW1bKcaqmOXQD1WpzV2t4zwz85JM_3qftCA3W542A1751eChse_6Bld9AQXPeOLnuuLHhzMRZdz2eXWt8EmPixvbk3Uq64vTdjvhkfdcNANj7vh604YF7mErb6Fr9YNZYk1ebMOfxfwL0UCKd3ywtr3Lbot5HInYmtyuFZb2zxB5oxRvO1sjuD-b89y7E4=" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — Process Receipts</span></div>
@@ -731,7 +730,6 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21v8jYU_StWqopNAi2vBPiwiQKZOrVdVdpN08M0mcQBq8aOHIeW8fDfd01eIGmY9nR8qJrje8699-TamL0RiogYI-P6ek85VSO076g12ZDOCHWWOCWdLsqB37CkeMlI2tExseBqTv8-hllu8q7DNBbgDWU7jc7JShD0cttFYyCyLkoxT3spkTTudDuJpBssdxPBhNTRV2QQm_ExW7F0I2RE5CnANH0r9IDKKCcn2PFd3w00LyWh4FFNNPbiQRx2Dro4Jt7CNZbqWH6Wknv8_juN1BqeY8xSAjFrtWF3eEmY7lHJTGNhJrelGTTVeTgYNk9wSPkKcNcESGL-eoI883BAh-vrBa-SoufpgiP4hAyn6ZTEKFUAz7YKxZSx0ZU7GQee2U2VFK9kdGXP_Kljd0PdyQhaN7va3N4boau1Gi0Fi4rQ3pvuYWQn7135PrLNrtzB30YuwqNTpknfHtiDKtONb02sSZkpjuP_lQl8lc84fS1yzZzADqZVLsvrexPzo17Z5tT1x1bTJyK3NCRnokEQOLOTVbO-Z5mXRW8Cp29OGqIrrMgb3p0EhxO3Egw8P7D8i4J5vmaV2fJRirAUdGZe4FWC_o0VjO2Lgu7YcgdFhaCzkjhZI4Y5-cv8sjDGT2iC0zUaJwmjRC6MP_NI_eEWBMR4FOOeNh7dY55hxnbwjwrX6JaHYgMjiR7xbkO4ShHlaHYzR29U6dWtAGPTuqJdV5ysSfiK7jPY9iJWP6D5-BHdHMV_EcsUzaQUEjGxSpES6AmC2JYgOC7ylbq08-3F3onwdSne_61g90slG4oVmgi-JbDfChU0jvT0ABfqeyabhMGbB4FzBa-ucC-KFqZYYSgCiNB1g9Ovc16SCHSP7tQTN2g-sHJLX24hEpr6JgcH31VZoZFds0k9gSRNSQSs789oQ2DdCzjcIdMLx8dBio5T1ZgmPW-zDaYMPQhFYxpiRQXP3X8iiQBfRVyUfKdLfpZ0tSIS1B7hXBcRMOCNNlT1kD6RkFBobMZICNuA07AsvhFs7_cnYyPSW8LRCtNRbgE0z0LdY5yxnxbG4XBOddqpDZOKSiKEYwVTCNvhg5DbLkTeQ5alwP05Pz2aNO9ztH477ehyigKR8ehDhf4nOIPPlTdsp5U7s7IzhpnQY_trQji6VWTTLMA2_9P7qYYYbSlG-TRiDgMG04c_vHTb-lRX9tmYYTDtLe1hplCCJcwvYRdIzmnTx_C9SGRP6GbL2R6HIRiv0FwB_XiEnXY_fAPn__AB6vV-1G4Uz27-bPWLZ8vWwNeF8Yc-6b7quSpXilC3Gfkg8kCnXHAaC8PmQqVdanm5dFlEvyjKL4nFc1VKAdh2CRQCVaZ-o4RBc6EqoTTC8uuUk7bfoFQLpZfFnYH7RZmVQ2YOVG0MG1U18TJD6aTT6Ns2LxloF45UkY3SKuaDQL3iuw8FlMHXjBRJ3SO7TFs2apdqztm1Q7-V8rpVg-122GmH3fMbVm3Fu7jSv7gyqO61NXjYDsP7acetC7hd3tzqsNMOu-2w1w7322G_HR60w8NWGF5-K2y1w-1dwlQUt0yja2yIhJMxMkZ74_jjDH7ARSTGGVPGoWvgTIn5jofG6PgjxsiO15MpxXC33OTg4R8WWGB2" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — Process Receipts</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -774,8 +772,6 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVFtv0zAU_itWpqkgpVLuKXkAdWmDkNg07QJCFCE3OW6tuXawk66l63_HbpLeYE_kocr5-l18TmxvrFwUYCXW5eWGclolaNOr5rCAXoJ6U6ygZ6MG-IIlxVMGqmc4RPDqnv7e0dygXBmawTK8oGxt0HuYCUCPn2w01EJmI4W56iuQlPTsXinpAst1KpiQhn0BA-KQXVr715WQBcgDwXFiNw-1lFEOB9iPgzjIjE5BLnhxYkpCMiB5b2sWx8RzPsey2i2_VnCNV19pUc11TTBToDnzasE-4ykw02Mla4PltVx2w6DK5HA9sPsS55TPNB44GpKYPx2g0Nlu0fbycsL3oehhNOFIPznDSo2AIFVpeLysEKGMJRdBOsxCx1aVFE-QXHjjeOR7dm46SXTrjm2G238GOptXyVSwoqX2n00PiVeubLlKPMeWa_17lgW8OCSlkTfwBvukq9hN3bRLIoT8V5Keq3zA6qnNGvuZl432WW4Yhanzt1_X5iiIh-75nEAuaQ5HplmW-ePDqMZR6Dqvm15lfuSkZ6YzXMEzXh8M36XB3jAL48yNXzVs8s5XWU9vpcg7Q38cZuHeML5ys6H3qmEwdINBu0LtM5O4nCOGOfx0vk-s4R1KsZqjYVkyCnJi_WiY5uGuJhCcENw3g0fXQp9gIdEjxzt2sZOeSrwzCX4CdAe_aioNXUgJeUUFV6cq_81epipRniV0wVBo1dsjWaBVtyCJkIujLnJsEk4Dws2mCzAXUn-qj1Q-P14QugEooPgwsbbbI2H0byGsclYruoSPzac-qPRhaF64i_r99zq6Lb2mjNoyakq_LUNTvkysb6BH86LZLR40NPeMdiN2rOhon5jA7nycwN6_Yb89tydgsL84TuCw29InaNShlm0tQC4wLaxkY-2uc33lF0BwzSpra1u4rsT9mudWsrv2rLostHJEsd6Niwbc_gEAKPeE" title="View full diagram">&#128065; View Diagram</a></div>
-
-
 
 #### BUSINESS ARCHITECTURE — 3.2.11 OR-140-130_Update_Financial_Records — OR-140-130_Update_Financial_Records
 
@@ -828,7 +824,6 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVe-P4jYQ_VesrFa0UtDlJ4F8qMQGcjppK52Wu-uHUp1MYoO1jp3azrIU8b_fmATYULZS23xAzPO892ZGnmTvFLIkTurc3--ZYCZF-4HZkIoMUjRYYU0GLmqBb1gxvOJED2wOlcIs2F_HND-qX22axXJcMb6z6IKsJUFfP7loCkTuIo2FHmqiGB24g1qxCqtdJrlUNvuOjKlHj27d0YNUJVGXBM9L_CIGKmeCXOAwiZIotzxNCinKniiN6ZgWg4MtjsttscHKHMtvNPkVv_7GSrOBmGKuCeRsTMUf8Ypw26NRjcWKRr2chsG09REwsEWNCybWgEceQAqL5wsUe4cDOtzfL8XZFH2ZLQWCp-BY6xmhSBuA5y8GUcZ5ehdl0zz2XG2UfCbpXTBPZmHgFraTFFr3XDvc4Zaw9cakK8nLLnW4tT2kQf3qqtc08Fy1g98rLyLKi1M2CsbB-Oz0kPiZn52cKKX_ywnmqr5g_dx5zcM8yGdnLz8exZn3d71Tm7MomfrXcyLqhRXkjWie5-H8Mqr5KPa990Uf8nDkZVeia2zIFu8ugpMsOgvmcZL7ybuCrd91lc3qs5LFSTCcx3l8Fkwe_HwavCsYTf1o3FUIOmuF6w3iWJDv3u9LZ_qEZtjgD0-klnCPpgLznTZL54-WYB_hQx7FKcVDO380Y7rm0F3RaCMrAOzGIGZIhdRRRffpwW36x0f0eEXs88KfzsQj4Yn82RBtkJHoa13CiFHOBBYFbD-cFbDPGn2CdwyDoxKkfn6jFYFUxqUmaNGshpyUa6KuyozPKZ_hJSLL_ukITgGnUlWoNyt2JZP8o8x4vz_1hJWSWz3E3KAaK8w54R_be7N0Doc3nMl_4PjevyPBCrd_hI-Gw1-g0C4M2nDSheM2jLpw0oajfhj3k5MuDNvQ905OXgdcxcGby2_rOS19Dw5uw-H5xdeDo9twfBse3YaT2_D4tO49dHIThRY72HEdWJ0Ks9JJ987xCwhfyZJQ3HDjHFwHN0YudqJw0uOXwmmOV37GMCxw1YKHH7gCVo4=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — Process Receipts</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -875,8 +870,6 @@ flowchart TD
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVW2P4jYQ_itWVitaKUh5JTQfWkEg1Um902m5XlUdVWWcCbhr7NR2FjiW_16bhAS420_NhyjzZOZ5ZsYzydEhogAndR4fj5RTnaLjQG9gC4MUDVZYwcBFDfAZS4pXDNTA-pSC6wX9enbzo2pv3SyW4y1lB4suYC0A_f7ORRMTyFykMFdDBZKWA3dQSbrF8pAJJqT1foBx6ZVntfbVVMgCZO_geYlPYhPKKIceDpMoiXIbp4AIXtyQlnE5LsngZJNjYkc2WOpz-rWC93j_By30xtglZgqMz0Zv2W94BczWqGVtMVLLl0szqLI63DRsUWFC-drgkWcgiflzD8Xe6YROj49L3omiT7MlR-YiDCs1gxIpbeD5i0YlZSx9iLJJHnuu0lI8Q_oQzJNZGLjEVpKa0j3XNne4A7re6HQlWNG6Dne2hjSo9q7cp4HnyoO532kBL3qlbBSMg3GnNE38zM8uSmVZ_i8l01f5CavnVmse5kE-67T8eBRn3rd8lzJnUTLx7_sE8oUSuCLN8zyc962aj2Lfe5t0mocjL7sjXWMNO3zoCX_Koo4wj5PcT94kbPTus6xXH6UgF8JwHudxR5hM_XwSvEkYTfxo3GZoeNYSVxvEMIe_vS9LZ_KEMqw2aMIxOyi9dP5qPO3FfeNQ4rTEQ9t49B5rskErM4xooU2JW-Bm8sxwKkw0FVyhHdUblAkpQVVmWcy8osXk443PrUJwr_AM6AMQUMosGpoU_9RKWxmFKD9TlUKiJ7uJhDJLP6OKSKiwseGOO_zSkROxNmkxBkSj6U3-NuY6KPqhC6qYOcIn-LcGpZEWnSw0FO-4yWWLbVHmmWpqGAvD9uMVW9yzKS2qbwM7zvvI0fHYJ1_AcGVaaJr_GTNaNKGLmtg-lTX7ZemcTlexyfdjYU9YregL_NqMZx9lFrh54D4aDn826q0ZNWbYmkFjJq0ZNma7Unxkzdel80EsnVfj3MJJ4xXfef1pj-u1IzuPutW_rPgNHHwfDq_X9-ZN1H0Ab-C4_VbdgKPLvt6gyQV1XGcL5rxo4aRH5_yvMv-zAkpcM-2cXAfXWiwOnDjp-Zvu1JU5IZhRbFZt24Cn_wBFW0Nb" title="View full diagram">&#128065; View Diagram</a></div>
 
-
-
 #### BUSINESS ARCHITECTURE — 3.2.13 OR-140-150_Update_General_Ledger — OR-140-150_Update_General_Ledger
 
 **Swim Lanes**: AR Cash Analyst | **Tasks**: 3 | **Gateways**: 2
@@ -920,8 +913,6 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P2jgU_StWRiO2UpDySWgetmICqVpNq6r0Q6ulqkxyDdYYO2s7DCzlv69NEpiwM0_NA-KenHvOvTe5zsEpRAlO6tzeHiinOkWHgV7DBgYpGiyxgoGLGuAblhQvGaiB5RDB9Zz-e6L5UbWzNIvleEPZ3qJzWAlAX9-5aGISmYsU5mqoQFIycAeVpBss95lgQlr2DYyJR05u7a07IUuQF4LnJX4Rm1RGOVzgMImSKLd5CgrBy54oicmYFIOjLY6Jx2KNpT6VXyv4gHffaanXJiaYKTCctd6we7wEZnvUsrZYUcttNwyqrA83A5tXuKB8ZfDIM5DE_OECxd7xiI63twt-NkVfpguOzFUwrNQUCFLawLOtRoQylt5E2SSPPVdpKR4gvQlmyTQM3MJ2kprWPdcOd_gIdLXW6VKwsqUOH20PaVDtXLlLA8-Ve_N75QW8vDhlo2AcjM9Od4mf-VnnRAj5LSczV_kFq4fWaxbmQT49e_nxKM68_-t1bU6jZOJfzwnklhbwRDTP83B2GdVsFPvey6J3eTjysivRFdbwiPcXwddZdBbM4yT3kxcFG7_rKuvlJymKTjCcxXl8Fkzu_HwSvCgYTfxo3FZodFYSV2vEMIef3t8LZ_IZZVit0YRjtld64fxomPbiviEQnBI8tINH3zCjpWkNzbiWFFSfHPTJn4TSaFJVUmyhRO9FLY1Dl4m0QGbr0VvgIA18D-UKZF8v7Ot9wA-AMiElFJoKfmUe_XFmV8xM_jP8U4MpwPh8rU41963QO3MYUYOXRufVE6H4IqS0qK7TGrHrpNHh0CXZ4264NAtbrLt5mWrRvC4KUIrU7M3COR6f5CbP58KuYLWiW3jbvEuXLLNtzR8eoOHwT1NyG_pNOGrDqAnbF54nTRi04ciGvxbOX_Yx_jK3r_CP4gSHLRw22cmT99IadvvYg4Pn4fB5ODofVT04bk-VHjjqNquHJh3quM4G5AbT0kkPzumrYr48JRBcM-0cXQfXWsz3vHDS0-nr1KenOaXYLMWmAY__ARoHIrE=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-
-
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — Process Receipts</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -957,10 +948,6 @@ The following data entities are derived from the system integration flows for OR
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
-
-
-
-
 
 ### 4.3 Data Lineage
 
@@ -1042,11 +1029,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 The Current-State architecture represents the **current / legacy** landscape for OR-140.
 
-
 #### Current-State Flow Narrative
 
 *(No current-state flows defined.)*
-
 
 ### 5.2 Future-State — Future-State Application Landscape
 
@@ -1054,11 +1039,9 @@ The Current-State architecture represents the **current / legacy** landscape for
 
 The Future-State architecture represents the **target** landscape for OR-140.
 
-
 #### Future-State Flow Narrative
 
 *(No future-state flows defined.)*
-
 
 ### 5.3 Change Impact Summary
 
@@ -1471,15 +1454,11 @@ Integration patterns identified from the system flow analysis for OR-140:
 <div style="page-break-before: always;"></div>
 
 
-
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
-
-
-
 
 #### Platform Inventory
 
@@ -1500,13 +1479,62 @@ Platform landscape inferred from integrated systems for OR-140:
 
 ### 6.2 SAP Development Object Status
 
-| Metric | DEV | QAS | PRD |
-|--------|-----|-----|-----|
-| Transport Requests | — | — | — |
-| Custom Code Objects | — | — | — |
-| CDS Views | — | — | — |
-| Fiori Apps | — | — | — |
-| BAdIs / Enhancements | — | — | — |
+**Capability RICEFW — Active Items** (12 of 366 objects)
+*Data source: Smartsheet Object Tracker (cached 2026-04-06)*
+
+> **Completion Context:** 354 of 366 objects (97%) are complete/closed. The **12 active items** below require attention. See the **RICEFW Register** for full detail.
+>
+> | Type | Completed | Active | Total |
+> |------|----------:|-------:|------:|
+> | Report (R) | 17 | 0 | 17 |
+> | Interface (I) | 85 | 1 | 86 |
+> | Conversion (C) | 23 | 2 | 25 |
+> | Enhancement (E) | 210 | 9 | 219 |
+> | Form (F) | 1 | 0 | 1 |
+> | Workflow (W) | 18 | 0 | 18 |
+> | **Total** | **354** | **12** | **366** |
+
+| Status | Count | % |
+|--------|------:|----:|
+| 07. FUT Roadblock | 10 | 83.3% |
+| 06. Dev In Progress | 2 | 16.7% |
+| **Total Active** | **12** | **100%** |
+
+**Active RICEFW by Type:**
+
+| Type | Count |
+|------|------:|
+| Interface (I) | 1 |
+| Conversion (C) | 2 |
+| Enhancement (E) | 9 |
+| **Total** | **12** |
+
+**Technical Complexity:**
+
+| Complexity | Count |
+|------------|------:|
+| 02.High | 2 |
+| 03.Medium | 4 |
+| 04.Low | 6 |
+
+**Objects Requiring Attention:**
+
+| Object ID | Type | Description | Status | Complexity |
+|-----------|------|-------------|--------|------------|
+| FPRI1669 | 02.Interface | Import Xeus/Mars volumes from ECA into S4.​ | 07. FUT Roadblock | 03.Medium |
+| FPRE1723_IP | 04.Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 07. FUT Roadblock | 04.Low |
+| FPRE1723_IF | 04.Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 07. FUT Roadblock | 04.Low |
+| FPRE1722_IP | 04.Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 07. FUT Roadblock | 04.Low |
+| FPRE1722_IF | 04.Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 07. FUT Roadblock | 04.Low |
+| FPRE1661_IP | 04.Enhancement | WBS transfer tool | 07. FUT Roadblock | 02.High |
+| FPRE1661_IF | 04.Enhancement | WBS transfer tool | 07. FUT Roadblock | 03.Medium |
+| FPRE1599_IP | 04.Enhancement | Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO line ... | 07. FUT Roadblock | 03.Medium |
+| FPRE1599_IF | 04.Enhancement | Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO line ... | 07. FUT Roadblock | 04.Low |
+| FPRE0880 | 04.Enhancement | Cash concentration functionality for cross-currency current accounts | 07. FUT Roadblock | 04.Low |
+| FPRC1724_IP | 03.Conversion | Creation of output template with consumption data | 06. Dev In Progress | 02.High |
+| FPRC1724_IF | 03.Conversion | Creation of output template with consumption data | 06. Dev In Progress | 03.Medium |
+
+**Tower Context:** FPR has 12 active / 354 completed RICEFW objects
 
 ### 6.3 NFRs & Design Principles
 
@@ -1544,49 +1572,64 @@ Platform landscape inferred from integrated systems for OR-140:
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
+*12 active objects with timeline data (source: Object Tracker)*
+*354 completed objects excluded — see RICEFW Register for full detail.*
+
 | ID | Description | FS | TDD | Build | FUT | Status |
 |----|-------------|----|-----|-------|-----|--------|
-| FPRW1449 | TPR : Workflow to handle Memo creation and cancellation process | Jul-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
-| FPRW1444 | TFR: Workflow to handle Memo creation and cancellation process | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Oct-25 (100%) | 1. On Track |
-| FPRW1064_IP | Custom Workflow will also be created with some predefined process/rules for a... | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Feb-26 (100%) | 1. On Track |
-| FPRW1064_IF | Custom Workflow will also be created with some predefined process/rules for a... | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Feb-26 (100%) | 1. On Track |
-| FPRW0930 | Workflow for Counterparty Approval | Apr-25 (100%) | Dec-25 (100%) | Dec-25 (100%) | Dec-25 (100%) | 5. Not Dispositioned |
-| FPRW0906_IP | Custom workflow: Change Order Create and Change Approval | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (100%) | 1. On Track |
-| FPRW0906_IF | Custom workflow: Change Order Create and Change Approval | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (100%) | 1. On Track |
-| FPRW0904_IP | Custom Workflow - WBS Element Request approval with WBS Element creation | Mar-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | 1. On Track |
-| FPRW0904_IF | Custom Workflow - WBS Element Request approval with WBS Element creation | Mar-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | 1. On Track |
-| FPRW0900_IP | Custom Workflow: Approval for Project creation and create a Project def and l... | Feb-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 3. Off Track |
-| FPRW0900_IF | Custom Workflow: Approval for Project creation and create a Project def and l... | Feb-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
-| FPRW0445_IP | Project budget approval workflow (Capex)​ | Aug-24 (100%) | Aug-25 (100%) | Aug-25 (100%) | Sep-25 (100%) | 1. On Track |
-| FPRW0445_IF | Project budget approval workflow (Capex)​ | Aug-24 (100%) | Aug-25 (100%) | Aug-25 (100%) | Sep-25 (100%) | 1. On Track |
-| FPRW0325_IP | Custom workflow to manage the approval process in bulk/individual requests | Jul-24 (100%) | Feb-25 (100%) | Feb-25 (100%) | Mar-25 (100%) |  |
-| FPRW0325_IF | Custom workflow to manage the approval process in bulk/individual requests | Jul-24 (100%) | Feb-25 (100%) | Feb-25 (100%) | Mar-25 (100%) |  |
-| FPRW0165_IP | Workflow is required to trigger the approvers based on the business requireme... | May-24 (100%) | Aug-24 (100%) | Aug-24 (100%) | Sep-24 (100%) |  |
-| FPRW0165_IF | Workflow is required to trigger the approvers based on the business requireme... | May-24 (100%) | Aug-24 (100%) | Aug-24 (100%) | Sep-24 (100%) |  |
-| FPRW0165_CFIN | Workflow is required to trigger the approvers based on the business requireme... | May-24 (100%) | Aug-24 (100%) | Aug-24 (100%) | Sep-24 (100%) |  |
-| FPRR1514_IP | To generate reports out of the ITT documents that was created | Aug-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 4. Completed |
-| FPRR1514_IF | To generate reports out of the ITT documents that was created | Aug-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 4. Completed |
-
-*... and 346 more objects (see full Object Tracker)*
-
-
-<div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — Process Receipts</span></div>
-<div style="page-break-before: always;"></div>
-
+| FPRI1669 | Import Xeus/Mars volumes from ECA into S4.​ | Dec-25 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (55%) | 3. Off Track |
+| FPRE1723_IP | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | Feb-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (60%) | 2. At Risk |
+| FPRE1723_IF | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | Feb-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (60%) | 2. At Risk |
+| FPRE1722_IP | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | Feb-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (60%) | 2. At Risk |
+| FPRE1722_IF | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | Feb-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (60%) | 2. At Risk |
+| FPRE1661_IP | WBS transfer tool | Dec-25 (100%) | Jan-26 (100%) | Jan-26 (100%) | Mar-26 (75%) | 3. Off Track |
+| FPRE1661_IF | WBS transfer tool | Jan-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (75%) | 3. Off Track |
+| FPRE1599_IP | Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO line items accrual details that will be used for ECA reports | Sep-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (40%) | 3. Off Track |
+| FPRE1599_IF | Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO line items accrual details that will be used for ECA reports | Sep-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (40%) | 3. Off Track |
+| FPRE0880 | Cash concentration functionality for cross-currency current accounts | Jan-25 (100%) | Jan-26 (100%) | Jan-26 (100%) | Mar-26 (0%) | 3. Off Track |
+| FPRC1724_IP | Creation of output template with consumption data | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (74%) | Mar-26 (20%) | 3. Off Track |
+| FPRC1724_IF | Creation of output template with consumption data | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (74%) | Mar-26 (20%) | 3. Off Track |
 
 ### 7.2 RAID Log
 
-Standard RAID items for OR-140 (Finance Plan To Report):
+*Live data from Smartsheet Master RAID Log — extracted 2026-04-06*
 
-| # | Category | Description | Status | Owner | Priority |
-|---|----------|-------------|--------|-------|----------|
-| 1 | Risk | Data migration completeness — validate all legacy Process Receipts data maps to S/4 target structures | Open | Tower Architect | High |
-| 2 | Risk | Integration testing coverage — ensure all 0 integrated systems are validated end-to-end | Open | Integration Lead | High |
-| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
-| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
-| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
+**Mapped sub-tower(s):** 3.1 FPR - GL Close & Consolidate, 3.10 FPR - Accounts Receivable & Collections, 3.11 FPR - Project Accounting, 3.2 FPR - Tax, 3.3 FPR - Revenue Recognition & Reporting, 3.4 FPR - Intercompany, 3.5 FPR - Fixed Assets, 3.6 FPR - Cost and Profitability Analysis, 3.7 FPR - Product Costing and Inventory Valuation, 3.8 FPR - Financial Planning & Analysis, 3.9 FPR - Treasury and Cash Management
 
-> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
+**RAID Summary:** 16 open items (7 capability-specific, 9 tower-level), 238 closed
+
+| Severity | Capability | Tower-Wide | Total Open |
+|----------|----------:|-----------:|-----------:|
+| P1 - High | 0 | 2 | 2 |
+| P2 - Medium | 4 | 7 | 11 |
+| P3 - Low | 3 | 0 | 3 |
+| **Total** | **7** | **9** | **16** |
+
+**Capability-Specific RAID Items:**
+
+| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
+|---------|------|----------|-------|--------|-------------|----------|
+| 03633 | Action | P3 - Low | Conversion RICEFW (FPRC1724_IF/IP) has dependency on the enh... | In Progress | FPR | 2026-04-03 |
+| 02226 | Action | P3 - Low | DMEE related FPR objects not ready for development | In Progress | FPR | 2026-03-31 |
+| 03729 | Action | P2 - Medium | AN and CC invoices are fetching wrong tax codes and posting ... | In Progress | FPR | 2026-04-03 |
+| 02680 | Action | P2 - Medium | T042A table config in IP and IF | In Progress | FPR | 2026-04-03 |
+| 03782 | Risk | P2 - Medium | Auto processing of JPMC lockbox BAI2 for AR Cashapp not work... | Not Started | FPR | 2026-04-10 |
+| 03796 | Issue | P2 - Medium | INT-CR0856 - Awaiting Test Data from FPR Team | In Progress | FPR | 2026-03-31 |
+| 03473 | Action | P3 - Low | Manual Service PIR creation for IP-IF Service Procurement. | In Progress | FPR | 2026-05-29 |
+
+**Other FPR Tower RAID Items** (9 open):
+
+| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
+|---------|------|----------|-------|--------|-------------|----------|
+| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-15 |
+| 03813 | Issue | P1 - High | SQL compilation error: View definition for 'CP_FINANCE.FINAN... | Roadblock / At Risk | Data Readiness | 2026-04-06 |
+| 03197 | Issue | P2 - Medium | Company Code address disappearing in DI0 250 | Not Started |  |  |
+| 03624 | Issue | P2 - Medium | Test Data not provided for CR "INT-Build-CR0918" | In Progress | FPR | 2026-03-27 |
+| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
+| 03628 | Risk | P2 - Medium | R3 Returns Rework Process Causing Finance Double Counting in... | In Progress | E2E | 2026-03-27 |
+| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
+| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
+| 03814 | Risk | P2 - Medium | PAPM FS delays impacting delivery of PAPM objects & DARC rep... | In Progress |  | 2026-04-21 |
 
 ### 7.3 Recommendations & Next Steps
 
@@ -1601,4 +1644,6 @@ Standard RAID items for OR-140 (Finance Plan To Report):
 ---
 *OR-140 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: April 2026*
 
-<div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — Process Receipts</span></div>
+
+
+<div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — Process Receipts</span></div>

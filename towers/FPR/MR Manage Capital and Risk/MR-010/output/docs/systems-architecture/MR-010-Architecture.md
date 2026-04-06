@@ -1,5 +1,6 @@
 <div style="text-align:center; padding-top:20px;">
-  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMGFlZWY7c3RvcC1vcGFjaXR5OjEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjE1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4wMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDcpIiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgPC9wYXR0ZXJuPgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2JnKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNncmlkKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPgoKICA8IS0tIERlY29yYXRpdmUgY2lyY3VpdC9hcmNoaXRlY3R1cmUgbGluZXMgLS0+CiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+CiAgICA8cGF0aCBkPSJNIDAgMTAwIEwgMTIwIDEwMCBMIDE2MCAxNDAgTCAyODAgMTQwIi8+CiAgICA8cGF0aCBkPSJNIDAgMjYwIEwgODAgMjYwIEwgMTIwIDIyMCBMIDIwMCAyMjAgTCAyNDAgMjYwIEwgMzYwIDI2MCIvPgogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPgogICAgPHBhdGggZD0iTSA0NDAgMzQwIEwgNTYwIDM0MCBMIDYwMCAzMDAgTCA3MjAgMzAwIEwgNzYwIDM0MCBMIDgwMCAzNDAiLz4KICAgIDxwYXRoIGQ9Ik0gNjAwIDQwMCBMIDY4MCA0MDAgTCA3MjAgNDQwIi8+CiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+CiAgICA8cGF0aCBkPSJNIDIwMCA0MjAgTCAzMjAgNDIwIEwgMzYwIDM4MCBMIDQ4MCAzODAiLz4KICAgIDxwYXRoIGQ9Ik0gNjUwIDQ0MCBMIDc1MCA0NDAgTCA4MDAgNDgwIi8+CiAgPC9nPgoKICA8IS0tIERlY29yYXRpdmUgbm9kZXMgLS0+CiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+CiAgICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjI4MCIgY3k9IjE0MCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSIzNjAiIGN5PSIyNjAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjYwMCIgY3k9IjEwMCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI1NjAiIGN5PSIzNDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjgwIiBjeT0iMzYwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjMyMCIgY3k9IjQyMCIgcj0iNCIvPgogIDwvZz4KCiAgPCEtLSBUT0dBRiBCREFUIGJveGVzIC0tPgogIDxnIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI2MDAiPgogICAgPCEtLSBCIC0tPgogICAgPHJlY3QgeD0iMTUwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIyMTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QnVzaW5lc3M8L3RleHQ+CiAgICA8IS0tIEQgLS0+CiAgICA8cmVjdCB4PSIyOTAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjM1MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5EYXRhPC90ZXh0PgogICAgPCEtLSBBIC0tPgogICAgPHJlY3QgeD0iNDMwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSI0OTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QXBwbGljYXRpb248L3RleHQ+CiAgICA8IS0tIFQgLS0+CiAgICA8cmVjdCB4PSI1NzAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjYzMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5UZWNobm9sb2d5PC90ZXh0PgogIDwvZz4KCiAgPCEtLSBDb25uZWN0aW5nIGxpbmVzIGJldHdlZW4gQkRBVCBib3hlcyAtLT4KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+CiAgICA8bGluZSB4MT0iMjcwIiB5MT0iMTYwIiB4Mj0iMjkwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNDEwIiB5MT0iMTYwIiB4Mj0iNDMwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+CiAgPC9nPgoKICA8IS0tIE1haW4gdGl0bGUgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIyNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmZmZmYiIGxldHRlci1zcGFjaW5nPSIxIj4KICAgIElBTyBBcmNoaXRlY3R1cmUKICA8L3RleHQ+CiAgPHRleHQgeD0iNDAwIiB5PSIzMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC44KSIgbGV0dGVyLXNwYWNpbmc9IjIiPgogICAgVE9HQUYgQkRBVCDCtyBJQU8gUHJvZ3JhbSDCtyBJRE0gMi4wCiAgPC90ZXh0PgoKICA8IS0tIEJvdHRvbSBhY2NlbnQgYmFyIC0tPgogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgoKICA8IS0tIEludGVsIHRleHQgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPgogICAgSU5URUwgQ09ORklERU5USUFMCiAgPC90ZXh0Pgo8L3N2Zz4K" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">MR-010 — Manage Liquidity</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Finance Plan To Report (FPR) Tower<br/>
@@ -12,20 +13,30 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-nav.toc { margin: 16px 0 24px 0; }
-nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
-nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
-nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
-nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
-nav.toc a { color: #0071c5; text-decoration: none; }
-nav.toc a:hover { text-decoration: underline; }
+.page-footer {
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  padding: 6px 12px;
+  background: #fff;
+}
+@media print {
+  .page-footer { display: none !important; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 </style>
 
 
@@ -184,7 +195,6 @@ This capability includes **3 business process(es)** modeled in BPMN 2.0, coverin
 
 ### 3.2 Business Process Diagrams
 
-
 #### BUSINESS ARCHITECTURE — 3.2.1 MR-010-080_Manage_Procurement_of_Financial_Services — MR-010-080_Manage_Procurement_of_Financial_Services
 
 **Swim Lanes**: MDG Analyst · Treasury IT Analyst | **Tasks**: 13 | **Gateways**: 14
@@ -302,8 +312,7 @@ flowchart TD
     class n30 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWPFv2jgU_lesTBWbBFriJITyw50okKmndptKt-o0TieTOBDVxMxOSlnH_37P4AQSzJ3WQ2qlfH7ve-99z34mvFgRj6nVty4uXtIszfvopZUv6JK2-qg1I5K22mgPfCUiJTNGZUvZJDzLJ-mPnZnjrZ6VmcJCskzZRqETOucUfbluowE4sjaSJJMdSUWatNqtlUiXRGyGnHGhrN_QXmInu2h66YqLmIqDgW0HTuSDK0szeoDdwAu8UPlJGvEsrpEmftJLotZWJcf4OloQke_SLyS9Jc8PaZwv4DkhTFKwWeRLdkNmlKkac1EoLCrEUylGKlWcDASbrEiUZnPAPRsgQbLHA-Tb2y3aXlxMsyoouh9NMwSfiBEpRzRBMgd4_JSjJGWs_8YbDkLfbstc8Efaf4PHwcjF7UhV0ofS7bYSt7Om6XyR92ecxdq0s1Y19PHquS2e-9huiw38b8SiWXyINOziHu5Vka4CZ-gMy0hJkvyvSKCruCfyUccauyEOR1Usx-_6Q_uUryxz5AUDp6kTFU9pRI9IwzB0xwepxl3fsc-TXoVu1x42SOckp2uyORBeDr2KMPSD0AnOEu7jNbMsZp8Fj0pCd-yHfkUYXDnhAJ8l9AaO19MZAs9ckNUCMZLRv-1vU-t29AENMsI2Mp9af-2t1CdzYDEh_YR0lOhouKDRI4KTisZCcIHSDD2Mbfwe_vno7fXo0_Bd3R_X_cfPNCpyCk7OJco5uqcyRySLqwVFrWjqLO7ZLJ5h42dziu5Aa6nS-XRl99A9HBVJojzlWZ3IqxN9WTFOYjTkQtAob7IVEk4aGqxW6Hq54nC8Qi5gw2YNu3oEvx7hq5pEm12ud1QWLG-Yd-vmux78oDtJ7ugKmk2l1Okkgi8RNKrRIPtbRRHxufJiaQQO2gtEHobXH9vo-jP8hZCJ4MV8UYpco3L-k2o8HFQMk5v7JoH_tiKQOV9pvxvQmMZoUkSqmqRgbAOO744dg5eXQ-SYdmbQwGiBhiQ72mwzWnYK2KDVqoT3IMjvU2u7PWbrmdkGgpo2jeY8Ybk0s9DniMHOeKIf9se74Ybt17k5Zrd9imyvoDxSsJkuxucl3JPM6GFLAdk6zRcg4uRmcELlvq4E73VuRzoT6PNadgjL0YoIwhhlZifX_jUnuJtMo09Nt3tBiSzEBl3fm0dgcG74TMCULlECW3O9SKHSw1a9BY0J7LBUHd4U5K5T9uqUD1w87vqBbgv46sMTuMkpWaoDB0ODsyc9F6UsaJ3o8t-IJnUi3fr3n_VUOR2zDm4OgA7Vc_mKcb6cUTFHf_CZbJ57t-43XpKUoQGjMDPvaESh97EeX2V9kJG6c9ScO2pAk9c7zJMVg5t0T5lRGu-m0W5Hm-ib40VNWVNSjbvKP3MGSxngOkE8aWgBy9-LVND45Bh1zXQPRFbX3CF_OIqGUYaD152p3q-6VQcEREedzm-KQwOBfu7qZ73u60d__-iU5nCx7wCvfO6p559T6yOfWj_VermgHYPyOdCGf6o7FSyxXsC2tixDOt09UHq6OkOndPAbTA5uruhkylxwt47jkhpr6ippnYtrlwa6XOcEKLNxtQt2m4pUhVa-Tj2NUnJdL67KwGc0xVoKt2lYhXKboU6T0A0vG9rTwUv1sd4ATrNvTe20ELjaCbixsxynKWa3mVTpi3UWTiWirtTpHn1JVpuqfDmowdgMu2bYM8O-Ge6a4cAM98zwpRmG7Xb0alJfcs4v4fNL7vklr3pdrOO-frWro90z1kH53lOHe2b40gjDiTfCjhnGZtg1w54Z9s1w1wybq8TmKrG5Sreq0mpbSyrggoqt_ou1-yEEfiyJaULgjcHati1S5HyyySKrv_vBwCpWMXiOUgJfZpZ7cPsPKXBpqA==" title="View full diagram">&#128065; View Diagram</a></div>
-
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWPFv2jgU_lesTBWbBFriJITyw50okKmndptKt-o0TieTOBDVxMxOSlnH_37P4AQSzJ3WQ2qlfH7ve-99z34mvFgRj6nVty4uXtIszfvopZUv6JK2-qg1I5K22mgPfCUiJTNGZUvZJDzLJ-mPnZnjrZ6VmcJCskzZRqETOucUfbluowE4sjaSJJMdSUWatNqtlUiXRGyGnHGhrN_QXmInu2h66YqLmIqDgW0HTuSDK0szeoDdwAu8UPlJGvEsrpEmftJLotZWJcf4OloQke_SLyS9Jc8PaZwv4DkhTFKwWeRLdkNmlKkac1EoLCrEUylGKlWcDASbrEiUZnPAPRsgQbLHA-Tb2y3aXlxMsyoouh9NMwSfiBEpRzRBMgd4_JSjJGWs_8YbDkLfbstc8Efaf4PHwcjF7UhV0ofS7bYSt7Om6XyR92ecxdq0s1Y19PHquS2e-9huiw38b8SiWXyINOziHu5Vka4CZ-gMy0hJkvyvSKCruCfyUccauyEOR1Usx-_6Q_uUryxz5AUDp6kTFU9pRI9IwzB0xwepxl3fsc-TXoVu1x42SOckp2uyORBeDr2KMPSD0AnOEu7jNbMsZp8Fj0pCd-yHfkUYXDnhAJ8l9AaO19MZAs9ckNUCMZLRv-1vU-t29AENMsI2Mp9af-2t1CdzYDEh_YR0lOhouKDRI4KTisZCcIHSDD2Mbfwe_vno7fXo0_Bd3R_X_cfPNCpyCk7OJco5uqcyRySLqwVFrWjqLO7ZLJ5h42dziu5Aa6nS-XRl99A9HBVJojzlWZ3IqxN9WTFOYjTkQtAob7IVEk4aGqxW6Hq54nC8Qi5gw2YNu3oEvx7hq5pEm12ud1QWLG-Yd-vmux78oDtJ7ugKmk2l1Okkgi8RNKrRIPtbRRHxufJiaQQO2gtEHobXH9vo-jP8hZCJ4MV8UYpco3L-k2o8HFQMk5v7JoH_tiKQOV9pvxvQmMZoUkSqmqRgbAOO744dg5eXQ-SYdmbQwGiBhiQ72mwzWnYK2KDVqoT3IMjvU2u7PWbrmdkGgpo2jeY8Ybk0s9DniMHOeKIf9se74Ybt17k5Zrd9imyvoDxSsJkuxucl3JPM6GFLAdk6zRcg4uRmcELlvq4E73VuRzoT6PNadgjL0YoIwhhlZifX_jUnuJtMo09Nt3tBiSzEBl3fm0dgcG74TMCULlECW3O9SKHSw1a9BY0J7LBUHd4U5K5T9uqUD1w87vqBbgv46sMTuMkpWaoDB0ODsyc9F6UsaJ3o8t-IJnUi3fr3n_VUOR2zDm4OgA7Vc_mKcb6cUTFHf_CZbJ57t-43XpKUoQGjMDPvaESh97EeX2V9kJG6c9ScO2pAk9c7zJMVg5t0T5lRGu-m0W5Hm-ib40VNWVNSjbvKP3MGSxngOkE8aWgBy9-LVND45Bh1zXQPRFbX3CF_OIqGUYaD152p3q-6VQcEREedzm-KQwOBfu7qZ73u60d__-iU5nCx7wCvfO6p559T6yOfWj_VermgHYPyOdCGf6o7FSyxXsC2tixDOt09UHq6OkOndPAbTA5uruhkylxwt47jkhpr6ippnYtrlwa6XOcEKLNxtQt2m4pUhVa-Tj2NUnJdL67KwGc0xVoKt2lYhXKboU6T0A0vG9rTwUv1sd4ATrNvTe20ELjaCbixsxynKWa3mVTpi3UWTiWirtTpHn1JVpuqfDmowdgMu2bYM8O-Ge6a4cAM98zwpRmG7Xb0alJfcs4v4fNL7vklr3pdrOO-frWro90z1kH53lOHe2b40gjDiTfCjhnGZtg1w54Z9s1w1wybq8TmKrG5Sreq0mpbSyrggoqt_ou1-yHE6lsxTQi8MVjbtkWKnE82WWT1dz8YWMUqBs9RSuDLzHIPbv8BKXBpqA==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>MR-010 — Manage Liquidity</span></div>
@@ -458,8 +467,7 @@ flowchart TD
     class n41 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWGtv2zYU_SuEisApYAOSKFm2P2zwS1uGpujqtMPQDAMtU7EQWfQoyYmX-r_vUiZli6aAJsuHojq85z4OLy8tvVgRW1FrZF1dvSRZUozQS6dY0w3tjFBnSXLa6aIj8JXwhCxTmneETcyyYpH8W5k53vZZmAksJJsk3Qt0QR8YRV9uumgMxLSLcpLlvZzyJO50O1uebAjfT1nKuLB-RwexHVfR5NKE8RXlJwPbDpzIB2qaZPQE48ALvFDwchqxbNVwGvvxII46B5Fcyp6iNeFFlX6Z01vy_EeyKtbwHJM0p2CzLjbpB7Kkqaix4KXAopLvlBhJLuJkINhiS6IkewDcswHiJHs8Qb59OKDD1dV9VgdFd7P7DMFflJI8n9EY5QXA812B4iRNR--86Tj07W5ecPZIR-_ceTDDbjcSlYygdLsrxO090eRhXYyWLF1J096TqGHkbp-7_Hnk2l2-h3-1WDRbnSJN--7AHdSRJoEzdaYqUhzH_ysS6MrvSP4oY81x6IazOpbj9_2pfelPlTnzgrGj60T5LonomdMwDPH8JNW87zt2u9NJiPv2VHP6QAr6RPYnh8OpVzsM_SB0glaHx3h6luXyE2eRcojnfujXDoOJE47dVofe2PEGMkPw88DJdo1SktG_7W_31jRlOUUkW6HPdMt4AS2Gbu7QOCPpPi_urb-ORPGXOWAfk1FMemIfgLBL6BOaQHOiRQElb2hWoA-MrFCSoVsGx53xpge36eEm29G8SIRcCIYAmk8W6De2RCFJ0pLTJhfr0QuePDzA_wRrQopoLbh5k-Q1SV-2qUhPS_mWZCVJ0z16Soo1ChNOY9GdYD-OIpprLn2jyw8selyyZ2Cn9JUOHftb7TJiD0cFJ-Mbt3a6Swiahjcf0QyE2TeLbXhyDJ6m49s728eVTD_sSBQ5ZVlGo-JYhJBM9MYnGCsZFFKw4w7QHZSb5LlYE7XrtQXXdUZ5wbZnIU87SFdAen_OGmisyjMM-mid7GjVXovxJzQDYSPosT1a7tHtZKp5cUW_fhZTOxKbAtKzEna73nctVVc053wDwqCPrEjiJCJFwjJ0d5bkuXn_5eWk9Yr2ljClobSGGD_fW4fDOSkwk6o9qaVR_X_BHpjZ9DlKyxyU-eU4d3TasCXTqktVA3-m_5Sg50oPim0zW7QT46pFL1jOm1LF7ttoZxUSztlT3iNpgbaEwymk6QUJLizTPBT9cscpyUtoqbYh2G8e_69iBELvqXmH4koUEHQOiXCtx4Im-Y48UjRlXLQxFActKjquSRn8CEULM2wblWLIQoNpZ9RtTg1x08CQkocOzproTn1A4CYHjhkV6dSccIYW8MsEELjiIXKLG08LnUSP0kfM2ebCy7UwgAEA5_3XcplvSfZe99g_jY5tSvb6rJeJruTIQNdyPHblnHS7jdH7Xp9MQ20yVbsMXnOW7i7mmGsb55gsQly6C5ETzNLfS5IV5Ubn49eNJO915tWQP1ZdJaNuiuoO0zKrrg6puXYv47edWc9MO0pUb5P4JTGZXowXv2UoVWcOuqXMLgdZ_215Bm-jtczqm7w6hFpX_sLElQFq1w0PTSXOi16EZ79u0h1JzhvHIzBRr_eTEEEB9hFwBhJw-tICK-D47CoDtzL4fm99ZPfWd3EFqgVJlI9YOq6XgyYPu8pQWmJPRfRlyKGiDjUq1hf-FL9TxIqtnNpyBa61akU592Qw-d6Q-dpzLYhKz5Xp9eVzINdVctjT9KiFszXlsFTIVbGw2g0VS2of6FKr8hxfrQykK5UV9jVTVxXsyorrDVb7VFNlVM_RfSm5VT5Y1o7r2odSDCW7q0qUzzLNob4rchpX7uua5FY4dQcNpLVhph1rVNShXlKTiY93wPXpDhANYetnQnlzVOt6-hbXbVaLKcV1bb3L631wda2UzI6Me_4GK46beiduwK4ZxmbYM8O-Ge6b4cAMD8zw0AzDITh7I28uOe1LbvsSbl_y2pf69QeUJh7Ijx1NdGBEhybUtY2oY44H58OM4xbca8H9FryvvlU04cAMD8zw0AjD4TXCjhl2zTA2w54Z9s2wuUpsrhKbq8TmKj1zlV5dpdW1NpTDj7KVNXqxqk-d8Dl0RWNSpoV16FqkLNhin0XWqPokaJXbFTBnCYE3k80RPPwHWYOLgw==" title="View full diagram">&#128065; View Diagram</a></div>
-
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWGtv2zYU_SuEisApYAOSKFm2P2zwS1uGpujqtMPQDAMtU7EQWfQoyYmX-r_vUiZli6aAJsuHojq85z4OLy8tvVgRW1FrZF1dvSRZUozQS6dY0w3tjFBnSXLa6aIj8JXwhCxTmneETcyyYpH8W5k53vZZmAksJJsk3Qt0QR8YRV9uumgMxLSLcpLlvZzyJO50O1uebAjfT1nKuLB-RwexHVfR5NKE8RXlJwPbDpzIB2qaZPQE48ALvFDwchqxbNVwGvvxII46B5Fcyp6iNeFFlX6Z01vy_EeyKtbwHJM0p2CzLjbpB7Kkqaix4KXAopLvlBhJLuJkINhiS6IkewDcswHiJHs8Qb59OKDD1dV9VgdFd7P7DMFflJI8n9EY5QXA812B4iRNR--86Tj07W5ecPZIR-_ceTDDbjcSlYygdLsrxO090eRhXYyWLF1J096TqGHkbp-7_Hnk2l2-h3-1WDRbnSJN--7AHdSRJoEzdaYqUhzH_ysS6MrvSP4oY81x6IazOpbj9_2pfelPlTnzgrGj60T5LonomdMwDPH8JNW87zt2u9NJiPv2VHP6QAr6RPYnh8OpVzsM_SB0glaHx3h6luXyE2eRcojnfujXDoOJE47dVofe2PEGMkPw88DJdo1SktG_7W_31jRlOUUkW6HPdMt4AS2Gbu7QOCPpPi_urb-ORPGXOWAfk1FMemIfgLBL6BOaQHOiRQElb2hWoA-MrFCSoVsGx53xpge36eEm29G8SIRcCIYAmk8W6De2RCFJ0pLTJhfr0QuePDzA_wRrQopoLbh5k-Q1SV-2qUhPS_mWZCVJ0z16Soo1ChNOY9GdYD-OIpprLn2jyw8selyyZ2Cn9JUOHftb7TJiD0cFJ-Mbt3a6Swiahjcf0QyE2TeLbXhyDJ6m49s728eVTD_sSBQ5ZVlGo-JYhJBM9MYnGCsZFFKw4w7QHZSb5LlYE7XrtQXXdUZ5wbZnIU87SFdAen_OGmisyjMM-mid7GjVXovxJzQDYSPosT1a7tHtZKp5cUW_fhZTOxKbAtKzEna73nctVVc053wDwqCPrEjiJCJFwjJ0d5bkuXn_5eWk9Yr2ljClobSGGD_fW4fDOSkwk6o9qaVR_X_BHpjZ9DlKyxyU-eU4d3TasCXTqktVA3-m_5Sg50oPim0zW7QT46pFL1jOm1LF7ttoZxUSztlT3iNpgbaEwymk6QUJLizTPBT9cscpyUtoqbYh2G8e_69iBELvqXmH4koUEHQOiXCtx4Im-Y48UjRlXLQxFActKjquSRn8CEULM2wblWLIQoNpZ9RtTg1x08CQkocOzproTn1A4CYHjhkV6dSccIYW8MsEELjiIXKLG08LnUSP0kfM2ebCy7UwgAEA5_3XcplvSfZe99g_jY5tSvb6rJeJruTIQNdyPHblnHS7jdH7Xp9MQ20yVbsMXnOW7i7mmGsb55gsQly6C5ETzNLfS5IV5Ubn49eNJO915tWQP1ZdJaNuiuoO0zKrrg6puXYv47edWc9MO0pUb5P4JTGZXowXv2UoVWcOuqXMLgdZ_215Bm-jtczqm7w6hFpX_sLElQFq1w0PTSXOi16EZ79u0h1JzhvHIzBRr_eTEEEB9hFwBhJw-tICK-D47CoDtzL4fm99ZPfWd3EFqgVJlI9YOq6XgyYPu8pQWmJPRfRlyKGiDjUq1hf-FL9TxIqtnNpyBa61akU592Qw-d6Q-dpzLYhKz5Xp9eVzINdVctjT9KiFszXlsFTIVbGw2g0VS2of6FKr8hxfrQykK5UV9jVTVxXsyorrDVb7VFNlVM_RfSm5VT5Y1o7r2odSDCW7q0qUzzLNob4rchpX7uua5FY4dQcNpLVhph1rVNShXlKTiY93wPXpDhANYetnQnlzVOt6-hbXbVaLKcV1bb3L631wda2UzI6Me_4GK46beiduwK4ZxmbYM8O-Ge6b4cAMD8zw0AzDITh7I28uOe1LbvsSbl_y2pf69QeUJh7Ijx1NdGBEhybUtY2oY44H58OM4xbca8H9FryvvlU04cAMD8zw0AjD4TXCjhl2zTA2w54Z9s2wuUpsrhKbq8TmKj1zlV5dpdW1NpTDj7KVNXqxqk-d1sha0ZiUaWEduhYpC7bYZ5E1qj4JWuV2BcxZQuDNZHMED_8BWYOLgw==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>MR-010 — Manage Liquidity</span></div>
@@ -539,8 +547,6 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVv-PqkYQ_1c2vFx8TfACCOLxQxtFebmXu_blvNemqU2zwqLEZZfsLndan_97B_miUEzT1h_U-ezM5zMzDANHLeQR0Tzt7u6YsER56DhQW5KSgYcGayzJQEcl8DMWCV5TIgeFT8yZWiZ_nt1MO9sXbgUW4DShhwJdkg0n6OujjqYQSHUkMZNDSUQSD_RBJpIUi4PPKReF9wcyiY34rFYdzbiIiLg4GIZrhg6E0oSRCzxybdcOijhJQs6iFmnsxJM4HJyK5Ch_D7dYqHP6uSTPeP9LEqkt2DGmkoDPVqX0Ca8JLWpUIi-wMBdvdTMSWegwaNgyw2HCNoDbBkACs90FcozTCZ3u7lasEUVPLyuG4BNSLOWcxEgqgBdvCsUJpd4H258GjqFLJfiOeB-shTsfWXpYVOJB6YZeNHf4TpLNVnlrTqPKdfhe1OBZ2V4Xe88ydHGA744WYdFFyR9bE2vSKM1c0zf9WimO4_-lBH0Vr1juKq3FKLCCeaNlOmPHN_7OV5c5t92p2e0TEW9JSK5IgyAYLS6tWowd07hNOgtGY8PvkG6wIu_4cCF88O2GMHDcwHRvEpZ63Szz9RfBw5pwtHACpyF0Z2YwtW4S2lPTnlQZAs9G4GyLKGbkD-O3lTZ9QT6WWzTNMpoQsdJ-Lz2LD7PAIcZejIdF49EXImIuUvSMWY4p_KhwizCLkE8J7oS6H5tYqXiGlgp6khKmJHopbqQwoSSCkO_KGBihvgxNIPEplwRNQeaFZFwouAnQNAx5zsq_DNODVG11878nPu4k3mRbi16X4vM0o0RdV3ImmRSdzRVPsUpCNDvrfeZrBFmgGcXh7gmWDEQzRkIF2KtINkSIM88VzQPQgD5J3vrUOyUbx2OdeLFzh2vYGiA7FQTBgkWPECXL0kl0KR7-N4liSg_o41dZtFXCGUTDUIEldTR_Xizu7-9X2ul0LWreEG1RXi74D914qz-e7EOaSyj7U3kndcNG_WGPEiWwC3m4W_M9gr4uZstLw67Eb4yb1Ywbbo3b42v_mI3aY7bYFwHop1xlOaxDwVM0mCcyo7AKPj2VV2DQZrD_mQHSgFufSAlzxHaXcnr5nDbfE8fR-eqXjJ2JsS9dxELwdznEVKEMC7hqhN5ovfPvgppOw4Ci4fD7byvtR77SvhUXsT6wiwPoZse2a9sq7XFlj0rTdCrb7timUwK1XZmTynyo3KsdyyaVbdbhNX-jb3YSbzkCXg3c-dCqDquc3S7Hr0SWJLWjWalZ3TZ1Pc8Pg8K_fgi2YKsfHvXDdj_s9MPj6gnfAt0-cNK8d7Tgh34YSq2elG3Y7IetfnjUD9v9sFPDmq6lRKQ4iTTvqJ1fQeE1NSIxzqnSTrqGYYctDyzUvPOrmpZnEUTOEwwLIy3B0185a3Db" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-
-
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>MR-010 — Manage Liquidity</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -577,10 +583,6 @@ The following data entities are derived from the system integration flows for MR
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
-
-
-
-
 
 ### 4.3 Data Lineage
 
@@ -662,11 +664,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 The Current-State architecture represents the **current / legacy** landscape for MR-010.
 
-
 #### Current-State Flow Narrative
 
 *(No current-state flows defined.)*
-
 
 ### 5.2 Future-State — Future-State Application Landscape
 
@@ -674,11 +674,9 @@ The Current-State architecture represents the **current / legacy** landscape for
 
 The Future-State architecture represents the **target** landscape for MR-010.
 
-
 #### Future-State Flow Narrative
 
 *(No future-state flows defined.)*
-
 
 ### 5.3 Change Impact Summary
 
@@ -1091,15 +1089,11 @@ Integration patterns identified from the system flow analysis for MR-010:
 <div style="page-break-before: always;"></div>
 
 
-
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
-
-
-
 
 #### Platform Inventory
 
@@ -1120,13 +1114,62 @@ Platform landscape inferred from integrated systems for MR-010:
 
 ### 6.2 SAP Development Object Status
 
-| Metric | DEV | QAS | PRD |
-|--------|-----|-----|-----|
-| Transport Requests | — | — | — |
-| Custom Code Objects | — | — | — |
-| CDS Views | — | — | — |
-| Fiori Apps | — | — | — |
-| BAdIs / Enhancements | — | — | — |
+**Capability RICEFW — Active Items** (12 of 366 objects)
+*Data source: Smartsheet Object Tracker (cached 2026-04-06)*
+
+> **Completion Context:** 354 of 366 objects (97%) are complete/closed. The **12 active items** below require attention. See the **RICEFW Register** for full detail.
+>
+> | Type | Completed | Active | Total |
+> |------|----------:|-------:|------:|
+> | Report (R) | 17 | 0 | 17 |
+> | Interface (I) | 85 | 1 | 86 |
+> | Conversion (C) | 23 | 2 | 25 |
+> | Enhancement (E) | 210 | 9 | 219 |
+> | Form (F) | 1 | 0 | 1 |
+> | Workflow (W) | 18 | 0 | 18 |
+> | **Total** | **354** | **12** | **366** |
+
+| Status | Count | % |
+|--------|------:|----:|
+| 07. FUT Roadblock | 10 | 83.3% |
+| 06. Dev In Progress | 2 | 16.7% |
+| **Total Active** | **12** | **100%** |
+
+**Active RICEFW by Type:**
+
+| Type | Count |
+|------|------:|
+| Interface (I) | 1 |
+| Conversion (C) | 2 |
+| Enhancement (E) | 9 |
+| **Total** | **12** |
+
+**Technical Complexity:**
+
+| Complexity | Count |
+|------------|------:|
+| 02.High | 2 |
+| 03.Medium | 4 |
+| 04.Low | 6 |
+
+**Objects Requiring Attention:**
+
+| Object ID | Type | Description | Status | Complexity |
+|-----------|------|-------------|--------|------------|
+| FPRI1669 | 02.Interface | Import Xeus/Mars volumes from ECA into S4.​ | 07. FUT Roadblock | 03.Medium |
+| FPRE1723_IP | 04.Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 07. FUT Roadblock | 04.Low |
+| FPRE1723_IF | 04.Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 07. FUT Roadblock | 04.Low |
+| FPRE1722_IP | 04.Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 07. FUT Roadblock | 04.Low |
+| FPRE1722_IF | 04.Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 07. FUT Roadblock | 04.Low |
+| FPRE1661_IP | 04.Enhancement | WBS transfer tool | 07. FUT Roadblock | 02.High |
+| FPRE1661_IF | 04.Enhancement | WBS transfer tool | 07. FUT Roadblock | 03.Medium |
+| FPRE1599_IP | 04.Enhancement | Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO line ... | 07. FUT Roadblock | 03.Medium |
+| FPRE1599_IF | 04.Enhancement | Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO line ... | 07. FUT Roadblock | 04.Low |
+| FPRE0880 | 04.Enhancement | Cash concentration functionality for cross-currency current accounts | 07. FUT Roadblock | 04.Low |
+| FPRC1724_IP | 03.Conversion | Creation of output template with consumption data | 06. Dev In Progress | 02.High |
+| FPRC1724_IF | 03.Conversion | Creation of output template with consumption data | 06. Dev In Progress | 03.Medium |
+
+**Tower Context:** FPR has 12 active / 354 completed RICEFW objects
 
 ### 6.3 NFRs & Design Principles
 
@@ -1164,49 +1207,64 @@ Platform landscape inferred from integrated systems for MR-010:
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
+*12 active objects with timeline data (source: Object Tracker)*
+*354 completed objects excluded — see RICEFW Register for full detail.*
+
 | ID | Description | FS | TDD | Build | FUT | Status |
 |----|-------------|----|-----|-------|-----|--------|
-| FPRW1449 | TPR : Workflow to handle Memo creation and cancellation process | Jul-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
-| FPRW1444 | TFR: Workflow to handle Memo creation and cancellation process | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Oct-25 (100%) | 1. On Track |
-| FPRW1064_IP | Custom Workflow will also be created with some predefined process/rules for a... | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Feb-26 (100%) | 1. On Track |
-| FPRW1064_IF | Custom Workflow will also be created with some predefined process/rules for a... | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Feb-26 (100%) | 1. On Track |
-| FPRW0930 | Workflow for Counterparty Approval | Apr-25 (100%) | Dec-25 (100%) | Dec-25 (100%) | Dec-25 (100%) | 5. Not Dispositioned |
-| FPRW0906_IP | Custom workflow: Change Order Create and Change Approval | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (100%) | 1. On Track |
-| FPRW0906_IF | Custom workflow: Change Order Create and Change Approval | Mar-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (100%) | 1. On Track |
-| FPRW0904_IP | Custom Workflow - WBS Element Request approval with WBS Element creation | Mar-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | 1. On Track |
-| FPRW0904_IF | Custom Workflow - WBS Element Request approval with WBS Element creation | Mar-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | 1. On Track |
-| FPRW0900_IP | Custom Workflow: Approval for Project creation and create a Project def and l... | Feb-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 3. Off Track |
-| FPRW0900_IF | Custom Workflow: Approval for Project creation and create a Project def and l... | Feb-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 1. On Track |
-| FPRW0445_IP | Project budget approval workflow (Capex)​ | Aug-24 (100%) | Aug-25 (100%) | Aug-25 (100%) | Sep-25 (100%) | 1. On Track |
-| FPRW0445_IF | Project budget approval workflow (Capex)​ | Aug-24 (100%) | Aug-25 (100%) | Aug-25 (100%) | Sep-25 (100%) | 1. On Track |
-| FPRW0325_IP | Custom workflow to manage the approval process in bulk/individual requests | Jul-24 (100%) | Feb-25 (100%) | Feb-25 (100%) | Mar-25 (100%) |  |
-| FPRW0325_IF | Custom workflow to manage the approval process in bulk/individual requests | Jul-24 (100%) | Feb-25 (100%) | Feb-25 (100%) | Mar-25 (100%) |  |
-| FPRW0165_IP | Workflow is required to trigger the approvers based on the business requireme... | May-24 (100%) | Aug-24 (100%) | Aug-24 (100%) | Sep-24 (100%) |  |
-| FPRW0165_IF | Workflow is required to trigger the approvers based on the business requireme... | May-24 (100%) | Aug-24 (100%) | Aug-24 (100%) | Sep-24 (100%) |  |
-| FPRW0165_CFIN | Workflow is required to trigger the approvers based on the business requireme... | May-24 (100%) | Aug-24 (100%) | Aug-24 (100%) | Sep-24 (100%) |  |
-| FPRR1514_IP | To generate reports out of the ITT documents that was created | Aug-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 4. Completed |
-| FPRR1514_IF | To generate reports out of the ITT documents that was created | Aug-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 4. Completed |
-
-*... and 346 more objects (see full Object Tracker)*
-
-
-<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>MR-010 — Manage Liquidity</span></div>
-<div style="page-break-before: always;"></div>
-
+| FPRI1669 | Import Xeus/Mars volumes from ECA into S4.​ | Dec-25 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (55%) | 3. Off Track |
+| FPRE1723_IP | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | Feb-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (60%) | 2. At Risk |
+| FPRE1723_IF | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | Feb-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (60%) | 2. At Risk |
+| FPRE1722_IP | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | Feb-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (60%) | 2. At Risk |
+| FPRE1722_IF | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | Feb-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (60%) | 2. At Risk |
+| FPRE1661_IP | WBS transfer tool | Dec-25 (100%) | Jan-26 (100%) | Jan-26 (100%) | Mar-26 (75%) | 3. Off Track |
+| FPRE1661_IF | WBS transfer tool | Jan-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (75%) | 3. Off Track |
+| FPRE1599_IP | Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO line items accrual details that will be used for ECA reports | Sep-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (40%) | 3. Off Track |
+| FPRE1599_IF | Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO line items accrual details that will be used for ECA reports | Sep-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (40%) | 3. Off Track |
+| FPRE0880 | Cash concentration functionality for cross-currency current accounts | Jan-25 (100%) | Jan-26 (100%) | Jan-26 (100%) | Mar-26 (0%) | 3. Off Track |
+| FPRC1724_IP | Creation of output template with consumption data | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (74%) | Mar-26 (20%) | 3. Off Track |
+| FPRC1724_IF | Creation of output template with consumption data | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (74%) | Mar-26 (20%) | 3. Off Track |
 
 ### 7.2 RAID Log
 
-Standard RAID items for MR-010 (Finance Plan To Report):
+*Live data from Smartsheet Master RAID Log — extracted 2026-04-06*
 
-| # | Category | Description | Status | Owner | Priority |
-|---|----------|-------------|--------|-------|----------|
-| 1 | Risk | Data migration completeness — validate all legacy Manage Liquidity data maps to S/4 target structures | Open | Tower Architect | High |
-| 2 | Risk | Integration testing coverage — ensure all 0 integrated systems are validated end-to-end | Open | Integration Lead | High |
-| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
-| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
-| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
+**Mapped sub-tower(s):** 3.1 FPR - GL Close & Consolidate, 3.10 FPR - Accounts Receivable & Collections, 3.11 FPR - Project Accounting, 3.2 FPR - Tax, 3.3 FPR - Revenue Recognition & Reporting, 3.4 FPR - Intercompany, 3.5 FPR - Fixed Assets, 3.6 FPR - Cost and Profitability Analysis, 3.7 FPR - Product Costing and Inventory Valuation, 3.8 FPR - Financial Planning & Analysis, 3.9 FPR - Treasury and Cash Management
 
-> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
+**RAID Summary:** 16 open items (7 capability-specific, 9 tower-level), 238 closed
+
+| Severity | Capability | Tower-Wide | Total Open |
+|----------|----------:|-----------:|-----------:|
+| P1 - High | 0 | 2 | 2 |
+| P2 - Medium | 4 | 7 | 11 |
+| P3 - Low | 3 | 0 | 3 |
+| **Total** | **7** | **9** | **16** |
+
+**Capability-Specific RAID Items:**
+
+| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
+|---------|------|----------|-------|--------|-------------|----------|
+| 03633 | Action | P3 - Low | Conversion RICEFW (FPRC1724_IF/IP) has dependency on the enh... | In Progress | FPR | 2026-04-03 |
+| 02226 | Action | P3 - Low | DMEE related FPR objects not ready for development | In Progress | FPR | 2026-03-31 |
+| 03729 | Action | P2 - Medium | AN and CC invoices are fetching wrong tax codes and posting ... | In Progress | FPR | 2026-04-03 |
+| 02680 | Action | P2 - Medium | T042A table config in IP and IF | In Progress | FPR | 2026-04-03 |
+| 03782 | Risk | P2 - Medium | Auto processing of JPMC lockbox BAI2 for AR Cashapp not work... | Not Started | FPR | 2026-04-10 |
+| 03796 | Issue | P2 - Medium | INT-CR0856 - Awaiting Test Data from FPR Team | In Progress | FPR | 2026-03-31 |
+| 03473 | Action | P3 - Low | Manual Service PIR creation for IP-IF Service Procurement. | In Progress | FPR | 2026-05-29 |
+
+**Other FPR Tower RAID Items** (9 open):
+
+| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
+|---------|------|----------|-------|--------|-------------|----------|
+| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-15 |
+| 03813 | Issue | P1 - High | SQL compilation error: View definition for 'CP_FINANCE.FINAN... | Roadblock / At Risk | Data Readiness | 2026-04-06 |
+| 03197 | Issue | P2 - Medium | Company Code address disappearing in DI0 250 | Not Started |  |  |
+| 03624 | Issue | P2 - Medium | Test Data not provided for CR "INT-Build-CR0918" | In Progress | FPR | 2026-03-27 |
+| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
+| 03628 | Risk | P2 - Medium | R3 Returns Rework Process Causing Finance Double Counting in... | In Progress | E2E | 2026-03-27 |
+| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
+| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
+| 03814 | Risk | P2 - Medium | PAPM FS delays impacting delivery of PAPM objects & DARC rep... | In Progress |  | 2026-04-21 |
 
 ### 7.3 Recommendations & Next Steps
 
@@ -1221,4 +1279,6 @@ Standard RAID items for MR-010 (Finance Plan To Report):
 ---
 *MR-010 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: April 2026*
 
-<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>MR-010 — Manage Liquidity</span></div>
+
+
+<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>MR-010 — Manage Liquidity</span></div>

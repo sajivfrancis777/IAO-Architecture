@@ -1,5 +1,6 @@
 <div style="text-align:center; padding-top:20px;">
-  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMGFlZWY7c3RvcC1vcGFjaXR5OjEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjE1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4wMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDcpIiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgPC9wYXR0ZXJuPgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2JnKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNncmlkKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPgoKICA8IS0tIERlY29yYXRpdmUgY2lyY3VpdC9hcmNoaXRlY3R1cmUgbGluZXMgLS0+CiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+CiAgICA8cGF0aCBkPSJNIDAgMTAwIEwgMTIwIDEwMCBMIDE2MCAxNDAgTCAyODAgMTQwIi8+CiAgICA8cGF0aCBkPSJNIDAgMjYwIEwgODAgMjYwIEwgMTIwIDIyMCBMIDIwMCAyMjAgTCAyNDAgMjYwIEwgMzYwIDI2MCIvPgogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPgogICAgPHBhdGggZD0iTSA0NDAgMzQwIEwgNTYwIDM0MCBMIDYwMCAzMDAgTCA3MjAgMzAwIEwgNzYwIDM0MCBMIDgwMCAzNDAiLz4KICAgIDxwYXRoIGQ9Ik0gNjAwIDQwMCBMIDY4MCA0MDAgTCA3MjAgNDQwIi8+CiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+CiAgICA8cGF0aCBkPSJNIDIwMCA0MjAgTCAzMjAgNDIwIEwgMzYwIDM4MCBMIDQ4MCAzODAiLz4KICAgIDxwYXRoIGQ9Ik0gNjUwIDQ0MCBMIDc1MCA0NDAgTCA4MDAgNDgwIi8+CiAgPC9nPgoKICA8IS0tIERlY29yYXRpdmUgbm9kZXMgLS0+CiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+CiAgICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjI4MCIgY3k9IjE0MCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSIzNjAiIGN5PSIyNjAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjYwMCIgY3k9IjEwMCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI1NjAiIGN5PSIzNDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjgwIiBjeT0iMzYwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjMyMCIgY3k9IjQyMCIgcj0iNCIvPgogIDwvZz4KCiAgPCEtLSBUT0dBRiBCREFUIGJveGVzIC0tPgogIDxnIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI2MDAiPgogICAgPCEtLSBCIC0tPgogICAgPHJlY3QgeD0iMTUwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIyMTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QnVzaW5lc3M8L3RleHQ+CiAgICA8IS0tIEQgLS0+CiAgICA8cmVjdCB4PSIyOTAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjM1MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5EYXRhPC90ZXh0PgogICAgPCEtLSBBIC0tPgogICAgPHJlY3QgeD0iNDMwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSI0OTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QXBwbGljYXRpb248L3RleHQ+CiAgICA8IS0tIFQgLS0+CiAgICA8cmVjdCB4PSI1NzAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjYzMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5UZWNobm9sb2d5PC90ZXh0PgogIDwvZz4KCiAgPCEtLSBDb25uZWN0aW5nIGxpbmVzIGJldHdlZW4gQkRBVCBib3hlcyAtLT4KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+CiAgICA8bGluZSB4MT0iMjcwIiB5MT0iMTYwIiB4Mj0iMjkwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNDEwIiB5MT0iMTYwIiB4Mj0iNDMwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+CiAgPC9nPgoKICA8IS0tIE1haW4gdGl0bGUgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIyNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmZmZmYiIGxldHRlci1zcGFjaW5nPSIxIj4KICAgIElBTyBBcmNoaXRlY3R1cmUKICA8L3RleHQ+CiAgPHRleHQgeD0iNDAwIiB5PSIzMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC44KSIgbGV0dGVyLXNwYWNpbmc9IjIiPgogICAgVE9HQUYgQkRBVCDCtyBJQU8gUHJvZ3JhbSDCtyBJRE0gMi4wCiAgPC90ZXh0PgoKICA8IS0tIEJvdHRvbSBhY2NlbnQgYmFyIC0tPgogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgoKICA8IS0tIEludGVsIHRleHQgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPgogICAgSU5URUwgQ09ORklERU5USUFMCiAgPC90ZXh0Pgo8L3N2Zz4K" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">GT-030 — Compliance Screening (IP)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
@@ -12,20 +13,30 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-nav.toc { margin: 16px 0 24px 0; }
-nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
-nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
-nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
-nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
-nav.toc a { color: #0071c5; text-decoration: none; }
-nav.toc a:hover { text-decoration: underline; }
+.page-footer {
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  padding: 6px 12px;
+  background: #fff;
+}
+@media print {
+  .page-footer { display: none !important; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 </style>
 
 
@@ -189,7 +200,6 @@ This capability includes **8 business process(es)** modeled in BPMN 2.0, coverin
 
 ### 3.2 Business Process Diagrams
 
-
 #### BUSINESS ARCHITECTURE — 3.2.1 GT-030-010_Business_Partners_Screening_SPL_(IP) — GT-030-010_Business_Partners_Screening_SPL_(IP)
 
 **Swim Lanes**: Boundary Apps · Trade Execution Analyst | **Tasks**: 9 | **Gateways**: 7
@@ -281,7 +291,6 @@ flowchart LR
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV11vozgU_SsWoyqtlKhAICR52FW-GFVqq-ykO6PVdLVywCSoDka2aZPp5L_vNTEQKNmH2Uit4uN7zr0-vjbk3QhYSIyxcXX1HiexHKP3jtySHemMUWeNBel00Qn4inmM15SIjoqJWCJX8Y88zHLSvQpTmI93MT0odEU2jKA_77poAkTaRQInoicIj6NOt5PyeIf5YcYo4yr6ExlGZpRn01NTxkPCqwDT9KzABSqNE1LBfc_xHF_xBAlYEtZEIzcaRkHnqIqj7C3YYi7z8jNBHvD-WxzKLYwjTAWBmK3c0Xu8JlStUfJMYUHGXwszYqHyJGDYKsVBnGwAd0yAOE5eKsg1j0d0vLp6Tsqk6P7Lc4LgE1AsxJxESEiAF68SRTGl40_ObOK7ZldIzl7I-JO98OZ9uxuolYxh6WZXmdt7I_FmK8drRkMd2ntTaxjb6b7L92Pb7PID_G_kIklYZZoN7KE9LDNNPWtmzYpMURT9r0zgK3_C4kXnWvR925-XuSx34M7Mj3rFMueON7GaPhH-GgfkTNT3_f6ismoxcC3zsujU7w_MWUN0gyV5w4dKcDRzSkHf9XzLuyh4ytesMlsvOQsKwf7C9d1S0Jta_sS-KOhMLGeoKwSdDcfpFlGckH_M78_GlGV5U6NJmopn4-9TnPokw-8wH-FxhHsB26AVbDP6IyMQKxlaTZbo89NKfd0QiVYSy0zxzwVGdYEvJCDxK9GxKE7QQxyGFJzipMG0zOuSmlJw8pT3Dm6QGLwNVVo_hnq0FovQdKnS35yL2JWIkCwtgnUdoargfPkVHVba5pcFck8chwQt9iTIZMwSNEkwPQhZd84q86qGRQ84wRuCppQFL5B2CSczIbzhtt3KWTIBSwbT7mMhUU-v8ozWb6U9EmjB_6I59a05GUvRanmPVgEnJIGrpnL1nOnWmbMtTtTalgJNwpATISqBBnNQZ84JlRitcBIoI7Uvh1PF11DITaOSTMDFDPKFfegakt40cnjN6kjwUmuSZqNZjR75mKaqQrkzY7uUEmjBZrOpjcib4QdBt7A4SfgOlBAnWECfRIyjtWoABF-2cO2h67vlTaNtHNB4wHEi4e-UKQZ7COyqADk0x2BYC809p93CZkJwhIE3y2BNO8Jvv0JHM347heeIQA_zNpHB-3vlXEh6a3joBFv0dEiJcq504fdn43g8J3rtRLIPKHj5Sj6fLsMmbdhOK23Xp-VDulE77xtcElBm3v9qr3J6qdZUsc1fKtq2fo1mVzTMOXsTPUwlSjHHlBL6gVReP8kA9Xq_KY_12GmM3cbYGirg57PxF4Fz-xMAPWGbOrIArIGO_HiAc6LbjCuviOp0Q5hThI102CNTMnF-N8IlrU7zqZB-M_IuqV9TeVhbVO0OzKPsIkr7YZerchuAbel1DzTQ1wFmEdAYlw4-slMqs2mEvrdqNhTqlrZ5WIx19pEej_S4WICnsxdjW5djFQLD5gZrhlcjQFX501lfdGsMrQ_m1x9uUObo7LVCFVe8TtVgux3ut8PO-RtUbca9ODO4OONdnBlenBldnIHdKF6D67ilX1nrqN2K9i9oOBdw9wI-KN4K67DXDg_b4VErDIe7FbbaYbuAja4BD4cdjkNj_G7kv8Lgl1pIIpxRaRy7Bs4kWx2SwBjnv1aMLA2BOY8xvBTtTuDxXwZLWKM=" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
@@ -405,8 +414,7 @@ flowchart TD
     class n32 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG2P2kYQ_isrRycSCRJ7bWPgQyswuDqpeVG5tKpyVbXYa7w6Yzu79nHkwn_vrPELLPZVTflwnJ-deWbm2dkX86z5aUC1mXZz88wSls_Q8yCP6I4OZmiwIYIOhugE_E44I5uYioG0CdMkX7NvpZlhZU_STGIe2bH4INE13aYUfb4dojk4xkMkSCJGgnIWDoaDjLMd4Qc3jVMurV_RSaiHZbRqaJHygPLWQNcdw7fBNWYJbWHTsRzLk36C-mkSXJCGdjgJ_cFRJhenez8iPC_TLwR9T57-YEEewXNIYkHBJsp38a9kQ2NZY84LifkFf6zFYELGSUCwdUZ8lmwBt3SAOEkeWsjWj0d0vLm5T5qg6G55nyD4-DERYklDJHKAV485Clkcz15Z7tyz9aHIefpAZ6_wylmaeOjLSmZQuj6U4o72lG2jfLZJ46AyHe1lDTOcPQ350wzrQ36Av0osmgRtJHeMJ3jSRFo4hmu4daQwDP9XJNCV3xHxUMVamR72lk0swx7brn7NV5e5tJy5oepE-SPz6Rmp53nmqpVqNbYNvZ904Zlj3VVItySne3JoCaeu1RB6tuMZTi_hKZ6aZbH5xFO_JjRXtmc3hM7C8Oa4l9CaG9akyhB4tpxkEYpJQv_Wv9xri7QomxrNs0zca3-d7OQnsb_AeEhmIRn56Rb9Rn3KHil8fy2ogOlOOXI5hVLffc4C-EJpiO6gVQXxc5YmaJn6xY4mYMnTHVrICBDgPMK4O8ItbBSwpJGb7rKYkcSnaJ2TvBAyQs2qUDmvG6osBulPHJBUk0WZWkg5OL45c5y2jiJPs9b-OnqVX9AyQOd3CWsAJYQLKFo9Ub8o1ZgnJD6I_FJiaXjS8Fw5KH1JcnJpips05SJA70lCthQt4tR_oEGTtTKF5qXTkolSnDvqRwnzSRxLoXxZKIUU3AIU2Ik-MqubrLFGr88kO-Un8TeXLBNF77ICxJJzAQRyIyrrUubKkB1bCvmNondoCUnzHWzXCCQUoLFsyU3JB_9EsLeg17eflPiG1PxDmrPwAG4ig2gMjh2UwfqiAlpsn0BxeXoCQNo9yyPYrdu-Bm5f1hgjOLjevn2r8ON2TtcEzjP0UR40oA669dRc5Py4EUlgJksryPfKxmr5Phb5Rq5XqDyGRoRV22Fvt_a3yck8eMF83Jp_KjicJoI2GV9bO53FydqudJ5c13ZlM21t_j041l9WQmXHcqY_bnICzUXAFJYvnPloHbEsg5MUlU0Aq6Cc1I5w-D-5X0U3X5yHK3PrJSmurO2XZu3Kevz83O6zAR1toJv9CN0dsnLTPi3Bn--14_Hcy-n2ok9-XAio45fTKae6TX7Mbdrt1mzH9U6npmnqrSPhPN2LEYlzlBEO2xuNu6OZxo844U4nlvQV1pwOkCQajX6SG5gKVPcR2DZOAJ7UgKUCpgqMVcBWAUcFJiowVQCsq4ChAmqmWE0Mq6ljNbEqL7seL7P4fq_9SeHM-S47th4ZVyM9R1bZFaWLWXlUokyrRzUyrhRodK_Gp2oqH9KS1qonrLJzajv1uSrJxLVDZWHqailnp2Sbfu1WSWfW-ZlVghPlWYkDtGtoN-S33OJ0aYGTrLnjEXkDg2Djs-ulLKW-Vl_AZjdsdcP2-U36YmTcO-I0bykX8KR6obgAp12goXczGEYPjntwswe3enC7Bx_34D2VwnLsxqfdOO6pF_fUi3vqxT314p56cU-90NLVq84l7HTDk2542gnDDtkJG90wrmFtqO3gVkhYoM2etfKnBfj5IaAhKeJcOw41UuTp-pD42qx8BdeK8uVlyQhc4Hcn8PgPL-gvRA==" title="View full diagram">&#128065; View Diagram</a></div>
-
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWNuO2zYQ_RVCwcIJYCcSJVmyH1r4pmKB5oJ606LIFgUtUTaxsqSQ0nqdjf-9Q11tWtqiqR_W1uHMmZnD4UX7rPlJQLWpdnPzzGKWTdHzINvRPR1M0WBDBB0MUQn8Tjgjm4iKgbQJkzhbs2-FmWGlT9JMYh7Zs-go0TXdJhR9vh2iGThGQyRILEaCchYOhoOUsz3hx0USJVxav6JuqIdFtGponvCA8tZA1x3Dt8E1YjFtYdOxHMuTfoL6SRxckIZ26Ib-4CSTi5KDvyM8K9LPBX1Pnv5gQbaD55BEgoLNLttHv5INjWSNGc8l5uf8sRaDCRknBsHWKfFZvAXc0gHiJH5oIVs_ndDp5uY-boKiu-V9jODjR0SIJQ2RyABePWYoZFE0fWUtZp6tD0XGkwc6fYVXztLEQ19WMoXS9aEUd3SgbLvLppskCirT0UHWMMXp05A_TbE-5Ef4q8SicdBGWoyxi90m0twxFsaijhSG4f-KBLryOyIeqlgr08Pesoll2GN7oV_z1WUuLWdmqDpR_sh8ekbqeZ65aqVajW1D7yede-ZYXyikW5LRAzm2hJOF1RB6tuMZTi9hGU_NMt984olfE5or27MbQmdueDPcS2jNDMutMgSeLSfpDkUkpn_rX-61eZIXTY1maSrutb9KO_mJ7S8wHpJpSEZ-skW_UZ-yRwrfX3MqYLoTjhacQqnvPqcBfKEkRHfQqoL4GUtitEz8fE9jsOTJHs1lBAhwHmHcHeEWNgpY0miR7NOIkdinaJ2RLBcyQs2qUDmvG6o0AulLDkiqyaJILaQcHN-cOU5aR5ElaWt_Hb3KL2gZoPO7hDWAEsIFFK2eqJ8XasxiEh1FdimxNCw1PFcOSl-SjFya4iZNuQjQexKTLUXzKPEfaNBkrUyheem0ZKIQ5476u5j5JIqkUL4slEIKixwU2Is-MqubrLFGr88kK_OT-JtLFlfRu6gAsfhcAIEWOyrrUubKkB1bCPmNondoCUnzPWzXCCQUoLFsyU3BBz92sLeg17eflPiG1PxDkrHwCG4ihWgMjh2UwvqiAlrsEENxWVICIO2BZTvYrdu-Bm5f1hghOLjevn2r8ON2TtcEzjP0UR40oA669dRc5PwsdiSGmSysIN8rG6vl-5hnG7leofIIGhFWbYe93drfxqV58IL5uDX_lHM4TQRtMr62djqLk7Vd6exe13ZlM2lt_j041l9WQmXHcqY_bjICzUXAFJYvnPlovWNpCicpKpoAVkExqR3h8H9yv4puvjgPV-bWS1JcWdsvzdqV9fj5ud1nAzraQDf7O3R3TItNu1yCP99rp9O5l9PtRZ_8KBdQxy_lKae6uT_mNul2a7bjeqdT0zT11pFwnhzEiEQZSgmH7Y1G3dFM40eccKcTi_sKa04HSBKNRj_JDUwFqvsIbBslgN0asFTAVIGxCtgq4KiAqwITBcC6ChgqoGaK1cSwmjpWE6vysuvxIovv99qfFM6c77Jj65FxNdJzZBVdUbiYlUclyqR6VCPjSoFG92p8oqbyISlorXrCKjuntlOfq5JMXDtUFqaulnJ2Srbp126VdGadn1kl6CrPShygXUO7Ib_lFuWlBU6y5o5H5A0Mgo3PrpeylPpafQGb3bDVDdvnN-mLkXHviNO8pVzAbvVCcQFOukBD72YwjB4c9-BmD2714HYPPu7BeyqF5diNT7px3FMv7qkX99SLe-rFPfXinnqhpatXnUvY6YbdbnjSCcMO2Qkb3TCuYW2o7eFWSFigTZ-14l8L2lQLaEjyKNNOQ43kWbI-xr42LV7Btbx4eVkyAhf4fQme_gEv6C9E" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
@@ -500,7 +508,6 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtV2uP2jgU_StWqhEzEqh5EuDDrnilqjSzi8p0q1VZrUziQDTGRrYzA6X8973OC5LJrLoPPiB8cs8519c3tjkZIY-IMTJubk4JS9QInTpqS3akM0KdNZak00U58BsWCV5TIjs6JuZMLZNvWZjl7g86TGMB3iX0qNEl2XCCPn_sojEQaRdJzGRPEpHEnW5nL5IdFscpp1zo6HdkEJtx5lY8mnAREXEJME3fCj2g0oSRC-z4ru8GmidJyFlUE429eBCHnbNOjvKXcIuFytJPJXnAhy9JpLYwjjGVBGK2akfv8ZpQPUclUo2FqXgui5FI7cOgYMs9DhO2Adw1ARKYPV0gzzyf0fnmZsUqU_Q4WzEEn5BiKWckRlIBPH9WKE4oHb1zp-PAM7tSCf5ERu_suT9z7G6oZzKCqZtdXdzeC0k2WzVacxoVob0XPYeRvT90xWFkm11xhO-GF2HRxWnatwf2oHKa-NbUmpZOcRz_Jyeoq3jE8qnwmjuBHcwqL8vre1PztV45zZnrj61mnYh4TkJyJRoEgTO_lGre9yzzbdFJ4PTNaUN0gxV5wceL4HDqVoKB5weW_6Zg7tfMMl0vBA9LQWfuBV4l6E-sYGy_KeiOLXdQZAg6G4H3W0QxI3-aX1fGhKdZU6Pxfi9Xxh95nP6w_ld4HuNRjHsh36BPJCTJM0FTvtvTBLOQ6CZTqUSx4Dv04XEJ9Gv-8LbiS8X318RlTiwkIyDeXRFt83QqmVgI_iJ7mCqUsJCmEuI_5OVdGedzzoIGbJufBf6PAkcEzQ8kTFXCGRozTI9S1WdqVYnqBkO61ERK9DBDS0hX80iEFvBCHdF9IhW6XS7u79CE8vCpLmTXhcZRhCaQMtNqms-IkOh2srhDii-4TJQuqJasyzh1mU-EEtgqEbjmpijmAs14mO4Ia1DdlgwW4IZ-IdCV7XZenTPlLE7E7ofs_MYaXziftdSMhInUZc_WnijSWOnB37RIKAhhsONV3GabWLp_s_X8RtB78FJE7KDWSEC1wFNnvc5ygR9b2GnQ7cfFXWPlrf9Bw760qz7temvYr8MtIoe3-jWnOe20L7Bx8Bg9YIY3evpZOYv-0_3zc1PHbdd5PO6JFpphhV9xvHbOmB3Rr3Aci-uVyBJ4bdv_d7P222llj5dtJtErw0HrrrDHAlNK6Bt2w39GqnYS6AzU6_2ky1sAbjG2i7HdGFuOBr6vjMab9h2ozZDGuw8hlYpfqvAM90q8X9iVgFeM-03i70RmTKd4UBCHZdwgH_vluDmNYQ4MirHT9HELnwcslX7Fob3Q7cPsLjO1nOZU84WFRn5f7CtVT-eEpixs2EzibNPFNFPP46p8y7qXCVpevWLWsPmgrIhl1uYIT5aw3nATu3YszjTYMa-PxnyNzFoNSz7sr8sfINlmnnj_6mzX5S_vNDXYboeddthth712uH996ak98YurXA0ctIHDNtAyq2tnHbfewO3yplSHnXbYbYe9drjfDvvt8KAdHrbCsJIFbHSNHRwYOImM0cnI_sfAf52IxDilyjh3DZwqvjyy0Bhl930j3UfAnCUYrim7HDz_BVDRI50=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -551,8 +558,6 @@ flowchart TD
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVe-P4jYQ_VesrFbcSUFNQkJoPrTiV6qTru2pbFtVR1WZZALWOnZkOwscx__eMQkEuN1Plw8IP897bzwZTw5OJnNwEufx8cAEMwk59MwGSuglpLeiGnouaYC_qGJ0xUH3bEwhhVmwL6cwP6x2NsxiKS0Z31t0AWsJ5M8PLhkjkbtEU6H7GhQrem6vUqykaj-VXCob_QCjwitObu3WRKocVBfgebGfRUjlTEAHD-IwDlPL05BJkd-IFlExKrLe0SbH5TbbUGVO6dcafqW7v1luNrguKNeAMRtT8o90Bdye0ajaYlmtXs7FYNr6CCzYoqIZE2vEQw8hRcVzB0Xe8UiOj49LcTElT7OlIPhknGo9g4Jog_D8xZCCcZ48hNNxGnmuNko-Q_IQzOPZIHAze5IEj-65trj9LbD1xiQryfM2tL-1Z0iCaueqXRJ4rtrj750XiLxzmg6DUTC6OE1if-pPz05FUXyXE9ZVPVH93HrNB2mQzi5efjSMpt63eudjzsJ47N_XCdQLy-BKNE3Twbwr1XwY-d7bopN0MPSmd6JramBL953gj9PwIphGcerHbwo2fvdZ1qtPSmZnwcE8SqOLYDzx03HwpmA49sNRmyHqrBWtNoRTAf95n5fORNanpibjqtJL598mzj4i-Iz7BU0K2s_kmvwBGbAXIAtDTa1JIRWZlyuq1pJMuMyekXzNHry7sLWR1ZnWquSECXLtjez3DRu76bVkfZR7UjQHMt9BVhsmBRkLyvfa3KbtX3xttxBbN9D6m1yvGCEyMK8NZM_NNqY3k1ldgjCavPvw6f1tfITxJ-svQH4gMzCgShwaRAHVmJWtzMrKEPyzwQ5_RWL4_RLx4dC9nhz6K5wS2QZrsie_40RVZCrLijMEoTkV1mDHtCE_L53j8Upo1AlRpeRW9yk3pKKKcg78l6aXO87l_Ygh6fd_woK3S79Zxu0ytsuvS-cfwL76ilW7w3-TJ3jUwqOGHbbLoFkOrneRtEB3O9tsKxnZdRC1HYRqwdXFsRmdB8YNHFzf-pudQTvLbsDwMkxv4Oh1ePg6HJ-Hwg06OqOO65TYApTlTnJwTh9E_GjmUNCaG-foOrQ2crEXmZOcPhxOXeXInDGKV6RswOP_-cdffw==" title="View full diagram">&#128065; View Diagram</a></div>
 
-
-
 #### BUSINESS ARCHITECTURE — 3.2.5 GT-030-070_Business_decision_on_License_control_analysis_result_+_take_action_(IP) — GT-030-070_Business_decision_on_License_control_analysis_result_+_take_action_(IP)
 
 **Swim Lanes**: Trade Execution Analyst | **Tasks**: 2 | **Gateways**: 2
@@ -591,7 +596,6 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P2jgU_StWRiO6UtDmk7B52AoSsqo0larObPuwrFbGuSEWxka2MwOl_Pe1SQINnXlqHlDu4Z5z7r3-yNEhogQnde7vj5RTnaLjSNewhVGKRiusYOSiFviCJcUrBmpkcyrB9SP9dk7zo93eplmswFvKDhZ9hLUA9PcHF80MkblIYa7GCiStRu5oJ-kWy0MmmJA2-w6mlVed3bq_5kKWIK8Jnpf4JDZURjlc4TCJkqiwPAVE8HIgWsXVtCKjky2OiRdSY6nP5TcKPuL9V1rq2sQVZgpMTq237AGvgNketWwsRhr53A-DKuvDzcAed5hQvjZ45BlIYr65QrF3OqHT_f2SX0zRU77kyDyEYaVyqJDSBl48a1RRxtK7KJsVsecqLcUG0rtgkeRh4BLbSWpa91w73PEL0HWt05VgZZc6frE9pMFu78p9GniuPJjfGy_g5dUpmwTTYHpxmid-5me9U1VVv-Rk5iqfsNp0XouwCIr84uXHkzjzftbr28yjZObfzgnkMyXwg2hRFOHiOqrFJPa9t0XnRTjxshvRNdbwgg9XwT-y6CJYxEnhJ28Ktn63VTarT1KQXjBcxEV8EUzmfjEL3hSMZn407So0OmuJdzVimMN_3j9L50niEtBiD6TRVHA045gdlF46_7YM-3DfJFY4rfDYLgCypYBS6MEMjitAmVlRKRiaM0E2Q2YwZGY15usrIccao0rIXkkNyaEhfwZSA9m02lCiXJBmC1wr9O7Dp9-G-ZHJP9f_DdDvKAcNcmsOM5KAlWnNGq2sDDIvtdl5r0jEx2NfsL24xitz9EiNPoKuRYlEddvz-6VzOv3An7zOhz1hjaLP8Fe7M64sc3baFx6h8fhPU0EX-m046cJJG4ZdGNvw-9Lpl2IhpZBL57vh3WR0I3-ANWZ91efEoEsMBkbnLWfd-6M2gIPX4fBy3Qzg6HU47s_HAJ30qOM6W7NwmJZOenTO3wbz_Sihwg3Tzsl1cKPF44ETJz3foU6zKw0zp9hs7W0Lnv4HSmoSeg==" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
@@ -678,7 +682,6 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVtuO2zYQ_RVCwcIb1E4lWbK8fmjhm4IUu8FinbYo4qKgKcpmTYsCSa3tOP73DnXxRZEfkvphsTqcc87MiBryYBERUWtg3d0dWML0AB1aekU3tDVArQVWtNVGBfAHlgwvOFUtExOLRM_YlzzM8dKdCTNYiDeM7w06o0tB0e8f2mgIRN5GCieqo6hkcavdSiXbYLkfCy6kiX5D-7Ed527l0kjIiMpzgG0HDvGByllCz3A38AIvNDxFiUiiK9HYj_sxaR1NclxsyQpLnaefKfqEd3-ySK_gOcZcUYhZ6Q1_xAvKTY1aZgYjmXytmsGU8UmgYbMUE5YsAfdsgCRO1mfIt49HdLy7mycnU_T4Mk8Q_AjHSk1ojJQGePqqUcw4H7zxxsPQt9tKS7GmgzfuNJh03TYxlQygdLttmtvZUrZc6cFC8KgM7WxNDQM33bXlbuDabbmHvzUvmkRnp3HP7bv9k9MocMbOuHKK4_h_OUFf5Ses1qXXtBu64eTk5fg9f2x_q1eVOfGCoVPvE5WvjNAL0TAMu9Nzq6Y937Fvi47Cbs8e10SXWNMt3p8FH8beSTD0g9AJbgoWfvUss8WzFKQS7E790D8JBiMnHLo3Bb2h4_XLDEFnKXG6Qhwn9B_789waiSzf1GiYpmpu_V3EmV_S_QzrMR7EuEPEEr1QQtkrRWOxSTnDCaFoprHODOuS1rs_0ZQWaRlU0SPEEnRpCuy3BRu2UVOWDsh9kjiiaLqjJNNMJGiYYL5X-jpf5-RrtokxXFGyRiMuyBp8J4JkG5rUSG4zqQpW6AknGeZ8f03zgPZtrCkNk_VSmvrQ_QJrskL_ioV6e832ay06K7xQTmEqRueu5IQA4se5GYvRwhSE6I4pINxrGA4KE9MW9Rbdf3iuefWB-lFoFu-RpCqFKAZTFqWwnahSSGwTKFuLAoA2bZleoQtRJCQi5m1zBHP63bt31_IPP56ZY_Zf_ia_UPQzmlBN5QaGL-SJFRjH4Fwowj8rmBRNGualjzIFNCgmooSpPOcEzZ4fEc63CVOm8oxr9BPSeE1RWViDmntLbbpZYLkU36_YvaX4CFMnURTBoQIfLv9-Ze9wOH-eEe0soN2w3Z7gfyRilL8UODDOm-vXuXU8Xir4zQoVofpyvuH1mnl0RzhU-krfF-OvTgvONCyl2KoOhjpTLOHzovwGqf8jpIdGEktu5XeaPPC-UKfzi5EogYfas-PWAbsGVAHVulMneAb4OreKyTK3vgKnWitje9VzrwT8EvDqAUEBBLXnfvVc5e_V3Uf5cPpNLPIETst-ufxR5LhzEuoXQlUiZZ96dd5fVBXE4IoIKzPo8uXhoYpzAUbP9XEA5O7F8WeaUh37V7DbDHcvj_SrFb-8qFyBvSYwOF2fruB-M_zQDMPGaMadG7h7A-_ewL3qnnEN-81wrxkOmuF-M_xQwVbb2sC0xiyyBgcrv8DDJT-iMYbZZR3bFs60mO0TYg3yi66VpREwJwzDyb4pwON_sB3VBg==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -741,7 +744,6 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P4jYU_StWRiNmpKDmkzB5aMUEslqpMx3tzG5VLVVlkhuwxtip7QxQlv9eJyQEAry0eUDck3vOufcmtrM1Ep6CERq3t1vCiArRtqcWsIReiHozLKFnoj3wDQuCZxRkr8zJOFOv5J8qzfbydZlWYjFeErop0VeYc0BfP5topInURBIz2ZcgSNYze7kgSyw2EadclNk3MMysrHKrbz1ykYJoEywrsBNfUylh0MJu4AVeXPIkJJylJ6KZnw2zpLcri6N8lSywUFX5hYQnvP6dpGqh4wxTCTpnoZb0VzwDWvaoRFFiSSE-mmEQWfowPbDXHCeEzTXuWRoSmL23kG_tdmh3eztlB1P0Np4ypK-EYinHkCGpNDz5UCgjlIY3XjSKfcuUSvB3CG-cSTB2HTMpOwl165ZZDre_AjJfqHDGaVqn9ldlD6GTr02xDh3LFBv92_EClrZO0cAZOsOD02NgR3bUOGVZ9r-c9FzFG5bvtdfEjZ14fPCy_YEfWed6TZtjLxjZ3TmB-CAJHInGcexO2lFNBr5tXRd9jN2BFXVE51jBCm9awYfIOwjGfhDbwVXBvV-3ymL2InjSCLoTP_YPgsGjHY-cq4LeyPaGdYVaZy5wvkAUM_jL-j413gROAU3WkBSKcIZGDNONVFPjzz2jvJj9XWdmOMxwP-Fz9MwVyTboC8icM0n0okVldSAl-m3FQCDFUYRZAhSNeVIsgamfRnku-AemWvhY2bmofKZWAZCiFVELpEtmEidluR01V4t9gb8LkAq96Pe_Zj9SnrwjwtDT-NNpY97dwV4qnh9IjKs9C1JNuD9i-FcYdXbrckwadEhN8lEnuJ0VesIMz8-cA60RLaDsJEOzqiVYE6kkulOtjrxHd59f7k_bHFZzSSpy4924yQv5D9tt-1RS6M-0frI49PqsH4UsBzuDRu6XqbHbHb8x1mWJiBdCAuIZGlXlnvHsyzxYJ7SQ5AM-7ZdWl-b8N5rb0rAQfCX7mCqUY4EpBXpG0hvd_g8LUL__c-lbx8NObDs1UK9k1sR2k9CNG8BtAHcPPNTxQxn-mBp_gJwaP_S7XuN1mt-hDZrYqnn7BQiH516JON2szrKtkuxOBc-8gr2jPars52gnPbnjXL3j1SfHCehfAgeXwOBwyJ3Aw8vwQ7Mrn5ZtXYbty7BzGXYb2DCNJYglJqkRbo3qu0Z_-6SQ4YIqY2cauFD8dcMSI6zOf6PIU80cE6y35eUe3P0LRW_qYg==" title="View full diagram">&#128065; View Diagram</a></div>
-
 
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
@@ -829,8 +831,6 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV11v4jgU_StWqopWAinfoXnYFV8ZjdRZoaU78zCsViZxwGqII9uhMAz_fa8hAeKG6UrLA8LH55x7fX3jmL0Rs4QYoXF_v6c5lSHad-SKrEknRJ0FFqTTRSfgK-YULzIiOoqTslzO6I8jzXKLraIpLMJrmu0UOiNLRtBfn7toAMKsiwTORU8QTtNOt1NwusZ8N2IZ44p9R_qpmR6jVVNDxhPCLwTTDKzYA2lGc3KBncAN3EjpBIlZnjRMUy_tp3HnoJLL2Fu8wlwe0y8F-YK332giVzBOcSYIcFZynT3jBcnUGiUvFRaXfFMXgwoVJ4eCzQoc03wJuGsCxHH-eoE883BAh_v7eX4Oil7G8xzBJ86wEGOSIiEBnmwkSmmWhXfuaBB5ZldIzl5JeGdPgrFjd2O1khCWbnZVcXtvhC5XMlywLKmovTe1htAutl2-DW2zy3fwrcUieXKJNPLtvt0_RxoG1sga1ZHSNP1fkaCu_AWL1yrWxInsaHyOZXm-NzLf-9XLHLvBwNLrRPiGxuTKNIoiZ3Ip1cT3LPO26TByfHOkmS6xJG94dzF8Grlnw8gLIiu4aXiKp2dZLqacxbWhM_Ei72wYDK1oYN80dAeW268yBJ8lx8UKZTgn_5jf58YLxwlBky2JS0lZjgY5znZCzo2_Twr1yS0gpjhMcU9twInzg6A_CRYgSRlHs-kzDDMASFNqN6VjKooMKjMoEwpdyzHN0JjF5ZrkUjSVzsfKyVYSDsmgQZJwIgTRLNyPLabwmOSEa0LvY-EnArLbof12hykTVNINQc9USDQsBRw2QpyzQA_DqXhsOgXtTn8Q6LKL01SL329XVXuUoMl6gfmS3Sr-040C8HgFMZNbMsv8fhbGbHnulDpaFb7qHCVuqK2Hs_oY7jO8MSg8S2jE1kVGcR4racG4hJMQfcE5XhKVBfg8XvvYFx8hWfEreaJrnf3-soKE9BZw-MYrNC15wSBzllYWv8-Nw-Fa6LYLX3bFUTUmEtrmncr7tepGLP-_qGCR74RBu5Bs4wx6cUM-nU6uiwzO9tMP2B3U6_2mKlQDjgJ-zo2rx2Ju_FSl0Bl1u6BnsiHZJb8T3avpfkWvn5LjtF_PenW4liYE3pPOu9l0Kqb5Ebs2P9L7OvvqvKt8T7b6Suqn9Dgb1LNBVUm7Btx64efTCOiuPttc7ztxy4kENE-ntR2awKt31a1yq5O1tbGnjR1tbGnjvj5vasCTNva1caAb1E01g9ZV7yzoBFW33ekkfICteTxthn_1FlWJ1beHBmy3w0477LbDXjvst8NBO9xvh5_aYajj1d2lOWWdr39N3K6uak3Uqe8rTdhth7122G-Hgxo2usaa8DWmiRHujeONH_4VJCTFZSaNQ9fApWSzXR4b4fFmbJRFAsoxxXBhWZ_Aw78fUOIF" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-
-
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -864,10 +864,6 @@ The following data entities are derived from the system integration flows for GT
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
-
-
-
-
 
 ### 4.3 Data Lineage
 
@@ -932,11 +928,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 The Current-State architecture represents the **current / legacy** landscape for GT-030.
 
-
 #### Current-State Flow Narrative
 
 *(No current-state flows defined.)*
-
 
 ### 5.2 Future-State — Future-State Application Landscape
 
@@ -944,11 +938,9 @@ The Current-State architecture represents the **current / legacy** landscape for
 
 The Future-State architecture represents the **target** landscape for GT-030.
 
-
 #### Future-State Flow Narrative
 
 *(No future-state flows defined.)*
-
 
 ### 5.3 Change Impact Summary
 
@@ -1287,15 +1279,11 @@ Integration patterns identified from the system flow analysis for GT-030:
 <div style="page-break-before: always;"></div>
 
 
-
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
-
-
-
 
 #### Platform Inventory
 
@@ -1316,13 +1304,61 @@ Platform landscape inferred from integrated systems for GT-030:
 
 ### 6.2 SAP Development Object Status
 
-| Metric | DEV | QAS | PRD |
-|--------|-----|-----|-----|
-| Transport Requests | — | — | — |
-| Custom Code Objects | — | — | — |
-| CDS Views | — | — | — |
-| Fiori Apps | — | — | — |
-| BAdIs / Enhancements | — | — | — |
+**Capability RICEFW — Active Items** (10 of 292 objects)
+*Data source: Smartsheet Object Tracker (cached 2026-04-06)*
+
+> **Completion Context:** 282 of 292 objects (97%) are complete/closed. The **10 active items** below require attention. See the **RICEFW Register** for full detail.
+>
+> | Type | Completed | Active | Total |
+> |------|----------:|-------:|------:|
+> | Report (R) | 4 | 1 | 5 |
+> | Interface (I) | 68 | 3 | 71 |
+> | Conversion (C) | 20 | 0 | 20 |
+> | Enhancement (E) | 161 | 6 | 167 |
+> | Form (F) | 28 | 0 | 28 |
+> | Workflow (W) | 1 | 0 | 1 |
+> | **Total** | **282** | **10** | **292** |
+
+| Status | Count | % |
+|--------|------:|----:|
+| 06. Dev In Progress | 8 | 80.0% |
+| 07. FUT Roadblock | 1 | 10.0% |
+| 08. FUT In Progress | 1 | 10.0% |
+| **Total Active** | **10** | **100%** |
+
+**Active RICEFW by Type:**
+
+| Type | Count |
+|------|------:|
+| Report (R) | 1 |
+| Interface (I) | 3 |
+| Enhancement (E) | 6 |
+| **Total** | **10** |
+
+**Technical Complexity:**
+
+| Complexity | Count |
+|------------|------:|
+| 01.Very High | 4 |
+| 02.High | 3 |
+| 03.Medium | 3 |
+
+**Objects Requiring Attention:**
+
+| Object ID | Type | Description | Status | Complexity |
+|-----------|------|-------------|--------|------------|
+| OTCI1721 | 02.Interface | Outbound Interface changes to send data from S4 to SF | 06. Dev In Progress | 03.Medium |
+| OTCI1720 | 02.Interface | Inbound Interface to Update Original Flag Interface from SFDC to S4. | 06. Dev In Progress | 03.Medium |
+| OTCI1598 | 02.Interface | An outbound Interface to Read the EEPM and DECODER Matrix from S4 to OL | 06. Dev In Progress | 02.High |
+| OTCE1710 | 04.Enhancement | Addition of Custom Fiori Tile/Dashboard - MRB,Pending,NPR,Freight Determination ... | 07. FUT Roadblock | 01.Very High |
+| OTCE1709 | 04.Enhancement | Addition of Custom Fiori Tile/Dashboard - Case routing,Required field,Return Loc... | 06. Dev In Progress | 01.Very High |
+| OTCE1585 | 04.Enhancement | Addition of Custom Fiori Tile/Dashboard - EEPM,Decoder,Approval Matrix | 06. Dev In Progress | 01.Very High |
+| OTCE0719 | 04.Enhancement | Utility program for open sales order conversion for IP OM team, that will be use... | 06. Dev In Progress | 01.Very High |
+| LOGR1236 | 01.Report | 2DN - Outbound Escort Report | 06. Dev In Progress | 02.High |
+| LOGE1713 | 04.Enhancement | Copy Control Routine for Customer Master Special Instructions | 08. FUT In Progress | 03.Medium |
+| LOGE1535 | 04.Enhancement | New custom Fiori application for Undo Disposition and Confirm Disposition | 06. Dev In Progress | 02.High |
+
+**Tower Context:** OTC-IP has 10 active / 282 completed RICEFW objects
 
 ### 6.3 NFRs & Design Principles
 
@@ -1360,49 +1396,64 @@ Platform landscape inferred from integrated systems for GT-030:
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
+*10 active objects with timeline data (source: Object Tracker)*
+*282 completed objects excluded — see RICEFW Register for full detail.*
+
 | ID | Description | FS | TDD | Build | FUT | Status |
 |----|-------------|----|-----|-------|-----|--------|
-| OTCW1683 | Additional WRICEF for Credit Limit Request Workflow | Dec-25 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (100%) | 1. On Track |
-| OTCR0967 | Developing a report for the 2DN model where we can view the E2E flow in one r... | Jun-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Feb-26 (100%) | 1. On Track |
-| OTCM028_IP | Open Quantity Contract | Feb-25 (100%) | — | — | Feb-25 (100%) |  |
 | OTCI1721 | Outbound Interface changes to send data from S4 to SF | Feb-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (100%) | 3. Off Track |
 | OTCI1720 | Inbound Interface to Update Original Flag Interface from SFDC to S4. | Feb-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (100%) | 3. Off Track |
-| OTCI1649 | Service Interface and Enhancement of the outbound proxy sent to NL brokers - ... | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (100%) | 3. Off Track |
-| OTCI1648 | Service Interface and Enhancement of the outbound proxy sent to NL brokers - ... | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (100%) | 3. Off Track |
 | OTCI1598 | An outbound Interface to Read the EEPM and DECODER Matrix from S4 to OL | Sep-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | 4. Completed |
-| OTCI1568 | Inbound Interface from WOM to S4 HANA to send Shipment and tracking information | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (100%) | 1. On Track |
-| OTCI1498 | Inbound Interface from WOM to S4 HANA to send Customer Hierarchy | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Sep-25 (100%) |  |
-| OTCI1423 | Service Interface and Enhancement of the outbound proxy sent to NL brokers - ... | Jul-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Mar-26 (100%) | 3. Off Track |
-| OTCI1259 | Outbound interface from S4 HANA to WOM to send the product information | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 4. Completed |
-| OTCI1192 | Interface for BP Status query in GTS - CAAS | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 4. Completed |
-| OTCI1191 | Interface for Transactional status query in GTS - CAAS | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Dec-25 (100%) | 4. Completed |
-| OTCI1190 | Interface for Product Create/ Change in GTS - CAAS | May-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Dec-25 (100%) | 2. At Risk |
-| OTCI1189 | Interface for Product Classification Query in GTS - CAAS | Jun-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Dec-25 (100%) | 4. Completed |
-| OTCI1188 | Interface for Transactional Create/ Change in GTS - CAAS | May-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Feb-26 (100%) | 2. At Risk |
-| OTCI1187 | Interface for BP Create/ Change in GTS - CAAS | May-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Dec-25 (100%) | 4. Completed |
-| OTCI1180 | EMS_Inbound Interface for Capturing Hardware SO and Line-Item Details into se... | Jun-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Nov-25 (100%) | 4. Completed |
-| OTCI1179 | EMS_Outbound interface to OL (Orchestration layer) for activation key generat... | Jun-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Nov-25 (100%) | 4. Completed |
-
-*... and 272 more objects (see full Object Tracker)*
-
-
-<div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
-<div style="page-break-before: always;"></div>
-
+| OTCE1710 | Addition of Custom Fiori Tile/Dashboard - MRB,Pending,NPR,Freight Determination Matrix | Dec-25 (100%) | Mar-26 (100%) | Mar-26 (100%) | Mar-26 (95%) | 2. At Risk |
+| OTCE1709 | Addition of Custom Fiori Tile/Dashboard - Case routing,Required field,Return Location,Inco term | Dec-25 (100%) | Mar-26 (90%) | Mar-26 (90%) | Mar-26 (97%) | 2. At Risk |
+| OTCE1585 | Addition of Custom Fiori Tile/Dashboard - EEPM,Decoder,Approval Matrix | Sep-25 (100%) | Mar-26 (94%) | Mar-26 (94%) | Mar-26 (100%) | 2. At Risk |
+| OTCE0719 | Utility program for open sales order conversion for IP OM team, that will be used during mergers & acquisitions. | Jun-25 (100%) | Mar-26 (95%) | Mar-26 (92%) | Mar-26 (10%) | 3. Off Track |
+| LOGR1236 | 2DN - Outbound Escort Report | Jul-25 (100%) | Jan-26 (75%) | Jan-26 (95%) | Mar-26 (100%) | 3. Off Track |
+| LOGE1713 | Copy Control Routine for Customer Master Special Instructions | Feb-26 (100%) | Mar-26 (100%) | Mar-26 (100%) | Mar-26 (95%) | 3. Off Track |
+| LOGE1535 | New custom Fiori application for Undo Disposition and Confirm Disposition | Aug-25 (100%) | Mar-26 (98%) | Mar-26 (98%) | Mar-26 (100%) | 1. On Track |
 
 ### 7.2 RAID Log
 
-Standard RAID items for GT-030 (Order To Cash (IP)):
+*Live data from Smartsheet Master RAID Log — extracted 2026-04-06*
 
-| # | Category | Description | Status | Owner | Priority |
-|---|----------|-------------|--------|-------|----------|
-| 1 | Risk | Data migration completeness — validate all legacy Compliance Screening (IP) data maps to S/4 target structures | Open | Tower Architect | High |
-| 2 | Risk | Integration testing coverage — ensure all 0 integrated systems are validated end-to-end | Open | Integration Lead | High |
-| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
-| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
-| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
+**Mapped sub-tower(s):** 5.1 OTC IP - ALL, 5.10 OTC IP - Logistics Management Outbound, 5.11 OTC IP - Order Management, 5.12 OTC IP - TM, 5.13 OTC IP - Returns (Logistics Management), 5.3 OTC IP - Billing and Rebates, 5.4 OTC IP - Returns, 5.6 OTC IP - Credit and Collections, 5.8 OTC IP - EWM, 5.9 OTC IP - GTS, 8.4 FTS IP - Logistics & Inventory Management
 
-> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
+**RAID Summary:** 18 open items (2 capability-specific, 16 tower-level), 223 closed
+
+| Severity | Capability | Tower-Wide | Total Open |
+|----------|----------:|-----------:|-----------:|
+| P1 - High | 0 | 3 | 3 |
+| P2 - Medium | 1 | 10 | 11 |
+| P3 - Low | 1 | 3 | 4 |
+| **Total** | **2** | **16** | **18** |
+
+**Capability-Specific RAID Items:**
+
+| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
+|---------|------|----------|-------|--------|-------------|----------|
+| 03712 | Risk | P2 - Medium | LOGE0627, LOGE0690 | In Progress | OTC IP | 2026-04-03 |
+| 03627 | Risk | P3 - Low | Inconsistency Response from EH -API B-App | Not Started | B-Apps |  |
+
+**Other OTC-IP Tower RAID Items** (16 open):
+
+| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
+|---------|------|----------|-------|--------|-------------|----------|
+| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-15 |
+| 03767 | Risk | P1 - High | Day 1 OTC Execution - APOP production cutover for allocation... | In Progress | OTC IP | 2026-04-24 |
+| 03800 | Risk | P1 - High | R3 Roles and Processes require Early Adopter names for upcom... | In Progress | CM & Comms | 2026-04-27 |
+| 01733 | Risk | P2 - Medium | Tariffs impacts Item/BOM design which is impacting ERP/SCP (... | In Progress | E2E | 2026-03-06 |
+| 03060 |  | P2 - Medium | Resource shift across Intel / Accenture Managed Services | In Progress | CM & Comms | 2026-05-29 |
+| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
+| 02456 | Action | P2 - Medium | clarify who is D for the R3 org design between SMG and CPG a... | In Progress | OTC IP | 2026-04-30 |
+| 02486 | Action | P2 - Medium | Tier 1/Tier 2 customer support | Not Started | OTC IP | 2026-03-31 |
+| 02491 | Action | P2 - Medium | Clearly defined demand and sales ops roles (especially in BM... | In Progress | OTC IP | 2026-04-30 |
+| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
+| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
+| 03749 | Action | P2 - Medium | Logistics Data Intake and Creation Process Definition | In Progress | Test Management | 2026-03-27 |
+| 03793 | Action | P2 - Medium | Clarify and resolve SCP IP functional spec delay. Investigat... | Not Started | OTC IP | 2026-04-01 |
+| 03315 | Risk | P3 - Low | BPMG – SCP L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-03-27 |
+| 03317 | Risk | P3 - Low | BPMG – E2E L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-05-29 |
+| 02488 | Action | P3 - Low | contractual demand policy (including cloud customers) | In Progress | OTC IP | 2026-04-17 |
 
 ### 7.3 Recommendations & Next Steps
 
@@ -1417,4 +1468,6 @@ Standard RAID items for GT-030 (Order To Cash (IP)):
 ---
 *GT-030 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: April 2026*
 
-<div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
+
+
+<div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>

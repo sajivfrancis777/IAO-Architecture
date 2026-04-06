@@ -1,5 +1,6 @@
 <div style="text-align:center; padding-top:20px;">
-  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMGFlZWY7c3RvcC1vcGFjaXR5OjEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjE1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4wMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDcpIiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgPC9wYXR0ZXJuPgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2JnKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNncmlkKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPgoKICA8IS0tIERlY29yYXRpdmUgY2lyY3VpdC9hcmNoaXRlY3R1cmUgbGluZXMgLS0+CiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+CiAgICA8cGF0aCBkPSJNIDAgMTAwIEwgMTIwIDEwMCBMIDE2MCAxNDAgTCAyODAgMTQwIi8+CiAgICA8cGF0aCBkPSJNIDAgMjYwIEwgODAgMjYwIEwgMTIwIDIyMCBMIDIwMCAyMjAgTCAyNDAgMjYwIEwgMzYwIDI2MCIvPgogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPgogICAgPHBhdGggZD0iTSA0NDAgMzQwIEwgNTYwIDM0MCBMIDYwMCAzMDAgTCA3MjAgMzAwIEwgNzYwIDM0MCBMIDgwMCAzNDAiLz4KICAgIDxwYXRoIGQ9Ik0gNjAwIDQwMCBMIDY4MCA0MDAgTCA3MjAgNDQwIi8+CiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+CiAgICA8cGF0aCBkPSJNIDIwMCA0MjAgTCAzMjAgNDIwIEwgMzYwIDM4MCBMIDQ4MCAzODAiLz4KICAgIDxwYXRoIGQ9Ik0gNjUwIDQ0MCBMIDc1MCA0NDAgTCA4MDAgNDgwIi8+CiAgPC9nPgoKICA8IS0tIERlY29yYXRpdmUgbm9kZXMgLS0+CiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+CiAgICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjI4MCIgY3k9IjE0MCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSIzNjAiIGN5PSIyNjAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjYwMCIgY3k9IjEwMCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI1NjAiIGN5PSIzNDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjgwIiBjeT0iMzYwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjMyMCIgY3k9IjQyMCIgcj0iNCIvPgogIDwvZz4KCiAgPCEtLSBUT0dBRiBCREFUIGJveGVzIC0tPgogIDxnIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI2MDAiPgogICAgPCEtLSBCIC0tPgogICAgPHJlY3QgeD0iMTUwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIyMTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QnVzaW5lc3M8L3RleHQ+CiAgICA8IS0tIEQgLS0+CiAgICA8cmVjdCB4PSIyOTAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjM1MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5EYXRhPC90ZXh0PgogICAgPCEtLSBBIC0tPgogICAgPHJlY3QgeD0iNDMwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSI0OTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QXBwbGljYXRpb248L3RleHQ+CiAgICA8IS0tIFQgLS0+CiAgICA8cmVjdCB4PSI1NzAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjYzMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5UZWNobm9sb2d5PC90ZXh0PgogIDwvZz4KCiAgPCEtLSBDb25uZWN0aW5nIGxpbmVzIGJldHdlZW4gQkRBVCBib3hlcyAtLT4KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+CiAgICA8bGluZSB4MT0iMjcwIiB5MT0iMTYwIiB4Mj0iMjkwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNDEwIiB5MT0iMTYwIiB4Mj0iNDMwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+CiAgPC9nPgoKICA8IS0tIE1haW4gdGl0bGUgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIyNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmZmZmYiIGxldHRlci1zcGFjaW5nPSIxIj4KICAgIElBTyBBcmNoaXRlY3R1cmUKICA8L3RleHQ+CiAgPHRleHQgeD0iNDAwIiB5PSIzMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC44KSIgbGV0dGVyLXNwYWNpbmc9IjIiPgogICAgVE9HQUYgQkRBVCDCtyBJQU8gUHJvZ3JhbSDCtyBJRE0gMi4wCiAgPC90ZXh0PgoKICA8IS0tIEJvdHRvbSBhY2NlbnQgYmFyIC0tPgogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgoKICA8IS0tIEludGVsIHRleHQgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPgogICAgSU5URUwgQ09ORklERU5USUFMCiAgPC90ZXh0Pgo8L3N2Zz4K" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">MDM-150 — Maintain Product Related Data</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Master Data (MDM) Tower<br/>
@@ -12,20 +13,30 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-nav.toc { margin: 16px 0 24px 0; }
-nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
-nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
-nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
-nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
-nav.toc a { color: #0071c5; text-decoration: none; }
-nav.toc a:hover { text-decoration: underline; }
+.page-footer {
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  padding: 6px 12px;
+  background: #fff;
+}
+@media print {
+  .page-footer { display: none !important; }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
 </style>
 
 
@@ -171,7 +182,6 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 
 *(No BPMN files found in input/bpmn/ for this capability.)*
 
-
 ### 3.3 Business Roles & Responsibilities
 
 | Role / Lane | Processes Involved | Description |
@@ -203,10 +213,6 @@ The following data entities are derived from the system integration flows for MD
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
-
-
-
-
 
 ### 4.3 Data Lineage
 
@@ -291,11 +297,9 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 The Current-State architecture represents the **current / legacy** landscape for MDM-150.
 
-
 #### Current-State Flow Narrative
 
 *(No current-state flows defined.)*
-
 
 ### 5.2 Future-State — Future-State Application Landscape
 
@@ -303,11 +307,9 @@ The Current-State architecture represents the **current / legacy** landscape for
 
 The Future-State architecture represents the **target** landscape for MDM-150.
 
-
 #### Future-State Flow Narrative
 
 *(No future-state flows defined.)*
-
 
 ### 5.3 Change Impact Summary
 
@@ -500,15 +502,11 @@ Integration patterns identified from the system flow analysis for MDM-150:
 <div style="page-break-before: always;"></div>
 
 
-
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
-
-
-
 
 #### Platform Inventory
 
@@ -529,13 +527,86 @@ Platform landscape inferred from integrated systems for MDM-150:
 
 ### 6.2 SAP Development Object Status
 
-| Metric | DEV | QAS | PRD |
-|--------|-----|-----|-----|
-| Transport Requests | — | — | — |
-| Custom Code Objects | — | — | — |
-| CDS Views | — | — | — |
-| Fiori Apps | — | — | — |
-| BAdIs / Enhancements | — | — | — |
+**Capability RICEFW — Active Items** (29 of 146 objects)
+*Data source: Smartsheet Object Tracker (cached 2026-04-06)*
+
+> **Completion Context:** 117 of 146 objects (80%) are complete/closed. The **29 active items** below require attention. See the **RICEFW Register** for full detail.
+>
+> | Type | Completed | Active | Total |
+> |------|----------:|-------:|------:|
+> | Report (R) | 4 | 1 | 5 |
+> | Interface (I) | 27 | 3 | 30 |
+> | Conversion (C) | 38 | 2 | 40 |
+> | Enhancement (E) | 38 | 23 | 61 |
+> | Workflow (W) | 10 | 0 | 10 |
+> | **Total** | **117** | **29** | **146** |
+
+| Status | Count | % |
+|--------|------:|----:|
+| 06. Dev Not Started | 20 | 69.0% |
+| 06. Dev In Progress | 3 | 10.3% |
+| 09. FUT Overdue | 1 | 3.4% |
+| 05. FS Overdue | 1 | 3.4% |
+| 06. Dev Unplanned | 1 | 3.4% |
+| 08. FUT In Progress | 1 | 3.4% |
+| 03. FS Not Started | 1 | 3.4% |
+| 04. FS In Progress | 1 | 3.4% |
+| **Total Active** | **29** | **100%** |
+
+**Active RICEFW by Type:**
+
+| Type | Count |
+|------|------:|
+| Report (R) | 1 |
+| Interface (I) | 3 |
+| Conversion (C) | 2 |
+| Enhancement (E) | 23 |
+| **Total** | **29** |
+
+**Technical Complexity:**
+
+| Complexity | Count |
+|------------|------:|
+| 01.Very High | 2 |
+| 02.High | 10 |
+| 03.Medium | 16 |
+| 04.Low | 1 |
+
+**Objects Requiring Attention:**
+
+| Object ID | Type | Description | Status | Complexity |
+|-----------|------|-------------|--------|------------|
+| MDCR0025 | 01.Report | Alternate/Preferred BOM Component Change in S4 | 09. FUT Overdue | 03.Medium |
+| DATI1727 | 02.Interface | Automated update to DC Sales Status and other Item Sales Data fields​ | 05. FS Overdue | 03.Medium |
+| DATI1618_IP | 02.Interface | Interface to automate the PROC material master creation to read BOM data from S/... | 06. Dev In Progress | 03.Medium |
+| DATI1618_IF | 02.Interface | Interface to automate the PROC material master creation to read BOM data from S/... | 06. Dev In Progress | 04.Low |
+| DATE1737_IP | 04.Enhancement | Change BOM UI with BOM update Logic that can be run in background & Error proces... | 06. Dev Not Started | 01.Very High |
+| DATE1737_IF | 04.Enhancement | Change BOM UI with BOM update Logic that can be run in background & Error proces... | 06. Dev Not Started | 02.High |
+| DATE1736_IP | 04.Enhancement | Create BOM UI with Logic to combine Group BOM and MPV Component Table & Error pr... | 06. Dev Not Started | 02.High |
+| DATE1736_IF | 04.Enhancement | Create BOM UI with Logic to combine Group BOM and MPV Component Table & Error pr... | 06. Dev Not Started | 03.Medium |
+| DATE1735_IP | 04.Enhancement | Reprocess Errors based on Error Categories (replication | BOM | etc.)​ | 06. Dev Not Started | 01.Very High |
+| DATE1735_IF | 04.Enhancement | Reprocess Errors based on Error Categories (replication | BOM | etc.)​ | 06. Dev Not Started | 02.High |
+| DATE1734_IP | 04.Enhancement | Search BOM using Plant and Parent ( User selects components from entire BOM with... | 06. Dev Not Started | 02.High |
+| DATE1734_IF | 04.Enhancement | Search BOM using Plant and Parent ( User selects components from entire BOM with... | 06. Dev Not Started | 03.Medium |
+| DATE1733_IP | 04.Enhancement | Search BOM by Keyword and fetch only matching components​ | 06. Dev Not Started | 02.High |
+| DATE1733_IF | 04.Enhancement | Search BOM by Keyword and fetch only matching components​ | 06. Dev Not Started | 03.Medium |
+| DATE1732_IP | 04.Enhancement | Maintain MPV Component table (add, update, inactivate)​ | 06. Dev Not Started | 02.High |
+| DATE1732_IF | 04.Enhancement | Maintain MPV Component table (add, update, inactivate)​ | 06. Dev Not Started | 03.Medium |
+| DATE1731_IP | 04.Enhancement | Upload records to MPV Keyword or MPV Component table​ | 06. Dev Not Started | 02.High |
+| DATE1731_IF | 04.Enhancement | Upload records to MPV Keyword or MPV Component table​ | 06. Dev Not Started | 03.Medium |
+| DATE1730_IP | 04.Enhancement | Create/Maintain Keyword for Plant / or update multiple Keywords into MPV Keyword... | 06. Dev Not Started | 02.High |
+| DATE1730_IF | 04.Enhancement | Create/Maintain Keyword for Plant / or update multiple Keywords into MPV Keyword... | 06. Dev Not Started | 03.Medium |
+| DATE1729_IP | 04.Enhancement | Custom Tables – 3x (needed to support entire FS)​ | 06. Dev Not Started | 02.High |
+| DATE1729_IF | 04.Enhancement | Custom Tables – 3x (needed to support entire FS)​ | 06. Dev Not Started | 03.Medium |
+| DATE1633 | 04.Enhancement | SIMS External BOM - Update lead time offset for BOM Components | 06. Dev Unplanned | 03.Medium |
+| DATE1616_IP | 04.Enhancement | Automate External BOM | 06. Dev Not Started | 02.High |
+| DATE1616_IF | 04.Enhancement | Automate External BOM | 06. Dev Not Started | 03.Medium |
+| DATE1615 | 04.Enhancement | Automate the PROC material master creation process based on business rules | 06. Dev In Progress | 03.Medium |
+| DATE1613 | 04.Enhancement | HAZMAT Profile UI | 08. FUT In Progress | 03.Medium |
+| DATC1552 | 03.Conversion | edFIT - PSI BOM Conversion | 03. FS Not Started | 03.Medium |
+| DATC1551 | 03.Conversion | edFIT - Material Master Conversion | 04. FS In Progress | 03.Medium |
+
+**Tower Context:** MDM has 29 active / 117 completed RICEFW objects
 
 ### 6.3 NFRs & Design Principles
 
@@ -573,49 +644,85 @@ Platform landscape inferred from integrated systems for MDM-150:
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
+*27 active objects with timeline data (source: Object Tracker)*
+*117 completed objects excluded — see RICEFW Register for full detail.*
+
 | ID | Description | FS | TDD | Build | FUT | Status |
 |----|-------------|----|-----|-------|-----|--------|
-| MDGM1332 | IMO Materials | Aug-25 (100%) | — | — | Sep-25 (100%) | 2. At Risk |
 | MDCR0025 | Alternate/Preferred BOM Component Change in S4 | Nov-25 (100%) | Nov-25 (100%) | Feb-26 (100%) | Jan-26 (52%) |  |
-| MDCE0024 | Supplier Hierarchy | Nov-25 (100%) | Nov-25 (100%) | Feb-26 (100%) | Jan-26 (100%) |  |
-| MDCE0023 | Sales Organization - Extended Itego datamodel + UI to govern assignment to Sa... | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
-| MDCE0022 | Sales Region - Custom Itego Object to govern Sales Regions | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
-| MDCE0021 | Customer Planning Hierarchy -IF | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
-| MDCE0020 | Customer Planning Hierarchy -IP | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
-| MDCE0019 | Product Planning Hierarchy -IF | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
-| MDCE0018 | Product Planning Hierarchy -IP | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | 4. Completed |
-| MDCE0017 | Commodity- Custom Itego Object with ~100 customer fields + UI to support gove... | Jul-25 (100%) | Jul-25 (100%) | Jul-25 (100%) | Nov-25 (100%) | 4. Completed |
-| MDCE0015 | Asset Location - Extended Itego datamodel with 22 custom fields + UI to suppo... | Oct-24 (100%) | Nov-24 (100%) | Feb-25 (100%) | Feb-25 (100%) |  |
-| MDCE0014 | Storage Location - Extended Itego datamodel with 11 custom fields + UI to sup... | Oct-24 (100%) | Oct-24 (100%) | Nov-24 (100%) | Nov-24 (100%) |  |
-| MDCE0013 | Plant - Extended Itego datamodel with 13 custom fields + UI to support govern... | Oct-24 (100%) | Oct-24 (100%) | Nov-24 (100%) | Nov-24 (100%) |  |
-| MDCE0012 | Sales Org Association - Custom Itego Object with 4 customer fields + UI to su... | Sep-24 (100%) | Oct-24 (100%) | Oct-24 (100%) | Nov-24 (100%) |  |
-| MDCE0011 | Holiday Calendar - Custom goveranance | Sep-24 (100%) | Sep-24 (100%) | Oct-24 (100%) | Oct-24 (100%) |  |
-| MDCE0009 | Shipping Point- Custom Itego Object with 6 customer fields + UI to support go... | Oct-24 (100%) | Oct-24 (100%) | Nov-24 (100%) | Nov-24 (100%) |  |
-| DATW1205 | Vendor as Customer Workflow | Apr-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Oct-25 (100%) |  |
-| DATW1203 | Workflow Setup for Mark For Delete Reference Material Governance Process | Apr-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Oct-25 (100%) |  |
-| DATW1202 | Workflow Setup for Change/Extend Reference Material Governance Process | Apr-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | Oct-25 (100%) |  |
-| DATW1201 | Workflow Setup for Create Reference Material Governance Process | Mar-25 (100%) | Jun-25 (100%) | Jun-25 (100%) | Oct-25 (100%) |  |
-
-*... and 126 more objects (see full Object Tracker)*
-
-
-<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-150 — Maintain Product Related Data</span></div>
-<div style="page-break-before: always;"></div>
-
+| DATI1727 | Automated update to DC Sales Status and other Item Sales Data fields​ | Mar-26 (85%) | May-26 (0%) | May-26 (0%) | Jun-26 (0%) | 1. On Track |
+| DATI1618_IP | Interface to automate the PROC material master creation to read BOM data from S/4 IF and IP | Feb-26 (100%) | Feb-26 (49%) | Feb-26 (49%) | Apr-26 (0%) | 2. At Risk |
+| DATI1618_IF | Interface to automate the PROC material master creation to read BOM data from S/4 IF and IP | Feb-26 (100%) | Feb-26 (49%) | Feb-26 (49%) | Apr-26 (0%) | 2. At Risk |
+| DATE1737_IP | Change BOM UI with BOM update Logic that can be run in background & Error processing Logic​ | Mar-26 (100%) | May-26 (0%) | May-26 (0%) | Jun-26 (0%) | 1. On Track |
+| DATE1737_IF | Change BOM UI with BOM update Logic that can be run in background & Error processing Logic​ | Mar-26 (100%) | May-26 (0%) | May-26 (0%) | Jun-26 (0%) | 1. On Track |
+| DATE1736_IP | Create BOM UI with Logic to combine Group BOM and MPV Component Table & Error processing Logic​ | Mar-26 (100%) | May-26 (0%) | May-26 (0%) | Jun-26 (0%) | 1. On Track |
+| DATE1736_IF | Create BOM UI with Logic to combine Group BOM and MPV Component Table & Error processing Logic​ | Mar-26 (100%) | May-26 (0%) | May-26 (0%) | Jun-26 (0%) | 1. On Track |
+| DATE1735_IP | Reprocess Errors based on Error Categories (replication / BOM / etc.)​ | Mar-26 (100%) | May-26 (0%) | May-26 (0%) | Jun-26 (0%) | 1. On Track |
+| DATE1735_IF | Reprocess Errors based on Error Categories (replication / BOM / etc.)​ | Mar-26 (100%) | May-26 (0%) | May-26 (0%) | Jun-26 (0%) | 1. On Track |
+| DATE1734_IP | Search BOM using Plant and Parent ( User selects components from entire BOM with ALL components)​ | Mar-26 (100%) | May-26 (0%) | May-26 (0%) | Jun-26 (0%) | 1. On Track |
+| DATE1734_IF | Search BOM using Plant and Parent ( User selects components from entire BOM with ALL components)​ | Mar-26 (100%) | May-26 (0%) | May-26 (0%) | Jun-26 (0%) | 1. On Track |
+| DATE1733_IP | Search BOM by Keyword and fetch only matching components​ | Mar-26 (100%) | May-26 (0%) | May-26 (0%) | Jun-26 (0%) | 1. On Track |
+| DATE1733_IF | Search BOM by Keyword and fetch only matching components​ | Mar-26 (100%) | May-26 (0%) | May-26 (0%) | Jun-26 (0%) | 1. On Track |
+| DATE1732_IP | Maintain MPV Component table (add, update, inactivate)​ | Mar-26 (100%) | May-26 (0%) | May-26 (0%) | Jun-26 (0%) | 1. On Track |
+| DATE1732_IF | Maintain MPV Component table (add, update, inactivate)​ | Mar-26 (100%) | May-26 (0%) | May-26 (0%) | Jun-26 (0%) | 1. On Track |
+| DATE1731_IP | Upload records to MPV Keyword or MPV Component table​ | Mar-26 (100%) | May-26 (0%) | May-26 (0%) | Jun-26 (0%) | 1. On Track |
+| DATE1731_IF | Upload records to MPV Keyword or MPV Component table​ | Mar-26 (100%) | May-26 (0%) | May-26 (0%) | Jun-26 (0%) | 1. On Track |
+| DATE1730_IP | Create/Maintain Keyword for Plant / or update multiple Keywords into MPV Keyword Table​ | Mar-26 (100%) | May-26 (0%) | May-26 (0%) | Jun-26 (0%) | 1. On Track |
+| DATE1730_IF | Create/Maintain Keyword for Plant / or update multiple Keywords into MPV Keyword Table​ | Mar-26 (100%) | May-26 (0%) | May-26 (0%) | Jun-26 (0%) | 1. On Track |
+| DATE1729_IP | Custom Tables – 3x (needed to support entire FS)​ | Mar-26 (100%) | May-26 (0%) | May-26 (0%) | Jun-26 (0%) | 1. On Track |
+| DATE1729_IF | Custom Tables – 3x (needed to support entire FS)​ | Mar-26 (100%) | May-26 (0%) | May-26 (0%) | Jun-26 (0%) | 1. On Track |
+| DATE1633 | SIMS External BOM - Update lead time offset for BOM Components | Feb-26 (100%) | — | — | — | 5. Not Dispositioned |
+| DATE1616_IP | Automate External BOM | Feb-26 (100%) | May-26 (0%) | May-26 (0%) | Jun-26 (0%) | 2. At Risk |
+| DATE1616_IF | Automate External BOM | Feb-26 (100%) | May-26 (0%) | May-26 (0%) | Jun-26 (0%) | 1. On Track |
+| DATE1615 | Automate the PROC material master creation process based on business rules | Feb-26 (100%) | Mar-26 (50%) | Mar-26 (50%) | Apr-26 (0%) | 2. At Risk |
+| DATE1613 | HAZMAT Profile UI | Nov-25 (100%) | Jan-26 (100%) | Jan-26 (100%) | Mar-26 (75%) | 1. On Track |
 
 ### 7.2 RAID Log
 
-Standard RAID items for MDM-150 (Master Data):
+*Live data from Smartsheet Master RAID Log — extracted 2026-04-06*
 
-| # | Category | Description | Status | Owner | Priority |
-|---|----------|-------------|--------|-------|----------|
-| 1 | Risk | Data migration completeness — validate all legacy Maintain Product Related Data data maps to S/4 target structures | Open | Tower Architect | High |
-| 2 | Risk | Integration testing coverage — ensure all 0 integrated systems are validated end-to-end | Open | Integration Lead | High |
-| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
-| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
-| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
+**Mapped sub-tower(s):** 9A.1 Master Data - ALL, 9A.2 Master Data - BOM, 9A.3 Master Data - Customer, 9A.4 Master Data - Vendor, 9A.5 Master Data - Finance, 9A.6 Master Data - Material, 9A.7 Master Data - Reference, 9A.8 Master Data - HR Mini Master
 
-> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
+**RAID Summary:** 22 open items (1 capability-specific, 21 tower-level), 176 closed
+
+| Severity | Capability | Tower-Wide | Total Open |
+|----------|----------:|-----------:|-----------:|
+| P1 - High | 0 | 4 | 4 |
+| P2 - Medium | 1 | 12 | 13 |
+| P3 - Low | 0 | 5 | 5 |
+| **Total** | **1** | **21** | **22** |
+
+**Capability-Specific RAID Items:**
+
+| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
+|---------|------|----------|-------|--------|-------------|----------|
+| 03331 | Risk | P2 - Medium | Clarity on finalized SAP S/4 Plant and storage location mapp... | In Progress | Master Data | 2026-04-10 |
+
+**Other MDM Tower RAID Items** (21 open):
+
+| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
+|---------|------|----------|-------|--------|-------------|----------|
+| 03554 | Action | P1 - High | Mock Cutover S4 Load Files BOM, ITEM, ITEM-PLANT | In Progress | Master Data | 2026-02-18 |
+| 03578 | Risk | P1 - High | HBI Process Flow Change impact Assessment | In Progress | FTS IF | 2026-03-27 |
+| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-15 |
+| 03805 | Key Decision | P1 - High | BY - OTC IF : Replace virtual plant on SO with actual plant | Not Started | E2E | 2026-04-03 |
+| 01733 | Risk | P2 - Medium | Tariffs impacts Item/BOM design which is impacting ERP/SCP (... | In Progress | E2E | 2026-03-06 |
+| 03728 | Issue | P2 - Medium | Awaiting logic and FS details to develop INT-CR1120 from Mas... | In Progress | Master Data | 2026-03-11 |
+| 03603 | Risk | P2 - Medium | Inbound (ECC /WIINGS to BODS to ECM) - Missing good sample d... | Roadblock / At Risk | Master Data | 2026-02-27 |
+| 03604 | Risk | P2 - Medium | Outbound (ECM to BODS to ECC /WIINGS) - Need actionable expo... | Roadblock / At Risk | Master Data | 2026-03-27 |
+| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
+| 02436 | Action | P2 - Medium | MD Straddle WtFlow:  Change impact #1 Intel Federal’s potent... | Not Started | Master Data | 2026-04-24 |
+| 02438 | Action | P2 - Medium | MD Straddle WtFlow:  Breakpoint #4 concern with no clear biz... | In Progress | Master Data | 2026-03-20 |
+| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
+| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
+| 03788 | Action | P2 - Medium | Consider onboarding additional resources to address increasi... | Not Started | Infrastructure | 2026-04-03 |
+| 03789 | Action | P2 - Medium | Coordinate with Kumar Vytla to determine the timing and appr... | Not Started | Master Data | 2026-04-03 |
+| 03790 | Action | P2 - Medium | Review and validate the cumulative manual and semi-manual da... | Not Started | Master Data | 2026-04-03 |
+| 03317 | Risk | P3 - Low | BPMG – E2E L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-05-29 |
+| 03381 | Risk | P3 - Low | New requirement raised for enabling Israel as virtual site | Not Started | OTC IF | 2026-03-31 |
+| 03525 | Issue | P3 - Low | Vendor determination in PDH for 2DN PR's & STR's. | Not Started | FTS IP | 2026-03-06 |
+| 02610 | Action | P3 - Low | Sample Master Data from S4 | In Progress |  | 2025-10-31 |
+| 03769 | Action | P3 - Low | Need a Labs SPOC owner to define IP Labs enterprise and mate... | In Progress | E2E | 2026-04-17 |
 
 ### 7.3 Recommendations & Next Steps
 
@@ -630,4 +737,6 @@ Standard RAID items for MDM-150 (Master Data):
 ---
 *MDM-150 — Architecture Document (TOGAF BDAT) · Master Data · Generated: April 2026*
 
-<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-150 — Maintain Product Related Data</span></div>
+
+
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-150 — Maintain Product Related Data</span></div>
