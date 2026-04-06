@@ -543,15 +543,18 @@ jobs:
           python3 scripts/gen_tower_pages.py || echo "Tower page generation completed with warnings"
 
           # ── PIN MERMAID CDN VERSION ────────────────────────────────
-          # Guard: rewrite any unpinned mermaid@10/ or mermaid@10.x/ to the
-          # exact tested version. Prevents CDN auto-upgrades from breaking
-          # diagram rendering with "Syntax error in text" errors.
-          MERMAID_PIN="10.6.1"
+          # Guard: rewrite any unpinned mermaid CDN references to the exact
+          # tested version. Prevents CDN auto-upgrades from breaking diagram
+          # rendering.  Upgraded from 10.6.1 → 11.14.0 (April 2026).
+          # Mermaid 11 prefixes internal SVG IDs with the diagram container ID;
+          # all pipeline CSS uses class selectors so no breakage. If adding
+          # CSS for internal IDs, use [id$="-arrowhead"] not #arrowhead.
+          MERMAID_PIN="11.14.0"
           echo "Pinning Mermaid CDN to v${MERMAID_PIN} in all deployed HTML..."
           pinned=0
           find _site -name "*.html" -type f | while read f; do
-            if grep -q "mermaid@10/" "$f" 2>/dev/null || grep -q 'mermaid@10\.[0-9]' "$f" 2>/dev/null; then
-              sed -i "s|mermaid@10/|mermaid@${MERMAID_PIN}/|g; s|mermaid@10\.[0-9]\+\(\.[0-9]\+\)\?/|mermaid@${MERMAID_PIN}/|g" "$f"
+            if grep -qE 'mermaid@1[01]/' "$f" 2>/dev/null || grep -qE 'mermaid@1[01]\.[0-9]' "$f" 2>/dev/null; then
+              sed -i -E "s|mermaid@1[01]/|mermaid@${MERMAID_PIN}/|g; s|mermaid@1[01]\.[0-9]+(\.[0-9]+)?/|mermaid@${MERMAID_PIN}/|g" "$f"
               pinned=$((pinned + 1))
             fi
           done
