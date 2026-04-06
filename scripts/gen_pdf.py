@@ -250,25 +250,24 @@ strong { color: #00285a; }
        @page margin:0 suppresses the browser's own date/URL/page-number chrome. */
     .print-footer {
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
         align-items: center;
         position: fixed;
         bottom: 0;
         left: 0;
         right: 0;
-        font-size: 7.5pt;
+        font-size: 7pt;
         color: #888;
-        padding: 3px 15mm 4px 15mm;
+        padding: 3px 10mm;
         border-top: 1px solid #ddd;
         background: #fff;
-        line-height: 1.4;
     }
     .print-footer a { color: #0071c5; text-decoration: none; }
 
     /* Reserve space at the bottom of every page so content doesn't
-       overlap the 3-line fixed footer. */
+       overlap the single-line fixed footer. */
     body {
-        padding-bottom: 22mm;
+        padding-bottom: 14mm;
     }
 
     /* Page sections: keep flex for short pages, but remove min-height
