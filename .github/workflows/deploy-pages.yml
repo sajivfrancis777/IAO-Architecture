@@ -632,6 +632,18 @@ jobs:
           .chat-pending .pending-badge{display:inline-block;padding:5px 14px;border-radius:20px;font-size:11px;font-weight:600;background:#fef3c7;color:#92400e}
           .chat-pending ul{text-align:left;margin:16px auto 0;max-width:280px;font-size:12px;color:#666;line-height:2}
           .chat-pending ul li::marker{color:#0071c5}
+          .chat-setup{text-align:center;padding:16px 20px}
+          .chat-setup .setup-title{font-size:14px;font-weight:600;color:#00285a;margin-bottom:8px}
+          .chat-setup .setup-desc{font-size:12px;color:#666;line-height:1.5;margin-bottom:12px}
+          .chat-setup input{width:100%;padding:8px 12px;border:1px solid #d0d5dd;border-radius:8px;font-size:12px;font-family:monospace;margin-bottom:8px;box-sizing:border-box}
+          .chat-setup input:focus{outline:none;border-color:#0071c5}
+          .chat-setup .setup-btn{padding:8px 20px;background:#0071c5;color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer}
+          .chat-setup .setup-btn:hover{background:#005a9e}
+          .chat-setup .setup-status{font-size:11px;margin-top:8px;padding:6px 10px;border-radius:6px}
+          .chat-setup .setup-ok{background:#f0fff4;color:#276749}
+          .chat-setup .setup-err{background:#fff5f5;color:#c53030}
+          .chat-typing{align-self:flex-start;color:#999;font-size:12px;font-style:italic;padding:8px 14px}
+          .chat-phase-note{font-size:10px;color:#999;text-align:center;padding:4px 16px;border-top:1px solid #f0f0f0;flex-shrink:0}
           @media print{.chat-fab,.chat-panel{display:none !important}}
           @media(max-width:768px){.chat-panel:not(.fullscreen){width:calc(100vw - 16px);height:calc(100vh - 80px);bottom:8px;right:8px;border-radius:12px}.chat-fab{bottom:16px;right:16px;width:48px;height:48px;font-size:20px}}
           """
@@ -719,15 +731,148 @@ jobs:
             // ── Chat widget logic ──
             var chatFab=document.getElementById("chat-fab"),chatPanel=document.getElementById("chat-panel");
             var chatClose=document.getElementById("chat-close"),chatFS=document.getElementById("chat-fullscreen");
+            var chatSettings=document.getElementById("chat-settings");
+            var chatInput=document.getElementById("chat-input"),chatSend=document.getElementById("chat-send");
+            var chatBody=document.getElementById("chat-body");
+            var CHAT_OWNER="sajivfrancis777",CHAT_REPO="IAO-Architecture";
+            var CHAT_TOKEN_KEY="iao-chat-token";
+            var chatHistory=[];
+
+            function getChatToken(){return localStorage.getItem(CHAT_TOKEN_KEY)||""}
+            function setChatToken(t){localStorage.setItem(CHAT_TOKEN_KEY,t)}
+
+            function addMsg(role,text){
+              var d=document.createElement("div");
+              d.className="chat-msg "+(role==="user"?"user":"bot");
+              d.textContent=text;
+              chatBody.appendChild(d);
+              chatBody.scrollTop=chatBody.scrollHeight;
+              return d;
+            }
+
+            function showTyping(){
+              var d=document.createElement("div");d.className="chat-typing";d.id="chat-typing";
+              d.textContent="Thinking... (GitHub Actions ~30-60s)";
+              chatBody.appendChild(d);chatBody.scrollTop=chatBody.scrollHeight;
+              return d;
+            }
+            function removeTyping(){var t=document.getElementById("chat-typing");if(t)t.remove()}
+
+            function genId(){return "chat-"+Date.now()+"-"+Math.random().toString(36).substring(2,10)}
+
+            // Detect page context for the system prompt
+            function getPageContext(){
+              var ctx={};
+              var p=location.pathname;
+              ctx.page_url=location.href;
+              // Tower from URL
+              var tm=p.match(/tower-([A-Z0-9-]+)\.html/);
+              if(tm)ctx.tower=tm[1];
+              var tm2=p.match(/towers\/([A-Z0-9-]+)\//);
+              if(tm2)ctx.tower=tm2[1];
+              // Release from URL
+              var rm=p.match(/\/(R[1-5])\//);
+              if(rm)ctx.release=rm[1];
+              // Cap from URL
+              var cm=p.match(/\/([A-Z]+-\d+)/);
+              if(cm)ctx.capability=cm[1];
+              return ctx;
+            }
+
+            async function sendChat(message){
+              var token=getChatToken();
+              if(!token){showSetup();return}
+              chatInput.disabled=true;chatSend.disabled=true;
+              addMsg("user",message);
+              chatHistory.push({role:"user",content:message});
+              var typing=showTyping();
+              var reqId=genId();
+              // 1. Trigger repository_dispatch
+              try{
+                var dispRes=await fetch("https://api.github.com/repos/"+CHAT_OWNER+"/"+CHAT_REPO+"/dispatches",{
+                  method:"POST",
+                  headers:{"Authorization":"Bearer "+token,"Accept":"application/vnd.github.v3+json","Content-Type":"application/json"},
+                  body:JSON.stringify({event_type:"chat-request",client_payload:{request_id:reqId,messages:chatHistory.slice(-10),context:getPageContext(),timestamp:new Date().toISOString()}})
+                });
+                if(!dispRes.ok&&dispRes.status===204){}
+                else if(!dispRes.ok){
+                  removeTyping();
+                  if(dispRes.status===401||dispRes.status===403){addMsg("bot","Token invalid or lacks permissions. Click ⚙ to update. Need: Contents read + Actions write.")}
+                  else{addMsg("bot","Failed to send request ("+dispRes.status+"). Check token permissions.")}
+                  chatInput.disabled=false;chatSend.disabled=false;return;
+                }
+              }catch(e){removeTyping();addMsg("bot","Network error: "+e.message);chatInput.disabled=false;chatSend.disabled=false;return}
+              // 2. Poll for response (max 90s)
+              var pollUrl="https://api.github.com/repos/"+CHAT_OWNER+"/"+CHAT_REPO+"/contents/data/chat-responses/"+reqId+".json?ref=main";
+              var attempts=0,maxAttempts=30;
+              var pollTimer=setInterval(async function(){
+                attempts++;
+                if(attempts>maxAttempts){clearInterval(pollTimer);removeTyping();addMsg("bot","Response timed out. The workflow may still be running — try again in a minute.");chatInput.disabled=false;chatSend.disabled=false;return}
+                try{
+                  var r=await fetch(pollUrl,{headers:{"Authorization":"Bearer "+token,"Accept":"application/vnd.github.v3+json"}});
+                  if(r.status===200){
+                    clearInterval(pollTimer);removeTyping();
+                    var fileData=await r.json();
+                    var content=atob(fileData.content.replace(/\s/g,""));
+                    var resp=JSON.parse(content);
+                    if(resp.status==="ok"){
+                      addMsg("bot",resp.reply);
+                      chatHistory.push({role:"assistant",content:resp.reply});
+                    }else{addMsg("bot","Error: "+(resp.error||"Unknown error"))}
+                    chatInput.disabled=false;chatSend.disabled=false;
+                  }
+                }catch(e){}// keep polling
+              },3000);
+            }
+
+            function showSetup(){
+              // Show inline setup in chat body
+              var existing=document.getElementById("chat-setup-box");if(existing)existing.remove();
+              var box=document.createElement("div");box.id="chat-setup-box";box.className="chat-setup";
+              box.innerHTML='<div class="setup-title">⚙ GitHub Token Required</div>'
+                +'<div class="setup-desc">Enter a fine-grained PAT with <b>Contents: Read</b> + repository <b>Actions: Write</b> on<br><code>sajivfrancis777/IAO-Architecture</code></div>'
+                +'<input type="password" id="chat-token-input" placeholder="github_pat_..." spellcheck="false">'
+                +'<button class="setup-btn" id="chat-token-save">Save Token</button>'
+                +'<div id="chat-token-status"></div>';
+              chatBody.appendChild(box);chatBody.scrollTop=chatBody.scrollHeight;
+              document.getElementById("chat-token-save").addEventListener("click",function(){
+                var t=document.getElementById("chat-token-input").value.trim();
+                if(!t){return}
+                setChatToken(t);
+                var st=document.getElementById("chat-token-status");
+                st.className="chat-setup setup-status setup-ok";st.textContent="Token saved! You can now send messages.";
+                setTimeout(function(){box.remove()},1500);
+              });
+            }
+
             if(chatFab&&chatPanel){
-              chatFab.addEventListener("click",function(){chatPanel.classList.add("open");chatFab.style.display="none"});
+              // Check token on load
+              if(!getChatToken()){
+                // Show badge indicating setup needed
+                var badge=chatFab.querySelector(".chat-badge");
+                if(badge)badge.style.background="#ef4444";
+              }else{
+                var badge=chatFab.querySelector(".chat-badge");
+                if(badge)badge.style.display="none";
+              }
+              chatFab.addEventListener("click",function(){
+                chatPanel.classList.add("open");chatFab.style.display="none";
+                if(!getChatToken())showSetup();
+              });
               chatClose.addEventListener("click",function(){chatPanel.classList.remove("open");chatPanel.classList.remove("fullscreen");chatFab.style.display="flex"});
               chatFS.addEventListener("click",function(){
                 chatPanel.classList.toggle("fullscreen");
                 chatFS.innerHTML=chatPanel.classList.contains("fullscreen")?"&#11036;":"&#9974;";
                 chatFS.title=chatPanel.classList.contains("fullscreen")?"Exit fullscreen":"Toggle fullscreen";
               });
-              // Close on Escape key
+              if(chatSettings){chatSettings.addEventListener("click",function(){showSetup()})}
+              chatSend.addEventListener("click",function(){
+                var msg=chatInput.value.trim();if(!msg)return;
+                chatInput.value="";sendChat(msg);
+              });
+              chatInput.addEventListener("keydown",function(e){
+                if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();chatSend.click()}
+              });
               document.addEventListener("keydown",function(e){
                 if(e.key==="Escape"&&chatPanel.classList.contains("open")){
                   if(chatPanel.classList.contains("fullscreen")){chatPanel.classList.remove("fullscreen");chatFS.innerHTML="&#9974;";chatFS.title="Toggle fullscreen"}
@@ -797,6 +942,18 @@ jobs:
               is_dashboard = "dashboard" in html_file
               pdf_btn = '' if is_dashboard else '<button class="pdf-btn" title="Print / Save as PDF">&#128196; Download PDF</button>'
 
+              # Release filter — only on pages where it applies (document + dashboard pages)
+              is_doc_page = "/towers/" in html_file.replace("\\", "/")
+              show_release = is_doc_page or is_dashboard
+              release_filter = '''<select class="tb-release" id="doc-release-filter" title="Filter by Release">
+              <option value="All">All Releases</option>
+              <option value="R1">R1</option>
+              <option value="R2">R2</option>
+              <option value="R3">R3</option>
+              <option value="R4">R4</option>
+              <option value="R5">R5</option>
+            </select>''' if show_release else ''
+
               # Build toolbar HTML
               toolbar_html = f'''
           <div class="portal-toolbar">
@@ -804,14 +961,7 @@ jobs:
             <a href="{base}index.html">&#127968; Home</a>
             {tower_link}
             <span class="tb-title">{doc_label}</span>
-            <select class="tb-release" id="doc-release-filter" title="Filter by Release">
-              <option value="All">All Releases</option>
-              <option value="R1">R1</option>
-              <option value="R2">R2</option>
-              <option value="R3">R3</option>
-              <option value="R4">R4</option>
-              <option value="R5">R5</option>
-            </select>
+            {release_filter}
             {pdf_btn}
           </div>
           <div class="portal-sidebar-overlay"></div>
@@ -832,27 +982,17 @@ jobs:
             <div class="chat-hdr">
               <span class="chat-title">&#129302; IAO Architecture Assistant</span>
               <span class="chat-subtitle">AI-Powered</span>
+              <button id="chat-settings" title="Token settings">&#9881;</button>
               <button id="chat-fullscreen" title="Toggle fullscreen">&#9974;</button>
               <button id="chat-close" title="Close chat">&times;</button>
             </div>
             <div class="chat-body" id="chat-body">
-              <div class="chat-pending">
-                <div class="pending-icon">&#129302;</div>
-                <div class="pending-title">Architecture Assistant</div>
-                <div class="pending-desc">Ask questions about RICEFW objects, build readiness, IAPM applications, test status, and architecture across all IAO towers.</div>
-                <span class="pending-badge">&#9881; Coming Soon &mdash; Pending Setup</span>
-                <ul>
-                  <li>RICEFW object lookups &amp; summaries</li>
-                  <li>Application portfolio (IAPM) search</li>
-                  <li>Test case &amp; defect status</li>
-                  <li>SAP transport tracking</li>
-                  <li>Architecture document search</li>
-                </ul>
-              </div>
+              <div class="chat-msg bot">Welcome! I can answer questions about RICEFW objects, build readiness, architecture patterns, and towers across the IAO IDM 2.0 program. What would you like to know?</div>
             </div>
+            <div class="chat-phase-note">Phase 1 · GitHub Actions backend · ~30-60s response time</div>
             <div class="chat-input-bar">
-              <input type="text" id="chat-input" placeholder="Ask about architecture, RICEFW, testing..." disabled>
-              <button class="chat-send" id="chat-send" disabled>Send</button>
+              <input type="text" id="chat-input" placeholder="Ask about architecture, RICEFW, testing...">
+              <button class="chat-send" id="chat-send">Send</button>
             </div>
           </div>
           '''

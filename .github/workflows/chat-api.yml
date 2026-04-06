@@ -1,0 +1,187 @@
+# Chat API backend using GitHub Actions
+# Browser sends repository_dispatch → workflow calls Anthropic → writes response to repo
+#
+# Phase 1: GitHub Actions (current) — 30-60s latency, zero infra
+# Phase 2: Azure Functions or Cloudflare Workers — 2-5s latency
+# Phase 3: Full-stack with persistent context and tool chaining
+#
+# Trigger: repository_dispatch from browser with chat payload
+# Response: Written to data/chat-responses/{request_id}.json
+
+name: Chat API
+
+on:
+  repository_dispatch:
+    types: [chat-request]
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  chat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install anthropic
+
+      - name: Process chat request
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python3 - <<'PYCHAT'
+          import anthropic
+          import json
+          import os
+          import sys
+          import hashlib
+          import time
+          from pathlib import Path
+
+          # ── Parse the dispatch payload ──
+          payload = json.loads(os.environ.get("DISPATCH_PAYLOAD", "{}"))
+          request_id = payload.get("request_id", "")
+          messages = payload.get("messages", [])
+          context = payload.get("context", {})
+          timestamp = payload.get("timestamp", "")
+
+          if not request_id or not messages:
+              print("ERROR: Missing request_id or messages in payload")
+              sys.exit(1)
+
+          # Validate request_id format (alphanumeric + hyphens only, max 64 chars)
+          import re
+          if not re.match(r'^[a-zA-Z0-9\-]{8,64}$', request_id):
+              print(f"ERROR: Invalid request_id format: {request_id}")
+              sys.exit(1)
+
+          # ── Build system prompt ──
+          context_parts = []
+          if context.get("tower"):
+              context_parts.append(f"Tower: {context['tower']}")
+          if context.get("capability"):
+              context_parts.append(f"Capability: {context['capability']}")
+          if context.get("release"):
+              context_parts.append(f"Release: {context['release']}")
+          if context.get("page_url"):
+              context_parts.append(f"Current page: {context['page_url']}")
+          context_str = " | ".join(context_parts) if context_parts else "None provided"
+
+          system_prompt = f"""You are the IAO Architecture Assistant — an expert on the Intel IDM 2.0 SAP S/4HANA transformation program.
+
+          You help architects, developers, and project managers understand:
+          - RICEFW objects (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows)
+          - Build readiness and progress across towers (FPR, OTC-IF, OTC-IP, FTS-IF, FTS-IP, PTP, MDM, E2E)
+          - Application portfolio (IAPM) — lifecycle status, ownership, hosting
+          - System integration flows and data mappings
+          - Architecture documentation and TOGAF BDAT patterns
+
+          Guidelines:
+          - Keep answers concise but thorough. Use markdown tables for tabular data.
+          - When you don't have specific data, say so clearly rather than guessing.
+          - Reference tower and capability codes when relevant.
+          - This is Phase 1 (GitHub Actions backend). Some real-time data queries are not yet available.
+            Phase 2 will add live RICEFW/IAPM lookups via Azure Functions or Cloudflare Workers.
+
+          Current session context: {context_str}"""
+
+          # ── Sanitize messages ──
+          clean_messages = []
+          for msg in messages[-10:]:  # Limit to last 10 messages
+              role = msg.get("role", "")
+              content = msg.get("content", "")
+              if role in ("user", "assistant") and isinstance(content, str) and len(content) < 4000:
+                  clean_messages.append({"role": role, "content": content[:4000]})
+
+          if not clean_messages:
+              print("ERROR: No valid messages after sanitization")
+              sys.exit(1)
+
+          # ── Call Anthropic ──
+          api_key = os.environ.get("ANTHROPIC_API_KEY", "")
+          if not api_key:
+              # Write error response
+              response_data = {
+                  "request_id": request_id,
+                  "status": "error",
+                  "error": "ANTHROPIC_API_KEY not configured. Add it as a repository secret.",
+                  "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+              }
+              out_path = Path(f"data/chat-responses/{request_id}.json")
+              out_path.parent.mkdir(parents=True, exist_ok=True)
+              out_path.write_text(json.dumps(response_data, indent=2))
+              sys.exit(0)
+
+          try:
+              client = anthropic.Anthropic(api_key=api_key)
+              response = client.messages.create(
+                  model="claude-sonnet-4-20250514",
+                  max_tokens=2048,
+                  system=system_prompt,
+                  messages=clean_messages,
+              )
+
+              reply_parts = [b.text for b in response.content if b.type == "text"]
+              reply = "\n".join(reply_parts)
+
+              response_data = {
+                  "request_id": request_id,
+                  "status": "ok",
+                  "reply": reply,
+                  "model": response.model,
+                  "usage": {
+                      "input_tokens": response.usage.input_tokens,
+                      "output_tokens": response.usage.output_tokens,
+                  },
+                  "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+              }
+          except Exception as e:
+              response_data = {
+                  "request_id": request_id,
+                  "status": "error",
+                  "error": str(e)[:500],
+                  "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+              }
+
+          # ── Write response file ──
+          out_path = Path(f"data/chat-responses/{request_id}.json")
+          out_path.parent.mkdir(parents=True, exist_ok=True)
+          out_path.write_text(json.dumps(response_data, indent=2))
+
+          print(f"Response written to {out_path}")
+          print(f"Status: {response_data['status']}")
+          PYCHAT
+        shell: bash
+        env:
+          DISPATCH_PAYLOAD: ${{ toJSON(github.event.client_payload) }}
+
+      - name: Commit and push response
+        run: |
+          cd $GITHUB_WORKSPACE
+          git config user.name "IAO Chat Bot"
+          git config user.email "iao-bot@users.noreply.github.com"
+          git add data/chat-responses/
+          git commit -m "chat: response to ${{ github.event.client_payload.request_id }}" || echo "No changes to commit"
+          git push origin main
+
+      - name: Cleanup old responses
+        run: |
+          # Keep only the last 50 response files to prevent repo bloat
+          cd data/chat-responses 2>/dev/null || exit 0
+          ls -t *.json 2>/dev/null | tail -n +51 | xargs -r rm -f
+          cd $GITHUB_WORKSPACE
+          git add data/chat-responses/
+          git diff --cached --quiet || git commit -m "chat: cleanup old responses" && git push origin main || true
