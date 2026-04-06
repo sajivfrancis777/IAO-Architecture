@@ -1,0 +1,106 @@
+# IAO Architecture Data Refresh — Automated Pipeline
+#
+# Pulls latest data from Smartsheet and JIRA APIs, commits updated
+# CSV/JSON caches, and optionally triggers a site rebuild.
+#
+# Schedule: Daily at 06:00 UTC (Mon–Fri)
+# Manual:   workflow_dispatch with source filter
+#
+# Required repo secrets:
+#   SMARTSHEET_TOKEN  — Smartsheet PAT (sajiv.francis@intel.com)
+#   JIRA_PAT          — JIRA Personal Access Token
+#   JIRA_BASE_URL     — e.g. https://jira.devtools.intel.com
+
+name: Data Refresh
+
+on:
+  schedule:
+    - cron: "0 6 * * 1-5"          # Weekdays at 06:00 UTC
+  workflow_dispatch:
+    inputs:
+      source:
+        description: "Data source to refresh"
+        required: false
+        default: "all"
+        type: choice
+        options:
+          - all
+          - smartsheet
+          - jira
+
+permissions:
+  contents: write                   # commit updated data files
+
+env:
+  PYTHON_VERSION: "3.12"
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install requests python-dotenv urllib3
+
+      # ── Smartsheet ──────────────────────────────────────────
+      - name: Fetch Smartsheet data
+        if: >-
+          inputs.source == 'all' || inputs.source == 'smartsheet' ||
+          github.event_name == 'schedule'
+        env:
+          SMARTSHEET_TOKEN: ${{ secrets.SMARTSHEET_TOKEN }}
+        run: |
+          echo "::group::Smartsheet extraction"
+          python scripts/fetch_smartsheet_data.py --sheet all
+          echo "::endgroup::"
+
+      # ── JIRA ────────────────────────────────────────────────
+      - name: Fetch JIRA data
+        if: >-
+          inputs.source == 'all' || inputs.source == 'jira' ||
+          github.event_name == 'schedule'
+        env:
+          JIRA_PAT: ${{ secrets.JIRA_PAT }}
+          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+        run: |
+          echo "::group::JIRA extraction"
+          python scripts/fetch_jira_data.py || echo "::warning::JIRA fetch failed (non-fatal)"
+          echo "::endgroup::"
+
+      # ── Commit & Push ──────────────────────────────────────
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No data changes detected — skipping commit"
+          else
+            TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
+            git commit -m "data: automated refresh ${TIMESTAMP}"
+            git push
+            echo "DATA_CHANGED=true" >> $GITHUB_ENV
+          fi
+
+      # ── Trigger site rebuild if data changed ───────────────
+      - name: Trigger deploy-pages rebuild
+        if: env.DATA_CHANGED == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'deploy-pages.yml',
+              ref: 'main'
+            });
+            console.log('Triggered deploy-pages rebuild after data refresh');
