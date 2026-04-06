@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DS-020</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
 @page {
     size: A4;
-    margin: 0;   /* zero margin suppresses browser default header/footer */
+    margin: 10mm 0;   /* 10mm top/bottom: too small for browser header/footer text but gives page breathing room */
 }
 body {
     font-family: "Segoe UI", Calibri, Arial, sans-serif;
@@ -311,15 +312,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Finance Plan To Report (FPR) Tower<br/>
   Capability DS-020 · DS Provide Decision Support</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R3<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -379,6 +380,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
       <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
+      <li><a href="#57-release-specific-architecture-r3">5.7 Release-Specific Architecture (R3)</a></li>
     </ul>
   </li>
   <li><a href="#6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</a>
@@ -430,7 +432,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 3</td>
+<td>R3</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -2505,35 +2507,74 @@ flowchart TB
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
-        DS020C_APIGEE["📦 APIGEE"]:::app
-        DS020C_BOBJ["📦 BOBJ"]:::app
-        DS020C_CFIN_S_4_HANA["📦 CFIN S/4 HANA"]:::app
-        DS020C_CIBR["📦 CIBR"]:::app
-        DS020C_COMPASS["📦 COMPASS"]:::app
-        DS020C_Corp_IP_S_4["📦 Corp / IP S/4<br/><i>DEV</i>"]:::app
-        DS020C_DCS["📦 DCS"]:::app
-        DS020C_EATS["📦 EATS<br/><i>EOL</i>"]:::eol
-        DS020C_ECA["📦 ECA"]:::app
-        DS020C_ECA_ADLS["📦 ECA-ADLS"]:::app
-        DS020C_ECA_DataBricks["📦 ECA-DataBricks"]:::app
-        DS020C_ECA_SnowFlake["📦 ECA-SnowFlake"]:::app
-        DS020C_EDW["📦 EDW"]:::app
-        DS020C_FCA["📦 FCA"]:::app
-        DS020C_Finance_HANA["📦 Finance HANA"]:::app
-        DS020C_ICOST["📦 ICOST"]:::app
-        DS020C_Legacy_MDG["📦 Legacy MDG"]:::app
-        DS020C_MARS["📦 MARS"]:::app
-        DS020C_MES_300["📦 MES 300"]:::app
-        DS020C_PEGA["📦 PEGA"]:::app
-        DS020C_SAP_ECC["📦 SAP ECC"]:::app
-        DS020C_SAP_IBP["📦 SAP IBP"]:::app
-        DS020C_SAP_ICX["📦 SAP ICX"]:::app
-        DS020C_SAP_PO["📦 SAP PO"]:::app
-        DS020C_SPAN["📦 SPAN"]:::app
-        DS020C_SPEED["📦 SPEED"]:::app
-        DS020C_SideCar["📦 SideCar"]:::app
-        DS020C_WorkStream["📦 WorkStream"]:::app
-        DS020C_XEUS["📦 XEUS"]:::app
+        subgraph DS020CLN_Boundary_Applications[" ⬛ Boundary Applications"]
+            direction LR
+            DS020C_CIBR["📦 CIBR"]:::app
+            DS020C_COMPASS["📦 COMPASS"]:::app
+            DS020C_DCS["📦 DCS"]:::app
+            DS020C_EATS["📦 EATS<br/><i>EOL</i>"]:::eol
+            DS020C_MARS["📦 MARS"]:::app
+            DS020C_PEGA["📦 PEGA"]:::app
+            DS020C_SPAN["📦 SPAN"]:::app
+            DS020C_SPEED["📦 SPEED"]:::app
+            DS020C_XEUS["📦 XEUS"]:::app
+        end
+        subgraph DS020CLN_Cloud_Native_CX_Suite[" ⬛ Cloud Native CX Suite"]
+            direction LR
+            DS020C_SAP_ICX["📦 SAP ICX"]:::app
+        end
+        subgraph DS020CLN_Cloud_Products_Legacy[" ⬛ Cloud Products (Legacy)"]
+            direction LR
+            DS020C_SAP_IBP["📦 SAP IBP"]:::app
+        end
+        subgraph DS020CLN_Data_Warehouse[" ⬛ Data Warehouse"]
+            direction LR
+            DS020C_Finance_HANA["📦 Finance HANA"]:::app
+        end
+        subgraph DS020CLN_ECA_Platform[" ⬛ ECA Platform"]
+            direction LR
+            DS020C_ECA["📦 ECA"]:::app
+            DS020C_ECA_ADLS["📦 ECA-ADLS"]:::app
+            DS020C_ECA_DataBricks["📦 ECA-DataBricks"]:::app
+            DS020C_ECA_SnowFlake["📦 ECA-SnowFlake"]:::app
+        end
+        subgraph DS020CLN_ERP[" ⬛ ERP"]
+            direction LR
+            DS020C_CFIN_S_4_HANA["📦 CFIN S/4 HANA"]:::app
+            DS020C_Corp_IP_S_4["📦 Corp / IP S/4<br/><i>DEV</i>"]:::app
+        end
+        subgraph DS020CLN_ERP_Extension_Standalone[" ⬛ ERP Extension (Standalone)"]
+            direction LR
+            DS020C_Legacy_MDG["📦 Legacy MDG"]:::app
+        end
+        subgraph DS020CLN_Legacy_Costing_Engine[" ⬛ Legacy Costing Engine"]
+            direction LR
+            DS020C_ICOST["📦 ICOST"]:::app
+        end
+        subgraph DS020CLN_Legacy_ERP[" ⬛ Legacy ERP"]
+            direction LR
+            DS020C_SAP_ECC["📦 SAP ECC"]:::app
+        end
+        subgraph DS020CLN_Manufacturing_Execution_System[" ⬛ Manufacturing Execution System"]
+            direction LR
+            DS020C_MES_300["📦 MES 300"]:::app
+            DS020C_WorkStream["📦 WorkStream"]:::app
+        end
+        subgraph DS020CLN_Middleware_Integration[" ⬛ Middleware & Integration"]
+            direction LR
+            DS020C_APIGEE["📦 APIGEE"]:::app
+            DS020C_SAP_PO["📦 SAP PO"]:::app
+        end
+        subgraph DS020CLN_Reporting[" ⬛ Reporting"]
+            direction LR
+            DS020C_BOBJ["📦 BOBJ"]:::app
+            DS020C_EDW["📦 EDW"]:::app
+            DS020C_FCA["📦 FCA"]:::app
+        end
+        subgraph DS020CLN_SideCar_Hana_DB[" ⬛ SideCar Hana DB"]
+            direction LR
+            DS020C_SideCar["📦 SideCar"]:::app
+        end
     end
 
     DS020C_MES_300 -->|"Direct"| DS020C_XEUS
@@ -2616,7 +2657,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWQtvozgQ_isWVaU9qWnIu4lWlQiPXlZJG5Xudk-XU-SA06ISiIBct9v2v59fEAiYODpWWjUz_uazx-Px2H5XnNBFykg5P3_3Ai8ZgfeFkjyjDVooI7BQVjDGf13gv2Lk7CIveZuif5HPlH4YploK-QEjD658FBM1trMOg8T2fnNTrf72F2tM5BbceP4b09joKUTg--QCaNiAfwFiGMSNGEXeeqF8UoQfvjrPMEq45V2MZvDXo-cmz0Syhn6MSLvnZONP4Qr5tAtJtKPSAA_R3kLHC56IuKsSYQSDl5ywp35-gs_z80WQcYGH8SIA-Ds_B40G7pvz7M1gghpeEG-9CLkgTt58BBwfxjGKcRvWnP420BqsdrEXoDgG9Ft7vj86s_A37l3ESRS-oNHZ-Oqqr475z8YrGdCovf114YR-GI3OVFU9sAm3W7D_mM1xj1jNbKrqYDDun2DThQks2zSujthsFWymOhfG2HkRfMM-Bb0Dpo3nuj56hRHKe8Toa3uPmIO-tbcm0XsU-iWPEB_nvKzrqnrMJrMa71ZPEdw-A23690JZ7Nyrjov_dzs9oM3n04muPUzubsFU-8u8Xyj_MBD5XBwQTuKFAZje76WGrbZVfanNJzemmTfooD5gUmxlNBrhaS2hxnfjb4cYIhMjdGtyu7SX3eWf2q12CCVKYDe7gChrbEzG9yUoltUg7mZzzbZLICauwYXRdjmZkw6XsFgFmmAyJx3-uoqa11-9a8P88bXpXYsNGnqpE1gkbm9qDyUAkaWE5t10T4jDrGxAL3kZi2oIdW2pGVO7AtQg8nqkgZfpOPKcl7gKv9fWW7GD8NXy4QuqMpIpa2wYjyWk8Shub5V9ZNX5yPICGDioMoS57kgET_Q7--EQSoVizBQ9QedtOTNuDoFMA7BGjJ5p96U5JbIahGkvO6paApk2wGIxbm7elLxCZGKErc3xvOuHICzGM67X4ybjeRUOi4_g9J-VOP1nPW5-VwWb39Wg5tptCYNldQjTNMoQLKzBeC7SYVRCMbEY9xhGL3YSIbg5hO41YvRP83spqojsAIECN929isGFC5Lrj4Vi0J1poXzk7RbaE4GoMVs3QeWgRBga-sHB-pAnIClYvjWdOt48jZaPg-AXAkr2SSoLKvNCiri3wBeSa8E92vqeA-meb0Vwgy4vL49Qk320rqtkgQTltSTq7BEKGecxC2mfpg-51oViosiR11Ri05URlBcRb68ZFvZgnJAqCO_0tvUw_zL2w9Uf-cng22UxOriQ2_mODy1vQMcT4odPB9jclhgI99K0_3jnW5OdD9ceQYD9FkakW1i69bbowPB-mwyq65kTHVqwKZo9WoQJpnoSJCgKoF-_rnTtlOZUwgGWh8855CzoHgm_POibCeZhnNADloQTirFoPkxrliX-XdmuYtCCliVvWpl3_ue6yRcwRYacIl0F_AjwUTwpFGBMJALQzf8IS2lA9BRxBFSZoLAgKO3ZJyVfVlUI069-kGnYGUJ-YnC9f8rWod2mrRG-JAh5Zv_hRckO-t5vmtz_KNtIT6A4fxzM0nOET6TkHiLZxqNm04PbzaWHV5t_6YSb5lkT79rNdnswxCUeSGeTXC5MtPkMnKWa5crHtxMVLGTipDhag36vRTkoJGNI5UKGYm6Xoeq2h8MOpSqcMPecaQMxJ0lkUp7rDBgRy3yp16hUbJ3HkJTb-t3OkFFkkZd6jqvEPLn0L-W3VqfP_ZY_7eb8xhsIGUmwS42q2-13KRNbHumIuFhonxZiUgQt5jReuaX2W7X-ItuRlJ86mXk9H1Wd4_ZZoSAVWb3BsJuSNHh9kcYX19Uy5QoKucnv9q4yvkI1ks0-a1HLui8aZEg7vatWKyPNFxycM20g5sS7qdTw1BbLcGz7TYfEpELrlmxEdIc8gVqFiOBisf38LndaasvfPJyQ2Vg5JEM1VFUWD2kFxSm4XMiQO6DITYzaZzz7e438BDGtkI0e5KRCrdPjuZqf_dII43IxAz-7yi2i9qDHSNi9SX71MJWQh9RNsumHp2kKyeef-uyc1ohS6QfnMjYSfi-Tyz5cVctDSiq56R-ow4yHFWLZ3DNVPQ8-jJ4-HnaEPWU8uKg8nYZWotIspPaT5Ohxl7Fycc_Qq_cXvWeQWiytXmvAKdjdRLpauELMwc_UpyWz_UlcNo_l7nykBjS4GrCNpnBZlI6Ka4Vs9D5KbkPrt9qUh19hZfsYk6cM_G2HvtaNp7mXOEs99hKXh2oZVJV5cCu9KeGUiy_rCld6rgqm5o15a0g8Jk3xIaN0H6tts1uoipvE6XJWuK13WwMwy97gGGD_JpfHGeZ1nsnpAno0MoME37cwIHk2zEPwcwnlavfdLm7oNsJ1Y-qt0cH7Cb2v3DuVOSV1bI_8yxw7HA5LT47KhbJB0QZ6rjJ6Z-_O-PnaRWu48xP8WqzAXRLab4GjjOj7r7Lb4o4iw4N4EjZM-PkfXIcEgw==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWo1v4rgS_1csqj7tSqWE74JWlUIS9jhBGzXd7Z4eT5Ehpo0aEpSE2_Z2-7_fOHaCQz5IeKy0ghnP_Mbj8Xg89a_G2rNIY9y4vPxlu3Y4Rr-WjfCFbMmyMUbLxgoH8O0KvgVkvfft8H1O_iYOYzqeF3Mjke_Yt_HKIQFlg56N54aG_Q9X1R7s3thgSp_ire28M45Bnj2Cvs2ukAwKnCsUYDdoBsS3N8vGRyTheD_XL9gPueZ9QBb47cm2whdK2WAnIHTcS7h15nhFnMiE0N9HVBemaOzw2nafKbknUaKP3VeB2Jc-PtDH5eXSTbDQ42TpIvhcXqJmE2xbv9gLHJKm7QY72ycWCsJ3h6C1g4OABDCGDY9-q2SDVvvAdkkQoOizsR1nfDGFz6R_FYS-90rGF5Obm4E04T-bP-mExp3d29Xaczx_fCFJ0pFOvNuhw4fpnPSp1kSnJA2Hk0ENnRYOcVanenNCZzulM-ZZOADn-fgdfIr6R0hb27Ic8hP7RPSIOpAPHtGGg-lBWwXriedkPEJ9LHhZUSTplE6mNdivnn28e0Hy_L_LxnJv3XQt-N_q9pGs6_OZIj_O7u_QXP5Le1g2_seE6MeCgFiHtuei-cOBmqhTDakjKfM7c-LtXQv776a82zn2GlORAKDQct9ZtVco5iORn0IqRqMfBmQqs8mDOIE1GSBKA03j8RiCKF_qfqHLhpERZORyWVXJyAGpXEaTHzNClPZl5bduv9i32v38S8u-ZUpgnXOVLOSHjBJKK4fWta_ysRSllUsZunx3LEVpp6Q0Tc2KAbFc7of2LTMzSsuRIq5VFnWK4-0t8w6i6W9iKj9MY2-HRIi6iI8YHyk_UMSvH3WGrJsz5UdmqrKOgHyu2brvWft1GJhz8ozX7xmzYz76xAZ8PtPwiZ5r-ESvb7gKGdV8gjT34sFRJVhMGShh1Dd0arvYXRPzD_kuE76chyivvsmaIpu6g8ON528Fg4GMYnJ9c0E6s7-VE3uMGiKrcyNHsEnpp6Wpkye-vX4N8nQcuKc1Ga73c-rgV5KnKGGe4ewHXfTxg35Ghp_O7kzD7OWGAmUio9UrigVRj-fvzJlOVWW0AAu10EynquKcrGrfDzm55pxN7S0kbgCzMo0QwznneC5JOwIlQ9Cnw5gztjTLBeZC_Xo8LcZBwKk_Ca5V8YIQCkdTc5_t1Ay4bs5HjF_f-Jlybzwe2x0RzzY5HXLczrMijyZLTVHykiWQ6xu4wO5-g9chXC-oS9_gohFGIfIehETMRamBKBmI2MD6E1lohtmVpEzxoBkIyOXb5snzX43QJ3h7LH7gnOGKpD42Z25IgEvtF11wKKD_g4Qh9Scv67OvmnZsPKOeKGdg_fX7vOXX7-tP-YHsPJ9uFmGWCa3-tCb3kz-PTaO0E7lefcpkePWpXGaaPdumyhkHr2FbRMG--Qd2salOBDdwDqIcpE7O2KlMQWapGLnM1OgL-5reLHDLvf29bKgR9LLxW6xVU-MpoWgwy2Ru7nYqkolKeveo7q8OQK8V1UdHxTkfHgf276P8VyiQ0U9Dyc09mmKJhyn6FJWGEPnxrQ9Nfbwl19fXJ6Dpta7MVFp5u9kivcjYExBVnMc0xDbNH4XRqaoljSFycmXjsHWzEc7Hy-oUPBiENI1B4WJMH_VPE8dbfRYXg5eX6ejgRK7nG3TC4BCHBXG85yNZoXx0C-vO2H6oEDe0QoSCwHXBb55PzQLqzt6RI8WHctLNL89qOjSls2j1op5AwVLT48V3sVO-rxS5zvCIwgWmNjTPaIPROhF-otCfGtJZcVXJCelY1B7nJdsSfueOy5l0wciMN6eJd_7PfSPe-9IIAiPeBfwM_50-6lNijFQkEDVCTqBkJhSdsieEchMUENxMeVEr-bLbe2H6VY4yDWtnVV8Y6GPVOTrku3g0gc6zxzP7d9sP99ix_4mS--esjritCfnjaJVefGhz0uZ2uAvGrZaNd9trG3abc732tq2LFhzhrU5nOJJo6dBIlhbNZH2BLmKOuXKg5Z2DQheuEkZ7OOi3I4xIJEGI6YUI6dxeBarXGY26EVTqKnvAjAcUY9JEVslz3SEDYpkv9lpELdbOY6iS2wa97ohBJJEXe46zinGE9F_Jb-3ugPtNvLwLfuMDChFpsFeaVa836EVIbHvEM-LkQv1RIVYJoM2cxiu3WH-71F_0OKrkp26iXhGjqntaPysUKkVWfzjqxSBNXl_E8cV5pUhCQVFt8Xv9mwQvVY0kq89GlKIeioYqoN3-TbudgIoFB8eMBxRjwmlaaXpSm2U4dvzGU2LUQu3TqhHRG_EEOk1FBCcX6xdPuXqpTWzY1shsrByqAjWSJBYPcQXFITi9EEG4oFRbGGnAcA6tNXGBGLcQLbrIVQq1bp_nan73iyOM04sR-N212ibqDPsMhPWBxN3DWIU4tG6qmn54mo5ExPxTnp3jGrFS-oFcxmbCW3NC9uGsUhxaUlVb_qE0SnBYIZasPWOV48BltP582BW2znygqKwPE1WilVFo7VcRo89dxsrFA0K_3F9Rn6HSZmn320MOwXoT8W7hjGIMfqeul8wON_GqeUzo-VSa0PBmyA6aVLMonhXnFqJF_ahqB9qg3YlweAsrOccYPUbgDwaiJyCTufC8Yyqdet4hisqJqFTlFUfmoQKkXGjWpVp8loTm2lftTq3wQmEOl4zM3z2Ftwc5TcK5uUh1S632UOhLM4HDQw9RTtVuRaR1j_09VHND6LcwQfoWRRSBJwARVmdg9WCg1fQ2zbm9IUdvApLGJXMqc0rs2D79lzh2NBpl3rE0rhpb4m-xbTXGv9hjJngTZZEN3jshPEFq4H3oGe_uujGOHhU19jswlKg2hkXYMuLHv9Qg1E8=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
 
@@ -2855,48 +2896,81 @@ flowchart TB
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
-        DS020F_ATCR["📦 ATCR"]:::app
-        DS020F_CFIN_S_4_HANA["📦 CFIN S/4 HANA"]:::app
-        DS020F_Capacity_Forecast_Data_Store["📦 Capacity Forecast Data Store"]:::app
-        DS020F_Corp_IP_S_4_HANA["📦 Corp / IP S/4 HANA<br/><i>DEV</i>"]:::app
-        DS020F_DMOCR["📦 DMOCR"]:::app
-        DS020F_DXCR["📦 DXCR"]:::app
-        DS020F_ECA_ADLS["📦 ECA-ADLS"]:::app
-        DS020F_ECA_DataBricks["📦 ECA-DataBricks"]:::app
-        DS020F_ECA_SnowFlake["📦 ECA-SnowFlake"]:::app
-        DS020F_ECM_Windchill["📦 ECM (Windchill)"]:::app
-        DS020F_FCS["📦 FCS<br/><i>EOL</i>"]:::eol
-        DS020F_GraphiteConnect["📦 GraphiteConnect"]:::app
-        DS020F_ICS_Phoenix["📦 ICS (Phoenix)"]:::app
-        DS020F_IF_Blue_Yonder["📦 IF Blue Yonder"]:::app
-        DS020F_IF_PDH_Consumptional["📦 IF PDH Consumptional"]:::app
-        DS020F_IF_PDH_Foundational["📦 IF PDH Foundational"]:::app
-        DS020F_IF_PDH_Raw["📦 IF PDH Raw"]:::app
-        DS020F_IF_S_4_HANA["📦 IF S/4 HANA<br/><i>DEV</i>"]:::app
-        DS020F_IP_Blue_Yonder["📦 IP Blue Yonder"]:::app
-        DS020F_IP_PDH_Consumptional["📦 IP PDH Consumptional<br/><i>DEV</i>"]:::app
-        DS020F_IP_PDH_Foundational["📦 IP PDH Foundational<br/><i>DEV</i>"]:::app
-        DS020F_IP_PDH_Raw["📦 IP PDH Raw<br/><i>DEV</i>"]:::app
-        DS020F_MARS["📦 MARS"]:::app
-        DS020F_MES_300["📦 MES 300"]:::app
-        DS020F_PDF_SMH["📦 PDF-SMH<br/><i>DEV</i>"]:::app
-        DS020F_PDH_Consumptional["📦 PDH Consumptional"]:::app
-        DS020F_PDH_Foundational["📦 PDH Foundational"]:::app
-        DS020F_PDH_Raw["📦 PDH Raw"]:::app
-        DS020F_PDM_Translator["📦 PDM Translator"]:::app
-        DS020F_Power_BI_DARC["📦 Power BI (DARC)"]:::app
-        DS020F_SAP_Ariba["📦 SAP Ariba"]:::app
-        DS020F_SAP_BOBJ["📦 SAP BOBJ<br/><i>EOL</i>"]:::eol
-        DS020F_SAP_IBP["📦 SAP IBP"]:::app
-        DS020F_SAP_PAPM["📦 SAP PAPM<br/><i>DEV</i>"]:::app
-        DS020F_SAP_S_4_MDG["📦 SAP S/4 MDG"]:::app
-        DS020F_SAP_SAC["📦 SAP SAC"]:::app
-        DS020F_SCS["📦 SCS<br/><i>EOL</i>"]:::eol
-        DS020F_SPEED["📦 SPEED"]:::app
-        DS020F_SideCar["📦 SideCar"]:::app
-        DS020F_WSPW["📦 WSPW"]:::app
-        DS020F_WorkStream["📦 WorkStream"]:::app
-        DS020F_XEUS["📦 XEUS"]:::app
+        subgraph DS020FLN_Boundary_Applications[" ⬛ Boundary Applications"]
+            direction LR
+            DS020F_ECM_Windchill["📦 ECM (Windchill)"]:::app
+            DS020F_GraphiteConnect["📦 GraphiteConnect"]:::app
+            DS020F_MARS["📦 MARS"]:::app
+            DS020F_SPEED["📦 SPEED"]:::app
+            DS020F_XEUS["📦 XEUS"]:::app
+        end
+        subgraph DS020FLN_Cloud_Products[" ⬛ Cloud Products"]
+            direction LR
+            DS020F_IF_Blue_Yonder["📦 IF Blue Yonder"]:::app
+            DS020F_IP_Blue_Yonder["📦 IP Blue Yonder"]:::app
+            DS020F_SAP_Ariba["📦 SAP Ariba"]:::app
+            DS020F_SAP_IBP["📦 SAP IBP"]:::app
+            DS020F_SAP_PAPM["📦 SAP PAPM<br/><i>DEV</i>"]:::app
+            DS020F_SAP_SAC["📦 SAP SAC"]:::app
+        end
+        subgraph DS020FLN_ECA_Platform[" ⬛ ECA Platform"]
+            direction LR
+            DS020F_Capacity_Forecast_Data_Store["📦 Capacity Forecast Data Store"]:::app
+            DS020F_ECA_ADLS["📦 ECA-ADLS"]:::app
+            DS020F_ECA_DataBricks["📦 ECA-DataBricks"]:::app
+            DS020F_ECA_SnowFlake["📦 ECA-SnowFlake"]:::app
+            DS020F_IF_PDH_Consumptional["📦 IF PDH Consumptional"]:::app
+            DS020F_IF_PDH_Foundational["📦 IF PDH Foundational"]:::app
+            DS020F_IF_PDH_Raw["📦 IF PDH Raw"]:::app
+            DS020F_IP_PDH_Consumptional["📦 IP PDH Consumptional<br/><i>DEV</i>"]:::app
+            DS020F_IP_PDH_Foundational["📦 IP PDH Foundational<br/><i>DEV</i>"]:::app
+            DS020F_IP_PDH_Raw["📦 IP PDH Raw<br/><i>DEV</i>"]:::app
+        end
+        subgraph DS020FLN_ECA_Platform_PDH[" ⬛ ECA Platform (PDH)"]
+            direction LR
+            DS020F_PDH_Consumptional["📦 PDH Consumptional"]:::app
+            DS020F_PDH_Foundational["📦 PDH Foundational"]:::app
+            DS020F_PDH_Raw["📦 PDH Raw"]:::app
+        end
+        subgraph DS020FLN_ERP[" ⬛ ERP"]
+            direction LR
+            DS020F_CFIN_S_4_HANA["📦 CFIN S/4 HANA"]:::app
+            DS020F_Corp_IP_S_4_HANA["📦 Corp / IP S/4 HANA<br/><i>DEV</i>"]:::app
+            DS020F_IF_S_4_HANA["📦 IF S/4 HANA<br/><i>DEV</i>"]:::app
+        end
+        subgraph DS020FLN_ERP_Extension_Standalone[" ⬛ ERP Extension (Standalone)"]
+            direction LR
+            DS020F_SAP_S_4_MDG["📦 SAP S/4 MDG"]:::app
+        end
+        subgraph DS020FLN_Manufacturing_Execution_Systems[" ⬛ Manufacturing Execution Systems"]
+            direction LR
+            DS020F_MES_300["📦 MES 300"]:::app
+            DS020F_WorkStream["📦 WorkStream"]:::app
+        end
+        subgraph DS020FLN_Manufacturing_Reporting_Systems[" ⬛ Manufacturing Reporting Systems"]
+            direction LR
+            DS020F_ATCR["📦 ATCR"]:::app
+            DS020F_DMOCR["📦 DMOCR"]:::app
+            DS020F_DXCR["📦 DXCR"]:::app
+            DS020F_FCS["📦 FCS<br/><i>EOL</i>"]:::eol
+            DS020F_ICS_Phoenix["📦 ICS (Phoenix)"]:::app
+            DS020F_SCS["📦 SCS<br/><i>EOL</i>"]:::eol
+            DS020F_WSPW["📦 WSPW"]:::app
+        end
+        subgraph DS020FLN_Middleware_Integration[" ⬛ Middleware & Integration"]
+            direction LR
+            DS020F_PDF_SMH["📦 PDF-SMH<br/><i>DEV</i>"]:::app
+            DS020F_PDM_Translator["📦 PDM Translator"]:::app
+        end
+        subgraph DS020FLN_Reporting[" ⬛ Reporting"]
+            direction LR
+            DS020F_Power_BI_DARC["📦 Power BI (DARC)"]:::app
+            DS020F_SAP_BOBJ["📦 SAP BOBJ<br/><i>EOL</i>"]:::eol
+        end
+        subgraph DS020FLN_SideCar_Hana_DB[" ⬛ SideCar Hana DB"]
+            direction LR
+            DS020F_SideCar["📦 SideCar"]:::app
+        end
     end
 
     DS020F_MES_300 -->|"Direct"| DS020F_XEUS
@@ -3007,7 +3081,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq9W41vo7gS_1esVD31pLYh3x9aVSIh2c0p2aLSve3p8oRocBpUAgjItX27_d-fjU0wX8Y0ey8rrdIZz2_s8Xjs8Tg_GhvXhI1x4_z8h-VY4Rj8WDfCHdzDdWMM1o1HI0DfLtG3AG4OvhW-LeE_0CZM23VjbiTyp-FbxqMNA8xGOFvXCTXrvxSq1fdeSWNMnxt7y34jHA0-uRB8W1wCGQHYlyAwnOAqgL61XTfeIwnbfdnsDD-kyIcArozX75YZ7jBla9gBxO124d5eGo_QjroQ-oeI6qAhap6xsZwnTO5KmOgbzjND7Env7-D9_HztHHWB-8naAehzfg6urlDfNjtrZYTwynICz_KhCYLwzYZgYxtBAAPUhjSP_lbgFjweAsuBQQCiz9ay7fHZHH0mvcsg9N1nOD6bDId9aUL_vHrBAxq3vdfLjWu7_vhMkqQMpuF5IPkQzEkPox4xJWkwmPRrYJpGaOQxlWEFZiuFGfNMI0DG8403ZFPQy2jaW6ZpwxfDh6xFlL6cWGQ26M8TNIHeQ9fOWQTbmLHydCpJVZgENTg8PvmGtwPy8u91Y30whx0T_W92ekBW1eViKt8vbr-CpfzX7G7d-A8Rwh8TOcQmtFwHLO8SqqJJbWmuy_fTOxZuA_sA0xDCeDxGU5qTmM4XX3VN7-pf5K9yVhQzgdbsAszkYBjYvcM3fe6ivhlBqCtoonUtRH_mIGlbELcFuC2I2nI0uL6nL9TyjiI-aIKFeuztp0e_efPJulFmf35qWjfl0MrqNm-ziMiReSgQeeBJzKayLitLLSuF6FeYzpfEJpr41uY5KJJPuHwUzXFf5rbxDItAjkwexkr_bjkmik62ncdYgYsj9_dylPk0ZwREiqdrdrtMpgstuJz4Z7xorBBOXcdB6yALlWGXd2Mx1XR150LHes1iIBa4oDzOQBZzfWIfoP6X65jQz4HMAeYCwuWiqMoX5OBOcNh7eF0bdgEWagNSbSoR5-7BQfGWB8g2qcS7M15KYBCHK122aJF47dWKYgDP6Kqg0VUBo6t5o9fpZuUcqLk5qAtfNCVqPCXCYCv5LrciMY0jMdP0jiTlhGYaQORyOVVBzrD6kpVD5CtEFu5w5dTVWCxVsyS-TEompHKBqMpKv0dnxMA20B6YF1-BhMtBcV-gr08WuiLfTXMgmAkmC3CBuZyQpsmqjk7Gj0YWATFAxODLTm4nfxSJYrpwhMdAi4lahIPI_A6osroqEsR0Yf_CQDhmrZTPRVg4ZiFWhbw8LZSVpxy5_M6o1dgZNXU2U3IAmMhRaZlwauS8jpLL5b5r6vesEKZxJFz_WQt9aOxzckdOufTD7FvONpiWkYCOGZ-v06EKpUw3P9cNJTo7rxs_WdxUe0woa0zDV6o9pVGRmbwA9OSBF-vPgk0wJc3QKYK2vGfkUofzlGRitLLeRiHcycT5OkNLHfeoYDYc_SyOYhkTsawqIGbxpVAYejyIuzkKaDh5uIOebW2iCA3mvrGH19fXAtY_ATKbj6Rx8Zo7wWCsvKzMUV9QliSrC5TgaPN79WJiu4-_M1BxbpGZPUKkON8cnHNN0dBs9ykjy-QPTmniEfsnShO2OE1I_Bx3C1E9y4MZ4CSncMpP8BR4dbCh5m5D8Bsar43sLuATVcsnDmMOJ5MUF2TXorAUpZ06myhDKlu6vOQ7PQBOQ6Z_TaBMQMpdEOl-l_b_Upc7TnlmWpuTW0UTiYhJWnbygPHFx8kg2i-wPL4aOB0EX0mcjII36TKQ8iWbTnWrnGXq5uIvPRxnQSm5rvcVZLhFyCy_IgwWZeFFkKkGvy4kFq2cO7h3QwjmB4fc9smm4YUQQ6_S1ojPven-qifNmFo8Y-qHZ0ytmDG19oypVTOm_psz9i_Z4Vcb4f_ss2XRnn9cIulS3DP0LTqBzV49F5VGNOj_Y20guJDV_BZU3LMsoApuo8JDQKAC8GKFO7BxnRrHxPpw3DHXMl5pEvDRnnEBcShhEBdOCFGhIgpB2gEd27Cf7A1x030Er9Jf0EXAL9qFjlceMZ5nPUHcqXg6BIcpilHbLYSXauoKqOwQmr2tidPlDcp2nouPujsf1b5wxTP0gnGzaRne_tpCs2hfb9x986yJsu9mtyX12usGapYqGeFq5gLP_1ncQH-0UTm0SCfvdCrShc6gPeySLnBKTEmP4vblPcpmCmKG6PQ7pBe5khRrDdKqVDc57IkobHXiYccHRKojZpTreKiv4qGWhmMOKmS5Tqs1irTENTHGXpTH1cTkqvX1pRLdOlqT5VpfKbvUxXWytzJCC2M4GPSozlSNjlkLtEmpVpx_iugatUeDSBVJWCk8pZaiZ28EhEbV74yGkar8fUI8KtqkVC-bbAothFF3QIaXKhEyK4I2KNeYTqQEQ2tXIkpTJcVUbI1a8LTmD4JCuqVBdxDrzlVVmB7QdlU9SB1tP9SBzOG4pn58Yv-QWnLUr6Htg5sGUxKtsVtkkj1Br-qQQJSumaa8qjOq0Pphr-pJsW6-V_UkgR58xKvSHSj1KiH9NbwqrTbrVXxt0f29UGjs9DrEe-mVfxwPKb1cAy2WiDlQm-4qtOzLek6bv5vERRMRPb1Re0jWBi0TJ3piFkfPaUHvlIh3Yrg7IdZ9LNDVj3KpfENIW7_T75Ggk6lIJ1rjJqVak1xLbMfu9YnGYwWb3a0Jk6sLJ0liqlodejiIK96MJsrjasI5reCcScmYSCaczJlUOaIoIRdb4l2pdVRE8_jjGic8riZ8NyGWurGKyI3GMUsT0UOLeGLWk_rDRBep5bMWJOxyfYIn4TbKjqg7sEfhmFyOHxX_hKzW6rWoBlowjG1GGeU66H2AkL3aoxGJv8ktQmwryirVExUbxDyNZkW0PHF0Mn4uxBTBxdxsOCBulqqeHz2NcEu1RU8DhPT0-i1yGUJfE8QaKD3WQB8CR0-7J0vm2fZcqnq2zYrKR1FJ5HV27gHyEj6hdxOp1xWmBJazz7OvisDL46WO3ivn3hx7x_J5waOOpb5KvR4xWwOwOj7YJgLJA25WTpndsJo2XXpX7ITovocI4htQVgS9m4l0tftmFzU0r9zt1dLawsxDmujpSGJUYpTYsD3872jY0WiUe5_euGzsob83LLMx_kF-pIB-62DCrXGwQ_TTgoZxCF3tzdk0xtGPBRoHD3UUKpaBJmFPiO__A_oqyfA=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq9Wwtv2zgS_iuEixxSIInld2wUBWTLbr2wE8FKt12cDwJt0YkQWTIkeZNcm_9-pEhJ1Juyu5cFFu7McD5yOBxyhtTPxtYxUGPUuLj4adqmPwI_1w3_Ce3RujEC68YGevjXFf7loe3RNf23BfobWZRpOU7IDZr8CV0TbizkETbWs3NsXzP_y1S1-odXKkzoM7g3rTfK0dCjg8C3-RWQsQLrCnjQ9q495Jq7deM9aGE5L9sn6PpM89FDS_j63TT8J0LZQctDRO7J31sLuEFW0AXfPQZUGw9RO8CtaT8SclciRBfazxyxJ72_g_eLi7UdYYGH8doG-O_iAlxf475tn8wl9NG1aXsH00UG8Pw3C4GtBT0PeViGigf_VtAObI6eaSPPA8HfzrSs0YcZ_hv3rjzfdZ7R6MP49rYvjdk_r1_IgEbtw-vV1rEcd_RBkqSUTng4gPiP6hz3iNZIpyQNBuN-DZ0G9GFWp3JbobOV0BnyDOhh47nwDdsU9FJIe9MwLPQCXcRbROnLsUWmg_4s1ibQe-RYGYsQG3NWnkwkqUon1eodN48uPDwBefHvdWN9NG47Bv6_0ekBWVUX84n8ML-_Awv5r-lq3fgPbUT-DOwQW990bLBYxdRInaJJbWm2uNPHztE2oPumy4eDZW4haeJhKLA-tjetDQj5gOcnkIrRyB8F0qeTpf7dtA3sspbFj2SL-gAzwWXE_Yi1j0Yj7Fi5mr6Q_ps-mji2jTHTulLscl1LeaWlFRBaeStNnU6VdLOAWN7ux_RbBo3Qcloh2yibtInlHA1ddR3juPX52QoYIGTUn6b5TB9bR6T_5dgGctOdnc8A4QLKLR_sXC3VpIpr0mRVx3F4AzMml1UQMKrbz8dqXmtMrm6ryuoyrzGhf9q4zc-fzM_K9M9PTfNztTJNnuTpwuT6XjCdyLpqQX_nuHvOBzAZhOT6HjCBZA_y3_SZgyWh5-sKjsa65uN_pnseyoJQFhBZEMiWm4J0XVYWWjYSyNeEXt2aII1dc_vs5emIudWaNNt5mVnwGeUpipgV3j7TVeWrjoOOd9wfiH2hlbN6sAxIyAhpnQUhuFQpLyKkcwVfClRhTuXKrh6rmh1rrbXCQEqHrmaGfgpEniXU0BLVCmusUQJXsE7BJeZ9rL9aKyeipsdV2byerxWYt9jLqoy5Unn7rdQTwttsfqdrelf_Kt_JmXiGmUBrdgFhlg9t4rgH4kGFqjAfNIknhfrq-easUDNepuIqqw2qT199ZHvYZDjGQzyxlmOjpJVBJAIuY5kTvDXYAPGwlsqX3E0QDwuz6g9jCe3jDm59nA_aj3hAODP0gwG9eT7a8-ejhCSIJAGTrD-k5VTTO5KUOURONYDJ5ZP83XGfNd9FcJ9uHnPONcYKHRzXJ7-qjBFJnm4M-WGySg-F0MrNoCzvs80CYkW7HznNflS1mk0yhw5MClfS9H4RryScyOUvzommq08Oss3XzOKcaDiUU15FHqNlO6LV7Mh3Tf2ecR1MO8FpojxYn9s-wlwyz7yvxInyvwAncsqWhce-_JrdFGbXmFwrSqrKUn_AdRMP76KOm9W4BDG3vk2iBcGZIaKdMG7nBbn6eK4r8iqTAwRMMJ6DS8L9WJ1HjO_Hf-TFUEKv9qGKkWumgSbQ1b9CG-rKmBs_4wDCAcr4hC2AKsh0nZLLJin4QX8mYy-uc33-tW4oAfS68YtPtxPyhFAkzLwyIc9orMlUngNWVCDe9Ctnq0605uhMg7Z44NolTiKJlnH0L-ptUKOwU4WMOkNLlGNYw_R6-ZW_zFIm4llVirj9P6GFo4eDWM3wUiDJJF5xYdkJzFy4Rzc3NwLWP0Nl-miX1EvKPGcYjG8vKzPcF5w1y-ocnxW12YN6ObaczUdOVZgop2aPEpmebzbJwSd4aJbzmGrLJcJ2YQYd-ifOdXck1439nHQLUw_mAaUUx4mxXVycY4qXRwtpzs7HW8cKWdjuAj5RtXzCiGGXHMrFG_JrUbhVGAzPnE18_ChaumXFmOQASgS5_jVxzAYJd8Gkh6ek_xe6XDTlqWltju8VTSQixuemswdMjpVnK9F-g-XJifN8JeS0e7YWcvQrUlK8ZJMl3ypnmTiZ-Muy_LRSRq7rfTk1rzzNPL8iDObV5vJUJgR-X0jMWzkrtHd8BGZHmx6WZAMefERUL5PWCOvPyf6qZ82Ymj9j6skzplbMmFp7xtSqGVP_yRn7h-zwu43wf_bZomhfflyiVx5hz_Cv4AQ2fSVpFNCQ-7e5ReBSVrNbUH7P0gpVcB_cFntUlQdeTP8JbB27xjGxvrrSMdcyXmEScGrPShWSUMJp5PJ4oB3xsY34yR6Km-4UfZX-gi_lftMuFN0chvoO5iMinQqnQ3CYojpqu4XwUk0UD4oOoen6QJgub3G285x_1H1y8YMF8kzFP3ijZtOEh_2NiWfRutk6--aHJk7Fm92W1GuTEkAjUR8nT1DmZP4_hAL6xsJvWPIwy06nIl3oDNq3XdqFkivHuEehfHGP0pmCmCE6_Q7tRaa6z1uDShVi08OeCGCrEw47PCAyjJBRjPGjPsSPWghRDipkuU6rNQxQwgtezl6MV4rE5ar18RKJbh3UeLnWB-WXujgmX5URWhi3g0GPYSbe0HBrgYkUopL8UwRr2B4OAiiasDL1jFqoPV0REBpVvzO8DaCy9YRwVEykEJdPNoUWwrA7oMNL1PC5FcEEihGTiZRgaO1KFDTxtCYRWwOJMtTsQVAIWxp0ByF25pqY6wGTq-pB4mh7UgdSh-Oa-OTEfhIsPerXQDtx0-AubmvsFqlkT9CrOjQQJZ9ZJbyqM6xAPdmrelKIXe5VPUmgB6d4VbIDhV4lhF_Dq5Kwaa8qRwvq90KhsdPrUO9lJf8wHjJ6MQK7LBFzoDbbVdg9Nu857fLdJLw0EcHpDdu3dG2w278YJ2SV4JwX9M6JeGeGuzNi3WmBrn6US-QbQmj9Tr9Hg07qLjNGDUUKUeNcS2zH7vUpYvQQlN-tKbMUiyRJYlCtDjschHesHBLjlSKRnFZwzqR4TDQTjudMqhxRkJCLLfGu1IqAWB4frXHKK0UitQmx1I0HohWNKEsTwWGXeGLWk_q3MRZ9TsRbkLKL8QRPwm2cHTF34I_CIblYf3D5J2S1Vq_FENiFYWgzxijGYPUAIXu1h0Maf-MqQmgrxirECS4bxDyNZUXseiJysvJciLsEF3Oz2wF1s8TteeRplFuIFjwNEMLp9Vu0GMJeE4QIjB4isK83gu9xxgvuW5uZVPWtDd9UjppKIp_UZL4aWaBH_G4i8drCkMBi-mV6pwh8LrLQ8UcmmRdd8YcgOe81Fvoy8SbJaA24x0O0QfzVDd9OmX7mkbZdViu2fVzvoQ1JBZRvgl-4BFjtvtHFgsa1s7temDuUevISvSGhRqVGCQ3bI_9Fhh0Oh5mPihpXjT1y99A0GqOf9Msy_IGagXbwaPn4e7AGPPqO9mZvG6PgC6_G8YA7ihQT4knYU-L7_wB9smPu" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
 
@@ -4126,6 +4200,649 @@ flowchart TB
 <div class="page-section">
 
 
+<h2 id="57-release-specific-architecture-r3">5.7 Release-Specific Architecture (R3)</h2>
+<p>This section presents the <strong>R3-scoped</strong> current and future state flows, providing a focused view of the architecture changes planned for this release. The universal transformation analysis in §5.1–5.2 covers the full AS-IS → TO-BE picture; this section narrows to R3-specific scope.</p>
+<h3 id="571-r3-current-state-flows">5.7.1 R3 Current-State Flows</h3>
+<h4 id="r3-current-state-archimate-view">R3 Current-State ArchiMate View</h4>
+<div class="mermaid">
+%%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "16px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
+flowchart TB
+    %% -- ArchiMate-inspired style classes --
+    classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
+    classDef app           fill:#B5FFFF,stroke:#0077B6,stroke-width:2px,color:#000
+    classDef data          fill:#B5D8FF,stroke:#0077B6,stroke-width:1px,color:#000,stroke-dasharray: 5 5
+    classDef middleware    fill:#FFD6A5,stroke:#E76F00,stroke-width:2px,color:#000
+    classDef eol           fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#000
+
+    subgraph AL["🔵 APPLICATION LAYER"]
+        direction LR
+        subgraph DS020RCLN_Boundary_Applications[" ⬛ Boundary Applications"]
+            direction LR
+            DS020RC_CIBR["📦 CIBR"]:::app
+            DS020RC_COMPASS["📦 COMPASS"]:::app
+            DS020RC_DCS["📦 DCS"]:::app
+            DS020RC_EATS["📦 EATS<br/><i>EOL</i>"]:::eol
+            DS020RC_MARS["📦 MARS"]:::app
+            DS020RC_PEGA["📦 PEGA"]:::app
+            DS020RC_SPAN["📦 SPAN"]:::app
+            DS020RC_SPEED["📦 SPEED"]:::app
+            DS020RC_XEUS["📦 XEUS"]:::app
+        end
+        subgraph DS020RCLN_Cloud_Native_CX_Suite[" ⬛ Cloud Native CX Suite"]
+            direction LR
+            DS020RC_SAP_ICX["📦 SAP ICX"]:::app
+        end
+        subgraph DS020RCLN_Cloud_Products_Legacy[" ⬛ Cloud Products (Legacy)"]
+            direction LR
+            DS020RC_SAP_IBP["📦 SAP IBP"]:::app
+        end
+        subgraph DS020RCLN_Data_Warehouse[" ⬛ Data Warehouse"]
+            direction LR
+            DS020RC_Finance_HANA["📦 Finance HANA"]:::app
+        end
+        subgraph DS020RCLN_ECA_Platform[" ⬛ ECA Platform"]
+            direction LR
+            DS020RC_ECA["📦 ECA"]:::app
+            DS020RC_ECA_ADLS["📦 ECA-ADLS"]:::app
+            DS020RC_ECA_DataBricks["📦 ECA-DataBricks"]:::app
+            DS020RC_ECA_SnowFlake["📦 ECA-SnowFlake"]:::app
+        end
+        subgraph DS020RCLN_ERP[" ⬛ ERP"]
+            direction LR
+            DS020RC_CFIN_S_4_HANA["📦 CFIN S/4 HANA"]:::app
+            DS020RC_Corp_IP_S_4["📦 Corp / IP S/4<br/><i>DEV</i>"]:::app
+        end
+        subgraph DS020RCLN_ERP_Extension_Standalone[" ⬛ ERP Extension (Standalone)"]
+            direction LR
+            DS020RC_Legacy_MDG["📦 Legacy MDG"]:::app
+        end
+        subgraph DS020RCLN_Legacy_Costing_Engine[" ⬛ Legacy Costing Engine"]
+            direction LR
+            DS020RC_ICOST["📦 ICOST"]:::app
+        end
+        subgraph DS020RCLN_Legacy_ERP[" ⬛ Legacy ERP"]
+            direction LR
+            DS020RC_SAP_ECC["📦 SAP ECC"]:::app
+        end
+        subgraph DS020RCLN_Manufacturing_Execution_System[" ⬛ Manufacturing Execution System"]
+            direction LR
+            DS020RC_MES_300["📦 MES 300"]:::app
+            DS020RC_WorkStream["📦 WorkStream"]:::app
+        end
+        subgraph DS020RCLN_Middleware_Integration[" ⬛ Middleware & Integration"]
+            direction LR
+            DS020RC_APIGEE["📦 APIGEE"]:::app
+            DS020RC_SAP_PO["📦 SAP PO"]:::app
+        end
+        subgraph DS020RCLN_Reporting[" ⬛ Reporting"]
+            direction LR
+            DS020RC_BOBJ["📦 BOBJ"]:::app
+            DS020RC_EDW["📦 EDW"]:::app
+            DS020RC_FCA["📦 FCA"]:::app
+        end
+        subgraph DS020RCLN_SideCar_Hana_DB[" ⬛ SideCar Hana DB"]
+            direction LR
+            DS020RC_SideCar["📦 SideCar"]:::app
+        end
+    end
+
+    DS020RC_MES_300 -->|"Direct"| DS020RC_XEUS
+    DS020RC_XEUS -->|"Direct"| DS020RC_ICOST
+    DS020RC_WorkStream -->|"Direct"| DS020RC_MARS
+    DS020RC_MARS -->|"Direct"| DS020RC_ICOST
+    DS020RC_EATS -->|"Direct"| DS020RC_ICOST
+    DS020RC_SPEED -->|"SAP PO"| DS020RC_SAP_ECC
+    DS020RC_SPEED -->|"Direct"| DS020RC_EDW
+    DS020RC_Legacy_MDG -->|"DRF (Data Replication Frame..."| DS020RC_SAP_ECC
+    DS020RC_CIBR -->|"SAP PO"| DS020RC_SAP_ICX
+    DS020RC_SAP_ICX -->|"Direct"| DS020RC_SAP_ECC
+    DS020RC_CIBR -->|"Direct"| DS020RC_ICOST
+    DS020RC_SAP_ECC -->|"SLT"| DS020RC_CFIN_S_4_HANA
+    DS020RC_CFIN_S_4_HANA -->|"SLT"| DS020RC_SideCar
+    DS020RC_SideCar -->|"ADF Rest API / SFTP(Blob)"| DS020RC_ECA_ADLS
+    DS020RC_ECA_ADLS -->|"Unity Catalog"| DS020RC_ECA_DataBricks
+    DS020RC_ECA_DataBricks -->|"Snowflake Connector / Snowpipe"| DS020RC_ECA_SnowFlake
+    DS020RC_Corp_IP_S_4 -->|"SLT"| DS020RC_CFIN_S_4_HANA
+    DS020RC_ECA_SnowFlake -->|"Direct"| DS020RC_CIBR
+    DS020RC_CIBR -->|"Internal"| DS020RC_ICOST
+    DS020RC_ECA -->|"Internal"| DS020RC_ICOST
+    DS020RC_ICOST -->|"File based"| DS020RC_SAP_ECC
+    DS020RC_ICOST -->|"JE Posting"| DS020RC_CFIN_S_4_HANA
+    DS020RC_SAP_ECC -->|"ETL"| DS020RC_EDW
+    DS020RC_EDW -->|"ETL"| DS020RC_ICOST
+    DS020RC_EDW -->|"ETL"| DS020RC_CIBR
+    DS020RC_FCA -->|"Direct"| DS020RC_ICOST
+    DS020RC_SAP_ECC -->|"SLT"| DS020RC_Finance_HANA
+    DS020RC_Finance_HANA -->|"APIGEE"| DS020RC_APIGEE
+    DS020RC_APIGEE -->|"APIGEE"| DS020RC_PEGA
+    DS020RC_Finance_HANA -->|"Direct"| DS020RC_BOBJ
+    DS020RC_Finance_HANA -->|"SAP PO"| DS020RC_SAP_PO
+    DS020RC_SAP_PO -->|"SAP PO"| DS020RC_SAP_ECC
+    DS020RC_SAP_IBP -->|"Direct"| DS020RC_ECA
+    DS020RC_COMPASS -->|"Direct"| DS020RC_ICOST
+    DS020RC_DCS -->|"Direct"| DS020RC_ICOST
+    DS020RC_SPAN -->|"Denodo (Data Virtualization)"| DS020RC_ICOST
+
+    click DS020RC_APIGEE href "https://iapm.intel.com/#/app/22790" "APIGEE -- IAPM #22790" _blank
+    click DS020RC_BOBJ href "https://iapm.intel.com/#/app/17651" "BOBJ -- IAPM #17651" _blank
+    click DS020RC_CFIN_S_4_HANA href "https://iapm.intel.com/#/app/42993" "CFIN S/4 HANA -- IAPM #42993" _blank
+    click DS020RC_CIBR href "https://iapm.intel.com/#/app/237" "CIBR -- IAPM #237" _blank
+    click DS020RC_COMPASS href "https://iapm.intel.com/#/app/16439" "COMPASS -- IAPM #16439" _blank
+    click DS020RC_Corp_IP_S_4 href "https://iapm.intel.com/#/app/41363" "Corp / IP S/4 -- IAPM #41363" _blank
+    click DS020RC_DCS href "https://iapm.intel.com/#/app/14464" "DCS -- IAPM #14464" _blank
+    click DS020RC_EATS href "https://iapm.intel.com/#/app/119" "EATS -- IAPM #119" _blank
+    click DS020RC_ECA href "https://iapm.intel.com/#/app/43119" "ECA -- IAPM #43119" _blank
+    click DS020RC_ECA_ADLS href "https://iapm.intel.com/#/app/25794" "ECA-ADLS -- IAPM #25794" _blank
+    click DS020RC_ECA_DataBricks href "https://iapm.intel.com/#/app/41458" "ECA-DataBricks -- IAPM #41458" _blank
+    click DS020RC_ECA_SnowFlake href "https://iapm.intel.com/#/app/35811" "ECA-SnowFlake -- IAPM #35811" _blank
+    click DS020RC_EDW href "https://iapm.intel.com/#/app/4010" "EDW -- IAPM #4010" _blank
+    click DS020RC_FCA href "https://iapm.intel.com/#/app/44990" "FCA -- IAPM #44990" _blank
+    click DS020RC_Finance_HANA href "https://iapm.intel.com/#/app/42993" "Finance HANA -- IAPM #42993" _blank
+    click DS020RC_ICOST href "https://iapm.intel.com/#/app/9008" "ICOST -- IAPM #9008" _blank
+    click DS020RC_Legacy_MDG href "https://iapm.intel.com/#/app/40068" "Legacy MDG -- IAPM #40068" _blank
+    click DS020RC_MARS href "https://iapm.intel.com/#/app/33537" "MARS -- IAPM #33537" _blank
+    click DS020RC_MES_300 href "https://iapm.intel.com/#/app/41275" "MES 300 -- IAPM #41275" _blank
+    click DS020RC_PEGA href "https://iapm.intel.com/#/app/43163" "PEGA -- IAPM #43163" _blank
+    click DS020RC_SAP_ECC href "https://iapm.intel.com/#/app/21195" "SAP ECC -- IAPM #21195" _blank
+    click DS020RC_SAP_IBP href "https://iapm.intel.com/#/app/40709" "SAP IBP -- IAPM #40709" _blank
+    click DS020RC_SAP_ICX href "https://iapm.intel.com/#/app/21195" "SAP ICX -- IAPM #21195" _blank
+    click DS020RC_SAP_PO href "https://iapm.intel.com/#/app/21195" "SAP PO -- IAPM #21195" _blank
+    click DS020RC_SPAN href "https://iapm.intel.com/#/app/21159" "SPAN -- IAPM #21159" _blank
+    click DS020RC_SPEED href "https://iapm.intel.com/#/app/31517" "SPEED -- IAPM #31517" _blank
+    click DS020RC_SideCar href "https://iapm.intel.com/#/app/42993" "SideCar -- IAPM #42993" _blank
+    click DS020RC_WorkStream href "https://iapm.intel.com/#/app/37871" "WorkStream -- IAPM #37871" _blank
+    click DS020RC_XEUS href "https://iapm.intel.com/#/app/35612" "XEUS -- IAPM #35612" _blank
+
+    style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
+    style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
+
+    subgraph Legend["📐 LEGEND"]
+        direction LR
+        L_APP["📦 Application"]:::app
+        L_MW["🔗 Middleware"]:::middleware
+        L_DE>"📄 Data Entity"]:::data
+        L_EOL["⛔ End-of-Life"]:::eol
+    end
+    style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
+</div>
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWo1v4rgS_1csqj7tSm0J5augVaWQhD1OtI1Id7unx1NkiGmjhgQl4ba93f7vN46d4HyRkEelis545ucZj8fjqX-11p5FWuPW-fkv27XDMfq1bIUvZEuWrTFatlY4gG8X8C0g671vh-9z8jdxGNPxvJgbiXzHvo1XDgkoG_RsPDc07H-4qs5g98YGU_oUb23nnXEM8uwR9G12gWRQ4FygALvBZUB8e7NsfUQSjvdz_YL9kGveB-QOvz3ZVvhCKRvsBISOewm3zhyviBNNIfT3EdUFE40dXtvuMyX3JEr0sfsqEPvSxwf6OD9fugkWepwsXQSf83N0eQlzW7_Ydzgkl7Yb7GyfWCgI3x2C1g4OAhLAGDY8-lslG7TaB7ZLggBFn43tOOOzKXwm_Ysg9L1XMj6b3NwMpAn_8_InNWh8vXu7WHuO54_PJEnK6MS7HTp8mM5Jn2pNdErScDgZnKDTwiHO61RvKnR2UjpjnoUDcJ6P38GnqJ9B2tqW5ZCf2CeiR9SBfPCINhxMD9pqzJ54Ts4j1MeClxVFkqp0Mq3BfvXs490Lkuf_XbaWe-uma8Fvq9tHsq7PZ4r8OHu4R3P5L22xbP2PCdGPBQGxDm3PRfPFgZqoUw3pWloo83tz4u1dC_vvprzbOfYaU5kAsNByf73qrFDMRyI_BVUORz8cyVRmk4VowpoMEKWBqvF4DGFUIvZwp8uGkZNk5AphVckJAqlCSJMfc1KU9mXlt2-_2Lfaw_xL275lWmCxi7XcyYucFkqrANe1r3JWjNIqxAxdvs-KUVqlmKapeTkgVgj-0L7lrKO0AjHiWkfjT3G8vWXeQ1z9TUzlh2ns7ZAI8RfxEeMj5QeK-A3iz5B1c6b8yFkr6wjIjSeu-561X4eBOSfPeP2em3jMR5_YgM9Npz7RC6c-0RtMXYUEaz5B1nvx4OQS5kwZKGE0mOrUdrG7JuYf8n0ujjkPUV6DSWuKbOoODjeevxWmDGQUkxtMGMRzm12p2m50KrI6NwokLym9hjj19MS3169BkZIDt4Yqw_V-Th38Soo0JcwmHl_ooqMXepO0P53dm4bZK4wIykRGu1cWEilFnr8zZzrVlVMDLNRGM53qitO0qn0_pOlTzTa1t5C4ARhmGiGG88_xXJL2BUqGoE-HMU22N0sM5p36NWsY4yDgNDCDq1W8IISa0tTcZztlA1fO-YjxG0x_pjwYj9mZR8Tmk05HHp9pswCkyVNTlKLkCeQGU7zD7n6D1yHcPqhb3-AeEkaB8h6ERMxMqYEoGYjYwAam3GmG2ZWkXFmhGQjIFfvnyfNfjdAneJuVP3CaeCOpoM2ZGxJgUxNELxxK7P8gYUgD-2V99lXTstNn1KpKB6JAfygKAv2hgdULsvN8um0EQxNaA8smD5M_s5OjtKrsrz7lcr76VCE0zZ94U6XJgWzYFlGwb_6BXWyqE8EVnIMoB6mTJruWacgtGCMfm2z0hX3N7Bu4EN_-XrbUCHzZ-p2qZtMSlFI6nOU2t3hzlUpFxb-bvSKcAkIvIaeMjwp5LhBH-u9sXiwXyWPQ2HKLT65YZjFFn6IiEnZDfFtEUx9vydXVVSU8vQ8enTCt1N2Cqr50ylUw9RzJlMQzmz-K41MFTgZHZBVLxwHtFgQ_l5DVKXgzCGmigyrHmD7qnyaOt_qcWhpekWYihlO5pm_QUIMDH5bH8Z6z0kLJ6ZYXq7EVUFVuaFUJ5YPrggc9n04NqDt7R7KqDzWoW1LRnezalNrStYz6C2VLT88i38VO1a5T5NMEIhIXmdrQj6M9S6syKEWxPzWks7KspjvSEao9zo9uWyAUjywyv2xs3rfTxFP__64S75EZFIET7xBeAfzOVAppQUYrFYm6LFVIecOiU7pKrDiZAcXN1ygnJmzWGihP2Uo2J7HG2SkLBS2z044d-T4eT6DV7fET4bvth3vs2P9Eh8LnAi1xIxUSTXbVXnzorNJ-ergLxu22jXfbKxv2o3O19rbtszbUAu3r6-FIokVIK1lqNJP1O3QWc8yVA132Ihi6jLVAOsNBvxOBRCIJREwvh0ifBnWwetejUTfCSl2UD6DxgCOgNN_Vcl53yJBYgowdF1GPqOfRVMtzg153xDCSGIydx1lHgISzopbrOt0Bd53YHBBcxweUQ9Kwr2VXrzfoRVBso8Q2cXI5QFTP1ULoML_xAjAG6Bx3GT24armqm-hXxNjq1gBg1UWt-OoPR70Y5ZIXJXGUcd5xKKEIqRcBvf5NApiqYJIQYCOOwx6qjDqo3f5Np5OgihUKB40HHAGFE7eWgVKHZTt2RMdGMWq5-mndsOiNeDadpsKCk48AiOffaWlO7BCfkuVY7VQHayRJLCjicotjcHo5hHDVqbc40oABHXp44iIxbjlcdDesFXDdPs_c_DoZxxmnH4Hgt-J6m-l62GcorNkk7iLGKgeilVXdTMSTdiQipqKKXB3XkrUyEeQ1ZgvvAQqJiLOOA9F6q14MDKVRAsSqtCQAGKsCCC62p1vErsMnWQRV5-k4UalaH4ZWhTVB-txrrJA8QPQrXBY1L2ptmk6_M-QYrOER7xrOOALC7-anJbbDjb52ThNaSrVMGt4M2cGT6kXFdnFuOVzU8ap3wg061xEQb5IlBxujxxD8_UL0ImUyF16bTKWq1yaiqJyISnUeleTeTUD6hY5gqo9oSWiufdXu1RoPJuZwAcn941V4CVHQiZybd6murNUZCk1wJnB4dyLKqdqtiLTusf_Ham4IfRsmSJ_GiCLwGCHCuh5YPRhoXXqby7m9IZnXCUl3lDmVOSV2bJ_-JI4djUa5ZzWti9aW-FtsW63xL_a2Cp5oWWSD904IL6JaeB96xru7bo2jN06t_Q4mSlQbwyJsGfHjX-woAiw=" title="View full diagram">&#128065; View Diagram</a></div>
+
+<p><strong>R3 Current-State Flow Summary</strong>: 42 integration hops across 27 flow chains.</p>
+<div class="page-footer"><span>Page 32</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
+
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+<h3 id="572-r3-future-state-flows">5.7.2 R3 Future-State Flows</h3>
+<h4 id="r3-future-state-archimate-view">R3 Future-State ArchiMate View</h4>
+<div class="mermaid">
+%%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "16px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
+flowchart TB
+    %% -- ArchiMate-inspired style classes --
+    classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
+    classDef app           fill:#B5FFFF,stroke:#0077B6,stroke-width:2px,color:#000
+    classDef data          fill:#B5D8FF,stroke:#0077B6,stroke-width:1px,color:#000,stroke-dasharray: 5 5
+    classDef middleware    fill:#FFD6A5,stroke:#E76F00,stroke-width:2px,color:#000
+    classDef eol           fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#000
+
+    subgraph AL["🔵 APPLICATION LAYER"]
+        direction LR
+        subgraph DS020RFLN_Boundary_Applications[" ⬛ Boundary Applications"]
+            direction LR
+            DS020RF_ECM_Windchill["📦 ECM (Windchill)"]:::app
+            DS020RF_GraphiteConnect["📦 GraphiteConnect"]:::app
+            DS020RF_MARS["📦 MARS"]:::app
+            DS020RF_SPEED["📦 SPEED"]:::app
+            DS020RF_XEUS["📦 XEUS"]:::app
+        end
+        subgraph DS020RFLN_Cloud_Products[" ⬛ Cloud Products"]
+            direction LR
+            DS020RF_IF_Blue_Yonder["📦 IF Blue Yonder"]:::app
+            DS020RF_IP_Blue_Yonder["📦 IP Blue Yonder"]:::app
+            DS020RF_SAP_Ariba["📦 SAP Ariba"]:::app
+            DS020RF_SAP_IBP["📦 SAP IBP"]:::app
+            DS020RF_SAP_PAPM["📦 SAP PAPM<br/><i>DEV</i>"]:::app
+            DS020RF_SAP_SAC["📦 SAP SAC"]:::app
+        end
+        subgraph DS020RFLN_ECA_Platform[" ⬛ ECA Platform"]
+            direction LR
+            DS020RF_Capacity_Forecast_Data_Store["📦 Capacity Forecast Data Store"]:::app
+            DS020RF_ECA_ADLS["📦 ECA-ADLS"]:::app
+            DS020RF_ECA_DataBricks["📦 ECA-DataBricks"]:::app
+            DS020RF_ECA_SnowFlake["📦 ECA-SnowFlake"]:::app
+            DS020RF_IF_PDH_Consumptional["📦 IF PDH Consumptional"]:::app
+            DS020RF_IF_PDH_Foundational["📦 IF PDH Foundational"]:::app
+            DS020RF_IF_PDH_Raw["📦 IF PDH Raw"]:::app
+            DS020RF_IP_PDH_Consumptional["📦 IP PDH Consumptional<br/><i>DEV</i>"]:::app
+            DS020RF_IP_PDH_Foundational["📦 IP PDH Foundational<br/><i>DEV</i>"]:::app
+            DS020RF_IP_PDH_Raw["📦 IP PDH Raw<br/><i>DEV</i>"]:::app
+        end
+        subgraph DS020RFLN_ECA_Platform_PDH[" ⬛ ECA Platform (PDH)"]
+            direction LR
+            DS020RF_PDH_Consumptional["📦 PDH Consumptional"]:::app
+            DS020RF_PDH_Foundational["📦 PDH Foundational"]:::app
+            DS020RF_PDH_Raw["📦 PDH Raw"]:::app
+        end
+        subgraph DS020RFLN_ERP[" ⬛ ERP"]
+            direction LR
+            DS020RF_CFIN_S_4_HANA["📦 CFIN S/4 HANA"]:::app
+            DS020RF_Corp_IP_S_4_HANA["📦 Corp / IP S/4 HANA<br/><i>DEV</i>"]:::app
+            DS020RF_IF_S_4_HANA["📦 IF S/4 HANA<br/><i>DEV</i>"]:::app
+        end
+        subgraph DS020RFLN_ERP_Extension_Standalone[" ⬛ ERP Extension (Standalone)"]
+            direction LR
+            DS020RF_SAP_S_4_MDG["📦 SAP S/4 MDG"]:::app
+        end
+        subgraph DS020RFLN_Manufacturing_Execution_Systems[" ⬛ Manufacturing Execution Systems"]
+            direction LR
+            DS020RF_MES_300["📦 MES 300"]:::app
+            DS020RF_WorkStream["📦 WorkStream"]:::app
+        end
+        subgraph DS020RFLN_Manufacturing_Reporting_Systems[" ⬛ Manufacturing Reporting Systems"]
+            direction LR
+            DS020RF_ATCR["📦 ATCR"]:::app
+            DS020RF_DMOCR["📦 DMOCR"]:::app
+            DS020RF_DXCR["📦 DXCR"]:::app
+            DS020RF_FCS["📦 FCS<br/><i>EOL</i>"]:::eol
+            DS020RF_ICS_Phoenix["📦 ICS (Phoenix)"]:::app
+            DS020RF_SCS["📦 SCS<br/><i>EOL</i>"]:::eol
+            DS020RF_WSPW["📦 WSPW"]:::app
+        end
+        subgraph DS020RFLN_Middleware_Integration[" ⬛ Middleware & Integration"]
+            direction LR
+            DS020RF_PDF_SMH["📦 PDF-SMH<br/><i>DEV</i>"]:::app
+            DS020RF_PDM_Translator["📦 PDM Translator"]:::app
+        end
+        subgraph DS020RFLN_Reporting[" ⬛ Reporting"]
+            direction LR
+            DS020RF_Power_BI_DARC["📦 Power BI (DARC)"]:::app
+            DS020RF_SAP_BOBJ["📦 SAP BOBJ<br/><i>EOL</i>"]:::eol
+        end
+        subgraph DS020RFLN_SideCar_Hana_DB[" ⬛ SideCar Hana DB"]
+            direction LR
+            DS020RF_SideCar["📦 SideCar"]:::app
+        end
+    end
+
+    DS020RF_MES_300 -->|"Direct"| DS020RF_XEUS
+    DS020RF_XEUS -->|"Direct"| DS020RF_PDF_SMH
+    DS020RF_PDF_SMH -->|"EAI Connector"| DS020RF_IF_S_4_HANA
+    DS020RF_IF_S_4_HANA -->|"SLT"| DS020RF_CFIN_S_4_HANA
+    DS020RF_WorkStream -->|"Direct"| DS020RF_MARS
+    DS020RF_MARS -->|"Direct"| DS020RF_PDF_SMH
+    DS020RF_ECM_Windchill -->|"PDM Translator"| DS020RF_PDM_Translator
+    DS020RF_PDM_Translator -->|"PDM Translator"| DS020RF_SAP_S_4_MDG
+    DS020RF_SAP_S_4_MDG -->|"DRF (Data Replication Frame..."| DS020RF_IF_S_4_HANA
+    DS020RF_SAP_S_4_MDG -->|"DRF (Data Replication Frame..."| DS020RF_Corp_IP_S_4_HANA
+    DS020RF_SPEED -->|"PDM Translator"| DS020RF_PDM_Translator
+    DS020RF_SPEED -->|"ADF Rest API / SFTP(Blob)"| DS020RF_ECA_ADLS
+    DS020RF_ECA_ADLS -->|"Unity Catalog"| DS020RF_ECA_DataBricks
+    DS020RF_ECA_DataBricks -->|"Snowflake Connector / Snowpipe"| DS020RF_ECA_SnowFlake
+    DS020RF_GraphiteConnect -->|"MuleSoft & Reltio"| DS020RF_SAP_S_4_MDG
+    DS020RF_IF_S_4_HANA -->|"SLT"| DS020RF_SideCar
+    DS020RF_Corp_IP_S_4_HANA -->|"SLT"| DS020RF_SideCar
+    DS020RF_CFIN_S_4_HANA -->|"SLT"| DS020RF_SideCar
+    DS020RF_SideCar -->|"ADF Rest API / SFTP(Blob)"| DS020RF_ECA_ADLS
+    DS020RF_FCS -->|"Direct"| DS020RF_Capacity_Forecast_Data_Store
+    DS020RF_Capacity_Forecast_Data_Store -->|"ADF / DB Unity Catalog / Th..."| DS020RF_ECA_ADLS
+    DS020RF_ECA_SnowFlake -->|"MuleSoft/BODS"| DS020RF_IF_S_4_HANA
+    DS020RF_ICS_Phoenix -->|"Direct"| DS020RF_Capacity_Forecast_Data_Store
+    DS020RF_ATCR -->|"Direct"| DS020RF_Capacity_Forecast_Data_Store
+    DS020RF_SCS -->|"Direct"| DS020RF_Capacity_Forecast_Data_Store
+    DS020RF_DXCR -->|"Direct"| DS020RF_Capacity_Forecast_Data_Store
+    DS020RF_DMOCR -->|"Direct"| DS020RF_Capacity_Forecast_Data_Store
+    DS020RF_WSPW -->|"Direct"| DS020RF_ECA_SnowFlake
+    DS020RF_IF_Blue_Yonder -->|"ADF / DB Unity Catalog / Co..."| DS020RF_IF_PDH_Raw
+    DS020RF_IF_PDH_Raw -->|"ADF / DB Unity Catalog / Th..."| DS020RF_IF_PDH_Foundational
+    DS020RF_IF_PDH_Foundational -->|"Unity Catalog"| DS020RF_IF_PDH_Consumptional
+    DS020RF_IF_PDH_Consumptional -->|"Snowflake Connector / Snowpipe"| DS020RF_ECA_SnowFlake
+    DS020RF_ECA_SnowFlake -->|"Remote Function Adapter / M..."| DS020RF_SAP_PAPM
+    DS020RF_IP_Blue_Yonder -->|"ADF / DB Unity Catalog / Co..."| DS020RF_IP_PDH_Raw
+    DS020RF_IP_PDH_Raw -->|"ADF / DB Unity Catalog / Th..."| DS020RF_IP_PDH_Foundational
+    DS020RF_IP_PDH_Foundational -->|"Unity Catalog"| DS020RF_IP_PDH_Consumptional
+    DS020RF_IP_PDH_Consumptional -->|"Snowflake Connector / Snowpipe"| DS020RF_ECA_SnowFlake
+    DS020RF_PDH_Raw -->|"ADF / DB Unity Catalog / Th..."| DS020RF_IP_PDH_Foundational
+    DS020RF_PDH_Foundational -->|"Unity Catalog"| DS020RF_IP_PDH_Consumptional
+    DS020RF_PDH_Consumptional -->|"Snowflake Connector / Snowpipe"| DS020RF_ECA_SnowFlake
+    DS020RF_ECA_SnowFlake -->|"MuleSoft/BODS"| DS020RF_Corp_IP_S_4_HANA
+    DS020RF_SAP_SAC -->|"SAC Data Export Service (AP..."| DS020RF_ECA_SnowFlake
+    DS020RF_SAP_SAC -->|"SAP Odata services with con..."| DS020RF_IF_S_4_HANA
+    DS020RF_SAP_SAC -->|"SAP Odata services with con..."| DS020RF_Corp_IP_S_4_HANA
+    DS020RF_ECA_SnowFlake -->|"MuleSoft/BODS"| DS020RF_CFIN_S_4_HANA
+    DS020RF_SAP_SAC -->|"SAP Odata services with con..."| DS020RF_CFIN_S_4_HANA
+    DS020RF_SAP_PAPM -->|"SAP Integration Suite / Sma..."| DS020RF_IF_S_4_HANA
+    DS020RF_SAP_PAPM -->|"SAP Integration Suite / Sma..."| DS020RF_Corp_IP_S_4_HANA
+    DS020RF_SAP_IBP -->|"ADF / DB Unity Catalog / Co..."| DS020RF_IF_PDH_Raw
+    DS020RF_SAP_Ariba -->|"Apigee / MuleSoft"| DS020RF_IF_S_4_HANA
+    DS020RF_SAP_Ariba -->|"Apigee / MuleSoft"| DS020RF_Corp_IP_S_4_HANA
+    DS020RF_ECA_SnowFlake -->|"Snowflake Connector / Snowpipe"| DS020RF_Power_BI_DARC
+    DS020RF_SideCar --> DS020RF_SAP_BOBJ
+
+    click DS020RF_CFIN_S_4_HANA href "https://iapm.intel.com/#/app/41052" "CFIN S/4 HANA -- IAPM #41052" _blank
+    click DS020RF_Capacity_Forecast_Data_Store href "https://iapm.intel.com/#/app/37284" "Capacity Forecast Data Store -- IAPM #37284" _blank
+    click DS020RF_Corp_IP_S_4_HANA href "https://iapm.intel.com/#/app/41363" "Corp / IP S/4 HANA -- IAPM #41363" _blank
+    click DS020RF_DMOCR href "https://iapm.intel.com/#/app/13284" "DMOCR -- IAPM #13284" _blank
+    click DS020RF_DXCR href "https://iapm.intel.com/#/app/13284" "DXCR -- IAPM #13284" _blank
+    click DS020RF_ECA_ADLS href "https://iapm.intel.com/#/app/43119" "ECA-ADLS -- IAPM #43119" _blank
+    click DS020RF_ECA_DataBricks href "https://iapm.intel.com/#/app/43119" "ECA-DataBricks -- IAPM #43119" _blank
+    click DS020RF_ECA_SnowFlake href "https://iapm.intel.com/#/app/43119" "ECA-SnowFlake -- IAPM #43119" _blank
+    click DS020RF_ECM_Windchill href "https://iapm.intel.com/#/app/38775" "ECM (Windchill) -- IAPM #38775" _blank
+    click DS020RF_FCS href "https://iapm.intel.com/#/app/9297" "FCS -- IAPM #9297" _blank
+    click DS020RF_GraphiteConnect href "https://iapm.intel.com/#/app/36398" "GraphiteConnect -- IAPM #36398" _blank
+    click DS020RF_ICS_Phoenix href "https://iapm.intel.com/#/app/19477" "ICS (Phoenix) -- IAPM #19477" _blank
+    click DS020RF_IF_Blue_Yonder href "https://iapm.intel.com/#/app/41040" "IF Blue Yonder -- IAPM #41040" _blank
+    click DS020RF_IF_PDH_Consumptional href "https://iapm.intel.com/#/app/40747" "IF PDH Consumptional -- IAPM #40747" _blank
+    click DS020RF_IF_PDH_Foundational href "https://iapm.intel.com/#/app/40747" "IF PDH Foundational -- IAPM #40747" _blank
+    click DS020RF_IF_PDH_Raw href "https://iapm.intel.com/#/app/40747" "IF PDH Raw -- IAPM #40747" _blank
+    click DS020RF_IF_S_4_HANA href "https://iapm.intel.com/#/app/41363" "IF S/4 HANA -- IAPM #41363" _blank
+    click DS020RF_IP_Blue_Yonder href "https://iapm.intel.com/#/app/41039" "IP Blue Yonder -- IAPM #41039" _blank
+    click DS020RF_IP_PDH_Consumptional href "https://iapm.intel.com/#/app/40750" "IP PDH Consumptional -- IAPM #40750" _blank
+    click DS020RF_IP_PDH_Foundational href "https://iapm.intel.com/#/app/40750" "IP PDH Foundational -- IAPM #40750" _blank
+    click DS020RF_IP_PDH_Raw href "https://iapm.intel.com/#/app/40750" "IP PDH Raw -- IAPM #40750" _blank
+    click DS020RF_MARS href "https://iapm.intel.com/#/app/33537" "MARS -- IAPM #33537" _blank
+    click DS020RF_MES_300 href "https://iapm.intel.com/#/app/41275" "MES 300 -- IAPM #41275" _blank
+    click DS020RF_PDF_SMH href "https://iapm.intel.com/#/app/59283" "PDF-SMH -- IAPM #59283" _blank
+    click DS020RF_PDH_Consumptional href "https://iapm.intel.com/#/app/40747" "PDH Consumptional -- IAPM #40747" _blank
+    click DS020RF_PDH_Foundational href "https://iapm.intel.com/#/app/40747" "PDH Foundational -- IAPM #40747" _blank
+    click DS020RF_PDH_Raw href "https://iapm.intel.com/#/app/40747" "PDH Raw -- IAPM #40747" _blank
+    click DS020RF_Power_BI_DARC href "https://iapm.intel.com/#/app/63659" "Power BI (DARC) -- IAPM #63659" _blank
+    click DS020RF_SAP_Ariba href "https://iapm.intel.com/#/app/19569" "SAP Ariba -- IAPM #19569" _blank
+    click DS020RF_SAP_BOBJ href "https://iapm.intel.com/#/app/11377" "SAP BOBJ -- IAPM #11377" _blank
+    click DS020RF_SAP_IBP href "https://iapm.intel.com/#/app/40709" "SAP IBP -- IAPM #40709" _blank
+    click DS020RF_SAP_PAPM href "https://iapm.intel.com/#/app/41401" "SAP PAPM -- IAPM #41401" _blank
+    click DS020RF_SAP_SAC href "https://iapm.intel.com/#/app/37401" "SAP SAC -- IAPM #37401" _blank
+    click DS020RF_SAP_S_4_MDG href "https://iapm.intel.com/#/app/40068" "SAP S/4 MDG -- IAPM #40068" _blank
+    click DS020RF_SCS href "https://iapm.intel.com/#/app/21327" "SCS -- IAPM #21327" _blank
+    click DS020RF_SPEED href "https://iapm.intel.com/#/app/31517" "SPEED -- IAPM #31517" _blank
+    click DS020RF_SideCar href "https://iapm.intel.com/#/app/42993" "SideCar -- IAPM #42993" _blank
+    click DS020RF_WSPW href "https://iapm.intel.com/#/app/4119" "WSPW -- IAPM #4119" _blank
+    click DS020RF_WorkStream href "https://iapm.intel.com/#/app/37871" "WorkStream -- IAPM #37871" _blank
+    click DS020RF_XEUS href "https://iapm.intel.com/#/app/35612" "XEUS -- IAPM #35612" _blank
+
+    style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
+    style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
+
+    subgraph Legend["📐 LEGEND"]
+        direction LR
+        L_APP["📦 Application"]:::app
+        L_MW["🔗 Middleware"]:::middleware
+        L_DE>"📄 Data Entity"]:::data
+        L_EOL["⛔ End-of-Life"]:::eol
+    end
+    style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
+</div>
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq9Wwtv2zgS_iuEixxSIKnld2wUBWTLbr2wG8FKt12cDwJt0YkQWTIkeZNc2_9-pEhJ1JtSspcFFu4M-X3kcDjkkNTP1t4xUGvSurj4adqmPwE_ty3_AR3RtjUB29YOevjXFf7lof3ZNf2XFfobWVRpOU6oDar8CV0T7izkETXGOTi2r5n_ZVCd4emZFibyBTya1gvVaOjeQeDb8grIGMC6Ah60vWsPueZh2_od1LCcp_0DdH2GfPbQGj5_Nw3_gUgO0PIQKffgH60V3CEraILvngOpjbuoneDetO-JuC8RoQvtR044kH7_Br8vLrZ2xAXuplsb4L-LC3B9jdu2fzDX0EfXpu2dTBcZwPNfLAT2FvQ85OEytHjwbwUdwO7smTbyPBD8HUzLmrxb4L_p4MrzXecRTd5Nb26G0pT98_qJdGjSPT1f7R3LcSfvJElKYcLTCcR_FHM6IKgRpiSNRtNhDUwD-jCLqdxUYHYSmKHOgB42ngtfsE3BIMV0NA3DQk_QRbxFlKEcW2Q-Gi5iNIHWI8fKWITYmLPybCZJVZgU1Tvv7l14egDy6t_b1vZs3PQM_H-jNwCyqq6WM_luefsVrOS_5ptt6z-0EvkzsEPsfdOxwWoTSyM4RZO60max-qpPnbNtQPdFl08ny9xDUsfDXGB77u46OxDqAa9PUBXTkT_GpM9na_27aRvYaS2L78seDQFWgstI-x7DTyYT7Fr5UJ9JF0wfzRzbxqxpsJS6Amwtb7Q0ApFVVNPU-VxJ1wuEFRV_zL9l-IgspxqyjdKhm1nO2dBV1zHOe58fs0ABQkWDwVou9Kl1Rvpfjm0gN93c5QIQLaDaiv4u1VIotQaUJqs6jsg7mLG7rIJAIQCwnKp51bFYoLIqq-u82kT-cee2P300PynzPz-2zU8CaJo8ywPD4gbOMJ_JumpB_-C4R84VsBiE4gaOMINkSfJf9IWDi0LP1xUcnHXNx_9Mtz0sC8KygJQFQdkKa5DGy8pKy8YF-ZrIBaoTrqlr7h-9PJBYKwCl2c7TwoKPKA8pUlb5_UJXlS86DkLe-XgiRoZWzkTCZUCijBjsIojKpah8ETHQDXwqwMKa6mle3V012916s4axlPZezfS-EUeeMdTQGNWIdaYr4SuYsuAS6943mLiVg1HX8arsXtPlCkxc7GyVBt2ovA03apNot1h-1TW9r3-Rv8qZ8IaVQGv3AVFW9G7muCfiSIVYWA_axKFCwJo-uiiExjNWHFPAqPr82Ue2h82Goz7Ew2s5NkpaGkRFwGVcponXBqsi7tha-Zy7MuKOYVWDjqyhfT7AvY9TRvsedwknj37QpRfPR0d-75QoCaKSgJVs0Kn1XNN7kpTZZM41gMUVI_3dcR8130XwmK4fa15tjw06Oa5PflXZIyr5CnvId7NNujNEVmEJZX2brRcIqyr-yKn3o7LaYpbZjmBROKfmt6t4TuGUr2CezjRdfXCQbT5n5ulMw8Gd6qoSHi3bFK1uU75r6veMC2FZE-eJsmZ9afsIq8l48z4Tp9X_AlyRRusY7v76S3adWFxjcb2oqSpr_Q6fs3h4cXXcLOQaxNoGZonmBmeJSNak684TcvXpUlfkTSZRCJRgugSXRPteINuY3k7_yAuqRF7tSlWd10wDzaCrf4E21JUpZwKmAUQDlGmTVYEiZBpPxWUjFfygP1PRGJ-Offq1bSkB-bb1K5GfJ2sQSWFx5p_JGkzIKs3lJWBnEcSvfuWt4sn6nIJhaKs7vmZio5KsGy8LhW0Ojjfs9CFIvS4mjnNY1fQM-lUw89LG4nWVUNwWIYnDKcKubBZ4epAcFE_D8OwKLFx4RB8-fBAaideApjeBKWRyVvQqw_EIsrLA7cEpt6wu8cZSW9ypl1PL2b3nwcIsOz2SVMqQvtkkhZ_hDlrOfbo2l0bbxQl46LM4Uz6QTDn2ftI0LD2ZJ5SGjvNqu-Ssj0GvzxbSnIOPl5cNsvAICHlI5bQKI4pdtpevU5WfpjXqhSHz1WOLNyyF07rsaCfVjZKSXBvbOLqDhPtg0d1DalYUO2HkAalBbk9vFU0sbsbbrTfoNtmTvgGM9iZjQDasbwFD9stvgEN2joUwJdM5ebBc5TwzJxun2cFBBpbJa_tjzoFaLjZfoCpU5p395YImSrxl2MybTxt0dHwEFmebbrdkA558RMDXKZuER92pNquvGzu1YOzU5mOnVo2dWn_s1MqxU__ZsfvHrPH2pvi_-3DhmlCx2aK3LWHr8K9gBzd_JtkZ0JD7t7lH4FJWcxargtalIVVwG9xbexTMA0-m_wD2jl1rq9kAsLzn9YxYnFY0bl05JIkyHCZ3VgC0M972Ea85wjombIRY7T34fvDNVqvoHjNEPJn3iDQsHBjhzgqj1HcS8SmcOKco3MhmziLCxHyPk6jHgi3zg4sfVJBnNP7Jm7TbJjwdP5h4RK0Pe-fYftfGWX-735EGXXLc0Eqc0JMnMkviC-_CAvrOwm9scknLNrgibeiNujd92oaSS9C4SWH5kialsw4xU_SGPdqMzAUDbw9aqpic7hJFGDu9sOPhzpKRhIoSkh_1OX7Uo4hSWyHj9TqdcUAT3jpzJmO6ciouA65PmEifa9HGM7c-Kz_ra5DyZz9C8-NmNBow0sRLH25KsCLFtCSZFSEbd8ejgItmvwyfSYvh0ycNQv0a9sY3AVf2nCLsFytSTMxnrULzYdwf0Q4m7hC4icEKlFAm0zDBMNuXKGvi-U8izgYlSmmzO0YhcmnUH4XkmZtrrgmsXGUTEtvgRi1IbaTrNoBs8Bvx0sygDl3DJYS7SK6zdqSyREHX6tGQlHwOlnCt3riKtrFrDaSQvNy1BpJIE5q4VrIFha4l1oAarpXkTbtWBV1waSAUJXuDHvVhds8QhkYmL6FglzViXtRlawy7Wefdp1uxtoQ3NiJEg3H3hk4RdgsZE4WqMqLXxb9XBb9XRr7XhL1mMa9BwEtkI0J0w95wQMNP6lI1pg2LFNPG2ZjYEj4YUsro6Sq_fFNlORlJocS4Oj22XQhvezkqpiunIrmv4LhJca9oxhyPm1TdpyB3F5vrfakTMbGUP5rsVFdORc4yxDI7nomegERJnBARuz0UM6A0vInJ6Gsn3ohUXUIouEXu4tyJ-QS_Rw7FJQTBnaOQ4TqDDqNg95Sh2ZiihISdGgiZrDse02AcnzWE5mKqYqLgFkPM31jOxO49IleryJS4y3gxZ7sZUWdL3OJH_ka1xXTBSwUhosGwQ89M2OOGkILJQwr2EUrwWdF0xX0ytJCqPhniq8pRVUnky6DMxy8rdI9fciTefxgSWM0_z78qAl-9rHT8rUzmxVn8OUvOC5KVvk68ljI6I-5VE60QfzzE11Pmn3imfZ8dNds-PhWiFcnBKV8Fv7oJuLpDo48LGtfO4XplHlDqGU70qoUalRolNOyA_BcZdjweZ76Nal21jsg9QtNoTX7SD-Twd3YGOsCz5ePP2lrw7Dvai71vTYIP1VrnE24oUkyIB-FIhb__B8lUo6w=" title="View full diagram">&#128065; View Diagram</a></div>
+
+<p><strong>R3 Future-State Flow Summary</strong>: 114 integration hops across 22 flow chains.</p>
+<h3 id="573-r3-change-impact">5.7.3 R3 Change Impact</h3>
+<table>
+<thead>
+<tr>
+<th>Change Type</th>
+<th>Flow Chain</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>NEW</strong></td>
+<td>Ariba Procurement to S/4</td>
+<td>Added in future state</td>
+</tr>
+<tr>
+<td><strong>NEW</strong></td>
+<td>Blue Yonder Demand to ECA</td>
+<td>Added in future state</td>
+</tr>
+<tr>
+<td><strong>NEW</strong></td>
+<td>Data Products to Power BI</td>
+<td>Added in future state</td>
+</tr>
+<tr>
+<td><strong>NEW</strong></td>
+<td>ECM to S/4 via MDG</td>
+<td>Added in future state</td>
+</tr>
+<tr>
+<td><strong>NEW</strong></td>
+<td>ERP to SideCar</td>
+<td>Added in future state</td>
+</tr>
+<tr>
+<td><strong>NEW</strong></td>
+<td>Factory Rpt to ECA (ATCR)</td>
+<td>Added in future state</td>
+</tr>
+<tr>
+<td><strong>NEW</strong></td>
+<td>Factory Rpt to ECA (DMOCR)</td>
+<td>Added in future state</td>
+</tr>
+<tr>
+<td><strong>NEW</strong></td>
+<td>Factory Rpt to ECA (DXCR)</td>
+<td>Added in future state</td>
+</tr>
+<tr>
+<td><strong>NEW</strong></td>
+<td>Factory Rpt to ECA (FCS)</td>
+<td>Added in future state</td>
+</tr>
+<tr>
+<td><strong>NEW</strong></td>
+<td>Factory Rpt to ECA (ICS)</td>
+<td>Added in future state</td>
+</tr>
+<tr>
+<td><strong>NEW</strong></td>
+<td>Factory Rpt to ECA (SCS)</td>
+<td>Added in future state</td>
+</tr>
+<tr>
+<td><strong>NEW</strong></td>
+<td>GraphiteConnect Vendor MD</td>
+<td>Added in future state</td>
+</tr>
+<tr>
+<td><strong>NEW</strong></td>
+<td>IBP to ECA (Legacy Overlap)</td>
+<td>Added in future state</td>
+</tr>
+<tr>
+<td><strong>NEW</strong></td>
+<td>MES Routes to S/4</td>
+<td>Added in future state</td>
+</tr>
+<tr>
+<td><strong>NEW</strong></td>
+<td>SAC Planning to S/4</td>
+<td>Added in future state</td>
+</tr>
+<tr>
+<td><strong>NEW</strong></td>
+<td>SAP PAPM to S/4</td>
+<td>Added in future state</td>
+</tr>
+<tr>
+<td><strong>NEW</strong></td>
+<td>SPEED BOMs to ECA</td>
+<td>Added in future state</td>
+</tr>
+<tr>
+<td><strong>NEW</strong></td>
+<td>SPEED to S/4 via MDG</td>
+<td>Added in future state</td>
+</tr>
+<tr>
+<td><strong>NEW</strong></td>
+<td>SideCar to ECA</td>
+<td>Added in future state</td>
+</tr>
+<tr>
+<td><strong>NEW</strong></td>
+<td>SideCar to SAP BOBJ</td>
+<td>Added in future state</td>
+</tr>
+<tr>
+<td><strong>NEW</strong></td>
+<td>WSPW Direct to ECA</td>
+<td>Added in future state</td>
+</tr>
+<tr>
+<td><strong>NEW</strong></td>
+<td>WorkStream Routes to S/4</td>
+<td>Added in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>ATM Cycle Times to ICOST</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>CIBR Inv to ICOST</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>CIBR RM Inv to ECC</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>COMPASS LRP to ICOST</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>DCS MyDeals to ICOST</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>ECA Costing Chain</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>ECC BOH to EDW</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>ECC GL to EDW</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>ECC Replication to ECA</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>ECC to EDW Reporting</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>ECC to Finance HANA</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>EDW Feedback to CIBR</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>EDW Feedback to ICOST</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>FCA to ICOST</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>Finance HANA to BOBJ</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>GL Posting to CFIN</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>GL Posting to ECC</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>IBP Demand Planning (Legacy)</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>MES Route to ICOST</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>Master Data to ECC</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>RM Std Cost Update to ECC</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>RM Std Fluctuations Alert</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>S/4 Inv. Mvt to CIBR</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>SPAN Planning to ICOST</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>SPEED BOM to ECC</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>SPEED BOM to EDW</td>
+<td>Not present in future state</td>
+</tr>
+<tr>
+<td><strong>REMOVED</strong></td>
+<td>WorkStream Routes to ICOST</td>
+<td>Not present in future state</td>
+</tr>
+</tbody>
+</table>
+<p><strong>R3 Totals</strong>: 22 new - 27 removed - 0 modified - 0 unchanged</p>
+<div class="page-footer"><span>Page 33</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
+
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
 <h2 id="6-technology-architecture-togaf-t">6. Technology Architecture (TOGAF &ldquo;T&rdquo;)</h2>
 <h3 id="61-platform-infrastructure">6.1 Platform &amp; Infrastructure</h3>
 <blockquote>
@@ -4228,7 +4945,7 @@ flowchart TB
 <blockquote>
 <p><strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span></p>
 </blockquote>
-<div class="page-footer"><span>Page 32</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
+<div class="page-footer"><span>Page 34</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
 
 </div>
 <div style="page-break-before: always;"></div>
@@ -4713,7 +5430,7 @@ flowchart TB
 <blockquote>
 <p><em>Platform assignments will be validated when tower architects populate technology platform columns.</em></p>
 </blockquote>
-<div class="page-footer"><span>Page 33</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
+<div class="page-footer"><span>Page 35</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
 
 </div>
 <div style="page-break-before: always;"></div>
@@ -4891,7 +5608,7 @@ flowchart TB
 </tr>
 </tbody>
 </table>
-<div class="page-footer"><span>Page 34</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
+<div class="page-footer"><span>Page 36</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
 
 </div>
 <div style="page-break-before: always;"></div>
@@ -5096,7 +5813,7 @@ flowchart TB
 </tbody>
 </table>
 <p><em>&hellip; and 7 more objects (see full Object Tracker)</em></p>
-<div class="page-footer"><span>Page 35</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
+<div class="page-footer"><span>Page 37</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
 
 </div>
 <div style="page-break-before: always;"></div>
@@ -5233,8 +5950,8 @@ flowchart TB
 </tbody>
 </table>
 <hr />
-<p><em>DS-020 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: March 2026</em></p>
-<div class="page-footer"><span>Page 36</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
+<p><em>DS-020 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: April 2026</em></p>
+<div class="page-footer"><span>Page 38</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline

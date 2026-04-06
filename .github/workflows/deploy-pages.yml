@@ -603,6 +603,37 @@ jobs:
           .portal-sidebar .ps-empty{padding:16px;font-size:13px;color:#999;text-align:center;font-style:italic;display:none}
           @page{size:A4;margin:10mm 0}@media print{.portal-toolbar,.portal-sidebar,.portal-sidebar-overlay{display:none !important}body{padding:10mm 15mm !important}h1,h2,h3,h4{page-break-after:avoid;break-after:avoid}table,pre,blockquote,.mermaid{page-break-inside:avoid;break-inside:avoid}p{orphans:3;widows:3}.page-section{min-height:auto;display:block}a[title="View full diagram"],a[title="Open full-size SVG"]{color:#0071c5 !important;text-decoration:underline !important;font-size:10pt !important}.mermaid{max-height:85vh;overflow:visible}.mermaid svg{max-width:100%;max-height:80vh;height:auto}}
           @media(max-width:768px){.portal-toolbar{padding:0 8px;height:44px;overflow:hidden}.portal-toolbar a,.portal-toolbar button{font-size:11px;margin-right:6px;padding:3px 6px}.portal-toolbar .tb-title{display:none}.portal-toolbar .pdf-btn{position:static;display:none}.portal-toolbar .tb-release{font-size:11px;padding:3px 6px;margin-left:auto}}
+          .chat-fab{position:fixed;bottom:24px;right:24px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#0071c5,#00285a);color:#fff;border:none;cursor:pointer;z-index:9100;box-shadow:0 4px 16px rgba(0,0,0,.3);font-size:24px;display:flex;align-items:center;justify-content:center;transition:transform .2s,box-shadow .2s}
+          .chat-fab:hover{transform:scale(1.08);box-shadow:0 6px 20px rgba(0,0,0,.4)}
+          .chat-fab .chat-badge{position:absolute;top:-2px;right:-2px;width:14px;height:14px;border-radius:50%;background:#f59e0b;border:2px solid #fff}
+          .chat-panel{position:fixed;bottom:24px;right:24px;width:420px;height:560px;background:#fff;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.25);z-index:9101;display:none;flex-direction:column;overflow:hidden;font-family:"Segoe UI",system-ui,sans-serif;transition:all .3s ease}
+          .chat-panel.open{display:flex}
+          .chat-panel.fullscreen{width:100vw;height:100vh;bottom:0;right:0;border-radius:0;top:0;left:0}
+          .chat-hdr{display:flex;align-items:center;padding:14px 16px;background:linear-gradient(135deg,#00285a,#0071c5);color:#fff;flex-shrink:0}
+          .chat-hdr .chat-title{font-size:14px;font-weight:600;flex:1}
+          .chat-hdr .chat-subtitle{font-size:11px;opacity:.7;margin-left:8px;font-weight:400}
+          .chat-hdr button{background:none;border:none;color:#fff;cursor:pointer;font-size:16px;padding:4px 8px;border-radius:6px;transition:background .15s;line-height:1}
+          .chat-hdr button:hover{background:rgba(255,255,255,.2)}
+          .chat-body{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:12px}
+          .chat-msg{max-width:85%;padding:10px 14px;border-radius:12px;font-size:13px;line-height:1.6}
+          .chat-msg.bot{background:#f0f4f8;color:#1a1a2e;align-self:flex-start;border-bottom-left-radius:4px}
+          .chat-msg.user{background:#0071c5;color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+          .chat-input-bar{display:flex;padding:12px 16px;border-top:1px solid #e4e8ed;gap:8px;flex-shrink:0;background:#fafbfc}
+          .chat-input-bar input{flex:1;padding:10px 14px;border:1px solid #d0d5dd;border-radius:10px;font-size:13px;outline:none;transition:border-color .15s}
+          .chat-input-bar input:focus{border-color:#0071c5;box-shadow:0 0 0 2px rgba(0,113,197,.15)}
+          .chat-input-bar input:disabled{background:#f0f2f5;color:#999;cursor:not-allowed}
+          .chat-input-bar .chat-send{padding:10px 16px;background:#0071c5;color:#fff;border:none;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;transition:background .15s}
+          .chat-input-bar .chat-send:hover{background:#005a9e}
+          .chat-input-bar .chat-send:disabled{background:#b0c4d8;cursor:not-allowed}
+          .chat-pending{text-align:center;padding:32px 20px}
+          .chat-pending .pending-icon{font-size:48px;margin-bottom:16px}
+          .chat-pending .pending-title{font-size:16px;font-weight:700;color:#00285a;margin-bottom:8px}
+          .chat-pending .pending-desc{font-size:13px;color:#555;line-height:1.6;margin-bottom:16px}
+          .chat-pending .pending-badge{display:inline-block;padding:5px 14px;border-radius:20px;font-size:11px;font-weight:600;background:#fef3c7;color:#92400e}
+          .chat-pending ul{text-align:left;margin:16px auto 0;max-width:280px;font-size:12px;color:#666;line-height:2}
+          .chat-pending ul li::marker{color:#0071c5}
+          @media print{.chat-fab,.chat-panel{display:none !important}}
+          @media(max-width:768px){.chat-panel:not(.fullscreen){width:calc(100vw - 16px);height:calc(100vh - 80px);bottom:8px;right:8px;border-radius:12px}.chat-fab{bottom:16px;right:16px;width:48px;height:48px;font-size:20px}}
           """
 
           TOOLBAR_JS = """
@@ -684,6 +715,26 @@ jobs:
               });
               var em=document.querySelector(".ps-empty");if(em){var any=document.querySelectorAll('.ps-tower:not([style*="none"])').length;em.style.display=any||!q?"none":"block"}
             })}
+
+            // ── Chat widget logic ──
+            var chatFab=document.getElementById("chat-fab"),chatPanel=document.getElementById("chat-panel");
+            var chatClose=document.getElementById("chat-close"),chatFS=document.getElementById("chat-fullscreen");
+            if(chatFab&&chatPanel){
+              chatFab.addEventListener("click",function(){chatPanel.classList.add("open");chatFab.style.display="none"});
+              chatClose.addEventListener("click",function(){chatPanel.classList.remove("open");chatPanel.classList.remove("fullscreen");chatFab.style.display="flex"});
+              chatFS.addEventListener("click",function(){
+                chatPanel.classList.toggle("fullscreen");
+                chatFS.innerHTML=chatPanel.classList.contains("fullscreen")?"&#11036;":"&#9974;";
+                chatFS.title=chatPanel.classList.contains("fullscreen")?"Exit fullscreen":"Toggle fullscreen";
+              });
+              // Close on Escape key
+              document.addEventListener("keydown",function(e){
+                if(e.key==="Escape"&&chatPanel.classList.contains("open")){
+                  if(chatPanel.classList.contains("fullscreen")){chatPanel.classList.remove("fullscreen");chatFS.innerHTML="&#9974;";chatFS.title="Toggle fullscreen"}
+                  else{chatPanel.classList.remove("open");chatFab.style.display="flex"}
+                }
+              });
+            }
           })();
           </script>
           """
@@ -769,6 +820,37 @@ jobs:
             <div class="ps-tree"></div>
             <div class="ps-empty">No matching capabilities</div>
           </nav>
+          <button class="chat-fab" id="chat-fab" title="IAO Architecture Assistant">
+            &#128172;
+            <span class="chat-badge"></span>
+          </button>
+          <div class="chat-panel" id="chat-panel">
+            <div class="chat-hdr">
+              <span class="chat-title">&#129302; IAO Architecture Assistant</span>
+              <span class="chat-subtitle">AI-Powered</span>
+              <button id="chat-fullscreen" title="Toggle fullscreen">&#9974;</button>
+              <button id="chat-close" title="Close chat">&times;</button>
+            </div>
+            <div class="chat-body" id="chat-body">
+              <div class="chat-pending">
+                <div class="pending-icon">&#129302;</div>
+                <div class="pending-title">Architecture Assistant</div>
+                <div class="pending-desc">Ask questions about RICEFW objects, build readiness, IAPM applications, test status, and architecture across all IAO towers.</div>
+                <span class="pending-badge">&#9881; Coming Soon &mdash; Pending Setup</span>
+                <ul>
+                  <li>RICEFW object lookups &amp; summaries</li>
+                  <li>Application portfolio (IAPM) search</li>
+                  <li>Test case &amp; defect status</li>
+                  <li>SAP transport tracking</li>
+                  <li>Architecture document search</li>
+                </ul>
+              </div>
+            </div>
+            <div class="chat-input-bar">
+              <input type="text" id="chat-input" placeholder="Ask about architecture, RICEFW, testing..." disabled>
+              <button class="chat-send" id="chat-send" disabled>Send</button>
+            </div>
+          </div>
           '''
 
               # Inject CSS before </head> (includes hiding standalone PDF button)
