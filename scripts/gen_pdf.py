@@ -534,10 +534,11 @@ def _html_to_pdf(html_path: Path, pdf_path: Path) -> Path | None:
 
 
 def discover_md_files(tower: str | None = None, cap: str | None = None) -> list[Path]:
-    """Find all generated Architecture, RICEFW, and Testing MD files."""
+    """Find all generated Architecture, RICEFW, Testing, and Summary MD files."""
     towers_dir = WORKSPACE / "towers"
     md_files = []
     patterns = ("-Architecture.md", "-RICEFW-Tracker.md", "-Testing-Report.md")
+    summary_pattern = "-Summary.md"
 
     for root, dirs, files in os.walk(str(towers_dir)):
         for f in files:
@@ -548,6 +549,18 @@ def discover_md_files(tower: str | None = None, cap: str | None = None) -> list[
                 if cap and cap.upper() not in f.upper():
                     continue
                 md_files.append(p)
+            elif f.endswith(summary_pattern):
+                p = Path(root) / f
+                if tower and tower.upper() not in str(p).upper():
+                    continue
+                md_files.append(p)
+
+    # Also pick up L0 summary from output/docs/summaries/
+    l0_dir = WORKSPACE / "output" / "docs" / "summaries"
+    if l0_dir.is_dir() and not tower and not cap:
+        for f in l0_dir.iterdir():
+            if f.name.endswith(summary_pattern):
+                md_files.append(f)
 
     return sorted(md_files)
 
@@ -560,7 +573,7 @@ def main():
     args = parser.parse_args()
 
     md_files = discover_md_files(args.tower, args.cap)
-    print(f"Found {len(md_files)} MD files (Architecture + RICEFW + Testing)")
+    print(f"Found {len(md_files)} MD files (Architecture + RICEFW + Testing + Summary)")
 
     html_count = 0
     pdf_count = 0

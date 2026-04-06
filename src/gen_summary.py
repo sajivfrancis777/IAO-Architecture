@@ -34,6 +34,8 @@ from src.gen_systems_arch import (
     WORKSPACE, TOWERS_DIR, IAPM_CSV,
     load_tower_config, find_capability_dir, TowerConfig,
     build_system_inventory, mermaid_live_url,
+    extract_data_entities, extract_integration_patterns, extract_tech_platforms,
+    DataEntityRow, IntegrationPatternRow, TechPlatformRow,
 )
 from src.xlsx_loader import load_workbook as load_xlsx_workbook, find_workbook as find_xlsx_workbook
 from src.mermaid_builder import ARCHIMATE_CLASSDEFS, LAYER_STYLES, EMOJI
@@ -68,6 +70,10 @@ class SummaryData:
     edges: dict = field(default_factory=dict)  # (src, tgt) -> SystemEdge
     capabilities: list[dict] = field(default_factory=list)   # [{id, name, l1, hop_count}]
     total_hops: int = 0
+    # Aggregated D/A/T data across capabilities
+    data_entities: list[DataEntityRow] = field(default_factory=list)
+    integration_patterns: list[IntegrationPatternRow] = field(default_factory=list)
+    tech_platforms: list[TechPlatformRow] = field(default_factory=list)
 
 
 # ---------------------------------------------------------------------------
@@ -132,7 +138,7 @@ def _find_flow_csv(data_dir: Path, release_id: str, stem: str) -> Optional[Path]
 
 
 def _aggregate_flows(flows_list: list[FlowSet]) -> SummaryData:
-    """Merge multiple FlowSets into aggregated system-level edges."""
+    """Merge multiple FlowSets into aggregated system-level edges + extended D/A/T data."""
     summary = SummaryData(label="", scope="")
 
     for fs in flows_list:
@@ -155,6 +161,17 @@ def _aggregate_flows(flows_list: list[FlowSet]) -> SummaryData:
                 edge.interface_techs.add(hop.interface_tech.strip())
             edge.capabilities.add(hop.flow_chain.split("-")[0] if "-" in hop.flow_chain else hop.flow_chain)
             summary.total_hops += 1
+
+    # Aggregate extended data/tech columns across all FlowSets.
+    # Build a merged "all hops" FlowSet for the extractors.
+    merged = FlowSet(label="merged", source_file="")
+    for fs in summary.all_flows:
+        merged.hops.extend(fs.hops)
+    empty = FlowSet(label="empty", source_file="")
+
+    summary.data_entities = extract_data_entities(merged, empty)
+    summary.integration_patterns = extract_integration_patterns(merged, empty)
+    summary.tech_platforms = extract_tech_platforms(merged, empty)
 
     return summary
 
@@ -268,6 +285,7 @@ def _render_summary_doc(
     iapm: IAPMLookup,
     capabilities_info: list[dict],
     tower_name: str = "",
+    tower_short: str = "",
     l1_group: str = "",
 ) -> str:
     """Render a summary Markdown document."""
@@ -285,12 +303,18 @@ def _render_summary_doc(
     sections = [
         {"number": "1", "title": "Executive Summary", "level": 1},
         {"number": "2", "title": "Capability Inventory", "level": 1},
-        {"number": "3", "title": "Current-State Systems Integration", "level": 1},
+        {"number": "3", "title": "Current-State Architecture", "level": 1},
         {"number": "3.1", "title": "System Integration Map", "level": 2},
         {"number": "3.2", "title": "ArchiMate Application View", "level": 2},
-        {"number": "4", "title": "Future-State Systems Integration", "level": 1},
+        {"number": "3.3", "title": "Data Entities", "level": 2},
+        {"number": "3.4", "title": "Integration Patterns", "level": 2},
+        {"number": "3.5", "title": "Technology Stack", "level": 2},
+        {"number": "4", "title": "Future-State Architecture", "level": 1},
         {"number": "4.1", "title": "System Integration Map", "level": 2},
         {"number": "4.2", "title": "ArchiMate Application View", "level": 2},
+        {"number": "4.3", "title": "Data Entities", "level": 2},
+        {"number": "4.4", "title": "Integration Patterns", "level": 2},
+        {"number": "4.5", "title": "Technology Stack", "level": 2},
         {"number": "5", "title": "Transformation Analysis", "level": 1},
         {"number": "5.1", "title": "System Landscape Changes", "level": 2},
         {"number": "5.2", "title": "Integration Complexity", "level": 2},
@@ -320,17 +344,35 @@ def _render_summary_doc(
 
     # §2 — Capability Inventory
     md += fmt.section_heading("2", "Capability Inventory")
-    md += f"The following **{len(capabilities_info)}** capabilities are aggregated in this summary:\n\n"
+    md += f"The following **{len(capabilities_info)}** capabilities are aggregated in this summary.\n"
+    md += "Click a capability ID to view its full TOGAF BDAT architecture document.\n\n"
     md += "| # | Capability ID | Capability Name | L1 Process Group | Current Hops | Future Hops |\n"
     md += "|:---:|:---:|---|---|:---:|:---:|\n"
     for i, cap in enumerate(capabilities_info, 1):
-        md += f"| {i} | {cap['id']} | {cap['name']} | {cap.get('l1', '')} | {cap.get('cur_hops', 0)} | {cap.get('fut_hops', 0)} |\n"
+        cid = cap['id']
+        # Build relative path to L2 doc.  Summary lives in:
+        #   L2: towers/<T>/output/docs/summaries/L2-*.md
+        #   L1: towers/<T>/output/docs/summaries/L1-*.md
+        #   L0: output/docs/summaries/L0-*.md
+        # L2 doc lives at: towers/<T>/<L1>/<CID>/output/docs/systems-architecture/<CID>-Architecture.html
+        cap_link = cid  # fallback: plain text
+        link_tower = cap.get("tower_short", tower_short) or ""
+        if link_tower:
+            tower_dir = TOWERS_DIR / link_tower
+            cap_dir = find_capability_dir(tower_dir, cid)
+            if cap_dir:
+                html_name = f"{cid}-Architecture.html"
+                html_path = cap_dir / "output" / "docs" / "systems-architecture" / html_name
+                if html_path.exists():
+                    rel = html_path.relative_to(WORKSPACE)
+                    cap_link = f"[{cid}]({rel.as_posix()})"
+        md += f"| {i} | {cap_link} | {cap['name']} | {cap.get('l1', '')} | {cap.get('cur_hops', 0)} | {cap.get('fut_hops', 0)} |\n"
     md += "\n"
 
-    # §3 — Current-State
-    md += fmt.section_heading("3", "Current-State Systems Integration")
+    # §3 — Current-State Architecture
+    md += fmt.section_heading("3", "Current-State Architecture")
     if current_summary.systems:
-        md += f"Aggregated view of **{cur_sys}** systems with **{cur_edges}** unique connections "
+        md += f"Aggregated current-state view of **{cur_sys}** systems with **{cur_edges}** unique connections "
         md += f"across **{cur_hops}** flow hops.\n\n"
 
         md += fmt.section_heading("3.1", "System Integration Map", level=3)
@@ -342,13 +384,46 @@ def _render_summary_doc(
         cur_archi = build_summary_archimate(current_summary, iapm, prefix="SCA")
         if cur_archi:
             md += f"```mermaid\n{cur_archi}\n```\n\n"
+
+        md += fmt.section_heading("3.3", "Data Entities", level=3)
+        if current_summary.data_entities:
+            md += f"**{len(current_summary.data_entities)}** data entities in current-state flows.\n\n"
+            md += "| # | Data Entity | Source | Target | Owner | Classification | Volume | Master/Txn |\n"
+            md += "|:---:|---|---|---|---|---|---|---|\n"
+            for i, de in enumerate(sorted(current_summary.data_entities, key=lambda x: x.entity), 1):
+                md += f"| {i} | {de.entity} | {de.source} | {de.target} | {de.owner} | {de.classification} | {de.volume} | {de.master_transaction} |\n"
+            md += "\n"
+        else:
+            md += "*No data entity information in current-state flows.*\n\n"
+
+        md += fmt.section_heading("3.4", "Integration Patterns", level=3)
+        if current_summary.integration_patterns:
+            md += f"**{len(current_summary.integration_patterns)}** integration patterns in current-state.\n\n"
+            md += "| # | Pattern | Middleware | Protocol | Auth Method | Flow Chain |\n"
+            md += "|:---:|---|---|---|---|---|\n"
+            for i, ip in enumerate(sorted(current_summary.integration_patterns, key=lambda x: x.pattern), 1):
+                md += f"| {i} | {ip.pattern} | {ip.middleware} | {ip.protocol} | {ip.auth} | {ip.flow_chain} |\n"
+            md += "\n"
+        else:
+            md += "*No integration pattern information in current-state flows.*\n\n"
+
+        md += fmt.section_heading("3.5", "Technology Stack", level=3)
+        if current_summary.tech_platforms:
+            md += f"**{len(current_summary.tech_platforms)}** technology platforms in current-state.\n\n"
+            md += "| # | Platform | Type | Systems | Environment |\n"
+            md += "|:---:|---|---|---|---|\n"
+            for i, tp in enumerate(sorted(current_summary.tech_platforms, key=lambda x: x.name), 1):
+                md += f"| {i} | {tp.name} | {tp.type} | {tp.systems} | {tp.environment} |\n"
+            md += "\n"
+        else:
+            md += "*No technology platform information in current-state flows.*\n\n"
     else:
         md += "*No current-state flow data available.*\n\n"
 
-    # §4 — Future-State
-    md += fmt.section_heading("4", "Future-State Systems Integration")
+    # §4 — Future-State Architecture
+    md += fmt.section_heading("4", "Future-State Architecture")
     if future_summary.systems:
-        md += f"Aggregated view of **{fut_sys}** systems with **{fut_edges}** unique connections "
+        md += f"Aggregated future-state view of **{fut_sys}** systems with **{fut_edges}** unique connections "
         md += f"across **{fut_hops}** flow hops.\n\n"
 
         md += fmt.section_heading("4.1", "System Integration Map", level=3)
@@ -360,6 +435,39 @@ def _render_summary_doc(
         fut_archi = build_summary_archimate(future_summary, iapm, prefix="SFA")
         if fut_archi:
             md += f"```mermaid\n{fut_archi}\n```\n\n"
+
+        md += fmt.section_heading("4.3", "Data Entities", level=3)
+        if future_summary.data_entities:
+            md += f"**{len(future_summary.data_entities)}** data entities in future-state flows.\n\n"
+            md += "| # | Data Entity | Source | Target | Owner | Classification | Volume | Master/Txn |\n"
+            md += "|:---:|---|---|---|---|---|---|---|\n"
+            for i, de in enumerate(sorted(future_summary.data_entities, key=lambda x: x.entity), 1):
+                md += f"| {i} | {de.entity} | {de.source} | {de.target} | {de.owner} | {de.classification} | {de.volume} | {de.master_transaction} |\n"
+            md += "\n"
+        else:
+            md += "*No data entity information in future-state flows.*\n\n"
+
+        md += fmt.section_heading("4.4", "Integration Patterns", level=3)
+        if future_summary.integration_patterns:
+            md += f"**{len(future_summary.integration_patterns)}** integration patterns in future-state.\n\n"
+            md += "| # | Pattern | Middleware | Protocol | Auth Method | Flow Chain |\n"
+            md += "|:---:|---|---|---|---|---|\n"
+            for i, ip in enumerate(sorted(future_summary.integration_patterns, key=lambda x: x.pattern), 1):
+                md += f"| {i} | {ip.pattern} | {ip.middleware} | {ip.protocol} | {ip.auth} | {ip.flow_chain} |\n"
+            md += "\n"
+        else:
+            md += "*No integration pattern information in future-state flows.*\n\n"
+
+        md += fmt.section_heading("4.5", "Technology Stack", level=3)
+        if future_summary.tech_platforms:
+            md += f"**{len(future_summary.tech_platforms)}** technology platforms in future-state.\n\n"
+            md += "| # | Platform | Type | Systems | Environment |\n"
+            md += "|:---:|---|---|---|---|\n"
+            for i, tp in enumerate(sorted(future_summary.tech_platforms, key=lambda x: x.name), 1):
+                md += f"| {i} | {tp.name} | {tp.type} | {tp.systems} | {tp.environment} |\n"
+            md += "\n"
+        else:
+            md += "*No technology platform information in future-state flows.*\n\n"
     else:
         md += "*No future-state flow data available.*\n\n"
 
@@ -506,6 +614,7 @@ def generate_l2_summaries(
                 "id": cid,
                 "name": cap.get("name", cid),
                 "l1": l1_name,
+                "tower_short": tower_cfg.shortcode,
                 "cur_hops": cur_hops,
                 "fut_hops": fut_hops,
             })
@@ -530,6 +639,7 @@ def generate_l2_summaries(
             iapm=iapm,
             capabilities_info=cap_info,
             tower_name=tower_cfg.name,
+            tower_short=tower_cfg.shortcode,
             l1_group=l1_name,
         )
 
@@ -590,6 +700,7 @@ def generate_l1_summary(
             "id": cid,
             "name": cap.get("name", cid),
             "l1": cap.get("l1", ""),
+            "tower_short": tower_cfg.shortcode,
             "cur_hops": cur_hops,
             "fut_hops": fut_hops,
         })
@@ -611,8 +722,7 @@ def generate_l1_summary(
         future_summary=fut_summary,
         iapm=iapm,
         capabilities_info=cap_info,
-        tower_name=tower_cfg.name,
-    )
+        tower_name=tower_cfg.name,        tower_short=tower_cfg.shortcode,    )
 
     output_dir = tower_dir / "output" / "docs" / "summaries"
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -662,6 +772,7 @@ def generate_l0_summary(iapm: IAPMLookup, release_label: str = "R1 \u2013 R5") -
                 "id": cid,
                 "name": cap.get("name", cid),
                 "l1": f"{tower_short} · {cap.get('l1', '')}",
+                "tower_short": tower_short,
                 "cur_hops": cur_hops,
                 "fut_hops": fut_hops,
             })
