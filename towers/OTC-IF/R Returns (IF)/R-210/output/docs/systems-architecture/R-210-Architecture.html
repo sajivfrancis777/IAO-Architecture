@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IF) (OTC-IF) Tower<br/>
   Capability R-210 · R Returns (IF)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 3</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -646,7 +688,7 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Customer Quality Engineer
+    subgraph lane_0["Customer Quality Engineer"]
         n1["fa:fa-user Transfer Material to Waste / Scrap Location"]
         n2["fa:fa-user Transfer Material to Finished Goods Location for returning to customer"]
         n7["Determine Material Disposition Status based on Testing"]
@@ -655,7 +697,7 @@ flowchart LR
         n11(["fa:fa-stop Material Sent to Finished Goods Location"])
         n17{{"fa:fa-code-branch Material Disposition Status?"}}
     end
-    subgraph Warehouse Operator
+    subgraph lane_1["Warehouse Operator"]
         n3["fa:fa-user Transfer Material to Waste / Scrap Location"]
         n4["fa:fa-user Transfer Material to Retest Location"]
         n5["fa:fa-user Transfer Material to Rework Location"]
@@ -707,7 +749,7 @@ Customer"| n2
     class n19 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtV99v4jgQ_lesVBVdKejyk0Ae7kQDOVXqarulu3047sEkDkQNNrKdthzL_35jcICkodfTLg-I-TzzzfibcWI2RsJSYoTG5eUmp7kM0aYjF2RJOiHqzLAgHRPtge-Y53hWENFRPhmjcpL_s3OzvdWrclNYjJd5sVbohMwZQd9uTDSEwMJEAlPRFYTnWcfsrHi-xHwdsYJx5X1B-pmV7bLppWvGU8KPDpYV2IkPoUVOyRF2Ay_wYhUnSMJoWiPN_KyfJZ2tKq5gL8kCc7krvxTkM359zFO5ADvDhSDgs5DL4hbPSKH2KHmpsKTkz5UYuVB5KAg2WeEkp3PAPQsgjunTEfKt7RZtLy-n9JAU3d5PKYJPUmAhRiRDQgI8fpYoy4sivPCiYexbppCcPZHwwhkHI9cxE7WTELZumUrc7gvJ5wsZzliRatfui9pD6KxeTf4aOpbJ1_DdyEVoeswU9Zy-0z9kug7syI6qTFmW_VQm0JU_YPGkc43d2IlHh1y23_Mj6y1ftc2RFwztpk6EP-cJOSGN49gdH6Ua93zbOk96Hbs9K2qQzrEkL3h9JBxE3oEw9oPYDs4S7vM1qyxnd5wlFaE79mP_QBhc2_HQOUvoDW2vrysEnjnHqwWKSiHZknD0tcRFLtdoTOcw94Tv_dSH2n9NjQyHGe4q2dEDTKHI4Mdn2J06ckgy9IiFJOg3NEmAFt2yBMuc0anx9wmP8wGeGB4OYkFS9CdjqTgQoYxxxIksOYXZV46JLryeIoAUIwJ0S9jEkXiUixUT-Y5pIrEsBVLPnBSB_UCEBM46Tx947giHrMvKQfnCAwrd76qA2Iq9HmlbV4dtQoWrYxETQuVuH3WtVD-JEPsSPp0y2e8ynReryRNsNhWPegh3ZyB8snhPnT-mxna7p4Az3RiZR8zJgkEL0ZcV4Viy01lxf9GseB_ggU5Aa84Q-B8ieGH86QxBr04QcQKRuvvo7ouKFyBOjfA7AKwxkoP_P5LVWbyhYkWSt6XZzi-bMfc_mfYqN-O8c3HiGKfEbcb578adSlgLU824JwnJnwkaJhL0QRErIQKkolJpdXUTf2qo1P-Zud9TDNopHtYrglimp6H1uNAB6nZ_V1Vo29W2o21P2662fW172rZ7GhhoINB2UDloW78jqKNtu1rvK-CHEm7fiR-Q5O3avruw5jXXdrOzW6pqtIM3S1W2_j77obiB9oxxXpQcukZxsYabDbqKh9BardyOot-MOXTo1GvQrEEfRcmmNDq8DMCxErjSr23PKvDhOGwQ1Tt50yptqxtGDXbaYbcd9tphvx3utcO2pa9VddRuRZ1W1G1FvVbUb0V7h2tkHQ-qG04d7rfDgwo2TAOatcR5aoQbY3frh38GKclwWUhjaxq4lGyypokR7m7HRrlKIXKUY3gDLffg9l9S7-0x" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtV21v4jgQ_itWqoquFHR5JZAPd6KBnCp1tb3S2344TieTOBA12Mh2SlmW_35jcKBJQ6-nXT4g5vHMMzPP2InZGglLiREal5fbnOYyRNuOXJAl6YSoM8OCdEx0AL5inuNZQURH-WSMykn-be9me6sX5aawGC_zYqPQCZkzgv68MdEQAgsTCUxFVxCeZx2zs-L5EvNNxArGlfcF6WdWts-ml64ZTwk_OVhWYCc-hBY5JSfYDbzAi1WcIAmjaY0087N-lnR2qriCrZMF5nJffinIZ_zymKdyAXaGC0HAZyGXxS2ekUL1KHmpsKTkz5UYuVB5KAg2WeEkp3PAPQsgjunTCfKt3Q7tLi-n9JgU3d5PKYJPUmAhRiRDQgI8fpYoy4sivPCiYexbppCcPZHwwhkHI9cxE9VJCK1bphK3uyb5fCHDGStS7dpdqx5CZ_Vi8pfQsUy-ge9GLkLTU6ao5_Sd_jHTdWBHdlRlyrLshzKBrvwBiyeda-zGTjw65rL9nh9Zb_mqNkdeMLSbOhH-nCfkFWkcx-74JNW459vWedLr2O1ZUYN0jiVZ482JcBB5R8LYD2I7OEt4yNesspzdcZZUhO7Yj_0jYXBtx0PnLKE3tL2-rhB45hyvFqjAlPxj_TU1olJItiQc_VHiIpcbNKZzOACET42_DzHqQ21wzXCY4a4aAXqAHSky-PEZOlXHD0mGHrGQBP2CJgmkQLcswTJntM7jfIAnhgeFWJAU_c5YKo5EKGMccSJLTuEcKMdE115PEUCKEQG6JfRxIh7lYsVEvmeaSCxLgdTzJ0VgPxAhgbPO0weeO8Ih67JyUL7wsEL3-yogtmJviGVdHduEClenIiaEyn0fda3UbIkQhxI-vWay32U6L1aTJ9huKx71QO7OQPhk8Z46v02N3e5AAee7bfuoPfGIOVkwmCX6siIcS9YYhvuT9o33AR6YCozpDIH_IYI1409nCHp1gogTiNQ7Ad19UfEChKoRfgWgqcjg_2_P6mjeULEiydvSbOen7Tf3P5kOKjfjvHNx4hSnxG3G-e_GvZawFqaGcU8Skj8TNEwk6IMiVkIESEWl0urqJv7UUKn_I2fgQDFop3jYrAhimd4NrUeHDlC3-6uqQtuuth1te9p2te1r29O23dPAQAOBtoPKQdv63UEdbdvVel8B35Vwh0l8hyRv1w7ThTWvubbfO_ulqkY7eLNUZesfsh-LG2jPGOdFyWFqFBcbuPGgq3gIo9XK7Sn6zZjjhF57DZo16KMo2ZRGxxcDOFYCV_q19awCH06bDaJ6r97AStvq5lGDnXbYbYe9dthvh3vtsG3p61YdtVtRpxV1W1GvFfVb0d7xelnHg-rmU4f77fCggg3TgGEtcZ4a4dbY_xuAfwwpyXBZSGNnGriUbLKhiRHub81GuUohcpRjeBstD-DuX62W9Pg=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-210 — Determine Discrepant Material Disposition (IF)</span></div>
 
@@ -2334,11 +2376,15 @@ Customer"| n2
 </tbody>
 </table>
 <hr />
-<p><em>R-210 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: March 2026</em></p>
+<p><em>R-210 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-210 — Determine Discrepant Material Disposition (IF)</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>R-210</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

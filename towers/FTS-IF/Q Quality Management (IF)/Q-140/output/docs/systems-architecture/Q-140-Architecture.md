@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IF) (FTS-IF) Tower<br/>
   Capability Q-140 · Q Quality Management (IF)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Forecast to Stock (IF) (FTS-IF) |
 | **Process Group** | Q Quality Management (IF) |
 | **Capability** | Q-140 - Manage Product Disposition (IF) |
-| **Release** | Release 3 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 5 Reports, 92 Interfaces, 31 Conversions, 118 Enhancements, 15 Forms, 4 Workflows |
@@ -198,10 +198,10 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph FTS IF - Batch User
+    subgraph lane_0["FTS IF - Batch User"]
         n2[["fa:fa-cog Call RFC for Production Order Operation Confirmation with Yield + Scrap"]]
     end
-    subgraph IT Department
+    subgraph lane_1["IT Department"]
         n1["fa:fa-user Take loss/MVOU"]
         n3[["fa:fa-cog Take Loss Events from MES300/Workstream"]]
         n4[["fa:fa-cog Record Workstream Move Out -Difference Between Old and New Quantity, No..."]]
@@ -213,7 +213,7 @@ flowchart LR
         n12{{"fa:fa-code-branch Event Type ?"}}
         n13{{"fa:fa-code-branch exclusiveGateway"}}
     end
-    subgraph LOG - Inventory Planner
+    subgraph lane_2["LOG - Inventory Planner"]
         n8[["fa:fa-cog Post Goods Movement for Scrap"]]
         n10(["fa:fa-stop Material Scrapped"])
         n14{{"fa:fa-code-branch exclusiveGateway"}}
@@ -249,7 +249,7 @@ flowchart LR
     class n14 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_ZWBFoFbVM7qajl6aOGbAgPJJo2TDYr1PtASZRORRIGi7Lhe_3tJXW1t3IfWDwbmds7McIbUQfFpgBVXubo6kIRwFw49vsEx7rnQW6EM91QoFV8RI2gV4awnfUKa8AX5u3DTrfRdukmdh2IS7aV2gdcUw8tchZEIjFTIUJL1M8xI2FN7KSMxYvsJjSiT3p_wMNTCgq0yjSkLMGsdNM3RfVuERiTBrdp0LMfyZFyGfZoEZ6ChHQ5Dv3eUyUV0528Q40X6eYbv0fsrCfhGyCGKMix8NjyO7tAKR7JGznKp83O2rZtBMsmTiIYtUuSTZC30liZUDCVvrcrWjkc4Xl0tk4YU7p6WCYifH6Esm-IQMi7Usy2HkESR-8majDxbUzPO6Bt2PxkzZ2oaqi8rcUXpmiqb299hst5wd0WjoHLt72QNrpG-q-zdNTSV7cV_hwsnQcs0GRhDY9gwjR19ok9qpjAM_xeT6Ct7RtlbxTUzPcObNly6PbAn2s94dZlTyxnp3T5htiU-PgH1PM-cta2aDWxduww69syBNumArhHHO7RvAW8mVgPo2Y6nOxcBS75ulvnqkVG_BjRntmc3gM5Y90bGRUBrpFvDKkOBs2Yo3YD3vIC5B30YI-5v4EW0ofSQv8T49m2phMgNUd-na5igKIInbwIhZSDyCHKfE5rAg9wgeEgxQ4U8oUlIWFwKO8I38BfBUQC_wcIXrEvl-_eSRAxMJ5_5M0xxKkY2xgk_yURvEpFHD8_oDUNEs-zz_deHFwF44mqeJ1243glXmG0FZgYhozHczxampn1-pexN9AujuE2qALHOQZ7EzrMAWne4p1sMDzmH_pSEIWY48TGMMd9hLBoiikVJAF_wDv7MUcIJ36vwhV5fX3d47HOeKeaYxeLigcXocZlrGtLaPpdy0ewOyuBfUOBeDGF5MxZnrMJjJDJSYcEpQ2vZG784qUwtipKNh-d9ijscziUOEgoIDiSDeSI7TNkexHy8zh87CDe_NAhpJLZiLt4BIpIrpwLiKk9IxYTjIGcyg19PZ0A_HNoUAtxfiftQDK1klwnDH0vleDwNMD4OKAbhQoj5cQh-96M8I1t8W650G_bzDN893IqFapsh-52c7dXwvJePNONwS2mQtScgV6yzLWWCWtvFjNO0Od7SO8VBt2vWf64ouYF-_3cBUYlWJZqVPCjlYSXqtb26tZJhJVuVbHRku5SNOl6X8o-lUozOD2GvDE4VV-dhdvLQK4XTBWrOoIAb1OYqvOE1Kvdmp4sBKWKsrk_nOimczJNbWsLXr9OZ2jh9Ys4s5kWLddFiX7QMLlqci5bhRctN8wFxXqNWPfbnWr1-8c7Vxsdq82O1VasVVYnFHYNIoLgHpfg4FB-QAQ5RHnHlqCoo53SxT3zFLT6ilDwNROSUILGHcak8_gMGbU77" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1vo0YU_StXrCK3Wpzl0zg8tHJsE1lKNmmcbFStq2oMgz0KMGgY7Lhe__fOAIZAQx9aP1i6X-fce7gzcFR8GmDFVS4ujiQh3IXjgG9xjAcuDNYowwMVSsc3xAhaRzgbyJyQJnxJ_irSdCt9k2nS56GYRAfpXeINxfC8UGEiCiMVMpRkwwwzEg7UQcpIjNhhSiPKZPYnPA61sGCrQteUBZg1CZrm6L4tSiOS4MZtOpZjebIuwz5NghZoaIfj0B-cZHMR3ftbxHjRfp7hO_T2QgK-FXaIogyLnC2Po1u0xpGckbNc-vyc7c5ikEzyJEKwZYp8kmyE39KEi6HktXHZ2ukEp4uLVVKTwu3jKgHx8yOUZTMcQsaFe77jEJIocj9Z04lna2rGGX3F7idj7sxMQ_XlJK4YXVOluMM9Jpstd9c0CqrU4V7O4Brpm8reXENT2UH8d7hwEjRM05ExNsY107WjT_XpmSkMw__FJHRlTyh7rbjmpmd4s5pLt0f2VPsn3nnMmeVM9K5OmO2Ij9-Bep5nzhup5iNb1_pBrz1zpE07oBvE8R4dGsCrqVUDerbj6U4vYMnX7TJfPzDqnwHNue3ZNaBzrXsToxfQmujWuOpQ4GwYSrcQoQT_qX1fKd7TEhYeDOEacX8Lz0KPlfJHmS1_ifFdZIXIDdHQpxuYoiiCR28KIWUgegpynxOawL08TXCfYoYKe0qTkLC4NPaEb-F3gqMAPsPSFx0IjopELM9HvemCdfEEM5yKPY5xwttd6XVTciXgCb1iiGiWfbn7dv_cTjXbAxSptyIV5jsBm0HIaAx386WpaV9eKHsVOmIUNw0WIFYb5FHcBSyAJh3u6A7Dfc5hOCNhiBlOfAzXmO8xFuKIwVESwFe8h99ylHDCDyp8pZeXlx0eu80zwxyzWFxIsJw8rHJNQ1qjeWkXwndQRv-CAndiOcsbs3jkKjwIwbkKS04Z2kht_OKpZWoxlNQeng4p7nA4fRwkFBAcSAaLRCpM2QHErrwsHjoIVz_VCGkkTstCvB-IaK7cEIirPiEVm4-DnMkOfn6_A_rx2LQQ4OFa3JNihyW7bBh-XSmn0_sC4-OCYhF6SsyPS_CbH-UZ2eGb8qg3ZT37bIhZb-9vxEFrVJHCJ93zNm7r-kAzDjeUBlnzNOTR65yislmtUTTjNK0fdZmd4qCroPWfp0uuYDj8RUBUplWZZmWPSntcmfo5Xt1sybiyrco2OrZd2sa5Xpf2j5VSrNEPEa8CTlV37sPs9KFXDqcLVD-GAm50DlflNa9Rpdfnu1iWosbq5nSuliLJfHeTS_jzG6zlNt6_hloRszdi9Ubs3sioN-L0Rsa9kav6I6M9o1Z9ELS9-vmt2HYbH7vNj93W2a2oSizuG0QCxT0qxQek-MgMcIjyiCsnVUE5p8tD4itu8aGl5GkgKmcEiTMZl87T38ioWqc=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -695,6 +695,7 @@ Integration patterns identified from the system flow analysis for Q-140:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
@@ -825,6 +826,6 @@ Platform landscape inferred from integrated systems for Q-140:
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*Q-140 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: March 2026*
+*Q-140 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: April 2026*
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>Q-140 — Manage Product Disposition (IF)</span></div>

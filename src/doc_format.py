@@ -54,16 +54,13 @@ CANONICAL_STYLE = """\
   align-items: center;
   font-size: 11px;
   color: #888;
-  margin-top: 24px;
+  margin-top: auto;
   padding: 6px 0;
   background: #fff;
 }
 @media print {
   .page-footer {
-    position: running(footer);
-    margin-top: 16px;
-    page-break-inside: avoid;
-    break-inside: avoid;
+    display: none !important;
   }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }

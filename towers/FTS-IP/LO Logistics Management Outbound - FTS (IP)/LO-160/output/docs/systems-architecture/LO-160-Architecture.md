@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IP) (FTS-IP) Tower<br/>
   Capability LO-160 · LO Logistics Management Outbound - FTS (IP)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Forecast to Stock (IP) (FTS-IP) |
 | **Process Group** | LO Logistics Management Outbound - FTS (IP) |
 | **Capability** | LO-160 - Pick Orders - FTS (IP) |
-| **Release** | Release 3 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 2 Reports, 20 Interfaces, 3 Conversions, 17 Enhancements, 6 Forms, 3 Workflows |
@@ -201,7 +201,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Warehouse Operator
+    subgraph lane_0["Warehouse Operator"]
         n1["fa:fa-user Generate Pick list"]
         n2["Pick Order Items (IP)"]
         n3["Consolidate Appropriate Pick Items (IP)"]
@@ -213,7 +213,7 @@ flowchart TD
     class n3 startEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViitFKR8EppDJQikWqnVIrHtHkoPJnkGC8eObLNAEf-9Nh9hod1TfYji8XjmvZHtvVOKCpzM6XT2lFOdob2rl1CDmyF3jhW4HjoBP7CkeM5AuZZDBNdT-vtIC-Jma2kWK3BN2c6iU1gIQN8fPTQwG5mHFOaqq0BS4npuI2mN5S4XTEjLfoA-8cnR7bw0FLICeSX4fhqUidnKKIcrHKVxGhd2n4JS8OpGlCSkT0r3YItjYlMusdTH8tcKvuHtC6300swJZgoMZ6lr9hXPgdketVxbrFzL10sYVFkfbgKbNrikfGHw2DeQxHx1hRL_cECHTmfGW1P0PJpxZEbJsFIjIEhpA49fNSKUsewhzgdF4ntKS7GC7CEcp6Mo9ErbSWZa9z0bbncDdLHU2Vyw6kztbmwPWdhsPbnNQt-TO_O98wJeXZ3yXtgP-63TMA3yIL84EUL-y8nkKp-xWp29xlERFqPWK0h6Se7_rXdpcxSng-A-J5CvtIQ3okVRRONrVONeEvjviw6LqOfnd6ILrGGDd1fBT3ncChZJWgTpu4Inv_sq1_OJFOVFMBonRdIKpsOgGITvCsaDIO6fKzQ6C4mbJXrBEpbCxImeGpBYC3ki2MGDnzOH4Izgrs0bfQFuKYAmtFwhRpWeOb_e0ENDPy492RuFHjXUCn14nHy8pUWGlguuBKOVVRs0jRTmMrbK_9hoTtbph0eo2_1sSjtPg9M0fJOTBS_n4wYO28twA0ct7HhODbLGtHKyvXN8jcyLVQHBa6adg-fgtRbTHS-d7HhrnXVjOxhRbMKsT-DhD4W5k1s=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVF1v2jAU_StWKpRNClI-CcvDJAhkqrSplejWhzFNJrkGC8eObFOgiP8-m49Q2Po0P0Tx8fE59x7Z3jmlqMDJnE5nRznVGdq5egE1uBlyZ1iB66Ej8ANLimcMlGs5RHA9oa8HWhA3G0uzWIFryrYWncBcAPp-76GB2cg8pDBXXQWSEtdzG0lrLLe5YEJa9h30iU8ObqeloZAVyAvB99OgTMxWRjlc4CiN07iw-xSUgldXoiQhfVK6e1scE-tygaU-lL9S8A1vnmmlF2ZOMFNgOAtds694Bsz2qOXKYuVKvpzDoMr6cBPYpMEl5XODx76BJObLC5T4-z3adzpT3pqip9GUIzNKhpUaAUFKG3j8ohGhjGV3cT4oEt9TWoolZHfhOB1FoVfaTjLTuu_ZcLtroPOFzmaCVSdqd217yMJm48lNFvqe3JrvjRfw6uKU98J-2G-dhmmQB_nZiRDyX04mV_mE1fLkNY6KsBi1XkHSS3L_b71zm6M4HQS3OYF8oSW8ES2KIhpfohr3ksB_X3RYRD0_vxGdYw1rvL0IfsrjVrBI0iJI3xU8-t1WuZo9SlGeBaNxUiStYDoMikH4rmA8COL-qUKjM5e4WSCGOfz2f06dZyxhIUyu6KEBibWQU-fXkWwHDwyH4Izgrs0efQFuWYAeablEjCp9TQ8N_bD0YG8XutdQK_Th_vHjNS0ytFxwJRitrNqgaaQwF7NV_sdGc8qOPzxC3e5nU9ppGhyn4ZvMLHg-K1dw2F6MKzhqYcdzapA1ppWT7ZzDy2RerwoIXjHt7D0Hr7SYbHnpZIcb7Kwa28GIYhNsfQT3fwCtXpc-" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -232,7 +232,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Warehouse Operator
+    subgraph lane_0["Warehouse Operator"]
         n1["fa:fa-user Scan Box ID / Lot No / Batch No Based on Pick List"]
         n2["Check Products and Handling Units in Storage Bin"]
         n3["Kit/Sequence Products (IP)"]
@@ -258,7 +258,7 @@ flowchart TD
     class n8 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduO4kYQ_ZWWRyMSyWhtY2Pih0TcnIwymZ2E2ayikIemXcatMd1Od3uAsPz7VgPmtsxT_GC5jqvOqVNQ7Y3DZAZO4tzfb7jgJiGblilgAa2EtGZUQ8sle-BPqjidlaBbNieXwkz4f7s0P6xWNs1iKV3wcm3RCcwlkE8PLuljYekSTYVua1A8b7mtSvEFVeuhLKWy2XfQy718p3Z4NZAqA3VK8LzYZxGWllzACe7EYRymtk4DkyK7IM2jvJez1tY2V8olK6gyu_ZrDb_R1WeemQLjnJYaMKcwi_KRzqC0Ho2qLcZq9dYMg2urI3Bgk4oyLuaIhx5CiorXExR52y3Z3t9PxVGUvIymguDFSqr1CHKiDcLjN0NyXpbJXTjsp5HnaqPkKyR3wTgedQKXWScJWvdcO9z2Evi8MMlMltkhtb20HpKgWrlqlQSeq9Z4v9ICkZ2Uht2gF_SOSoPYH_rDRinP8_-lhHNVL1S_HrTGnTRIR0ctP-pGQ-9bvsbmKIz7_vWcQL1xBmekaZp2xqdRjbuR771POkg7XW94RTqnBpZ0fSL8YRgeCdMoTv34XcK93nWX9exZSdYQdsZRGh0J44Gf9oN3CcO-H_YOHSLPXNGqIJ-pgkLiOMnHChQ1Uu0T7CX8v6dOTpOctu28yYRRQQZyRR5G5AN5lIY8SXwYUMMK-zjANc6IFOSZs1fyyLWZOv-c0QVINywA36GHrGZGEyoy8gvecNfm5BOeC5pwQSbYBp0DGXBxydBBhl-5-TCBf2sQDE5E3z08f3-ZG2LukzSw0_gDd1ZlZLxiUBkuxa2CyLYnRc7VgvxeU2G4We-KHyWjtmjnCx1-W9rF0p9B2AHC3v2LTTX6Mi3ebJqB2tOwPcN9xtE9aPKyroDIvPFDzk3-NHW22zOW3m2Wvlif-1tyUzQNN1M6Y8JV3T-IgLTbPyLrIezuw8N6CH8fxocwtuGXqfMXoLUv-INc4U9yBwcHuHcJR1dwwxKe_cutZLPdF3DneJRdwOFtOLoNd2_DcbOpF2ivQR3XWYBaUJ45ycbZfaXwS5ZBTuvSOFvXobWRk7VgTrI7zZ26yrByxCku2WIPbr8Cf145rw==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P6jYQ_StWVitaKegmISE0D634Srvqdrste3tVlaoyzoRYG-xc21mgXP57x0D4uuxT8xBlTmbOmTMwzsZhMgMnce7vN1xwk5BNyxSwgFZCWjOqoeWSPfAHVZzOStAtm5NLYSb8312aH1Yrm2axlC54ubboBOYSyMcHl_SxsHSJpkK3NSiet9xWpfiCqvVQllLZ7Dvo5V6-Uzu8GkiVgToleF7sswhLSy7gBHfiMA5TW6eBSZFdkOZR3stZa2ubK-WSFVSZXfu1hl_o6hPPTIFxTksNmFOYRflIZ1Baj0bVFmO1emuGwbXVETiwSUUZF3PEQw8hRcXrCYq87ZZs7--n4ihKXkZTQfBiJdV6BDnRBuHxmyE5L8vkLhz208hztVHyFZK7YByPOoHLrJMErXuuHW57CXxemGQmy-yQ2l5aD0lQrVy1SgLPVWu8X2mByE5Kw27QC3pHpUHsD_1ho5Tn-f9SwrmqF6pfD1rjThqko6OWH3Wjofc1X2NzFMZ9_3pOoN44gzPSNE0749Ooxt3I994nHaSdrje8Ip1TA0u6PhF-NwyPhGkUp378LuFe77rLevasJGsIO-MojY6E8cBP-8G7hGHfD3uHDpFnrmhVkJIK-Mf7a-p8ogoKiXMlv1agqJFq6vy9T7aX8DEnp0lO23b2ZMKoIAO5Ig8j8oE8SkOeJD4MqGGFfRzgSmdECvLM2St55Npc0gVINywA36GfrGZGEyoy8hPecO_m5COeEZpwQSbYCZ0DGXBxydBBhp-5-TCBzzUIBieibx6ev73MDTH3SRrYafyO-6syMl4xqAyX4lZBZNuTIudqQX6rqTDcrHfFj5JRW7TzhQ6_Lu1i6Y8g7Axh7_7Fphp9mRZvNs1A7cnYnuFu4-geNHlZV0Bk3vgh5yZ_mDrb7RlL7zZLX6zP_S25KZqGmymdMeHa7h9EQNrt75H1EHb34WFVhL8P40MY2_DL1PkT0NoX_EGu8Ce5g4MD3LuEoyu4YQnP_vFWstn0C7hzPNYu4PA2HN2Gu7fhuNnaC7TXoI7rLEAtKM-cZOPsvlj4Vcsgp3VpnK3r0NrIyVowJ9md7E5dZVg54hQXbrEHt_8BysM9kg==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -277,7 +277,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Warehouse Operator
+    subgraph lane_0["Warehouse Operator"]
         n1["fa:fa-user Note and Record Exceptions"]
         n2["fa:fa-user Change Batch / Handling Unit"]
         n3["Check Products and Handling Units in Storage Bin"]
@@ -307,7 +307,7 @@ flowchart TD
     class n9 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P4jYU_StWRiNaKWiTkBDIQysIpB11uzstu11VpQ_GuSEWwWZtZ4Cy_PfaJAHCMA9V8xBxTu4590Nc-2ARnoIVWY-PB8qoitCho3JYQydCnQWW0LFRRfyBBcWLAmTHxGScqRn95xTm-pudCTNcgte02Bt2BksO6POTjUZaWNhIYia7EgTNOnZnI-gai33MCy5M9AMMMic7Zas_jblIQVwCHCd0SaClBWVwoXuhH_qJ0UkgnKUt0yzIBhnpHE1xBd-SHAt1Kr-U8CvefaGpyjXOcCFBx-RqXbzHCyhMj0qUhiOleGmGQaXJw_TAZhtMKFtq3nc0JTBbXajAOR7R8fFxzs5J0afJnCH9kAJLOYEMSaXp6YtCGS2K6MGPR0ng2FIJvoLowZuGk55nE9NJpFt3bDPc7hboMlfRghdpHdrdmh4ib7OzxS7yHFvs9fsmF7D0kinuewNvcM40Dt3YjZtMWZb9r0x6ruITlqs617SXeMnknMsN-kHsvPZr2pz44ci9nROIF0rgyjRJkt70MqppP3Cdt03HSa_vxDemS6xgi_cXw2Hsnw2TIEzc8E3DKt9tleXiWXDSGPamQRKcDcOxm4y8Nw39kesP6gq1z1LgTY6-YAE51-NEHzcgsOKiCjAPc_-aWxmOMtw180YfuAKEWYp-1xsgUjTdEdgoypmcW39fyby2LM4xWwIaY0Vy9A79rB30ai3RZ30MtIU9LYxzICukm0xLouQpXUshEWVopuvExpOytoNvHDjLqFij30rMFFX7k8d7TrApFT1TsoIUfff0_H1bGmip-Yg-mvMAPSlYyzthfR32C1XvZvC1BEbgUurr2PBwaCZhTr_uQu-vnsGI7a9mh7ZU5U1ZjdmPc-t4vHIa3HeCHSlKSV_gp-qPdqMa_leVXuDqB-uhbvcH3UEN-xUc1DBow0EFezV0K-jVcFhBv4ZeBYc1DA38Nrc-8Ln17TX9J8gTf72uJkNzALRo7z7tnw_BFh3cp_v36bBZ5hY7uMsOG9ayrTWINaapFR2s0_Wmr8AUMlwWyjraFi4Vn-0ZsaLTNWCVm1QrJxTr7VxX5PFfgu1LYg==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P4jYU_StWRiNaKWiTkBDIQysIpB3tdne67IeqUlXGuSEWwWZtZ4Cy_PfaJIEJwzxUzUPEObnn3A9x7YNFeApWZN3fHyijKkKHjsphDZ0IdRZYQsdGFfEFC4oXBciOick4UzP6zynM9Tc7E2a4BK9psTfsDJYc0OcHG420sLCRxEx2JQiadezORtA1FvuYF1yY6DsYZE52ylZ_GnORgrgEOE7okkBLC8rgQvdCP_QTo5NAOEtbplmQDTLSOZriCr4lORbqVH4p4Te8-0pTlWuc4UKCjsnVuniHF1CYHpUoDUdK8dQMg0qTh-mBzTaYULbUvO9oSmC2ulCBczyi4_39nJ2Tok-TOUP6IQWWcgIZkkrT0yeFMloU0Z0fj5LAsaUSfAXRnTcNJz3PJqaTSLfu2Ga43S3QZa6iBS_SOrS7NT1E3mZni13kObbY6_dVLmDpJVPc9wbe4JxpHLqxGzeZsiz7X5n0XMUnLFd1rmkv8ZLJOZcb9IPYeenXtDnxw5F7PScQT5TAM9MkSXrTy6im_cB1XjcdJ72-E1-ZLrGCLd5fDIexfzZMgjBxw1cNq3zXVZaLR8FJY9ibBklwNgzHbjLyXjX0R64_qCvUPkuBNzkqMIO_nT_n1lcsIOd6rujDBgRWXMytv6pg8zBXx2Q4ynDXzB695woQZin6qLdBpGi6I7BRlDPZlnltWZxjtgQ0xork6A36VTvoNVuiz_pIaAt7WhjnQFZIN5yWRMlTupZCIsrQTJeKjSdlbQffOHCWUbFGv5eYKar2J493nGBTKnqkZAUp-uHh8ce2NNBS8xF9MGcDelCwljfC-jrsLVVvZvCtBEbgUurL2PBwaCZhTsLuQu-ynsGI7Z_NDm2pypuyGrOf59bx-MxpcNsJdqQoJX2CX6o_3ZVq-F9VepmrH6yHut2fdAc17FdwUMOgDQcV7NXQraBXw2EF_Rp6FRzWMDTw-9x6z-fW95f0HyBP_PPVNRmaw6BFe7dp_3wgtujgNt2_TYfNYrfYwU122LCWba1BrDFNrehgna46fR2mkOGyUNbRtnCp-GzPiBWdrgSr3KRaOaFYb-q6Io__AqvsT0U=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -330,7 +330,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Warehouse Operator
+    subgraph lane_0["Warehouse Operator"]
         n1["fa:fa-user Confirm Pick Quantity and Pick Location"]
         n2["Transport Product to Staging Area (IP)"]
         n3["Pick Order Items (IP)"]
@@ -348,7 +348,7 @@ flowchart TD
     class n5 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAQ_StWVohWCmo-Cc2hEgRSrbrVbsW2eyg9GGcMFolNbWcXivjvtQkfC2VPzQFlHm_em5mMvXGIKMBJnVZrwzjTKdq09RwqaKeoPcUK2i5qgB9YMjwtQbUthwqux-zPjuZHy5WlWSzHFSvXFh3DTAD6fuuivkksXaQwVx0FktG2215KVmG5zkQppGXfQI96dOe2_2sgZAHyRPC8xCexSS0ZhxMcJlES5TZPARG8OBOlMe1R0t7a4krxQuZY6l35tYKvePXECj03McWlAsOZ66q8w1MobY9a1hYjtXw-DIMp68PNwMZLTBifGTzyDCQxX5yg2Ntu0bbVmvCjKXocTjgyDymxUkOgSGkDj541oqws05so6-ex5yotxQLSm2CUDMPAJbaT1LTuuXa4nRdgs7lOp6Is9tTOi-0hDZYrV67SwHPl2vxeeAEvTk5ZN-gFvaPTIPEzPzs4UUr_y8nMVT5itdh7jcI8yIdHLz_uxpn3r96hzWGU9P3LOYF8ZgReieZ5Ho5Ooxp1Y997W3SQh10vuxCdYQ0veH0S_JhFR8E8TnI_eVOw8bussp4-SEEOguEozuOjYDLw837wpmDU96PevkKjM5N4OUdPWMJcmHGi-yVIrIVsCPbh_s-JQ3FKccfOG2WCUyYr9MDIAn2rMddMrxHmRYPcCYI1E3zi_HqlERiNR7O3ainMeprii5popAUaazwze2xOLWD07vbh_XleaPJ2svf2eKJbDZW6QosM7QvTH8bwuwZO4OBwjRtvNod-7GXUmZqyyBzBipS1Ys_wuflaE2e7bbLMPjcvPEKdziejsA_D89BvwmAfxk34esMs57CzZ3BwPKBncHgdjq7D8WHRHNepQFaYFU66cXbXqblyC6C4LrWzdR1cazFec-Kku2vHqZeFyRwybLahasDtX8UFz4U=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVF1v2jAU_StWqiqbFLR8NiwPkyCQqVqndqLbHsY0GecaLBKb2U4LQ_z32YSPwujT8oByD-eec-_NtdcOESU4mXN9vWac6QytXT2DGtwMuROswPVQC3zDkuFJBcq1HCq4HrE_W1oQL5aWZrEC16xaWXQEUwHo662Heiax8pDCXHUUSEZdz11IVmO5ykUlpGVfQZf6dOu2-6svZAnySPD9NCCJSa0YhyMcpXEaFzZPARG8PBGlCe1S4m5scZV4JjMs9bb8RsFnvPzOSj0zMcWVAsOZ6bq6wxOobI9aNhYjjXzaD4Mp68PNwEYLTBifGjz2DSQxnx-hxN9s0Ob6eswPpuhxMObIPKTCSg2AIqUNPHzSiLKqyq7ivFckvqe0FHPIrsJhOohCj9hOMtO679nhdp6BTWc6m4iq3FE7z7aHLFwsPbnMQt-TK_N75gW8PDrlN2E37B6c-mmQB_neiVL6X05mrvIRq_nOaxgVYTE4eAXJTZL7_-rt2xzEaS84nxPIJ0bghWhRFNHwOKrhTRL4r4v2i-jGz89Ep1jDM14dBd_n8UGwSNIiSF8VbP3Oq2wmD1KQvWA0TIrkIJj2g6IXvioY94K4u6vQ6EwlXsxQhTn88n-Mne9YwkyYuaL7BUishRw7P1uyfXhgOBRnFHfs7FEuOGWyRg-MzNGXBnPN9AphXrbInSBYM8FPNUKj8Wh2WC2EWVXTSNkQjbRAI42nZqfNCQaM3tw-vD3Ni0zeVvbeHlV0q6FWF2ixoX1i-t0IfjfACewdLnGT9Xrfj72YOhNTFpkhWJKqUewJPrZfbuxsNm2W2e32hceo0_lgFHZhdBoGbRjuwqQNX26b5ez39wQOD4f1BI4uw_FlONkvneM5Ncgas9LJ1s72ajXXbwkUN5V2Np6DGy1GK06cbHsFOc2iNJkDhs1m1C24-Qva-tNo" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -547,6 +547,7 @@ Integration patterns identified from the system flow analysis for LO-160:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
@@ -674,6 +675,6 @@ Standard RAID items for LO-160 (Forecast to Stock (IP)):
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*LO-160 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IP) · Generated: March 2026*
+*LO-160 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IP) · Generated: April 2026*
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IP)</span></div>

@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Finance Plan To Report (FPR) Tower<br/>
   Capability OR-140 · OR Receivables Management</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 3</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -742,7 +784,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph AR Cash Applier
+    subgraph lane_0["AR Cash Applier"]
         n1["fa:fa-user Post Processing"]
         n2[["fa:fa-cog Import Electronic Bank Statement Files to SAP"]]
         n3[["fa:fa-cog Post Customer Payment"]]
@@ -775,7 +817,7 @@ flowchart TD
     class n10 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2PokgU_SsVOh1nE0wAQZSHnSjKxGRn0xl7drMZ56EsCq10QZGqolvX8b_vLQE_aPtpeVDuqXPPuXUpLgeLiJRakfX4eGAF0xE69PSW5rQXod4aK9qzUQ38hSXDa05Vz3AyUegl-_dEc_1yZ2gGS3DO-N6gS7oRFH1f2GgCidxGCheqr6hkWc_ulZLlWO5jwYU07Ac6ypzs5NYsTYVMqbwQHCd0SQCpnBX0Ag9CP_QTk6coEUV6I5oF2SgjvaMpjos3ssVSn8qvFP2Kd3-zVG8hzjBXFDhbnfM_8Jpys0ctK4ORSr62zWDK-BTQsGWJCSs2gPsOQBIXLxcocI5HdHx8XBVnU_Q8WxUILsKxUjOaIaUBnr9qlDHOowc_niSBYystxQuNHrx5OBt4NjE7iWDrjm2a23-jbLPV0VrwtKH238weIq_c2XIXeY4t9_Db8aJFenGKh97IG52dpqEbu3HrlGXZ_3KCvspnrF4ar_kg8ZLZ2csNhkHsvNdrtznzw4nb7ROVr4zQK9EkSQbzS6vmw8B1PhadJoOhE3dEN1jTN7y_CI5j_yyYBGHihh8K1n7dKqv1kxSkFRzMgyQ4C4ZTN5l4Hwr6E9cfNRWCzkbicosm31CMFfyXJWdU1qvmKtwfKyvDUYb7ptnoSSiNjDdVCo7fyvp5xfV-nMlEbNAiLwWcxTmnBGopGEFTOLhoqaEdOS00Shi830gLtJw8gdK11OBW6mQbV0qL3BSB9ya_k-JDRgyHCRPwnC7RM8U5EvJkeltn8OksXnJ4LlcVNtJNaQsYUQyqTdF6f7YHrd-uxIYXMVgv74l9o4SyV5p2MsNO5kKpigJZCf6ePDocLg1JaX8NQ4Bs3_UELStink1Wcb4_tY2mn1fW8XglNb4vtVBNBUsNxwp9L2RTSTffde4L0B3hlYKNfqnP-yUNJkJ9U3io3_8dHm8TDupw1IQjE_5aWX-KlfULjBo4qFleE7p1OG7CcZP0D1WnLL-lOTVv2BFvea7TEWhdW9yv88Orl8-Yt0PnBvauJ8fNyuDDleA8lW_gYTNAb8DwHjhqJ8sNOr6LQjca2LItODA5ZqkVHazTxxY-yCnNcMW1dbQtXGmx3BfEik4fJasqU8icMQyzIq_B438oRXhl" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P4jYU_StWRiNaKUhJSAjkoSsIpEJqq9Ey26paVivjOGCNE0e2MwNl-e-9JgkfGeZp84C4x-eec33jXB8sIlJqRdbj44EVTEfo0NNbmtNehHprrGjPRjXwN5YMrzlVPcPJRKGX7L8TzfXLnaEZLME543uDLulGUPRlYaMJJHIbKVyovqKSZT27V0qWY7mPBRfSsB_oKHOyk1uzNBUypfJCcJzQJQGkclbQCzwI_dBPTJ6iRBTpjWgWZKOM9I6mOC7eyBZLfSq_UvRPvPuHpXoLcYa5osDZ6pz_gdeUmz1qWRmMVPK1bQZTxqeAhi1LTFixAdx3AJK4eLlAgXM8ouPj46o4m6Ln2apA8BCOlZrRDCkN8PxVo4xxHj348SQJHFtpKV5o9ODNw9nAs4nZSQRbd2zT3P4bZZutjtaCpw21_2b2EHnlzpa7yHNsuYffjhct0otTPPRG3ujsNA3d2I1bpyzLfsoJ-iqfsXppvOaDxEtmZy83GAax816v3ebMDydut09UvjJCr0STJBnML62aDwPX-Vh0mgyGTtwR3WBN3_D-IjiO_bNgEoSJG34oWPt1q6zWT1KQVnAwD5LgLBhO3WTifSjoT1x_1FQIOhuJyy3iuKDfna8ra_IZxVht0aQsOaNyZX2rmeYpXCBkOMpw3zQePQmlkamDKgVH8ZbrfT2TidigRV4KOJdzTgnUVTCCpnCI0VJDa3JaaJQw-NaRFmg5eQKla6nBrdTJNq6UFrkpAu9NfifFh4wYDhYm4DldomeKcyTkyfS2zuCXs3jJ4R1dVdhIN6UtYFwxqDZF6_3ZHrR-vRIbXsRgvbwn9pkSyl5p2skMO5kLpSoKZCX4e_LocLg0JKX9NQwEsn3XE7SsiHk3WcX5_tQ2mn5aWcfjldT4vtRCNRUsNRwx9KWQTSXdfNe5L0B3hFcKNvp7ffYvaTAd6j-Fh_r93-D1NuGgDkdNODLhj5X1l1hZP8CogYOa5TWhW4fjJhw3Sf9SdcryW5pT84Yd8ZbnOh2B1rXF_To_vPoQjXk7gG5g73qK3KwMPlwJzhP6Bh42w_QGDO-Bo3bK3KDjuyh0o4Et24IDk2OWWtHBOl28cDmnNMMV19bRtnClxXJfECs6XVBWVaaQOWMY5kZeg8f_AXXdfEg=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — Process Receipts</span></div>
 
@@ -798,7 +840,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph AR Cash Analyst
+    subgraph lane_0["AR Cash Analyst"]
         n1["fa:fa-user Confirm Proposal"]
         n2["fa:fa-user Post to Unapplied"]
         n3[["fa:fa-cog Import Lockbox"]]
@@ -835,7 +877,7 @@ flowchart TD
     class n11 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P2jgU_StWRiO6UpDySZg8tGICWVVqq1Fpd7UqfTCOA9Y4dmQ7Ayzlv69NvgiFp80DcI_PPefeS3JztBDPsBVbj49HwoiKwXGktrjAoxiM1lDikQ1q4C8oCFxTLEeGk3OmluTfM80Nyr2hGSyFBaEHgy7xhmPw_aMNZjqR2kBCJscSC5KP7FEpSAHFIeGUC8N-wNPcyc9uzdEzFxkWPcFxIheFOpUShnvYj4IoSE2exIizbCCah_k0R6OTKY7yHdpCoc7lVxJ_hvu_Saa2Os4hlVhztqqgn-AaU9OjEpXBUCXe2mEQaXyYHtiyhIiwjcYDR0MCstceCp3TCZweH1esMwXf5isG9IUolHKOcyCVhhdvCuSE0vghSGZp6NhSCf6K4wdvEc19z0amk1i37thmuOMdJputitecZg11vDM9xF65t8U-9hxbHPTnlRdmWe-UTLypN-2cniM3cZPWKc_z_-Wk5yq-QfnaeC381EvnnZcbTsLE-V2vbXMeRDP3ek5YvBGEL0TTNPUX_agWk9B17os-p_7ESa5EN1DhHTz0gk9J0AmmYZS60V3B2u-6ymr9IjhqBf1FmIadYPTspjPvrmAwc4NpU6HW2QhYbsHsK0ig1N8M0oNU9am5mPtjZeUwzuHYDBsknOVEFEDbl1xCurJ-XpC9IfmFSwUUB98ZLEtKcDZk-z86OuIb8LEoub51P3H0uuZ7Tb3kBkNuQjEUQC8KXfkVM3zXMaXiZasHXuChwEyBrxhh8nau5Y-LtInO-sz1SuKir_c8lGHRkeZ1krq_66am-ryxADOEeKUtl0rfAMZcDrlPx2PfVIbHa_1go21XcT0QXcWyQghLmVeUHgBkWWP8YWWdTpd_lXNbD-8RraQu6M_6PrxOc_s0KATfyTGkCpRQQEox_S1JP971D-aD8fi9bqMJXbeO3TZuwubuZU8m_rWyvvCV9cvQGzyqeUGb5tRx2MTBHZl_sDzrRFf2XhN7dThpwmkd-hePkimxXSED2LsN-5frYXAS3D0Jm3U4ACfdPh7A0W14eht-avfKsCPnNuy2sGVbBRYFJJkVH63zu1a_jzOcw4oq62RbsFJ8eWDIis_vJKsqM505J1CviqIGT_8B3U5z9A==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P4jYU_StWRiNaKUj5JEweWmUCqVbarUbDblerpaqM44A1jh3ZzgBl-e-1yQeEhafygLjH555z78W5OViI59iKrcfHA2FExeAwUhtc4lEMRiso8cgGDfAXFASuKJYjwyk4Uwvy74nmBtXO0AyWwZLQvUEXeM0x-PLBBolOpDaQkMmxxIIUI3tUCVJCsU855cKwH_C0cIqTW3v0zEWOxZngOJGLQp1KCcNn2I-CKMhMnsSIs3wgWoTFtECjoymO8i3aQKFO5dcSf4K7ryRXGx0XkEqsORtV0o9whanpUYnaYKgW790wiDQ-TA9sUUFE2FrjgaMhAdnbGQqd4xEcHx-XrDcFn2dLBvQHUSjlDBdAKg3P3xUoCKXxQ5AmWejYUgn-huMHbx7NfM9GppNYt-7YZrjjLSbrjYpXnOYtdbw1PcRetbPFLvYcW-z195UXZvnZKZ14U2_aOz1HbuqmnVNRFP_LSc9VfIbyrfWa-5mXzXovN5yEqfOzXtfmLIgS93pOWLwThC9Esyzz5-dRzSeh69wXfc78iZNeia6hwlu4Pws-pUEvmIVR5kZ3BRu_6yrr1YvgqBP052EW9oLRs5sl3l3BIHGDaVuh1lkLWG0AhQz_43xfWskrSKHcgIRBupdqaf3dMM2HuZpQwLiAYzN4kHJWEFECXUrFJaRDsjckv3CpgOLgC4NVRQnOh2z_e09HfA0-lBXX1_gjR28rvtPUS24w5KYUQwH00gDJ6xUz_KVnSsWrTg-8wH2JmQKvGGHyfqrl14u0ic76xPV64uJc72kuw6IjzesldX_XTU31eWsBEoR4rS0XSl8GYy6H3KfD4dxUjscr_ZCjTV9xMxBdxaJGCEtZ1JTuAWR5a_z70joeL_8q57Ye3iFaS13QH82dvE5zz2lQCL6VY0gVqKCAlGL6U5J-1JsfzAfj8W-6jTZ03SZ2u7gN25vMnkz8Y2n9yZfWD0Nv8ajhBV2a08RhGwd3ZL5hedKJruy9NvaacNKG0yb0Lx4rU2K3Tgawdxv2L1fF4CS4exK2q3EATvrdPICj2_D0NvzU7ZhhR85t2O1gy7ZKLEpIcis-WKf3rn4357iANVXW0bZgrfhiz5AVn95PVl3lOnNGoF4bZQMe_wMnP3fX" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-323-or-140-040_receive_bill-of-exchange-or-140-040_receive_bill-of-exchange">BUSINESS ARCHITECTURE — 3.2.3 OR-140-040_Receive_Bill-of-Exchange — OR-140-040_Receive_Bill-of-Exchange</h4>
 <p><strong>Swim Lanes</strong>: AR Cash Analyst | <strong>Tasks</strong>: 3 | <strong>Gateways</strong>: 2</p>
@@ -851,7 +893,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph AR Cash Analyst
+    subgraph lane_0["AR Cash Analyst"]
         n1["fa:fa-user Validate the Terms and Conditions of the Bill-of-Exchange"]
         n2["fa:fa-user Initiate Payment Based on Bill-of-Exchange"]
         n3["fa:fa-user Correct the Term and Conditions of the Bill-of-Exchange"]
@@ -876,7 +918,7 @@ flowchart TD
     class n7 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVW1v2jAQ_itWqopNSqS8EpYPmyCQqdI2VaXrNI19MI4NVo2NbKeFUf77bJLw1labtnwA7vHd89wdvsvGQaLETuZcXm4opzoDm46e4wXuZKAzhQp3XFADd1BSOGVYdawPEVyP6a-dWxAvV9bNYgVcULa26BjPBAZfr1zQN4HMBQpy5SksKem4naWkCyjXuWBCWu8L3CM-2ak1RwMhSywPDr6fBigxoYxyfICjNE7jwsYpjAQvT0hJQnoEdbY2OSYe0RxKvUu_UvgzXH2jpZ4bm0CmsPGZ6wX7BKeY2Rq1rCyGKvnQNoMqq8NNw8ZLiCifGTz2DSQhvz9Aib_dgu3l5YTvRcHtcMKBeRCDSg0xAUobePSgAaGMZRdx3i8S31VainucXYSjdBiFLrKVZKZ037XN9R4xnc11NhWsbFy9R1tDFi5Xrlxloe_Ktfk808K8PCjl3bAX9vZKgzTIg7xVIoT8l5Lpq7yF6r7RGkVFWAz3WkHSTXL_OV9b5jBO-8F5n7B8oAgfkRZFEY0OrRp1k8B_nXRQRF0_PyOdQY0f4fpA-C6P94RFkhZB-iphrXeeZTW9lgK1hNEoKZI9YToIin74KmHcD-Jek6HhmUm4nIP-DcihMt8csrXS9al9ePBj4hCYEejZZoM7yGhpygFmSMEtlgsFIC9BbkaBaiq4AoLszgYmNU8Qb7QyN5LP8MT5ecQanrJemVVALes1XC8w12BgVkEJBP8DTXRKkwspMdL73P4ptfjNnnTJzJ9mG42VAlqAG4wwfXhO0B6UhuntEVVyoFJaLP86rrvZtHF2XXpTM_Bo3vbelALGFbJJkYp9mDjb7VFs-nIsXiFWKaP1sb6LhygzrfUPHgDPe2_UGzOuzWZCeFibSWN2rfk0cb5jNXGejG6Dp7Vb2JhRbaZnUV_ELig6utdWv53nEzh8GY5ehuP9qjuBk2YrnYDddjJP0LRFHddZmFsEaelkG2f3VjJvrhITWDHtbF0HVlqM1xw52W57O9XSjsaQQjNUixrc_gb4iTjR" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVW2P4jYQ_itWVitaKZHySrh8aAWBVCf1qtOxvVNVqso4Y7DW2Mh2dqEc_702SWDhdtWqzYeIeTzzPDODZ3LwiKzBK7z7-wMTzBToMDBr2MCgQIMl1jDwUQt8xorhJQc9cD5UCjNnf53conS7c24Oq_CG8b1D57CSgH5976OxDeQ-0ljoQINidOAPtoptsNqXkkvlvO9gREN6UuuOJlLVoC4OYZhHJLOhnAm4wEme5mnl4jQQKeorUprRESWDo0uOy2eyxsqc0m80fMC7L6w2a2tTzDVYn7XZ8J_xErir0ajGYaRRT30zmHY6wjZsvsWEiZXF09BCCovHC5SFxyM63t8vxFkUPUwXAtmHcKz1FCjSxsKzJ4Mo47y4S8txlYW-Nko-QnEXz_JpEvvEVVLY0kPfNTd4BrZam2Iped25Bs-uhiLe7ny1K-LQV3v7vtECUV-UymE8ikdnpUkelVHZK1FK_5eS7at6wPqx05olVVxNz1pRNszK8Fu-vsxpmo-j2z6BemIEXpBWVZXMLq2aDbMofJt0UiXDsLwhXWEDz3h_IXxXpmfCKsurKH-TsNW7zbJZflSS9ITJLKuyM2E-iapx_CZhOo7SUZeh5VkpvF0jjgX8Gf6-8MafUIn1Go0F5nttFt4frad7RGQdKC4oDlzj0WfMWW1LQ3Zg0QOojUZY1Ki0Y8EMk0IjSU9nE5tmIGkw29nbKVZwzRpfs763a4E51o94vwFh0MSuhRpJ8Q80yTVNKZUCYs65_afU0u_OpFtu_0DXdNAaGYk-AQH29C1Bf1Bbpu9fUGUXKm3k9l_HDQ-HPs6tzmBph5-s-97bUtC8IS4p2vAfF97x-CI2fz0WdoQ32mr91N7LS5Sd3PaHiFAQ_GDVOzNtzW5aRNyaWWcOnfl14f0GeuF9tbodnrducWcmrZnfRP0iT0HJizvu9PvZvoLj1-HkdTg9r70rOOs21BU47Kf0Cs171PO9jb1FmNVecfBOXyj7FauB4oYb7-h7uDFyvhfEK06b3Gu2bjSmDNsB27Tg8W8Cizy0" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — Process Receipts</span></div>
 
@@ -899,7 +941,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Accounts Receivable Analyst
+    subgraph lane_0["Accounts Receivable Analyst"]
         n1["fa:fa-user Create Down Payment Request (Noted Item)"]
         n2["fa:fa-user Clear the Down Payment Request with the Down Payment Received"]
         n3[["fa:fa-cog Replicate the Down Payment Request as Open (Noted Item)"]]
@@ -942,7 +984,7 @@ flowchart TD
     class n13 subProc
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluvmzgQ_isWR0dpJSJxDTk8rJSQsIq02x41bVerZh8cMIl1HJu1TS6b5r-vHSAEGroPywNivpn55mJ7zNlIWIqM0Hh-PmOKZQjOA7lFOzQIwWANBRqYoAS-Qo7hmiAx0DYZo3KJ_7ma2V5-1GYai-EOk5NGl2jDEPiyMMFEORITCEjFUCCOs4E5yDneQX6KGGFcWz-hcWZl12iVasp4inhjYFmBnfjKlWCKGtgNvMCLtZ9ACaNpizTzs3GWDC46OcIOyRZyeU2_EOh3ePwDp3Kr5AwSgZTNVu7Ib3CNiK5R8kJjScH3dTOw0HGoatgyhwmmG4V7loI4pG8N5FuXC7g8P6_oLSj4PFtRoJ6EQCFmKANCKni-lyDDhIRPXjSJfcsUkrM3FD4582DmOmaiKwlV6Zapmzs8ILzZynDNSFqZDg-6htDJjyY_ho5l8pN6d2IhmjaRopEzdsa3SNPAjuyojpRl2f-KpPrKP0PxVsWau7ETz26xbH_kR9aPfHWZMy-Y2N0-Ib7HCbojjePYnTetmo982-onncbuyIo6pBso0QGeGsKXyLsRxn4Q20EvYRmvm2WxfuUsqQnduR_7N8JgascTp5fQm9jeuMpQ8Ww4zLdgkiSsoFKATyhBeK8PHphQSE5Clpb6ofa3lZHBMIND3XgQcaQKAzN2oOAVnnaISuX_d4GEBO8-MIlSsJBo935l_HVH4nRICIIcqCP_mOeA5faRVmeJ0jaz--1GnbCNMsoJTnSGvexQgI85ot1s70m9Luk1cptujyGYT5cgxgR13P22-8-r7fiO2r6vTGU8-QQWdM_UFu0YB32Bej3GP2tX43Vrku5Oh-Ll3Y0iJ2qD192JCiHZTq1uq8qFGvhYBdDL9v5-W1kNjfLL_4MmYrucoAc09vncFJSi4VrNyWQLFgJgtdRtkmWCqLph2Mq4XO45nMcc6JiQQqicfi2PctftbutlaoYhPmS6ZfqQIiGaQn5YCTUryw_qguHwF7XfKtEvRbcSX0rRruaV-tDA95XxJxIr47sCuooPrMRrBrtk8CvRqQidWl0Bo0oelWJQiUEpjitxXHlbtbfbofNK2bkbXDqFemC3YOcx7N4P45bG69X4vZpRrybo1Yx7NS-3C7VdoFVdfm3Urm-ANuw8ht16vBumofbMDuLUCM_G9a9I_TmlKIMFkcbFNGAh2fJEEyO8_j0YRZ4qwhmGaqjvSvDyLz2L_SA=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm2PozYQ_isWq1XuJCLxGrJ8qJQloVqpva4u1ztVl6pyYEisdWyKTV6ay3-vHSAJXLh-KB8Q88zMMy-2xxyNhKdghMbj45EwIkN0HMg1bGAQosESCxiYqAI-44LgJQUx0DYZZ3JO_jmb2V6-12Yai_GG0ING57DigH5_MdFEOVITCczEUEBBsoE5yAuywcUh4pQX2voBxpmVnaPVqmdepFBcDSwrsBNfuVLC4Aq7gRd4sfYTkHCWtkgzPxtnyeCkk6N8l6xxIc_plwJ-xfsvJJVrJWeYClA2a7mhv-AlUF2jLEqNJWWxbZpBhI7DVMPmOU4IWyncsxRUYPZ2hXzrdEKnx8cFuwRFn6YLhtSTUCzEFDIkpIJnW4kyQmn44EWT2LdMIQv-BuGDMwumrmMmupJQlW6ZurnDHZDVWoZLTtPadLjTNYROvjeLfehYZnFQ704sYOk1UjRyxs74Euk5sCM7aiJlWfa_Iqm-Fp-weKtjzdzYiaeXWLY_8iPre76mzKkXTOxun6DYkgRuSOM4dmfXVs1Gvm31kz7H7siKOqQrLGGHD1fCp8i7EMZ-ENtBL2EVr5tluXwteNIQujM_9i-EwbMdT5xeQm9ie-M6Q8WzKnC-RhQz-Mv6ujAmScJLJgX6CAmQrT6BaMIwPQi5MP6svPTDbGWc4TDDQ70IKCpAFYmmfMfQKz5sgElF8XcJQqJ3H7iEFL1I2LxvkzgdEgq4QOr43-fZEbm-p9WJQtpmdr9eqBO-UkY5JYnOsJcdC_RbDqyb7S2p1yU9R27TbQlGs-c5igmFjrvfdv9xtR3fUdv3lauMJx_RC9tytV07xkFfoF6P8Y_adfW6NEl3p0Px9O5CkVO12ZvuRKWQfKNWt1Xlixr-RAXQy_b-dltZVxrll_8HTcQ3OYU7NPbxeC0oheFSzcxkjV4EImqp2yTzBJi6bfjCOJ1uOZz7HLBPaClUTj9Xx7rrdrP1MjXPoBhy3TJ9YEGIayHfrYSam9UHc9Fw-JPab7XoV6Jbi0-VaNezS31o4NvC-APEwvimgK7iA6_whsGuGPxadGpCp1HXwKiWR5UY1GJQieNaHNfeVuPtdui8SnZuhphOoRneLdi5D7u3g7ml8Xo1fq9m1KsJejXjXs3T5XJtF2jVF2EbtZvboA0792G3GfWGaag9s8EkNcKjcf5DUn9RKWS4pNI4mQYuJZ8fWGKE5z8Jo8xTRTglWA34TQWe_gUEsAES" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-325-or-140-060_deposit_funds-or-140-060_deposit_funds">BUSINESS ARCHITECTURE — 3.2.5 OR-140-060_Deposit_Funds — OR-140-060_Deposit_Funds</h4>
 <p><strong>Swim Lanes</strong>: AR Cash Analyst | <strong>Tasks</strong>: 2 | <strong>Gateways</strong>: 0</p>
@@ -958,7 +1000,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph AR Cash Analyst
+    subgraph lane_0["AR Cash Analyst"]
         n1["fa:fa-user Analyze Deposited Funds and Bank Statements"]
         n2["fa:fa-user Display the Customer Details"]
         n3(["fa:fa-play Request Initiated to Deposit Funds"])
@@ -973,7 +1015,7 @@ flowchart TD
     class n4 endEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuOmzAU_RWLUUQrEYlnSFlUSiBIlVqpmkzbRdOFA3ZijbGpbSbJRPn32oFAknZWZQH4-N5z7j1-HK2Cl8hKrNHoSBhRCTjaaosqZCfAXkOJbAe0wHcoCFxTJG0TgzlTS_J6DvPCem_CDJbDitCDQZdowxH49skBM51IHSAhk2OJBMG2Y9eCVFAcUk65MNEPaIpdfFbrpuZclEgMAa4be0WkUylhaICDOIzD3ORJVHBW3pDiCE9xYZ9McZTvii0U6lx-I9EXuP9BSrXVYwypRDpmqyr6Ga4RNT0q0RisaMTLxQwijQ7Thi1rWBC20XjoakhA9jxAkXs6gdNotGK9KHjKVgzop6BQygxhIJWGFy8KYEJp8hCmszxyHakEf0bJg7-Is8B3CtNJolt3HWPueIfIZquSNadlFzremR4Sv947Yp_4riMO-n2nhVg5KKUTf-pPe6V57KVeelHCGP-XkvZVPEH53GktgtzPs17LiyZR6v7Nd2kzC-OZd-8TEi-kQFekeZ4Hi8GqxSTy3LdJ53kwcdM70g1UaAcPA-GHNOwJ8yjOvfhNwlbvvspm_VXw4kIYLKI86gnjuZfP_DcJw5kXTrsKNc9GwHoLZo8ghVJ_GaQHqdpZ8zDv58rCMMFwbMxuA14RyFDNJVGoBHnDSgkgK8Fcb0uwVLrZCjElV9avKx7_licjsqbaEn3WQdpIxSsDIgUJvUsM3vWZ54xH9LtBUoFP-vog0FSg-KWcthid__6KIBwItE7dFdw3METrfdv-sACMxx91zd3Qb4fdXmFeOwyvFsWAl814A_v_hoP-QN7AYXd2LMfSflSQlFZytM73ob4zS4RhQ5V1cizYKL48sMJKzveG1dSltiIjUC9n1YKnPx4-vTY=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViitFKR8EppDJUiItFIrVcu2PZSqMokN1jp2ajsLLOK_1yYhWWj31BwiPMybeW9i-2gVvERWYo1GR8KISsDRVltUITsB9hpKZDugBb5BQeCaImkbDuZMLcnLmeaF9d7QDJbDitCDQZdowxH4eu-AmS6kDpCQybFEgmDbsWtBKigOKadcGPYdmmIXn926v-ZclEgMBNeNvSLSpZQwNMBBHMZhbuokKjgrr0RxhKe4sE-mOcp3xRYKdW6_kegz3H8npdrqNYZUIs3Zqop-gmtEzYxKNAYrGvF8CYNI48N0YMsaFoRtNB66GhKQPQ1Q5J5O4DQarVhvCh6zFQP6KSiUMkMYSKXhxbMCmFCa3IXpLI9cRyrBn1By5y_iLPCdwkyS6NFdx4Q73iGy2apkzWnZUcc7M0Pi13tH7BPfdcRBv2-8ECsHp3TiT_1p7zSPvdRLL04Y4_9y0rmKRyifOq9FkPt51nt50SRK3b_1LmNmYTzzbnNC4pkU6JVonufBYohqMYk8923ReR5M3PRGdAMV2sHDIPghDXvBPIpzL35TsPW77bJZfxG8uAgGiyiPesF47uUz_03BcOaF065DrbMRsN4CChn65f5YWbMHkEK5BTMG6UGqlfWzZZqHeZqAYYLh2ATfcl4QyFDNJVGoBHnDSgkgK8Fcb1GwVHrwCjElr3X8a52MyJrqePS5B2kjFa8MiBQk9KYweNdXnise0O8GSQXu9VVCoOlA8Us7bTO6_v0rgXAQ0D5113A_wMDWe7j9wQIwHn_UPXdLv112-4Z57TJ89YEMeNmYV7D_bzjoD-cVHHbnyHIsnUcFSWklR-t8N-r7s0QYNlRZJ8eCjeLLAyus5HyHWE1d6igyAvWnrVrw9Ac8BcEZ" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — Process Receipts</span></div>
 
@@ -996,7 +1038,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph AR Cash Analyst
+    subgraph lane_0["AR Cash Analyst"]
         n1[["fa:fa-cog Calculate the Proposed Discount Amount Based on Defined Criteria"]]
         n2[["fa:fa-cog Identify the Payment Terms"]]
         n3[["fa:fa-cog Apply No Discount while Cash Application"]]
@@ -1021,7 +1063,7 @@ flowchart TD
     class n7 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2v4jYQ_StWrq5opSDlk9A8tIJAqit1V6u9t62qZR-M4xDrOnZqO0DK8t87IYEAXZ6aB8KcmTlnZpJxDhaRGbVi6_n5wAQzMTqMTEFLOorRaI01HdmoA_7AiuE1p3rUxuRSmFf2zynMDap9G9ZiKS4Zb1r0lW4kRb-_2GgGidxGGgs91lSxfGSPKsVKrJpEcqna6Cc6zZ38pNa75lJlVA0BjhO5JIRUzgQdYD8KoiBt8zQlUmQ3pHmYT3MyOrbFcbkjBVbmVH6t6Qe8_5NlpgA7x1xTiClMyX_Da8rbHo2qW4zUanseBtOtjoCBvVaYMLEBPHAAUli8D1DoHI_o-Py8EhdR9LZYCQQX4VjrBc2RNgAvtwbljPP4KUhmaejY2ij5TuMnbxktfM8mbScxtO7Y7XDHO8o2hYnXkmd96HjX9hB71d5W-9hzbNXA750WFdmglEy8qTe9KM0jN3GTs1Ke5_9LCeaq3rB-77WWfuqli4uWG07CxPkv37nNRRDN3Ps5UbVlhF6RpmnqL4dRLSeh6zwmnaf-xEnuSDfY0B1uBsKfkuBCmIZR6kYPCTu9-yrr9SclyZnQX4ZpeCGM5m468x4SBjM3mPYVAs9G4apAs88owRruAvNGm87bXsL98mVl5TjO8ZjIDURxUnPoB8GWIiiikppmaME0kbUwaFaebnPcolIgqBb2J0OJYgZ2Ea-sr1-v2L1b9peMCsPypiPHTQkmeqOq1Hd5_m3erKp4gz7KoY5dwTjtewInI9gwKe5Ygh8uLBWH5_OZ_l1TbZCRaLnFvG7bvDC-wHHFAMmA5McrknAg0UZWQ8KZ4j5hcjgMtWd0vIZ1JsVNu2jHTDEwfcIKlxTm98vKOh6vqKLvU9E94bVmW_pr9-INWbCa3R_hofH4ZyimN4PO9HrT7cyoNyet-W1l_UXhQXwDd49HXVjYm_73sz7KU5J_9RK3ClerduPxHnr8h57gcsDdwGF_Ft2Ak_M-3qDRGbVsq4RHgFlmxQfr9C2C71VGc1xzYx1tC9dGvjaCWPHpzLbqKoPMBcOwSmUHHv8FdBc3GQ==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllW2P4jYQx7-KldWKVgpSHgnNi1YQSLVS73S63baqjqoyiUOsdezUdoCU47t3TAIBerxqXkDm75nfzDgZ52BlIidWbD0_HyinOkaHkS5JRUYxGq2xIiMbdcJvWFK8ZkSNjE8huH6l_5zc3KDeGzejpbiirDXqK9kIgn59sdEMApmNFOZqrIikxcge1ZJWWLaJYEIa7ycyLZzilK1fmguZEzk4OE7kZiGEMsrJIPtREAWpiVMkEzy_gRZhMS2y0dEUx8QuK7HUp_IbRT7g_e801yXYBWaKgE-pK_YLXhNmetSyMVrWyO15M6gyeThs2GuNM8o3oAcOSBLz90EKneMRHZ-fV_ySFL0tVhzBlTGs1IIUSGmQl1uNCspY_BQkszR0bKWleCfxk7eMFr5nZ6aTGFp3bLO54x2hm1LHa8Hy3nW8Mz3EXr235T72HFu28HuXi_B8yJRMvKk3vWSaR27iJudMRVH8r0ywr_INq_c-19JPvXRxyeWGkzBx_ss7t7kIopl7v09EbmlGrqBpmvrLYauWk9B1HkPnqT9xkjvoBmuyw-0A_CEJLsA0jFI3egjs8t1X2aw_SZGdgf4yTMMLMJq76cx7CAxmbjDtKwTORuK6RAxz8pfzZWXNPqMEqxLNOGat0ivrz87TXNz9Ah4Fjgs8zsQGHFnWMOgNwcQiKKgWiuRoQVUmGq7RrDr9zbFRBUdQOcxSjhJJNcwlBvg13bulv-SEa1q0HRy3FZjojchK3cX5t3GzumYt-iiGOnYlZaRvCxZphjUV_I4SfHeh1Aye1Wfyd0OURlqg5RazxrR5Ib7A0UVByQHy_RUkHCBKi3oIOCPuAyaHw1B7TsZrGO2svGkX7aguB9InLHFFYP9-WlnH4xUq-jaK7DPWKLolP3cv4RAFY9rdcA-Nxz9CMb0ZdKbXm25nRr05MebXlfUHgQfxFZZ7Percwt70vx31UZyC_KsX2mS4GrubFe_hiv9wJbgcdjdy2J9LN-LkPJs3anRWLduq4BFgmlvxwTp9l-DblZMCN0xbR9vCjRavLc-s-HR-W02dQ-SCYhirqhOP_wJXLDr8" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-327-or-140-080_manage_bill-of-exchange-or-140-080_manage_bill-of-exchange">BUSINESS ARCHITECTURE — 3.2.7 OR-140-080_Manage_Bill-of-Exchange — OR-140-080_Manage_Bill-of-Exchange</h4>
 <p><strong>Swim Lanes</strong>: AR Cash Analyst | <strong>Tasks</strong>: 5 | <strong>Gateways</strong>: 0</p>
@@ -1037,7 +1079,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph AR Cash Analyst
+    subgraph lane_0["AR Cash Analyst"]
         n1["fa:fa-user Enter BOE Payment"]
         n2["fa:fa-user Make BOE Payment"]
         n3["fa:fa-user Display BOE List"]
@@ -1061,7 +1103,7 @@ flowchart TD
     class n7 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV1v2jAU_StWqopNClI-CcvDJAiJVKnTqrbbHtY9mOQarDo2sg2FIf77bBKgofC0PATu8bnn-F75OlunFBU4qXN7u6Wc6hRte3oONfRS1JtiBT0XNcBPLCmeMlA9yyGC6yf6d0_zo8Xa0ixW4JqyjUWfYCYA_bhz0cgkMhcpzFVfgaSk5_YWktZYbjLBhLTsGxgSj-zd2qWxkBXIE8HzEr-MTSqjHE5wmERJVNg8BaXgVUeUxGRIyt7Obo6Jt3KOpd5vf6ngG17_opWem5hgpsBw5rpm93gKzNao5dJi5VKuDs2gyvpw07CnBS4pnxk88gwkMX89QbG326Hd7e0LP5qi58kLR-YpGVZqAgQpbeB8pRGhjKU3UTYqYs9VWopXSG-CPJmEgVvaSlJTuufa5vbfgM7mOp0KVrXU_putIQ0Wa1eu08Bz5ca8z7yAVyenbBAMg-HRaZz4mZ8dnAgh_-Vk-iqfsXptvfKwCIrJ0cuPB3HmfdQ7lDmJkpF_3ieQK1rCO9GiKML81Kp8EPveddFxEQ687Ex0hjW84c1J8EsWHQWLOCn85Kpg43e-y-X0QYryIBjmcREfBZOxX4yCq4LRyI-G7Q6NzkzixRyNHlGGlfnlmG2Ublbtw_3fLw7BKcF922yUc23e4-85esCbGrh-cf68Ywdd9jf8CtfJYZc8oWrBTJcs_56qM3LUJT_CCqQy4qYDho2nlFG96abE3ZQHoTS646WozdwcdoSIkChbKi1qkN30wadjvlle7K36gvTztZkxPgNTHcczqEzW53dpicl6hBLoCj6kHA3MiDR_uI_6_a-mcW0YNWHYhkkTtqeUh004aMOgCeM2jJswendYrP5hSDpwcBkOL8PRZTi-DA_aG6ADJscryHEd0-sa08pJt87-sjcfhAoIXjLt7FwHL7V42vDSSfeXorNcVGaAJhSbs1o34O4fiyj8VA==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV1v2jAU_StWKsQmBSmfhOVhEoREqtRqVdttD2OaTHINVh0b2YbCKv77bBKgoe3T8hBxT849594rX_PilKICJ3V6vRfKqU7RS18voYZ-ivpzrKDvogb4gSXFcwaqbzlEcP1A_x5ofrTaWprFClxTtrPoAywEoO_XLhqbROYihbkaKJCU9N3-StIay10mmJCWfQUj4pGDW_tpImQF8kzwvMQvY5PKKIczHCZREhU2T0EpeNURJTEZkbK_t8Ux8VwusdSH8tcKbvH2J6300sQEMwWGs9Q1u8FzYLZHLdcWK9dycxwGVdaHm4E9rHBJ-cLgkWcgifnTGYq9_R7te70ZP5mix-mMI_OUDCs1BYKUNnC-0YhQxtKrKBsXsecqLcUTpFdBnkzDwC1tJ6lp3XPtcAfPQBdLnc4Fq1rq4Nn2kAarrSu3aeC5cmfeF17Aq7NTNgxGwejkNEn8zM-OToSQ_3Iyc5WPWD21XnlYBMX05OXHwzjz3uod25xGydi_nBPIDS3hlWhRFGF-HlU-jH3vY9FJEQ697EJ0gTU8491Z8EsWnQSLOCn85EPBxu-yyvX8ToryKBjmcRGfBJOJX4yDDwWjsR-N2gqNzkLi1RIxzOGP92vmjO9RhtUSjTlmO6Vnzu-GaR_uGwLBKcEDO3iUc23ek285usO7GvgFO-iyb_ETfEwOu-QpVStmJmb5N_SyjqhLvocNSGXEzTQMG88po3rXTYm7KXdCaXTNS1GbHTpWhIiQKFsrLWqQ3fThp1O--bw6WA0EGeRbs298AaY7jhdQmazPr9ISk3UPJdANvEk5GZh1aX5wHw0GX83g2jBqwrANkyZsTywPm3DYhkETxm0YN2H06uBY_ePCdODgfTh8H47eh-P34WF7G3TA5HQdOa5jZl1jWjnpi3O4-M2fQwUEr5l29q6D11o87HjppIcL0lmvKrNMU4rNua0bcP8PBCIARg==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — Process Receipts</span></div>
 
@@ -1084,7 +1126,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph AR Cash Analyst
+    subgraph lane_0["AR Cash Analyst"]
         n1["fa:fa-user Receive Payment via EBS or Manual Cash application"]
         n2["fa:fa-user Post Residual Payment"]
         n3["fa:fa-user Post with Reason Code"]
@@ -1151,7 +1193,7 @@ flowchart TD
     class n20 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV11v6kYQ_SsrX0W0Eqi2sTHhoRUxuEJKbiNIe1Vd-rCxx7DKsuvumiSUy3_vLNgGO0bqBw8Je2bOmZnjtb3srVgmYI2sm5s9EywfkX0nX8MGOiPSeaYaOl1yAn6jitFnDrpjclIp8gX765jmeNm7STNYRDeM7wy6gJUE8uusS8ZI5F2iqdA9DYqlnW4nU2xD1S6UXCqT_QmGqZ0eqxWhO6kSUOcE2w6c2EcqZwLOcD_wAi8yPA2xFElNNPXTYRp3DqY5Lt_iNVX5sf2thgf6_oUl-RrXKeUaMGedb_g9fQZuZszV1mDxVr2WZjBt6gg0bJHRmIkV4p6NkKLi5Qz59uFADjc3S1EVJU-TpSD4iTnVegIp0TnC09ecpIzz0ScvHEe-3dW5ki8w-uROg0nf7cZmkhGObneNub03YKt1PnqWPClSe29mhpGbvXfV-8i1u2qHfxu1QCTnSuHAHbrDqtJd4IROWFZK0_R_VUJf1RPVL0WtaT9yo0lVy_EHfmh_1CvHnHjB2Gn6BOqVxXAhGkVRf3q2ajrwHfu66F3UH9hhQ3RFc3iju7PgbehVgpEfRE5wVfBUr9nl9vlRybgU7E_9yK8EgzsnGrtXBb2x4w2LDlFnpWi2JuM5CanG_4Lync5PUfMRztelldJRSnvGbDKHGNgrkEe624DIySujZHq3IFKRByq2lJ90aJZxFtOcSbG0_riQc-tyj1LnqKlZYqiFaJ3Rb2G8sXyNNKqlICHeH3WG97WixHJFQgXoP5mJV4lXluRrJberNVlMiPEQtDbNRzPUuBTx6yJPEK8FTsT5joQcqKr0mCCzxx9mEVmgcbBpyAzqMnM4-QIF50IkjGafiW7TCBrzHMv_kgEWxmTdyB7WsydMZxz33lQpHLOH6zQFBcI4ISW5p2plvp1UG1K3rUZScSoebnUuN3hJ7vEJeWylQXfsf3Qh7uazhybTaRu5IGrjVjQLx9hJcuEovjbwob8xZuI80Ww8b6q631WqR0_m8OcWcDth-nFbVROVu3uGryiG2gkqfX-p1D8rISW7Qg_lJuPQQvf2-_N4CfSe8Yker0m4hviFsLQSYPq41XHeJ8nBJMFPS-twuNTy27Uu7g4iABJIzDYXMv8gMGgXgPeYbzXe6z-fnl5NWtBOm-HlyckXxfCKyDQt-zApHyoP_1vl2zON4q5-0z3Kc5JRhXcn8HaSa_87Er7DTl9w15Be70dTtgC807p8GYlBES_zi6VXro_535bWZ7m0vuH9WeDDIs8v1v1iPWjyfgd9JJ4jRcWgWAcFs1-si4bLfm-bwn69IafsyAkaFUtBp-jVbSZ-UPCbPZc9-ieFqoeiKa-xdkpTHbsAKludhu1ukeFfvBuN--WZoAa77XC_HfYujwG1iH81MrgaCa5Ghlcjt1cjaMzVkHM95FYnwDreL05rddQrjyx12G-HB-1w0A4P2-HbVhgvcgFbXQsfrRvKEmu0t44_EfBnRAIp3fLcOnQtus3lYidia3Q8SlvbLEHmhFE84WxO4OFvMT3oaw==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21v4kYQ_isrnyJaCVTb2JjwoRUxuELK3UUh7ak6qmpjj_Eqy667a5LQHP-9s2Ab7BipL3xAzDPzPPOya-_yZsUyAWtiXV29McGKCXnrFRlsoDchvUeqodcnR-BXqhh95KB7JiaVoliyvw5hjpe_mjCDRXTD-M6gS1hLIL8s-mSKRN4nmgo90KBY2uv3csU2VO1CyaUy0R9gnNrpIVvpupEqAXUKsO3AiX2kcibgBA8DL_Aiw9MQS5E0RFM_Hadxb2-K4_IlzqgqDuVvNXykr19YUmRop5RrwJis2PBb-gjc9FiorcHirXquhsG0ySNwYMucxkysEfdshBQVTyfIt_d7sr-6Wok6KXmYrQTBT8yp1jNIiS4Qnj8XJGWcTz544TTy7b4ulHyCyQd3HsyGbj82nUywdbtvhjt4AbbOismj5EkZOngxPUzc_LWvXieu3Vc7_G7lApGcMoUjd-yO60w3gRM6YZUpTdP_lQnnqh6ofipzzYeRG83qXI4_8kP7vV7V5swLpk57TqCeWQxnolEUDeenUc1HvmNfFr2JhiM7bImuaQEvdHcSvA69WjDyg8gJLgoe87Wr3D7eKRlXgsO5H_m1YHDjRFP3oqA3dbxxWSHqrBXNM8KpgD_srytrek9CqjMyFZTvdLGyfj9Gmo9wMCClk5QOzODJPcTAnoHc0d0GREGeGSXzmyWRinykYkv5UYrmOWcxLZgUTTm3KXcndYGamiWGWoo2GcMOxgsrMqRRLQUJ8VlpMryvNSWWaxIqwLUgC_EscZVJkSm5XWdkOSNmnqC1KT5aoMa5iN8UeYA4E9gR5zsScqCq1mOCLO5-WERkibODTUtm1JS5h-NcoOSciYTR4hPRXRpBq59D-s85YGIM1q3ocTN6xnTOcR_OlcI2B2inKSgQZhJSkluq1ubXUbUldd05SCqOycOtLuQGl-QW35aHUlp0x_5HC3Fzv_jYZjpdLZdEbaYVLcIpVpKcTRSPEDwANmaY2E-0mN63Vd3vatXDTO7hzy3gdsLww7aqO6p29wKPK4baCSp9f640PCkhJb9AD-Um59BB997eTu0lMHjEt3uckTCD-ImwtBZg-rDVsd8HycEEwU8ra78_1_K7tc6eDiIAEkjMNheyeCcw6haA15hvNT7rPx_fZG1a0E1b4PIU5ItiuCIyTas6TMi7zOP_lvn6RKO4q1_0gPKC5FTh0wm8m-Ta_46E59nxB-4aMhj8aNKWgHe0q4NJjEp_FV-aXmUf4r-trE9yZX3D57PEx2WcX9rD0h61eb-BPhBPnjJjUNpByRyWdllwVe91W9hvFuRUFTlBK2Ml6JS1uu3Adwp-u-aqRv-oUNdQFuW1bKcaqmOXQD1WpzV2t4zwz85JM_3qftCA3W542A1751eChse_6Bld9AQXPeOLnuuLHhzMRZdz2eXWt8EmPixvbk3Uq64vTdjvhkfdcNANj7vh604YF7mErb6Fr9YNZYk1ebMOfxfwL0UCKd3ywtr3Lbot5HInYmtyuFZb2zxB5oxRvO1sjuD-b89y7E4=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — Process Receipts</span></div>
 
@@ -1174,7 +1216,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph AR Cash Applier
+    subgraph lane_0["AR Cash Applier"]
         n1["fa:fa-user Manually Match Incoming Payments in EBS with Invoices"]
         n2["fa:fa-user Check Mulesoft/ SAP Batch Jobs Error logs to Resolve the Error"]
         n3["fa:fa-user Manually Match Incoming Payments in Lockbox with Invoices"]
@@ -1251,7 +1293,7 @@ flowchart TD
     class n23 subProc
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21v6jYU_itWrio2CbS8EuDDJgpk6nR7V5V203S7D8ZxwKqxI8ehZb389x2TF0gapq3jQ0sen-c55zw5ccybRWRMrYl1dfXGBNMT9NbTG7qlvQnqrXBGe31UAL9hxfCK06xnYhIp9JL9dQxz_PTVhBkswlvG9wZd0rWk6PGmj6ZA5H2UYZENMqpY0uv3UsW2WO1nkktloj_RUWInx2zl0rVUMVWnANsOHRIAlTNBT7AX-qEfGV5GiRRxQzQJklFCegdTHJcvZIOVPpafZ_QWv_7OYr2B6wTzjELMRm_5Z7yi3PSoVW4wkqtdZQbLTB4Bhi1TTJhYA-7bACksnk9QYB8O6HB19STqpOhh_iQQfAjHWTanCco0wIudRgnjfPLJn02jwO5nWslnOvnkLsK55_aJ6WQCrdt9Y-7ghbL1Rk9Wksdl6ODF9DBx09e-ep24dl_t4W8rFxXxKdNs6I7cUZ3pOnRmzqzKlCTJ_8oEvqoHnD2XuRZe5EbzOpcTDIOZ_V6vanPuh1On7RNVO0bomWgURd7iZNViGDj2ZdHryBvas5boGmv6gvcnwfHMrwWjIIyc8KJgka9dZb66U5JUgt4iiIJaMLx2oql7UdCfOv6orBB01gqnGzS9RzOcwf805YyqYtV8hPP1yUrwJMEDYza6xSLHnO_hiyYbdCOI3MIYoju831KhM8QEWlwv0QvTZnUnwczsyfrzTNFtKs42lDyj2xwedZnoH9Byeoeuj-K_yFWGFkpJhbhcZ0hLdA9BfEcRbBHFSlPa--_FfpbkeSVf_6lg_2stS-QazaTYUXjGShU0jc3EABfqe6DblMPdBoFzhaCpcCvLFuZYYygCiNB1izNsch7TGHSP7jQTt2ghsApLH28gEpr6Tw6OvquzQiP7dpNm6miW0RhY35_RxsC6lbChQ6ZHgY9TFB9Hqinv2BC42GLG0RepWcII1kyKwv17mkrwVSZlyZ9NyQ-KrddUgdod7OUyBgbc0ZaqGdJ7SiiDxhacEhh9wUhVfCvYfXs7GRvTwQq2U5iOav7RMiemxyTnPz1Zh8M51eumtkwqK4kRTjRMITwO74T8biH6SnieAffnYsdo04KP0YbdtKPLGYpkLuJ3FYYf4Iw-Vt64m1Y9mbWdCcyEGdtfUyrQjabbdgGu_a_uTz3EaMcwKqYRCxgwmD787qa7zoe6cs_GDINpL9kAc41SrGB-Kb9A8k4PfQLvQqoG0jRbzfaUEDBeo6UG-nELOz398NYtvogRGgx-NG6U135x7QzLa8c1wLcn6w-z030zc1WtlKF-O_KLLAK9asFrLYzbC7V2pRUU0lURw7KosCKW13UpJeC6FVAK1JmGrRJG7YW6hMoIJ2xSTtphi1IvVF6W5wQRlmXWDtkFULcxblXVxqsMlZNeq2_XvmSgWzpSR7ZKq5lfJBqU7z4UMQ6vGSXTpkdulbZq1K3UvLOjhrkr1RGrAbvdsNcN--enqsZKcHFleHFlVJ9lG_C4G4b70407F3C3Oq01Ya8b9rvhoBsedsNhNzzqhsedMNz8Ttjphru7hKkoT5ZW39pSBTtjbE3erOMPMvjRFtME51xbh76Fcy2Xe0GsyfGHi5UfjydzhuE8uS3Aw9_pXVyT" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21v8jYU_StWqopNAi2vBPiwiQKZOrVdVdpN08M0mcQBq8aOHIeW8fDfd01eIGmY9nR8qJrje8699-TamL0RiogYI-P6ek85VSO076g12ZDOCHWWOCWdLsqB37CkeMlI2tExseBqTv8-hllu8q7DNBbgDWU7jc7JShD0cttFYyCyLkoxT3spkTTudDuJpBssdxPBhNTRV2QQm_ExW7F0I2RE5CnANH0r9IDKKCcn2PFd3w00LyWh4FFNNPbiQRx2Dro4Jt7CNZbqWH6Wknv8_juN1BqeY8xSAjFrtWF3eEmY7lHJTGNhJrelGTTVeTgYNk9wSPkKcNcESGL-eoI883BAh-vrBa-SoufpgiP4hAyn6ZTEKFUAz7YKxZSx0ZU7GQee2U2VFK9kdGXP_Kljd0PdyQhaN7va3N4boau1Gi0Fi4rQ3pvuYWQn7135PrLNrtzB30YuwqNTpknfHtiDKtONb02sSZkpjuP_lQl8lc84fS1yzZzADqZVLsvrexPzo17Z5tT1x1bTJyK3NCRnokEQOLOTVbO-Z5mXRW8Cp29OGqIrrMgb3p0EhxO3Egw8P7D8i4J5vmaV2fJRirAUdGZe4FWC_o0VjO2Lgu7YcgdFhaCzkjhZI4Y5-cv8sjDGT2iC0zUaJwmjRC6MP_NI_eEWBMR4FOOeNh7dY55hxnbwjwrX6JaHYgMjiR7xbkO4ShHlaHYzR29U6dWtAGPTuqJdV5ysSfiK7jPY9iJWP6D5-BHdHMV_EcsUzaQUEjGxSpES6AmC2JYgOC7ylbq08-3F3onwdSne_61g90slG4oVmgi-JbDfChU0jvT0ABfqeyabhMGbB4FzBa-ucC-KFqZYYSgCiNB1g9Ovc16SCHSP7tQTN2g-sHJLX24hEpr6JgcH31VZoZFds0k9gSRNSQSs789oQ2DdCzjcIdMLx8dBio5T1ZgmPW-zDaYMPQhFYxpiRQXP3X8iiQBfRVyUfKdLfpZ0tSIS1B7hXBcRMOCNNlT1kD6RkFBobMZICNuA07AsvhFs7_cnYyPSW8LRCtNRbgE0z0LdY5yxnxbG4XBOddqpDZOKSiKEYwVTCNvhg5DbLkTeQ5alwP05Pz2aNO9ztH477ehyigKR8ehDhf4nOIPPlTdsp5U7s7IzhpnQY_trQji6VWTTLMA2_9P7qYYYbSlG-TRiDgMG04c_vHTb-lRX9tmYYTDtLe1hplCCJcwvYRdIzmnTx_C9SGRP6GbL2R6HIRiv0FwB_XiEnXY_fAPn__AB6vV-1G4Uz27-bPWLZ8vWwNeF8Yc-6b7quSpXilC3Gfkg8kCnXHAaC8PmQqVdanm5dFlEvyjKL4nFc1VKAdh2CRQCVaZ-o4RBc6EqoTTC8uuUk7bfoFQLpZfFnYH7RZmVQ2YOVG0MG1U18TJD6aTT6Ns2LxloF45UkY3SKuaDQL3iuw8FlMHXjBRJ3SO7TFs2apdqztm1Q7-V8rpVg-122GmH3fMbVm3Fu7jSv7gyqO61NXjYDsP7acetC7hd3tzqsNMOu-2w1w7322G_HR60w8NWGF5-K2y1w-1dwlQUt0yja2yIhJMxMkZ74_jjDH7ARSTGGVPGoWvgTIn5jofG6PgjxsiO15MpxXC33OTg4R8WWGB2" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — Process Receipts</span></div>
 
@@ -1274,7 +1316,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph AR Cash Applier
+    subgraph lane_0["AR Cash Applier"]
         n1["fa:fa-user Monitor Unapplied Cash"]
         n2["fa:fa-user Make Required Corrections"]
         n3(["fa:fa-stop Unapplied Cash Monitored"])
@@ -1296,7 +1338,7 @@ flowchart TD
     class n6 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVFtv2jAU_itWKsQmBSn3sDxsgkCmSWtVlXbTNPZgkmOwGuLMTriM5r_PzoXb2qflAThfvovPwfZBi1kCWqD1egea0SJAh36xgjX0A9RfYAF9HTXAN8wpXqQg-opDWFbM6J-aZjr5TtEUFuE1TfcKncGSAXr6oqORFKY6EjgTAwGckr7ezzldY74PWcq4Yt_AkBikTmtfjRlPgJ8IhuGbsSulKc3gBNu-4zuR0gmIWZZcmBKXDEncr9TiUraNV5gX9fJLAbd4950mxUrWBKcCJGdVrNOveAGp6rHgpcLikm-6YVChcjI5sFmOY5otJe4YEuI4ez5BrlFVqOr15tkxFD1O5hmST5xiISZAkCgkPN0UiNA0DW6ccBS5hi4Kzp4huLGm_sS29Fh1EsjWDV0Nd7AFulwVwYKlSUsdbFUPgZXvdL4LLEPne_l5lQVZckoKPWtoDY9JY98MzbBLIoT8V5KcK3_E4rnNmtqRFU2OWabruaHxr1_X5sTxR-b1nIBvaAxnplEU2dPTqKaeaxpvm44j2zPCK9MlLmCL9yfDD6FzNIxcPzL9Nw2bvOtVlot7zuLO0J66kXs09MdmNLLeNHRGpjNsVyh9lhznKzR6QCEW8jvPUwq8eauezPw51wgOCB6oYaNbJk8t4-gpwzU1qXVz7deZxLqS4GdAD_C7pFzRGecQF5Rl4lJlvzvKRMHyq4QuGBKpen8mc6TqHjhhfH3WQoxVwmWAezh0AeoSGizkMYpX5wtCdwAJJJ_mWlWdCb3XhbCL01LQDXxu_t6TSh6A5kdmosHgo4xuS6spvbb0mtJuS1eVL3PtB8jRvEh2izsNzbyi3bGa5Z3tDRXYnYkL2HodttuzegE6x8viAna7bXyBeh2q6doa-BrTRAsOWn2Fy2s-AYLLtNAqXcNlwWb7LNaC-qrTyjyRygnFcgeuG7D6Cyqo86E=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVFtv0zAU_itWpqkgpVLuKXkAdWmDkNg07QJCFCE3OW6tuXawk66l63_HbpLeYE_kocr5-l18TmxvrFwUYCXW5eWGclolaNOr5rCAXoJ6U6ygZ6MG-IIlxVMGqmc4RPDqnv7e0dygXBmawTK8oGxt0HuYCUCPn2w01EJmI4W56iuQlPTsXinpAst1KpiQhn0BA-KQXVr715WQBcgDwXFiNw-1lFEOB9iPgzjIjE5BLnhxYkpCMiB5b2sWx8RzPsey2i2_VnCNV19pUc11TTBToDnzasE-4ykw02Mla4PltVx2w6DK5HA9sPsS55TPNB44GpKYPx2g0Nlu0fbycsL3oehhNOFIPznDSo2AIFVpeLysEKGMJRdBOsxCx1aVFE-QXHjjeOR7dm46SXTrjm2G238GOptXyVSwoqX2n00PiVeubLlKPMeWa_17lgW8OCSlkTfwBvukq9hN3bRLIoT8V5Keq3zA6qnNGvuZl432WW4Yhanzt1_X5iiIh-75nEAuaQ5HplmW-ePDqMZR6Dqvm15lfuSkZ6YzXMEzXh8M36XB3jAL48yNXzVs8s5XWU9vpcg7Q38cZuHeML5ys6H3qmEwdINBu0LtM5O4nCOGOfx0vk-s4R1KsZqjYVkyCnJi_WiY5uGuJhCcENw3g0fXQp9gIdEjxzt2sZOeSrwzCX4CdAe_aioNXUgJeUUFV6cq_81epipRniV0wVBo1dsjWaBVtyCJkIujLnJsEk4Dws2mCzAXUn-qj1Q-P14QugEooPgwsbbbI2H0byGsclYruoSPzac-qPRhaF64i_r99zq6Lb2mjNoyakq_LUNTvkysb6BH86LZLR40NPeMdiN2rOhon5jA7nycwN6_Yb89tydgsL84TuCw29InaNShlm0tQC4wLaxkY-2uc33lF0BwzSpra1u4rsT9mudWsrv2rLostHJEsd6Niwbc_gEAKPeE" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-3211-or-140-130_update_financial_records-or-140-130_update_financial_records">BUSINESS ARCHITECTURE — 3.2.11 OR-140-130_Update_Financial_Records — OR-140-130_Update_Financial_Records</h4>
 <p><strong>Swim Lanes</strong>: AR Data/Report Analyst | <strong>Tasks</strong>: 2 | <strong>Gateways</strong>: 3</p>
@@ -1312,7 +1354,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph AR Data/Report Analyst
+    subgraph lane_0["AR Data/Report Analyst"]
         n1["fa:fa-user Display customer line item reports"]
         n2["fa:fa-user Display GL Line item report"]
         n3(["fa:fa-play Request to Update Financial Records Initiated"])
@@ -1345,7 +1387,7 @@ flowchart TD
     class n10 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P6jYQ_StWVitaKaj5JJCHSmwgV1faK10t97YPpQ8mscFax05tZ1mK-O8dk_ARylZqmwfEHM85Z2bkSfZOIUvipM7j454JZlK0H5gNqcggRYMV1mTgohb4BSuGV5zogc2hUpgF-_OY5kf1u02zWI4rxncWXZC1JOj7ZxdNgchdpLHQQ00UowN3UCtWYbXLJJfKZj-QMfXo0a07epKqJOqS4HmJX8RA5UyQCxwmURLllqdJIUXZE6UxHdNicLDFcbktNliZY_mNJl_w-6-sNBuIKeaaQM7GVPwZrwi3PRrVWKxo1NtpGExbHwEDW9S4YGINeOQBpLB4vUCxdzigw-PjUpxN0bfZUiB4Co61nhGKtAF4_mYQZZynD1E2zWPP1UbJV5I-BPNkFgZuYTtJoXXPtcMdbglbb0y6krzsUodb20Ma1O-uek8Dz1U7-L3xIqK8OGWjYByMz05PiZ_52cmJUvq_nGCu6hvWr53XPMyDfHb28uNRnHl_1zu1OYuSqX87J6LeWEGuRPM8D-eXUc1Hse99LPqUhyMvuxFdY0O2eHcRnGTRWTCPk9xPPhRs_W6rbFZflSxOguE8zuOzYPLk59PgQ8Fo6kfjrkLQWStcb9D0Bc2wwT-9kFrC9ZkKzHfatEn2Ef5vS4filOKhnTmaMV1z6KhotJEVAHZLEDOkQuoooZfO71f04D790zN6viH2eeEPZ-KR8EL-aIg2yEj0vS5hrChnAosCNh7OCthhjT7De4XBUQlSP15pRSCVcakJWjSrISflmqibMuNzyld4cciyfzqCU8CpVBXqDYrdyCT_KDPe7089YaXkVg8xN6jGCnNO-Kf2riydw-GKM_kPHN_7dyRY2_aP8NFw-DMU2oVBG066cNyGURdO2nDUD-N-ctKFYRv63snJ64CbOLi68Lae06L34OA-HJ5fdj04ug_H9-HRfTi5D49PK95DJ3dRaLGDHdeB1akwK5107xy_evBlLAnFDTfOwXVwY-RiJwonPX4dnOZ45WcMw9JWLXj4CzbrUqs=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVe-P4jYQ_VesrFa0UtDlJ4F8qMQGcjppK52Wu-uHUp1MYoO1jp3azrIU8b_fmATYULZS23xAzPO892ZGnmTvFLIkTurc3--ZYCZF-4HZkIoMUjRYYU0GLmqBb1gxvOJED2wOlcIs2F_HND-qX22axXJcMb6z6IKsJUFfP7loCkTuIo2FHmqiGB24g1qxCqtdJrlUNvuOjKlHj27d0YNUJVGXBM9L_CIGKmeCXOAwiZIotzxNCinKniiN6ZgWg4MtjsttscHKHMtvNPkVv_7GSrOBmGKuCeRsTMUf8Ypw26NRjcWKRr2chsG09REwsEWNCybWgEceQAqL5wsUe4cDOtzfL8XZFH2ZLQWCp-BY6xmhSBuA5y8GUcZ5ehdl0zz2XG2UfCbpXTBPZmHgFraTFFr3XDvc4Zaw9cakK8nLLnW4tT2kQf3qqtc08Fy1g98rLyLKi1M2CsbB-Oz0kPiZn52cKKX_ywnmqr5g_dx5zcM8yGdnLz8exZn3d71Tm7MomfrXcyLqhRXkjWie5-H8Mqr5KPa990Uf8nDkZVeia2zIFu8ugpMsOgvmcZL7ybuCrd91lc3qs5LFSTCcx3l8Fkwe_HwavCsYTf1o3FUIOmuF6w3iWJDv3u9LZ_qEZtjgD0-klnCPpgLznTZL54-WYB_hQx7FKcVDO380Y7rm0F3RaCMrAOzGIGZIhdRRRffpwW36x0f0eEXs88KfzsQj4Yn82RBtkJHoa13CiFHOBBYFbD-cFbDPGn2CdwyDoxKkfn6jFYFUxqUmaNGshpyUa6KuyozPKZ_hJSLL_ukITgGnUlWoNyt2JZP8o8x4vz_1hJWSWz3E3KAaK8w54R_be7N0Doc3nMl_4PjevyPBCrd_hI-Gw1-g0C4M2nDSheM2jLpw0oajfhj3k5MuDNvQ905OXgdcxcGby2_rOS19Dw5uw-H5xdeDo9twfBse3YaT2_D4tO49dHIThRY72HEdWJ0Ks9JJ987xCwhfyZJQ3HDjHFwHN0YudqJw0uOXwmmOV37GMCxw1YKHH7gCVo4=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — Process Receipts</span></div>
 
@@ -1368,7 +1410,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph AR Cash Analyst
+    subgraph lane_0["AR Cash Analyst"]
         n1["fa:fa-user Match bank Statement Transactions with Corresponding SAP Transactions"]
         n2["fa:fa-user Make Necessary Adjustments in SAP for Reconciling Discrepancies"]
         n3[["fa:fa-cog Collect Bank Statements"]]
@@ -1393,7 +1435,7 @@ flowchart TD
     class n7 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVd-P4jYQ_lesrFa0UpDyk3B5aAWBVCf1Tqfl7qrq6INxJuCusVPbWaAs_3ttEhLgbp-aB8h8nvm-mbHHOTpEFOCkzuPjkXKqU3Qc6A1sYZCiwQorGLioAb5iSfGKgRpYn1JwvaD_nt38qNpbN4vleEvZwaILWAtAX967aGICmYsU5mqoQNJy4A4qSbdYHjLBhLTeDzAuvfKs1i5NhSxA9g6el_gkNqGMcujhMImSKLdxCojgxQ1pGZfjkgxONjkmdmSDpT6nXyv4gPd_0EJvjF1ipsD4bPSW_Y5XwGyNWtYWI7V8uTSDKqvDTcMWFSaUrw0eeQaSmD_3UOydTuj0-LjknSj6PFtyZB7CsFIzKJHSBp6_aFRSxtKHKJvksecqLcUzpA_BPJmFgUtsJakp3XNtc4c7oOuNTleCFa3rcGdrSINq78p9GniuPJjfOy3gRa-UjYJxMO6Upomf-dlFqSzL_6Vk-io_Y_Xcas3DPMhnnZYfj-LM-57vUuYsSib-fZ9AvlACV6R5nofzvlXzUex7b5NO83DkZXeka6xhhw894bss6gjzOMn95E3CRu8-y3r1SQpyIQzncR53hMnUzyfBm4TRxI_GbYaGZy1xtUGTJ5RhZf45Zgelm1X7cP_b0ilxWuKhbTb6gDXZoJU5gGihTVlb4Oa0mQOpMNFUcIV2VG9QJqQEVZkBMWcULSafbnyWzl9XCsG9wjOgj0BAKTNcaFL8XSttZRSi_ExVCome7PQRyiz9jCoiocLGhjvu8FtHTsTapMUYEI2mN_nbmOug6KcuqGJm257gnxqURlp0stBQvOcmly22RZl3qqlhLAzbz1dscc-mtKi-D-w47yNHx2OffAHDlWmhaf5XzGjRhC5qYvtU1uzXpXM6XcUmP46FPWG1oi_wW3Mk-ygztM0L99Fw-ItRb82oMcPWDBozac2wMdsx4iNrvi6dj2LpvBrnFk4ar_jO60-7Xa8d2fl4W_3LWN_AwY_h8Hpkb1ai7tK7geP2froBR5cZvUGTC-q4zhbMftHCSY_O-ftkvmEFlLhm2jm5Dq61WBw4cdLzPe7UldkhmFFsxmvbgKf_ABSKP3g=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVW2P4jYQ_itWVitaKUh5JTQfWkEg1Um902m5XlUdVWWcCbhr7NR2FjiW_16bhAS420_NhyjzZOZ5ZsYzydEhogAndR4fj5RTnaLjQG9gC4MUDVZYwcBFDfAZS4pXDNTA-pSC6wX9enbzo2pv3SyW4y1lB4suYC0A_f7ORRMTyFykMFdDBZKWA3dQSbrF8pAJJqT1foBx6ZVntfbVVMgCZO_geYlPYhPKKIceDpMoiXIbp4AIXtyQlnE5LsngZJNjYkc2WOpz-rWC93j_By30xtglZgqMz0Zv2W94BczWqGVtMVLLl0szqLI63DRsUWFC-drgkWcgiflzD8Xe6YROj49L3omiT7MlR-YiDCs1gxIpbeD5i0YlZSx9iLJJHnuu0lI8Q_oQzJNZGLjEVpKa0j3XNne4A7re6HQlWNG6Dne2hjSo9q7cp4HnyoO532kBL3qlbBSMg3GnNE38zM8uSmVZ_i8l01f5CavnVmse5kE-67T8eBRn3rd8lzJnUTLx7_sE8oUSuCLN8zyc962aj2Lfe5t0mocjL7sjXWMNO3zoCX_Koo4wj5PcT94kbPTus6xXH6UgF8JwHudxR5hM_XwSvEkYTfxo3GZoeNYSVxvEMIe_vS9LZ_KEMqw2aMIxOyi9dP5qPO3FfeNQ4rTEQ9t49B5rskErM4xooU2JW-Bm8sxwKkw0FVyhHdUblAkpQVVmWcy8osXk443PrUJwr_AM6AMQUMosGpoU_9RKWxmFKD9TlUKiJ7uJhDJLP6OKSKiwseGOO_zSkROxNmkxBkSj6U3-NuY6KPqhC6qYOcIn-LcGpZEWnSw0FO-4yWWLbVHmmWpqGAvD9uMVW9yzKS2qbwM7zvvI0fHYJ1_AcGVaaJr_GTNaNKGLmtg-lTX7ZemcTlexyfdjYU9YregL_NqMZx9lFrh54D4aDn826q0ZNWbYmkFjJq0ZNma7Unxkzdel80EsnVfj3MJJ4xXfef1pj-u1IzuPutW_rPgNHHwfDq_X9-ZN1H0Ab-C4_VbdgKPLvt6gyQV1XGcL5rxo4aRH5_yvMv-zAkpcM-2cXAfXWiwOnDjp-Zvu1JU5IZhRbFZt24Cn_wBFW0Nb" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-3213-or-140-150_update_general_ledger-or-140-150_update_general_ledger">BUSINESS ARCHITECTURE — 3.2.13 OR-140-150_Update_General_Ledger — OR-140-150_Update_General_Ledger</h4>
 <p><strong>Swim Lanes</strong>: AR Cash Analyst | <strong>Tasks</strong>: 3 | <strong>Gateways</strong>: 2</p>
@@ -1409,7 +1451,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph AR Cash Analyst
+    subgraph lane_0["AR Cash Analyst"]
         n1["fa:fa-user Validate Entries"]
         n2["fa:fa-user Post Approved Journal Entries to the General Ledger"]
         n3["fa:fa-user Make Corrections"]
@@ -1434,7 +1476,7 @@ flowchart TD
     class n7 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVd-P2jgQ_lesrFZcpSDlJ-Hy0IoNpGrVVlVpezodfTDOBKw1ds52WCjlfz-bJEC43afmIcl8nvm-mYnHOThEFOCkzv39gXKqU3QY6DVsYJCiwRIrGLioAb5jSfGSgRpYn1JwPac_T25-VO2sm8VyvKFsb9E5rASgb-9cNDGBzEUKczVUIGk5cAeVpBss95lgQlrvOxiXXnlSa5cehCxAXhw8L_FJbEIZ5XCBwyRKotzGKSCCFz3SMi7HJRkcbXJMPJE1lvqUfq3gI979RQu9NnaJmQLjs9Yb9gEvgdkatawtRmq57ZpBldXhpmHzChPKVwaPPANJzB8vUOwdj-h4f7_gZ1H0dbrgyFyEYaWmUCKlDTzbalRSxtK7KJvksecqLcUjpHfBLJmGgUtsJakp3XNtc4dPQFdrnS4FK1rX4ZOtIQ2qnSt3aeC5cm_uN1rAi4tSNgrGwfis9JD4mZ91SmVZ_paS6av8itVjqzUL8yCfnrX8eBRn3v_5ujKnUTLxb_sEcksJXJHmeR7OLq2ajWLfe5n0IQ9HXnZDusIanvD-QvhnFp0J8zjJ_eRFwkbvNst6-VkK0hGGsziPz4TJg59PghcJo4kfjdsMDc9K4mqNJl9QhpV5csz2Sjer9uL-PwunxGmJh7bZ6DtmtDDloBnXkoJaOD-unIO-82ehNJpUlRRbKNB7UUtD30UiLZCZdPQWOEgDf4BiBbLPF_b5PuJHQJmQEoimgt-IR3-cvStmuv0F_q3BJGB0vlWnnPtS6J05gKjBC8Pz6ooovhApLarbsIbsNmh0OHRB9ogbLs2QknXXL5MtmteEgFJlzd4snOPxKjZ5PhZ2hNWKbuFts38uUWbCmhceoOHwtUm5Nf3GHLVm1JjtJudJYwatObLmr4Xzt_2Mv8zyDf5JnOCwhcMmOrnai1awm8EeHDwPh8_D0fl46sFxe5L0wFE3TT006VDHdTYgN5gWTnpwTn8S87cpoMQ1087RdXCtxXzPiZOeTlynPn3NKcVmEDYNePwPN4cezg==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P2jgU_StWRiO2UpDySWgetmICqVpNq6r0Q6ulqkxyDdYYO2s7DCzlv69NEpiwM0_NA-KenHvOvTe5zsEpRAlO6tzeHiinOkWHgV7DBgYpGiyxgoGLGuAblhQvGaiB5RDB9Zz-e6L5UbWzNIvleEPZ3qJzWAlAX9-5aGISmYsU5mqoQFIycAeVpBss95lgQlr2DYyJR05u7a07IUuQF4LnJX4Rm1RGOVzgMImSKLd5CgrBy54oicmYFIOjLY6Jx2KNpT6VXyv4gHffaanXJiaYKTCctd6we7wEZnvUsrZYUcttNwyqrA83A5tXuKB8ZfDIM5DE_OECxd7xiI63twt-NkVfpguOzFUwrNQUCFLawLOtRoQylt5E2SSPPVdpKR4gvQlmyTQM3MJ2kprWPdcOd_gIdLXW6VKwsqUOH20PaVDtXLlLA8-Ve_N75QW8vDhlo2AcjM9Od4mf-VnnRAj5LSczV_kFq4fWaxbmQT49e_nxKM68_-t1bU6jZOJfzwnklhbwRDTP83B2GdVsFPvey6J3eTjysivRFdbwiPcXwddZdBbM4yT3kxcFG7_rKuvlJymKTjCcxXl8Fkzu_HwSvCgYTfxo3FZodFYSV2vEMIef3t8LZ_IZZVit0YRjtld64fxomPbiviEQnBI8tINH3zCjpWkNzbiWFFSfHPTJn4TSaFJVUmyhRO9FLY1Dl4m0QGbr0VvgIA18D-UKZF8v7Ot9wA-AMiElFJoKfmUe_XFmV8xM_jP8U4MpwPh8rU41963QO3MYUYOXRufVE6H4IqS0qK7TGrHrpNHh0CXZ4264NAtbrLt5mWrRvC4KUIrU7M3COR6f5CbP58KuYLWiW3jbvEuXLLNtzR8eoOHwT1NyG_pNOGrDqAnbF54nTRi04ciGvxbOX_Yx_jK3r_CP4gSHLRw22cmT99IadvvYg4Pn4fB5ODofVT04bk-VHjjqNquHJh3quM4G5AbT0kkPzumrYr48JRBcM-0cXQfXWsz3vHDS0-nr1KenOaXYLMWmAY__ARoHIrE=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — Process Receipts</span></div>
 
@@ -5939,11 +5981,15 @@ flowchart TD
 </tbody>
 </table>
 <hr />
-<p><em>OR-140 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: March 2026</em></p>
+<p><em>OR-140 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>OR-140 — Process Receipts</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>OR-140</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

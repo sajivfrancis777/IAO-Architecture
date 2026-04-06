@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
   Capability R-200 · R Returns (IP)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Order To Cash (IP) (OTC-IP) |
 | **Process Group** | R Returns (IP) |
 | **Capability** | R-200 - Receive Materials and Services (IP) |
-| **Release** | Release 3 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 5 Reports, 71 Interfaces, 20 Conversions, 167 Enhancements, 28 Forms, 1 Workflows |
@@ -198,7 +198,7 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Ground Controller
+    subgraph lane_0["Ground Controller"]
         n1["fa:fa-user Identify Error"]
         n2["fa:fa-user Release Hold"]
         n3["fa:fa-user Print Packing List Forms"]
@@ -223,14 +223,14 @@ flowchart LR
         n28{{"fa:fa-arrows-alt parallelGateway"}}
         n29{{"fa:fa-arrows-alt parallelGateway"}}
     end
-    subgraph Returns Specialist
+    subgraph lane_1["Returns Specialist"]
         n9[["fa:fa-cog Update Disposition Result for the RMA"]]
         n10[["fa:fa-cog Trigger Batch Job to Send E-Mail Notification to Customer"]]
         n11[["fa:fa-cog Update Shipment Details for Return to Customer in RMA"]]
         n16(["fa:fa-stop E-Mail Notification Sent to Customer"])
         n21{{"fa:fa-code-branch exclusiveGateway"}}
     end
-    subgraph Transportation Planner (Supply Chain for Secondary Distribution)
+    subgraph lane_2["Transportation Planner (Supply Chain for Secondary Distribution)"]
         n15[["fa:fa-cog Process Transportation Planning for Delivery"]]
         n30{{"fa:fa-arrows-alt parallelGateway"}}
     end
@@ -301,7 +301,7 @@ as Return to Customer"| n26
     class n30 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv2kgU_isjVxGtBJKvGHjYFSE4TdW02ZButSr7MNhjGMV4rJkxCZvy3_eM7QHs2NI2m4dI880537kf27wYIYuIMTEuLl5oSuUEvfTkhmxJb4J6KyxIr49K4E_MKV4lRPSUTMxSuaD_FGKWmz0rMYUFeEuTvUIXZM0I-nbTR1NQTPpI4FQMBOE07vV7GadbzPczljCupN-RUWzGhbXq6pLxiPCTgGn6VuiBakJTcoId3_XdQOkJErI0qpHGXjyKw95BOZewp3CDuSzczwW5xc_faSQ3cI5xIgjIbOQ2-YxXJFExSp4rLMz5TieDCmUnhYQtMhzSdA24awLEcfp4gjzzcECHi4tlejSKPt8vUwR_YYKFuCIxEhLg-U6imCbJ5J07mwae2ReSs0cyeWfP_SvH7ocqkgmEbvZVcgdPhK43crJiSVSJDp5UDBM7e-7z54lt9vke_jdskTQ6WZoN7ZE9Olq69K2ZNdOW4jj-X5Ygr_wBi8fK1twJ7ODqaMvyht7MfM2nw7xy_anVzBPhOxqSM9IgCJz5KVXzoWeZ3aSXgTM0Zw3SNZbkCe9PhOOZeyQMPD-w_E7C0l7Ty3x1x1moCZ25F3hHQv_SCqZ2J6E7tdxR5SHwrDnONuiaszyN0AxqwVmSEF7eq7_U-rE0YjyJ8UClG91EJJU03qM554wvjb_PRO266D1JCMw0-ghlrQs6dcE7TlOJ7nD4CC2NPlMhUcD4VtSV3DalGdtuCQ9h5NFNumNQuzZVr6FKeAxC6I6WFqehpDsq93WlYUOJgVuwm9A1Y5FAN0LkpK7gd1jBdSsIQ6pv2Y6gW2gMta2QZGgh8bqQ4gTXaUd12jPzSknmAuVZBEwRoin6mstVUcsrktAd4Y2YLPvHkS1kazQDa5K81kLgOdRP5jxVzs1yIRnkGchqbE6d7Vvhx4nkicoNCr4CIDFNRFPb_Y--fFWruansvz8qg2_Z64ReUZFhGW50Rj-ca48a2q-NzhImSNTUG4OarifEimFhQBOq8rno4_TLtDEPJog_wLoWMRROOydQzNkW_ZHjRHXDTSoyAq3B0rINWPiI3t_cfWhQ2S8vp2RFZLACWgju-mFRzNfvS-NwOJd32uXJc5jkAkK8LpdSU819m5r3NrXhSQ3DOnkSA5xIlGGOYQklHUr-W5RGb1Ea_5oSPPgae7WcIIEWUGGoPCy2M_px-_BA2zJBi364JyIHg2oW1eK5v502p8Csczxwul5Dq10Wjf-JrYqWAr_QfHALI4i-MNjdNMS63boG22r1bbGh2VY1fDXQHVtC7aEWX4eNmWtzaVGN05lf5_NnW7_aZ69rUsxjxrgsLd4lOE3B5_eLPMsSmPsNBvdVYAv9hqdqIjld5Uqhtg68eprUQ5kI0WpCbQzFeraXa09E8429llpoMPgNUlMd7ero6LNTApYWqM6uvh-W57GmMyv5oQYqA1b1FpKOKwuWZtACGrC0D74G3BLwqnNl0tY2vfKsxW2_ItTy9qgEho2zpQnsyoAO2tI-NqO0j2kqfPy5NP4i8Fz6CSrNiy-swE-J9KuL18-KZXrsEHgKQ_vOv9-WpEf7ZqV8Pt7QXjHlW1BZpli0Pm6VAzrqKiv2SAdZpc3RhbGcRtSO2SiVBiwdVJU3-5jpilPb0InWZ7tKrOU3AM1QvKOqptTv5jXYboeddthth712eNgO--3wqB0en38B1CMyu6-s7iu7-8rpvnK7r7zuq2H16VVH_VZ01IqOjx-K9bKZHbilv23qsN0OO-2w2w577fCwHfbb4VE7PG6FYToq2OgbMH5bTCNj8mIUP0jAjxYRiTE8j41D38C5ZIt9GhqT4sPdKN_AryiGZ8y2BA__AjOfU14=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1v2zYQ_iuEisAtYAN6tWx_2OA4VpqhabM4XTHUw0BLlE1EFgWScuKl_u87SqJtKRKwZvkQgA_vufc7SX4xQhYRY2JcXLzQlMoJeunJDdmS3gT1VliQXh-VwB-YU7xKiOgpmZilckH_KcQsN3tWYgoL8JYme4UuyJoR9PWmj6ZATPpI4FQMBOE07vV7GadbzPczljCupN-RUWzGhbXq6pLxiPCTgGn6VugBNaEpOcGO7_puoHiChCyNakpjLx7FYe-gnEvYU7jBXBbu54Lc4udvNJIbOMc4EQRkNnKbfMIrkqgYJc8VFuZ8p5NBhbKTQsIWGQ5pugbcNQHiOH08QZ55OKDDxcUyPRpFn-6XKYK_MMFCXJEYCQnwfCdRTJNk8s6dTQPP7AvJ2SOZvLPn_pVj90MVyQRCN_squYMnQtcbOVmxJKpEB08qhomdPff588Q2-3wP_xu2SBqdLM2G9sgeHS1d-tbMmmlLcRz_L0uQV_6AxWNla-4EdnB1tGV5Q29mvtanw7xy_anVzBPhOxqSM6VBEDjzU6rmQ88yu5VeBs7QnDWUrrEkT3h_UjieuUeFgecHlt-psLTX9DJf3XEWaoXO3Au8o0L_0gqmdqdCd2q5o8pD0LPmONugBKfkb_P70rjmLE8jNIOicJYkhC-Nv0pZ9ZdaIBLjSYwHKvXoJiKppPEezTlnDVG7LnpPEgLzjT5CieuCTl3wjtNUojscPkJ7o09USBQwvhV1kttGmrHtlvAQxh_dpDsGdWyjeg0q4TEIoTtaWpyGku6o3NdJwwaJgVuwp9A1Y5FAN0LkpE7wO6zguhWEIdu3bEfQLTSJ2lxIMrSQeF1IcYLrakd1tWfmFUnmAuVZBJoiRFP0JZeropxXJKE7whsxWfb3o7aQrdEMrEnymoXAc6ifzHmqnJvlQrJt0Rk1bU5d29fCj5OSJyo3KPgCgMQ0EU22-x99-aLWdJPsvz-SwbfsdUKvqMiwDDc6ox_O2aMG-7XRWcIEiZq8MdB0PSFWDMsDmlCVz0Ufp5-njXlQ4_UAq1vEUDjtnEAxZ1v0e44T1Q03qcgItAZLyzZg4SN6f3P3oaHKfnk5JSsigxWoheCuHxbFfP26NA6Hc3mnXZ48h0kuIMTrckE1ae7baN7baMMTDcM6eRIDnEiUYY5hDyUdJP8tpNFbSOOfI8FDsG3HqgVajpJACyg1tABsuHp5x-2DBC3MBC16456IHIyruVRL6P522pwIs67jgdP1GtrushiC39iqaC_wEc0HtzCO6DODPU5DrFuva8itVt8WG5ptVfNXw92xMdROavF12Ji_NpcW1Wid-XU-i7b1sz3XUR9bD2nGuCxN38FFCs6_X-RZlsAy2GCIQ0W40K-AqjiS01WuCI1htbx6ytSDmwiB2qyoTaIUn-3r2pPSfGMPphYaDH6BNFVHuzo6-uyUgKUFqrOr74fleazVmZX8UAOVAat6U0nHlQVLa9ACGrC0D74G3BLwqnNl0tY2vfKsxW2_Uqjl7VEJDBtnSyuwKwM6aEv72IzSPqap8PHH0viTwPPqB1CaF59ZgZ8S6VcXr58hy_TYJPB0hlaef7stlR7tmxX5fNShw2LKt0BZpli0PoaVAzrqKiv2SAdZpc3RhbGcRtSO2SiVBiwdVJU3-5jpSqe2oROtz3aVWMtvAFpD8R6rmlK_v9dgux122mG3Hfba4WE77LfDo3Z4fP6VUI_I7L6yuq_s7iun-8rtvvK6r4bV51kd9VvRUSs6Pn5M1stmduCW_v6pw3Y77LTDbjvstcPDdthvh0ft8LgVhumoYKNvwPhtMY2MyYtR_GgBP2xEJMbwbDYOfQPnki32aWhMio97o3wzv6IYnjfbEjz8C5w3Xwo=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -763,6 +763,7 @@ Integration patterns identified from the system flow analysis for R-200:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
@@ -890,6 +891,6 @@ Standard RAID items for R-200 (Order To Cash (IP)):
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*R-200 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: March 2026*
+*R-200 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: April 2026*
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-200 — Receive Materials and Services (IP)</span></div>

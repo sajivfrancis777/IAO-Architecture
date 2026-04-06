@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IF) (FTS-IF) Tower<br/>
   Capability PE-070 · PE Manage Plant, Equipment and Facilities (IF)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 3</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -742,7 +784,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Boundary Apps
+    subgraph lane_0["Boundary Apps"]
         n1[["fa:fa-cog Detect Tool Down by Boundary App"]]
         n2[["fa:fa-cog Auto Generate Notification"]]
         n3(["fa:fa-play Request Received for Maintenance Work"])
@@ -757,7 +799,7 @@ flowchart TD
     class n4 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO2jAQ_RUrK5RWClKuhOahEiSkqtRWVdl2H5Z9MM4YLIKdOg6XIv69NuFe8dRIuczxzDmeY8c7i4gCrMTqdHaMM5Wgna3msAQ7QfYU12A7qAV-YcnwtITaNjlUcDVmfw5pXlhtTJrBcrxk5dagY5gJQD8_O2igC0sH1ZjX3Roko7ZjV5ItsdymohTSZD9Bn7r0oHYcGgpZgLwkuG7skUiXlozDBQ7iMA5zU1cDEby4IaUR7VNi783kSrEmcyzVYfpNDV_x5oUVaq5jissadM5cLcsveAql6VHJxmCkkauTGaw2OlwbNq4wYXym8dDVkMR8cYEid79H-05nws-i6DmbcKQvUuK6zoCiWml4tFKIsrJMnsJ0kEeuUyspFpA8-aM4C3yHmE4S3brrGHO7a2CzuUqmoiyOqd216SHxq40jN4nvOnKrn3dawIuLUtrz-37_rDSMvdRLT0qU0v9S0r7KZ1wvjlqjIPfz7KzlRb0odf_lO7WZhfHAu_cJ5IoRuCLN8zwYXawa9SLPfUw6zIOem96RzrCCNd5eCD-k4Zkwj-Lcix8Stnr3s2ym36UgJ8JgFOXRmTAeevnAf0gYDrywf5yh5plJXM3RUDSHvYwGVVW3Y-bi3uvrxKI4obhLxAxloIDo3SVEiTKx5mi6vSmdWG9vV9X-bfWgUQJ9Ag5S-4G-CcUoI1gxwe_qgnfnuqrUvv2A3w3USr8JsBUUiAqJvmLGFXDMCaAXIRea4_0VR6gpUglGCfOizdb3vWxboXds-8ED1O1-1H0fQ68N_WPot2F4tRwm52rT3Iz4D0eC8w95A4dn2HKsJcglZoWV7KzDiahPzQIobkpl7R0LazPHW06s5HByWE1V6F4zhvWCLltw_xeSxL7O" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVGur2jAY_iuhB3GDCr1a1w8Dbe0YbGPMs50PxzFi-kaDMenS1MvE_77Uar0MP63Qap48l7xv0-wtInOwYqvT2TPBdIz2Xb2AFXRj1J3hEro2aoAfWDE841B2aw6VQk_YnyPNDYptTauxDK8Y39XoBOYS0PePNhoaIbdRiUXZK0Ex2rW7hWIrrHaJ5FLV7CcYUIce005TI6lyUBeC40QuCY2UMwEX2I-CKMhqXQlEivzGlIZ0QEn3UC-Oyw1ZYKWPy69K-Iy3LyzXCzOmmJdgOAu94p_wDHhdo1ZVjZFKrc_NYGWdI0zDJgUmTMwNHjgGUlgsL1DoHA7o0OlMRRuKntOpQOYiHJdlChSV2sDjtUaUcR4_BckwCx271EouIX7yxlHqezapK4lN6Y5dN7e3ATZf6HgmeX6i9jZ1DbFXbG21jT3HVjvzvMsCkV-Skr438AZt0ihyEzc5J1FK_yvJ9FU943J5yhr7mZelbZYb9sPE-dfvXGYaREP3vk-g1ozAlWmWZf740qpxP3Sdx6ajzO87yZ3pHGvY4N3F8F0StIZZGGVu9NCwybtfZTX7qiQ5G_rjMAtbw2jkZkPvoWEwdIPBaYXGZ65wsUAcC_jlvE6tkayOmxoNi6KcWj8bXn0J99XMUxxT3CNyjlLQQMxOk5KjVG4Emu3QtdqIr9XerXpYaYk-gABleoO-SM0oI1gzKe50_ptWV3DTw2_wu4JSm18CbA05olKhz5gJDQILAuhFqqXxeHvlERiLREGdhEXesM19H9sozO5t_ggf9XrvTd2nodsMvdPQa4bB1aupOVcb6GbGezjjtx_nDRy0sGVbK1ArzHIr3lvH09GcoDlQXHFtHWwLm2ZOdoJY8fEUsaoiN7WmDJuXu2rAw1-5ZcKx" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 
@@ -780,11 +822,11 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph FTS IF - Maintenance Planner
+    subgraph lane_0["FTS IF - Maintenance Planner"]
         n2[["fa:fa-cog Create Notification in SAP S/4 HANA"]]
         n3["Send Email from SAP S/4 HANA"]
     end
-    subgraph Factory Supervisor
+    subgraph lane_1["Factory Supervisor"]
         n1[["fa:fa-cog Auto Generate Notification"]]
         n4["Review Notification and Validate Request for Maintenance"]
         n5["Identify Maintenance Work Required"]
@@ -806,7 +848,7 @@ flowchart TD
     class n7 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU1v2zgQ_SuEgsAXGdWn5dWhC0W2ugE2RVCl7aHugaaGNhGa9FKUP-r6vy9pyZ-bnFYHAfP05r2Z0VDaOURW4KTO_f2OCaZTtOvpOSygl6LeFNfQc1ELfMOK4SmHumc5VApdsl8Hmh8tN5ZmsQIvGN9atISZBPT10UWZSeQuqrGo-zUoRntub6nYAqttLrlUln0HQ-rRg1v36EGqCtSZ4HmJT2KTypmAMxwmURIVNq8GIkV1JUpjOqSkt7fFcbkmc6z0ofymhie8-c4qPTcxxbwGw5nrBf8bT4HbHrVqLEYatToOg9XWR5iBlUtMmJgZPPIMpLB4PUOxt9-j_f39RJxM0ctoIpC5CMd1PQKKam3g8UojyjhP76I8K2LPrbWSr5DeBeNkFAYusZ2kpnXPtcPtr4HN5jqdSl511P7a9pAGy42rNmnguWpr7jdeIKqzUz4IhsHw5PSQ-LmfH50opf_LycxVveD6tfMah0VQjE5efjyIc--_esc2R1GS-bdzArViBC5Ei6IIx-dRjQex770v-lCEAy-_EZ1hDWu8PQv-kUcnwSJOCj95V7D1u62ymT4rSY6C4Tgu4pNg8uAXWfCuYJT50bCr0OjMFF7OUfFSoscC9dETZkKDwIIAeuZYCFAt1V4i-PFj4lCcUtwncoZyBaYz9FlqRhnBmkmBmEBl9ozKDxH6K_ucTZyfPy8EQpNfmv1A4wVmHFElF7f0lm04tyVioqXaorJZ2ndUy8vC_OvCskZL9AlM8bf13dQTmbQvsGKwvu4CmxK_Yc4qm_8F_mmgNgst1eV8TrUelGKj9FiBMCLbqyl-l-r1IMEUVNc5g93uXHUF_ak52GSOStkoAn9OnP3-gpy8TYYN4U3NVvCpXbJz1mmEIkb9_kdj14VBG4Zd6Ldh0oUDG_6eOE_j8oOdoz0KE-e34XWEpOVHXRi-nW7f6tP4kBhcbK-1uzhjV0-Cd59Ep-_XFRy_DQ-OB-4KTY6o4zoLUGb_KifdOYefjfkhVUBxw7Wzdx1sui63gjjp4aPsNEu7BiOGzSIuWnD_Lw1GKL0=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduO2zYQ_RVCi4VfZERXy9VDCq0spQt0g0W0SR7ioqCpkU0sTboU5Usc_3tJS77I3X2qHgzM4ZlzZsZDaW8RUYIVW_f3e8qpitF-oBawhEGMBjNcw8BGLfANS4pnDOqB4VSCq4L-PNLcYLU1NIPleEnZzqAFzAWgr482SnQis1GNeT2sQdJqYA9Wki6x3KWCCWnYdzCunOro1h09CFmCvBAcJ3JJqFMZ5XCB_SiIgtzk1UAEL3uiVViNKzI4mOKY2JAFlupYflPDE95-p6Va6LjCrAbNWagl-xPPgJkelWwMRhq5Pg2D1saH64EVK0won2s8cDQkMX-9QKFzOKDD_f2Un03Ry2TKkX4Iw3U9gQrVSsPZWqGKMhbfBWmSh45dKyleIb7zsmjiezYxncS6dcc2wx1ugM4XKp4JVnbU4cb0EHurrS23sefYcqd_b7yAlxendOSNvfHZ6SFyUzc9OVVV9b-c9FzlC65fO6_Mz718cvZyw1GYOv_VO7U5CaLEvZ0TyDUlcCWa57mfXUaVjULXeV_0IfdHTnojOscKNnh3EfwtDc6CeRjlbvSuYOt3W2Uze5aCnAT9LMzDs2D04OaJ965gkLjBuKtQ68wlXi0Qwxz-dn5MrfylQI85GqInTLkCjjkB9KyPOcip9VebZh7u_dD0CscVHhIxR6kE3SX6LBStKMGKCo4oR0XyjIoPAfoj-Zzo_GsBX-cXeldQtsSUoUqK5S29ZWvOW-W6plxMlJA7VDQr88fV4qZIt19k0iiBPoHu5bbWm9oCnfYF1hQ2_Y6wLvcbZrQ0-V_gnwZqvehCXo-rX0GolR5L4Fpk1xvqdyFfjxJUQtnPGe33l6pLGM70hScLVIhGEvh9ah0OV-TobTJsCWtquoZP7fJdss7j5CEaDj9quy702tDvQrcNoy4cmfDX1HrKig9mjuaKTK1fmtcRopYfdKH_drr5h5-yY6J3tdXG7uru9U68d0-C83utB4dvw6PTReyh0Qm1bGsJUu9iacV76_gR0h-qEircMGUdbAvrrosdJ1Z8fFlbzcqswYRivZTLFjz8C-geMIQ=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-323-pe-070-030_review_notification_and_validate_request_for_maintenance-pe-070-030_review_notification_and_validate_request_for_maintenance">BUSINESS ARCHITECTURE — 3.2.3 PE-070-030_Review_Notification_and_Validate_Request_for_Maintenance — PE-070-030_Review_Notification_and_Validate_Request_for_Maintenance</h4>
 <p><strong>Swim Lanes</strong>: FTS IF - Maintenance Technician | <strong>Tasks</strong>: 2 | <strong>Gateways</strong>: 1</p>
@@ -822,7 +864,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph FTS IF - Maintenance Technician
+    subgraph lane_0["FTS IF - Maintenance Technician"]
         n1["fa:fa-user Review Email Notification"]
         n2["fa:fa-user Review and Approve Notification"]
         n3["Create and Maintain Maintenance Order"]
@@ -843,7 +885,7 @@ flowchart TD
     class n6 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU2P2jAQ_StWVisuQc0noTm0ygbSrtRtV822PZQejDMGaxM7tQ0spfz32nwudOmlkUDMY957MyOPs3KIqMBJnevrFeNMp2jV0VNooJOizhgr6LhoC3zFkuFxDapjc6jgumS_Nml-1D7ZNIsVuGH10qIlTASgL7cuygyxdpHCXHUVSEY7bqeVrMFymYtaSJt9BX3q0Y3b7q8bISuQxwTPS3wSG2rNOBzhMImSqLA8BUTw6kSUxrRPSWdti6vFgkyx1JvyZwru8NM3VumpiSmuFZicqW7qD3gMte1Ry5nFyEzO98NgyvpwM7CyxYTxicEjz0AS88cjFHvrNVpfX4_4wRQ9DEYcmYfUWKkBUKS0gYdzjSir6_QqyrMi9lylpXiE9CoYJoMwcIntJDWte64dbncBbDLV6VjU1S61u7A9pEH75MqnNPBcuTTfZ17Aq6NT3gv6Qf_gdJP4uZ_vnSil_-Vk5iofsHrceQ3DIigGBy8_7sW597fevs1BlGT--ZxAzhmBZ6JFUYTD46iGvdj3LoveFGHPy89EJ1jDAi-Pgq_z6CBYxEnhJxcFt37nVc7G91KQvWA4jIv4IJjc-EUWXBSMMj_q7yo0OhOJ2ykqHkp0W6AuusOMa-CYE0APQKacEYb5Nts-3P8-cihOKe7a4aPPMGewQMMGsxp9FJpRRrBmgo-cH89YwYsszCuUta0Uc_gHNzTcXIKZ4YawqdB8Tkr9ZJf3lBYZ2j1IKmSDCgZ1hW65aoFYA6QF2kl-hp8zUPqUG1-wvFxkb7Xad2hvuO7Y7CiZonKpNDToHXCQhsUnJxJvR856vRUxO7P9wWPU7b4xgrvQ34bhLgy2YbQLezb8PXLuhuWrbKaFPbcj57fJO0sos3tUvorQ--xjtkl4fvCty36VTuDgZTg8XCcncPQyHL8M9_Zr4bhOA9IcoMpJV87m8jcviAoontXaWbsONo2VS06cdHNJOrO2MswBw-bsNltw_QcXjglA" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P4jYU_StWRiNegjafhM1Dq0wg7Uid3dFmtn0oVWWca7DGsVPbwFCW_16bz4UOfWkkUO7hnnPuvfgmG4_IBrzcu7_fMMFMjjY9M4cWejnqTbGGno_2wK9YMTzloHsuh0phavb3Li1MujeX5rAKt4yvHVrDTAL6-uijwhK5jzQWuq9BMdrze51iLVbrUnKpXPYdDGlAd26Hnx6kakCdE4IgC0lqqZwJOMNxlmRJ5XgaiBTNhShN6ZCS3tYVx-WKzLEyu_IXGp7w22-sMXMbU8w12Jy5afkveArc9WjUwmFkoZbHYTDtfIQdWN1hwsTM4klgIYXF6xlKg-0Wbe_vJ-Jkil5GE4HsRTjWegQUaWPh8dIgyjjP75KyqNLA10bJV8jvonE2iiOfuE5y23rgu-H2V8Bmc5NPJW8Oqf2V6yGPujdfveVR4Ku1_b7yAtGcncpBNIyGJ6eHLCzD8uhEKf1fTnau6gXr14PXOK6ianTyCtNBWgb_1ju2OUqyIryeE6glI_CdaFVV8fg8qvEgDYPbog9VPAjKK9EZNrDC67PgxzI5CVZpVoXZTcG933WVi-mzkuQoGI_TKj0JZg9hVUQ3BZMiTIaHCq3OTOFujjgW8Gfw-8SrXmr0WKE-esJMGBBYEEAvQOaCEYbFxPtjz3SXCC2B4pzivvsj0BdYMlihcYsZR5-kYZQRbJi8YkXvsrBoUNF1Si7hP7ix5ZYK7Dx3hF2R9nNR7We3yJe0xNKeQVGpWlQx4A16FLoD4gyQkegg-QX-WoA2l9z0huXtIgebzbFD97TrT-2-kjmq19pAi34CAcqyxOxC4seJt93uRez-7G9Eivr9H6zgIQz3YXwIo32YHMKBC79NvKdx_aFYGOnO8MT7ZvOuEuriGdUfEvRz8anYJXy_BM7luFYXcPQ-HJ8eLRdw8j6cvg8Pjivi-V4Lyh6gxss33u5FYF8WDVC84Mbb-h62jdVrQbx898D0Fl1jmSOG7Tlu9-D2H9D1DSM=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-324-pe-070-040_review_equipment_maintenance_planned_orders-pe-070-040_review_equipment_maintenance_planned_orders">BUSINESS ARCHITECTURE — 3.2.4 PE-070-040_Review_Equipment_Maintenance_Planned_Orders — PE-070-040_Review_Equipment_Maintenance_Planned_Orders</h4>
 <p><strong>Swim Lanes</strong>: FTS IF - Maintenance Planner | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 0</p>
@@ -859,7 +901,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph FTS IF - Maintenance Planner
+    subgraph lane_0["FTS IF - Maintenance Planner"]
         n1["fa:fa-user Review Planned Maintenance Orders Created for Equipment"]
         n2["Create and Maintain Maintenance Order"]
         n3["Process Notification"]
@@ -871,7 +913,7 @@ flowchart TD
     class n3 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViiXIOWT0BwqQcDSSt22Ktv2UHowyTNYm9jUdvgo4r_XhhAWVntqpETxZN7Me6PYB6cQJTiZ0-sdGGc6QwdXr6AGN0PugihwPXQGfhDJyKIC5VoOFVzP2N8TLYjXO0uzGCY1q_YWncFSAPr-6KGRKaw8pAhXfQWSUddz15LVRO5zUQlp2Q8wpD49ubWfxkKWIK8E30-DIjGlFeNwhaM0TmNs6xQUgpc3ojShQ1q4R9tcJbbFikh9ar9R8ER2P1mpV2ZNSaXAcFa6rj6RBVR2Ri0bixWN3FzCYMr6cBPYbE0KxpcGj30DScJfrlDiH4_o2OvNeWeKnidzjsxVVESpCVCktIGnG40oq6rsIc5HOPE9paV4gewhnKaTKPQKO0lmRvc9G25_C2y50tlCVGVL7W_tDFm43nlyl4W-J_fmeecFvLw65YNwGA47p3Ea5EF-caKU_peTyVU-E_XSek0jHOJJ5xUkgyT33-pdxpzE6Si4zwnkhhXwShRjHE2vUU0HSeC_LzrG0cDP70SXRMOW7K-CH_K4E8RJioP0XcGz332XzeKrFMVFMJomOOkE03GAR-G7gvEoiIdth0ZnKcl6hfDzDD1i1EdPhHENnPAC0NeKcA7yTLUXD37NHUoySvo2efQNNgy2La-8qf1id5NCuQQze4mokGj6p2HrGrieO79faYZG80xDhLci5n6rdlsWmTKbASiFPgvNKCuIZoJ3LPMXnl94hPr9j6b5dhmcl-GrTC14-Zdu4LDbODdw1MGO59Qga8JKJzs4p5PLnG4lUNJU2jl6Dmm0mO154WSnHe4069KMOmHEBF-fweM_zeqkJg==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO2jAU_BUrK5SXIOVKaB4qQcDSSt12VWj7UKrKJMdgbWJT2-FSxL_X5hIWVvvUSIniyZyZcyZx9k4hSnAyp9PZM850hvauXkINbobcOVHgeugEfCeSkXkFyrUcKriesL9HWhCvtpZmMUxqVu0sOoGFAPTt0UMDU1h5SBGuugoko67nriSridzlohLSsh-gT316dDs_GgpZgrwSfD8NisSUVozDFY7SOI2xrVNQCF7eiNKE9mnhHmxzldgUSyL1sf1GwRPZ_mClXpo1JZUCw1nquvpE5lDZGbVsLFY0cn0Jgynrw01gkxUpGF8YPPYNJAl_uUKJfzigQ6cz460pmo5mHJmjqIhSI6BIaQOP1xpRVlXZQ5wPcOJ7SkvxAtlDOE5HUegVdpLMjO57NtzuBthiqbO5qMoztbuxM2ThauvJbRb6ntyZ650X8PLqlPfCfthvnYZpkAf5xYlS-l9OJlc5Jerl7DWOcIhHrVeQ9JLcf6t3GXMUp4PgPieQa1bAK1GMcTS-RjXuJYH_vugQRz0_vxNdEA0bsrsKfsjjVhAnKQ7SdwVPfvddNvNnKYqLYDROcNIKpsMAD8J3BeNBEPfPHRqdhSSrJaoIh9_-z5mDpxP0iFEXPRHGNXDCC0DP5jEHOXN-ncrswQPDpiSjpGvfAvoKawabM7W8Kf9id5ZCuQSTQ4mokGj8p2GrGri-1QyN5omGCD-LmPOt2m1ZZMpsHqAU-iw0o6wgmgnesswXebrhEep2P5rmz8vgtAxf5WvBy3d1A4ftJrqBoxZ2PKcGWRNWOtneOf7FzJ-uBEqaSjsHzyGNFpMdL5zsuNudZlWaUUeMmJdQn8DDP57LqAk=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-325-pe-070-070_perform_field_inspection_to_create_work_request-pe-070-070_perform_field_inspection_to_create_work_request">BUSINESS ARCHITECTURE — 3.2.5 PE-070-070_Perform_Field_Inspection_to_Create_Work_Request — PE-070-070_Perform_Field_Inspection_to_Create_Work_Request</h4>
 <p><strong>Swim Lanes</strong>: Factory Supervisor | <strong>Tasks</strong>: 2 | <strong>Gateways</strong>: 0</p>
@@ -887,7 +929,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Factory Supervisor
+    subgraph lane_0["Factory Supervisor"]
         n1["fa:fa-user Perform MES/AutoTask Diagnostics"]
         n2["fa:fa-user Review Checklists"]
         n3["Process Notification"]
@@ -902,7 +944,7 @@ flowchart TD
     class n4 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuu2jAU_BUrVyiboOZJaBaVIBCpUm9VldvbRenCOMdgkdjUdngU8e-1eYRHe1fNIsqZzJnxmTjeO0SU4GROp7NnnOkM7V29gBrcDLkzrMD10Al4xZLhWQXKtRwquJ6w30daEK-2lmaxAtes2ll0AnMB6NtHDw1MY-UhhbnqKpCMup67kqzGcpeLSkjLfoI-9enR7fxqKGQJ8krw_TQgiWmtGIcrHKVxGhe2TwERvLwTpQntU-Ie7OIqsSELLPVx-Y2CZ7z9zkq9MDXFlQLDWei6-oRnUNkZtWwsRhq5voTBlPXhJrDJChPG5waPfQNJzJdXKPEPB3TodKa8NUUvoylH5iIVVmoEFClt4PFaI8qqKnuK80GR-J7SUiwhewrH6SgKPWInyczovmfD7W6AzRc6m4mqPFO7GztDFq62ntxmoe_Jnbk_eAEvr055L-yH_dZpmAZ5kF-cKKX_5WRylS9YLc9e46gIi1HrFSS9JPf_1ruMOYrTQfCYE8g1I3AjWhRFNL5GNe4lgf-26LCIen7-IDrHGjZ4dxV8n8etYJGkRZC-KXjye1xlM_siBbkIRuOkSFrBdBgUg_BNwXgQxP3zCo3OXOLVAhWYaCF3aNKsbABKyBPBXjz4MXUoziju2rzRF5BUyBo9jyfvBo0Wx6xGDM-5UJoRNXV-3jSH981fYc1gg_IFkGXFlH5gR4ZtJwOl0GehGWUEayb4PSs2rLPQLQlhXqJXXLHS5G2cfjWgzDYUEj1jxjVwzAm0SmaXnh54jLrdD2bMcxmcyvBchqcyuvkElnPZendw-G84an-_OzhuYcdzapA1ZqWT7Z3j-WfOyBIobirtHDwHm5wnO06c7HhOOM3KzmhDl7g-gYc_ip66Vw==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuO2jAU_RUrI8QmqHkSmkUlCESq1KlGZTpdlKoyzjVYGJvaDo8i_r02jzDQzqpZRLkn557je-J47xFZgZd7rdaeCWZytG-bOSyhnaP2FGto--gEvGDF8JSDbjsOlcKM2e8jLUxWW0dzWImXjO8cOoaZBPT1o4_6tpH7SGOhOxoUo22_vVJsidWukFwqx36AHg3o0e38aiBVBepKCIIsJKlt5UzAFY6zJEtK16eBSFHdiNKU9ihpH9ziuNyQOVbmuPxawyPefmOVmduaYq7BcuZmyT_hKXA3o1G1w0it1pcwmHY-wgY2XmHCxMziSWAhhcXiCqXB4YAOrdZENKboeTgRyF6EY62HQJE2Fh6tDaKM8_whKfplGvjaKLmA_CEaZcM48ombJLejB74Lt7MBNpubfCp5daZ2Nm6GPFptfbXNo8BXO3u_8wJRXZ2KbtSLeo3TIAuLsLg4UUr_y8nmqp6xXpy9RnEZlcPGK0y7aRH8rXcZc5hk_fA-J1BrRuCVaFmW8ega1aibhsHbooMy7gbFnegMG9jg3VXwfZE0gmWalWH2puDJ736V9fRJSXIRjEdpmTaC2SAs-9Gbgkk_THrnFVqdmcKrOeJYwM_g-8QrMTFS7dC4XrkktFQT78eJ7C4RWg7FOcUdlz16AkWlWqLH0fhdvzbymNuQ4ZmQ2jCib5uj2-YvsGawQcUcyIIzbe7YsWW7KUFr9FkaRhnBhklxy0os6yz0moSwqNAL5qyy2VunXzVouyWlQo-YCQMCCwKNkt2xpweRoE7ngx3zXIanMjqX0amMX30Ox7lswxs4-jccN7_iDZw0sOd7S1BLzCov33vHs9CelxVQXHPjHXwP25zHO0G8_HhmePXKzehCV3h5Ag9_AG3Ivjo=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 
@@ -925,7 +967,7 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph FTS IF - Batch User
+    subgraph lane_0["FTS IF - Batch User"]
         n4[["fa:fa-cog Update Claim Document Status"]]
         n5[["fa:fa-cog Create Claim Document (Draft)"]]
         n6[["fa:fa-cog Create Return PR / PO"]]
@@ -949,7 +991,7 @@ flowchart LR
         n37{{"fa:fa-code-branch Equipment Under Warranty ?"}}
         n41{{"fa:fa-arrows-alt parallelGateway"}}
     end
-    subgraph FTS IF - PM Maintenance Technician
+    subgraph lane_1["FTS IF - PM Maintenance Technician"]
         n1["fa:fa-user Create Corrective / Break Down Order"]
         n2["fa:fa-user Perform Warranty Claim Validation Pop-up"]
         n11["Maintain Flag for Warranty Indicator"]
@@ -964,11 +1006,11 @@ flowchart LR
         n40{{"fa:fa-arrows-alt parallelGateway"}}
         n42{{"fa:fa-arrows-alt inclusiveGateway"}}
     end
-    subgraph Finance Manager
+    subgraph lane_2["Finance Manager"]
         n3[["fa:fa-cog Post Financial Credit (W/refer to claim)"]]
         n19["Send Credit Memo to Supplier"]
     end
-    subgraph PTP IF Batch user
+    subgraph lane_3["PTP IF Batch user"]
         n9[["fa:fa-cog Create Free Goods PR"]]
         n10[["fa:fa-cog System generates PR/PO"]]
         n18(["fa:fa-stop Free Goods PR/PO Process End"])
@@ -1065,7 +1107,7 @@ Financial Credit"| n3
     class n42 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWG1v4zYS_iuEF4tkAXujV8v2hxaJYxUBNl03Tro4NP1AS5Sti0yqFBUnTfPfbyhRskVTd-j2AuwmGs4z88xwZkjpbRCxmAxmg48f31Kaihl6OxNbsiNnM3S2xgU5G6Ja8CvmKV5npDiTOgmjYpX-WanZXv4i1aQsxLs0e5XSFdkwgh5uhugSgNkQFZgWo4LwNDkbnuU83WH-OmcZ41L7A5kkVlJ5U0tXjMeEHxQsK7AjH6BZSslB7AZe4IUSV5CI0bhjNPGTSRKdvUtyGdtHW8xFRb8syC1--ZbGYgvPCc4KAjpbscu-4DXJZIyCl1IWlfy5SUZaSD8UErbKcZTSDcg9C0Qc06eDyLfe39H7x4-PtHWKvtw9UgQ_UYaL4pokqBAgXjwLlKRZNvvgzS9D3xoWgrMnMvvgLIJr1xlGMpIZhG4NZXJHe5JutmK2ZlmsVEd7GcPMyV-G_GXmWEP-Cv9rvgiND57mY2fiTFpPV4E9t-eNpyRJ_pEnyCu_x8WT8rVwQye8bn3Z_tifW6f2mjCvveDS1vNE-HMakSOjYRi6i0OqFmPftvqNXoXu2JprRjdYkD1-PRiczr3WYOgHoR30Gqz96SzL9ZKzqDHoLvzQbw0GV3Z46fQa9C5tb6IYgp0Nx_kWhfcrdBOiEbrCItqiB0hDrSF_qPfbb4-DBM8SPIrYBj3kMQSE5hlOd-iaReWOUIFWAouyeBz8_vsR0u8i55wYkOfXHCfikwYdG6F3RJScouUdukDLrxok6ELuoU-KXSo0fxpoYgzuG-aAFq_ohiaM77BIGUUpRYs_yjSvWGMao1tcCMIPyvdyYiEAfP78WXNje-etn0KwXE_CPGMFiQH06Rjk6yDGOYlE-kwuriAhTzHbQzKgFEhRwCIVKS1PrYw1Kz8z5V0hTxGBhmgjrNOj6zsOqLc68y2JnmQWjrJ1A8M-VchjoAvAlEISdySW6_dbzvaL53qbjhUnb2-HbYrJaA2-oFLDlOIMDoa4jgh-13WIfnwcvL8fG5iaDZCXKCsLSOhPdZNqMNf6Pphtht1Q9MvD5RednOv0qAuyu1jKgf5A4-NCOzHgfh9Nr5fmqoQjA46-GBpt8SJgpsOfJ27973M77nFboCrYOXsm3OQuMOMOZfY_0uQdbQvosH0xwplAOeY4y0h2whai7huUy1voflm5FCgQdE-iLU2jFNPjNmqbSB5U7fRrexhSW3UxTAFo46_yAqJVfdfAknA5jA7x1V38K3RAXE-oJctHZd41YksaFVf4h8IMb6rePJpwcRphwTTftnOYAXkGp5fW38cd3Zkd7v9jZjkWGFm9wnjdoTKvhq1q7LuSUrj4aImSMd4v5l_RudoJ2FBgynZ5RoDjJ03d7y1AwViGgGb8Cn-iNUFrzkq4m0gWIMg5i8uoyvXJhOmp6msmC0wUaIthy29vb65PkEEvHdKWdlmV9l5twklrTI2V3e5ZXhdG6VjWGv2Izvep2LbGUCR3dM1e4IRTtYBiIocyTNcqVjifSX2odfvJ-nv9VIMcIyilfTPD0IVp3XW3mOJN56ridk_zJSuE0oaXAtmBMdwHzr9dcJJANmFDI9lC-t3DnsrqA78N4pbsmNRelXmepUdtespteb-UE6K-SJXdi9TUeKcJOSHoJ8ZiGH93OhOrC1EtsSGUcMBKxMXJPcieaC3Y8QD6bfst6EnjeQBVxOorjhocx9POMKrcyd89CtrUwahBo9EP8Fs9e3b97KtnN5DPfz0O_kXggvmXPF71lZ9ZveA0C44OcZsVtzY-aZ5tzYTXLHi6ibG-0kBaouNer-MeSBNrY1ulwmsCmarUNHQ99dywdCbK8GUOs-kZTs2qtbWaAo_T_w54pHqb1DwblK9F1ryLwcWqZhQ0zyogp3Ho-opymz6FcNocqKCdZlsdSwk0hNs4da1uOm1fX2h4erZeEfoOTBS9QA-1sd3mQNF0G01P0XSnmsBpiDe5GOvFdlIgvrbvY4VsC0ixbLdRLzXP0lcUf6ehays2dqupd89EX2iM220WVbacpv7sJgcTvb6qqzm8sP2bVOdlTfLoRVZmp3mB74gds9g9fjnvrHi9K37vyrh3JehdmfSuTHtXID-9S077WaYrd9UnlK7UM0p9o3RslAZG6cQonZq5QWea5XaPvCdGx-2Rez1yv_mK0hWPzeLALJ6YxVOjGEaJUWybxY5Z7JrFnllsjtI1R-mao3TNUbrmKD1zlJ45Sq-NcjAc7OCCiNN4MHsbVJ9s4bNuTBJcZmLwPhzgUrDVK40Gs-rT5qCsvhxcpxiuSbta-P4fTcTcKw==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWG1v2zYQ_iuEiyIpYDd6tWx_2JDY1hCgWb04WTEsw0BLlK1FJjWKipNl-e87SpRs09SGdQvQJjrec_fc8e5I6bUXsZj0Jr33719TmooJej0TG7IlZxN0tsIFOeujWvAj5ileZaQ4kzoJo2KZ_lGp2V7-LNWkLMTbNHuR0iVZM4Lur_voEoBZHxWYFoOC8DQ565_lPN1i_jJlGeNS-x0ZJVZSeVNLV4zHhO8VLCuwIx-gWUrJXuwGXuCFEleQiNH4yGjiJ6MkOnuT5DK2izaYi4p-WZAb_PwljcUGnhOcFQR0NmKbfcIrkskYBS-lLCr5U5OMtJB-KCRsmeMopWuQexaIOKaPe5Fvvb2ht_fvH2jrFH26faAIfqIMF8WMJKgQIJ4_CZSkWTZ5500vQ9_qF4KzRzJ558yDmev0IxnJBEK3-jK5gx1J1xsxWbEsVqqDnYxh4uTPff48caw-f4H_NV-ExntP06Ezckatp6vAntrTxlOSJP_JE-SV3-HiUfmau6ETzlpftj_0p9apvSbMmRdc2nqeCH9KI3JgNAxDd75P1Xzo21a30avQHVpTzegaC7LDL3uD46nXGgz9ILSDToO1P51luVpwFjUG3bkf-q3B4MoOL51Og96l7Y0UQ7Cz5jjfoAxT8qv180MvvFui6xAN0BUW0QbdQz4eer_U2vKHej-DVoInCR5EbI3u8xiCQ9MMp1s0Y1G5JVSgpcCiLAB4iPSPkVNODMjzGceJ-KBBh0boLRElp2hxiy7Q4rMGCY4hd9AzxTYVmj8NNDIG9wVzQIsXdE0TxrdYpIyilKL572WaV6wxjdENLgThe-U7Ob0QAD5-_Ki5sb3z1k8hWK4nYZqxgsQA-nAI8nUQ45xEIn0iF1eQkMeY7SAZUBakKGCRipSWp1aGmpXvmfKukKeIQEO0Edbp0fUdB9RbnemGRI8yCwfZuobBnyrkIdAFYEohiVsSy_W7DWe7-VO9TYeKo9fX_TbFZLACX1CsYUpxBodEXEcEv-s6RN8-9N7eDg2MzQbIc5SVBST0u7phNZhrfR3MNsOuKfrh_vKTTs51OtQF2V4s5HC_p_FhoZ0YcL-OptdJc1nC8QHHYAyNNn8WMN_hzxO3_te5HXa4LVAV7JQ9EW5yF5hx-zL7hzR5B9sCOmxXDHAmUI45zjKSnbCFqE1D0z4cmosbGAOyhClwIeiORBuaRimmxwVstw0lD7B2Erb9DGmuOhomArT0Z3kx0Trg2MCCcDmY9rHWHf0jdENcT6sFywdlrrGQNCq68A-FGV5XfXow7eI0woJpvm1nPw_yDE41rdcPu_tojrj_x_xy5CG1fIFRu0VlXg1e1eS3JaVwIdISJWO8m08_o3O1GbC5wJRt84wAxw-aut9ZjIKxDAHN-AX-RCuCVpyVcGeRLECQcxaXUZXrk2nTUeEzJotNFGiDYctvbq5nJ8igkw5py7ysynynNuGkTcbGKm_3LK8Lo3Qsa4W-Ree7VGxaYyiSO7piz3DaqVpAMZEDGiZtFSuc1aQ-4I57y_p3vVWDHCMopV3zo6MjZXPIo0B24A2meK13j3t8yi9YIVANgBcH2Y0x3BPOv1xwkkBmYXMj2U76ncQey0oEDg3ihmyZ1F6WeZ6lB047eMrjbnG3kJOjvmyVJ5etsfHeE3JC0HeMxTAib3VW1jFEtcqaUMIBKxEXJ3cle6S15pEH0G_bck5PGtIDqCJWX4PUQDkchIYR5o7-7XHRphFGEBoMvoHf6tmz62dfPbuBfP7zofcTgUvon_II1le-Z_WC0yw4OsRtVtza-Kh5tjUTXrPg6SaG-koDaYkOO70OOyBNrI1tlQqvCWSsUtPQ9dRzw9IZKcOXOcysJzhZq5bXago8jv8e8ED1lql5Nihfi6x5d4PLV80oaJ5VQE7j0PUV5TZ9CuG0OVBBO822OpYSaAi3cepax-m0fX2h4enZekXoOzBS9AI91MZ2mwNF0200PUXTHWsCpyHe5GKoF9tJgfjavg8Vsi0gxbLdRr3UPEtfUfydhq6t2Nitpt49I32hMW63WVTZcpr6s5scjPT6qq7v8FL3G6nO0ZrkwYuvzE7zwn8kdsxi9_Bl_mjF61zxO1eGnStB58qoc2XcuQL56Vxy2s84x3JXfXI5lnpGqW-UDo3SwCgdGaVjMzfoTLPc7pB3xOi4HXKvQ-43X12OxUOzODCLR2bx2CiGUWIU22axYxa7ZrFnFpujdM1RuuYoXXOUrjlKzxylZ47Sa6Ps9XtbuDjiNO5NXnvVJ174DByTBJeZ6L31e7gUbPlCo96k-hTaK6uvC7MUw5VpWwvf_gK0COu9" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 
@@ -1088,7 +1130,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Factory Supervisor
+    subgraph lane_0["Factory Supervisor"]
         n1["fa:fa-user Check if Diagnostics Fixed Issue"]
         n2["Review Equipment Maintenance Planned Orders"]
         n3["Close Notification"]
@@ -1106,7 +1148,7 @@ flowchart TD
     class n5 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVF1v2jAU_StWqoqXICUhaVgeNkEgUqV1q0q3aRp7MM41WDh2ajsFRvnvs_ksrH1aHlB8uOece09srz0iS_Ay7_p6zQQzGVq3zAwqaGWoNcEaWj7aAd-xYnjCQbdcDZXCjNifbVkY10tX5rACV4yvHDqCqQT07dZHPUvkPtJY6LYGxWjLb9WKVVitcsmlctVX0KUB3brt_-pLVYI6FQRBGpLEUjkTcII7aZzGheNpIFKUZ6I0oV1KWhvXHJcLMsPKbNtvNNzh5Q9WmpldU8w12JqZqfhnPAHuZjSqcRhp1PMhDKadj7CBjWpMmJhaPA4spLCYn6Ak2GzQ5vp6LI6m6HEwFsg-hGOtB0CRNhYePhtEGefZVZz3iiTwtVFyDtlVNEwHncgnbpLMjh74Ltz2Ath0ZrKJ5OW-tL1wM2RRvfTVMosCX63s74UXiPLklN9E3ah7dOqnYR7mBydK6X852VzVI9bzvdewU0TF4OgVJjdJHvyrdxhzEKe98DInUM-MwCvRoig6w1NUw5skDN4X7RedmyC_EJ1iAwu8Ogl-yOOjYJGkRZi-K7jzu-yymdwrSQ6CnWFSJEfBtB8WvehdwbgXxt19h1ZnqnA9QwUmRqoVGjW1C0BLtStwjwh_jT2KM4rbLm-Uz4DMEaNowPBUSG0Y0ahgSyjRrdYNjL3fr8iRJT_AM4MFGj41rK5AGHSHmTAgsCCA7jkWwnK_uvOnz8kdS8651IC-SMMoI9gwKc5rYltzD4pKVdkugNsuhK6BuEpkJMoV2PjRAzw1oM05N1mvD6O5e6k9sSeLzN4b7NPY22x2bLvFdy8iRu32R5vRfpm45cvY-wl2lBc7wQX-RW7haA-HO3by6vs68LCvz-DoeIjP4M7bcPw2nBw2o-d7FagKs9LL1t72yrXXcgkUN9x4G9_DjZGjlSBetr2avKYuLdNFo3C1Azd_ARnH3qs=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVFtv2jAU_itWqoqXICUhaVgeNtFApEprV5Vu0zSmyTjHYNWxU9vhMsp_n821sPZpeYjwx3c558T2yiOyBC_zLi9XTDCToVXLTKGCVoZaY6yh5aMt8A0rhsccdMtxqBRmyP5saGFcLxzNYQWuGF86dAgTCejrjY96Vsh9pLHQbQ2K0ZbfqhWrsFrmkkvl2BfQpQHdpO3-upaqBHUkBEEaksRKORNwhDtpnMaF02kgUpQnpjShXUpaa1ccl3Myxcpsym803OLFd1aaqV1TzDVYztRU_DMeA3c9GtU4jDRqth8G0y5H2IENa0yYmFg8DiyksHg6QkmwXqP15eVIHELRY38kkH0Ix1r3gSJtLDyYGUQZ59lFnPeKJPC1UfIJsotokPY7kU9cJ5ltPfDdcNtzYJOpycaSlztqe-56yKJ64atFFgW-Wtr3WRaI8piUX0XdqHtIuk7DPMz3SZTS_0qyc1WPWD_tsgadIir6h6wwuUry4F-_fZv9OO2F53MCNWMEXpkWRdEZHEc1uErC4H3T66JzFeRnphNsYI6XR8MPeXwwLJK0CNN3Dbd551U243slyd6wM0iK5GCYXodFL3rXMO6FcXdXofWZKFxPEccCfgc_R16BiZFqiYZN7SahpRp5v7Zk94jQcijOKG672aN8CuQJMYr6DE-E1IYRjQq2gBLdaN3AqTiy4geYMZijwXPD6gqEQbeYCQMCCwLo3tYhrPaLO4v6VNyx4pxLDehOGkYZwYZJccqJLeceFJWqslUAt1UIXQNxTGQkyhXYT4Ee4LkBbU61yWq1b83dUe2xPWVk-l5jn0beer1V2-2-_SFi1G5_tDPaLRO3fBl5P8C28mI7OMPv5AaOdnC4VSevvrUD93v8BI4OB_oE7rwNx2_DyX5jer5XgaowK71s5W2uX3tFl0Bxw4239j3cGDlcCuJlm2vKa-rSKt1oFK624Povu_nijg==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-328-pe-070-100_close_notification-pe-070-100_close_notification">BUSINESS ARCHITECTURE — 3.2.8 PE-070-100_Close_Notification — PE-070-100_Close_Notification</h4>
 <p><strong>Swim Lanes</strong>: Factory Supervisor | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 0</p>
@@ -1122,7 +1164,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Factory Supervisor
+    subgraph lane_0["Factory Supervisor"]
         n1["fa:fa-user Set Status to Resolved"]
         n2["Release Equipment to Production"]
         n3["Process Notification"]
@@ -1134,7 +1176,7 @@ flowchart TD
     class n3 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuu2jAU_BUrVyibIOVJaBaVIBCpUltV5bZdlC6McwzWdezUdngU8e-1eV6o7qpZRPFkzsw5k9h7j8gavMLr9fZMMFOgvW9W0IBfIH-BNfgBOgHfsWJ4wUH7jkOlMDP250iL0nbraA6rcMP4zqEzWEpA3z4EaGQLeYA0FrqvQTHqB36rWIPVrpRcKsd-giEN6dHt_GosVQ3qRgjDPCKZLeVMwA1O8jRPK1engUhR34nSjA4p8Q-uOS43ZIWVObbfafiEtz9YbVZ2TTHXYDkr0_CPeAHczWhU5zDSqfUlDKadj7CBzVpMmFhaPA0tpLB4uUFZeDigQ683F1dT9DyZC2QvwrHWE6BIGwtP1wZRxnnxlJajKgsDbZR8geIpnuaTJA6Im6Swo4eBC7e_AbZcmWIheX2m9jduhiJut4HaFnEYqJ29P3iBqG9O5SAexsOr0ziPyqi8OFFK_8vJ5qqesX45e02TKq4mV68oG2Rl-K_eZcxJmo-ix5xArRmBV6JVVSXTW1TTQRaFb4uOq2QQlg-iS2xgg3c3wXdlehWssryK8jcFT36PXXaLL0qSi2AyzarsKpiPo2oUvymYjqJ0eO7Q6iwVbleowsRItUOzrnUBaKlOBHeJ6Ofco7iguO_yRjMwaGaw6TQyEn0FLfka6rn361VJbEu-Age7o9H0d8faBoRxdNt23RHDpLgvSGyBGwm0Rp-lYZQRfMeyP9XpQSSo339vuzovo9MyfhWRAy-_xh0cX_fBHZxcYS_wGlANZrVX7L3jQWQPqxoo7rjxDoGHOyNnO0G84rhhva6t7cedMGxzbE7g4S_EmZQK" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViiXIOWT0BwqQSBSpbaqlm17KFVlnGew1rFT24GliP9em8-Fak_NIYon82bem8TeeUTW4BVer7djgpkC7Xyzggb8AvkLrMEP0BH4hhXDCw7adxwqhZmxPwdalLYvjuawCjeMbx06g6UE9PVDgEa2kAdIY6H7GhSjfuC3ijVYbUvJpXLsBxjSkB7cTq_GUtWgroQwzCOS2VLOBFzhJE_ztHJ1GogU9Y0ozeiQEn_vmuNyQ1ZYmUP7nYZP-OU7q83KrinmGixnZRr-ES-AuxmN6hxGOrU-h8G08xE2sFmLCRNLi6ehhRQWz1coC_d7tO_15uJiip4mc4HsRTjWegIUaWPh6dogyjgvHtJyVGVhoI2Sz1A8xNN8ksQBcZMUdvQwcOH2N8CWK1MsJK9P1P7GzVDE7UugXoo4DNTW3u-8QNRXp3IQD-PhxWmcR2VUnp0opf_lZHNVT1g_n7ymSRVXk4tXlA2yMvxX7zzmJM1H0X1OoNaMwCvRqqqS6TWq6SCLwrdFx1UyCMs70SU2sMHbq-C7Mr0IVlleRfmbgke_-y67xRclyVkwmWZVdhHMx1E1it8UTEdROjx1aHWWCrcrxLGAX-GPuVdhYqTaolnXuiS0VHPv55HsLhFZDsUFxX2XPZqBQTODTaeRkegRtORrqG9LYlvyCBzs7kbT3x1rGxDG0e0IdUcMk-K2ILEFbjzQGn2WhlFG8A3L_mDHB5Ggfv-97eq0jI7L-FVcDjz_JjdwfNkTN3Bygb3Aa0A1mNVesfMOh5I9uGqguOPG2wce7oycbQXxisPm9bq2th96wrDNtDmC-7_ZIJft" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 
@@ -1157,11 +1199,11 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Boundary Apps
+    subgraph lane_0["Boundary Apps"]
         n2["fa:fa-user Create Work Order"]
         n7["Process Notification"]
     end
-    subgraph FTS IF - PM Batch User
+    subgraph lane_1["FTS IF - PM Batch User"]
         n1["fa:fa-user Run Chron Job to Find Open WO"]
         n3[["fa:fa-cog Convert Notification into Work Order"]]
         n4[["fa:fa-cog Replicate Work Order in S4 from XEUS"]]
@@ -1186,7 +1228,7 @@ flowchart TD
     class n8 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVdtuo0gQ_ZUSUeQXLHE1LA8r2disstpsojiZrDTehzYUdiu4m-0GX8byv2-3wRc8ydPwgFSnqs6pKrqavZHyDI3IuL_fU0arCPa9aokr7EXQmxOJPRMa4BsRlMwLlD0dk3NWTemPY5jtlVsdprGErGix0-gUFxzh7cGEoUosTJCEyb5EQfOe2SsFXRGxi3nBhY6-wzC38qNa6xpxkaG4BFhWYKe-Si0owwvsBl7gJTpPYspZ1iHN_TzM095BF1fwTbokojqWX0t8JNt3mlVLZeekkKhiltWq-IvMsdA9VqLWWFqL9WkYVGodpgY2LUlK2ULhnqUgQdjHBfKtwwEO9_czdhaF1_GMgXrSgkg5xhxkpeDJuoKcFkV058XDxLdMWQn-gdGdMwnGrmOmupNItW6Zerj9DdLFsormvMja0P5G9xA55dYU28ixTLFT7xstZNlFKR44oROelUaBHdvxSSnP819SUnMVr0R-tFoTN3GS8VnL9gd-bP3Md2pz7AVD-3ZOKNY0xSvSJEncyWVUk4FvW1-TjhJ3YMU3pAtS4YbsLoS_xd6ZMPGDxA6-JGz0bqus58-CpydCd-In_pkwGNnJ0PmS0BvaXthWqHgWgpRLGPH6eJZhWJay8emHOd9nRk6inPT1qCEWqFqBdy4-4Envy8z49yo6UNG6LpQS_uYVzWlKKsrZOUqdjBvh5HUKDwn04fkRRqRKl_CmhK447W4FLzWDeCk4gz_5HCoOCWUZPJXI4P2pW437_Zya8gXEnK1RrcZ1YUCZoui0c83gdRlesCx04vUAFANMPcgFX8E_k7fpDYOvCB4yZEpyp_L_q6nADNTuCoRntZGyW_JAhb_gmuKmWyZRPX4jBc20uKZBqfaLC3gkqgNkhKXYZQr3-0vpGfbn6s5Qw8VtWtSSrvGP5kjOjMPh5tMwB_r939XgWzNoTKc1B43ptqbXmGFrho3pt6bb9dqN6V2dZg2etrgDO5_D7vWGdjzelx7_fPt14MHncPA5HJ622DCNFYoVoZkR7Y3jv0r9zzLMSV1UxsE0SF3x6Y6lRnS804261J9tTIk68asGPPwPB9o84A==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV1v6kYQ_SsjRxEvRvIndv1QCQyuUjVNFJKbK12qarHHsIrZdXdtPor4793F5sPc5Kl-QJqzZ86ZGXbsvZHyDI3IuL_fU0arCPa9aokr7EXQmxOJPRMa4BsRlMwLlD3NyTmrpvTfI832yq2maSwhK1rsNDrFBUd4ezBhqBILEyRhsi9R0Lxn9kpBV0TsYl5wodl3GOZWfnRrj0ZcZCguBMsK7NRXqQVleIHdwAu8ROdJTDnLOqK5n4d52jvo4gq-SZdEVMfya4mPZPtOs2qp4pwUEhVnWa2KP8gcC91jJWqNpbVYn4ZBpfZhamDTkqSULRTuWQoShH1cIN86HOBwfz9jZ1N4Hc8YqCctiJRjzEFWCp6sK8hpUUR3XjxMfMuUleAfGN05k2DsOmaqO4lU65aph9vfIF0sq2jOi6yl9je6h8gpt6bYRo5lip36vfFCll2c4oETOuHZaRTYsR2fnPI8_19Oaq7ilciP1mviJk4yPnvZ_sCPrZ_1Tm2OvWBo384JxZqmeCWaJIk7uYxqMvBt62vRUeIOrPhGdEEq3JDdRfCX2DsLJn6Q2MGXgo3fbZX1_Fnw9CToTvzEPwsGIzsZOl8KekPbC9sKlc5CkHIJBWH4t_VjZox4fbzUMCxLOTP-anj6YY46zkmUk74eO8QCVVvwzsUHPOnd6bIDxdY1opTwJ69oTlNSUc7OLHVLPivCVnnJ6xQeEujD8yOMSJUu4U3e6tvdal5qBvFScAa_8zlUHBLKMngqkcH7UzfT_XFOTfkCYs7WqFbmukigTEl0WrtW8LoKL1gWOvF6GEoBph7kgq_g--RteqPgK4GHDJmy3Kn8f2oqMAO10wLhWW3qzegHiv6Ca4qbbplE9fiNFDTT5loGpdo7LuCRqA6QEZZiVync7y-lZ9ifq3eJmi9u06KWdI2_NVd1ZhwON38Tc6Df_1UNvg2DJnTacNCEbht6TRi2YdiEfhu63VO7Cb2rW67B03Z3YOdz2L3e3M6J9-WJf34rduDB53DwORyettswjRWKFaGZEe2N4zdMfecyzEldVMbBNEhd8emOpUZ0fNcbdan_tjEl6vavGvDwH-35RKc=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-3210-pe-070-120_review_maintenance_plan-pe-070-120_review_maintenance_plan">BUSINESS ARCHITECTURE — 3.2.10 PE-070-120_Review_Maintenance_Plan — PE-070-120_Review_Maintenance_Plan</h4>
 <p><strong>Swim Lanes</strong>: FTS IF - Maintenance Planner | <strong>Tasks</strong>: 4 | <strong>Gateways</strong>: 0</p>
@@ -1202,7 +1244,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph FTS IF - Maintenance Planner
+    subgraph lane_0["FTS IF - Maintenance Planner"]
         n1["fa:fa-user Create Maintenance Strategy"]
         n2["fa:fa-user Assign Maintenance Strategy to Task List"]
         n3["fa:fa-user Maintain Maintenance Package"]
@@ -1223,7 +1265,7 @@ flowchart TD
     class n6 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViiXIOWT0BwqQcDSSrvqStD2UHowiZ1YGAfZzgJd8d9rkxA2FE6NBMob3sy8NyT-sLIqx1ZiDQYflFOVgA9blXiL7QTYaySx7YAG-IEERWuGpW16SMXVgv45t3nh7mDaDAbRlrKjQRe4qDD4_uyAiSYyB0jE5VBiQYnt2DtBt0gc04pVwnQ_4TFxydmt_WlaiRyLa4Prxl4WaSqjHF_hIA7jEBqexFnF854oiciYZPbJDMeqfVYioc7j1xK_osNPmqtS1wQxiXVPqbbsBa0xMzsqURssq8X7JQwqjQ_XgS12KKO80HjoakggvrlCkXs6gdNgsOKdKVjOVhzoK2NIyhkmQCoNz98VIJSx5ClMJzByHalEtcHJkz-PZ4HvZGaTRK_uOibc4R7TolTJumJ52zrcmx0Sf3dwxCHxXUcc9feNF-b51Skd-WN_3DlNYy_10osTIeS_nHSuYonkpvWaB9CHs87Li0ZR6v6rd1lzFsYT7zYnLN5phj-JQgiD-TWq-Sjy3MeiUxiM3PRGtEAK79HxKvglDTtBGMXQix8KNn63U9brN1FlF8FgHsGoE4ynHpz4DwXDiReO2wm1TiHQrgRwuQDPEAzBK6JcYY54hsEbQ5xj0bSai3u_VhZBCUFDkzxIBdab9TgLJTRUHFfW7088v8-bSEkLfpcHVAXO4b9QqfoiQV_kzNaf_sgo26AC94lhnzijcsf0v9FaUizBshRVXZSPnCMtcGdXk0-_cXRtRDy_P-I3c850NP2uNDd8BIbDrzritvSa0m_LoCnDtgybMmpLvymDT4-JUbi8Hj3Yvw8H9-HwPhx1B0oPHnWw5VhbLLaI5lbyYZ1PdH3q55igminr5FioVtXiyDMrOZ98Vr3LdWwzivQDuW3A018r9fot" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2PojAU_SsNE8MLJnyKy8MmijaZZCa7ie7uw7rZVGihsRbTlnFc43_fVhAHV5-WBMI93HPOvbdQjlZW5dhKrMHgSDlVCTjaqsRbbCfAXiOJbQc0wHckKFozLG2TQyquFvTPOc0Ld-8mzWAQbSk7GHSBiwqDb88OmGgic4BEXA4lFpTYjr0TdIvEIa1YJUz2Ex4Tl5zd2kfTSuRYXBNcN_aySFMZ5fgKB3EYh9DwJM4qnvdESUTGJLNPpjhW7bMSCXUuv5b4Fb3_oLkqdUwQk1jnlGrLXtAaM9OjErXBslq8XYZBpfHhemCLHcooLzQeuhoSiG-uUOSeTuA0GKx4ZwqWsxUH-sgYknKGCZBKw_M3BQhlLHkK0wmMXEcqUW1w8uTP41ngO5npJNGtu44Z7nCPaVGqZF2xvE0d7k0Pib97d8R74ruOOOjrjRfm-dUpHfljf9w5TWMv9dKLEyHkv5z0XMUSyU3rNQ-gD2edlxeNotT9V-_S5iyMJ97tnLB4oxn-IAohDObXUc1Hkec-Fp3CYOSmN6IFUniPDlfBT2nYCcIohl78ULDxu62yXn8VVXYRDOYRjDrBeOrBif9QMJx44bitUOsUAu1KwBDHv92fKwsuF-AZgiF4RZQrzBHPMPiqH3MsVtavhmYO7ulsghKChmYVQCqw7rJHWyihoeLQ5_l93kRKWvC7PKAqcF6IFypVXyToi5zZ-uxXjbINKnCfGPaJMyp3TK9Ma0mxBMtSVHVRPnKOtMCdXs2I-omjayLi-f0Sv5g9p6Pp76a54SMwHH7WI25Drwn9NgyaMGzDsAmjNvSbMPjwyhiFy6fSg_37cHAfDu_DUbe59OBRB1uOtcVii2huJUfrvLvrP0COCaqZsk6OhWpVLQ48s5LzLmjVu1yPbUaRfjm3DXj6Cz1a_hA=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 
@@ -1246,7 +1288,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph FTS IF - Maintenance Planner
+    subgraph lane_0["FTS IF - Maintenance Planner"]
         n1["fa:fa-user Create Single Cycle Maintenance Plan-Counter/Non-Counter"]
         n2["fa:fa-user Change/Mass Change Maintenance Plan"]
         n3["fa:fa-user Set Deletion Flag"]
@@ -1293,7 +1335,7 @@ flowchart TD
     class n14 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2PokgU_SsVOh1nEoh8is3DbmyUzSTTs53V3X1Y96GEi1a6LExR-LGO_32rFFAQM9msico93HPOvReo4qjFWQJaoD0_HwkjIkDHnljBGnoB6i1wDj0dXYA_MCd4QSHvqZw0Y2JK_jmnWe5mr9IUFuE1oQeFTmGZAfr9i45Gkkh1lGOWGzlwkvb03oaTNeaHMKMZV9lPMEzN9OxWnnrNeAL8mmCavhV7kkoJgyvs-K7vRoqXQ5yxpCGaeukwjXsnVRzNdvEKc3Euv8jhDe__JIlYyTjFNAeZsxJr-hUvgKoeBS8UFhd8Ww2D5MqHyYFNNzgmbClx15QQx-zjCnnm6YROz89zVpui2XjOkPzEFOf5GFKUCwlPtgKlhNLgyQ1HkWfqueDZBwRP9sQfO7Yeq04C2bqpq-EaOyDLlQgWGU3KVGOnegjszV7n-8A2dX6Qvy0vYMnVKRzYQ3tYO736VmiFlVOapv_LSc6Vz3D-UXpNnMiOxrWX5Q280LzXq9ocu_7Ias8J-JbEcCMaRZEzuY5qMvAs87Hoa-QMzLAlusQCdvhwFXwJ3Vow8vzI8h8KXvzaVRaLd57FlaAz8SKvFvRfrWhkPxR0R5Y7LCuUOkuONysUzaboS4QM9IYJE8AwiwG9U8wY8Euq-jDrr7mW4iDFhpo8CjnIztBU3ocUUHiI5W9bwAizQgK8_y2rj-fa3zeidkt0hdkS-m-y1fL4TrPJd5r8KQg0BgqCZAxFFC-b2W4zewyynrV8xO9M0OywgSbX625fcPm3PBivcv1K7nU-vQNPM75WSH9G1oDOiZ-b2oNO7beCCrJRwy2nOJZ8lsvWHrg1Rf3WaOIVJAX90UCHn2paLrLNfUfn8UIiWZ9vaC-SVZaNWVmZ_Dbov6pFtulmmQ943zJBUhJjdSFbFHUf_gZbArsftGLZx2PVi9p5jIVcO-NV45bt11ewfzfvn-fa6XSr53TrwT6mRU628MvlUW_T3P9Kk2vo5YB5yDB-Us5lPGjFVjt2LoBdxvYl9MvQLdOr01bJd6v4nP99rlVDmWvfZRHts-1BnbMGZZZfetSapanTil9asVWuc6xsYXhX081lOzveLt9qFNWG0IDtbtjpht1u2OuGB92w3w0Py72xAb7Um3OzGfMBbj3A7WqfacJON-xWsKZra7kEYpJowVE7v3vJ97MEUiwvsXbSNVyIbHpgsRac31G0YpNI5phguXWsL-DpX0JkHmI=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVmuP4jYU_StWRiN2pUTkSZh8aAWBVCt1tqNC2w-lqkxyA9YYBzkOj7L899qQhEkIWlVFGib35J5z7r0Odk5anCWgBdrz84kwIgJ06ok1bKAXoN4S59DT0RX4HXOClxTynspJMyZm5J9LmuVuDypNYRHeEHpU6AxWGaDfvuhoJIlURzlmuZEDJ2lP72052WB-DDOacZX9BMPUTC9u5a1xxhPgtwTT9K3Yk1RKGNxgx3d9N1K8HOKMJQ3R1EuHadw7q-Joto_XmItL-UUOr_jwB0nEWsYppjnInLXY0J_xEqjqUfBCYXHBd9UwSK58mBzYbItjwlYSd00Jcczeb5Bnns_o_Py8YLUpmk8WDMlPTHGeTyBFuZDwdCdQSigNntxwFHmmnguevUPwZE_9iWPrseokkK2buhqusQeyWotgmdGkTDX2qofA3h50fghsU-dH-d3yApbcnMKBPbSHtdPYt0IrrJzSNP1fTnKufI7z99Jr6kR2NKm9LG_ghea9XtXmxPVHVntOwHckhg-iURQ509uopgPPMh-LjiNnYIYt0RUWsMfHm-BL6NaCkedHlv9Q8OrXrrJYvvEsrgSdqRd5taA_tqKR_VDQHVnusKxQ6qw43q4RxQz-Nv9caNF8hr5EyECvmDABDLMY0Ju8zYAvtL-uNPVhlsxOcZBiQ60CCjnILtFMPpMUUHiM5XdbwwizQgK8_zWrr5uidkt0jdkK-q-y7fL6TrPJd5r8GQg0AQqCZAxFFK-a2W4zewKyno38ud-ZoPlxC02u192-4PLf6miM5V6W3Ot8egOeZnyjkP6cbABdEj83tQed2q8FFWSrhltOcSL5LJetPXBrivqt0cRrSAr6vYEOP9W0XGTb-44u44VEsj5_oL1IVlk2ZmVl8q9B_0VtuK1nynzA-5oJkpIYq4VsUdRz-CvsCOy_04pln05VL-oUMpZyH43XjUe2X69g_27ePy608_mjntOtB4eYFjnZwU_Xn32b5v5XmtxPrxfMQ4bxg3Iu40ErttqxcwXsMravoV-Gbple3bZKvlvFl_xvC60aykL7Joto320P6pI1KLP80qPWLE2dVvzSiq1yz2NlC8O7mj4s28Xx41auRlEdDg3Y7oadbtjthr1ueNAN-93wsDwnG-BLfVA3mzEf4NYD3K7OnCbsdMNuBWu6tpFbICaJFpy0y3uYfFdLIMVyibWzruFCZLMji7Xg8r6iFdtEMicEy2NkcwXP_wKSWSJF" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 
@@ -1316,7 +1358,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Boundary Apps
+    subgraph lane_0["Boundary Apps"]
         n1["fa:fa-user Identify Maintenance Tasks Required for Job"]
         n2["fa:fa-user Identify Internal and External Resources (FSE)"]
         n3["fa:fa-user Identify Maintenance Skill Required to Perform Job"]
@@ -1349,7 +1391,7 @@ flowchart TD
     class n10 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVWuP4jYU_StWRiNaKWjzJEw-VOKV1VSz6mjZ7X4o_WCS68EisVPbmYFF_PfaSQgTBqRKRQJxTs4995H45mClPAMrtu7vD5RRFaPDQG2ggEGMBmssYWCjhvgTC4rXOciB0RDO1JL-rGVuUO6MzHAJLmi-N-wSXjig7482mujA3EYSMzmUICgZ2INS0AKL_YznXBj1HYyJQ-ps7aUpFxmIs8BxIjcNdWhOGZxpPwqiIDFxElLOsp4pCcmYpIOjKS7nb-kGC1WXX0n4gnc_aKY2GhOcS9CajSryJ7yG3PSoRGW4tBKvp2FQafIwPbBliVPKXjQfOJoSmG3PVOgcj-h4f79iXVL0bb5iSH_SHEs5B4Kk0vTiVSFC8zy-C2aTJHRsqQTfQnznLaK579mp6STWrTu2Ge7wDejLRsVrnmetdPhmeoi9cmeLXew5ttjr34tcwLJzptnIG3vjLtM0cmfu7JSJEPK_Mum5im9YbttcCz_xknmXyw1H4cz56Hdqcx5EE_dyTiBeaQrvTJMk8RfnUS1GoevcNp0m_siZXZi-YAVveH82fJgFnWESRokb3TRs8l1WWa2fBU9Phv4iTMLOMJq6ycS7aRhM3GDcVqh9XgQuN2jKq_pZRpOylM0182HuXyuL4JjgoRk1esyAKUr26AumTAHDLAVkZiXRV_inogIyRLhAv_P1yvr7nY93w-dRuwiGc4RZhha7FnwFySuRgkS_JMvFr30r_z-UtNzqwZxLUhw9g9CFFR8rC27YPevz8rErRAQv0LKEtO8S9l0mWfbpe5np215PBz1Rqerw5xwzRBn6wcUW_WE2Tt9n1Pd5omyLlgpK2SQ-mz2Srra-Q6Qduia68vW2END01JePtXzGmaxyhRZaXBY6FCVUL95Pc6xwX_2g1fWc9Rd9BgZC362uqL7WdQ6HUzNm6Q_Xem2lGwS7NK8kfYXPzalYWcdjE6b3RvOHjdFw-Ju2aKHbQL-FfgO9FnoNDFoYtLHtmWGjBkcnL6fBYYsfLuRhg0fvTpwp4LRperR3nfav08F1OrxOj67TUbfJe_T4Ov1wndYzaFeSZVsFiALTzIoPVv3i1S_nDAjWD4R1tC1cKb7cs9SK6xeUVdVP9ZxivTeKhjz-CxiHfio=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVWuP4jYU_StWRiNaKWjzJEw-VOKV1VSz6mjZ7X5Yqsok14NFYqe2MwNF_PfaSQgbBqSVGgnEPTk-996DfX2wUp6BFVv39wfKqIrRYaA2UMAgRoM1ljCwUQP8iQXF6xzkwHAIZ2pJ_61pblDuDM1gCS5ovjfoEl44oK-PNprohbmNJGZyKEFQMrAHpaAFFvsZz7kw7DsYE4fU2dpXUy4yEGeC40RuGuqlOWVwhv0oiILErJOQcpb1RElIxiQdHE1xOX9LN1iouvxKwie8-0YztdExwbkEzdmoIn_Ca8hNj0pUBksr8Xoyg0qTh2nDliVOKXvReOBoSGC2PUOhczyi4_39inVJ0Zf5iiH9pDmWcg4ESaXhxatChOZ5fBfMJkno2FIJvoX4zltEc9-zU9NJrFt3bGPu8A3oy0bFa55nLXX4ZnqIvXJni13sObbY6--LXMCyc6bZyBt74y7TNHJn7uyUiRDyvzJpX8UXLLdtroWfeMm8y-WGo3DmvNc7tTkPool76ROIV5rCD6JJkviLs1WLUeg6t0WniT9yZheiL1jBG96fBR9mQSeYhFHiRjcFm3yXVVbrZ8HTk6C_CJOwE4ymbjLxbgoGEzcYtxVqnReByw3KMYO_ne8ra8qrelOjSVnKlfVXwzMPc_VrgmOCh8Z29JgBU5Ts0SdMmQKGWQrI-CbRZ_inogIyRLhAv_N1X8e7ofOoVQTDOcIsQ4tdG3wGySuRgkS_JMvFr30p_ydKWm61SeeSFEfPIHRhxfvKghtyz_rsvO8KEcELtCwh7auEfZVJln34WmZ6C9TuoCcqVb38WZuOKEPfuNiiP8z06euM-jpPlG3RUkEpm8RnsUfS1dZXiLRC10RXvp4cApqe-vSxps84k1Wu0EKTy0IvRQnVQ_jDHCvcZz9odu2z_qCPwEDof6sr6mLrOIfDqRlzAQzXeoSlGwS7NK8kfYWPzQlZWcdjs0zPkOYHG6Ph8Dct0YZuE_pt6Deh14ZeEwZtGLRr2_PDRk0cnbScJg7b-OGCHjbx6IfTZwo4TZ0e7F2H_etwcB0Or8Oj63DUTfUePL4OP1yHtQfteLJsqwBRYJpZ8cGqL2F9UWdAsN4Q1tG2cKX4cs9SK64vK6uqd_WcYj1DigY8_geWBIIN" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-3213-pe-070-160_identify_required_spare_parts-pe-070-160_identify_required_spare_parts">BUSINESS ARCHITECTURE — 3.2.13 PE-070-160_Identify_Required_Spare_Parts — PE-070-160_Identify_Required_Spare_Parts</h4>
 <p><strong>Swim Lanes</strong>: FTS IF - PM Maintenance Technician | <strong>Tasks</strong>: 2 | <strong>Gateways</strong>: 0</p>
@@ -1365,7 +1407,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph FTS IF - PM Maintenance Technician
+    subgraph lane_0["FTS IF - PM Maintenance Technician"]
         n1["fa:fa-user Manually Add Stock Items to Work Order"]
         n2["fa:fa-user Reserve Stock Automatically Items Available on Site"]
         n3["Identify Asset Acquisition"]
@@ -1380,7 +1422,7 @@ flowchart TD
     class n4 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE1v2zgU_CsPCgJfZECfkVeHAopsASk2aFBn20OzB5p6tAlTpJekkriG_3tJf8bp5lQdBL_xvBm-ochNQFWLQRlcX2-45LaEzcAusMNBCYMZMTgIYQ98I5qTmUAz8BympJ3ynztanK1ePc1jDem4WHt0inOF8M9dCJVrFCEYIs3QoOZsEA5WmndEr2sllPbsKxyxiO3cDn_dKt2iPhOiqIhp7loFl3iG0yIrssb3GaRKtheiLGcjRgdbvzihXuiCaLtbfm_wnrx-561duJoRYdBxFrYTf5MZCj-j1b3HaK-fj2Fw432kC2y6IpTLucOzyEGayOUZyqPtFrbX10_yZAqP4ycJ7qGCGDNGBsY6ePJsgXEhyqusrpo8Co3VaonlVTIpxmkSUj9J6UaPQh_u8AX5fGHLmRLtgTp88TOUyeo11K9lEoV67d7vvFC2Z6f6Jhklo5PTbRHXcX10Yoz9kZPLVT8Sszx4TdImacYnrzi_yevod73jmOOsqOL3OaF-5hTfiDZNk07OUU1u8jj6WPS2SW-i-p3onFh8Ieuz4F91dhJs8qKJiw8F937vV9nPHrSiR8F0kjf5SbC4jZsq-VAwq-JsdFih05lrslpA8ziFuwaG8HAP94RLi5JIivCIdCE55UTuG_wj4x9PASMlI0Ofv-PLngixhqptYWoVXcKdxc6AVfBd6SV88SfrKfj3jURyKfEVfe546K56qzpiOd2p7rWqZ8KFvw9ASZhyi5d6qdO7a1Faztw6jEELFf2v54ZbruQlN3NcF6I71s7XcbS7baQ1wJSGCaEL-LJCTXwfENlCrdFtH3xWM3gQ5KzlvvL9D5nBcPjJxXIo432ZHMpkX6ZvttBzjp_uBZz8P5yeju8FnJ3gIAw61B3hbVBugt396e7YFhnphQ22YUBcpNO1pEG5u2eCftW6ocacuO3v9uD2F8Djzmc=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNtu2zgQ_ZWBgsAvMqBr5OqhgCJbQBYNGtTZ9qFZLGhqaBOmSJekkriB_31JX2Pv5mn1IGiOzpwzM7y8BVS1GJTB9fUbl9yW8DawC-xwUMJgRgwOQtgB34nmZCbQDDyHKWmn_PeWFmerV0_zWEM6LtYeneJcIfx5F0LlEkUIhkgzNKg5G4SDleYd0etaCaU9-wpHLGJbt_2vW6Vb1CdCFBUxzV2q4BJPcFpkRdb4PINUyfZMlOVsxOhg44sT6oUuiLbb8nuD9-T1B2_twsWMCIOOs7Cd-EJmKHyPVvceo71-PgyDG-8j3cCmK0K5nDs8ixykiVyeoDzabGBzff0kj6bwOH6S4B4qiDFjZGCsgyfPFhgXorzK6qrJo9BYrZZYXiWTYpwmIfWdlK71KPTDHb4gny9sOVOi3VOHL76HMlm9hvq1TKJQr937wgtle3Kqb5JRMjo63RZxHdcHJ8bY_3Jyc9WPxCz3XpO0SZrx0SvOb_I6-rfeoc1xVlTx5ZxQP3OK70Sbpkknp1FNbvI4-lj0tklvovpCdE4svpD1SfBTnR0Fm7xo4uJDwZ3fZZX97EErehBMJ3mTHwWL27ipkg8FsyrORvsKnc5ck9UCBJH4d_TzKWgep3DXwBAe7uGecGlREkkRHpEuJKecyKfgr12yf2TschgpGRn6tXApsidCrKFqW5haRZdwZ7EzYBX8UHoJX_0pO5dIziW-oV8D3GdXvVUdsZxuVXda1TPhwt8NoCRMucVzvdTp3bUoLWeuDmPQQkV_9dxwy9VF-ZnjuoG6I-58HUe7m0daA0xpmBC6gK8r1MTnAZEt1BrdUsIfagYP4t0o3I7ffcgMhsPPbiz7MN6FyT5MdmH6bjk957CNz-Dkv-H0eJTP4OwIB2HQoe4Ib4PyLdjepe6-bZGRXthgEwbEjXS6ljQot3dO0K9a19SYE7cVuh24-QebO9JK" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 
@@ -3050,11 +3092,15 @@ flowchart TD
 </tbody>
 </table>
 <hr />
-<p><em>PE-070 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: March 2026</em></p>
+<p><em>PE-070 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>PE-070</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

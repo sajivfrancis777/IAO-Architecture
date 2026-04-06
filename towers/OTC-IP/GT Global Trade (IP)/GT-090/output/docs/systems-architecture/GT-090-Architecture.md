@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
   Capability GT-090 · GT Global Trade (IP)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Order To Cash (IP) (OTC-IP) |
 | **Process Group** | GT Global Trade (IP) |
 | **Capability** | GT-090 - Customs Declaration Communication - Broker Filing (IP) |
-| **Release** | Release 3 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 5 Reports, 71 Interfaces, 20 Conversions, 167 Enhancements, 28 Forms, 1 Workflows |
@@ -199,7 +199,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Logistics Import Operator
+    subgraph lane_0["Logistics Import Operator"]
         n1["fa:fa-user Monitor Completed Customs Declaration"]
         n2["fa:fa-user Cancel Customs Declaration"]
         n3["fa:fa-user Correct Customs Declaration"]
@@ -251,7 +251,7 @@ flowchart TD
     class n16 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2PozYU_SsWo1FmJCLxTYaHVhkSqlF3tpFm21W10wfHmMQag6ltMkmz-e-1AySBIVqpzUOEj-85595rY7M3EEuxERm3t3tSEBmB_UiucY5HERgtocAjE9TAH5ATuKRYjHRMxgr5Qv45htleudVhGktgTuhOoy94xTD4_ckEU0WkJhCwEGOBOclG5qjkJId8FzPKuI6-wZPMyo5uzdQj4ynm5wDLCm3kKyolBT7DbuiFXqJ5AiNWpB3RzM8mGRoddHKUvaM15PKYfiXwM9x-Jalcq3EGqcAqZi1z-gkuMdU1Sl5pDFV80zaDCO1TqIa9lBCRYqVwz1IQh8XbGfKtwwEcbm9fi5Mp-DJ7LYD6IQqFmOEMCKng-UaCjFAa3XjxNPEtU0jO3nB048zDmeuYSFcSqdItUzd3_I7Jai2jJaNpEzp-1zVETrk1-TZyLJPv1H_PCxfp2SkOnIkzOTk9hnZsx61TlmX_y0n1lX-B4q3xmruJk8xOXrYf-LH1Ua8tc-aFU7vfJ8w3BOEL0SRJ3Pm5VfPAt63roo-JG1hxT3QFJX6Hu7PgQ-ydBBM_TOzwqmDt18-yWi44Q62gO_cT_yQYPtrJ1Lkq6E1tb9JkqHRWHJZr8ImtiJAECfCUl0xtoN9KzKFkvI7Tv8L-9mpkMMrgWLcdPDP1_jIOYpaXFEucgrgSkuUCzLBKVLEJK16Nvy4UnK5CDAuE6Y9pbo_GOMdI_pjn9RKGRQUpmEEJ26Q_UPxvJw5iKzAtS7pTBhmsqASpYqrwy_igG7_APGM8B6RATVcKLARAa4zeesywy5xvMaokBs8qHq4wkAw86vXjPdrk7kRT1ZeXxTf9pDhVnPsLzoOitKu1PIqCXxdPAtw9Le675duWDq371GyE9MIAcVw_DDD17pgNxcJKrRLU--NOtYVWqTq1AESSbIjcqfft7wqrtJWPxDwnxZF0P-TgXHPYEAi-Mv5G1RYeIrr7_bnVKR4v1fmJ1gBvVTaCbPAv9ev5ahwOlzRvmPZhhcBLhZACs4qCn_si_n_zDoZpndWuXwP9uGBCEHVXXtqrQ7h-UIsKxuOfdB9awO4DTg_w63HQDINm2m_GYTP2Wn49fmiHrh5_765WrFdLb83vSr4NbHzCduw1xD-xOAba_YnPrMbbzOygO-H08VaprcytHdvMvV5lTSMmF-etLq-9ZzqwMwy7w7A3DPuXN05nJrg6E16dmTR3bwd8OF3-3aqsK7h9BXeu4G57v3Vhbxj2h-GghQ3TyNVBAElqRHvj-CmoPhfT-gg2Dqahz5OXXYGM6PjJZFSlOpfxjEB1k-U1ePgXOGZLzw==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm1v6jYU_itWqopWClLeQ_NhEw1kqna7IfVuV9PtNBnHAatOnNkOhXH577NJAiQNutLGB5Tz-DznOS-Onb2BWIqNyLi93ZOCyAjsR3KNczyKwGgJBR6ZoAZ-h5zAJcVipH0yVsgX8s_RzfbKrXbTWAJzQncafcErhsFvTyaYKiI1gYCFGAvMSTYyRyUnOeS7mFHGtfcNnmRWdlRrlh4ZTzE_O1hWaCNfUSkp8Bl2Qy_0Es0TGLEi7QTN_GySodFBJ0fZO1pDLo_pVwI_w-0Xksq1sjNIBVY-a5nTT3CJqa5R8kpjqOKbthlEaJ1CNeylhIgUK4V7loI4LN7OkG8dDuBwe_tanETB59lrAdQPUSjEDGdASAXPNxJkhNLoxouniW-ZQnL2hqMbZx7OXMdEupJIlW6Zurnjd0xWaxktGU0b1_G7riFyyq3Jt5FjmXyn_ntauEjPSnHgTJzJSekxtGM7bpWyLPtfSqqv_DMUb43W3E2cZHbSsv3Aj62P8doyZ144tft9wnxDEL4ImiSJOz-3ah74tnU96GPiBlbcC7qCEr_D3TngQ-ydAiZ-mNjh1YC1Xj_LarngDLUB3bmf-KeA4aOdTJ2rAb2p7U2aDFWcFYflGlBY4L-sr6_GJ7YiQhIkwFNeMrWTfi0xh5LxV-PPmqN_ha1cMxhlcKxHAJ6ZepcZBzHLS4olTkFcCclyAWZYJa0CEFZ0IzjdCDEsEKbfp7k9GuMcI_l9ntdLGBYVpGAGJWyT_kDxv544iK3AtCzpTglksKISpIqp3C_9g67_AvOM8RyQAjVdKbAQAK0xeusxwy5zvsWokhg8K3-4wkAy8KhnyXu0yd2JpqovL4tv-klxqjj3F5wHRWmntTwGBT8vngS4e1rc90ast0PTp2YvpBcCiOP6YYCpd8dsyBdWakpQ74871RZapeoEAxBJsiFyp969vyus0lY6EvOcFEfS_ZCCc01hQyD4wvgbVbt4iOju9-dWp3i8VGcpWgO8VdkIssE_1a_qq3E4XNK8YdqHCYGXCiEFZhUFP_aD-P9NOximdaZdvwb6ccGEIOrevJRXB3L9oIYKxuMfdB9awO4DTg_waztozKBZ9hs7bGyv5df2Q2u62v7WnVasp6W35jcVvnVsdMLW9hriH1gcHe3-wi-sxtvM7KC74PTxNlJbmVsrtpl7vcqaRkwuzl5dXnvndGBnGHaHYW8Y9i9vn85KcHUlvLoyae7hDvhw-hDoVmVdwe0ruHMFd9u7rgt7w7A_DActbJhGrg4CSFIj2hvHz0L16ZjWR7BxMA19nrzsCmREx88noyrVuYxnBKpbLa_Bw7-360-y" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -270,7 +270,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Logistics Import Operator
+    subgraph lane_0["Logistics Import Operator"]
         n1["fa:fa-user Monitor Broker Responses/ Changes in Declaration Data"]
         n2(["fa:fa-stop Evaluation of Broker Performance"])
         n3["Monitor customs confirmation via broker (IP)"]
@@ -282,7 +282,7 @@ flowchart TD
     class n3 startEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAQ_StWVii7UlDzSWgOlSAQaaVddVW27aH0YJIxWJvYke3wUcR_r00gsFR7qg9R_PLmvZnJ2Hsr5wVYidXr7SmjKkF7W62gAjtB9gJLsB3UAj-woHhRgrQNh3CmZvTPkeaF9dbQDJbhipY7g85gyQF9f3TQSAeWDpKYyb4EQYnt2LWgFRa7lJdcGPYdDIlLjm6nT2MuChAXguvGXh7p0JIyuMBBHMZhZuIk5JwV70RJRIYktw8muZJv8hUW6ph-I-EZb3_SQq30nuBSguasVFU-4QWUpkYlGoPljVifm0Gl8WG6YbMa55QtNR66GhKYvV2gyD0c0KHXm7POFL1O5gzplZdYygkQJJWGp2uFCC3L5C5MR1nkOlIJ_gbJnT-NJ4Hv5KaSRJfuOqa5_Q3Q5UolC14WJ2p_Y2pI_HrriG3iu47Y6eeNF7Di4pQO_KE_7JzGsZd66dmJEPJfTrqv4hXLt5PXNMj8bNJ5edEgSt1_9c5lTsJ45N32CcSa5nAlmmVZML20ajqIPPdj0XEWDNz0RnSJFWzw7iL4OQ07wSyKMy_-ULD1u82yWbwInp8Fg2mURZ1gPPaykf-hYDjywuEpQ62zFLheoSe-pFLRXKLHquZ6gL7WILDiouWZxbxfc4vghOC-aTt65vr8coHGxkagbyBrziTITyhdYbYEiShDE9A5ayHK9TtWeG79vlL07ztJqXiNpmtcNi2Zk7PwCwjCRYVZDjr64So80NHnLPJGK1QS6TNJqGYfRdYUo0Wrcv_48tCZ6wFtX5iH-v0vOpHTNmi310NhOOcxewf7pzl_BwbdQbMcqwKdCC2sZG8drzR97RVAcFMq6-BYuFF8tmO5lRyPvtXUhR6TCcX6j1QtePgLg6ytnQ==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO2jAQ_RUrK5StFNRcCc1DJQhEWmlXXZVt-1CqyiRjsDaxI9vhUsS_1yYQFqp9ah4i--TMOTOTsfdWzguwEqvX21NGVYL2tlpBBXaC7AWWYDuoBb5jQfGiBGkbDuFMzeifI80L662hGSzDFS13Bp3BkgP69uCgkQ4sHSQxk30JghLbsWtBKyx2KS-5MOw7GBKXHN1On8ZcFCAuBNeNvTzSoSVlcIGDOIzDzMRJyDkrrkRJRIYktw8muZJv8hUW6ph-I-EJb3_QQq30nuBSguasVFU-4gWUpkYlGoPljVifm0Gl8WG6YbMa55QtNR66GhKYvV6gyD0c0KHXm7POFL1M5gzpJy-xlBMgSCoNT9cKEVqWyV2YjrLIdaQS_BWSO38aTwLfyU0liS7ddUxz-xugy5VKFrwsTtT-xtSQ-PXWEdvEdx2x0-8bL2DFxSkd-EN_2DmNYy_10rMTIeS_nHRfxQuWryevaZD52aTz8qJBlLr_6p3LnITxyLvtE4g1zeGNaJZlwfTSqukg8tz3RcdZMHDTG9ElVrDBu4vgpzTsBLMozrz4XcHW7zbLZvEseH4WDKZRFnWC8djLRv67guHIC4enDLXOUuB6hUrM4Lf7c2498iWViuYSPVQ115P0pQaBFRdz61cbYx7maSrBCcF98wvQE9dnmQs0NpYCfQVZcyZBfkTpCrMlSEQZmoDOX2tRrtdY4WtF_76TlIrXaLrGZdOSOTkLP4MgXFSY5aCjP7wJD3T0OYu80QqVRPp8EqrZR5E1xWjRqtw_PH_ozPWwtgvmoX7_s07ktA3a7dsBMZzzyF3B_mnmr8CgO3SWY1WgE6GFleyt4_Wmr8ACCG5KZR0cCzeKz3Yst5LjNWA1daFHZkKx_jtVCx7-ArldsYA=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -742,6 +742,7 @@ Integration patterns identified from the system flow analysis for GT-090:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
@@ -869,6 +870,6 @@ Standard RAID items for GT-090 (Order To Cash (IP)):
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*GT-090 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: March 2026*
+*GT-090 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: April 2026*
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-090 — Customs Declaration Communication - Broker Filing (IP)</span></div>

@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IF) (OTC-IF) Tower<br/>
   Capability R-210 · R Returns (IF)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Order To Cash (IF) (OTC-IF) |
 | **Process Group** | R Returns (IF) |
 | **Capability** | R-210 - Determine Discrepant Material Disposition (IF) |
-| **Release** | Release 3 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 11 Interfaces, 64 Enhancements, 11 Forms, 1 Workflows |
@@ -198,7 +198,7 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Customer Quality Engineer
+    subgraph lane_0["Customer Quality Engineer"]
         n1["fa:fa-user Transfer Material to Waste / Scrap Location"]
         n2["fa:fa-user Transfer Material to Finished Goods Location for returning to customer"]
         n7["Determine Material Disposition Status based on Testing"]
@@ -207,7 +207,7 @@ flowchart LR
         n11(["fa:fa-stop Material Sent to Finished Goods Location"])
         n17{{"fa:fa-code-branch Material Disposition Status?"}}
     end
-    subgraph Warehouse Operator
+    subgraph lane_1["Warehouse Operator"]
         n3["fa:fa-user Transfer Material to Waste / Scrap Location"]
         n4["fa:fa-user Transfer Material to Retest Location"]
         n5["fa:fa-user Transfer Material to Rework Location"]
@@ -259,7 +259,7 @@ Customer"| n2
     class n19 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtV99v4jgQ_lesVBVdKejyk0Ae7kQDOVXqarulu3047sEkDkQNNrKdthzL_35jcICkodfTLg-I-TzzzfibcWI2RsJSYoTG5eUmp7kM0aYjF2RJOiHqzLAgHRPtge-Y53hWENFRPhmjcpL_s3OzvdWrclNYjJd5sVbohMwZQd9uTDSEwMJEAlPRFYTnWcfsrHi-xHwdsYJx5X1B-pmV7bLppWvGU8KPDpYV2IkPoUVOyRF2Ay_wYhUnSMJoWiPN_KyfJZ2tKq5gL8kCc7krvxTkM359zFO5ADvDhSDgs5DL4hbPSKH2KHmpsKTkz5UYuVB5KAg2WeEkp3PAPQsgjunTEfKt7RZtLy-n9JAU3d5PKYJPUmAhRiRDQgI8fpYoy4sivPCiYexbppCcPZHwwhkHI9cxE7WTELZumUrc7gvJ5wsZzliRatfui9pD6KxeTf4aOpbJ1_DdyEVoeswU9Zy-0z9kug7syI6qTFmW_VQm0JU_YPGkc43d2IlHh1y23_Mj6y1ftc2RFwztpk6EP-cJOSGN49gdH6Ua93zbOk96Hbs9K2qQzrEkL3h9JBxE3oEw9oPYDs4S7vM1qyxnd5wlFaE79mP_QBhc2_HQOUvoDW2vrysEnjnHqwWKSiHZknD0tcRFLtdoTOcw94Tv_dSH2n9NjQyHGe4q2dEDTKHI4Mdn2J06ckgy9IiFJOg3NEmAFt2yBMuc0anx9wmP8wGeGB4OYkFS9CdjqTgQoYxxxIksOYXZV46JLryeIoAUIwJ0S9jEkXiUixUT-Y5pIrEsBVLPnBSB_UCEBM46Tx947giHrMvKQfnCAwrd76qA2Iq9HmlbV4dtQoWrYxETQuVuH3WtVD-JEPsSPp0y2e8ynReryRNsNhWPegh3ZyB8snhPnT-mxna7p4Az3RiZR8zJgkEL0ZcV4Viy01lxf9GseB_ggU5Aa84Q-B8ieGH86QxBr04QcQKRuvvo7ouKFyBOjfA7AKwxkoP_P5LVWbyhYkWSt6XZzi-bMfc_mfYqN-O8c3HiGKfEbcb578adSlgLU824JwnJnwkaJhL0QRErIQKkolJpdXUTf2qo1P-Zud9TDNopHtYrglimp6H1uNAB6nZ_V1Vo29W2o21P2662fW172rZ7GhhoINB2UDloW78jqKNtu1rvK-CHEm7fiR-Q5O3avruw5jXXdrOzW6pqtIM3S1W2_j77obiB9oxxXpQcukZxsYabDbqKh9BardyOot-MOXTo1GvQrEEfRcmmNDq8DMCxErjSr23PKvDhOGwQ1Tt50yptqxtGDXbaYbcd9tphvx3utcO2pa9VddRuRZ1W1G1FvVbUb0V7h2tkHQ-qG04d7rfDgwo2TAOatcR5aoQbY3frh38GKclwWUhjaxq4lGyypokR7m7HRrlKIXKUY3gDLffg9l9S7-0x" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtV21v4jgQ_itWqoquFHR5JZAPd6KBnCp1tb3S2344TieTOBA12Mh2SlmW_35jcKBJQ6-nXT4g5vHMMzPP2InZGglLiREal5fbnOYyRNuOXJAl6YSoM8OCdEx0AL5inuNZQURH-WSMykn-be9me6sX5aawGC_zYqPQCZkzgv68MdEQAgsTCUxFVxCeZx2zs-L5EvNNxArGlfcF6WdWts-ml64ZTwk_OVhWYCc-hBY5JSfYDbzAi1WcIAmjaY0087N-lnR2qriCrZMF5nJffinIZ_zymKdyAXaGC0HAZyGXxS2ekUL1KHmpsKTkz5UYuVB5KAg2WeEkp3PAPQsgjunTCfKt3Q7tLi-n9JgU3d5PKYJPUmAhRiRDQgI8fpYoy4sivPCiYexbppCcPZHwwhkHI9cxE9VJCK1bphK3uyb5fCHDGStS7dpdqx5CZ_Vi8pfQsUy-ge9GLkLTU6ao5_Sd_jHTdWBHdlRlyrLshzKBrvwBiyeda-zGTjw65rL9nh9Zb_mqNkdeMLSbOhH-nCfkFWkcx-74JNW459vWedLr2O1ZUYN0jiVZ482JcBB5R8LYD2I7OEt4yNesspzdcZZUhO7Yj_0jYXBtx0PnLKE3tL2-rhB45hyvFqjAlPxj_TU1olJItiQc_VHiIpcbNKZzOACET42_DzHqQ21wzXCY4a4aAXqAHSky-PEZOlXHD0mGHrGQBP2CJgmkQLcswTJntM7jfIAnhgeFWJAU_c5YKo5EKGMccSJLTuEcKMdE115PEUCKEQG6JfRxIh7lYsVEvmeaSCxLgdTzJ0VgPxAhgbPO0weeO8Ih67JyUL7wsEL3-yogtmJviGVdHduEClenIiaEyn0fda3UbIkQhxI-vWay32U6L1aTJ9huKx71QO7OQPhk8Z46v02N3e5AAee7bfuoPfGIOVkwmCX6siIcS9YYhvuT9o33AR6YCozpDIH_IYI1409nCHp1gogTiNQ7Ad19UfEChKoRfgWgqcjg_2_P6mjeULEiydvSbOen7Tf3P5kOKjfjvHNx4hSnxG3G-e_GvZawFqaGcU8Skj8TNEwk6IMiVkIESEWl0urqJv7UUKn_I2fgQDFop3jYrAhimd4NrUeHDlC3-6uqQtuuth1te9p2te1r29O23dPAQAOBtoPKQdv63UEdbdvVel8B35Vwh0l8hyRv1w7ThTWvubbfO_ulqkY7eLNUZesfsh-LG2jPGOdFyWFqFBcbuPGgq3gIo9XK7Sn6zZjjhF57DZo16KMo2ZRGxxcDOFYCV_q19awCH06bDaJ6r97AStvq5lGDnXbYbYe9dthvh3vtsG3p61YdtVtRpxV1W1GvFfVb0d7xelnHg-rmU4f77fCggg3TgGEtcZ4a4dbY_xuAfwwpyXBZSGNnGriUbLKhiRHub81GuUohcpRjeBstD-DuX62W9Pg=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -494,6 +494,7 @@ Integration patterns identified from the system flow analysis for R-210:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
@@ -621,6 +622,6 @@ Standard RAID items for R-210 (Order To Cash (IF)):
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*R-210 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: March 2026*
+*R-210 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: April 2026*
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-210 — Determine Discrepant Material Disposition (IF)</span></div>

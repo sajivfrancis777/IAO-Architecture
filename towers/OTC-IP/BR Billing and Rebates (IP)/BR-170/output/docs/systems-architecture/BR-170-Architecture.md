@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
   Capability BR-170 · BR Billing and Rebates (IP)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Order To Cash (IP) (OTC-IP) |
 | **Process Group** | BR Billing and Rebates (IP) |
 | **Capability** | BR-170 - Manage Chargebacks (IP) |
-| **Release** | Release 3 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 5 Reports, 71 Interfaces, 20 Conversions, 167 Enhancements, 28 Forms, 1 Workflows |
@@ -200,14 +200,14 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Batch User
+    subgraph lane_0["Batch User"]
         n3["Pay Claim (IP)"]
         n4["A Create Invoice for Relevant Sales Order Items (IP)"]
         n5["A Create and Send Credit/Debit Memo (IP)"]
         n6{{"fa:fa-arrows-alt inclusiveGateway"}}
         n7[["fa:fa-folder-open Create Debit / Credit Memo Request​"]]
     end
-    subgraph Disti Finance
+    subgraph lane_1["Disti Finance"]
         n1[["fa:fa-cog Process Claim Document"]]
         n2[["fa:fa-cog Create Debit/ Credit Memo Request"]]
     end
@@ -226,7 +226,7 @@ flowchart TD
     class n7 subProc
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU2P2zgM_SuCB4PsAg7qzzj1YYHEjhcDbNFB024Pkx4Um0qEkaWsJCeTBvnvK8XOZzOn-mCAj-R7JC3KO6cUFTip8_i4o5zqFO16egk19FLUm2MFPRe1wL9YUjxnoHo2hgiup_TnIcyPVm82zGIFrinbWnQKCwHo25OLRiaRuUhhrvoKJCU9t7eStMZymwkmpI1-gCHxyEGtc42FrECeAzwv8cvYpDLK4QyHSZREhc1TUApeXZGSmAxJ2dvb4pjYlEss9aH8RsEn_PadVnppbIKZAhOz1DX7B8-B2R61bCxWNnJ9HAZVVoebgU1XuKR8YfDIM5DE_PUMxd5-j_aPjzN-EkVf8xlH5ikZVioHgpQ28GStEaGMpQ9RNipiz1VaildIH4JJkoeBW9pOUtO659rh9jdAF0udzgWrutD-xvaQBqs3V76lgefKrXnfaAGvzkrZIBgGw5PSOPEzPzsqEUJ-S8nMVX7F6rXTmoRFUOQnLT8exJn3K9-xzTxKRv7tnECuaQkXpEVRhJPzqCaD2PfeJx0X4cDLbkgXWMMGb8-EH7PoRFjESeEn7xK2erdVNvNnKcojYTiJi_hEmIz9YhS8SxiN_GjYVWh4FhKvlmiMdblE30z3rcM-PHyZOc-m7IxhWqM_np7_nDk_LvyR8Y9QJsG0h574WpjBISIk-gIM1phrNMVmgdFnu1noSUOt7rDElyyYV2hqzo-1K6o_5DCnGn2CWtzJHOx2M4fglOA-llJsVB8zjSgvWaPoGv5upz5z9vuLpOTl5ZhEzGkD2Rcr4Ef9Vu9DJ98Kf4H_GlB61gSeNzcVdCWYKm-GmFOlKSoox7yEC0n_LFmKBbJfDpTqxpqLsqmB6zPxISe4zrks7351v9bFfdTv_2WoOjNuzUFnDlqzWwAeXXuT1gw7M2jN5OIcWv6LbbnyBO96wtNNdAVH9-H4Pjw4btQVmhzXwnGdGmSNaeWkO-fwNzF_nAoIbph29q6DGy2mW1466eHWdZpVZfhyis13rFtw_z_qPhyy" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduO4jgQ_RUrrRa7UtDkSpg8rAQJGbW0rWkNc3loViuTlMFqx2ZsB5pF_PvaJNx66KfJQ6Q6VXVOVdmV7JxSVOCkzv39jnKqU7Tr6SXU0EtRb44V9FzUAt-xpHjOQPVsDBFcT-l_hzA_Wr3aMIsVuKZsa9EpLASgbw8uGplE5iKFueorkJT03N5K0hrLbSaYkDb6DobEIwe1zjUWsgJ5DvC8xC9jk8oohzMcJlESFTZPQSl4dUVKYjIkZW9vi2NiUy6x1IfyGwWP-PUHrfTS2AQzBSZmqWv2N54Dsz1q2VisbOT6OAyqrA43A5uucEn5wuCRZyCJ-csZir39Hu3v72f8JIq-5jOOzFMyrFQOBClt4MlaI0IZS--ibFTEnqu0FC-Q3gWTJA8Dt7SdpKZ1z7XD7W-ALpY6nQtWdaH9je0hDVavrnxNA8-VW_N-owW8Oitlg2AYDE9K48TP_OyoRAj5LSUzV_kVq5dOaxIWQZGftPx4EGfer3zHNvMoGflv5wRyTUu4IC2KIpycRzUZxL73Pum4CAde9oZ0gTVs8PZM-DGLToRFnBR-8i5hq_e2ymb-JEV5JAwncRGfCJOxX4yCdwmjkR8NuwoNz0Li1RIxzOFf73nmjLEul-ibGcPM-acNsg8Pje_JtJAxTGv0x8PTn9f-yPhHKJNgWkUPfC3MEBEREn0BBmvMNZpis8zos90y9KChVjdY4ksWzCs0NXfJ2hXVH3KYU40eoRY3Mge73cwhOCW4j6UUG9XHTCPKS9YouoZP7QnMnP3-Iil5fj4mEXPzQPbFCvhRv9X70Mm3wl_gZwNKz5rA8-amgq4EU-WtgfqGPqdKU1RQjnkJ1zX7Z_lSLJA9UVCqG3EuyqYGrs8ih5zgOuey1NuV_loj91G__5eh6sy4NQedOWjNbjF4dO1NWjPszKA1k4v7afkvtujKE7zrCU9fqCs4ug3Ht-HBcdOu0OS4Lo7r1CBrTCsn3TmHv4z5E1VAcMO0s3cd3Ggx3fLSSQ9fY6dZVYYvp9icad2C-_8Bz84keQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -245,7 +245,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Batch User
+    subgraph lane_0["Batch User"]
         n1[["fa:fa-cog Reference Billing Due List"]]
         n2["Account Receivable"]
         n3["A Send/Transmit Invoice"]
@@ -269,7 +269,7 @@ flowchart TD
     class n7 subProc
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P4jgQ_StWWi12paBJQkLYHFaCQFYtTUujpWfn0PTBOGWw2rGR7UAziP8-FcJnT_dpc4hSz6_ec1XK3nlMl-Bl3v39TijhMrLruCVU0MlIZ04tdHzSAv9RI-hcgu00HK6Vm4qfB1oYr94aWoMVtBJy26BTWGgg3x98MsRE6RNLle1aMIJ3_M7KiIqaba6lNg37DgY84Ae349JImxLMhRAEacgSTJVCwQXupXEaF02eBaZVeSPKEz7grLNvNif1hi2pcYft1xYe6dsPUbolxpxKC8hZukp-pXOQTY3O1A3GarM-NUPYxkdhw6YryoRaIB4HCBmqXi9QEuz3ZH9_P1NnU_I0nimCD5PU2jFwYh3Ck7UjXEiZ3cX5sEgC3zqjXyG7iybpuBf5rKkkw9IDv2ludwNisXTZXMvySO1umhqyaPXmm7csCnyzxfc7L1DlxSnvR4NocHYapWEe5icnzvn_csK-midqX49ek14RFeOzV5j0kzz4Xe9U5jhOh-H7PoFZCwZXokVR9CaXVk36SRh8Ljoqev0gfye6oA42dHsR_CuPz4JFkhZh-qlg6_d-l_X8m9HsJNibJEVyFkxHYTGMPhWMh2E8OO4QdRaGrpZkRB1bku9YfbvQPCp8fp55nGacdplekH-BgwHFgIzQFmePjGsgX4V1M-_l5SovwrQhY7pWDpMYiHVzkJF0xek1HDLFUfnyhONsK-HIg1pr7P0tMUZiLrUFkksqKvLHw7c_bxkJMlob5OD0L2BO2eun9P5ud6qKGqM3tkulIytqqJQg_2l_1czb769y0ksnOI4omK5egSJDkhvABDKGuXBfMCixjEeo9KUjWGH7ofqk2_0bK78No2OYtmH_GIZtmB7DpA3D29z4aiyalKvhvVmJzsf_Bu59DMcfw8nHcP803TdoehpRz_cqMBUVpZftvMPNjrd_CZzW0nl736O109OtYl52uAG9elWi3lhQHMyqBfe_AJ889qU=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2PozYU_SsWo1FaiWiBQEh5qJSQUI20K62a2e7Dpqocc51YY-zINsmkUf57LyFfzM48lQfEPT73HN_LxRw8pkvwMu_x8SCUcBk59NwaKuhlpLekFno-aYG_qBF0KcH2Gg7Xys3FvydaGG9eG1qDFbQSct-gc1hpIN-efDLGROkTS5XtWzCC9_zexoiKmn2upTYN-wFGPOAnt_PSRJsSzI0QBGnIEkyVQsENHqRxGhdNngWmVdkR5QkfcdY7NpuTesfW1LjT9msLX-jrd1G6NcacSgvIWbtKfqZLkE2NztQNxmqzvTRD2MZHYcPmG8qEWiEeBwgZql5uUBIcj-T4-LhQV1PyPF0ogheT1NopcGIdwrOtI1xImT3E-bhIAt86o18ge4hm6XQQ-aypJMPSA79pbn8HYrV22VLL8kzt75oasmjz6pvXLAp8s8f7Gy9Q5c0pH0ajaHR1mqRhHuYXJ875_3LCvppnal_OXrNBERXTq1eYDJM8-FnvUuY0Tsfh2z6B2QoGd6JFUQxmt1bNhkkYfCw6KQbDIH8juqIOdnR_E_wtj6-CRZIWYfqhYOv3dpf18qvR7CI4mCVFchVMJ2Exjj4UjMdhPDrvEHVWhm7WRFIF_wQ_Ft6EOrYm37ANC-_vltRcKvyBi5xmnPaZXpE_gYMBxYBMcAs4h2RaA_ksrMO0-7wI08aM6Vo5TGIgts1H3dUeNBwyx7H59IyjbSvhyJPaanwPXWKMxFxqCySXVFTkl6evv3YZCTJaG-Tgl7CCJWUvH9KHh8OlKmqM3tk-lY5sqKFSgvyjfW0L73i8y0lvneA4rmD6egOKjEluABPIFJbCfcKgxDK-QKVvHcEK2wc1JP3-71h5N4zOYdqGw3MYtmF6DpM2DLu58d2INCl3g9xZia5HQQcevA_H78PJ-_DwMukdNL2Mq-d7FZiKitLLDt7plMc_QQmc1tJ5R9-jtdPzvWJedjoNvXpTot5UUBzSqgWP_wHN7vqI" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -288,7 +288,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Disti Finance
+    subgraph lane_0["Disti Finance"]
         n1[["fa:fa-cog Update Claim Document"]]
         n2(["fa:fa-stop Claim Closed"])
         n3["Pay Claim (IP)"]
@@ -300,7 +300,7 @@ flowchart TD
     class n3 startEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE1v4jAU_CtWKpRWClI-CZvDSpAQqdKuVIl291B6MI4NVh0b2U6BRfz3tUkIlFVPm0MUj-fNvDeJc3CQqLCTOYPBgXKqM3Bw9RrX2M2Au4QKux5ogV9QUrhkWLmWQwTXc_rnRAvizc7SLFbCmrK9Red4JTB4efTAxBQyDyjI1VBhSYnruRtJayj3uWBCWvYdHhOfnNy6ramQFZYXgu-nAUpMKaMcX-AojdO4tHUKI8GrT6IkIWOC3KNtjoktWkOpT-03Cv-Eu9-00muzJpApbDhrXbMfcImZnVHLxmKokR_nMKiyPtwENt9ARPnK4LFvIAn5-wVK_OMRHAeDBe9NwXOx4MBciEGlCkyA0gaefWhAKGPZXZxPysT3lJbiHWd34SwtotBDdpLMjO57NtzhFtPVWmdLwaqOOtzaGbJws_PkLgt9T-7N_cYL8-rilI_CcTjunaZpkAf52YkQ8l9OJlf5DNV75zWLyrAseq8gGSW5_6_eecwiTifBbU5YflCEr0TLsoxml6hmoyTwvxadltHIz29EV1DjLdxfBL_lcS9YJmkZpF8Ktn63XTbLJynQWTCaJWXSC6bToJyEXwrGkyAedx0anZWEmzUoqNIUlJRDjnC7Zy8evL4uHAIzAodIrMDLpjKjgJxBWoNCoKbGXC-ct7erkvC-L1FabDpyzoTClaE-XFEjw3wyubSU-8enB0No98031D7wCAyH300n3TJol-FVIha8em-fdsLua_wERv1xcDynxrKGtHKyg3P68ZifU4UJbJh2jp4DGy3me46c7HRAneaUQEGhya1uweNf6JSKnA==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVF1r2zAU_SvCJbgFB_wZZ34YJHYMhQ0KabeHZgxFlhJRWQqS3CQL-e-TYsdJM_o0Pxjr6Nxz7j22fHCQqLCTOYPBgXKqM3Bw9RrX2M2Au4QKux5ogR9QUrhkWLmWQwTXc_rnRAvizc7SLFbCmrK9Red4JTB4efTAxBQyDyjI1VBhSYnruRtJayj3uWBCWvYdHhOfnNy6ramQFZYXgu-nAUpMKaMcX-AojdO4tHUKI8GrD6IkIWOC3KNtjoktWkOpT-03Cn-Hu5-00muzJpApbDhrXbNvcImZnVHLxmKoke_nMKiyPtwENt9ARPnK4LFvIAn52wVK_OMRHAeDBe9NwXOx4MBciEGlCkyA0gaevWtAKGPZXZxPysT3lJbiDWd34SwtotBDdpLMjO57NtzhFtPVWmdLwaqOOtzaGbJws_PkLgt9T-7N_cYL8-rilI_CcTjunaZpkAf52YkQ8l9OJlf5DNVb5zWLyrAseq8gGSW5_6_eecwiTifBbU5YvlOEr0TLsoxml6hmoyTwPxedltHIz29EV1DjLdxfBL_kcS9YJmkZpJ8Ktn63XTbLJynQWTCaJWXSC6bToJyEnwrGkyAedx0anZWEmzVgkOPf_uvCKajSFJSUQ47wwvnV8uzFg1ezT2BG4BCJFXjZVGYskDNIa1AI1NSYa1NxXRLe9yVKi01HzplQuDLUhytqZJhPJqOWcv_49NC7m--pfeARGA6_mk66ZdAuw6t0LHj1Dj_shN2X-QGM-qPheE6NZQ1p5WQH5_QTMj-qChPYMO0cPQc2Wsz3HDnZ6bA6zSmBgkKTYd2Cx7-7945_" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -761,6 +761,7 @@ Integration patterns identified from the system flow analysis for BR-170:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
@@ -888,6 +889,6 @@ Standard RAID items for BR-170 (Order To Cash (IP)):
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*BR-170 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: March 2026*
+*BR-170 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: April 2026*
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>BR-170 — Manage Chargebacks (IP)</span></div>

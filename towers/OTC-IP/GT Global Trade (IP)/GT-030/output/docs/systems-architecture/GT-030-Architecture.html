@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
   Capability GT-030 · GT Global Trade (IP)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 3</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -702,13 +744,13 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Boundary Apps
+    subgraph lane_0["Boundary Apps"]
         n8[["fa:fa-cog Send Query to SAP GTS to get Status"]]
         n9[["fa:fa-cog Receive Status in Middleware"]]
         n10(["fa:fa-play Query Initiated to Find Status of BPs"])
         n12(["fa:fa-stop Status Received in Boundary App"])
     end
-    subgraph Trade Execution Analyst
+    subgraph lane_1["Trade Execution Analyst"]
         n1["fa:fa-user Manage Blocked Partners"]
         n2["fa:fa-user Manage Positive List - BPs"]
         n3["fa:fa-user Manage Negative List - BPs"]
@@ -777,7 +819,7 @@ flowchart LR
     class n22 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV11v4jgU_StWRhWtBGoSEgI87IqvjCq1I3aYndFqOg8mccCqiZHttGU6_Pe9Dk5C0rAPs0it8PE99-P4-ia8WRGPiTW2rq7eaErVGL111JbsSGeMOmssSaeLTsBXLCheMyI72ibhqVrRn7mZ4-1ftZnGQryj7KDRFdlwgv6-66IJEFkXSZzKniSCJp1uZy_oDovDjDMutPUHMkzsJI9mtqZcxERUBrYdOJEPVEZTUsH9wAu8UPMkiXga15wmfjJMos5RJ8f4S7TFQuXpZ5I84NdvNFZbWCeYSQI2W7Vj93hNmK5RiUxjUSaeCzGo1HFSEGy1xxFNN4B7NkACp08V5NvHIzpeXT2mZVB0__kxRfCJGJZyThIkFcCLZ4USytj4gzebhL7dlUrwJzL-4C6Ced_tRrqSMZRud7W4vRdCN1s1XnMWG9Pei65h7O5fu-J17NpdcYD_jVgkjatIs4E7dIdlpGngzJxZESlJkv8VCXQVX7B8MrEW_dAN52Usxx_4M_u9v6LMuRdMnKZORDzTiJw5DcOwv6ikWgx8x77sdBr2B_as4XSDFXnBh8rhaOaVDkM_CJ3gosNTvGaW2XopeFQ47C_80C8dBlMnnLgXHXoTxxuaDMHPRuD9Fk15lvcymuz38rSnP-nw-_dHK8HjBPcivkErOFr0V0bAUHG0mizRxy8r_XVDFFoprDL5aP34ceZgVHfwmUSEPhNji2iKHmgcM1BHkAbTsa9L6p6Beqe4dzA1KOgZ67AhhXyML56g6VKHvzl34lZOpOL7wtjkEesMzmuv6FBpQ6MvAscELV5JlCnKUzRJMTtIdR6tjKUbEz3gFG8ImjIePUGoJdzAlAid4hnHbeUsuYQyQah7KhXqmcrOaP1W2icCrfZfNK9-HCcxGVot79EqEoSkMFIqJc-Zfp052-JU17aUaBLHgkhZOWgwB3XmnDCF0QqnkVbR6HI4ZXwNidw0MskkDGBwX8iHriHoTSNG0MyORE-1xmg2l9Poi_dhqiy0OjO-2zMCbddsMH0QeSf8JOgWilNE7MATEgRLaJKEC7TWDYDgyxbGG7q-W97UD8XxwMcDpqmCv1MkCvIQOFUJ7tAcg2AtNP-cdguHCcYJBt4sg5p2RNx-hS7m4nYKzwuJHuZtTgZvb5VyMemt4eESQbMf9kQrV6rw56N1PJ4Tg3YieY0YaPlMPp6GXpM2bKeVspvb8i7cqJ33DQYDpJn3vz6rnF56a3px7d9K2nV-j-ZWNCwEf5E9zBTaY4EZI-wdqRw56QD1en9ojc3aa6z9xtoZauDXo_UPgXv7CwCz4drGsgCcgbF8f4Fzot-0K0dEdbvBzCvMRsbsE9duaD4YYTDr23xKpN-0vEvrYyo3a7OqzcDcyi2sjB5uWZXfAFzH1D0wQN8Y2IVBY10q-ImfQtlNIczcqslQeHeMzMNibaKPzHpk1kUBgYlerF2TjlM4GDYP2DCCGgGyyp_IZtCtMbQ-iF9_oEGao7PXB51c8dpUg912uN8Oe-dvSrUd_-LO4OJOcHFneHFndHEHTqN43a3jjnk1raNuK9q_4MO7gPsX8EHx9leHg3Z42A6PWmG43K2w0w67BWx1LXg47DCNrfGblf_agl9kMUlwxpR17Fo4U3x1SCNrnP8qsbJ9DMw5xfAitDuBx38BmORQ3A==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV11vozgU_SsWoyqtlKhAICR52FW-GFVqq-ykO6PVdLVywCSoDka2aZPp5L_vNTEQKNmH2Uit4uN7zr0-vjbk3QhYSIyxcXX1HiexHKP3jtySHemMUWeNBel00Qn4inmM15SIjoqJWCJX8Y88zHLSvQpTmI93MT0odEU2jKA_77poAkTaRQInoicIj6NOt5PyeIf5YcYo4yr6ExlGZpRn01NTxkPCqwDT9KzABSqNE1LBfc_xHF_xBAlYEtZEIzcaRkHnqIqj7C3YYi7z8jNBHvD-WxzKLYwjTAWBmK3c0Xu8JlStUfJMYUHGXwszYqHyJGDYKsVBnGwAd0yAOE5eKsg1j0d0vLp6Tsqk6P7Lc4LgE1AsxJxESEiAF68SRTGl40_ObOK7ZldIzl7I-JO98OZ9uxuolYxh6WZXmdt7I_FmK8drRkMd2ntTaxjb6b7L92Pb7PID_G_kIklYZZoN7KE9LDNNPWtmzYpMURT9r0zgK3_C4kXnWvR925-XuSx34M7Mj3rFMueON7GaPhH-GgfkTNT3_f6ismoxcC3zsujU7w_MWUN0gyV5w4dKcDRzSkHf9XzLuyh4ytesMlsvOQsKwf7C9d1S0Jta_sS-KOhMLGeoKwSdDcfpFlGckH_M78_GlGV5U6NJmopn4-9TnPokw-8wH-FxhHsB26AVbDP6IyMQKxlaTZbo89NKfd0QiVYSy0zxzwVGdYEvJCDxK9GxKE7QQxyGFJzipMG0zOuSmlJw8pT3Dm6QGLwNVVo_hnq0FovQdKnS35yL2JWIkCwtgnUdoargfPkVHVba5pcFck8chwQt9iTIZMwSNEkwPQhZd84q86qGRQ84wRuCppQFL5B2CSczIbzhtt3KWTIBSwbT7mMhUU-v8ozWb6U9EmjB_6I59a05GUvRanmPVgEnJIGrpnL1nOnWmbMtTtTalgJNwpATISqBBnNQZ84JlRitcBIoI7Uvh1PF11DITaOSTMDFDPKFfegakt40cnjN6kjwUmuSZqNZjR75mKaqQrkzY7uUEmjBZrOpjcib4QdBt7A4SfgOlBAnWECfRIyjtWoABF-2cO2h67vlTaNtHNB4wHEi4e-UKQZ7COyqADk0x2BYC809p93CZkJwhIE3y2BNO8Jvv0JHM347heeIQA_zNpHB-3vlXEh6a3joBFv0dEiJcq504fdn43g8J3rtRLIPKHj5Sj6fLsMmbdhOK23Xp-VDulE77xtcElBm3v9qr3J6qdZUsc1fKtq2fo1mVzTMOXsTPUwlSjHHlBL6gVReP8kA9Xq_KY_12GmM3cbYGirg57PxF4Fz-xMAPWGbOrIArIGO_HiAc6LbjCuviOp0Q5hThI102CNTMnF-N8IlrU7zqZB-M_IuqV9TeVhbVO0OzKPsIkr7YZerchuAbel1DzTQ1wFmEdAYlw4-slMqs2mEvrdqNhTqlrZ5WIx19pEej_S4WICnsxdjW5djFQLD5gZrhlcjQFX501lfdGsMrQ_m1x9uUObo7LVCFVe8TtVgux3ut8PO-RtUbca9ODO4OONdnBlenBldnIHdKF6D67ilX1nrqN2K9i9oOBdw9wI-KN4K67DXDg_b4VErDIe7FbbaYbuAja4BD4cdjkNj_G7kv8Lgl1pIIpxRaRy7Bs4kWx2SwBjnv1aMLA2BOY8xvBTtTuDxXwZLWKM=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
 
@@ -800,13 +842,13 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Boundary Apps
+    subgraph lane_0["Boundary Apps"]
         n5[["fa:fa-cog Receive Request for Create/Update of Transaction Document from B App"]]
         n6[["fa:fa-cog Receive Initial Compliance Status of Document"]]
         n7(["fa:fa-play Initiate Document Transfer"])
         n9(["fa:fa-stop Document Compliance Status Received"])
     end
-    subgraph Trade Execution Analyst
+    subgraph lane_1["Trade Execution Analyst"]
         n1["Create Transactional Data"]
         n2["fa:fa-user Manage Blocked Documents"]
         n3["fa:fa-user Display Technically Incomplete Customs Documents"]
@@ -902,7 +944,7 @@ flowchart TD
     class n32 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWNuO2zYQ_RVCwcIJYCcSJVmyH1r4pmKB3FBvWhTZPNASZRMrSyoprdfZ-N871NWmpS2a-mG9Opw5M2c4vMjPmp8EVJtqNzfPLGbZFD0Psh3d08EUDTZE0MEQlcAfhDOyiagYSJswibM1-16YGVb6JM0k5pE9i44SXdNtQtGX2yGagWM0RILEYiQoZ-FgOEg52xN-XCRRwqX1K-qGelhEq4bmCQ8obw103TF8G1wjFtMWNh3LsTzpJ6ifxMEFaWiHbugPTjK5KDn4O8KzIv1c0A_k6U8WZDt4DkkkKNjssn30nmxoJDVmPJeYn_PHuhhMyDgxFGydEp_FW8AtHSBO4ocWsvXTCZ1ubu7jJii6W97HCD5-RIRY0hCJDODVY4ZCFkXTV9Zi5tn6UGQ8eaDTV3jlLE089KWSKUjXh7K4owNl21023SRRUJmODlLDFKdPQ_40xfqQH-GvEovGQRtpMcYudptIc8dYGIs6UhiG_ysS1JXfEfFQxVqZHvaWTSzDHtsL_Zqvlrm0nJmh1onyR-bTM1LP88xVW6rV2Db0ftK5Z471hUK6JRk9kGNLOFlYDaFnO57h9BKW8dQs881nnvg1obmyPbshdOaGN8O9hNbMsNwqQ-DZcpLu0DzJi15GszQV5Zj8xPbXr_daSKYhGfnJFv1OfcoeKXz_nVMBU5xwtOAU5L37kgbwhZIQ3UF7CuJnLInRMvHzPY3Bkid7NJf099q3b2cRxt0RbmFzgGWMFsk-jRiJfYrWGclyISPUrAqV87qhSiMod8kBSTVZFKmFlIPjmzPHSesosiRt7a-jV_kFLQN0u1JMiBJQtHqifl4UYRaT6Ciys4AGxCvrdl4tkLskGQHqM1PcpCabHX0gMdlSNI8S_4EGTabi0sm8dFoyURTkjvq7mPkkimRxfCmOQgqLHFTvRR-Z1U3WWKPXZ2Uq85P4m0sWV6lxoQCx-LwAAi12VOpS5sfQwbeo4neK3qElJM33sC0jKKGAAss23BR88M8O9hD0-vazEt-QNf-YZCw8gptIIRqD4wWlsI6ogLY6xCAuS0oASntg2Q525baXgduXGiMEB9Tbt28VftzO6ZrAuYU-yQMFqoNuPTUXOT-LHYlhJgsryPfKxmr5PuXZRi5QUB5B88Ey7bC3W_vbuDQPXjAft-afcw6nhqBNxtfWTqc4qe2qzu61tiubSWvz78Gx_nIlVHYsZ_rTJiPQXARMYcnC2Y7WO5amcGKioglgFRST2hEO_yf3q-jmi_NwZW69VIora_ulWbuyHj8_t3trQEcb6GYf9qdjWmzU5RL89V47nc69nG4v-uRHuQAdv5Wnmerm_pzbpNut2YLrnU5N09RbR8J5chAjEmUoJRy2Nxp1RzONn3HCnU4s7hPWnAiQJBqNfpEbmApU9w7YNkoAuzVgqYCpAmMVsFXAUQFXBSYKgHUVMFRAzRSriWE1dawmVuVl1-NFFj_utb8onDk_ZMfWI-NqpOfIKrqicDErj6ook-pRjYyrCjR1r8Ynaiofk4LWqiessnNqO_W5kmTi2qGyMHVVytkp2aZfu1WlM-v8zCpBV3lW4gDtGtoN-S23KC8qcJI1lzoib10QbHx2jZRS6uvzBWx2w1Y3bJ_fmC9Gxr0jTvM2cgG71YvDBTjpAg29m8EwenDcg5s9uNWD2z34uAfvUQrLsRufdOO4Ry_u0Yt79OIevbhHL-7RCy1dvdJcwk437HbDk04YdshO2OiGcQ1rQ20Pt0LCAm36rBU_IcDPDAENSR5l2mmokTxL1sfY16bFq7aWFy8sS0bg0r4vwdM_ilAnfQ==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG2P2kYQ_isrRycSCRJ7bWPgQyswuDqpeVG5tKpyVbXYa7w6Yzu79nHkwn_vrPELLPZVTflwnJ-deWbm2dkX86z5aUC1mXZz88wSls_Q8yCP6I4OZmiwIYIOhugE_E44I5uYioG0CdMkX7NvpZlhZU_STGIe2bH4INE13aYUfb4dojk4xkMkSCJGgnIWDoaDjLMd4Qc3jVMurV_RSaiHZbRqaJHygPLWQNcdw7fBNWYJbWHTsRzLk36C-mkSXJCGdjgJ_cFRJhenez8iPC_TLwR9T57-YEEewXNIYkHBJsp38a9kQ2NZY84LifkFf6zFYELGSUCwdUZ8lmwBt3SAOEkeWsjWj0d0vLm5T5qg6G55nyD4-DERYklDJHKAV485Clkcz15Z7tyz9aHIefpAZ6_wylmaeOjLSmZQuj6U4o72lG2jfLZJ46AyHe1lDTOcPQ350wzrQ36Av0osmgRtJHeMJ3jSRFo4hmu4daQwDP9XJNCV3xHxUMVamR72lk0swx7brn7NV5e5tJy5oepE-SPz6Rmp53nmqpVqNbYNvZ904Zlj3VVItySne3JoCaeu1RB6tuMZTi_hKZ6aZbH5xFO_JjRXtmc3hM7C8Oa4l9CaG9akyhB4tpxkEYpJQv_Wv9xri7QomxrNs0zca3-d7OQnsb_AeEhmIRn56Rb9Rn3KHil8fy2ogOlOOXI5hVLffc4C-EJpiO6gVQXxc5YmaJn6xY4mYMnTHVrICBDgPMK4O8ItbBSwpJGb7rKYkcSnaJ2TvBAyQs2qUDmvG6osBulPHJBUk0WZWkg5OL45c5y2jiJPs9b-OnqVX9AyQOd3CWsAJYQLKFo9Ub8o1ZgnJD6I_FJiaXjS8Fw5KH1JcnJpips05SJA70lCthQt4tR_oEGTtTKF5qXTkolSnDvqRwnzSRxLoXxZKIUU3AIU2Ik-MqubrLFGr88kO-Un8TeXLBNF77ICxJJzAQRyIyrrUubKkB1bCvmNondoCUnzHWzXCCQUoLFsyU3JB_9EsLeg17eflPiG1PxDmrPwAG4ig2gMjh2UwfqiAlpsn0BxeXoCQNo9yyPYrdu-Bm5f1hgjOLjevn2r8ON2TtcEzjP0UR40oA669dRc5Py4EUlgJksryPfKxmr5Phb5Rq5XqDyGRoRV22Fvt_a3yck8eMF83Jp_KjicJoI2GV9bO53FydqudJ5c13ZlM21t_j041l9WQmXHcqY_bnICzUXAFJYvnPloHbEsg5MUlU0Aq6Cc1I5w-D-5X0U3X5yHK3PrJSmurO2XZu3Kevz83O6zAR1toJv9CN0dsnLTPi3Bn--14_Hcy-n2ok9-XAio45fTKae6TX7Mbdrt1mzH9U6npmnqrSPhPN2LEYlzlBEO2xuNu6OZxo844U4nlvQV1pwOkCQajX6SG5gKVPcR2DZOAJ7UgKUCpgqMVcBWAUcFJiowVQCsq4ChAmqmWE0Mq6ljNbEqL7seL7P4fq_9SeHM-S47th4ZVyM9R1bZFaWLWXlUokyrRzUyrhRodK_Gp2oqH9KS1qonrLJzajv1uSrJxLVDZWHqailnp2Sbfu1WSWfW-ZlVghPlWYkDtGtoN-S33OJ0aYGTrLnjEXkDg2Djs-ulLKW-Vl_AZjdsdcP2-U36YmTcO-I0bykX8KR6obgAp12goXczGEYPjntwswe3enC7Bx_34D2VwnLsxqfdOO6pF_fUi3vqxT314p56cU-90NLVq84l7HTDk2542gnDDtkJG90wrmFtqO3gVkhYoM2etfKnBfj5IaAhKeJcOw41UuTp-pD42qx8BdeK8uVlyQhc4Hcn8PgPL-gvRA==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
 
@@ -925,12 +967,12 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Boundary Apps
+    subgraph lane_0["Boundary Apps"]
         n6[["fa:fa-cog Receive Compliance status from GTS"]]
         n9(["fa:fa-stop Compliance Status Received"])
         n20{{"fa:fa-arrows-alt inclusiveGateway"}}
     end
-    subgraph Trade Execution Analyst
+    subgraph lane_1["Trade Execution Analyst"]
         n1["fa:fa-user Process MD Sanctioned Party List (SPL) Block"]
         n2["fa:fa-user Add Business Partners (BP) toPositive List"]
         n3["fa:fa-user Release SPL Block for Document"]
@@ -994,7 +1036,7 @@ flowchart TD
     class n20 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtV2uP2jgU_StWqhEzEqh5EsiHXfFKVWlmF5XpVqtOP5jEgWiCHdnODJTy3_c6L0gmrLoPPiB84nPO9fXNtTlqAQuJ5mk3N8eYxtJDx57ckh3peai3xoL0-qgA_sA8xuuEiJ6aEzEqV_H3fJphp3s1TWE-3sXJQaErsmEEff7YRxMgJn0kMBUDQXgc9fq9lMc7zA8zljCuZr8jo0iPcrfy0ZTxkPDzBF13jcABahJTcoYt13ZtX_EECRgNG6KRE42ioHdSwSXsNdhiLvPwM0Ee8P5LHMotjCOcCAJztnKX3OM1SdQaJc8UFmT8pUpGLJQPhYStUhzEdAO4rQPEMX0-Q45-OqHTzc0TrU3R4_yJIvgECRZiTiIkJMCLF4miOEm8d_Zs4jt6X0jOnon3zly4c8vsB2olHixd76vkDl5JvNlKb82SsJw6eFVr8Mx03-d7z9T7_ADfLS9Cw7PTbGiOzFHtNHWNmTGrnKIo-k9OkFf-iMVz6bWwfNOf116GM3Rm-lu9aplz250Y7TwR_hIH5ELU931rcU7VYugY-nXRqW8N9VlLdIMlecWHs-B4ZteCvuP6hntVsPBrR5mtl5wFlaC1cHynFnSnhj8xrwraE8MelRGCzobjdIumLMtrGU3SVBTP1IcOv3590iLsRXgQsA36RAISvxA0Y7s0iTENiCosmQkUcbZDHx5XT9q3bxf88W3NF5Kll8RVQSwlQyDeXRBN_XismJhz9ioGOJEopkGSCZj_oUjpk3Y6FSwoutaaHjkOCVrsSZDJmFE0oTg5CHlhYtTBqUJCKqVECPQwRysIUZFIiJbw4hzQfSwkul0t7-_QNGHBM4R7GW1TaBKGaAphUqWm-JRwgW6nyzsk2ZKJWKokKsmmjNWU-UQSAi0RgWthiiLG0ZwF2Y7QFtXuiGAJbug3AtXXbec0OTNGo5jvfsrObe3rmfNZSc1JEAuV83y_iSSt3R39TVkEnBAKna3mtkvD0IGcb-Z3gt6DlyR8B7lGHLIFnirqdR4L_NhCR0G3H5d3zfgN43_QMM8lqk61wRr6crBFZH-tRgua1U37Ag2CRegBU7xRy8_TWdafqp9f2zp2t87jISVKaI4lfsNxujkTekC_w7HLL3ciD-Ct7fDfrdrtplU1XpWZQG8MR52dIMUcJwlJrtiN_xmp7h5QGWgw-EWltwTscmyWY7M1NiwF_HjSWm_aD6C2p7TefZhSq7iVCstxp8KHpV0FOOV42Cb-SUTOtMoHJXFczRsVY7cat5cxLoBRObbaPnbp84CFVK84lBe6fZjf5aaG1V5qsbFQyO_LvlLXdEFoy0K3pgLnTRcnuXoxr463ynsVoOE0M2aM2w-qjBh6Y43wZAX7DTeuS8fyHIOOeXkWFnukN3JY8aG_rn6CZOpF4MOLM1ylv7q7NGCzG7a6Ybsbdrrh4eXlpvHELa9sDXDUBY67QEOvr5dN3LiCm9WNqAlb3bDdDTvd8LAbdrvhUTc87oRhJ0tY62s7ODBwHGreUcv_r8B_mpBEOEukduprOJNsdaCB5uX3ei1LQ2DOYwxXk10Bnv4ChqIb1g==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtV2uP2jgU_StWqhEzEqh5EuDDrnilqjSzi8p0q1VZrUziQDTGRrYzA6X8973OC5LJrLoPPiB8cs8519c3tjkZIY-IMTJubk4JS9QInTpqS3akM0KdNZak00U58BsWCV5TIjs6JuZMLZNvWZjl7g86TGMB3iX0qNEl2XCCPn_sojEQaRdJzGRPEpHEnW5nL5IdFscpp1zo6HdkEJtx5lY8mnAREXEJME3fCj2g0oSRC-z4ru8GmidJyFlUE429eBCHnbNOjvKXcIuFytJPJXnAhy9JpLYwjjGVBGK2akfv8ZpQPUclUo2FqXgui5FI7cOgYMs9DhO2Adw1ARKYPV0gzzyf0fnmZsUqU_Q4WzEEn5BiKWckRlIBPH9WKE4oHb1zp-PAM7tSCf5ERu_suT9z7G6oZzKCqZtdXdzeC0k2WzVacxoVob0XPYeRvT90xWFkm11xhO-GF2HRxWnatwf2oHKa-NbUmpZOcRz_Jyeoq3jE8qnwmjuBHcwqL8vre1PztV45zZnrj61mnYh4TkJyJRoEgTO_lGre9yzzbdFJ4PTNaUN0gxV5wceL4HDqVoKB5weW_6Zg7tfMMl0vBA9LQWfuBV4l6E-sYGy_KeiOLXdQZAg6G4H3W0QxI3-aX1fGhKdZU6Pxfi9Xxh95nP6w_ld4HuNRjHsh36BPJCTJM0FTvtvTBLOQ6CZTqUSx4Dv04XEJ9Gv-8LbiS8X318RlTiwkIyDeXRFt83QqmVgI_iJ7mCqUsJCmEuI_5OVdGedzzoIGbJufBf6PAkcEzQ8kTFXCGRozTI9S1WdqVYnqBkO61ERK9DBDS0hX80iEFvBCHdF9IhW6XS7u79CE8vCpLmTXhcZRhCaQMtNqms-IkOh2srhDii-4TJQuqJasyzh1mU-EEtgqEbjmpijmAs14mO4Ia1DdlgwW4IZ-IdCV7XZenTPlLE7E7ofs_MYaXziftdSMhInUZc_WnijSWOnB37RIKAhhsONV3GabWLp_s_X8RtB78FJE7KDWSEC1wFNnvc5ygR9b2GnQ7cfFXWPlrf9Bw760qz7temvYr8MtIoe3-jWnOe20L7Bx8Bg9YIY3evpZOYv-0_3zc1PHbdd5PO6JFpphhV9xvHbOmB3Rr3Aci-uVyBJ4bdv_d7P222llj5dtJtErw0HrrrDHAlNK6Bt2w39GqnYS6AzU6_2ky1sAbjG2i7HdGFuOBr6vjMab9h2ozZDGuw8hlYpfqvAM90q8X9iVgFeM-03i70RmTKd4UBCHZdwgH_vluDmNYQ4MirHT9HELnwcslX7Fob3Q7cPsLjO1nOZU84WFRn5f7CtVT-eEpixs2EzibNPFNFPP46p8y7qXCVpevWLWsPmgrIhl1uYIT5aw3nATu3YszjTYMa-PxnyNzFoNSz7sr8sfINlmnnj_6mzX5S_vNDXYboeddthth712uH996ak98YurXA0ctIHDNtAyq2tnHbfewO3yplSHnXbYbYe9drjfDvvt8KAdHrbCsJIFbHSNHRwYOImM0cnI_sfAf52IxDilyjh3DZwqvjyy0Bhl930j3UfAnCUYrim7HDz_BVDRI50=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
 
@@ -1017,11 +1059,11 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Boundary Apps
+    subgraph lane_0["Boundary Apps"]
         n2[["fa:fa-cog Receive Status for Embargo Block"]]
         n3(["fa:fa-stop Status Received in Boundary App"])
     end
-    subgraph Trade Execution Analyst
+    subgraph lane_1["Trade Execution Analyst"]
         n1["fa:fa-user Process Embargo Block"]
         n4["Recheck Blocked Documents (IP)"]
         n5["Analyze / Determine reason for block or hold (IP)"]
@@ -1046,7 +1088,7 @@ flowchart TD
     class n8 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2v4jYQ_StWrq7YlYKahITQPLTiK9VK23ZVbltVyz4YZwLWdeLIdi6wLP-9YxIIsPc-bR4QPp5zzngynhwcJjNwEufx8cBLbhJy6JkNFNBLSG9FNfRc0gD_UMXpSoDu2ZhclmbBv57C_LDa2TCLpbTgYm_RBawlkL8_uGSMROESTUvd16B43nN7leIFVfupFFLZ6AcY5V5-cmu3JlJloLoAz4t9FiFV8BI6eBCHcZhangYmy-xGNI_yUc56R5uckFu2ocqc0q81_E53__LMbHCdU6EBYzamEB_pCoQ9o1G1xVitXs7F4Nr6lFiwRUUZL9eIhx5CipbPHRR5xyM5Pj4uy4speZotS4IPE1TrGeREG4TnL4bkXIjkIZyO08hztVHyGZKHYB7PBoHL7EkSPLrn2uL2t8DXG5OspMja0P7WniEJqp2rdknguWqPv3deUGad03QYjILRxWkS-1N_enbK8_yHnLCu6onq59ZrPkiDdHbx8qNhNPW-1zsfcxbGY_--TqBeOIMr0TRNB_OuVPNh5Htvi07SwdCb3omuqYEt3XeCP0_Di2AaxakfvynY-N1nWa8-KcnOgoN5lEYXwXjip-PgTcFw7IejNkPUWStabchE1qdeJuOq0s2efcrg8-elk9Mkp30m1-QvYMBfgCwMNbUmuVRkXqyoWksyEZI9L50vX67Yg3cXtjayOtNalYzw8sYY2e8bNnbQXYJPimZA5jtgteGyJOOSir02V2b-xct2BbH1Aa2_y--KESIDc9kAe262MaWZZHUBpdHk3YdP72_jI4w_-X4F8hOZgQFV4HAgCqjGlGw1VlaG4J8NdvIrEsMfl4gPh-6VZNBf4TRgGyzInvyJk1ORqSwqwRGE5lRYgx3Xhvy6dI7HK6FRJ0SVklvdp8KQiioqBIjfmp7tOJd3Ug5Jv_8LFrxd-s0ybpexXX5bOv-BXjrfsGp3-B_yBI9aeNSww3YZNMvB9S6SFuhuZ5htHyO7rqG2a1AtuLogNqPzYLiBg-vbfbMzaGfWDRhehuYNHL0OD1-H4_Plv0FHZ9RxnQJbgPLMSQ7O6cOHH8cMcloL4xxdh9ZGLvYlc5LTB8KpqwyZM07xWhQNePwfsahXuA==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVe-P4jYQ_VesrFbcSUFNQkJoPrTiV6qTru2pbFtVR1WZZALWOnZkOwscx__eMQkEuN1Plw8IP897bzwZTw5OJnNwEufx8cAEMwk59MwGSuglpLeiGnouaYC_qGJ0xUH3bEwhhVmwL6cwP6x2NsxiKS0Z31t0AWsJ5M8PLhkjkbtEU6H7GhQrem6vUqykaj-VXCob_QCjwitObu3WRKocVBfgebGfRUjlTEAHD-IwDlPL05BJkd-IFlExKrLe0SbH5TbbUGVO6dcafqW7v1luNrguKNeAMRtT8o90Bdye0ajaYlmtXs7FYNr6CCzYoqIZE2vEQw8hRcVzB0Xe8UiOj49LcTElT7OlIPhknGo9g4Jog_D8xZCCcZ48hNNxGnmuNko-Q_IQzOPZIHAze5IEj-65trj9LbD1xiQryfM2tL-1Z0iCaueqXRJ4rtrj750XiLxzmg6DUTC6OE1if-pPz05FUXyXE9ZVPVH93HrNB2mQzi5efjSMpt63eudjzsJ47N_XCdQLy-BKNE3Twbwr1XwY-d7bopN0MPSmd6JramBL953gj9PwIphGcerHbwo2fvdZ1qtPSmZnwcE8SqOLYDzx03HwpmA49sNRmyHqrBWtNoRTAf95n5fORNanpibjqtJL598mzj4i-Iz7BU0K2s_kmvwBGbAXIAtDTa1JIRWZlyuq1pJMuMyekXzNHry7sLWR1ZnWquSECXLtjez3DRu76bVkfZR7UjQHMt9BVhsmBRkLyvfa3KbtX3xttxBbN9D6m1yvGCEyMK8NZM_NNqY3k1ldgjCavPvw6f1tfITxJ-svQH4gMzCgShwaRAHVmJWtzMrKEPyzwQ5_RWL4_RLx4dC9nhz6K5wS2QZrsie_40RVZCrLijMEoTkV1mDHtCE_L53j8Upo1AlRpeRW9yk3pKKKcg78l6aXO87l_Ygh6fd_woK3S79Zxu0ytsuvS-cfwL76ilW7w3-TJ3jUwqOGHbbLoFkOrneRtEB3O9tsKxnZdRC1HYRqwdXFsRmdB8YNHFzf-pudQTvLbsDwMkxv4Oh1ePg6HJ-Hwg06OqOO65TYApTlTnJwTh9E_GjmUNCaG-foOrQ2crEXmZOcPhxOXeXInDGKV6RswOP_-cdffw==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-325-gt-030-070_business_decision_on_license_control_analysis_result_take_actionip-gt-030-070_business_decision_on_license_control_analysis_result_take_actionip">BUSINESS ARCHITECTURE — 3.2.5 GT-030-070_Business_decision_on_License_control_analysis_result_+<em>take_action</em>(IP) — GT-030-070_Business_decision_on_License_control_analysis_result_+<em>take_action</em>(IP)</h4>
 <p><strong>Swim Lanes</strong>: Trade Execution Analyst | <strong>Tasks</strong>: 2 | <strong>Gateways</strong>: 2</p>
@@ -1062,7 +1104,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Trade Execution Analyst
+    subgraph lane_0["Trade Execution Analyst"]
         n1["fa:fa-user Process License Control Block"]
         n2["fa:fa-user Change Control Data for Licenses"]
         n3["Recheck Blocked Documents (IP)"]
@@ -1084,7 +1126,7 @@ flowchart TD
     class n6 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU2P4jgQ_StWWi1mpaDNJ2Fz2BEkZDVSjzTa7t05LHMwTplYGBvZTjcMw39fmxBomO7T5IBSj1fvVZU_sveIrMHLvfv7PRPM5Gg_MA2sYZCjwQJrGPioA_7FiuEFBz1wHCqFeWTfj7Qw2WwdzWEVXjO-c-gjLCWgfz75aGITuY80FnqoQTE68AcbxdZY7QrJpXLsOxjTgB7dTn9NpapBXQhBkIUktamcCbjAcZZkSeXyNBAp6itRmtIxJYODK47LF9JgZY7ltxo-4-1XVpvGxhRzDZbTmDV_wAvgrkejWoeRVj33w2Da-Qg7sMcNJkwsLZ4EFlJYrC5QGhwO6HB_PxdnU_RUzgWyD-FY6xIo0sbCs2eDKOM8v0uKSZUGvjZKriC_i2ZZGUc-cZ3ktvXAd8MdvgBbNiZfSF6fqMMX10Mebba-2uZR4Kud_b3xAlFfnIpRNI7GZ6dpFhZh0TtRSn_Jyc5VPWG9OnnN4iqqyrNXmI7SIvhZr2-zTLJJeDsnUM-MwCvRqqri2WVUs1EaBu-LTqt4FBQ3okts4AXvLoJ_FMlZsEqzKszeFez8bqtsF1-UJL1gPEur9CyYTcNqEr0rmEzCZHyq0OosFd406EnhGtBsC6Q1TAo0EZjvtOlY7hHhf3OP4pzioRs6cvagNXqwwxIaUGFXUUmOplyS1dz79iozus4sGiyWl4QSG4yoVL2Svk6ObfLfQBogq04balRK0q5BGI0-fPry2zU_sfxj8d8B_Y5KMKDW9gAjBVjbvpzRwskg-9LY3faGRLrf9wW7y2q4sMeNNOgzmEbWSNLbnj_OvcPhVf7o7XzYEt5q9gx_dbvhkmXPS_ciEjQc_mkrOIVhF45O4agL41OYuvDH3OuXYqaUVHPvh827YZxG_gBLzPuqj8ToRIyujI7bzLn3x-sKjt6G4_MVcwUnb8Npfyau0FGPer63tguHWe3le-_4PbDfjBoobrnxDr6HWyMfd4J4-fHe9NpNbTNLhu12Xnfg4X9FiQ6X" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P2jgU_StWRiO6UtDmk7B52AoSsqo0larObPuwrFbGuSEWxka2MwOl_Pe1SQINnXlqHlDu4Z5z7r3-yNEhogQnde7vj5RTnaLjSNewhVGKRiusYOSiFviCJcUrBmpkcyrB9SP9dk7zo93eplmswFvKDhZ9hLUA9PcHF80MkblIYa7GCiStRu5oJ-kWy0MmmJA2-w6mlVed3bq_5kKWIK8Jnpf4JDZURjlc4TCJkqiwPAVE8HIgWsXVtCKjky2OiRdSY6nP5TcKPuL9V1rq2sQVZgpMTq237AGvgNketWwsRhr53A-DKuvDzcAed5hQvjZ45BlIYr65QrF3OqHT_f2SX0zRU77kyDyEYaVyqJDSBl48a1RRxtK7KJsVsecqLcUG0rtgkeRh4BLbSWpa91w73PEL0HWt05VgZZc6frE9pMFu78p9GniuPJjfGy_g5dUpmwTTYHpxmid-5me9U1VVv-Rk5iqfsNp0XouwCIr84uXHkzjzftbr28yjZObfzgnkMyXwg2hRFOHiOqrFJPa9t0XnRTjxshvRNdbwgg9XwT-y6CJYxEnhJ28Ktn63VTarT1KQXjBcxEV8EUzmfjEL3hSMZn407So0OmuJdzVimMN_3j9L50niEtBiD6TRVHA045gdlF46_7YM-3DfJFY4rfDYLgCypYBS6MEMjitAmVlRKRiaM0E2Q2YwZGY15usrIccao0rIXkkNyaEhfwZSA9m02lCiXJBmC1wr9O7Dp9-G-ZHJP9f_DdDvKAcNcmsOM5KAlWnNGq2sDDIvtdl5r0jEx2NfsL24xitz9EiNPoKuRYlEddvz-6VzOv3An7zOhz1hjaLP8Fe7M64sc3baFx6h8fhPU0EX-m046cJJG4ZdGNvw-9Lpl2IhpZBL57vh3WR0I3-ANWZ91efEoEsMBkbnLWfd-6M2gIPX4fBy3Qzg6HU47s_HAJ30qOM6W7NwmJZOenTO3wbz_Sihwg3Tzsl1cKPF44ETJz3foU6zKw0zp9hs7W0Lnv4HSmoSeg==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
 
@@ -1107,11 +1149,11 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Boundary Apps
+    subgraph lane_0["Boundary Apps"]
         n3[["fa:fa-cog Receive Compliance Status"]]
         n6(["fa:fa-stop Status Received in Boundary App"])
     end
-    subgraph Trade Execution Analyst
+    subgraph lane_1["Trade Execution Analyst"]
         n1["fa:fa-user Recheck Blocked Document"]
         n2["fa:fa-user Recheck Documents Manually"]
         n4["Recheck Documents in Background (batch jobs)"]
@@ -1169,7 +1211,7 @@ flowchart LR
     class n19 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4jgU_StWqopWC90kJITysCu-MppVO6rK7K5WwzwYxwEvIY5sp8Aw_Pe9zgeQNDzMLA9Vc3zPOffeONc-GIQH1BgYt7cHFjM1QIeWWtENbQ1Qa4ElbbVRDvyFBcOLiMqWjgl5rGbsWxZmOclOh2nMxxsW7TU6o0tO0Z8f22gIxKiNJI5lR1LBwla7lQi2wWI_5hEXOvqG9kMzzNyKpREXARXnANP0LOICNWIxPcNdz_EcX_MkJTwOKqKhG_ZD0jrq5CK-JSssVJZ-Kukz3v3NArWC5xBHkkLMSm2iJ7ygka5RiVRjJBVvZTOY1D4xNGyWYMLiJeCOCZDA8foMuebxiI63t_P4ZIqeXucxgh-JsJQTGiKpAJ6-KRSyKBrcOOOh75ptqQRf08GNPfUmXbtNdCUDKN1s6-Z2tpQtV2qw4FFQhHa2uoaBnezaYjewzbbYw9-aF42Ds9O4Z_ft_slp5Flja1w6hWH4v5ygr-IzluvCa9r1bX9y8rLcnjs23-uVZU4cb2jV-0TFGyP0QtT3_e703Kppz7XM66Ijv9szxzXRJVZ0i_dnwcexcxL0Xc-3vKuCuV89y3TxIjgpBbtT13dPgt7I8of2VUFnaDn9IkPQWQqcrNCIp9leRsMkkfma_sXdL1_mRogHIe4QvkSvlFD2RtGYb5KI4ZhQNFNYpXJufP16QevdnWhS8aQIKukBYnHFEdj3ORu2Ti2zzwIHFE13lKSK8RgNYxztpbows05eejtokxUlazSKOFmD14STdENjBSYXJLuZVAZL9IzjFEfRvkpzgPY-VpeDyXopdE3oboEVWaF_-ULeV9lurS1nhVcaUZh-wbkTGcGD-HFmxkK00AUhumMSCHcKhoDERPdE3qO7jy81rz5QP3HFwj0SVCYQxWCaogS2DZUS8W0MZSueA9CmLVMrdCGKuEBEv-EIwTx-eHioyj_-fGaWCdzsNX6j6Fc0oYqKDQxZyBNLMA7BOVeEf1YwEZo09EsfpRJoUExACZNZzjGavTwhnO0RJnXlaaTQL0jhNUVFYQ1q9jW16WaBxZL_uGL3muITTJdYUgSHB3yg0Y8rO4fD-ZMMaGcB7Ybt9gz_Ix6i7KXAwXDeXL_PjePxUsFtVigJ5Zfzjtdr5tEdiaDSN_ohH3N1mnemYSH4VnYw1JlgAZ8Xja6Q-j9DemwksfhafqdpA-8LdTq_aYkCeKw9W3YdMGtAGVCuW3WCo4HvcyOfLHPjO3DKtSK2Vz73CsAtAKce4OWAV3vul89l_k7dfZQNpz_4IkvgtOwWy594hlsnoX4uVCZS9KlX5_1DZU70KkRYmUGXLw8MmZ8FMHqqRwCQuxfHnG5KebxXYLsZ7l4e3ZUVt7iQVMBeE-idrkkVuN8MPzbDsDGacesKbl_Bu1dwp7xPVGG3Ge41w14z3G-GH0vYaBsbmNaYBcbgYGQXdbjMBzTEMLuMY9vAqeKzfUyMQXahNdIkAOaEYTjNNzl4_A_vd80_" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVtuO2zYQ_RVCwcIb1E4lWbK8fmjhm4IUu8FinbYo4qKgKcpmTYsCSa3tOP73DnXxRZEfkvphsTqcc87MiBryYBERUWtg3d0dWML0AB1aekU3tDVArQVWtNVGBfAHlgwvOFUtExOLRM_YlzzM8dKdCTNYiDeM7w06o0tB0e8f2mgIRN5GCieqo6hkcavdSiXbYLkfCy6kiX5D-7Ed527l0kjIiMpzgG0HDvGByllCz3A38AIvNDxFiUiiK9HYj_sxaR1NclxsyQpLnaefKfqEd3-ySK_gOcZcUYhZ6Q1_xAvKTY1aZgYjmXytmsGU8UmgYbMUE5YsAfdsgCRO1mfIt49HdLy7mycnU_T4Mk8Q_AjHSk1ojJQGePqqUcw4H7zxxsPQt9tKS7GmgzfuNJh03TYxlQygdLttmtvZUrZc6cFC8KgM7WxNDQM33bXlbuDabbmHvzUvmkRnp3HP7bv9k9MocMbOuHKK4_h_OUFf5Ses1qXXtBu64eTk5fg9f2x_q1eVOfGCoVPvE5WvjNAL0TAMu9Nzq6Y937Fvi47Cbs8e10SXWNMt3p8FH8beSTD0g9AJbgoWfvUss8WzFKQS7E790D8JBiMnHLo3Bb2h4_XLDEFnKXG6Qhwn9B_789waiSzf1GiYpmpu_V3EmV_S_QzrMR7EuEPEEr1QQtkrRWOxSTnDCaFoprHODOuS1rs_0ZQWaRlU0SPEEnRpCuy3BRu2UVOWDsh9kjiiaLqjJNNMJGiYYL5X-jpf5-RrtokxXFGyRiMuyBp8J4JkG5rUSG4zqQpW6AknGeZ8f03zgPZtrCkNk_VSmvrQ_QJrskL_ioV6e832ay06K7xQTmEqRueu5IQA4se5GYvRwhSE6I4pINxrGA4KE9MW9Rbdf3iuefWB-lFoFu-RpCqFKAZTFqWwnahSSGwTKFuLAoA2bZleoQtRJCQi5m1zBHP63bt31_IPP56ZY_Zf_ia_UPQzmlBN5QaGL-SJFRjH4Fwowj8rmBRNGualjzIFNCgmooSpPOcEzZ4fEc63CVOm8oxr9BPSeE1RWViDmntLbbpZYLkU36_YvaX4CFMnURTBoQIfLv9-Ze9wOH-eEe0soN2w3Z7gfyRilL8UODDOm-vXuXU8Xir4zQoVofpyvuH1mnl0RzhU-krfF-OvTgvONCyl2KoOhjpTLOHzovwGqf8jpIdGEktu5XeaPPC-UKfzi5EogYfas-PWAbsGVAHVulMneAb4OreKyTK3vgKnWitje9VzrwT8EvDqAUEBBLXnfvVc5e_V3Uf5cPpNLPIETst-ufxR5LhzEuoXQlUiZZ96dd5fVBXE4IoIKzPo8uXhoYpzAUbP9XEA5O7F8WeaUh37V7DbDHcvj_SrFb-8qFyBvSYwOF2fruB-M_zQDMPGaMadG7h7A-_ewL3qnnEN-81wrxkOmuF-M_xQwVbb2sC0xiyyBgcrv8DDJT-iMYbZZR3bFs60mO0TYg3yi66VpREwJwzDyb4pwON_sB3VBg==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
 
@@ -1192,7 +1234,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Trade Execution Analyst
+    subgraph lane_0["Trade Execution Analyst"]
         n1[["fa:fa-cog Notify Responsible Process Owner to Cancel Document/Approval"]]
         n2[["fa:fa-cog Notify Process Owner to Proceed with Transaction"]]
         n3["Request Partner to Block in MDG"]
@@ -1234,7 +1276,7 @@ flowchart TD
     class n13 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4jgU_StWqopWCtp8EpqHXdFARiNtu9W0M6vVMA8muQGrxs7aToFl-O_rhIRAgJfdPCDuyT3n3HsT29kaCU_BCI3b2y1hRIVo21MLWEIvRL0ZltAz0R74hgXBMwqyV-ZknKlX8k-VZnv5ukwrsRgvCd2U6CvMOaCvn0000kRqIomZ7EsQJOuZvVyQJRabiFMuyuwbGGZWVrnVtx65SEG0CZYV2ImvqZQwaGE38AIvLnkSEs7SE9HMz4ZZ0tuVxVG-ShZYqKr8QsITXv9JUrXQcYapBJ2zUEv6O54BLXtUoiixpBAfzTCILH2YHthrjhPC5hr3LA0JzN5byLd2O7S7vZ2ygyl6G08Z0ldCsZRjyJBUGp58KJQRSsMbLxrFvmVKJfg7hDfOJBi7jpmUnYS6dcssh9tfAZkvVDjjNK1T-6uyh9DJ16ZYh45lio3-7XgBS1unaOAMneHB6TGwIztqnLIs-19Oeq7iDcv32mvixk48PnjZ_sCPrHO9ps2xF4zs7pxAfJAEjkTjOHYn7agmA9-2ros-xu7Aijqic6xghTet4EPkHQRjP4jt4Krg3q9bZTF7ETxpBN2JH_sHweDRjkfOVUFvZHvDukKtMxc4X6A3gVNAkzUkhSKcoRHDdCPVPqu8mP39-9TIcJjhfsLn6Jkrkm3QF5A5Z5LohYrKikBK9MeKgUCKowizBCga86RYAlO_jPJc8A9Mp8aPH0fKzkXlM7UKgBStiKrqZRInZa0dNVeLfYG_C5AKveh3vmY_Up68I8LQ0_iTZhwRvLuDvVQ8P5AYV3sWpJpwf8TwrzDq7NblmDTokJrko05wOyv0hBmenzkHWiNaQNlJhmZVS7AmUkl0p1odeY_uPr_cn7Y5rOaSVOTGu3GTF_Ifttv2qaTQn2n9ZHHo9Vk_ClkOdgaN3G9TY7c7fmOsyxIRL4QExDM0qso949mXebBOaCHJB3zaL6cuzflvNLelYSH4SvYxVSjHAlMK9IykN7f9Hxagfv_X0reOh53YdmqgXr2sie0moRs3gNsA7h54qOOHMvw5Nf4COTV-6ne9xus0v0MbNLFV8_YLEA7PvRJxulmdZVsl2Z0KnnkFe0f7UtnP0e55cse5eserT4sT0L8EDi6BweFgO4GHl-GHZic-Ldu6DNuXYecy7DawYRpLEEtMUiPcGtW3jP7eSSHDBVXGzjRwofjrhiVGWJ35RpGnmjkmWG_Fyz24-xefNeZ_" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P4jYU_StWRiNmpKDmkzB5aMUEslqpMx3tzG5VLVVlkhuwxtip7QxQlv9eJyQEAry0eUDck3vOufcmtrM1Ep6CERq3t1vCiArRtqcWsIReiHozLKFnoj3wDQuCZxRkr8zJOFOv5J8qzfbydZlWYjFeErop0VeYc0BfP5topInURBIz2ZcgSNYze7kgSyw2EadclNk3MMysrHKrbz1ykYJoEywrsBNfUylh0MJu4AVeXPIkJJylJ6KZnw2zpLcri6N8lSywUFX5hYQnvP6dpGqh4wxTCTpnoZb0VzwDWvaoRFFiSSE-mmEQWfowPbDXHCeEzTXuWRoSmL23kG_tdmh3eztlB1P0Np4ypK-EYinHkCGpNDz5UCgjlIY3XjSKfcuUSvB3CG-cSTB2HTMpOwl165ZZDre_AjJfqHDGaVqn9ldlD6GTr02xDh3LFBv92_EClrZO0cAZOsOD02NgR3bUOGVZ9r-c9FzFG5bvtdfEjZ14fPCy_YEfWed6TZtjLxjZ3TmB-CAJHInGcexO2lFNBr5tXRd9jN2BFXVE51jBCm9awYfIOwjGfhDbwVXBvV-3ymL2InjSCLoTP_YPgsGjHY-cq4LeyPaGdYVaZy5wvkAUM_jL-j413gROAU3WkBSKcIZGDNONVFPjzz2jvJj9XWdmOMxwP-Fz9MwVyTboC8icM0n0okVldSAl-m3FQCDFUYRZAhSNeVIsgamfRnku-AemWvhY2bmofKZWAZCiFVELpEtmEidluR01V4t9gb8LkAq96Pe_Zj9SnrwjwtDT-NNpY97dwV4qnh9IjKs9C1JNuD9i-FcYdXbrckwadEhN8lEnuJ0VesIMz8-cA60RLaDsJEOzqiVYE6kkulOtjrxHd59f7k_bHFZzSSpy4924yQv5D9tt-1RS6M-0frI49PqsH4UsBzuDRu6XqbHbHb8x1mWJiBdCAuIZGlXlnvHsyzxYJ7SQ5AM-7ZdWl-b8N5rb0rAQfCX7mCqUY4EpBXpG0hvd_g8LUL__c-lbx8NObDs1UK9k1sR2k9CNG8BtAHcPPNTxQxn-mBp_gJwaP_S7XuN1mt-hDZrYqnn7BQiH516JON2szrKtkuxOBc-8gr2jPars52gnPbnjXL3j1SfHCehfAgeXwOBwyJ3Aw8vwQ7Mrn5ZtXYbty7BzGXYb2DCNJYglJqkRbo3qu0Z_-6SQ4YIqY2cauFD8dcMSI6zOf6PIU80cE6y35eUe3P0LRW_qYg==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
 
@@ -1257,7 +1299,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Trade Execution Analyst
+    subgraph lane_0["Trade Execution Analyst"]
         n1["fa:fa-user Analyze Reason for SPL Release"]
         n2["fa:fa-user Display Audit Trail Documents"]
         n3["fa:fa-user Display Audit Trail External Addresses"]
@@ -1320,7 +1362,7 @@ flowchart TD
     class n17 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV11v4jgU_StWqopWClK-Q_OwK74yGqkzQkt352GYB5M4YDXEke1QGIb_vteQ8OGG6UrLA8LH55x7fXPtmJ2RsJQYkXF_v6MFlRHadeSSrEgnQp05FqRjoiPwD-YUz3MiOoqTsUJO6c8DzfbKjaIpLMYrmm8VOiULRtDfn03UB2FuIoEL0RWE06xjdkpOV5hvhyxnXLHvSC-zskO0emrAeEr4mWBZoZ34IM1pQc6wG3qhFyudIAkr0ivTzM96WdLZq-Ry9pYsMZeH9CtBvuDNN5rKJYwznAsCnKVc5c94TnK1RskrhSUVXzfFoELFKaBg0xIntFgA7lkAcVy8niHf2u_R_v5-VpyCopfRrEDwSXIsxIhkSEiAx2uJMprn0Z037Me-ZQrJ2SuJ7pxxOHIdM1EriWDplqmK230jdLGU0ZzlaU3tvqk1RE65MfkmciyTb-Fbi0WK9BxpGDg9p3eKNAjtoT1sImVZ9r8iQV35CxavdayxGzvx6BTL9gN_aL33a5Y58sK-rdeJ8DVNyIVpHMfu-FyqceDb1m3TQewG1lAzXWBJ3vD2bPg09E6GsR_GdnjT8BhPz7KaTzhLGkN37Mf-yTAc2HHfuWno9W2vV2cIPguOyyV64TglaLwhSSUpK1C_wPlWyCNLfQr7-8zIcJThrir6kfCToL8IFsDPGEfTyTMMcwDIzPhxIXWupSMqyhyq0a9SKlVkmqMRS6oVKaS4VrofK8cbSTgkg_ppyokQRLPwPraYwNYoCNeE_sfCTwRkt0MH7Q4TJqika4KeqZBoUAk4YIQ4ZYEeBhPxeO0Utjt9JdBZZ6eJFr_XrqqfUYrGqznmC3ar-E83CsCTJcRMb8ls6_tJmLDFqVOaaHX4unOU-EptP5zUh3Cf4S1BYf-gIVuVOcVFoqQl4xJOP_QFF3hBVBbg83jp45x9hGTl7-SprnV3u_MKUtKdw4GbLNGk4iWDzFlWW_w5M_b7S6HXLnzZlgfViEhom3cq__eqG7GC_6KCRb4Thu1Cskly6MU1-XQ8rc4yOM-PP-DpoG73D1WhBnAV8GtmXGyLmfFLlUJnNO2Cnsma5Of8jnS_oQc1vdklh-mgmfWbcC1NCLwnnXez6VRM6yN2Y36g93T2xXlX-x5t9ZU0u_QwGzazYV1JpwG8ZuGn0wjonj57vd534pYTCWi-Tms7NIHXPFWvzq1J1tHGvjZ2tbGtjXv6vKUBT9o40MahbtA01RRaV72woBNU3bbHk_ABHs3j8WEEF29OlVhzY7iCnXbYbYe9dthvh4N2OGyHe-3wUzsMdby4r1xP2acr3zXu1Neza9Rt7ijXsNcO--1w0A6HDWyYxorwFaapEe2Mwy0f_gmkJMNVLo29aeBKsum2SIzocBs2qjIF5YhiuKSsjuD-X2pU3iI=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV11v4jgU_StWqopWAinfoXnYFV8ZjdRZoaU78zCsViZxwGqII9uhMAz_fa8hAeKG6UrLA8LH55x7fX3jmL0Rs4QYoXF_v6c5lSHad-SKrEknRJ0FFqTTRSfgK-YULzIiOoqTslzO6I8jzXKLraIpLMJrmu0UOiNLRtBfn7toAMKsiwTORU8QTtNOt1NwusZ8N2IZ44p9R_qpmR6jVVNDxhPCLwTTDKzYA2lGc3KBncAN3EjpBIlZnjRMUy_tp3HnoJLL2Fu8wlwe0y8F-YK332giVzBOcSYIcFZynT3jBcnUGiUvFRaXfFMXgwoVJ4eCzQoc03wJuGsCxHH-eoE883BAh_v7eX4Oil7G8xzBJ86wEGOSIiEBnmwkSmmWhXfuaBB5ZldIzl5JeGdPgrFjd2O1khCWbnZVcXtvhC5XMlywLKmovTe1htAutl2-DW2zy3fwrcUieXKJNPLtvt0_RxoG1sga1ZHSNP1fkaCu_AWL1yrWxInsaHyOZXm-NzLf-9XLHLvBwNLrRPiGxuTKNIoiZ3Ip1cT3LPO26TByfHOkmS6xJG94dzF8Grlnw8gLIiu4aXiKp2dZLqacxbWhM_Ei72wYDK1oYN80dAeW268yBJ8lx8UKZTgn_5jf58YLxwlBky2JS0lZjgY5znZCzo2_Twr1yS0gpjhMcU9twInzg6A_CRYgSRlHs-kzDDMASFNqN6VjKooMKjMoEwpdyzHN0JjF5ZrkUjSVzsfKyVYSDsmgQZJwIgTRLNyPLabwmOSEa0LvY-EnArLbof12hykTVNINQc9USDQsBRw2QpyzQA_DqXhsOgXtTn8Q6LKL01SL329XVXuUoMl6gfmS3Sr-040C8HgFMZNbMsv8fhbGbHnulDpaFb7qHCVuqK2Hs_oY7jO8MSg8S2jE1kVGcR4racG4hJMQfcE5XhKVBfg8XvvYFx8hWfEreaJrnf3-soKE9BZw-MYrNC15wSBzllYWv8-Nw-Fa6LYLX3bFUTUmEtrmncr7tepGLP-_qGCR74RBu5Bs4wx6cUM-nU6uiwzO9tMP2B3U6_2mKlQDjgJ-zo2rx2Ju_FSl0Bl1u6BnsiHZJb8T3avpfkWvn5LjtF_PenW4liYE3pPOu9l0Kqb5Ebs2P9L7OvvqvKt8T7b6Suqn9Dgb1LNBVUm7Btx64efTCOiuPttc7ztxy4kENE-ntR2awKt31a1yq5O1tbGnjR1tbGnjvj5vasCTNva1caAb1E01g9ZV7yzoBFW33ekkfICteTxthn_1FlWJ1beHBmy3w0477LbDXjvst8NBO9xvh5_aYajj1d2lOWWdr39N3K6uak3Uqe8rTdhth7122G-Hgxo2usaa8DWmiRHujeONH_4VJCTFZSaNQ9fApWSzXR4b4fFmbJRFAsoxxXBhWZ_Aw78fUOIF" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
 
@@ -4996,11 +5038,15 @@ flowchart TD
 </tbody>
 </table>
 <hr />
-<p><em>GT-030 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: March 2026</em></p>
+<p><em>GT-030 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-030 — Compliance Screening (IP)</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>GT-030</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

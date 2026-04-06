@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
   Capability E2E-107 · Procure to Pay</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 2<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 2</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -646,13 +688,13 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Cost Accountant
+    subgraph lane_0["Cost Accountant"]
         n1["fa:fa-user Check Material Price"]
     end
     class n1 userTask
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2yAU_CuIVeSLI9mOHae-JU6QKnWllbLdHpoeCIYYBUMEOB-N8t8L-fI2VU7lgORh3sx7g_ARElVRWMBe78gltwU4BramDQ0KECyxoUEILsAH1hwvBTWB5zAl7Zz_PtPidLP3NI8h3HBx8OicrhQF37-GYOwKRQgMlqZvqOYsCION5g3Wh1IJpT37hY5YxM5u16OJ0hXVHSGK8phkrlRwSTt4kKd5inydoUTJ6i9RlrERI8HJNyfUjtRY23P7raGveP-DV7Z23wwLQx2nto34hpdU-Bmtbj1GWr29hcGN95EusPkGEy5XDk8jB2ks1x2URacTOPV6C3k3Be_ThQRuEYGNmVIGjHXwbGsB40IUL2k5RlkUGqvVmhYvySyfDpKQ-EkKN3oU-nD7O8pXtS2WSlRXan_nZyiSzT7U-yKJQn1w-4MXlVXnVA6TUTK6O03yuIzLmxNj7L-cXK76HZv11Ws2QAma3r3ibJiV0b96tzGnaT6OH3OiessJ_SSKEBrMuqhmwyyOnotO0GAYlQ-iK2zpDh86wS9lehdEWY7i_Kngxe-xy3b5phW5CQ5mGcrugvkkRuPkqWA6jtPRtUOns9J4U4NSGQvGhKhWWizt5dQvGf9cQIYLhvs-bFDWlKzBqxvIvzLwpl1YC_jrUuAu_lOjrvZ-QTCEDdUN5hUsjvD8wN1PoKIMt8LCUwhxa9X8IAkszg8BtpvKeUw5dv01F_D0B1EcX54=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CuWVyiXICUhITQ3CFiq1JVWYtseSlUZxyYWjo1sh48i_nttPsKWilN9iJTJvJn3Jnk5QqIqCgvY6x255LYAx8DWtKFBAYIlNjQIwQX4hjXHS0FN4DlMSTvnv8-0ON3sPc1jCDdcHDw6pytFwdfPIRi7QhECg6XpG6o5C8Jgo3mD9aFUQmnPfqEjFrGz2_XRROmK6jshivKYZK5UcEnv8CBP8xT5OkOJktVfoixjI0aCk29OqB2psbbn9ltDX_H-O69s7e4ZFoY6Tm0b8QUvqfAzWt16jLR6ewuDG-8jXWDzDSZcrhyeRg7SWK7vUBadTuDU6y1kZwrepwsJ3CECGzOlDBjr4NnWAsaFKF7ScoyyKDRWqzUtXpJZPh0kIfGTFG70KPTh9neUr2pbLJWortT-zs9QJJt9qPdFEoX64K4PXlRWd6dymIySUec0yeMyLm9OjLH_cnK56nds1lev2QAlaNp5xdkwK6N_9W5jTtN8HD_mRPWWE_pBFCE0mN2jmg2zOHouOkGDYVQ-iK6wpTt8uAt-KtNOEGU5ivOnghe_xy7b5ZtW5CY4mGUo6wTzSYzGyVPBdByno2uHTmel8aYGAkv6K_qxgKUyFowJUa20WNoF_Hlh-iNjR2C4YLjvgwdlTckavLrh_MaBN-2C6wrcR_ChaVfbvSwYwobqBvMKFkd4Xnb3Q6gow62w8BRC3Fo1P0gCi_NSwHZTOY8px67X5gKe_gDWvGOB" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-107 — R3 - Partner Owned Equipment Order</span></div>
 
@@ -928,8 +970,14 @@ flowchart TB
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
-        E2E107C_e_g_MES_300["📦 e.g. MES 300"]:::app
-        E2E107C_e_g_XEUS["📦 e.g. XEUS"]:::app
+        subgraph E2E107CLN_e_g_Boundary_Apps[" ⬛ e.g. Boundary Apps"]
+            direction LR
+            E2E107C_e_g_XEUS["📦 e.g. XEUS"]:::app
+        end
+        subgraph E2E107CLN_e_g_MES_Systems[" ⬛ e.g. MES Systems"]
+            direction LR
+            E2E107C_e_g_MES_300["📦 e.g. MES 300"]:::app
+        end
         E2E107CMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
         E2E107CDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
     end
@@ -951,7 +999,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9A5wugiyEZbNxwM9Q4X-7N3c1S1gM0lm1ZOxWV_35PVxQEjd6SjO28PKd9ztP22UoyBpZj1WrPPOXKIc-RpaYwg8hySGSNqMS3Or5JSMqCq3kA9yCMU2TZq7dKuaEFpyMBUrsRZ5ylKuRPS6j9Vv5ogrW9T2dczI0nhEkG5HpQJy4CiDqRNJUNCQUfR9aiyhDZQzKlhVoilxKG9PGWMzXVljEVEnTcVM1EQEcgqimooqysKS4xzGnC04k2H9naWND0bs3YtBcLsqjVovStFrnqRinBUauRRgPnlkz5kCpo8FTmvABGpJoLIImgUoLEGBNefXswJqNS8hSkJNUYcyGcnT6ObrMuVZHdgbPTPT5u2d3lZ-NBL8g5yB_rSSaywtmxbXsDk-Y5WQ2D2W1q1DdM2263u63_wGRU0W1M7_gLzP13mK8-RiWSV9A5ckqaG5VmnDEBD7SAdUa8lrtixG-3-iu0b8weMrHFiOZ4jeVez7a_wjSoshxNCppPiRv8iayoZMeHDJ_ssEnci4tg0HOvBudnJHB_-5eR9dck6cFQEIniWUqCy5XVP_D37XYvhngSD_0wPrTtddgEWgR2J7sEfQR9iOg4Drb4Y4Rf_nX4Ybp2fJ47vK2y3aeygDiE4p4nEHdL-W6B-20DVUWRZRTBKIO7atwWvOdX8L1MqtgXeAykqrM-yeTIIOsAsgw4HRV7nVPeMY7whuyRgZcl-PczPD873eMdU1Yr0xSElL326ANSce91XiKrgvOqTiCUezHAZ58LPIBeviLjHfRnQbrMVkf0tJbiqY6DbrC21fv2V1t9PdV9S7W_s6O3RBvABHl6JxFmk8D_4Z9531BrEKPGNwXm5rngCdXBH0gsiIe3mzoarrTyqXaC2PM3VeLpY8hPFV4ym903Kf652ZQHLXaEgayRjRsBHy_L4DmwJpUVqYaUV2Kb-vdG7MnJydaZZtWtGRQzypnlPJuLDe9HBmNaCoXXkUVLlYXzNLGc6oKxyhwnCh6n2ISZMS7-AexjSG0=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlm1v4jgQgP-KlYpvsA1tgTaqkAIJJ06hrTa72ztdTpGJB7DWJFHsbMt2-e87jlNeW9E7I0EyL89MJuMxL1aSMbAcq9F44SlXDnmJLLWAJUSWQyJrSiVeNfFKQlIWXK0C-AHCKEWWvWorl2-04HQqQGo1cmZZqkL-s0a1u_mzMdbyEV1ysTKaEOYZkK_jJnERIJpE0lS2JBR8FlnrykNkT8mCFqomlxIm9PmRM7XQkhkVErTdQi1FQKcgqhRUUVbSFB8xzGnC07kWX9laWND0-46wY6_XZN1oROkmFvkyiFKCq9EgrRbmliz4hCpo8VTmvABGpFoJIImgUoJEG2Ne3XswI9NS8hSkJNWacSGcsxGuQacpVZF9B-dscH3dtQf1betJP5BzkT83k0xkhXNm2_YBk-Y52S7DHHQ0dcO07V5v0P0PTEYVPWZ61yeY7T3mq45RicUr6AprSjoHkZacMQFPtIDdinhdd1sRv9cdbWkfyB4ycVQRXeOdKg-Htn2KaaiynM4Lmi-IG_wTWVHJri8ZfrPLDnEfHoLx0P0yvr8jgfu3_zmy_jVOejFsiETxLCXB5610g_Mv_LbdGwZ3McTzeJCVKaPFKnbzXGIcEpUX0_aUwKf5J_KqJFq5F-P9OHrVIaoAf_lfw938E-gauFYg03EcbKStP6TsZNITP4zDlVSwPEoZVaRW_c-ENfzStt_MWdNRdyrtGjd5rIDuz7KAOITiB08gHpRy73W2ewZdWZHaiqCVCbJt0yO851f4YSZV7Asceqnq7yadXBmyNiC1we20OO_f8r5RhN_IORl7WYI_f4b3d7fnvG_C6n1oAlYPZi7fqBJOmv6vyKpwXlVeRLkPY_wecYHj9tepYuyh3zPSYY66SqdVb5Vq-A2CncE2sk8Ntl1Xd-Nqf2R-HW3RAOZYp72WYTYJ_D_8O-8DezOIcUcfNhzuOcETqo3f6Lcgnjwe9tFk2yvv9k4Qe_5hl3h66PqpwiP18O0bF__ejKCLLrtCQ9bKZq2Az-owOPV2WmVbVFOU18J29GdT2Jubm6MJbjWtJRRLypnlvJhjHP8NMJjRUig8fC1aqixcpYnlVMepVeaYKHic4ktYGuH6N3hpjJE=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-107 — R3 - Partner Owned Equipment Order</span></div>
 
@@ -1008,8 +1056,14 @@ flowchart TB
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
-        E2E107F_e_g_MES_300["📦 e.g. MES 300"]:::app
-        E2E107F_e_g_XEUS["📦 e.g. XEUS"]:::app
+        subgraph E2E107FLN_e_g_Boundary_Apps[" ⬛ e.g. Boundary Apps"]
+            direction LR
+            E2E107F_e_g_XEUS["📦 e.g. XEUS"]:::app
+        end
+        subgraph E2E107FLN_e_g_MES_Systems[" ⬛ e.g. MES Systems"]
+            direction LR
+            E2E107F_e_g_MES_300["📦 e.g. MES 300"]:::app
+        end
         E2E107FMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
         E2E107FDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
     end
@@ -1031,7 +1085,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWlP4zAQ_StWUL-1EI4eRKhSStJVVykgwrGrzSpy42lr4SZR7AAF-t93HBdaWhCsK6XJHG_sN8_2s5VkDCzHqtWeecqVQ54jS01hBpHlkMgaUYlvdXyTkJQFV_MA7kEYp8iyV2-VckMLTkcCpHYjzjhLVcifllD7rfzRBGt7n864mBtPCJMMyPWgTlwEEHUiaSobEgo-jqxFlSGyh2RKC7VELiUM6eMtZ2qqLWMqJOi4qZqJgI5AVFNQRVlZU1ximNOEpxNtPrK1saDp3ZqxaS8WZFGrRelbLXLVi1KCo1YjjQbOLZnyIVXQ4KnMeQGMSDUXQBJBpQSJMSa8-vZgTEal5ClISaox5kI4O30cvWZdqiK7A2en1-m07N7ys_GgF-Qc5I_1JBNZ4ezYtr2BSfOcrIbB7DU16humbbfbvdZ_YDKq6Dam1_kCc_8d5quPUYnkFXSOnJLmRqUZZ0zAAy1gnRGv5a4Y8dut_grtG7OHTGwxojleY_n01La_wjSoshxNCppPiRv8iayoZJ1Dhk922CTuxUUwOHWvBudnJHB_-5eR9dck6cFQEIniWUqCy5XVP_D37XY_hngSD_0wPrTtddgEWgR2J7sEfQR9iOg4Drb4Y4Rf_nX4Ybp2fJ47vK2y3aeygDiE4p4nEPdK-W6B-20DVUWRZRTBKIO7atwWvOdX8KeZVLEv8BhIVXd9ksmRQdYBZBlwMir2uie8axzhDdkjAy9L8O9neH52sse7pqxWpikIKXvt0Qek4t7rvkRWBedVnUAo92KAzz4XeAC9fEXGO-jPgnSZrY7oaS3FUx0HvWBtq_ftr7b6eqr7lmp_Z0dviTaACfL0TiLMJoH_wz_zvqHWIEaNbwrMzXPBE6qDP5BYEA9vN3U0XGnlU-0EsedvqsTTx5CfKrxkNrtvUvxzsykPWuwIA1kjGzcCPl6WwXNgTSorUg0pr8Q29e-N2OPj460zzapbMyhmlDPLeTYXG96PDMa0FAqvI4uWKgvnaWI51QVjlTlOFDxOsQkzY1z8AzM3SIU=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdln1v2jwQwL-KlYr_YA1tgTaqkEITJqbQVsu2bnryKDLxAdZMEsXOWtbx3XeOU15b0ecxEiT38rvL5Xzm2UoyBpZjNRrPPOXKIc-RpeawgMhySGRNqMSrJl5JSMqCq2UAv0AYpciyF23l8o0WnE4ESK1GzjRLVch_16h2N38yxlo-pAsulkYTwiwD8nXUJC4CRJNImsqWhIJPI2tVeYjsMZnTQtXkUsKYPj1wpuZaMqVCgrabq4UI6ARElYIqykqa4iOGOU14OtPiC1sLC5r-3BJ27NWKrBqNKF3HIl8GUUpwNRqk1cLckjkfUwUtnsqcF8CIVEsBJBFUSpBoY8yrew-mZFJKnoKUpFpTLoRzMsQ16DSlKrKf4JwMLi-79qC-bT3qB3LO8qdmkomscE5s295j0jwnm2WYg46mrpm23esNuv-Byaiih0zv8gizvcN80TEqsXgFXWJNSWcv0oIzJuCRFrBdEa_rbiri97rDDe0d2UMmDiqia7xV5Zsb2z7GNFRZTmYFzefEDf6JrKhkl-cMv9l5h7j398Hoxv0yurslgfvD_xxZ_xonvRg2RKJ4lpLg80a6xvlnftvuDYPbGOJZPMjKlNFiGbt5LjEOicqzSXtC4MPsA3lREq3cifF2HL3qEFWA7_7XcDv_BLoGrhXIdBwHG2njDyk7mvTYD-NwKRUsDlJGFalV_zNhDT-37Vdz1nTUHUu7xo0fKqD7uywgDqH4xROIB6XceZ3tnkFXVqS2Imhlgmza9ADv-RX-JpMq9gUOvVT1t5NOLgxZG5Da4HpSnPaved8owm_klIy8LMGfT-Hd7fUp75uweh-agNWDmctXqoSTpv8nsiqcV5UXUe79CL-HXOC4_XOsGDvot4x0mIOu0mnVW6UafoNga7AN7WODbdvVXbva75lfB1s0gBnWaadlmE0C_6N_671jbwYx7uj9hsM9J3hCtfEr_RbE44f9PhpveuXN3gliz9_vEk8PXT9VeKTuv33j4t-ZEXTWZRdoyFrZtBXwaR0Gp95Wq2yKaoryUtiO_qwLe3V1dTDBraa1gGJBObOcZ3OM478BBlNaCoWHr0VLlYXLNLGc6ji1yhwTBY9TfAkLI1z9BdvejK8=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-107 — R3 - Partner Owned Equipment Order</span></div>
 
@@ -1524,7 +1578,7 @@ flowchart TB
 <td>Tower-led validation</td>
 </tr>
 <tr>
-<td>Go-Live (Release 2)</td>
+<td>Go-Live (R1 – R5)</td>
 <td>Per release plan</td>
 <td>Per release plan</td>
 <td>Planned</td>
@@ -1663,11 +1717,15 @@ flowchart TB
 </tbody>
 </table>
 <hr />
-<p><em>E2E-107 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026</em></p>
+<p><em>E2E-107 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-107 — R3 - Partner Owned Equipment Order</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>E2E-107</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

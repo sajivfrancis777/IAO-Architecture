@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IF) (OTC-IF) Tower<br/>
   Capability LO-180 · LO Logistics Management Outbound - OTC (IF)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Order To Cash (IF) (OTC-IF) |
 | **Process Group** | LO Logistics Management Outbound - OTC (IF) |
 | **Capability** | LO-180 - Manage Outbound Transportation - OTC (IF) |
-| **Release** | Release 3 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 2 Interfaces, 6 Enhancements, 6 Forms |
@@ -199,7 +199,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Functional Analyst
+    subgraph lane_0["Functional Analyst"]
         n1[["fa:fa-cog Generate HAWB Assignment Form"]]
         n2[["fa:fa-cog Create Freight Order"]]
         n3[["fa:fa-cog Generate Consolidated Export CI for FG"]]
@@ -240,7 +240,7 @@ flowchart TD
     class n12 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltvozgU_isWVcWMRHaAQEh42FVKQqfSrKbadLbSTubBAZNYNTayTZNsJv99bS650PIw2jwgznfO951L8IGDkbAUGaFxe3vAFMsQHEy5QTkyQ2CuoECmBWrgb8gxXBEkTB2TMSoX-N8qzPGKnQ7TWAxzTPYaXaA1Q-DbgwWmikgsICAVA4E4zkzLLDjOId9HjDCuo2_QOLOzKlvjumM8RfwcYNuBk_iKSjBFZ3gYeIEXa55ACaPplWjmZ-MsMY-6OMK2yQZyWZVfCvQn3D3jVG6UnUEikIrZyJx8gStEdI-SlxpLSv7aDgMLnYeqgS0KmGC6VrhnK4hD-nKGfPt4BMfb2yU9JQVPsyUF6pcQKMQMZUBIBc9fJcgwIeGNF01j37aE5OwFhTfuPJgNXSvRnYSqddvSwx1sEV5vZLhiJG1CB1vdQ-gWO4vvQte2-F5dO7kQTc-ZopE7dsenTHeBEzlRmynLsv-VSc2VP0Hx0uSaD2M3np1yOf7Ij-y3em2bMy-YOt05If6KE3QhGsfxcH4e1XzkO3a_6F08HNlRR3QNJdrC_VlwEnknwdgPYifoFazzdassV4-cJa3gcO7H_kkwuHPiqdsr6E0db9xUqHTWHBYbEJc0kZhRSMBUXfZC1gH6R53v35dGBsMMDhK2BveIIq46Ap-nz3dgKgRe0xxRCWLG86Xx48cF1b2mRhxpYsyrvxt81Ueuwxj2JIsYFYzgVN2nYL4rmHrKoweQMQ7i-46G9-sazzBD_NMMo46Ufy21QFIRUVLqYYGFhLIUQDJg_oVguq-UntTpFFoaVjGnaLOjPOqMhuUFQarIx_sH8Al8YVCVSNMOKfhwIgnJire1fCvq7hTSnfLHC52xkomYWnmY6sF0av7wSCClaruAgjP1jCFhga-FxLnawFwdESmVT4C5TH77qIQvdCeHw7mpFA1WSjjZALRLSCnwK7qvT8LSOB4vHzD7fZqaSc5SLPfgaV-gP7os58yCnLOtGEAiQQE5JASRnlTur5HULqtv6BgMBr-rJ7oxvdqcNKZbm06zT-jw2u04te137FFjjxq63fptDfxcGv8sHhZL46cSfOt5nlUer_H4rePzNK4cbS1OU1zQ2k2ytpXJtV1tGR11sQuvPG6vZ9jr8Xo9fq9n1OsJmnfMFTg-veSu4Em7fq-7s9-Hnfdht4UNy8gRzyFOjfBgVF8q6msmRRksiTSOlgFLyRZ7mhhh9UY3yupAzjBUizavweN_SHDdRQ==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4jgU_StWqooZKewkISE0D7uigXQqzWqqpbOVdlitTHIDVh07sp0Cy_Df1w4JlLQ8jJYHxD33nnM_sG-ys1KegRVZ19c7woiK0K6nVlBAL0K9BZbQs9EB-BMLghcUZM_E5JypGfm3DnP9cmPCDJbggtCtQWew5IC-3dtorInURhIz2ZcgSN6ze6UgBRbbmFMuTPQVjHInr7M1rlsuMhCnAMcJ3TTQVEoYnOBB6Id-YngSUs6yM9E8yEd52tub4ihfpyssVF1-JeF3vHkimVppO8dUgo5ZqYJ-wQugpkclKoOllXhph0GkycP0wGYlTglbatx3NCQwez5BgbPfo_319Zwdk6LHyZwh_UkplnICOZJKw9MXhXJCaXTlx-MkcGypBH-G6MqbhpOBZ6emk0i37thmuP01kOVKRQtOsya0vzY9RF65scUm8hxbbPV3Jxew7JQpHnojb3TMdBu6sRu3mfI8_1-Z9FzFI5bPTa7pIPGSyTGXGwyD2Hmr17Y58cOx250TiBeSwivRJEkG09OopsPAdS6L3iaDoRN3RJdYwRpvT4I3sX8UTIIwccOLgod83SqrxYPgaSs4mAZJcBQMb91k7F0U9MeuP2oq1DpLgcsVopjBP873uZVULFWEM0zRWH9tpZpbfx-CzYe533VQjqMc91O-RHfAQOju0Ofx0y0aS0mWrACmUMJFoZmvqd45NRZgiImo_3r01Vy_DmNwIVnMmeSUZPp3hqabkusTH9-jnAuU3HU0_J_XeMI5iE8TAh2p4FxqBkoTIa3MvNBMYVVJpDjq_QE429ZKj_qmSiON65hjdK-jPOyMhhclBV3kw909-oS-cKxLZFmHFH44kqTi5dtavpWH7jTSnfLHVzojLRNzvf4IM4Pp1PzhQZ8NpjcNKgXX5w2kjb6WihR6Gwt9XZTSPommKv3l4_lRudntTk1l0F9o4XSFYJPSSpIXuDvcirm1378-YM77ND2TgmdEbdHjtoTfuiz3xMJC8LXsY6pQiQWmFOiFVN7PkfReO_xgI9Tv_6pPdGP6B_OmMb2D6Ta7hQ3O3a57sIOOPWzsYUN3Wr9jgB9z66_Z_Wxu_dCCbz1Pk9rjN56gdXweJ7WjrcVtigtbu0nWtnJzbtcbx0S92otnHu-iZ3DR41_0BBc9w4uesHnenIGj4wPvDL5pV_F5d877sPs-7LWwZVsFiAKTzIp2Vv3Wot9sMshxRZW1ty1cKT7bstSK6qe7VdUXckKwXrrFAdz_B2mp4Sg=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -263,7 +263,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Load Planner
+    subgraph lane_0["Load Planner"]
         n1["fa:fa-user Complete PGI of All the Deliveries"]
         n2[["fa:fa-cog Create Freight Order"]]
         n3[["fa:fa-cog Generate Carrier Pre Alert"]]
@@ -295,7 +295,7 @@ flowchart TD
     class n9 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVW1vozgQ_isWVZVWIne8hoQPd0pJqCrtqtGlu5Vucx8cGBKrBiPbtMlm89_PBvJCdvPhdHxAzDPzPDMe28POSFgKRmjc3u5IQWSIdj25hhx6IeotsYCeiRrgK-YELymIno7JWCHn5HsdZnvlRodpLMY5oVuNzmHFAH15MtFYEamJBC5EXwAnWc_slZzkmG8jRhnX0TcwzKyszta6HhhPgZ8CLCuwE19RKSngBLuBF3ix5glIWJF2RDM_G2ZJb6-Lo-wjWWMu6_IrAZ_x5pWkcq3sDFMBKmYtc_oJL4HqNUpeaSyp-PuhGUToPIVq2LzECSlWCvcsBXFcvJ0g39rv0f72dlEck6KXyaJA6kkoFmICGRJSwdN3iTJCaXjjRePYt0whOXuD8MaZBhPXMRO9klAt3TJ1c_sfQFZrGS4ZTdvQ_odeQ-iUG5NvQscy-Va9L3JBkZ4yRQNn6AyPmR4CO7KjQ6Ysy_5XJtVX_oLFW5tr6sZOPDnmsv2BH1k_6x2WOfGCsX3ZJ-DvJIEz0TiO3empVdOBb1vXRR9id2BFF6IrLOEDb0-Co8g7CsZ-ENvBVcEm32WV1XLGWXIQdKd-7B8Fgwc7HjtXBb2x7Q3bCpXOiuNyjT4xnKIZxUUBvHHpp7C_LYwMhxnu606jiOUlBQlo9viEWIbGlCJ1WdEEKHlXNw3EwvjnjO58O_ITtkIRB9UIFPN6s9GzvnCKcM5wu4xHUPVoToS5kudoxkFlBS4veN41HisEoyRV3ymabkqm7kb0hDLGUfx4oeH_d41XnAH_fULgQmpwd5QSkpXouZJlJdFnEAKvAM0llpVAX8pG825eJYlyIV0VJrTicK8E788EA6UXMTWiSKFLelETQOhCsCSsQHf1zqlpgErO1JkAYaLnUpJcTUyujrSUyifQVCa_3Xd3aLjbndacQn-phJM1gk1CK6H29LE5uQtjvz9jjX7NetmWoI-FOiY5S4nc_nniqZnQfBQB6vf_UGejNb3GHLam3zWHjTloTbfrtRtz1JpOY7ZXuhhp88fC-Hv-NF8YP1SqS8fsr6h2uD8xXie1wz-7dzrdYd50YOd8aHQ87lWPd9XjX_UM2sHaAYPjZO_Aw8PM6aCjA2qYRg48xyQ1wp1R_2_VPzmFDFdUGnvTwJVk822RGGH9XzKq-qhOCFbjIm_A_b_DrntH" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVW1v4jgQ_itWqopWCntJSAjkw51oIFWlXRUd3au0y-lkkglYNXFkOy0cy3-_MeEt7PHhdPkQZZ6Z55nx2J5srFRkYEXW7e2GFUxHZNPSC1hCKyKtGVXQskkN_EElozMOqmViclHoCft7F-b65cqEGSyhS8bXBp3AXAD5-mSTARK5TRQtVFuBZHnLbpWSLalcx4ILaaJvoJc7-S7b3vUgZAbyFOA4oZsGSOWsgBPcCf3QTwxPQSqKrCGaB3kvT1tbUxwXH-mCSr0rv1Lwha5eWaYXaOeUK8CYhV7yz3QG3KxRy8pgaSXfD81gyuQpsGGTkqasmCPuOwhJWrydoMDZbsn29nZaHJOSl-G0IPiknCo1hJwojfDoXZOccR7d-PEgCRxbaSneILrxRuGw49mpWUmES3ds09z2B7D5QkczwbN9aPvDrCHyypUtV5Hn2HKN74tcUGSnTHHX63m9Y6aH0I3d-JApz_P_lQn7Kl-oetvnGnUSLxkec7lBN4idn_UOyxz64cC97BPId5bCmWiSJJ3RqVWjbuA610Ufkk7XiS9E51TDB12fBPuxfxRMgjBxw6uCdb7LKqvZWIr0INgZBUlwFAwf3GTgXRX0B67f21eIOnNJywXhtIC_nO9T67OgGRmjWYCcWn_WYeYpXPTmNMpp23SdxGJZctBAxo9PRORkwDnBi0uGwNk73jpQTbr3_chPxZzEErApJJG7jSfP5vIh4ZzRaTIeAUsynJhKlJdkLAGzgtQXPP8aTxRKcJbhd0ZGq1LgPYmfSC4kSR4vNIL_rvFKc5C_DBlcSHXvjlJKi5I8V7qsNPkCStE5kImmulLka1lr3k2qNEUXMVVRxisJ9yh4fyYYol4scFyxwpT0gtNAmUKoZqIgd7vNw8lASinwfICyyXOp2RKnp8TjrTX6FBnp9NN9c4d6m81pzRm0ZyicLgisUl4p3NPH-hRPre32jNX_d9bLugRzLPCYLEXG9Pq3Ew_nQ_1RhKTd_hXPxt70a7O3N4Om2avN7t7sNL1ubfb3pleb--td9I35Y2p9mzxNptYPTHXpGP8e7xydnxivw50jOLuDJt1h9jRg73yANDydqx7_qie46unuh2wDDI9TvgH3DvOngfYPqGVbS5BLyjIr2li7fy_-nzPIacW1tbUtWmkxWRepFe3-UVa1O6pDRnF0LGtw-w8dgn8q" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -457,6 +457,7 @@ Integration patterns identified from the system flow analysis for LO-180:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
@@ -576,6 +577,6 @@ Standard RAID items for LO-180 (Order To Cash (IF)):
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*LO-180 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: March 2026*
+*LO-180 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: April 2026*
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IF)</span></div>

@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IF) (FTS-IF) Tower<br/>
   Capability M-170 · M Mfg. Schedule and Execution (IF)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Forecast to Stock (IF) (FTS-IF) |
 | **Process Group** | M Mfg. Schedule and Execution (IF) |
 | **Capability** | M-170 - Control and Report Production Operations (IF) |
-| **Release** | Release 3 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 5 Reports, 92 Interfaces, 31 Conversions, 118 Enhancements, 15 Forms, 4 Workflows |
@@ -199,7 +199,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph FTS IF - Production Scheduler
+    subgraph lane_0["FTS IF - Production Scheduler"]
         n1["fa:fa-user Display Production Order Information System"]
         n2["fa:fa-user Enter Relevant Plant/Fields"]
         n3["fa:fa-user Select Type of List in Order Information System"]
@@ -220,7 +220,7 @@ flowchart TD
     class n6 endEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllV1v2jAUhv-Klapik4KWT8JyMYkCkSptWjW67WLdhXGOwaqxI9tpYYj_PpsECKzVJi0XFufNOc_5wHa2HpEleLl3fb1lgpkcbXtmCSvo5ag3xxp6PmqEb1gxPOege86HSmFm7NfeLUyqtXNzWoFXjG-cOoOFBPT11kcjG8h9pLHQfQ2K0Z7fqxRbYbUZSy6V876CIQ3oPlv76kaqEtTJIQiykKQ2lDMBJznOkiwpXJwGIkV5BqUpHVLS27niuHwmS6zMvvxawye8_s5Ks7Q2xVyD9VmaFf-I58Bdj0bVTiO1ejoMg2mXR9iBzSpMmFhYPQmspLB4PElpsNuh3fX1gzgmRfeTB4HsQzjWegIUaWPl6ZNBlHGeXyXjUZEGvjZKPkJ-FU2zSRz5xHWS29YD3w23_wxssTT5XPKyde0_ux7yqFr7ap1Hga82dr3IBaI8ZRoPomE0PGa6ycJxOD5kopT-VyY7V3WP9WObaxoXUTE55grTQToO_uQd2pwk2Si8nBOoJ0agAy2KIp6eRjUdpGHwOvSmiAfB-AK6wAae8eYEfD9OjsAizYowexXY5Lussp7fKUkOwHiaFukRmN2ExSh6FZiMwmTYVmg5C4WrJSruZ-i2QH1ksWVNDJMCzcgSypqDanzdI8IfDx7FOcV9N3o0YbritrFO1Gd3jNCtoFKtcMPZaAOrB-9nhxOdc6bC2PULcHjCwqA7btd3BQNe6vO4-DxuZiOI3e2bCpCk6CPTBrF_rSG5qGENpDbQMqFE3NGMQ3dI54j0zZFxmAMBrZGRtplK2oPYnUwFqqmmW9mtvQWZ3R-lJb_toAcntDay-juoTdj-JV2ePY_NDxGhfv-DnWJrxo2ZtGbSmIPWDBszas20MbsHxvkcjuCZHL0sxy_Lyctyery0zuRBe794vrcC2zwrvXzr7b8Z9rtSAsU1N97O93Bt5GwjiJfv71avrko75wnDdsuvGnH3GzerHxg=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllVtr2zAUx7-KcAnZwGG-xpkfBmkSQ6FjZem2h2UMRT5KRBXJSHKbrOS7T4qd61o2mB-Mz9_n_M7FkvzsEVmCl3udzjMTzOTouWuWsIJujrpzrKHro0b4ihXDcw6663yoFGbKfu3cwqRaOzenFXjF-MapU1hIQF9ufDS0gdxHGgvd06AY7frdSrEVVpuR5FI57ysY0IDusrWvrqUqQR0dgiALSWpDORNwlOMsyZLCxWkgUpRnUJrSASXdrSuOyyeyxMrsyq81fMTrb6w0S2tTzDVYn6VZ8Vs8B-56NKp2GqnV434YTLs8wg5sWmHCxMLqSWAlhcXDUUqD7RZtO52ZOCRF9-OZQPYiHGs9Boq0sfLk0SDKOM-vktGwSANfGyUfIL-KJtk4jnziOslt64Hvhtt7ArZYmnwuedm69p5cD3lUrX21zqPAVxt7v8gFojxmGvWjQTQ4ZLrOwlE42meilP5XJjtXdY_1Q5trEhdRMT7kCtN-Ogr-5O3bHCfZMLycE6hHRuAEWhRFPDmOatJPw-B16HUR94PRBXSBDTzhzRH4fpQcgEWaFWH2KrDJd1llPb9TkuyB8SQt0gMwuw6LYfQqMBmGyaCt0HIWCldLxLGAn8H3mVfcT9FNgXrI8suaGCYFmpIllDUHNfN-NHHuEqF1pzinuOc-AxozXXHb5EngJ7el0I2gUq1wg9poA6tzTnTOmQhj75-BwyMWBt3Z0sy7ggEv9XlcfB43tRHErvxNBUhSdMu0Qexfa0gualgDqQ20TCgRdzTj0Cekc0T65sDYz4GA1shI20wl7aY8nUwFqqnmtLIbeyIyu1ZKS357gu4f0drI6u-gNmH7SU55dm82DyJCvd4HO8XWjBszac2kMfutGTZm1JppY55uHuez345ncvSyHL8sJy_L6eEAO5P77Vnj-d4KbPOs9PJnb_f_sP-YEiiuufG2vodrI6cbQbx8d856dVXaOY8Ztst_1Yjb38bjIvs=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -243,11 +243,11 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Boundary Apps
+    subgraph lane_0["Boundary Apps"]
         n1["Publish Lot Out Dates"]
         n7(["fa:fa-play Request to Adjust Schedule Received"])
     end
-    subgraph IT Department
+    subgraph lane_1["IT Department"]
         n2["Determine Production Order"]
         n3["Call Business Application Programming Interface (BAPI) to Update Out Dates"]
         n4["Store Failed Transaction with Reason"]
@@ -255,7 +255,7 @@ flowchart TD
         n8(["fa:fa-stop Reason for Failed Transaction Stored"])
         n10{{"fa:fa-code-branch Production Order Determined ?"}}
     end
-    subgraph Planner
+    subgraph lane_2["Planner"]
         n6["Update Out Dates Through BAPI"]
         n9(["fa:fa-stop Production Order Dates Updated"])
     end
@@ -274,7 +274,7 @@ flowchart TD
     class n10 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2PmzgU_SsWo1FaiUhAIGR42CqBII3U3Y6adFerTR8cMMEdx2ZtM5lsmv--10A-Z_JUHqLc43vPufdgm52ViZxYkXV_v6Oc6gjteroka9KLUG-JFenZqAX-xJLiJSOqZ3IKwfWM_tekuX71atIMluI1ZVuDzshKEPTt0UZjKGQ2UpirviKSFj27V0m6xnIbCyakyb4jo8IpGrVuaSJkTuQpwXFCNwuglFFOTvAg9EM_NXWKZILnF6RFUIyKrLc3zTGxyUosddN-rcjv-PUvmusS4gIzRSCn1Gv2GS8JMzNqWRssq-XLwQyqjA4Hw2YVzihfAe47AEnMn09Q4Oz3aH9_v-BHUTRPFhzBkzGsVEIKpDTA0xeNCspYdOfH4zRwbKWleCbRnTcNk4FnZ2aSCEZ3bGNuf0PoqtTRUrC8S-1vzAyRV73a8jXyHFtu4fdKi_D8pBQPvZE3OipNQjd244NSURS_pAS-yjlWz53WdJB6aXLUcoNhEDtv-Q5jJn44dq99IvKFZuSMNE3TwfRk1XQYuM5t0kk6GDrxFekKa7LB2xPhQ-wfCdMgTN3wJmGrd91lvXySIjsQDqZBGhwJw4mbjr2bhP7Y9Uddh8Czkrgq0UTUzV5G46pS7Zp5uPvPwnqql4yqEn0WGn2pNUpgGrWwvp-lhR8gr8BRgfsVg0G_kn9rojTSAo3zHzX8m2UlyWtGYCkj9IXkQPCxZYDtctXN4xwlpIINuyZcn8l4oJIQTeQaziQCB_I601Rw9MWc3cuWBpAbY8bQpFaQrZQZjdEMNwVQC1Jr4FmhRw6MBc4I-jAZPz1-NF1_q3KY8ta4PnDPtJAEpZgykqM5nEiF2142VJcwJVaCX1YFUPWVVAKOZwqNiVpfro9OJiotqo4DFUK-J9Pon7nYvi5ntztwmIu2v4SKrHxjFTq6mKNPC2u_v_UmnhjmHKw9SQyhyWt30LyUol7BNgL_Lod6uBrqbScNQcv43qbgIer3f4PRutBtQ68Lh2340IWDNhx2odfVOodixwA_F9bf5pX-hPxuwW8TR10YtKF_XfaHaKqCs-NoGjxcrhfwqLsHL8CH90Cg724Iy7bW8F4wza1oZzXfQfhW5qTANdPW3rZwrcVsyzMrar4XVt34llBsdnML7v8HTpRWUg==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVWGPozYQ_SsWq1XuJCIBgZDlQ6sEgrTStbe65Ho6NVXlgAnuOja1zWbTXP57x0CSDbvbL-VDlBm_eW_mYZuDlYmcWJF1e3ugnOoIHQa6JFsyiNBgjRUZ2KhN_IYlxWtG1MBgCsH1gv7TwFy_ejYwk0vxlrK9yS7IRhD09d5GUyhkNlKYq6EikhYDe1BJusVyHwsmpEHfkEnhFI1atzQTMifyAnCc0M0CKGWUk0t6FPqhn5o6RTLB8yvSIigmRTY4muaY2GUllrppv1bkF_z8jea6hLjATBHAlHrLPuE1YWZGLWuTy2r5dDKDKqPDwbBFhTPKN5D3HUhJzB8vqcA5HtHx9nbFz6Jomaw4gidjWKmEFEhpSM-fNCooY9GNH0_TwLGVluKRRDfePExGnp2ZSSIY3bGNucMdoZtSR2vB8g463JkZIq96tuVz5Dm23MNvT4vw_KIUj72JNzkrzUI3duOTUlEU_0sJfJVLrB47rfko9dLkrOUG4yB2XvOdxkz8cOr2fSLyiWbkBWmapqP5xar5OHCd90ln6WjsxD3SDdZkh_cXwrvYPxOmQZi64buErV6_y3r9IEV2IhzNgzQ4E4YzN5167xL6U9efdB0Cz0biqkQMc_Kn8_vKmom62dRoWlVqZf3R4szDXVh-qNeMqhJ9Ehp9rjVKYLIeLPwAuAJHBR5WDIb-Qv6uidJICzTN_6rh3yIrSV4zAksZoU8kB4KPLQNsnbc6M9L3S5SQCnbxlnB9LenBckI0kVs4qwicyetMU8HRZ3Omr7EjwMaYMTSrFaCVMpMymuGmAGpBdgs8G3TPgbHAGUEfZtOH-49mgq9VDhO_N7oP3AstJEEppozkaAknVeG2lx3VJUyMleDXVQFUfSGVgGObQmOi7k03uRiqtKg6DlQI-ZZMo__C0fbVOYfDicNcwMM1VGTlK6vQ2cUc_byyjsf_fCvG9gf4x_sej2Gh7xRallLUmxIZL6_hd70BX3fVELSMb20WHqLh8CcYswvdNvS6cNyGd104asNxF3pdrXMqdkzix8r6bl7vD8B3C34LnHRh0IZ-v-xX0VQFL46safB0AV-lJ91deZW8eysJ9N0tYtnWFt4RprkVHazmWwnf05wUuGbaOtoWrrVY7HlmRc03xaob3xKKzc5uk8d_ASVnYf4=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -721,6 +721,7 @@ Integration patterns identified from the system flow analysis for M-170:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
@@ -851,6 +852,6 @@ Platform landscape inferred from integrated systems for M-170:
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*M-170 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: March 2026*
+*M-170 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: April 2026*
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-170 — Control and Report Production Operations (IF)</span></div>

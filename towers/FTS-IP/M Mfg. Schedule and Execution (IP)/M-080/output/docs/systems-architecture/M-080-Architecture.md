@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IP) (FTS-IP) Tower<br/>
   Capability M-080 · M Mfg. Schedule and Execution (IP)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Forecast to Stock (IP) (FTS-IP) |
 | **Process Group** | M Mfg. Schedule and Execution (IP) |
 | **Capability** | M-080 - Perform Materials Requirement Planning (IP) |
-| **Release** | Release 3 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 2 Reports, 34 Interfaces, 20 Conversions, 35 Enhancements, 7 Forms, 3 Workflows |
@@ -202,16 +202,16 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Boundary Apps
+    subgraph lane_0["Boundary Apps"]
         n8["Perform Planning in Boundary Apps"]
         n9["Send Planned Production order to S4"]
         n12(["fa:fa-play Initiate request for planning in Boundary Apps"])
     end
-    subgraph IT Department
+    subgraph lane_1["IT Department"]
         n6["Receive Planned Production Order From Boundary Apps"]
         n7["Send Planned Production Order to S4HANA"]
     end
-    subgraph Material Planner
+    subgraph lane_2["Material Planner"]
         n1["fa:fa-user Monitor Material Requirement Planning (MRP)"]
         n2["fa:fa-user Create/Revise Demands/ Create Planned Independent Requirement for ALPS"]
         n3["Run MRP for All Materials"]
@@ -246,7 +246,7 @@ flowchart LR
     class n15 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4jgU_StWqopWCpokJITmYSW-slup7CCYmX3Y7oNJHLDq2Fk7gTKI_77X5APIDNWulodW93DvOfceX5wcjEjExAiM-_sD5TQP0KGTb0hKOgHqrLAiHROVwDcsKV4xojo6JxE8X9LvpzTbzd51msZCnFK21-iSrAVBX59NNIRCZiKFueoqImnSMTuZpCmW-7FgQursOzJIrOSkVn01EjIm8pxgWb4deVDKKCdnuOe7vhvqOkUiweMr0sRLBknUOermmNhFGyzzU_uFIjP8_geN8w3ECWaKQM4mT9kLXhGmZ8xlobGokNvaDKq0DgfDlhmOKF8D7loASczfzpBnHY_oeH__yhtR9LJ45Qg-EcNKTUiCVA7wdJujhDIW3LnjYehZpsqleCPBnTP1Jz3HjPQkAYxumdrc7o7Q9SYPVoLFVWp3p2cInOzdlO-BY5lyD39bWoTHZ6Vx3xk4g0Zp5Ntje1wrJUnyv5TAV_kFq7dKa9oLnXDSaNle3xtbP_LVY05cf2i3fSJySyNyQRqGYW96tmra92zrNuko7PWtcYt0jXOyw_sz4dPYbQhDzw9t_yZhqdfusljNpYhqwt7UC72G0B_Z4dC5SegObXdQdQg8a4mzDRqJ4rTLaJhlqvxOf_jgz1djTmQiZIrmDHMOK4cob-Ubf12UPEHJElagzCfwX4q4iHIqODr9xlAu0NK9LrKdByhLcJDgbsbAqme4HCjYhiT5uyAKtklIlH3QwWPJBsKt0Z6_oAnJYPtTwvMLyT4ILkhE6Jb8rNXPp1ZDKdKPhvU_GPbzedjfhr8Pm8IfW5zBoPrSqljkpTGNLXrX0UyAL-BEU7EAe6gkerbzAT3MFvPH60ada56xJMDwaUG2VBHwJ8U8Vp8quBnmmcckg3Y1-aWQPovhy3x5LdHThhYcgXiZwVjTZ8s2F1JrrULClQVNnAQUPVlXCzT11-XeRXnL79ZaWa21WlTbVB18rI_nqueW6OMlmf0vyOQF2QwrIEITnGMEM_I1UW1K7dmQY7b_TsAvyOY4ByqF4DzgWABI4fGDxmV1ebDo4bl9urZ7ONStYSnFTnUxyxFsPWaMsF_L--fVOB4vi7z_VtTsLcihbvcXWKo6tsvYrmOrit0KGJTxUxU-lWG_TnfKeFDFXlXtVbHbiu06oVcBVX0d2i31XhnXYb8M_Ys7VdfUz5Ir2Pk5DAPWD9Rr3L6BOzfw3g3crZ8Z17BXw4ZppLAbmMZGcDBOL0zwUhWTBBcsN46mgYtcLPc8MoLTi4VRZDFUTiiGGyctweM_rSYENg==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVu9v6jYU_VesVBWtFPSSkBCaD5MokK1Su4fgbfswpskkDlh17MxOSnmI_33X5AckK9Wm5QPontx7zr3HjpODEYmYGIFxe3ugnOYBOvTyLUlJL0C9NVakZ6IS-BVLiteMqJ7OSQTPl_T7Kc12s3edprEQp5TtNbokG0HQL08mGkMhM5HCXPUVkTTpmb1M0hTL_UQwIXX2DRklVnJSq249ChkTeU6wLN-OPChllJMzPPBd3w11nSKR4HGLNPGSURL1jro5JnbRFsv81H6hyAt-_43G-RbiBDNFIGebp-wZrwnTM-ay0FhUyLfaDKq0DgfDlhmOKN8A7loAScxfz5BnHY_oeHu74o0oel6sOIIrYlipKUmQygGeveUooYwFN-5kHHqWqXIpXklw48z86cAxIz1JAKNbpja3vyN0s82DtWBxldrf6RkCJ3s35XvgWKbcw29Hi_D4rDQZOiNn1Cg9-vbEntRKSZL8LyXwVX7D6rXSmg1CJ5w2WrY39CbWP_nqMaeuP7a7PhH5RiNyQRqG4WB2tmo29GzrOuljOBhakw7pBudkh_dnwoeJ2xCGnh_a_lXCUq_bZbGeSxHVhIOZF3oNof9oh2PnKqE7tt1R1SHwbCTOtohhTv60fl8Zj6I4bWo0zjK1Mv4o8_TFR3B7TmQiZIrmUMBh-yHK0SclD1CyhO1Q5hP4lyIuopwKjk7PG8oFWrrtItu5g7IEBwnuZwxse4KDgoKFSJK_CqJgZwmJsk86uC_ZQPijMW1gf_qGpiSDRyIlPG_LD-H2gkSEvpGP2v56ajuUIv1scP-Twb-eB_9p_PO4KbzSrgNULzC9PtUqOtkxrLFLPw_oRYBf4FBTtADbqCR61PPC3b0s5vdtHqfNM5EEGL4syBtVBOxKMY_VlwpuBnviMcmgdU1-KaTXaPw8X7YlBtrcgiMQLzMYa_rsWOhCaq1VSDjWoImTgKInG2uBpr5d7l2Ud7zvuGd1ttui2mXVJoj1UrV67ojeX5LZ_4JMXpC9YAVEaIpzjGBGviGqS6k9G3PM9t8J-AXZHOdApRCsBywLACm8otCkrC4XFt09dVfXdg-HujUspdipPmY5gocAM0bYj-UZtTKOx8si778VNXsY5FC__wNsqjq2y9iuY6uK3QoYlfFDFT6U4bBOd8p4VMVeVe1VsduJ7TphUAFVfR3aHfVBGdfhsAz9i3NX19TvmxbsfAzDgPVLt43bV3DnCj64grv1e6UNezVsmEYKewPT2AgOxumjCj68YpLgguXG0TRwkYvlnkdGcPr4MIoshsopxXD6pCV4_BvQWA_i" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -269,16 +269,16 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Boundary Apps
+    subgraph lane_0["Boundary Apps"]
         n9["Perform Planning in Boundary Apps"]
         n10["Send Planned Production order to S4"]
         n13(["fa:fa-play Initiate request for planning in Boundary Apps"])
     end
-    subgraph IT Department
+    subgraph lane_1["IT Department"]
         n7["Receive Planned Production Order From Boundary Apps"]
         n8["Send Planned Production Order to S4HANA"]
     end
-    subgraph Material Planner
+    subgraph lane_2["Material Planner"]
         n1["fa:fa-user Monitor Material Requirement Planning (MRP) (Master Data Changes Daily)"]
         n2["fa:fa-user Create/Revise Demands"]
         n3["Run MRP for Single Material"]
@@ -323,7 +323,7 @@ flowchart LR
     class n18 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_RVCQeANIKO6WooeCji21QbYbAx7u_vQ9IGRKJsIRaqklMRr-N87tC62lThot36QMYczZ2YORxS3RiJSYkTG5eWWclpGaDso1yQngwgNHrEiAxPVwDcsKX5kRA20TyZ4uaQ_9m62V7xqN43FOKdso9ElWQmC_rg10RgCmYkU5mqoiKTZwBwUkuZYbiaCCam9L0iYWdk-W7N0I2RK5MHBsgI78SGUUU4OsBt4gRfrOEUSwdMT0szPwiwZ7HRxTLwkayzLffmVInf49TtNyzXYGWaKgM-6zNln_EiY7rGUlcaSSj63YlCl83AQbFnghPIV4J4FkMT86QD51m6HdpeXD7xLij4vHjiCX8KwUlOSIVUCPHsuUUYZiy68yTj2LVOVUjyR6MKZBVPXMRPdSQStW6YWd_hC6GpdRo-CpY3r8EX3EDnFqylfI8cy5QaevVyEp4dMk5ETOmGX6SawJ_akzZRl2f_KBLrKr1g9NblmbuzE0y6X7Y_8ifWWr21z6gVju68Tkc80IUekcRy7s4NUs5FvW-dJb2J3ZE16pCtckhe8ORBeT7yOMPaD2A7OEtb5-lVWj3MpkpbQnfmx3xEGN3Y8ds4SemPbC5sKgWclcbFGN6LazzIaF4Wq1_SPX__5YMyJzITM0ZxhzmHkEOU9f-OvoxDbgpglzEAdQOBfirRKSio42r9kqBRo6fWi3E8QluEow8OCgVa3cDpQ0A1J8ndFFIyTkKj4oISrmg0S93q7_YqmpIDxzwkvj1IGkHBBEkKfyXul3u9LjaXIP-o2_KDZ-0Ozv4-_jLvAtyXeQaP61GpY5LEwnSx62NGdAF1AiS5iAfJQSXRvhx36dLeYX8ETK_BCU1xiNFljviIKDDgwr06bcE5zTCQB9l8W5JkqAtrlmKe9tl2tXcUR5NlvzBKyMtJVdersgXPNieaVhAMKWPdlK6p1OnX2j5x7c3PqODpybLS_f-tl2725WjTj1Ox8qvfnuJMxY10bR2NVkzn_guywQ2fE75NqecYcs80PAtkhhuMSyBQC2UF9AHL4BHUczd7eznubaPvbbVscllK8qCFmJYLBx4wR9lt9Bj0Yu91x0OhngoKfCQr_W1D3kkA6NBz-ClPa2k5t261tN3bQAM2625hus-y3_n4NjHq219o9umbZbv29nm2PGqAlaO2wdQhroC0g7K1fN7bV-jcVX7e2VdttQY0e4dFHQVfdfgxPYOd9GDRrbwSnuHMGd8_g3hncbz96p_DofTh4Hw5b2DCNHF4DTFMj2hr7-yHcIVOS4YqVxs40cFWK5YYnRrS_RxlVkULklGI4X_Ma3P0DFddJMA==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_RVCQeANIKO6WooeCji21QbYNIa9bR-aomAkyiZCkSopOfEa_vcOrYttbRy0Wz_ImMOZMzOHQ0o7IxEpMSLj-npHOS0jtBuUa5KTQYQGz1iRgYlq4DcsKX5mRA20TyZ4uaRfD262V7xpN43FOKdsq9ElWQmCfr030RgCmYkU5mqoiKTZwBwUkuZYbieCCam9r0iYWdkhW7N0J2RK5NHBsgI78SGUUU6OsBt4gRfrOEUSwdMz0szPwiwZ7HVxTLwmayzLQ_mVIg_47XealmuwM8wUAZ91mbPP-Jkw3WMpK40lldy0YlCl83AQbFnghPIV4J4FkMT85Qj51n6P9tfXT7xLij4vnjiCX8KwUlOSIVUCPNuUKKOMRVfeZBz7lqlKKV5IdOXMgqnrmInuJILWLVOLO3wldLUuo2fB0sZ1-Kp7iJzizZRvkWOZcgvPXi7C02OmycgJnbDLdBfYE3vSZsqy7H9lAl3lF6xemlwzN3biaZfL9kf-xPqWr21z6gVju68TkRuakBPSOI7d2VGq2ci3rcukd7E7siY90hUuySveHglvJ15HGPtBbAcXCet8_Sqr57kUSUvozvzY7wiDOzseOxcJvbHthU2FwLOSuFgjhjn5y_rjybgT1WGo0bgo1JPxZ-2nf_wWludEZkLmaA4BHMYPUY4-CLE15RLmoQ4g8C9FWiUlFRwdDhwqBVp6vSj3E4RlOMrwsGCg2z3cFBQ0RJL8XREFoyUkKj4o4aZmg8Tv9WkD-_0XNCUFnImc8PI8fQDLC5IQuiHvlf14KDuWIv-o8_CDxh-Pjf88_mXcBV4o1wGqB-heX2sNnewJ1smlDwR6EKAXKNQFLUA2Kolu9bhznx4W8xt4YgVeaIpLjCZrzFdEgQGX6s15Duc8x0QSYP9hQTZUEZAyxzztSeBqHSuOIM9hw5aQlZGuqnNnD5xrTjSvJFxiwHooW1Gt2bmzf-Lcm6dzx9GJY7MPj9962XZv3hbNmDVTkOq9Ou1kzFjXxsm41WTOvyA77tAF8fukWp4xx2z7lUB2iOG4BDKFQHZQH4AcXlMdR7O39_PeJtr-btcWh6UUr2qIWYngHGDGCPupvqeejP3-NGj0PUHB9wSF_y2oOzCQDg2HP8KUtrZT23Zr240dNECz7jam2yz7rb9fA6Oe7bV2j65Ztlt_r2fbowZoCVo7bB3CGmgLCHvrt41ttf5NxbetbdV2W1CjR3jy4tBVty_MM9h5HwbN2q-Gc9y5gLsXcO8C7rcvxnN49D4cvA-HLWyYRg7HANPUiHbG4RsSvjNTkuGKlcbeNHBViuWWJ0Z0-NYyqiKFyCnFcNfmNbj_BxuBVNw=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -346,16 +346,16 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Boundary Apps
+    subgraph lane_0["Boundary Apps"]
         n9["Perform Planning in Boundary Apps"]
         n10["Send Planned Production Order to S4"]
         n13(["fa:fa-play Initiate request for planning in Boundary Apps"])
     end
-    subgraph IT Department
+    subgraph lane_1["IT Department"]
         n7["Receive Planned Production Order From Boundary Apps"]
         n8["Send Planned Production Order to S4HANA"]
     end
-    subgraph Material Planner
+    subgraph lane_2["Material Planner"]
         n1["fa:fa-user Monitor MRP (Master Data Changes Daily)"]
         n2["fa:fa-user Create/Revise Demand for All the Materials"]
         n3["Create Purchase Requisition"]
@@ -400,7 +400,7 @@ flowchart LR
     class n18 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v6kYQ_SsrRxGJZFR_m_ihEgHcRrq0CG7bh6YPi72GVdZed9dOQhH_vbN4bcA3XN3e8pBojufMmTk7_tgbCU-JERm3t3ta0CpC-0G1JTkZRGiwxpIMTNQAv2NB8ZoROVA5GS-qFf3nmGZ75btKU1iMc8p2Cl2RDSfotycTjYHITCRxIYeSCJoNzEEpaI7FbsIZFyr7howyKzuq6UuPXKREnBIsK7QTH6iMFuQEu6EXerHiSZLwIr0omvnZKEsGB9Uc42_JFovq2H4tyRy__0HTagtxhpkkkLOtcvYJrwlTM1aiVlhSi9fWDCqVTgGGrUqc0GIDuGcBJHDxcoJ863BAh9vb56ITRZ-WzwWCX8KwlFOSIVkBPHutUEYZi268yTj2LVNWgr-Q6MaZhVPXMRM1SQSjW6Yyd_hG6GZbRWvOUp06fFMzRE75bor3yLFMsYO_PS1SpCelSeCMnFGn9BjaE3vSKmVZ9r-UwFfxGcsXrTVzYyeedlq2H_gT68t67ZhTLxzbfZ-IeKUJOSsax7E7O1k1C3zbul70MXYDa9IrusEVecO7U8GHidcVjP0wtsOrBRu9fpf1eiF40hZ0Z37sdwXDRzseO1cLemPbG-kOoc5G4HKLHnl93GU0LkvZXFO_4uHPZ2NBRMZFjhYMFwWsHKJFL9_464xiW8BZwQ40BAL_BU_rpKK8QL-qmwxVHK28Hsu9A1qGowwPSwZePcHTgYJvSJC_ayJhnbhA5VdauG-qgXBvtqfPaEpKWP-cFNWZZAiCS5IQ-kqutxoLnn9t2tG3Dfvz-JdxR_yyxTkMqp5auoo4N6azRS07mnPwBZyYLxfobo4l8NAUVxhNtrjYEAkBPBDvL5t0LmtMBAG9H5bklUoC3uQY-lf2jhlD8PDt2unN6kKZhosWtYAHDbCXcDpUUjXvZbKn3K0LFNeMnVZnvlihpvvLbP-stDby6F6vg-Asredzb53s3jot9RbpA0_Vsaj2OuePgwiiduTU7h00et9ZA5JwXPnZsjVazjdoded27cj6Rb1TUVnx8njgquF-M2jKC9In-_t9S8ZC8Dc5xKxCcA9gxgj7qXkcPRuHwzkp-B5S-D2k0X8jdfcLHCsaDn9UshpwdRzo2NOx3xL8BujHbhs7mtDGYRM7bdzTswMNeBrQ_DZ80JetNl83-NDGVhO39bTcSIdBb5yRjtvrfi-2dUJw9n5QTbfvxQvY-RgGT9uPg0vcuYK7V3BPv_gvUb99-13Cwcdw-DE8amHDNHIickxTI9obxw9F-JhMSYZrVhkH08B1xVe7IjGi4weVUZcpMKcUq5ulAQ__Aqi7SzA=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4kYU_SsjRxGJZFR_m_ihEgHcRlpaBLvbh6aqJvYYRhl73BmbJEX8997BYwNuiLZbHhLd43vOvffMh70zEp4SIzKur3e0oFWEdoNqQ3IyiNDgCUsyMFEDfMWC4idG5EDlZLyoVvTvQ5rtla8qTWExzil7U-iKrDlBXx5MNAYiM5HEhRxKImg2MAeloDkWbxPOuFDZV2SUWdmhmn50z0VKxDHBskI78YHKaEGOsBt6oRcrniQJL9Iz0czPRlky2KvmGH9JNlhUh_ZrSeb49TeaVhuIM8wkgZxNlbNP-IkwNWMlaoUltdi2ZlCp6hRg2KrECS3WgHsWQAIXz0fIt_Z7tL--fiy6oujT8rFA8EsYlnJKMiQrgGfbCmWUsejKm4xj3zJlJfgzia6cWTh1HTNRk0QwumUqc4cvhK43VfTEWapThy9qhsgpX03xGjmWKd7gb68WKdJjpUngjJxRV-k-tCf2pK2UZdn_qgS-is9YPutaMzd24mlXy_YDf2L9W68dc-qFY7vvExFbmpAT0TiO3dnRqlng29Zl0fvYDaxJT3SNK_KC346CdxOvE4z9MLbDi4JNvX6X9dNC8KQVdGd-7HeC4b0dj52Lgt7Y9ka6Q9BZC1xuEMMF-dP6_dG45_VhU6NxWcpH448mT_2KO3i8ICLjIkcLIBSw_RAt0AcUW0muYD80BAL_BU_rpKK8QL-qA4cqjlZej-XeAC3DUYaHJQPfHuCmoOAhEuSvmkjYWlyg8oMWbhs1KPzenDaoP3xGU1LCmchJUZ2XD-HxkiSEbsnltmPB848mH33b4D-Pfxl3xAvtOiA1h-nVtablRM-wzi51INCcg1_g0Hy5QDdzLIGKprjCaLLBxZpICODSvD3XcM41JoJAyR-WZEslAatyDLMo28eMIbigUdtRb24XZBouWtQCLiNgL2HVqKRq9vNkTzldFyiuGTtuqflihZruz7P9E2lt6sHJXgfBSVrP855rdm-bLfXu0oufqiVS7XXmHwYRRG2ZY7s30OhtZw2UhKXLTzZhU8v5hlrdul1asr6odxSVFS8PC64a7jeDprwgfbK_27VkLAR_kUPMKgRHAjNG2E_NlfVo7PenpOB7SOH3kEb_jdSdHVhWNBz-qMpqwNVxoGNPx35L8BugH7tt7GhCG4dN7LRxr54daMDTgOa34Z1-bLX5usG7NraauNXT5UY6DHrjjHTcPvd7sa0TgpN3iGq6fXeewc77MHjafkCc484F3L2Ae_rj4Bz12zfkORy8D4fvw6MWNkwjJyLHNDWinXH4mIQPzpRkuGaVsTcNXFd89VYkRnT46DLqMgXmlGJ1WBpw_w8UgFbc" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -423,14 +423,14 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph IT Department
+    subgraph lane_0["IT Department"]
         n3["fa:fa-user Analyze the Material Requirement Planning (MRP) Output"]
         n5["Run MRP for All Materials"]
     end
-    subgraph Master Data Steward
+    subgraph lane_1["Master Data Steward"]
         n2["fa:fa-user Make an Adjustment in the Master Data ( If Required)"]
     end
-    subgraph Material Planner
+    subgraph lane_2["Material Planner"]
         n1["fa:fa-user Check any Rescheduling in the Planning Required"]
         n4(["fa:fa-stop Alternatives Analyzed and MRP Changes Determined Successfully"])
     end
@@ -445,7 +445,7 @@ flowchart TD
     class n5 startEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU1v4zYU_CuEgsAJIAP6jFwdCjiSBQSo0SBO20OzB1p6tLimKS9JJfEG_u_7aMvyRzd7qQ4COBzOvDciqQ-nbCpwUuf6-oNLblLyMTA1rGCQksGcahi4ZA_8TRWncwF6YDmskWbGv-9ofrR-tzSLFXTFxcaiM1g0QP56cMkYFwqXaCr1UIPibOAO1oqvqNpkjWiUZV_BiHls59ZN3TeqAnUkeF7ilzEuFVzCEQ6TKIkKu05D2cjqTJTFbMTKwdYWJ5q3sqbK7MpvNUzp-z-8MjWOGRUakFOblfiDzkHYHo1qLVa26vUQBtfWR2JgszUtuVwgHnkIKSqXRyj2tluyvb5-kb0pec5fJMGnFFTrHBjRBuHJqyGMC5FeRdm4iD1XG9UsIb0KJkkeBm5pO0mxdc-14Q7fgC9qk84bUXXU4ZvtIQ3W7656TwPPVRt8X3iBrI5O2V0wCka9033iZ352cGKM_S8nzFU9U73svCZhERR57-XHd3Hm_Vfv0GYeJWP_MidQr7yEE9GiKMLJMarJXex7n4veF-Gdl12ILqiBN7o5Cv6WRb1gESeFn3wquPe7rLKdP6qmPAiGk7iIe8Hk3i_GwaeC0diPRl2FqLNQdF2Th2eSwxq3yAqk2c_ZR4b_vjiMpowObdRkLKnYfAeCJ5RMsSl70sgTfGu5AruSPAoqJW5LcjN9erwlf7Zm3ZoX58uJZIyST60kSCCsQU0hei3dU3EPXZQ4pRpJJKeGkpnNU1UnqsF5oVO6BEIlGVdfW71rinDZlX2UuSEP7FB-dftL767XXX-gToz9c-OshnKJzhvU1WUNVStsHJ15H8_B9Dya6KYX06ZZYzRoK6nhr6AP2VcoXu3Cy2oqFziRA7JWeEtVZNaWJWjNWiE2KH170Y-MyXD4O37Vbhjsh90ZkP5-GHXDcD8MTvae5RzO3Bkc_BwOfw5H3RVxBsb9HeW4zgo7orxy0g9n9zfAP0YFjLbCOFvXoa1pZhtZOunu1nTadYUfKOcUv9ZqD25_AFhEEJo=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV1r8zYY_SvCpaQFB_xZZ74YpHYMhYWVptsu1jEU-1GsRZEzSW6bt-S_75HjOG-yll3MFwYdPzrnPEcf_nDKpgInda6vP7jkJiUfI1PDBkYpGS2phpFLDsCvVHG6FKBHtoY10iz4t67Mj7bvtsxiBd1wsbPoAlYNkF8eXDLFicIlmko91qA4G7mjreIbqnZZIxplq69gwjzWqfWf7htVgToVeF7ilzFOFVzCCQ6TKIkKO09D2cjqjJTFbMLK0d6aE81bWVNlOvuthjl9_41XpsYxo0ID1tRmI36iSxC2R6Nai5Wtej2GwbXVkRjYYktLLleIRx5Cisr1CYq9_Z7sr69f5CBKnvMXSfApBdU6B0a0QXj2agjjQqRXUTYtYs_VRjVrSK-CWZKHgVvaTlJs3XNtuOM34KvapMtGVH3p-M32kAbbd1e9p4Hnqh2-L7RAViel7C6YBJNB6T7xMz87KjHG_pcS5qqeqV73WrOwCIp80PLjuzjz_s13bDOPkql_mROoV17Cd6RFUYSzU1Szu9j3via9L8I7L7sgXVEDb3R3IvwhiwbCIk4KP_mS8KB36bJdPqqmPBKGs7iIB8Lk3i-mwZeE0dSPJr1D5Fkpuq2JoBL-9H5_cR6eSQ5b3CsbkObF-eNQZx8Z4mdGU0bHNnYylVTsvgHB00rm2KA9deQJ_m65AjuZPCKpxC1KbuZPj7fk59Zs2wvKGCmfWkmwgLAGOYUYuPRQivvpM7s-Tp5TjdUkp4aShQ1ZVecKwbnpOV0DoZJMq79a3fVIuOxbODHdkAd2bKW6_S8fQeejD6BrGtS5Cf_cRFZDuUYXO9TQZQ1VK2xMvZEhtqOBc67oZiDTptliZKgsqeGvoI9rUiF51YWa1VSu8EMOWLXBm6wii7YsQWvWCrFD6tuL3mRMxuMfcbX7YXAY9udE-odh1A_DwzD4bn_amuO5PIODz-Hwczjqr5EzMB7uMcd1NtgR5ZWTfjjdHwP_KhUw2grj7F2HtqZZ7GTppN3N6rTbCtco5xRXbnMA9_8Az9AcRg==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -464,7 +464,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Material Planner
+    subgraph lane_0["Material Planner"]
         n1["fa:fa-user Edit Material Requirement Planning (MRP) List"]
         n2(["fa:fa-play Request Received to Edit MRP List"])
         n3(["fa:fa-stop MRP List Edit Completed"])
@@ -476,7 +476,7 @@ flowchart TD
     class n3 endEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWVii7UpDySWgOlSAQqVJXQsu2PZQeTPIM1jpOapuvIv57bQIJS7Wn5pDEkzcz743sHK28KsBKrF7vSDlVCTraag0l2Amyl1iC7aAG-I4FxUsG0jY1pOJqTv-cy7yw3psyg2W4pOxg0DmsKkDfvjhopInMQRJz2ZcgKLEduxa0xOKQVqwSpvoBhsQlZ7fLp3ElChBdgevGXh5pKqMcOjiIwzjMDE9CXvHinSiJyJDk9sk0x6pdvsZCndvfSHjG-x-0UGu9JphJ0DVrVbKveAnMzKjExmD5RmyvYVBpfLgObF7jnPKVxkNXQwLztw6K3NMJnXq9BW9N0etkwZG-coalnABBUml4ulWIUMaShzAdZZHrSCWqN0ge_Gk8CXwnN5MkenTXMeH2d0BXa5UsK1ZcSvs7M0Pi13tH7BPfdcRB3--8gBedUzrwh_6wdRrHXuqlVydCyH856VzFK5ZvF69pkPnZpPXyokGUuv_qXcechPHIu88JxJbmcCOaZVkw7aKaDiLP_Vh0nAUDN70TXWEFO3zoBD-lYSuYRXHmxR8KNn73XW6WM1HlV8FgGmVRKxiPvWzkfygYjrxweOlQ66wErtfoWXdojg2aMcw5iOazubj3c2ERnBDcN2mjaUFVV_4CvzdU6OPKVUPVWxI9Pr_MntBXKtXC-nWj5D-2UjXTcRgySKWfOdAtFEhVF_mX2ZX-dMMPOr5UVd2WNaS0KmsGCoqOpTdi88J91O9_1rNcll6zDG5iNeB1O72D_fbsvIODyza3HKsEUWJaWMnROv-69O-tAII3TFknx8IbVc0PPLeS8xG3NnWh05tQrJMvG_D0F3vloes=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVFtv2jAU_itWKpRWClKuhOVhEgQiTWqlqnTbw5gmkxyDVcfJbHMb4r_PJpAUpj4tDyH--C7nnNg5WHlVgJVYvd6BcqoSdLDVCkqwE2QvsATbQQ3wDQuKFwykbTik4mpG_5xoXljvDM1gGS4p2xt0BssK0NcvDhppIXOQxFz2JQhKbMeuBS2x2KcVq4Rh38GQuOSUdv5rXIkCREdw3djLIy1llEMHB3EYh5nRScgrXlyZkogMSW4fTXGs2uYrLNSp_LWEJ7z7Tgu10muCmQTNWamSPeIFMNOjEmuD5WuxuQyDSpPD9cBmNc4pX2o8dDUkMH_roMg9HtGx15vzNhS9TuYc6StnWMoJECSVhqcbhQhlLLkL01EWuY5UonqD5M6fxpPAd3LTSaJbdx0z3P4W6HKlkkXFijO1vzU9JH69c8Qu8V1H7PX9Jgt40SWlA3_oD9ukceylXnpJIoT8V5Keq3jF8u2cNQ0yP5u0WV40iFL3X79Lm5MwHnm3cwKxoTm8M82yLJh2o5oOIs_92HScBQM3vTFdYgVbvO8MP6Vha5hFcebFHxo2ebdVrhfPosovhsE0yqLWMB572cj_0DAceeHwXKH2WQpcrxDDHH65P-bWky7VnB_0rCEOYm79bKjm4p5mEJwQ3DeTR9OCKtQqXuD3mgp9dLlq1Hp7ovunl-cH9Eilunby71urmunRGDFIpX9zoBsokKrO9i_PF_nDO33Q6aWq6pbWiNKqrBkoKDqV3pTNA_dRv_9Z93Jees0yeDdiA1621hXst-foCg7OW95yrBJEiWlhJQfr9BnTn7oCCF4zZR0dC69VNdvz3EpOx91a14We3oRi_RbKBjz-BVE2pc4=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -745,6 +745,7 @@ Integration patterns identified from the system flow analysis for M-080:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
@@ -872,6 +873,6 @@ Standard RAID items for M-080 (Forecast to Stock (IP)):
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*M-080 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IP) · Generated: March 2026*
+*M-080 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IP) · Generated: April 2026*
 
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-080 — Perform Materials Requirement Planning (IP)</span></div>

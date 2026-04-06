@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
   Capability E2E-94 · Forecast to Stock</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 2<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 2</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -767,13 +809,13 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph EWM (Decentralized)
+    subgraph lane_0["EWM (Decentralized)"]
         n6[["fa:fa-cog Distribute Outbound Delivery Order"]]
         n7[["fa:fa-cog Create and Confirm Picking and Packing (EWM)"]]
         n8[["fa:fa-cog Move Parts to Pass Through"]]
         n9[["fa:fa-cog Perform Goods Issue"]]
     end
-    subgraph SAP S/4 Intel Foundry 
+    subgraph lane_1["SAP S/4 Intel Foundry "]
         n1["MRP Run"]
         n2[["fa:fa-cog Check for Spare Parts"]]
         n3[["fa:fa-cog Create Reservation WRT to PM Order"]]
@@ -813,7 +855,7 @@ flowchart LR
     class n14 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtVltv4jgU_itWRhUdKXRyJZCHlSiQqtKwg6C7fZjOg0kcsGpsZDtQFvHf95iEW6Z52s0D4juX75zz5cTJ3kpFRqzYurvbU051jPYtvSQr0opRa44VadmoNPyNJcVzRlTLxOSC6xn95xjmBusPE2ZsCV5RtjPWGVkIgv56tlEfEpmNFOaqrYikecturSVdYbkbCCakif5CurmTH6tVrkchMyIvAY4TuWkIqYxycjH7URAFiclTJBU8uyHNw7ybp62DaY6JbbrEUh_bLxQZ449Xmukl4BwzRSBmqVfsO54TZmbUsjC2tJCbkxhUmTocBJutcUr5AuyBAyaJ-fvFFDqHAzrc3b3xc1H0ffrGEVwpw0oNSY6UBvNoo1FOGYu_BIN-Ejq20lK8k_iLN4qGvmenZpIYRndsI257S-hiqeO5YFkV2t6aGWJv_WHLj9hzbLmD31otwrNLpUHH63rdc6XHyB24g1OlPM__UyXQVb5g9V7VGvmJlwzPtdywEw6c3_lOYw6DqO_WdSJyQ1NyRZokiT-6SDXqhK7TTPqY-B1nUCNdYE22eHch7A2CM2ESRokbNRKW9epdFvOJFOmJ0B-FSXgmjB7dpO81EgZ9N-hWHQLPQuL1Eo1ex-h-SFLCtcQMHrTsaxlhLt75-fPNynGc43YqFmhIgZvOC03Qj0LPRcEzNCSMbojcoR_mMXqzfv26yo9u8weSgCAIQ9pA8JzKFZrQ9B22-Wib4PL_PTT1tcbUvWUaiw2BeKkV0gL-KIVellIUi2Utr3ebNyEyF1D2SYhMoWelCnJJgPWtqTPrT9DsW4CeuSYMJWZgmPSK3gX28XSCpgUHniuHV5t8SVLYKyERPL6yar3Wqv-pWFNiNhNrKjh6nb4cxx1_KnZQG1UoXc1p1FrBHa4lhJ9r89utraW5DqSNvFG7F_TR1EdjTEEejnkKc8FyErgZ94_Q_XsmtvzbhGHOzVrd6OMa5WawdnDaCwREJrOQxzaRyNHr8_OfTzOYfs1wWlqnhIEgZnVWK5FRTYmqcXrnxgZlY5qYVwLqbzBleE4Z1bvjpp09J2XQ6GNNgPMywZbq5cPDQ62C_3-MHuz3J92xlGKr2phpBHuBGSPsqTwz3qzDobaWPEDt9h9w3yrYKWFUwaiE3Qp2S9irYFjCTgVdv8RehXsldKsDh1duNzjFV7Xr2D3hCp6wV2K_Hu5dHWgm6urYvfH4jZ6g0RM2ejqNnqjR02309Bo9rnN-397a3Qa712D3G-zB6ZVi2daKyBWmmRXvreOHE3xcZSTHBdPWwbZwocVsx1MrPn5gWMU6g8whxXCyrUrj4V83ggKZ" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtVl1v6jgQ_StWqopeCXrzSSAPK1EgVaXLXgTd7cPtamUSB6waG9kOlEX89x0nAUraPO3mAXHm48zMycTJwUpESqzIur09UE51hA4tvSJr0opQa4EVabVRafgTS4oXjKiWickE13P6TxHm-Jt3E2ZsMV5TtjfWOVkKgv54aqMBJLI2UpirjiKSZq12ayPpGsv9UDAhTfQN6WV2VlSrXA9CpkReAmw7dJIAUhnl5GL2Qj_0Y5OnSCJ4ekWaBVkvS1pH0xwTu2SFpS7azxWZ4PcXmuoV4AwzRSBmpdfsB14QZmbUMje2JJfbkxhUmTocBJtvcEL5Euy-DSaJ-dvFFNjHIzre3r7yc1H0Y_bKEVwJw0qNSIaUBvN4q1FGGYtu_OEgDuy20lK8kejGHYcjz20nZpIIRrfbRtzOjtDlSkcLwdIqtLMzM0Tu5r0t3yPXbss9_NZqEZ5eKg27bs_tnSs9hM7QGZ4qZVn2nyqBrvIZq7eq1tiL3Xh0ruUE3WBof-Y7jTnyw4FT14nILU3IB9I4jr3xRapxN3DsZtKH2OvawxrpEmuyw_sLYX_onwnjIIydsJGwrFfvMl9MpUhOhN44iIMzYfjgxAO3kdAfOH6v6hB4lhJvVohhTv62f71a45cJuhuRhHAtMYMnLv32av1VRpuLd39BVIajDHcSsUQjCnXoItcE_cz1QuQ8RSPC6JbIPfppHilI_5gfXucPJQFxEIa0oeAZlWs0pckbbHZhm-Ly_x309a3G1LtmmogtgXipFdIC_iiFnldS5MtVLa9_nTclMhNQ9lGIVKEnpXJySYBV_kopBxjmgymaf_fRE9eEodhMDiNfi2XiJrMpmuX82uHWVFiRBPZNSASPtazGqLXtfSncjJiNxZoKjl5mz8Xoky-F92tjC6WrmY1ya7jhtYTga50-3eZamlOskTvu9P0BmnlogikoxDFPYC5YWgI35u4Bun9LxY5_n4Kg_NOWOYXCsIXwFhAIiExmLos2kcjQy9PT749zmH7DcFJaZ4SBIGaN1muRUk2JqnG658aGZWOamFcFGmwxZXhBGdX7YuvOnpMyaPy-IcB5mWBH9er-_r5Wwfs_RvcPh5PuWEqxUx3MNIK9wIwR9lieJa_W8VhbUe6jTuc3uG8V7JYwrGBYwl4FeyXsVzAoYbeCjldit8L9EjrVQcQrt-Of4qvadeyccAVP2C2xVw93Pxx0JurDcXzl8Ro9fqMnaPR0Gz1ho6fX6Ok3ehz7_B6-tjsNdrfB7jXY_dOrxmpbayLXmKZWdLCKDyr46EpJhnOmrWPbwrkW8z1PrKj48LDyTQqZI4rhlFuXxuO_7tgKYA==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
 
@@ -836,7 +878,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph EWM 
+    subgraph lane_0["EWM "]
         n14[["fa:fa-cog Create Outbound Delivery Order (Priority)"]]
         n15[["fa:fa-cog Create and Confirm Picking and Packing (EWM)​"]]
         n16[["fa:fa-cog Move Parts to Pass Through"]]
@@ -846,7 +888,7 @@ flowchart TD
         n26{{"fa:fa-arrows-alt inclusiveGateway"}}
         n27{{"fa:fa-arrows-alt inclusiveGateway"}}
     end
-    subgraph SAP S/4 Intel Foundry 
+    subgraph lane_1["SAP S/4 Intel Foundry "]
         n1["fa:fa-user Convert PR to Expedited supplier PO with priority"]
         n2["fa:fa-user Check domestic, National then International plants"]
         n3["fa:fa-user Update item category and supplying plant in ZEXP PR"]
@@ -930,7 +972,7 @@ on the work order
     class n28 subProc
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWNtu2zgQ_RXCReAEsBtdLccPu3B8yQZoGiNOt91t9oGWKJsITQokFceb-t93qIsvqtTtYv1gmIfDMzNHnCHlt1YoItIatM7O3iineoDe2npF1qQ9QO0FVqTdQTnwO5YULxhRbWMTC67n9O_MzPaSV2NmsCleU7Y16JwsBUGfbjtoCAtZBynMVVcRSeN2p51IusZyOxJMSGP9jvRjK868FVPXQkZEHgwsK7BDH5YyyskBdgMv8KZmnSKh4NEJaezH_Ths70xwTGzCFZY6Cz9V5A6_fqaRXsE4xkwRsFnpNfuAF4SZHLVMDRam8qUUgyrjh4Ng8wSHlC8B9yyAJObPB8i3dju0Ozt74nun6HH8xBF8QoaVGpMYKQ3w5EWjmDI2eOeNhlPf6igtxTMZvHMmwdh1OqHJZACpWx0jbndD6HKlBwvBosK0uzE5DJzktSNfB47VkVv4rvgiPDp4GvWcvtPfe7oO7JE9Kj3Fcfy_PIGu8hGr58LXxJ060_Hel-33_JH1PV-Z5tgLhnZVJyJfaEiOSKfTqTs5SDXp-bbVTHo9dXvWqEK6xJps8PZAeDXy9oRTP5jaQSNh7q8aZbqYSRGWhO7En_p7wuDang6dRkJvaHv9IkLgWUqcrNDk8x3KIfPhtvf161MrxoMYd0OxRCNJIAV0n-qFSHmExoTRFyK36N4UDTqfSSok1duLp9Zffx3z-LU8GChGgsdUrtGMhs-wjzNshvPf5xDOxVPqWNaiStg7JbwTLwSWSa2QFvBDKfS4kiJdrqoLg9OFMyJjAe5vhIgUulUqJdUV_drYb3lFgg3VK1QKUOW4qvc6u3kw8d5hyjXhmIekVPLu9ub-ch5izkGIqpxO7-2tpMNSio3qYqYR5SFLFURzk--zp9Zud7wq-I-roH4r22M-nKH5pQfJa8LQ1AgAmR8nuk_TlKR5uKCNRrMszclrQiKqSQSEScIoGMzuc92Sg27HEVfYViR8RpFYE6Vp2EEfsaaCY4bgoOBZTJKXUMIw1-qUzj2l-5RE5kFCQGsUwq-lgFzM9sui25oNmLGAQujPyZcZZHHK59XykdcsDnZI8gWEFBLxdL2AURNbfYl8vzV-tM8qVTFNGXQGFEuxRh9ECDFtsCQrAeHmNJKYPpdphs6ThuINagM7PMz5_mE-IFOstpvllzngAimRSgh-qBRdcjD_Ufz1pfZwFCWUTV25NDWeproTShclbzrHmnBdrVjrJztfdfuekNgVkqIc5o9ZPWQ7NhTrBPPtpRlJXIzA4v7HzM5Phmf0-lcyt0ElaMmdrBnnXfnmttqHrPP9QiiVbc2TyQIzD-4WbnkUYoyA4-KYw7SMiTPpXnnX6MEFChAFLm5o-IIpwwvKvm8Lzn7JMF9y8GqOQwLd__waHD9HYsMvZ1DEsPEu8u6O8BLM4fEfrXr__n3Fg3toleai2l3AVStcZSdMGRgjppTzsrq8-XKPZlmz-Pzbr9W-69WT7evGnX1Ac1Ml2ZkHFzooS8Qy4ogkQl9ArDyF0RGGQtMMq5782g4PhJgxwhqOhaOii-HeRWRXJNBPx0RDnlCwpKh02D4CrqVZtcA9kiQKQaTQOpmxilMJbVgixWhE1GGj7A8R7qNu9xcTZDF2XAN8e2r9Yey_QfcqJnq54VUxvMqHdnH5gUtJAZREdsFslwR2wWAHJdAvgJLTtgrfhzaWnQNUwWkWEdiCa2qalXkViQCCDQzZoY2Qzyh7QQCeQzV9M0dywRwUWXqlp2LcL7MuDOw9kI_d0r5YYDslUBjYpYVTClkFSka7UGwfk1PqUQblWDlQKljI4xS3YF4qXAzdYmhXn9xHkSVfyuyUPHvd3QrgeJVn7lUnCsp99kGB38GbhN4mBA16np2bOEe3YSN0-RZwAjv1sFsPe_Wwf_w-cDLTa5wJGmf6jTNXjTOwYRun7OYpp3nKbZ7ymqealbCbpbCbtbCbxbCb1YD9W77InuJ2A-404G75TnYKe_WwXw_36uGgHu6Xb22tTmsNfQbTqDV4a2V_dsAfIhGJccp0a9dp4VSL-ZaHrUH2p0ArzS6YY4rhMr7Owd0_pLx5kQ==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1v2zYQ_iuEi8AJYDeiJFuOP2xwHDsL0DRGnK7dlmGgJcomQpMCScXx0vz3HfXiF1XqOswfDPPh8bm7R7wj5ddWKCPaGrZOTl6ZYGaIXttmRde0PUTtBdG03UE58CtRjCw41W1rE0th5uzvzAz7yYs1s9iUrBnfWnROl5KiTzcdNIKFvIM0EbqrqWJxu9NOFFsTtR1LLpW1fkcHsRNn3oqpS6kiqvYGjhPgsAdLORN0D3uBH_hTu07TUIroiDTuxYM4bL_Z4LjchCuiTBZ-quktefnMIrOCcUy4pmCzMmv-gSwotzkalVosTNVzKQbT1o8AweYJCZlYAu47ACkinvZQz3l7Q28nJ49i5xQ9XD0KBJ-QE62vaIy0AXjybFDMOB--88ejac_paKPkEx2-cyfBled2QpvJEFJ3Olbc7oay5coMF5JHhWl3Y3MYuslLR70MXaejtvBd8UVFtPc07rsDd7DzdBngMR6XnuI4_l-eQFf1QPRT4WviTd3p1c4X7vV7Y-dbvjLNKz8Y4apOVD2zkB6QTqdTb7KXatLvYaeZ9HLq9Z1xhXRJDN2Q7Z7wYuzvCKe9YIqDRsLcXzXKdDFTMiwJvUlv2tsRBpd4OnIbCf0R9gdFhMCzVCRZIU4E_cv547E1-XyLHlt_5tP2I7D_B-AxGcakG8olGisK6aC71CxkKiJ0RTl7pmqL7mwBodOZYlIxsz0DmiOeXi0PAYqxFDFTazRj4RPs6Qybkfz3KUR09pi6jrOoEvaPCW_lM4VlymhkJPzQGj2slEyXq-rC4HjhjKpYgvtrKSONbrROaXXFoDb2G1GRYMPMCpUCVDku6r3Oru9tvLeECUMFESEtlby9ub47n4dECBCiKqfbf30t6YhScqO7hBvERMhTDdFc53vusfX2drgq-I-roJbrtgqGVOajGZqf-6CCoRxNrRIgQWXz7FK2pWofNOhk0CxLefKS0IgZGgF5knAGBrO7XMNkr-Fh9BW2FQ2fUCTXVBsWdtBHYpgUhCM4QEQWlhIllEDYRh_Tecd0n5LIPlQIaI1C-LWUkI7dill0W7sZMxZQC_0--TKDLI75_Fo--pLFwfdJPoOoUiGRrhcwamKrL5dvt8n39lylQqYph46BYiXX6IMMIaYNUXQlIdycRlHb_zLN0GnSUMhBbWD7hznfPcx7ZAsXe1l-mQMhkZapguBHWrOlAPPvxV9fdvcHUUIJ1ZVOUxNqqkGpTVH-tousqTDV6nV-sAtWt-8RCa6QFOUwf8jqIduxoVwnRGzP7UiRYgQWd99ndn8wPKvXv5J5DSpBe-5kjTnv0Nc31Z7knO4WQqlsa55MFph9cDdw-2MQYwQcZ4cctmVM3En3wr9E9x5QgChwoUOjZ8I4WTD-bVtwd0tG-ZK9V3tMUjgJTi_B8VMkN-J8BkUMG-8s7_SILMEcHv_Bqvfv31c8ePu2aS-w3QVcwcJVdtqUgXFqSzkvq_PrL3doljWLz7_8XO3Bfj3Zrm682Qc0t1WSnX9w0YOyRDwjjmgizRnEKlIYHWAotM2w6qlX2-2BkHBOecMRcVB0MdzHqOrKBPrpFTWQJxQsLSodto-E62pWLXC_pIlGECm0Tm6t4lRBG1ZIcxZRvd8ouwNF9FC3-5MNshi7ngW-PrZ-s_ZfoXsVE_3c8KIYXuRDXFyK4IJSACURLphxSYALBhyUwKAASk7sFL73bSw7B5hGjyKisAXXzDYr-4oSAQQbGLJDG6meUPbiADz7avpqj-eCOSiy9EtPxXhQZl0Y4B2Qj73SvliA3RIoDHBp4ZZCVoGSEReK7WJySz3KoFwnB0oFC3nc4nYsSoWLoVcMcfXJfZRZ8qXMbsmz092rAK5feeZ-daKg3GUfFPgtvGGYbULRsO_j3MQ9uCVbocu3gyPYrYe9etivh3uH7wlHM_3GmaBxZtA4c9E4Axu2cQo3T7nNU17zlN881awEbpYCN2uBm8XAzWrA_i1fcI9x3IC7DbhXvqsdw3493KuH-_VwUA8Pyre5Vqe1hj5DWNQavrayP0Hgj5KIxiTlpvXWaZHUyPlWhK1h9mdBK80umFeMwMV8nYNv_wA-lYFY" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
 
@@ -953,13 +995,13 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Boundary Apps
+    subgraph lane_0["Boundary Apps"]
         n1[["fa:fa-cog Organize Transport-Intel Routing Guide (IRG)​"]]
         n2[["fa:fa-cog Perform Validation/Exception Handling based on Rules Setup​"]]
         n20(["fa:fa-play Validation/Exception Handling Initiated"])
         n29["E2E-94C R3 Material Availability and Material Movement Expedite Process with..."]
     end
-    subgraph External Partners 
+    subgraph lane_1["External Partners "]
         n15[["fa:fa-cog Receive Purchase Order at Supplier End​"]]
         n16[["fa:fa-cog Acknowledgement /Review ​ Purchase Order​"]]
         n17[["fa:fa-cog Perform Carrier Selection via Intel Routing Guide Boosted Collaboration Portal"]]
@@ -968,7 +1010,7 @@ flowchart LR
         n27(["fa:fa-stop Supplier Invoice Sent"])
         n36{{"fa:fa-arrows-alt inclusiveGateway"}}
     end
-    subgraph Intel Foundry - WH 
+    subgraph lane_2["Intel Foundry - WH "]
         n3[["fa:fa-cog Create Maintenance Order with Priority"]]
         n4[["fa:fa-cog Create Expedited Pur. Req. with Priority​"]]
         n5[["fa:fa-cog Convert PR to Expedite Purchase Order with Priority​"]]
@@ -1069,7 +1111,7 @@ flowchart LR
     class n36 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1v2zYQ_iuEiyItYKeiXvz2YYPt2EmAZDXirMHQ7AMtUTYRWtQoyU6W5r_vKFGyTUvr2vlDED68e4733PFk-bXli4C2hq33719ZxNIhej1L13RDz4bobEkSetZGBfCFSEaWnCZnyiYUUbpgf-dm2I2flZnCZmTD-ItCF3QlKPr9uo1G4MjbKCFR0kmoZOFZ-yyWbEPky0RwIZX1O9oPrTCPprfGQgZU7g0sq4d9D1w5i-gednpuz50pv4T6IgqOSEMv7If-2Zs6HBc7f01kmh8_S-gteX5gQbqGdUh4QsFmnW74DVlSrnJMZaYwP5PbUgyWqDgRCLaIic-iFeCuBZAk0dMe8qy3N_T2_v1jVAVFN3ePEYKPz0mSXNAQJSnA022KQsb58J07Gc08q52kUjzR4Tt72rtw7LavMhlC6lZbidvZUbZap8Ol4IE27exUDkM7fm7L56FtteUL_DVi0SjYR5p07b7dryKNe3iCJ2WkMAz_VyTQVd6T5EnHmjoze3ZRxcJe15tYp3xlmhdub4RNnajcMp8ekM5mM2e6l2ra9bDVTDqeOV1rYpCuSEp35GVPOJi4FeHM681wr5GwiGeeMlvOpfBLQmfqzbyKsDfGs5HdSOiOsNvXJwSelSTxGo1FlvcyGsVxUuypT4S_fn1shWQYko4vVuizXJEIriG6hxZMYiHTznWUUo7uRJZCN6LLjAUUfbi-u_z4mNmWtXxs_fnnAZ99zDenMhRyg74QzgKSMhF9mj77NFb_oSsSBVyRqrkQIEDuMpgHaEHTLK5ntz5U9DEHwf-d9xoGEIPSBEDz8ZBmACxTe9oZuBN056BbsFEzBY22hHGyZJylLwhY9ju3YgszK0rR9DmmAUspUvWhSYJ2LF2fn59DiCICXA5D--kzkERAMocrGlGZoMMCeMeK3VGfsi3QZxJuekKhJDC2EEnRIotjzuD_KUSoUwd3j6lG_lMkdpwGq-Lon-7oltEdKpyNCPWMvfpyToiU6iQLyqmfa75lBNV1yliIBAqAYIaCsELmtUJzaCzCzWD9-mCXQgQJmjP_CXiyGH3Q0T-WiRQKJWsWqzTrExkccy-gSntBr6OtgJlgNltv32xJKuITe8WSGq3ldF9fSyc4ptglHcJTxCKfZwnU9bKYFI-tt7emdilknKkLC_e1gx6uDvvFOU5kIikwQp8y8IpI5JcNo9oSepQJCb1sZObWcpSdHajOOIdG_OvcYKlT1mjfiYi2FJ5P8zuUioPLctzN36c1WvlestUKHC_vF2iypv6TYW706YRwP-MqqXvyTBPDuKnPFLfYQIlzGfMwaDG_aaPp7digGNQqeB0tVdXQBeVQaihenueVgKcYGjGJHsgLzBaOomyzhGSuRg_j-m61jOxv0RQ8goA2XHxjihc3Jp8kcapGR0j8VMB5boSfX0DT35ja-vyaB-o40_731F9HzAeB6s9hNOcc7v73bhl2_1M1oA75QD4thY2NZ8LpXcjLo-ZO4wPB_t5Vn-djzHRzDLeqPcs0Tl3cH3fxTJe8LLpIp-Zdwzy_AvsrcWLfrx6GD-phCM0GqcZJ9UArxo61n2vqG35nCV8Q_HWlz8hXT1-YHb_uR1vhiGsHYkwk4Zzyk3lYONk_4-T8jJP7g_O68PJ-dspHDup0flEMeu3qtavXnl7j0h4XQNdY9_S6Wyz75bbmK-mx5sOlP-5poFzrZUkw0PHtktDWBlYJ6AywbQBOGUJ7OJWHPiMelIClgG-Prd_EY-vbgWe18Yca2t_URCmPqYPYZVTc16bTsY0-Te3PMa2GEjiWofrazTmSD9yckXvqhT1DZVzKjLWudlknrC2c6oQ6bbvksEuLklOXomSwB0Yr6MrYVam6Rm9UtagoLO1SemhKuzp2adA3KQ7fi1QXHLwXHe3YjTtO447buOM17nQbd3qNO_3GnUHjDijSuNWsAm6WATfrgJuFwM1K4GYpcLMWuFkM3KwGNFD5w8ExjhtwW7_8H6NOLerWol4t2q1Fe7Vov-Fsg3ochop-Pz-GcT1s18NOPezWw1493C3hVru1oXJDWNAavrby38PgN7OAhiTjaeut3SJZKhYvkd8a5r8btbIYXnPpBSPwjrApwLd_AMxUCZM=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1v2zYQ_iuEiyAtYKeiXvz2YYPt2EmAZDXsrMHQDAMtUTYRWtQoyU6W-r_vKFNyTEvt2uVDED68e4733PEU6bXhi4A2-o2zs1cWsbSPXs_TFV3T8z46X5CEnjfRHvhMJCMLTpNzZROKKJ2zf3Iz7MbPykxhE7Jm_EWhc7oUFP1-00QDcORNlJAoaSVUsvC8eR5LtibyZSS4kMr6He2GVphH01tDIQMqDwaW1cG-B66cRfQAOx23406UX0J9EQVHpKEXdkP_fKcOx8XWXxGZ5sfPEnpHnh9YkK5gHRKeULBZpWt-SxaUqxxTmSnMz-SmEIMlKk4Egs1j4rNoCbhrASRJ9HSAPGu3Q7uzs8eoDIpuZ48Rgh-fkyS5pCFKUoDHmxSFjPP-O3c0mHhWM0mleKL9d_a4c-nYTV9l0ofUraYSt7WlbLlK-wvBA23a2qoc-nb83JTPfdtqyhf4bcSiUXCINGrbXbtbRhp28AiPikhhGP6vSKCrvCfJk441dib25LKMhb22N7JO-Yo0L93OAJs6UblhPn1DOplMnPFBqnHbw1Y96XDitK2RQbokKd2SlwNhb-SWhBOvM8GdWsJ9PPOU2WIqhV8QOmNv4pWEnSGeDOxaQneA3a4-IfAsJYlXiJOI_mV9eWwMRZY3NRrEcfLY-HNvp34i_AX2Q9IPScsXS_RJLkkEVxLdQzsmsZBp6yZKKUczkaXQmegqYwFF729mVx8eM9uyFkD3ls8-5ptSGQq5Rp8JZwFJmYg-jp99Gqu_0DWJAq5I1YwIECCzDGYDmtM0i6vZrfclfcxB_G_z3sAwYlCmAGg-vKXpAcvYHrd67gjNHHQHNmq-oMGGME4WjLP0BQHLYedObGB-RSkaP8c0YClFqlY0SdCWpauLi4tSVrgoVXXAKuQzsEXANoV7G1GZIKMY3rF6M-pTtoFQmYQJkFAoD4wzRFI0z-KYM_h7DNGqlMLtY6qB_xSJLafBcp_GxxndMLpFe2cjQjVjp7q0IyKlOsmccurn-m8YQVVdMxQigWIgmK0gspB53dAUmoxwM1i3OtiVEEGCpsx_Ap4sRu919A9FInuFkhWLVZrVifSOuedQsYOgN9FGwKwwG69zaLwkFfGJvWJJjTZz2q-vhRMcU2yTFuEpYpHPswTqerWfII-N3e6brWND6L2eE3WR4R630MO10TvOcVIjSYEd-peBY0Qiv2ge1a7Qu0xI6HEjS7eSo-j4QHXJBTTl3xcGS5XKRiuPRLSh8AybzlAq3lyi487-Pq3R1veSLZfgeHU_R6MV9Z8Mc6NnR4T7GVdJ3ZNnmhjGdT2nuMUayp3LmIdB8-ltE43vhgZFr1LBm2ihCocuKYeyQ_3yPK8FPOnQgEn0QF5g5nAUZesFJHM9eBhWd65lZH-HxuARBLRmCBjTfX978qkSp2qMhMRPBZznVvj5ZTT9jWmuz695oI4T7X9P_VXEfBCo-hxGc05hDnzvxmH3P1UD6pAP6tNS2Nh4Vpzehbw8agbVPijs7137aT7STDfHcCvbs0jj1MX9cRfPdMnLoot0at42zPMrcLgSJ_bd8iH5oB6S0GyQqvn_g2MdZpx6C2gt4B8Hf1XqM_DVUxlmx6-HMbd3xJXDMSaScE75yWzcO9k_4-T8jJP7g7N77-X97MSPHNRq_aIY9NrVa1evPb3GhT3eA21j3dHr9n7ZLbY1X0GPNR8u_HFHA8VaLwuCno5vF4S2NrAKQGeAbQNwihDawyk99BlxrwAsBXx9bPwmHhtf33iWG3-oof1VTZTimDqIXUTFXW06Htro49j-FNNyKIFjEaqr3Zwj-cDNGbinXtgzVMaFzFjrahd1wtrCKU-o07YLDruwKDh1KQoGu2e0gq6MXZaqbfRGWYuSwtIuhYemtMtjFwZdk-Ltu5PqgjfvTkc7du2OU7vj1u54tTvt2p1O7U63dqdXuwOK1G7Vq4DrZcD1OuB6IXC9ErheClyvBa4XA9erAQ1UfFw4xnENbusPBMeoU4m6lahXibYr0U4l2q05W68ah6Gi3-GPYVwN29WwUw271bBXDbcLuNFsrKlcExY0-q-N_JsZfFcLaEgynjZ2zQbJUjF_ifxGP_-21MhieP2ll4zA-8J6D-7-BVEkFT8=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
 
@@ -1092,12 +1134,12 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Boundary Apps
+    subgraph lane_0["Boundary Apps"]
         n4[["fa:fa-cog Organize Transport-Intel Routing Guide (IRG)​"]]
         n5[["fa:fa-cog Perform Validation/Exception Handling based on Rules Setup​"]]
         n22(["fa:fa-play Validation/Exception Handling Initiated"])
     end
-    subgraph External Partners 
+    subgraph lane_1["External Partners "]
         n17[["fa:fa-cog Receive Purchase Order at Supplier End​"]]
         n18[["fa:fa-cog Acknowledgement /Review ​ Purchase Order​"]]
         n19[["fa:fa-cog Perform Carrier Selection via Intel Routing Guide Boosted Collaboration Portal"]]
@@ -1105,7 +1147,7 @@ flowchart LR
         n21[["fa:fa-cog Send Supplier Invoice"]]
         n30(["fa:fa-stop Supplier Invoice Sent"])
     end
-    subgraph Intel Foundry - WH 
+    subgraph lane_2["Intel Foundry - WH "]
         n1["TM Embedded​"]
         n2["Goods Receipt Deliver to Technician (109) (Consumption upon GR)"]
         n3["Post Material Movement - 107"]
@@ -1204,7 +1246,7 @@ flowchart LR
     class n36 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1z2jgQ_isaOpkkM9BafsHAh7sBAklmmpaBXDM3zX0QtgyaCMkn23m5NP_9VrYMsWO31x4fGLTafXb30e7K5rkTyJB2Rp2jo2cmWDpCz8fplu7o8Qgdr0lCj7uoEHwhipE1p8mx1omkSFfsn1wNu_GjVtOyOdkx_qSlK7qRFP1x2UVjMORdlBCR9BKqWHTcPY4V2xH1NJVcKq39jg4iK8q9ma2JVCFVBwXL8nHggSlngh7Eju_67lzbJTSQIqyARl40iILjFx0clw_Blqg0Dz9L6BV5vGFhuoV1RHhCQWeb7vhHsqZc55iqTMuCTN2XZLBE-xFA2ComARMbkLsWiBQRdweRZ728oJejo1uxd4o-Lm8Fgk_ASZKc0QglKYhn9ymKGOejd-50PPesbpIqeUdH7-yZf-bY3UBnMoLUra4mt_dA2WabjtaSh0a196BzGNnxY1c9jmyrq57gu-aLivDgadq3B_Zg72ni4ymelp6iKPpfnoBXdU2SO-Nr5szt-dneF_b63tR6i1emeeb6Y1zniap7FtBXoPP53JkdqJr1PWy1g07mTt-a1kA3JKUP5OkAOJy6e8C558-x3wpY-KtHma0XSgYloDPz5t4e0J_g-dhuBXTH2B2YCAFno0i8RROZ5bWMxnGcFHv6I9yvX287ERlFpBfIDfqsNkRAG6JrKMEklirtXYqUcrSUWQrViM4zFlJ0crk8P73NbMta33b--usVnlfFW1AVSbVDXwhnIUmZFB9mjwGN9S90QUTINaieCyECyTKDeYBWNM3iRnTbPtnDxxwI_z7uJQwgBkcTAsxpAQOlW2Nm9phSJQhHC2ggQVWCXjnEfjWfJQ0ou6dokSnow4QCYTBUEEnRKotjzuD3DDw0xY4HVahxcCfkA6fhBoahSNGHJb1n9AEVxjUPzYjDZrKnRCkdyYpyGuSM3DOCms5xImUC9CCYcJyspcqZRAs4dsLr1FtVZ-dShglasOAO7LMYnRivp2UCBTPJlsU6vebjxFXMFZzOgchLcS-hU2s2jnUogSSV8Rt9jZJ-78ALIua6IaAfeujmonLigH59hWa7NQ1DejjK12GDSpF-Xg5xis4oh6pQKJXomgZbwQJGBDrB1vAUiJEiyXZFaWYxfJ0vT6uADgAu4CTQFRSrvtzQlbwvqqKHsOVXtftV0qaKghWYMshLEBGUJVPlzW-0-gThXF1dnuUteKi5Jf07YwnLQz4ZB8F7NE4SthH52WIHzZubf_AzPor6-An0WrVfK7bZAML59QpNtzS4q3dHrWCnhAcZ1wFdk0ea1LVxcy_l6HIHFZYzmztCq8XHLppdTeoYdjPGpVjrYiur5Ak9sHSLLiRcbmjMFLohT2uY80hkUHQKXYxvJs397rTEWKnFqS4kXU26zckGyiIvLCbef2-U1O6BVwU9J0EqIehDYTcj1Ce_DuMHvYz7_4l0oBvBSG9g3HZq98GbLmi6AwpT90dzZJHPxrqZVzPbl18Z_VuT_s-b-HWT_IjNqbxVHzSqm4pIWjIZ1ozytji0SV3f0ZNxZs96Q_cGLR0EQxJQ46Q2yuzn58ORhrS3hgeJYLsnFdodbmm4Mn6_7by8vDZ0DoZwk8iHpEd4imKiCOeUnxdPWHUj91eMvF8x6jcaMRHwLIFDeWO1v3dEH_V6v8EANku_WDp9sx6YtWPWjlMIhrU1Ns-IYmjWuFQwDgZmjQc1D9i4xHsNA-GatVssy6dvGGQGoVTwzNouXeYK3247f-pB-k13f2lqVO3S1LaM6mxiow8z-3NM9wNEG5aQGBtDr5I3GDpjt8HOr9Oz58tkg_fpG37svaDMt8TABsMuCbKNoF_P95PMvdsl99gylqV321BXZmGbtByrFl553CXV-7QNgditC0qLEnF__iaEigOI9TLSD_ucBfotuyDt1VuGPvVX70KVHa91p9-647fuDFp3hq07wGvrFm7fstu3nPatdiJwOxO4nQrczgVuJwO3s2G3s2G3swGlWP4pUJU7LXLXvNhXpV6jtN8o9Rulg0bpsEnqWI1S3BwxtKV5866KnWax2yz2msX9UtzpdnZU7QgLO6PnTv7fFfy_FdKIZDztvHQ7JEvl6kkEnVH-H08ni-GVlJ4xAu8bu0L48i9t7OYN" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1v4jgQ_isWq6qtBLtxXgjw4U5Aoa203UXQ2-q0PZ1M4oBVY-ecpC_X7X-_ceJAkya7t3d8QHg884znmRcnPHcCGdLOqHN09MwES0fo-Tjd0h09HqHjNUnocRcVgi9EMbLmNDnWOpEU6Yr9nathN37Ualo2JzvGn7R0RTeSot8uu2gMhryLEiKSXkIVi467x7FiO6KeppJLpbXf0UFkRbk3szWRKqTqoGBZPg48MOVM0IPY8V3fnWu7hAZShBXQyIsGUXD8og_H5UOwJSrNj58l9Io83rAw3cI6IjyhoLNNd_wjWVOuY0xVpmVBpu5LMlii_QggbBWTgIkNyF0LRIqIu4PIs15e0MvR0a3YO0Ufl7cCwSfgJEnOaISSFMSz-xRFjPPRO3c6nntWN0mVvKOjd_bMP3PsbqAjGUHoVleT23ugbLNNR2vJQ6Pae9AxjOz4saseR7bVVU_wXfNFRXjwNO3bA3uw9zTx8RRPS09RFP0vT8CruibJnfE1c-b2_GzvC3t9b2q9xSvDPHP9Ma7zRNU9C-gr0Pl87swOVM36HrbaQSdzp29Na6AbktIH8nQAHE7dPeDc8-fYbwUs_NVPma0XSgYloDPz5t4e0J_g-dhuBXTH2B2YEwLORpF4izgR9E_r621nIrO8qNE4jpPbzh-Fnv4I9yvsR2QUkV4gN-iz2hABLYmuoRyTWKq0dylSytFSZilUJjrPWEjRyeXy_PQ2sy1rDXCv8bwq3oKqSKod-kI4C0nKpPgwewxorH-hCyJCrkH1jAgRSJYZzAa0omkWN6Lb9skePuZA_vdxL2EYMUhTCDCnBQyUcRNLGGBnjylVgnC0gK4SVCWoShX2q7EtaUDZPUWLTEF_JhTIg2GDSIpWWRxzBr9n4K0pDjyoQo2DOyEfOA03MCRFij4s6T2jD6gwrnloRhw2Ez8lSumTrCinQc7OPSOoKacTKROgCsHk42QtVc4qWkAJEF5Pg1V1di5lmKAFC-7APovRifF6WgZQMJNsWazDa04trmKuIFMHIi_FvYQOrtk41qEcklTGb_Q1SvrD5NsAUjAy140CfdJDNxf17IPS9RWa7dY0DOkhra9DAJWCirw04hSdUQ4VolAq0TUNtoIFjAh0gq3hKZAkRZLtipLNYvg6X55WAR0AXEBW0BUUsb4A0ZW8Lyqkh7DlV7X7VQKnioIVmDIITRARlOVT5dBvtPoEx7m6ujzLW_NQf0v6V8YSlh_5ZBwE79E4SdhG5HnGDpo3D4XBz_goauUn0GuVf63YZgMI59crNN3S4K7eKbXinRIeZFwf6Jo80qSujZv7KkeXO6i2nNncEVotPnbR7GpSx7CbMS7FWtdbWSVP6IGlW3Qh4QJEY6bQDXlaw12ARAZFp9DF-GbS3PtOyxkrtTjVhaSrSbc82UBZ5IXFxPvvjZXa_fCqoOckSCUc-lDYzQj1G0Ef4wd9jfv_inSgG8Gob2Dcdmr3xJsuaLobClP3RzNlkc_JuplXM9uXX3n6tyb9nzfx6yZ5ik1W3qoPGtVNRSQtkQxrRnlbHNqkru_kd6c96w3dG7R0EAxJQK0_Zzj28_MhpSHtreEBI9juSYV2h9sbro9fbzsvL68NnYMh3CryIekRnqKYKMI55efFU1jdyP0vRt5_Meo3GjER8CyBpLyx2t9Boo96vV9gAJulXyydvlkPzNoxa8cpBMPaGpvnSDE0a1wqGAcDs8aDmgdsXOK9hoFwzdotluUTOgwyg1AqeGZtly5zhW-3nd_1IP2mu780Nap2aWpbRnU2sdGHmf05pvsBog1LSIyNoVeJGwydsdtg59fp2fNlosH78A0_9l5QxltiYINhlwTZRtCvx_tJ5t7tkntsGcvSu22oK6OwTViOVTteme6S6n3YhkDs1gWlRYm4z785QsUBnPUy0u8BnAX6Tbwg7dWbiM76q_elyo7XutNv3fFbdwatO8PWHeC1dQu3b9ntW077VjsRuJ0J3E4FbucCt5OB29mw29mw29mAUiz_OKjKnRa5a17-q1KvUdpvlPqN0kGjdNgkdaxGKW4-MbSleTuvip1msdss9prF_VLc6XZ2VO0ICzuj507-_xb8BxbSiGQ87bx0OyRL5epJBJ1R_j9QJ4vhVZWeMQLvHrtC-PIPExzxuQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
 
@@ -1227,7 +1269,7 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph EWM
+    subgraph lane_0["EWM"]
         n2["Follow Scrap Process"]
         n3["Goods Receipt EWM (Unrestricted)"]
         n4["Create and Confirm Put-away Warehouse task (EWM)"]
@@ -1241,7 +1283,7 @@ flowchart LR
         n19{{"fa:fa-code-branch Reason Code?"}}
         n20{{"fa:fa-code-branch Unrestricted or Blocked"}}
     end
-    subgraph SAP S/4 Intel Foundry 
+    subgraph lane_1["SAP S/4 Intel Foundry "]
         n1["Perform IMR Repair Process"]
         n7[["fa:fa-cog Create a MIGO Transaction"]]
         n8[["fa:fa-cog Create Inbound Delivery"]]
@@ -1293,7 +1335,7 @@ flowchart LR
     class n22 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4jgU_itWqoqOBGqcCwEedkWBdCtNd6syM9VqmAeTOMWqsZHjlDIM_32Pc-ESwsNqeECc23fO-c7B9taKZEytgXV9vWWC6QHatvSCLmlrgFpzktJWGxWKb0QxMuc0bRmfRAo9ZT9zN-ytPoyb0YVkyfjGaKf0VVL09aGNhhDI2yglIu2kVLGk1W6tFFsStRlJLpXxvqK9xE7ybKXpTqqYqoODbQc48iGUM0EPajfwAi80cSmNpIhPQBM_6SVRa2eK43IdLYjSeflZSh_JxwuL9QLkhPCUgs9CL_lnMqfc9KhVZnRRpt4rMlhq8gggbLoiEROvoPdsUCki3g4q397t0O76eib2SdHn55lA8Ik4SdMxTVCqQT151yhhnA-uvNEw9O12qpV8o4MrZxKMXacdmU4G0LrdNuR21pS9LvRgLnlcunbWpoeBs_poq4-BY7fVBr5ruaiID5lGXafn9PaZ7gI8wqMqU5Ikv5UJeFVfSPpW5pq4oROO97mw3_VH9jle1ebYC4a4zhNV7yyiR6BhGLqTA1WTro_ty6B3odu1RzXQV6LpmmwOgP2RtwcM_SDEwUXAIl-9ymz-pGRUAboTP_T3gMEdDofORUBviL1eWSHgvCqyWqDJy2OhMR_hfJ9ZoeSwTWgagR2ZZDRNZ9aPIy8XvO6ljFP0TCPKVtqgoJuvQlHIzSJN40-nER5EjBQFNhARMRpJkTC1RE-Z7hDDzwtRdCFhqEgb_m8Ar4bgN-e84zJ6O0vX_e10_e8AkZBBQjqRfEVjZhqbZwD4IOYyA9Ax5eydqg3SMifR-nEcj-2bPUCq5eqUTlRwTGOI-nQchetRGtpDTzLV577O__A17E2cSafv_YWeXdM_nCR60zxe3N9uD83HtDMH52gBxJNUCmAzpn_OrN3ueG_s5pDjlUBSoXJch2g4MWoLOR0-oemtBzxryoEo4BpIPi4PenmiKpEw0YfHZyhrRZhqbiU4HWO1E-jx4f4f9AVqTEmkmRS16fUaw-qTr4_c_C2G6CE0G2EK66D8KjP4CKNZ5tjYzQ0JHOCcAf0sRWumF0wguPnQisNMaqPw9oO7h0Z1poRB_wa0SVVz7e5dh2bGj4QBgwLGQPdrd3MHnbzFci1unyCZOPvj4KB5ji8LChUqxDSKiEBzilTOOo3rm4B7zQhmnEoQfjv5KH7UNwgf4mA75TrtEK7RiijCOeX3xUFaD3Iag5iIeJbCjM6i9usmAtTp_AGTLsVeIfZLEXcLOShlpxCxXdnz8F8z618KG_fLtF1ZeqWlargwVzi4BKqAK9kt5X4p9-uJ_pY5kFNPc6DTWCuzUxXsVf790v98iY7jGtzyY6Xwsute1TlS9OifgxCzJEVwRYFbVFYV5pWF7hmyy-DjoyNHcE884EYoZb8Qu6VYTg47RzenGffR_X5i6V209C9asF0-dU61uFHrNGrd_cPsVO9d0PsX9N0L-qB6e5yqe83qfqMamG5U42a1U6mttrWkaklYbA22Vv6oh4d_TBOScW3t2hbJtJxuRGQN8sevla1iiBwzAlfAslDu_gOE8ccL" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21v4jgQ_itWqoquBGqcFwJ8uBNv6VXa7qGyu9VpOZ1M4hSrxkaOU8qx_Pcbk4SXED6clg9V5_HMMzPPDE7YWpGMqdWzbm-3TDDdQ9uGXtAlbfRQY05S2miiHPhOFCNzTtOG8Umk0FP2794Ne6sP42awkCwZ3xh0Sl8lRd8em6gPgbyJUiLSVkoVSxrNxkqxJVGboeRSGe8b2knsZJ-tOBpIFVN1dLDtAEc-hHIm6BF2Ay_wQhOX0kiK-Iw08ZNOEjV2pjgu19GCKL0vP0vpE_l4YbFegJ0QnlLwWegl_0zmlJsetcoMFmXqvRSDpSaPAMGmKxIx8Qq4ZwOkiHg7Qr6926Hd7e1MHJKiz88zgeATcZKmI5qgVAM8ftcoYZz3brxhP_TtZqqVfKO9G2ccjFynGZlOetC63TTittaUvS50by55XLi21qaHnrP6aKqPnmM31Qb-VnJRER8zDdtOx-kcMg0CPMTDMlOSJL-UCXRVX0n6VuQau6ETjg65sN_2h_YlX9nmyAv6uKoTVe8soiekYRi646NU47aP7eukg9Bt28MK6SvRdE02R8Lu0DsQhn4Q4uAqYZ6vWmU2nygZlYTu2A_9A2EwwGHfuUro9bHXKSoEnldFVgvEiaD_2D9m1vjlaWb9nZ-aj3AADCWHzULTCHyRSUzT9NzLBa8HKeMUPdOIspVGQITuvglFoQ4WaRp_Oo_wIGKoKCiDiIjRUIqEqSWaZLpFjFYvRNGFhAEjbWZxB3wVBr8-54DL6O0iXfuX03V_AEVCeglpRfIVjZhpbJ4B4aOYywxIR5Szd6o2SEuU63gaj-27A0Gq5epcTpRrTGOI-nQahatRGtpDE5nqS1_nf_ga9cbOuNX1_kDPrukfbhW9qR8v7m63x-Zj2pqDc7QA4UkqBagZ099n1m53ujd2fcjpSiCpUDGuYzTcHnXLiaHeaX-CpvceCK4pB8VAdFC7Uir4TahKJEz38ekZSlwRpurbCs5HWu4Henp8-BN9hXpTEmkmRWWSndqw6hZUx2--In30GJrtMIW10P4RZ_gRRrPMsbG7P0jgYucMRsFStGZ6wQSCJyJagQy60qt3GOIDNKozJQz7d5BQqopr--DaN_N-IgxEFDASeljBuwF08hbLtbifQDJx8SXCQf1MXxYUKlSIaRQRgeYUqb3qNK5uBe7UM5iJKkH4_fgj_6e6TfgYB5sq12mLcI1WRBHOKX_IL9hqkFMbxETEsxRmdBF1WD0RoFbrN5h0YXZys1uYuJ3bQWE7uYnt8nwf_nNm_UVh436atsuTTnFSNpwflzy4ICqJS9st7G5hd6uJvsg9kVNNc5TTnJbHTlmwV_p3C__LJTqNq3HbXzG5l131Ku-UvEf_koSYJcmDSwncvLKyMK8o9KCQXQSfXiN7BvfMA54Ohe3nZrswi8lh5-SJasZ98tw_O-lcPelePcF28Qp0juJa1KlF3cML2znuXcH9K3j7Ch6U7yTncKce7tbCoHQtjOthp4StprWkaklYbPW21v5lH34QxDQhGdfWrmmRTMvpRkRWb_9SbGWrGCJHjMDjYJmDu_8AKLHO0g==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
 
@@ -1316,11 +1358,11 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Factory Portal UI
+    subgraph lane_0["Factory Portal UI"]
         n1["Corrective /Breakdown Order"]
         n11(["fa:fa-play Corrective Break Down Order Initited"])
     end
-    subgraph SAP S/4 Intel Foundry 
+    subgraph lane_1["SAP S/4 Intel Foundry "]
         n2["Adding non-MMID (Text Material) in Component (If Equipment on the warranty)"]
         n3["System creates free of charge PR with account assigned (Work order)"]
         n4["System creates free of charge PO with account assigned (Work order)"]
@@ -1354,7 +1396,7 @@ flowchart LR
     class n14 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1Vm1vo0YQ_isjosiJhHWAwTh8aOU3TpEuFyu-9lTV_bCGxV4FdumyxHZ9_u-d5cVvbXSqquODrWd25pkXZmbZG5GIqREYt7d7xpkKYN9Ra5rRTgCdJSlox4Ra8CuRjCxTWnS0TiK4mrO_KjXbzbdaTctCkrF0p6VzuhIUfnk0YYiGqQkF4UW3oJIlHbOTS5YRuRuLVEitfUMHiZVU3pqjkZAxlScFy_LtyEPTlHF6Evd813dDbVfQSPD4gjTxkkESdQ46uFRsojWRqgq_LOgT2X5lsVojTkhaUNRZqyz9RJY01TkqWWpZVMq3this0H44Fmyek4jxFcpdC0WS8NeTyLMOBzjc3i740Sl8ellwwCdKSVFMaAKFQvH0TUHC0jS4ccfD0LPMQknxSoMbZ-pPeo4Z6UwCTN0ydXG7G8pWaxUsRRo3qt2NziFw8q0pt4FjmXKHv1e-KI9PnsZ9Z-AMjp5Gvj22x62nJEn-lyesq_xCitfG17QXOuHk6Mv2-t7Y-idfm-bE9Yf2dZ2ofGMRPSMNw7A3PZVq2vds633SUdjrW-Mr0hVRdEN2J8KHsXskDD0_tP13CWt_11GWy5kUUUvYm3qhdyT0R3Y4dN4ldIe2O2giRJ6VJPkaQhIpIXcwE1KRFMeoPtcPt39fGGMhJY0Ue6PwYSQpeY3FhsOzHpmF8ce5sn2H6gkJEtLNU8z5zLIyhMnREh5xAzBFY6S4rzmwda4imw9nMP_goq6iKYSi5DHGeebRQX_DOMZZAC549-npcQJ3X-hWwROWXe-Ce2Ac48hywSlXcPeYwPTPkuWZRoID7hvYEIlTpXb3l-n0kHy-KxTNIMLoFS0gkZSCSEAP2orC7AU2TK2BRBHGpgDfEFtxGsPdVyFfodoqV6Tu90mf_zOpp99SxQaPo4nOGKt2qdKvXmSWlZxFWk8JmJd5nrLrl-j_iKwHPyLrh-9nbVuoM6MyETKDjy9AVoTxQkHF-W8d7Jw6uFAi1zYRNk9KLzq11u3t962uvti6S2yiaA3TbU5j3dk_L4zD4dzAPRlgx4lN0SWpwrijtCxwRj7Wm-JkdRwInCzodn_C_xbX0Gmg05z2GtyrsdtAt4ZeA70a9hvo13DQwEENHxr40FC3XHbF_W1h_DadL4xvaN4eNF7sZl_x_nuWn58rwzZY22oUnbNFV6Xc3luXcqe5Yy6lvXbRXordVmyYRkZlRlhsBHuj-srAL5GYJqRMlXEwDVIqMd_xyAiq29go8xgtJ4zgKspq4eFvdZe8pg==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1Vm1v2zYQ_isHFYETQEb1ajn6sMFvKgI0TRB3K4Z5GGiKsolQpEZRsT3X_32kXuzYa1AMQ_XBxnN67rk78njU3sIiJVZsXV3tKacqhn1PrUlOejH0lqgkPRsaw69IUrRkpOwZTia4mtO_a5obFFtDM7YE5ZTtjHVOVoLAL3c2jLQjs6FEvOyXRNKsZ_cKSXMkdxPBhDTsd2SYOVkdrX01FjIl8kRwnMjFoXZllJOT2Y-CKEiMX0mw4OmZaBZmwwz3DiY5JjZ4jaSq069Kco-2X2iq1hpniJVEc9YqZx_RkjBTo5KVseFKvnSLQUsTh-sFmxcIU77S9sDRJon488kUOocDHK6uFvwYFD4-LTjoBzNUllOSQam0efaiIKOMxe-CySgJHbtUUjyT-J03i6a-Z2NTSaxLd2yzuP0Noau1ipeCpS21vzE1xF6xteU29hxb7vTvRSzC01OkycAbesNjpHHkTtxJFynLsv8VSa-r_IzK5zbWzE-8ZHqM5YaDcOL8W68rcxpEI_dynYh8oZi8Ek2SxJ-dlmo2CF3nbdFx4g-cyYXoCimyQbuT4O0kOAomYZS40ZuCTbzLLKvloxS4E_RnYRIeBaOxm4y8NwWDkRsM2wy1zkqiYg0McfKn8_vCShBWQu7gUUiFmD5PC-uPhmse7mrKREhJsKIvBN6PJUHPqdhweDDH54LsXmt6huIM9Qum63_lWTvC9OgJd3oaUEVSLXHTaOg2-laWJoX56BHm7wPtpAiDRFQ81TmfR_c0b5Sm-owAF7x_f383hevPZKvgXm-HmRE3QLnOKS8EJ1zB9V0Gs78qWuQGCQ56DsEGSX3a1O7mXNw3SexKRXLAuhJFSsgkISAyMAdwReDxCTZUrQFhrNNToHeOrjhJ4fqLkM9QT5sL0eD7og__WTQ0O1arwd14airWC3dOGdSbmucVp9jwlIB5VRSMXm5o9COqHv6Iqm-_X7Vr2v2RyEzIHD48AVohyksFtea3utk7dXOpRGF8sG4eRs66tuH6-33HNRdef6mbCK9hti1Iarr854V1OLx2CE4OuuPEpuwjpnTemFWlPi8fmgly8joeDn3KoN__Sf93uIFeC732rd9iv8FBC4MGhi0MGzhoYdTAYQuHDbxt4W0r3Wm5tfbXhfXbbL6wvmr37kUbxW3nGB-85fnpoXbsknWdlui9GoB1yd19dm732rvn3Op3A_jcHHRmy7ZyInNEUyveW_XXh_5CSUmGKqasg22hSon5jmMrrm9pqypS7TmlSI-lvDEe_gHPcMRt" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
 
@@ -1377,11 +1419,11 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph EWM
+    subgraph lane_0["EWM"]
         n4["fa:fa-user Create VAS Order"]
         n8["E2E-94M R3 Kit components assembled in Internal WH"]
     end
-    subgraph Intel Foundry
+    subgraph lane_1["Intel Foundry"]
         n1["Perform MRP Run"]
         n2["fa:fa-user Load Max Plan Data in S/4 via Excel​"]
         n3["fa:fa-user Buyer to check the inventory before creating VAS order"]
@@ -1408,7 +1450,7 @@ flowchart TD
     class n9 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2PozYU_SsWo1Faiah8hoSHSgmBdrU7ajTZ7jxs-uCASawxdmpMPjbKf-81EPKxmafygHQP1-fce8y1j0YqMmKExvPzkXKqQnTsqTUpSC9EvSUuSc9EDfANS4qXjJQ9nZMLrub0R51me5u9TtNYggvKDhqdk5Ug6O9PJhrDQmaiEvOyXxJJ857Z20haYHmIBBNSZz-RYW7ltVr7aSJkRuQlwbICO_VhKaOcXGA38AIv0etKkgqe3ZDmfj7M095JF8fELl1jqeryq5K84P0bzdQa4hyzkkDOWhXsC14SpntUstJYWsnt2Qxaah0Ohs03OKV8BbhnASQxf79AvnU6odPz84J3oujrdMERPCnDZTklOSoVwPFWoZwyFj550TjxLbNUUryT8MmJg6nrmKnuJITWLVOb298RulqrcClY1qb2d7qH0NnsTbkPHcuUB3jfaRGeXZSigTN0hp3SJLAjOzor5Xn-v5TAV_kVl--tVuwmTjLttGx_4EfWz3znNqdeMLbvfSJyS1NyRZokiRtfrIoHvm19TDpJ3IEV3ZGusCI7fLgQjiKvI0z8ILGDDwkbvfsqq-VMivRM6MZ-4neEwcROxs6HhN7Y9oZthcCzknizRvHbS4Poh3vfF0aOwxz3tcEokgQaQN_Gc_SXHpKF8c9V8hCSYyfuj7wX9Oqiz1ShVBQbwQlXJYKCSQFjnCHK0SeuiOSYobc_Ow74We5q0VkMJaLimTxcCdkgNCMyF7JAL68z9Frx20qc27K_CJwhGDs0Y5ijKVZY1zD_zUNbilG8TwlbVI5lLW9Z3FuWSXWAtxIoXZP0HcHZBCxb6E3IA1oSqIagVBsEw1hbJH62yP_ecaZidfZzVkkY1pKgV_JvRUuqqOAI-GoLo4uFXZHXlINfOsoNg19Lr0mglhSXqiYZt8aDncAMehkw_HrFEHT79vnBvm3g96okbBvmGQJaQrf1HoIRj3axZhwdj-easJRiV_YxU2iDJWaMsD-aIVgYp9PdzvMB6vd_h_1rQ6cJ29Hkoyb029BuwlEb-k0YtKHXhMPbtW4buk3oXY2TljsfIzew-xj2HsP-9clx82XQnb03cPAYHj6GR-czxDCNgsgC08wIj0Z9U8JtmpEcV0wZJ9PAlRLzA0-NsL5RjGqTwcopxTBcRQOe_gO_NWJI" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVuP4jYU_itWRiNaKai5EshDJQikXe2OiobtzsNSVSZxwBrHpo7DpYj_3uMkBMIyT81DpPP5-PvOxcc-GYlIiREaz88nyqkK0amnNiQnvRD1VrggPRPVwDcsKV4xUvS0Tya4WtB_Kzfb2x60m8ZinFN21OiCrAVBf34y0Rg2MhMVmBf9gkia9czeVtIcy2MkmJDa-4kMMyur1JqliZApkVcHywrsxIetjHJyhd3AC7xY7ytIInjaIc38bJglvbMOjol9ssFSVeGXBXnBhzeaqg3YGWYFAZ-NytkXvCJM56hkqbGklLtLMWihdTgUbLHFCeVrwD0LIIn5-xXyrfMZnZ-fl7wVRV-nS47gSxguiinJUKEAnu0Uyihj4ZMXjWPfMgslxTsJn5xZMHUdM9GZhJC6Zeri9veErjcqXAmWNq79vc4hdLYHUx5CxzLlEf53WoSnV6Vo4AydYas0CezIji5KWZb9LyWoq_yKi_dGa-bGTjxttWx_4EfWj3yXNKdeMLbv60TkjibkhjSOY3d2LdVs4NvWx6ST2B1Y0R3pGiuyx8cr4SjyWsLYD2I7-JCw1ruPslzNpUguhO7Mj_2WMJjY8dj5kNAb296wiRB41hJvN4hhTv62vi-N2dvL0virXtUf9wDMcJjhvi42iiSBZNC38QL9oQem6zzUDM6sP_Je0KuLPlOFEpFvBSdcFQiCJzmMdIooR5-4IpJjht5-bzng4DyKywZW7c5QLEqeymNXVC_PicyEzNHL6xy9lrzr4HRT-CJwimAc0RzY0RQrrONZ_OKhHcVodkgIW5aOZa26LG6XZVIe4a8ESjYkeUdwZwHLDvIU8ohWBKIhKNHFgiGtyiV-LJf_veVMxPpS23kpYYgLgl7JPyUtqKKCI-Cryhldy9kGeUs5-Kml3DI4cnpPDLEkuFAVybhpAjQAmEEvBYafbxiCtoefH_RwC8eulNBCzFMEtITuqn5CIR51tGIcnU6XmLCUYl_0MVNoiyVmjLDf6uFYGufz3SngA9Tv_wr9a0ynNpuR5aPa9BvTrs1RY_q1GTSmV5vD7l63Md3a9G7GTMtdrpcO7D6Gvcewf3ujdFYG7Z3cgYPH8PAxPLrcLYZp5ETmmKZGeDKqFxRe2ZRkuGTKOJsGLpVYHHlihNVLY5TbFHZOKYZBy2vw_B9htWoP" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
 
@@ -1431,22 +1473,22 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Boundary Apps 
+    subgraph lane_0["Boundary Apps "]
         n16[["fa:fa-cog Perform Validation/Exception Handling based on rules setup​"]]
         n17[["fa:fa-cog Organize Transport-Intel Routing Guide (IRG)​"]]
     end
-    subgraph EWM
+    subgraph lane_1["EWM"]
         n9[["fa:fa-cog Distribute Inbound Delivery Distribution to EWM"]]
         n10[["fa:fa-cog Perform Goods Receipt in Kitting SLoc in Internal WH​"]]
     end
-    subgraph External Partners/B2B
+    subgraph lane_2["External Partners/B2B"]
         n11[["fa:fa-cog Receive Purchase Order at Supplier End​"]]
         n12[["fa:fa-cog Acknowledgement /Review ​ Purchase Order​"]]
         n13[["fa:fa-cog Perform Carrier Selection via Intel Routing Guide Hosted Collaboration Portal"]]
         n14[["fa:fa-cog Perform Goods Picked up (Carrier) Order Shipment"]]
         n15[["fa:fa-cog Receive Supplier Invoice"]]
     end
-    subgraph SAP Intel Foundry
+    subgraph lane_3["SAP Intel Foundry"]
         n1[["fa:fa-cog Create Purchase Requisition"]]
         n2[["fa:fa-cog Create Purchase Order"]]
         n3[["fa:fa-cog Calculate Taxes"]]
@@ -1523,7 +1565,7 @@ E2 Open"| n27
     class n27 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21v4jgQ_itWVhWtBGocEgJ8uBPQ0O1de4tKb6vTdj-YxAGrxs45CS_X5b_fOCQBUlLdCx-qztszM4_Hk-TN8GVAjb5xcfHGBEv66K2RLOiSNvqoMSMxbTTRXvGVKEZmnMYN7RNKkUzZX5kbtqONdtO6MVkyvtXaKZ1Lin6_a6IBBPImiomIWzFVLGw0G5FiS6K2I8ml0t6faDc0wyxbbhpKFVB1cDBNF_sOhHIm6EHddm3XHuu4mPpSBCegoRN2Q7-x08VxufYXRCVZ-WlMH8jmmQXJAuSQ8JiCzyJZ8nsyo1z3mKhU6_xUrQoyWKzzCCBsGhGfiTnobRNUiojXg8oxdzu0u7h4EWVSdP_4IhD8fE7i-IaGKE5A7a0SFDLO-5_s0WDsmM04UfKV9j9ZnnvTtpq-7qQPrZtNTW5rTdl8kfRnkge5a2ute-hb0aapNn3LbKot_K3koiI4ZBp1rK7VLTMNXTzCoyJTGIb_KxPwqp5I_Jrn8tpja3xT5sJOxxmZ7_GKNm9sd4CrPFG1Yj49Ah2Px23vQJXXcbBZDzoctzvmqAI6Jwldk-0BsDeyS8Cx446xWwu4z1etMp1NlPQLwLbnjJ0S0B3i8cCqBbQH2O7mFQLOXJFogYYyzWYZDaIoRnuj_gnc-fbtxQhJPyQtX87RhKpQqiX6SjgLSMKkuPY2Po30f-gzEQFclznSNzlAoFEp3GAgNUmjl9QyzdmL8f37Mbx7Cv9FzYmAe46eYMbjSKqkdScSytGjTBONfJuygKLLu8fbqyogjF2lK-_54ShX7zTVDQOG2CxNKLoTM90_uqGcrSiwUNp0V4nMgCqFm-d5uZUyiNEj9SmLEsQE-pUlWeHTezgvkHU7ShCOnj__gwY2ufMEbq-gKr4eWsPjKvBpFVneFUWTVMEeiCnwCUsNkQRN0yjiDP73IMnZk7BOoQb-q5BrToM5LGORoOtHumJ0jfbBlQznEdvnKRoRpXQlU8qpnzG8YgSdO-bPMk5gjmDBcjKTKhs3NIGhILyay_7oOCbMfwWcNEKXefKrnJnpgkW6vSqcc57XksU7sZKwJj46u-lgkjc11sOltsf4p_AjRWFDHDh9pH-mLGa63Uph1seB-8M4DamcwohwP-U66olsaFxxrtD4pNh8Du3ePk3RaEH914q7U8O6dpdLoIoIn-4j0XRy30Tew7ACUd0vcOQf0JyFuGdJeHeJ1yxZwAjBMwINmELPZDuDdQlL6rlaQ_cUsCyfMF0-FI5gsSFveFsdk-5lGRgnMtpTeqA4AP-rY_9exb_ktaDuXYhlVkKq3GSMvQ_D_z6TBRGe5bV69jN6bKOnB3hpoJGekGOvdun1i_aC9QbzrahP4NwAFw3imC5nfJtRplmUQq8P_bhKFc3v2jGg_fZ2ID-grRlsfn9Rtjfw9dOFBj-_GLvdcZxziIM7Lddxi_AERUQRzim_3T9yq0Gd_xLkng2C2eBpDKP2LqrcBQKjVusnjZDLVi47uWzv5UK03NxeyM5etityu4DP8XERgLMEP16M9sBGl_sVN5IiZGqZLc8reLR7FvoSUVgsP44Kw508czUVLnO1c0UZkheLixCcd1M4FM10crmX-5tFCjsv9g-9hqCawtHKi-lV5G4uF5V0T2rdd33tWWV3OH-5E0UvBWDRbFFJN5cLf6vIUK30N7kHLg4MF8jV0i3r6I1Nz8HRe-WJxaq1tGstdq3FqbV0ai1uraVba-nVWrBZb6pnAdfTgOt5wPVE4HomcD0VuJ4L3M0_a061vXNayzyrxWe1Vvlpdqpv1-jt4mviVO2cV3fOq91CbTSNJYXlwAKj_2ZkH97wcR7QkKQ8MXZNg6SJnG6Fb_SzD1QjjeCtn94wAi85y71y9zfwS_C0" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21v4kYQ_isrnyJyEiheY2PgQysgkEub9FBIL6pKVS32GlZZdt21DaE5_ntn_Ubs4OsbH6LM2zMzz86O7VfDkz41hsbFxSsTLB6i11a8oVvaGqLWikS01UaZ4gtRjKw4jVraJ5AiXrA_Uzdshy_aTetmZMv4QWsXdC0p-vm2jUYQyNsoIiLqRFSxoNVuhYptiTpMJJdKe3-g_cAM0my5aSyVT9XJwTRd7DkQypmgJ3XXtV17puMi6knhV0ADJ-gHXuuoi-Ny722IitPyk4jek5cn5scbkAPCIwo-m3jL78iKct1jrBKt8xK1K8hgkc4jgLBFSDwm1qC3TVApIp5PKsc8HtHx4mIpyqTo7mEpEPw8TqLomgYoikE93cUoYJwPP9iT0cwx21Gs5DMdfrCm7nXXanu6kyG0brY1uZ09ZetNPFxJ7ueunb3uYWiFL231MrTMtjrA31ouKvxTpknP6lv9MtPYxRM8KTIFQfC_MgGv6pFEz3muaXdmza7LXNjpORPzPV7R5rXtjnCdJ6p2zKNvQGezWXd6omrac7DZDDqedXvmpAa6JjHdk8MJcDCxS8CZ486w2wiY5atXmazmSnoFYHfqzJwS0B3j2chqBLRH2O7nFQLOWpFwgzgR9Hfz16Uxlkk61GgUhhFaGr9ljvoncO9X8AjIMCAdT67RnKpAqi36QjjzScykuJq-eDTU_6FPRPhwddZI32ofgUYlcJuB4DgJl4llmitAr8C7VfjPak0E3Hn0CPMehVLFnVsRU44eZBJr5JuE-RRd3j7cfKwDwgie6xBDgunTfbWtQTXtNQPm2CqJKboVK00Huqac7SiQUtp0h7FEGValCfM8RzdS-hF6oB5lYYyYQD-yOG1icQfnCLJuTQnC0dOnf9iMpZt5yaPmcL0FVdHV2BrXTg1XK0pr2FE0TxTsiogCz7D4EInRIglDzuD_KSQ8e0JWFWrkPQu559Rfw8IWMbp6oDtG9ygLrmU4j9g9T9eEKKUrWVBOvZTtHSPo3PF_klEM8wVLmJOVVOkYojkMC-H1XPa3jmbOvGfASUJ0mSf_mDOz2LBQt1eHc87zWrJ4K3YSVsnfnmMXYBajed7dTE-cOtTOsJpqoihslBO_D_SPhEVMt14r0vp2YHYw1ZDaiUwI9xKuox7JC41qzjVKHxVbr6H1m8cFmmyo91xzdxpOQLvLLdBGhEezSLSY37XR9H5cg6jvIDj-b1CehrhnSXh3ufcs3sA4wTMFjZhCT-SwgvUKi-ypXkO_CliWT5guHwpHsPzQdHxTH5n-ZRkYxTLMKD1R7IP_x7f-g5p_yWtB3bsQy6yF1LlJGXsfhv99pnT_WNPOwH5CD130eA8vGTSMqpNrdUuvH7QXrD0YcUU9AucGuGgURXS74oeUMs2iFHqV6Mdbomh-794C2q-vJ_J92lnB08HblO2NPP0Eov73S-N4fBvnnOLgfst91CE8RiFRhHPKb7JHdD2o91-C3LNBMBs8iWDU3kWVe0Fg1Ol8pxFy2cplJ5ftTC5Ey83thexksl2TuwV8jo-LAJwm-Lo0uiMbXWbrbiJFwNQ2XaQf0VJMLfQ5pLBYvr4pDPfyzPVUuMzVzRVlSF4sLkJw3k3hUDTTy-VB7m8WKey82F_0GoJqCkcrL2ZQk_u5XFTSr9SadX01tcrucP4yKIpeCsCi2aKSfi4X_laRoV7pTzIDLg4MF8j10i3rzRuenoM376EVi9Vo6TZa7EaL02jpNVrcRku_0TJotGCz2dTMAm6mATfzgJuJwM1M4GYqcDMXuJ9_BlW1g3NayzyrxWe1VvkpV9V3G_R28fVRVTvn1b3zardQG21jS2E5MN8Yvhrphzp8zPs0IAmPjWPbIEksFwfhGcP0g9ZIQvgyoNeMwAvPNlMe_wLPxgBV" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
 
@@ -1546,7 +1588,7 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph EWM 
+    subgraph lane_0["EWM "]
         n6["Create OBD for KIT Components"]
         n7["Perform Picking"]
         n8["Post Consumption of KIT Components"]
@@ -1557,7 +1599,7 @@ flowchart LR
         n18["E2E-94I R3 Kit Forecast for Assembly and Component Procurement"]
         n20{{"fa:fa-arrows-alt inclusiveGateway"}}
     end
-    subgraph Intel Foundry
+    subgraph lane_1["Intel Foundry"]
         n1["Replicate OBD in S/4"]
         n2["Perform Goods Issue WRT OBD"]
         n3["Replicate IBD in S/4"]
@@ -1602,7 +1644,7 @@ will be stored separately​"| n5
     class n20 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVk2P4jgQ_StWRr3MSKBNQkKAw0p8pRfNzE4LeqcPyx5M4jQWxo5sB5pl-O9bJh-Q9LCX5YBUz1WvXpXLdk5WJGJiDa2HhxPlVA_RqaU3ZEdaQ9RaY0VabZQD37GkeM2IahmfRHC9pP9c3BwvfTNuBgvxjrKjQZfkVRD057yNRhDI2khhrjqKSJq02q1U0h2Wx4lgQhrvD6Sf2MklW7E0FjIm8upg24ET-RDKKCdXuBt4gReaOEUiweMaaeIn_SRqnY04Jg7RBkt9kZ8p8hW_vdBYb8BOMFMEfDZ6x77gNWGmRi0zg0WZ3JfNoMrk4dCwZYojyl8B92yAJObbK-Tb5zM6PzyseJUUfVmsOIJfxLBSU5IgpQGe7TVKKGPDD95kFPp2W2kptmT4wZ0F067bjkwlQyjdbpvmdg6Evm70cC1YXLh2DqaGoZu-teXb0LXb8gj_jVyEx9dMk57bd_tVpnHgTJxJmSlJkv-VCfoqn7HaFrlm3dANp1Uux-_5E_s9X1nm1AtGTrNPRO5pRG5IwzDszq6tmvV8x75POg67PXvSIH3Fmhzw8Uo4mHgVYegHoRPcJczzNVVm6ycpopKwO_NDvyIMxk44cu8SeiPH6xcKgedV4nSDZi9fUQ6ZH-_9tbImkoBs9G08RYmQ6PP8GU3ELhWccK1W1t837gG4PxEJbjv0RKMtzGXdoW8chNLAwFW2SzUVHInkP0kHRgOsMQIqvo-W6Js5oHUfx74KnfO1yHiMpoTRPZHHhqdzq_FxgTC4VvRPmcawQY0QD0ISPExwx8wZKvLck2JqnLmzzsCbo0UXfaYahUKSCEPZpoEjpchuzY5V5kvRyOxjJuHC47pO6NqnU5kfSykOqoOZRpRHLFNQ4WM-VCvrfM6j4Ng1dnXONWGgAtoC_bjRClIXJGU0KneYcrT81WsIuOnYoxCxQnOlMoJeFs8mpu7crVHO71B67ygXJCI01ShLYwiMTdS8ye1fuPeUHK7NL_cOBqmxD25j1zYk2qKP4-xI5Kebvo_2mDK8pozq5r536wxTEuX7c93PorbMte11I9j_WEWnDM78zzMWsubwBFJTN5B8umXpXVmUFuk1cyXmfUxQDeCTGcAlzAMcRASvKdrCMGqBJoxgbrBEit1lOiTHDL38jjowh6Rab5Q0-Okgplhixgi7P4fQDNTp_Gb2pAS8HOgVdq9YL5dzMyjMIDf7hdnPzZLLzc1BYQ4KKrvksnOgW9jdYr3KVSTzCrtQ5pR8pfQy3ikJSu1ukcApGZxCkVtJ6DeBUmRQA36Yiy5NYdR-gUv4D8E7hbniB7jg0ZrA8w0DEMPrZLoOh_pYzt4PUHrzOFxUlK9iHe_ewb07uF99M9TxXvG-19Hgjnf_Dj4oH8UaDD0tYKtt7YjcYRpbw5N1-SKEr8aYJDhj2jq3LZxpsTzyyBpevpys_AKZUgxX3y4Hz_8C0pg2Pw==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP4jYU_itWVlN2JVCTkBDgoRK3TNHudkcw3XkoVWUSZ7DG2JHtwLAs_73H5ALJDH0pD0jn8znf-c4lcY5WJGJiDa27uyPlVA_RsaU3ZEtaQ9RaY0VabZQD37GkeM2IahmfRHC9pD_Obo6Xvho3g4V4S9nBoEvyLAj6c95GIwhkbaQwVx1FJE1a7VYq6RbLw0QwIY33B9JP7OScrTgaCxkTeXGw7cCJfAhllJML3A28wAtNnCKR4HGNNPGTfhK1TkYcE_tog6U-y88U-Ypfn2isN2AnmCkCPhu9ZV_wmjBTo5aZwaJM7spmUGXycGjYMsUR5c-AezZAEvOXC-TbpxM63d2teJUUfVmsOIJfxLBSU5IgpQGe7TRKKGPDD95kFPp2W2kpXsjwgzsLpl23HZlKhlC63TbN7ewJfd7o4VqwuHDt7E0NQzd9bcvXoWu35QH-G7kIjy-ZJj237_arTOPAmTiTMlOSJP8rE_RVPmL1UuSadUM3nFa5HL_nT-y3fGWZUy8YOc0-EbmjEbkiDcOwO7u0atbzHfs26Tjs9uxJg_QZa7LHhwvhYOJVhKEfhE5wkzDP11SZrR-kiErC7swP_YowGDvhyL1J6I0cr18oBJ5nidMNYpiTf-y_Vtbs6StaWX_nx-bHe4BOJIES0LfxFCVCos_zRzQR21RwwrWquwfg_kAkuG3RA41eYEfrDn3jIJQGBq6ybaqp4Egk_0k6MBrgjBFQ8X20RN_Mw1r3ceyL0Dlfi4zHaEoY3RF5aHg61xrvFwiDa0X_kGkMw2qEeBCS4GGCO2bnUJHnlhRT48yddQbeHC266DPVKBSSRBjKNg0cKUW2a3aoMp-LRmammYSXH9d1Qtc-Hsv8WEqxVx3MNKI8YpmCCu_zBVtZp1MeBY_gexM2hc-5JgzkQH_eNAaOFyRlNCqnTTla_uo1xFx1716IWKG5UhlBT4tHE1N37tYo5zcovTeUCxIRmmqUpTEExiZq3uT2z9w7SvaXQZRzhKVq1OY2Jrgh0Qv6OM4ORH66msFohynDa8qobnanW2eYkiif1WW2RW2Za9vrRrD_sYpOGbwL3s9YyJrD1UhN3UDy6Zqld2FRWqSXzJWYtzFBtYwPZhmXsBvwUCK4ZdELLKYWaMII5gZLpNgisyCSY4aefkcd2ElSnTdKGry7lCmWmDHCbu8kNAN1Or-ZmZSAlwO9wu4V5-VxbgaFGeRmvzD7uVlyubk5KMxBQWWXXHYOdAu7W5xXuYpkXmEXypySr5RexjslQandLRI4JYNTKHIrCf0mUIoMasBP89JLU1i1X9CK_yF4pzBXfA8vfrQmcK3DAsRwa5muw3N9KHfvJyi9ujTOKsrbso53b-DeDdyvviXqeK-49-tocMO7fwMflJdlDYaeFrDVtrZEbjGNreHROn8pwtdkTBKcMW2d2hbOtFgeeGQNz19UVv4CmVIMr8FtDp7-BejHPgY=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
 
@@ -1625,18 +1667,18 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Boundary Apps 
+    subgraph lane_0["Boundary Apps "]
         n1["Organize Transport-Intel Routing Guide (IRG)​"]
         n19[["fa:fa-cog Perform Validation/Exception Handling based on Rules Setup​"]]
         n22(["fa:fa-play Validation/Exception Handling Initiated"])
     end
-    subgraph EWM 
+    subgraph lane_1["EWM "]
         n4["Distribute Outbound Delivery Order"]
         n5["Perform Pick and Pack Updates"]
         n6["Perform Goods Issue"]
         n7["Move stock from Blocked to Unrestricted"]
     end
-    subgraph External Partners/B2B 
+    subgraph lane_2["External Partners/B2B "]
         n8["Receive Purchase Order at Supplier End"]
         n9["Acknowledge/Review Purchase Order"]
         n10["Receive Material at Supplier's End"]
@@ -1647,7 +1689,7 @@ flowchart LR
         n24(["fa:fa-stop Materials Received"])
         n39{{"fa:fa-arrows-alt inclusiveGateway"}}
     end
-    subgraph Intel Foundry - WH 
+    subgraph lane_3["Intel Foundry - WH "]
         n13["Create Inbound Delivery with House Air Waybill number HAWB​"]
         n14["TM Embedded"]
         n15["Perform Goods Receipt in WH"]
@@ -1665,7 +1707,7 @@ flowchart LR
         n36{{"fa:fa-arrows-alt parallelGateway"}}
         n37{{"fa:fa-arrows-alt parallelGateway"}}
     end
-    subgraph SAP S/4 Intel Foundry 
+    subgraph lane_4["SAP S/4 Intel Foundry "]
         n2["Create Outbound Delivery"]
         n3["Stock updated as Unrestricted in IM"]
         n18["fa:fa-user Create Sub Con PR/PO"]
@@ -1738,7 +1780,7 @@ flowchart LR
     class n39 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWNtu2zgQ_RXCReEUsBFdfXvYhe3YadBk443TBkWzD7RE2URkUSClXDbNv-9QImWLllu064dEHM7MmTmcGVp-bQUsJK1R6_37V5rQbIRe29mGbEl7hNorLEi7g0rBF8wpXsVEtKVOxJJsSf8t1GwvfZZqUjbHWxq_SOmSrBlBny86aAyGcQcJnIiuIJxG7U475XSL-cuUxYxL7XdkEFlRgaa2JoyHhO8ULKtvBz6YxjQhO7Hb9_reXNoJErAkrDmN_GgQBe03GVzMnoIN5lkRfi7IFX6-o2G2gXWEY0FAZ5Nt40u8IrHMMeO5lAU5f9RkUCFxEiBsmeKAJmuQexaIOE4ediLfentDb-_f3ycVKLq8uU8QfIIYC3FGIiQyEM8eMxTROB6986bjuW91RMbZAxm9c2b9M9fpBDKTEaRudSS53SdC15tstGJxqFS7TzKHkZM-d_jzyLE6_AX-GlgkCXdI054zcAYV0qRvT-2pRoqi6H8hAa_8FosHhTVz5878rMKy_Z4_tQ796TTPvP7YNnki_JEGZM_pfD53ZzuqZj3fto47nczdnjU1nK5xRp7wy87hcOpVDud-f273jzos8cwo89WCs0A7dGf-3K8c9if2fOwcdeiNbW-gIgQ_a47TDZqwvKhlNE5TgcpN-Unsb_eta77GCTQfuoXCEynjWfciyUiMblieQQ2i85yGBJ1c3Jx_uM8dy1rdt_7Z9zH8Bl4iPIpwN2BrtCA8YnyLvuCYhjijLDmdPQcklU_oI07CWDqV0yBEILnJYQqgJcnytPK-795xTir3aQw0_9jvBYwdCgcSgpsPpRsoWIOP2d3VPgseAJxRYJSu8oyg6zxbScLQGYnpIwHaruXwqGftg43OdEGDBwQBoAWGh88pREdEXb23p37OWCjQhRA5qSv1QemKPRJoZwaOIs62aBLDIzCVMfQ54UQGGZTZHU3uOSM8wTFEw7OEcHE6cSb76Q4A5oYEBHJDi5zDSBGkTBHhDC3zNI0pPM-SsB7eEOzGwUPCnmISrsnpDXmk5MlwYdSGtYd1BbTI4b2P0haHOLa9R9YUcy6jWZKYBMVRP1KMmgp0wpgAZhAM7BivGC9KBC2gnnFsADgHpyGPEGzzFJ0oxA-oLEfFjNjQdEuSrKkDHKveAUs4lB2PF8kjg5ljlrW7K2s47vRAX3rJdkVcGnmGkaZUIEVyaFi4w9dXbQF5sSfRxXGGaBLEuQD983J23bfe3o7VU8n1XHYEtEIX3X2sTRAXIppyAn5A0-ibJ5pt0EcGcxyNKUd3-GUFIw0l-XYFiX4c300aB4rsx9srNAOtMCRmdfgHh1fknsqsIDhDu9Z4t0uoji3QjBNJ8OKy6NrZVXMY_V8BcmxjCkIx_rQGfOM4iwA3BHpf4R6cp9P7Wdksii4wzWQuM2fWHXp36MZFwC5opcaQcgaV1t9S6xPNIOUUw9HJ-4gIU39Y6d9KfRgIMG6ItCv6EmiSxVMMI5Mv19kVpvzS2F3B7RNsqjTGgRzt0JJ_7mqzNHSbDcsGkLAQK3yz3Jp23jG7EN3i9Rr-fbq4NY16je2TYo7jmMQH3VMa9X_N6LDlluMFWp56RuvtM79ruoPbyuAZNJfFdZIX91KIsKjdJMUpXRmlP6iKTH4HQwpqma-gf2Cm3pwurg0YqyqFS106AbQaS2CKCcAUZAuHEv64JuzmIyrjp0Jfhibf_u8c0uB3ByOYom73D8mSEjjl2lNLW-27vhJ45Vov_XLZ0-7U2qmtv9-33LF3OnPQdUqS-9Z3uLeVgnI_VMueisYy_Nm2jsdWAr1WSw1oOxpw4pyifUTb1SquSqkKWqN6pkBr2Erg6LQdSwm00-EuT3RS3rJQXRHl2-Lq_gChFJGo2fxdMq99KcptTYKjknIq-KGKuKJVCfRbBlwkSqOvNTQPf7ESbWhufJVf675LNL3TVz6qs9dJVrwogVuxr6rBqWBtDXtdT7La-DpbFjvaQoNqPbUcGEfhVgpuHcH2zQ2NYFdBeUZQw9qGnP2mpvbhDPZeZ4pu0O9xdflw_22stgWVcnTLPr7lVK_BdbmrXlnrUq9R6jdKe43S_hG8wRH5sFkOFdIst_WbZV3sNIvdZrHXLPabxb1mcb9ZPGgWD7W41WltCXQzDVuj11bxuw_8NhSSCOdx1nrrtHCeseVLErRGxe8jrfKKOqMYrsFtKXz7D_yCmso=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv2zYU_iuEi8ItYCMSJfn2sMF27DZYs3hxumBYhoGWKJuILAqklMvS_PcdSqRsMXKHbX5IxI_n-vGcQ8svnZBHtDPpvH__wlKWT9BLN9_RPe1OUHdDJO32UAX8SgQjm4TKrpKJeZqv2V-lmOtnT0pMYUuyZ8mzQtd0yyn6etFDU1BMekiSVPYlFSzu9rqZYHsinuc84UJJv6Oj2IlLb3prxkVExUHAcYZuGIBqwlJ6gL2hP_SXSk_SkKdRw2gcxKM47L6q4BL-GO6IyMvwC0kvydMti_IdrGOSSAoyu3yffCEbmqgcc1EoLCzEgyGDSeUnBcLWGQlZugXcdwASJL0_QIHz-ope37-_S2un6Mv1XYrgEyZEynMaI5kDvHjIUcySZPLOn0-XgdOTueD3dPIOL4bnHu6FKpMJpO70FLn9R8q2u3yy4UmkRfuPKocJzp564mmCnZ54hr-WL5pGB0_zAR7hUe1pNnTn7tx4iuP4f3kCXsUNkffa18Jb4uV57csNBsHceWvPpHnuD6euzRMVDyykR0aXy6W3OFC1GASuc9robOkNnLlldEty-kieDwbHc782uAyGS3d40mDlz46y2KwED41BbxEsg9rgcOYup_ikQX_q-iMdIdjZCpLtUEJS-qfz-11nxouyqNE0yyS66_xRCapP6sL-ldiSFBoR3UARyoyLvH-R5jRB17zIoR7Rp4JFFH24uP708a7AjrOxbIx_BysxmcSkH_ItWlERc7FHv5KERSRnPD1bPIU0U0_oM0mjRBlVkyFCgFwXMBHQmuZFVls_No_xh9p8lgDl37d7ASOIweFEYOZjZQaKt40blfvi9tJixAf0nAHTbFPkFF0V-Ubxh85pwh4osHilhkpTJwAdk_WKhfcIgkErAg9fM4iUyqb44Ej8E-eRRBdSFrQpNAShS_5Aoc05GIoF36NZAo_AWs7R11RQFWRYZfrdRLFK9CmnIiUJhCXylAp5NsMzK_URyF3TkEKeaFUIGDuSVukikqN1kWUJg-dFGjX1xqA3De9T_pjQaEvPrukDo4-WCatmnCNfl0CRGvDHXrryrR_XPSJuToRQ0axpQsOyBB4YQW2FO-NcAksIhnpCNlyUpYNWUOcksRzgNyejjhN0iwx90B4_oqpMNTNyx7I9TfO2zsBOszPWcEAHHi_SBw5zyS5371DucPTZG3llJT8Ud6XkW0qGUok0yZGl4Y1fXowG5MUfZZ8kOWJpmBQS5D9V8-2u8_r63drywG9F-lK1CfRHH91-tqeMkpoLCjYhC6ufHlm-Q585zH00ZQLdkucNjECUFvsNJP15ejtrHTqqT28u0QKkoojalRK8OciSh0xlCPFZ0o2GvFlDpeyBcpIqsldfym5eXLaHMfw3jrBrTUoozH-sh8A62jLAHYWZoP2-OVs8-KcSWpUdYaupXBZ40R_7t-jaQ8AuSGXW8MKjWuoXJfUTyyHljMDRqfuLSlt-XMvfKHkYDjB9qNIrexRoUvVTziabLw8filR9yexv4IYKd3Ua01CNf2jPHw91Wil67YpVMyi3ECt8E93bev4pvQjdkO0W_v10cWMrDVpbKSOCJAlN3nRSpTT8d0on2k91wXq6QuszHzXb0DqFQwO-udEszpXF8sopyrsrQkQ2bpvyxC6tNhjVBae-vyHtal1soJdg1l6fra4sN05dFl9MGYXQdjyF6SbBp6R7OKDo-_Xhth9XFT-T5sK0uQ_-y4GN_uvABFXU7_-gWNIArta-Xrp63ws04Fdrswyq5cCY02vcWH-763hT_2yB0VVG07vON7jPtYA2P9bLgY7Gsey5ronH1YBZ66Vx6GLjcIbP0LFH1zMink6pDtp49W3ASLgawCZt7GjAGB0f8kQfqtsXqitmYl9e6R8hlDISPae_KeaNLU25a0jAOilcux_riGtaNWDeUOBS0RJDI2F4-JlX3sb2xm_qq9835c3sDLWN-uxNkjUvGvBq9nU14Nqta9xeNZOsN35brMsdo2GcGjm9HFlH4dUCXtODG9gbxoNbB-VbQY0bG-oesCWNDTw6ehUqu8G8Azbx8fGbXGMLKuXklnt6C9ev0E3c06-7TdRvRYNWdNCKDk_4G53Ax-04VEg77pq30iaM22GvHfbb4aAdHrTDw3Z41A6PDdzpdfYUuplFnclLp_zNCH5XimhMiiTvvPY6pMj5-jkNO5Pyt5VOdUWdMwJX4r4CX_8G6z-uQw==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
 
@@ -1761,7 +1803,7 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph EWM 
+    subgraph lane_0["EWM "]
         n5["Create OBD for KIT Components"]
         n6["Perform Picking"]
         n7["Post Consumption of KIT Components"]
@@ -1772,7 +1814,7 @@ flowchart LR
         n15["E2E-94P R3 Sending the kit to Cleaning from Internal WH - Pre Cleaning"]
         n16{{"fa:fa-arrows-alt inclusiveGateway"}}
     end
-    subgraph SAP S/4 Intel Foundry 
+    subgraph lane_1["SAP S/4 Intel Foundry "]
         n1["Replicate OBD in S/4"]
         n2["Perform Goods Issue WRT OBD"]
         n3["Replicate IBD in S/4"]
@@ -1804,7 +1846,7 @@ flowchart LR
     class n16 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P4jYU_StWRiN2paDmk0AeKkEgU9RdLYLpzkPpg0mcwcKxI9uBoYj_XpskQLLLvpQHpHt87znH1185GQlLkREaz88nTLEMwakntyhHvRD0NlCgngkq4DvkGG4IEj2dkzEqV_jfS5rtFR86TWMxzDE5anSF3hkCf81NMFaFxAQCUtEXiOOsZ_YKjnPIjxEjjOvsJzTMrOyiVg9NGE8RvyVYVmAnviolmKIb7AZe4MW6TqCE0bRFmvnZMEt6Z22OsEOyhVxe7JcCfYUfbziVWxVnkAikcrYyJ1_gBhE9R8lLjSUl3zfNwELrUNWwVQETTN8V7lkK4pDubpBvnc_g_Py8pldR8GW5pkD9EgKFmKIMCKng2V6CDBMSPnnROPYtU0jOdih8cmbB1HXMRM8kVFO3TN3c_gHh960MN4ykdWr_oOcQOsWHyT9CxzL5Uf13tBBNb0rRwBk6w6vSJLAjO2qUsiz7X0qqr_wVil2tNXNjJ55etWx_4EfWj3zNNKdeMLa7fUJ8jxN0RxrHsTu7tWo28G3rMekkdgdW1CF9hxId4PFGOIq8K2HsB7EdPCSs9Louy82Cs6QhdGd-7F8Jg4kdj52HhN7Y9oa1Q8XzzmGxBbO3r6CC9I_6f6-NiCNlG3ybTEHGOPhz_goilheMIirF2vjnLn2g0heIq7QcLHCyU_uynRDoBCakYqCizAuJGQUs-yXpUHtQYwQpF9_HK_BNH9B2zujmc043rKQpmCKC94gf24m2dW_xZQmgSr2yL0oJ1fp0ShxVksEwg329zUCt88CJrVs2c2b9kbcASxes1CFQbQDqLgM7LIFkICIIUo1lnOXKr0ScQgLe_gB9sODoOt4hHpxOjQ_IOTuIPiQSYJqQUqiZvlR7a22cz1WVEu4s7mq8AKvfvIskAbFuEz_eL7etvC9RQXDSrDimuqLtxLlr4QtjqQBzIUoE3pavuqad7LYo5w8ovR8olyhBuJCgLFJVmOqqeZfbtjsrs0XJDnyalEfEP9_2ExjvISZwgwmW3bV1P10pCqJO5s-Laua5eqiwdqNIPt-zeDcWIVnRmUKhNvx9zXVhlDzo93_XE2kApwL8Ovbr8Wa4Cgd1OKjCoA6DKnTqsKYa1uGwCkd1OKpCtw4bI1ajZFWA18S1lt2w27UXuzFj-x3Aq2Pv7s661DWXdRt3HuDu9clq4179vLRR_0H2oLl7DdPIEc8hTo3wZFy-MNRXSIoyWBJpnE0DlpKtjjQxwstLbFQbcIqhOkN5BZ7_A_Nbr8Y=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P4jYU_StWRiN2paDmk0AeKkEgU9RdLYLpzkOpKpM4g4VjR7YDQxH_vTZJgGSXvpQHpHt87jn3XjtOTkbCUmSExvPzCVMsQ3DqyS3KUS8EvQ0UqGeCCvgOOYYbgkRPczJG5Qr_c6HZXvGhaRqLYY7JUaMr9M4Q-GNugrFKJCYQkIq-QBxnPbNXcJxDfowYYVyzn9Aws7KLW700YTxF_EawrMBOfJVKMEU32A28wIt1nkAJo2lLNPOzYZb0zro4wg7JFnJ5Kb8U6Cv8eMOp3Ko4g0QgxdnKnHyBG0R0j5KXGktKvm-GgYX2oWpgqwImmL4r3LMUxCHd3SDfOp_B-fl5Ta-m4MtyTYH6JQQKMUUZEFLBs70EGSYkfPKicexbppCc7VD45MyCqeuYie4kVK1bph5u_4Dw-1aGG0bSmto_6B5Cp_gw-UfoWCY_qv-OF6LpzSkaOENneHWaBHZkR41TlmX_y0nNlb9Csau9Zm7sxNOrl-0P_Mj6Ua9pc-oFY7s7J8T3OEF3onEcu7PbqGYD37Yei05id2BFHdF3KNEBHm-Co8i7CsZ-ENvBQ8HKr1tluVlwljSC7syP_atgMLHjsfNQ0Bvb3rCuUOm8c1hsAYEU_W39uTZmb1_B2virWtY_6is04ki1AL5NpiBjHPw-fwURywtGEZWiTR8o-gJxRcvBAic7dUbbhEATmJBKgYoyLyRmFLDsP0WHuga1RpCq4vt4Bb7ph7XNGd3qnNMNK2kKpojgPeLHNtG27kt8WQKoqFf1RSmh2qtOiqNSMhhmsK-PHKh9HlRi65HNnFl_5C3A0gUr9UCoMQB1r4EdlkAyEBEEqcYyznJVr0ScQgLefgN9sODout4RHpxOTR2Qc3YQfUgkwDQhpVCdvlTnbG2cz1WWMv7ZRtuqvtV4AVa_eBdvAmI9L37sbL3mLVFBcNLsPqY6qc1y7sb5wlgqwFyIEoG35avOaZPdluT8gaT3g-QSJQgXEpRFqhJTnTXvatt2Z5e2KNmBT5PyiPjn29kC4z3EBG4wwbK7z-6nq0RB1BP786Raea5eYFhXo0Q-36t4NxUhWdFpoVCH_z7nuknKHvT7v-pGGsCpAL-O_Xq9Wa7CQR0OqjCow6AKnTqspYZ1OKzCUR2OqtCtw6YQq3GyKsBr4trLbtTtuha7Kcb2O4BXx97dXXbJay7xNu48wN3rq6yNe_Vrp436D9iD5k42TCNHPIc4NcKTcfnyUF8nKcpgSaRxNg1YSrY60sQIL29oozqAUwzV85RX4Plf2-a3jQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
 
@@ -1827,7 +1869,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph EWM 
+    subgraph lane_0["EWM "]
         n3["Create OBD for KIT Components"]
         n4["Create Warehouse Task to Complete VAS Activity"]
         n5["Create IBD for KIT Components"]
@@ -1845,7 +1887,7 @@ flowchart TD
         n26{{"fa:fa-arrows-alt inclusiveGateway"}}
         n27{{"fa:fa-arrows-alt inclusiveGateway"}}
     end
-    subgraph Intel Foundry
+    subgraph lane_1["Intel Foundry"]
         n1["Replicate OBD in S/4"]
         n2["Replicate IBD in S/4"]
         n8["fa:fa-user Check (Buyer) Component Availability"]
@@ -1908,7 +1950,7 @@ flowchart TD
     class n27 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1tv4jgY_StWRhUzEmhzJcDDShRIF8122y2dqVZlH0zigFWTIMeBsgz_fT8HJyFpWE27PLTy8Tnnu_iCOWh-HBBtoF1dHWhExQAdWmJF1qQ1QK0FTkirjU7Ad8wpXjCStCQnjCMxo_9kNMPevEqaxDy8pmwv0RlZxgR9m7bREISsjRIcJZ2EcBq22q0Np2vM96OYxVyyP5FeqIdZNDV1HfOA8JKg667hOyBlNCIlbLm2a3tSlxA_joKKaeiEvdBvHWVyLN75K8xFln6akFv8-kQDsYJxiFlCgLMSa_Y7XhAmaxQ8lZif8m3eDJrIOBE0bLbBPo2WgNs6QBxHLyXk6McjOl5dzaMiKHoczyMEH5_hJBmTECUC4MlWoJAyNvhkj4aeo7cTweMXMvhkTtyxZbZ9WckAStfbsrmdHaHLlRgsYhYoamcnaxiYm9c2fx2Yepvv4W8tFomCMtKoa_bMXhHp2jVGxiiPFIbh_4oEfeWPOHlRsSaWZ3rjIpbhdJ2R_tYvL3Nsu0Oj3ifCt9QnZ6ae51mTslWTrmPol02vPaurj2qmSyzIDu9Lw_7ILgw9x_UM96LhKV49y3Rxz2M_N7QmjucUhu614Q3Ni4b20LB7KkPwWXK8WaHJ0y06QfITWc9zbcQJpI3urscojDn6On1Eo3i9iSMSiWSu_X1Gt0v6E-ZkFcO6oKyFIs5EjMDU9-EMDX1Bt1Tsq3qn1E9_IlwX6LJ8kiTogWwJh2hfqRBwHKpE94x4E8dBgqZJkpIsAFwyWZAVwXDuEY4CdPNQmfHL8Kmp64uqdx-8QzwIcUduQqTSlzXeyYukSjb0KrugoR0VK3SLoxSz84BVdQ_UE3PS6dt_ogdL1gp1bzDlSFVX4_cL_r3kz-BAQm-ywl5AKxeFERxJLOTxGk0jQXgEGTz9hjrgSYr5qrGpHw55HfIe7yzgJvJXkEwAy71cwj_Iba4dj-cisxRhzuNd0sFMoA3mmDHCbk5noy6yPiKyPyJyGkU08lma0C25oOp-SOW-UwULVzuocqkY8uI0Cvj-fM1hyWFPMOrnh5ZGaPaLXVvACmt6gdWrbe0V8V_Q5-t0T_iX8lCi4RZThheUvTnPhvH8XO6TJbonHA7WWp3BB-ITuhHo2yaQWUAGkC4YVBzM9zlM3zpYnwuHDYPLN78IpvDsoCALssNelpOVCSZfzk3s0iQR8SZrbNHAoM52auzpf7K7NXZTbUHZnorW_Vnt9I3WNN53Soo9CC1Fnc6vsD_UuH8amq4a26dxVw17alp9xUZKbZpqbJonIJ831NCuzTtq7Ci9lc8rw4Kv9Dm_exrn2blKXtBVuoZRB_IEjTyjvCIjD-HWUihKUgozz8FUSffzsS7HP-baH3dz7ccZ0cibqdeZf01mJ2qehakKM_R61IKhas07Zei1lSpK7Z09LOSK5Q-qCtxvhsG1GTfOX1HVKfPylFW8Uau4rd6TVdRpRLuNqNuI9i7E6zfjsB7qGVeFjWbYbIatZthuhp1muNsMuzmstbU14WtMA21w0LJfU_CLKyAhTpnQjm0NpyKe7SNfG2S_OrQ0uy_GFMN3zPoEHv8F17gwxQ==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV-1v2jgc_lesTBWbBLq8EuDDSRTIDm297Uq36jROJ5M4YNU4yHFouY7__X4OTkLScFp3fGjlx8_z_F78gnk2wiQixsi4unqmnMoReu7IDdmSzgh1VjglnS46AV-xoHjFSNpRnDjhckH_yWmWu3tSNIUFeEvZQaELsk4I-jLvojEIWRelmKe9lAgad7qdnaBbLA6ThCVCsd-QQWzGeTQ9dZ2IiIiKYJq-FXogZZSTCnZ813cDpUtJmPCoZhp78SAOO0eVHEseww0WMk8_S8kNfrqnkdzAOMYsJcDZyC37iFeEqRqlyBQWZmJfNIOmKg6Hhi12OKR8DbhrAiQwf6ggzzwe0fHqasnLoOhuuuQIPiHDaTolMUolwLO9RDFlbPTGnYwDz-ymUiQPZPTGnvlTx-6GqpIRlG52VXN7j4SuN3K0Slikqb1HVcPI3j11xdPINrviAH8bsQiPqkiTvj2wB2Wka9-aWJMiUhzH_ysS9FXc4fRBx5o5gR1My1iW1_cm5ku_osyp64-tZp-I2NOQnJkGQeDMqlbN-p5lXja9Dpy-OWmYrrEkj_hQGQ4nbmkYeH5g-RcNT_GaWWarzyIJC0Nn5gVeaehfW8HYvmjoji13oDMEn7XAuw1imJO_zW9LY3Z_g5bGX6dp9eEOoBNBoAT06XqK4kSgD_M7NEm2u4QTLtM63a3o91iQTQJrhPJ2yiQXMQJTX8cLNA4l3VN5qOu9Sj__gXB9oKtWkDRFt2RPBET7QKWEo1En-mfE90kSpWiephnJA8CFkwfZEAx3AMI8Qu9vazNhFT6zTXNV9x6Cd4xHMe6pDYl0-qrGT-pSqZMts84uaeiRyg26wTzD7DxgXT1Qi2TPekP3D3TrqFqh7h2mAunqGvxhyf-s-As4nNCbvLAH0KpFYQRzhcUi2aI5l0RwyOD-N9QDT1LO141t8_m5qEPd6b0V3ErhBpKJYLnXa_gHuS2N4_FcZFciLETymPYwk2iHBWaMsPenc9IUOT8jcn9G5LWKKA9ZltI9uaDq_5TKf6UKFq7t0FqwvmrNGAqSjEeicZzUNOwPRsPiAFOOFr-4jcWsseYXWIPGNt-Q8AG9vc4ORLyrDiga7zFleEXZi7NtWd--VXtmjT4TAYdsq8_jLQkJ3Un0ZRepLCADSBcMag726xzmLx2ct6XDjsGlXFwKc3iOUJBF-cGvysnLBJN35yZuZZLKZJc3tmxg1GR7Dfb8P9n9BruttqhqT03r_6h2_kJrW687MeV-hJaiXu9X2B96PDwNbV-P3dO4r4cDPa2_erlW27Ye2_YJKOYtPXQb854ee1rvFPPasORrfcHvn8ZFdr6Wl3SdrmU1gSJBq8ioqMgqQviNFMqStMIucrB10sNibKrx96Xx-6el8f2MaBXNNJvMP2eLE7XIwtaFWWYzasnQtRadsszGSpWlDs4eHGrFiodWDR62w-Dajlvnr6v6lH15yinfrnXc1e_MOuq1ov1W1G9FBxfiDdtxWA_9vKvDVjtst8NOO-y2w1473G-H_QI2usaWiC2mkTF6NvJfWfBLLCIxzpg0jl0DZzJZHHhojPJfI0aW3xdTiuH7ZnsCj_8CJmU4jA==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
 
@@ -1931,7 +1973,7 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph EWM (Decentralized) 
+    subgraph lane_0["EWM (Decentralized) "]
         n17[["fa:fa-cog Distribute Inbound Delivery to EWM"]]
         n18[["fa:fa-cog Perform Goods Receipt in Dock Location"]]
         n19[["fa:fa-cog Create and Confirm Put Away Warehouse Task"]]
@@ -1941,7 +1983,7 @@ flowchart LR
         n32(["fa:fa-stop Warehouse Task Completed"])
         n42{{"fa:fa-arrows-alt parallelGateway"}}
     end
-    subgraph External Partners / B2B 
+    subgraph lane_1["External Partners / B2B "]
         n1["Receive Material by Supplier End"]
         n2["Receive Purchase Order at Supplier End"]
         n3["Acknowledgement/Review Purchase Order"]
@@ -1952,13 +1994,13 @@ flowchart LR
         n33(["fa:fa-stop Supplier Invoice sent"])
         n38{{"fa:fa-code-branch exclusiveGateway"}}
     end
-    subgraph Factory UI Portal 
+    subgraph lane_2["Factory UI Portal "]
         n9[["fa:fa-cog Return Parts with Quench Reason Code​"]]
         n10[["fa:fa-cog Perform Validation/Exception Handling based on Rules Setup​"]]
         n28(["fa:fa-play Validation/Exception Handling Initiated"])
         n29(["fa:fa-play Process to Return Parts Initiated"])
     end
-    subgraph Intel Foundry WH 
+    subgraph lane_3["Intel Foundry WH "]
         n23[["fa:fa-cog Create Inbound Delivery with House Air Waybill number HAWB​"]]
         n24[["fa:fa-cog TM Embedded"]]
         n25[["fa:fa-cog Perform Goods Receipt in WH"]]
@@ -1970,7 +2012,7 @@ flowchart LR
         n39{{"fa:fa-code-branch Invoice Accepted ?"}}
         n43{{"fa:fa-arrows-alt parallelGateway"}}
     end
-    subgraph SAP S/4 Intel Foundry 
+    subgraph lane_4["SAP S/4 Intel Foundry "]
         n8["fa:fa-user Create a PM Order with Reason Code"]
         n11[["fa:fa-cog Return Parts with Quench Reason Code"]]
         n12[["fa:fa-cog Create Inbound Delivery"]]
@@ -2067,7 +2109,7 @@ flowchart LR
     class n44 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWNtu2zgQ_RXCRZAUsBGJknx72IXjSxMgab1x22DR9IGWqJiILAkUlcum-fcdSqRs0VKveSiqw5nDmcOZoayXjp8EtDPuHB29sJiJMXo5Fhu6pcdjdLwmGT3uohL4TDgj64hmx9ImTGKxYv8VZrabPkkziS3IlkXPEl3Ru4SiTxddNAHHqIsyEme9jHIWHnePU862hD9Pkyjh0voNHYZWWOymls4SHlC-M7Csge174BqxmO5gZ-AO3IX0y6ifxEGNNPTCYegfv8rgouTR3xAuivDzjF6RpxsWiA08hyTKKNhsxDa6JGsayRwFzyXm5_xBi8EyuU8Mgq1S4rP4DnDXAoiT-H4HedbrK3o9OrqNq03R5fVtjODPj0iWzWiIMgHw_EGgkEXR-I07nSw8q5sJntzT8Rs8H8wc3PVlJmNI3epKcXuPlN1txHidRIEy7T3KHMY4ferypzG2uvwZ_jX2onGw22nax0M8rHY6G9hTe6p3CsPwj3YCXflHkt2rvebOAi9m1V621_em1iGfTnPmDia2qRPlD8yne6SLxcKZ76Sa9z3baic9Wzh9a2qQ3hFBH8nzjnA0dSvChTdY2INWwnI_M8p8veSJrwmdubfwKsLBmb2Y4FZCd2K7QxUh8Nxxkm7Q_OYKncyoT2PBSQSNFrxFpYn8i-3Bly-3nZCMQ9Lzkzs0Y8DO1rmg6CJeJ3kcoBmN2APlz0gkku228_XrPsGwTrCkPEz4Fr1LkiBD17AxSwViMZol_j26THwiWBKbJKM6yZRTEBYR2H2axCEDvmUu0ERKfUM43SRQH0gepUGErdZ0PuTCyOeDnAsmgd2czpJB9DKeJYH_fEoDiC8zffH3pLjIspwaHg4-qTwykaRGcpD8No2ooAH4vd3zc_HLi_YjnCePWY9EAqUEjjii0buyKm87r6-lE_StWRZPgvKYRJAPFzHlGTpFZ_isVhoQWnF-DxRdAaMcvmj9jFZ5mkaMcjSPZVz7Aux5LHMOAwsSKVRGRHzHzwG_iX8fJ48RDe7giojF6TV9YPTRoKm7ueC2gtR2zBfxQwI9XjfzwEwfxT85jf0NTNdaQFKeHFvWuu7Y33Msz1BWAQ1QnqKTKegOvtBMhadKM9uwVIbfRDfQ4RI03xIWofeJYCErG0I2VxUPXD-C-MIQyTFqxcwaJlwsjEJxhrtCkfdzbw03jL9B9MmP8gzO6SdKZQGhJNAuny7QMuECimBvA6Nxr6nIeVwUVYYemdgoxWGBZJDlFGKotKlNAKu5dz7DzAoKhU7nTz5NC63OoREjeYjyvSJAgFzn8D6BVrB72kiPhzvx0gimyPd5L-AFhpHDvsMjg0bOappl8vRqqTcQHAp7EQsaoYUcSiDvzfm-rthpnIgHM7nQ-LyYGBPGYX48r-HmQHG-XUNlnE9uzpr1cOv0H6-gJtc0CIqIa5beT873m3PTs9_i-XFVDjYGpUjRanlZDNb5VUuoxg21TDLR1PG1XnGNXin23FAY3SqKg6N1vB-1l9z40E0OiTme90buDbp2pJBglWZG746a21BTT3xZglDKf-8asRxxzp8O-tVkiVanrlFse1sMq7TlO1d19aLllZppRYnt928tNdv-jQlg9D7-qVo3vYwOKe9kI-x316aX2_ymoaNcHjh4P3D4YDr0Gx0OXj_MkrXM0aITKQjkeGqbSo5tlG7lWmpyYD_41UuhrEXr12qxdLJ_x8ltdGLxDy8tkBH1en9BVavnYfnoDNSzbZeAa2kAl4BdWQwUoClsxeFiBbjaZVQDvt12nIl7OsfoQ0rhDfebrFFtocKyNYftKlJXWyjA9rSFpyxsbaFCt_vaol8C-scTvLwqQO-iAtVROLsw0YkqrvL1uiiwt2iOi9DVGP62F56jVdHRjAxhsaPCrVJWAPZMwDUBnRBWCTnaAivp7SpDFYajSZ2Ryulf-Tr-TVpodZTkjj4lR5-j5lICO0OT631SUFUL6mgcnRpWyWtmW4tRna7KzLHN83eNw6xOShlg7YF1kWnK8lHnrWLXyvX1yZ7hWgHiKmSdQ3_vB6dsD_1DuwaP9n8t11ZA1dYlu30Jty857Utu-5LXvtRvXxq0Lw3bl9rVwO1q4HY1cLsauF0N3K4GblcDt6uB29WAvtOfler4qBmHqduM2-qTUR3FjajTiLqNqNeI9luiGOjvNHV42AyPGmHo4EbYboZxM-w0w66GO93OlsI4ZkFn_NIpPpfCJ9WAhiSPROe12yG5SFbPsd8ZF58VO3lxw88Ygbe9bQm-_g_Px6UM" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWG1P4zgQ_itWVwhWakXiJH37cKfSlwUJlh7dXXRaTic3cahFmkSOQ-GA_37jxE6JSfbtjg-rzeOZxzOPZ8Zpnjp-EtDOuHNw8MRiJsbo6VBs6JYejtHhmmT0sItK4AvhjKwjmh1KmzCJxYr9U5jZbvogzSS2IFsWPUp0RW8Tij6fddEEHKMuykic9TLKWXjYPUw52xL-OE2ihEvrd3QYWmGxm1o6SXhA-d7Asga274FrxGK6h52BO3AX0i-jfhIHNdLQC4ehf_gig4uSnb8hXBTh5xm9IA_XLBAbeA5JlFGw2YhtdE7WNJI5Cp5LzM_5vRaDZXKfGARbpcRn8S3grgUQJ_HdHvKslxf0cnBwE1ebovOrmxjBnx-RLJvREGUC4Pm9QCGLovE7dzpZeFY3Ezy5o-N3eD6YObjry0zGkLrVleL2dpTdbsR4nUSBMu3tZA5jnD50-cMYW13-CP8ae9E42O807eMhHlY7nQzsqT3VO4Vh-J92Al35J5Ldqb3mzgIvZtVettf3ptZbPp3mzB1MbFMnyu-ZT1-RLhYLZ76Xat73bKud9GTh9K2pQXpLBN2Rxz3haOpWhAtvsLAHrYTlfmaU-XrJE18TOnNv4VWEgxN7McGthO7EdocqQuC55STdoIjE9G_r601nfn2BjmbUp7HgJIKOC96jm85fpbn8i-3BV7ALyTgkPT-5RTMGO7F1Lig6i9dJHgdoRiN2T_kjEgkCQvCvEQzrBEvKw4Rv0YckCTJ0BXuzVCAWo1ni36HzxCeCJbFJMqqTTDkFkRGB3adJHDLgW-YCTaTs14TTTQK1guSxGkTYak3nMhdGPpdyRpgEdnM6SwbRy3iWBP7zOQ0gvsz0xd-S4izLcmp4OPio8shEkhrJQfLbNKKCBuD3_pWfi5-etB_hPNllPRIJlBI45YhGH8oKvem8vJRO0MNNJWLLEnkQlMckgsS4iCnP0DE6wSdmmYBlcZb3FF0AuxzKaP2IVnmaRoxyNI-Dugd-5bHMOQwySKpQHBHxDT8H_Cb-XZzsIhrcwtURi-Mres_ozqCpu7ngtoI098xn8X0CvV8388BMH8sfOY39DUzdWkBSqhxb1rru2H_lWJ6nrAgaoDxFR1M4A_CF3io8VZrZhqUy_Ca6gQ6XoPmWsAh9TAQLWdkcstGqeOBaEsQXhkiOUTdm1jD5YmEUjTPcF428t3truHn8DaIPfpRncE4_WjbyaBcQUwI99PkMLRMuoBrqERoNfUVFzuOixjK0Y2Kj1IcFkkHGU4in0qlWeFZzT32BcRYUah3PH3yaFrqdQoNG8kDlu0eAALnK4Z0DrWD3tJEeD_dCphFMl2_znsFLDiNv-xGPDBo5z2mWyZOspd5A0CKy7IOzWNAILeTUAqmvTw2NsdM4Nd_M7ULv02KqTBiHGfO4hpsGxfl2DRVzOrk-adbGrdN_uoBaXdMgKKKvWXo_eAdcn5qe_RbPT6ty-DEoUYpWy_Ni-M4vWkI1brFlkommSVDrIdfooWLPDYXxrqJ4c8yO9722kxu_dZPDY47nvZF7ja4cKSRYpZnR06Pm9tTUE1-WI5T17_sGLUef879cBsUEnSzR6thF9cKrxzmsJJDva9VVjZYXau4V5fa6r-s3if0Lk8GYCfiH6t70MrqlvMONsD9cmV5u85uJjnL5xsH7jsOl6dBvdHjzumKWr2WOHJ1IQSDHVtu0cmyjjCvXUpM39oOfvTjKurR-ri5LJ_tXnNxGJxZ_92IDGVGv9xtUtXoelo_OQD3bdgm4lgZwCdiVxUABmsJWHC5WgKtdRjXg-abjTNzjOUaXKYU34mdZo9pChWVrDttVpK62UIDtaQtPWdjaQoVu97VFvwT0Dy942VWA3kUFqqNw9mGiI1Vc5et4UWDv0RwXoauR_PwqPEeroqMZGcJiR4VbpawA7JmAawI6IawScrQFVtLbVYYqDEeTOiOV05_y9f1ZWmh1lOSOPiVHn6PmUgI7Q5PrY1JQVQvqaBydGlbJa2Zbi1GdrsrMsc3zd43DrE5KGWDtgXWRacryUeetYtfK9fXJnuBaAeIqZJ1D_9WPVdke-kd6DR69_qVdWwFVW5fs9iXcvuS0L7ntS177Ur99adC-NGxfalcDt6uB29XA7WrgdjVwuxq4XQ3crgZuVwP6Tn-SquOjZhymbjNuq89NdRQ3ok4j6jaiXiPab4lioL_x1OFhMzxqhKGDG2G7GcbNsNMMuxrudDtbCuOYBZ3xU6f41AqfYwMakjwSnZduh-QiWT3GfmdcfJLs5MUNP2ME3vy2JfjyL0MNuIU=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
 
@@ -2091,7 +2133,7 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph EWM  Decentralized
+    subgraph lane_0["EWM  Decentralized"]
         n12[["fa:fa-cog Perform Outbound Delivery Order"]]
         n13[["fa:fa-cog Pick and Pack Updates"]]
         n14[["fa:fa-cog Perform Goods Issue"]]
@@ -2100,7 +2142,7 @@ flowchart LR
         n17[["fa:fa-cog Create and Confirm Put-away Warehouse Task (EWM)"]]
         n32{{"fa:fa-arrows-alt parallelGateway"}}
     end
-    subgraph External Partners / B2B
+    subgraph lane_1["External Partners / B2B"]
         n1["Receive Purchase Order at Supplier End"]
         n18[["fa:fa-cog Pick Material by Supplier"]]
         n19[["fa:fa-cog Send Supplier Invoice against Text PO"]]
@@ -2108,12 +2150,12 @@ flowchart LR
         n27(["fa:fa-stop Material Picked by Supplier"])
         n28(["fa:fa-stop Tex Purchase order received at Supplier end"])
     end
-    subgraph Factory UI Portal
+    subgraph lane_2["Factory UI Portal"]
         n20[["fa:fa-cog Return Parts with De Contaminate scrap Reason Code"]]
         n23(["fa:fa-play Parts Return Initiated"])
         n33{{"fa:fa-arrows-alt parallelGateway"}}
     end
-    subgraph SAP S/4 Intel Foundry 
+    subgraph lane_3["SAP S/4 Intel Foundry "]
         n2["fa:fa-user Create a PM Order with Reason Code"]
         n3[["fa:fa-cog Return Parts with De Contaminate Scrap Reason Code"]]
         n4[["fa:fa-cog Create Inbound Delivery"]]
@@ -2198,7 +2240,7 @@ flowchart LR
     class n33 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWN9v4jgQ_les7FXcSqCN84MADye1QFaVtioqu7cP230wiQNRQ4wch5ar-N9vnNiBuGTvdpeHFo_n-2bm89hOeLUiFlNrYl1dvaZ5KibotSc2dEt7E9RbkYL2-qg2_E14SlYZLXrSJ2G5WKb_VG7Y271IN2kLyTbNDtK6pGtG0ZfbProGYNZHBcmLQUF5mvT6vR1Pt4QfpixjXHq_o6PETqpoauqG8Zjyk4NtBzjyAZqlOT2Z3cALvFDiChqxPG6RJn4ySqLeUSaXsedoQ7io0i8Lekdevqax2MA4IVlBwWcjttknsqKZrFHwUtqiku-1GGkh4-Qg2HJHojRfg92zwcRJ_nQy-fbxiI5XV495ExR9enjMEXyijBTFjCaoEGCe7wVK0iybvPOm16Fv9wvB2ROdvHPmwcx1-pGsZAKl230p7uCZpuuNmKxYFivXwbOsYeLsXvr8ZeLYfX6Av0YsmsenSNOhM3JGTaSbAE_xVEdKkuS3IoGu_DMpnlSsuRs64ayJhf2hP7Xf8ukyZ15wjU2dKN-nET0jDcPQnZ-kmg99bHeT3oTu0J4apGsi6DM5nAjHU68hDP0gxEEnYR3PzLJcLTiLNKE790O_IQxucHjtdBJ619gbqQyBZ83JboPmX-8QmtGI5oKTDDZaXDvIT46db98erYRMEjKI2BotKE8Y36L7UqxYmccAzNI95Qd0L_fQo_X9-znaNdBp9IQIoBYEvnzZxSBOYWK8yxE_MhYX6LYoSmoi_MuI29xIcZaCMOmqFCnLkWCycpNq-KPgDyBSuhMozVHMoICMRURymSRBm2TKKdRZ1T1leZIC36IUAyLb4ivhdMOgl1HVdn9CSu8NOtd5fdV0hHP2XAxIJtCOwGplNPtYN9ijdTzWINiC5gq_CMpzkoHsXOSUF-gDunFuzlOGhKvq9hRy43CQQEbViiIi0LLc7bIUvs-B2mqVOrqwwHeQkTyH0erQQE2Jxm3cEpI-hbnN9ww2IiJrkuaFQJ_pi0CLe4PDcf5sOHYZObzFwxKvqOQWAH1_Dg1O0EKw3SllWQCNjcxb0JEBheROklUXCeK1knFLO1pp975rjUISCQY9-uUWLRgXJDuPabfVeqCi5Hm1mgV6TsUGWly2loAbMZetVkTACW6kgEafwiViSuca0tVUivcWLucUaGKjdNf93UZcXi_Q8oMHEQTNUCh3J5R8nliTljzem52DFneqG6tq24WdZ_iTOi3_Qyfv4kY2zxUD5P_PE9OADS8fGk0R93UFf9gGzjhs6kPVEOzjg3wIEKV51o46YtYb7gFB4rB9qlvRhI5_CDX3KrZ_dK5yda7KcB14fDGcuePNNsdGm8PyR83yy0tA3qS0KDpb3vGM3f7mjKkzeYPzDdzZBbJ_6z00vJvVW1arphb1DWz8c_ux3iL2r4DwL-58WAI0GPwF__W4HrpqOFSzYzUe1WM9HCtv9QwETyO1AWs8dpXB0_wKMjLGvhr7yl_ng7VhqA0qJVd7uDpmoD10STomtpVBB3GVAdumQY9VDD3GKkusDY7d1gkrYZwmCTXWdQZqrMvwFGGTkgJ4xtjVERyVk9NorSkaKbUQY0MZnZOrKBopg3aM6hFWtoB-dG-Z3fPn79aM1znjd84MO2eCzplR58y4cwbWvnMKd0853VPdOuBuIXC3ErhbCtytBe4WA3er4XSrAQeBfg9t250Ou9th99Q7ZtvqX7QOL1qDi9bRRetYv8C1e9W-bMaXzc5ls6vNVt_aUr4laWxNXq3qJxD4mSSmCSkzYR37FikFWx7yyJpUPxVYZXUfzFICj1Xb2nj8F2ktZZQ=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWG1v4jgQ_itW9ip2JdDGeSHAh5NaIKtKWxWV3dsP29PJJA5EDTFyHFq24r_fOLFD45Le7d7xocXjeeblmfE44dmKWEytiXVx8ZzmqZig557Y0C3tTVBvRQra66Na8AfhKVlltOhJnYTlYpn-qNSwt3uSalIWkm2aHaR0SdeMoq_XfXQJwKyPCpIXg4LyNOn1ezuebgk_TFnGuNR-R0eJnVTe1NYV4zHlJwXbDnDkAzRLc3oSu4EXeKHEFTRiedwymvjJKIl6Rxlcxh6jDeGiCr8s6A15-pbGYgPrhGQFBZ2N2GafyYpmMkfBSymLSr7XZKSF9JMDYcsdidJ8DXLPBhEn-cNJ5NvHIzpeXNznjVP0-e4-R_CJMlIUM5qgQoB4vhcoSbNs8s6bXoa-3S8EZw908s6ZBzPX6UcykwmkbvcluYNHmq43YrJiWaxUB48yh4mze-rzp4lj9_kB_hq-aB6fPE2HzsgZNZ6uAjzFU-0pSZL_5Al45V9I8aB8zd3QCWeNL-wP_an92p5Oc-YFl9jkifJ9GtEXRsMwdOcnquZDH9vdRq9Cd2hPDaNrIugjOZwMjqdeYzD0gxAHnQZrf2aU5WrBWaQNunM_9BuDwRUOL51Og94l9kYqQrCz5mS3QRnJ6V_293tr_u0GoRmNaC44yeDExffWn7Wy_OTY-Q5aCZkkZBCxNVpQnjC-RbelWLEyjwGbpXvKD-hWnicAt9CugU6jB0QAtSDw5esuBqIKE-Od9_iJsbhA10VRUhPhn0dc50aIsxRISlelSFmOBEOQvGlq-JbzO-Ap3QmU5ihmkEDGIiJtmUaCtpEpp5BnlfeU5UkK9halGBDZIt8IpxsGfY2qFnwPIX0wzLnO87M2Rzhnj8WAZALtCBQso9mnutnureOxBsFxPFdtLKv9JCjPSQb8c5FTXqCP6Mq5MkoOilWmewpxchgwEF1VXUQEWpa7XZbC93lutsroTLFvIDo5n9Hq0EBNusZt3BISOLm5zvcMDigia5LmhUBf6JNAi1vDhuO8b2zsMnJ4jYdyr6i0LQD64SU0OEELwXankGUCNDYib0FHBhSCO1FWXTCI10zGLe5oxd2HN-vlgOmQRIJB4369RgvGBcnajDt2m7k7KkqeV8Ut0GMqNtD6suUE3Jq5bMEiAvugRgo4AFO4aEwaXYPG2pSyew0XeApmYoMG1_1fGtQF18vLBVp-9MCVoBkK5fGF9I2smxDlddCcLrS4UV1aZd5O8mW0P8nZ8h84884ednP2GCD_X05VAzY8P1iaJG7rDH6zDZwxkOrBaxD26U4-NIjSnMejDp_1QbxDEDgcq-oWNaHjN6HmGcb2W7OXq9kr3XXg8Vl35iQwWx4bLQ_lj5ryy4tC3ry0KDrb3_GMKfBq9tSRvML5Bu7FJbN_rT00tJvqLauqqaK-go1_7mzWR8T-FRD-xSkAJUCDwe_wX6_rpauWQ7U7VutRvdbLsdJWz0zwxFILsMZjVwk8bV9BRsbaV2tf6et4sBYMtUCF5GoNV_sMtIZOSfvEthJoJ64SYNsU6LXyoddYRYm1wLHbPGFFjNMEodY6z0CtdRqeMtiEpACesXa1B0fF5DRcaxMNlZqIscGMjslVJhoqg7aP6pFXtoB-1G-J3ZfP660dr3PH79wZdu4EnTujzp1x5w7UvnMLd2853VvdPOBuInA3E7ibCtzNBe4mA3ez4XSzAYNAv7e25U6H3O2Qe-qdtC31z0qHZ6XBWenorHSsX_javWqfF-PzYue82NViq29tKd-SNLYmz1b1kwn8rBLThJSZsI59i5SCLQ95ZE2qnxassroPZimBR6xtLTz-DbFbdSY=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
 
@@ -2222,11 +2264,11 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph External Partner Supplier B2B
+    subgraph lane_0["External Partner Supplier B2B"]
         n1["Provide Rates/Charges Integrators. 3rd party service – Redwood"]
         n10(["fa:fa-play Rates/Charges to be Provided"])
     end
-    subgraph SAP S/4  Intel Product/ Intel Foundry
+    subgraph lane_1["SAP S/4  Intel Product/ Intel Foundry"]
         n2["Perform Freight Unit Generation (TM)"]
         n3["Create Freight Order (TM)"]
         n4["Update Carrier Rates and charge calculation (TM)"]
@@ -2257,7 +2299,7 @@ flowchart LR
     class n13 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4jgU_itWqooZKWxzJTQPK0Ego0pTTdW0uw_LPpjEAavGjmynwCD--x7nAi3TrlbaPKB8J-f7ziXHJxysXBTEiq3r6wPlVMfoMNBrsiGDGA2WWJGBjVrDH1hSvGREDYxPKbjO6M_GzQ2qnXEzthRvKNsba0ZWgqDnOxtNgMhspDBXQ0UkLQf2oJJ0g-U-EUxI431FxqVTNtG6R1MhCyLPDo4TuXkIVEY5OZv9KIiC1PAUyQUv3omWYTku88HRJMfENl9jqZv0a0Xu8e5PWug14BIzRcBnrTfsO14SZmrUsja2vJavfTOoMnE4NCyrcE75CuyBAyaJ-cvZFDrHIzpeXy_4KSj6_rjgCK6cYaVmpERKg3n-qlFJGYuvgmSSho6ttBQvJL7y5tHM9-zcVBJD6Y5tmjvcErpa63gpWNG5DremhtirdrbcxZ5jyz38XsQivDhHSkbe2BufIk0jN3GTPlJZlv8rEvRVPmH10sWa-6mXzk6x3HAUJs6ven2ZsyCauJd9IvKV5uSNaJqm_vzcqvkodJ3PRaepP3KSC9EV1mSL92fB2yQ4CaZhlLrRp4JtvMss6-WDFHkv6M_DNDwJRlM3nXifCgYTNxh3GYLOSuJqjeY7TSTHDD3AmHAiUVZXFaNwM_Wmra-5uPvXwoLIr7Qg6BGqUjcJzNuKKHTHNQEtLaT6DfmyQBUo7ft-okXtOa6PHkmxFaJYWH-_FXW-gGyJ4xIPKwZ9eq-sBVoS1EU11K8tF8bsoops8oCymwA1yTBDKepc33QwFTUv5P5NYM9UQ2Qp5AalshlB9AxbCX0j0AOsqeDoy9P91_fp-sBKJIEcT6QfZnd84BqA63NVGNcES2n62dSGMC9Q3tSHcszymn0WLASF-Y7k9X-INjLlCKVPjhnRmsEu5RrNRF43N7_SonM9Wfe2Hn6g1lIgaA5Ks9kHvDHwukYBc56hLdVrNKnhfT0SRmCZf0C6PQdLTKozCnNKl7Up_2ayIjzfo2mtYOcq9W9Ju-7FzNzBe6NG9ukelh2p1HlQWoJ3JigtKuOXGT_IY1Mxot-OVsvwD4eeAS9PbNUQM40ozxkk-Eq-tad6YR2PFwPJPTQc_g6T0sGghWEHwxaOOjhqYdTBqIXjDo5beNtBt4VuLw1nqjEEHfYvnt922Ov9nc7Q407Qe7NhGq_-g_He7n5i97ql_97q95vPsq0NkRtMCys-WM33Hf4DFKTENdPW0bYwTE2257kVN99Bq24OzYxiONib1nj8B_JukNA=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4jgU_itWqooZKWxzJTQPK0Ego0pTTdW0uw_LamUSB6waO7KdUhbx3_c4FyhMu1pp84DynZzvOxcf2-ytXBTEiq3r6z3lVMdoP9BrsiGDGA2WWJGBjVrDb1hSvGREDYxPKbjO6N-NmxtUb8bN2FK8oWxnrBlZCYKe72w0ASKzkcJcDRWRtBzYg0rSDZa7RDAhjfcVGZdO2UTrPk2FLIg8OThO5OYhUBnl5GT2oyAKUsNTJBe8OBMtw3Jc5oODSY6Jbb7GUjfp14rc47ffaaHXgEvMFAGftd6w73hJmKlRy9rY8lq-9s2gysTh0LCswjnlK7AHDpgk5i8nU-gcDuhwfb3gx6Do--OCI3hyhpWakRIpDeb5q0YlZSy-CpJJGjq20lK8kPjKm0cz37NzU0kMpTu2ae5wS-hqreOlYEXnOtyaGmKverPlW-w5ttzB70UswotTpGTkjb3xMdI0chM36SOVZfm_IkFf5RNWL12suZ966ewYyw1HYeL8rNeXOQuiiXvZJyJfaU7eiaZp6s9PrZqPQtf5XHSa-iMnuRBdYU22eHcSvE2Co2AaRqkbfSrYxrvMsl4-SJH3gv48TMOjYDR104n3qWAwcYNxlyHorCSu1ohhTv5y_lhY8zdNJMcMPcC8cCJRVlcVo_Ay9aYL68-WZx7ugjtk8UoLgh6hQnWTwOytiEJ3XBPQ1UKqX5AvC1SB2K7vLVrUnuP66JEUWyGKC1HnC8iWOC7xsGLQs3NlLdCSoC6qoX5tuTByH1VkUswmDyi7CVCTFTPcos71TQdTUfNC7s6T8ExlRJZCblAqm9FEz3BaoW8EWoI1FRx9ebr_es7ygZVIAvkeST_MmfKBawCuz1VhXBMspWlvUyfCvEB5UyvKMctr9lmwsFkrktf_IdrIlCOUPjpmRGsGZyzXaCbyunn5mRad6sm6lXv4gVpLgaA5KM1mH_DGwOsaBcx5hrZUr9GkhrV7JIzAIf8B6fYULDGpzijML13WpvybyYrwfIemtYKzWKl_S9p1L-bnDtaNGtmnezgESaVOQ9MSvBNBaVEZv8z4QR6bihH9fsxahr_f9wxYPLFVQ8w0ojxnkOAr-dbu9oV1OFwMJ_fQcPgrTEoHgxaGHQxbOOrgqIVRB6MWjjs4buFtB90Wur007K_GEHTYv_h-22Gv93c6Q487Qe_dydN49RfJud39xO51l8G51e9PRMu2NkRuMC2seG819z78NyhIiWumrYNtYZiabMdzK27uR6tuNs2MYtjkm9Z4-AdKXpiX" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
 
@@ -2649,8 +2691,14 @@ flowchart TB
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
-        E2E94C_e_g_MES_300["📦 e.g. MES 300"]:::app
-        E2E94C_e_g_XEUS["📦 e.g. XEUS"]:::app
+        subgraph E2E94CLN_e_g_Boundary_Apps[" ⬛ e.g. Boundary Apps"]
+            direction LR
+            E2E94C_e_g_XEUS["📦 e.g. XEUS"]:::app
+        end
+        subgraph E2E94CLN_e_g_MES_Systems[" ⬛ e.g. MES Systems"]
+            direction LR
+            E2E94C_e_g_MES_300["📦 e.g. MES 300"]:::app
+        end
         E2E94CMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
         E2E94CDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
     end
@@ -2672,7 +2720,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzzaQoQqpU06dUoBETY2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpfygBacTAVK7EWeapSrkD2uog05-b4K1fUgXXCyNJ4RZBuT7qElcBBBNImkqWxIKPo2sVZUhsrtkTgu1Ri4ljOn9DWdqri1TKiTouLlaiIBOQFRTUEVZWVNcYpjThKczbT62tbGg6d-asW2vVmTVaETpSy1y3Y9SgqPRIK0Wzi2Z8zFV0OKpzHkBjEi1FEASQaUEiTEmvPr2YEompeQpSEmqMeVCOHtDHP12U6oi-wvOXv_kpGP315-tO70g5zC_byaZyApnz7btLUya52QzDGa_rVFfMG272-13_gOTUUV3Mb2TDzAPXmE--xiVSF5Bl8gpaW9VWnDGBNzRAuqMeB13w4jf7Qw3aJ-YPWRihxHNcY3lwcC2P8I0qLKczAqaz4kb_I6sqGQnRwyf7KhN3MvLYDRwr0cX5yRwf_lXkfXHJOnBUBCJ4llKgquN1T_0T48HMcSzeOyH8ZFt11ET6BD4MvtC0EfQh4CO42CH3wT46X8P38zWjndTxzdVsvtQFhCHUNzyBOJ-KV-t7qBrkKooso4iGGVgN13bRvf8Cn2QSRX7Ao-AVPXqU0yODbAOIOuAs0mx3zvjPeMIf5B9MvKyBP--hRfnZ_u8Z6pqVZp6kLLn_uwSituu9xRZFZpXNQGR3MsRPodc4Nnz9AETdeD3YnSR7V7oKa1FUx0D_aC2xYf2R1u8nuq-pNqf2ck7Yg1ghhy9EgezSeB_9c-9T6g0iFHb29Jy81zwhOrgN8QVxOObbQmNNzJ5VzZB7PnbCvH08eOnCi-X7c6bFP_CbMbDDjvGQNbKpq2AT9dlcP_XZLIh1ZDyTGxb_16IPT093TnLrKa1gGJBObOcR3Oh4b3IYEpLofAasmipsnCZJpZTXSxWmeNEweMUm7AwxtU_IfRHFQ==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdln1v2jwQwL-KlYr_YE1foG1UISUkPOJRaKtlW59HyxSZ-ABrJolipy3r-O47xxRSWEU3I0FyL7-7XM5nnq00Z2A5Vqv1zDOuHPIcW2oOC4gth8TWhEq8auOVhLQquVqG8ADCKEWev2hrly-05HQiQGo1cqZ5piL-Y4066RVPxljLh3TBxdJoIpjlQD6P2sRFgGgTSTPZkVDyaWytag-RP6ZzWqo1uZIwpk_3nKm5lkypkKDt5mohQjoBUaegyqqWZviIUUFTns20-NzWwpJm3xvCrr1akVWrFWebWOSTF2cEV6tFOh3MLZ3zMVXQ4ZkseAmMSLUUQFJBpQSJNsa8vvdhSiaV5BlISeo15UI4R0NcXrctVZl_B-fIu7zs2d76tvOoH8g5LZ7aaS7y0jmybXuHSYuCbJdhel1N3TBt--LC6_0Bk1FF95n-5QHmySvmi45RicUr6RJrSro7kRacMQGPtIRmRfyeu61IcNEbbmnvyB5ysVcRXeNGlQcD2z7ENFRZTWYlLebEDb_GVlyxyzOG3-ysS9y7u3A0cD-Nbm9I6P4ffIytb8ZJL4YNkSqeZyT8uJVucMFpcHU-CG8SSGaJl1cZo-UycYtCYhgSV6eTkwmBD7MP5EVJtPJViLfD6GUi1Pz_gs9RM_sUeoatFYh0HAfbaOsOGTuU8jiIkmgpFSz2EkYVWav-Ll3NPrPt32as4ag7lLShje9rnvujKiGJoHzgKSReJV-9yZMLQ66tyNqKoJWJse3QXbof1PRBLlUSCBx3meo3U07PDVgbkLXB9aQ87l_zvlFEX8gxGfl5ij__Rrc318e8b6LqHWji1Y9lLvdLhCOm_zO2appflxZJ7t0Iv4dc4Jz9eaASTfBbNjrIbjfplNYbpB55XtgYZ0P70DhrurobV_s9U2tvY4Ywwxq9ahZmkzD4J7jx37EjwwT38W6r4VYTPKXa-DedFibj-90WGm_b5M22CRM_2O0QX4_aIFN4kO6-eeMS3JrBc9pj52jIOvm0E_LpOgzOukabbItqivJS2K7-bAp7dXW1N7ettrWAckE5s5xnc3jjfwAGU1oJhUeuRSuVR8sstZz6ELWqAhMFn1N8CQsjXP0Cw22K4w==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
 
@@ -2729,8 +2777,14 @@ flowchart TB
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
-        E2E94F_e_g_MES_300["📦 e.g. MES 300"]:::app
-        E2E94F_e_g_XEUS["📦 e.g. XEUS"]:::app
+        subgraph E2E94FLN_e_g_Boundary_Apps[" ⬛ e.g. Boundary Apps"]
+            direction LR
+            E2E94F_e_g_XEUS["📦 e.g. XEUS"]:::app
+        end
+        subgraph E2E94FLN_e_g_MES_Systems[" ⬛ e.g. MES Systems"]
+            direction LR
+            E2E94F_e_g_MES_300["📦 e.g. MES 300"]:::app
+        end
         E2E94FMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
         E2E94FDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
     end
@@ -2752,7 +2806,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9A5wuoiyEZbtxwM9Q4X-7N3c1S1gM0lm1ZOxWV_35PV5QJGr0lGdt5eU77nKfts5VkDCzHajSeecqVQ54jS01hBpHlkMgaUYlvTXyTkJQFV_MA7kEYp8iyV2-VckMLTkcCpHYjzjhLVcifllC7nfzRBGt7n864mBtPCJMMyPWgSVwEEE0iaSpbEgo-jqxFlSGyh2RKC7VELiUM6eMtZ2qqLWMqJOi4qZqJgI5AVFNQRVlZU1ximNOEpxNtPrC1saDpXc3YthcLsmg0ovStFrnqRSnB0WiQVgvnlkz5kCpo8VTmvABGpJoLIImgUoLEGBNefXswJqNS8hSkJNUYcyGcrT6OXrspVZHdgbPVOzrq2L3lZ-tBL8jZyx-bSSaywtmybXsNk-Y5WQ2D2Wtr1DdM2z487HX-A5NRRTcxvaMvMHffYb76GJVIXkHnyClpr1WaccYEPNAC6ox4HXfFiH_Y6a_QvjF7yMQGI5rjGsunp7b9FaZBleVoUtB8StzgT2RFJTvaZ_hk-23iXlwEg1P3anB-RgL3t38ZWX9Nkh4MBZEonqUkuFxZ_T3_-KAfQzyJh34Y79t2HTWBDoHtyTZBH0EfAjqOgx3-EOCXfx1-mK0dn6YOb6tk96ksIA6huOcJxL1Svlvd7qFBqqLIMopglIFddW0d3fMr9NNMqtgXeASkqlufYnJggHUAWQacjIqd7gnvGkd4Q3bIwMsS_PsZnp-d7PCuqapVaepByl77s0kobrvuS2RVaF7VBERyLwb47HOBZ8_LF0zUgT-L0UXWe6GntBRNdQz0gtoW79tfbfF6qvuWan9nJ2-INYAJcvROHMwmgf_DP_O-odIgRm2vS8vNc8ETqoM_EFcQD2_XJTRcyeRT2QSx568rxNPHj58qvFzWO29S_HOzGfc67AADWSsbtwI-XpbB_V-TyYpUQ8orsW39eyP2-Ph44yyzmtYMihnlzHKezYWG9yKDMS2FwmvIoqXKwnmaWE51sVhljhMFj1NswswYF_8AaGVHLQ==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlm1v2jAQgP-KlYpvsKYv0DaqkJImTEyhrZZt3bRMkYkPsGaSKHbaso7_vnNMIYVVdDMSJPfy3OVyPvNkpTkDy7FarSeeceWQp9hSM5hDbDkktsZU4lUbrySkVcnVIoR7EEYp8vxZW7t8oSWnYwFSq5EzyTMV8V8r1FGveDTGWj6gcy4WRhPBNAfyedgmLgJEm0iayY6Ekk9ia1l7iPwhndFSrciVhBF9vONMzbRkQoUEbTdTcxHSMYg6BVVWtTTDR4wKmvJsqsWnthaWNPvZEHbt5ZIsW604W8cin7w4I7haLdLpYG7pjI-ogg7PZMFLYESqhQCSCiolSLQx5vW9DxMyriTPQEpSrwkXwjkY4PK6banK_Cc4B975ec_2VredB_1AznHx2E5zkZfOgW3bW0xaFGSzDNPrauqaadtnZ17vH5iMKrrL9M_3MI9eMJ91jEosXkkXWFPS3Yo054wJeKAlNCvi99xNRYKz3mBDe0P2kIudiugaN6p8dWXb-5iGKqvxtKTFjLjh99iKK3Z-wvCbnXSJe3sbDq_cT8ObaxK634KPsfXDOOnFsCFSxfOMhB830jUuOA4uTgfhdQLJNPHyKmO0XCRuUUgMQ-LqeHw0JvBu-o48K4lWvgjxehi9TISa_zX4HDWzT6Fn2FqBSMdxsI027pCxfSmPgiiJFlLBfCdhVJGV6v_S1ewT2_5rxhqOun1JG9rorua5v6oSkgjKe55C4lXyxZs8OjPk2oqsrAhamRibDt2m-0FNv8qlSgKB4y5T_WbK6akBawOyMrgcl4f9S943iugLOSRDP0_x50N0c315yPsmqt6BJl79WOZyt0Q4Yvq_Y6um-XVpkeTeDvF7wAXO2d97KtEEv2ajg2x3k05ptUHqkeeFjXE2sPeNs6aru3a13zK1djZmCFOs0YtmYTYJg_fBtf-GHRkmuI-3Ww23muAp1cZ_6bQwGd1tt9Bo0yavtk2Y-MF2h_h61AaZwoN0-80bl-DGDJ7jHjtFQ9bJJ52QT1ZhcNY12mRTVFOU58J29Wdd2IuLi525bbWtOZRzypnlPJnDG_8DMJjQSig8ci1aqTxaZKnl1IeoVRWYKPic4kuYG-HyDyZqiwE=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 29</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
 
@@ -3245,7 +3299,7 @@ flowchart TB
 <td>Tower-led validation</td>
 </tr>
 <tr>
-<td>Go-Live (Release 2)</td>
+<td>Go-Live (R1 – R5)</td>
 <td>Per release plan</td>
 <td>Per release plan</td>
 <td>Planned</td>
@@ -3384,11 +3438,15 @@ flowchart TB
 </tbody>
 </table>
 <hr />
-<p><em>E2E-94 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026</em></p>
+<p><em>E2E-94 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 38</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-94 — R3 Intel Foundry Maintenance process through spare parts (SWAP)</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>E2E-94</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

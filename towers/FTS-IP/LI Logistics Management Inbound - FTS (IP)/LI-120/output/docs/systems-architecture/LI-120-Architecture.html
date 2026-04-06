@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IP) (FTS-IP) Tower<br/>
   Capability LI-120 · LI Logistics Management Inbound - FTS (IP)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 3</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -694,7 +736,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Warehouse Operator
+    subgraph lane_0["Warehouse Operator"]
         n1["Unload Physical Goods"]
         n2["Receive Material Against Advanced Shipping Notification (ASN)"]
         n3["Validate BOL against shipment received"]
@@ -705,7 +747,7 @@ flowchart TD
     class n3 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllEuPmzAUhf-KxSiilYjEM6QsKhESqkrTmVEzj0XThQOXYI2xke28GuW_186DzKSaVVkgfDj-zr1XmJ1V8BKsxOr1doQRlaCdrWpowE6QPccSbAcdhWcsCJ5TkLbxVJypKflzsHlhuzE2o-W4IXRr1CksOKCn7w5K9UbqIImZ7EsQpLIduxWkwWKbccqFcd_AsHKrQ9rp1YiLEsTF4LqxV0R6KyUMLnIQh3GYm30SCs7Kd9AqqoZVYe9NcZSvixoLdSh_KeEH3ryQUtV6XWEqQXtq1dBbPAdqelRiabRiKVbnYRBpcpge2LTFBWELrYeulgRmrxcpcvd7tO_1ZqwLRY_jGUP6KiiWcgwVkkrLk5VCFaE0uQmzNI9cRyrBXyG58SfxOPCdwnSS6NZdxwy3vwayqFUy57Q8Wftr00PitxtHbBLfdcRW36-ygJWXpGzgD_1hlzSKvczLzklVVf1Xkp6reMTy9ZQ1CXI_H3dZXjSIMvdf3rnNcRin3vWcQKxIAW-geZ4Hk8uoJoPIcz-GjvJg4GZX0AVWsMbbC_BLFnbAPIpzL_4QeMy7rnI5fxC8OAODSZRHHTAeeXnqfwgMUy8cnirUnIXAbY1esICa63Gi-xYEVlwcDeZi3q-Z9cQoxyV6qLeSFJiib5yXcmb9fmPzte0nFEBWgH7ojs0xROkCEyYVSssVZgWUaFqTttUfLrrjilSapQhn6FM6vfv8Hhdo3DOmpNQoNLq_RfiEkprQAFNIHMPKbp_-8I4PLED9_ldd-WnpHZf-mzHqVXco3slBJ1uO1YBoMCmtZGcd_kr6z1VChZdUWXvHwkvFp1tWWMnh9FrL1hQ7JlgPtTmK-7_LeZhu" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllFmPmzAUhf-KxSiilYjEGlIeKhESqkqzqZnloakqBy7BGmMj29ka5b_XzjpJNU_lAeHD8XfuvcJsrIKXYCVWp7MhjKgEbWxVQwN2guwplmA7aC-8YEHwlIK0jafiTI3Jn53NC9uVsRktxw2ha6OOYcYBPX93UKo3UgdJzGRXgiCV7ditIA0W64xTLoz7BvqVW-3SDq8GXJQgzgbXjb0i0lspYXCWgziMw9zsk1BwVl5Aq6jqV4W9NcVRvixqLNSu_LmEO7x6JaWq9brCVIL21Kqht3gK1PSoxNxoxVwsjsMg0uQwPbBxiwvCZloPXS0JzN7OUuRut2jb6UzYKRQ9DScM6augWMohVEgqLY8WClWE0uQmzNI8ch2pBH-D5MYfxcPAdwrTSaJbdx0z3O4SyKxWyZTT8mDtLk0Pid-uHLFKfNcRa32_ygJWnpOynt_3-6ekQexlXnZMqqrqv5L0XMUTlm-HrFGQ-_nwlOVFvShz_-Ud2xyGcepdzwnEghTwDprneTA6j2rUizz3Y-ggD3pudgWdYQVLvD4Dv2ThCZhHce7FHwL3eddVzqePghdHYDCK8ugEjAdenvofAsPUC_uHCjVnJnBbI4oZ_HZ_TqxXLKDmeq7ooQWBFRcT69febC7mac8zoxyX6LFeS1Jgir5xXspLm69tP6AAsgB0p7s3RxKlM0yYVCgtF5gVUKJxTdpWf8TonitSaZYinKFP6fj-8yUu0LgXTEmpUWjwcIvwASU1oQGmkNiHlad9-iPcP7AAdbtfdeWHpbdf-u9GqlenA3IhByfZcqwGRINJaSUba_eH0n-xEio8p8raOhaeKz5es8JKdifZmrem2CHBesDNXtz-BRJFnFE=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-120 — Receive Materials and Services - FTS (IP)</span></div>
 
@@ -728,7 +770,7 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Receiving Agent
+    subgraph lane_0["Receiving Agent"]
         n1["Inspect Materials for Damage"]
         n2["Instruct to Receive Inventory into Block Stock"]
         n3["Complete Goods Receipt into Warehouse Dock"]
@@ -740,7 +782,7 @@ flowchart LR
         n11{{"fa:fa-code-branch Is the Product Damaged ?"}}
         n12{{"fa:fa-code-branch Exception/ Wrong Item Sent?"}}
     end
-    subgraph Warehouse Operator
+    subgraph lane_1["Warehouse Operator"]
         n5["Inform About Product Damages"]
         n6["Identify the Source of Damage"]
     end
@@ -763,7 +805,7 @@ flowchart LR
     class n12 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2PozYU_SsWo1F2JaICgZDhoVW-qCLtTKul21HV9MExdmIN2MiYTLLZ_PdeB0hCZqYv5YHoXu45557LjTlYRKbUiqz7-wMXXEfo0NMbmtNehHorXNKejerEn1hxvMpo2TM1TAqd8O-nMtcvdqbM5GKc82xvsgldS4q-LWw0BmBmoxKLsl9SxVnP7hWK51jtpzKTylTf0RFz2EmteTSRKqXqUuA4oUsCgGZc0Et6EPqhHxtcSYkUaYeUBWzESO9omsvkK9lgpU_tVyV9xLtnnuoNxAxnJYWajc6zL3hFM-NRq8rkSKW27TB4aXQEDCwpMOFiDXnfgZTC4uWSCpzjER3v75fiLIq-fF0KBBfJcFnOKEOlhvR8qxHjWRbd-dNxHDh2qZV8odGdNw9nA88mxkkE1h3bDLf_Svl6o6OVzNKmtP9qPEResbPVLvIcW-3hfqNFRXpRmg69kTc6K01Cd-pOWyXG2P9SgrmqP3D50mjNB7EXz85abjAMps5bvtbmzA_H7u2cqNpyQq9I4zgezC-jmg8D1_mYdBIPhs70hnSNNX3F-wvhw9Q_E8ZBGLvhh4S13m2X1ep3JUlLOJgHcXAmDCduPPY-JPTHrj9qOgSetcLFBn2lhPIt7BMar6nQ9VNzCffvpbUQZUGJRo_gw_y5SsSkQjOc4zVdWv9cVXt1NSwzlGvZ8FK0EFuglWqPOPygSSbJC0o03Lv4AeCnMi8yqin6Vcq0rCkKXQOfsaIbCa8dzd5gfcA-yo7Yf0mFn6Ce4Yjhfqll0dhJr9AnKE0B9vkKNwJYa6sdCEwNc7CNxukWCwIsyYYXhZnnk9SccYI1lwJ9GidPn7ttPJzodKXEhQ3aTqqiyDhV3WLXgepvIpM4vVQ3zaQ3pe7h0PozZ25_BacG2aBFieB8RbA-qXlHretfltbxeA333ofPd4QWxstP6FlJ8LfQNEcJTOyKAQ6Am_26vLffCqowjPdKKzgtDaxUjsYrWemb5squsaGpTkGQs_3JSiIrRSiS7HYjz20ID_X7P8N2NeGgDv0mdJ06dtvYNfGPpfUkl9YPeONNPqjLhk3o12HYohoSr4mHddyGrtcldd-o_WWcwpPgFtE-eLg6BUC3OWc7ydH5oO-kH95Pg_H38257ZHXTXpu2bCunKsc8taKDdfpewzc9pQxXmbaOtoUrLZO9IFZ0-q5ZVZECcsYxrENeJ4__Ap3ZipM=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVW2PqkYU_isTNhvvTTAFBHH50MY3GpO72-bS201Tm2aEg04WZsgwuFqv_71nBFTc3X6pHzTn4Xme8zLH4WDEIgEjMO7vD4wzFZBDT20gh15AeitaQs8kNfA7lYyuMih7mpMKriL2z4lmu8VO0zQW0pxle41GsBZAvi1MMkZhZpKS8rJfgmRpz-wVkuVU7qciE1Kz72CUWukpW_NoImQC8kKwLN-OPZRmjMMFHviu74ZaV0IseNIxTb10lMa9oy4uE6_xhkp1Kr8q4ZHunlmiNhinNCsBORuVZ1_oCjLdo5KVxuJKbtthsFLn4TiwqKAx42vEXQshSfnLBfKs45Ec7--X_JyUfPm65AQ_cUbLcgYpKRXC860iKcuy4M6djkPPMkslxQsEd87cnw0cM9adBNi6Zerh9l-BrTcqWIksaaj9V91D4BQ7U-4CxzLlHr9vcgFPLpmmQ2fkjM6ZJr49tadtpjRN_1cmnKv8jZYvTa75IHTC2TmX7Q29qfXWr21z5vpj-3ZOILcshivTMAwH88uo5kPPtj42nYSDoTW9MV1TBa90fzF8mLpnw9DzQ9v_0LDOd1tltfpVirg1HMy90Dsb-hM7HDsfGrpj2x01FaLPWtJiQzLK4W_rz6XxFWJgW1wsMl4DV0vjr5qpP9xGwoKXBcSKPGJP-o9WklRIMqM5XUOX7dRsXGykK0FqayALvkVnIfeE4Q-ZZCJ-IZHC765-gPqpyIsMFJCfhUjK2qJQtfCZStgIXAEye6N1UfsoOsn-K5X_CfkpDVLaL5UomnaSK_VJCgnKPl_pRueJwXkgODjKsG0yTraUx-gSbVhR6JE-CcVSFlPFBCefxtHT524ZDyc7VUl-ccOyo6ooMgby5jD0cX3jmaDJhd0Uk9xQ7cOh7U_fv_0V3iDxhixKgnctwVVK9Bm1Xf-0NI7Ha7nzvny-i6HQvfxAnqXA_hYKchLhxK4c8DJ4b9f0Kl0O8JcCJMU5d8v2TguE65WT8UpU6qbQssseanaCyVm6P7UViUrGQER6u53nkrhD-v0fcdOacFCHbhPaVh3bbWzr-PvSeBJL4zuefoN7NW3YhG4d-q2qMXGaeFjHbWg7XVP7TbY_dKf4xLtVtA8erm4HzNvcvx1wdH4BdOCH92Fs_H3cbq-yLuy0sGEaOcicssQIDsbpPY7v-gRSWmXKOJoGrZSI9jw2gtP7zqiKBJUzRnE18ho8_gtxLpJa" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-120 — Receive Materials and Services - FTS (IP)</span></div>
 
@@ -786,12 +828,12 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Procurement Agent
+    subgraph lane_0["Procurement Agent"]
         n2[["fa:fa-cog Send Order Data to Supplier"]]
         n25(["fa:fa-stop Order Data Sent"])
         n29["Create and Process Purchase Order"]
     end
-    subgraph Receiving Agent
+    subgraph lane_1["Receiving Agent"]
         n14["Report Physical Goods Arrival in IM"]
         n15["Process Physical Goods in Intel Managed WH from Supplier"]
         n19(["fa:fa-play Physical Goods Arrived at Intel Managed Warehouse"])
@@ -800,7 +842,7 @@ flowchart LR
         n30{{"fa:fa-code-branch exclusiveGateway"}}
         n31{{"fa:fa-code-branch 3PL or IM?"}}
     end
-    subgraph Transportation Manager (Transportation Management)
+    subgraph lane_2["Transportation Manager (Transportation Management)"]
         n3[["fa:fa-cog Create Freight Unit"]]
         n4[["fa:fa-cog Create Freight Order"]]
         n5[["fa:fa-cog Release/Confirm FO"]]
@@ -808,7 +850,7 @@ flowchart LR
         n7[["fa:fa-cog Create Freight Order"]]
         n8[["fa:fa-cog Release/Confirm FO"]]
     end
-    subgraph Warehouse Operator
+    subgraph lane_3["Warehouse Operator"]
         n1["fa:fa-user Create Inbound Delivery"]
         n9[["fa:fa-cog Create Inbound Delivery"]]
         n10[["fa:fa-cog Perform Goods Receipt against IBD"]]
@@ -916,7 +958,7 @@ flowchart LR
     class n41 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1v2kgQ_isrVxF3Euhsr1-AD1cRiHuRkgaFptWp9MPGXoNV40Vrk4RL-e83i3eNvdinNpcPRH5m5pmXnRm_vBohi6gxNi4uXpMsKcbotVes6Yb2xqj3SHLa66MS-Ex4Qh5TmveETsyyYpH8c1SznO2LUBNYQDZJuhfogq4YRQ_XfTQBw7SPcpLlg5zyJO71e1uebAjfT1nKuNB-R4exGR-9SdEl4xHlJwXT9K3QBdM0yegJxr7jO4Gwy2nIsqhBGrvxMA57BxFcyp7DNeHFMfxdTm_Jy5ckKtZwHZM0p6CzLjbpDXmkqcix4DuBhTv-pIqR5MJPBgVbbEmYZCvAHRMgTrLvJ8g1Dwd0uLhYZpVTdHO_zBD8hSnJ8xmNUV4AfPVUoDhJ0_E7ZzoJXLOfF5x9p-N39pU_w3Y_FJmMIXWzL4o7eKbJal2MH1kaSdXBs8hhbG9f-vxlbJt9vodfzRfNopOnqWcP7WHl6dK3ptZUeYrj-H95grryTyT_Ln1d4cAOZpUvy_XcqXnOp9KcOf7E0utE-VMS0hppEAT46lSqK8-1zG7SywB75lQjXZGCPpP9iXA0dSrCwPUDy-8kLP3pUe4e55yFihBfuYFbEfqXVjCxOwmdieUMZYTAs-Jku0aCbcdh7LICTVbwW8rFX2Z__bo0YjKOySBkK7SA40V3YljQjBQEFQwtdtttmlC-NL59qxu6v1WWecG2dauF8GF8-72uPgLtKadQLETAh4iJ5jma7zg0dU5LczAqbSAMLYl7GtLkCYbiLAXLAep7umUwGvP1Pk9CkqIPjEU5bAuePMFVkqHr24q8tHLBqoqiaSbUs4Km6JZkZEUj9OUvFHO2qdeiTjU6lWKbQiu0RQEspNBpCadrBn2uF8v8acJOCkc7Ho1CHJE4XTy_6eTA5uvrqTkiOniE3RSuEX0J010OEXwoW39pHA51M6vdTLhiHA7i_cng_Jw_gXIuzpIUCctkqTj6rRUXLd2IuNnNst8CflxA6AHuSVoXO_9poHqybuE2Le5pSqF9_5iyLE74BgV3mr73qyH5vxzS8OdDOq93dfjobks5KRivd3ZFLJaxiuU6e2Q7mOEZTaEJ-L45DaPW-FtsGiNkNq3mlMcMYi-b9Tj72wKRFUmyHKbocqbbW037h230M17tN1m1dxkEBbcssaBgq2wg2uPGEE0__3CvU3jA8JmkydHf5d2NtlB8sZtkCR6ylJEIeDWdYU2nGu5rmBEaiglpatuWtlEmi49ypdJIXx22pttcWpBNueW7zLFm_pFlv0rhacur2QZTKG9Ki3MzXzMTSV5nokLl0qgtPd1UVHOg4kGgT8WDZl613PyuWVBsty-5T7cqy_f6WsTda7HLxOl0Iob8iWTFmYn7tp3tvc3MbzcTs3AcC1H1yQ5KDosfktyR9Czg4ds8j95k5nTc0tSNvWwR6Bs9TKd2UyOcs-d8QNICnhS63FWbFh590GDwJ_yX1_ISq2vLKwHLV4AvgaECTMngKcApAcdUgCVJsQSwVJCXUt-Vl9Kjcij9Ve5sSabUsfRvVXTKnacDSgO70kRpYJVllbbUwCoHPJQxW0pDAlalcQz0x9IQLSVmOlwaP8RCVgYya6wywbLWlqKUjHikzkbGXV3LQqvMbcloK0ZblgIrRmzJmI5L5Yd48lISW0o-sqOgcoqxFPxN89JEHYStKu_rGZfDU6YrZa52BtZIK6hjagFUDaaXydECwrpAMbg6dWXh6lkriadnrbhMvYLiEV3k59ZeiESw6kWwAdv1t7mGBHdKnE6J2ynxOiV-p2TYKRl1SmDGO0VWt6i7DFZ3HaBT1CeDZk3NDtzqwO0OHHfgjvx80ETdVtRrRf1WdNjhryNP2Gfyrb0JW-2w3Q7jdthph9122GuH_XZ42A6PWmGnPUunytLoGxsKz0ZJZIxfjeOHOfh4F9GY7NLCOPQNAmt2sc9CY3z8gGXsjs_Hs4TAq8OmBA__Ast7JGw=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWGtv2zYU_SuEisAtYGOSqIftDyscO-oC5IW4aTE0w8DIlC1UFg1KTuKl_u-7lEjZYsShzfLBgQ7vOffBy6vHixWzBbXG1snJS5qn5Ri99MoVXdPeGPUeSEF7fVQDXwhPyUNGi56wSVheztN_KjPH2zwLM4FFZJ1mO4HO6ZJRdHfeRxMgZn1UkLwYFJSnSa_f2_B0TfhuyjLGhfU7OkzspPIml04ZX1B-MLDt0Il9oGZpTg8wDr3QiwSvoDHLFy3RxE-GSdzbi-Ay9hSvCC-r8LcFvSTPX9NFuYLrhGQFBZtVuc4uyAPNRI4l3wos3vJHVYy0EH5yKNh8Q-I0XwLu2QBxkn8_QL6936P9ycl93jhFF7f3OYK_OCNFMaMJKkqAzx5LlKRZNn7nTSeRb_eLkrPvdPzOPQtn2O3HIpMxpG73RXEHTzRdrsrxA8sW0nTwJHIYu5vnPn8eu3af7-BX80XzxcHTNHCH7rDxdBo6U2eqPCVJ8r88QV35Z1J8l77OcORGs8aX4wf-1H6tp9KceeHE0etE-WMa0yPRKIrw2aFUZ4Hv2GbR0wgH9lQTXZKSPpHdQXA09RrByA8jJzQK1v70KLcPN5zFShCf-ZHfCIanTjRxjYLexPGGMkLQWXKyWaGM5PRv-9u9JWS3HM5fXqLJEn7vrb9qW_GXu9_AJiHjhAxitkRz2Gp0LQ4OmpGSoJKh-XazyVLKgdci-u8bZlGyzTFrXrv5cGw-Auspp1A4RMCHCIsWBbrZcmjwgtb0JjYIoyshB0RuaUzTRzgpXek4XmWxYXBkbla7Io1Jhj4xtihgivD0Ea7SHJ1faixfFqqKqE0T5nlJM3RJcrKkC_T1D5Rwtj6uy7HU6FCWTQYt0hUFqJBSlyWcrhj0v144-6cFjRKetlWahNgusdP45sKoge2Xl0OjLOjgAWZWvEL0Oc62BUTwqT4S99Z-f0xzumnCFeOwER8PBMOeuxD7Z2AVYlNJmbJc1oyj9524aPUP7V3B7S6XfRjxakihO7hvad3t_SdB9eoxw28zbmlGoa1_m7I8SfkaRdeaffCrIYW_HNLw50My1B6DQNMR6HpDOSmZ3vGNEzG8VVzn-QPbwjmf0Qyag-_anFFnLh2cliO7zbqhPGGQR93E1VjYlIgsSZoXcLpOZzrfafPvNouf8eq-idXdcRAU3OLE7IJps4Zoq0kiDsPNp1tdIgCFLyRLK3-n1xda2UMxs2QJ7vKMkQXoajbDI5vm0J_DkaGxODDarcDRJs1kflWXFeaLPlJczbY9zCCb-k5gomONfsXyX5UItKHWboMplDej5WtaqNFEkue5qFA9Q46GoU4V1RyoeBDYU_FgWjQtd3OtTR23e_h9vlRZftTHJTaPSxPFMzoRB_6R5OUriv-2WR68jRZ208RZqI6FqPpkCyWHGwIkuSXZq4CHb_M8ehPNM9zq1A2_bhHoGz1M7-hmRzhnT8WAZCU8QZjcNVMXHo_QYPA7_JfX8hKrayeoASdUQCiBoQJsqRAowKsBz1aAI0WxBLA0kJfS3peX0qNyKP017lwppsyx9O80cspdoAPKAvuSoiywyrJJW1pglQMeypgdZSEBp7GoAv1xb4mWEmc6vrd-iIGsCDJrrDLBstaOkpSKeKT2RsbdXMtCq8xdqegqRVeWAitF7MiYqqHyQzyRqRVXrlyxaqFxirFc-JMWNUVthKsqH-oZ14enTleu-doeOCOtoJ6tBdA0mF4mTwsI6wtKwdelG4avZ61WAj1rpWXrFRSP7iI__-gFSgSrXhxbsHv89tdawcYVz7jiG1cC40poXBkaV0bGFTjjxiXHvGQug2OuA3SK-sTQrqltwB0D7hpwbMA9-bmhjfqdaNCJhp3o0ODPkCfMM_mW34adbtjthnE37HXDfjccdMNhNzzshkedsNedpddkafWtNYVno3RhjV-s6kMefOxb0IRss9La9y0CY3a-y2NrXH3wsrbV8_EsJfAasa7B_b9LcjP-" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-120 — Receive Materials and Services - FTS (IP)</span></div>
 
@@ -939,7 +981,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Inventory Manager
+    subgraph lane_0["Inventory Manager"]
         n1[["fa:fa-cog Perform Goods Receipt to Block Stock"]]
         n2[["fa:fa-cog Perform Goods Receipt"]]
         n3["Validate Quantity of Physical Goods Against Documents Received"]
@@ -962,7 +1004,7 @@ flowchart TD
     class n7 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVGP2jgQ_itWVivupCAlISE0D3eCQKpKV2lv6bUPpQ_GGYNvHTuyHXY5yn8_mwTC0q500uUhYr6Z-b6ZweMcPCJL8DLv_v7ABDMZOgzMFioYZGiwxhoGPmqBz1gxvOagBy6GSmGW7J9TWBjXLy7MYQWuGN87dAkbCeivDz6a2kTuI42FHmpQjA78Qa1YhdU-l1wqF30HExrQk1rnmklVguoDgiANSWJTORPQw6M0TuPC5WkgUpSvSGlCJ5QMjq44Lp_JFitzKr_R8BG_fGGl2VqbYq7BxmxNxf_Aa-CuR6Mah5FG7c7DYNrpCDuwZY0JExuLx4GFFBZPPZQExyM63t-vxEUUfZqvBLIP4VjrOVCkjYUXO4Mo4zy7i_NpkQS-Nko-QXYXLdL5KPKJ6ySzrQe-G-7wGdhma7K15GUXOnx2PWRR_eKrlywKfLW37xstEGWvlI-jSTS5KM3SMA_zsxKl9H8p2bmqT1g_dVqLUREV84tWmIyTPPiR79zmPE6n4e2cQO0YgSvSoihGi35Ui3ESBm-TzorROMhvSDfYwDPe94Tv8vhCWCRpEaZvErZ6t1U26wclyZlwtEiK5EKYzsJiGr1JGE_DeNJVaHk2Ctdb9EHsQBip9ugjFngDqvW7R4Rfv648ijOKh0Ru0AMoKlWF3ktZavQIBFhtkJFoxiV5Qktj3yvv27crhug_MNykjGzGZ8xZaUeH_mywMMzskaToYbvXjGDeZU83mAlt0FySprItdHw7KC3hFV_8y6WEmtu_4pZGKZeDsEFfsIKttCfLEvx6xZD0DNrIum20bfokdh07vol9_4hyWdUczA-h6eHQz6aE4douN9n2LXdDYFJYRWwa_fvKOx5bArto7Q8Ro-HwNzu1zhy1ZtqZYWsmnRm15rgzU2d-X3lTQqA-Ffjdxtw4H-FvIGfn9dI49quleeWJ3vTElwvpFZx0d8crcPwzMD0vled7FagKs9LLDt7p02E_LyVQ3HDjHX0PN0Yu94J42emK9Zranak5w_bkVy14_Bd-aRuh" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVe-P2jgQ_VesrFbcSUFKQkJoPvQEgVSVrtLe0h8fSnUyzpj41rEj22GXo_zvdUggQLvSSZcPEfP85r2ZIZPsHSJzcBLn_n7PBDMJ2g9MASUMEjRYYw0DF7XAZ6wYXnPQg4ZDpTBL9u-R5ofVS0NrsAyXjO8adAkbCejTexdNbSJ3kcZCDzUoRgfuoFKsxGqXSi5Vw76DCfXo0a07mkmVg-oJnhf7JLKpnAno4VEcxmHW5GkgUuRXojSiE0oGh6Y4Lp9JgZU5ll9r-IBfvrDcFDammGuwnMKU_E-8Bt70aFTdYKRW29MwmG58hB3YssKEiY3FQ89CCounHoq8wwEd7u9X4myKPs5XAtmLcKz1HCjSxsKLrUGUcZ7chek0izxXGyWfILkLFvF8FLik6SSxrXtuM9zhM7BNYZK15HlHHT43PSRB9eKqlyTwXLWz9xsvEHnvlI6DSTA5O81iP_XTkxOl9H852bmqj1g_dV6LURZk87OXH42j1PtZ79TmPIyn_u2cQG0ZgQvRLMtGi35Ui3Hke6-LzrLR2EtvRDfYwDPe9YJv0vAsmEVx5sevCrZ-t1XW6wclyUlwtIiy6CwYz_xsGrwqGE79cNJVaHU2ClcF4ljA397XlfNebEEYqXboAxZ4A2rlfGu5zSX8r5ZDcULxkMgNegBFpSrROylzjR6BAKsMMhLNuCRPaGns3QpcKgT_QeEmZWQzPmPOcjtG9FeNhWFmhyRFD8VOM4J5lz3dYCa0QXNJ6tJ20eltIb9uIvztXELF7d9yK6NUk4OwQV-wgkLap8wK_H6hEPUK2siqbbRt-mh2yR3fcN89olSWFQfzEzXe7_vZ5DBc20UnRd9yNwQmhXXEptZ_rJzDoRWwS9f-ECEaDt_aqXXhqA3jLvTbMOrCoA3HXRg34feVMyUEqmOB3y3n5vAR_gFyOrxcoEb9YoGuToJXT8Lzy-kKjrr3yBU4_hUYnxbMcZ0SVIlZ7iR75_gZsZ-aHCiuuXEOroNrI5c7QZzk-Lp16qp5puYM2y0oW_DwAylXH4Q=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-325-li-120-180_move_material_to_holding_location-_ftsip-li-120-180_move_material_to_holding_location-_ftsip">BUSINESS ARCHITECTURE — 3.2.5 LI-120-180_Move_Material_to_Holding_Location​<em>-_FTS</em>(IP) — LI-120-180_Move_Material_to_Holding_Location​<em>-_FTS</em>(IP)</h4>
 <p><strong>Swim Lanes</strong>: Inventory Manager | <strong>Tasks</strong>: 4 | <strong>Gateways</strong>: 3</p>
@@ -978,7 +1020,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Inventory Manager
+    subgraph lane_0["Inventory Manager"]
         n1["fa:fa-user Perform Goods Receipt to Block Stock"]
         n2["fa:fa-user Perform Goods Receipt"]
         n3["Move Material to Holding Location"]
@@ -1015,7 +1057,7 @@ flowchart TD
     class n12 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4jgU_StWRhUdKUhJSAjNw67aQLpIU6lburMPyz4Y5wasBjuyHVqG4b_vNQlQKJV2tXmIco_vOffD8U02DpM5OIlzdbXhgpuEbDpmAUvoJKQzoxo6LmmA71RxOitBd6xPIYWZ8B87Nz-s3qybxTK65OXaohOYSyB_jF1yi8TSJZoK3dWgeNFxO5XiS6rWqSylst5fYFB4xS5au3QnVQ7q6OB5sc8ipJZcwBHuxWEcZpangUmRn4gWUTEoWGdrkyvlK1tQZXbp1xoe6NufPDcLtAtaakCfhVmW3-gMSlujUbXFWK1W-2ZwbeMIbNikooyLOeKhh5Ci4uUIRd52S7ZXV1NxCEqeh1NB8GIl1XoIBdEG4dHKkIKXZfIlTG-zyHO1UfIFki_BKB72ApfZShIs3XNtc7uvwOcLk8xkmbeu3VdbQxJUb656SwLPVWu8n8UCkR8jpf1gEAwOke5iP_XTfaSiKP5XJOyreqb6pY016mVBNjzE8qN-lHof9fZlDsP41j_vE6gVZ_BONMuy3ujYqlE_8r3PRe-yXt9Lz0Tn1MArXR8Fb9LwIJhFcebHnwo28c6zrGePSrK9YG8UZdFBML7zs9vgU8Hw1g8HbYaoM1e0WpCxWIEwUq3JAxV0DqpZt5fw_5o6BU0K2rXtJo-gCqmW5F7KXJMnYMArQ4wkd6VkL2Ri8D51_n4nEPwLgVNGDxkPcgWYjQF7nK3-b_hy4BtPvklGDZfilBL-d0p0fUhMG1mR-yeSymVVgoEcPb--c-2fuT6BqZWwIb7j2y6xKNwO0BobyQ2nHwVi5D-BliVmOOSaKaioYBw06ZLseUKux49fT7MbIGMsdAXMHGvCxpEhXeIOketHxdHCFNoWnvFvkJ8uALfkhI2JVrgJv9dUGG7Wn4b3vc1mX7Kd2d0ZTh22sMTS8qjIjyJNnImhpta_Tp3t9r2Qf1lorAkO-mNyqVTK1oo5jgVrjA9awWUteGNlrfkK7puTdqTh7jQPIiDd7i-46a3Za8x-a_qNGbZm2Jhxaw4a0w9a--bM9ltx39sDngV-Tp2M8nLq_LRtOF96xMO8Wzqo-O3Kof5Dd3Z-vXO_9JLX-4lm69rPyBM4uAxH7ew-AfuXwPjwRTmBB5fhm8swtqIdjaewfxkO9rDjOktQS8pzJ9k4u98F_KXIoaB1aZyt69DayMlaMCfZfVadusqROeQUp92yAbf_ALCStAY=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v6kYQ_SsrX0XkSkayjY2JH1olBqdIN1Ia0tuHUlWLPYZVll1rd01Cufz3zmIDgRCpVXmwmLNnznzZY2-cXBbgJM7V1YYJZhKy6ZgFLKGTkM6Maui4pAG-U8XojIPuWE4phZmwv3c0P6zeLM1iGV0yvrboBOYSyG9jl9yiI3eJpkJ3NShWdtxOpdiSqnUquVSW_QUGpVfuorVHd1IVoI4Ez4v9PEJXzgQc4V4cxmFm_TTkUhQnomVUDsq8s7XJcfmaL6gyu_RrDQ_07XdWmAXaJeUakLMwS_6NzoDbGo2qLZbXarVvBtM2jsCGTSqaMzFHPPQQUlS8HKHI227J9upqKg5ByfNwKgj-ck61HkJJtEF4tDKkZJwnX8L0Nos8VxslXyD5EoziYS9wc1tJgqV7rm1u9xXYfGGSmeRFS-2-2hqSoHpz1VsSeK5a4_UsFojiGCntB4NgcIh0F_upn-4jlWX5vyJhX9Uz1S9trFEvC7LhIZYf9aPU-6i3L3MYxrf-eZ9ArVgO70SzLOuNjq0a9SPf-1z0Luv1vfRMdE4NvNL1UfAmDQ-CWRRnfvypYBPvPMt69qhkvhfsjaIsOgjGd352G3wqGN764aDNEHXmilYLwqmAv7w_ps5YrEAYqdbkgQo6BzV1_my49id8pJQ0KWnXtp48giqlWpJ7KQtNniAHVhliJLnjMn8hE4PXU4HgXwicevTQ40GuABMyYB9tq_8L3ih495NvMqeGSXHqEv53l-j6kJg2siL3TySVy4qDgQKZX99R-2fUJzC1EjbEd7zzJRaFowGtyRgXHKMfBWL0fwItOWY4ZDpXUFGRM9CkS7LnCbkeP349zW6wm4yuIDfHmrBxZEiXOCRy_agYWphC28Iz_xv0TxeAIznxxkQrHMKvNRWGmfWn4X1vs9mXbPd3d4YbKF9YR279qCiOIk2ciaGm1j9Pne32vZB_WWisCS79Y3KpVMrWijmORd4YH7SCy1rwlvNasxXcN0_d0Q2n0_wRAel2f8Kht2avMfut6Tdm2JphY8atOWhMP2jtmzPbb8V9bw94FvgxdTLK-NT5YdtwfvSID_bu6KDityeH-g_d2fF657z0Euv9drN17fflCRxchqN2j5-A_UtgfHi7nMCDy_DNZRhb0a7JU9i_DAd72HGdJaglZYWTbJzdpwN-XhRQ0pobZ-s6tDZysha5k-xesU5dFeg5ZBQ337IBt_8A80W36Q==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-120 — Receive Materials and Services - FTS (IP)</span></div>
 
@@ -1038,7 +1080,7 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph 3PL Inventory Manager
+    subgraph lane_0["3PL Inventory Manager"]
         n11[["fa:fa-cog Receive Delivery Note"]]
         n12[["fa:fa-cog Initiate Pick/Pack"]]
         n13[["fa:fa-cog Initiate Post Goods Issue"]]
@@ -1047,11 +1089,11 @@ flowchart LR
         n16[["fa:fa-cog Update Batch Information"]]
         n19(["fa:fa-stop Inventory Received"])
     end
-    subgraph Consignment Supplier
+    subgraph lane_1["Consignment Supplier"]
         n4["fa:fa-user Receive Stock Physically"]
         n10[["fa:fa-cog Perform Post Goods Receipt"]]
     end
-    subgraph Inventory Manager
+    subgraph lane_2["Inventory Manager"]
         n1["fa:fa-user Create Consignment Fill-Up Order Type"]
         n2["fa:fa-user Create Outbound Delivery"]
         n3["fa:fa-user Perform Stock in Transit"]
@@ -1105,7 +1147,7 @@ flowchart LR
     class n20 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV22P4jYQ_itWTitaCdS8B_KhFYTNdaXdPbTs9lQd98EkDliEOLUddinHf6-dV5Ilq1blA8jPzPPMeDITm5MSkBAprnJzc8IJ5i44DfgW7dHABYM1ZGgwBAXwB6QYrmPEBtInIglf4r9zN81M36SbxHy4x_FRoku0IQi83A3BVBDjIWAwYSOGKI4Gw0FK8R7So0diQqX3JzSO1CiPVppmhIaINg6q6miBJagxTlADG47pmL7kMRSQJGyJRlY0joLBWSYXk9dgCynP088YeoBvX3HIt2IdwZgh4bPl-_gerlEs98hpJrEgo4eqGJjJOIko2DKFAU42AjdVAVGY7BrIUs9ncL65WSV1UHD_tEqA-AQxZGyOIsC4gG8PHEQ4jt1Ppjf1LXXIOCU75H7Sb525oQ8DuRNXbF0dyuKOXhHebLm7JnFYuo5e5R5cPX0b0jdXV4f0KL47sVASNpE8Wx_r4zrSzNE8zasiRVH0vyKJutJnyHZlrFvD1_15HUuzbMtT3-tV25ybzlTr1gnRAw7Qhajv-8ZtU6pb29LUftGZb9iq1xHdQI5e4bERnHhmLehbjq85vYJFvG6W2XpBSVAJGreWb9WCzkzzp3qvoDnVzHGZodDZUJhugbG4B3fJASWc0CN4gAncIFr4yE-iad--rZQIuhEcBWQDnlCA8AGBOYrFj6A8Eo5Wyvfvlxy9zbkT845FJcACB7tfFjDYdQlGH4EwDj4TEjJwx1j2LpB5PbklJ8EO4AR8hRRtiWiWLtFqExdZHJesGcypnDRl6ZLtNvklDWWuM8iDrSBFhO4hxyTp0iY_1TTGSXpR9jLvUDB-LhhikjoPyiMJw5tkLyhgmaVpjFvPyay15Wh0KrHYHhkOYBzLrVympHbKgKjM_rLsuVDKm728z-zD9mmn5VEkS3W5F1908uglBV_kWxg8H1PUzlG_qvAl42uSJWHdh22S0SZV-6r74lm8SBnmbVKnJzyyT2P0Qdfaff4fN61zvea2MQUP5IDyosgyFElGMn0hKN74HZ1xn47333Qm_7YHwCvmW7GA7H1vO01vpzGsO1r8_pUhISTG6QkxEss3B2YBRSlMAoxY0_GFzrgzI2WnoFD0FkfyfK-HpRhScWUAv2frjo6unk7NpkI0WosayOlkOaHog1oI8qvT9dtKOZ87TZ9oYDT6VQSoluVaqwGnBMq1VS6Nyl4BZgmY5VqtHOwSmFRA7vFjpZgzfaX8EA-sNIxLx3HlqJeOxkyEk55WadHV0vKnrLgwmF3DI8nxOku1iQm85efH3FoFskvjNOMFzSkNRplRFVcz6oyK1O0qbpOp_pRbtKpgTkMB02URuDr-k0mVlqfNCpp9cUDKp1NdDFqwfh02rsPmddi6vCK0LHavxem1jHstk16LeCq9Jq3fpPebjH6T2W_qr4TWXwoxGNVVtI2Py2tjG51cQ0W7ljcqZajskThncai4JyX_3yD-W4QoglnMlfNQgaI3l8ckUNz8fq1k-SE9x1CcWfsCPP8DO4nzZg==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV22P4jYQ_itWTitaCdS8EuBDKwjkutLuHlp2e6qOqjKJA9YGO2c77FKO_147ryRLrq3KB5CfmeeZ8XgmMSctoCHSJtrNzQkTLCbg1BM7tEe9CehtIEe9PsiB3yDDcBMj3lM-ESVihf_K3Aw7eVNuCvPhHsdHha7QliLwfNsHU0mM-4BDwgccMRz1-r2E4T1kR4_GlCnvD2gU6VEWrTDNKAsRqx103TUCR1JjTFANW67t2r7icRRQEjZEIycaRUHvrJKL6Wuwg0xk6acc3cO3zzgUO7mOYMyR9NmJfXwHNyhWexQsVViQskNZDMxVHCILtkpggMlW4rYuIQbJSw05-vkMzjc3a1IFBXePawLkJ4gh53MUAS4kvDgIEOE4nnywvanv6H0uGH1Bkw_mwp1bZj9QO5nIret9VdzBK8LbnZhsaBwWroNXtYeJmbz12dvE1PvsKL9bsRAJ60je0ByZoyrSzDU8wysjRVH0vyLJurInyF-KWAvLN_15Fctwho6nv9crtzm33anRrhNiBxygC1Hf961FXarF0DH0btGZbw11ryW6hQK9wmMtOPbsStB3XN9wOwXzeO0s082S0aAUtBaO71SC7szwp2anoD017FGRodTZMpjsQAwJ-lP_stas5R24JQdEBGVHcA8J3CK21v7I_dWHGMYX6RjBSQQHAd2CRxQgfEBgjmL5I1kPVCBJaXDMJudWzj6WVQFLHLz8tITBS5tgdREoF-AjpSEHt5yn7wLZ15NbCRq8AEzAZ8jQjsrGaROdJnGZxnHBmsGMKmhdmTZ52CQ_J6HKdQZFsJOkiLI9FJiSNm38Q0XjgiYXlS_yDiXjx5whp-raoRlSwaOE4y3ZSy5YpUkS4_aZ2VUcNTKtqix3R44DGMfH1kHrrZIgpnZyeQSZUCLqfXVkaUqhf2qrZooeQ6qEl1vzZbcPnhPwST2pwdMxQU0F86rCp1RsaErCqj-bJKtJKvdY9cuTfNhyLJqkVq94dJ_E6DvdPOzy_34zu9frP7Sm4J4eUFYUVYY8yUilLwXlW6GlM-rS8f6bzvjf9gN4xWInF5C_73m37vkkhlWny9-vKZJCcsweEaexeqJgHjCUQBJgxOtJyHVGrdkpOgWFsr0EUneAaojy4ZXXCvBrumnpmPrpVG8qRIONrIGaWp4R8j6ohKAA14btl7V2PrcGgBhgMPhZBiiXxdqoALcAirVTLK3SXgJ2AdjFWi8dhgUwLoHM49tas2fmWvsmD6wwjArHUeloFo7WTIZTnk5hMfXC8ruquDTYbcMDzfAqS72OCbzVx4fMWgYaFsZpKnKaWxisIqMyrmFVGeWpD8u4dabmY2YxyoK5NQVMV3ng8opAxmVanjHLacOLl6g6nfLy0IDN67B1Hbavw87lNaJhGXZa3E7LqNMy7rTIU-k0Gd0ms9tkdZvsblN3JYzuUsjBKK-rTXxUXC2b6PgaKtu1uHVpfW2P5PsXh9rkpGX_LeT_jxBFMI2Fdu5rUPbm6kgCbZLdwbU0e3nPMZTvr30Onv8GY4X_Eg==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-120 — Receive Materials and Services - FTS (IP)</span></div>
 
@@ -1128,7 +1170,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Inventory Manager
+    subgraph lane_0["Inventory Manager"]
         n1["fa:fa-user Post Goods Receipt"]
         n2(["fa:fa-stop GR Completed for Actual Quantity"])
         n3["Resolve Discrepancies - FTS (IP)"]
@@ -1146,7 +1188,7 @@ flowchart TD
     class n5 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVF1v0zAU_StWpqkgpVI-l5IHUJc2aBKDsQ4Qojy4znVjzbUj22lXSv87dj_Xwp7IQ5R7fM85997YXnlEVuDl3uXliglmcrTqmBpm0MlRZ4I1dHy0Bb5ixfCEg-64HCqFGbFfm7QwaZ5cmsNKPGN86dARTCWgLzc-6lsi95HGQnc1KEY7fqdRbIbVspBcKpd9AT0a0I3bbulaqgrUMSEIspCklsqZgCMcZ0mWlI6ngUhRnYjSlPYo6axdcVwuSI2V2ZTfarjFT99YZWobU8w12JzazPgHPAHuejSqdRhp1Xw_DKadj7ADGzWYMDG1eBJYSGHxeITSYL1G68vLsTiYoofBWCD7EI61HgBF2lh4ODeIMs7zi6Tol2nga6PkI-QX0TAbxJFPXCe5bT3w3XC7C2DT2uQTyatdanfhesij5slXT3kU-Gpp32deIKqjU3EV9aLewek6C4uw2DtRSv_Lyc5VPWD9uPMaxmVUDg5eYXqVFsHfevs2B0nWD8_nBGrOCDwTLcsyHh5HNbxKw-Bl0esyvgqKM9EpNrDAy6PgmyI5CJZpVobZi4Jbv_Mq28mdkmQvGA_TMj0IZtdh2Y9eFEz6YdLbVWh1pgo3NboRcxBGqiW6xQJPQW3X3SPCH2OP4pzirhs3upPaoPdSVhrdAwHWmLH381l69OqQr41s0Pt7VMhZw8FAhahUqE9Mizn63GJhmFla9utn9Niy70FLPgc0YJooaLAgDDTqovJhhF7d3L0-NUwso6iBPNraDbjDv7GxA2psuXubF-nparWv191N3Yk9XaTedXhgW2kLLpip0d2nd2Nvvd5K2L2-_RAJ6nbfWrldGG7DaBemLvw99r6DHnu_7fIZ_lFu4PjZj3Ya-w1-Ake7E3YCxocjfgIn_4bT_Z70fG8GaoZZ5eUrb3Pz2tu5Aopbbry17-HWyNFSEC_f3FBe21SWOWDYbpzZFlz_ATLz3GE=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO0zAQ_RUrq1VBSqVcNyUPoG7aoJW4LNsFhChCrjNurHXtyHbaLaX_jt3rtrBP5CHqnJw5Z2Zqz8ojsgIv9y4vV0wwk6NVx9Qwg06OOhOsoeOjLfAFK4YnHHTHcagUZsR-bWhh0jw6msNKPGN86dARTCWgzzc-6ttE7iONhe5qUIx2_E6j2AyrZSG5VI59AT0a0I3b7tO1VBWoIyEIspCkNpUzAUc4zpIsKV2eBiJFdSJKU9qjpLN2xXG5IDVWZlN-q-E9fvzKKlPbmGKuwXJqM-Pv8AS469Go1mGkVfP9MJh2PsIObNRgwsTU4klgIYXFwxFKg_UarS8vx-Jgiu4HY4HsQzjWegAUaWPh4dwgyjjPL5KiX6aBr42SD5BfRMNsEEc-cZ3ktvXAd8PtLoBNa5NPJK921O7C9ZBHzaOvHvMo8NXSvs-8QFRHp-Iq6kW9g9N1FhZhsXeilP6Xk52rusf6Yec1jMuoHBy8wvQqLYK_9fZtDpKsH57PCdScEXgiWpZlPDyOaniVhsHzotdlfBUUZ6JTbGCBl0fBV0VyECzTrAyzZwW3fudVtpNbJcleMB6mZXoQzK7Dsh89K5j0w6S3q9DqTBVuasSxgJ_B97F3I-YgjFRL9B4LPAU19n5sue4RoaVQnFPcdaNHt1Ib9FbKSqM7IMAac0qPXhz42sgGvb1DhZw1HAxUiEqF-sS0mKNPLRaGmaXNfvkkPbbZd6AlnwMaME0UNFgQBhp1UXk_Qi9ubl-eGiY2o6iBPNjyDbhFsLGxw2psuXubZ9PT1Wpfr9tT3Ym9aaTedXjIttIWXDBTo9uPb8beer2VsOd--0MkqNt9beV2YbgNo12YuvD32PsGeuz9tp_P8A9yA8dP_nSnsT_sJ3C0u20nYHy47idw8m843Z9Pz_dmoGaYVV6-8jZb2G7qCihuufHWvodbI0dLQbx8s628tqls5oBhe4hmW3D9B--C4EQ=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-120 — Receive Materials and Services - FTS (IP)</span></div>
 
@@ -2498,11 +2540,15 @@ flowchart TD
 </tbody>
 </table>
 <hr />
-<p><em>LI-120 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IP) · Generated: March 2026</em></p>
+<p><em>LI-120 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IP) · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-120 — Receive Materials and Services - FTS (IP)</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>LI-120</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

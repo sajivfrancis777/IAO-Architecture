@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Finance Plan To Report (FPR) Tower<br/>
   Capability DS-010 · DS Provide Decision Support</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 3</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -670,7 +712,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Cost Accountant - Overhead
+    subgraph lane_0["Cost Accountant - Overhead"]
         n1["fa:fa-user Identify Allocator (Sender) and Allocatees (Receiver)"]
         n2(["fa:fa-play Creation and Maintenance of Master Data Initiated"])
         n3(["fa:fa-stop Creation and Maintenance of Master Data Completed"])
@@ -735,7 +777,7 @@ flowchart TD
     class n17 subProc
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4jgU_StWqopWCpo4H4TmYSUaSLfaGe1qmJ15mK5WbnID3ho7sp22LOK_rwMJkDR0VrtIEO7xPedcXztxNlYqMrAi6_JyQznVEdoM9BJWMIjQ4JEoGNhoD3wlkpJHBmpQ5eSC6zn9e5eG_eK1SquwhKwoW1foHBYC0O_3NpoYIrORIlwNFUiaD-xBIemKyHUsmJBV9gWMcyffudVDt0JmII8JjhPiNDBURjkcYS_0Qz-peApSwbOWaB7k4zwdbKvimHhJl0TqXfmlgk_k9RvN9NLEOWEKTM5Sr9hH8gismqOWZYWlpXxumkFV5cNNw-YFSSlfGNx3DCQJfzpCgbPdou3l5QM_mKIv0weOzCdlRKkp5EhpA8-eNcopY9GFH0-SwLGVluIJogt3Fk49106rmURm6o5dNXf4AnSx1NGjYFmdOnyp5hC5xastXyPXseXa_Ha8gGdHp3jkjt3xwek2xDGOG6c8z_-Xk-mr_ELUU-018xI3mR68cDAKYuetXjPNqR9OcLdPIJ9pCieiSZJ4s2OrZqMAO-dFbxNv5MQd0QXR8ELWR8Gb2D8IJkGY4PCs4N6vW2X5-JsUaSPozYIkOAiGtziZuGcF_Qn2x3WFRmchSbFEsVAaTdJUlFwTrtEQ_foMcgkk2ydWH46_P1g5iXIyrPqO7jPgmuZrNGFMpEQLia7mZu1BXiPCswYGUOjqM6RAjeL1g_XHiaJ7dZAsmGlQLIFoKviO_4lQroETngISuQmVNq5Togm6N48OaqQzI3d9oucd9ZQWxb_Wi8WqYPBWz99sGj0ipXhRQ8I0KogkjAG72y_rg7XdnnCC_8AZfT_UnZtbAORQFMD35ZuHWpFVl90axabnIE2Zp20M36N_qOlmw-T0jMD4Xf96X6gO6eYMaUn4AtDdh4_niNjpZ9aFnixMl4j7ibuVNd_GEN1JURZvbN13befabBWlaUoY-gWqm3VRSngj4r3bKtPkvyDV6GcKksh0uUZXDTQ3T_hUG8nrrqTfL_lndYuDUuibkE_1ur0pJ_gB97MotTkmurTRD2jmmplqq1vnq3E1167CmT13j5KS74imjRPTlCPPPBr2f7iPhsOfzLZth7iJw30c1CHuxEGd3gzvQ68j1sTYa7Pr8VEdjnpHMe7ETju-aYfjOhy3xW4683A6Me73dptxtz1eh34nvRt35ZqZYr9jH3Tidit2Z03V3eaMbcHu4YWiBXv12d8C_eb8a6FBLzpqjrYWGvai4170phc1ve-FcT_s9sNeP-z3w0E_3D9FfJijZVsrkCtCMyvaWLt3YfO-nEFOSqatrW2RUov5mqdWtHtntMrd82tKiTnKV3tw-w-kZosk" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVmtv4jgU_StWqopWCpo4D0LzYSUaSLeaGe1qmMeH6WrkJjfgrbEj22nLIv77OpBAk4bOaBcJwj2-59yHHdsbKxUZWJF1fr6hnOoIbQZ6CSsYRGhwTxQMbLQHvhJJyT0DNah8csH1nP6zc8N-8Vy5VVhCVpStK3QOCwHoy62NJobIbKQIV0MFkuYDe1BIuiJyHQsmZOV9BuPcyXfR6qFrITOQRwfHCXEaGCqjHI6wF_qhn1Q8BangWUs0D_Jxng62VXJMPKVLIvUu_VLBR_L8jWZ6aeycMAXGZ6lX7AO5B1bVqGVZYWkpH5tmUFXF4aZh84KklC8M7jsGkoQ_HKHA2W7R9vz8jh-Cos_TO47MJ2VEqSnkSGkDzx41yilj0ZkfT5LAsZWW4gGiM3cWTj3XTqtKIlO6Y1fNHT4BXSx1dC9YVrsOn6oaIrd4tuVz5Dq2XJvfTizg2TFSPHLH7vgQ6TrEMY6bSHme_69Ipq_yM1EPdayZl7jJ9BALB6Mgdl7rNWVO_XCCu30C-UhTeCGaJIk3O7ZqNgqwc1r0OvFGTtwRXRANT2R9FLyK_YNgEoQJDk8K7uN1syzv_5QibQS9WZAEB8HwGicT96SgP8H-uM7Q6CwkKZaIEQ4_nO93ViyURpM0FSXXhGs0RH88glwCye6sv_ak6sOx8c1JlJNhNQfoNgOuab5GE8ZESrSQ6GJu1gHIS0R41sAACl18ghSoEb1sK7oXB8mCmWbFEoimgu_4HwnlGjjhKSCRG1NpE3VKNEG3ZhuhRrpK8PKFnnfUU1oUv6wXi1XB4LWev9k0ekRK8aSGhGlUEEkYA3azn-I7a7t9wQn-A2f0_ZB3bl4HkENRAN-nbza4Iqseu2mKTc9BmjRftjF8i_6uppvFk9MTAuM349dLQ3VIVydIS8IXgG7efThFxE4_s070xcR0ibifuJtZ820CohspyuJVWPfNsHNtlorSNCUMvYfqxV2UEl6JeG-2yjT5b0g1-p2CJDJdrtFFA83Nbp9qI3nZlfT7JX9Urzsohb4J-VDP26t0gp9wP4lSmyOjSxv9hGaemcm2enW-mqjm2VU4seZuUVLyHdG0cWKacuSZrWH_h_toOPzNLNu2iRs73NtBbeKOHdTuzfDe9DpijY29NrseH9XmqHcU447ttO2rtjmuzXFb7KpTh9OxcX9stxl32-O16Xfcu3ZXrqkU-53wQcdut2J37lTdbc7bFuweLhct2KvvAS3Qb87CFhr0oqPmmGuhYS867kWvelHT-14Y98NuP-z1w34_HPTD_SXiQ42Wba1ArgjNrGhj7e7F5u6cQU5Kpq2tbZFSi_map1a0uz9a5W7_mlJijvXVHtz-CwlCjwc=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
 
@@ -758,7 +800,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Cost Accountant
+    subgraph lane_0["Cost Accountant"]
         n1["fa:fa-user Post Procurement Cost (Bulk, Chemicals and Gases)"]
         n2["fa:fa-user Post Burden Expenses"]
         n3["fa:fa-user Post Depreciation Expenses"]
@@ -796,7 +838,7 @@ flowchart TD
     class n11 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVtuO4jgQ_RUrrRbdUtDkSiAPK0Ego5F2dlqid-Zh2AeTOI3Vjh05TgOL-PctkwRIBlZabR4QdVzn1MVUhYORiJQYofH4eKCcqhAdBmpDcjII0WCNSzIwUQ18x5LiNSPlQPtkgqsl_fvkZnvFTrtpLMY5ZXuNLsmbIOjPLyaaApGZqMS8HJZE0mxgDgpJcyz3kWBCau8HMs6s7BStOZoJmRJ5cbCswE58oDLKyQV2Ay_wYs0rSSJ42hHN_GycJYOjTo6JbbLBUp3Sr0ryFe9-0FRtwM4wKwn4bFTOfsdrwnSNSlYaSyr50TaDljoOh4YtC5xQ_ga4ZwEkMX-_QL51PKLj4-OKn4Oi1_mKI3gShstyTjJUKoAXHwpllLHwwYumsW-ZpZLinYQPziKYu46Z6EpCKN0ydXOHW0LfNipcC5Y2rsOtriF0ip0pd6FjmXIPn71YhKeXSNHIGTvjc6RZYEd21EbKsux_RYK-yldcvjexFm7sxPNzLNsf-ZH1q15b5twLpna_T0R-0IRcicZx7C4urVqMfNu6LzqL3ZEV9UTfsCJbvL8ITiLvLBj7QWwHdwXreP0sq_WLFEkr6C782D8LBjM7njp3Bb2p7Y2bDEHnTeJigyJRKjRNElFxhbmqT_XD7Z8rI8Nhhoe62ehFO-rYlYQh5apmPs0q9m6iCAaXJvDrRpin6DOMc_m8Mv66UnNuqM0qmDyOFruCcGB0Ce4NwpwUkiQUKyru0bwubcqYSOASkBLoW_RtiX7Mlp-gioxCAVAFkZ9eNPxKkg36AwauLqs-6kn7T2ftgsGlvtT7A7qnKsxqok4ThhN9gRUHeZIUJJ6vNEYXjVKJ4l81IpEXjPyqEYCE9iGprkqnKltqnTd6asoWsncL4y5V5Dk08mkJm4Okz9cSXdqkQ-vcwl2ObR0ObalYSrEth5gpVGBIlhH2uZ6MlXE8XpPs_0aChVN_4T4aDn_TURvbthqgZzs9223t2gwa06nNcWOOG7FWza3tSWMGveNJz7Ybda-xvdocXQ23zqBdah3YuQ27t2HvNuyfXwMdeNRs7A4Y3PYd34Ynt2Fob7P7urDdwoZp5ETmmKZGeDBOL374c5CSDFdMGUfTwJUSyz1PjPD0gjSqIgXmnGLYW3kNHv8BPW6hnA==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2PokgU_SsVOh27E8zwKcrDJooymWR3pxN7Zh7WzaaEoq10UUWKotU1_ve9JaDC6Cab5YF4D_ec-1HeCwcjESkxQuPx8UA5VSE6DNSG5GQQosEal2Rgohr4jiXFa0bKgfbJBFdL-vfJzfaKnXbTWIxzyvYaXZI3QdC3LyaaApGZqMS8HJZE0mxgDgpJcyz3kWBCau8HMs6s7BSteTQTMiXy4mBZgZ34QGWUkwvsBl7gxZpXkkTwtCOa-dk4SwZHnRwT22SDpTqlX5XkN7z7QVO1ATvDrCTgs1E5-xWvCdM1KllpLKnkR9sMWuo4HBq2LHBC-RvgngWQxPz9AvnW8YiOj48rfg6KXucrjuBKGC7LOclQqQBefCiUUcbCBy-axr5llkqKdxI-OItg7jpmoisJoXTL1M0dbgl926hwLVjauA63uobQKXam3IWOZco93HuxCE8vkaKRM3bG50izwI7sqI2UZdn_igR9la-4fG9iLdzYiefnWLY_8iPrZ722zLkXTO1-n4j8oAm5Eo3j2F1cWrUY-bZ1X3QWuyMr6om-YUW2eH8RnETeWTD2g9gO7grW8fpZVusXKZJW0F34sX8WDGZ2PHXuCnpT2xs3GYLOm8TFBjHMyV_WHysjEqVC0yQRFVeYq5XxZ-2pL26DQ4bDDA9149GL9tV5VBIGlit0Ij_NKvZuogiGmCbwT0eYp-gzjHb53FVzbqjNKphCjha7gnBgdAnuDcKcFJIkFCsq7tG8Lm3KmEjgQJAS6Gv0dYl-zJafoIqMQgFQBZGfXjT8SpIN-h2Gry6rftST9p_O2gWDA36pdwk0UFWY1USdJgwq-gLrDvIkKUg8X2mMLhqlEsW_akQiLxj5WSMACe1DUl2VTlW21Dpv9NSULWTvFMZdqshzaOTTErYISZ-vJbq0SYfWOYW7HNs6HNpSsZRiWw4xU6jAkCwj7HM9JSvjeLwm2f-NBMun_sF9NBz-oqM2tm01QM92erbb2rUZNKZTm-PGHDdirZpb25PGDHqPJz3bbtS9xvZqc3Q16DqDdsF1YOc27N6Gvduwf34ldOBRs707YHDbd3wbntyGob3NHuzCdgsbppETmWOaGuHBOH0EwIdCSjJcMWUcTQNXSiz3PDHC08vSqIoUmHOKYYflNXj8B61GpX8=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
 
@@ -819,7 +861,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Cost Accountant
+    subgraph lane_0["Cost Accountant"]
         n1["fa:fa-user Allocate CPLG Freight Expenses"]
         n2["fa:fa-user Allocate CPLG Warehouse Expenses"]
         n3["fa:fa-user Allocate CPLG Planning and Staff (Additional)"]
@@ -869,7 +911,7 @@ flowchart TD
     class n14 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVtuu4jYU_RUrR0fMSEGNcyGQh0oQyGikqYTEaeeh9MEkNljH2JFtDlDEv9chFwgTpirNA2It77X2hbCTk5WKDFuR9fp6opzqCJx6eoO3uBeB3gop3LNBSfyBJEUrhlWviCGC6wX9-xIG_fxQhBVcgraUHQt2gdcCg9-_2mBshMwGCnHVV1hS0rN7uaRbJI-xYEIW0S94SBxyyVYdTYTMsLwGOE4I08BIGeX4SnuhH_pJoVM4FTxrmZKADEnaOxfFMbFPN0jqS_k7hX9Dh-800xuDCWIKm5iN3rJvaIVZ0aOWu4JLd_KjHgZVRR5uBrbIUUr52vC-YyiJ-PuVCpzzGZxfX5e8SQrepksOzJUypNQUE6C0oWcfGhDKWPTix-MkcGylpXjH0Ys7C6eea6dFJ5Fp3bGL4fb3mK43OloJllWh_X3RQ-TmB1seItex5dF83uXCPLtmigfu0B02mSYhjGFcZyKE_K9MZq7yDan3KtfMS9xk2uSCwSCInR_96janfjiG93PC8oOm-MY0SRJvdh3VbBBA57HpJPEGTnxnukYa79HxajiK_cYwCcIEhg8Ny3z3Ve5WcynS2tCbBUnQGIYTmIzdh4b-GPrDqkLjs5Yo34BYKA3GaSp2XCOuy9Pi4vDPpUVQRFC_GDYYMyZS0w6I59--gERefjcwO-SYK6yW1l83Uvdn0u9I4o0wBw_E3s_Ec4Y4N3c_QDwDC40IAZ_GWUY1FRyxz20n_4GTFmXbMeYaS_WLmSihDQQTs40yIDgw6wgsxE6muO0bPPZtW7Vlg0-NLmfmppiX-wfMzaoSGU0vRSnwZv7kihSFfDV7khrjzPh8vjEKr0ZKi_zfjWKxzRn-0Wh4OtVGSEqxV33ENMiRRIxh9qW8eZfW-XyjGT2hgc4zIviMyH1G5D0j8v-byOzG8gsfgH7_VzP8Cg5LCNvQqyCsTqtFwN0K1-Fehd0Kj0oc1PLq3K-xX-Kwxk6JRxWujmEdH9zhqjr3Tg6bcuE94T4gRneK0c2mK9quN3yLdrtpr5v2u-mgmx40j8oWHVZPtRY5rDd7ix11smZGnTTspt1u2uum_Zq2bGuL5RbRzIpO1uVFyrxsZZigHdPW2bbQTovFkadWdHnhsHZ5ZpRTisxzYFuS538A9T4KFA==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP2jgY_StWRiNaKWjjXAjkYSUIpKrUSkjMbh9KtTKJDdYYO7KdARbx39chFyYUulqWB8Q5_s75LiRfcrRSkWErsp6fj5RTHYFjT2_wFvci0FshhXs2qIg_kaRoxbDqlTFEcL2gf5_DoJ_vy7CSS9CWskPJLvBaYPDHZxuMjZDZQCGu-gpLSnp2L5d0i-QhFkzIMvoJD4lDztnqo4mQGZaXAMcJYRoYKaMcX2gv9EM_KXUKp4JnHVMSkCFJe6eyOCZ26QZJfS6_UPgr2n-jmd4YTBBT2MRs9JZ9QSvMyh61LEouLeRbMwyqyjzcDGyRo5TyteF9x1AS8dcLFTinEzg9Py95mxS8TJccmE_KkFJTTIDShp69aUAoY9GTH4-TwLGVluIVR0_uLJx6rp2WnUSmdccuh9vfYbre6GglWFaH9ndlD5Gb7225j1zHlgfzfZUL8-ySKR64Q3fYZpqEMIZxk4kQ8r8ymbnKF6Re61wzL3GTaZsLBoMgdn72a9qc-uEYXs8Jyzea4nemSZJ4s8uoZoMAOvdNJ4k3cOIr0zXSeIcOF8NR7LeGSRAmMLxrWOW7rrJYzaVIG0NvFiRBaxhOYDJ27xr6Y-gP6wqNz1qifAMY4vgv5_vSioXSYJymouAacb20flSR5YdDE0BQRFC_HDwYMyZS0xqI518-gUSe_0Mw2-eYK6y6UvdX0m9I4o0wB3fE3q_Ec1M7N3cCQDwDC40IAR_GWUY1FRyxj10n_46TFuDceYy5xlL9ZqZLaAvBxGymDAgOzGoCC1HIFHd9g_u-XauubPCh1eXMXCDzaheBuVlbIqPpuSgFXswNr0hZyGezM6kxzozPx3dG4cVIaZH_u1EstjnDPxsNj8fGCEkpdqqPmAY5kogxzD5VF_LSOp3eaUYPaKDziAg-InIfEXmPiPz_JjJ7svrBB6Df_90Mv4bDCsIu9GoI69N6KXC3xk24V2O3xqMKB428Pvcb7Fc4bLBT4VGN62PYxAdXuK7OvZLDtlx4Tbh3iNGVYvRu65VtN9u-Q7u3ae827d-mg9v0oH1sduiwfsJ1yGGz5Tvs6CZrZnSThrdp9zbt3ab9hrZsa4vlFtHMio7W-aXKvHhlmKCCaetkW6jQYnHgqRWdXz6sIs-MckqReSZsK_L0D39gDfc=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
 
@@ -892,7 +934,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Cost Accountant
+    subgraph lane_0["Cost Accountant"]
         n1["fa:fa-user Allocate HR Benefits Using Head Count"]
         n2["fa:fa-user IP - Capture HR Benefits"]
         n3["fa:fa-user Allocate to IF LOB Cost Center"]
@@ -925,7 +967,7 @@ flowchart TD
     class n10 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlV1v2jAUhv-Klapik4KUT0JzMQkC2dA6rRrtdjF2YRIbrBo7sp0CQ_z32SRAQ6Gq1OUCcd6c85wP2ScbK-M5smLr-npDGFEx2LTUHC1QKwatKZSoZYNK-AkFgVOKZMv4YM7UmPzdublBsTJuRkvhgtC1UcdoxhF4GNmgpwOpDSRksi2RILhltwpBFlCsE065MN5XqIsdvMtWv-pzkSNxdHCcyM1CHUoJQ0fZj4IoSE2cRBlneQOKQ9zFWWtriqN8mc2hULvyS4m-wdUvkqu5tjGkEmmfuVrQWzhF1PSoRGm0rBRP-2EQafIwPbBxATPCZloPHC0JyB6PUuhst2B7fT1hh6TgfjBhQD8ZhVIOEAZSaXn4pAAmlMZXQdJLQ8eWSvBHFF95w2jge3ZmOol1645thtteIjKbq3jKaV67tpemh9grVrZYxZ5ji7X-PcmFWH7MlHS8rtc9ZOpHbuIm-0wY43dl0nMV91A-1rmGfuqlg0MuN-yEifOSt29zEEQ993ROSDyRDD2DpmnqD4-jGnZC17kM7ad-x0lOoDOo0BKuj8CbJDgA0zBK3egisMp3WmU5vRM82wP9YZiGB2DUd9OedxEY9NygW1eoOTMBizlIuFSgl2W8ZAoyVb01D3N_TywMYwzbZtigRynPdDvgyw_QRwxhoiR4kPokgi8I5hqkCRPrzzOC1ySM7kAbJLBQpWhQmkH-hbSKg1EKbr_3q5ITxBQSzdDgldC710PDk1LTt5TaefeEog8HREH1OXkocgPgGIwVVEQqkkEKvqI1SMlM1yLBSO9Oon1yDfr4jNT9b6SbI0kqXryBlPBFQdFLkutsNnsUFIIvZRtSBQooIKWIfq4ux8TabqsgvT6qPywC7fYnfYBq06vM-spqbmXf1LZfv64vC-tWdlibncr0azOszM4eVplBbQZN1u7iGaf9wmnI3nnZPy8H5-XwvNw5L0eHhd6Qu-flm3olN5tx9nvJsq0FEgtIciveWLuvr_5C5wjDkipra1uwVHy8ZpkV775SVrk7CwMC9fJYVOL2Hx_pewg=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlW2P2jgQx7-KldWKqxSkPBI2L06CQK6rtrpV6bYvyulkkjFYa-zIdpaliO9-NgnQULaq1MsLxPwz85sH2ZOdU4gSnNS5vd1RTnWKdj29gjX0UtRbYAU9FzXCZywpXjBQPetDBNcz-u3g5kfVi3WzWo7XlG2tOoOlAPR476KRCWQuUpirvgJJSc_tVZKusdxmgglpvW9gSDxyyNa-GgtZgjw7eF7iF7EJZZTDWQ6TKIlyG6egELzsQElMhqTo7W1xTGyKFZb6UH6t4AN--UJLvTI2wUyB8VnpNXuPF8Bsj1rWVitq-XwcBlU2DzcDm1W4oHxp9MgzksT86SzF3n6P9re3c35Kij5N5hyZp2BYqQkQpLSRp88aEcpYehNlozz2XKWleIL0JpgmkzBwC9tJalr3XDvc_gbocqXThWBl69rf2B7SoHpx5UsaeK7cmt-LXMDLc6ZsEAyD4SnTOPEzPztmIoT8ViYzV_kJq6c21zTMg3xyyuXHgzjzfuQd25xEyci_nBPIZ1rAd9A8z8PpeVTTQex7r0PHeTjwsgvoEmvY4O0ZeJdFJ2AeJ7mfvAps8l1WWS8epCiOwHAa5_EJmIz9fBS8CoxGfjRsKzScpcTVCjHM4V_v69zJhNJoVBSi5hpzPXf-aTztw33jQHBKcN8OHo0YE4VpDb39iMbAgVCt0KMypxK9BVyizEK6hKBLuH9AfZThSteyQ-kGha-k1QLd5-j932N0qDoDrkF2Q6OfhD78PDS-KDX_lVIHvz2h5I8TomLmzDxWpQUIgmYaa6o0LTBD72CLcro0tSh0b_YoNT6lAb35jjT830h3Z5LSovoFUibWFYMfSb632x1RWEqxUX3MNKqwxIwB-6u5KHNnv2-CzCpp_vAE9ft_mgPUmkFjttfXcBv7rrXD9nV7cfiwsePWHDRm2JpxYw6OsMaMWjPqsg6X0Dodl09HDq7L4XU5ui7H1-XBdTk5LfeOPLwu37XruduMd9xRjuusQa4xLZ105xy-xOZrXQLBNdPO3nVwrcVsywsnPXyxnPpwFiYUm0WybsT9f7GSfus=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
 
@@ -5420,11 +5462,15 @@ flowchart TD
 </tbody>
 </table>
 <hr />
-<p><em>DS-010 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: March 2026</em></p>
+<p><em>DS-010 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-010 — Perform Overhead Accounting and Allocation</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>DS-010</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

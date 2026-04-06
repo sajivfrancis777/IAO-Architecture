@@ -277,12 +277,12 @@ def bpmn_to_mermaid(proc: BPMNProcess, direction: str = "TD") -> str:
             if lane_name not in seen_lanes:
                 seen_lanes.append(lane_name)
 
-        for lane_name in seen_lanes:
+        for lane_idx, lane_name in enumerate(seen_lanes):
             nodes = nodes_by_lane.get(lane_name, [])
             if not nodes:
                 continue
             safe_lane = lane_name.replace('"', "'").replace('\n', ' ')
-            lines.append(f'    subgraph {safe_lane}')
+            lines.append(f'    subgraph lane_{lane_idx}["{safe_lane}"]')
             for node in nodes:
                 sid = id_map[node.id]
                 lines.append(f"        {sid}{_shape(node)}")

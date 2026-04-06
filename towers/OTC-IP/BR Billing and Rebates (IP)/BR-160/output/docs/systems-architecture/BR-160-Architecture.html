@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
   Capability BR-160 · BR Billing and Rebates (IP)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 3</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -646,7 +688,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Rebate Analyst
+    subgraph lane_0["Rebate Analyst"]
         n1["fa:fa-user Perform Rebate Calculation"]
         n2(["fa:fa-play Rebate Settlement"])
         n3["A Create and Send Credit/Debit Memo"]
@@ -668,7 +710,7 @@ flowchart TD
     class n6 subProc
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU1v2zgQ_SuEgsAtIGP1aXl12IUjW0WBZhHUaXuo90BLQ5sIRaokldjr-r-XtCR_NTmtDoLn8c17MyOS3jmFKMFJndvbHeVUp2g30GuoYJCiwRIrGLioBb5iSfGSgRpYDhFcz-l_B5of1RtLs1iOK8q2Fp3DSgD68tFFE5PIXKQwV0MFkpKBO6glrbDcZoIJadk3MCYeObh1S3dCliBPBM9L_CI2qYxyOMFhEiVRbvMUFIKXF6IkJmNSDPa2OCZeijWW-lB-o-Aeb77RUq9NTDBTYDhrXbFPeAnM9qhlY7Gikc_9MKiyPtwMbF7jgvKVwSPPQBLzpxMUe_s92t_eLvjRFD1OFxyZp2BYqSkQpLSBZ88aEcpYehNlkzz2XKWleIL0Jpgl0zBwC9tJalr3XDvc4QvQ1VqnS8HKjjp8sT2kQb1x5SYNPFduzfvKC3h5cspGwTgYH53uEj_zs96JEPK_nMxc5SNWT53XLMyDfHr08uNRnHm_6_VtTqNk4l_PCeQzLeBMNM_zcHYa1WwU-97bond5OPKyK9EV1vCCtyfBP7PoKJjHSe4nbwq2ftdVNssHKYpeMJzFeXwUTO78fBK8KRhN_GjcVWh0VhLXa_QZlqZGNOGYbZVuF-3D_e8Lh-CU4KGdNXoASYSsen6GWdEwrKngC-ffs7Tg3TGvZqbzjj8HrZk53Fwb-vszfmjoE5RJsCzMS8M0LxOXVP8xhSXV6B4qcWkS7Xa9ib1VhktzLoo1yhqlRWWKfdzW8PfC2e_PcuLXc2BTsEbRZ_jQfqqrrNH3YzvEbFGQQ1ED7-v9rUzT7o8GlEbvPj68NzV3RZuW2h88QMPhX6aBLozbcNSFfhvGXThqw7ALIxv-XDhfqdKwWTg_T8x-6R_B0dny-R636v2puYCD4xVxAYevw1G_py_Q-FV01G9Xx3XMZ6kwLZ105xxuefNPUALBDdPO3nVwo8V8ywsnPdyGTlOXRm9KsdmkVQvufwGxRP86" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVdtu2zgQ_RVCQeAWkLG6Wq4eWjiytSjQFsE6bR_qxYKWhjYRitSSVGKv638vaUm-NXlaPQiewzPnzIxIeucUogQndW5vd5RTnaLdQK-hgkGKBkusYOCiFviGJcVLBmpgOURwPaf_HWh-VG8szWI5rijbWnQOKwHo60cXTUwic5HCXA0VSEoG7qCWtMJymwkmpGXfwJh45ODWLd0JWYI8ETwv8YvYpDLK4QSHSZREuc1TUAheXoiSmIxJMdjb4ph4LtZY6kP5jYLPePOdlnptYoKZAsNZ64p9wktgtkctG4sVjXzqh0GV9eFmYPMaF5SvDB55BpKYP56g2Nvv0f72dsGPpuhhuuDIPAXDSk2BIKUNPHvSiFDG0psom-Sx5yotxSOkN8EsmYaBW9hOUtO659rhDp-BrtY6XQpWdtThs-0hDeqNKzdp4Llya95XXsDLk1M2CsbB-Oh0l_iZn_VOhJD_5WTmKh-weuy8ZmEe5NOjlx-P4sz7Xa9vcxolE_96TiCfaAFnonmeh7PTqGaj2PdeF73Lw5GXXYmusIZnvD0Jvsuio2AeJ7mfvCrY-l1X2SzvpSh6wXAW5_FRMLnz80nwqmA08aNxV6HRWUlcrxHDHP7xfiycv2BpikUTjtlW6YXzd0u0D_fNOsEpwUM7d3QPkghZoS4lw6xoGNZU8Mu04M0xr2ZmCh1_Dlozc9C5dXl7xg8NfYIyCZaFeWmY5mXikuo_prCkGn2GSlyaRLtdb2JvmOHSnJFijbJGaVGZYh-2NXxYOPv9WU78cg5sCtYo-gR_tp_tKmv049gOMdsV5FDUwPt6fyvTtPtvA0qjNx_v35qau6JNS-0PHqDh8L1poAvjNhx1od-GcReO2jDswsiGPxfON6o0bBbOzxOzX_oiODpbPt_vVr0_QRdwcLwuLuDwZTjq9_cFGr-Ijvqt67iO-SwVpqWT7pzDjW_-FUoguGHa2bsObrSYb3nhpIeb0Wnq0uhNKTYbtmrB_S8QRwMs" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>BR-160 — Manage Rebates (IP)</span></div>
 
@@ -4339,11 +4381,15 @@ flowchart TD
 </tbody>
 </table>
 <hr />
-<p><em>BR-160 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: March 2026</em></p>
+<p><em>BR-160 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>BR-160 — Manage Rebates (IP)</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>BR-160</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

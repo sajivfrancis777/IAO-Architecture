@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Procure To Pay (PTP) Tower<br/>
   Capability PM-090 · PM Procure Materials and Services (Direct and Indirect)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 3</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -694,7 +736,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Commodity Manager
+    subgraph lane_0["Commodity Manager"]
         n1["fa:fa-user Negotiate Terms and Conditions With Supplier"]
         n2["fa:fa-user Draft Contract"]
         n3["fa:fa-user Create/Edit Terms and Conditions"]
@@ -739,7 +781,7 @@ flowchart TD
     class n13 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVtuO4kYQ_ZWWRyMSyWh9xeCHRIzB0UrZ1SpMsopCHhq7Da1p2k53m0tY_j3V-MLY41EUhQdEna46p-rYLnwxkjwlRmg8Pl4opypEl5HakT0ZhWi0wZKMTFQBv2FB8YYROdI5Wc7Viv59S7O94qTTNBbjPWVnja7INifo148mmkMhM5HEXI4lETQbmaNC0D0W5yhnudDZD2SaWdlNrT56ykVKxD3BsgI78aGUUU7usBt4gRfrOkmSnKcd0szPplkyuurmWH5MdlioW_ulJJ_w6StN1Q7iDDNJIGen9uxnvCFMz6hEqbGkFIfGDCq1DgfDVgVOKN8C7lkACcxf7pBvXa_o-vi45q0oel6sOYJPwrCUC5IhqQBeHhTKKGPhgxfNY98ypRL5CwkfnGWwcB0z0ZOEMLplanPHR0K3OxVucpbWqeOjniF0ipMpTqFjmeIM3z0twtO7UjRxps60VXoK7MiOGqUsy_6XEvgqnrF8qbWWbuzEi1bL9id-ZL3la8ZceMHc7vtExIEm5BVpHMfu8m7VcuLb1vukT7E7saIe6RYrcsTnO-Es8lrC2A9iO3iXsNLrd1luvog8aQjdpR_7LWHwZMdz511Cb25707pD4NkKXOxQlO_3eUrVGX3CHG-JqM71h9t_rI0Mhxkea7vRZ3jQFIWJ0DMRe4kwT6GcQzHNuURfqdqhVVkUjAKL8ecrIqdLtBA4U7pUCZyobqrbTY0EAcEPSxAZVO0We93iFTwR5MO_tH18v22_S_cLSQg9kDYZAFkABel1MelNSxTowi5BK5hXke0ZfQc9oS8M8--7lQFUVhPfRYZtmkJmdcHahF4Xs8ulaUNv3vEGdkeyQ-SUsFLCGD9Vt-bauF5fX3JruGzOzzDIAWwE0xDlb034sc9kDzN9lEPXAc2LQuQHkr6hcYZpul4W2kskyBjfaDCD33-VVJC0T-f-V1tgp1U_-BSNxz8ARR3aVejUoVOFszp0q9Crw1kVunXo11T14829KvYbakvH39bG53xtfNNeNgd276BRt5364Hd9N8LJpE_VHMz6FQ1V09uk7q2Jbbc7WdtDwxi82lHalmY3d2BnGHaHYW8Y9ofhyTActP99HXg6DM-aZd2dxhqG7WHYGYbdBjZMYw83P6apEV6M2-sOvBKlJMMlU8bVNHCp8tWZJ0Z4ey0wyiKFygXFsK33FXj9B3zt8YU=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm2Pm0YQ_isrTie3ElZ4NTYfWvmwqSIlURRfGlVxVK1hsFeHF7osfonj_55ZA_bBcaqq8sFinp15nplnYc1Ji7IYNF-7vz8xzqRPTgO5gS0MfDJY0QIGOqmAP6lgdJVCMVA5Scblgn2_pJlOflBpCgvplqVHhS5gnQH5_FYnUyxMdVJQXgwLECwZ6INcsC0VxyBLM6Gy72CcGMlFrV56yEQM4pZgGJ4ZuViaMg432PYczwlVXQFRxuMWaeIm4yQanFVzabaPNlTIS_tlAe_p4QuL5QbjhKYFYM5GbtN3dAWpmlGKUmFRKXaNGaxQOhwNW-Q0YnyNuGMgJCh_ukGucT6T8_39kl9FyeNsyQleUUqLYgYJKSTC850kCUtT_84JpqFr6IUU2RP4d9bcm9mWHqlJfBzd0JW5wz2w9Ub6qyyN69ThXs3gW_lBFwffMnRxxN-OFvD4phSMrLE1vio9eGZgBo1SkiT_Swl9FY-0eKq15nZohbOrlumO3MB4ydeMOXO8qdn1CcSORfCMNAxDe36zaj5yTeN10ofQHhlBh3RNJezp8UY4CZwrYeh6oem9SljpdbssVx9FFjWE9twN3Suh92CGU-tVQmdqOuO6Q-RZC5pvSEo5_G18XWpBtt1mMZNH8p5yugax1L5VueriJqYk1E_oUFlPPuBLJxlORx5BbAtCeUwCfCuYZBkvyBcmN2RR5nnKukRWm2gmaCJVqRQ0ku1Uu50aCEDBN3MU6VVtFzvt4gW-HfDmX9rev96226b7BBGwHVyTEShypIBOF6POtCBRF88VssB5JayP5BfsiXzEbfi1XempPblMfBPpt2mMmdWeXRM6XUxOp6YNdQoPV3iORBsChygtCxzjj-oxXWrn8_MtN_rLpvyIg-zQRjSNMP7ShN-7TGY_09uibx_INM9FtoP4BY3VT9P2MldeEgFDeqGhKd7_UzIBcZfO_q-24PlW3fAxGQ5_Q4o6NKvQqkOrCid1aFehU4eTKrTr0K2p6ledO1XsNtSGin8stQ_ZUvuhvGwWzM5Co25a9cJf6mnElVGXqlmYdCsaqqa3Ud1bE5t2e7JrDw2j9-y8UrY053QLtvphux92-mG3Hx71w971f7AFj_vhSXNwt6cx-mGzH7b6YbuBNV3b4sNPWaz5J-3y6YOfRzEktEyldtY1WspsceSR5l8-EbQyj7Fyxiie3NsKPP8EqcL1aA==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
 
@@ -762,7 +804,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Commodity Manager
+    subgraph lane_0["Commodity Manager"]
         n1["fa:fa-user Specify Materials or Services to be Covered by Supplier"]
         n2["fa:fa-user Specify Quantity of Goods"]
         n3[["fa:fa-cog Create/Update Scheduling Agreement"]]
@@ -805,7 +847,7 @@ flowchart TD
     class n13 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllluv2jgQx7-KlaMjWimouRJOHnYFgVQrtdXZctruquyDSZxgnRBHtsNlKd-941wgofCwWh6A-XvmN-OxM3DUIhYTzdceH480p9JHx4Fckw0Z-GiwwoIMdFQLXzGneJURMVA-Ccvlgv5buZlOsVduSgvxhmYHpS5Iygj68oeOJhCY6UjgXAwF4TQZ6IOC0w3mh4BljCvvBzJOjKTK1ixNGY8JvzgYhmdGLoRmNCcX2fYczwlVnCARy-MeNHGTcRINTqq4jO2iNeayKr8U5CPef6OxXIOd4EwQ8FnLTfYBr0im9ih5qbSo5Nu2GVSoPDk0bFHgiOYp6I4BEsf560VyjdMJnR4fl_k5KXqZLXMEryjDQsxIgoQEeb6VKKFZ5j84wSR0DV1Izl6J_2DNvZlt6ZHaiQ9bN3TV3OGO0HQt_RXL4sZ1uFN78K1ir_O9bxk6P8D7VS6Sx5dMwcgaW-NzpqlnBmbQZkqS5H9lgr7yFyxem1xzO7TC2TmX6Y7cwPiV125z5ngT87pPhG9pRDrQMAzt-aVV85FrGveh09AeGcEVNMWS7PDhAnwKnDMwdL3Q9O4C63zXVZarZ86iFmjP3dA9A72pGU6su0BnYjrjpkLgpBwXaxSwzYbFVB7QR5zjlPB6Xb1y8_tSS7Cf4KFqN1oUJKKJcpREPWkCMRDrtgkkGVoRwG0JJzFaHdCiLIqMAlD7p8O0bjP_LHEuVRUsQe8Zi0U_yv5-DotYigJOoIZ3X4oYPtAiWpO4hKc1RZOUExghuYTwbrzTj1_ARb0ZVm2jU3iX4fYZL5ym0K66FspyVfktZEV0rlijPqtuPZrvI1Io1pW31_d-ZkWZqY0_c6omATQ9hxOEOIESzjZoyspqPqFJUaA3wbfpu8_hXzAh315xx2_O3CLDlxNDkx2GmRiD-9uO-xN4fyYZgWHd3ekHGJN13jsH0b1RBjCa3ULVkuNIXh21aR6Pl93GZLiCoRet0WLSXrHq8OPm9GP0-1I7nboA6zaA7KOsFHRL3tcP5XWY_V_D4BLVX3IbDYe_AaIxzdq0GtOqTacxndp8asxxbbqN6dam16IatN3aFfvHUvvEltoPuEit3iQx2xpGjd0WYRqN8AvpbyIq1HnF64dWs0dtqp25Pdm6Ldvdedpbce6uuHdXRndXvLsr4_MvX09-ui1De27rZjvD-7J1W7ZbWdO1DeEbTGPNP2rV_xr47xOTBJeZ1E66hkvJFoc80vzq918rq9s8oxjG8qYWTz8BPg3qrg==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP4jYU_itWRiN2paDNlTB5aAWBrCrtVtNl9lItVWWSk2BNiCPb4VKW_147FyBZeKiaB-B8_s53LrYPOWoRjUHztcfHI8mJ8NFxINawgYGPBivMYaCjGviCGcGrDPhAcRKaiwX5p6KZTrFXNIWFeEOyg0IXkFJAn3_T0UQ6ZjriOOdDDowkA31QMLLB7BDQjDLFfoBxYiRVtGZpSlkM7EIwDM-MXOmakRwusO05nhMqPw4RzeOOaOIm4yQanFRyGd1Fa8xElX7J4SPefyWxWEs7wRkHyVmLTfYBryBTNQpWKiwq2bZtBuEqTi4btihwRPJU4o4hIYbz1wvkGqcTOj0-LvNzUPQyW-ZIPlGGOZ9BgriQ8HwrUEKyzH9wgknoGjoXjL6C_2DNvZlt6ZGqxJelG7pq7nAHJF0Lf0WzuKEOd6oG3yr2Otv7lqGzg_zsxYI8vkQKRtbYGp8jTT0zMIM2UpIk_yuS7Ct7wfy1iTW3QyucnWOZ7sgNjJ_12jJnjjcx-30CtiURXImGYWjPL62aj1zTuC86De2REfREUyxghw8XwafAOQuGrhea3l3BOl4_y3L1zGjUCtpzN3TPgt7UDCfWXUFnYjrjJkOpkzJcrFGGc_jb-L7UArrZ0JiIA_qIc5wCW2p_1Vz15KakJNhP8FC1Hi0KiEiiuALUreOISrBuIUeCohWggG6BQYxWB7QoiyIjfU3rtuYfJc6FSoQm6D2lMe962d_PbhFNUcBA5vDucxHLL7SI1hCX8uamaJIykOMkF9L92t_p-i_kob3pVpVxlfi1htvVeGEklR2rcyE0V5nfkqwUnZ7WqKtVdx_N9xEUSqvH9rrsZ1qUmSr8mRE1FWTTc7mJ0o-jhNENmtKymlVoUhToTfB1-u5T-E1Oy7c93fGbs26R4cuOockOy_kYS_rbK_qTZH-CDOTgvq70gxyZddw7G3F9otSpa6qVWQuGI9HbatM8Hi_VxjBcyQEYrdFi0h6xavPjZvdj9OtSO52uBazbArCPspKTLbyvL2jfzf6vbvIQ1T9yGw2Hv0iJxjRr02pMqzadxnRq86kxx7XpNqZbm14r1UjbrV1p_1hqv9Ol9kMepBZvgphtDqPGbpMwjQb4SelP4JXUecXrulZzSBXVzt8ObN2G7evZ2llx7q64d1dGd1e8uyvj879gB366Dcv23MbNdp53Yes2bLewpmsbYBtMYs0_atU7jnwPiiHBZSa0k67hUtDFIY80v3oX0MrqNM8IliN6U4OnfwERfe6R" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
 
@@ -828,7 +870,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Commodity Manager
+    subgraph lane_0["Commodity Manager"]
         n1["fa:fa-user Populate Necessary Meta Data"]
         n2["fa:fa-user Add Awarded Price to the Supplier"]
         n3["fa:fa-user Submit Contract for Approval"]
@@ -865,7 +907,7 @@ flowchart TD
     class n11 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVuP8jYQ_StWVitegpQrYfPQig2kWqm7Woltq6r0wSQOsdaJI9vhUj7-e8fkAqHw1EigzPGcM5fY46OR8JQYofH8fKQlVSE6jlROCjIK0WiNJRmZqAF-x4LiNSNypH0yXqol_efsZnvVXrtpLMYFZQeNLsmGE_Tbm4lmQGQmkriUY0kEzUbmqBK0wOIQccaF9n4i08zKztHapVcuUiIuDpYV2IkPVEZLcoHdwAu8WPMkSXiZDkQzP5tmyeikk2N8l-RYqHP6tSTveP8HTVUOdoaZJOCTq4L9iteE6RqVqDWW1GLbNYNKHaeEhi0rnNByA7hnASRw-X2BfOt0Qqfn51XZB0Vf81WJ4EkYlnJOMiQVwIutQhllLHzyolnsW6ZUgn-T8MlZBHPXMRNdSQilW6Zu7nhH6CZX4ZqztHUd73QNoVPtTbEPHcsUB_i_iUXK9BIpmjhTZ9pHeg3syI66SFmW_a9I0FfxheV3G2vhxk4872PZ_sSPrP_qdWXOvWBm3_aJiC1NyJVoHMfu4tKqxcS3rceir7E7saIb0Q1WZIcPF8GXyOsFYz-I7eChYBPvNst6_Sl40gm6Cz_2e8Hg1Y5nzkNBb2Z70zZD0NkIXOUo4kXBU6oO6B2XeENEs66f0v5rZWQ4zPBYtxt98qpmUBD6IAmREg4AeicKozlWeGX8fUV0hsRZmqLZDsMxS9GngCYjxRGcdbSsq4pRiDlgu0P2sl4XVEGipRI4gd3FQbGqBN9iNiR6N_nWa0Zl3jOHzv7QORJEl9Zl9IA0GZLeYJBRTeuTm9Uq5wKO55AXDHkfMLIa4hcRhUS4TLUEfAbKS4l2VOUPejMFIdgHMJkuMRd7ktSaedaZFXAK4afkkPkCzOYT98wbD9s6Hrs09bAer2HcJDl6k1f1nRtP0p9Xxul0zbXvc8k-YbWkW_JLcxIuNMiyeSltNB7_BJumNZ3GdFvTbUzb6rwtDfxYGX8SyP8HfPV2wWscp6350ph-a_qNOWnNSatqd6ptEkFrB-36bdAPfo5pX08PXUE3jwawcx9278Pefdi_D0_uw8F9eNpfAwP45T4M1baDawjbHWyYRgEbF9PUCI_G-daGmz0lGa6ZMk6mgWvFl4cyMcLz7WbUVQrMOcUwdIoGPP0LnI6PVQ==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduO6jYU_RUroxEvQcqVMHloxQRSjdQZjcS01dGhqkziEGucOLIdLofDv3ebXJhQeGokUPbKXmtfbG8fjYSnxAiNx8cjLakK0XGkclKQUYhGayzJyEQN8CcWFK8ZkSPtk_FSLemPs5vtVXvtprEYF5QdNLokG07QHy8mmgGRmUjiUo4lETQbmaNK0AKLQ8QZF9r7gUwzKztHaz89c5EScXGwrMBOfKAyWpIL7AZe4MWaJ0nCy3QgmvnZNEtGJ50c47skx0Kd068lecX7v2iqcrAzzCQBn1wV7He8JkzXqEStsaQW264ZVOo4JTRsWeGElhvAPQsggcvPC-RbpxM6PT6uyj4o-pivSgRPwrCUc5IhqQBebBXKKGPhgxfNYt8ypRL8k4QPziKYu46Z6EpCKN0ydXPHO0I3uQrXnKWt63inawidam-KfehYpjjA_1UsUqaXSNHEmTrTPtJzYEd21EXKsux_RYK-ig8sP9tYCzd24nkfy_YnfmT9V68rc-4FM_u6T0RsaUK-iMZx7C4urVpMfNu6L_ocuxMruhLdYEV2-HARfIq8XjD2g9gO7go28a6zrNfvgiedoLvwY78XDJ7teObcFfRmtjdtMwSdjcBVjhguyT_W95UR8aLgKVUH9IpLvCFiZfzd-OqntMElw2GGx7r16J1XNYPi0BtJiJRwGNArURjNscJDojMkztIUzXYYjlyK3gU0HCmO4NyjZV1VjF6HdYfsZb0uqEIR7ByBE9hpHBSrSvAtZkOid5VvvWZU5j1z6OwPnSNBdGldRndIkyHpBYYa1bQ-uVmtci7gqA55wZD3BuOrIX4QUUiEy1RLwEpQXkq0oyq_05spCMGegCl1ibnYk6TWzLPOrIATCT8lh8wnYDar3DOvPGzreOzS1IN7vIbRk-ToRX6p79x4kv66Mk6nr1z7NpfsE1ZLuiW_NafiQoMsm5fSRuPxL7BpWtNpTLc13ca0rc7b0sDPlfGNQP4_YdXbD17jOG3Np8b0W9NvzElrTlpVu1NtkwhaO2i_Xwd94-eY9tdJoivoZtMAdm7D7m3Yuw37t-HJbTi4DU_7K2EAP92Godp2iA1hu4MN0yhg42KaGuHRON_gcMunJMM1U8bJNHCt-PJQJkZ4vumMukqBOacYBlDRgKd_AQickzg=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
 
@@ -888,7 +930,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Commodity Manager
+    subgraph lane_0["Commodity Manager"]
         n1["fa:fa-user Create Outline Agreement with Header Data"]
         n2["fa:fa-user Validate Key OA Details Integrated from Boundary App"]
         n3["fa:fa-user Finalize OA​"]
@@ -941,7 +983,7 @@ flowchart TD
     class n16 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4kYU_isjRxGJZCRfMfHDVsbgNmq3iZZsVtXSh8Eewyhmxh2PAyzLf-8ZbAP2gtQLD1HOd873ncvcvNNinhDN125vd5RR6aNdTy7JivR81JvjgvR0VAGvWFA8z0jRUzEpZ3JKvx3CTCffqDCFRXhFs61Cp2TBCfr8qKMAiJmOCsyKfkEETXt6Lxd0hcU25BkXKvqGDFMjPWSrXSMuEiJOAYbhmbEL1IwycoJtz_GcSPEKEnOWtERTNx2mcW-visv4Ol5iIQ_llwX5iDdfaCKXYKc4KwjELOUq-w3PSaZ6lKJUWFyK92YYtFB5GAxsmuOYsgXgjgGQwOztBLnGfo_2t7czdkyKXsYzhuAXZ7goxiRFhQR48i5RSrPMv3HCIHINvZCCvxH_xpp4Y9vSY9WJD60buhpuf03oYin9Oc-SOrS_Vj34Vr7Rxca3DF1s4W8nF2HJKVM4sIbW8Jhp5JmhGTaZ0jT9X5lgruIFF291rokdWdH4mMt0B25o_KjXtDl2vMDszomIdxqTM9EoiuzJaVSTgWsa10VHkT0wwo7oAkuyxtuT4EPoHAUj14tM76pgla9bZTl_FjxuBO2JG7lHQW9kRoF1VdAJTGdYVwg6C4HzJQr5asUTKrfoI2Z4QUTlVz9mfp1pKfZT3FfjRqEg0A56KqU6GShYCALHlUm0pnKJfiEYjhEaY4ln2p9nKlZb5RVnNFE6v5ItegrQmEhMswI9MkmgJEkSlAq-QiNeHg4ZCvK8LWi3BSPKQPIbFBbMSssw5u1opx1ddYkmm5jkknLWDna_HqNjvmg6nlZbA909BfentoF5Th20qc88LzNFfhZUHVcYNIMxQ8YCUYamDnqluNvkuZ73z_V-mBe6C7-M7o_TOJcdtmVfBF0smrUFMcRTtSiHCjvMh7sjM89gT0_LPM8ocIM1hhs0gfD7881jQHg9QMwSGDxlsNIMPZcCrqqCoE_kr5IWVQ_tZTDVzqtXCvqUAseyG2LtdqdGEtKfw90YLxHZxFlZ0Hfyc3X0Ztp-f06zL9Og58-52pbJT12Gc5nxmMAeoOkW0RTBuyUIogU0etjTkqM5QeUVQfe_VT74tzS4jat_YJ6o3_8A27u23co0rcZv1UBj16bd2LYCvs-0Pwgsw3c407Wj5g1qc1CZDc2uZepLjD1U9rA2vdrdsM26LKeb9Xd-SGo25ZtOp5xjI8NKwWsC64LMRtLppnQupzjct2oOzTvTgq3LsH0Zdi7D7vmL0_IMrnq8q57hVc_D8Qug3ZpxBTev4FbzmLVh-zLsXIbdy_CggTVdWxGxwjTR_J12-ByET8aEpLjMpLbXNVxKPt2yWPMPn01adcbGFMPTsarA_d-TsEVW" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVmtv4jgU_StWqopWClKehObDriCQ3Wp3ttXS6Wg1rFYmccBqsDOOU2AY_vte5wEkA9I--FD1Ht9z7sPXdvZaxGOi-drt7Z4yKn2078kVWZOej3oLnJOejirgFQuKFynJe8on4UzO6NfSzXSyrXJTWIjXNN0pdEaWnKCPjzoaATHVUY5Z3s-JoElP72WCrrHYBTzlQnnfkGFiJGW0emnMRUzEycEwPDNygZpSRk6w7TmeEypeTiLO4pZo4ibDJOodVHIp30QrLGSZfpGTD3j7icZyBXaC05yAz0qu01_xgqSqRikKhUWFeG-aQXMVh0HDZhmOKFsC7hgACczeTpBrHA7ocHs7Z8eg6GUyZwh-UYrzfEISlEuAp-8SJTRN_RsnGIWuoedS8Dfi31hTb2JbeqQq8aF0Q1fN7W8IXa6kv-BpXLv2N6oG38q2utj6lqGLHfztxCIsPkUKBtbQGh4jjT0zMIMmUpIk_ysS9FW84PytjjW1QyucHGOZ7sANjO_1mjInjjcyu30i4p1G5Ew0DEN7emrVdOCaxnXRcWgPjKAjusSSbPDuJPgQOEfB0PVC07sqWMXrZlksngWPGkF76obuUdAbm-HIuirojExnWGcIOkuBsxVKMSN_GZ_nWsDXax5TuUMfMMNLIuban5Wv-jETXBLsJ7ivWo8CQaA09FRIdUrQaCkIHF0m0YbKFfqZYDhSaIIlbqtYbZVXnNJY6fxCduhphCZEYprm6JFJAulJEqNE8DUa86I8cGiUZW1Buy0YUgaSXyGx0bywDGPR9nba3lWhaLqNSCYpZ21n9_PRO-LLpuJZNSbo7ml0fyobmOfUQZv6zLMiVeRnQdXRRQHcH1RFzBFlaOagV4q7RZ7ref9c77t-obvg0_j-2I1z2WFb9kXQ5bLZWxBDPFGbUmbYYT7cHZlZCvM9K7IspcAdbTDcpjG4358PTzlgVQMxi6HxlMFOM_RcCLi2coJ-J18Kmlc1dAZPTV69U1CnFDiSXRdrvz8VEpP-Au7JaIXINkqLnL6Tn6pjONcOh3OafZkGNX_M1FjGP3YZzmXGYwwzQJMdogmCN0wQRHMotJxpydGCoOKKoPvfMh_8WxrczNU_0E_U7_8A413bbmWaVrNu1UBj16bd2LYCvs21Pwhswzc40_VCzRvU5qAyG5pdy9QXGnuo7GFtevVywzbrtJxu1N94GdRs0jedTjrHQoaVgtc41gmZjaTTDelcDlHevaoPzZvTgq3LsH0Zdi7D7vnr01oZXF3xrq4Mr648HL8G2qUZV3DzCm41D1sbti_DzmXYvQwPGljTtTURa0xjzd9r5achfD7GJMFFKrWDruFC8tmORZpffkJp1RmbUAxPx7oCD38DIDBJOQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
 
@@ -964,7 +1006,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Commodity Manager
+    subgraph lane_0["Commodity Manager"]
         n1["fa:fa-user Terminate Contract"]
         n2[["fa:fa-cog Initiate Monitoring and Management of Supplier Contracts"]]
         n3[["fa:fa-cog Trigger Changes in OA"]]
@@ -1013,7 +1055,7 @@ flowchart TD
     class n15 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVt-PozYQ_lcsVqu0EpH4GbI8VEpIqE7q6lbNXu_h0gcHDLHW2NSYTdIo_3vtYBLgloe78hBlvpn5vpnBDJyNhKXICI3HxzOmWITgPBF7VKBJCCY7WKGJCRrgL8gx3BFUTVRMxqjY4H-vYbZXHlWYwmJYYHJS6AblDIEvn0ywkInEBBWk1bRCHGcTc1JyXEB-ihhhXEU_oHlmZVc17VoyniJ-D7CswE58mUowRXfYDbzAi1VehRJG0x5p5mfzLJlcVHGEHZI95OJafl2hZ3j8ilOxl3YGSYVkzF4U5A-4Q0T1KHitsKTm7-0wcKV0qBzYpoQJprnEPUtCHNK3O-Rblwu4PD5u6U0UvK62FMgrIbCqVigDlZDw-l2ADBMSPnjRIvYtsxKcvaHwwVkHK9cxE9VJKFu3TDXc6QHhfC_CHSOpDp0eVA-hUx5Nfgwdy-Qn-TvQQjS9K0UzZ-7Mb0rLwI7sqFXKsux_Kcm58ldYvWmttRs78eqmZfszP7K-52vbXHnBwh7OCfF3nKAOaRzH7vo-qvXMt61x0mXszqxoQJpDgQ7wdCd8irwbYewHsR2MEjZ6wyrr3QtnSUvorv3YvxEGSzteOKOE3sL25rpCyZNzWO5BxIqCpVicwDOkMEe88auL2t-2RgbDDE7VuMEr4gWmsiOZRAWHidgaf3fCnW-3-ITl4JN8yrGKfmbyH-PyzAJIU61TICoAy8CmLkuCJXvLWUnSLqvbZ33lOM9V-B7SHFUAU_B5MUjx-ila_y6lGvk40-9nvrCyJqqFF47VM6eKlLPCjA6rnA17TxgvGb8OS1cqmNQDv3QKlwsokY9-ojsHQtX164A56DP_iSg6dG9AN3bej_1Spt0CpOL3fSh044F3DMGS1de1BhZlOSB-kryxvPdEbuJmat1jYklvxJHSam4wpgIqtZrLpVQhWfQ_Na5ug-vmqjMmD7ZctbemwPqIkloFX-kW8qik6rgMU53zue0Wcs4O1RQSAUrIISGI_N48elvjcukmuT-T5P1Mkv9jSbLJ5o-cCZhOf1MNtoDTAEPb1bY2PW26jelr09dsbbSn7Tbc1sCstd1BwKyxA20G2t2Ga7OVs7XefEjXBswb-0mbT9rd3XSKtd3wPdjprumexx31eKMef9QzG_UEo575qMe2bm_hPm6P4E774ujD7sew9zHst7BhGoXcLBCnRng2rt9Y8jssRRmsiTAupgFrwTYnmhjh9VvEqK97Y4WhfEUUDXj5DwFRFBs=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2PozYU_SsWo1FaiUh8hgwPlRISqpU66qiZ3X3YVJUDhlhjbGrMJGmU_147mATY4aFbHqLcc8899wNz4WwkLEVGaDw-njHFIgTnidijAk1CMNnBCk1M0ABfIMdwR1A1UZyMUbHB_1xptlceFU1hMSwwOSl0g3KGwOdPJljIQGKCCtJqWiGOs4k5KTkuID9FjDCu2A9onlnZNZt2LRlPEb8TLCuwE1-GEkzRHXYDL_BiFVehhNG0J5r52TxLJhdVHGGHZA-5uJZfV-gZHr_iVOylnUFSIcnZi4L8BneIqB4FrxWW1Py9HQauVB4qB7YpYYJpLnHPkhCH9O0O-dblAi6Pj1t6SwpeV1sK5JUQWFUrlIFKSHj9LkCGCQkfvGgR-5ZZCc7eUPjgrIOV65iJ6iSUrVumGu70gHC-F-GOkVRTpwfVQ-iUR5MfQ8cy-Un-DnIhmt4zRTNn7sxvmZaBHdlRmynLsv-VSc6Vv8LqTedau7ETr265bH_mR9b3em2bKy9Y2MM5If6OE9QRjePYXd9HtZ75tjUuuozdmRUNRHMo0AGe7oJPkXcTjP0gtoNRwSbfsMp698JZ0gq6az_2b4LB0o4Xzqigt7C9ua5Q6uQclntAIEV_Wd-2RsSKgqVYnMAzpDBHfGv82XDVRW1JyWCYwakaPXhFvMBUdgcieRc5TESf7ny78ROWg0_yiceK_czkP8bl-QWQpjpVgagALAObuiwJluqtZiVFu6puX_WV4zxX9D2kOaoApuD3xSDE64fo_PdUqpGPI_1-5Asra6JaeOFYPX-qSDkuzOiwytmw94TxkvHrsHSlgsl84KdO4XIZJXINJLpzIFRdPw-Ug77yH4iiQ_cGdLnzPvdzmXYLkBm_70OhGw-8YwiWrL6uOLAoy4Hwk9SN5b0ncis3U-sek-tR4kjlam4wpgKqbDWXC6pCsui_a1zdBteNVWdMHnK5dm9NgfURJbUiX-UW8qik6rgMQ53zue0Wcs4O1RQSAUrIISGI_No8hlvjcukGuT8S5P1IkP_fgmSTzR85EzCd_qIabAGnAYa2q21tetp0G9PXpq_VWran7ZZua2DW2u6AMGvsQJuBdrd0bbbpbJ1vPpRrCfPGftLmk3Z3t55Sbbd9D3a6K7vncUc93qjHH_XMRj3BqGc-6rGt2xu5j9sjuNO-RPqw-zHsfQz7LWyYRiE3C8SpEZ6N6_eW_CZLUQZrIoyLacBasM2JJkZ4_S4x6uveWGEoXxdFA17-BfT0F_4=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
 
@@ -1036,7 +1078,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Commodity Manager
+    subgraph lane_0["Commodity Manager"]
         n1["fa:fa-user Award Quote- Publish Price to CWB"]
         n2["fa:fa-user Map New Pricing Conditions/Terms to OA in CWB"]
         n3["fa:fa-user Manage Exception"]
@@ -1099,7 +1141,7 @@ ID for Updated"| n6
     class n20 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P4jYU_StWRiNaCbRxSAjkoRVfqUbq7E47s11VSx9M4oA1waG2M0BZ_nuvEyeQDDx0izQj7vG55374YvtoRVlMrcC6vz8yzlSAjh21phvaCVBnSSTtdFEJ_EEEI8uUyo7mJBlXz-yfgobd7V7TNBaSDUsPGn2mq4yizw9dNAbHtIsk4bInqWBJp9vZCrYh4jDN0kxo9h0dJnZSRDNLk0zEVJwJtu3jyAPXlHF6hvu-67uh9pM0ynjcEE28ZJhEnZNOLs120ZoIVaSfS_pI9l9YrNZgJySVFDhrtUl_JUua6hqVyDUW5eKtagaTOg6Hhj1vScT4CnDXBkgQ_nqGPPt0Qqf7-wWvg6KX2YIj-EQpkXJGEyQVwPM3hRKWpsGdOx2Hnt2VSmSvNLhz5v6s73QjXUkApdtd3dzejrLVWgXLLI0NtbfTNQTOdt8V-8Cxu-IA_1uxKI_PkaYDZ-gM60gTH0_xtIqUJMn_igR9FS9EvppY837ohLM6FvYG3tR-r1eVOXP9MW73iYo3FtEL0TAM-_Nzq-YDD9u3RSdhf2BPW6IrouiOHM6Co6lbC4aeH2L_pmAZr51lvnwSWVQJ9ude6NWC_gSHY-emoDvG7tBkCDorQbZrNM02myxm6oAeCScrKsp1_eH468JKSJCQnm43Gu-IiNFveaZoDz3ly5TJNXoS0DSkMjT9MllYf114O03vR7JFH-mucIDxhcAcwrKMyw8vVGyk1vg0Roy_V-q3lXSiaL6P6FYLNMlukzzf0yhXFE3XhK-o1PplOMLjKpemgNcUCBknKRxAkFyTN_haE6NshX6nSrAVNFBX8Xkbw86jHVPQ4Uf0wLe5kuB-6e83_aeCapdPudLnDhqvBIXDkKuW1xCcYBA0BTqoBImUqRE6URQ1Bq9Ye8pmviPwLNZqx-Y6tmtCu1SMf6hzlSrbnkMXfBoD_cdLvt57U5BO6ZEwruAPpkbAMSUpdOvvnMly_1ux9G6bLa7CtCnumaLHkbyfAuwdj-fuxrS3hKMzWiO6j9Jcsjf6S_nLXFin06Xb4Pvc_OtuDzFsA0sOeiReMjShZjBi9HNbYXhdAYZnRiPoVMZ79YiMP0D_IiP8Tmn0XSU49n91g40vv8CWoV7vJ5hNY49KE-Nq3dheZXsl4Bh7aNYH1fqgBEYtfk1wjO1XBF8D3xbWx2xhfYMDw-AmL1wlhqvMzLHK3dKuE7NL2zV2lWdF91t2HfdPKovAuErZMUq4qhGbUFVPTIm1Ax4aKbPJ-qjUP0MQ9dsUuAHeWKwHAS34wwwlmagGq3AYXFwauvvVZdmAnetw_zrsXoe96_Dg8jZtrPg3VzA2z4cm6tQPmCbev4G7N3Cvuoub8OA67F-Hh9fh0VUYRsDAVtfawJ1DWGwFR6t45MJDOKYJyVNlnboWyVX2fOCRFRSPQSsvNnPGCNzRmxI8_Qs1r367" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P4jYU_StWViNaCbRxSAjw0AoCqUbq7E47s11VS1WZxAFrgsPazgBl-e-9TpxAMvDQLRKIe3zuuR--sXO0oiym1ti6uzsyztQYHTtqTTe0M0adJZG000Ul8AcRjCxTKjuak2RcPbF_Chp2t3tN01hINiw9aPSJrjKKPt130QQc0y6ShMuepIIlnW5nK9iGiEOQpZnQ7Hd0mNhJEc0sTTMRU3Em2LaPIw9cU8bpGe77ru-G2k_SKONxQzTxkmESdU46uTTbRWsiVJF-LukD2X9msVqDnZBUUuCs1Sb9lSxpqmtUItdYlIvXqhlM6jgcGva0JRHjK8BdGyBB-MsZ8uzTCZ3u7ha8DoqeZwuO4BOlRMoZTZBUAM9fFUpYmo7fucEk9OyuVCJ7oeN3ztyf9Z1upCsZQ-l2Vze3t6NstVbjZZbGhtrb6RrGznbfFfuxY3fFAX5bsSiPz5GCgTN0hnWkqY8DHFSRkiT5X5Ggr-KZyBcTa94PnXBWx8LewAvst3pVmTPXn-B2n6h4ZRG9EA3DsD8_t2o-8LB9W3Qa9gd20BJdEUV35HAWHAVuLRh6foj9m4JlvHaW-fJRZFEl2J97oVcL-lMcTpybgu4Eu0OTIeisBNmuUUo4_dv-srCCbLPJYqYO6IFwsqJiYf1VcvWHY6AkZJyQnm49muyIiNFveaZoDz3my5TJNXoU0ECkMhR8nja9nab3A9miD3RXOMAoowCeJ6ZYxuX7Zyo2Umt8nCDG3yr120o6VzTfR3SrBZpkt0me72mUK4qCNeErKrV-GY7wuMqlKeA1BULGSQqHESTX5A2-1MQoW6HfqRJsBT3UVXzaxjAFaMfUGgUP6J5vcyXB_dLfb_oHgmqXj7nSZxCarASFg5GrltcQnGAoNAU6qASJlKkROlEUNQGvWHvKZr4j8CzWasfWbts1oV0qxj_UuUqVbc-hCz6Ngf7jJV_vvSlIp_RAGFfwhakRcGRJCt36mjNZ7n8rlt5ts8VVmDbFPVP0OJK3U4C94_Hc3Zj2lnCMRmtE91GaS_ZKfymf0oV1Ol26Db7Pzb_udh_DNrDkoEfiOUNTagYjRj-3FYbXFWB4ZjSCTmW8V4_I5D30LzLCb5RG31WCY_9XN9j48g9sGer1foLZNPaoNDGu1o3tVbZXAo6xh2Z9UK0PSmDU4tcEx9h-RfA18G1hfcgW1jc4MAxu8sJVYrjKzByx3C3tOjG7tF1jV3lWdL9l13H_pLIIjKuUHaOEqxqxCVX1xJRYO-ChkTKbrI9K_RiCqN-mwG3wymI9CGjB72coyUQ1WIXD4OIC0d2vLs4G7FyH-9dh9zrsXYcHlzdrY8W_uYKxeZVook79MtPE-zdw9wbuVfdyEx5ch_3r8PA6PLoKwwgY2OpaG7hzCIut8dEqXnjhpTimCclTZZ26FslV9nTgkTUuXgytvNjMGSNwX29K8PQvAh6Cng==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
 
@@ -5560,11 +5602,15 @@ flowchart TD
 </tbody>
 </table>
 <hr />
-<p><em>PM-090 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: March 2026</em></p>
+<p><em>PM-090 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>PM-090</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

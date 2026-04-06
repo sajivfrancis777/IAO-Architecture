@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IF) (FTS-IF) Tower<br/>
   Capability L-040 · L Logistics and Inventory Management - FTS (IF)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 3</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -686,7 +728,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Warehouse Operator
+    subgraph lane_0["Warehouse Operator"]
         n1["Receive Manifest Against Stock Transfer Order (STO) or Production Order"]
         n2(["fa:fa-stop Manifest Received"])
         n3["Obtain and Record Shipping Notification"]
@@ -697,7 +739,7 @@ flowchart TD
     class n3 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuO2jAU_RUrI5SpFKQ8Cc2iEgQiVeqUqtDOonRhnGtiEezINq8i_r0276GaVbMg-OT4nHtPfLN3iCjByZxWa8840xnau7qCJbgZcmdYgeuhE_ATS4ZnNSjXcqjgesz-HGlB3GwtzWIFXrJ6Z9ExzAWgH5891DMbaw8pzFVbgWTU9dxGsiWWu1zUQlr2E3SpT49u50d9IUuQN4LvpwFJzNaacbjBURqncWH3KSCCl29EaUK7lLgHW1wtNqTCUh_LXyl4wdtXVurKrCmuFRhOpZf1FzyD2vao5cpiZCXXlzCYsj7cBDZuMGF8bvDYN5DEfHGDEv9wQIdWa8qvpmgymHJkLlJjpQZAkdIGHq41oqyus6c47xWJ7yktxQKyp3CYDqLQI7aTzLTuezbc9gbYvNLZTNTlmdre2B6ysNl6cpuFvid35vfBC3h5c8o7YTfsXp36aZAH-cWJUvpfTiZXOcFqcfYaRkVYDK5eQdJJcv9fvUubgzjtBY85gVwzAneiRVFEw1tUw04S-O-L9ouo4-cPonOsYYN3N8GPeXwVLJK0CNJ3BU9-j1WuZt-kIBfBaJgUyVUw7QdFL3xXMO4FcfdcodGZS9xU6BVLqISJE40akFgLeSLYiwe_ps53IMDWgF4wZxSURr05Ztzcx1qQBZqYI6koSDSyU4Sex5PRByQkMlWWK6KZ4KcnU-f3nXD4bJQpzihuKy2am_jZrTT0D3f8yNBHM22MEealZZmhReOKNY0ZBfRVaEYZwdbuamQO4-kPj1C7_cl0c14Gp2V4F61ZnQ_vGzC6To_jOUuQS8xKJ9s7x--U-ZaVQPGq1s7Bc_BKi_GOEyc7zrOzakrz7gcMm5iXJ_DwFz1gnkY=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuK2zAU_BXhJXgXHPA1Tv1QSJwYCt2mNGn3oSlFkY9iEUcyknJryL9XynU3ZZ_qB9saj2bOGXS8d4gowcmcVmvPONMZ2ru6giW4GXJnWIHroRPwA0uGZzUo13Ko4HrM_hxpQdxsLc1iBV6yemfRMcwFoO-fPNQzG2sPKcxVW4Fk1PXcRrIllrtc1EJa9gN0qU-PbudPfSFLkDeC76cBSczWmnG4wVEap3Fh9ykggpdvRGlCu5S4B1tcLTakwlIfy18peMbbF1bqyqwprhUYTqWX9Wc8g9r2qOXKYmQl15cwmLI-3AQ2bjBhfG7w2DeQxHxxgxL_cECHVmvKr6ZoMphyZC5SY6UGQJHSBh6uNaKsrrOHOO8Vie8pLcUCsodwmA6i0CO2k8y07ns23PYG2LzS2UzU5Zna3tgesrDZenKbhb4nd-Z-5wW8vDnlnbAbdq9O_TTIg_ziRCn9LyeTq5xgtTh7DaMiLAZXryDpJLn_r96lzUGc9oL7nECuGYFXokVRRMNbVMNOEvjvi_aLqOPnd6JzrGGDdzfBD3l8FSyStAjSdwVPfvdVrmZfpSAXwWiYFMlVMO0HRS98VzDuBXH3XKHRmUvcVKjGHH77P6fOC5ZQCZMrGjUgsRZy6vw6ke3FA8P5BgTYGtAz5oyC0qg3x4yb51gLskATczwVBYlGdqLQ43gyekJCIlNxuSKaCX768lY4fDTKFGcUt5UWzU387FYa-tMrfmToo5k2xgjz0rLMAKNxxZrGjAX6IjSjjGBrdzUyB_P0wiPUbn803ZyXwWkZvorZrM4H-Q0YXSfJ8ZwlyCVmpZPtneM_y_zXSqB4VWvn4Dl4pcV4x4mTHWfbWTWlOQcDhk3kyxN4-AvKE6Ip" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-040 — Receive and Put-away Product - FTS (IF)</span></div>
 
@@ -720,7 +762,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph LOG IF - Warehouse Operator
+    subgraph lane_0["LOG IF - Warehouse Operator"]
         n1["fa:fa-user Post Goods Movement Against Reservation Order for 262 Movement Type"]
         n2["fa:fa-user Pick Goods from Passthrough Location"]
         n3["fa:fa-user Reject Inbound Delivery with Reason code"]
@@ -761,7 +803,7 @@ flowchart TD
     class n13 subProc
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm1v4jgQ_itWqopdKejySmg-3IkGUlXabqvSbXVaTieTTMDbYEe2Q8ux_PebQAKEpboPlw-IeTzzPDNje5K1kYgUjNC4vFwzznRI1h09hwV0QtKZUgUdk-yAZyoZneagOpVPJrges3-2brZXvFduFRbTBctXFTqGmQDy7dYkAwzMTaIoV10FkmUds1NItqByFYlcyMr7AvqZlW3V6qVrIVOQBwfLCuzEx9CccTjAbuAFXlzFKUgET1ukmZ_1s6SzqZLLxVsyp1Jv0y8V3NH3F5bqOdoZzRWgz1wv8i90CnlVo5ZlhSWlXDbNYKrS4diwcUETxmeIexZCkvLXA-Rbmw3ZXF5O-F6UPA0nnOCT5FSpIWREaYRHS00ylufhhRcNYt8ylZbiFcILZxQMXcdMqkpCLN0yq-Z234DN5jqcijytXbtvVQ2hU7yb8j10LFOu8PdEC3h6UIp6Tt_p75WuAzuyo0Ypy7L_pYR9lU9UvdZaIzd24uFey_Z7fmT9yteUOfSCgX3aJ5BLlsARaRzH7ujQqlHPt62PSa9jt2dFJ6QzquGNrg6EV5G3J4z9ILaDDwl3eqdZltMHKZKG0B35sb8nDK7teOB8SOgNbK9fZ4g8M0mLOflyf0NuY9IlL1TCXGBfyX0Bkmohd57Vw-3vEyOjYUa7VePJg1Ca3AiRKnInlnhnuSaDGWUc4UeoOkk1E5zcVzeLZEISp-ccXJ9WBUyMv474nRN-lrzW_JkUC_KA1eu5FOUMExbJlrxN4LYJHuEHJJrc8qkoeUqGkLMlyBV5Y3qOi1RhctU8apN4J1mAxNQXdSKPkAArdDvC_74PScQMfYqcYXrwqzLjZPRyh9HH4T2MjiScC2jrBOjYpPMwXykUyTFEFVgl9sIkEQZrQpHguRp8q13SbZL-p32ySouCPJSaVoczEosiBw0pun8-8r9C90fQpeTkG8eOpLgPUiuiBRlrkby22W1rvT70IoXuFIdVMifPNGfp7jiIrO4lHjAiD7ug_pgYm80xl32eC96TvFTYn5vdvToNcw7bkeFAAdkVBXDsqQa5wGleldzd1tycIjz48dOYfLqNP__96J5sj-2e54sEz5hc_DZIf5R44v-LC6fi7g-_It3u78hbm_bO7NVmr15tloParmcA92rbacKdGnAbwKqAnxPjT8Ct_4nXqllwd579xq6V_dr2d2ZwyvNVbGka_lrPq023ne92RlVFNbO5BTvnYfc87J2H_eMp3Vrp1--eFni1f_m1M7SaudyG7fOw0wzdNuw2sGEaCzxelKVGuDa2nzD4mZNCRstcGxvToKUW4xVPjHD7qjfKAu8DDBnFCbzYgZt_AUHz4J0=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm1v4jgQ_itWqopdKejySmg-3IkGsqrUXqvSbXVaTiuTTIi3wY4cpy3H8t9vDAk0LNV9uHxAzOOZ55kZ25OsjUSkYITG-fmacaZCsu6pHJbQC0lvTivomWQHPFLJ6LyAqqd9MsHVlP2zdbO98k27aSymS1asNDqFhQDy9cokIwwsTFJRXvUrkCzrmb1SsiWVq0gUQmrvMxhmVrZVa5YuhUxBHhwsK7ATH0MLxuEAu4EXeLGOqyARPO2QZn42zJLeRidXiNckp1Jt068ruKFvTyxVOdoZLSpAn1wti2s6h0LXqGStsaSWL20zWKV1ODZsWtKE8QXinoWQpPz5APnWZkM25-czvhclD-MZJ_gkBa2qMWSkUghPXhTJWFGEZ140in3LrJQUzxCeOZNg7DpmoisJsXTL1M3tvwJb5CqciyJtXPuvuobQKd9M-RY6lilX-HukBTw9KEUDZ-gM90qXgR3ZUauUZdn_UsK-ygdaPTdaEzd24vFey_YHfmT9yteWOfaCkX3cJ5AvLIF3pHEcu5NDqyYD37Y-Jr2M3YEVHZEuqIJXujoQXkTenjD2g9gOPiTc6R1nWc_vpEhaQnfix_6eMLi045HzIaE3sr1hkyHyLCQtc1JQDt-tbzPj-vYLuYpJnzxRCbnABpPbEiRVQs6Mv3dR-uE2Omc0zGhfbwK5E5UiX4RIK3IjXvD-ckVGC8o4wvegu0oVE5zc6ltGMiGJM3AOrg-rErr8zhE_S54b_kyKJbnDTqhcinqRk2uRbMm7BG6X4B5-QKLIFZ-LmqdkDAV7Abkir0zluEgrTE7Ppi6Jd5QFSEx92SRyDwmwUnUj_G_7kEQs0KcsGKYHvyozTiZPNxj9PnyA0ZGEUwFdnQAd23Tu8lWFIgWGVCVWib0wSYTBilAkeNRDcLVLuksy_LRPtlKiJHe1ovqgRmJZFqAgRffP7_wv0P0eVC05-cqxIynug1QVUYJMlUiej46ItV4fepFCf46DK8nJIy1YujsOImt6iWeMyMMuVH_MjM3mPZd9mgvekqKusD9fdnfsOMw5bEeGwwVkX5TAsacK5BInuy65v625PUV49uOHKfl0FX_-fu8ebY_tnuaLBM-YXP42Sn_UeOL_iwsn5O4PvyD9_u_I25j2zhw05qBZbZeDxm7mAfca22nDnQZwW8DSwM-Z8Rfg1v_Ea9UuuDvPYWs3yn5j-zszOOb5U2xpWv5Gz2tMt5vvdl7poto53YGd07B7GvZOw_77id1ZGTbvoQ54sX8RdjO02hndhe3TsNMO4C7strBhGks8XpSlRrg2tp8z-MmTQkbrQhkb06C1EtMVT4xw-9o36hLvA4wZxWm83IGbfwHCzuSA" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-040 — Receive and Put-away Product - FTS (IF)</span></div>
 
@@ -784,7 +826,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph LOG IF - Warehouse Operator
+    subgraph lane_0["LOG IF - Warehouse Operator"]
         n1["fa:fa-user Create Inbound Delivery"]
         n2["fa:fa-user Unload Physical Boxes via RF Scanner or SAP GUI"]
         n3["fa:fa-user Perform Good Receipt via Scanning Labels of Physical Boxes in RF Scanner..."]
@@ -832,7 +874,7 @@ flowchart TD
     class n16 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4jgU_StWqooZKVT5JJCHlSgQhNTZotJOpR32wTgOWA02sp0WFvHf184HIRnYl80D4h7fc47vtWPnaCAWYyM07u-PhBIZgmNHbvAWd0LQWUGBOyYogJ-QE7hKsejonIRRuSD_5Gm2t9vrNI1FcEvSg0YXeM0weJuZYKiIqQkEpKIrMCdJx-zsONlCfhixlHGdfYf7iZXkbuXQI-Mx5nWCZQU28hU1JRTXsBt4gRdpnsCI0bghmvhJP0Gdk55cyr7QBnKZTz8T-Afcv5NYblScwFRglbOR2_QJrnCqa5Q80xjK-GfVDCK0D1UNW-wgInStcM9SEIf0o4Z863QCp_v7JT2bgtfxkgL1oBQKMcYJEFLBk08JEpKm4Z03Gka-ZQrJ2QcO75xJMHYdE-lKQlW6Zermdr8wWW9kuGJpXKZ2v3QNobPbm3wfOpbJD-q35YVpXDuNek7f6Z-dHgN7ZI8qpyRJ_peT6it_heKj9Jq4kRONz1623_NH1u96VZljLxja7T5h_kkQvhCNosid1K2a9Hzbui36GLk9a9QSXUOJv-ChFhyMvLNg5AeRHdwULPzas8xWc85QJehO_Mg_CwaPdjR0bgp6Q9vrlzNUOmsOdxvw9DwFswh0wTvkeMNUX8HzDnMoGS8y9UPtX0sjgWECu7rxYMSxKgzM6IplNAZjnJJPzA9L4-8LjtPkvNGUwRjMNwdBEEzBI9tjAT4JBC8RWCBIqUpiHCyGczB9mzW13KbWHPOE8S2YMhaDF4ww2clcKtdRLwco3i7AkrYhoRd-Dw8PTR_vap3PmfyvQv3rk5sT9KGnknC2BQsJ1zoYKkXwbTrr_vX85-R7U6fXMmc0IUqnXhi9N5uU4NeZg9gajIlae7LKrqwNkAxM3n8o-iW_f5P_W83gi8hNHc05YZzIgzKKVXv1dmlKD5rScyZkvl4CzITIcCvbtlT2SBlKAJXpT316H1pr1yzd1nvyVR2IIslXigkBxgx9qJmxOEOy6Pv0Je-0rr5sektF79InvTGLuTEKXnmGWm223W_nYnapep8Lu1jb5XuEKN5M3WpEbZdYcb9fkr0WuUq80uNKrC3h1xJCsh2YKJLa23XVem_pgwEL0eb2jsd6IWLcXameoQ3Ae5RmQtlOizNqaZxOBU2d4sUfaoNu9w-1y6rQLeLy6KRBETpl6JSjVpVuFYBbxhW7ontF3C_DXjlcydml3qCMB-W4X42XfK-M_SLslWG_TK9iu9Q_0-1mQn7E6pKrq6UBO9dh9zrsXYf963DvOhxcXkmNkf7NkcHNEbV21ZdAE_du4H55mzfRXnWlGaaxxXwLSWyERyP_cFMfdzFOYJZK42QaMJNscaDICPMPHCPbxYo5JlDdO9sCPP0Lm80qfQ==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v4jgU_StWqooZKVT5JDQPK1EgCKkzRaWdSjNdrYzjgNVgI9uhsIj_vnY-CMnAvCwPVe_xPef4Xt84ORiIxdgIjdvbA6FEhuDQkSu8xp0QdBZQ4I4JCuAH5AQuUiw6OidhVM7Jv3ma7W12Ok1jEVyTdK_ROV4yDF6nJhgoYmoCAanoCsxJ0jE7G07WkO-HLGVcZ9_gfmIluVu59MB4jHmdYFmBjXxFTQnFNewGXuBFmicwYjRuiCZ-0k9Q56g3l7JPtIJc5tvPBP4Gd28klisVJzAVWOWs5Dp9hAuc6holzzSGMr6tmkGE9qGqYfMNRIQuFe5ZCuKQftSQbx2P4Hh7-05PpuBl9E6B-qEUCjHCCRBSweOtBAlJ0_DGGw4i3zKF5OwDhzfOOBi5jol0JaEq3TJ1c7ufmCxXMlywNC5Tu5-6htDZ7Ey-Cx3L5Hv1t-WFaVw7DXtO3-mfnB4Ce2gPK6ckSf6Xk-orf4Hio_Qau5ETjU5ett_zh9bvelWZIy8Y2O0-Yb4lCJ-JRlHkjutWjXu-bV0XfYjcnjVsiS6hxJ9wXwveD72TYOQHkR1cFSz82rvMFjPOUCXojv3IPwkGD3Y0cK4KegPb65c7VDpLDjcrkEKK_7F-vRuPTxMwjUAXvEGOV0w1GDxtMIeS8Xfj74Klf9RWyQkME9jVhwCGHKsiwZQuWEZjMMIp2WK-b3KcJueVpgzGYLbaC4JgCh7YDguwJRA8R2COIKUqiXEwH8zA5HXa1HKbWjPME8bXYMJYDJ4xwmQjc6lcRz0ooHjSAEvahoSe-d3d3TV9vIt1PmXyT4X6lzc3I-hDbyXhbA3mEi51MFCK4Mtk2v359H38tanTa5kzmhClU5-NntMmJfh14iC2BCOi5oAssgtnAyQD47dvin7O71_l_1Yz-CRyVUczThgncq-MYtXeYmLOpe-b0jMmZH5eAkyFyHAr29bjOFSGEkBl-kPf5PvW2bVGUs_ki7ocRZKfFBMCjBj6UDtjcYZk0ffJc95pXX3Z9JaKntJHPZjF3hgFLzxDrTbb7pdTMZtUPduFXazt8hkhijdVbziixiVW3K_nZK9FrhIv9LgSa0v4tYSQbAPGiqRmu65az5a-JLAQbW7vcKgPIsbdheoZWgG8Q2kmlO2kuK_ejeOxoKkbvfiH2qDb_UtNWRW6RVxeozQoQqcMnXLVqtKtAnDLuGJXdK-I-2XYK5crObvUuy_j-3Ldr9ZLvlfGfhH2yrBfplexXeqf6HYzIb9udcnVa6YBO5dh9zLsXYb9y3DvMhycv54aK_2rK_dXV9TZVV8FTdy7gvvlm72J9qrXm2Eaa8zXkMRGeDDyjzj1oRfjBGapNI6mATPJ5nuKjDD_2DGyTayYIwLVO2hdgMf_ANkGLmA=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-324-l-040-150_transport_product_to_storage_-ftsif-l-040-150_transport_product_to_storage_-ftsif">BUSINESS ARCHITECTURE — 3.2.4 L-040-150_Transport_Product_to_Storage_-<em>FTS</em>(IF) — L-040-150_Transport_Product_to_Storage_-<em>FTS</em>(IF)</h4>
 <p><strong>Swim Lanes</strong>: Warehouse Operator | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 0</p>
@@ -848,7 +890,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Warehouse Operator
+    subgraph lane_0["Warehouse Operator"]
         n1["Transport Physical Boxes to Putaway Storage Bins"]
         n2(["fa:fa-play Stock Transport Initiated"])
         n3(["fa:fa-stop Stock Transported to Putaway Area"])
@@ -859,7 +901,7 @@ flowchart TD
     class n3 endEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuO2jAU_RUrI5RWClKehGZRCQKRRmrVkZh2FqULk1wTC2NHtjPAIP69Nq8wVLNqFhE-nIfvkeO9U4oKnMzp9faUU52hvatrWIObIXeBFbgeOgG_sKR4wUC5lkME1zP6dqQFcbO1NIsVeE3ZzqIzWApAPx89NDJC5iGFueorkJS4nttIusZylwsmpGU_wJD45Jh2_mssZAWyI_h-GpSJkTLKoYOjNE7jwuoUlIJX70xJQoakdA92c0xsyhpLfdx-q-A73r7QStdmTTBTYDi1XrNveAHMzqhla7Gyla-XMqiyOdwUNmtwSfnS4LFvIIn5qoMS_3BAh15vzq-h6Hky58g8JcNKTYAgpQ08fdWIUMayhzgfFYnvKS3FCrKHcJpOotAr7SSZGd33bLn9DdBlrbOFYNWZ2t_YGbKw2Xpym4W-J3fmfZcFvOqS8kE4DIfXpHEa5EF-SSKE_FeS6VU-Y7U6Z02jIiwm16wgGSS5_6_fZcxJnI6C-55AvtISbkyLooimXVXTQRL4H5uOi2jg53emS6xhg3ed4Zc8vhoWSVoE6YeGp7z7XbaLJynKi2E0TYrkapiOg2IUfmgYj4J4eN6h8VlK3NToBUuohakT_WhAYi3kiWAfHvyeO8_mzKlGmKP1VO8ULTFDY7EFhbRAT63GdryZkeEloDHlau78uXEIPxkLgjOC-w07McsV6jwfzVVATUmVkX2-0UWdTmnR3Ouguo0fScCd3hzC0w8eon7_q5nivAxOy-imUsu5fCDv4Oh8lh3PWYNcY1o52d453k_mDquA4JZp5-A5uNVituOlkx2_Y6dtKjPOhGJT7_oEHv4Cl5Wb4g==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVF2r2jAY_iuhB-kGFfppXS8GWi0c2NgBz3Yu5hixfWODMSlJetSJ_32JX_U4ztV6Uczj85H3Ic3eKUUFTub0envKqc7Q3tU1rMHNkLvAClwPnYAfWFK8YKBcyyGC6xn9c6QFcbO1NIsVeE3ZzqIzWApA3x89NDJC5iGFueorkJS4nttIusZylwsmpGU_wJD45Jh2_mssZAWyI_h-GpSJkTLKoYOjNE7jwuoUlIJXb0xJQoakdA92c0xsyhpLfdx-q-Ar3r7QStdmTTBTYDi1XrMveAHMzqhla7Gyla-XMqiyOdwUNmtwSfnS4LFvIIn5qoMS_3BAh15vzq-h6Hky58g8JcNKTYAgpQ08fdWIUMayhzgfFYnvKS3FCrKHcJpOotAr7SSZGd33bLn9DdBlrbOFYNWZ2t_YGbKw2Xpym4W-J3fmfZcFvOqS8kE4DIfXpHEa5EF-SSKE_FeS6VU-Y7U6Z02jIiwm16wgGSS5_6_fZcxJnI6C-55AvtISbkyLooimXVXTQRL475uOi2jg53emS6xhg3ed4ac8vhoWSVoE6buGp7z7XbaLJynKi2E0TYrkapiOg2IUvmsYj4J4eN6h8VlK3NSIYQ6__Z9z5wVLqIXpFX1rQGIt5Nz5dSLbhweG82zOn2qEOWZP9U7REjM0FltQSAv01GpsR50ZJV4CGlOu3jqEH4wFwRnB_YadmOUKdZ6P5lqgprDKyD7e6KJOp7Ro7nVQ3caPJOBObw7k6QcPUb__2UxxXganZXRTr-VcPpY3cHQ-147nrEGuMa2cbO8c7ypzn1VAcMu0c_Ac3Gox2_HSyY7ftNM2lRlnQrGpen0CD38BBT-fxQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-040 — Receive and Put-away Product - FTS (IF)</span></div>
 
@@ -882,7 +924,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Warehouse Operator
+    subgraph lane_0["Warehouse Operator"]
         n1["fa:fa-user Verify Material Location and Update of Inventory"]
         n2["fa:fa-user Record Storage Bin Location of Material via Label"]
         n3[["fa:fa-cog Putaway Task Confirmed"]]
@@ -900,7 +942,7 @@ flowchart TD
     class n5 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuOmzAQ_RWLVUQrEZVrSHmolJAgrbSrrpq9PGz64ICduAs2sk0ujfLvtYGQS5un8hBlDmfOmRk83hspy5ARGb3enlAiI7A35QoVyIyAuYACmRZogFfICVzkSJiagxmVM_K7pjl-udU0jSWwIPlOozO0ZAi83FtgpBJzCwhIRV8gTrBpmSUnBeS7mOWMa_YdGmIb127tqzHjGeIngm2HThqo1JxQdIK90A_9ROcJlDKaXYjiAA9xah50cTnbpCvIZV1-JdAj3L6RTK5UjGEukOKsZJE_wAXKdY-SVxpLK74-DoMI7UPVwGYlTAldKty3FcQh_ThBgX04gEOvN6edKXiezClQT5pDISYIAyEVPF1LgEmeR3d-PEoC2xKSsw8U3bnTcOK5Vqo7iVTrtqWH298gslzJaMHyrKX2N7qHyC23Ft9Grm3xnfq98kI0OznFA3foDjuncejETnx0whj_l5OaK3-G4qP1mnqJm0w6LycYBLH9t96xzYkfjpzrOSG-Jik6E02SxJueRjUdBI59W3SceAM7vhJdQok2cHcS_Br7nWAShIkT3hRs_K6rrBZPnKVHQW8aJEEnGI6dZOTeFPRHjj9sK1Q6Sw7LFXiDHK2YGif4XiIOJeMNQT_UeZ8bGEYY9vW8waveqR14VE3pTQMPLIWSMAogzcBLmSkcMAzu6RpRJbSbGz_PxNxLsR9qi3gGZooIlwiMCT3pKZHOZE0gqHflUs177-RStgRPlYR60PXnixnFhBcoUynnOf6nLkdIVnZJMSvKHMma__mMHyh6q_UFjLJflZBdjV016sw3f6gD-v1vyqUNgyb02tBrQrcN3SY8P4Va4XiuL2D337B3fmYv3vjtJl6AQXcVGJZRIF5AkhnR3qgvXXUxZwjDKpfGwTJgJdlsR1Mjqi8no6q_7YRAdWaKBjz8Ac2o3aI=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO2jAQ_RUrK0QrBTVXQvNQCQKRVtqqq7KXh6WqTGKDu44d2Q6XIv69dhICbLtPzQNiTs6cMzPx-GBlPEdWbPV6B8KIisGhr9aoQP0Y9JdQor4NGuAJCgKXFMm-4WDO1Jz8rmluUO4MzWApLAjdG3SOVhyBx1sbjHUitYGETA4kEgT37X4pSAHFPuGUC8O-QSPs4NqtfTXhIkfiTHCcyM1CnUoJQ2fYj4IoSE2eRBln-ZUoDvEIZ_2jKY7ybbaGQtXlVxJ9hbtnkqu1jjGkEmnOWhX0Di4RNT0qURksq8TmNAwijQ_TA5uXMCNspfHA0ZCA7PUMhc7xCI693oJ1puBhumBAPxmFUk4RBlJpeLZRABNK45sgGaehY0sl-CuKb7xZNPU9OzOdxLp1xzbDHWwRWa1VvOQ0b6mDrekh9sqdLXax59hir3_feCGWn52SoTfyRp3TJHITNzk5YYz_y0nPVTxA-dp6zfzUS6edlxsOw8T5W-_U5jSIxu7bOSGxIRm6EE3T1J-dRzUbhq7zvugk9YdO8kZ0BRXawv1Z8HMSdIJpGKVu9K5g4_e2ymp5L3h2EvRnYRp2gtHETcfeu4LB2A1GbYVaZyVguQYUMvTTeVlYz1CgNddzBd9KJKDiYmH9aMjmYa7mYBhjODCzB09mv_bgq27QbB244xlUhDMAWQ4ey1zjgGNwyzaIaa39tZh3LfZdb5TIwVwT4QqBCWFnPS3SmWwIBPXeXKv5L51cxlfgvlLQDL3-lAlnmIgC5TrlMif40OVIxcsuKeFFSZGq-R8v-KGmt1qfwDj_VUnV1dhVo89_84e5YDD4ol3aMGxCvw39JvTa0GvCyxNpFE5n_Ar2_g37l-f36k3QbuUVGHbXgmVbBRIFJLkVH6z6AtaXdI4wrKiyjrYFK8Xne5ZZcX1RWVX9bacE6vNTNODxD3de4YU=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-326-l-040-180_update_inventory_-ftsif-l-040-180_update_inventory_-ftsif">BUSINESS ARCHITECTURE — 3.2.6 L-040-180_Update_Inventory_-<em>FTS</em>(IF) — L-040-180_Update_Inventory_-<em>FTS</em>(IF)</h4>
 <p><strong>Swim Lanes</strong>: Warehouse Operator | <strong>Tasks</strong>: 2 | <strong>Gateways</strong>: 0</p>
@@ -916,7 +958,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Warehouse Operator
+    subgraph lane_0["Warehouse Operator"]
         n1[["fa:fa-cog A-010 Update the Inventory into the System"]]
         n2[["fa:fa-cog A-020 Display Stock Overview"]]
         n3(["fa:fa-stop Inventory Updated"])
@@ -931,7 +973,7 @@ flowchart TD
     class n4 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE1v4jAQ_StWKpRWCtp8EjaHlSAQqVJXXYl2eyg9mMQGL44d2Q6QRfz3tQlfpeK0ORDm-c17MxPbWyvnBbISq9PZEkZUAra2WqAS2QmwZ1Ai2wEt8BsKAmcUSdtwMGdqQv7uaV5YbQzNYBksCW0MOkFzjsDrowMGOpE6QEImuxIJgm3HrgQpoWhSTrkw7DvUxy7eux2WhlwUSJwJrht7eaRTKWHoDAdxGIeZyZMo56z4JIoj3Me5vTPFUb7OF1Coffm1RD_h5o0UaqFjDKlEmrNQJX2CM0RNj0rUBstrsToOg0jjw_TAJhXMCZtrPHQ1JCBbnqHI3e3ArtOZspMpeBlNGdBPTqGUI4SBVBoerxTAhNLkLkwHWeQ6Ugm-RMmdP45Hge_kppNEt-46ZrjdNSLzhUpmnBYHandtekj8auOITeK7jmj075UXYsXZKe35fb9_chrGXuqlRyeM8X856bmKFyiXB69xkPnZ6OTlRb0odb_qHdschfHAu54TEiuSowvRLMuC8XlU417kubdFh1nQc9Mr0TlUaA2bs-D3NDwJZlGcefFNwdbvusp69kvw_CgYjKMsOgnGQy8b-DcFw4EX9g8Vap25gNUCvEGBFlyPEzxXSEDFRUswD_Pe36cWhgmG3ZzPwaDrei54rQrdFdBnFTyyFWI6pQFEv_bQpJEKlVPr4-NCx_-i47tgRGRF9WwmiudL8Lwy80frq8zg_pQpFa8uHNsyCs1_uOCHmp5yhokovw2KP7VU4InnUBHOwP1j9qDpLVtv1fYP80G3-0M7HUKvDf1DGLbh5W4xnIvd8mnFv7kSHE7HJzA8HU_LsUokSkgKK9la-4tQX5YFwrCmyto5FqwVnzQst5L9hWHV-_5HBOrvWLbg7h_drbmQ" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVF1v2jAU_StWKpRWClo-CcvDJAhEqtSpk2jXhzJNJrHBw7Ej2-FjiP8-m0CgVDwtD5B7fO45997Y3lk5L5CVWJ3OjjCiErCz1QKVyE6APYMS2Q5ogJ9QEDijSNqGgzlTE_L3QPPCamNoBstgSejWoBM05wi8PjpgoBOpAyRksiuRINh27EqQEoptyikXhn2H-tjFB7fj0pCLAokzwXVjL490KiUMneEgDuMwM3kS5ZwVH0RxhPs4t_emOMrX-QIKdSi_lug73LyRQi10jCGVSHMWqqRPcIao6VGJ2mB5LVanYRBpfJge2KSCOWFzjYeuhgRkyzMUufs92Hc6U9aagpfRlAH95BRKOUIYSKXh8UoBTChN7sJ0kEWuI5XgS5Tc-eN4FPhObjpJdOuuY4bbXSMyX6hkxmlxpHbXpofErzaO2CS-64it_r3yQqw4O6U9v-_3W6dh7KVeenLCGP-Xk56reIFyefQaB5mfjVovL-pFqftZ79TmKIwH3vWckFiRHF2IZlkWjM-jGvciz70tOsyCnpteic6hQmu4PQt-TcNWMIvizItvCjZ-11XWsx-C5yfBYBxlUSsYD71s4N8UDAde2D9WqHXmAlYLQCFDv933qfUGBVpwPVfwXCEBFRdT61dDNg_z3jUJwwTDbs7nYNB1PRe8VoXuEOhzCx7ZCjGdtQVE_x2gyVYqVGqZSx3_k47vghGRFdVzmiieL8HzynwLtL7KDO7bTKl4deHYlFFo_sMFP9T0lDNMRPllUPyppQJPPIeKcAbuH7OHtj-9bZsX5oNu95t2OoZeE_rHMGzCy51jOBc758OKf3MlOJ6UD2DYHlXLsUokSkgKK9lZh0tRX5wFwrCmyto7FqwVn2xZbiWHy8OqD_2PCNTftGzA_T_jgb1z" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-040 — Receive and Put-away Product - FTS (IF)</span></div>
 
@@ -2285,11 +2327,15 @@ flowchart TD
 </tbody>
 </table>
 <hr />
-<p><em>L-040 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: March 2026</em></p>
+<p><em>L-040 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-040 — Receive and Put-away Product - FTS (IF)</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>L-040</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

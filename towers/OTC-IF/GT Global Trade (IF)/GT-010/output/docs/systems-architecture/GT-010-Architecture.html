@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IF) (OTC-IF) Tower<br/>
   Capability GT-010 · GT Global Trade (IF)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 3</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -662,7 +704,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Trade IT Analyst
+    subgraph lane_0["Trade IT Analyst"]
         n1["fa:fa-user Manage SPL Master - Create Manually"]
         n2["fa:fa-user Manage Embargo Situations"]
         n3["fa:fa-user Manage SPL Master - Change Manually"]
@@ -766,7 +808,7 @@ flowchart TD
     class n31 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWGuP2jgU_StWqhGtBFLeCXzYFRNgW2mmOyrTfajsB5M4YDUkrBOYYaf8970mdiCO0XS7SDPCx_ec-_CbFyMuEmKMjJubF5rTaoReetWabEhvhHpLXJJeH9XAb5hRvMxI2eM2aZFXc_rPycxyt8_cjGMzvKHZgaNzsioI-vyhj8ZAzPqoxHk5KAmjaa_f2zK6wewQFVnBuPUbEqZmevImum4LlhB2NjDNwIo9oGY0J2fYCdzAnXFeSeIiT1qiqZeGadw78uCy4ileY1adwt-V5B4__06Tag3tFGclAZt1tcnu8JJkPMeK7TgW79heFoOW3E8OBZtvcUzzFeCuCRDD-dcz5JnHIzre3Czyxil6nCxyBJ84w2U5ISkqK4Cn-wqlNMtGb9xoPPPMflmx4isZvbGnwcSx-zHPZASpm31e3METoat1NVoWWSJMB088h5G9fe6z55Ft9tkB_iu-SJ6cPUW-Hdph4-k2sCIrkp7SNP1fnqCu7BGXX4WvqTOzZ5PGl-X5XmR29WSaEzcYW2qdCNvTmFyIzmYzZ3ou1dT3LPO66O3M8c1IEV3hijzhw1lwGLmN4MwLZlZwVbD2p0a5Wz6wIpaCztSbeY1gcGvNxvZVQXdsuaGIEHRWDG_X6JHhhKAPj2ic4-xQVnU3_-TWl4WR4lGKB7za6B7neEXQ_OEOvpYVIAMUMQIZ8q4dzrLDwvjrgm9r-dPNErNVgea02uGKFnnZZjnf4XWN89U1r-7r_AkttxlWeF6bJ2xOROHvPS2rgik0_woN5zFPjiToAdbfAd0BWck00FOnz1vKYIHrNdoSYVtiTjCL1-jzNitwgu6KleJxqPfI1XNo07wZnajY5RWjRBGwzLaCGP8IVjIrMhTxadrhWFrOA4l3GYW9HhKLYKdTWbaaWrXbNo6gVUGJSpQW0DV-QO_HH8cifUXH-W6dqNhsIZ6yyNEjYRs1IFdfvItiv1IH70ujEBcrYABNP09QyooN-uP-Ds1oRkCmpeO3dUQAXd8tUvC2IZ3Crtc9TxkGIY-JXB0TXGGxaDYkh_OE0dWKMJKA4LtLwfAsCMtieyl1sdiEHM0r-OuKDBUROf0uAphAcRSabXZ8t3IXdNWbbSm0ZvQFP-tS7Fc81cXv8pyXl_MYJWSwhJMbVubjYUtQkV5W5-eFcTxeUl099R6-11RZmg7T0zPJc5ztSronv9SnkUrzX4tVjB4Mbcdl8GMuQz2tezZAgRO-W3wif-8ozMJOAMMfCsAx9bTW8CLYEzq7lBqAY_3XAOCSVH-BRYkGg5_4bJGAXwOWKwFbAI2FVwOhbAsFT7Qdpe0qbVvw7UAAodJW-20RoyU92sMaGMoIpAtbAmYNOJYELAVwZNSmtJBhSwv7JPptYdSHxcL4BkadvtOxfOqT5RHlsmVwIlZLtu1QcP_kOyQQZdC2I0UvtjHd3ny5dGsFX9X-WNQdjVNfdHTvImcVV82uuaRAr6sqiT1fOSZ4kTzV9BPZU_LUucOA7TVTHl8OR2l9EznwIGtxOSccUxDU1VGHYKlmrVVV25hq3bs7f12XsDNAfEbAqPCtSd2NcZ7o7hV8gnQcihKCSixUYqHy9hOJCaxcUV_uhB9EcO_eU3gpvqsz8LszR7lTXE4lcTPhRDnlAmWl-erK89szAf26Jwzuu9r541-8E_iuIN9HLdjWw44edvWwp4d9PRzo4VAPD_Uw7Ch6_Eqe1pVErSuZWldShc324lXY7vKvdwXNm7uNh-J93EaHOtQ2tailRW0t6sjHZxt29bCnh309HOjhUA8PtTDsDlrYkrDRNzZwDcc0MUYvxumnIfj5KCEp3mWVcewbeFcV80MeG6PTTyjG7nRVmFAML9tNDR7_BQi1yuo=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWGuP4jYU_StWViN2JZDyTuBDKyZAt9LMdrTM9qGlqkzigLUhoU7CDJ3lv_ea2EAco9lukWaEj-859-E3L0ZcJMQYGTc3LzSn1Qi99Ko12ZDeCPWWuCS9PmqAXzGjeJmRssdt0iKv5vSfo5nlbp-5GcdmeEOzPUfnZFUQ9OnnPhoDMeujEufloCSMpr1-b8voBrN9VGQF49ZvSJia6dGb6LotWELY2cA0Ayv2gJrRnJxhJ3ADd8Z5JYmLPGmJpl4apnHvwIPLiqd4jVl1DL8uyT1-_o0m1RraKc5KAjbrapPd4SXJeI4VqzkW12wni0FL7ieHgs23OKb5CnDXBIjh_MsZ8szDAR1ubhb5ySl6nCxyBJ84w2U5ISkqK4CnuwqlNMtGb9xoPPPMflmx4gsZvbGnwcSx-zHPZASpm31e3METoat1NVoWWSJMB088h5G9fe6z55Ft9tke_iu-SJ6cPUW-HdrhydNtYEVWJD2lafq_PEFd2SMuvwhfU2dmzyYnX5bne5HZ1ZNpTtxgbKl1ImxHY3IhOpvNnOm5VFPfs8zrorczxzcjRXSFK_KE92fBYeSeBGdeMLOCq4KNPzXKevnAilgKOlNv5p0Eg1trNravCrpjyw1FhKCzYni7RhnOyV_m54XxyHBC0M-PaJzjbF9WC-PPxpR_cgssUjxK8YBXHt3jHK8Imj_cwdeyAmSAIkYgW95V4yzbt_m2lj_dLDFbFWhOqxpXtMjLNsv5Bq9rnK-ueXVf509ouc2wwvPaPGFzJAp_72lZFUyh-VdoOI95ciRBD7AW9-gOyEqmgZ46fd5SBotdr9GWCNsSc4JZvEaftlmBE3RXrBSPQ71Hrp5Dm-an0YmKOq8YJYqAZbYVxPhHsKpZkaGIT9kOx9JyHkhcZxT2fUgsgl1PZdlqalW9PTmCVgUlKlFaQNf4Ab0ffxiL9BUd55t1omKzhXjKIkePhG3UgFx98S6K_UodvM8nhbhYAQNo-nmCUlZs0O_3d2hGMwIyLR2_rSMC6PpukYK3J9Ix7Gbp85RhEPKYyNUxwRUWi2ZDcjhbGF2tCCMJCL67FAzPgrAstpdSF4tNyNG8gr-uyFARkdPvIoAJFEeh2WbHdyt3QVe92ZZCO42-4Gddiv2Kp6b4XZ7z8nIeo4QMlnCKw8p83G8JKtLL6vy4MA6HS6qrp97D94YqS9NhenomeY6zuqQ78lNzMqk0_7VYxejB0HZcBt_nMtTTumcDFDjhu8VH8ndNYRZ2Ahh-VwCOqae1hhfBntDZpdQAHOu_BgAXpuYLLEo0GPzAZ4sE_AawXAnYAjhZeA0QyrZQ8ETbUdqu0rYF3w4EECpttd8WMVrSoz1sgKGMQLqwJWA2gGNJwFIAR0ZtSgsZtrSwj6JfF0ZzWCyMr2DU6Tsey8c-WR5RLlsGJ2K1ZNsOBfcPvkMCUQZtO1L0YhvT7c2XS7dR8FXtD0XTcXLqi47uXeSs4qrZnS4p0OuqSmLPV44JXiRPNf1IdpQ8de4wYHvNlMeXw1Ha3ET2PMhGXM4JxxQEdXU0IViqWWtVNTamWvfuzt_UJewMEJ8RMCp8a1J3Y5wnunsFnyAdh6KEoBILlViovP1IYgIrV9SXO-EHEdzBdxReje-aDPzuzFHuFJdTSdxMOFFOuUBZab668vz2TEC_7AiD-652_vgXbwa-K8i3Ugu29bCjh1097OlhXw8HejjUw0M9DDuKHr-Sp3UlUetKptaVVGGzvXghtrv8613B6f3dxkPxVm6jQx1qm1rU0qK2FnXkQ7QNu3rY08O-Hg70cKiHh1oYdgctbEnY6BsbuIZjmhijF-P4MxH8lJSQFNdZZRz6Bq6rYr7PY2N0_DnFqI9XhQnF8MrdNODhX9vBzs0=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-010 — Manage Global Trade Master Data (IF)</span></div>
 
@@ -789,7 +831,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Trade IT Analyst
+    subgraph lane_0["Trade IT Analyst"]
         n1["fa:fa-user Manage Business Partner"]
         n2["fa:fa-user Create/Update Employee Partner"]
         n3["fa:fa-user Create/Update Customs Broker"]
@@ -992,7 +1034,7 @@ flowchart TD
     class n63 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWW1v2zYQ_iuEi8AbYG8iJUqyP2xw_DIUaLZiSdsBzT7QEmULlSWDkpN4qf_7SIuULYo0Mi9Am-jhPXf3HI-URL32oiKmvXHv5uY1zdNqDF771ZpuaH8M-ktS0v4A1MBnwlKyzGjZFzZJkVf36T9HM-htX4SZwBZkk2Z7gd7TVUHBp_cDMOHEbABKkpfDkrI06Q_6W5ZuCNtPi6xgwvodDRMnOUaTQ7cFiyk7GThOACPMqVma0xPsBl7gLQSvpFGRxy2nCU7CJOofRHJZ8RytCauO6e9KekdevqRxtebXCclKym3W1Sb7QJY0ExorthNYtGNPqhhpKeLkvGD3WxKl-YrjnsMhRvJvJwg7hwM43Nw85k1Q8DB7zAH_iTJSljOagLLi8PypAkmaZeN33nSywM6grFjxjY7foXkwc9EgEkrGXLozEMUdPtN0ta7GyyKLpenwWWgYo-3LgL2MkTNge_6_Fovm8SnS1EchCptItwGcwqmKlCTJ_4rE68oeSPlNxpq7C7SYNbEg9vHU6fpTMmdeMIF6nSh7SiN65nSxWLjzU6nmPoaO3entwvWdqeZ0RSr6TPYnh6Op1zhc4GABA6vDOp6e5W75kRWRcujO8QI3DoNbuJggq0NvAr1QZsj9rBjZrsEDIzEF7x_AJCfZvqzqYfGTw6-PvYSMEzIU1QZ3JCcrCm53JV8XZQk-8r7KKXvs_X3GQW3OlFFegZ8_bWP-C8w326zYU2qmupeo011ZFZsS3AppGtFrEz_xICRuGH8kCZ_WEiSs2IC_7j6ARZrRtgP8dgfHC77LgEXBNqRq-_H1gqV5xf-BGd1ywTtGAcljflVWaU6qtMjBx4KblG0vgcXLJOVFIWxVAN4BW8qqPVjuwbTIcxqdnLV9hReVTXeM0Tzag_kL3zxyPrl_8lpr6Yws6bQ54GHNit1qDb4U7FuWlloe0LFMrqHSGhMaJfC2zcttwSp7HSEyMi9pha6x5R_4HSlJwO-7zVLvPag13ywttxlf8DLYh2JVguFFB9gYchLHqVDGO61F1hP23xL-rc5sndcigUlVsXS56xbP3Gx3lJS89XXjkVG27OxULLeCKS542G-1tkDOW4SbYyP4Fq5qytmOLzRDryBkVGA111prRivKNnwnPWMcNatiFz9pDt7UadNisyn4bIuNIe7kYO61yxz_a0OKilWz_rSOblECI-VSF7booZHeKmzLfmS076pq3WxE_zQN3t6AVF6iGyNxp-NzRdJMK4wLzz18Jll6DFYk-o1Do6EfmmyP8_cb5XdCXhPFuiNlJaaXVKRZgXyT5ouApasVZTTmDn889-iePHIX284dujz56XA9jWvcV2WjdMhYI2u3BAvL10PWzXCcJRsnuMSRK6HLCjWW2g5sUUaavdZCFprnaLSzBT0rcqqbQ7OWzu5qnzUPvb6eOj6mwyWftWh93CZFA5610K-PvcPhnOpepuq90-F7Zv4d_1vw68XXYWEzi75EGQ_4RH-rn5N1mn85WWOzdmIHlzPuNC13QnNuQjuewutUjK6iYec6Grxcs6ruNl0bRperVLf-huZVh-lezfSuU3hdM2H_6jyDq5nh1czrmsa_rml8eB0NXUdz_yuNnyvUf_DbJxgOfxFboAIcCWAJeNo11q6RXwNYeUCBBFwJQFcCnnIhfcBAWYTSwlc-FKAskMzTV0596RQpAI0kJVRKoAQcFVZKwSMFjDSnjQXWLBoASgtXZQqlfLfRopyqsMjRAF8CrsoUSac-VADWAF9qcVXqMqqnXATatScL6Kqay2tPORhp154E3Eb6MeT3x17nOfOx913MsrILpF29-OpB1QtQdZNKA0ohnqqfhyTd8gb6XXAUWTVroJP1l1DBUjlgVe6mH7W-QNq1q117royiv1eLKB2j7nmOMNOtukc3omy2gOqUhts0raps5NNaHUZVFYeGSVFz4PmKevkc5cjydVL3gIRbNRMSaJmrI5GjVai3zHnuqKmRJ0ebs6FEng1xK6wbnU6g-Kinj3beOEQFm3mXE-2ruvuqvxy9v5r3ks67QB3X1RfN-Urx9eKcznT4sFqACGrZQKxtV1AtclUpjLqzDD19sNUgTaK-aXSkj563j6P3Vmv2sF6y8_dLYRB2atocJojQneHzV5J66qFu0n6fqMOM9PVxXpsmSVla9_zQWmwM6hi8BSMz7JphzwxjM-yb4cAMh2Z4ZIb55mvGLTqhRSi0KIUWqdCiFVrEQotaaJELLXqRRS-yzatFL7LoRRa9yKKXPxmdfQRpDwX2odA-NLIO8ec49WGqjbvyI1Ib9YwoNqK-EQ2MaGhERybUc4woNKJIfflpw64Z9swwNsO-GQ7McGiGR0aYP3oYYWiGzSqxWSU2q8RmldisEptVYrNKbFbpm1X6ZpW-WaXfqOwNeht-lEvSuDd-7R0_YfPP3DFNyC6reodBj-yq4n6fR73x8VNvb3f8pDVLCf8Ct6nBw7-ov6xj" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWWFv2zYQ_SuEi8AbYG8iJUqyP2xw7Lgo0GzFkrYDmmGgJcoWIksGJSfxUv_3kRYpWxRpZF6ANtHjvbt7xyMlUa-9qIhpb9y7unpN87Qag9d-taJr2h-D_oKUtD8ANfCFsJQsMlr2hU1S5NVd-s_BDHqbF2EmsDlZp9lOoHd0WVDw-cMATDgxG4CS5OWwpCxN-oP-hqVrwnbTIiuYsH5Hw8RJDtHk0HXBYsqOBo4TwAhzapbm9Ai7gRd4c8EraVTkcctpgpMwifp7kVxWPEcrwqpD-tuS3pKXr2lcrfh1QrKScptVtc4-kgXNhMaKbQUWbdmTKkZaijg5L9jdhkRpvuS453CIkfzxCGFnvwf7q6uHvAkK7mcPOeA_UUbKckYTUFYcvnmqQJJm2fidN53MsTMoK1Y80vE7dBPMXDSIhJIxl-4MRHGHzzRdrqrxoshiaTp8FhrGaPMyYC9j5AzYjv-vxaJ5fIw09VGIwibSdQCncKoiJUnyvyLxurJ7Uj7KWDfuHM1nTSyIfTx1uv6UzJkXTKBeJ8qe0oieOJ3P5-7NsVQ3PoaO3en13PWdqeZ0SSr6THZHh6Op1zic42AOA6vDOp6e5XbxiRWRcuje4DluHAbXcD5BVofeBHqhzJD7WTKyWYGM5PRv59tD756RmIIP92CSk2xXVg-9v2pT8ZNDbpGQcUKGovLgluRkScH1tuRrpCzBJ95jOWVtDmpzpozyavz8eRPzX-BmvcmKHaVmqnuOOt2WVbEuwbWQqRG9NvEzD0LihvF7kvApLkHCijX48_YjmKcZbTvAb3dwuOA7DpgXbE20gvl6wdK84v_AjG644C2jgOQxvyqrNCdVWuTgU8FNyraXwOJlkvKiELYsAO-GDWXVDix2YFrkOY2Oztq-wrPKplvGaB7twM0L30hyPrl_8Fpr6Yws6bQ54H7Fiu1yBb4W7DFLO63kWCbXUGmNCY0SeOfm5aZglb2OEBmZ57RC19jy9_zulCTgt-16ofce1JpvlpabjC9-GexjsSzB8KwDbAw5ieNUKOOd1iLrCftvCf9WZ7bOa5HApKpYuth2i2dutltKSt76uvHIKFt2diqWW8EUF9zvNlpbIOctws2xEXwLVzXlbMsXmqFXEDIqsJprrTWjFWVrvpOeMA6aVbGLnzQHb-q0abFeF3y2xcYQd3Iw99p5jv-tIUXFsll_Wke3KIGRcq4LW_TQSG8VtmU_Mtp3VbVuNqJ_mgZvb0AqL9GNkbjT8bkiaaYVxoWnHr6QLD0EKxL9xqHR0A9Ntof5e0_5nZDXRLFuSVmJ6SUVaVYg36T5ImDpckkZjbnDH089ukeP3MWmc4cuj346XE_jGvdV2SgdMtbI2i3BwvL1kHUzHGbJxgnOceRK6LJCjaW2A1uUkWavtZCF5jka7WRBz4qc6ubQrKWzu9pnzUOvr8eOj-lwwWctWh22SdGAJy3060Nvvz-luuepeu90-J6Zf8v_Fvx68XVY2MyiL1HGAz7R9_Uzs07zzydrbNZO7OB8xp2m5U5ozk1ox1N4mYrRRTTsXEaD52tW1d2ma8PofJXq1l_TvOow3YuZ3mUKL2sm7F-cZ3AxM7yYeVnT-Jc1jQ8vo6HLaO5_pfEzhvoPfvsEw-EvYgtUgCMBLAFPu8baNfJrACsPKJCAKwHoSsBTLqQPGCiLUFr4yocClAWSefrKqS-dIgWgkaSESgmUgKPCSil4pICR5rSxwJpFA0Bp4apMoZTvNlqUUxUWORrgS8BVmSLp1IcKwBrgSy2uSl1G9ZSLQLv2ZAFdVXN57SkHI-3ak4DbSD-E_P7Q6zxnPvS-i1lWdoG0qxdfPah6AapuUmlAKcRT9fOQpFveQL8LjiKrZg10sv4SKlgqB6zK3fSj1hdIu3a1a8-VUfT3ahGlY9Q9zxFmulX36EaUzRZQndJwm6ZVlY18WqvDqKri0DApag48X1HPn6McWL5O6h6QcKtmQgItc3UkcrAK9ZY5zR01NfLkaHM2lMizIW6FdaPjCRQf9fTRzhuHqGAz73KifVV3X_WXo_dX817SeReo47r6ojldKb5enOOZDh9WCxBBLRuIte0KqkWuKoVRd5ahpw-2GqRJ1DeNjvTR0_Zx9N5qzR7WS3b6fikMwk5Nm8MEEbozfPpKUk891E3a7xN1mJG-Pk5r0yQpS-ueHmCLjUEdibdgZIZdM-yZYWyGfTMcmOHQDI_MMN98zbhFJ7QIhRal0CIVWrRCi1hoUQstcqFFL7LoRbZ5tehFFr3IohdZ9PIno5MPIu2hwD4U2odG1iH-HKc-UrVxV35QaqOeEcVG1DeigRENjejIhHqOEYVGFKmvQG3YNcOeGcZm2DfDgRkOzfDICPNHDyMMzbBZJTarxGaV2KwSm1Vis0psVonNKn2zSt-s0jer9BuVvUFvzY9ySRr3xq-9w-ds_sk7pgnZZlVvP-iRbVXc7fKoNz589u1tD5-0ZinhX-PWNbj_F6-xsEY=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-010 — Manage Global Trade Master Data (IF)</span></div>
 
@@ -1015,7 +1057,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Trade IT Analyst
+    subgraph lane_0["Trade IT Analyst"]
         n1["fa:fa-user Manage Business Partner - Change"]
         n2["fa:fa-user Manage Business Partner - Display"]
         n3["Manage Business Partner - Create"]
@@ -1047,7 +1089,7 @@ flowchart TD
     class n9 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVWuP2jgU_StWRiO6UpCSkJCQD60gkKrSdrcS7FarZT-YxA7WGAfZzgyU4b_vNXnwKLOqukgg7vE959x7YzsHKytzYsXW4-OBCaZjdOjpNdmQXox6K6xIz0Y18CeWDK84UT2TQ0uh5-zbKc31tzuTZrAUbxjfG3ROipKgPz7ZaAxEbiOFheorIhnt2b2tZBss90nJS2myH0hEHXpya5YmpcyJPCc4TuhmAVA5E-QMD0I_9FPDUyQrRX4lSgMa0ax3NMXx8iVbY6lP5VeKfMa7ryzXa4gp5opAzlpv-K94RbjpUcvKYFkln9thMGV8BAxsvsUZEwXgvgOQxOLpDAXO8YiOj49L0ZmixXQpEHwyjpWaEoqUBnj2rBFlnMcPfjJOA8dWWpZPJH7wZuF04NmZ6SSG1h3bDLf_Qlix1vGq5HmT2n8xPcTedmfLXew5ttzD740XEfnZKRl6kRd1TpPQTdykdaKU_i8nmKtcYPXUeM0GqZdOOy83GAaJ871e2-bUD8fu7ZyIfGYZuRBN03QwO49qNgxc523RSToYOsmNaIE1ecH7s-Ao8TvBNAhTN3xTsPa7rbJafZFl1goOZkEadILhxE3H3puC_tj1o6ZC0Ckk3q7RQuKcoE8LNBaY75Wul81HuH8vLYpjivtm2ugzFrggaFIpOBdKoS-wrwTgfZSssSjI0vrnguz9KHnK1Jbj_TV7AOz_8JME5nrN8N91hkYODJnQ8EW_ywIL9g1rVkKHaA7HLdOVJJChNMhNscYI8j4u5jAMVhREkhy0f7kQD87iSpfbH9NsK_hObXg4tGrmTuyv4FRna_QVqi5pR4Mjfin3YWkdjxci4X0Rsss4DOyZfKx33g0r-inW6D6rfuwXhcHxr_8IH_X776HTJhya8HVptQ_uFZ5wsxTVmV4TDupw1IReHQZN6NZh1IRhHbq3Ls12BJfwZqnbbK9nlVGz9lt5F_6LqEup00k0lbQ30BXs3Yf97ha-goPmwrwCh-2lcYWGd9HoLjpqUcu2NkRuMMut-GCdXq7wAs4JxRXX1tG2cKXL-V5kVnx6CVnVNgfmlGG4GzY1ePwXwm51fg==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVW2P4jYQ_itWVitaKUhJSEjIh1YQyOmk3vUkuDtVpapMYgdrjYNsZxeO5b93TF54ObY6tZFAmcczzzMzsccHKytzYsXW4-OBCaZjdOjpNdmQXox6K6xIz0Y18AVLhlecqJ7xoaXQc_bt5Ob6251xM1iKN4zvDTonRUnQ5_c2GkMgt5HCQvUVkYz27N5Wsg2W-6TkpTTeDySiDj2pNUuTUuZEnh0cJ3SzAEI5E-QMD0I_9FMTp0hWivyKlAY0olnvaJLj5Uu2xlKf0q8U-YB3X1mu12BTzBUBn7Xe8N_winBTo5aVwbJKPrfNYMroCGjYfIszJgrAfQcgicXTGQqc4xEdHx-XohNFi-lSIHgyjpWaEoqUBnj2rBFlnMcPfjJOA8dWWpZPJH7wZuF04NmZqSSG0h3bNLf_Qlix1vGq5Hnj2n8xNcTedmfLXew5ttzD_40WEflZKRl6kRd1SpPQTdykVaKU_i8l6KtcYPXUaM0GqZdOOy03GAaJ8z1fW-bUD8fubZ-IfGYZuSBN03QwO7dqNgxc523SSToYOskNaYE1ecH7M-Eo8TvCNAhTN3yTsNa7zbJafZJl1hIOZkEadIThxE3H3puE_tj1oyZD4Ckk3q4Rx4L87fy5tBYS5wS9X6CxwHyv9NL6q3Y1j3DBg-KY4r7pPPqABS4ImlQKzohS6BPsMQF4HyVrLApyHez9aPCUqS3H--voAUT_i54k0OPrCP-nTtDQgSATGn7od1lgwb5hzUooEs3h6GW6kgQ8lAa6KdYYgd-7xRwtJCsKIkkO3D9fkAdncqXL7Y9xthl8xzY8HFo2Mx_7Kzjh2Rp9haxL2oXBcb-k-3VpHY8XJOF9ErLLODTsmbyrd-FNVPSfokb3o-rPfpEYjIL6Rfio3_8FKm3MoTFfl1b74V7hCzdLUe3pNeagNkeN6dVm0JhubUaNGdame6vSbEdQCW-Wus32emYZNWsfy7vwH0RdUp1OpcmknUZXsHcf9ruJfAUHzfC8AoftALlCw7todBcdtahlWxsiN5jlVnywThctXMY5obji2jraFq50Od-LzIpPF5JVbXOInDIMc2JTg8d_ANKZeWE=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-010 — Manage Global Trade Master Data (IF)</span></div>
 
@@ -2669,11 +2711,15 @@ flowchart TD
 </tbody>
 </table>
 <hr />
-<p><em>GT-010 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: March 2026</em></p>
+<p><em>GT-010 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-010 — Manage Global Trade Master Data (IF)</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>GT-010</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

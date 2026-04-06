@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IF) (OTC-IF) Tower<br/>
   Capability R-200 · R Returns (IF)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Order To Cash (IF) (OTC-IF) |
 | **Process Group** | R Returns (IF) |
 | **Capability** | R-200 - Receive Materials and Services (IF) |
-| **Release** | Release 3 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 11 Interfaces, 64 Enhancements, 11 Forms, 1 Workflows |
@@ -199,7 +199,7 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Customer Quality Engineer
+    subgraph lane_0["Customer Quality Engineer"]
         n1["fa:fa-user Receive Failure Analysis (FA) Returns in FA Storage Location"]
         n2["fa:fa-user Update Actual Quantity Received"]
         n7["Perform Testing of Returned Material"]
@@ -207,7 +207,7 @@ flowchart LR
         n9["Perform Visual Inspection and Validate the Parts, Lot Numbers, etc."]
         n12(["fa:fa-stop Testing Completed"])
     end
-    subgraph Warehouse Operator
+    subgraph lane_1["Warehouse Operator"]
         n3["fa:fa-user Post Goods Receipt"]
         n4["fa:fa-user Update Actual Quantity Received"]
         n5["fa:fa-user Receive Material in Returns Storage Location"]
@@ -244,7 +244,7 @@ flowchart LR
     class n15 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtVm1v2zYQ_iuEisAtIA96tRx92ODY1lAgbbM6TT_M-0BLlE1EIgWSSuK5_u876s2W5nQFOn8wcI_unufueDrqYMQ8IUZoXF0dKKMqRIeR2pGcjEI02mBJRiaqgQcsKN5kRI60T8qZWtG_KzfbK160m8YinNNsr9EV2XKCvrw30QwCMxNJzORYEkHTkTkqBM2x2M95xoX2fkOmqZVWas2jGy4SIk4OlhXYsQ-hGWXkBLuBF3iRjpMk5izpkaZ-Ok3j0VEnl_HneIeFqtIvJfmAX77SRO3ATnEmCfjsVJ7d4g3JdI1KlBqLS_HUNoNKrcOgYasCx5RtAfcsgARmjyfIt45HdLy6WrNOFN1-XjMEvzjDUi5IiqQCePmkUEqzLHzjzWeRb5lSCf5IwjfOMli4jhnrSkIo3TJ1c8fPhG53KtzwLGlcx8-6htApXkzxEjqWKfbwP9AiLDkpzSfO1Jl2SjeBPbfnrVKapj-lBH0V91g-NlpLN3KiRadl-xN_bv2bry1z4QUze9gnIp5oTM5Ioyhyl6dWLSe-bb1OehO5E2s-IN1iRZ7x_kR4Pfc6wsgPIjt4lbDWG2ZZbu4Ej1tCd-lHfkcY3NjRzHmV0JvZ3rTJEHi2Ahc7NC-l4jkR6I8SZ1Tt0ZJtYe6JqP30j9l_ro0Uhyke67ajzyQm9ImgCNOsFATNGM72MLPobTR7B09VKZhElKFohlaKC7wl6JbHWFHO1sZfZ8ROn_hLkUC_0CxWkItOiCmdUaOX9GMDiL0jIuUiR_dEKnglEE8beZKgD0Cl90E_agpRD3o17NFqR4ucMNVW3ne8PqN_oFIn9J7JgsS6CoRZgh4gqsoXtha6g5dMmlCmQh_LfEMEGETFv_RJbedtVzG0vegSn_O8yIiqanxXB8C7NDiqr1iQHYdOoU8FERg6e0bt9lt5x6VCv3OeyLp9hepn4v1E5_3L49A2XJ98OwTfP_7JIOf_vd0WCCygrSKHkUYLKgsuacUIk6J5_mNabPtHx8V2Byf7I2Koy-3s3Gs6fT5tY-s49ElfUwNV_3BoVfX1Ot7ABRHv0P2-IKeXQf62No7HwVSBBBqPf4XBaWy3Nm2_fW7XwKS1rcahDZg0drOiWMNnN4uV-bXtNea0Nq8bM2i8nca-ru2gVavN9qlTm9P2acX9bW18dwWtjW_gOgzpmn_u5Z-tWS3eXi892LkMu5dh7zLsX4Ynl2Hbae7UPupeRL3uru_jfnsNGaYBmz7HNDHCg1F9bMEHWUJSXGbKOJoGLhVf7VlshNVHiVFWa2FBMSygvAaP_wBVfRs4" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtVlFv2zYQ_iuEgsAtIBeSLFmOHjY4tjUUSNesTtOHeRho6WQTkUiBpJJ4rv_7jpZkR67TFej8YOA-3n3f8Xg8amslIgUrsi4vt4wzHZFtT6-hgF5EekuqoGeTGrinktFlDqpnfDLB9Zz9s3dz_fLZuBkspgXLNwadw0oA-fzeJmMMzG2iKFd9BZJlPbtXSlZQuZmIXEjjfQGjzMn2as3StZApyKOD44RuEmBozjgc4UHoh35s4hQkgqcd0izIRlnS25nkcvGUrKnU-_QrBR_o8xeW6jXaGc0VoM9aF_kNXUJu9qhlZbCkko9tMZgyOhwLNi9pwvgKcd9BSFL-cIQCZ7cju8vLBT-IkptPC07wl-RUqSlkRGmEZ4-aZCzPowt_Mo4Dx1ZaigeILrxZOB14dmJ2EuHWHdsUt_8EbLXW0VLkaePafzJ7iLzy2ZbPkefYcoP_J1rA06PSZOiNvNFB6Tp0J-6kVcqy7KeUsK7yjqqHRms2iL14etByg2Ewcb7la7c59cOxe1onkI8sgRekcRwPZsdSzYaB67xOeh0Phs7khHRFNTzRzZHwauIfCOMgjN3wVcJa7zTLankrRdISDmZBHBwIw2s3HnuvEvpj1x81GSLPStJyTXLK4W_nz4U1qZQWBUjyR0Vzpjdkxld4AUAurL_qGPPjLrpmNMpo3xwB-QQJsEcgMWV5JYGMOc032L_kTTx-i6u6klwRxkk8JnMtJF0BuREJ1UzwLrHXJf5cplg7Mk40pmNy4tok1eil3dgQY29BZkIW5A6UxutBRNbIQ0o-IJWZDd2oEUbdmzGxIfM1Kwvgut181_HqBf09Uyah91yVkJhdEMpTco9R-3xxgpFbvHDKxm1q8ntVLEGiATp5d1JI781hx1j58pD4RBRlDnq_x7d1AN6rc8dmzuILlbAWWDLysQRJscRdmUG3rLdCafKbEKmqS1nqrrv_E6cQnG-NtvimC9qG-H4rDE9y_t9Lb_p9iiWWBXY4mTJVCsX2jNg1huc_Osd1f7R13MHJKf-IGDnk9qIHajpzPm1h6zjy0TxfJ6rBdtuqmme3v8SHI1mTu00Jx4uhfl1Yu91Jh6EE6fd_wcZp7EFtukG77tbAsLWdxqENGDZ2M7p4w-c2A5cHte035qg2rxozbLy9xr6q7bBVq8121avNUbu65_66sL47jhbWV3Q9DTkU_6VX8GL8GvH22enA3nl4cB72z8PBeXh4Hna95q3tooOzqH_4BujiQfs8WbaFg7-gLLWirbX_CMMPtRQyWuXa2tkWrbSYb3hiRfuPFavaj4UpoziMihrc_QvHJSL_" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -267,14 +267,14 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Customer Business Analyst
+    subgraph lane_0["Customer Business Analyst"]
         n7["Create Standard Order (IF)"]
     end
-    subgraph Customer Quality Engineer
+    subgraph lane_1["Customer Quality Engineer"]
         n4["Determine Material Disposition Status based on Testing"]
         n5["Perform Testing on the Returned Material"]
     end
-    subgraph Warehouse Operator
+    subgraph lane_2["Warehouse Operator"]
         n1["fa:fa-user Transfer to Intel Finished Goods Storage Location for Dispatch to Customer"]
         n2["fa:fa-user Transfer Material to Retest Location"]
         n3["fa:fa-user Transfer Material to Rework Location"]
@@ -307,7 +307,7 @@ Returns"| n5
     class n11 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVt9v4jgQ_lesVBW7UpCSkBDIw50gkFWlrnav7d0-HPdgkglYDTaynbYc5X-_cUjCj8LqTpcHxIy_-b6Z8djJ1kpFBlZk3d5uGWc6ItuOXsIKOhHpzKmCjk32jj-oZHRegOoYTC64fmR_VzDXX78ZmPEldMWKjfE-wkIA-f3OJiMMLGyiKFddBZLlHbuzlmxF5SYWhZAGfQOD3MkrtXppLGQG8gBwnNBNAwwtGIeDuxf6oZ-YOAWp4NkJaR7kgzzt7ExyhXhNl1TqKv1SwVf69oNleol2TgsFiFnqVXFP51CYGrUsjS8t5UvTDKaMDseGPa5pyvgC_b6DLkn588EVOLsd2d3ezngrSu4fZpzgkxZUqQnkRGl0T180yVlRRDd-PEoCx1ZaimeIbrxpOOl5dmoqibB0xzbN7b4CWyx1NBdFVkO7r6aGyFu_2fIt8hxbbvD3TAt4dlCK-97AG7RK49CN3bhRyvP8fylhX-UTVc-11rSXeMmk1XKDfhA7H_maMid-OHLP-wTyhaVwRJokSW96aNW0H7jOddJx0us78Rnpgmp4pZsD4TD2W8IkCBM3vEq41zvPspx_lyJtCHvTIAlawnDsJiPvKqE_cv1BnSHyLCRdL0lcKi1WIMm4VDjvSpERp8VG6T3OPDz8c2bFErAW8qipGf2MfDOHhny6Sz7PrL_2WNz9a-S_lbRgekOmfIEiII_IfSSfgAa5whXyFUXMKSYTptZCMc0EN6K6VMTcEhlB-wmUxhPQClc8AfJ8B5kLuWoABotXCnkAXUqOsQ37T1L-QSUsBY4X-bYGSbU4ztVFjZxGOe2a-SNPeBxVjn-0IHdcQ0ESvNrUEpW-CJEpTFxIugByL1JaVYLZVZVRnS5NVNOg01K8KzJtczASa8IiW-ZTgt6_IngV8vkKQf-_b0qzxXdcrSH9SDlAygdIgb0AGaUa0SQWJdcmkGsTeTJMVcxwu20KMW-P7hwLwcbBW1rgtL7Al_3xmlm73fEuOZfDflLGr-cU7mWKp80aiMjriToOayeJD0m3-wtS1Ka7N8Pa7Ner9cHmg9pu4N7eHtZm79QM9qbfcFfk7zMroawoJdRnlynyKRl9nvE6zZn1jqHnMW07jlH9GuXXoP3a6ai-H_JxnRZnpqla631cM6NarXlH15lpTXONn7i9y-7eZXfYvuFO3IPL7mFzJZ8m4lx2u43bsi0sfUVZZkVbq_pMwU-ZDHJaFtra2RYttXjc8NSKqte5Va4zjJwwirfKau_c_QNbI-b7" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm1v4jgQ_itWqopdKUhJSAjNhztRIKtKXe1e6e5-OE4nk0zAarCR7bSwlP9-45AEQum96PiAmPEzzzMzmXHYWYlIwYqs6-sd40xHZNfRS1hBJyKdOVXQscnB8Z1KRuc5qI7BZILrKftZwlx_vTEw44vpiuVb453CQgD5dmeTIQbmNlGUq64CybKO3VlLtqJyOxK5kAZ9BYPMyUq16uhWyBTkEeA4oZsEGJozDkd3L_RDPzZxChLB0xZpFmSDLOnsTXK5eEmWVOoy_ULBZ7r5wVK9RDujuQLELPUqv6dzyE2NWhbGlxTyuW4GU0aHY8Oma5owvkC_76BLUv50dAXOfk_219cz3oiS-4cZJ_hJcqrUGDKiNLonz5pkLM-jK380jAPHVlqKJ4iuvEk47nl2YiqJsHTHNs3tvgBbLHU0F3laQbsvpobIW29suYk8x5Zb_D7TAp4elUZ9b-ANGqXb0B25o1opy7L_pYR9lY9UPVVak17sxeNGyw36wch5y1eXOfbDoXveJ5DPLIET0jiOe5Njqyb9wHXeJ72Ne31ndEa6oBpe6PZIeDPyG8I4CGM3fJfwoHeeZTH_KkVSE_YmQRw0hOGtGw-9dwn9oesPqgyRZyHpeklyyuFP5_eZNSqUFiuQ5LZQOPhKkSGn-VbpmfXHIcZ8eGigErAuMtXUrEFKvpgFIh_u4o8NFifhkpB7KvRbQXOmt2TCFygIsi3kI3QMGuQKD8lnFDTbTcZMrYVimgluEtCFIub2SAnaj6A0bkabJ0CeryAzIVc1wGDxqiEPoAvJMbZm_6f0PeT6QSUsBc4f-bIGSbU4y9uUmNEoo10zo-QRV1Zl-EMLcsc15CTG608tUfWTEKnCIoSkCyD3IqFlVZhpWSXVydJE1f1qy3jvyDSNwkisDwtumNsEvX9F8CLk0zsE_f_-gOonfsfVGpK3lAOkfIAE2DOQYaIRTUai4NoEcm0iW0NWxtzsdnUh5g3TnWMh2DjYJDkO8jN8OqzgzNrvT5-Scznsb8r49ZzCvUzxuF0DEVk1XadhzVTxG9Lt_oIUlekezLAy-9Vptfx8UNk13DvYN5XZa5vBwfRr7pL8dWbFlOWFhGqtmSIf4uHHGa_SnFmvGHoe07TjFNWvUH4FOpy1R_X1mI_rNDgzTeVZ7-2ZGdXyzDu58kxr6qu-5fYuu3uX3WHzFmy5B5fdN_W13U7Euex2a7dlW1j6irLUinZW-VcG_-6kkNEi19betmihxXTLEysqX_lWsU4xcswo3jCrg3P_F1NG8qc=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -543,6 +543,7 @@ Integration patterns identified from the system flow analysis for R-200:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
@@ -670,6 +671,6 @@ Standard RAID items for R-200 (Order To Cash (IF)):
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*R-200 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: March 2026*
+*R-200 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: April 2026*
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-200 — Receive Materials and Services (IF)</span></div>

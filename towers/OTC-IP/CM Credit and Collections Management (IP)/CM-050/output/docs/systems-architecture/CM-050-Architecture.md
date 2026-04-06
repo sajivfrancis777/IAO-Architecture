@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
   Capability CM-050 · CM Credit and Collections Management (IP)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Order To Cash (IP) (OTC-IP) |
 | **Process Group** | CM Credit and Collections Management (IP) |
 | **Capability** | CM-050 - Manage Customer Credit Exposure (IP) |
-| **Release** | Release 3 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 5 Reports, 71 Interfaces, 20 Conversions, 167 Enhancements, 28 Forms, 1 Workflows |
@@ -200,7 +200,7 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Credit Manager
+    subgraph lane_0["Credit Manager"]
         n1["fa:fa-user Create Credit Limit Request"]
         n3[["fa:fa-cog Credit Hold (Block Delivery)"]]
         n4[["fa:fa-cog Release Blocked Delivery"]]
@@ -210,13 +210,13 @@ flowchart LR
         n12{{"fa:fa-code-branch Credit Limit Request Approved?"}}
         n14[["fa:fa-folder-open Check Credit Rating and Limits"]]
     end
-    subgraph Customer Business Analyst
+    subgraph lane_1["Customer Business Analyst"]
         n2["fa:fa-user Billing to Customer"]
         n5[["fa:fa-cog Create Delivery"]]
         n7(["fa:fa-play Sales Order Created"])
         n13{{"fa:fa-code-branch exclusiveGateway"}}
     end
-    subgraph System User
+    subgraph lane_2["System User"]
         n6[["fa:fa-cog Create AR Open Item"]]
         n8(["fa:fa-stop Release to Accounts Receivable"])
     end
@@ -251,7 +251,7 @@ flowchart LR
     class n14 subProc
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm2P2kYQ_isrn04kkpH8ijl_aAUGt5EuSXUkrarQD8t6DNaZNd2176CE_55Z_IZ9ILUqH4z2mXnmmRnP7vqosSwCzdfu748JT3KfHAf5BrYw8MlgRSUMdFICv1OR0FUKcqB84ozni-Sfs5vp7PbKTWEh3SbpQaELWGdAvn7QyQSJqU4k5XIoQSTxQB_sRLKl4hBkaSaU9x2MYyM-q1WmaSYiEK2DYXgmc5GaJhxa2PYczwkVTwLLeNQJGrvxOGaDk0ouzV7Zhor8nH4h4SPd_5FE-QbXMU0loM8m36aPdAWpqjEXhcJYIV7qZiRS6XBs2GJHWcLXiDsGQoLy5xZyjdOJnO7vl7wRJY9PS07wx1Iq5QxiInOE5y85iZM09e-cYBK6hi5zkT2Df2fNvZlt6UxV4mPphq6aO3yFZL3J_VWWRpXr8FXV4Fu7vS72vmXo4oDPnhbwqFUKRtbYGjdKU88MzKBWiuP4fylhX8UXKp8rrbkdWuGs0TLdkRsYb-PVZc4cb2L2-wTiJWFwETQMQ3vetmo-ck3jdtBpaI-MoBd0TXN4pYc24EPgNAFD1wtN72bAUq-fZbH6TWSsDmjP3dBtAnpTM5xYNwM6E9MZVxlinLWguw0JBERJTj5STtcgSqP6cfPbUoupH9Oh6rXyw1pq98dki88n-LsAmS-1vy549reGyLJ1TfgV3y95N00z9kxmkCYvIA7vkXjJdLrMJ0gBzwVyJkHU0HqsByQFhcyzLWYpyozwnwE6RyTOBGFlCuk5Z-AbyhkeM7yXt2kcj618BMMVbja26VY83zOACKKfl9rpdEk2r5Nhz9JCYia_lIPQp1n_QrPqMpnsdiJ7uaJ90bcY2wximO2Ak2AD2Owq1BPN8cwglEdlVNl2ETdtfybqdk4xdw5Skgmn6QHfdKtqdcdjivOoBPKsYXfb674ZCzVON96p965x3qW4fRYUrwPyWZ3TFTNCxvvLJtj_9QW8LXuBFcKWfJWdfTC6mvjkiXxWTf6AjF7y4zZ5bMSumWNszYSxrOC5REzNp7rl2jqahLhNhsOfcLKrpVMuTbtam5Xdqtdmua7tXuXv1PY6QHWYcKtcj6rlQ2Wu3c_m70vtT8Ap-Y76taHyq3Xdfl5GRfyUnXluH68Dmm-kKkZjGJWhxxenn9KvT_0ObF2H7csTvWNxblrcm5bRTYvX3LAdeFxdhh3w4bovNqi6KLqweR22rsP2ddip7wxN13BXbmkSaf5RO39q4edYBDEt0lw76Rot8mxx4Ezzz58kWrGLMOAsobg9tiV4-gE_cxVR" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVmuP4jYU_StWRiN2pSDlSZh8aMUr7Uqz3WrodrVaqso4NxCNcaidzEBZ_nuvyQOSAalV-RDkc-8595FrOweDZTEYoXF_f0hFmofk0MvXsIFeSHpLqqBnkhL4ncqULjmonvZJMpHP079Pbra33Wk3jUV0k_K9RuewyoB8_mCSERK5SRQVqq9ApknP7G1luqFyP8l4JrX3HQwTKzlFq0zjTMYgzw6WFdjMRypPBZxhN_ACL9I8BSwTcUs08ZNhwnpHnRzPXtmayvyUfqHgI919SeN8jeuEcgXos843_JEugesac1lojBXypW5GqnQcgQ2bbylLxQpxz0JIUvF8hnzreCTH-_uFaIKSx6eFIPhjnCo1hYSoHOHZS06SlPPwzpuMIt8yVS6zZwjvnFkwdR2T6UpCLN0ydXP7r5Cu1nm4zHhcufZfdQ2hs92Zchc6lin3-OzEAhGfI00GztAZNpHGgT2xJ3WkJEn-VyTsq_yNqucq1syNnGjaxLL9gT-x3urVZU69YGR3-wTyJWVwIRpFkTs7t2o28G3rtug4cgfWpCO6ojm80v1Z8GHiNYKRH0R2cFOwjNfNslj-KjNWC7ozP_IbwWBsRyPnpqA3sr1hlSHqrCTdrgmnAv60vi2MiYQ4zclHKugK5ML4o3TUP2GjPaFhQvu67wRdsS5SMR7TDT6f4K8CVN7mud8aIstWNeFnfNfk3Zhn7JlMgacvIPfvkXjJ9NrMJ-CAZwQ5kSBuaB3Wg66jUHm2wSxlmRH-M0DnmCSZJKxMgZ9yBrGmguGRIzp529bhcA4fQ3-JG4-t2xXPdgwghvjHhXE8XpLt62TYMV4ozOSncii6NOdfxKy6TEbbrcxersS-6FuCbQbZz7YgyGQN2OxK6onmeH4QKuJSVZ27iBv42nzYl30dYxEClCIjQfm--8qd9qiMcU51sDwjtUDb338zInq0brzf4F3jvOW4reYUrwnySZ_fFTNGxvvLhrj_9WXcaIGua47VwoZ8Vt0iBleLGD2RT7r5H5DUKWR4LgSbsm3mG9s0YiwrRK4Q03Orb8JzTU1ywiX9_g848dXSK5e2W63tyu7Ua7tc1_ag8vdqey1QHTjCKdeDavlQmWv3k_n7wvgKOD3fMX5tqPzquH43L6si_pKdeH4XrwXtN6EqRmMYlNLDixNSx69vhhbsXIfdy1O_ZfFuWvyblsFNS9Dcwi14WF2YLfDhui82qLpM2rB9HXauw-512KvvFcM0cIduaBob4cE4fY7hJ1sMCS14bhxNgxZ5Nt8LZoSnzxaj2MYoOE0pbpVNCR7_ASIhIP0=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -274,7 +274,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Credit Manager
+    subgraph lane_0["Credit Manager"]
         n1["fa:fa-user Review the Blocked Orders on Credit Release Dashboard"]
         n2["fa:fa-user Determine if any Exceptions can be made to Resolve Credit Issues"]
         n3(["fa:fa-stop Order Processed"])
@@ -301,7 +301,7 @@ flowchart TD
     class n8 subProc
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P4jYU_StWRiN2paDmk9A8tIJA1JE67Wpm26pa-mCSa7AmsVPb4aMs_702-YDQnafmAeUeX59z7jXXOVkZz8GKrcfHE2VUxeg0UlsoYRSj0RpLGNmoAX7HguJ1AXJkcghn6pX-c0lzg-pg0gyW4pIWR4O-woYD-u3JRjO9sbCRxEyOJQhKRvaoErTE4pjwgguT_QBT4pCLWrs05yIHcU1wnMjNQr21oAyusB8FUZCafRIyzvIBKQnJlGSjszFX8H22xUJd7NcSnvHhD5qrrY4JLiTonK0qi5_xGgpToxK1wbJa7LpmUGl0mG7Ya4UzyjYaDxwNCczerlDonM_o_Pi4Yr0o-rxYMaSfrMBSLoAgqTS83ClEaFHED0EyS0PHlkrwN4gfvGW08D07M5XEunTHNs0d74Futipe8yJvU8d7U0PsVQdbHGLPscVR_95pAcuvSsnEm3rTXmkeuYmbdEqEkP-lpPsqPmP51mot_dRLF72WG07CxPkvX1fmIohm7n2fQOxoBjekaZr6y2urlpPQdd4nnaf-xEnuSDdYwR4fr4TfJ0FPmIZR6kbvEjZ69y7r9SfBs47QX4Zp2BNGczedee8SBjM3mLYONc9G4GqLEgE5VegZM7wB0Syah7lfVhbBMcFj02v0AjsKe6QnFM0Lnr1Bjn41cyMRZx3JCxSgJxktsNyuORb5yvrrhtEbMi5AgSj1jCFKEGZHtDxkUCnKmUQZZmgNqMQ5IMU1seTFDjqdJylrkENy_0PPLhWvGnPI9AqkBOPk4012cJf9zPWVxEWz6y431KmXkvvVm8XJ6dQRmfttvNYTmm0HRhv3tSlMv_5dU73248o6n29ooi-9H6InAcSYV8DQTBvLKTmipNY2y6YgffSAPjx9-qid3FqZvsfxAiXftcf2XevsJ51xR6KHt3lhLhqPf9Dn1YZeE07aMGzCdn5Y1ITTNpw2od-GExN-XVm_8JX1Vff9Dv7THKPGo5u_udHvxnsAe9-G_fbaGYDBt8CwvwwH8KQb0wEadbM2QKcdatmWPo8S09yKT9blw6U_bjkQXBfKOtsWrhV_PbLMii8XvFVXuVZZUKznrmzA87-GiEBx" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduO2zYQ_RVCi4UTQEZ0tVw9pLBlC10g2wa7SYogDgpaGtrESqRKUr7U8b-XtCTbcrNP1YPhORyec2aooQ5WxnOwYuv-_kAZVTE6DNQaShjEaLDEEgY2aoAvWFC8LEAOTA7hTD3Tf05pblDtTJrBUlzSYm_QZ1hxQJ8fbDTRGwsbSczkUIKgZGAPKkFLLPYJL7gw2XcwJg45qbVLUy5yEJcEx4ncLNRbC8rgAvtREAWp2Sch4yzvkZKQjEk2OBpzBd9mayzUyX4t4RHv_qS5WuuY4EKCzlmrsviAl1CYGpWoDZbVYtM1g0qjw3TDniucUbbSeOBoSGD2coFC53hEx_v7BTuLok-zBUP6yQos5QwIkkrD841ChBZFfBckkzR0bKkEf4H4zptHM9-zM1NJrEt3bNPc4Rboaq3iJS_yNnW4NTXEXrWzxS72HFvs9e-NFrD8opSMvLE3PitNIzdxk06JEPK_lHRfxScsX1qtuZ966eys5YajMHH-y9eVOQuiiXvbJxAbmsEVaZqm_vzSqvkodJ3XSaepP3KSG9IVVrDF-wvhL0lwJkzDKHWjVwkbvVuX9fKj4FlH6M_DNDwTRlM3nXivEgYTNxi3DjXPSuBqjQrM4C_n28JKBORUoUfM8ArEwvreJJqHuXqd4Jjgoek7eoINhS3S04qmBc9eIEd_mBmSiDPU8jxBAXqq0QzL9ZJjkfcZvT7jDBSIUs8bogRhtkfzXQaVopxJlGGGloBKnANSXBNLXmyg03mQsgbZJ_ffnNml4lVjDpm-gZRgnLy9yg5ush-5vp64aHbd5IY69VTyefVqcXQ4dETmrhsu9bRm657Rxn1tCtN__66pXvt1YR2PVzTRt7MfoqcCxJBXwNBEG8sp2aOk1jbLpiD9GgB68_DxrXZybWX8GscTlHzTHtu71tlvOuOGRA9y84e5aDh8r8-rDb0mHLVh2ITtLLGoCcdtOG5Cvw1HJvyxsH7nC-uH7vsN_NUco8ajq1fe6Hej3oO9n8N-ewX1wOBnYHi-GHvwqBvZHhp1c9dDxx1q2ZY-jxLT3IoP1ukjpj90ORBcF8o62hauFX_es8yKT5e9VVe5VplRrGewbMDjvxmGRFQ=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -324,12 +324,12 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Credit Manager
+    subgraph lane_0["Credit Manager"]
         n2["fa:fa-user Resolve Credit Issues"]
         n3["fa:fa-user Check Credit Limit Availability"]
         n7(["fa:fa-stop Order Cancelled Successfully"])
     end
-    subgraph Customer Business Analyst
+    subgraph lane_1["Customer Business Analyst"]
         n1["fa:fa-user Cancel Order"]
         n4[["fa:fa-cog Block Order"]]
         n5(["fa:fa-stop Cancel Order Request Rejected"])
@@ -359,7 +359,7 @@ flowchart TD
     class n10 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2v4jYQ_StWrq5opSDlk0AeWkEg0kq722rZ3apa-mCcCbjXONR2uFCW_16bJJCk3KfNQ8DHc-bMjD2Ts0WKDKzYen4-U05VjM4DtYUdDGI0WGMJAxtVwFcsKF4zkANjkxdcLem_VzM32B-NmcFSvKPsZNAlbApAX97ZaKqJzEYSczmUIGg-sAd7QXdYnJKCFcJYP8E4d_KrWr01K0QG4m7gOJFLQk1llMMd9qMgClLDk0AKnnWc5mE-zsngYoJjxSvZYqGu4ZcSPuDjHzRTW73OMZOgbbZqx97jNTCToxKlwUgpDk0xqDQ6XBdsuceE8o3GA0dDAvOXOxQ6lwu6PD-v-E0UfZ6vONIPYVjKOeRIKg0vDgrllLH4KUimaejYUoniBeInbxHNfc8mJpNYp-7YprjDV6CbrYrXBctq0-GrySH29kdbHGPPscVJv3tawLO7UjLyxt74pjSL3MRNGqU8z39ISddVfMbypdZa-KmXzm9abjgKE-f__po050E0dft1AnGgBFpO0zT1F_dSLUah67ztdJb6IyfpOd1gBa_4dHc4SYKbwzSMUjd602Gl14-yXP8uCtI49BdhGt4cRjM3nXpvOgymbjCuI9R-NgLvtygRkFGFPmCONyCqTfNw79vKynGc46GpNfoEsmAHaOzfSVmCXFl_tRh-l5Fsgbw09u_pTr-nB0wZXlNG1anLjX66kaUq9ug305MowZwAY5ChZUkISJmXjBnmzxVV37d-OqWm7zR1VkrdvlKiKcfsJFVLy-3FeRWpFLtBBd9ulqTYoBkrdEKNXdsw7EXfdqkr948uldK_fwNRkN3Dv3JHP8Ada2qnzJ-w0qMBYZ5VFe-d0OR8vieUwXCt5wnZ6sPsHhMcCUAG2a8r63JpF855zO_cieamtNm3c-ITNBz-8n1lfSxW1ndduB78p7lTGg9q3De4vov10quWbt0V-k-PN-pv1Dp1s_OgcuA3ZtUyqpfjajlp9ZyxaWZNB_Yew_5jOGiPl85OWA_NDjh6BEaPwPFtvnfgSTN5uqk4DWzZlm6SHaaZFZ-t62dXf5ozyHHJlHWxLVyqYnnixIqvnyer3GeaOadYt9muAi__AQQ6eqI=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2v4jYQ_StWrq5opSDlk0AeWkEg0kq7bbXstqqWqjLOBNxrHGo7XCjLf1-bfEBS7tPmIeDjc854xvbkbJEiAyu2np_PlFMVo_NAbWEHgxgN1ljCwEYV8DsWFK8ZyIHh5AVXS_rfleYG-6OhGSzFO8pOBl3CpgD0-Z2NplrIbCQxl0MJguYDe7AXdIfFKSlYIQz7Cca5k1-j1VOzQmQgbgTHiVwSaimjHG6wHwVRkBqdBFLwrGOah_k4J4OLWRwrXskWC3VdfinhAz7-QTO11eMcMwmas1U79h6vgZkclSgNRkpxaIpBpYnDdcGWe0wo32g8cDQkMH-5QaFzuaDL8_OKt0HRp_mKI_0QhqWcQ46k0vDioFBOGYufgmSaho4tlSheIH7yFtHc92xiMol16o5tijt8BbrZqnhdsKymDl9NDrG3P9riGHuOLU763YsFPLtFSkbe2Bu3kWaRm7hJEynP8--KpOsqPmH5Usda-KmXzttYbjgKE-f_fk2a8yCauv06gThQAnemaZr6i1upFqPQdd42naX-yEl6phus4BWfboaTJGgN0zBK3ehNwypef5Xl-jdRkMbQX4Rp2BpGMzedem8aBlM3GNcr1D4bgfdbxDCHv50vKysRkFGFPmCONyBW1l8V0Tzc0_M5jnM8NHVHH0EW7AColryTsgTZVfhdRbIF8tLw39Odfk8PmDK8poyqU1cb_dCKpSr26FdzP1GCOQHGIEPLkhCQMi8ZM8ofK6k-e49Sc01qpfbZaY9ZKfWdlhJNOWYnqbpx3d6arwGr6F1i8KVlkmKDZqzQyTW8e2LYy-TeUlfxX102pX__AaIgu6Vy1Y6-Qzs2Sd-X_CNWumUgzLOq-r3dmpzPt4QyGK51nyFbvbHdLYMjAcgg-3llXS73hXMe6zvnozk19-p2z_gEDYc_fV1ZvxQr66suXA_-05wvjQc17htcn8t66FVDt74t-k9PN-pP1HHqJsCDysBvaNUwqofjaji5u4uG0_SgDuw9hv3HcHDfdjozYd1MO-DoERg9Asdt3-_Ak6YjdVNxGtiyLX1PdphmVny2rp9j_cnOIMclU9bFtnCpiuWJEyu-frascp9p5ZxifeV2FXj5BiM2gmk=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -821,6 +821,7 @@ Integration patterns identified from the system flow analysis for CM-050:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
@@ -948,6 +949,6 @@ Standard RAID items for CM-050 (Order To Cash (IP)):
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*CM-050 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: March 2026*
+*CM-050 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: April 2026*
 
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>CM-050 — Manage Customer Credit Exposure (IP)</span></div>

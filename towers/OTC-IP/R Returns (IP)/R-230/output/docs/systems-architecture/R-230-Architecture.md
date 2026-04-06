@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
   Capability R-230 · R Returns (IP)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Order To Cash (IP) (OTC-IP) |
 | **Process Group** | R Returns (IP) |
 | **Capability** | R-230 - Warehouse Structure (IP) |
-| **Release** | Release 3 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 5 Reports, 71 Interfaces, 20 Conversions, 167 Enhancements, 28 Forms, 1 Workflows |
@@ -200,7 +200,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Ground Controller
+    subgraph lane_0["Ground Controller"]
         n1["fa:fa-user Create Storage Bin /SCWM/LS01 (Transaction)"]
         n2["fa:fa-user Input Warehouse Number, Storage Type, Storage Section, Storage bin Type and Save"]
         n3["fa:fa-user Change Storage Bin /SCWM/LS02 ( Transaction)"]
@@ -231,7 +231,7 @@ flowchart TD
     class n9 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2PokgU_SsVOh17EkzzKcjDbhRlMknPZBN6trNZ56GAQiqNVaSqsHUc__tWCYi4-jQ-GO_h3HPPvVVeDlpKM6QF2uPjARMsAnAYiQJt0CgAowRyNNJBA_wNGYZJifhIcXJKRIx_nmimU-0UTWER3OByr9AYrSkC37_oYCYTSx1wSPiYI4bzkT6qGN5Atg9pSZliPyA_N_JTtfbRnLIMsZ5gGJ6ZujK1xAT1sO05nhOpPI5SSrKBaO7mfp6OjspcST_SAjJxsl9z9BXu3nAmChnnsORIcgqxKV9ggkrVo2C1wtKabbthYK7qEDmwuIIpJmuJO4aEGCTvPeQaxyM4Pj6uyLkoeF2sCJCftIScL1AOuJDwcitAjssyeHDCWeQaOheMvqPgwVp6C9vSU9VJIFs3dDXc8QfC60IECS2zljr-UD0EVrXT2S6wDJ3t5fdVLUSyvlI4sXzLP1eae2Zohl2lPM9_q5KcK3uF_L2ttbQjK1qca5nuxA2N_-t1bS4cb2ZezwmxLU7RhWgURfayH9Vy4prGfdF5ZE-M8Ep0DQX6gPtecBo6Z8HI9SLTuyvY1Lt2WSd_MZp2gvbSjdyzoDc3o5l1V9CZmY7fOpQ6awarAnxmtCYZCOVZMFqWiDXP1YeY_660HAY5HKtxg5Ah2Q6IBWVwjcAcE_Ach29fn19iwwRPr_JycpgKTMmnlfbjQsca6nwhVS3AG2SooBIA3-pNgph-Fn7dV6iPYnSS7IFE1lUUAKXvGG7RsJh9ZbqAZH3HtAWewH3XzlDoe5Vddz8TguGkFogPM91hpvLY-rgiTp7OzKqU1-RS_DRt6Qqo80acy7FhgaWFTGp8uhDxehEuaDUQwbw9tQw8Nw1cZ_uHQ5etFvQ4kfNIi25sl02CP1fa8XiROr2dinZpWXO8RZ-by99nyfXQ_CAmGI__kBejDZ0mdNtw2oReG7pNOG3DSRP6beir8NdK-0ZX2i-p3MLWMKlj_aOOQNLsFrcbmnPxN1PuuvUygK3bsH0bdm7D7m14ct7TA9hrV-oA9Lu1MkCnHarp2gaxDcSZFhy00ytVvnYzlMO6FNpR12AtaLwnqRacXj1afboYCwzlRtg04PE_KPRwFQ==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P2jgU_StWRiOmUtDkk0AeWkEgVaW2WonpjlZLVTmJQ6wxdmQ7DCzlv69NEkJYeFoeEPdw7rnnXjs3ByNlGTJC4_HxgCmWITgMZIE2aBCCQQIFGpigBv6EHMOEIDHQnJxRucT_nGi2V-40TWMx3GCy1-gSrRkCP76YYKoSiQkEpGIoEMf5wByUHG8g30eMMK7ZD2icW_mpWvPXjPEM8Y5gWYGd-iqVYIo62A28wIt1nkApo1lPNPfzcZ4OjtocYe9pAbk82a8E-gZ3rziThYpzSARSnEJuyFeYIKJ7lLzSWFrxbTsMLHQdqga2LGGK6VrhnqUgDulbB_nW8QiOj48rei4KXuYrCtQnJVCIOcqBkApebCXIMSHhgxdNY98yheTsDYUPziKYu46Z6k5C1bpl6uEO3xFeFzJMGMka6vBd9xA65c7ku9CxTL5X31e1EM26StHIGTvjc6VZYEd21FbK8_x_VVJz5S9QvDW1Fm7sxPNzLdsf-ZH1X722zbkXTO3rOSG-xSm6EI3j2F10o1qMfNu6LzqL3ZEVXYmuoUTvcN8JTiLvLBj7QWwHdwXretcuq-QPztJW0F34sX8WDGZ2PHXuCnpT2xs3DpXOmsOyAARS9Mv6e2V85qyiGYjUoXBGCOIr42fN1R9qK0oOwxwO9ehBxJFqDSwl43CNwAxT8LyMXr89f11aNnh6URdVwFRiRj_0dZy-zhdaVhK8Qo4KpgDwvdokiJtn4Zd9ibpoiU6SHZCoupoCoLK-hFvUL-ZemS4gXd8x7YAncN-11xf6UWbX3U-l5DipJBL9TL-fqT02Pq6Io6czsyTqylyKn6atXAF99kgINTYssbKQKY0PFyJBJyIkK3siWDSnloHnuoHr7PHh0GbrZT1M1DzSoh3bZZPg08o4Hi9SJ7dT0S4llcBb9Ll-ELostSrqH9QGw-FHdTGa0KtDvwkndRg0oV-HkyYc1eG4Ccc6_L0yvrOV8VspN7DTT2pZf-kjUDS3wd2a5l08ctpdu2p6sHMbdm_D3m3Yvw2Pzju7BwfNeu2B43bF9NBJixqmsUF8A3FmhAfj9HpVr-AM5bAi0jiaBqwkW-5paoSn15BRnS7GHEO1HTY1ePwXFIRz-A==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -254,12 +254,12 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Master Data Specialist
+    subgraph lane_0["Master Data Specialist"]
         n1["fa:fa-user Extend Plant and Storage Location Views for Material in Material Master (MM01)"]
         n4[["fa:fa-cog Transfer Master Data from S/4 to EWM"]]
         n6(["fa:fa-play Initiate Product Master Creation"])
     end
-    subgraph Warehouse Manager
+    subgraph lane_1["Warehouse Manager"]
         n2["fa:fa-user Maintain Warehouse Specific Indicators (/SCWM/MAT1)"]
         n3["fa:fa-user Save Warehouse Product Master"]
         n5[["fa:fa-cog Create Warehouse Product Master (Automatic) in /SCWM/MAT1"]]
@@ -280,7 +280,7 @@ flowchart TD
     class n7 endEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV1v2jAU_StWqopWCmo-CcvDJBqINGlIldKtD-sejGOD1cSObFNgFf99NyQQwsrTIoFyj-89596T2PmwiMypFVu3tx9ccBOjj4FZ0ZIOYjRYYE0HNmqAn1hxvCioHtQ5TAqT8T-HNDeotnVajaW45MWuRjO6lBT9-GajCRQWNtJY6KGmirOBPagUL7HaJbKQqs6-oWPmsINau_QoVU5Vl-A4kUtCKC24oB3sR0EUpHWdpkSKvEfKQjZmZLCvmyvkhqywMof215rO8faF52YFMcOFppCzMmXxHS9oUc9o1LrGyFq9H83gutYRYFhWYcLFEvDAAUhh8dZBobPfo_3t7as4iaLn6atAcJECaz2lDGkD8OzdIMaLIr4JkkkaOrY2Sr7R-MabRVPfs0k9SQyjO3Zt7nBD-XJl4oUs8jZ1uKlniL1qa6tt7Dm22sH_hRYVeaeUjLyxNz4pPUZu4iZHJcbYfymBr-oZ67dWa-anXjo9abnhKEycf_mOY06DaOJe-kTVOyf0jDRNU3_WWTUbha5znfQx9UdOckG6xIZu8K4j_JIEJ8I0jFI3ukrY6F12uV48KUmOhP4sTMMTYfTophPvKmEwcYNx2yHwLBWuVmiOtaEKTbHBKKsogR3EtWmS6ku4v14thmOGh7XnaLY18JTRU4GFQRjuMiMVXlL0XRJsuBToJ6cbjZhUwA3UQIi46O5bwbv53HHvX63fZ1LBr5MWkUv0DG-7ZlT1emRKlih7CJCRaPYyB4JzhtHdiaEqwPdvcNJwUEZgWr4m5kiVKHpoFsrvm3IY6sKZF6zoSsLQUCRgQnWm4_VNmWMuDPzOag5eMk6ghZyDM1JpdPeQJS_zh_nk-XJyv8-X4Xd6xtVvvl8Z9j07DHa9Ft1N1kaWMDu5r59K19CFkVFnpDay-tQ_mn9inwjRcPgVHGpDrwn9NnSbMGjDoAnDNvSbMGrDUROe79Sa4bj3e7D3Oex_Dgfn2723El5dGZ2O0h4ctaeeZVslVSXmuRV_WIcvGXztcsrwujDW3rYwOJ_tBLHiw4lvrascPJxyDK9b2YD7v6OLSKg=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV1v4joQ_StWqopWCmo-CZuHlWgg0kqLtFJ6tw_bq5VJbLCa2JFtCmzFf79jEgjhwtNGAmWOZ86ZOU6cTysXBbFi6_7-k3GmY_Q50CtSkUGMBgusyMBGDfATS4YXJVEDk0MF1xn7c0hzg3pr0gyW4oqVO4NmZCkI-uebjSZQWNpIYa6GikhGB_aglqzCcpeIUkiTfUfG1KEHtXbpWciCyC7BcSI3D6G0ZJx0sB8FUZCaOkVywYseKQ3pmOaDvWmuFJt8haU-tL9WZI63r6zQK4gpLhWBnJWuyu94QUozo5Zrg-Vr-XE0gymjw8GwrMY540vAAwcgifl7B4XOfo_29_dv_CSKXqZvHMGVl1ipKaFIaYBnHxpRVpbxXZBM0tCxlZbincR33iya-p6dm0liGN2xjbnDDWHLlY4Xoiza1OHGzBB79daW29hzbLmD_wstwotOKRl5Y298UnqO3MRNjkqU0r9SAl_lC1bvrdbMT710etJyw1GYOP_nO445DaKJe-kTkR8sJ2ekaZr6s86q2Sh0ndukz6k_cpIL0iXWZIN3HeGXJDgRpmGUutFNwkbvssv14ocU-ZHQn4VpeCKMnt104t0kDCZuMG47BJ6lxPUKlZiT386vN2uOlSYSTbHGKKtJDq8SU_rN-rcpMBd3IY_imOKh8R_Nthp2HP0ADo0w3GVaSLwk6LvIsWaCo5-MbBSiQqI5OGFeT8R4d99qPsznjvvYlwp-nbRysUQv8OQrSiQ6b5NKUaHsKUBaoNnrHAjOGUYPJ4a6hD34BqcOA2UEBhbrXB-pEkkOzUL5Y1MOQ11zyUz_iiVZCZgeqjmMKvtde32D5phxDT_UlR2spSyHdgoGLgmp0MNTlrzOn-aTl0sX_D5fhj_IGVd_kH5l2PfvMOTtWvQwWWtRgQ_5o9mhrqELU6POVKVFfdVLUlyxkodoOPwKDrWh14R-G7pNGLRh0IRhG_pNGLXhqAnP32DDcDwTerB3Hfavw8H5MdBbCW-ujE5HbA-O2tPQsq2KyAqzwoo_rcMXDr6CBaF4XWprb1sYnM92PLfiw5fAWtcFeDhlGB69qgH3_wGCdFBv" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -299,7 +299,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Master Data Specialist - Product Data
+    subgraph lane_0["Master Data Specialist - Product Data"]
         n1["fa:fa-user Create New Material in MDG"]
         n2[["fa:fa-cog Distribute Materials to EWM"]]
         n3["Gather Materials with Relevant Data from Legacy"]
@@ -316,7 +316,7 @@ flowchart TD
     class n5 endEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE1v4zYQ_SuEgsAtIAP6jLw6FHAka7HApijq7e5h0wMtDW0iFCmQlB038H_v0LJlO0VO1cHwPM57b2b48ebVqgEv9-7v37jkNidvE7uBFiY5mayogYlPBuA71ZyuBJiJy2FK2iX_55gWJt2rS3NYRVsu9g5dwloB-euLT-ZIFD4xVJqpAc3ZxJ90mrdU7wsllHbZdzBjATu6nZYelW5AXxKCIAvrFKmCS7jAcZZkSeV4BmolmxtRlrIZqycHV5xQu3pDtT2W3xt4oq8_eGM3GDMqDGDOxrbiK12BcD1a3Tus7vX2PAxunI_EgS07WnO5RjwJENJUvlygNDgcyOH-_lmOpuRb-SwJfrWgxpTAiLEIL7aWMC5EfpcU8yoNfGO1eoH8LlpkZRz5teskx9YD3w13ugO-3th8pURzSp3uXA951L36-jWPAl_v8fedF8jm4lQ8RLNoNjo9ZmERFmcnxtj_csK56m_UvJy8FnEVVeXoFaYPaRH8V-_cZplk8_D9nEBveQ1XolVVxYvLqBYPaRh8LPpYxQ9B8U50TS3s6P4i-KlIRsEqzaow-1Bw8HtfZb_6Q6v6LBgv0iodBbPHsJpHHwom8zCZnSpEnbWm3YY8UWNBk5JaSpYd1HiDuLFkStCm6Wt7XBk47pPhz2eP0ZzRqdsCUmjAFsnvsEMlFEI64ZI8lZ-fvb-vaNHPkVerNSnRQ_NVj9QzzRCryOLHE_KuiTHyPlN8GPRV5o7bDfkTBGypHCokTKuWfIU1rfe3zskvo3MncCu-4OPDXc2FklvQhitJFBvFkfzrFTu9sI1V3QckhNtOgIXmQse7MPyRIZlOf8MRnMJ4CE_nTyZDGJ_CaAjTq313CufzfgNH14f2ZiUZr_0NnJ5uqOd7LeiW8sbL37zjq4svcwOM9sJ6B9-jvVXLvay9_Pg6eX3XYKslp3ho2gE8_At-D90H" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVF1r2zAU_SvCpWQDB_xZZ34YpHZcCssYS7c-tGMo9lUiKktGkvOxkv8-KU6cpKNP84PxPbrnnHuvJb06pajASZ3r61fKqU7R60AvoYZBigZzrGDgog74iSXFcwZqYHOI4HpG_-zT_KjZ2DSLFbimbGvRGSwEoB_3LhobInORwlwNFUhKBu6gkbTGcpsJJqTNvoIR8cje7bB0K2QF8pTgeYlfxobKKIcTHCZREhWWp6AUvLoQJTEZkXKws8UxsS6XWOp9-a2CKd480kovTUwwU2BylrpmX_AcmO1Ry9ZiZStXx2FQZX24GdiswSXlC4NHnoEk5i8nKPZ2O7S7vn7mvSl6yJ85Mk_JsFI5EKS0gScrjQhlLL2KsnERe67SUrxAehVMkjwM3NJ2kprWPdcOd7gGuljqdC5YdUgdrm0PadBsXLlJA8-VW_N-4wW8OjllN8EoGPVOt4mf-dnRiRDyX05mrvIBq5eD1yQsgiLvvfz4Js68f_WObeZRMvbfzgnkipZwJloURTg5jWpyE_ve-6K3RXjjZW9EF1jDGm9Pgp-yqBcs4qTwk3cFO7-3Vbbzb1KUR8FwEhdxL5jc-sU4eFcwGvvR6FCh0VlI3CwRwxx-e0_PzhQrDRLlWGM0a6A0R4kqjYbI-FVtqfcrz86vjm8f7hsawSnBQ_s7UCbBtIu-whpNzYc9jIhyNM3vLmnBU88rxQLlxkbSeWuoR5pCWqDJ49Twzomh4d1hc0nIs8w11Uv0HRisMO-KRESKGn2BBS63l87Rh965Yea33JuLiNqaM8FXIBUVHAnSixvyxzN2fGIrLZp3SAauGwYaqhPdnIvug_toOPxsRnAIwy487EUedWF4CIMujM_2gFU47v0LODjfwBcrUX8FXMDx4bQ6rlODrDGtnPTV2d_A5paugOCWaWfnOrjVYrblpZPubyqnbSrTak6x2UB1B-7-Ai1n4Oo=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -779,6 +779,7 @@ Integration patterns identified from the system flow analysis for R-230:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
@@ -906,6 +907,6 @@ Standard RAID items for R-230 (Order To Cash (IP)):
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*R-230 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: March 2026*
+*R-230 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: April 2026*
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-230 — Warehouse Structure (IP)</span></div>

@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IF) (OTC-IF) Tower<br/>
   Capability GT-040 · GT Global Trade (IF)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Order To Cash (IF) (OTC-IF) |
 | **Process Group** | GT Global Trade (IF) |
 | **Capability** | GT-040 - Manage Licenses (IF) |
-| **Release** | Release 3 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 11 Interfaces, 64 Enhancements, 11 Forms, 1 Workflows |
@@ -202,7 +202,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Trade Execution Super User
+    subgraph lane_0["Trade Execution Super User"]
         n1["Prepare Licenses Type by Global Trade Advisory (GTA) and Client (e.g.,..."]
         n2["Determine License Determination to be Setup"]
         n3["Determine Classification Requirements"]
@@ -213,7 +213,7 @@ flowchart TD
     class n3 startEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWVihbKaB8EppDJQhkVamVVoVtD6UHJ3kBa42d2g6QIv57HQJhodpTc4jiybyZ90a2D0bGczAio9c7EEZUhA6mWsMGzAiZKZZgWqgFvmNBcEpBmg2n4EzNyZ8TzfHLfUNrsARvCK0bdA4rDujls4XGupBaSGIm-xIEKUzLLAXZYFHHnHLRsB9gVNjFye38a8JFDuJKsO3QyQJdSgmDK-yFfugnTZ2EjLP8RrQIilGRmcemOcp32RoLdWq_kvAV73-QXK31usBUguas1YZ-wSnQZkYlqgbLKrG9hEFk48N0YPMSZ4StNO7bGhKYvV6hwD4e0bHXW7LOFC2mS4b0k1Es5RQKJJWGZ1uFCkJp9ODH4ySwLakEf4XowZ2FU8-1smaSSI9uW024_R2Q1VpFKaf5mdrfNTNEbrm3xD5ybUvU-n3nBSy_OsVDd-SOOqdJ6MROfHEqiuK_nHSuYoHl69lr5iVuMu28nGAYxPa_epcxp344du5zArElGbwRTZLEm12jmg0Dx35fdJJ4Qzu-E11hBTtcXwU_xn4nmARh4oTvCrZ-911W6bPg2UXQmwVJ0AmGEycZu-8K-mPHH5071Dorgcs1WgicA5rtIasU4QzNqxIEetFptMTmYc7PpfEsoMQC0BcdEpMg0aIuAaU1eqI8xfQsNM63RHJRo8enxfgDwixHMSXAFHqEwWpgDQaDpfHrjbSrpaegQGz0abuIowuCTz0pjlJAc1BVeVvs3RTHTUikIFlb9Q1-V0ToC4Up2ZXpHdp-MAf1-5-0_3nptcu3u0L_7E7PDex1sGEZG-2OSW5EB-N0fekrLocCV1QZR8vAleLzmmVGdDrmRlXmektMCdbpb1rw-BdGj6XR" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVF1v2jAU_StWKpROCiifhOVhEg2kmtRJ1aDbw5gmJ7kBq8bObAfIEP99DoFQmPq0PET45J5z7j3Y3hsZz8GIjF5vTxhREdqbagVrMCNkpliCaaEW-IYFwSkFaTY1BWdqRv4cyxy_3DVlDZbgNaF1g85gyQG9fLbQWBOphSRmsi9BkMK0zFKQNRZ1zCkXTfUdjAq7OLqdPj1wkYO4FNh26GSBplLC4AJ7oR_6ScOTkHGWX4kWQTEqMvPQNEf5NlthoY7tVxK-4N13kquVXheYStA1K7WmTzgF2syoRNVgWSU25zCIbHyYDmxW4oywpcZ9W0MCs9cLFNiHAzr0egvWmaL5ZMGQfjKKpZxAgaTS8HSjUEEoje78eJwEtiWV4K8Q3bnTcOK5VtZMEunRbasJt78FslypKOU0P5X2t80MkVvuLLGLXNsStX7feAHLL07x0B25o87pIXRiJz47FUXxX046VzHH8vXkNfUSN5l0Xk4wDGL7X73zmBM_HDu3OYHYkAzeiCZJ4k0vUU2HgWO_L_qQeEM7vhFdYgVbXF8EP8Z-J5gEYeKE7wq2frddVumz4NlZ0JsGSdAJhg9OMnbfFfTHjj86dah1lgKXK0Qxg1_2j4UxFzgHNN1BVinCGZpVJQj0omNZGD9bUvMwR9c-CyixAPSkA2MSJJrXJaC0Ro-Up5iiVmucb4jkokb3j_PxB4RZjmJKgCl0D4PlwBoMBtfSrpaegAKx1ifvLI7OCD62pThKAc1AVeU12bsix01gpCBZy_oKvysi9OXClOxoere2P5iD-v1P2v-09Nrl2x2iP3Yn6Qr2OtiwjLV2xyQ3or1xvMr0dZdDgSuqjINl4ErxWc0yIzoeeaMqc709JgTrf2Ldgoe_LZeptA==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -232,7 +232,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Trade Execution Super User
+    subgraph lane_0["Trade Execution Super User"]
         n1["Prepare Determination Strategy by Global Trade Advisory (GTA) and Client"]
         n2["Maintain license determination strategy"]
         n3["Determine license type to be setup"]
@@ -243,7 +243,7 @@ flowchart TD
     class n3 startEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVF2Lm0AU_SuDS7AFA37G1IdCYuJS6MJCsu1D04dRr8mwkxmZGZPYkP_eMRrzUfapguIczz3n3uPo0ch4DkZkDAZHwoiK0NFUG9iCGSEzxRJMC7XADywITilIs-EUnKkF-XOmOX55aGgNluAtoXWDLmDNAb19s9BEF1ILSczkUIIghWmZpSBbLOqYUy4a9hOMC7s4u3WPplzkIK4E2w6dLNCllDC4wl7oh37S1EnIOMvvRIugGBeZeWqao3yfbbBQ5_YrCS_48JPkaqPXBaYSNGejtvQ7ToE2MypRNVhWid0lDCIbH6YDW5Q4I2ytcd_WkMDs_QoF9umEToPBivWmaDlbMaSPjGIpZ1AgqTQ83ylUEEqjJz-eJIFtSSX4O0RP7jycea6VNZNEenTbasId7oGsNypKOc076nDfzBC55cESh8i1LVHr64MXsPzqFI_csTvunaahEzvxxakoiv9y0rmKJZbvndfcS9xk1ns5wSiI7X_1LmPO_HDiPOYEYkcyuBFNksSbX6OajwLH_lh0mngjO34QXWMFe1xfBb_Efi-YBGHihB8Ktn6PXVbpq-DZRdCbB0nQC4ZTJ5m4Hwr6E8cfdx1qnbXA5QYtBc4BzQ-QVYpwhhZVCQK96TRaYnMw59fKeBVQYgFoBgrEljDc0pXQI65rlNbomfIU005xku-I5KJGn56Xk88IsxzFlABTK-P3jbKrlV8wYUqfiOr8mQSU31nIzuK-0NOFl1agr1R1qS8cpaDfp6rKvkbvzPaGOWg4_KqNu6XXLm93g37YfzV3sNfDhmVstTUmuREdjfNvS__acihwRZVxsgxcKb6oWWZE58_bqMpcDzEjWKe-bcHTX1K_pPU=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVF2L4jAU_Suhg3QXKvTTun1YqNUOCzswoLP7sC5L2t5qmJiUJFU74n_f1GodXeZpAw3NyT3n3HvT5mDkvAAjMgaDA2FERehgqjVswIyQmWEJpoU64AcWBGcUpNnGlJypOXk7hTl-tW_DWizFG0KbFp3DigN6-WahWBOphSRmcihBkNK0zEqQDRZNwikXbfQDjEu7PLmdtyZcFCCuAbYdOnmgqZQwuMJe6Id-2vIk5JwVN6JlUI7L3Dy2yVG-y9dYqFP6tYQnvP9JCrXW6xJTCTpmrTb0O86AtjUqUbdYXovtpRlEtj5MN2xe4ZywlcZ9W0MCs9crFNjHIzoOBkvWm6LFdMmQHjnFUk6hRFJpeLZVqCSURg9-EqeBbUkl-CtED-4snHqulbeVRLp022qbO9wBWa1VlHFanEOHu7aGyK32lthHrm2JRs93XsCKq1MycsfuuHeahE7iJBensiz_y0n3VSywfD17zbzUTae9lxOMgsT-V-9S5tQPY-e-TyC2JId3ommaerNrq2ajwLE_Fp2k3shO7kRXWMEON1fBL4nfC6ZBmDrhh4Kd332WdfYseH4R9GZBGvSC4cRJY_dDQT92_PE5Q62zErhaI4oZ_LF_LY2FwAWg2R7yWhHO0LyuQKAX3Zal8bsjtYM5OvZZQIUFoCkoEBvCcMdQQpe7alDWoEfKM0xRJxoXWyK5aNCnx0X8GWFWoIQSYOpW2dXKT5gwpR9E9VkwCai4sZBni1uip4mXVKBnqqbSE0cZ6LNVddVz9FfavTAHDYdftfF56XXL91-G3uz_oBvY62HDMjbaGpPCiA7G6QrT11wBJa6pMo6WgWvF5w3Ljej0qxt1VegipgTrE9h04PEvGq-o2A==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -266,14 +266,14 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Trade Execution Super User
+    subgraph lane_0["Trade Execution Super User"]
         n1["fa:fa-user Manage Determination Strategies"]
         n3["Maintain new licenses"]
         n4["Determine license determination to be setup"]
         n5{{"fa:fa-code-branch Manage / Display Determination Strategy?"}}
         n6{{"fa:fa-code-branch exclusiveGateway"}}
     end
-    subgraph Trade Export Analyst
+    subgraph lane_1["Trade Export Analyst"]
         n2["fa:fa-user Display Determination Strategies"]
     end
     n4 --> n5
@@ -290,7 +290,7 @@ flowchart TD
     class n6 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduO2jAQ_RUrK5SXoM2V0Dy0glyqSl2pErvtQ-mDSSZgrXEi21mgLP9emxBuhb40EkhzPHPOzHHsbI28KsCIjF5vSxiREdqacgFLMCNkzrAA00It8B1zgmcUhKlzyorJCfm9T3P8eq3TNJbhJaEbjU5gXgF6-WKhkSqkFhKYib4ATkrTMmtOlphv4opWXGc_wLC0y73aYWlc8QL4KcG2QycPVCklDE6wF_qhn-k6AXnFigvSMiiHZW7udHO0WuULzOW-_UbAE17_IIVcqLjEVIDKWcgl_YpnQPWMkjcayxv-1plBhNZhyrBJjXPC5gr3bQVxzF5PUGDvdmjX603ZURQ9J1OG1JNTLEQCJRJSwembRCWhNHrw41EW2JaQvHqF6MFNw8RzrVxPEqnRbUub218BmS9kNKtocUjtr_QMkVuvLb6OXNviG_V_pQWsOCnFA3foDo9K49CJnbhTKsvyv5SUr_wZi9eDVuplbpYctZxgEMT233zdmIkfjpxrn4C_kRzOSLMs89KTVekgcOz7pOPMG9jxFekcS1jhzYnwQ-wfCbMgzJzwLmGrd91lM_vGq7wj9NIgC46E4djJRu5dQn_k-MNDh4pnznG9QM8cF4DSNeSNJBVDk6YGjl6UG22ifpjzc2qUOCpxX_uOnjDDc0AJSOBLwnBbKLkadk5ATI1fZ7Weqn3ChEn1QwxWiCqXmbhO81VaRwhdDiouJGSFZqA2Sjb1ZXGw3XYN6lumP1PnJF90fT6ihIiaqm242fHm09TY7c7YBrfZYJ3TRpA3-Nxu6qlKvfZ3XK0rdSRHDNONkGcK7qWf_2zv3NCjEPNRv_9RDX4InTYcHMJBG3qH0L1cDXT4PjViDkrgMS2InBrviuRq_dDWfs09ew-1XHf-LmD3Nuwd76AL2L8NB92huUAHHWpYxlKZhElhRFtj_8FQH5UCStxQaewsAzeymmxYbkT7i9Vo6kJVJgSrnVm24O4PpXYdXw==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P2jAQ_CtWToiXoOaT0Dy04gKpKvWkSty1D6WqTLIB64wT2c4B5fjvXQMBQrm-NFKQdrw7szvGztbKyhys2Op0tkwwHZNtVy9gCd2YdGdUQdcmB-AblYzOOKiuySlKoSfs9z7NDaq1STNYSpeMbww6gXkJ5OmzTYZYyG2iqFA9BZIVXbtbSbakcpOUvJQm-w4GhVPs1Y5L96XMQZ4THCdysxBLORNwhv0oiILU1CnISpG3SIuwGBRZd2ea4-UqW1Cp9-3XCh7o-jvL9QLjgnIFmLPQS_6FzoCbGbWsDZbV8qUxgymjI9CwSUUzJuaIBw5CkornMxQ6ux3ZdTpTcRIlj6OpIPhknCo1goIojfD4RZOCcR7fBckwDR1baVk-Q3znjaOR79mZmSTG0R3bmNtbAZsvdDwreX5M7a3MDLFXrW25jj3Hlhv8vdICkZ-Vkr438AYnpfvITdykUSqK4r-U0Ff5SNXzUWvsp146Omm5YT9MnL_5mjFHQTR0r30C-cIyuCBN09Qfn60a90PXeZv0PvX7TnJFOqcaVnRzJnyfBCfCNIxSN3qT8KB33WU9-yrLrCH0x2Eangijezcdem8SBkM3GBw7RJ65pNWCcCrgl_Njaj1KmgMZryGrNSsFmdQVSPKEtkytn4ci8wgXcwsaF7Rn9oA8UEHnQEagQS6ZoIdaLXHwOQPVrvWx9oEyofElAlaEo-NCXacFmNYQQpND8paELskMcNN0XbWLw-22adDcOL0Znpls0fT5joyYqjhuyc2ONx-n1m53wda_zQbrjNeKvcCnwwafq_AI3HLYvXC4KvGcDgXlG6XbvXttb__Z6qW5J1ERkF7vA5pwDN1D2D-G_UPoH0OvvRqa8HVqJRJQ4N04Z9jeK5JcrR_b2q95F_9PI9ecyxbs3Yb9093UgoPbcNgcphbab1DLtpZoEmW5FW-t_YcEPzY5FLTm2trZFq11OdmIzIr3F65VVzlWjhjFXVoewN0fCWAlJg==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -313,10 +313,10 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Trade Execution Analyst
+    subgraph lane_0["Trade Execution Analyst"]
         n3["fa:fa-user Display Licenses"]
     end
-    subgraph Trade Execution Super User
+    subgraph lane_1["Trade Execution Super User"]
         n1["fa:fa-user Change Licenses"]
         n2["fa:fa-user Create Licenses"]
         n4["Monitor licenses"]
@@ -341,7 +341,7 @@ flowchart TD
     class n7 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVcuO2jAU_RUrI8QmSHkSmkUrCKSq1JEqMdNZlC5MYifWGAfZDo8y-ffaecCEAXXRSCDd43PPufc6dk5GUqTICI3B4EQYkSE4DWWONmgYguEaCjQ0QQP8hJzANUViqDm4YHJJ_tQ029seNE1jMdwQetToEmUFAs_fTDBVidQEAjIxEogTPDSHW042kB-jghZcsx_QBFu4dmuXZgVPEb8QLCuwE1-lUsLQBXYDL_BinSdQUrC0J4p9PMHJsNLF0WKf5JDLuvxSoEd4eCGpzFWMIRVIcXK5od_hGlHdo-SlxpKS77phEKF9mBrYcgsTwjKFe5aCOGSvF8i3qgpUg8GKnU3B03zFgHoSCoWYIwyEVPBiJwEmlIYPXjSNfcsUkhevKHxwFsHcdcxEdxKq1i1TD3e0RyTLZbguaNpSR3vdQ-hsDyY_hI5l8qP6v_JCLL04RWNn4kzOTrPAjuyoc8IY_5eTmit_guK19Vq4sRPPz162P_Yj66Ne1-bcC6b29ZwQ35EEvRON49hdXEa1GPu2dV90FrtjK7oSzaBEe3i8CH6KvLNg7AexHdwVbPyuqyzXP3iRdILuwo_9s2Aws-Opc1fQm9repK1Q6WQcbnPwxGGKwOKAklKSgoEpg_QoZMPSD3N_rQwMQwxHeuhgTsSWqpa-q2ExgcTK-N2Q1eb_Q3tZbpXAs1J5J2_35aMcsgx9VK-5zhWXIzXfO1xPcR8LddMUHNCbDF8zIGFS_ToKSJFEfEMYrCtWo1QO2bGfOD6dujr0pTZaq2OZ5OAFHgUoMHiEDGbqhHaFgS8ro6re5Qe389EhoaUgO_S1eWsuWefRMh-MRp9VBW0YNKHXhk4TBm1o98OxDt9WRjO2lfGmEq6X6unXS_bVUrvv9Zrbrrk9g_ol1a7d4ezBzm3YvQ1753urB_u34XF30Hpo0KGGaWzUpkKSGuHJqD8y6kOUIgxLKo3KNGApi-WRJUZYX8ZGuU1V5pxA9R5vGrD6C5q1KBU=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P2joQ_StWVitegpRPQvPQig2kulJXuhLb9qFUlUnGYK1xkO3sQin_veOQQEPZp0YCaY7PnDMzsZ2DU1QlOKlzf3_gkpuUHAZmDRsYpGSwpBoGLjkBX6jidClADyyHVdLM-c-G5kfbnaVZLKcbLvYWncOqAvL5P5dMMFG4RFOphxoUZwN3sFV8Q9U-q0SlLPsOxsxjjVu79FCpEtSF4HmJX8SYKriECxwmURLlNk9DUcmyJ8piNmbF4GiLE9VrsabKNOXXGh7p7isvzRpjRoUG5KzNRnyiSxC2R6NqixW1eumGwbX1kTiw-ZYWXK4QjzyEFJXPFyj2jkdyvL9fyLMpeZouJMGnEFTrKTCiDcKzF0MYFyK9i7JJHnuuNqp6hvQumCXTMHAL20mKrXuuHe7wFfhqbdJlJcqWOny1PaTBdueqXRp4rtrj_5UXyPLilI2CcTA-Oz0kfuZnnRNj7J-ccK7qiern1msW5kE-PXv58SjOvL_1ujanUTLxr-cE6oUX8Idonufh7DKq2Sj2vbdFH_Jw5GVXoitq4JXuL4LvsugsmMdJ7idvCp78rqusl_-rqugEw1mcx2fB5MHPJ8GbgtHEj8ZthaizUnS7JoJK-OF9WzhPipZAZjsoasMrSSaSir02C-f7KcM-MkQioymjQ_sCyJTrrcD2PuHgpAZ9JuNGuOXj3_CZ11tU-oxyfSu_b5WtqVzB304NN7jiKsC5v8GNkPtY4Q1UKSJuMmLLoFwa_HUUUoIBteGSNkXjiNFhte8njg6Hrg572Q2XeFyLNflK95pUjDxSSVd4crvCyIeFczz-kZ_czoddIWrNX-DjaTddss5jljEZDt9jBW2YnMKoDYNTmLSh3w9HNvy1cE5jWzi_MOF6qZl-s-RfLbV7oFkL27WwZ9BsXuvaHdoeHNyGw9twdL7PenB8Gx51B7CHJh3quM4GXyrlpZMenObjgx-oEhithXGOrkNrU833snDS5pJ26m2JmVNOcU9vTuDxN29TL9w=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -360,7 +360,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Trade Execution Analyst
+    subgraph lane_0["Trade Execution Analyst"]
         n1["fa:fa-user Display Existing Licenses"]
         n2["fa:fa-user Display Assigned Documents"]
         n3(["fa:fa-stop Licenses Assigned"])
@@ -375,7 +375,7 @@ flowchart TD
     class n4 startEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuK2zAQ_RXhJbgFB3yNUz8UEl-gsIVCtu1D0wfFHiViZdlI8iZpyL9XShwnm-4-1WDjOT5zzsxY0sEqmwqsxBqNDpRTlaCDrTZQg50ge4Ul2A46Az-woHjFQNqGQxquFvTPieaF7c7QDFbgmrK9QRewbgB9_-KgmU5kDpKYy7EEQYnt2K2gNRb7tGGNMOwHmBKXnNz6T_NGVCCuBNeNvTLSqYxyuMJBHMZhYfIklA2vXomSiExJaR9NcazZlhss1Kn8TsJXvPtJK7XRMcFMguZsVM0e8QqY6VGJzmBlJ14uw6DS-HA9sEWLS8rXGg9dDQnMn69Q5B6P6DgaLflgip6yJUf6KhmWMgOCpNJw_qIQoYwlD2E6KyLXkUo0z5A8-HmcBb5Tmk4S3brrmOGOt0DXG5WsGlb11PHW9JD47c4Ru8R3HbHXzzsv4NXVKZ34U386OM1jL_XSixMh5L-c9FzFE5bPvVceFH6RDV5eNIlS91-9S5tZGM-8-zmBeKEl3IgWRRHk11Hlk8hz3xedF8HETe9E11jBFu-vgp_ScBAsorjw4ncFz373VXarb6IpL4JBHhXRIBjPvWLmvysYzrxw2leoddYCtxv0JHAFKN9B2SnacDTjmO2lOrPMxb1fS4vghOCxGTrKqGyZbinfUan0OkSPempcglxav2-y_LezZlLSNYcKZU3Z1cDVXVrwYciTqmkH8SFR0z_e8ENN_4opV_pGHLaI3Vej1-T5hYdoPP6s--lD_xwGfeidQ_9m4Aa8LLRXsP82HPQb4BUYDjvQcqwaRI1pZSUH63TW6fOwAoI7pqyjY-FONYs9L63kdCZYXVvp9ZNRrH9VfQaPfwGGErHT" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuK2zAQ_RXhJbgFB3yNUz8UEl-gsAuFpO1DU4pijxKxsmwkeZM05N8r5eJs0t2nGmw8x2fOmRlL2ltlU4GVWIPBnnKqErS31RpqsBNkL7EE20En4DsWFC8ZSNtwSMPVjP450ryw3RqawQpcU7Yz6AxWDaBvXxw00YnMQRJzOZQgKLEduxW0xmKXNqwRhv0AY-KSo9v507QRFYgrwXVjr4x0KqMcrnAQh3FYmDwJZcOrG1ESkTEp7YMpjjWbco2FOpbfSXjC2x-0UmsdE8wkaM5a1ewRL4GZHpXoDFZ24uUyDCqND9cDm7W4pHyl8dDVkMD8-QpF7uGADoPBgvemaJ4tONJXybCUGRAklYbzF4UIZSx5CNNJEbmOVKJ5huTBz-Ms8J3SdJLo1l3HDHe4Abpaq2TZsOpMHW5MD4nfbh2xTXzXETv9vPMCXl2d0pE_9se90zT2Ui-9OBFC_stJz1XMsXw-e-VB4RdZ7-VFoyh1_9W7tJmF8cS7nxOIF1rCK9GiKIL8Oqp8FHnu-6LTIhi56Z3oCivY4N1V8FMa9oJFFBde_K7gye--ym75VTTlRTDIoyLqBeOpV0z8dwXDiReOzxVqnZXA7RoxzOG3-3NhzQWuAOVbKDtFG44mHLOdVAvr1ynDXNzTRIITgofmB6CMypbp9vItlUqvSfSoJ8glyNss_-2siZR0xaFCWVN2NXB1lxZ86POkatpevE_U9I-v-KGmP2HKlb4Rhw1i99Xo9Xl64SEaDj_rfs6hfwqDc-idQv_V8A14WXQ3sP82HJw3ww0Y9rvRcqwaRI1pZSV763ju6bOxAoI7pqyDY-FONbMdL63keD5YXVvptZRRrH9bfQIPfwEby7W2" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -611,6 +611,7 @@ Integration patterns identified from the system flow analysis for GT-040:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
@@ -738,6 +739,6 @@ Standard RAID items for GT-040 (Order To Cash (IF)):
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*GT-040 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: March 2026*
+*GT-040 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: April 2026*
 
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-040 — Manage Licenses (IF)</span></div>

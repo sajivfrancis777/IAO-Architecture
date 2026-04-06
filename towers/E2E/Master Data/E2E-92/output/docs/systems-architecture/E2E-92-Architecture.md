@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
   Capability E2E-92 · Master Data</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 2<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | End-to-End Integrated Processes (E2E) |
 | **Process Group** | Master Data |
 | **Capability** | E2E-92 - R3 Vendor Master Data |
-| **Release** | Release 2 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 2 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 2 Pending IAPM |
 | **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
@@ -203,7 +203,7 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Boundary Apps
+    subgraph lane_0["Boundary Apps"]
         n6["Update Data in Graphite"]
         n7["Update all Other Boundary Apps"]
         n9["fa:fa-user Update in ENT. Hana"]
@@ -217,28 +217,28 @@ flowchart LR
         n24{{"fa:fa-arrows-alt parallelGateway"}}
         n25{{"fa:fa-arrows-alt parallelGateway"}}
     end
-    subgraph EWM Decentralized
+    subgraph lane_1["EWM Decentralized"]
         n1["Update Intel Foundry Vendor Master"]
         n13(["fa:fa-stop EWM Data updated"])
     end
-    subgraph GTS
+    subgraph lane_2["GTS"]
         n2["Update Intel Foundry Vendor Master"]
         n14(["fa:fa-stop GTS data updated"])
         n21{{"fa:fa-arrows-alt parallelGateway"}}
     end
-    subgraph Intel Foundry  SAP S/4
+    subgraph lane_3["Intel Foundry  SAP S/4"]
         n3["Update Intel Foundry Vendor Master"]
         n15(["fa:fa-stop S/4 Updated"])
     end
-    subgraph Intel Product  SAP S/4
+    subgraph lane_4["Intel Product  SAP S/4"]
         n4["Update Intel Product Vendor Master"]
         n16(["fa:fa-stop S/4 Updated"])
     end
-    subgraph New SAP MDG
+    subgraph lane_5["New SAP MDG"]
         n8["fa:fa-user Update Data in New MDG"]
         n22{{"fa:fa-arrows-alt parallelGateway"}}
     end
-    subgraph SAP CFIN
+    subgraph lane_6["SAP CFIN"]
         n5["Update Intel Foundry Vendor Master"]
         n17(["fa:fa-stop SAP CFIN Updated"])
     end
@@ -290,7 +290,7 @@ flowchart LR
     class n25 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1tv4jgY_StWqooZKezGuRDIw64okC7StFMNnZmHZR9M4pSoJolsU2AZ_vvaxAnEDZW25aHqd3LO-S52nGRvRHmMjcC4vt6nWcoDsO_wJV7hTgA6C8RwxwQl8APRFC0IZh3JSfKMz9J_jzToFltJk1iIVinZSXSGn3IMvk9NMBRCYgKGMtZlmKZJx-wUNF0huhvlJKeSfYX7iZUcs6lLNzmNMT0RLMuHkSekJM3wCXZ813dDqWM4yrO4YZp4ST-JOgdZHMk30RJRfix_zfAd2v5MY74UcYIIw4Kz5CvyBS0wkT1yupZYtKYv1TBSJvNkYmCzAkVp9iRw1xIQRdnzCfKswwEcrq_nWZ0UfPk2z4D4RQQxNsYJYFzAkxcOkpSQ4ModDUPPMhmn-TMOruyJP3ZsM5KdBKJ1y5TD7W5w-rTkwSInsaJ2N7KHwC62Jt0GtmXSnfir5cJZfMo06tl9u19nuvHhCI6qTEmSfCiTmCt9ROxZ5Zo4oR2O61zQ63kj67Vf1ebY9YdQnxOmL2mEz0zDMHQmp1FNeh60LpvehE7PGmmmT4jjDdqdDAcjtzYMPT-E_kXDMp9e5XrxQPOoMnQmXujVhv4NDIf2RUN3CN2-qlD4PFFULMFNvj7uZTAsClZek7-s9_fc-F7Eon4wRhyBNAO3UpByPDf-OSP6JyIiBHwV9zDVXBv8geAnKEhQV64hUFJhP7l__A38hTLU5EOrVTAZDcGnacYxAaFMRnefNR1s1VXNfMOEp7kmsT_VmoKIZfshNnROwR1iXDgcpcpGLgJmDEzFUZYKIBZOn8-t-icrxvPistUr5WC_r5TyyOwuxE0fLcFkmzIu7nvlxP6cG4fDmc622nV4G5E1S1_wbbkXdZlzkiFK8w3rIsJBgahYTUwuiNz3iLz_JxJtant18vMOjHGEMy4k4pkQn4_ttA0bu6I5eG29HW2Rjgnk0qz1pXldzO3j7Ly596R3tfTCEsSt6csc8KMDbJYGZsMHMPvdPUvhvKcNT2tDWL7e25eKETdSvI54WzGuXkzFfauY3vuKucebYwV349szt_6bR4jUSH6jANv-6CLJMkbh9P7M1HvPsvj6JJTvG-MQJyDodv8Qp38VwzKGAwX0y9i2Veyr6_1KoGJHxa6KK0NPxb6Ke8pPPefEP4oAK6BS1AynBCoHW5VsQx2oFHAggV9zQ03ra7bIEY3FWTo3fomWdNr0AaAsBtOwOmqPNNtt-AteKLxqUsnxtBr0uK5RzWWgxbXBQMXVHG012GrulV9VlBoK1BM62lzrKUFLz6AU7tkbh1zv6k2rAQ_aYWHajsMLuF2_njZxR71KNlG3FfVa0V4r6rei_VZ0UL29NWAxyFYYtsN2O-y0w2477FWwYRorTFcojY1gbxy_lsQXVYwTtCbcOJgGWvN8tssiIzh-VRjlg2ScInG0rErw8B-UxSWp" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtV11v2kgU_SsjRxGtZLr-xOCHXRHAKVKTRiVtH8pqNdjjYGWw0cwQYCn_fe_A2MQTE2nT8oC4x_ece-beYWzvjLhIiBEal5e7LM9EiHYtMScL0gpRa4Y5aZnoCHzDLMMzSnhL5qRFLibZv4c021tuZJrEIrzI6FaiE_JQEPR1bKI-EKmJOM55mxOWpS2ztWTZArPtoKAFk9kXpJta6aGaunRVsISwU4JlBXbsA5VmOTnBbuAFXiR5nMRFntREUz_tpnFrL83RYh3PMRMH-ytObvDme5aIOcQpppxAzlws6Cc8I1SuUbCVxOIVeyqbkXFZJ4eGTZY4zvIHwD0LIIbzxxPkW_s92l9eTvOqKPr0ZZoj-MQUcz4kKeIC4NGTQGlGaXjhDfqRb5lcsOKRhBfOKBi6jhnLlYSwdMuUzW2vSfYwF-GsoIlKba_lGkJnuTHZJnQsk23hW6tF8uRUadBxuk63qnQV2AN7UFZK0_SXKkFf2T3mj6rWyI2caFjVsv2OP7Be6pXLHHpB39b7RNhTFpNnolEUuaNTq0Yd37bOi15FbscaaKIPWJA13p4EewOvEoz8ILKDs4LHerrL1eyOFXEp6I78yK8Egys76jtnBb2-7XWVQ9B5YHg5RxTn5B_rx9S4KlaHTY36yyWfGn8f8-Qn78Dlr8sE1oKGWGCU5ehakjNB6onBKRFTij7D_5mhV4R7kJ_iMMVtOU-kqCA_ur3_gD7iHNfzbauRMBr00btxLghFkSzGtu81nt3IKxfzhVCRFRrFeVdxlhRG-A02d8HQDeYCFA5UJSMHQjhHYzjWMgASUHr_XKp7kuKiWJ6XesHs7XYlUx6f7RkcAPEcjTYZF3AGKCX-19TY75_xHKuZRzYxXfHsiVwf96VOc080zFix5m1MBVpiBtMk9AzJewvJ_38kWGbTvpVjHX2_QUMSk1wAF24UiTbH05as7ZD6EDSOqw3sUEOOaaWP6YwxB_jX95O6rPMWK55mBVRR0mjlWMP-LY11oWjdI5r079DkD69uz33LknxtSaD6cv-fMeZVxuBfl6xiccaYpxsr018z1vkFYz5Qb8n64OZmeF1X7r56_EjaC4rj_JZByqNbWhpE49t6Af8towv0DinpV9oEJylqt_-Eu0gZ28fY7imge4wdR8WBut4tCSp2VeypuBT0VRyouKP01L0TfqgEuwRKRpXhHoFSwVGWHVsHSobdk8DPqaG69TmfFZglcCZPjZ-wJD1tfIdwnqBxVB7ZhzTHq-lDXgRaVdIxx9c86HHlUfWlp8WVQE_FZR8d1diy76VeaUo1xdYLulpfqy7Zll5BMbxnTzFy3uXTWw3uNcMg2ozbZ3CneuSt4656PK2jXiPqN6KdRjRoRLuNaK98IqzB0MhG2G6GnWbYbYa9ZtgvYcM0FoQtcJYY4c44vIHBW1pCUryiwtibBl6JYrLNYyM8vKkYxxvPMMNwzCyO4P4_h8xA8w==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -487,8 +487,14 @@ flowchart TB
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
-        E2E92C_e_g_MES_300["📦 e.g. MES 300"]:::app
-        E2E92C_e_g_XEUS["📦 e.g. XEUS"]:::app
+        subgraph E2E92CLN_e_g_Boundary_Apps[" ⬛ e.g. Boundary Apps"]
+            direction LR
+            E2E92C_e_g_XEUS["📦 e.g. XEUS"]:::app
+        end
+        subgraph E2E92CLN_e_g_MES_Systems[" ⬛ e.g. MES Systems"]
+            direction LR
+            E2E92C_e_g_MES_300["📦 e.g. MES 300"]:::app
+        end
         E2E92CMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
         E2E92CDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
     end
@@ -510,7 +516,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzzaQoQqpU06dUoBETY2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpfygBacTAVK7EWeapSrkD2uog05-b4K1fUgXXCyNJ4RZBuT7qElcBBBNImkqWxIKPo2sVZUhsrtkTgu1Ri4ljOn9DWdqri1TKiTouLlaiIBOQFRTUEVZWVNcYpjThKczbT62tbGg6d-asW2vVmTVaETpSy1y3Y9SgqPRIK0Wzi2Z8zFV0OKpzHkBjEi1FEASQaUEiTEmvPr2YEompeQpSEmqMeVCOHtDHP12U6oi-wvOXv_kpGP315-tO70g5zC_byaZyApnz7btLUya52QzDGa_rVFfMG272-13_gOTUUV3Mb2TDzAPXmE--xiVSF5Bl8gpaW9VWnDGBNzRAuqMeB13w4jf7Qw3aJ-YPWRihxHNcY3lwcC2P8I0qLKczAqaz4kb_I6sqGQnRwyf7KhN3MvLYDRwr0cX5yRwf_lXkfXHJOnBUBCJ4llKgquN1T_0Tw8HMcSzeOyH8ZFt11ET6BD4MvtC0EfQh4CO42CH3wT46X8P38zWjndTxzdVsvtQFhCHUNzyBOJ-KV-t7qBrkKooso4iGGVgN13bRvf8Cn2QSRX7Ao-AVPXqU0yODbAOIOuAs0mx3zvjPeMIf5B9MvKyBP--hRfnZ_u8Z6pqVZp6kLLn_uwSituu9xRZFZpXNQGR3MsRPodc4Nnz9AETdeD3YnSR7V7oKa1FUx0D_aC2xYf2R1u8nuq-pNqf2ck7Yg1ghhy9EgezSeB_9c-9T6g0iFHb29Jy81zwhOrgN8QVxOObbQmNNzJ5VzZB7PnbCvH08eOnCi-X7c6bFP_CbMbDDjvGQNbKpq2AT9dlcP_XZLIh1ZDyTGxb_16IPT093TnLrKa1gGJBObOcR3Oh4b3IYEpLofAasmipsnCZJpZTXSxWmeNEweMUm7AwxtU_8t9HBQ==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlv9v2joQwP8VKxW_wZrSQtuoQkpIeOIptNWyre_pZYpMfIA1k0Sxs5Z1_O87xxRSWEXfjATJffnc5XI-82ylOQPLsVqtZ55x5ZDn2FILWEJsOSS2plTiVRuvJKRVydUqhO8gjFLk-Yu2dvlCS06nAqRWI2eWZyriPzaos37xZIy1fESXXKyMJoJ5DuTzuE1cBIg2kTSTHQkln8XWuvYQ-WO6oKXakCsJE_r0wJlaaMmMCgnabqGWIqRTEHUKqqxqaYaPGBU05dlciy9sLSxp9q0h7NnrNVm3WnG2jUU-eXFGcLVapNPB3NIFn1AFHZ7JgpfAiFQrASQVVEqQaGPM63sfZmRaSZ6BlKReMy6EczLC5fXaUpX5N3BOvKurvu1tbjuP-oGcbvHUTnORl86Jbdt7TFoUZLcM0-tp6pZp25eXXv9_MBlV9JDpXx1hnr1ivugYlVi8kq6wpqS3F2nJGRPwSEtoVsTvu7uKBJf90Y72juwhFwcV0TVuVHk4tO1jTEOV1XRe0mJB3PC_2IordnXO8Jud94h7fx-Oh-6n8d0tCd1_g4-x9dU46cWwIVLF84yEH3fSLS7oBtfdYXibQDJPvLzKGC1XiVsUEsOQuOpOz6YEPsw_kBcl0cpXId4Oo5eJUPP_CT5HzexT6Bu2ViDScRxso507ZOxYypMgSqKVVLA8SBhVZKP6s3Q1-9y2f5uxhqPuWNKGNnmoee6PqoQkgvI7TyHxKvnqTZ5dGnJtRTZWBK1MjF2H7tP9oKYPc6mSQOC4y9SgmXJ6YcDagGwMbqbl6eCGD4wi-kJOydjPU_z5O7q7vTnlAxNV70ATr34sc3lYIhwxg5-xVdP8urRIcu_H-D3iAufszyOVaILfstFB9rtJp7TZIPXI88LGOBvZx8ZZ09XdutrvmVoHGzOEOdboVbMwm4TBX8Gt_44dGSa4j_dbDbea4CnVxr_ptDCZPOy30GTXJm-2TZj4wX6H-HrUBpnCg3T_zRuX4M4Mnm6fXaAh6-SzTshnmzA46xptsiuqKcpLYXv6sy3s9fX1wdy22tYSyiXlzHKezeGN_wEYzGglFB65Fq1UHq2y1HLqQ9SqCkwUfE7xJSyNcP0LgWWKzw==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -552,8 +558,14 @@ flowchart TB
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
-        E2E92F_e_g_MES_300["📦 e.g. MES 300"]:::app
-        E2E92F_e_g_XEUS["📦 e.g. XEUS"]:::app
+        subgraph E2E92FLN_e_g_Boundary_Apps[" ⬛ e.g. Boundary Apps"]
+            direction LR
+            E2E92F_e_g_XEUS["📦 e.g. XEUS"]:::app
+        end
+        subgraph E2E92FLN_e_g_MES_Systems[" ⬛ e.g. MES Systems"]
+            direction LR
+            E2E92F_e_g_MES_300["📦 e.g. MES 300"]:::app
+        end
         E2E92FMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
         E2E92FDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
     end
@@ -575,7 +587,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9A5wuoiyEZbtxwM9Q4X-7N3c1S1gM0lm1ZOxWV_35PV5QJGr0lGdt5eU77nKfts5VkDCzHajSeecqVQ54jS01hBpHlkMgaUYlvTXyTkJQFV_MA7kEYp8iyV2-VckMLTkcCpHYjzjhLVcifllC7nfzRBGt7n864mBtPCJMMyPWgSVwEEE0iaSpbEgo-jqxFlSGyh2RKC7VELiUM6eMtZ2qqLWMqJOi4qZqJgI5AVFNQRVlZU1ximNOEpxNtPrC1saDpXc3YthcLsmg0ovStFrnqRSnB0WiQVgvnlkz5kCpo8VTmvABGpJoLIImgUoLEGBNefXswJqNS8hSkJNUYcyGcrT6OXrspVZHdgbPVOzrq2L3lZ-tBL8jZyx-bSSaywtmybXsNk-Y5WQ2D2Wtr1DdM2z487HX-A5NRRTcxvaMvMHffYb76GJVIXkHnyClpr1WaccYEPNAC6ox4HXfFiH_Y6a_QvjF7yMQGI5rjGsunp7b9FaZBleVoUtB8StzgT2RFJTvaZ_hk-23iXlwEg1P3anB-RgL3t38ZWX9Nkh4MBZEonqUkuFxZ_T3_eK8fQzyJh34Y79t2HTWBDoHtyTZBH0EfAjqOgx3-EOCXfx1-mK0dn6YOb6tk96ksIA6huOcJxL1Svlvd7qFBqqLIMopglIFddW0d3fMr9NNMqtgXeASkqlufYnJggHUAWQacjIqd7gnvGkd4Q3bIwMsS_PsZnp-d7PCuqapVaepByl77s0kobrvuS2RVaF7VBERyLwb47HOBZ8_LF0zUgT-L0UXWe6GntBRNdQz0gtoW79tfbfF6qvuWan9nJ2-INYAJcvROHMwmgf_DP_O-odIgRm2vS8vNc8ETqoM_EFcQD2_XJTRcyeRT2QSx568rxNPHj58qvFzWO29S_HOzGfc67AADWSsbtwI-XpbB_V-TyYpUQ8orsW39eyP2-Ph44yyzmtYMihnlzHKezYWG9yKDMS2FwmvIoqXKwnmaWE51sVhljhMFj1NswswYF_8AOV9HHQ==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdln1v2jwQwL-KlYr_YE1poW1UISVNmJhCWy3buunJFJn4AGsmiWJnLev47jvHFFJYRZ8ZCZJ7-d3lcj7zZKU5A8uxWq0nnnHlkKfYUnNYQGw5JLYmVOJVG68kpFXJ1TKEnyCMUuT5s7Z2-UJLTicCpFYjZ5pnKuK_1qiTfvFojLV8SBdcLI0mglkO5POoTVwEiDaRNJMdCSWfxtaq9hD5QzqnpVqTKwlj-njPmZpryZQKCdpurhYipBMQdQqqrGppho8YFTTl2UyLz2wtLGn2oyHs2asVWbVacbaJRT55cUZwtVqk08Hc0jkfUwUdnsmCl8CIVEsBJBVUSpBoY8zrex-mZFJJnoGUpF5TLoRzNMTl9dpSlfkPcI68i4u-7a1vOw_6gZxu8dhOc5GXzpFt2ztMWhRkuwzT62nqhmnb5-de_38wGVV0n-lfHGCevGA-6xiVWLySLrGmpLcTacEZE_BAS2hWxO-724oE5_3hlvaG7CEXexXRNW5U-fratg8xDVVWk1lJizlxw_9iK67YxSnDb3baI-7dXTi6dj-Nbm9I6H4LPsbWd-OkF8OGSBXPMxJ-3Eo3uKAbXHaH4U0CySzx8ipjtFwmblFIDEPiqjs5mRB4N3tHnpVEK1-EeD2MXiZCzf8afI6a2afQN2ytQKTjONhGW3fI2KGUx0GUREupYLGXMKrIWvVv6Wr2qW3_NWMNR92hpA1tfF_z3F9VCUkE5U-eQuJV8sWbPDk35NqKrK0IWpkY2w7dpftBTb_OpUoCgeMuU4NmyumZAWsDsja4mpTHgys-MIroCzkmIz9P8edDdHtzdcwHJqregSZe_Vjmcr9EOGIGv2Orpvl1aZHk3o3we8gFztnfByrRBL9mo4PsdpNOab1B6pHnhY1xNrQPjbOmq7txtd8ytfY2ZggzrNGLZmE2CYP3wY3_hh0ZJriPd1sNt5rgKdXGf-m0MBnf77bQeNsmr7ZNmPjBbof4etQGmcKDdPfNG5fg1gyebp-doSHr5NNOyKfrMDjrGm2yLaopynNhe_qzKezl5eXe3Lba1gLKBeXMcp7M4Y3_ARhMaSUUHrkWrVQeLbPUcupD1KoKTBR8TvElLIxw9QfkU4rt" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -642,6 +654,7 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-92 — R3 Vendor Master Data</span></div>
 <div style="page-break-before: always;"></div>
+
 
 
 ## 6. Technology Architecture (TOGAF "T")
@@ -785,7 +798,7 @@ Project delivery milestones for E2E-92 RICEFW objects:
 | Technical Design (TDD) | FS + 2 weeks | FS + 6 weeks | Planned | Dependent on FS completion |
 | Build & Unit Test (TUT) | TDD + 1 week | TDD + 8 weeks | Planned | Includes S/4 + Middleware |
 | Functional User Test (FUT) | Build + 1 week | Build + 4 weeks | Planned | Tower-led validation |
-| Go-Live (Release 2) | Per release plan | Per release plan | Planned | End-to-End Integrated Processes release |
+| Go-Live (R1 – R5) | Per release plan | Per release plan | Planned | End-to-End Integrated Processes release |
 
 > *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
 
@@ -819,6 +832,6 @@ Standard RAID items for E2E-92 (End-to-End Integrated Processes):
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*E2E-92 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026*
+*E2E-92 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: April 2026*
 
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-92 — R3 Vendor Master Data</span></div>

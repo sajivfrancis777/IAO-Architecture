@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
   Capability E2E-61 · Procure to Pay</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 2<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 2</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -646,7 +688,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Boundary Apps
+    subgraph lane_0["Boundary Apps"]
         n8["Perform Exceptional Handling/Read Soft Validation Based on Rules Setup"]
         n9["Receive Incoming invoice/ B2B/OpenText/Web suite"]
         n10["Receive File in Bank"]
@@ -655,7 +697,7 @@ flowchart TD
         n48(["fa:fa-stop Payment Data Updated"])
         n54{{"fa:fa-code-branch exclusiveGateway"}}
     end
-    subgraph CFIN
+    subgraph lane_1["CFIN"]
         n31["Replicate Supplier Invoice Posting"]
         n32["Generate Payment Proposal"]
         n33["Execute Payment Run"]
@@ -680,7 +722,7 @@ flowchart TD
         n75{{"fa:fa-arrows-alt parallelGateway"}}
         n76{{"fa:fa-arrows-alt parallelGateway"}}
     end
-    subgraph External Supplier/Partner
+    subgraph lane_2["External Supplier/Partner"]
         n1["Receive Purchase Order at Supplier End"]
         n2["Acknowledge/Review Purchase Order"]
         n3["Order Shipment"]
@@ -693,11 +735,11 @@ flowchart TD
         n69{{"fa:fa-arrows-alt parallelGateway"}}
         n77{{"fa:fa-arrows-alt inclusiveGateway"}}
     end
-    subgraph MBC
+    subgraph lane_3["MBC"]
         n42["Multi-Bank Connectivity (host-to-host)"]
         n43["Multi-Bank Connectivity (host-to-host)"]
     end
-    subgraph SAP S/4HANA (IF/IP)
+    subgraph lane_4["SAP S/4HANA (IF/IP)"]
         n12["Update Consignment Purchase Info Record"]
         n13["Create Consignment Purchase Requisition"]
         n14["Run MRP Planning"]
@@ -853,7 +895,7 @@ flowchart TD
     class n77 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWVtz2koS_itTpFJOquCgu4CH3QIMCVWxTRknqVObfRjECFQWGo408mUd__ftlmaENMgnG9YPCWp1f33vaUkvnYBvWGfUef_-JUoiMSIvF2LH9uxiRC7WNGMXXVISvtE0ouuYZRfIE_JErKL_FGymc3hCNqTN6T6Kn5G6YlvOyNdFl4xBMO6SjCZZL2NpFF50Lw5ptKfp85THPEXud2wQGmGhTd6a8HTD0iODYfhm4IJoHCXsSLZ9x3fmKJexgCebBmjohoMwuHhF42L-GOxoKgrz84xd0afv0Ubs4DqkccaAZyf28Re6ZjH6KNIcaUGePqhgRBnqSSBgqwMNomQLdMcAUkqT-yPJNV5fyev79z-SSim5u_yREPgLYppllywkmQDy7EGQMIrj0TtnOp67RjcTKb9no3fWzL-0rW6AnozAdaOLwe09smi7E6M1jzeStfeIPoysw1M3fRpZRjd9hn81XSzZHDVNPWtgDSpNE9-cmlOlKQzD_0sTxDW9o9m91DWz59b8stJlup47NU7xlJuXjj829Tix9CEKWA10Pp_bs2OoZp5rGm-DTua2Z0w10C0V7JE-HwGHU6cCnLv-3PTfBCz16Vbm62XKAwVoz9y5WwH6E3M-tt4EdMamM5AWAs42pYcdmfC8qGUyPhyy8h7-JYN__egsWRrydE9mTwE7iIgnNCafabKBxtj2bxndkBUPBflG42hD8T6ZQCNvCPy4zaGByYqJ_PCj8-8a7hBwb1nAogdGFknA94BFouSBQ-z7ZGJN-jcHltyxJ9H_ztZgZyRYE8E0ahDzKGYgDoqTe43NBDaAWCECWdLnPUugPVIa3LO0T1bjJZnkGbR4lpFrJh55ek_6RCmvBG7ZPhKCJoFmheMA_M1aUFB-RZMcQrMovcjI3S7l-XZHbqa3mtDgA0iFdBTSXib4odJySQUlXw8QRbYBkY81Gdd5eVEyOEJ7axgCwY6wpyAG-x_Yp7LGfnReX0sx6EItydP54roGaZtFBA9xFIAsWeUH-MlS5QBZ8kxAWpq22xYIfWIJS2ktnlCMB57RWOO1gXf2xIK8xnqbJxoXhnCaMsQbL6_IFdtziHcA81hjdLEYoewxV5PpVQU5oSLYYQFVdVeltChADcare4AaFQ5WkcbrY4g42i849kbKH1iq8WCPTHmaskAUcPI3NkILYln5gJKh8iW5hDa-zvdrCDz0VN17cslihjBa9WDhzxm4rAzPyJwGgkP3fgD9XYxNl1xNpuSKwxHL048aQJn3h4g9giBYuKki8IVr6XYtrVTr9pVJO6lUWxNRXkqvdX7PbK9s2U5l0OHHNcPEw4z657HGSwCrHUCma3PCb_9uK5Vib3TglEK9MZX1FnXueeq888T888QG7WJlziD6PIXfh7L5oNV0J_2akzRN-WPWo7EgB5rSOGZxu1Lf-z2h04k2exIsxfNIDa_-EtYcaO36CVA7J5Z5CvsRdN4NLnuEiuPUmyXauMFBNw7uE_4IHbJlfdkxTQitufEwKJBXu-iAHaV1Xt2U3XMGgzcmBeEg0Bh7-UVrv2K0HOBYXl3jBDph8AqG_T5PyiG-vGllwzGmz3fNNPfYtYcYdhXlAbnmIgoRHQfaAgZKhE1PwpTvq-hpLe342gg4moggcHWAycaOpjbmwfCcUvJbhaLkfz8dYWDWXcD0X-WxiHq4VIDNSYJD_SESMGZ3cDT2BO_h__p0tX9f8NQY3EtWfefz-HpMPizm_cWyHiITjSv3BMTPom1SHsOqNhdJ2H6GmvbxsG2VvGV_5VEWnR47ZlG8Oaw5t0uyjGmSnOwGpnsEXyRrXCnxDIPwp88ap1frhE-cbzLc3qRBUFxQomAVPxHDOr6MYLON1nmLEiyo2fcrTai-w35NYk43uCuc8g2P1qv1FvgjccpqGRVrH4wOI0Be5qI3xiW_eHQ4FcExtMiynPW_R2K3Senjr_21MM-wqyZZWPZtydTI3Erw4B4dXySCxeTmEfEKoob1q8y3zDPL-UWdFTJ9yUGPw_J09FlYG_AgIOIGlMaEZYFrJ_n7YWX5RVyi7RY4Pt2tyHTHTvwt1jIaB3mMxt3RJ30RtIZKW1mBahBD7n6dGhtLYJmv4yjb_W0MHU8brGqENiNanqz6HB1qc7RM9vgBtjZ8N4JNU1ZaYwEz9AWsmRj1hIHSyxtd2Hzr2YTBQ06cEdypog1Ir2lZdysO3sPjw3Mm2B6G1bK_mH_UUd_YgZqBLyq4j0eCvl64byxDi6s-BuCE_Y0lqOg_XGWqnuJhIw1Vsk8QB2etVe7wvG3MeMN--WQ2DvBJ_HTV9I1zjk7zHCHrHCH7HCHnzCURTknS6_0DTy5FsEuCZSuCvJaXrofXP2FOQ0v9xOwpPq9k9BWSBPIUgyWR3IGCGkhoV0EMJcFQIkZJcColjjRXWWdJgqtEXFfZh41SmuipexLfVARTWaDwvaGUxl3yW0SJeitSAJmuzlZsZqhC3nAk3ZlYzehYrrRTRUdq9pTdjqMx-CrwKlyWFPGr6PgaoRLxFUFyOHpwlN2-r6e1GJXoq7pjywqxVchtmVhfOW0r01WN-EpN_WmoQPUqGRkPz1QhNaXMNS85K3XSB0-he1K_rbLoWZqocteTSuwqb47GqSBsWRmu0urIyvMrJbK87apUpF22yo8vORyzEQaMjxIxpPo_8Zj9iWe57r26Y1cpVA1aVZI01bd095XsMXTKIsVqKSeUiY6MpVOVoSwhT3nlDapclk-5zcDVbuuprgpIlbqrBco0NYKrCJYqscpOJVI5Le2u6lcKqGuzMQbI989lO1aTRibPrJJXXqsg2zIMdjX2ZI0rfpkEx9Erq0pCZYmEcgZ6FcgirBgVfTleXP9hGBb5AHtFD3dxfIfNPhbcTlWhVpPdbGU3q9kgC9pWBFtVuAL0bTUCrOLdbu0Vb-lRgw-gVbLk0FGhcFTZq_uWPvd9qUhtGGUvVNNDjRO9BaqTpQJoPivI2rTqnysKc9R3nSbde4Puy28zTeqglTpso7pGK9VspVqtVLuV6qiPJE2y20722sl-O3nQTh62kqGEW8lmO9lqJ9vt5HYvvXYvvXYvvXYvvXYvvXYv_XYv_XYv_XYv_XYv_XYv_XYv_XYv_crLTrezZ-meRpvO6KVTfBuG78cbFlJ4ydJ57XZoLvjqOQk6o-IbaicvHm8uIwqvUvYl8fW_a6NBrA==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWe1v2kwS_1dWVFVaCR78buDDnYCEFqlJUEhbPbqeTotZgxXj9WOv83Jp_vebsXcNXsxTlcuHFo9nfvM-O7ZfOwFfs86o8_79a5REYkReL8SW7djFiFysaM4uuqQifKNZRFcxyy-QJ-SJWEb_LdlMJ31GNqTN6C6KX5C6ZBvOyNd5l4xBMO6SnCZ5L2dZFF50L9Is2tHsZcpjniH3OzYIjbDUJm9NeLZm2Z7BMHwzcEE0jhK2J9u-4zszlMtZwJN1AzR0w0EYXLyhcTF_CrY0E6X5Rc6u6fP3aC22cB3SOGfAsxW7-AtdsRh9FFmBtKDIHlUwohz1JBCwZUqDKNkA3TGAlNHkYU9yjbc38vb-_Y-kVkruL38kBP6CmOb5JQtJLoB89ShIGMXx6J0zHc9co5uLjD-w0Tvryr-0rW6AnozAdaOLwe09sWizFaMVj9eStfeEPoys9LmbPY8so5u9wL-aLpas95qmnjWwBrWmiW9OzanSFIbh_6UJ4prd0_xB6rqyZ9bsstZlup47NY7xlJuXjj829Tix7DEK2AHobDazr_ahuvJc0zgNOpnZnjHVQDdUsCf6sgccTp0acOb6M9M_CVjp060sVouMBwrQvnJnbg3oT8zZ2DoJ6IxNZyAtBJxNRtMtiWnC_mP860dnwouyqMk4TfMfnX9XfPiXDOD2gmUhz3bk6jlgqYh4QmPymSZraJJN_47RNVnyUJBvNI7WFO-TCTT1msCPuwKamSyZKNIm7hBw71jAokdG5knAd4BFouSRQx76ZGJN-rcpS-7Zs-h_ZyuwORKsiWAaBxCzKGYgDoqTB43NBDaAWCICWdCXHUugVTIaPLCsT5bjBZkUObR7npMbJp549kD6RCmvBe7YLhKCJoFmheMA_O1KUFB-TZMCQjOvvMjJ_TbjxWZLbqd3mtDgA0iFdBTSXi54Wmu5pIKSrylEka1B5OOBjOu8vioZHKe9FQyEYEvYcxCD_Y_sU1VvPzpvb5UYdGRbwjEe09n8pmmSbZbRTOMoAByyLFL4yTLlDFnwXECKNCELhD6xhGX0ILZQpCnPaazx2sB79cyC4oD1rkg0LgznNGOIN15ck2u24xD7AOa0xuhiYUI7YN4m0-sackJFsMViqmuwTm9ZjBqMd-gBalQ4WFEar48h4mi_4NgqGX9kmcaD_TLlWcYCUcLJ39gULYhVFwBKjsoX5BLa-6bYrSDw0F-H3pNLFjOE0SoJm2DGwGVleE5mNBAcmvkD6O9ibLrkejIl1xyOXp591ACqvD9G7AkEwcJ1HYEvXEu3a2lle2hflbSjqrU1EeWl9Frn98z2KpetVQUdftwwTDyMrH_u670CsNoBZLrWR_z277ZVJXaiG6cU6o2prLeoc89T550n5p8nNmgXq3IG0ecZ_E6r5oNW0530D5ykWcaf8h6NBUlpRuOYxe1Kfe_3hE5MN6ucMoJleEipKdZfwB6U6L1qHpwfiyKDHQq68BYXQkLFfgJeJdroQRXj4CHhT9AtG9aX3dOE0BodD4kSebmNUuwurQsPTdm-5DCEY1ISUoHG2IsvWiuWYyaFE3t5g9PoiMErGXa7IqkG-uK2lQ1Hmj7rNdPcfQenMewzygNyw0UUIjoOtzkMlwgHAAkzvqujp7W342vjYG8igsBVClOO7U1tzIbhOWXltwpFyW-emphBmKJabLAUrotYRD1cPMD-JMFh_xgJGL9bODJ7gvfwf33q2r8veMIwLB1cYpZ95_P4Zkw-zGf9-ULTZ6Kh1V6BuvJok1RHtarZeRK2n7OmvT-QWyXv2F9FlEfHR5NZFnUBa9HdgizA1uRofzDdPfg8WeEWiuccpCV70Ti9gw75xPk6x21PGgRFB6ULVvEjMazvywi24mhVtCjBQrv6fq0JHe68X5OY0zXuE8d8w731ah0G_kgcs1pGzdoHo8MIkBeF6I3xAaF87DgWwfE0z_OC9b9HYrvO6NOv_bUwz7DbJnlY9XPF1MjcUvDgAR2fJ4LF5PYJ8UqihvWrzLfMOcv5RZ2VMn3JQfdD9HgkWlgb8OAg4gaUxoRlgasp-fshZvllXKLNBjg-3S_JdMuO_C1XNxoHRYzG3dNnfVm0hkpbVYFqQEPufp0aG0tgUaziKN_-bQwdTxu4arQ2I1qdvvp8HWrztUr2-BE2O3yvgk1TVVpjSTP0Ja2ZGPVEgtKLW13YPPUsw-ChKM4J7l3RGqRXtKq7JQfv4RHjJRdsB_Nq0Z_PPuqoJ_akZuDLCu7jUaGvIO6JhWl-3ccAHLGfWJTK_sN1p-4pHjbSUCf7CHFw1urlDs_b2IwT9sunt3GAT-7H66hvnHOkmucIWecI2ecIOWcuknBKkl7vH3hyKYJdESxbEeS1vHQ9vP4Jcxpa6idmT_F5FaOvkCSQpxgsieQOFNRAQrsKYigJhhIxKoJTK3Gkuco6SxJcJeK6yj5slMpET92T-KYimMoChe8NpTTumN8iStRblBLIdHW2cmNDFfKGI-nOxGpGx3KlnSo6UrOn7HYcjcFXgVfhsqSIX0fH1wi1iK8IksPRg6Ps9n09reWoRF_VHVtWiK1CbsvE-sppW5muasRXag6fmEpUr5aR8fBMFVJTytzwirNWJ33wFLon9dsqi56liSp3PanErvPmaJwKwpaV4Sqtjqw8v1Yiy9uuS0XaZav8-JLDMRthwPgoEUOq_xOP2Z94luveqzt2nULVoHUlSVN9S3dfye5DpyxSrJZyQpnoyFg6dRnKEvKUV96gzmX1JNwM3MFtPdV1AalSd7VAmaZGcBXBUiVW26lEaqel3XX9SgF1bTbGAPn-uWrHetLI5Jl18qprFWRbhsGux56sccUvk-A4emXVSagtkVDOQK8CWYQ1o6IvxvObPwzDIh9gr-jhLo7vv9nHktupK9Rqsput7GY9G2RB24pgqwpXgL6tRoBVvgs-eCVcedTgA2iVLDl0VCgcVfbqvqXPfV8qUhtG1Qv19FDjRG-B-mSpAZrPCrI2rcNPHaU56ptQk-6doPvyu06TOmilDtuortFKNVupVivVbqU66gNLk-y2k712st9OHrSTh61kKOFWstlOttrJdju53Uuv3Uuv3Uuv3Uuv3Uuv3Uu_3Uu_3Uu_3Uu_3Uu_3Uu_3Uu_3Uu_9rLT7exYtqPRujN67ZTfleHb85qFFF64dN66HVoIvnxJgs6o_P7aKcrHm8uIwmuVXUV8-x8g61Ul" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 
@@ -1149,8 +1191,14 @@ flowchart TB
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
-        E2E61C_e_g_MES_300["📦 e.g. MES 300"]:::app
-        E2E61C_e_g_XEUS["📦 e.g. XEUS"]:::app
+        subgraph E2E61CLN_e_g_Boundary_Apps[" ⬛ e.g. Boundary Apps"]
+            direction LR
+            E2E61C_e_g_XEUS["📦 e.g. XEUS"]:::app
+        end
+        subgraph E2E61CLN_e_g_MES_Systems[" ⬛ e.g. MES Systems"]
+            direction LR
+            E2E61C_e_g_MES_300["📦 e.g. MES 300"]:::app
+        end
         E2E61CMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
         E2E61CDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
     end
@@ -1172,7 +1220,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzzaQoQqpU06dUoBETY2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpfygBacTAVK7EWeapSrkD2uog05-b4K1fUgXXCyNJ4RZBuT7qElcBBBNImkqWxIKPo2sVZUhsrtkTgu1Ri4ljOn9DWdqri1TKiTouLlaiIBOQFRTUEVZWVNcYpjThKczbT62tbGg6d-asW2vVmTVaETpSy1y3Y9SgqPRIK0Wzi2Z8zFV0OKpzHkBjEi1FEASQaUEiTEmvPr2YEompeQpSEmqMeVCOHtDHP12U6oi-wvOXv_kpGP315-tO70g5zC_byaZyApnz7btLUya52QzDGa_rVFfMG272-13_gOTUUV3Mb2TDzAPXmE--xiVSF5Bl8gpaW9VWnDGBNzRAuqMeB13w4jf7Qw3aJ-YPWRihxHNcY3lwcC2P8I0qLKczAqaz4kb_I6sqGQnRwyf7KhN3MvLYDRwr0cX5yRwf_lXkfXHJOnBUBCJ4llKgquN1T_0OweDGOJZPPbD-Mi266gJdAh8mX0h6CPoQ0DHcbDDbwL89L-Hb2Zrx7up45sq2X0oC4hDKG55AnG_lK9Wd9A1SFUUWUcRjDKwm65to3t-hT7IpIp9gUdAqnr1KSbHBlgHkHXA2aTY753xnnGEP8g-GXlZgn_fwovzs33eM1W1Kk09SNlzf3YJxW3Xe4qsCs2rmoBI7uUIn0Mu8Ox5-oCJOvB7MbrIdi_0lNaiqY6BflDb4kP7oy1eT3VfUu3P7OQdsQYwQ45eiYPZJPC_-ufeJ1QaxKjtbWm5eS54QnXwG-IK4vHNtoTGG5m8K5sg9vxthXj6-PFThZfLdudNin9hNuNhhx1jIGtl01bAp-syuP9rMtmQakh5Jratfy_Enp6e7pxlVtNaQLGgnFnOo7nQ8F5kMKWlUHgNWbRUWbhME8upLharzHGi4HGKTVgY4-oflLtG5Q==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlv9v2joQwP8VKxW_wRraQtuoQkpIeOIptNWyre_pZYpMfIA1k0Sxs5Z1_O87xxRSWEXfjATJffnc5XI-82ylOQPLsVqtZ55x5ZDn2FILWEJsOSS2plTiVRuvJKRVydUqhO8gjFLk-Yu2dvlCS06nAqRWI2eWZyriPzaobr94MsZaPqJLLlZGE8E8B_J53CYuAkSbSJrJjoSSz2JrXXuI_DFd0FJtyJWECX164EwttGRGhQRtt1BLEdIpiDoFVVa1NMNHjAqa8myuxRe2FpY0-9YQ9uz1mqxbrTjbxiKfvDgjuFot0ulgbumCT6iCDs9kwUtgRKqVAJIKKiVItDHm9b0PMzKtJM9ASlKvGRfCORnh8nptqcr8Gzgn3tVV3_Y2t51H_UDOWfHUTnORl86Jbdt7TFoUZLcM0-tp6pZp25eXXv9_MBlV9JDpXx1hdl8xX3SMSixeSVdYU9Lbi7TkjAl4pCU0K-L33V1Fgsv-aEd7R_aQi4OK6Bo3qjwc2vYxpqHKajovabEgbvhfbMUVuzpn-M3Oe8S9vw_HQ_fT-O6WhO6_wcfY-mqc9GLYEKnieUbCjzvpFhecBf3uMLxNIJknXl5ljJarxC0KiWFIXJ1Nu1MCH-YfyIuSaOWrEG-H0ctEqPn_BJ-jZvYp9A1bKxDpOA620c4dMnYs5UkQJdFKKlgeJIwqslH9WbqafW7bv81Yw1F3LGlDmzzUPPdHVUISQfmdp5B4lXz1JruXhlxbkY0VQSsTY9eh-3Q_qOnDXKokEDjuMjVoppxeGLA2IBuDm2l5OrjhA6OIvpBTMvbzFH_-ju5ub075wETVO9DEqx_LXB6WCEfM4Gds1TS_Li2S3Psxfo-4wDn780glmuC3bHSQ_W7SKW02SD3yvLAxzkb2sXHWdHW3rvZ7ptbBxgxhjjV61SzMJmHwV3Drv2NHhgnu4_1Ww60meEq18W86LUwmD_stNNm1yZttEyZ-sN8hvh61QabwIN1_88YluDOD56zPLtCQdfJZJ-SzTRicdY022RXVFOWlsD392Rb2-vr6YG5bbWsJ5ZJyZjnP5vDG_wAMZrQSCo9ci1Yqj1ZZajn1IWpVBSYKPqf4EpZGuP4F_SiKpw==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 
@@ -1229,8 +1277,14 @@ flowchart TB
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
-        E2E61F_e_g_MES_300["📦 e.g. MES 300"]:::app
-        E2E61F_e_g_XEUS["📦 e.g. XEUS"]:::app
+        subgraph E2E61FLN_e_g_Boundary_Apps[" ⬛ e.g. Boundary Apps"]
+            direction LR
+            E2E61F_e_g_XEUS["📦 e.g. XEUS"]:::app
+        end
+        subgraph E2E61FLN_e_g_MES_Systems[" ⬛ e.g. MES Systems"]
+            direction LR
+            E2E61F_e_g_MES_300["📦 e.g. MES 300"]:::app
+        end
         E2E61FMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
         E2E61FDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
     end
@@ -1252,7 +1306,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9A5wuoiyEZbtxwM9Q4X-7N3c1S1gM0lm1ZOxWV_35PV5QJGr0lGdt5eU77nKfts5VkDCzHajSeecqVQ54jS01hBpHlkMgaUYlvTXyTkJQFV_MA7kEYp8iyV2-VckMLTkcCpHYjzjhLVcifllC7nfzRBGt7n864mBtPCJMMyPWgSVwEEE0iaSpbEgo-jqxFlSGyh2RKC7VELiUM6eMtZ2qqLWMqJOi4qZqJgI5AVFNQRVlZU1ximNOEpxNtPrC1saDpXc3YthcLsmg0ovStFrnqRSnB0WiQVgvnlkz5kCpo8VTmvABGpJoLIImgUoLEGBNefXswJqNS8hSkJNUYcyGcrT6OXrspVZHdgbPVOzrq2L3lZ-tBL8jZyx-bSSaywtmybXsNk-Y5WQ2D2Wtr1DdM2z487HX-A5NRRTcxvaMvMHffYb76GJVIXkHnyClpr1WaccYEPNAC6ox4HXfFiH_Y6a_QvjF7yMQGI5rjGsunp7b9FaZBleVoUtB8StzgT2RFJTvaZ_hk-23iXlwEg1P3anB-RgL3t38ZWX9Nkh4MBZEonqUkuFxZ_T2_s9uPIZ7EQz-M9227jppAh8D2ZJugj6APAR3HwQ5_CPDLvw4_zNaOT1OHt1Wy-1QWEIdQ3PME4l4p361u99AgVVFkGUUwysCuuraO7vkV-mkmVewLPAJS1a1PMTkwwDqALANORsVO94R3jSO8ITtk4GUJ_v0Mz89OdnjXVNWqNPUgZa_92SQUt133JbIqNK9qAiK5FwN89rnAs-flCybqwJ_F6CLrvdBTWoqmOgZ6QW2L9-2vtng91X1Ltb-zkzfEGsAEOXonDmaTwP_hn3nfUGkQo7bXpeXmueAJ1cEfiCuIh7frEhquZPKpbILY89cV4unjx08VXi7rnTcp_rnZjHsddoCBrJWNWwEfL8vg_q_JZEWqIeWV2Lb-vRF7fHy8cZZZTWsGxYxyZjnP5kLDe5HBmJZC4TVk0VJl4TxNLKe6WKwyx4mCxyk2YWaMi3_bLEb9" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdln1v2jwQwL-KlYr_YA1toW1UISVNmJhCWy3buunJFJn4AGsmiWJnLev47jvHFFJYRZ8ZCZJ7-d3lcj7zZKU5A8uxWq0nnnHlkKfYUnNYQGw5JLYmVOJVG68kpFXJ1TKEnyCMUuT5s7Z2-UJLTicCpFYjZ5pnKuK_1qhuv3g0xlo-pAsulkYTwSwH8nnUJi4CRJtImsmOhJJPY2tVe4j8IZ3TUq3JlYQxfbznTM21ZEqFBG03VwsR0gmIOgVVVrU0w0eMCprybKbFZ7YWljT70RD27NWKrFqtONvEIp-8OCO4Wi3S6WBu6ZyPqYIOz2TBS2BEqqUAkgoqJUi0Meb1vQ9TMqkkz0BKUq8pF8I5GuLyem2pyvwHOEfexUXf9ta3nQf9QM5J8dhOc5GXzpFt2ztMWhRkuwzT62nqhmnb5-de_38wGVV0n-lfHGB2XzCfdYxKLF5Jl1hT0tuJtOCMCXigJTQr4vfdbUWC8_5wS3tD9pCLvYroGjeqfH1t24eYhiqryaykxZy44X-xFVfs4pThNzvtEffuLhxdu59GtzckdL8FH2Pru3HSi2FDpIrnGQk_bqUbXHAS9LvD8CaBZJZ4eZUxWi4TtygkhiFxdTLpTgi8m70jz0qilS9CvB5GLxOh5n8NPkfN7FPoG7ZWINJxHGyjrTtk7FDK4yBKoqVUsNhLGFVkrfq3dDX71Lb_mrGGo-5Q0oY2vq957q-qhCSC8idPIfEq-eJNds8NubYiayuCVibGtkN36X5Q069zqZJA4LjL1KCZcnpmwNqArA2uJuXx4IoPjCL6Qo7JyM9T_PkQ3d5cHfOBiap3oIlXP5a53C8RjpjB79iqaX5dWiS5dyP8HnKBc_b3gUo0wa_Z6CC73aRTWm-QeuR5YWOcDe1D46zp6m5c7bdMrb2NGcIMa_SiWZhNwuB9cOO_YUeGCe7j3VbDrSZ4SrXxXzotTMb3uy003rbJq20TJn6w2yG-HrVBpvAg3X3zxiW4NYPnpM_O0JB18mkn5NN1GJx1jTbZFtUU5bmwPf3ZFPby8nJvblttawHlgnJmOU_m8Mb_AAymtBIKj1yLViqPlllqOfUhalUFJgo-p_gSFka4-gNgJYrF" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 
@@ -1745,7 +1799,7 @@ flowchart TB
 <td>Tower-led validation</td>
 </tr>
 <tr>
-<td>Go-Live (Release 2)</td>
+<td>Go-Live (R1 – R5)</td>
 <td>Per release plan</td>
 <td>Per release plan</td>
 <td>Planned</td>
@@ -1884,11 +1938,15 @@ flowchart TB
 </tbody>
 </table>
 <hr />
-<p><em>E2E-61 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026</em></p>
+<p><em>E2E-61 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-61 — R3 Consignment Material - Vendor</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>E2E-61</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

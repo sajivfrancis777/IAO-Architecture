@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IF) (OTC-IF) Tower<br/>
   Capability O-060 · O Order Management (IF)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Order To Cash (IF) (OTC-IF) |
 | **Process Group** | O Order Management (IF) |
 | **Capability** | O-060 - Manage and Track Orders (IF) |
-| **Release** | Release 3 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 11 Interfaces, 64 Enhancements, 11 Forms, 1 Workflows |
@@ -198,7 +198,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Customer Business Analyst
+    subgraph lane_0["Customer Business Analyst"]
         n1["fa:fa-user Maintain Customer Master Files"]
         n2["fa:fa-user Check for the Customer Account Information"]
         n3(["fa:fa-play Receive Validation Request"])
@@ -220,7 +220,7 @@ flowchart TD
     class n6 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVWuP2jgU_StWRiO2UpDyJDQfdgWBrCp1ulVpu1qVfjDODVjj2Kzt8FjKf69NCAE682kj8bgn95xzfbDDwSGiACd1Hh8PlFOdokNPr6CCXop6C6yg56IG-IolxQsGqmd7SsH1jP53avOj9c62WSzHFWV7i85gKQB9eeeikSEyFynMVV-BpGXP7a0lrbDcZ4IJabsfYFh65cntfGssZAGya_C8xCexoTLKoYPDJEqi3PIUEMGLG9EyLocl6R3tcExsyQpLfRq_VvCEd3_TQq9MXWKmwPSsdMXe4wUwu0Yta4uRWm7aMKiyPtwENltjQvnS4JFnIIn5cwfF3vGIjo-Pc34xRZ8nc47MRRhWagIlUtrA041GJWUsfYiyUR57rtJSPEP6EEyTSRi4xK4kNUv3XBtufwt0udLpQrDi3Nrf2jWkwXrnyl0aeK7cm_c7L-BF55QNgmEwvDiNEz_zs9apLMv_5WRylZ-xej57TcM8yCcXLz8exJn3q167zEmUjPz7nEBuKIEr0TzPw2kX1XQQ-97rouM8HHjZnegSa9jifSf4Nosugnmc5H7yqmDjdz9lvfgoBWkFw2mcxxfBZOzno-BVwWjkR8PzhEZnKfF6hbJaaVGBRONamf2uFBpxzPZKN3324v63uVPitMR9Gzt6wpRr8-q4T1hp85FTc2rnzvcranBLzVZATLxCInPUO_6IEFFzjd5xc6vCmgp-KxP-dtFZM5PnJyBAN4C-YkaLU7-B_q3BjO18f3NFjAzvE2wobNFMY10rhHmBJmDGrcxy0V9rS74bOj4cWjf70OovzLEjV1FNd1Rp9cfcOR6vWIOXWbAjzES7gT-bvdCxzGlpvvAA9fu_G4Vz6TdlcC7DpozP5aApo3MZ2_LH3PnHRv-jE2nxD-IEX29369AeoBs4eBkOLw-RGzh6GY7bXX-DDlrUcR2TYYVp4aQH5_TEN_8KBZS4Zto5ug6utZjtOXHS05PRqdfmF4YJxWbDVg14_AmtIgZX" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVWuP2jgU_StWRiO6UpDyJDQftoJAVpV22qq0Xa1KVRnnBqxxbNZ2eJTy32sTQgY682kjQbgn95xz741tDg4RBTipc39_oJzqFB16egUV9FLUW2AFPRc1wBcsKV4wUD2bUwquZ_THKc2P1jubZrEcV5TtLTqDpQD0-a2LRobIXKQwV30FkpY9t7eWtMJynwkmpM2-g2HplSe386OxkAXILsHzEp_Ehsoohw4OkyiJcstTQAQvrkTLuByWpHe0xTGxJSss9an8WsED3v1DC70ycYmZApOz0hX7Gy-A2R61rC1Garlph0GV9eFmYLM1JpQvDR55BpKYP3ZQ7B2P6Hh_P-cXU_RpMufIXIRhpSZQIqUNPN1oVFLG0rsoG-Wx5yotxSOkd8E0mYSBS2wnqWndc-1w-1ugy5VOF4IV59T-1vaQBuudK3dp4Llyb75vvIAXnVM2CIbB8OI0TvzMz1qnsiz_l5OZq_yE1ePZaxrmQT65ePnxIM683_XaNidRMvJv5wRyQwk8Ec3zPJx2o5oOYt97WXSchwMvuxFdYg1bvO8EX2fRRTCPk9xPXhRs_G6rrBcfpCCtYDiN8_gimIz9fBS8KBiN_Gh4rtDoLCVerxDDHL57X-dOVistKpBoXCuz8JVCI47ZXum5863h2Iv7JrXEaYn79hWgB0y5Nh90oT9gpc0tp2YHX1ODa2q2AmJGLSQy277jjwgRNdfoLTePKqyp4Ncy4auLzpqZ2X4EAnQD6AtmtDjlG-i_Gk6V__GEGBneR9hQ2KKZxrpWCPMCTcCUW5mO0fu1Jd8UHR8OrZs9wPoLswXJqit3uqNKqzdz53h8who8z4IdYWa6G_irWRcdy-yc5gcPUL__p1E4h34TBucwbML4HA6aMDqHsQ1_zp1_7eh_diIt_k6c4KdL3zq0m-kKDp6Hw8uBcgVHz8NxuwOu0EGLOq5jZlhhWjjpwTmd_uYfooAS10w7R9fBtRazPSdOejolnXpt3jBMKDaLt2rA4y8-oQo6" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -454,6 +454,7 @@ Integration patterns identified from the system flow analysis for O-060:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
@@ -581,6 +582,6 @@ Standard RAID items for O-060 (Order To Cash (IF)):
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*O-060 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: March 2026*
+*O-060 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: April 2026*
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-060 — Manage and Track Orders (IF)</span></div>

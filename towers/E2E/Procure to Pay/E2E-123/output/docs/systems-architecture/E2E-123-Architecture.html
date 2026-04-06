@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
   Capability E2E-123 · Procure to Pay</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 2<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 2</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -646,13 +688,13 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Cost Accountant
+    subgraph lane_0["Cost Accountant"]
         n1["fa:fa-user Check Material Price"]
     end
     class n1 userTask
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2yAU_CuIVeSLI9mOHae-JU6QKnWllbLdHpoeCIYYBUMEOB-N8t8L-fI2VU7lgORh3sx7g_ARElVRWMBe78gltwU4BramDQ0KECyxoUEILsAH1hwvBTWB5zAl7Zz_PtPidLP3NI8h3HBx8OicrhQF37-GYOwKRQgMlqZvqOYsCION5g3Wh1IJpT37hY5YxM5u16OJ0hXVHSGK8phkrlRwSTt4kKd5inydoUTJ6i9RlrERI8HJNyfUjtRY23P7raGveP-DV7Z23wwLQx2nto34hpdU-Bmtbj1GWr29hcGN95EusPkGEy5XDk8jB2ks1x2URacTOPV6C3k3Be_ThQRuEYGNmVIGjHXwbGsB40IUL2k5RlkUGqvVmhYvySyfDpKQ-EkKN3oU-nD7O8pXtS2WSlRXan_nZyiSzT7U-yKJQn1w-4MXlVXnVA6TUTK6O03yuIzLmxNj7L-cXK76HZv11Ws2QAma3r3ibJiV0b96tzGnaT6OH3OiessJ_SSKEBrMuqhmwyyOnotO0GAYlQ-iK2zpDh86wS9lehdEWY7i_Kngxe-xy3b5phW5CQ5mGcrugvkkRuPkqWA6jtPRtUOns9J4U4NSGQvGhKhWWizt5dQvGf9cQIYLhvs-bFDWlKzBqxvIvzLwpl1YC_jrUuAu_lOjrvZ-QTCEDdUN5hUsjvD8wN1PoKIMt8LCUwhxa9X8IAkszg8BtpvKeUw5dv01F_D0B1EcX54=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CuWVyiXICUhITQ3CFiq1JVWYtseSlUZxyYWjo1sh48i_nttPsKWilN9iJTJvJn3Jnk5QqIqCgvY6x255LYAx8DWtKFBAYIlNjQIwQX4hjXHS0FN4DlMSTvnv8-0ON3sPc1jCDdcHDw6pytFwdfPIRi7QhECg6XpG6o5C8Jgo3mD9aFUQmnPfqEjFrGz2_XRROmK6jshivKYZK5UcEnv8CBP8xT5OkOJktVfoixjI0aCk29OqB2psbbn9ltDX_H-O69s7e4ZFoY6Tm0b8QUvqfAzWt16jLR6ewuDG-8jXWDzDSZcrhyeRg7SWK7vUBadTuDU6y1kZwrepwsJ3CECGzOlDBjr4NnWAsaFKF7ScoyyKDRWqzUtXpJZPh0kIfGTFG70KPTh9neUr2pbLJWortT-zs9QJJt9qPdFEoX64K4PXlRWd6dymIySUec0yeMyLm9OjLH_cnK56nds1lev2QAlaNp5xdkwK6N_9W5jTtN8HD_mRPWWE_pBFCE0mN2jmg2zOHouOkGDYVQ-iK6wpTt8uAt-KtNOEGU5ivOnghe_xy7b5ZtW5CY4mGUo6wTzSYzGyVPBdByno2uHTmel8aYGAkv6K_qxgKUyFowJUa20WNoF_Hlh-iNjR2C4YLjvgwdlTckavLrh_MaBN-2C6wrcR_ChaVfbvSwYwobqBvMKFkd4Xnb3Q6gow62w8BRC3Fo1P0gCi_NSwHZTOY8px67X5gKe_gDWvGOB" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-123 — TD Substrates Manufacturing Process</span></div>
 
@@ -928,8 +970,14 @@ flowchart TB
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
-        E2E123C_e_g_MES_300["📦 e.g. MES 300"]:::app
-        E2E123C_e_g_XEUS["📦 e.g. XEUS"]:::app
+        subgraph E2E123CLN_e_g_Boundary_Apps[" ⬛ e.g. Boundary Apps"]
+            direction LR
+            E2E123C_e_g_XEUS["📦 e.g. XEUS"]:::app
+        end
+        subgraph E2E123CLN_e_g_MES_Systems[" ⬛ e.g. MES Systems"]
+            direction LR
+            E2E123C_e_g_MES_300["📦 e.g. MES 300"]:::app
+        end
         E2E123CMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
         E2E123CDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
     end
@@ -951,7 +999,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVW1P6jAU_ivNDN9A5wugiyEZbNxwM9Q4X-7N3c1S1gM0lm1ZOxWV_35PVxQEjd6SjO28PKd9ztP22UoyBpZj1WrPPOXKIc-RpaYwg8hySGSNqMS3Or5JSMqCq3kA9yCMU2TZq7dKuaEFpyMBUrsRZ5ylKuRPS6j9Vv5ogrW9T2dczI0nhEkG5HpQJy4CiDqRNJUNCQUfR9aiyhDZQzKlhVoilxKG9PGWMzXVljEVEnTcVM1EQEcgqimooqysKS4xzGnC04k2H9naWND0bs3YtBcLsqjVovStFrnqRinBUauRRgPnlkz5kCpo8FTmvABGpJoLIImgUoLEGBNefXswJqNS8hSkJNUYcyGcnT6ObrMuVZHdgbPTPT5u2d3lZ-NBL8g5yB_rSSaywtmxbXsDk-Y5WQ2D2W1q1DdM2263u63_wGRU0W1M7_gLzP13mK8-RiWSV9A5ckqaG5VmnDEBD7SAdUa8lrtixG-3-iu0b8weMrHFiOZ4jeVez7a_wjSoshxNCppPiRv8iayoZMeHDJ_ssEnci4tg0HOvBudnJHB_-5eR9dck6cFQEIniWUqCy5XVP_D3Dw57McSTeOiH8aFtr8Mm0CKwO9kl6CPoQ0THcbDFHyP88q_DD9O14_Pc4W2V7T6VBcQhFPc8gbhbyncL3G8bqCqKLKMIRhncVeO24D2_gu9lUsW-wGMgVZ31SSZHBlkHkGXA6ajY65zyjnGEN2SPDLwswb-f4fnZ6R7vmLJamaYgpOy1Rx-Qinuv8xJZFZxXdQKh3IsBPvtc4AH08hUZ76A_C9Jltjqip7UUT3UcdIO1rd63v9rq66nuW6r9nR29JdoAJsjTO4kwmwT-D__M-4Zagxg1vikwN88FT6gO_kBiQTy83dTRcKWVT7UTxJ6_qRJPH0N-qvCS2ey-SfHPzaY8aLEjDGSNbNwI-HhZBs-BNamsSDWkvBLb1L83Yk9OTrbONKtuzaCYUc4s59lcbHg_MhjTUii8jixaqiycp4nlVBeMVeY4UfA4xSbMjHHxD701SF0=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlm1v4jgQgP-KlYpvsA200DaqkAIJJ06hrTa72ztdTpGJB7DWJFHsbMt2-e87jlNeW9E7I0EyL89MJuMxL1aSMbAcq9F44SlXDnmJLLWAJUSWQyJrSiVeNfFKQlIWXK0C-AHCKEWWvWorl2-04HQqQGo1cmZZqkL-s0a1e_mzMdbyEV1ysTKaEOYZkK_jJnERIJpE0lS2JBR8FlnrykNkT8mCFqomlxIm9PmRM7XQkhkVErTdQi1FQKcgqhRUUVbSFB8xzGnC07kWX9paWND0-46wa6_XZN1oROkmFvkyiFKCq9EgrRbmliz4hCpo8VTmvABGpFoJIImgUoJEG2Ne3XswI9NS8hSkJNWacSGcsxGuQbcpVZF9B-dscH3dswf1betJP5DTyZ-bSSaywjmzbfuASfOcbJdhDrqaumHa9tXVoPcfmIwqesz0rk8w23vMVx2jEotX0BXWlHQPIi05YwKeaAG7FfF67rYi_lVvtKV9IHvIxFFFdI13qjwc2vYppqHKcjovaL4gbvBPZEUlu75g-M0uusR9eAjGQ_fL-P6OBO7f_ufI-tc46cWwIRLFs5QEn7fSDc7v-O3OxTC4iyGex4OsTBktVrGb5xLjkKjsTNtTAp_mn8irkmjlXoz34-hVh6gC_OV_DXfzT6Bn4FqBTMdxsJG2_pCyk0lP_DAOV1LB8ihlVJFa9T8T1vAL234zZ01H3am0a9zksQK6P8sC4hCKHzyBeFDKvdfZvjLoyorUVgStTJBtmx7hPb_CDzOpYl_g0EtVfzfp5NKQtQGpDW6nxXn_lveNIvxGzsnYyxL8-TO8v7s9530TVu9DE7B6MHP5RpVw0vR_RVaF86ryIsp9GOP3iAsct79OFWMP_Z6RDnPUVTqteqtUw28Q7Ay2kX1qsO26uhtX-yPz62iLBjDHOu21DLNJ4P_h33kf2JtBjDv6sOFwzwmeUG38Rr8F8eTxsI8m2155t3eC2PMPu8TTQ9dPFR6ph2_fuPj3ZgR1euwSDVkrm7UCPqvD4NTbaZVtUU1RXgvb1Z9NYW9ubo4muNW0llAsKWeW82KOcfw3wGBGS6Hw8LVoqbJwlSaWUx2nVpljouBxii9haYTr3zYbjH0=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-123 — TD Substrates Manufacturing Process</span></div>
 
@@ -1008,8 +1056,14 @@ flowchart TB
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
-        E2E123F_e_g_MES_300["📦 e.g. MES 300"]:::app
-        E2E123F_e_g_XEUS["📦 e.g. XEUS"]:::app
+        subgraph E2E123FLN_e_g_Boundary_Apps[" ⬛ e.g. Boundary Apps"]
+            direction LR
+            E2E123F_e_g_XEUS["📦 e.g. XEUS"]:::app
+        end
+        subgraph E2E123FLN_e_g_MES_Systems[" ⬛ e.g. MES Systems"]
+            direction LR
+            E2E123F_e_g_MES_300["📦 e.g. MES 300"]:::app
+        end
         E2E123FMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
         E2E123FDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
     end
@@ -1031,7 +1085,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWlP4zAQ_StWUL-1EI4eRKhSStJVVykgwrGrzSpy42lr4SZR7AAF-t93HBdaWhCsK6XJHG_sN8_2s5VkDCzHqtWeecqVQ54jS01hBpHlkMgaUYlvdXyTkJQFV_MA7kEYp8iyV2-VckMLTkcCpHYjzjhLVcifllD7rfzRBGt7n864mBtPCJMMyPWgTlwEEHUiaSobEgo-jqxFlSGyh2RKC7VELiUM6eMtZ2qqLWMqJOi4qZqJgI5AVFNQRVlZU1ximNOEpxNtPrK1saDp3ZqxaS8WZFGrRelbLXLVi1KCo1YjjQbOLZnyIVXQ4KnMeQGMSDUXQBJBpQSJMSa8-vZgTEal5ClISaox5kI4O30cvWZdqiK7A2en1-m07N7ys_GgF-Qc5I_1JBNZ4ezYtr2BSfOcrIbB7DU16humbbfbvdZ_YDKq6Dam1_kCc_8d5quPUYnkFXSOnJLmRqUZZ0zAAy1gnRGv5a4Y8dut_grtG7OHTGwxojleY_n01La_wjSoshxNCppPiRv8iayoZJ1Dhk922CTuxUUwOHWvBudnJHB_-5eR9dck6cFQEIniWUqCy5XVP_D3Dw77McSTeOiH8aFtr8Mm0CKwO9kl6CPoQ0THcbDFHyP88q_DD9O14_Pc4W2V7T6VBcQhFPc8gbhXyncL3G8bqCqKLKMIRhncVeO24D2_gj_NpIp9gcdAqrrrk0yODLIOIMuAk1Gx1z3hXeMIb8geGXhZgn8_w_Ozkz3eNWW1Mk1BSNlrjz4gFfde9yWyKjiv6gRCuRcDfPa5wAPo5Ssy3kF_FqTLbHVET2spnuo46AVrW71vf7XV11Pdt1T7Ozt6S7QBTJCndxJhNgn8H_6Z9w21BjFqfFNgbp4LnlAd_IHEgnh4u6mj4Uorn2oniD1_UyWePob8VOEls9l9k-Kfm0150GJHGMga2bgR8PGyDJ4Da1JZkWpIeSW2qX9vxB4fH2-daVbdmkExo5xZzrO52PB-ZDCmpVB4HVm0VFk4TxPLqS4Yq8xxouBxik2YGePiHwQJSHU=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdln1v2jwQwL-KlYr_YA200DaqkEITJqbQVsu2bnryKDLxAdZMEsXOWtbx3XeOU15b0ecxEiT38rvL5Xzm2UoyBpZjNRrPPOXKIc-RpeawgMhySGRNqMSrJl5JSMqCq2UAv0AYpciyF23l8o0WnE4ESK1GzjRLVch_16h2L38yxlo-pAsulkYTwiwD8nXUJC4CRJNImsqWhIJPI2tVeYjsMZnTQtXkUsKYPj1wpuZaMqVCgrabq4UI6ARElYIqykqa4iOGOU14OtPic1sLC5r-3BJ27dWKrBqNKF3HIl8GUUpwNRqk1cLckjkfUwUtnsqcF8CIVEsBJBFUSpBoY8yrew-mZFJKnoKUpFpTLoRzMsQ16DalKrKf4JwMLi979qC-bT3qB3I6-VMzyURWOCe2be8xaZ6TzTLMQVdT10zbvrgY9P4Dk1FFD5ne5RFme4f5omNUYvEKusSaku5epAVnTMAjLWC7Il7P3VTEv-gNN7R3ZA-ZOKiIrvFWlW9ubPsY01BlOZkVNJ8TN_gnsqKSXZ4x_GZnXeLe3wejG_fL6O6WBO4P_3Nk_Wuc9GLYEIniWUqCzxvpGud3_HbnbBjcxhDP4kFWpowWy9jNc4lxSFR2Ju0JgQ-zD-RFSbRyJ8bbcfSqQ1QBvvtfw-38E-gZuFYg03EcbKSNP6TsaNJjP4zDpVSwOEgZVaRW_c-ENfzMtl_NWdNRdyztGjd-qIDu77KAOITiF08gHpRy53W2Lwy6siK1FUErE2TTpgd4z6_wN5lUsS9w6KWqv510cm7I2oDUBteT4rR_zftGEX4jp2TkZQn-fArvbq9Ped-E1fvQBKwezFy-UiWcNP0_kVXhvKq8iHLvR_g95ALH7Z9jxdhBv2Wkwxx0lU6r3irV8BsEW4NtaB8bbNuu7trVfs_8OtiiAcywTjstw2wS-B_9W-8dezOIcUfvNxzuOcETqo1f6bcgHj_s99F40ytv9k4Qe_5-l3h66PqpwiN1_-0bF__OjKBOj52jIWtl01bAp3UYnHpbrbIpqinKS2G7-rMu7NXV1cEEt5rWAooF5cxyns0xjv8GGExpKRQevhYtVRYu08RyquPUKnNMFDxO8SUsjHD1F5mQjJs=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-123 — TD Substrates Manufacturing Process</span></div>
 
@@ -1524,7 +1578,7 @@ flowchart TB
 <td>Tower-led validation</td>
 </tr>
 <tr>
-<td>Go-Live (Release 2)</td>
+<td>Go-Live (R1 – R5)</td>
 <td>Per release plan</td>
 <td>Per release plan</td>
 <td>Planned</td>
@@ -1663,11 +1717,15 @@ flowchart TB
 </tbody>
 </table>
 <hr />
-<p><em>E2E-123 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026</em></p>
+<p><em>E2E-123 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-123 — TD Substrates Manufacturing Process</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>E2E-123</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

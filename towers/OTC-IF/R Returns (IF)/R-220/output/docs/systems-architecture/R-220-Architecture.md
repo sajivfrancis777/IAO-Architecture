@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IF) (OTC-IF) Tower<br/>
   Capability R-220 · R Returns (IF)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Order To Cash (IF) (OTC-IF) |
 | **Process Group** | R Returns (IF) |
 | **Capability** | R-220 - Manage In-bound Transportation (IF) |
-| **Release** | Release 3 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 11 Interfaces, 64 Enhancements, 11 Forms, 1 Workflows |
@@ -198,7 +198,7 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Customer Business Analyst
+    subgraph lane_0["Customer Business Analyst"]
         n1["fa:fa-user Update Shipment Tracking Information in Bill of Lading Field of Return Delivery"]
         n2[["fa:fa-cog Create Returns Delivery"]]
         n3["Share Carrier Account Number with Customer"]
@@ -208,7 +208,7 @@ flowchart LR
         n9["Return Order Created"]
         n11{{"fa:fa-arrows-alt parallelGateway"}}
     end
-    subgraph Transportation Planner (Supply Chain for Secondary Distribution)
+    subgraph lane_1["Transportation Planner (Supply Chain for Secondary Distribution)"]
         n5["Initiate Transportation Planning for Delivery"]
         n6(["fa:fa-stop Execute Inbound Transportation"])
         n10{{"fa:fa-arrows-alt parallelGateway"}}
@@ -233,7 +233,7 @@ flowchart LR
     class n11 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVlGPokgQ_isdJhP3EkwAQRweLlGUyyRzt5t19_ZhvYcWGu1M0026m1HP-N-vWkCFcV72fDDWR9X3VX00hUcrFRmxIuvx8Ug51RE6DvSWFGQQocEaKzKwUQ38jSXFa0bUwOTkgusl_fec5vrl3qQZLMEFZQeDLslGEPT92UZTKGQ2UpiroSKS5gN7UEpaYHmIBRPSZD-QSe7kZ7Xm0kzIjMhrguOEbhpAKaOcXOFR6Id-YuoUSQXPOqR5kE_ydHAyzTGxS7dY6nP7lSJ_4v0PmuktxDlmikDOVhfsBa8JMzNqWRksreRbawZVRoeDYcsSp5RvAPcdgCTmr1cocE4ndHp8XPGLKHr5uuIIPinDSs1JjpQGePGmUU4Zix78eJoEjq20FK8kevAW4Xzk2amZJILRHduYO9wRutnqaC1Y1qQOd2aGyCv3ttxHnmPLA3z3tAjPrkrx2Jt4k4vSLHRjN26V8jz_X0rgq_yG1WujtRglXjK_aLnBOIid93ztmHM_nLp9n4h8oym5IU2SZLS4WrUYB67zMeksGY2duEe6wZrs8OFK-BT7F8IkCBM3_JCw1ut3Wa2_SJG2hKNFkAQXwnDmJlPvQ0J_6vqTpkPg2UhcblFcKS0KItGsUnDelUJTjtlB6TrPfLj7c2XlOMrx0NiOvpcZjIWWW1oWhGv0TeL0FU4keua5kAXWVHBEOZpBj0jk6AVn5mpCCctM_JXoSnI0J4y-EXlYWf_caHk_L2Kp2KBYEqNVl6jbmtuiEdQs4fgTFGMpKfQ4TVNRQW9_VcUawh3V11G7gj7Ufl5rDA3fG6SbHH66dAdc5bu-Gm8yqPrtpmzSK_ugy_MI2btmb5megKjx77NZW41BWbdN1z0eW0GQEjs1xEyjEkvMGGF_1KdyZZ1OdRE8t71jAVZwVQqp67v5hWHOQe3TsipLdkDx1vgFJqFluwzRnMLBo-vKFNy2HEDLz7DxqbmR93iN44bq_oEY97xb7ElaAdMzX4N3WY-xZ5fr_KIRPEDD4e-GoIm9Jm7WBvyogaAX-008qsNJE_pNeZvt1PG4iZ_q0OtdHrVxHYY3y8CA7RLswN7tJutcGTf7uQOG98DJPfDp8irptuG0W64Luy1s2Rac4wLTzIqO1vkVD38DMpLjimnrZFu40mJ54KkVnV-FVnV-huYUw1EsavD0Hy2hpJA=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVtGO4jYU_RUroxG7UpCSkBAmD5UgkGqkaXe17LYPS1WZxAFrHDuynQGK-PdekwRIhnlpeUDc43vPuffYcThaqciIFVmPj0fKqY7QcaC3pCCDCA3WWJGBjWrgDywpXjOiBiYnF1wv6T_nNNcv9ybNYAkuKDsYdEk2gqAfzzaaQiGzkcJcDRWRNB_Yg1LSAstDLJiQJvuBTHInP6s1SzMhMyKvCY4TumkApYxycoVHoR_6ialTJBU865DmQT7J08HJNMfELt1iqc_tV4r8hvd_0kxvIc4xUwRytrpgL3hNmJlRy8pgaSXfWjOoMjocDFuWOKV8A7jvACQxf71CgXM6odPj44pfRNHLtxVH8EkZVmpOcqQ0wIs3jXLKWPTgx9MkcGylpXgl0YO3COcjz07NJBGM7tjG3OGO0M1WR2vBsiZ1uDMzRF65t-U-8hxbHuC7p0V4dlWKx97Em1yUZqEbu3GrlOf5_1ICX-V3rF4brcUo8ZL5RcsNxkHsvOdrx5z74dTt-0TkG03JDWmSJKPF1arFOHCdj0lnyWjsxD3SDdZkhw9XwqfYvxAmQZi44YeEtV6_y2r9VYq0JRwtgiS4EIYzN5l6HxL6U9efNB0Cz0bicosY5uRv5-fKiiulRUEkmlUKDr5SaMoxOyi9sv6qa8yHu5Ca4yjHQ7MF6EeZwYhouaVlQbhG3yVOX-F0omeeC1lgTQVHlKMZ9ItEjl5wZlYTSlhm4m9EV5KjOWH0jchDV8v7eRFLxQbFkhitukTd1twWjaBmCY8CQTGWkkKP0zQVFfT2e1WsIdxRvUXttF1BH2q_rDWGhu8N0k0OP126A67yXV-NNxlUfb4pm_TKPujyPEL2rtlbpicgavz7Yq6wxqCst2Hu8dgKgpTYqSFmGpVYYsYI-7U-oSvrdKqL4Bm-d0TMvoMnXJVC6npbv8ICB9lPy6os2QHFW2McuIWW7Q2J5hROI11XpuBzt7EAGJ_hTUDNpt6jNu4btvuHY9zzcbEnaQVMz3wNPmY9xp51rvMfTeEBGg5_MQRN7DVxc53AjxoIerHfxKM6nDSh35S32U4dj5v4qQ693vKojeswvLkkDNhejh3Yu73hOivj5t7ugOE9cHIPfLq8YrptOO3t14XdFrZsC850gWlmRUfr_OqHvwcZyXHFtHWyLVxpsTzw1IrOr0irOj9Pc4rhWBY1ePoXxg6sVw==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -468,6 +468,7 @@ Integration patterns identified from the system flow analysis for R-220:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
@@ -595,6 +596,6 @@ Standard RAID items for R-220 (Order To Cash (IF)):
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*R-220 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: March 2026*
+*R-220 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: April 2026*
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-220 — Manage In-bound Transportation (IF)</span></div>

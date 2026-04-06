@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Procure To Pay (PTP) Tower<br/>
   Capability PM-070 · PM Procure Materials and Services (Direct and Indirect)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 3</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -694,16 +736,16 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Capital Analyst
+    subgraph lane_0["Capital Analyst"]
         n5["fa:fa-user Create Network (SAP/PS/IPICS)"]
         n6["fa:fa-user Create/Fund Project WBS"]
         n9(["fa:fa-play Material Master Created"])
         n14{{"fa:fa-code-branch Construction Type?"}}
     end
-    subgraph Master Data Steward
+    subgraph lane_1["Master Data Steward"]
         n7["fa:fa-user Maintain MRP Parameters in Master Data"]
     end
-    subgraph Planner
+    subgraph lane_2["Planner"]
         n1["fa:fa-user Execute Planning through MRP/Planning Engines"]
         n2["fa:fa-user Execute Planning through Planning Systems (EMS,METS)"]
         n3["fa:fa-user Generate Purchase Requisition"]
@@ -746,7 +788,7 @@ Commodities"| n7
     class n14 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4jgU_itWqoqOFNRcCc3DriiQUaVhBzXdnYeyDyZxwNvEydpOC8vw3_c4Ny4FaaVFAuHP5_vOxceXnRblMdF87fZ2RxmVPtr15JpkpOej3hIL0tNRDfyBOcXLlIiesklyJkP6T2VmOsVGmSkswBlNtwoNySon6PcnHY2AmOpIYCb6gnCa9PRewWmG-XacpzlX1jdkmBhJ5a2Zesx5TPjBwDA8M3KBmlJGDrDtOZ4TKJ4gUc7iE9HETYZJ1Nur4NL8I1pjLqvwS0FmePODxnIN4wSngoDNWmbpN7wkqcpR8lJhUcnf22JQofwwKFhY4IiyFeCOARDH7O0AucZ-j_a3twvWOUXfnhcMwSdKsRATkiAhAZ6-S5TQNPVvnPEocA1dSJ6_Ef_GmnoT29IjlYkPqRu6Km7_g9DVWvrLPI0b0_6HysG3io3ON75l6HwLv2e-CIsPnsYDa2gNO0-Pnjk2x62nJEn-lyeoK3_B4q3xNbUDK5h0vkx34I6Nz3ptmhPHG5nndSL8nUbkSDQIAnt6KNV04JrGddHHwB4Y4zPRFZbkA28Pgg9jpxMMXC8wvauCtb_zKMvlnOdRK2hP3cDtBL1HMxhZVwWdkekMmwhBZ8VxsUZjXFCJUzRiON0KWc-qD3NfF1qC_QT3VbHRmBNIBv1G5EfO39BdOJrfz8P7p_nTOPyy0P48Yg4uMe-DksUIgv-LRBL9eAxPOQ93HalIoWIzoKjtDH-E7ERiIH05YpnObtfS1PnSX8IOiSCrnEEVykjSnKGXbUF-XWj7fU2EJj2rQeNigiVGoVowHh_58E6zmWHKJHzR7HmO5pjjjABZIIUcdLrkPnubp5gxwo-zOPUw3ZCohFJXhrDTkVzzvFytlcf7DpyyFZxP4rSK1n9U6oAQ1pxkAt1NZ6E-m76cL6V9KviVQOSqDeYlh_NGEPRM_i6poKrQp0znGrNKP0bf1al7Fv7w9fWwmqvKVHVMkQs4OMH02NY0wPYJbhJaqfI8bpa7Eq775VNQpir1nPAk59lx6GhUFDx_h3ZTu4uIs7hM63KbKeOSw53F5HmX1Tz7Mo9sorQU9J18rc-HC83JHlC__4vq8GZsOgr4udCmEHVR-RQLdtzoC-0n7NrG3K3pg2boNWrNcFAPrVa7Hg6b4bAx7qat1vUG-hsOisqTaZ9PP7Gj6TZupxEzWmu7Blq21cy342baNM_z_g6vA45UylmWx7BsqvnBkXd0RKpU2qvhBLYuw_Zl2LkMu5fhwWXYuwwPj2-ak5mH7q4-zci4gptXcKu9dk5h-zLstLCmaxnhGaax5u-06ikGz7WYJLhMpbbXNVzKPNyySPOrJ4tWFjEwJxTDuZbV4P5fyFMlhQ==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm1v4jgQ_itWqoquFNS8EpoPd6KBrCotu6j0bj-U08kkDuSaODnbaeFY_vuN8wZhg3TSIYHw45nnmRlPxjkoQRYSxVVubw8xjYWLDgOxJSkZuGiwxpwMVFQBv2MW43VC-EDaRBkVy_if0ky38p00k5iP0zjZS3RJNhlBvz2paAKOiYo4pnzICYujgTrIWZxitveyJGPS-oaMIy0q1eqtx4yFhJ0MNM3RAxtck5iSE2w6lmP50o-TIKNhhzSyo3EUDI4yuCT7CLaYiTL8gpM53n2PQ7GFdYQTTsBmK9LkC16TROYoWCGxoGDvTTFiLnUoFGyZ4yCmG8AtDSCG6dsJsrXjER1vb1e0FUVfnlcUwSdIMOdTEiEuAJ69CxTFSeLeWN7EtzWVC5a9EffGmDlT01ADmYkLqWuqLO7wg8SbrXDXWRLWpsMPmYNr5DuV7VxDU9kefi-0CA1PSt7IGBvjVunR0T3da5SiKPpfSlBX9oL5W601M33Dn7Zauj2yPe1nvibNqeVM9Ms6EfYeB-SM1Pd9c3Yq1Wxk69p10kffHGneBekGC_KB9yfCB89qCX3b8XXnKmGldxllsV6wLGgIzZnt2y2h86j7E-MqoTXRrXEdIfBsGM63KMGU_Km9rhQP57HACZpQnOy5WCl_VJbyQ20wiLAb4aEsPPIYgcTQVyI-MvaG7paTxf1ief-0ePKWn7qeoz7Pe7-gIYJE_iKBQN8fl12fh7vWKU-genNwkY82_OGiJQnB6dOZl24dDo2bnDXDNTwtwRZ5GYWKFIGIM4pe9jn5daUcj5UjNGxfPXTQr7WmWGC0lKfIwm6UTjezOY6pgC-aPy_QAjOcEvDnSCInqpbiirIBpAv4RwnrquldtdmOBAUcQWkL0wCJLcuKzVaq37fgjG5ghvEuk_EfmVpgCe1AUo7uZvOlOp-9XB6x2SX8TCB42R6LgsFM4gQ9k7-LmMfyALqe1jXPsgIh-iYn80X449fX0ylvSlPZSXnGYbiCaadosrGf4LaJS1aWhXUblMRVH_0UlC5LvSAsylh6Hjqa5DnL3qEN5RNI-EVcutHfftK4YHCvUXHZfZWf2e9HdkFS8PidfK5mSE_T0gc0HP4iO79e65YEfqyUGUSdl5p8Rc8fgJXyA57m2tyu3Ef10qnZ6uWoWhoNd7Uc18txbdxuG430DnodZkippJuX20_0bLuJ26rJtMbarIDG26j3m3W9reuXeX-DNwiGZMppmoVwbLL5Qcg5G6Myleb66MBGP2z2w1Y_bPfDo37Y6YfH57dRZ-ehvc-7GWlXcP0KbjRXUxc2-2GrgRVVSQlLcRwq7kEpX9fglS4kES4SoRxVBRciW-5poLjla41S5CF4TmMMMy6twOO_zEYxMQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
 
@@ -769,7 +811,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Procurement Agent
+    subgraph lane_0["Procurement Agent"]
         n1["fa:fa-user Capture Requirements"]
         n2["fa:fa-user Create Manual Purchase Requisition"]
         n3(["fa:fa-play Identification of Non-MRP Requirements Initiated"])
@@ -800,7 +842,7 @@ flowchart TD
     class n9 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVe-P4jYQ_VesrFa0UpDyk4R8uIoNpFqpnFa7d1dVpR9MYoO1xkltZxfK8b93TBIglJVOaiQi5mXeezOT2N5beVkQK7Hu7_dMMJ2g_UCvyYYMEjRYYkUGNmqAb1gyvOREDUwOLYV-Yf8c09yg2po0g2V4w_jOoC9kVRL09dFGEyByGyks1FARyejAHlSSbbDcpSUvpcm-IzF16NGtffRQyoLIc4LjRG4eApUzQc6wHwVRkBmeInkpip4oDWlM88HBFMfL93yNpT6WXysyx9vfWaHXEFPMFYGctd7w3_CScNOjlrXB8lq-dcNgyvgIGNhLhXMmVoAHDkASi9czFDqHAzrc3y_EyRR9mS4EgivnWKkpoUhpgGdvGlHGeXIXpJMsdGylZflKkjtvFk19z85NJwm07thmuMN3wlZrnSxLXrSpw3fTQ-JVW1tuE8-x5Q7uV15EFGendOTFXnxyeojc1E07J0rp_3KCucovWL22XjM_87LpycsNR2Hq_Feva3MaRBP3ek5EvrGcXIhmWebPzqOajULX-Vj0IfNHTnolusKavOPdWXCcBifBLIwyN_pQsPG7rrJePsky7wT9WZiFJ8Howc0m3oeCwcQN4rZC0FlJXK2RUaslLDuh0WQF9-a5uYT758KiOKF4aMaNUlxpSEXP5O-aNRS1sP66IHhXBEmgfzTHosYcPdUSPlHV8hXTrBR9uv_TiV9xmNpjARaMshybXFRS9LkUw_nzU68E9AjbCQOjAtR-vpALznJKl9XNAtoar6khMKFsvCI_UPbomMyEhp-ZZ1HnGrK50UVTrHE_Pdrvu7LMljhcwqLO12g-R4_TrrHil4V1OFyQ4tskss15rdgb-bX50K5Y49ss2CeXGD09X5jAym3-CB8Nh5_g3beh24RRG0Ym_L6w_iDw6r9DXS0-bvHPZQ-O-vC4heNG1GtDrwmDK63OI2zxUZMWXywJU1-3FfRg7zbsn7bDHhy0O1cPDG_njm7DUbfWe2h8Ex13qGVbGyI3mBVWsreOpx-ckAWhuObaOtgWrnX5shO5lRxPCauuCmBOGYbFu2nAw7_3Mlcu" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVW1v6jYU_itWqopNClJeSciHTTSQqdK4qtq7ezWNaTKJDVaNk9lOC5fLf98xSYAwKk0aEhHn4Xk5PomdvZWXBbES6_5-zwTTCdoP9JpsyCBBgyVWZGCjBviCJcNLTtTAcGgp9Av7dqS5QbU1NINleMP4zqAvZFUS9NujjSYg5DZSWKihIpLRgT2oJNtguUtLXkrDviMxdegxrf3roZQFkWeC40RuHoKUM0HOsB8FUZAZnSJ5KYqeKQ1pTPPBwTTHy_d8jaU-tl8rMsfbr6zQa6gp5ooAZ603_Fe8JNysUcvaYHkt37phMGVyBAzspcI5EyvAAwcgicXrGQqdwwEd7u8X4hSKPk8XAsEn51ipKaFIaYBnbxpRxnlyF6STLHRspWX5SpI7bxZNfc_OzUoSWLpjm-EO3wlbrXWyLHnRUofvZg2JV21tuU08x5Y7uF5lEVGck9KRF3vxKekhclM37ZIopf8rCeYqP2P12mbN_MzLpqcsNxyFqfNvv26Z0yCauNdzIvKN5eTCNMsyf3Ye1WwUus7Hpg-ZP3LSK9MV1uQd786G4zQ4GWZhlLnRh4ZN3nWX9fJJlnln6M_CLDwZRg9uNvE-NAwmbhC3HYLPSuJqjTgW5C_nj4VlbGsJ-09oNFnBdWH92XDNR7hAoTiheGhGj1JcaWCjZ_J3zRqV6gu8K4EkMAs0x6LGHD3VEh5X1eoV06wUfbn_w0lfcZjgYwERjLIcGy4qKfpUiuH8-anXAnqEo4VBUAFuP17YBWc7pcvqZgNtj9fSEJTQNl6R_9D26EhmQsMXwUiLOtfA5sYXTbHGfXq033dtmeNxuIQNnq_RfI4ep93Cip8X1uFwIYpvi8g257Vib-SX5qG7Uo1vq-DMXGL09HwRAru4-SF8NBz-BPe-Ld2mjNoyMuX3hfU7gVv_Hfpq8XGLfyp7cNSHxy0cN6ZeW3pNGVx5dRlhi48aWnyxPUx_3bHQg73bsH86Gntw0J5iPTC8zR3dhqNu3_fQ-CY67lDLtjZEbjArrGRvHd-E8LYsCMU119bBtnCty5edyK3k-Maw6qoA5ZRh2MibBjz8A5gkWxE=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-323-pm-070-030_determine_if_item_exists_as_a_material_master-pm-070-030_determine_if_item_exists_as_a_material_master">BUSINESS ARCHITECTURE — 3.2.3 PM-070-030_Determine_if_Item_Exists_as_a_Material_Master — PM-070-030_Determine_if_Item_Exists_as_a_Material_Master</h4>
 <p><strong>Swim Lanes</strong>: Procurement Agent | <strong>Tasks</strong>: 3 | <strong>Gateways</strong>: 5</p>
@@ -816,7 +858,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Procurement Agent
+    subgraph lane_0["Procurement Agent"]
         n1["fa:fa-user Check if Item Exist as Material Master"]
         n2["fa:fa-user Create Direct Purchase Requisition"]
         n3["fa:fa-user Create Purchase Requisition"]
@@ -854,7 +896,7 @@ flowchart TD
     class n11 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm2PqkYU_isTNhvbBFNeBfnQhgVpTa4bs962aWo_jDDoZHGwM8Ou1ut_7xkBXyib26ZGCefhPM95wXPgqKVlRrRAe3w8UkZlgI4DuSFbMgjQYIUFGeioBn7BnOJVQcRA-eQlkwv619nNdHZ75aawBG9pcVDogqxLgn6e6igEYqEjgZkYCsJpPtAHO063mB-isii58n4gfm7k52jNpaeSZ4RfHQzDM1MXqAVl5ArbnuM5ieIJkpYsuxPN3dzP08FJJVeU7-kGc3lOvxJkhve_0kxuwM5xIQj4bOS2-IRXpFA1Sl4pLK34W9sMKlQcBg1b7HBK2RpwxwCIY_Z6hVzjdEKnx8cluwRFn-MlQ_BJCyxETHIkJMCTN4lyWhTBgxOFiWvoQvLylQQP1sSLbUtPVSUBlG7oqrnDd0LXGxmsyiJrXIfvqobA2u11vg8sQ-cHOHZiEZZdI0Ujy7f8S6Qnz4zMqI2U5_n_igR95Z-xeG1iTezESuJLLNMduZHxT722zNjxQrPbJ8LfaEpuRJMksSfXVk1Grml8LPqU2CMj6oiusSTv-HAVHEfORTBxvcT0PhSs43WzrFZzXqatoD1xE_ci6D2ZSWh9KOiEpuM3GYLOmuPdBim1isPYMYnCNRzr6-rDzN-XWo6DHA9Vu1G0IekrojmaSrJFkz0VEmGBZlCjGjw4EXC21P64kbA6EpyAN4opJ6lE84rDn1YQ9EL-rKigkpbsnm730r_Oc765EHcF9H-aQWU0P8DcoOeSodnLvCbXlQs0hZVEQTsDnW9vhFzQmc88ow2NWQZ1Uibh9y_yGCk6dJiIr_TJOx7bhNWeHK5g0tNN06iSI_hOWda07XrLflhqp9ONjN8vM5uhaYySsoLspwwtwjlafOf8FD6HXYFxvwBs1hVG85euu2n0-5N9WlSCvpEf6wHo0sz_SoPNUp8wBw2H30PDGtOsTb8xrdo0m-lmdsceK_vLUvuNiKX2Ba63Mo2O29pGbVuN7TW89iacyeOO6HN5hk2jQ4qvlDYPv5PHhePfa41u5l8V2-69O9jqh-1-2Lk8Eu5gtx8e9cNeu9ruUL8XHfei0OFe2GxhTde2hG8xzbTgqJ1fDeD1ISM5rgqpnXQNV7JcHFiqBedHqFbtMmDGFMNm29bg6W9_569Q" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm2PqkYU_isTNhvbBHN5FeTDbViQ1qRuzHrb5qY2zQiDThYHOzPsar3-954R0JWyub0pUcJ5OM9zXoY5cNTSMiNaoN3fHymjMkDHgdyQLRkEaLDCggx0VAO_Yk7xqiBioHzykskF_fvsZjq7vXJTWIK3tDgodEHWJUG_THUUArHQkcBMDAXhNB_ogx2nW8wPUVmUXHnfET838nO05tZDyTPCrw6G4ZmpC9SCMnKFbc_xnETxBElLlt2I5m7u5-ngpJIrytd0g7k8p18JMsP732gmN2DnuBAEfDZyW_yMV6RQNUpeKSyt-EvbDCpUHAYNW-xwStkacMcAiGP2fIVc43RCp_v7JbsERZ_iJUNwpAUWIiY5EhLgyYtEOS2K4M6JwsQ1dCF5-UyCO2vixbalp6qSAEo3dNXc4Suh640MVmWRNa7DV1VDYO32Ot8HlqHzA5w7sQjLrpGikeVb_iXSg2dGZtRGyvP8f0WCvvJPWDw3sSZ2YiXxJZbpjtzI-LdeW2bseKHZ7RPhLzQlb0STJLEn11ZNRq5pvC_6kNgjI-qIrrEkr_hwFRxHzkUwcb3E9N4VrON1s6xWc16mraA9cRP3Iug9mElovSvohKbjNxmCzprj3QYVmJE_jd-XmpKtOOw_JlG4hvNS-6P2VQczwSXHQY6HqvUo2pD0GdEcTSXZosmeComwQDOoV21CuBBwdSthdSQ4AW8UU05SieYVhwdYEPRE_qqooJKW7JZu99K_znO-uxB3BazFNIPiaH6APYQeS4ZmT_OaXBcv0BTGEwXtDHS-fyPkqi7NPKMNjVkGdVIm4f8f8hg1TSbiK33yjsc2YTUzhyvY9emmaVTJEfymLGvadl21H5ba6fRGxu-Xmc3QNEZJWUH2U4YW4RwtPjg_hY9hV2DcLwBTdoXR_Knrbhr9_mSfFpWgL-THejN0aea30mDK1BfMQcPhR2hYY5q16TemVZtms9OZ3bHHyv6y1D4TsdS-wP1WptFxW9uobauxvYbXLsKZPO6IPpZn2DQ6pPhKafPwO3lcOP6t1ujNLFDFtjPwBrb6Ybsfdi6vhxvY7YdH_bDXjrkb1O9Fx70odLgXNltY07Ut4VtMMy04aufPBPiUyEiOq0JqJ13DlSwXB5Zqwfl1qlW7DJgxxTDltjV4-gd0zLMz" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
 
@@ -877,16 +919,16 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Maintenance Planner
+    subgraph lane_0["Maintenance Planner"]
         n10[["fa:fa-cog Create PM Work Order"]]
         n13(["fa:fa-play Plant Maintenance Order Executed"])
         n18{{"fa:fa-code-branch Material Available in Local Plant Warehouse ?"}}
         n19{{"fa:fa-code-branch Material Available in GXO like 3PL Local Warehouse?"}}
     end
-    subgraph PR Requestor
+    subgraph lane_1["PR Requestor"]
         n11[["fa:fa-cog Create Account Assigned STR (AAC- F, Item Category – U)"]]
     end
-    subgraph Procurement Buyer
+    subgraph lane_2["Procurement Buyer"]
         n1["fa:fa-user Create Expedited PR (Doc Type – ZEXP, AAC- F)"]
         n2["fa:fa-user Perform Supplier 3PL Sourcing (Soares Local Depot)"]
         n3["fa:fa-user Expedite Supplier PR"]
@@ -901,7 +943,7 @@ flowchart LR
         n20{{"fa:fa-arrows-alt parallelGateway"}}
         n21{{"fa:fa-arrows-alt parallelGateway"}}
     end
-    subgraph Warehouse Clerk
+    subgraph lane_3["Warehouse Clerk"]
         n8["fa:fa-user Perform Outbound Delivery to EWM Warehouse"]
         n9[["fa:fa-cog Create Reservation for Fulfilment from local Plant Warehouse"]]
         n14(["fa:fa-stop Outbound Delivery to EWM Warehouse Performed"])
@@ -950,7 +992,7 @@ flowchart LR
     class n21 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21v2kgQ_isrVxGpBCe_YuDDnYjBVaXkgkJ66V3ph8VewyrLrrteJ3Ap__1mwcbYNVKry4dI83jmeWZmZ8fmzYhETIyRcXX1RjlVI_TWUWuyIZ0R6ixxRjpddAT-wpLiJSNZR_skgqs5_ffgZrnpVrtpLMQbynYanZOVIOjTxy4aQyDrogzzrJcRSZNOt5NKusFyFwgmpPZ-RwaJmRzUikc3QsZEVg6m6VuRB6GMclLBju_6bqjjMhIJHtdIEy8ZJFFnr5Nj4jVaY6kO6ecZucPbJxqrNdgJZhkBn7XasFu8JEzXqGSusSiXL2UzaKZ1ODRsnuKI8hXgrgmQxPy5gjxzv0f7q6sFP4mi24cFR_AXMZxlE5KgTAE8fVEooYyN3rnBOPTMbqakeCajd_bUnzh2N9KVjKB0s6ub23sldLVWo6VgceHae9U1jOx025XbkW125Q7-N7QIjyuloG8P7MFJ6ca3AisolZIk-V9K0Ff5iLPnQmvqhHY4OWlZXt8LzB_5yjInrj-2mn0i8oVG5Iw0DENnWrVq2vcs8zLpTej0zaBBusKKvOJdRTgM3BNh6Pmh5V8kPOo1s8yXMymiktCZeqF3IvRvrHBsXyR0x5Y7KDIEnpXE6RrdYcoV4ZhHBM0Y5pzIo4f-45b55cvCSPAowb1IrFAgCVSEZnfoSchndK9vzsL4-vU8xLk-haQMatesqqZzCEPTLYlyRWKIf38eP3h7qyRj0lvC0Ec6UUX0_UbjF0yZXhCIcnQrIoCOEk9YkrWAyUB_LIz9_pxz-CucHz7fI0afCXJmt4XAifqMGYa90cvZA3og33KSKVFrotXaxHEUiRzSHmcZXXESo_njA7oej4MeCrvooyIbFIDfSsgdWuS2aTno0_uq2S3yMBi5hA0KpDf5rn6Qpwz0zSlTmG5TElM4A5369QTm6nGXklLtn-nnGSzVQ0Ja-IzOrtPNiEyE3KB5nqaMAqA7Nxe51IsKXc8FtC8rWjkhqVANOqdOV6ZV8c0e6gFuPeA-JfxQwgcmlqDxkb9AE3TjgjWJnhtq3gW1O8xzzNiu7t1vdE4ToonYwCnTqAsHvqKCgybmMejCPHGsjshhKrM6m996Dj83Cr_VxuD8cPVxBALeY5Tj87bNlYBk2-uydBsKfZ27nh6SZWgGp7aG9_Hpcp_H9KuYQ3U9JXrHy_cINypL9Fm0hPnt149sI5Zn9IV8OK7Jxq21zSoMSylesx5mCqVYQjWEXQiyfi3ox2tUrZGAEfl8xj1on_r7XC3h-GIYbQbFwNQpgaZPdxVTvR3D1nXwQPQb6DA7CGhRmDNY8ofLnEixQaxt0zV3r1vtXlhC6U-kVlZxvodPPYH9j3q93_VSLoDh0S5Na6Dt7wvjT7EwvutF23zwN8kOT04PnIKxeLPxQWG7hW0XknbDdhp26V_weSV_QVfadmGXdO7R7hdm_2j6hekX3qVtWQ3AK5KzSge7AdhlROlQUpaK1rDesvLTpnpQtsw6_0TRlZUfPTXYboeddthth712uN8O--3woB0enn9a1SsyLz-yLj9yTt-0ddwtvj_rqHfBu38B98uPtjo8aIeHrTDMaCtslbDRNTZEbjCNjdGbcfjZAz-NYpLgnClj3zVwrsR8xyNjdPh5YORpDJETimFHbY7g_j_gzix6" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21v4jgQ_itWVhVdCU55JcCHO9FAViu1V1S6171bTieTOGDV2FnHaeG6_PcbQ0JINki7Oj4gzeOZZ148HjtvRiRiYoyMq6s3yqkaobeOWpMN6YxQZ4kz0umiI_AHlhQvGck6WicRXM3pvwc1y023Wk1jId5QttPonKwEQZ8-dtEYDFkXZZhnvYxImnS6nVTSDZa7QDAhtfY7MkjM5OCtWLoRMiayUjBN34o8MGWUkwp2fNd3Q22XkUjwuEaaeMkgiTp7HRwTr9EaS3UIP8_IHd4-0VitQU4wywjorNWG3eIlYTpHJXONRbl8KYtBM-2HQ8HmKY4oXwHumgBJzJ8ryDP3e7S_ulrwk1N0-7DgCH4Rw1k2IQnKFMDTF4USytjonRuMQ8_sZkqKZzJ6Z0_9iWN3I53JCFI3u7q4vVdCV2s1WgoWF6q9V53DyE63Xbkd2WZX7uC_4YvwuPIU9O2BPTh5uvGtwApKT0mS_C9PUFf5iLPnwtfUCe1wcvJleX0vML_nK9OcuP7YataJyBcakTPSMAydaVWqad-zzMukN6HTN4MG6Qor8op3FeEwcE-EoeeHln-R8OivGWW-nEkRlYTO1Au9E6F_Y4Vj-yKhO7bcQREh8KwkTteIYU7-Mb8sjDtMuSIc84igGaCcyIXx91Fb_7hlfgG1BI8S3IvECgWSQHZodoeehHxG9_oUgUXNxLk-maQM6qCJFTp3dTBD0y2JckVisH9_bj94e6tcxqS3hAMQrYFAEX3W0fgFU6aHBaIc3YoIoKOLJyzJWkCXoN8Wxn5_zjn8Gc4Pn-8Ro88EObPbwsGJ-owZGr-trhZkP3tAD-RrTjIlmgW1Wgs6jiKRQwrjLKMrTmI0f3xA1-Nx0ENhF31UZIMC0FsJuUOL3DYtB316XxX-Qii2DgU6J5cwYoH9Jt99t8GnaPTpKsOZblMSU9gbBJlcT6D3HncpKT3_Nf08g8F7CO59nc6u082ITITcoHmepowCoCs6F7nUwwxdzwWUNStKPCGpUA06p05XhlXxzR7qBm7d4D4l_JDCByaW4OMjf4E66CIGaxI9N7x5F7zdYZ5jxnZ17X6jcpoQTcQGNp1GXdj_FRUcfGIeg1_oM47VETl0a1Zn81v34cfa4pdaS5xvrt6OQMBdRzk-L9tcCQi2PS9Ll6Hwr2PXDUSyDM1g19ZwZ58O_blNv7I5ZNdTonc8lI9w0rJE70WLmd9-LMk2YnlGX8iH4yhtnGbbrMywlOI162GmUIolZEPYBSPr54wuHCndkdWcCRiRz_WcBu0n4D5XS9jKGNqcQWLQgUqg6dNdNVnqNMPWMfFA9I116CMEtCjMGVwKh7OdSLFBrG0aNuezW81nmE_pD4RWZnE-q0_1gTsC9Xq_6sFdAMOjXIrWQMvfFsbvYmF808O4ufAnyQ4rpwWnYCxuQj4oZLeQ7cKl3ZCdhlzqF3xeyV_QlbJdyCWde5T7hdg_in4h-oV2KVtWA_CK4KxSwW4AdmlRKpSUpUdrWC9Z-RSqFsqSWedPGp1Z-UiqwXY77LTDbjvstcP9dthvhwft8PD8KVbPyLy8ZF1eck5v4DruFu_VOupd0O5fwP3ykVeHB-3wsBWGHm2FrRI2usaGyA2msTF6Mw6fSfApFZME50wZ-66BcyXmOx4Zo8PnhJGnMVhOKIZ5tTmC-_8AIu88DA==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
 
@@ -973,7 +1015,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Procurement Agent
+    subgraph lane_0["Procurement Agent"]
         n1["fa:fa-user Release Purchase Requisition"]
         n2["fa:fa-user Modify Non MRP Purchase Requisition"]
         n3["fa:fa-user Request Blue Badge Approval"]
@@ -1064,7 +1106,7 @@ Approval Required"| n24
     class n27 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1tv4kYU_isjRxGtBKrHV-ChFQG8u9ImQSFtVS19GOwxTGNsdmyT0IT_3jN4bPBgb9MtD8j-zvm-c5mrXzU_Cag21K6vX1nMsiF67WRruqGdIeosSUo7XVQAvxHOyDKiaUf4hEmczdnfRzdsbV-Em8A8smHRXqBzukoo-vVTF42AGHVRSuK0l1LOwk63s-VsQ_h-nEQJF95XtB_q4TGaNN0kPKD85KDrLvZtoEYspifYdC3X8gQvpX4SBzXR0A77od85iOSi5NlfE54d089TektefmdBtob3kEQpBZ91tok-kyWNRI0ZzwXm53xXNoOlIk4MDZtvic_iFeCWDhAn8dMJsvXDAR2urxdxFRQ9ThYxgp8fkTSd0BClGcDTXYZCFkXDK2s88my9m2Y8eaLDK2PqTkyj64tKhlC63hXN7T1Ttlpnw2USBdK19yxqGBrbly5_GRp6l-_hX4lF4-AUaewYfaNfRbpx8RiPy0hhGP6vSNBX_kjSJxlranqGN6liYduxx_qlXlnmxHJHWO0T5Tvm0zNRz_PM6alVU8fGervojWc6-lgRXZGMPpP9SXAwtipBz3Y97LYKFvHULPPljCd-KWhObc-uBN0b7I2MVkFrhK2-zBB0Vpxs10io5RyWXZyh0Qr-C7v4xfjLQgvJMCQ90W70QCMKCxXNcg5zDR4e6NecpSxjSbzQ_jwjGnXibRKwcI_ukhjdPszewTfVwF9zmmboJsopuiHBiqLRdsuTHYnqPKsx7vti2mrMjLPVCp5mDy3RnC8VxU9W6AONKYfxFgQWo_lPFvo4uhuhH25JnJPoRyCfs91vsmErWxKF0a8zxkm8o7DigZAlaHaveA_q3hOaUb6BHa0qBn1kEBHasleYWG9P7TMoqO5YyYvTo3NDx2VfVAHj3QIq03x_keWY7BhB4zzNkg16FMeMKinm0CPss-mGZeheHA2ivfN8u41Aqj4DsJg0cpYdB-Dc5oDtUwArSlhjOfePtRTLLVX83XP_f_Htv76e6g5obwkJ-2s0T6BnFM33aUY3vyy0w-GcNGgm0Rc_ylO2ox-KzUqhGXozregwdGdCfRidJFbjGfj74hnNtNl9sZ4ZDS4imc2Us_1CbiEJv-BazdwJ3ZA4QI_7Lb2g2N_syGV6zvc1wv2vNDh-iwcYNNTr_fy20B7oX9TPaLDQ3gCVViyMYoDku1u840Fp16WDWcpJRl--96W9EnSkQumAXRn_LkGLuFqMckbLbKxS3aycj4YyKpZRcZWGJR3nGxJFYgOEoy73i43hTeQtHR2loIHMt7Qb0sGwy1CmBBwJWMV7aTeMeorYUlOaQmVbsVQLO1aJf9C0sFSSZdfVISunUdEkVw00gsrv4aLMC7lqCPqlvTg5wOaqpvloVh1LR4-yWiwbVPbLUPqndsewlapOadr1Rl2M8QXDVrSxUZ-dx6uPmLPlla8GG82w2QxbzbDdDDvnd8KaxW219Fstg1YLLLdWE243Ge0ms91kVR8EddxuwZ0W3G3B--Wdtw4PGmGY840wboaNZthshq1m2G6GnWbYLWGtq23gbkFYoA1fteOHKnzMBjQkeZRph65G8iyZ72NfGx4_6LR8GwBzwgjcszcFePgHX5KqIQ==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV2uP2kYU_SsjRytaCVSPn8CHVizgNFI2i5ZtqypU1WCPYRo_yNhml274772DxwYPdrpN-YDsc-859zFPv2h-GlBtrN3cvLCE5WP00su3NKa9MeqtSUZ7fVQCvxLOyDqiWU_4hGmSL9nfJzds7Z6Fm8A8ErPoINAl3aQU_fKujyZAjPooI0k2yChnYa_f23EWE36YplHKhfcbOgz18BRNmm5THlB-dtB1F_s2UCOW0DNsupZreYKXUT9NgoZoaIfD0O8dRXJR-uRvCc9P6RcZvSPPv7Eg38J7SKKMgs82j6P3ZE0jUWPOC4H5Bd9XzWCZiJNAw5Y74rNkA7ilA8RJ8ukM2frxiI43N6ukDooeZ6sEwc-PSJbNaIiyHOD5Pkchi6LxG2s68Wy9n-U8_UTHb4y5OzONvi8qGUPpel80d_BE2Wabj9dpFEjXwZOoYWzsnvv8eWzofX6AfyUWTYJzpKljDI1hHenWxVM8rSKFYfi_IkFf-SPJPslYc9MzvFkdC9uOPdWv9aoyZ5Y7wWqfKN8zn16Iep5nzs-tmjs21rtFbz3T0aeK6Ibk9IkczoKjqVULerbrYbdTsIynZlmsFzz1K0Fzbnt2LejeYm9idApaE2wNZYags-Fkt0URSeif-seVJmQLDusvydFkA_8r7Y_SV_wSDC4hGYdkIFqPHmhEYdGiRcFh3sHDA_1csIzlLE2aRKNJvEsDFh7QhzRBdw-LV_BNNfDngmY5uo0Kim5JsKFostvxdE-iJs9qjfu6mLYaM-dss4GnxUNHNOdjTfHTDXpLE8ph7AWBJWj5g4V-nnyYoO_uSFKQ6HsgX7Ldr7JhW1sThTFsMqZpsqew-oGQp2hxr3iPmt4zmlMew-5WF4N-ZhAR2nJQmFjvTu09KKjuWMmL05NzS8dlX1QB49UCKtN8fZHVmOwZQdMiy9MYPYojR5UUc-gR9twsZjm6F8eEaO-y2O0ikFIWiJg0cpadBuDS5oDtXQCLSlgTOfdPtZQrLlP83Uv_f_Edvryc6w7oYA0J-1u0TKFnFC0PWU7jn1ba8XhJGrWT6LMfFRnb07flxqXQDL2dVnYYujOjPoxOmqjxDPxt8Yx22uK-XM-MBleRzHbKxX4ht5CUX3Gtdu6MxiQJ0ONhR68o9lc7cp2e822NcP8rDY7i8gEGDQ0GP35ZaQ_0L-rnNFhpXwCVViyMYoDku1u-41Fl16WDWclJxlC-D6W9FnSkQuWAXRn_Q4pWSb0Y5YyW2ViVulk7nwxVVCyj4joNSzouYxJFYgOEY6_wy43hi8hbOjpKQSOZb2U3pINhV6FMCTgSsMr3ym4YzRSxpaY0h8p28ekIFXasEn-nWWmpJauuq0NWTaOySa4aaAKV38OlmZdy9RAMK3t5coDNVU3LyaI-lk4eVbVYNqjql6H0T-2OYStVndO0m426GuMrhq1oY6M5O0_XIDFnq-tfAzbaYbMdttphux12Lu-HDYvbaRl2WkadFlhunSbcbTK6TWa3yao_Dpq43YE7HbjbgQ-r-28THrXCMOdbYdwOG-2w2Q5b7bDdDjvtsFvBWl-L4W5BWKCNX7TTRyt82AY0JEWUa8e-Roo8XR4SXxufPu60YhcAc8YI3LnjEjz-A8_YrgQ=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
 
@@ -1087,7 +1129,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Procurement Agent
+    subgraph lane_0["Procurement Agent"]
         n1["fa:fa-user Delete Purchase Requisition"]
         n2["fa:fa-user Modify Purchase Requisition"]
         n3(["fa:fa-stop Purchase Requisition Deleted"])
@@ -1120,7 +1162,7 @@ flowchart TD
     class n10 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P4jYU_StWRiNaKUj5JJCHVgyQaqXOarRsu1qVPpjkGqwxdmo7DJTlv9cmCRDKrCo1D1F87j3n3HsTOwcnFwU4qfP4eKCc6hQdenoNG-ilqLfECnouqoHfsaR4yUD1bA4RXM_p36c0Pyp3Ns1iGd5QtrfoHFYC0G8fXDQ2ROYihbnqK5CU9NxeKekGy_1EMCFt9gMMiUdObk3oScgC5CXB8xI_jw2VUQ4XOEyiJMosT0EueNERJTEZkrx3tMUx8ZavsdSn8isFz3j3hRZ6bdYEMwUmZ6037Fe8BGZ71LKyWF7JbTsMqqwPNwOblzinfGXwyDOQxPz1AsXe8YiOj48LfjZFn6cLjsyVM6zUFAhS2sCzrUaEMpY-RJNxFnuu0lK8QvoQzJJpGLi57SQ1rXuuHW7_DehqrdOlYEWT2n-zPaRBuXPlLg08V-7N_cYLeHFxmgyCYTA8Oz0l_sSftE6EkP_lZOYqP2P12njNwizIpmcvPx7EE-_fem2b0ygZ-7dzArmlOVyJZlkWzi6jmg1i33tf9CkLB97kRnSFNbzh_UVwNInOglmcZH7yrmDtd1tltXyRIm8Fw1mcxWfB5MnPxsG7gtHYj4ZNhUZnJXG5RlatkmbbcY3GK3Ov4_bi_h8Lh-CU4L4dN5oCAw3opZLmU1OAPsFfFVVUU8EXzp9XvKDLexYFJfv_wAt_OBOVFuVdRlNFYZg_XlEjw3wBSYTcdLLHZSnFFrNTn6BU1zC2rNbk2bwre4AohHmB5vXncEMYGMKHwkzJNvRR8P7zp5farx5hNzu5zv5u5vBwaDu3x2R_aTZ6vkawy1ml6BZ-qb-jhXM8XrFG91nNexLfnfzPN1q-d1_sPMCm9uKKaLZ7_cAHqN__ybTRLJPuclgvR81yZJffFk5d58L5ZtxvQnXhp1DQhIJaxG92hHlocj-KU158i3-1L88EojZQC4RXO8qC7UnSgYP7cNiccB0wOh-xHTi-Dw_uw8l9eNieIB10dBc1jTew4zobkBtMCyc9OKefqvnxFkBwxbRzdB1caTHf89xJTz8fpyoLw5xSbM6ETQ0e_wGOlHXZ" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVWuP4jYU_StWRiNaKUh5EsiHVgyQaqXOarRsW1WlqkxyDdYYO7UdBpblv9cmCRDKrCo1H6L4-JxzH4lvDk4uCnBS5_HxQDnVKTr09Bo20EtRb4kV9FxUA79iSfGSgepZDhFcz-mXE82Pyp2lWSzDG8r2Fp3DSgD65YOLxkbIXKQwV30FkpKe2ysl3WC5nwgmpGU_wJB45BSt2XoSsgB5IXhe4uexkTLK4QKHSZREmdUpyAUvOqYkJkOS9442OSbe8jWW-pR-peAZ736jhV6bNcFMgeGs9Yb9jJfAbI1aVhbLK7ltm0GVjcNNw-YlzilfGTzyDCQxf71AsXc8ouPj44Kfg6LP0wVH5soZVmoKBClt4NlWI0IZSx-iyTiLPVdpKV4hfQhmyTQM3NxWkprSPdc2t_8GdLXW6VKwoqH232wNaVDuXLlLA8-Ve3O_iQW8uESaDIJhMDxHekr8iT9pIxFC_lck01f5GavXJtYszIJseo7lx4N44v3bry1zGiVj_7ZPILc0hyvTLMvC2aVVs0Hse--bPmXhwJvcmK6whje8vxiOJtHZMIuTzE_eNazj3WZZLV-kyFvDcBZn8dkwefKzcfCuYTT2o2GTofFZSVyuEcMc_vL-WDjWtpLm_HGNxitzXzh_1lx7cd9QCE4J7tvWoykw0IBeKmk-OwXoE_xdUUU1FbyrC7q6Z1FQsv8PuvC7s1BpUd5VNFkURvn9lTSy1YAkQm467HFZSrHFDNlSQaluwNiq2iDP5r3ZYaIQ5gWa15_GjWBgBB8K0yhb0EfB-8-fXup4dRe77OSa_U3m8HBoK7cjs780hz5fI9jlrFJ0Cz_V39TCOR6vVKP7quY9iW92_scbL9-7b3ZuYJN7cSU0R79-4APU7_9gymiWSXc5rJejZjmyy68Lp85z4Xw10W-26sRPW0GzFdQmfnM6zEPD_ShOvPgW_92-PLMRtRu1QXh1uizYTpUOHNyHw2badcDoPG47cHwfHtyHk_vwsJ0mHXR0FzWFN7DjOhuQG0wLJz04px-s-QkXQHDFtHN0HVxpMd_z3ElPPyKnKgujnFJs5sOmBo__AIG6ebw=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
 
@@ -5661,11 +5703,15 @@ flowchart TD
 </tbody>
 </table>
 <hr />
-<p><em>PM-070 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: March 2026</em></p>
+<p><em>PM-070 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-070 — Create and Maintain Purchase Requisitions</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>PM-070</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

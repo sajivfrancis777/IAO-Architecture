@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
   Capability R-260 · R Returns (IP)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 3</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -694,7 +736,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Ground Controller
+    subgraph lane_0["Ground Controller"]
         n1["fa:fa-user Print Pick Tickets"]
         n2["- Confirm Quantity and Location Picked (IP)"]
         n3["- Consolidate Appropriate Pick Items (IP)"]
@@ -706,7 +748,7 @@ flowchart TD
     class n3 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViitlEj5JDSHShBItdJWooK2h9KDcWywcOzIdhYo4r_XDl8L1Z6aQxRP5s28N4l9cJCosJM7vd6BcqpzcHD1GtfYzYG7hAq7HjgBP6CkcMmwci2HCK5n9E9HC5NmZ2kWK2FN2d6iM7wSGHx_9sDQFDIPKMiVr7CkxPXcRtIayn0hmJCW_YQHJCCd2_nVSMgKyxshCLIQpaaUUY5vcJwlWVLaOoWR4NWdKEnJgCD3aJtjYovWUOqu_Vbhr3D3k1Z6bdYEMoUNZ61r9gKXmNkZtWwthlr5egmDKuvDTWCzBiLKVwZPAgNJyDc3KA2OR3Ds9Rb8agrm4wUH5kIMKjXGBCht4MmrBoQylj8lxbBMA09pKTY4f4om2TiOPGQnyc3ogWfD9beYrtY6XwpWnan-1s6QR83Ok7s8Cjy5N_cHL8yrm1PRjwbR4Oo0ysIiLC5OhJD_cjK5yjlUm7PXJC6jcnz1CtN-WgT_6l3GHCfZMHzMCctXivAb0bIs48ktqkk_DYP3RUdl3A-KB9EV1HgL9zfBT0VyFSzTrAyzdwVPfo9dtsupFOgiGE_SMr0KZqOwHEbvCibDMBmcOzQ6KwmbNfgiRcsrUJhvIQVjWJ7e24uHvxYOgTmBvo0bTCXlGkwp2oC5uWGtFs7vN_TI0H2rRKiswbcWck31HkAj_yIQ1FTwrhpX4MPz9ON9cXwpVoLRysQGhk0jhdmj9rkzfda4Vvel5oc7PfAQ-P5n08N5GZ-Wbz-y5Vx-mzs4uu6ROzi-wo7n1FjWkFZOfnC6Q8ocZBUmsGXaOXoObLWY7Tly8m4zO21jJxhTaDKuT-DxL585myo=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO2jAU_BUrK5RWClKuhOahEgRSrbSVqNi2D6WqTHIMFo4d2c4Ci_j32lwXqn1qHqJ4MmfmnEnsnVOKCpzM6XR2lFOdoZ2rl1CDmyF3jhW4HjoCP7CkeM5AuZZDBNdT-nqgBXGzsTSLFbimbGvRKSwEoO-PHhqYQuYhhbnqKpCUuJ7bSFpjuc0FE9KyH6BPfHJwO70aClmBvBJ8Pw3KxJQyyuEKR2mcxoWtU1AKXt2IkoT0SenubXNMrMsllvrQfqvgK978pJVemjXBTIHhLHXNnvAcmJ1Ry9ZiZStfzmFQZX24CWza4JLyhcFj30AS89UVSvz9Hu07nRm_mKLn0Ywjc5UMKzUCgpQ28PhFI0IZyx7ifFAkvqe0FCvIHsJxOopCr7STZGZ037PhdtdAF0udzQWrTtTu2s6Qhc3Gk5ss9D25Nfc7L-DV1Snvhf2wf3EapkEe5GcnQsh_OZlc5TNWq5PXOCrCYnTxCpJekvv_6p3HHMXpILjPCeQLLeGNaFEU0fga1biXBP77osMi6vn5negCa1jj7VXwUx5fBIskLYL0XcGj332X7XwiRXkWjMZJkVwE02FQDMJ3BeNBEPdPHRqdhcTNEjHM4Y__a-Z8kaLlFcrNR5GCMZAz5_eRay8eGArBGcFdGz2aSMo1mtByhZ7NDbS6pYeG3rVihMoafWsx11RvETYOT6LEmgp-qIYKfXicfLwtjs7FSjBamQjRoGmkMPvVPh9MHzXU6rbU_HzHBx6gbvez6eG0jI7Ltx_ccs6_0A0cXvbLDRxdYMdzapA1ppWT7ZzDgWUOtQoIbpl29p6DWy2mW1462WFjO21jJxhRbPKuj-D-Lx_pnw0=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-322-r-260-050_-consolidate_appropriate_pick_itemsip-r-260-050_-consolidate_appropriate_pick_itemsip">BUSINESS ARCHITECTURE — 3.2.2 R-260-050_-<em>Consolidate_Appropriate_Pick_Items</em>(IP) — R-260-050_-<em>Consolidate_Appropriate_Pick_Items</em>(IP)</h4>
 <p><strong>Swim Lanes</strong>: Ground Controller | <strong>Tasks</strong>: 4 | <strong>Gateways</strong>: 2</p>
@@ -722,7 +764,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Ground Controller
+    subgraph lane_0["Ground Controller"]
         n1["fa:fa-user Get Pick Plan for All Schedule Deliveries"]
         n2["fa:fa-user Create Picking Warehouse Task"]
         n3["Update Pick Plan"]
@@ -753,7 +795,7 @@ flowchart TD
     class n10 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P4jYU_StWRiN2paAmISGQh1ZMIKORtiu0zHZVlT6YxCHWGDuyHT7K8t97nQ8YKPPUPES6x-eec--14xytVGTEiqzHxyPlVEfo2NMF2ZBehHorrEjPRg3wB5YUrxhRPcPJBdcL-k9Nc_1yb2gGS_CGsoNBF2QtCPr-YqMJJDIbKcxVXxFJ857dKyXdYHmIBRPSsB_IKHfy2q1dehIyI_JCcJzQTQNIZZSTCzwI_dBPTJ4iqeDZlWge5KM87Z1McUzs0gJLXZdfKfI73v-gmS4gzjFTBDiF3rAveEWY6VHLymBpJbfdMKgyPhwGtihxSvkacN8BSGL-doEC53RCp8fHJT-botfpkiN4UoaVmpIcKQ3wbKtRThmLHvx4kgSOrbQUbyR68GbhdODZqekkgtYd2wy3vyN0XehoJVjWUvs700PklXtb7iPPseUB3jdehGcXp3jojbzR2ekpdGM37pzyPP9fTjBX-YrVW-s1GyReMj17ucEwiJ3_6nVtTv1w4t7OicgtTck70SRJBrPLqGbDwHU-Fn1KBkMnvhFdY012-HARHMf-WTAJwsQNPxRs_G6rrFZzKdJOcDALkuAsGD65ycT7UNCfuP6orRB01hKXBXqWouIZimEvpGCMyGbdPNz9a2nlOMpx34wbPRON5jR9Q3OGOcqFRBPG0CItSFYxgqaE0S18dUQtrb_fqXjXKrEkMJRaCE4x-oElKQSsIDP568wBZH4vs45e-14zfGDU1WDoAaoRqSF_I0pUMr0tJPh0rkRpUSIzSKKUObVA_PyOOQRiH_rlRJ7NX-FFtKqd5hiAL1RB-Oll_vnaJqyTvwpINNxvcFvIDM32KSk1FfxeyqhOOdf_wreEayEPSAu0KGi5gVD9chnwHYnx8dg1Zy7a_gquihS293WB4oJAuSWcIJL9trROp_db7FzysJRip_qYaSBLDIeBPTfn95JkZsWb0aN-_1fYozZ0m9Bvw1ETut2q08TDmzhs40ETjtvQa7Pb08_HJv65tP40W_oT1m_wr6KGg3cfi6mouySuYO8-HLSX1xU4PN-eV3B4Hx7dh8fdLXBdndPBlm1tiNxgmlnR0ap_gfCbzEiOK6atk23hSovFgadWVP8qrKr-JKYUwxe8acDTvwzYUik=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduO2kgQ_ZWWRyMSyWhtY2Pww64Yg0cjJREKk0TRslo1dnncmqYbdTe3Jfz7VhsDA8s8rR8s1fGpc6qqL945uSzASZz7-x0TzCRk1zIVzKGVkNaMami55AB8p4rRGQfdspxSCjNh_9Q0P1xsLM1iGZ0zvrXoBF4kkG9PLhlgIneJpkK3NShWttzWQrE5VdtUcqks-w56pVfWbs2nB6kKUGeC58V-HmEqZwLOcCcO4zCzeRpyKYoL0TIqe2Xe2tviuFznFVWmLn-p4TPd_GCFqTAuKdeAnMrM-Sc6A257NGppsXypVsdhMG19BA5ssqA5Ey-Ihx5CiorXMxR5-z3Z399PxcmUPA-nguCTc6r1EEqiDcKjlSEl4zy5C9NBFnmuNkq-QnIXjOJhJ3Bz20mCrXuuHW57DeylMslM8qKhtte2hyRYbFy1SQLPVVt8X3mBKM5OaTfoBb2T00Psp356dCrL8n854VzVM9WvjdeokwXZ8OTlR90o9f6rd2xzGMYD_3pOoFYshzeiWZZ1RudRjbqR770v-pB1ul56JfpCDazp9izYT8OTYBbFmR-_K3jwu65yORsrmR8FO6Moi06C8YOfDYJ3BcOBH_aaClHnRdFFRTgV8Lf359R5VHIpCpLioijJOaip89eBax_hI6WkSUnbdvTkEQwZs_yVjFGAlFKRAedkkldQLDmQIXC2whMI-lIluFRJFeCAaiHc0eQHVVBJ_ELsKlxmdjDz26I40mvfS0aIjLoaim1gNTK35K-g5VLl14VEH06VaCMXxA4VtLY7GIkf3zC7SGxjvwLUyfwZX2B07TSmCHxiGsMPT-OPlzZxnfxFYqLlfsWbQxVktMlhYZgUt1J6dcqp_iexAmGk2hIjyaRiizmG-rfzgG9I9He7Y3P20m3P8NrIK_L4PCFpBVjuAncTFH9Mnf3-7RJ75zyqlFzrNuUGyYrifuCPh718TrKzEofRk3b7d1yjJvQPYdiEvUPoH796h7h7FcdN3DmE_SYMmuzmJIi-jX9NnZ92SX_h9yv8i6zh6M3BsRUdL4wLOLgNR81FdgF2TzfpBRzfhnu34f7xRriszjvCjuvMQc0pK5xk59S_Q_xlFlDSJTfO3nXo0sjJVuROUv82nGV9JIaM4mmeH8D9v8FaVgw=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-260 — Pick Orders (IP)</span></div>
 
@@ -776,7 +818,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Ground Controller
+    subgraph lane_0["Ground Controller"]
         n1["fa:fa-user Perform Pickup (by RF Console)"]
         n2["fa:fa-user Perform Pickup (by SAP GUI)"]
         n3["Match Pick List with Physical Items"]
@@ -808,7 +850,7 @@ flowchart TD
     class n10 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVtv4jgY_StWqopZKUhJSAjNw6y4parUjtihs6vVMg_G-QJWHRvZToFl-O9rJ-G6VPMweUB8x-ec7xLb2TlEZOAkzv39jnKqE7Rr6SUU0EpQa44VtFxUA39iSfGcgWpZTi64ntJ_K5ofrjaWZrEUF5RtLTqFhQD07clFfSNkLlKYq7YCSfOW21pJWmC5HQompGXfQS_38ipbszQQMgN5Inhe7JPISBnlcII7cRiHqdUpIIJnF6Z5lPdy0trb4phYkyWWuiq_VPCCN3_RTC9NnGOmwHCWumDPeA7M9qhlaTFSyvfDMKiyebgZ2HSFCeULg4eegSTmbyco8vZ7tL-_n_FjUvQ6mnFkHsKwUiPIkdIGHr9rlFPGkrtw2E8jz1VaijdI7oJxPOoELrGdJKZ1z7XDba-BLpY6mQuWNdT22vaQBKuNKzdJ4Llya36vcgHPTpmG3aAX9I6ZBrE_9IeHTHme_1ImM1f5itVbk2vcSYN0dMzlR91o6P3f79DmKIz7_vWcQL5TAmemaZp2xqdRjbuR731sOkg7XW94ZbrAGtZ4ezJ8GIZHwzSKUz_-0LDOd11lOZ9IQQ6GnXGURkfDeOCn_eBDw7Dvh72mQuOzkHi1RI9SlDxDQ_MupGAMZL1uH-7_M3NynOS4bceNJiBzIQs0oeStXKFP8y36mlqlEgx-mznfz6TBT6XT_gQ9fnu60nWM7gVrsqyo6JkqjdZUm3C5VZRghp40FOpSFBpRRTejyUpiNqAUBZpqIfEC0IDyS3pk6G30RWhA2LT-1RxnmaHxhsBKU9MN-vQ0uSqrW0lMqzk1XfxRYq6p3lbyZ0GwlVUFQ3ZDHFfiR-AgzXaoG3u1ZK0qhwluOr2VubfbHSZpL9D23FwBh-m8gF6KDP0-c_b7M8nDbQlsCCsVfYfHelNeqXzvtqzPt6fZnKUyZ73-w3uo3f78Y-aYzVC_35nzw_g1q75dNUU1YXAZPtRh2IRhHfreQew13l9EZdpt8E7N613T_gZV8aJmIa55natKzb47LzU4O2S24MPlcgEHt-HoeMFewN3bcHwb7h0uigv04SZqem1gx3UKkAWmmZPsnOrbab6vGeS4ZNrZuw4utZhuOXGS6hvjlKvMKEcUm6Nf1OD-P8sBYtc=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVuP4jYY_StWRiO2UpCSkBAmD624ZTTSzIous7uqSlUZ5wtY49jIdgZYlv9eOwnXMupD84D4js853yW2s3OIyMBJnPv7HeVUJ2jX0ksooJWg1hwraLmoBr5hSfGcgWpZTi64ntIfFc0PVxtLs1iKC8q2Fp3CQgD6-uSivhEyFynMVVuBpHnLba0kLbDcDgUT0rLvoJd7eZWtWRoImYE8ETwv9klkpIxyOMGdOIzD1OoUEMGzC9M8yns5ae1tcUysyRJLXZVfKnjBm-8000sT55gpMJylLtgzngOzPWpZWoyU8v0wDKpsHm4GNl1hQvnC4KFnIIn52wmKvP0e7e_vZ_yYFL2OZhyZhzCs1AhypLSBx-8a5ZSx5C4c9tPIc5WW4g2Su2AcjzqBS2wniWndc-1w22ugi6VO5oJlDbW9tj0kwWrjyk0SeK7cmt-rXMCzU6ZhN-gFvWOmQewP_eEhU57n_yuTmat8xeqtyTXupEE6Oubyo2409P7td2hzFMZ9_3pOIN8pgTPTNE0749Ooxt3I9z42HaSdrje8Ml1gDWu8PRk-DMOjYRrFqR9_aFjnu66ynE-kIAfDzjhKo6NhPPDTfvChYdj3w15TofFZSLxaIoY5_O39OXMepSh5hobmpUjBGMiZ81fNtQ_3DSXHSY7bdvRoAjIXskATSt7KFfo036IvqRUrweCXS2nwn9Jpf4Ievz5d6TpG94I1WVZU9EyVRmuqTbjcKkowQ08aCnUpCo2oopsxZSUxm1GKAk21kHgBaED5JT0y9Db6LDQgbLr_Yo62zNB4Q2ClqekGfXqaXJXVrSSm1ZyaLn4vMddUbyv5syDYyqqCIbshjivxI3CQZmvUjb1aslaVwwQ3nd7K3NvtDpO0l2l7bq6Dw3ReQC9Fhn6bOfv9meThtgQ2hJWKvsNjvUGvVL53W9bn29NszlKZc1__4T3Ubv_6c-aYzVC_35nz0_g1q75dNUU1YXAZPtRh2IRhHfreQew13p9FZdpt8E7N613T_gBV8aJmIa55natKzb47LzU4O3C24MNFcwEHt-HoeNlewN3bcHwb7h0ujQv04SZqem1gx3UKkAWmmZPsnOo7ar61GeS4ZNrZuw4utZhuOXGS6nvjlKvMKEcUm2ugqMH9P10sZro=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-324-r-260-070_-note_and_record_exceptionsip-r-260-070_-note_and_record_exceptionsip">BUSINESS ARCHITECTURE — 3.2.4 R-260-070_-<em>Note_and_Record_Exceptions</em>(IP) — R-260-070_-<em>Note_and_Record_Exceptions</em>(IP)</h4>
 <p><strong>Swim Lanes</strong>: Ground Controller | <strong>Tasks</strong>: 5 | <strong>Gateways</strong>: 2</p>
@@ -824,7 +866,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Ground Controller
+    subgraph lane_0["Ground Controller"]
         n1["fa:fa-user Record Change in Quantity"]
         n2["fa:fa-user Record Discrepancy in Pick Items and Physical Product"]
         n3["fa:fa-user Record Change in Batches"]
@@ -853,7 +895,7 @@ flowchart TD
     class n9 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVuP2jgY_StWRiN2pSDlSkIeWkEg1UitdrZMdx-WPhjHJtY4DrKdGbKU_742SchAGe1D84D4js853yW2c7BQlWMrse7vD5RTlYDDSBW4xKMEjDZQ4pENWuAvKCjcMCxHhkMqrlb03xPNDXZ7QzNYBkvKGoOu8LbC4NuDDWZayGwgIZdjiQUlI3u0E7SEokkrVgnDvsMxccgpW7c0r0SOxUBwnMhFoZYyyvEA-1EQBZnRSYwqnl-YkpDEBI2OpjhWvaICCnUqv5b4C9z_TXNV6JhAJrHmFKpkn-EGM9OjErXBUC1e-mFQafJwPbDVDiLKtxoPHA0JyJ8HKHSOR3C8v1_zc1LwtFhzoB_EoJQLTIBUGl6-KEAoY8ldkM6y0LGlEtUzTu68ZbTwPRuZThLdumOb4Y5fMd0WKtlULO-o41fTQ-Lt9rbYJ55ji0b_XuXCPB8ypRMv9uJzpnnkpm7aZyKE_FImPVfxBOVzl2vpZ162OOdyw0mYOj_79W0ugmjmXs8JixeK8BvTLMv85TCq5SR0nfdN55k_cdIr0y1U-BU2g-E0Dc6GWRhlbvSuYZvvusp68ygq1Bv6yzALz4bR3M1m3ruGwcwN4q5C7bMVcFeAT6KqeQ5S_S5ExRgW7bp5uPvP2iIwIXBsxg2-6n0vNLWAfIsB5eDPGnJFVbO2vr9ReTdVCyqRwDvIUWOkjxQ9gweFSwmgTv9YNJIiyIBuLq-RunT0_6eOOVSowPJSFGhRWmCdpvOUhrpSlYBaNaf8ih8OfFPbAitI2RVnojljMytCRXlu_9TB5wpBRau2M5yD3x4ef78URyfxyfwPc-N07f9MjA-Hvl9zZ443-tSjou_3qdnhj2vreHyjmN5W4D1itaQv-FO7DQeVPqjtHx6A8fiDfmldOG3DSRe6bTjtwqgNwy4M2zDoQq8N4y70L7WxCX-srWHT_ND-V4vnN6nX_Ddb31TSH_kL2LsN-7fhyfk2vICj23DcH98LdNqjlm2VWJSQ5lZysE6fLv15yzGBNVPW0bZgrapVw5GVnK54q97lWrmgUJ-8sgWP_wEv6D3v" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P4jYU_StWRiN2pSDlk4Q8bAWBrEbaqtNl2j6UqjLODbHGOMh2ZqAs_31tEsiEZbQPzQPiHp9z7odj52CRKgcrse7vD5RTlaDDQJWwgUGCBissYWCjBvgTC4pXDOTAcIqKqwX970Rzg-3O0AyW4Q1le4MuYF0B-uPBRhMtZDaSmMuhBEGLgT3YCrrBYp9WrBKGfQdx4RSnbO3StBI5iI7gOJFLQi1llEMH-1EQBZnRSSAVz3umRVjEBRkcTXGseiUlFupUfi3hV7z7i-aq1HGBmQTNKdWGfcErYKZHJWqDkVq8nIdBpcnD9cAWW0woX2s8cDQkMH_uoNA5HtHx_n7JL0nR02zJkX4Iw1LOoEBSaXj-olBBGUvugnSShY4tlaieIbnz5tHM92xiOkl0645thjt8BbouVbKqWN5Sh6-mh8Tb7myxSzzHFnv9e5ULeN5lSkde7MWXTNPITd30nKkoiv-VSc9VPGH53Oaa-5mXzS653HAUps6Pfuc2Z0E0ca_nBOKFEnhjmmWZP-9GNR-FrvO-6TTzR056ZbrGCl7xvjMcp8HFMAujzI3eNWzyXVdZrx5FRc6G_jzMwothNHWzifeuYTBxg7itUPusBd6WiGEO_zp_L63Poqp5jlK9KaJiDMTS-qfhmoe7mlLgpMBDM3r0VZ8Bodkl5mtAlKPfa8wVVfu-yrupmlFJBGwxJ3sjfaTkGT0o2EiEdQWP5V5SghnSjeY1UX1H_yd1TLEiJci-KNCitASdpvWUhrpQlcBaNaX8ih92fFPbDBSm7Ioz0pyhGVdBxebS_qmDLxXBilZNZ5CjDw-PH_vi6CQ-mf9mbp-2_R-J8eFw7tfcn8OVvgFIee73ab-FX5bW8fhGMb6tgB1htaQv8Ll5JTuVPrTNHx6g4fCT3rQ2HDfhqA3dJhy3YdSEYRuGTRi0odeEcRv6fW1swm9Lq3tpvmn_q8XLTuo1_80xMJWcj38P9m7D_m14dLkZe3B0G47PR7mHjs-oZVsbEBtMcys5WKfPmP7U5VDgminraFu4VtViz4mVnK57q97mWjmjWJ_CTQMevwPMg0HS" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-260 — Pick Orders (IP)</span></div>
 
@@ -876,7 +918,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Ground Controller
+    subgraph lane_0["Ground Controller"]
         n1["fa:fa-user Confirm Quantity and Pickup Location"]
         n2["- Transport Product to Staging Area (IP)"]
         n3["- Pick Order Items (IP)"]
@@ -894,7 +936,7 @@ flowchart TD
     class n5 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO2jAQ_RUrK0QrBSlXQvNQCQJZrbRtt2XbPpQ-GMcGax07sh0uRfn32oTLQtmn5gExJ2fOmZmMvXOQKLCTOp3OjnKqU7Dr6iUucTcF3TlUuOuCFvgBJYVzhlXXcojgekr_7Gl-VG0szWI5LCnbWnSKFwKD7w8uGJpE5gIFueopLCnput1K0hLKbSaYkJZ9hwfEI3u3w6uRkAWWZ4LnJT6KTSqjHJ_hMImSKLd5CiPBiwtREpMBQd3GFsfEGi2h1Pvya4U_wc1PWuiliQlkChvOUpfsEc4xsz1qWVsM1XJ1HAZV1oebgU0riChfGDzyDCQhfzlDsdc0oOl0ZvxkCp7HMw7MgxhUaowJUNrAk5UGhDKW3kXZMI89V2kpXnB6F0yScRi4yHaSmtY91w63t8Z0sdTpXLDiQO2tbQ9pUG1cuUkDz5Vb83vlhXlxdsr6wSAYnJxGiZ_52dGJEPJfTmau8hmql4PXJMyDfHzy8uN-nHn_6h3bHEfJ0L-eE5YrivAr0TzPw8l5VJN-7Htvi47ysO9lV6ILqPEabs-CH7LoJJjHSe4nbwq2ftdV1vMnKdBRMJzEeXwSTEZ-PgzeFIyGfjQ4VGh0FhJWS3AvRc0LkJlvIQVjWLbv7cP9XzOHwJTAnh235RAqS_C1hlxTvQXQJD5R9FJX4FEgqKngM-f3K4HACPTAs9laVQmznKb0okYaaAGmGi7MFpsziyF49_D0_jIz3GdacfDFHk_woHGpbhCjPfGz0HhfzjdzNmUBJhuEK1vPrZR4tzv2Ze-k3tzUh5YAbxCrFV3h-_ajzZymabPMWrd_eAx6vY9mMIcwbMP4EEaXod-GwatPaMHj6l7AwemcXsDhbTi6DcfHfXNcp8SyhLRw0p2zv1XNzVtgAmumncZ1YK3FdMuRk-5vH6euCpM5ptAsRdmCzV8ugdDk" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO2jAQ_RUrK0QrBSlXQvNQCQJZrdTLtmzbh1JVxrHBWseObIdLUf69NuGyUPapeYiYw5lzZiZj7xwkCuykTqezo5zqFOy6eolL3E1Bdw4V7rqgBb5DSeGcYdW1HCK4ntI_e5ofVRtLs1gOS8q2Fp3ihcDg24MLhiaRuUBBrnoKS0q6breStIRymwkmpGXf4QHxyN7t8NdIyALLM8HzEh_FJpVRjs9wmERJlNs8hZHgxYUoicmAoG5ji2NijZZQ6n35tcIf4eYHLfTSxAQyhQ1nqUv2Ac4xsz1qWVsM1XJ1HAZV1oebgU0riChfGDzyDCQhfz5Dsdc0oOl0ZvxkCp7GMw7MgxhUaowJUNrAk5UGhDKW3kXZMI89V2kpnnF6F0yScRi4yHaSmtY91w63t8Z0sdTpXLDiQO2tbQ9pUG1cuUkDz5Vb877ywrw4O2X9YBAMTk6jxM_87OhECPkvJzNX-QTV88FrEuZBPj55-XE_zrx_9Y5tjqNk6F_PCcsVRfiFaJ7n4eQ8qkk_9r3XRUd52PeyK9EF1HgNt2fBd1l0EszjJPeTVwVbv-sq6_mjFOgoGE7iPD4JJiM_HwavCkZDPxocKjQ6CwmrJWCQ49_ez5lzL0XNC5CZjyIFY1jOnF8t1z7cNxQCUwJ7dvSWRqgswZcack31FkCT-0jRc12BDwJBTQW_FAiMQA88mQ1WlTCLatooaqSBFmCq4cJstDm_GII3D49vLzPDfaYVB5_tUQUPGpfqBjHaEz8JjfflfDXnVBZgskG4svXcSol3u2Nf9n7qzU19aAnwBrFa0RW-bz_gzGmaNsusePuDx6DXe28GcwjDNowPYXQZ-m0YvPicFjyu8QUcnM7sBRzehqPbcHzcPcd1SixLSAsn3Tn7G9bcwgUmsGbaaVwH1lpMtxw56f4mcuqqMJljCs2ClC3Y_AVfQtTH" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-326-r-260-090_-transport_product_to_staging_areaip-r-260-090_-transport_product_to_staging_areaip">BUSINESS ARCHITECTURE — 3.2.6 R-260-090_-<em>Transport_Product_to_Staging_Area</em>(IP) — R-260-090_-<em>Transport_Product_to_Staging_Area</em>(IP)</h4>
 <p><strong>Swim Lanes</strong>: Ground Controller | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 0</p>
@@ -910,7 +952,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Ground Controller
+    subgraph lane_0["Ground Controller"]
         n1["Move Picked Orders to Staging Area"]
         n2["- Process Goods Issue for Stock Material (IP)"]
         n3["- Confirm Quantity and Location Picked (IP)"]
@@ -921,7 +963,7 @@ flowchart TD
     class n3 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuO2jAU_RUrI5RWClKehGZRCQIZjdRRp2LaLkoXJrkGC8dGtsOjiH-vzSMMVLNqFhE-ufeccw-52TulqMDJnE5nTznVGdq7egE1uBlyZ1iB66ET8ANLimcMlGtriOB6Qv8cy4J4tbVlFitwTdnOohOYC0Dfnzw0MI3MQwpz1VUgKXE9dyVpjeUuF0xIW_0AfeKTo9r50VDICuS1wPfToExMK6McrnCUxmlc2D4FpeDVDSlJSJ-U7sGaY2JTLrDUR_uNgme8_UkrvTBngpkCU7PQNfuCZ8DsjFo2Fisbub6EQZXV4SawyQqXlM8NHvsGkpgvr1DiHw7o0OlMeSuKXkdTjsxVMqzUCAhS2sDjtUaEMpY9xPmgSHxPaSmWkD2E43QUhV5pJ8nM6L5nw-1ugM4XOpsJVp1Luxs7Qxautp7cZqHvyZ2532kBr65KeS_sh_1WaZgGeZBflAgh_6VkcpWvWC3PWuOoCItRqxUkvST3_-W7jDmK00FwnxPINS3hDWlRFNH4GtW4lwT--6TDIur5-R3pHGvY4N2V8FMet4RFkhZB-i7hSe_eZTN7kaK8EEbjpEhawnQYFIPwXcJ4EMT9s0PDM5d4tUCPUjS8Qrn5L6RgDOTpub148GvqPIs1oBdaLqFCX-2iKKQFmmg8N--g2TjAU-f3m57Q9HSR9QhKoUchKoWelGoAESFNnyiX6NmkYlcVfXh6-XjbHh3bjRtCZY2-NZhrqncIG4tfRIk1Ffzi5qbZvHmnHzxC3e5n4_18DE7H8E2O5tRuxQ0ctbDjOTXIGtPKyfbO8bNkPl0VENww7Rw8BzdaTHa8dLLj-jrNqjJDjSg2qdYn8PAXV3OWUg==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO2jAU_BUrK5RWClKuhOahEgSyWmlXpWLbPpSqMskxWDg2sh0uRfx7ba4L1T41DxGenDMzZ8jJzilFBU7mtFo7yqnO0M7Vc6jBzZA7xQpcDx2B71hSPGWgXFtDBNdj-udQFsTLjS2zWIFryrYWHcNMAPr25KGeaWQeUpirtgJJieu5S0lrLLe5YELa6gfoEp8c1E6P-kJWIK8Fvp8GZWJaGeVwhaM0TuPC9ikoBa9uSElCuqR099YcE-tyjqU-2G8UvODND1rpuTkTzBSYmrmu2TOeArMzatlYrGzk6hwGVVaHm8DGS1xSPjN47BtIYr64Qom_36N9qzXhF1H0OphwZK6SYaUGQJDSBh6uNCKUsewhzntF4ntKS7GA7CEcpoMo9Eo7SWZG9z0bbnsNdDbX2VSw6lTaXtsZsnC58eQmC31Pbs39Tgt4dVXKO2E37F6U-mmQB_lZiRDyX0omV_mK1eKkNYyKsBhctIKkk-T-v3znMQdx2gvucwK5oiW8IS2KIhpeoxp2ksB_n7RfRB0_vyOdYQ1rvL0SfsrjC2GRpEWQvkt41Lt32UxHUpRnwmiYFMmFMO0HRS98lzDuBXH35NDwzCRezhHDHH77PyfOoxQNr1Bu_hQpGAM5cX4da-3FA1PyIlaARrRcQIW-2KVRSAs01nhm3kezfYBve0LT00bWLyiFHoWoFHpSqgFEhDR9olygF5OQXVv04Wn08bY9OrQbQ4TKGn1tMNdUbxE2Lp9FiTUV_Ozmptm8hccfPELt9mfj_XQMjsfwTabmdNmQGzi6wI7n1CBrTCsn2zmHT5T5jFVAcMO0s_cc3Ggx3vLSyQ6r7DTLygw1oNgkXB_B_V-hqpo1" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-260 — Pick Orders (IP)</span></div>
 
@@ -944,10 +986,10 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Ground Controller
+    subgraph lane_0["Ground Controller"]
         n12["- Consolidate Appropriate Pick Items (IP)"]
     end
-    subgraph OTC IP - Returns Ground Controller
+    subgraph lane_1["OTC IP - Returns Ground Controller"]
         n1["fa:fa-user Initiate Delivery for preceding documents like PO or STO for Disposition..."]
         n2["fa:fa-user Create Delivery upon Confirmation from Ship items Screen"]
         n3["fa:fa-user Initiate Delivery for preceding documents like OBD without reference or OBD..."]
@@ -986,7 +1028,7 @@ flowchart LR
     class n12 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1VlFv4jgQ_itWqopdKVRJSAjk4SQI5FRpT0VLb_uwvQeTTMDC2JHtlHIV__3sJMAmS--lah4Q83nm-2Ym8dhvVsozsCLr9vaNMKIi9NZTG9hBL0K9FZbQs1EN_MCC4BUF2TM-OWdqSf6t3Fy_eDVuBkvwjtCDQZew5oD-vrfRRAdSG0nMZF-CIHnP7hWC7LA4xJxyYbxvYJQ7eaXWLE25yEBcHBwndNNAh1LC4AIPQj_0ExMnIeUsa5HmQT7K097RJEf5Pt1goar0Swl_4dcnkqmNtnNMJWifjdrRb3gF1NSoRGmwtBQvp2YQaXSYbtiywClha437joYEZtsLFDjHIzre3j6zsyj69v2ZIf2kFEs5gxxJpeH5i0I5oTS68eNJEji2VIJvIbrx5uFs4NmpqSTSpTu2aW5_D2S9UdGK06xx7e9NDZFXvNriNfIcWxz0b0cLWHZRiofeyBudlaahG7vxSSnP8w8p6b6KRyy3jdZ8kHjJ7KzlBsMgdn7nO5U588OJ2-0TiBeSwi-kSZIM5pdWzYeB67xPOk0GQyfukK6xgj0-XAjHsX8mTIIwccN3CWu9bpblaiF4eiIczIMkOBOGUzeZeO8S-hPXHzUZap61wMUG_Sl4yTIU63chOKUg6nXzMNf7-Wz1zZrklGS6FjQpCsH1xjH_FyTdonsFO4m-3C--Plv_1LH6K-iIPDzG6H6B-ug7qFIw-f-qWjTHUY775iWjez0sKrkZUPICQjeTC1QISCHT2wBlPC13wJRElGx1Ug9ILy8fHyq3GZEFl5qAs7u7u3OGlY7X1okFtFTKgjOTYE7EDhsClAu-Q8sNKRCpil6mAoC1SQcfSv5hOkN7oja8VEhADgJYCqYevfBb_v6HpJZYT1hUjb5up1D8tGhLBe9I7bEAnawEpMy2SU0LDcHqoLcThVQZYT3UUe_psW6wXu2hVakU7zRu2HkbdeOr4I6KJk-p_vRa3L-8p-v84eeXMPrkEsafX4LrfHINrvvlrFBQPRnNNAMpEZHngjId8rUzSnQg6vf_0Lu2sb3aHDRmUJvDxgxrc3QKrs2gMce16TbDlQ1qO2xMvzbHbaXmvGCjxjwlMuzYrtMGqtFtUjgdWS3Yuw4PrsP-dTi4Dg-vw-F1eHQdHl-HdZXXcfd84Wjj3hm3bGsH-iMhmRW9WdWVT18LM8hxSZV1tC1cKr48sNSKqquRVRbm6JkRrA-TXQ0e_wM8uVUG" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1VlFv4jgQ_itWqopdKVRJSAjNw0kQyAlpV0VL7_pwPZ1MMgELY0e2U8pV_PezkwAbNtU9VM0DYj7PfN_MJB77zUp5BlZk3d6-EUZUhN56agM76EWot8ISejaqgT-xIHhFQfaMT86ZWpJ_KzfXL16Nm8ESvCP0YNAlrDmgP-Y2GutAaiOJmexLECTv2b1CkB0Wh5hTLoz3DYxyJ6_UmqUJFxmIi4PjhG4a6FBKGFzgQeiHfmLiJKScZS3SPMhHedo7muQo36cbLFSVfinhO359IpnaaDvHVIL22agd_YZXQE2NSpQGS0vxcmoGkUaH6YYtC5wStta472hIYLa9QIFzPKLj7e0zO4uibz-eGdJPSrGUU8iRVBqevSiUE0qjGz8eJ4FjSyX4FqIbbxZOB56dmkoiXbpjm-b290DWGxWtOM0a1_7e1BB5xastXiPPscVB_15pAcsuSvHQG3mjs9IkdGM3Pinlef4hJd1X8YjlttGaDRIvmZ613GAYxM6vfKcyp344dq_7BOKFpPATaZIkg9mlVbNh4Drvk06SwdCJr0jXWMEeHy6E97F_JkyCMHHDdwlrvessy9VC8PREOJgFSXAmDCduMvbeJfTHrj9qMtQ8a4GLDaKYwT_OX8_W74KXLEOxfimCUwri2fq79jUPcz3t0zfLklOS6brQuCgE15vI_F-QdIvmCnYSfZkvvp5j9RfRJehqsofHGM0XqI9-gCoFk-j_MtAxOY5y3DcvH831EKmkp0DJCwjdZC5QISCFTG8PlPG03AFTElGy1Qk-IL28fHyo3KZEFlxqAs7u7u7aOl5bJxbQUikLzkyOORE7bAhQLvgOLTekQKRqwDIVAKxNOvhQ8g-TKdoTteGlQgJyEMBSMPXohV_y9z8ktcR68qJqJF53CsVPi7ZU8I7UHgvQyUpAymyn1LTQEKwOeptRSJUR1sMe9Z4e6wbr1R5alUrxq8YNr95G3fgq-EpFk6dUf4Yt7p_eUzd_-PkljD65hPvPL8F1PrkG1_1yViionphmyoGUiMhzQZkO-Xo1VnQg6vd_07u2sb3aHDRmUJvDxgxrc3QKrs2gMe9r022GLhvUdtiYfm3et5Wac4SNGvOUyPDKdp02UI10k8LpKGvBXjc86Ib9bjjohofdcNgNj7rh-25YV9mNu-eLSBv3zrhlWzvQHwnJrOjNqq6C-rqYQY5LqqyjbeFS8eWBpVZUXZmssjDH0JRgfbDsavD4H7DRXM0=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-260 — Pick Orders (IP)</span></div>
 
@@ -4662,11 +4704,15 @@ flowchart LR
 </tbody>
 </table>
 <hr />
-<p><em>R-260 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: March 2026</em></p>
+<p><em>R-260 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-260 — Pick Orders (IP)</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>R-260</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

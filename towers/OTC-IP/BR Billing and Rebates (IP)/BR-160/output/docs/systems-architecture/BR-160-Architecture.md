@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
   Capability BR-160 · BR Billing and Rebates (IP)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Order To Cash (IP) (OTC-IP) |
 | **Process Group** | BR Billing and Rebates (IP) |
 | **Capability** | BR-160 - Manage Rebates (IP) |
-| **Release** | Release 3 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 5 Reports, 71 Interfaces, 20 Conversions, 167 Enhancements, 28 Forms, 1 Workflows |
@@ -198,7 +198,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Rebate Analyst
+    subgraph lane_0["Rebate Analyst"]
         n1["fa:fa-user Perform Rebate Calculation"]
         n2(["fa:fa-play Rebate Settlement"])
         n3["A Create and Send Credit/Debit Memo"]
@@ -220,7 +220,7 @@ flowchart TD
     class n6 subProc
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU1v2zgQ_SuEgsAtIGP1aXl12IUjW0WBZhHUaXuo90BLQ5sIRaokldjr-r-XtCR_NTmtDoLn8c17MyOS3jmFKMFJndvbHeVUp2g30GuoYJCiwRIrGLioBb5iSfGSgRpYDhFcz-l_B5of1RtLs1iOK8q2Fp3DSgD68tFFE5PIXKQwV0MFkpKBO6glrbDcZoIJadk3MCYeObh1S3dCliBPBM9L_CI2qYxyOMFhEiVRbvMUFIKXF6IkJmNSDPa2OCZeijWW-lB-o-Aeb77RUq9NTDBTYDhrXbFPeAnM9qhlY7Gikc_9MKiyPtwMbF7jgvKVwSPPQBLzpxMUe_s92t_eLvjRFD1OFxyZp2BYqSkQpLSBZ88aEcpYehNlkzz2XKWleIL0Jpgl0zBwC9tJalr3XDvc4QvQ1VqnS8HKjjp8sT2kQb1x5SYNPFduzfvKC3h5cspGwTgYH53uEj_zs96JEPK_nMxc5SNWT53XLMyDfHr08uNRnHm_6_VtTqNk4l_PCeQzLeBMNM_zcHYa1WwU-97bond5OPKyK9EV1vCCtyfBP7PoKJjHSe4nbwq2ftdVNssHKYpeMJzFeXwUTO78fBK8KRhN_GjcVWh0VhLXa_QZlqZGNOGYbZVuF-3D_e8Lh-CU4KGdNXoASYSsen6GWdEwrKngC-ffs7Tg3TGvZqbzjj8HrZk53Fwb-vszfmjoE5RJsCzMS8M0LxOXVP8xhSXV6B4qcWkS7Xa9ib1VhktzLoo1yhqlRWWKfdzW8PfC2e_PcuLXc2BTsEbRZ_jQfqqrrNH3YzvEbFGQQ1ED7-v9rUzT7o8GlEbvPj68NzV3RZuW2h88QMPhX6aBLozbcNSFfhvGXThqw7ALIxv-XDhfqdKwWTg_T8x-6R_B0dny-R636v2puYCD4xVxAYevw1G_py_Q-FV01G9Xx3XMZ6kwLZ105xxuefNPUALBDdPO3nVwo8V8ywsnPdyGTlOXRm9KsdmkVQvufwGxRP86" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVdtu2zgQ_RVCQeAWkLG6Wq4eWjiytSjQFsE6bR_qxYKWhjYRitSSVGKv638vaUm-NXlaPQiewzPnzIxIeucUogQndW5vd5RTnaLdQK-hgkGKBkusYOCiFviGJcVLBmpgOURwPaf_HWh-VG8szWI5rijbWnQOKwHo60cXTUwic5HCXA0VSEoG7qCWtMJymwkmpGXfwJh45ODWLd0JWYI8ETwv8YvYpDLK4QSHSZREuc1TUAheXoiSmIxJMdjb4ph4LtZY6kP5jYLPePOdlnptYoKZAsNZ64p9wktgtkctG4sVjXzqh0GV9eFmYPMaF5SvDB55BpKYP56g2Nvv0f72dsGPpuhhuuDIPAXDSk2BIKUNPHvSiFDG0psom-Sx5yotxSOkN8EsmYaBW9hOUtO659rhDp-BrtY6XQpWdtThs-0hDeqNKzdp4Llya95XXsDLk1M2CsbB-Oh0l_iZn_VOhJD_5WTmKh-weuy8ZmEe5NOjlx-P4sz7Xa9vcxolE_96TiCfaAFnonmeh7PTqGaj2PdeF73Lw5GXXYmusIZnvD0Jvsuio2AeJ7mfvCrY-l1X2SzvpSh6wXAW5_FRMLnz80nwqmA08aNxV6HRWUlcrxHDHP7xfiycv2BpikUTjtlW6YXzd0u0D_fNOsEpwUM7d3QPkghZoS4lw6xoGNZU8Mu04M0xr2ZmCh1_Dlozc9C5dXl7xg8NfYIyCZaFeWmY5mXikuo_prCkGn2GSlyaRLtdb2JvmOHSnJFijbJGaVGZYh-2NXxYOPv9WU78cg5sCtYo-gR_tp_tKmv049gOMdsV5FDUwPt6fyvTtPtvA0qjNx_v35qau6JNS-0PHqDh8L1poAvjNhx1od-GcReO2jDswsiGPxfON6o0bBbOzxOzX_oiODpbPt_vVr0_QRdwcLwuLuDwZTjq9_cFGr-Ijvqt67iO-SwVpqWT7pzDjW_-FUoguGHa2bsObrSYb3nhpIeb0Wnq0uhNKTYbtmrB_S8QRwMs" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -680,6 +680,7 @@ Integration patterns identified from the system flow analysis for BR-160:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
@@ -807,6 +808,6 @@ Standard RAID items for BR-160 (Order To Cash (IP)):
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*BR-160 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: March 2026*
+*BR-160 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: April 2026*
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>BR-160 — Manage Rebates (IP)</span></div>

@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Finance Plan To Report (FPR) Tower<br/>
   Capability DS-030 · DS Provide Decision Support</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 3</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -662,12 +704,12 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Cost Accountant
+    subgraph lane_0["Cost Accountant"]
         n4["fa:fa-user Capture Revenue, COGS, Reporting"]
         n5["fa:fa-user Maintain Profitability Dimension Values"]
         n6(["fa:fa-stop Master Data Managed"])
     end
-    subgraph SAP Consultant
+    subgraph lane_1["SAP Consultant"]
         n1["fa:fa-user Define Profitability Dimensions"]
         n2["fa:fa-user Assign Dimensions to Operating Concerns"]
         n3["fa:fa-user Define Derivation Strategy for Profitability Dimensions at Transactional..."]
@@ -697,7 +739,7 @@ flowchart TD
     class n10 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU2P4kYQ_Sstj0YkkhnZxsaMD5EYg1eRstpV2GwOIYfCbkNrmm6ruw3DIv57qrGBsZc5hQPwnqveq6r-8NHJZUGdxHl8PDLBTEKOA7OhWzpIyGAFmg5c0hDfQTFYcaoHNqaUwizYj3OYH1ZvNsxyGWwZP1h2QdeSkr9-d8kUE7lLNAg91FSxcuAOKsW2oA6p5FLZ6Ac6Kb3y7NY-epGqoOoW4Hmxn0eYypmgN3oUh3GY2TxNcymKjmgZlZMyH5xscVzu8w0ocy6_1vQzvP3NCrNBXALXFGM2Zsv_gBXltkejasvltdpdhsG09RE4sEUFORNr5EMPKQXi9UZF3ulETo-PS3E1Jd9mS0Hwk3PQekZLog3S850hJeM8eQjTaRZ5rjZKvtLkIZjHs1Hg5raTBFv3XDvc4Z6y9cYkK8mLNnS4tz0kQfXmqrck8Fx1wO-eFxXFzSkdB5NgcnV6if3UTy9OZVn-Lyecq_oG-rX1mo-yIJtdvfxoHKXez3qXNmdhPPX7c6Jqx3L6TjTLstH8Nqr5OPK9j0VfstHYS3uiazB0D4eb4HMaXgWzKM78-EPBxq9fZb36qmR-ERzNoyy6CsYvfjYNPhQMp344aStEnbWCakNSqQ2Z5rmshQFhmqf2I8J_lk4JSQlDO2ySQmVqRcmfdEeF3bHpl08LF2EllcH9uHT-fZccdZM_A0N5JggWXzIDK8aZOZAZ21KhmRTkO_Ca6q7G-JeriDayQhFtUGsGBvC_gDUtMOHXJgO3Xq-zxfQrdid0zXuN-d3acKx40D-qrFdT0M2das3W4l00MZJ8qagCOxJrn1PV1xjd9Z_hhbXDNBzGwmA-XeO2kerDugjgYcf7QENuk4A_PT11fWL0SRVFKZLWOMHteSHsDLtxExu3AbH-KY7giuEYu-HPGG73INUawzAKL927ur53PF46BaXkXg-BG1KBAs4p_9ScjaVzOvWWEDPJcPgb_l5wA4MWBg2MWhg1cNTCUQPDFoYNHLcwbpXbgyUmPfzcxeeDZwu4XDgdOrhPj-7T4X06uk-P29u0Q8bX67xDT-7Tz_dpnG57Lzmug4u9BVY4ydE5v33xDV3QEvDQOCfXgdrIxUHkTnJ-Szl1VWDmjAEesW1Dnv4DyNqBBQ==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P4jYU_StWRiNaKYzySZg8VGICWVXqaldlu30oVXVJHLDG2JHtwFDEf-81CbBhmKfmATiHc8-9vrZvDk4hS-qkzuPjgQlmUnIYmDXd0EFKBkvQdOCSlvgOisGSUz2wmkoKM2f_nmR-VL9ZmeVy2DC-t-ycriQlf_zqkgkGcpdoEHqoqWLVwB3Uim1A7TPJpbLqBzquvOqUrfvrRaqSqqvA8xK_iDGUM0GvdJhESZTbOE0LKcqeaRVX46oYHG1xXO6KNShzKr_R9DO8_clKs0ZcAdcUNWuz4b_BknK7RqMayxWN2p6bwbTNI7Bh8xoKJlbIRx5SCsTrlYq945EcHx8X4pKUfJsuBMGn4KD1lFZEG6RnW0Mqxnn6EGWTPPZcbZR8pelDMEumYeAWdiUpLt1zbXOHO8pWa5MuJS876XBn15AG9Zur3tLAc9UeP29yUVFeM2WjYByML5leEj_zs3Omqqr-Vybsq_oG-rXLNQvzIJ9ecvnxKM68937nZU6jZOLf9omqLSvoD6Z5noeza6tmo9j3PjZ9ycORl92YrsDQHeyvhs9ZdDHM4yT3kw8N23y3VTbLr0oWZ8NwFufxxTB58fNJ8KFhNPGjcVch-qwU1GvCQdB_vL8WTia1IZOikI0wIMzC-btV2kdEKKggrWBoG08yqE2jKPmdbqmwpzf78mnuIqylMng2-8FxP_gzMMzABMGFVMzAknFm9mTKNlRoJgX5Dryhuu8x-ulioo2s0UQb9JqCAfwtYEVLDPi5jcBjeG-VPlrMJ19JJoVu-PtF-v06sd04AD6q8qa-oB870ZqtxA9qYiT5UlMFtj22goKqW4_wbv4pDrIthmFj5gbj6QqPk1Qf1kUAhwDOCQ2FDQL-9PTUz5PY3VYUrUjWYDc3p02x_ezrxla3BrF6pyO4e9jJvvwZ5fZsUq1Rhiocxnd9fe9wOK8UlJI7PQRuSA0KOKf8U3tnFs7xeLOdGEmGw1_w-4xbGHQwaGHcwbiFYQfDFkYdjFo46mDSOXcXToxv8HMfny6kLeA8iHp0cJ8O79PRfTq-T4-6Kdsjk8uY79Hj-_TzfRq7280rx3VwszfASic9OKe3Mr65S1oB3hvn6DrQGDnfi8JJT28vp6lLjJwywOu2acnjfxtQiMw=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-030 — Perform Customer and Product Profitability Analysis</span></div>
 
@@ -720,7 +762,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Cost Accountant
+    subgraph lane_0["Cost Accountant"]
         n1["fa:fa-user Capture Actual Revenue/Cost Flow to Profitability Analysis"]
         n2["fa:fa-user Capture Sales Order/Billing"]
         n3[["fa:fa-cog Derive Plant from Sales Order"]]
@@ -814,7 +856,7 @@ flowchart TD
     class n26 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV11v4jgU_StWRhW7EqhxPgjlYSUayOxIOztV6e48TPfBJA5YNXHkOG1pxX_fa_IBeJJpd5YHwOfee3zv8bUTv1qxSKg1tS4uXlnG1BS9DtSGbulgigYrUtDBEFXA30QysuK0GGifVGRqyV4ObtjLn7WbxiKyZXyn0SVdC4r--jREMwjkQ1SQrBgVVLJ0MBzkkm2J3IWCC6m9P9BJaqeH2WrTtZAJlUcH2w5w7EMoZxk9wm7gBV6k4woaiyw5I039dJLGg71OjouneEOkOqRfFvQzef7KErWBcUp4QcFno7b8D7KiXNeoZKmxuJSPjRis0PNkINgyJzHL1oB7NkCSZA9HyLf3e7S_uLjP2knR3fw-Q_CJOSmKOU1RoQBePCqUMs6nH7xwFvn2sFBSPNDpB2cRzF1nGOtKplC6PdTijp4oW2_UdCV4UruOnnQNUyd_HsrnqWMP5Q6-jblolhxnCsfOxJm0M10HOMRhM1Oapv9rJtBV3pHioZ5r4UZONG_nwv7YD-3v-Zoy514ww6ZOVD6ymJ6QRlHkLo5SLcY-tvtJryN3bIcG6Zoo-kR2R8Kr0GsJIz-IcNBLWM1nZlmubqSIG0J34Ud-Sxhc42jm9BJ6M-xN6gyBZy1JvkGhKBSaxbEoM0UyVVn1J8Pf7q2UTFMy0mKjkOSqlBR8VUk4uqWPNCvp5SE-gvZDSiBILWWKrBhnaodmGeE76OV7658TWqebdklgx6MveiteXkNx0OHnce63NjAWazSH_f1I0Q2HpFEqxfaUASJPQ73u0EOyKKSZgjwOFJ9hufQZAn8K9R2N30kTim1Osh38JrRiqXISss1oTTL2QhQTmcE47mTU5Y-UGN3Axt0hkiUtEupVkrtqmrAslNhC6p3JBp3Uyw3Lz6mXsPEAQfkBeUPISbcCTSIfpSjz9yR31bcgSRkr9Dujksh4s3vPomC7k-vr9fKtYjD-kUSo1vrylq5h4d5TFXY6Cedf7nRpMS2KSnFF1k2n1BV30xkdv3imcamoscluaS6kKsxYo-UPW_GFnu1aM8Ro72ZjGjW_qeq4m8ZYxctKhRb9s9yu3kHe3dVz9siKdpHe6JfuHl7AwrSV6lWaMzhG2arUuxaFG5JllL-ZXndf39F4o5_l6PJk6aFBjWjH_mH0afCyeQOpju_qCDPp8C8tXc7hGXQMugFmkbC4PvyLAlpzCxzoE7yYMZAvAa5fT7mcIxdolL-HS5-LnHZwua-vDReRUjwVI8KVPn8I55R_rJ6Y99Z-fxrk_UyQ_zNB4_8WBK881R8QHI1Gv0EX1ON66NTDoB66jRmbgG0AY2PsG2PXGDs1gFvGBvAawKtDmqScGsBjE_AboI5oKZqsWoc6Lc8YXxmMrmHHZg6BmYJtAtgEmhBsitt4mGW1SZva4qbOJgJPDA_PcLgyxm1SkxowCXBd-MQMMJVy2sLNjsBX58DhtVB3WvM6fAY73bB7-qp7ZvF6LX6vZdxrCXotk17LVa8FdkevCfebnH5Tvw64XwjcrwTulwL3a4H7xcD9ajj9asAx1Fz5znGnvp6do25zRzmHvW7Y74bHDWwNLXiAbglLrOmrdbjOw5U_oSkpubL2Q4uUSix3WWxND9deq8wTiJwzAreRbQXu_wUDZQxJ" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21v2zYQ_iuEgsAbYCOiXizHHwY4stUVaNegztYPzTDQEmUTkUmBopK4gf_7jtaLbVZqss4fbPO5u4d3D4-U-GLFIqHW1Lq8fGGcqSl6GagN3dLBFA1WpKCDIaqAv4hkZJXRYqB9UsHVkn07uGEvf9ZuGovIlmU7jS7pWlD05_shmkFgNkQF4cWooJKlg-Egl2xL5C4UmZDa-4JOUjs9zFabboRMqDw62HaAYx9CM8bpEXYDL_AiHVfQWPDkjDT100kaD_Y6uUw8xRsi1SH9sqAfyfMXlqgNjFOSFRR8NmqbfSArmukalSw1FpfysRGDFXoeDoItcxIzvgbcswGShD8cId_e79H-8vKet5Oiu_k9R_CJM1IUc5qiQgG8eFQoZVk2vfDCWeTbw0JJ8UCnF84imLvOMNaVTKF0e6jFHT1Rtt6o6UpkSe06etI1TJ38eSifp449lDv4NuaiPDnOFI6diTNpZ7oJcIjDZqY0Tf_XTKCrvCPFQz3Xwo2caN7Ohf2xH9rf8zVlzr1ghk2dqHxkMT0hjaLIXRylWox9bPeT3kTu2A4N0jVR9InsjoTXodcSRn4Q4aCXsJrPzLJc3UoRN4Tuwo_8ljC4wdHM6SX0Ztib1BkCz1qSfIMywuk_9td7KxSFQrM4FiVXhKt76-_KU384BoeUTFMy0sKjkOSqlBTcVUky9Jk-Ul7SqwNFBK2IlECQZsoUWbGMqR2acZLtoK_PaZ1u2iWB3Y8-6W15dQOFQrefx7lf28BYrNEc9vojRbdQCzSfFNtTBog8DfW6Qw_JopByBXkcKD7C0unzBP4U6jsav5MmFNuc8B38JrRiqXISss1oTTj7RhQT3GAcdzLq8kdKjG5hE-8Q4UmLhHqh5K6aJiwLJbaQemeyQSf1csPyc-olbEJAUH5AXhFy0q1Ak8g7Kcr8Lcld9y1IUsYK_c6oJDLe7N6yKNju5Ppys3ytGIx_JBGqtb76TNewcG-pCjudhPNPd7q0mBZFpbgi66ZT6oq76YyOXzzTuFTU2GSfaS6kKsxYo-UPW_EbPdu1ZojR3s3GNGp-VdVxN42xileVCi36R7ldvYG8u6vn7JEV7SK90i_dPbyAhWkr1as0Z3CkslWpdy0KN4Rzmr2aXndf39F4o5_r6Opk6aFBjWjH_mH0afCyeRtBh-O3OsJMOvxLS5dn8Dw6Bt0Cs0hYXEXPigJacwsc6D28pDGQLwGuX0-5nCMXaJS_hUufixnt4HJfXhouIqV4KkYkU_r8IVlGs3fV0_Pe2u9Pg7yfCfJ_Jmj834Lg9af6A4Kj0eg36IJ6XA-dehjUQ7cxYxOwDWBsjH1j7BpjpwZwy9gAXgN4dUiTlFMDeGwCfgPUES1Fk1XrUKflGeNrg9E17NjMITBTsE0Am0ATgk1xGw-zrDZpU1vc1NlE4Inh4RkO18a4TWpSAyYBrgufmAGmUk5buNkR-PocOLwi6k5rXo3PYKcbdk9fe88sXq_F77WMey1Br2XSa7nutcDu6DXhfpPTb-rXAfcLgfuVwP1S4H4tcL8YuF8Np18NOIaa69857tRXtXPUbe4r57DXDfvd8LiBraEFD9AtYYk1fbEOV3u4_ic0JWWmrP3QIqUSyx2PrenhCmyVeQKRc0bgZrKtwP2_6cEQLA==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-030 — Perform Customer and Product Profitability Analysis</span></div>
 
@@ -837,7 +879,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Cost Accountant
+    subgraph lane_0["Cost Accountant"]
         n1["fa:fa-user Maintain Actual Revenue/Cost Flow to Profitability Analysis"]
         n2["fa:fa-user Capture Sales Order"]
         n3["fa:fa-user Capture Sales Order - Billing (Revenue)"]
@@ -868,7 +910,7 @@ flowchart TD
     class n9 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduO2kgQ_ZWWRyMSyWh9xeCHlcDgUaREGQ1J9mHZh8KuHlrTdHvb7QGC-Pe0sbmYndFqtX5APsdV51QVfdlbmczRiq37-z0TTMdk39MrXGMvJr0llNizSUP8AMVgybHs1TFUCj1nP49hblBs67CaS2HN-K5m5_gskXz_ZJOxSeQ2KUGU_RIVoz27Vyi2BrVLJJeqjr7DIXXo0a39NJEqR3UJcJzIzUKTypnAC-1HQRSkdV6JmRR5R5SGdEiz3qEujstNtgKlj-VXJX6B7R8s1yuDKfASTcxKr_lnWCKve9SqqrmsUq-nYbCy9hFmYPMCMiaeDR84hlIgXi5U6BwO5HB_vxBnU_JtuhDEPBmHspwiJaU29OxVE8o4j--CZJyGjl1qJV8wvvNm0dT37KzuJDatO3Y93P4G2fNKx0vJ8za0v6l7iL1ia6tt7Dm22pnfGy8U-cUpGXhDb3h2mkRu4iYnJ0rp_3Iyc1XfoHxpvWZ-6qXTs5cbDsLE-afeqc1pEI3d2zmhemUZXommaerPLqOaDULXeV90kvoDJ7kRfQaNG9hdBEdJcBZMwyh1o3cFG7_bKqvlo5LZSdCfhWl4Fowmbjr23hUMxm4wbCs0Os8KihVJZKnJOMtkJTQI3XytH-H-ubAoxBT69bDJF2AmggkTrCvg5AlfUVT421EgNeuPaElMbZRpWDLO9I6MBfCdWcwL668rXa-rm0ChK4VkDmbLk6_1XuzG-_8aT_pkYuZhNgX50Jb1sasRdDVmW8wqjTflPmEhlb6pNuxmHlv6iZ3uuwmDD-eMgsNJlYwfH8lTJQz8u0IzsU_mDGRmdeQm--NVenRJL7Us2jbnyDHTTAoCIj_PlUhKkq8Pc_LwmWyYXpEpoxQVCm3-1vWSCTimmPeCo8Ybp-F-f3ICpeSm7APXpAAFnCN_aFbuwjocrnJG_y3HnAfNixiQfv93s6Za6DZw2MJhA70u9FvoNXDUQr8LRw0MWhg0MGxh2MDoahvV7qfjo0N7b9P-23TwNh2-TQ_O53CHjtojs0MOT8dGhx2dWMu21qjWwHIr3lvHK9NcqzlSqLi2DrYFlZbzncis-Hi1WFWRm8wpA7Pj1w15-AVgLmnH" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVe-P4jYQ_VesrFbcSUHNTwL5UAkCWZ10p1st1_bDUVVDMgZrjZ06zgKH-N_rkAAbbldV1XxAeY-Z92ZG9uRgZTJHK7bu7w9MMB2TQ0-vcYO9mPSWUGLPJg3xOygGS45lr46hUug5-3EKc4NiV4fVXAobxvc1O8eVRPLbJ5uMTSK3SQmi7JeoGO3ZvUKxDah9IrlUdfQdDqlDT27tXxOpclTXAMeJ3Cw0qZwJvNJ-FERBWueVmEmRd0RpSIc06x3r4rjcZmtQ-lR-VeIX2P3Bcr02mAIv0cSs9YZ_hiXyuketqprLKvVyHgYrax9hBjYvIGNiZfjAMZQC8XylQud4JMf7-4W4mJJv04Ug5sk4lOUUKSm1oWcvmlDGeXwXJOM0dOxSK_mM8Z03i6a-Z2d1J7Fp3bHr4fa3yFZrHS8lz9vQ_rbuIfaKna12sefYam9-b7xQ5FenZOANveHFaRK5iZucnSil_8vJzFV9g_K59Zr5qZdOL15uOAgT52e9c5vTIBq7t3NC9cIyfCWapqk_u45qNghd533RSeoPnORGdAUat7C_Co6S4CKYhlHqRu8KNn63VVbLRyWzs6A_C9PwIhhN3HTsvSsYjN1g2FZodFYKijXhIPAv5_vCSmSpyTjLZCU0CL2w_mwi60e4JoBCTKFfD558AWaCmDDxugJOnvAFRYW_nDRScxaJlsTUSZmGJeNM78lYAN-bg93V9bq6CRS6UkjmYK4_-Vrfy268_6_xpE8mZjbmgpAPbVkfuxpBV2O2w6zSeFPuExZS6Ztqw27mqaUf2Om-mzD4cMkoOJxVyfjxkTxVwsC_KzQT-2T2ITMnJTfZH1-lR9f0UsuibXOOHDPNpCAg8stciaQk-fowJw-fyZbpNZkySlGh0CSRmyUTcEox7wVHjTdOw8Ph7ARKyW3ZB65JAQo4R_7QnOKFdTy-yhn9txyzG5oXMSD9_q_mTLXQbeCwhcMGel3ot9Br4KiFfheOGhi0MGhg2MKwgdGrK1W7n1dJh_bepv236eBtOnybHlx2coeO2vXZIYfnFdJhR2fWsq0Nqg2w3IoP1unzaT6xOVKouLaOtgWVlvO9yKz49JmxqiI3mVMG5vZvGvL4D85Hbao=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-030 — Perform Customer and Product Profitability Analysis</span></div>
 
@@ -1585,11 +1627,15 @@ flowchart TD
 </tbody>
 </table>
 <hr />
-<p><em>DS-030 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: March 2026</em></p>
+<p><em>DS-030 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-030 — Perform Customer and Product Profitability Analysis</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>DS-030</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

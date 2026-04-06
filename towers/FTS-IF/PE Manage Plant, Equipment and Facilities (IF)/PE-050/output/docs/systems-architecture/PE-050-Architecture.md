@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IF) (FTS-IF) Tower<br/>
   Capability PE-050 · PE Manage Plant, Equipment and Facilities (IF)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Forecast to Stock (IF) (FTS-IF) |
 | **Process Group** | PE Manage Plant, Equipment and Facilities (IF) |
 | **Capability** | PE-050 - Maintain Work Order Historical Documentation (IF) |
-| **Release** | Release 3 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 5 Reports, 92 Interfaces, 31 Conversions, 118 Enhancements, 15 Forms, 4 Workflows |
@@ -200,7 +200,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph FTS IF - Maintenance Technician
+    subgraph lane_0["FTS IF - Maintenance Technician"]
         n1["Review specs for fulfillment of tasks"]
         n2["Check completeness of Data"]
         n3["Maintain Work Order Data"]
@@ -213,7 +213,7 @@ flowchart TD
     class n4 startEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViiXICUhITSHShCItFK_tNDdQ-nBOM9g4djUdmAp4r_X5ntp99RIoLxh3sy8R-KdR2QFXu61WjsmmMnRzjcLqMHPkT_DGvwAHYFnrBiecdC-41ApzJj9PtCiZPXqaA4rcc341qFjmEtA3x8D1LeNPEAaC93WoBj1A3-lWI3VtpBcKsd-gB4N6cHt9NNAqgrUlRCGWURS28qZgCvcyZIsKV2fBiJF9UaUprRHib934bjckAVW5hC_0fAZv76wyixsTTHXYDkLU_NPeAbczWhU4zDSqPV5GUw7H2EXNl5hwsTc4kloIYXF8gql4X6P9q3WVFxM0WQ4FchehGOth0CRNhYerQ2ijPP8ISn6ZRoG2ii5hPwhHmXDThwQN0luRw8Dt9z2Bth8YfKZ5NWJ2t64GfJ49Rqo1zwOA7W133deIKqrU9GNe3Hv4jTIoiIqzk6U0v9ysntVE6yXJ69Rp4zL4cUrSrtpEf6tdx5zmGT96H5PoNaMwI1oWZad0XVVo24ahe-LDspONyzuROfYwAZvr4IfiuQiWKZZGWXvCh797lM2s29KkrNgZ5SW6UUwG0RlP35XMOlHSe-U0OrMFV4tUDkZo8cStdFnzIQBgQUBNAGyEIwwLI5sd4nox9R7gjWDDdIrIBpRqRBtuItSgzBIUmTs9vTU-3nTFtu2YgFkiYisVxysB2jtyENs8Ftux3IPOewHvUi1RF_du_kPZnIN80UaRhnBhkmBsKjQM-assotHT_CrAW0OQW_GuyjZx_V4I2LUbn-0_qcyOpbxqUyO5e0TY7mXN-sNnFxgL_BqUDVmlZfvvMPRZo-_CihuuPH2gYcbI8dbQbz8cAR4zcqlHjJs_5n6CO7_AC50rNk=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVF2P2jAQ_CtWToiXICUhITQPlSAQ6aReWx307qFUlXHWYOHY1Hb4KOK_1-bzoL2nRgKxw-zM7CbxziOyBC_zGo0dE8xkaNc0c6igmaHmFGto-ugIvGDF8JSDbjoOlcKM2O8DLYyXG0dzWIErxrcOHcFMAvr26KOebeQ-0ljolgbFaNNvLhWrsNrmkkvl2A_QpQE9uJ3-6ktVgroSgiANSWJbORNwhdtpnMaF69NApChvRGlCu5Q09y4cl2syx8oc4tcanvDmlZVmbmuKuQbLmZuKf8JT4G5Go2qHkVqtzstg2vkIu7DREhMmZhaPAwspLBZXKAn2e7RvNCbiYorGg4lA9iIcaz0AirSx8HBlEGWcZw9x3iuSwNdGyQVkD9EwHbQjn7hJMjt64LvlttbAZnOTTSUvT9TW2s2QRcuNrzZZFPhqa7_vvECUV6e8E3Wj7sWpn4Z5mJ-dKKX_5WT3qsZYL05ew3YRFYOLV5h0kjz4W-885iBOe-H9nkCtGIE3okVRtIfXVQ07SRi8L9ov2p0gvxOdYQNrvL0Kfsjji2CRpEWYvit49LtPWU-_KknOgu1hUiQXwbQfFr3oXcG4F8bdU0KrM1N4OUccC_gZfJ94xXiEHgvUQk-YCQMCCwJoDGQuGGFYTLwfx053idA2PMOKwRrpJRCNqFSI1tzFqkAYJCkydpP6ti2ybfkcyAIRWS05WBvQ2pEH2OBbbttyD1HsB71KtUBf3Hv6D2Z8DfNZGkYZwYZJgbAo0QvmrLQ3AT3Drxq0OQR9M-FFyT66xx8iQq3WR-t_KsNjGZ3K-Fi-fXos9_KW3cDxBfZ8rwJVYVZ62c47HHP2KCyB4pobb-97uDZytBXEyw7HgVcvXeoBw_YuVUdw_weAebC8" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -232,7 +232,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph FTS IF - PM Maintenance Technician
+    subgraph lane_0["FTS IF - PM Maintenance Technician"]
         n1["fa:fa-user Check Data requirements of Work order for Accuracy and Completeness"]
         n2["fa:fa-user Review and Update missing work order data to capture relevant data to..."]
         n3["Update Files, Plan and History"]
@@ -247,7 +247,7 @@ flowchart TD
     class n4 startEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE1v4zYQ_SuEgsAXOdBn5OpQwJEtdIsGCOps97DpYUwNbcIU6ZKUHW_g_15S_oqzzak6CJ6nN-_NjId8C6hqMCiD29s3LrktydvALrHFQUkGczA4CMkB-As0h7lAM_AcpqSd8R89Lc7Wr57msRpaLnYeneFCIfn6JSRjlyhCYkCaoUHN2SAcrDVvQe8qJZT27BscsYj1bsdPD0o3qC-EKCpimrtUwSVe4LTIiqz2eQapks2VKMvZiNHB3hcn1JYuQdu-_M7gI7x-441dupiBMOg4S9uKP2COwvdodecx2unNaRjceB_pBjZbA-Vy4fAscpAGubpAebTfk_3t7Ys8m5LnyYsk7qECjJkgI8Y6eLqxhHEhypusGtd5FBqr1QrLm2RaTNIkpL6T0rUehX64wy3yxdKWcyWaI3W49T2Uyfo11K9lEoV6594fvFA2F6fqPhklo7PTQxFXcXVyYoz9Lyc3V_0MZnX0mqZ1Uk_OXnF-n1fRz3qnNidZMY4_zgn1hlN8J1rXdTq9jGp6n8fR56IPdXofVR9EF2BxC7uL4C9Vdhas86KOi08FD34fq-zmT1rRk2A6zev8LFg8xPU4-VQwG8fZ6Fih01loWC9J_TwjX2oyJE-P5BG4tChBUiTPSJeSUw7ykOAfGX9_CRiUDIZ-_qRaIl2RCVggGv_puHanV1pDFCPflF6R_mARpjQZU7feQHcEZEMq1a4FOiM05iX4-51-cq3_J244bvucr-vGjZK03Bi3-2R7kW-8vVWEwtp2Gl0lAjcg7enD3d3dtUnqTI5yNXfXTEieBMje5TdurNK7a37m-GMJYvcDye9qTiaKdr5PsFzJM9Wt_uGHzMhw-Kub1TGMD2FyDJNDmL77Xz3ntM9XcPLfcHo-01dwdoaDMGhRt8CboHwL-kvVXbwNMuiEDfZhAJ1Vs52kQdlfPkHXj2PCwe1EewD3_wJB8tYX" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE1v4zYQ_SuEgsAXOdBn5NWhgCNb6BYNEKyz3cOmKMbU0CZMkS5J2fEG_u8l5a912pyqg-F5mnlv5onDt4CqBoMyuL1945LbkrwN7BJbHJRkMAeDg5AcgD9Ac5gLNAOfw5S0M_6jT4uz9atP81gNLRc7j85woZB8_RySsSsUITEgzdCg5mwQDtaat6B3lRJK--wbHLGI9WrHVw9KN6gvCVFUxDR3pYJLvMBpkRVZ7esMUiWbK1KWsxGjg71vTqgtXYK2ffudwUd4_cYbu3QxA2HQ5SxtK36HOQo_o9Wdx2inNyczuPE60hk2WwPlcuHwLHKQBrm6QHm035P97e2LPIuS58mLJO6hAoyZICPGOni6sYRxIcqbrBrXeRQaq9UKy5tkWkzSJKR-ktKNHoXe3OEW-WJpy7kSzTF1uPUzlMn6NdSvZRKFeud-32mhbC5K1X0ySkZnpYciruLqpMQY-19Kzlf9DGZ11JqmdVJPzlpxfp9X0b_5TmNOsmIcv_cJ9YZT_Im0rut0erFqep_H0cekD3V6H1XvSBdgcQu7C-GnKjsT1nlRx8WHhAe991128yet6IkwneZ1fiYsHuJ6nHxImI3jbHTs0PEsNKyXRIDEv6LvL0H9PCOfazIkT4_kEbi0KEFSJM9Il5JTDvIl-PNQ7B8ZuxoGJYOh_xakWiJdkQlYIBr_7rh2myytIYqRb0qvSL9khClNxtQddaA7ArIhlWrXAp0WGnPNn1zzf8ENx21f83XdOFtJy41xe0C2F_rGy1tFKKxtp9F1InAD0p5e3N3dXYukTuRIV3N35YTkyRnSq_zKjVV6d52fufyxBLH7geQ3NScTRTs_J1iuLv64NTj8kRkZDn9xXh3D-BAmxzA5hOlP39jnnM72FZz8N5ye9_sKzs5wEAYt6hZ4E5RvQX_Buku4QQadsME-DKCzaraTNCj7iyjoejsmHNz5aA_g_h9t6dn6" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -266,7 +266,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph FTS IF - PM Maintenance Planner
+    subgraph lane_0["FTS IF - PM Maintenance Planner"]
         n1["fa:fa-user Update Task Lists"]
         n2["fa:fa-user Update Existing Schedule or Reschedule of Plan"]
         n3["fa:fa-user Update Equipment Records in the Event of Replacement with Parts/Tools"]
@@ -284,7 +284,7 @@ flowchart TD
     class n5 startEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVN9v4jgQ_ldGqSrupKDNz4bNw0oUiK7SVlst3e3D9h5MMgarxs7ZToGr-N_PDiG0bPt0kYiYL99838zInhevlBV6uXd5-cIEMzm8DMwK1zjIYbAgGgc-HICfRDGy4KgHjkOlMHP2b0sLk3rraA4ryJrxnUPnuJQIP258GNtE7oMmQg81KkYH_qBWbE3UbiK5VI59gSMa0Nat-3QtVYXqRAiCLCxTm8qZwBMcZ0mWFC5PYylF9UaUpnREy8HeFcflplwRZdryG423ZPvAKrOyMSVco-WszJp_JQvkrkejGoeVjXo-DoNp5yPswOY1KZlYWjwJLKSIeDpBabDfw_7y8lH0pnA_fRRgn5ITradIQRsLz54NUMZ5fpFMxkUa-Noo-YT5RTTLpnHkl66T3LYe-G64ww2y5crkC8mrjjrcuB7yqN76aptHga929n3mhaI6OU2uolE06p2us3ASTo5OlNL_5WTnqu6Jfuq8ZnERFdPeK0yv0knwu96xzWmSjcPzOaF6ZiW-Ei2KIp6dRjW7SsPgY9HrIr4KJmeiS2JwQ3Ynwc-TpBcs0qwIsw8FD37nVTaLOyXLo2A8S4u0F8yuw2IcfSiYjMNk1FVodZaK1Cso7udwU8AQ7m7hljBhUBBRItxxIgSqA9s9Ivz16FGSUzJ0w4cfdWWbg3ZeX5k2-tH7-xU7epc921qmPbwwL1dYNRxBKviOuo9oa_xWKn5f6p-G1WsUxuaX9gprYALsAoHZswOt0nesOSmx5WyYWcGdvQn6072U_KzY5I_eQhtZQ8Hs-vHbUjQQUcFftmypdp13ZbP_fJWe2ux2dvYHD1I9wTe3UmBKDOmN7N04_BEpDIdf7Dy7MDyEURdGhzDuwvgQJq_OgUs5nv83cPQ-HL8PJ911fQOm_b7wfG-Nak1Y5eUvXruZ7faukJKGG2_ve6Qxcr4TpZe3G8xr2tlMGbEHa30A9_8BtjLoxA==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVO9v4jgQ_VdGqSr2pKDLz4bNh5UoEO1KW121dG8_bE8rk4zBqrFztlPgKv73s0MIhWs_XSRQ5vHmvZnBnhevlBV6uXd9_cIEMzm8DMwK1zjIYbAgGgc-HIA_iWJkwVEPHIdKYebsn5YWJvXW0RxWkDXjO4fOcSkRvn_xYWwTuQ-aCD3UqBgd-INasTVRu4nkUjn2FY5oQFu37qdbqSpUJ0IQZGGZ2lTOBJ7gOEuypHB5GkspqjNRmtIRLQd7VxyXm3JFlGnLbzTeke0PVpmVjSnhGi1nZdb8K1kgdz0a1TisbNTzcRhMOx9hBzavScnE0uJJYCFFxNMJSoP9HvbX14-iN4WH6aMA-5ScaD1FCtpYePZsgDLO86tkMi7SwNdGySfMr6JZNo0jv3Sd5Lb1wHfDHW6QLVcmX0heddThxvWQR_XWV9s8Cny1s98XXiiqk9PkJhpFo97pNgsn4eToRCn9X052ruqB6KfOaxYXUTHtvcL0Jp0E_9U7tjlNsnF4OSdUz6zEV6JFUcSz06hmN2kYvC96W8Q3weRCdEkMbsjuJPhxkvSCRZoVYfau4MHvsspmca9keRSMZ2mR9oLZbViMo3cFk3GYjLoKrc5SkXoFnAj8Ffx89IqHOXwpYAj3d3BHmDAoiCgR7i1DoHr0_jpkukeENoGSnJKh-yPge13ZRqGd3VemjT5nR2-yZ1vLtAcZ5uUKq4YjSAXfUPcRbb3PpeK3pf5uWL1GYWx-aa-zBibALhOYPTvQKn3DmpMSW86GmRXc21uhf3-Qkl8Um3zoLbSRNRTMriK_LUUDERV8tmVLteu8K5v926v01Ga347Mf-CHVE_zh1gtMiSG9kb0nhxeRwnD4yc6zC8NDGHVhdAjjLowPYfLqTLiU4104g6O34fhtOOmu7hmY9rvD8701qjVhlZe_eO2Wtpu8Qkoabry975HGyPlOlF7ebjOvaWczZcQesvUB3P8L7Ybspw==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -730,6 +730,7 @@ Integration patterns identified from the system flow analysis for PE-050:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
@@ -860,6 +861,6 @@ Platform landscape inferred from integrated systems for PE-050:
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*PE-050 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: March 2026*
+*PE-050 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: April 2026*
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-050 — Maintain Work Order Historical Documentation (IF)</span></div>

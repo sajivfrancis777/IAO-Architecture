@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Finance Plan To Report (FPR) Tower<br/>
   Capability MR-030 · MR Manage Capital and Risk</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 3</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -654,7 +696,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Batch User
+    subgraph lane_0["Batch User"]
         n1["fa:fa-user Execute Risk and Insurance Management Processes"]
         n2[["fa:fa-cog Send Data from WCDS - Worker Snapshot Detail API"]]
         n3[["fa:fa-cog Send Data from SAP MDG - Location API"]]
@@ -697,7 +739,7 @@ flowchart TD
     class n12 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllttuqzgUhl_FoqrSSqQCAiHlYiRKQlWp3VM1PVzszIUDJrFqbGQ7TTJR3n0WAXJgdjqaGS6irNP3Ly-MYWMkIiVGYFxebiinOkCbjp6TnHQC1JliRTomqhzvWFI8ZUR1ypxMcD2mf-7SbLdYlWmlL8Y5ZevSOyYzQdDbg4lCKGQmUpirriKSZh2zU0iaY7mOBBOyzL4gg8zKdmp16E7IlMhDgmX5duJBKaOcHNw93_XduKxTJBE8PYFmXjbIks62bI6JZTLHUu_aXyjyhFcfNNVzsDPMFIGcuc7ZI54SVq5Ry0XpSxbyqxkGVaUOh4GNC5xQPgO_a4FLYv55cHnWdou2l5cTvhdFr8MJR3AlDCs1JBlSGtyjL40yylhw4UZh7Fmm0lJ8kuDCGfnDnmMm5UoCWLpllsPtLgmdzXUwFSytU7vLcg2BU6xMuQocy5Rr-G1pEZ4elKK-M3AGe6U7347sqFHKsux_KcFc5StWn7XWqBc78XCvZXt9L7L-zmuWOXT90G7PicgvmpAjaBzHvdFhVKO-Z1vnoXdxr29FLegMa7LE6wPwNnL3wNjzY9s_C6z02l0ups9SJA2wN_Jibw_07-w4dM4C3dB2B3WHwJlJXMzRHdbJHL3B6qtAeXH758TIcJDhbjlnNFqRZKEJeqEwG8xT9MDVArZiQtAT5ngGDy3XqOyLKEXUxPjjiOX83MMSMUNj2CNoiDVGmRQ5-oiGY9RFH0J-gtCY40LNhUZDojFlKHx-ANgxrfctbRw-o6fhPQAfRYI1FfwXCPf7hqCTFO5YF_0gS_Q2RqO8YGJNCHrGaykYQy-kEPCgXb1gPL5usb1v2aMoRJGA2eXFrrd3ChKVEAyvIFKv0VUII9TX6B2zBTnOvrm5aYn1_6vY_WMYtlj-KesV7q7KhMwrYHnPd3gt0O-SzuDsbdUPTusjSXCzYY62SDU61aq9vdrXFgxG_5BCLs3WKKYcNhmc6TuQanYYbD-qKfBTAF0fb1vrQFJaFP9MigTcXfILkr3ZNCQspViqLmYaFVhixgi7rx7ribHdHhc5_64IBlr94beo2_2tVK1t264cTsvutWy3ZXstu1_bXs3f85zK4de204r3Wrbbsvst26_sQW0O6nCjVpvHZ1npbc7wE7dzfBCfRHpnI-7ZiHc20j8b8c9GBmcjt_vX7OkarfqVeOq1m_fCqdtp3IZp5ETmmKZGsDF2H0Xw4ZSSDC-YNramgRdajNc8MYLdx4OxKFKoHFIMZ3peObd_AVCb95U=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllmtvszYUx7-KRVWllUgFBELKi0mUhKpSu1VNLy-eTJMDJrFqbGQ7TbIo332HALmwJ5228SLKuf3-xwdj2BiJSIkRGJeXG8qpDtCmo-ckJ50AdaZYkY6JKsc7lhRPGVGdMicTXI_pn7s02y1WZVrpi3FO2br0jslMEPT2YKIQCpmJFOaqq4ikWcfsFJLmWK4jwYQssy_IILOynVoduhMyJfKQYFm-nXhQyignB3fPd303LusUSQRPT6CZlw2ypLMtm2Nimcyx1Lv2F4o84dUHTfUc7AwzRSBnrnP2iKeElWvUclH6koX8aoZBVanDYWDjAieUz8DvWuCSmH8eXJ613aLt5eWE70XR63DCEVwJw0oNSYaUBvfoS6OMMhZcuFEYe5aptBSfJLhwRv6w55hJuZIAlm6Z5XC7S0Jncx1MBUvr1O6yXEPgFCtTrgLHMuUafltahKcHpajvDJzBXunOtyM7apSyLPtfSjBX-YrVZ6016sVOPNxr2V7fi6y_85plDl0_tNtzIvKLJuQIGsdxb3QY1ajv2dZ56F3c61tRCzrDmizx-gC8jdw9MPb82PbPAiu9dpeL6bMUSQPsjbzY2wP9OzsOnbNAN7TdQd0hcGYSF3PEMCd_WD8mxh3WyRy9wRgmxu9VUnlxG2IZDjLcLWeORiuSLDRBLxTmhHmKHrhawLZMCHrCHM_gAeYalT0SpYg6ZTk_9rBEzNAY9gsaYo1RJkWOPqLhGHXRh5CfIDTmuFBzodGQaEwZCp8fAHZM631LG4fP6Gl4D8BHkWBNBf8Jwv2-IegkhbvXRb-SJXobo1FeMLEmBD3jtRSMoRdSCHjorl4wHl-32N637FEUokjA7PJi19s7BYlKCIZXEKnX6CqEEepr9I7Zghxn39zctMT6_1Xs_jEMWyz_lPUKd1dlQuYVsLznO7wW6DdJZ3AOt-oHp_WRJLjZMEdbpBqdatXeXu1rCwajf0ghl2ZrFFMOmwzO9x1INTsMth_VFPgpgK6Pt611ICktin8mRQLuLvkJyd5sGhKWUixVFzONCiwxY4TdV4_4xNhuj4ucf1cEA63-8FvU7f5Sqta2bVcOp2X3Wrbbsr2W3a9tr-bveU7l8GvbacV7Ldtt2f2W7Vf2oDYHdbhRq83jc630Nuf5ids5PpRPIr2zEfdsxDsb6Z-N-Gcjg7OR2_0r93SNVv16PPXazTvi1O00bsM0ciJzTFMj2Bi7DyT4iEpJhhdMG1vTwAstxmueGMHuQ8JYFClUDimG8z2vnNu_AA5h-3g=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-322-mr-030-090_manage_foreign_exchange_exposure-mr-030-090_manage_foreign_exchange_exposure">BUSINESS ARCHITECTURE — 3.2.2 MR-030-090_Manage_Foreign_Exchange_Exposure — MR-030-090_Manage_Foreign_Exchange_Exposure</h4>
 <p><strong>Swim Lanes</strong>: Batch User | <strong>Tasks</strong>: 4 | <strong>Gateways</strong>: 2</p>
@@ -713,7 +755,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Batch User
+    subgraph lane_0["Batch User"]
         n1["fa:fa-user Execute Hedging Transactions"]
         n2[["fa:fa-cog Send Data from SAP GL"]]
         n3[["fa:fa-cog Send Data from Quantum"]]
@@ -741,7 +783,7 @@ flowchart TD
     class n8 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduO2jAQ_RUrqxWtFKRcSZqHShBIW6mVWrFtH0ofhsQGax07sp0Fivj3OiRcQkWlqnmImOM5Zy7MOHsrFwW2EuvxcU851QnaD_Qal3iQoMESFB7YqAW-gaSwZFgNGh8iuJ7TX0c3N6i2jVuDZVBStmvQOV4JjL5-sNHYEJmNFHA1VFhSMrAHlaQlyF0qmJCN9wOOiUOO0bqjiZAFlhcHx4ncPDRURjm-wH4UREHW8BTOBS96oiQkMckHhyY5Jjb5GqQ-pl8r_Am232mh18YmwBQ2Pmtdso-wxKypUcu6wfJavpyaQVUTh5uGzSvIKV8ZPHAMJIE_X6DQORzQ4fFxwc9B0dN0wZF5cgZKTTFBSht49qIRoYwlD0E6zkLHVlqKZ5w8eLNo6nt23lSSmNIdu2nucIPpaq2TpWBF5zrcNDUkXrW15TbxHFvuzPsmFubFJVI68mIvPkeaRG7qpqdIhJD_imT6Kp9APXexZn7mZdNzLDcchanzp96pzGkQjd3bPmH5QnN8JZplmT-7tGo2Cl3nvugk80dOeiO6Ao03sLsIvkmDs2AWRpkb3RVs491mWS8_S5GfBP1ZmIVnwWjiZmPvrmAwdoO4y9DorCRUazQBna_RV1N9e9A83P2xsAgkBIZNn9Fsi_NaY_QeFyszeejJjKGCXFPB1cL6eUX0fpyZuVihuRkINAUNiEhRovn4M3r30TCuKf5fKV9q4LoubzhBn5MCy2tmWm0yrYSqJUZgVMalqLlGWhwTxzca4auzRsXMX5QJaUaRGwmzSHx1pfXBXFfUqBdG4fWVwuiioLSo_qKQirJi-E-FaL8_KYCUYqOGwDSqQAJjmL1rh2dhHQ5XnPjfOKad7Q8eouHwrYnZmVFren3T70y_NePO9Ppm3JpBZwat2W0Ud1tzdDW6DXha2R7sXe9d78S_exLcPQnPt10PHnUXUw-MTsvZQ-MTatlWiWUJtLCSvXX8MJmPV4EJ1ExbB9uCWov5judWcrzArboqDHNKwexV2YKH3xXoNqY=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2L2zgU_SvCw5AuOODP2PVDIXHibqGFlkzbh2ZZbmQ5ESNLRpInSUP-e-XY-XCGDCzrB5NzdM-5Vze68t7CIidWYj0-7imnOkH7gV6TkgwSNFiCIgMbtcQPkBSWjKhBE1MIruf09zHMDaptE9ZwGZSU7Rp2TlaCoO-fbDQ2QmYjBVwNFZG0GNiDStIS5C4VTMgm-oHEhVMcs3VLEyFzIi8BjhO5ODRSRjm50H4UREHW6BTBguc90yIs4gIPDk1xTGzwGqQ-ll8r8gW2P2mu1wYXwBQxMWtdss-wJKzZo5Z1w-FavpyaQVWTh5uGzSvAlK8MHziGksCfL1ToHA7o8Pi44Oek6Gm64Mg8mIFSU1IgpQ09e9GooIwlD0E6zkLHVlqKZ5I8eLNo6ns2bnaSmK07dtPc4YbQ1VonS8HyLnS4afaQeNXWltvEc2y5M--bXITnl0zpyIu9-JxpErmpm54yFUXxvzKZvsonUM9drpmfedn0nMsNR2HqvPY7bXMaRGP3tk9EvlBMrkyzLPNnl1bNRqHr3DedZP7ISW9MV6DJBnYXw_dpcDbMwihzo7uGbb7bKuvlVynwydCfhVl4Nowmbjb27hoGYzeIuwqNz0pCtUYMOPnX-bWwJqDxGn03bVhY_7RBzcNds1ZAUsCw6TmabQmuNUF_k3xlTiF6MkdSAdZUcNUXer_OSixWaG4OB5qCBlRIUaL5-Cv6-NkoriX-m5JvNXBdlzeaoK9JgeGambabSiuhakkQGJdxKWqukRbHwsmNR_ju7FEx83dlQppjyY2FGSq-uvL6ZK4uatxz4_DXlcPo4qC0qN5wSEVZMfLaIdrvTw4gpdioITCNKpDAGGEf24O0sA6HK0383zSmne0PHqLh8IPJ2cGohV4f-h30Wxh30OvDuIVBB4MWdtPF3RaOro5xQ57Gt0d71zPYW_HvrgR3V8LzzdejR90l1SOj06D22PjEWrZVElkCza1kbx0_UuZDlpMCaqatg21BrcV8x7GVHC9zq65yo5xSMDNWtuThDyskOok=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>MR-030 — Manage Financial Risk</span></div>
 
@@ -5231,11 +5273,15 @@ flowchart TD
 </tbody>
 </table>
 <hr />
-<p><em>MR-030 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: March 2026</em></p>
+<p><em>MR-030 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>MR-030 — Manage Financial Risk</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>MR-030</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

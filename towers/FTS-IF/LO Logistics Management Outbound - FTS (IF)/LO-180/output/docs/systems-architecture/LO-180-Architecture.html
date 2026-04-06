@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IF) (FTS-IF) Tower<br/>
   Capability LO-180 · LO Logistics Management Outbound - FTS (IF)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 3</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -670,7 +712,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Warehouse Operator
+    subgraph lane_0["Warehouse Operator"]
         n1[["fa:fa-cog Transfer Delivery to TM (Control Key)"]]
         n2[["fa:fa-cog Fetch Organization Structure Details"]]
         n3[["fa:fa-cog Determine Freight Unit Building Rule"]]
@@ -713,7 +755,7 @@ Created"| n9
     class n12 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P2jgU_StWRiNmpSDlkzB5WAkCqUa77VSF2T6UPpjEAWuMHTnOMJTy3_eaJECyzUqrzQPinHt97oftmxyNRKTECI37-yPlVIXoOFBbsiODEA3WuCADE1XEX1hSvGakGGifTHC1oD_ObraXv2s3zcV4R9lBswuyEQS9PJloAguZiQrMi2FBJM0G5iCXdIflIRJMSO19R8aZlZ2j1aapkCmRVwfLCuzEh6WMcnKl3cALvFivK0gieNoSzfxsnCWDk06OiX2yxVKd0y8L8hG_f6Wp2gLOMCsI-GzVjv2J14TpGpUsNZeU8q1pBi10HA4NW-Q4oXwDvGcBJTF_vVK-dTqh0_39il-CouVsxRE8CcNFMSMZKhTQ8zeFMspYeOdFk9i3zEJJ8UrCO2cezFzHTHQlIZRumbq5wz2hm60K14Kltetwr2sInfzdlO-hY5nyAL-dWISn10jRyBk740ukaWBHdtREyrLsf0WCvsolLl7rWHM3duLZJZbtj_zI-qdeU-bMCyZ2t09EvtGE3IjGcezOr62aj3zb6hedxu7IijqiG6zIHh-ugo-RdxGM_SC2g17BKl43y3L9WYqkEXTnfuxfBIOpHU-cXkFvYnvjOkPQ2Uicb9FXLMlWQDvRc04kVkJWDvrh9rdvKyPDYYaHidigJRy_IiMSzQijb0QekBJo-RE9RLCTUjD0Bzn8tjK-f7-RcNoSMVHJFj3LDeb0B1ZUcLSAC5CoUhKQVZiyoqPgthXAicgdXE0Uy_PZQS8wTtC0pCyFa4G-lIx0FLxehRe0POQEPTzHT0E3c7-9KtqSBE6GkGiK4c8MdjaFQmB0FAjzFL3kKVCtpDqCo18JXlo5ZQKgVlpsab4jXKHPDHOua6psXwguBO-2J2ir_iINSLiAXKHV9T4x2ELoOvhtDh21cV_Rsw9oBwv0hL0tF-gnntJEHxxE-b-V_wjKuqLqGOVCqmr_H55i3frbY2eBayTJOUDTn09CkY6bfTw2yWIpxb4YYqZQjiWGEtmH6u6tjNPpdpHz3xbBSKv-cBsNh7_Dga6hU0G3hm4Fvca59h51cNDBfo39CtqN-qiDgw62rZqosVfDBtvn9H6ujNaG8Kqp6cr4CfvRSWVc43E71Hn06OpvBmTL4vRa3F6L12vxey2jXkvQaxn3Wh4vL8Z2mVYPbzezvE07DW2Yxg6mCqapER6N84cMfOykJMMlU8bJNHCpxOLAEyM8v_CN8nyBZhTDHN5V5OlvNxnkjQ==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm2P4jYQ_itWViv2pCAlISFsPlSCQE6r9rqng-19OKrKJA5Ya-zIcZblOP57x3kBkl4qVc0HxDMzfubVk5yMWCTECIz7-xPlVAXoNFA7sieDAA02OCcDE1WCP7CkeMNIPtA2qeBqSb-XZrabvWszLYvwnrKjli7JVhD08mSiKRxkJsoxz4c5kTQdmINM0j2Wx1AwIbX1HZmkVlp6q1UzIRMirwaW5duxB0cZ5eQqHvmu70b6XE5iwZMWaeqlkzQenHVwTBziHZaqDL_IySf8_pUmagc4xSwnYLNTe_Yb3hCmc1Sy0LK4kG9NMWiu_XAo2DLDMeVbkLsWiCTmr1eRZ53P6Hx_v-YXp2g1X3MET8xwns9JinIF4sWbQillLLhzw2nkWWaupHglwZ2z8Ocjx4x1JgGkbpm6uMMDodudCjaCJbXp8KBzCJzs3ZTvgWOZ8gi_HV-EJ1dP4diZOJOLp5lvh3bYeErT9H95grrKFc5fa1-LUeRE84sv2xt7ofVPvibNuetP7W6diHyjMbkhjaJotLiWajH2bKufdBaNxlbYId1iRQ74eCV8DN0LYeT5ke33Elb-ulEWm89SxA3haOFF3oXQn9nR1OkldKe2O6kjBJ6txNkOMczJX9a3tfEVS7ITUFf0nBGJlZBr48_KWD_c_gZGKQ5SPIzFFq1gFPOUSDQnjL4ReURKoNUn9BBCV6Vg6Fdy_AAMtxROmyIiKt6hZ7nFnH7HigqOlnAZYlVIArQKU5Z3GEZtBjAicg_XFEWynCP0AqsFzQrKErgi6EvBSIfB7WV4QatjRtDDc_TkdyP32qfCHYlhSoREMwx_5tDlBBKBNZIjzBP0kiUgagXVIRz_jPBSyhkTADXTckezPeEKfYZGcZ1TpftCcC54tzx-m_UnYUDAOcQKpa77xKCFUHWw2x47bJO-pOcf0R4O6G17my6In3hCYz07iPJ_S_8RmHVG1RhlQqqq_w9P0YfO2OnZDCUpHTT1-V0o0jGzT6cmWCylOORDzBTKsMSQIvtY3cO1cT7fHnL-2yFYb9UfbqPh8BcY6Bo6FRzVcFRBtzGurccd7HewV2OvgnbDPu5gv4NtqxbU2K1hg-0yvB9ro9UQXhU1WRs_oB-dUCY1nrRdlWtIZ3-zLFsap1cz6tW4vRqvVzPu1fi9mkmv5vHykmynafXI7Wavt8VOIzZMYw9bBdPECE5G-VEDHz4JSXHBlHE2DVwosTzy2AjKl79RlBdoTjHs5H0lPP8N0P_ocA==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-322-lo-180-070_plan_transportation_-ftsif-lo-180-070_plan_transportation_-ftsif">BUSINESS ARCHITECTURE — 3.2.2 LO-180-070_Plan_Transportation_-<em>FTS</em>(IF) — LO-180-070_Plan_Transportation_-<em>FTS</em>(IF)</h4>
 <p><strong>Swim Lanes</strong>: Customer Business Analyst | <strong>Tasks</strong>: 4 | <strong>Gateways</strong>: 2</p>
@@ -729,7 +771,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Customer Business Analyst
+    subgraph lane_0["Customer Business Analyst"]
         n1["fa:fa-user Create Site Specific Selection Profile"]
         n2["fa:fa-user Maintain Geo Attributes"]
         n3["fa:fa-user Maintain Time Related Attributes"]
@@ -758,7 +800,7 @@ flowchart TD
     class n8 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV1v4jgU_StWqopWCqt8kmweRoJARpVmtNXQmXlY9sEkDlh17Mh2ShnEf99rQoC05WE0kYhyTu459wPb2Vm5KIiVWLe3O8qpTtBuoNekIoMEDZZYkYGNWuIHlhQvGVEDE1MKruf01yHMDepXE2a4DFeUbQ07JytB0PcHG41ByGykMFdDRSQtB_aglrTCcpsKJqSJviFx6ZSHbMdXEyELIs8BjhO5eQhSRjk5034UREFmdIrkghc90zIs4zIf7E1xTGzyNZb6UH6jyFf8-pMWeg24xEwRiFnrin3BS8JMj1o2hssb-dINgyqTh8PA5jXOKV8BHzhAScyfz1To7Pdof3u74Kek6Gm64AiunGGlpqRESgM9e9GopIwlN0E6zkLHVlqKZ5LceLNo6nt2bjpJoHXHNsMdbghdrXWyFKw4hg43pofEq19t-Zp4ji23cH-Ti_DinCkdebEXnzJNIjd10y5TWZZ_lAnmKp-wej7mmvmZl01PudxwFKbOe7-uzWkQjd23cyLyhebkwjTLMn92HtVsFLrOddNJ5o-c9I3pCmuywduz4d9pcDLMwihzo6uGbb63VTbLRynyztCfhVl4Mowmbjb2rhoGYzeIjxWCz0rieo3SRmlREYkmjYL1rhQac8y2Srdx5uLuvwurxEmJh2bsKJUE2kJzam41yWlJczQnjOSaCo6gPqiOLKz_Liy8vsVXTLmGH_pMBBprLemy0UT1Nf4VzROtCPpGGBRRXBUHV8TjoqCmTMyuSsO7k7Zm8Oe9a62dgCEe4CSjpg5wuL-wGIFDKuBgodyM6gn2raqF1K3q7iG7R3ePDHMOG7lztdE_taYVnHUSUmoNrxSa6fyv-3550W7XlYelFBs1xEyjGkvMGGGf2xW3sPb7C038exrYx-0DD9Fw-AlWwBG6LYyOMGqh34deHwZH6LUwPsKgD_0-jFs4ulj-Jnu37Xu09zHtf0wHH9Ph6aDs0aOP6ajb2T027ljLtmBLVZgWVrKzDl81-PIVpMQN09betnCjxXzLcys5nP5WUxegnFIMm7Jqyf3_k6hNaw==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVW1v6jYU_itWqopWClNeSZYPkyCQq0q72tXotg9jmkxig1XHjmynlCH--44Jgaa3fJgWiYjz5DzPebGPfXBKWREnc-7vD0wwk6HDyGxJTUYZGq2xJiMXdcDvWDG85kSPrA-VwizZPyc3P2rerJvFClwzvrfokmwkQb89uWgKRO4ijYUea6IYHbmjRrEaq30uuVTW-46k1KOnaOdPM6kqoq4Onpf4ZQxUzgS5wmESJVFheZqUUlQDURrTlJajo02Oy125xcqc0m81-Yrf_mCV2YJNMdcEfLam5j_jNeG2RqNai5Wteu2bwbSNI6BhywaXTGwAjzyAFBYvVyj2jkd0vL9fiUtQ9DxfCQRPybHWc0KRNgAvXg2ijPPsLsqnRey52ij5QrK7YJHMw8AtbSUZlO65trnjHWGbrcnWkldn1_HO1pAFzZur3rLAc9Ue3h9iEVFdI-WTIA3SS6RZ4ud-3keilP6vSNBX9Yz1yznWIiyCYn6J5ceTOPe-1-vLnEfJ1P_YJ6JeWUneiRZFES6urVpMYt-7LTorwomXfxDdYEN2eH8V_DGPLoJFnBR-clOwi_cxy3b9TcmyFwwXcRFfBJOZX0yDm4LR1I_Sc4ags1G42SKOBfnb-3Pl5K02siYKzVoNG19rNBWY77VZOX91HPsIH1wpzige2yVAuSJQIloy-2pIySgr0ZJwUhomBYJcIVMylAiGEl8xEwZ-6AuRaGqMYuvWED3khDc4z6wm6FfCIYnqJjm6QZ5WFbNpYn6TGj9cuA2HhfyutK4DFniCU43ZPEDh8Z3ExDZXwiHDhG3VM8ywbqQyHevhqXhED99gGQQMda_qol8aw2o49xSENAY-abQw5Q-Pw_SSw6FPDysld3qMuUENVphzwr90u2_lHI_vOOl_48BMd39EjMbjn2AHnE2_M5OzmXRmODSDoRmdzaAz07MZDc1waKadOXk3CjZ6fwQM4OBzOPwcjj6H48uhOYAnn8NJP-UDNO1Rx3VgqmrMKic7OKcbDm7BilDccuMcXQe3Ri73onSy003gtE0FzDnDMKB1Bx7_BZuAUU4=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IF)</span></div>
 
@@ -781,7 +823,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Functional Analyst
+    subgraph lane_0["Functional Analyst"]
         n1["fa:fa-user Create Planning Profile"]
         n2["fa:fa-user Maintain Planning Profile Parameters"]
         n3["fa:fa-user Maintain Capacity Selection Profile"]
@@ -801,7 +843,7 @@ flowchart TD
         n30{{"fa:fa-arrows-alt parallelGateway"}}
         n31{{"fa:fa-arrows-alt parallelGateway"}}
     end
-    subgraph Load Planner
+    subgraph lane_1["Load Planner"]
         n13["fa:fa-user Manage Transportation Cockpit"]
         n14["fa:fa-user Check for Back Dated Order in Freight Units for Automatic Planning"]
         n15["fa:fa-user Perform Manual Planning For International and Automatic Planning for Domestic"]
@@ -889,7 +931,7 @@ flowchart TD
     class n31 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1WGuP2jgU_StWqhGtBGqcBwE-rMQE0h2ptKPCdLUq-8EEB6JJHOSYmaFT_vtehzgQk6jaVos0Dx_fc-7D15fAqxFma2qMjJub15jFYoReO2JLU9oZoc6K5LTTRSfgK-ExWSU070ibKGNiHn8vzLCze5FmEgtIGicHic7pJqPo4a6LxkBMuignLO_llMdRp9vZ8Tgl_OBnScal9Rs6iMyo8FZu3WZ8TfnZwDQ9HLpATWJGz7DtOZ4TSF5Ow4yta6KRGw2isHOUwSXZc7glXBTh73M6Iy9_xWuxhXVEkpyCzVakyUeyoonMUfC9xMI9f1LFiHPph0HB5jsSxmwDuGMCxAl7PEOueTyi483NklVO0WKyZAheYULyfEIjlAuAp08CRXGSjN44_jhwzW4uePZIR2-sqTexrW4oMxlB6mZXFrf3TOPNVoxWWbIuTXvPMoeRtXvp8peRZXb5AX5rvihbnz35fWtgDSpPtx72sa88RVH0W56grnxB8sfS19QOrGBS-cJu3_XNaz2V5sTxxlivE-VPcUgvRIMgsKfnUk37LjbbRW8Du2_6muiGCPpMDmfBoe9UgoHrBdhrFTz506Pcr-55FipBe-oGbiXo3eJgbLUKOmPsDMoIQWfDyW6Lgj0LRZwxkqAx_Drk4mQgXwx_WxoRGUWkJ-uNfE4hH3SfEMagAxFEAnHQpfHPBceqc2YkZgJ-rljonnCSUkF5XhewWwR8IhtfHNCcJrSIuTkA52cB-Fku4LiFgIXm223hft6JOIUpxMF5E6_fwrtjYZbuiIhXcRKLmGo0r4X2MSPrc7zNLgetZeI8LgJVVWrmD-v8h926ONs9hzmSU_SZbwiLvxOpUCdis5kJY4bB8ksGoxtBIAEvrjYowXjVJHCjRI2BbiGMNYL4_S1hGwrHxqCxk0TmJjjYbw6aalvrzQjbQ3__pKCWDGoiGzKFwY9mMH1RFqEFzNx8l3FRlAK9V_V9exe8Q2-vqv1OE5XdKB3rOj0ULOalyImsEQevryob8JE95z2SCLSDSwMlSD6cBsvSOB4vScNfINnmr5DwfyPBO4M2eM49Dt1xcYhX158ROHyten4WPu5irWRYu_n-loYwyzPZSvDPBGJal7110Z4P8DCSF1bjvchS0A-rTtH0telwTznQ0qv2CkDrjkEfMVJOVsLWDeqF00mW0hxQzZU2UM5tWb8ji8OOFjJ38xk00yx4_3UWaC2IvW-VWJhtqrAvkqyZD-rmdxEKHtCfJD_HLdOZvtBwX5zFbQKHgW5pSPZybkQQbBI_UX447ejyw7r8HN5xaHqR4KfgQ1OSsqjzxWdNzTL_12AtOVE-TtGCkhR9otA-iwx9gdsqJ-RiS6_Zl2T7d8ju-X7JB-feCi5AuEX0JUz2OdBaBkC_mfYp0w29ZsO_5VvU1aWFaYR6vT_gr7a2tbWjrfva2tPWA7Uu5Yfl2tbWjrbua2tPWw-0NS7Xlb_hCcAqAVx6xCoD2zwBSqEk2Fjbx6YOKAtsahSMNUBVwS3Xrl4FFbZOwOocsF44q6xU5VNVTvmwCic_lgZMjKXxQ953ZVoWEVda_dK0aIof8jrUduREVFxVHlUNq0zeqk7cK8VkK0q39Q15XfQIi-su3SpRrI5VtRUuK4YroF-Po3hulsevPi_UYKsZtpthpxl2m-F-M-w1w4NmeNgMQ2c14y154pZEcUumuCVV3JIrbkkWOuriU1V9a9C-NWzdgq5q3cLVJ906brXgdgvutOCu-jBXh_vNsNcMD5rhYSMME6URxgo2ukYK75okXhujV6P48gS-YFnTiOwTYRy7BoFnjvmBhcao-JLB2BfP2ZOYwCNYegKP_wITjXa2" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1WGuP2jgU_StWqhFdCdQ4DwJ8WIkJpDtSaUeF6WpVVisTHIgmcZBjZoZO-e97HeJATKJqW-1InamP7zn34eubwKsRZmtqjIybm9eYxWKEXjtiS1PaGaHOiuS000Un4AvhMVklNO9ImyhjYh5_K8yws3uRZhILSBonB4nO6Saj6OGui8ZATLooJyzv5ZTHUafb2fE4JfzgZ0nGpfUbOojMqPBWbt1mfE352cA0PRy6QE1iRs-w7TmeE0heTsOMrWuikRsNorBzlMEl2XO4JVwU4e9zOiMvf8ZrsYV1RJKcgs1WpMkHsqKJzFHwvcTCPX9SxYhz6YdBweY7EsZsA7hjAsQJezxDrnk8ouPNzZJVTtFismQIfsKE5PmERigXAE-fBIriJBm9cfxx4JrdXPDskY7eWFNvYlvdUGYygtTNrixu75nGm60YrbJkXZr2nmUOI2v30uUvI8vs8gP81nxRtj578vvWwBpUnm497GNfeYqi6Jc8QV35guSPpa-pHVjBpPKF3b7rm9d6Ks2J442xXifKn-KQXogGQWBPz6Wa9l1stoveBnbf9DXRDRH0mRzOgkPfqQQD1wuw1yp48qdHuV_d8yxUgvbUDdxK0LvFwdhqFXTG2BmUEYLOhpPdFiWE0X_Mr0sj2LNQxBkjCRrDr0MulsbfJ2P5wzDYRGQUkZ6sPfI5hdzQPfAZdCOCqCAmWudYdc6MxEzAvysWuiecpFRQntcF7BYBn8hLIA5oThNahN0cgPOjAPwsF3D0QsBC8-22cD_tRJzCROLgvInXb-HdsTBLd0TEqziJRUw1mtdC-5CR9TneZpeD1jJxHheBqio184d1_sNuXZztnsNMySn6xDeExd-IVNCawmxmwshhsPycwRhHEEjAi2sOSjBqNQncKFFjoFsIY40gfn9L2IbCsTFo8iSRuQkO9puDptrWejPC9tDiPyioJYOayIZM4SGAZjCJURahBczffJdxUZQCvVP1fXsX_IbeXlX7N01UdqN0rOv0ULCYlyInskYcvL6qbMBH9pz3SCLQDi4NlCB5fxoyS-N4vCQNf4Jkmz9Dwv-NBE-JpiEkS35u9qs2uRoFjEAjaJX0s_BxF-uTS5sC_paGMOMz2VbwnwnEty777KJVH-AlJS-sxnuRpaAfVl2j6WuT4p5yoKVXrRaA1h2DnmKkHLSErRvUC6eTLKU5oJorbbicW7R-XxaHHS1k7uYzaKxZ8O7LLNDaEXtfK7Ew21RhXyRZMx_Uze8iFDygP0h-jlumM32h4b44i9sEDgPd0pDs5QyJINgkfqL8cNrR5Yd1-Tk8gGh6keDH4H1TkrKo88UnTc0y_9dgLTldPkzRgpIUfaTQPosMfYabK6flYkuv2Zdk-1fI7vmuyRfq3gouQLhF9CVM9jnQWoZBv5n2MdMNvWbDv-Tj6uoCw2RCvd7v8Fdb29ra0dZ9be1p64Fal_LDcm1ra0db97W1p60H2hqX68rf8ARglQAuPWKVgW2eAKVQEmys7WNTB5QFNjUKxhqgquCWa1evggpbJ2B1DlgvnFVWqvKpKqd8WIWT70sDJsbS-C7vuzIti4grrX5pWjTFd3kdajtyIiquKo-qhlUmb1Un7pVishWl2_qGvC56hMV1l26VKFbHqtoKlxXDFdCvx1G8T8vjV58jarDVDNvNsNMMu81wvxn2muFBMzxshqGzmvGWPHFLorglU9ySKm7JFbckCx118WmrvjVo3xq2bkFXtW7h6hNwHbdacLsFd1pwV33Iq8P9ZthrhgfN8LARhonSCGMFG10jhacmidfG6NUovlSBL17WNCL7RBjHrkHgnWN-YKExKr58MPbFO_ckJvA6lp7A4794e359" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IF)</span></div>
 
@@ -912,7 +954,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Load Planner
+    subgraph lane_0["Load Planner"]
         n1[["fa:fa-cog Create Freight Order"]]
         n2[["fa:fa-cog Generate Consolidated Bailment CI for Wafer/Die"]]
         n3[["fa:fa-cog Generate Consolidated Bailment CI for FG"]]
@@ -937,7 +979,7 @@ flowchart TD
     class n7 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlldtu2zgQhl-FUBA4BeRdHS2vLnZhy1YQIEUKOG2A1r2gpaFNRCIFkkrsun73kpJ87PpmVxeG5x_ON5wRh9paGc_Biq3b2y1lVMVo21MrKKEXo94CS-jZqBW-YEHxogDZM2sIZ2pGfzTL3KBam2VGS3FJi41RZ7DkgD4_2GikAwsbScxkX4KgpGf3KkFLLDYJL7gwq29gSBzSZOtcYy5yEMcFjhO5WahDC8rgKPtREAWpiZOQcZafQUlIhiTr7czmCv6erbBQzfZrCR_x-oXmaqVtggsJes1KlcUjXkBhalSiNlpWi7d9M6g0eZhu2KzCGWVLrQeOlgRmr0cpdHY7tLu9nbNDUvQ8mTOkn6zAUk6AIKm0PH1TiNCiiG-CZJSGji2V4K8Q33jTaOJ7dmYqiXXpjm2a238HulypeMGLvFvafzc1xF61tsU69hxbbPTvRS5g-TFTMvCG3vCQaRy5iZvsMxFC_lcm3VfxjOVrl2vqp146OeRyw0GYOL_z9mVOgmjkXvYJxBvN4ASapqk_PbZqOghd5zp0nPoDJ7mALrGCd7w5Av9KggMwDaPUja4C23yXu6wXnwTP9kB_GqbhARiN3XTkXQUGIzcYdjvUnKXA1Qo9cpyjTwVmDETrMg9zv32bWwTHBPczvkSJAF0JSkXzttCTmZi59f37SYR3HnEPGmhiEs4kL2iu_-dojGlRAlMoeUCEC_SCCYg_JxQuYP5_gaX3F5Tg7kCRilfoqVZVrdBHkBIvAc0UVrVEn6sWdzers0y7kEFpdC3ggwZ-OAGGmpdwfV9QZnbzrMdRVlxoDuUM3TVt1KOJKsH1CwJpo6dK0VJfX0KfL6W0T6Kpyv4w4BPuYLs9lptDf6HB2UpXW5Y8p2qDnjcV_DO3druToOjfg2CdFbWkb3Dfnr1jlJ7O9g8LUb__t37Jnem25qAzvdaMOtM_N6PWDDpzYMyfc-vr7GUyt37q6N8cD7PG4Z8cZZPzZODOPN5Vj3_VE3RXz5kYHu6-M3mwn8ozNdqrlm2VIEpMcyveWs0XSX-1ciC4LpS1sy1cKz7bsMyKm5vbqpvzM6FYD1TZirtfE5k4Og==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVdtu2zgQ_RVCQeAEkHd1tVw97MKWrSBAixRwugG2Lha0NLKJSKRAUom9rv99h5bvrV-2ehA0Z2bO4Qw51NrKRA5WbN3erhlnOibrjl5ABZ2YdGZUQccmLfAXlYzOSlAdE1MIrifs322YG9RLE2awlFasXBl0AnMB5MujTQaYWNpEUa66CiQrOnanlqyicpWIUkgTfQP9wim2ajvXUMgc5DHAcSI3CzG1ZByOsB8FUZCaPAWZ4PkZaREW_SLrbMziSvGeLajU2-U3Cj7R5QvL9QLtgpYKMGahq_IjnUFpatSyMVjWyLd9M5gyOhwbNqlpxvgc8cBBSFL-eoRCZ7Mhm9vbKT-IkufRlBN8spIqNYKCKI3w-E2TgpVlfBMkgzR0bKWleIX4xhtHI9-zM1NJjKU7tmlu9x3YfKHjmSjzXWj33dQQe_XSlsvYc2y5wveFFvD8qJT0vL7XPygNIzdxk71SURS_pIR9lc9Uve60xn7qpaODlhv2wsT5kW9f5iiIBu5ln0C-sQxOSNM09cfHVo17oetcJx2mfs9JLkjnVMM7XR0JPyTBgTANo9SNrhK2eperbGafpcj2hP44TMMDYTR004F3lTAYuEF_t0LkmUtaL0hJOfzjfJ1aHwXNyWc0Ocip9a0NMw93v6K7oHFBu5mYk0QCVkVSud058mSmBxNOM7zzjAdATpOTCK5EyXL8zsmQsrICrknySAohyQstQP4-YnBB5v8fsvThgiW4O7AoLWry1Oi60eQTKEXnQCaa6kaRL3VLdzdpsgxdxFAhdSPhHgnvTwhD5EsE3h2Mm9U842iqWkjkYYKTu20ncUxJLQVuFiibPNWaVXiVSTxrWqNPkbHOfrs_73ZvvT6Wm0N3hsTZAqutKpEzvSLPqxr-nFqbzUlS9PMkWGZlo9gbPLTn8JiFk9p-8JB0u3_gJu9MtzV7O9NrzWhn-udm1JrBzuwZ8_vU-nvyMppa3zH7B8fjZOvwT4610TwZvjOPd9XjX_UEu2voDAwP9-AZ3NtP6Bka7VHLtiqQFWW5Fa-t7d8J_2A5FLQptbWxLdpoMVnxzIq3t7jVbM_PiFEcrqoFN_8BDlc8HQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IF)</span></div>
 
@@ -2301,11 +2343,15 @@ flowchart TD
 </tbody>
 </table>
 <hr />
-<p><em>LO-180 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: March 2026</em></p>
+<p><em>LO-180 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IF)</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>LO-180</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

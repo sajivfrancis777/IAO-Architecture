@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Finance Plan To Report (FPR) Tower<br/>
   Capability DC-030 · DC Manage Accounting and Control Data</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Finance Plan To Report (FPR) |
 | **Process Group** | DC Manage Accounting and Control Data |
 | **Capability** | DC-030 - Perform Closing |
-| **Release** | Release 3 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 17 Reports, 86 Interfaces, 25 Conversions, 219 Enhancements, 1 Forms, 18 Workflows |
@@ -200,7 +200,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Intel Consolidations Analyst
+    subgraph lane_0["Intel Consolidations Analyst"]
         n1["fa:fa-user View Balance Sheet / Income Statement"]
         n2["fa:fa-user View Line Items in General Ledger"]
         n3["fa:fa-user View Trial Balance"]
@@ -242,7 +242,7 @@ flowchart TD
     class n12 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVmuPozYU_SsWo1Faiag8Q4YPrfJiNdJstdrMblU1_eDAJbHG2Mg2k2Sz-e-1E0gGlqlUlQ9R7uGccx_AhaOV8gys2Lq_PxJGVIyOA7WFAgYxGqyxhIGNLsBXLAheU5ADw8k5U0vy7Uxzg3JvaAZLcEHowaBL2HBAXx5tNNFCaiOJmRxKECQf2INSkAKLw4xTLgz7Dsa5k5-z1aemXGQgbgTHidw01FJKGNxgPwqiIDE6CSlnWcs0D_Nxng5OpjjKd-kWC3Uuv5LwEe__IJna6jjHVILmbFVBn_AaqOlRicpgaSVem2EQafIwPbBliVPCNhoPHA0JzF5uUOicTuh0f79i16Toeb5iSB8pxVLOIUdSaXjxqlBOKI3vgtkkCR1bKsFfIL7zFtHc9-zUdBLr1h3bDHe4A7LZqnjNaVZThzvTQ-yVe1vsY8-xxUH_dnIBy26ZZiNv7I2vmaaRO3NnTaY8z_9XJj1X8YzlS51r4SdeMr_mcsNROHN-9GvanAfRxO3OCcQrSeGNaZIk_uI2qsUodJ33TaeJP3JmHdMNVrDDh5vhwyy4GiZhlLjRu4aXfN0qq_UnwdPG0F-ESXg1jKZuMvHeNQwmbjCuK9Q-G4HLLXpkCiiacSY5JRlWRP9DE4bpQaoL1RzM_Wtl5TjO8dBMHn0lsENTTDFLAS23AAr9oq1SXuhQ6aYLYGpl_f3GwetxeNJPGHrUbIkIQx-AgcAUPUG2AdFW-z3qZ_O4N1W06UGbvthDWilAer-gSVm2uWGbOyeypPqSGe5nKLno9DFq0z_iF9DjEwJSM7s2N_rpSj57fhJASUGY3h21t6xr01I9P6KInl2mTX5-4zK-uUjFy39x-UH6cDw2UrN-h2u9QNItWgjBhUQJr1j228o6nd5eaadfA_uUVpK8wofLPd2VuTcZ1vY7OcRUoRLrK0qBviPy_ptI75fLHxah4fBXU2wdu24NdGKvE_t17NX05rzfid2aENRxcAkf6vDBhN9X1u98ZX3Xt1Cj6riEl3jcUf0J8iwbNTKn1jXVj9rdnZ9-495svRbs9cN-Pxz0w2E_POqHo-tbpQWP6xdAC3xolmC7F6cfdvthr4Et2ypAFJhkVny0zt8L-psigxxXVFkn28KV4ssDS634_F61qlIvNZgTrNddcQFP_wCOOrDC" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVmuP4jYU_StWRiNaKah5EsiHVgyQ1Uiz1arM7qoqVWWSG7DGsSPbGaAs_702JDDJZipVzQfEPTnn3EeSmxytlGdgxdb9_ZEwomJ0HKgtFDCI0WCNJQxsdAG-YEHwmoIcGE7OmVqSv880Nyj3hmawBBeEHgy6hA0H9PnRRlMtpDaSmMmhBEHygT0oBSmwOMw45cKw72CcO_k5W33qgYsMxI3gOJGbhlpKCYMb7EdBFCRGJyHlLGuZ5mE-ztPByRRH-S7dYqHO5VcSPuL9V5KprY5zTCVozlYV9AmvgZoelagMllbitRkGkSYP0wNbljglbKPxwNGQwOzlBoXO6YRO9_crdk2KnucrhvSRUizlHHIklYYXrwrlhNL4LphNk9CxpRL8BeI7bxHNfc9OTSexbt2xzXCHOyCbrYrXnGY1dbgzPcReubfFPvYcWxz0bycXsOyWaTbyxt74mukhcmfurMmU5_n_yqTnKp6xfKlzLfzES-bXXG44CmfO935Nm_MgmrrdOYF4JSm8MU2SxF_cRrUYha7zvulD4o-cWcd0gxXs8OFmOJkFV8MkjBI3etfwkq9bZbX-JHjaGPqLMAmvhtGDm0y9dw2DqRuM6wq1z0bgcosoZvCX88fKemQKKJpxJjklGVZE_0NThulBqpX150VmDuZqdo7jHA_NVUBfCOzQA9ZGKaDlFkChn9AjS3mhQ6UHUADrOHg9Dk_6aUOPmi0RYegDMBCYoifINiDaar9H_Wwe_aaKNj1o0xd7SCsFSO8aNC3LNjdsc-dEllRfPsP9DUouOn2M2vSP-AX0BIWA1IyvzY1-uJLPnp8EUFIQpvdI7S3r2rRUz48oomeXaZMf37iMby5S8fJfXL6TTo7HRmpW8XCtl0m6RQshuJAo4RXLfllZp9PbK-30a2Cf0kqSV_hwub-7Mvcmw9p-J4eYKlRifUUp0HdE3n8T6V1z-cMiNBz-bIqtY9etgU7sdWK_jr2a3pz3O7FbE4I6Di7hpA4nJvy2sn7lK-ubvoUaVcclvMTjjup3kGfZqJE5ta6pftTu7rwJjHuzAVuw1w_7_XDQD4f98Kgfjq5vmBY8rl8GLXDSLMR2L04_7PbDXgNbtlWAKDDJrPhonb8d9PdFBjmuqLJOtoUrxZcHllrx-R1rVaXeazAnWK--4gKe_gHYD7Sl" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -261,7 +261,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph GL Reconciler
+    subgraph lane_0["GL Reconciler"]
         n1["fa:fa-user Open GL Account Line Item Report"]
         n2["fa:fa-user Execute the App"]
         n3["fa:fa-user Display Report with a list of all the Journal Entries"]
@@ -289,7 +289,7 @@ flowchart TD
     class n8 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2PozYU_SsWo1FaiUhAIFAedpUhYTXV7Hbb2XZVbfrgmEtijbGRbfLRbP577UA-mM08lYco93DOudfXvmbvEFGAkzr393vKqU7RfqBXUMEgRYMFVjBwUQv8hSXFCwZqYDml4PqZ_nuk-WG9tTSL5biibGfRZ1gKQH8-umhihMxFCnM1VCBpOXAHtaQVlrtMMCEt-w6S0iuP2bpXD0IWIC8Ez4t9Ehkpoxwu8CgO4zC3OgVE8KJnWkZlUpLBwRbHxIassNTH8hsFH_H2Ky30ysQlZgoMZ6Ur9oQXwOwatWwsRhq5PjWDKpuHm4Y915hQvjR46BlIYv5ygSLvcECH-_s5PydFX6ZzjsxDGFZqCiVS2sCztUYlZSy9C7NJHnmu0lK8QHoXzOLpKHCJXUlqlu65trnDDdDlSqcLwYqOOtzYNaRBvXXlNg08V-7M76tcwItLpmwcJEFyzvQQ-5mfnTKVZfm_Mpm-yi9YvXS5ZqM8yKfnXH40jjLvR7_TMqdhPPFf9wnkmhK4Ms3zfDS7tGo2jnzvbdOHfDT2slemS6xhg3cXw1-y8GyYR3Hux28atvleV9ksPktBToajWZRHZ8P4wc8nwZuG4cQPk65C47OUuF6hD0_oD3ueCWUg23f24f63uVPitMRD22r0Ww3ccieEiIZr9GRmAz1qqIy6FlLPnX-uxEFfPNsCaTQgM95oUtd97qjPnVJVM9Ox1hZtqF4hjBhVGokSYcaOLr-KRnLM0IxrSUH1HcO-40f8AigTUgLRVPA-N_rpTD6m_QyyFLJCv09MBWsKG_RoLitqtrEwwp-vlOOLUmlR31BmoqoZ_KiM9_uT0t6Jw4WZarJCMymFVCg3_S3ez53D4UqS3JbAlrBG0TV8aM_ZRWUmsf3DfTQcvjNb0oVRGyZdGLRh3IWxDb_PnU9i7nw3e9PBo5Y17sKkDbsJ4mHf8uTxt90XYxJeHWFbzml0e3BwGx7dhsPbcHS-7HrwuLuXemB8ms0empxQx3UqkBWmhZPuneN3yXy7Cihxw7RzcB3caPG848RJj_e309SFUU4pNmNVteDhP_nlNGk=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVdtu4zYQ_RVCQeAWkAFdLVcPLRxZWqTItttm26Koi4KmRjYRihRIypd6_e8lLdmOss5T9WB4js45MxxyqINDRAlO6tzfHyinOkWHkV5DDaMUjZZYwchFHfA7lhQvGaiR5VSC62f674nmR83O0ixW4JqyvUWfYSUA_fboopkRMhcpzNVYgaTVyB01ktZY7jPBhLTsO5hWXnXK1r96ELIEeSV4XuKT2EgZ5XCFwyRKosLqFBDBy4FpFVfTioyOtjgmtmSNpT6V3yr4iHd_0FKvTVxhpsBw1rpmT3gJzK5Ry9ZipJWbczOosnm4adhzgwnlK4NHnoEk5i9XKPaOR3S8v1_wS1L0eb7gyDyEYaXmUCGlDZxvNKooY-ldlM2K2HOVluIF0rsgT-Zh4BK7ktQs3XNtc8dboKu1TpeClT11vLVrSINm58pdGniu3JvfN7mAl9dM2SSYBtNLpofEz_zsnKmqqv-VyfRVfsbqpc-Vh0VQzC-5_HgSZ97XfudlzqNk5r_tE8gNJfDKtCiKML-2Kp_Evve-6UMRTrzsjekKa9ji_dXwuyy6GBZxUvjJu4ZdvrdVtstPUpCzYZjHRXwxTB78Yha8axjN_GjaV2h8VhI3a8Qwh3-8vxbOhyf0qz3YhDKQC-fvjmcf7pvXFU4rPLZtRz83wJGhzwgRLdfoycwJetRQG4NGSD0UB0NxvgPSakBm1NGsaYbccMidU9Uw073OFm2pXiOMGFUaiQphxk4uP4pWcsxQzrWkoIaO0dDxI34BlAkpgWgq-JAbf3Mhn9J-AlkJWaNfZqaCDYUtejQXFzVbWhrht6-Uk6tSadHcUGaibhh8rUwOh7PS3o_jpZlwska5lEIqVJj-lj8snOPxlWR6WwI7wlpFN_ChO3NXlZnK7g_30Xj8vdmSPoy7cNqHQRcmfZjY8MvC-UksnC9mb3o47FiTPpx2YT9NPBpanj3-tPtiTKJXx9mWcx7jARzchsPbcHQbji8X3wCe9HfUAEzOczpAp2fUcZ0aZI1p6aQH5_SNMt-xEircMu0cXQe3WjzvOXHS013utE1plHOKzYjVHXj8DwwEOEw=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -312,11 +312,11 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Consolidation Accountant
+    subgraph lane_0["Consolidation Accountant"]
         n1["fa:fa-user Enter Recurring and other Adjusting entries"]
         n3(["fa:fa-play Process Year End Adjustments Initiated"])
     end
-    subgraph IT Analyst
+    subgraph lane_1["IT Analyst"]
         n2[["fa:fa-cog Replicate the Transaction to S/4"]]
         n4(["fa:fa-stop Process Year End Adjustments Completed"])
     end
@@ -329,7 +329,7 @@ flowchart TD
     class n4 endEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO0zAU_BUrqyogpSLXpuQBKU0baSWQEC0gRHlwHbs169iR7Wxbqv47di_pBZYX8hDJk-OZOZNj7xwkKuxkTq-3o5zqDOxcvcI1djPgLqDCrgeOwBcoKVwwrFxbQwTXU_rrUBbEzcaWWayENWVbi07xUmDw-dEDudnIPKAgV32FJSWu5zaS1lBuC8GEtNUPeEh8clA7fRoJWWF5KfD9NECJ2cooxxc4SuM0Lu0-hZHg1Q0pSciQIHdvzTGxRiso9cF-q_AHuPlKK70yawKZwqZmpWv2Hi4wsz1q2VoMtfL5HAZVVoebwKYNRJQvDR77BpKQP12gxN_vwb7Xm_NOFMzGcw7MgxhUaowJUNrAk2cNCGUse4iLvEx8T2kpnnD2EE7ScRR6yHaSmdZ9z4bbX2O6XOlsIVh1Ku2vbQ9Z2Gw8uclC35Nb877Twry6KBWDcBgOO6VRGhRBcVYihPyXkslVzqB6OmlNojIsx51WkAySwv-T79zmOE7z4D4nLJ8pwlekZVlGk0tUk0ES-C-Tjspo4Bd3pEuo8RpuL4Rvi7gjLJO0DNIXCY969y7bxUcp0JkwmiRl0hGmo6DMwxcJ4zyIhyeHhmcpYbMCheBKMFpBTQUHOUKi5RpyfSyzDw--zx0CMwL7NnUw4dq8P2EzsNLMIYC8AsKcXAny6mertMUw15JiNXd-XPFErzqihplQbCNYKfANQ8tanfbXZrMCj-aOoCa9ynC8PpKY6boz_zgDOYdsq67tht87GSSWxmjDKDJMwHgEM3OCFESHZrUA0zex4b82GV9MKi2af5ssRN0w_HeTPAL9_juT3mkZHpfxaRkcl-HV_7Xgea5v4PB6OG--RN3xvoHj00l0PKfGsoa0crKdc7hdzQ1cYQJbpp2958BWi-mWIyc73EJO25hBwGMKTb71Edz_Bpcw2QE=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuK2zAQ_RXhJaQFh_oap34oZJ0YFlooTdpSNqUospyoK0tGkjdJQ_69o1ycS7t9qR8MczxzzpnxSFuHyII6qdPpbJlgJkXbrlnSinZT1J1jTbsuOgBfsGJ4zqnu2pxSCjNhv_ZpflSvbZrFclwxvrHohC4kRZ8fXDSEQu4ijYXuaapY2XW7tWIVVptMcqls9h0dlF65Vzt-upeqoOqc4HmJT2Io5UzQMxwmURLltk5TIkVxRVrG5aAk3Z01x-WKLLEye_uNph_w-isrzBLiEnNNIWdpKv4ezym3PRrVWIw06vk0DKatjoCBTWpMmFgAHnkAKSyezlDs7XZo1-nMRCuKpqOZQPAQjrUe0RJpA_D42aCScZ7eRdkwjz1XGyWfaHoXjJNRGLjEdpJC655rh9tbUbZYmnQueXFM7a1sD2lQr121TgPPVRt432hRUZyVsn4wCAat0n3iZ352UirL8r-UYK5qivXTUWsc5kE-arX8uB9n3p98pzZHUTL0b-dE1TMj9II0z_NwfB7VuB_73suk93nY97Ib0gU2dIU3Z8K3WdQS5nGS-8mLhAe9W5fN_KOS5EQYjuM8bgmTez8fBi8SRkM_GhwdAs9C4XqJOBb0h_c4czIptOSswIZJgYaEyEYYLMzM-X4osY_wIbPEaYl79g-gsTDw_kRheRXsJMKiQBJOsULD4mejjcWoMIpRfc0TvmqJag4Dsk1RrdE3ii1rcayvoFijB7gvGEyyAI7XBxLYtL81Yu09TNFQYL7RN9aDx1aSyAWYrjkjwIrAL5rCydKY7Hs3Ek3eRFB8WR2dDWsj638bzmRVc_p3wyJEvd47mOQxDA5hdAz9Qxhc_HcLnvb9Cg4ul_bqS9ge-ys4Op5Qx3UqqirMCifdOvtbF27mgpa44cbZuQ5ujJxsBHHS_e3kNDXsBR0xDLOuDuDuN4EF4Mg=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -883,6 +883,7 @@ Integration patterns identified from the system flow analysis for DC-030:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
@@ -1010,6 +1011,6 @@ Standard RAID items for DC-030 (Finance Plan To Report):
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*DC-030 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: March 2026*
+*DC-030 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: April 2026*
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-030 — Perform Closing</span></div>

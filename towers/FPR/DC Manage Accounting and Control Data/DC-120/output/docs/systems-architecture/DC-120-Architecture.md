@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Finance Plan To Report (FPR) Tower<br/>
   Capability DC-120 · DC Manage Accounting and Control Data</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Finance Plan To Report (FPR) |
 | **Process Group** | DC Manage Accounting and Control Data |
 | **Capability** | DC-120 - Maintenance & Management Accounting |
-| **Release** | Release 3 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 17 Reports, 86 Interfaces, 25 Conversions, 219 Enhancements, 1 Forms, 18 Workflows |
@@ -199,14 +199,14 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Purchaser
+    subgraph lane_0["Purchaser"]
         n3["fa:fa-user Collect Services Procurement"]
     end
-    subgraph Technician
+    subgraph lane_1["Technician"]
         n4[["fa:fa-cog Collect Maintenance Order"]]
         n6(["fa:fa-stop Collect Maintenance Costs Completed"])
     end
-    subgraph Warehouse Clerk
+    subgraph lane_2["Warehouse Clerk"]
         n1["fa:fa-user Collect Spare Parts Consumption from Stock"]
         n2["fa:fa-user Collect Spare Parts Procurement - Direct Consumption"]
         n5(["fa:fa-play Collect Maintenance Costs Initiated"])
@@ -232,7 +232,7 @@ flowchart TD
     class n8 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduK2zAQ_RXhZUkLDvgau34oZJ24FFq6kG370PRBkeVERJaMJG82Dfn3SrHj2OmGUuoHwxzPnDNzrMvBQjzHVmLd3x8IIyoBh5Ha4BKPEjBaQYlHNmiAb1AQuKJYjkxOwZlakF-nNDeoXkyawTJYEro36AKvOQZfP9pgqgupDSRkciyxIMXIHlWClFDsU065MNl3OC6c4qTWfnrgIsfikuA4kYtCXUoJwxfYj4IoyEydxIizfEBahEVcoNHRNEf5Dm2gUKf2a4k_w5fvJFcbHReQSqxzNqqkn-AKUzOjErXBUC2ez2YQaXSYNmxRQUTYWuOBoyEB2fYChc7xCI7390vWiYKn2ZIB_SAKpZzhAkil4fmzAgWhNLkL0mkWOrZUgm9xcufNo5nv2chMkujRHduYO95hst6oZMVp3qaOd2aGxKtebPGSeI4t9vp9pYVZflFKJ17sxZ3SQ-SmbnpWKoriv5S0r-IJym2rNfczL5t1Wm44CVPnT77zmLMgmrrXPmHxTBDukWZZ5s8vVs0noevcJn3I_ImTXpGuocI7uL8QvkuDjjALo8yNbhI2etdd1qtHwdGZ0J-HWdgRRg9uNvVuEgZTN4jbDjXPWsBqAx5roReOHr7BzcP8H0urgEkBx8ZmoJc5xUiBReOQBKaDWuitytTS-tkU6l9_xfyE0YYRRCDrUQc_Om7E1x31Z0iYwgwyhMEXsx01789e2eRNVyYVr16tS7lUUr_LimKFc83w9lZr36HAG66HAynFYtsTcm-MXukK8Kh3klFgsi4rRTgDheAlWCiOtp0RJxrv7zQ9E8EYzIgwCT3uIWF4MaCiekHdNuCjPlwJHBhwYogOhzMDFILv5BhSBXRDUDPRD81CXVrHY68m_reazmgWgfH4vV5Iw9Adhl4b-k0Yt6E7DL1hGDdh0IZhE0ZtGDThpLdrDOH5tBjA3uuw_zoc9A-IwZewO2IH8KQ9DQdgdD4RBmh8Ri3bKrEoIcmt5GCdbkN9Y-a4gDVV1tG2YK34Ys-QlZxuDauucl05I1Cv67IBj78BMqVfYA==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVWGL4zYQ_SvCy5IWHLAdO_b5QyHrxOWgRxeyvftwKUWR5USsLBlJ3mwa8t87ih0nTjctpf5gmKeZ90aPkXRwiCyokzqPjwcmmEnRYWS2tKKjFI3WWNORi1rgK1YMrznVI5tTSmGW7M9Tmh_W7zbNYjmuGN9bdEk3kqLfPrtoBoXcRRoLPdZUsXLkjmrFKqz2meRS2ewHmpReeVLrlp6kKqi6JHhe7JMISjkT9AJP4jAOc1unKZGiGJCWUZmUZHS0zXG5I1uszKn9RtMv-P0bK8wW4hJzTSFnayr-C15TbvdoVGMx0qi3sxlMWx0Bhi1rTJjYAB56ACksXi9Q5B2P6Pj4uBK9KHqZrwSCj3Cs9ZyWSBuAF28GlYzz9CHMZnnkudoo-UrTh2ARzyeBS-xOUti651pzxzvKNluTriUvutTxzu4hDep3V72ngeeqPfxvtKgoLkrZNEiCpFd6iv3Mz85KZVn-LyXwVb1g_dppLSZ5kM97LT-aRpn3d77zNudhPPNvfaLqjRF6RZrn-WRxsWoxjXzvPulTPpl62Q3pBhu6w_sL4acs7AnzKM79-C5hq3fbZbN-VpKcCSeLKI96wvjJz2fBXcJw5odJ1yHwbBSut4hjQf_wvq-c50bBBIELK-f3Nsd-YgJLJU5LPLaWIxh5TolBy9YtjWw3jYJjK0xfCGPwkYoPVC-UbAUjDIuhTPi91yFy08t8wUwYKrAgFP1qjylUXZdNf-jLtJH1h3WZ1EbDv6o5NbQAhh__sc0AKL9hRbcSdowyTtXrsFf_jiU1FKFnOG1WTeimqg2TApVKVmhpJLmhCf6d5spcNEZzpmzCFfeQMLqYUXMYuvtmfIYLmOGBGSeG-HA4M2Cl5E6PMTcIGsLAxH9uh3nlHI9XNcl_q-lNFzEaj3-CARuG_jAMunDShkkX-sMwGIZJG4ZdGLVh3IVhG06vTpYlPN8oAzj4GJ58DIfXl8hgJeqv4QE87W7MARifb40BmpxRx3UqqirMCic9OKcXE17Vgpa44cY5ug5ujFzuBXHS08viNHUBlXOGYcarFjz-BXAaaww=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -255,11 +255,11 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Cost Accountant
+    subgraph lane_0["Cost Accountant"]
         n1["fa:fa-user Capture Settlement to Cost Center"]
         n5(["fa:fa-stop Maintenance Costs Settlement Completed"])
     end
-    subgraph Technician
+    subgraph lane_1["Technician"]
         n2[["fa:fa-cog Capture Maintenance Order"]]
         n3[["fa:fa-cog Capture Settlement Rule with CC"]]
         n4(["fa:fa-play Maintenance Costs Settlement Initiated"])
@@ -275,7 +275,7 @@ flowchart TD
     class n5 endEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAQ_StWViitFKR8EppDJQhEWqlVq7JtD0sPxnHAWseObGeBIv57bRJCoEsv9SHSPM-8N29i-2AhnmMrsQaDA2FEJeBgqw0usZ0AewUlth3QAD-gIHBFsbRNTsGZWpDfpzQvrHYmzWAZLAndG3SB1xyD748OmOhC6gAJmRxKLEhhO3YlSAnFPuWUC5P9gMeFW5zU2q0pFzkWlwTXjT0U6VJKGL7AQRzGYWbqJEac5VekRVSMC2QfTXOUb9EGCnVqv5b4M9z9JLna6LiAVGKds1El_QRXmBqPStQGQ7V4PQ-DSKPD9MAWFUSErTUeuhoSkL1coMg9HsFxMFiyThQ8zZYM6IUolHKGCyCVhuevChSE0uQhTCdZ5DpSCf6Ckwd_Hs8C30HGSaKtu44Z7nCLyXqjkhWneZs63BoPiV_tHLFLfNcRe_290cIsvyilI3_sjzulaeylXnpWKoriv5T0XMUTlC-t1jzI_GzWaXnRKErdv_nONmdhPPFu54TFK0G4R5plWTC_jGo-ijz3Puk0C0ZuekO6hgpv4f5C-CENO8IsijMvvkvY6N12Wa--Co7OhME8yqKOMJ562cS_SxhOvHDcdqh51gJWG5ByqcAEIV4zBZlqds1i3vPSKmBSwKEZNkhhpWqBwQIrRfU1ZQoo3pSnOsBiaf3qVUfvunKpeAU-Q6KTGGQIn4pknyjlZUWxwrnmeN-Q6KN00-kTRhtGEIGsJ-M_dzKIr7sm-2pfzPXWxP3ugrfLei19qykGW6L0hNKb4vBiraL65_7T2qN-6wh82xoLwXD4UZtoQ78JgzYMmrA9qMxrwqh3Igx4vglXsN8_zlc7wd2dsHsqruCovdWWY5VYlJDkVnKwTi-1fs1zXMCaKuvoWLBWfLFnyEpOL5pVV7n2PSNQ_76yAY9_AOz38Ac=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO2jAQ_RUrK0QrBSlXQvNQiQ1EWqmrVmXbPixVZZwJWGvsyHYWKOLfaxMIly59qR8izfGZc2YmtrcOEQU4qdPpbCmnOkXbrl7AErop6s6wgq6LGuA7lhTPGKiu5ZSC6wn9vaf5UbW2NIvleEnZxqITmAtA3x5cNDSJzEUKc9VTIGnZdbuVpEssN5lgQlr2HQxKr9y7HbbuhSxAngiel_gkNqmMcjjBYRIlUW7zFBDBiwvRMi4HJenubHFMrMgCS70vv1bwiNc_aKEXJi4xU2A4C71kn_AMmO1Ry9pipJavx2FQZX24GdikwoTyucEjz0AS85cTFHu7Hdp1OlPemqKn0ZQjswjDSo2gREobePyqUUkZS--ibJjHnqu0FC-Q3gXjZBQGLrGdpKZ1z7XD7a2Azhc6nQlWHKi9le0hDaq1K9dp4LlyY75XXsCLk1PWDwbBoHW6T_zMz45OZVn-l5OZq3zC6uXgNQ7zIB-1Xn7cjzPvb71jm6MoGfrXcwL5SgmcieZ5Ho5Poxr3Y9-7LXqfh30vuxKdYw0rvDkJfsiiVjCPk9xPbgo2ftdV1rMvUpCjYDiO87gVTO79fBjcFIyGfjQ4VGh05hJXC8Qwh1_e89TJhNJoSIioucZcT52fDdMu7htCidMS9-zgUYYrXUtAE9CamSvLNdIC7RUyE4C8zI7ftelKiwo9YmpIHHMC-yR1LpSJZcVAQ2E03jci5li9VbUt6gnIglNCMb-0DJ5bSyLmbcHnzp_ttTdZ52nh22ln5X2tGaAV1QuUZVfJ0anNipmf_s82H8wbSPHbbfII9XofTROHMGjC8BCGTXg4wNxvwvjspFjweEMu4OD8mF_shDd3ovYJuYDjw213XGcJcolp4aRbZ_-Cm1e-gBLXTDs718G1FpMNJ066f-mcuipM3yOKza9cNuDuDxaY984=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -829,6 +829,7 @@ Integration patterns identified from the system flow analysis for DC-120:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
@@ -956,6 +957,6 @@ Standard RAID items for DC-120 (Finance Plan To Report):
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*DC-120 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: March 2026*
+*DC-120 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: April 2026*
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-120 — Maintenance & Management Accounting</span></div>

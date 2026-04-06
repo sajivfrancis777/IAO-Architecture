@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
   Capability GT-060 · GT Global Trade (IP)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 3</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -662,7 +704,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Logistics Import Operator
+    subgraph lane_0["Logistics Import Operator"]
         n1["fa:fa-user Manage Manual Import Declarations - Create"]
         n2(["fa:fa-play Request Sent to Create Import Declaration"])
         n3["Monitor customs confirmation via broker (IP)"]
@@ -674,7 +716,7 @@ flowchart TD
     class n3 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuO2jAU_RUrI8RUClKehGZRCQKRRppRR2XaLkoXJrkGaxw7tR0eRfx7bR6BoZ1Vs4D4cO459x5s75xClOCkTqezo5zqFO26egkVdFPUnWMFXRcdgW9YUjxnoLqWQwTXU_r7QPOjemNpFstxRdnWolNYCEBfH1w0NIXMRQpz1VMgKem63VrSCsttJpiQln0HA-KRg9vpp5GQJcgLwfMSv4hNKaMcLnCYREmU2zoFheDlG1ESkwEpunvbHBPrYomlPrTfKHjCm--01EuzJpgpMJylrtgjngOzM2rZWKxo5OocBlXWh5vApjUuKF8YPPIMJDF_vUCxt9-jfacz460pehnPODJPwbBSYyBIaQNPVhoRylh6F2XDPPZcpaV4hfQumCTjMHALO0lqRvdcG25vDXSx1OlcsPJE7a3tDGlQb1y5SQPPlVvzeeMFvLw4Zf1gEAxap1HiZ352diKE_JeTyVW-YPV68pqEeZCPWy8_7seZ97feecxxlAz925xArmgBV6J5noeTS1STfux774uO8rDvZTeiC6xhjbcXwY9Z1ArmcZL7ybuCR7_bLpv5sxTFWTCcxHncCiYjPx8G7wpGQz8anDo0OguJ6yV6FAuqNC0UeqhqYTbQ5xok1kIeefbh_o-ZQ3BKcM_Gjp4wxwuwXw1m57IxmB5NIRVcoR7KJJjRZ87PK5ngvtWpmQnlC_xqQGk0Ba6RFqeafwgamQ9XOqGReRLmDhESFY3SolLInEhCZXWgoxXFaG4zkOj-4flD24XZnscXHqBe75MZ7LT0j8vwKmwLnjfZGzhoT9QbOGxhx3UqMK3Q0kl3zuFKM9deCQQ3TDt718GNFtMtL5z0cPSdpi7N3GOKzT9SHcH9H7h8rUk=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVF1v2jAU_StWKkQrBSmfhOVhEgQiVWq1anTbw5gmk1yDVcfObKfAEP99Nh-hsPVpeSD45Nxz7j1xvHUKUYKTOp3OlnKqU7Tt6iVU0E1Rd44VdF10AL5iSfGcgepaDhFcT-nvPc2P6rWlWSzHFWUbi05hIQB9uXfR0BQyFynMVU-BpKTrdmtJKyw3mWBCWvYNDIhH9m7HRyMhS5BnguclfhGbUkY5nOEwiZIot3UKCsHLC1ESkwEpujvbHBOrYoml3rffKHjE62-01EuzJpgpMJylrtgDngOzM2rZWKxo5OspDKqsDzeBTWtcUL4weOQZSGL-coZib7dDu05nxltT9DyecWSugmGlxkCQ0gaevGpEKGPpTZQN89hzlZbiBdKbYJKMw8At7CSpGd1zbbi9FdDFUqdzwcojtbeyM6RBvXblOg08V27M75UX8PLslPWDQTBonUaJn_nZyYkQ8l9OJlf5jNXL0WsS5kE-br38uB9n3t96pzHHUTL0r3MC-UoLeCOa53k4OUc16ce-977oKA_7XnYlusAaVnhzFvyQRa1gHie5n7wrePC77rKZP0lRnATDSZzHrWAy8vNh8K5gNPSjwbFDo7OQuF4ihjn89L7PnAexoErTQqH7qhZmJ32qQWIt5Mz5caixF_cNleCU4J59BegRc7wAe2swO1WOwfRraqngCvVQJsHEcCkT3LY6NTMBfYZfDSiNpsA10uJY8w9BI3P3Ric0Mo_CnCdCoqJRWlQKma-TUFnt6eiVYjS3eUh0e_9013ZhturhDw9Qr_fRDHZc-odl-CZ4C5423AUctF_XBRy2sOM6FZhWaOmkW2d_vJkjsASCG6adnevgRovphhdOuj8GnKYuzdxjis3bqQ7g7g_uLbEs" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-322-gt-060-020_declaration_creation_automated_including_activity_sequence_determinationip-gt-060-020_declaration_creation_automatedincluding_activity_sequence_determination_ip">BUSINESS ARCHITECTURE — 3.2.2 GT-060-020_Declaration_creation_automated_(including_activity_sequence_determination)<em>(IP) — GT-060-020_Declaration_creation_automated</em>(including_activity_sequence_determination)_(IP)</h4>
 <p><strong>Swim Lanes</strong>: Logistics Import Operator | <strong>Tasks</strong>: 4 | <strong>Gateways</strong>: 2</p>
@@ -690,7 +732,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Logistics Import Operator
+    subgraph lane_0["Logistics Import Operator"]
         n1["fa:fa-user Manage Import Declarations - Display"]
         n2["fa:fa-user Manage Import Declarations - Change"]
         n3[["fa:fa-cog Create Import Work List in GTS"]]
@@ -718,7 +760,7 @@ flowchart TD
     class n8 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2PozYU_SsWo1Faiah8hiwPrTIkrEaa6Y6U6a6qTR8csIk1YEe2ySTN5r_3OkAS0sxDVR4QPtxzzr0XX7O3MpETK7bu7_eMMx2j_UCvSEUGMRossSIDGzXAVywZXpZEDUwMFVzP2d_HMDdYb02YwVJcsXJn0DkpBEF_PNpoAsTSRgpzNVREMjqwB2vJKix3iSiFNNF3ZEwdenRrXz0ImRN5DnCcyM1CoJaMkzPsR0EUpIanSCZ43hOlIR3TbHAwyZXiPVthqY_p14o84-03lusVrCkuFYGYla7KJ7wkpalRy9pgWS03XTOYMj4cGjZf44zxAvDAAUhi_naGQudwQIf7-wU_maLX6YIjuLISKzUlFCkN8GyjEWVlGd8FySQNHVtpKd5IfOfNoqnv2ZmpJIbSHds0d_hOWLHS8VKUeRs6fDc1xN56a8tt7Dm23MH9yovw_OyUjLyxNz45PURu4iadE6X0fzlBX-UrVm-t18xPvXR68nLDUZg4_9brypwG0cS97hORG5aRC9E0Tf3ZuVWzUeg6H4s-pP7ISa5EC6zJO96dBT8lwUkwDaPUjT4UbPyus6yXL1JknaA_C9PwJBg9uOnE-1AwmLjBuM0QdAqJ1yv0JAqmNMsUeqzWAjbQlzWRWAvZxJmLu98XFsUxxUPTdvSMOS5IFz8lkBwwmOAKDdGUqXWJdwvrrwsB7z8IJCvMC9Ln-99PApkoUCIJ9LXjfxPyDT1BEYhx9Pl1DtRLbnCTO6m1qOAhv5HFlUAI_GcBR5aQKKsV8BSCA4AyWR3D0YZhtDQtl-inx5ef-6mPgN16Yp53pc81NidIjl5qCXOrCPpiDqE-Ndrvz5nnZLiE6c9W6FnkjO4uE26LytFvC-twuFAY31Yg26ysFduQz832PLNggJsHHqHh8NcfC-tPohbWD_iEV_jv4gi3U8Q9A4NhuwyaZdQu_WYZtMtRqzHFGqNXyElR6B2VokLzXwKkRfMZQd5vGeNGIGyXbs_tOBwG7A6FHuzdhv3Lge-9CT58E54O0x48ug1H3fT30HGHWrZVEdhCLLfivXX888HfMScU16W2DraFYYvOdzyz4uMfwqrXOTCnDMPgVg14-AegDVjn" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2PozYU_SsWo1Faiah8hpSHVhkSViPN7I6UaVfVpqocsIk1YEe2ySTN5r_3OkAS0sxDVR4QPtxzzr0X-7K3MpETK7bu7_eMMx2j_UCvSEUGMRossSIDGzXA71gyvCyJGpgYKries7-PYW6w3powg6W4YuXOoHNSCIJ-e7TRBIiljRTmaqiIZHRgD9aSVVjuElEKaaLvyJg69OjWvnoQMifyHOA4kZuFQC0ZJ2fYj4IoSA1PkUzwvCdKQzqm2eBgkivFe7bCUh_TrxV5xtuvLNcrWFNcKgIxK12VT3hJSlOjlrXBslpuumYwZXw4NGy-xhnjBeCBA5DE_O0Mhc7hgA739wt-MkWv0wVHcGUlVmpKKFIa4NlGI8rKMr4LkkkaOrbSUryR-M6bRVPfszNTSQylO7Zp7vCdsGKl46Uo8zZ0-G5qiL311pbb2HNsuYP7lRfh-dkpGXljb3xyeojcxE06J0rp_3KCvspXrN5ar5mfeun05OWGozBx_q3XlTkNool73SciNywjF6Jpmvqzc6tmo9B1PhZ9SP2Rk1yJFliTd7w7C_6cBCfBNIxSN_pQsPG7zrJevkiRdYL-LEzDk2D04KYT70PBYOIG4zZD0CkkXq9QiTn5y_m2sJ5EwZRmmUKP1VrATvqyJhJrIRfWnw3HXNyFUIpjiofmE6BnzHFBOsqUQKJAYoIrNERTptYl3vUFvP8gkKwwL0if7387CWSiQIkk0OOO_1XIN_QEdSDG0afXOVAvucFN7qTWooKH_EYWVwIh8J8FjC8hUVYr4CkEw4AyWR3D0YZhtDTtl-iHx5cf-6mPgN16Yp53pc81NtMkRy-1hDOsCPpiBlKfGu3358xzMlzCJMhW6FnkjO4uE26LytGvC-twuFAY31Yg26ysFduQT81WPbPgMDcPPELD4S_fF9YfRC2s7_AJr_DP4gi3J4p7BgbDdhk0y6hd-s0yaJejVmOKNUavkJOi0DsqRYXmPwVIi-YzgrzfMsaNQNgu3Z7b8aAYsBsQPdi7DfuXh7_3JvjwTXgarD14dBuOuknQQ8cdatlWRWALsdyK99bxLwh_ypxQXJfaOtgWhi063_HMio9_C6te58CcMgyHuGrAwz8z2lzK" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-323-gt-060-030_declaration_creation_via_worklist_ip-gt-060-030_declaration_creation_via_worklist_ip">BUSINESS ARCHITECTURE — 3.2.3 GT-060-030_Declaration_creation_via_Worklist_(IP) — GT-060-030_Declaration_creation_via_Worklist_(IP)</h4>
 <p><strong>Swim Lanes</strong>: Logistics Import Operator | <strong>Tasks</strong>: 2 | <strong>Gateways</strong>: 0</p>
@@ -734,7 +776,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Logistics Import Operator
+    subgraph lane_0["Logistics Import Operator"]
         n1[["fa:fa-cog Declaration creation via Worklist -Create"]]
         n2[["fa:fa-cog Create Import Work List in GTS"]]
         n3["Monitor customs confirmation via broker (IP)"]
@@ -749,7 +791,7 @@ flowchart TD
     class n4 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuOmzAU_RWLUUQrEZVnSFlUSiBUI81oRkraWUxm4YBNrICNbJNHM_n32iHvKquyQPj4nnPuvfh6a2QsR0ZkdDpbQomMwNaUc1QhMwLmDApkWqAFfkNO4KxEwtQxmFE5Jn_2YY5fr3WYxlJYkXKj0TEqGAK_Hi0wUMTSAgJS0RWIE2xaZs1JBfkmZiXjOvoB9bGN926HrSHjOeLnANsOnSxQ1JJQdIa90A_9VPMEyhjNr0RxgPs4M3c6uZKtsjnkcp9-I9AzXL-RXM7VGsNSIBUzl1X5BGeo1DVK3mgsa_jy2AwitA9VDRvXMCO0ULhvK4hDujhDgb3bgV2nM6UnUzBJphSoJyuhEAnCQEgFj5YSYFKW0YMfD9LAtoTkbIGiB3cUJp5rZbqSSJVuW7q53RUixVxGM1bmh9DuStcQufXa4uvItS2-Ue8bL0Tzs1Pcc_tu_-Q0DJ3YiY9OGOP_clJ95RMoFgevkZe6aXLycoJeENv_6h3LTPxw4Nz2CfElydCFaJqm3ujcqlEvcOz7osPU69nxjWgBJVrBzVnwe-yfBNMgTJ3wrmDrd5tlM3vlLDsKeqMgDU6C4dBJB-5dQX_g-P1Dhkqn4LCegydWECFJJsBjVTN1gF5qxKFkvI3TD3Xe36cGhhGG3YwVIEEqHRVDGAUZR-3HkkDwxviiVGqgG2sYTY2PjwsZ91qmjTnaai540mRCwc_J-IbrKeozU_cG4yBrhGSVAGoKMeHV2X-m6-bgy-PrV0W_YPuKfbCDNAfPkMICgbGEeoxz8NpwNTwCgRd9E5yo6jS3H9QB3e4PlcRh6bbLwwmivl5-To0ESggmakQFVllgziow_uYDydp6PhXx4m9q1Yszd7Xj3t3xTvN8Bfsn2LCMCqmmkNyItsb-QlWXbo4wbEpp7CwDNpKNNzQzov3FYzR1rvqSEKjOQ9WCu7_wmtS-" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO2jAQ_RUrK0QrBTUJCaF5qASBVCvtaleCdh-WqjKJDRaJjWyHS1n-vWMC4VLx1DxE8fGcc2YmHu-sVGTEiqxGY8c40xHaNfWcFKQZoeYUK9K0UQX8xJLhaU5U08RQwfWI_TmEuf5yY8IMluCC5VuDjshMEPTj0UY9IOY2UpirliKS0abdXEpWYLmNRS6kiX4gXerQg9txqy9kRuQ5wHFCNw2AmjNOznA79EM_MTxFUsGzK1Ea0C5Nm3uTXC7W6RxLfUi_VOQZb95YpuewpjhXBGLmusif8JTkpkYtS4OlpVydmsGU8eHQsNESp4zPAPcdgCTmizMUOPs92jcaE16bovFgwhE8aY6VGhCKlAZ4uNKIsjyPHvy4lwSOrbQUCxI9eMNw0Pbs1FQSQemObZrbWhM2m-toKvLsGNpamxoib7mx5SbyHFtu4X3jRXh2doo7Xtfr1k790I3d-OREKf0vJ-irHGO1OHoN24mXDGovN-gEsfOv3qnMgR_23Ns-EbliKbkQTZKkPTy3atgJXOe-aD9pd5z4RnSGNVnj7Vnwa-zXgkkQJm54V7Dyu82ynL5KkZ4E28MgCWrBsO8mPe-uoN9z_e4xQ9CZSbycoxxz8tt5n1hPYsaUZqlCj8VSwEl6WRKJtZAT61fFMQ933yGW4ojiVipmaEAgNQhjgqNUkupjxTB6E3KRgyBqxQYmoHIp413LVDEnZ8NFT4bMOPo-Ht1w20B9FnCHCInSUmlRKAQTSZkszv5T0wOJPj2-fr4uwAf20Q7zDD1jjmcEjTQ2I52h11LCICmCXsytUFPhZFcf3EWt1jdI4rj0quXxNHHfLD8m1gBrjMYwropCFlSKAo2--EiLqp4PIF78WaN6cf6udry7O-16tq9gv4Yt2yoINIVlVrSzDpcrXMAZobjMtbW3LVxqMdry1IoOl5BVLjPoy4BhOBtFBe7_AhAy2KE=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-060 — Customs Declaration Creation Import (IP)</span></div>
 
@@ -4420,11 +4462,15 @@ flowchart TD
 </tbody>
 </table>
 <hr />
-<p><em>GT-060 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: March 2026</em></p>
+<p><em>GT-060 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-060 — Customs Declaration Creation Import (IP)</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>GT-060</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

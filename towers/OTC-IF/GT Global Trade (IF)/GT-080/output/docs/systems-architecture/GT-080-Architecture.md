@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IF) (OTC-IF) Tower<br/>
   Capability GT-080 · GT Global Trade (IF)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Order To Cash (IF) (OTC-IF) |
 | **Process Group** | GT Global Trade (IF) |
 | **Capability** | GT-080 - Customs Declaration Communication - Self Filing (IF) |
-| **Release** | Release 3 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 11 Interfaces, 64 Enhancements, 11 Forms, 1 Workflows |
@@ -200,7 +200,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Trade Execution Analyst
+    subgraph lane_0["Trade Execution Analyst"]
         n1["fa:fa-user Submit the Declaration to AES System"]
         n2["Receive notification from customs authority"]
         n3["Monitor Customs export/import declaration"]
@@ -212,7 +212,7 @@ flowchart TD
     class n3 startEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CtWViiXoOaT0BwqQUikSl2pKtv2UHowzjNYm9jIdvgo4r_XJhAWqj01B4Inb2beG9k-OkRU4GTOYHBknOkMHV29hgbcDLlLrMD1UAf8wJLhZQ3KtTVUcD1nf85lQbzZ2zKLlbhh9cGic1gJQN8_e2hiiLWHFOZqqEAy6nruRrIGy0MuaiFt9ROMqU_PbpdPUyErkLcC308DkhhqzTjc4CiN07i0PAVE8OpOlCZ0TIl7ss3VYkfWWOpz-62CZ7z_ySq9NmuKawWmZq2b-gteQm1n1LK1GGnl9hoGU9aHm8DmG0wYXxk89g0kMX-9QYl_OqHTYLDgvSl6mS04Mg-psVIzoEhpAxdbjSir6-wpzidl4ntKS_EK2VNYpLMo9IidJDOj-54Nd7gDtlrrbCnq6lI63NkZsnCz9-Q-C31PHszvgxfw6uaUj8JxOO6dpmmQB_nViVL6X04mV_mC1evFq4jKsJz1XkEySnL_X73rmLM4nQSPOYHcMgJvRMuyjIpbVMUoCfz3RadlNPLzB9EV1rDDh5vgxzzuBcskLYP0XcHO77HLdvlVCnIVjIqkTHrBdBqUk_BdwXgSxONLh0ZnJfFmjV4krgAVeyCtZoKjCcf1Qemuyj48-LVwKM4oHtrQ0bxdNkwjc1TRDExfEp95WqBJMUdzw4Vm4fx-IxAagW9AgG0BcaEZZaTjUCkaRFqlRaMQbvVaSKYP9-TIkJ-FuTCERPmlFPYbIfUH1tgXqm5d9FSzEbs_PELD4SczxGUZdMvwTawWvG6nOzjsz84dHPWw4zkNyAazysmOzvnyMhdcBRS3tXZOnmNmEvMDJ052PuROu6nMhpgxbLJvOvD0FzUPp6k=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuO2jAU_RUrI5RNUPMkNItKEIhUqZWqMm0XpaqMcw3WODayHR5F_HttHmGgmlWzAHw4j3tvbB88ImvwCq_XOzDBTIEOvllBA36B_AXW4AfoDHzHiuEFB-07DpXCzNifEy1K1ztHc1iFG8b3Dp3BUgL69jFAIyvkAdJY6L4Gxagf-GvFGqz2peRSOfYTDGlIT2mXv8ZS1aBuhDDMI5JZKWcCbnCSp3laOZ0GIkV9Z0ozOqTEP7riuNySFVbmVH6r4TPe_WC1Wdk1xVyD5axMwz_hBXDXo1Gtw0irNtdhMO1yhB3YbI0JE0uLp6GFFBYvNygLj0d07PXmogtFz5O5QPYhHGs9AYq0sfB0YxBlnBdPaTmqsjDQRskXKJ7iaT5J4oC4Tgrbehi44fa3wJYrUywkry_U_tb1UMTrXaB2RRwGam8_H7JA1LekchAP42GXNM6jMiqvSZTS_0qyc1XPWL9csqZJFVeTLivKBlkZ_ut3bXOS5qPocU6gNozAK9OqqpLpbVTTQRaFb5uOq2QQlg-mS2xgi_c3w_dl2hlWWV5F-ZuG57zHKtvFFyXJ1TCZZlXWGebjqBrFbxqmoygdXiq0PkuF1yvEsYDf4c-596xwDWi6A9IaJgUaCcz32sy9X2eFe0RkiRQXFPfdC0CzdtEwg-yxRROwNSp8khqJRtMZmlk5NPcGsTX4CgTYBpCQhlFGzhqqZINIq41sNMKtWUnFzP5enFjxZ2kvD6lQeaHCbi2Vecca94XqWxWd1G7K8w-RoH7_g23isozOy_jViB143Vp3cNydozs46WAv8BpQDWa1Vxy800VmL7saKG658Y6BZ3uSs70gXnE68F67ru3mmDBs30NzBo9_ARQMq4w=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -231,7 +231,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Trade Execution Analyst
+    subgraph lane_0["Trade Execution Analyst"]
         n1["fa:fa-user Manage/Display Export Declarations - (Communication tab)"]
         n2["Monitor customs confirmation"]
         n3["Interface directly with government filing system and submit declaration"]
@@ -243,7 +243,7 @@ flowchart TD
     class n3 startEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2L2zAQ_SvCS3ALDvVnnPpQSOwYFrpQyLY9ND0o8igRK0tBkjdJQ_57pXxuUvZUHYz1_Oa9mfFIO4_IBrzC6_V2TDBToJ1vltCCXyB_jjX4AToCP7BieM5B-45DpTBT9udAi9LVxtEcVuOW8a1Dp7CQgL4_BmhkA3mANBa6r0Ex6gf-SrEWq20puVSO_QBDGtKD2-nTWKoG1JUQhnlEMhvKmYArnORpntYuTgORorkRpRkdUuLvXXJcrskSK3NIv9PwhDc_WWOWdk8x12A5S9Pyr3gO3NVoVOcw0qnXczOYdj7CNmy6woSJhcXT0EIKi5crlIX7Pdr3ejNxMUXP1UwguwjHWldAkTYWnrwaRBnnxUNajuosDLRR8gWKh3iSV0kcEFdJYUsPA9fc_hrYYmmKueTNidpfuxqKeLUJ1KaIw0Bt7fPOC0RzdSoH8TAeXpzGeVRG5dmJUvpfTrav6hnrl5PXJKnjurp4RdkgK8N_9c5lVmk-iu77BOqVEXgjWtd1Mrm2ajLIovB90XGdDMLyTnSBDazx9ir4uUwvgnWW11H-ruDR7z7Lbv5NSXIWTCZZnV0E83FUj-J3BdNRlA5PGVqdhcKrJXpWuAE02QDpDJMCjQTmW22OLLdE9GvmUVxQ3HdNR09Y4AV8qphecVvZZLOSduwqsCkq7CQ06qMPpWzbTjByQJDB848z7_cb0diKPkl7D0iFSKeNbDWyp4oy1R5CbtmJZT8KA4piAqhhCojhW7RmZokW8hWUaEEc5s4eDKRt_tAiLBpXZssMaq7ZXYTtrB5fRIT6_S82pdM2OW7fzofjnCfuBo4vx-sGTi6wF3gt2JpY4xU773C_2TuwAYo7brx94OHOyOlWEK843ANet2rszFQM29_THsH9X1VJtIA=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuK2zAQ_RXhJaQFh_oap34oJHYMhS4Usm0fmlIUeZSIlaUgyZukIf9eybltUvapejDW8ZlzZsYj7T0ia_Byr9fbM8FMjvZ9s4IG-jnqL7CGvo-OwHesGF5w0H3HoVKYGfvT0cJkvXU0h1W4YXzn0BksJaBvn300toHcRxoLPdCgGO37_bViDVa7QnKpHPsBRjSgndvp00SqGtSVEARZSFIbypmAKxxnSZZULk4DkaK-EaUpHVHSP7jkuNyQFVamS7_V8Ii3P1htVnZPMddgOSvT8C94AdzVaFTrMNKql3MzmHY-wjZstsaEiaXFk8BCCovnK5QGhwM69HpzcTFFT-VcILsIx1qXQJE2Fp6-GEQZ5_lDUoyrNPC1UfIZ8odompVx5BNXSW5LD3zX3MEG2HJl8oXk9Yk62Lga8mi99dU2jwJf7ezzzgtEfXUqhtEoGl2cJllYhMXZiVL6X062r-oJ6-eT1zSuoqq8eIXpMC2Cf_XOZZZJNg7v-wTqhRF4JVpVVTy9tmo6TMPgbdFJFQ-D4k50iQ1s8O4q-LFILoJVmlVh9qbg0e8-y3bxVUlyFoynaZVeBLNJWI2jNwWTcZiMThlanaXC6xXiWMDv4Ofce1K4BjTdAmkNkwKNBeY7beber2OEWyK0RIpzigfuB6BHLPASPpRMr7mtcrpdSzuCJdh0FXYqGg3Qu0I2TSsY6RBk8OL9rWhkRR-lvROkQqTVRjYa2RNGmWq6kFt2bNmfhQFFMQFUMwXE8B3aMLNCS_kCSjQguhm0hwRpWwI0CIvaldwwg-prdhdhO7fHFxGiweCTTem0jY_b17PiOOfpu4Gjy1G7geML7PleA7YmVnv53uvuOnsf1kBxy4138D3cGjnbCeLl3Z3gtevazk_JsP1VzRE8_AW8T7hj" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -262,7 +262,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Trade Execution Analyst
+    subgraph lane_0["Trade Execution Analyst"]
         n1["fa:fa-user Monitor Confirmations for Administrative Documents"]
         n2["Monitor completed declaration"]
         n3["Cancel customs declaration"]
@@ -280,7 +280,7 @@ flowchart TD
     class n5 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAQ_StWVohLkPJJaA6tIBCpUleqyrY9lB6MMwZrHRvZDh9l-e-1-YYup-aAMo83781MPN56RFbg5V6rtWWCmRxt22YONbRz1J5iDW0fHYAfWDE85aDbjkOlMGP2Z08Lk8Xa0RxW4prxjUPHMJOAvn_2Ud8mch9pLHRHg2K07bcXitVYbQrJpXLsJ-jRgO7djn8NpKpAXQhBkIUktamcCbjAcZZkSenyNBApqhtRmtIeJe2dK47LFZljZfblNxqe8fonq8zcxhRzDZYzNzX_gqfAXY9GNQ4jjVqehsG08xF2YOMFJkzMLJ4EFlJYvF6gNNjt0K7VmoizKXoZTgSyD-FY6yFQpI2FR0uDKOM8f0qKfpkGvjZKvkL-FI2yYRz5xHWS29YD3w23swI2m5t8Knl1pHZWroc8Wqx9tc6jwFcb-3vnBaK6OBXdqBf1zk6DLCzC4uREKf0vJztX9YL169FrFJdROTx7hWk3LYJ_9U5tDpOsH97PCdSSEbgSLcsyHl1GNeqmYfBYdFDG3aC4E51hAyu8uQh-KJKzYJlmZZg9FDz43VfZTL8qSU6C8Sgt07NgNgjLfvRQMOmHSe9YodWZKbyYoxeFK0CjNZDGMClQX2C-0ebAco8If008inOKO27o6Fna7ZUKFVJQpmrssjSiFulXtd1s626xJaChJE0NwuiJ9_tKLrJyJw0i6wUHAxWqwLao9mK39NjSCywIcEQabWStH3MTy_0GBJy7kIZRRvYsRJWsz-m4MXOpmNncJqfb7alPd1N1pnbXyNy22SgNSFLUJ07r08Tb7Q5p9rQfXkSCOp2PdlLHMDyE6TFMXfh26Xp4Xf-bncgd79juPS2-OgrO47QCN3B03vcbOH4fTt6H09O59XyvBvuNWeXlW29_O9sbvAKKG268ne_ZWcrxRhAv399iXrOobOaQYXu46gO4-wtZQvE3" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMtu2zAQ_BVCQeCLDOgZuTq0cGQLKNACRZO2h7ooaGppE6FIg6QSu47_vUs_Yzc5VQfBO56d2V1xuQ6YbiAog-vrtVDClWTdc3NooVeS3pRa6IVkB3ynRtCpBNvzHK6VuxN_trQ4Wyw9zWM1bYVcefQOZhrIt48hGWKiDImlyvYtGMF7YW9hREvNqtJSG8--ggGP-NZt_9etNg2YEyGKipjlmCqFghOcFlmR1T7PAtOqORPlOR9w1tv44qR-YnNq3Lb8zsJnuvwhGjfHmFNpATlz18pPdArS9-hM5zHWmcfDMIT1PgoHdregTKgZ4lmEkKHq4QTl0WZDNtfXE3U0JfejiSL4MEmtHQEn1iE8fnSECynLq6wa1nkUWmf0A5RXybgYpUnIfCclth6Ffrj9JxCzuSunWjZ7av_J91Ami2VolmUShWaF7wsvUM3JqbpJBsng6HRbxFVcHZw45__lhHM199Q-7L3GaZ3Uo6NXnN_kVfSv3qHNUVYM48s5gXkUDF6I1nWdjk-jGt_kcfS26G2d3kTVheiMOniiq5Pguyo7CtZ5UcfFm4I7v8squ-kXo9lBMB3ndX4ULG7jepi8KZgN42ywrxB1ZoYu5kRSBb-jn5Pg3tAGyHgJrHNCKzJUVK6smwS_dhn-UTESOS057fsPQD5r3GRtSKUVF6alPtESjsiwaXHLsRLEHoGMNOtaUM6eyyUod9Bgul1IcNCQBrBdsxU7p6dIr6hiIAnrrNOtfZubIfcrMPDuSjvBBduyCDe6PabTzs21EW51npyv14c-_a3Vn-LesTm22RkLRHMyZF7rwyTYbHZpePJ3P1RG-v33OKl9GO_CfB_mPnw-dT16Wf8zTuSCt2_3kpa-OBbe47AOZ3By3P0zOH0dzl6H88MZDsKgBfzGognKdbC9qfE2b4DTTrpgEwY4S323Uiwotzda0C0azBwJiget3YGbv6Lv9Ro=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -514,6 +514,7 @@ Integration patterns identified from the system flow analysis for GT-080:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
@@ -641,6 +642,6 @@ Standard RAID items for GT-080 (Order To Cash (IF)):
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*GT-080 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: March 2026*
+*GT-080 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: April 2026*
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-080 — Customs Declaration Communication - Self Filing (IF)</span></div>

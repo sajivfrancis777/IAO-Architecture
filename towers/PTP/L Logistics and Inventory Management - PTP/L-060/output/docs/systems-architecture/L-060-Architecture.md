@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Procure To Pay (PTP) Tower<br/>
   Capability L-060 · L Logistics and Inventory Management - PTP</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Procure To Pay (PTP) |
 | **Process Group** | L Logistics and Inventory Management - PTP |
 | **Capability** | L-060 - Manage Storage and Internal Movement of Inventory - PTP |
-| **Release** | Release 3 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows |
@@ -199,12 +199,12 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Master Data Specialist
+    subgraph lane_0["Master Data Specialist"]
         n1["fa:fa-user Extend Plant and Storage Location Views for Material in Material Master (MM01)"]
         n4[["fa:fa-cog Transfer Master Data from S/4 to EWM"]]
         n6(["fa:fa-play Product Master Creation Initiated"])
     end
-    subgraph Warehouse Manager
+    subgraph lane_1["Warehouse Manager"]
         n2["fa:fa-user Maintain Warehouse Specific Indicators (/SCWM/MAT1)"]
         n3["fa:fa-user Save Warehouse Product Master"]
         n5[["fa:fa-cog Create Warehouse Product Master (Automatic) in /SCWM/MAT1"]]
@@ -225,7 +225,7 @@ flowchart TD
     class n7 endEvt
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV1v2jAU_StWqopWCmo-CcvDJBqINGlIldKtD-sejGOD1cSObFNgFf99NyQQwsrTIoFyj-89596T2PmwiMypFVu3tx9ccBOjj4FZ0ZIOYjRYYE0HNmqAn1hxvCioHtQ5TAqT8T-HNDeotnVajaW45MWuRjO6lBT9-GajCRQWNtJY6KGmirOBPagUL7HaJbKQqs6-oWPmsINau_QoVU5Vl-A4kUtCKC24oB3sR0EUpHWdpkSKvEfKQjZmZLCvmyvkhqywMof215rO8faF52YFMcOFppCzMmXxHS9oUc9o1LrGyFq9H83gutYRYFhWYcLFEvDAAUhh8dZBobPfo_3t7as4iaLn6atAcJECaz2lDGkD8OzdIMaLIr4JkkkaOrY2Sr7R-MabRVPfs0k9SQyjO3Zt7nBD-XJl4oUs8jZ1uKlniL1qa6tt7Dm22sH_hRYVeaeUjLyxNz4pPUZu4iZHJcbYfymBr-oZ67dWa-anXjo9abnhKEycf_mOY06DaOJe-kTVOyf0jDRNU3_WWTUbha5znfQx9UdOckG6xIZu8K4j_JIEJ8I0jFI3ukrY6F12uV48KUmOhP4sTMMTYfTophPvKmEwcYNx2yHwLBWuVmiOtaEKTbHBKKsogR3EtWmS6ku4v14thmOGh7XnaLY18JTRU4GFQRjuMiMVXlL0XRJsuBToJ6cbjZhUwA3UQIi46O5bwbv53HHvX63fZ1LBr5MWkUv0DG-7ZlT1emRKlih7CJCRaPYyB4JzhtHdiaEqwHfwKl8Tc2RIFG16_AYnEIeOcqi_b-phqgtrXrCiKwlTQ7mAEdWZkNd3ZY65MPA7qzmYyTgBrZyDNVJpdPeQJS_zh_nk-XJ0v8-X4Xd6xtUfo18Z9k07jHi9Ft1N1kaW4AK5rx9L19CFk1HnpDay-tTJT-0TIRoOv4JDbeg1od-GbhMGbRg0YdiGfhNGbThqwvOtWjMcN38P9j6H_c_h4Hy_91bCqyuj01nag6P22LNsq6SqxDy34g_r8CmDz11OGV4XxtrbFgbns50gVnw48q11lYOHU47hdSsbcP8XH3lJDA==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV1v4joQ_StWqopWCmo-CZuHlWgg0kqLtFJ6tw_bq5VJbLCa2JFtCmzFf79jEgjhwtNGAmWOZ86ZOU6cTysXBbFi6_7-k3GmY_Q50CtSkUGMBgusyMBGDfATS4YXJVEDk0MF1xn7c0hzg3pr0gyW4oqVO4NmZCkI-uebjSZQWNpIYa6GikhGB_aglqzCcpeIUkiTfUfG1KEHtXbpWciCyC7BcSI3D6G0ZJx0sB8FUZCaOkVywYseKQ3pmOaDvWmuFJt8haU-tL9WZI63r6zQK4gpLhWBnJWuyu94QUozo5Zrg-Vr-XE0gymjw8GwrMY540vAAwcgifl7B4XOfo_29_dv_CSKXqZvHMGVl1ipKaFIaYBnHxpRVpbxXZBM0tCxlZbincR33iya-p6dm0liGN2xjbnDDWHLlY4Xoiza1OHGzBB79daW29hzbLmD_wstwotOKRl5Y298UnqO3MRNjkqU0r9SAl_lC1bvrdbMT710etJyw1GYOP_nO445DaKJe-kTkR8sJ2ekaZr6s86q2Sh0ndukz6k_cpIL0iXWZIN3HeGXJDgRpmGUutFNwkbvssv14ocU-ZHQn4VpeCKMnt104t0kDCZuMG47BJ6lxPUKlZiT386vN2uOlSYSTbHGKKtJDq8SU_rN-rcpMBd3IY_imOKh8R_Nthp2HP0ADo0w3GVaSLwk6LvIsWaCo5-MbBSiQqI5OGFeT8R4d99qPsznjvvYlwp-nbRysUQv8OQrSiQ6b5NKUaHsKUBaoNnrHAjOGUYPJ4a6hD0A34p1ro8MiSRNj9_gNGLQUQH1j009THXNJjP-K5ZkJWB84OEwq-y37fUdmmPGNfxQV3bwlrIcdAsGNgmp0MNTlrzOn-aTl0sb_D5fhj_IGVd_pH5l2DfwMO7tWvQwWWtRgSP5o9mirqELV6POVaVFfdXVq1byEA2HX8GhNvSa0G9DtwmDNgyaMGxDvwmjNhw14fkrbBiOh0IP9q7D_nU4OD8HeivhzZXR6YztwVF7HFq2VRFZYVZY8ad1-MTBZ7AgFK9Lbe1tC4Pz2Y7nVnz4FFjrugAPpwzDo1c14P4_BvVQ0w==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -244,7 +244,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Warehouse Manager
+    subgraph lane_0["Warehouse Manager"]
         n1["fa:fa-user Go To Transaction- Create Storage Bin /SCWM/LS01"]
         n2["fa:fa-user Input Warehouse Number, Storage Type, Storage Section, Storage bin Type and Save"]
         n3["fa:fa-user Go To Transaction- Change Storage Bin /SCWM/LS02"]
@@ -275,7 +275,7 @@ flowchart TD
     class n9 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2PokgU_SsVOh13E0zzKcjDbhSl08n0ZBN6pjNZ56GAQiqNVaSqsHUd__tUCYg4dvZhiDGcw73n3HuBy0FLaYa0QLu_P2CCRQAOI1GgDRoFYJRAjkY6aIivkGGYlIiPVExOiYjxf6cw06l2KkxxEdzgcq_YGK0pAl-edDCTiaUOOCR8zBHD-UgfVQxvINuHtKRMRd8hPzfyk1t7aU5ZhlgfYBiemboytcQE9bTtOZ4TqTyOUkqygWju5n6ejo6quJK-pwVk4lR-zdEz3L3iTBQS57DkSMYUYlN-ggkqVY-C1YpLa7bthoG58iFyYHEFU0zWkncMSTFI3nrKNY5HcLy_X5GzKXhZrAiQR1pCzhcoB1xIerkVIMdlGdw54SxyDZ0LRt9QcGctvYVt6anqJJCtG7oa7vgd4XUhgoSWWRs6flc9BFa109kusAyd7eX_lRciWe8UTizf8s9Oc88MzbBzyvP8t5zkXNkL5G-t19KOrGhx9jLdiRsav-p1bS4cb2ZezwmxLU7RhWgURfayH9Vy4prGx6LzyJ4Y4ZXoGgr0Dve94DR0zoKR60Wm96Fg43ddZZ38w2jaCdpLN3LPgt7cjGbWh4LOzHT8tkKps2awKsArZKigcpzgGRK4Rqy5rg5i_rvSchjkcKzGDR4peJE_-QxymApMyRiEDMkOQSwok7lgjgl4iMPX54dPsWGutO8XYtZQ7IlUtbhw_1xvEsT0s9TLvkI9itHJsCcS6aRCACQZiOEWDc3s_6-8gGT9QeXWUMwZin2psuueZ0IwnNQC8WGmO8xUdQK541rzq-DJH-foqpTPzKXBac6ybqBuPuJcjg8LLMvIpMafFyJeL8IFrQYimLf3KwMPTRPX2f7h0GWrbT1O5MTSopvVZaPg75V2PF6kTm-nol1a1hxv0WPzJvRZclc0J8QG4_FfcswtNBtotdBpoNvCaQO9FroNnLZw0kC_hb6CP1baZ7rSfkjllraGSV3UN3VHZJh98c6pcrpdM6Ct27R9m3Zu0-5tenJe2gPaa_frgPS7HTNgpx2r6doGsQ3EmRYctNP3VX6DM5TDuhTaUddgLWi8J6kWnL5DWn16MBYYyvWwacjjT4gAdFs=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVe-PokgQ_Vc6TCbeJZjhpyAf7qIom012Npcwe5PLebk0UGhnsCHdjaPr-r9ft4CI5-Q-HDHGer56r6poiqOWlhlogfb4eCSUiAAdR2IDWxgFaJRgDiMdNcDvmBGcFMBHipOXVMTk-5lmOtVe0RQW4S0pDgqNYV0C-vZZRzOZWOiIY8rHHBjJR_qoYmSL2SEsi5Ip9gP4uZGf3dq_5iXLgPUEw_DM1JWpBaHQw7bneE6k8jikJc0Gormb-3k6OqniivI93WAmzuXXHJ7x_pVkYiPjHBccJGcjtsUXnEChehSsVlhas103DMKVD5UDiyucErqWuGNIiGH61kOucTqh0-Pjil5M0ctiRZG80gJzvoAccSHh5U6gnBRF8OCEs8g1dC5Y-QbBg7X0Fralp6qTQLZu6Gq443cg640IkrLIWur4XfUQWNVeZ_vAMnR2kN83XkCz3imcWL7lX5zmnhmaYeeU5_n_cpJzZS-Yv7VeSzuyosXFy3Qnbmj8W69rc-F4M_N2TsB2JIUr0SiK7GU_quXENY2PReeRPTHCG9E1FvCOD73gNHQugpHrRab3oWDjd1tlnfzGyrQTtJdu5F4EvbkZzawPBZ2Z6fhthVJnzXC1QQWm8Lfx50p7xQw2pZwresYUr4GttL8arrqoKSk5DnI8VqNHn0r0Ij_yPHKcClLSMQoZyG5RLEom09GcUPQUh6_PT19iwxyKWUOxz7SqBeoL-FpvE2D6RerlUEEfxXA27IFEOikKwjRDMd7B0Mz-78o3mK4_qNwaijlDsW9VdtvzTAhGkloAH2a6w0xVJ5L7rjW_IU9-urCrQp6fa4PznGXdSB0E4FyOjwgiy8ikxs9XIl4vwkVZDUQIb-9Xhp6aJm6z_eOxy1abe5zIiaWbblbXjaJfV9rpdJU6vZ8K-7SoOdnBp-ap6LPk3mh-UBuNx7_IMbeh2YRWGzpN6LbhtAm9NnSbcNqGkyb029BX4Y-V9rVcaT-kcgtbw6SO9Ye6I5JmXz1_qpxu7wxg6z5s34ed-7B7H55cFvgA9tpdOwD9bt8M0GmHarq2BbbFJNOCo3Z-18r3cQY5rguhnXQN16KMDzTVgvM7SavPB2NBsFwV2wY8_QOlqHg-" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -816,6 +816,7 @@ Integration patterns identified from the system flow analysis for L-060:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
@@ -943,6 +944,6 @@ Standard RAID items for L-060 (Procure To Pay):
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*L-060 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: March 2026*
+*L-060 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: April 2026*
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage and Internal Movement of Inventory - PTP</span></div>

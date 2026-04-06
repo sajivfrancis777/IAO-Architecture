@@ -52,7 +52,7 @@ _FOOTER_CSS = """\
   background: #fff;
 }
 @media print {
-  .page-footer { page-break-inside: avoid; break-inside: avoid; }
+  .page-footer { display: none !important; }
 }
 .page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
 .page-footer a:hover { color: #0071c5; text-decoration: underline; }"""

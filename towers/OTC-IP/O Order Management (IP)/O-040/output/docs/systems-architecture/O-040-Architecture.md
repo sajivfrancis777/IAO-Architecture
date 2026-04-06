@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
   Capability O-040 · O Order Management (IP)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Order To Cash (IP) (OTC-IP) |
 | **Process Group** | O Order Management (IP) |
 | **Capability** | O-040 - Calculate Order Price (IP) |
-| **Release** | Release 3 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 5 Reports, 71 Interfaces, 20 Conversions, 167 Enhancements, 28 Forms, 1 Workflows |
@@ -198,11 +198,11 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Pricing Manager
+    subgraph lane_0["Pricing Manager"]
         n11[["fa:fa-cog Receive Prices"]]
         n13(["fa:fa-play Initiate Pricing using Mydeals"])
     end
-    subgraph WWPO
+    subgraph lane_1["WWPO"]
         n1["fa:fa-user Save Condition"]
         n2["fa:fa-user Manual Price upload"]
         n3["fa:fa-user Enter Validity Period"]
@@ -248,7 +248,7 @@ flowchart LR
     class n15 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVk2P2kgQ_Sstj0bsSkbyJwYfVmIMXo02UUYhmzmEHBq7DK0xbbZtMziI_77V-As7-BCFg1G9qveqqru67bMSJCEorvL4eGacZS45j7Id7GHkktGGpjBSSQl8pYLRTQzpSMZECc9W7Mc1TLcOJxkmMZ_uWVxIdAXbBMi_zyqZIzFWSUp5Ok5BsGikjg6C7akovCROhIx-gGmkRddslespESGINkDTHD2wkRozDi1sOpZj-ZKXQpDwsCMa2dE0CkYXWVycvAc7KrJr-XkKH-nplYXZDu2IxilgzC7bxx_oBmLZYyZyiQW5ONaLwVKZh-OCrQ40YHyLuKUhJCh_ayFbu1zI5fFxzZuk5MPnNSf4C2KapguISJohvDxmJGJx7D5Y3ty3NTXNRPIG7oOxdBamoQayExdb11S5uON3YNtd5m6SOKxCx--yB9c4nFRxcg1NFQU-e7mAh20mb2JMjWmT6cnRPd2rM0VR9FuZcF3FF5q-VbmWpm_4iyaXbk9sT_tZr25zYTlzvb9OII4sgBtR3_fNZbtUy4mta8OiT7450bye6JZm8E6LVnDmWY2gbzu-7gwKlvn6VeabF5EEtaC5tH27EXSedH9uDApac92aVhWizlbQw468CCaniXyknG5BlF7547r-7dtaiagb0XGQbMlnCIAd4cqAdK18_34bbP7RBB9i7PgZzzjD7psEeXpNU4SAhwDZf5ZsHJleRa-vL59ulRtduedkRbEED88fyiccdW5CjW4otpTTuKyX5Ic4oWE33uzGL3mGz680ZihekBe8QZIew-oynkPgGYsK8g8UWNR-wziVZZEkIvMAVyklK_gvBx5AV8ce0GkaI1-KQ48zuVdtS5jvk5xnXYrT3cGhBm8p0y7l1zq8FZoNCP3UYmeMtHsV32myQzJ6s7eAgIWQEnydVLufJWQDRE4AhO3slWy5pwvAPHu878kn-TKoWJSHbe60u7S6fT63lYYw3uDdHOwInIIYR_0If5dHf61cLr1JRy4Zj__C_9rWStup7Gnlrg4_n5X2tDInpWlWplWak8qstK3KNErTrlNVtlHbZpWrqaWya37trwWcnq1XhNnNRSVV6gu6Axv3YfM-bN2H7fvw5D7s3F7sHc900DMb9OBODbr0YZfRvIW7uDmAWwO4Xb9QFFXZ48BSFiruWbl-NuGnVQgRzeNMuagKzbNkVfBAca-fF0p-CJG5YBTv2H0JXv4HiBsCug==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P2jgU_StWRiN2pSDlk0AeVmKArEbbqqPS7TyUamWSG7DGOKyTMKSI_77X5AOSkodqeQi6x_ecc6_t2DlpYRKB5muPjycmWOaT0yDbwg4GPhmsaQoDnZTAVyoZXXNIByonTkS2ZD8uaaazP6o0hQV0x3ih0CVsEiB_P-tkikSuk5SKdJiCZPFAH-wl21FZzBKeSJX9AOPYiC9u1dBTIiOQ1wTD8MzQRSpnAq6w7TmeEyheCmEiopZo7MbjOBycVXE8eQ-3VGaX8vMUPtLjK4uyLcYx5Slgzjbb8Q90DVz1mMlcYWEuD_VksFT5CJyw5Z6GTGwQdwyEJBVvV8g1zmdyfnxcicaUfPi8EgR_IadpOoeYpBnCi0NGYsa5_-DMpoFr6GkmkzfwH6yFN7ctPVSd-Ni6oavJHb4D22wzf53wqEodvqsefGt_1OXRtwxdFvjseIGIrk6zkTW2xo3Tk2fOzFntFMfx_3LCeZVfaPpWeS3swArmjZfpjtyZ8bNe3ebc8aZmd55AHlgIN6JBENiL61QtRq5p9Is-BfbImHVENzSDd1pcBSczpxEMXC8wvV7B0q9bZb5-kUlYC9oLN3AbQe_JDKZWr6AzNZ1xVSHqbCTdbwmnAv4xvq20F8nUtiIfqaAbkCvte5mpfsI0v2FKTP2YDsNkQz5DCOwARJEgxdxWsv1bk7zn2P0zvu8MZ4LUHnl6cSoiwBcC2b-XbNw-96ozUe319eVTp6TGQ-0FsqRYzgzfS7RKRDvVaqdihznlZe0k3_OERu18u52_EBk-v1LOULwgL3iyJB2G02Y8RyAyFhfkLyiwqN2aCarKIklMpiHOWEqW8G8OIoS2jtuj0zRGvhT7Dmd0r9orYbpLcpG1KV57NfsavKWM25Rf6_BWaNIj9FOLrcU27lV8p8kWyerswzmELIKU4DVTrX6WkDUQtQMguu7Dkq3WdA7os8N7gHxSl0TFoiK6eqedbemeTtdKIxiu8cwOtwSOIcdtf4A_yyNhpZ3PnV2PXDIc_oH_dWyUsVfF42q4OhTEpIzHVTgqQ7sKnTIcVWGl7VShVYZubVXFVh3blVdTSxXX_Hq8FvA6sVkRJjcHmFKpD-4WbN2H7fuwcx9278Oj-7B3e-C3Rsa9I5PeEVyp3iGzf8hqbuc2bvfgTg_u1heNpms73LCURZp_0i6fU_jJFUFMc55pZ12jeZYsCxFq_uWzQ8v3ETLnjOJ5uyvB83801QqB" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -709,6 +709,7 @@ Integration patterns identified from the system flow analysis for O-040:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
@@ -836,6 +837,6 @@ Standard RAID items for O-040 (Order To Cash (IP)):
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*O-040 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: March 2026*
+*O-040 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: April 2026*
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-040 — Calculate Order Price (IP)</span></div>

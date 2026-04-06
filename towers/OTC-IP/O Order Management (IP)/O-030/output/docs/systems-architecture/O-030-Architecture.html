@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
   Capability O-030 · O Order Management (IP)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 3</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -662,7 +704,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Customer Business Analyst
+    subgraph lane_0["Customer Business Analyst"]
         n1["fa:fa-user Resolve Discrepancy"]
         n2["fa:fa-user Receive Customer Query for Existing Sales Order"]
         n3["fa:fa-user Hold Flow"]
@@ -716,7 +758,7 @@ flowchart TD
     class n17 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP4jYU_itWRiNaKUi5EiYPrZhA2pV2O9tl21VV-mCSk8GaEFPb4VKW_97jkADJhpc2D4jz-TvfufjEztFIeApGaDw-HlnBVEiOA7WCNQxCMlhSCQOTnIHfqWB0mYMcaE7GCzVn_1Q029vsNU1jMV2z_KDRObxyIL-9M8kEHXOTSFrIoQTBsoE52Ai2puIQ8ZwLzX6AcWZlVbR66ZmLFMSVYFmBnfjomrMCrrAbeIEXaz8JCS_SlmjmZ-MsGZx0cjnfJSsqVJV-KeED3X9hqVqhndFcAnJWap2_p0vIdY1KlBpLSrFtmsGkjlNgw-YbmrDiFXHPQkjQ4u0K-dbpRE6Pj4viEpR8ni4Kgk-SUymnkBGpEJ5tFclYnocPXjSJfcuUSvA3CB-cWTB1HTPRlYRYumXq5g53wF5XKlzyPK2pw52uIXQ2e1PsQ8cyxQF_O7GgSK-RopEzdsaXSM-BHdlREynLsv8VCfsqPlP5VseaubETTy-xbH_kR9a3ek2ZUy-Y2N0-gdiyBG5E4zh2Z9dWzUa-bd0XfY7dkRV1RF-pgh09XAWfIu8iGPtBbAd3Bc_xulmWy4-CJ42gO_Nj_yIYPNvxxLkr6E1sb1xniDqvgm5WJCql4msQ5LmUOO9SkklB84NUZ55-CvvPhZHRMKND3XbyCSTPt0CmTCYCNrRIDgvjrxu-0-UnwJB_CfVrCQJ7wgWZ7ZlUOMxkTvGFJy_6TWxruW2tn3FOSIzT3mZ53Yg54JFyq0oywdeVe9vTb3vO6RbuJzNqk6MVJG-1_AeesowlVDFekC-sSPmuqnD-Yrc1AtSIcPJpoi4daTPGyGh6hr3e8AJLqdLv5z8hXw-F3ryepG0L1yckwn2CvJeg9zcSgLNK5orqoy3t5TlVYlsGO81TpSRIJlNQINY4O-Rlo6uX5Lt3H7_vuLrHY9M6fQ8Ml3iSJau6d9WmfoK_SyYg_XFhnE63rl6_6zvZ2t5NThNICTZfq30j4veLwD7Jce638NP5Re26jf6bW9DvhrNAdkytWEGqO4esb4dmVw3NTeZ4mp7_FC4ZDn_Q6dS2XQFfF8YfIBfGVyQ0CzXRq22vtv1m3T8DF9vrCDWONe-p4Y3OdlDb41q3NoOzOW7YdRpObTtns8m-1rIbMdvplhfUWf3Cq6Rst1t3szDq1tEs-F2ppkD79kTVDWtukhbs9MNuP-z1w34_POqHny43dTtB6w5u38GdO7jbXEZt2OuH_X541A8HDWyYBh5Pa8pSIzwa1eccfvKlkNEyV8bJNGip-PxQJEZYffYY5SZFzymjeButz-DpX6E-LXA=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP4jYU_itWViNaKUi5EiYPrZhA2pG6ne2y7aoqVWWSk8EaY1Pb4VKW_147JECy4aXNA-J8_s53Lj6xc7QynoMVWw8PR8KIitFxoFawhkGMBkssYWCjM_AbFgQvKciB4RScqTn5p6K5wWZvaAZL8ZrQg0Hn8MoB_fpso4l2pDaSmMmhBEGKgT3YCLLG4pBwyoVhv4Nx4RRVtHrpiYscxJXgOJGbhdqVEgZX2I-CKEiNn4SMs7wlWoTFuMgGJ5Mc5btshYWq0i8lvMf7zyRXK20XmErQnJVa05_wEqipUYnSYFkptk0ziDRxmG7YfIMzwl41HjgaEpi9XaHQOZ3Q6eFhwS5B0afpgiH9ZBRLOYUCSaXh2VahglAavwuSSRo6tlSCv0H8zptFU9-zM1NJrEt3bNPc4Q7I60rFS07zmjrcmRpib7O3xT72HFsc9G8nFrD8GikZeWNvfIn0FLmJmzSRiqL4X5F0X8UnLN_qWDM_9dLpJZYbjsLE-VqvKXMaRBO32ycQW5LBjWiapv7s2qrZKHSd-6JPqT9yko7oK1aww4er4GMSXATTMErd6K7gOV43y3L5QfCsEfRnYRpeBKMnN514dwWDiRuM6wy1zqvAmxWimMFfzh8LKyml4msQ6KmUevClRBOG6UGqhfXn2cc8zNXUAscFHpotQB9BcroFNCUyE7DBLDu0-V6XnwHR_Eu0X0oQuj9coNmeSKUHG82xfvnRi3kr21p-W-tHPTMo1ZPfZgXdiBT08XKrigrB15V72zNse87xFu4nM2qTkxVkb7X8e56TgmRYEc7QZ8JyvqsqnL-4bY3I9F2_BThTl460GWPNaHqme73hTJdSpd_Pf9R8MyBm_3qSds1OT1Ci9wloL8HsbyJAzy2aK2yOubyX51WJbQnsDE-VEmkymoICsdbjg142pnqJvnn-8G3H1T8em9aZO2G41Kdatqp7V23qR_i7JALy7xfW6XTrGvS7PsvW9m4oziBHuvlG7SuRsF8E9hnVo7-FH84vbddt9N_con43PQtoR9SKMFTdP2h9OzS7amhuMtcn6_kP89Fw-J1Jp7bdCviysH4HubC-aEKzUBOD2g5qO2zWwzNwsYOOUONY8x4b3uhsR7U9rnVrMzqb44Zdp-HVtnc2m-xrLbcRc71ueVGd1c-8Ssr1u3U3C6NuHc1C2JVqCnRvT1fTsOZWacFeP-z3w0E_HPbDo3748XJrtxN07uDuHdy7g_vNxdSGg3447IdH_XDUwJZt6eNpjUluxUer-rTTn385FLikyjrZFi4Vnx9YZsXVJ5BVbnLtOSVY30zrM3j6FzeVMVM=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-030 — Process Orders (IP)</span></div>
 
@@ -739,7 +781,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Customer Business Analyst
+    subgraph lane_0["Customer Business Analyst"]
         n1["fa:fa-user Compare and Match Customer PO Data with SO Data"]
         n2["fa:fa-user Check Mandatory Fields to Create Sales Order"]
         n3["fa:fa-user Update Sales Order"]
@@ -793,7 +835,7 @@ flowchart TD
     class n17 subProc
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v2zYU_SuEgsAtIGP6tBw9bJBlawjQrkHcrijqPdDSlS2EFg2SsuO5_u8j9eVIUYph80OQe3jPOeTV1aXOWkwT0Hzt9vac5Znw0XkktrCDkY9Ga8xhpKMK-BOzDK8J8JHKSWkultnfZZrp7J9VmsIivMvISaFL2FBAX-51FEgi0RHHOR9zYFk60kd7lu0wO4WUUKayb2CaGmnpVi_NKEuAXRMMwzNjV1JJlsMVtj3HcyLF4xDTPOmIpm46TePRRW2O0GO8xUyU2y84fMTPX7NEbGWcYsJB5mzFjnzAayDqjIIVCosLdmiKkXHlk8uCLfc4zvKNxB1DQgznT1fINS4XdLm9XeWtKfo8X-VI_mKCOZ9DiriQ8OIgUJoR4t84YRC5hs4Fo0_g31gLb25beqxO4sujG7oq7vgI2WYr_DUlSZ06Pqoz-Nb-WWfPvmXo7CT_9rwgT65O4cSaWtPWaeaZoRk2Tmma_i8nWVf2GfOn2mthR1Y0b71Md-KGxmu95phzxwvMfp2AHbIYXohGUWQvrqVaTFzTeFt0FtkTI-yJbrCAIz5dBe9CpxWMXC8yvTcFK7_-Lov1A6NxI2gv3MhtBb2ZGQXWm4JOYDrTeodSZ8PwfovCggu6A4ZmBZf9zjkKckxOXFR56peb31daiv0Uj1XZUUh3e8wA4TxBH7GIX4g8fEJzLDA6ZmKLllWw0v56oWX1tLYQP0kV-T4Jyk4oyoAkHAmKQgayeGiJ5SRAn9Qr2hWyu0Jf9slP051u-hIffpLsyuRqZ-VBmuN1kyYy6RE4JVLpnvMCusveu9ZxT2QLtDUq_dAjxJAdQFUwLzAhJ8l-_4I-_Zf0Q4bRYn7fY99JcoACQmisqiJbJiliocpa0jl6d__wvrtf01CHropeeQTxU06PBJKNnMq56KWb53OzQTXZx2s5m2QrlI__ATO8A6GMygaB5LeVdrm8pFvDdHiOiWzEA_xevTl9mj1MC_ITmlkzFOGMFAxeuTn_zc290jBj9MjHmAgkm18-MCBvkCbf2yeXyqkGbEz3kLf9LFSvs6Rtu05RvWFusN8zeoBfHoGAvCr7XDl2q39yF43Hv8rWrEOrCutRl5t12MR2FTt16FWhVYdOnd0smyX9x0r7Bnyl_VDPsFlpfBpfc1IDdg1M67hlNOJuA9h9ca9v-wctF14xavy6z7oId73YNBqgPmizuUl3c-WsVcVq7pgObA3D9jDsDMNeeyt34OkwfDcMm8YbuNlcO13YGobtYdgZht1heNJcTF3Ya2BN1-Ts2uEs0fyzVn7myU_BBFJcEKFddA0Xgi5Peaz55eeQVpTjfJ5heUvtKvDyD1LkM74=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_RVCQeBdQEZ1tRw9tPBNRYBuN4j3gmJdFLQ0soXQpEFSdlyv_72kbo4UZVG0fggyR3POIYejoc5GzBIwQuP29pzRTIboPJBb2MEgRIM1FjAwUQl8wTzDawJioHNSRuUy-7tIs739s07TWIR3GTlpdAkbBujzvYkmikhMJDAVQwE8SwfmYM-zHeanGSOM6-wbGKdWWrhVj6aMJ8CvCZYV2LGvqCSjcIXdwAu8SPMExIwmLdHUT8dpPLjoxRF2jLeYy2L5uYAP-PlrlsitilNMBKicrdyR3_AaiN6j5LnG4pwf6mJkQvtQVbDlHscZ3SjcsxTEMX26Qr51uaDL7e2KNqbo03xFkfrFBAsxhxQJqeDFQaI0IyS88WaTyLdMITl7gvDGWQRz1zFjvZNQbd0ydXGHR8g2WxmuGUmq1OFR7yF09s8mfw4dy-Qn9bfjBTS5Os1GztgZN07TwJ7Zs9opTdP_5aTqyj9h8VR5LdzIieaNl-2P_Jn1Wq_e5twLJna3TsAPWQwvRKMochfXUi1Gvm29LTqN3JE164husIQjPl0F72ZeIxj5QWQHbwqWft1V5usHzuJa0F34kd8IBlM7mjhvCnoT2xtXK1Q6G473W0Qwhb-sbytjlgvJdsDRNBeq8YVAE4rJSciV8WfJ0T9qq9QUhyke6iNAM7bbYw4I0wR9wDLeokbn4SOaY4nRMZNbtCyDtpbT0dpC_KRU1LslGT-hKAOSCCQZmnFQhURLrKYC-qhf17aQ2xb6vE9-mO6105f48INkX9emWFmxkXp77aSRSnoEwYhSuhcih_bj4F3juCeqHZoaFX7oEWLIDqArSHNMyEmx37-gj_8l_ZBhtJjfd9h3ijxBE0JYrKui2ifJY6nLWtAFenf_8L5zyEVDlEUvPSbxE2VHAslGTWja7Qn7fK4XqKf8cK3mlGqF4vgfMMc7kNqoaBBIflkZl8tLutNPh-eYqF48wK_lW9Sluf20CT2hqTNFEc5IzuGVm_ff3PwrDXPOjmKIiUSq-dWBAXmDNPrWnFyqJhzwIdsDbfpZ6l7nSdN2raIG_dzJfs_ZAX56BALq2uxy1Qgu_6E-Gg5_Vq1ZhU4ZVmOP2lVYx24Ze1UYlKFThV6VXT-2C_r3lfEHiJXxXZ9h_aT2qX3tUQW4FTCu4oZRi_s14HbFg67t76x48IpR4dd1VkW468S2VQPVRuvFjdqLK-auLlZ937Rgpx92-2GvHw6aG7oFj_vhu37Ytt7A7foKasNOP-z2w14_7PfDo_qSasNBDRumoWbXDmeJEZ6N4pNPfRYmkOKcSONiGjiXbHmisREWn0ZGXozzeYbVjbUrwcs_RoM3oQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-030 — Process Orders (IP)</span></div>
 
@@ -816,7 +858,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Customer Business Analyst
+    subgraph lane_0["Customer Business Analyst"]
         n1["fa:fa-user Resolve Discrepancy"]
         n2["fa:fa-user Receive Customer Query for Existing Sales Order"]
         n3["fa:fa-user Hold Flow"]
@@ -870,7 +912,7 @@ flowchart TD
     class n17 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP4jYU_itWRiNaKUi5EiYPrSCQdqTdzu6y7aoqfTDOyWBNiKntcCnLf187JIFkw0ubB8T5_J3vXHxi52QQloARGo-PJ5pTGaLTQK5hA4MQDVZYwMBEF-APzCleZSAGmpOyXC7ovyXN9rYHTdNYjDc0O2p0Aa8M0O_PJpoox8xEAudiKIDTdGAOtpxuMD9GLGNcsx9gnFppGa1amjKeAL8SLCuwia9cM5rDFXYDL_Bi7SeAsDxpiaZ-Ok7J4KyTy9ierDGXZfqFgPf48IUmcq3sFGcCFGctN9k7vIJM1yh5oTFS8F3dDCp0nFw1bLHFhOavCvcsBXGcv10h3zqf0fnxcZk3QdHn2TJH6iEZFmIGKRJSwfOdRCnNsvDBiyaxb5lCcvYG4YMzD2auYxJdSahKt0zd3OEe6OtahiuWJRV1uNc1hM72YPJD6FgmP6rfTizIk2ukaOSMnXETaRrYkR3VkdI0_V-RVF_5ZyzeqlhzN3biWRPL9kd-ZH2vV5c584KJ3e0T8B0lcCMax7E7v7ZqPvJt677oNHZHVtQRfcUS9vh4FXyKvEYw9oPYDu4KXuJ1syxWHzgjtaA792O_EQymdjxx7gp6E9sbVxkqnVeOt2sUFUKyDXA0LYSadyHQJMfZUcgLTz-5_dfSSHGY4qFuO_oEgmU7QDMqCIctzslxafx9w3e6fAJU8ZtQHwvgqieMo_mBCqmGGS2weuHRi34T21puW-tXNScoVtPeZnndiBmoI-VWFaWcbUr3tqff9lzgHdxPZtQmR2sgb5X8e5bQlBIsKcvRF5onbF9WuHix2xqB0ojU5GMim460GWPFqHumer1luSqlTL-f_6T4eij05vUkbVtqfYIitU-Q9RL0_kYc1KyihcT6aEt6eU6Z2I7CXvNkIZAioxlI4Bs1O-hlq6sX6IfnDz92XN3TqW6dvgeGK3WSkXXVu3JTP8E_BeWQ_Lw0zudbV6_f9Vm0tnebYQIJUs3Xat-J-P0icCCZmvsd_HJ5Ubtuo__mFvS7qVlAeyrXNEflnYM2t0OzL4fmJnN1ml7-5C4aDn_S6VS2XQJfl8afIJbGV0WoFyqiV9leZfv1un8BGtvrCHndhd9YiTcKlcBTzRtd7KCyx1XAygwu5ribd63aFFQl7lS2czGbZafbgKAjVDegSscOusS6QPv2RNUNq2-SFuz0w24_7PXDfj886oefmpu6naB1B7fv4M4d3K0vozbs9cN-Pzzqh4MaNkxDHU8bTBMjPBnl55z65EsgxUUmjbNp4EKyxTEnRlh-9hjFNlGeM4rVbbS5gOdvTVEtcA==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP4jYU_itWRiNaKUi5EiYPrSCQdqRuZ3fZdlWVqjLJyWBNsKntcCnLf187JIFkw0ubB8T5_J3vXHxi52QkLAUjNB4fT4QSGaLTQK5hA4MQDVZYwMBEF-B3zAle5SAGmpMxKhfk35Jme9uDpmksxhuSHzW6gFcG6LdnE02UY24igakYCuAkG5iDLScbzI8RyxnX7AcYZ1ZWRquWpoynwK8EywrsxFeuOaFwhd3AC7xY-wlIGE1bopmfjbNkcNbJ5WyfrDGXZfqFgHf48Jmkcq3sDOcCFGctN_kveAW5rlHyQmNJwXd1M4jQcahq2GKLE0JfFe5ZCuKYvl0h3zqf0fnxcUmboOjTbEmRepIcCzGDDAmp4PlOoozkefjgRZPYt0whOXuD8MGZBzPXMRNdSahKt0zd3OEeyOtahiuWpxV1uNc1hM72YPJD6FgmP6rfTiyg6TVSNHLGzriJNA3syI7qSFmW_a9Iqq_8ExZvVay5GzvxrIll-yM_sr7Vq8ucecHE7vYJ-I4kcCMax7E7v7ZqPvJt677oNHZHVtQRfcUS9vh4FXyKvEYw9oPYDu4KXuJ1syxW7zlLakF37sd-IxhM7Xji3BX0JrY3rjJUOq8cb9coxxT-tv5cGlEhJNsAR9NCqMEXAk0ozo9CLo2_Lj76obaiZjjM8FBvAfoIguU7QDMiEg5bTJNjm-90-QkQxW-ifSiAq_4wjuYHIqQabLTA6uVHL_qtbGu5ba2f1cygWE1-m-V1I-agjpdbVZRxtind255-23OBd3A_mVGbHK0heavk37GUZCTBkjCKPhOasn1Z4eLFbmsEuu_qLcCJbDrSZowVo-6Z6vWWUVVKmX4__0nx9YDo_etJ2tY7PUGR2ifIewl6fyMOam7RQmJ9zKW9PKdMbEdgr3myEEiR0Qwk8I0aH_Sy1dUL9N3z--87ru7pVLdO3wnDlTrVknXVu3JTP8I_BeGQ_rg0zudbV6_f9Vm0tneb4wRSpJqv1b4R8ftF4JDkavR38NPlpe26jf6bW9DvpmYB7YlcE4rK-wdtbodmXw7NTebqZL38oS4aDn_Q6VS2XQJflsYfIJbGF0WoFyqiV9leZfv1un8BGtvrCHndhV9ZiTcKlcBTzRtd7KCyx1XAygwu5ribd63aFFQl7lS2czGbZafbgKAjVDegSscOusS6QPv2dNUNq2-VFuz0w24_7PXDfj886oefmlu7naB1B7fv4M4d3K0vpjbs9cN-Pzzqh4MaNkxDHU8bTFIjPBnlp536_Eshw0UujbNp4EKyxZEmRlh-AhnFNlWeM4LVzbS5gOev45kxUw==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-030 — Process Orders (IP)</span></div>
 
@@ -4541,11 +4583,15 @@ flowchart TD
 </tbody>
 </table>
 <hr />
-<p><em>O-030 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: March 2026</em></p>
+<p><em>O-030 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-030 — Process Orders (IP)</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>O-030</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IP) (FTS-IP) Tower<br/>
   Capability Q-140 · Q Quality Management (IP)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 3</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -646,7 +688,7 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Boundary Apps
+    subgraph lane_0["Boundary Apps"]
         n6[["fa:fa-cog Generate Supply Plan"]]
         n7[["fa:fa-cog Schedule Receipt Update"]]
         n8[["fa:fa-cog Schedule Receipt Update"]]
@@ -656,7 +698,7 @@ flowchart LR
         n24(["fa:fa-stop Update in inventory for planning"])
         n25(["fa:fa-stop Classify WIP Stock Process Ended"])
     end
-    subgraph FTS IP - Production Supervisor
+    subgraph lane_1["FTS IP - Production Supervisor"]
         n1["fa:fa-user Update Production Order User Status to HOLD"]
         n2["fa:fa-user File with release date information Placed in specific folder"]
         n3["fa:fa-user - 180 HOLD Child Order"]
@@ -668,14 +710,14 @@ flowchart LR
         n27{{"fa:fa-code-branch Full or Partial Lot"}}
         n29{{"fa:fa-arrows-alt parallelGateway"}}
     end
-    subgraph PTP IP Batch System User
+    subgraph lane_2["PTP IP Batch System User"]
         n5["fa:fa-user Update Production Order User Status to ZREL (Released)"]
         n18[["fa:fa-cog Create Auto Text PR"]]
         n19[["fa:fa-cog Create Text PO ( Auto via Batch Job)"]]
         n20[["fa:fa-cog Update Text PO"]]
         n21[["fa:fa-cog Update Text PO Commit Date"]]
     end
-    subgraph Planning Data hub
+    subgraph lane_3["Planning Data hub"]
         n10[["fa:fa-cog Share Supply Plan"]]
         n11[["fa:fa-cog Join – Production Order and Text PO data in Planning Hub"]]
         n12[["fa:fa-cog Update Production Order User Status to HOLD"]]
@@ -739,7 +781,7 @@ flowchart LR
     class n29 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWNtu2zgQ_RVCReAWsAtdLdsPC8QXtSmyqBEnW2DrPtASFRORJYGiknhT__sOJdK2aKlYdIMgiM7wnBkeDknZb0aYRcSYGFdXbzSlfILeenxLdqQ3Qb0NLkivj2rgL8wo3iSk6IkxcZbyFf2nGma5-asYJrAA72iyF-iKPGYEPdz00TUQkz4qcFoMCsJo3Ov3ckZ3mO1nWZIxMfodGcVmXGWToWnGIsJOA0zTt0IPqAlNyQl2fNd3A8ErSJilUUM09uJRHPYOorgkewm3mPGq_LIgf-LXbzTiW3iOcVIQGLPlu-QWb0gi5shZKbCwZM_KDFqIPCkYtspxSNNHwF0TIIbTpxPkmYcDOlxdrdNjUnR7t04R_IQJLoo5iVHBAV48cxTTJJm8c2fXgWf2C86yJzJ5Zy_8uWP3QzGTCUzd7AtzBy-EPm75ZJMlkRw6eBFzmNj5a5-9Tmyzz_bwV8tF0uiUaTa0R_bomGnqWzNrpjLFcfy_MoGv7B4XTzLXwgnsYH7MZXlDb2Ze6qlpzl3_2tJ9IuyZhuRMNAgCZ3GyajH0LLNbdBo4Q3OmiT5iTl7w_iQ4nrlHwcDzA8vvFKzz6VWWmyXLQiXoLLzAOwr6Uyu4tjsF3WvLHckKQeeR4XyLpllZ9TK6zvOijomfdPj9-9qI8STGgzB7RJ9IShhMBq3KPE_2aJngdG38-HHG8JuMVbglUZkQdEdCQnOOHvIIBDTS6HdI498h2fb7IytPYE2Ej6Qo0A2cRhTGR4hnaCaMpvEefbtZohXPwieQ-XAu45xkCp7lQH8mKc_AwTpthOKMIciQprBLdbarsWsOoin8Kp1f8T2Nf1nvcV6LNCLRiQ97U1v64H6FgDUQjKgMOc1SsbxiHxQZO8tqHXOKbadqPmN9FScoehDBFce8LISVn7_eziH9efVNnYDCmr1QvkWMJASuACS9AAN2uBKGNgvBUbCnyElIYwqdDycFYU1hpyk8QNbIrPKj2ZYmUV1fk-I2Kas8oRwtXmnBwfVqbh9RdTEgnEZoxogoDaOw0ssu9Sy32ZR3ckq6S1pXWl6TJhNNS5HmJoWtXJN1mrY95ZJAL6KYZTv0kDICXBqKfqzbAlZkmsA_CtAV_fb65_qS0AKVstFhWcIS2nCHuLiw9Q3nv72dFCMy2MDtFULblUkCDqIl3EtwX6PbjK-Nw-GcOT4xMWPZSzHACUc5ZjhJSPKpPlRPpMvWXt4vRWtPMYeEq33Bya5qz7Mk3m819d93i1v0XpoTfdB6YNS6mNclEO_JK0fLO931cSujHvwVva-5zxTLqXzJNh90m83WVpAS-mDrV4PRLNvtYBvMG6dni7vycBIDMdqWm_MZaeWs4K3kV7eGpVX0JYOuWpe2aTmXiyG2oqo1ErlpeirmM9Shaduts_2PB1dDydHWCYwqUxoKOXhpPR79uS4tVc8LbzW5Xp3hxd1y2nePhDd23nL-Wb8cRq3bpq5tgqyP-qa-PGaQ_fHyOoWBx2662HLQ9Ggw-EO0sgRsUwKWAuwaGMrnoYybSkERXAn49bPtyGeZwVbxsXz2lIBMYI8UYNWAryqQCdSz5UrgSJCS1lFSKqpJSYKqyNHCdsX_uTaqS6de9LXxU5SmRshJqIy2zKAS2r5UaByLoODqA6rzU0WVx5Y01VYmW7JEVaEnJ-i0W1K9YIppqxfrBmy3w0477LbDXjs8PH_zbkT8zsioMzLujECXdYas7pDdHXK6Q253yOsOdVthdXthdZthdbthd7thd7sBO1l9nGzijvzo10TdVtRrRYetqK8-QTXhUTs8VrDRN3YEDk4aGZM3o_pWAb55iEiMy4Qbh76B4Vpd7dPQmFSfvo36XJ1TDBfcrgYP_wKMwj3E" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWG1v2zYQ_iuEisAtYBeiXizHHwb4TW2KDDXiZAVWDwMtUTYRWRIkKomX-r_vKJF2REvF0AVBED13z3PH4x0p-9UI0pAaY-Pq6pUljI_Ra4_v6J72xqi3IQXt9VEN_EFyRjYxLXrCJ0oTvmL_VG7YyV6Em8B8smfxQaAruk0perjpowkQ4z4qSFIMCpqzqNfvZTnbk_wwS-M0F97v6CgyoyqaNE3TPKT52cE0PRy4QI1ZQs-w7Tme4wteQYM0CRuikRuNoqB3FMnF6XOwIzmv0i8L-jt5-cZCvoPniMQFBZ8d38e3ZENjsUaelwILyvxJFYMVIk4CBVtlJGDJFnDHBCgnyeMZcs3jER2vrtbJKSi6vVsnCH6CmBTFnEao4AAvnjiKWByP3zmzie-a_YLn6SMdv7MW3ty2-oFYyRiWbvZFcQfPlG13fLxJ41C6Dp7FGsZW9tLPX8aW2c8P8FeLRZPwHGk2tEbW6BRp6uEZnqlIURT9r0hQ1_yeFI8y1sL2LX9-ioXdoTszL_XUMueON8F6nWj-xAL6RtT3fXtxLtVi6GKzW3Tq20NzpoluCafP5HAWvJ45J0Hf9XzsdQrW8fQsy80yTwMlaC9c3z0JelPsT6xOQWeCnZHMEHS2Ocl2KCYJ_dv8vjamaVk1NZpkWbE2_qr9xE8y_A72iIwjMgjSLfpEE5rDwtCqzLL4gJagAYS3DK_JWAU7GpYxRXc0oCzj6CELQUAjjX6FdP0rJMt6f2JlMeyPqCktCnQDJxMD_xDxFM1E0Vl0QN9ulmjF0-ARZD68lbHPMgVPM6A_0YSnUMQ6bIiiNEcQIUlgYnW2o7FrDmIJ_Cqdn_FdjX-Z72ldiySk4ZkPc9rWBhj0_PsVAvpAUMMy4CxNxD6L4SjSvNkX-BRfjKPK_w3xqzhZ0YMwrjjhZSHK-vnr7bypYzV1fAb798z4DuU0pnA1IFkXKMaeVMLQcgFUF0pVZDRgEYOJgBOEagnaTeEBwiOzio9mOxaHdX5NitOkrLKYcbR4YQWHHajW9hFVFwYiSYhmORWpERRUeumlHnaaDXonl6RXSetQ7DZpMtC0FGFuEhjxmqzTtFGVWwJ9iaI83aOHJKfAZYHozbpFYEemMfyjAF3Ra89_rm8JK1Apmx62JSihJfeIi4tcHz7v9fWsGNLBBm61YIf8Mo6hgmgJ9xXc4-g25WvjeHzLvD4zSZ6nz8WAxBxlJCdxTONP9WF7JnW0uWi35f1StPmUcIi8OhSc7qs-bW6e-0sN_ufd4ha9l4UKP2j9MGrd2EkJxHv6wtHyTt-B61ZG7fwVva-5T4zI1XxJNx_0kputbSEldGf8M2c0S_d7GIl541TtqLSYv6U8vQSDoF250eqhpbaCt5if3SxYy-5LCt22Li0T25cbI0ZU5R2K8Kw6Oup8PlepNLSt1pX_xwOtoWRrewZFKxMWCDl4yT1dD5kuLVXfJt5a8Hqnhhf3z3ket5Q3JnI5_6xfIKPWcapzGyP8UR_2y-MHWR8vr1xwPHXWxSjCAKDB4DfR1hKwTAlgBVg1MJTPQ2k3lYIiOBLw6mfLls8ygqXs1_LZVQIygDVSAK4BT2UgA6hn7EjgRJCS-CQpFdWiJEFlZGtmq-L_WBvVZVRv-tr4IVJTHnIRKqIlI6iAlicVGsclKDi6Q3WuKquqMZZFtVSRsUxRZejKBdrtJaleSMWy1Yt4A7baYbsddtphtx0evn1Tb1i8Tsuo03LdaYEu6zThbpPVbbK7TU63ye02dZcCd9cCdxcDd1fD6q6G1V0NmGT18bOJ2_KjYhN1WlG3FR22op76xNWER-3wtYKNvrGncHCy0Bi_GtW3EPBNRUgjUsbcOPYNAlfs6pAExrj6tG7U5-qcEbjs9jV4_Bcdmk1W" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>Q-140 — Manage Product Disposition (IP)</span></div>
 
@@ -2679,11 +2721,15 @@ flowchart LR
 </tbody>
 </table>
 <hr />
-<p><em>Q-140 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IP) · Generated: March 2026</em></p>
+<p><em>Q-140 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IP) · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>Q-140 — Manage Product Disposition (IP)</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>Q-140</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

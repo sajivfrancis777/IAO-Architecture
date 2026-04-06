@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IF) (OTC-IF) Tower<br/>
   Capability R-190 · R Returns (IF)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 3</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -646,13 +688,13 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Customer Quality Engineer
+    subgraph lane_0["Customer Quality Engineer"]
         n1["fa:fa-user Receive Failure Analysis (FA) Returns in FA Storage Location"]
         n4["Perform Physical Inspection"]
         n5(["fa:fa-stop Physical Inspection Performed"])
         n7{{"fa:fa-code-branch exclusiveGateway"}}
     end
-    subgraph Warehouse Operator
+    subgraph lane_1["Warehouse Operator"]
         n2["fa:fa-user Post Goods Receipt"]
         n3["fa:fa-user Receive Material in Returns Storage Location"]
         n6["Receive Return Order"]
@@ -675,7 +717,7 @@ flowchart TD
     class n8 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU2P2zYQ_SuEFgsngAzo03J1aOGVrSBAgmzjbXOoe6CpkUUsTQoktWvX8X8PaUn-ijeX6mBgnmbem3kmRzuHiAKc1Lm_31FOdYp2A13BGgYpGiyxgoGLWuBvLCleMlADm1MKruf0v0OaH9Ubm2axHK8p21p0DisB6K-PLpqYQuYihbkaKpC0HLiDWtI1lttMMCFt9h2MS688qHWvHoQsQJ4SPC_xSWxKGeVwgsMkSqLc1ikgghcXpGVcjksy2NvmmHglFZb60H6j4DPefKOFrkxcYqbA5FR6zT7hJTA7o5aNxUgjX3ozqLI63Bg2rzGhfGXwyDOQxPz5BMXefo_29_cLfhRFT9MFR-YhDCs1hRIpbeDZi0YlZSy9i7JJHnuu0lI8Q3oXzJJpGLjETpKa0T3Xmjt8BbqqdLoUrOhSh692hjSoN67cpIHnyq35vdICXpyUslEwDsZHpYfEz_ysVyrL8n8pGV_lE1bPndYszIN8etTy41GceT_z9WNOo2TiX_sE8oUSOCPN8zycnayajWLfe5v0IQ9HXnZFusIaXvH2RPhbFh0J8zjJ_eRNwlbvustm-SgF6QnDWZzHR8Lkwc8nwZuE0cSPxl2HhmclcV2hrFFarEGiPxvMqN6iGV-Zcw-yzbMP9_9ZOCVOSzy0tqOvQIC-AMoxZY0ENOGYbc2ZRe_yyXvzVjeSK0Q5yidoroXEK0CfBMGaCr5w_j0jjgzxI8hSyDV6rAwHwQx95KoG8nNy_O7Yhmm5vlWAOjIoTOn7s9pkt-tr7RoaLs1FIhWCDWGNMrN8aP-nhbPft1XmJF8Z9Q1LqIQxAH2pQWIz1xl_cOnQo1AafRCiUK1Ztb4cJbxt6GfThV1h1rvexl8bODJEfXVbgb7YbXaZNb49_dO2BiTKXuqPG9PzAA2HvxuGLgzbMOnCpA2jLozaMO5C_zJ5bMPvC-c4Zae7cL4b4qukX56tQ0V3f_moVQnOLoqV7hfEBRzchsPbcNztswtwdFyoF3DSX_ULdNyjjuuYO7bGtHDSnXP4zJlPYQElbph29q6DGy3mW06c9PA5cJq6MJVTis3hW7fg_gcf51PP" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVGP2jgQ_itWVitaKUhJSAiXh6vYQKpKrbp37F0fjqoyyZhYa-zIdnahlP9-NklgQ9m-NA9I82Xm-2Y-7MneyUUBTuLc3u4ppzpB-4EuYQODBA1WWMHARQ3wL5YUrxiogc0hgusF_X5M88Nqa9MsluENZTuLLmAtAP3zwUVTU8hcpDBXQwWSkoE7qCTdYLlLBRPSZt_AhHjkqNa-uhOyAHlO8LzYzyNTyiiHMzyKwzjMbJ2CXPCiR0oiMiH54GCbY-I5L7HUx_ZrBZ_w9gstdGligpkCk1PqDfuIV8DsjFrWFstr-dSZQZXV4cawRYVzytcGDz0DScwfz1DkHQ7ocHu75CdR9DBbcmSenGGlZkCQ0gaeP2lEKGPJTZhOs8hzlZbiEZKbYB7PRoGb20kSM7rnWnOHz0DXpU5WghVt6vDZzpAE1daV2yTwXLkzvxdawIuzUjoOJsHkpHQX-6mfdkqEkN9SMr7KB6weW635KAuy2UnLj8ZR6v3M1405C-Opf-kTyCeawwvSLMtG87NV83Hke6-T3mWjsZdekK6xhme8OxP-kYYnwiyKMz9-lbDRu-yyXt1LkXeEo3mURSfC-M7PpsGrhOHUDydth4ZnLXFVIoY5fPP-WzpprbTYgER_1ZhRvUNzvjYXAOTS-drU2If7JpXghOCh_QvQ35ADfQKUYcpqCWjKMduZ84veZNO35q2uJVeIcpRN0UILideAPoocayp4nzg0xPcgiZAbdF8ajhwz9IGrCvKfk6M3pzZM19W1AtSSQWFK376ojff7rtaupOHKXKq8RLDNWa3MLO-b_2zpHA5NlTnV10yzTnzBEkphnECfK5DYDNjvM-i7dS-URu-FKFRjXKX76aPr5n4yHdnVZn3sLP21mWND1FU3Feiz3XL9rMl1Jx52FSBBOql3V5zgARoO_zQMbThqwrgN4yYM2zBswqgN_X7yxIY_ls5pylZ36fwwxBdJvzxnx4r2XvNxoxK8uEBWulscPTi4Do-uw1G753rg-LRoe3DcrYAeOulQx3XMldtgWjjJ3jl-_swnsgCCa6adg-vgWovFjudOcvxMOHVVmMoZxeYgbhrw8D_8dVuW" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-190 — Manage Returns and Exchanges (IF)</span></div>
 
@@ -2302,11 +2344,15 @@ flowchart TD
 </tbody>
 </table>
 <hr />
-<p><em>R-190 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: March 2026</em></p>
+<p><em>R-190 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-190 — Manage Returns and Exchanges (IF)</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>R-190</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

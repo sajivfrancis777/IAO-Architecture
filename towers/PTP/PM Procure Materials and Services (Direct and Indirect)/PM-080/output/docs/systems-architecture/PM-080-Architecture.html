@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Procure To Pay (PTP) Tower<br/>
   Capability PM-080 · PM Procure Materials and Services (Direct and Indirect)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 3</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -806,7 +848,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Procurement Agent
+    subgraph lane_0["Procurement Agent"]
         n1["fa:fa-user Create PO with 'Text Materials'"]
         n2["fa:fa-user Delete Purchase Requisition"]
         n3["fa:fa-user Modify Purchase Requisition"]
@@ -867,7 +909,7 @@ flowchart TD
     class n19 subProc
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVmuP4jYU_StWViNaCaQ8CeRDKwZIVanMjoZpq2rpB5M44E6IU9sZYFn-e6-TOBA2rKo2EhE5vufch68fJyNiMTEC4-HhRDMqA3TqyS3ZkV6AemssSK-PKuA3zClep0T0lE3CMrmkn0szy80PykxhId7R9KjQJdkwgn79uY8mQEz7SOBMDAThNOn1ezmnO8yPU5Yyrqw_kFFiJqW3euiR8Zjwi4Fp-lbkATWlGbnAju_6bqh4gkQsi1uiiZeMkqh3VsGlbB9tMZdl-IUgC3z4ncZyC98JTgUBm63cpb_gNUlVjpIXCosK_q6LQYXyk0HBljmOaLYB3DUB4jh7u0CeeT6j88PDKmucotfZKkPwRCkWYkYSJCTA83eJEpqmwQd3Ogk9sy8kZ28k-GDP_Zlj9yOVSQCpm31V3MGe0M1WBmuWxrXpYK9yCOz80OeHwDb7_AjvG18kiy-epkN7ZI8aT4--NbWm2lOSJP_LE9SVv2LxVvuaO6Edzhpfljf0pubXejrNmetPrNs6Ef5OI3IlGoahM7-Uaj70LPO-6GPoDM3pjegGS7LHx4vgeOo2gqHnh5Z_V7DydxtlsX7mLNKCztwLvUbQf7TCiX1X0J1Y7qiOEHQ2HOdbpNQKDssuk2iygXc1rp7M-rQyEhwkeKDKjaacQDro-SPaU7lFvVdykGgBkFp2orcy_rzi2m3ujKREcQsObSoIeiF_F1RQSVnW5jlt3oLFNDn-C577XUPMU6j480sVZTvIOocYuN9fkb0LWUiWd7qrU7ilDoH5UW0g6BUWp9hRCTZIMrQs8jylgC-PQpJdO1ofWC8kIvSdXAWHsxgtqzYUbftR42USvWVsn5J4U05ZLRK3zcdgvsA0k_C7BDIlXNKERrhMRzlbMNiJGUfPhCeM73AWkbaQZYIStMhfJIL2iCJWZBL2nhsj1SeT5dOdYCz7dNLVVWfAYA2FirZqhiZ5zhkQflwZ5_M1xemmkEOUFgJc_FStq1ua-99oXjet7ln2zS78KvThp6aXEtjUCB-wnGS6xJ0aoi4ETsvlSISa_VYJ_W5R3XKo6o2rrrsVGHULLHCGNwR1ttadUMbfVJrE76qLoI-3NM-hVdATuzTdlRgcFdUfqBgaDH5QfaIBWwFfVsYTWxlf1PzoAa8eqGamHNQkuxLRpm6t6Whq_e3rb78ChvV3HcNIDzu1vR63tOBtjH-opaqCdPWIWVtqYFxbNutwgWFDgC0RS3xD1flV_VYO6gRGtWoToQaaiHSKYw2MK0Cn7LRLUh4pqjD6KG3BdjfsdMNuc8towV59IWiBw25bvxsedcPjbhhq341bd3Bbn9Bt2OmG3W7Y64aH-rBuw343POqGxxo2-saOwBZNYyM4GeVFGS7TMUlwkUrj3DdwIdnymEVGUF4ojSKPIaoZxXDO7yrw_A_rWKRh" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVmuP4jYU_StWViNaCaQ8SciHVgyQqlKZHQ3TVtVSVSZxwJ0Qp7YzQFn-e69JHAgbVlUbiYgc33Puw9ePoxGzhBih8fBwpDmVITr25IZsSS9EvRUWpNdHFfAL5hSvMiJ6yiZluVzQv89mllvslZnCIryl2UGhC7JmBP38Yx-NgZj1kcC5GAjCadrr9wpOt5gfJixjXFl_IEFqpmdv9dAj4wnhFwPT9K3YA2pGc3KBHd_13UjxBIlZnrREUy8N0rh3UsFlbBdvMJfn8EtB5nj_K03kBr5TnAkCNhu5zX7CK5KpHCUvFRaX_F0XgwrlJ4eCLQoc03wNuGsCxHH-doE883RCp4eHZd44Ra_TZY7giTMsxJSkSEiAZ-8SpTTLwg_uZBx5Zl9Izt5I-MGe-VPH7scqkxBSN_uquIMdoeuNDFcsS2rTwU7lENrFvs_3oW32-QHeN75Inlw8TYZ2YAeNp0ffmlgT7SlN0__lCerKX7F4q33NnMiOpo0vyxt6E_NLPZ3m1PXH1m2dCH-nMbkSjaLImV1KNRt6lnlf9DFyhubkRnSNJdnhw0VwNHEbwcjzI8u_K1j5u42yXD1zFmtBZ-ZFXiPoP1rR2L4r6I4tN6gjBJ01x8UGZTgnf5ifloaSLTmsv1yi8RreS-P3ylY9uQUmKQ5TPFClRxNOIDX0_BHtqNyg3ivZSzQHSC1B0Wtz7TZ3SjKiuCWHlhUEvZC_SiqopCxv85w2b84Smh7-Bc_9piEWGVT_-aWKsh1knUMC3G-vyN6FLCQrOt3VKdxSh8D8qDYT9AoLVWypBBskGVqURZFRwBcHIcm2Ha0PrBcSE_pOroLDeYIWVUuKtn3QeBnHbznbZSRZn2etFkna5iMwn2OaS_hdApkQLmlKY3xORzmbM9iVGUfPhKeMb3Eek5sOqLvkTxJDh8QxK3MJ-9CNkeqT8eLpTjCWfTzq6qrzYLCCQsUbNUPjouAMCN8vjdPpmuJ0U8g-zkoBLn6o1tgtzf1vNK-bVvcs-2oXfhH68FPTSylscIQPWEFyXeJODVEXAmdIrUgi1Oy3Suh3i-qWQ1VvXHXdrUDQLTDHOV4T1Nlad0IZfVVpnLyrLoI-3tCigFZBT-zSdFdicGxUf6BiaDD4TvWJBmwFfF4aT2xpfFbzowe8eqCamfOgJtmViDZ1a01HU-tvX3_7FTCsv-sYAj3s1PZ63NKCtzH-ppaqCtLVI2ZtqYFRbdmswzmGDQG2RCzxDVXnV_XbeVAnENSqTYQaaCLSKY40MKoAnbLTLsn5eFGF0cdqC7a7YacbdpsbRwv26stBCxx22_rdcNANj7phqH03bt3BbX1at2GnG3a7Ya8bHuqDuw373XDQDY80bPSNLYEtmiZGeDTOl2a4WCckxWUmjVPfwKVki0MeG-H5cmmURQJRTSmGM39bgad_AMBbqEQ=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 
@@ -890,7 +932,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Procurement Agent
+    subgraph lane_0["Procurement Agent"]
         n1["fa:fa-user Release Delivery Schedule Line from Scheduling Agreement"]
         n2(["fa:fa-stop Delivery Schedule Line Transmitted to Supplier"])
         n3["Create and Process Purchase Order"]
@@ -924,7 +966,7 @@ flowchart TD
     class n10 subProc
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVW2PozYQ_isWq1VaiUhAIGT50FM2CdVJd9fVZXun6tIPDowTax1DbbObNJf_3nGAvDWp1JYPiHmYeZ6ZwTNsnazIwUmc-_stl9wkZNsxS1hBJyGdOdXQcUkNfKGK07kA3bE-rJBmyv_cu_lhubZuFkvpiouNRaewKID8-t4lQwwULtFU6q4GxVnH7ZSKr6jajApRKOt9BwPmsb1a8-qxUDmoo4PnxX4WYajgEo5wLw7jMLVxGrJC5mekLGIDlnV2NjlRvGVLqsw-_UrDR7r-ynOzRJtRoQF9lmYlPtA5CFujUZXFskq9ts3g2upIbNi0pBmXC8RDDyFF5csRirzdjuzu72fyIEqexzNJ8MoE1XoMjGiD8OTVEMaFSO7C0TCNPFcbVbxAchdM4nEvcDNbSYKle65tbvcN-GJpknkh8sa1-2ZrSIJy7ap1Eniu2uD9QgtkflQa9YNBMDgoPcb-yB-1Soyx_6WEfVXPVL80WpNeGqTjg5Yf9aOR93e-tsxxGA_9yz6BeuUZnJCmadqbHFs16Ue-d5v0Me31vdEF6YIaeKObI-HDKDwQplGc-vFNwlrvMstq_qSKrCXsTaI0OhDGj346DG4ShkM_HDQZIs9C0XJJLFulcOykIcMF3uv39pL-t5nDaMJo17abfAYBOKhkDIK_gtqQabaEvBJAPuCkEKaKVQvh-UQ2BXvemfP7CWnww4FVm6K8xfaMR12vuDGQE1OQaVWWgoNCrh9PyHrINVKAXSZU5vtiQGvyVCmcBkz1Fzva5_ohhrzPMS3ONuTj5ycs64-K1x3Q567RqeunQnb_2b2_3baV2V3XnWMJ2ZLAOhOVxhp_rg_DzNntTqLi61HXGkkma66NfvfugmLwLyia9PNLjof_lLzvfTt8TYYjDKpblCBJ801unIamabgt6gcZkm73J2xgY0bnZr8248aMrfl95vwG2P_vmPkF_qnYw4MGHpzDvQu4ZfGbSZMPtVqzHhCv7VbFr83gZC4t2O6jMzhoFuIZ2Dts5DM4vA5H1-F-u1nO0PgqOriKPlxFsdpmwziuswK1ojx3kq2z_zHjzzsHRithnJ3r0MoU043MnGT_A3OqMkfCMae4V1Y1uPsLUYOMEA==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVW2P4jYQ_itWVitaKZGSkBA2H3pigVQn3cvq2LaqjqoyyQSsNU5qO7tQjv_eMUmAUKjUNh8i5mHmeWYmnvHOSosMrNi6v98xwXRMdj29gjX0YtJbUAU9m9TAz1QyuuCgesYnL4SesT8Pbl5QboybwRK6Znxr0BksCyA_vbfJCAO5TRQVylEgWd6ze6Vkayq344IX0njfwTB384Na89djITOQJwfXjbw0xFDOBJzgfhREQWLiFKSFyDqkeZgP87S3N8nx4i1dUakP6VcKPtLNLyzTK7RzyhWgz0qv-Qe6AG5q1LIyWFrJ17YZTBkdgQ2blTRlYol44CIkqXg5QaG735P9_f1cHEXJ82QuCD4pp0pNICdKIzx91SRnnMd3wXiUhK6ttCxeIL7zp9Gk79upqSTG0l3bNNd5A7Zc6XhR8Kxxdd5MDbFfbmy5iX3Xllt8X2iByE5K44E_9IdHpcfIG3vjVinP8_-lhH2Vz1S9NFrTfuInk6OWFw7Csft3vrbMSRCNvMs-gXxlKZyRJknSn55aNR2Ennub9DHpD9zxBemSanij2xPhwzg4EiZhlHjRTcJa7zLLavEki7Ql7E_DJDwSRo9eMvJvEgYjLxg2GSLPUtJyRTgV8Lv7dW4Z2kri_AlNRkt8z63fal_zCA9dchrn1DGtJ1-AAw4tmQBnryC3ZJauIKs4kA84NSSXxbqF8KwioYQDdZfU_-7IqnRR3mJ7xmOv1kxryIguyKwqS85AItf3Z2R95BpLwI4TKjJi6gGlyFMlcTIw1c9mzLv6AYa8zzAtlm_Jxy9PWNYfFauboLqu4bnrp0I4_-w-2O3ayszecxZYQroisEl5pbDGH-uDMbf2-7Oo6HrUtUaS6YYprd69u6AY_guKJv3skuPhPyXvuV-PXzPHcQbpFCUI0nyTG6ehaRpujvqHCIjj_IANbMywaw5qM2rMyJjf5tavgP3_hplf4J-KAzxs4GEX7l_ALYvXTJ14qNWaVYF4bbcqXm36ZzNqwHY3dWC_WY4dsH_czh04uA6H1-FBu2U6aHQVHV5FH66iWG2zbSzbWoNcU5ZZ8c46XNJ4kWeQ04pra29btNLFbCtSKz5cZlZVZkg4YRR3zLoG938BTQSP8w==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 
@@ -947,7 +989,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Procurement Agent
+    subgraph lane_0["Procurement Agent"]
         n1["fa:fa-user Create Contract Order (PO w.r.t Contract)"]
         n2["fa:fa-user Create Manual Purchase Order w.r.t PR"]
         n3["fa:fa-user Release Contract Order (PO w.r.t Contract)"]
@@ -985,7 +1027,7 @@ flowchart TD
     class n11 subProc
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllluP4jYUx7-KldGIXSlZ5UoyediKCaQaaWcXDdNW1dIHk9hgTXBS2xlgWb772uQCSTOVtuUBcf4553cucU44akmeIi3Ubm-PhBIRguNIbNAWjUIwWkGORjqohN8hI3CVIT5SPjinYkG-nd0st9grN6XFcEuyg1IXaJ0j8NuDDiYyMNMBh5QbHDGCR_qoYGQL2SHKs5wp7xsUYBOfs9WX7nOWInZxME3fSjwZmhGKLrLju74bqziOkpymHSj2cICT0UkVl-W7ZAOZOJdfcvQI93-QVGykjWHGkfTZiG32Ca5QpnoUrFRaUrLXZhiEqzxUDmxRwITQtdRdU0oM0peL5JmnEzjd3i5pmxQ8T5cUyE-SQc6nCAMupDx7FQCTLAtv3GgSe6bOBctfUHhjz_ypY-uJ6iSUrZu6Gq6xQ2S9EeEqz9La1dipHkK72OtsH9qmzg7yu5cL0fSSKRrbgR20me59K7KiJhPG-H9lknNlz5C_1LlmTmzH0zaX5Y29yPwnr2lz6voTqz8nxF5Jgq6gcRw7s8uoZmPPMt-G3sfO2Ix60DUUaAcPF-Bd5LbA2PNjy38TWOXrV1mu5ixPGqAz82KvBfr3Vjyx3wS6E8sN6golZ81gsQGKVjL52FEBJmv5XV1XH2p9XWoYhhgaatwgYki2AyJ52xhMBPiinhvwbv4F7D6wD6K98H6p_XVFsQcpj5CWMAPzkslzy1ENq0Dzpy7B6RKeUIZUyM8W4r5rOVzkxSW-AVacZ_mQ8S0RAqVA5GBRFkVGEJOs91cwT7IeUjkvgg_g8WkuIX-XpBok7-YdX7t-zqnx7-7-8diUqVamsZL1JBuA9klWcvKKfq3O1FI7na6iguGopvpLs7M94YL_0gu_Gw5vb88DxbmsOZG78g2CZf6nui3ra3tXsFwCiBl5gWhzTCBNz0cUcd47K3Jo9dTk1ql-UA8Yxkc5wdocd02_MoPaDJT5fal9zpfadzmBWr6r5T8RP-tWvShkg1W829hWZVtmL7IG2rVs99yCfoKGV_k5tel0w84bQDk1m68j28OyMyy79aLuiF77pujI42HZb1ZbRw0G1btBVY5zULaaHafp2haxLSSpFh61818D-fchRRiWmdBOugZLkS8ONNHC8ytUK4tUAqcEys22rcTTD0Agr1M=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllmuP4jYUhv-KldGIXSlZ5Uoy-dCKCaQaqbOLhmmraqkqk9hgjXFS2xmgLP-9NrkwoZlKbfkQcd6c85xLnANHIytyZMTG7e2RMCJjcBzJDdqiUQxGKyjQyAS18DPkBK4oEiPtgwsmF-TPs5vjl3vtprUUbgk9aHWB1gUCPz2YYKICqQkEZMISiBM8MkclJ1vID0lBC669b1CEbXzO1ty6L3iO-MXBtkMnC1QoJQxdZC_0Qz_VcQJlBct7UBzgCGejky6OFrtsA7k8l18J9Aj3v5BcbpSNIRVI-Wzklv4IV4jqHiWvtJZV_LUdBhE6D1MDW5QwI2ytdN9WEofs5SIF9ukETre3S9YlBc_TJQPqk1EoxBRhIKSSZ68SYEJpfOMnkzSwTSF58YLiG3cWTj3XzHQnsWrdNvVwrR0i642MVwXNG1drp3uI3XJv8n3s2iY_qOtVLsTyS6Zk7EZu1GW6D53ESdpMGOP_lUnNlT9D8dLkmnmpm067XE4wDhL777y2zakfTpzrOSH-SjL0BpqmqTe7jGo2Dhz7feh96o3t5Aq6hhLt4OECvEv8DpgGYeqE7wLrfNdVVqs5L7IW6M2CNOiA4b2TTtx3gf7E8aOmQsVZc1huAIUM_W5_XRoaW3H1_jEJJmt1XRq_1b76wxzlgmGMoaVHDxKOVGsgUY-Qw0yCL_odAh_mX8DuE_8kuxsf-xR3kPIIWQUpmFdcnWGBGlgNmj_1CV6f8IQo0iH_thD_Q8cRsigv8S2w5jyrF05siZQoB7IAi6osKUFcsT6-gQWK9ZCrkRF8AI9PcwX5oyL1LEU_7_it6-eCWf_sHh6PbZl6fVorVU-2AWif0UqQV_RDfb6Wxun0JioajmqrvzQ72xMhxfdX4XfD4d3jeWC4UDVnam--Q3Ds_1S343ztngpWCwFxqygRa48JZDnQpxQJcXVW1NCaqakNVH9hAbCs79QEG3PcN8PajBoz0ua3pfG5WBrf1AQa-a6Rf0XirDvN0lAN1vF-azu17dhXkQ3QbWT3yi26TtDyaj-vMb1-2HkbaKd2C_Zkd1j2hmW_Wdo9Meh-NXryeFgO2zXXU6NB9W5QVeMclJ123xmmsUV8C0luxEfj_DdB_ZXIEYYVlcbJNGAli8WBZUZ8_jk1qjJXwCmBastta_H0FzUFszY=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 
@@ -1008,7 +1050,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Procurement Agent
+    subgraph lane_0["Procurement Agent"]
         n1["fa:fa-user Identify Material, Supplying Plant, Receiving Plant"]
         n2["fa:fa-user Send ASN for STO to Suppliers"]
         n3["fa:fa-user Create Outbound Delivery in Supplying Plant"]
@@ -1047,7 +1089,7 @@ flowchart TD
     class n12 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP2jgU_itWRiN2paDNlTB56AoCWVXqDGhC96KyDyZxwJpgs7bDQCn_vXZukBS0D81DlPOd833nEtvJSYtpgjRfe3w8YYKFD049sUFb1PNBbwU56umgBP6EDMNVhnhPxaSUiAh_LcJMZ3dQYQoL4RZnR4VGaE0R-PxRByNJzHTAIeF9jhhOe3pvx_AWsmNAM8pU9AMapkZaZKtcY8oSxC4BhuGZsSupGSboAtue4zmh4nEUU5K0RFM3HaZx76yKy-h7vIFMFOXnHD3Dw184ERtppzDjSMZsxDb7BFcoUz0Klissztm-HgbmKg-RA4t2MMZkLXHHkBCD5O0Cucb5DM6Pj0vSJAWLyZIAecUZ5HyCUsCFhKd7AVKcZf6DE4xC19C5YPQN-Q_W1JvYlh6rTnzZuqGr4fbfEV5vhL-iWVKF9t9VD761O-js4FuGzo7y3smFSHLJFAysoTVsMo09MzCDOlOapj-VSc6VLSB_q3JN7dAKJ00u0x24gfGjXt3mxPFGZndOiO1xjK5EwzC0p5dRTQeuadwXHYf2wAg6omso0Ds8XgSfAqcRDF0vNL27gmW-bpX5as5oXAvaUzd0G0FvbIYj666gMzKdYVWh1FkzuNsApZYzue2IAKO1vJd-dRHzy1JLoZ_Cvho3-JhIN06P4Fl2VW61KN_tsqNcjWCeQSJ08IpihPcNsNT-vdKz2nqRXC5gFL2AlEpjMQOCloIYMd5m2m1mwJAsAcxysaK5FJmgDO8ROwJMuiW1dZybOpGg8RtYyM3FU4nO1HnQ5rlfGmJM13d4r-i_HHMsMCWSfU0fdOiUyGqF7Pm16LktM5912N4vDZsLuitGFqGitV-vwoadsB-nU5ad3J7StdSTVGre9gsl_efXedleuVI6b8c0ruP_J9Y8nS6zSFB_JfuON8X7r-tT62EWjRYAyurHs79_C-afLyvj96V2Pl8rWrcV0SHOci47_6PchBeaXHflA3kC_f4HKVGZVml6lWmayv621P5Bsotv0t91vNACH1a4XcnVemZpO5XpVO5Gpspn17ZR2m5lu6U5qMxBm16cCSpHfRa2YOs2bN-Gnduwe30qtjyDux6v-gq0wOEt8Kn5NrUbMu7gZn2ctmGrhjVd2yK2hTjR_JNW_EvI_40EpTDPhHbWNZgLGh1JrPnFN1fLd4lkTjCUR-G2BM_fAZZovWI=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVmuPqkYY_isTNhvbBFNAEJcPbVyU5iTd1SyeXnJsmhEGnSzO2GFwtR7_e9_hpnA0_VA-EN5n3ud5L3PjpEU8JpqnPT6eKKPSQ6ee3JAt6Xmot8IZ6emoBH7FguJVSrKe8kk4kyH9p3Az7d1BuSkswFuaHhUakjUn6PMnHY2BmOoowyzrZ0TQpKf3doJusTj6POVCeT-QUWIkRbRq6JmLmIiLg2G4ZuQANaWMXOCBa7t2oHgZiTiLW6KJk4ySqHdWyaX8I9pgIYv084y84MNvNJYbsBOcZgR8NnKb_oJXJFU1SpErLMrFvm4GzVQcBg0LdziibA24bQAkMHu_QI5xPqPz4-OSNUHRYrJkCJ4oxVk2IQnKJMDTvUQJTVPvwfbHgWPomRT8nXgP1tSdDCw9UpV4ULqhq-b2Pwhdb6S34mlcufY_VA2etTvo4uBZhi6O8O7EIiy-RPKH1sgaNZGeXdM3_TpSkiT_KxL0VSxw9l7Fmg4CK5g0sUxn6PjGt3p1mRPbHZvdPhGxpxG5Eg2CYDC9tGo6dEzjvuhzMBgafkd0jSX5wMeL4JNvN4KB4wame1ewjNfNMl_NBY9qwcHUCZxG0H02g7F1V9Aem_aoyhB01gLvNijFjPxlfFlqSjYXsP-YROM1vJfan6WvepgJLgn2EtxXrUefYvCgyRG9QIXltgvz3S49wspEcxCVOnojEaH7BmjrWW29EJYOGoevKOFgLGZI8lKQEpG1mYM20xcEUkCzXK54DiITktI9EUdEWTelto59UyeUPHpHC9hoWQLoTJ0NbZ7zpSFGfH2H90b-zmlGJeUM2Nf0YYfOGWQroea3oua2zHzWYbvfNexM8l3RsrCcrO-v3EYdt2-7U6Yd3-7StdQTKDWz_cpZ_-VtXpZXLpbO7JjGtf9_-Jqn06UXMemvoO5oU8x_nZ9aD7NwvEAYsn-e_f6DP_98WRk_LbXz-VrRuq1IDlGaZ1D5z-WGvNBg3ZUf7An1-z-CRGVapelWpmkq--tS-4NAFV9hvDvwygt8VOGDSq7WM0vbrky7Gm5kqniD2jZK26lspzSHlTls04vzQcWoz8UWbN2GB7dh-zbsXJ-QrZHh3RG3uhFa4OgW-NTcU-2CjDu4WR-tbdiqYU3XtkRsMY0176QV_xXw7xGTBOep1M66hnPJwyOLNK-4f7V8FwNzQjEci9sSPP8LSc_BRQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 
@@ -1070,7 +1112,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Procurement Agent
+    subgraph lane_0["Procurement Agent"]
         n1["fa:fa-user Create PO in S/4"]
         n2["fa:fa-user Trigger PO Approval"]
         n3["fa:fa-user Validate PO Details and Output"]
@@ -1118,7 +1160,7 @@ flowchart TD
     class n14 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluPozYY_SsWs6PsSmTKNWR4aJVJwmqktjOaTLeqmj44YBJ3HINsk0uz-e_7OUASWOZlywOJD-ec7wL-4GDEWUKM0Li9PVBOVYgOPbUia9ILUW-BJemZqAS-YEHxghHZ05w042pG_zvRbC_faZrGIrymbK_RGVlmBP3xaKIRCJmJJOayL4mgac_s5YKusdiPM5YJzb4hw9RKT9GqSw-ZSIi4ECwrsGMfpIxycoHdwAu8SOskiTOeNExTPx2mce-ok2PZNl5hoU7pF5L8hnd_0kStYJ1iJglwVmrNfsULwnSNShQaiwuxqZtBpY7DoWGzHMeULwH3LIAE5m8XyLeOR3S8vZ3zc1D0OplzBEfMsJQTkiKpAJ5uFEopY-GNNx5FvmVKJbI3Et4402DiOmasKwmhdMvUze1vCV2uVLjIWFJR-1tdQ-jkO1PsQscyxR7OrViEJ5dI44EzdIbnSA-BPbbHdaQ0Tf9XJOireMXyrYo1dSMnmpxj2f7AH1vf-9VlTrxgZLf7RMSGxuTKNIoid3pp1XTg29b7pg-RO7DGLdMlVmSL9xfD-7F3Noz8ILKDdw3LeO0si8WzyOLa0J36kX82DB7saOS8a-iNbG9YZQg-S4HzFdJuhYBtxxUaLeFcXtcHt_-eGykOU9zX7UZjQaAc9PyEKEezn7y58c8V2WmSXwVdLuEX2KM8F9kGsybfbfK_YEaTyn5CFKZMIswT9FSovFBNqdeUvpBY0XQPyibN_3jm5QxuwiOMHVqFONVCMw6KT1eSwUUiVZZr5iNPM7E-kdFMd0llaLpTRHDM0DPDnMNmRFO-hGnRcgvA7BW2rFxThZ70lNHiWZHnjBLRTHZ4ONSR9aDsL0AXr9CjRDAUzxmTBEEjC4I-OP4byoRt3aKP2xWNV2QD7lQiGAREfEJYonG2zrEABcR8frm7u5sbx-NVxPvuiGQXs0LSDflcPrstlW11y67uM5oprArZFtrvVlhqGY312EfQ7ovVL20X58eydn9M5l1kWIhsK_uYKQRtxYwR9p0I5l_5h_uo3_8ZDKrlUC-_zo2_CLTlK2yWCndK2n2L9nt2YtXwfWVWDQNIqwQGjTXonnL9mOqdBmq3uuqW5KAmWxW57DFJTmS7zsiuUrK9GrBbudtu2-mF_AtbsHI666q4w2pd5XxR281iLxlUxOsBrdF65Ddgpxt2u2GvG_bPL8kGPKjeZw0w6OYO61HfQO87UehbJ2x3w0437HbDXg0bprEmMLhoYoQH4_RlBV9fCUlxwZRxNA1cqGy257ERnr5AjCLX83dCMbwY1iV4_AYeDQ09" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluPozYY_SsW21F2JTLlGjI8tMokoRqp7Ywm062qpqocMIk7jkG2yaXZ_Pd-DhAGlnnZ8kDiwznnu4A_OBlxlhAjNG5uTpRTFaLTQG3IlgxCNFhhSQYmKoHPWFC8YkQONCfNuFrQfy8028sPmqaxCG8pO2p0QdYZQb89mGgCQmYiibkcSiJoOjAHuaBbLI7TjGVCsz-QcWqll2jVpftMJEQ0BMsK7NgHKaOcNLAbeIEXaZ0kccaTlmnqp-M0Hpx1cizbxxss1CX9QpJf8OF3mqgNrFPMJAHORm3Zz3hFmK5RiUJjcSF2dTOo1HE4NGyR45jyNeCeBZDA_LWBfOt8RuebmyW_BkUvsyVHcMQMSzkjKZIK4PlOoZQyFn7wppPIt0ypRPZKwg_OPJi5jhnrSkIo3TJ1c4d7QtcbFa4yllTU4V7XEDr5wRSH0LFMcYRzJxbhSRNpOnLGzvga6T6wp_a0jpSm6f-KBH0VL1i-VrHmbuREs2ss2x_5U-trv7rMmRdM7G6fiNjRmLwxjaLInTetmo9823rf9D5yR9a0Y7rGiuzxsTG8m3pXw8gPIjt417CM182yWD2JLK4N3bkf-VfD4N6OJs67ht7E9sZVhuCzFjjfIIY5-dv6c2lo20LA_uMKTdZwXhp_lVx9cBsoKQ5TPNStR1NBoDT09IgoR4vvvTbZaZNfBF2v4RfYkzwX2Q6zNt9t8z9jRpPKfkYUpkwizBP0WKi86OTltaXPJFY0PYKyTfM_Xnk5gxvyACOIViEutdCMg-LTG8mokUiV5Zr5wNNMbC9ktNCNUhmaHxQRHDP0BK3ksDHRnK9hcnTcAjB7ge0rt1ShRz1xtHhR5DmjRLSTHZ9OdWQ9NIcr0MUb9CARDMhrxiRB0MiCoO8c_xVlwrZu0Mf9hsYbsgN3KhEMBSI-ISzRNNvmWIACYj49397eLo3z-U3Eu_6I5BCzQtId-al8jjsq2-qXvbnPaKGwKmRXaL9bYallNNavAATtbqx-7Lo435a1-20yr5FhIbK9HGKmELQVM0bYVyKYheUf7qPh8AcwqJZjvfyyNP4g0JYvsFkq3Clpdx3ar9mFVcN3lVk1GCCtEhi11qB7zPVjqncaqN3qqluSg5psVeSyxyS5kO06I7tKyfZqwO7kbrtdp2fyD2zByumqq-KOq3WVc6O228U2GVTEt8Nao_X4b8FOP-z2w14_7F9fmC14VL3bWmDQzx3XY7-F3vWi0Lde2O6HnX7Y7Ye9GjZMY0tgcNHECE_G5SsLvsQSkuKCKeNsGrhQ2eLIYyO8fI0YRa7n74xieElsS_D8H-sLESA=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 
@@ -1141,7 +1183,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Procurement Agent
+    subgraph lane_0["Procurement Agent"]
         n1[["fa:fa-cog Create Carbon Copy of PO Created in Ariba"]]
         n2[["fa:fa-cog Rectify Error"]]
         n3[["fa:fa-cog Route Logic for Ariba PO"]]
@@ -1217,7 +1259,7 @@ flowchart TD
     class n23 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1tv4kYU_isjRxGtZCRfsfFDKyC4ipTdREu6UbXsw2CPzSjGY43HAZblv_cMvgCOXbUpD4j5zvm-c5krByVgIVE85fb2QFMqPHQYiDXZkIGHBiuck4GKSuAr5hSvEpIPpE_EUrGgP05uupXtpJvEfLyhyV6iCxIzgv68V9EEiImKcpzmw5xwGg3UQcbpBvP9jCWMS-8b4kZadIpWmaaMh4SfHTTN0QMbqAlNyRk2HcuxfMnLScDS8Eo0siM3CgZHmVzCtsEac3FKv8jJJ7x7oaFYwzjCSU7AZy02yQNekUTWKHghsaDgb3UzaC7jpNCwRYYDmsaAWxpAHKevZ8jWjkd0vL1dpk1Q9Hy3TBF8ggTn-R2JUC4Anr8JFNEk8W6s2cS3NTUXnL0S78aYO3emoQayEg9K11TZ3OGW0HgtvBVLwsp1uJU1eEa2U_nOMzSV7-G7FYuk4TnSbGS4httEmjr6TJ_VkaIo-l-RoK_8GeevVay56Rv-XRNLt0f2THuvV5d5ZzkTvd0nwt9oQC5Efd835-dWzUe2rvWLTn1zpM1aojEWZIv3Z8HxzGoEfdvxdadXsIzXzrJYPXEW1ILm3PbtRtCZ6v7E6BW0JrrlVhmCTsxxtkZSreCw7VKBJjF8l3b5SfVv35ZKhL0IDwMWoxknUA6aYb5iKZqxbI9YhJ4eK0OIaCq34Aovle_fL2SMa5kvJBA02qM554y3XM2WKysg4AOLKVTMeKkOEVssq58FiX6FVQnc-1BFTwmGMnEaooVgHMfSK8CCsrSlaP-j4r-WGV3LLCAT2S_B0AtZ5QUVpEVwwP8ZNnm-oQI9ynNJOi-KLEsokc268HV_acSzBNYYCAfvJ-LXC8b4zMgFy5p2ysSEDDQtcjjz8hx9JmLL-GuLr2vA_4RTWXGZ3CR4Tdk2IWF8WkByMQH9Ok9dB9ZFkO5qdAO8vpCEwFWAFsGahAWcvzF6gIRQxNnmEpzEnJyWbEvDBI1qlcrZqdJBTwWHwzGvkm5xrDMHkoTqCpwke_RCxRotC0PTx89kJ8AgiLxe8hJridiHw3miQzJcwRwGa0R2QQItfSN_lOfAUjkeL2mjbtppZ_zedna6nZtJfN5n5B3J7SbVc4BojqbGFM1TeeOG7-jjD9VlaB-j6WcahhZs8yFOBMowhxkhSQ_J-AjJ_G8k2Lflj9RFw-FvMtVqbOglUI91oxrbNWC2AasNtMd2CTjV2Knso9o-ksDPpfIXgZ32E3KoDU7LYLYNn9kJ193KUOc2rh3dtrTRttQSNcWoCrZa46aacTmus6-KM-rcRtVYq_lalVPTYbPlYbUUmn7UqTlXcwOG-1QQuO3kAf3uqAPf6rA73TCP6YphOCXCi2MKNJsG1ZPVpHs9ead7Wk7pxWviymL0Wsxei9VrsXsto16L27wIr-Bx9Xi7rkPrdoY2dONGD2724FYPbtcvp2t41A073bDbDY87YVh3nbDeDRvdsFnDiqpsCN9gGireQTn9r4H_PiGJcJEI5agquBBssU8DxTu9_5UiC4F5RzEs1E0JHv8GHm4drg==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV21v6jYU_itWqopNClJeCfBhE1AyVeq9rS7drabLNJnEAavBjhynwOXy33cMSQA3mbaODwg_5zzPebOdsDciHhNjaNze7imjcoj2Hbkia9IZos4C56RjohPwFQuKFynJO8on4UzO6Pejm-1lW-WmsBCvabpT6IwsOUG_35toBMTURDlmeTcngiYds5MJusZiN-EpF8r7hvQTKzlGK01jLmIizg6WFdiRD9SUMnKG3cALvFDxchJxFl-JJn7ST6LOQSWX8k20wkIe0y9y8glvX2gsV7BOcJoT8FnJdfqAFyRVNUpRKCwqxFvVDJqrOAwaNstwRNkScM8CSGD2eoZ863BAh9vbOauDoue7OUPwiVKc53ckQbkEePomUULTdHjjTUahb5m5FPyVDG-caXDnOmakKhlC6ZapmtvdELpcyeGCp3Hp2t2oGoZOtjXFduhYptjBtxaLsPgcadJz-k6_jjQO7Ik9qSIlSfK_IkFfxTPOX8tYUzd0wrs6lu33_In1Xq8q884LRrbeJyLeaEQuRMMwdKfnVk17vm21i45Dt2dNNNEllmSDd2fBwcSrBUM_CO2gVfAUT8-yWDwJHlWC7tQP_VowGNvhyGkV9Ea21y8zBJ2lwNkKpZiRv6xvc0PJFgLOH5NotITvufHnyVd9mP0NfBI8THA34ks0EQRKQxMsFpyhCc92iCfo6bE0xIgydRwXGFQuZZxrmS8kkjTZoakQXGiurubKCwj4wJcUqufipA4RNZbXzoJEv8IOBe59bKInqFwizGI0k1zgpfKKsKScaYr-Pyr-a5netcwMMlH9khy9kEVeUEk0QgD-z3Dg8zWV6FHdUcp5VmRZSom4nk7_p1o8S2G_gXD0fhA_XzAGZ0YueVa3UyUmVaBxkcP9l-foM5EbLl41vq32zCfMVMWn5EbRK-OblMTL4x5S-wno2i6y1U47B2muxnbA6wtJCTwW0CxakbiAu3iJHiAhlAi-vgRHS0GOu1bTcEGj3KVqOmU66KkQcFHmZdIaxztzIEmorsBpukMvVK7QvHAse_BMthIMkqhHTX7CNBF_vz8POibdBcwwWiGyjVJo6Rv57XQnzI3D4ZLWa6YdT8avunPQ7FwP8XmXkXekfjOpmgGiORo7YzRl6ukbv6MPPlSXY32MZp9pGFqwybs4lSjDAiZC0haS8xGS-99IcG5PP1gfdbu_qFTLtWOfgGptO-XarwBXBzwd0Nf-CQjKdVDae5W9p4Afc-MPAiftB-RQGQLN4OqGz_yI2_3SUOU2qBz7urSjWyqJiuKUBXvauq5mcFpX2ZfFOVVuvXJtVXyrzKnusKt5eJpC3Y8qteBqNmC4Z5LAk09d0O-uOvAtL7vjE-aRLTiGWyK-uKZAs25QNaw63evhHZ_ZaqQXbxZXFqfV4rZavFaL32rptVr69dvhFTwoX-Su67CanaENzbjTgrstuNeC-9Vb1DXca4aDZrjfDA8aYdh3jbDdDDvNsFvBhmmsiVhjGhvDvXH8jwP_g2KS4CKVxsE0cCH5bMciY3j8L2AUWQzMO4pho65P4OFvfvghkQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 
@@ -1240,7 +1282,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Buyer/Planner
+    subgraph lane_0["Buyer/Planner"]
         n1[["fa:fa-cog Process Order Acknowledgement"]]
         n2["Receive Order Acknowledgement"]
         n3["PO Sent"]
@@ -1269,7 +1311,7 @@ flowchart TD
     class n9 subProc
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVtv4jgU_itWqopZKWhzJWkedgSBSCvtTKuhs6vVMA8mOQarxs7aTinD8N_HJuHa9ml5QD2fv4vPSU_YOqWowMmc29st5VRnaNvTS1hBL0O9OVbQc1EL_I0lxXMGqmc5RHA9pT_2ND-qXyzNYgVeUbax6BQWAtDXP100NELmIoW56iuQlPTcXi3pCstNLpiQln0DKfHIPq07GglZgTwRPC_xy9hIGeVwgsMkSqLC6hSUglcXpiQmKSl7O3s5JtblEku9v36j4BN--YdWemlqgpkCw1nqFfsLz4HZHrVsLFY28vkwDKpsDjcDm9a4pHxh8MgzkMT86QTF3m6Hdre3M34MRY_jGUfmUzKs1BgIUtrAk2eNCGUsu4nyYRF7rtJSPEF2E0yScRi4pe0kM617rh1ufw10sdTZXLCqo_bXtocsqF9c-ZIFnis35vsqC3h1SsoHQRqkx6RR4ud-fkgihPyvJDNX-YjVU5c1CYugGB-z_HgQ595rv0Ob4ygZ-tdzAvlMSzgzLYoinJxGNRnEvve-6agIB15-ZbrAGtZ4czK8y6OjYREnhZ-8a9jmXd-ymT9IUR4Mw0lcxEfDZOQXw-Bdw2joR2l3Q-OzkLheolGzAfn7A8Ocg2zP7If7377NHIIzgvulWCAbCkqhe7sraFg-cbFmUC3MvnI9c75_P5MGRvkFSqDP8C7_jB4a-sM9mr46iMzBJ2HeFUJ2PlONdaMuWbFlYY4Xr8Ns1uHml6KBEeUSzNNBmFfH7h4aabZIdU6XksRI2oBccELlCmsqOPpwn_-Gum6rS0W63Z5GWEF_bra3XF4Pw4j_a6iE6uPM2e3O5HenJ0DMdoDsixo4ejQuakV1160WaNrUNaP7-3bxZg_bP_gA9ft_GK-uvGvLsCvDtky7MrXlz5nzL5hx_TQtd3jS0oKuDNrSv1J9FntR1MF-y4rP_oEteLZmFyfh8UV1AUdvw_Hb8OBtOHkbTg_reYHeHXbMcZ0VmMdMKyfbOvufJvPzVQHBDdPOznVwo8V0w0sn27_CnaaujN-YYrNZqxbc_QJYcTbm" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVtv4kYU_isjRxGtZLS-YscPW4HBUqXuJirZVqulWg32MYxiZtyZcQhl-e97BptrkqfygHK--S5zjnPM1spFAVZi3d5uGWc6IdueXsIKegnpzamCnk1a4C8qGZ1XoHqGUwqup-y_Pc0N6hdDM1hGV6zaGHQKCwHky-82GaKwsomiXPUVSFb27F4t2YrKTSoqIQ37BuLSKfdp3dFIyALkieA4kZuHKK0YhxPsR0EUZEanIBe8uDAtwzIu897OXK4S63xJpd5fv1Hwib78zQq9xLqklQLkLPWq-oPOoTI9atkYLG_k82EYTJkcjgOb1jRnfIF44CAkKX86QaGz25Hd7e2MH0PJ43jGCX7yiio1hpIojfDkWZOSVVVyE6TDLHRspaV4guTGm0Rj37Nz00mCrTu2GW5_DWyx1MlcVEVH7a9ND4lXv9jyJfEcW27w-yoLeHFKSgde7MXHpFHkpm56SCrL8n8l4VzlI1VPXdbEz7xsfMxyw0GYOq_9Dm2Og2joXs8J5DPL4cw0yzJ_chrVZBC6zvumo8wfOOmV6YJqWNPNyfAuDY6GWRhlbvSuYZt3fctm_iBFfjD0J2EWHg2jkZsNvXcNg6EbxN0N0Wchab0kFeXw3fk2s0bNBuSHB6w5yJn1T8szH-5-w_OSJiXt52JBzAVAKXJv9oYM8ycu1hUUC9xdrlF5LvVQ-SfkwJ7hXf4Z3Uf6wz2ZvjoI8OCTwPeGkJ3PVFPdqEtWaFiU08XrMJN1uPmlaICiVAI-KUJ5cezuoZG4UapzupREKGkDUsFLJldUM8HJL_fpr6TrtrhUxNvtaYQF9Oe4yfnyehgo_rdhEorfZtZudya_Oz2BEjcFZF_UwMkjuqgV0123WpBpU9cV29-3i8edbP_gA9Lvf0SvrrxrS78r_baMuzI25Y-Z9RVwXD-w5Q6PWprXlV5buleqz2IvCjrYbVnh2T-zAc9W7uLEP760LuDgbTh8Gx68DUdvw_FhVS_Qu8O-Wba1AnzMrLCSrbX_mcKfsgJK2lTa2tkWbbSYbnhuJfvXudXUBfqNGcUtW7Xg7id3ETrJ" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 
@@ -1292,7 +1334,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Procurement Agent
+    subgraph lane_0["Procurement Agent"]
         n1["fa:fa-user Monitor PO Status"]
         n2["fa:fa-user Review PO Item Details and Changes"]
         n3["fa:fa-user Monitor Supplier Ack and Confirmations"]
@@ -1346,7 +1388,7 @@ flowchart TD
     class n16 subProc
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2PozYU_SsWo1FeiMo3GR5aZUioRup0R5Ntq2rTBwcuwRpiqG3y0Wz-e-3wkYFl-rDNA4qP7znH99q-cNbiIgEt0O7vz4QSEaDzRGSwg0mAJhvMYaKjGvgdM4I3OfCJikkLKlbkn2uY6ZRHFaawCO9IflLoCrYFoN-edDSXxFxHHFM-5cBIOtEnJSM7zE5hkRdMRd_BLDXSq1sz9ViwBNgtwDB8M3YlNScUbrDtO74TKR6HuKBJTzR101kaTy5qcXlxiDPMxHX5FYdnfPyDJCKT4xTnHGRMJnb5L3gDucpRsEphccX2bTEIVz5UFmxV4pjQrcQdQ0IM07cb5BqXC7rc369pZ4o-L9YUyV-cY84XkCIuJLzcC5SSPA_unHAeuYbOBSveILizlv7CtvRYZRLI1A1dFXd6ALLNRLAp8qQJnR5UDoFVHnV2DCxDZyf5HHgBTW5OoWfNrFnn9OiboRm2Tmma_i8nWVf2GfO3xmtpR1a06LxM13ND41u9Ns2F48_NYZ2A7UkM70SjKLKXt1ItPdc0PhZ9jGzPCAeiWyzggE83wYfQ6QQj149M_0PB2m-4ymrzwoq4FbSXbuR2gv6jGc2tDwWduenMmhVKnS3DZYaUWsXktaMCzbfyWc-rHzW_rLUUBymeqnKj50Le24Khl09oJbCo-Fr761201Y9-hT2Bgwp-ErBDCxCY5BxhmqAww3QLA7o9braqyjInEpjHbzW5oClhOyxIQQcSTl8izEByFjK_a3aRvCP9eHdomZD0hF5e0YGIrFlln-FJRohpDDn6xMiWUJyjl4rJq8dBIrKP9ON9Gf8KMZA9oGd5FlSDqmuwqo_bIIOZ0mcgI69BanOA8_-0eDif2yxUh51uZI-IMwTHOK-49P25PoJr7XJ5v7XGOO2J8wr4D9ceLNPk6CmRtSMpgeSnoYT5kQRaHgkXskep3X-FvyvCRujWh3TZxze45uawx1R8w7XHufOyZMV-xMv5viK530fzvnQHK5V9Ddi0KIF252u4mc1uyuZZ_6EzNJ3-KHe2GT7Uw6ZhUbMeWs3QamaNdtpQwNe19mux1r7Ke9XiZh_3Gtyp-X4ztOuh07KsPst0mwm3sbWHtn-qM60izaFxN2MNxbuZzrZZVetm2oNldIFev1Zmuy5vyOw83HctVVWzfZX0YGsctsdhZxx2x2Gveyf3YH8cno3DD-27pZ-NMQ6b47A1DtvjsDMOu-Ow176rNF3bgWzYJNGCs3b9xJOfgQmkuMqFdtE1XIlidaKxFlw_hbSqTKTggmD5htrV4OVf2uI2_g==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2PozYU_SsWo1FeiMo3GR5aZUioRursjia7rapNVTlwSawhhtomH83mv68dPjKwpA_bPKD4-J5zfK_tCyctzhPQAu3-_kQoEQE6jcQGtjAK0GiFOYx0VAG_Y0bwKgM-UjFpTsWC_HsJM53ioMIUFuEtyY4KXcA6B_T5SUdTScx0xDHlYw6MpCN9VDCyxewY5lnOVPQdTFIjvbjVU485S4BdAwzDN2NXUjNC4QrbvuM7keJxiHOadERTN52k8eisFpfl-3iDmbgsv-TwjA9_kERs5DjFGQcZsxHb7De8gkzlKFipsLhku6YYhCsfKgu2KHBM6FrijiEhhunbFXKN8xmd7--XtDVFn2ZLiuQvzjDnM0gRFxKe7wRKSZYFd044jVxD54LlbxDcWXN_Zlt6rDIJZOqGroo73gNZb0SwyrOkDh3vVQ6BVRx0dggsQ2dH-ex5AU2uTqFnTaxJ6_Tom6EZNk5pmv4vJ1lX9gnzt9prbkdWNGu9TNdzQ-N7vSbNmeNPzX6dgO1IDO9Eoyiy59dSzT3XNG6LPka2Z4Q90TUWsMfHq-BD6LSCketHpn9TsPLrr7JcvbA8bgTtuRu5raD_aEZT66agMzWdSb1CqbNmuNigDFP42_iy1JRsyeT9owJN1_K51P6qYtWPmjIkxUGKx6r06DmXdzhn6OUjWggsSt6NtrrRr7AjsFfBTwK2aAYCk4wjTBMUbjBdQ49uD5styqLIiASm8VtFzmlK2BYLktOehNOVCDcgOTOZ4iXBSN6Xbrzbt0xIekQvr2hPxKZeZZfhSUaIaQwZ-sjImlCcoZeSyWvIQSKyp3TjfRn_CjGQHaBneS5Us6pqsKiOXi-DidJnICMvQWp_gPP_tHg4nZosVLcdr2S_iDcIDnFWcun7a3Ucl9r5_H5rjWHaE-cl8J8u_VimydFTImtHUgLJL30J85YEmh8IF7Jfqd1_hX9Kwgbo1k267OkrXHEz2GEqvuPaw9xpUbB8N-Dl_FiR3B-jeV_ag5XKHgdsnBdA2_PV38x6N2Ujrf7QCRqPf5Y7Ww8fqmHdvKhZDa16aNWzRjNtKODrUvuQL7Wv8l41uNnFvRp3Kr5fD-1q6DQsq8sy3XrCrW3tvu2f6kyrSLNv3M5YffF2prWtV9W4mXZvGW2g162V2azL6zNbD_dde1XVbF4rHdgahu1h2BmG3WHYa9_PHdgfhifD8EPznulmYwzD5jBsDcP2MOwMw-4w7DXvLU3XtiAbNkm04KRdPvfkJ2ECKS4zoZ11DZciXxxprAWXzyKtLBIpOCNYvq22FXj-BryIOuE=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 
@@ -1369,7 +1411,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Procurement Agent
+    subgraph lane_0["Procurement Agent"]
         n1["fa:fa-user Post Confirmation"]
         n2["fa:fa-user Resolve PO-related Issues"]
         n3(["fa:fa-play Notification Received"])
@@ -1389,7 +1431,7 @@ flowchart TD
     class n6 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVMuO2jAU_RUrI5RWClKehGZRCQKRRup0UJm2i9KFSWywMHZkOzyK-PfaJIRHh1WziLgn53F9sX2wcl4gK7E6nQNhRCXgYKslWiM7AfYcSmQ7oAZ-QEHgnCJpGw7mTE3JnxPNC8udoRksg2tC9wadogVH4PuzAwZaSB0gIZNdiQTBtmOXgqyh2KeccmHYT6iPXXxKaz4NuSiQuBBcN_bySEspYegCB3EYh5nRSZRzVtyY4gj3cW4fTXOUb_MlFOrUfiXRC9z9JIVa6hpDKpHmLNWafoFzRM0alagMlldicx4GkSaH6YFNS5gTttB46GpIQLa6QJF7PIJjpzNjbSh4G80Y0E9OoZQjhIFUGh5vFMCE0uQpTAdZ5DpSCb5CyZM_jkeB7-RmJYleuuuY4Xa3iCyWKplzWjTU7tasIfHLnSN2ie86Yq_fd1mIFZektOf3_X6bNIy91EvPSRjj_0rScxVvUK6arHGQ-dmozfKiXpS6__qdlzkK44F3PyckNiRHV6ZZlgXjy6jGvchzH5sOs6DnpnemC6jQFu4vhp_SsDXMojjz4oeGdd59l9V8Inh-NgzGURa1hvHQywb-Q8Nw4IX9pkPtsxCwXALjVgl97JgCg4V-19_Nw7xfMwvDBMOuGTeYcKlAyhkmYg0V4Wxm_b5i-7fsb0hyukFg8toViOo5FOBZygrJW1XwoZWVVE_qK1cEk_zkrz1yRDao0JKPV5rwTnPd0yNNdNFIxcuml3OX9-yeJr_wguA9mFRCnyyJwKu5Jtrm9VavfzAfdLufdUBTenXpN2VQl72mDOvyevMZyXk738D--3DQHukbOHwfjppDeQP2Wq7lWGukR0cKKzlYp_tX39EFwrCiyjo6FqwUn-5ZbiWne8qqykL_lyMC9fZZ1-DxL5Wu3s4=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNmO2jAU_RUrI0QrBSkroXmoxAQijdR2UJm2D6WqTHIN1hgb2Q5LEf9eG0JYOjw1DxH35CzXF9s7pxAlOKnTau0opzpFu7aewwLaKWpPsYK2i47AdywpnjJQbcshgusx_XOg-dFyY2kWy_GCsq1FxzATgL49uahvhMxFCnPVUSApabvtpaQLLLeZYEJa9gP0iEcOafWnRyFLkGeC5yV-ERspoxzOcJhESZRbnYJC8PLKlMSkR4r23jbHxLqYY6kP7VcKPuPND1rquakJZgoMZ64X7BOeArNr1LKyWFHJ1WkYVNkcbgY2XuKC8pnBI89AEvPXMxR7-z3at1oT3oSil8GEI_MUDCs1AIKUNvBwpRGhjKUPUdbPY89VWopXSB-CYTIIA7ewK0nN0j3XDrezBjqb63QqWFlTO2u7hjRYbly5SQPPlVvzvskCXp6Tsm7QC3pN0mPiZ352SiKE_FeSmat8weq1zhqGeZAPmiw_7saZ96_faZmDKOn7t3MCuaIFXJjmeR4Oz6MadmPfu2_6mIddL7sxnWENa7w9G37IosYwj5PcT-4aHvNuu6ymIymKk2E4jPO4MUwe_bwf3DWM-n7Uqzs0PjOJl3PEMIff3s-JY20rac4f16g_M--J8-vItQ_3DYXglOCOHT0aCaVRJjihcoE1FfyaHVyzv4ISbAVo9NyRwMxMSvSkVAXqWhW-a2RLZqb2RWhKaHHwNx4F0BWURvL-QhPdaC57uqeJzxqlxbLu5dTlLbtryJ9FSckWjSppTpkC9GyvjKZ5s-2PP3iAOp2PJqAu_WMZ1GV4LLt1GR3Ly41oJaetfQUHb8Nhc7yv4OhtOK4P6BXYbbiO6yzAjI6WTrpzDnexua9LILhi2tm7Dq60GG954aSHO8uplqX5LwcUm620OIL7v2mM4rE=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 
@@ -1412,7 +1454,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Purchaser
+    subgraph lane_0["Purchaser"]
         n1["fa:fa-user Process PO Approval"]
         n2["fa:fa-user Trigger PO Change Approval"]
         n3["fa:fa-user Manually Update PO Confirmation"]
@@ -1470,7 +1512,7 @@ flowchart TD
     class n17 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltvozgY_SsW3SgzEqm4k_KwqzQJo0rTiyadWa0m8-CASbwFjGyTNpvJf187mAQo0Wp381DV5zvnfBeDzV6LSIy0QBsM9jjHPAD7Id-gDA0DMFxBhoY6qIBvkGK4ShEbSk5Ccr7Afx1pplO8SZrEQpjhdCfRBVoTBL7e6WAihKkOGMzZiCGKk6E-LCjOIN1NSUqoZF-hcWIkx2wqdEtojOiZYBi-GblCmuIcnWHbd3wnlDqGIpLHLdPETcZJNDzI4lLyGm0g5cfyS4bu4dvvOOYbsU5gypDgbHiWfoYrlMoeOS0lFpV0Ww8DM5knFwNbFDDC-VrgjiEgCvOXM-QahwM4DAbL_JQUPM-WORC_KIWMzVACGBfwfMtBgtM0uHKmk9A1dMYpeUHBlTX3Z7alR7KTQLRu6HK4o1eE1xserEgaK-roVfYQWMWbTt8Cy9DpTvzt5EJ5fM409ayxNT5luvXNqTmtMyVJ8r8yibnSZ8heVK65HVrh7JTLdD13arz3q9ucOf7E7M4J0S2OUMM0DEN7fh7V3HNN47LpbWh7xrRjuoYcvcLd2fBm6pwMQ9cPTf-iYZWvW2W5eqIkqg3tuRu6J0P_1gwn1kVDZ2I6Y1Wh8FlTWGzAU0nFgyOar3D5y83vSy2BQQJHcsxAJkSMgadHMCkKSrYwXWo_GnyrzX-meL2Wukcw3cB8jS7I7LbsHuYlTNMd-FrEYmxHOckTTDPIMcnbWqet_YIijpOd0LRp7vcTLyLr2rlpy8BdXsmaOq9XV88KPMoTA3wW5wO44yjriP0PJ3GRwl3VSJZhLstEeItikFCSgUVZFCkWk9d-fGzIx2c546QADwRMIlkqeEAoRnGHfiPYz-JcYDJBVRgnTe_mxhr7_bmvGI1WQhhtwB0D4uhtbNg3mJYIfKJItC38BAh-sdwXQKhpDMCH1w2ONmgrQpgBcfQg-hFAdn19vdQOh2Y-sz8feovSkolJfKrej67M6pc19-08y9-6artffU_i4yPS2sR3Yqdf3Hj2wYJDXrKu0P2n0U7kjkTyZgMJod1X410h3n8bnf9vZeLMrv7JXTAa_Srnp9a-WltqbRoS-LnU_kCi-5_ivVcBSxHNmmgqoF6rpVOvLWX0QI4-dhevE7gqYHcqM-0O0esGlPO4W7rCz6V6lfVNvXYUsdoX-bZJutcNf0F_iiNHhU991RNTp3buqLVfE9xO3e8jdYF1RlWf6TYuAjnR-gJswVY_bPfDTj_sNq_CVsS7GPFPnxkteKy-CFrgTT9XbJG6Lduw2Q9b_bDdDzv9sNsPe_2wX8OarmVInEM41oK9dvxoFR-2MUpgmXLtoGuw5GSxyyMtOH7caeXx_phhKO7crAIPfwOXhHZU" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv2zYY_SuEssAtIAe6y9HDBse2igDNBXXaYaiHgZYomwstCiTlxHP930dalC0pCoZtfgjC851zvgslUnsjoSkyIuPyco9zLCKwH4g12qBBBAZLyNHABBXwDTIMlwTxgeJkNBdz_NeRZnvFq6IpLIYbTHYKnaMVReDrrQnGUkhMwGHOhxwxnA3MQcHwBrLdhBLKFPsCjTIrO2bToRvKUsTOBMsK7cSXUoJzdIbd0Au9WOk4SmietkwzPxtlyeCgiiP0JVlDJo7llxzdwddfcSrWcp1BwpHkrMWGfIZLRFSPgpUKS0q2rYeBucqTy4HNC5jgfCVxz5IQg_nzGfKtwwEcLi8X-SkpeJouciB_CYGcT1EGuJDwbCtAhgmJLrzJOPYtkwtGn1F04czCqeuYieokkq1bphru8AXh1VpES0pSTR2-qB4ip3g12WvkWCbbyb-dXChPz5kmgTNyRqdMN6E9sSd1pizL_lcmOVf2BPmzzjVzYyeennLZfuBPrLd-dZtTLxzb3TkhtsUJapjGcezOzqOaBb5tvW96E7uBNemYrqBAL3B3NryeeCfD2A9jO3zXsMrXrbJcPjKa1IbuzI_9k2F4Y8dj511Db2x7I12h9FkxWKwBgTn6w_q-MB5LJp8gOYWF8XvFUb_clqEMRhkcqpEDlRxxDh4fwLgoGN1C0uY7bf4Tw6uV0j2AyRrmK_SOzG3L7mBeQkJ24GuRyhEe5TTPMNtAgWne1npt7ReUCJztpKZN87-feAld1c5NWw5u80rW1AW9unpc4EGdHuCzPCvArUCbjjj8cBIXBO6qRjYbLFSZCG9RCjJGN2BeFgXBx-F_bMhHZzkXtAD3FIwTVSq4RyhFaYd-LdlP8ozgKkFVmKBN7-bGWvv9ua8UDZdSmKzBLQfyGG5s2DdISgQ-MSTbln4SBD85_jOgzLYuwYeXNU7WaCtDmAN5DCH2EUB-dXW1MA6HZj67Px96TUjJ5SQ-Ve9KV-b0y5r7dp7lL12126--o-nxEWlt4hux1y9uPPtgLqAoeVfo_9Nox2pHEnXLgYyy7qvxppDgv40u_LcyeX5X_-Q-GA5_VvPT61CvHb22LQX8WBi_Idn9D_ne64CjiXZNtDVQr_XSq9eONrqnRx-3i9cJfB1wO5XZbocYdAPaedQtXePnUoPK-rpee5pY7Yt62xQ96Ia_oD_lkaPDp77qiekTPPf0OqwJfqfut5G6wDqjrs_2G5eCmmh9GbZgpx92-2GvH_ab12IrErwbCU-fHC14pL8OWuB1P1dukb4527DdDzv9sNsPe_2w3w8H_XBYw4ZpbJA8h3BqRHvj-AErP3JTlMGSCONgGrAUdL7LEyM6fugZ5fH-mGIo799NBR7-BqeDejc=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 
@@ -1493,7 +1535,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Cost Accountant
+    subgraph lane_0["Cost Accountant"]
         n5["fa:fa-user Process Supplier Invoice for Received Quantity"]
         n6["fa:fa-user Process Supplier Payment"]
         n8[["fa:fa-cog Generate ERS Invoice"]]
@@ -1502,7 +1544,7 @@ flowchart TD
         n29{{"fa:fa-code-branch exclusiveGateway"}}
         n30{{"fa:fa-code-branch exclusiveGateway"}}
     end
-    subgraph Purchaser
+    subgraph lane_1["Purchaser"]
         n1["fa:fa-user Reduce PO Quantity to Match GR/IR Quantity"]
         n2["fa:fa-user Process GRN For Cancellation Fee Line"]
         n3["fa:fa-user Delete Purchase Requisition"]
@@ -1594,7 +1636,7 @@ flowchart TD
     class n30 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWO9v6jYU_VesPFVsEmhxfpDAh000kKrae68M3vY0ve6DmzhgNcQscWhZH__7rkkcSEharUNVpRz7nHvv8bVxeNECHlJtrF1dvbCEiTF66Yk13dDeGPUeSEZ7fVQAf5CUkYeYZj05J-KJWLJ_jtOwtX2W0yTmkw2L9xJd0hWn6PfbPpoAMe6jjCTZIKMpi3r93jZlG5LuPR7zVM7-QN1Ij47RyqFrnoY0PU3QdQcHNlBjltATbDqWY_mSl9GAJ2FNNLIjNwp6B5lczJ-CNUnFMf08o5_I81cWijU8RyTOKMxZi038kTzQWNYo0lxiQZ7ulBksk3ESMGy5JQFLVoBbOkApSR5PkK0fDuhwdXWfVEHRl-l9guATxCTLpjRCmQB4thMoYnE8_mB5E9_W-5lI-SMdfzBmztQ0-oGsZAyl631p7uCJstVajB94HJZTB0-yhrGxfe6nz2ND76d7-N-IRZPwFMkbGq7hVpGuHexhT0WKouh_RQJf0y8keyxjzUzf8KdVLGwPbU-_1FNlTi1ngps-0XTHAnom6vu-OTtZNRvaWO8WvfbNoe41RFdE0CeyPwmOPKsS9G3Hx06nYBGvmWX-ME95oATNme3blaBzjf2J0SloTbDllhmCziol2zXyeCbQJAh4ngiSiGJUfhL7270WkXFEBtJsJMPSLEPLfLuNGQC3yY6DYSjiKVrQgLIdDdFvOYgwsb_X_jqTGr4hNSf7DYXgNZL7rWIFfIVuaEJTsBPNFksVGwjnDGz8UFEywbdonqewKzKK7uQWRx5JAhrTEGg_ntMcYKlqVCX1XIzRy8spmZAOHmAnBmtEn4M4z2D-TbHQ99rhcEYz9f9Kgx3UWCBVQ3qecd3PBQ1zSH1-V9mPBEefiIBQN4ufbhcdy2K0L8vN4jPyubIrJoLxBPmUoo9wINYVzLrCFNyFFapsX9C_c5YxKVDnWa_ziuX6ysSa5-Iij6yu5dT7RGndHdPNEElCNAnDzmrOpUan_tnGsG2ndCPp3pokK4puQ-hRFrHLBtIbvKqxpyksclIKZOfNVePj1_v2NkO_0q1ossxj28L22xRF3UWy6qLOAllebCosnZ9tCIuPg7JPpmBXugEzEHz9vmU2lqeCx5OIqajwB1Hbtw0eVtGqEwLmvxXDbd813poGj-gWqlwglsHJlexoKkASipjf_dLYe3j0mgo7eqUsUOvV1DD01zTkwXfDeViu61Zc0PFb9Nqp0yJgdAicrbFsZTi_oT_kpelCwWxXmMOlAC5L5fEwhy8B8FFmBK5caFjvOvwMu50mz-9qg1zEGr4vlvM-mvvu8zkZocHgZ9ms5TN2JfD9XvtT9vN32YDliGGUI595MYCbA4pimGrErFMMS0Upop6ezRKwm8wqDTVQTFTpuiWvSrKsZ6iEncaEYfFs6s16VYqKaaiZ5bNVClXKozpRlWLoTTeq1HGdoWq1S2VHzbObCs0BtQKKgfVSQtlilL5gFQOrIHozTVW308yyil6NlBao59JaXK22AqpVLQm48qz01FAVmWXiuAKayzNqZuOeXSVlI6krdA022mGzHbbaYbsdHrbDzvnVuzbido6MqteaelF6B47LV5M6arSiZoeG1YHbHfiwA3c6cFe9LdThUSsMXdgK43bYaIfNdthqh-12eNgOO-1we5VGe5VmVaXW1zZwSyEs1MYv2vF3AvgtIaQRyWOhHfoayQVf7pNAGx_fp7V8GwJzygjcojcFePgXaaUgOg==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWH9v4jYY_ipWqopNAi12EgL8sYkCqardXRncdpqu0-QmDlgNCRc7bVmP777XJA4kJK3WoapSHr_P8_60cXgx_CRgxsi4vHzhMZcj9NKRa7ZhnRHq3FPBOl2UA3_QlNP7iImOsgmTWC75PwczbG-flZnCPLrh0U6hS7ZKGPr9povGQIy6SNBY9ARLedjpdrYp39B0N0miJFXWF2wQmuHBW7F0laQBS48Gpuli3wFqxGN2hC3Xdm1P8QTzkzioiIZOOAj9zl4FFyVP_pqm8hB-JthH-vyFB3INzyGNBAObtdxEH-g9i1SOMs0U5mfpoy4GF8pPDAVbbqnP4xXgtglQSuOHI-SY-z3aX17exaVT9Hl6FyP4-BEVYspCJCTAs0eJQh5Fowt7MvYcsytkmjyw0QWZuVOLdH2VyQhSN7uquL0nxldrObpPoqAw7T2pHEZk-9xNn0fE7KY7-F_zxeLg6GnSJwMyKD1duXiCJ9pTGIb_yxPUNf1MxUPha2Z5xJuWvrDTdybmuZ5Oc2q7Y1yvE0sfuc9ORD3Ps2bHUs36DjbbRa88q29OaqIrKtkT3R0FhxO7FPQc18Nuq2Durx5ldj9PE18LWjPHc0pB9wp7Y9IqaI-xPSgiBJ1VSrdrFNGY_W1-vTMmiZBo7PtJFksayzvjr9xSfWIHDEI6CmlPFR6pEJgQaJlttxEH4CZ-TKB4KExStGA-448sQL9loMPlrirVf0NqTncbVvc_-Fqy_GSFrlnMUigtmi2W2jcQThmY_FBShEy2aJ6lsEMEQ7dqu6MJjX0WsQBoP57SXGDpbHQm1VjI8OXlGEzAevewK_01Ys9-lAmwv86bfmfs9yc0y_yvNNhNTc3CEKFOJq2Ghqu1XbAggzTmt2UrkEzQRyrB7fXip5tFS4tIc4uuF5-Ql-jSRVTyJEYeY-gDHJRVBauqMIVKQ7fKFizYt4wLrgSqPPt1Xt66L1yuk0yexSGqWm51ZrTW7SFcgWgcoHEQtGZzKjU8ztI2gu08ZRtFn6xpvGLoJoB55SE_HyazxiuHfJpCw-NCQJwOWoWPX5_hG4F-ZVtZZ1mHEYatuMmTug1V1nmeObI822BYVX62oTw6LKo5mUK50g0UA8HX8lvFxs7hCIlDrr3CH3ht3kK4X3orTwuwf8vHoHkHTdbMf0A3kOUCcYEgikeWSpCEJOa3v9T2IR6-psIPtdIl0P2qaxDzNQ11CF4nSVD0dSvP6PgteuUEahAgLQInPVajDMc5zIe6TJ0pWM0Kc7gswCWqOB7m8J0AdVQRQVXONOx3HYTEaaaps7zcIGe--u_z5b6PNnj3WR0PUa_3sxrW4hkPFPD9zvhTzfN3NYDFCiHFyqckX8D1BU0hll6xqhRiay-51-OzVQBOnVmGoRdyQx3uoOCVQRb59LWwWzPo58-WWc9Xh6iZRFsWz3YhVCoPq0SdCjHr1ShDx1WGztUplF1t59QV6gu6A5qBzUJCl4UUdcHaB9ZOzHqYOm-3HmXpvVwpSqCfi9ListsaKLtaEHBZs6KmRGdkFYHjEqi3Z1iPZnByxVSDpK_WFZg0w1YzbDfDTjPcb4bd0yt5ZWXQujIsX3eqSZktOC5eWaooaUStFg27BXda8H4L7rbgA_0WUYWHjTBMYSOMm2HSDFvNsN0MO81wvxl2m-HmLElzllaZpdE1NnBLoTwwRi_G4fcD-I0hYCHNImnsuwbNZLLcxb4xOrxnG9k2AOaUU7hRb3Jw_y8npygB" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 
@@ -1617,7 +1659,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Procurement Agent
+    subgraph lane_0["Procurement Agent"]
         n1["fa:fa-user Select New Supplier"]
         n2["fa:fa-user Create Purchase Requisition"]
         n3["fa:fa-user Identify Alternate Material Using Material Master Data"]
@@ -1648,7 +1690,7 @@ flowchart TD
     class n9 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVd-P2jgQ_lesrFb0pCDlJ4E8tGIDOa10tFVp73Qq92CSCVjr2DnbWaCU__1sCIRQ9unyEGW-zHzfzMQz2VsZz8GKrcfHPWFExWjfU2sooRej3hJL6NnoBPyJBcFLCrJnfArO1Jz8OLq5QbU1bgZLcUnozqBzWHFA355tNNaB1EYSM9mXIEjRs3uVICUWu4RTLoz3AwwLpziqNa-euMhBtA6OE7lZqEMpYdDCfhREQWriJGSc5R3SIiyGRdY7mOQo32RrLNQx_VrCDG__Irlaa7vAVIL2WauS_oGXQE2NStQGy2rxem4GkUaH6YbNK5wRttJ44GhIYPbSQqFzOKDD4-OCXUTR18mCIX1lFEs5gQJJpeHpq0IFoTR-CJJxGjq2VIK_QPzgTaOJ79mZqSTWpTu2aW5_A2S1VvGS07xx7W9MDbFXbW2xjT3HFjt9v9EClrdKycAbesOL0lPkJm5yViqK4n8p6b6Kr1i-NFpTP_XSyUXLDQdh4vzKdy5zEkRj97ZPIF5JBlekaZr607ZV00HoOm-TPqX-wEluSFdYwQbvWsJRElwI0zBK3ehNwpPebZb18rPg2ZnQn4ZpeCGMntx07L1JGIzdYNhkqHlWAldrZNhqoceOKTRe6fvpvbmY-31hFTgucN-0G82BQqbQR9igeV1VlIBYWP9c-Xtd_0SALh99roU-mhLQF_i3JpIowlk3zu_GPec6DVLs0JgqEMxwzPTNDDf6JvXRb80ZlvoJTbDCXcrg3YVTKl7dTaJJMNeRv12FhjryC2RAXltdiTDLdQOOR0R2pQbaf8b1SuMCfTKrBM0VVvWNV7TfnxMyi7C_1KOcrdGzvPQSzQCUqS7hZUmU-SLyw8I6HK5YhvdZPunFKVqmX8JG98Ngm9Fa6jp_Px3TNkoP8umBDVC__16n35jeyQwa0z2Zo8YcnUyvMf3u28iYPxfWR76wfupabuC_TWM1Hjb48AZ3b_CGxr-aEJPQeTN0YO8-7N-Hg2aRdcDwskk78OA-HJ1Hv4MO76KjM2rZVgmixCS34r11_BnqH2YOBa6psg62hWvF5zuWWfHxp2HVVa4jJwTrWS5P4OE__IBeMg==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduO4kYQ_ZWWRyMSyUi-YvBDIsbgaKSwu1p2E0Uhihq7DK1p2qS7PUBY_j3V2OAxyzzFD5br-NSpi13VRysrc7Bi6_HxyATTMTn29Bo20ItJb0kV9GxSA79RyeiSg-oZTlEKPWf_nmlusN0bmsFSumH8YNA5rEogX59tMkZHbhNFheorkKzo2b2tZBsqD0nJS2nYDzAsnOIcrXn1VMocZEtwnMjNQnTlTEAL-1EQBanxU5CVIu-IFmExLLLeySTHy122plKf068UzOj-d5brNdoF5QqQs9Yb_itdAjc1alkZLKvk66UZTJk4Ahs239KMiRXigYOQpOKlhULndCKnx8eFuAYlXyYLQfDKOFVqAgVRGuHpqyYF4zx-CJJxGjq20rJ8gfjBm0YT37MzU0mMpTu2aW5_B2y11vGy5HlD7e9MDbG33dtyH3uOLQ94v4kFIm8jJQNv6A2vkZ4iN3GTS6SiKP5XJOyr_ELVSxNr6qdeOrnGcsNBmDjf613KnATR2L3tE8hXlsEb0TRN_WnbqukgdJ33RZ9Sf-AkN6IrqmFHD63gKAmugmkYpW70rmAd7zbLavlJltlF0J-GaXgVjJ7cdOy9KxiM3WDYZIg6K0m3a8KpgL-dPxeWka0kzp_QZLzC-8L6q-aaS7hIKWhc0L5pPZkDh0yTD7Aj82q75Qxkl-91-YkEbAX5VEn8TRWQz_BPxRTTrBRdP7_r95xjJqw4kDHXIIXRmOHNDDr5qnAMWnNGFT6RCdW0Kxn8cNVUutzeTaJJMEfPH9-4huj5GTJgr21cRajIsQHn30V1Qw2QPytxvZWSfDRrhcw11dUNKzoeLwmZpdhf4lhna_Ksrr0kMwBtqkvKzYZp81HUzwvrdHqjMryv8hGXqGyVvnMb3XeDfcYrhXX-Uv-yrRcOdf0gBqTf_wnTb0yvNoPGdGtz1Jij2vQa0---jYz5bWF9KBfWN6zlBv7DNBbxsMGHN7h7gzcy_ptpMQldtkQH9u7D_n04aJZaBwyvW7UDD-7D0WUNdNDhXXR0QS3b2oDcUJZb8dE6H4x4eOZQ0Ipr62RbtNLl_CAyKz4fIFa1zdFzwijO9aYGT_8B179iFQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-3213-pm-080-130_select_new_supplier_reissue_po-pm-080-130_select_new_supplier_reissue_po">BUSINESS ARCHITECTURE — 3.2.13 PM-080-130_Select_New_Supplier_&amp;<em>Reissue_PO — PM-080-130_Select_New_Supplier</em>&amp;_Reissue_PO</h4>
 <p><strong>Swim Lanes</strong>: Procurement Agent | <strong>Tasks</strong>: 3 | <strong>Gateways</strong>: 2</p>
@@ -1664,7 +1706,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Procurement Agent
+    subgraph lane_0["Procurement Agent"]
         n1["fa:fa-user Identify Alternate Suppliers"]
         n2["fa:fa-user Select Alternate Supplier"]
         n3["fa:fa-user Create Purchase Requisition"]
@@ -1692,7 +1734,7 @@ flowchart TD
     class n8 subProc
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVuPozYU_isWo1FeiMQ1UB5aJSSsRup0R820VbXZBweOE2scw9omk2w2_702kAtp5ml5sDifz_ediziHg5WXBViJ9fh4oJyqBB0Gag0bGCRosMQSBjZqgb-xoHjJQA6MDym5mtPvjZsbVDvjZrAMbyjbG3QOqxLQX082Gmsis5HEXA4lCEoG9qASdIPFPi1ZKYz3A8TEIU207mpSigLExcFxIjcPNZVRDhfYj4IoyAxPQl7yoidKQhKTfHA0ybHyPV9joZr0awnPePcPLdRa2wQzCdpnrTbsd7wEZmpUojZYXovtqRlUmjhcN2xe4ZzylcYDR0MC87cLFDrHIzo-Pi74OSh6nS440k_OsJRTIEgqDc-2ChHKWPIQpOMsdGypRPkGyYM3i6a-Z-emkkSX7timucN3oKu1SpYlKzrX4bupIfGqnS12iefYYq_Pm1jAi0ukdOTFXnyONInc1E1PkQghPxVJ91W8YvnWxZr5mZdNz7HccBSmzv_1TmVOg2js3vYJxJbmcCWaZZk_u7RqNgpd52PRSeaPnPRGdIUVvOP9RfCXNDgLZmGUudGHgm282yzr5Yso85OgPwuz8CwYTdxs7H0oGIzdIO4y1Dorgas1Mmq10GPHFRqv9Nnem4e7XxYWwQnBQ9Nu9FToa0r2aMwUCK5LQ_O6qhgFIRfW1yui1yfOgUGu7tD6LL_PSgUY35da6C9bAvoTvtVUUkVL3ucFmvcCgpRic-2ExlUlyi1mTY0gb3IMNSvFPAeGPgu6otw4nmJ9Niuh7z86HE7pmU02XOpZzNcX7vMzepqi1xJNTKrNToHit4V1PF6JRPdFYJezWtItfGq_lxtW_OXcGaLnBMSwrICjKeh-bvSSuurssz7MFpQI86LtAM7XYGrvitEz2r7wEA2Hv-rCOtNtTa8zvdaMOjNqTb8zR8b8sbD-NdI_NPkG_6Ns4LiD_ZYddGbc024-bhP_NNQ92LsP-_fh4LzvenB4Hx6dBrSHRnfR-DR7lm1tdN8xLazkYDW_LP1bK4DgminraFu4VuV8z3MraVa7VVeF1ptSrCdu04LH_wCxSkJ9" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV2P6jYQ_StWVitegpRPkpuHVhBItVK396psW1WXqjLJGKw1dmo7LJTLf782CbCh7FPzYDGHc854RpnJwSlFBU7mPD4eKKc6Q4eBXsMGBhkaLLGCgYta4HcsKV4yUAPLIYLrOf33RPOjemdpFivwhrK9ReewEoB-e3LR2AiZixTmaqhAUjJwB7WkGyz3uWBCWvYDpMQjp2zdXxMhK5BXguclfhkbKaMcrnCYRElUWJ2CUvCqZ0pikpJycLSXY-KtXGOpT9dvFDzj3R-00msTE8wUGM5ab9jPeAnM1qhlY7GykdtzM6iyebhp2LzGJeUrg0eegSTmr1co9o5HdHx8XPBLUvQyXXBknpJhpaZAkNIGnm01IpSx7CHKx0XsuUpL8QrZQzBLpmHglraSzJTuuba5wzegq7XOloJVHXX4ZmvIgnrnyl0WeK7cm_MmF_DqmikfBWmQXjJNEj_383MmQsj_ymT6Kl-weu1yzcIiKKaXXH48inPvv37nMqdRMvZv-wRyS0t4Z1oURTi7tmo2in3vY9NJEY68_MZ0hTW84f3V8FMeXQyLOCn85EPDNt_tLZvlFynKs2E4i4v4YphM_GIcfGgYjf0o7W5ofFYS12vEMIe_va8Lx9o20swf12i8MufC-avl2of7hkJwRvDQth49VYZByR6NmQbJTZlo3tQ1oyBVXxj0hXNgUOo7sr4q7KtyCZb7pZHmLVeAfoV_GqqopoL3dZGtBCQRcvOehMZ1LcUWM2TLBHVzx9iocsxLYOizpCvKLfGc67NdD33-6HA4X89uteHSzGW5vmqfn9HTFL0INLFXPe0XqH5cOMfjO5PkvgnsStYouoWf2nfnRpV-vXSGmJkBORQ1cDQF08-NWVjvOvtsDrsRFcK8ajuAyzXY2rtizLy2P3iMhsMfTGFd6Ldh0IVBGyZdmLRh2IUjG35bOH9a629GfIP_Ik5w2sFhq466MO15n150m_884D04uA-H9-Hosvt6cHwfHp2HtYcmd9H0PIeO62xM3zGtnOzgnD5f5hNXAcEN087RdXCjxXzPSyc7rXmnqSvjN6XYTN-mBY_fAS6sRmA=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 
@@ -1715,7 +1757,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Procurement Agent
+    subgraph lane_0["Procurement Agent"]
         n1["fa:fa-user Verify Terms and Conditions with New Supplier"]
         n2["Send PO to Supplier"]
         n3["Manage Order Acknowledgment Process"]
@@ -1749,7 +1791,7 @@ flowchart TD
     class n10 subProc
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVGPokgQ_isdJhNfMAEEYXi4i4Ny2WRnd7LO7eWy7kMLhXam7Xa7m1HP9b9ftaCOnr7s8UCoj6rvq6qmiq1TyBKc1Lm_3zLBTEq2HTOHBXRS0plSDR2XNMBXqhidctAd61NJYcbsn72bHy7X1s1iOV0wvrHoGGYSyJ8fXDLAQO4STYXualCs6ridpWILqjaZ5FJZ7ztIKq_aq7WvHqUqQZ0cPC_2iwhDORNwgntxGIe5jdNQSFGekVZRlVRFZ2eT43JVzKky-_RrDU90_RcrzRztinIN6DM3C_6RToHbGo2qLVbU6u3QDKatjsCGjZe0YGKGeOghpKh4PUGRt9uR3f39RBxFyctwIgheBadaD6Ei2iA8ejOkYpynd2E2yCPP1UbJV0jvglE87AVuYStJsXTPtc3troDN5iadSl62rt2VrSENlmtXrdPAc9UG7xdaIMqTUtYPkiA5Kj3GfuZnB6Wqqv6XEvZVvVD92mqNenmQD49aftSPMu-_fIcyh2E88C_7BOqNFfCONM_z3ujUqlE_8r3bpI95r-9lF6QzamBFNyfChyw8EuZRnPvxTcJG7zLLevqsZHEg7I2iPDoSxo9-PghuEoYDP0zaDJFnpuhyTixbrXDshCGDGd6b9_YS_reJU9G0ol3bbvLVjtSGvIBaaEJFSTIcA2aYFJqsmJmTT7Ai43q55AzUxPn-jilApjF-HeT5MzHyhlMPnZ6ooDMgn-1IkkHxKuSKQznbp2dTBa3Pg0IMyqgogGMQmzFBOXmuFQ6DbmnO_SMrInEBSdWqjA019QVrf7s9lG7XVneKg1fMyQd9TJ08ARgcQ2zCYsGMTVD_PnF2u3cs8XUWWBe81uwN_mi-jouo5HoUFnnW4H0C5Av8qFlzfJfqD7-k7nvfjqde4VCC6solCDIGDoU5z8B-A1-AaV0DHix2sG0hHnTzICLS7f6G7WxN32vs4GA3ZtKaQWO2kyni1mxnQPSt_XPi_A14Wj-xwAv8k9zDcQs_NOG9c7awNZMbZMlVsv382XwPe-cM7h2X7BkcXoej63D_sCzO0PgqmlxFH66i2PN2aTius8DZpax00q2z_9fi_7iEitbcODvXobWR440onHT_T3LqZYmEQ0ZxVSwacPcvfJN51g==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVGP4jYQ_itWVitegpSEhGTz0IoNpDqpe7c6tldVR1WZZALWGpvazgLH8d87JgEulH1p8xAxHzPfNzPOjPdOIUtwUuf-fs8EMynZ98wSVtBLSW9ONfRc0gBfqGJ0zkH3rE8lhZmyb0c3P1xvrZvFcrpifGfRKSwkkN8-uGSEgdwlmgrd16BY1XN7a8VWVO0yyaWy3neQVF51VGv_epSqBHVx8LzYLyIM5UzABR7EYRzmNk5DIUXZIa2iKqmK3sEmx-WmWFJljunXGp7o9ndWmiXaFeUa0GdpVvxXOgduazSqtlhRq7dTM5i2OgIbNl3TgokF4qGHkKLi9QJF3uFADvf3M3EWJS_jmSD4FJxqPYaKaIPw5M2QinGe3oXZKI88VxslXyG9CybxeBC4ha0kxdI91za3vwG2WJp0LnnZuvY3toY0WG9dtU0Dz1U7fF9pgSgvStkwSILkrPQY-5mfnZSqqvpfSthX9UL1a6s1GeRBPj5r-dEwyrx_853KHIfxyL_uE6g3VsAPpHmeDyaXVk2Gke-9T_qYD4ZedkW6oAY2dHchfMjCM2Eexbkfv0vY6F1nWc-flSxOhINJlEdnwvjRz0fBu4ThyA-TNkPkWSi6XhJOBfzlfZ05lrZWOH_CkNEC3zPnz8bXPsJHl4qmFe3b1pMvdrx25AXUShMqSpLhSDDDpNBkw8ySfIQNmdbrNWegukwBMk3xSyHPn4iR7zgN0OmJCroA8smOJxkVr0JuOJSLY4Y2W9C6GxRiUEZFARyD2IIJyslzrXAwdEvT9Y-siMRlJFWrMjXU1Fesw_3-VLpdYf05DmGxJB_0OXXyBGBwJLEJqxUzNkH988w5HH5giW-zwLbgtWZv8EvzpVxFJbejsMhOg48JkM_wd82aE7xWf_hP6r739XzqFQ4oqL5cgyBT4FCYbgb2G_gMTOsa8GCxg20L8aCbHyIi_f5P2M7W9L3GDk52YyatGTRmO6Uibs12HsTQ2t9nzh-Ap_UdC7zCP8ojHLfwQxM-6LKFrZm8Q5bcJDvOos33tIM68OC8cDtweBuObsPD0-LooPFNNLmJPtxEseftAnFcZ4WzS1nppHvneO_i3VxCRWtunIPr0NrI6U4UTnq8n5x6XSLhmFFcG6sGPPwDyR59uQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-3215-pm-080-150_transmit_dunning_letter-pm-080-150_transmit_dunning_letter">BUSINESS ARCHITECTURE — 3.2.15 PM-080-150_Transmit_Dunning_Letter — PM-080-150_Transmit_Dunning_Letter</h4>
 <p><strong>Swim Lanes</strong>: Procurement Agent | <strong>Tasks</strong>: 1 | <strong>Gateways</strong>: 3</p>
@@ -1765,7 +1807,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Procurement Agent
+    subgraph lane_0["Procurement Agent"]
         n1["fa:fa-user Post Confirmation"]
         n2(["fa:fa-stop Dunning Letter Transmitted"])
         n3(["fa:fa-stop Good Receipt Posted in SAP S/4HANA"])
@@ -1790,7 +1832,7 @@ flowchart TD
     class n7 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVdtu4zYQ_RVCQeAWkLG6Wq4eWiiytS2QZoM63cVi3QdaGtpEZFIgKV_W8b-XlGQ71iZPqwdBPJxzzsyAQx2snBdgxdbt7YEyqmJ0GKgVrGEQo8ECSxjYqAU-Y0HxogQ5MDGEMzWj35swN6h2JsxgGV7Tcm_QGSw5oH__slGiiaWNJGZyKEFQMrAHlaBrLPYpL7kw0TcwJg5p3LqtOy4KEJcAx4ncPNTUkjK4wH4UREFmeBJyzoorURKSMckHR5Ncybf5CgvVpF9L-BvvvtBCrfSa4FKCjlmpdXmPF1CaGpWoDZbXYnNqBpXGh-mGzSqcU7bUeOBoSGD2fIFC53hEx9vbOTuboqfJnCH95CWWcgIESaXh6UYhQssyvgnSJAsdWyrBnyG-8abRxPfs3FQS69Id2zR3uAW6XKl4wcuiCx1uTQ2xV-1ssYs9xxZ7_e55ASsuTunIG3vjs9Nd5KZuenIihPyUk-6reMLyufOa-pmXTc5ebjgKU-dHvVOZkyBK3H6fQGxoDq9Esyzzp5dWTUeh67wvepf5IyftiS6xgi3eXwR_S4OzYBZGmRu9K9j69bOsF4-C5ydBfxpm4VkwunOzxHtXMEjcYNxlqHWWAlcrZNRqoceOKZQs9bvdNw9zv80tgmOCh6bd6JFLhVLOCBVrrChnc-u_V9HeL-dwqXiFJjVj-pyie1BKs5_02ZVrqr8Lzfv1FdHvET9yXqB_IAdaqcYUCkQZmiWPaPYh-DN5SHoCgeanAnSvEWZFUxJIiR5roWdCAvpkBvw62fBwOHmae2m40NnlK5Tkz4xvSyiWTUc-JLOHNpMNFH_MrePxlcTobYnZilZNN9_jRW_zYJeXtdSEj-2ZubD0VLUfzEXD4e_auVtG7dLrliOzfJlbD3xuvejdHvwVZIP7HR728G4gWNCqhr2wa9XmQJqEToN4BXvdTXAF-m-Bwfl-uoLD0-RcoaM30eiEWra1Bn00aWHFB6v5l-j_TQEE16WyjraFa8Vne5ZbcXPnWnVVaOaEYj0K6xY8_g9UdB7q" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV1v2zgQ_CuEgsA9QEb1afn00EKRrV6BNg3OuSuKuihoaWkTkUmBpGK7rv97SUm2YzV5qh4EcbQzs7vgknsr5wVYsXV9vaeMqhjtB2oFaxjEaLDAEgY2aoH_saB4UYIcmBjCmZrRH02YG1RbE2awDK9puTPoDJYc0H_vbZRoYmkjiZkcShCUDOxBJegai13KSy5M9BWMiUMat-7XDRcFiHOA40RuHmpqSRmcYT8KoiAzPAk5Z8WFKAnJmOSDg0mu5Jt8hYVq0q8lfMTbz7RQK70muJSgY1ZqXX7ACyhNjUrUBstr8XhsBpXGh-mGzSqcU7bUeOBoSGD2cIZC53BAh-vrOTuZovvJnCH95CWWcgIESaXh6aNChJZlfBWkSRY6tlSCP0B85U2jie_Zuakk1qU7tmnucAN0uVLxgpdFFzrcmBpir9raYht7ji12-t3zAlacndKRN_bGJ6ebyE3d9OhECPkjJ91XcY_lQ-c19TMvm5y83HAUps7vescyJ0GUuP0-gXikOTwRzbLMn55bNR2FrvOy6E3mj5y0J7rECjZ4dxb8Ow1OglkYZW70omDr18-yXtwJnh8F_WmYhSfB6MbNEu9FwSBxg3GXodZZClytUIkZfHe-zi0jWws9f0yhZKnfc-tbG2se5uoQgmOCh6b16I5LhVLOCBVrrChnl9Heq1O4VLxCk5oxvWfRB1BKs-_1PpZrqr8LzfvrCdHvEd9xXqB_IQdaqcYUCkQZmiV3aPY6-Ce5TXoCgeanAnTfEWYFMlWBlOiuFno-JKBPZtgvkw33-6OnOaOGC51dvkJJ_sD4poRi2TTldTK7bTN5hOLt3DocnkiMnpeYrWjVNPQlXvQ8D7Z5WUtNeNfunzNLT1j7wVw0HL7Rzt0yapdetxyZ5c-5dcvn1k_9twd_AdngfoeHPbwbDha0qmEv7FK12ZwmoeNQXsBedypcgP5zYHA6qy7g8DhFF-joWTQ6opZtrUFvTVpY8d5q7hV99xRAcF0q62BbuFZ8tmO5FTfnr1VXhWZOKNZjsW7Bwy9BYyLN" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 
@@ -1813,7 +1855,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Procurement Agent
+    subgraph lane_0["Procurement Agent"]
         n1[["fa:fa-cog Create Inbound Delivery"]]
         n2["Send Rejection to Supplier"]
         n3["Receive Supplier ASN"]
@@ -1843,7 +1885,7 @@ flowchart TD
     class n9 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduOo0YQ_ZUWo5ETCUuAwTA8JPJgE62UmWTXuxtF631oN4XdcbshTeNLvP73VBt8Xc9DFB6Q6_Spc6oKyuwsVmRgxdbj445LrmOy6-g5LKETk86UVtCxSQN8porTqYCqYzh5IfWY_3OguX65MTSDpXTJxdagY5gVQD69s8kAE4VNKiqrbgWK5x27Uyq-pGqbFKJQhv0AUe7kB7f26LlQGagzwXFClwWYKriEM9wL_dBPTV4FrJDZlWge5FHOOntTnCjWbE6VPpRfV_BCN3_wTM8xzqmoADlzvRS_0ikI06NWtcFYrVbHYfDK-Egc2LikjMsZ4r6DkKJycYYCZ78n-8fHiTyZko_DiSR4MUGragg5qTTCo5UmORcifvCTQRo4dqVVsYD4wRuFw55nM9NJjK07thludw18NtfxtBBZS-2uTQ-xV25stYk9x1ZbvN94gczOTknfi7zo5PQcuombHJ3yPP9fTjhX9ZFWi9Zr1Eu9dHjycoN-kDjf6x3bHPrhwL2dE6gVZ3AhmqZpb3Qe1agfuM7bos9pr-8kN6IzqmFNt2fBp8Q_CaZBmLrhm4KN322V9fR3VbCjYG8UpMFJMHx204H3pqA_cP2orRB1ZoqWc2LUaoVrJzUZzPDenJtLul--TKycxjntsmJGEgXYDnknp0UtMzIEwVegthPr69eLJA9zxvgikA_wFzDNC0l0QcZ1WQoOCskX3B5yPwAD1DkxyGD8es3yL1gvWIHZcqyVcllhzdmKSgYZGc95WeJekNdC85wzerD-AdV-vJYLUO6FSjoD8pvZfDJgC1msBWSzZgxmJFBV11n93e48iwy6U1xFNifvayq43pJkDmyBLf9dcwXZzxNrv79IDu8nw4aJusK2fmlek5us6H7Wy_tkTBJQpkvse8AYlPp7z6f_6onPrPkhe6Tb_Qkffxu6Tei3Yd-E3ybWn4Aj-oZGLf7U0KI29JrweBrdZIU3aq_FFRxdw14Lh41orw2DJuxfLIkp92KVr07805_hFRzch_vH7b1Cw7todBd9OqKWbS1BLSnPrHhnHb5y-CXMIKe10Nbetmiti_FWMis-fA2suswwc8gpLumyAff_AqEITwg=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduOo0YQ_ZUWo5ETCUuAwTA8JPJgE62UmWTXu4midRS1m8LuuN2QpvElXv_7Vhvf8HoeovCAqMOpc6oKCnYWKzKwYuvxcccl1zHZdfQcltCJSWdKK-jYpAF-o4rTqYCqYzh5IfWY_3uguX65MTSDpXTJxdagY5gVQD69s8kAE4VNKiqrbgWK5x27Uyq-pGqbFKJQhv0AUe7kB7fjredCZaAuBMcJXRZgquASLnAv9EM_NXkVsEJmLdE8yKOcdfamOFGs2ZwqfSi_ruCFbn7nmZ5jnFNRAXLmeil-plMQpketaoOxWq1Ow-CV8ZE4sHFJGZczxH0HIUXl4gIFzn5P9o-PE3k2JR-HE0nwYIJW1RByUmmERytNci5E_OAngzRw7EqrYgHxgzcKhz3PZqaTGFt3bDPc7hr4bK7jaSGyI7W7Nj3EXrmx1Sb2HFtt8XzjBTK7OCV9L_Kis9Nz6CZucnLK8_x_OeFc1UdaLY5eo17qpcOzlxv0g8T5Vu_U5tAPB-7tnECtOIMr0TRNe6PLqEb9wHXeFn1Oe30nuRGdUQ1rur0IPiX-WTANwtQN3xRs_G6rrKe_qoKdBHujIA3OguGzmw68NwX9getHxwpRZ6ZoOSeCSvjL-TyxjGytcP-kJoMZnifWnw3XHNL9jJycxjntsmJGEgXYGnknp0UtMzIEwVegtphzneRhzhhfCvIB_gameSGJLsi4LkvBQbUNesj9AAxQ58wgg_Frm-VfsV6wArPxWC7lssKysxWVDDIynvOyxB0hr4XmOWf0YP0dqn3flgtQ7oVKOgPyi_kKkAFbyGItIJs1kzBTgapqZ_V3u8ssMuhOcS3ZnLyvqeB6S5I5sAW2_E_NFWQ_Tqz9_io5vJ8MGybqCtv6qXllbrKi-1kv75MxSUCZLrHvAWNQ6m89n_6rJz6z5kL2SLf7Az7-Y-g2oX8M-yb8MrH-ABzRFzQ64k8NLTqGXhOe7kY3WeGN2mvRgqM27B3hsBHtHcOgCftXC2PKvVrr1h3__GFswcF9uH_a5BYa3kWju-jTCbVsawlqSXlmxTvr8MfDv2IGOa2Ftva2RWtdjLeSWfHhz2DVZYaZQ05xYZcNuP8K5KNS6w==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-3217-pm-080-170_manage_p-card_purchases-pm-080-170_manage_p-card_purchases">BUSINESS ARCHITECTURE — 3.2.17 PM-080-170_Manage_P-Card_Purchases — PM-080-170_Manage_P-Card_Purchases</h4>
 <p><strong>Swim Lanes</strong>: Procurement Agent | <strong>Tasks</strong>: 4 | <strong>Gateways</strong>: 1</p>
@@ -1859,7 +1901,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Procurement Agent
+    subgraph lane_0["Procurement Agent"]
         n1["fa:fa-user Identify Requirements Allowing Procurement Card Usage​"]
         n2["fa:fa-user Purchase Using Procurement Card"]
         n3["fa:fa-user Authorize CPC Card Holder"]
@@ -1892,7 +1934,7 @@ flowchart TD
     class n10 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduO2jAQ_RUrqxWtFNRcCeShEgTSrtStUOnlofTBJA5Y6zip7SxLEf_eMQmBUPapPETMmTlnLhk7eyMpUmKExv39nnKqQrTvqQ3JSS9EvRWWpGeiGviOBcUrRmRPx2QFVwv65xhme-WLDtNYjHPKdhpdkHVB0LcHE42ByEwkMZd9SQTNemavFDTHYhcVrBA6-o4MMys7Zmtck0KkRJwDLCuwEx-ojHJyht3AC7xY8yRJCp52RDM_G2ZJ76CLY8U22WChjuVXkjzilx80VRuwM8wkgZiNytknvCJM96hEpbGkEs-nYVCp83AY2KLECeVrwD0LIIH50xnyrcMBHe7vl7xNir5OlxzBL2FYyinJkFQAz54Vyihj4Z0XjWPfMqUSxRMJ75xZMHUdM9GdhNC6Zerh9reErjcqXBUsbUL7W91D6JQvpngJHcsUO3he5SI8PWeKBs7QGbaZJoEd2dEpU5Zl_5UJ5iq-YvnU5Jq5sRNP21y2P_Aj61-9U5tTLxjb13Mi4pkm5EI0jmN3dh7VbODb1uuik9gdWNGV6BorssW7s-Ao8lrB2A9iO3hVsM53XWW1mosiOQm6Mz_2W8FgYsdj51VBb2x7w6ZC0FkLXG6QVqsEHDuu0HgNz9qvf9z-uTQyHGa4r8eNHlJw02yHvpDfFa05Eo0Z7B7sY0cpwiJF3yRek2XlWNZqafy60HW6uvNKwO5KOMPylk6X63a540ptCgH3A4rmUZ32I6wSEV2W97OlJcUaPWIOpaF5_0g45ZfAuST5b1pSyeAlPiiSo8-EpCRFqkAr0jJ1jW8vmAMgtl09wg7oi0kizFO0qNdMdusLgDCBs40WCqKPrS_0u-gEDSFoxvXViOZ4l__jH4H_w6d3USFhcOCF8SxKOJLwjhJVYQZTuhqmbe33pxaxEMVW9jFTqMQCM0bYh3p7l8bhUJNArP7DfdTvvweBxrRr021Mp_FaJ7dVA15je7UZNGZQm6PGHNXm8Io8aGy3Np2Lk6ELON0IHdi5Dbu3Ye_yEuh4_PYa7cCD23BwGx7ehke3YWi7uT0M08iJyDFNjXBvHL-R8B1NSYYrpoyDaeBKFYsdT4zw-C0xqjIF5pRiOOJ5DR7-AorgYDs=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVuP4jYU_itWRiNaKai5EshDJQhkO9LOCi2724elqkzigDWOk9rOMBTx33tMLhCGeSoPEec75_vOJcfO0UiKlBih8fh4pJyqEB0HakdyMgjRYIMlGZioBn5gQfGGETnQMVnB1Yr-ew6zvfJNh2ksxjllB42uyLYg6PuTiaZAZCaSmMuhJIJmA3NQCppjcYgKVggd_UDGmZWdszWuWSFSIi4BlhXYiQ9URjm5wG7gBV6seZIkBU97opmfjbNkcNLFsWKf7LBQ5_IrSZ7x2580VTuwM8wkgZidytlnvCFM96hEpbGkEq_tMKjUeTgMbFXihPIt4J4FkMD85QL51umETo-Pa94lRd_ma47glzAs5ZxkSCqAF68KZZSx8MGLprFvmVKJ4oWED84imLuOmehOQmjdMvVwh3tCtzsVbgqWNqHDve4hdMo3U7yFjmWKAzxvchGeXjJFI2fsjLtMs8CO7KjNlGXZ_8oEcxXfsHxpci3c2InnXS7bH_mR9V6vbXPuBVP7dk5EvNKEXInGcewuLqNajHzb-lh0FrsjK7oR3WJF9vhwEZxEXicY-0FsBx8K1vluq6w2S1EkraC78GO_Ewxmdjx1PhT0prY3bioEna3A5Q4xzMnf1s-1oWUrAeePKzTdwnNt_FXH6h-3ISTDYYaHevToKYUImh3QV_JPRWuaRFMGewi7ia7FIixS9F3iLVlXjmVt-rpOX3dZCdhjCedZ3tPpc90-d1qpXSHgrkDRMqrT_gFrRUSf5f3saEmxRc-YQ2loOTwT2vwSONck_5eOVDJ4oU-K5OgLISlJkSrQhnRMXeOvV8yRnm3b1TPsg76kJMI8Rat65WS_vgAIMzjnaKUg-tz66t3rGEPQgutrEi3xIX_nn4D_0-ffokLC4MAL41mVcDzhHSWqwgymdDNM2zoe2xaxEMVeDjFTqMQCM0bYp3qT18bpVJNArP7DfTQc_g4CjWnXptuYTuO1WrdVA15je7UZNGZQm5PGnNTm-IY8amy3Np2rU6ILaG-HHuzch937sHd9IfQ8fnel9uDRfTi4D4_vw5P7MLTd3CSGaeRE5JimRng0zt9L-KamJMMVU8bJNHClitWBJ0Z4_q4YVZkCc04xHPe8Bk__Ab-EZB4=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 
@@ -1915,7 +1957,7 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Buyer/Planner
+    subgraph lane_0["Buyer/Planner"]
         n1["fa:fa-user Upload Internal Item Catalog for Create/Update"]
         n2["fa:fa-user Publish Item Level Contract Workspace"]
         n3["fa:fa-user Create Requisition by Using Approved Catalogs"]
@@ -1924,7 +1966,7 @@ flowchart LR
         n11["Catalog is Live"]
         n14{{"fa:fa-code-branch exclusiveGateway"}}
     end
-    subgraph Catalog Administrator
+    subgraph lane_1["Catalog Administrator"]
         n4[["fa:fa-cog Request Approval of Catalog from Intel Commodity Manager"]]
         n5["Notify Supplier about Catalog Rejection due to Validation Rules"]
         n6["Receive Catalog File in Buyer SAP Ariba Network"]
@@ -1961,7 +2003,7 @@ flowchart LR
     class n14 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4jgU_itWqopdCTS5EpqHXVFKVpU6VVW2M1qVeTCJA946dtZ2aFmG_77H5AKhdB5m8wA6n4-_79xiZ2slIiVWZF1ebimnOkLbnl6RnPQi1FtgRXp9VAFfsKR4wYjqGZ9McD2j_-7dHL94M24Gi3FO2cagM7IUBD3d9tEYNrI-UpirgSKSZr1-r5A0x3IzEUxI431BRpmd7dXqpWshUyIPDrYdOkkAWxnl5AB7oR_6sdmnSCJ42iHNgmyUJb2dCY6J12SFpd6HXyryGb99palegZ1hpgj4rHTO7vCCMJOjlqXBklKum2JQZXQ4FGxW4ITyJeC-DZDE_OUABfZuh3aXl3PeiqK7xzlH8CQMK3VDMqQ0wNO1RhllLLrwJ-M4sPtKS_FCogt3Gt54bj8xmUSQut03xR28Erpc6WghWFq7Dl5NDpFbvPXlW-TafbmB3xMtwtOD0mTojtxRq3QdOhNn0ihlWfa_lKCu8k-sXmqtqRe78U2r5QTDYGK_52vSvPHDsXNaJyLXNCFHpHEce9NDqabDwLE_Jr2OvaE9OSFdYk1e8eZAeDXxW8I4CGMn_JCw0juNslw8SJE0hN40iIOWMLx24rH7IaE_dvxRHSHwLCUuVui63BD56YFhzoms1szDnee5leEowwNTavRUMIFTdMs1kRwzdKtJjiZYYyaWKBMSTSSBXD89FSn8za1vR1Rul-qhXDCqVhXFHVkThiYwCRInGn0V8kXBfJ8weF2GSgs9kn9KqqimgqPFBj0peCvQuCikWJO0CU51mUa_tFQFg8acT6gSSGHrr0d7rw57lRZFR__8DsdUsSGlCt3R9Ulmjr_dNqTmgBws4BVPVoi8JaxU4P5HNUFza7ertsE7dtLCRmCc5nCyQvexFset9J-fDxLLfdhE6bpSkLrIDp2UIt_XxPQkz0VK9QZ9xhwvYTisb8eRB0B6LzTNNmhWFgWj0Bi8EKVuyR7J3yTZVyctCdICfcGMwngY5LGEA75biiEQPpKEQNItRUwZQZRXU4pm4wdzxi8wuif6FUalSxCe9HbfEyOGeQpJUEiLw2iZfNu2N0K3cCVR00EE_k0-PYWm_F1PbdPT2xgJM8rQq-OUq9cEWOiB5UchO-759rctbaYZ5vtdQ34_DEVF5v30LHEfDQa_mXhq26vsq9oc1cu16bjG_j63_jJN_G7GuFlxKk-vsRvidmtlNzpuvdzsH1Z2S2dX9rC2w9q9pa_jdOpzkgenDk2k92IfaHB0nppgmnukA7vnYe887B9fHZ2VsL18O_DoPHxVX5_dCO3zzlDn87jb3Dld2DsP-w1s9a2cyBzT1Iq21v47DL7VUpLhkmlr17dwqcVswxMr2n-vWOX-oL-hGM6gvAJ3_wETmyV1" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_RVCi8AtYGN1tRw9tHAUqwiQDYK42UWRFAUtUTYbmlRJyonr9b93qJstx-lD64cEczg8Z24ktbNSkRErsi4udpRTHaHdQK_ImgwiNFhgRQZDVANfsaR4wYgaGJ9ccD2nf1dujl-8GTeDJXhN2dagc7IUBD3eDNEUNrIhUpirkSKS5oPhoJB0jeU2FkxI4_2JTHI7r9SapSshMyIPDrYdOmkAWxnl5AB7oR_6idmnSCp41iPNg3ySp4O9CY6J13SFpa7CLxX5gt--0UyvwM4xUwR8VnrNbvGCMJOjlqXB0lJu2mJQZXQ4FGxe4JTyJeC-DZDE_OUABfZ-j_YXF8-8E0W3D88cwS9lWKlrkiOlAZ5tNMopY9EnP54mgT1UWooXEn1yZ-G15w5Tk0kEqdtDU9zRK6HLlY4WgmWN6-jV5BC5xdtQvkWuPZRb-HuiRXh2UIrH7sSddEpXoRM7cauU5_n_UoK6yl-xemm0Zl7iJtedlhOMg9h-z9emee2HU-e0TkRuaEqOSJMk8WaHUs3GgWN_THqVeGM7PiFdYk1e8fZAeBn7HWEShIkTfkhY651GWS7upUhbQm8WJEFHGF45ydT9kNCfOv6kiRB4lhIXK8QwJ3_YT8_WVbkl8vM92JzIZ-v32s_8uAPLOY5yPDJlR48FEzhDN1wTyTFDN5qsUYw1ZmKJciFRLAnk_fmxyOBfn8rtU92XC0bVqqa4JRvCUAxTIXGq0TchXxTM-gmD12eotdAD-aukimoqOFps0aOCE4KmRSHFhmRtcKrPNPmhoyoYNOl8QrVABlt_PNp7edirtCh6-ud3OKaKLSlV6JZuTjJz_N2uJTWX5WgBxz1dIfKWslKB-y_1ND1b-329Dc7buXYeK02zNVy3MBJYi5O2-k9PB7lllQJRuqkalEHkh65Ksa7qY_qzXouM6i36gjleVrNyzBoA6Z3QNN-ieVkUjEKT8EKUuiN7IH-StKpUVhKkBfqKGYVRMchDCRd_P8wxED6QlEABOoqEMoIoR9XQovn03tz9C4zuiH6FsekThCd9rvpjxDDPIAkKaXEYM5NvNwKt0A08VdR0E4F_m89AoRl_119ziOKbBAkz1tC345TrIwMs9MDybyE77vlR6LraTjbM-ruG_HwYkJrM-89zxX00Gv1k4mlsr7YvG3PSLDem4xr7-7P1m2nidzPS7YpTe3qt3RJ3W2u71XGb5Xb_uLY7Oru2x40dNu4dfROn09yfPDh1aCO9E1WgwdE9a4Jp35ce7J6HvfOwf_yk9FbC7lHuwZPz8GXzrPYjtM87Q53P4277FvVh7zzst7A1tNZErjHNrGhnVd9n8A2XkRyXTFv7oYVLLeZbnlpR9R1jldWlf00x3EfrGtz_A0qPLTw=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 
@@ -1984,13 +2026,13 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph AP Processor
+    subgraph lane_0["AP Processor"]
         n2["fa:fa-user Validate Invoice"]
         n6[["fa:fa-cog Process ERS Invoice"]]
         n8(["fa:fa-stop Invoice Validated"])
         n13["Invoice Received"]
     end
-    subgraph Buyer
+    subgraph lane_1["Buyer"]
         n3[["fa:fa-cog Send Inventory Report and Min/Max Data"]]
         n4[["fa:fa-cog Create Purchase Order"]]
         n5[["fa:fa-cog Create Inbound Delivery"]]
@@ -1999,7 +2041,7 @@ flowchart LR
         n10["PO Sent"]
         n12["Receive Shipment Details"]
     end
-    subgraph Warehouse Manager
+    subgraph lane_2["Warehouse Manager"]
         n1["fa:fa-user Receive Materials and Services"]
         n11["GR Notification Sent"]
     end
@@ -2030,7 +2072,7 @@ flowchart LR
     class n13 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVltv4jgU_itWqopdKWhzJTQPK1Egq0rDFMFu52G6DyZxwGqwI9uhZSv--x7nBsnAvEwekM53vvOdC_ZJPo2YJ8QIjfv7T8qoCtHnQO3IngxCNNhgSQYmqoAXLCjeZEQONCflTK3pfyXN9vIPTdNYhPc0O2p0TbacoH-eTDSBwMxEEjM5lETQdGAOckH3WBynPONCs-_IOLXSMlvteuQiIeJMsKzAjn0IzSgjZ9gNvMCLdJwkMWdJRzT103EaD066uIy_xzssVFl-IckCf3yjidqBneJMEuDs1D77gjck0z0qUWgsLsShGQaVOg-Dga1zHFO2BdyzABKYvZ0h3zqd0On-_pW1SdGX1StD8MQZlnJGUiQVwPODQinNsvDOm04i3zKlEvyNhHfOPJi5jhnrTkJo3TL1cIfvhG53KtzwLKmpw3fdQ-jkH6b4CB3LFEf47eUiLDlnmo6csTNuMz0G9tSeNpnSNP2lTDBX8TeWb3WuuRs50azNZfsjf2r9qNe0OfOCid2fExEHGpML0SiK3Pl5VPORb1u3RR8jd2RNe6JbrMg7Pp4FH6ZeKxj5QWQHNwWrfP0qi81S8LgRdOd-5LeCwaMdTZybgt7E9sZ1haCzFTjfockSaUEiJReVSz_M-f5qpDhM8VBPGr3gjCbQC3piBw5TejX-vSCPvrfsmG8bPTRfrS_4lwHj39oAqXjesNo0CfB_v-DbLvAb0orEhB5KTkWBU9dr6rE4kstu3G6Ba4jQOQlTXBxBMOdwczCAC8r-gPuKZljhXs1eV2MqiJ7HshBw7yRBz3qJ9EL8qyFPbMMLyDUjGbQhjr2g4DybPIOjs3pe_lAaWnBYoVyQBG2OaLZ-6c3rASQuuipDoGnV_dtsC2jL52sepxQo54zWO5rvgQIFK0wz-ZO5f8OC7DicGLTADG87_4HdPVGN-gJGote2LCtdV5dQ9srRsX-t0FeuaEpjrChn3arbUpiLhsM_YQK1-VCZtlPbXm3X94rZtV1vA-bXduO2KttvbKeyvcau40e1HVSmW5ujWq2x7bq6pppabXxxyXVJzXLrwM512L1cXB2Pd9Pj3_SMbnqC9kXSgcf1zu-AD9e5MMzruH0Dd27gbosbprEnYo9pYoSfRvn5AJ8YCUlxkSnjZBq4UHx9ZLERlq9Zo8j1fplRDAd2X4Gn_wHt86_O" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVluP4jYU_itWRiNaKai5EiYPlRgg1UhLB0F39mGnqkzigDXBjmyHGTriv_c4N0gWtA_NA9L5zne-c8E-yacR84QYoXF__0kZVSH6HKgd2ZNBiAYbLMnARBXwggXFm4zIgeaknKk1_bek2V7-oWkai_CeZkeNrsmWE_T1yUQTCMxMJDGTQ0kETQfmIBd0j8VxyjMuNPuOjFMrLbPVrkcuEiLOBMsK7NiH0IwycobdwAu8SMdJEnOWdERTPx2n8eCki8v4e7zDQpXlF5Is8Mc3mqgd2CnOJAHOTu2zL3hDMt2jEoXG4kIcmmFQqfMwGNg6xzFlW8A9CyCB2dsZ8q3TCZ3u719ZmxR9Wb0yBE-cYSlnJEVSATw_KJTSLAvvvOkk8i1TKsHfSHjnzIOZ65ix7iSE1i1TD3f4Tuh2p8INz5KaOnzXPYRO_mGKj9CxTHGE314uwpJzpunIGTvjNtNjYE_taZMpTdP_lQnmKv7C8q3ONXcjJ5q1uWx_5E-tH_WaNmdeMLH7cyLiQGNyIRpFkTs_j2o-8m3rtuhj5I6saU90ixV5x8ez4MPUawUjP4js4KZgla9fZbFZCh43gu7cj_xWMHi0o4lzU9Cb2N64rhB0tgLnO5RhRv6xvr8akyXSykRKLl6NvyuafpgD3hSHKR7qqaMXnNEE-kJP7MBhYl3y6HvLjvm2kUTz1fqCfxkw_qUNkIrnDatNkwD_1wu-7QK_Ia1ITOih5FQUOIHXGrQh5rE4kl5nbrfYNUTr_IQpLo4gnnO4URjABWW_wT1GM6xwr36vqzEVRM9mWQi4j5KgZ71ceiH-1ZAntuEF5JqRDFoSx15QcJ5TnsGRWj0vfygNLTisVi5IgjZHNFu_9Gb3ABIXXZUh0LTqTsXWx2H5fM3jlALlzNF6R_M9UKBghWkmf_Yf6NhvWJAdh2OEFpjhbf__sLsnrcm0gPHo1S7LqtfVRZW9UB37xwr9yRVNaYwV5azbQVsWc9Fw-DtMozYfKtN2atur7fruMbu2643B_Npu3FZl-43tVLbX2HX8qLaDynRrc1SrNbZdV9dUU6uNLxaBLqlZgB3YuQ67l8ut4_FuevybntFNT9C-bDrwuH4vdMCH61wY5nXcvoE7N3C3xQ3T2BOxxzQxwk-j_MSAz5CEpLjIlHEyDVwovj6y2AjLV7FR5HrvzCiGw7uvwNN_bfu7eg==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 
@@ -2053,10 +2095,10 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph AP Processor
+    subgraph lane_0["AP Processor"]
         n9[["fa:fa-cog Process ERS Invoice"]]
     end
-    subgraph Buyer
+    subgraph lane_1["Buyer"]
         n1["fa:fa-user Validate Invoice"]
         n4[["fa:fa-cog Create Purchase Requisition"]]
         n5[["fa:fa-cog Create IB Delivery"]]
@@ -2069,14 +2111,14 @@ flowchart LR
         n15["PO Confirmation Received"]
         n16["Invoice Received"]
     end
-    subgraph MRP Controller
+    subgraph lane_2["MRP Controller"]
         n2["fa:fa-user Modify Material Master"]
         n10(["fa:fa-play ROP and Min/Max Data Monitored by DSV"])
     end
-    subgraph Supplier
+    subgraph lane_3["Supplier"]
         n8[["fa:fa-cog Perform MRP Planning"]]
     end
-    subgraph Warehouse Manager
+    subgraph lane_4["Warehouse Manager"]
         n3["fa:fa-user Create Goods Receipt"]
     end
     n14 --> n5
@@ -2112,7 +2154,7 @@ flowchart LR
     class n16 startEvt
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v6jgQ_StWqopdKWjzSWgeVuIrq0qXW1Tu7X24vQ8mccCqsbN2QstW_PcdEwcIbfZleUDMmZkzM8fOkHcrFRmxYuv29p1yWsbovVduyJb0YtRbYUV6NqqBJywpXjGiejomF7xc0n-OYW5QvOkwjSV4S9leo0uyFgR9v7fRCBKZjRTmqq-IpHnP7hWSbrHcTwQTUkffkGHu5MdqxjUWMiPyHOA4kZuGkMooJ2fYj4IoSHSeIqngWYs0D_NhnvYOujkmXtMNluWx_UqROX77QbNyA3aOmSIQsym37AteEaZnLGWlsbSSu0YMqnQdDoItC5xSvgY8cACSmL-codA5HNDh9vaZn4qiL4_PHMEnZVipKcmRKgGe7UqUU8bim2AySkLHVqUULyS-8WbR1PfsVE8Sw-iOrcXtvxK63pTxSrDMhPZf9QyxV7zZ8i32HFvu4fuqFuHZudJk4A294anSOHIn7qSplOf5_6oEuspvWL2YWjM_8ZLpqZYbDsKJ85GvGXMaRCP3WicidzQlF6RJkvizs1SzQeg63aTjxB84kyvSNS7JK96fCe8mwYkwCaPEjToJ63rXXVarhRRpQ-jPwiQ8EUZjNxl5nYTByA2GpkPgWUtcbNBogTQhUUrI2qU__O7nz2crx3GO-6lYNyFo9rhE93wnQKhn69evOgFO_Yp0XO3JJZt7ItPnhp4woxkoc0F1ERy0S08k0aGLSsIFVwQ9kr8rqmhJBT-3cEwMP028H6MpYXRH5P4qfvDfhR70WrhKidopc5HRfI8WD2gBYz3M5mhZFQWjYEwEz6nc4k_6dN3fTiyqFEUjw0mXDBJ-v0zwIB6KLAkv21q5fu2557lAS1gAJEO5kNAYrFghYU1cxQcQP1p-BRVTAppkV-6wprtsvit0AKFN4x9CPl6J-eNC08LVZKx1N7z23TCSzkEGvc3hhyqPx3BZ2zkLWDB4vB4fFgjzDM0p_wPWLZriEjcagCKrPZoun86ifuyuObaLIsOrJ4BIEHZ7nGPBMOe1tp3z_oCz2AgYCSbgeN2i9tsjm4v3lxCZqqUsyo9Kwtmhfv9PuObGDmvTb9xebbuN33VqwDO2SR8Yc2DCG7frGyAwQGTsUwFTMDK2ib8z5p0Jb_jdpkBjG7OxTbtDYw5rM7jYdzqn2fMt2Psc9j-Hg8vV3vKEnZ5Bpyfq9Aw7PXedHjij5v-5jbvmv7SNeh3RfgcedOBhBz444ZZtbQlsAJpZ8bt1fC-Dd7eM5LhipXWwLVyVYrnnqRUf31-sqtCba0oxXP9tDR7-BdiaGJ4=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_RVCQeAWkLG6Wo4eCvimIsC6MeJu9mFTFLRE2URoUiUlJ27gf-_QonxRon2pH4LMmTNnhocUpXcrFRmxYuv29p1yWsbovVduyJb0YtRbYUV6NqqBJywpXjGiepqTC14u6b9HmhsUb5qmsQRvKdtrdEnWgqBv9zYaQSGzkcJc9RWRNO_ZvULSLZb7iWBCavYNGeZOfuxmUmMhMyLPBMeJ3DSEUkY5OcN-FERBousUSQXPrkTzMB_mae-gh2PiNd1gWR7HrxSZ47fvNCs3EOeYKQKcTbllX_GKML3GUlYaSyu5a8ygSvfhYNiywCnla8ADByCJ-csZCp3DAR1ub5_5qSn6-vjMEfxShpWakhypEuDZrkQ5ZSy-CSajJHRsVUrxQuIbbxZNfc9O9UpiWLpja3P7r4SuN2W8Eiwz1P6rXkPsFW-2fIs9x5Z7-NvqRXh27jQZeENveOo0jtyJO2k65Xn-vzqBr_JPrF5Mr5mfeMn01MsNB-HE-ajXLHMaRCO37RORO5qSC9EkSfzZ2arZIHSdbtFx4g-cSUt0jUvyivdnwbtJcBJMwihxo07Bul97ymq1kCJtBP1ZmIQnwWjsJiOvUzAYucHQTAg6a4mLDWKYk7-dH8_WaIG0MlFKyGfrr5qmf_zuB6RzHOe4n4p1w0KzxyW65zsBpgHfFMAJ-KyBCwrjak9ayu5JWO8nesKMZuDYhewFObgeYyKJpi4qCQdfEfRI_qmooiUV_DzOsTD8tPB-jKaE0R2R-xZ_8PNGD_q6aJVE1yVzkdF8jxYPaAHLepjN0bIqCkYhmAieU7nFn8zpur-cVFQpisaGky8ZFPx6WeABH5osCS9bxvp15p7nAi3hYiAZyoWEweDqFRKujxY_0Cdg-Qe4mBLwJGulw1rucvgu6gCozeAfKB3HQ69j_rjQ-nB2GWufE-_6nBh752CJvvHhH1V-OFrO2cyCwSP4-LBAmGdoTvkXuJLRFJe48QPcWe3RdPl0NrhjUu1rs5fXDYetp4RIMHyL9LIWUMprz3_ug96F77BZGwHrhGVxvG638a-tMIfzdyEyVdtdlB_dhv1F_f5v8CiYOKxDv0l7dew2edepAc_EpnxgwoGhN2nXN0BggMjEpwamYWRiw78z4Z2hN_pu06CJTdjEZtyhCYd1GFzclbqmeUdcwd7nsP85HFy-Fq4yYWdm0JmJOjPDzsxdZwb2qHm3X-OueQ9fo14H2-_Agw487MAHJ9yyrS2BW4JmVvxuHb_p4LsvIzmuWGkdbAtXpVjueWrFx28fqyr07TalGB6FbQ0e_gPg9CwX" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 
@@ -2135,7 +2177,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Procurement Agent
+    subgraph lane_0["Procurement Agent"]
         n1["Transmit Remind Letter"]
         n2["Identify Requirements Allowing Procurement Card Usage"]
         n3["Create and Maintain Internal Catalogue"]
@@ -2311,7 +2353,7 @@ flowchart TD
     class n55 subProc
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWf1v4jga_lcsRiPuJNAlcUwCP-yKoeVUaTrTG7q7Om33BxMciCYknJ1My3b7v9_rxDaNcTordiu1gof3ed5Pf5A-D5Jywwazwfv3z1mRVTP0PKx2bM-GMzRcU8GGI9QCP1Oe0XXOxFDapGVRrbLfGzM_PDxJM4kt6T7LjxJdsW3J0E83IzQHYj5CghZiLBjP0uFoeODZnvLjosxLLq3fsTj10sab-uhDyTeMnww8L_ITAtQ8K9gJxlEYhUvJEywpi01HNCVpnCbDFxlcXj4mO8qrJvxasFv69Eu2qXbwPqW5YGCzq_b5R7pmucyx4rXEkpp_08XIhPRTQMFWB5pkxRbw0AOI0-LrCSLeywt6ef_-oTBO0f3VQ4HgJ8mpEFcsRaIC-PpbhdIsz2fvwsV8SbyRqHj5lc3eBdfRFQ5GicxkBql7I1nc8SPLtrtqti7zjTIdP8ocZsHhacSfZoE34kf4a_lixebkaTEJ4iA2nj5E_sJfaE9pmv4lT1BXfk_FV-XrGi-D5ZXx5ZMJWXjnejrNqzCa-3adGP-WJeyV6HK5xNenUl1PiO_1i35Y4om3sES3tGKP9HgSnC5CI7gk0dKPegVbf3aU9fqOl4kWxNdkSYxg9MFfzoNewXDuh7GKEHS2nB52SKrVHJZdUaH5Fv62n8ufwv_1YXAPIyf2WYW-sH1WbNBHVlWMPwx-e2UXgN3NBrhZegS7_9VZKyjQPIfBhGHtuFlQvkE_CbplXRkMMgvOoGSIgqdbmhUV_KKbAjwWNAdiRfNyW1u8EHh3NYf5F7APCJe7LoEAIaWzlI7lGEHECcu-MfRZ7gNonnwtysecbbaS_VAHnrfu0idduvTFhDijsz5-9Jb7RVmkGd_TKiuLf81Xn7rU-C3Xb1On_zDcQ047fUKqeVnScKHgWZVBG2TZ_vl6HryThqjKA7S36Qw07Bb-yN1XNK2bHw68pMmOCXTF4AOYnHMxOV069y591S5F0U3Al2N2SwuYG5lqxWlS2Sb4ZLKq14myKjk4KOoUXtYcxsMiyfm5LuSRg-7osela14CcVP9Tl1VTJMtk8v3Yop7xNqPbdERkUt3mxj3cNsk_JTF9fta9kyfxeA0LO9kh9pTktYAe_Lvdqh4GLy-vl7Z3Gc1306zVoYdw86PND9z8GyFqZsbVwcN9PCjV4ZBnsEzaJYluGavkVrEo97C9NdvVj3q1djVDt-aCFugeZlugNWtXgiMe0huPHnlTA3Sz37ONXHf58Uxn4tb5DDcmblITZ7SoP_RP7BFOAVUTWYzOzn2mFH-_sM6KWjLTv0UGXzaV2L-MFlxGw5fRwsto5DLa5DJa32ABCcb6rF_xZV5eTQvlvHwUY5pX6EA5zXOWu0mhdwnJv4QU_GqOwxTur4yPywMr0Bh5vgeHWM6SqllmZrTl3v2FZc0mdvcZNujONQa75dS-f_e5OcQgniP6Jat2zT7mT-_ZU3U6Poe2ZujW_ALByfNiBWf0ps7lcvsIZzRKebl_Dc63nDF1InZ0yZuxtnm2LvRx2F5SbJ3J2znnFL4iVOW4eYGau2gKdXRKRW4pc4FtL0lVadphC8RugdsSrkOlcopWcPzXwqZO-8osytxc7ZrDS6BH2byeGIjXF8NG3q3NOe8qAPG_U4CruiiaTusrfIfdM8w_y-_R1q1etrc9-ZpcXo-4rdoz0-ZW-CeukLZkz0jDmZawHCqTbTP5ZeHtWr09v31c-H7bvoA7IRqPf5DXKg1MbGDaAlgDWAEhtoGJpsQtoL_twosWIEQBoQKwtggjRfE1oDXOvBgNFWloNIgFKM1YR6F8akFlrd-qkMJImzf2fzwMPpUPgz_k8aktlVBohEPL0mgqH0YSK8P_ynGQljqYIO79ZPrdT2y3AbEppma-qoFuFdbt1lxVZZ2rH1njEIZWkZUA1o0LfCuqsw90VDoorIIKAruexlI7w8p7QOxUlTfjbNLFiS5aiK34tfPY7oRm-vY86KhCUxO9RHQCahBNkdX7QAOh1QUzF8pnoLtBQmslmVVgeq0aZFrcAq-LZ8TU3AaRXSQzJ_oTrFYf0Rmp96FvDZKvAaLrOLUtsA2YdaQjVbct5I_0xQvhtsKmoPZ-QVQbfa9PLGgz0m0N9erXACFdyebRlGydfiTXgSduOHLDsRuemoeYHRguWe0Dxy7q91gHPTjuwcMenPTgkx486sHjHnyqnxp2YDgKnLDvhgM3jN1w6IaJG5644cgNx27YnSV2Z4ndWWJ3ltidJXZnid1ZYneW2J0ldmeJ3VmG7ixDd5awAtVT3y6M3XDohokbnrjhyA3HbnjqhGHvccK-G3ZnSdxZEneWxGQ5GA32cMOk2WYwex40_1eC_z1tWErrvBq8jAa0rsrVsUgGs-b_L4P6sIHaX2UUHovvW_Dl_1eMSwQ=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWf1v4jga_lcsRiP2JNAmcUwCP9yKoeVUaTozO3R3tdqeViY4EE1IODuZluv0f9_XiW0a43RW3FVqBQ_v87yf_iB9GiTlhg1mg7dvn7Iiq2boaVjt2J4NZ2i4poINR6gFfqU8o-uciaG0ScuiWmX_bcz88PAozSS2pPssP0p0xbYlQ7_cjNAciPkICVqIsWA8S4ej4YFne8qPizIvubR-w-LUSxtv6qN3Jd8wfjLwvMhPCFDzrGAnGEdhFC4lT7CkLDYd0ZSkcZoMn2VwefmQ7CivmvBrwW7p42_ZptrB-5TmgoHNrtrn7-ma5TLHitcSS2r-VRcjE9JPAQVbHWiSFVvAQw8gTosvJ4h4z8_o-e3b-8I4RXdX9wWCnySnQlyxFIkK4OuvFUqzPJ-9CRfzJfFGouLlFzZ7E1xHVzgYJTKTGaTujWRxxw8s2-6q2brMN8p0_CBzmAWHxxF_nAXeiB_hr-WLFZuTp8UkiIPYeHoX-Qt_oT2lafo_eYK68jsqvihf13gZLK-ML59MyMI719NpXoXR3LfrxPjXLGEvRJfLJb4-lep6QnyvX_TdEk-8hSW6pRV7oMeT4HQRGsEliZZ-1CvY-rOjrNefeJloQXxNlsQIRu_85TzoFQznfhirCEFny-lhh3JasD-9P-4HUrbmsP6KCs238Pd-8O_WVv4UPpjcwfiJfVahz2yfFRv0nlUV4127AOxuNkDP0iPY_afOWk2B5jkMKQwueulpQfkG_SLolnVlMMgsOIPyIQqebmlWVPCLbgrwWNAciBXNy21t8UKZSc1hLQjYE4TLXZdAgJDSWUrHcqQg4oRlXxn6KPcENE--FOVDzjZbyb6vA89bd-mTLl36YkKc0VkfP3rN_aIs0ozvaZWVxY_z1YcuNX7N9evU6Q-Ge8hpp09INS9LGi4UPKsyaIMs2z9ezoN30hBVeYD2Np2Bht3CH7kTi6Z188OBlzTZMYGuGHwAk3MuJqdL596lr9plKaxplGN2SwuYG5lqxWlS2Sb4ZLKq14myKjk4KOoUXtYcxsMiyfm5LuTxgz7R4_58GZCT6s91WTVFskwm348t6hlvM7pNR0Qm1W1u3MNtk_xbEtOnJ907eSqP17Cwkx1ij0leC-jBv9pt637w_PxyaXuX0Xw3zVodegg3P9n8wM2_EaJmZlwdPNzHg1IdDnkGy6RdkuiWsUpuFYtyD9tbs139pFdrVzN0ay5oge5gtgVas3YlOOIhvfHokTc1QDf7PdvIdZcfz3Qmbp2PcHviJjVxRov6Q__AHuBEUDWRxejs3GdK8fcL66yoJTP9v8jgy6YS-5fRgsto-DJaeBmNXEabXEbrGywgwVif9Su-zMuLaaGclw9iTPMKHSinec5yNyn0LiH5l5CCP8xxmMJdlvFxeWAFGiPP9-AQy1lSNcvMjLbcuz-zrNnEPn2EDbpzjcFuObXvf_rYHGIQzxH9llW7Zh_zp3fssTodn0NbM3Rrfobg5HmxgjN6U-dyub2HMxqlvNy_BOdbzpg6ETu65NVY2zxbF_o4bC8pts7k9ZzhplqNq3LcvEDNXTSFOjqlIreUucC2l6SqNO2wBWK3wG0J16FSOUUrOP5rYVOnfWUWZW6uds3hJdCDbF5PDMTri2Ej79bmnHcVgPjfKcBVXRRNp_UVvsPuGeZf5Xdq61Yv29uefE0uL0fcVu2ZaXMr_BtXSFuyZ6ThTEtYDpXJtpn8svB6rV6f3z4ufNdtX8CdEI3H_5TXKg1MbGDaAlgDWAEhtoGJpsQtoL_5wosWIEQBoQKwtggjRfE1oDXOvBgNFWloNIgFKM1YR6F8akFlrd-qkMJImzf23-4HH8r7wTd5fGpLJRQa4dCyNJrKh5HEyvB3OQ7SUgcTxL2fTL_7ie02IDbF1MxXNdCtwrrdmquqrHP1I2scwtAqshLAunGBb0V19oGOSgeFVVBBYNfTWGpnWHkPiJ2q8macTbo40UULsRW_dh7bndBM354HHVVoaqKXiE5ADaIpsnofaCC0umDmQvkMdDdIaK0kswpMr1WDTItb4GXxjJia2yCyi2TmRH-C1eojOiP1PvStQfI1QHQdp7YFtgGzjnSk6raF_JG-eCHcVtgU1N4viGqj7_WJBW1Guq2hXv0aIKQr2Tymkq3Tj-c68MQNR244dsNT80CzA8Mlq3342EX9HuugB8c9eNiDkx580oNHPXjcg0_1E8QODEeBE_bdcOCGsRsO3TBxwxM3HLnh2A27s8TuLLE7S-zOEruzxO4ssTtL7M4Su7PE7iyxO8vQnWXozhJWoHoC3IWxGw7dMHHDEzccueHYDU-dMOw9Tth3w-4siTtL4s6SmCwHo8Eebpg02wxmT4Pmf0zwf6gNS2mdV4Pn0YDWVbk6Fslg1vwvZlAfNlD7q4zCI_J9Cz7_BTOxTuc=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 
@@ -6747,11 +6789,15 @@ flowchart TD
 </tbody>
 </table>
 <hr />
-<p><em>PM-080 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: March 2026</em></p>
+<p><em>PM-080 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 34</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-080 — Purchase Materials and Services</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>PM-080</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
   Capability E2E-84 · Forecast to Stock</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 2<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 2</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -673,7 +715,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph LE +++ – Plant 100X   
+    subgraph lane_0["LE +++ – Plant 100X   "]
         n16[["fa:fa-cog Create Intercompany STR (SFG-01)"]]
         n17[["fa:fa-cog Create InterCompany STO (SFG-01)"]]
         n18[["fa:fa-cog Perform GTS Trade Compliance"]]
@@ -711,7 +753,7 @@ flowchart TD
         n65{{"fa:fa-arrows-alt parallelGateway"}}
         n66{{"fa:fa-arrows-alt parallelGateway"}}
     end
-    subgraph SA S/4 IF LE778 (China)  
+    subgraph lane_1["SA S/4 IF LE778 (China)  "]
         n1[["fa:fa-cog Perform Repetitive Steps till order confirmation"]]
         n2[["fa:fa-cog Create Sales Order"]]
         n3[["fa:fa-cog Create InterCompany STR (SFG-01)"]]
@@ -733,7 +775,7 @@ flowchart TD
         n60{{"fa:fa-arrows-alt parallelGateway"}}
         n61{{"fa:fa-arrows-alt parallelGateway"}}
     end
-    subgraph SAP S/4 IF LE101 US
+    subgraph lane_2["SAP S/4 IF LE101 US"]
         n11[["fa:fa-cog Create Unconfirmed / Confirmed Sales Orders"]]
         n12[["fa:fa-cog Create Purchase Requisition (FG-01)"]]
         n13[["fa:fa-cog Create Purchase Order (FG-01)"]]
@@ -883,7 +925,7 @@ will be visible in both LE’s"| n58
     class n67 subProc
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWWtv2zgW_SuEiyIOam9FUi_7wy4cxy4CtNNMnHZ2MOkHWqJjIbLk1SOJN5P_vpcyKTs0GXSd-kMQHfHcx-HlFUU9daI85p1h5_37pyRLqiF6OqmWfMVPhuhkzkp-0kNb4DsrEjZPeXkixizyrJol_22GYXf9KIYJbMpWSboR6Izf5hx9u-ihERDTHipZVvZLXiSLk97JukhWrNiM8zQvxOh3PFw4i8abvHWWFzEvdgMcJ8CRB9Q0yfgOpoEbuFPBK3mUZ_ELowtvES6ik2cRXJo_REtWVE34dcm_sMc_krhawvWCpSWHMctqlX5mc56KHKuiFlhUF_dKjKQUfjIQbLZmUZLdAu46ABUsu9tBnvP8jJ7fv7_JWqfo-vwmQ_CLUlaW53yBygrgyX2FFkmaDt-549HUc3plVeR3fPiOTIJzSnqRyGQIqTs9IW7_gSe3y2o4z9NYDu0_iByGZP3YKx6HxOkVG_ir-eJZvPM09klIwtbTWYDHeKw8LRaLN3kCXYtrVt5JXxM6JdPz1hf2fG_sHNpTaZ67wQjrOvHiPon4ntHpdEonO6kmvocdu9GzKfWdsWb0llX8gW12BgdjtzU49YIpDqwGt_70KOv5ZZFHyiCdeFOvNRic4emIWA26I-yGMkKwc1uw9RJ9nqAPHz6gm5o4mKLLlGUVArf_hjHbkeKXYf-vv246CzZcsH6U36JxwSEzdJFVvIjy1ZplGzS7vkLd2fRT38GnN50fP_bpgZ0-bulfrfTwJf2SF4u8WKFP1zN0XbCYI2EkTVgWcZ06sHie53UWo3OeJve82IDnj-4pekiqZV5XSMSzLnjEY1hoKM6jf2hmiWOJKM_jEl0BM1lXqPudpTW4ixvDaFYx0TZiiLaERVLkK5SIf_V0CdZiXvLoDv1ew9Qk1QZVOZpzFTmPdTIxR_a1rrSU5ZRP6zRFv1cb3Q41Cmc1cwldBrqvsIS6n3MoooO03Dda_O3AomfOdXR9KUXr1lnBYT0kkZiFssqju1NlH2Zct-cfXWckMFMvE4gCph2ygX--rWNIuUTdiy8fJ398QX1IOuJZVbAUHnEHUxma6gDMgnR5WfbnzYMLJdl9Do3rXzrbXPmTx3UOj4mLLUnjUMfIgaxXsM7FZEge6kIXEgkyfU4otmvYlc4h6ZQVrEryDH2boa9ZqlcfJcZAhIhiRaYJLKAXF6M4hodPvdLtmKt4xmB7sctFSPrlzx76nvAqY6seKJ1kTDelle9smaxRd7vgL8qyPtBSK86LcevwDJo3us6H0HyDINR5liIcXaFLaBYiY1FPoxr6wDjlsFnKbjUTbtBtTUDNr7V8o0YEUW2n-6RQI2lVzw2UgUbZLbxxni2SYnVA8ZzXvTRry-rQwz_FlhFYbNCnp52-Me_PYVMVLXf9te2sCJbU8_M-1TVTt8txu4884HhmDn-M0roER5-2WwSd5h9HC46jhcfRBkfR_D0ZWVHkD2WfpRVaQ0tIU55aSN4xJP__I0EL0bZHs5F4TqCL6Xatom7TGk5fbo7MC_aKrzkUFMgAT36-LlEllv22Z0fb5dG0QL1vv9Kxvgqy3i9-Zmtl3Zm5Rz_xvDdt6Y5_0gZvbo-W3aRhT7gNHT3AMwty0cwMfmoLaNnROkfnT_ea-zqFd4sLeJtOGu3PzrVeRw8a9BVaS5WsTf2gQ-8Suj8crXfkpkSt7d8lb2_gLv0FNtxf8CAhx3U_55hGht_eyC53nQw7GDZe-_WIjav5WxapiUQfd5O6341KvbItO7e6gPOJkkMd_adOyqTZ-3XNa4O-bmFbYRbu8f0Me8cvyVBbkppSevF5v6CA_bfb8MkxlUiPIe017QWc9PCin695hiZk0g_dyRBdweveclMmEbxiwJtFXEdVK90PraShxFC__09RKBLwFeCqEXQL-EQCcoDvKIYjGfLa2156ajz2JRAoYLAF1EEUvKTLESoIr_H5901HvFDfdP4Wr-JqrHTvDRQQyHhUwCSUI1pA-qPKH5UR0zZkV_r7LW-8UeWNSm-0lceVsYcaQF3d1p9CcRG6ipRKIZQOVFJ9TwIyEzrQlHW1uVHRyUR9lYYvdcSOBrRaSYNEMaQyriJ4MkTi6sDB1MgjhSZFz1cpyWJx27mW18ohkQM8lTNxNcDztAn2ZJC-cuKrmDwdCHRAUYgEXDVtRHpxlResqqbVTo6gbWCq8LVr3AJy_nDwAgCtDs9l2C1LslJuhfbr25NxYBUpVkZmbMXF9vOj2ArCOVq9gtMO2Ds_iK0wnGLdw6MAjvrhDAPN80qcRjaHM4NtFXqh5kBNKFZKqDyxnDO_rXk5Z5joQEuRk-gqKdR1y5DXrVNV2arOqGoBqlCokr-ddaVuO0KVf6BL1y44SQn3Dn5FSe4dT7-4Q6x3qPWOa73jWe_41juB9U5ovTOw3gGVrbfsKmC7DNiuA7YLge1KYLsU2K4FtouB7WoQuxrklZqwq0HsahC7GsSuBrGrQexqELsaxK4GtatB7WrQV5aIXQ1qV4Pa1aB2NWBhq09xL_HQgg_k57SXS9cxotiIEiNKjahrRD0j6hvRwIiGRtSYm2fMzTPmBg8y-W3tJUzNsGuGPTPsm-HADIdmeGCEYXtkhLEZNmfpm7P0zVn65ix9c5bwyJLfGDu9Dpz6r1gSd4ZPnebTPHy-j_mC1WnVee51GJyxzDZZ1Bk2n7A7dfN14zxh8Ma52oLP_wMUGsmj" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWWtv2zgW_SuEiyIuam9FUi_7wy4cxy4CpNNMnHZ2MBksaImOhciSR48k3kz--17KpOzQZNB16g9BdMRzH4eXVxT11InymHeGnffvn5IsqYbo6aRa8hU_GaKTOSv5SQ9tge-sSNg85eWJGLPIs2qW_LcZht31oxgmsClbJelGoDN-m3P07byHRkBMe6hkWdkveZEsTnon6yJZsWIzztO8EKPf8XDhLBpv8tZpXsS82A1wnABHHlDTJOM7mAZu4E4Fr-RRnsUvjC68RbiITp5FcGn-EC1ZUTXh1yX_wh5_S-JqCdcLlpYcxiyrVXrB5jwVOVZFLbCoLu6VGEkp_GQg2GzNoiS7Bdx1ACpYdreDPOf5GT2_f3-TtU7R9dlNhuAXpawsz_gClRXAk_sKLZI0Hb5zx6Op5_TKqsjv-PAdmQRnlPQikckQUnd6Qtz-A09ul9VwnqexHNp_EDkMyfqxVzwOidMrNvBX88WzeOdp7JOQhK2n0wCP8Vh5WiwWb_IEuhbXrLyTviZ0SqZnrS_s-d7YObSn0jxzgxHWdeLFfRLxPaPT6ZROdlJNfA87dqOnU-o7Y83oLav4A9vsDA7Gbmtw6gVTHFgNbv3pUdbzyyKPlEE68aZeazA4xdMRsRp0R9gNZYRg57Zg6yVKWcb_4_xx07mYoI8fP6KbmjiYokvAKwT-_w2Dbzp_blnil2H_Dxi-YMMF60f5LRoXHLJE51nFiyhfrVm2QbPrK9SdTT_3HfwB2C_ogZ0-bulfrfTwJf2SF4u8WKHP1zN0XbCYI2EkTVgWcZ06sHie53UWozOeJve82IDnT-4H9JBUy7yukIhnXfCIx7DoUJxH_9DMEscSUZ7HJboCZrKuUPc7S2twFzeG0axiooXEEG0JC6bIVygR_-rpEqzFvOTRHfq1htlJqg2qcjTnKnIe62RijuxrXWkpy1mf1mmKfq02uh1qFM5q5hI6DnRiYQl1L3Koo4O03Dda_OXAomfOdXR9KUXr1lnBYW0kkZiFssqjuw_KPsy4bs8_us5IYKZeJhAFTDtkA_98W8eQcom6518-TX77gvqQdMSzqmApPO4OpjI01QGYBenysuzPm4cYSrL7HJrYv3S2ufInj-scHhnnW5LGoY6RA1mvYJ2LyZA81IWOJBJk-pxQbNewK51D0ikrWJXkGfo2Q1-zVK8-SoyBCBHFikwTWEAvLkZxDA-ieqXbMVfxjMFWY5eLkPTL7z30PeFVxlY9UDrJmG5KK9_ZMlmj7nbBn5dlfaClVpzn49bhKTRydJ0P0cUkCEKdZynC0RW6hGYhMhb1NKqhD4xTDhun7FYz4Qbd1gTU_FrLN2pEENX2YZ8UaiSt6rmBMtAou4U3zrNFUqwOKJ7zupdmbVkdeviH2DICiw369LTTN-b9OWywouWuv7adFcGSen7ep7pm6nY5bveUBxzPzOGPUVqX4Ojzdrug0_zjaMFxtPA42uAomr8nIyuK_KHss7RCa2gJacpTC8k7huT_fyRoIaatEoaim43EAwOdT7eLFnWbHvHhYKNkXrxXfM2huEAS2AXwdYkq0QK2_TvaLpWmHeo9_JXu9VWQ9d7xI9ss6y7NPfrp571pe3f8Uzd4c6u07CwN-8Nt6OgBnl-Qi2Zm8EPbQcvu1jk6f7rX6NcpvHOcw1t20mh_eqb1PXrQrK_QWqpkbfAH3XqX0P3haL07NyVqfRS45O3N3KU_wYb7Ex4q5LhO6BzT1PBPaWqkaWqXu66GHQy7Ma2dYePK_pZFalLRp90E73emUq9yy46uLuAMo-RQU3_VSZk0e8KueZ3Q1y1sq83CPb63Ye_45Rlqy1NTSi9E7ycUs_92Gz45pirpMaS9Br6A0yBe9PM1z9CETPqhOxmiK3gNXG7KJIJXD3jjiOuoaqX7UytvKDHU7_9TFIoEfAW4agTdAj6RgBzgO4rhSIa89raXnhqPfQkEChhsAXVYBS_vcoQKwmt8_n3TES_aN52_xSu6GivdewMFBDIeFTAJ5YgWkP6o8kdlxLQN2ZX-fskbb1R5o9IbbeVxZeyhBlBXt_W7UFyEriKlUgilA5VU35OAzIQONGVdbW5UdDJRX6XhSx2xowGtVtIgUQypjKsIngyRuDpwMDXyqKFJ0fNVSrJY3Hau5bVySOQAT-VMXA3wPG2CPRmkr5z4KiZPBwIdUBQiAVdNG5FeXOUFq6pptZMjaBuYKnztGreAnD8cvABAq8PzGnbLkqyU26L9-vZkHFhFipWRGVtxsRX9JLaFcL5Wr-AUBN1kD2JbDKdb9_AogM8BcLaB5jkcnV1MmkObwbYKvVBzoCYUKyVUnljOmd_WvJwzTHSgpchJdJUU6rplyOvWqapsVWdUtQBVKFTJ3866Urcdoco_0KVrF5ykhHuHw6Ik946wX9wh1jvUese13vGsd3zrncB6J7TeGVjvgMrWW3YVsF0GbNcB24XAdiWwXQps1wLbxcB2NYhdDfJKTdjVIHY1iF0NYleD2NUgdjWIXQ1iV4Pa1aB2NegrS8SuBrWrQe1qULsasLDV57qXeGjBB_KT28ul6xhRbESJEaVG1DWinhH1jWhgREMjaszNM-bmGXODB5n8_vYSpmbYNcOeGfbNcGCGQzM8MMKwPTLC2Aybs_TNWfrmLH1zlr45S3hkye-QnV4HvgasWBJ3hk-d5vM9fOKP-YLVadV57nUYnLfMNlnUGTafuTt189XjLGHw9rnags__Azqn1U8=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
 
@@ -908,7 +950,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph  LE101
+    subgraph lane_0[" LE101"]
         n1[["fa:fa-cog Create Sales Orders"]]
         n2[["fa:fa-cog Perform Order Validation (including Credit and GTS checks)"]]
         n3[["fa:fa-cog Receive CTP Updates"]]
@@ -935,7 +977,7 @@ flowchart TD
         n52{{"fa:fa-arrows-alt parallelGateway"}}
         n53{{"fa:fa-arrows-alt parallelGateway"}}
     end
-    subgraph LE778 (Shell Plant) 
+    subgraph lane_1["LE778 (Shell Plant) "]
         n16[["fa:fa-cog Create Inbound Delivery (S/4) without any preceding doc."]]
         n17[["fa:fa-cog Perform Goods Receipt (Valuated with Standard Cost from iCost)"]]
         n18[["fa:fa-cog Check Quantity to be Delivered"]]
@@ -1091,7 +1133,7 @@ flowchart TD
     class n58 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWVtv27gS_iuEiyIOYJ-IpGTJfjgLx5dugHSbrdMuFpt9oCUqJiJLhi5JfNL89zOUSTmmxS7WbR6S6CPn9s1whrJfOmEW8c6o8_79i0hFOUIvZ-WKr_nZCJ0tWcHPemgHfGW5YMuEF2dyT5yl5UL8r96G3c2z3CaxOVuLZCvRBb_POPpy1UNjEEx6qGBp0S94LuKz3tkmF2uWbydZkuVy9zsexE5cW1NLl1ke8Xy_wXF8HHogmoiU72Hqu747l3IFD7M0OlAae3EQh2ev0rkkewpXLC9r96uCf2TPf4ioXMFzzJKCw55VuU6u2ZInMsYyryQWVvmjJkMU0k4KhC02LBTpPeCuA1DO0oc95Dmvr-j1_fu7tDGKbqd3KYKfMGFFMeUxKkqAZ48likWSjN65k_Hcc3pFmWcPfPSOzPwpJb1QRjKC0J2eJLf_xMX9qhwtsyRSW_tPMoYR2Tz38ucRcXr5Fn4btnga7S1NBiQgQWPp0scTPNGW4jj-IUvAa37Ligdla0bnZD5tbGFv4E2cY306zKnrj7HJE88fRcjfKJ3P53S2p2o28LBjV3o5pwNnYii9ZyV_Ytu9wuHEbRTOPX-OfavCnT3Ty2p5k2ehVkhn3txrFPqXeD4mVoXuGLuB8hD03Odss0LoeoYdxYX8SfFff911YjaKWT_M7tEk5xADWjA4kOiTPCnFXefvv98IkEOBG57HWb7e7UVfWSIiVoosRV2RhkkVQelKpZEoEUsj9OF2gcIVDx-Kc0MvPdT7mYdcPHI0ub1BXzagk5uOuN9zZJKlscjXtSuGnNcuJz27zVkEJrP1JhEsDbkhOWiXHH9GN1lRykhliOOqzNAk4dDX0ntDg98eZPeryMuKJSYnweH2xUpsUPdDlkUFuiqKipv7h63JnFRFma2BlKv0MRNHUWHnZEKwWT0sCatE2rxlz0cJw0bpTGQdoN8rlpai3CJgbcnRlCfACBSMKUwt6b6coruKOJiieZUk6Pdya0raCqUql1kFCYt2Jrdazw10UJgsUhXqXmclwibP2PtHZ46U_HZU8F63UbJJoGtcwZwUkryiPn31nAKZ87cy_l4GkrqRtbdRtVdniZc1cwcygSHTlliVDKuO4Y_rcL2Xlz1pEe8vYbyFq30BNKlHv9x1Xl_fig7aRfkztJgChD7sGq8p5p8mFpwk5pG9GMvz7Knos6REG5azJOGJRYj-OyEYuUZHv575foC6ixWH6r9JgMtz9LZUB6094Srd1f5U1353ceGeoydRrrJKtuot2uTQner-HWXhf8wT4FuaRt2c6r62KaGvsaQCc1GtGC1KJi9SEZRIAdeGPFsjIf89Ol7BjzSK4amNgjg_vVEQ_BMaBbGM3DGMxh013SrNOdwDRCi5hgMaPpxr_ZBXUx89ueETSy-9EeCFHH43DP5R8xp1rz5ezP74iPqQrJCnJdQ0XO3NhBGvLdugFmo1K4r-sm6ESOyG1y-mdHt9z543GVyP2yce8dvnZLaGKRnKZCg51IXblwyQHeUkaFUhw5cnJhFQ4AcP4yiCs1utTT3D79y_Gi8kGR__7KGvgpcpW_eAI5Eyc544_3BbMPdbalNZvbiEO6d0X_5Ft9lod3Ws1confau4-LQY35qqyQ_flOjpRUpdu2hXFQYUZAI9tr6pflmgT2lidgM6sI3nq8upOdqcfz-WXWzI6HK5luVS14F0Toub0uQnDGT6E3S4oGJGZv3A_bX_GbrZaluIEE4QHJyoCkt1l-nSCyqP0FvJ4cnXAc9pF931i90L_pEMPm2ou6cMde8UocEpQv4pQsGJd46UoH7_v3A01CMe7J49TwPBDnCHCnCHEvh215Ej967zTY5nvXeohLFWjk1AmSPanqd2EKJ3uErE1YCnAEcDykXiax1KhOodagP1TSNaJ_Z3AA4UQFWQWkDZxL4B0MZvR7Hwp3wn-ia9Mld-y3YLjQ1NRrNT-6ljp4od1zEiIzobRDlOmmzoSLSISgHGZrrUpaT2ydNxEZ1dvd1TLjTpV4_EWNfPyryrY3KNZ6L8oZpa6iiNgcFCw4oOEZuADtFVElg74XpHJUnNpYPwmyyqvOOmMHQGPHNHQ4iqBFdTiF0ToAaga6cpBF1d-lnHoymgWkNzKDTQOK7yRrEBNE4omqkuFJ1o7YSrgObsYnODor3xWsfpvvlASxbIm4_dDlaIdYVaV1zrimddGVhXfOtKYF0ZWleAUuuSnQVspwHbecB2IrCdCWynAtu5wHYysJ0NYmeDfKcm7GwQOxvEzgaxs0HsbBA7G8TOBrGzQe1sUDsb9DtHxM4GtbMBnUV_WXCIDyy4rz7wP0SDVnTYhrpOK4pbUdKK0lbUbfcY-rn6RP4QHrTDfjsctMPDVhgGeiuM22HSDtN22G2H26P02qP02qP0mig7vQ681a2ZiDqjl079FR18jRfxmFVJ2XntdRi8tS22adgZ1V9ldar6bX8qGHwetd6Br_8H7DqXTQ==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWW1v2zgS_iuEiyIOYF9EUrJkf7iF45dugHSbrdMuFpvDgZaomIgsGXpJ4kvz328ok3JMi12s23xIooczw5lnhjOU_dIJs4h3Rp33719EKsoRejkrV3zNz0bobMkKftZDO-ArywVbJrw4kzJxlpYL8b9aDLubZykmsTlbi2Qr0QW_zzj6ctVDY1BMeqhgadEveC7is97ZJhdrlm8nWZLlUvodD2InrndTS5dZHvF8L-A4Pg49UE1Eyvcw9V3fnUu9godZGh0Yjb04iMOzV-lckj2FK5aXtftVwT-y5z9EVK7gOWZJwUFmVa6Ta7bkiYyxzCuJhVX-qMkQhdwnBcIWGxaK9B5w1wEoZ-nDHvKc11f0-v79Xdpsim6ndymCnzBhRTHlMSpKgGePJYpFkozeuZPx3HN6RZlnD3z0jsz8KSW9UEYygtCdniS3_8TF_aocLbMkUqL9JxnDiGyee_nziDi9fAu_jb14Gu13mgxIQIJmp0sfT_BE7xTH8Q_tBLzmt6x4UHvN6JzMp81e2Bt4E-fYng5z6vpjbPLE80cR8jdG5_M5ne2pmg087NiNXs7pwJkYRu9ZyZ_Ydm9wOHEbg3PPn2PfanC3n-lltbzJs1AbpDNv7jUG_Us8HxOrQXeM3UB5CHbuc7ZZoYSl_L_OX3cddD3DDr7r_GcnIH9S_BcsxGwUs36Y3aNJziEetGBwONEneWoKkH-rQA4VbngeZ_l6J4u-skRErBRZiroiDZMqgjKWRiNRIpZG6MPtAoUrHj4U54Zdemj3Mw-5eORocnuDvmzAJjcdcb_nyCRLY5Gva1cMPa9dT3p2m7MItszWm0SwNOSG5qBdc_wZ3WRFKSOVIY6rMkOThEOPS-8NC357kN2vIi8rlpicBIfii5XYoO6HLIsKdFUUFTflh63JnFRFma2BlKv0MRNHUWHnZEKwWT0sCatE7nnLno8Sho3Smcg6QL9XLC1FuUXA2pKjKU-AESgYU5la0n05RXcVcTBF8ypJ0O_l1tS0FUpVLrMKEhbtttxqOzfQTWHKSFOoe52VCJs8Y-9vnTky8ttRwXvdxsgmgQ5yBTNTSPKK-vTVMwt0zt_q-HsdSOpG1t5G1V6dJV7WzB3oBIZOW2JVMqw2hj9uw_VeXvakRby_hFEXrvYF0KQe_XLXeX19qzpoV-XP0GIKUPqwa8Kmmn-aWnCSmkf2aizPs6eiz5ISbVjOkoQnFiX6z5Rg_LZ1dwzZuZ75foC6ixWHY3ADcHmOjF4_aO0PV-nuHEz1OeguLtxz9CTKVVbJtr1Fmxw6Vd3Loyz8l3kafEsDqRtV3eM2JfQ4llSwXVQbRouSyQtWBOVSwHUiz9ZIyH-PjlrwI01jeGrTIM5PbxoE_4SmQSzjdwxjckdNt0pzDvcDEUqu4bCGD-faPuTVtEdPbv7E0ldvBHghB-ENg3_U7Ebdq48Xsz8-oj4kK-RpCfUNV34zYcRryzaYhVrNiqK_rJsiErtB9oup3V7fs-dNBtfm9ulH_PaZma1hYoYyGUoPdeFWJgNkRzkJWk3I8OWJSQQU-MHDOIrgHFdr087wO3exxgtJxsc_e-ir4GXK1j3gSKTMnC3O39wcTHlLbapdLy7hLirdl3_RbTba3SRrs_JJ3zAuPi3Gt6Zp8sO3Jnp6kVLXrtpVhQEFmUC_rW-tXxboU5qY3YAObKP66nJqjjnnn49oFxs6ulyuZbnUdSCd0-qmNvkJw5n-BBsumJiRWT9wf-1_hm622hYihBMEByeqwlLda7r0gp4fDiZ3ePLVwHPaVXf9Yvfif6SDTxvw7ikD3jtFaXCKkn-KUnDi_SMlqN__NxwN9YgHu2fP00CwA9yhAtyhBL7ddeTIvet8k-NZyw6VMtbGsQmo7Yjez1MShGgJV6m4GvAU4GhAuUh8bUOpUC2hBKhvbqJtYn8H4EABVAWpFdSe2DcA2vjtKBb-lO9H36RX5spv2W6h2UOT0UhqP3XsVLHjOkZkRGeDKMdJkw0diVZRKcDYTJe6lNQ-eTouorOrxT3lQpN-9UiMdf2stnd1TK7xTJQ_VFNLHWUxMFhoWNEhYhPQIbpKA2snXO-oJKm5dBB-k0WVd9wUhs6AZ0o0hKhKcDWF2DUBagC6dppC0NWln3U8mgKqLTSHQgON4ypvFBtA44SimepC0YnWTrgKaM4uNgUU7Y3XOk73zQddskDefBx3sEKsK9S64lpXPOvKwLriW1cC68rQugKUWpfsLGA7DdjOA7YTge1MYDsV2M4FtpOB7WwQOxvkOzVhZ4PY2SB2NoidDWJng9jZIHY2iJ0NameD2tmg3zkidjaonQ3oLPpLhEN8YMF99UXAIRq0osM21HVaUdyKklaUtqJuu8fQz9Un9YfwoB322-GgHR62wjDQW2HcDpN2mLbDbjvcHqXXHqXXHqXXRNnpdeCtbs1E1Bm9dOqv7uDrvYjHrErKzmuvw-CtbbFNw86o_oqrU9Vv-1PB4LOp9Q58_T9WSp8U" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
 
@@ -1116,11 +1158,11 @@ flowchart LR
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Boundary Apps
+    subgraph lane_0["Boundary Apps"]
         n19["Reconcile CTSi Carrier Invoice and Dispute Management"]
         n20["Receive reconciled Carrier Invoice(s)"]
     end
-    subgraph EWM  (De-Centralized)
+    subgraph lane_1["EWM  (De-Centralized)"]
         n12["Release Wave and Pick WH Task Creation"]
         n13["Pick WH Task Confirmation (TR/TO)"]
         n14["Pack (Shipping Label Printing) and Packing List"]
@@ -1130,7 +1172,7 @@ flowchart LR
         n18["Receive Outbound Delivery Order in EWM"]
         n42{{"fa:fa-arrows-alt parallelGateway"}}
     end
-    subgraph External Partners/B2B
+    subgraph lane_2["External Partners/B2B"]
         n21["Send to SAP B4NL"]
         n22["Notify carrier"]
         n23["Capture Carrier Invoices (via EDI only)"]
@@ -1142,7 +1184,7 @@ flowchart LR
         n43{{"fa:fa-arrows-alt parallelGateway"}}
         n44{{"fa:fa-arrows-alt parallelGateway"}}
     end
-    subgraph SAP S/4 Intel Foundry - LE500 Ireland 
+    subgraph lane_3["SAP S/4 Intel Foundry - LE500 Ireland "]
         n1["Create Outbound Delivery (S/4)"]
         n2["Create/Update Freight Unit and Freight Order"]
         n3["Perform Carrier Selection and Calculate Charges"]
@@ -1241,7 +1283,7 @@ Carrier via BN4L"| n33
     class n44 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWFtv4jgU_isWo26pBCJXAjysBAFmKnWmqNDpw3QfTHCK1RBHjtOW7fDf9zixA7j0YZk-jCZfznfu59jhvRGxFWkMGhcX7zSlYoDeL8WabMjlAF0ucU4uW6gCfmJO8TIh-aWUiVkq5vTfUsz2sjcpJrEp3tBkK9E5eWIE3V-30BCISQvlOM3bOeE0vmxdZpxuMN-GLGFcSn8hvdiKS2vq1YjxFeF7AcsK7MgHakJTsofdwAu8qeTlJGLp6khp7Me9OLrcSecS9hqtMRel-0VOvuO3B7oSa3iOcZITkFmLTXKDlySRMQpeSCwq-ItOBs2lnRQSNs9wRNMnwD0LII7T5z3kW7sd2l1cPKa1UXRz95gi-IsSnOdjEqNcADx5ESimSTL44oXDqW-1csHZMxl8cSbB2HVakYxkAKFbLZnc9iuhT2sxWLJkpUTbrzKGgZO9tfjbwLFafAv_GrZIutpbCrtOz-nVlkaBHdqhthTH8R9ZgrzyBc6fla2JO3Wm49qW7Xf90PqoT4c59oKhbeaJ8BcakQOl0-nUnexTNen6tvW50tHU7VqhofQJC_KKt3uF_dCrFU79YGoHnyqs7JleFssZZ5FW6E78qV8rDEb2dOh8qtAb2l5PeQh6njjO1mjEirKX0TDL8uqd_Evt_q_Hxp3s9IgmBIWLOUUh5pwSjq7TFwapQjhdoTHNs0IQ9B2n-AmmNxWPjX8O9DhWpYfQF4K41rcydTXzq5oHXWQ4OXn4jlBzTNoh6Oc4gX2wujp01imNJAT2CHrAL5VrMxo9o4dvqCxpyAkWlKXH3tkuEI_lWBpTvillUXNx11ncXhkcT3IwcJrzNc0ymEVUDjOacZoKeLyqzINI-Y7mRk5sX2ogPGZ8g24YXoGYIdGVEiwX6Ctjqxxd53lBUBPyYDoTgOBtIZayjGhMEkgzFLN5O75Cr1Ss0bd7QAWmSW4Qewd1-ajgVu5ERFOZ-mOi57y_PzZiPIhxG2rIXvM2TgTKMNQlIcnXquMfG7vdp9V8E4SnGPIFmyklPO-MnNFhy9jg2hx4SDA0H87QyPtxY3SVLPgPJmi8RVHVSYaALGyIM1FwYvZajpovFKPJ-BqxNNkaGXW8A-bkjURF2QrkBVovR5I4-uHdtL8uFgbPP-DN1tucRhAilxnOBGKwC8pKYljRkyDoGeRe85dOapbAwhhjgVFKCDAgCUuCIB9C_lfl4rD7XWtPzgXL9tbvlHXl1sokuvtSytO5vYTzJVoj8hYlRQ6N8KGYVQe4_68DKpL3p20jO2He8aCKAmZtKvsVGrUN6fQtC11zksipO2xxWRA59qcavAmqzMrX8p37bCVpU16eTugeLizlTGugHI9jtnsw07rh5rCSorJ9JDnESVQkUm8IR_UTMSbS012vNgIECpu8KPllF3wYRV8z7kBp3lFaB7WX4Msrlp5Cxz_AMoBxXpgLRC4aucZQ82DTGDJyx1STQI4zUIalcjUXWBQ5qpbW9bGC3r4SBwytak6ESMqjA41ZVHw8Q_p7-rw6pdHstoMmcBZs0XxNiLlfLb09h1HECxgEyJ62NnnLSArHBLyCjhCHB09Flm0zTBIWHfoYgrayCHUDXQuygbyGt53Z8AoxDicgrDW4gKKfOClOnDVO15jxj00JBSvPumrkq5DNoXUCQ81R8cudcbAyTHLfWBU6QTJbQDzs8SpknYkPu8M-a3e4znk074yV4_rnkLrnkIJzSL1zSP1zdq91Dsk-c2HDpQq123_Li5IGHAW4GggqwHMU4GkJX0tUz65Wod67-r3rVYBWoEzW4j0lry0qg25PyysBz9aA0uDUgK8oGlCMvnrsq9f62VWAbZmAVmCroDwtYVsG4OqwdRiaUQMqD54O1NN50BKejkNLuIoSmAydSkcHqr3wlFuODs3pqki03yoVts6-rVTYXcOLOnm2SoZTG1Gh6YJoJ7QGR1WsLnjX0FgBv-ESK_efXHnwjQLnzm85jkdugAzc9TrwhQKbrhRwasdVMuyaYTSm7jNb-2krP7Sf2q2aoPy2-0edBj6MGHvuLGBM4NwEbx9TfUvQd8rK97rUnuLNbsf1RW5S3kIrQW3R0bnWMTiW2du-UjW9Rc2jA_wKob_Qt-EDXL-b31ghj0XK5QfrCL4vr-BIKz9vjpJafoqWPaF_WTjGg0_w3id4X_1qcIS61knU1h_Ux7BzGnZPw95p2D8Nd0_DwWm4dxrun4Rhzk7Cp6P0TkfpnY7Sq6NstBobAh-0dNUYvDfKX9jgV7gViXGRiMau1cCFYPNtGjUG5S9RjaK8nY0phmv3pgJ3_wFXSwZc" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWFtv4jgU_isWo26pBCJXAjysBAGmlTpDVdrpw3S1coNTrJokchxatsN_3-PEDuDSlZbdPowmX8537ufY4b0RpQvSGDTOzt5pQsUAvZ-LJVmR8wE6f8I5OW-hCviBOcVPjOTnUiZOEzGnf5Vitpe9STGJTfGKso1E5-Q5Jej-qoWGQGQtlOMkb-eE0_i8dZ5xusJ8E6Ys5VL6C-nFVlxaU69GKV8QvhOwrMCOfKAympAd7AZe4E0lLydRmiwOlMZ-3Iuj8610jqWv0RJzUbpf5OQbfnugC7GE5xiznIDMUqzYNX4iTMYoeCGxqOBrnQyaSzsJJGye4Ygmz4B7FkAcJy87yLe2W7Q9O3tMaqPo-vYxQfAXMZznYxKjXAA8WQsUU8YGX7xwOPWtVi54-kIGX5xJMHadViQjGUDoVksmt_1K6PNSDJ5StlCi7VcZw8DJ3lr8beBYLb6Bfw1bJFnsLIVdp-f0akujwA7tUFuK4_g_WYK88jucvyhbE3fqTMe1Ldvv-qH1UZ8Oc-wFQ9vME-FrGpE9pdPp1J3sUjXp-rb1udLR1O1aoaH0GQvyijc7hf3QqxVO_WBqB58qrOyZXhZPNzyNtEJ34k_9WmEwsqdD51OF3tD2espD0PPMcbZEDCfkT-vnY2OUFmVTo2GW5Y-NPyo5-ZfYfXh_K7s-ooyg8G5OUYg5p4Sjq2SdQtoQThZoTPOsEAR9wwl-hklOxKEex6r0ELomiGt9C1NXM7-oedBRxxy2QdHk4RtCzTFph2CIYwZLYnFhOO6UBhmB_YIe8Lpy84ZGL-jhEpWlDjnBgqaJQXSBeCiXJjHlq1IWNe9uO3cz05gnORg4zfmSZhnMKCqHHN1wmgh4vKjMg0j5juZGfmxfaiA8TvkKXad4AWKGRFdKpLlAX9N0kaOrPC8IakIqTGcCEJwV4klWFY0Jg5RDbZuz8QV6pWKJLu8BFZgys9a9vRp9VDCTuxLRBIHJQ6LnvL8_NmI8iHEb6pm-5m3MBMowlIYR9rWahMfGdvuPlZUVm7wJwhMMiYPVlRCed0bOyGgl2QFz0IFEiubDGzTyvl8bIlLV91TQeIOiqsMMAVnkEGei4MTswRw11xSjyfgKpQnbGNl1vD3m5I1ERdkWZA2dmCNJHH33rttf7-4Mnr_Hu1luchpBlFxmOxMohX1RVhXDGp8EQc8g95o_dYIzBktljAVGCSHAgCQ8EQT5EPK_KhcXe2TX2pFzkWY767fKunJrYRLdXVnlCd5-gjMoWiLyFrEih6b4UNiqG9x_1w0VyftfWkiWVbbEvONBOQUM4FQ2MXRvG_LqWxa64oTJUTRaXxZHroNjjd8EbWYX1PKd-2whaVNenmboHi445axroBybQ7a7N-u6-eawqqKylSQ5xCwqmNQbwtH-TIxJ9fQEqE0BscLmL0p-2REfRtTXjFtQmneU1kHtJfjyiqWn0P0PsCRgzO_MxSIXkFxvqLm3gQyZoJxhORXkMANlWCpXc4FFkaNqmV0dKujtKrHH0KrmRAhWHi9onEbFx3Omv6PPq1Md3cw6aALHxAbNl4SYe9fSW3UYRbyAoYDsaWuTt4wkcHzAK-gIsX84VWTZNkPG0mjfxxC0lUWoG-hKkBXkNZx1boYXKOVwSsKWgwsr-oFZceQMcrrGvH9sSiiYrLIa_ypkc4CdwFBzUPxyf-ytD5PcN9aGTpDMFhD3e7wKWWfiwx6xT9ojrnMazTth_bj-KaTuKaTgFFLvFFL_lD1snUKyT1zecNlC7fbv8gKlAUcBrgaCCvAcBXhawtcS1bOrVaj3rn7vehWgFSiTtXhPyWuLyqDb0_JKwLM1oDQ4NeArigYUo68e--q1fnYVYFsmoBXYKihPS9iWAbg6bB2GZtSAyoOnA_V0HrSEp-PQEq6iBCZDp9LRgWovPOWWo0NzuioS7bdKha2zbysVdtfwok6erZLh1EZUaLog2gmtwVEVqwveNTRWwC-43Mr9J1cefMfAufNLjuOBGyAD974OfMXApisFnNpxlQy7ZhiNqfvM1n7ayg_tp3arJii_7f5Bp_2SH2TpS-cOxgTOTfD2MdG3BH2_rHyvS-0p3s1sXF_qJuWNtBLUFh2dax2DY5m97StV0xlqHhzgFwj9hi6HD6PHpHmZFvJYpFx-4I7ge_QCjrTys-cgqeWna9kT-peIQzz4BO99gvfVrwwHqGsdRW39AX4IO8dh9zjsHYf943D3OBwch3vH4f5RGObsKHw8Su94lN7xKL06ykarsSLwoUsXjcF7o_xFDn61W5AYF0w0tq0GLkQ63yRRY1D-ctUoytvZmGK4gq8qcPs3B-QV7g==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
 
@@ -1268,7 +1310,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph  Sap S/4 IF LE778 (Shell Plant) 
+    subgraph lane_0[" Sap S/4 IF LE778 (Shell Plant) "]
         n14[["fa:fa-cog Perform GTS Trade Compliance"]]
         n15[["fa:fa-cog Create Inbound Delivery (S/4) without any preceding doc."]]
         n16[["fa:fa-cog Perform Goods Receipt (Valuated with Standard Cost from iCost)"]]
@@ -1305,14 +1347,14 @@ flowchart TD
         n56{{"fa:fa-arrows-alt parallelGateway"}}
         n57{{"fa:fa-arrows-alt parallelGateway"}}
     end
-    subgraph CFIN
+    subgraph lane_1["CFIN"]
         n7["AR Posting"]
         n8["Profitability Analysis"]
         n9["Cash Application"]
         n10["Payment Receipt"]
         n49{{"fa:fa-code-branch exclusiveGateway"}}
     end
-    subgraph SAP S/4 IF LE101 US
+    subgraph lane_2["SAP S/4 IF LE101 US"]
         n1["Receive Virtual"]
         n2["Outbound Delivery (1 to N)"]
         n3["Ship Goods Issue"]
@@ -1440,7 +1482,7 @@ flowchart TD
     class n58 subProc
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWW1v4rgW_isWo1GpBHdixyHAh3tFKawqzUt36MxqtZ0PJnFKVJNEeWnLdvvf73GwQzDOapfhQ1Uen-e8PLaPnfDaC9KQ96a99-9f4yQup-j1otzwLb-Yoos1K_jFAO2B7yyP2Vrw4kLaRGlSruI_azNMsxdpJrEl28ZiJ9EVf0g5-nYzQDMgigEqWFIMC57H0cXgIsvjLct381SkubR-x8eRE9XR1NBVmoc8Pxg4jo8DD6giTvgBdn3q06XkFTxIk_DIaeRF4yi4eJPJifQ52LC8rNOvCv6JvfwWh-UGvkdMFBxsNuVWfGRrLmSNZV5JLKjyJy1GXMg4CQi2ylgQJw-AUwegnCWPB8hz3t7Q2_v390kTFN1d3ycIPoFgRXHNI1SUAC-eShTFQkzf0fls6TmDoszTRz59Rxb-tUsGgaxkCqU7Aynu8JnHD5tyuk5FqEyHz7KGKcleBvnLlDiDfAd_jVg8CQ-R5iMyJuMm0pWP53iuI0VR9FORQNf8jhWPKtbCXZLldRMLeyNv7pz602VeU3-GTZ14_hQHvOV0uVy6i4NUi5GHnW6nV0t35MwNpw-s5M9sd3A4mdPG4dLzl9jvdLiPZ2ZZrW_zNNAO3YW39BqH_hVezkinQzrDdKwyBD8POcs2CK1YhlYfKLpZoo8L3x-j_mrDhUC3giXlJdqby0-C6R9_3PciNo3YMEgf0C3PozTfol_uVuguZyFH83SbiZglAb_v_fjRpnrH1HnOQRl0k6zTKgnRNRfxE893EPsDvUTPcblJqxKxZIeynAc8hPWOwjT4j-l21JFRmoYF-grMOCtR_zsTFYQLa8doVTK5e0PItoC1mqdbFMt_L03nvpHzhgeP6NcKZInLHSpTtOY6cx6a5LE9sy9VaZR8XxEHu2hZgea_ljvTz8QqXKebW9js0ASlJ9T_mJYIm2UR5yc9fj7xiO21zu5ulWj9Ksk5LMs4kLNQlGnweKn9w4yb_sjZ64y4duptDFnAtEM18M-3LISSC9S_-fRh8dsnNISiA56UORNw0phTSahtHYBbkC4tiuG6Pj9QnDyl0D_-Z7LtK3_xkqXQrW_2JJMzsnKg6i3PAzkZiof60AxkgexkTvxuDfsqOBQtWM7KOE3QtxX6kghz9ZGxNREpotyRIoYNdPRlFoZwBlRb0499Fa8YnPKHWqSkn34foO8xLxO2HYDSccIMV66xfFebOEP9_Ya_KYrK1NI1FufNvAl4BT0U3aXTfd8zeR2LcPYV3UKzkBXL9TSroA_MBYc7S_Jguhj3Gxew5jOj3qAWQa62yzZpYpCMVc9PKdT5e0q9UbrZ2GAftu08TaI4355SyD8KqHx0hHXNsF9RBsKeGtLX18NEhHy4hktQsDk04qYFI9h7b29tqmen7vft_t53whnZOfwlEFUBgX7ZH-kmzT-PNj6L5rkHGsvz9LkYMlGiDHazEFx0kOg5JO8c0ugckv_vSNBnjKvMfHnzueXQh_V12K2wqlpjYxiTrTMu2ToWchXNEiZ2cPE-tpuA3ZwVGzTLYFkHda88tsCOdMV2Wzg_9I3j2IJO_u0cn5a2mt0eLmnYwdCv2zlACnXoJw7NMy8rJo5TIGBwesD3sbzE1Md5uwGBbd1Uj3tquyCw6DiL2_Mppatga8OZ1TrnWhajWlxRBZWQp8Ede-GG_Bhbz41vSaA7E_pw6FKqv36R27ow71Hn3ymw-_MnQavZZQKeB4yczTOA_nx_dT2LjxY76OKNDB5MC9rPEmzHU3Pf3salKl2pec457QGfQyLnkFqXnggeS3k-TDOeoAVZDMd0MUVf4VK8gV4RwEUMmkhYBWUzjT-MHQxPPmg4_K_siRrw9wClCqBUAn_d9-QjwH3vL_nwoG3HylYDxFXeXA1QZeFpQMUjOh4ZKcDX8TwV73NaRyONcxWNTBTgqWiEGoDrmL5-l9VLZzoP11GZai7WXJ0HVonhJjGlDHEMAE9MqdRDSR2Saj6ZqAiNfAqgjRaOAdCRITBVGni6Dk_riU3ANQGioxCVh06bYBWl8aFmzdUA1tOoS8faRyOf8uFpC0_VgpuwemFpwFWKY2xQPF2tp6pt0lCVaI_KvOGrcV25rqKZc2WvzdVX7U5p7WrxPb0ATgBdtKuL1lPsqRpdYgBY5-SqpKlrJN2sYWWggyoHWhK9ZCaGeQNQZdEsYyXqpPWmpp6u1gul4yHSPeR2D9HuIa97aNQ95HcPjbuHJp1DsLk6h7rVIN1qkG41SLcapFsN0q0G6VaDdKtButVwu9Vwu9Vwu9WA3axf5R7jVL12PUY9Kzqyor4VHVvRiQ2ljhXFVpRYUdeKUv0G9Rj27PDIDvt2eGyHJ1YYWqcVxnaY2GHXDtur9OxVevYqPXuV0OHVK-PeoAc38S2Lw970tVf_0gK_xoQ8YpUoe2-DHoML7GqXBL1p_YtEr6rfkl3HDB5Btnvw7f8ngdwU" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWW1v4rgW_isWo1GpBHdixyHAh72iFFaV5qU7dGa12q6uTOKUqCaJ8tKW7fa_7zHYAYx9tcvwoSqPz3NeHtvHTnjtRHnMO-PO-_evaZbWY_R6Ua_4ml-M0cWSVfyih3bAd1ambCl4dSFtkjyrF-mfWzNMixdpJrE5W6diI9EFf8g5-nbTQxMgih6qWFb1K16myUXvoijTNSs301zkpbR-x4eJl2yjqaGrvIx5uTfwvBBHAVBFmvE97Ic0pHPJq3iUZ_GR0yRIhkl08SaTE_lztGJlvU2_qfgn9vJrGtcr-J4wUXGwWdVr8ZEtuZA11mUjsagpn7QYaSXjZCDYomBRmj0ATj2ASpY97qHAe3tDb-_f32dtUHR3fZ8h-ESCVdU1T1BVAzx7qlGSCjF-R6eTeeD1qrrMH_n4HZmF1z7pRbKSMZTu9aS4_WeePqzq8TIXsTLtP8saxqR46ZUvY-L1yg38NWLxLN5Hmg7IkAzbSFchnuKpjpQkyQ9FAl3LO1Y9qlgzf07m120sHAyCqXfqT5d5TcMJNnXi5VMa8QOn8_ncn-2lmg0C7LmdXs39gTc1nD6wmj-zzd7haEpbh_MgnOPQ6XAXz8yyWd6WeaQd-rNgHrQOwys8nxCnQzrBdKgyBD8PJStWSLCM_8_7_b6DFqxAiw8U3czRx1kYDlF3seJCoFswqS_RfeePHVV-Mkx_B07CxgnrR_kDuuVlkpdr9PPdAt2VLOZomq8LkbIs4sA8ogbH1GnJQSV0ky3zJovRNRfpEy83EP4DvUTPab3KmxqxbIOKkkc8hrWP4jz6j-l24Mgoz-MKfQVmWtSo-52JBsLFW8doUTO5k2PItoJ1W-ZrlMp_L03noZHzikeP6JcGlEnrDapztOQ6cx6b5KE9sy9NbZR83xAP-2jegOy_1BvTz8gqnNPNLWx8aIjSE-p-zGuEzbKI94MeP594xPZaJ3e3SrRuk5UclmgayVmo6jx6vNT-YcZNf-TsdUZ8O_U2hSxg2qEa-OdbEUPJFerefPow-_UT6kPREc_qkgk4dcypJNS2DsAtSJdXVX-5PUtQmj3l0Ev-a7LtK3_2UuTQuW92JJMzsHKg6jUvIzkZioe60BhkgexkTkK3hl0VHIoWrGR1mmfo2wJ9yYS5-sjQmogUUe5IkcIGOvoyiWM4D5q16ce-ihcMTvx9LVLST7_10PeU1xlb90DpNGOGK99YvotVWqDubsPfVFVjaukbi_Nm2ga8gn6K7vLxrvWZPMcinHxFt9AsZMVyPU0a6ANTweH-kj2YLobd1gWs-cKoN9qKIFfb5SFpZJCMVc9PKdT7_5TtRnGzscHeb9tpniVpuT6lkH8UUPlwhPXNsF9RAcKeGtLX1_1ExLy_hAtRtNo34rYFI9h7b2-H1MBO3e3b3R3whDOwc_hLJJoKAv28O95NWngebXgWLfD3NFaW-XPVZ6JGBexmIbhwkOg5pOAc0uAcUvjvSNBnbNcaDKtqOr_5fHx1CQHd79zjsSGMyTaa1myZCrmiJhkTG7iQH9uNpGdWrdCkgCUebfumcUGSd6pbtlnDWaJvH8cWdPRv59tRJoFIi8nt_vKGPQxN3MgHjLZpPHFoqmXdMHFsIL2cHvxdLC8322P-sDHJiLLZHvfaw-LAwnFGH86zlLGBLQ9n2cH5d2Ax2AotmqgR8pS4Yy_cmAqMrefJtyzSHQt92Hcv1Xe_yO1emfer8-8a2P_xE-KgCRYCnhmMnM2zgf543_UDi48DduTiDQweTAvazRJs01Pz0N7epSqu1ALvnLaBzyGRc0gHl6EEHl152c8LnqEZmfWHdDZGX-GyvIK-EcEFDRpK3ER1O41_GLsZnohQv_-T7JUaCHcApQqgVAJ_3Xfko8F95y_5UKFth8pWA8RX3nwNUGURaEDFIzoeGSgg1PECFe9zvo1GWucqGhkpIFDRCDUA3zN9_Sarl850Hr6nMtVcrLk6D6wSw21iShniGQAemVKph5VtSKr5ZKQitPIpgLZaeAZAB4bAVGkQ6DoCrSc2Ad8EiI5CVB46bYJVlNaHmjVfA1hPoy4dax-tfMpHoC0CVQtuw-qFpQFfKY6xQQl0tYGqtk1DVaI9KvOWr8Z15bqKds6VvTZXX7U7pbWvxQ_0AjgBdNG-LlpPcaBq9IkBYJ2Tr5KmvpF0u4aVgQ6qHGhJ9JIZGeYtQJVFu4yVqKODtznb6Tp46XQ8RNxDvnuIuocC99DAPRS6h4buoZFzCDaXc8itBnGrQdxqELcaxK0GcatB3GoQtxrErYbvVsN3q-G71YDdrF_3HuNUvZo9RgMrOrCioRUdWtGRDaWeFcVWlFhR34pS_Zb1GA7s8MAOh3Z4aIdHVhhapxXGdpjYYd8O26sM7FUG9ioDe5XQ4dVr5U6vAzfxNUvjzvi1s_01Bn6xiXnCGlF33nodBhfYxSaLOuPtrxadZvv27Dpl8Diy3oFvfwPgkefA" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
 
@@ -1470,7 +1512,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph  Sap S/4 IF LE500 Ireland 
+    subgraph lane_0[" Sap S/4 IF LE500 Ireland "]
         n17[["fa:fa-cog Create Intercompany STR (SFG-01)"]]
         n18[["fa:fa-cog Create Inter Company STO (SFG-01)"]]
         n19[["fa:fa-cog Perform GTS Trade Compliance"]]
@@ -1510,7 +1552,7 @@ flowchart TD
         n67{{"fa:fa-arrows-alt parallelGateway"}}
         n68{{"fa:fa-arrows-alt parallelGateway"}}
     end
-    subgraph SA S/4 IF LE778 (China) -Shell Plant 
+    subgraph lane_1["SA S/4 IF LE778 (China) -Shell Plant "]
         n1[["fa:fa-cog Perform Repetitive Steps till order confirmation"]]
         n2[["fa:fa-cog Create Sales Order"]]
         n3[["fa:fa-cog Create Inter Company Stock Transfer Request (SFG-01)"]]
@@ -1533,7 +1575,7 @@ flowchart TD
         n61{{"fa:fa-arrows-alt parallelGateway"}}
         n69{{"fa:fa-arrows-alt inclusiveGateway"}}
     end
-    subgraph SAP S/4 IF LE101 US
+    subgraph lane_2["SAP S/4 IF LE101 US"]
         n12[["fa:fa-cog Create Unconfirmed / Confirmed Sales Orders"]]
         n13[["fa:fa-cog Create Purchase Requisition (FG-01)"]]
         n14[["fa:fa-cog Create Purchase Order (FG-01)"]]
@@ -1690,7 +1732,7 @@ will be visible in both LE’s"| n67
     class n70 subProc
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWm1v4jgQ_isWq1VZCbSxnRfgw50oharSdsuV9lan630wwSlRQ8LlpS3X63-_cbADuHa1x24_rDZjP-OZxzPjicNLK8wWvDVoffz4EqdxOUAvJ-WSr_jJAJ3MWcFPOmgr-J3lMZsnvDgRc6IsLWfxP_U07K6fxTQhm7BVnGyEdMbvM45uLzpoCMCkgwqWFt2C53F00jlZ5_GK5ZtRlmS5mP2B9yInqleTQ6dZvuD5boLjBDj0AJrEKd-JaeAG7kTgCh5m6eJAaeRFvSg8eRXGJdlTuGR5WZtfFfySPX-LF-USniOWFBzmLMtV8oXNeSJ8LPNKyMIqf1RkxIVYJwXCZmsWxuk9yF0HRDlLH3Yiz3l9Ra8fP96lzaLo5uwuRfAXJqwozniEihLE48cSRXGSDD64o-HEczpFmWcPfPCBjIMzSjqh8GQArjsdQW73icf3y3Iwz5KFnNp9Ej4MyPq5kz8PiNPJN_CvthZPF7uVRj7pkV6z0mmAR3ikVoqi6IdWAl7zG1Y8yLXGdEImZ81a2PO9kfNWn3LzzA2GWOeJ549xyPeUTiYTOt5RNfY97NiVnk6o74w0pfes5E9ss1PYH7mNwokXTHBgVbhdT7eymk_zLFQK6dibeI3C4BRPhsSq0B1ityctBD33OVsvEZqxNZp9dtHFBH0Ze46DLnKesHSBthPFX4qDP_-8a0VsELFumN2jUc7BMXSRljwPs9WapRs0u7lG7dnkvOvgT3etv_7ah_fscDRq8FdWfP8QP-V5lOUrdH4zQzc5W_BaSRKzNOQalDjGpafgYcoX6Eqkvm1Zgs3Lzkq-LlAJO4BgL5SS8TMPqzLOUl0LMVpwfo3YPYvTotxTokPpIfQye-SozNBtmnPY5DgswYVZmYUPOtDV1lzy8AH9VrG0jMuNUDHn6Iwn8SPP-UIHe2a3r6pynlUQGBK4QXcVcTBFkwqY-K3c6Hr8_6lnCoUKCrhQhdpfshJ9fbMjgVll9t0q325yz6xyeDOVtLWrfboLQfcnpR8SR9d3fKxSxwydxmCFyMgpg__crhcQPwVqX1x-Hn-7RF1wOuRpmbMEjkl9Myk2RQKohTjMiqI7rw8_FKePGRS_X3W0OXbHz-sMjpqLLUjHUCMGvF5BsRCbIXGoDYEvHGT6nlDXzmFbLg5OJyxnIuHQ7QxdpYkef9QzGjJj0FrsbBBUXP7RQb_HvEzZqgMMxSnTVfnmKgL7AScxSmKRxfsPw8UCzsJqpevR4ne2jNeofZ5lC7CoKKo3XGrBeTFqDD8V5ecmG0DRDoKejrME4fAaTbOiFGaKeBpWUAlGCYeGK73XVLik3ahYJ3CEqZKZyUL1aW-y5-wmQ4Ks97JnlKVRnK_qwDyAYA2iJQgv30LI-5A6p5plLTroT9Dhvrzs2F3w7hzasnC5q69NZUWQUK-v-1DPDN0m47YTfYPxzRj-HCZVAQudb5sMHRYcB-sdBfP3OGF5nj0VXZaUaA0pmiQ8sYC8Y0D-MaDgGFDv_4Eg47XmajbctVaQpahdF5dPqDtbctE9QEqVB32WOW2v-ZpDYAH5-73HtnKH2_xips7jnfpnajfo93Rp4vgTCZMWEYiv-d8VnI22Dso9-iz0vsOW-iiG1ydpi8UG_2gbgh8uopbe4iLVuhVlOnqCkw0aYU2NraWoz41rOP3jtXULsNZUfMvjknevokicJNA2ZLl-bmJ8NGOuox0aF_CmH9c7d3qmVVFXr8TA61ryaqu8rqthGh9qv2q3FFaHej9e-F3_J-gIfsIB1D-mmjnHgPAxILN5cWo7QUyFc7qrnNjB0OLtR6i5st2moWo20Odd47Ff8Qo91s01b1rlcJtS8Lq-xUVcd5ltc36572uQb5hmrHd0puHjy5qLtSTdMVXUTGWKqYO47f2E2O__uA6fHBOR9AhQsFc5I7ie4nk3W_MUjcm423PHA3QN75fLTRGHbHsRUIXlNtZ2hDeRDZGGut1fRLxIgU-kwFMz3K3AJ1IgJ3h9-ez1JUIB5Hw1LldQ-jw53EwPpKCn9DtbAVEziNRIGgukCYQqgVyDKC-INNpTAq8W_HvXErcCd61_xX2Cmist8pQBVBrgKzCVBngKQuV6tHHKk-q_ZrVy6is6pSEU64JA6epJQV_X9YfYMqFM-U0l0wrqS8tpY7niUtkln12q7ZW-22oFTxrjK_vVs6MAkhus_FGbryZgOcFtmJc2kEAX-PreyGuR2mmv4Uc52eyGtJk2uy8Vekoh8TWB52tb7EsBdTQB0WcQtS1Eeuo1YSm58RodKvK1Z9zslzQUK52-1Em1CU3uYGmF2wik834DUQmsBDK-XBUCSoOyCis_1J67KgaUH1Qlj1KJpSNu44h0HfcOBLCFb2_R1HVi3T_u5x1WmBlbcXFP-1nctS6ysFrx-v3jSbxOwI3gIxx18OEFTmo0z8olHL31NVd_mx2-MipQoUl0ahrXZSi5ymxXOhbo4a3oduVzb---W1S4vVv5gxFiHaHWEdc64llHfOtIYB3pWUf61hHIZuuQnQVspwHbecB2IrCdCWynAtu5wHYysJ0NYmeDvBMTdjaInQ1iZ4PY2SB2NoidDWJng9jZoHY2qJ0N-k6K2NmgdjaonQ1qZ4Pa2aB2NqidDagU6pPmoRxb5MQip_Jz5aHUNUo9o9Q3SgOjtGeU9k1SzzFKsVFKjFKjb3D8y--Rh2LPLPbN4sAs7pnFfaMYqr9RjM1iYhZTs9jspW_20jd76Zu99M1e-mYv4ZyUn2tbnRZ8_FixeNEavLTqXznALyEWPGJVUrZeOy0Gl0izTRq2BvWvAVpV_ZHnLGbwOrzaCl__A33GMkU=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWm1v2zYQ_iuEiyIuYKMiqRfbHzY4jh0EaBYvTlYMyzDQMhULkSVPL0m8LP99R5mUbYYMOrf5UFRHPse7h3fHE-WXVpgteGvQ-vjxJU7jcoBeTsolX_GTATqZs4KfdNBW8BvLYzZPeHEi5kRZWs7if-pp2F0_i2lCNmGrONkI6YzfZxzdXnTQEIBJBxUsLboFz-PopHOyzuMVyzejLMlyMfsD70VOVK8mh06zfMHz3QTHCXDoATSJU74T08AN3InAFTzM0sWB0siLelF48iqMS7KncMnysja_Kvgle_4aL8olPEcsKTjMWZar5Aub80T4WOaVkIVV_qjIiAuxTgqEzdYsjNN7kLsOiHKWPuxEnvP6il4_frxLm0XRzdldiuAvTFhRnPEIFSWIx48liuIkGXxwR8OJ53SKMs8e-OADGQdnlHRC4ckAXHc6gtzuE4_vl-VgniULObX7JHwYkPVzJ38eEKeTb-BfbS2eLnYrjXzSI71mpdMAj_BIrRRF0XetBLzmN6x4kGuN6YRMzpq1sOd7I-etPuXmmRsMsc4Tzx_jkO8pnUwmdLyjaux72LErPZ1Q3xlpSu9ZyZ_YZqewP3IbhRMvmODAqnC7nm5lNZ_mWagU0rE38RqFwSmeDIlVoTvEbk9aCHruc7ZeooSl_C_nj7sWmrE1mn120cUEfRl7joMucg6jC3TX-nMLEn8pDv6A2REbRKwbZvdolHNwEl2kJc_DbLVm6QbNbq5RezY57zr4E6AP4D07HI0a_JUV3z_ET3keZfkKnd_M0E3OFrxWksQsDbkGJY5x6Sk4mfIFuhJlwLYsweZlZyVfF6iE3UCwL0rJ-JmHVRlnqa6FGC04v0bsnsVpUe4p0aH0EHqZPXJUZug2zTlseByW4MKszMIHHehqay55-IB-rVhaxuVGqJhzdMaT-JHnfKGDPbPbV1U5zyqIDQncoLuKOJiiSQVM_FpudD3-_9QzhaIFxVyoQu0vWYl-ebMjgVll9s0q325yz6xyeDOVtLWrfboLQfcnpR9yR9d3fKxSxwydxmCFSMopg__crhcQPwVqX1x-Hn-9RF1wOuRpmbMEjkx9Myk2RQKohTjMiqI7rw9CFKePGRTCn3W0OXbHz-sMjp2LLUjHUCMGvF5BsRCbIXGoDYEvHGT6nlDXzmFbLg5OJyxnIuHQ7QxdpYkef9QzGjJj0GbsbBBUXP7eQb_FvEzZqgMMxSnTVfnmKgL7AacySmKRxfsPw8UCzsVqpevR4ne2jNeofZ5lC7CoKKo3XGrBeTFqDD8V5ecmG0DdDoKejrME4fAaTbOiFGaKeBpWUAlGCYfmK73XVLik3ahYJ3CcqZKZyUL1aW-y5-wmQ4Ks97JnlKVRnK_qwDyAYA2iJQgv30LI-5A6p5plLTroD9Dhvrzs2F3w7hxatHC5q69NZUWQUK-v-1DPDN0m47YrfYPxzRj-HCZVAQudbxsOHRYcB-sdBfP3OGF5nj0VXZaUaA0pmiQ8sYC8Y0D-MaDgGFDv_4Eg402NFoaAmw13bRakK2rXVeYT6s6WXLQRMLHUey5zCl_zNYcgg43Y70O2VTzc5hozdSHv1EJT60G_pWMTR6FInrSIQHzN_67gnLR1U-7R56L3DbbUxzK8VklbLDb4R9sQfHdBtfQZF6nWuSjT0ROcctAUa2ps7UV9hlxDJxCvrVuAtQbjax6XvHsVReJUgRYiy_UzFOOjGXMd7QC5gBuAuN650zOtorp6VQZe15JXWxV2XQ3T-FD7VbulsDrU-_5DwPV_gI7gBxxG_WMqm3MMCB8DMpsXp7bTxFJESV1Ep7sqih0MfZ9WMs1V7jYNVROCPu8akv3qV-hxb65_0yqHG5eC17UuLuK6-2ybc819X4N88zRjvaOzDh9f4lysJeyOqaJmKlNMHcRw7wfkQf_7dfjkmOikR4CCvSoawRUWz7vZmqdoTMbdnjseoGt471xuijhk2wuCKiy3sbYjvIlyiDTU7f4k4kUKfCIFnprhbgU-kQI5wevLZ68vEQog56txuYLS58nhZnogBT2l39kKiJpBpEbSWCBNIFQJ5BpEeUGk0Z4SeLXg37uWuC24a_0r7hnUXGmRpwyg0gBfgak0wFMQKtejjVOeVP9LViunvqJTGkKxLgiUrp4U9HVdv4stE8qU31QyraC-tJw2lisulV3y2aXaXum7rVbwpDG-sl89OwogucHKH7X5agKWE9yGeWkDCXSBr--NvC6pnfYafpSTzW5Im2mz-1KhpxQSXxN4vrbFvhRQRxMQfQZR20Kkp14TlpIbr9GhIl97xs1-SUOx0ulLnVSb0OQOlla4jUA67zcQlcBKIOPLVSGgNCirsPJD7bmrYkD5QVXyKJVYOuI2jkjXce9AAFv49nZNXTPWveR-3mGFmbEVF_e3n8Ud7CILqxUXryPpk3i1gJvCRzjq4OMMnNponpVLOH3r66_-Njt8ZVSgQpPo1DSuy1ByldmudCzQw1vR7crn3t6duKhwezf3ByPEOkKtI651xLOO-NaRwDrSs470rSOQzdYhOwvYTgO284DtRGA7E9hOBbZzge1kYDsbxM4GeScm7GwQOxvEzgaxs0HsbBA7G8TOBrGzQe1sUDsb9J0UsbNB7WxQOxvUzga1s0HtbFA7G1Ap1GfPQzm2yIlFTuUnzUOpa5R6RqlvlAZGac8o7ZuknmOUYqOUGKVG3-D4l98sD8WeWeybxYFZ3DOL-0YxVH-jGJvFxCymZrHZS9_spW_20jd76Zu99M1ewjkpP-m2Oi34KLJi8aI1eGnVv4SAX0sseMSqpGy9dloMLpRmmzRsDepfDLSq-uPPWczg1Xi1Fb7-B7kgPfE=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
 
@@ -1995,8 +2037,14 @@ flowchart TB
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
-        E2E84C_e_g_MES_300["📦 e.g. MES 300"]:::app
-        E2E84C_e_g_XEUS["📦 e.g. XEUS"]:::app
+        subgraph E2E84CLN_e_g_Boundary_Apps[" ⬛ e.g. Boundary Apps"]
+            direction LR
+            E2E84C_e_g_XEUS["📦 e.g. XEUS"]:::app
+        end
+        subgraph E2E84CLN_e_g_MES_Systems[" ⬛ e.g. MES Systems"]
+            direction LR
+            E2E84C_e_g_MES_300["📦 e.g. MES 300"]:::app
+        end
         E2E84CMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
         E2E84CDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
     end
@@ -2018,7 +2066,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1IzxaSoQqpU06dUoBLQM2LVPkxretNTeJYgco0P--67jQ0IJgrpQm93Gufe6x_WglGQPLsRqNR55y5ZDHyFJzWEBkOSSyJlTiWxPfJCRlwdUygFsQximy7NlbpVzTgtOJAKndiDPNUhXyhzXUQSe_N8HaPqQLLpbGE8IsA3I1ahIXAUSTSJrKloSCTyNrVWWI7C6Z00KtkUsJY3p_w5maa8uUCgk6bq4WIqATENUUVFFW1hSXGOY04elMm49tbSxo-rdmbNurFVk1GlH6Uov86EcpwdFokFYL55bM-ZgqaPFU5rwARqRaCiCJoFKCxBgTXn17MCWTUvIUpCTVmHIhnL0hjn67KVWR_QVnr9_tduz--rN1pxfkHOb3zSQTWeHs2ba9hUnznGyGwey3NeoLpm2fnPQ7_4HJqKK7mF73A8yDV5jPPkYlklfQJXJK2luVFpwxAXe0gDojXsfdMOKfdIYbtE_MHjKxw4jmuMbyYGDbH2EaVFlOZgXN58QNfkdWVLLuEcMnO2oT9_IyGA3cH6OLcxK4v_zvkfXHJOnBUBCJ4llKgu8bq3_od48HMcSzeOyH8ZFt11ET6BD4MvtC0EfQh4CO42CH3wT46V-Fb2Zrx7up45sq2X0oC4hDKG55AnG_lK9Wd3BikKooso4iGGVgN13bRvf8Cn2QSRX7Ao-AVPXqU0yODbAOIOuAs0mx3zvjPeMIr8k-GXlZgn_fwovzs33eM1W1Kk09SNlzf3YJxW3Xe4qsCs2rmoBI7uUIn0Mu8Ox5-oCJOvB7MbrIdi_0lNaiqY6BflDb4kP7oy1eT3VfUu3P7OQdsQYwQ45eiYPZJPC_-ufeJ1QaxKjtbWm5eS54QnXwG-IK4vHNtoTGG5m8K5sg9vxthXj6-PFThZfLdudNin9hNuNhhx1jIGtl01bAp-syuP9rMtmQakh5Jratfy_Enp6e7pxlVtNaQLGgnFnOo7nQ8F5kMKWlUHgNWbRUWbhME8upLharzHGi4HGKTVgY4-ofCmlHDQ==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlm1v2kgQgP_KyhHfoHFeIMSKkGxsTpxMEtVtc6dzZS3eAVZdbMu7bkJT_ntnvQQcaESuiwT2vDwzHs_O8mylOQPLsVqtZ55x5ZDn2FILWEJsOSS2plTiVRuvJKRVydUqhO8gjFLk-Yu2dvlCS06nAqRWI2eWZyriPzaos17xZIy1fESXXKyMJoJ5DuTzuE1cBIg2kTSTHQkln8XWuvYQ-WO6oKXakCsJE_r0wJlaaMmMCgnabqGWIqRTEHUKqqxqaYaPGBU05dlciy9tLSxp9q0h7NrrNVm3WnG2jUU-eXFGcLVapNPB3NIFn1AFHZ7JgpfAiFQrASQVVEqQaGPM63sfZmRaSZ6BlKReMy6EczLC5XXbUpX5N3BOvH6_Z3ub286jfiDnvHhqp7nIS-fEtu09Ji0KsluG6XU1dcu07asrr_c_mIwqesj0-0eYZ6-YLzpGJRavpCusKenuRVpyxgQ80hKaFfF77q4iwVVvtKO9I3vIxUFFdI0bVR4ObfsY01BlNZ2XtFgQN_wvtuKK9S8YfrOLLnHv78Px0P00vrsloftv8DG2vhonvRg2RKp4npHw4066xQXnQf9yGN4mkMwTL68yRstV4haFxDAkrs6nZ1MCH-YfyIuSaOWrEG-H0ctEqPn_BJ-jZvYp9AxbKxDpOA620c4dMnYs5UkQJdFKKlgeJIwqslH9WbqafWHbv81Yw1F3LGlDmzzUPPdHVUISQfmdp5B4lXz1Js-uDLm2IhsrglYmxq5D9-l-UNOHuVRJIHDcZWrQTDm9NGBtQDYGN9PydHDDB0YRfSGnZOznKf78Hd3d3pzygYmqd6CJVz-WuTwsEY6Ywc_Yqml-XVokufdj_B5xgXP255FKNMFv2egg-92kU9pskHrkeWFjnI3sY-Os6epuXe33TK2DjRnCHGv0qlmYTcLgr-DWf8eODBPcx_uthltN8JRq4990WphMHvZbaLJrkzfbJkz8YL9DfD1qg0zhQbr_5o1LcGcGz3mPXaIh6-SzTshnmzA46xptsiuqKcpLYbv6sy3s9fX1wdy22tYSyiXlzHKezeGN_wEYzGglFB65Fq1UHq2y1HLqQ9SqCkwUfE7xJSyNcP0Lol-K2Q==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
 
@@ -2075,8 +2123,14 @@ flowchart TB
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
-        E2E84F_e_g_MES_300["📦 e.g. MES 300"]:::app
-        E2E84F_e_g_XEUS["📦 e.g. XEUS"]:::app
+        subgraph E2E84FLN_e_g_Boundary_Apps[" ⬛ e.g. Boundary Apps"]
+            direction LR
+            E2E84F_e_g_XEUS["📦 e.g. XEUS"]:::app
+        end
+        subgraph E2E84FLN_e_g_MES_Systems[" ⬛ e.g. MES Systems"]
+            direction LR
+            E2E84F_e_g_MES_300["📦 e.g. MES 300"]:::app
+        end
         E2E84FMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
         E2E84FDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
     end
@@ -2098,7 +2152,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVWtP2zAU_StWUL-1Izz6IEKVUpJOnVJAhI1NyxS58W1rzU2i2AEK9L_vOi40tCCYK6XJfZxrn3tsP1pJxsByrEbjkadcOeQxstQcFhBZDomsCZX41sQ3CUlZcLUM4BaEcYose_ZWKT9owelEgNRuxJlmqQr5wxrqoJPfm2BtH9IFF0vjCWGWAfk-ahIXAUSTSJrKloSCTyNrVWWI7C6Z00KtkUsJY3p_w5maa8uUCgk6bq4WIqATENUUVFFW1hSXGOY04elMm49tbSxo-rdmbNurFVk1GlH6UotcD6KU4Gg0SKuFc0vmfEwVtHgqc14AI1ItBZBEUClBYowJr749mJJJKXkKUpJqTLkQzt4Qx6DdlKrI_oKzN-j1OvZg_dm60wtyDvP7ZpKJrHD2bNvewqR5TjbDYA7aGvUF07a73UHnPzAZVXQX0-t9gHnwCvPZx6hE8gq6RE5Je6vSgjMm4I4WUGfE67gbRvxuZ7hB-8TsIRM7jGiOayyfndn2R5gGVZaTWUHzOXGD35EVlax3xPDJjtrEvbwMRmfu9ejinATuL_8qsv6YJD0YCiJRPEtJcLWx-od-73gYQzyLx34YH9l2HTWBDoEvsy8EfQR9COg4Dnb4TYCf_vfwzWzteDd1fFMluw9lAXEIxS1PIB6U8tXqDroGqYoi6yiCUQZ207VtdM-v0M8yqWJf4BGQqn59ismxAdYBZB1wOin2-6e8bxzhD7JPRl6W4N-38OL8dJ_3TVWtSlMPUvbcn11Ccdv1nyKrQvOqJiCSeznC55ALPHuePmCiDvxejC6y3Qs9pbVoqmNgENS2-ND-aIvXU92XVPszO3lHrAHMkKNX4mA2Cfyv_rn3CZUGMWp7W1pungueUB38hriCeHyzLaHxRibvyiaIPX9bIZ4-fvxU4eWy3XmT4l-YzXjYYccYyFrZtBXw6boM7v-aTDakGlKeiW3r3wuxJycnO2eZ1bQWUCwoZ5bzaC40vBcZTGkpFF5DFi1VFi7TxHKqi8Uqc5woeJxiExbGuPoHUNpHJQ==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdln1v2jwQwL-KlYr_YE1foDSqkJImPOJRaKtlW59HyxSZ-ABrJolipy3r-O47xxRSWEU3I0FyL7-7XM5nnq00Z2A5Vqv1zDOuHPIcW2oOC4gth8TWhEq8auOVhLQquVqG8ADCKEWev2hrly-05HQiQGo1cqZ5piL-Y4066RVPxljLh3TBxdJoIpjlQD6P2sRFgGgTSTPZkVDyaWytag-RP6ZzWqo1uZIwpk_3nKm5lkypkKDt5mohQjoBUaegyqqWZviIUUFTns20-NzWwpJm3xvCrr1akVWrFWebWOSTF2cEV6tFOh3MLZ3zMVXQ4ZkseAmMSLUUQFJBpQSJNsa8vvdhSiaV5BlISeo15UI4R0NcXrctVZl_B-fI6_d7tre-7TzqB3JOi6d2mou8dI5s295h0qIg22WYXldTN0zbvrjwen_AZFTRfabfP8A8ecV80TEqsXglXWJNSXcn0oIzJuCRltCsiN9ztxUJLnrDLe0d2UMu9iqia9yo8vW1bR9iGqqsJrOSFnPihl9jK65Y_4zhNzvrEvfuLhxdu59GtzckdP8PPsbWN-OkF8OGSBXPMxJ-3Eo3uOA06J8Pw5sEklni5VXGaLlM3KKQGIbE1enkZELgw-wDeVESrXwV4u0wepkINf-_4HPUzD6FnmFrBSIdx8E22rpDxg6lPA6iJFpKBYu9hFFF1qq_S1ezz2z7txlrOOoOJW1o4_ua5_6oSkgiKB94ColXyVdv8uTCkGsrsrYiaGVibDt0l-4HNf06lyoJBI67TA2aKafnBqwNyNrgalIeD674wCiiL-SYjPw8xZ9_o9ubq2M-MFH1DjTx6scyl_slwhEz-BlbNc2vS4sk926E30MucM7-PFCJJvgtGx1kt5t0SusNUo88L2yMs6F9aJw1Xd2Nq_2eqbW3MUOYYY1eNQuzSRj8E9z479iRYYL7eLfVcKsJnlJt_JtOC5Px_W4Ljbdt8mbbhIkf7HaIr0dtkCk8SHffvHEJbs3gOe2xczRknXzaCfl0HQZnXaNNtkU1RXkpbFd_NoW9vLzcm9tW21pAuaCcWc6zObzxPwCDKa2EwiPXopXKo2WWWk59iFpVgYmCzym-hIURrn4BBVyK9w==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
 
@@ -2591,7 +2645,7 @@ flowchart TB
 <td>Tower-led validation</td>
 </tr>
 <tr>
-<td>Go-Live (Release 2)</td>
+<td>Go-Live (R1 – R5)</td>
 <td>Per release plan</td>
 <td>Per release plan</td>
 <td>Planned</td>
@@ -2730,11 +2784,15 @@ flowchart TB
 </tbody>
 </table>
 <hr />
-<p><em>E2E-84 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: March 2026</em></p>
+<p><em>E2E-84 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-84 — Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>E2E-84</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

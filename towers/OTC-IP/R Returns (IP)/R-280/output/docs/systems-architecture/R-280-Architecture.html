@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IP) (OTC-IP) Tower<br/>
   Capability R-280 · R Returns (IP)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 3</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -654,7 +696,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Ground Controller
+    subgraph lane_0["Ground Controller"]
         n1["fa:fa-user Post Goods Issue"]
         n2[["fa:fa-cog Update Delivery with Material Document and Complete Postings"]]
         n3[["fa:fa-cog Check for Outbound or Inbound Queues Errors."]]
@@ -682,7 +724,7 @@ flowchart TD
     class n8 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduO2zYQ_RVCi4UTQC50tVw9JPDK1sJA0m5gb4oizgNNUTaxlGiQlC91_O8dSvI18VP0IGgOZ86ZGXKovUVERq3Yenzcs5LpGO07ekkL2olRZ44V7dioAb5iyfCcU9UxPrko9YT9V7u5wWpr3AyW4oLxnUEndCEoeh3baACB3EYKl6qrqGR5x-6sJCuw3CWCC2m8H2g_d_JarV16EjKj8uzgOJFLQgjlrKRn2I-CKEhNnKJElNkVaR7m_Zx0DiY5LjZkiaWu068U_Yy3_7BML8HOMVcUfJa64J_wnHJTo5aVwUgl18dmMGV0SmjYZIUJKxeABw5AEpdvZyh0Dgd0eHyclSdRNB3OSgQP4VipIc2R0gCP1hrljPP4IUgGaejYSkvxRuMHbxQNfc8mppIYSnds09zuhrLFUsdzwbPWtbsxNcTeamvLbew5ttzB-0aLltlZKel5fa9_UnqK3MRNjkp5nv-WEvRVTrF6a7VGfuqlw5OWG_bCxPmZ71jmMIgG7m2fqFwzQi9I0zT1R-dWjXqh69wnfUr9npPckC6wphu8OxP-mQQnwjSMUje6S9jo3WZZzV-kIEdCfxSm4YkwenLTgXeXMBi4Qb_NEHgWEq-W6FmKqsxQAnshBedUNuvmKd1vMyvHcY67pt3oRSiNnoXIFBorVdGZ9f3C2ft28iZigV5XGdSOhpSzNZU7tGF6iT4DZGYUDQWpClpqhGvtYsUpOBsBONkKiC-Z_WvmZEkJbJGQ6O9Kz-vs4XtcNp9fKlpRhUZSCqn-uGEKfpnj66fpT7UhViKMkkppUaCpuY5uqMJ3JyrwWYH-GuoRUGnLeqwqg8D3F4E9iOuiKUyyWgkYWNjOrCIaaYEmGi-gfrjHKEbvxi_vrzsc7ffn7DPanQMHWaKX5zGaVIRQpfKKo48z63C4iOr_OopuCa8U7M1zc0TPUTDEzUfpom73A-i2ZmTMHzPrXwo79AN2vMX9xq3fmv3GDFuz15juDclfoubwW9hrvILWDK4o69Nv0jlO_RXsXY7u1Yp_dyW4uxK2l9gV2DvdoldwdJzvK7R_RC3bKqgsMMuseG_V_zb4_2U0xxXX1sG2cKXFZFcSK67_AVZVn5whwzCaRQMe_gcCkU2G" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVWuP4jYU_StWRiN2pVDlSWg-tGICGY20u50KplW1VJVxHLDGiZHt8CjLf-91Eh5hl0_lA8o9Pvcc3-tc52ARkVErth4fD6xkOkaHnl7RgvZi1FtgRXs2aoA_sGR4wanqGU4uSj1l_9Y0N1jvDM1gKS4Y3xt0SpeCorcXG40gkdtI4VL1FZUs79m9tWQFlvtEcCEN-4EOcyev3dqlJyEzKi8Ex4lcEkIqZyW9wH4UREFq8hQlosw6onmYD3PSO5rNcbElKyx1vf1K0c949yfL9AriHHNFgbPSBf-EF5SbGrWsDEYquTk1gynjU0LDpmtMWLkEPHAAkrh8v0Chczyi4-PjvDybotl4XiL4EY6VGtMcKQ3wZKNRzjiPH4JklIaOrbQU7zR-8CbR2PdsYiqJoXTHNs3tbylbrnS8EDxrqf2tqSH21jtb7mLPseUe_m-8aJldnJKBN_SGZ6enyE3c5OSU5_n_coK-yhlW763XxE-9dHz2csNBmDjf653KHAfRyL3tE5UbRuiVaJqm_uTSqskgdJ37ok-pP3CSG9El1nSL9xfBn5PgLJiGUepGdwUbv9tdVotXKchJ0J-EaXgWjJ7cdOTdFQxGbjBsdwg6S4nXK8RxSf9xvs6tZymqMkMJHIoUnFM5t_5uuOZXukDJcZzjvmk9ehVKo2chMoVelKpol-x9PbOJWKK3dQZ9QGPK2YbKPdoyvUKfATLzisaCVAUtNcK1fbHmFMjGAN5yBcLXyn5XOVlRAsclJPqt0ou6AHh-KZvH3ytaUYUmUgqpfrpRCn64x7dPs-9qQ6xEGCWV0qJAM3M13UiFH85SwFmD_wbqEVBpq3qqKoPEj1eJA8jroxlMtVoLGF442qwiGmmBphovoX640yhGH15eP3Y7HB0Ol91ntL8ADbJCr88vaFoRQpXKK45-nVvH41XW8MdZdEd4peBsnpvX9ZIFA908lC7q938B3zaMTPhtbv1F4YS-wYm3uN_Qhm04bMKwDQdN6N6IfBG1ht_CXsMK2jDoSNaTYLZzugE6sHc9xp0V_-5KcHclbC-0Djg436gdODrNegcdnlDLtgoqC8wyKz5Y9XcOvoUZzXHFtXW0LVxpMd2XxIrr74FV1W_OmGEY06IBj_8BH35RaQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <h4 id="business-architecture-322-r-280-010_-process_goods_issue_for_stock_materialipcopy-r-280-010-process_goods_issue_for_stock_materialip_copy">BUSINESS ARCHITECTURE — 3.2.2 R-280-010_-<em>Process_Goods_Issue_for_Stock_Material</em>(IP)<em>(Copy) — R-280-010</em>-<em>Process_Goods_Issue_for_Stock_Material</em>(IP)_(Copy)</h4>
 <p><strong>Swim Lanes</strong>: Ground Controller | <strong>Tasks</strong>: 3 | <strong>Gateways</strong>: 2</p>
@@ -698,7 +740,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Ground Controller
+    subgraph lane_0["Ground Controller"]
         n1["fa:fa-user Post Goods Issue"]
         n2[["fa:fa-cog Update Delivery with Material Document and Complete Postings"]]
         n3[["fa:fa-cog Check for Outbound or Inbound Queues Errors."]]
@@ -723,7 +765,7 @@ flowchart TD
     class n7 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVduO2zYQ_RVCi4UTQC50tVw9tPDK1sJA0mzhTYsi7gNNjWxhadEgKV_q-N8zlOSL3O5T9SBoDmfOmRlyqKPFRAZWbD0-Houy0DE59vQK1tCLSW9BFfRs0gB_UFnQBQfVMz65KPWs-Kd2c4PN3rgZLKXrgh8MOoOlAPJ1apMRBnKbKFqqvgJZ5D27t5HFmspDIriQxvsBhrmT12rt0pOQGcirg-NELgsxlBclXGE_CqIgNXEKmCizDmke5sOc9U4mOS52bEWlrtOvFHym-z-LTK_QzilXgD4rveaf6AK4qVHLymCskttzMwpldEps2GxDWVEuEQ8chCQt365Q6JxO5PT4OC8vouR1PC8JPoxTpcaQE6URnmw1yQvO44cgGaWhYystxRvED94kGvuezUwlMZbu2Ka5_R0Uy5WOF4JnrWt_Z2qIvc3elvvYc2x5wPedFpTZVSkZeENveFF6itzETc5KeZ7_LyXsq3yl6q3Vmvipl44vWm44CBPn33znMsdBNHLv-wRyWzC4IU3T1J9cWzUZhK7zPulT6g-c5I50STXs6OFK-HMSXAjTMErd6F3CRu8-y2rxIgU7E_qTMA0vhNGTm468dwmDkRsM2wyRZynpZkWepajKjCS4F1JwDrJZN0_pfptbOY1z2jftJi9CafIsRKbIVKkK5tbfN87et4s3E0vydZNh7WQMvNiCPJBdoVfkM0JmRslYsGoNpSa01l5vOKCzEcCTrZD4ltnvMicrYLhFQpIvlV7U2eP3tGw-f6-gAkUmUgqpfrpjCj5cmJQWGwzaYhIC02vTPaeSYeDHm8AQ4_rkFcdPbQROGe5BVjFNtCAzTZeYNF4-QMmH6cvHblsGx-M1-Qz6C-RgK_LyPCWzijFQKq84-XVunU43UdF_R8Ge8UphQ5-bc3WNwslrPkqX9Pu_oG5rDoz5fW79BdjW77hNLe43blFrRo0ZtGbYmO4dyW-i5vBb2Otw1GfU6J9nswN7twPWWfHfXQnaC6UDhpcbrQMPzrPWQaMzatnWGuSaFpkVH636P4P_ogxyWnFtnWyLVlrMDiWz4vo-tqr6QIwLimOybsDTD3jqKYY=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVWuP4jYU_StWRiN2pVDlSWg-tGICGSF121kx26paqso4NxCNiZHt8CjLf9_rJDxCO5_KB5R7cu4519e-ztFiIgMrth4fj0VZ6Jgce3oFa-jFpLegCno2aYDfqSzogoPqGU4uSj0r_qlpbrDZG5rBUrou-MGgM1gKIF-mNhlhIreJoqXqK5BF3rN7G1msqTwkggtp2A8wzJ28dmtfPQmZgbwSHCdyWYipvCjhCvtREAWpyVPARJl1RPMwH-asdzLFcbFjKyp1XX6l4BPd_1FkeoVxTrkC5Kz0mv9CF8DNGrWsDMYquT03o1DGp8SGzTaUFeUS8cBBSNLy7QqFzulETo-P8_JiSl7H85Lgj3Gq1BhyojTCk60mecF5_BAkozR0bKWleIP4wZtEY9-zmVlJjEt3bNPc_g6K5UrHC8GzltrfmTXE3mZvy33sObY84P-dF5TZ1SkZeENveHF6itzETc5OeZ7_Lyfsq3yl6q31mvipl44vXm44CBPn33rnZY6DaOTe9wnktmBwI5qmqT-5tmoyCF3nfdGn1B84yZ3okmrY0cNV8MckuAimYZS60buCjd99ldXiRQp2FvQnYRpeBKMnNx157woGIzcYthWizlLSzYpwWsLfzte59SxFVWYkwU2RgnOQc-uvhmt-pYuUnMY57ZvWkxehNHkWIlNkqlQFXbL39cJmYkm-bDLsAxkDL7YgD2RX6BX5hJCZVzIWrFpDqQmt7dcbDkg2BnjKFQrfKvtd5WQFDLdLSPJbpRf1AvB5WjaPnyuoQJGJlEKqH-6Ugg8XJaXFBpO2WITA8tpyz6VkmPjxJjHEvD55xVFUG4ETh_uRVUwTLchM0yUWjRcRUPJh-vKx25bB8XgtPoP-AjXYirw8T8msYgyUyitOfp5bp9NNVvTfWbBnvFLY0OfmjF2zcAqbh9Il_f5P6NuGAxN-m1t_Arb1G25Ti_sNLWrDqAmDNgyb0L0T-VXUGn4Lex2N-rwa__OcdmDvdtg6b_x33wTt5dIBw8vt1oEH57nroNEZtWxrDXJNi8yKj1b9zcHvUgY5rbi2TrZFKy1mh5JZcX03W1V9IMYFxZFZN-DpO9LdLWk=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-280 — Ship Orders (IP)</span></div>
 
@@ -4394,11 +4436,15 @@ flowchart TD
 </tbody>
 </table>
 <hr />
-<p><em>R-280 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: March 2026</em></p>
+<p><em>R-280 — Architecture Document (TOGAF BDAT) · Order To Cash (IP) · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-280 — Ship Orders (IP)</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>R-280</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

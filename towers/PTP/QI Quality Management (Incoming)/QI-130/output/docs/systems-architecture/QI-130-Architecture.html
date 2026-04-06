@@ -182,6 +182,11 @@ a:hover { text-decoration: underline; }
 hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
 strong { color: #00285a; }
 
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
 /* ---- Floating PDF download button ---- */
 .pdf-download-btn {
     position: fixed;
@@ -210,12 +215,43 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
-    .page-section {
-        min-height: auto;
-        display: block;
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page. */
+    .print-footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 8pt;
+        color: #888;
+        padding: 4px 15mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the fixed footer. */
+    body {
+        padding-bottom: 20mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
@@ -250,8 +286,14 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
 <script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
     startOnLoad: true,
     theme: 'base',
@@ -312,15 +354,15 @@ strong { color: #00285a; }
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Procure To Pay (PTP) Tower<br/>
   Capability QI-130 · QI Quality Management (Incoming)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -431,7 +473,7 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><strong>Release</strong></td>
-<td>Release 3</td>
+<td>R1 – R5</td>
 </tr>
 <tr>
 <td><strong>Total Systems</strong></td>
@@ -670,18 +712,18 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Quality Analyst
+    subgraph lane_0["Quality Analyst"]
         n1["fa:fa-user Enter the Inspected Values against the characteristic"]
         n5["Inspect Quantitative and Qualitative Characteristics"]
         n7["Landing Page - QI-130-020 Create Inspection Lot"]
     end
-    subgraph Quality Engineer (Extended Production Operations)
+    subgraph lane_1["Quality Engineer (Extended Production Operations)"]
         n2["fa:fa-user Accept and Close the Characteristic (Status 5)"]
         n3["fa:fa-user Reject and Close the Characteristic (Status 5)"]
         n8{{"fa:fa-code-branch Is Results Recording Status Within or Outside Limits?"}}
         n9{{"fa:fa-code-branch exclusiveGateway"}}
     end
-    subgraph Quality Manager
+    subgraph lane_2["Quality Manager"]
         n4["fa:fa-user Perform Usage Decision"]
         n6["Transfer Materials from Quality Inspection to Stock"]
     end
@@ -704,7 +746,7 @@ flowchart TD
     class n9 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVk2P2kgQ_Sstj0Ykki35E4MPWTEGr0aaUSbLJDmEPTTtNvSO3Y262zMQwn_famw-TJjLLgdDPVe9qnpdLrO1iMiplVi3t1vGmU7QtqeXtKK9BPXmWNGejRrgG5YMz0uqesanEFxP2c-9mxeu1sbNYBmuWLkx6JQuBEVf7200gsDSRgpz5SgqWdGzeyvJKiw3qSiFNN43dFC4xT5be-tOyJzKk4Prxh6JILRknJ7gIA7jMDNxihLB8w5pERWDgvR2prhSvJEllnpffq3oI15_Z7legl3gUlHwWeqqfMBzWpoetawNRmr5ehCDKZOHg2DTFSaMLwAPXYAk5i8nKHJ3O7S7vZ3xY1L0PJ5xBB9SYqXGtEBKAzx51ahgZZnchOkoi1xbaSleaHLjT-Jx4NvEdJJA665txHXeKFssdTIXZd66Om-mh8RfrW25TnzXlhu4XuSiPD9lSvv-wB8cM93FXuqlh0xFUfyvTKCrfMbqpc01CTI_Gx9zeVE_St3f-Q5tjsN45F3qROUrI_SMNMuyYHKSatKPPPd90rss6LvpBekCa_qGNyfCYRoeCbMozrz4XcIm32WV9fxJCnIgDCZRFh0J4zsvG_nvEoYjLxy0FQLPQuLVEn2pccn0Bo04LjdKN3fNh3s_ZlaBkwI7Rmw04Rqu8ISie65WlGiao2-4rKlCeIEZV3p_00whhpuSKc3IzPr7jDECxjbY5OWaaazZK0WY520hjZ12SFSXJQaWB4iAZwA94QVFDvpy73iB67i-i1JJQfNDjUxw9CD0kQAG9J3-J3wBjzt0-GGy1uAG3YHQed1wfF5Ric0v9fGsEr-r0IgQutL7ZtJSKLrXo9sK-jCFFmuFoo_dpoIu1V_0HyPSf6IabLcHLrNynTksDbJE9wpYVV1q801g5xn9WorvTC8ZR0Kiz7VWLKfogVVMqz9m1m53Rj28Tk3XpKwVHNyfzbifot7X-xFzODt5Rh52JXiishCyQl-VOeMxJUyB_t1W-xDyDDWoAgIesZEGNiwqpKiOic4mQQtoWJCX38eBx8hxPsGEtmbUmO2O4ANj_ppZrU6NODPrF4xA6-E3AcPWDLrmsDHD1gwbs9-aXmMOLpJ1j2KfLTjbBibusAU7sH8dDq7D4XW4f3xvdOD4Ojw4LLoOOjyglm1VVFaY5VaytfYvefgjkNMCwzhaO9vCtRbTDSdWsn8ZWvUqh8gxwzAzVQPu_gVgY6l0" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm1v4jgQ_itWqoo9KZHySiAf9kQDOVVqtd2ju_thOZ2M44CviY1sp4Vl-e83JuElLP1ylw_APJl5ZubxZMjWIiKnVmLd3m4ZZzpB255e0or2EtSbY0V7NmqAr1gyPC-p6hmfQnA9ZT_2bl64Whs3g2W4YuXGoFO6EBR9ubfRCAJLGynMlaOoZEXP7q0kq7DcpKIU0njf0EHhFvts7a07IXMqTw6uG3skgtCScXqCgziMw8zEKUoEzzukRVQMCtLbmeJK8UaWWOp9-bWij3j9jeV6CXaBS0XBZ6mr8gHPaWl61LI2GKnl60EMpkweDoJNV5gwvgA8dAGSmL-coMjd7dDu9nbGj0nR83jGEVykxEqNaYGUBnjyqlHByjK5CdNRFrm20lK80OTGn8TjwLeJ6SSB1l3biOu8UbZY6mQuyrx1dd5MD4m_WttynfiuLTfweZGL8vyUKe37A39wzHQXe6mXHjIVRfG_MoGu8hmrlzbXJMj8bHzM5UX9KHV_5Tu0OQ7jkXepE5WvjNAz0izLgslJqkk_8tz3Se-yoO-mF6QLrOkb3pwIh2l4JMyiOPPidwmbfJdV1vMnKciBMJhEWXQkjO-8bOS_SxiOvHDQVgg8C4lXS1RiTv92v8-szzUumd6gEcflRumZ9VfjaS7ugUOBkwI7Rng04Ro-4WlF91ytKNE0R19xWVOF8AIzrvT-pplIDDclU5qRLmMEjG0wgtRcM401e6UI8xw1tTR22iFRXZYYWB4gAp4H9IQXFDno873jBa7j-i5KJQX9DzUywdGDODUGw3pNC-9MiwlfwA6AVj9M1hr8oU1QP68bsk8rKrH5pX7rVuV31RoRQld631haCkX32nTbQh-m0G6tUHRBFXSp_qT_GMH-E9Vguz1wmVXszGGZkCW6V8Cq6lKbbwK70GjZUnxjesk4EhJ9qrViOUUPrGJa_T6zdrsz6uF1aromZa3gEP9oHoNT1Dva-2faP2IOByq7PYRdOZ6oLISs0Bdlzn5MCVNwHN2QPoQ8Qz2qgIBHbGSCLYwKKSp0yHU2IVpA84K8_DomPEaO8xEmtzWjxmz3CB8Y8-fMajVrhJpZP2EcWg-_CRi2ZtA1h40ZtmbYmP3W9BpzcJGseyz7bMHZxjBxh03Zgf3rcHAdDq_D_eN_SweOr8ODwzLsoMMDatlWRWWFWW4lW2v_IgAvCzktMIymtbMtXGsx3XBiJfs_TKte5RA5Zhjmp2rA3b-707Ug" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
 
@@ -727,7 +769,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Inspection Owner
+    subgraph lane_0["Inspection Owner"]
         n1["fa:fa-user Perform Usage Decision"]
         n2["fa:fa-user Post the Remaining Stock Quantity to Unrestricted/Blocked"]
         n3["fa:fa-user Perform Usage Decision"]
@@ -774,7 +816,7 @@ flowchart TD
     class n15 subProc
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVttu4zYQ_RVCQeAWkFFdLUcPLRzbAgL0kq43XRTrPtDS0CYikVqSiuN6_e8lLclX5SGpHwzzcM45M2OKo62V8gys2Lq93VJGVYy2PbWCAnox6i2whJ6NauAvLChe5CB7JoZwpmb0332YG5SvJsxgCS5ovjHoDJYc0NODjUaamNtIYib7EgQlPbtXClpgsRnznAsTfQND4pC9W7N1z0UG4hjgOJGbhpqaUwZH2I-CKEgMT0LKWXYmSkIyJGlvZ5LL-TpdYaH26VcSfsOvX2imVnpNcC5Bx6xUkf-KF5CbGpWoDJZW4qVtBpXGh-mGzUqcUrbUeOBoSGD2fIRCZ7dDu9vbOTuYos-TOUP6k-ZYygkQJJWGpy8KEZrn8U0wHiWhY0sl-DPEN940mvienZpKYl26Y5vm9tdAlysVL3ieNaH9takh9spXW7zGnmOLjf6-8AKWHZ3GA2_oDQ9O95E7dsetEyHkfznpvorPWD43XlM_8ZLJwcsNB-HYudZry5wE0ci97BOIF5rCiWiSJP702KrpIHSdt0XvE3_gjC9El1jBGm-Ognfj4CCYhFHiRm8K1n6XWVaLR8HTVtCfhkl4EIzu3WTkvSkYjNxg2GSodZYClyv0wGQJqaKcoT_WDES9bT7M_Tq3CI4J7ptuo0cQhIsCPUm8BDSBlErNmlv_nFC8CwqXCumHGn2CAuunni3RTPH0Gf1ZYaao2iDF0RMToFOmqYLsp_tcb0N2ruq_P5GgI5FZVSBO0BeqVpnAa4YeVxtJU5zrG6Moc0Df6qwoSJNXA445k1VRqiuLsMPiWKf8QJ2DHw6SZa5PzazO4IERrpVToC97xo8nlOj9lOGRopMszygzYOoi_O4y_LwwU_aVheu8z8N1P2LibbctycyW_kLfjqk-0RKNGNenThz_4Mb_E3yrqIAM6fNzcvJ_mVu73amy_2HlK6ng66Eyou84EH1eAkMTnlaFboQmyipXUtd2ehLc8L00ffXWP9gA9fs_G-dmHTXrsFm7QQN4LeAZ4Pvc-p3Pre963eJ13FXY3yD3ccNmw6vj7tq4sNH3W8C_ILrO5U7j3DL8WqGtoEm4LaDVP73BTbbtTDiDvW7Y74aDbjjshgeH4XoGR93wsBmPZ-BdF-g6najbiXrtkDmH_W44aCfIORy2sGVbBQh9iWVWvLX272P6nS0DgvVxs3a2hSvFZxuWWvH-vcWqykz7TCjW46Sowd1_JyAlIA==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVu1v4jYY_1esVBWbFLS8EpoPmygQqdJu647rnaZjmkzyBKwmds52ShnH_342SUgD6Yd2fED459_L8xjHzt6IWQJGaFxf7wklMkT7gdxADoMQDVZYwMBEFfAZc4JXGYiB5qSMygX570izveJZ0zQW4ZxkO40uYM0APdyZaKKEmYkEpmIogJN0YA4KTnLMd1OWMa7ZVzBOrfSYVk_dMp4AbwmWFdixr6QZodDCbuAFXqR1AmJGk45p6qfjNB4cdHEZ28YbzOWx_FLAB_z8hSRyo8YpzgQozkbm2e94BZnuUfJSY3HJn5rFIELnULVgiwLHhK4V7lkK4pg-tpBvHQ7ocH29pKdQ9Gm2pEh94gwLMYMUCang-ZNEKcmy8MqbTiLfMoXk7BHCK2cezFzHjHUnoWrdMvXiDrdA1hsZrliW1NThVvcQOsWzyZ9DxzL5Tn2fZQFN2qTpyBk741PSbWBP7WmTlKbp_0pS68o_YfFYZ83dyIlmpyzbH_lT69KvaXPmBRP7fJ2AP5EYXphGUeTO26Waj3zbet30NnJH1vTMdI0lbPGuNbyZeifDyA8iO3jVsMo7r7Jc3XMWN4bu3I_8k2Fwa0cT51VDb2J747pC5bPmuNigDFP41_q6NO6oKCCWhFH055YCXxr_VFT9obZipDhM8VCvPLoHnjKeoweB14BmEBOhhF2JcyZhQiL1gKOPkGN1AtA1WkgWP6K_SkwlkTskGXqgHFT5JJaQ_HKbqWlIuq7u2wvxegpZlDliKfpC5CbheEvR_WYnSIwzdXrkRQboW1UVAaHrqsEpo6LMC3kR4fdEtH2Kd_Q5-ulkWWRqBy2qCu5oypRzDOTpqPj5hSR4u2TcSlSRRUeyACrP6Dfn9G5juu2LCNt6W4ZtvyfE2e8bkb5nhit1UsYbdCfQhDK163j7B9f5H-FbSTgkSO0f1G7-35bG4fDS2X2384WV9_XUWarOO-BDVgBFMxaXuVoIJRRlJoXqrfPo-W-VqWO4-kFHaDj8VSfX46Ae-_XY9mrAaQBHA9-Xxh9saXxX4waveBe0v0EceeN6wql4Nw3Pr_3dBnDPhLZ1PlMnNwq3cmg6qAtuGmj8X57mutrmfujATj_s9sNeP-z3w6PTRduBg354XF-VHfCmD7StXtTuRZ3mwunCbj_sNbdJF_Yb2DCNHLg6xBIj3BvHdzP1_pZAitV2Mw6mgUvJFjsaG-HxHcYoi0TlzAhWV0tegYcfxdYpAw==" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
 
@@ -797,7 +839,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Inspection Owner
+    subgraph lane_0["Inspection Owner"]
         n1["fa:fa-user Enter the Inspected Values against the characteristics"]
         n2["fa:fa-user Reject and close the characteristic (Status 5)"]
         n3["fa:fa-user Accept and close the characteristic (Status 5)"]
@@ -837,7 +879,7 @@ flowchart TD
     class n12 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlll1v4jgUhv-KlaqiIwUpnwRyMSsKZFWpM9NZOjNaDXthHAe8DTaynQLL8N_3OCRAmHSl3eWC9rw-fs6HnUP2FhEptWLr9nbPONMx2nf0kq5oJ0adOVa0Y6Oj8BVLhuc5VR3jkwmup-yv0s0N1lvjZrQEr1i-M-qULgRFXx5sNISNuY0U5qqrqGRZx-6sJVthuRuJXEjjfUP7mZOV0aqleyFTKs8OjhO5JIStOeP0LPtREAWJ2acoETxtQLMw62ekczDJ5WJDlljqMv1C0Q94-42legl2hnNFwWepV_kjntPc1KhlYTRSyNe6GUyZOBwaNl1jwvgC9MABSWL-cpZC53BAh9vbGT8FRc_jGUfwITlWakwzpDTIk1eNMpbn8U0wGiahYystxQuNb7xJNPY9m5hKYijdsU1zuxvKFksdz0WeVq7djakh9tZbW25jz7HlDr6vYlGeniONel7f658i3UfuyB3VkbIs-1-RoK_yGauXKtbET7xkfIrlhr1w5PzMq8scB9HQve4Tla-M0AtokiT-5NyqSS90nbeh94nfc0ZX0AXWdIN3Z-BgFJyASRglbvQm8BjvOsti_iQFqYH-JEzCEzC6d5Oh9yYwGLpBv8oQOAuJ10v0wNWaEs0ER582nMrjsvlw9_vMynCc4a7pNppwDd_wiNZ7aIq-4rygCuEFZlzpctFcQwyLkinNiJpZf1wgvSbyN_oncBDmKVQoFG0BoLupxrpQKHzXRPlN1JAQuv6PqKCJeqIyE3KFvii8oGhMCVPQnuaW8LoQsaa8jP4Aw43BsYOmilzDHwIDBh5YNDRdamJ6gKm6iT4XmGsGGbJXWpJAyGt79E9djYDyDKNBZZDKB2y8YNCgTIpVBdldnrMWaKoFeWlC-gB5hLAm0ydTeBd9fui6vtN1PAeNJDU1XVAehW4CBvt93RMz6rtzyIjABVNVJ9RFK6qD-Mb0kgGKrRgs_zKzDofL--e0E-mW5IWCrvx6fLqut7nt24byeClklc1awpnJfAeCSQtu808JeP82ARiAx394H3W77-GAK7N3NKuhw93K9Crbq-zqcef-le06lXAClIQfM-t3CpfhB9zh64WPotTDWq9CDCo7OJpRZQ7OOHTXOJZ3Jca_8vso0N2nQiuW0oZfXVDYLLCcX6bsem43ZK9d9tvloF0O2-Xo9APYkPvt8qCe2M20nXbZbZe9WrZsa0XlCrPUivdW-XIDL0ApzTBcQOtgW7jQYrrjxIrLlwCrWKewc8wwzObVUTz8Dddp8X0=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllm2P4jYQx7-KldWKPSmR8kggL1qxQKqV9u72yt6dqlJVxnHA3WAj21ngOL57xyEBwrGV2vKC3fl7_JsHO0N2FhEZtRLr9nbHONMJ2nX0gi5pJ0GdGVa0Y6OD8AVLhmcFVR3jkwuuJ-xb5eaFq41xM1qKl6zYGnVC54Kizw82GsDGwkYKc-UoKlnesTsryZZYboeiENJ439Be7uZVtHrpXsiMypOD68YeiWBrwTg9yUEcxmFq9ilKBM9a0DzKeznp7E1yhViTBZa6Sr9U9D3efGWZXoCd40JR8FnoZfGIZ7QwNWpZGo2U8rVpBlMmDoeGTVaYMD4HPXRBkpi_nKTI3e_R_vZ2yo9B0fNoyhF8SIGVGtEcKQ3y-FWjnBVFchMOB2nk2kpL8UKTG38cjwLfJqaSBEp3bdNcZ03ZfKGTmSiy2tVZmxoSf7Wx5SbxXVtu4fsiFuXZKdKw6_f83jHSfewNvWETKc_z_xUJ-iqfsXqpY42D1E9Hx1he1I2G7o-8psxRGA-8yz5R-coIPYOmaRqMT60adyPPfRt6nwZdd3gBnWNN13h7AvaH4RGYRnHqxW8CD_EusyxnT1KQBhiMozQ6AuN7Lx34bwLDgRf26gyBM5d4tUAF5vRP9_ep9cDVihLNBEcf15zKqfXHwdV8uAceOU5y7JjOozHX8A2PK6q30Qx9wUVJFcJzzLjS1aK5khgWJVOaEdVG-m3kr_Qv4CDMM6hWKHoFgO4mGutSoehdGxW0UQNC6Oo_osI26onKXMgl-qzwnKIRJUxBh9pbostCxIryKvoDDDoGVwA0VRYa_hAYNvDwooHpUhvTPR0C-lRirhlkyF5pRQKhaOzhP3U1BsozjAmVQyrvsfGCoYNyKZY1ZIvOjloLNNGCvLQhPYA8QliT6ZMp3EGfHhwvcB3Xd9FQUlPTGeVR6Dagv9s1PTFj35lBRmSBHlTdCXXWivogvjK9YIBiSwbLP0-t_f78_rnXiXRDilJBV345PGmX27zr2wbycClknc1KwpnJYguCSQtu8w8J-P82ARiGh394DznOT3DAtdk9mPUA4l5t-rXt13b96PPgwvbcWjgCKsL3qfUbhcvwHe7w5cIHUelRo9ch-rUdHsy4NvsnHLprHcu7ChNc-H0Q6O5jqRXLaMuvKShqF1jNMlN2M8Nbsn9dDq7L4XU5ui7Hxx_Dlty7Lveb6d1O270ue9dlv5Et21pSucQss5KdVb3owMtQRnMMF9Da2xYutZhsObGS6oXAKlcZ7BwxDHN6eRD3fwO-SPVg" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
 
@@ -860,7 +902,7 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Inspection Owner
+    subgraph lane_0["Inspection Owner"]
         n1["fa:fa-user Enter the Inspected Values against the characteristics"]
         n2["fa:fa-user Reject and close the characteristic (Status 5)"]
         n3["fa:fa-user Accept and close the characteristic (Status 5)"]
@@ -900,7 +942,7 @@ flowchart TD
     class n12 gateway
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlll1v4jgUhv-KlaqiIwUpnwRyMSsKZFWpM9NZOjNaDXthHAe8DTaynQLL8N_3OCRAmHSl3eWC9rw-fs6HnUP2FhEptWLr9nbPONMx2nf0kq5oJ0adOVa0Y6Oj8BVLhuc5VR3jkwmup-yv0s0N1lvjZrQEr1i-M-qULgRFXx5sNISNuY0U5qqrqGRZx-6sJVthuRuJXEjjfUP7mZOV0aqleyFTKs8OjhO5JIStOeP0LPtREAWJ2acoETxtQLMw62ekczDJ5WJDlljqMv1C0Q94-42legl2hnNFwWepV_kjntPc1KhlYTRSyNe6GUyZOBwaNl1jwvgC9MABSWL-cpZC53BAh9vbGT8FRc_jGUfwITlWakwzpDTIk1eNMpbn8U0wGiahYystxQuNb7xJNPY9m5hKYijdsU1zuxvKFksdz0WeVq7djakh9tZbW25jz7HlDr6vYlGeniONel7f658i3UfuyB3VkbIs-1-RoK_yGauXKtbET7xkfIrlhr1w5PzMq8scB9HQve4Tla-M0AtokiT-5NyqSS90nbeh94nfc0ZX0AXWdIN3Z-BgFJyASRglbvQm8BjvOsti_iQFqYH-JEzCEzC6d5Oh9yYwGLpBv8oQOAuJ10v0wNWaEs0ER582nMrjsvlw9_vMynCc4a7pNppwDd_wiNZ7aIq-4rygCuEFZlzpctFcQwyLkinNiJpZf1wgvSbyN_oncBDmKVQoFG0BoLupxrpQKHzXRPlN1JAQuv6PqKCJeqIyE3KFvii8oGhMCVPQnuaW8LoQsaa8jP4Aw43BsYOmilzDHwIDBh5YNDRdamJ6gKm6iT4XmGsGGbJXWpJAyGt79E9djYDyDKNBZZDKB2y8YNCgTIpVBdldnrMWaKoFeWlC-gB5hLAm0ydTeBd9fui6vtN1PAeNJDU1XVAehW4CBvt93RMz6rtzyIjABVNVJ9RFK6qD-Mb0kgGKrRgs_zKzDofL--e0E-mW5IWCrvx6fLqut7nt24byeClklc1awpnJfAeCSQtu808JeP82ARiAx394H3W77-GAK7N3NKuhw93K9Crbq-zqcef-le06lXAClIQfM-t3CpfhB9zh64WPotTDWq9CDCo7OJpRZQ7OOHTXOJZ3Jca_8vso0N2nQiuW0oZfXVDYLLCcX6bsem43ZK9d9tvloF0O2-Xo9APYkPvt8qCe2M20nXbZbZe9WrZsa0XlCrPUivdW-XIDL0ApzTBcQOtgW7jQYrrjxIrLlwCrWKewc8wwzObVUTz8Dddp8X0=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllm2P4jYQx7-KldWKPSmR8kggL1qxQKqV9u72yt6dqlJVxnHA3WAj21ngOL57xyEBwrGV2vKC3fl7_JsHO0N2FhEZtRLr9nbHONMJ2nX0gi5pJ0GdGVa0Y6OD8AVLhmcFVR3jkwuuJ-xb5eaFq41xM1qKl6zYGnVC54Kizw82GsDGwkYKc-UoKlnesTsryZZYboeiENJ439Be7uZVtHrpXsiMypOD68YeiWBrwTg9yUEcxmFq9ilKBM9a0DzKeznp7E1yhViTBZa6Sr9U9D3efGWZXoCd40JR8FnoZfGIZ7QwNWpZGo2U8rVpBlMmDoeGTVaYMD4HPXRBkpi_nKTI3e_R_vZ2yo9B0fNoyhF8SIGVGtEcKQ3y-FWjnBVFchMOB2nk2kpL8UKTG38cjwLfJqaSBEp3bdNcZ03ZfKGTmSiy2tVZmxoSf7Wx5SbxXVtu4fsiFuXZKdKw6_f83jHSfewNvWETKc_z_xUJ-iqfsXqpY42D1E9Hx1he1I2G7o-8psxRGA-8yz5R-coIPYOmaRqMT60adyPPfRt6nwZdd3gBnWNN13h7AvaH4RGYRnHqxW8CD_EusyxnT1KQBhiMozQ6AuN7Lx34bwLDgRf26gyBM5d4tUAF5vRP9_ep9cDVihLNBEcf15zKqfXHwdV8uAceOU5y7JjOozHX8A2PK6q30Qx9wUVJFcJzzLjS1aK5khgWJVOaEdVG-m3kr_Qv4CDMM6hWKHoFgO4mGutSoehdGxW0UQNC6Oo_osI26onKXMgl-qzwnKIRJUxBh9pbostCxIryKvoDDDoGVwA0VRYa_hAYNvDwooHpUhvTPR0C-lRirhlkyF5pRQKhaOzhP3U1BsozjAmVQyrvsfGCoYNyKZY1ZIvOjloLNNGCvLQhPYA8QliT6ZMp3EGfHhwvcB3Xd9FQUlPTGeVR6Dagv9s1PTFj35lBRmSBHlTdCXXWivogvjK9YIBiSwbLP0-t_f78_rnXiXRDilJBV345PGmX27zr2wbycClknc1KwpnJYguCSQtu8w8J-P82ARiGh394DznOT3DAtdk9mPUA4l5t-rXt13b96PPgwvbcWjgCKsL3qfUbhcvwHe7w5cIHUelRo9ch-rUdHsy4NvsnHLprHcu7ChNc-H0Q6O5jqRXLaMuvKShqF1jNMlN2M8Nbsn9dDq7L4XU5ui7Hxx_Dlty7Lveb6d1O270ue9dlv5Et21pSucQss5KdVb3owMtQRnMMF9Da2xYutZhsObGS6oXAKlcZ7BwxDHN6eRD3fwO-SPVg" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
 
@@ -5306,11 +5348,15 @@ flowchart TD
 </tbody>
 </table>
 <hr />
-<p><em>QI-130 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: March 2026</em></p>
+<p><em>QI-130 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: April 2026</em></p>
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>QI-130 — Perform Incoming Quality Assurance</span></div>
 </div>
 <div class="footer">
     IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span>QI-130</span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>
 </html>

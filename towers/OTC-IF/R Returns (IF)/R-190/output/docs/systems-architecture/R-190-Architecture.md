@@ -4,15 +4,15 @@
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IF) (OTC-IF) Tower<br/>
   Capability R-190 · R Returns (IF)</p>
-  <p style="font-size:14px; color:#888;">IAO Program · Release 3<br/>
-  Generated: March 2026<br/>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
   Sajiv Francis</p>
   <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
 </div>
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
@@ -106,7 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Tower** | Order To Cash (IF) (OTC-IF) |
 | **Process Group** | R Returns (IF) |
 | **Capability** | R-190 - Manage Returns and Exchanges (IF) |
-| **Release** | Release 3 |
+| **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 11 Interfaces, 64 Enhancements, 11 Forms, 1 Workflows |
@@ -198,13 +198,13 @@ flowchart TD
     classDef serviceTask fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF360C
     classDef gateway fill:#FFF9C4,stroke:#F57F17,stroke-width:2px,color:#E65100
     classDef subProc fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
-    subgraph Customer Quality Engineer
+    subgraph lane_0["Customer Quality Engineer"]
         n1["fa:fa-user Receive Failure Analysis (FA) Returns in FA Storage Location"]
         n4["Perform Physical Inspection"]
         n5(["fa:fa-stop Physical Inspection Performed"])
         n7{{"fa:fa-code-branch exclusiveGateway"}}
     end
-    subgraph Warehouse Operator
+    subgraph lane_1["Warehouse Operator"]
         n2["fa:fa-user Post Goods Receipt"]
         n3["fa:fa-user Receive Material in Returns Storage Location"]
         n6["Receive Return Order"]
@@ -227,7 +227,7 @@ flowchart TD
     class n8 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU2P2zYQ_SuEFgsngAzo03J1aOGVrSBAgmzjbXOoe6CpkUUsTQoktWvX8X8PaUn-ijeX6mBgnmbem3kmRzuHiAKc1Lm_31FOdYp2A13BGgYpGiyxgoGLWuBvLCleMlADm1MKruf0v0OaH9Ubm2axHK8p21p0DisB6K-PLpqYQuYihbkaKpC0HLiDWtI1lttMMCFt9h2MS688qHWvHoQsQJ4SPC_xSWxKGeVwgsMkSqLc1ikgghcXpGVcjksy2NvmmHglFZb60H6j4DPefKOFrkxcYqbA5FR6zT7hJTA7o5aNxUgjX3ozqLI63Bg2rzGhfGXwyDOQxPz5BMXefo_29_cLfhRFT9MFR-YhDCs1hRIpbeDZi0YlZSy9i7JJHnuu0lI8Q3oXzJJpGLjETpKa0T3Xmjt8BbqqdLoUrOhSh692hjSoN67cpIHnyq35vdICXpyUslEwDsZHpYfEz_ysVyrL8n8pGV_lE1bPndYszIN8etTy41GceT_z9WNOo2TiX_sE8oUSOCPN8zycnayajWLfe5v0IQ9HXnZFusIaXvH2RPhbFh0J8zjJ_eRNwlbvustm-SgF6QnDWZzHR8Lkwc8nwZuE0cSPxl2HhmclcV2hrFFarEGiPxvMqN6iGV-Zcw-yzbMP9_9ZOCVOSzy0tqOvQIC-AMoxZY0ENOGYbc2ZRe_yyXvzVjeSK0Q5yidoroXEK0CfBMGaCr5w_j0jjgzxI8hSyDV6rAwHwQx95KoG8nNy_O7Yhmm5vlWAOjIoTOn7s9pkt-tr7RoaLs1FIhWCDWGNMrN8aP-nhbPft1XmJF8Z9Q1LqIQxAH2pQWIz1xl_cOnQo1AafRCiUK1Ztb4cJbxt6GfThV1h1rvexl8bODJEfXVbgb7YbXaZNb49_dO2BiTKXuqPG9PzAA2HvxuGLgzbMOnCpA2jLozaMO5C_zJ5bMPvC-c4Zae7cL4b4qukX56tQ0V3f_moVQnOLoqV7hfEBRzchsPbcNztswtwdFyoF3DSX_ULdNyjjuuYO7bGtHDSnXP4zJlPYQElbph29q6DGy3mW06c9PA5cJq6MJVTis3hW7fg_gcf51PP" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVGP2jgQ_itWVitaKUhJSAiXh6vYQKpKrbp37F0fjqoyyZhYa-zIdnahlP9-NklgQ9m-NA9I82Xm-2Y-7MneyUUBTuLc3u4ppzpB-4EuYQODBA1WWMHARQ3wL5YUrxiogc0hgusF_X5M88Nqa9MsluENZTuLLmAtAP3zwUVTU8hcpDBXQwWSkoE7qCTdYLlLBRPSZt_AhHjkqNa-uhOyAHlO8LzYzyNTyiiHMzyKwzjMbJ2CXPCiR0oiMiH54GCbY-I5L7HUx_ZrBZ_w9gstdGligpkCk1PqDfuIV8DsjFrWFstr-dSZQZXV4cawRYVzytcGDz0DScwfz1DkHQ7ocHu75CdR9DBbcmSenGGlZkCQ0gaeP2lEKGPJTZhOs8hzlZbiEZKbYB7PRoGb20kSM7rnWnOHz0DXpU5WghVt6vDZzpAE1daV2yTwXLkzvxdawIuzUjoOJsHkpHQX-6mfdkqEkN9SMr7KB6weW635KAuy2UnLj8ZR6v3M1405C-Opf-kTyCeawwvSLMtG87NV83Hke6-T3mWjsZdekK6xhme8OxP-kYYnwiyKMz9-lbDRu-yyXt1LkXeEo3mURSfC-M7PpsGrhOHUDydth4ZnLXFVIoY5fPP-WzpprbTYgER_1ZhRvUNzvjYXAOTS-drU2If7JpXghOCh_QvQ35ADfQKUYcpqCWjKMduZ84veZNO35q2uJVeIcpRN0UILideAPoocayp4nzg0xPcgiZAbdF8ajhwz9IGrCvKfk6M3pzZM19W1AtSSQWFK376ojff7rtaupOHKXKq8RLDNWa3MLO-b_2zpHA5NlTnV10yzTnzBEkphnECfK5DYDNjvM-i7dS-URu-FKFRjXKX76aPr5n4yHdnVZn3sLP21mWND1FU3Feiz3XL9rMl1Jx52FSBBOql3V5zgARoO_zQMbThqwrgN4yYM2zBswqgN_X7yxIY_ls5pylZ36fwwxBdJvzxnx4r2XvNxoxK8uEBWulscPTi4Do-uw1G753rg-LRoe3DcrYAeOulQx3XMldtgWjjJ3jl-_swnsgCCa6adg-vgWovFjudOcvxMOHVVmMoZxeYgbhrw8D_8dVuW" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -462,6 +462,7 @@ Integration patterns identified from the system flow analysis for R-190:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
@@ -589,6 +590,6 @@ Standard RAID items for R-190 (Order To Cash (IF)):
 | 5 | Security | Complete security review for API integrations and data flows per Intel Security Architecture standards | Medium | Security Architect | 2026-Q3 | Open |
 
 ---
-*R-190 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: March 2026*
+*R-190 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: April 2026*
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-190 — Manage Returns and Exchanges (IF)</span></div>
