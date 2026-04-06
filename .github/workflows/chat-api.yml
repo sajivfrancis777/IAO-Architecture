@@ -41,6 +41,7 @@ jobs:
       - name: Process chat request
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DISPATCH_PAYLOAD: ${{ toJSON(github.event.client_payload) }}
         run: |
           python3 - <<'PYCHAT'
           import anthropic
@@ -165,8 +166,6 @@ jobs:
           print(f"Status: {response_data['status']}")
           PYCHAT
         shell: bash
-        env:
-          DISPATCH_PAYLOAD: ${{ toJSON(github.event.client_payload) }}
 
       - name: Commit and push response
         run: |
