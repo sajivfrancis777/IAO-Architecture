@@ -8,7 +8,7 @@
     <style>
 @page {
     size: A4;
-    margin: 10mm 0;   /* 10mm top/bottom: too small for browser header/footer text but gives page breathing room */
+    margin: 0;   /* zero page-margin eliminates browser-default header (date/title) and footer (URL/page-number) */
 }
 body {
     font-family: "Segoe UI", Calibri, Arial, sans-serif;
@@ -208,7 +208,7 @@ strong { color: #00285a; }
 .pdf-download-btn:hover { background: #0071c5; }
 
 @media print {
-    body { padding: 20mm 15mm; max-width: none; }
+    body { padding: 12mm 15mm 22mm 15mm; max-width: none; }
     .header-bar { margin: 0 0 20px 0; }
     .no-print, .pdf-download-btn { display: none !important; }
     h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
@@ -223,27 +223,29 @@ strong { color: #00285a; }
     }
 
     /* Global fixed footer — Chrome/Edge render position:fixed elements
-       at the same position on every printed page. */
+       at the same position on every printed page.
+       @page margin:0 suppresses the browser's own date/URL/page-number chrome. */
     .print-footer {
         display: flex;
+        flex-direction: column;
+        align-items: center;
         position: fixed;
         bottom: 0;
         left: 0;
         right: 0;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 8pt;
+        font-size: 7.5pt;
         color: #888;
-        padding: 4px 15mm;
+        padding: 3px 15mm 4px 15mm;
         border-top: 1px solid #ddd;
         background: #fff;
+        line-height: 1.4;
     }
     .print-footer a { color: #0071c5; text-decoration: none; }
 
     /* Reserve space at the bottom of every page so content doesn't
-       overlap the fixed footer. */
+       overlap the 3-line fixed footer. */
     body {
-        padding-bottom: 20mm;
+        padding-bottom: 22mm;
     }
 
     /* Page sections: keep flex for short pages, but remove min-height
@@ -1478,7 +1480,7 @@ nav.toc a:hover { text-decoration: underline; }
 </div>
 <div class="print-footer">
     <span><a href="#toc">&uarr; Back to TOC</a></span>
-    <span>LO-170 — Pack Orders - OTC (IF)</span>
+    <span><strong>LO-170 — Pack Orders - OTC (IF)</strong></span>
     <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
 </div>
 </body>

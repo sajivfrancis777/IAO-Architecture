@@ -88,7 +88,7 @@ def inject_page_footers(content: str) -> str:
     _CANONICAL_STYLE = (
         '<style>\n'
         '@media print {\n'
-        '  @page { size: A4; margin: 10mm 0; }\n'
+        '  @page { size: A4; margin: 0; }\n'
         '  .mermaid { page-break-inside: avoid; overflow: visible; }\n'
         '  pre, table { page-break-inside: avoid; }\n'
         '  h2, h3, h4 { page-break-after: avoid; }\n'
