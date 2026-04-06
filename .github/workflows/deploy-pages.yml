@@ -739,12 +739,16 @@ jobs:
           </script>
           """
 
-          # Collect ALL HTML pages that need toolbar+sidebar injection:
-          # - towers/**/*.html  (SAD, RICEFW Tracker, Testing Report)
-          # - R3/towers/**/*.html, R4/towers/**/*.html (per-release docs)
-          # - dashboard/**/*.html (Program + Tower dashboards)
+          # Collect ALL HTML pages that need toolbar+sidebar+chatbot injection:
+          # - *.html             (index.html, tower-*.html, 404.html)
+          # - cap/**/*.html      (capability landing pages)
+          # - towers/**/*.html   (SAD, RICEFW Tracker, Testing Report)
+          # - R[0-9]/towers/**   (per-release docs)
+          # - dashboard/**       (Program + Tower dashboards)
           html_files = sorted(
-              glob.glob("_site/towers/**/*.html", recursive=True)
+              glob.glob("_site/*.html")
+              + glob.glob("_site/cap/**/*.html", recursive=True)
+              + glob.glob("_site/towers/**/*.html", recursive=True)
               + glob.glob("_site/R[0-9]/towers/**/*.html", recursive=True)
               + glob.glob("_site/dashboard/**/*.html", recursive=True)
           )
@@ -866,7 +870,7 @@ jobs:
                   f.write(content)
               count += 1
 
-          print(f"  Injected toolbar + sidebar into {count} documents (SAD + RICEFW + Testing + Dashboard)")
+          print(f"  Injected toolbar + sidebar + chatbot into {count} pages")
           PYINJECT
 
           # ── CUSTOM DOMAIN (CNAME) ──────────────────────────────────
