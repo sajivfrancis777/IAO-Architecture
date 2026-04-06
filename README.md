@@ -812,6 +812,12 @@ All scripts run from the project root. The three bolded scripts form the core ge
 | **`python -m src.gen_systems_arch --all`** | **Generate** all architecture Markdown documents from inputs |
 | **`python scripts/update_sad_from_smartsheet.py`** | **Enrich** with live Smartsheet data (RICEFW, RAID, roadmap) |
 | **`python scripts/gen_pdf.py`** | **Produce** HTML + PDF outputs from Markdown |
+| `python scripts/fetch_smartsheet_data.py` | Pull RAID logs + Object Tracker from Smartsheet API → CSV cache |
+| `python scripts/fetch_jira_data.py` | Pull defects + test cases from JIRA → JSON cache |
+| `python scripts/gen_dashboard.py` | Generate interactive Plotly.js program + tower dashboards |
+| `python scripts/gen_ricefw_tracker.py --all` | Generate per-tower RICEFW tracker documents |
+| `python scripts/gen_testing_report.py --all` | Generate per-tower testing readiness reports |
+| `python scripts/gen_tower_pages.py` | Generate tower + capability landing pages for portal |
 | `python scripts/sync_sharepoint.py --all` | Upload outputs to SharePoint |
 | `python scripts/gen_xlsx_templates.py --deploy` | Deploy blank Excel templates to all capabilities |
 | `python scripts/scaffold_inputs.py` | Deploy input templates + upgrade legacy CSVs to 47-column xlsx |
@@ -842,8 +848,10 @@ Three GitHub Actions workflows automate the full lifecycle. Once inputs and cred
 | Workflow | Trigger | What It Does |
 |----------|---------|-------------|
 | `generate-architecture.yml` | Schedule (cron), push to `main`, manual | Full pipeline: generate MDs → enrich from Smartsheet → produce HTML/PDF → sync to SharePoint |
+| `deploy-pages.yml` | After generation completes, manual | Deploy HTML outputs to GitHub Pages with toolbar, sidebar, chatbot injection |
+| `data-refresh.yml` | Daily weekday cron (06:00 UTC), manual | Pull latest Smartsheet RAID logs + JIRA data → commit updated CSV/JSON cache → trigger site rebuild |
+| `chat-api.yml` | `repository_dispatch` (browser chatbot) | Receive chat question → call Anthropic Claude → write response JSON for browser polling |
 | `sharepoint-reverse-sync.yml` | Power Automate webhook, manual | Pull updated xlsx from SharePoint → commit → triggers generation |
-| `deploy-pages.yml` | After generation completes, manual | Deploy HTML outputs to GitHub Pages |
 
 ### Scheduling
 
@@ -892,15 +900,16 @@ Configure in **Settings → Secrets and variables → Actions**:
 
 | Secret | Required For |
 |--------|-------------|
-| `SMARTSHEET_TOKEN` | Smartsheet live data injection |
+| `SMARTSHEET_TOKEN` | Smartsheet live data injection + data-refresh |
+| `JIRA_PAT` | JIRA data fetch (defects, test cases) |
+| `JIRA_BASE_URL` | JIRA REST API base (e.g. `https://jira.devtools.intel.com`) |
+| `ANTHROPIC_API_KEY` | AI chatbot backend (Claude API) |
 | `SP_TENANT_ID` | SharePoint sync |
 | `SP_CLIENT_ID` | SharePoint sync |
 | `SP_CLIENT_SECRET` | SharePoint sync |
 | `SP_SITE_URL` | SharePoint sync |
 | `SP_DOC_LIBRARY` | SharePoint sync (default: `Shared Documents`) |
 | `SP_TARGET_FOLDER` | SharePoint sync (default: `Architecture/SAD`) |
-
-Optional: `IAPM_BEARER_TOKEN`, `BIC_AUTH_TOKEN`, `JIRA_*`, `SAP_*`
 
 ---
 

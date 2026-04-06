@@ -571,7 +571,7 @@ jobs:
           import os, re, glob
 
           TOOLBAR_CSS = """
-          .portal-toolbar{position:fixed;top:0;left:0;right:0;height:48px;background:linear-gradient(135deg,#00285a 0%,#0071c5 100%);display:flex;align-items:center;padding:0 16px;z-index:9000;box-shadow:0 2px 8px rgba(0,0,0,.2);font-family:"Segoe UI",system-ui,sans-serif}
+          .portal-toolbar{position:fixed;top:0;left:0;right:0;height:auto;min-height:48px;background:linear-gradient(135deg,#00285a 0%,#0071c5 100%);display:flex;align-items:center;flex-wrap:wrap;padding:0 16px;z-index:9000;box-shadow:0 2px 8px rgba(0,0,0,.2);font-family:"Segoe UI",system-ui,sans-serif}
           .portal-toolbar a,.portal-toolbar button{color:#fff;text-decoration:none;font-size:13px;margin-right:12px;background:none;border:none;cursor:pointer;padding:4px 10px;border-radius:6px;transition:background .15s}
           .portal-toolbar a:hover,.portal-toolbar button:hover{background:rgba(255,255,255,.15)}
           .portal-toolbar .tb-title{color:rgba(255,255,255,.7);font-size:12px;margin-left:auto;letter-spacing:.3px}
@@ -602,7 +602,7 @@ jobs:
           .portal-sidebar .ps-cap.active .cid{color:#fff}
           .portal-sidebar .ps-empty{padding:16px;font-size:13px;color:#999;text-align:center;font-style:italic;display:none}
           @page{size:A4;margin:10mm 0}@media print{.portal-toolbar,.portal-sidebar,.portal-sidebar-overlay{display:none !important}body{padding:10mm 15mm !important}h1,h2,h3,h4{page-break-after:avoid;break-after:avoid}table,pre,blockquote,.mermaid{page-break-inside:avoid;break-inside:avoid}p{orphans:3;widows:3}.page-section{min-height:auto;display:block}a[title="View full diagram"],a[title="Open full-size SVG"]{color:#0071c5 !important;text-decoration:underline !important;font-size:10pt !important}.mermaid{max-height:85vh;overflow:visible}.mermaid svg{max-width:100%;max-height:80vh;height:auto}}
-          @media(max-width:768px){.portal-toolbar{padding:0 8px;height:44px;overflow:hidden}.portal-toolbar a,.portal-toolbar button{font-size:11px;margin-right:6px;padding:3px 6px}.portal-toolbar .tb-title{display:none}.portal-toolbar .pdf-btn{position:static;display:none}.portal-toolbar .tb-release{font-size:11px;padding:3px 6px;margin-left:auto}}
+          @media(max-width:768px){.portal-toolbar{padding:4px 8px;min-height:44px}.portal-toolbar a,.portal-toolbar button{font-size:11px;margin-right:6px;padding:3px 6px}.portal-toolbar .tb-title{flex-basis:100%;order:99;text-align:center;padding:2px 0 4px;font-size:11px;color:rgba(255,255,255,.85)}.portal-toolbar .pdf-btn{display:none}.portal-toolbar .tb-release{font-size:11px;padding:3px 6px;margin-left:auto}}
           .chat-fab{position:fixed;bottom:24px;right:24px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#0071c5,#00285a);color:#fff;border:none;cursor:pointer;z-index:9100;box-shadow:0 4px 16px rgba(0,0,0,.3);font-size:24px;display:flex;align-items:center;justify-content:center;transition:transform .2s,box-shadow .2s}
           .chat-fab:hover{transform:scale(1.08);box-shadow:0 6px 20px rgba(0,0,0,.4)}
           .chat-fab .chat-badge{position:absolute;top:-2px;right:-2px;width:14px;height:14px;border-radius:50%;background:#f59e0b;border:2px solid #fff}
@@ -942,9 +942,10 @@ jobs:
               is_dashboard = "dashboard" in html_file
               pdf_btn = '' if is_dashboard else '<button class="pdf-btn" title="Print / Save as PDF">&#128196; Download PDF</button>'
 
-              # Release filter — only on pages where it applies (document + dashboard pages)
+              # Release filter — only on document pages (NOT dashboard — it has its own)
               is_doc_page = "/towers/" in html_file.replace("\\", "/")
-              show_release = is_doc_page or is_dashboard
+              is_dashboard = "dashboard" in html_file
+              show_release = is_doc_page and not is_dashboard
               release_filter = '''<select class="tb-release" id="doc-release-filter" title="Filter by Release">
               <option value="All">All Releases</option>
               <option value="R1">R1</option>

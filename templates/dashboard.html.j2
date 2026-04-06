@@ -284,6 +284,24 @@
     @media (max-width: 900px) {
       .chart-grid { grid-template-columns: 1fr; }
       .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+      .chart-card { min-height: 320px; padding: 12px; }
+      .topbar { flex-wrap: wrap; gap: 8px; padding: 10px 16px; }
+      .topbar h1 { font-size: 1rem; flex: 0 0 100%; }
+      .topbar .meta { font-size: 0.75rem; }
+      .topbar .nav-links { flex-wrap: wrap; gap: 4px; }
+      .tower-nav { padding: 6px 12px; }
+      .tower-nav a { padding: 4px 10px; font-size: 0.78rem; }
+      .kpi-card .value { font-size: 1.6rem; }
+      .kpi-card .label { font-size: 0.78rem; }
+      .doc-table { font-size: 0.8rem; }
+      .doc-table th, .doc-table td { padding: 6px 8px; }
+      .filter-bar { padding: 8px 12px; }
+    }
+    @media (max-width: 480px) {
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 12px; }
+      .chart-card { min-height: 280px; padding: 8px; }
+      .chart-card h3 { font-size: 0.85rem; }
+      .doc-table { font-size: 0.72rem; display: block; overflow-x: auto; }
     }
 
     /* ---- Print / PDF Export ---- */
@@ -620,13 +638,30 @@ var TC = ['I','C','E','R','F','W'];
 var TL = {I:'Interface',C:'Conversion',E:'Enhancement',R:'Report',F:'Form',W:'Workflow'};
 var TCOL = {I:'#0071c5',C:'#00aeef',E:'#34a853',R:'#fbbc04',F:'#8e44ad',W:'#e67e22'};
 var SCOL = {Completed:'#34a853',Active:'#0071c5',Rejected:'#ea4335'};
+var isMobile = window.innerWidth < 768;
+var isTablet = window.innerWidth < 1024;
+var chartFont = isMobile ? 10 : (isTablet ? 12 : 14);
 var LB = {
-  font:{family:'Segoe UI, system-ui, sans-serif',size:14},
-  margin:{l:55,r:25,t:45,b:55},
+  font:{family:'Segoe UI, system-ui, sans-serif',size:chartFont},
+  margin:{l:isMobile?40:55, r:isMobile?15:30, t:isMobile?35:50, b:isMobile?45:60},
   paper_bgcolor:'rgba(0,0,0,0)', plot_bgcolor:'rgba(0,0,0,0)',
-  hoverlabel:{bgcolor:'#fff',font:{size:14}}
+  hoverlabel:{bgcolor:'#fff',font:{size:13},bordercolor:'#ccc'},
+  autosize:true
 };
 var CFG = {responsive:true, displayModeBar:false};
+// Recalculate on resize
+var _resizeTimer;
+window.addEventListener('resize', function(){
+  clearTimeout(_resizeTimer);
+  _resizeTimer = setTimeout(function(){
+    isMobile = window.innerWidth < 768;
+    isTablet = window.innerWidth < 1024;
+    chartFont = isMobile ? 10 : (isTablet ? 12 : 14);
+    LB.font.size = chartFont;
+    LB.margin = {l:isMobile?40:55, r:isMobile?15:30, t:isMobile?35:50, b:isMobile?45:60};
+    applyFilters();
+  }, 300);
+});
 
 // ---- Filter state ----
 var selected = new Set();
@@ -711,21 +746,35 @@ function updateKPIs(twrs){
 function renderTowerBar(twrs){
   var nm=twrs.map(function(t){return t.short});
   Plotly.react('chart-tower-bar',[
-    {x:nm,y:twrs.map(function(t){return t.completed}),name:'Completed',type:'bar',marker:{color:COLORS.completed}},
-    {x:nm,y:twrs.map(function(t){return t.active}),name:'Active',type:'bar',marker:{color:COLORS.active}},
-    {x:nm,y:twrs.map(function(t){return t.rejected}),name:'Rejected',type:'bar',marker:{color:COLORS.rejected}}
-  ],Object.assign({},LB,{title:{text:'RICEFW Objects by Tower',font:{size:14,color:'#202124'}},barmode:'stack',xaxis:{title:''},yaxis:{title:'Objects'},legend:{orientation:'h',y:-0.15}}),CFG);
+    {x:nm,y:twrs.map(function(t){return t.completed}),name:'Completed',type:'bar',marker:{color:COLORS.completed},
+     text:twrs.map(function(t){return t.completed||''}),textposition:'inside',textfont:{size:isMobile?9:11,color:'#fff'}},
+    {x:nm,y:twrs.map(function(t){return t.active}),name:'Active',type:'bar',marker:{color:COLORS.active},
+     text:twrs.map(function(t){return t.active||''}),textposition:'inside',textfont:{size:isMobile?9:11,color:'#fff'}},
+    {x:nm,y:twrs.map(function(t){return t.rejected}),name:'Rejected',type:'bar',marker:{color:COLORS.rejected},
+     text:twrs.map(function(t){return t.rejected||''}),textposition:'inside',textfont:{size:isMobile?9:11,color:'#fff'}}
+  ],Object.assign({},LB,{title:{text:'RICEFW Objects by Tower',font:{size:isMobile?12:14,color:'#202124'}},barmode:'stack',
+    xaxis:{title:'',tickfont:{size:isMobile?9:12},tickangle:isMobile?-45:0,automargin:true},
+    yaxis:{title:'Objects',titlefont:{size:isMobile?10:12},tickfont:{size:isMobile?9:11}},
+    legend:{orientation:'h',y:-0.2,font:{size:isMobile?10:12}},
+    bargap:0.15}),CFG);
 }
 
 // ---- Chart 2: Completion Donut ----
 function renderDonut(twrs){
   var c=0,a=0,r=0;
   twrs.forEach(function(t){c+=t.completed;a+=t.active;r+=t.rejected});
+  var total=c+a+r;
   Plotly.react('chart-completion-pie',[{
     values:[c,a,r],labels:['Completed','Active','Rejected'],type:'pie',hole:0.5,
-    marker:{colors:[COLORS.completed,COLORS.active,COLORS.rejected]},
-    textinfo:'label+percent',textposition:'outside',hoverinfo:'label+value+percent'
-  }],Object.assign({},LB,{title:{text:'Overall Completion',font:{size:14,color:'#202124'}},showlegend:false}),CFG);
+    marker:{colors:[COLORS.completed,COLORS.active,COLORS.rejected],line:{color:'#fff',width:2}},
+    textinfo:'percent',textposition:'inside',textfont:{size:isMobile?11:13,color:'#fff'},
+    insidetextorientation:'horizontal',
+    hovertemplate:'<b>%{label}</b><br>%{value} objects (%{percent})<extra></extra>',
+    pull:[0.02,0,0]
+  }],Object.assign({},LB,{title:{text:'Overall Completion',font:{size:isMobile?12:14,color:'#202124'}},
+    showlegend:true,legend:{orientation:'h',y:-0.15,font:{size:isMobile?10:12}},
+    margin:{l:20,r:20,t:isMobile?35:50,b:isMobile?50:60},
+    annotations:[{text:'<b>'+total+'</b><br>Total',showarrow:false,font:{size:isMobile?14:18,color:'#202124'},x:0.5,y:0.5}]}),CFG);
 }
 
 // ---- Chart 3: Build Phases by Tower — Grouped Bar ----
@@ -733,22 +782,34 @@ function renderPhaseBar(twrs){
   var nm=twrs.map(function(t){return t.short});
   var pL=['FS %','TDD %','Build %','FUT %'], pK=['avg_fs','avg_tdd','avg_build','avg_fut'];
   var traces=pK.map(function(k,i){
-    return{x:nm,y:twrs.map(function(t){return t[k]}),name:pL[i],type:'bar',marker:{color:COLORS.phases[i]}};
+    return{x:nm,y:twrs.map(function(t){return t[k]}),name:pL[i],type:'bar',marker:{color:COLORS.phases[i]},
+      text:twrs.map(function(t){return t[k]?t[k]+'%':''}),textposition:'outside',textfont:{size:isMobile?8:10},
+      hovertemplate:'<b>%{x}</b><br>'+pL[i]+': %{y}%<extra></extra>'};
   });
-  Plotly.react('chart-phases',traces,Object.assign({},LB,{title:{text:'Build Phase Progress by Tower',font:{size:14,color:'#202124'}},barmode:'group',yaxis:{title:'%',range:[0,100]},legend:{orientation:'h',y:-0.15}}),CFG);
+  Plotly.react('chart-phases',traces,Object.assign({},LB,{title:{text:'Build Phase Progress by Tower',font:{size:isMobile?12:14,color:'#202124'}},barmode:'group',
+    xaxis:{tickfont:{size:isMobile?9:12},tickangle:isMobile?-45:0,automargin:true},
+    yaxis:{title:'%',range:[0,110],titlefont:{size:isMobile?10:12},tickfont:{size:isMobile?9:11}},
+    legend:{orientation:'h',y:-0.2,font:{size:isMobile?9:12}},
+    bargap:0.15,bargroupgap:0.08}),CFG);
 }
 
-// ---- Chart 4: Type Pie ----
+// ---- Chart 4: Type Distribution — Horizontal Bar (replaces pie for better readability) ----
 function renderTypePie(objs){
   var cnt={}; TC.forEach(function(c){cnt[c]=0});
   objs.forEach(function(o){if(cnt[o.tc]!==undefined)cnt[o.tc]++});
-  var lb=[],vl=[];
-  TC.forEach(function(c){if(cnt[c]>0){lb.push(TL[c]);vl.push(cnt[c])}});
+  var lb=[],vl=[],cl=[];
+  TC.forEach(function(c){if(cnt[c]>0){lb.push(TL[c]);vl.push(cnt[c]);cl.push(TCOL[c]||'#999')}});
+  // Horizontal bar chart — avoids label overlaps that plague pie charts
   Plotly.react('chart-type-pie',[{
-    labels:lb,values:vl,type:'pie',
-    marker:{colors:lb.map(function(l){return TCOL[l[0]]||'#999'})},
-    textinfo:'label+value',textposition:'outside',hoverinfo:'label+value+percent'
-  }],Object.assign({},LB,{title:{text:'RICEFW by Object Type',font:{size:14,color:'#202124'}},showlegend:false}),CFG);
+    y:lb.reverse(),x:vl.reverse(),type:'bar',orientation:'h',
+    marker:{color:cl.reverse(),line:{color:'#fff',width:1}},
+    text:vl.map(function(v){return v+' objects'}),textposition:'outside',textfont:{size:isMobile?10:12},
+    hovertemplate:'<b>%{y}</b>: %{x} objects<extra></extra>'
+  }],Object.assign({},LB,{title:{text:'RICEFW by Object Type',font:{size:isMobile?12:14,color:'#202124'}},
+    xaxis:{title:'Count',titlefont:{size:isMobile?10:12},tickfont:{size:isMobile?9:11}},
+    yaxis:{tickfont:{size:isMobile?10:13},automargin:true},
+    margin:{l:isMobile?90:110,r:isMobile?40:60,t:isMobile?35:50,b:40},
+    showlegend:false}),CFG);
 }
 
 // ---- Chart 5: Sankey ----
@@ -782,9 +843,12 @@ function renderSankey(twrs,objs){
   if(!all.length) return;
   Plotly.react('chart-sankey',[{
     type:'sankey',orientation:'h',
-    node:{label:all,color:allC,pad:15,thickness:20},
-    link:{source:src,target:tgt,value:val,color:col}
-  }],Object.assign({},LB,{title:{text:'Object Flow: Tower \u2192 Type \u2192 Status',font:{size:14,color:'#202124'}},margin:{l:10,r:10,t:40,b:10}}),CFG);
+    node:{label:all,color:allC,pad:isMobile?10:20,thickness:isMobile?15:22,
+      line:{color:'#ddd',width:0.5}},
+    link:{source:src,target:tgt,value:val,color:col},
+    textfont:{size:isMobile?9:12,color:'#202124'}
+  }],Object.assign({},LB,{title:{text:'Object Flow: Tower \u2192 Type \u2192 Status',font:{size:isMobile?12:14,color:'#202124'}},
+    margin:{l:isMobile?5:10,r:isMobile?5:10,t:isMobile?35:45,b:isMobile?5:10}}),CFG);
 }
 
 // ---- Chart 6: RAID by Tower — Bar ----
@@ -793,12 +857,17 @@ function renderRaidBar(twrs){
   var rd=twrs.map(function(t){return t.raid_count});
   var cl=rd.map(function(v){return v>20?COLORS.rejected:v>10?'#fbbc04':COLORS.completed});
   Plotly.react('chart-raids',[{
-    x:nm,y:rd,type:'bar',marker:{color:cl},
-    text:rd.map(String),textposition:'auto',hoverinfo:'x+y'
-  }],Object.assign({},LB,{title:{text:'Open RAID Items by Tower',font:{size:14,color:'#202124'}},yaxis:{title:'RAID Count'},showlegend:false}),CFG);
+    x:nm,y:rd,type:'bar',marker:{color:cl,line:{color:'rgba(0,0,0,.1)',width:1}},
+    text:rd.map(String),textposition:'outside',textfont:{size:isMobile?10:12},
+    hovertemplate:'<b>%{x}</b>: %{y} RAID items<extra></extra>'
+  }],Object.assign({},LB,{title:{text:'Open RAID Items by Tower',font:{size:isMobile?12:14,color:'#202124'}},
+    xaxis:{tickfont:{size:isMobile?9:12},tickangle:isMobile?-45:0,automargin:true},
+    yaxis:{title:'RAID Count',titlefont:{size:isMobile?10:12},tickfont:{size:isMobile?9:11},
+      range:[0,Math.max.apply(null,rd)*1.15||10]},
+    showlegend:false}),CFG);
 }
 
-// ---- Chart 7: Completion by Type — Line ----
+// ---- Chart 7: Completion by Type — Line + value annotations ----
 function renderTypeLine(objs){
   var cnt={},comp={};
   TC.forEach(function(c){cnt[c]=0;comp[c]=0});
@@ -806,9 +875,15 @@ function renderTypeLine(objs){
   var lb=[],pc=[];
   TC.forEach(function(c){if(cnt[c]>0){lb.push(TL[c]);pc.push(Math.round(comp[c]/cnt[c]*100))}});
   Plotly.react('chart-type-phases',[{
-    x:lb,y:pc,name:'Completed %',mode:'lines+markers',
-    line:{color:COLORS.completed,width:2},marker:{size:8}
-  }],Object.assign({},LB,{title:{text:'Completion Rate by Object Type',font:{size:14,color:'#202124'}},yaxis:{title:'%',range:[0,100]},showlegend:false}),CFG);
+    x:lb,y:pc,name:'Completed %',mode:'lines+markers+text',
+    line:{color:COLORS.completed,width:3,shape:'spline'},marker:{size:isMobile?8:10,color:COLORS.completed,line:{color:'#fff',width:2}},
+    text:pc.map(function(v){return v+'%'}),textposition:'top center',textfont:{size:isMobile?10:12,color:'#202124'},
+    fill:'tozeroy',fillcolor:'rgba(52,168,83,0.08)',
+    hovertemplate:'<b>%{x}</b>: %{y}% completed<extra></extra>'
+  }],Object.assign({},LB,{title:{text:'Completion Rate by Object Type',font:{size:isMobile?12:14,color:'#202124'}},
+    xaxis:{tickfont:{size:isMobile?10:12},automargin:true},
+    yaxis:{title:'%',range:[0,110],titlefont:{size:isMobile?10:12},tickfont:{size:isMobile?9:11}},
+    showlegend:false}),CFG);
 }
 
 // ---- Table filtering ----

@@ -233,12 +233,23 @@ strong { color: #00285a; }
     table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
     p { orphans: 3; widows: 3; }
 
-    /* Page sections: auto height in print — page-break divs handle pagination */
+    /* Page sections: flex column to push footer to page bottom */
     .page-section {
-        min-height: auto;
-        display: block;
+        display: flex;
+        flex-direction: column;
+        min-height: calc(100vh - 40mm);
+        box-sizing: border-box;
     }
-    .page-footer { page-break-inside: avoid; break-inside: avoid; }
+    .page-section > *:not(.page-footer) {
+        flex-shrink: 0;
+    }
+    .page-footer {
+        margin-top: auto;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        padding-top: 6px;
+        border-top: 1px solid #ddd;
+    }
 
     /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
     .mermaid {
