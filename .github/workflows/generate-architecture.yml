@@ -1,15 +1,15 @@
 # IAO Architecture Pipeline — Scheduled Generation & SharePoint Sync
 #
 # Triggers:
-#   - Weekly (Monday 06:00 UTC) — full regeneration
+#   - Daily (07:00 UTC Mon-Fri) — full regeneration after data-refresh
 #   - Manual dispatch — ad-hoc runs with optional tower filter
 #   - Push to main — regenerate only if src/ or templates/ changed
 
 name: Generate Architecture Docs
 
 on:
-  # schedule:                       # PAUSED — re-enable after refinement
-  #   - cron: "0 6 * * 1"          # Every Monday at 06:00 UTC
+  schedule:
+    - cron: "0 7 * * 1-5"          # Weekdays at 07:00 UTC (1h after data-refresh)
   workflow_dispatch:
     inputs:
       tower:
@@ -20,12 +20,12 @@ on:
         description: "Override schedule: daily, weekly, monthly"
         required: false
         default: ""
-  # push:                            # PAUSED — re-enable after refinement
-  #   branches: [main]
-  #   paths:
-  #     - "src/**"
-  #     - "templates/**"
-  #     - "towers/**/input/**"
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "templates/**"
+      - "towers/**/input/**"
 
 permissions:
   contents: write                 # commit generated outputs back

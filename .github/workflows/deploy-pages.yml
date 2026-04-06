@@ -4,15 +4,10 @@
 name: Deploy to GitHub Pages
 
 on:
-  # workflow_run:                    # PAUSED — re-enable after refinement
-  #   workflows: ["Generate Architecture Docs"]
-  #   types: [completed]
-  #   branches: [main]
-  # push:                            # PAUSED — re-enable after refinement
-  #   branches: [main]
-  #   paths:
-  #     - "towers/**"
-  #     - ".github/workflows/deploy-pages.yml"
+  workflow_run:
+    workflows: ["Generate Architecture Docs"]
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
