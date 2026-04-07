@@ -392,6 +392,7 @@ td a:hover{{text-decoration:underline}}
   <p>{desc}</p>
   <span class="badge">{cap_count} capabilities · R1 – R5</span>
   <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
+    <a href="towers/{tower}/output/docs/summaries/L0-{tower}-Summary.html" style="display:inline-block;padding:8px 20px;background:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.45);border-radius:8px;color:#fff;text-decoration:none;font-weight:600;font-size:14px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.35)'" onmouseout="this.style.background='rgba(255,255,255,.25)'">📐 L0 Architecture Summary</a>
     <a href="dashboard/{tower}/index.html" style="display:inline-block;padding:8px 20px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:8px;color:#fff;text-decoration:none;font-weight:600;font-size:14px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.3)'" onmouseout="this.style.background='rgba(255,255,255,.18)'">📊 Tower Dashboard</a>
     <a href="dashboard/index.html" style="display:inline-block;padding:8px 20px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.25);border-radius:8px;color:rgba(255,255,255,.85);text-decoration:none;font-weight:500;font-size:14px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.2)'" onmouseout="this.style.background='rgba(255,255,255,.1)'">📊 Program Dashboard</a>
   </div>
@@ -466,9 +467,18 @@ td a:hover{{text-decoration:underline}}
         if not l1_defects and not l1_subtowers:
             l1_defects = jira_tower
 
+        # L1 summary slug — must match gen_summary.py naming convention
+        l1_slug = re.sub(r'[^a-zA-Z0-9 ]', '', l1_name).strip().replace(' ', '-')[:40]
+        l1_summary_href = f"towers/{tower}/output/docs/summaries/L1-{l1_slug}-Summary.html"
+
         html_parts.append(f'<h2 class="section-title">{l1_name} '
                           f'<span style="font-size:14px;color:#666;font-weight:400">'
-                          f'({len(caps)} capabilities)</span></h2>')
+                          f'({len(caps)} capabilities)</span>'
+                          f'<a href="{l1_summary_href}" style="font-size:13px;font-weight:500;'
+                          f'color:#0071c5;text-decoration:none;margin-left:12px;padding:3px 10px;'
+                          f'border:1px solid #0071c5;border-radius:6px;vertical-align:middle"'
+                          f' title="View aggregated architecture diagrams for this process group">'
+                          f'📐 L1 Summary</a></h2>')
 
         # Sub-tower summary bar
         html_parts.append(_summary_bar(l1_ricefw, l1_defects))
@@ -790,10 +800,27 @@ def _sidebar_js() -> str:
       th.innerHTML="<span class=\\"arrow\\">▶</span><span class=\\"icon\\">"+t.icon+"</span><a href=\\""+base+"tower-"+t.tower+".html\\">"+t.tower+"</a>";
       th.addEventListener("click",function(e){if(e.target.tagName!=="A"){th.classList.toggle("open")}});
       tg.appendChild(th);
+
+      // L0 summary link under tower header
+      if(t.l0_summary){
+        var l0=document.createElement("a");l0.className="cap-link";l0.href=base+t.l0_summary;
+        l0.innerHTML="<span class=\\"cap-id\\" style=\\"background:#e0e7ff;color:#3730a3\\">L0</span> Tower Architecture Summary";
+        l0.style.fontWeight="600";l0.dataset.search=(t.tower+" l0 summary architecture").toLowerCase();
+        var l0wrap=document.createElement("div");l0wrap.className="proc-group";l0wrap.appendChild(l0);
+        tg.appendChild(l0wrap);
+      }
+
       var pg=document.createElement("div");pg.className="proc-group";
       t.groups.forEach(function(g){
         var pl=document.createElement("div");pl.className="proc-label";pl.textContent=g.group;
         pg.appendChild(pl);
+        // L1 summary link under process group label
+        if(g.l1_summary){
+          var l1=document.createElement("a");l1.className="cap-link";l1.href=base+g.l1_summary;
+          l1.innerHTML="<span class=\\"cap-id\\" style=\\"background:#dbeafe;color:#1e40af\\">L1</span> Process Architecture Summary";
+          l1.style.fontWeight="600";l1.dataset.search=(g.group+" l1 summary architecture").toLowerCase();
+          pg.appendChild(l1);
+        }
         g.caps.forEach(function(c){
           var a=document.createElement("a");a.className="cap-link";a.href=base+"cap/"+t.tower+"-"+c.id+".html";
           a.innerHTML="<span class=\\"cap-id\\">"+c.id+"</span> "+c.name;
@@ -903,7 +930,7 @@ def main() -> None:
 
     print(f"Loaded: {len(ricefw_objects)} RICEFW objects, "
           f"{len(jira_data.get('subtower_summaries', {}))} JIRA sub-tower summaries, "
-          f"{len(cap_to_subtower)} capability→sub-tower mappings")
+          f"{len(cap_to_subtower)} capability->sub-tower mappings")
 
     # Determine which towers to process
     if args.tower:
@@ -932,7 +959,7 @@ def main() -> None:
         tower_page = SITE_DIR / f"tower-{tower}.html"
         tower_page.write_text(tower_html, encoding="utf-8")
         total_tower_pages += 1
-        print(f"  ✓ tower-{tower}.html")
+        print(f"  [OK] tower-{tower}.html")
 
         # Generate capability landing pages
         import yaml
@@ -955,7 +982,7 @@ def main() -> None:
             cap_page.write_text(cap_html, encoding="utf-8")
             total_cap_pages += 1
 
-        print(f"    → {len(capabilities)} capability pages")
+        print(f"    -> {len(capabilities)} capability pages")
 
     print(f"\nGenerated: {total_tower_pages} tower pages, {total_cap_pages} capability pages")
     print(f"Output: {SITE_DIR}")

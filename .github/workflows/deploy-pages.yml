@@ -230,7 +230,13 @@ jobs:
 
             $first_tower || echo ',' >> _site/nav.json
             first_tower=false
-            echo "{\"tower\":\"${tower}\",\"name\":\"${full_name}\",\"icon\":\"${icon}\",\"groups\":[" >> _site/nav.json
+
+            # L0 summary link for this tower
+            l0_file="towers/${tower}/output/docs/summaries/L0-${tower}-Summary.html"
+            l0_href=""
+            [ -f "_site/${l0_file}" ] && l0_href="${l0_file}"
+
+            echo "{\"tower\":\"${tower}\",\"name\":\"${full_name}\",\"icon\":\"${icon}\",\"l0_summary\":\"${l0_href}\",\"groups\":[" >> _site/nav.json
 
             first_group=true
             for proc_dir in "$tower_dir"*/; do
@@ -241,7 +247,14 @@ jobs:
 
               $first_group || echo ',' >> _site/nav.json
               first_group=false
-              echo "{\"group\":\"${proc_name}\",\"caps\":[" >> _site/nav.json
+
+              # L1 summary link for this process group
+              l1_slug=$(echo "$proc_name" | sed 's/[^a-zA-Z0-9 ]//g' | sed 's/  */ /g' | sed 's/ /-/g' | cut -c1-40)
+              l1_file="towers/${tower}/output/docs/summaries/L1-${l1_slug}-Summary.html"
+              l1_href=""
+              [ -f "_site/${l1_file}" ] && l1_href="${l1_file}"
+
+              echo "{\"group\":\"${proc_name}\",\"l1_summary\":\"${l1_href}\",\"caps\":[" >> _site/nav.json
 
               first_cap=true
               echo "$html_files" | while read html; do
@@ -365,10 +378,26 @@ jobs:
                 th.addEventListener("click",function(e){if(e.target.tagName!=="A"){th.classList.toggle("open")}});
                 tg.appendChild(th);
 
+                // L0 summary link under tower header
+                if(t.l0_summary){
+                  var l0=document.createElement("a");l0.className="cap-link";l0.href=base+t.l0_summary;
+                  l0.innerHTML="<span class=\"cap-id\" style=\"background:#e0e7ff;color:#3730a3\">L0</span> Tower Architecture Summary";
+                  l0.style.fontWeight="600";l0.dataset.search=(t.tower+" l0 summary architecture").toLowerCase();
+                  var l0wrap=document.createElement("div");l0wrap.className="proc-group";l0wrap.appendChild(l0);
+                  tg.appendChild(l0wrap);
+                }
+
                 var pg=document.createElement("div");pg.className="proc-group";
                 t.groups.forEach(function(g){
                   var pl=document.createElement("div");pl.className="proc-label";pl.textContent=g.group;
                   pg.appendChild(pl);
+                  // L1 summary link under process group label
+                  if(g.l1_summary){
+                    var l1=document.createElement("a");l1.className="cap-link";l1.href=base+g.l1_summary;
+                    l1.innerHTML="<span class=\"cap-id\" style=\"background:#dbeafe;color:#1e40af\">L1</span> Process Architecture Summary";
+                    l1.style.fontWeight="600";l1.dataset.search=(g.group+" l1 summary architecture").toLowerCase();
+                    pg.appendChild(l1);
+                  }
                   g.caps.forEach(function(c){
                     var a=document.createElement("a");a.className="cap-link";a.href=base+c.href;
                     a.innerHTML="<span class=\"cap-id\">"+c.id+"</span> "+c.name;
@@ -474,7 +503,10 @@ jobs:
             <h2>IAO Architecture Documents</h2>
             <p>TOGAF BDAT architecture for the IDM 2.0 SAP S/4HANA transformation program</p>
             <span class="badge">8 Towers · 188 Capabilities · R1 – R5</span>
-            <div style="margin-top:16px"><a href="dashboard/index.html" style="display:inline-block;padding:10px 24px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:8px;color:#fff;text-decoration:none;font-weight:600;font-size:15px;transition:background .15s"
+            <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center"><a href="summaries/Program-Summary.html" style="display:inline-block;padding:10px 24px;background:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.45);border-radius:8px;color:#fff;text-decoration:none;font-weight:600;font-size:15px;transition:background .15s"
+              onmouseover="this.style.background='rgba(255,255,255,.35)'"
+              onmouseout="this.style.background='rgba(255,255,255,.25)'"
+            >📐 Program Architecture Summary</a><a href="dashboard/index.html" style="display:inline-block;padding:10px 24px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:8px;color:#fff;text-decoration:none;font-weight:600;font-size:15px;transition:background .15s"
               onmouseover="this.style.background='rgba(255,255,255,.3)'"
               onmouseout="this.style.background='rgba(255,255,255,.18)'"
             >📊 Program Dashboard</a></div>
@@ -707,9 +739,24 @@ jobs:
                 var hdr=document.createElement("div");hdr.className="ps-tower-hdr";
                 hdr.innerHTML="<span class='arrow'>\\u25B6</span>"+t.icon+" "+t.tower;
                 hdr.addEventListener("click",function(){hdr.classList.toggle("open")});tg.appendChild(hdr);
+                // L0 summary link
+                if(t.l0_summary){
+                  var l0w=document.createElement("div");l0w.className="ps-procs";
+                  var l0a=document.createElement("a");l0a.className="ps-cap";l0a.href=base+t.l0_summary;
+                  l0a.innerHTML="<span class='cid' style='background:#e0e7ff;color:#3730a3'>L0</span>Tower Summary";
+                  l0a.style.fontWeight="600";l0a.dataset.search=(t.tower+" l0 summary").toLowerCase();
+                  l0w.appendChild(l0a);tg.appendChild(l0w);
+                }
                 var procs=document.createElement("div");procs.className="ps-procs";
                 t.groups.forEach(function(g){
                   var lbl=document.createElement("div");lbl.className="ps-proc-lbl";lbl.textContent=g.group;procs.appendChild(lbl);
+                  // L1 summary link
+                  if(g.l1_summary){
+                    var l1a=document.createElement("a");l1a.className="ps-cap";l1a.href=base+g.l1_summary;
+                    l1a.innerHTML="<span class='cid' style='background:#dbeafe;color:#1e40af'>L1</span>Process Summary";
+                    l1a.style.fontWeight="600";l1a.dataset.search=(g.group+" l1 summary").toLowerCase();
+                    procs.appendChild(l1a);
+                  }
                   g.caps.forEach(function(c){
                     var a=document.createElement("a");a.className="ps-cap";a.href=base+c.href;
                     a.innerHTML="<span class='cid'>"+c.id+"</span>"+c.name;

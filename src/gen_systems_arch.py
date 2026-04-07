@@ -38,7 +38,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from src.csv_parser import FlowSet, FlowHop, parse_flow_csv
 from src.iapm_lookup import IAPMLookup
-from src.mermaid_builder import build_mermaid, build_archimate_mermaid, build_data_flow_mermaid, build_data_arch_mermaid, build_platform_arch_mermaid
+from src.mermaid_builder import build_mermaid, build_archimate_mermaid, build_data_flow_mermaid, build_data_arch_mermaid, build_platform_arch_mermaid, infer_db as _infer_db
 from src.diff_engine import diff_flows, DiffResult
 from src.smartsheet_loader import SmartsheetLoader, SmartsheetData
 from src.context_loader import load_capability_context, CapabilityContext
@@ -402,15 +402,18 @@ def build_system_inventory(current: FlowSet, future: FlowSet,
 # Data Architecture extractors (from extended CSV columns 26-47)
 # ---------------------------------------------------------------------------
 @dataclass
-class DataEntityRow:
-    """For §3.1 Data Entities & Ownership table."""
-    entity: str
-    source: str
-    target: str
-    owner: str
+class DataFlowRow:
+    """For §4.1 Data Flows table — source app/DB → target app/DB."""
+    flow_chain: str
+    hop: int
+    source_app: str
+    source_db: str
+    target_app: str
+    target_db: str
+    data_desc: str
+    frequency: str
     classification: str
     volume: str
-    master_transaction: str
 
 
 @dataclass
@@ -442,22 +445,31 @@ class TechPlatformRow:
     environment: str
 
 
-def extract_data_entities(current: FlowSet, future: FlowSet) -> list[DataEntityRow]:
-    """Extract unique data entities from extended CSV cols 26-31."""
-    seen: dict[str, DataEntityRow] = {}
+def extract_data_flows(current: FlowSet, future: FlowSet) -> list[DataFlowRow]:
+    """Extract source→target data flows with DB platforms from flow hops."""
+    rows: list[DataFlowRow] = []
+    seen: set[str] = set()
     for fs in [current, future]:
         for hop in fs.hops:
-            if hop.data_entity and hop.data_entity not in seen:
-                seen[hop.data_entity] = DataEntityRow(
-                    entity=hop.data_entity,
-                    source=hop.source_system,
-                    target=hop.target_system,
-                    owner=hop.data_owner or "TBD",
-                    classification=hop.data_classification or "Internal",
-                    volume=hop.data_volume or "TBD",
-                    master_transaction=hop.master_transaction or "TBD",
-                )
-    return sorted(seen.values(), key=lambda x: x.entity)
+            src_db = hop.source_db_platform or _infer_db(hop.source_system)
+            tgt_db = hop.target_db_platform or _infer_db(hop.target_system)
+            key = f"{hop.source_system}:{src_db}:{hop.target_system}:{tgt_db}:{hop.flow_chain}:{hop.hop_num}"
+            if key in seen:
+                continue
+            seen.add(key)
+            rows.append(DataFlowRow(
+                flow_chain=hop.flow_chain,
+                hop=hop.hop_num or 1,
+                source_app=hop.source_system,
+                source_db=src_db or "N/A",
+                target_app=hop.target_system,
+                target_db=tgt_db or "N/A",
+                data_desc=hop.data_description or hop.data_entity or "—",
+                frequency=hop.frequency or "—",
+                classification=hop.data_classification or "Intel Confidential",
+                volume=hop.data_volume or "—",
+            ))
+    return rows
 
 
 def extract_data_lineage(current: FlowSet, future: FlowSet) -> list[DataLineageRow]:
@@ -792,7 +804,7 @@ def generate_capability(
     no_match = sum(1 for s in inventory if s.status == "N/A")
 
     # Extract extended architecture data (from cols 26-47)
-    data_entities = extract_data_entities(current_flows, future_flows)
+    data_flows = extract_data_flows(current_flows, future_flows)
     data_lineage = extract_data_lineage(current_flows, future_flows)
     integration_patterns = extract_integration_patterns(current_flows, future_flows)
     tech_platforms = extract_tech_platforms(current_flows, future_flows)
@@ -883,7 +895,7 @@ def generate_capability(
         bpmn_mermaids=bpmn_mermaids,
         bpmn_inventory_table=bpmn_inventory_table,
         # Data Architecture (§4)
-        data_entities=data_entities,
+        data_flows=data_flows,
         data_lineage=data_lineage,
         # Application Architecture (§5)
         integration_patterns=integration_patterns,

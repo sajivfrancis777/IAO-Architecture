@@ -34,11 +34,14 @@ from src.gen_systems_arch import (
     WORKSPACE, TOWERS_DIR, IAPM_CSV,
     load_tower_config, find_capability_dir, TowerConfig,
     build_system_inventory, mermaid_live_url,
-    extract_data_entities, extract_integration_patterns, extract_tech_platforms,
-    DataEntityRow, IntegrationPatternRow, TechPlatformRow,
+    extract_data_flows, extract_integration_patterns, extract_tech_platforms,
+    DataFlowRow, IntegrationPatternRow, TechPlatformRow,
 )
 from src.xlsx_loader import load_workbook as load_xlsx_workbook, find_workbook as find_xlsx_workbook
-from src.mermaid_builder import ARCHIMATE_CLASSDEFS, LAYER_STYLES, EMOJI
+from src.mermaid_builder import (
+    ARCHIMATE_CLASSDEFS, LAYER_STYLES, EMOJI,
+    build_data_arch_mermaid, build_platform_arch_mermaid,
+)
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -71,7 +74,7 @@ class SummaryData:
     capabilities: list[dict] = field(default_factory=list)   # [{id, name, l1, hop_count}]
     total_hops: int = 0
     # Aggregated D/A/T data across capabilities
-    data_entities: list[DataEntityRow] = field(default_factory=list)
+    data_flows: list[DataFlowRow] = field(default_factory=list)
     integration_patterns: list[IntegrationPatternRow] = field(default_factory=list)
     tech_platforms: list[TechPlatformRow] = field(default_factory=list)
 
@@ -137,6 +140,136 @@ def _find_flow_csv(data_dir: Path, release_id: str, stem: str) -> Optional[Path]
     return None
 
 
+# ---------------------------------------------------------------------------
+# Multi-release helpers
+# ---------------------------------------------------------------------------
+def _discover_releases(cap_dir: Path) -> list[str]:
+    """Discover available release IDs (R1, R2, R3, ...) for a capability."""
+    input_data = cap_dir / "input" / "data"
+    if not input_data.is_dir():
+        return []
+    releases: set[str] = set()
+    for p in input_data.iterdir():
+        # Match R1_FutureFlows.xlsx, R2_CurrentFlows.csv, etc.
+        m = re.match(r'^(R\d+)_(?:Current|Future)Flows\.(?:xlsx|csv)$', p.name)
+        if m:
+            releases.add(m.group(1))
+    return sorted(releases, key=lambda r: int(r[1:]))
+
+
+def _collect_release_futures(
+    tower_dir: Path,
+    tower_cfg: TowerConfig,
+    cap_ids: list[str],
+) -> dict[str, SummaryData]:
+    """For each discovered release, load FutureFlows across all given capabilities.
+
+    Returns {release_id: SummaryData} with only future-state data per release.
+    """
+    # Discover releases available across all capabilities
+    all_releases: set[str] = set()
+    for cid in cap_ids:
+        cap_dir = find_capability_dir(tower_dir, cid)
+        if cap_dir:
+            all_releases.update(_discover_releases(cap_dir))
+
+    if len(all_releases) < 2:
+        return {}  # Nothing to diff
+
+    releases = sorted(all_releases, key=lambda r: int(r[1:]))
+    result: dict[str, SummaryData] = {}
+
+    for rel in releases:
+        flows = []
+        for cid in cap_ids:
+            cap_dir = find_capability_dir(tower_dir, cid)
+            if not cap_dir:
+                continue
+            input_data = cap_dir / "input" / "data"
+            if not input_data.is_dir():
+                continue
+
+            # Try xlsx first, then csv
+            fut_xlsx = find_xlsx_workbook(input_data, rel, "FutureFlows")
+            if fut_xlsx:
+                wb = load_xlsx_workbook(str(fut_xlsx), f"R{rel} Future")
+                if wb.has_flows:
+                    flows.append(wb.flows)
+            else:
+                csv_path = _find_flow_csv(input_data, rel, "FutureFlows")
+                if csv_path:
+                    flows.append(parse_flow_csv(str(csv_path), f"{rel} Future"))
+
+        if flows:
+            result[rel] = _aggregate_flows(flows)
+
+    return result
+
+
+@dataclass
+class ReleaseDelta:
+    """Delta between two adjacent releases."""
+    from_rel: str
+    to_rel: str
+    new_apps: set = field(default_factory=set)
+    retired_apps: set = field(default_factory=set)
+    new_dbs: set = field(default_factory=set)
+    retired_dbs: set = field(default_factory=set)
+    new_platforms: set = field(default_factory=set)
+    retired_platforms: set = field(default_factory=set)
+
+
+def _compute_release_deltas(release_data: dict[str, SummaryData]) -> list[ReleaseDelta]:
+    """Compare adjacent releases and compute app/DB/platform deltas."""
+    releases = sorted(release_data.keys(), key=lambda r: int(r[1:]))
+    deltas = []
+
+    def _extract_dbs(summary: SummaryData) -> set[str]:
+        dbs = set()
+        for fs in summary.all_flows:
+            for hop in fs.hops:
+                if hop.source_db_platform:
+                    dbs.add(hop.source_db_platform)
+                if hop.target_db_platform:
+                    dbs.add(hop.target_db_platform)
+        return dbs
+
+    def _extract_platforms(summary: SummaryData) -> set[str]:
+        plats = set()
+        for fs in summary.all_flows:
+            for hop in fs.hops:
+                if hop.source_tech_platform:
+                    plats.add(hop.source_tech_platform)
+                if hop.target_tech_platform:
+                    plats.add(hop.target_tech_platform)
+        return plats
+
+    for i in range(len(releases) - 1):
+        prev_rel = releases[i]
+        next_rel = releases[i + 1]
+        prev = release_data[prev_rel]
+        nxt = release_data[next_rel]
+
+        prev_dbs = _extract_dbs(prev)
+        next_dbs = _extract_dbs(nxt)
+        prev_plats = _extract_platforms(prev)
+        next_plats = _extract_platforms(nxt)
+
+        delta = ReleaseDelta(
+            from_rel=prev_rel,
+            to_rel=next_rel,
+            new_apps=nxt.systems - prev.systems,
+            retired_apps=prev.systems - nxt.systems,
+            new_dbs=next_dbs - prev_dbs,
+            retired_dbs=prev_dbs - next_dbs,
+            new_platforms=next_plats - prev_plats,
+            retired_platforms=prev_plats - next_plats,
+        )
+        deltas.append(delta)
+
+    return deltas
+
+
 def _aggregate_flows(flows_list: list[FlowSet]) -> SummaryData:
     """Merge multiple FlowSets into aggregated system-level edges + extended D/A/T data."""
     summary = SummaryData(label="", scope="")
@@ -169,7 +302,7 @@ def _aggregate_flows(flows_list: list[FlowSet]) -> SummaryData:
         merged.hops.extend(fs.hops)
     empty = FlowSet(label="empty", source_file="")
 
-    summary.data_entities = extract_data_entities(merged, empty)
+    summary.data_flows = extract_data_flows(merged, empty)
     summary.integration_patterns = extract_integration_patterns(merged, empty)
     summary.tech_platforms = extract_tech_platforms(merged, empty)
 
@@ -287,11 +420,12 @@ def _render_summary_doc(
     tower_name: str = "",
     tower_short: str = "",
     l1_group: str = "",
+    release_deltas: list[ReleaseDelta] | None = None,
 ) -> str:
-    """Render a summary Markdown document."""
+    """Render a lean summary Markdown document — diagrams only, links to L2 for detail."""
     fmt = DocFormatter(
         doc_type=f"{level} Architecture Summary",
-        subtitle="TOGAF BDAT — Systems Integration Summary",
+        subtitle="TOGAF BDAT — Aggregated Architecture View",
     )
 
     md = fmt.title_page(
@@ -299,40 +433,46 @@ def _render_summary_doc(
         context_lines=[scope_label],
     )
 
-    # Define sections
+    # ── Table of Contents ────────────────────────────────────────
+    has_release_diff = bool(release_deltas)
     sections = [
         {"number": "1", "title": "Executive Summary", "level": 1},
         {"number": "2", "title": "Capability Inventory", "level": 1},
         {"number": "3", "title": "Current-State Architecture", "level": 1},
-        {"number": "3.1", "title": "System Integration Map", "level": 2},
-        {"number": "3.2", "title": "ArchiMate Application View", "level": 2},
-        {"number": "3.3", "title": "Data Entities", "level": 2},
-        {"number": "3.4", "title": "Integration Patterns", "level": 2},
-        {"number": "3.5", "title": "Technology Stack", "level": 2},
+        {"number": "3.1", "title": "Application Architecture", "level": 2},
+        {"number": "3.2", "title": "Data Architecture", "level": 2},
+        {"number": "3.3", "title": "Technology Architecture", "level": 2},
         {"number": "4", "title": "Future-State Architecture", "level": 1},
-        {"number": "4.1", "title": "System Integration Map", "level": 2},
-        {"number": "4.2", "title": "ArchiMate Application View", "level": 2},
-        {"number": "4.3", "title": "Data Entities", "level": 2},
-        {"number": "4.4", "title": "Integration Patterns", "level": 2},
-        {"number": "4.5", "title": "Technology Stack", "level": 2},
+        {"number": "4.1", "title": "Application Architecture", "level": 2},
+        {"number": "4.2", "title": "Data Architecture", "level": 2},
+        {"number": "4.3", "title": "Technology Architecture", "level": 2},
         {"number": "5", "title": "Transformation Analysis", "level": 1},
         {"number": "5.1", "title": "System Landscape Changes", "level": 2},
-        {"number": "5.2", "title": "Integration Complexity", "level": 2},
-        {"number": "6", "title": "System Inventory", "level": 1},
+        {"number": "5.2", "title": "Integration Complexity Delta", "level": 2},
     ]
+    if has_release_diff:
+        sections.append({"number": "5.3", "title": "Release-over-Release Changes", "level": 2})
+    sections.append({"number": "6", "title": "Capability Detail Reference", "level": 1})
     md += fmt.toc(sections)
 
-    # §1 — Executive Summary
-    md += fmt.section_heading("1", "Executive Summary")
-    md += f"This document provides a **{level}** summary view of the systems architecture "
-    md += f"for **{scope_label}**.\n\n"
-
+    # ── Metrics ──────────────────────────────────────────────────
     cur_sys = len(current_summary.systems)
     fut_sys = len(future_summary.systems)
     cur_edges = len(current_summary.edges)
     fut_edges = len(future_summary.edges)
     cur_hops = current_summary.total_hops
     fut_hops = future_summary.total_hops
+
+    # ── §1  Executive Summary ────────────────────────────────────
+    md += fmt.section_heading("1", "Executive Summary")
+    md += f"This **{level}** summary aggregates architecture diagrams from "
+    md += f"**{len(capabilities_info)}** L2 capabilities across **{scope_label}**.\n\n"
+    md += f"The diagrams below show the consolidated current-state and future-state "
+    md += f"system landscape **without duplicates** — each system and connection appears "
+    md += f"only once even when shared across capabilities. "
+    md += f"For detailed data flows, integration patterns, technology stacks, and business "
+    md += f"architecture, refer to the individual L2 capability documents linked in "
+    md += f"[§6 Capability Detail Reference](#6-capability-detail-reference).\n\n"
 
     md += "| Metric | Current-State | Future-State | Delta |\n"
     md += "|--------|:---:|:---:|:---:|\n"
@@ -342,7 +482,7 @@ def _render_summary_doc(
     md += f"| **Capabilities Covered** | {len(capabilities_info)} | {len(capabilities_info)} | — |\n"
     md += "\n"
 
-    # §2 — Capability Inventory
+    # ── §2  Capability Inventory ─────────────────────────────────
     md += fmt.section_heading("2", "Capability Inventory")
     md += f"The following **{len(capabilities_info)}** capabilities are aggregated in this summary.\n"
     md += "Click a capability ID to view its full TOGAF BDAT architecture document.\n\n"
@@ -350,141 +490,97 @@ def _render_summary_doc(
     md += "|:---:|:---:|---|---|:---:|:---:|\n"
     for i, cap in enumerate(capabilities_info, 1):
         cid = cap['id']
-        # Build relative path to L2 doc.  Summary lives in:
-        #   L2: towers/<T>/output/docs/summaries/L2-*.md
-        #   L1: towers/<T>/output/docs/summaries/L1-*.md
-        #   L0: output/docs/summaries/L0-*.md
-        # L2 doc lives at: towers/<T>/<L1>/<CID>/output/docs/systems-architecture/<CID>-Architecture.html
-        cap_link = cid  # fallback: plain text
-        link_tower = cap.get("tower_short", tower_short) or ""
-        if link_tower:
-            tower_dir = TOWERS_DIR / link_tower
-            cap_dir = find_capability_dir(tower_dir, cid)
-            if cap_dir:
-                html_name = f"{cid}-Architecture.html"
-                html_path = cap_dir / "output" / "docs" / "systems-architecture" / html_name
-                if html_path.exists():
-                    rel = html_path.relative_to(WORKSPACE)
-                    cap_link = f"[{cid}]({rel.as_posix()})"
+        cap_link = _build_cap_link(cid, cap.get("tower_short", tower_short) or "")
         md += f"| {i} | {cap_link} | {cap['name']} | {cap.get('l1', '')} | {cap.get('cur_hops', 0)} | {cap.get('fut_hops', 0)} |\n"
     md += "\n"
 
-    # §3 — Current-State Architecture
+    # ── Helper: build merged FlowSet for DB-to-DB and Platform diagrams ──
+    def _merged_flowset(summary: SummaryData, label: str) -> FlowSet:
+        merged = FlowSet(label=label, source_file="")
+        for fs in summary.all_flows:
+            merged.hops.extend(fs.hops)
+        return merged
+
+    # ── §3  Current-State Architecture ─────────────────────────────
     md += fmt.section_heading("3", "Current-State Architecture")
     if current_summary.systems:
-        md += f"Aggregated current-state view of **{cur_sys}** systems with **{cur_edges}** unique connections "
-        md += f"across **{cur_hops}** flow hops.\n\n"
+        md += f"Aggregated current-state: **{cur_sys}** systems, **{cur_edges}** connections, "
+        md += f"**{cur_hops}** flow hops.\n\n"
 
-        md += fmt.section_heading("3.1", "System Integration Map", level=3)
-        cur_map = build_summary_integration_map(current_summary, prefix="SC")
-        if cur_map:
-            md += f"```mermaid\n{cur_map}\n```\n\n"
-
-        md += fmt.section_heading("3.2", "ArchiMate Application View", level=3)
+        md += fmt.section_heading("3.1", "Application Architecture", level=3)
+        md += "> System-to-system integration flows. Color indicates IAPM lifecycle status "
+        md += "(green = deployed, blue = developing, red = end-of-life).\n\n"
         cur_archi = build_summary_archimate(current_summary, iapm, prefix="SCA")
         if cur_archi:
             md += f"```mermaid\n{cur_archi}\n```\n\n"
 
-        md += fmt.section_heading("3.3", "Data Entities", level=3)
-        if current_summary.data_entities:
-            md += f"**{len(current_summary.data_entities)}** data entities in current-state flows.\n\n"
-            md += "| # | Data Entity | Source | Target | Owner | Classification | Volume | Master/Txn |\n"
-            md += "|:---:|---|---|---|---|---|---|---|\n"
-            for i, de in enumerate(sorted(current_summary.data_entities, key=lambda x: x.entity), 1):
-                md += f"| {i} | {de.entity} | {de.source} | {de.target} | {de.owner} | {de.classification} | {de.volume} | {de.master_transaction} |\n"
-            md += "\n"
+        md += fmt.section_heading("3.2", "Data Architecture", level=3)
+        md += "> Applications (blue) sit above their hosting databases (green cylinders). "
+        md += "Thick arrows show data movement between databases.\n\n"
+        cur_merged = _merged_flowset(current_summary, "Current")
+        cur_data_arch = build_data_arch_mermaid(cur_merged, iapm, prefix="SCD")
+        if cur_data_arch:
+            md += f"```mermaid\n{cur_data_arch}\n```\n\n"
         else:
-            md += "*No data entity information in current-state flows.*\n\n"
+            md += "*DB platform data not yet populated — see [§6](#6-capability-detail-reference) L2 docs.*\n\n"
 
-        md += fmt.section_heading("3.4", "Integration Patterns", level=3)
-        if current_summary.integration_patterns:
-            md += f"**{len(current_summary.integration_patterns)}** integration patterns in current-state.\n\n"
-            md += "| # | Pattern | Middleware | Protocol | Auth Method | Flow Chain |\n"
-            md += "|:---:|---|---|---|---|---|\n"
-            for i, ip in enumerate(sorted(current_summary.integration_patterns, key=lambda x: x.pattern), 1):
-                md += f"| {i} | {ip.pattern} | {ip.middleware} | {ip.protocol} | {ip.auth} | {ip.flow_chain} |\n"
-            md += "\n"
+        md += fmt.section_heading("3.3", "Technology Architecture", level=3)
+        md += "> Applications grouped by hosting platform. Cloud platforms marked with ☁️.\n\n"
+        cur_platform = build_platform_arch_mermaid(cur_merged, iapm, prefix="SCP")
+        if cur_platform:
+            md += f"```mermaid\n{cur_platform}\n```\n\n"
         else:
-            md += "*No integration pattern information in current-state flows.*\n\n"
-
-        md += fmt.section_heading("3.5", "Technology Stack", level=3)
-        if current_summary.tech_platforms:
-            md += f"**{len(current_summary.tech_platforms)}** technology platforms in current-state.\n\n"
-            md += "| # | Platform | Type | Systems | Environment |\n"
-            md += "|:---:|---|---|---|---|\n"
-            for i, tp in enumerate(sorted(current_summary.tech_platforms, key=lambda x: x.name), 1):
-                md += f"| {i} | {tp.name} | {tp.type} | {tp.systems} | {tp.environment} |\n"
-            md += "\n"
-        else:
-            md += "*No technology platform information in current-state flows.*\n\n"
+            md += "*Platform data not yet populated — see [§6](#6-capability-detail-reference) L2 docs.*\n\n"
     else:
         md += "*No current-state flow data available.*\n\n"
 
-    # §4 — Future-State Architecture
+    # ── §4  Future-State Architecture ──────────────────────────────
     md += fmt.section_heading("4", "Future-State Architecture")
     if future_summary.systems:
-        md += f"Aggregated future-state view of **{fut_sys}** systems with **{fut_edges}** unique connections "
-        md += f"across **{fut_hops}** flow hops.\n\n"
+        md += f"Aggregated future-state: **{fut_sys}** systems, **{fut_edges}** connections, "
+        md += f"**{fut_hops}** flow hops.\n\n"
 
-        md += fmt.section_heading("4.1", "System Integration Map", level=3)
-        fut_map = build_summary_integration_map(future_summary, prefix="SF")
-        if fut_map:
-            md += f"```mermaid\n{fut_map}\n```\n\n"
-
-        md += fmt.section_heading("4.2", "ArchiMate Application View", level=3)
+        md += fmt.section_heading("4.1", "Application Architecture", level=3)
+        md += "> System-to-system integration flows. Color indicates IAPM lifecycle status "
+        md += "(green = deployed, blue = developing, red = end-of-life).\n\n"
         fut_archi = build_summary_archimate(future_summary, iapm, prefix="SFA")
         if fut_archi:
             md += f"```mermaid\n{fut_archi}\n```\n\n"
 
-        md += fmt.section_heading("4.3", "Data Entities", level=3)
-        if future_summary.data_entities:
-            md += f"**{len(future_summary.data_entities)}** data entities in future-state flows.\n\n"
-            md += "| # | Data Entity | Source | Target | Owner | Classification | Volume | Master/Txn |\n"
-            md += "|:---:|---|---|---|---|---|---|---|\n"
-            for i, de in enumerate(sorted(future_summary.data_entities, key=lambda x: x.entity), 1):
-                md += f"| {i} | {de.entity} | {de.source} | {de.target} | {de.owner} | {de.classification} | {de.volume} | {de.master_transaction} |\n"
-            md += "\n"
+        md += fmt.section_heading("4.2", "Data Architecture", level=3)
+        md += "> Applications (blue) sit above their hosting databases (green cylinders). "
+        md += "Thick arrows show data movement between databases.\n\n"
+        fut_merged = _merged_flowset(future_summary, "Future")
+        fut_data_arch = build_data_arch_mermaid(fut_merged, iapm, prefix="SFD")
+        if fut_data_arch:
+            md += f"```mermaid\n{fut_data_arch}\n```\n\n"
         else:
-            md += "*No data entity information in future-state flows.*\n\n"
+            md += "*DB platform data not yet populated — see [§6](#6-capability-detail-reference) L2 docs.*\n\n"
 
-        md += fmt.section_heading("4.4", "Integration Patterns", level=3)
-        if future_summary.integration_patterns:
-            md += f"**{len(future_summary.integration_patterns)}** integration patterns in future-state.\n\n"
-            md += "| # | Pattern | Middleware | Protocol | Auth Method | Flow Chain |\n"
-            md += "|:---:|---|---|---|---|---|\n"
-            for i, ip in enumerate(sorted(future_summary.integration_patterns, key=lambda x: x.pattern), 1):
-                md += f"| {i} | {ip.pattern} | {ip.middleware} | {ip.protocol} | {ip.auth} | {ip.flow_chain} |\n"
-            md += "\n"
+        md += fmt.section_heading("4.3", "Technology Architecture", level=3)
+        md += "> Applications grouped by hosting platform. Cloud platforms marked with ☁️.\n\n"
+        fut_platform = build_platform_arch_mermaid(fut_merged, iapm, prefix="SFP")
+        if fut_platform:
+            md += f"```mermaid\n{fut_platform}\n```\n\n"
         else:
-            md += "*No integration pattern information in future-state flows.*\n\n"
-
-        md += fmt.section_heading("4.5", "Technology Stack", level=3)
-        if future_summary.tech_platforms:
-            md += f"**{len(future_summary.tech_platforms)}** technology platforms in future-state.\n\n"
-            md += "| # | Platform | Type | Systems | Environment |\n"
-            md += "|:---:|---|---|---|---|\n"
-            for i, tp in enumerate(sorted(future_summary.tech_platforms, key=lambda x: x.name), 1):
-                md += f"| {i} | {tp.name} | {tp.type} | {tp.systems} | {tp.environment} |\n"
-            md += "\n"
-        else:
-            md += "*No technology platform information in future-state flows.*\n\n"
+            md += "*Platform data not yet populated — see [§6](#6-capability-detail-reference) L2 docs.*\n\n"
     else:
         md += "*No future-state flow data available.*\n\n"
 
-    # §5 — Transformation Analysis
+    # ── §5  Transformation Analysis ──────────────────────────────
     md += fmt.section_heading("5", "Transformation Analysis")
 
-    # §5.1 — System Landscape Changes
     md += fmt.section_heading("5.1", "System Landscape Changes", level=3)
     new_systems = future_summary.systems - current_summary.systems
     retired_systems = current_summary.systems - future_summary.systems
     common_systems = current_summary.systems & future_summary.systems
 
-    if new_systems:
-        md += f"**New Systems ({len(new_systems)}):** {', '.join(sorted(new_systems))}\n\n"
-    if retired_systems:
-        md += f"**Retiring Systems ({len(retired_systems)}):** {', '.join(sorted(retired_systems))}\n\n"
-    md += f"**Continuing Systems:** {len(common_systems)}\n\n"
+    md += "| Category | Count | Systems |\n"
+    md += "|----------|:---:|---|\n"
+    md += f"| **New Systems** | {len(new_systems)} | {', '.join(sorted(new_systems)) if new_systems else '—'} |\n"
+    md += f"| **Retiring Systems** | {len(retired_systems)} | {', '.join(sorted(retired_systems)) if retired_systems else '—'} |\n"
+    md += f"| **Continuing Systems** | {len(common_systems)} | — |\n"
+    md += "\n"
 
     # New / removed connections
     cur_conn = set(current_summary.edges.keys())
@@ -506,52 +602,121 @@ def _render_summary_doc(
             md += f"| {src} | {tgt} |\n"
         md += "\n"
 
-    # §5.2 — Integration Complexity
-    md += fmt.section_heading("5.2", "Integration Complexity", level=3)
-    # Count unique interfaces per system
-    cur_degree = defaultdict(int)
+    md += fmt.section_heading("5.2", "Integration Complexity Delta", level=3)
+    cur_degree: dict[str, int] = defaultdict(int)
     for (src, tgt) in current_summary.edges:
         cur_degree[src] += 1
         cur_degree[tgt] += 1
-    fut_degree = defaultdict(int)
+    fut_degree: dict[str, int] = defaultdict(int)
     for (src, tgt) in future_summary.edges:
         fut_degree[src] += 1
         fut_degree[tgt] += 1
 
+    # Show only systems with changes or high connectivity (top 20)
     all_sys = sorted(current_summary.systems | future_summary.systems)
-    if all_sys:
+    changed_sys = [s for s in all_sys if cur_degree.get(s, 0) != fut_degree.get(s, 0)]
+    unchanged_high = sorted(
+        [s for s in all_sys if s not in changed_sys and cur_degree.get(s, 0) >= 3],
+        key=lambda s: -cur_degree.get(s, 0))
+    display_sys = changed_sys + unchanged_high[:10]
+
+    if display_sys:
+        md += "Systems with connectivity changes (and top hub systems):\n\n"
         md += "| System | Current Connections | Future Connections | Delta |\n"
         md += "|---|:---:|:---:|:---:|\n"
-        for s in all_sys:
+        for s in sorted(display_sys):
             c = cur_degree.get(s, 0)
             f = fut_degree.get(s, 0)
             delta = f - c
-            delta_str = f"{delta:+d}" if delta != 0 else "—"
+            delta_str = f"**{delta:+d}**" if delta != 0 else "—"
             md += f"| {s} | {c} | {f} | {delta_str} |\n"
         md += "\n"
 
-    # §6 — System Inventory
-    md += fmt.section_heading("6", "System Inventory")
-    # Merge all flow data for inventory
-    all_current = FlowSet(label="Current", source_file="")
-    all_future = FlowSet(label="Future", source_file="")
-    for fs in current_summary.all_flows:
-        all_current.hops.extend(fs.hops)
-    for fs in future_summary.all_flows:
-        all_future.hops.extend(fs.hops)
+    # ── §5.3  Release-over-Release Changes ───────────────────────
+    if has_release_diff:
+        md += fmt.section_heading("5.3", "Release-over-Release Changes", level=3)
+        md += "Changes between adjacent releases — additions and retirements of applications, "
+        md += "databases, and technology platforms.\n\n"
 
-    inventory = build_system_inventory(all_current, all_future, iapm)
-    if inventory:
-        md += "| # | System | IAPM ID | Status |\n"
-        md += "|:---:|---|---|---|\n"
-        for i, sys_entry in enumerate(inventory, 1):
-            md += f"| {i} | {sys_entry.name} | {sys_entry.iapm_id} | {sys_entry.status} |\n"
-        md += "\n"
+        for delta in release_deltas:
+            md += f"#### {delta.from_rel} -> {delta.to_rel}\n\n"
+
+            has_changes = any([
+                delta.new_apps, delta.retired_apps,
+                delta.new_dbs, delta.retired_dbs,
+                delta.new_platforms, delta.retired_platforms,
+            ])
+
+            if not has_changes:
+                md += "*No changes detected between releases.*\n\n"
+                continue
+
+            # Applications
+            if delta.new_apps or delta.retired_apps:
+                md += "**Applications:**\n\n"
+                md += "| Change | Applications |\n|---|---|\n"
+                if delta.new_apps:
+                    md += f"| **Added** | {', '.join(sorted(delta.new_apps))} |\n"
+                if delta.retired_apps:
+                    md += f"| **Retired** | {', '.join(sorted(delta.retired_apps))} |\n"
+                md += "\n"
+
+            # Databases
+            if delta.new_dbs or delta.retired_dbs:
+                md += "**Databases:**\n\n"
+                md += "| Change | Databases |\n|---|---|\n"
+                if delta.new_dbs:
+                    md += f"| **Added** | {', '.join(sorted(delta.new_dbs))} |\n"
+                if delta.retired_dbs:
+                    md += f"| **Retired** | {', '.join(sorted(delta.retired_dbs))} |\n"
+                md += "\n"
+
+            # Technology Platforms
+            if delta.new_platforms or delta.retired_platforms:
+                md += "**Technology Platforms:**\n\n"
+                md += "| Change | Platforms |\n|---|---|\n"
+                if delta.new_platforms:
+                    md += f"| **Added** | {', '.join(sorted(delta.new_platforms))} |\n"
+                if delta.retired_platforms:
+                    md += f"| **Retired** | {', '.join(sorted(delta.retired_platforms))} |\n"
+                md += "\n"
+
+    # ── §6  Capability Detail Reference ──────────────────────────
+    md += fmt.section_heading("6", "Capability Detail Reference")
+    md += "For detailed architecture information, navigate to the individual L2 capability documents.\n"
+    md += "Each L2 document contains the full TOGAF BDAT analysis including:\n\n"
+    md += "- **Business Architecture** — BPMN process flows, business drivers, success criteria\n"
+    md += "- **Data Architecture** — Source-to-target data flows with DB platforms\n"
+    md += "- **Application Architecture** — Integration patterns, middleware, protocols\n"
+    md += "- **Technology Architecture** — Platform inventory, deployment topology\n"
+    md += "- **RICEFW / Clean Core** — SAP development object tracking\n\n"
+    md += "| # | Capability | L1 Process | Architecture Doc |\n"
+    md += "|:---:|---|---|---|\n"
+    for i, cap in enumerate(capabilities_info, 1):
+        cid = cap['id']
+        cap_link = _build_cap_link(cid, cap.get("tower_short", tower_short) or "")
+        md += f"| {i} | {cap['name']} | {cap.get('l1', '')} | {cap_link} |\n"
+    md += "\n"
 
     # Inject footers
     md = fmt.inject_footers(md)
 
     return md
+
+
+def _build_cap_link(cap_id: str, tower_short: str) -> str:
+    """Build a relative link to an L2 capability's HTML doc, or plain text fallback."""
+    if not tower_short:
+        return cap_id
+    tower_dir = TOWERS_DIR / tower_short
+    cap_dir = find_capability_dir(tower_dir, cap_id)
+    if cap_dir:
+        html_name = f"{cap_id}-Architecture.html"
+        html_path = cap_dir / "output" / "docs" / "systems-architecture" / html_name
+        if html_path.exists():
+            rel = html_path.relative_to(WORKSPACE)
+            return f"[{cap_id}]({rel.as_posix()})"
+    return cap_id
 
 
 # ---------------------------------------------------------------------------
@@ -628,6 +793,11 @@ def generate_l1_summaries(
         cur_summary = _aggregate_flows(current_flows)
         fut_summary = _aggregate_flows(future_flows)
 
+        # Compute release-over-release deltas
+        group_cap_ids = [cap["id"] for cap in caps_in_group]
+        release_data = _collect_release_futures(tower_dir, tower_cfg, group_cap_ids)
+        deltas = _compute_release_deltas(release_data) if release_data else []
+
         # Render document
         l1_short = re.sub(r'[^a-zA-Z0-9 ]', '', l1_name).strip().replace(' ', '-')[:40]
         doc = _render_summary_doc(
@@ -641,6 +811,7 @@ def generate_l1_summaries(
             tower_name=tower_cfg.name,
             tower_short=tower_cfg.shortcode,
             l1_group=l1_name,
+            release_deltas=deltas,
         )
 
         # Write to towers/<TOWER>/output/docs/summaries/
@@ -714,6 +885,11 @@ def generate_l0_summary(
     cur_summary = _aggregate_flows(current_flows)
     fut_summary = _aggregate_flows(future_flows)
 
+    # Compute release-over-release deltas
+    all_cap_ids = [cap["id"] for cap in tower_caps]
+    release_data = _collect_release_futures(tower_dir, tower_cfg, all_cap_ids)
+    deltas = _compute_release_deltas(release_data) if release_data else []
+
     doc = _render_summary_doc(
         level="L0",
         title=f"{tower_cfg.name} ({tower_cfg.shortcode})",
@@ -722,7 +898,10 @@ def generate_l0_summary(
         future_summary=fut_summary,
         iapm=iapm,
         capabilities_info=cap_info,
-        tower_name=tower_cfg.name,        tower_short=tower_cfg.shortcode,    )
+        tower_name=tower_cfg.name,
+        tower_short=tower_cfg.shortcode,
+        release_deltas=deltas,
+    )
 
     output_dir = tower_dir / "output" / "docs" / "summaries"
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -787,6 +966,37 @@ def generate_program_summary(iapm: IAPMLookup, release_label: str = "R1 – R5")
     cur_summary = _aggregate_flows(all_current_flows)
     fut_summary = _aggregate_flows(all_future_flows)
 
+    # Compute release-over-release deltas across all towers
+    all_deltas: list[ReleaseDelta] = []
+    for tower_dir in sorted(TOWERS_DIR.iterdir()):
+        if not tower_dir.is_dir():
+            continue
+        tower_cfg = load_tower_config(tower_dir)
+        cap_master = _load_capability_master()
+        tower_caps = cap_master.get(tower_cfg.shortcode, {}).get("capabilities", [])
+        if not tower_caps:
+            tower_caps = [{"id": c.cap_id, "name": c.name, "l1": c.l1}
+                          for c in tower_cfg.capabilities]
+        cap_ids = [c["id"] for c in tower_caps]
+        rd = _collect_release_futures(tower_dir, tower_cfg, cap_ids)
+        if rd:
+            all_deltas.extend(_compute_release_deltas(rd))
+
+    # Merge deltas by release pair
+    merged_deltas: dict[tuple[str, str], ReleaseDelta] = {}
+    for d in all_deltas:
+        key = (d.from_rel, d.to_rel)
+        if key not in merged_deltas:
+            merged_deltas[key] = ReleaseDelta(from_rel=d.from_rel, to_rel=d.to_rel)
+        m = merged_deltas[key]
+        m.new_apps |= d.new_apps
+        m.retired_apps |= d.retired_apps
+        m.new_dbs |= d.new_dbs
+        m.retired_dbs |= d.retired_dbs
+        m.new_platforms |= d.new_platforms
+        m.retired_platforms |= d.retired_platforms
+    program_deltas = sorted(merged_deltas.values(), key=lambda d: d.from_rel)
+
     doc = _render_summary_doc(
         level="Program",
         title="IAO Program Architecture Summary",
@@ -795,6 +1005,7 @@ def generate_program_summary(iapm: IAPMLookup, release_label: str = "R1 – R5")
         future_summary=fut_summary,
         iapm=iapm,
         capabilities_info=all_cap_info,
+        release_deltas=program_deltas,
     )
 
     output_dir = WORKSPACE / "output" / "docs" / "summaries"

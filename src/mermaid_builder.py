@@ -342,9 +342,69 @@ def _infer_db(system_name: str) -> str:
     return _SYSTEM_DB_MAP.get(system_name, "")
 
 
+# Public alias for use by gen_systems_arch
+infer_db = _infer_db
+
+
 def _infer_platform(system_name: str) -> str:
     """Return the inferred platform for a system, or empty string."""
     return _SYSTEM_PLATFORM_MAP.get(system_name, "")
+
+
+# ---------------------------------------------------------------------------
+# Platform category → color palette  (Azure-inspired differentiation)
+# ---------------------------------------------------------------------------
+_PLAT_CATEGORY_COLORS: dict[str, tuple[str, str, str]] = {
+    # category:  (fill, stroke, text)
+    "cloud":      ("#BBDEFB", "#1565C0", "#0D47A1"),   # Azure blue
+    "saas":       ("#E1BEE7", "#7B1FA2", "#4A148C"),   # Purple
+    "onprem":     ("#C8E6C9", "#388E3C", "#1B5E20"),   # Green
+    "data":       ("#B2DFDB", "#00695C", "#004D40"),   # Teal
+    "middleware": ("#FFE0B2", "#E65100", "#BF360C"),   # Orange
+}
+
+_PLAT_CATEGORY_KEYWORDS: list[tuple[str, list[str]]] = [
+    ("cloud",      ["azure", "aws", "gcp", "google cloud", "btp"]),
+    ("saas",       ["saas", "salesforce", "servicenow", "workday", "ariba",
+                    "concur", "successfactors", "anypoint"]),
+    ("data",       ["snowflake", "databricks", "data lake", "delta lake",
+                    "redshift", "bigquery", "teradata", "hadoop", "hana db",
+                    "sidecar"]),
+    ("middleware", ["mulesoft", "apigee", "sap po", "sap pi", "biztalk",
+                    "kafka", "tibco", "webmethods", "integration"]),
+    ("onprem",     ["on-prem", "on_prem", "hec"]),
+]
+
+
+def _classify_platform(platform_label: str) -> str:
+    """Classify a platform label into a category for coloring."""
+    low = platform_label.lower()
+    for cat, keywords in _PLAT_CATEGORY_KEYWORDS:
+        if any(k in low for k in keywords):
+            return cat
+    return "onprem"  # default
+
+
+def _classify_db(db_label: str) -> str:
+    """Classify a database label into a category for coloring."""
+    low = db_label.lower()
+    cloud_dbs = ["snowflake", "delta lake", "azure", "redshift", "bigquery",
+                 "cosmos", "dynamodb", "data lake", "adls"]
+    if any(k in low for k in cloud_dbs):
+        return "cloud"
+    saas_dbs = ["salesforce", "servicenow"]
+    if any(k in low for k in saas_dbs):
+        return "saas"
+    data_dbs = ["hana", "teradata", "hadoop"]
+    if any(k in low for k in data_dbs):
+        return "data"
+    return "onprem"
+
+
+def _platform_style(node_id: str, category: str) -> str:
+    """Return a Mermaid style line for a platform/DB subgraph node."""
+    fill, stroke, text = _PLAT_CATEGORY_COLORS.get(category, _PLAT_CATEGORY_COLORS["onprem"])
+    return f"    style {node_id} fill:{fill},stroke:{stroke},stroke-width:3px,color:{text}"
 
 
 def build_archimate_mermaid(
@@ -560,6 +620,8 @@ def build_data_arch_mermaid(
     lines.append("flowchart TB")
     lines.append("    classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B")
     lines.append("    classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20")
+    lines.append("    classDef dbCloud fill:#90CAF9,stroke:#1565C0,stroke-width:2px,color:#0D47A1")
+    lines.append("    classDef dbData fill:#80CBC4,stroke:#00695C,stroke-width:2px,color:#004D40")
     lines.append("    classDef eolBox fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#660000")
     lines.append("")
 
@@ -576,8 +638,10 @@ def build_data_arch_mermaid(
             ia = info["iapm_app"]
             cls = "eolBox" if (ia and ia.style_class == "eol") else "appBox"
             lines.append(f'        {a_nid}["{info["name"]}"]:::{cls}')
-        # DB cylinder
-        lines.append(f'        {db_nid}[("{EMOJI["database"]} {db_label}")]:::dbCyl')
+        # DB cylinder — color by category
+        db_cat = _classify_db(db_label)
+        db_cls = {"cloud": "dbCloud", "data": "dbData"}.get(db_cat, "dbCyl")
+        lines.append(f'        {db_nid}[("{EMOJI["database"]} {db_label}")]:::{db_cls}')
         # App → DB realization links
         for a_nid in cluster_apps:
             lines.append(f"        {a_nid} -.-> {db_nid}")
@@ -611,7 +675,9 @@ def build_data_arch_mermaid(
     lines.append('    subgraph Legend["📐 DATA ARCHITECTURE LEGEND"]')
     lines.append("        direction LR")
     lines.append('        L_A["Application"]:::appBox')
-    lines.append(f'        L_D[("{EMOJI["database"]} Database")]:::dbCyl')
+    lines.append(f'        L_D[("{EMOJI["database"]} On-Prem DB")]:::dbCyl')
+    lines.append(f'        L_DC[("{EMOJI["database"]} Cloud DB")]:::dbCloud')
+    lines.append(f'        L_DD[("{EMOJI["database"]} Data Platform")]:::dbData')
     lines.append('        L_E["End-of-Life"]:::eolBox')
     lines.append("    end")
     lines.append("    style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px")
@@ -709,7 +775,8 @@ def build_platform_arch_mermaid(
             cls = "eolBox" if (ia and ia.style_class == "eol") else "appBox"
             lines.append(f'        {a_nid}["{info["name"]}"]:::{cls}')
         lines.append("    end")
-        lines.append(f"    style {pl_nid} fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20")
+        cat = _classify_platform(pl_label)
+        lines.append(_platform_style(pl_nid, cat))
         lines.append("")
 
     # Orphan apps — group into an "Unassigned" platform subgraph to avoid vertical sprawl
@@ -738,7 +805,20 @@ def build_platform_arch_mermaid(
             lines.append(f"    {src} ==> {tgt}")
     lines.append("")
 
-    # Legend — rendered as an HTML block below the diagram instead
-    # (Mermaid inline subgraph legends overlap flows on complex diagrams)
+    # Legend — color-coded platform categories
+    lines.append(f'    subgraph {pfx}Legend["📐 PLATFORM LEGEND"]')
+    lines.append("        direction LR")
+    lines.append(f'        {pfx}LC["☁️ Cloud"]')
+    lines.append(f'        {pfx}LS["🔮 SaaS"]')
+    lines.append(f'        {pfx}LO["🏢 On-Prem"]')
+    lines.append(f'        {pfx}LD["💾 Data Platform"]')
+    lines.append(f'        {pfx}LM["🔗 Middleware"]')
+    lines.append("    end")
+    lines.append(f"    style {pfx}Legend fill:#F5F5F5,stroke:#999,stroke-width:1px")
+    lines.append(_platform_style(f"{pfx}LC", "cloud"))
+    lines.append(_platform_style(f"{pfx}LS", "saas"))
+    lines.append(_platform_style(f"{pfx}LO", "onprem"))
+    lines.append(_platform_style(f"{pfx}LD", "data"))
+    lines.append(_platform_style(f"{pfx}LM", "middleware"))
 
     return "\n".join(lines)

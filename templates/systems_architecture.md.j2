@@ -243,22 +243,24 @@ This capability includes **{{ bpmn_processes|length }} business process(es)** mo
 
 ## 4. Data Architecture (TOGAF "D")
 
-### 4.1 Data Entities & Ownership
+### 4.1 Data Flows — Source to Target
 
-{% if data_entities %}
-| # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
-|---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
-{% for de in data_entities -%}
-| {{ loop.index }} | {{ de.entity }} | {{ de.source }} | {{ de.target }} | {{ de.owner }} | {{ de.classification }} | {{ de.volume }} | {{ de.master_transaction }} |
+{% if data_flows %}
+| # | Flow Chain | Hop | Source App | Source DB | Target App | Target DB | Data Description | Frequency | Classification |
+|---|-----------|-----|-----------|----------|-----------|----------|-----------------|-----------|---------------|
+{% for df in data_flows -%}
+| {{ loop.index }} | {{ df.flow_chain }} | {{ df.hop }} | {{ df.source_app }} | {{ df.source_db }} | {{ df.target_app }} | {{ df.target_db }} | {{ df.data_desc }} | {{ df.frequency }} | {{ df.classification }} |
 {% endfor %}
 {% else %}
-The following data entities are derived from the system integration flows for {{ cap_id }}. Tower architects should validate ownership and classification.
+The following data flows are derived from the system integration hops for {{ cap_id }}. Each row shows source application on its database flowing to a target application on its database.
 
-| # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
-|---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
-{% for sys in system_inventory[:8] -%}
-| {{ loop.index }} | {{ sys.name }} Business Data | {{ sys.name }} | SAP S/4HANA | {{ tower_short }} Data Steward | Intel Confidential | Per transaction | Transaction |
+| # | Flow Chain | Hop | Source App | Source DB | Target App | Target DB | Data Description | Frequency | Classification |
+|---|-----------|-----|-----------|----------|-----------|----------|-----------------|-----------|---------------|
+{% for hop in current_flows.hops[:8] -%}
+| {{ loop.index }} | {{ hop.flow_chain }} | {{ hop.hop_num or 1 }} | {{ hop.source_system }} | TBD | {{ hop.target_system }} | TBD | {{ hop.data_description or "Business Data" }} | {{ hop.frequency or "—" }} | Intel Confidential |
 {% endfor %}
+
+> *DB platforms will be populated when tower architects complete the extended flow template columns (42-47).*
 {% endif %}
 
 <div style="page-break-before: always;"></div>
