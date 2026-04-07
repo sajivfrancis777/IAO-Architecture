@@ -121,6 +121,7 @@ jobs:
           fi
 
       - name: Commit generated outputs
+        continue-on-error: true
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: regenerate architecture docs [skip ci]"
@@ -129,7 +130,7 @@ jobs:
           commit_user_email: "github-actions[bot]@users.noreply.github.com"
 
       - name: Sync to SharePoint
-        if: success()
+        if: always()
         continue-on-error: true
         run: python scripts/sync_sharepoint.py --all
         env:
