@@ -96,6 +96,7 @@ jobs:
         run: python scripts/update_sad_from_smartsheet.py
 
       - name: Generate Summary Documents (L0/L1/Program)
+        continue-on-error: true
         run: |
           if [ -n "${{ github.event.inputs.tower }}" ]; then
             python -m src.gen_summary --tower "${{ github.event.inputs.tower }}" --level L1
