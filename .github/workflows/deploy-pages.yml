@@ -183,6 +183,16 @@ jobs:
             mkdir -p _site/dashboard
             cp output/docs/dashboard/Program-Dashboard.html _site/dashboard/index.html
           fi
+
+          # Copy Program-level summary into _site
+          if [ -d "output/docs/summaries" ]; then
+            mkdir -p _site/summaries
+            find output/docs/summaries -name "*.html" | while read f; do
+              cp "$f" "_site/summaries/$(basename "$f")"
+            done
+            echo "  Program summaries: $(find _site/summaries -name '*.html' 2>/dev/null | wc -l) files"
+          fi
+
           for tower_dir in towers/*/; do
             tower=$(basename "$tower_dir")
             dash_file="${tower_dir}output/docs/dashboard/${tower}-Dashboard.html"

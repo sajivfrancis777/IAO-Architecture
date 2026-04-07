@@ -1,0 +1,2321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Plan To Report (FPR)</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+@page {
+    size: A4;
+    margin: 0;   /* zero page-margin eliminates browser-default header (date/title) and footer (URL/page-number) */
+}
+body {
+    font-family: "Segoe UI", Calibri, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #1a1a1a;
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 15mm;
+    background: #fff;
+}
+h1 {
+    font-size: 22pt;
+    color: #00285a;
+    border-bottom: 3px solid #0071c5;
+    padding-bottom: 8px;
+    margin-top: 30px;
+    page-break-before: always;
+}
+h1:first-of-type { page-break-before: avoid; }
+h2 {
+    font-size: 16pt;
+    color: #00285a;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 4px;
+    margin-top: 24px;
+    page-break-after: avoid;
+    break-after: avoid;
+}
+h3 {
+    font-size: 13pt;
+    color: #0071c5;
+    margin-top: 18px;
+    page-break-after: avoid;
+    break-after: avoid;
+}
+h4 {
+    font-size: 11pt;
+    color: #333;
+    margin-top: 14px;
+    page-break-after: avoid;
+    break-after: avoid;
+}
+p {
+    orphans: 3;
+    widows: 3;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 12px 0;
+    font-size: 9.5pt;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+th {
+    background: #00285a;
+    color: #fff;
+    font-weight: 600;
+    text-align: left;
+    padding: 6px 8px;
+    border: 1px solid #00285a;
+}
+td {
+    padding: 5px 8px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+}
+tr:nth-child(even) td { background: #f5f8fc; }
+tr:hover td { background: #e8f0fe; }
+code {
+    font-family: "Cascadia Code", "Consolas", monospace;
+    font-size: 9pt;
+    background: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+pre {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 12px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 8.5pt;
+    line-height: 1.4;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+pre code { background: none; padding: 0; color: inherit; }
+blockquote {
+    border-left: 4px solid #0071c5;
+    background: #f5f8fc;
+    margin: 12px 0;
+    padding: 8px 16px;
+    color: #333;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+.mermaid-placeholder {
+    background: #f5f8fc;
+    border: 1px dashed #0071c5;
+    border-radius: 4px;
+    padding: 16px;
+    margin: 12px 0;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+.mermaid {
+    background: #fafbfd;
+    border: 1px solid #e0e4ea;
+    border-radius: 6px;
+    padding: 16px 12px;
+    margin: 12px 0;
+    overflow: visible;
+    text-align: center;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+.mermaid svg {
+    max-width: 100%;
+    height: auto;
+    max-height: 85vh;
+}
+.header-bar {
+    background: #00285a;
+    color: #fff;
+    padding: 16px 24px;
+    margin: -15mm -15mm 20px -15mm;
+    font-size: 9pt;
+}
+.header-bar h1 {
+    color: #fff;
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-size: 20pt;
+    page-break-before: avoid;
+}
+.header-bar .subtitle { color: #a8c7e8; font-size: 10pt; }
+.footer {
+    font-size: 8pt;
+    color: #888;
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+.page-section {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 40px);
+    box-sizing: border-box;
+}
+.page-footer {
+    margin-top: auto;
+    padding-top: 8px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9pt;
+    color: #888;
+    padding: 6px 12px;
+    background: #fff;
+}
+.page-footer a { color: #0071c5; text-decoration: none; }
+.page-footer a:hover { text-decoration: underline; }
+a { color: #0071c5; text-decoration: none; }
+a:hover { text-decoration: underline; }
+hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
+strong { color: #00285a; }
+
+/* ---- Global print-only footer (fixed to bottom of every printed page) ---- */
+.print-footer {
+    display: none;  /* hidden on screen */
+}
+
+/* ---- Floating PDF download button ---- */
+.pdf-download-btn {
+    position: fixed;
+    top: 72px;
+    right: 24px;
+    z-index: 9999;
+    background: #00285a;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: background 0.2s;
+}
+.pdf-download-btn:hover { background: #0071c5; }
+
+@media print {
+    body { padding: 12mm 15mm 22mm 15mm; max-width: none; }
+    .header-bar { margin: 0 0 20px 0; }
+    .no-print, .pdf-download-btn { display: none !important; }
+    h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+    table, pre, blockquote { page-break-inside: avoid; break-inside: avoid; }
+    p { orphans: 3; widows: 3; }
+
+    /* Hide per-section footers in print — they don't reliably sit at
+       the bottom of multi-page sections.  A global fixed footer below
+       appears on every physical page instead. */
+    .page-footer {
+        display: none !important;
+    }
+
+    /* Global fixed footer — Chrome/Edge render position:fixed elements
+       at the same position on every printed page.
+       @page margin:0 suppresses the browser's own date/URL/page-number chrome. */
+    .print-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        font-size: 7pt;
+        color: #888;
+        padding: 3px 10mm;
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+    .print-footer a { color: #0071c5; text-decoration: none; }
+
+    /* Reserve space at the bottom of every page so content doesn't
+       overlap the single-line fixed footer. */
+    body {
+        padding-bottom: 14mm;
+    }
+
+    /* Page sections: keep flex for short pages, but remove min-height
+       so multi-page sections flow naturally. */
+    .page-section {
+        display: block;
+        box-sizing: border-box;
+    }
+
+    /* Mermaid diagrams: constrain to page, avoid spill-over to next page */
+    .mermaid {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        overflow: visible;
+        max-height: 85vh;
+        margin: 8px 0;
+    }
+    .mermaid svg {
+        max-width: 100%;
+        max-height: 80vh;
+        height: auto;
+        width: auto;
+    }
+
+    /* Diagram links: visible + clickable in PDF */
+    a[title="View full diagram"],
+    a[title="Open full-size SVG"] {
+        color: #0071c5 !important;
+        text-decoration: underline !important;
+        font-size: 10pt !important;
+    }
+
+    /* Tighten spacing in print for professional PDF output */
+    h2 { margin-top: 18px; margin-bottom: 8px; }
+    h3 { margin-top: 14px; margin-bottom: 6px; }
+    h4 { margin-top: 10px; margin-bottom: 4px; }
+    table { margin: 8px 0; }
+    blockquote { margin: 8px 0; padding: 6px 14px; }
+}
+</style>
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<!-- Mermaid 11.14.0: Upgraded from 10.6.1. Internal SVG element IDs are now
+     prefixed with the diagram container ID to avoid collisions when multiple
+     diagrams share a page.  All custom CSS in this pipeline uses class
+     selectors (.mermaid, classDef) so no selector changes were required.
+     If future CSS targets internal IDs (arrowhead, node, edge, marker),
+     use attribute-ending selectors: [id$="-arrowhead"] instead of #arrowhead. -->
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    securityLevel: 'loose',
+    flowchart: {
+      curve: 'basis',
+      padding: 16,
+      nodeSpacing: 50,
+      rankSpacing: 60,
+      useMaxWidth: true
+    },
+    themeVariables: {
+      primaryColor: '#e8f0fe',
+      primaryBorderColor: '#0071c5',
+      primaryTextColor: '#1a1a1a',
+      lineColor: '#37474F',
+      secondaryColor: '#f5f8fc',
+      tertiaryColor: '#fff',
+      fontSize: '14px',
+      fontFamily: 'Segoe UI, Arial, sans-serif'
+    }
+  });
+</script>
+<script>
+  // Open rendered Mermaid diagram as full-size SVG in a new browser tab.
+  // Works on SharePoint, GitHub Pages, localhost — no file system dependency.
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[title="Open full-size SVG"]');
+    if (!link) return;
+    // Walk backwards from the link div to find the preceding .mermaid container
+    var container = link.closest('div');
+    var prev = container;
+    while (prev && prev.previousElementSibling) {
+      prev = prev.previousElementSibling;
+      if (prev.classList && prev.classList.contains('mermaid')) break;
+    }
+    if (!prev || !prev.classList.contains('mermaid')) return;
+    var svgEl = prev.querySelector('svg');
+    if (!svgEl) return;
+    e.preventDefault();
+    // Clone SVG with full dimensions for standalone viewing
+    var clone = svgEl.cloneNode(true);
+    clone.removeAttribute('style');
+    clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    var svgXml = new XMLSerializer().serializeToString(clone);
+    var blob = new Blob([svgXml], {type: 'image/svg+xml'});
+    window.open(URL.createObjectURL(blob), '_blank');
+  });
+</script>
+
+</head>
+<body>
+<button class="pdf-download-btn" onclick="window.print()" title="Print / Save as PDF">&#128196; Download PDF</button>
+<div class="page-section">
+<div style="text-align:center; padding-top:60px;">
+  <h1 style="font-size:36px; margin-top:24px;">Finance Plan To Report (FPR)</h1>
+  <h2 style="font-size:24px;">TOGAF BDAT — Systems Integration Summary</h2>
+  <p style="font-size:18px; color:#555;">Tower: Finance Plan To Report (FPR) · R1 – R5</p>
+  <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
+  Generated: April 2026<br/>
+  Sajiv Francis</p>
+  <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
+</div>
+
+<style>
+@media print {
+  @page { size: A4; margin: 0; }
+  .mermaid { page-break-inside: avoid; break-inside: avoid; overflow: visible; }
+  pre, table, blockquote { page-break-inside: avoid; break-inside: avoid; }
+  h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+  p { orphans: 3; widows: 3; }
+  a[title="View full diagram"],
+  a[title="Open full-size SVG"] {
+    color: #0071c5 !important;
+    text-decoration: underline !important;
+    font-size: 10pt !important;
+  }
+}
+.mermaid { overflow: visible; }
+.mermaid svg { max-width: 100%; height: auto !important; }
+.page-footer {
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #888;
+  margin-top: auto;
+  padding: 6px 0;
+  background: #fff;
+}
+@media print {
+  .page-footer {
+    display: none !important;
+  }
+}
+.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+.page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
+</style>
+
+<div class="page-footer"><span>Page 1</span><span><a href="#toc">↑ Back to TOC</a></span><span>Finance Plan To Report (FPR)</span></div>
+
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+<p><a id="toc"></a></p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#1-executive-summary">1. Executive Summary</a></li>
+<li><a href="#2-capability-inventory">2. Capability Inventory</a></li>
+<li><a href="#3-current-state-architecture">3. Current-State Architecture</a></li>
+<li><a href="#31-system-integration-map">3.1 System Integration Map</a></li>
+<li><a href="#32-archimate-application-view">3.2 ArchiMate Application View</a></li>
+<li><a href="#33-data-entities">3.3 Data Entities</a></li>
+<li><a href="#34-integration-patterns">3.4 Integration Patterns</a></li>
+<li><a href="#35-technology-stack">3.5 Technology Stack</a></li>
+<li><a href="#4-future-state-architecture">4. Future-State Architecture</a></li>
+<li><a href="#41-system-integration-map">4.1 System Integration Map</a></li>
+<li><a href="#42-archimate-application-view">4.2 ArchiMate Application View</a></li>
+<li><a href="#43-data-entities">4.3 Data Entities</a></li>
+<li><a href="#44-integration-patterns">4.4 Integration Patterns</a></li>
+<li><a href="#45-technology-stack">4.5 Technology Stack</a></li>
+<li><a href="#5-transformation-analysis">5. Transformation Analysis</a></li>
+<li><a href="#51-system-landscape-changes">5.1 System Landscape Changes</a></li>
+<li><a href="#52-integration-complexity">5.2 Integration Complexity</a></li>
+<li><a href="#6-system-inventory">6. System Inventory</a></li>
+</ul>
+<div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>Finance Plan To Report (FPR)</span></div>
+
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+<h2 id="1-executive-summary">1 Executive Summary</h2>
+<p>This document provides a <strong>L0</strong> summary view of the systems architecture for <strong>Tower: Finance Plan To Report (FPR) · R1 – R5</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th style="text-align: center;">Current-State</th>
+<th style="text-align: center;">Future-State</th>
+<th style="text-align: center;">Delta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Unique Systems</strong></td>
+<td style="text-align: center;">26</td>
+<td style="text-align: center;">42</td>
+<td style="text-align: center;">+16</td>
+</tr>
+<tr>
+<td><strong>System Connections</strong></td>
+<td style="text-align: center;">31</td>
+<td style="text-align: center;">53</td>
+<td style="text-align: center;">+22</td>
+</tr>
+<tr>
+<td><strong>Total Flow Hops</strong></td>
+<td style="text-align: center;">36</td>
+<td style="text-align: center;">114</td>
+<td style="text-align: center;">+78</td>
+</tr>
+<tr>
+<td><strong>Capabilities Covered</strong></td>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">—</td>
+</tr>
+</tbody>
+</table>
+<div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>Finance Plan To Report (FPR)</span></div>
+
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+<h2 id="2-capability-inventory">2 Capability Inventory</h2>
+<p>The following <strong>19</strong> capabilities are aggregated in this summary.
+Click a capability ID to view its full TOGAF BDAT architecture document.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: center;">Capability ID</th>
+<th>Capability Name</th>
+<th>L1 Process Group</th>
+<th style="text-align: center;">Current Hops</th>
+<th style="text-align: center;">Future Hops</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><a href="towers/FPR/DC Manage Accounting and Control Data/DC-010/output/docs/systems-architecture/DC-010-Architecture.html">DC-010</a></td>
+<td>Perform Transaction Processing</td>
+<td>DC Manage Accounting and Control Data</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><a href="towers/FPR/DC Manage Accounting and Control Data/DC-020/output/docs/systems-architecture/DC-020-Architecture.html">DC-020</a></td>
+<td>Manage the General Ledger</td>
+<td>DC Manage Accounting and Control Data</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"><a href="towers/FPR/DC Manage Accounting and Control Data/DC-030/output/docs/systems-architecture/DC-030-Architecture.html">DC-030</a></td>
+<td>Perform Closing</td>
+<td>DC Manage Accounting and Control Data</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;"><a href="towers/FPR/DC Manage Accounting and Control Data/DC-040/output/docs/systems-architecture/DC-040-Architecture.html">DC-040</a></td>
+<td>Perform Fixed Asset Accounting</td>
+<td>DC Manage Accounting and Control Data</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;"><a href="towers/FPR/DC Manage Accounting and Control Data/DC-050/output/docs/systems-architecture/DC-050-Architecture.html">DC-050</a></td>
+<td>Project Accounting</td>
+<td>DC Manage Accounting and Control Data</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;"><a href="towers/FPR/DC Manage Accounting and Control Data/DC-060/output/docs/systems-architecture/DC-060-Architecture.html">DC-060</a></td>
+<td>Manage Taxes</td>
+<td>DC Manage Accounting and Control Data</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;"><a href="towers/FPR/DC Manage Accounting and Control Data/DC-100/output/docs/systems-architecture/DC-100-Architecture.html">DC-100</a></td>
+<td>Revenue Recognition</td>
+<td>DC Manage Accounting and Control Data</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;"><a href="towers/FPR/DC Manage Accounting and Control Data/DC-110/output/docs/systems-architecture/DC-110-Architecture.html">DC-110</a></td>
+<td>Manage Intercompany</td>
+<td>DC Manage Accounting and Control Data</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;"><a href="towers/FPR/DC Manage Accounting and Control Data/DC-120/output/docs/systems-architecture/DC-120-Architecture.html">DC-120</a></td>
+<td>Maintenance &amp; Management Accounting</td>
+<td>DC Manage Accounting and Control Data</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;"><a href="towers/FPR/DS Provide Decision Support/DS-010/output/docs/systems-architecture/DS-010-Architecture.html">DS-010</a></td>
+<td>Perform Overhead Accounting and Allocation</td>
+<td>DS Provide Decision Support</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;"><a href="towers/FPR/DS Provide Decision Support/DS-020/output/docs/systems-architecture/DS-020-Architecture.html">DS-020</a></td>
+<td>Perform Product Costing and Inventory Valuation</td>
+<td>DS Provide Decision Support</td>
+<td style="text-align: center;">36</td>
+<td style="text-align: center;">114</td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;"><a href="towers/FPR/DS Provide Decision Support/DS-030/output/docs/systems-architecture/DS-030-Architecture.html">DS-030</a></td>
+<td>Perform Customer and Product Profitability Analysis</td>
+<td>DS Provide Decision Support</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;"><a href="towers/FPR/MB Plan and Manage Business/MB-060/output/docs/systems-architecture/MB-060-Architecture.html">MB-060</a></td>
+<td>Plan the Business</td>
+<td>MB Plan and Manage Business</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;"><a href="towers/FPR/MB Plan and Manage Business/MB-070/output/docs/systems-architecture/MB-070-Architecture.html">MB-070</a></td>
+<td>Prepare Budgets</td>
+<td>MB Plan and Manage Business</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;"><a href="towers/FPR/MR Manage Capital and Risk/MR-010/output/docs/systems-architecture/MR-010-Architecture.html">MR-010</a></td>
+<td>Manage Liquidity</td>
+<td>MR Manage Capital and Risk</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;"><a href="towers/FPR/MR Manage Capital and Risk/MR-020/output/docs/systems-architecture/MR-020-Architecture.html">MR-020</a></td>
+<td>Manage Capital Structure</td>
+<td>MR Manage Capital and Risk</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;"><a href="towers/FPR/MR Manage Capital and Risk/MR-030/output/docs/systems-architecture/MR-030-Architecture.html">MR-030</a></td>
+<td>Manage Financial Risk</td>
+<td>MR Manage Capital and Risk</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;"><a href="towers/FPR/MR Manage Capital and Risk/MR-070/output/docs/systems-architecture/MR-070-Architecture.html">MR-070</a></td>
+<td>In-House Banking</td>
+<td>MR Manage Capital and Risk</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;"><a href="towers/FPR/OR Receivables Management/OR-140/output/docs/systems-architecture/OR-140-Architecture.html">OR-140</a></td>
+<td>Process Receipts</td>
+<td>OR Receivables Management</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>Finance Plan To Report (FPR)</span></div>
+
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+<h2 id="3-current-state-architecture">3 Current-State Architecture</h2>
+<p>Aggregated current-state view of <strong>26</strong> systems with <strong>31</strong> unique connections across <strong>36</strong> flow hops.</p>
+<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>Finance Plan To Report (FPR)</span></div>
+
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+<h3 id="31-system-integration-map">3.1 System Integration Map</h3>
+<div class="mermaid">
+graph LR
+    SC_APIGEE["📦 APIGEE"]
+    SC_Azure_ADF["📦 Azure ADF"]
+    SC_BOBJ["📦 BOBJ"]
+    SC_CFIN_S_4["📦 CFIN S/4"]
+    SC_CIBR["📦 CIBR"]
+    SC_Corp___IP_S_4["📦 Corp / IP S/4"]
+    SC_DataBricks["📦 DataBricks"]
+    SC_EATS["📦 EATS"]
+    SC_ECA["📦 ECA"]
+    SC_EDW["📦 EDW"]
+    SC_FCA["📦 FCA"]
+    SC_Finance_HANA["📦 Finance HANA"]
+    SC_ICOST["📦 ICOST"]
+    SC_Legacy_MDG["📦 Legacy MDG"]
+    SC_MARS["📦 MARS"]
+    SC_MES_300["📦 MES 300"]
+    SC_PEGA["📦 PEGA"]
+    SC_SAP_BODS["📦 SAP BODS"]
+    SC_SAP_ECC["📦 SAP ECC"]
+    SC_SAP_IBP["📦 SAP IBP"]
+    SC_SAP_PO["📦 SAP PO"]
+    SC_SPEED["📦 SPEED"]
+    SC_SideCar["📦 SideCar"]
+    SC_SnowFlake["📦 SnowFlake"]
+    SC_WorkStream["📦 WorkStream"]
+    SC_XEUS["📦 XEUS"]
+
+    SC_APIGEE -->|"APIGEE | 1 flow"| SC_PEGA
+    SC_Azure_ADF -->|"ADF Pipeline | 1 flow"| SC_DataBricks
+    SC_CIBR -->|"Internal | 1 flow"| SC_ICOST
+    SC_CIBR -->|"SAP PO | 1 flow"| SC_SAP_PO
+    SC_Corp___IP_S_4 -->|"SLT | 2 flows"| SC_ECA
+    SC_DataBricks -->|"Internal | 1 flow"| SC_SnowFlake
+    SC_EATS -->|"Internal | 1 flow"| SC_ICOST
+    SC_ECA -->|"Internal | 1 flow"| SC_CIBR
+    SC_ECA -->|"Internal | 1 flow"| SC_ICOST
+    SC_EDW -->|"ETL | 1 flow"| SC_CIBR
+    SC_EDW -->|"ETL | 1 flow"| SC_ICOST
+    SC_FCA -->|"Direct | 1 flow"| SC_ICOST
+    SC_Finance_HANA -->|"APIGEE | 1 flow"| SC_APIGEE
+    SC_Finance_HANA -->|"Direct | 1 flow"| SC_BOBJ
+    SC_Finance_HANA -->|"SAP PO | 1 flow"| SC_SAP_PO
+    SC_ICOST -->|"SAP BODS | 1 flow"| SC_SAP_BODS
+    SC_Legacy_MDG -->|"MDG | 1 flow"| SC_SAP_ECC
+    SC_MARS -->|"Internal | 1 flow"| SC_ICOST
+    SC_MES_300 -->|"Direct | 1 flow"| SC_XEUS
+    SC_SAP_BODS -->|"SAP BODS | 1 flow"| SC_SAP_ECC
+    SC_SAP_ECC -->|"Replication | 1 flow"| SC_CFIN_S_4
+    SC_SAP_ECC -->|"ETL | 3 flows"| SC_EDW
+    SC_SAP_ECC -->|"SLT | 1 flow"| SC_Finance_HANA
+    SC_SAP_ECC -->|"SLT | 1 flow"| SC_SideCar
+    SC_SAP_IBP -->|"Direct | 1 flow"| SC_ECA
+    SC_SAP_PO -->|"SAP PO | 3 flows"| SC_SAP_ECC
+    SC_SPEED -->|"Direct | 1 flow"| SC_EDW
+    SC_SPEED -->|"SAP PO | 1 flow"| SC_SAP_PO
+    SC_SideCar -->|"CIF | 1 flow"| SC_Azure_ADF
+    SC_WorkStream -->|"Direct | 1 flow"| SC_MARS
+    SC_XEUS -->|"Internal | 1 flow"| SC_ICOST
+</div>
+
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>Finance Plan To Report (FPR)</span></div>
+
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+<h3 id="32-archimate-application-view">3.2 ArchiMate Application View</h3>
+<div class="mermaid">
+graph TB
+    %% -- ArchiMate-inspired style classes --
+    classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
+    classDef app           fill:#B5FFFF,stroke:#0077B6,stroke-width:2px,color:#000
+    classDef data          fill:#B5D8FF,stroke:#0077B6,stroke-width:1px,color:#000,stroke-dasharray: 5 5
+    classDef middleware    fill:#FFD6A5,stroke:#E76F00,stroke-width:2px,color:#000
+    classDef eol           fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#000
+
+    subgraph AL["📦 Application Layer — Systems Integration"]
+        direction LR
+        SCA_APIGEE["📦 APIGEE"]
+        SCA_Azure_ADF["📦 Azure ADF"]
+        SCA_BOBJ["📦 BOBJ"]
+        SCA_CFIN_S_4["📦 CFIN S/4"]
+        SCA_CIBR["📦 CIBR"]
+        SCA_Corp___IP_S_4["📦 Corp / IP S/4"]
+        SCA_DataBricks["📦 DataBricks"]
+        SCA_EATS["📦 EATS"]
+        SCA_ECA["📦 ECA"]
+        SCA_EDW["📦 EDW"]
+        SCA_FCA["📦 FCA"]
+        SCA_Finance_HANA["📦 Finance HANA"]
+        SCA_ICOST["📦 ICOST"]
+        SCA_Legacy_MDG["📦 Legacy MDG"]
+        SCA_MARS["📦 MARS"]
+        SCA_MES_300["📦 MES 300"]
+        SCA_PEGA["📦 PEGA"]
+        SCA_SAP_BODS["📦 SAP BODS"]
+        SCA_SAP_ECC["📦 SAP ECC"]
+        SCA_SAP_IBP["📦 SAP IBP"]
+        SCA_SAP_PO["📦 SAP PO"]
+        SCA_SPEED["📦 SPEED"]
+        SCA_SideCar["📦 SideCar"]
+        SCA_SnowFlake["📦 SnowFlake"]
+        SCA_WorkStream["📦 WorkStream"]
+        SCA_XEUS["📦 XEUS"]
+    end
+
+    SCA_APIGEE -->|"APIGEE"| SCA_PEGA
+    SCA_Azure_ADF -->|"ADF Pipeline"| SCA_DataBricks
+    SCA_CIBR -->|"Internal"| SCA_ICOST
+    SCA_CIBR -->|"SAP PO"| SCA_SAP_PO
+    SCA_Corp___IP_S_4 -->|"SLT"| SCA_ECA
+    SCA_DataBricks -->|"Internal"| SCA_SnowFlake
+    SCA_EATS -->|"Internal"| SCA_ICOST
+    SCA_ECA -->|"Internal"| SCA_CIBR
+    SCA_ECA -->|"Internal"| SCA_ICOST
+    SCA_EDW -->|"ETL"| SCA_CIBR
+    SCA_EDW -->|"ETL"| SCA_ICOST
+    SCA_FCA -->|"Direct"| SCA_ICOST
+    SCA_Finance_HANA -->|"APIGEE"| SCA_APIGEE
+    SCA_Finance_HANA -->|"Direct"| SCA_BOBJ
+    SCA_Finance_HANA -->|"SAP PO"| SCA_SAP_PO
+    SCA_ICOST -->|"SAP BODS"| SCA_SAP_BODS
+    SCA_Legacy_MDG -->|"MDG"| SCA_SAP_ECC
+    SCA_MARS -->|"Internal"| SCA_ICOST
+    SCA_MES_300 -->|"Direct"| SCA_XEUS
+    SCA_SAP_BODS -->|"SAP BODS"| SCA_SAP_ECC
+    SCA_SAP_ECC -->|"Replication"| SCA_CFIN_S_4
+    SCA_SAP_ECC -->|"ETL"| SCA_EDW
+    SCA_SAP_ECC -->|"SLT"| SCA_Finance_HANA
+    SCA_SAP_ECC -->|"SLT"| SCA_SideCar
+    SCA_SAP_IBP -->|"Direct"| SCA_ECA
+    SCA_SAP_PO -->|"SAP PO"| SCA_SAP_ECC
+    SCA_SPEED -->|"Direct"| SCA_EDW
+    SCA_SPEED -->|"SAP PO"| SCA_SAP_PO
+    SCA_SideCar -->|"CIF"| SCA_Azure_ADF
+    SCA_WorkStream -->|"Direct"| SCA_MARS
+    SCA_XEUS -->|"Internal"| SCA_ICOST
+
+    class SCA_APIGEE app
+    class SCA_Azure_ADF app
+    class SCA_BOBJ app
+    class SCA_CFIN_S_4 app
+    class SCA_CIBR app
+    class SCA_Corp___IP_S_4 app
+    class SCA_DataBricks app
+    class SCA_EATS app
+    class SCA_ECA app
+    class SCA_EDW app
+    class SCA_FCA app
+    class SCA_Finance_HANA app
+    class SCA_ICOST app
+    class SCA_Legacy_MDG app
+    class SCA_MARS app
+    class SCA_MES_300 app
+    class SCA_PEGA app
+    class SCA_SAP_BODS app
+    class SCA_SAP_ECC app
+    class SCA_SAP_IBP app
+    class SCA_SAP_PO app
+    class SCA_SPEED app
+    class SCA_SideCar app
+    class SCA_SnowFlake app
+    class SCA_WorkStream app
+    class SCA_XEUS app
+    style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
+    style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
+</div>
+
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>Finance Plan To Report (FPR)</span></div>
+
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+<h3 id="33-data-entities">3.3 Data Entities</h3>
+<p><em>No data entity information in current-state flows.</em></p>
+<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>Finance Plan To Report (FPR)</span></div>
+
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+<h3 id="34-integration-patterns">3.4 Integration Patterns</h3>
+<p><em>No integration pattern information in current-state flows.</em></p>
+<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>Finance Plan To Report (FPR)</span></div>
+
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+<h3 id="35-technology-stack">3.5 Technology Stack</h3>
+<p><em>No technology platform information in current-state flows.</em></p>
+<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>Finance Plan To Report (FPR)</span></div>
+
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+<h2 id="4-future-state-architecture">4 Future-State Architecture</h2>
+<p>Aggregated future-state view of <strong>42</strong> systems with <strong>53</strong> unique connections across <strong>114</strong> flow hops.</p>
+<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>Finance Plan To Report (FPR)</span></div>
+
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+<h3 id="41-system-integration-map">4.1 System Integration Map</h3>
+<div class="mermaid">
+graph LR
+    SF_ATCR["📦 ATCR"]
+    SF_CFIN_S_4_HANA["📦 CFIN S/4 HANA"]
+    SF_Capacity_Forecast_Data_Store["📦 Capacity Forecast Data Store"]
+    SF_Corp___IP_S_4_HANA["📦 Corp / IP S/4 HANA"]
+    SF_DMOCR["📦 DMOCR"]
+    SF_DXCR["📦 DXCR"]
+    SF_ECA_ADLS["📦 ECA-ADLS"]
+    SF_ECA_DataBricks["📦 ECA-DataBricks"]
+    SF_ECA_SnowFlake["📦 ECA-SnowFlake"]
+    SF_ECM__Windchill_["📦 ECM (Windchill)"]
+    SF_FCS["📦 FCS"]
+    SF_GraphiteConnect["📦 GraphiteConnect"]
+    SF_ICS__Phoenix_["📦 ICS (Phoenix)"]
+    SF_IF_Blue_Yonder["📦 IF Blue Yonder"]
+    SF_IF_PDH_Consumptional["📦 IF PDH Consumptional"]
+    SF_IF_PDH_Foundational["📦 IF PDH Foundational"]
+    SF_IF_PDH_Raw["📦 IF PDH Raw"]
+    SF_IF_S_4_HANA["📦 IF S/4 HANA"]
+    SF_IP_Blue_Yonder["📦 IP Blue Yonder"]
+    SF_IP_PDH_Consumptional["📦 IP PDH Consumptional"]
+    SF_IP_PDH_Foundational["📦 IP PDH Foundational"]
+    SF_IP_PDH_Raw["📦 IP PDH Raw"]
+    SF_MARS["📦 MARS"]
+    SF_MES_300["📦 MES 300"]
+    SF_PDF_SMH["📦 PDF-SMH"]
+    SF_PDH_Consumptional["📦 PDH Consumptional"]
+    SF_PDH_Foundational["📦 PDH Foundational"]
+    SF_PDH_Raw["📦 PDH Raw"]
+    SF_PDM_Translator["📦 PDM Translator"]
+    SF_Power_BI__DARC_["📦 Power BI (DARC)"]
+    SF_SAP_Ariba["📦 SAP Ariba"]
+    SF_SAP_BOBJ["📦 SAP BOBJ"]
+    SF_SAP_IBP["📦 SAP IBP"]
+    SF_SAP_PAPM["📦 SAP PAPM"]
+    SF_SAP_S_4_MDG["📦 SAP S/4 MDG"]
+    SF_SAP_SAC["📦 SAP SAC"]
+    SF_SCS["📦 SCS"]
+    SF_SPEED["📦 SPEED"]
+    SF_SideCar["📦 SideCar"]
+    SF_WSPW["📦 WSPW"]
+    SF_WorkStream["📦 WorkStream"]
+    SF_XEUS["📦 XEUS"]
+
+    SF_ATCR -->|"Direct | 1 flow"| SF_Capacity_Forecast_Data_Store
+    SF_CFIN_S_4_HANA -->|"SLT | 1 flow"| SF_SideCar
+    SF_Capacity_Forecast_Data_Store -->|"ADF / DB Unity Catalog / Third Party (e.g., Denodo) | 6 flows"| SF_ECA_ADLS
+    SF_Corp___IP_S_4_HANA -->|"SLT | 1 flow"| SF_SideCar
+    SF_DMOCR -->|"Direct | 1 flow"| SF_Capacity_Forecast_Data_Store
+    SF_DXCR -->|"Direct | 1 flow"| SF_Capacity_Forecast_Data_Store
+    SF_ECA_ADLS -->|"Unity Catalog | 8 flows"| SF_ECA_DataBricks
+    SF_ECA_DataBricks -->|"Snowflake Connector / Snowpipe | 8 flows"| SF_ECA_SnowFlake
+    SF_ECA_SnowFlake -->|"MuleSoft/BODS | 1 flow"| SF_CFIN_S_4_HANA
+    SF_ECA_SnowFlake -->|"MuleSoft/BODS | 2 flows"| SF_Corp___IP_S_4_HANA
+    SF_ECA_SnowFlake -->|"MuleSoft/BODS | 9 flows"| SF_IF_S_4_HANA
+    SF_ECA_SnowFlake -->|"Snowflake Connector / Snowpipe | 1 flow"| SF_Power_BI__DARC_
+    SF_ECA_SnowFlake -->|"Remote Function Adapter / MuleSoft / SAP Integration Suite | 5 flows"| SF_SAP_PAPM
+    SF_ECM__Windchill_ -->|"PDM Translator | 1 flow"| SF_PDM_Translator
+    SF_FCS -->|"Direct | 1 flow"| SF_Capacity_Forecast_Data_Store
+    SF_GraphiteConnect -->|"MuleSoft & Reltio | 1 flow"| SF_SAP_S_4_MDG
+    SF_ICS__Phoenix_ -->|"Direct | 1 flow"| SF_Capacity_Forecast_Data_Store
+    SF_IF_Blue_Yonder -->|"ADF / DB Unity Catalog / Connectors /Third Party (e.g., APIs with Mule) | 3 flows"| SF_IF_PDH_Raw
+    SF_IF_PDH_Consumptional -->|"Snowflake Connector / Snowpipe | 5 flows"| SF_ECA_SnowFlake
+    SF_IF_PDH_Foundational -->|"Unity Catalog | 5 flows"| SF_IF_PDH_Consumptional
+    SF_IF_PDH_Raw -->|"ADF / DB Unity Catalog / Third Party (e.g., Denodo) | 5 flows"| SF_IF_PDH_Foundational
+    SF_IF_S_4_HANA -->|"SLT | 2 flows"| SF_CFIN_S_4_HANA
+    SF_IF_S_4_HANA -->|"SLT | 1 flow"| SF_SideCar
+    SF_IP_Blue_Yonder -->|"ADF / DB Unity Catalog / Connectors /Third Party (e.g., APIs with Mule) | 3 flows"| SF_IP_PDH_Raw
+    SF_IP_PDH_Consumptional -->|"Snowflake Connector / Snowpipe | 2 flows"| SF_ECA_SnowFlake
+    SF_IP_PDH_Foundational -->|"Unity Catalog | 2 flows"| SF_IP_PDH_Consumptional
+    SF_IP_PDH_Raw -->|"ADF / DB Unity Catalog / Third Party (e.g., Denodo) | 2 flows"| SF_IP_PDH_Foundational
+    SF_MARS -->|"Direct | 1 flow"| SF_PDF_SMH
+    SF_MES_300 -->|"Direct | 1 flow"| SF_XEUS
+    SF_PDF_SMH -->|"EAI Connector | 2 flows"| SF_IF_S_4_HANA
+    SF_PDH_Consumptional -->|"Snowflake Connector / Snowpipe | 1 flow"| SF_ECA_SnowFlake
+    SF_PDH_Foundational -->|"Unity Catalog | 1 flow"| SF_IP_PDH_Consumptional
+    SF_PDH_Raw -->|"ADF / DB Unity Catalog / Third Party (e.g., Denodo) | 1 flow"| SF_IP_PDH_Foundational
+    SF_PDM_Translator -->|"PDM Translator | 2 flows"| SF_SAP_S_4_MDG
+    SF_SAP_Ariba -->|"Apigee / MuleSoft | 1 flow"| SF_Corp___IP_S_4_HANA
+    SF_SAP_Ariba -->|"Apigee / MuleSoft | 1 flow"| SF_IF_S_4_HANA
+    SF_SAP_IBP -->|"ADF / DB Unity Catalog / Connectors /Third Party (e.g., APIs with Mule) | 2 flows"| SF_IF_PDH_Raw
+    SF_SAP_PAPM -->|"SAP Integration Suite / Smart Data Integration/BTP Destinations (HTTP) | 1 flow"| SF_Corp___IP_S_4_HANA
+    SF_SAP_PAPM -->|"SAP Integration Suite / Smart Data Integration/BTP Destinations (HTTP) | 1 flow"| SF_IF_S_4_HANA
+    SF_SAP_S_4_MDG -->|"DRF (Data Replication Framework) with Web Services (SOAP/File/Idoc/RFC) | 3 flows"| SF_Corp___IP_S_4_HANA
+    SF_SAP_S_4_MDG -->|"DRF (Data Replication Framework) with Web Services (SOAP/File/Idoc/RFC) | 3 flows"| SF_IF_S_4_HANA
+    SF_SAP_SAC -->|"SAP Odata services with connector | 1 flow"| SF_CFIN_S_4_HANA
+    SF_SAP_SAC -->|"SAP Odata services with connector | 1 flow"| SF_Corp___IP_S_4_HANA
+    SF_SAP_SAC -->|"SAC Data Export Service (API) - Direct Write (Speed Layer in Snowflake / Use ADF / MuleSoft for DataBricks | 3 flows"| SF_ECA_SnowFlake
+    SF_SAP_SAC -->|"SAP Odata services with connector | 1 flow"| SF_IF_S_4_HANA
+    SF_SCS -->|"Direct | 1 flow"| SF_Capacity_Forecast_Data_Store
+    SF_SPEED -->|"ADF Rest API / SFTP(Blob) | 1 flow"| SF_ECA_ADLS
+    SF_SPEED -->|"PDM Translator | 1 flow"| SF_PDM_Translator
+    SF_SideCar -->|"ADF Rest API / SFTP(Blob) | 1 flow"| SF_ECA_ADLS
+    SF_SideCar -->|"1 flow"| SF_SAP_BOBJ
+    SF_WSPW -->|"Direct | 1 flow"| SF_ECA_SnowFlake
+    SF_WorkStream -->|"Direct | 1 flow"| SF_MARS
+    SF_XEUS -->|"Direct | 1 flow"| SF_PDF_SMH
+</div>
+
+<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>Finance Plan To Report (FPR)</span></div>
+
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+<h3 id="42-archimate-application-view">4.2 ArchiMate Application View</h3>
+<div class="mermaid">
+graph TB
+    %% -- ArchiMate-inspired style classes --
+    classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
+    classDef app           fill:#B5FFFF,stroke:#0077B6,stroke-width:2px,color:#000
+    classDef data          fill:#B5D8FF,stroke:#0077B6,stroke-width:1px,color:#000,stroke-dasharray: 5 5
+    classDef middleware    fill:#FFD6A5,stroke:#E76F00,stroke-width:2px,color:#000
+    classDef eol           fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#000
+
+    subgraph AL["📦 Application Layer — Systems Integration"]
+        direction LR
+        SFA_ATCR["📦 ATCR"]
+        SFA_CFIN_S_4_HANA["📦 CFIN S/4 HANA"]
+        SFA_Capacity_Forecast_Data_Store["📦 Capacity Forecast Data Store"]
+        SFA_Corp___IP_S_4_HANA["📦 Corp / IP S/4 HANA"]
+        SFA_DMOCR["📦 DMOCR"]
+        SFA_DXCR["📦 DXCR"]
+        SFA_ECA_ADLS["📦 ECA-ADLS"]
+        SFA_ECA_DataBricks["📦 ECA-DataBricks"]
+        SFA_ECA_SnowFlake["📦 ECA-SnowFlake"]
+        SFA_ECM__Windchill_["📦 ECM (Windchill)"]
+        SFA_FCS["📦 FCS"]
+        SFA_GraphiteConnect["📦 GraphiteConnect"]
+        SFA_ICS__Phoenix_["📦 ICS (Phoenix)"]
+        SFA_IF_Blue_Yonder["📦 IF Blue Yonder"]
+        SFA_IF_PDH_Consumptional["📦 IF PDH Consumptional"]
+        SFA_IF_PDH_Foundational["📦 IF PDH Foundational"]
+        SFA_IF_PDH_Raw["📦 IF PDH Raw"]
+        SFA_IF_S_4_HANA["📦 IF S/4 HANA"]
+        SFA_IP_Blue_Yonder["📦 IP Blue Yonder"]
+        SFA_IP_PDH_Consumptional["📦 IP PDH Consumptional"]
+        SFA_IP_PDH_Foundational["📦 IP PDH Foundational"]
+        SFA_IP_PDH_Raw["📦 IP PDH Raw"]
+        SFA_MARS["📦 MARS"]
+        SFA_MES_300["📦 MES 300"]
+        SFA_PDF_SMH["📦 PDF-SMH"]
+        SFA_PDH_Consumptional["📦 PDH Consumptional"]
+        SFA_PDH_Foundational["📦 PDH Foundational"]
+        SFA_PDH_Raw["📦 PDH Raw"]
+        SFA_PDM_Translator["📦 PDM Translator"]
+        SFA_Power_BI__DARC_["📦 Power BI (DARC)"]
+        SFA_SAP_Ariba["📦 SAP Ariba"]
+        SFA_SAP_BOBJ["📦 SAP BOBJ"]
+        SFA_SAP_IBP["📦 SAP IBP"]
+        SFA_SAP_PAPM["📦 SAP PAPM"]
+        SFA_SAP_S_4_MDG["📦 SAP S/4 MDG"]
+        SFA_SAP_SAC["📦 SAP SAC"]
+        SFA_SCS["📦 SCS"]
+        SFA_SPEED["📦 SPEED"]
+        SFA_SideCar["📦 SideCar"]
+        SFA_WSPW["📦 WSPW"]
+        SFA_WorkStream["📦 WorkStream"]
+        SFA_XEUS["📦 XEUS"]
+    end
+
+    SFA_ATCR -->|"Direct"| SFA_Capacity_Forecast_Data_Store
+    SFA_CFIN_S_4_HANA -->|"SLT"| SFA_SideCar
+    SFA_Capacity_Forecast_Data_Store -->|"ADF / DB Unity Catalog / Third Party (e.g., Denodo)"| SFA_ECA_ADLS
+    SFA_Corp___IP_S_4_HANA -->|"SLT"| SFA_SideCar
+    SFA_DMOCR -->|"Direct"| SFA_Capacity_Forecast_Data_Store
+    SFA_DXCR -->|"Direct"| SFA_Capacity_Forecast_Data_Store
+    SFA_ECA_ADLS -->|"Unity Catalog"| SFA_ECA_DataBricks
+    SFA_ECA_DataBricks -->|"Snowflake Connector / Snowpipe"| SFA_ECA_SnowFlake
+    SFA_ECA_SnowFlake -->|"MuleSoft/BODS"| SFA_CFIN_S_4_HANA
+    SFA_ECA_SnowFlake -->|"MuleSoft/BODS"| SFA_Corp___IP_S_4_HANA
+    SFA_ECA_SnowFlake -->|"MuleSoft/BODS"| SFA_IF_S_4_HANA
+    SFA_ECA_SnowFlake -->|"Snowflake Connector / Snowpipe"| SFA_Power_BI__DARC_
+    SFA_ECA_SnowFlake -->|"Remote Function Adapter / MuleSoft / SAP Integration Suite"| SFA_SAP_PAPM
+    SFA_ECM__Windchill_ -->|"PDM Translator"| SFA_PDM_Translator
+    SFA_FCS -->|"Direct"| SFA_Capacity_Forecast_Data_Store
+    SFA_GraphiteConnect -->|"MuleSoft & Reltio"| SFA_SAP_S_4_MDG
+    SFA_ICS__Phoenix_ -->|"Direct"| SFA_Capacity_Forecast_Data_Store
+    SFA_IF_Blue_Yonder -->|"ADF / DB Unity Catalog / Connectors /Third Party (e.g., APIs with Mule)"| SFA_IF_PDH_Raw
+    SFA_IF_PDH_Consumptional -->|"Snowflake Connector / Snowpipe"| SFA_ECA_SnowFlake
+    SFA_IF_PDH_Foundational -->|"Unity Catalog"| SFA_IF_PDH_Consumptional
+    SFA_IF_PDH_Raw -->|"ADF / DB Unity Catalog / Third Party (e.g., Denodo)"| SFA_IF_PDH_Foundational
+    SFA_IF_S_4_HANA -->|"SLT"| SFA_CFIN_S_4_HANA
+    SFA_IF_S_4_HANA -->|"SLT"| SFA_SideCar
+    SFA_IP_Blue_Yonder -->|"ADF / DB Unity Catalog / Connectors /Third Party (e.g., APIs with Mule)"| SFA_IP_PDH_Raw
+    SFA_IP_PDH_Consumptional -->|"Snowflake Connector / Snowpipe"| SFA_ECA_SnowFlake
+    SFA_IP_PDH_Foundational -->|"Unity Catalog"| SFA_IP_PDH_Consumptional
+    SFA_IP_PDH_Raw -->|"ADF / DB Unity Catalog / Third Party (e.g., Denodo)"| SFA_IP_PDH_Foundational
+    SFA_MARS -->|"Direct"| SFA_PDF_SMH
+    SFA_MES_300 -->|"Direct"| SFA_XEUS
+    SFA_PDF_SMH -->|"EAI Connector"| SFA_IF_S_4_HANA
+    SFA_PDH_Consumptional -->|"Snowflake Connector / Snowpipe"| SFA_ECA_SnowFlake
+    SFA_PDH_Foundational -->|"Unity Catalog"| SFA_IP_PDH_Consumptional
+    SFA_PDH_Raw -->|"ADF / DB Unity Catalog / Third Party (e.g., Denodo)"| SFA_IP_PDH_Foundational
+    SFA_PDM_Translator -->|"PDM Translator"| SFA_SAP_S_4_MDG
+    SFA_SAP_Ariba -->|"Apigee / MuleSoft"| SFA_Corp___IP_S_4_HANA
+    SFA_SAP_Ariba -->|"Apigee / MuleSoft"| SFA_IF_S_4_HANA
+    SFA_SAP_IBP -->|"ADF / DB Unity Catalog / Connectors /Third Party (e.g., APIs with Mule)"| SFA_IF_PDH_Raw
+    SFA_SAP_PAPM -->|"SAP Integration Suite / Smart Data Integration/BTP Destinations (HTTP)"| SFA_Corp___IP_S_4_HANA
+    SFA_SAP_PAPM -->|"SAP Integration Suite / Smart Data Integration/BTP Destinations (HTTP)"| SFA_IF_S_4_HANA
+    SFA_SAP_S_4_MDG -->|"DRF (Data Replication Framework) with Web Services (SOAP/File/Idoc/RFC)"| SFA_Corp___IP_S_4_HANA
+    SFA_SAP_S_4_MDG -->|"DRF (Data Replication Framework) with Web Services (SOAP/File/Idoc/RFC)"| SFA_IF_S_4_HANA
+    SFA_SAP_SAC -->|"SAP Odata services with connector"| SFA_CFIN_S_4_HANA
+    SFA_SAP_SAC -->|"SAP Odata services with connector"| SFA_Corp___IP_S_4_HANA
+    SFA_SAP_SAC -->|"SAC Data Export Service (API) - Direct Write (Speed Layer in Snowflake / Use ADF / MuleSoft for DataBricks"| SFA_ECA_SnowFlake
+    SFA_SAP_SAC -->|"SAP Odata services with connector"| SFA_IF_S_4_HANA
+    SFA_SCS -->|"Direct"| SFA_Capacity_Forecast_Data_Store
+    SFA_SPEED -->|"ADF Rest API / SFTP(Blob)"| SFA_ECA_ADLS
+    SFA_SPEED -->|"PDM Translator"| SFA_PDM_Translator
+    SFA_SideCar -->|"ADF Rest API / SFTP(Blob)"| SFA_ECA_ADLS
+    SFA_SideCar -->|"1×"| SFA_SAP_BOBJ
+    SFA_WSPW -->|"Direct"| SFA_ECA_SnowFlake
+    SFA_WorkStream -->|"Direct"| SFA_MARS
+    SFA_XEUS -->|"Direct"| SFA_PDF_SMH
+
+    class SFA_ATCR app
+    class SFA_CFIN_S_4_HANA app
+    class SFA_Capacity_Forecast_Data_Store app
+    class SFA_Corp___IP_S_4_HANA app
+    class SFA_DMOCR app
+    class SFA_DXCR app
+    class SFA_ECA_ADLS app
+    class SFA_ECA_DataBricks app
+    class SFA_ECA_SnowFlake app
+    class SFA_ECM__Windchill_ app
+    class SFA_FCS app
+    class SFA_GraphiteConnect app
+    class SFA_ICS__Phoenix_ app
+    class SFA_IF_Blue_Yonder app
+    class SFA_IF_PDH_Consumptional app
+    class SFA_IF_PDH_Foundational app
+    class SFA_IF_PDH_Raw app
+    class SFA_IF_S_4_HANA app
+    class SFA_IP_Blue_Yonder app
+    class SFA_IP_PDH_Consumptional app
+    class SFA_IP_PDH_Foundational app
+    class SFA_IP_PDH_Raw app
+    class SFA_MARS app
+    class SFA_MES_300 app
+    class SFA_PDF_SMH app
+    class SFA_PDH_Consumptional app
+    class SFA_PDH_Foundational app
+    class SFA_PDH_Raw app
+    class SFA_PDM_Translator app
+    class SFA_Power_BI__DARC_ app
+    class SFA_SAP_Ariba app
+    class SFA_SAP_BOBJ app
+    class SFA_SAP_IBP app
+    class SFA_SAP_PAPM app
+    class SFA_SAP_S_4_MDG app
+    class SFA_SAP_SAC app
+    class SFA_SCS app
+    class SFA_SPEED app
+    class SFA_SideCar app
+    class SFA_WSPW app
+    class SFA_WorkStream app
+    class SFA_XEUS app
+    style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
+    style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
+</div>
+
+<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>Finance Plan To Report (FPR)</span></div>
+
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+<h3 id="43-data-entities">4.3 Data Entities</h3>
+<p><em>No data entity information in future-state flows.</em></p>
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>Finance Plan To Report (FPR)</span></div>
+
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+<h3 id="44-integration-patterns">4.4 Integration Patterns</h3>
+<p><em>No integration pattern information in future-state flows.</em></p>
+<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>Finance Plan To Report (FPR)</span></div>
+
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+<h3 id="45-technology-stack">4.5 Technology Stack</h3>
+<p><em>No technology platform information in future-state flows.</em></p>
+<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>Finance Plan To Report (FPR)</span></div>
+
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+<h2 id="5-transformation-analysis">5 Transformation Analysis</h2>
+<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>Finance Plan To Report (FPR)</span></div>
+
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+<h3 id="51-system-landscape-changes">5.1 System Landscape Changes</h3>
+<p><strong>New Systems (35):</strong> ATCR, CFIN S/4 HANA, Capacity Forecast Data Store, Corp / IP S/4 HANA, DMOCR, DXCR, ECA-ADLS, ECA-DataBricks, ECA-SnowFlake, ECM (Windchill), FCS, GraphiteConnect, ICS (Phoenix), IF Blue Yonder, IF PDH Consumptional, IF PDH Foundational, IF PDH Raw, IF S/4 HANA, IP Blue Yonder, IP PDH Consumptional, IP PDH Foundational, IP PDH Raw, PDF-SMH, PDH Consumptional, PDH Foundational, PDH Raw, PDM Translator, Power BI (DARC), SAP Ariba, SAP BOBJ, SAP PAPM, SAP S/4 MDG, SAP SAC, SCS, WSPW</p>
+<p><strong>Retiring Systems (19):</strong> APIGEE, Azure ADF, BOBJ, CFIN S/4, CIBR, Corp / IP S/4, DataBricks, EATS, ECA, EDW, FCA, Finance HANA, ICOST, Legacy MDG, PEGA, SAP BODS, SAP ECC, SAP PO, SnowFlake</p>
+<p><strong>Continuing Systems:</strong> 7</p>
+<p><strong>New Connections (51):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ATCR</td>
+<td>Capacity Forecast Data Store</td>
+</tr>
+<tr>
+<td>CFIN S/4 HANA</td>
+<td>SideCar</td>
+</tr>
+<tr>
+<td>Capacity Forecast Data Store</td>
+<td>ECA-ADLS</td>
+</tr>
+<tr>
+<td>Corp / IP S/4 HANA</td>
+<td>SideCar</td>
+</tr>
+<tr>
+<td>DMOCR</td>
+<td>Capacity Forecast Data Store</td>
+</tr>
+<tr>
+<td>DXCR</td>
+<td>Capacity Forecast Data Store</td>
+</tr>
+<tr>
+<td>ECA-ADLS</td>
+<td>ECA-DataBricks</td>
+</tr>
+<tr>
+<td>ECA-DataBricks</td>
+<td>ECA-SnowFlake</td>
+</tr>
+<tr>
+<td>ECA-SnowFlake</td>
+<td>CFIN S/4 HANA</td>
+</tr>
+<tr>
+<td>ECA-SnowFlake</td>
+<td>Corp / IP S/4 HANA</td>
+</tr>
+<tr>
+<td>ECA-SnowFlake</td>
+<td>IF S/4 HANA</td>
+</tr>
+<tr>
+<td>ECA-SnowFlake</td>
+<td>Power BI (DARC)</td>
+</tr>
+<tr>
+<td>ECA-SnowFlake</td>
+<td>SAP PAPM</td>
+</tr>
+<tr>
+<td>ECM (Windchill)</td>
+<td>PDM Translator</td>
+</tr>
+<tr>
+<td>FCS</td>
+<td>Capacity Forecast Data Store</td>
+</tr>
+<tr>
+<td>GraphiteConnect</td>
+<td>SAP S/4 MDG</td>
+</tr>
+<tr>
+<td>ICS (Phoenix)</td>
+<td>Capacity Forecast Data Store</td>
+</tr>
+<tr>
+<td>IF Blue Yonder</td>
+<td>IF PDH Raw</td>
+</tr>
+<tr>
+<td>IF PDH Consumptional</td>
+<td>ECA-SnowFlake</td>
+</tr>
+<tr>
+<td>IF PDH Foundational</td>
+<td>IF PDH Consumptional</td>
+</tr>
+<tr>
+<td>IF PDH Raw</td>
+<td>IF PDH Foundational</td>
+</tr>
+<tr>
+<td>IF S/4 HANA</td>
+<td>CFIN S/4 HANA</td>
+</tr>
+<tr>
+<td>IF S/4 HANA</td>
+<td>SideCar</td>
+</tr>
+<tr>
+<td>IP Blue Yonder</td>
+<td>IP PDH Raw</td>
+</tr>
+<tr>
+<td>IP PDH Consumptional</td>
+<td>ECA-SnowFlake</td>
+</tr>
+<tr>
+<td>IP PDH Foundational</td>
+<td>IP PDH Consumptional</td>
+</tr>
+<tr>
+<td>IP PDH Raw</td>
+<td>IP PDH Foundational</td>
+</tr>
+<tr>
+<td>MARS</td>
+<td>PDF-SMH</td>
+</tr>
+<tr>
+<td>PDF-SMH</td>
+<td>IF S/4 HANA</td>
+</tr>
+<tr>
+<td>PDH Consumptional</td>
+<td>ECA-SnowFlake</td>
+</tr>
+<tr>
+<td>PDH Foundational</td>
+<td>IP PDH Consumptional</td>
+</tr>
+<tr>
+<td>PDH Raw</td>
+<td>IP PDH Foundational</td>
+</tr>
+<tr>
+<td>PDM Translator</td>
+<td>SAP S/4 MDG</td>
+</tr>
+<tr>
+<td>SAP Ariba</td>
+<td>Corp / IP S/4 HANA</td>
+</tr>
+<tr>
+<td>SAP Ariba</td>
+<td>IF S/4 HANA</td>
+</tr>
+<tr>
+<td>SAP IBP</td>
+<td>IF PDH Raw</td>
+</tr>
+<tr>
+<td>SAP PAPM</td>
+<td>Corp / IP S/4 HANA</td>
+</tr>
+<tr>
+<td>SAP PAPM</td>
+<td>IF S/4 HANA</td>
+</tr>
+<tr>
+<td>SAP S/4 MDG</td>
+<td>Corp / IP S/4 HANA</td>
+</tr>
+<tr>
+<td>SAP S/4 MDG</td>
+<td>IF S/4 HANA</td>
+</tr>
+<tr>
+<td>SAP SAC</td>
+<td>CFIN S/4 HANA</td>
+</tr>
+<tr>
+<td>SAP SAC</td>
+<td>Corp / IP S/4 HANA</td>
+</tr>
+<tr>
+<td>SAP SAC</td>
+<td>ECA-SnowFlake</td>
+</tr>
+<tr>
+<td>SAP SAC</td>
+<td>IF S/4 HANA</td>
+</tr>
+<tr>
+<td>SCS</td>
+<td>Capacity Forecast Data Store</td>
+</tr>
+<tr>
+<td>SPEED</td>
+<td>ECA-ADLS</td>
+</tr>
+<tr>
+<td>SPEED</td>
+<td>PDM Translator</td>
+</tr>
+<tr>
+<td>SideCar</td>
+<td>ECA-ADLS</td>
+</tr>
+<tr>
+<td>SideCar</td>
+<td>SAP BOBJ</td>
+</tr>
+<tr>
+<td>WSPW</td>
+<td>ECA-SnowFlake</td>
+</tr>
+<tr>
+<td>XEUS</td>
+<td>PDF-SMH</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Removed Connections (29):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>APIGEE</td>
+<td>PEGA</td>
+</tr>
+<tr>
+<td>Azure ADF</td>
+<td>DataBricks</td>
+</tr>
+<tr>
+<td>CIBR</td>
+<td>ICOST</td>
+</tr>
+<tr>
+<td>CIBR</td>
+<td>SAP PO</td>
+</tr>
+<tr>
+<td>Corp / IP S/4</td>
+<td>ECA</td>
+</tr>
+<tr>
+<td>DataBricks</td>
+<td>SnowFlake</td>
+</tr>
+<tr>
+<td>EATS</td>
+<td>ICOST</td>
+</tr>
+<tr>
+<td>ECA</td>
+<td>CIBR</td>
+</tr>
+<tr>
+<td>ECA</td>
+<td>ICOST</td>
+</tr>
+<tr>
+<td>EDW</td>
+<td>CIBR</td>
+</tr>
+<tr>
+<td>EDW</td>
+<td>ICOST</td>
+</tr>
+<tr>
+<td>FCA</td>
+<td>ICOST</td>
+</tr>
+<tr>
+<td>Finance HANA</td>
+<td>APIGEE</td>
+</tr>
+<tr>
+<td>Finance HANA</td>
+<td>BOBJ</td>
+</tr>
+<tr>
+<td>Finance HANA</td>
+<td>SAP PO</td>
+</tr>
+<tr>
+<td>ICOST</td>
+<td>SAP BODS</td>
+</tr>
+<tr>
+<td>Legacy MDG</td>
+<td>SAP ECC</td>
+</tr>
+<tr>
+<td>MARS</td>
+<td>ICOST</td>
+</tr>
+<tr>
+<td>SAP BODS</td>
+<td>SAP ECC</td>
+</tr>
+<tr>
+<td>SAP ECC</td>
+<td>CFIN S/4</td>
+</tr>
+<tr>
+<td>SAP ECC</td>
+<td>EDW</td>
+</tr>
+<tr>
+<td>SAP ECC</td>
+<td>Finance HANA</td>
+</tr>
+<tr>
+<td>SAP ECC</td>
+<td>SideCar</td>
+</tr>
+<tr>
+<td>SAP IBP</td>
+<td>ECA</td>
+</tr>
+<tr>
+<td>SAP PO</td>
+<td>SAP ECC</td>
+</tr>
+<tr>
+<td>SPEED</td>
+<td>EDW</td>
+</tr>
+<tr>
+<td>SPEED</td>
+<td>SAP PO</td>
+</tr>
+<tr>
+<td>SideCar</td>
+<td>Azure ADF</td>
+</tr>
+<tr>
+<td>XEUS</td>
+<td>ICOST</td>
+</tr>
+</tbody>
+</table>
+<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>Finance Plan To Report (FPR)</span></div>
+
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+<h3 id="52-integration-complexity">5.2 Integration Complexity</h3>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th style="text-align: center;">Current Connections</th>
+<th style="text-align: center;">Future Connections</th>
+<th style="text-align: center;">Delta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>APIGEE</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-2</td>
+</tr>
+<tr>
+<td>ATCR</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">+1</td>
+</tr>
+<tr>
+<td>Azure ADF</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-2</td>
+</tr>
+<tr>
+<td>BOBJ</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-1</td>
+</tr>
+<tr>
+<td>CFIN S/4</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-1</td>
+</tr>
+<tr>
+<td>CFIN S/4 HANA</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">+4</td>
+</tr>
+<tr>
+<td>CIBR</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-4</td>
+</tr>
+<tr>
+<td>Capacity Forecast Data Store</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">+7</td>
+</tr>
+<tr>
+<td>Corp / IP S/4</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-1</td>
+</tr>
+<tr>
+<td>Corp / IP S/4 HANA</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">+6</td>
+</tr>
+<tr>
+<td>DMOCR</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">+1</td>
+</tr>
+<tr>
+<td>DXCR</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">+1</td>
+</tr>
+<tr>
+<td>DataBricks</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-2</td>
+</tr>
+<tr>
+<td>EATS</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-1</td>
+</tr>
+<tr>
+<td>ECA</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-4</td>
+</tr>
+<tr>
+<td>ECA-ADLS</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">+4</td>
+</tr>
+<tr>
+<td>ECA-DataBricks</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">+2</td>
+</tr>
+<tr>
+<td>ECA-SnowFlake</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">+11</td>
+</tr>
+<tr>
+<td>ECM (Windchill)</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">+1</td>
+</tr>
+<tr>
+<td>EDW</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-4</td>
+</tr>
+<tr>
+<td>FCA</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-1</td>
+</tr>
+<tr>
+<td>FCS</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">+1</td>
+</tr>
+<tr>
+<td>Finance HANA</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-4</td>
+</tr>
+<tr>
+<td>GraphiteConnect</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">+1</td>
+</tr>
+<tr>
+<td>ICOST</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-8</td>
+</tr>
+<tr>
+<td>ICS (Phoenix)</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">+1</td>
+</tr>
+<tr>
+<td>IF Blue Yonder</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">+1</td>
+</tr>
+<tr>
+<td>IF PDH Consumptional</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">+2</td>
+</tr>
+<tr>
+<td>IF PDH Foundational</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">+2</td>
+</tr>
+<tr>
+<td>IF PDH Raw</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">+3</td>
+</tr>
+<tr>
+<td>IF S/4 HANA</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">+8</td>
+</tr>
+<tr>
+<td>IP Blue Yonder</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">+1</td>
+</tr>
+<tr>
+<td>IP PDH Consumptional</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">+3</td>
+</tr>
+<tr>
+<td>IP PDH Foundational</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">+3</td>
+</tr>
+<tr>
+<td>IP PDH Raw</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">+2</td>
+</tr>
+<tr>
+<td>Legacy MDG</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-1</td>
+</tr>
+<tr>
+<td>MARS</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td>MES 300</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td>PDF-SMH</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">+3</td>
+</tr>
+<tr>
+<td>PDH Consumptional</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">+1</td>
+</tr>
+<tr>
+<td>PDH Foundational</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">+1</td>
+</tr>
+<tr>
+<td>PDH Raw</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">+1</td>
+</tr>
+<tr>
+<td>PDM Translator</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">+3</td>
+</tr>
+<tr>
+<td>PEGA</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-1</td>
+</tr>
+<tr>
+<td>Power BI (DARC)</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">+1</td>
+</tr>
+<tr>
+<td>SAP Ariba</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">+2</td>
+</tr>
+<tr>
+<td>SAP BOBJ</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">+1</td>
+</tr>
+<tr>
+<td>SAP BODS</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-2</td>
+</tr>
+<tr>
+<td>SAP ECC</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-7</td>
+</tr>
+<tr>
+<td>SAP IBP</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td>SAP PAPM</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">+3</td>
+</tr>
+<tr>
+<td>SAP PO</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-4</td>
+</tr>
+<tr>
+<td>SAP S/4 MDG</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">+4</td>
+</tr>
+<tr>
+<td>SAP SAC</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">+4</td>
+</tr>
+<tr>
+<td>SCS</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">+1</td>
+</tr>
+<tr>
+<td>SPEED</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td>SideCar</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">+3</td>
+</tr>
+<tr>
+<td>SnowFlake</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-1</td>
+</tr>
+<tr>
+<td>WSPW</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">+1</td>
+</tr>
+<tr>
+<td>WorkStream</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td>XEUS</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">—</td>
+</tr>
+</tbody>
+</table>
+<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>Finance Plan To Report (FPR)</span></div>
+
+</div>
+<div style="page-break-before: always;"></div>
+<div class="page-section">
+
+
+<h2 id="6-system-inventory">6 System Inventory</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th>System</th>
+<th>IAPM ID</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td>APIGEE</td>
+<td>22790</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td>ATCR</td>
+<td>-</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td>Azure ADF</td>
+<td>25794</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td>BOBJ</td>
+<td>17651</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td>CFIN S/4</td>
+<td>41052</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td>CFIN S/4 HANA</td>
+<td>41052</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td>CIBR</td>
+<td>237</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td>Capacity Forecast Data Store</td>
+<td>37284</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td>Corp / IP S/4</td>
+<td>41363</td>
+<td>Developing</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td>Corp / IP S/4 HANA</td>
+<td>41363</td>
+<td>Developing</td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td>DMOCR</td>
+<td>13284</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td>DXCR</td>
+<td>13284</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td>DataBricks</td>
+<td>41458</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td>EATS</td>
+<td>119</td>
+<td>End of Life</td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td>ECA</td>
+<td>43119</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td>ECA-ADLS</td>
+<td>43119</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">17</td>
+<td>ECA-DataBricks</td>
+<td>43119</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">18</td>
+<td>ECA-SnowFlake</td>
+<td>43119</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">19</td>
+<td>ECM (Windchill)</td>
+<td>38775</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">20</td>
+<td>EDW</td>
+<td>4010</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">21</td>
+<td>FCA</td>
+<td>44990</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">22</td>
+<td>FCS</td>
+<td>9297</td>
+<td>End of Life</td>
+</tr>
+<tr>
+<td style="text-align: center;">23</td>
+<td>Finance HANA</td>
+<td>42993</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">24</td>
+<td>GraphiteConnect</td>
+<td>36398</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">25</td>
+<td>ICOST</td>
+<td>9008</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">26</td>
+<td>ICS (Phoenix)</td>
+<td>19477</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">27</td>
+<td>IF Blue Yonder</td>
+<td>41040</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">28</td>
+<td>IF PDH Consumptional</td>
+<td>40747</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">29</td>
+<td>IF PDH Foundational</td>
+<td>40747</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">30</td>
+<td>IF PDH Raw</td>
+<td>40747</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">31</td>
+<td>IF S/4 HANA</td>
+<td>41363</td>
+<td>Developing</td>
+</tr>
+<tr>
+<td style="text-align: center;">32</td>
+<td>IP Blue Yonder</td>
+<td>41039</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">33</td>
+<td>IP PDH Consumptional</td>
+<td>40750</td>
+<td>Developing</td>
+</tr>
+<tr>
+<td style="text-align: center;">34</td>
+<td>IP PDH Foundational</td>
+<td>40750</td>
+<td>Developing</td>
+</tr>
+<tr>
+<td style="text-align: center;">35</td>
+<td>IP PDH Raw</td>
+<td>40750</td>
+<td>Developing</td>
+</tr>
+<tr>
+<td style="text-align: center;">36</td>
+<td>Legacy MDG</td>
+<td>40068</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">37</td>
+<td>MARS</td>
+<td>33537</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">38</td>
+<td>MES 300</td>
+<td>41275</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">39</td>
+<td>PDF-SMH</td>
+<td>59283</td>
+<td>Developing</td>
+</tr>
+<tr>
+<td style="text-align: center;">40</td>
+<td>PDH Consumptional</td>
+<td>40747</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">41</td>
+<td>PDH Foundational</td>
+<td>40747</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">42</td>
+<td>PDH Raw</td>
+<td>40747</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">43</td>
+<td>PDM Translator</td>
+<td>-</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td style="text-align: center;">44</td>
+<td>PEGA</td>
+<td>43163</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">45</td>
+<td>Power BI (DARC)</td>
+<td>63659</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">46</td>
+<td>SAP Ariba</td>
+<td>19569</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">47</td>
+<td>SAP BOBJ</td>
+<td>11377</td>
+<td>End of Life</td>
+</tr>
+<tr>
+<td style="text-align: center;">48</td>
+<td>SAP BODS</td>
+<td>19207</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">49</td>
+<td>SAP ECC</td>
+<td>23736</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">50</td>
+<td>SAP IBP</td>
+<td>40709</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">51</td>
+<td>SAP PAPM</td>
+<td>41401</td>
+<td>Developing</td>
+</tr>
+<tr>
+<td style="text-align: center;">52</td>
+<td>SAP PO</td>
+<td>21195</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">53</td>
+<td>SAP S/4 MDG</td>
+<td>40068</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">54</td>
+<td>SAP SAC</td>
+<td>37401</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">55</td>
+<td>SCS</td>
+<td>21327</td>
+<td>End of Life</td>
+</tr>
+<tr>
+<td style="text-align: center;">56</td>
+<td>SPEED</td>
+<td>31517</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">57</td>
+<td>SideCar</td>
+<td>42993</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">58</td>
+<td>SnowFlake</td>
+<td>35811</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">59</td>
+<td>WSPW</td>
+<td>4119</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">60</td>
+<td>WorkStream</td>
+<td>37871</td>
+<td>Deployed</td>
+</tr>
+<tr>
+<td style="text-align: center;">61</td>
+<td>XEUS</td>
+<td>35612</td>
+<td>Deployed</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="footer">
+    IAO Architecture Document | Intel IDM 2.0 | Generated by IAO Architecture Pipeline
+</div>
+<div class="print-footer">
+    <span><a href="#toc">&uarr; Back to TOC</a></span>
+    <span><strong>Finance Plan To Report (FPR)</strong></span>
+    <span>IAO Architecture Pipeline &mdash; Intel Confidential</span>
+</div>
+</body>
+</html>
