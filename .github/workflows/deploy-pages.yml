@@ -65,6 +65,13 @@ jobs:
           python scripts/gen_testing_report.py --all
           find towers -name "*-Testing-Report.*" | wc -l | xargs -I{} echo "  Total Testing docs: {}"
 
+      - name: Generate Summary Documents (L0/L1/Program)
+        run: |
+          echo "Generating L0/L1/Program architecture summaries..."
+          python -m src.gen_summary --all
+          find towers -name "*-Summary.md" | wc -l | xargs -I{} echo "  Tower summaries: {}"
+          ls output/docs/summaries/*.md 2>/dev/null | wc -l | xargs -I{} echo "  Program summaries: {}"
+
       - name: Convert all MD docs to HTML (all releases)
         run: |
           echo "Converting all MD docs (Architecture + RICEFW + Testing) to HTML..."
@@ -81,6 +88,12 @@ jobs:
             mkdir -p "$(dirname "$dest")"
             cp "$f" "$dest"
           done
+          # Also snapshot Program-level summaries
+          if [ -d "output/docs/summaries" ]; then
+            mkdir -p /tmp/all-releases/output/docs/summaries
+            cp output/docs/summaries/*.md /tmp/all-releases/output/docs/summaries/ 2>/dev/null || true
+            cp output/docs/summaries/*.html /tmp/all-releases/output/docs/summaries/ 2>/dev/null || true
+          fi
           find /tmp/all-releases -name "*.html" | wc -l | xargs -I{} echo "  Snapshot: {} HTML files"
 
       - name: Generate per-release documents
@@ -101,6 +114,7 @@ jobs:
             python -m src.gen_systems_arch --all --release "$REL"
             python scripts/gen_ricefw_tracker.py --all --release "$REL"
             python scripts/gen_testing_report.py --all --release "$REL"
+            python -m src.gen_summary --all
             python scripts/gen_pdf.py --html-only
 
             # Verify release label was applied to a sample file
@@ -126,6 +140,9 @@ jobs:
 
           # Restore all-releases baseline for the default site
           rsync -a /tmp/all-releases/towers/ towers/
+          if [ -d "/tmp/all-releases/output" ]; then
+            rsync -a /tmp/all-releases/output/ output/
+          fi
 
       - name: Generate dashboards
         run: |
