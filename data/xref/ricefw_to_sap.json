@@ -1,0 +1,26 @@
+{
+    "_meta": {
+        "description": "Cross-reference: RICEFW Object ID → SAP technical objects. Bridge between Smartsheet tracker and abapGit source.",
+        "columns": {
+            "ricefw_id": "RICEFW Object ID from Smartsheet Object Tracker (e.g., PTPW0367_IP, SCPIPSPRF0026)",
+            "tower": "Tower shortcode (FPR, OTC-IF, OTC-IP, FTS-IF, FTS-IP, PTP, MDM, E2E)",
+            "l2_capability": "L2 Capability ID from capability_master.yaml (e.g., DC-010-070)",
+            "sap_package": "SAP development package (e.g., ZIDM_FPR)",
+            "sap_objects": "Array of SAP technical object names contained in this RICEFW object",
+            "transport": "Latest transport request number (if known)"
+        },
+        "usage": "Populated by tower leads. Used by pipeline to join Smartsheet RICEFW → abapGit source → JIRA (via L2→L3 mapping).",
+        "last_updated": ""
+    },
+    "mappings": [
+        {
+            "_comment": "EXAMPLE — replace with actual mappings from tower leads",
+            "ricefw_id": "PTPW0367_IP",
+            "tower": "FPR",
+            "l2_capability": "DC-010-070",
+            "sap_package": "ZIDM_FPR",
+            "sap_objects": ["ZFPR_RECLASSIFY_GL", "ZFPR_RECLASSIFY_RULES"],
+            "transport": ""
+        }
+    ]
+}

@@ -1,0 +1,344 @@
+<div style="text-align:center; padding-top:20px;">
+  <img src="{{ cover_banner_path }}" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <h1 style="font-size:36px; margin-top:24px;">{{ tower_name }} ({{ tower_short }})</h1>
+  <h2 style="font-size:24px;">Clean Core Assessment</h2>
+  <p style="font-size:18px; color:#555;">SAP Package: <code>{{ package }}</code></p>
+  <p style="font-size:14px; color:#888;">IAO Program · {{ release_name }}<br/>
+  Generated: {{ scan_date }}<br/>
+  {{ author }}</p>
+  <p style="font-size:12px; color:#aaa;">IAO Architecture Pipeline — Intel Confidential</p>
+</div>
+
+<style>
+@media print {
+  @page { size: A4; margin: 0; }
+  pre, table { page-break-inside: avoid; break-inside: avoid; }
+  h2, h3 { page-break-after: avoid; break-after: avoid; }
+}
+.score-high { color: #2e7d32; font-weight: 700; font-size: 28px; }
+.score-med  { color: #e65100; font-weight: 700; font-size: 28px; }
+.score-low  { color: #d32f2f; font-weight: 700; font-size: 28px; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+.badge-high   { background: #c8e6c9; color: #2e7d32; }
+.badge-medium { background: #fff3e0; color: #e65100; }
+.badge-low    { background: #ffcdd2; color: #d32f2f; }
+.print-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 11px; color: #888; border-top: 1px solid #ddd; padding-top: 6px; margin-top: auto;
+}
+.print-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
+</style>
+
+<div style="page-break-before: always;"></div>
+
+## Table of Contents
+
+1. [Executive Summary](#1-executive-summary)
+2. [Object Inventory](#2-object-inventory)
+3. [Clean Core Scorecard](#3-clean-core-scorecard)
+4. [Deprecated Pattern Analysis](#4-deprecated-pattern-analysis)
+5. [Clean Pattern Adoption](#5-clean-pattern-adoption)
+6. [Data Access Patterns](#6-data-access-patterns)
+7. [Integration Points](#7-integration-points)
+8. [Functional & Technical Flows](#8-functional--technical-flows)
+9. [Prerequisites & Dependencies](#9-prerequisites--dependencies)
+10. [Authorization Objects](#10-authorization-objects)
+11. [Recommendations & Remediation Plan](#11-recommendations--remediation-plan)
+12. [Appendix: Full Object List](#12-appendix-full-object-list)
+
+<div style="page-break-before: always;"></div>
+
+## 1. Executive Summary
+
+This Clean Core Assessment evaluates **{{ total_objects }}** custom ABAP objects in SAP package `{{ package }}` for the **{{ tower_name }}** tower as part of the IDM 2.0 S/4HANA transformation.
+
+<table>
+<tr>
+  <td style="text-align:center; padding:16px;">
+    <div class="score-{{ 'high' if clean_core_score >= 80 else ('med' if clean_core_score >= 50 else 'low') }}">{{ clean_core_score }}%</div>
+    <div>Clean Core Score</div>
+  </td>
+  <td style="text-align:center; padding:16px;">
+    <div style="font-size:28px; font-weight:700;">{{ total_objects }}</div>
+    <div>ABAP Objects</div>
+  </td>
+  <td style="text-align:center; padding:16px;">
+    <div style="font-size:28px; font-weight:700;">{{ total_lines | default('0') }}</div>
+    <div>Source Lines</div>
+  </td>
+  <td style="text-align:center; padding:16px;">
+    <div style="font-size:28px; font-weight:700;">{{ test_coverage }}%</div>
+    <div>Unit Test Coverage</div>
+  </td>
+</tr>
+</table>
+
+| Dimension | Finding | Status |
+|-----------|---------|--------|
+| Released API Usage | {{ deprecated_count }} deprecated patterns, {{ clean_count }} clean patterns | {% if clean_core_score >= 80 %}**Good**{% elif clean_core_score >= 50 %}**Needs Work**{% else %}**At Risk**{% endif %} |
+| Standard Table Access | {{ std_table_read_count }} reads, {{ std_table_write_count }} writes on standard tables | {% if std_table_write_count == 0 %}**Good**{% else %}**At Risk**{% endif %} |
+| Unit Test Coverage | {{ objects_with_tests }}/{{ total_objects }} objects have tests ({{ test_coverage }}%) | {% if test_coverage >= 50 %}**Good**{% elif test_coverage >= 20 %}**Needs Work**{% else %}**At Risk**{% endif %} |
+| Integration Points | {{ integration_count }} integration patterns detected | **Review** |
+| UI Technology | {{ dynpro_count }} classic Dynpro/selection-screen references | {% if dynpro_count == 0 %}**Good**{% else %}**Plan Fiori Migration**{% endif %} |
+
+[^ Back to TOC](#table-of-contents)
+
+<div style="page-break-before: always;"></div>
+
+## 2. Object Inventory
+
+### By Type
+
+| Object Type | Count | % |
+|-------------|------:|--:|
+{% for otype, count in object_type_counts.items() %}| {{ otype }} | {{ count }} | {{ (count / total_objects * 100) | round(1) }}% |
+{% endfor %}
+
+### By Complexity (Source Lines)
+
+| Bucket | Count | Objects |
+|--------|------:|---------|
+{% for bucket, objs in complexity_buckets.items() %}| {{ bucket }} | {{ objs | length }} | {{ objs[:5] | join(', ') }}{% if objs | length > 5 %} (+{{ objs | length - 5 }}){% endif %} |
+{% endfor %}
+
+[^ Back to TOC](#table-of-contents)
+
+<div style="page-break-before: always;"></div>
+
+## 3. Clean Core Scorecard
+
+The Clean Core Score measures the ratio of modern/released API usage vs. deprecated patterns.
+
+```
+Clean Core Score = Clean Patterns / (Clean + Deprecated Patterns) × 100
+                 = {{ clean_count }} / ({{ clean_count }} + {{ deprecated_count }}) × 100
+                 = {{ clean_core_score }}%
+```
+
+### SAP Clean Core Dimensions
+
+| Dimension | Description | Status |
+|-----------|-------------|--------|
+| **Extensions** | BAdIs, Key User extensibility vs. modifications | {{ ext_status | default('Review') }} |
+| **Integrations** | Released APIs, CPI/Event Mesh vs. direct RFC | {{ int_status | default('Review') }} |
+| **Data** | CDS views vs. direct table access | {{ data_status | default('Review') }} |
+| **Processes** | Standard workflows vs. custom | {{ proc_status | default('Review') }} |
+| **Operations** | Standard monitoring, ALM integration | {{ ops_status | default('Review') }} |
+
+[^ Back to TOC](#table-of-contents)
+
+<div style="page-break-before: always;"></div>
+
+## 4. Deprecated Pattern Analysis
+
+{% if deprecated_findings %}
+| Pattern ID | Count | Impact | Description | Sample File |
+|------------|------:|--------|-------------|-------------|
+{% for fid, detail in deprecated_summary.items() %}| `{{ fid }}` | {{ detail.count }} | <span class="badge badge-{{ detail.impact | lower }}">{{ detail.impact }}</span> | {{ detail.description }} | `{{ detail.sample_file }}` |
+{% endfor %}
+
+### Top Files by Deprecated Pattern Count
+
+| File | Deprecated Hits | Top Patterns |
+|------|----------------:|--------------|
+{% for file, count, patterns in top_deprecated_files[:10] %}| `{{ file }}` | {{ count }} | {{ patterns }} |
+{% endfor %}
+{% else %}
+No deprecated patterns detected. All analyzed code follows clean core principles.
+{% endif %}
+
+[^ Back to TOC](#table-of-contents)
+
+<div style="page-break-before: always;"></div>
+
+## 5. Clean Pattern Adoption
+
+{% if clean_findings %}
+| Pattern ID | Count | Description |
+|------------|------:|-------------|
+{% for fid, detail in clean_summary.items() %}| `{{ fid }}` | {{ detail.count }} | {{ detail.description }} |
+{% endfor %}
+{% else %}
+
+No modern/released API patterns detected. Consider adopting CDS views, RAP, and XCO libraries.
+{% endif %}
+
+[^ Back to TOC](#table-of-contents)
+
+<div style="page-break-before: always;"></div>
+
+## 6. Data Access Patterns
+
+### Standard SAP Tables Accessed
+
+{% if std_tables_read %}
+**Read Access** ({{ std_tables_read | length }} tables):
+{% for t in std_tables_read %}`{{ t }}`{% if not loop.last %}, {% endif %}{% endfor %}
+{% endif %}
+
+{% if std_tables_written %}
+**Write Access** ({{ std_tables_written | length }} tables) — **Requires clean core remediation**:
+{% for t in std_tables_written %}`{{ t }}`{% if not loop.last %}, {% endif %}{% endfor %}
+{% endif %}
+
+### Custom Tables
+
+{% if custom_tables %}
+| Table | Access Types |
+|-------|-------------|
+{% for t, types in custom_tables.items() %}| `{{ t }}` | {{ types | join(', ') }} |
+{% endfor %}
+{% else %}
+No custom table access detected.
+{% endif %}
+
+[^ Back to TOC](#table-of-contents)
+
+<div style="page-break-before: always;"></div>
+
+## 7. Integration Points
+
+{% if integration_findings %}
+| Type | Count | Description | Details |
+|------|------:|-------------|---------|
+{% for fid, detail in integration_summary.items() %}| `{{ fid }}` | {{ detail.count }} | {{ detail.description }} | {{ detail.values[:3] | join(', ') }}{% if detail.values | length > 3 %} (+{{ detail.values | length - 3 }}){% endif %} |
+{% endfor %}
+
+### Integration Architecture
+
+```
+{{ integration_diagram | default('# Integration diagram will be generated from actual data') }}
+```
+{% else %}
+No integration points detected in source code analysis.
+{% endif %}
+
+[^ Back to TOC](#table-of-contents)
+
+<div style="page-break-before: always;"></div>
+
+## 8. Functional & Technical Flows
+
+> This section is populated when RICEFW cross-reference data is available (SAP Object → Capability link).
+> For each major object group, a functional flow and technical flow diagram will be generated.
+
+{% for group in object_groups %}
+### {{ group.name }}
+
+**Business Purpose**: {{ group.description | default('(To be documented by tower lead)') }}
+
+**Functional Flow**:
+```
+{{ group.functional_flow | default('→ TBD — pending functional review with tower lead') }}
+```
+
+**Technical Flow**:
+```
+{{ group.technical_flow | default('→ TBD — pending abapGit source review') }}
+```
+
+**Objects Involved**: {{ group.objects | join(', ') }}
+
+{% endfor %}
+{% if not object_groups %}
+*Object grouping will be generated when RICEFW cross-reference data is linked.*
+
+Suggested grouping approach:
+1. Group by naming prefix (e.g., `ZFPR_TAX_*` = Tax processing group)
+2. Group by shared table access patterns
+3. Group by integration destination / middleware path
+{% endif %}
+
+[^ Back to TOC](#table-of-contents)
+
+<div style="page-break-before: always;"></div>
+
+## 9. Prerequisites & Dependencies
+
+### Configuration Prerequisites
+
+| # | Prerequisite | Type | Status |
+|---|-------------|------|--------|
+{% for prereq in prerequisites %}| {{ loop.index }} | {{ prereq.description }} | {{ prereq.type }} | {{ prereq.status | default('Pending') }} |
+{% endfor %}
+{% if not prerequisites %}| 1 | Custom table population (`Z*` data setup) | Config | Pending |
+| 2 | RFC destination configuration | Integration | Pending |
+| 3 | Authorization role assignment | Security | Pending |
+| 4 | Transport import sequence | Transport | Pending |
+{% endif %}
+
+### Transport Dependencies
+
+> Transport request IDs and sequence will be available once abapGit export includes `.abapgit.xml` metadata or transport logs are linked from the SAP system.
+
+### SAP Notes Required
+
+> SAP Note dependencies can be extracted from the code once kernel/component versions are known. Check `SNOTE` in the target system.
+
+[^ Back to TOC](#table-of-contents)
+
+<div style="page-break-before: always;"></div>
+
+## 10. Authorization Objects
+
+{% if auth_objects %}
+| # | Auth Object | Description |
+|---|-------------|-------------|
+{% for ao in auth_objects %}| {{ loop.index }} | `{{ ao }}` | (SAP standard / verify in SU21) |
+{% endfor %}
+
+**Action**: Verify these auth objects are included in the composite roles for {{ tower_name }} tower business users.
+{% else %}
+No explicit AUTHORITY-CHECK statements found. Review security design with the basis/security team.
+{% endif %}
+
+[^ Back to TOC](#table-of-contents)
+
+<div style="page-break-before: always;"></div>
+
+## 11. Recommendations & Remediation Plan
+
+### Priority Actions
+
+| # | Action | Priority | Impact | Effort |
+|---|--------|----------|--------|--------|
+{% for rec in recommendations %}| {{ loop.index }} | {{ rec.action }} | {{ rec.priority }} | {{ rec.impact }} | {{ rec.effort }} |
+{% endfor %}
+{% if not recommendations %}| 1 | Replace direct standard table writes with released APIs | High | High | Medium |
+| 2 | Migrate SELECT on standard tables to released CDS views | Medium | Medium | High |
+| 3 | Plan Fiori migration for classic Dynpro UIs | Medium | High | High |
+| 4 | Add unit test coverage to critical objects | Medium | Medium | Medium |
+| 5 | Review RFC destinations for CPI migration path | Low | Medium | Low |
+{% endif %}
+
+### Best Practices Checklist
+
+- [ ] All custom objects follow `Z<TOWER>_` naming convention
+- [ ] No direct access to standard SAP internal tables
+- [ ] Released APIs used for all SAP standard functionality
+- [ ] BAdIs used instead of classic modifications (SMOD/CMOD)
+- [ ] CDS views used instead of SE11 views
+- [ ] Exception classes used for error handling (not `sy-subrc`)
+- [ ] Unit tests present for business-critical logic
+- [ ] No native SQL or dynamic code generation
+- [ ] RFC destinations documented and planned for CPI migration
+- [ ] Fiori apps planned for user-facing screens
+
+[^ Back to TOC](#table-of-contents)
+
+<div style="page-break-before: always;"></div>
+
+## 12. Appendix: Full Object List
+
+| # | Object Name | Type | Lines | Unit Test | File Path |
+|---|-------------|------|------:|:---------:|-----------|
+{% for obj in objects %}| {{ loop.index }} | `{{ obj.name }}` | {{ obj.object_type }} | {{ obj.line_count }} | {{ '✓' if obj.has_unit_test else '—' }} | `{{ obj.file_path }}` |
+{% endfor %}
+
+---
+
+<div class="print-footer">
+  <span><a href="#table-of-contents">↑ Back to TOC</a></span>
+  <span><strong>{{ tower_name }} ({{ tower_short }}) — Clean Core Assessment</strong></span>
+  <span>Intel Confidential</span>
+</div>

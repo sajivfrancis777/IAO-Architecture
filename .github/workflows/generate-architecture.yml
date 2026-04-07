@@ -85,6 +85,7 @@ jobs:
         run: python scripts/fetch_jira_data.py
 
       - name: Generate Testing Reports
+        continue-on-error: true
         run: |
           if [ -n "${{ github.event.inputs.tower }}" ]; then
             python scripts/gen_testing_report.py --tower "${{ github.event.inputs.tower }}"

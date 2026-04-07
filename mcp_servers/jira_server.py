@@ -50,10 +50,11 @@ JIRA_PAT = os.environ.get("JIRA_PAT", "")
 PROJECT_KEY = "IAODTM"
 DEFAULT_TIMEOUT = 30
 
-# Releases to include (R3+).  Zephyr uses "R3", JIRA uses "Release 3".
-# Only "Release 3" exists currently.  Add "Release 4" etc. when created in JIRA.
-ACTIVE_RELEASES = {"R3", "R4", "R5", "Release 3", "Release 4", "Release 5"}
-JIRA_ACTIVE_RELEASES = ('"Release 3"',)  # JQL-ready values; extend when R4/R5 exist
+# All desired releases — validated at runtime against JIRA
+ACTIVE_RELEASES = {"R1", "R2", "R3", "R4", "R5", "Release 1", "Release 2", "Release 3", "Release 4", "Release 5"}
+JIRA_DESIRED_RELEASES = ('"Release 1"', '"Release 2"', '"Release 3"', '"Release 4"', '"Release 5"',)
+
+_validated_releases: tuple[str, ...] | None = None
 
 # ── Tower mapping: Sub Team field → tower shortcode ─────────────────
 _SUB_TEAM_TO_TOWER: dict[str, str] = {
@@ -134,6 +135,47 @@ def _jira_get(endpoint: str, params: dict | None = None) -> Any:
         )
     resp.raise_for_status()
     return resp.json()
+
+
+def _discover_valid_releases() -> tuple[str, ...]:
+    """Probe JIRA to find which 'Actual Release' options exist."""
+    rel_clause = " OR ".join(
+        f'"{JQL_ACTUAL_RELEASE}" = {r}' for r in JIRA_DESIRED_RELEASES
+    )
+    jql = f"project = {PROJECT_KEY} AND issuetype = Bug AND ({rel_clause})"
+    resp = requests.get(
+        JIRA_BASE_URL + "/rest/api/2/search",
+        headers=_headers(),
+        params={"jql": jql, "maxResults": 0},
+        verify=False,
+        timeout=DEFAULT_TIMEOUT,
+    )
+    if resp.status_code == 200:
+        return JIRA_DESIRED_RELEASES
+    if resp.status_code == 400:
+        try:
+            errors = resp.json().get("errorMessages", [])
+        except Exception:
+            errors = []
+        invalid: set[str] = set()
+        for msg in errors:
+            m = re.search(r"The option '(.+?)' for field", msg)
+            if m:
+                invalid.add(m.group(1))
+        if invalid:
+            return tuple(
+                r for r in JIRA_DESIRED_RELEASES
+                if not any(inv in r for inv in invalid)
+            )
+    return JIRA_DESIRED_RELEASES
+
+
+def _get_valid_releases() -> tuple[str, ...]:
+    """Return cached validated release options (probes JIRA once per run)."""
+    global _validated_releases
+    if _validated_releases is None:
+        _validated_releases = _discover_valid_releases()
+    return _validated_releases
 
 
 def _not_configured() -> str:
@@ -338,8 +380,8 @@ def get_defects(
         if release:
             jql_parts.append(f'"{JQL_ACTUAL_RELEASE}" = "{release}"')
         else:
-            # Default R3+ filter — only Release 3 exists currently
-            rel_clause = " OR ".join(f'"{JQL_ACTUAL_RELEASE}" = {r}' for r in JIRA_ACTIVE_RELEASES)
+            valid_releases = _get_valid_releases()
+            rel_clause = " OR ".join(f'"{JQL_ACTUAL_RELEASE}" = {r}' for r in valid_releases)
             jql_parts.append(f'({rel_clause} OR "{JQL_ACTUAL_RELEASE}" IS EMPTY)')
 
         if status:
@@ -447,7 +489,7 @@ def get_defect_summary(tower: str = "") -> str:
         jql_parts = [
             f"project = {PROJECT_KEY}",
             "issuetype = Bug",
-            "(" + " OR ".join(f'"{JQL_ACTUAL_RELEASE}" = {r}' for r in JIRA_ACTIVE_RELEASES)
+            "(" + " OR ".join(f'"{JQL_ACTUAL_RELEASE}" = {r}' for r in _get_valid_releases())
             + f' OR "{JQL_ACTUAL_RELEASE}" IS EMPTY)',
         ]
         jql = " AND ".join(jql_parts)

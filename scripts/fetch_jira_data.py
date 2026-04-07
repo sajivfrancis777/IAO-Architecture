@@ -58,9 +58,11 @@ BUG_FIELDS = (
     f"{F_ASSIGNED_SUBTEAM},{F_DETECTED_SUBTEAM},{F_DEFECT_TYPE}"
 )
 
-# All releases (R1-R5) are fetched — no release restriction
-JIRA_ACTIVE_RELEASES = ('"Release 1"', '"Release 2"', '"Release 3"', '"Release 4"', '"Release 5"',)
+# All desired releases — the probe validates which ones actually exist in JIRA
+JIRA_DESIRED_RELEASES = ('"Release 1"', '"Release 2"', '"Release 3"', '"Release 4"', '"Release 5"',)
 ACTIVE_RELEASES = {"R1", "R2", "R3", "R4", "R5", "Release 1", "Release 2", "Release 3", "Release 4", "Release 5"}
+
+_validated_releases: tuple[str, ...] | None = None
 
 # ── Tower mapping ────────────────────────────────────────────────
 _SUB_TEAM_TO_TOWER: dict[str, str] = {
@@ -112,6 +114,60 @@ def _jira_get(endpoint: str, params: dict | None = None) -> dict | list:
     return resp.json()
 
 
+def _discover_valid_releases() -> tuple[str, ...]:
+    """Probe JIRA to find which 'Actual Release' options exist.
+
+    Sends a lightweight maxResults=0 query with all desired releases.
+    If JIRA returns 400 listing invalid options, those are stripped and
+    the remaining valid releases are returned.
+    """
+    rel_clause = " OR ".join(
+        f'"{JQL_ACTUAL_RELEASE}" = {r}' for r in JIRA_DESIRED_RELEASES
+    )
+    jql = f"project = {PROJECT_KEY} AND issuetype = Bug AND ({rel_clause})"
+    resp = requests.get(
+        JIRA_BASE_URL + "/rest/api/2/search",
+        headers=_headers(),
+        params={"jql": jql, "maxResults": 0},
+        verify=False,
+        timeout=DEFAULT_TIMEOUT,
+    )
+    if resp.status_code == 200:
+        print(f"  All release options valid: {', '.join(JIRA_DESIRED_RELEASES)}")
+        return JIRA_DESIRED_RELEASES
+
+    if resp.status_code == 400:
+        try:
+            errors = resp.json().get("errorMessages", [])
+        except Exception:
+            errors = []
+        # Parse: "The option 'Release 4' for field 'Actual Release' does not exist."
+        invalid: set[str] = set()
+        for msg in errors:
+            m = re.search(r"The option '(.+?)' for field", msg)
+            if m:
+                invalid.add(m.group(1))
+        if invalid:
+            valid = tuple(
+                r for r in JIRA_DESIRED_RELEASES
+                if not any(inv in r for inv in invalid)
+            )
+            print(f"  Release options not yet in JIRA (skipped): {', '.join(sorted(invalid))}")
+            print(f"  Using: {', '.join(valid)}")
+            return valid
+
+    # Unexpected error — fall back to all and let the caller handle it
+    return JIRA_DESIRED_RELEASES
+
+
+def _get_valid_releases() -> tuple[str, ...]:
+    """Return cached validated release options (probes JIRA once per run)."""
+    global _validated_releases
+    if _validated_releases is None:
+        _validated_releases = _discover_valid_releases()
+    return _validated_releases
+
+
 def _extract_option_value(field_data) -> str:
     if field_data is None:
         return ""
@@ -151,7 +207,8 @@ def _is_active_release(release_str: str) -> bool:
 
 def fetch_all_defects() -> list[dict]:
     """Paginate through all bugs in IAODTM across all releases."""
-    rel_clause = " OR ".join(f'"{JQL_ACTUAL_RELEASE}" = {r}' for r in JIRA_ACTIVE_RELEASES)
+    valid_releases = _get_valid_releases()
+    rel_clause = " OR ".join(f'"{JQL_ACTUAL_RELEASE}" = {r}' for r in valid_releases)
     jql = (
         f"project = {PROJECT_KEY} AND issuetype = Bug AND "
         f'({rel_clause} OR "{JQL_ACTUAL_RELEASE}" IS EMPTY) '
