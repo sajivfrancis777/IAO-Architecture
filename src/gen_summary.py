@@ -36,6 +36,7 @@ from src.gen_systems_arch import (
     build_system_inventory, mermaid_live_url,
     extract_data_flows, extract_integration_patterns, extract_tech_platforms,
     DataFlowRow, IntegrationPatternRow, TechPlatformRow,
+    _inject_mermaid_live_links,
 )
 from src.xlsx_loader import load_workbook as load_xlsx_workbook, find_workbook as find_xlsx_workbook
 from src.mermaid_builder import (
@@ -421,6 +422,7 @@ def _render_summary_doc(
     tower_short: str = "",
     l1_group: str = "",
     release_deltas: list[ReleaseDelta] | None = None,
+    output_filepath: Path | None = None,
 ) -> str:
     """Render a lean summary Markdown document — diagrams only, links to L2 for detail."""
     fmt = DocFormatter(
@@ -431,6 +433,7 @@ def _render_summary_doc(
     md = fmt.title_page(
         title=title,
         context_lines=[scope_label],
+        output_filepath=output_filepath,
     )
 
     # ── Table of Contents ────────────────────────────────────────
@@ -701,6 +704,9 @@ def _render_summary_doc(
     # Inject footers
     md = fmt.inject_footers(md)
 
+    # Inject mermaid live editor links (same as L2 documents)
+    md = _inject_mermaid_live_links(md)
+
     return md
 
 
@@ -800,6 +806,10 @@ def generate_l1_summaries(
 
         # Render document
         l1_short = re.sub(r'[^a-zA-Z0-9 ]', '', l1_name).strip().replace(' ', '-')[:40]
+        output_dir = tower_dir / "output" / "docs" / "summaries"
+        output_dir.mkdir(parents=True, exist_ok=True)
+        filename = f"L1-{l1_short}-Summary.md"
+        output_path = output_dir / filename
         doc = _render_summary_doc(
             level="L1",
             title=f"{l1_name}",
@@ -812,12 +822,8 @@ def generate_l1_summaries(
             tower_short=tower_cfg.shortcode,
             l1_group=l1_name,
             release_deltas=deltas,
+            output_filepath=output_path,
         )
-
-        # Write to towers/<TOWER>/output/docs/summaries/
-        output_dir = tower_dir / "output" / "docs" / "summaries"
-        output_dir.mkdir(parents=True, exist_ok=True)
-        filename = f"L1-{l1_short}-Summary.md"
         output_path = output_dir / filename
         output_path.write_text(doc, encoding="utf-8")
         print(f"    DONE: {output_path.name} ({len(doc):,} chars)")
@@ -890,6 +896,10 @@ def generate_l0_summary(
     release_data = _collect_release_futures(tower_dir, tower_cfg, all_cap_ids)
     deltas = _compute_release_deltas(release_data) if release_data else []
 
+    output_dir = tower_dir / "output" / "docs" / "summaries"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    filename = f"L0-{tower_cfg.shortcode}-Summary.md"
+    output_path = output_dir / filename
     doc = _render_summary_doc(
         level="L0",
         title=f"{tower_cfg.name} ({tower_cfg.shortcode})",
@@ -901,11 +911,8 @@ def generate_l0_summary(
         tower_name=tower_cfg.name,
         tower_short=tower_cfg.shortcode,
         release_deltas=deltas,
+        output_filepath=output_path,
     )
-
-    output_dir = tower_dir / "output" / "docs" / "summaries"
-    output_dir.mkdir(parents=True, exist_ok=True)
-    filename = f"L0-{tower_cfg.shortcode}-Summary.md"
     output_path = output_dir / filename
     output_path.write_text(doc, encoding="utf-8")
     print(f"  DONE: {output_path.name} ({len(doc):,} chars)")
@@ -997,6 +1004,10 @@ def generate_program_summary(iapm: IAPMLookup, release_label: str = "R1 – R5")
         m.retired_platforms |= d.retired_platforms
     program_deltas = sorted(merged_deltas.values(), key=lambda d: d.from_rel)
 
+    output_dir = WORKSPACE / "output" / "docs" / "summaries"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    filename = "Program-Summary.md"
+    output_path = output_dir / filename
     doc = _render_summary_doc(
         level="Program",
         title="IAO Program Architecture Summary",
@@ -1006,11 +1017,8 @@ def generate_program_summary(iapm: IAPMLookup, release_label: str = "R1 – R5")
         iapm=iapm,
         capabilities_info=all_cap_info,
         release_deltas=program_deltas,
+        output_filepath=output_path,
     )
-
-    output_dir = WORKSPACE / "output" / "docs" / "summaries"
-    output_dir.mkdir(parents=True, exist_ok=True)
-    filename = "Program-Summary.md"
     output_path = output_dir / filename
     output_path.write_text(doc, encoding="utf-8")
     print(f"  DONE: {output_path.name} ({len(doc):,} chars)")

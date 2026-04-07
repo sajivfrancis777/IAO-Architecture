@@ -266,17 +266,23 @@ def build_mermaid(flow_set: FlowSet, iapm: IAPMLookup, prefix: str = "") -> str:
 # ---------------------------------------------------------------------------
 # ArchiMate-Inspired 3-Layer Diagram Builder
 # ---------------------------------------------------------------------------
+# ArchiMate 3.2 Specification Colors + Azure palette alignment
+# Business = Yellow (#FFFFB3), Application = Azure Blue (#CCE5FF), Technology = Green (#C8E6C9)
+# Motivation = Purple (#E1BEE7), Implementation/Migration = Salmon (#FFCCBC)
 ARCHIMATE_CLASSDEFS = """\
-    %% -- ArchiMate-inspired style classes --
-    classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
-    classDef app           fill:#B5FFFF,stroke:#0077B6,stroke-width:2px,color:#000
-    classDef data          fill:#B5D8FF,stroke:#0077B6,stroke-width:1px,color:#000,stroke-dasharray: 5 5
-    classDef middleware    fill:#FFD6A5,stroke:#E76F00,stroke-width:2px,color:#000
-    classDef eol           fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#000"""
+    %% -- ArchiMate 3.2 + Azure style classes --
+    classDef business      fill:#FFFFB3,stroke:#F9A825,stroke-width:2px,color:#000
+    classDef app           fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef data          fill:#BBDEFB,stroke:#1565C0,stroke-width:1px,color:#0D47A1,stroke-dasharray: 5 5
+    classDef middleware    fill:#FFE0B2,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef eol           fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
+    classDef saas          fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20"""
 
 LAYER_STYLES = """\
-    style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
-    style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px"""
+    style BL fill:#FFFDE7,stroke:#F9A825,stroke-width:2px
+    style AL fill:#E3F2FD,stroke:#0078D4,stroke-width:2px"""
 
 EMOJI = {
     "app": "📦", "middleware": "🔗", "data": "📄",
@@ -355,12 +361,13 @@ def _infer_platform(system_name: str) -> str:
 # Platform category → color palette  (Azure-inspired differentiation)
 # ---------------------------------------------------------------------------
 _PLAT_CATEGORY_COLORS: dict[str, tuple[str, str, str]] = {
+    # ArchiMate 3.2 Technology layer colors + Azure palette
     # category:  (fill, stroke, text)
-    "cloud":      ("#BBDEFB", "#1565C0", "#0D47A1"),   # Azure blue
-    "saas":       ("#E1BEE7", "#7B1FA2", "#4A148C"),   # Purple
-    "onprem":     ("#C8E6C9", "#388E3C", "#1B5E20"),   # Green
-    "data":       ("#B2DFDB", "#00695C", "#004D40"),   # Teal
-    "middleware": ("#FFE0B2", "#E65100", "#BF360C"),   # Orange
+    "cloud":      ("#BBDEFB", "#0078D4", "#003A6C"),   # Azure blue
+    "saas":       ("#E1BEE7", "#7B1FA2", "#4A148C"),   # ArchiMate Motivation purple
+    "onprem":     ("#C8E6C9", "#2E7D32", "#1B5E20"),   # ArchiMate Technology green
+    "data":       ("#B2EBF2", "#00838F", "#004D40"),   # Azure data teal
+    "middleware": ("#FFE0B2", "#E65100", "#BF360C"),   # ArchiMate middleware orange
 }
 
 _PLAT_CATEGORY_KEYWORDS: list[tuple[str, list[str]]] = [
@@ -618,11 +625,11 @@ def build_data_arch_mermaid(
                   '"themeVariables": {"fontSize": "15px", "fontFamily": "Segoe UI, Arial"}, '
                   '"flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 35, "rankSpacing": 45}} }%%')
     lines.append("flowchart TB")
-    lines.append("    classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B")
-    lines.append("    classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20")
-    lines.append("    classDef dbCloud fill:#90CAF9,stroke:#1565C0,stroke-width:2px,color:#0D47A1")
-    lines.append("    classDef dbData fill:#80CBC4,stroke:#00695C,stroke-width:2px,color:#004D40")
-    lines.append("    classDef eolBox fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#660000")
+    lines.append("    classDef appBox fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C")
+    lines.append("    classDef dbCyl fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20")
+    lines.append("    classDef dbCloud fill:#BBDEFB,stroke:#0078D4,stroke-width:2px,color:#003A6C")
+    lines.append("    classDef dbData fill:#B2EBF2,stroke:#00838F,stroke-width:2px,color:#004D40")
+    lines.append("    classDef eolBox fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C")
     lines.append("")
 
     # Render each DB cluster: app(s) above → DB cylinder below
@@ -758,9 +765,9 @@ def build_platform_arch_mermaid(
                   '"themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial"},'
                   ' "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%')
     lines.append("flowchart TB")
-    lines.append("    classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B")
-    lines.append("    classDef platBox fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20")
-    lines.append("    classDef eolBox fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#660000")
+    lines.append("    classDef appBox fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C")
+    lines.append("    classDef platBox fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20")
+    lines.append("    classDef eolBox fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C")
     lines.append("")
 
     # Render each platform cluster with its apps inside
