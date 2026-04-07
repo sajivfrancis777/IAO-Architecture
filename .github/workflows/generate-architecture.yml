@@ -40,6 +40,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: true
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -123,7 +127,8 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "chore: regenerate architecture docs [skip ci]"
-            git push
+            git pull --rebase origin main || true
+            git push origin main
           fi
 
       - name: Sync to SharePoint
