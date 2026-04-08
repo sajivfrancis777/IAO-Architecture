@@ -1174,6 +1174,16 @@ jobs:
               # Inject JS before </body>
               content = content.replace("</body>", f"{TOOLBAR_JS}\n</body>", 1)
 
+              # Rewrite absolute site-root links (href="/towers/...", href="/summaries/...")
+              # to relative paths using the computed base ("../../" etc.).
+              # This is needed because GitHub Pages project sites serve from /REPO-NAME/
+              # so bare absolute paths like /towers/... resolve to the wrong root.
+              content = re.sub(
+                  r'href="/(towers/|summaries/|cap/|dashboard/)',
+                  f'href="{base}\\1',
+                  content
+              )
+
               with open(html_file, "w", encoding="utf-8") as f:
                   f.write(content)
               count += 1
