@@ -1532,14 +1532,16 @@ flowchart TD
 ```mermaid
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "15px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 35, "rankSpacing": 45}} }%%
 flowchart TB
-    classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
-    classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
-    classDef eolBox fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#660000
+    classDef appBox fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef dbCyl fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
+    classDef dbCloud fill:#BBDEFB,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef dbData fill:#B2EBF2,stroke:#00838F,stroke-width:2px,color:#004D40
+    classDef eolBox fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
 
     subgraph DS020CDACL_Azure_Data_Lake_ADLS[" "]
         direction TB
         DS020CDAA_ECA["ECA"]:::appBox
-        DS020CDAD_Azure_Data_Lake_ADLS[("🗄️ Azure Data Lake (ADLS)")]:::dbCyl
+        DS020CDAD_Azure_Data_Lake_ADLS[("🗄️ Azure Data Lake (ADLS)")]:::dbCloud
         DS020CDAA_ECA -.-> DS020CDAD_Azure_Data_Lake_ADLS
     end
     style DS020CDACL_Azure_Data_Lake_ADLS fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
@@ -1547,7 +1549,7 @@ flowchart TB
     subgraph DS020CDACL_Delta_Lake[" "]
         direction TB
         DS020CDAA_DataBricks["DataBricks"]:::appBox
-        DS020CDAD_Delta_Lake[("🗄️ Delta Lake")]:::dbCyl
+        DS020CDAD_Delta_Lake[("🗄️ Delta Lake")]:::dbCloud
         DS020CDAA_DataBricks -.-> DS020CDAD_Delta_Lake
     end
     style DS020CDACL_Delta_Lake fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
@@ -1605,7 +1607,7 @@ flowchart TB
         DS020CDAA_Corp_IP_S_4["Corp / IP S/4"]:::appBox
         DS020CDAA_Finance_HANA["Finance HANA"]:::appBox
         DS020CDAA_SideCar["SideCar"]:::appBox
-        DS020CDAD_SAP_HANA[("🗄️ SAP HANA")]:::dbCyl
+        DS020CDAD_SAP_HANA[("🗄️ SAP HANA")]:::dbData
         DS020CDAA_BOBJ -.-> DS020CDAD_SAP_HANA
         DS020CDAA_CFIN_S_4 -.-> DS020CDAD_SAP_HANA
         DS020CDAA_Corp_IP_S_4 -.-> DS020CDAD_SAP_HANA
@@ -1617,7 +1619,7 @@ flowchart TB
     subgraph DS020CDACL_SAP_HANA_Cloud[" "]
         direction TB
         DS020CDAA_SAP_IBP["SAP IBP"]:::appBox
-        DS020CDAD_SAP_HANA_Cloud[("🗄️ SAP HANA Cloud")]:::dbCyl
+        DS020CDAD_SAP_HANA_Cloud[("🗄️ SAP HANA Cloud")]:::dbData
         DS020CDAA_SAP_IBP -.-> DS020CDAD_SAP_HANA_Cloud
     end
     style DS020CDACL_SAP_HANA_Cloud fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
@@ -1641,7 +1643,7 @@ flowchart TB
     subgraph DS020CDACL_Snowflake_Cloud_DW[" "]
         direction TB
         DS020CDAA_SnowFlake["SnowFlake"]:::appBox
-        DS020CDAD_Snowflake_Cloud_DW[("🗄️ Snowflake Cloud DW")]:::dbCyl
+        DS020CDAD_Snowflake_Cloud_DW[("🗄️ Snowflake Cloud DW")]:::dbCloud
         DS020CDAA_SnowFlake -.-> DS020CDAD_Snowflake_Cloud_DW
     end
     style DS020CDACL_Snowflake_Cloud_DW fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
@@ -1649,7 +1651,7 @@ flowchart TB
     subgraph DS020CDACL_Teradata_Oracle_DB[" "]
         direction TB
         DS020CDAA_EDW["EDW"]:::appBox
-        DS020CDAD_Teradata_Oracle_DB[("🗄️ Teradata / Oracle DB")]:::dbCyl
+        DS020CDAD_Teradata_Oracle_DB[("🗄️ Teradata / Oracle DB")]:::dbData
         DS020CDAA_EDW -.-> DS020CDAD_Teradata_Oracle_DB
     end
     style DS020CDACL_Teradata_Oracle_DB fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
@@ -1678,13 +1680,15 @@ flowchart TB
     subgraph Legend["📐 DATA ARCHITECTURE LEGEND"]
         direction LR
         L_A["Application"]:::appBox
-        L_D[("🗄️ Database")]:::dbCyl
+        L_D[("🗄️ On-Prem DB")]:::dbCyl
+        L_DC[("🗄️ Cloud DB")]:::dbCloud
+        L_DD[("🗄️ Data Platform")]:::dbData
         L_E["End-of-Life"]:::eolBox
     end
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWQtPo0oU_isTNia7iV7ro3ptspvwdNlUy0q93mS5ISNMlUihoXS1q_73ew6P0vKaYkqjDDPnO2f4zjczMLwKTugyYSDs7b16gRcPyKslxI9syixhQCzhns6htA-lOXMWkRcvh-w389NGPwzz1gTyD408eu-zOTaDn0kYxKb3J3N11J-9pMZYr9Gp5y_TFpM9hIzc6vtEBAfg_D2x8sNn55FGceZtMWdX9OXOc-NHrJlQf87Q7jGe-kN6z_wkbBwtktoAbsucUccLHrD6pI-VEQ2e1ipP--_v5H1vzwpWschYsgICh-PT-VxhE0JnMyl8IRPP9wefpL6iadr-PI7CJzb41Oudn0tn2eXBM3ZtcDx72XdCP4yw-UTpl_259_LSz9yJfeVMPF-5O1bPlZPjRndHUl897pXcsdAvuqdpUl_qr_zJcg-ORn9nZ9hsBanH-eL-IaKzR6KYveOerIjy0Bb_LCJmKzSm9pA-MVtUhuYvSwAm_0tBeLhexJzYC4MVd3jkXkRblUXAwH9ADQaDlM-qoVIf7bMlWAv37xMX_rvOqbWYsN6EJKYETQmaks9o-8USvmCEhOGGnpCDvw6-cWKmUBa4GTHx0mc8VvIEiPhbJUDt4W8zAUcwClooV5if-e1MNPZIijznaQ7Q4oJH-1rEerITg4RnHsFF0DLPRRAeu4Xlzji9tkVbNHT7ksbsmS47EwvYS1UFWFrgEVoOV8_q9aEIsjV0kplx1ZsGLxNbCsZjt2S-U4rV8bA7tclYEhUN2U0GNZS3IRiDtRALzXxC89h1nIKDbbgEs51xOIqo48PEInVmUZdH5hhQybmdPdEesgfqLO0r5RIQ6QWBCx7sSjXtk14PMFAiUOIBTNGwpZGCCwYUCRa3gaiynCGgtA3AGGX2xohnfhdGT2YcMToFSHHBg_2r3uJd4IknzSKH9eJM24ki8cSZpLIszJX39rx2gmV57YTJU9sZBCntjDFGnSBFWjvBMLkcQPNMsDLc2VxghPP4IWLmz-5TqqFe4gMXnnhqXYtSL9fCgKdXDFfmbw3NIbCw3BmDKJ3v4rXYmT9pJP0AEJ54E4Os6de2aZ-CORaJeXjKhYTRzNaNHAVX5JDoxjZQzQto4LD8rrJLgpfcedJzmUwjnCjTEk8ZK_bqdYHTbRq3XRVIYlkVues2QjthCka7wNbZ7ILLCGyHNCs9t9u5zm3ZDxduZ7UjXJeMbAmF0rbKyOK164MkRjyVZH1oojSNtC2xqfXu6P0Jfyz6zaLO1Mq6dINjHE688amKY3zCwFNqmr7W1-o2eZ3WZO6YvxJv0CeeuNODoaoKSgDPXAEUjDQkH2bx1ICXeKSmkvWV-yaiuiG06kt_OwAJ64ZIaONBWpS7stydaoPweeLj5kQyGmzlrvvEAC40P92HWJW52qjGbdBIbpjOEES5404SeR8qRFdicgmvIHZG_JhF1MWdoY-_zKlJslRkpJ3smlj1ZOeG8KSx9fsHxC8TXY3HI7qK-BDRNU_k5OvXb2-wy5VwaQlvLQOvriWD60HMogB3nN-aH_tb8Plb58fQdZ1v4riZAnM4Lt3_xpNItT7Dybq2idvY9ahUZyjcLTG8GfO9gG3Cyzt8dS2ttDeN48Y7qNx582Zuu017txrl1NnV1jm9YTPfcyhOEtvltuwA89hRVzVjtcHXDlx0GKN1o6R5jG0qJN-vfeNtmDY2tzgqv90267TTLLH5GNvMQb3YSysT7AnB7PxrbVVw3B5RxLFIxBv5uz5W5fHtjUqG6qV6rTQsU8Oboha-fuBO7WxNn3WLFGzjN31MgA6nHxXr1p-hjdvsauAehJODoTdh1afh0mqT3mG-rPTxt1pWLi4uKmuKsC9MWTSlnisMXtPPlvD102UTuvBj-PAo0EUcmsvAEQbJp0RhMQNJM8WjwOg0rXz_H8F6kTA=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWQtv2kgQ_isrV5FaKbkSQlqC1Ep-5jiR4Mb0clI5WRt7SawYGxnThCb57zfjBwbb68U9QOD17nwz629mX-MXyQldJg2ko6MXL_DiAXmZSvEDm7OpNCBT6Y4uoXQMpSVzVpEXr0fsJ_PTRj8M89YE8jeNPHrnsyU2g55ZGMSW9ytTdXq-eE6Fsd6gc89fpy0Wuw8Z-T48JjIoAOVviZQfPjkPNIozbaslu6LPt54bP2DNjPpLhnIP8dwf0TvmJ2bjaJXUBvBY1oI6XnCP1WfnWBnR4HGrsnf-9kbejo6mwcYWmSjTgMDH8elyqbEZoYuFEj6Tmef7g3eqqp8bxvEyjsJHNnjX6Xzua73s9uQJuzboLp6PndAPI2w-kz-pJX3unbr2c3V9_ZN6sVHX1T9rZ12uulPlXO92qur8cOVmChVF0w3lf_ZPozHN9XV1xehu6euf9Y0GfT2tV-4gC_2CP8NQNa3Qp37q9rt9rj7l86l6Cv1LNS5Xd_cRXTwQzep0O6omqyNb_rWKmI0dtkf0kdmyNrJ-TCVw9b8pCD-uFzEn9sJg41z85FpkW1dlwMA_oAaDQerwqqBWb-39VJqu3P6ZC_-u05uuZqwzI4koSZhEUfIeZT9MpQ9oIfMZpy_k5I-TrwKrKZQFmY5lvPaZiJfcBTJ-Ny7QO_jddcEpDNQG0jXmZ3pbU409UiLPeVwCtLgREb9lsZ7uRCBhWkxxYbbMdGFGxG8heTBWr23Zls2hfUlj9kTXrakF7KWuAywtiCgtm6vn9fqjDKFrDkkmthXBa5_fizKxJWMidkviB6VYn4zaU5uMJlkzkN1kYEN5H4LRWAOx0CwmNLddxyko2IdLEDsYh-OIOj5MLUprFofq2JoAKrk2syfbI3ZPnbV9pV0CIr0hcCOCXemWfdbpAAZKBEoigCWbtjLWcNGAIsHiPhBdVTMElPYBmONM3hyLxG_D6NGKI0bnACluRLB_9O_4FHgRhWbhw_rgTNuJpoiCM3FlOTA32pv92gqW-bUVJndtaxC4tDXGHLeCFG5tBUPnCgD8mWAjeLC5wAyX8X3ErG_tp1RTv8RNF15E0bplpT5cCwFRvKK5Mn9baAGBheTBGMTQ-VO-llvzp4yVvwCEF9HEoBrDa9uyeyCORWJ97AkhYbSwh2aOgjvykQzNfaCGF9DAYflTZbcEb4XzpOcylUY4UaYlUWRs2KuPC5xuU7tZVODOj0dmOSxy3U2MtsIUlLaBbdPZBpcx2Azhh3oud_BAt5NteetwR_hQMbM1FEr7hkZmrzlASHpWEIVJ1gkep_bWiUPMrL19bD8Av9_gx6KfLGrNrTpUbnCUw0U0QnV5gnsMvKSi6eG-NnCTQ7WhCkf9lXyDOvEinCBMXdcwBvAqjICCEY73YR5PBUTLBlJT8fpGPY-odgijevBvBiBh7RAJbSJIQ-RuJA8XtUH4NPMxQZGMBlu7bT8zgArDT3MRm7IwNqp2OTGSC6ZTBNFuxfmFTS8qVFesCimvIA5G_YRF1MX80O8f6PTEXTpy0kx3ja16unNB2G1UzyC8aRk6UGa6alDEdBXxW0zXbMvJly9fXyHZlZA5lV4bxl5dSwYfBjGLAsyNv_L3_g34_Oj5e-i6zvM45lNgjSal59_ZjVTrM5w6NHZxO6mPSnWGwpSJ6S2Y7wVsF15O89W1NNLOG8jcJ6g8OT-n2yzT3C1uOLVWtbdPb9jC9xyKs8R-vi0rQD-2jKuascrRdQAVLcZo3Sjhj7HdCMmTtq-irCm3uUFR-YjLj9NWs8TuTpbPQX2wl5YmSAzB7Pxja1lw3A7R5IlM5Bv1z-FEVyffb3Qy0i_1a42zTo1uilp4CYLp2sVWfNatUpDL52XBghMzYnNuGgyQKgeabRYU3mYBoDyrySsj06fxLIzmnLVvZGOeXw_ck3B2MvJmrLoZL610Kbv5knaO382SdnFxUVnPpGNpzqI59Vxp8JK-3IV3xC6b0ZUfw-tZia7i0FoHjjRIXrhKqwUMJ6Z5FLw5Tyvf_gOavOy6" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -1699,14 +1703,16 @@ flowchart TB
 ```mermaid
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "15px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 35, "rankSpacing": 45}} }%%
 flowchart TB
-    classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
-    classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
-    classDef eolBox fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#660000
+    classDef appBox fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef dbCyl fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
+    classDef dbCloud fill:#BBDEFB,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef dbData fill:#B2EBF2,stroke:#00838F,stroke-width:2px,color:#004D40
+    classDef eolBox fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
 
     subgraph DS020FDACL_Azure_Analysis_Services[" "]
         direction TB
         DS020FDAA_Power_BI_DARC["Power BI (DARC)"]:::appBox
-        DS020FDAD_Azure_Analysis_Services[("🗄️ Azure Analysis Services")]:::dbCyl
+        DS020FDAD_Azure_Analysis_Services[("🗄️ Azure Analysis Services")]:::dbCloud
         DS020FDAA_Power_BI_DARC -.-> DS020FDAD_Azure_Analysis_Services
     end
     style DS020FDACL_Azure_Analysis_Services fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
@@ -1714,7 +1720,7 @@ flowchart TB
     subgraph DS020FDACL_Azure_Data_Lake_ADLS[" "]
         direction TB
         DS020FDAA_ECA_ADLS["ECA-ADLS"]:::appBox
-        DS020FDAD_Azure_Data_Lake_ADLS[("🗄️ Azure Data Lake (ADLS)")]:::dbCyl
+        DS020FDAD_Azure_Data_Lake_ADLS[("🗄️ Azure Data Lake (ADLS)")]:::dbCloud
         DS020FDAA_ECA_ADLS -.-> DS020FDAD_Azure_Data_Lake_ADLS
     end
     style DS020FDACL_Azure_Data_Lake_ADLS fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
@@ -1722,7 +1728,7 @@ flowchart TB
     subgraph DS020FDACL_Delta_Lake[" "]
         direction TB
         DS020FDAA_ECA_DataBricks["ECA-DataBricks"]:::appBox
-        DS020FDAD_Delta_Lake[("🗄️ Delta Lake")]:::dbCyl
+        DS020FDAD_Delta_Lake[("🗄️ Delta Lake")]:::dbCloud
         DS020FDAA_ECA_DataBricks -.-> DS020FDAD_Delta_Lake
     end
     style DS020FDACL_Delta_Lake fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
@@ -1786,7 +1792,7 @@ flowchart TB
         DS020FDAA_SAP_PAPM["SAP PAPM"]:::appBox
         DS020FDAA_SAP_S_4_MDG["SAP S/4 MDG"]:::appBox
         DS020FDAA_SideCar["SideCar"]:::appBox
-        DS020FDAD_SAP_HANA[("🗄️ SAP HANA")]:::dbCyl
+        DS020FDAD_SAP_HANA[("🗄️ SAP HANA")]:::dbData
         DS020FDAA_CFIN_S_4_HANA -.-> DS020FDAD_SAP_HANA
         DS020FDAA_Corp_IP_S_4_HANA -.-> DS020FDAD_SAP_HANA
         DS020FDAA_IF_S_4_HANA -.-> DS020FDAD_SAP_HANA
@@ -1802,7 +1808,7 @@ flowchart TB
         DS020FDAA_SAP_Ariba["SAP Ariba"]:::appBox
         DS020FDAA_SAP_IBP["SAP IBP"]:::appBox
         DS020FDAA_SAP_SAC["SAP SAC"]:::appBox
-        DS020FDAD_SAP_HANA_Cloud[("🗄️ SAP HANA Cloud")]:::dbCyl
+        DS020FDAD_SAP_HANA_Cloud[("🗄️ SAP HANA Cloud")]:::dbData
         DS020FDAA_SAP_Ariba -.-> DS020FDAD_SAP_HANA_Cloud
         DS020FDAA_SAP_IBP -.-> DS020FDAD_SAP_HANA_Cloud
         DS020FDAA_SAP_SAC -.-> DS020FDAD_SAP_HANA_Cloud
@@ -1842,7 +1848,7 @@ flowchart TB
     subgraph DS020FDACL_Snowflake_Cloud_DW[" "]
         direction TB
         DS020FDAA_ECA_SnowFlake["ECA-SnowFlake"]:::appBox
-        DS020FDAD_Snowflake_Cloud_DW[("🗄️ Snowflake Cloud DW")]:::dbCyl
+        DS020FDAD_Snowflake_Cloud_DW[("🗄️ Snowflake Cloud DW")]:::dbCloud
         DS020FDAA_ECA_SnowFlake -.-> DS020FDAD_Snowflake_Cloud_DW
     end
     style DS020FDACL_Snowflake_Cloud_DW fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
@@ -1873,13 +1879,15 @@ flowchart TB
     subgraph Legend["📐 DATA ARCHITECTURE LEGEND"]
         direction LR
         L_A["Application"]:::appBox
-        L_D[("🗄️ Database")]:::dbCyl
+        L_D[("🗄️ On-Prem DB")]:::dbCyl
+        L_DC[("🗄️ Cloud DB")]:::dbCloud
+        L_DD[("🗄️ Data Platform")]:::dbData
         L_E["End-of-Life"]:::eolBox
     end
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWglP20gU_isjr1iBxJECgW2kVvIRl6wScOOwsGpW1mBPiIVjWz4KlPLf9z0fORw7Y4cEiYxn3vfuN1f8JpiexYSOsLf3Zrt21CFvYyGashkbCx0yFh5oCK1DaIXMjAM7eu2zn8xJBx3Py0cTyD80sOmDw0IcBj4Tz410-1fG6lPbf0mJsV-lM9t5TUd09ugxcts7JCIwAObvCZXjPZtTGkQZtzhkA_pyZ1vRFHsm1AkZ0k2jmdOnD8xJxEZBnPS6YJbuU9N2H7H7rI2dAXWfljrP2-_v5H1vb-zOZZGRNHYJfEyHhqHCJoT6vuS9kIntOJ0_pLaiquphGAXeE-v80WpdXkoX2ePRM6rWOfVfDk3P8QIcPlPaRX7Wg_zqZOzEtnIhXs7ZnXYvlbPTSnafpHb3tFVgxzxnoZ6qSm2pPecnyy34VPK7uMDhsZtyDOOHx4D6U6LordOWqohy3xB_xQEzRJc6r6EdGjoLftomC3-MBXDmfykOP5YdMDOyPXfuPvzkjERD855ZYEg9QxGHMqCTZyL1yD52HACvTqeTOnodrlSqsT8WxrH115kF_y3zfBxPWGtCEmqSU5OceiwcoJTE_VwdydHx0Ve-Bikf5lqZC6NXh9XwXx4tEf_m0eq28G81Wp-gZLjxUWhEjT59AklKX28cnK4s5kBoHmGzXkAKcjdFA0kJkpJ9pD3gBSPXqTwOq4LrBWEVs7MIKMzJ-G7ld9RKCmzzKcy8v-jgxWBJcrnnE4LE6XW8vRBc9PlCEM_TC8qd-ffaEI2BbVkOe6ZBcx9rimrogyucchT1CFo8rxbklXv2-kQk-wsqbjZnWhQduyqL59xV6p06WKe0-bTxDTnZEZM91wVCwBd66rg6kbzByTjOdW9BbpmbkU8dByPdzlx7E1DTgZlH2mJqGBh3tmuZU1AlmRkGZH_ewVkvRaMn64Y29ZhrvwAYnsh-9siHqpCtVwa4MoxnPqpIUYGeSqCbrHTXZKV6sWvRIqfl3pqMhvR5gYcHLkwrN0XbwhSt1BStuSnasilaXVMGXd04a7UAAy0CLR6gzPDGVpeY3NTehbE1Lb3zgic9ChidAWbxwIPdd29xBsMv3rSzqMryeScdJ4rEXzWXirQ46cylcOqzGa6kOLdhsBzBbfAQx2Yw7aN6ax_UW9tK76zsGmE-ZuiHrNzGxEWJNYJhoXEA1QvtnHBnK60uasaVeC02XmhltXdt6MZ5jsZnop-cE3zmTTqyF_iYWst46CInBGb2ukygpJbwsLrVBaLN0o30N6CgSbCZQtIbgSqIJmqDDILNOlJQv4HyLUOhfvDEBdoWk2mAoLTFm5fnMSyfllF06pbNs_JKRIspmsuoE80m2KUgNoHlIWyKwcA1xWRBbARLA7cZUl3mOd3Oq9yQHS-2Gtc6wuF-8YFmiZy06-R_T9IyCLRqFYwo58UiynXzPrNqc_aThIhXA3NLq0KXytpg73ZAsLYOkJ8yKfXuEud7P7l7Y0HjpBFH8hBA-MVdDijeLEevsIADTxpG6Z2THnnJxUU-TPLh9FIsGeaxVgY3iRrJN5f4PqW955OqMu6a4T9v5YAJTnJiZvzruVbiRViosIOkHTWOPQW41gQ-EIeoJ37xDxwDYwTX_KFDwbHJuWNAFh3c6k0covMdomvdroKk-M091OjaHR5n4Is7GyxStWIm-N4nKQFvFsCcXSvHOfumGdyMU5KoDSH3TRGQt80Aq1ncEKttj8XEbYZYTeNmWL2pW5IcbgbBVOYhNkzzc8rdTfGu9zxx8Ho_WToM5W6r-3hkozrpbT5ex8-fuXW7Lr-ifnPCdCknyl2d2_m5HmtOX5PLdf4aYqsglJz7yJcvX3_DwpP4eSz85lx1V41mbLpij2Q3ujhv_67cgTbTpJilZSNbG1JUoLj4bKnIRjYVvlhjIioqGTLYdohaD46oujrS9iXHezhY5Vf9C9tmmkzKrYtbHBmGHO9xlXPxd6SykYzLUpHkGYAqQ69v-6zggIoKWP8BIGM-iB2me5OI_An-cGBCqOnQ_Dizc3eWhuoEbiDJijehazQ9Pj7eQsB6ya-64kS6UfQt86q0yLgxqW-z7K3ZXLhpqq6_3eZRpRuHbOZFjKixm64vokX9iKGowZruvPTKjj6Z_nCgSk4J3Rffg5dTshcI4Ed0bZ0xX_9yERq5sVBGmL-d8GxHU2J67sd030lAyzn79iNj6N0sfWtqWRW-JllS-SJIYWvSZ4-wBP9Y2gKYVoso4kgk8HrJVW_UlUe3wy7pd791r5WKfUp_uOiF9xjwHOr7jm0ml8PlOxL4Eb7qdQAIQPo2V9l2o290ccvjWkfe5KhvT9j6AaiwpUgtzPcObfyb7x0-f_68tnEQDoUZC2bUtoTOW_q-GLx2ZrEJjZ0I3vgSaBx5-qtrCp3kHS4h9iEtmWJT8Ogs7Xz_H4ticdk=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWgtPo0oU_isTNt5oYrVW3dUmuwnPtTetskWv3mxvyAhTS6TQAF3tuv73ew6PPih0oNYmAjPnO-8zL3gTLN9mQlvY23tzPCdqk7eBEI3YmA2ENhkIjzSEu0O4C5k1DZxo1mW_mJt0ur6f9caQf2jg0EeXhdgNfIa-FxnO75TVyfnkNSHGdo2OHXeW9BjsyWfkrnNIRGAAzN9jKtd_sUY0iFJu05D16Ou9Y0cjbBlSN2RIN4rGbpc-MjcWGwXTuNUDs4wJtRzvCZtPz7ExoN7zUuPZ-fs7ed_bG3hzWeRWGngE_iyXhqHChoROJpL_SoaO67Y_ybJ6rmmHYRT4z6z9qdn8cqGcpY-NF1St3Zq8Hlq-6wfYfSp-lnP87Ed55mbsLtTP8uWcXUv9opy2StmdSOdqq7nOzvWndspQkhRVkz6on0IjmvFrqZLWWuJ3cXqhbeB3ppzlFWS-u_CfpsmKsuAnf25dtC5K-UlfTuQT0C_hGE4fnwI6GRHFaLaamiLKXVP8PQ2YKXrUnYVOaBos-OVYLPw5ECDa_yU4_LOdgFmR43vz-OJfxkg0df-FBabUMRWxLwM6fiZSh-xjwwHwarfbSSasw5VSNfYHwmBqX5za8N-2zgbTIWsOSUxNMmqSUQ-EA5SSBpSrJWkcNb7xdUj4MC9lGEYzl1XwYBYvEX_zeKlN_K3G6wSqmhshTCmzS59BktI1aodHlcUMCLcNvK0WkpzcTfGIsx5JyT7SHvDDkWlVHIlV0dXCsIrZWQwU5qZ8t_I8aiUFjvUcpv5fNPCisCS52PcxQez2av5eiM57fSGK5-sF5c48fG2KZs-xbZe90KC-l3VFM43eFQ48itaAO55fc_KKfXt9LJL9BdVSRs_cDVrkHbsqi-fcVeqdOtigtP7Q8R05ORGTfc8DQsDnWqq4Opa8wcnYz3VvTm6Rm5FPFQcj3c5cexNQy4WxR9picOiZ945nWyNQJR4bemR_3sCZNUWzIxumPvKZ57wCGJ7IfvrIh2qQrVcmuDKcjieoIkUFOhqBZrLSXJGV5k89m-Y5LbdWZNSnLws8PHBherEp-ham6IWm6PVN0ZdN0aua0lMN87TZBAzcEbjjAYoMr211gcl17V0YW9HSez94NqKA0TFgFg882IN6hyMYXnjDzqIqi8edpJ8oEm_YWSnS_KAzl8Kpz3q4guLchsFyBLfBQxzrwfSP6q1_UG99K73TsquF-ZihH7JyGxMXJVYLhoXGAZRPtHPCnc20hqibV-K1WHuilbXOtWmYZxkan4lxfEbwmTfoyH4wwdRaxkMTOSYwsldlAiW1hIfZrSoQbZZupL8BBbcEbxNIci5QBtFFvZdC8LaKFNSvp3xPUagfPHGBjs1kGiAoueONy_MYFg_LKDpxSzoq44aFG9J8jmZCqoSzDnYpinVgWQzrYjBydTFpFGvBkshthpTXeUa38zI3451s7WJHOJyDPtI0k-P7KgXQkfQUAneVKkaUs2oR5aqJn1q1Of1JsonnFcHc1LLYmaWHAanB2wHB3CpAfs6Yy4evO8icH934BI4FtbNGvJX7AMILd0KgeAQezWAKB540jJJzJyPy46OLrJtk3cnRWNzNY630bmI14iuX-CGhfeCTajKum-E_b-6AEU5yp8z81_fs2IswVWEDSRoqbHxycL0OvCf2UU-88LccPfMW3keELgXHxjuPHlk0cMs3dojBd4ihq6qCpHjlbmsM_R43NHDhDgeLVC0ZCn50SULA26Fgzq6V45x93QyuxylO1JqQh7oIyNt6gNUsronVt8di4tZDrKZxPaxR1y1xDteDYCrzEBuG-Tnl7oZ4z38ZunjEH08dpnK_1Zk8stHc5EQfj-Tnz9y6XZdfUr8ZYTKXE-W-2gn9XJM1t69J5rp_DbFVGAr2fuTr129_YOqJPT0Q_nCOu8t6Uzaq2CHpqS6O3H9KF6H1NMnnaVHP1obkFchPP1sqspFNiS_WmIiKRvoMFh6i3oFtqqHd6vuS6z8erPIrf8-2mSaVcufhIkeGLtd_WuWcf5dU1JNyWSqTLANQZWidOBOWc0BJBay_BEiZ96YuM_xhRP4Cf7gwJFR0aLaj2bk7C0N1DKeQZMWb0HQ7Ojo62kLAesmvuuJYulGMLfOqsMi4Malus-yv2Zw7bSqvv93mUakb-2zsR4xoUy-ZYUSbTiKGonpruvPSK938pPrDlireJ6ivEx--o0k_JICX6fo6Y77-xSJ0cmOjjDD7SuHFiUbE8r2P6b6TgBZznjhPjKF30_StqGVZ-OpkSekHIbnFSZc9wRT8c2kRYNlNooi3IoHPTK46t6p8e9dXSVf9rl4rJSuVbn_RCl8z4E50MnEdKz4gLl6TwIv4sncbXkMP2Lj05QYg5RJoulaRytYqAC2TGmevDvPW0A_GJUcXXVPFBZdnN_xho-sM2fr2K7ecSbybrVvO8Tdft1xeXq4tWoRDYcyCMXVsof2WfFYHX-fZbEinbgQfxgl0GvnGzLOEdvypmzCdQEkwxaEQzXHS-P4_W8jN4A==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -2049,12 +2057,15 @@ The ICOST architecture represents the **current / legacy** landscape for DS-020.
 ```mermaid
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "16px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
 flowchart TB
-    %% -- ArchiMate-inspired style classes --
-    classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
-    classDef app           fill:#B5FFFF,stroke:#0077B6,stroke-width:2px,color:#000
-    classDef data          fill:#B5D8FF,stroke:#0077B6,stroke-width:1px,color:#000,stroke-dasharray: 5 5
-    classDef middleware    fill:#FFD6A5,stroke:#E76F00,stroke-width:2px,color:#000
-    classDef eol           fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#000
+    %% -- ArchiMate 3.2 + Azure style classes --
+    classDef business      fill:#FFFFB3,stroke:#F9A825,stroke-width:2px,color:#000
+    classDef app           fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef data          fill:#BBDEFB,stroke:#1565C0,stroke-width:1px,color:#0D47A1,stroke-dasharray: 5 5
+    classDef middleware    fill:#FFE0B2,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef eol           fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
+    classDef saas          fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
@@ -2198,8 +2209,8 @@ flowchart TB
     click DS020C_WorkStream href "https://iapm.intel.com/#/app/37871" "WorkStream -- IAPM #37871" _blank
     click DS020C_XEUS href "https://iapm.intel.com/#/app/35612" "XEUS -- IAPM #35612" _blank
 
-    style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
-    style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
+    style BL fill:#FFFDE7,stroke:#F9A825,stroke-width:2px
+    style AL fill:#E3F2FD,stroke:#0078D4,stroke-width:2px
 
     subgraph Legend["📐 LEGEND"]
         direction LR
@@ -2211,7 +2222,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWgtvo0YQ_isrR6laKanxO7ZOkbDBqSuSoDhtWtUVwrC-oGCwAPfOvct_7-wLr3kY7IaTTs4M8327s7uzM8t-azihixujxuXlNy_wkhH6tmgkr3iNF40RWjSWdgy_ruBXjJ1t5CU7A_-Dfab0w1BoqcnvduTZSx_HRA04qzBI5t6_HKrV33xlLxP51F57_o5p5vhziNFvsyukAoB_hWI7iK9jHHmrReOdWvjhF-fVjhKOvI3xvf31xXOTVyJZ2X6MyXuvydo37CX2aROSaEulAXRxvrEdL_hMxF2FCCM7eJOEPeX9Hb1fXi6ClAs9jxcBgufyEl1fQ9ucV-_eTvC1F8QbL8IuipOdj5Hj23GMY3iHvU7_1vAKLbexF-A4RvRZeb4_upjCM-5dxUkUvuHRxfjmpq-M-Z_XX0iHRu3N1ysn9MNodKEoSgbT3mzQ_mGY4x5BTTEVZTAY90_AdO3EzmNqNxWYrQNMoXPtGJwX2TvwKeplmNae6_r4ix1h2SNaX917RB_0p3u0Gq3HoZ_zCPGx5OXJRFGqMBlqvF1-juzNK1KNvxaNxda96bjwv9vpIdU0jdlEfZ49PiBD_VN_WjT-ZkbkcWFCOIkXBsh42ktTOG2utJWJ8WCNw23g2tHOUjcb33NsYhIDFVps28vWEgk9kvUHTOVs5GFE1r36NJc74OA-IjJAGo1GMIkKreamrmtZMyo8bveH_luOjcgKrHDgHnPPxA-3rmVGobt1ktgy8Gfb2UnuoXok9OhH9sJPpztorprWbGzmOquaCMSnN1yDNWS9wMR-DSE4SS0mCpQqTm-o-u82wpaqTbNNpQoEiuNjQ_jHkee8xVmAveY4wtQL7MDB1i_qg5rF4DpEdBVzKwi_TH37DedcLhSnO12fqJbp28kqjNaSy0GMhPh0h09m46dsG4nsePd09Tm3BIjs0zJq3n7ybvVH41PTu2UgELKKQSY5B4PoOPFs8jh_zlpR4Rn-fDKt-S5O8FoOSSBFXHqGN6ezB2tudXMeBTmaN7vHOzcJo401MwsBQIWaaGYSFOFlTf997-XSmQhLX59MipY-iE_32r0-L_AaSM_3GoHsKEouggMmiI937yWM3uZJhO111nyvOaOT6c5tzYIEg5a0X-7vfmv_AUmvnBHxzNmdrufCHZUe7zrbDax77S5rzTQINNVzY_yozYsmB5FXW5uPRbbmY4Wl5-KJHeVMmfj04XrCmzBKILeVRiiVnT4k48fxr9m2EVlFTNRecuFMe6nYbPIhcFoVAk39LmdEZFVuY-b3L5ZG-3-Q8LUGiEkZyD5xLTWnoz8xZ8UwEKrIPAB9DcASpJoAmm6NIQu2wpVFyhVSUsW3snucLiIvoHCF0hdEBJ1poQNtncylQErqgyISXt7QFCNHIGofohTgv84hd64HPgnjxNJ9qCqDJItNdIjrMu2GRCKBpMTHlQQsc4Gu87WSJUn1fN0IImg88JjatJohhIG3oRtF_hHKA_8wbOKlSvA7w1IdB4qFXMPvDMQ1AnYMsRNwHylVFfAs-AfcGka7LG6qOGOqiGkGP2BHjLLQQo2Y-gwCSPeCQj8TxQk-pvGB_TzciqG6v_2-aIiY8D27-mWbVEiM5BrpAJgIOCrZLqPA9s_BZaleUJgA_O9G05IxyNSVpzWaZsYnmtCSk9uI3fN7LjxmWs-lcvPZfnwITUXl2IexvNBBZUwkeSzrxflDQHbMoDDH4dA0p6nVA1ranORW0S9hZDx_iLN4VhPkEyBONJlNzxvxtFo-AE-lHJ78Mr0N9mGLOmdMpMo5KCy1P2Bd78vioLggKhmT2q4ilWVwWHx-QLNppVwy5-oufxrSpHnKEu9zAwC1Dgpy_GMMRxbR4ZKA5EAc033E0hDl8hFG_dk4c8AzkQT-LoEsGJNpOjtOC2VFDZEPlA5JJIVYqrzsOysYMNsgV1uWY9ec5bS6qGh5qZ9OnhS00qpg-9itrGDThFPR8o6lHOJsHoJgxuWvEZzVky80ySYeNZuevVn_7EFA8H92wnXzogllWrPdHgwVUrA20nFCM9W8RxdCYy0hn3srYklDfC2i3mDYZUTiFFXi4spSLjIetWhag36vRWmoScog5KUMIgzUYum2lF6bsohDtT2T0JUzkfBcy2WdAeNg8Vz4ikrL0aXtql5XOv0Oo5GP9-T-sBdKGaU9uB5ht3dDCQ8275SNaUvZaG5baya0hpSFJ8NiHlBpOTrE3Fqd6KTwNEqL1neq8GEDqIWvtNiqZDuGgGfSUvRp3dZ3h3zRTw9az8Xl-HIQrEXUHg7Z5JK_WkiMXF_KyPKSOlRDRWGzSqQynILLSxmk5L7ewCh9xrM_35QHiGlL2WgxV4en0-nx1c_rP84g5OUMvHiutxTbgx4jYcfc8jpkqlIesh_XXSo8wFATea0cjytp0lhrtQ_bCvOXSC6lNc91R5lItlczKHf6KRHLEfeRmaqO8pBNvd5EGyjDlIelAuksY6qjPFBx1-oOBKxeSkPLdNEbrilnocV2rcnc6rX44PACXcxmrijn4DXqacFmX9nWjTNp6VevP72bFksy9nb7PnFlKZd0WFSLbHAzYGQHp0yCjWtL2eiZV71O9Vssp-HHZGl_mFww8Fsb9B7O2JDu2EyVqjs2sqmamip1rtLkbotA-IWTw4NvEK6CDP1Of9BqXBOBs1wzdxVBugBS8CHDsO5fst8H9p_gyj8RGJamZ89I6RUFPUjgdlfRIathwcdrytXuu1140b0OV9eGt8KZr9npxxXmVOYU4dge-Zc6djgc5i4TNa4aaxytbc9tjL6xG2VwMc3FK3vrJ3APrGFvk3C-C5zGiN7samw30FCseTYMwpoJ3_8D-QJUEQ==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWgtvo0gS_istj7K60yUTwG9rFIln1isnQXF2s6fzCRFoT1AwWIB3xjuT_37VL4x52NgXR4rsKur7uqu7q6ua_tHxYh93Jp2Lix9BFGQT9GPRyV7xCi86E7TovLgpfLuEbyn2NkmQbWf4LxwyZRjHQktN_nCTwH0JcUrUgLOMo2we_M2h5MH6O3uYyC13FYRbppnjrzFGv08vkQoA4SVK3Si9SnESLBedd2oRxt-8VzfJOPImxXfu9-fAz16JZOmGKSbPvWarcOa-4JA2IUs2VBpBF-dr1wuir0Tck4gwcaO3grAvvb-j94uLRZRzoSdtESH4XFygqytom_ca3LkZRt3PCvoXUv_eJBil2TbEyAvdNMUpPMYs6G8DL9HLJg0inKaIfpZBGE4-WfDRupdplsRvGH6O1ZHS5z-vvpE-TZT190svDuNk8kmSpBKmu16j3Ydh6rrZt6wcU5KGI6N3ALOrDvQSrO9mbhlW0wzT0nJYuT_o69I-rFyANXpDVRZq303Bi4m7BeeifolsFfh-iL-54MGCX0xJU3Iyc9CXJamxD5rVHUjlPuA4rLjGsnTD2MHqA2WkjJphh7Iul2FT103LsKasmeYwhx1qsqUqjbA9Ve6NyrBeGG_80z2ulD1ego2jdYJXpfkxMgf6OIdVzKHRbW6trPVNBaYdA043L18Td_2K1Nl_Fp3Fxh91ffjvd_tIte3ZVFefpg_3aKb-23xcdP7LjMjHDxLsZUEcodnjTprDGXNJkfTZvaPFm8h3k62jrtdh4LnEJAUqtNgoL_ILEnpU1O8xNbORDyNy7tTHebEDHh4gIgOkyWQCq6rWam6bplE2o8LDdn-av1fYiKzGCkf-IffoZJo4dhL7Gy9LnRn-6nrbgnuoHgk9-gd74J-nO2iu2s5UsyudVW0E4tMbbkBEcZ5hjb_GELALLSYKlCtObygNvY5qWOWmspgMisNjQ_i1JPDe0jLATnMYwQoiN_Kw86t6r5YxuA4R3ZG5FcXfrNB9wxWXC8XpTjd11bFDN1vGyargchAjIT7d4fpUeyy3kcgOd89UnypLgMi-vCTXN1-CG_Nh9uU6uGEgELrrQfSKg0F0mHiqP8yfylZUeIY_H21nvk0zvCqGJJAiLj3Dm9b03pk7vYpHQY7m173DndPjZO1M7VoAUKFrNLUJivCyYf6x83LjTISlb-p63dIH8eleuzPnNV4D6fleI5BdSapEcMAE8eHuPcfJ2zxLsLsqm-80Z3QyT2KcaZRh0JL2F_u7y3J-QYVHzoh49vTWNCvhjkoPd53tBs6dcVu2ZhoEmuNzQ3sw5nWTg8iPW9sPdbb2wxHLwMe6m1RMmfj04XrE6zjJIN8vjFAuO31ItAftt3LbiOxITDSeK-HMeD6y2VRDoHUsBNrmbcWIyI65jZnfPTsG7f9ewicPEZMykF0O32hOR1-3p_UwEKrIPAB9C8AGpJYAhulokAg78dIhJRwpM9Obonu8HiIPoHiJ8gdEBJ0asQdt1eeFQEqqpToSXu_RFKNCIIpBohTgv80hd24Hrsdp5pghVNpRVsYmOsR1pXZDIpFBUhLiowQsc4Gu87VSJsn1fN0IImg88NiGdZwhhoF3oRt1_hHKPf8wbOKlo-C3M0f1PCgWKg2_nSGuEbAaxE7AfaBUx4Cn0V_g1jjZlnFzxRlTRUwz-AI7YlKGFmrE1GcQQLoX1fqZKE7wMY0P7Ov-VgzHHTc_Fx0RE36WV3_RJhcSo2KNtAdMBByVbJdJ5Ibn4LJUL6pNAP7vRtOSMSrVlac1mmbGJ5rQkpPbiN3zZyU8llrPpcXms_14H5qKmrH3Y3mtg5qYSPLY1Ivzh4DsmFFtjsOhaU7Tqge0tDnJraJfwmj29CHO4llNVE2AOJE-tc4b8bxa3gPPpRyefLODNQ5hizpnTAqVc1Rban_Aut6VxVF9QdQwJq1dRSrLaL_4_IBm00q5Yc61Xf40pBXmKUu8zw0A1DqqyfEPMRxYRPtLApIDcUz3EUtDlMsHGM2n2ZkDXook8LsBsmZMrHx2nBbK6hpSPFDaJykoxFLlZd9ZwYDZRpXashm75Syn1cWRljf66eRJQSutI2wfu5XVbJpwKtrcsZxDHM9DECy5_DWB43ry1ipbp5Pr68Bdrz4HEBDCz168uv50DWXataIMxxIpWDv5OKGpat-hT0LjvEA-91bHkof4VkT94bjHiMQpaoGLKxu5yHi0opGH8F6H0lCTnEHIGxlEGGjF0pOlvkJZxKHajknomplIeG7lsu6QcbB4LnxFpc3ohe2qXVe6gy6jKR7vFfvDHmhkLOzB7Qh7_REl3Nu8czambWSjuW2rmSCPKQtPhsU8oNJmdIi5rTrRzeFplBat7x7Dhw2gFb4ks1XJdgwBz6SN6Fbb1vfGfNFbe63n4mb8YhBsRaSMx2xyFd9aFBi5vpGR5SVtqMaSxGaVSGU4BZc3MhSS-3YDIw0Yz-58szhATNvIRou5Njzdbp-vfl7_cQYhb2bgxXO7pagM-4yEHXMX1yFTNfKQ_bjtUuEBhpoU18rhuJInja1W-1iRmL9EcllY81x3kIlkey2DcneQE7EccReZqeogD9nU2020oTTOeVgqkM8ypjrIAxV3q-5AwOrnNLRMF73hmmYWWmy3msxyX-aDwwt0MZu5opmD16inBZtdZds2zuSlX7v-9EcySzJ2drs-cWUjV-GwqBXZcDRkZHunTIKNaxvZ6JlXu04NZJbT8GOyvD9MLhj4rQ16MUmb7S4dGYXrKg2XjoqmqjA1u5ZiGcfuFlVui0D4hZPDvXcQvoRm5q15b7S4JgJnuXblKkLhAkjNi4yZc_dcfj-wewXX_Ipg5hhm-YyUXlEwowxuvNUdss4ceHlNuZSB34MH_at4eTULlrj0Njt_ucKcypwixqRP_nLHjsfjytWqzmVnhZOVG_idyQ92yw4u6_l46W7CDO7GddxNFs-3kdeZ0Ntunc0aGoqNwIVBWDHh-_8AmjOlNw==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -2267,12 +2278,15 @@ The S/4 HANA architecture represents the **target** landscape for DS-020. Target
 ```mermaid
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "16px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
 flowchart TB
-    %% -- ArchiMate-inspired style classes --
-    classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
-    classDef app           fill:#B5FFFF,stroke:#0077B6,stroke-width:2px,color:#000
-    classDef data          fill:#B5D8FF,stroke:#0077B6,stroke-width:1px,color:#000,stroke-dasharray: 5 5
-    classDef middleware    fill:#FFD6A5,stroke:#E76F00,stroke-width:2px,color:#000
-    classDef eol           fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#000
+    %% -- ArchiMate 3.2 + Azure style classes --
+    classDef business      fill:#FFFFB3,stroke:#F9A825,stroke-width:2px,color:#000
+    classDef app           fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef data          fill:#BBDEFB,stroke:#1565C0,stroke-width:1px,color:#0D47A1,stroke-dasharray: 5 5
+    classDef middleware    fill:#FFE0B2,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef eol           fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
+    classDef saas          fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
@@ -2485,8 +2499,8 @@ flowchart TB
     click DS020F_WorkStream href "https://iapm.intel.com/#/app/37871" "WorkStream -- IAPM #37871" _blank
     click DS020F_XEUS href "https://iapm.intel.com/#/app/35612" "XEUS -- IAPM #35612" _blank
 
-    style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
-    style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
+    style BL fill:#FFFDE7,stroke:#F9A825,stroke-width:2px
+    style AL fill:#E3F2FD,stroke:#0078D4,stroke-width:2px
 
     subgraph Legend["📐 LEGEND"]
         direction LR
@@ -2498,7 +2512,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNrFWwtv2zgS_iuEiyxSIGlkO7Zjoyggv1ov7EZnpU0Wl4OgWHQiRJYMSW6Sa_vfbyiSEvV-JMVlgYU7Q843HA6HnCH1s7VxDNwatY6Ofpq26Y_Qz9uW_4B3-LY1QretO92DXyfwy8Obg2v6L0v8A1uUaTkO5wZdvuuuqd9Z2CNskLN1bF81_8tEtfv7Z9qY0Of6zrReKEfF9w5G3xYnSAYB1gnydNs79bBrbm9bv4MelvO0edBdn0k-eHilP1-bhv9AKFvd8jBp9-DvrKV-h61ABd89BFQbhqju9Y1p3xPyuUSIrm4_CsSe9Ps3-n10dGuHWOhqfGsj-Ds6QqenoNvmwVzpPj41bW9vuthAnv9iYbSxdM_DHrShzYN_T_EW3R0808aeh4K_rWlZo3dz-Bv3TjzfdR7x6N344qIvjdk_T5_IgEad_fPJxrEcd_ROkqSETH2_R9EflTnuEamhTEkaDMb9GjIN3dfTMqcXJTLbMZmcZ-geGM_VX8CmqJdA2pmGYeEn3cWiRaZ9ObLIbNCfR9IqaI8dK2URYmPBypOJJJXJpFK9w929q-8fkLz8923r9mBcdA34v9HtIVlRlouJfLW4_IqW8j-z9W3rP7QT-TPAITa-6dhouY6oobipKnWk-fKrNnYOtqG7L5q831vmRiddPIBCt4fOXfsOcT4S-TGkfDTyR4G02WSlXZu2AS5rWeJINriPgImOQ-57kD4ajcCxMiV9JvqbPp44tg2YSVkJdrGslbxWkwIIrbiXqsxm02S3gFjc72b2LYVGaBm9sG0UTdrEcg6GpriOcdj44mwFDMQZ9adpMdfG1gFr_zi2gd2ksos5IlxEucWDXSiFkpTqklRZ0SAO3-kpk8sKChjl_RdjJas3kMv7KrKyyupM6B_v3LNPH81P09n3j2fmp3JhqjzJkgXk-l4wm8iaYun-1nF3gg8AGXFyfQ-Y6GQP8l-0uQMtdc_XphCNNdWHfyY1520Rb4tIWxS0LTYFUV2eLtV0JJBPCb28N0Eau-bm0cuSEXHLJam28zS39EecJShklnj7XFOmXzQIOt5htyf21a2M1QNtUKxNJanzIAQXChWbVJK51p9yRAGndGWXj1VJj7XWWmEghUNXUkNvApFlCYVbolxgjTVK4HLWKToG3vv6q7V0Imp6XJnN6_lajnnzvazMmGtFtN9aaRDe5ouvmqqda1_kr3IqngETqWfniDCLhzZx3D3xoFxRwEdnxJO4vHq-Oc-VDMu0ushyg2qzZx_bHpgMYrwOE2s5No5bGYVN0HHUpoG3BhsgDGs1_Zy5CcKwgFV_GCvdPmz1jQ_5oH0PA4LM0A8G9OL5eCeej2ItUdgSsZb1h7SaqVpXklKHyJmKgFw8ydeO-6j6LtZ3ye4R57XGWOO94_rkV5kxwpbNjSFfTdbJoRBasRmmq8t0t4BY0u8mo9tNWa_5JHXoABJfSbPLZbSSIJHLXpwTVVMeHGybz6nFOVEhlFNeSR6jphVRaypyrSrXKdcBWgOnCfNgbWH7GLhknkVfiRLlv5DQpMmWBWNffUlvCvNTINeKksp0pV1B3cSDXdRx0xJXKOLWt0m4IAQzhLQG43aesKuNF9pUXqdygICJxgt0TLjvy_OI8eX476wYSujlPlQyctU08ER3tS-6rWvTsTB-xkGEg6bjBlsAFZBSnZLLJokKWV1r0wAnVhFpDxClUiFRZSe3e2DIibLIFgO7NzEo8CsIXB0srDpbX5Ptl71j2inVeAPEG1QQmqNeRa2mM20M1RTN2WqkSEgKmd4n0eybc0QaIGeLwgbcdRZTZwMGmKjCKiRVuSwQVlQMMrIUAK84EiYX_rcKFatqwicOJKAzC2q5tp-UTXiI8RJ6Q8bmo7lp4VKAuWnr9gaGzpZ7EiTks6XPgUB5wIGgVY4g5tEp8WLiHJdNrFQqfGH_gNE77ktScMhoMKPcG-AHHATcpGjORpTdAACyHjvTHITR1BTKAerhcDugXbpGWmnORQE3ofPNalkq_l8H3SJlkTXeOK6RFM-4iHIbmETV4ZoiW_WA1Vjv7xBAHTdnKimz1kQG8Zj-jB-B4brh06_bFo_Bv5LRVuwTEkknsTwaE0wIr5bKjhsxwYzGZM_kBWLVYnJM-JUKwAkMRhVBhHQtBiTQGZi6vMoYRQ5SnCkCxtLYGGSUOrzadEEl3E6Uy-tIjVf9Wc_ksazJlIrHvsTMiqxyxMozLKSuMUCBzi2znsMpjtRBYcfgNyZo7uo7_OHDh7eY_BxvK3aYRL0iPghyd9FkemI95ekchgx7mQzQcHiaXynHY8u5e99kjnmBOOFOlMgAv9kk5E7A1JZz3xREqBTbuSVmvnihGLwlxeAoXpCBAnVv7nFTDaISs51_zcU0CI-Rf4GpLfCsGGjqFJrAT_EreHihV_Fju11QGasd-OLBrX53nqPU8crKcSDTL6GA8OpgW3TvErdOQUNhzGeQnqHYCgHS1UN2CEq5fuiTCb87G19O1bfzudx9M6qw1NpvSLGpVge13swFNad6HUgdq1YPUsCp1SF-Z1vmAhMn6QKvnUFW5U_qxMhv4ZKZCybjcixLBZH_VvtG1m1fFnaswVvsIZlrc413jo_R_GDTyots6Hs4zoPU1ZtONb8Lj49U-X86n5LtfMqfdz6lxPmUP-d8SpnzKX_I-d7QqG9hnT8zyjKfKz5I0xceXA_4FSQCs2dSOkIqdn-YG4yOZeVNl0H-ITKpj4Iug7d1HtXEQ0-m_4A2jl0rMym2T25myuOHoI1wkYDUA5x2yTzt9Ora8Mc9bxx4ojdHXPDevMdEO96thqysmP32mUTseiHvPPzq1JNfPfAS0AYS3Mfsc_uDC28hyQtYf--Nzs5Mfb_7AKbB1oeNszt7dwZV_rPzttTrkNuFVuzqnbxuXRBPeccbaHdQGXzMwiw6DVdRoTvoXJxTFQpeM0Ua8fb5GiXzn2qG6Pa7VIvUwwHRGrRVLjY9bVYBbHf5sPkJlWFwRj7GTX2Im1oIYZpfyXLddnsYoPC3Y4K9GK8QScjy6-PFSgR1UKOAUB9UDCbVMcVKXKWFcTEY9Bhm7HmusBZYk1xUkhhXwRp2hoMAimbSTDyj5kpPlkgqjarfHV4EUOkCCx8Va5KLK2anlRbC8HxAhxd7HiCsCNYgHzGe4lUMrecSBY292o3F1qBFEWr6iFUJWxqcDzh26gWaoAFrV6ZB7KDYSIHEUbMmPjn0NoKlp-UaaA03DeFNWI3dIpG7VfSqLg1E8RfcMa_qDktQG3tVT-LYxV7Vkypo0MSr4grkelUl_BpeFYdNelUxWnBpUyk0dntd6r3snofHQ0bPR2AXgNUcqMN2FfZETvScTvFuwq_tquD0hp0LujbYw6IIh7MKcF4X9F4T8V4Z7l4R65oFuvpRLpaoVELrd_s9GnQSz6QiVN4kFzVK6Krt2L0-RQy_MRF3a8osxCJJUjWodpcdDvjzLQGJ8QqRSPZbcc6kaEw0Z47mTCodUZC6V1vi51I7BGIZf7jGKa8QiVQsqqVuIhCtc4RZWhUcdm9bzXpS_yLCoi-VRQtSdj5exZNwB7Ij5g7iUZiT8-UHF7GVrNbutRkCu7zlNmOMfAxWSKhkr85wSONvVH7gtmKsXJzgBqSap7GsiN2ZhE5WnAsJTySqudnFgLpZ7G1F6GmUm4sWvGKphNPrt2kxhD184QiMzhHYh6HBp77jpfAZ71wq-4xX7CqHXaUqX-umPkhd4nt4CxR7yGlIaDn7PPs6rfAl6lKD71dTj8Wjb0wznoIutdV16l1l9P4x9z3kUpvOki-faF3W9qHek_V8aqnB49kAq9M3zqGhcepsT5fmFide04bPU6lRqVG4YXvkv9Cww-Ew9b1y66S1w-5ON43W6Cf9aB2-fTfwVj9YPnxq3tIPvqO-2JvWKPh4vHXYg6J4auowCTtK_P0_8njouQ==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNrFXAtv2zgS_iuEiy5aXNPI7zhYFJD1aL2wG12UNl1cDoJi04kQWTIkedNst__9hiIpUW_JSXEpsEhmyPmGw-GQM6T2R2_tb3DvvPf69Q_Hc6Jz9OOmF93jHb7pnaOb3q0dwm_v4LcQrw-BEz0t8V_YpUzX9zk37vLVDhz71sUhYYOcre9FpvM3E9Wf7L_TxoSu2zvHfaIcE9_5GH1ZvEMyCHDfodD2wpMQB872pvcz7uH6j-t7O4iY5EOIV_b3a2cT3RPK1nZDTNrdRzt3ad9iN1YhCg4x1YMhmnt77Xh3hDySCDGwvQeBOJZ-_kQ_X7--8RIsdDW_8RD8vH6NTk5At_W9s7IjjIbvB-hfSP77EGAURk8uRmvXDkMcQjPaI_5bxVt0ewgdD4chin-2juuev9LhZz58F0aB_4Dhz5l8NhizP08eyZjOB_vv79a-6wfnryRJysm093uU_lCZiqKNdT2RKUnTM3VUI3MoT5Sc2I0d2Xmx87mq6fNEbH88GStSVmxfEKuOpnKfszd2CFYM7CcwLhrnwHbOZuPiRxssKNhFk-aDBEybjPuSVDmGuT6cSPkxYN8tmEbXFVVNxSqTwdngrFrstK_082JD2w7zYrX-XNOmidjpvK_Lg0qxI7k_OsuLXbv-YdPd4oO8xXNifW8f4F3OP860iTJLxA60qTqs1rY_H2sDcDsqODzc3gX2_h7Jy__c9G4Om7PhBv67GY6RbBjLhSJfLS4-o6X8p3Z50_sv7UR-Nk6A15Hje2h5mVITcaopDSR9-dma-wdvYwdPlrzfu87aJl1CgEI3h8Ft_xZxPhL5GaRqNPJDgSxNWVnXjreBZey64kjWeIKAid4k3Lcg_fz8HFZaqaSPRH8nworveYCZl5Vj18tayZdmXgCh1fcyDU1T891iYn2_b9qXAhqhlfTC3qZu0hTivJYR-JvDOhJnK2Ygzug-TQvdmrsHbP3pexsc5JVd6IhwEeXWD3Zh1Eoy2ksyZcOCvenWLphcNlDMaO6_mBtlvYHc3NeQjVVZZ0L__TY4_fC780HVvv5-6nxoFmbKSpksIHf3Ak2RLcO1o60f7AQfADLi5O4eoNhkX46eLN2HlnYYWSrsTZYZwZ95zXlbxNsi0hbFbetNQVSX1aVZjATyCaE39yZI88BZP4RlMlJusyTT8x91137AZYISZoO365ahfrIg6ISH3Z7Y13ZLVg-0QZk2raTqcQiuFSo2aSXz0n6sEAWcxpXdPFajONZOa4WB1A7dKAz9GIgySxjcEs0CO6xRAlexTtEb4L3tvlobJ6KjxzXZvJuvVZi32suajHlpiPa7NI4Ib_ris2VaI-uT_FkuxDNgIvN0hAizfmiKH-yJB1WKAj46JZ7E5XXzTb1SMizT9iKbDWpp3yPshWAyiPE2TKzrezhrZZQ0QW_SNkd4a7wBwrBW6sfSTRCGBazuw1jZ3mFrryPIkb07GBBky1E8oKcwwjvxfJRpiZKWiLXsPqSVZlpDSSocIjUTAbl-kq_94MGMAmzv8t1TznONcYn3fhCR35qMkbQ83hjylXKZHwqh1ZtBXV0Uu8XEhn7fSrp9a-qlK4VDB5D4StIululKgoS2fHEqpmXc-9hzvhcWp2JCKKe8hjzGLCpidlTk2jSuC64DtCOcJikJWAsvwsAl8yz6Sloz-A0JTY7ZsmDsq0_FTUE_AXKnKGmoK-sKakkh7KJ-UJS4Qim3u02SBSGYIaEdMW7_EQfWfGGp8mUhB4iZaL5Abwj3bXMeMb-Y_1EWQwm92YcaRm46G6zYgfXJ9mxLnQvjZxxEOEidH7EFUAEF1Sm5aZKokNW1pcY4mYpIf4oolQpJi1yV3WNDKsaiXAzs3sSgwG8hcHVwselvI0v2nva-4xVU4w0Qb9BCaIV6LbVSNWsO1RTL31qkcEqKu-EH0ezrESINkL9FSQPuOgvVX4MBFFNYhaRGWQbCqqxxRlYA4CVYwuTC_zChYtVOuOJDAqq5UN_2orxswkOMl9MbMrYI6Y6LGwF0x7O9NQydLfc8SMJnS58DgfKAA0GrGUHMowvixcQ5K5tYqVH4wvsLRu8HT3nBCeOIGeXeAL_AQSDIi-ZsRNlHAEDW45WagzCONYVxgDsCuDGxLoJNUWnORTE3p_O31bJR_L8PtkvKIpd47QebvHjGRZR7hElMG65uylWPWUfr_RUCqB9UTCVldprIOB7TX7NHYLh_-fDPTY_H4H_y0VbskxBJJ7E8mhFMCM-Wyo4bGcGMxmRr8gKxajE5JvxTCMA5DEYVQYR0LQMk0BmYubwqGUUFUpYpAmbS2Axkmjo823RxJdzLlcu7SM1W_VnP_LHsmCkVj325mRVZzYitZ1hIXTOAAp1b5lKHUxypg8KOwW9MkB7YO_z-_fuXmPwKb6t3mFy9IjsIcndxzPRkesqqDkOGvUwGaDg86VfGm7nr3749Zo55gTjnTpTIAL94JOQqYGrXvzsWRKgUe5UlZr54oRi8JcXgNF6QgQJ17-zxsRqkJWav-pqLaZAcI38DU7vgWRnQwik0h1_gt_DwWq_ix3avpjLWOfBlg1v37jxH6eKVreNAqV9CAeHZwbbu3iVrnZqGwphPIT1DmRUCpKv78hBUcP3EJ3N-dzq_UM2X87nKfTOtsHTab0ixqVMHs9vMxTWnbh1IHatTD1LA6dQhe2fb5AKKn3eB584gq_LndWLkl3DJ0gVTcjlWpoLIf6l9o-y2rww70-Al9pDStXmJdz48jNIPHq28yBt7D8d5kLp60anmd-HZkRr_T-czyp3P-PXOZzQ4n_HrnM9ocj7jFznfCxr1Jazza0bZ5HP1B2n6woPrAb_FiYD2nZSOkImDv5w1Rm9k40WXQfUhMq-PgS7il4Yh1SREj050j9a-1ykzqbdPZWbK44egjXCRgMwDnHbJPO3s9trwxz0vHHjSN0dc8N65w0Q73q2DrLKY_fKZROZ6oeo8_OzUk1898BLQGhLch_Jz-30AzyHJq-BoH56fnjr2fvceTIPd92t_d_rqFKr8p6O-NB6Q24Ve5uqdvPhdEE95xRtYt1AZfCjDrDsNt1FhOB2cjagKNa-ZUo14-2qN8vlPO0MMJ0OqReHhgGgN2qoSm5422wD2h3zY_ITKMDijGuNbd4hvnRCSNL-V5Yb9_ixG4W_HBHsxXi2SkOV3x8uUCLqgpgGhO6gYTNpjipW4VgvjbDodM8zM81xhLbAmlagkMW6DNRvMpjEUzaSZeEatlJ4vkbQa1WQ4O4uhigUWPirWpBJXzE5bLYTZaEqHl3keIKwI1qAaMZvitQytI4mCZl7tZmJr3KIOtXjEaoUtTUdTjl14gSZowNo1aZA5KB6lQO6o2RGfHHqPgqWn5Q5oR24awpuwDrtFLndr6VVDGoiyL7gzXjWcNaAe7VVjiWPXe9VYaqHBMV6VVaDSq1rhd_CqLGzeq-rR4kubVqFxOB5S72X3PDweMno1ArsAbOdAA7arsCdyoucM6ncTfm3XBmc8G5zRtcEeFqU4nFWD87yg95yI98xw94xYd1yg6x7lMolKK7TJcDKmQSf3TCpF5U0qUdOErt2OPZ5QxOQbE3G3psxaLJIktYPqD9nhgD_fEpAYrxaJZL8t50xKx0Rz5nTOpMYRxal7uyU-kvoJEMv4kzVOebVIpGLRLnUTgWidI8nS2uCwe9t21pMmZykWfaksWpCyq_FanoQHkB0xdxCPwpxcLT--iG1ltf64zxDY5S23GWNUY7BCQit7DWYzGn_T8gO3FWNV4sQ3IO08jWVF7M4kcbL6XEh4ItHOzc6m1M0ybysST6PcSrT4FUsrnPGkT4sh7OELR2B0jsA-DI2_fZ4v0--aVeGL2IrvmsWuMu-qDfWBrjZ9vlz4IHWJ7-AtUOYh50ZCS-2j9llt8SXq0oLvVwuPxdNvTEuegi6t1XXhXWX6_rHyPeTSUrX8yydal_UiqPeUPZ9aWvB4NsYaTDYjaLg58bcnS2eLc69pk-ep1KjUKHxOxuRfYtjZbFb4erv3rrfDwc52Nr3zH_RDfvj_AWzw1j64EXx-37MPkW8-eeveefxBfe-wB0Wx6tgwCTtK_Pk_7T057g==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -2798,27 +2812,27 @@ flowchart TB
 ```mermaid
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
 flowchart TB
-    classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
-    classDef platBox fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
-    classDef eolBox fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#660000
+    classDef appBox fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef platBox fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
+    classDef eolBox fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
 
     subgraph DS020CPLP_Azure_Data_Factory_Cloud["☁️ Azure Data Factory Cloud"]
         direction LR
         DS020CPLA_Azure_ADF["Azure ADF"]:::appBox
     end
-    style DS020CPLP_Azure_Data_Factory_Cloud fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020CPLP_Azure_Data_Factory_Cloud fill:#BBDEFB,stroke:#0078D4,stroke-width:3px,color:#003A6C
 
     subgraph DS020CPLP_Databricks_Cloud_SaaS["☁️ Databricks Cloud SaaS"]
         direction LR
         DS020CPLA_DataBricks["DataBricks"]:::appBox
     end
-    style DS020CPLP_Databricks_Cloud_SaaS fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020CPLP_Databricks_Cloud_SaaS fill:#E1BEE7,stroke:#7B1FA2,stroke-width:3px,color:#4A148C
 
     subgraph DS020CPLP_Google_Apigee_Cloud["☁️ Google Apigee Cloud"]
         direction LR
         DS020CPLA_APIGEE["APIGEE"]:::appBox
     end
-    style DS020CPLP_Google_Apigee_Cloud fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020CPLP_Google_Apigee_Cloud fill:#FFE0B2,stroke:#E65100,stroke-width:3px,color:#BF360C
 
     subgraph DS020CPLP_Intel_Custom_On_Premise["🖥️ Intel Custom On-Premise"]
         direction LR
@@ -2829,99 +2843,99 @@ flowchart TB
         DS020CPLA_MARS["MARS"]:::appBox
         DS020CPLA_SPEED["SPEED"]:::appBox
     end
-    style DS020CPLP_Intel_Custom_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020CPLP_Intel_Custom_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020CPLP_Intel_ECA_Platform_Azure_Cloud["☁️ Intel ECA Platform Azure Cloud"]
         direction LR
         DS020CPLA_ECA["ECA"]:::appBox
     end
-    style DS020CPLP_Intel_ECA_Platform_Azure_Cloud fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020CPLP_Intel_ECA_Platform_Azure_Cloud fill:#BBDEFB,stroke:#0078D4,stroke-width:3px,color:#003A6C
 
     subgraph DS020CPLP_Intel_EDW_On_Premise["🖥️ Intel EDW On-Premise"]
         direction LR
         DS020CPLA_EDW["EDW"]:::appBox
     end
-    style DS020CPLP_Intel_EDW_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020CPLP_Intel_EDW_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020CPLP_Intel_MES_On_Premise["🖥️ Intel MES On-Premise"]
         direction LR
         DS020CPLA_MES_300["MES 300"]:::appBox
         DS020CPLA_WorkStream["WorkStream"]:::appBox
     end
-    style DS020CPLP_Intel_MES_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020CPLP_Intel_MES_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020CPLP_Intel_Middleware_On_Premise["🖥️ Intel Middleware On-Premise"]
         direction LR
         DS020CPLA_XEUS["XEUS"]:::appBox
     end
-    style DS020CPLP_Intel_Middleware_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020CPLP_Intel_Middleware_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020CPLP_Pega_Cloud_SaaS["☁️ Pega Cloud SaaS"]
         direction LR
         DS020CPLA_PEGA["PEGA"]:::appBox
     end
-    style DS020CPLP_Pega_Cloud_SaaS fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020CPLP_Pega_Cloud_SaaS fill:#E1BEE7,stroke:#7B1FA2,stroke-width:3px,color:#4A148C
 
     subgraph DS020CPLP_SAP_BusinessObjects_On_Premise["🖥️ SAP BusinessObjects On-Premise"]
         direction LR
         DS020CPLA_BOBJ["BOBJ"]:::appBox
     end
-    style DS020CPLP_SAP_BusinessObjects_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020CPLP_SAP_BusinessObjects_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020CPLP_SAP_Data_Services_On_Premise["🖥️ SAP Data Services On-Premise"]
         direction LR
         DS020CPLA_SAP_BODS["SAP BODS"]:::appBox
     end
-    style DS020CPLP_SAP_Data_Services_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020CPLP_SAP_Data_Services_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020CPLP_SAP_ECC_6_0_On_Premise["🖥️ SAP ECC 6.0 On-Premise"]
         direction LR
         DS020CPLA_SAP_ECC["SAP ECC"]:::appBox
     end
-    style DS020CPLP_SAP_ECC_6_0_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020CPLP_SAP_ECC_6_0_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020CPLP_SAP_ECC_MDG_On_Premise["🖥️ SAP ECC MDG On-Premise"]
         direction LR
         DS020CPLA_Legacy_MDG["Legacy MDG"]:::appBox
     end
-    style DS020CPLP_SAP_ECC_MDG_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020CPLP_SAP_ECC_MDG_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020CPLP_SAP_HANA_Sidecar_On_Premise["🖥️ SAP HANA Sidecar On-Premise"]
         direction LR
         DS020CPLA_Finance_HANA["Finance HANA"]:::appBox
         DS020CPLA_SideCar["SideCar"]:::appBox
     end
-    style DS020CPLP_SAP_HANA_Sidecar_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020CPLP_SAP_HANA_Sidecar_On_Premise fill:#B2EBF2,stroke:#00838F,stroke-width:3px,color:#004D40
 
     subgraph DS020CPLP_SAP_IBP_Cloud_SaaS["☁️ SAP IBP Cloud SaaS"]
         direction LR
         DS020CPLA_SAP_IBP["SAP IBP"]:::appBox
     end
-    style DS020CPLP_SAP_IBP_Cloud_SaaS fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020CPLP_SAP_IBP_Cloud_SaaS fill:#E1BEE7,stroke:#7B1FA2,stroke-width:3px,color:#4A148C
 
     subgraph DS020CPLP_SAP_Process_Orchestration_On_Premise["🖥️ SAP Process Orchestration On-Premise"]
         direction LR
         DS020CPLA_SAP_PO["SAP PO"]:::appBox
     end
-    style DS020CPLP_SAP_Process_Orchestration_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020CPLP_SAP_Process_Orchestration_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020CPLP_SAP_S_4HANA_Central_Finance["🖥️ SAP S/4HANA Central Finance"]
         direction LR
         DS020CPLA_CFIN_S_4["CFIN S/4"]:::appBox
     end
-    style DS020CPLP_SAP_S_4HANA_Central_Finance fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020CPLP_SAP_S_4HANA_Central_Finance fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020CPLP_SAP_S_4HANA_On_Premise["🖥️ SAP S/4HANA On-Premise"]
         direction LR
         DS020CPLA_Corp_IP_S_4["Corp / IP S/4"]:::appBox
     end
-    style DS020CPLP_SAP_S_4HANA_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020CPLP_SAP_S_4HANA_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020CPLP_Snowflake_Cloud_SaaS["☁️ Snowflake Cloud SaaS"]
         direction LR
         DS020CPLA_SnowFlake["SnowFlake"]:::appBox
     end
-    style DS020CPLP_Snowflake_Cloud_SaaS fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020CPLP_Snowflake_Cloud_SaaS fill:#E1BEE7,stroke:#7B1FA2,stroke-width:3px,color:#4A148C
 
     DS020CPLP_Intel_MES_On_Premise ==>|"Direct"| DS020CPLP_Intel_Middleware_On_Premise
     DS020CPLP_Intel_Middleware_On_Premise ==>|"Internal"| DS020CPLP_Intel_Custom_On_Premise
@@ -2947,9 +2961,23 @@ flowchart TB
     DS020CPLP_SAP_HANA_Sidecar_On_Premise ==>|"SAP PO"| DS020CPLP_SAP_Process_Orchestration_On_Premise
     DS020CPLP_SAP_IBP_Cloud_SaaS ==>|"Direct"| DS020CPLP_Intel_ECA_Platform_Azure_Cloud
 
+    subgraph DS020CPLLegend["📐 PLATFORM LEGEND"]
+        direction LR
+        DS020CPLLC["☁️ Cloud"]
+        DS020CPLLS["🔮 SaaS"]
+        DS020CPLLO["🏢 On-Prem"]
+        DS020CPLLD["💾 Data Platform"]
+        DS020CPLLM["🔗 Middleware"]
+    end
+    style DS020CPLLegend fill:#F5F5F5,stroke:#999,stroke-width:1px
+    style DS020CPLLC fill:#BBDEFB,stroke:#0078D4,stroke-width:3px,color:#003A6C
+    style DS020CPLLS fill:#E1BEE7,stroke:#7B1FA2,stroke-width:3px,color:#4A148C
+    style DS020CPLLO fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
+    style DS020CPLLD fill:#B2EBF2,stroke:#00838F,stroke-width:3px,color:#004D40
+    style DS020CPLLM fill:#FFE0B2,stroke:#E65100,stroke-width:3px,color:#BF360C
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1mu9zojgYx_-VDDt9172ldXV7zuzNyK-eN3ZlSvd6M-cNEyEqVwQnwLZu7f9-TxKsp4IQWnwhAZ58nycfksck-Kx4sU-UvnJ29hxEQdpHzxMlXZAlmSh9NFGmOIHSOZQS4mU0SNcj8oOE4mYYx9u7vMqfmAZ4GpKE3QadWRylTvAzl7r4vHoSxuy6hZdBuBZ3HDKPCfo-PEcDEADxF24Vxo_eAtM0V8sScoOf7gM_XbArMxwmhNkt0mU4wlMScrcpzfjVCJrlrLAXRHN2-bPKLlIcPfzvYld9eUEvZ2eT6NUXutMmEYKPF-IkMcgM4dVKi5_QLAjD_geta1iWdZ6kNH4g_Q-q-uWL1stPPz6y0PqXq6dzLw5jym53jO6h3irE6U5QvzJ7-q-vgp2rK7Oj7wt2doIXWte8VA8ESRzu9CxL62rdVz1dV-FTGmCvx25PIqGYZNM5xasFMhz1UtXtke0OfmaUuAZOsWthL43p2tXDOPP_niiT7LKnXkyyGVFniNshZodyO8TtJso_Qpt9_IASLw3iCI1ud1e3zga5s4FhgboQhDIo9Pt98RBEJRL5ebzpOiQ1gn0T6lI0zM-UBt5DIry4DsbOIZedkeCBmJEUFKagcQXQ3p1IYCkMtB0m13E8D-ERroI5IcU9RZggYdKkk9jDa9NkPYQXJDgUBNcOhWGUktDVsySNl-44cm1KlkFCOAn_quPDt4-7OQ9ujIQxGkcfc2MpJvpQuwV1djjmsW9qDu5YJ2UHYSqyR5GppQ_AEr6rNIf62LkDU36sMr4Z3LIA2KHK1LFN0wBbfpR40CX823zYpj5wbUjss5gu8zxU2PvF0wZrtLXOU6f8QDD54zGLHk8FmbJgWwVk3NccCmDZdBxAVYbEuJdHshdemyBuTKcmCLBsCoI56agqG2cgAqWqoXYf0wcnpQQvoc7uRJrjfuta5Rj4fkgeMXTemjhfKzSl-pf5naUudpAHUxRuO3xsMscnpiTsdtPJiG1es6TDDhIEDgJqp9XOwHa1LAkikiTj6b_QjKSyY0AddFCnad_Qxtof4IQdJMicDro9UHyO7BD6I_BIPUx8ar-t0RQSb-7YYF2So4eiJKyywNtDZeq623PVWpDAFvV-Ud-CByRyOlCShHMcartYbozr2ljAtimWEaQPb828gQtxwuQawNkPuD04vw--wdMMfOJhWosQq4DyCk0xWUGEI49w52zeLk65dOVEGzzrmLKOJ0qSbEva2x7goWaf-IVjRMGi6Y9c7iAfhlCSpLEfXHsQbBpDEoQsSL0FASXM2lSru-U10V7Nt2Qte5zTsseSsKoa0R4-x_3M-61OInAbbsdPOTXnE6-A8gooryC3UreG35hntlqHItOUBFYSdvuc6nSsLaKm-xgxXblDewsIztAnNLTfQKn1jhTFj7MQP5BT6Whr0zghgYDFBNgg25ZlgBQE-Q44KtZ-X7_-toEdS962ibKptyIqUS5cPAkHzIJG7KXBpnoL6F0Cr6l6vP8khLdpciOZCQ-91Mqep10eTxjlmlLOaH8_pSj0gvmYEOVTO_lISybAOYDR3bFmyaylSLhsgiPU9aG1r172IuJQuvSFhdCFtx_IDlYkhPXhvoPCLf1D9eJ9_1OjpihRFOEoyK4lnE9vOBb3ttLtyXcb8KeGpliUbmquO4volK5Rq5y8sZPfklUYeDwFHGuXTBukHJh3I_mxXri_elKv8iFWj8jtu6HN6dc_h8JFb4jKBQ-2teSjLEqfp3eE5H2856_NwcKm8jegZBwr58qS0CUOfKX_LP44AP8_8MkMZ2EKr_4VnKWxs448pc9f5ivZyscpMQIMs6-luPjyH9UvYmY=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1Wm1vozgQ_isWq37r3pKXpmmkPSm89XJKGlS615MuJ-SC03IlEAHZttv2v98YQ1IS8-KkaaXYwPiZ8ePxMLZ5lZzQJdJAOjl59QIvGaDXmZQ8kAWZSQM0k-5wDLVTqMXEWUVe8jImP4nPHvphmD9Nm_yFIw_f-SSmjwFnHgaJ5f3KoFrd5TMTpvcNvPD8F_bEIvchQT9Gp2gIAAD-nkr54ZPzgKMkQ1vFZIKfbz03eaB35tiPCZV7SBb-GN8RP1WbRKv0bgDdspbY8YJ7ersr05sRDh4_3DyT39_R-8nJLFjrQjfKLEDw5_g4jjUyR3i5VMJnNPd8f_BFVfUzwziNkyh8JIMvsnze17rZ5dcnatqgvXw-dUI_jOjjzrCnbuEtfZx8AOzrPfViDdjWz7VOuwjY2QC2lDO9LW8BktDf4BmGqmntNZ7aa_fb_VIDlfOW2gIDGWK8uruP8PIBaZbcllVzbNrDX6uI2BpOsG1gJwmjF1v1w5X7z0yardo9uTVbzYk8R6kconIok0Op3Ez6l2HTP9eLiJN4YYDG15u7ubJhpmyoGYDOAKEOCIPBgA0Ca0QCN7M3efFJA2MzahRF0w2lcuw6u2NXSg3Vcxd5zmPMtNgWxtY2LxshxgeiQkKkUAQlRQDszYUALVxDM070lqLr52tOzpWWMSx3v-6w1e1XcXIZhvc-DOHSuyeE7ylMBDGRfZzEHF3qOvWQtCLAA8e49aTRZWUzafTeWUuWS1lQjE5PrmJhFCTEt9VVnIQLexrYZkQWXkxSJtx-x4VfF59lfKTCiAmjafA1ExbiRB0p14BOi10-iqL68IY6KS2YKIsePFFDHYIk_NZhjtSpdQOiaVknPBleUwNoUSdqmbqugWxaCgx0Cf8HRdyawdbVoW1CYJ-H0SKLQ1zvZ6MN0iiXzkKn-ETQ0-HRecNTw0yZsceJk5lO7bbhVADJfecBNKWUaLfilBTMO6anTHSrIREguS8RVElHluk8AxCo1U212zB6tJKI4AW02VwI81js3VF59FzXJ08YnLchnesG-7L6t_6Dhi5aiBPDM_c4_JjkHlekJPTxvsmIqV_SoEMLAQa2DDpO6mENTVtZxV5A4nh69x90I651DGiDttrs6xvKVPkTlNBCgJlqo4_jHlRnmiNbJPrpOaQZTWlqn7fYl6S0u1ONumRKPVQFySoz_HhU6apq92y5EUkgi3q_yYfQAxAZO1ATJGfX1OPSMtEuG9MCsvvSMobw4bxQbaCCXVC4PcgpGnw8cv4YXsFoei5xcNSIIdoAZQ32pcnwAhw4JFVO83Z2mULXJtqgWcURdTxWE-S2pL95PtnWFaP9IZ_sd_pGRT7Z1bp1BI8Us-INRxkFiX1fcpmCbBpCTZCNonHHe9uZUQhBEKJg5DwQQMK0T43cLWuJCi0PiVrmNGPLnAqSVdeJ401Sy-6mfquSANT6-fwpZ836ljZAWQOUNRBbqRujK6qZrtahSjEFCSsx-_g8NXGsnKJ99zHCaGmPzJwguELf0Mg8gKWjO1IQPs19_EiqwlEus3dAAgCDAtBJltdFCOEY-QlhqWbt9_3772-wY5n2bSa9NVsRlSBzF09MAZWIAnpo8Fa_BfQphjdE3d1_YsB5mHwTjITbWhpFz2qVuwmjWFfKOSrup_BM5-RjDDRN7cQtLUmAMwLGN7uYJVkLD7gswWHo6sgoopcdRGxDlx5YMFw4_UCmtyQ-rA-LCrhb-tvo_H3_qlnDCxQ8OjjRtYTn6g1HvreVbk9-2oSvmppsUfrWcN3JY6d0jVqn5EAnvyZL33PSELCLXZI2CCnQb8bic527v1qJVzuI9TMyPxt6qz7-2QbmnRCVA25ta4lbyQuf1TtC4jo-822ztbCpfQeUzvqSdArW9pDDfMwuHVdGkAHdGNPrCRrrl_qVJpA5jdXtVGz3lGUtaxWy2jbZTdPWotNc1IHfOWnn6S5fWit06C47Jc-J4beZFIxpnX_YvF43KEn3GIn5weYZ_V-ndxcXF8XcrrV85mKoBx0FcQAPyzc5gNODv5_YAtQO2q3gAE4OOFyWTqUFiRbYc6XBK_u2Bj7Rcckcr_wEvo6R8CoJrZfAkQbp9y7SaunihGgehhm1YDff_wdnAFMG" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
@@ -2966,28 +2994,28 @@ flowchart TB
 ```mermaid
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
 flowchart TB
-    classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
-    classDef platBox fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
-    classDef eolBox fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#660000
+    classDef appBox fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef platBox fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
+    classDef eolBox fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
 
     subgraph DS020FPLP_Blue_Yonder_Cloud_SaaS["☁️ Blue Yonder Cloud SaaS"]
         direction LR
         DS020FPLA_IF_Blue_Yonder["IF Blue Yonder"]:::appBox
         DS020FPLA_IP_Blue_Yonder["IP Blue Yonder"]:::appBox
     end
-    style DS020FPLP_Blue_Yonder_Cloud_SaaS fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020FPLP_Blue_Yonder_Cloud_SaaS fill:#E1BEE7,stroke:#7B1FA2,stroke-width:3px,color:#4A148C
 
     subgraph DS020FPLP_Databricks_on_ECA_Azure_Cloud["☁️ Databricks on ECA Azure Cloud"]
         direction LR
         DS020FPLA_ECA_DataBricks["ECA-DataBricks"]:::appBox
     end
-    style DS020FPLP_Databricks_on_ECA_Azure_Cloud fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020FPLP_Databricks_on_ECA_Azure_Cloud fill:#BBDEFB,stroke:#0078D4,stroke-width:3px,color:#003A6C
 
     subgraph DS020FPLP_GraphiteConnect_Cloud_SaaS["☁️ GraphiteConnect Cloud SaaS"]
         direction LR
         DS020FPLA_GraphiteConnect["GraphiteConnect"]:::appBox
     end
-    style DS020FPLP_GraphiteConnect_Cloud_SaaS fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020FPLP_GraphiteConnect_Cloud_SaaS fill:#E1BEE7,stroke:#7B1FA2,stroke-width:3px,color:#4A148C
 
     subgraph DS020FPLP_Intel_Custom_On_Premise["🖥️ Intel Custom On-Premise"]
         direction LR
@@ -3001,38 +3029,38 @@ flowchart TB
         DS020FPLA_SPEED["SPEED"]:::appBox
         DS020FPLA_WSPW["WSPW"]:::appBox
     end
-    style DS020FPLP_Intel_Custom_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020FPLP_Intel_Custom_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020FPLP_Intel_ECA_Platform_Azure_Cloud["☁️ Intel ECA Platform Azure Cloud"]
         direction LR
         DS020FPLA_ECA_ADLS["ECA-ADLS"]:::appBox
     end
-    style DS020FPLP_Intel_ECA_Platform_Azure_Cloud fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020FPLP_Intel_ECA_Platform_Azure_Cloud fill:#BBDEFB,stroke:#0078D4,stroke-width:3px,color:#003A6C
 
     subgraph DS020FPLP_Intel_ICS_Phoenix_On_Premise["🖥️ Intel ICS (Phoenix) On-Premise"]
         direction LR
         DS020FPLA_ICS_Phoenix["ICS (Phoenix)"]:::appBox
     end
-    style DS020FPLP_Intel_ICS_Phoenix_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020FPLP_Intel_ICS_Phoenix_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020FPLP_Intel_MES_On_Premise["🖥️ Intel MES On-Premise"]
         direction LR
         DS020FPLA_MES_300["MES 300"]:::appBox
         DS020FPLA_WorkStream["WorkStream"]:::appBox
     end
-    style DS020FPLP_Intel_MES_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020FPLP_Intel_MES_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020FPLP_Intel_Middleware_On_Premise["🖥️ Intel Middleware On-Premise"]
         direction LR
         DS020FPLA_XEUS["XEUS"]:::appBox
     end
-    style DS020FPLP_Intel_Middleware_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020FPLP_Intel_Middleware_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020FPLP_Intel_PDF_SMH_Middleware_On_Premise["🖥️ Intel PDF-SMH Middleware On-Premise"]
         direction LR
         DS020FPLA_PDF_SMH["PDF-SMH"]:::appBox
     end
-    style DS020FPLP_Intel_PDF_SMH_Middleware_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020FPLP_Intel_PDF_SMH_Middleware_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020FPLP_Intel_PDH_On_Premise["🖥️ Intel PDH On-Premise"]
         direction LR
@@ -3046,86 +3074,86 @@ flowchart TB
         DS020FPLA_PDH_Foundational["PDH Foundational"]:::appBox
         DS020FPLA_PDH_Raw["PDH Raw"]:::appBox
     end
-    style DS020FPLP_Intel_PDH_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020FPLP_Intel_PDH_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020FPLP_Intel_PDM_On_Premise["🖥️ Intel PDM On-Premise"]
         direction LR
         DS020FPLA_PDM_Translator["PDM Translator"]:::appBox
     end
-    style DS020FPLP_Intel_PDM_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020FPLP_Intel_PDM_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020FPLP_Microsoft_Power_BI_SaaS["☁️ Microsoft Power BI SaaS"]
         direction LR
         DS020FPLA_Power_BI_DARC["Power BI (DARC)"]:::appBox
     end
-    style DS020FPLP_Microsoft_Power_BI_SaaS fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020FPLP_Microsoft_Power_BI_SaaS fill:#E1BEE7,stroke:#7B1FA2,stroke-width:3px,color:#4A148C
 
     subgraph DS020FPLP_PTC_Windchill_On_Premise["🖥️ PTC Windchill On-Premise"]
         direction LR
         DS020FPLA_ECM_Windchill["ECM (Windchill)"]:::appBox
     end
-    style DS020FPLP_PTC_Windchill_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020FPLP_PTC_Windchill_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020FPLP_SAP_Analytics_Cloud_SaaS["☁️ SAP Analytics Cloud SaaS"]
         direction LR
         DS020FPLA_SAP_SAC["SAP SAC"]:::appBox
     end
-    style DS020FPLP_SAP_Analytics_Cloud_SaaS fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020FPLP_SAP_Analytics_Cloud_SaaS fill:#E1BEE7,stroke:#7B1FA2,stroke-width:3px,color:#4A148C
 
     subgraph DS020FPLP_SAP_Ariba_Cloud_SaaS["☁️ SAP Ariba Cloud SaaS"]
         direction LR
         DS020FPLA_SAP_Ariba["SAP Ariba"]:::appBox
     end
-    style DS020FPLP_SAP_Ariba_Cloud_SaaS fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020FPLP_SAP_Ariba_Cloud_SaaS fill:#E1BEE7,stroke:#7B1FA2,stroke-width:3px,color:#4A148C
 
     subgraph DS020FPLP_SAP_BusinessObjects_On_Premise["🖥️ SAP BusinessObjects On-Premise"]
         direction LR
         DS020FPLA_SAP_BOBJ["SAP BOBJ"]:::eolBox
     end
-    style DS020FPLP_SAP_BusinessObjects_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020FPLP_SAP_BusinessObjects_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020FPLP_SAP_HANA_Sidecar_On_Premise["🖥️ SAP HANA Sidecar On-Premise"]
         direction LR
         DS020FPLA_SideCar["SideCar"]:::appBox
     end
-    style DS020FPLP_SAP_HANA_Sidecar_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020FPLP_SAP_HANA_Sidecar_On_Premise fill:#B2EBF2,stroke:#00838F,stroke-width:3px,color:#004D40
 
     subgraph DS020FPLP_SAP_IBP_Cloud_SaaS["☁️ SAP IBP Cloud SaaS"]
         direction LR
         DS020FPLA_SAP_IBP["SAP IBP"]:::appBox
     end
-    style DS020FPLP_SAP_IBP_Cloud_SaaS fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020FPLP_SAP_IBP_Cloud_SaaS fill:#E1BEE7,stroke:#7B1FA2,stroke-width:3px,color:#4A148C
 
     subgraph DS020FPLP_SAP_MDG_On_Premise["🖥️ SAP MDG On-Premise"]
         direction LR
         DS020FPLA_SAP_S_4_MDG["SAP S/4 MDG"]:::appBox
     end
-    style DS020FPLP_SAP_MDG_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020FPLP_SAP_MDG_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020FPLP_SAP_PaPM_On_Premise["🖥️ SAP PaPM On-Premise"]
         direction LR
         DS020FPLA_SAP_PAPM["SAP PAPM"]:::appBox
     end
-    style DS020FPLP_SAP_PaPM_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020FPLP_SAP_PaPM_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020FPLP_SAP_S_4HANA_Central_Finance["🖥️ SAP S/4HANA Central Finance"]
         direction LR
         DS020FPLA_CFIN_S_4_HANA["CFIN S/4 HANA"]:::appBox
     end
-    style DS020FPLP_SAP_S_4HANA_Central_Finance fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020FPLP_SAP_S_4HANA_Central_Finance fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020FPLP_SAP_S_4HANA_On_Premise["🖥️ SAP S/4HANA On-Premise"]
         direction LR
         DS020FPLA_Corp_IP_S_4_HANA["Corp / IP S/4 HANA"]:::appBox
         DS020FPLA_IF_S_4_HANA["IF S/4 HANA"]:::appBox
     end
-    style DS020FPLP_SAP_S_4HANA_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020FPLP_SAP_S_4HANA_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph DS020FPLP_Snowflake_on_ECA_Cloud["☁️ Snowflake on ECA Cloud"]
         direction LR
         DS020FPLA_ECA_SnowFlake["ECA-SnowFlake"]:::appBox
     end
-    style DS020FPLP_Snowflake_on_ECA_Cloud fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style DS020FPLP_Snowflake_on_ECA_Cloud fill:#B2EBF2,stroke:#00838F,stroke-width:3px,color:#004D40
 
     DS020FPLP_Intel_MES_On_Premise ==>|"Direct"| DS020FPLP_Intel_Middleware_On_Premise
     DS020FPLP_Intel_Middleware_On_Premise ==>|"Direct"| DS020FPLP_Intel_PDF_SMH_Middleware_On_Premise
@@ -3161,9 +3189,23 @@ flowchart TB
     DS020FPLP_Snowflake_on_ECA_Cloud ==>|"Snowflake Connector / Snowpipe"| DS020FPLP_Microsoft_Power_BI_SaaS
     DS020FPLP_SAP_HANA_Sidecar_On_Premise ==> DS020FPLP_SAP_BusinessObjects_On_Premise
 
+    subgraph DS020FPLLegend["📐 PLATFORM LEGEND"]
+        direction LR
+        DS020FPLLC["☁️ Cloud"]
+        DS020FPLLS["🔮 SaaS"]
+        DS020FPLLO["🏢 On-Prem"]
+        DS020FPLLD["💾 Data Platform"]
+        DS020FPLLM["🔗 Middleware"]
+    end
+    style DS020FPLLegend fill:#F5F5F5,stroke:#999,stroke-width:1px
+    style DS020FPLLC fill:#BBDEFB,stroke:#0078D4,stroke-width:3px,color:#003A6C
+    style DS020FPLLS fill:#E1BEE7,stroke:#7B1FA2,stroke-width:3px,color:#4A148C
+    style DS020FPLLO fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
+    style DS020FPLLD fill:#B2EBF2,stroke:#00838F,stroke-width:3px,color:#004D40
+    style DS020FPLLM fill:#FFE0B2,stroke:#E65100,stroke-width:3px,color:#BF360C
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNrFWvtvm0gQ_ldWVDmlUtK4eTVnqScBNo1PoUEmvfR0PqG1WcdcMIt4NEmT_O83A_iFecfc-QcDy-w3M9_OLOwsz8KEm0zoCnt7z5ZjBV3yPBKCGZuzkdAlI2FMfTg7gDOfTULPCp6u2A9mxzdtzhd3oy5_UM-iY5v5eBtwptwJdOtnAvXx1H2MhbFdoXPLforv6OyOM_JtcEBEAADw10jK5g-TGfWCBC30mUofby0zmGHLlNo-Q7lZMLev6JjZkdrAC6NWB9zSXTqxnDtsPu1go0ed-7XGs87rK3nd2xs5S13kRho5BH4Tm_p-j00JdV2JP5KpZdvdd9JZT1GUAz_w-D3rvut0Pn2SzpPLwwc0rXvsPh5MuM09vH3SO0vjuTYNVoDyRf9c_nUJeHJx0T-RNwFPVoAfpbP-cScFyLi9wlMU6Uw6W-LJcgd-uQaen-PtkRMj-uH4zqPujPT0znFH0a40Q7JDZvzJHZN5hmzz0DR0SvW_RsIoPD7vfByFU9aZEpQisRSJpAhKjYS_Y1z8mZbHJoHFHXI1XLUuFInGQFnXBQoGyjosYHW73XgoMrtr6e5acXfmmInTwZPNSj1-02jlstujAR171uTeN7hj9GXREH-GHov1pkleCRNgEYRJJBwTXotrVIRoUoQGeqDhcNVQg6xCB9rh7AteWwGTueOAlwVRmZJsGpkpGNCSaqnBV77x7ZA1cAJmG3LoB3xuXDuG5rG55bOIKfPixIR_k54lfEXCJBYm185hIlyLLPFGHgI6HspSVqY4EQdPhsIBk_pBFE2GHsAlQCxuk8XtKAFIdLsMuqdeR2ZEx1Lh77Hs93JRRcYgg_9YMJ54swRVcYiSeCjD1CNMvRxT1_r9HorisQz1VtduQRYPNcIzJ1zajE2cMzR4Ik65Ny-a_eLgxFlvIf2m6U_sXenJxIentTnKM7tNqgaybmgzzhzrsWIuQw-yn3R53zSl19Tic3UdsjZt2S60SZra1yuSBZJNKUIlJ50OZjyAwFlpenLvXg88RueYpMuL2nxuetcqj5Zp2uyBQqBXpHPZoSmr3_vfMEfxUJ-YLHPb5EfrKYauXtbnCToeQscd8JWYAMoSzNqsFTrRLnuXlem6bDyRKZEeePfyw7mLgtSOFxoIutFcutyIoRQeOiZNI623VgQa0odVf7iosNzJdEVr4IqW6YpW3xVt3RWtqitZftR2IsODuuavbM81vDR7Lv-zdFErp4vafDpRjRsomPjwmsO9iBeVrBoa0KO2To9qTTzu82lgaPwBFvDSIHNluBQjkRiRBvWXhUsFPXEoIzsLpH1sqPNqlGN0OwxpN7JxaznmZAbopUEE0mQp3TSQ-rK6Uhm9dKtkf9lQh6k849uhShc1Q4SZ4ymwJn5BnQHkyFKuaZUBlekiBhLCwVkNWvIMbZEWzxrTMkpQ5i10RAAJIdF5XUpSRrZHhxT6lsN8_3r8D3jll6YVepTq0zS5IvXX0u8JT3i6XUgopCnf-PYIuxS_gumWCYUdrxJb2IEkHRpTBd1lik-y5KxmPOUY3R5LA0kryTGQeEuGQfckbuCsJhubxrVHgtr7UilCQO4tOaQbp6hqMf8enSJgTUo2TW2PEo1qaiVOUPAtpGiipiaM4GlNOlJmtscHjF2UmzJzAo_ahmI51JkU8ALDG00oSQeSdKjFj6wMvkZRg0hYr4brKG7wuiZTOQ60z1iVIFqQ1TCOZO65uDZcpwqayBEZaAV8bS2T1_rDOvmNRLcelQ5_mNr0ni22xTJr2kupxYZes1o2wigIkxS0l9d1yMk0eAfklFQsP3_-7QX2XiIvR8JLtTpeDnJm0apMQWHJK1tRcZUsVtgXByTZ5MOl8ktpHKZV5URrjK5f3eRjpiaRnQzD1pZQNur2ztFO6c9d_sVa0vWJl5ISRN7oqvWgt5_8WWOZejdIeBkqUC7Abc0hc21rEpWqiOLROfvw4UOTsCkeh90wlIcu9hTwAzZqRW0A07uu3Gj7ks3H77MU5W2gZavM3W6LNX9zcKNYBiJtfreprfALhbSy4s8ZktxbTtrL_EZnodW1XJYas8xZNa214KOAWKUa2kzHatUvwK8NMdIkAOtNJjlrnSLg9MvLbtDzFl2th1xRlB-RnkQ2gg6abmZbOVtPb84zeDMGjqTrnt58ZsjZgP0f5v9quZHzNVbJUMg8Zyg2S_R5D4DLjCTZedYXjvaQzXnAiBI68cufaFI3YKhSzXwwpJZaWYmUWSBMnBPl-OOa_qPL4RNInXk_LMjgfVHb1lbNuTKFGrk2UaMfq_LJgxXMyIQ7DZ97u8idkhenlnyqoDW9kF4pxIiFtUcUI3oIzxAMyjltSuJ2WaedRMusziaqXOuOoRuLQdt5NNRJ5ZytmZoPqsoFV-FAmDNvTi1T6D7Hn1TDl9kmm9LQDuCjaIGGAdefnInQjT5zFkIXIo71LApBMI8bX_8FbB6PfA==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNrFWwtv4kgS_istVnPKSpkZIOQxSLuSnxNWeLBw5mZOy8lq7Cb4YtyWH5tkZ_Lfr9o2Bozf4LtEArtd_VXX11XdrrL50TOoSXrj3rt3PyzHCsbox6IXrMmGLHpjtOgtsQ9Hl3DkEyP0rOB1Sv4idnzRpnR7NeryT-xZeGkTn10GnBV1As36O4EajNyXWJi1y3hj2a_xFY08UoK-Ti4RBwAA_hZJ2fTZWGMvSNBCnyj45ZtlBmvWssK2T5jcOtjYU7wkdqQ28MKo1QGzNBcblvPImkd91uhh52mv8br_9obe3r1bOKku9MAvHAR_ho19XyQrhF2Xpy9oZdn2-BdBkK5l-dIPPPpExr_0-7d34ig5ff_MhjYeui-XBrWpxy5fcTdCBs-1cbAHeCfdCJ9SwKF0K14NDwGvdoAD_loa9jOAhNo7PFkWRHGY4gk3w7vhXeEA-duBMIABxoh-uHz0sLtGotYf9mV1quq8HRL9X9QxiacLNg1NXcNY-3PRW4TDm_5gEa5If4WYFIqlUCSFmNSi9-8Yl_2ZlkeMwKIOms53rVtFnD6R93WBgom8DwtY4_E4norc7mq2u1renThmYnTwapNKixN2pQEvSbcpu7f8QOaKZ2vEDUZ3ZeyKOMBLzzKefJ06uiRwOvd36JFYb5bknTACFkEYRcIx4Y24ZooYGh-hgR5oeL9raEBWqQEJZzwvSjJfGjJXxyFTyNlndm4FRKCOA1aWeGVGsq1nZmBAS6alAV_Fg-_GwSZOQGxdCP2AbvSZo6se2Vg-iZgy765M-DTxdcJXJIxiYTRz3ifCjcjiHoQ5oLOvqpAVMFuIg1ddpoCJ_SDyJl0L4BQgtpfR9nIUACi6XAUtKrNoGNF3pfD3WPZ7tagsMCeDz1gwXnjzBBVuziTZVxWmFmFq1ZiaKkkiE2XfVajfNPUbyLKvBu5Z4C4nbVUVvsnWDBV2xBX1NmWrX-ycbNXbSp-0_HHiVEsWPnbYmKOiYXez5sU6J4Kmq2tKHOulZixDD3SRdPm1bUjvqWX76j5kY9ryTejSvxRJq0kWSLaliCm56vdZxAMIHFWGJ_WetMAjeMOCND1pzOehdZ3yaJmmTZ4xOHpNOtMObVn9Ln1lMcq-mhOTN9wu-VFFWdeU--Y8Qcf30PEMfCVDAGUJZmPWSo3olr372nTdt17I5EgP3Hv54cZlgtiOEw0GetBcmW7EUDINHRNnkfZbawLN8fOuP5zUSHdyTVFbmKLmmqI2N0XdN0Wta0qeHY2NyLGg6fB3Yy8ceGX03P_PwkWpHS5K--VE0R-gYOLDbQ71Il4UtGtoQY_SOT2KZXjUp6tAV-kzJPD8JDczTMVQJIb4SfO0MFUgcnOBsbNFumANTW6NCgbdTUaoPgj6N8sxjTWgVzoRSKNUuq0jSYKyUxnddCvoIm1owlTR4LtxJo1TdQ5WjtfAMvySOgPIoVSubZWBKdM45kgMDo4a0FI00G48KNLmWUtcRQmTOYWOCCAhJDpuSklmkN3RwYe-5RDfny3_A1b5lWHFLMr0aRtckfoZ_0fCEzs8LiSU0lQ8-O7C6p77AkO3TCjseLXYYh1Q0qE1VdBdwGwnS44a-lPBoLcp_1Di5eFeyn93dSeXpPwjcVTF0oRXK2IMJE6JMOie-A0cNWTjcHDdxZYifq7lISB3Sgxp-oip2q6_H0cMsCElh0PtLnpUrCq1OGGCp5CicqqSMMIOG9KRGWZ3fMDcRbEpECfwsK3LloMdo4QXmN5oQUk6oKRDI34EefIl8hqGxOrVcB75DTtvyFSBAd0zVseJtmS19COBei7LDfepgib0EU3UEr6O0uS9_pAnn0h0517p0OeVjZ_I9rFYbk07ldo-0GtXy2YwMoNJCtrpeRNycgd8hq2tomL522-__4RnL5GVi97PenW8AuTcolWVgtKSV76i8ipZrFDiJih5yMdS5Z-VfphVVeCtMbo2fSjGzCwiZ5mGo0dC-ajHT47OSn9h-hdrydYnflaUIIpmV2kGfbzz581l5t4g4WUuQ7mAPdacE9e2jKhUhWQPb8iHDx_auE35PJyHoSJ0TpTBDnhQy6kTWN41-UG94G26_DVPUdEDtHyVhY_bYs1fHfagWAAibfp4qK30DYWssvLXGZLYSxftNL6ZsdDqWi7JzFnuqprVWvJSQKxSCW2isWrVP4BfG3ykjQM2W0wKcp0y4OzNy3nQi5Kuzl2uzMs_IpFHB04HTQ_ro5htprdgDz70gY_8TNTarwwFD2D_D-t_vdgoeBurYioEWjAVhyX6og3gPidIzh71pbM9JxsaECSHTnzzx5nYDQhTqeRuDJlUKy-QcguEiXGcEL9cI724FF6B1Ij3lwURfMGpx9rqGVelUEUzk2n0Y1U-eraCNTKo03LfO0fsVNw4dWRTDa3ZRHqnkHks5B6Rj2gh7CHMKTe4LYnHZZ1uAi23Opuocq1HwszYTtrZvaFJKBc8mmm4UdUuuBZmlFPyCKnbfo5umH0ECeCDPJsraCp9lr6IDRLHqZDNRY9Tz1RWO6gNDMlxrTEVnW1FDfhckeG2aJAvLR4YtCTxIrTdKvP7KAeDGdzuvTeRdijIcmMSt-9JX7P_NKf99OnTYUI7cF9yMYST3vDKATytdJoDODv5zfIMoHhSGSAHUEnfVZf6_A5Qurke9PuFgLx8ddMXepe9DfE22DJ74x_xrw7gxwsmWeHQDuB3Az0cBlR7dYzeOPolQC90YVEmooUhojZx49t_AdMvgDQ=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>

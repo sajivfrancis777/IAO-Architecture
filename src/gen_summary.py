@@ -87,6 +87,7 @@ def _collect_capability_flows(
     tower_dir: Path,
     tower_cfg: TowerConfig,
     cap_id: str,
+    release_override: str | None = None,
 ) -> tuple[Optional[FlowSet], Optional[FlowSet]]:
     """Load current and future FlowSets for a capability."""
     cap_dir = find_capability_dir(tower_dir, cap_id)
@@ -97,7 +98,7 @@ def _collect_capability_flows(
     if not input_data.is_dir():
         return None, None
 
-    release_id = tower_cfg.release.release_id
+    release_id = release_override or tower_cfg.release.release_id
 
     # Find capability config from tower.yaml (or use defaults)
     cap_cfg = next((c for c in tower_cfg.capabilities if c.cap_id == cap_id), None)
@@ -732,6 +733,7 @@ def generate_l1_summaries(
     tower_short: str,
     iapm: IAPMLookup,
     release_label: str = "R1 – R5",
+    release_override: str | None = None,
 ) -> list[str]:
     """Generate L1 summaries: one per process group within a tower."""
     tower_dir = TOWERS_DIR / tower_short
@@ -774,7 +776,7 @@ def generate_l1_summaries(
 
         for cap in caps_in_group:
             cid = cap["id"]
-            cur, fut = _collect_capability_flows(tower_dir, tower_cfg, cid)
+            cur, fut = _collect_capability_flows(tower_dir, tower_cfg, cid, release_override)
             cur_hops = len(cur.hops) if cur else 0
             fut_hops = len(fut.hops) if fut else 0
             if cur:
@@ -836,6 +838,7 @@ def generate_l0_summary(
     tower_short: str,
     iapm: IAPMLookup,
     release_label: str = "R1 – R5",
+    release_override: str | None = None,
 ) -> Optional[str]:
     """Generate L0 summary: tower-level aggregation of all capabilities."""
     tower_dir = TOWERS_DIR / tower_short
@@ -866,7 +869,7 @@ def generate_l0_summary(
 
     for cap in tower_caps:
         cid = cap["id"]
-        cur, fut = _collect_capability_flows(tower_dir, tower_cfg, cid)
+        cur, fut = _collect_capability_flows(tower_dir, tower_cfg, cid, release_override)
         cur_hops = len(cur.hops) if cur else 0
         fut_hops = len(fut.hops) if fut else 0
         if cur:
@@ -919,7 +922,7 @@ def generate_l0_summary(
     return str(output_path)
 
 
-def generate_program_summary(iapm: IAPMLookup, release_label: str = "R1 – R5") -> Optional[str]:
+def generate_program_summary(iapm: IAPMLookup, release_label: str = "R1 – R5", release_override: str | None = None) -> Optional[str]:
     """Generate Program summary: program-level aggregation across all towers."""
     print(f"\n{'='*60}")
     print(f"IAO Program Summary")
@@ -945,7 +948,7 @@ def generate_program_summary(iapm: IAPMLookup, release_label: str = "R1 – R5")
         tower_fut_count = 0
         for cap in tower_caps:
             cid = cap["id"]
-            cur, fut = _collect_capability_flows(tower_dir, tower_cfg, cid)
+            cur, fut = _collect_capability_flows(tower_dir, tower_cfg, cid, release_override)
             cur_hops = len(cur.hops) if cur else 0
             fut_hops = len(fut.hops) if fut else 0
             if cur:
@@ -1056,6 +1059,8 @@ def main() -> None:
         parser.error("Specify --level (L0|L1|Program) or --all")
 
     release_label = args.release or "R1 \u2013 R5"
+    # A specific release like "R3" is used to override which XLSX files are loaded
+    release_override = args.release if args.release and re.match(r'^R\d+$', args.release) else None
 
     # Load IAPM
     print("Loading IAPM lookup...")
@@ -1072,27 +1077,27 @@ def main() -> None:
         # Generate everything: L1 (process) + L0 (tower) + Program
         towers = sorted(d.name for d in TOWERS_DIR.iterdir() if d.is_dir())
         for t in towers:
-            outputs.extend(generate_l1_summaries(t, iapm, release_label=release_label))
-            result = generate_l0_summary(t, iapm, release_label=release_label)
+            outputs.extend(generate_l1_summaries(t, iapm, release_label=release_label, release_override=release_override))
+            result = generate_l0_summary(t, iapm, release_label=release_label, release_override=release_override)
             if result:
                 outputs.append(result)
-        result = generate_program_summary(iapm, release_label=release_label)
+        result = generate_program_summary(iapm, release_label=release_label, release_override=release_override)
         if result:
             outputs.append(result)
     elif args.level == "Program":
-        result = generate_program_summary(iapm, release_label=release_label)
+        result = generate_program_summary(iapm, release_label=release_label, release_override=release_override)
         if result:
             outputs.append(result)
     elif args.level == "L0":
         if not args.tower:
             parser.error("--tower required for L0 (tower) summary")
-        result = generate_l0_summary(args.tower, iapm, release_label=release_label)
+        result = generate_l0_summary(args.tower, iapm, release_label=release_label, release_override=release_override)
         if result:
             outputs.append(result)
     elif args.level == "L1":
         if not args.tower:
             parser.error("--tower required for L1 (process) summaries")
-        outputs = generate_l1_summaries(args.tower, iapm, release_label=release_label)
+        outputs = generate_l1_summaries(args.tower, iapm, release_label=release_label, release_override=release_override)
 
     print(f"\n{'='*60}")
     print(f"TOTAL: {len(outputs)} summary documents generated")

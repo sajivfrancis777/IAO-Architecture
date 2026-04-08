@@ -876,15 +876,23 @@ def _sidebar_js() -> str:
 
     function rewriteDocLinks(){
       var r=sel.value;
-      // Rewrite doc-btn links: when a release is selected, prefix href with /Rx/
-      document.querySelectorAll("a.doc-btn").forEach(function(a){
+      // Rewrite doc-btn and summary links: when a release is selected, prefix href with /Rx/
+      // Targets: doc-btn links, hero summary links, sidebar summary links, and Program Summary
+      var linkSel="a.doc-btn, a[href*='Summary.html'], a[href*='summaries/']";
+      document.querySelectorAll(linkSel).forEach(function(a){
         var orig=a.getAttribute("data-orig-href")||a.getAttribute("href");
         a.setAttribute("data-orig-href",orig);
         if(r&&r!=="All"){
-          // Replace "../towers/" with "../Rx/towers/" (relative from cap/ dir)
-          // or "towers/" with "Rx/towers/" (from root)
+          // towers/... paths: insert Rx/ prefix before towers/
           var pat=new RegExp("(\\.\\.\\/)?towers\\/");
-          var newHref=orig.replace(pat,"$1"+r+"/towers/");
+          var newHref=orig;
+          if(pat.test(orig)){
+            newHref=orig.replace(pat,"$1"+r+"/towers/");
+          }
+          // summaries/... paths (Program Summary): insert Rx/ prefix before summaries/
+          else if(orig.indexOf("summaries/")!==-1){
+            newHref=orig.replace("summaries/",r+"/summaries/");
+          }
           a.setAttribute("href",newHref);
         }else{
           a.setAttribute("href",orig);

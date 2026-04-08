@@ -114,7 +114,7 @@ jobs:
             python -m src.gen_systems_arch --all --release "$REL"
             python scripts/gen_ricefw_tracker.py --all --release "$REL"
             python scripts/gen_testing_report.py --all --release "$REL"
-            python -m src.gen_summary --all
+            python -m src.gen_summary --all --release "$REL"
             python scripts/gen_pdf.py --html-only
 
             # Verify release label was applied to a sample file
@@ -135,6 +135,11 @@ jobs:
               mkdir -p "$(dirname "$dest")"
               cp "$f" "$dest"
             done
+            # Also stage per-release Program summary
+            if [ -d "output/docs/summaries" ]; then
+              mkdir -p "/tmp/release-${REL}/output/docs/summaries"
+              find output/docs/summaries -name "*.html" -exec cp {} "/tmp/release-${REL}/output/docs/summaries/" \;
+            fi
             echo "  $REL: $(find /tmp/release-${REL} -name '*.html' | wc -l) HTML files"
           done
 
@@ -182,6 +187,13 @@ jobs:
               cp templates/assets/ricefw_banner.svg "_site/${REL}/templates/assets/"
               cp templates/assets/testing_banner.svg "_site/${REL}/templates/assets/"
               [ -f favicon.ico ] && cp favicon.ico "_site/${REL}/favicon.ico"
+              # Copy per-release Program summaries
+              if [ -d "/tmp/release-${REL}/output/docs/summaries" ]; then
+                mkdir -p "_site/${REL}/summaries"
+                find "/tmp/release-${REL}/output/docs/summaries" -name "*.html" -exec cp {} "_site/${REL}/summaries/" \;
+                # Fix banner path for Program summaries (deployed 1 level deep under /Rx/summaries/)
+                find "_site/${REL}/summaries" -name "*.html" -exec sed -i 's|\.\./\.\./\.\./templates/assets/|../templates/assets/|g' {} \;
+              fi
               echo "  ${REL}: $(find _site/${REL} -name '*.html' | wc -l) HTML files deployed"
             fi
           done
@@ -207,6 +219,8 @@ jobs:
             find output/docs/summaries -name "*.html" | while read f; do
               cp "$f" "_site/summaries/$(basename "$f")"
             done
+            # Fix banner path for Program summaries (deployed 1 level deep under /summaries/)
+            find _site/summaries -name "*.html" -exec sed -i 's|\.\./\.\./\.\./templates/assets/|../templates/assets/|g' {} \;
             echo "  Program summaries: $(find _site/summaries -name '*.html' 2>/dev/null | wc -l) files"
           fi
 

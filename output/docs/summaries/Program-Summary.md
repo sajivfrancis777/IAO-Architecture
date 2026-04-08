@@ -1,4 +1,5 @@
-<div style="text-align:center; padding-top:60px;">
+<div style="text-align:center; padding-top:20px;">
+  <img src="../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">IAO Program Architecture Summary</h1>
   <h2 style="font-size:24px;">TOGAF BDAT — Aggregated Architecture View</h2>
   <p style="font-size:18px; color:#555;">IDM 2.0 — All Towers (R1 – R5)</p>
@@ -302,12 +303,15 @@ Aggregated current-state: **28** systems, **32** connections, **89** flow hops.
 
 ```mermaid
 graph TB
-    %% -- ArchiMate-inspired style classes --
-    classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
-    classDef app           fill:#B5FFFF,stroke:#0077B6,stroke-width:2px,color:#000
-    classDef data          fill:#B5D8FF,stroke:#0077B6,stroke-width:1px,color:#000,stroke-dasharray: 5 5
-    classDef middleware    fill:#FFD6A5,stroke:#E76F00,stroke-width:2px,color:#000
-    classDef eol           fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#000
+    %% -- ArchiMate 3.2 + Azure style classes --
+    classDef business      fill:#FFFFB3,stroke:#F9A825,stroke-width:2px,color:#000
+    classDef app           fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef data          fill:#BBDEFB,stroke:#1565C0,stroke-width:1px,color:#0D47A1,stroke-dasharray: 5 5
+    classDef middleware    fill:#FFE0B2,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef eol           fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
+    classDef saas          fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
 
     subgraph AL["📦 Application Layer — Systems Integration"]
         direction LR
@@ -402,9 +406,12 @@ graph TB
     class SCA_XEUS app
     class SCA_e_g__MES_300 app
     class SCA_e_g__XEUS app
-    style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
-    style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
+    style BL fill:#FFFDE7,stroke:#F9A825,stroke-width:2px
+    style AL fill:#E3F2FD,stroke:#0078D4,stroke-width:2px
 ```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVmGtvozgUhv-KxWg-bdoBcp18WImL6WaVTqOSUUfarJAH3BaVQAREnexk_vva5mZsk83yoSrnPOe1MT4vhJ9amEVYW2ovOTq8gq29SwE5Pn4ENzfAysPX-B6VGIxvTfAbsP455hgU5SnBIExQUeCCYFUFO3fxM_h-LOIUFwVgx3OcJMsPHjns8ago8-wNk9PP1sKc1qc373FUvi7Nw49RmCVZvvyg67qgiQ4H0B2VpuPAqee1mro-X7iTC5pja-YIshEqkShr2y707FbWmM6mjt6XNThZdzK3jCYdoeIV5Tk6LcEUTIXB9nEUJfgdkRXk1gXqttkOBmdTQ9cHr8H2xjNdvAacJdLSeJ7jup2sMzMX5mJYdm44hihbIFSIstCwIZy3snPb8CxzUHZiGZOFKBsm2TH6_ytuiisuyGbpIcd7YX8s4Mz53MqacO6Oh2dr2FNokm1XCRfH71U_WOu_dtruGC3GEfkb4hmwDockDlEZZylYoxPOwe5o6sYE-KeixPsCrNISk2IK7LS_Kz16RHGOw6rssYv6jhVYm9UdhNJALNqTYDDtwcByPYlnzUkSUon9YP8p0jQmgY63-hL4wUSEaRz4nyZywcp-lGASk8EsPwRBsNoo5UkSfAKrjXIMlzSpncfhWyHWdRmpCFpbX8RpTAYdS-IcS8bcJwlznyTMk9U8hZoXpygNcfCH9UXmqxygOalw5Tz4W7GCBSV0jV9QeAru3TuRrzKAZKSie-tRWjYak0HoB2Ndl1joAxKW8A28ky6UxiTQtzZku7rSJEgc0LiyADqOiidhJb6yNyqchJX45kFFbx5keAOhK7E0KKNxhB2US3AVlvE0e_cS9IalgiYhlTxl-Ztf5hjtxZouIxV9g1-llacxCcTBSzC0B_Dty-3gRmCFqmFYVW8snEaNHXcmSV43fj_vtMYbz-3u4sDGIBuW_LeJDzghbyVNBeccKe9ldQm18DxFSYNXHaYim61w5rYLB_Ku11Sstw1OjSaVbW5gEt29TnmXu27KZKgBkNn1FZwo6D7VINyuB7RUiCDjteO57PE4hHGGqdwC9dmlgv4A7Pl3Cb98Z9n8OLLypnPPwzq68-K6hHnvmTewDqZ-e909qBtQeX2slVLRVi_MuDeHOlDjj7h95WnvdP2mMFTC3XH6nByguF7g78AVeOOUqWDsyrXo9Vl1Jwdvcn8ZqHmrJXsXxWGXt0097Zp1Vl67fxvT6tjOp5UzYI_llHfu6zYNb911BfPeSp28hpFWIn-9OGndsjXtxo_ZezfvyuT3mZRpbViRpN2nijfbSpmjrquK90xWAXDOqsgyD1XFiTOpwsTUFGFPTfd8RZGvbESR4BxDkWUWoYrXt1WRos9IVbx1hoEc7b6BFG23gRRpMFWG9YkqUbeFKtU89VRJrkUUWdYTinivA4by_eLqk4e97j5nuNwP4YHPGXyp1ZTCsWd67n99tdBG2h7nexRH2vKnVr7iPf1EE-FndExK7ddIQ8cy809pqC3L_IhH2vFAvmVgN0bkl-e-Cv76FzIzTb0=" title="View full diagram">&#128065; View Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>IAO Program Architecture Summary</span></div>
 <div style="page-break-before: always;"></div>
@@ -416,11 +423,11 @@ graph TB
 ```mermaid
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "15px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 35, "rankSpacing": 45}} }%%
 flowchart TB
-    classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
-    classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
-    classDef dbCloud fill:#90CAF9,stroke:#1565C0,stroke-width:2px,color:#0D47A1
-    classDef dbData fill:#80CBC4,stroke:#00695C,stroke-width:2px,color:#004D40
-    classDef eolBox fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#660000
+    classDef appBox fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef dbCyl fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
+    classDef dbCloud fill:#BBDEFB,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef dbData fill:#B2EBF2,stroke:#00838F,stroke-width:2px,color:#004D40
+    classDef eolBox fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
 
     subgraph SCDCL_Azure_Data_Lake_ADLS[" "]
         direction TB
@@ -589,6 +596,9 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWYtu2koQ_ZWVq0itlDSEJC1BaiU_UyoS3JjeXKlcWRuzECvGRsY0oUn-_c74jVkvJgUEXq_PzOyemX3M-llygjGTutLBwbPru1GXPI-k6J7N2EjqkpF0RxdQOoTSgjnL0I1WffabeclDLwiyp7HIPzR06Z3HFvgY9EwCP7LcP6mqk_P5UwLGeoPOXG-VPLHYNGDkZ--QyKAAlL_GKC94dO5pGKXalgt2RZ9u3XF0jzUT6i0Y4u6jmdend8yLzUbhMq71oVvWnDquP8Xq03OsDKn_UKo8O399Ja8HByM_t0WGysgn8HE8ulhobELofK4ET2Tiel73narq54ZxuIjC4IF137VanzvaWXp79IhN67bnT4dO4AUhPj6VP6kVfeM7deVl6jr6J_UiV9fWP2un7Vp1J8q53m5tqvOC5ThVqCiabih_2T6NRjTT19YVo13S1zntGAJ9Z9pZtYEs8Ar-DEPVtEKf-qndaXdq9SmfT9QTaF-icbG8m4Z0fk8sVVP7tvxnGTIb22r36QOzZa1v_RpJ4OX_Ejx-xm7InMgN_Nyv-AEFsq2rMsDhHwS63W7i5jWMxrfxfiSNluPO6Rj-x87ZaDlhrQmJoSSmDqHkPWI_jKQPqDx10mYLyNHHo6_1thIB5qeSi2jlMUH3M5Jl_OYk6y38rpN8AkORT6vGvFTlLmRiO5TQdR4WIFXcCKgt2eETGgNiLoUkFsZKXBbKBQwWoH3wdm3Ltmz27EsasUe62oU8ELvUdZBICgLSqkb4zF0fyxB-Zo-ksFIUrjyu7RJ1FRMC_irIfZGoD_s7kRePA1kzkL94DEJ5C4VoQkAdPBZSllmssAZiW9gCxD5YGoTU8WDsK7vw1FMH1hAE4mstP7LdZ1PqrOwr7RLAyQ2BG4HElW7Zp60WwKFEoCTAWrJpKwMNJ2ooEixuQeuqmoKhtAVrDlKoORAgb4PwwYpCRmeALm4EEv_qP7HFeBFEVuEWfmwlz4mmCGIr9k4prnKdtV5qAE4d1ACZuachFDzSEGkOGgALXzQAozPqYdwhmGP2MQjNYBFNQ2b92Gm2MvVL3HXgRRBJJd38UCoAglhCIyWGSjL1FBWgfXCEnv8mX8u7MKQMlO-Ax4tgRKpG79q27DNAYpFYx2cidBDO7Z6ZCcAdOSY9c4uU4frUd1jWg_SW4K1oHnLHTKUhTkRJSeDnnB--l3EmS6ylPsa9DoeukpMzjTV0NUAWVG0Hlxnajk75qAVyAzKD7DMc7XgfuUtQomRPMdPVBUoNnJpaEbuWJFtagYNT0xzW7NJ2WMidXc4Q_47BH_Bj4W8W7sKe2lNucNzBRTBwdHmIiyxeElSSOFZDLs7aDFU0BK_kG9SEF9FANXVdQ4_iVeTPos81voTJMgEIJmPsfNmHuVIOC01wxlruWAtDDprgYhIEQH585aC9xJYfPE48TGXjcLW1251GKEgbXpK15mWRVzet1Xg3AyZDlWi3wnQ0t10mc8OWiNQN8D7IHbKQjvGs4E25gx77Qseu1xLKscAnNAPCEry5I-ZMgGC2xOWmGQGXm-B9cMnsaZoD7rj5Q8E0lWAfpx_Jlnxi3Q6fzFhPkvaubQY5kZlZL5G5ZkHA4xpuXxS-ZXOIckW6GXd-W86prRsT0Nhku1VqQIXHBnuZMuxNLG4YI1--fH1JidBi2mBU4cnPMTFcD-a_l1pHr2dNqaJERy5WXQUqlalQz49Y6OOx_Qs3F-NLZWn6LjKV5tXNBdyuWf1h0a81X61VpWi1Z-TotbOdck2KxZMg050zz_ULxqsnkJXKOurqlgpeG8s9qj88rn1c2wSe03dR0MQbN2zuuQ7FUS7ySlUM3dDI-5yZf1PDmwWbjYtKtHIjfN2j2fnvi-AolveEL15N-Lkx1GAUrmcR3L7xw68y9cOZFUyLv0oTsDNuEU0eykS-Ub_1hro6_Hmjk75-qV9rNUtC_6aohZcgeOg7L4USbxGAk_66Ezn_yAzZrPZIDiTVGtF0M6jULbkgWmc1fkdkejSaBOGsZrHp2_g-QPfHR8HkqO9O2GZKVFliEnazZeUcv_mycnFxsbGmSIfSjIUz6o6l7nPy-hbeAo_ZhC69CF7ASnQZBdbKd6Ru_EpVWs5hXDDNpeDNWVL5-j_b0CEz" title="View full diagram">&#128065; View Diagram</a></div>
+
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>IAO Program Architecture Summary</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -599,15 +609,15 @@ flowchart TB
 ```mermaid
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
 flowchart TB
-    classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
-    classDef platBox fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
-    classDef eolBox fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#660000
+    classDef appBox fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef platBox fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
+    classDef eolBox fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
 
     subgraph SCPP_Azure_Data_Factory_Cloud["☁️ Azure Data Factory Cloud"]
         direction LR
         SCPA_Azure_ADF["Azure ADF"]:::appBox
     end
-    style SCPP_Azure_Data_Factory_Cloud fill:#BBDEFB,stroke:#1565C0,stroke-width:3px,color:#0D47A1
+    style SCPP_Azure_Data_Factory_Cloud fill:#BBDEFB,stroke:#0078D4,stroke-width:3px,color:#003A6C
 
     subgraph SCPP_Databricks_Cloud_SaaS["☁️ Databricks Cloud SaaS"]
         direction LR
@@ -630,32 +640,32 @@ flowchart TB
         SCPA_MARS["MARS"]:::appBox
         SCPA_SPEED["SPEED"]:::appBox
     end
-    style SCPP_Intel_Custom_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SCPP_Intel_Custom_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SCPP_Intel_ECA_Platform_Azure_Cloud["☁️ Intel ECA Platform Azure Cloud"]
         direction LR
         SCPA_ECA["ECA"]:::appBox
     end
-    style SCPP_Intel_ECA_Platform_Azure_Cloud fill:#BBDEFB,stroke:#1565C0,stroke-width:3px,color:#0D47A1
+    style SCPP_Intel_ECA_Platform_Azure_Cloud fill:#BBDEFB,stroke:#0078D4,stroke-width:3px,color:#003A6C
 
     subgraph SCPP_Intel_EDW_On_Premise["🖥️ Intel EDW On-Premise"]
         direction LR
         SCPA_EDW["EDW"]:::appBox
     end
-    style SCPP_Intel_EDW_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SCPP_Intel_EDW_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SCPP_Intel_MES_On_Premise["🖥️ Intel MES On-Premise"]
         direction LR
         SCPA_MES_300["MES 300"]:::appBox
         SCPA_WorkStream["WorkStream"]:::appBox
     end
-    style SCPP_Intel_MES_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SCPP_Intel_MES_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SCPP_Intel_Middleware_On_Premise["🖥️ Intel Middleware On-Premise"]
         direction LR
         SCPA_XEUS["XEUS"]:::appBox
     end
-    style SCPP_Intel_Middleware_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SCPP_Intel_Middleware_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SCPP_Pega_Cloud_SaaS["☁️ Pega Cloud SaaS"]
         direction LR
@@ -667,32 +677,32 @@ flowchart TB
         direction LR
         SCPA_BOBJ["BOBJ"]:::appBox
     end
-    style SCPP_SAP_BusinessObjects_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SCPP_SAP_BusinessObjects_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SCPP_SAP_Data_Services_On_Premise["🖥️ SAP Data Services On-Premise"]
         direction LR
         SCPA_SAP_BODS["SAP BODS"]:::appBox
     end
-    style SCPP_SAP_Data_Services_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SCPP_SAP_Data_Services_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SCPP_SAP_ECC_6_0_On_Premise["🖥️ SAP ECC 6.0 On-Premise"]
         direction LR
         SCPA_SAP_ECC["SAP ECC"]:::appBox
     end
-    style SCPP_SAP_ECC_6_0_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SCPP_SAP_ECC_6_0_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SCPP_SAP_ECC_MDG_On_Premise["🖥️ SAP ECC MDG On-Premise"]
         direction LR
         SCPA_Legacy_MDG["Legacy MDG"]:::appBox
     end
-    style SCPP_SAP_ECC_MDG_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SCPP_SAP_ECC_MDG_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SCPP_SAP_HANA_Sidecar_On_Premise["🖥️ SAP HANA Sidecar On-Premise"]
         direction LR
         SCPA_Finance_HANA["Finance HANA"]:::appBox
         SCPA_SideCar["SideCar"]:::appBox
     end
-    style SCPP_SAP_HANA_Sidecar_On_Premise fill:#B2DFDB,stroke:#00695C,stroke-width:3px,color:#004D40
+    style SCPP_SAP_HANA_Sidecar_On_Premise fill:#B2EBF2,stroke:#00838F,stroke-width:3px,color:#004D40
 
     subgraph SCPP_SAP_IBP_Cloud_SaaS["☁️ SAP IBP Cloud SaaS"]
         direction LR
@@ -704,19 +714,19 @@ flowchart TB
         direction LR
         SCPA_SAP_PO["SAP PO"]:::appBox
     end
-    style SCPP_SAP_Process_Orchestration_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SCPP_SAP_Process_Orchestration_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SCPP_SAP_S_4HANA_Central_Finance["🖥️ SAP S/4HANA Central Finance"]
         direction LR
         SCPA_CFIN_S_4["CFIN S/4"]:::appBox
     end
-    style SCPP_SAP_S_4HANA_Central_Finance fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SCPP_SAP_S_4HANA_Central_Finance fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SCPP_SAP_S_4HANA_On_Premise["🖥️ SAP S/4HANA On-Premise"]
         direction LR
         SCPA_Corp_IP_S_4["Corp / IP S/4"]:::appBox
     end
-    style SCPP_SAP_S_4HANA_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SCPP_SAP_S_4HANA_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SCPP_Snowflake_Cloud_SaaS["☁️ Snowflake Cloud SaaS"]
         direction LR
@@ -728,13 +738,13 @@ flowchart TB
         direction LR
         SCPA_e_g_XEUS["e.g. XEUS"]:::appBox
     end
-    style SCPP_e_g_Azure_PaaS fill:#BBDEFB,stroke:#1565C0,stroke-width:3px,color:#0D47A1
+    style SCPP_e_g_Azure_PaaS fill:#BBDEFB,stroke:#0078D4,stroke-width:3px,color:#003A6C
 
     subgraph SCPP_e_g_S_4_HANA_2023["🖥️ e.g. S/4 HANA 2023"]
         direction LR
         SCPA_e_g_MES_300["e.g. MES 300"]:::appBox
     end
-    style SCPP_e_g_S_4_HANA_2023 fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SCPP_e_g_S_4_HANA_2023 fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     SCPP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| SCPP_e_g_Azure_PaaS
     SCPP_Intel_MES_On_Premise ==>|"Direct"| SCPP_Intel_Middleware_On_Premise
@@ -770,12 +780,15 @@ flowchart TB
         SCPLM["🔗 Middleware"]
     end
     style SCPLegend fill:#F5F5F5,stroke:#999,stroke-width:1px
-    style SCPLC fill:#BBDEFB,stroke:#1565C0,stroke-width:3px,color:#0D47A1
+    style SCPLC fill:#BBDEFB,stroke:#0078D4,stroke-width:3px,color:#003A6C
     style SCPLS fill:#E1BEE7,stroke:#7B1FA2,stroke-width:3px,color:#4A148C
-    style SCPLO fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
-    style SCPLD fill:#B2DFDB,stroke:#00695C,stroke-width:3px,color:#004D40
+    style SCPLO fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
+    style SCPLD fill:#B2EBF2,stroke:#00838F,stroke-width:3px,color:#004D40
     style SCPLM fill:#FFE0B2,stroke:#E65100,stroke-width:3px,color:#BF360C
 ```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1Wm1vozgQ_itWVv3W3SUvTdNIe1J46-WUbFDpXk-6nJALTsqVQARk227b_75jDEkgmDokaaVgYObxzOOxPbZ5bdiBQxr9xtnZq-u7cR-9ThvxA1mQaaOPpo17HEHpHEoRsVehG7-MyE_isZdeEGRvE5W_cejie49E9DXgzAI_Nt1fKVSzs3xmwvS5jheu98LemGQeEPRjeI4GAADg74mUFzzZDziMU7RVRMb4-c514gf6ZIa9iFC5h3jhjfA98ZJq43CVPPXBLXOJbdef08cdiT4Msf-49fBCen9H72dnU39dF7qVpz6CP9vDUaSSGcLLpRw8o5nref1PiqJd6Pp5FIfBI-l_kqTLntpJbz8_UdP6reXzuR14QUhftwddpYC39HC8BdjTusrVGrClXartVh6wvQFsyhdaSyoAksDb4Om6oqqtNZ7SbfVaPa6B8mVTaYKBDDFa3c9DvHxApmIY1uDXKiSWimNs6diOg_DFUrxg5fw7bUxXra7UnK5mRJqhRA5ROZTKoURu2viPwdI_xw2JHbuBj0Y3m6dQzyCtZ6DqAMywoAzK_X6fUc_kie-kVsYvHqk2MeVCllVNlysbq73bWGVc0CruQ9d-jFgFlomxWSRiI8QIQFRIlAWqLCfKALu5EeOh1LyUBK0pa9rlmoRLuakP-AHWGTQ7PQ4J10Ew96Cllu6ckPJYYCKIiewZBsbwWtNoDCQFMcdLTFr3A02SN_1A6140JYnrtqy3uxLH7aEfE89SVlEcLKyJbxkhWbgRSVx3em0Hfh18kRKQCCMmjCb-51RYlARlKN8AML3sErCW0ga3NPjohUmxEaAgpSsDEILfCqShMjFvQSq5VsiNBze0RnqpkDINTVNBLLmKNSCH3IMGR34jasrAMmD4nQXhIh08SsOYtSJIo0w6HeX2imgtaQCtrAH4VPBMPPqQllan3gnGNEjWCGjQohyod3txkDPqRLEw1kxBz0GyhucUvy1JtNeAPpQqOs5dED6acUjwAsQ3N_twlnfnVJy5juORJwxBKUjdWqEGg_9oP-igQy97MVFm5NEJMcgcV-QC9HWNLMDQrumYQS9iLhfMOPqcbw4MS15Frk-iaHL_P9gdfdj0oIMKOjVaX57IfwE-vYhRUW3q0QOAVpdkniYJf7o2EeMlSZMzjRqsJE5OVBpvCc1QFGeHZ-5JuNEUxepakhArIIu6X6SafIB2SgeUxNnYNfBkPIzVa2EeQLYGDyMYB-wXWhGgsxuKtB8beTNPwsafg-_QaK5DbBwKUUIVUKpQgxfd9bFvk6Remg2z2wS1KpGF-hQc0qhiJXEeOQ5m6VtLk_XWVvrWa_f0ivSto3YqyBzKRsUURNkDiRqzUIqddiooibufN-kk05ERBjB8wfgV2g8EQDB1QiiWUk2U06w56BiTlB5jIs7OR6afpMuZVicJSoX4UKOXdQk-TebXRAGlCihVEF7D6sPvtFK6joUihRNniGPsSYkRCZ2MkxpL-iBcWkMjYwTu0Fc0NOrRcspQ8YOnmYcfSdWQksnUGVRAV6e6tN9kZUEGSkw7-tBCrHm63jZKPCdf5l_SPQBjD6cpaLqMSRDE1zJ5c46--qfwEFRsumpJrXZ56CdGQ6SyaZjK7eP5Zgmc4HDXwTz_cwYeIeA5wN--_fGWmqgmDkEHhU1I-NVdD0L0raxFthBLF-AMlOGtISoWqLt4pctYBkslQp8elLxVbqMdYOTHWLubdgwumxTfxOe9LWyhaZJb0W5OL2x2KQv5naiCmSUpM4NKEm9RqzhLkdTF0W0OiZNdFuB4OSjDVIb6GpN3gLIFyD1jYWhwVoMMd0k8WHevYUvPI7Ywy88rOLFdNvoXHC6ZHnf5q95f3YkT7kbsgV2wqtuw5fzbxyv2gv_chX0FdP2gvCFLz7WTTplD5ORuorDa7Ui095VuE_NQqprk496SnUa9cQ-ctuDKjqNKYQrbdntZVBioqre99kI-fOQuLP-qRlZuP9xNV2A_A1KE7QzFdiRkjAa3-uRmjEbatfZdFUtMRkoxs9s90qFiZi4fapHdVJdKTTIpG35npJUtD3YE1Zzx9-lxeeb_jvg4V3vzcmsffS27mzQxmrLzzwv6v86Trq6u8klSc_lcVFcOyjLzWIfl53msycGfSmyw1IM2YvJY4wOOmhvnjQUJF9h1Gv1X9vEMfIPjkBleeTF8_tLAqzgwX3y70U8-aGmslg6Oiepi6BUL9vD9NzIvd_c=" title="View full diagram">&#128065; View Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>IAO Program Architecture Summary</span></div>
 <div style="page-break-before: always;"></div>
@@ -793,12 +806,15 @@ Aggregated future-state: **44** systems, **54** connections, **167** flow hops.
 
 ```mermaid
 graph TB
-    %% -- ArchiMate-inspired style classes --
-    classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
-    classDef app           fill:#B5FFFF,stroke:#0077B6,stroke-width:2px,color:#000
-    classDef data          fill:#B5D8FF,stroke:#0077B6,stroke-width:1px,color:#000,stroke-dasharray: 5 5
-    classDef middleware    fill:#FFD6A5,stroke:#E76F00,stroke-width:2px,color:#000
-    classDef eol           fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#000
+    %% -- ArchiMate 3.2 + Azure style classes --
+    classDef business      fill:#FFFFB3,stroke:#F9A825,stroke-width:2px,color:#000
+    classDef app           fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef data          fill:#BBDEFB,stroke:#1565C0,stroke-width:1px,color:#0D47A1,stroke-dasharray: 5 5
+    classDef middleware    fill:#FFE0B2,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef eol           fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
+    classDef saas          fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
 
     subgraph AL["📦 Application Layer — Systems Integration"]
         direction LR
@@ -947,9 +963,12 @@ graph TB
     class SFA_XEUS app
     class SFA_e_g__MES_300 app
     class SFA_e_g__XEUS app
-    style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
-    style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
+    style BL fill:#FFFDE7,stroke:#F9A825,stroke-width:2px
+    style AL fill:#E3F2FD,stroke:#0078D4,stroke-width:2px
 ```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq9Wllv2zgQ_iuEiy4cbFJfcZLmYQGdjRdxQ1guksV6ITAWkwiVJUHHptm2_31JHdbBoewmTf0QwDPfDMkZcvgN46-9deDQ3nnvPiLhA1qqKx-xz9u36OgIKdH6wZ2ThKLJuzH6HSn_pRFFcfLkUbT2SBzTmMFyi-y7Tu_QbRq7Po1jlH3uXM87f2Oyjzo5jJMo-EzZ1_fK2XhafD16dJ3k4XwcfjlcB14Qnb8ZDoctnyQMUfXJfWqaMTXNrc_h8PRMP-7wOVFOtJZbhySk7VZVdcNUt25H05OpNmy6HdXc6senyqhUOyR-IFFEns7RFE1bg21cx_HoI2ERrMXFGKrj7WDGyXQ0HErXoJqTk2F7DTTwhNCYpqbrlVvtZHw2PpO7PR1po7bbmJC47dYYqYZxunV7qo5MZSx1e6yMjs_abtdekDo_HvFxO-Itt4EfRnTT2h9nxon2fut2bJzqE_lsR-rUGLNtlzuO09v8PCiXf696q9Q5mzjs75qeICUMPXdNEjfw0SV5ohFapePh6BhZT3FCNzGa-Qllxhyw6v2T--Mfx43oOjdbVFLLVGxlqS2EYZisYc6Bmjn7aFv2sX2hfFTaFlyJrMEx4krRlIRk7SZPthmwaZA4sXW2-W0rYV8FTwUWlVjEsSjDio6DKLRte4blE2MINEAzLJ-dPr8SQ5AJRegNgLwBgIbGIqtfWm0wkx9xOWjAF6pG7vpzDJlVWtDY8oNH0yOfKWS7VQKmc9u-dn2HFVvPs0XjOepv1QeCuakJS2QiAfaB72c3oVrg-2wftk1aasF8plm2jR8C6rtfhCkyJeoXSnGCM9NWvZTafwW-QyPB1kRci3ItZIz1C7bL_DjdhPz4EA9wwTCogZE5MoPUd0innzpE5mZBHiXWTAMZyQ4Hs5KeCnamugKHuwOH9wgc3idweHfg8B6Bw9LAYWng5spC2NxcJgINy54MhwLWsBATC3Css4zML9pwJj5iYgC-I5C7o7grhDvjJwmeLHJYn9vLiPixR1jZFq3mqNKKxsEjjWx1Ztu6stCE456pkTpDfa4WD7ylYFuJ3FvSNmQKlClAE_VK_ROy4HLQYKZiCM_EIBwreA7huRw04Gd2rn-AbPiZZSrYTNFAE0UT4WLttoDabWHD0AUgF4pQ16EaERJeiAX4tYWv21guE4FB9NlKIko2AnyrEYxujE_C-rhMAFL73padYfru_p30IGeG0DCZVWMs6jslvStJF2te_vi26ukZM1v1vu1kSpV5g4oVfqzLZemkjLe_D_8qzBXdZDRJV9Enn5Mvjem94J6Jlg9u5CBMIibt84UdIp36gRMclMOVXKc2nkDL9phkxrheEBTOw15gXq6icNEIQ32lNRrmw-StXCvjXHecc6GC1gQRCyeXhm5I6y4rduaDjK5wOE89agV3yUC90q3t4upb4Tn2Qqqe4aRGMbqt94tJ6wbodrmgm4C9EZipn_c3ikPChHK35VT5CLwyV60RslLGNrc7sSjP9XEapLgYqX1vfQPuusoHo8Ev2I0tRtwKPvoNLajHVlJfQnFhVD4arPkFc2lS6F31YpvYGA2A2qHgWYwe3eQhS89BbQcVHKMxrsB9fsbZAsh416GHpiE4YxN_eSEFJtYYSF5MJVWg00YowE3G_0p5xkCe8SvlGf9YnnFnnvFPzDPuyDPvMMDDWrQNNWROWUBwRj78VsdRIA1lVoWzs4S_Slp-Xk5-TUKaBb7zLgDL8LYhKecZuveU1u6nfa7ivZ2AeSz6lV9Xussrtdwv0PXLd8yG-c_f92rqgbrELENx4vrZ9xj1L5ZLfLBvnF5tYGlsi5yXJ3FhsuaU-17Q6rnWjMiGPrJ25SCP4TW9RRaN_nXX7P8YfetKwQPT9ehg5gTrwcLU9l7uqw4uX7Ki1WJ8lf0zIy49ZmOs2yVGckk919uusNRcanmqjS9hwNJeLBz12YY-QEcor5zoOuJ7o2-FlDrF47rro6rUDdCnmKL88GyJ2B2rCPWH2c7K98yVwjl4Eb3M2vdaOViwTc_PNz8a5hL3VS-47ejv6uY_xooL0vGCoRsORqt0OHRO6_U3e7Dx608MYJwkKareE0Cr7PnPr78w7HdV158YCovsjaDYeoMiAPwMlj62jwvlu0H2_6bq9YD9V7Itbz4LQICudwAIL_bxACpv3CHFDSzfttoSXa2VliCqJhAENLs3AMKbM0Dc7roASLOpggDNbglGiMRKjmtwJTmMEyFY25W7FueHEfvNFu83W9w124z8QvLi6ACqktuCqj3mvc-kO2bcYocQovmaAUEqdidR8qIm03FiJ1FlTEiiK2mDTM3uKUgFH5z8QoAURbkGVFlphuRVCQa0Wc0F5I0KK9M3jfOfkqiX1c9E9NoPDCQ_E6mbKqWpMTHHpr7r1yC9w96GRhviOr3zr73kgW74T18cekdSL-l9P-yRNAmsJ3_dO0-ilB720pBtSqq7hPHTTS78_j8X2v21" title="View full diagram">&#128065; View Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>IAO Program Architecture Summary</span></div>
 <div style="page-break-before: always;"></div>
@@ -961,11 +980,11 @@ graph TB
 ```mermaid
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "15px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 35, "rankSpacing": 45}} }%%
 flowchart TB
-    classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
-    classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
-    classDef dbCloud fill:#90CAF9,stroke:#1565C0,stroke-width:2px,color:#0D47A1
-    classDef dbData fill:#80CBC4,stroke:#00695C,stroke-width:2px,color:#004D40
-    classDef eolBox fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#660000
+    classDef appBox fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef dbCyl fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
+    classDef dbCloud fill:#BBDEFB,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef dbData fill:#B2EBF2,stroke:#00838F,stroke-width:2px,color:#004D40
+    classDef eolBox fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
 
     subgraph SFDCL_Azure_Analysis_Services[" "]
         direction TB
@@ -1162,6 +1181,9 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWgtPo0oU_iuTbrzRxPdjV5vsJjzX3rTKil692d6QsUwtkUIDdNV1_e_3HN5QGEDbJi3MfOcx3znzhNfexDVZr9_b2Hi1HCvok9dxL5ixORv3-mTcu6c-XG3Dlc8mS88KXobsF7OjStt1k9pQ5B_qWfTeZj5Wg56p6wS69TtWdXCyeI7AWK7SuWW_RDU6e3AZuRlsEwEUgPK3EGW7T5MZ9YJY29JnI_p8a5nBDEum1PYZ4mbB3B7Se2aHZgNvGZY60Cx9QSeW84DFRydY6FHnMVd4fPL2Rt42NsZOaotci2OHwGdiU9-X2ZTQxUJ0n8nUsu3-J0lSTlR12w8895H1P-3vfzmVj-PbnSd0rX-4eN6euLbrYfWR8Fkq6TPvpRc7UXeqfJbOUnWHyhf56LBW3YF4ohzur6qz3aUZKxRFWVHFD_on04Am-g4VUT3M6Ts9OlU5-o7l47KDzLUz_lRVkuVMn_T58PTwtFaf-OVAOgD_Io3-8v7Bo4sZ0VVZGhrC76XHDMGh9otv-YbOvF_WhPk_xz0I9H-RCH5My2OTwHKdNLT4AR2CoblPzDPEgSELVxIIhvdEHJBNLNgCNf1-P4p_QVKuNb457o2X5umRCb_m5Hi8nLL9KQnRJEGTBD3ubaGBOII838jO7s43ruVImjmxGj94sRmfqCQiAn7TiCj7-C1G5AD6LS8GmC_GkD6CEXmodwmAIgmJDFzu4GUj6SVrPMbDREYo2UTsFpfwxJcVrosGG4kuwtfBsszsWGVXbtEX0bMmj37McFbA4Tlnr5rdEBAS28hoZjDHa2aAw2YGWgeHF4ZgjCzTtNkT9TrxqMmqoY_OcXiQ1R244jBXslLN3sWeQDYzVC4rX-xq2znqihY49BWB66JQp7RTB_-O8lbAJNdxAAOipZIGMkN7HBqxnkdgyVqJSJRuoBAh6yDv0qMTGwYHsVsXHhm3lmNOZuBA2INHZDMtqJ-fBGMg6YY2c5ljPYMc3JHN-JYrpULGnRtAlr-cL9AnimYHKoFiUihu1qK6S8ekZSX50mYdV_QpE4UbnoRW7bvWzXet0netk-9a3nethe8jRTeO9vcBDlcErjjYqkZ2aWFF8zq0LWtYc6tuXe9RDzxG5wDPbjgSd8oNji74xxkXsq5UPTBE9UQWOeNCoWflRoVUd31_aoOu6EftxfKhaC8FsWgD1t7nmfYuz7QOnsV9oAXyPQ14h_ftXc9yuwUYk7seVjkPpZh1TES6oBnnwoXQZR6S1MGFoRvHiSDeE33vmOA9pz9LrrfALMiLQhHZIzAstpCH1M6JwjTQQgbbJ16Kf4MAXBK8jNDRPrQCrQnaKEbjZYNudGgkf48F0CG448lYJpOoh_joijOypbGpHtjQYNT6eFzDxTUvVLk8S1Q3RKhZIheTZnASjHZIZL8dMg5CC3DEeS2wsr8lkHV2NyPcIHXpdCgJx2H3NE618LohOQeiFqPhqimRBSlJYkFqkZRxC_ipSaJ9ICdB02ZVxMSo2kXG7eoChwY1wLlxN_Inah-L_o9heN7CvC6RF66lK8DjH29wpXiQGbzAvAaaqB9EJw964Ib726SaJNXRaUhYzdEqjy5D4-E_D3cXwe64KFXC9Rz8coZgGFBEe8mMf13HDHmCcR4LSFTAX2iXJLWWkiPhCh3DP-5id2Rcw5Gxb1NgLVzzjkhWwOtfYbt1brt1TVFkROE_bxmta7e4gIY_Xi_NMq2mh_4YkgjAWRZjyuV7Tqq0Q-61kQ-zqxXwrh0OUqwNrJhrrSS0rhKYVG1wxexqI6G3a2SYUG2AmFIcXPUYmYLWMj467tPUxrPScMg15NuuJ5yoQbWjo1E84EzveX1l1WpNn0mA0bRG5NvG887Ufp7YFXs8glfA6yCaGQ_x8TQEsAvHKBhvy9nuwy5p2JsX7VSzGuqJDugBxGU0sZ4js2CBw2MBty4K37N5QrnsgCdsfNMpj1w0xqGxzZYg50CJxxZr4TzsXSyuGCNfv377ExMhh7TBflDQBvCrWjb02z-1gS7umGNFkY5UrOqAvKIiFlaEAYnPhnFC_1O1R2hjtTx2lgo7ulo2Vl53dDJaJ7zaxhVRQVbJFYOlYxQeXb3WNkXbvd9KtdQ_IautjnXfOLg4laDKdh9SfeUnQ6XCWDY3LiexQ_egdGEtsgyqG3cL5_-xytHSZro7Dchf0GIbejKXqGIqf5imSuL34ASTFFiCouvZ7u5ua7WrU0mxsXvipax3yohy2vMYbt8qyc23qnQkVtkj1pEBtfRcsbkbMKIunWhIF0y6CBgaGOX95CRGvIOMfYXdaLj3Up4XLrxhEj-Ah2fSWkEd19dqxRq5NFGznzzTf7KCGZm4znv8_EB4qvUtrAfGkLU43bge1QWjZaRrX4sozeVD9gDz3M_cjDox94ksXAsE3rM4H1wr0vXNlUKGynflQq6Z44dXWSk89se9-mJhW5PwcLl6Vofn2XWPK5wdzWPz2ucVICnViMarUrFuDQWidVbDhNRgSpi63rxm9TA0FFxVO-aOO90ZWlO2upstrRkidpN1wgl-03XC2dnZyiKht92bM29OLbPXf43eIYNX0Uw2pUs7gLfAenQZuPqLM-n1w_e6essF5DuTLQrRnEeFb_8DWRfNDQ==" title="View full diagram">&#128065; View Diagram</a></div>
+
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>IAO Program Architecture Summary</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -1172,9 +1194,9 @@ flowchart TB
 ```mermaid
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
 flowchart TB
-    classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
-    classDef platBox fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
-    classDef eolBox fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#660000
+    classDef appBox fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef platBox fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
+    classDef eolBox fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
 
     subgraph SFPP_Blue_Yonder_Cloud_SaaS["☁️ Blue Yonder Cloud SaaS"]
         direction LR
@@ -1187,7 +1209,7 @@ flowchart TB
         direction LR
         SFPA_ECA_DataBricks["ECA-DataBricks"]:::appBox
     end
-    style SFPP_Databricks_on_ECA_Azure_Cloud fill:#BBDEFB,stroke:#1565C0,stroke-width:3px,color:#0D47A1
+    style SFPP_Databricks_on_ECA_Azure_Cloud fill:#BBDEFB,stroke:#0078D4,stroke-width:3px,color:#003A6C
 
     subgraph SFPP_GraphiteConnect_Cloud_SaaS["☁️ GraphiteConnect Cloud SaaS"]
         direction LR
@@ -1207,38 +1229,38 @@ flowchart TB
         SFPA_SPEED["SPEED"]:::appBox
         SFPA_WSPW["WSPW"]:::appBox
     end
-    style SFPP_Intel_Custom_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SFPP_Intel_Custom_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SFPP_Intel_ECA_Platform_Azure_Cloud["☁️ Intel ECA Platform Azure Cloud"]
         direction LR
         SFPA_ECA_ADLS["ECA-ADLS"]:::appBox
     end
-    style SFPP_Intel_ECA_Platform_Azure_Cloud fill:#BBDEFB,stroke:#1565C0,stroke-width:3px,color:#0D47A1
+    style SFPP_Intel_ECA_Platform_Azure_Cloud fill:#BBDEFB,stroke:#0078D4,stroke-width:3px,color:#003A6C
 
     subgraph SFPP_Intel_ICS_Phoenix_On_Premise["🖥️ Intel ICS (Phoenix) On-Premise"]
         direction LR
         SFPA_ICS_Phoenix["ICS (Phoenix)"]:::appBox
     end
-    style SFPP_Intel_ICS_Phoenix_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SFPP_Intel_ICS_Phoenix_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SFPP_Intel_MES_On_Premise["🖥️ Intel MES On-Premise"]
         direction LR
         SFPA_MES_300["MES 300"]:::appBox
         SFPA_WorkStream["WorkStream"]:::appBox
     end
-    style SFPP_Intel_MES_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SFPP_Intel_MES_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SFPP_Intel_Middleware_On_Premise["🖥️ Intel Middleware On-Premise"]
         direction LR
         SFPA_XEUS["XEUS"]:::appBox
     end
-    style SFPP_Intel_Middleware_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SFPP_Intel_Middleware_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SFPP_Intel_PDF_SMH_Middleware_On_Premise["🖥️ Intel PDF-SMH Middleware On-Premise"]
         direction LR
         SFPA_PDF_SMH["PDF-SMH"]:::appBox
     end
-    style SFPP_Intel_PDF_SMH_Middleware_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SFPP_Intel_PDF_SMH_Middleware_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SFPP_Intel_PDH_On_Premise["🖥️ Intel PDH On-Premise"]
         direction LR
@@ -1252,13 +1274,13 @@ flowchart TB
         SFPA_PDH_Foundational["PDH Foundational"]:::appBox
         SFPA_PDH_Raw["PDH Raw"]:::appBox
     end
-    style SFPP_Intel_PDH_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SFPP_Intel_PDH_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SFPP_Intel_PDM_On_Premise["🖥️ Intel PDM On-Premise"]
         direction LR
         SFPA_PDM_Translator["PDM Translator"]:::appBox
     end
-    style SFPP_Intel_PDM_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SFPP_Intel_PDM_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SFPP_Microsoft_Power_BI_SaaS["☁️ Microsoft Power BI SaaS"]
         direction LR
@@ -1270,7 +1292,7 @@ flowchart TB
         direction LR
         SFPA_ECM_Windchill["ECM (Windchill)"]:::appBox
     end
-    style SFPP_PTC_Windchill_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SFPP_PTC_Windchill_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SFPP_SAP_Analytics_Cloud_SaaS["☁️ SAP Analytics Cloud SaaS"]
         direction LR
@@ -1288,13 +1310,13 @@ flowchart TB
         direction LR
         SFPA_SAP_BOBJ["SAP BOBJ"]:::eolBox
     end
-    style SFPP_SAP_BusinessObjects_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SFPP_SAP_BusinessObjects_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SFPP_SAP_HANA_Sidecar_On_Premise["🖥️ SAP HANA Sidecar On-Premise"]
         direction LR
         SFPA_SideCar["SideCar"]:::appBox
     end
-    style SFPP_SAP_HANA_Sidecar_On_Premise fill:#B2DFDB,stroke:#00695C,stroke-width:3px,color:#004D40
+    style SFPP_SAP_HANA_Sidecar_On_Premise fill:#B2EBF2,stroke:#00838F,stroke-width:3px,color:#004D40
 
     subgraph SFPP_SAP_IBP_Cloud_SaaS["☁️ SAP IBP Cloud SaaS"]
         direction LR
@@ -1306,44 +1328,44 @@ flowchart TB
         direction LR
         SFPA_SAP_S_4_MDG["SAP S/4 MDG"]:::appBox
     end
-    style SFPP_SAP_MDG_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SFPP_SAP_MDG_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SFPP_SAP_PaPM_On_Premise["🖥️ SAP PaPM On-Premise"]
         direction LR
         SFPA_SAP_PAPM["SAP PAPM"]:::appBox
     end
-    style SFPP_SAP_PaPM_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SFPP_SAP_PaPM_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SFPP_SAP_S_4HANA_Central_Finance["🖥️ SAP S/4HANA Central Finance"]
         direction LR
         SFPA_CFIN_S_4_HANA["CFIN S/4 HANA"]:::appBox
     end
-    style SFPP_SAP_S_4HANA_Central_Finance fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SFPP_SAP_S_4HANA_Central_Finance fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SFPP_SAP_S_4HANA_On_Premise["🖥️ SAP S/4HANA On-Premise"]
         direction LR
         SFPA_Corp_IP_S_4_HANA["Corp / IP S/4 HANA"]:::appBox
         SFPA_IF_S_4_HANA["IF S/4 HANA"]:::appBox
     end
-    style SFPP_SAP_S_4HANA_On_Premise fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SFPP_SAP_S_4HANA_On_Premise fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     subgraph SFPP_Snowflake_on_ECA_Cloud["☁️ Snowflake on ECA Cloud"]
         direction LR
         SFPA_ECA_SnowFlake["ECA-SnowFlake"]:::appBox
     end
-    style SFPP_Snowflake_on_ECA_Cloud fill:#B2DFDB,stroke:#00695C,stroke-width:3px,color:#004D40
+    style SFPP_Snowflake_on_ECA_Cloud fill:#B2EBF2,stroke:#00838F,stroke-width:3px,color:#004D40
 
     subgraph SFPP_e_g_Azure_PaaS["☁️ e.g. Azure PaaS"]
         direction LR
         SFPA_e_g_XEUS["e.g. XEUS"]:::appBox
     end
-    style SFPP_e_g_Azure_PaaS fill:#BBDEFB,stroke:#1565C0,stroke-width:3px,color:#0D47A1
+    style SFPP_e_g_Azure_PaaS fill:#BBDEFB,stroke:#0078D4,stroke-width:3px,color:#003A6C
 
     subgraph SFPP_e_g_S_4_HANA_2023["🖥️ e.g. S/4 HANA 2023"]
         direction LR
         SFPA_e_g_MES_300["e.g. MES 300"]:::appBox
     end
-    style SFPP_e_g_S_4_HANA_2023 fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style SFPP_e_g_S_4_HANA_2023 fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     SFPP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| SFPP_e_g_Azure_PaaS
     SFPP_Intel_MES_On_Premise ==>|"Direct"| SFPP_Intel_Middleware_On_Premise
@@ -1389,12 +1411,15 @@ flowchart TB
         SFPLM["🔗 Middleware"]
     end
     style SFPLegend fill:#F5F5F5,stroke:#999,stroke-width:1px
-    style SFPLC fill:#BBDEFB,stroke:#1565C0,stroke-width:3px,color:#0D47A1
+    style SFPLC fill:#BBDEFB,stroke:#0078D4,stroke-width:3px,color:#003A6C
     style SFPLS fill:#E1BEE7,stroke:#7B1FA2,stroke-width:3px,color:#4A148C
-    style SFPLO fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
-    style SFPLD fill:#B2DFDB,stroke:#00695C,stroke-width:3px,color:#004D40
+    style SFPLO fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
+    style SFPLD fill:#B2EBF2,stroke:#00838F,stroke-width:3px,color:#004D40
     style SFPLM fill:#FFE0B2,stroke:#E65100,stroke-width:3px,color:#BF360C
 ```
+
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq9Wotvo0YT_1dWrq5KpVzOrzzOUivxvLgyZ2RyvavqT2ht1jFfMGvxaJLe5X_vLGAMGPDiRxPJwDL7m9nfzizMsN9bc2qR1qD17t1327WDAfo-bQVLsiLT1gBNWzPsw9klnPlkHnp28DoifxMnvulQurkbdfkDezaeOcRntwFnQd3AsP9JoDr99UsszNpVvLKd1_iOQR4pQV-Gl0gAAAB_i6Qc-jxfYi9I0EKfaPjlq20FS9aywI5PmNwyWDkjPCNOpDbwwqjVhWEZazy33UfW3G-zRg-7T5nG6_bbG3p7927qprrQgzh1EfzNHez7MlkgvF6L9AUtbMcZ_CRJyrWqXvqBR5_I4Kd2-_ZO7ieX75-ZaYPu-uVyTh3qsds94UYq4K0dHGQA75Qb6WMK2FVu5V43D9jbAnbEa6XbLgAS6mzxVFWS5W6KJ91077p3lQaKtx2pAwbGiH44e_TweokMVddN0QmJ-Sd1LeKZkkNDyzQwNv6atqZh96bdmYYL0l4gJoViKRRJISY1bf0vhmR_lu2ReWBTF40m21bQIZhDNasGsIdqFhFgBoNBPAHFnnqxp17fk7hWMsrg1SF1Q0yYVDqiotymTN6KHVWonpm-0OnfVTAp4wDPPHv-5JvUNRVJMIV_Qo_EKouEboURMAbCKBKOyeXllelgQGIEBCqg4f22gY-dWrMTkkRRVlSxNh56u_FQRtIndmoHRKKuC8OqcbmC5AFuV0AABYUWPoKqTT65Cw3dgDimFPoBXZlj19Q9srJ9ElFj3fUs-LXwdUJQJIxiYTR23yfCvOwID9IEgNmhJgAlzNbR4NVUKSBhP4j8xTQCuITem9tocztybBTdrkGVtXGkPDrWyX2Lxb7VSqkScx74jWXihbIgowkTJsQONUhGhGTUIhm6oshMih1rsL4a-lcQYwc-P6uY_KOeINVOxgJdh2fUgnqruoUq9jK2QG2kD12pBHlkJGsUO21CSpWxJ1-eYnVDyTD1JSWu_cIZhdADXSRdfjkgGDMa2UMui9aEp3LDz-RBmmJwsgOSB3DC8HvtNota6A9ndcFGvScj8AhesZBLL5pwlx_OuTizLcshzxgcmJO6tMMBDH5TvrCIY4dGTJQZeSZCdFk1De2-OTHQ8T10PI6gRDvoSeCa0FRr-tnouufm5_6QdUiNVMCrjh-u1kwGO_H7OsPLNde9tccoKg1dCxdBsq37MSb4edsVLupzhVLb9Wa266W2641s17O26xy2lxnexOoSkxvYuzW20tK6MLj_L_xe4_Z77aCFQDMfoGzgw0sG9SIiNLRtaMaHdk4-NHvuUZ8uAlOnz5DQisPS7CkVQ5EYEoeNUqcUWxYmEqNjA3LBGjjfSSpMPXnWpD9I5lfbteZLAN7rJiCNUukDXEWRtK226H1WQxdpAyc1VSaf3F0MQTcFiP7XwJ77Ndk2yKFU7oBcm-kxBOYqDAnO-HioMu_kPhIp8uwZ3scBkzlw_FHfhIHovAEHBdPOMn4x9G2X-P549n8Yhr83Utg4Cn0OiJdI81j8PSGGne5m11W8VJt8lki5Fz6DwbYFpQyPix7WASUdDuEGekqYPW-SM36PqTB1kxF3FVHtZjLiu96dWpMR9-V-DS1DUd8TNiBxYNBAz8Qz4Ix_-HmTzhIumvyJywdA7sCwMMw-07JZND_0GRY_B3kDzxIQOtY1LhKY4IEs6IKuJRSwU_7xF4w7CwEwRVGkScQNPOyYqu1id15DBMxitCgkHVDSgZcQSR1-jvyCgbACK1xHnsGu-ampMPusFPG4yYad5p4iUW_NEqssN9CEPqChXkNQNp_MdIWE8nBSz-lyLn1eOPiJbL7FlNZkU6nNt6PGtViGoDKEpCCbXnOyUWrmyZ89xHxMqr16yXOHXD1eJbVovcFDh4EmhbEIgb86ljfn5LVnBr9xUbPb7vbKwygyeuO8iMk1Gfm2qBrhVFZWq8afM_AE7l8B_Ouvv_1ITJSjAUGcC_oQflXbASf9UTYjGcTSkm4MGuOlEDUlz1280kpfDWxtiXAHvr6gGKtRhCFKPkSyssSPutUpo6Bi-YoxjdFDKVLh4XEEvTsftXawdj97nYDWyiw7xi7WeH5Ul3FK5krjBtx9VyvMTOFFLhn5RIVqC_uaOiFrx55HZTykenhFrq6u-Ke-nt9jOKjCFGQVbIZvwXHEGuqDfiE6dPZLAb7qq96OosrPf7G-Ly77Ai0BVQ59THXU7mvIqKjf_5BESPrATWOPDQxa1_Z6uxyVPxYzumq2EsSKtNAhBqva_QwMOjDj_E7EHd4VmWMFXPEN8hjMqpz1TG5T558fkCyinONA08MyG1nc2irehvIz-kEcy0bTqK34nvtfrLR7fbliV9UeiiW6S3H-C0LJUntf4tQnisjauZuQFQ0IUkM3fqMSLLwOCFOkFZfgQi5acPzSEmcyEEGK98woL2sKGxMN4v1tQ5xdCHpOx96B7FOjo7HF9PixAh8928ESzanb6GlypK9Xv1Kc3v56XcXiwVYN8zp4LY9m3AhhtWaOtcLNaNotUZ0yMEpLxomCtf1ImMmbyTjR3HIGXMU3H_4HAU_ttyx_GpFHyFmyKdPcaiN9JDyo44mGRson5bPMlymNpGKquZtfMzEjl6B1yW7tk0mNN1Jz-F2Q7qb2sSMo54yfkXhZ2Dx7dsS1nPbObWYnRCq7m8XFNG12EV-z_zRx-_jxYz5r66xfit2lo9LePNZxZds81vjojdZbLPmoQkYeS0s3bCttcYul3Fx32u1KLFHt3bSl1mVrRbwVtq3W4Hu89R528FtkgUMngM3zLRwG1Hh1561BtB2-Fa5hhSSyjSEqVnHj27_R33Nl" title="View full diagram">&#128065; View Diagram</a></div>
+
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>IAO Program Architecture Summary</span></div>
 <div style="page-break-before: always;"></div>
