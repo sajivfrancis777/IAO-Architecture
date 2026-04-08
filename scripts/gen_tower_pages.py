@@ -328,7 +328,7 @@ body{{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;backgro
 .breadcrumb a{{color:#0071c5;text-decoration:none}}
 .breadcrumb a:hover{{text-decoration:underline}}
 .hero{{background:linear-gradient(135deg,#00285a,#0060a9);color:#fff;border-radius:12px;padding:48px 40px;margin-bottom:32px;position:relative;overflow:hidden}}
-.hero::after{{content:"";position:absolute;top:0;right:0;width:300px;height:100%;background:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 300 200%27%3E%3Cpath d=%27M0 100L80 100L120 60L200 60L240 100L300 100%27 stroke=%27rgba(255,255,255,.08)%27 fill=%27none%27 stroke-width=%272%27/%3E%3Cpath d=%27M0 140L60 140L100 180L180 180L220 140L300 140%27 stroke=%27rgba(255,255,255,.06)%27 fill=%27none%27 stroke-width=%272%27/%3E%3C/svg%3E") no-repeat center;opacity:.5}}
+.hero::after{{content:"";position:absolute;top:0;right:0;width:300px;height:100%;background:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 300 200%27%3E%3Cpath d=%27M0 100L80 100L120 60L200 60L240 100L300 100%27 stroke=%27rgba(255,255,255,.08)%27 fill=%27none%27 stroke-width=%272%27/%3E%3Cpath d=%27M0 140L60 140L100 180L180 180L220 140L300 140%27 stroke=%27rgba(255,255,255,.06)%27 fill=%27none%27 stroke-width=%272%27/%3E%3C/svg%3E") no-repeat center;opacity:.5;pointer-events:none}}
 .hero h2{{font-size:32px;margin:0 0 8px;font-weight:700;position:relative}}
 .hero p{{font-size:16px;opacity:.85;margin:0;position:relative}}
 .hero .badge{{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:4px 14px;font-size:12px;margin-top:12px;position:relative}}
@@ -363,8 +363,9 @@ td a:hover{{text-decoration:underline}}
   .sidebar{{transform:translateX(-100%)}}
   .sidebar.open{{transform:translateX(0);box-shadow:4px 0 16px rgba(0,0,0,.15)}}
   .page-body{{margin-left:0}}
-  .hero{{padding:28px 20px}}
+  .hero{{padding:28px 20px;text-align:center}}
   .hero h2{{font-size:24px}}
+  .hero div{{flex-direction:column;align-items:center}}
 }}
 </style>
 </head><body>
@@ -398,7 +399,7 @@ td a:hover{{text-decoration:underline}}
   <h2>{icon} {tower} — {full_name}</h2>
   <p>{desc}</p>
   <span class="badge">{cap_count} capabilities · R1 – R5</span>
-  <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
+  <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;position:relative;z-index:1">
     <a href="towers/{tower}/output/docs/summaries/L0-{tower}-Summary.html" style="display:inline-block;padding:8px 20px;background:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.45);border-radius:8px;color:#fff;text-decoration:none;font-weight:600;font-size:14px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.35)'" onmouseout="this.style.background='rgba(255,255,255,.25)'">📐 L0 Architecture Summary</a>
     <a href="dashboard/{tower}/index.html" style="display:inline-block;padding:8px 20px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:8px;color:#fff;text-decoration:none;font-weight:600;font-size:14px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.3)'" onmouseout="this.style.background='rgba(255,255,255,.18)'">📊 Tower Dashboard</a>
     <a href="dashboard/index.html" style="display:inline-block;padding:8px 20px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.25);border-radius:8px;color:rgba(255,255,255,.85);text-decoration:none;font-weight:500;font-size:14px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.2)'" onmouseout="this.style.background='rgba(255,255,255,.1)'">📊 Program Dashboard</a>
