@@ -416,7 +416,7 @@ def load_workbook(xlsx_path: str, label: str = "") -> WorkbookData:
 def find_workbook(data_dir: Path, release_id: str, flow_type: str) -> Optional[Path]:
     """Find the best workbook file for a given flow type.
 
-    Priority: {Release}_{Type}.xlsx → {Type}.xlsx → {Release}_{Type}.csv → {Type}.csv
+    Priority: {Release}_{Type}.xlsx → {Type}.xlsx
     Where Type is 'CurrentFlows' or 'FutureFlows'.
 
     Returns the path if an xlsx is found, None otherwise (caller falls back to CSV).

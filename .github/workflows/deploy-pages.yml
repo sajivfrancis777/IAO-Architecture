@@ -109,6 +109,20 @@ jobs:
 
             # Restore all-releases baseline before each release run
             rsync -a /tmp/all-releases/towers/ towers/
+            if [ -d "/tmp/all-releases/output" ]; then
+              rsync -a /tmp/all-releases/output/ output/
+            fi
+
+            # Purge ALL generated docs so that only freshly-regenerated files
+            # for THIS release survive.  Without this, files from a previous
+            # release iteration (or the all-releases baseline) persist when a
+            # generator skips a capability (no data for this release) and get
+            # copied into /tmp/release-Rx/ with stale content.
+            find towers -type f \( -name "*-Architecture.md" -o -name "*-Architecture.html" \
+                 -o -name "*-RICEFW-Tracker.md" -o -name "*-RICEFW-Tracker.html" \
+                 -o -name "*-Testing-Report.md" -o -name "*-Testing-Report.html" \
+                 -o -name "*-Summary.md" -o -name "*-Summary.html" \) -delete
+            rm -rf output/docs/summaries/*
 
             # Regenerate with release filter
             python -m src.gen_systems_arch --all --release "$REL"
