@@ -63,9 +63,15 @@ nav.toc a:hover { text-decoration: underline; }
   </li>
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
+{% if current_flows.hops %}
       <li><a href="#51-{{ current_label | lower | replace(' ', '-') }}-current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
+{% endif %}
+{% if future_flows.hops %}
       <li><a href="#52-{{ future_label | lower | replace(' ', '-') }}-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
+{% endif %}
+{% if current_flows.hops and future_flows.hops %}
       <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
+{% endif %}
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
       <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -109,7 +115,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 {% if ricefw and ricefw.ricefw %}| **RICEFW Objects** | {{ ricefw.ricefw_summary }} |
 {% else %}| **RICEFW Objects** | Pending — Smartsheet Object Tracker API integration |
 {% endif %}
+{% if current_flows.hops and future_flows.hops %}
 **Change Summary**: {{ diff.new_count }} new flow chains, {{ diff.removed_count }} removed, {{ diff.modified_count }} modified, {{ diff.unchanged_count }} unchanged between {{ current_label }} and {{ future_label }} states.
+{% endif %}
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
@@ -358,6 +366,7 @@ Reports and Conversions for this capability will be populated from the Smartshee
 
 ## 5. Application Architecture (TOGAF "A")
 
+{% if current_flows.hops %}
 ### 5.1 {{ current_label }} — Current-State Application Landscape
 
 #### Overview
@@ -406,7 +415,9 @@ This view is generated from `{{ current_csv_name }}` ({{ current_flows.total_hop
 {% if current_flows.chains %}
 <div style="page-break-before: always;"></div>
 {% endif %}
+{% endif %}{# end if current_flows.hops #}
 
+{% if future_flows.hops %}
 ### 5.2 {{ future_label }} — Future-State Application Landscape
 
 #### Overview
@@ -455,7 +466,9 @@ This view is generated from `{{ future_csv_name }}` ({{ future_flows.total_hops 
 {% if future_flows.chains %}
 <div style="page-break-before: always;"></div>
 {% endif %}
+{% endif %}{# end if future_flows.hops #}
 
+{% if current_flows.hops and future_flows.hops %}
 ### 5.3 Change Impact Summary
 
 | Change Type | Flow Chain | Detail |
@@ -465,6 +478,7 @@ This view is generated from `{{ future_csv_name }}` ({{ future_flows.total_hops 
 {% endfor %}
 
 **Totals**: {{ diff.summary_str }}
+{% endif %}{# end if both current and future #}
 
 ### 5.4 Component Overview
 

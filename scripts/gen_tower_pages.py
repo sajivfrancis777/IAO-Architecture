@@ -25,6 +25,7 @@ import re
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import quote as url_quote
 
 # ── Paths ────────────────────────────────────────────────────────
 WORKSPACE = Path(__file__).resolve().parent.parent
@@ -168,23 +169,28 @@ def _find_cap_docs(tower: str, l1_name: str, cap_id: str) -> dict[str, str]:
     cap_dir = TOWERS_DIR / tower / l1_name / cap_id / "output" / "docs"
     docs: dict[str, str] = {}
 
+    def _encode_path(p: Path) -> str:
+        """Return workspace-relative path with URL-encoded segments."""
+        raw = str(p.relative_to(WORKSPACE)).replace("\\", "/")
+        return "/".join(url_quote(seg, safe="") for seg in raw.split("/"))
+
     sad_dir = cap_dir / "systems-architecture"
     if sad_dir.exists():
         files = list(sad_dir.glob("*-Architecture.html"))
         if files:
-            docs["sad"] = str(files[0].relative_to(WORKSPACE)).replace("\\", "/")
+            docs["sad"] = _encode_path(files[0])
 
     ricefw_dir = cap_dir / "ricefw-tracker"
     if ricefw_dir.exists():
         files = list(ricefw_dir.glob("*-RICEFW-Tracker.html"))
         if files:
-            docs["ricefw"] = str(files[0].relative_to(WORKSPACE)).replace("\\", "/")
+            docs["ricefw"] = _encode_path(files[0])
 
     testing_dir = cap_dir / "testing-report"
     if testing_dir.exists():
         files = list(testing_dir.glob("*-Testing-Report.html"))
         if files:
-            docs["testing"] = str(files[0].relative_to(WORKSPACE)).replace("\\", "/")
+            docs["testing"] = _encode_path(files[0])
 
     return docs
 
@@ -332,6 +338,11 @@ body{{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;backgro
 .hero h2{{font-size:32px;margin:0 0 8px;font-weight:700;position:relative}}
 .hero p{{font-size:16px;opacity:.85;margin:0;position:relative}}
 .hero .badge{{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:4px 14px;font-size:12px;margin-top:12px;position:relative}}
+.hero-btn{{display:inline-block;padding:8px 20px;border-radius:8px;color:#fff;text-decoration:none;font-weight:600;font-size:14px;transition:background .15s}}
+.hero-btn-primary{{background:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.45)}}
+.hero-btn-secondary{{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35)}}
+.hero-btn-tertiary{{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.85);font-weight:500}}
+@media(hover:hover){{.hero-btn-primary:hover{{background:rgba(255,255,255,.35)}}.hero-btn-secondary:hover{{background:rgba(255,255,255,.3)}}.hero-btn-tertiary:hover{{background:rgba(255,255,255,.2)}}}}
 .section-title{{font-size:20px;font-weight:700;color:#00285a;margin:32px 0 8px;padding-bottom:8px;border-bottom:2px solid #e4e8ed}}
 table{{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06);border:1px solid #e4e8ed}}
 th{{background:#00285a;color:#fff;padding:12px 16px;font-size:13px;font-weight:600;text-align:left;text-transform:uppercase;letter-spacing:.5px}}
@@ -400,9 +411,9 @@ td a:hover{{text-decoration:underline}}
   <p>{desc}</p>
   <span class="badge">{cap_count} capabilities · R1 – R5</span>
   <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;position:relative;z-index:1">
-    <a href="towers/{tower}/output/docs/summaries/L0-{tower}-Summary.html" style="display:inline-block;padding:8px 20px;background:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.45);border-radius:8px;color:#fff;text-decoration:none;font-weight:600;font-size:14px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.35)'" onmouseout="this.style.background='rgba(255,255,255,.25)'">📐 L0 Architecture Summary</a>
-    <a href="dashboard/{tower}/index.html" style="display:inline-block;padding:8px 20px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:8px;color:#fff;text-decoration:none;font-weight:600;font-size:14px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.3)'" onmouseout="this.style.background='rgba(255,255,255,.18)'">📊 Tower Dashboard</a>
-    <a href="dashboard/index.html" style="display:inline-block;padding:8px 20px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.25);border-radius:8px;color:rgba(255,255,255,.85);text-decoration:none;font-weight:500;font-size:14px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.2)'" onmouseout="this.style.background='rgba(255,255,255,.1)'">📊 Program Dashboard</a>
+    <a href="towers/{tower}/output/docs/summaries/L0-{tower}-Summary.html" class="hero-btn hero-btn-primary">📐 L0 Architecture Summary</a>
+    <a href="dashboard/{tower}/index.html" class="hero-btn hero-btn-secondary">📊 Tower Dashboard</a>
+    <a href="dashboard/index.html" class="hero-btn hero-btn-tertiary">📊 Program Dashboard</a>
   </div>
 </div>
 """]
@@ -856,7 +867,7 @@ def _sidebar_js() -> str:
           lc.appendChild(l1);
         }
         g.caps.forEach(function(c){
-          var a=document.createElement("a");a.className="cap-link";a.href=base+"cap/"+t.tower+"-"+c.id+".html";
+          var a=document.createElement("a");a.className="cap-link";a.href=base+(c.href||("cap/"+t.tower+"-"+c.id+".html"));
           a.innerHTML="<span class=\\"cap-id\\">"+c.id+"</span> "+c.name;
           a.dataset.search=(c.id+" "+c.name+" "+g.group+" "+t.tower+" "+t.name).toLowerCase();
           if(currentPage.indexOf(t.tower+"-"+c.id)!==-1||currentPage.indexOf(c.id)!==-1){
@@ -1095,7 +1106,7 @@ def _generate_nav_json(towers: list[str], registry: dict) -> None:
                             if name_part:
                                 cap_name = name_part
                         has_docs = True
-                cap_entries.append({"id": cap_id, "name": cap_name})
+                cap_entries.append({"id": cap_id, "name": cap_name, "href": f"cap/{tower}-{cap_id}.html"})
 
             if not has_docs:
                 continue
