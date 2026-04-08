@@ -535,6 +535,13 @@ def build_archimate_mermaid(
     lines.append(LAYER_STYLES)
     lines.append("")
 
+    # Swim-lane subgraph styles (Azure-tinted colors per lane)
+    for i, lane_name in enumerate(sorted(lane_groups.keys())):
+        lane_id = _sanitize_lane_id(pfx + "LN", lane_name)
+        fill, stroke = _SUBGRAPH_COLORS[i % len(_SUBGRAPH_COLORS)]
+        lines.append(f"    style {lane_id} {fill},{stroke},stroke-width:1px")
+    lines.append("")
+
     # Legend
     lines.append('    subgraph Legend["📐 LEGEND"]')
     lines.append("        direction LR")
@@ -633,7 +640,8 @@ def build_data_arch_mermaid(
     lines.append("")
 
     # Render each DB cluster: app(s) above → DB cylinder below
-    for db_nid in sorted(dbs.keys()):
+    sorted_db_nids = sorted(dbs.keys())
+    for i, db_nid in enumerate(sorted_db_nids):
         db_label = dbs[db_nid]
         cluster_apps = sorted(set(db_to_apps.get(db_nid, [])))
         sg_id = _make_node_id(pfx + "CL", db_label)
@@ -653,7 +661,8 @@ def build_data_arch_mermaid(
         for a_nid in cluster_apps:
             lines.append(f"        {a_nid} -.-> {db_nid}")
         lines.append("    end")
-        lines.append(f"    style {sg_id} fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px")
+        fill, stroke = _SUBGRAPH_COLORS[i % len(_SUBGRAPH_COLORS)]
+        lines.append(f"    style {sg_id} {fill},{stroke},stroke-width:1px")
         lines.append("")
 
     # Orphan apps (no known DB)
