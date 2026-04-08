@@ -259,7 +259,8 @@ def _scan_doc_inventory(tower_short: str, base_url: str = "") -> list[dict]:
                     return ""
                 # Pages URLs: from /dashboard/ or /dashboard/TOWER/
                 # Tower docs live at /towers/TOWER/...
-                parts = str(rel).replace("\\", "/")
+                # Spaces replaced with hyphens to match deploy-pages.yml sed 's/ /-/g'
+                parts = str(rel).replace("\\", "/").replace(" ", "-")
                 if base_url:
                     # From /dashboard/TOWER/ -> need ../../towers/...
                     return f"../../{parts}"
