@@ -78,6 +78,10 @@ jobs:
           # Strip leading whitespace from heredoc
           sed -i 's/^[[:space:]]*//' .env
 
+      - name: Fetch Smartsheet API data (RAID, WRICEF, timelines)
+        continue-on-error: true
+        run: python scripts/fetch_smartsheet_data.py
+
       - name: Generate Architecture MDs
         run: |
           if [ -n "${{ github.event.inputs.tower }}" ]; then
