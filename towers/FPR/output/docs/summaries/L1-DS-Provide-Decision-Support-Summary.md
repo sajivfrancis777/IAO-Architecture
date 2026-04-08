@@ -102,9 +102,9 @@ Click a capability ID to view its full TOGAF BDAT architecture document.
 
 | # | Capability ID | Capability Name | L1 Process Group | Current Hops | Future Hops |
 |:---:|:---:|---|---|:---:|:---:|
-| 1 | [DS-010](towers/FPR/DS Provide Decision Support/DS-010/output/docs/systems-architecture/DS-010-Architecture.html) | Perform Overhead Accounting and Allocation | DS Provide Decision Support | 0 | 0 |
-| 2 | [DS-020](towers/FPR/DS Provide Decision Support/DS-020/output/docs/systems-architecture/DS-020-Architecture.html) | Perform Product Costing and Inventory Valuation | DS Provide Decision Support | 36 | 114 |
-| 3 | [DS-030](towers/FPR/DS Provide Decision Support/DS-030/output/docs/systems-architecture/DS-030-Architecture.html) | Perform Customer and Product Profitability Analysis | DS Provide Decision Support | 0 | 0 |
+| 1 | [DS-010](../../../DS Provide Decision Support/DS-010/output/docs/systems-architecture/DS-010-Architecture.html) | Perform Overhead Accounting and Allocation | DS Provide Decision Support | 0 | 0 |
+| 2 | [DS-020](../../../DS Provide Decision Support/DS-020/output/docs/systems-architecture/DS-020-Architecture.html) | Perform Product Costing and Inventory Valuation | DS Provide Decision Support | 36 | 114 |
+| 3 | [DS-030](../../../DS Provide Decision Support/DS-030/output/docs/systems-architecture/DS-030-Architecture.html) | Perform Customer and Product Profitability Analysis | DS Provide Decision Support | 0 | 0 |
 
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS Provide Decision Support</span></div>
 <div style="page-break-before: always;"></div>
@@ -113,8 +113,6 @@ Click a capability ID to view its full TOGAF BDAT architecture document.
 
 Aggregated current-state: **26** systems, **31** connections, **36** flow hops.
 
-<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS Provide Decision Support</span></div>
-<div style="page-break-before: always;"></div>
 
 ### 3.1 Application Architecture
 
@@ -227,8 +225,6 @@ graph TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVmGuPozYUhv-KxWo_NdMFct18qMTFTFNldtCQaio1FfKCZ4OGAOKiabrZ_16bq7FNOuXDaDjnOS_G9nmBfFeCNMTKVvmWo-wEDuYxAeT4-BHc3QEjD07RAyoxmP-sg5-A8U-VY1CUlxiDIEZFgQuCNRX1uY1fwNeqiBJcFKA-XqI43n5wyGHOZ0WZp6-YnH42NvqyPb17i8LytNWzv2dBGqf59oOqqpwmyjIwHI2mZcGl4_Saqrre2IsbmnNjZXGyISoRL2uaNnTMXlZbrpaWOpbVGFl7sTa0Lh2i4oTyHF22YAmW3MXOURjG-A2RGWTmBaqm3l8Mrpaaqk7eg-nMVyp_DziNhalxHMu2B1lrpW_0zbTsWrM0XrZAqOBloWZCuO5l16bmGPqk7MLQFhteNojTKvz_M67zM87JpkmW4zO3PzZwZX3uZXW4tufTo9XMJdTJtmuEi-pr0w_G_s-jcqzCzTwkfwO8AkaWxVGAyihNwB5dcA6Ola5qC-BdihKfC7BLSkyKKXBU_mr06BFGOQ6asqch6lmGb7i7ewiFC9XRkUQN0x70DdsR-Lo5SUIoMR_N33iaxgTQcnZffM9f8DCNA-_TQizYmU8CTGIimOaZ7_s7VypPkuAT2LnSa9ikSc08Cl4Lvm7ICEXQOHg8TmMiaBkCZxkiZj8LmP0sYI6o5kjUnChBSYD9X40vIt_kAM0JhTvr0TvwFXVQQPf4Gwou_oN9z_NNBpCMUPRgPAnTRmMiCD1_rqoCCz1AwgLuwnvhRmlMAD3DJdvVFgZB4oDGpQXQsmQ8CUvxnenKcBKW4u6jjHYfRdiF0BZYGhTRKMQWygW4CYt4kr45MXrFQkGXEEqe0_zVK3OMznzNkBGK_oC_CzNPYz2Ik7CzyMG4yCvAL9ej0vnVtV9xBuxMq2PJf26U4Zi8KXQVTDcnrL-0JdRW8wTFHd7sehnZLc-VWUIGZJ2oq9gfOpw2fyJaz8QghvlPWOd535DJpSbA2kLfwfGC9nMLwsN-QkuGcDJOfz27fmRNYYyJSbdAe3arYHyB-pl0C7-9svX4GLLxi-vIVwZ68Me2pPbDK2sqA0w98H1r0Bqj9P7qVkp4q7sx4tEY2kCLP-H-NaRf6fbpPVXCrDh9dk1QTC-wK_AOvHOvhDNb6VyM-qxZyclFHk8DNVS55OimGOz2tmmH3bLWzun3b2daAzt4p3QE9aMyYd309qZh3mJZPyVfO0KmN1BJkvaNLN5tCGmO-qUsPrJHCcB4oiRbu58sTjxFFiZ2JAk7cnrkCJJ8YwCSBNPrkmzd3LJ428qSFH26yeJ9T0_kaN9MpGijTKRIa8gy9Q6XJdoNLUt1zytZktnckmy9m_t48xuAuR--723my3Di-54tNbpSOHd0x_6vz3hlppxxfkZRqGy_K-UJn-lvFiF-QVVcKj9mCqrK1LskgbIt8wrPlCojH_fYjhD5FDs3wR__AneNB-U=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS Provide Decision Support</span></div>
-<div style="page-break-before: always;"></div>
 
 ### 3.2 Data Architecture
 
@@ -396,8 +392,6 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWQtv2kgQ_isrV5FaKbkS8ihBaiU_U04kuDG9nFRO1sZeEivGRsY0oUn--834jVkvpgWUeL37zczuNzP74kVyQpdJfeng4MULvLhPXiZS_MBmbCL1yUS6owsoHUJpwZxl5MWrIfvJ_LTRD8O8NRH5h0YevfPZAptBzzQMYsv7lak6Pps_p2CsN-jM81dpi8XuQ0a-Dw6JDApA-VuC8sMn54FGcaZtuWBX9PnWc-MHrJlSf8EQ9xDP_CG9Y35iNo6WSW0Aw7Lm1PGCe6w-OcPKiAaPlcrTs7c38nZwMAkKW2SsTAICH8eni4XGpoTO50r4TKae7_ffqap-ZhiHizgKH1n_XafzqaedZq9HT9i1fnf-fOiEfhhh84l8rtb0uXfqys_V9fRz9aJQ19U_aSfdRnXHypne7Wyq88OlmylUFE03lD_sn0Zjmuvr6orRrejrnfQMgb5T7bTeQRb6JX-GoWpaqU897_a6vUZ9yqdj9Rj6l2pcLO_uIzp_IJaqqUNb_rWMmI19tYf0kdmyNrR-TCTw8n8pHj-uFzEn9sKg8Ct-QIFs66oMcPgPAv1-P3XzGkbj23g_kSZLt3fiwn_XOZ0sp6wzJQmUJNQhlLxH7IeJ9AGVZ07a7AE5-uvoS7OtVIAFmeQiXvlMMPycZBm_Bcl6B7_rJB9DKvJp1ZifqdyFTOyHEnnO4wKkyhcBtRU7fEITQMKlkMTSWIXLUrmAwRK0D96ubdmWzYF9SWP2RFe7kAdil7oOEmlBQFrdCJ-5648yhJ85IBmsEoUrn2u7Ql3NhIC_GnJfJOrj4U7kJXkgawbyl-QglLdQiCYE1EGzkLLcYo01ENvCFiD2wdIooo4Pua_swtNAHVljEEiejfzI9pDdU2dlX2mXAE5fCLwIJK50yz7pdAAOJQIlAdaSTVsZaThRQ5FgcQtaV9UMDKUtWHOUQc2RAHkbRo9WHDE6A3T5IpD4V_-OPcaHILJKt_BjK20nmiKIrcQ7lbgqdDZ6qQU4c1ALZO6ellDwSEukOWoBLH3RAozOaIZxU7DA7CMJzXAR30fM-rbTbGXql7jrwIcgkiq6-aFUAgSxhEYqDFVkmikqQfvgCD3_Vb6Wd2FIGSl_Ax4fgoxUjcG1bdmngMQisT6eitBhNLcHZi4Ab-QjGZhbpAwvoIHD8hFkrwRfRfOQ5zKVRjgRpSWBnwt--F7GmSy1lvkY9zocuipOzjU20NUCWVK1HVxlaDs646MRyA3IHLLPcLSTfeQuQYmSA8XMVhcotXBqZkXsWpJuaQUOzkxzWLMr22Ehd3b1hPhnDH6DPxb9ZNEu7KkD5QbzDh6CxNHlMS6y-EhR6cGxHnLJqc1QRSl4Jd-gJnyIEtXUdQ09ik-RP8sxN_gSJssUIJiMcfBVHxZKOSy0wRlrZ8dGGHLQBpeQIADy46sA7SW2gvBp6uNRNglXW7vdKUNB2vDTU2tRFnl101qDd3NgmqpEuxUeRwvbVTI3bIlI3QDvg9wxi6iLdwW_dXbQE1_oOPRGQjkW-ITmQFiCN3fEnAkQzFa43DQj4HIT_Ftcrm8wyefPX17hkiOhayK98hOmVpkJDYKYRQHecL5yt618qfxEs4tMrXtNtHGHZg3H5bjWlui1qgytDowCvXYMrtZkWDw0m96c-V7ACqH6ZU2tsom6pqzi9bE6ouZ7tsbmxi7wnL6LgjbeuGFz33MoZqbIK3UxdEMr73OSZFPDbwu2y4tatHIjfN2j-VXZq-DWitfCF6-fjbgx1CIL1zdc3LHxw682acPxHia0H5X503E7RJPHMpFv1K-Dsa6Ov9_oZKhf6tdawzQ-vClr4b4Y78fmlVDizeRwKdp0eREcmRGbNd5egKTaIJqtm0rTugmiTVaT63TTp_E0jGYNi8TQxqtTPXCPwunR0Juyzd1jbXFI2c2XgjP8FkvBxcXFxjogHUozFs2o50r9l_SXLvjBzGVTuvRj-K1Koss4tFaBI_WTX5-k5RzygmkeBW_O0sq3_wFB8Ugp" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS Provide Decision Support</span></div>
-<div style="page-break-before: always;"></div>
 
 ### 3.3 Technology Architecture
 
@@ -574,15 +568,13 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1Wm1vozgQ_isWq37r3pKXpmmkPYnXXk5Jg0r3etLlhFxwWq4EIiDbdtv-9xtjSMJrHdK0UjAw83jm8XgYG14FO3CIMBJOTl5d341H6HUuxA9kSebCCM2FOxxB6xRaEbHXoRu_TMhP4rGbXhBkdxOVv3Do4juPRPQ24CwCPzbdXylUp796ZsL0uo6XrvfC7pjkPiDox_gUSQAA4O-JlBc82Q84jFO0dUSm-PnWdeIHemWBvYhQuYd46U3wHfGSbuNwnVz1wS1zhW3Xv6eX-yK9GGL_cefimfj-jt5PTub-pi90I899BH-2h6NIJQuEVys5eEYL1_NGXxRFO9P10ygOg0cy-iKK50O1n55-faKmjbqr51M78IKQ3u5JA6WAt_JwvAM41AbKxQawq52rvW4esLcF7MhnWlcsAJLA2-LpuqKq3Q2eMugOu8NaA-XzjtIBAxlitL67D_HqAZmKYVjSr3VILBXH2NKxHQfhi6V4wdr5Zy7M192B2JmvF0RcoEQOUTmUyqFEbi78y2Dpn-OGxI7dwEeT6-1V6EdK-5FUHYAZFrRBeTQaMeqZPPGd1Mr4xSPNJqZcyLKq6XLjYPXKg1XFBe3iLnTtx4h1YJkYm0UitkKMAESFeFmgynKiDLDbEz4eKs1LSdA6sqadb0g4lzu6VB9gfanTH9aQcBkE9x6M1Mq9J6Q6FpgIYiJ7hoExvtQ0GgNJg8_xCpM280AT5e080AZnHVGsdVvWewOxxu2xHxPPUtZRHCytmW8ZIVm6EUlcd4Y9B34dfJYSkAgjJoxm_tdUmJcEZSxfAzA9lAnYSGnSDQ0-emBSLAMUpHRFAiH4bUAaKzPzBqSSY4PcVLqmPdJDg5RpaJoKYsmRbwBryD0oOdYPoqZIlgHpdxGEyzR5VIYxG0WQRpl0muX2imgtGQCtagDqqagz8dNTWtqdessZ0yDZIqBBi3Kg3u7FQc6oI8XCVDM5PQfJFp5T_J4o0lkD-tBqmDi3QfhoxiHBSxDfnuzDWd6dY3HmOo5HnjAEJSd1G4UWDP6t_aBJhx72YqLKyE8nxCD3uKEWoLdbVAGGdklzBj3wuVww49Of-aZkWPI6cn0SRbO7_8Du6MOhBx1U0Gkx-vJM_hPw6YGPimZTPz0AaHdJ5WmS8KdrEz5ekjI502jBSuLkTKXxltAMTX526sw9CjeaolgDS-RiBWTR4DexJR-gndIBLX42ygYejYepesnNA8i24GECecB-oR0BOjuhSPuxkTfzKGz8IV3BoLkOsXHIRQlVQKlCC15018e-TZJ-aTXMThPUpkIW-lNwSKOKtfh5rHEwK9-6mqx3d8q3YW-oN5RvfbXfQOZYNhoeQZQ9kGjxFEqx00kFLX738yYd5XFkhAGkL8hfof1AAARTJ7hiKdVEOc2WSceYpfQYM352PjL9KFPOtPpJUCrEhx69bErU02R-SxRQqoBSBe41rD6-op3SdSw0KRw_QzXGHpUYntDJOGmxpA_ClTU2MkbgDH1DY6MdLccMFT94Wnj4kTSllEymTVIBXZ3q0nmTtTkZqDDtE1JL_erp-_ff32AXLnFmLrx9uLoo41WuQRgslQh9usv91rgHcoCRH2OVd1wYXJbR3viT1g42V46r7ahckHGbXclCfhuhYGZFvcOgkqqJ16qaOjJ1cXKTQ6opDQpwdQUEw1TG-gazbvd7B7B2g5yhwUY7MtwV8WDRtIGt3EzewazebK6J7aqpW3C4IreV-WveHCvFSe0u2oFTsGnasLXY28fLrYL_tauyBuj2QXlNVp5rJ5Myh1jz4OWF1W4mvLOvco-vDqVpSD6eLdmrhLfatwU7cFXvEiphCnsue1lUSFTNexZ7IR-euQu1e1NmrZ2H5coCFqPwTN-trGxHRMZEutFn11M00S61K5WviJgoxYKkvB9PxcxcHdcl5TqFSs0yKRt-F6Sb1XYlQTVn_F36rjPzvyQ-zfXeOd_ZBN3IlqscRlP28uqM_m-qmouLi3xJ01k9F9WVg14Q5LEOK67yWLOD33NvsdSDVtF5rOkB7wmFU2FJwiV2HWH0yr58gA8oHLLAay-GbxcEvI4D88W3hVHyNYKwXjk4JqqLYVYs2cX3_wEnHMjD" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS Provide Decision Support</span></div>
+<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS Provide Decision Support</span></div>
 <div style="page-break-before: always;"></div>
 
 ## 4 Future-State Architecture
 
 Aggregated future-state: **42** systems, **53** connections, **114** flow hops.
 
-<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS Provide Decision Support</span></div>
-<div style="page-break-before: always;"></div>
 
 ### 4.1 Application Architecture
 
@@ -749,8 +741,6 @@ graph TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq9Wttu2zgQ_RXCRRcONqlvcZLmYQFdGy_ihrBcJIv1QmAsJhYiS4Ium2Tb_vuSukscyW7S1A8GPHNmSM6QwzOSv_bWnkV75737gPgbtJRXLmKf9-_R0RGSgvXGnpOIosmHMfodSf_FAUVh9OxQtHZIGNKQwVKL5LdK79BtHNouDUOUfO5sxzl_p7OPPDkMo8B7oOznR-lsPM1-Hj3aVrQ5H_tPh2vP8YLzd8PhsOGT-D4qP6lPRdGmul74HA5Pz9TjDp8T6URpuLVIRJpuZVnVdLlwO5qeTJVh3e2o4lY9PpVGudoi4YYEAXk-R1M0bQy2tS3LoY-ERbASF20oj4vBtJPpaDhsXYOsT06GzTVQzxFCo-uKqpZulZPx2fis3e3pSBk13YaEhE232kjWtNPC7ak80qVxq9tjaXR81nS7drzY-vGIj5sRb7j1XD-g28b-ONNOlI-F27F2qk7aZzuSp9qYbbvUcRjfpudBuvx71VvF1tnEYt9reoIk33fsNYlsz0WX5JkGaBWPh6NjZDyHEd2GaOZGlBlzwKr3T-qPfyw7oOvUbFFKDV0ypaWyEIZhspo5Byr67LNpmMfmhfRZalpwJTIGx4grRVPik7UdPZu6x6ZBwshU2eY3jYj9FDxlWJRjEceiBCs69gLfNM0Zbp8YQ6ABmuH22anzKzEEiVCE3gDIGwCoKSyy6qXRBDP5EZeDBnyhcmCvH0LIrNSCxobrPeoOeaCQbaEETOemeW27Fiu2jmOKxnPUL9QHgrmuCEtkIgH2ie9nO6KK57psHzZNGmrBfKYYpok3HnXtJ2GKTIn6mVKc4Ew3ZSem5l-ea9FAsNUR16JUCxlj9YLtMjeMtz4_PsQBXDAMqmHaHOle7Fqk008V0uZmQR5brJkGMmo7HMyq9VSwM9UVONwdOLxH4PA-gcO7A4f3CBxuDRxuDdxcWgibm8tEoGaYk-FQwGoGYmIBjlWWkflFE87ER0wMwHcEcncUd4VwZ_xagtcWOazOzWVA3NAhrGyLVnNUakVj75EGpjwzTVVaKMJxT9RInqE-V4sH3pCwKQX2LWkaMgVKFKCJfCX_CVlwOWgwkzGEZ2IQjiU8h_BcDhrwMztXP0E2_MwyFWwmKaCJpIhwsXYbQO02sKapApALRahtUYUICc_EAvzawNdNLJeJQC94MKKAkq0ALzSC0Y32RVgflxVA6lo55cqJEGso_vi26qkJW1r1vu1kL6V5jR5lfozLZe4kj4G7DyfKzCVVZ9RFldEXlxMihekd756Jlhs7sBAmAZP26Yf7D4dIpa5neQf5cDn_qIwnUKU9JpmwoFcEhXOjV5jnq8hc1MJQXWmFGrkwocrXynjQHedBKKMaXsDCyaW-7dOqy5IxuSDLyhzOY4ca3l00kK9Uo1hcdSu8xF5I1QucVK79buv9YtKoyt0uF3Trsb5dj92055As4keUu82nykfg1bJsV5ARMwZY7MSsZFbHqRHVbKTmXfINuH9KH4yavmI3NlhqI_joN7SgDltJdQlZES991JjsK-ZSp7W76kWR2BANgNoh4VmIHu1ok6TnoLKDsnu_Nq7AR37G2QIIctehh6YhOGMTf30hBSZWG6i9mLZUgU4boQDXWfgb5RkDecZvlGf8Y3nGnXnGPzHPuCPPnPWDhzWj8hVk2gqA4IR8uI0uIENq0qwMZ2cJf5O0_Lyc_JqE1At8510AluGiScjn6dv3lFbup32u4r2dgHnMeohfV7rzKzXfL9D1y3fMlvlPn7lV1AN5iVmGwsh2k98h6l8sl_hg3zi92cCtsc1ynp_Ehc4aRu57QctHqHpAtvSRtRAHaQyv6S0yaPCvvWbvFvrGlYQHuu3Qwczy1oOFruy93DcdvH3JklKJ8VXygiHMPSZjrJslpuWSeqm3XWGpuFTSVGtPvsfSni0c9dmGPkBHKK2c6Drge6Nv-JRa2QNv20VlqRugLyFF6eEpiNgdqwjVh6Wdle-FK4Vz8Cp6mbTUlXKwYJuen29-NPQl7suOd9vR31XNf4wVZ6TjFUPXHIxW8XBonVbrb_IQxa22_WCcWlJU9vigVfJIzq12_d1XdeXtTdn3s3d8TXm9oYcAXR08hBc7cACVttyQ4gaWF01yi67SBLcgyvYNBNT7LgDC2ypA3OyXAEi9HYIA9T4HRoiUqB1XYzntME5hYG1X7hpsHUbsN1u832xx12wT2grJM5IKqHJWCqr2mPc-k-6YcYPXQYj6cwgIUvKyFiUvR206TslaVAmHadHlF36bmt0wkAo-OGkphxRZoQVUSVGF5GXxBLRJtSzk6X8r5MvyfxNq5Y17y_8mqqZSbqpN9LGu7vp7RO-wt6XBlthW7_xrL9rQLf8viEXvSOxEve-HPRJHnvHsrnvnURDTw17ss31FVZswcrhNhd__ByKQt8s=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS Provide Decision Support</span></div>
-<div style="page-break-before: always;"></div>
 
 ### 4.2 Data Architecture
 
@@ -946,8 +936,6 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWgtvokoU_isTNr3pJrW1r93WZDfhufVGW1bsbW_WGzKVsZIiGMBt3W7_-z2HhyLCAF01keHMd95nHgy-CmPPYkJH2Nt7tV077JDXkRBO2YyNhA4ZCQ80gNYBtAI2Xvh2uOyxn8yJOx3PS3sjln-ob9MHhwXYDXImnhsa9q9E1PH5_CUGI12jM9tZxj0Ge_QYue0eEBEEgPC3COV4z-Mp9cNE2iJgffpyZ1vhFCkT6gQMcdNw5vToA3MitaG_iKguuGXM6dh2H5F8eo5En7pPGeLZ-dsbedvbG7krXWQojVwCn7FDg0BhE0Lnc8l7IRPbcTofZFk917SDIPS9J9b50G5_vlDOktvWM5rWOZm_HIw9x_Ox-1T8JOfkWQ_y0knFXaif5MuVuBP1s3J6UiruWDpXT9rb4hxvYSUCJUlRNekP7VNoSFN5J6qknWTkXZxeaBx5Z8pZ3kDmOev4aZqsKGt58qeTi5OLUnnS52P5GOyLJQaLh0efzqfE0BS5Z4q_Fj4zRZc6y8AOTIP5P-0xC36MBEj0fzELfizbZ-PQ9txVavEDMkRT956Zb0pdUxEHMjBG90Tqkn0kfAQxnU4nzv8Gp1KqfH8kjBbWxakFv9b4bLSYsPaERGiSokmKHgkfUUGSQZ5tpHXY-srVHHMzNxEThEuH8QOVZkTE7yojahu_mxk5hnHLywHWi9mjT6BE6RlNEqDKYsoDzRY2K4Oe08aLeFTICCX7iP3IDXhqy1asNxVWBnoTvosoK8xJRDaNLdoi-fb4KUgivCZw4pzRVxzdCBAFtjKia4WZuK4VcKK5Bu0ihtemaPZty3LYM_UbxVFXNNPoX-H0oGgtaHEil9NSHL3rI5Hsr1GZqlw6xbozodvUwAnfJnBXITQobTTAvyG_HTLZc13AAGuOUhHMSB8njNjPC2BOWy6QyF0RQoTsIng3Ph07MDlIzYZw37yzXWs8BQOiEdwn-ytC-fokml3ZMPWpx1z7Bfjgjuwnt1wuDSruyoRgBYvZHG2iqLarESCTDXK1FM1buBbNC8lSq2UM6POaFW54HHqx7Xoz2_VC2_VGtutZ2_UatvdVwzxttwEOLQItDrbIySYeFrjXwLe1Y9Ve3Xn-kxH6jM4Avr7hcNyrtzi74IUzL6yHUvHEEPcTReLMCxsjKzMrrGSXj6c66IJxVJ8tm4r6XJCLOmD9fZbp77JMb2BZMgZqIN_jwDusr2_6urZrgLG4y2GF69AKs4uFyBB180q8FpusQ7LWvTYN8yxlxHtiHJ0RvOeMZ9nz51gFWVYgkSMC02INfijtDCssAzV40D_pRvobGKBJsBmj4-fQArQu6v0Ejc0K2WhQX_mWMKBBcMfjsS0mUx_xcYszs61yUzyxocLY-2Rew801L1WZOktFV2SomiOTk2pwmox6SIx-PWSShBrgOOalwMLxlkJ2OdzM6AGpyaBDTjgOe6BJqUXtiuLsSnqChlZVIYtyWsSiXKMoEw_4pUni50BOga7cKsiJWfQUmfjVBA4OVcC5eTezJ2p_lv3vvei8hflNMi8O5QHg8cKbXCkeZIZLWNdAEg3C-OTBCL3o-TbtJml3fBoSdXOkKv2bSHl05eHuY9g9F6XJuJ-DX84UDBOK5CyY-a_nWlGcYJ5HAokJ_I12jlOvydkXB2gYXrib3b45hCPjwKEQtWjP2ydrAm98RX4bXL8NXVUVROGVt4029DvcQMOFN0rXlVYyQr_3SAzgbIux5LIjZyW0Qe3V4Y-qqxbwvh4OSqwObLPWanHoTTmwqOrgNqurDodRz8mooOoAsaQ4uOI5cgXayfzoes8TB89KoynXVO6annCiBM2Jj0bxgHN1zxsr21pLxkwKjJc1otxVnneu9GcDu6WPF-At8LsCvflwQb58-fobZusoliPhd_lZYkFHwqyKXZIco-Hc97toO1VHa77McsSGpuaV5afoRkrLmLd93GIVFY0MGKyyot6F5xtDG-r7kuM9fFxJKX-ZUNqdyL51cR2XocvxHlfy8ofoOWLCmynhNHdoHlDn9pytXSwp0Y2j0kRkf-Eww5uE5C_w2IGhyQ1UupfeUZgKA38Ehz1kI0pAGk4PDw9ri90edZvOHkk3itGoIvJlz4twfa9kL-tV7vSgcETsogJKwzNgMy9kRFu48RwtWnQeMlTQz9rJKYxks53YChv3aJuqvsw9eBmfvKuE13f6hjiurcWCdXJjoeQgff35bIdTMvbc99j5B-kplje3HxnDqCXlxrWoLBk1M136Bjm3RPfYI6xQPzIr49hqE0UcigReSV91h6o8vB2opKd-U6-VkkW7N1hT4Q0pPtbM5449js7hitdoePVXdrLrtnSfzUqPdoFTLmFNFnCpbAEH1jKtUUHqsCRMPH9W8mjbM1XcgLhWy5u0evaEbW_8c6t9HN10bT_H72ptv7y83FrYhQNhxvwZtS2h8xr_3Qb-tWOxCV04IfxhRqCL0DOW7ljoRH-BERZzqHem2BSyOYuJb_8Dn4Pz2Q==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS Provide Decision Support</span></div>
-<div style="page-break-before: always;"></div>
 
 ### 4.3 Technology Architecture
 
@@ -1170,13 +1158,11 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq9Wgtvo7gW_itWVnPVlTozSZo-JtKuxHOaVZig0LkzV5sr5IDTcEsw4rFtd6b__R4DIYQAMXlsKwVjjr9z_Pkcm2Pzo2NRm3SGnXfvfjieEw3Rj1knWpIVmXWGaNaZ4xBKl1AKiRUHTvQ6Jn8RN33oUrp-mjT5Nw4cPHdJyB4DzoJ6keH8nUH1Bv5LKszqVbxy3Nf0iUEeKUFfR5dIAAAAf0ukXPpsLXEQZWhxSDT88s2xoyWrWWA3JExuGa3cMZ4TN1EbBXFS60G3DB9bjvfIqgddVhlg76lQed19e0Nv797NvFwXehBnHoI_y8VhKJMFwr4v0he0cFx3-IskKdeqehlGAX0iw1-63ds7eZDdvn9mpg37_sulRV0asMdXwo1UwvNdHBUA75Qb6VMO2Fdu5av-NuDVBrAnXiv9bgmQUHeDp6qSLPdzPOmmf9e_qzVQvO1JPTAwRQzj-WOA_SUyVF03RTcm5n-oZ5PAlFwa26aBsfHnrDOL-zfd3ixekO4CMSmUSqFECjGpWee_KST7s52AWJFDPTSebmpBh2CO1KIawB6pRUSAGQ6H6QCUW-rllnpzS-LZWS-jV5c0dTFjUumJinKbM3kr9lShfmQGQm9wV8OkjCM8DxzrKTSpZyqSYAp_xwFJVZYJ3QgjYAyEUSKcksvLK9PBgMQECFRAxftNBR87jWZnJImirKhiYzxc7cZDFUmfWdGJiEQ9D7rV4HIlyQPcroQACko1fATVm3xyFxp5EXFNKQ4jujInnqkHZOWEJKHGvruy4dfG1xlBiTBKhdHEe58J87IjPEhTAGaXhgCUMJtHo1dTpYCEwyjxF9OI4BZarx-j9ePEsVHyuAFV1iaJ8uTaJPc9FfveKKVKzHngN5VJJ8qSjCZMmRC7NCAZCZLRiGToiiIzKXZtwPpm6N9AjF34_Kxm8I9aQeqdjAW6DmvUggarpokq9TI2Qa2lD52pBHlsZHMUK7Yhpc7Yk09PqbqRZJj6khLPeeGMQmiBLrImvx4QjAWNbJErorXhqdrwM3mQphic7IDkAZww_Ktul0UttIdSU7DR4MmIAoJXLOTymzbcbXfnXJw5tu2SZwwOzEld3uAABr8rX1nEsUsrJqqMPBMhuqyahnbfnhho-B4aHkdQph30ZHBtaGo0_Wx03XPzc3_IPKQmKuBVJ4xXPpPBbvq-zvC2qpve2lMUlcaejcsgxdr9GFP8vGkKN825QqXtejvb9Urb9Va260XbdQ7bqwxvY3WFyS3s3Rhba2lTGNz_E36vcfu9dtBEoJkPsG0QwksGDRIiNLSpaMeHdk4-NMcKaEgXkanTZ0hoxVFl9pSLoUQMiaNWqVOOLQtTidGxBrlgFZzvJDWmnjxr0h8k85vj2dYSgPe6CUijXPoAV1EkbaMteZ_V0EVewUlNnckndxdD0E0Bov81cqywIdsGOZTLHZBrMz2GwFyFIUGJj4c6807uI4miwJnjfRwwmQP7n7TNGEjKLTgomXaW_otx6HgkDCfz_0E3wr2RwvpRanNAvCSaJ-IfGTGsuJtd1_FSb_JZIuVe-AIGOzZsZQRc9LAGKGtwCDfQUsJsvclK_B5TY-o6I-4rotovZMR3V3dqQ0Y8kAcNtIxEfU_YgMSBQQMtM8-AEn_3t006S7ho8mcuHwC5A8PCMAdMy3rS_DhgWPwcbBt4loDQsa5xkcAED2RBF3Qto4AV-ftfMu4sBMAQJZEmES8KsGuqjoc9q4EIGMVkUsgaoKwBLyGSOvqS-AUDYRuscJ94Brvnp6bG7LNSxOMma3bae4pEA58lVkVuoAp9RCO9gaBiPlloCgnl4aSe0-U8-rxw8RNZn8VU7snmUuuzo9Z7sQxBZQjZhmx-z8lGpZknWHvq9-N---33n3ASkHRr1vm5d79qF69ym6YBtnF_Zwe-eTcoVaMII5SdIrGc8meTaxUU1PheimmMHyqRSpF_BL07JxI7WLtnFiegtTZFSrHLCfrP-hy8Yqw0bsDdhbY0MqVVOOv5VIVUmR2FTYnvOlayB4PUAK_Ihw8f-Ie-md9jOKjDFGQVbIaDPEEfweRqqA_6hejS-a8l-LojmR1FtWc3qb6vHjs-lIAqlz7mOhoPpQsqmg-vswjJZ8s89ljHoNZ3fLIZi8o5raCr4Rw4VaTFLjHYlsu_gEEXRpzfibjDu-a1vwauvPwfg1mXcJzJbZr88yOSRbTlOFD1sCxGFre2mqVse0Q_ihPZaBu1NYdx_8RMu9eXaz6J2UOxRHcp3t7-rZhq7yuc-kQR2Th2U7KiEUFq7KXvQYKN_YgwRVp5Ci4lEiXHr9yfyjoiSOkHD8qLT-GrMoMEfzkQZxeCvqVjb0f2qdHRxGZ6wlRBiJ6daIks6rVaTY709fpXitPb36yrnPlt1DCvg_fpZMSNGGZr5lgr3I6m3f2FUwZG5X5fpsB3HgkzeT0YJxpbzoCr2bDnXwh4Nu6qEp8xeYQ0o5g2WnYX6WPhQZ1MNTRWPitfZL78ZiyVs6Xd5IiJGVtJap_sblwxqclayoLfBemvE9cdQXnL-DlJp4X12rMjrm1p790WjrFz2d3EK6Vp_QnoNfvP06xPnz5t51g9_6XcXDrqe5ltrOP23LaxJkd_JbvBko_KQrextPxrW6UrbrCUm-tet1uLJapXN12pc9lZkWCFHbsz_JF-Nw2fX9tkgWM3gi-fOziOqPHqWZ1h8i1zJ_ZhhiSygyEqVmnl2_8BmufEGQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS Provide Decision Support</span></div>
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS Provide Decision Support</span></div>
 <div style="page-break-before: always;"></div>
 
 ## 5 Transformation Analysis
 
-<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS Provide Decision Support</span></div>
-<div style="page-break-before: always;"></div>
 
 ### 5.1 System Landscape Changes
 
@@ -1276,8 +1262,6 @@ flowchart TB
 | SideCar | Azure ADF |
 | XEUS | ICOST |
 
-<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS Provide Decision Support</span></div>
-<div style="page-break-before: always;"></div>
 
 ### 5.2 Integration Complexity Delta
 
@@ -1341,8 +1325,6 @@ Systems with connectivity changes (and top hub systems):
 | SnowFlake | 1 | 0 | **-1** |
 | WSPW | 0 | 1 | **+1** |
 
-<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS Provide Decision Support</span></div>
-<div style="page-break-before: always;"></div>
 
 ### 5.3 Release-over-Release Changes
 
@@ -1375,7 +1357,7 @@ Changes between adjacent releases — additions and retirements of applications,
 | **Added** | Blue Yonder Cloud SaaS, Databricks on ECA Azure Cloud, GraphiteConnect Cloud SaaS, Intel Custom On-Premise, Intel ECA Platform Azure Cloud, Intel ICS (Phoenix) On-Premise, Intel PDF-SMH Middleware On-Premise, Intel PDH On-Premise, Intel PDM On-Premise, Microsoft Power BI SaaS, PTC Windchill On-Premise, SAP Analytics Cloud SaaS, SAP Ariba Cloud SaaS, SAP BusinessObjects On-Premise, SAP HANA Sidecar On-Premise, SAP IBP Cloud SaaS, SAP MDG On-Premise, SAP PaPM On-Premise, SAP S/4HANA Central Finance, SAP S/4HANA On-Premise, Snowflake on ECA Cloud |
 | **Retired** | e.g. Azure PaaS, e.g. S/4 HANA 2023 |
 
-<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS Provide Decision Support</span></div>
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS Provide Decision Support</span></div>
 <div style="page-break-before: always;"></div>
 
 ## 6 Capability Detail Reference
@@ -1391,7 +1373,7 @@ Each L2 document contains the full TOGAF BDAT analysis including:
 
 | # | Capability | L1 Process | Architecture Doc |
 |:---:|---|---|---|
-| 1 | Perform Overhead Accounting and Allocation | DS Provide Decision Support | [DS-010](towers/FPR/DS Provide Decision Support/DS-010/output/docs/systems-architecture/DS-010-Architecture.html) |
-| 2 | Perform Product Costing and Inventory Valuation | DS Provide Decision Support | [DS-020](towers/FPR/DS Provide Decision Support/DS-020/output/docs/systems-architecture/DS-020-Architecture.html) |
-| 3 | Perform Customer and Product Profitability Analysis | DS Provide Decision Support | [DS-030](towers/FPR/DS Provide Decision Support/DS-030/output/docs/systems-architecture/DS-030-Architecture.html) |
+| 1 | Perform Overhead Accounting and Allocation | DS Provide Decision Support | [DS-010](../../../DS Provide Decision Support/DS-010/output/docs/systems-architecture/DS-010-Architecture.html) |
+| 2 | Perform Product Costing and Inventory Valuation | DS Provide Decision Support | [DS-020](../../../DS Provide Decision Support/DS-020/output/docs/systems-architecture/DS-020-Architecture.html) |
+| 3 | Perform Customer and Product Profitability Analysis | DS Provide Decision Support | [DS-030](../../../DS Provide Decision Support/DS-030/output/docs/systems-architecture/DS-030-Architecture.html) |
 

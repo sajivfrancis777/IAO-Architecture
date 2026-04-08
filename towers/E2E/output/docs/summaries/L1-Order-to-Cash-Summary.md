@@ -101,9 +101,9 @@ Click a capability ID to view its full TOGAF BDAT architecture document.
 
 | # | Capability ID | Capability Name | L1 Process Group | Current Hops | Future Hops |
 |:---:|:---:|---|---|:---:|:---:|
-| 1 | [IF_Simplified_PO-SO_Model](towers/E2E/Order to Cash/IF_Simplified_PO-SO_Model/output/docs/systems-architecture/IF_Simplified_PO-SO_Model-Architecture.html) | IF Simplified PO-SO Model | Order to Cash | 1 | 1 |
-| 2 | [Order_to_Cash_IF](towers/E2E/Order to Cash/Order_to_Cash_IF/output/docs/systems-architecture/Order_to_Cash_IF-Architecture.html) | Order to Cash (IF) | Order to Cash | 1 | 1 |
-| 3 | [Order_to_Cash_IP](towers/E2E/Order to Cash/Order_to_Cash_IP/output/docs/systems-architecture/Order_to_Cash_IP-Architecture.html) | Order to Cash (IP) | Order to Cash | 1 | 1 |
+| 1 | [IF_Simplified_PO-SO_Model](../../../Order to Cash/IF_Simplified_PO-SO_Model/output/docs/systems-architecture/IF_Simplified_PO-SO_Model-Architecture.html) | IF Simplified PO-SO Model | Order to Cash | 1 | 1 |
+| 2 | [Order_to_Cash_IF](../../../Order to Cash/Order_to_Cash_IF/output/docs/systems-architecture/Order_to_Cash_IF-Architecture.html) | Order to Cash (IF) | Order to Cash | 1 | 1 |
+| 3 | [Order_to_Cash_IP](../../../Order to Cash/Order_to_Cash_IP/output/docs/systems-architecture/Order_to_Cash_IP-Architecture.html) | Order to Cash (IP) | Order to Cash | 1 | 1 |
 
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order to Cash</span></div>
 <div style="page-break-before: always;"></div>
@@ -112,8 +112,6 @@ Click a capability ID to view its full TOGAF BDAT architecture document.
 
 Aggregated current-state: **2** systems, **1** connections, **3** flow hops.
 
-<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order to Cash</span></div>
-<div style="page-break-before: always;"></div>
 
 ### 3.1 Application Architecture
 
@@ -148,8 +146,6 @@ graph TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlG1r2zAQx7-KUOmrpZlsxw_1i4Fsy1BIYSwbDOYRVOuSmPkJS6bL2n73KfHiJGqzsXshkE7_3-lO0j3hvBGAQ7zueLtBn6OsRtqur9HNDaJdvinuuQLkTG30DtFffQdIqm0JKC-5lCD1tkGxnyewQg-9LGqQEu1tVZRleJVqi5yJVF3zA_T0lga2-2d681gItQnt9uckb8qmC68IIQaTty062sCMY-am6cgkxA-S2V-YDvViAyu44iY2ihKWRiPWcj03JudY6wSbzHxqHdyCyw3vOr4NkYtcI1hVCFHCI9cVPKkLI5E9BmOeaxFyMYcodTxi5gBN-ao0aRonyREbe3ZgB5exvhVbJlZyLk0ssyLG_BHrR1ZK7YvYGbVmgYnNy6YX_19x26y4gW3qtoPKeB8B8-LbEWszP3Eun9aKXGbrZzeAZf8w_Ac6_5bhrBeBI_SYg4do25ZFzlXR1GjOt9ChrLeJNUOLrVRQSXRXK9Di3YYMfx94OxNFB_kg-3RcXcR0Ccv1cnnPFkuHEDMcTNdTpH1I-85wo_Ar-7J4U7VzjBKoxSE5M6T-wh-eM7zXJPtDoveIfrzTY1qUkOHn82AHzr76r2n6r77p30mPzqGJRPNjg0hOntaFBnEqpQcpc1I7Tf7VB_AEV9BVvBA4fMJqA9Wu6QlY8b5U-GWCea-axbbOcai6Hia4b3V3gKTg-i6rYfHlNybVltg=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order to Cash</span></div>
-<div style="page-break-before: always;"></div>
 
 ### 3.2 Data Architecture
 
@@ -196,8 +192,6 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVQ1vmzAQ_SsWU6RNSjpCkjZBaiU-10q0y0q6TSoTcsAkVg1GYNakaf77bAhJk4ZW22wJ2ee7d-f3jL2SAhoiSZVarRVOMFPBypPYHMXIk1TgSVOY81Gbj3IUFBlmSwf9RqRaJJTWq2XId5hhOCUoF8scJ6IJc_HTBqo7SBeVs7DbMMZkWa24aEYRuLtqA40DcPB16UXoYzCHGdugFTm6hosfOGRzYYkgyZHwm7OYOHCKSJmWZUVpTfi23BQGOJkJc28gjBlMHl4Y-4P1GqxbLS_Z5gIT3UsAbwGBeW6iCMA01ekCRJgQ9YNhWAPbbucsow9I_SDLZ0Ozv5l2HkVpqpIu2gElNBPLPe3UOMALp8aS1HBD69QYbeEU68zsKY1wXX1gKfJrOEKLcAOo66Zl6_9ZnwkZrPEUS7eVF3jD3tB-A69v9g8LRJTs-LNtwzR3eMapMlSGjXj6Wdfo8voqxLyYzjKYzoFrmIbjI3_ma09Fhnz3m3PvSVzeX5WjaCHOUMAwTbaCisYjtTLwp3Xn8hh0MjsBYsxjVVWtpN5zNw_yfPQkrwiHvZB_w6DvFRGS-R4FTukEuJMnfRJoG2UasoPOSefiSIbKHSWbuJwtCTq245pQTfQtoZYs-j6hXf7bNVPoamP_UrvR_pbBa8v1e7Jck8ingE_f4XGb7A0auQ8QPlsWxXFsLuCAxzrDOzTWbv_E4qtk4Pz84nlDhFnSBj4DbXzFvzYm_Pp7Pir0gSYOmvF6718wE4QyMLWJBrRb4_JqYhmTu1sLONYX68Zs0Mq53VkdX6iqpSnBARSrx9VxfLNBj69JZ5yhGJj67kgvyV6k0RBaXUovA_f_BR7alLW8fsYEsohmccMpcHyLb81Kwg6NOg6OULW16q45qn3Fbq33QPSt3qPR6JXYUluKURZDHErqqnre-CsZoggWhPEHSoIFo-4yCSS1fHKkIg0hQyaGXM24Mq7_ABLlSS4=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order to Cash</span></div>
-<div style="page-break-before: always;"></div>
 
 ### 3.3 Technology Architecture
 
@@ -243,15 +237,13 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllWtvmzAUhv-KRZVvacstCUHqJK5bpaSJSrtNGhNywCSoDkZg2qRp_vtsyI2kqToVJGSfc_z4vD42XgkhiZCgC63WKkkTqoOVL9AZmiNf0IEvTGDBWm3WKlBY5gldDtAzwrUTE7L1VkN-wjyBE4wK7macmKTUS143KEnNFnUwt7twnuBl7fHQlCDweNsGBgMw-LqKwuQlnMGcbmhlgYZw8SuJ6IxbYogLxONmdI4HcIJwNS3Ny8qaMlleBsMknXKzKnJjDtOnA2NHXK_ButXy091c4MH0U8CeEMOisFEMYJaZZAHiBGP9wrKcjuu2C5qTJ6RfiGJPs9VN9_KFp6bL2aIdEkxy7laMrnXEyzCkB0DN6Vr9HVB2erYiN4HKHiiZHUcWj4CI4D3PdS3blnc8qytrsnY2QbMnWRJLsCYW5WSaw2wGPGs8DlAwDYzXMkfBGELvjy_4pdwVJb-MkcgmvZpegcoNuNsX_tYM_kRJjkKakBQM7vdWBjUq6G_nkeMqAm-zsbqu18tch6M02mRElxi9l85GrWnajmt-WA7ltBzn1HqBGvww7oxAFmWlEhxpSsS-EewcyvauVcDjAI_7H-VDxwsUUdyKZ13Aup_X30jwSxuoxp8B39x8e9ukaFeCwDUwxrfs6yaYHea39yry3rIO0JRJOVzJMBLBeGA8uKP7IRg43507-3MLOLCOd6CFSRk1BvMwr1E3mS3e8e7kUaNtVMi-MZLBKL0c52h-Emg3kp8gYEMKwZgd4Zjkp-HDxuxSDwyTKMLoBeZoF3ta3HqZtge4w99dPfv9frOYUrY4Hm596TQ0WduT5Uim4_R2rJ4pucb5baUakqqdsEZf_sftWfZWo-yYrnygUVM09wONqq2esIa7f6UjmnuW0-1IoniWZbpKV7SEtjBH-RwmkaCv6luPXZ4RimGJKbu3BFhS4i3TUNCrm0goswhSZCeQnYp5bVz_A9mNUh4=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order to Cash</span></div>
+<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order to Cash</span></div>
 <div style="page-break-before: always;"></div>
 
 ## 4 Future-State Architecture
 
 Aggregated future-state: **2** systems, **1** connections, **3** flow hops.
 
-<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order to Cash</span></div>
-<div style="page-break-before: always;"></div>
 
 ### 4.1 Application Architecture
 
@@ -286,8 +278,6 @@ graph TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlG1r2zAQx7-KUOmrpZlsxw_1i4EfJCikMJYNBvMIqnVJzPyEJdNlbb_7lHhxErXZ2L0QSKf_73Qn6Z5w3gjAIV53vN2gz3FWI23X1-jmBkVdvinuuQLkTG30DkW_-g6QVNsSUF5yKUHqbYNiP09hhR56WdQgJdrbqijL8Ippi52JVF3zA_T0Ngps98_05rEQahPa7c9J3pRNF14RQgwmb1t0tIGZJNRlbGQS4gfp7C9MJ_ISAyu44iY2jlPK4hFruZ6bkHOsdYJNZ35kHdyCyw3vOr4NkYtcI1hVCFHCI9cVPKkLJbE9BqOeaxFyMYeYOR4xc4CmfFUaxpI0PWITzw7s4DLWtxLLxErOpYmlVkypP2L92GKRfRE7i6xZYGLzsunF_1fcNituYJu67aAy3kdAveR2xNrUT53Lp7Vil9r62Q1g2T8M_yGaf8tw1ovAEXrMwUNR25ZFzlXR1GjOt9ChrLeJNUOLrVRQSXRXK9Di3YYMfx94OxNFB_kg-3RcXbBoCcv1cnlPF0uHEDMcTNdTpH1I-85wo_Ar_bJ4U7VzjBKoxSE5M6T-wh-eM7zXpPtDovco-ninR1aUkOHn82AHzr76r2n6r77p30mPzqGJxPNjg0hPntaFBnEqjQ5S6jCbpf_qA3iCK-gqXggcPmG1gWrX9ASseF8q_DLBvFfNYlvnOFRdDxPct7o7QFpwfZfVsPjyGzwRluo=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order to Cash</span></div>
-<div style="page-break-before: always;"></div>
 
 ### 4.2 Data Architecture
 
@@ -334,8 +324,6 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVQ1vmzAQ_SsWU6RNSjpCkjZBaiU-10q0y0q6TSoTcsAkVg1GYNakaf77bAhJk4ZW22wJ2ee7d-f3jL2SAhoiSZVarRVOMFPBypPYHMXIk1TgSVOY81Gbj3IUFBlmSwf9RqRaJJTWq2XId5hhOCUoF8scJ6IJc_HTBqo7SBeVs7DbMMZkWa24aEYRuLtqA40DcPB16UXoYzCHGdugFTm6hosfOGRzYYkgyZHwm7OYOHCKSJmWZUVpTfi23BQGOJkJc28gjBlMHl4Y-4P1GqxbLS_Z5gIT3UsAbwGBeW6iCMA01ekCRJgQ9YNhWAPbbucsow9I_SDLZ0Ozv5l2HkVpqpIu2gElNBPLPe3UOMALp8aS1HBD69QYbeEU68zsKY1wXX1gKfJrOEKLcAOo66Zl6_9ZnwkZrPEUS7eVF3jD3tB-A69v9g8LRJTs-LNtwzR3eMapMlSGjXj6Wdfo8voqxLyYzjKYzoFrm4bjI3_ma09Fhnz3m3PvSVzeX5WjaCHOUMAwTbaCisYjtTLwp3Xn8hh0MjsBYsxjVVWtpN5zNw_yfPQkrwiHvZB_w6DvFRGS-R4FTukEuJMnfRJoG2UasoPOSefiSIbKHSWbuJwtCTq245pQTfQtoZYs-j6hXf7bNVPoamP_UrvR_pbBa8v1e7Jck8ingE_f4XGb7A0auQ8QPlsWxXFsLuCAxzrDOzTWbv_E4qtk4Pz84nlDhFnSBj4DbXzFvzYm_Pp7Pir0gSYOmvF6718wE4QyMLWJBrRb4_JqYhmTu1sLONYX68Zs0Mq53VkdX6iqpSnBARSrx9VxfLNBj69JZ5yhGJj67kgvyV6k0RBaXUovA_f_BR7alLW8fsYEsohmccMpcHyLb81Kwg6NOg6OULW16q45qn3Fbq33QPSt3qPR6JXYUluKURZDHErqqnre-CsZoggWhPEHSoIFo-4yCSS1fHKkIg0hQyaGXM24Mq7_AJ2QSVg=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order to Cash</span></div>
-<div style="page-break-before: always;"></div>
 
 ### 4.3 Technology Architecture
 
@@ -381,13 +369,11 @@ flowchart TB
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllWtvmzAUhv-KRZVvacstCUHqJK5bpaSJSrtNGhNywCSoDkZg2qRp_vtsyI2kqToVJGSfc_z4vD42XgkhiZCgC63WKkkTqoOVL9AZmiNf0IEvTGDBWm3WKlBY5gldDtAzwrUTE7L1VkN-wjyBE4wK7macmKTUS143KEnNFnUwt7twnuBl7fHQlCDweNsGBgMw-LqKwuQlnMGcbmhlgYZw8SuJ6IxbYogLxONmdI4HcIJwNS3Ny8qaMlleBsMknXKzKnJjDtOnA2NHXK_ButXy091c4MH0U8CeEMOisFEMYJaZZAHiBGP9wrKcjuu2C5qTJ6RfiGJPs9VN9_KFp6bL2aIdEkxy7laMrnXEyzCkB0DN6Vr9HVB2erYiN4HKHiiZHUcWj4CI4D3PdS3blnc8qytrsnY2QbMnWRJLsCYW5WSaw2wGPHc8DlAwDYzXMkfBGELvjy_4pdwVJb-MkcgmvZpegcoNuNsX_tYM_kRJjkKakBQM7vdWBjUq6G_nkeMqAm-zsbqu18tch6M02mRElxi9l85GrWnajmt-WA7ltBzn1HqBGvww7oxAFmWlEhxpSsS-EewcyvauVcDjAI_7H-VDxwsUUdyKZ13Aup_X30jwSxuoxp8B39x8e9ukaFeCwDUwxrfs6yaYHea39yry3rIO0JRJOVzJMBLBeGA8uKP7IRg43507-3MLOLCOd6CFSRk1BvMwr1E3mS3e8e7kUaNtVMi-MZLBKL0c52h-Emg3kp8gYEMKwZgd4Zjkp-HDxuxSDwyTKMLoBeZoF3ta3HqZtge4w99dPfv9frOYUrY4Hm596TQ0WduT5Uim4_R2rJ4pucb5baUakqqdsEZf_sftWfZWo-yYrnygUVM09wONqq2esIa7f6UjmnuW0-1IoniWZbpKV7SEtjBH-RwmkaCv6luPXZ4RimGJKbu3BFhS4i3TUNCrm0goswhSZCeQnYp5bVz_A4WYUlo=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
-<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order to Cash</span></div>
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order to Cash</span></div>
 <div style="page-break-before: always;"></div>
 
 ## 5 Transformation Analysis
 
-<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order to Cash</span></div>
-<div style="page-break-before: always;"></div>
 
 ### 5.1 System Landscape Changes
 
@@ -397,12 +383,10 @@ flowchart TB
 | **Retiring Systems** | 0 | — |
 | **Continuing Systems** | 2 | — |
 
-<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order to Cash</span></div>
-<div style="page-break-before: always;"></div>
 
 ### 5.2 Integration Complexity Delta
 
-<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order to Cash</span></div>
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order to Cash</span></div>
 <div style="page-break-before: always;"></div>
 
 ## 6 Capability Detail Reference
@@ -418,7 +402,7 @@ Each L2 document contains the full TOGAF BDAT analysis including:
 
 | # | Capability | L1 Process | Architecture Doc |
 |:---:|---|---|---|
-| 1 | IF Simplified PO-SO Model | Order to Cash | [IF_Simplified_PO-SO_Model](towers/E2E/Order to Cash/IF_Simplified_PO-SO_Model/output/docs/systems-architecture/IF_Simplified_PO-SO_Model-Architecture.html) |
-| 2 | Order to Cash (IF) | Order to Cash | [Order_to_Cash_IF](towers/E2E/Order to Cash/Order_to_Cash_IF/output/docs/systems-architecture/Order_to_Cash_IF-Architecture.html) |
-| 3 | Order to Cash (IP) | Order to Cash | [Order_to_Cash_IP](towers/E2E/Order to Cash/Order_to_Cash_IP/output/docs/systems-architecture/Order_to_Cash_IP-Architecture.html) |
+| 1 | IF Simplified PO-SO Model | Order to Cash | [IF_Simplified_PO-SO_Model](../../../Order to Cash/IF_Simplified_PO-SO_Model/output/docs/systems-architecture/IF_Simplified_PO-SO_Model-Architecture.html) |
+| 2 | Order to Cash (IF) | Order to Cash | [Order_to_Cash_IF](../../../Order to Cash/Order_to_Cash_IF/output/docs/systems-architecture/Order_to_Cash_IF-Architecture.html) |
+| 3 | Order to Cash (IP) | Order to Cash | [Order_to_Cash_IP](../../../Order to Cash/Order_to_Cash_IP/output/docs/systems-architecture/Order_to_Cash_IP-Architecture.html) |
 

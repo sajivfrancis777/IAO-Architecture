@@ -15,6 +15,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import os
 import re
 import sys
 from collections import defaultdict
@@ -424,15 +425,25 @@ def _render_summary_doc(
     l1_group: str = "",
     release_deltas: list[ReleaseDelta] | None = None,
     output_filepath: Path | None = None,
+    release_override: str | None = None,
 ) -> str:
     """Render a lean summary Markdown document — diagrams only, links to L2 for detail."""
+    # When filtered to a specific release, reflect it in the title and footer
+    display_release = release_override or "R1 \u2013 R5"
+    display_title = f"{title} — Release {release_override}" if release_override else title
+
+    # Filter release deltas to only the delta ending at this release
+    if release_override and release_deltas:
+        release_deltas = [d for d in release_deltas if d.to_rel == release_override]
+
     fmt = DocFormatter(
         doc_type=f"{level} Architecture Summary",
         subtitle="TOGAF BDAT — Aggregated Architecture View",
+        release=display_release,
     )
 
     md = fmt.title_page(
-        title=title,
+        title=display_title,
         context_lines=[scope_label],
         output_filepath=output_filepath,
     )
@@ -471,6 +482,11 @@ def _render_summary_doc(
     md += fmt.section_heading("1", "Executive Summary")
     md += f"This **{level}** summary aggregates architecture diagrams from "
     md += f"**{len(capabilities_info)}** L2 capabilities across **{scope_label}**.\n\n"
+    if release_override:
+        md += f"> **Release Filter: {release_override}** — This document reflects only the "
+        md += f"Data, Application, and Technology (D/A/T) architecture inputs provided by "
+        md += f"architects for **{release_override}**. Additions and subtractions relative to "
+        md += f"the prior release are captured in the aggregation.\n\n"
     md += f"The diagrams below show the consolidated current-state and future-state "
     md += f"system landscape **without duplicates** — each system and connection appears "
     md += f"only once even when shared across capabilities. "
@@ -494,7 +510,7 @@ def _render_summary_doc(
     md += "|:---:|:---:|---|---|:---:|:---:|\n"
     for i, cap in enumerate(capabilities_info, 1):
         cid = cap['id']
-        cap_link = _build_cap_link(cid, cap.get("tower_short", tower_short) or "")
+        cap_link = _build_cap_link(cid, cap.get("tower_short", tower_short) or "", from_path=output_filepath)
         md += f"| {i} | {cap_link} | {cap['name']} | {cap.get('l1', '')} | {cap.get('cur_hops', 0)} | {cap.get('fut_hops', 0)} |\n"
     md += "\n"
 
@@ -698,7 +714,7 @@ def _render_summary_doc(
     md += "|:---:|---|---|---|\n"
     for i, cap in enumerate(capabilities_info, 1):
         cid = cap['id']
-        cap_link = _build_cap_link(cid, cap.get("tower_short", tower_short) or "")
+        cap_link = _build_cap_link(cid, cap.get("tower_short", tower_short) or "", from_path=output_filepath)
         md += f"| {i} | {cap['name']} | {cap.get('l1', '')} | {cap_link} |\n"
     md += "\n"
 
@@ -711,8 +727,15 @@ def _render_summary_doc(
     return md
 
 
-def _build_cap_link(cap_id: str, tower_short: str) -> str:
-    """Build a relative link to an L2 capability's HTML doc, or plain text fallback."""
+def _build_cap_link(cap_id: str, tower_short: str, from_path: Path | None = None) -> str:
+    """Build a relative link to an L2 capability's HTML doc, or plain text fallback.
+
+    Args:
+        cap_id: Capability ID (e.g. "DS-020")
+        tower_short: Tower shortcode (e.g. "FPR")
+        from_path: If provided, compute path relative to this file's directory.
+                   Otherwise, use workspace-root-relative path.
+    """
     if not tower_short:
         return cap_id
     tower_dir = TOWERS_DIR / tower_short
@@ -721,6 +744,12 @@ def _build_cap_link(cap_id: str, tower_short: str) -> str:
         html_name = f"{cap_id}-Architecture.html"
         html_path = cap_dir / "output" / "docs" / "systems-architecture" / html_name
         if html_path.exists():
+            if from_path:
+                try:
+                    rel = os.path.relpath(html_path, from_path.parent).replace("\\", "/")
+                    return f"[{cap_id}]({rel})"
+                except ValueError:
+                    pass
             rel = html_path.relative_to(WORKSPACE)
             return f"[{cap_id}]({rel.as_posix()})"
     return cap_id
@@ -825,6 +854,7 @@ def generate_l1_summaries(
             l1_group=l1_name,
             release_deltas=deltas,
             output_filepath=output_path,
+            release_override=release_override,
         )
         output_path = output_dir / filename
         output_path.write_text(doc, encoding="utf-8")
@@ -915,6 +945,7 @@ def generate_l0_summary(
         tower_short=tower_cfg.shortcode,
         release_deltas=deltas,
         output_filepath=output_path,
+        release_override=release_override,
     )
     output_path = output_dir / filename
     output_path.write_text(doc, encoding="utf-8")
@@ -1021,6 +1052,7 @@ def generate_program_summary(iapm: IAPMLookup, release_label: str = "R1 – R5",
         capabilities_info=all_cap_info,
         release_deltas=program_deltas,
         output_filepath=output_path,
+        release_override=release_override,
     )
     output_path = output_dir / filename
     output_path.write_text(doc, encoding="utf-8")

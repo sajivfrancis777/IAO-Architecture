@@ -349,9 +349,10 @@ strong { color: #00285a; }
 <body>
 <button class="pdf-download-btn" onclick="window.print()" title="Print / Save as PDF">&#128196; Download PDF</button>
 <div class="page-section">
-<div style="text-align:center; padding-top:60px;">
+<div style="text-align:center; padding-top:20px;">
+  <img src="../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">End-to-End Integrated Processes (E2E)</h1>
-  <h2 style="font-size:24px;">TOGAF BDAT — Systems Integration Summary</h2>
+  <h2 style="font-size:24px;">TOGAF BDAT — Aggregated Architecture View</h2>
   <p style="font-size:18px; color:#555;">Tower: End-to-End Integrated Processes (E2E) · R1 – R5</p>
   <p style="font-size:14px; color:#888;">IAO Program · R1 – R5<br/>
   Generated: April 2026<br/>
@@ -416,21 +417,17 @@ nav.toc a:hover { text-decoration: underline; }
 <li><a href="#1-executive-summary">1. Executive Summary</a></li>
 <li><a href="#2-capability-inventory">2. Capability Inventory</a></li>
 <li><a href="#3-current-state-architecture">3. Current-State Architecture</a></li>
-<li><a href="#31-system-integration-map">3.1 System Integration Map</a></li>
-<li><a href="#32-archimate-application-view">3.2 ArchiMate Application View</a></li>
-<li><a href="#33-data-entities">3.3 Data Entities</a></li>
-<li><a href="#34-integration-patterns">3.4 Integration Patterns</a></li>
-<li><a href="#35-technology-stack">3.5 Technology Stack</a></li>
+<li><a href="#31-application-architecture">3.1 Application Architecture</a></li>
+<li><a href="#32-data-architecture">3.2 Data Architecture</a></li>
+<li><a href="#33-technology-architecture">3.3 Technology Architecture</a></li>
 <li><a href="#4-future-state-architecture">4. Future-State Architecture</a></li>
-<li><a href="#41-system-integration-map">4.1 System Integration Map</a></li>
-<li><a href="#42-archimate-application-view">4.2 ArchiMate Application View</a></li>
-<li><a href="#43-data-entities">4.3 Data Entities</a></li>
-<li><a href="#44-integration-patterns">4.4 Integration Patterns</a></li>
-<li><a href="#45-technology-stack">4.5 Technology Stack</a></li>
+<li><a href="#41-application-architecture">4.1 Application Architecture</a></li>
+<li><a href="#42-data-architecture">4.2 Data Architecture</a></li>
+<li><a href="#43-technology-architecture">4.3 Technology Architecture</a></li>
 <li><a href="#5-transformation-analysis">5. Transformation Analysis</a></li>
 <li><a href="#51-system-landscape-changes">5.1 System Landscape Changes</a></li>
-<li><a href="#52-integration-complexity">5.2 Integration Complexity</a></li>
-<li><a href="#6-system-inventory">6. System Inventory</a></li>
+<li><a href="#52-integration-complexity-delta">5.2 Integration Complexity Delta</a></li>
+<li><a href="#6-capability-detail-reference">6. Capability Detail Reference</a></li>
 </ul>
 <div class="page-footer"><span>Page 2</span><span><a href="#toc">↑ Back to TOC</a></span><span>End-to-End Integrated Processes (E2E)</span></div>
 
@@ -440,7 +437,8 @@ nav.toc a:hover { text-decoration: underline; }
 
 
 <h2 id="1-executive-summary">1 Executive Summary</h2>
-<p>This document provides a <strong>L0</strong> summary view of the systems architecture for <strong>Tower: End-to-End Integrated Processes (E2E) · R1 – R5</strong>.</p>
+<p>This <strong>L0</strong> summary aggregates architecture diagrams from <strong>53</strong> L2 capabilities across <strong>Tower: End-to-End Integrated Processes (E2E) · R1 – R5</strong>.</p>
+<p>The diagrams below show the consolidated current-state and future-state system landscape <strong>without duplicates</strong> — each system and connection appears only once even when shared across capabilities. For detailed data flows, integration patterns, technology stacks, and business architecture, refer to the individual L2 capability documents linked in <a href="#6-capability-detail-reference">§6 Capability Detail Reference</a>.</p>
 <table>
 <thead>
 <tr>
@@ -501,7 +499,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 <tbody>
 <tr>
 <td style="text-align: center;">1</td>
-<td style="text-align: center;"><a href="towers/E2E/E2E-80 R2 Customer Requests Expedite/E2E-80/output/docs/systems-architecture/E2E-80-Architecture.html">E2E-80</a></td>
+<td style="text-align: center;"><a href="../../../E2E-80 R2 Customer Requests Expedite/E2E-80/output/docs/systems-architecture/E2E-80-Architecture.html">E2E-80</a></td>
 <td>R2A Option 1  Customer Requests Expedite - Service Fee with Existing SO</td>
 <td>E2E-80 R2 Customer Requests Expedite</td>
 <td style="text-align: center;">1</td>
@@ -509,7 +507,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">2</td>
-<td style="text-align: center;"><a href="towers/E2E/Forecast to Stock/E2E-08/output/docs/systems-architecture/E2E-08-Architecture.html">E2E-08</a></td>
+<td style="text-align: center;"><a href="../../../Forecast to Stock/E2E-08/output/docs/systems-architecture/E2E-08-Architecture.html">E2E-08</a></td>
 <td>E2E-08</td>
 <td>Forecast to Stock</td>
 <td style="text-align: center;">1</td>
@@ -517,7 +515,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">3</td>
-<td style="text-align: center;"><a href="towers/E2E/Forecast to Stock/E2E-110/output/docs/systems-architecture/E2E-110-Architecture.html">E2E-110</a></td>
+<td style="text-align: center;"><a href="../../../Forecast to Stock/E2E-110/output/docs/systems-architecture/E2E-110-Architecture.html">E2E-110</a></td>
 <td>IMR Flow</td>
 <td>Forecast to Stock</td>
 <td style="text-align: center;">1</td>
@@ -525,7 +523,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">4</td>
-<td style="text-align: center;"><a href="towers/E2E/Forecast to Stock/E2E-113/output/docs/systems-architecture/E2E-113-Architecture.html">E2E-113</a></td>
+<td style="text-align: center;"><a href="../../../Forecast to Stock/E2E-113/output/docs/systems-architecture/E2E-113-Architecture.html">E2E-113</a></td>
 <td>R3 IMR Labs Process</td>
 <td>Forecast to Stock</td>
 <td style="text-align: center;">1</td>
@@ -533,7 +531,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">5</td>
-<td style="text-align: center;"><a href="towers/E2E/Forecast to Stock/E2E-117/output/docs/systems-architecture/E2E-117-Architecture.html">E2E-117</a></td>
+<td style="text-align: center;"><a href="../../../Forecast to Stock/E2E-117/output/docs/systems-architecture/E2E-117-Architecture.html">E2E-117</a></td>
 <td>E2E-117</td>
 <td>Forecast to Stock</td>
 <td style="text-align: center;">1</td>
@@ -541,7 +539,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">6</td>
-<td style="text-align: center;"><a href="towers/E2E/Forecast to Stock/E2E-118/output/docs/systems-architecture/E2E-118-Architecture.html">E2E-118</a></td>
+<td style="text-align: center;"><a href="../../../Forecast to Stock/E2E-118/output/docs/systems-architecture/E2E-118-Architecture.html">E2E-118</a></td>
 <td>E2E-118</td>
 <td>Forecast to Stock</td>
 <td style="text-align: center;">1</td>
@@ -549,7 +547,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">7</td>
-<td style="text-align: center;"><a href="towers/E2E/Forecast to Stock/E2E-122/output/docs/systems-architecture/E2E-122-Architecture.html">E2E-122</a></td>
+<td style="text-align: center;"><a href="../../../Forecast to Stock/E2E-122/output/docs/systems-architecture/E2E-122-Architecture.html">E2E-122</a></td>
 <td>E2E-122</td>
 <td>Forecast to Stock</td>
 <td style="text-align: center;">1</td>
@@ -557,7 +555,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">8</td>
-<td style="text-align: center;"><a href="towers/E2E/Forecast to Stock/E2E-45/output/docs/systems-architecture/E2E-45-Architecture.html">E2E-45</a></td>
+<td style="text-align: center;"><a href="../../../Forecast to Stock/E2E-45/output/docs/systems-architecture/E2E-45-Architecture.html">E2E-45</a></td>
 <td>E2E-45</td>
 <td>Forecast to Stock</td>
 <td style="text-align: center;">1</td>
@@ -565,7 +563,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">9</td>
-<td style="text-align: center;"><a href="towers/E2E/Forecast to Stock/E2E-67/output/docs/systems-architecture/E2E-67-Architecture.html">E2E-67</a></td>
+<td style="text-align: center;"><a href="../../../Forecast to Stock/E2E-67/output/docs/systems-architecture/E2E-67-Architecture.html">E2E-67</a></td>
 <td>E2E-67</td>
 <td>Forecast to Stock</td>
 <td style="text-align: center;">1</td>
@@ -573,7 +571,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">10</td>
-<td style="text-align: center;"><a href="towers/E2E/Forecast to Stock/E2E-68/output/docs/systems-architecture/E2E-68-Architecture.html">E2E-68</a></td>
+<td style="text-align: center;"><a href="../../../Forecast to Stock/E2E-68/output/docs/systems-architecture/E2E-68-Architecture.html">E2E-68</a></td>
 <td>-Intel Foundry   NPI planning and execution processes</td>
 <td>Forecast to Stock</td>
 <td style="text-align: center;">1</td>
@@ -581,7 +579,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">11</td>
-<td style="text-align: center;"><a href="towers/E2E/Forecast to Stock/E2E-71/output/docs/systems-architecture/E2E-71-Architecture.html">E2E-71</a></td>
+<td style="text-align: center;"><a href="../../../Forecast to Stock/E2E-71/output/docs/systems-architecture/E2E-71-Architecture.html">E2E-71</a></td>
 <td>E2E-71</td>
 <td>Forecast to Stock</td>
 <td style="text-align: center;">1</td>
@@ -589,7 +587,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">12</td>
-<td style="text-align: center;"><a href="towers/E2E/Forecast to Stock/E2E-72/output/docs/systems-architecture/E2E-72-Architecture.html">E2E-72</a></td>
+<td style="text-align: center;"><a href="../../../Forecast to Stock/E2E-72/output/docs/systems-architecture/E2E-72-Architecture.html">E2E-72</a></td>
 <td>IP</td>
 <td>Forecast to Stock</td>
 <td style="text-align: center;">1</td>
@@ -597,7 +595,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">13</td>
-<td style="text-align: center;"><a href="towers/E2E/Forecast to Stock/E2E-73/output/docs/systems-architecture/E2E-73-Architecture.html">E2E-73</a></td>
+<td style="text-align: center;"><a href="../../../Forecast to Stock/E2E-73/output/docs/systems-architecture/E2E-73-Architecture.html">E2E-73</a></td>
 <td>R3 Hybrid Manufacturing process with external Wafer Procurement &amp; Internal processing of</td>
 <td>Forecast to Stock</td>
 <td style="text-align: center;">1</td>
@@ -605,7 +603,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">14</td>
-<td style="text-align: center;"><a href="towers/E2E/Forecast to Stock/E2E-74/output/docs/systems-architecture/E2E-74-Architecture.html">E2E-74</a></td>
+<td style="text-align: center;"><a href="../../../Forecast to Stock/E2E-74/output/docs/systems-architecture/E2E-74-Architecture.html">E2E-74</a></td>
 <td>R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</td>
 <td>Forecast to Stock</td>
 <td style="text-align: center;">1</td>
@@ -613,7 +611,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">15</td>
-<td style="text-align: center;"><a href="towers/E2E/Forecast to Stock/E2E-76/output/docs/systems-architecture/E2E-76-Architecture.html">E2E-76</a></td>
+<td style="text-align: center;"><a href="../../../Forecast to Stock/E2E-76/output/docs/systems-architecture/E2E-76-Architecture.html">E2E-76</a></td>
 <td>Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</td>
 <td>Forecast to Stock</td>
 <td style="text-align: center;">1</td>
@@ -621,7 +619,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">16</td>
-<td style="text-align: center;"><a href="towers/E2E/Forecast to Stock/E2E-84/output/docs/systems-architecture/E2E-84-Architecture.html">E2E-84</a></td>
+<td style="text-align: center;"><a href="../../../Forecast to Stock/E2E-84/output/docs/systems-architecture/E2E-84-Architecture.html">E2E-84</a></td>
 <td>Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</td>
 <td>Forecast to Stock</td>
 <td style="text-align: center;">1</td>
@@ -629,7 +627,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">17</td>
-<td style="text-align: center;"><a href="towers/E2E/Forecast to Stock/E2E-94/output/docs/systems-architecture/E2E-94-Architecture.html">E2E-94</a></td>
+<td style="text-align: center;"><a href="../../../Forecast to Stock/E2E-94/output/docs/systems-architecture/E2E-94-Architecture.html">E2E-94</a></td>
 <td>R3 Intel Foundry Maintenance process through spare parts (SWAP)</td>
 <td>Forecast to Stock</td>
 <td style="text-align: center;">1</td>
@@ -637,7 +635,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">18</td>
-<td style="text-align: center;"><a href="towers/E2E/Master Data/E2E-89/output/docs/systems-architecture/E2E-89-Architecture.html">E2E-89</a></td>
+<td style="text-align: center;"><a href="../../../Master Data/E2E-89/output/docs/systems-architecture/E2E-89-Architecture.html">E2E-89</a></td>
 <td>R3 Customer Master Data</td>
 <td>Master Data</td>
 <td style="text-align: center;">1</td>
@@ -645,7 +643,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">19</td>
-<td style="text-align: center;"><a href="towers/E2E/Master Data/E2E-90/output/docs/systems-architecture/E2E-90-Architecture.html">E2E-90</a></td>
+<td style="text-align: center;"><a href="../../../Master Data/E2E-90/output/docs/systems-architecture/E2E-90-Architecture.html">E2E-90</a></td>
 <td>R3 Material Master Data</td>
 <td>Master Data</td>
 <td style="text-align: center;">1</td>
@@ -653,7 +651,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">20</td>
-<td style="text-align: center;"><a href="towers/E2E/Master Data/E2E-91/output/docs/systems-architecture/E2E-91-Architecture.html">E2E-91</a></td>
+<td style="text-align: center;"><a href="../../../Master Data/E2E-91/output/docs/systems-architecture/E2E-91-Architecture.html">E2E-91</a></td>
 <td>R3 Bill of Material BOM Data</td>
 <td>Master Data</td>
 <td style="text-align: center;">1</td>
@@ -661,7 +659,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">21</td>
-<td style="text-align: center;"><a href="towers/E2E/Master Data/E2E-92/output/docs/systems-architecture/E2E-92-Architecture.html">E2E-92</a></td>
+<td style="text-align: center;"><a href="../../../Master Data/E2E-92/output/docs/systems-architecture/E2E-92-Architecture.html">E2E-92</a></td>
 <td>R3 Vendor Master Data</td>
 <td>Master Data</td>
 <td style="text-align: center;">1</td>
@@ -669,7 +667,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">22</td>
-<td style="text-align: center;"><a href="towers/E2E/Order to Cash/IF_Simplified_PO-SO_Model/output/docs/systems-architecture/IF_Simplified_PO-SO_Model-Architecture.html">IF_Simplified_PO-SO_Model</a></td>
+<td style="text-align: center;"><a href="../../../Order to Cash/IF_Simplified_PO-SO_Model/output/docs/systems-architecture/IF_Simplified_PO-SO_Model-Architecture.html">IF_Simplified_PO-SO_Model</a></td>
 <td>IF Simplified PO-SO Model</td>
 <td>Order to Cash</td>
 <td style="text-align: center;">1</td>
@@ -677,7 +675,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">23</td>
-<td style="text-align: center;"><a href="towers/E2E/Order to Cash/Order_to_Cash_IF/output/docs/systems-architecture/Order_to_Cash_IF-Architecture.html">Order_to_Cash_IF</a></td>
+<td style="text-align: center;"><a href="../../../Order to Cash/Order_to_Cash_IF/output/docs/systems-architecture/Order_to_Cash_IF-Architecture.html">Order_to_Cash_IF</a></td>
 <td>Order to Cash (IF)</td>
 <td>Order to Cash</td>
 <td style="text-align: center;">1</td>
@@ -685,7 +683,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">24</td>
-<td style="text-align: center;"><a href="towers/E2E/Order to Cash/Order_to_Cash_IP/output/docs/systems-architecture/Order_to_Cash_IP-Architecture.html">Order_to_Cash_IP</a></td>
+<td style="text-align: center;"><a href="../../../Order to Cash/Order_to_Cash_IP/output/docs/systems-architecture/Order_to_Cash_IP-Architecture.html">Order_to_Cash_IP</a></td>
 <td>Order to Cash (IP)</td>
 <td>Order to Cash</td>
 <td style="text-align: center;">1</td>
@@ -693,7 +691,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">25</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-100/output/docs/systems-architecture/E2E-100-Architecture.html">E2E-100</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-100/output/docs/systems-architecture/E2E-100-Architecture.html">E2E-100</a></td>
 <td>R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -701,7 +699,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">26</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-103/output/docs/systems-architecture/E2E-103-Architecture.html">E2E-103</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-103/output/docs/systems-architecture/E2E-103-Architecture.html">E2E-103</a></td>
 <td>R3 Procurement of WIINGS Replacement Related Commodities</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -709,7 +707,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">27</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-107/output/docs/systems-architecture/E2E-107-Architecture.html">E2E-107</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-107/output/docs/systems-architecture/E2E-107-Architecture.html">E2E-107</a></td>
 <td>R3 - Partner Owned Equipment Order</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -717,7 +715,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">28</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-112/output/docs/systems-architecture/E2E-112-Architecture.html">E2E-112</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-112/output/docs/systems-architecture/E2E-112-Architecture.html">E2E-112</a></td>
 <td>R3 Raw Silicon Procurement</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -725,7 +723,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">29</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-114/output/docs/systems-architecture/E2E-114-Architecture.html">E2E-114</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-114/output/docs/systems-architecture/E2E-114-Architecture.html">E2E-114</a></td>
 <td>R4 SIMS Harvest Process</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -733,7 +731,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">30</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-115/output/docs/systems-architecture/E2E-115-Architecture.html">E2E-115</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-115/output/docs/systems-architecture/E2E-115-Architecture.html">E2E-115</a></td>
 <td>R3 Inter-company Asset Transfer Process</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -741,7 +739,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">31</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-116/output/docs/systems-architecture/E2E-116-Architecture.html">E2E-116</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-116/output/docs/systems-architecture/E2E-116-Architecture.html">E2E-116</a></td>
 <td>R3 Wafer Reclaim Process</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -749,7 +747,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">32</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-119/output/docs/systems-architecture/E2E-119-Architecture.html">E2E-119</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-119/output/docs/systems-architecture/E2E-119-Architecture.html">E2E-119</a></td>
 <td>R3 Shipping Rejects Inventory Movement</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -757,7 +755,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">33</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-121/output/docs/systems-architecture/E2E-121-Architecture.html">E2E-121</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-121/output/docs/systems-architecture/E2E-121-Architecture.html">E2E-121</a></td>
 <td>R3 RM Bailed Inventory Movement (Straddle)</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -765,7 +763,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">34</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-123/output/docs/systems-architecture/E2E-123-Architecture.html">E2E-123</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-123/output/docs/systems-architecture/E2E-123-Architecture.html">E2E-123</a></td>
 <td>TD Substrates Manufacturing Process</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -773,7 +771,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">35</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-40/output/docs/systems-architecture/E2E-40-Architecture.html">E2E-40</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-40/output/docs/systems-architecture/E2E-40-Architecture.html">E2E-40</a></td>
 <td>R3 Sourcing Request-Project to Contracts for Direct-Capital on Ariba with Pricing Updates</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -781,7 +779,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">36</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-41/output/docs/systems-architecture/E2E-41-Architecture.html">E2E-41</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-41/output/docs/systems-architecture/E2E-41-Architecture.html">E2E-41</a></td>
 <td>R3 Sourcing Request</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -789,7 +787,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">37</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-43/output/docs/systems-architecture/E2E-43-Architecture.html">E2E-43</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-43/output/docs/systems-architecture/E2E-43-Architecture.html">E2E-43</a></td>
 <td>Process Procurement Card Invoice</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -797,7 +795,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">38</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-44/output/docs/systems-architecture/E2E-44-Architecture.html">E2E-44</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-44/output/docs/systems-architecture/E2E-44-Architecture.html">E2E-44</a></td>
 <td>R3 - Intel Owned Consignment with Planning Integration</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -805,7 +803,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">39</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-46/output/docs/systems-architecture/E2E-46-Architecture.html">E2E-46</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-46/output/docs/systems-architecture/E2E-46-Architecture.html">E2E-46</a></td>
 <td>R3 Direct procurement with Planning Integration-AT</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -813,7 +811,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">40</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-47/output/docs/systems-architecture/E2E-47-Architecture.html">E2E-47</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-47/output/docs/systems-architecture/E2E-47-Architecture.html">E2E-47</a></td>
 <td>Purchase Requisition to Payments for Direct procurement with planning integration - Fab Mater</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -821,7 +819,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">41</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-49/output/docs/systems-architecture/E2E-49-Architecture.html">E2E-49</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-49/output/docs/systems-architecture/E2E-49-Architecture.html">E2E-49</a></td>
 <td>R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -829,7 +827,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">42</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-50/output/docs/systems-architecture/E2E-50-Architecture.html">E2E-50</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-50/output/docs/systems-architecture/E2E-50-Architecture.html">E2E-50</a></td>
 <td>Purchase Requisition to Payments for Indirect - Construction (Small Construction IPCS, Mainte</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -837,7 +835,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">43</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-51/output/docs/systems-architecture/E2E-51-Architecture.html">E2E-51</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-51/output/docs/systems-architecture/E2E-51-Architecture.html">E2E-51</a></td>
 <td>Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -845,7 +843,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">44</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-52/output/docs/systems-architecture/E2E-52-Architecture.html">E2E-52</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-52/output/docs/systems-architecture/E2E-52-Architecture.html">E2E-52</a></td>
 <td>Purchase Requisition to Payments for Indirect Non-Mfg. &amp; Mfg. procurement</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -853,7 +851,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">45</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-53/output/docs/systems-architecture/E2E-53-Architecture.html">E2E-53</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-53/output/docs/systems-architecture/E2E-53-Architecture.html">E2E-53</a></td>
 <td>Purchase Requisition to Payments for Indirect procurement (simple material or services like H</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -861,7 +859,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">46</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-57/output/docs/systems-architecture/E2E-57-Architecture.html">E2E-57</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-57/output/docs/systems-architecture/E2E-57-Architecture.html">E2E-57</a></td>
 <td>R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -869,7 +867,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">47</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-59/output/docs/systems-architecture/E2E-59-Architecture.html">E2E-59</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-59/output/docs/systems-architecture/E2E-59-Architecture.html">E2E-59</a></td>
 <td>R3 Rework Re-localization in Factory​</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -877,7 +875,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">48</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-61/output/docs/systems-architecture/E2E-61-Architecture.html">E2E-61</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-61/output/docs/systems-architecture/E2E-61-Architecture.html">E2E-61</a></td>
 <td>R3 Consignment Material - Vendor</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -885,7 +883,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">49</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-62/output/docs/systems-architecture/E2E-62-Architecture.html">E2E-62</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-62/output/docs/systems-architecture/E2E-62-Architecture.html">E2E-62</a></td>
 <td>R3 Vendor Return for Direct Material</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -893,7 +891,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">50</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-70/output/docs/systems-architecture/E2E-70-Architecture.html">E2E-70</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-70/output/docs/systems-architecture/E2E-70-Architecture.html">E2E-70</a></td>
 <td>R3 - Substrates - (PTP) PR to PO scope for Internal Manufacturing (Intel Foundry) &amp; Exte</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -901,7 +899,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">51</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-88/output/docs/systems-architecture/E2E-88-Architecture.html">E2E-88</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-88/output/docs/systems-architecture/E2E-88-Architecture.html">E2E-88</a></td>
 <td>R3 Construction materials &amp; equipment procurement process inclusive of OFCI (Like equipme</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -909,7 +907,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">52</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-96/output/docs/systems-architecture/E2E-96-Architecture.html">E2E-96</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-96/output/docs/systems-architecture/E2E-96-Architecture.html">E2E-96</a></td>
 <td>R3 Straddle &amp; R4 SIMS Design with Returns</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -917,7 +915,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 </tr>
 <tr>
 <td style="text-align: center;">53</td>
-<td style="text-align: center;"><a href="towers/E2E/Procure to Pay/E2E-98/output/docs/systems-architecture/E2E-98-Architecture.html">E2E-98</a></td>
+<td style="text-align: center;"><a href="../../../Procure to Pay/E2E-98/output/docs/systems-architecture/E2E-98-Architecture.html">E2E-98</a></td>
 <td>R3 Equipment Product Supporting Items (PSI) Procurement</td>
 <td>Procure to Pay</td>
 <td style="text-align: center;">1</td>
@@ -933,39 +931,22 @@ Click a capability ID to view its full TOGAF BDAT architecture document.</p>
 
 
 <h2 id="3-current-state-architecture">3 Current-State Architecture</h2>
-<p>Aggregated current-state view of <strong>2</strong> systems with <strong>1</strong> unique connections across <strong>53</strong> flow hops.</p>
-<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>End-to-End Integrated Processes (E2E)</span></div>
-
-</div>
-<div style="page-break-before: always;"></div>
-<div class="page-section">
-
-
-<h3 id="31-system-integration-map">3.1 System Integration Map</h3>
-<div class="mermaid">
-graph LR
-    SC_e_g__MES_300["📦 e.g. MES 300"]
-    SC_e_g__XEUS["📦 e.g. XEUS"]
-
-    SC_e_g__MES_300 -->|"e.g. Direct / API / File | 53 flows"| SC_e_g__XEUS
-</div>
-
-<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>End-to-End Integrated Processes (E2E)</span></div>
-
-</div>
-<div style="page-break-before: always;"></div>
-<div class="page-section">
-
-
-<h3 id="32-archimate-application-view">3.2 ArchiMate Application View</h3>
+<p>Aggregated current-state: <strong>2</strong> systems, <strong>1</strong> connections, <strong>53</strong> flow hops.</p>
+<h3 id="31-application-architecture">3.1 Application Architecture</h3>
+<blockquote>
+<p>System-to-system integration flows. Color indicates IAPM lifecycle status (green = deployed, blue = developing, red = end-of-life).</p>
+</blockquote>
 <div class="mermaid">
 graph TB
-    %% -- ArchiMate-inspired style classes --
-    classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
-    classDef app           fill:#B5FFFF,stroke:#0077B6,stroke-width:2px,color:#000
-    classDef data          fill:#B5D8FF,stroke:#0077B6,stroke-width:1px,color:#000,stroke-dasharray: 5 5
-    classDef middleware    fill:#FFD6A5,stroke:#E76F00,stroke-width:2px,color:#000
-    classDef eol           fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#000
+    %% -- ArchiMate 3.2 + Azure style classes --
+    classDef business      fill:#FFFFB3,stroke:#F9A825,stroke-width:2px,color:#000
+    classDef app           fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef data          fill:#BBDEFB,stroke:#1565C0,stroke-width:1px,color:#0D47A1,stroke-dasharray: 5 5
+    classDef middleware    fill:#FFE0B2,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef eol           fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
+    classDef saas          fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
 
     subgraph AL["📦 Application Layer — Systems Integration"]
         direction LR
@@ -977,113 +958,100 @@ graph TB
 
     class SCA_e_g__MES_300 app
     class SCA_e_g__XEUS app
-    style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
-    style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
+    style BL fill:#FFFDE7,stroke:#F9A825,stroke-width:2px
+    style AL fill:#E3F2FD,stroke:#0078D4,stroke-width:2px
 </div>
 
-<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>End-to-End Integrated Processes (E2E)</span></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlG1r2zAQx7-KUOmrpZlsxw_1i4Fsy1BIYSwbDOYRVOuSmPkJS6bL2n73KfHiJGqzsXshkE7_3-lO0j3hvBGAQ7zueLtBn6OsRtqur9HNDaJdvinuuQLkTG30DtFffQdIqm0JKC-5lCD1tkGxnyewQg-9LGqQEu1tVZRleJVqi5yJVF3zA_T0lga2-2d681gItQnt9uckb8qmC68IIQaTty062sCMY-am6cgkxA-S2V-YDvViAyu44iY2ihKWRiPWcj03JudY6wSbzHxqHdyCyw3vOr4NkYtcI1hVCFHCI9cVPKkLI5E9BmOeaxFyMYcodTxi5gBN-ao0aRonyREbe3ZgB5exvhVbJlZyLk0ssyLG_BHrR1ZK7YvYGbVmgYnNy6YX_19x26y4gW3qtoPKeB8B8-LbEWszP3Eun9aKXGbrZzeAZf8w_Ac6_5bhrBeBI_SYg4do25ZFzlXR1GjOt9ChrLeJNUOLrVRQSXRXK9Di3YYMfx94OxNFB_kg-3RcXcR0Ccv1cnnPFkuHEDMcTNdTpH1I-85wo_Ar-7J4U7VzjBKoxSE5M6T-wh-eM7zXJPtDoveIfrzTY1qUkOHn82AHzr76r2n6r77p30mPzqGJRPNjg0hOntaFBnEqpQcpc1I7Tf7VB_AEV9BVvBA4fMJqA9Wu6QlY8b5U-GWCea-axbbOcai6Hia4b3V3gKTg-i6rYfHlNybVltg=" title="View full diagram">&#128065; View Diagram</a></div>
 
+<h3 id="32-data-architecture">3.2 Data Architecture</h3>
+<blockquote>
+<p>Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.</p>
+</blockquote>
+<div class="mermaid">
+%%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "15px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 35, "rankSpacing": 45}} }%%
+flowchart TB
+    classDef appBox fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef dbCyl fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
+    classDef dbCloud fill:#BBDEFB,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef dbData fill:#B2EBF2,stroke:#00838F,stroke-width:2px,color:#004D40
+    classDef eolBox fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
+
+    subgraph SCDCL_e_g_Azure_SQL[" "]
+        direction TB
+        SCDA_e_g_XEUS["e.g. XEUS"]:::appBox
+        SCDD_e_g_Azure_SQL[("🗄️ e.g. Azure SQL")]:::dbCloud
+        SCDA_e_g_XEUS -.-> SCDD_e_g_Azure_SQL
+    end
+    style SCDCL_e_g_Azure_SQL fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+
+    subgraph SCDCL_e_g_SAP_HANA[" "]
+        direction TB
+        SCDA_e_g_MES_300["e.g. MES 300"]:::appBox
+        SCDD_e_g_SAP_HANA[("🗄️ e.g. SAP HANA")]:::dbData
+        SCDA_e_g_MES_300 -.-> SCDD_e_g_SAP_HANA
+    end
+    style SCDCL_e_g_SAP_HANA fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+
+    SCDD_e_g_SAP_HANA ==>|"e.g. Direct / API / File"| SCDD_e_g_Azure_SQL
+
+    subgraph Legend["📐 DATA ARCHITECTURE LEGEND"]
+        direction LR
+        L_A["Application"]:::appBox
+        L_D[("🗄️ On-Prem DB")]:::dbCyl
+        L_DC[("🗄️ Cloud DB")]:::dbCloud
+        L_DD[("🗄️ Data Platform")]:::dbData
+        L_E["End-of-Life"]:::eolBox
+    end
+    style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
-<div style="page-break-before: always;"></div>
-<div class="page-section">
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVQ1vmzAQ_SsWU6RNSjpCkjZBaiU-10q0y0q6TSoTcsAkVg1GYNakaf77bAhJk4ZW22wJ2ee7d-f3jL2SAhoiSZVarRVOMFPBypPYHMXIk1TgSVOY81Gbj3IUFBlmSwf9RqRaJJTWq2XId5hhOCUoF8scJ6IJc_HTBqo7SBeVs7DbMMZkWa24aEYRuLtqA40DcPB16UXoYzCHGdugFTm6hosfOGRzYYkgyZHwm7OYOHCKSJmWZUVpTfi23BQGOJkJc28gjBlMHl4Y-4P1GqxbLS_Z5gIT3UsAbwGBeW6iCMA01ekCRJgQ9YNhWAPbbucsow9I_SDLZ0Ozv5l2HkVpqpIu2gElNBPLPe3UOMALp8aS1HBD69QYbeEU68zsKY1wXX1gKfJrOEKLcAOo66Zl6_9ZnwkZrPEUS7eVF3jD3tB-A69v9g8LRJTs-LNtwzR3eMapMlSGjXj6Wdfo8voqxLyYzjKYzoFrmIbjI3_ma09Fhnz3m3PvSVzeX5WjaCHOUMAwTbaCisYjtTLwp3Xn8hh0MjsBYsxjVVWtpN5zNw_yfPQkrwiHvZB_w6DvFRGS-R4FTukEuJMnfRJoG2UasoPOSefiSIbKHSWbuJwtCTq245pQTfQtoZYs-j6hXf7bNVPoamP_UrvR_pbBa8v1e7Jck8ingE_f4XGb7A0auQ8QPlsWxXFsLuCAxzrDOzTWbv_E4qtk4Pz84nlDhFnSBj4DbXzFvzYm_Pp7Pir0gSYOmvF6718wE4QyMLWJBrRb4_JqYhmTu1sLONYX68Zs0Mq53VkdX6iqpSnBARSrx9VxfLNBj69JZ5yhGJj67kgvyV6k0RBaXUovA_f_BR7alLW8fsYEsohmccMpcHyLb81Kwg6NOg6OULW16q45qn3Fbq33QPSt3qPR6JXYUluKURZDHErqqnre-CsZoggWhPEHSoIFo-4yCSS1fHKkIg0hQyaGXM24Mq7_ABLlSS4=" title="View full diagram">&#128065; View Diagram</a></div>
 
-<h3 id="33-data-entities">3.3 Data Entities</h3>
-<p><strong>1</strong> data entities in current-state flows.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th>Data Entity</th>
-<th>Source</th>
-<th>Target</th>
-<th>Owner</th>
-<th>Classification</th>
-<th>Volume</th>
-<th>Master/Txn</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td>e.g. Cost Element</td>
-<td>e.g. MES 300</td>
-<td>e.g. XEUS</td>
-<td>Data steward</td>
-<td>e.g. Intel Confidential</td>
-<td>e.g. 10K rows/day</td>
-<td>Master / Transaction</td>
-</tr>
-</tbody>
-</table>
-<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>End-to-End Integrated Processes (E2E)</span></div>
+<h3 id="33-technology-architecture">3.3 Technology Architecture</h3>
+<blockquote>
+<p>Applications grouped by hosting platform. Cloud platforms marked with ☁️.</p>
+</blockquote>
+<div class="mermaid">
+%%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
+flowchart TB
+    classDef appBox fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef platBox fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
+    classDef eolBox fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
 
+    subgraph SCPP_e_g_Azure_PaaS["☁️ e.g. Azure PaaS"]
+        direction LR
+        SCPA_e_g_XEUS["e.g. XEUS"]:::appBox
+    end
+    style SCPP_e_g_Azure_PaaS fill:#BBDEFB,stroke:#0078D4,stroke-width:3px,color:#003A6C
+
+    subgraph SCPP_e_g_S_4_HANA_2023["🖥️ e.g. S/4 HANA 2023"]
+        direction LR
+        SCPA_e_g_MES_300["e.g. MES 300"]:::appBox
+    end
+    style SCPP_e_g_S_4_HANA_2023 fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
+
+    SCPP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| SCPP_e_g_Azure_PaaS
+
+    subgraph SCPLegend["📐 PLATFORM LEGEND"]
+        direction LR
+        SCPLC["☁️ Cloud"]
+        SCPLS["🔮 SaaS"]
+        SCPLO["🏢 On-Prem"]
+        SCPLD["💾 Data Platform"]
+        SCPLM["🔗 Middleware"]
+    end
+    style SCPLegend fill:#F5F5F5,stroke:#999,stroke-width:1px
+    style SCPLC fill:#BBDEFB,stroke:#0078D4,stroke-width:3px,color:#003A6C
+    style SCPLS fill:#E1BEE7,stroke:#7B1FA2,stroke-width:3px,color:#4A148C
+    style SCPLO fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
+    style SCPLD fill:#B2EBF2,stroke:#00838F,stroke-width:3px,color:#004D40
+    style SCPLM fill:#FFE0B2,stroke:#E65100,stroke-width:3px,color:#BF360C
 </div>
-<div style="page-break-before: always;"></div>
-<div class="page-section">
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllWtvmzAUhv-KRZVvacstCUHqJK5bpaSJSrtNGhNywCSoDkZg2qRp_vtsyI2kqToVJGSfc_z4vD42XgkhiZCgC63WKkkTqoOVL9AZmiNf0IEvTGDBWm3WKlBY5gldDtAzwrUTE7L1VkN-wjyBE4wK7macmKTUS143KEnNFnUwt7twnuBl7fHQlCDweNsGBgMw-LqKwuQlnMGcbmhlgYZw8SuJ6IxbYogLxONmdI4HcIJwNS3Ny8qaMlleBsMknXKzKnJjDtOnA2NHXK_ButXy091c4MH0U8CeEMOisFEMYJaZZAHiBGP9wrKcjuu2C5qTJ6RfiGJPs9VN9_KFp6bL2aIdEkxy7laMrnXEyzCkB0DN6Vr9HVB2erYiN4HKHiiZHUcWj4CI4D3PdS3blnc8qytrsnY2QbMnWRJLsCYW5WSaw2wGPGs8DlAwDYzXMkfBGELvjy_4pdwVJb-MkcgmvZpegcoNuNsX_tYM_kRJjkKakBQM7vdWBjUq6G_nkeMqAm-zsbqu18tch6M02mRElxi9l85GrWnajmt-WA7ltBzn1HqBGvww7oxAFmWlEhxpSsS-EewcyvauVcDjAI_7H-VDxwsUUdyKZ13Aup_X30jwSxuoxp8B39x8e9ukaFeCwDUwxrfs6yaYHea39yry3rIO0JRJOVzJMBLBeGA8uKP7IRg43507-3MLOLCOd6CFSRk1BvMwr1E3mS3e8e7kUaNtVMi-MZLBKL0c52h-Emg3kp8gYEMKwZgd4Zjkp-HDxuxSDwyTKMLoBeZoF3ta3HqZtge4w99dPfv9frOYUrY4Hm596TQ0WduT5Uim4_R2rJ4pucb5baUakqqdsEZf_sftWfZWo-yYrnygUVM09wONqq2esIa7f6UjmnuW0-1IoniWZbpKV7SEtjBH-RwmkaCv6luPXZ4RimGJKbu3BFhS4i3TUNCrm0goswhSZCeQnYp5bVz_A9mNUh4=" title="View full diagram">&#128065; View Diagram</a></div>
 
-<h3 id="34-integration-patterns">3.4 Integration Patterns</h3>
-<p><strong>1</strong> integration patterns in current-state.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th>Pattern</th>
-<th>Middleware</th>
-<th>Protocol</th>
-<th>Auth Method</th>
-<th>Flow Chain</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td>e.g. Pub-Sub / P2P / ETL</td>
-<td>e.g. Azure Service Bus</td>
-<td>e.g. REST / RFC / SFTP</td>
-<td>e.g. OAuth / NTLM / Cert</td>
-<td>e.g. MES Route to ICOST</td>
-</tr>
-</tbody>
-</table>
-<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>End-to-End Integrated Processes (E2E)</span></div>
-
-</div>
-<div style="page-break-before: always;"></div>
-<div class="page-section">
-
-
-<h3 id="35-technology-stack">3.5 Technology Stack</h3>
-<p><strong>2</strong> technology platforms in current-state.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th>Platform</th>
-<th>Type</th>
-<th>Systems</th>
-<th>Environment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td>e.g. Azure PaaS</td>
-<td>Cloud / SaaS</td>
-<td>e.g. XEUS</td>
-<td>DEV,QAS,PRD</td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td>e.g. S/4 HANA 2023</td>
-<td>On-Premise</td>
-<td>e.g. MES 300</td>
-<td>DEV,QAS,PRD</td>
-</tr>
-</tbody>
-</table>
-<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>End-to-End Integrated Processes (E2E)</span></div>
+<div class="page-footer"><span>Page 5</span><span><a href="#toc">↑ Back to TOC</a></span><span>End-to-End Integrated Processes (E2E)</span></div>
 
 </div>
 <div style="page-break-before: always;"></div>
@@ -1091,39 +1059,22 @@ graph TB
 
 
 <h2 id="4-future-state-architecture">4 Future-State Architecture</h2>
-<p>Aggregated future-state view of <strong>2</strong> systems with <strong>1</strong> unique connections across <strong>53</strong> flow hops.</p>
-<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>End-to-End Integrated Processes (E2E)</span></div>
-
-</div>
-<div style="page-break-before: always;"></div>
-<div class="page-section">
-
-
-<h3 id="41-system-integration-map">4.1 System Integration Map</h3>
-<div class="mermaid">
-graph LR
-    SF_e_g__MES_300["📦 e.g. MES 300"]
-    SF_e_g__XEUS["📦 e.g. XEUS"]
-
-    SF_e_g__MES_300 -->|"e.g. Direct / API / File | 53 flows"| SF_e_g__XEUS
-</div>
-
-<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>End-to-End Integrated Processes (E2E)</span></div>
-
-</div>
-<div style="page-break-before: always;"></div>
-<div class="page-section">
-
-
-<h3 id="42-archimate-application-view">4.2 ArchiMate Application View</h3>
+<p>Aggregated future-state: <strong>2</strong> systems, <strong>1</strong> connections, <strong>53</strong> flow hops.</p>
+<h3 id="41-application-architecture">4.1 Application Architecture</h3>
+<blockquote>
+<p>System-to-system integration flows. Color indicates IAPM lifecycle status (green = deployed, blue = developing, red = end-of-life).</p>
+</blockquote>
 <div class="mermaid">
 graph TB
-    %% -- ArchiMate-inspired style classes --
-    classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
-    classDef app           fill:#B5FFFF,stroke:#0077B6,stroke-width:2px,color:#000
-    classDef data          fill:#B5D8FF,stroke:#0077B6,stroke-width:1px,color:#000,stroke-dasharray: 5 5
-    classDef middleware    fill:#FFD6A5,stroke:#E76F00,stroke-width:2px,color:#000
-    classDef eol           fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#000
+    %% -- ArchiMate 3.2 + Azure style classes --
+    classDef business      fill:#FFFFB3,stroke:#F9A825,stroke-width:2px,color:#000
+    classDef app           fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef data          fill:#BBDEFB,stroke:#1565C0,stroke-width:1px,color:#0D47A1,stroke-dasharray: 5 5
+    classDef middleware    fill:#FFE0B2,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef eol           fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
+    classDef saas          fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
 
     subgraph AL["📦 Application Layer — Systems Integration"]
         direction LR
@@ -1135,113 +1086,100 @@ graph TB
 
     class SFA_e_g__MES_300 app
     class SFA_e_g__XEUS app
-    style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
-    style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
+    style BL fill:#FFFDE7,stroke:#F9A825,stroke-width:2px
+    style AL fill:#E3F2FD,stroke:#0078D4,stroke-width:2px
 </div>
 
-<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>End-to-End Integrated Processes (E2E)</span></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlG1r2zAQx7-KUOmrpZlsxw_1i4EfJCikMJYNBvMIqnVJzPyEJdNlbb_7lHhxErXZ2L0QSKf_73Qn6Z5w3gjAIV53vN2gz3FWI23X1-jmBkVdvinuuQLkTG30DkW_-g6QVNsSUF5yKUHqbYNiP09hhR56WdQgJdrbqijL8Ippi52JVF3zA_T0Ngps98_05rEQahPa7c9J3pRNF14RQgwmb1t0tIGZJNRlbGQS4gfp7C9MJ_ISAyu44iY2jlPK4hFruZ6bkHOsdYJNZ35kHdyCyw3vOr4NkYtcI1hVCFHCI9cVPKkLJbE9BqOeaxFyMYeYOR4xc4CmfFUaxpI0PWITzw7s4DLWtxLLxErOpYmlVkypP2L92GKRfRE7i6xZYGLzsunF_1fcNituYJu67aAy3kdAveR2xNrUT53Lp7Vil9r62Q1g2T8M_yGaf8tw1ovAEXrMwUNR25ZFzlXR1GjOt9ChrLeJNUOLrVRQSXRXK9Di3YYMfx94OxNFB_kg-3RcXbBoCcv1cnlPF0uHEDMcTNdTpH1I-85wo_Ar_bJ4U7VzjBKoxSE5M6T-wh-eM7zXpPtDovco-ninR1aUkOHn82AHzr76r2n6r77p30mPzqGJxPNjg0hPntaFBnEqjQ5S6jCbpf_qA3iCK-gqXggcPmG1gWrX9ASseF8q_DLBvFfNYlvnOFRdDxPct7o7QFpwfZfVsPjyGzwRluo=" title="View full diagram">&#128065; View Diagram</a></div>
 
+<h3 id="42-data-architecture">4.2 Data Architecture</h3>
+<blockquote>
+<p>Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.</p>
+</blockquote>
+<div class="mermaid">
+%%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "15px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 35, "rankSpacing": 45}} }%%
+flowchart TB
+    classDef appBox fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef dbCyl fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
+    classDef dbCloud fill:#BBDEFB,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef dbData fill:#B2EBF2,stroke:#00838F,stroke-width:2px,color:#004D40
+    classDef eolBox fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
+
+    subgraph SFDCL_e_g_Azure_SQL[" "]
+        direction TB
+        SFDA_e_g_XEUS["e.g. XEUS"]:::appBox
+        SFDD_e_g_Azure_SQL[("🗄️ e.g. Azure SQL")]:::dbCloud
+        SFDA_e_g_XEUS -.-> SFDD_e_g_Azure_SQL
+    end
+    style SFDCL_e_g_Azure_SQL fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+
+    subgraph SFDCL_e_g_SAP_HANA[" "]
+        direction TB
+        SFDA_e_g_MES_300["e.g. MES 300"]:::appBox
+        SFDD_e_g_SAP_HANA[("🗄️ e.g. SAP HANA")]:::dbData
+        SFDA_e_g_MES_300 -.-> SFDD_e_g_SAP_HANA
+    end
+    style SFDCL_e_g_SAP_HANA fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+
+    SFDD_e_g_SAP_HANA ==>|"e.g. Direct / API / File"| SFDD_e_g_Azure_SQL
+
+    subgraph Legend["📐 DATA ARCHITECTURE LEGEND"]
+        direction LR
+        L_A["Application"]:::appBox
+        L_D[("🗄️ On-Prem DB")]:::dbCyl
+        L_DC[("🗄️ Cloud DB")]:::dbCloud
+        L_DD[("🗄️ Data Platform")]:::dbData
+        L_E["End-of-Life"]:::eolBox
+    end
+    style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
-<div style="page-break-before: always;"></div>
-<div class="page-section">
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVQ1vmzAQ_SsWU6RNSjpCkjZBaiU-10q0y0q6TSoTcsAkVg1GYNakaf77bAhJk4ZW22wJ2ee7d-f3jL2SAhoiSZVarRVOMFPBypPYHMXIk1TgSVOY81Gbj3IUFBlmSwf9RqRaJJTWq2XId5hhOCUoF8scJ6IJc_HTBqo7SBeVs7DbMMZkWa24aEYRuLtqA40DcPB16UXoYzCHGdugFTm6hosfOGRzYYkgyZHwm7OYOHCKSJmWZUVpTfi23BQGOJkJc28gjBlMHl4Y-4P1GqxbLS_Z5gIT3UsAbwGBeW6iCMA01ekCRJgQ9YNhWAPbbucsow9I_SDLZ0Ozv5l2HkVpqpIu2gElNBPLPe3UOMALp8aS1HBD69QYbeEU68zsKY1wXX1gKfJrOEKLcAOo66Zl6_9ZnwkZrPEUS7eVF3jD3tB-A69v9g8LRJTs-LNtwzR3eMapMlSGjXj6Wdfo8voqxLyYzjKYzoFrm4bjI3_ma09Fhnz3m3PvSVzeX5WjaCHOUMAwTbaCisYjtTLwp3Xn8hh0MjsBYsxjVVWtpN5zNw_yfPQkrwiHvZB_w6DvFRGS-R4FTukEuJMnfRJoG2UasoPOSefiSIbKHSWbuJwtCTq245pQTfQtoZYs-j6hXf7bNVPoamP_UrvR_pbBa8v1e7Jck8ingE_f4XGb7A0auQ8QPlsWxXFsLuCAxzrDOzTWbv_E4qtk4Pz84nlDhFnSBj4DbXzFvzYm_Pp7Pir0gSYOmvF6718wE4QyMLWJBrRb4_JqYhmTu1sLONYX68Zs0Mq53VkdX6iqpSnBARSrx9VxfLNBj69JZ5yhGJj67kgvyV6k0RBaXUovA_f_BR7alLW8fsYEsohmccMpcHyLb81Kwg6NOg6OULW16q45qn3Fbq33QPSt3qPR6JXYUluKURZDHErqqnre-CsZoggWhPEHSoIFo-4yCSS1fHKkIg0hQyaGXM24Mq7_AJ2QSVg=" title="View full diagram">&#128065; View Diagram</a></div>
 
-<h3 id="43-data-entities">4.3 Data Entities</h3>
-<p><strong>1</strong> data entities in future-state flows.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th>Data Entity</th>
-<th>Source</th>
-<th>Target</th>
-<th>Owner</th>
-<th>Classification</th>
-<th>Volume</th>
-<th>Master/Txn</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td>e.g. Cost Element</td>
-<td>e.g. MES 300</td>
-<td>e.g. XEUS</td>
-<td>Data steward</td>
-<td>e.g. Intel Confidential</td>
-<td>e.g. 10K rows/day</td>
-<td>Master / Transaction</td>
-</tr>
-</tbody>
-</table>
-<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>End-to-End Integrated Processes (E2E)</span></div>
+<h3 id="43-technology-architecture">4.3 Technology Architecture</h3>
+<blockquote>
+<p>Applications grouped by hosting platform. Cloud platforms marked with ☁️.</p>
+</blockquote>
+<div class="mermaid">
+%%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
+flowchart TB
+    classDef appBox fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef platBox fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
+    classDef eolBox fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
 
+    subgraph SFPP_e_g_Azure_PaaS["☁️ e.g. Azure PaaS"]
+        direction LR
+        SFPA_e_g_XEUS["e.g. XEUS"]:::appBox
+    end
+    style SFPP_e_g_Azure_PaaS fill:#BBDEFB,stroke:#0078D4,stroke-width:3px,color:#003A6C
+
+    subgraph SFPP_e_g_S_4_HANA_2023["🖥️ e.g. S/4 HANA 2023"]
+        direction LR
+        SFPA_e_g_MES_300["e.g. MES 300"]:::appBox
+    end
+    style SFPP_e_g_S_4_HANA_2023 fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
+
+    SFPP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| SFPP_e_g_Azure_PaaS
+
+    subgraph SFPLegend["📐 PLATFORM LEGEND"]
+        direction LR
+        SFPLC["☁️ Cloud"]
+        SFPLS["🔮 SaaS"]
+        SFPLO["🏢 On-Prem"]
+        SFPLD["💾 Data Platform"]
+        SFPLM["🔗 Middleware"]
+    end
+    style SFPLegend fill:#F5F5F5,stroke:#999,stroke-width:1px
+    style SFPLC fill:#BBDEFB,stroke:#0078D4,stroke-width:3px,color:#003A6C
+    style SFPLS fill:#E1BEE7,stroke:#7B1FA2,stroke-width:3px,color:#4A148C
+    style SFPLO fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
+    style SFPLD fill:#B2EBF2,stroke:#00838F,stroke-width:3px,color:#004D40
+    style SFPLM fill:#FFE0B2,stroke:#E65100,stroke-width:3px,color:#BF360C
 </div>
-<div style="page-break-before: always;"></div>
-<div class="page-section">
 
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllWtvmzAUhv-KRZVvacstCUHqJK5bpaSJSrtNGhNywCSoDkZg2qRp_vtsyI2kqToVJGSfc_z4vD42XgkhiZCgC63WKkkTqoOVL9AZmiNf0IEvTGDBWm3WKlBY5gldDtAzwrUTE7L1VkN-wjyBE4wK7macmKTUS143KEnNFnUwt7twnuBl7fHQlCDweNsGBgMw-LqKwuQlnMGcbmhlgYZw8SuJ6IxbYogLxONmdI4HcIJwNS3Ny8qaMlleBsMknXKzKnJjDtOnA2NHXK_ButXy091c4MH0U8CeEMOisFEMYJaZZAHiBGP9wrKcjuu2C5qTJ6RfiGJPs9VN9_KFp6bL2aIdEkxy7laMrnXEyzCkB0DN6Vr9HVB2erYiN4HKHiiZHUcWj4CI4D3PdS3blnc8qytrsnY2QbMnWRJLsCYW5WSaw2wGPHc8DlAwDYzXMkfBGELvjy_4pdwVJb-MkcgmvZpegcoNuNsX_tYM_kRJjkKakBQM7vdWBjUq6G_nkeMqAm-zsbqu18tch6M02mRElxi9l85GrWnajmt-WA7ltBzn1HqBGvww7oxAFmWlEhxpSsS-EewcyvauVcDjAI_7H-VDxwsUUdyKZ13Aup_X30jwSxuoxp8B39x8e9ukaFeCwDUwxrfs6yaYHea39yry3rIO0JRJOVzJMBLBeGA8uKP7IRg43507-3MLOLCOd6CFSRk1BvMwr1E3mS3e8e7kUaNtVMi-MZLBKL0c52h-Emg3kp8gYEMKwZgd4Zjkp-HDxuxSDwyTKMLoBeZoF3ta3HqZtge4w99dPfv9frOYUrY4Hm596TQ0WduT5Uim4_R2rJ4pucb5baUakqqdsEZf_sftWfZWo-yYrnygUVM09wONqq2esIa7f6UjmnuW0-1IoniWZbpKV7SEtjBH-RwmkaCv6luPXZ4RimGJKbu3BFhS4i3TUNCrm0goswhSZCeQnYp5bVz_A4WYUlo=" title="View full diagram">&#128065; View Diagram</a></div>
 
-<h3 id="44-integration-patterns">4.4 Integration Patterns</h3>
-<p><strong>1</strong> integration patterns in future-state.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th>Pattern</th>
-<th>Middleware</th>
-<th>Protocol</th>
-<th>Auth Method</th>
-<th>Flow Chain</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td>e.g. Pub-Sub / P2P / ETL</td>
-<td>e.g. Azure Service Bus</td>
-<td>e.g. REST / RFC / SFTP</td>
-<td>e.g. OAuth / NTLM / Cert</td>
-<td>e.g. MES Route to ICOST</td>
-</tr>
-</tbody>
-</table>
-<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>End-to-End Integrated Processes (E2E)</span></div>
-
-</div>
-<div style="page-break-before: always;"></div>
-<div class="page-section">
-
-
-<h3 id="45-technology-stack">4.5 Technology Stack</h3>
-<p><strong>2</strong> technology platforms in future-state.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th>Platform</th>
-<th>Type</th>
-<th>Systems</th>
-<th>Environment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td>e.g. Azure PaaS</td>
-<td>Cloud / SaaS</td>
-<td>e.g. XEUS</td>
-<td>DEV,QAS,PRD</td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td>e.g. S/4 HANA 2023</td>
-<td>On-Premise</td>
-<td>e.g. MES 300</td>
-<td>DEV,QAS,PRD</td>
-</tr>
-</tbody>
-</table>
-<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>End-to-End Integrated Processes (E2E)</span></div>
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>End-to-End Integrated Processes (E2E)</span></div>
 
 </div>
 <div style="page-break-before: always;"></div>
@@ -1249,76 +1187,378 @@ graph TB
 
 
 <h2 id="5-transformation-analysis">5 Transformation Analysis</h2>
-<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>End-to-End Integrated Processes (E2E)</span></div>
-
-</div>
-<div style="page-break-before: always;"></div>
-<div class="page-section">
-
-
 <h3 id="51-system-landscape-changes">5.1 System Landscape Changes</h3>
-<p><strong>Continuing Systems:</strong> 2</p>
-<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>End-to-End Integrated Processes (E2E)</span></div>
-
-</div>
-<div style="page-break-before: always;"></div>
-<div class="page-section">
-
-
-<h3 id="52-integration-complexity">5.2 Integration Complexity</h3>
 <table>
 <thead>
 <tr>
-<th>System</th>
-<th style="text-align: center;">Current Connections</th>
-<th style="text-align: center;">Future Connections</th>
-<th style="text-align: center;">Delta</th>
+<th>Category</th>
+<th style="text-align: center;">Count</th>
+<th>Systems</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>e.g. MES 300</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">—</td>
+<td><strong>New Systems</strong></td>
+<td style="text-align: center;">0</td>
+<td>—</td>
 </tr>
 <tr>
-<td>e.g. XEUS</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">—</td>
+<td><strong>Retiring Systems</strong></td>
+<td style="text-align: center;">0</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Continuing Systems</strong></td>
+<td style="text-align: center;">2</td>
+<td>—</td>
 </tr>
 </tbody>
 </table>
-<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>End-to-End Integrated Processes (E2E)</span></div>
+<h3 id="52-integration-complexity-delta">5.2 Integration Complexity Delta</h3>
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>End-to-End Integrated Processes (E2E)</span></div>
 
 </div>
 <div style="page-break-before: always;"></div>
 <div class="page-section">
 
 
-<h2 id="6-system-inventory">6 System Inventory</h2>
+<h2 id="6-capability-detail-reference">6 Capability Detail Reference</h2>
+<p>For detailed architecture information, navigate to the individual L2 capability documents.
+Each L2 document contains the full TOGAF BDAT analysis including:</p>
+<ul>
+<li><strong>Business Architecture</strong> — BPMN process flows, business drivers, success criteria</li>
+<li><strong>Data Architecture</strong> — Source-to-target data flows with DB platforms</li>
+<li><strong>Application Architecture</strong> — Integration patterns, middleware, protocols</li>
+<li><strong>Technology Architecture</strong> — Platform inventory, deployment topology</li>
+<li><strong>RICEFW / Clean Core</strong> — SAP development object tracking</li>
+</ul>
 <table>
 <thead>
 <tr>
 <th style="text-align: center;">#</th>
-<th>System</th>
-<th>IAPM ID</th>
-<th>Status</th>
+<th>Capability</th>
+<th>L1 Process</th>
+<th>Architecture Doc</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: center;">1</td>
-<td>e.g. MES 300</td>
-<td>-</td>
-<td>N/A</td>
+<td>R2A Option 1  Customer Requests Expedite - Service Fee with Existing SO</td>
+<td>E2E-80 R2 Customer Requests Expedite</td>
+<td><a href="../../../E2E-80 R2 Customer Requests Expedite/E2E-80/output/docs/systems-architecture/E2E-80-Architecture.html">E2E-80</a></td>
 </tr>
 <tr>
 <td style="text-align: center;">2</td>
-<td>e.g. XEUS</td>
-<td>-</td>
-<td>N/A</td>
+<td>E2E-08</td>
+<td>Forecast to Stock</td>
+<td><a href="../../../Forecast to Stock/E2E-08/output/docs/systems-architecture/E2E-08-Architecture.html">E2E-08</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td>IMR Flow</td>
+<td>Forecast to Stock</td>
+<td><a href="../../../Forecast to Stock/E2E-110/output/docs/systems-architecture/E2E-110-Architecture.html">E2E-110</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td>R3 IMR Labs Process</td>
+<td>Forecast to Stock</td>
+<td><a href="../../../Forecast to Stock/E2E-113/output/docs/systems-architecture/E2E-113-Architecture.html">E2E-113</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td>E2E-117</td>
+<td>Forecast to Stock</td>
+<td><a href="../../../Forecast to Stock/E2E-117/output/docs/systems-architecture/E2E-117-Architecture.html">E2E-117</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td>E2E-118</td>
+<td>Forecast to Stock</td>
+<td><a href="../../../Forecast to Stock/E2E-118/output/docs/systems-architecture/E2E-118-Architecture.html">E2E-118</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td>E2E-122</td>
+<td>Forecast to Stock</td>
+<td><a href="../../../Forecast to Stock/E2E-122/output/docs/systems-architecture/E2E-122-Architecture.html">E2E-122</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td>E2E-45</td>
+<td>Forecast to Stock</td>
+<td><a href="../../../Forecast to Stock/E2E-45/output/docs/systems-architecture/E2E-45-Architecture.html">E2E-45</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td>E2E-67</td>
+<td>Forecast to Stock</td>
+<td><a href="../../../Forecast to Stock/E2E-67/output/docs/systems-architecture/E2E-67-Architecture.html">E2E-67</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td>-Intel Foundry   NPI planning and execution processes</td>
+<td>Forecast to Stock</td>
+<td><a href="../../../Forecast to Stock/E2E-68/output/docs/systems-architecture/E2E-68-Architecture.html">E2E-68</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td>E2E-71</td>
+<td>Forecast to Stock</td>
+<td><a href="../../../Forecast to Stock/E2E-71/output/docs/systems-architecture/E2E-71-Architecture.html">E2E-71</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td>IP</td>
+<td>Forecast to Stock</td>
+<td><a href="../../../Forecast to Stock/E2E-72/output/docs/systems-architecture/E2E-72-Architecture.html">E2E-72</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td>R3 Hybrid Manufacturing process with external Wafer Procurement &amp; Internal processing of</td>
+<td>Forecast to Stock</td>
+<td><a href="../../../Forecast to Stock/E2E-73/output/docs/systems-architecture/E2E-73-Architecture.html">E2E-73</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td>R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</td>
+<td>Forecast to Stock</td>
+<td><a href="../../../Forecast to Stock/E2E-74/output/docs/systems-architecture/E2E-74-Architecture.html">E2E-74</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td>Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus</td>
+<td>Forecast to Stock</td>
+<td><a href="../../../Forecast to Stock/E2E-76/output/docs/systems-architecture/E2E-76-Architecture.html">E2E-76</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td>Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State)</td>
+<td>Forecast to Stock</td>
+<td><a href="../../../Forecast to Stock/E2E-84/output/docs/systems-architecture/E2E-84-Architecture.html">E2E-84</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">17</td>
+<td>R3 Intel Foundry Maintenance process through spare parts (SWAP)</td>
+<td>Forecast to Stock</td>
+<td><a href="../../../Forecast to Stock/E2E-94/output/docs/systems-architecture/E2E-94-Architecture.html">E2E-94</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">18</td>
+<td>R3 Customer Master Data</td>
+<td>Master Data</td>
+<td><a href="../../../Master Data/E2E-89/output/docs/systems-architecture/E2E-89-Architecture.html">E2E-89</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">19</td>
+<td>R3 Material Master Data</td>
+<td>Master Data</td>
+<td><a href="../../../Master Data/E2E-90/output/docs/systems-architecture/E2E-90-Architecture.html">E2E-90</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">20</td>
+<td>R3 Bill of Material BOM Data</td>
+<td>Master Data</td>
+<td><a href="../../../Master Data/E2E-91/output/docs/systems-architecture/E2E-91-Architecture.html">E2E-91</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">21</td>
+<td>R3 Vendor Master Data</td>
+<td>Master Data</td>
+<td><a href="../../../Master Data/E2E-92/output/docs/systems-architecture/E2E-92-Architecture.html">E2E-92</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">22</td>
+<td>IF Simplified PO-SO Model</td>
+<td>Order to Cash</td>
+<td><a href="../../../Order to Cash/IF_Simplified_PO-SO_Model/output/docs/systems-architecture/IF_Simplified_PO-SO_Model-Architecture.html">IF_Simplified_PO-SO_Model</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">23</td>
+<td>Order to Cash (IF)</td>
+<td>Order to Cash</td>
+<td><a href="../../../Order to Cash/Order_to_Cash_IF/output/docs/systems-architecture/Order_to_Cash_IF-Architecture.html">Order_to_Cash_IF</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">24</td>
+<td>Order to Cash (IP)</td>
+<td>Order to Cash</td>
+<td><a href="../../../Order to Cash/Order_to_Cash_IP/output/docs/systems-architecture/Order_to_Cash_IP-Architecture.html">Order_to_Cash_IP</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">25</td>
+<td>R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-100/output/docs/systems-architecture/E2E-100-Architecture.html">E2E-100</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">26</td>
+<td>R3 Procurement of WIINGS Replacement Related Commodities</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-103/output/docs/systems-architecture/E2E-103-Architecture.html">E2E-103</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">27</td>
+<td>R3 - Partner Owned Equipment Order</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-107/output/docs/systems-architecture/E2E-107-Architecture.html">E2E-107</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">28</td>
+<td>R3 Raw Silicon Procurement</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-112/output/docs/systems-architecture/E2E-112-Architecture.html">E2E-112</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">29</td>
+<td>R4 SIMS Harvest Process</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-114/output/docs/systems-architecture/E2E-114-Architecture.html">E2E-114</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">30</td>
+<td>R3 Inter-company Asset Transfer Process</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-115/output/docs/systems-architecture/E2E-115-Architecture.html">E2E-115</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">31</td>
+<td>R3 Wafer Reclaim Process</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-116/output/docs/systems-architecture/E2E-116-Architecture.html">E2E-116</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">32</td>
+<td>R3 Shipping Rejects Inventory Movement</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-119/output/docs/systems-architecture/E2E-119-Architecture.html">E2E-119</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">33</td>
+<td>R3 RM Bailed Inventory Movement (Straddle)</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-121/output/docs/systems-architecture/E2E-121-Architecture.html">E2E-121</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">34</td>
+<td>TD Substrates Manufacturing Process</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-123/output/docs/systems-architecture/E2E-123-Architecture.html">E2E-123</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">35</td>
+<td>R3 Sourcing Request-Project to Contracts for Direct-Capital on Ariba with Pricing Updates</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-40/output/docs/systems-architecture/E2E-40-Architecture.html">E2E-40</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">36</td>
+<td>R3 Sourcing Request</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-41/output/docs/systems-architecture/E2E-41-Architecture.html">E2E-41</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">37</td>
+<td>Process Procurement Card Invoice</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-43/output/docs/systems-architecture/E2E-43-Architecture.html">E2E-43</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">38</td>
+<td>R3 - Intel Owned Consignment with Planning Integration</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-44/output/docs/systems-architecture/E2E-44-Architecture.html">E2E-44</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">39</td>
+<td>R3 Direct procurement with Planning Integration-AT</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-46/output/docs/systems-architecture/E2E-46-Architecture.html">E2E-46</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">40</td>
+<td>Purchase Requisition to Payments for Direct procurement with planning integration - Fab Mater</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-47/output/docs/systems-architecture/E2E-47-Architecture.html">E2E-47</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">41</td>
+<td>R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-49/output/docs/systems-architecture/E2E-49-Architecture.html">E2E-49</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">42</td>
+<td>Purchase Requisition to Payments for Indirect - Construction (Small Construction IPCS, Mainte</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-50/output/docs/systems-architecture/E2E-50-Architecture.html">E2E-50</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">43</td>
+<td>Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-51/output/docs/systems-architecture/E2E-51-Architecture.html">E2E-51</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">44</td>
+<td>Purchase Requisition to Payments for Indirect Non-Mfg. &amp; Mfg. procurement</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-52/output/docs/systems-architecture/E2E-52-Architecture.html">E2E-52</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">45</td>
+<td>Purchase Requisition to Payments for Indirect procurement (simple material or services like H</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-53/output/docs/systems-architecture/E2E-53-Architecture.html">E2E-53</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">46</td>
+<td>R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-57/output/docs/systems-architecture/E2E-57-Architecture.html">E2E-57</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">47</td>
+<td>R3 Rework Re-localization in Factory​</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-59/output/docs/systems-architecture/E2E-59-Architecture.html">E2E-59</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">48</td>
+<td>R3 Consignment Material - Vendor</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-61/output/docs/systems-architecture/E2E-61-Architecture.html">E2E-61</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">49</td>
+<td>R3 Vendor Return for Direct Material</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-62/output/docs/systems-architecture/E2E-62-Architecture.html">E2E-62</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">50</td>
+<td>R3 - Substrates - (PTP) PR to PO scope for Internal Manufacturing (Intel Foundry) &amp; Exte</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-70/output/docs/systems-architecture/E2E-70-Architecture.html">E2E-70</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">51</td>
+<td>R3 Construction materials &amp; equipment procurement process inclusive of OFCI (Like equipme</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-88/output/docs/systems-architecture/E2E-88-Architecture.html">E2E-88</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">52</td>
+<td>R3 Straddle &amp; R4 SIMS Design with Returns</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-96/output/docs/systems-architecture/E2E-96-Architecture.html">E2E-96</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">53</td>
+<td>R3 Equipment Product Supporting Items (PSI) Procurement</td>
+<td>Procure to Pay</td>
+<td><a href="../../../Procure to Pay/E2E-98/output/docs/systems-architecture/E2E-98-Architecture.html">E2E-98</a></td>
 </tr>
 </tbody>
 </table>

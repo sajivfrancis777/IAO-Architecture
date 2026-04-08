@@ -310,7 +310,12 @@ body{{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;backgro
 .sidebar .tower-header a{{color:inherit;text-decoration:none;flex:1}}
 .sidebar .proc-group{{margin-left:16px;display:none}}
 .sidebar .tower-header.open+.proc-group,.sidebar .proc-group.search-open{{display:block}}
-.sidebar .proc-label{{font-size:11px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.5px;padding:8px 16px 4px;margin-top:4px}}
+.sidebar .proc-label{{font-size:11px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.5px;padding:8px 16px 4px;margin-top:4px;cursor:pointer;user-select:none}}
+.sidebar .proc-label:hover{{color:#00285a}}
+.sidebar .proc-label .l1-arrow{{font-size:9px;margin-right:4px;display:inline-block;transition:transform .2s;color:#aaa}}
+.sidebar .proc-label.open .l1-arrow{{transform:rotate(90deg)}}
+.sidebar .l1-children{{display:none;margin-left:8px}}
+.sidebar .proc-label.open+.l1-children{{display:block}}
 .sidebar .cap-link{{display:block;padding:4px 16px 4px 24px;font-size:13px;color:#444;text-decoration:none;border-radius:4px;margin:1px 8px}}
 .sidebar .cap-link:hover{{background:#e8f4fd;color:#0071c5}}
 .sidebar .cap-link.active{{background:#0071c5;color:#fff;font-weight:600}}
@@ -352,7 +357,9 @@ td a:hover{{text-decoration:underline}}
 .summary-panel{{background:#f8f9fb;border:1px solid #e4e8ed;border-radius:10px;padding:16px 20px;margin-bottom:20px}}
 .summary-panel h4{{margin:0 0 8px;font-size:14px;color:#00285a;text-transform:uppercase;letter-spacing:.5px}}
 @media(max-width:768px){{
+  .topbar{{padding:0 12px}}
   .topbar .sidebar-toggle{{display:block}}
+  .topbar h1{{font-size:14px}}
   .sidebar{{transform:translateX(-100%)}}
   .sidebar.open{{transform:translateX(0);box-shadow:4px 0 16px rgba(0,0,0,.15)}}
   .page-body{{margin-left:0}}
@@ -609,8 +616,8 @@ def generate_capability_page(
 body{{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:#f0f2f5;color:#1a1a2e}}
 .topbar{{background:linear-gradient(135deg,#00285a 0%,#0071c5 100%);padding:0 32px;display:flex;align-items:center;height:56px;box-shadow:0 2px 8px rgba(0,0,0,.15);position:fixed;top:0;left:0;right:0;z-index:100}}
 .topbar img{{height:28px;width:28px;object-fit:contain;margin-right:12px;border-radius:4px}}
-.topbar h1{{color:#fff;font-size:18px;font-weight:600;margin:0;letter-spacing:.5px}}
-.topbar a.back-link{{color:rgba(255,255,255,.85);text-decoration:none;font-size:14px;margin-left:auto}}
+.topbar h1{{color:#fff;font-size:18px;font-weight:600;margin:0;letter-spacing:.5px;flex:1;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
+.topbar a.back-link{{color:rgba(255,255,255,.85);text-decoration:none;font-size:14px;white-space:nowrap}}
 .topbar a.back-link:hover{{color:#fff}}
 .topbar .sidebar-toggle{{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;margin-right:12px;padding:4px 8px}}
 .sidebar{{position:fixed;top:56px;left:0;bottom:0;width:280px;background:#fff;border-right:1px solid #e4e8ed;overflow-y:auto;z-index:90;transition:transform .25s ease;padding-bottom:24px}}
@@ -627,7 +634,12 @@ body{{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;backgro
 .sidebar .tower-header a{{color:inherit;text-decoration:none;flex:1}}
 .sidebar .proc-group{{margin-left:16px;display:none}}
 .sidebar .tower-header.open+.proc-group,.sidebar .proc-group.search-open{{display:block}}
-.sidebar .proc-label{{font-size:11px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.5px;padding:8px 16px 4px;margin-top:4px}}
+.sidebar .proc-label{{font-size:11px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.5px;padding:8px 16px 4px;margin-top:4px;cursor:pointer;user-select:none}}
+.sidebar .proc-label:hover{{color:#00285a}}
+.sidebar .proc-label .l1-arrow{{font-size:9px;margin-right:4px;display:inline-block;transition:transform .2s;color:#aaa}}
+.sidebar .proc-label.open .l1-arrow{{transform:rotate(90deg)}}
+.sidebar .l1-children{{display:none;margin-left:8px}}
+.sidebar .proc-label.open+.l1-children{{display:block}}
 .sidebar .cap-link{{display:block;padding:4px 16px 4px 24px;font-size:13px;color:#444;text-decoration:none;border-radius:4px;margin:1px 8px}}
 .sidebar .cap-link:hover{{background:#e8f4fd;color:#0071c5}}
 .sidebar .cap-link.active{{background:#0071c5;color:#fff;font-weight:600}}
@@ -661,7 +673,9 @@ td{{padding:8px 16px;border-bottom:1px solid #f0f2f5;font-size:13px}}
 tr:last-child td{{border-bottom:none}}
 tr:hover td{{background:#f5f8fc}}
 @media(max-width:768px){{
+  .topbar{{padding:0 12px}}
   .topbar .sidebar-toggle{{display:block}}
+  .topbar h1{{font-size:14px}}
   .sidebar{{transform:translateX(-100%)}}
   .sidebar.open{{transform:translateX(0);box-shadow:4px 0 16px rgba(0,0,0,.15)}}
   .page-body{{margin-left:0}}
@@ -794,40 +808,62 @@ def _sidebar_js() -> str:
     var tree=document.querySelector(".nav-tree");
     if(!tree)return;
     var currentPage=location.pathname;
+
+    // Program Summary link at the very top
+    if(data.length>0 && data[0]._program_summary){
+      var pa=document.createElement("a");pa.className="cap-link";pa.href=base+data[0]._program_summary;
+      pa.innerHTML="<span class=\\"cap-id\\" style=\\"background:#fef3cd;color:#6e4b00\\">📐</span> Program Architecture Summary";
+      pa.style.fontWeight="700";pa.style.padding="8px 16px";pa.dataset.search="program summary architecture";
+      tree.appendChild(pa);
+      var hr=document.createElement("hr");hr.style.cssText="border:0;border-top:1px solid #e4e8ed;margin:6px 12px";
+      tree.appendChild(hr);
+    }
+
     data.forEach(function(t){
+      if(t._program_summary && !t.tower) return; // skip program-only entry
       var tg=document.createElement("div");tg.className="tower-group";tg.dataset.tower=t.tower;
       var th=document.createElement("div");th.className="tower-header";
       th.innerHTML="<span class=\\"arrow\\">▶</span><span class=\\"icon\\">"+t.icon+"</span><a href=\\""+base+"tower-"+t.tower+".html\\">"+t.tower+"</a>";
       th.addEventListener("click",function(e){if(e.target.tagName!=="A"){th.classList.toggle("open")}});
       tg.appendChild(th);
 
-      // L0 summary link under tower header
+      // L0 summary link under tower header (inside a proc-group so it collapses with tower)
+      var pg=document.createElement("div");pg.className="proc-group";
       if(t.l0_summary){
         var l0=document.createElement("a");l0.className="cap-link";l0.href=base+t.l0_summary;
         l0.innerHTML="<span class=\\"cap-id\\" style=\\"background:#e0e7ff;color:#3730a3\\">L0</span> Tower Architecture Summary";
         l0.style.fontWeight="600";l0.dataset.search=(t.tower+" l0 summary architecture").toLowerCase();
-        var l0wrap=document.createElement("div");l0wrap.className="proc-group";l0wrap.appendChild(l0);
-        tg.appendChild(l0wrap);
+        pg.appendChild(l0);
       }
 
-      var pg=document.createElement("div");pg.className="proc-group";
       t.groups.forEach(function(g){
-        var pl=document.createElement("div");pl.className="proc-label";pl.textContent=g.group;
+        // Collapsible L1 proc-label header
+        var pl=document.createElement("div");pl.className="proc-label";
+        pl.innerHTML="<span class=\\"l1-arrow\\">▶</span> "+g.group;
+        pl.style.cursor="pointer";
+        pl.addEventListener("click",function(){pl.classList.toggle("open")});
         pg.appendChild(pl);
+
+        // L1 child container (hidden by default, revealed on click)
+        var lc=document.createElement("div");lc.className="l1-children";
+
         // L1 summary link under process group label
         if(g.l1_summary){
           var l1=document.createElement("a");l1.className="cap-link";l1.href=base+g.l1_summary;
           l1.innerHTML="<span class=\\"cap-id\\" style=\\"background:#dbeafe;color:#1e40af\\">L1</span> Process Architecture Summary";
           l1.style.fontWeight="600";l1.dataset.search=(g.group+" l1 summary architecture").toLowerCase();
-          pg.appendChild(l1);
+          lc.appendChild(l1);
         }
         g.caps.forEach(function(c){
           var a=document.createElement("a");a.className="cap-link";a.href=base+"cap/"+t.tower+"-"+c.id+".html";
           a.innerHTML="<span class=\\"cap-id\\">"+c.id+"</span> "+c.name;
           a.dataset.search=(c.id+" "+c.name+" "+g.group+" "+t.tower+" "+t.name).toLowerCase();
-          if(currentPage.indexOf(t.tower+"-"+c.id)!==-1||currentPage.indexOf(c.id)!==-1){a.classList.add("active");th.classList.add("open")}
-          pg.appendChild(a);
+          if(currentPage.indexOf(t.tower+"-"+c.id)!==-1||currentPage.indexOf(c.id)!==-1){
+            a.classList.add("active");th.classList.add("open");pl.classList.add("open");
+          }
+          lc.appendChild(a);
         });
+        pg.appendChild(lc);
       });
       tg.appendChild(pg);
       tree.appendChild(tg);
@@ -851,19 +887,25 @@ def _sidebar_js() -> str:
         });
         var labels=tg.querySelectorAll(".proc-label");
         labels.forEach(function(lbl){
-          var next=lbl.nextElementSibling;
-          var hasVisible=false;
-          while(next&&!next.classList.contains("proc-label")){
-            if(next.classList.contains("cap-link")&&next.style.display!=="none")hasVisible=true;
-            next=next.nextElementSibling;
+          if(q){lbl.classList.add("open")} // expand while searching
+          var childBlock=lbl.nextElementSibling;
+          if(childBlock&&childBlock.classList.contains("l1-children")){
+            var caps=childBlock.querySelectorAll(".cap-link");
+            var hasVisible=false;
+            caps.forEach(function(c){if(c.style.display!=="none")hasVisible=true});
+            lbl.style.display=hasVisible?"block":"none";
+            childBlock.style.display=hasVisible?"block":"none";
           }
-          lbl.style.display=hasVisible?"block":"none";
         });
         tg.style.display=towerVisible?"block":"none";
         var pg=tg.querySelector(".proc-group");
         if(q&&towerVisible){pg.classList.add("search-open")}else{pg.classList.remove("search-open")}
         if(towerVisible)anyVisible=true;
       });
+      var nr=document.querySelector(".no-results");
+      if(nr){nr.style.display=anyVisible?"none":"block"}
+    });
+  }
       var nr=document.querySelector(".no-results");
       if(nr){nr.style.display=anyVisible?"none":"block"}
     });
@@ -992,8 +1034,111 @@ def main() -> None:
 
         print(f"    -> {len(capabilities)} capability pages")
 
+    # ── Generate nav.json for sidebar ────────────────────────────
+    _generate_nav_json(towers, registry)
+
     print(f"\nGenerated: {total_tower_pages} tower pages, {total_cap_pages} capability pages")
     print(f"Output: {SITE_DIR}")
+
+
+def _generate_nav_json(towers: list[str], registry: dict) -> None:
+    """Generate nav.json for sidebar navigation — mirrors deploy-pages.yml logic."""
+    import yaml as _yaml
+
+    nav_data: list[dict] = []
+
+    # Check for Program Summary
+    program_summary_path = WORKSPACE / "output" / "docs" / "summaries" / "Program-Summary.html"
+    program_href = ""
+    if program_summary_path.exists():
+        program_href = "summaries/Program-Summary.html"
+
+    for tower in towers:
+        yaml_path = TOWERS_DIR / tower / "tower.yaml"
+        if not yaml_path.exists():
+            continue
+        tower_data = _yaml.safe_load(yaml_path.read_text(encoding="utf-8")) or {}
+        capabilities = tower_data.get("capabilities", [])
+        info = registry.get(tower, {})
+        icon = info.get("icon", "📄")
+        full_name = info.get("name", tower)
+
+        # L0 summary
+        l0_file = TOWERS_DIR / tower / "output" / "docs" / "summaries" / f"L0-{tower}-Summary.html"
+        l0_href = f"towers/{tower}/output/docs/summaries/L0-{tower}-Summary.html" if l0_file.exists() else ""
+
+        # Group capabilities by L1
+        l1_groups: dict[str, list[dict]] = {}
+        for cap in capabilities:
+            l1 = cap.get("l1", "Other")
+            l1_groups.setdefault(l1, []).append(cap)
+
+        groups = []
+        for l1_name, caps in sorted(l1_groups.items()):
+            # Check for any architecture HTML
+            has_docs = False
+            cap_entries = []
+            for cap in caps:
+                cap_id = cap["id"]
+                cap_name = cap.get("name", cap_id)
+                # Check if generated arch doc exists
+                cap_dir = _find_cap_dir(TOWERS_DIR / tower, l1_name, cap_id)
+                if cap_dir:
+                    html_files = list((cap_dir / "output" / "docs" / "systems-architecture").glob("*-Architecture.html")) if (cap_dir / "output" / "docs" / "systems-architecture").exists() else []
+                    if html_files:
+                        # Extract real title from HTML
+                        title = _extract_title_from_html(html_files[0])
+                        if title:
+                            # Strip "DS-020 — " prefix to get just the name
+                            name_part = re.sub(rf'^{re.escape(cap_id)}\s*[—–-]\s*', '', title)
+                            if name_part:
+                                cap_name = name_part
+                        has_docs = True
+                cap_entries.append({"id": cap_id, "name": cap_name})
+
+            if not has_docs:
+                continue
+
+            # L1 summary
+            l1_slug = re.sub(r'[^a-zA-Z0-9 ]', '', l1_name).strip().replace(' ', '-')[:40]
+            l1_file = TOWERS_DIR / tower / "output" / "docs" / "summaries" / f"L1-{l1_slug}-Summary.html"
+            l1_href = f"towers/{tower}/output/docs/summaries/L1-{l1_slug}-Summary.html" if l1_file.exists() else ""
+
+            groups.append({
+                "group": l1_name,
+                "l1_summary": l1_href,
+                "caps": cap_entries,
+            })
+
+        entry: dict = {
+            "tower": tower,
+            "name": full_name,
+            "icon": icon,
+            "l0_summary": l0_href,
+            "groups": groups,
+        }
+        # Attach program summary to first tower entry for the JS to pick up
+        if nav_data == [] and program_href:
+            entry["_program_summary"] = program_href
+        nav_data.append(entry)
+
+    nav_path = SITE_DIR / "nav.json"
+    nav_path.write_text(json.dumps(nav_data, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(f"  [OK] nav.json ({len(nav_data)} towers)")
+
+
+def _find_cap_dir(tower_dir: Path, l1_name: str, cap_id: str) -> Path | None:
+    """Find capability directory under tower — tries L1/cap_id then scans."""
+    direct = tower_dir / l1_name / cap_id
+    if direct.is_dir():
+        return direct
+    # Scan all subdirs for cap_id
+    for d in tower_dir.iterdir():
+        if d.is_dir() and not d.name.startswith((".", "_", "output")):
+            candidate = d / cap_id
+            if candidate.is_dir():
+                return candidate
+    return None
 
 
 if __name__ == "__main__":

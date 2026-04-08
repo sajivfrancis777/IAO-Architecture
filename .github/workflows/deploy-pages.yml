@@ -253,6 +253,7 @@ jobs:
           # ── Build navigation manifest (nav.json) ──────────────────
           echo '[' > _site/nav.json
           first_tower=true
+          is_first_tower=true
           for tower_dir in towers/*/; do
             tower=$(basename "$tower_dir")
             info=$(tower_desc "$tower")
@@ -267,7 +268,17 @@ jobs:
             l0_href=""
             [ -f "_site/${l0_file}" ] && l0_href="${l0_file}"
 
-            echo "{\"tower\":\"${tower}\",\"name\":\"${full_name}\",\"icon\":\"${icon}\",\"l0_summary\":\"${l0_href}\",\"groups\":[" >> _site/nav.json
+            # Program Summary link — attach to the first tower entry only
+            prog_extra=""
+            if $is_first_tower; then
+              prog_file="_site/summaries/Program-Summary.html"
+              if [ -f "$prog_file" ]; then
+                prog_extra=",\"_program_summary\":\"summaries/Program-Summary.html\""
+              fi
+              is_first_tower=false
+            fi
+
+            echo "{\"tower\":\"${tower}\",\"name\":\"${full_name}\",\"icon\":\"${icon}\",\"l0_summary\":\"${l0_href}\"${prog_extra},\"groups\":[" >> _site/nav.json
 
             first_group=true
             for proc_dir in "$tower_dir"*/; do
@@ -339,7 +350,12 @@ jobs:
           .sidebar .tower-header a{color:inherit;text-decoration:none;flex:1}
           .sidebar .proc-group{margin-left:16px;display:none}
           .sidebar .tower-header.open+.proc-group,.sidebar .proc-group.search-open{display:block}
-          .sidebar .proc-label{font-size:11px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.5px;padding:8px 16px 4px;margin-top:4px}
+          .sidebar .proc-label{font-size:11px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.5px;padding:8px 16px 4px;margin-top:4px;cursor:pointer;user-select:none}
+          .sidebar .proc-label:hover{color:#00285a}
+          .sidebar .proc-label .l1-arrow{font-size:9px;margin-right:4px;display:inline-block;transition:transform .2s;color:#aaa}
+          .sidebar .proc-label.open .l1-arrow{transform:rotate(90deg)}
+          .sidebar .l1-children{display:none;margin-left:8px}
+          .sidebar .proc-label.open+.l1-children{display:block}
           .sidebar .cap-link{display:block;padding:4px 16px 4px 24px;font-size:13px;color:#444;text-decoration:none;border-radius:4px;margin:1px 8px}
           .sidebar .cap-link:hover{background:#e8f4fd;color:#0071c5}
           .sidebar .cap-link.active{background:#0071c5;color:#fff;font-weight:600}
@@ -402,40 +418,61 @@ jobs:
               var tree=document.querySelector(".nav-tree");
               if(!tree)return;
               var currentPage=location.pathname;
+
+              // Program Summary link at the very top
+              if(data.length>0 && data[0]._program_summary){
+                var pa=document.createElement("a");pa.className="cap-link";pa.href=base+data[0]._program_summary;
+                pa.innerHTML="<span class=\"cap-id\" style=\"background:#fef3cd;color:#6e4b00\">📐</span> Program Architecture Summary";
+                pa.style.fontWeight="700";pa.style.padding="8px 16px";pa.dataset.search="program summary architecture";
+                tree.appendChild(pa);
+                var hr=document.createElement("hr");hr.style.cssText="border:0;border-top:1px solid #e4e8ed;margin:6px 12px";
+                tree.appendChild(hr);
+              }
+
               data.forEach(function(t){
+                if(t._program_summary && !t.tower) return;
                 var tg=document.createElement("div");tg.className="tower-group";tg.dataset.tower=t.tower;
                 var th=document.createElement("div");th.className="tower-header";
                 th.innerHTML="<span class=\"arrow\">▶</span><span class=\"icon\">"+t.icon+"</span><a href=\""+base+"tower-"+t.tower+".html\">"+t.tower+"</a>";
                 th.addEventListener("click",function(e){if(e.target.tagName!=="A"){th.classList.toggle("open")}});
                 tg.appendChild(th);
 
+                // Single proc-group container for L0 + L1 groups + caps
+                var pg=document.createElement("div");pg.className="proc-group";
+
                 // L0 summary link under tower header
                 if(t.l0_summary){
                   var l0=document.createElement("a");l0.className="cap-link";l0.href=base+t.l0_summary;
                   l0.innerHTML="<span class=\"cap-id\" style=\"background:#e0e7ff;color:#3730a3\">L0</span> Tower Architecture Summary";
                   l0.style.fontWeight="600";l0.dataset.search=(t.tower+" l0 summary architecture").toLowerCase();
-                  var l0wrap=document.createElement("div");l0wrap.className="proc-group";l0wrap.appendChild(l0);
-                  tg.appendChild(l0wrap);
+                  pg.appendChild(l0);
                 }
 
-                var pg=document.createElement("div");pg.className="proc-group";
                 t.groups.forEach(function(g){
-                  var pl=document.createElement("div");pl.className="proc-label";pl.textContent=g.group;
+                  // Collapsible L1 label
+                  var pl=document.createElement("div");pl.className="proc-label";
+                  pl.innerHTML="<span class=\"l1-arrow\">▶</span> "+g.group;
+                  pl.style.cursor="pointer";
+                  pl.addEventListener("click",function(){pl.classList.toggle("open")});
                   pg.appendChild(pl);
-                  // L1 summary link under process group label
+
+                  // L1 child container
+                  var lc=document.createElement("div");lc.className="l1-children";
+
                   if(g.l1_summary){
                     var l1=document.createElement("a");l1.className="cap-link";l1.href=base+g.l1_summary;
                     l1.innerHTML="<span class=\"cap-id\" style=\"background:#dbeafe;color:#1e40af\">L1</span> Process Architecture Summary";
                     l1.style.fontWeight="600";l1.dataset.search=(g.group+" l1 summary architecture").toLowerCase();
-                    pg.appendChild(l1);
+                    lc.appendChild(l1);
                   }
                   g.caps.forEach(function(c){
                     var a=document.createElement("a");a.className="cap-link";a.href=base+c.href;
                     a.innerHTML="<span class=\"cap-id\">"+c.id+"</span> "+c.name;
                     a.dataset.search=(c.id+" "+c.name+" "+g.group+" "+t.tower+" "+t.name).toLowerCase();
-                    if(currentPage.indexOf(c.id)!==-1){a.classList.add("active");th.classList.add("open")}
-                    pg.appendChild(a);
+                    if(currentPage.indexOf(c.id)!==-1){a.classList.add("active");th.classList.add("open");pl.classList.add("open")}
+                    lc.appendChild(a);
                   });
+                  pg.appendChild(lc);
                 });
                 tg.appendChild(pg);
                 tree.appendChild(tg);
@@ -461,16 +498,17 @@ jobs:
                     a.style.display=match?"block":"none";
                     if(match)towerVisible=true;
                   });
-                  // Show/hide process labels based on visible caps beneath them
                   var labels=tg.querySelectorAll(".proc-label");
                   labels.forEach(function(lbl){
-                    var next=lbl.nextElementSibling;
-                    var hasVisible=false;
-                    while(next&&!next.classList.contains("proc-label")){
-                      if(next.classList.contains("cap-link")&&next.style.display!=="none")hasVisible=true;
-                      next=next.nextElementSibling;
+                    if(q){lbl.classList.add("open")}
+                    var childBlock=lbl.nextElementSibling;
+                    if(childBlock&&childBlock.classList.contains("l1-children")){
+                      var caps=childBlock.querySelectorAll(".cap-link");
+                      var hasVisible=false;
+                      caps.forEach(function(c){if(c.style.display!=="none")hasVisible=true});
+                      lbl.style.display=hasVisible?"block":"none";
+                      childBlock.style.display=hasVisible?"block":"none";
                     }
-                    lbl.style.display=hasVisible?"block":"none";
                   });
                   tg.style.display=towerVisible?"block":"none";
                   var pg=tg.querySelector(".proc-group");
@@ -662,7 +700,12 @@ jobs:
           .portal-sidebar .ps-tower-hdr.open .arrow{transform:rotate(90deg)}
           .portal-sidebar .ps-procs{display:none;margin-left:16px}
           .portal-sidebar .ps-tower-hdr.open+.ps-procs,.portal-sidebar .ps-procs.search-open{display:block}
-          .portal-sidebar .ps-proc-lbl{font-size:11px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.5px;padding:8px 16px 4px}
+          .portal-sidebar .ps-proc-lbl{font-size:11px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.5px;padding:8px 16px 4px;cursor:pointer;user-select:none}
+          .portal-sidebar .ps-proc-lbl:hover{color:#00285a}
+          .portal-sidebar .ps-proc-lbl .l1-arrow{font-size:9px;margin-right:4px;display:inline-block;transition:transform .2s;color:#aaa}
+          .portal-sidebar .ps-proc-lbl.open .l1-arrow{transform:rotate(90deg)}
+          .portal-sidebar .ps-l1-children{display:none;margin-left:8px}
+          .portal-sidebar .ps-proc-lbl.open+.ps-l1-children{display:block}
           .portal-sidebar .ps-cap{display:block;padding:4px 16px 4px 24px;font-size:13px;color:#444;text-decoration:none;border-radius:4px;margin:1px 8px}
           .portal-sidebar .ps-cap:hover{background:#e8f4fd;color:#0071c5}
           .portal-sidebar .ps-cap.active{background:#0071c5;color:#fff;font-weight:600}
@@ -765,36 +808,60 @@ jobs:
             fetch(base+"nav.json").then(function(r){return r.json()}).then(function(data){
               var tree=document.querySelector(".ps-tree");if(!tree)return;
               var cur=location.pathname;
+
+              // Program Summary link at top of sidebar
+              if(data.length>0 && data[0]._program_summary){
+                var pa=document.createElement("a");pa.className="ps-cap";pa.href=base+data[0]._program_summary;
+                pa.innerHTML="<span class='cid' style='background:#fef3cd;color:#6e4b00'>📐</span>Program Summary";
+                pa.style.fontWeight="700";pa.style.padding="6px 12px";pa.dataset.search="program summary architecture";
+                tree.appendChild(pa);
+                var hr=document.createElement("hr");hr.style.cssText="border:0;border-top:1px solid #e4e8ed;margin:6px 8px";
+                tree.appendChild(hr);
+              }
+
               data.forEach(function(t){
+                if(t._program_summary && !t.tower) return;
                 var tg=document.createElement("div");tg.className="ps-tower";tg.dataset.tower=t.tower;
                 var hdr=document.createElement("div");hdr.className="ps-tower-hdr";
                 hdr.innerHTML="<span class='arrow'>\\u25B6</span>"+t.icon+" "+t.tower;
                 hdr.addEventListener("click",function(){hdr.classList.toggle("open")});tg.appendChild(hdr);
+
+                var procs=document.createElement("div");procs.className="ps-procs";
+
                 // L0 summary link
                 if(t.l0_summary){
-                  var l0w=document.createElement("div");l0w.className="ps-procs";
                   var l0a=document.createElement("a");l0a.className="ps-cap";l0a.href=base+t.l0_summary;
                   l0a.innerHTML="<span class='cid' style='background:#e0e7ff;color:#3730a3'>L0</span>Tower Summary";
                   l0a.style.fontWeight="600";l0a.dataset.search=(t.tower+" l0 summary").toLowerCase();
-                  l0w.appendChild(l0a);tg.appendChild(l0w);
+                  procs.appendChild(l0a);
                 }
-                var procs=document.createElement("div");procs.className="ps-procs";
+
                 t.groups.forEach(function(g){
-                  var lbl=document.createElement("div");lbl.className="ps-proc-lbl";lbl.textContent=g.group;procs.appendChild(lbl);
+                  // Collapsible L1 label
+                  var lbl=document.createElement("div");lbl.className="ps-proc-lbl";
+                  lbl.innerHTML="<span class='l1-arrow'>\\u25B6</span> "+g.group;
+                  lbl.style.cursor="pointer";
+                  lbl.addEventListener("click",function(){lbl.classList.toggle("open")});
+                  procs.appendChild(lbl);
+
+                  // L1 child container
+                  var lc=document.createElement("div");lc.className="ps-l1-children";
+
                   // L1 summary link
                   if(g.l1_summary){
                     var l1a=document.createElement("a");l1a.className="ps-cap";l1a.href=base+g.l1_summary;
                     l1a.innerHTML="<span class='cid' style='background:#dbeafe;color:#1e40af'>L1</span>Process Summary";
                     l1a.style.fontWeight="600";l1a.dataset.search=(g.group+" l1 summary").toLowerCase();
-                    procs.appendChild(l1a);
+                    lc.appendChild(l1a);
                   }
                   g.caps.forEach(function(c){
                     var a=document.createElement("a");a.className="ps-cap";a.href=base+c.href;
                     a.innerHTML="<span class='cid'>"+c.id+"</span>"+c.name;
                     a.dataset.search=(c.id+" "+c.name+" "+g.group+" "+t.tower+" "+t.name).toLowerCase();
-                    if(cur.indexOf(c.id)!==-1){a.classList.add("active");hdr.classList.add("open")}
-                    procs.appendChild(a);
+                    if(cur.indexOf(c.id)!==-1){a.classList.add("active");hdr.classList.add("open");lbl.classList.add("open")}
+                    lc.appendChild(a);
                   });
+                  procs.appendChild(lc);
                 });tg.appendChild(procs);tree.appendChild(tg);
               });
             }).catch(function(){});
@@ -804,7 +871,15 @@ jobs:
               document.querySelectorAll(".ps-tower").forEach(function(tg){
                 var vis=false;
                 tg.querySelectorAll(".ps-cap").forEach(function(a){var ok=!q||a.dataset.search.indexOf(q)!==-1;a.style.display=ok?"block":"none";if(ok)vis=true});
-                tg.querySelectorAll(".ps-proc-lbl").forEach(function(lbl){var nx=lbl.nextElementSibling,has=false;while(nx&&!nx.classList.contains("ps-proc-lbl")){if(nx.classList.contains("ps-cap")&&nx.style.display!=="none")has=true;nx=nx.nextElementSibling}lbl.style.display=has?"block":"none"});
+                tg.querySelectorAll(".ps-proc-lbl").forEach(function(lbl){
+                  if(q)lbl.classList.add("open");
+                  var childBlock=lbl.nextElementSibling;
+                  if(childBlock&&childBlock.classList.contains("ps-l1-children")){
+                    var caps=childBlock.querySelectorAll(".ps-cap");var has=false;
+                    caps.forEach(function(c){if(c.style.display!=="none")has=true});
+                    lbl.style.display=has?"block":"none";childBlock.style.display=has?"block":"none";
+                  }
+                });
                 tg.style.display=vis?"block":"none";
                 var pg=tg.querySelector(".ps-procs");if(q&&vis)pg.classList.add("search-open");else pg.classList.remove("search-open");
               });

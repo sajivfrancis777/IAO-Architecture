@@ -184,7 +184,8 @@ class DocFormatter:
             level: Heading level (2=##, 3=###)
         """
         hashes = "#" * level
-        return f"{PAGE_BREAK}\n\n{hashes} {number} {title}\n\n"
+        prefix = f"{PAGE_BREAK}\n\n" if level <= 2 else "\n"
+        return f"{prefix}{hashes} {number} {title}\n\n"
 
     def inject_footers(self, content: str) -> str:
         """Split content on page breaks and inject numbered footers with TOC backlinks."""
