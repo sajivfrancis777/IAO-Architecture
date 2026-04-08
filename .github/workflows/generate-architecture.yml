@@ -82,6 +82,20 @@ jobs:
         continue-on-error: true
         run: python scripts/fetch_smartsheet_data.py
 
+      - name: Enrich simplified flow inputs (IAPM lookup + inference)
+        continue-on-error: true
+        run: |
+          echo "Enriching flow XLSX/CSV files with IAPM data..."
+          find towers -name '*Flows.xlsx' -o -name '*Flows.csv' | while read f; do
+            dir=$(dirname "$f")
+            base=$(basename "$f" .xlsx)
+            base=${base%.csv}
+            enriched="${dir}/${base}.csv"
+            echo "  → $f"
+            python -m scripts.enrich_flows "$f" --output "$enriched" || true
+          done
+          echo "Enrichment complete."
+
       - name: Generate Architecture MDs
         run: |
           if [ -n "${{ github.event.inputs.tower }}" ]; then
