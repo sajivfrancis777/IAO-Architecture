@@ -29,8 +29,8 @@ from jinja2 import Environment, FileSystemLoader
 WORKSPACE = Path(__file__).resolve().parent.parent
 TOWERS_DIR = WORKSPACE / "towers"
 TEMPLATES_DIR = WORKSPACE / "templates"
-OBJECT_TRACKER_CSV = WORKSPACE / "data" / "smartsheet" / "object_trackers" / "s4_r3_object_tracker.csv"
-RAID_CSV = WORKSPACE / "data" / "smartsheet" / "raid" / "master_raid_log.csv"
+OBJECT_TRACKER_CSV = WORKSPACE / "data" / "smartsheet" / "manual" / "object_trackers" / "s4_r3_object_tracker.csv"
+RAID_CSV = WORKSPACE / "data" / "smartsheet" / "api" / "raid" / "master_raid_log.csv"
 
 DASHBOARD_TEMPLATE = "dashboard.html.j2"
 

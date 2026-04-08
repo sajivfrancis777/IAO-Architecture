@@ -4,11 +4,19 @@ Fetches sheets via the Smartsheet REST API (PAT auth). Sheets blocked by
 MFA policy are skipped with a warning — use manual CSV export for those.
 
 Outputs:
-  data/smartsheet/raid/master_raid_log.csv
-  data/smartsheet/raid/e2e_raid_log.csv
-  data/smartsheet/object_trackers/s4_r3_object_tracker.csv  (if accessible)
-  data/smartsheet/boundary_apps/boundary_app_tracker.csv     (if accessible)
+  data/smartsheet/api/raid/master_raid_log.csv
+  data/smartsheet/api/raid/e2e_raid_log.csv
+  data/smartsheet/api/ricefw/SCP-PMO_WRICEF.csv
+  data/smartsheet/api/timelines/e2e_workplan.csv
+  data/smartsheet/api/timelines/ea_gantt.csv
   data/smartsheet/_extraction_metadata.json                  (log)
+
+Manual-only (MFA-blocked — export xlsx, drop in manual/ folder):
+  data/smartsheet/manual/object_trackers/   (S4 R3 Object Tracker)
+  data/smartsheet/manual/boundary_apps/     (Deliverables Tracker)
+  data/smartsheet/manual/change_requests/   (Change Request Log)
+  data/smartsheet/manual/request_console/   (RICEFW Request Console)
+  data/smartsheet/manual/timelines/         (Integrated Plan)
 
 Usage:
     python scripts/fetch_smartsheet_data.py              # all sheets
@@ -45,41 +53,67 @@ TIMEOUT = 30
 # ── Sheet registry ───────────────────────────────────────────────
 
 SHEETS = {
-    "object_tracker": {
-        "id": "5077868279189380",
-        "output": "data/smartsheet/object_trackers/s4_r3_object_tracker.csv",
-        "description": "S4 R3 Object Tracker (RICEFW master)",
-        "group": "ricefw",
-    },
+    # ── API-accessible (fetched automatically) ────────────────────
     "master_raid_log": {
         "id": "2062365868642180",
-        "output": "data/smartsheet/raid/master_raid_log.csv",
+        "output": "data/smartsheet/api/raid/master_raid_log.csv",
         "description": "Master RAID Log (all towers)",
         "group": "raid",
     },
     "e2e_raid_log": {
         "id": "2147893813137284",
-        "output": "data/smartsheet/raid/e2e_raid_log.csv",
+        "output": "data/smartsheet/api/raid/e2e_raid_log.csv",
         "description": "E2E RAID Log",
         "group": "raid",
     },
+    "scp_pmo_wricef": {
+        "id": "5352213586071428",
+        "output": "data/smartsheet/api/ricefw/SCP-PMO_WRICEF.csv",
+        "description": "SCP-PMO WRICEF (RICEFW objects)",
+        "group": "ricefw",
+    },
+    "e2e_workplan": {
+        "id": "1834853108502404",
+        "output": "data/smartsheet/api/timelines/e2e_workplan.csv",
+        "description": "E2E Workplan (program tasks & milestones)",
+        "group": "timelines",
+    },
+    "ea_gantt": {
+        "id": "5810176758075268",
+        "output": "data/smartsheet/api/timelines/ea_gantt.csv",
+        "description": "EA Gantt (timeline view)",
+        "group": "timelines",
+    },
+    # ── MFA-blocked (manual export only) ─────────────────────────
+    "object_tracker": {
+        "id": "5077868279189380",
+        "output": "data/smartsheet/manual/object_trackers/s4_r3_object_tracker.csv",
+        "description": "S4 R3 Object Tracker (RICEFW master) — MFA-blocked",
+        "group": "ricefw",
+    },
     "deliverables_tracker": {
         "id": "8568208059486084",
-        "output": "data/smartsheet/boundary_apps/boundary_app_tracker.csv",
-        "description": "Deliverables / Boundary App Tracker",
+        "output": "data/smartsheet/manual/boundary_apps/boundary_app_tracker.csv",
+        "description": "Deliverables / Boundary App Tracker — MFA-blocked",
         "group": "other",
     },
     "change_request_log": {
         "id": "8701667910307716",
-        "output": "data/smartsheet/change_requests/change_request_log.csv",
-        "description": "Change Request Log",
+        "output": "data/smartsheet/manual/change_requests/change_request_log.csv",
+        "description": "Change Request Log — MFA-blocked",
         "group": "other",
     },
     "ricefw_request_console": {
         "id": "216957114601348",
-        "output": "data/smartsheet/request_console/ricefw_request_console.csv",
-        "description": "RICEFW Request Console",
+        "output": "data/smartsheet/manual/request_console/ricefw_request_console.csv",
+        "description": "RICEFW Request Console — MFA-blocked",
         "group": "other",
+    },
+    "integrated_plan": {
+        "id": "3514737224535940",
+        "output": "data/smartsheet/manual/timelines/integrated_plan.csv",
+        "description": "Integrated Plan (master program timeline) — MFA-blocked",
+        "group": "timelines",
     },
 }
 
@@ -201,7 +235,7 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="Preview only, don't write files")
     parser.add_argument(
         "--sheet",
-        choices=["all", "raid", "ricefw", "other"],
+        choices=["all", "raid", "ricefw", "timelines", "other"],
         default="all",
         help="Which sheet group to fetch (default: all)",
     )

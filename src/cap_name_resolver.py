@@ -24,7 +24,7 @@ from typing import Optional
 
 
 # Smartsheet Object Tracker (cached at module level)
-_OBJECT_TRACKER = Path("data/smartsheet/object_trackers/s4_r3_object_tracker.csv")
+_OBJECT_TRACKER = Path("data/smartsheet/manual/object_trackers/s4_r3_object_tracker.csv")
 
 # Mapping from L1 directory prefix to Smartsheet sub-tower descriptive title
 # Built lazily on first use

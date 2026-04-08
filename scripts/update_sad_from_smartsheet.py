@@ -29,9 +29,9 @@ sys.path.insert(0, str(ROOT))
 from src.smartsheet_loader import SmartsheetLoader, _normalize_tower
 
 TOWERS_DIR = ROOT / "towers"
-OBJ_TRACKER_CSV = ROOT / "data" / "smartsheet" / "object_trackers" / "s4_r3_object_tracker.csv"
-RAID_CSV = ROOT / "data" / "smartsheet" / "raid" / "master_raid_log.csv"
-E2E_RAID_CSV = ROOT / "data" / "smartsheet" / "raid" / "e2e_raid_log.csv"
+OBJ_TRACKER_CSV = ROOT / "data" / "smartsheet" / "manual" / "object_trackers" / "s4_r3_object_tracker.csv"
+RAID_CSV = ROOT / "data" / "smartsheet" / "api" / "raid" / "master_raid_log.csv"
+E2E_RAID_CSV = ROOT / "data" / "smartsheet" / "api" / "raid" / "e2e_raid_log.csv"
 
 # Regex to find RICEFW Object IDs in text
 _OBJ_ID_RE = re.compile(r'[A-Z]{2,5}[RICEFWXVM]\d{3,5}(?:_[A-Z]+)?', re.IGNORECASE)

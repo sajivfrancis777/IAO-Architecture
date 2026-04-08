@@ -6,7 +6,7 @@ Parses the S4 R3 Object Tracker (1,635 × 212 cols) to extract per-tower/capabil
   - Timeline milestones (FS, TDD, Build, FUT dates with % complete)
 
 Extraction mode pivot:
-  POC  — reads from data/smartsheet/object_trackers/s4_r3_object_tracker.csv
+  POC  — reads from data/smartsheet/manual/object_trackers/s4_r3_object_tracker.csv
   Prod — will call Smartsheet API via src/smartsheet_client.py (not yet built)
 """
 

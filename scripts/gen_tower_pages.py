@@ -36,7 +36,7 @@ DATA_DIR = WORKSPACE / "data"
 
 REGISTRY_PATH = CONFIG_DIR / "tower_registry.json"
 CAP_MAP_PATH = CONFIG_DIR / "subtower_capability_map.json"
-OBJECT_TRACKER_PATH = DATA_DIR / "smartsheet" / "object_trackers" / "s4_r3_object_tracker.csv"
+OBJECT_TRACKER_PATH = DATA_DIR / "smartsheet" / "manual" / "object_trackers" / "s4_r3_object_tracker.csv"
 JIRA_SUMMARY_PATH = DATA_DIR / "jira" / "jira_summary.json"
 
 

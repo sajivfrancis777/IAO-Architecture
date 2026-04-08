@@ -32,7 +32,7 @@ from src.smartsheet_loader import SmartsheetLoader, SmartsheetData  # noqa: E402
 # ── Constants ───────────────────────────────────────────────────────
 SMARTSHEET_API = "https://api.smartsheet.com/2.0"
 OBJECT_TRACKER_SHEET_ID = "5077868279189380"
-OBJECT_TRACKER_CSV = _ROOT / "data" / "smartsheet" / "object_trackers" / "s4_r3_object_tracker.csv"
+OBJECT_TRACKER_CSV = _ROOT / "data" / "smartsheet" / "manual" / "object_trackers" / "s4_r3_object_tracker.csv"
 
 # Key sheet IDs discovered during probing
 KNOWN_SHEETS: dict[str, str] = {

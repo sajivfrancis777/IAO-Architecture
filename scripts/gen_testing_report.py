@@ -36,8 +36,8 @@ except ImportError:
 WORKSPACE = Path(__file__).resolve().parent.parent
 TOWERS_DIR = WORKSPACE / "towers"
 TEMPLATES_DIR = WORKSPACE / "templates"
-OBJECT_TRACKER_CSV = WORKSPACE / "data" / "smartsheet" / "object_trackers" / "s4_r3_object_tracker.csv"
-RAID_CSV = WORKSPACE / "data" / "smartsheet" / "raid" / "master_raid_log.csv"
+OBJECT_TRACKER_CSV = WORKSPACE / "data" / "smartsheet" / "manual" / "object_trackers" / "s4_r3_object_tracker.csv"
+RAID_CSV = WORKSPACE / "data" / "smartsheet" / "api" / "raid" / "master_raid_log.csv"
 JIRA_CACHE = WORKSPACE / "data" / "jira" / "jira_cache.json"
 
 TESTING_TEMPLATE = "testing_report.md.j2"

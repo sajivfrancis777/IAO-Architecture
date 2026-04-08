@@ -200,7 +200,7 @@ WORKSPACE = Path(__file__).resolve().parent.parent
 TOWERS_DIR = WORKSPACE / "towers"
 TEMPLATES_DIR = WORKSPACE / "templates"
 IAPM_CSV = WORKSPACE / "data" / "iapm" / "IAPM_All_Solutions.csv"
-OBJECT_TRACKER_CSV = WORKSPACE / "data" / "smartsheet" / "object_trackers" / "s4_r3_object_tracker.csv"
+OBJECT_TRACKER_CSV = WORKSPACE / "data" / "smartsheet" / "manual" / "object_trackers" / "s4_r3_object_tracker.csv"
 
 # Banner SVG as base64 data URI (self-contained — works in any deployment context)
 _BANNER_SVG_PATH = TEMPLATES_DIR / "assets" / "cover_banner.svg"
