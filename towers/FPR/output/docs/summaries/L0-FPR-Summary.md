@@ -102,25 +102,25 @@ Click a capability ID to view its full TOGAF BDAT architecture document.
 
 | # | Capability ID | Capability Name | L1 Process Group | Current Hops | Future Hops |
 |:---:|:---:|---|---|:---:|:---:|
-| 1 | [DC-010](../../../DC Manage Accounting and Control Data/DC-010/output/docs/systems-architecture/DC-010-Architecture.html) | Perform Transaction Processing | DC Manage Accounting and Control Data | 0 | 0 |
-| 2 | [DC-020](../../../DC Manage Accounting and Control Data/DC-020/output/docs/systems-architecture/DC-020-Architecture.html) | Manage the General Ledger | DC Manage Accounting and Control Data | 0 | 0 |
-| 3 | [DC-030](../../../DC Manage Accounting and Control Data/DC-030/output/docs/systems-architecture/DC-030-Architecture.html) | Perform Closing | DC Manage Accounting and Control Data | 0 | 0 |
-| 4 | [DC-040](../../../DC Manage Accounting and Control Data/DC-040/output/docs/systems-architecture/DC-040-Architecture.html) | Perform Fixed Asset Accounting | DC Manage Accounting and Control Data | 0 | 0 |
-| 5 | [DC-050](../../../DC Manage Accounting and Control Data/DC-050/output/docs/systems-architecture/DC-050-Architecture.html) | Project Accounting | DC Manage Accounting and Control Data | 0 | 0 |
-| 6 | [DC-060](../../../DC Manage Accounting and Control Data/DC-060/output/docs/systems-architecture/DC-060-Architecture.html) | Manage Taxes | DC Manage Accounting and Control Data | 0 | 0 |
-| 7 | [DC-100](../../../DC Manage Accounting and Control Data/DC-100/output/docs/systems-architecture/DC-100-Architecture.html) | Revenue Recognition | DC Manage Accounting and Control Data | 0 | 0 |
-| 8 | [DC-110](../../../DC Manage Accounting and Control Data/DC-110/output/docs/systems-architecture/DC-110-Architecture.html) | Manage Intercompany | DC Manage Accounting and Control Data | 0 | 0 |
-| 9 | [DC-120](../../../DC Manage Accounting and Control Data/DC-120/output/docs/systems-architecture/DC-120-Architecture.html) | Maintenance & Management Accounting | DC Manage Accounting and Control Data | 0 | 0 |
-| 10 | [DS-010](../../../DS Provide Decision Support/DS-010/output/docs/systems-architecture/DS-010-Architecture.html) | Perform Overhead Accounting and Allocation | DS Provide Decision Support | 0 | 0 |
-| 11 | [DS-020](../../../DS Provide Decision Support/DS-020/output/docs/systems-architecture/DS-020-Architecture.html) | Perform Product Costing and Inventory Valuation | DS Provide Decision Support | 36 | 114 |
-| 12 | [DS-030](../../../DS Provide Decision Support/DS-030/output/docs/systems-architecture/DS-030-Architecture.html) | Perform Customer and Product Profitability Analysis | DS Provide Decision Support | 0 | 0 |
-| 13 | [MB-060](../../../MB Plan and Manage Business/MB-060/output/docs/systems-architecture/MB-060-Architecture.html) | Plan the Business | MB Plan and Manage Business | 0 | 0 |
-| 14 | [MB-070](../../../MB Plan and Manage Business/MB-070/output/docs/systems-architecture/MB-070-Architecture.html) | Prepare Budgets | MB Plan and Manage Business | 0 | 0 |
-| 15 | [MR-010](../../../MR Manage Capital and Risk/MR-010/output/docs/systems-architecture/MR-010-Architecture.html) | Manage Liquidity | MR Manage Capital and Risk | 0 | 0 |
-| 16 | [MR-020](../../../MR Manage Capital and Risk/MR-020/output/docs/systems-architecture/MR-020-Architecture.html) | Manage Capital Structure | MR Manage Capital and Risk | 0 | 0 |
-| 17 | [MR-030](../../../MR Manage Capital and Risk/MR-030/output/docs/systems-architecture/MR-030-Architecture.html) | Manage Financial Risk | MR Manage Capital and Risk | 0 | 0 |
-| 18 | [MR-070](../../../MR Manage Capital and Risk/MR-070/output/docs/systems-architecture/MR-070-Architecture.html) | In-House Banking | MR Manage Capital and Risk | 0 | 0 |
-| 19 | [OR-140](../../../OR Receivables Management/OR-140/output/docs/systems-architecture/OR-140-Architecture.html) | Process Receipts | OR Receivables Management | 0 | 0 |
+| 1 | [DC-010](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-010/output/docs/systems-architecture/DC-010-Architecture.html) | Perform Transaction Processing | DC Manage Accounting and Control Data | 0 | 0 |
+| 2 | [DC-020](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-020/output/docs/systems-architecture/DC-020-Architecture.html) | Manage the General Ledger | DC Manage Accounting and Control Data | 0 | 0 |
+| 3 | [DC-030](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-030/output/docs/systems-architecture/DC-030-Architecture.html) | Perform Closing | DC Manage Accounting and Control Data | 0 | 0 |
+| 4 | [DC-040](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-040/output/docs/systems-architecture/DC-040-Architecture.html) | Perform Fixed Asset Accounting | DC Manage Accounting and Control Data | 0 | 0 |
+| 5 | [DC-050](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-050/output/docs/systems-architecture/DC-050-Architecture.html) | Project Accounting | DC Manage Accounting and Control Data | 0 | 0 |
+| 6 | [DC-060](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-060/output/docs/systems-architecture/DC-060-Architecture.html) | Manage Taxes | DC Manage Accounting and Control Data | 0 | 0 |
+| 7 | [DC-100](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-100/output/docs/systems-architecture/DC-100-Architecture.html) | Revenue Recognition | DC Manage Accounting and Control Data | 0 | 0 |
+| 8 | [DC-110](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-110/output/docs/systems-architecture/DC-110-Architecture.html) | Manage Intercompany | DC Manage Accounting and Control Data | 0 | 0 |
+| 9 | [DC-120](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-120/output/docs/systems-architecture/DC-120-Architecture.html) | Maintenance & Management Accounting | DC Manage Accounting and Control Data | 0 | 0 |
+| 10 | [DS-010](/towers/FPR/DS-Provide-Decision-Support/DS-010/output/docs/systems-architecture/DS-010-Architecture.html) | Perform Overhead Accounting and Allocation | DS Provide Decision Support | 0 | 0 |
+| 11 | [DS-020](/towers/FPR/DS-Provide-Decision-Support/DS-020/output/docs/systems-architecture/DS-020-Architecture.html) | Perform Product Costing and Inventory Valuation | DS Provide Decision Support | 36 | 114 |
+| 12 | [DS-030](/towers/FPR/DS-Provide-Decision-Support/DS-030/output/docs/systems-architecture/DS-030-Architecture.html) | Perform Customer and Product Profitability Analysis | DS Provide Decision Support | 0 | 0 |
+| 13 | [MB-060](/towers/FPR/MB-Plan-and-Manage-Business/MB-060/output/docs/systems-architecture/MB-060-Architecture.html) | Plan the Business | MB Plan and Manage Business | 0 | 0 |
+| 14 | [MB-070](/towers/FPR/MB-Plan-and-Manage-Business/MB-070/output/docs/systems-architecture/MB-070-Architecture.html) | Prepare Budgets | MB Plan and Manage Business | 0 | 0 |
+| 15 | [MR-010](/towers/FPR/MR-Manage-Capital-and-Risk/MR-010/output/docs/systems-architecture/MR-010-Architecture.html) | Manage Liquidity | MR Manage Capital and Risk | 0 | 0 |
+| 16 | [MR-020](/towers/FPR/MR-Manage-Capital-and-Risk/MR-020/output/docs/systems-architecture/MR-020-Architecture.html) | Manage Capital Structure | MR Manage Capital and Risk | 0 | 0 |
+| 17 | [MR-030](/towers/FPR/MR-Manage-Capital-and-Risk/MR-030/output/docs/systems-architecture/MR-030-Architecture.html) | Manage Financial Risk | MR Manage Capital and Risk | 0 | 0 |
+| 18 | [MR-070](/towers/FPR/MR-Manage-Capital-and-Risk/MR-070/output/docs/systems-architecture/MR-070-Architecture.html) | In-House Banking | MR Manage Capital and Risk | 0 | 0 |
+| 19 | [OR-140](/towers/FPR/OR-Receivables-Management/OR-140/output/docs/systems-architecture/OR-140-Architecture.html) | Process Receipts | OR Receivables Management | 0 | 0 |
 
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>Finance Plan To Report (FPR)</span></div>
 <div style="page-break-before: always;"></div>
@@ -1389,23 +1389,23 @@ Each L2 document contains the full TOGAF BDAT analysis including:
 
 | # | Capability | L1 Process | Architecture Doc |
 |:---:|---|---|---|
-| 1 | Perform Transaction Processing | DC Manage Accounting and Control Data | [DC-010](../../../DC Manage Accounting and Control Data/DC-010/output/docs/systems-architecture/DC-010-Architecture.html) |
-| 2 | Manage the General Ledger | DC Manage Accounting and Control Data | [DC-020](../../../DC Manage Accounting and Control Data/DC-020/output/docs/systems-architecture/DC-020-Architecture.html) |
-| 3 | Perform Closing | DC Manage Accounting and Control Data | [DC-030](../../../DC Manage Accounting and Control Data/DC-030/output/docs/systems-architecture/DC-030-Architecture.html) |
-| 4 | Perform Fixed Asset Accounting | DC Manage Accounting and Control Data | [DC-040](../../../DC Manage Accounting and Control Data/DC-040/output/docs/systems-architecture/DC-040-Architecture.html) |
-| 5 | Project Accounting | DC Manage Accounting and Control Data | [DC-050](../../../DC Manage Accounting and Control Data/DC-050/output/docs/systems-architecture/DC-050-Architecture.html) |
-| 6 | Manage Taxes | DC Manage Accounting and Control Data | [DC-060](../../../DC Manage Accounting and Control Data/DC-060/output/docs/systems-architecture/DC-060-Architecture.html) |
-| 7 | Revenue Recognition | DC Manage Accounting and Control Data | [DC-100](../../../DC Manage Accounting and Control Data/DC-100/output/docs/systems-architecture/DC-100-Architecture.html) |
-| 8 | Manage Intercompany | DC Manage Accounting and Control Data | [DC-110](../../../DC Manage Accounting and Control Data/DC-110/output/docs/systems-architecture/DC-110-Architecture.html) |
-| 9 | Maintenance & Management Accounting | DC Manage Accounting and Control Data | [DC-120](../../../DC Manage Accounting and Control Data/DC-120/output/docs/systems-architecture/DC-120-Architecture.html) |
-| 10 | Perform Overhead Accounting and Allocation | DS Provide Decision Support | [DS-010](../../../DS Provide Decision Support/DS-010/output/docs/systems-architecture/DS-010-Architecture.html) |
-| 11 | Perform Product Costing and Inventory Valuation | DS Provide Decision Support | [DS-020](../../../DS Provide Decision Support/DS-020/output/docs/systems-architecture/DS-020-Architecture.html) |
-| 12 | Perform Customer and Product Profitability Analysis | DS Provide Decision Support | [DS-030](../../../DS Provide Decision Support/DS-030/output/docs/systems-architecture/DS-030-Architecture.html) |
-| 13 | Plan the Business | MB Plan and Manage Business | [MB-060](../../../MB Plan and Manage Business/MB-060/output/docs/systems-architecture/MB-060-Architecture.html) |
-| 14 | Prepare Budgets | MB Plan and Manage Business | [MB-070](../../../MB Plan and Manage Business/MB-070/output/docs/systems-architecture/MB-070-Architecture.html) |
-| 15 | Manage Liquidity | MR Manage Capital and Risk | [MR-010](../../../MR Manage Capital and Risk/MR-010/output/docs/systems-architecture/MR-010-Architecture.html) |
-| 16 | Manage Capital Structure | MR Manage Capital and Risk | [MR-020](../../../MR Manage Capital and Risk/MR-020/output/docs/systems-architecture/MR-020-Architecture.html) |
-| 17 | Manage Financial Risk | MR Manage Capital and Risk | [MR-030](../../../MR Manage Capital and Risk/MR-030/output/docs/systems-architecture/MR-030-Architecture.html) |
-| 18 | In-House Banking | MR Manage Capital and Risk | [MR-070](../../../MR Manage Capital and Risk/MR-070/output/docs/systems-architecture/MR-070-Architecture.html) |
-| 19 | Process Receipts | OR Receivables Management | [OR-140](../../../OR Receivables Management/OR-140/output/docs/systems-architecture/OR-140-Architecture.html) |
+| 1 | Perform Transaction Processing | DC Manage Accounting and Control Data | [DC-010](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-010/output/docs/systems-architecture/DC-010-Architecture.html) |
+| 2 | Manage the General Ledger | DC Manage Accounting and Control Data | [DC-020](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-020/output/docs/systems-architecture/DC-020-Architecture.html) |
+| 3 | Perform Closing | DC Manage Accounting and Control Data | [DC-030](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-030/output/docs/systems-architecture/DC-030-Architecture.html) |
+| 4 | Perform Fixed Asset Accounting | DC Manage Accounting and Control Data | [DC-040](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-040/output/docs/systems-architecture/DC-040-Architecture.html) |
+| 5 | Project Accounting | DC Manage Accounting and Control Data | [DC-050](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-050/output/docs/systems-architecture/DC-050-Architecture.html) |
+| 6 | Manage Taxes | DC Manage Accounting and Control Data | [DC-060](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-060/output/docs/systems-architecture/DC-060-Architecture.html) |
+| 7 | Revenue Recognition | DC Manage Accounting and Control Data | [DC-100](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-100/output/docs/systems-architecture/DC-100-Architecture.html) |
+| 8 | Manage Intercompany | DC Manage Accounting and Control Data | [DC-110](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-110/output/docs/systems-architecture/DC-110-Architecture.html) |
+| 9 | Maintenance & Management Accounting | DC Manage Accounting and Control Data | [DC-120](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-120/output/docs/systems-architecture/DC-120-Architecture.html) |
+| 10 | Perform Overhead Accounting and Allocation | DS Provide Decision Support | [DS-010](/towers/FPR/DS-Provide-Decision-Support/DS-010/output/docs/systems-architecture/DS-010-Architecture.html) |
+| 11 | Perform Product Costing and Inventory Valuation | DS Provide Decision Support | [DS-020](/towers/FPR/DS-Provide-Decision-Support/DS-020/output/docs/systems-architecture/DS-020-Architecture.html) |
+| 12 | Perform Customer and Product Profitability Analysis | DS Provide Decision Support | [DS-030](/towers/FPR/DS-Provide-Decision-Support/DS-030/output/docs/systems-architecture/DS-030-Architecture.html) |
+| 13 | Plan the Business | MB Plan and Manage Business | [MB-060](/towers/FPR/MB-Plan-and-Manage-Business/MB-060/output/docs/systems-architecture/MB-060-Architecture.html) |
+| 14 | Prepare Budgets | MB Plan and Manage Business | [MB-070](/towers/FPR/MB-Plan-and-Manage-Business/MB-070/output/docs/systems-architecture/MB-070-Architecture.html) |
+| 15 | Manage Liquidity | MR Manage Capital and Risk | [MR-010](/towers/FPR/MR-Manage-Capital-and-Risk/MR-010/output/docs/systems-architecture/MR-010-Architecture.html) |
+| 16 | Manage Capital Structure | MR Manage Capital and Risk | [MR-020](/towers/FPR/MR-Manage-Capital-and-Risk/MR-020/output/docs/systems-architecture/MR-020-Architecture.html) |
+| 17 | Manage Financial Risk | MR Manage Capital and Risk | [MR-030](/towers/FPR/MR-Manage-Capital-and-Risk/MR-030/output/docs/systems-architecture/MR-030-Architecture.html) |
+| 18 | In-House Banking | MR Manage Capital and Risk | [MR-070](/towers/FPR/MR-Manage-Capital-and-Risk/MR-070/output/docs/systems-architecture/MR-070-Architecture.html) |
+| 19 | Process Receipts | OR Receivables Management | [OR-140](/towers/FPR/OR-Receivables-Management/OR-140/output/docs/systems-architecture/OR-140-Architecture.html) |
 

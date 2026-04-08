@@ -101,22 +101,22 @@ Click a capability ID to view its full TOGAF BDAT architecture document.
 
 | # | Capability ID | Capability Name | L1 Process Group | Current Hops | Future Hops |
 |:---:|:---:|---|---|:---:|:---:|
-| 1 | [E2E-08](../../../Forecast to Stock/E2E-08/output/docs/systems-architecture/E2E-08-Architecture.html) | E2E-08 | Forecast to Stock | 1 | 1 |
-| 2 | [E2E-110](../../../Forecast to Stock/E2E-110/output/docs/systems-architecture/E2E-110-Architecture.html) | IMR Flow | Forecast to Stock | 1 | 1 |
-| 3 | [E2E-113](../../../Forecast to Stock/E2E-113/output/docs/systems-architecture/E2E-113-Architecture.html) | R3 IMR Labs Process | Forecast to Stock | 1 | 1 |
-| 4 | [E2E-117](../../../Forecast to Stock/E2E-117/output/docs/systems-architecture/E2E-117-Architecture.html) | E2E-117 | Forecast to Stock | 1 | 1 |
-| 5 | [E2E-118](../../../Forecast to Stock/E2E-118/output/docs/systems-architecture/E2E-118-Architecture.html) | E2E-118 | Forecast to Stock | 1 | 1 |
-| 6 | [E2E-122](../../../Forecast to Stock/E2E-122/output/docs/systems-architecture/E2E-122-Architecture.html) | E2E-122 | Forecast to Stock | 1 | 1 |
-| 7 | [E2E-45](../../../Forecast to Stock/E2E-45/output/docs/systems-architecture/E2E-45-Architecture.html) | E2E-45 | Forecast to Stock | 1 | 1 |
-| 8 | [E2E-67](../../../Forecast to Stock/E2E-67/output/docs/systems-architecture/E2E-67-Architecture.html) | E2E-67 | Forecast to Stock | 1 | 1 |
-| 9 | [E2E-68](../../../Forecast to Stock/E2E-68/output/docs/systems-architecture/E2E-68-Architecture.html) | -Intel Foundry   NPI planning and execution processes | Forecast to Stock | 1 | 1 |
-| 10 | [E2E-71](../../../Forecast to Stock/E2E-71/output/docs/systems-architecture/E2E-71-Architecture.html) | E2E-71 | Forecast to Stock | 1 | 1 |
-| 11 | [E2E-72](../../../Forecast to Stock/E2E-72/output/docs/systems-architecture/E2E-72-Architecture.html) | IP | Forecast to Stock | 1 | 1 |
-| 12 | [E2E-73](../../../Forecast to Stock/E2E-73/output/docs/systems-architecture/E2E-73-Architecture.html) | R3 Hybrid Manufacturing process with external Wafer Procurement & Internal processing of | Forecast to Stock | 1 | 1 |
-| 13 | [E2E-74](../../../Forecast to Stock/E2E-74/output/docs/systems-architecture/E2E-74-Architecture.html) | R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati | Forecast to Stock | 1 | 1 |
-| 14 | [E2E-76](../../../Forecast to Stock/E2E-76/output/docs/systems-architecture/E2E-76-Architecture.html) | Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus | Forecast to Stock | 1 | 1 |
-| 15 | [E2E-84](../../../Forecast to Stock/E2E-84/output/docs/systems-architecture/E2E-84-Architecture.html) | Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State) | Forecast to Stock | 1 | 1 |
-| 16 | [E2E-94](../../../Forecast to Stock/E2E-94/output/docs/systems-architecture/E2E-94-Architecture.html) | R3 Intel Foundry Maintenance process through spare parts (SWAP) | Forecast to Stock | 1 | 1 |
+| 1 | [E2E-08](/towers/E2E/Forecast-to-Stock/E2E-08/output/docs/systems-architecture/E2E-08-Architecture.html) | E2E-08 | Forecast to Stock | 1 | 1 |
+| 2 | [E2E-110](/towers/E2E/Forecast-to-Stock/E2E-110/output/docs/systems-architecture/E2E-110-Architecture.html) | IMR Flow | Forecast to Stock | 1 | 1 |
+| 3 | [E2E-113](/towers/E2E/Forecast-to-Stock/E2E-113/output/docs/systems-architecture/E2E-113-Architecture.html) | R3 IMR Labs Process | Forecast to Stock | 1 | 1 |
+| 4 | [E2E-117](/towers/E2E/Forecast-to-Stock/E2E-117/output/docs/systems-architecture/E2E-117-Architecture.html) | E2E-117 | Forecast to Stock | 1 | 1 |
+| 5 | [E2E-118](/towers/E2E/Forecast-to-Stock/E2E-118/output/docs/systems-architecture/E2E-118-Architecture.html) | E2E-118 | Forecast to Stock | 1 | 1 |
+| 6 | [E2E-122](/towers/E2E/Forecast-to-Stock/E2E-122/output/docs/systems-architecture/E2E-122-Architecture.html) | E2E-122 | Forecast to Stock | 1 | 1 |
+| 7 | [E2E-45](/towers/E2E/Forecast-to-Stock/E2E-45/output/docs/systems-architecture/E2E-45-Architecture.html) | E2E-45 | Forecast to Stock | 1 | 1 |
+| 8 | [E2E-67](/towers/E2E/Forecast-to-Stock/E2E-67/output/docs/systems-architecture/E2E-67-Architecture.html) | E2E-67 | Forecast to Stock | 1 | 1 |
+| 9 | [E2E-68](/towers/E2E/Forecast-to-Stock/E2E-68/output/docs/systems-architecture/E2E-68-Architecture.html) | -Intel Foundry   NPI planning and execution processes | Forecast to Stock | 1 | 1 |
+| 10 | [E2E-71](/towers/E2E/Forecast-to-Stock/E2E-71/output/docs/systems-architecture/E2E-71-Architecture.html) | E2E-71 | Forecast to Stock | 1 | 1 |
+| 11 | [E2E-72](/towers/E2E/Forecast-to-Stock/E2E-72/output/docs/systems-architecture/E2E-72-Architecture.html) | IP | Forecast to Stock | 1 | 1 |
+| 12 | [E2E-73](/towers/E2E/Forecast-to-Stock/E2E-73/output/docs/systems-architecture/E2E-73-Architecture.html) | R3 Hybrid Manufacturing process with external Wafer Procurement & Internal processing of | Forecast to Stock | 1 | 1 |
+| 13 | [E2E-74](/towers/E2E/Forecast-to-Stock/E2E-74/output/docs/systems-architecture/E2E-74-Architecture.html) | R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati | Forecast to Stock | 1 | 1 |
+| 14 | [E2E-76](/towers/E2E/Forecast-to-Stock/E2E-76/output/docs/systems-architecture/E2E-76-Architecture.html) | Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus | Forecast to Stock | 1 | 1 |
+| 15 | [E2E-84](/towers/E2E/Forecast-to-Stock/E2E-84/output/docs/systems-architecture/E2E-84-Architecture.html) | Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State) | Forecast to Stock | 1 | 1 |
+| 16 | [E2E-94](/towers/E2E/Forecast-to-Stock/E2E-94/output/docs/systems-architecture/E2E-94-Architecture.html) | R3 Intel Foundry Maintenance process through spare parts (SWAP) | Forecast to Stock | 1 | 1 |
 
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>Forecast to Stock</span></div>
 <div style="page-break-before: always;"></div>
@@ -415,20 +415,20 @@ Each L2 document contains the full TOGAF BDAT analysis including:
 
 | # | Capability | L1 Process | Architecture Doc |
 |:---:|---|---|---|
-| 1 | E2E-08 | Forecast to Stock | [E2E-08](../../../Forecast to Stock/E2E-08/output/docs/systems-architecture/E2E-08-Architecture.html) |
-| 2 | IMR Flow | Forecast to Stock | [E2E-110](../../../Forecast to Stock/E2E-110/output/docs/systems-architecture/E2E-110-Architecture.html) |
-| 3 | R3 IMR Labs Process | Forecast to Stock | [E2E-113](../../../Forecast to Stock/E2E-113/output/docs/systems-architecture/E2E-113-Architecture.html) |
-| 4 | E2E-117 | Forecast to Stock | [E2E-117](../../../Forecast to Stock/E2E-117/output/docs/systems-architecture/E2E-117-Architecture.html) |
-| 5 | E2E-118 | Forecast to Stock | [E2E-118](../../../Forecast to Stock/E2E-118/output/docs/systems-architecture/E2E-118-Architecture.html) |
-| 6 | E2E-122 | Forecast to Stock | [E2E-122](../../../Forecast to Stock/E2E-122/output/docs/systems-architecture/E2E-122-Architecture.html) |
-| 7 | E2E-45 | Forecast to Stock | [E2E-45](../../../Forecast to Stock/E2E-45/output/docs/systems-architecture/E2E-45-Architecture.html) |
-| 8 | E2E-67 | Forecast to Stock | [E2E-67](../../../Forecast to Stock/E2E-67/output/docs/systems-architecture/E2E-67-Architecture.html) |
-| 9 | -Intel Foundry   NPI planning and execution processes | Forecast to Stock | [E2E-68](../../../Forecast to Stock/E2E-68/output/docs/systems-architecture/E2E-68-Architecture.html) |
-| 10 | E2E-71 | Forecast to Stock | [E2E-71](../../../Forecast to Stock/E2E-71/output/docs/systems-architecture/E2E-71-Architecture.html) |
-| 11 | IP | Forecast to Stock | [E2E-72](../../../Forecast to Stock/E2E-72/output/docs/systems-architecture/E2E-72-Architecture.html) |
-| 12 | R3 Hybrid Manufacturing process with external Wafer Procurement & Internal processing of | Forecast to Stock | [E2E-73](../../../Forecast to Stock/E2E-73/output/docs/systems-architecture/E2E-73-Architecture.html) |
-| 13 | R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati | Forecast to Stock | [E2E-74](../../../Forecast to Stock/E2E-74/output/docs/systems-architecture/E2E-74-Architecture.html) |
-| 14 | Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus | Forecast to Stock | [E2E-76](../../../Forecast to Stock/E2E-76/output/docs/systems-architecture/E2E-76-Architecture.html) |
-| 15 | Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State) | Forecast to Stock | [E2E-84](../../../Forecast to Stock/E2E-84/output/docs/systems-architecture/E2E-84-Architecture.html) |
-| 16 | R3 Intel Foundry Maintenance process through spare parts (SWAP) | Forecast to Stock | [E2E-94](../../../Forecast to Stock/E2E-94/output/docs/systems-architecture/E2E-94-Architecture.html) |
+| 1 | E2E-08 | Forecast to Stock | [E2E-08](/towers/E2E/Forecast-to-Stock/E2E-08/output/docs/systems-architecture/E2E-08-Architecture.html) |
+| 2 | IMR Flow | Forecast to Stock | [E2E-110](/towers/E2E/Forecast-to-Stock/E2E-110/output/docs/systems-architecture/E2E-110-Architecture.html) |
+| 3 | R3 IMR Labs Process | Forecast to Stock | [E2E-113](/towers/E2E/Forecast-to-Stock/E2E-113/output/docs/systems-architecture/E2E-113-Architecture.html) |
+| 4 | E2E-117 | Forecast to Stock | [E2E-117](/towers/E2E/Forecast-to-Stock/E2E-117/output/docs/systems-architecture/E2E-117-Architecture.html) |
+| 5 | E2E-118 | Forecast to Stock | [E2E-118](/towers/E2E/Forecast-to-Stock/E2E-118/output/docs/systems-architecture/E2E-118-Architecture.html) |
+| 6 | E2E-122 | Forecast to Stock | [E2E-122](/towers/E2E/Forecast-to-Stock/E2E-122/output/docs/systems-architecture/E2E-122-Architecture.html) |
+| 7 | E2E-45 | Forecast to Stock | [E2E-45](/towers/E2E/Forecast-to-Stock/E2E-45/output/docs/systems-architecture/E2E-45-Architecture.html) |
+| 8 | E2E-67 | Forecast to Stock | [E2E-67](/towers/E2E/Forecast-to-Stock/E2E-67/output/docs/systems-architecture/E2E-67-Architecture.html) |
+| 9 | -Intel Foundry   NPI planning and execution processes | Forecast to Stock | [E2E-68](/towers/E2E/Forecast-to-Stock/E2E-68/output/docs/systems-architecture/E2E-68-Architecture.html) |
+| 10 | E2E-71 | Forecast to Stock | [E2E-71](/towers/E2E/Forecast-to-Stock/E2E-71/output/docs/systems-architecture/E2E-71-Architecture.html) |
+| 11 | IP | Forecast to Stock | [E2E-72](/towers/E2E/Forecast-to-Stock/E2E-72/output/docs/systems-architecture/E2E-72-Architecture.html) |
+| 12 | R3 Hybrid Manufacturing process with external Wafer Procurement & Internal processing of | Forecast to Stock | [E2E-73](/towers/E2E/Forecast-to-Stock/E2E-73/output/docs/systems-architecture/E2E-73-Architecture.html) |
+| 13 | R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati | Forecast to Stock | [E2E-74](/towers/E2E/Forecast-to-Stock/E2E-74/output/docs/systems-architecture/E2E-74-Architecture.html) |
+| 14 | Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus | Forecast to Stock | [E2E-76](/towers/E2E/Forecast-to-Stock/E2E-76/output/docs/systems-architecture/E2E-76-Architecture.html) |
+| 15 | Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State) | Forecast to Stock | [E2E-84](/towers/E2E/Forecast-to-Stock/E2E-84/output/docs/systems-architecture/E2E-84-Architecture.html) |
+| 16 | R3 Intel Foundry Maintenance process through spare parts (SWAP) | Forecast to Stock | [E2E-94](/towers/E2E/Forecast-to-Stock/E2E-94/output/docs/systems-architecture/E2E-94-Architecture.html) |
 

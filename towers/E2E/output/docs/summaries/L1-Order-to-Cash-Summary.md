@@ -101,9 +101,9 @@ Click a capability ID to view its full TOGAF BDAT architecture document.
 
 | # | Capability ID | Capability Name | L1 Process Group | Current Hops | Future Hops |
 |:---:|:---:|---|---|:---:|:---:|
-| 1 | [IF_Simplified_PO-SO_Model](../../../Order to Cash/IF_Simplified_PO-SO_Model/output/docs/systems-architecture/IF_Simplified_PO-SO_Model-Architecture.html) | IF Simplified PO-SO Model | Order to Cash | 1 | 1 |
-| 2 | [Order_to_Cash_IF](../../../Order to Cash/Order_to_Cash_IF/output/docs/systems-architecture/Order_to_Cash_IF-Architecture.html) | Order to Cash (IF) | Order to Cash | 1 | 1 |
-| 3 | [Order_to_Cash_IP](../../../Order to Cash/Order_to_Cash_IP/output/docs/systems-architecture/Order_to_Cash_IP-Architecture.html) | Order to Cash (IP) | Order to Cash | 1 | 1 |
+| 1 | [IF_Simplified_PO-SO_Model](/towers/E2E/Order-to-Cash/IF_Simplified_PO-SO_Model/output/docs/systems-architecture/IF_Simplified_PO-SO_Model-Architecture.html) | IF Simplified PO-SO Model | Order to Cash | 1 | 1 |
+| 2 | [Order_to_Cash_IF](/towers/E2E/Order-to-Cash/Order_to_Cash_IF/output/docs/systems-architecture/Order_to_Cash_IF-Architecture.html) | Order to Cash (IF) | Order to Cash | 1 | 1 |
+| 3 | [Order_to_Cash_IP](/towers/E2E/Order-to-Cash/Order_to_Cash_IP/output/docs/systems-architecture/Order_to_Cash_IP-Architecture.html) | Order to Cash (IP) | Order to Cash | 1 | 1 |
 
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order to Cash</span></div>
 <div style="page-break-before: always;"></div>
@@ -402,7 +402,7 @@ Each L2 document contains the full TOGAF BDAT analysis including:
 
 | # | Capability | L1 Process | Architecture Doc |
 |:---:|---|---|---|
-| 1 | IF Simplified PO-SO Model | Order to Cash | [IF_Simplified_PO-SO_Model](../../../Order to Cash/IF_Simplified_PO-SO_Model/output/docs/systems-architecture/IF_Simplified_PO-SO_Model-Architecture.html) |
-| 2 | Order to Cash (IF) | Order to Cash | [Order_to_Cash_IF](../../../Order to Cash/Order_to_Cash_IF/output/docs/systems-architecture/Order_to_Cash_IF-Architecture.html) |
-| 3 | Order to Cash (IP) | Order to Cash | [Order_to_Cash_IP](../../../Order to Cash/Order_to_Cash_IP/output/docs/systems-architecture/Order_to_Cash_IP-Architecture.html) |
+| 1 | IF Simplified PO-SO Model | Order to Cash | [IF_Simplified_PO-SO_Model](/towers/E2E/Order-to-Cash/IF_Simplified_PO-SO_Model/output/docs/systems-architecture/IF_Simplified_PO-SO_Model-Architecture.html) |
+| 2 | Order to Cash (IF) | Order to Cash | [Order_to_Cash_IF](/towers/E2E/Order-to-Cash/Order_to_Cash_IF/output/docs/systems-architecture/Order_to_Cash_IF-Architecture.html) |
+| 3 | Order to Cash (IP) | Order to Cash | [Order_to_Cash_IP](/towers/E2E/Order-to-Cash/Order_to_Cash_IP/output/docs/systems-architecture/Order_to_Cash_IP-Architecture.html) |
 

@@ -728,16 +728,13 @@ def _render_summary_doc(
 
 
 def _build_cap_link(cap_id: str, tower_short: str, from_path: Path | None = None) -> str:
-    """Build a relative link to an L2 capability's HTML doc, or plain text fallback.
+    """Build a link to an L2 capability's HTML doc, or plain text fallback.
 
-    Args:
-        cap_id: Capability ID (e.g. "DS-020")
-        tower_short: Tower shortcode (e.g. "FPR")
-        from_path: If provided, compute path relative to this file's directory.
-                   Otherwise, use workspace-root-relative path.
-
-    Note: deployed paths replace spaces with hyphens (deploy-pages.yml uses
-    ``sed 's/ /-/g'``), so we apply the same transformation here.
+    Links always use workspace-root-relative paths with spaces replaced by
+    hyphens to match the deployed URL structure (deploy-pages.yml uses
+    ``sed 's/ /-/g'``).  We prepend ``/`` to make them absolute from the
+    site root so they work regardless of which directory the summary is
+    deployed into (_site/summaries/, _site/R3/summaries/, etc.).
     """
     if not tower_short:
         return cap_id
@@ -747,14 +744,9 @@ def _build_cap_link(cap_id: str, tower_short: str, from_path: Path | None = None
         html_name = f"{cap_id}-Architecture.html"
         html_path = cap_dir / "output" / "docs" / "systems-architecture" / html_name
         if html_path.exists():
-            if from_path:
-                try:
-                    rel = os.path.relpath(html_path, from_path.parent).replace("\\", "/").replace(" ", "-")
-                    return f"[{cap_id}]({rel})"
-                except ValueError:
-                    pass
             rel = html_path.relative_to(WORKSPACE)
-            return f"[{cap_id}]({rel.as_posix().replace(' ', '-')})"
+            href = "/" + rel.as_posix().replace(" ", "-")
+            return f"[{cap_id}]({href})"
     return cap_id
 
 

@@ -102,9 +102,9 @@ Click a capability ID to view its full TOGAF BDAT architecture document.
 
 | # | Capability ID | Capability Name | L1 Process Group | Current Hops | Future Hops |
 |:---:|:---:|---|---|:---:|:---:|
-| 1 | [DS-010](../../../DS Provide Decision Support/DS-010/output/docs/systems-architecture/DS-010-Architecture.html) | Perform Overhead Accounting and Allocation | DS Provide Decision Support | 0 | 0 |
-| 2 | [DS-020](../../../DS Provide Decision Support/DS-020/output/docs/systems-architecture/DS-020-Architecture.html) | Perform Product Costing and Inventory Valuation | DS Provide Decision Support | 36 | 114 |
-| 3 | [DS-030](../../../DS Provide Decision Support/DS-030/output/docs/systems-architecture/DS-030-Architecture.html) | Perform Customer and Product Profitability Analysis | DS Provide Decision Support | 0 | 0 |
+| 1 | [DS-010](/towers/FPR/DS-Provide-Decision-Support/DS-010/output/docs/systems-architecture/DS-010-Architecture.html) | Perform Overhead Accounting and Allocation | DS Provide Decision Support | 0 | 0 |
+| 2 | [DS-020](/towers/FPR/DS-Provide-Decision-Support/DS-020/output/docs/systems-architecture/DS-020-Architecture.html) | Perform Product Costing and Inventory Valuation | DS Provide Decision Support | 36 | 114 |
+| 3 | [DS-030](/towers/FPR/DS-Provide-Decision-Support/DS-030/output/docs/systems-architecture/DS-030-Architecture.html) | Perform Customer and Product Profitability Analysis | DS Provide Decision Support | 0 | 0 |
 
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS Provide Decision Support</span></div>
 <div style="page-break-before: always;"></div>
@@ -1373,7 +1373,7 @@ Each L2 document contains the full TOGAF BDAT analysis including:
 
 | # | Capability | L1 Process | Architecture Doc |
 |:---:|---|---|---|
-| 1 | Perform Overhead Accounting and Allocation | DS Provide Decision Support | [DS-010](../../../DS Provide Decision Support/DS-010/output/docs/systems-architecture/DS-010-Architecture.html) |
-| 2 | Perform Product Costing and Inventory Valuation | DS Provide Decision Support | [DS-020](../../../DS Provide Decision Support/DS-020/output/docs/systems-architecture/DS-020-Architecture.html) |
-| 3 | Perform Customer and Product Profitability Analysis | DS Provide Decision Support | [DS-030](../../../DS Provide Decision Support/DS-030/output/docs/systems-architecture/DS-030-Architecture.html) |
+| 1 | Perform Overhead Accounting and Allocation | DS Provide Decision Support | [DS-010](/towers/FPR/DS-Provide-Decision-Support/DS-010/output/docs/systems-architecture/DS-010-Architecture.html) |
+| 2 | Perform Product Costing and Inventory Valuation | DS Provide Decision Support | [DS-020](/towers/FPR/DS-Provide-Decision-Support/DS-020/output/docs/systems-architecture/DS-020-Architecture.html) |
+| 3 | Perform Customer and Product Profitability Analysis | DS Provide Decision Support | [DS-030](/towers/FPR/DS-Provide-Decision-Support/DS-030/output/docs/systems-architecture/DS-030-Architecture.html) |
 

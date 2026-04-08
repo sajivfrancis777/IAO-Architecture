@@ -101,59 +101,59 @@ Click a capability ID to view its full TOGAF BDAT architecture document.
 
 | # | Capability ID | Capability Name | L1 Process Group | Current Hops | Future Hops |
 |:---:|:---:|---|---|:---:|:---:|
-| 1 | [E2E-80](../../../E2E-80 R2 Customer Requests Expedite/E2E-80/output/docs/systems-architecture/E2E-80-Architecture.html) | R2A Option 1  Customer Requests Expedite - Service Fee with Existing SO | E2E-80 R2 Customer Requests Expedite | 1 | 1 |
-| 2 | [E2E-08](../../../Forecast to Stock/E2E-08/output/docs/systems-architecture/E2E-08-Architecture.html) | E2E-08 | Forecast to Stock | 1 | 1 |
-| 3 | [E2E-110](../../../Forecast to Stock/E2E-110/output/docs/systems-architecture/E2E-110-Architecture.html) | IMR Flow | Forecast to Stock | 1 | 1 |
-| 4 | [E2E-113](../../../Forecast to Stock/E2E-113/output/docs/systems-architecture/E2E-113-Architecture.html) | R3 IMR Labs Process | Forecast to Stock | 1 | 1 |
-| 5 | [E2E-117](../../../Forecast to Stock/E2E-117/output/docs/systems-architecture/E2E-117-Architecture.html) | E2E-117 | Forecast to Stock | 1 | 1 |
-| 6 | [E2E-118](../../../Forecast to Stock/E2E-118/output/docs/systems-architecture/E2E-118-Architecture.html) | E2E-118 | Forecast to Stock | 1 | 1 |
-| 7 | [E2E-122](../../../Forecast to Stock/E2E-122/output/docs/systems-architecture/E2E-122-Architecture.html) | E2E-122 | Forecast to Stock | 1 | 1 |
-| 8 | [E2E-45](../../../Forecast to Stock/E2E-45/output/docs/systems-architecture/E2E-45-Architecture.html) | E2E-45 | Forecast to Stock | 1 | 1 |
-| 9 | [E2E-67](../../../Forecast to Stock/E2E-67/output/docs/systems-architecture/E2E-67-Architecture.html) | E2E-67 | Forecast to Stock | 1 | 1 |
-| 10 | [E2E-68](../../../Forecast to Stock/E2E-68/output/docs/systems-architecture/E2E-68-Architecture.html) | -Intel Foundry   NPI planning and execution processes | Forecast to Stock | 1 | 1 |
-| 11 | [E2E-71](../../../Forecast to Stock/E2E-71/output/docs/systems-architecture/E2E-71-Architecture.html) | E2E-71 | Forecast to Stock | 1 | 1 |
-| 12 | [E2E-72](../../../Forecast to Stock/E2E-72/output/docs/systems-architecture/E2E-72-Architecture.html) | IP | Forecast to Stock | 1 | 1 |
-| 13 | [E2E-73](../../../Forecast to Stock/E2E-73/output/docs/systems-architecture/E2E-73-Architecture.html) | R3 Hybrid Manufacturing process with external Wafer Procurement & Internal processing of | Forecast to Stock | 1 | 1 |
-| 14 | [E2E-74](../../../Forecast to Stock/E2E-74/output/docs/systems-architecture/E2E-74-Architecture.html) | R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati | Forecast to Stock | 1 | 1 |
-| 15 | [E2E-76](../../../Forecast to Stock/E2E-76/output/docs/systems-architecture/E2E-76-Architecture.html) | Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus | Forecast to Stock | 1 | 1 |
-| 16 | [E2E-84](../../../Forecast to Stock/E2E-84/output/docs/systems-architecture/E2E-84-Architecture.html) | Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State) | Forecast to Stock | 1 | 1 |
-| 17 | [E2E-94](../../../Forecast to Stock/E2E-94/output/docs/systems-architecture/E2E-94-Architecture.html) | R3 Intel Foundry Maintenance process through spare parts (SWAP) | Forecast to Stock | 1 | 1 |
-| 18 | [E2E-89](../../../Master Data/E2E-89/output/docs/systems-architecture/E2E-89-Architecture.html) | R3 Customer Master Data | Master Data | 1 | 1 |
-| 19 | [E2E-90](../../../Master Data/E2E-90/output/docs/systems-architecture/E2E-90-Architecture.html) | R3 Material Master Data | Master Data | 1 | 1 |
-| 20 | [E2E-91](../../../Master Data/E2E-91/output/docs/systems-architecture/E2E-91-Architecture.html) | R3 Bill of Material BOM Data | Master Data | 1 | 1 |
-| 21 | [E2E-92](../../../Master Data/E2E-92/output/docs/systems-architecture/E2E-92-Architecture.html) | R3 Vendor Master Data | Master Data | 1 | 1 |
-| 22 | [IF_Simplified_PO-SO_Model](../../../Order to Cash/IF_Simplified_PO-SO_Model/output/docs/systems-architecture/IF_Simplified_PO-SO_Model-Architecture.html) | IF Simplified PO-SO Model | Order to Cash | 1 | 1 |
-| 23 | [Order_to_Cash_IF](../../../Order to Cash/Order_to_Cash_IF/output/docs/systems-architecture/Order_to_Cash_IF-Architecture.html) | Order to Cash (IF) | Order to Cash | 1 | 1 |
-| 24 | [Order_to_Cash_IP](../../../Order to Cash/Order_to_Cash_IP/output/docs/systems-architecture/Order_to_Cash_IP-Architecture.html) | Order to Cash (IP) | Order to Cash | 1 | 1 |
-| 25 | [E2E-100](../../../Procure to Pay/E2E-100/output/docs/systems-architecture/E2E-100-Architecture.html) | R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box | Procure to Pay | 1 | 1 |
-| 26 | [E2E-103](../../../Procure to Pay/E2E-103/output/docs/systems-architecture/E2E-103-Architecture.html) | R3 Procurement of WIINGS Replacement Related Commodities | Procure to Pay | 1 | 1 |
-| 27 | [E2E-107](../../../Procure to Pay/E2E-107/output/docs/systems-architecture/E2E-107-Architecture.html) | R3 - Partner Owned Equipment Order | Procure to Pay | 1 | 1 |
-| 28 | [E2E-112](../../../Procure to Pay/E2E-112/output/docs/systems-architecture/E2E-112-Architecture.html) | R3 Raw Silicon Procurement | Procure to Pay | 1 | 1 |
-| 29 | [E2E-114](../../../Procure to Pay/E2E-114/output/docs/systems-architecture/E2E-114-Architecture.html) | R4 SIMS Harvest Process | Procure to Pay | 1 | 1 |
-| 30 | [E2E-115](../../../Procure to Pay/E2E-115/output/docs/systems-architecture/E2E-115-Architecture.html) | R3 Inter-company Asset Transfer Process | Procure to Pay | 1 | 1 |
-| 31 | [E2E-116](../../../Procure to Pay/E2E-116/output/docs/systems-architecture/E2E-116-Architecture.html) | R3 Wafer Reclaim Process | Procure to Pay | 1 | 1 |
-| 32 | [E2E-119](../../../Procure to Pay/E2E-119/output/docs/systems-architecture/E2E-119-Architecture.html) | R3 Shipping Rejects Inventory Movement | Procure to Pay | 1 | 1 |
-| 33 | [E2E-121](../../../Procure to Pay/E2E-121/output/docs/systems-architecture/E2E-121-Architecture.html) | R3 RM Bailed Inventory Movement (Straddle) | Procure to Pay | 1 | 1 |
-| 34 | [E2E-123](../../../Procure to Pay/E2E-123/output/docs/systems-architecture/E2E-123-Architecture.html) | TD Substrates Manufacturing Process | Procure to Pay | 1 | 1 |
-| 35 | [E2E-40](../../../Procure to Pay/E2E-40/output/docs/systems-architecture/E2E-40-Architecture.html) | R3 Sourcing Request-Project to Contracts for Direct-Capital on Ariba with Pricing Updates | Procure to Pay | 1 | 1 |
-| 36 | [E2E-41](../../../Procure to Pay/E2E-41/output/docs/systems-architecture/E2E-41-Architecture.html) | R3 Sourcing Request | Procure to Pay | 1 | 1 |
-| 37 | [E2E-43](../../../Procure to Pay/E2E-43/output/docs/systems-architecture/E2E-43-Architecture.html) | Process Procurement Card Invoice | Procure to Pay | 1 | 1 |
-| 38 | [E2E-44](../../../Procure to Pay/E2E-44/output/docs/systems-architecture/E2E-44-Architecture.html) | R3 - Intel Owned Consignment with Planning Integration | Procure to Pay | 1 | 1 |
-| 39 | [E2E-46](../../../Procure to Pay/E2E-46/output/docs/systems-architecture/E2E-46-Architecture.html) | R3 Direct procurement with Planning Integration-AT | Procure to Pay | 1 | 1 |
-| 40 | [E2E-47](../../../Procure to Pay/E2E-47/output/docs/systems-architecture/E2E-47-Architecture.html) | Purchase Requisition to Payments for Direct procurement with planning integration - Fab Mater | Procure to Pay | 1 | 1 |
-| 41 | [E2E-49](../../../Procure to Pay/E2E-49/output/docs/systems-architecture/E2E-49-Architecture.html) | R3 Purchase Requisition to Payments for procurement with financial planning and asset managem | Procure to Pay | 1 | 1 |
-| 42 | [E2E-50](../../../Procure to Pay/E2E-50/output/docs/systems-architecture/E2E-50-Architecture.html) | Purchase Requisition to Payments for Indirect - Construction (Small Construction IPCS, Mainte | Procure to Pay | 1 | 1 |
-| 43 | [E2E-51](../../../Procure to Pay/E2E-51/output/docs/systems-architecture/E2E-51-Architecture.html) | Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​ | Procure to Pay | 1 | 1 |
-| 44 | [E2E-52](../../../Procure to Pay/E2E-52/output/docs/systems-architecture/E2E-52-Architecture.html) | Purchase Requisition to Payments for Indirect Non-Mfg. &amp; Mfg. procurement | Procure to Pay | 1 | 1 |
-| 45 | [E2E-53](../../../Procure to Pay/E2E-53/output/docs/systems-architecture/E2E-53-Architecture.html) | Purchase Requisition to Payments for Indirect procurement (simple material or services like H | Procure to Pay | 1 | 1 |
-| 46 | [E2E-57](../../../Procure to Pay/E2E-57/output/docs/systems-architecture/E2E-57-Architecture.html) | R3 Subcontracting with Planning integration- Foundry,OSAT,ODM | Procure to Pay | 1 | 1 |
-| 47 | [E2E-59](../../../Procure to Pay/E2E-59/output/docs/systems-architecture/E2E-59-Architecture.html) | R3 Rework Re-localization in Factory​ | Procure to Pay | 1 | 1 |
-| 48 | [E2E-61](../../../Procure to Pay/E2E-61/output/docs/systems-architecture/E2E-61-Architecture.html) | R3 Consignment Material - Vendor | Procure to Pay | 1 | 1 |
-| 49 | [E2E-62](../../../Procure to Pay/E2E-62/output/docs/systems-architecture/E2E-62-Architecture.html) | R3 Vendor Return for Direct Material | Procure to Pay | 1 | 1 |
-| 50 | [E2E-70](../../../Procure to Pay/E2E-70/output/docs/systems-architecture/E2E-70-Architecture.html) | R3 - Substrates - (PTP) PR to PO scope for Internal Manufacturing (Intel Foundry) & Exte | Procure to Pay | 1 | 1 |
-| 51 | [E2E-88](../../../Procure to Pay/E2E-88/output/docs/systems-architecture/E2E-88-Architecture.html) | R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme | Procure to Pay | 1 | 1 |
-| 52 | [E2E-96](../../../Procure to Pay/E2E-96/output/docs/systems-architecture/E2E-96-Architecture.html) | R3 Straddle & R4 SIMS Design with Returns | Procure to Pay | 1 | 1 |
-| 53 | [E2E-98](../../../Procure to Pay/E2E-98/output/docs/systems-architecture/E2E-98-Architecture.html) | R3 Equipment Product Supporting Items (PSI) Procurement | Procure to Pay | 1 | 1 |
+| 1 | [E2E-80](/towers/E2E/E2E-80-R2-Customer-Requests-Expedite/E2E-80/output/docs/systems-architecture/E2E-80-Architecture.html) | R2A Option 1  Customer Requests Expedite - Service Fee with Existing SO | E2E-80 R2 Customer Requests Expedite | 1 | 1 |
+| 2 | [E2E-08](/towers/E2E/Forecast-to-Stock/E2E-08/output/docs/systems-architecture/E2E-08-Architecture.html) | E2E-08 | Forecast to Stock | 1 | 1 |
+| 3 | [E2E-110](/towers/E2E/Forecast-to-Stock/E2E-110/output/docs/systems-architecture/E2E-110-Architecture.html) | IMR Flow | Forecast to Stock | 1 | 1 |
+| 4 | [E2E-113](/towers/E2E/Forecast-to-Stock/E2E-113/output/docs/systems-architecture/E2E-113-Architecture.html) | R3 IMR Labs Process | Forecast to Stock | 1 | 1 |
+| 5 | [E2E-117](/towers/E2E/Forecast-to-Stock/E2E-117/output/docs/systems-architecture/E2E-117-Architecture.html) | E2E-117 | Forecast to Stock | 1 | 1 |
+| 6 | [E2E-118](/towers/E2E/Forecast-to-Stock/E2E-118/output/docs/systems-architecture/E2E-118-Architecture.html) | E2E-118 | Forecast to Stock | 1 | 1 |
+| 7 | [E2E-122](/towers/E2E/Forecast-to-Stock/E2E-122/output/docs/systems-architecture/E2E-122-Architecture.html) | E2E-122 | Forecast to Stock | 1 | 1 |
+| 8 | [E2E-45](/towers/E2E/Forecast-to-Stock/E2E-45/output/docs/systems-architecture/E2E-45-Architecture.html) | E2E-45 | Forecast to Stock | 1 | 1 |
+| 9 | [E2E-67](/towers/E2E/Forecast-to-Stock/E2E-67/output/docs/systems-architecture/E2E-67-Architecture.html) | E2E-67 | Forecast to Stock | 1 | 1 |
+| 10 | [E2E-68](/towers/E2E/Forecast-to-Stock/E2E-68/output/docs/systems-architecture/E2E-68-Architecture.html) | -Intel Foundry   NPI planning and execution processes | Forecast to Stock | 1 | 1 |
+| 11 | [E2E-71](/towers/E2E/Forecast-to-Stock/E2E-71/output/docs/systems-architecture/E2E-71-Architecture.html) | E2E-71 | Forecast to Stock | 1 | 1 |
+| 12 | [E2E-72](/towers/E2E/Forecast-to-Stock/E2E-72/output/docs/systems-architecture/E2E-72-Architecture.html) | IP | Forecast to Stock | 1 | 1 |
+| 13 | [E2E-73](/towers/E2E/Forecast-to-Stock/E2E-73/output/docs/systems-architecture/E2E-73-Architecture.html) | R3 Hybrid Manufacturing process with external Wafer Procurement & Internal processing of | Forecast to Stock | 1 | 1 |
+| 14 | [E2E-74](/towers/E2E/Forecast-to-Stock/E2E-74/output/docs/systems-architecture/E2E-74-Architecture.html) | R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati | Forecast to Stock | 1 | 1 |
+| 15 | [E2E-76](/towers/E2E/Forecast-to-Stock/E2E-76/output/docs/systems-architecture/E2E-76-Architecture.html) | Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus | Forecast to Stock | 1 | 1 |
+| 16 | [E2E-84](/towers/E2E/Forecast-to-Stock/E2E-84/output/docs/systems-architecture/E2E-84-Architecture.html) | Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State) | Forecast to Stock | 1 | 1 |
+| 17 | [E2E-94](/towers/E2E/Forecast-to-Stock/E2E-94/output/docs/systems-architecture/E2E-94-Architecture.html) | R3 Intel Foundry Maintenance process through spare parts (SWAP) | Forecast to Stock | 1 | 1 |
+| 18 | [E2E-89](/towers/E2E/Master-Data/E2E-89/output/docs/systems-architecture/E2E-89-Architecture.html) | R3 Customer Master Data | Master Data | 1 | 1 |
+| 19 | [E2E-90](/towers/E2E/Master-Data/E2E-90/output/docs/systems-architecture/E2E-90-Architecture.html) | R3 Material Master Data | Master Data | 1 | 1 |
+| 20 | [E2E-91](/towers/E2E/Master-Data/E2E-91/output/docs/systems-architecture/E2E-91-Architecture.html) | R3 Bill of Material BOM Data | Master Data | 1 | 1 |
+| 21 | [E2E-92](/towers/E2E/Master-Data/E2E-92/output/docs/systems-architecture/E2E-92-Architecture.html) | R3 Vendor Master Data | Master Data | 1 | 1 |
+| 22 | [IF_Simplified_PO-SO_Model](/towers/E2E/Order-to-Cash/IF_Simplified_PO-SO_Model/output/docs/systems-architecture/IF_Simplified_PO-SO_Model-Architecture.html) | IF Simplified PO-SO Model | Order to Cash | 1 | 1 |
+| 23 | [Order_to_Cash_IF](/towers/E2E/Order-to-Cash/Order_to_Cash_IF/output/docs/systems-architecture/Order_to_Cash_IF-Architecture.html) | Order to Cash (IF) | Order to Cash | 1 | 1 |
+| 24 | [Order_to_Cash_IP](/towers/E2E/Order-to-Cash/Order_to_Cash_IP/output/docs/systems-architecture/Order_to_Cash_IP-Architecture.html) | Order to Cash (IP) | Order to Cash | 1 | 1 |
+| 25 | [E2E-100](/towers/E2E/Procure-to-Pay/E2E-100/output/docs/systems-architecture/E2E-100-Architecture.html) | R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box | Procure to Pay | 1 | 1 |
+| 26 | [E2E-103](/towers/E2E/Procure-to-Pay/E2E-103/output/docs/systems-architecture/E2E-103-Architecture.html) | R3 Procurement of WIINGS Replacement Related Commodities | Procure to Pay | 1 | 1 |
+| 27 | [E2E-107](/towers/E2E/Procure-to-Pay/E2E-107/output/docs/systems-architecture/E2E-107-Architecture.html) | R3 - Partner Owned Equipment Order | Procure to Pay | 1 | 1 |
+| 28 | [E2E-112](/towers/E2E/Procure-to-Pay/E2E-112/output/docs/systems-architecture/E2E-112-Architecture.html) | R3 Raw Silicon Procurement | Procure to Pay | 1 | 1 |
+| 29 | [E2E-114](/towers/E2E/Procure-to-Pay/E2E-114/output/docs/systems-architecture/E2E-114-Architecture.html) | R4 SIMS Harvest Process | Procure to Pay | 1 | 1 |
+| 30 | [E2E-115](/towers/E2E/Procure-to-Pay/E2E-115/output/docs/systems-architecture/E2E-115-Architecture.html) | R3 Inter-company Asset Transfer Process | Procure to Pay | 1 | 1 |
+| 31 | [E2E-116](/towers/E2E/Procure-to-Pay/E2E-116/output/docs/systems-architecture/E2E-116-Architecture.html) | R3 Wafer Reclaim Process | Procure to Pay | 1 | 1 |
+| 32 | [E2E-119](/towers/E2E/Procure-to-Pay/E2E-119/output/docs/systems-architecture/E2E-119-Architecture.html) | R3 Shipping Rejects Inventory Movement | Procure to Pay | 1 | 1 |
+| 33 | [E2E-121](/towers/E2E/Procure-to-Pay/E2E-121/output/docs/systems-architecture/E2E-121-Architecture.html) | R3 RM Bailed Inventory Movement (Straddle) | Procure to Pay | 1 | 1 |
+| 34 | [E2E-123](/towers/E2E/Procure-to-Pay/E2E-123/output/docs/systems-architecture/E2E-123-Architecture.html) | TD Substrates Manufacturing Process | Procure to Pay | 1 | 1 |
+| 35 | [E2E-40](/towers/E2E/Procure-to-Pay/E2E-40/output/docs/systems-architecture/E2E-40-Architecture.html) | R3 Sourcing Request-Project to Contracts for Direct-Capital on Ariba with Pricing Updates | Procure to Pay | 1 | 1 |
+| 36 | [E2E-41](/towers/E2E/Procure-to-Pay/E2E-41/output/docs/systems-architecture/E2E-41-Architecture.html) | R3 Sourcing Request | Procure to Pay | 1 | 1 |
+| 37 | [E2E-43](/towers/E2E/Procure-to-Pay/E2E-43/output/docs/systems-architecture/E2E-43-Architecture.html) | Process Procurement Card Invoice | Procure to Pay | 1 | 1 |
+| 38 | [E2E-44](/towers/E2E/Procure-to-Pay/E2E-44/output/docs/systems-architecture/E2E-44-Architecture.html) | R3 - Intel Owned Consignment with Planning Integration | Procure to Pay | 1 | 1 |
+| 39 | [E2E-46](/towers/E2E/Procure-to-Pay/E2E-46/output/docs/systems-architecture/E2E-46-Architecture.html) | R3 Direct procurement with Planning Integration-AT | Procure to Pay | 1 | 1 |
+| 40 | [E2E-47](/towers/E2E/Procure-to-Pay/E2E-47/output/docs/systems-architecture/E2E-47-Architecture.html) | Purchase Requisition to Payments for Direct procurement with planning integration - Fab Mater | Procure to Pay | 1 | 1 |
+| 41 | [E2E-49](/towers/E2E/Procure-to-Pay/E2E-49/output/docs/systems-architecture/E2E-49-Architecture.html) | R3 Purchase Requisition to Payments for procurement with financial planning and asset managem | Procure to Pay | 1 | 1 |
+| 42 | [E2E-50](/towers/E2E/Procure-to-Pay/E2E-50/output/docs/systems-architecture/E2E-50-Architecture.html) | Purchase Requisition to Payments for Indirect - Construction (Small Construction IPCS, Mainte | Procure to Pay | 1 | 1 |
+| 43 | [E2E-51](/towers/E2E/Procure-to-Pay/E2E-51/output/docs/systems-architecture/E2E-51-Architecture.html) | Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​ | Procure to Pay | 1 | 1 |
+| 44 | [E2E-52](/towers/E2E/Procure-to-Pay/E2E-52/output/docs/systems-architecture/E2E-52-Architecture.html) | Purchase Requisition to Payments for Indirect Non-Mfg. &amp; Mfg. procurement | Procure to Pay | 1 | 1 |
+| 45 | [E2E-53](/towers/E2E/Procure-to-Pay/E2E-53/output/docs/systems-architecture/E2E-53-Architecture.html) | Purchase Requisition to Payments for Indirect procurement (simple material or services like H | Procure to Pay | 1 | 1 |
+| 46 | [E2E-57](/towers/E2E/Procure-to-Pay/E2E-57/output/docs/systems-architecture/E2E-57-Architecture.html) | R3 Subcontracting with Planning integration- Foundry,OSAT,ODM | Procure to Pay | 1 | 1 |
+| 47 | [E2E-59](/towers/E2E/Procure-to-Pay/E2E-59/output/docs/systems-architecture/E2E-59-Architecture.html) | R3 Rework Re-localization in Factory​ | Procure to Pay | 1 | 1 |
+| 48 | [E2E-61](/towers/E2E/Procure-to-Pay/E2E-61/output/docs/systems-architecture/E2E-61-Architecture.html) | R3 Consignment Material - Vendor | Procure to Pay | 1 | 1 |
+| 49 | [E2E-62](/towers/E2E/Procure-to-Pay/E2E-62/output/docs/systems-architecture/E2E-62-Architecture.html) | R3 Vendor Return for Direct Material | Procure to Pay | 1 | 1 |
+| 50 | [E2E-70](/towers/E2E/Procure-to-Pay/E2E-70/output/docs/systems-architecture/E2E-70-Architecture.html) | R3 - Substrates - (PTP) PR to PO scope for Internal Manufacturing (Intel Foundry) & Exte | Procure to Pay | 1 | 1 |
+| 51 | [E2E-88](/towers/E2E/Procure-to-Pay/E2E-88/output/docs/systems-architecture/E2E-88-Architecture.html) | R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme | Procure to Pay | 1 | 1 |
+| 52 | [E2E-96](/towers/E2E/Procure-to-Pay/E2E-96/output/docs/systems-architecture/E2E-96-Architecture.html) | R3 Straddle & R4 SIMS Design with Returns | Procure to Pay | 1 | 1 |
+| 53 | [E2E-98](/towers/E2E/Procure-to-Pay/E2E-98/output/docs/systems-architecture/E2E-98-Architecture.html) | R3 Equipment Product Supporting Items (PSI) Procurement | Procure to Pay | 1 | 1 |
 
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>End-to-End Integrated Processes (E2E)</span></div>
 <div style="page-break-before: always;"></div>
@@ -452,57 +452,57 @@ Each L2 document contains the full TOGAF BDAT analysis including:
 
 | # | Capability | L1 Process | Architecture Doc |
 |:---:|---|---|---|
-| 1 | R2A Option 1  Customer Requests Expedite - Service Fee with Existing SO | E2E-80 R2 Customer Requests Expedite | [E2E-80](../../../E2E-80 R2 Customer Requests Expedite/E2E-80/output/docs/systems-architecture/E2E-80-Architecture.html) |
-| 2 | E2E-08 | Forecast to Stock | [E2E-08](../../../Forecast to Stock/E2E-08/output/docs/systems-architecture/E2E-08-Architecture.html) |
-| 3 | IMR Flow | Forecast to Stock | [E2E-110](../../../Forecast to Stock/E2E-110/output/docs/systems-architecture/E2E-110-Architecture.html) |
-| 4 | R3 IMR Labs Process | Forecast to Stock | [E2E-113](../../../Forecast to Stock/E2E-113/output/docs/systems-architecture/E2E-113-Architecture.html) |
-| 5 | E2E-117 | Forecast to Stock | [E2E-117](../../../Forecast to Stock/E2E-117/output/docs/systems-architecture/E2E-117-Architecture.html) |
-| 6 | E2E-118 | Forecast to Stock | [E2E-118](../../../Forecast to Stock/E2E-118/output/docs/systems-architecture/E2E-118-Architecture.html) |
-| 7 | E2E-122 | Forecast to Stock | [E2E-122](../../../Forecast to Stock/E2E-122/output/docs/systems-architecture/E2E-122-Architecture.html) |
-| 8 | E2E-45 | Forecast to Stock | [E2E-45](../../../Forecast to Stock/E2E-45/output/docs/systems-architecture/E2E-45-Architecture.html) |
-| 9 | E2E-67 | Forecast to Stock | [E2E-67](../../../Forecast to Stock/E2E-67/output/docs/systems-architecture/E2E-67-Architecture.html) |
-| 10 | -Intel Foundry   NPI planning and execution processes | Forecast to Stock | [E2E-68](../../../Forecast to Stock/E2E-68/output/docs/systems-architecture/E2E-68-Architecture.html) |
-| 11 | E2E-71 | Forecast to Stock | [E2E-71](../../../Forecast to Stock/E2E-71/output/docs/systems-architecture/E2E-71-Architecture.html) |
-| 12 | IP | Forecast to Stock | [E2E-72](../../../Forecast to Stock/E2E-72/output/docs/systems-architecture/E2E-72-Architecture.html) |
-| 13 | R3 Hybrid Manufacturing process with external Wafer Procurement & Internal processing of | Forecast to Stock | [E2E-73](../../../Forecast to Stock/E2E-73/output/docs/systems-architecture/E2E-73-Architecture.html) |
-| 14 | R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati | Forecast to Stock | [E2E-74](../../../Forecast to Stock/E2E-74/output/docs/systems-architecture/E2E-74-Architecture.html) |
-| 15 | Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus | Forecast to Stock | [E2E-76](../../../Forecast to Stock/E2E-76/output/docs/systems-architecture/E2E-76-Architecture.html) |
-| 16 | Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State) | Forecast to Stock | [E2E-84](../../../Forecast to Stock/E2E-84/output/docs/systems-architecture/E2E-84-Architecture.html) |
-| 17 | R3 Intel Foundry Maintenance process through spare parts (SWAP) | Forecast to Stock | [E2E-94](../../../Forecast to Stock/E2E-94/output/docs/systems-architecture/E2E-94-Architecture.html) |
-| 18 | R3 Customer Master Data | Master Data | [E2E-89](../../../Master Data/E2E-89/output/docs/systems-architecture/E2E-89-Architecture.html) |
-| 19 | R3 Material Master Data | Master Data | [E2E-90](../../../Master Data/E2E-90/output/docs/systems-architecture/E2E-90-Architecture.html) |
-| 20 | R3 Bill of Material BOM Data | Master Data | [E2E-91](../../../Master Data/E2E-91/output/docs/systems-architecture/E2E-91-Architecture.html) |
-| 21 | R3 Vendor Master Data | Master Data | [E2E-92](../../../Master Data/E2E-92/output/docs/systems-architecture/E2E-92-Architecture.html) |
-| 22 | IF Simplified PO-SO Model | Order to Cash | [IF_Simplified_PO-SO_Model](../../../Order to Cash/IF_Simplified_PO-SO_Model/output/docs/systems-architecture/IF_Simplified_PO-SO_Model-Architecture.html) |
-| 23 | Order to Cash (IF) | Order to Cash | [Order_to_Cash_IF](../../../Order to Cash/Order_to_Cash_IF/output/docs/systems-architecture/Order_to_Cash_IF-Architecture.html) |
-| 24 | Order to Cash (IP) | Order to Cash | [Order_to_Cash_IP](../../../Order to Cash/Order_to_Cash_IP/output/docs/systems-architecture/Order_to_Cash_IP-Architecture.html) |
-| 25 | R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box | Procure to Pay | [E2E-100](../../../Procure to Pay/E2E-100/output/docs/systems-architecture/E2E-100-Architecture.html) |
-| 26 | R3 Procurement of WIINGS Replacement Related Commodities | Procure to Pay | [E2E-103](../../../Procure to Pay/E2E-103/output/docs/systems-architecture/E2E-103-Architecture.html) |
-| 27 | R3 - Partner Owned Equipment Order | Procure to Pay | [E2E-107](../../../Procure to Pay/E2E-107/output/docs/systems-architecture/E2E-107-Architecture.html) |
-| 28 | R3 Raw Silicon Procurement | Procure to Pay | [E2E-112](../../../Procure to Pay/E2E-112/output/docs/systems-architecture/E2E-112-Architecture.html) |
-| 29 | R4 SIMS Harvest Process | Procure to Pay | [E2E-114](../../../Procure to Pay/E2E-114/output/docs/systems-architecture/E2E-114-Architecture.html) |
-| 30 | R3 Inter-company Asset Transfer Process | Procure to Pay | [E2E-115](../../../Procure to Pay/E2E-115/output/docs/systems-architecture/E2E-115-Architecture.html) |
-| 31 | R3 Wafer Reclaim Process | Procure to Pay | [E2E-116](../../../Procure to Pay/E2E-116/output/docs/systems-architecture/E2E-116-Architecture.html) |
-| 32 | R3 Shipping Rejects Inventory Movement | Procure to Pay | [E2E-119](../../../Procure to Pay/E2E-119/output/docs/systems-architecture/E2E-119-Architecture.html) |
-| 33 | R3 RM Bailed Inventory Movement (Straddle) | Procure to Pay | [E2E-121](../../../Procure to Pay/E2E-121/output/docs/systems-architecture/E2E-121-Architecture.html) |
-| 34 | TD Substrates Manufacturing Process | Procure to Pay | [E2E-123](../../../Procure to Pay/E2E-123/output/docs/systems-architecture/E2E-123-Architecture.html) |
-| 35 | R3 Sourcing Request-Project to Contracts for Direct-Capital on Ariba with Pricing Updates | Procure to Pay | [E2E-40](../../../Procure to Pay/E2E-40/output/docs/systems-architecture/E2E-40-Architecture.html) |
-| 36 | R3 Sourcing Request | Procure to Pay | [E2E-41](../../../Procure to Pay/E2E-41/output/docs/systems-architecture/E2E-41-Architecture.html) |
-| 37 | Process Procurement Card Invoice | Procure to Pay | [E2E-43](../../../Procure to Pay/E2E-43/output/docs/systems-architecture/E2E-43-Architecture.html) |
-| 38 | R3 - Intel Owned Consignment with Planning Integration | Procure to Pay | [E2E-44](../../../Procure to Pay/E2E-44/output/docs/systems-architecture/E2E-44-Architecture.html) |
-| 39 | R3 Direct procurement with Planning Integration-AT | Procure to Pay | [E2E-46](../../../Procure to Pay/E2E-46/output/docs/systems-architecture/E2E-46-Architecture.html) |
-| 40 | Purchase Requisition to Payments for Direct procurement with planning integration - Fab Mater | Procure to Pay | [E2E-47](../../../Procure to Pay/E2E-47/output/docs/systems-architecture/E2E-47-Architecture.html) |
-| 41 | R3 Purchase Requisition to Payments for procurement with financial planning and asset managem | Procure to Pay | [E2E-49](../../../Procure to Pay/E2E-49/output/docs/systems-architecture/E2E-49-Architecture.html) |
-| 42 | Purchase Requisition to Payments for Indirect - Construction (Small Construction IPCS, Mainte | Procure to Pay | [E2E-50](../../../Procure to Pay/E2E-50/output/docs/systems-architecture/E2E-50-Architecture.html) |
-| 43 | Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​ | Procure to Pay | [E2E-51](../../../Procure to Pay/E2E-51/output/docs/systems-architecture/E2E-51-Architecture.html) |
-| 44 | Purchase Requisition to Payments for Indirect Non-Mfg. &amp; Mfg. procurement | Procure to Pay | [E2E-52](../../../Procure to Pay/E2E-52/output/docs/systems-architecture/E2E-52-Architecture.html) |
-| 45 | Purchase Requisition to Payments for Indirect procurement (simple material or services like H | Procure to Pay | [E2E-53](../../../Procure to Pay/E2E-53/output/docs/systems-architecture/E2E-53-Architecture.html) |
-| 46 | R3 Subcontracting with Planning integration- Foundry,OSAT,ODM | Procure to Pay | [E2E-57](../../../Procure to Pay/E2E-57/output/docs/systems-architecture/E2E-57-Architecture.html) |
-| 47 | R3 Rework Re-localization in Factory​ | Procure to Pay | [E2E-59](../../../Procure to Pay/E2E-59/output/docs/systems-architecture/E2E-59-Architecture.html) |
-| 48 | R3 Consignment Material - Vendor | Procure to Pay | [E2E-61](../../../Procure to Pay/E2E-61/output/docs/systems-architecture/E2E-61-Architecture.html) |
-| 49 | R3 Vendor Return for Direct Material | Procure to Pay | [E2E-62](../../../Procure to Pay/E2E-62/output/docs/systems-architecture/E2E-62-Architecture.html) |
-| 50 | R3 - Substrates - (PTP) PR to PO scope for Internal Manufacturing (Intel Foundry) & Exte | Procure to Pay | [E2E-70](../../../Procure to Pay/E2E-70/output/docs/systems-architecture/E2E-70-Architecture.html) |
-| 51 | R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme | Procure to Pay | [E2E-88](../../../Procure to Pay/E2E-88/output/docs/systems-architecture/E2E-88-Architecture.html) |
-| 52 | R3 Straddle & R4 SIMS Design with Returns | Procure to Pay | [E2E-96](../../../Procure to Pay/E2E-96/output/docs/systems-architecture/E2E-96-Architecture.html) |
-| 53 | R3 Equipment Product Supporting Items (PSI) Procurement | Procure to Pay | [E2E-98](../../../Procure to Pay/E2E-98/output/docs/systems-architecture/E2E-98-Architecture.html) |
+| 1 | R2A Option 1  Customer Requests Expedite - Service Fee with Existing SO | E2E-80 R2 Customer Requests Expedite | [E2E-80](/towers/E2E/E2E-80-R2-Customer-Requests-Expedite/E2E-80/output/docs/systems-architecture/E2E-80-Architecture.html) |
+| 2 | E2E-08 | Forecast to Stock | [E2E-08](/towers/E2E/Forecast-to-Stock/E2E-08/output/docs/systems-architecture/E2E-08-Architecture.html) |
+| 3 | IMR Flow | Forecast to Stock | [E2E-110](/towers/E2E/Forecast-to-Stock/E2E-110/output/docs/systems-architecture/E2E-110-Architecture.html) |
+| 4 | R3 IMR Labs Process | Forecast to Stock | [E2E-113](/towers/E2E/Forecast-to-Stock/E2E-113/output/docs/systems-architecture/E2E-113-Architecture.html) |
+| 5 | E2E-117 | Forecast to Stock | [E2E-117](/towers/E2E/Forecast-to-Stock/E2E-117/output/docs/systems-architecture/E2E-117-Architecture.html) |
+| 6 | E2E-118 | Forecast to Stock | [E2E-118](/towers/E2E/Forecast-to-Stock/E2E-118/output/docs/systems-architecture/E2E-118-Architecture.html) |
+| 7 | E2E-122 | Forecast to Stock | [E2E-122](/towers/E2E/Forecast-to-Stock/E2E-122/output/docs/systems-architecture/E2E-122-Architecture.html) |
+| 8 | E2E-45 | Forecast to Stock | [E2E-45](/towers/E2E/Forecast-to-Stock/E2E-45/output/docs/systems-architecture/E2E-45-Architecture.html) |
+| 9 | E2E-67 | Forecast to Stock | [E2E-67](/towers/E2E/Forecast-to-Stock/E2E-67/output/docs/systems-architecture/E2E-67-Architecture.html) |
+| 10 | -Intel Foundry   NPI planning and execution processes | Forecast to Stock | [E2E-68](/towers/E2E/Forecast-to-Stock/E2E-68/output/docs/systems-architecture/E2E-68-Architecture.html) |
+| 11 | E2E-71 | Forecast to Stock | [E2E-71](/towers/E2E/Forecast-to-Stock/E2E-71/output/docs/systems-architecture/E2E-71-Architecture.html) |
+| 12 | IP | Forecast to Stock | [E2E-72](/towers/E2E/Forecast-to-Stock/E2E-72/output/docs/systems-architecture/E2E-72-Architecture.html) |
+| 13 | R3 Hybrid Manufacturing process with external Wafer Procurement & Internal processing of | Forecast to Stock | [E2E-73](/towers/E2E/Forecast-to-Stock/E2E-73/output/docs/systems-architecture/E2E-73-Architecture.html) |
+| 14 | R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati | Forecast to Stock | [E2E-74](/towers/E2E/Forecast-to-Stock/E2E-74/output/docs/systems-architecture/E2E-74-Architecture.html) |
+| 15 | Internal manufacturing process for Finished Goods in Intel Foundry with sales to External cus | Forecast to Stock | [E2E-76](/towers/E2E/Forecast-to-Stock/E2E-76/output/docs/systems-architecture/E2E-76-Architecture.html) |
+| 16 | Intel Foundry - Inventory Transfer  Shipment of goods through Stock transfer (Interim State) | Forecast to Stock | [E2E-84](/towers/E2E/Forecast-to-Stock/E2E-84/output/docs/systems-architecture/E2E-84-Architecture.html) |
+| 17 | R3 Intel Foundry Maintenance process through spare parts (SWAP) | Forecast to Stock | [E2E-94](/towers/E2E/Forecast-to-Stock/E2E-94/output/docs/systems-architecture/E2E-94-Architecture.html) |
+| 18 | R3 Customer Master Data | Master Data | [E2E-89](/towers/E2E/Master-Data/E2E-89/output/docs/systems-architecture/E2E-89-Architecture.html) |
+| 19 | R3 Material Master Data | Master Data | [E2E-90](/towers/E2E/Master-Data/E2E-90/output/docs/systems-architecture/E2E-90-Architecture.html) |
+| 20 | R3 Bill of Material BOM Data | Master Data | [E2E-91](/towers/E2E/Master-Data/E2E-91/output/docs/systems-architecture/E2E-91-Architecture.html) |
+| 21 | R3 Vendor Master Data | Master Data | [E2E-92](/towers/E2E/Master-Data/E2E-92/output/docs/systems-architecture/E2E-92-Architecture.html) |
+| 22 | IF Simplified PO-SO Model | Order to Cash | [IF_Simplified_PO-SO_Model](/towers/E2E/Order-to-Cash/IF_Simplified_PO-SO_Model/output/docs/systems-architecture/IF_Simplified_PO-SO_Model-Architecture.html) |
+| 23 | Order to Cash (IF) | Order to Cash | [Order_to_Cash_IF](/towers/E2E/Order-to-Cash/Order_to_Cash_IF/output/docs/systems-architecture/Order_to_Cash_IF-Architecture.html) |
+| 24 | Order to Cash (IP) | Order to Cash | [Order_to_Cash_IP](/towers/E2E/Order-to-Cash/Order_to_Cash_IP/output/docs/systems-architecture/Order_to_Cash_IP-Architecture.html) |
+| 25 | R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box | Procure to Pay | [E2E-100](/towers/E2E/Procure-to-Pay/E2E-100/output/docs/systems-architecture/E2E-100-Architecture.html) |
+| 26 | R3 Procurement of WIINGS Replacement Related Commodities | Procure to Pay | [E2E-103](/towers/E2E/Procure-to-Pay/E2E-103/output/docs/systems-architecture/E2E-103-Architecture.html) |
+| 27 | R3 - Partner Owned Equipment Order | Procure to Pay | [E2E-107](/towers/E2E/Procure-to-Pay/E2E-107/output/docs/systems-architecture/E2E-107-Architecture.html) |
+| 28 | R3 Raw Silicon Procurement | Procure to Pay | [E2E-112](/towers/E2E/Procure-to-Pay/E2E-112/output/docs/systems-architecture/E2E-112-Architecture.html) |
+| 29 | R4 SIMS Harvest Process | Procure to Pay | [E2E-114](/towers/E2E/Procure-to-Pay/E2E-114/output/docs/systems-architecture/E2E-114-Architecture.html) |
+| 30 | R3 Inter-company Asset Transfer Process | Procure to Pay | [E2E-115](/towers/E2E/Procure-to-Pay/E2E-115/output/docs/systems-architecture/E2E-115-Architecture.html) |
+| 31 | R3 Wafer Reclaim Process | Procure to Pay | [E2E-116](/towers/E2E/Procure-to-Pay/E2E-116/output/docs/systems-architecture/E2E-116-Architecture.html) |
+| 32 | R3 Shipping Rejects Inventory Movement | Procure to Pay | [E2E-119](/towers/E2E/Procure-to-Pay/E2E-119/output/docs/systems-architecture/E2E-119-Architecture.html) |
+| 33 | R3 RM Bailed Inventory Movement (Straddle) | Procure to Pay | [E2E-121](/towers/E2E/Procure-to-Pay/E2E-121/output/docs/systems-architecture/E2E-121-Architecture.html) |
+| 34 | TD Substrates Manufacturing Process | Procure to Pay | [E2E-123](/towers/E2E/Procure-to-Pay/E2E-123/output/docs/systems-architecture/E2E-123-Architecture.html) |
+| 35 | R3 Sourcing Request-Project to Contracts for Direct-Capital on Ariba with Pricing Updates | Procure to Pay | [E2E-40](/towers/E2E/Procure-to-Pay/E2E-40/output/docs/systems-architecture/E2E-40-Architecture.html) |
+| 36 | R3 Sourcing Request | Procure to Pay | [E2E-41](/towers/E2E/Procure-to-Pay/E2E-41/output/docs/systems-architecture/E2E-41-Architecture.html) |
+| 37 | Process Procurement Card Invoice | Procure to Pay | [E2E-43](/towers/E2E/Procure-to-Pay/E2E-43/output/docs/systems-architecture/E2E-43-Architecture.html) |
+| 38 | R3 - Intel Owned Consignment with Planning Integration | Procure to Pay | [E2E-44](/towers/E2E/Procure-to-Pay/E2E-44/output/docs/systems-architecture/E2E-44-Architecture.html) |
+| 39 | R3 Direct procurement with Planning Integration-AT | Procure to Pay | [E2E-46](/towers/E2E/Procure-to-Pay/E2E-46/output/docs/systems-architecture/E2E-46-Architecture.html) |
+| 40 | Purchase Requisition to Payments for Direct procurement with planning integration - Fab Mater | Procure to Pay | [E2E-47](/towers/E2E/Procure-to-Pay/E2E-47/output/docs/systems-architecture/E2E-47-Architecture.html) |
+| 41 | R3 Purchase Requisition to Payments for procurement with financial planning and asset managem | Procure to Pay | [E2E-49](/towers/E2E/Procure-to-Pay/E2E-49/output/docs/systems-architecture/E2E-49-Architecture.html) |
+| 42 | Purchase Requisition to Payments for Indirect - Construction (Small Construction IPCS, Mainte | Procure to Pay | [E2E-50](/towers/E2E/Procure-to-Pay/E2E-50/output/docs/systems-architecture/E2E-50-Architecture.html) |
+| 43 | Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​ | Procure to Pay | [E2E-51](/towers/E2E/Procure-to-Pay/E2E-51/output/docs/systems-architecture/E2E-51-Architecture.html) |
+| 44 | Purchase Requisition to Payments for Indirect Non-Mfg. &amp; Mfg. procurement | Procure to Pay | [E2E-52](/towers/E2E/Procure-to-Pay/E2E-52/output/docs/systems-architecture/E2E-52-Architecture.html) |
+| 45 | Purchase Requisition to Payments for Indirect procurement (simple material or services like H | Procure to Pay | [E2E-53](/towers/E2E/Procure-to-Pay/E2E-53/output/docs/systems-architecture/E2E-53-Architecture.html) |
+| 46 | R3 Subcontracting with Planning integration- Foundry,OSAT,ODM | Procure to Pay | [E2E-57](/towers/E2E/Procure-to-Pay/E2E-57/output/docs/systems-architecture/E2E-57-Architecture.html) |
+| 47 | R3 Rework Re-localization in Factory​ | Procure to Pay | [E2E-59](/towers/E2E/Procure-to-Pay/E2E-59/output/docs/systems-architecture/E2E-59-Architecture.html) |
+| 48 | R3 Consignment Material - Vendor | Procure to Pay | [E2E-61](/towers/E2E/Procure-to-Pay/E2E-61/output/docs/systems-architecture/E2E-61-Architecture.html) |
+| 49 | R3 Vendor Return for Direct Material | Procure to Pay | [E2E-62](/towers/E2E/Procure-to-Pay/E2E-62/output/docs/systems-architecture/E2E-62-Architecture.html) |
+| 50 | R3 - Substrates - (PTP) PR to PO scope for Internal Manufacturing (Intel Foundry) & Exte | Procure to Pay | [E2E-70](/towers/E2E/Procure-to-Pay/E2E-70/output/docs/systems-architecture/E2E-70-Architecture.html) |
+| 51 | R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme | Procure to Pay | [E2E-88](/towers/E2E/Procure-to-Pay/E2E-88/output/docs/systems-architecture/E2E-88-Architecture.html) |
+| 52 | R3 Straddle & R4 SIMS Design with Returns | Procure to Pay | [E2E-96](/towers/E2E/Procure-to-Pay/E2E-96/output/docs/systems-architecture/E2E-96-Architecture.html) |
+| 53 | R3 Equipment Product Supporting Items (PSI) Procurement | Procure to Pay | [E2E-98](/towers/E2E/Procure-to-Pay/E2E-98/output/docs/systems-architecture/E2E-98-Architecture.html) |
 

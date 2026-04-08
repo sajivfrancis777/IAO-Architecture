@@ -101,10 +101,10 @@ Click a capability ID to view its full TOGAF BDAT architecture document.
 
 | # | Capability ID | Capability Name | L1 Process Group | Current Hops | Future Hops |
 |:---:|:---:|---|---|:---:|:---:|
-| 1 | [E2E-89](../../../Master Data/E2E-89/output/docs/systems-architecture/E2E-89-Architecture.html) | R3 Customer Master Data | Master Data | 1 | 1 |
-| 2 | [E2E-90](../../../Master Data/E2E-90/output/docs/systems-architecture/E2E-90-Architecture.html) | R3 Material Master Data | Master Data | 1 | 1 |
-| 3 | [E2E-91](../../../Master Data/E2E-91/output/docs/systems-architecture/E2E-91-Architecture.html) | R3 Bill of Material BOM Data | Master Data | 1 | 1 |
-| 4 | [E2E-92](../../../Master Data/E2E-92/output/docs/systems-architecture/E2E-92-Architecture.html) | R3 Vendor Master Data | Master Data | 1 | 1 |
+| 1 | [E2E-89](/towers/E2E/Master-Data/E2E-89/output/docs/systems-architecture/E2E-89-Architecture.html) | R3 Customer Master Data | Master Data | 1 | 1 |
+| 2 | [E2E-90](/towers/E2E/Master-Data/E2E-90/output/docs/systems-architecture/E2E-90-Architecture.html) | R3 Material Master Data | Master Data | 1 | 1 |
+| 3 | [E2E-91](/towers/E2E/Master-Data/E2E-91/output/docs/systems-architecture/E2E-91-Architecture.html) | R3 Bill of Material BOM Data | Master Data | 1 | 1 |
+| 4 | [E2E-92](/towers/E2E/Master-Data/E2E-92/output/docs/systems-architecture/E2E-92-Architecture.html) | R3 Vendor Master Data | Master Data | 1 | 1 |
 
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>Master Data</span></div>
 <div style="page-break-before: always;"></div>
@@ -403,8 +403,8 @@ Each L2 document contains the full TOGAF BDAT analysis including:
 
 | # | Capability | L1 Process | Architecture Doc |
 |:---:|---|---|---|
-| 1 | R3 Customer Master Data | Master Data | [E2E-89](../../../Master Data/E2E-89/output/docs/systems-architecture/E2E-89-Architecture.html) |
-| 2 | R3 Material Master Data | Master Data | [E2E-90](../../../Master Data/E2E-90/output/docs/systems-architecture/E2E-90-Architecture.html) |
-| 3 | R3 Bill of Material BOM Data | Master Data | [E2E-91](../../../Master Data/E2E-91/output/docs/systems-architecture/E2E-91-Architecture.html) |
-| 4 | R3 Vendor Master Data | Master Data | [E2E-92](../../../Master Data/E2E-92/output/docs/systems-architecture/E2E-92-Architecture.html) |
+| 1 | R3 Customer Master Data | Master Data | [E2E-89](/towers/E2E/Master-Data/E2E-89/output/docs/systems-architecture/E2E-89-Architecture.html) |
+| 2 | R3 Material Master Data | Master Data | [E2E-90](/towers/E2E/Master-Data/E2E-90/output/docs/systems-architecture/E2E-90-Architecture.html) |
+| 3 | R3 Bill of Material BOM Data | Master Data | [E2E-91](/towers/E2E/Master-Data/E2E-91/output/docs/systems-architecture/E2E-91-Architecture.html) |
+| 4 | R3 Vendor Master Data | Master Data | [E2E-92](/towers/E2E/Master-Data/E2E-92/output/docs/systems-architecture/E2E-92-Architecture.html) |
 

@@ -101,7 +101,7 @@ Click a capability ID to view its full TOGAF BDAT architecture document.
 
 | # | Capability ID | Capability Name | L1 Process Group | Current Hops | Future Hops |
 |:---:|:---:|---|---|:---:|:---:|
-| 1 | [E2E-80](../../../E2E-80 R2 Customer Requests Expedite/E2E-80/output/docs/systems-architecture/E2E-80-Architecture.html) | R2A Option 1  Customer Requests Expedite - Service Fee with Existing SO | E2E-80 R2 Customer Requests Expedite | 1 | 1 |
+| 1 | [E2E-80](/towers/E2E/E2E-80-R2-Customer-Requests-Expedite/E2E-80/output/docs/systems-architecture/E2E-80-Architecture.html) | R2A Option 1  Customer Requests Expedite - Service Fee with Existing SO | E2E-80 R2 Customer Requests Expedite | 1 | 1 |
 
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-80 R2 Customer Requests Expedite</span></div>
 <div style="page-break-before: always;"></div>
@@ -400,5 +400,5 @@ Each L2 document contains the full TOGAF BDAT analysis including:
 
 | # | Capability | L1 Process | Architecture Doc |
 |:---:|---|---|---|
-| 1 | R2A Option 1  Customer Requests Expedite - Service Fee with Existing SO | E2E-80 R2 Customer Requests Expedite | [E2E-80](../../../E2E-80 R2 Customer Requests Expedite/E2E-80/output/docs/systems-architecture/E2E-80-Architecture.html) |
+| 1 | R2A Option 1  Customer Requests Expedite - Service Fee with Existing SO | E2E-80 R2 Customer Requests Expedite | [E2E-80](/towers/E2E/E2E-80-R2-Customer-Requests-Expedite/E2E-80/output/docs/systems-architecture/E2E-80-Architecture.html) |
 
