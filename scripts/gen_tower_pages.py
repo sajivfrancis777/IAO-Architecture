@@ -169,28 +169,33 @@ def _find_cap_docs(tower: str, l1_name: str, cap_id: str) -> dict[str, str]:
     cap_dir = TOWERS_DIR / tower / l1_name / cap_id / "output" / "docs"
     docs: dict[str, str] = {}
 
-    def _encode_path(p: Path) -> str:
-        """Return workspace-relative path with URL-encoded segments."""
+    def _deploy_path(p: Path) -> str:
+        """Return workspace-relative path with spaces replaced by hyphens.
+
+        The deploy-pages.yml copies files into _site/ using
+        ``sed 's/ /-/g'`` on directory names, so all deployed URLs
+        use hyphens instead of spaces.
+        """
         raw = str(p.relative_to(WORKSPACE)).replace("\\", "/")
-        return "/".join(url_quote(seg, safe="") for seg in raw.split("/"))
+        return raw.replace(" ", "-")
 
     sad_dir = cap_dir / "systems-architecture"
     if sad_dir.exists():
         files = list(sad_dir.glob("*-Architecture.html"))
         if files:
-            docs["sad"] = _encode_path(files[0])
+            docs["sad"] = _deploy_path(files[0])
 
     ricefw_dir = cap_dir / "ricefw-tracker"
     if ricefw_dir.exists():
         files = list(ricefw_dir.glob("*-RICEFW-Tracker.html"))
         if files:
-            docs["ricefw"] = _encode_path(files[0])
+            docs["ricefw"] = _deploy_path(files[0])
 
     testing_dir = cap_dir / "testing-report"
     if testing_dir.exists():
         files = list(testing_dir.glob("*-Testing-Report.html"))
         if files:
-            docs["testing"] = _encode_path(files[0])
+            docs["testing"] = _deploy_path(files[0])
 
     return docs
 

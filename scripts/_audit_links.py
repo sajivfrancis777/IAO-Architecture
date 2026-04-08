@@ -1,11 +1,37 @@
 """Audit all portal links for broken references."""
 import json, os, re
 from pathlib import Path
-from urllib.parse import unquote as url_unquote
 
 WS = Path(r"c:\Users\sajivfra\Documents\IAO-JPNotebookPython")
 SITE = WS / "_site"
 CAP_DIR = SITE / "cap"
+
+
+def _resolve_deployed_path(root: Path, href: str) -> bool:
+    """Check if a deployed href (spaces→hyphens) maps to an existing local file.
+
+    Walks each path segment and fuzzy-matches against directory names on disk
+    by comparing the hyphenated form (lowered, spaces→hyphens) of each candidate.
+    """
+    segments = href.split("/")
+    current = root
+    for i, seg in enumerate(segments):
+        exact = current / seg
+        if exact.exists():
+            current = exact
+            continue
+        # Try matching after normalizing both sides (space→hyphen)
+        found = False
+        if current.is_dir():
+            for child in current.iterdir():
+                if child.name.replace(" ", "-") == seg:
+                    current = child
+                    found = True
+                    break
+        if not found:
+            return False
+    return True
+
 
 nav = json.loads((SITE / "nav.json").read_text(encoding="utf-8"))
 
@@ -33,10 +59,11 @@ for f in sorted(CAP_DIR.glob("*.html")):
     content = f.read_text(encoding="utf-8")
     for m in re.finditer(r'href="\.\./(.*?)"[^>]*class="doc-btn', content):
         href = m.group(1)
-        decoded = url_unquote(href)
-        target = WS / decoded.replace("/", os.sep)
+        # Doc-btn hrefs replace spaces with hyphens for deployed URLs.
+        # To check locally, we walk the path segments and try to match
+        # each segment against actual directory names on disk.
         total_docs += 1
-        if not target.exists():
+        if not _resolve_deployed_path(WS, href):
             broken_docs += 1
             print(f"  BROKEN: {f.name} -> {href}")
 print(f"Total doc-btns: {total_docs}, Broken: {broken_docs}")

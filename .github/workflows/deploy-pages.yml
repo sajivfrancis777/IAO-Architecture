@@ -160,12 +160,16 @@ jobs:
         run: |
           mkdir -p _site
 
+          # Disable Jekyll processing (breaks dirs starting with _)
+          touch _site/.nojekyll
+
           # Custom 404 page
           cp 404.html _site/404.html
 
-          # Copy all HTML and SVG outputs from towers
+          # Copy all HTML and SVG outputs from towers, replacing spaces
+          # with hyphens in directory names to avoid URL-encoding issues
           find towers -name "*.html" -o -name "*.svg" | while read f; do
-            dest="_site/$f"
+            dest="_site/$(echo "$f" | sed 's/ /-/g')"
             mkdir -p "$(dirname "$dest")"
             cp "$f" "$dest"
           done
@@ -177,7 +181,7 @@ jobs:
               echo "Copying release ${REL} outputs to _site/${REL}/..."
               find "/tmp/release-${REL}/towers" -name "*.html" -o -name "*.svg" | while read f; do
                 rel_path="${f#/tmp/release-${REL}/}"
-                dest="_site/${REL}/${rel_path}"
+                dest="_site/${REL}/$(echo "${rel_path}" | sed 's/ /-/g')"
                 mkdir -p "$(dirname "$dest")"
                 cp "$f" "$dest"
               done

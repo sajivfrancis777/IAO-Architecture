@@ -735,6 +735,9 @@ def _build_cap_link(cap_id: str, tower_short: str, from_path: Path | None = None
         tower_short: Tower shortcode (e.g. "FPR")
         from_path: If provided, compute path relative to this file's directory.
                    Otherwise, use workspace-root-relative path.
+
+    Note: deployed paths replace spaces with hyphens (deploy-pages.yml uses
+    ``sed 's/ /-/g'``), so we apply the same transformation here.
     """
     if not tower_short:
         return cap_id
@@ -746,12 +749,12 @@ def _build_cap_link(cap_id: str, tower_short: str, from_path: Path | None = None
         if html_path.exists():
             if from_path:
                 try:
-                    rel = os.path.relpath(html_path, from_path.parent).replace("\\", "/")
+                    rel = os.path.relpath(html_path, from_path.parent).replace("\\", "/").replace(" ", "-")
                     return f"[{cap_id}]({rel})"
                 except ValueError:
                     pass
             rel = html_path.relative_to(WORKSPACE)
-            return f"[{cap_id}]({rel.as_posix()})"
+            return f"[{cap_id}]({rel.as_posix().replace(' ', '-')})"
     return cap_id
 
 
