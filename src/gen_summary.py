@@ -28,7 +28,7 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from src.csv_parser import FlowSet, FlowHop, parse_flow_csv
+from src.csv_parser import FlowSet, FlowHop, FlowChain, parse_flow_csv, _group_chains
 from src.iapm_lookup import IAPMLookup
 from src.doc_format import DocFormatter, PAGE_BREAK
 from src.gen_systems_arch import (
@@ -130,6 +130,43 @@ def _collect_capability_flows(
         csv_path = _find_flow_csv(input_data, release_id, "FutureFlows")
         if csv_path:
             future = parse_flow_csv(str(csv_path), fut_label)
+
+    # If no data found and no specific release was requested, auto-discover
+    # individual release files (R1, R2, ...) and merge them.
+    if not current and not future and not release_override:
+        releases = _discover_releases(cap_dir)
+        if releases:
+            cur_hops: list[FlowHop] = []
+            fut_hops: list[FlowHop] = []
+            for rel in releases:
+                rel_cur_xlsx = find_xlsx_workbook(input_data, rel, "CurrentFlows")
+                if rel_cur_xlsx:
+                    wb = load_xlsx_workbook(str(rel_cur_xlsx), cur_label)
+                    if wb.has_flows:
+                        cur_hops.extend(wb.flows.hops)
+                else:
+                    csv_path = _find_flow_csv(input_data, rel, "CurrentFlows")
+                    if csv_path:
+                        fs = parse_flow_csv(str(csv_path), cur_label)
+                        cur_hops.extend(fs.hops)
+
+                rel_fut_xlsx = find_xlsx_workbook(input_data, rel, "FutureFlows")
+                if rel_fut_xlsx:
+                    wb = load_xlsx_workbook(str(rel_fut_xlsx), fut_label)
+                    if wb.has_flows:
+                        fut_hops.extend(wb.flows.hops)
+                else:
+                    csv_path = _find_flow_csv(input_data, rel, "FutureFlows")
+                    if csv_path:
+                        fs = parse_flow_csv(str(csv_path), fut_label)
+                        fut_hops.extend(fs.hops)
+
+            if cur_hops:
+                current = FlowSet(label=cur_label, source_file=str(input_data),
+                                  hops=cur_hops, chains=_group_chains(cur_hops))
+            if fut_hops:
+                future = FlowSet(label=fut_label, source_file=str(input_data),
+                                 hops=fut_hops, chains=_group_chains(fut_hops))
 
     return current, future
 
