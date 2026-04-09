@@ -537,7 +537,7 @@ def discover_md_files(tower: str | None = None, cap: str | None = None) -> list[
     """Find all generated Architecture, RICEFW, Testing, and Summary MD files."""
     towers_dir = WORKSPACE / "towers"
     md_files = []
-    patterns = ("-Architecture.md", "-RICEFW-Tracker.md", "-Testing-Report.md")
+    patterns = ("-Architecture.md", "-RICEFW-Tracker.md", "-Testing-Report.md", "-ABAP-Assessment.md")
     summary_pattern = "-Summary.md"
 
     for root, dirs, files in os.walk(str(towers_dir)):
@@ -573,7 +573,7 @@ def main():
     args = parser.parse_args()
 
     md_files = discover_md_files(args.tower, args.cap)
-    print(f"Found {len(md_files)} MD files (Architecture + RICEFW + Testing + Summary)")
+    print(f"Found {len(md_files)} MD files (Architecture + RICEFW + Testing + Summary + ABAP Assessment)")
 
     html_count = 0
     pdf_count = 0
