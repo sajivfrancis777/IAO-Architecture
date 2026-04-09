@@ -502,10 +502,12 @@ def extract_integration_patterns(current: FlowSet, future: FlowSet) -> list[Inte
                 key = f"{hop.flow_chain}:{hop.integration_pattern}:{hop.middleware_platform}"
                 if key not in seen:
                     seen.add(key)
+                    mw = hop.middleware_platform
+                    is_direct = not mw or mw.strip().lower() == "direct"
                     rows.append(IntegrationPatternRow(
                         pattern=hop.integration_pattern or "Point-to-Point",
                         flow_chain=hop.flow_chain,
-                        middleware=hop.middleware_platform or "Direct",
+                        middleware="Direct (No Middleware)" if is_direct else mw,
                         protocol=hop.protocol or "—",
                         auth=hop.auth_method or "—",
                     ))

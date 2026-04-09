@@ -16,7 +16,30 @@ except ImportError:
     print("ERROR: openpyxl required. pip install openpyxl", file=sys.stderr)
     sys.exit(1)
 
+try:
+    import yaml
+except ImportError:
+    yaml = None  # type: ignore
+
 _ROOT = Path(__file__).resolve().parent.parent
+_SYSTEM_MASTER = _ROOT / "config" / "system_master.yaml"
+
+
+def _load_system_master_options() -> tuple[str, str]:
+    """Load DB and platform dropdown CSV strings from system_master.yaml."""
+    if yaml is None or not _SYSTEM_MASTER.exists():
+        return (
+            "SAP HANA,Oracle,SQL Server,PostgreSQL,MongoDB,Snowflake,Teradata,DB2,MySQL,Azure SQL,Other",
+            "SAP HEC (On-Prem),SAP BTP (Cloud),Azure (Cloud),AWS (Cloud),On-Prem (Linux),On-Prem (Windows),Kubernetes,Other",
+        )
+    with open(_SYSTEM_MASTER, encoding="utf-8") as f:
+        data = yaml.safe_load(f) or {}
+    dbs = ",".join(d["label"] for d in data.get("databases", []))
+    plats = ",".join(p["label"] for p in data.get("platforms", []))
+    return dbs or "Other", plats or "Other"
+
+
+_DB_OPTIONS, _PLATFORM_OPTIONS = _load_system_master_options()
 
 # ---------------------------------------------------------------------------
 # Column definitions: (header, width, dropdown_values_or_None, example)
@@ -36,17 +59,17 @@ COLUMNS = [
      "Daily"),
     ("Data Description",        35, None, "Purchase order header + line items"),
     ("Source DB Platform",      22,
-     "SAP HANA,Oracle,SQL Server,PostgreSQL,MongoDB,Snowflake,Teradata,DB2,MySQL,Azure SQL,Other",
+     _DB_OPTIONS,
      "Oracle"),
     ("Target DB Platform",      22,
-     "SAP HANA,Oracle,SQL Server,PostgreSQL,MongoDB,Snowflake,Teradata,DB2,MySQL,Azure SQL,Other",
+     _DB_OPTIONS,
      "SAP HANA"),
     ("Source Tech Platform",    22,
-     "SAP HANA (On-Premise),SAP BTP (Cloud),Azure (Cloud),AWS (Cloud),On-Premise,Kubernetes,Other",
-     "On-Premise"),
+     _PLATFORM_OPTIONS,
+     "On-Prem (Linux)"),
     ("Target Tech Platform",    22,
-     "SAP HANA (On-Premise),SAP BTP (Cloud),Azure (Cloud),AWS (Cloud),On-Premise,Kubernetes,Other",
-     "SAP HANA (On-Premise)"),
+     _PLATFORM_OPTIONS,
+     "SAP HEC (On-Prem)"),
     ("Integration Pattern",     22,
      "Point-to-Point,Hub-Spoke,Publish-Subscribe,Batch File,API Gateway,Database Link",
      "Hub-Spoke"),

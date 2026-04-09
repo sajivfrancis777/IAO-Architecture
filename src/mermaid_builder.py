@@ -291,70 +291,13 @@ EMOJI = {
 
 # ---------------------------------------------------------------------------
 # Well-known system → database / platform inference
-# Used when extended columns (42-47) are not populated in the flow CSVs.
+# Loaded from config/system_master.yaml via src/system_master.py.
+# To add a new system, update config/system_master.yaml — not this file.
 # ---------------------------------------------------------------------------
-_SYSTEM_DB_MAP: dict[str, str] = {
-    "SAP S/4HANA": "SAP HANA",  "S/4 HANA": "SAP HANA",
-    "IF S/4 HANA": "SAP HANA",  "Corp / IP S/4 HANA": "SAP HANA",
-    "Corp / IP S/4": "SAP HANA",  "CFIN S/4 HANA": "SAP HANA",
-    "SAP ECC": "Oracle DB",  "SAP ICX": "Oracle DB",
-    "SAP S/4 MDG": "SAP HANA",  "SAP PAPM": "SAP HANA",
-    "SAP BOBJ": "SAP HANA",  "SAP IBP": "SAP HANA",
-    "SAP SAC": "SAP HANA Cloud",  "SAP Ariba": "SAP HANA Cloud",
-    "Finance HANA": "SAP HANA",  "SideCar": "SAP HANA",
-    "ECA-SnowFlake": "Snowflake",  "ECA-DataBricks": "Delta Lake",
-    "ECA-ADLS": "Azure Data Lake",  "ECA": "Snowflake",
-    "Power BI (DARC)": "Snowflake",  "Power BI": "Snowflake",
-    "MES 300": "PostgreSQL",  "XEUS": "PostgreSQL",
-    "PEGA": "PostgreSQL",  "PDF-SMH": "MSSQL",
-    "EDW": "Teradata",  "BOBJ": "SAP HANA",
-    "ICOST": "Oracle DB",  "COMPASS": "Oracle DB",
-    "CIBR": "Oracle DB",  "FCA": "Oracle DB",
-    "DCS": "Oracle DB",  "EATS": "Oracle DB",
-    "SPEED": "Oracle DB",  "WorkStream": "MSSQL",
-    "MARS": "MSSQL",  "WSPW": "MSSQL",
-    "GraphiteConnect": "MSSQL",
-}
-
-_SYSTEM_PLATFORM_MAP: dict[str, str] = {
-    "SAP S/4HANA": "SAP HEC (On-Prem)",  "S/4 HANA": "SAP HEC (On-Prem)",
-    "IF S/4 HANA": "SAP HEC (On-Prem)",  "Corp / IP S/4 HANA": "SAP HEC (On-Prem)",
-    "Corp / IP S/4": "SAP HEC (On-Prem)",  "CFIN S/4 HANA": "SAP HEC (On-Prem)",
-    "SAP ECC": "SAP On-Prem (Linux)",  "SAP ICX": "SAP On-Prem (Linux)",
-    "SAP S/4 MDG": "SAP HEC (On-Prem)",  "SAP PAPM": "SAP BTP",
-    "SAP BOBJ": "SAP On-Prem (Linux)",  "SAP IBP": "SAP BTP",
-    "SAP SAC": "SAP BTP",  "SAP Ariba": "SAP Cloud (SaaS)",
-    "Finance HANA": "SAP HEC (On-Prem)",  "SideCar": "SAP HEC (On-Prem)",
-    "ECA-SnowFlake": "Azure Cloud",  "ECA-DataBricks": "Azure Cloud",
-    "ECA-ADLS": "Azure Cloud",  "ECA": "Azure Cloud",
-    "Power BI (DARC)": "Azure Cloud",  "Power BI": "Azure Cloud",
-    "MES 300": "On-Prem (Linux)",  "XEUS": "On-Prem (Linux)",
-    "PEGA": "On-Prem (Linux)",  "PDF-SMH": "On-Prem (Windows)",
-    "EDW": "On-Prem (Linux)",  "BOBJ": "SAP On-Prem (Linux)",
-    "ICOST": "On-Prem (Linux)",  "COMPASS": "On-Prem (Linux)",
-    "CIBR": "On-Prem (Linux)",  "FCA": "On-Prem (Linux)",
-    "DCS": "On-Prem (Windows)",  "EATS": "On-Prem (Linux)",
-    "SPEED": "On-Prem (Linux)",  "WorkStream": "On-Prem (Windows)",
-    "MARS": "On-Prem (Windows)",  "WSPW": "On-Prem (Windows)",
-    "GraphiteConnect": "Azure Cloud",
-    "MuleSoft": "MuleSoft Anypoint (Cloud)",
-    "APIGEE": "Google Cloud (SaaS)",
-    "IF Blue Yonder": "Azure Cloud",  "IP Blue Yonder": "Azure Cloud",
-}
-
-
-def _infer_db(system_name: str) -> str:
-    """Return the inferred database technology for a system, or empty string."""
-    return _SYSTEM_DB_MAP.get(system_name, "")
-
+from src.system_master import infer_db as _infer_db, infer_platform as _infer_platform
 
 # Public alias for use by gen_systems_arch
 infer_db = _infer_db
-
-
-def _infer_platform(system_name: str) -> str:
-    """Return the inferred platform for a system, or empty string."""
-    return _SYSTEM_PLATFORM_MAP.get(system_name, "")
 
 
 # ---------------------------------------------------------------------------
@@ -451,8 +394,10 @@ def build_archimate_mermaid(
                              "status": ia.status if ia else "N/A"}
 
         # Middleware nodes (from extended col 33)
+        # "Direct" or blank = no middleware; route Source → Target directly
         mw_name = hop.middleware_platform
-        if mw_name:
+        is_direct = not mw_name or mw_name.strip().lower() == "direct"
+        if not is_direct:
             mw_id = _make_node_id(pfx + "MW", mw_name)
             middlewares[mw_id] = mw_name
             edges.append((src_id, mw_id, _truncate_label(hop.interface_tech)))

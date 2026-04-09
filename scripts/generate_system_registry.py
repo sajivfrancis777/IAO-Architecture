@@ -3,6 +3,8 @@
 Produces src/data/systemRegistry.ts in the Input Portal repo with:
   - KNOWN_SYSTEMS: systems already used in existing flow files (pinned at top)
   - IAPM_SYSTEMS: all active IAPM apps (acronym + name) for autocomplete
+  - DB_OPTIONS / PLATFORM_OPTIONS: locked dropdown values from system_master.yaml
+  - SYSTEM_DEFAULTS: auto-fill DB + Platform when a system is selected
 
 Usage:
     python scripts/generate_system_registry.py [--portal-dir <path>]
@@ -17,6 +19,8 @@ import os
 import sys
 from pathlib import Path
 
+import yaml
+
 try:
     import openpyxl
 except ImportError:
@@ -24,6 +28,7 @@ except ImportError:
 
 _ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_PORTAL = Path(r"C:\Users\sajivfra\Documents\IAO-Architecture-Input-Portal")
+SYSTEM_MASTER = _ROOT / "config" / "system_master.yaml"
 
 
 def _extract_flow_systems(towers_dir: Path) -> set[str]:
@@ -116,11 +121,26 @@ def main() -> None:
     known_lower = {s.lower() for s in known}
     extra = [label for label in iapm_labels if label.lower() not in known_lower]
 
-    # 4. Write TypeScript file
+    # 4. Load system_master.yaml for DB/Platform options and system defaults
+    sm_data: dict = {}
+    if SYSTEM_MASTER.exists():
+        with open(SYSTEM_MASTER, encoding="utf-8") as f:
+            sm_data = yaml.safe_load(f) or {}
+
+    db_options = [d["label"] for d in sm_data.get("databases", [])]
+    platform_options = [p["label"] for p in sm_data.get("platforms", [])]
+    sys_defaults = sm_data.get("system_defaults", {})
+    print(f"  ✓ Loaded system_master.yaml: {len(db_options)} DBs, "
+          f"{len(platform_options)} platforms, {len(sys_defaults)} system defaults")
+
+    # 5. Write TypeScript file
     out_path = args.portal_dir / "src" / "data" / "systemRegistry.ts"
 
     known_json = json.dumps(known, indent=2)
     all_json = json.dumps(known + extra, indent=2)
+    db_json = json.dumps(db_options, indent=2)
+    plat_json = json.dumps(platform_options, indent=2)
+    defaults_json = json.dumps(sys_defaults, indent=2)
 
     ts_content = f"""/**
  * System registry for Source/Target System dropdowns.
@@ -128,6 +148,9 @@ def main() -> None:
  *
  * KNOWN_SYSTEMS: {len(known)} systems from existing flow files (pinned at top)
  * ALL_SYSTEMS:   {len(known) + len(extra)} total (known + {len(extra)} active IAPM apps)
+ * DB_OPTIONS:    {len(db_options)} approved database platforms
+ * PLATFORM_OPTIONS: {len(platform_options)} approved tech platforms
+ * SYSTEM_DEFAULTS: {len(sys_defaults)} system -> DB/Platform auto-fill mappings
  */
 
 /** Systems already used in existing architecture flow files. */
@@ -135,11 +158,23 @@ export const KNOWN_SYSTEMS: string[] = {known_json};
 
 /** All selectable systems: known systems first, then remaining active IAPM apps. */
 export const ALL_SYSTEMS: string[] = {all_json};
+
+/** Approved database platform options (locked dropdown). */
+export const DB_OPTIONS: string[] = {db_json};
+
+/** Approved technology platform options (locked dropdown). */
+export const PLATFORM_OPTIONS: string[] = {plat_json};
+
+/** System -> default DB/Platform mapping for auto-fill on system selection. */
+export const SYSTEM_DEFAULTS: Record<string, {{ db: string; platform: string }}> = {defaults_json};
 """
 
+    out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(ts_content, encoding="utf-8")
     print(f"  ✓ Wrote {out_path}")
     print(f"    {len(known)} known + {len(extra)} IAPM = {len(known) + len(extra)} total systems")
+    print(f"    {len(db_options)} DB options, {len(platform_options)} platform options, "
+          f"{len(sys_defaults)} system defaults")
 
 
 if __name__ == "__main__":

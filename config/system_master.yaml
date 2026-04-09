@@ -1,0 +1,241 @@
+# system_master.yaml — Single source of truth for DB platforms, tech platforms,
+# and system defaults.
+#
+# Consumed by:
+#   - scripts/enrich_flows.py          (enrichment fallback)
+#   - src/mermaid_builder.py           (diagram node inference)
+#   - scripts/generate_system_registry.py  (Input Portal dropdowns)
+#   - scripts/generate_simple_template.py  (Excel template dropdowns)
+#
+# Adding a new entry here automatically propagates to all consumers.
+# ---------------------------------------------------------------------------
+
+# ── Approved database platforms ──────────────────────────────────────────────
+# These appear as locked dropdown options in the Input Portal and Excel template.
+databases:
+  - id: SAP_HANA
+    label: "SAP HANA"
+    category: in-memory
+  - id: SAP_HANA_CLOUD
+    label: "SAP HANA Cloud"
+    category: cloud
+  - id: ORACLE
+    label: "Oracle DB"
+    category: relational
+  - id: MSSQL
+    label: "SQL Server"
+    category: relational
+  - id: POSTGRESQL
+    label: "PostgreSQL"
+    category: relational
+  - id: MYSQL
+    label: "MySQL"
+    category: relational
+  - id: DB2
+    label: "DB2"
+    category: relational
+  - id: SNOWFLAKE
+    label: "Snowflake"
+    category: cloud-dw
+  - id: DELTA_LAKE
+    label: "Delta Lake"
+    category: cloud-dw
+  - id: AZURE_DATA_LAKE
+    label: "Azure Data Lake"
+    category: cloud
+  - id: AZURE_SQL
+    label: "Azure SQL"
+    category: cloud
+  - id: TERADATA
+    label: "Teradata"
+    category: relational
+  - id: MONGODB
+    label: "MongoDB"
+    category: nosql
+  - id: OTHER
+    label: "Other"
+    category: other
+
+# ── Approved technology platforms ────────────────────────────────────────────
+platforms:
+  - id: SAP_HEC
+    label: "SAP HEC (On-Prem)"
+    category: on-prem
+  - id: SAP_BTP
+    label: "SAP BTP (Cloud)"
+    category: cloud
+  - id: SAP_CLOUD_SAAS
+    label: "SAP Cloud (SaaS)"
+    category: saas
+  - id: SAP_ON_PREM_LINUX
+    label: "SAP On-Prem (Linux)"
+    category: on-prem
+  - id: AZURE_CLOUD
+    label: "Azure (Cloud)"
+    category: cloud
+  - id: AWS_CLOUD
+    label: "AWS (Cloud)"
+    category: cloud
+  - id: GCP_CLOUD
+    label: "Google Cloud (SaaS)"
+    category: cloud
+  - id: ON_PREM_LINUX
+    label: "On-Prem (Linux)"
+    category: on-prem
+  - id: ON_PREM_WINDOWS
+    label: "On-Prem (Windows)"
+    category: on-prem
+  - id: MULESOFT_ANYPOINT
+    label: "MuleSoft Anypoint (Cloud)"
+    category: middleware
+  - id: KUBERNETES
+    label: "Kubernetes"
+    category: cloud
+  - id: OTHER
+    label: "Other"
+    category: other
+
+# ── System defaults ──────────────────────────────────────────────────────────
+# When an architect selects a Source/Target System, these values pre-fill
+# the DB Platform and Tech Platform dropdowns (editable, not locked).
+#
+# Keys must match exact system names used in flow files and IAPM.
+system_defaults:
+  # SAP S/4HANA variants
+  "SAP S/4HANA":
+    db: "SAP HANA"
+    platform: "SAP HEC (On-Prem)"
+  "S/4 HANA":
+    db: "SAP HANA"
+    platform: "SAP HEC (On-Prem)"
+  "IF S/4 HANA":
+    db: "SAP HANA"
+    platform: "SAP HEC (On-Prem)"
+  "Corp / IP S/4 HANA":
+    db: "SAP HANA"
+    platform: "SAP HEC (On-Prem)"
+  "Corp / IP S/4":
+    db: "SAP HANA"
+    platform: "SAP HEC (On-Prem)"
+  "CFIN S/4 HANA":
+    db: "SAP HANA"
+    platform: "SAP HEC (On-Prem)"
+  "Finance HANA":
+    db: "SAP HANA"
+    platform: "SAP HEC (On-Prem)"
+  "SideCar":
+    db: "SAP HANA"
+    platform: "SAP HEC (On-Prem)"
+
+  # SAP legacy / MDG
+  "SAP ECC":
+    db: "Oracle DB"
+    platform: "SAP On-Prem (Linux)"
+  "SAP ICX":
+    db: "Oracle DB"
+    platform: "SAP On-Prem (Linux)"
+  "SAP S/4 MDG":
+    db: "SAP HANA"
+    platform: "SAP HEC (On-Prem)"
+  "SAP PAPM":
+    db: "SAP HANA"
+    platform: "SAP BTP (Cloud)"
+  "SAP IBP":
+    db: "SAP HANA"
+    platform: "SAP BTP (Cloud)"
+  "SAP SAC":
+    db: "SAP HANA Cloud"
+    platform: "SAP BTP (Cloud)"
+  "SAP Ariba":
+    db: "SAP HANA Cloud"
+    platform: "SAP Cloud (SaaS)"
+  "SAP BOBJ":
+    db: "SAP HANA"
+    platform: "SAP On-Prem (Linux)"
+  "BOBJ":
+    db: "SAP HANA"
+    platform: "SAP On-Prem (Linux)"
+
+  # Analytics / Data platforms
+  "ECA-SnowFlake":
+    db: "Snowflake"
+    platform: "Azure (Cloud)"
+  "ECA-DataBricks":
+    db: "Delta Lake"
+    platform: "Azure (Cloud)"
+  "ECA-ADLS":
+    db: "Azure Data Lake"
+    platform: "Azure (Cloud)"
+  "ECA":
+    db: "Snowflake"
+    platform: "Azure (Cloud)"
+  "Power BI (DARC)":
+    db: "Snowflake"
+    platform: "Azure (Cloud)"
+  "Power BI":
+    db: "Snowflake"
+    platform: "Azure (Cloud)"
+  "EDW":
+    db: "Teradata"
+    platform: "On-Prem (Linux)"
+
+  # Manufacturing / Enterprise
+  "MES 300":
+    db: "PostgreSQL"
+    platform: "On-Prem (Linux)"
+  "XEUS":
+    db: "PostgreSQL"
+    platform: "On-Prem (Linux)"
+  "PEGA":
+    db: "PostgreSQL"
+    platform: "On-Prem (Linux)"
+  "PDF-SMH":
+    db: "SQL Server"
+    platform: "On-Prem (Windows)"
+  "ICOST":
+    db: "Oracle DB"
+    platform: "On-Prem (Linux)"
+  "COMPASS":
+    db: "Oracle DB"
+    platform: "On-Prem (Linux)"
+  "CIBR":
+    db: "Oracle DB"
+    platform: "On-Prem (Linux)"
+  "FCA":
+    db: "Oracle DB"
+    platform: "On-Prem (Linux)"
+  "DCS":
+    db: "Oracle DB"
+    platform: "On-Prem (Windows)"
+  "EATS":
+    db: "Oracle DB"
+    platform: "On-Prem (Linux)"
+  "SPEED":
+    db: "Oracle DB"
+    platform: "On-Prem (Linux)"
+  "WorkStream":
+    db: "SQL Server"
+    platform: "On-Prem (Windows)"
+  "MARS":
+    db: "SQL Server"
+    platform: "On-Prem (Windows)"
+  "WSPW":
+    db: "SQL Server"
+    platform: "On-Prem (Windows)"
+  "GraphiteConnect":
+    db: "SQL Server"
+    platform: "Azure (Cloud)"
+
+  # Integration platforms
+  "MuleSoft":
+    db: ""
+    platform: "MuleSoft Anypoint (Cloud)"
+  "APIGEE":
+    db: ""
+    platform: "Google Cloud (SaaS)"
+  "IF Blue Yonder":
+    db: ""
+    platform: "Azure (Cloud)"
+  "IP Blue Yonder":
+    db: ""
+    platform: "Azure (Cloud)"
