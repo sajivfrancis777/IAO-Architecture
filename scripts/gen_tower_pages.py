@@ -2,7 +2,7 @@
 
 Produces:
   _site/tower-{TOWER}.html   — tower page with sub-tower RICEFW + JIRA summaries
-  _site/cap/{CAP_ID}.html     — capability landing page with 3 document buttons
+  _site/cap/{CAP_ID}.html     — capability landing page with 4 document buttons
 
 Data sources:
   - towers/*/tower.yaml (capabilities, L1 process groups)
@@ -10,6 +10,7 @@ Data sources:
   - data/jira/jira_summary.json (defect + test summaries per sub-tower)
   - config/tower_registry.json (tower display metadata)
   - config/subtower_capability_map.json (sub-tower → capability mapping)
+  - config/abap_ricefw_map.yaml (ABAP program → RICEFW object mapping)
 
 Usage:
     python scripts/gen_tower_pages.py                # generate all
@@ -36,6 +37,7 @@ DATA_DIR = WORKSPACE / "data"
 
 REGISTRY_PATH = CONFIG_DIR / "tower_registry.json"
 CAP_MAP_PATH = CONFIG_DIR / "subtower_capability_map.json"
+ABAP_RICEFW_MAP_PATH = CONFIG_DIR / "abap_ricefw_map.yaml"
 OBJECT_TRACKER_PATH = DATA_DIR / "smartsheet" / "manual" / "object_trackers" / "s4_r3_object_tracker.csv"
 JIRA_SUMMARY_PATH = DATA_DIR / "jira" / "jira_summary.json"
 
@@ -162,10 +164,46 @@ def _load_tower_yaml(tower: str) -> dict:
         return yaml.safe_load(f) or {}
 
 
+# ── ABAP-RICEFW mapping loader ───────────────────────────────────
+
+def _load_abap_ricefw_map() -> list[dict]:
+    """Load ABAP-to-RICEFW mapping from config/abap_ricefw_map.yaml."""
+    import yaml
+    if not ABAP_RICEFW_MAP_PATH.exists():
+        return []
+    data = yaml.safe_load(ABAP_RICEFW_MAP_PATH.read_text(encoding="utf-8")) or {}
+    return data.get("assessments", [])
+
+
+def _abap_assessments_for_tower(tower: str, abap_map: list[dict]) -> list[dict]:
+    """Return ABAP assessment entries for a given tower, with resolved deploy paths."""
+    results = []
+    abap_dir = TOWERS_DIR / tower / "output" / "docs" / "abap-assessments"
+    for entry in abap_map:
+        if entry.get("tower", "").upper() != tower.upper():
+            continue
+        # Find the generated HTML for this ABAP prefix
+        prefix = entry.get("abap_prefix", "")
+        html_path = None
+        if abap_dir.exists():
+            matches = sorted(abap_dir.glob(f"{prefix}*-ABAP-Assessment.html"))
+            if matches:
+                raw = str(matches[0].relative_to(WORKSPACE)).replace("\\", "/")
+                html_path = raw.replace(" ", "-")
+        results.append({
+            "ricefw_id": entry.get("ricefw_id", prefix),
+            "abap_prefix": prefix,
+            "description": entry.get("description", ""),
+            "source": entry.get("source", "manual"),
+            "href": html_path,
+        })
+    return results
+
+
 # ── Doc finder ───────────────────────────────────────────────────
 
 def _find_cap_docs(tower: str, l1_name: str, cap_id: str) -> dict[str, str]:
-    """Find SAD, RICEFW, and Testing HTML files for a capability."""
+    """Find SAD, RICEFW, Testing, and ABAP Assessment HTML files for a capability."""
     cap_dir = TOWERS_DIR / tower / l1_name / cap_id / "output" / "docs"
     docs: dict[str, str] = {}
 
@@ -196,6 +234,13 @@ def _find_cap_docs(tower: str, l1_name: str, cap_id: str) -> dict[str, str]:
         files = list(testing_dir.glob("*-Testing-Report.html"))
         if files:
             docs["testing"] = _deploy_path(files[0])
+
+    # ABAP assessments live at tower level; find any for this tower
+    abap_dir = TOWERS_DIR / tower / "output" / "docs" / "abap-assessments"
+    if abap_dir.exists():
+        files = sorted(abap_dir.glob("*-ABAP-Assessment.html"))
+        if files:
+            docs["abap"] = _deploy_path(files[0])
 
     return docs
 
@@ -264,6 +309,7 @@ def generate_tower_page(
     jira_data: dict,
     cap_map: dict,
     cap_to_subtower: dict[str, str],
+    abap_map: list[dict] | None = None,
 ) -> str:
     """Generate the HTML for a tower landing page."""
     info = registry.get(tower, {})
@@ -522,8 +568,34 @@ td a:hover{{text-decoration:underline}}
 
         html_parts.append('</table>')
 
-    # ── Footer ───────────────────────────────────────────────────
+    # ── ABAP Code Assessments section ─────────────────────────
     now = datetime.now(timezone.utc).strftime("%B %Y")
+    abap_entries = _abap_assessments_for_tower(tower, abap_map or [])
+    if abap_entries:
+        html_parts.append('<h2 class="section-title">🔍 ABAP Code Assessments</h2>')
+        html_parts.append('<table>\n<tr><th style="width:130px">RICEFW ID</th>'
+                          '<th>ABAP Object</th><th>Description</th>'
+                          '<th style="width:90px">Source</th>'
+                          '<th style="width:100px">View</th></tr>')
+        for ae in abap_entries:
+            link = (f'<a href="{ae["href"]}">Open →</a>' if ae["href"]
+                    else '<span style="color:#999">Pending HTML</span>')
+            src_badge = ('<span style="display:inline-block;padding:2px 8px;border-radius:10px;'
+                         'font-size:11px;font-weight:600;'
+                         + ('background:#dbeafe;color:#1e40af">abapGit'
+                            if ae["source"] == "abapgit"
+                            else 'background:#fef3cd;color:#6e4b00">manual')
+                         + '</span>')
+            html_parts.append(
+                f'<tr><td><strong>{ae["ricefw_id"]}</strong></td>'
+                f'<td><code>{ae["abap_prefix"]}</code></td>'
+                f'<td>{ae["description"]}</td>'
+                f'<td>{src_badge}</td>'
+                f'<td>{link}</td></tr>'
+            )
+        html_parts.append('</table>')
+
+    # ── Footer ───────────────────────────────────────────────────
     html_parts.append(f"""
 <div style="margin-top:24px"><a href="index.html" style="color:#0071c5;text-decoration:none;font-weight:600">← Back to All Towers</a></div>
 <div class="footer">
@@ -549,7 +621,7 @@ def generate_capability_page(
     jira_data: dict,
     cap_to_subtower: dict[str, str],
 ) -> str:
-    """Generate capability landing page with 3 document buttons."""
+    """Generate capability landing page with 4 document buttons."""
     cap_id = cap["id"]
     cap_name = cap.get("name", cap_id)
     info = registry.get(tower, {})
@@ -616,6 +688,7 @@ def generate_capability_page(
     sad_link = docs.get("sad", "")
     ricefw_link = docs.get("ricefw", "")
     testing_link = docs.get("testing", "")
+    abap_link = docs.get("abap", "")
 
     def _doc_button(label: str, href: str, cls: str, emoji: str) -> str:
         if href:
@@ -735,6 +808,7 @@ tr:hover td{{background:#f5f8fc}}
     {_doc_button("Systems Architecture Document", sad_link, "sad", "📄")}
     {_doc_button("RICEFW Tracker", ricefw_link, "ricefw", "📋")}
     {_doc_button("Testing Report", testing_link, "testing", "🧪")}
+    {_doc_button("ABAP Code Assessment", abap_link, "abap", "🔍")}
   </div>
 </div>
 """
@@ -994,10 +1068,12 @@ def main() -> None:
     jira_data = _load_jira_summary()
     cap_map = _load_cap_map()
     cap_to_subtower = _build_cap_to_subtower(cap_map)
+    abap_map = _load_abap_ricefw_map()
 
     print(f"Loaded: {len(ricefw_objects)} RICEFW objects, "
           f"{len(jira_data.get('subtower_summaries', {}))} JIRA sub-tower summaries, "
-          f"{len(cap_to_subtower)} capability->sub-tower mappings")
+          f"{len(cap_to_subtower)} capability->sub-tower mappings, "
+          f"{len(abap_map)} ABAP-RICEFW mappings")
 
     # Determine which towers to process
     if args.tower:
@@ -1021,7 +1097,7 @@ def main() -> None:
 
         # Generate tower page
         tower_html = generate_tower_page(
-            tower, registry, ricefw_objects, jira_data, cap_map, cap_to_subtower
+            tower, registry, ricefw_objects, jira_data, cap_map, cap_to_subtower, abap_map
         )
         tower_page = SITE_DIR / f"tower-{tower}.html"
         tower_page.write_text(tower_html, encoding="utf-8")
