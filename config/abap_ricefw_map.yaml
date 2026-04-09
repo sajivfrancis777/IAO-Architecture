@@ -1,22 +1,25 @@
 # abap_ricefw_map.yaml — Maps ABAP programs to RICEFW objects for portal linking.
 #
 # Each entry maps an ABAP program prefix to its RICEFW identity so that
-# the portal can show the "ABAP Code Assessment" button on the correct
-# capability page.
+# the portal can show an "ABAP Assessment" link next to the RICEFW object
+# in the capability page's object table.
 #
 # Fields:
 #   abap_prefix   — The ABAP program prefix used by gen_abap_assessment.py
 #   ricefw_id     — The RICEFW Object ID from the object tracker
 #   tower         — Tower shortcode (FPR, OTC-IF, etc.)
+#   capability    — L2 capability ID where the RICEFW object appears (e.g. DC-010)
 #   description   — Short description of the RICEFW object
 #   source        — How the mapping was established (manual | abapgit)
 #
 # When abapGit is operational, this file will be auto-generated from the
 # repository metadata.  Until then, entries are maintained manually.
+# The ricefw_id below is a placeholder; real IDs come from the object tracker.
 
 assessments:
   - abap_prefix: ZEFPR_CFIN_RECLASSIFY
-    ricefw_id: FPRR0001
+    ricefw_id: FPRR0001_DEMO
     tower: FPR
+    capability: DC-010
     description: "GL Account Balance Reclassification for CFIN carry-forwards"
     source: manual

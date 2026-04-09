@@ -182,7 +182,6 @@ def _abap_assessments_for_tower(tower: str, abap_map: list[dict]) -> list[dict]:
     for entry in abap_map:
         if entry.get("tower", "").upper() != tower.upper():
             continue
-        # Find the generated HTML for this ABAP prefix
         prefix = entry.get("abap_prefix", "")
         html_path = None
         if abap_dir.exists():
@@ -193,11 +192,17 @@ def _abap_assessments_for_tower(tower: str, abap_map: list[dict]) -> list[dict]:
         results.append({
             "ricefw_id": entry.get("ricefw_id", prefix),
             "abap_prefix": prefix,
+            "capability": entry.get("capability", ""),
             "description": entry.get("description", ""),
             "source": entry.get("source", "manual"),
             "href": html_path,
         })
     return results
+
+
+def _build_abap_ricefw_lookup(abap_entries: list[dict]) -> dict[str, dict]:
+    """Build a lookup dict keyed by ricefw_id for quick assessment link resolution."""
+    return {e["ricefw_id"]: e for e in abap_entries}
 
 
 # ── Doc finder ───────────────────────────────────────────────────
@@ -234,13 +239,6 @@ def _find_cap_docs(tower: str, l1_name: str, cap_id: str) -> dict[str, str]:
         files = list(testing_dir.glob("*-Testing-Report.html"))
         if files:
             docs["testing"] = _deploy_path(files[0])
-
-    # ABAP assessments live at tower level; find any for this tower
-    abap_dir = TOWERS_DIR / tower / "output" / "docs" / "abap-assessments"
-    if abap_dir.exists():
-        files = sorted(abap_dir.glob("*-ABAP-Assessment.html"))
-        if files:
-            docs["abap"] = _deploy_path(files[0])
 
     return docs
 
@@ -621,8 +619,9 @@ def generate_capability_page(
     ricefw_objects: list[dict],
     jira_data: dict,
     cap_to_subtower: dict[str, str],
+    abap_lookup: dict[str, dict] | None = None,
 ) -> str:
-    """Generate capability landing page with 4 document buttons."""
+    """Generate capability landing page with 3 document buttons + per-RICEFW assessment links."""
     cap_id = cap["id"]
     cap_name = cap.get("name", cap_id)
     info = registry.get(tower, {})
@@ -638,6 +637,20 @@ def generate_capability_page(
     # Tier 1: Explicit sub-tower mapping from config
     if sub_tower:
         cap_objs = [o for o in tower_objs if o["sub_tower"] == sub_tower]
+
+    # Inject synthetic RICEFW rows for ABAP assessments mapped to this capability
+    if abap_lookup:
+        existing_ids = {o["object_id"] for o in cap_objs}
+        for rid, entry in abap_lookup.items():
+            if entry.get("capability", "").upper() == cap_id.upper() and rid not in existing_ids:
+                cap_objs.append({
+                    "object_id": rid,
+                    "tower": tower,
+                    "sub_tower": sub_tower or "",
+                    "type": "Report",
+                    "description": entry.get("description", ""),
+                    "status": "ABAP Assessment Available",
+                })
 
     # Tier 2: Object ID prefix match (e.g. DS-020 → FPRDS020*)
     if not cap_objs:
@@ -689,7 +702,6 @@ def generate_capability_page(
     sad_link = docs.get("sad", "")
     ricefw_link = docs.get("ricefw", "")
     testing_link = docs.get("testing", "")
-    abap_link = docs.get("abap", "")
 
     def _doc_button(label: str, href: str, cls: str, emoji: str) -> str:
         if href:
@@ -809,7 +821,6 @@ tr:hover td{{background:#f5f8fc}}
     {_doc_button("Systems Architecture Document", sad_link, "sad", "📄")}
     {_doc_button("RICEFW Tracker", ricefw_link, "ricefw", "📋")}
     {_doc_button("Testing Report", testing_link, "testing", "🧪")}
-    {_doc_button("ABAP Code Assessment", abap_link, "abap", "🔍")}
   </div>
 </div>
 """
@@ -832,17 +843,26 @@ tr:hover td{{background:#f5f8fc}}
 
         # Object detail table
         html += """<table>
-<tr><th>Object ID</th><th>Type</th><th>Description</th><th>Status</th></tr>
+<tr><th>Object ID</th><th>Type</th><th>Description</th><th>Status</th><th>Assessment</th></tr>
 """
         for obj in sorted(cap_objs, key=lambda o: o["object_id"]):
             status_color = "#1a7f37" if "complete" in obj["status"].lower() else "#9a6700"
             desc = obj.get("description", "")
             if len(desc) > 80:
                 desc = desc[:77] + "..."
+            # Check if this RICEFW object has an ABAP assessment
+            assess_cell = "—"
+            if abap_lookup and obj["object_id"] in abap_lookup:
+                ae = abap_lookup[obj["object_id"]]
+                if ae.get("href"):
+                    assess_cell = f'<a href="../{ae["href"]}" style="color:#7b2d8e;font-weight:600;text-decoration:none" title="ABAP Assessment">📝 View</a>'
+                else:
+                    assess_cell = '<span style="color:#999">pending</span>'
             html += (f'<tr><td><strong>{obj["object_id"]}</strong></td>'
                      f'<td>{obj["type"]}</td>'
                      f'<td style="font-size:12px;color:#555">{desc}</td>'
-                     f'<td style="color:{status_color}">{obj["status"]}</td></tr>\n')
+                     f'<td style="color:{status_color}">{obj["status"]}</td>'
+                     f'<td style="text-align:center">{assess_cell}</td></tr>\n')
         html += "</table>\n"
 
     # ── Defect summary ─────────────────────────────────────────
@@ -1110,17 +1130,21 @@ def main() -> None:
         tower_data = yaml.safe_load(yaml_path.read_text(encoding="utf-8")) or {}
         capabilities = tower_data.get("capabilities", [])
 
-        # Build L1 lookup
+        # Build L1 lookup and ABAP assessment lookup for this tower
         l1_lookup = {}
         for cap in capabilities:
             l1_lookup[cap["id"]] = cap.get("l1", "Other")
+
+        abap_entries = _abap_assessments_for_tower(tower, abap_map)
+        abap_ricefw_lookup = _build_abap_ricefw_lookup(abap_entries)
 
         for cap in capabilities:
             cap_id = cap["id"]
             l1_name = l1_lookup[cap_id]
 
             cap_html = generate_capability_page(
-                tower, cap, l1_name, registry, ricefw_objects, jira_data, cap_to_subtower
+                tower, cap, l1_name, registry, ricefw_objects, jira_data, cap_to_subtower,
+                abap_lookup=abap_ricefw_lookup,
             )
             cap_page = cap_dir / f"{tower}-{cap_id}.html"
             cap_page.write_text(cap_html, encoding="utf-8")
