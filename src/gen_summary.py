@@ -447,6 +447,30 @@ def build_summary_archimate(summary: SummaryData, iapm: IAPMLookup, prefix: str 
 
 
 # ---------------------------------------------------------------------------
+# Per-section no-data notice
+# ---------------------------------------------------------------------------
+def _no_data_notice(state_label: str, release_override: str | None = None) -> str:
+    """Return a Markdown notice block for a section with no flow data.
+
+    Args:
+        state_label: 'current-state' or 'future-state'
+        release_override: e.g. 'R3' or None for all-releases
+    """
+    md = ""
+    if release_override:
+        md += f"> **No {state_label} flow data exists for Release {release_override}.**\n>\n"
+        md += f"> Architects have not yet submitted {state_label} flow input files "
+        md += f"prefixed with `{release_override}_` for capabilities in this scope. "
+        md += f"Data may exist for other releases (e.g. R1, R2).\n\n"
+    else:
+        md += f"> **No {state_label} flow data available to aggregate.**\n>\n"
+        md += f"> No capabilities in this scope have {state_label} flow data submitted. "
+        md += "Verify that flow XLSX files exist under "
+        md += "`towers/{tower}/{capability}/input/data/`.\n\n"
+    return md
+
+
+# ---------------------------------------------------------------------------
 # Summary document renderer
 # ---------------------------------------------------------------------------
 def _render_summary_doc(
@@ -589,7 +613,7 @@ def _render_summary_doc(
         else:
             md += "*Platform data not yet populated — see [§6](#6-capability-detail-reference) L2 docs.*\n\n"
     else:
-        md += "*No current-state flow data available.*\n\n"
+        md += _no_data_notice("current-state", release_override)
 
     # ── §4  Future-State Architecture ──────────────────────────────
     md += fmt.section_heading("4", "Future-State Architecture")
@@ -622,7 +646,7 @@ def _render_summary_doc(
         else:
             md += "*Platform data not yet populated — see [§6](#6-capability-detail-reference) L2 docs.*\n\n"
     else:
-        md += "*No future-state flow data available.*\n\n"
+        md += _no_data_notice("future-state", release_override)
 
     # ── §5  Transformation Analysis ──────────────────────────────
     md += fmt.section_heading("5", "Transformation Analysis")
@@ -855,12 +879,8 @@ def generate_l1_summaries(
             if cur or fut:
                 print(f"    {cid}: {cur_hops} current + {fut_hops} future hops")
 
-        if not current_flows and not future_flows:
-            print(f"    SKIP: no flow data")
-            continue
-
-        cur_summary = _aggregate_flows(current_flows)
-        fut_summary = _aggregate_flows(future_flows)
+        cur_summary = _aggregate_flows(current_flows) if current_flows else SummaryData(label="Current", scope="L1")
+        fut_summary = _aggregate_flows(future_flows) if future_flows else SummaryData(label="Future", scope="L1")
 
         # Compute release-over-release deltas
         group_cap_ids = [cap["id"] for cap in caps_in_group]
@@ -949,12 +969,8 @@ def generate_l0_summary(
         if cur or fut:
             print(f"  {cid}: {cur_hops} current + {fut_hops} future hops")
 
-    if not current_flows and not future_flows:
-        print("  SKIP: no flow data for tower")
-        return None
-
-    cur_summary = _aggregate_flows(current_flows)
-    fut_summary = _aggregate_flows(future_flows)
+    cur_summary = _aggregate_flows(current_flows) if current_flows else SummaryData(label="Current", scope="L0")
+    fut_summary = _aggregate_flows(future_flows) if future_flows else SummaryData(label="Future", scope="L0")
 
     # Compute release-over-release deltas
     all_cap_ids = [cap["id"] for cap in tower_caps]
@@ -1032,12 +1048,8 @@ def generate_program_summary(iapm: IAPMLookup, release_label: str = "R1 – R5",
         if tower_cur_count or tower_fut_count:
             print(f"  {tower_short}: {tower_cur_count} current + {tower_fut_count} future hops")
 
-    if not all_current_flows and not all_future_flows:
-        print("  SKIP: no flow data across any tower")
-        return None
-
-    cur_summary = _aggregate_flows(all_current_flows)
-    fut_summary = _aggregate_flows(all_future_flows)
+    cur_summary = _aggregate_flows(all_current_flows) if all_current_flows else SummaryData(label="Current", scope="Program")
+    fut_summary = _aggregate_flows(all_future_flows) if all_future_flows else SummaryData(label="Future", scope="Program")
 
     # Compute release-over-release deltas across all towers
     all_deltas: list[ReleaseDelta] = []
