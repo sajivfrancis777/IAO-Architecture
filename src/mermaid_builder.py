@@ -101,37 +101,51 @@ _SUBGRAPH_COLORS = [
 # Lanes not in this map float below the known layers (appended alphabetically).
 _LAYER_ORDER: list[tuple[str, str, str]] = [
     # (canonical_name, fill, stroke)
-    ("Reporting",                 "fill:#E8EAF6", "stroke:#283593"),   # purple — BI / reporting
-    ("Data Warehouse",            "fill:#E0F2F1", "stroke:#00695C"),   # teal — DW / data lake
-    ("ECA Platform",              "fill:#F3E5F5", "stroke:#7B1FA2"),   # violet — ECA
-    ("SideCar Hana DB",           "fill:#FFF9C4", "stroke:#F9A825"),   # amber — future-state S/4→ECA pipeline
-    ("ERP Systems",               "fill:#E3F2FD", "stroke:#0078D4"),   # Azure blue — ERP (S/4 HANA)
-    ("ERP Extension (Standalone)", "fill:#BBDEFB", "stroke:#1565C0"),  # deeper blue — standalone ERP extensions
+    # Index 0 = top of diagram.  Paired a=future / b=legacy at each tier.
+    # --- 5: Reporting (top) ---
+    ("Reporting",                 "fill:#E8EAF6", "stroke:#283593"),   # indigo — future-state BI
+    ("Reporting (Legacy)",        "fill:#C5CAE9", "stroke:#1A237E"),   # deeper indigo — legacy BI
+    # --- 4: ECA / Data Warehouse ---
+    ("ECA Platform",              "fill:#F3E5F5", "stroke:#7B1FA2"),   # violet — future-state ECA
+    ("Data Warehouse (Legacy)",   "fill:#E0F2F1", "stroke:#00695C"),   # teal — legacy DW / Finance HANA
+    # --- 3: ERP ---
+    ("ERP Systems",               "fill:#E3F2FD", "stroke:#0078D4"),   # Azure blue — S/4 HANA
+    ("ERP Systems (Legacy)",      "fill:#BBDEFB", "stroke:#1565C0"),   # deeper blue — SAP ECC / extensions
+    # --- 2: Cloud Products ---
     ("Cloud Products",            "fill:#E1F5FE", "stroke:#0277BD"),   # light blue — cloud
     ("Cloud Products (Legacy)",   "fill:#B3E5FC", "stroke:#01579B"),   # darker sky — legacy cloud
-    ("Middleware & Integration",  "fill:#FFF3E0", "stroke:#E65100"),   # orange — middleware
+    # --- 1: Middleware ---
+    ("Middleware & Integration",  "fill:#FFF3E0", "stroke:#E65100"),   # orange — future-state middleware
+    ("Middleware (Legacy)",       "fill:#FFE0B2", "stroke:#BF360C"),   # deeper orange — legacy middleware
+    # --- 0: Boundary Applications (bottom) ---
     ("Boundary Applications",     "fill:#E8F5E9", "stroke:#388E3C"),   # green — boundary / MES
 ]
 
 # Aliases: map variant names to canonical layer name
 _LANE_ALIASES: dict[str, str] = {
-    "erp":                          "ERP Systems",
-    "erp systems":                  "ERP Systems",
-    "erp extension (standalone)":   "ERP Extension (Standalone)",
-    "reporting":                    "Reporting",
-    "manufacturing reporting systems": "Reporting",
-    "data warehouse":               "Data Warehouse",
-    "sidecar hana db":              "SideCar Hana DB",
-    "eca platform":                 "ECA Platform",
-    "eca platform (pdh)":           "ECA Platform",
-    "cloud products":               "Cloud Products",
-    "cloud products (legacy)":      "Cloud Products (Legacy)",
-    "middleware & integration":     "Middleware & Integration",
+    # --- Boundary Applications (tier 0) ---
     "boundary applications":        "Boundary Applications",
     "mes systems":                  "Boundary Applications",
     "manufacturing execution systems": "Boundary Applications",
     "e.g. boundary apps":           "Boundary Applications",
     "e.g. mes systems":             "Boundary Applications",
+    # --- Middleware (tier 1) ---
+    "middleware & integration":     "Middleware & Integration",
+    # --- Cloud Products (tier 2) ---
+    "cloud products":               "Cloud Products",
+    "cloud products (legacy)":      "Cloud Products (Legacy)",
+    # --- ERP Systems (tier 3) ---
+    "erp systems":                  "ERP Systems",
+    "erp":                          "ERP Systems (Legacy)",
+    "erp extension (standalone)":   "ERP Systems (Legacy)",
+    # --- ECA / Data Warehouse (tier 4) ---
+    "eca platform":                 "ECA Platform",
+    "eca platform (pdh)":           "ECA Platform",
+    "sidecar hana db":              "ECA Platform",
+    "data warehouse":               "Data Warehouse (Legacy)",
+    # --- Reporting (tier 5 — top) ---
+    "reporting":                    "Reporting",
+    "manufacturing reporting systems": "Reporting (Legacy)",
 }
 
 # Build lookup: canonical_name → (index, fill, stroke)
