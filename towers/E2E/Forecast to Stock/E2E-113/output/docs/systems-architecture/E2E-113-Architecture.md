@@ -821,11 +821,13 @@ flowchart TB
     classDef saas          fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
+    classDef rankAnchor    width:0px,height:0px,padding:0px,margin:0px,fill:none,stroke:none
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
         subgraph E2E113CLN_Boundary_Applications[" ⬛ Boundary Applications"]
             direction LR
+            E2E113C_ALRANK_0[ ]:::rankAnchor
             E2E113C_e_g_MES_300["📦 e.g. MES 300"]:::app
             E2E113C_e_g_XEUS["📦 e.g. XEUS"]:::app
         end
@@ -852,7 +854,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlnuPmzgQwL-KRZW_LtnlEQhBq0g8zCknsrtq2u6dygk54CRWHUAYuptu891rcB6EbLp3jkSwZ-Y39ng8-FWKswRLltTrvZKUlBZ4DaVyjTc4lCwQSgvE-FufvzEcVwUptwH-jqkQ0iw7SBuTL6ggaEExq8Wcs8zSck5-7FGKkb8I5XrcRxtCt0Iyx6sMg8_TPrA5gPYBQykbMFyQZSjtGguaPcdrVJR7csXwDL08kaRc1yNLRBmu9dblhgZogWkzhbKomtGUL3Geo5ikq3p4KNeDBUq_tQZ1ebcDu14vTI--wCcnTAFvvR4YDPjc4jWZoRID7UYFfwD7R1VgwMotxSCmiDHMuJqwaPoeXoJFxUiKGQNNWxJKrQ8-b47WZ2WRfcO8O7ZNVd93B8_1miw1f-nHGc0K64Msyx0mynNwaoLpulD3_SNTlkemN_wNU7MNt4NNUIm6WMfxoO8csYpu6K58jlVaWG84spWDOEGMR7FAWx5coHecbUiSUPyMeARbcYGyox6dQUNXZPnqGhxfM-TuGnBGL0Lj-67nnbCuoZqqeR07Ulyli2UIsS4WKg6EoyN25Ci-rV7FDm1laHaxMc2q5P9HXO1GvIPN0rzAm05-mNBwx0esCkeedn22iqNDlaedALNqsSpQvgZ28DWUwioxtYQ_E00H9uNjMHXtT9OHexDY_8CPofSvMKpbQgoclyRLQfDxNHrEQRUqiuYG95GTVWmCim1k5zklMaptGPcFwkpdKAtwkIO2_MzVdXd123uKcLSKZnAeabLcXkmMDYBvVjeAywCXcbJlWfyYXaf8DT_P30TUgjfscZqcOnvQ7KlBNXUkmuPiO4lx5FTsLMjKSHBFtdlrAa4lnJzO0QXegw3ezVgZQcrLc1pO2jOOh4JcK4C9wt2iuJ3ckYkQzL-AWzD1spj__TV_uL-7JRPhtq4VwmGzMPH6RpR5QZz8DKUG5zXbw1H245Q_fUL5h-Hne8E4Q19Tqt1cbE89rX0CNzXaCU7112ud3Cv1t21qH0yh5qu-916ZPff7TpofyKavw9MB1UwTau5Fpb04kgFe8R04y8REBgH8E957_-EsBhE_wd08bs3ujUwOotlTN0Nnpyy8mpVB5MFu_nn1JwemJb9WdPNKmMAHUXJUIxlyxWSQLQcBWe7d8GrfSsJTxEVQDrut179jYMfj8UVUpb60wcUGkUSyXsVVht-IErxEFS35BURCVZnNt2ksWc2VQqpyPlHsEcQ3YSMGd78AN1Te0g==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlulu2zgQgF-FUOFfayc6LB9CYEAHtciu7ARx27SoCoGWaJsoTQmi1MRN_e5LiT5le7PLAA7FmflmOBweb0qcJlixlFbrjTBSWOAtVIolXuFQsUCozBAXvbbocRyXOSnWAf6JqRTSNN1Ja5PPKCdoRjGvxIIzT1kxJb-2KK2XvUrlatxHK0LXUjLFixSDT_dtYAsAbQOOGO9wnJN5qGxqC5q-xEuUF1tyyfEYvT6TpFhWI3NEOa70lsWKBmiGaR1CkZf1KBNTnGYoJmxRDXfVajBH7MfRoKluNmDTaoVs7wt8dEIGRGu1QKcjYouXZIwKDIwbHfwB7F9ljgEv1hSDmCLOMRdq0qL-9vAczEpOGOYc1G1OKLU--KI5RpsXefoDi8-hPdDN7WfnpZqTpWev7TilaW59UFW1wURZBg5NMl0Xmr6_Z6pqf-B1_4Vp2D23gU1QgZpYx_Gg7-yxmtkzXfUUqx1hvW7f1nbiBHGRxRytRXKB2XC2IklC8QsSGTzKC1Qdfe8M9kxNVa_OwfGNntqcA07pWWp83_W8A9bt6QN9cB3b11ytieUI8SYWag6E_T2272i-rV_Fdm2tO2hiY5qWyf_PuN7MeAObsizHq0Z9DGDPHe6xOux7xvVoNceEerPsqg1js3iZ5tWwtFGFzRKTxbKouxlKErGf6v4K5QvC6m4dAksZ3vmv-iGTfF7OFjnKlsAOvoVKWCYDIxG_iWEC-_ExuHftj_cPExDYX-FTqHyXRlVLSI7jgqQMBE-H0T0O6lDTDDeYRE5asgTl68jOMkpiVNlw4QuEpT7TZmAnB8fyE1fX3VVt6ymygyd78nekfgPfLcs6pOuyNo4W0RhOI0NVj-cd4x7AN4sbIGRAyEQcAia2_HXKF_hpehFRCS7YY5YcPrag8XONqs-0aIrznyTGkVPykyXR-pIrT76tFhBa0slhT5_hPVjj3ZQXEaTiqmDF6DjiuCvJlQLYKtzN8tvRHRlJwfQzuAX3XhqLf39NHyZ3t2Qk3VbnlnRYT0x2L2RZHM6j36FS47x6MQXKfrwXvz6h4pL6_V4yTtDXlCo3Z8tThbUt9_q-cILDXeAdnSJX7oJjU3tnCg1f9733jvxTv-9sih154JvwcFgYgwE03LNT_2wDB3ghVuCkEhMVBPBPOPH-w84NIrHfm3V8FN2FSg6i8XOzQseHKrxalUHkwWb9edX1B1khnjjNupIm8EEeUHov6QrFpJPOOwGZb92Im-eoCA8Zl0nZrbZZ_e0TOxwOz7KqtJUVzleIJIr1Jp9V4nWW4DkqaSEeQwoqi3S6ZrFi1c8bpcxEoNgjSCzCSg5u_gGg0Qwu" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -894,11 +896,13 @@ flowchart TB
     classDef saas          fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
+    classDef rankAnchor    width:0px,height:0px,padding:0px,margin:0px,fill:none,stroke:none
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
         subgraph E2E113FLN_Boundary_Applications[" ⬛ Boundary Applications"]
             direction LR
+            E2E113F_ALRANK_0[ ]:::rankAnchor
             E2E113F_e_g_MES_300["📦 e.g. MES 300"]:::app
             E2E113F_e_g_XEUS["📦 e.g. XEUS"]:::app
         end
@@ -925,7 +929,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlnuPmzgQwL-KRZW_LtnlEQhBq0g8zCknsrtq2u6dygk54CRWHUAYuptu891rcB6EbLp3jkSwZ-Y39ng8-FWKswRLltTrvZKUlBZ4DaVyjTc4lCwQSgvE-FufvzEcVwUptwH-jqkQ0iw7SBuTL6ggaEExq8Wcs8zSck5-7FGKkb8I5XrcRxtCt0Iyx6sMg8_TPrA5gPYBQykbMFyQZSjtGguaPcdrVJR7csXwDL08kaRc1yNLRBmu9dblhgZogWkzhbKomtGUL3Geo5ikq3p4KNeDBUq_tQZ1ebcDu14vTI--wCcnTAFvvR4YDPjc4jWZoRID7UYFfwD7R1VgwMotxSCmiDHMuJqwaPoeXoJFxUiKGQNNWxJKrQ8-b47WZ2WRfcO8O7ZNVd93B8_1miw1f-nHGc0K64Msyx0mynNwaoLpulD3_SNTlkemN_wNU7MNt4NNUIm6WMfxoO8csYpu6K58jlVaWG84spWDOEGMR7FAWx5coHecbUiSUPyMeARbcYGyox6dQUNXZPnqGhxfM-TuGnBGL0Lj-67nnbCuoZqqeR07Ulyli2UIsS4WKg6EoyN25Ci-rV7FDm1laHaxMc2q5P9HXO1GvIPN0rzAm05-mNBwx0esCkeedn22iqNDlaedALNqsSpQvgZ28DWUwioxtYQ_E00H9uNjMHXtT9OHexDY_8CPofSvMKpbQgoclyRLQfDxNHrEQRUqiuYH95GTVWmCim1k5zklMaptGPcFwkpdKAtwkIO2_MzVdXd123uKcLSKZnAeabLcXkmMDYBvVjeAywCXcbJlWfyYXaf8DT_P30TUgjfscZqcOnvQ7KlBNXUkmuPiO4lx5FTsLMjKSHBFtdlrAa4lnJzO0QXegw3ezVgZQcrLc1pO2jOOh4JcK4C9wt2iuJ3ckYkQzL-AWzD1spj__TV_uL-7JRPhtq4VwmGzMPH6RpR5QZz8DKUG5zXbw1H245Q_fUL5h-Hne8E4Q19Tqt1cbE89rX0CNzXaCU7112ud3Cv1t21qH0yh5qu-916ZPff7TpofyKavw9MB1UwTau5Fpb04kgFe8R04y8REBgH8E957_-EsBhE_wd08bs3ujUwOotlTN0Nnpyy8mpVB5MFu_nn1JwemJb9WdPNKmMAHUXJUIxlyxWSQLQcBWe7d8GrfSsJTxEVQDrut179jYMfj8UVUpb60wcUGkUSyXsVVht-IErxEFS35BURCVZnNt2ksWc2VQqpyPlHsEcQ3YSMGd78Amt7e8A==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlulu2zgQgF-FUOFfayc6LB9CYEAHtciu7ARx27SoCoGWaJsoTQmi1MRN_e5LiT5le7PLAA7FmflmOBweb0qcJlixlFbrjTBSWOAtVIolXuFQsUCozBAXvbbocRyXOSnWAf6JqRTSNN1Ja5PPKCdoRjGvxIIzT1kxJb-2KK2XvUrlatxHK0LXUjLFixSDT_dtYAsAbQOOGO9wnJN5qGxqC5q-xEuUF1tyyfEYvT6TpFhWI3NEOa70lsWKBmiGaR1CkZf1KBNTnGYoJmxRDXfVajBH7MfRoKluNmDTaoVs7wt8dEIGRGu1QKcjYouXZIwKDIwbHfwB7F9ljgEv1hSDmCLOMRdq0qL-9vAczEpOGOYc1G1OKLU--KI5RpsXefoDi8-hPdDN7WfnpZqTpWev7TilaW59UFW1wURZBg5NMl0Xmr6_Z6pqf-B1_4Vp2D23gU1QgZpYx_Gg7-yxmtkzXfUUqx1hvW7f1nbiBHGRxRytRXKB2XC2IklC8QsSGTzKC1Qdfe8M9kxNVa_OwfGNntqcA07pWWp83_W8A9bt6QN9cB3b11ytieUI8SYWag6E_T2272i-rV_Fdm2tO2hiY5qWyf_PuN7MeAObsizHq0Z9DGDPHe6xOux7xvVoNceEerPsqg1js3iZ5tWwtFGFzRKTxbKouxlKErGf6v4K5QvC6m4dAksZ3vmv-iGTfF7OFjnKlsAOvoVKWCYDIxG_iWEC-_ExuHftj_cPExDYX-FTqHyXRlVLSI7jgqQMBE-H0T0O6lDTDD-YRE5asgTl68jOMkpiVNlw4QuEpT7TZmAnB8fyE1fX3VVt6ymygyd78nekfgPfLcs6pOuyNo4W0RhOI0NVj-cd4x7AN4sbIGRAyEQcAia2_HXKF_hpehFRCS7YY5YcPrag8XONqs-0aIrznyTGkVPykyXR-pIrT76tFhBa0slhT5_hPVjj3ZQXEaTiqmDF6DjiuCvJlQLYKtzN8tvRHRlJwfQzuAX3XhqLf39NHyZ3t2Qk3VbnlnRYT0x2L2RZHM6j36FS47x6MQXKfrwXvz6h4pL6_V4yTtDXlCo3Z8tThbUt9_q-cILDXeAdnSJX7oJjU3tnCg1f9733jvxTv-9sih154JvwcFgYgwE03LNT_2wDB3ghVuCkEhMVBPBPOPH-w84NIrHfm3V8FN2FSg6i8XOzQseHKrxalUHkwWb9edX1B1khnjjNupIm8EEeUHov6QrFpJPOOwGZb92Im-eoCA8Zl0nZrbZZ_e0TOxwOz7KqtJUVzleIJIr1Jp9V4nWW4DkqaSEeQwoqi3S6ZrFi1c8bpcxEoNgjSCzCSg5u_gESmAxP" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
