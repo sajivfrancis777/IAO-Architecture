@@ -104,6 +104,7 @@ _LAYER_ORDER: list[tuple[str, str, str]] = [
     ("Reporting",                "fill:#E8EAF6", "stroke:#283593"),   # purple — BI / reporting
     ("Data Warehouse",           "fill:#E0F2F1", "stroke:#00695C"),   # teal — DW / data lake
     ("ECA Platform",             "fill:#F3E5F5", "stroke:#7B1FA2"),   # violet — ECA
+    ("SideCar Hana DB",          "fill:#FFF9C4", "stroke:#F9A825"),   # amber — legacy staging layer
     ("ERP Systems",              "fill:#E3F2FD", "stroke:#0078D4"),   # Azure blue — ERP
     ("Cloud Products",           "fill:#E1F5FE", "stroke:#0277BD"),   # light blue — cloud
     ("Middleware & Integration", "fill:#FFF3E0", "stroke:#E65100"),   # orange — middleware
@@ -118,7 +119,7 @@ _LANE_ALIASES: dict[str, str] = {
     "reporting":                    "Reporting",
     "manufacturing reporting systems": "Reporting",
     "data warehouse":               "Data Warehouse",
-    "sidecar hana db":              "Data Warehouse",
+    "sidecar hana db":              "SideCar Hana DB",
     "eca platform":                 "ECA Platform",
     "eca platform (pdh)":           "ECA Platform",
     "cloud products":               "Cloud Products",
