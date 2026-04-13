@@ -38,6 +38,9 @@ DATA_DIR = WORKSPACE / "data"
 REGISTRY_PATH = CONFIG_DIR / "tower_registry.json"
 CAP_MAP_PATH = CONFIG_DIR / "subtower_capability_map.json"
 ABAP_RICEFW_MAP_PATH = CONFIG_DIR / "abap_ricefw_map.yaml"
+
+# Populated by main() before page generation so _sidebar_js() can inline it
+_INLINE_NAV_JSON: str = ""
 OBJECT_TRACKER_PATH = DATA_DIR / "smartsheet" / "manual" / "object_trackers" / "s4_r3_object_tracker.csv"
 JIRA_SUMMARY_PATH = DATA_DIR / "jira" / "jira_summary.json"
 
@@ -908,15 +911,19 @@ tr:hover td{{background:#f5f8fc}}
 
 
 def _sidebar_js() -> str:
-    """Shared sidebar JS for nav.json loading."""
-    return """<script>
+    """Shared sidebar JS — uses inlined nav data when available, falls back to fetch."""
+    # Inline nav data eliminates the network round-trip for sidebar rendering
+    inline_block = ""
+    if _INLINE_NAV_JSON:
+        inline_block = f"<script>window.__NAV__={_INLINE_NAV_JSON}</script>\n"
+    return inline_block + """<script>
 (function(){
   var sidebar=document.querySelector(".sidebar");
   var toggle=document.querySelector(".sidebar-toggle");
   if(toggle){toggle.addEventListener("click",function(){sidebar.classList.toggle("open")})}
   var basePath=document.querySelector("meta[name=base-path]");
   var base=basePath?basePath.content:"";
-  fetch(base+"nav.json").then(function(r){return r.json()}).then(function(data){
+  function buildSidebar(data){
     var tree=document.querySelector(".nav-tree");
     if(!tree)return;
     var currentPage=location.pathname;
@@ -982,7 +989,9 @@ def _sidebar_js() -> str:
     });
     var m=currentPage.match(/tower-([A-Z0-9-]+)\\.html/);
     if(m){var hdr=tree.querySelector("[data-tower=\\""+m[1]+"\\"] .tower-header");if(hdr)hdr.classList.add("open")}
-  }).catch(function(){});
+  }
+  if(window.__NAV__){buildSidebar(window.__NAV__)}
+  else{fetch(base+"nav.json").then(function(r){return r.json()}).then(buildSidebar).catch(function(){})}
   var input=document.querySelector(".sidebar .search-box input");
   if(input){
     input.addEventListener("input",function(){
@@ -1107,6 +1116,11 @@ def main() -> None:
     cap_dir = SITE_DIR / "cap"
     cap_dir.mkdir(parents=True, exist_ok=True)
 
+    # ── Generate nav.json FIRST so it can be inlined into page JS ──
+    global _INLINE_NAV_JSON
+    nav_data = _generate_nav_json(towers, registry)
+    _INLINE_NAV_JSON = json.dumps(nav_data, ensure_ascii=False, separators=(',', ':'))
+
     total_tower_pages = 0
     total_cap_pages = 0
 
@@ -1152,15 +1166,13 @@ def main() -> None:
 
         print(f"    -> {len(capabilities)} capability pages")
 
-    # ── Generate nav.json for sidebar ────────────────────────────
-    _generate_nav_json(towers, registry)
-
     print(f"\nGenerated: {total_tower_pages} tower pages, {total_cap_pages} capability pages")
     print(f"Output: {SITE_DIR}")
 
 
-def _generate_nav_json(towers: list[str], registry: dict) -> None:
-    """Generate nav.json for sidebar navigation — mirrors deploy-pages.yml logic."""
+def _generate_nav_json(towers: list[str], registry: dict) -> list[dict]:
+    """Generate nav.json for sidebar navigation — mirrors deploy-pages.yml logic.
+    Returns the nav data list so it can be inlined into page JS."""
     import yaml as _yaml
 
     nav_data: list[dict] = []
@@ -1244,6 +1256,7 @@ def _generate_nav_json(towers: list[str], registry: dict) -> None:
     nav_path = SITE_DIR / "nav.json"
     nav_path.write_text(json.dumps(nav_data, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"  [OK] nav.json ({len(nav_data)} towers)")
+    return nav_data
 
 
 def _find_cap_dir(tower_dir: Path, l1_name: str, cap_id: str) -> Path | None:
