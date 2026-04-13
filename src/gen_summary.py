@@ -888,7 +888,7 @@ def generate_l1_summaries(
         deltas = _compute_release_deltas(release_data) if release_data else []
 
         # Render document
-        l1_short = re.sub(r'[^a-zA-Z0-9 ]', '', l1_name).strip()
+        l1_short = re.sub(r'[^a-zA-Z0-9 ]', '', l1_name.replace('-', ' ')).strip()
         l1_short = re.sub(r' +', ' ', l1_short).replace(' ', '-')[:40]
         output_dir = tower_dir / "output" / "docs" / "summaries"
         output_dir.mkdir(parents=True, exist_ok=True)

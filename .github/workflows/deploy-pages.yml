@@ -311,7 +311,7 @@ jobs:
               first_group=false
 
               # L1 summary link for this process group
-              l1_slug=$(echo "$proc_name" | sed 's/[^a-zA-Z0-9 ]//g' | sed 's/  */ /g' | sed 's/ /-/g' | cut -c1-40)
+              l1_slug=$(echo "$proc_name" | sed 's/-/ /g' | sed 's/[^a-zA-Z0-9 ]//g' | sed 's/  */ /g' | sed 's/ /-/g' | cut -c1-40)
               l1_file="towers/${tower}/output/docs/summaries/L1-${l1_slug}-Summary.html"
               l1_href=""
               [ -f "_site/${l1_file}" ] && l1_href="${l1_file}"

@@ -536,7 +536,7 @@ td a:hover{{text-decoration:underline}}
             l1_defects = jira_tower
 
         # L1 summary slug — must match gen_summary.py naming convention
-        l1_slug = re.sub(r'[^a-zA-Z0-9 ]', '', l1_name).strip()
+        l1_slug = re.sub(r'[^a-zA-Z0-9 ]', '', l1_name.replace('-', ' ')).strip()
         l1_slug = re.sub(r' +', ' ', l1_slug).replace(' ', '-')[:40]
         l1_summary_href = f"towers/{tower}/output/docs/summaries/L1-{l1_slug}-Summary.html"
 
@@ -1218,7 +1218,7 @@ def _generate_nav_json(towers: list[str], registry: dict) -> None:
                 continue
 
             # L1 summary
-            l1_slug = re.sub(r'[^a-zA-Z0-9 ]', '', l1_name).strip()
+            l1_slug = re.sub(r'[^a-zA-Z0-9 ]', '', l1_name.replace('-', ' ')).strip()
             l1_slug = re.sub(r' +', ' ', l1_slug).replace(' ', '-')[:40]
             l1_file = TOWERS_DIR / tower / "output" / "docs" / "summaries" / f"L1-{l1_slug}-Summary.html"
             l1_href = f"towers/{tower}/output/docs/summaries/L1-{l1_slug}-Summary.html" if l1_file.exists() else ""
