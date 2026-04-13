@@ -238,16 +238,17 @@ class MermaidBuilder:
                       '"lineColor": "#37474F", "secondaryColor": "#f5f8fc", '
                       '"tertiaryColor": "#fff"}, '
                       '"flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 40}} }%%')
-        lines.append("flowchart LR")
+        lines.append("flowchart TB")
         lines.append("")
 
         # Swim lanes: ordered by architecture layer (top = Reporting, bottom = Boundary/MES)
-        # In LR mode, subgraph declaration order = left-to-right position.
+        # In TB mode, subgraph declaration order = top-to-bottom position.
         sorted_lanes = sorted(self._lanes.keys(), key=_lane_sort_key)
         for i, lane in enumerate(sorted_lanes):
             sg_id = _sanitize_lane_id(self.prefix, lane)
             fill, stroke = _lane_style(lane, i)
-            lines.append(f'    subgraph {sg_id}[" ⬛ {lane}"]')
+            lines.append(f'    subgraph {sg_id}[" \u2b1b {lane}"]')
+            lines.append(f'        direction LR')
             for nid in sorted(self._lanes[lane]):
                 node = self._nodes[nid]
                 lines.append(f'        {nid}["{node.label}"]')
@@ -503,7 +504,7 @@ def build_archimate_mermaid(
     lines.append('%%{init: {"theme": "base", "securityLevel": "loose", '
                   '"themeVariables": {"fontSize": "16px", "fontFamily": "Segoe UI, Arial, sans-serif"}, '
                   '"flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 30, "rankSpacing": 35}} }%%')
-    lines.append("flowchart LR")
+    lines.append("flowchart TB")
     lines.append(ARCHIMATE_CLASSDEFS)
     lines.append("")
 
@@ -515,12 +516,13 @@ def build_archimate_mermaid(
             lane = info.get("lane") or "Other"
             lane_groups.setdefault(lane, []).append(nid)
 
-        lines.append('    subgraph AL["🔵 APPLICATION LAYER"]')
+        lines.append('    subgraph AL["\U0001f535 APPLICATION LAYER"]')
 
-        # Create swim lane subgraphs — layer-ordered by declaration order
+        # Create swim lane subgraphs — layer-ordered by declaration order (top→bottom)
         for li, lane_name in enumerate(sorted(lane_groups.keys(), key=_lane_sort_key)):
             lane_id = _sanitize_lane_id(pfx + "LN", lane_name)
-            lines.append(f'        subgraph {lane_id}[" ⬛ {lane_name}"]')
+            lines.append(f'        subgraph {lane_id}[" \u2b1b {lane_name}"]')
+            lines.append(f'            direction LR')
             for nid in sorted(lane_groups[lane_name]):
                 info = apps[nid]
                 ia = info["iapm_app"]
