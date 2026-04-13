@@ -1340,8 +1340,8 @@ The Current-State architecture represents the **current / legacy** landscape for
 > **Legend**: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span>
 
 ```mermaid
-%%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "16px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
-flowchart TB
+%%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "16px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 30, "rankSpacing": 35}} }%%
+flowchart LR
     %% -- ArchiMate 3.2 + Azure style classes --
     classDef business      fill:#FFFFB3,stroke:#F9A825,stroke-width:2px,color:#000
     classDef app           fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
@@ -1351,13 +1351,9 @@ flowchart TB
     classDef saas          fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
-    classDef rankAnchor    fill:none,stroke:none,color:transparent,font-size:1px
 
     subgraph AL["🔵 APPLICATION LAYER"]
-        direction LR
         subgraph E2E68CLN_Boundary_Applications[" ⬛ Boundary Applications"]
-            direction LR
-            E2E68C_ALRANK_0[ ]:::rankAnchor
             E2E68C_e_g_MES_300["📦 e.g. MES 300"]:::app
             E2E68C_e_g_XEUS["📦 e.g. XEUS"]:::app
         end
@@ -1384,7 +1380,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlntvmzoUwL-KxZS_btLyCAlFVSUe5qp3JK2abb3TmJADTmLNMQjD2qzrd78G50FIs-06EgGfc37HPj4-9ouSZClWbKXXeyGMlDZ4iZRyhdc4UmwQKXPExVtfvHGcVAUpNyH-jqkU0izbSRuTT6ggaE4xr8WCs8hYOSM_tihtlD9L5bo_QGtCN1Iyw8sMg4-3feAIAO0DjhgfcFyQRaS8NhY0e0pWqCi35IrjCXp-JGm5qnsWiHJc663KNQ3RHNNmCGVRNb1MTHGWo4SwZd09VOvOArFvrU5TfX0Fr71exPa-wAc3YkC0Xg8MBmJsyYpMUImBcaGDv4Dzoyow4OWGYpBQxDnmQk1aNN8-XoB5xQnDnIOmLQil9rtANNfo87LIvmHxeeVYurn9HDzVc7L1_LmfZDQr7HeqqnaYKM_BoUmm50EzCPZMVR1b_vAXTMMZeR1sikrUxbquDwN3j9XMkempx1ithfWHY0fbiVPERRQLtBHBBWbH2ZqkKcVPSESwFReouvreGRyZmqqenYMbGCO1Owec0ZPQBIHn-wesN9It3TqPHWue1sVyhHgXCzUXwvEeO3a1wNHPYoeONrS62IRmVfr_I653I97BZiwv8LqTHxYceVd7rA7HvnF-tJprQr2bdvWGcViyyoo9lmUM75jNu7QvhSrPxdqysl_v9QEXRaBOlIhJJq_mywLlK-CEXyIlqlLLSMUzNUzg3N-Ht57z4fZuCkLnM3yIlK_SqG4pKXBSkoyB8OHQu8dBHY4sL5zGblaxFBWb2MlzShJUm3DhCkSVPtfmYCcHbfmRp_Pe6iYdxU744Ezfx-oX8NW27UOA3lTG8TKewFlsqGp70gkeAXyxvABCBoRMjEKwxB4_C_kXfpy9SagFb5hjlh4-JGfy2JCaEhbPcPGdJDh2K360GtpYYmWh22oBoSV9HLZwl-7Dhu5lvIwhFQcDK2_a402GElwrgK3C9by4vLkmN1Iw-wQuwa2fJeLvn9nd9PqS3EivdZWS_pppydfTCItKfPMzUhqa3yyjIDn3t-IZECpOpJ-_iUQbfE6ndtJdmHpI2yRvTgY3PFR9v1UvzlT9tqmzM4VGoAf-74r7sd9fb4Ud2ApMeKgKhmVBwzsp7ye7NsRLEfyjFExVEMK_4dT_g-0axmKTdxO4Nbo3UjiMJ4_d3Jwc8u9sPoaxD7up59fnHGSluMt0U0qawDtZlfRROhSK6SBbDEKy2LoRR0wr_w4Bl0HZLbZZ__aBvbq6Oomq0lfWuFgjkir2i7w_iWtYiheooqW49SioKrPZhiWK3dxjlCoXA8U-QWIR1rLz9T-08gbw" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVluuOmzoQgF_Fosqvk-xyCYSgVSQupkpFdlfNabdVOUIOOIlVBxCG7qbbvPsxOBdCNq3qSAQ8M9_Yw8zgVynOEixZUq_3SlJSWuA1lMo13uBQskAoLRDjd31-x3BcFaTcBvgHpkJIs-wgbUw-o4KgBcWsFnPOMkvLOfm5RylG_iKU63kfbQjdCskcrzIMPk37wOYA2gcMpWzAcEGWobRrLGj2HK9RUe7JFcMz9PJEknJdzywRZbjWW5cbGqAFps0SyqJqZlO-xXmOYpKu6mlNricLlH5vT-q7Hdj1emF69AWCj2EK-Oj1wGDA1xavyQyVGGg3KvgH2D-rAgNWbikGMUWMYcbVhEXz7OElWFSMpJgx0IwlodR65_PhaH1WFtl3zB_Htqnq-8fBc70nS81f-nFGs8J6J8tyh4nyHJyGYLou1H3_yJTlkekNf8PUbMPtYBNUoi7WcTzoO0esohu6K59jlRbWG45s5SBOEONRLNDWAjrQO842JEkofkY8gq24QNlRj86goSuyfHUPjq8ZcncPOKMXofF91_NOWNdQTdW8jh0prtLFMoRYFwsVB8LRETtyFN9Wr2KHtjI0u9iYZlXy9xFXuxHvYLM0L_Cmkx8mNNzxEavCkaddX63i6FDlaSfArFqsCpSvgR18C6WwSkwt4ddE04H9-BhMXfvf6cM9COyv8GMo_SeMzgyhCg3TDe4jJ6vSBBXbyM5zSmJUkixlHArCSl0oC3CQg7b8jFkPgYtwtIpmcB5pstxeV4wNgG9WN4DLeK3L3NyyLF40VyFf4Kf5m4Ra8IY5TpPTg-DMnhpS0xOiOS5-kBhHTsXOAqaMBFZ0jr0W4FrCx6kmunQPNnQ3Y2UEKe-0aTlprzceCnCtAPYKd4vidnJHJkIw_wxuwdTLYv73Yf5wf3dLJsJrXfbCX7MtcXsZYd7aJr9CqaF5pMBxyUn245RffUJ5i__1h0i0wdd0aifdF1MvaZ-HTat1glMb9VoFeKWNtk3tgynUfNX3_tQtz_3-PocPYNPX4anMNNOEmnvRLy8KK8ArHvyzFExkEMD38N47y_6kiTx3ePw21SOIeB12E7i1ujdSOIhmT93cnJ3y72o-BpEHu6nn1R8OmJb8cNBNKWECH0TjUI1kyBWTQbYcBGS5d8N7div_TgEXQTm8bL3-HQM7Ho8voir1pQ0uNogkkvUqDiT8XJPgJapoyY8REqrKbL5NY8lqDgZSlfOFYo8g_hI2YnL3Py-90EQ=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -1415,8 +1411,8 @@ The Future-State architecture represents the **target** landscape for E2E-68.Thi
 > **Legend**: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span>
 
 ```mermaid
-%%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "16px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
-flowchart TB
+%%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "16px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 30, "rankSpacing": 35}} }%%
+flowchart LR
     %% -- ArchiMate 3.2 + Azure style classes --
     classDef business      fill:#FFFFB3,stroke:#F9A825,stroke-width:2px,color:#000
     classDef app           fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
@@ -1426,13 +1422,9 @@ flowchart TB
     classDef saas          fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
-    classDef rankAnchor    fill:none,stroke:none,color:transparent,font-size:1px
 
     subgraph AL["🔵 APPLICATION LAYER"]
-        direction LR
         subgraph E2E68FLN_Boundary_Applications[" ⬛ Boundary Applications"]
-            direction LR
-            E2E68F_ALRANK_0[ ]:::rankAnchor
             E2E68F_e_g_MES_300["📦 e.g. MES 300"]:::app
             E2E68F_e_g_XEUS["📦 e.g. XEUS"]:::app
         end
@@ -1459,7 +1451,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlntvmzoUwL-KxZS_btLyCAlFVSUe5qp3JK2abb3TmJADTmLNMQjD2qzrd78G50FIs-06EgGfc37HPj4-9ouSZClWbKXXeyGMlDZ4iZRyhdc4UmwQKXPExVtfvHGcVAUpNyH-jqkU0izbSRuTT6ggaE4xr8WCs8hYOSM_tihtlD9L5bo_QGtCN1Iyw8sMg4-3feAIAO0DjhgfcFyQRaS8NhY0e0pWqCi35IrjCXp-JGm5qnsWiHJc663KNQ3RHNNmCGVRNb1MTHGWo4SwZd09VOvOArFvrU5TfX0Fr71exPa-wAc3YkC0Xg8MBmJsyYpMUImBcaGDv4Dzoyow4OWGYpBQxDnmQk1aNN8-XoB5xQnDnIOmLQil9rtANNfo87LIvmHxeeVYurn9HDzVc7L1_LmfZDQr7HeqqnaYKM_BoUmm50EzCPZMVR1b_vAXTMMZeR1sikrUxbquDwN3j9XMkempx1ithfWHY0fbiVPERRQLtBHBBWbH2ZqkKcVPSESwFReouvreGRyZmqqenYMbGCO1Owec0ZPQBIHn-wesN9It3TqPHWue1sVyhHgXCzUXwvEeO3a1wNHPYoeONrS62IRmVfr_I653I97BZiwv8LqTHxYceVd7rA7HvnF-tJprQr2bdvWGcViyyoo9lmUM75jNu7QvhSrPxdqysl_v9QEXRaBOlIhJJq_mywLlK-CEXyIlqlLLSMUzNUzg3N-Ht57z4fZuCkLnM3yIlK_SqG4pKXBSkoyB8OHQu8dBHY6sIJzGblaxFBWb2MlzShJUm3DhCkSVPtfmYCcHbfmRp_Pe6iYdxU744Ezfx-oX8NW27UOA3lTG8TKewFlsqGp70gkeAXyxvABCBoRMjEKwxB4_C_kXfpy9SagFb5hjlh4-JGfy2JCaEhbPcPGdJDh2K360GtpYYmWh22oBoSV9HLZwl-7Dhu5lvIwhFQcDK2_a402GElwrgK3C9by4vLkmN1Iw-wQuwa2fJeLvn9nd9PqS3EivdZWS_pppydfTCItKfPMzUhqa3yyjIDn3t-IZECpOpJ-_iUQbfE6ndtJdmHpI2yRvTgY3PFR9v1UvzlT9tqmzM4VGoAf-74r7sd9fb4Ud2ApMeKgKhmVBwzsp7ye7NsRLEfyjFExVEMK_4dT_g-0axmKTdxO4Nbo3UjiMJ4_d3Jwc8u9sPoaxD7up59fnHGSluMt0U0qawDtZlfRROhSK6SBbDEKy2LoRR0wr_w4Bl0HZLbZZ__aBvbq6Oomq0lfWuFgjkir2i7w_iWtYiheooqW49SioKrPZhiWK3dxjlCoXA8U-QWIR1rLz9T8mFAcR" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVluuOmzoQgF_Fosqvk-xyCYSgVSQupkpFdlfNabdVOUIOOIlVBxCG7qbbvPsxOBdCNq3qSAQ8M9_Yw8zgVynOEixZUq_3SlJSWuA1lMo13uBQskAoLRDjd31-x3BcFaTcBvgHpkJIs-wgbUw-o4KgBcWsFnPOMkvLOfm5RylG_iKU63kfbQjdCskcrzIMPk37wOYA2gcMpWzAcEGWobRrLGj2HK9RUe7JFcMz9PJEknJdzywRZbjWW5cbGqAFps0SyqJqZlO-xXmOYpKu6mlNricLlH5vT-q7Hdj1emF69AWCj2EK-Oj1wGDA1xavyQyVGGg3KvgH2D-rAgNWbikGMUWMYcbVhEXz7OElWFSMpJgx0IwlodR65_PhaH1WFtl3zB_Htqnq-8fBc70nS81f-nFGs8J6J8tyh4nyHJyGYLou1H3_yJTlkekNf8PUbMPtYBNUoi7WcTzoO0esohu6K59jlRbWG45s5SBOEONRLNDWAjrQO842JEkofkY8gq24QNlRj86goSuyfHUPjq8ZcncPOKMXofF91_NOWNdQTdW8jh0prtLFMoRYFwsVB8LRETtyFN9Wr2KHtjI0u9iYZlXy9xFXuxHvYLM0L_Cmkx8mNNzxEavCkaddX63i6FDlaSfArFqsCpSvgR18C6WwSkwt4ddE04H9-BhMXfvf6cM9COyv8GMo_SeMzgyhCg3TD-4jJ6vSBBXbyM5zSmJUkixlHArCSl0oC3CQg7b8jFkPgYtwtIpmcB5pstxeV4wNgG9WN4DLeK3L3NyyLF40VyFf4Kf5m4Ra8IY5TpPTg-DMnhpS0xOiOS5-kBhHTsXOAqaMBFZ0jr0W4FrCx6kmunQPNnQ3Y2UEKe-0aTlprzceCnCtAPYKd4vidnJHJkIw_wxuwdTLYv73Yf5wf3dLJsJrXfbCX7MtcXsZYd7aJr9CqaF5pMBxyUn245RffUJ5i__1h0i0wdd0aifdF1MvaZ-HTat1glMb9VoFeKWNtk3tgynUfNX3_tQtz_3-PocPYNPX4anMNNOEmnvRLy8KK8ArHvyzFExkEMD38N47y_6kiTx3ePw21SOIeB12E7i1ujdSOIhmT93cnJ3y72o-BpEHu6nn1R8OmJb8cNBNKWECH0TjUI1kyBWTQbYcBGS5d8N7div_TgEXQTm8bL3-HQM7Ho8voir1pQ0uNogkkvUqDiT8XJPgJapoyY8REqrKbL5NY8lqDgZSlfOFYo8g_hI2YnL3P5Jy0GI=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 

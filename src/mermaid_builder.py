@@ -237,31 +237,21 @@ class MermaidBuilder:
                       '"primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5", '
                       '"lineColor": "#37474F", "secondaryColor": "#f5f8fc", '
                       '"tertiaryColor": "#fff"}, '
-                      '"flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 50, "rankSpacing": 60}} }%%')
-        lines.append("flowchart TB")
+                      '"flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 40}} }%%')
+        lines.append("flowchart LR")
         lines.append("")
 
         # Swim lanes: ordered by architecture layer (top = Reporting, bottom = Boundary/MES)
+        # In LR mode, subgraph declaration order = left-to-right position.
         sorted_lanes = sorted(self._lanes.keys(), key=_lane_sort_key)
-        anchor_ids: list[str] = []  # hidden anchors for rank enforcement
         for i, lane in enumerate(sorted_lanes):
             sg_id = _sanitize_lane_id(self.prefix, lane)
             fill, stroke = _lane_style(lane, i)
-            anchor = f'{self.prefix}_RANK_{i}'
-            anchor_ids.append(anchor)
             lines.append(f'    subgraph {sg_id}[" ⬛ {lane}"]')
-            lines.append(f'        direction LR')
-            lines.append(f'        {anchor}[ ]:::rankAnchor')
             for nid in sorted(self._lanes[lane]):
                 node = self._nodes[nid]
                 lines.append(f'        {nid}["{node.label}"]')
             lines.append("    end")
-            lines.append("")
-
-        # Invisible rank-enforcing chain: forces Dagre to respect layer order
-        if len(anchor_ids) > 1:
-            chain = " ~~~ ".join(anchor_ids)
-            lines.append(f'    {chain}')
             lines.append("")
 
         # Edges
@@ -309,7 +299,6 @@ class MermaidBuilder:
         lines.append("    classDef devLegend fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1")
         lines.append("    classDef eolLegend fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C")
         lines.append("    classDef naLegend fill:#ECEFF1,stroke:#78909C,stroke-width:2px,color:#37474F,stroke-dasharray:5 3")
-        lines.append("    classDef rankAnchor fill:none,stroke:none,color:transparent,font-size:1px")
         lines.append("")
 
         # Apply classes to nodes
@@ -374,8 +363,7 @@ ARCHIMATE_CLASSDEFS = """\
     classDef eol           fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
     classDef saas          fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
-    classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
-    classDef rankAnchor    fill:none,stroke:none,color:transparent,font-size:1px"""
+    classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20"""
 
 LAYER_STYLES = """\
     style BL fill:#FFFDE7,stroke:#F9A825,stroke-width:2px
@@ -514,8 +502,8 @@ def build_archimate_mermaid(
     lines: list[str] = []
     lines.append('%%{init: {"theme": "base", "securityLevel": "loose", '
                   '"themeVariables": {"fontSize": "16px", "fontFamily": "Segoe UI, Arial, sans-serif"}, '
-                  '"flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%')
-    lines.append("flowchart TB")
+                  '"flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 30, "rankSpacing": 35}} }%%')
+    lines.append("flowchart LR")
     lines.append(ARCHIMATE_CLASSDEFS)
     lines.append("")
 
@@ -528,17 +516,11 @@ def build_archimate_mermaid(
             lane_groups.setdefault(lane, []).append(nid)
 
         lines.append('    subgraph AL["🔵 APPLICATION LAYER"]')
-        lines.append("        direction LR")
 
-        # Create swim lane subgraphs — layer-ordered (top=Reporting, bottom=Boundary)
-        archi_anchor_ids: list[str] = []
+        # Create swim lane subgraphs — layer-ordered by declaration order
         for li, lane_name in enumerate(sorted(lane_groups.keys(), key=_lane_sort_key)):
             lane_id = _sanitize_lane_id(pfx + "LN", lane_name)
-            anchor = f'{pfx}_ALRANK_{li}'
-            archi_anchor_ids.append(anchor)
             lines.append(f'        subgraph {lane_id}[" ⬛ {lane_name}"]')
-            lines.append(f'            direction LR')
-            lines.append(f'            {anchor}[ ]:::rankAnchor')
             for nid in sorted(lane_groups[lane_name]):
                 info = apps[nid]
                 ia = info["iapm_app"]
@@ -554,11 +536,6 @@ def build_archimate_mermaid(
             lines.append(f'        {mw_id}["{EMOJI["middleware"]} {mw_name}"]:::middleware')
         for de_id, de_label in sorted(data_entities.items()):
             lines.append(f'        {de_id}>"{EMOJI["data"]} {de_label}"]:::data')
-
-        # Invisible rank-enforcing chain for lane ordering
-        if len(archi_anchor_ids) > 1:
-            chain = " ~~~ ".join(archi_anchor_ids)
-            lines.append(f'        {chain}')
 
         lines.append("    end")
         lines.append("")
