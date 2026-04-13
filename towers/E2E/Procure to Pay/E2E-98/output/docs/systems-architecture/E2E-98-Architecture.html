@@ -287,6 +287,28 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<style>
+/* Lane / subgraph headers — bold, larger, clearly visible */
+.mermaid .cluster-label .nodeLabel {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3px;
+}
+/* System / data / technology node labels — most prominent */
+.mermaid .node .nodeLabel,
+.mermaid .node .label {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+/* Edge labels — readable but secondary */
+.mermaid .edgeLabel .label {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+/* Responsive: allow horizontal scroll for wide diagrams */
+.mermaid { overflow-x: auto; }
+.mermaid svg { min-width: 600px; }
+</style>
 <!-- Mermaid 11.14.0: Lazy-rendered via IntersectionObserver for performance.
      Diagrams are only parsed + rendered when scrolled into the viewport.
      On a page with 20+ diagrams this cuts initial load time from ~4s to <1s. -->
@@ -1371,7 +1393,7 @@ flowchart TB
     classDef saas          fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
-    classDef rankAnchor    width:0px,height:0px,padding:0px,margin:0px,fill:none,stroke:none
+    classDef rankAnchor    fill:none,stroke:none,color:transparent,font-size:1px
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
@@ -1404,7 +1426,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlntvmzoUwL-KxZS_btLyCAlBVSUe5qp3JK2abb3TmJADTmLNMQjD2qzLd78G50Fps-26Ump8zvmd4-Pjx7OSZClWbKXXeyaMlDZ4jpRyjTc4UmwQKQvERa8vehwnVUHKbYi_YyqFNMsO0sbkEyoIWlDMa7HgLDNWzsmPPUob5U9SuR4P0IbQrZTM8SrD4ONNHzgCQPuAI8YHHBdkGSm7xoJmj8kaFeWeXHE8RU8PJC3X9cgSUY5rvXW5oSFaYNqEUBZVM8rEFOc5Sghb1cNDtR4sEPvWGjTV3Q7ser2IHX2BD27EgGi9HhgMRGzJmkxRiYFxoYO_gPOjKjDg5ZZikFDEOeZCTVo03z5egkXFCcOcg6YtCaX2u0A01-jzssi-YfE5cSzd3H8OHus52Xr-1E8ymhX2O1VVO0yU5-DUJNPzoBkER6aqji1_-Aum4Yy8DjZFJepiXdeHgXvEaubI9NSXWK2F9YdjRzuIU8RFFgu0FckFZsfZhqQpxY9IZLCVF6i6-tEZHJmaqp6dgxsYI7U7B5zRV6kJAs_3T1hvpFu6dR471jyti-UI8S4Wai6E4yN27GqBo5_FDh1taHWxCc2q9P9nXO9mvIPNWF7gTac-LDjyJkesDse-cT5azTWh3i27esM4LFlnRT0sbVRhs8ZktS6bbo7SVOynpr9BxYqwptuEwDKGD_7rfsQkn1eLVYHyNXDCL5ESVallpOI3NUzg3N2FN57z4eZ2BkLnM7yPlK_SqG4pKXBSkoyB8P40esRBHU4sL5zFblaxFBXb2MlzShJUm3DhCkSVvtAW4CAHbfkLT-e91U06ip3w3pm9j9Uv4Ktt26dkvamM41U8hfPYUNX2pBM8AvhidQGEDAiZiEKwxH4_C_kXfpy_SagFb5hjlp4-JGf60JCa4yye4-I7SXDsVvzFamhjiZWH3l4LCC3p47Sdu3QfNnQv42UMqbgkWHndjjcZSnCtAPYKV4vi8vqKXEvB_BO4BDd-loh__8xvZ1eX5Fp6rU8s6a-Zluy-zrA4la9_RkpD85tlFCTn7kb8BoSK2-nnbzLRBp_TqZ10F6YOaV_kzS3hhqcbwG-dHWdugLapczCFRqAH_u8O-pd-f70VDmArMOHphDAsCxreq6P-1a4N8Uok_0UJpioI4d9w5v_Bdg1jscm7BdyK7o0SDuPpQ7c2p6f6O1uPYezDbun59Z0HWSneNd2SkibwVp5K-igdCsV0kC0HIVnu3YjrplV_p4TLpBwW26z_jomdTCavsqr0lQ0uNoikiv0s31LiSZbiJapoKV5ACqrKbL5liWI3bxqlykWg2CdILMJGDu7-A7byCqI=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlntvmzoUwL-KxZS_btLyCAlBVSUe5qp3JK2abb3TmJADTmLNMQjD2qzLd78G50Fps-06EgGfc37HPj4-9rOSZClWbKXXeyaMlDZ4jpRyjTc4UmwQKQvExVtfvHGcVAUptyH-jqkU0iw7SBuTT6ggaEExr8WCs8xYOSc_9ihtlD9J5bo_QBtCt1Iyx6sMg483feAIAO0DjhgfcFyQZaTsGguaPSZrVJR7csXxFD09kLRc1z1LRDmu9dblhoZogWkzhLKoml4mpjjPUULYqu4eqnVngdi3Vqep7nZg1-tF7OgLfHAjBkTr9cBgIMaWrMkUlRgYFzr4Czg_qgIDXm4pBglFnGMu1KRF8-3jJVhUnDDMOWjaklBqvwtEc40-L4vsGxafE8fSzf3n4LGek63nT_0ko1lhv1NVtcNEeQ5OTTI9D5pBcGSq6tjyh79gGs7I62BTVKIu1nV9GLhHrGaOTE99idVaWH84drSDOEVcRLFAWxFcYHacbUiaUvyIRARbcYGqqx-dwZGpqerZObiBMVK7c8AZfRWaIPB8_4T1RrqlW-exY83TuliOEO9ioeZCOD5ix64WOPpZ7NDRhlYXm9CsSv9_xPVuxDvYjOUF3nTyw4Ijb3LE6nDsG-dHq7km1LtpV28YhyXrrDhiWcbwgdm8S_tSqPJcrC0r-_VeH3BRBOpEiZhk8mqxKlC-Bk74JVKiKrWMVDxTwwTO3V144zkfbm5nIHQ-w_tI-SqN6paSAiclyRgI70-9RxzU4cTywlnsZhVLUbGNnTynJEG1CReuQFTpC20BDnLQlr_wdN5b3aSj2Anvndn7WP0Cvtq2fQrQm8o4XsVTOI8NVW1POsEjgC9WF0DIgJCJUQiW2ONnIf_Cj_M3CbXgDXPM0tOH5EwfGlJTwuI5Lr6TBMduxV-shjaWWFno9lpAaEkfpy3cpfuwoXsZL2NIxcHAyuv2eJOhBNcKYK9wtSgur6_ItRTMP4FLcONnifj7Z347u7ok19JrXaWkv2Za8vV1hEUlvv4ZKQ3Nb5ZRkJy7G_EMCBUn0s_fRKINPqdTO-kuTD2kfZI3J4Mbnqq-36oXZ6p-29Q5mEIj0AP_d8X9pd9fb4UD2ApMeKoKhmVBw3tV3l_t2hCvRPBfpGCqghD-DWf-H2zXMBabvJvArdG9kcJhPH3o5ub0lH9n8zGMfdhNPb8-5yArxV2mm1LSBN7KqqSP0qFQTAfZchCS5d6NOGJa-XcKuAzKYbHN-ncM7GQyeRVVpa9scLFBJFXsZ3l_EtewFC9RRUtx61FQVWbzLUsUu7nHKFUuBop9gsQibGTn7j8mVgcR" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 
@@ -1461,7 +1483,7 @@ flowchart TB
     classDef saas          fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
-    classDef rankAnchor    width:0px,height:0px,padding:0px,margin:0px,fill:none,stroke:none
+    classDef rankAnchor    fill:none,stroke:none,color:transparent,font-size:1px
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
@@ -1494,7 +1516,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlntvmzoUwL-KxZS_btLyCAlBVSUe5qp3JK2abb3TmJADTmLNMQjD2qzLd78G50Fps-26Ump8zvmd4-Pjx7OSZClWbKXXeyaMlDZ4jpRyjTc4UmwQKQvERa8vehwnVUHKbYi_YyqFNMsO0sbkEyoIWlDMa7HgLDNWzsmPPUob5U9SuR4P0IbQrZTM8SrD4ONNHzgCQPuAI8YHHBdkGSm7xoJmj8kaFeWeXHE8RU8PJC3X9cgSUY5rvXW5oSFaYNqEUBZVM8rEFOc5Sghb1cNDtR4sEPvWGjTV3Q7ser2IHX2BD27EgGi9HhgMRGzJmkxRiYFxoYO_gPOjKjDg5ZZikFDEOeZCTVo03z5egkXFCcOcg6YtCaX2u0A01-jzssi-YfE5cSzd3H8OHus52Xr-1E8ymhX2O1VVO0yU5-DUJNPzoBkER6aqji1_-Aum4Yy8DjZFJepiXdeHgXvEaubI9NSXWK2F9YdjRzuIU8RFFgu0FckFZsfZhqQpxY9IZLCVF6i6-tEZHJmaqp6dgxsYI7U7B5zRV6kJAs_3T1hvpFu6dR471jyti-UI8S4Wai6E4yN27GqBo5_FDh1taHWxCc2q9P9nXO9mvIPNWF7gTac-LDjyJkesDse-cT5azTWh3i27esM4LFlnRT0sbVRhs8ZktS6bbo7SVOynpr9BxYqwptuEwDKGD_7rfsQkn1eLVYHyNXDCL5ESVallpOI3NUzg3N2FN57z4eZ2BkLnM7yPlK_SqG4pKXBSkoyB8P40esRBHU6sIJzFblaxFBXb2MlzShJUm3DhCkSVvtAW4CAHbfkLT-e91U06ip3w3pm9j9Uv4Ktt26dkvamM41U8hfPYUNX2pBM8AvhidQGEDAiZiEKwxH4_C_kXfpy_SagFb5hjlp4-JGf60JCa4yye4-I7SXDsVvzFamhjiZWH3l4LCC3p47Sdu3QfNnQv42UMqbgkWHndjjcZSnCtAPYKV4vi8vqKXEvB_BO4BDd-loh__8xvZ1eX5Fp6rU8s6a-Zluy-zrA4la9_RkpD85tlFCTn7kb8BoSK2-nnbzLRBp_TqZ10F6YOaV_kzS3hhqcbwG-dHWdugLapczCFRqAH_u8O-pd-f70VDmArMOHphDAsCxreq6P-1a4N8Uok_0UJpioI4d9w5v_Bdg1jscm7BdyK7o0SDuPpQ7c2p6f6O1uPYezDbun59Z0HWSneNd2SkibwVp5K-igdCsV0kC0HIVnu3YjrplV_p4TLpBwW26z_jomdTCavsqr0lQ0uNoikiv0s31LiSZbiJapoKV5ACqrKbL5liWI3bxqlykWg2CdILMJGDu7-AygUCsM=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlntvmzoUwL-KxZS_btLyCAlBVSUe5qp3JK2abb3TmJADTmLNMQjD2qzLd78G50Fps-06EgGfc37HPj4-9rOSZClWbKXXeyaMlDZ4jpRyjTc4UmwQKQvExVtfvHGcVAUptyH-jqkU0iw7SBuTT6ggaEExr8WCs8xYOSc_9ihtlD9J5bo_QBtCt1Iyx6sMg483feAIAO0DjhgfcFyQZaTsGguaPSZrVJR7csXxFD09kLRc1z1LRDmu9dblhoZogWkzhLKoml4mpjjPUULYqu4eqnVngdi3Vqep7nZg1-tF7OgLfHAjBkTr9cBgIMaWrMkUlRgYFzr4Czg_qgIDXm4pBglFnGMu1KRF8-3jJVhUnDDMOWjaklBqvwtEc40-L4vsGxafE8fSzf3n4LGek63nT_0ko1lhv1NVtcNEeQ5OTTI9D5pBcGSq6tjyh79gGs7I62BTVKIu1nV9GLhHrGaOTE99idVaWH84drSDOEVcRLFAWxFcYHacbUiaUvyIRARbcYGqqx-dwZGpqerZObiBMVK7c8AZfRWaIPB8_4T1RrqlW-exY83TuliOEO9ioeZCOD5ix64WOPpZ7NDRhlYXm9CsSv9_xPVuxDvYjOUF3nTyw4Ijb3LE6nDsG-dHq7km1LtpV28YhyXrrDhiWcbwgdm8S_tSqPJcrC0r-_VeH3BRBOpEiZhk8mqxKlC-Bk74JVKiKrWMVDxTwwTO3V144zkfbm5nIHQ-w_tI-SqN6paSAiclyRgI70-9RxzU4cQKwlnsZhVLUbGNnTynJEG1CReuQFTpC20BDnLQlr_wdN5b3aSj2Anvndn7WP0Cvtq2fQrQm8o4XsVTOI8NVW1POsEjgC9WF0DIgJCJUQiW2ONnIf_Cj_M3CbXgDXPM0tOH5EwfGlJTwuI5Lr6TBMduxV-shjaWWFno9lpAaEkfpy3cpfuwoXsZL2NIxcHAyuv2eJOhBNcKYK9wtSgur6_ItRTMP4FLcONnifj7Z347u7ok19JrXaWkv2Za8vV1hEUlvv4ZKQ3Nb5ZRkJy7G_EMCBUn0s_fRKINPqdTO-kuTD2kfZI3J4Mbnqq-36oXZ6p-29Q5mEIj0AP_d8X9pd9fb4UD2ApMeKoKhmVBw3tV3l_t2hCvRPBfpGCqghD-DWf-H2zXMBabvJvArdG9kcJhPH3o5ub0lH9n8zGMfdhNPb8-5yArxV2mm1LSBN7KqqSP0qFQTAfZchCS5d6NOGJa-XcKuAzKYbHN-ncM7GQyeRVVpa9scLFBJFXsZ3l_EtewFC9RRUtx61FQVWbzLUsUu7nHKFUuBop9gsQibGTn7j-XaQcy" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-98 — R3 Equipment Product Supporting Items (PSI) Procurement</span></div>
 

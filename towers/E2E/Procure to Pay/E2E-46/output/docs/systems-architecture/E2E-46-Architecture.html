@@ -287,6 +287,28 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<style>
+/* Lane / subgraph headers — bold, larger, clearly visible */
+.mermaid .cluster-label .nodeLabel {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3px;
+}
+/* System / data / technology node labels — most prominent */
+.mermaid .node .nodeLabel,
+.mermaid .node .label {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+/* Edge labels — readable but secondary */
+.mermaid .edgeLabel .label {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+/* Responsive: allow horizontal scroll for wide diagrams */
+.mermaid { overflow-x: auto; }
+.mermaid svg { min-width: 600px; }
+</style>
 <!-- Mermaid 11.14.0: Lazy-rendered via IntersectionObserver for performance.
      Diagrams are only parsed + rendered when scrolled into the viewport.
      On a page with 20+ diagrams this cuts initial load time from ~4s to <1s. -->
@@ -1001,7 +1023,7 @@ flowchart TB
     classDef saas          fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
-    classDef rankAnchor    width:0px,height:0px,padding:0px,margin:0px,fill:none,stroke:none
+    classDef rankAnchor    fill:none,stroke:none,color:transparent,font-size:1px
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
@@ -1034,7 +1056,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlntvmzoUwL-KxZS_btLyCCRFVSQe5ip3JK2abb3TmJADTmLNMQjD2qzrd78G50Fps-26Ump8zvmd4-Pjx5OSZClWbKXXeyKMlDZ4ipRyg7c4UmwQKUvERa8vehwnVUHKXYi_YyqFNMsO0sbkEyoIWlLMa7HgrDJWLsiPPUqz8kepXI8HaEvoTkoWeJ1h8HHaB44A0D7giPEBxwVZRcpzY0Gzh2SDinJPrjieocd7kpabemSFKMe13qbc0hAtMW1CKIuqGWViioscJYSt6-GhWg8WiH1rDZrq8zN47vUidvQFPrgRA6L1emAwELElGzJDJQbGhQ7-As6PqsCAlzuKQUIR55gLNWnRfPt4BZYVJwxzDpq2IpTa7wLRXKPPyyL7hsXnlTPWzf3n4KGek63nj_0ko1lhv1NVtcNEeQ5OTTI9D5pBcGSq6mjsD3_BNBzL62BTVKIu1nV9GLhHrGZapqe-xGotrD8cOdpBnCIuslignUguMDvOtiRNKX5AIoOtvEDV1Y_OoGVqqnp2Dm5gWGp3Djijr1ITBJ7vn7CepY_18XnsSPO0LpYjxLtYqLkQjo7YkasFjn4WO3S04biLTWhWpf8_43o34x1sxvICbzv1MYaWd3XE6nDkG-ej1VwT6t2yqzeMw5JNVtTD0kYVNhtM1puy6eYoTcV-avpbVKwJa7pNCCxj-OC_7kdM8nm1XBco3wAn_BIpUZWOjVT8poYJnNvbcOo5H6Y3cxA6n-FdpHyVRnVLSYGTkmQMhHen0SMO6nBoeeE8drOKpajYxU6eU5Kg2oQLVyCq9KW2BAc5aMtfeDrvrW7SUeyEd878fax-AV9t2z4l601lHK_jGVzEhqq2J51gC-CL9QUQMiBkIgrBEvv9LORf-HHxJqEWvGGOWXr6kJzZfUNqjrN4gYvvJMGxW_EXq6GNJFYeenstILSkj9N27tJ92NC9jJcxpOKSYOWkHW8ylOBaAewVrpfF5eSaTKRg8QlcgqmfJeLfP4ub-fUlmUiv9Ykl_TXTkt3XGRan8uRnpDQ0v1lGQXJup-I3IFTcTj9_k4k2-JxO7aS7MHVI-yJvbgk3PN0AfuvsOHMDtE2dgyk0Aj3wf3fQv_T7661wAI8DE55OCGM8hob36qh_tWtDvBbJf1GCqQpC-Dec-3-wXcNYbPJuAbeie6OEw3h2363N2an-ztZjGPuwW3p-fedBVop3TbekpAm8kaeSbqVDoZgOstUgJKu9G3HdtOrvlHCZlMNim_XfMbFXV1evsqr0lS0utoikiv0k31LiSZbiFapoKV5ACqrKbLFjiWI3bxqlykWg2CdILMJWDj7_B66IClU=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlntvmzoUwL-KxZS_btLyCCRFVSQe5ip3JK2abb3TmJADTmLNMQjD2qzrd78G50Fps-06EgGfc37HPj4-9pOSZClWbKXXeyKMlDZ4ipRyg7c4UmwQKUvExVtfvHGcVAUpdyH-jqkU0iw7SBuTT6ggaEkxr8WCs8pYuSA_9ijNyh-lct0foC2hOylZ4HWGwcdpHzgCQPuAI8YHHBdkFSnPjQXNHpINKso9ueJ4hh7vSVpu6p4VohzXeptyS0O0xLQZQllUTS8TU1zkKCFsXXcP1bqzQOxbq9NUn5_Bc68XsaMv8MGNGBCt1wODgRhbsiEzVGJgXOjgL-D8qAoMeLmjGCQUcY65UJMWzbePV2BZccIw56BpK0Kp_S4QzTX6vCyyb1h8Xjlj3dx_Dh7qOdl6_thPMpoV9jtVVTtMlOfg1CTT86AZBEemqo7G_vAXTMOxvA42RSXqYl3Xh4F7xGqmZXrqS6zWwvrDkaMdxCniIooF2ongArPjbEvSlOIHJCLYigtUXf3oDFqmpqpn5-AGhqV254Az-io0QeD5_gnrWfpYH5_HjjRP62I5QryLhZoL4eiIHbla4OhnsUNHG4672IRmVfr_I653I97BZiwv8LaTH2NoeVdHrA5HvnF-tJprQr2bdvWGcViyyYojlmUMH5jNu7QvhSrPxdqysl_v9QEXRaBOlIhJJq-W6wLlG-CEXyIlqtKxkYpnapjAub0Np57zYXozB6HzGd5FyldpVLeUFDgpScZAeHfqPeKgDoeWF85jN6tYiopd7OQ5JQmqTbhwBaJKX2pLcJCDtvyFp_Pe6iYdxU5458zfx-oX8NW27VOA3lTG8TqewUVsqGp70gm2AL5YXwAhA0ImRiFYYo-fhfwLPy7eJNSCN8wxS08fkjO7b0hNCYsXuPhOEhy7FX-xGtpIYmWh22sBoSV9nLZwl-7Dhu5lvIwhFQcDKyft8SZDCa4VwF7hellcTq7JRAoWn8AlmPpZIv7-WdzMry_JRHqtq5T010xLvr6OsKjEk5-R0tD8ZhkFybmdimdAqDiRfv4mEm3wOZ3aSXdh6iHtk7w5GdzwVPX9Vr04U_Xbps7BFBqBHvi_K-4v_f56KxzA48CEp6pgjMfQ8F6V91e7NsRrEfwXKZiqIIR_w7n_B9s1jMUm7yZwa3RvpHAYz-67uTk75d_ZfAxjH3ZTz6_POchKcZfpppQ0gTeyKulWOhSK6SBbDUKy2rsRR0wr_04Bl0E5LLZZ_46Bvbq6ehVVpa9scbFFJFXsJ3l_EtewFK9QRUtx61FQVWaLHUsUu7nHKFUuBop9gsQibGXn838d7AbE" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-46 — R3 Direct procurement with Planning Integration-AT</span></div>
 
@@ -1091,7 +1113,7 @@ flowchart TB
     classDef saas          fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
-    classDef rankAnchor    width:0px,height:0px,padding:0px,margin:0px,fill:none,stroke:none
+    classDef rankAnchor    fill:none,stroke:none,color:transparent,font-size:1px
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
@@ -1124,7 +1146,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlntvmzoUwL-KxZS_btLyCCRFVSQe5ip3JK2abb3TmJADTmLNMQjD2qzrd78G50Fps-26Ump8zvmd4-Pjx5OSZClWbKXXeyKMlDZ4ipRyg7c4UmwQKUvERa8vehwnVUHKXYi_YyqFNMsO0sbkEyoIWlLMa7HgrDJWLsiPPUqz8kepXI8HaEvoTkoWeJ1h8HHaB44A0D7giPEBxwVZRcpzY0Gzh2SDinJPrjieocd7kpabemSFKMe13qbc0hAtMW1CKIuqGWViioscJYSt6-GhWg8WiH1rDZrq8zN47vUidvQFPrgRA6L1emAwELElGzJDJQbGhQ7-As6PqsCAlzuKQUIR55gLNWnRfPt4BZYVJwxzDpq2IpTa7wLRXKPPyyL7hsXnlTPWzf3n4KGek63nj_0ko1lhv1NVtcNEeQ5OTTI9D5pBcGSq6mjsD3_BNBzL62BTVKIu1nV9GLhHrGZapqe-xGotrD8cOdpBnCIuslignUguMDvOtiRNKX5AIoOtvEDV1Y_OoGVqqnp2Dm5gWGp3Djijr1ITBJ7vn7CepY_18XnsSPO0LpYjxLtYqLkQjo7YkasFjn4WO3S04biLTWhWpf8_43o34x1sxvICbzv1MYaWd3XE6nDkG-ej1VwT6t2yqzeMw5JNVtTD0kYVNhtM1puy6eYoTcV-avpbVKwJa7pNCCxj-OC_7kdM8nm1XBco3wAn_BIpUZWOjVT8poYJnNvbcOo5H6Y3cxA6n-FdpHyVRnVLSYGTkmQMhHen0SMO6nBoBeE8drOKpajYxU6eU5Kg2oQLVyCq9KW2BAc5aMtfeDrvrW7SUeyEd878fax-AV9t2z4l601lHK_jGVzEhqq2J51gC-CL9QUQMiBkIgrBEvv9LORf-HHxJqEWvGGOWXr6kJzZfUNqjrN4gYvvJMGxW_EXq6GNJFYeenstILSkj9N27tJ92NC9jJcxpOKSYOWkHW8ylOBaAewVrpfF5eSaTKRg8QlcgqmfJeLfP4ub-fUlmUiv9Ykl_TXTkt3XGRan8uRnpDQ0v1lGQXJup-I3IFTcTj9_k4k2-JxO7aS7MHVI-yJvbgk3PN0AfuvsOHMDtE2dgyk0Aj3wf3fQv_T7661wAI8DE55OCGM8hob36qh_tWtDvBbJf1GCqQpC-Dec-3-wXcNYbPJuAbeie6OEw3h2363N2an-ztZjGPuwW3p-fedBVop3TbekpAm8kaeSbqVDoZgOstUgJKu9G3HdtOrvlHCZlMNim_XfMbFXV1evsqr0lS0utoikiv0k31LiSZbiFapoKV5ACqrKbLFjiWI3bxqlykWg2CdILMJWDj7_Bx-qCnY=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlntvmzoUwL-KxZS_btLyCCRFVSQe5ip3JK2abb3TmJADTmLNMQjD2qzrd78G50Fps-06EgGfc37HPj4-9pOSZClWbKXXeyKMlDZ4ipRyg7c4UmwQKUvExVtfvHGcVAUpdyH-jqkU0iw7SBuTT6ggaEkxr8WCs8pYuSA_9ijNyh-lct0foC2hOylZ4HWGwcdpHzgCQPuAI8YHHBdkFSnPjQXNHpINKso9ueJ4hh7vSVpu6p4VohzXeptyS0O0xLQZQllUTS8TU1zkKCFsXXcP1bqzQOxbq9NUn5_Bc68XsaMv8MGNGBCt1wODgRhbsiEzVGJgXOjgL-D8qAoMeLmjGCQUcY65UJMWzbePV2BZccIw56BpK0Kp_S4QzTX6vCyyb1h8Xjlj3dx_Dh7qOdl6_thPMpoV9jtVVTtMlOfg1CTT86AZBEemqo7G_vAXTMOxvA42RSXqYl3Xh4F7xGqmZXrqS6zWwvrDkaMdxCniIooF2ongArPjbEvSlOIHJCLYigtUXf3oDFqmpqpn5-AGhqV254Az-io0QeD5_gnrWfpYH5_HjjRP62I5QryLhZoL4eiIHbla4OhnsUNHG4672IRmVfr_I653I97BZiwv8LaTH2NoeVdHrA5HvnF-tJprQr2bdvWGcViyyYojlmUMH5jNu7QvhSrPxdqysl_v9QEXRaBOlIhJJq-W6wLlG-CEXyIlqtKxkYpnapjAub0Np57zYXozB6HzGd5FyldpVLeUFDgpScZAeHfqPeKgDodWEM5jN6tYiopd7OQ5JQmqTbhwBaJKX2pLcJCDtvyFp_Pe6iYdxU5458zfx-oX8NW27VOA3lTG8TqewUVsqGp70gm2AL5YXwAhA0ImRiFYYo-fhfwLPy7eJNSCN8wxS08fkjO7b0hNCYsXuPhOEhy7FX-xGtpIYmWh22sBoSV9nLZwl-7Dhu5lvIwhFQcDKyft8SZDCa4VwF7hellcTq7JRAoWn8AlmPpZIv7-WdzMry_JRHqtq5T010xLvr6OsKjEk5-R0tD8ZhkFybmdimdAqDiRfv4mEm3wOZ3aSXdh6iHtk7w5GdzwVPX9Vr04U_Xbps7BFBqBHvi_K-4v_f56KxzA48CEp6pgjMfQ8F6V91e7NsRrEfwXKZiqIIR_w7n_B9s1jMUm7yZwa3RvpHAYz-67uTk75d_ZfAxjH3ZTz6_POchKcZfpppQ0gTeyKulWOhSK6SBbDUKy2rsRR0wr_04Bl0E5LLZZ_46Bvbq6ehVVpa9scbFFJFXsJ3l_EtewFK9QRUtx61FQVWaLHUsUu7nHKFUuBop9gsQibGXn83-O_wbl" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-46 — R3 Direct procurement with Planning Integration-AT</span></div>
 

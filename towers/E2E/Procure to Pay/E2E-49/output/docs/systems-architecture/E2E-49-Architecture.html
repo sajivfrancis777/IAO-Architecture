@@ -287,6 +287,28 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<style>
+/* Lane / subgraph headers — bold, larger, clearly visible */
+.mermaid .cluster-label .nodeLabel {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3px;
+}
+/* System / data / technology node labels — most prominent */
+.mermaid .node .nodeLabel,
+.mermaid .node .label {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+/* Edge labels — readable but secondary */
+.mermaid .edgeLabel .label {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+/* Responsive: allow horizontal scroll for wide diagrams */
+.mermaid { overflow-x: auto; }
+.mermaid svg { min-width: 600px; }
+</style>
 <!-- Mermaid 11.14.0: Lazy-rendered via IntersectionObserver for performance.
      Diagrams are only parsed + rendered when scrolled into the viewport.
      On a page with 20+ diagrams this cuts initial load time from ~4s to <1s. -->
@@ -1655,7 +1677,7 @@ flowchart TB
     classDef saas          fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
-    classDef rankAnchor    width:0px,height:0px,padding:0px,margin:0px,fill:none,stroke:none
+    classDef rankAnchor    fill:none,stroke:none,color:transparent,font-size:1px
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
@@ -1688,7 +1710,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlntvmzoUwL-KxZS_btLyCAlBVSQe5ip3pK2abb3TmJADTmLNMQjD2qzrd78G50Fps-26Ump8zvmd4-Pjx5OSZClWbKXXeyKMlDZ4ipRyg7c4UmwQKUvERa8vehwnVUHKXYi_YyqFNMsO0sbkEyoIWlLMa7HgrDJWLsiPPUob5Y9SuR4P0JbQnZQs8DrD4OOsDxwBoH3AEeMDjguyipTnxoJmD8kGFeWeXHE8R4_3JC039cgKUY5rvU25pSFaYtqEUBZVM8rEFBc5Sghb18NDtR4sEPvWGjTV52fw3OtF7OgLfHAjBkTr9cBgIGJLNmSOSgyMCx38BZwfVYEBL3cUg4QizjEXatKi-fbxCiwrThjmHDRtRSi13wWiuUafl0X2DYvPiWPp5v5z8FDPydbzx36S0ayw36mq2mGiPAenJpmeB80gODJVdWz5w18wDWfkdbApKlEX67o-DNwjVjNHpqe-xGotrD8cO9pBnCIuslignUguMDvOtiRNKX5AIoOtvEDV1Y_O4MjUVPXsHNzAGKndOeCMvkpNEHi-f8J6I93SrfPYseZpXSxHiHexUHMhHB-xY1cLHP0sduhoQ6uLTWhWpf8_43o34x1sxvICbzv1YcGRNzlidTj2jfPRaq4J9W7Z1RvGYckmK-phaaMKmw0m603ZdHOUpmI_Nf0tKtaENd0mBJYxfPBf9yMm-bxarguUb4ATfomUqEotIxW_qWEC5_Y2nHnOh9nNNQidz_AuUr5Ko7qlpMBJSTIGwrvT6BEHdTiceOF17GYVS1Gxi508pyRBtQkXrkBU6UttCQ5y0Ja_8HTeW92ko9gJ75zr97H6BXy1bfuUrDeVcbyO53ARG6rannSCRwBfrC-AkAEhE1EIltjvZyH_wo-LNwm14A1zzNLTh-TM7xtSc5zFC1x8JwmO3Yq_WA1tLLHy0NtrAaElfZy2c5fuw4buZbyMIRWXBCun7XiToQTXCmCvcLUsLqdXZCoFi0_gEsz8LBH__lncXF9dkqn0Wp9Y0l8zLdl9nWFxKk9_RkpD85tlFCTndiZ-A0LF7fTzN5log8_p1E66C1OHtC_y5pZww9MN4LfOjjM3QNvUOZhCI9AD_3cH_Uu_v94KB7AVmPB0QhiWBQ3v1VH_ateGeC2S_6IEUxWE8G947f_Bdg1jscm7BdyK7o0SDuP5fbc256f6O1uPYezDbun59Z0HWSneNd2SkibwRp5K-igdCsV0kK0GIVnt3YjrplV_p4TLpBwW26z_jomdTCavsqr0lS0utoikiv0k31LiSZbiFapoKV5ACqrKbLFjiWI3bxqlykWg2CdILMJWDj7_Bx_LCnY=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlntvmzoUwL-KxZS_btLyCAlBVSQe5ip3pK2abb3TmJADTmLNMQjD2qzrd78G50Fps-06EgGfc37HPj4-9pOSZClWbKXXeyKMlDZ4ipRyg7c4UmwQKUvExVtfvHGcVAUpdyH-jqkU0iw7SBuTT6ggaEkxr8WCs8pYuSA_9ihtlD9K5bo_QFtCd1KywOsMg4-zPnAEgPYBR4wPOC7IKlKeGwuaPSQbVJR7csXxHD3ek7Tc1D0rRDmu9TblloZoiWkzhLKoml4mprjIUULYuu4eqnVngdi3VqepPj-D514vYkdf4IMbMSBarwcGAzG2ZEPmqMTAuNDBX8D5URUY8HJHMUgo4hxzoSYtmm8fr8Cy4oRhzkHTVoRS-10gmmv0eVlk37D4nDiWbu4_Bw_1nGw9f-wnGc0K-52qqh0mynNwapLpedAMgiNTVceWP_wF03BGXgebohJ1sa7rw8A9YjVzZHrqS6zWwvrDsaMdxCniIooF2ongArPjbEvSlOIHJCLYigtUXf3oDI5MTVXPzsENjJHanQPO6KvQBIHn-yesN9It3TqPHWue1sVyhHgXCzUXwvERO3a1wNHPYoeONrS62IRmVfr_I653I97BZiwv8LaTHxYceZMjVodj3zg_Ws01od5Nu3rDOCzZZMURyzKGD8zmXdqXQpXnYm1Z2a_3-oCLIlAnSsQkk1fLdYHyDXDCL5ESVallpOKZGiZwbm_Dmed8mN1cg9D5DO8i5as0qltKCpyUJGMgvDv1HnFQh8OJF17HblaxFBW72MlzShJUm3DhCkSVvtSW4CAHbfkLT-e91U06ip3wzrl-H6tfwFfbtk8BelMZx-t4DhexoartSSd4BPDF-gIIGRAyMQrBEnv8LORf-HHxJqEWvGGOWXr6kJz5fUNqSli8wMV3kuDYrfiL1dDGEisL3V4LCC3p47SFu3QfNnQv42UMqTgYWDltjzcZSnCtAPYKV8vicnpFplKw-AQuwczPEvH3z-Lm-uqSTKXXukpJf8205OvrCItKPP0ZKQ3Nb5ZRkJzbmXgGhIoT6edvItEGn9OpnXQXph7SPsmbk8ENT1Xfb9WLM1W_beocTKER6IH_u-L-0u-vt8IBbAUmPFUFw7Kg4b0q7692bYjXIvgvUjBVQQj_htf-H2zXMBabvJvArdG9kcJhPL_v5ub8lH9n8zGMfdhNPb8-5yArxV2mm1LSBN7IqqSP0qFQTAfZahCS1d6NOGJa-XcKuAzKYbHN-ncM7GQyeRVVpa9scbFFJFXsJ3l_EtewFK9QRUtx61FQVWaLHUsUu7nHKFUuBop9gsQibGXn83-PIAbl" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
 
@@ -1745,7 +1767,7 @@ flowchart TB
     classDef saas          fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
-    classDef rankAnchor    width:0px,height:0px,padding:0px,margin:0px,fill:none,stroke:none
+    classDef rankAnchor    fill:none,stroke:none,color:transparent,font-size:1px
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
@@ -1778,7 +1800,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlntvmzoUwL-KxZS_btLyCAlBVSQe5ip3pK2abb3TmJADTmLNMQjD2qzrd78G50Fps-26Ump8zvmd4-Pjx5OSZClWbKXXeyKMlDZ4ipRyg7c4UmwQKUvERa8vehwnVUHKXYi_YyqFNMsO0sbkEyoIWlLMa7HgrDJWLsiPPUob5Y9SuR4P0JbQnZQs8DrD4OOsDxwBoH3AEeMDjguyipTnxoJmD8kGFeWeXHE8R4_3JC039cgKUY5rvU25pSFaYtqEUBZVM8rEFBc5Sghb18NDtR4sEPvWGjTV52fw3OtF7OgLfHAjBkTr9cBgIGJLNmSOSgyMCx38BZwfVYEBL3cUg4QizjEXatKi-fbxCiwrThjmHDRtRSi13wWiuUafl0X2DYvPiWPp5v5z8FDPydbzx36S0ayw36mq2mGiPAenJpmeB80gODJVdWz5w18wDWfkdbApKlEX67o-DNwjVjNHpqe-xGotrD8cO9pBnCIuslignUguMDvOtiRNKX5AIoOtvEDV1Y_O4MjUVPXsHNzAGKndOeCMvkpNEHi-f8J6I93SrfPYseZpXSxHiHexUHMhHB-xY1cLHP0sduhoQ6uLTWhWpf8_43o34x1sxvICbzv1YcGRNzlidTj2jfPRaq4J9W7Z1RvGYckmK-phaaMKmw0m603ZdHOUpmI_Nf0tKtaENd0mBJYxfPBf9yMm-bxarguUb4ATfomUqEotIxW_qWEC5_Y2nHnOh9nNNQidz_AuUr5Ko7qlpMBJSTIGwrvT6BEHdTicBOF17GYVS1Gxi508pyRBtQkXrkBU6UttCQ5y0Ja_8HTeW92ko9gJ75zr97H6BXy1bfuUrDeVcbyO53ARG6rannSCRwBfrC-AkAEhE1EIltjvZyH_wo-LNwm14A1zzNLTh-TM7xtSc5zFC1x8JwmO3Yq_WA1tLLHy0NtrAaElfZy2c5fuw4buZbyMIRWXBCun7XiToQTXCmCvcLUsLqdXZCoFi0_gEsz8LBH__lncXF9dkqn0Wp9Y0l8zLdl9nWFxKk9_RkpD85tlFCTndiZ-A0LF7fTzN5log8_p1E66C1OHtC_y5pZww9MN4LfOjjM3QNvUOZhCI9AD_3cH_Uu_v94KB7AVmPB0QhiWBQ3v1VH_ateGeC2S_6IEUxWE8G947f_Bdg1jscm7BdyK7o0SDuP5fbc256f6O1uPYezDbun59Z0HWSneNd2SkibwRp5K-igdCsV0kK0GIVnt3YjrplV_p4TLpBwW26z_jomdTCavsqr0lS0utoikiv0k31LiSZbiFapoKV5ACqrKbLFjiWI3bxqlykWg2CdILMJWDj7_B5DeCpc=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlntvmzoUwL-KxZS_btLyCAlBVSQe5ip3pK2abb3TmJADTmLNMQjD2qzrd78G50Fps-06EgGfc37HPj4-9pOSZClWbKXXeyKMlDZ4ipRyg7c4UmwQKUvExVtfvHGcVAUpdyH-jqkU0iw7SBuTT6ggaEkxr8WCs8pYuSA_9ihtlD9K5bo_QFtCd1KywOsMg4-zPnAEgPYBR4wPOC7IKlKeGwuaPSQbVJR7csXxHD3ek7Tc1D0rRDmu9TblloZoiWkzhLKoml4mprjIUULYuu4eqnVngdi3VqepPj-D514vYkdf4IMbMSBarwcGAzG2ZEPmqMTAuNDBX8D5URUY8HJHMUgo4hxzoSYtmm8fr8Cy4oRhzkHTVoRS-10gmmv0eVlk37D4nDiWbu4_Bw_1nGw9f-wnGc0K-52qqh0mynNwapLpedAMgiNTVceWP_wF03BGXgebohJ1sa7rw8A9YjVzZHrqS6zWwvrDsaMdxCniIooF2ongArPjbEvSlOIHJCLYigtUXf3oDI5MTVXPzsENjJHanQPO6KvQBIHn-yesN9It3TqPHWue1sVyhHgXCzUXwvERO3a1wNHPYoeONrS62IRmVfr_I653I97BZiwv8LaTHxYceZMjVodj3zg_Ws01od5Nu3rDOCzZZMURyzKGD8zmXdqXQpXnYm1Z2a_3-oCLIlAnSsQkk1fLdYHyDXDCL5ESVallpOKZGiZwbm_Dmed8mN1cg9D5DO8i5as0qltKCpyUJGMgvDv1HnFQh8NJEF7HblaxFBW72MlzShJUm3DhCkSVvtSW4CAHbfkLT-e91U06ip3wzrl-H6tfwFfbtk8BelMZx-t4DhexoartSSd4BPDF-gIIGRAyMQrBEnv8LORf-HHxJqEWvGGOWXr6kJz5fUNqSli8wMV3kuDYrfiL1dDGEisL3V4LCC3p47SFu3QfNnQv42UMqTgYWDltjzcZSnCtAPYKV8vicnpFplKw-AQuwczPEvH3z-Lm-uqSTKXXukpJf8205OvrCItKPP0ZKQ3Nb5ZRkJzbmXgGhIoT6edvItEGn9OpnXQXph7SPsmbk8ENT1Xfb9WLM1W_beocTKER6IH_u-L-0u-vt8IBbAUmPFUFw7Kg4b0q7692bYjXIvgvUjBVQQj_htf-H2zXMBabvJvArdG9kcJhPL_v5ub8lH9n8zGMfdhNPb8-5yArxV2mm1LSBN7IqqSP0qFQTAfZahCS1d6NOGJa-XcKuAzKYbHN-ncM7GQyeRVVpa9scbFFJFXsJ3l_EtewFK9QRUtx61FQVWaLHUsUu7nHKFUuBop9gsQibGXn838AQgcG" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-49 — R3 Purchase Requisition to Payments for procurement with financial planning and asset managem</span></div>
 

@@ -232,13 +232,13 @@ class MermaidBuilder:
     def _render(self) -> list[str]:
         lines: list[str] = []
         lines.append('%%{init: {"theme": "base", "securityLevel": "loose", '
-                      '"themeVariables": {"fontSize": "14px", '
+                      '"themeVariables": {"fontSize": "16px", '
                       '"fontFamily": "Segoe UI, Arial, sans-serif", '
                       '"primaryColor": "#e8f0fe", "primaryBorderColor": "#0071c5", '
                       '"lineColor": "#37474F", "secondaryColor": "#f5f8fc", '
                       '"tertiaryColor": "#fff"}, '
-                      '"flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 40, "rankSpacing": 50}} }%%')
-        lines.append("flowchart LR")
+                      '"flowchart": {"useMaxWidth": false, "htmlLabels": true, "curve": "basis", "nodeSpacing": 50, "rankSpacing": 60}} }%%')
+        lines.append("flowchart TB")
         lines.append("")
 
         # Swim lanes: ordered by architecture layer (top = Reporting, bottom = Boundary/MES)
@@ -309,7 +309,7 @@ class MermaidBuilder:
         lines.append("    classDef devLegend fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1")
         lines.append("    classDef eolLegend fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C")
         lines.append("    classDef naLegend fill:#ECEFF1,stroke:#78909C,stroke-width:2px,color:#37474F,stroke-dasharray:5 3")
-        lines.append("    classDef rankAnchor width:0px,height:0px,padding:0px,margin:0px,fill:none,stroke:none")
+        lines.append("    classDef rankAnchor fill:none,stroke:none,color:transparent,font-size:1px")
         lines.append("")
 
         # Apply classes to nodes
@@ -375,7 +375,7 @@ ARCHIMATE_CLASSDEFS = """\
     classDef saas          fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
-    classDef rankAnchor    width:0px,height:0px,padding:0px,margin:0px,fill:none,stroke:none"""
+    classDef rankAnchor    fill:none,stroke:none,color:transparent,font-size:1px"""
 
 LAYER_STYLES = """\
     style BL fill:#FFFDE7,stroke:#F9A825,stroke-width:2px

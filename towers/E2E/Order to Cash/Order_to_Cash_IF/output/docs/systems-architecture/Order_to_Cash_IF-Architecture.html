@@ -287,6 +287,28 @@ strong { color: #00285a; }
 </style>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<style>
+/* Lane / subgraph headers — bold, larger, clearly visible */
+.mermaid .cluster-label .nodeLabel {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3px;
+}
+/* System / data / technology node labels — most prominent */
+.mermaid .node .nodeLabel,
+.mermaid .node .label {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+/* Edge labels — readable but secondary */
+.mermaid .edgeLabel .label {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+/* Responsive: allow horizontal scroll for wide diagrams */
+.mermaid { overflow-x: auto; }
+.mermaid svg { min-width: 600px; }
+</style>
 <!-- Mermaid 11.14.0: Lazy-rendered via IntersectionObserver for performance.
      Diagrams are only parsed + rendered when scrolled into the viewport.
      On a page with 20+ diagrams this cuts initial load time from ~4s to <1s. -->
@@ -1667,7 +1689,7 @@ flowchart TB
     classDef saas          fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
-    classDef rankAnchor    width:0px,height:0px,padding:0px,margin:0px,fill:none,stroke:none
+    classDef rankAnchor    fill:none,stroke:none,color:transparent,font-size:1px
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
@@ -1700,7 +1722,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVttu2zgQ_RVChZ_WTnSxbEcIAuhCLbwrJ0HcNi2qQqAl2iZKUwIpNXHT_PtSom-R4zTLAA41wzlnOBzO8ElL8wxrjtbpPBFGSgc8xVq5xCscaw6ItRkSctaVM4HTipNyHeGfmColzfOttjH5jDhBM4pFrZY485yVU_JrA2UMike1uJaHaEXoWmmmeJFj8GncBa4EoF0gEBM9gTmZx9pzY0Hzh3SJeLlBrgSeoMd7kpXLWjJHVOB63bJc0QjNMG1cKHnVSJnc4rRAKWGLWtzXayFH7MeB0Nafn8FzpxOzHRf46MUMyNHpgF5P-pYuyQSVGFhnJvgLuL8qjoEo1xSDlCIhsJDLlEXzHeA5mFWCMCwEaMacUOp8COXwrK4oef4Dy88Ld2Tam8_eQ70nxyweu2lOc-580HW9hYmKAuyHwvR9aIfhDlPXh6Og_wam5Q78FmyGStSG9bwAht4O1rAHtq-_hDUOYIP-0DW26gwJGUWO1jK4wG6RrUiWUfyAZAQP4gJ1z9yRwYFt6PrJPXihNdDbe8A5PQpNGPpBsIf1B-bIHJ2GHRq-0YYVCIk2LDQ8CIc72KFnhK55ErbvGv1RGzaleZX9_4ib7Yi3YHNWcLxq5ccIDvyLHawJh4F12lvDs6HZTrv6wrgsXea8FisbXdosMVksy2ZaoCyT96mZrxBfENZMGxdYzvCWv57HTOGLarbgqFgCN_oWa3GVjaxM_maWDdzb22jsux_HN9cgcr_Cu1j7rozqkRGO05LkDER3e-kO7oZnmCdlnvgyD5Nx6EfXiZdXLEN8nbhFQUmKamshWUFcmTNjBrZ6cKh_QXqauB5HnIkb3bnX_yb6N_DdcZx9CP9kh5NFMoHTxNL1w6ikeADw2eIMSB2QOumbhJUF4T14X-Cn6atgteIVJMyy_ccR5OS-AW2qYDLF_CdJceJV4sUhGkPFoGrlZhWQqxTdvgq8QRTAhsjPRZlAKtsMK68Od5H2FUe9AGwWXM74-dUluVKK6WdwDsZBnsp__0xvri_PyZVyoK55irrZrJq-eRqyxF_9jrUGOGgSQYK6t2P5GxIqW93v94fqBN2p5TX1G0dbu7-5Uk1P8qJ9vwkOKtWJfnNo6m5NoRWaYfCntvKS990Xb8sxCm24L03WaAQt_6jHHJWLCC_kmb3I50wHEfwbXgfvqBNRIqtL-zYcePfKfYiSyX07uyf7DD6Z0VESwHbGBnWzhayUD6p2JioTeKPKoTnI-nJh1svnvYjMNzSyzx2k7T72Kijbc7frv11gLy4ujqKqdbUV5itEMs15Uo84-RbM8BxVtJRPLw1VZT5ds1RzmseUVhXSURwQJA9hpYTP_wF_ekAh" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVttu2zgQ_RVChZ_WTnSxbEcIAuhCLbwrJ0HcNi2qQqAl2iZKU4JINXHT_PtSom-R4zRLAzLJmTmHHA5n-KSleYY1R-t0nggjwgFPsSaWeIVjzQGxNkNc9rqyx3FalUSsI_wTUyWkeb6VNiafUUnQjGJeiyXOPGdiSn5toIxB8aiU6_kQrQhdK8kUL3IMPo27wJUAtAs4YrzHcUnmsfbcWND8IV2iUmyQK44n6PGeZGJZz8wR5bjWW4oVjdAM02YJoqyaWSa3OC1QStiinu7r9WSJ2I-DSVt_fgbPnU7MdlzgoxczIFunA3o9ubZ0SSZIYGCdmeAv4P6qSgy4WFMMUoo4x1yqKYtmHOA5mFWcMMw5aNqcUOp8CGXzrC4XZf4Dy-GFOzLtzbD3UO_JMYvHbprTvHQ-6LrewkRFAfZNYfo-tMNwh6nrw1HQfwPTcgd-CzZDArVhPS-AobeDNeyB7esvYY0D2KA_dI2tOENcerFEa-lcYLfIViTLKH5A0oMHfoG6Z-7I4MA2dP3kHrzQGujtPeCcHrkmDP0g2MP6A3Nkjk7DDg3faMNyhHgbFhoehMMd7NAzQtc8Cdt3jf6oDZvSvMr-v8fNtsdbsDkrSrxqxccIDvyLHawJh4F1erWGZ0OzHXb1hXFZuszLHSzLGd5iNn1lL6QqL-TZMtGt73qPyyRQB0rMFCavZosSFUvgRt9iLa6ykZXJb2bZwL29jca--3F8cw0i9yu8i7XvyqhuGSlxKkjOQHS3n93B3ZQZLhORJ76MvWQc-tF14uUVy1C5TtyioCRFtTWXrCCuzJkxA1s5OJS_ID1NXLcjzsSN7tzrfxP9G_juOM7ebX-yw8kimcBpYun6oVdSPAD4bHEGpAxImVybhJVJ4D14X-Cn6atgteAVJMyy_eAIcnLfgDaZL5ni8idJceJV_MUhGkPFoPLjRgtILUW3v_lvEAWwIfJzLhJIZWlh4upwF2lfcdQKYKNwOSvPry7JlRJMP4NzMA7yVP79M725vjwnV2oBdZ5T1M1mVffN05Bp_ep3rDXAQRMIEtS9HctvSKgsb7_f76oTdKfUa-o3jrZe_uZKNXXIi_Y1JjjITidqzKGpuzWFVmiGwZ9KyUved1-8LccotOE-HVmjEbT8o7pylC4ivJBn9iKeMx1E8G94HbwjT0SJzC7t23CwulfuQ5RM7tvRPdlH8MmIjpIAtiM2qAssZEI-otqRqEzgjUqH5iDrS8Wsl897EZlvaGRtOwjbve-VU7bnbte_nWMvLi6OvKp1tRUuV4hkmvOkHm7y_ZfhOaqokM8tDVUin65ZqjnNA0qrCrlQHBAkD2GlJp__Az83PJA=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 
@@ -1757,7 +1779,7 @@ flowchart TB
     classDef saas          fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
-    classDef rankAnchor    width:0px,height:0px,padding:0px,margin:0px,fill:none,stroke:none
+    classDef rankAnchor    fill:none,stroke:none,color:transparent,font-size:1px
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
@@ -1790,7 +1812,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVttu2zgQ_RVChZ_WTnSxbEcIAuhCLbwrJ0HcNi2qQqBF2iZKUwIpNXHT_PtSkm-R4zTLAA41wzlnOBzO8ElLM0w0R-t0niinhQOeYq1YkhWJNQfE2gxJNeuqmSRpKWixjshPwholy7Kttjb5jARFM0ZkpVY484wXU_prA2UM8sdmcSUP0YqydaOZkkVGwKdxF7gKgHWBRFz2JBF0HmvPtQXLHtIlEsUGuZRkgh7vKS6WlWSOmCTVumWxYhGaEVa7UIiylnK1xWmOUsoXlbivV0KB-I8Doa0_P4PnTifmOy7w0Ys5UKPTAb2e8i1d0gkqCLDOTPAXcH-VggBZrBkBKUNSEqmWNRb1d0DmYFZKyomUoB5zypjzIVTDs7qyENkPoj4v3JFpbz57D9WeHDN_7KYZy4TzQdf1FibKc7AfDabvQzsMd5i6PhwF_TcwLXfgt2AxKlAb1vMCGHo7WMMe2L7-EtY4gA36Q9fYqjGSKooCrVVwgd0iW1GMGXlAKoIHcYG6Z-7I4MA2dP3kHrzQGujtPZCMHYUmDP0g2MP6A3Nkjk7DDg3faMNKhGQbFhoehMMd7NAzQtc8Cdt3jf6oDZuyrMT_P-JmO-It2Izngqxa-TGCA_9iB2vCYWCd9tbwbGi20666MC5Pl5moxI2NrmyWhC6WRT3NEcbqPtXzFRILyutp7QLPONnyV_OYN_iynC0EypfAjb7FWlzikYXVL7Zs4N7eRmPf_Ti-uQaR-xXexdr3xqgamAqSFjTjILrbS3dwNwITkRRZ4qs8TMZhGF0nXlZyjMQ6cfOc0RRV1lKxgrg0Z8YMbPXgUP-C9DRxNY44Eze6c6__TfRv4LvjOPsQ_smOJItkAqeJpeuHUUnJAJCzxRlQOqB0yjcFqwrCe_C-wE_TV8EqxStIhOP9xxHk5L4GratgMiXiJ01J4pXyxSEaw4ahqZWbVUCtauj2VeANogDWRH4miwQy1WZ4cXW4i7TfcFQLwGbB5UycX13Sq0Yx_QzOwTjIUvXvn-nN9eU5vWocqGpeQ11vtpm-eRqqxF_9jrUaOKgTQYG6t2P1G1KmWt3v94fqBN2p5RX1G0dbub-5UnVP8qJ9vwkOKtWJfnNo6m5NoRWaYfCntvKS990Xb8sxCm24L03WaAQt_6jHHJWLiCzUmb3IZ6yDCP4Nr4N31IkoUdWlfRsOvHvlPkTJ5L6d3ZN9Bp_M6CgJYDtjg6rZQl6oB1U7ExsTeNOUQ3OA-2oh7mXzXkTnGxrV5w7Sdh_7Jijbc7erv11gLy4ujqKqdbUVEStEseY8NY849RbEZI5KVqinl4bKIpuueao59WNKK3PlKAkoUoewaoTP_wH3pEBC" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVttu2zgQ_RVChZ_WTnSxbEcIAuhCLbwrJ0HcNi2qQqAl2iYqk4JINXHT_PtSom-R4zRLAzLJmTmHHA5n-KSlLMOao3U6T4QS4YCnWBNLvMKx5oBYmyEue13Z4zitSiLWEf6JcyXMGdtKG5PPqCRolmNeiyXOnFExJb82UMageFTK9XyIViRfK8kULxgGn8Zd4EqAvAs4orzHcUnmsfbcWOTsIV2iUmyQK44n6PGeZGJZz8xRznGttxSrPEIznDdLEGXVzFK5xWmBUkIX9XRfrydLRH8cTNr68zN47nRiuuMCH72YAtk6HdDrybWlSzJBAgPrzAR_AfdXVWLAxTrHIM0R55hLNWXRjAM8B7OKE4o5B02bkzx3PoSyeVaXi5L9wHJ44Y5MezPsPdR7cszisZuynJXOB13XW5ioKMC-KUzfh3YY7jB1fTgK-m9gWu7Ab8FmSKA2rOcFMPR2sIY9sH39JaxxABv0h66xFWeISy-WaC2dC-wW2YpkWY4fkPTggV-g7pk7MjiwDV0_uQcvtAZ6ew-Y5UeuCUM_CPaw_sAcmaPTsEPDN9qwHCHehoWGB-FwBzv0jNA1T8L2XaM_asOmOauy_-9xs-3xFiyjRYlXrfgYwYF_sYM14TCwTq_W8GxotsOuvjAuTZes3MFSRvEWs-kreyFVeSHPlopufdd7XCaBOlBiqjB5NVuUqFgCN_oWa3GVjaxMfjPLBu7tbTT23Y_jm2sQuV_hXax9V0Z1y0iJU0EYBdHdfnYHd1NmuEwES3wZe8k4DKPrxGMVzVC5TtyiyEmKamsuWUFcmTNjBrZycCh_QXqauG5HnIkb3bnX_yb6N_DdcZy92_5kh5NFMoHTxNL1Q6-keADw2eIMSBmQMrk2CSuTwHvwvsBP01fBasErSJhm-8ER5OS-AW0yXzLF5U-S4sSr-ItDNIaKQeXHjRaQWopuf_PfIApgQ-QzLhKYy9JCxdXhLtK-4qgVwEbhclaeX12SKyWYfgbnYBywVP79M725vjwnV2oBdZ5T1M1mVffN05Bp_ep3rDXAQRMIEtS9HctvSHJZ3n6_31Un6E6p19RvHG29_M2VauqQF-1rTHCQnU7UmENTd2sKrdAMgz-Vkpe87754W45RaMN9OrJGI2j5R3XlKF1EeCHP7EU8ZzqI4N_wOnhHnogSmV3at-Fgda_chyiZ3Leje7KP4JMRHSUBbEdsUBdYSIV8RLUjUZnAG5UOzUHWl4pZj817EZlvaGRtOwjbve-VU7bnbte_nWMvLi6OvKp1tRUuV4hkmvOkHm7y_ZfhOapyIZ9bGqoEm65pqjnNA0qrCrlQHBAkD2GlJp__A7dhPLE=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 
