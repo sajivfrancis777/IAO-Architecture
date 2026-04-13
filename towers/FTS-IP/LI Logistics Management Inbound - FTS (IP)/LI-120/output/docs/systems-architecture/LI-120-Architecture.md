@@ -1,6 +1,5 @@
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
-  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMGFlZWY7c3RvcC1vcGFjaXR5OjEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjE1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4wMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDcpIiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgPC9wYXR0ZXJuPgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2JnKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNncmlkKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPgoKICA8IS0tIERlY29yYXRpdmUgY2lyY3VpdC9hcmNoaXRlY3R1cmUgbGluZXMgLS0+CiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+CiAgICA8cGF0aCBkPSJNIDAgMTAwIEwgMTIwIDEwMCBMIDE2MCAxNDAgTCAyODAgMTQwIi8+CiAgICA8cGF0aCBkPSJNIDAgMjYwIEwgODAgMjYwIEwgMTIwIDIyMCBMIDIwMCAyMjAgTCAyNDAgMjYwIEwgMzYwIDI2MCIvPgogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPgogICAgPHBhdGggZD0iTSA0NDAgMzQwIEwgNTYwIDM0MCBMIDYwMCAzMDAgTCA3MjAgMzAwIEwgNzYwIDM0MCBMIDgwMCAzNDAiLz4KICAgIDxwYXRoIGQ9Ik0gNjAwIDQwMCBMIDY4MCA0MDAgTCA3MjAgNDQwIi8+CiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+CiAgICA8cGF0aCBkPSJNIDIwMCA0MjAgTCAzMjAgNDIwIEwgMzYwIDM4MCBMIDQ4MCAzODAiLz4KICAgIDxwYXRoIGQ9Ik0gNjUwIDQ0MCBMIDc1MCA0NDAgTCA4MDAgNDgwIi8+CiAgPC9nPgoKICA8IS0tIERlY29yYXRpdmUgbm9kZXMgLS0+CiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+CiAgICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjI4MCIgY3k9IjE0MCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSIzNjAiIGN5PSIyNjAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjYwMCIgY3k9IjEwMCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI1NjAiIGN5PSIzNDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjgwIiBjeT0iMzYwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjMyMCIgY3k9IjQyMCIgcj0iNCIvPgogIDwvZz4KCiAgPCEtLSBUT0dBRiBCREFUIGJveGVzIC0tPgogIDxnIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI2MDAiPgogICAgPCEtLSBCIC0tPgogICAgPHJlY3QgeD0iMTUwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIyMTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QnVzaW5lc3M8L3RleHQ+CiAgICA8IS0tIEQgLS0+CiAgICA8cmVjdCB4PSIyOTAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjM1MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5EYXRhPC90ZXh0PgogICAgPCEtLSBBIC0tPgogICAgPHJlY3QgeD0iNDMwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSI0OTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QXBwbGljYXRpb248L3RleHQ+CiAgICA8IS0tIFQgLS0+CiAgICA8cmVjdCB4PSI1NzAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjYzMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5UZWNobm9sb2d5PC90ZXh0PgogIDwvZz4KCiAgPCEtLSBDb25uZWN0aW5nIGxpbmVzIGJldHdlZW4gQkRBVCBib3hlcyAtLT4KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+CiAgICA8bGluZSB4MT0iMjcwIiB5MT0iMTYwIiB4Mj0iMjkwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNDEwIiB5MT0iMTYwIiB4Mj0iNDMwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+CiAgPC9nPgoKICA8IS0tIE1haW4gdGl0bGUgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIyNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmZmZmYiIGxldHRlci1zcGFjaW5nPSIxIj4KICAgIElBTyBBcmNoaXRlY3R1cmUKICA8L3RleHQ+CiAgPHRleHQgeD0iNDAwIiB5PSIzMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC44KSIgbGV0dGVyLXNwYWNpbmc9IjIiPgogICAgVE9HQUYgQkRBVCDCtyBJQU8gUHJvZ3JhbSDCtyBJRE0gMi4wCiAgPC90ZXh0PgoKICA8IS0tIEJvdHRvbSBhY2NlbnQgYmFyIC0tPgogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgoKICA8IS0tIEludGVsIHRleHQgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPgogICAgSU5URUwgQ09ORklERU5USUFMCiAgPC90ZXh0Pgo8L3N2Zz4K" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">LI-120 — Receive Materials and Services - FTS (IP)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IP) (FTS-IP) Tower<br/>
@@ -13,30 +12,20 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-footer { display: none !important; }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
 </style>
 
 
@@ -77,9 +66,6 @@
   </li>
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
-      <li><a href="#51-current-state-current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
-      <li><a href="#52-future-state-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
-      <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
       <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -121,8 +107,6 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 2 Reports, 20 Interfaces, 3 Conversions, 17 Enhancements, 6 Forms, 3 Workflows |
-
-**Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
@@ -199,6 +183,7 @@ This capability includes **7 business process(es)** modeled in BPMN 2.0, coverin
 
 ### 3.2 Business Process Diagrams
 
+
 #### BUSINESS ARCHITECTURE — 3.2.1 LI-120-040_Unload_Material_Received_-_FTS_(IP) — LI-120-040_Unload_Material_Received_-_FTS_(IP)
 
 **Swim Lanes**: Warehouse Operator | **Tasks**: 1 | **Gateways**: 0
@@ -226,6 +211,7 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllFmPmzAUhf-KxSiilYjEGlIeKhESqkqzqZnloakqBy7BGmMj29ka5b_XzjpJNU_lAeHD8XfuvcJsrIKXYCVWp7MhjKgEbWxVQwN2guwplmA7aC-8YEHwlIK0jafiTI3Jn53NC9uVsRktxw2ha6OOYcYBPX93UKo3UgdJzGRXgiCV7ditIA0W64xTLoz7BvqVW-3SDq8GXJQgzgbXjb0i0lspYXCWgziMw9zsk1BwVl5Aq6jqV4W9NcVRvixqLNSu_LmEO7x6JaWq9brCVIL21Kqht3gK1PSoxNxoxVwsjsMg0uQwPbBxiwvCZloPXS0JzN7OUuRut2jb6UzYKRQ9DScM6augWMohVEgqLY8WClWE0uQmzNI8ch2pBH-D5MYfxcPAdwrTSaJbdx0z3O4SyKxWyZTT8mDtLk0Pid-uHLFKfNcRa32_ygJWnpOynt_3-6ekQexlXnZMqqrqv5L0XMUTlm-HrFGQ-_nwlOVFvShz_-Ud2xyGcepdzwnEghTwDprneTA6j2rUizz3Y-ggD3pudgWdYQVLvD4Dv2ThCZhHce7FHwL3eddVzqePghdHYDCK8ugEjAdenvofAsPUC_uHCjVnJnBbI4oZ_HZ_TqxXLKDmeq7ooQWBFRcT69febC7mac8zoxyX6LFeS1Jgir5xXspLm69tP6AAsgB0p7s3RxKlM0yYVCgtF5gVUKJxTdpWf8TonitSaZYinKFP6fj-8yUu0LgXTEmpUWjwcIvwASU1oQGmkNiHlad9-iPcP7AAdbtfdeWHpbdf-u9GqlenA3IhByfZcqwGRINJaSUba_eH0n-xEio8p8raOhaeKz5es8JKdifZmrem2CHBesDNXtz-BRJFnFE=" title="View full diagram">&#128065; View Diagram</a></div>
+
 
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-120 — Receive Materials and Services - FTS (IP)</span></div>
@@ -283,6 +269,7 @@ flowchart LR
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVW2PqkYU_isTNhvvTTAFBHH50MY3GpO72-bS201Tm2aEg04WZsgwuFqv_71nBFTc3X6pHzTn4Xme8zLH4WDEIgEjMO7vD4wzFZBDT20gh15AeitaQs8kNfA7lYyuMih7mpMKriL2z4lmu8VO0zQW0pxle41GsBZAvi1MMkZhZpKS8rJfgmRpz-wVkuVU7qciE1Kz72CUWukpW_NoImQC8kKwLN-OPZRmjMMFHviu74ZaV0IseNIxTb10lMa9oy4uE6_xhkp1Kr8q4ZHunlmiNhinNCsBORuVZ1_oCjLdo5KVxuJKbtthsFLn4TiwqKAx42vEXQshSfnLBfKs45Ec7--X_JyUfPm65AQ_cUbLcgYpKRXC860iKcuy4M6djkPPMkslxQsEd87cnw0cM9adBNi6Zerh9l-BrTcqWIksaaj9V91D4BQ7U-4CxzLlHr9vcgFPLpmmQ2fkjM6ZJr49tadtpjRN_1cmnKv8jZYvTa75IHTC2TmX7Q29qfXWr21z5vpj-3ZOILcshivTMAwH88uo5kPPtj42nYSDoTW9MV1TBa90fzF8mLpnw9DzQ9v_0LDOd1tltfpVirg1HMy90Dsb-hM7HDsfGrpj2x01FaLPWtJiQzLK4W_rz6XxFWJgW1wsMl4DV0vjr5qpP9xGwoKXBcSKPGJP-o9WklRIMqM5XUOX7dRsXGykK0FqayALvkVnIfeE4Q-ZZCJ-IZHC765-gPqpyIsMFJCfhUjK2qJQtfCZStgIXAEye6N1UfsoOsn-K5X_CfkpDVLaL5UomnaSK_VJCgnKPl_pRueJwXkgODjKsG0yTraUx-gSbVhR6JE-CcVSFlPFBCefxtHT524ZDyc7VUl-ccOyo6ooMgby5jD0cX3jmaDJhd0Uk9xQ7cOh7U_fv_0V3iDxhixKgnctwVVK9Bm1Xf-0NI7Ha7nzvny-i6HQvfxAnqXA_hYKchLhxK4c8DJ4b9f0Kl0O8JcCJMU5d8v2TguE65WT8UpU6qbQssseanaCyVm6P7UViUrGQER6u53nkrhD-v0fcdOacFCHbhPaVh3bbWzr-PvSeBJL4zuefoN7NW3YhG4d-q2qMXGaeFjHbWg7XVP7TbY_dKf4xLtVtA8erm4HzNvcvx1wdH4BdOCH92Fs_H3cbq-yLuy0sGEaOcicssQIDsbpPY7v-gRSWmXKOJoGrZSI9jw2gtP7zqiKBJUzRnE18ho8_gtxLpJa" title="View full diagram">&#128065; View Diagram</a></div>
+
 
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-120 — Receive Materials and Services - FTS (IP)</span></div>
@@ -434,7 +421,8 @@ flowchart LR
     class n41 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWGtv2zYU_SuEisAtYGOSqIftDyscO-oC5IW4aTE0w8DIlC1UFg1KTuKl_u-7lEjZYsShzfLBgQ7vOffBy6vHixWzBbXG1snJS5qn5Ri99MoVXdPeGPUeSEF7fVQDXwhPyUNGi56wSVheztN_KjPH2zwLM4FFZJ1mO4HO6ZJRdHfeRxMgZn1UkLwYFJSnSa_f2_B0TfhuyjLGhfU7OkzspPIml04ZX1B-MLDt0Il9oGZpTg8wDr3QiwSvoDHLFy3RxE-GSdzbi-Ay9hSvCC-r8LcFvSTPX9NFuYLrhGQFBZtVuc4uyAPNRI4l3wos3vJHVYy0EH5yKNh8Q-I0XwLu2QBxkn8_QL6936P9ycl93jhFF7f3OYK_OCNFMaMJKkqAzx5LlKRZNn7nTSeRb_eLkrPvdPzOPQtn2O3HIpMxpG73RXEHTzRdrsrxA8sW0nTwJHIYu5vnPn8eu3af7-BX80XzxcHTNHCH7rDxdBo6U2eqPCVJ8r88QV35Z1J8l77OcORGs8aX4wf-1H6tp9KceeHE0etE-WMa0yPRKIrw2aFUZ4Hv2GbR0wgH9lQTXZKSPpHdQXA09RrByA8jJzQK1v70KLcPN5zFShCf-ZHfCIanTjRxjYLexPGGMkLQWXKyWaGM5PRv-9u9JWS3HM5fXqLJEn7vrb9qW_GXu9_AJiHjhAxitkRz2Gp0LQ4OmpGSoJKh-XazyVLKgdci-u8bZlGyzTFrXrv5cGw-Auspp1A4RMCHCIsWBbrZcmjwgtb0JjYIoyshB0RuaUzTRzgpXek4XmWxYXBkbla7Io1Jhj4xtihgivD0Ea7SHJ1faixfFqqKqE0T5nlJM3RJcrKkC_T1D5Rwtj6uy7HU6FCWTQYt0hUFqJBSlyWcrhj0v144-6cFjRKetlWahNgusdP45sKoge2Xl0OjLOjgAWZWvEL0Oc62BUTwqT4S99Z-f0xzumnCFeOwER8PBMOeuxD7Z2AVYlNJmbJc1oyj9524aPUP7V3B7S6XfRjxakihO7hvad3t_SdB9eoxw28zbmlGoa1_m7I8SfkaRdeaffCrIYW_HNLw50My1B6DQNMR6HpDOSmZ3vGNEzG8VVzn-QPbwjmf0Qyag-_anFFnLh2cliO7zbqhPGGQR93E1VjYlIgsSZoXcLpOZzrfafPvNouf8eq-idXdcRAU3OLE7IJps4Zoq0kiDsPNp1tdIgCFLyRLK3-n1xda2UMxs2QJ7vKMkQXoajbDI5vm0J_DkaGxODDarcDRJs1kflWXFeaLPlJczbY9zCCb-k5gomONfsXyX5UItKHWboMplDej5WtaqNFEkue5qFA9Q46GoU4V1RyoeBDYU_FgWjQtd3OtTR23e_h9vlRZftTHJTaPSxPFMzoRB_6R5OUriv-2WR68jRZ208RZqI6FqPpkCyWHGwIkuSXZq4CHb_M8ehPNM9zq1A2_bhHoGz1M7-hmRzhnT8WAZCU8QZjcNVMXHo_QYPA7_JfX8hKrayeoASdUQCiBoQJsqRAowKsBz1aAI0WxBLA0kJfS3peX0qNyKP017lwppsyx9O80cspdoAPKAvuSoiywyrJJW1pglQMeypgdZSEBp7GoAv1xb4mWEmc6vrd-iIGsCDJrrDLBstaOkpSKeKT2RsbdXMtCq8xdqegqRVeWAitF7MiYqqHyQzyRqRVXrlyxaqFxirFc-JMWNUVthKsqH-oZ14enTleu-doeOCOtoJ6tBdA0mF4mTwsI6wtKwdelG4avZ61WAj1rpWXrFRSP7iI__-gFSgSrXhxbsHv89tdawcYVz7jiG1cC40poXBkaV0bGFTjjxiXHvGQug2OuA3SK-sTQrqltwB0D7hpwbMA9-bmhjfqdaNCJhp3o0ODPkCfMM_mW34adbtjthnE37HXDfjccdMNhNzzshkedsNedpddkafWtNYVno3RhjV-s6kOeNbYWNCHbrLT2fYvAmJ3v8tgaVx-8rG31fDxLCbxGrGtw_y9LcjP-" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWGtv2zYU_SuEisAtYGOSqIftDyscO-oC5IW4aTE0w8DIlC1UFg1KTuKl_u-7lEjZYsShzfLBgQ7vOffBy6vHixWzBbXG1snJS5qn5Ri99MoVXdPeGPUeSEF7fVQDXwhPyUNGi56wSVheztN_KjPH2zwLM4FFZJ1mO4HO6ZJRdHfeRxMgZn1UkLwYFJSnSa_f2_B0TfhuyjLGhfU7OkzspPIml04ZX1B-MLDt0Il9oGZpTg8wDr3QiwSvoDHLFy3RxE-GSdzbi-Ay9hSvCC-r8LcFvSTPX9NFuYLrhGQFBZtVuc4uyAPNRI4l3wos3vJHVYy0EH5yKNh8Q-I0XwLu2QBxkn8_QL6936P9ycl93jhFF7f3OYK_OCNFMaMJKkqAzx5LlKRZNn7nTSeRb_eLkrPvdPzOPQtn2O3HIpMxpG73RXEHTzRdrsrxA8sW0nTwJHIYu5vnPn8eu3af7-BX80XzxcHTNHCH7rDxdBo6U2eqPCVJ8r88QV35Z1J8l77OcORGs8aX4wf-1H6tp9KceeHE0etE-WMa0yPRKIrw2aFUZ4Hv2GbR0wgH9lQTXZKSPpHdQXA09RrByA8jJzQK1v70KLcPN5zFShCf-ZHfCIanTjRxjYLexPGGMkLQWXKyWaGM5PRv-9u9JWS3HM5fXqLJEn7vrb9qW_GXu9_AJiHjhAxitkRz2Gp0LQ4OmpGSoJKh-XazyVLKgdci-u8bZlGyzTFrXrv5cGw-Auspp1A4RMCHCIsWBbrZcmjwgtb0JjYIoyshB0RuaUzTRzgpXek4XmWxYXBkbla7Io1Jhj4xtihgivD0Ea7SHJ1faixfFqqKqE0T5nlJM3RJcrKkC_T1D5Rwtj6uy7HU6FCWTQYt0hUFqJBSlyWcrhj0v144-6cFjRKetlWahNgusdP45sKoge2Xl0OjLOjgAWZWvEL0Oc62BUTwqT4S99Z-f0xzumnCFeOwER8PBMOeuxD7Z2AVYlNJmbJc1oyj9524aPUP7V3B7S6XfRjxakihO7hvad3t_SdB9eoxw28zbmlGoa1_m7I8SfkaRdeaffCrIYW_HNLw50My1B6DQNMR6HpDOSmZ3vGNEzG8VVzn-QPbwjmf0Qyag-_anFFnLh2cliO7zbqhPGGQR93E1VjYlIgsSZoXcLpOZzrfafPvNouf8eq-idXdcRAU3OLE7IJps4Zoq0kiDsPNp1tdIgCFLyRLK3-n1xda2UMxs2QJ7vKMkQXoajbDI5vm0J_DkaGxODDarcDRJs1kflWXFeaLPlJczbY9zCCb-k5gomONfsXyX5UItKHWboMplDej5WtaqNFEkue5qFA9Q46GoU4V1RyoeBDYU_FgWjQtd3OtTR23e_h9vlRZftTHJTaPSxPFMzoRB_6R5OUriv-2WR68jRZ208RZqI6FqPpkCyWHGwIkuSXZq4CHb_M8ehPNM9zq1A2_bhHoGz1M7-hmRzhnT8WAZCU8QZjcNVMXHo_QYPA7_JfX8hKrayeoASdUQCiBoQJsqRAowKsBz1aAI0WxBLA0kJfS3peX0qNyKP017lwppsyx9O80cspdoAPKAvuSoiywyrJJW1pglQMeypgdZSEBp7GoAv1xb4mWEmc6vrd-iIGsCDJrrDLBstaOkpSKeKT2RsbdXMtCq8xdqegqRVeWAitF7MiYqqHyQzyRqRVXrlyxaqFxirFc-JMWNUVthKsqH-oZ14enTleu-doeOCOtoJ6tBdA0mF4mTwsI6wtKwdelG4avZ61WAj1rpWXrFRSP7iI__-gFSgSrXhxbsHv89tdawcYVz7jiG1cC40poXBkaV0bGFTjjxiXHvGQug2OuA3SK-sTQrqltwB0D7hpwbMA9-bmhjfqdaNCJhp3o0ODPkCfMM_mW34adbtjthnE37HXDfjccdMNhNzzshkedsNedpddkafWtNYVno3RhjV-s6kMefOxb0IRss9La9y0CY3a-y2NrXH3wsrbV8_EsJfAasa7B_b9LcjP-" title="View full diagram">&#128065; View Diagram</a></div>
+
 
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-120 — Receive Materials and Services - FTS (IP)</span></div>
@@ -480,6 +468,8 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVe-P2jgQ_VesrFbcSUFKQkJoPvQEgVSVrtLe0h8fSnUyzpj41rEj22GXo_zvdUggQLvSSZcPEfP85r2ZIZPsHSJzcBLn_n7PBDMJ2g9MASUMEjRYYw0DF7XAZ6wYXnPQg4ZDpTBL9u-R5ofVS0NrsAyXjO8adAkbCejTexdNbSJ3kcZCDzUoRgfuoFKsxGqXSi5Vw76DCfXo0a07mkmVg-oJnhf7JLKpnAno4VEcxmHW5GkgUuRXojSiE0oGh6Y4Lp9JgZU5ll9r-IBfvrDcFDammGuwnMKU_E-8Bt70aFTdYKRW29MwmG58hB3YssKEiY3FQ89CCounHoq8wwEd7u9X4myKPs5XAtmLcKz1HCjSxsKLrUGUcZ7chek0izxXGyWfILkLFvF8FLik6SSxrXtuM9zhM7BNYZK15HlHHT43PSRB9eKqlyTwXLWz9xsvEHnvlI6DSTA5O81iP_XTkxOl9H852bmqj1g_dV6LURZk87OXH42j1PtZ79TmPIyn_u2cQG0ZgQvRLMtGi35Ui3Hke6-LzrLR2EtvRDfYwDPe9YJv0vAsmEVx5sevCrZ-t1XW6wclyUlwtIiy6CwYz_xsGrwqGE79cNJVaHU2ClcF4ljA397XlfNebEEYqXboAxZ4A2rlfGu5zSX8r5ZDcULxkMgNegBFpSrROylzjR6BAKsMMhLNuCRPaGns3QpcKgT_QeEmZWQzPmPOcjtG9FeNhWFmhyRFD8VOM4J5lz3dYCa0QXNJ6tJ20eltIb9uIvztXELF7d9yK6NUk4OwQV-wgkLap8wK_H6hEPUK2siqbbRt-mh2yR3fcN89olSWFQfzEzXe7_vZ5DBc20UnRd9yNwQmhXXEptZ_rJzDoRWwS9f-ECEaDt_aqXXhqA3jLvTbMOrCoA3HXRg34feVMyUEqmOB3y3n5vAR_gFyOrxcoEb9YoGuToJXT8Lzy-kKjrr3yBU4_hUYnxbMcZ0SVIlZ7iR75_gZsZ-aHCiuuXEOroNrI5c7QZzk-Lp16qp5puYM2y0oW_DwAylXH4Q=" title="View full diagram">&#128065; View Diagram</a></div>
+
+
 
 #### BUSINESS ARCHITECTURE — 3.2.5 LI-120-180_Move_Material_to_Holding_Location​_-_FTS_(IP) — LI-120-180_Move_Material_to_Holding_Location​_-_FTS_(IP)
 
@@ -534,6 +524,7 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl1v6kYQ_SsrX0XkSkayjY2JH1olBqdIN1Ia0tuHUlWLPYZVll1rd01Cufz3zmIDgRCpVXmwmLNnznzZY2-cXBbgJM7V1YYJZhKy6ZgFLKGTkM6Maui4pAG-U8XojIPuWE4phZmwv3c0P6zeLM1iGV0yvrboBOYSyG9jl9yiI3eJpkJ3NShWdtxOpdiSqnUquVSW_QUGpVfuorVHd1IVoI4Ez4v9PEJXzgQc4V4cxmFm_TTkUhQnomVUDsq8s7XJcfmaL6gyu_RrDQ_07XdWmAXaJeUakLMwS_6NzoDbGo2qLZbXarVvBtM2jsCGTSqaMzFHPPQQUlS8HKHI227J9upqKg5ByfNwKgj-ck61HkJJtEF4tDKkZJwnX8L0Nos8VxslXyD5EoziYS9wc1tJgqV7rm1u9xXYfGGSmeRFS-2-2hqSoHpz1VsSeK5a4_UsFojiGCntB4NgcIh0F_upn-4jlWX5vyJhX9Uz1S9trFEvC7LhIZYf9aPU-6i3L3MYxrf-eZ9ArVgO70SzLOuNjq0a9SPf-1z0Luv1vfRMdE4NvNL1UfAmDQ-CWRRnfvypYBPvPMt69qhkvhfsjaIsOgjGd352G3wqGN764aDNEHXmilYLwqmAv7w_ps5YrEAYqdbkgQo6BzV1_my49id8pJQ0KWnXtp48giqlWpJ7KQtNniAHVhliJLnjMn8hE4PXU4HgXwicevTQ40GuABMyYB9tq_8L3ih495NvMqeGSXHqEv53l-j6kJg2siL3TySVy4qDgQKZX99R-2fUJzC1EjbEd7zzJRaFowGtyRgXHKMfBWL0fwItOWY4ZDpXUFGRM9CkS7LnCbkeP349zW6wm4yuIDfHmrBxZEiXOCRy_agYWphC28Iz_xv0TxeAIznxxkQrHMKvNRWGmfWn4X1vs9mXbPd3d4YbKF9YR279qCiOIk2ciaGm1j9Pne32vZB_WWisCS79Y3KpVMrWijmORd4YH7SCy1rwlvNasxXcN0_d0Q2n0_wRAel2f8Kht2avMfut6Tdm2JphY8atOWhMP2jtmzPbb8V9bw94FvgxdTLK-NT5YdtwfvSID_bu6KDityeH-g_d2fF657z0Euv9drN17fflCRxchqN2j5-A_UtgfHi7nMCDy_DNZRhb0a7JU9i_DAd72HGdJaglZYWTbJzdpwN-XhRQ0pobZ-s6tDZysha5k-xesU5dFeg5ZBQ337IBt_8A80W36Q==" title="View full diagram">&#128065; View Diagram</a></div>
+
 
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-120 — Receive Materials and Services - FTS (IP)</span></div>
@@ -625,6 +616,7 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV22P4jYQ_itWTitaCdS8EuBDKwjkutLuHlp2e6qOqjKJA9YGO2c77FKO_147ryRLrq3KB5CfmeeZ8XgmMSctoCHSJtrNzQkTLCbg1BM7tEe9CehtIEe9PsiB3yDDcBMj3lM-ESVihf_K3Aw7eVNuCvPhHsdHha7QliLwfNsHU0mM-4BDwgccMRz1-r2E4T1kR4_GlCnvD2gU6VEWrTDNKAsRqx103TUCR1JjTFANW67t2r7icRRQEjZEIycaRUHvrJKL6Wuwg0xk6acc3cO3zzgUO7mOYMyR9NmJfXwHNyhWexQsVViQskNZDMxVHCILtkpggMlW4rYuIQbJSw05-vkMzjc3a1IFBXePawLkJ4gh53MUAS4kvDgIEOE4nnywvanv6H0uGH1Bkw_mwp1bZj9QO5nIret9VdzBK8LbnZhsaBwWroNXtYeJmbz12dvE1PvsKL9bsRAJ60je0ByZoyrSzDU8wysjRVH0vyLJurInyF-KWAvLN_15Fctwho6nv9crtzm33anRrhNiBxygC1Hf961FXarF0DH0btGZbw11ryW6hQK9wmMtOPbsStB3XN9wOwXzeO0s082S0aAUtBaO71SC7szwp2anoD017FGRodTZMpjsQAwJ-lP_stas5R24JQdEBGVHcA8J3CK21v7I_dWHGMYX6RjBSQQHAd2CRxQgfEBgjmL5I1kPVCBJaXDMJudWzj6WVQFLHLz8tITBS5tgdREoF-AjpSEHt5yn7wLZ15NbCRq8AEzAZ8jQjsrGaROdJnGZxnHBmsGMKmhdmTZ52CQ_J6HKdQZFsJOkiLI9FJiSNm38Q0XjgiYXlS_yDiXjx5whp-raoRlSwaOE4y3ZSy5YpUkS4_aZ2VUcNTKtqix3R44DGMfH1kHrrZIgpnZyeQSZUCLqfXVkaUqhf2qrZooeQ6qEl1vzZbcPnhPwST2pwdMxQU0F86rCp1RsaErCqj-bJKtJKvdY9cuTfNhyLJqkVq94dJ_E6DvdPOzy_34zu9frP7Sm4J4eUFYUVYY8yUilLwXlW6GlM-rS8f6bzvjf9gN4xWInF5C_73m37vkkhlWny9-vKZJCcsweEaexeqJgHjCUQBJgxOtJyHVGrdkpOgWFsr0EUneAaojy4ZXXCvBrumnpmPrpVG8qRIONrIGaWp4R8j6ohKAA14btl7V2PrcGgBhgMPhZBiiXxdqoALcAirVTLK3SXgJ2AdjFWi8dhgUwLoHM49tas2fmWvsmD6wwjArHUeloFo7WTIZTnk5hMfXC8ruquDTYbcMDzfAqS72OCbzVx4fMWgYaFsZpKnKaWxisIqMyrmFVGeWpD8u4dabmY2YxyoK5NQVMV3ng8opAxmVanjHLacOLl6g6nfLy0IDN67B1Hbavw87lNaJhGXZa3E7LqNMy7rTIU-k0Gd0ms9tkdZvsblN3JYzuUsjBKK-rTXxUXC2b6PgaKtu1uHVpfW2P5PsXh9rkpGX_LeT_jxBFMI2Fdu5rUPbm6kgCbZLdwbU0e3nPMZTvr30Onv8GY4X_Eg==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-120 — Receive Materials and Services - FTS (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -665,6 +657,8 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO0zAQ_RUrq1VBSqVcNyUPoG7aoJW4LNsFhChCrjNurHXtyHbaLaX_jt3rtrBP5CHqnJw5Z2Zqz8ojsgIv9y4vV0wwk6NVx9Qwg06OOhOsoeOjLfAFK4YnHHTHcagUZsR-bWhh0jw6msNKPGN86dARTCWgzzc-6ttE7iONhe5qUIx2_E6j2AyrZSG5VI59AT0a0I3b7tO1VBWoIyEIspCkNpUzAUc4zpIsKV2eBiJFdSJKU9qjpLN2xXG5IDVWZlN-q-E9fvzKKlPbmGKuwXJqM-Pv8AS469Go1mGkVfP9MJh2PsIObNRgwsTU4klgIYXFwxFKg_UarS8vx-Jgiu4HY4HsQzjWegAUaWPh4dwgyjjPL5KiX6aBr42SD5BfRMNsEEc-cZ3ktvXAd8PtLoBNa5NPJK921O7C9ZBHzaOvHvMo8NXSvs-8QFRHp-Iq6kW9g9N1FhZhsXeilP6Xk52rusf6Yec1jMuoHBy8wvQqLYK_9fZtDpKsH57PCdScEXgiWpZlPDyOaniVhsHzotdlfBUUZ6JTbGCBl0fBV0VyECzTrAyzZwW3fudVtpNbJcleMB6mZXoQzK7Dsh89K5j0w6S3q9DqTBVuasSxgJ_B97F3I-YgjFRL9B4LPAU19n5sue4RoaVQnFPcdaNHt1Ib9FbKSqM7IMAac0qPXhz42sgGvb1DhZw1HAxUiEqF-sS0mKNPLRaGmaXNfvkkPbbZd6AlnwMaME0UNFgQBhp1UXk_Qi9ubl-eGiY2o6iBPNjyDbhFsLGxw2psuXubZ9PT1Wpfr9tT3Ym9aaTedXjIttIWXDBTo9uPb8beer2VsOd--0MkqNt9beV2YbgNo12YuvD32PsGeuz9tp_P8A9yA8dP_nSnsT_sJ3C0u20nYHy47idw8m843Z9Pz_dmoGaYVV6-8jZb2G7qCihuufHWvodbI0dLQbx8s628tqls5oBhe4hmW3D9B--C4EQ=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
+
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-120 — Receive Materials and Services - FTS (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -688,12 +682,14 @@ flowchart TD
 
 ## 4. Data Architecture (TOGAF "D")
 
-### 4.1 Data Entities & Ownership
+### 4.1 Data Flows — Source to Target
 
-The following data entities are derived from the system integration flows for LI-120. Tower architects should validate ownership and classification.
+The following data flows are derived from the system integration hops for LI-120. Each row shows source application on its database flowing to a target application on its database.
 
-| # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
-|---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
+| # | Flow Chain | Hop | Source App | Source DB | Target App | Target DB | Data Description | Frequency | Classification |
+|---|-----------|-----|-----------|----------|-----------|----------|-----------------|-----------|---------------|
+
+> *DB platforms will be populated when tower architects complete the extended flow template columns (42-47).*
 
 
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-120 — Receive Materials and Services - FTS (IP)</span></div>
@@ -703,6 +699,10 @@ The following data entities are derived from the system integration flows for LI
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
+
+
+
 
 ### 4.3 Data Lineage
 
@@ -741,32 +741,8 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 ## 5. Application Architecture (TOGAF "A")
 
-### 5.1 Current-State — Current-State Application Landscape
 
-#### Overview
 
-The Current-State architecture represents the **current / legacy** landscape for LI-120.
-
-#### Current-State Flow Narrative
-
-*(No current-state flows defined.)*
-
-### 5.2 Future-State — Future-State Application Landscape
-
-#### Overview
-
-The Future-State architecture represents the **target** landscape for LI-120.
-
-#### Future-State Flow Narrative
-
-*(No future-state flows defined.)*
-
-### 5.3 Change Impact Summary
-
-| Change Type | Flow Chain | Detail |
-|-------------|-----------|--------|
-
-**Totals**: 0 new - 0 removed - 0 modified - 0 unchanged
 
 ### 5.4 Component Overview
 
@@ -791,12 +767,12 @@ The Future-State architecture represents the **target** landscape for LI-120.
 | LOGR0833_IP | Report | Email Notification for deletion of Shipping Memos | 10. Object Complete |  | NA | 03.Medium |
 | LOGI1679 | Interface | Receive 4C1 Inventory movement Stock type change and cycle count from IF | 10. Object Complete |  | SFT | 03.Medium |
 | LOGI1678 | Interface | Receive 4C1 Inventory Reconciliation Snapshot from IF | 10. Object Complete |  | SFT | 03.Medium |
-| LOGI1576 | Interface | ECD_Interface between S4 to ECD for inventory status response | 08. FUT In Progress |  | MuleSoft | 03.Medium |
-| LOGI1575 | Interface | ECD_Interface between S4 to 3PL for inventory status webservice​ | 08. FUT In Progress |  | MuleSoft | 03.Medium |
+| LOGI1576 | Interface | ECD_Interface between S4 to ECD for inventory status response | 10. Object Complete |  | MuleSoft | 03.Medium |
+| LOGI1575 | Interface | ECD_Interface between S4 to 3PL for inventory status webservice​ | 10. Object Complete |  | MuleSoft | 03.Medium |
 | LOGI1571 | Interface | ECD_Interface from ECD to S4 for Inventory status call​ | 10. Object Complete |  | MuleSoft | 03.Medium |
-| LOGI1295 | Interface | ECD_Interface between S/4 and ECD for completion status | 08. FUT In Progress |  | MULESOFT | 03.Medium |
-| LOGI1291 | Interface | ECD_Interface between S/4 and 3PL to send plant/batch level hold/unhold infor... | 08. FUT In Progress |  | MULESOFT | 03.Medium |
-| LOGI1290 | Interface | ECD_Interface from ECD to S4 for Inventory Hold/unhold request | 08. FUT In Progress |  | MULESOFT | 03.Medium |
+| LOGI1295 | Interface | ECD_Interface between S/4 and ECD for completion status | 10. Object Complete |  | MULESOFT | 03.Medium |
+| LOGI1291 | Interface | ECD_Interface between S/4 and 3PL to send plant/batch level hold/unhold infor... | 10. Object Complete |  | MULESOFT | 03.Medium |
+| LOGI1290 | Interface | ECD_Interface from ECD to S4 for Inventory Hold/unhold request | 10. Object Complete |  | MULESOFT | 03.Medium |
 | LOGI1272 | Interface | Response to goods receipt posting from SAP to 3PL - EDI 4C1B | 10. Object Complete | S/4 → WMS (3PL) | MULESOFT | 03.Medium |
 | LOGI1267 | Interface | Inventory Reconciliation with Consignment hub – EDI 4C1 with version control | 10. Object Complete | OpenText → S/4 | MULESOFT | 03.Medium |
 | LOGI1081_IP | Interface | Interface + Enhancement - Reprinting of Carrier Label | 10. Object Complete | S/4 → Redwood | APIGEE | 03.Medium |
@@ -817,7 +793,7 @@ The Future-State architecture represents the **target** landscape for LI-120.
 | LOGE1686 | Enhancement | IP custom table for reconciliation data | 10. Object Complete |  | NA | 03.Medium |
 | LOGE1572_IP | Enhancement | SAP GUI T-code to Move stock from Blocked to unblock Status | 10. Object Complete |  | NA | 02.High |
 | LOGE1569_IP | Enhancement | Enhancement to change billing status based on ship reason in ISM | 10. Object Complete |  | NA | 03.Medium |
-| LOGE1327 | Enhancement | ECD_Enhancement to retrieve plant details for material/batch and update custo... | 08. FUT In Progress |  | NA | 02.High |
+| LOGE1327 | Enhancement | ECD_Enhancement to retrieve plant details for material/batch and update custo... | 09. FUT Overdue |  | NA | 02.High |
 | LOGE1253 | Enhancement | Inventory Reconciliation with Consignment hub – EDI 4C1 with version control | 10. Object Complete |  | NA | 03.Medium |
 | LOGE1177_IP | Enhancement | India GST E-invoicing | 10. Object Complete |  | NA | 03.Medium |
 | LOGE1118_IP | Enhancement | ISM – MY Security Check Fiori app - IF | 10. Object Complete |  | NA | 02.High |
@@ -857,11 +833,15 @@ Integration patterns identified from the system flow analysis for LI-120:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
+
+
 
 #### Platform Inventory
 
@@ -882,58 +862,13 @@ Platform landscape inferred from integrated systems for LI-120:
 
 ### 6.2 SAP Development Object Status
 
-**Capability RICEFW — Active Items** (8 of 51 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-04-06)*
-
-> **Completion Context:** 43 of 51 objects (84%) are complete/closed. The **8 active items** below require attention. See the **RICEFW Register** for full detail.
->
-> | Type | Completed | Active | Total |
-> |------|----------:|-------:|------:|
-> | Report (R) | 2 | 0 | 2 |
-> | Interface (I) | 14 | 6 | 20 |
-> | Conversion (C) | 3 | 0 | 3 |
-> | Enhancement (E) | 15 | 2 | 17 |
-> | Form (F) | 6 | 0 | 6 |
-> | Workflow (W) | 3 | 0 | 3 |
-> | **Total** | **43** | **8** | **51** |
-
-| Status | Count | % |
-|--------|------:|----:|
-| 08. FUT In Progress | 6 | 75.0% |
-| 09. FUT Overdue | 1 | 12.5% |
-| 06. Dev In Progress | 1 | 12.5% |
-| **Total Active** | **8** | **100%** |
-
-**Active RICEFW by Type:**
-
-| Type | Count |
-|------|------:|
-| Interface (I) | 6 |
-| Enhancement (E) | 2 |
-| **Total** | **8** |
-
-**Technical Complexity:**
-
-| Complexity | Count |
-|------------|------:|
-| 01.Very High | 1 |
-| 02.High | 1 |
-| 03.Medium | 6 |
-
-**Objects Requiring Attention:**
-
-| Object ID | Type | Description | Status | Complexity |
-|-----------|------|-------------|--------|------------|
-| LOGI1576 | 02.Interface | ECD_Interface between S4 to ECD for inventory status response | 08. FUT In Progress | 03.Medium |
-| LOGI1575 | 02.Interface | ECD_Interface between S4 to 3PL for inventory status webservice​ | 08. FUT In Progress | 03.Medium |
-| LOGI1295 | 02.Interface | ECD_Interface between S/4 and ECD for completion status | 08. FUT In Progress | 03.Medium |
-| LOGI1291 | 02.Interface | ECD_Interface between S/4 and 3PL to send plant/batch level hold/unhold informat... | 08. FUT In Progress | 03.Medium |
-| LOGI1290 | 02.Interface | ECD_Interface from ECD to S4 for Inventory Hold/unhold request | 08. FUT In Progress | 03.Medium |
-| LOGE1327 | 04.Enhancement | ECD_Enhancement to retrieve plant details for material/batch and update custom t... | 08. FUT In Progress | 02.High |
-| LOGE0935_IP | 04.Enhancement | Fiori App - Shipping Memo | 09. FUT Overdue | 01.Very High |
-| LOGI1584 | 02.Interface | Interface to post inventory in SAP S/4HANA from ECA via MuleSoft. | 06. Dev In Progress | 03.Medium |
-
-**Tower Context:** FTS-IP has 10 active / 91 completed RICEFW objects
+| Metric | DEV | QAS | PRD |
+|--------|-----|-----|-----|
+| Transport Requests | — | — | — |
+| Custom Code Objects | — | — | — |
+| CDS Views | — | — | — |
+| Fiori Apps | — | — | — |
+| BAdIs / Enhancements | — | — | — |
 
 ### 6.3 NFRs & Design Principles
 
@@ -971,77 +906,49 @@ Platform landscape inferred from integrated systems for LI-120:
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
-*8 active objects with timeline data (source: Object Tracker)*
-*43 completed objects excluded — see RICEFW Register for full detail.*
-
 | ID | Description | FS | TDD | Build | FUT | Status |
 |----|-------------|----|-----|-------|-----|--------|
-| LOGI1576 | ECD_Interface between S4 to ECD for inventory status response | Sep-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (95%) | 4. Completed |
-| LOGI1575 | ECD_Interface between S4 to 3PL for inventory status webservice​ | Sep-25 (100%) | Jan-26 (100%) | Jan-26 (100%) | Mar-26 (95%) | 4. Completed |
-| LOGI1295 | ECD_Interface between S/4 and ECD for completion status | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Mar-26 (5%) | 3. Off Track |
-| LOGI1291 | ECD_Interface between S/4 and 3PL to send plant/batch level hold/unhold information for webservice plants to hold/unhold inventory in 3PL | May-25 (100%) | Jan-26 (100%) | Jan-26 (100%) | Mar-26 (30%) | 3. Off Track |
-| LOGI1290 | ECD_Interface from ECD to S4 for Inventory Hold/unhold request | May-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Mar-26 (75%) | 4. Completed |
-| LOGE1327 | ECD_Enhancement to retrieve plant details for material/batch and update custom table | Jun-25 (100%) | Jan-26 (100%) | Jan-26 (100%) | Mar-26 (35%) | 3. Off Track |
-| LOGE0935_IP | Fiori App - Shipping Memo | May-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Mar-26 (35%) | 2. At Risk |
-| LOGI1584 | Interface to post inventory in SAP S/4HANA from ECA via MuleSoft. | Sep-25 (100%) | Apr-26 (100%) | Apr-26 (100%) | Mar-26 (0%) | 3. Off Track |
+| LOGW1078_IP | ISM Workflows - Capital/AMT | 2025-06-11 00:00:00 (100%) | 2025-09-24 00:00:00 (100%) | 2025-09-24 00:00:00 (100%) | 2025-11-07 00:00:00 (100%) | 1. On Track |
+| LOGW1077_IP | ISM Workflows - EIMS/Lab | 2025-06-11 00:00:00 (100%) | 2025-09-24 00:00:00 (100%) | 2025-09-24 00:00:00 (100%) | 2025-12-03 00:00:00 (100%) | 4. Completed |
+| LOGW1076_IP | ISM Workflows - Non-inventory | 2025-06-11 00:00:00 (100%) | 2025-09-24 00:00:00 (100%) | 2025-09-24 00:00:00 (100%) | 2025-11-07 00:00:00 (100%) | 1. On Track |
+| LOGR1176_IP | ISM - International Traffic Report | 2025-04-18 00:00:00 (100%) | 2025-08-13 00:00:00 (100%) | 2025-08-13 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 4. Completed |
+| LOGR0833_IP | Email Notification for deletion of Shipping Memos | 2025-02-28 00:00:00 (100%) | 2025-09-05 00:00:00 (100%) | 2025-09-05 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 1. On Track |
+| LOGI1679 | Receive 4C1 Inventory movement Stock type change and cycle count from IF | 2026-01-23 00:00:00 (100%) | 2026-02-24 00:00:00 (100%) | 2026-02-24 00:00:00 (100%) | 2026-03-20 00:00:00 (100%) | 3. Off Track |
+| LOGI1678 | Receive 4C1 Inventory Reconciliation Snapshot from IF | 2026-01-23 00:00:00 (100%) | 2026-02-24 00:00:00 (100%) | 2026-02-24 00:00:00 (100%) | 2026-03-20 00:00:00 (100%) | 3. Off Track |
+| LOGI1576 | ECD_Interface between S4 to ECD for inventory status response | 2025-09-26 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 2026-03-25 00:00:00 (100%) | 4. Completed |
+| LOGI1575 | ECD_Interface between S4 to 3PL for inventory status webservice​ | 2025-09-10 00:00:00 (100%) | 2026-01-16 00:00:00 (100%) | 2026-01-16 00:00:00 (100%) | 2026-03-25 00:00:00 (100%) | 4. Completed |
+| LOGI1571 | ECD_Interface from ECD to S4 for Inventory status call​ | 2025-09-10 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 2026-01-07 00:00:00 (100%) | 1. On Track |
+| LOGI1295 | ECD_Interface between S/4 and ECD for completion status | 2025-08-13 00:00:00 (100%) | 2025-10-08 00:00:00 (100%) | 2025-10-08 00:00:00 (100%) | 2026-03-27 00:00:00 (100%) | 3. Off Track |
+| LOGI1291 | ECD_Interface between S/4 and 3PL to send plant/batch level hold/unhold infor... | 2025-05-16 00:00:00 (100%) | 2026-01-16 00:00:00 (100%) | 2026-01-16 00:00:00 (100%) | 2026-03-27 00:00:00 (100%) | 3. Off Track |
+| LOGI1290 | ECD_Interface from ECD to S4 for Inventory Hold/unhold request | 2025-05-16 00:00:00 (100%) | 2025-10-03 00:00:00 (100%) | 2025-10-03 00:00:00 (100%) | 2026-03-27 00:00:00 (100%) | 4. Completed |
+| LOGI1272 | Response to goods receipt posting from SAP to 3PL - EDI 4C1B | 2025-02-28 00:00:00 (100%) | 2025-04-11 00:00:00 (100%) | 2025-04-11 00:00:00 (100%) | 2025-08-13 00:00:00 (100%) |  |
+| LOGI1267 | Inventory Reconciliation with Consignment hub – EDI 4C1 with version control | 2025-03-28 00:00:00 (100%) | 2025-05-15 00:00:00 (100%) | 2025-05-15 00:00:00 (100%) | 2025-09-19 00:00:00 (100%) | 1. On Track |
+| LOGI1081_IP | Interface + Enhancement - Reprinting of Carrier Label | 2025-04-25 00:00:00 (100%) | 2025-05-15 00:00:00 (100%) | 2025-05-15 00:00:00 (100%) | 2025-10-08 00:00:00 (100%) |  |
+| LOGI1079_IP | Interface from S4 ISM to Service Now | 2025-05-30 00:00:00 (100%) | 2025-05-30 00:00:00 (100%) | 2025-05-30 00:00:00 (100%) | 2025-10-17 00:00:00 (100%) | 4. Completed |
+| LOGI1074_IP | Send data via API to retrieve the tracking ID - interface + Enhancement | 2025-03-28 00:00:00 (100%) | 2025-05-15 00:00:00 (100%) | 2025-05-15 00:00:00 (100%) | 2025-10-08 00:00:00 (100%) | 3. Off Track |
+| LOGI0951 | Inbound interface to receive Finished Goods “Goods Receipt” (4B2) signal from... | 2025-02-28 00:00:00 (100%) | 2025-05-15 00:00:00 (100%) | 2025-05-15 00:00:00 (100%) | 2025-08-13 00:00:00 (100%) |  |
+| LOGI0950 | Interface to receive 4B2 signal from Factory and return shipments from ODM/OS... | 2025-02-28 00:00:00 (100%) | 2025-05-15 00:00:00 (100%) | 2025-05-15 00:00:00 (100%) | 2025-08-13 00:00:00 (100%) |  |
+
+*... and 31 more objects (see full Object Tracker)*
+
+
+<div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-120 — Receive Materials and Services - FTS (IP)</span></div>
+<div style="page-break-before: always;"></div>
+
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-04-06*
+Standard RAID items for LI-120 (Forecast to Stock (IP)):
 
-**Mapped sub-tower(s):** 8.4 FTS IP - Logistics & Inventory Management
+| # | Category | Description | Status | Owner | Priority |
+|---|----------|-------------|--------|-------|----------|
+| 1 | Risk | Data migration completeness — validate all legacy Receive Materials and Services - FTS (IP) data maps to S/4 target structures | Open | Tower Architect | High |
+| 2 | Risk | Integration testing coverage — ensure all 0 integrated systems are validated end-to-end | Open | Integration Lead | High |
+| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
+| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
+| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
 
-**RAID Summary:** 124 open items (2 capability-specific, 122 tower-level), 463 closed
-
-| Severity | Capability | Tower-Wide | Total Open |
-|----------|----------:|-----------:|-----------:|
-| P1 - High | 0 | 8 | 8 |
-| P2 - Medium | 2 | 70 | 72 |
-| P3 - Low | 0 | 13 | 13 |
-| **Total** | **2** | **122** | **124** |
-
-**Capability-Specific RAID Items:**
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03152 | Action | P2 - Medium | LOGC0972_IP & IF- Test Data to be provided in load files for... | Not Started | FTS IP |  |
-| 03503 | Action | P2 - Medium | LOGI1678 and LOGI1679 Queue details | Not Started | FTS IP | 2026-02-03 |
-
-**Other FTS-IP Tower RAID Items** (122 open):
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03554 | Action | P1 - High | Mock Cutover S4 Load Files BOM, ITEM, ITEM-PLANT | In Progress | Master Data | 2026-02-18 |
-| 03578 | Risk | P1 - High | HBI Process Flow Change impact Assessment | In Progress | FTS IF | 2026-03-27 |
-| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-15 |
-| 03600 | Risk | P1 - High | Error lifecycle functionality within PDF application is miss... | In Progress | FTS IF | 2026-05-01 |
-| 03601 | Risk | P1 - High | Traceability functionality within PDF application is missing... | In Progress | FTS IF | 2026-05-15 |
-| 03757 | Risk | P1 - High | IF Planning data not available in ITC1 until W4, leaving too... | In Progress | FTS IF | 2026-04-10 |
-| 03767 | Risk | P1 - High | Day 1 OTC Execution - APOP production cutover for allocation... | In Progress | OTC IP | 2026-04-24 |
-| 03800 | Risk | P1 - High | R3 Roles and Processes require Early Adopter names for upcom... | In Progress | CM & Comms | 2026-04-27 |
-| 01355 | Action | P2 - Medium | PDF SMHe product development approach does not appear to hav... | To Be Reviewed | FTS IF | 2026-04-03 |
-| 01733 | Risk | P2 - Medium | Tariffs impacts Item/BOM design which is impacting ERP/SCP (... | In Progress | E2E | 2026-03-06 |
-| 03079 | Action | P2 - Medium | Request for PDH Design WTF | In Progress | FTS IP | 2026-03-04 |
-| 03128 | Risk | P2 - Medium | Application Health Monitoring | In Progress | FTS IF | 2026-05-13 |
-| 03196 | Risk | P2 - Medium | MC1 R3 Data/SCP Readiness | In Progress | Data Readiness | 2026-05-01 |
-| 03241 | Risk | P2 - Medium | Materials Planning Policy for Constrained Materials | In Progress | FTS IP | 2026-07-31 |
-| 03245 | Action | P2 - Medium | ODM Expedite | Not Started | FTS IP | 2025-12-19 |
-| 03246 | Action | P2 - Medium | Expedite Fees | Not Started | FTS IP | 2025-12-19 |
-| 03250 | Action | P2 - Medium | Update Commit Date for Holds | In Progress | FTS IP | 2026-03-27 |
-| 03251 | Action | P2 - Medium | Out of Cycle Replenishment | In Progress | FTS IP | 2026-04-24 |
-| 03267 | Action | P2 - Medium | R3 metrics | In Progress | FTS IP | 2026-03-27 |
-| 03276 | Action | P2 - Medium | Biz Documentation | In Progress | FTS IP | 2026-02-27 |
-| 03278 | Action | P2 - Medium | Persona validation | In Progress | FTS IP | 2026-02-20 |
-| 03334 | Issue | P2 - Medium | Application Monitoring - Connectors Health Monitoring | In Progress | FTS IF | 2026-05-15 |
-| 03355 | Risk | P2 - Medium | PTP ECA OSAT Predictive Tool Test Self-Service Query View cr... | In Progress | FTS IP | 2026-04-03 |
-| 03377 |  | P2 - Medium | KDD Telescoping vs exact network search | In Progress | FTS IP | 2026-03-20 |
-| 03701 | Risk | P2 - Medium | IP DP (CDP) string test cases has risk of completely beyond ... | In Progress | Test Management | 2026-04-04 |
-| 03526 | Action | P2 - Medium | Review process for post-validation of system changes | In Progress | FTS IP | 2026-04-17 |
-| 03560 | Issue | P2 - Medium | Apigee Endpoints for different ITC's | In Progress | Technology | 2026-02-28 |
-| 03605 | Issue | P2 - Medium | IP SMH does not have user role that is appropiate for QA or ... | In Progress | FTS IP | 2026-04-17 |
-| 03618 | Action | P2 - Medium | Over/Under Delivery Tolerances | In Progress | FTS IP | 2026-04-24 |
-| 03623 | Risk | P2 - Medium | Order Complete Signal | In Progress | FTS IP | 2026-04-10 |
-| | | | *... and 92 more tower-level items* | | | |
+> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
 
 ### 7.3 Recommendations & Next Steps
 
@@ -1056,6 +963,4 @@ Platform landscape inferred from integrated systems for LI-120:
 ---
 *LI-120 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IP) · Generated: April 2026*
 
-
-
-<div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-120 — Receive Materials and Services - FTS (IP)</span></div>
+<div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>LI-120 — Receive Materials and Services - FTS (IP)</span></div>

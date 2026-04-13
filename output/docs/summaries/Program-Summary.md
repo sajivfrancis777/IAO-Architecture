@@ -89,7 +89,7 @@ The diagrams below show the consolidated current-state and future-state system l
 |--------|:---:|:---:|:---:|
 | **Unique Systems** | 28 | 44 | +16 |
 | **System Connections** | 32 | 54 | +22 |
-| **Total Flow Hops** | 89 | 167 | +78 |
+| **Total Flow Hops** | 349 | 427 | +78 |
 | **Capabilities Covered** | 184 | 184 | — |
 
 <div class="page-footer"><span>Page 3</span><span><a href="#toc">↑ Back to TOC</a></span><span>IAO Program Architecture Summary</span></div>
@@ -155,144 +155,144 @@ Click a capability ID to view its full TOGAF BDAT architecture document.
 | 51 | [E2E-88](/towers/E2E/Procure-to-Pay/E2E-88/output/docs/systems-architecture/E2E-88-Architecture.html) | R3 Construction materials & equipment procurement process inclusive of OFCI (Like equipme | E2E · Procure to Pay | 1 | 1 |
 | 52 | [E2E-96](/towers/E2E/Procure-to-Pay/E2E-96/output/docs/systems-architecture/E2E-96-Architecture.html) | R3 Straddle & R4 SIMS Design with Returns | E2E · Procure to Pay | 1 | 1 |
 | 53 | [E2E-98](/towers/E2E/Procure-to-Pay/E2E-98/output/docs/systems-architecture/E2E-98-Architecture.html) | R3 Equipment Product Supporting Items (PSI) Procurement | E2E · Procure to Pay | 1 | 1 |
-| 54 | [DC-010](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-010/output/docs/systems-architecture/DC-010-Architecture.html) | Perform Transaction Processing | FPR · DC Manage Accounting and Control Data | 0 | 0 |
-| 55 | [DC-020](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-020/output/docs/systems-architecture/DC-020-Architecture.html) | Manage the General Ledger | FPR · DC Manage Accounting and Control Data | 0 | 0 |
-| 56 | [DC-030](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-030/output/docs/systems-architecture/DC-030-Architecture.html) | Perform Closing | FPR · DC Manage Accounting and Control Data | 0 | 0 |
-| 57 | [DC-040](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-040/output/docs/systems-architecture/DC-040-Architecture.html) | Perform Fixed Asset Accounting | FPR · DC Manage Accounting and Control Data | 0 | 0 |
-| 58 | [DC-050](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-050/output/docs/systems-architecture/DC-050-Architecture.html) | Project Accounting | FPR · DC Manage Accounting and Control Data | 0 | 0 |
-| 59 | [DC-060](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-060/output/docs/systems-architecture/DC-060-Architecture.html) | Manage Taxes | FPR · DC Manage Accounting and Control Data | 0 | 0 |
-| 60 | [DC-100](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-100/output/docs/systems-architecture/DC-100-Architecture.html) | Revenue Recognition | FPR · DC Manage Accounting and Control Data | 0 | 0 |
-| 61 | [DC-110](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-110/output/docs/systems-architecture/DC-110-Architecture.html) | Manage Intercompany | FPR · DC Manage Accounting and Control Data | 0 | 0 |
-| 62 | [DC-120](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-120/output/docs/systems-architecture/DC-120-Architecture.html) | Maintenance & Management Accounting | FPR · DC Manage Accounting and Control Data | 0 | 0 |
-| 63 | [DS-010](/towers/FPR/DS-Provide-Decision-Support/DS-010/output/docs/systems-architecture/DS-010-Architecture.html) | Perform Overhead Accounting and Allocation | FPR · DS Provide Decision Support | 0 | 0 |
+| 54 | [DC-010](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-010/output/docs/systems-architecture/DC-010-Architecture.html) | Perform Transaction Processing | FPR · DC Manage Accounting and Control Data | 2 | 2 |
+| 55 | [DC-020](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-020/output/docs/systems-architecture/DC-020-Architecture.html) | Manage the General Ledger | FPR · DC Manage Accounting and Control Data | 2 | 2 |
+| 56 | [DC-030](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-030/output/docs/systems-architecture/DC-030-Architecture.html) | Perform Closing | FPR · DC Manage Accounting and Control Data | 2 | 2 |
+| 57 | [DC-040](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-040/output/docs/systems-architecture/DC-040-Architecture.html) | Perform Fixed Asset Accounting | FPR · DC Manage Accounting and Control Data | 2 | 2 |
+| 58 | [DC-050](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-050/output/docs/systems-architecture/DC-050-Architecture.html) | Project Accounting | FPR · DC Manage Accounting and Control Data | 2 | 2 |
+| 59 | [DC-060](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-060/output/docs/systems-architecture/DC-060-Architecture.html) | Manage Taxes | FPR · DC Manage Accounting and Control Data | 2 | 2 |
+| 60 | [DC-100](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-100/output/docs/systems-architecture/DC-100-Architecture.html) | Revenue Recognition | FPR · DC Manage Accounting and Control Data | 2 | 2 |
+| 61 | [DC-110](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-110/output/docs/systems-architecture/DC-110-Architecture.html) | Manage Intercompany | FPR · DC Manage Accounting and Control Data | 2 | 2 |
+| 62 | [DC-120](/towers/FPR/DC-Manage-Accounting-and-Control-Data/DC-120/output/docs/systems-architecture/DC-120-Architecture.html) | Maintenance & Management Accounting | FPR · DC Manage Accounting and Control Data | 2 | 2 |
+| 63 | [DS-010](/towers/FPR/DS-Provide-Decision-Support/DS-010/output/docs/systems-architecture/DS-010-Architecture.html) | Perform Overhead Accounting and Allocation | FPR · DS Provide Decision Support | 2 | 2 |
 | 64 | [DS-020](/towers/FPR/DS-Provide-Decision-Support/DS-020/output/docs/systems-architecture/DS-020-Architecture.html) | Perform Product Costing and Inventory Valuation | FPR · DS Provide Decision Support | 36 | 114 |
-| 65 | [DS-030](/towers/FPR/DS-Provide-Decision-Support/DS-030/output/docs/systems-architecture/DS-030-Architecture.html) | Perform Customer and Product Profitability Analysis | FPR · DS Provide Decision Support | 0 | 0 |
-| 66 | [MB-060](/towers/FPR/MB-Plan-and-Manage-Business/MB-060/output/docs/systems-architecture/MB-060-Architecture.html) | Plan the Business | FPR · MB Plan and Manage Business | 0 | 0 |
-| 67 | [MB-070](/towers/FPR/MB-Plan-and-Manage-Business/MB-070/output/docs/systems-architecture/MB-070-Architecture.html) | Prepare Budgets | FPR · MB Plan and Manage Business | 0 | 0 |
-| 68 | [MR-010](/towers/FPR/MR-Manage-Capital-and-Risk/MR-010/output/docs/systems-architecture/MR-010-Architecture.html) | Manage Liquidity | FPR · MR Manage Capital and Risk | 0 | 0 |
-| 69 | [MR-020](/towers/FPR/MR-Manage-Capital-and-Risk/MR-020/output/docs/systems-architecture/MR-020-Architecture.html) | Manage Capital Structure | FPR · MR Manage Capital and Risk | 0 | 0 |
-| 70 | [MR-030](/towers/FPR/MR-Manage-Capital-and-Risk/MR-030/output/docs/systems-architecture/MR-030-Architecture.html) | Manage Financial Risk | FPR · MR Manage Capital and Risk | 0 | 0 |
-| 71 | [MR-070](/towers/FPR/MR-Manage-Capital-and-Risk/MR-070/output/docs/systems-architecture/MR-070-Architecture.html) | In-House Banking | FPR · MR Manage Capital and Risk | 0 | 0 |
-| 72 | [OR-140](/towers/FPR/OR-Receivables-Management/OR-140/output/docs/systems-architecture/OR-140-Architecture.html) | Process Receipts | FPR · OR Receivables Management | 0 | 0 |
-| 73 | [L-040](/towers/FTS-IF/L-Logistics-and-Inventory-Management---FTS-(IF)/L-040/output/docs/systems-architecture/L-040-Architecture.html) | Receive and Put-away Product - FTS (IF) | FTS-IF · L Logistics and Inventory Management - FTS (IF) | 0 | 0 |
-| 74 | [L-060](/towers/FTS-IF/L-Logistics-and-Inventory-Management---FTS-(IF)/L-060/output/docs/systems-architecture/L-060-Architecture.html) | Manage Storage & Internal Movement of Inventory - FTS (IF) | FTS-IF · L Logistics and Inventory Management - FTS (IF) | 0 | 0 |
-| 75 | [L-110](/towers/FTS-IF/L-Logistics-and-Inventory-Management---FTS-(IF)/L-110/output/docs/systems-architecture/L-110-Architecture.html) | Manage Lots Batches - FTS (IF) | FTS-IF · L Logistics and Inventory Management - FTS (IF) | 0 | 0 |
-| 76 | [L-120](/towers/FTS-IF/L-Logistics-and-Inventory-Management---FTS-(IF)/L-120/output/docs/systems-architecture/L-120-Architecture.html) | Manage Line Replenishment - FTS (IF) | FTS-IF · L Logistics and Inventory Management - FTS (IF) | 0 | 0 |
-| 77 | [LI-120](/towers/FTS-IF/LI-Logistics-Management-Inbound---FTS-(IF)/LI-120/output/docs/systems-architecture/LI-120-Architecture.html) | Receive Materials and Services - FTS (IF) | FTS-IF · LI Logistics Management Inbound - FTS (IF) | 0 | 0 |
-| 78 | [LO-160](/towers/FTS-IF/LO-Logistics-Management-Outbound---FTS-(IF)/LO-160/output/docs/systems-architecture/LO-160-Architecture.html) | Pick Orders- FTS (IF) | FTS-IF · LO Logistics Management Outbound - FTS (IF) | 0 | 0 |
-| 79 | [LO-170](/towers/FTS-IF/LO-Logistics-Management-Outbound---FTS-(IF)/LO-170/output/docs/systems-architecture/LO-170-Architecture.html) | Pack Order - FTS  (IF) | FTS-IF · LO Logistics Management Outbound - FTS (IF) | 0 | 0 |
-| 80 | [LO-180](/towers/FTS-IF/LO-Logistics-Management-Outbound---FTS-(IF)/LO-180/output/docs/systems-architecture/LO-180-Architecture.html) | Manage Outbound Transportation - FTS (IF) | FTS-IF · LO Logistics Management Outbound - FTS (IF) | 0 | 0 |
-| 81 | [LO-190](/towers/FTS-IF/L-Logistics-and-Inventory-Management---FTS-(IF)/LO-190/output/docs/systems-architecture/LO-190-Architecture.html) | Ship | FTS-IF · LO Logistics Management Outbound - FTS (IF) | 0 | 0 |
-| 82 | [M-080](/towers/FTS-IF/M-Mfg.-Schedule-and-Execution-(IF)/M-080/output/docs/systems-architecture/M-080-Architecture.html) | Perform Materials Requirement Planning (IF) | FTS-IF · M Mfg. Schedule and Execution (IF) | 0 | 0 |
-| 83 | [M-090](/towers/FTS-IF/M-Mfg.-Schedule-and-Execution-(IF)/M-090/output/docs/systems-architecture/M-090-Architecture.html) | Schedule Production (IF) | FTS-IF · M Mfg. Schedule and Execution (IF) | 0 | 0 |
-| 84 | [M-100](/towers/FTS-IF/M-Mfg.-Schedule-and-Execution-(IF)/M-100/output/docs/systems-architecture/M-100-Architecture.html) | Execute Production (IF) | FTS-IF · M Mfg. Schedule and Execution (IF) | 0 | 0 |
-| 85 | [M-170](/towers/FTS-IF/M-Mfg.-Schedule-and-Execution-(IF)/M-170/output/docs/systems-architecture/M-170-Architecture.html) | Control and Report Production Operations (IF) | FTS-IF · M Mfg. Schedule and Execution (IF) | 0 | 0 |
-| 86 | [PE-020](/towers/FTS-IF/PE-Manage-Plant,-Equipment-and-Facilities-(IF)/PE-020/output/docs/systems-architecture/PE-020-Architecture.html) | Identify Maintenance Structure | FTS-IF · PE Manage Plant, Equipment and Facilities | 0 | 0 |
-| 87 | [PE-040](/towers/FTS-IF/PE-Manage-Plant,-Equipment-and-Facilities-(IF)/PE-040/output/docs/systems-architecture/PE-040-Architecture.html) | Monitor | FTS-IF · PE Manage Plant, Equipment and Facilities | 0 | 0 |
-| 88 | [PE-050](/towers/FTS-IF/PE-Manage-Plant,-Equipment-and-Facilities-(IF)/PE-050/output/docs/systems-architecture/PE-050-Architecture.html) | Maintain Work Order Historical Documentation | FTS-IF · PE Manage Plant, Equipment and Facilities | 0 | 0 |
-| 89 | [PE-060](/towers/FTS-IF/PE-Manage-Plant,-Equipment-and-Facilities-(IF)/PE-060/output/docs/systems-architecture/PE-060-Architecture.html) | Maintain and Manage Master Maintenance Records | FTS-IF · PE Manage Plant, Equipment and Facilities | 0 | 0 |
-| 90 | [PE-070](/towers/FTS-IF/PE-Manage-Plant,-Equipment-and-Facilities-(IF)/PE-070/output/docs/systems-architecture/PE-070-Architecture.html) | Identify and Plan Plant Maintenance | FTS-IF · PE Manage Plant, Equipment and Facilities | 0 | 0 |
-| 91 | [PE-090](/towers/FTS-IF/PE-Manage-Plant,-Equipment-and-Facilities-(IF)/PE-090/output/docs/systems-architecture/PE-090-Architecture.html) | Execute Plant Maintenance | FTS-IF · PE Manage Plant, Equipment and Facilities | 0 | 0 |
-| 92 | [PLB-020](/towers/FTS-IF/PLB-Supply-Chain-Planning-(IF)/PLB-020/output/docs/systems-architecture/PLB-020-Architecture.html) | Supply Planning & Management (IF) | FTS-IF · PLB Supply Chain Planning (IF) | 0 | 0 |
-| 93 | [Q-140](/towers/FTS-IF/Q-Quality-Management-(IF)/Q-140/output/docs/systems-architecture/Q-140-Architecture.html) | Manage Product Disposition (IF) | FTS-IF · Q Quality Management (IF) | 0 | 0 |
-| 94 | [L-060](/towers/FTS-IP/L-Logistics-and-Inventory-Management---FTS-(IP)/L-060/output/docs/systems-architecture/L-060-Architecture.html) | Manage Storage and Internal Movement of Inventory - FTS (IP) | FTS-IP · L Logistics and Inventory Management - FTS (IP) | 0 | 0 |
-| 95 | [LI-120](/towers/FTS-IP/LI-Logistics-Management-Inbound---FTS-(IP)/LI-120/output/docs/systems-architecture/LI-120-Architecture.html) | Receive Materials and Services - FTS (IP) | FTS-IP · LI Logistics Management Inbound - FTS (IP) | 0 | 0 |
-| 96 | [LO-160](/towers/FTS-IP/LO-Logistics-Management-Outbound---FTS-(IP)/LO-160/output/docs/systems-architecture/LO-160-Architecture.html) | Pick Orders - FTS (IP) | FTS-IP · LO Logistics Management Outbound - FTS (IP) | 0 | 0 |
-| 97 | [LO-170](/towers/FTS-IP/LO-Logistics-Management-Outbound---FTS-(IF)/LO-170/output/docs/systems-architecture/LO-170-Architecture.html) | Pack Orders - FTS (IP) | FTS-IP · LO Logistics Management Outbound - FTS (IP) | 0 | 0 |
-| 98 | [LO-180](/towers/FTS-IP/L-Logistics-and-Inventory-Management---FTS-(IP)/LO-180/output/docs/systems-architecture/LO-180-Architecture.html) | Manage Outbound Transportation - FTS (IP) | FTS-IP · LO Logistics Management Outbound - FTS (IP) | 0 | 0 |
-| 99 | [LO-190](/towers/FTS-IP/LO-Logistics-Management-Outbound---FTS-(IP)/LO-190/output/docs/systems-architecture/LO-190-Architecture.html) | Ship | FTS-IP · LO Logistics Management Outbound - FTS (IP) | 0 | 0 |
-| 100 | [M-080](/towers/FTS-IP/M-Mfg.-Schedule-and-Execution-(IP)/M-080/output/docs/systems-architecture/M-080-Architecture.html) | Perform Materials Requirement Planning (IP) | FTS-IP · M Mfg. Schedule and Execution (IP) | 0 | 0 |
-| 101 | [M-090](/towers/FTS-IP/M-Mfg.-Schedule-and-Execution-(IP)/M-090/output/docs/systems-architecture/M-090-Architecture.html) | Schedule Production (IP) | FTS-IP · M Mfg. Schedule and Execution (IP) | 0 | 0 |
-| 102 | [M-100](/towers/FTS-IP/M-Mfg.-Schedule-and-Execution-(IP)/M-100/output/docs/systems-architecture/M-100-Architecture.html) | Execute Production (IP) | FTS-IP · M Mfg. Schedule and Execution (IP) | 0 | 0 |
-| 103 | [PLB-020](/towers/FTS-IP/PLB-Supply-Chain-Planning-(IP)/PLB-020/output/docs/systems-architecture/PLB-020-Architecture.html) | Supply Planning & Management (IP) | FTS-IP · PLB Supply Chain Planning (IP) | 0 | 0 |
-| 104 | [PLB-050](/towers/FTS-IP/PLB-Supply-Chain-Planning-(IP)/PLB-050/output/docs/systems-architecture/PLB-050-Architecture.html) | Responsive Demand and Supply Matching (RDSM) (IP) | FTS-IP · PLB Supply Chain Planning (IP) | 0 | 0 |
-| 105 | [Q-140](/towers/FTS-IP/Q-Quality-Management-(IP)/Q-140/output/docs/systems-architecture/Q-140-Architecture.html) | Manage Product Disposition (IP) | FTS-IP · Q Quality Management (IP) | 0 | 0 |
-| 106 | [MDM-020](/towers/MDM/MDM-Manage-Master-Data/MDM-020/output/docs/systems-architecture/MDM-020-Architecture.html) | Create and Maintain Vendors | MDM · MDM-Manage Master Data | 0 | 0 |
-| 107 | [MDM-130](/towers/MDM/MDM-Manage-Master-Data/MDM-130/output/docs/systems-architecture/MDM-130-Architecture.html) | Create and Maintain Customers | MDM · MDM-Manage Master Data | 0 | 0 |
-| 108 | [MDM-140](/towers/MDM/MDM-Manage-Master-Data/MDM-140/output/docs/systems-architecture/MDM-140-Architecture.html) | Create and Maintain Reference Data | MDM · MDM-Manage Master Data | 0 | 0 |
-| 109 | [MDM-150](/towers/MDM/MDM-Manage-Master-Data/MDM-150/output/docs/systems-architecture/MDM-150-Architecture.html) | Maintain Product Related Data | MDM · MDM-Manage Master Data | 0 | 0 |
-| 110 | [BR-130](/towers/OTC-IF/BR-Billing-and-Rebates-(IF)/BR-130/output/docs/systems-architecture/BR-130-Architecture.html) | Billing Revenue (IF) | OTC-IF · BR-Billing and Rebates (IF) | 0 | 0 |
-| 111 | [CM-050](/towers/OTC-IF/CM-Credit-and-Collections-Management-(IF)/CM-050/output/docs/systems-architecture/CM-050-Architecture.html) | Manage Customer Credit Exposure (IF) | OTC-IF · CM-Credit &amp; Collections Management (IF) | 0 | 0 |
-| 112 | [CM-060](/towers/OTC-IF/CM-Credit-and-Collections-Management-(IF)/CM-060/output/docs/systems-architecture/CM-060-Architecture.html) | Manage Collections (IF) | OTC-IF · CM-Credit &amp; Collections Management (IF) | 0 | 0 |
-| 113 | [GT-010](/towers/OTC-IF/GT-Global-Trade-(IF)/GT-010/output/docs/systems-architecture/GT-010-Architecture.html) | Manage Global Trade Master Data (IF) | OTC-IF · GT Global Trade (IF) | 0 | 0 |
-| 114 | [GT-020](/towers/OTC-IF/GT-Global-Trade-(IF)/GT-020/output/docs/systems-architecture/GT-020-Architecture.html) | Product Classification (IF) | OTC-IF · GT Global Trade (IF) | 0 | 0 |
-| 115 | [GT-030](/towers/OTC-IF/GT-Global-Trade-(IF)/GT-030/output/docs/systems-architecture/GT-030-Architecture.html) | Compliance Screening (IF) | OTC-IF · GT Global Trade (IF) | 0 | 0 |
-| 116 | [GT-040](/towers/OTC-IF/GT-Global-Trade-(IF)/GT-040/output/docs/systems-architecture/GT-040-Architecture.html) | Manage Licenses (IF) | OTC-IF · GT Global Trade (IF) | 0 | 0 |
-| 117 | [GT-050](/towers/OTC-IF/GT-Global-Trade-(IF)/GT-050/output/docs/systems-architecture/GT-050-Architecture.html) | Customs declaration creation Export (IF) | OTC-IF · GT Global Trade (IF) | 0 | 0 |
-| 118 | [GT-070](/towers/OTC-IF/GT-Global-Trade-(IF)/GT-070/output/docs/systems-architecture/GT-070-Architecture.html) | Customs Declaration Completion Export | OTC-IF · GT Global Trade (IF) | 0 | 0 |
-| 119 | [GT-080](/towers/OTC-IF/GT-Global-Trade-(IF)/GT-080/output/docs/systems-architecture/GT-080-Architecture.html) | Customs Declaration Communication - Self Filing (IF) | OTC-IF · GT Global Trade (IF) | 0 | 0 |
-| 120 | [GT-110](/towers/OTC-IF/GT-Global-Trade-(IF)/GT-110/output/docs/systems-architecture/GT-110-Architecture.html) | Monitor completed declaration (IF) | OTC-IF · GT Global Trade (IF) | 0 | 0 |
-| 121 | [GT-130](/towers/OTC-IF/GT-Global-Trade-(IF)/GT-130/output/docs/systems-architecture/GT-130-Architecture.html) | Intrastat Filing (S4) (IF) | OTC-IF · GT Global Trade (IF) | 0 | 0 |
-| 122 | [LO-160](/towers/OTC-IF/LO-Logistics-Management-Outbound---OTC-(IF)/LO-160/output/docs/systems-architecture/LO-160-Architecture.html) | Pick Orders - OTC (IF) | OTC-IF · LO Logistics Management Outbound - OTC (IF) | 0 | 0 |
-| 123 | [LO-170](/towers/OTC-IF/LO-Logistics-Management-Outbound---OTC-(IF)/LO-170/output/docs/systems-architecture/LO-170-Architecture.html) | Pack Orders - OTC (IF) | OTC-IF · LO Logistics Management Outbound - OTC (IF) | 0 | 0 |
-| 124 | [LO-180](/towers/OTC-IF/LO-Logistics-Management-Outbound---OTC-(IF)/LO-180/output/docs/systems-architecture/LO-180-Architecture.html) | Manage Outbound Transportation - OTC (IF) | OTC-IF · LO Logistics Management Outbound - OTC (IF) | 0 | 0 |
-| 125 | [LO-190](/towers/OTC-IF/LO-Logistics-Management-Outbound---OTC-(IF)/LO-190/output/docs/systems-architecture/LO-190-Architecture.html) | Ship Deliver Orders - OTC (IF) | OTC-IF · LO Logistics Management Outbound - OTC (IF) | 0 | 0 |
-| 126 | [O-020](/towers/OTC-IF/O-Order-Management-(IF)/O-020/output/docs/systems-architecture/O-020-Architecture.html) | Capture Orders (IF) | OTC-IF · O-Order Management (IF) | 0 | 0 |
-| 127 | [O-030](/towers/OTC-IF/O-Order-Management-(IF)/O-030/output/docs/systems-architecture/O-030-Architecture.html) | Process Orders (IF) | OTC-IF · O-Order Management (IF) | 0 | 0 |
-| 128 | [O-040](/towers/OTC-IF/O-Order-Management-(IF)/O-040/output/docs/systems-architecture/O-040-Architecture.html) | Calculate Order Price (IF) | OTC-IF · O-Order Management (IF) | 0 | 0 |
-| 129 | [O-060](/towers/OTC-IF/O-Order-Management-(IF)/O-060/output/docs/systems-architecture/O-060-Architecture.html) | Manage and Track Orders (IF) | OTC-IF · O-Order Management (IF) | 0 | 0 |
-| 130 | [O-070](/towers/OTC-IF/O-Order-Management-(IF)/O-070/output/docs/systems-architecture/O-070-Architecture.html) | Manage Backorders (IF) | OTC-IF · O-Order Management (IF) | 0 | 0 |
-| 131 | [R-190](/towers/OTC-IF/R-Returns-(IF)/R-190/output/docs/systems-architecture/R-190-Architecture.html) | Manage Returns and Exchanges (IF) | OTC-IF · R-Returns (IF) | 0 | 0 |
-| 132 | [R-200](/towers/OTC-IF/R-Returns-(IF)/R-200/output/docs/systems-architecture/R-200-Architecture.html) | Return - Receive Materials and Services (IF) | OTC-IF · R-Returns (IF) | 0 | 0 |
-| 133 | [R-210](/towers/OTC-IF/R-Returns-(IF)/R-210/output/docs/systems-architecture/R-210-Architecture.html) | Returns - Determine Discrepant Material Disposition (IF) | OTC-IF · R-Returns (IF) | 0 | 0 |
-| 134 | [R-220](/towers/OTC-IF/R-Returns-(IF)/R-220/output/docs/systems-architecture/R-220-Architecture.html) | Returns - Manage In-bound Transportation (IF) | OTC-IF · R-Returns (IF) | 0 | 0 |
-| 135 | [BR-130](/towers/OTC-IP/BR-Billing-and-Rebates-(IP)/BR-130/output/docs/systems-architecture/BR-130-Architecture.html) | Billing Revenue (IP) | OTC-IP · BR-Billing and Rebates (IP) | 0 | 0 |
-| 136 | [BR-160](/towers/OTC-IP/BR-Billing-and-Rebates-(IP)/BR-160/output/docs/systems-architecture/BR-160-Architecture.html) | Manage Rebates (IP) | OTC-IP · BR-Billing and Rebates (IP) | 0 | 0 |
-| 137 | [BR-170](/towers/OTC-IP/BR-Billing-and-Rebates-(IP)/BR-170/output/docs/systems-architecture/BR-170-Architecture.html) | Manage Chargebacks (IP) | OTC-IP · BR-Billing and Rebates (IP) | 0 | 0 |
-| 138 | [CM-050](/towers/OTC-IP/CM-Credit-and-Collections-Management-(IP)/CM-050/output/docs/systems-architecture/CM-050-Architecture.html) | Manage Customer Credit Exposure (IP) | OTC-IP · CM-Credit &amp; Collections Management (IP) | 0 | 0 |
-| 139 | [CM-060](/towers/OTC-IP/CM-Credit-and-Collections-Management-(IP)/CM-060/output/docs/systems-architecture/CM-060-Architecture.html) | Manage Collections (IP) | OTC-IP · CM-Credit &amp; Collections Management (IP) | 0 | 0 |
-| 140 | [GT-010](/towers/OTC-IP/GT-Global-Trade-(IP)/GT-010/output/docs/systems-architecture/GT-010-Architecture.html) | Manage Global Trade Master Data (IP) | OTC-IP · GT-Global Trade (IP) | 0 | 0 |
-| 141 | [GT-020](/towers/OTC-IP/GT-Global-Trade-(IP)/GT-020/output/docs/systems-architecture/GT-020-Architecture.html) | Product Classification (IP) | OTC-IP · GT-Global Trade (IP) | 0 | 0 |
-| 142 | [GT-030](/towers/OTC-IP/GT-Global-Trade-(IP)/GT-030/output/docs/systems-architecture/GT-030-Architecture.html) | Compliance Screening (IP) | OTC-IP · GT-Global Trade (IP) | 0 | 0 |
-| 143 | [GT-040](/towers/OTC-IP/GT-Global-Trade-(IP)/GT-040/output/docs/systems-architecture/GT-040-Architecture.html) | Manage Licenses (IP) | OTC-IP · GT-Global Trade (IP) | 0 | 0 |
-| 144 | [GT-050](/towers/OTC-IP/GT-Global-Trade-(IP)/GT-050/output/docs/systems-architecture/GT-050-Architecture.html) | Customs Declaration Creation Export (IP) | OTC-IP · GT-Global Trade (IP) | 0 | 0 |
-| 145 | [GT-060](/towers/OTC-IP/GT-Global-Trade-(IP)/GT-060/output/docs/systems-architecture/GT-060-Architecture.html) | Customs declaration creation Import (IP) | OTC-IP · GT-Global Trade (IP) | 0 | 0 |
-| 146 | [GT-070](/towers/OTC-IP/GT-Global-Trade-(IP)/GT-070/output/docs/systems-architecture/GT-070-Architecture.html) | Customs Declaration Completion Export | OTC-IP · GT-Global Trade (IP) | 0 | 0 |
-| 147 | [GT-080](/towers/OTC-IP/GT-Global-Trade-(IP)/GT-080/output/docs/systems-architecture/GT-080-Architecture.html) | Customs Declaration Communication - Self Filing (IP) | OTC-IP · GT-Global Trade (IP) | 0 | 0 |
-| 148 | [GT-090](/towers/OTC-IP/GT-Global-Trade-(IP)/GT-090/output/docs/systems-architecture/GT-090-Architecture.html) | Customs declaration communication - broker filing (IP) | OTC-IP · GT-Global Trade (IP) | 0 | 0 |
-| 149 | [GT-110](/towers/OTC-IP/GT-Global-Trade-(IP)/GT-110/output/docs/systems-architecture/GT-110-Architecture.html) | Monitor Completed Declaration (IP) | OTC-IP · GT-Global Trade (IP) | 0 | 0 |
-| 150 | [GT-130](/towers/OTC-IP/GT-Global-Trade-(IP)/GT-130/output/docs/systems-architecture/GT-130-Architecture.html) | Intrastat Filing (S4) (IP) | OTC-IP · GT-Global Trade (IP) | 0 | 0 |
-| 151 | [LO-160](/towers/OTC-IP/LO-Logistics-Management-Outbound---OTC-(IP)/LO-160/output/docs/systems-architecture/LO-160-Architecture.html) | Pick Orders - OTC (IP) | OTC-IP · LO Logistics Management Outbound - OTC (IP) | 0 | 0 |
-| 152 | [LO-170](/towers/OTC-IP/LO-Logistics-Management-Outbound---OTC-(IP)/LO-170/output/docs/systems-architecture/LO-170-Architecture.html) | Pack Orders - OTC (IP) | OTC-IP · LO Logistics Management Outbound - OTC (IP) | 0 | 0 |
-| 153 | [LO-180](/towers/OTC-IP/LO-Logistics-Management-Outbound---OTC-(IP)/LO-180/output/docs/systems-architecture/LO-180-Architecture.html) | Manage Outbound Transportation - OTC (IP) | OTC-IP · LO Logistics Management Outbound - OTC (IP) | 0 | 0 |
-| 154 | [LO-190](/towers/OTC-IP/LO-Logistics-Management-Outbound---OTC-(IP)/LO-190/output/docs/systems-architecture/LO-190-Architecture.html) | Ship Deliver Orders - OTC (IP) | OTC-IP · LO Logistics Management Outbound - OTC (IP) | 0 | 0 |
-| 155 | [O-020](/towers/OTC-IP/O-Order-Management-(IP)/O-020/output/docs/systems-architecture/O-020-Architecture.html) | Capture Orders (IP) | OTC-IP · O-Order Management (IP) | 0 | 0 |
-| 156 | [O-030](/towers/OTC-IP/O-Order-Management-(IP)/O-030/output/docs/systems-architecture/O-030-Architecture.html) | Process Orders (IP) | OTC-IP · O-Order Management (IP) | 0 | 0 |
-| 157 | [O-040](/towers/OTC-IP/O-Order-Management-(IP)/O-040/output/docs/systems-architecture/O-040-Architecture.html) | Calculate Order Price (IP) | OTC-IP · O-Order Management (IP) | 0 | 0 |
-| 158 | [O-060](/towers/OTC-IP/O-Order-Management-(IP)/O-060/output/docs/systems-architecture/O-060-Architecture.html) | Manage and Track Orders (IP) | OTC-IP · O-Order Management (IP) | 0 | 0 |
-| 159 | [O-070](/towers/OTC-IP/O-Order-Management-(IP)/O-070/output/docs/systems-architecture/O-070-Architecture.html) | Manage Backorders (IP) | OTC-IP · O-Order Management (IP) | 0 | 0 |
-| 160 | [R-190](/towers/OTC-IP/R-Returns-(IP)/R-190/output/docs/systems-architecture/R-190-Architecture.html) | Manage Returns and Exchanges (IP) | OTC-IP · R-Returns (IP) | 0 | 0 |
-| 161 | [R-200](/towers/OTC-IP/R-Returns-(IP)/R-200/output/docs/systems-architecture/R-200-Architecture.html) | Return - Receive Materials and Services (IP) | OTC-IP · R-Returns (IP) | 0 | 0 |
-| 162 | [R-220](/towers/OTC-IP/R-Returns-(IP)/R-220/output/docs/systems-architecture/R-220-Architecture.html) | Returns - Manage In-bound Transportation (IP) | OTC-IP · R-Returns (IP) | 0 | 0 |
-| 163 | [R-230](/towers/OTC-IP/R-Returns-(IP)/R-230/output/docs/systems-architecture/R-230-Architecture.html) | Returns - Manage Storage & Internal Movement of Inventory (IP) | OTC-IP · R-Returns (IP) | 0 | 0 |
-| 164 | [R-240](/towers/OTC-IP/R-Returns-(IP)/R-240/output/docs/systems-architecture/R-240-Architecture.html) | Returns - Manage Storage & Internal Movement of Inventory (IP) | OTC-IP · R-Returns (IP) | 0 | 0 |
-| 165 | [R-250](/towers/OTC-IP/R-Returns-(IP)/R-250/output/docs/systems-architecture/R-250-Architecture.html) | Returns - Receive and Put-away Product (IP) | OTC-IP · R-Returns (IP) | 0 | 0 |
-| 166 | [R-260](/towers/OTC-IP/R-Returns-(IP)/R-260/output/docs/systems-architecture/R-260-Architecture.html) | Returns - Pick Orders (IP) | OTC-IP · R-Returns (IP) | 0 | 0 |
-| 167 | [R-270](/towers/OTC-IP/R-Returns-(IP)/R-270/output/docs/systems-architecture/R-270-Architecture.html) | Returns - Pack Orders (IP) | OTC-IP · R-Returns (IP) | 0 | 0 |
-| 168 | [R-280](/towers/OTC-IP/R-Returns-(IP)/R-280/output/docs/systems-architecture/R-280-Architecture.html) | Returns - Ship Orders (IP) | OTC-IP · R-Returns (IP) | 0 | 0 |
-| 169 | [R-290](/towers/OTC-IP/R-Returns-(IP)/R-290/output/docs/systems-architecture/R-290-Architecture.html) | Returns - Manage Lots | OTC-IP · R-Returns (IP) | 0 | 0 |
-| 170 | [L-040](/towers/PTP/L-Logistics-and-Inventory-Management---PTP/L-040/output/docs/systems-architecture/L-040-Architecture.html) | Receive and Put-away Product - PTP | PTP · L Logistics and Inventory Management - PTP | 0 | 0 |
-| 171 | [L-060](/towers/PTP/L-Logistics-and-Inventory-Management---PTP/L-060/output/docs/systems-architecture/L-060-Architecture.html) | Manage Storage and Internal Movement of Inventory - PTP | PTP · L Logistics and Inventory Management - PTP | 0 | 0 |
-| 172 | [L-110](/towers/PTP/L-Logistics-and-Inventory-Management---PTP/L-110/output/docs/systems-architecture/L-110-Architecture.html) | Manage Lots Batches - PTP | PTP · L Logistics and Inventory Management - PTP | 0 | 0 |
-| 173 | [LI-030](/towers/PTP/LI-Logistics-Management-Inbound---PTP/LI-030/output/docs/systems-architecture/LI-030-Architecture.html) | Manage In-bound Transportation - PTP | PTP · LI Logistics Management Inbound - PTP | 0 | 0 |
-| 174 | [LI-100](/towers/PTP/LI-Logistics-Management-Inbound---PTP/LI-100/output/docs/systems-architecture/LI-100-Architecture.html) | Manage Supplier Consignment Stock | PTP · LI Logistics Management Inbound - PTP | 0 | 0 |
-| 175 | [LI-120](/towers/PTP/LI-Logistics-Management-Inbound---PTP/LI-120/output/docs/systems-architecture/LI-120-Architecture.html) | Receive Materials and Services - PTP | PTP · LI Logistics Management Inbound - PTP | 0 | 0 |
-| 176 | [LI-200](/towers/PTP/LI-Logistics-Management-Inbound---PTP/LI-200/output/docs/systems-architecture/LI-200-Architecture.html) | Determine Discrepant Material Disposition | PTP · LI Logistics Management Inbound - PTP | 0 | 0 |
-| 177 | [PM-040](/towers/PTP/PM-Procure-Materials-and-Services-(Direct-and-Indirect)/PM-040/output/docs/systems-architecture/PM-040-Architecture.html) | Maintain Supplier Certification and Monitor Performance | PTP · PM-Procure Materials and Services (Direct &amp; Indirect) | 0 | 0 |
-| 178 | [PM-050](/towers/PTP/PM-Procure-Materials-and-Services-(Direct-and-Indirect)/PM-050/output/docs/systems-architecture/PM-050-Architecture.html) | Manage Quotation | PTP · PM-Procure Materials and Services (Direct &amp; Indirect) | 0 | 0 |
-| 179 | [PM-070](/towers/PTP/PM-Procure-Materials-and-Services-(Direct-and-Indirect)/PM-070/output/docs/systems-architecture/PM-070-Architecture.html) | Create and Maintain Purchase Requisitions | PTP · PM-Procure Materials and Services (Direct &amp; Indirect) | 0 | 0 |
-| 180 | [PM-080](/towers/PTP/PM-Procure-Materials-and-Services-(Direct-and-Indirect)/PM-080/output/docs/systems-architecture/PM-080-Architecture.html) | Purchase Materials and Services | PTP · PM-Procure Materials and Services (Direct &amp; Indirect) | 0 | 0 |
-| 181 | [PM-090](/towers/PTP/PM-Procure-Materials-and-Services-(Direct-and-Indirect)/PM-090/output/docs/systems-architecture/PM-090-Architecture.html) | Manage Contracts | PTP · PM-Procure Materials and Services (Direct &amp; Indirect) | 0 | 0 |
-| 182 | [PM-110](/towers/PTP/PM-Procure-Materials-and-Services-(Direct-and-Indirect)/PM-110/output/docs/systems-architecture/PM-110-Architecture.html) | Procure Subcontracting | PTP · PM-Procure Materials and Services (Direct &amp; Indirect) | 0 | 0 |
-| 183 | [PM-150](/towers/PTP/PM-Procure-Materials-and-Services-(Direct-and-Indirect)/PM-150/output/docs/systems-architecture/PM-150-Architecture.html) | Enable Payment | PTP · PM-Procure Materials and Services (Direct &amp; Indirect) | 0 | 0 |
-| 184 | [QI-130](/towers/PTP/QI-Quality-Management-(Incoming)/QI-130/output/docs/systems-architecture/QI-130-Architecture.html) | Perform Incoming Quality Assurance | PTP · QI-Quality Management (Incoming) | 0 | 0 |
+| 65 | [DS-030](/towers/FPR/DS-Provide-Decision-Support/DS-030/output/docs/systems-architecture/DS-030-Architecture.html) | Perform Customer and Product Profitability Analysis | FPR · DS Provide Decision Support | 2 | 2 |
+| 66 | [MB-060](/towers/FPR/MB-Plan-and-Manage-Business/MB-060/output/docs/systems-architecture/MB-060-Architecture.html) | Plan the Business | FPR · MB Plan and Manage Business | 2 | 2 |
+| 67 | [MB-070](/towers/FPR/MB-Plan-and-Manage-Business/MB-070/output/docs/systems-architecture/MB-070-Architecture.html) | Prepare Budgets | FPR · MB Plan and Manage Business | 2 | 2 |
+| 68 | [MR-010](/towers/FPR/MR-Manage-Capital-and-Risk/MR-010/output/docs/systems-architecture/MR-010-Architecture.html) | Manage Liquidity | FPR · MR Manage Capital and Risk | 2 | 2 |
+| 69 | [MR-020](/towers/FPR/MR-Manage-Capital-and-Risk/MR-020/output/docs/systems-architecture/MR-020-Architecture.html) | Manage Capital Structure | FPR · MR Manage Capital and Risk | 2 | 2 |
+| 70 | [MR-030](/towers/FPR/MR-Manage-Capital-and-Risk/MR-030/output/docs/systems-architecture/MR-030-Architecture.html) | Manage Financial Risk | FPR · MR Manage Capital and Risk | 2 | 2 |
+| 71 | [MR-070](/towers/FPR/MR-Manage-Capital-and-Risk/MR-070/output/docs/systems-architecture/MR-070-Architecture.html) | In-House Banking | FPR · MR Manage Capital and Risk | 2 | 2 |
+| 72 | [OR-140](/towers/FPR/OR-Receivables-Management/OR-140/output/docs/systems-architecture/OR-140-Architecture.html) | Process Receipts | FPR · OR Receivables Management | 2 | 2 |
+| 73 | [L-040](/towers/FTS-IF/L-Logistics-and-Inventory-Management---FTS-(IF)/L-040/output/docs/systems-architecture/L-040-Architecture.html) | Receive and Put-away Product - FTS (IF) | FTS-IF · L Logistics and Inventory Management - FTS (IF) | 2 | 2 |
+| 74 | [L-060](/towers/FTS-IF/L-Logistics-and-Inventory-Management---FTS-(IF)/L-060/output/docs/systems-architecture/L-060-Architecture.html) | Manage Storage & Internal Movement of Inventory - FTS (IF) | FTS-IF · L Logistics and Inventory Management - FTS (IF) | 2 | 2 |
+| 75 | [L-110](/towers/FTS-IF/L-Logistics-and-Inventory-Management---FTS-(IF)/L-110/output/docs/systems-architecture/L-110-Architecture.html) | Manage Lots Batches - FTS (IF) | FTS-IF · L Logistics and Inventory Management - FTS (IF) | 2 | 2 |
+| 76 | [L-120](/towers/FTS-IF/L-Logistics-and-Inventory-Management---FTS-(IF)/L-120/output/docs/systems-architecture/L-120-Architecture.html) | Manage Line Replenishment - FTS (IF) | FTS-IF · L Logistics and Inventory Management - FTS (IF) | 2 | 2 |
+| 77 | [LI-120](/towers/FTS-IF/LI-Logistics-Management-Inbound---FTS-(IF)/LI-120/output/docs/systems-architecture/LI-120-Architecture.html) | Receive Materials and Services - FTS (IF) | FTS-IF · LI Logistics Management Inbound - FTS (IF) | 2 | 2 |
+| 78 | [LO-160](/towers/FTS-IF/LO-Logistics-Management-Outbound---FTS-(IF)/LO-160/output/docs/systems-architecture/LO-160-Architecture.html) | Pick Orders- FTS (IF) | FTS-IF · LO Logistics Management Outbound - FTS (IF) | 2 | 2 |
+| 79 | [LO-170](/towers/FTS-IF/LO-Logistics-Management-Outbound---FTS-(IF)/LO-170/output/docs/systems-architecture/LO-170-Architecture.html) | Pack Order - FTS  (IF) | FTS-IF · LO Logistics Management Outbound - FTS (IF) | 2 | 2 |
+| 80 | [LO-180](/towers/FTS-IF/LO-Logistics-Management-Outbound---FTS-(IF)/LO-180/output/docs/systems-architecture/LO-180-Architecture.html) | Manage Outbound Transportation - FTS (IF) | FTS-IF · LO Logistics Management Outbound - FTS (IF) | 2 | 2 |
+| 81 | [LO-190](/towers/FTS-IF/L-Logistics-and-Inventory-Management---FTS-(IF)/LO-190/output/docs/systems-architecture/LO-190-Architecture.html) | Ship | FTS-IF · LO Logistics Management Outbound - FTS (IF) | 2 | 2 |
+| 82 | [M-080](/towers/FTS-IF/M-Mfg.-Schedule-and-Execution-(IF)/M-080/output/docs/systems-architecture/M-080-Architecture.html) | Perform Materials Requirement Planning (IF) | FTS-IF · M Mfg. Schedule and Execution (IF) | 2 | 2 |
+| 83 | [M-090](/towers/FTS-IF/M-Mfg.-Schedule-and-Execution-(IF)/M-090/output/docs/systems-architecture/M-090-Architecture.html) | Schedule Production (IF) | FTS-IF · M Mfg. Schedule and Execution (IF) | 2 | 2 |
+| 84 | [M-100](/towers/FTS-IF/M-Mfg.-Schedule-and-Execution-(IF)/M-100/output/docs/systems-architecture/M-100-Architecture.html) | Execute Production (IF) | FTS-IF · M Mfg. Schedule and Execution (IF) | 2 | 2 |
+| 85 | [M-170](/towers/FTS-IF/M-Mfg.-Schedule-and-Execution-(IF)/M-170/output/docs/systems-architecture/M-170-Architecture.html) | Control and Report Production Operations (IF) | FTS-IF · M Mfg. Schedule and Execution (IF) | 2 | 2 |
+| 86 | [PE-020](/towers/FTS-IF/PE-Manage-Plant,-Equipment-and-Facilities-(IF)/PE-020/output/docs/systems-architecture/PE-020-Architecture.html) | Identify Maintenance Structure | FTS-IF · PE Manage Plant, Equipment and Facilities | 2 | 2 |
+| 87 | [PE-040](/towers/FTS-IF/PE-Manage-Plant,-Equipment-and-Facilities-(IF)/PE-040/output/docs/systems-architecture/PE-040-Architecture.html) | Monitor | FTS-IF · PE Manage Plant, Equipment and Facilities | 2 | 2 |
+| 88 | [PE-050](/towers/FTS-IF/PE-Manage-Plant,-Equipment-and-Facilities-(IF)/PE-050/output/docs/systems-architecture/PE-050-Architecture.html) | Maintain Work Order Historical Documentation | FTS-IF · PE Manage Plant, Equipment and Facilities | 2 | 2 |
+| 89 | [PE-060](/towers/FTS-IF/PE-Manage-Plant,-Equipment-and-Facilities-(IF)/PE-060/output/docs/systems-architecture/PE-060-Architecture.html) | Maintain and Manage Master Maintenance Records | FTS-IF · PE Manage Plant, Equipment and Facilities | 2 | 2 |
+| 90 | [PE-070](/towers/FTS-IF/PE-Manage-Plant,-Equipment-and-Facilities-(IF)/PE-070/output/docs/systems-architecture/PE-070-Architecture.html) | Identify and Plan Plant Maintenance | FTS-IF · PE Manage Plant, Equipment and Facilities | 2 | 2 |
+| 91 | [PE-090](/towers/FTS-IF/PE-Manage-Plant,-Equipment-and-Facilities-(IF)/PE-090/output/docs/systems-architecture/PE-090-Architecture.html) | Execute Plant Maintenance | FTS-IF · PE Manage Plant, Equipment and Facilities | 2 | 2 |
+| 92 | [PLB-020](/towers/FTS-IF/PLB-Supply-Chain-Planning-(IF)/PLB-020/output/docs/systems-architecture/PLB-020-Architecture.html) | Supply Planning & Management (IF) | FTS-IF · PLB Supply Chain Planning (IF) | 2 | 2 |
+| 93 | [Q-140](/towers/FTS-IF/Q-Quality-Management-(IF)/Q-140/output/docs/systems-architecture/Q-140-Architecture.html) | Manage Product Disposition (IF) | FTS-IF · Q Quality Management (IF) | 2 | 2 |
+| 94 | [L-060](/towers/FTS-IP/L-Logistics-and-Inventory-Management---FTS-(IP)/L-060/output/docs/systems-architecture/L-060-Architecture.html) | Manage Storage and Internal Movement of Inventory - FTS (IP) | FTS-IP · L Logistics and Inventory Management - FTS (IP) | 2 | 2 |
+| 95 | [LI-120](/towers/FTS-IP/LI-Logistics-Management-Inbound---FTS-(IP)/LI-120/output/docs/systems-architecture/LI-120-Architecture.html) | Receive Materials and Services - FTS (IP) | FTS-IP · LI Logistics Management Inbound - FTS (IP) | 2 | 2 |
+| 96 | [LO-160](/towers/FTS-IP/LO-Logistics-Management-Outbound---FTS-(IP)/LO-160/output/docs/systems-architecture/LO-160-Architecture.html) | Pick Orders - FTS (IP) | FTS-IP · LO Logistics Management Outbound - FTS (IP) | 2 | 2 |
+| 97 | [LO-170](/towers/FTS-IP/LO-Logistics-Management-Outbound---FTS-(IF)/LO-170/output/docs/systems-architecture/LO-170-Architecture.html) | Pack Orders - FTS (IP) | FTS-IP · LO Logistics Management Outbound - FTS (IP) | 2 | 2 |
+| 98 | [LO-180](/towers/FTS-IP/L-Logistics-and-Inventory-Management---FTS-(IP)/LO-180/output/docs/systems-architecture/LO-180-Architecture.html) | Manage Outbound Transportation - FTS (IP) | FTS-IP · LO Logistics Management Outbound - FTS (IP) | 2 | 2 |
+| 99 | [LO-190](/towers/FTS-IP/LO-Logistics-Management-Outbound---FTS-(IP)/LO-190/output/docs/systems-architecture/LO-190-Architecture.html) | Ship | FTS-IP · LO Logistics Management Outbound - FTS (IP) | 2 | 2 |
+| 100 | [M-080](/towers/FTS-IP/M-Mfg.-Schedule-and-Execution-(IP)/M-080/output/docs/systems-architecture/M-080-Architecture.html) | Perform Materials Requirement Planning (IP) | FTS-IP · M Mfg. Schedule and Execution (IP) | 2 | 2 |
+| 101 | [M-090](/towers/FTS-IP/M-Mfg.-Schedule-and-Execution-(IP)/M-090/output/docs/systems-architecture/M-090-Architecture.html) | Schedule Production (IP) | FTS-IP · M Mfg. Schedule and Execution (IP) | 2 | 2 |
+| 102 | [M-100](/towers/FTS-IP/M-Mfg.-Schedule-and-Execution-(IP)/M-100/output/docs/systems-architecture/M-100-Architecture.html) | Execute Production (IP) | FTS-IP · M Mfg. Schedule and Execution (IP) | 2 | 2 |
+| 103 | [PLB-020](/towers/FTS-IP/PLB-Supply-Chain-Planning-(IP)/PLB-020/output/docs/systems-architecture/PLB-020-Architecture.html) | Supply Planning & Management (IP) | FTS-IP · PLB Supply Chain Planning (IP) | 2 | 2 |
+| 104 | [PLB-050](/towers/FTS-IP/PLB-Supply-Chain-Planning-(IP)/PLB-050/output/docs/systems-architecture/PLB-050-Architecture.html) | Responsive Demand and Supply Matching (RDSM) (IP) | FTS-IP · PLB Supply Chain Planning (IP) | 2 | 2 |
+| 105 | [Q-140](/towers/FTS-IP/Q-Quality-Management-(IP)/Q-140/output/docs/systems-architecture/Q-140-Architecture.html) | Manage Product Disposition (IP) | FTS-IP · Q Quality Management (IP) | 2 | 2 |
+| 106 | [MDM-020](/towers/MDM/MDM-Manage-Master-Data/MDM-020/output/docs/systems-architecture/MDM-020-Architecture.html) | Create and Maintain Vendors | MDM · MDM-Manage Master Data | 2 | 2 |
+| 107 | [MDM-130](/towers/MDM/MDM-Manage-Master-Data/MDM-130/output/docs/systems-architecture/MDM-130-Architecture.html) | Create and Maintain Customers | MDM · MDM-Manage Master Data | 2 | 2 |
+| 108 | [MDM-140](/towers/MDM/MDM-Manage-Master-Data/MDM-140/output/docs/systems-architecture/MDM-140-Architecture.html) | Create and Maintain Reference Data | MDM · MDM-Manage Master Data | 2 | 2 |
+| 109 | [MDM-150](/towers/MDM/MDM-Manage-Master-Data/MDM-150/output/docs/systems-architecture/MDM-150-Architecture.html) | Maintain Product Related Data | MDM · MDM-Manage Master Data | 2 | 2 |
+| 110 | [BR-130](/towers/OTC-IF/BR-Billing-and-Rebates-(IF)/BR-130/output/docs/systems-architecture/BR-130-Architecture.html) | Billing Revenue (IF) | OTC-IF · BR-Billing and Rebates (IF) | 2 | 2 |
+| 111 | [CM-050](/towers/OTC-IF/CM-Credit-and-Collections-Management-(IF)/CM-050/output/docs/systems-architecture/CM-050-Architecture.html) | Manage Customer Credit Exposure (IF) | OTC-IF · CM-Credit &amp; Collections Management (IF) | 2 | 2 |
+| 112 | [CM-060](/towers/OTC-IF/CM-Credit-and-Collections-Management-(IF)/CM-060/output/docs/systems-architecture/CM-060-Architecture.html) | Manage Collections (IF) | OTC-IF · CM-Credit &amp; Collections Management (IF) | 2 | 2 |
+| 113 | [GT-010](/towers/OTC-IF/GT-Global-Trade-(IF)/GT-010/output/docs/systems-architecture/GT-010-Architecture.html) | Manage Global Trade Master Data (IF) | OTC-IF · GT Global Trade (IF) | 2 | 2 |
+| 114 | [GT-020](/towers/OTC-IF/GT-Global-Trade-(IF)/GT-020/output/docs/systems-architecture/GT-020-Architecture.html) | Product Classification (IF) | OTC-IF · GT Global Trade (IF) | 2 | 2 |
+| 115 | [GT-030](/towers/OTC-IF/GT-Global-Trade-(IF)/GT-030/output/docs/systems-architecture/GT-030-Architecture.html) | Compliance Screening (IF) | OTC-IF · GT Global Trade (IF) | 2 | 2 |
+| 116 | [GT-040](/towers/OTC-IF/GT-Global-Trade-(IF)/GT-040/output/docs/systems-architecture/GT-040-Architecture.html) | Manage Licenses (IF) | OTC-IF · GT Global Trade (IF) | 2 | 2 |
+| 117 | [GT-050](/towers/OTC-IF/GT-Global-Trade-(IF)/GT-050/output/docs/systems-architecture/GT-050-Architecture.html) | Customs declaration creation Export (IF) | OTC-IF · GT Global Trade (IF) | 2 | 2 |
+| 118 | [GT-070](/towers/OTC-IF/GT-Global-Trade-(IF)/GT-070/output/docs/systems-architecture/GT-070-Architecture.html) | Customs Declaration Completion Export | OTC-IF · GT Global Trade (IF) | 2 | 2 |
+| 119 | [GT-080](/towers/OTC-IF/GT-Global-Trade-(IF)/GT-080/output/docs/systems-architecture/GT-080-Architecture.html) | Customs Declaration Communication - Self Filing (IF) | OTC-IF · GT Global Trade (IF) | 2 | 2 |
+| 120 | [GT-110](/towers/OTC-IF/GT-Global-Trade-(IF)/GT-110/output/docs/systems-architecture/GT-110-Architecture.html) | Monitor completed declaration (IF) | OTC-IF · GT Global Trade (IF) | 2 | 2 |
+| 121 | [GT-130](/towers/OTC-IF/GT-Global-Trade-(IF)/GT-130/output/docs/systems-architecture/GT-130-Architecture.html) | Intrastat Filing (S4) (IF) | OTC-IF · GT Global Trade (IF) | 2 | 2 |
+| 122 | [LO-160](/towers/OTC-IF/LO-Logistics-Management-Outbound---OTC-(IF)/LO-160/output/docs/systems-architecture/LO-160-Architecture.html) | Pick Orders - OTC (IF) | OTC-IF · LO Logistics Management Outbound - OTC (IF) | 2 | 2 |
+| 123 | [LO-170](/towers/OTC-IF/LO-Logistics-Management-Outbound---OTC-(IF)/LO-170/output/docs/systems-architecture/LO-170-Architecture.html) | Pack Orders - OTC (IF) | OTC-IF · LO Logistics Management Outbound - OTC (IF) | 2 | 2 |
+| 124 | [LO-180](/towers/OTC-IF/LO-Logistics-Management-Outbound---OTC-(IF)/LO-180/output/docs/systems-architecture/LO-180-Architecture.html) | Manage Outbound Transportation - OTC (IF) | OTC-IF · LO Logistics Management Outbound - OTC (IF) | 2 | 2 |
+| 125 | [LO-190](/towers/OTC-IF/LO-Logistics-Management-Outbound---OTC-(IF)/LO-190/output/docs/systems-architecture/LO-190-Architecture.html) | Ship Deliver Orders - OTC (IF) | OTC-IF · LO Logistics Management Outbound - OTC (IF) | 2 | 2 |
+| 126 | [O-020](/towers/OTC-IF/O-Order-Management-(IF)/O-020/output/docs/systems-architecture/O-020-Architecture.html) | Capture Orders (IF) | OTC-IF · O-Order Management (IF) | 2 | 2 |
+| 127 | [O-030](/towers/OTC-IF/O-Order-Management-(IF)/O-030/output/docs/systems-architecture/O-030-Architecture.html) | Process Orders (IF) | OTC-IF · O-Order Management (IF) | 2 | 2 |
+| 128 | [O-040](/towers/OTC-IF/O-Order-Management-(IF)/O-040/output/docs/systems-architecture/O-040-Architecture.html) | Calculate Order Price (IF) | OTC-IF · O-Order Management (IF) | 2 | 2 |
+| 129 | [O-060](/towers/OTC-IF/O-Order-Management-(IF)/O-060/output/docs/systems-architecture/O-060-Architecture.html) | Manage and Track Orders (IF) | OTC-IF · O-Order Management (IF) | 2 | 2 |
+| 130 | [O-070](/towers/OTC-IF/O-Order-Management-(IF)/O-070/output/docs/systems-architecture/O-070-Architecture.html) | Manage Backorders (IF) | OTC-IF · O-Order Management (IF) | 2 | 2 |
+| 131 | [R-190](/towers/OTC-IF/R-Returns-(IF)/R-190/output/docs/systems-architecture/R-190-Architecture.html) | Manage Returns and Exchanges (IF) | OTC-IF · R-Returns (IF) | 2 | 2 |
+| 132 | [R-200](/towers/OTC-IF/R-Returns-(IF)/R-200/output/docs/systems-architecture/R-200-Architecture.html) | Return - Receive Materials and Services (IF) | OTC-IF · R-Returns (IF) | 2 | 2 |
+| 133 | [R-210](/towers/OTC-IF/R-Returns-(IF)/R-210/output/docs/systems-architecture/R-210-Architecture.html) | Returns - Determine Discrepant Material Disposition (IF) | OTC-IF · R-Returns (IF) | 2 | 2 |
+| 134 | [R-220](/towers/OTC-IF/R-Returns-(IF)/R-220/output/docs/systems-architecture/R-220-Architecture.html) | Returns - Manage In-bound Transportation (IF) | OTC-IF · R-Returns (IF) | 2 | 2 |
+| 135 | [BR-130](/towers/OTC-IP/BR-Billing-and-Rebates-(IP)/BR-130/output/docs/systems-architecture/BR-130-Architecture.html) | Billing Revenue (IP) | OTC-IP · BR-Billing and Rebates (IP) | 2 | 2 |
+| 136 | [BR-160](/towers/OTC-IP/BR-Billing-and-Rebates-(IP)/BR-160/output/docs/systems-architecture/BR-160-Architecture.html) | Manage Rebates (IP) | OTC-IP · BR-Billing and Rebates (IP) | 2 | 2 |
+| 137 | [BR-170](/towers/OTC-IP/BR-Billing-and-Rebates-(IP)/BR-170/output/docs/systems-architecture/BR-170-Architecture.html) | Manage Chargebacks (IP) | OTC-IP · BR-Billing and Rebates (IP) | 2 | 2 |
+| 138 | [CM-050](/towers/OTC-IP/CM-Credit-and-Collections-Management-(IP)/CM-050/output/docs/systems-architecture/CM-050-Architecture.html) | Manage Customer Credit Exposure (IP) | OTC-IP · CM-Credit &amp; Collections Management (IP) | 2 | 2 |
+| 139 | [CM-060](/towers/OTC-IP/CM-Credit-and-Collections-Management-(IP)/CM-060/output/docs/systems-architecture/CM-060-Architecture.html) | Manage Collections (IP) | OTC-IP · CM-Credit &amp; Collections Management (IP) | 2 | 2 |
+| 140 | [GT-010](/towers/OTC-IP/GT-Global-Trade-(IP)/GT-010/output/docs/systems-architecture/GT-010-Architecture.html) | Manage Global Trade Master Data (IP) | OTC-IP · GT-Global Trade (IP) | 2 | 2 |
+| 141 | [GT-020](/towers/OTC-IP/GT-Global-Trade-(IP)/GT-020/output/docs/systems-architecture/GT-020-Architecture.html) | Product Classification (IP) | OTC-IP · GT-Global Trade (IP) | 2 | 2 |
+| 142 | [GT-030](/towers/OTC-IP/GT-Global-Trade-(IP)/GT-030/output/docs/systems-architecture/GT-030-Architecture.html) | Compliance Screening (IP) | OTC-IP · GT-Global Trade (IP) | 2 | 2 |
+| 143 | [GT-040](/towers/OTC-IP/GT-Global-Trade-(IP)/GT-040/output/docs/systems-architecture/GT-040-Architecture.html) | Manage Licenses (IP) | OTC-IP · GT-Global Trade (IP) | 2 | 2 |
+| 144 | [GT-050](/towers/OTC-IP/GT-Global-Trade-(IP)/GT-050/output/docs/systems-architecture/GT-050-Architecture.html) | Customs Declaration Creation Export (IP) | OTC-IP · GT-Global Trade (IP) | 2 | 2 |
+| 145 | [GT-060](/towers/OTC-IP/GT-Global-Trade-(IP)/GT-060/output/docs/systems-architecture/GT-060-Architecture.html) | Customs declaration creation Import (IP) | OTC-IP · GT-Global Trade (IP) | 2 | 2 |
+| 146 | [GT-070](/towers/OTC-IP/GT-Global-Trade-(IP)/GT-070/output/docs/systems-architecture/GT-070-Architecture.html) | Customs Declaration Completion Export | OTC-IP · GT-Global Trade (IP) | 2 | 2 |
+| 147 | [GT-080](/towers/OTC-IP/GT-Global-Trade-(IP)/GT-080/output/docs/systems-architecture/GT-080-Architecture.html) | Customs Declaration Communication - Self Filing (IP) | OTC-IP · GT-Global Trade (IP) | 2 | 2 |
+| 148 | [GT-090](/towers/OTC-IP/GT-Global-Trade-(IP)/GT-090/output/docs/systems-architecture/GT-090-Architecture.html) | Customs declaration communication - broker filing (IP) | OTC-IP · GT-Global Trade (IP) | 2 | 2 |
+| 149 | [GT-110](/towers/OTC-IP/GT-Global-Trade-(IP)/GT-110/output/docs/systems-architecture/GT-110-Architecture.html) | Monitor Completed Declaration (IP) | OTC-IP · GT-Global Trade (IP) | 2 | 2 |
+| 150 | [GT-130](/towers/OTC-IP/GT-Global-Trade-(IP)/GT-130/output/docs/systems-architecture/GT-130-Architecture.html) | Intrastat Filing (S4) (IP) | OTC-IP · GT-Global Trade (IP) | 2 | 2 |
+| 151 | [LO-160](/towers/OTC-IP/LO-Logistics-Management-Outbound---OTC-(IP)/LO-160/output/docs/systems-architecture/LO-160-Architecture.html) | Pick Orders - OTC (IP) | OTC-IP · LO Logistics Management Outbound - OTC (IP) | 2 | 2 |
+| 152 | [LO-170](/towers/OTC-IP/LO-Logistics-Management-Outbound---OTC-(IP)/LO-170/output/docs/systems-architecture/LO-170-Architecture.html) | Pack Orders - OTC (IP) | OTC-IP · LO Logistics Management Outbound - OTC (IP) | 2 | 2 |
+| 153 | [LO-180](/towers/OTC-IP/LO-Logistics-Management-Outbound---OTC-(IP)/LO-180/output/docs/systems-architecture/LO-180-Architecture.html) | Manage Outbound Transportation - OTC (IP) | OTC-IP · LO Logistics Management Outbound - OTC (IP) | 2 | 2 |
+| 154 | [LO-190](/towers/OTC-IP/LO-Logistics-Management-Outbound---OTC-(IP)/LO-190/output/docs/systems-architecture/LO-190-Architecture.html) | Ship Deliver Orders - OTC (IP) | OTC-IP · LO Logistics Management Outbound - OTC (IP) | 2 | 2 |
+| 155 | [O-020](/towers/OTC-IP/O-Order-Management-(IP)/O-020/output/docs/systems-architecture/O-020-Architecture.html) | Capture Orders (IP) | OTC-IP · O-Order Management (IP) | 2 | 2 |
+| 156 | [O-030](/towers/OTC-IP/O-Order-Management-(IP)/O-030/output/docs/systems-architecture/O-030-Architecture.html) | Process Orders (IP) | OTC-IP · O-Order Management (IP) | 2 | 2 |
+| 157 | [O-040](/towers/OTC-IP/O-Order-Management-(IP)/O-040/output/docs/systems-architecture/O-040-Architecture.html) | Calculate Order Price (IP) | OTC-IP · O-Order Management (IP) | 2 | 2 |
+| 158 | [O-060](/towers/OTC-IP/O-Order-Management-(IP)/O-060/output/docs/systems-architecture/O-060-Architecture.html) | Manage and Track Orders (IP) | OTC-IP · O-Order Management (IP) | 2 | 2 |
+| 159 | [O-070](/towers/OTC-IP/O-Order-Management-(IP)/O-070/output/docs/systems-architecture/O-070-Architecture.html) | Manage Backorders (IP) | OTC-IP · O-Order Management (IP) | 2 | 2 |
+| 160 | [R-190](/towers/OTC-IP/R-Returns-(IP)/R-190/output/docs/systems-architecture/R-190-Architecture.html) | Manage Returns and Exchanges (IP) | OTC-IP · R-Returns (IP) | 2 | 2 |
+| 161 | [R-200](/towers/OTC-IP/R-Returns-(IP)/R-200/output/docs/systems-architecture/R-200-Architecture.html) | Return - Receive Materials and Services (IP) | OTC-IP · R-Returns (IP) | 2 | 2 |
+| 162 | [R-220](/towers/OTC-IP/R-Returns-(IP)/R-220/output/docs/systems-architecture/R-220-Architecture.html) | Returns - Manage In-bound Transportation (IP) | OTC-IP · R-Returns (IP) | 2 | 2 |
+| 163 | [R-230](/towers/OTC-IP/R-Returns-(IP)/R-230/output/docs/systems-architecture/R-230-Architecture.html) | Returns - Manage Storage & Internal Movement of Inventory (IP) | OTC-IP · R-Returns (IP) | 2 | 2 |
+| 164 | [R-240](/towers/OTC-IP/R-Returns-(IP)/R-240/output/docs/systems-architecture/R-240-Architecture.html) | Returns - Manage Storage & Internal Movement of Inventory (IP) | OTC-IP · R-Returns (IP) | 2 | 2 |
+| 165 | [R-250](/towers/OTC-IP/R-Returns-(IP)/R-250/output/docs/systems-architecture/R-250-Architecture.html) | Returns - Receive and Put-away Product (IP) | OTC-IP · R-Returns (IP) | 2 | 2 |
+| 166 | [R-260](/towers/OTC-IP/R-Returns-(IP)/R-260/output/docs/systems-architecture/R-260-Architecture.html) | Returns - Pick Orders (IP) | OTC-IP · R-Returns (IP) | 2 | 2 |
+| 167 | [R-270](/towers/OTC-IP/R-Returns-(IP)/R-270/output/docs/systems-architecture/R-270-Architecture.html) | Returns - Pack Orders (IP) | OTC-IP · R-Returns (IP) | 2 | 2 |
+| 168 | [R-280](/towers/OTC-IP/R-Returns-(IP)/R-280/output/docs/systems-architecture/R-280-Architecture.html) | Returns - Ship Orders (IP) | OTC-IP · R-Returns (IP) | 2 | 2 |
+| 169 | [R-290](/towers/OTC-IP/R-Returns-(IP)/R-290/output/docs/systems-architecture/R-290-Architecture.html) | Returns - Manage Lots | OTC-IP · R-Returns (IP) | 2 | 2 |
+| 170 | [L-040](/towers/PTP/L-Logistics-and-Inventory-Management---PTP/L-040/output/docs/systems-architecture/L-040-Architecture.html) | Receive and Put-away Product - PTP | PTP · L Logistics and Inventory Management - PTP | 2 | 2 |
+| 171 | [L-060](/towers/PTP/L-Logistics-and-Inventory-Management---PTP/L-060/output/docs/systems-architecture/L-060-Architecture.html) | Manage Storage and Internal Movement of Inventory - PTP | PTP · L Logistics and Inventory Management - PTP | 2 | 2 |
+| 172 | [L-110](/towers/PTP/L-Logistics-and-Inventory-Management---PTP/L-110/output/docs/systems-architecture/L-110-Architecture.html) | Manage Lots Batches - PTP | PTP · L Logistics and Inventory Management - PTP | 2 | 2 |
+| 173 | [LI-030](/towers/PTP/LI-Logistics-Management-Inbound---PTP/LI-030/output/docs/systems-architecture/LI-030-Architecture.html) | Manage In-bound Transportation - PTP | PTP · LI Logistics Management Inbound - PTP | 2 | 2 |
+| 174 | [LI-100](/towers/PTP/LI-Logistics-Management-Inbound---PTP/LI-100/output/docs/systems-architecture/LI-100-Architecture.html) | Manage Supplier Consignment Stock | PTP · LI Logistics Management Inbound - PTP | 2 | 2 |
+| 175 | [LI-120](/towers/PTP/LI-Logistics-Management-Inbound---PTP/LI-120/output/docs/systems-architecture/LI-120-Architecture.html) | Receive Materials and Services - PTP | PTP · LI Logistics Management Inbound - PTP | 2 | 2 |
+| 176 | [LI-200](/towers/PTP/LI-Logistics-Management-Inbound---PTP/LI-200/output/docs/systems-architecture/LI-200-Architecture.html) | Determine Discrepant Material Disposition | PTP · LI Logistics Management Inbound - PTP | 2 | 2 |
+| 177 | [PM-040](/towers/PTP/PM-Procure-Materials-and-Services-(Direct-and-Indirect)/PM-040/output/docs/systems-architecture/PM-040-Architecture.html) | Maintain Supplier Certification and Monitor Performance | PTP · PM-Procure Materials and Services (Direct &amp; Indirect) | 2 | 2 |
+| 178 | [PM-050](/towers/PTP/PM-Procure-Materials-and-Services-(Direct-and-Indirect)/PM-050/output/docs/systems-architecture/PM-050-Architecture.html) | Manage Quotation | PTP · PM-Procure Materials and Services (Direct &amp; Indirect) | 2 | 2 |
+| 179 | [PM-070](/towers/PTP/PM-Procure-Materials-and-Services-(Direct-and-Indirect)/PM-070/output/docs/systems-architecture/PM-070-Architecture.html) | Create and Maintain Purchase Requisitions | PTP · PM-Procure Materials and Services (Direct &amp; Indirect) | 2 | 2 |
+| 180 | [PM-080](/towers/PTP/PM-Procure-Materials-and-Services-(Direct-and-Indirect)/PM-080/output/docs/systems-architecture/PM-080-Architecture.html) | Purchase Materials and Services | PTP · PM-Procure Materials and Services (Direct &amp; Indirect) | 2 | 2 |
+| 181 | [PM-090](/towers/PTP/PM-Procure-Materials-and-Services-(Direct-and-Indirect)/PM-090/output/docs/systems-architecture/PM-090-Architecture.html) | Manage Contracts | PTP · PM-Procure Materials and Services (Direct &amp; Indirect) | 2 | 2 |
+| 182 | [PM-110](/towers/PTP/PM-Procure-Materials-and-Services-(Direct-and-Indirect)/PM-110/output/docs/systems-architecture/PM-110-Architecture.html) | Procure Subcontracting | PTP · PM-Procure Materials and Services (Direct &amp; Indirect) | 2 | 2 |
+| 183 | [PM-150](/towers/PTP/PM-Procure-Materials-and-Services-(Direct-and-Indirect)/PM-150/output/docs/systems-architecture/PM-150-Architecture.html) | Enable Payment | PTP · PM-Procure Materials and Services (Direct &amp; Indirect) | 2 | 2 |
+| 184 | [QI-130](/towers/PTP/QI-Quality-Management-(Incoming)/QI-130/output/docs/systems-architecture/QI-130-Architecture.html) | Perform Incoming Quality Assurance | PTP · QI-Quality Management (Incoming) | 2 | 2 |
 
 <div class="page-footer"><span>Page 4</span><span><a href="#toc">↑ Back to TOC</a></span><span>IAO Program Architecture Summary</span></div>
 <div style="page-break-before: always;"></div>
 
 ## 3 Current-State Architecture
 
-Aggregated current-state: **28** systems, **32** connections, **89** flow hops.
+Aggregated current-state: **28** systems, **32** connections, **349** flow hops.
 
 
 ### 3.1 Application Architecture
@@ -431,7 +431,7 @@ flowchart TB
         SCDD_Azure_Data_Lake_ADLS[("🗄️ Azure Data Lake (ADLS)")]:::dbCloud
         SCDA_ECA -.-> SCDD_Azure_Data_Lake_ADLS
     end
-    style SCDCL_Azure_Data_Lake_ADLS fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SCDCL_Azure_Data_Lake_ADLS fill:#E8F5E9,stroke:#388E3C,stroke-width:1px
 
     subgraph SCDCL_Delta_Lake[" "]
         direction TB
@@ -439,7 +439,7 @@ flowchart TB
         SCDD_Delta_Lake[("🗄️ Delta Lake")]:::dbCloud
         SCDA_DataBricks -.-> SCDD_Delta_Lake
     end
-    style SCDCL_Delta_Lake fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SCDCL_Delta_Lake fill:#E3F2FD,stroke:#1976D2,stroke-width:1px
 
     subgraph SCDCL_N_A_API_Gateway[" "]
         direction TB
@@ -447,7 +447,7 @@ flowchart TB
         SCDD_N_A_API_Gateway[("🗄️ N/A (API Gateway)")]:::dbCyl
         SCDA_APIGEE -.-> SCDD_N_A_API_Gateway
     end
-    style SCDCL_N_A_API_Gateway fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SCDCL_N_A_API_Gateway fill:#FFF3E0,stroke:#E65100,stroke-width:1px
 
     subgraph SCDCL_N_A_ETL[" "]
         direction TB
@@ -455,7 +455,7 @@ flowchart TB
         SCDD_N_A_ETL[("🗄️ N/A (ETL)")]:::dbCyl
         SCDA_Azure_ADF -.-> SCDD_N_A_ETL
     end
-    style SCDCL_N_A_ETL fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SCDCL_N_A_ETL fill:#FFFDE7,stroke:#F57F17,stroke-width:1px
 
     subgraph SCDCL_Oracle_DB[" "]
         direction TB
@@ -477,7 +477,7 @@ flowchart TB
         SCDA_WorkStream -.-> SCDD_Oracle_DB
         SCDA_XEUS -.-> SCDD_Oracle_DB
     end
-    style SCDCL_Oracle_DB fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SCDCL_Oracle_DB fill:#FCE4EC,stroke:#C62828,stroke-width:1px
 
     subgraph SCDCL_PostgreSQL[" "]
         direction TB
@@ -485,7 +485,7 @@ flowchart TB
         SCDD_PostgreSQL[("🗄️ PostgreSQL")]:::dbCyl
         SCDA_PEGA -.-> SCDD_PostgreSQL
     end
-    style SCDCL_PostgreSQL fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SCDCL_PostgreSQL fill:#E8EAF6,stroke:#283593,stroke-width:1px
 
     subgraph SCDCL_SAP_HANA[" "]
         direction TB
@@ -501,7 +501,7 @@ flowchart TB
         SCDA_Finance_HANA -.-> SCDD_SAP_HANA
         SCDA_SideCar -.-> SCDD_SAP_HANA
     end
-    style SCDCL_SAP_HANA fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SCDCL_SAP_HANA fill:#F3E5F5,stroke:#7B1FA2,stroke-width:1px
 
     subgraph SCDCL_SAP_HANA_Cloud[" "]
         direction TB
@@ -509,7 +509,7 @@ flowchart TB
         SCDD_SAP_HANA_Cloud[("🗄️ SAP HANA Cloud")]:::dbData
         SCDA_SAP_IBP -.-> SCDD_SAP_HANA_Cloud
     end
-    style SCDCL_SAP_HANA_Cloud fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SCDCL_SAP_HANA_Cloud fill:#E0F2F1,stroke:#00695C,stroke-width:1px
 
     subgraph SCDCL_SQL_Server[" "]
         direction TB
@@ -525,7 +525,7 @@ flowchart TB
         SCDA_MARS -.-> SCDD_SQL_Server
         SCDA_SPEED -.-> SCDD_SQL_Server
     end
-    style SCDCL_SQL_Server fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SCDCL_SQL_Server fill:#FBE9E7,stroke:#BF360C,stroke-width:1px
 
     subgraph SCDCL_Snowflake_Cloud_DW[" "]
         direction TB
@@ -533,7 +533,7 @@ flowchart TB
         SCDD_Snowflake_Cloud_DW[("🗄️ Snowflake Cloud DW")]:::dbCloud
         SCDA_SnowFlake -.-> SCDD_Snowflake_Cloud_DW
     end
-    style SCDCL_Snowflake_Cloud_DW fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SCDCL_Snowflake_Cloud_DW fill:#F1F8E9,stroke:#558B2F,stroke-width:1px
 
     subgraph SCDCL_Teradata_Oracle_DB[" "]
         direction TB
@@ -541,7 +541,7 @@ flowchart TB
         SCDD_Teradata_Oracle_DB[("🗄️ Teradata / Oracle DB")]:::dbData
         SCDA_EDW -.-> SCDD_Teradata_Oracle_DB
     end
-    style SCDCL_Teradata_Oracle_DB fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SCDCL_Teradata_Oracle_DB fill:#FFF8E1,stroke:#FF8F00,stroke-width:1px
 
     subgraph SCDCL_e_g_Azure_SQL[" "]
         direction TB
@@ -549,7 +549,7 @@ flowchart TB
         SCDD_e_g_Azure_SQL[("🗄️ e.g. Azure SQL")]:::dbCloud
         SCDA_e_g_XEUS -.-> SCDD_e_g_Azure_SQL
     end
-    style SCDCL_e_g_Azure_SQL fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SCDCL_e_g_Azure_SQL fill:#E1F5FE,stroke:#0277BD,stroke-width:1px
 
     subgraph SCDCL_e_g_SAP_HANA[" "]
         direction TB
@@ -557,7 +557,7 @@ flowchart TB
         SCDD_e_g_SAP_HANA[("🗄️ e.g. SAP HANA")]:::dbData
         SCDA_e_g_MES_300 -.-> SCDD_e_g_SAP_HANA
     end
-    style SCDCL_e_g_SAP_HANA fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SCDCL_e_g_SAP_HANA fill:#E8F5E9,stroke:#388E3C,stroke-width:1px
 
     SCDD_e_g_SAP_HANA ==>|"e.g. Direct / API / File"| SCDD_e_g_Azure_SQL
     SCDD_Oracle_DB ==>|"Direct"| SCDD_SQL_Server
@@ -592,7 +592,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWYtu2koQ_ZWVq0itlDSEJC1BaiU_UyoS3JjeXKlcWRuzECvGRsY0oUn-_c74jVkvJgUEXq_PzOyemX3M-llygjGTutLBwbPru1GXPI-k6J7N2EjqkpF0RxdQOoTSgjnL0I1WffabeclDLwiyp7HIPzR06Z3HFvgY9EwCP7LcP6mqk_P5UwLGeoPOXG-VPLHYNGDkZ--QyKAAlL_GKC94dO5pGKXalgt2RZ9u3XF0jzUT6i0Y4u6jmdend8yLzUbhMq71oVvWnDquP8Xq03OsDKn_UKo8O399Ja8HByM_t0WGysgn8HE8ulhobELofK4ET2Tiel73narq54ZxuIjC4IF137VanzvaWXp79IhN67bnT4dO4AUhPj6VP6kVfeM7deVl6jr6J_UiV9fWP2un7Vp1J8q53m5tqvOC5ThVqCiabih_2T6NRjTT19YVo13S1zntGAJ9Z9pZtYEs8Ar-DEPVtEKf-qndaXdq9SmfT9QTaF-icbG8m4Z0fk8sVVP7tvxnGTIb22r36QOzZa1v_RpJ4OX_Ejx-xm7InMgN_Nyv-AEFsq2rMsDhHwS63W7i5jWMxrfxfiSNluPO6Rj-x87ZaDlhrQmJoSSmDqHkPWI_jKQPqDx10mYLyNHHo6_1thIB5qeSi2jlMUH3M5Jl_OYk6y38rpN8AkORT6vGvFTlLmRiO5TQdR4WIFXcCKgt2eETGgNiLoUkFsZKXBbKBQwWoH3wdm3Ltmz27EsasUe62oU8ELvUdZBICgLSqkb4zF0fyxB-Zo-ksFIUrjyu7RJ1FRMC_irIfZGoD_s7kRePA1kzkL94DEJ5C4VoQkAdPBZSllmssAZiW9gCxD5YGoTU8WDsK7vw1FMH1hAE4mstP7LdZ1PqrOwr7RLAyQ2BG4HElW7Zp60WwKFEoCTAWrJpKwMNJ2ooEixuQeuqmoKhtAVrDlKoORAgb4PwwYpCRmeALm4EEv_qP7HFeBFEVuEWfmwlz4mmCGIr9k4prnKdtV5qAE4d1ACZuachFDzSEGkOGgALXzQAozPqYdwhmGP2MQjNYBFNQ2b92Gm2MvVL3HXgRRBJJd38UCoAglhCIyWGSjL1FBWgfXCEnv8mX8u7MKQMlO-Ax4tgRKpG79q27DNAYpFYx2cidBDO7Z6ZCcAdOSY9c4uU4frUd1jWg_SW4K1oHnLHTKUhTkRJSeDnnB--l3EmS6ylPsa9DoeukpMzjTV0NUAWVG0Hlxnajk75qAVyAzKD7DMc7XgfuUtQomRPMdPVBUoNnJpaEbuWJFtagYNT0xzW7NJ2WMidXc4Q_47BH_Bj4W8W7sKe2lNucNzBRTBwdHmIiyxeElSSOFZDLs7aDFU0BK_kG9SEF9FANXVdQ4_iVeTPos81voTJMgEIJmPsfNmHuVIOC01wxlruWAtDDprgYhIEQH585aC9xJYfPE48TGXjcLW1251GKEgbXpK15mWRVzet1Xg3AyZDlWi3wnQ0t10mc8OWiNQN8D7IHbKQjvGs4E25gx77Qseu1xLKscAnNAPCEry5I-ZMgGC2xOWmGQGXm-B9cMnsaZoD7rj5Q8E0lWAfpx_Jlnxi3Q6fzFhPkvaubQY5kZlZL5G5ZkHA4xpuXxS-ZXOIckW6GXd-W86prRsT0Nhku1VqQIXHBnuZMuxNLG4YI1--fH1JidBi2mBU4cnPMTFcD-a_l1pHr2dNqaJERy5WXQUqlalQz49Y6OOx_Qs3F-NLZWn6LjKV5tXNBdyuWf1h0a81X61VpWi1Z-TotbOdck2KxZMg050zz_ULxqsnkJXKOurqlgpeG8s9qj88rn1c2wSe03dR0MQbN2zuuQ7FUS7ySlUM3dDI-5yZf1PDmwWbjYtKtHIjfN2j2fnvi-AolveEL15N-Lkx1GAUrmcR3L7xw68y9cOZFUyLv0oTsDNuEU0eykS-Ub_1hro6_Hmjk75-qV9rNUtC_6aohZcgeOg7L4USbxGAk_66Ezn_yAzZrPZIDiTVGtF0M6jULbkgWmc1fkdkejSaBOGsZrHp2_g-QPfHR8HkqO9O2GZKVFliEnazZeUcv_mycnFxsbGmSIfSjIUz6o6l7nPy-hbeAo_ZhC69CF7ASnQZBdbKd6Ru_EpVWs5hXDDNpeDNWVL5-j_b0CEz" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlWftvozgQ_lcsVpV2pXabF3lJuxIPu5dT2nAlez1pc0IucVpUAhEh22bb_u9n8w4xDvTyQzDmmxnzzYztMa-S7S-JNJbOzl4dzwnH4HUhhY9kTRbSGCyke7ylrXPa2hJ7Fzjhfkp-ETd-6Pp--jQS-RsHDr53yZY9pnpWvheazu9EVVvevMRg1o_w2nH38ROTPPgE_JicA4UqoMrfI5TrP9uPOAgTbbstucYvd84yfGQ9K-xuCcM9hmt3iu-JG5kNg13U69HXMjfYdrwH1t2VWWeAvadCZ09-fwfvZ2cLL7MF5urCA_Rnu3i71ckK4M1G9V_AynHd8SdNgzJC59sw8J_I-FOrNRjqveT24pkNbdzZvJzbvusH7HFX6Wslfct7be-m6oawr40ydR040LudSnVtVYad1rE6198tE4WqqkOk_s_x6TjEqb4OVFGnoG_YHSKBvp7eKw-Q-G7OH0Karuf6tH5n2BlW6lMHba1Nxxdr3O7uHwK8eQSmpmtTS_m9C4jFxmpN8ROxFH1q_lxI1Mv_xnj2WzoBsUPH9zK_sh9VoFhQUyic_lOB8Xgcu_kAo_NtfF5Ii91y2F3S_6XdW-xWpLUCERRE1DEo-MywXxbSF6Y8cdLxCMDF14vv1bZiAeIlkttw7xLB6yckwyGSYR5V3eEQdrVDkts0Ffm06sRNVDYhk41DDRz7aUul8hsBtQU7fEIjQMSlkMTcWIHLXLmAwRyU8tZFHaRnvLVHg77eqcvbjaVYijGxrnBInvG-CXlU7ApCKhE3BKSVjfCZu7lUaPgZE5DAClG4d7m2C9SVTAj4KyGzDEdd2MpIhH253Wo1IRHOp43Ii_JA0RHjL8pB2j5BITMhoI4-FlKWWiyxRsVOsEUROUs6HGQsIXmA2oO6LM0CbLs099UmPE20mTmnAtG1kh_FmpIHbO-ta_2KguMbQG8EEtfQtLqtFoXTFqAtAdZUDEud6Wyipk3AmifQUNMSMG2dwBqzBGrMBMg7P3gyw4DgNUXnNwKJf-APNmJ2EURW7hZ-bMXPga4KYivyTiGuMp2VXqoBThxUA5m6pyaUeqQm0pjVAOa-qAFmzqiGcVMww6RJqMEe1ISbkeokNPxt-BAQ869Gs5UBr9iug10EkVTQzQ-lHCCIJWakwFBBppqiHJTtJaCC-vkOddiVR926HDHP_6HcKE0YUmfqnxTPLoKM1NDkxjKtHkWyJjAveyK0H2ysiZEK0DtwCSbGCSnkeNizSfoGyS1gt6J5yFkSDQdsIopbAj9n_PC9zGay2FriY7bX4dBVcHKqsYKuGsicqtPgIkOn0QkflUBuQKaQNGW7tP6Ss3AcqG2kdJqGoxXtI5sEJZOcqEayutBWDacmVsSuBfGWVuDgxDSHNauwHRZyZxUrRNiim9x2oaLrj-TaxQGdFyyTBL9I0IQ9baLesryjF0HiQGXOFll2iVFx4VgOuahqQ5ooBa-VW6aJXUSJakCoM4-yq8if-TtX-JJOljFAMBmzly_6MFPKYaEODh3UjpUwxkEdXESCAMiPrwyUZqcKR4VdrYq6_Vb92PL855XLStkoXC39rlGGUmnkxlVr1hZ59dhahXdTYJyqQL8TlqOZ7SKZR7ZEpB6BU3LbaFio6mV5qHZQXXLnJMBLdlbwodoBRr6A7NUrCeVY4BOaAukSfLwj5kyA1GyBy2MzAi6PwXn5NYT5JEjvUP0ilVgPSQ3YcPPHBJNSgnx9-ApO1BOHdvhkRnrisvdgM8iJzNR6gcwDCwIeD3DpOtJGMoL5OtIZDFS9CYUf2RwyubzcjF7-VM2pHxoT0Fhnu1UYQInHGnuZIuxDR3VHxsC3b9_fEiL0iDaaVezk5xIgx6Xz31ulow-rpkRRrCMTK68Cpc5EaOKFJPDYsf0btxbjS6VlehOZ0vCq5gLuq5nTef5eB7466ErQ2gRl6IOznWJPgmUnQYazIa7j5YyXTyBLnVXUVS0VvDEW36j68LjyceUQeE5voqCON27JxnVszLJc5JWyGHNDLe9zZv5jDR8WrJcXpWjlRvihR9Pz3zfBUSzvCV-8XPBzY6hGFh5WEdx344dfaeqnZ1Z0WvxZmIDtZQvoylwByq32x2QOtfmPWwim8Are6BVLwvQ276UfQdih76YQSrxFgJ70V53IeRdGQNaVR3JUUqsQTTaDatWSS0WrrEbfiAwXhys_WFcsNlOLfQ-A3vLCX11MnRU5LolKS0zMbrq_kVGxTB6NRkdrinQurUmwxs5SGr_Gn2_pV-AlWeGdG9IPsBLehb6592xpHH1SlXYbmhdEdzD15jrufP8P7KEfbA==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 
@@ -789,7 +789,7 @@ flowchart TB
 
 ## 4 Future-State Architecture
 
-Aggregated future-state: **44** systems, **54** connections, **167** flow hops.
+Aggregated future-state: **44** systems, **54** connections, **427** flow hops.
 
 
 ### 4.1 Application Architecture
@@ -982,7 +982,7 @@ flowchart TB
         SFDD_Azure_Analysis_Services[("🗄️ Azure Analysis Services")]:::dbCloud
         SFDA_Power_BI_DARC -.-> SFDD_Azure_Analysis_Services
     end
-    style SFDCL_Azure_Analysis_Services fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SFDCL_Azure_Analysis_Services fill:#E8F5E9,stroke:#388E3C,stroke-width:1px
 
     subgraph SFDCL_Azure_Data_Lake_ADLS[" "]
         direction TB
@@ -990,7 +990,7 @@ flowchart TB
         SFDD_Azure_Data_Lake_ADLS[("🗄️ Azure Data Lake (ADLS)")]:::dbCloud
         SFDA_ECA_ADLS -.-> SFDD_Azure_Data_Lake_ADLS
     end
-    style SFDCL_Azure_Data_Lake_ADLS fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SFDCL_Azure_Data_Lake_ADLS fill:#E3F2FD,stroke:#1976D2,stroke-width:1px
 
     subgraph SFDCL_Delta_Lake[" "]
         direction TB
@@ -998,7 +998,7 @@ flowchart TB
         SFDD_Delta_Lake[("🗄️ Delta Lake")]:::dbCloud
         SFDA_ECA_DataBricks -.-> SFDD_Delta_Lake
     end
-    style SFDCL_Delta_Lake fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SFDCL_Delta_Lake fill:#FFF3E0,stroke:#E65100,stroke-width:1px
 
     subgraph SFDCL_N_A_Middleware[" "]
         direction TB
@@ -1006,7 +1006,7 @@ flowchart TB
         SFDD_N_A_Middleware[("🗄️ N/A (Middleware)")]:::dbCyl
         SFDA_PDF_SMH -.-> SFDD_N_A_Middleware
     end
-    style SFDCL_N_A_Middleware fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SFDCL_N_A_Middleware fill:#FFFDE7,stroke:#F57F17,stroke-width:1px
 
     subgraph SFDCL_N_A_SaaS[" "]
         direction TB
@@ -1014,7 +1014,7 @@ flowchart TB
         SFDD_N_A_SaaS[("🗄️ N/A (SaaS)")]:::dbCyl
         SFDA_GraphiteConnect -.-> SFDD_N_A_SaaS
     end
-    style SFDCL_N_A_SaaS fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SFDCL_N_A_SaaS fill:#FCE4EC,stroke:#C62828,stroke-width:1px
 
     subgraph SFDCL_Oracle_DB[" "]
         direction TB
@@ -1048,7 +1048,7 @@ flowchart TB
         SFDA_WorkStream -.-> SFDD_Oracle_DB
         SFDA_XEUS -.-> SFDD_Oracle_DB
     end
-    style SFDCL_Oracle_DB fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SFDCL_Oracle_DB fill:#E8EAF6,stroke:#283593,stroke-width:1px
 
     subgraph SFDCL_SAP_HANA[" "]
         direction TB
@@ -1068,7 +1068,7 @@ flowchart TB
         SFDA_SAP_S_4_MDG -.-> SFDD_SAP_HANA
         SFDA_SideCar -.-> SFDD_SAP_HANA
     end
-    style SFDCL_SAP_HANA fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SFDCL_SAP_HANA fill:#F3E5F5,stroke:#7B1FA2,stroke-width:1px
 
     subgraph SFDCL_SAP_HANA_Cloud[" "]
         direction TB
@@ -1080,7 +1080,7 @@ flowchart TB
         SFDA_SAP_IBP -.-> SFDD_SAP_HANA_Cloud
         SFDA_SAP_SAC -.-> SFDD_SAP_HANA_Cloud
     end
-    style SFDCL_SAP_HANA_Cloud fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SFDCL_SAP_HANA_Cloud fill:#E0F2F1,stroke:#00695C,stroke-width:1px
 
     subgraph SFDCL_SQL_Server[" "]
         direction TB
@@ -1110,7 +1110,7 @@ flowchart TB
         SFDA_SPEED -.-> SFDD_SQL_Server
         SFDA_WSPW -.-> SFDD_SQL_Server
     end
-    style SFDCL_SQL_Server fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SFDCL_SQL_Server fill:#FBE9E7,stroke:#BF360C,stroke-width:1px
 
     subgraph SFDCL_Snowflake_Cloud_DW[" "]
         direction TB
@@ -1118,7 +1118,7 @@ flowchart TB
         SFDD_Snowflake_Cloud_DW[("🗄️ Snowflake Cloud DW")]:::dbCloud
         SFDA_ECA_SnowFlake -.-> SFDD_Snowflake_Cloud_DW
     end
-    style SFDCL_Snowflake_Cloud_DW fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SFDCL_Snowflake_Cloud_DW fill:#F1F8E9,stroke:#558B2F,stroke-width:1px
 
     subgraph SFDCL_e_g_Azure_SQL[" "]
         direction TB
@@ -1126,7 +1126,7 @@ flowchart TB
         SFDD_e_g_Azure_SQL[("🗄️ e.g. Azure SQL")]:::dbCloud
         SFDA_e_g_XEUS -.-> SFDD_e_g_Azure_SQL
     end
-    style SFDCL_e_g_Azure_SQL fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SFDCL_e_g_Azure_SQL fill:#FFF8E1,stroke:#FF8F00,stroke-width:1px
 
     subgraph SFDCL_e_g_SAP_HANA[" "]
         direction TB
@@ -1134,7 +1134,7 @@ flowchart TB
         SFDD_e_g_SAP_HANA[("🗄️ e.g. SAP HANA")]:::dbData
         SFDA_e_g_MES_300 -.-> SFDD_e_g_SAP_HANA
     end
-    style SFDCL_e_g_SAP_HANA fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style SFDCL_e_g_SAP_HANA fill:#E1F5FE,stroke:#0277BD,stroke-width:1px
 
     SFDD_e_g_SAP_HANA ==>|"e.g. Direct / API / File"| SFDD_e_g_Azure_SQL
     SFDD_Oracle_DB ==>|"Direct"| SFDD_N_A_Middleware
@@ -1171,7 +1171,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWgtPo0oU_iuTbrzRxPdjV5vsJjzX3rTKil692d6QsUwtkUIDdNV1_e_3HN5QGEDbJi3MfOcx3znzhNfexDVZr9_b2Hi1HCvok9dxL5ixORv3-mTcu6c-XG3Dlc8mS88KXobsF7OjStt1k9pQ5B_qWfTeZj5Wg56p6wS69TtWdXCyeI7AWK7SuWW_RDU6e3AZuRlsEwEUgPK3EGW7T5MZ9YJY29JnI_p8a5nBDEum1PYZ4mbB3B7Se2aHZgNvGZY60Cx9QSeW84DFRydY6FHnMVd4fPL2Rt42NsZOaotci2OHwGdiU9-X2ZTQxUJ0n8nUsu3-J0lSTlR12w8895H1P-3vfzmVj-PbnSd0rX-4eN6euLbrYfWR8Fkq6TPvpRc7UXeqfJbOUnWHyhf56LBW3YF4ohzur6qz3aUZKxRFWVHFD_on04Am-g4VUT3M6Ts9OlU5-o7l47KDzLUz_lRVkuVMn_T58PTwtFaf-OVAOgD_Io3-8v7Bo4sZ0VVZGhrC76XHDMGh9otv-YbOvF_WhPk_xz0I9H-RCH5My2OTwHKdNLT4AR2CoblPzDPEgSELVxIIhvdEHJBNLNgCNf1-P4p_QVKuNb457o2X5umRCb_m5Hi8nLL9KQnRJEGTBD3ubaGBOII838jO7s43ruVImjmxGj94sRmfqCQiAn7TiCj7-C1G5AD6LS8GmC_GkD6CEXmodwmAIgmJDFzu4GUj6SVrPMbDREYo2UTsFpfwxJcVrosGG4kuwtfBsszsWGVXbtEX0bMmj37McFbA4Tlnr5rdEBAS28hoZjDHa2aAw2YGWgeHF4ZgjCzTtNkT9TrxqMmqoY_OcXiQ1R244jBXslLN3sWeQDYzVC4rX-xq2znqihY49BWB66JQp7RTB_-O8lbAJNdxAAOipZIGMkN7HBqxnkdgyVqJSJRuoBAh6yDv0qMTGwYHsVsXHhm3lmNOZuBA2INHZDMtqJ-fBGMg6YY2c5ljPYMc3JHN-JYrpULGnRtAlr-cL9AnimYHKoFiUihu1qK6S8ekZSX50mYdV_QpE4UbnoRW7bvWzXet0netk-9a3nethe8jRTeO9vcBDlcErjjYqkZ2aWFF8zq0LWtYc6tuXe9RDzxG5wDPbjgSd8oNji74xxkXsq5UPTBE9UQWOeNCoWflRoVUd31_aoOu6EftxfKhaC8FsWgD1t7nmfYuz7QOnsV9oAXyPQ14h_ftXc9yuwUYk7seVjkPpZh1TES6oBnnwoXQZR6S1MGFoRvHiSDeE33vmOA9pz9LrrfALMiLQhHZIzAstpCH1M6JwjTQQgbbJ16Kf4MAXBK8jNDRPrQCrQnaKEbjZYNudGgkf48F0CG448lYJpOoh_joijOypbGpHtjQYNT6eFzDxTUvVLk8S1Q3RKhZIheTZnASjHZIZL8dMg5CC3DEeS2wsr8lkHV2NyPcIHXpdCgJx2H3NE618LohOQeiFqPhqimRBSlJYkFqkZRxC_ipSaJ9ICdB02ZVxMSo2kXG7eoChwY1wLlxN_Inah-L_o9heN7CvC6RF66lK8DjH29wpXiQGbzAvAaaqB9EJw964Ib726SaJNXRaUhYzdEqjy5D4-E_D3cXwe64KFXC9Rz8coZgGFBEe8mMf13HDHmCcR4LSFTAX2iXJLWWkiPhCh3DP-5id2Rcw5Gxb1NgLVzzjkhWwOtfYbt1brt1TVFkROE_bxmta7e4gIY_Xi_NMq2mh_4YkgjAWRZjyuV7Tqq0Q-61kQ-zqxXwrh0OUqwNrJhrrSS0rhKYVG1wxexqI6G3a2SYUG2AmFIcXPUYmYLWMj467tPUxrPScMg15NuuJ5yoQbWjo1E84EzveX1l1WpNn0mA0bRG5NvG887Ufp7YFXs8glfA6yCaGQ_x8TQEsAvHKBhvy9nuwy5p2JsX7VSzGuqJDugBxGU0sZ4js2CBw2MBty4K37N5QrnsgCdsfNMpj1w0xqGxzZYg50CJxxZr4TzsXSyuGCNfv377ExMhh7TBflDQBvCrWjb02z-1gS7umGNFkY5UrOqAvKIiFlaEAYnPhnFC_1O1R2hjtTx2lgo7ulo2Vl53dDJaJ7zaxhVRQVbJFYOlYxQeXb3WNkXbvd9KtdQ_IautjnXfOLg4laDKdh9SfeUnQ6XCWDY3LiexQ_egdGEtsgyqG3cL5_-xytHSZro7Dchf0GIbejKXqGIqf5imSuL34ASTFFiCouvZ7u5ua7WrU0mxsXvipax3yohy2vMYbt8qyc23qnQkVtkj1pEBtfRcsbkbMKIunWhIF0y6CBgaGOX95CRGvIOMfYXdaLj3Up4XLrxhEj-Ah2fSWkEd19dqxRq5NFGznzzTf7KCGZm4znv8_EB4qvUtrAfGkLU43bge1QWjZaRrX4sozeVD9gDz3M_cjDox94ksXAsE3rM4H1wr0vXNlUKGynflQq6Z44dXWSk89se9-mJhW5PwcLl6Vofn2XWPK5wdzWPz2ucVICnViMarUrFuDQWidVbDhNRgSpi63rxm9TA0FFxVO-aOO90ZWlO2upstrRkidpN1wgl-03XC2dnZyiKht92bM29OLbPXf43eIYNX0Uw2pUs7gLfAenQZuPqLM-n1w_e6essF5DuTLQrRnEeFb_8DWRfNDQ==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtWvlvo0YU_ldGrrbKSjl8xLFjqZW4ZteVndCQbbaqKzQx4wQFgwW4Sbqb_71vuMEwDNnmhxiG7x3zvTfXg2-9tWfR3qz34cM327XDGfq26oWPdEtXvRla9e5JAFfHcBXQ9d63w9cF_Yc68UPH89KnkcgfxLfJvUMD9hj0bDw3NOx_E1WD8e4lBrN2TLa28xo_MeiDR9GX-TGSQAEof4tQjve8fiR-mGjbB3RJXu5sK3xkLRviBJThHsOtsyD31InMhv4-anWhW8aOrG33gTWPxqzRJ-5TofF8_PaG3j58WLmZLXQrr1wEf2uHBIFKN4jsdrL3gja248x-UhRtjPFxEPreE5391O9Ppup5cnvyzFybDXcvx2vP8Xz2eCRdKBV91r3y6qTqptqFcpmpG2oTdTRsVDeQx9qwf6jO8fZWolCWVQ3LP-ifSkKS6htqMh4W9E1HU8zRd66eVx2knpPzh7Giqrk-5WI4HU4b9cmTgTIA_2KNwf7-wSe7R2RgVVmY0r97n5qSS5zXwA5Mg_r_2Gsa_LXqQaD_jkXYn2X7dB3anpuFlv2BDsnUvWfqm_LcVKUbBQSjeyTP0RFr-AhqZrNZHP-SpNpo_GjVW-2t6ciC_9b6fLXf0P4GRWiUolGKXvU-MgNJBHm-oZPTk1-5lmNp6iZqgvDVoXyikohoUzzW8hQcTafaSClHZADjlhcDli_mgjyBEXVhdAmApkipDFyesMtW0ivWeIxHicyg6IhhP3IJT3054LpssJXoMjxleYSHWM1YHlxOLtShKMsqdRKVXbllvsi-vX4KEobzBg7PBXv17EaAiNhWRnODBV5zAxw2c1A2d-CR1s841C7Gg35flMMrUzKXtmU59Jn4nXjUVWway89selDxCVxxmKtYqWfv6kxCRzmqkJWvTr3tAnVlCxz6ysCcQlWbZBTi8QQPJl0oNAjpNMA_MXk7pIrnuoAB0UpLC5mRPQ6N7DmPwIq1CpFMuoVCBknJU7RzTeGuXc3kXftk7cDkIHcbwkvzznat9SM4EI3gJTrKGprXJ8mcK4apP3rUtV9ADu7QUXLLlcKQcZ9NICvYb3fMJ8LMzjGCZlRqbteCvb1rkaqSYmu7jhvynIvCDU9Cr_dd7-a7Xuu73sl3vei7LuD7UjPMUb8PcLhCcMXB1nWySw9rutehb3nH2nt15_lPRuhTsgV4fsOR-Kp9YbML--HMC_lQqp8Y4udIlTnzQmlkFWaFTHfzeBJB14wjcbFiKMSlIBYiYP19nunv8kzv4FkyBgSQ7-nAO7wXdz3PbQEwS-5mWO06lGGyLbsm4Yv81DgdjS9HoguRIenmZ-lK6rIOKXh-ZRrmeSrI7pFxdo7YPWc8K56_Y1lQFIUmdIZgWhSQh9QuiMIyICDD-idfy7-BAFwidhmj43NoDVqX9GWCZpctuplDS_VTIsAcgjuejG1RhfgMH19xZrYsNvUTGzMY9z6Z19jmmheqQp6lqlsi1C5RiEk7OA2GGJKxL4ZMgiAAjjlvBNaOtxSS7vtGUPMZZ8NtIg-wNOw63MzogNRl0DFJKIfdkyTVouuW5JzLeoKGq7ZElpQ0iSVFICmTHvBTE8XnQE6CZt2qiYlZd4pM-tUFDh1qgXPjbhYralofTu6DQgXs4nIsXB8xfl9E9Rbqd4m8dKvcAJ798CZXwgqZ4Susa6CJBGFceTBCLzrfpo9R-jiuhkSPOVrV5XVkPPrl4b7GsK9cFFbYfg7-c6ZgmFBkZ0_NPz3XiniCeZ41oLiBv9GuSOqCkkvphjnGfrib3aV5CyXjwCHAWrTnXaK8gTe-on4b3H4buqapDMV-edtoQ79jG2j44Y3SPNMaRujvCxQDONtilnLFkZMp7ZB7IvJRdgkBv4rhIMVEYOVcE5LQu0qwpBLBlbNLRMIQ62SUUCJAllIcXP0cmYHS1VHWLgslJRmPLvri86PrPW8cViuNplxTveta4WQasBOXRlmBM7vnjZVDqw1jJgXGyxpS71rrnZn9IrEH9ngEH4BTogd4WijUj8dTeYhFiabmQ1KehgB24ZgJJsdyevpwilrO5mU79axGeuICPYC4jKbWC2SWLHB4LOHy8udUy9dyuMPiFWSm8D2HJyaXF3iizrdVedSyMQ6NIkeCggMVHgX2wkVYuiMa4DHW8h3RcDKR1UYWD4yhX3759XtChBrRBudBSZ_Df2w7MG6_Nwa6fGJOFMU6MrG6AnnNg0RYk-YoqQ2zBf173RlBxGp17qw0dnS1aqy67-hktEn4sI8HopKK0Q2FrWMcHgPf6key491_zLQ0vyFrfJzo_uKyzakCjxzvIdNXfTNUaUxkC_NyGjvmHrTu7F2eQU3zbqn-n6hc7h1qeJsQ_Qw9dmAkc4kqp_IP01RL_BlUMFGJJWi6fTw9PRVWe7iUlDt7Jl-rRqeMqKY9j2HxXilesVeVkljtiPg_MqCRnhu69UKK8N6Np3TJIruQMgPLop-cxEhOkImvcBqNzl7ay86DL0ySF_DwTlovqeP6Wq9YR9cW0xyk7_Sf7fARrT33PX7-QHjq9e3sB0oZa0m6cT1qCoZgpBs_i6is5Qv6AOvcX4UVdW31kSrdSgi-s_g8v9WU2y83Glpon7QrtWGNX9zkrfDan53VdzvHXkfF5fpVHd5nN72ucE90n24b31eApNIgmuxK5aY9FIg2WY0SUoclYeP524bdw8LU2K7atU68zcnC3tDD02xlzxCzm-62xrhYN7u8vDzYJPSOe1vqb4lt9Wbf4m_I4FM0i27I3gnhK7Ae2Yee8eque7Pou67efgf5TlWbQDS3cePbf_Tdy2Y=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
 

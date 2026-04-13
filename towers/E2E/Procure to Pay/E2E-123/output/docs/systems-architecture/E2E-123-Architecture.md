@@ -1,6 +1,5 @@
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
-  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMGFlZWY7c3RvcC1vcGFjaXR5OjEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjE1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4wMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDcpIiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgPC9wYXR0ZXJuPgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2JnKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNncmlkKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPgoKICA8IS0tIERlY29yYXRpdmUgY2lyY3VpdC9hcmNoaXRlY3R1cmUgbGluZXMgLS0+CiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+CiAgICA8cGF0aCBkPSJNIDAgMTAwIEwgMTIwIDEwMCBMIDE2MCAxNDAgTCAyODAgMTQwIi8+CiAgICA8cGF0aCBkPSJNIDAgMjYwIEwgODAgMjYwIEwgMTIwIDIyMCBMIDIwMCAyMjAgTCAyNDAgMjYwIEwgMzYwIDI2MCIvPgogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPgogICAgPHBhdGggZD0iTSA0NDAgMzQwIEwgNTYwIDM0MCBMIDYwMCAzMDAgTCA3MjAgMzAwIEwgNzYwIDM0MCBMIDgwMCAzNDAiLz4KICAgIDxwYXRoIGQ9Ik0gNjAwIDQwMCBMIDY4MCA0MDAgTCA3MjAgNDQwIi8+CiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+CiAgICA8cGF0aCBkPSJNIDIwMCA0MjAgTCAzMjAgNDIwIEwgMzYwIDM4MCBMIDQ4MCAzODAiLz4KICAgIDxwYXRoIGQ9Ik0gNjUwIDQ0MCBMIDc1MCA0NDAgTCA4MDAgNDgwIi8+CiAgPC9nPgoKICA8IS0tIERlY29yYXRpdmUgbm9kZXMgLS0+CiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+CiAgICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjI4MCIgY3k9IjE0MCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSIzNjAiIGN5PSIyNjAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjYwMCIgY3k9IjEwMCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI1NjAiIGN5PSIzNDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjgwIiBjeT0iMzYwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjMyMCIgY3k9IjQyMCIgcj0iNCIvPgogIDwvZz4KCiAgPCEtLSBUT0dBRiBCREFUIGJveGVzIC0tPgogIDxnIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI2MDAiPgogICAgPCEtLSBCIC0tPgogICAgPHJlY3QgeD0iMTUwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIyMTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QnVzaW5lc3M8L3RleHQ+CiAgICA8IS0tIEQgLS0+CiAgICA8cmVjdCB4PSIyOTAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjM1MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5EYXRhPC90ZXh0PgogICAgPCEtLSBBIC0tPgogICAgPHJlY3QgeD0iNDMwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSI0OTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QXBwbGljYXRpb248L3RleHQ+CiAgICA8IS0tIFQgLS0+CiAgICA8cmVjdCB4PSI1NzAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjYzMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5UZWNobm9sb2d5PC90ZXh0PgogIDwvZz4KCiAgPCEtLSBDb25uZWN0aW5nIGxpbmVzIGJldHdlZW4gQkRBVCBib3hlcyAtLT4KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+CiAgICA8bGluZSB4MT0iMjcwIiB5MT0iMTYwIiB4Mj0iMjkwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNDEwIiB5MT0iMTYwIiB4Mj0iNDMwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+CiAgPC9nPgoKICA8IS0tIE1haW4gdGl0bGUgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIyNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmZmZmYiIGxldHRlci1zcGFjaW5nPSIxIj4KICAgIElBTyBBcmNoaXRlY3R1cmUKICA8L3RleHQ+CiAgPHRleHQgeD0iNDAwIiB5PSIzMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC44KSIgbGV0dGVyLXNwYWNpbmc9IjIiPgogICAgVE9HQUYgQkRBVCDCtyBJQU8gUHJvZ3JhbSDCtyBJRE0gMi4wCiAgPC90ZXh0PgoKICA8IS0tIEJvdHRvbSBhY2NlbnQgYmFyIC0tPgogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgoKICA8IS0tIEludGVsIHRleHQgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPgogICAgSU5URUwgQ09ORklERU5USUFMCiAgPC90ZXh0Pgo8L3N2Zz4K" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">E2E-123 — TD Substrates Manufacturing Process</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">End-to-End Integrated Processes (E2E) Tower<br/>
@@ -13,30 +12,20 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-footer { display: none !important; }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
 </style>
 
 
@@ -193,6 +182,7 @@ This capability includes **1 business process(es)** modeled in BPMN 2.0, coverin
 
 ### 3.2 Business Process Diagrams
 
+
 #### BUSINESS ARCHITECTURE — 3.2.1 e.g — e.g
 
 **Swim Lanes**: Cost Accountant | **Tasks**: 1 | **Gateways**: 0
@@ -217,6 +207,8 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAU_CuWVyiXICUhITQ3CFiq1JVWYtseSlUZxyYWjo1sh48i_nttPsKWilN9iJTJvJn3Jnk5QqIqCgvY6x255LYAx8DWtKFBAYIlNjQIwQX4hjXHS0FN4DlMSTvnv8-0ON3sPc1jCDdcHDw6pytFwdfPIRi7QhECg6XpG6o5C8Jgo3mD9aFUQmnPfqEjFrGz2_XRROmK6jshivKYZK5UcEnv8CBP8xT5OkOJktVfoixjI0aCk29OqB2psbbn9ltDX_H-O69s7e4ZFoY6Tm0b8QUvqfAzWt16jLR6ewuDG-8jXWDzDSZcrhyeRg7SWK7vUBadTuDU6y1kZwrepwsJ3CECGzOlDBjr4NnWAsaFKF7ScoyyKDRWqzUtXpJZPh0kIfGTFG70KPTh9neUr2pbLJWortT-zs9QJJt9qPdFEoX64K4PXlRWd6dymIySUec0yeMyLm9OjLH_cnK56nds1lev2QAlaNp5xdkwK6N_9W5jTtN8HD_mRPWWE_pBFCE0mN2jmg2zOHouOkGDYVQ-iK6wpTt8uAt-KtNOEGU5ivOnghe_xy7b5ZtW5CY4mGUo6wTzSYzGyVPBdByno2uHTmel8aYGAkv6K_qxgKUyFowJUa20WNoF_Hlh-iNjR2C4YLjvgwdlTckavLrh_MaBN-2C6wrcR_ChaVfbvSwYwobqBvMKFkd4Xnb3Q6gow62w8BRC3Fo1P0gCi_NSwHZTOY8px67X5gKe_gDWvGOB" title="View full diagram">&#128065; View Diagram</a></div>
 
 
+
+
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-123 — TD Substrates Manufacturing Process</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -234,11 +226,11 @@ flowchart TD
 
 ## 4. Data Architecture (TOGAF "D")
 
-### 4.1 Data Entities & Ownership
+### 4.1 Data Flows — Source to Target
 
-| # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
-|---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
-| 1 | e.g. Cost Element | e.g. MES 300 | e.g. XEUS | Data steward | e.g. Intel Confidential | e.g. 10K rows/day | Master / Transaction |
+| # | Flow Chain | Hop | Source App | Source DB | Target App | Target DB | Data Description | Frequency | Classification |
+|---|-----------|-----|-----------|----------|-----------|----------|-----------------|-----------|---------------|
+| 1 | e.g. MES Route to ICOST | 1 | e.g. MES 300 | e.g. SAP HANA | e.g. XEUS | e.g. Azure SQL | What data moves | e.g. Near Real-Time | e.g. Intel Confidential |
 
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-123 — TD Substrates Manufacturing Process</span></div>
@@ -249,47 +241,55 @@ flowchart TD
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
 
+
 #### 4.2.1 Current-State — Current-State Data Flows
 
 ```mermaid
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "15px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 35, "rankSpacing": 45}} }%%
 flowchart TB
-    classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
-    classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
-    classDef eolBox fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#660000
+    classDef appBox fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef dbCyl fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
+    classDef dbCloud fill:#BBDEFB,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef dbData fill:#B2EBF2,stroke:#00838F,stroke-width:2px,color:#004D40
+    classDef eolBox fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
 
     subgraph E2E123CDACL_e_g_Azure_SQL[" "]
         direction TB
         E2E123CDAA_e_g_XEUS["e.g. XEUS"]:::appBox
-        E2E123CDAD_e_g_Azure_SQL[("🗄️ e.g. Azure SQL")]:::dbCyl
+        E2E123CDAD_e_g_Azure_SQL[("🗄️ e.g. Azure SQL")]:::dbCloud
         E2E123CDAA_e_g_XEUS -.-> E2E123CDAD_e_g_Azure_SQL
     end
-    style E2E123CDACL_e_g_Azure_SQL fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style E2E123CDACL_e_g_Azure_SQL fill:#E8F5E9,stroke:#388E3C,stroke-width:1px
 
     subgraph E2E123CDACL_e_g_SAP_HANA[" "]
         direction TB
         E2E123CDAA_e_g_MES_300["e.g. MES 300"]:::appBox
-        E2E123CDAD_e_g_SAP_HANA[("🗄️ e.g. SAP HANA")]:::dbCyl
+        E2E123CDAD_e_g_SAP_HANA[("🗄️ e.g. SAP HANA")]:::dbData
         E2E123CDAA_e_g_MES_300 -.-> E2E123CDAD_e_g_SAP_HANA
     end
-    style E2E123CDACL_e_g_SAP_HANA fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style E2E123CDACL_e_g_SAP_HANA fill:#E3F2FD,stroke:#1976D2,stroke-width:1px
 
     E2E123CDAD_e_g_SAP_HANA ==>|"e.g. Direct / API / File"| E2E123CDAD_e_g_Azure_SQL
 
     subgraph Legend["📐 DATA ARCHITECTURE LEGEND"]
         direction LR
         L_A["Application"]:::appBox
-        L_D[("🗄️ Database")]:::dbCyl
+        L_D[("🗄️ On-Prem DB")]:::dbCyl
+        L_DC[("🗄️ Cloud DB")]:::dbCloud
+        L_DD[("🗄️ Data Platform")]:::dbData
         L_E["End-of-Life"]:::eolBox
     end
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtumzAUhl_F8hRpk5KOJCVZkVrJXLJWolVX0m1SmZADJrHqYARmTZrm3WcDoV0Wuqq2hMy5_Mf-DjIbGPKIQAN2OhuaUGGAjQ_FgiyJDw3gwxnO5aorVzkJi4yKtUt-E1Y5Gec7b5nyHWcUzxjJlVvqxDwRHn2spfp6uqqClX2Cl5StK49H5pyA24suQFJAim_LKMYfwgXORK1W5OQSr37QSCyUJcYsJypuIZbMxTPCyrIiK0prIo_lpTikyVyZh7oyZji5f2E81rdbsO10_KSpBaamnwA5Qobz3CYxwGlq8hWIKWPGB1O3J5NJNxcZvyfGB00bj81R_dp7UFszBumqG3LGM-Ue2vq-XjSz1qyWQ7o9QuNGbuCM7eGgVa5v6s5A25MjnD1vbzIxdVNv9CxLk6NVbzRSbj-pFPNiNs9wugDOwOkPhpaNLDcgwTxAj0VGAu-be-dDyfBXFa5GRDMSCsqThpoaTT4q0386t57MJEfzI6DWUsEwjIrqgSR7r-ZHH_pF9GUYyWcUHvtFTDR5aqVWBgEZ5MNPSrMk--o-QO-od9Zaq0olSVQDEWtG2mnskCM1G-SOpubfyPvyu_8fZA9dB-foCr2P8aXjBUNN22GWr0C-vol0U_gV0DIGqJg3ca73chD1rtibSO-C3wW6pTA4PT17qinZJVnwGaDrC_mcUCYvqqdXvo69FrpkLk9w9wJbGGnARlME0I11fjF1rOntjQNc56tzZbc01b15trqBaj9KU0ZDrLyHG-gGdkuzbCxwdWEf6pMbOFLeSaIej3sujUklX10gBztSnXDHX1ez4X9ycvIPfNiFS5ItMY2gsal-CfLPEpEYF0zISx3iQnBvnYTQKK9pWKQRFsSmWBJdVsbtHwtwAWY=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVYtumzAU_RWLKtImJV0CeRCkVgJs1kq0y5p0m1Qm5IBJUM1DPNakaf59NoQkTUNabUZC9vW9516f48dKcCKXCIrQaKz80M8UsLKEbE4CYgkKsIQpTlmvyXopcfLEz5Ym-UNoOUmjqJotQn7gxMdTSlI-zXC8KMzG_vMGqtOLF6Uztxs48OmynBmTWUTA_XUTqAyAga8LLxo9OXOcZBu0PCU3ePHTd7M5t3iYpoT7zbOAmnhKaJE2S_LCGrJljWPs-OGMm6UeNyY4fNwzdnvrNVg3Gla4zQUmmhUC1hyK0xQSD-A41qIF8HxKlTNdRz3DaKZZEj0S5azdHsiwuxm2nnhpihgvmk5Eo4RPS2pfP8Bzp_qSVnAy6uvDLZyIBlASa-E6Wg-J7bdwNMrdDaCmQWRo_1kfxBmu8ESkGeIenizJxgm8LuweFkgiuuPPMHQId3h6X5RFuRZPG3T0DquvREzz6SzB8RwgEXVESYeqbtrEntnqc54Qe_zdfLAEJvLv0p0310-Ik_lRuJWVt228WoT_QvdjFknOZ-eA9xmCoiil7EeC4EHOT5Zg5a4suezvOl0r90ibrZqjFU6AOVnCZ4650epkJaB13rqszVaGknCDkWZLSur52JCOZKOHdrtMkmUk6a9J77Cj-R7NY3VkX6m36r-xfIPGttRuV0SzIWDDD3G9TXyCauYDuM-Wab6J3yvmKNdVtg9RXTlXTEuGaMAt053hoA_FWqZrEoOLi8uXDU2woBZ8Aeromv0Nn7LL9OXE9jjQ0CQztoKHPd4ctw2gOlGBeqdfXU-QPrm_Q8BEX9EtrFHVvNtZTZvrr8Yx9R3MZ48raNqwRq1vYWuUkABAbXcolvRVpF4TWl50-4GvTxMLrctaXGkjijMvSoKaPWLaiC0NhW4r8lqm75FyaeX9dXQ3lOxWV1uPf1vth8PhG-GFphCQJMC-Kyir8slkL69LPJzTjD16As6zaLwMHUEpnjEhj12cEehjpmZQGtd_AfamWmE=" title="View full diagram">&#128065; View Diagram</a></div>
+
+
 
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-123 — TD Substrates Manufacturing Process</span></div>
 <div style="page-break-before: always;"></div>
+
 
 
 #### 4.2.2 Future-State — Future-State Data Flows
@@ -297,38 +297,44 @@ flowchart TB
 ```mermaid
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "15px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 35, "rankSpacing": 45}} }%%
 flowchart TB
-    classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
-    classDef dbCyl fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
-    classDef eolBox fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#660000
+    classDef appBox fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef dbCyl fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
+    classDef dbCloud fill:#BBDEFB,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef dbData fill:#B2EBF2,stroke:#00838F,stroke-width:2px,color:#004D40
+    classDef eolBox fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
 
     subgraph E2E123FDACL_e_g_Azure_SQL[" "]
         direction TB
         E2E123FDAA_e_g_XEUS["e.g. XEUS"]:::appBox
-        E2E123FDAD_e_g_Azure_SQL[("🗄️ e.g. Azure SQL")]:::dbCyl
+        E2E123FDAD_e_g_Azure_SQL[("🗄️ e.g. Azure SQL")]:::dbCloud
         E2E123FDAA_e_g_XEUS -.-> E2E123FDAD_e_g_Azure_SQL
     end
-    style E2E123FDACL_e_g_Azure_SQL fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style E2E123FDACL_e_g_Azure_SQL fill:#E8F5E9,stroke:#388E3C,stroke-width:1px
 
     subgraph E2E123FDACL_e_g_SAP_HANA[" "]
         direction TB
         E2E123FDAA_e_g_MES_300["e.g. MES 300"]:::appBox
-        E2E123FDAD_e_g_SAP_HANA[("🗄️ e.g. SAP HANA")]:::dbCyl
+        E2E123FDAD_e_g_SAP_HANA[("🗄️ e.g. SAP HANA")]:::dbData
         E2E123FDAA_e_g_MES_300 -.-> E2E123FDAD_e_g_SAP_HANA
     end
-    style E2E123FDACL_e_g_SAP_HANA fill:#FAFAFA,stroke:#E0E0E0,stroke-width:1px
+    style E2E123FDACL_e_g_SAP_HANA fill:#E3F2FD,stroke:#1976D2,stroke-width:1px
 
     E2E123FDAD_e_g_SAP_HANA ==>|"e.g. Direct / API / File"| E2E123FDAD_e_g_Azure_SQL
 
     subgraph Legend["📐 DATA ARCHITECTURE LEGEND"]
         direction LR
         L_A["Application"]:::appBox
-        L_D[("🗄️ Database")]:::dbCyl
+        L_D[("🗄️ On-Prem DB")]:::dbCyl
+        L_DC[("🗄️ Cloud DB")]:::dbCloud
+        L_DD[("🗄️ Data Platform")]:::dbData
         L_E["End-of-Life"]:::eolBox
     end
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlYtumzAUhl_F8hRpk5KOJCVZkVrJBFgr0aor6TapTMgBk1h1MAKzJk3z7rOB0C4LXVVbQuZc_mN_B5kNDHlEoAE7nQ1NqDDAxodiQZbEhwbw4QznctWVq5yERUbF2iW_CaucjPOdt0z5jjOKZ4zkyi11Yp4Ijz7WUn09XVXByu7gJWXryuOROSfg9qILkBSQ4tsyivGHcIEzUasVObnEqx80EgtliTHLiYpbiCVz8YywsqzIitKayGN5KQ5pMlfmoa6MGU7uXxiP9e0WbDsdP2lqganpJ0COkOE8t0gMcJqafAViypjxwdQtx3G6ucj4PTE-aNp4bI7q196D2poxSFfdkDOeKffQ0vf1otlkzWo5pFsjNG7kBvbYGg5a5fqmbg-0PTnC2fP2HMfUTb3Rm0w0OVr1RiPl9pNKMS9m8wynC2AP7P5g6Fho4gYkmAfoschI4H1z73woGf6qwtWIaEZCQXnSUFOjyUdl-k_71pOZ5Gh-BNRaKhiGUVE9kGTt1fzoQ7-Ivgwj-YzCY7-IiSZPrdTKICCDfPhJaZZkX90H6B31zlprVakkiWogYs1IO40dcqRmg9zW1PwbeV9-9_-D7KHr4BxdofcxvrS9YKhpO8zyFcjXN5FuCr8CWsYAFfMmzvVeDqLeFXsT6V3wu0C3FAanp2dPNSWrJAs-A3R9IZ8OZfKienrl69hroUvm8gR3L7CFkQYsNEUA3UzOL6b2ZHp7YwPX_mpfWS1NdW-erW6g2o_SlNEQK-_hBrqB1dIsCwtcXdiH-uQGtpS3k6jH455LY1LJVxfIwY5UJ9zx19Vs-J-cnPwDH3bhkmRLTCNobKpfgvyzRCTGBRPyUoe4ENxbJyE0ymsaFmmEBbEolkSXlXH7B4gmAZA=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVYtumzAU_RWLKtImJV0CeRCkVgJs1kq0y5p0m1Qm5IBJUM1DPNakaf59NoQkTUNabUZC9vW9516f48dKcCKXCIrQaKz80M8UsLKEbE4CYgkKsIQpTlmvyXopcfLEz5Ym-UNoOUmjqJotQn7gxMdTSlI-zXC8KMzG_vMGqtOLF6Uztxs48OmynBmTWUTA_XUTqAyAga8LLxo9OXOcZBu0PCU3ePHTd7M5t3iYpoT7zbOAmnhKaJE2S_LCGrJljWPs-OGMm6UeNyY4fNwzdnvrNVg3Gla4zQUmmhUC1hyK0xQSD-A41qIF8HxKlTNdRz3DaKZZEj0S5azdHsiwuxm2nnhpihgvmk5Eo4RPS2pfP8Bzp_qSVnAy6uvDLZyIBlASa-E6Wg-J7bdwNMrdDaCmQWRo_1kfxBmu8ESkGeIenizJxgm8LuweFkgiuuPPMHQId3h6X5RFuRZPG3T0DquvREzz6SzB8RwgEXVEyYCqbtrEntnqc54Qe_zdfLAEJvLv0p0310-Ik_lRuJWVt228WoT_QvdjFknOZ-eA9xmCoiil7EeC4EHOT5Zg5a4suezvOl0r90ibrZqjFU6AOVnCZ4650epkJaB13rqszVaGknCDkWZLSur52JCOZKOHdrtMkmUk6a9J77Cj-R7NY3VkX6m36r-xfIPGttRuV0SzIWDDD3G9TXyCauYDuM-Wab6J3yvmKNdVtg9RXTlXTEuGaMAt053hoA_FWqZrEoOLi8uXDU2woBZ8Aeromv0Nn7LL9OXE9jjQ0CQztoKHPd4ctw2gOlGBeqdfXU-QPrm_Q8BEX9EtrFHVvNtZTZvrr8Yx9R3MZ48raNqwRq1vYWuUkABAbXcolvRVpF4TWl50-4GvTxMLrctaXGkjijMvSoKaPWLaiC0NhW4r8lqm75FyaeX9dXQ3lOxWV1uPf1vth8PhG-GFphCQJMC-Kyir8slkL69LPJzTjD16As6zaLwMHUEpnjEhj12cEehjpmZQGtd_AYfwWos=" title="View full diagram">&#128065; View Diagram</a></div>
+
+
 
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-123 — TD Substrates Manufacturing Process</span></div>
@@ -374,7 +380,7 @@ Reports and Conversions for this capability will be populated from the Smartshee
 
 The Current-State architecture represents the **current / legacy** landscape for E2E-123.This view is generated from `CurrentFlows.xlsx` (1 flow hops across 1 flow chains).
 
-#### APPLICATION ARCHITECTURE — Architecture Diagram (ArchiMate-Inspired)
+#### APPLICATION ARCHITECTURE — Architecture Diagram
 
 > **Click any system node** to open its IAPM application page.
 > **Legend**: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span>
@@ -382,22 +388,22 @@ The Current-State architecture represents the **current / legacy** landscape for
 ```mermaid
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "16px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
 flowchart TB
-    %% -- ArchiMate-inspired style classes --
-    classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
-    classDef app           fill:#B5FFFF,stroke:#0077B6,stroke-width:2px,color:#000
-    classDef data          fill:#B5D8FF,stroke:#0077B6,stroke-width:1px,color:#000,stroke-dasharray: 5 5
-    classDef middleware    fill:#FFD6A5,stroke:#E76F00,stroke-width:2px,color:#000
-    classDef eol           fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#000
+    %% -- ArchiMate 3.2 + Azure style classes --
+    classDef business      fill:#FFFFB3,stroke:#F9A825,stroke-width:2px,color:#000
+    classDef app           fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef data          fill:#BBDEFB,stroke:#1565C0,stroke-width:1px,color:#0D47A1,stroke-dasharray: 5 5
+    classDef middleware    fill:#FFE0B2,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef eol           fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
+    classDef saas          fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
-        subgraph E2E123CLN_e_g_Boundary_Apps[" ⬛ e.g. Boundary Apps"]
-            direction LR
-            E2E123C_e_g_XEUS["📦 e.g. XEUS"]:::app
-        end
-        subgraph E2E123CLN_e_g_MES_Systems[" ⬛ e.g. MES Systems"]
+        subgraph E2E123CLN_Boundary_Applications[" ⬛ Boundary Applications"]
             direction LR
             E2E123C_e_g_MES_300["📦 e.g. MES 300"]:::app
+            E2E123C_e_g_XEUS["📦 e.g. XEUS"]:::app
         end
         E2E123CMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
         E2E123CDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
@@ -406,8 +412,11 @@ flowchart TB
     E2E123C_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E123CMW_e_g_Azure_Service_Bus
     E2E123CMW_e_g_Azure_Service_Bus --> E2E123C_e_g_XEUS
 
-    style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
-    style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
+
+    style BL fill:#FFFDE7,stroke:#F9A825,stroke-width:2px
+    style AL fill:#E3F2FD,stroke:#0078D4,stroke-width:2px
+
+    style E2E123CLN_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:1px
 
     subgraph Legend["📐 LEGEND"]
         direction LR
@@ -419,7 +428,8 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdlm1v4jgQgP-KlYpvsA200DaqkAIJJ06hrTa72ztdTpGJB7DWJFHsbMt2-e87jlNeW9E7I0EyL89MJuMxL1aSMbAcq9F44SlXDnmJLLWAJUSWQyJrSiVeNfFKQlIWXK0C-AHCKEWWvWorl2-04HQqQGo1cmZZqkL-s0a1e_mzMdbyEV1ysTKaEOYZkK_jJnERIJpE0lS2JBR8FlnrykNkT8mCFqomlxIm9PmRM7XQkhkVErTdQi1FQKcgqhRUUVbSFB8xzGnC07kWX9paWND0-46wa6_XZN1oROkmFvkyiFKCq9EgrRbmliz4hCpo8VTmvABGpFoJIImgUoJEG2Ne3XswI9NS8hSkJNWacSGcsxGuQbcpVZF9B-dscH3dswf1betJP5DTyZ-bSSaywjmzbfuASfOcbJdhDrqaumHa9tXVoPcfmIwqesz0rk8w23vMVx2jEotX0BXWlHQPIi05YwKeaAG7FfF67rYi_lVvtKV9IHvIxFFFdI13qjwc2vYppqHKcjovaL4gbvBPZEUlu75g-M0uusR9eAjGQ_fL-P6OBO7f_ufI-tc46cWwIRLFs5QEn7fSDc7v-O3OxTC4iyGex4OsTBktVrGb5xLjkKjsTNtTAp_mn8irkmjlXoz34-hVh6gC_OV_DXfzT6Bn4FqBTMdxsJG2_pCyk0lP_DAOV1LB8ihlVJFa9T8T1vAL234zZ01H3am0a9zksQK6P8sC4hCKHzyBeFDKvdfZvjLoyorUVgStTJBtmx7hPb_CDzOpYl_g0EtVfzfp5NKQtQGpDW6nxXn_lveNIvxGzsnYyxL8-TO8v7s9530TVu9DE7B6MHP5RpVw0vR_RVaF86ryIsp9GOP3iAsct79OFWMP_Z6RDnPUVTqteqtUw28Q7Ay2kX1qsO26uhtX-yPz62iLBjDHOu21DLNJ4P_h33kf2JtBjDv6sOFwzwmeUG38Rr8F8eTxsI8m2155t3eC2PMPu8TTQ9dPFR6ph2_fuPj3ZgR1euwSDVkrm7UCPqvD4NTbaZVtUU1RXgvb1Z9NYW9ubo4muNW0llAsKWeW82KOcfw3wGBGS6Hw8LVoqbJwlSaWUx2nVpljouBxii9haYTr3zYbjH0=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlnuPmzgQwL-KRZW_LtnlEQhBq0g8zCknsrtq2u6dygk54CRWHUAYuptu891rcB6EbLp3jkSwZ-Y39ng8-FWKswRLltTrvZKUlBZ4DaVyjTc4lCwQSgvE-FufvzEcVwUptwH-jqkQ0iw7SBuTL6ggaEExq8Wcs8zSck5-7FGKkb8I5XrcRxtCt0Iyx6sMg8_TPrA5gPYBQykbMFyQZSjtGguaPcdrVJR7csXwDL08kaRc1yNLRBmu9dblhgZogWkzhbKomtGUL3Geo5ikq3p4KNeDBUq_tQZ1ebcDu14vTI--wCcnTAFvvR4YDPjc4jWZoRID7UYFfwD7R1VgwMotxSCmiDHMuJqwaPoeXoJFxUiKGQNNWxJKrQ8-b47WZ2WRfcO8O7ZNVd93B8_1miw1f-nHGc0K64Msyx0mynNwaoLpulD3_SNTlkemN_wNU7MNt4NNUIm6WMfxoO8csYpu6K58jlVaWG84spWDOEGMR7FAWx5coHecbUiSUPyMeARbcYGyox6dQUNXZPnqGhxfM-TuGnBGL0Lj-67nnbCuoZqqeR07Ulyli2UIsS4WKg6EoyN25Ci-rV7FDm1laHaxMc2q5P9HXO1GvIPN0rzAm05-mNBwx0esCkeedn22iqNDlaedALNqsSpQvgZ28DWUwioxtYQ_E00H9uNjMHXtT9OHexDY_8CPofSvMKpbQgoclyRLQfDxNHrEQRUqquYG95GTVWmCim1k5zklMaptGPcFwkpdKAtwkIO2_MzVdXd123uKcLSKZnAeabLcXkmMDYBvVjeAywCXcbJlWfyYXaf8DT_P30TUgjfscZqcOnvQ7KlBNXUkmuPiO4lx5FTsLMjKSHBFtdlrAa4lnJzO0QXegw3ezVgZQcrLc1pO2jOOh4JcK4C9wt2iuJ3ckYkQzL-AWzD1spj__TV_uL-7JRPhtq4VwmGzMPH6RpR5QZz8DKUG5zXbw1H245Q_fUL5h-Hne8E4Q19Tqt1cbE89rX0CNzXaCU7112ud3Cv1t21qH0yh5qu-916ZPff7TpofyKavw9MB1UwTau5Fpb04kgFe8R04y8REBgH8E957_-EsBhE_wd08bs3ujUwOotlTN0Nnpyy8mpVB5MFu_nn1JwemJb9WdPNKmMAHUXJUIxlyxWSQLQcBWe7d8GrfSsJTxEVQDrut179jYMfj8UVUpb60wcUGkUSyXsVVht-IErxEFS35BURCVZnNt2ksWc2VQqpyPlHsEcQ3YSMGd78AWJbe3A==" title="View full diagram">&#128065; View Diagram</a></div>
+
 
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-123 — TD Substrates Manufacturing Process</span></div>
@@ -443,7 +453,7 @@ flowchart TB
 
 The Future-State architecture represents the **target** landscape for E2E-123.This view is generated from `FutureFlows.xlsx` (1 flow hops across 1 flow chains).
 
-#### APPLICATION ARCHITECTURE — Architecture Diagram (ArchiMate-Inspired)
+#### APPLICATION ARCHITECTURE — Architecture Diagram
 
 > **Click any system node** to open its IAPM application page.
 > **Legend**: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span>
@@ -451,22 +461,22 @@ The Future-State architecture represents the **target** landscape for E2E-123.Th
 ```mermaid
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "16px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
 flowchart TB
-    %% -- ArchiMate-inspired style classes --
-    classDef business      fill:#FFFFB5,stroke:#B8860B,stroke-width:2px,color:#000
-    classDef app           fill:#B5FFFF,stroke:#0077B6,stroke-width:2px,color:#000
-    classDef data          fill:#B5D8FF,stroke:#0077B6,stroke-width:1px,color:#000,stroke-dasharray: 5 5
-    classDef middleware    fill:#FFD6A5,stroke:#E76F00,stroke-width:2px,color:#000
-    classDef eol           fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#000
+    %% -- ArchiMate 3.2 + Azure style classes --
+    classDef business      fill:#FFFFB3,stroke:#F9A825,stroke-width:2px,color:#000
+    classDef app           fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef data          fill:#BBDEFB,stroke:#1565C0,stroke-width:1px,color:#0D47A1,stroke-dasharray: 5 5
+    classDef middleware    fill:#FFE0B2,stroke:#E65100,stroke-width:2px,color:#BF360C
+    classDef eol           fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
+    classDef saas          fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px,color:#4A148C
+    classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
+    classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
 
     subgraph AL["🔵 APPLICATION LAYER"]
         direction LR
-        subgraph E2E123FLN_e_g_Boundary_Apps[" ⬛ e.g. Boundary Apps"]
-            direction LR
-            E2E123F_e_g_XEUS["📦 e.g. XEUS"]:::app
-        end
-        subgraph E2E123FLN_e_g_MES_Systems[" ⬛ e.g. MES Systems"]
+        subgraph E2E123FLN_Boundary_Applications[" ⬛ Boundary Applications"]
             direction LR
             E2E123F_e_g_MES_300["📦 e.g. MES 300"]:::app
+            E2E123F_e_g_XEUS["📦 e.g. XEUS"]:::app
         end
         E2E123FMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
         E2E123FDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
@@ -475,8 +485,11 @@ flowchart TB
     E2E123F_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E123FMW_e_g_Azure_Service_Bus
     E2E123FMW_e_g_Azure_Service_Bus --> E2E123F_e_g_XEUS
 
-    style BL fill:#FFFFF0,stroke:#B8860B,stroke-width:2px
-    style AL fill:#F0FFFF,stroke:#0077B6,stroke-width:2px
+
+    style BL fill:#FFFDE7,stroke:#F9A825,stroke-width:2px
+    style AL fill:#E3F2FD,stroke:#0078D4,stroke-width:2px
+
+    style E2E123FLN_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:1px
 
     subgraph Legend["📐 LEGEND"]
         direction LR
@@ -488,7 +501,8 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdln1v2jwQwL-KlYr_YA200DaqkEITJqbQVsu2bnryKDLxAdZMEsXOWtbx3XeOU15b0ecxEiT38rvL5Xzm2UoyBpZjNRrPPOXKIc-RpeawgMhySGRNqMSrJl5JSMqCq2UAv0AYpciyF23l8o0WnE4ESK1GzjRLVch_16h2L38yxlo-pAsulkYTwiwD8nXUJC4CRJNImsqWhIJPI2tVeYjsMZnTQtXkUsKYPj1wpuZaMqVCgrabq4UI6ARElYIqykqa4iOGOU14OtPic1sLC5r-3BJ27dWKrBqNKF3HIl8GUUpwNRqk1cLckjkfUwUtnsqcF8CIVEsBJBFUSpBoY8yrew-mZFJKnoKUpFpTLoRzMsQ16DalKrKf4JwMLi979qC-bT3qB3I6-VMzyURWOCe2be8xaZ6TzTLMQVdT10zbvrgY9P4Dk1FFD5ne5RFme4f5omNUYvEKusSaku5epAVnTMAjLWC7Il7P3VTEv-gNN7R3ZA-ZOKiIrvFWlW9ubPsY01BlOZkVNJ8TN_gnsqKSXZ4x_GZnXeLe3wejG_fL6O6WBO4P_3Nk_Wuc9GLYEIniWUqCzxvpGud3_HbnbBjcxhDP4kFWpowWy9jNc4lxSFR2Ju0JgQ-zD-RFSbRyJ8bbcfSqQ1QBvvtfw-38E-gZuFYg03EcbKSNP6TsaNJjP4zDpVSwOEgZVaRW_c-ENfzMtl_NWdNRdyztGjd-qIDu77KAOITiF08gHpRy53W2Lwy6siK1FUErE2TTpgd4z6_wN5lUsS9w6KWqv510cm7I2oDUBteT4rR_zftGEX4jp2TkZQn-fArvbq9Ped-E1fvQBKwezFy-UiWcNP0_kVXhvKq8iHLvR_g95ALH7Z9jxdhBv2Wkwxx0lU6r3irV8BsEW4NtaB8bbNuu7trVfs_8OtiiAcywTjstw2wS-B_9W-8dezOIcUfvNxzuOcETqo1f6bcgHj_s99F40ytv9k4Qe_5-l3h66PqpwiN1_-0bF__OjKBOj52jIWtl01bAp3UYnHpbrbIpqinKS2G7-rMu7NXV1cEEt5rWAooF5cxyns0xjv8GGExpKRQevhYtVRYu08RyquPUKnNMFDxO8SUsjHD1F5mQjJs=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlnuPmzgQwL-KRZW_LtnlEQhBq0g8zCknsrtq2u6dygk54CRWHUAYuptu891rcB6EbLp3jkSwZ-Y39ng8-FWKswRLltTrvZKUlBZ4DaVyjTc4lCwQSgvE-FufvzEcVwUptwH-jqkQ0iw7SBuTL6ggaEExq8Wcs8zSck5-7FGKkb8I5XrcRxtCt0Iyx6sMg8_TPrA5gPYBQykbMFyQZSjtGguaPcdrVJR7csXwDL08kaRc1yNLRBmu9dblhgZogWkzhbKomtGUL3Geo5ikq3p4KNeDBUq_tQZ1ebcDu14vTI--wCcnTAFvvR4YDPjc4jWZoRID7UYFfwD7R1VgwMotxSCmiDHMuJqwaPoeXoJFxUiKGQNNWxJKrQ8-b47WZ2WRfcO8O7ZNVd93B8_1miw1f-nHGc0K64Msyx0mynNwaoLpulD3_SNTlkemN_wNU7MNt4NNUIm6WMfxoO8csYpu6K58jlVaWG84spWDOEGMR7FAWx5coHecbUiSUPyMeARbcYGyox6dQUNXZPnqGhxfM-TuGnBGL0Lj-67nnbCuoZqqeR07Ulyli2UIsS4WKg6EoyN25Ci-rV7FDm1laHaxMc2q5P9HXO1GvIPN0rzAm05-mNBwx0esCkeedn22iqNDlaedALNqsSpQvgZ28DWUwioxtYQ_E00H9uNjMHXtT9OHexDY_8CPofSvMKpbQgoclyRLQfDxNHrEQRUqquYH95GTVWmCim1k5zklMaptGPcFwkpdKAtwkIO2_MzVdXd123uKcLSKZnAeabLcXkmMDYBvVjeAywCXcbJlWfyYXaf8DT_P30TUgjfscZqcOnvQ7KlBNXUkmuPiO4lx5FTsLMjKSHBFtdlrAa4lnJzO0QXegw3ezVgZQcrLc1pO2jOOh4JcK4C9wt2iuJ3ckYkQzL-AWzD1spj__TV_uL-7JRPhtq4VwmGzMPH6RpR5QZz8DKUG5zXbw1H245Q_fUL5h-Hne8E4Q19Tqt1cbE89rX0CNzXaCU7112ud3Cv1t21qH0yh5qu-916ZPff7TpofyKavw9MB1UwTau5Fpb04kgFe8R04y8REBgH8E957_-EsBhE_wd08bs3ujUwOotlTN0Nnpyy8mpVB5MFu_nn1JwemJb9WdPNKmMAHUXJUIxlyxWSQLQcBWe7d8GrfSsJTxEVQDrut179jYMfj8UVUpb60wcUGkUSyXsVVht-IErxEFS35BURCVZnNt2ksWc2VQqpyPlHsEcQ3YSMGd78AvCDe-g==" title="View full diagram">&#128065; View Diagram</a></div>
+
 
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-123 — TD Substrates Manufacturing Process</span></div>
@@ -556,44 +570,63 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
 
+
 #### 6.1.1 Current-State — Current-State Platform Architecture
 
 ```mermaid
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
 flowchart TB
-    classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
-    classDef platBox fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
-    classDef eolBox fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#660000
+    classDef appBox fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef platBox fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
+    classDef eolBox fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
 
     subgraph E2E123CPLP_e_g_Azure_PaaS["☁️ e.g. Azure PaaS"]
         direction LR
         E2E123CPLA_e_g_XEUS["e.g. XEUS"]:::appBox
     end
-    style E2E123CPLP_e_g_Azure_PaaS fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style E2E123CPLP_e_g_Azure_PaaS fill:#BBDEFB,stroke:#0078D4,stroke-width:3px,color:#003A6C
 
     subgraph E2E123CPLP_e_g_S_4_HANA_2023["🖥️ e.g. S/4 HANA 2023"]
         direction LR
         E2E123CPLA_e_g_MES_300["e.g. MES 300"]:::appBox
     end
-    style E2E123CPLP_e_g_S_4_HANA_2023 fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style E2E123CPLP_e_g_S_4_HANA_2023 fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     E2E123CPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E123CPLP_e_g_Azure_PaaS
 
+    subgraph E2E123CPLLegend["📐 PLATFORM LEGEND"]
+        direction LR
+        E2E123CPLLC["☁️ Cloud"]
+        E2E123CPLLS["🔮 SaaS"]
+        E2E123CPLLO["🏢 On-Prem"]
+        E2E123CPLLD["💾 Data Platform"]
+        E2E123CPLLM["🔗 Middleware"]
+    end
+    style E2E123CPLLegend fill:#F5F5F5,stroke:#999,stroke-width:1px
+    style E2E123CPLLC fill:#BBDEFB,stroke:#0078D4,stroke-width:3px,color:#003A6C
+    style E2E123CPLLS fill:#E1BEE7,stroke:#7B1FA2,stroke-width:3px,color:#4A148C
+    style E2E123CPLLO fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
+    style E2E123CPLLD fill:#B2EBF2,stroke:#00838F,stroke-width:3px,color:#004D40
+    style E2E123CPLLM fill:#FFE0B2,stroke:#E65100,stroke-width:3px,color:#BF360C
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuax07TjNBB7Zjs0I6wrxug3kYxT5ORGXL2PKaNM27T7LdpC2kUDZdCOn_jz4dHSHtcCJSwAQPBjtWMEnQLsJyDTlEmKAIL2mtRkM1qiFpKia3c_gDvDO5EE9uu-Q7rRhdcqi1rTiZKGTIHnrUaFxuumCtBzRnfNs5IawEoNvrIXIUQMH3bRQX98maVrKnNTXc0M0Plsq1VjLKa9Bxa5nzOV0Cb7eVVdOqhTpWWNKEFSstjw0tVrS4eybaxn6P9oNBVBz2Qt_cqECqJZzW9QwyRMvSFRuUMc7JmWvPgiAY1rISd0DODOPy0p300w_3OjVilpthIriotG3N7Ne8klN5BHpTf-J9PACt6dS3vJdA6wgcubZvGq-AIPiRFwSu7doHnucZqp1McDLRdlR0xLpZriparpFv-iPT8hbzRQzxKnYemgriBaXhrwhHjTkxRlGTgaG2Pl-do9ZG2o7w746kW8oqSCQTBZp_PaoHtNOif_q3Gtpy9FgRCCFdybtFUKR9dnLL4XRq_1TPt88fxuP4s_PFiU3DtNoSpFMrVX1K7eeFCC_GSMchHff-Wtz4YWwZxlM51BSp6Xsr8iLZ_1CUN_FXV58e-3Rn7RHRBXIW16oPGFfP_vH0feEhzqHKKUsx2XXfh_qFUshow6X6ADBtpAi3RYJJ-6RxU6ZUwoxRdUd5J-7_Au8OeU4=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllW1vmzAQgP-KRZVvaQuGJASpk3gx26SkiUq7TRoTcsAkqA4gMGvSNP99BhLyshKpKkiWfXd-fHc-2xvBTwIiaEKns4niiGlg4wpsQZbEFTTgCjOc816X93LiF1nE1iPyl9BaSZNkr62m_MBZhGeU5KWac8IkZk70ukNJSrqqjUu5jZcRXdcah8wTAp6-d4HOARy-raxo8uIvcMZ2tCInY7z6GQVsUUpCTHNS2i3Yko7wjNBqWZYVlTTmYTkp9qN4XooVsRRmOH4-EvbE7RZsOx03btYCj4YbA_75FOe5RUKA09RIViCMKNWuTBP1bLubsyx5JtqVKA5US9kNr19K1zSYrrp-QpOsVMt63zzjpRSzI6CK-uawAUI0sGR4CpQPQMnoISieAUlCDzzbNi0LNjyzD1WotjpoDCRT4g7WxLyYzTOcLgCCSIKyOR1NPeLNPf21yIg3xdj57QpuAfui5BYhEfnSN_MbUKlBqXaFPzWp_IIoIz6LkhiMHg7SBq1X6F_oqYRWnLLPCZqm1SmvJ5E42HnH1pS0u7aL3zAsZBsXN0j-f4Mux-94ivdNv9c9KEK5SkGgygFvA9w7ToRzq4DSDpR2H8_FGDmeLIr7dPAh4MOPZuTE2U8VWb3IRfzd3Ze3nbtWFSK4Bfr0O2_tiPJj_9a-X-1JH5E5D_E4z34gAp6lR3vyMAYj9BXdWx9J78g8r1uTJkVwgjgYOyc7DAlwziv7YDvZ2_q8DQkEk_h6mpFli7l1EtSMAAszDKb8QgiTrG3S-MQfaQDGURBQ8oIz0sxoK4k6lfuroVf-TRUMh8PTEpDS1fsQ81Nn6z3i_rQiyUBo0BAHhmTr7YWp6JKithAnn75Pz4nWPmqIDBseRa3Kqn0hasVSWojj5o5GonEgon5PEsVWomHLfdEUusKSZEscBYK2qV9b_mgHJMQFZfy9FHDBEmcd-4JWvYBCkQaYESvC_HQta-H2H8Bva_o=" title="View full diagram">&#128065; View Diagram</a></div>
+
 
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
 
 
+
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-123 — TD Substrates Manufacturing Process</span></div>
 <div style="page-break-before: always;"></div>
+
 
 
 #### 6.1.2 Future-State — Future-State Platform Architecture
@@ -601,29 +634,45 @@ flowchart TB
 ```mermaid
 %%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "14px", "fontFamily": "Segoe UI, Arial"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 40, "rankSpacing": 50}} }%%
 flowchart TB
-    classDef appBox fill:#B5DFFF,stroke:#0077B6,stroke-width:2px,color:#003D5B
-    classDef platBox fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
-    classDef eolBox fill:#FFB5B5,stroke:#CC0000,stroke-width:2px,color:#660000
+    classDef appBox fill:#CCE5FF,stroke:#0078D4,stroke-width:2px,color:#003A6C
+    classDef platBox fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
+    classDef eolBox fill:#FFCDD2,stroke:#C62828,stroke-width:2px,color:#B71C1C
 
     subgraph E2E123FPLP_e_g_Azure_PaaS["☁️ e.g. Azure PaaS"]
         direction LR
         E2E123FPLA_e_g_XEUS["e.g. XEUS"]:::appBox
     end
-    style E2E123FPLP_e_g_Azure_PaaS fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style E2E123FPLP_e_g_Azure_PaaS fill:#BBDEFB,stroke:#0078D4,stroke-width:3px,color:#003A6C
 
     subgraph E2E123FPLP_e_g_S_4_HANA_2023["🖥️ e.g. S/4 HANA 2023"]
         direction LR
         E2E123FPLA_e_g_MES_300["e.g. MES 300"]:::appBox
     end
-    style E2E123FPLP_e_g_S_4_HANA_2023 fill:#C8E6C9,stroke:#388E3C,stroke-width:3px,color:#1B5E20
+    style E2E123FPLP_e_g_S_4_HANA_2023 fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
 
     E2E123FPLP_e_g_S_4_HANA_2023 ==>|"e.g. Direct / API / File"| E2E123FPLP_e_g_Azure_PaaS
 
+    subgraph E2E123FPLLegend["📐 PLATFORM LEGEND"]
+        direction LR
+        E2E123FPLLC["☁️ Cloud"]
+        E2E123FPLLS["🔮 SaaS"]
+        E2E123FPLLO["🏢 On-Prem"]
+        E2E123FPLLD["💾 Data Platform"]
+        E2E123FPLLM["🔗 Middleware"]
+    end
+    style E2E123FPLLegend fill:#F5F5F5,stroke:#999,stroke-width:1px
+    style E2E123FPLLC fill:#BBDEFB,stroke:#0078D4,stroke-width:3px,color:#003A6C
+    style E2E123FPLLS fill:#E1BEE7,stroke:#7B1FA2,stroke-width:3px,color:#4A148C
+    style E2E123FPLLO fill:#C8E6C9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20
+    style E2E123FPLLD fill:#B2EBF2,stroke:#00838F,stroke-width:3px,color:#004D40
+    style E2E123FPLLM fill:#FFE0B2,stroke:#E65100,stroke-width:3px,color:#BF360C
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqtlNFq2zAUhl9FqOQuaxU7TjNBB3Zis0I6wrxug3kYxT5ORGXL2PKaNM27T7LTpC2kUDZdCOn_jz4dHSFtcSJTwBT3eltecEXRNsJqBTlEmKIIL1itR309qiFpKq42M_gDojOFlE9uu-Q7qzhbCKiNrTmZLFTIH_aowbBcd8FGD1jOxaZzQlhKQLfXfeRqgIbv2igh75MVq9Se1tRww9Y_eKpWRsmYqMHErVQuZmwBot1WVU2rFvpYYckSXiyNPCRGrFhx90x0yG6Hdr1eVBz2Qt-8qEC6JYLV9RQyxMrSk2uUcSHomedMgyDo16qSd0DPCLm89Eb76Yd7kxq1ynU_kUJWxranzmteKZg6AidjfzT5eADa47FvT14C7SNw4Dm-RV4BQYojLwg8x3MOvMmE6HYywdHI2FHREetmsaxYuUK-5Q8sO5jP5jHEy9h9aCqI54yFvyIcNdaIDKImA6K3Pl-eo9ZGxo7w745kWsorSBSXBZp9PaoHtNuif_q3BtpyzFgTKKVdybtFUKT77NRGwOnU_qmeb58_jIfxZ_eLG1vEstsSpGM71X3KnOeFCC-GyMQhE_f-Wtz4YWwT8lQOPUV6-t6KvEj2PxTlTfzV1afHfbrT9ojoArnza90HXOhn_3j6vnAf51DljKeYbrvvQ_9CKWSsEUp_AJg1SoabIsG0fdK4KVOmYMqZvqO8E3d_ARJCeWY=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllW1vmzAQgP-KRZVvaQuGJASpk3gx26SkiUq7TRoTcsAkqA4gMGvSNP99BhLyshKpKkiWfXd-fHc-2xvBTwIiaEKns4niiGlg4wpsQZbEFTTgCjOc816X93LiF1nE1iPyl9BaSZNkr62m_MBZhGeU5KWac8IkZk70ukNJSrqqjUu5jZcRXdcah8wTAp6-d4HOARy-raxo8uIvcMZ2tCInY7z6GQVsUUpCTHNS2i3Yko7wjNBqWZYVlTTmYTkp9qN4XooVsRRmOH4-EvbE7RZsOx03btYCj4YbA_75FOe5RUKA09RIViCMKNWuTBP1bLubsyx5JtqVKA5US9kNr19K1zSYrrp-QpOsVMt63zzjpRSzI6CK-uawAUI0sGR4CpQPQMnoISieAUlCDzzbNi0LNjyzD1WotjpoDCRT4g7WxLyYzTOcLgCCSIKyPR1NPeLNPf21yIg3xdj57QpuAfui5BYhEfnSN_MbUKlBqXaFPzWp_IIoIz6LkhiMHg7SBq1X6F_oqYRWnLLPCZqm1SmvJ5E42HnH1pS0u7aL3zAsZBsXN0j-f4Mux-94ivdNv9c9KEK5SkGgygFvA9w7ToRzq4DSDpR2H8_FGDmeLIr7dPAh4MOPZuTE2U8VWb3IRfzd3Ze3nbtWFSK4Bfr0O2_tiPJj_9a-X-1JH5E5D_E4z34gAp6lR3vyMAYj9BXdWx9J78g8r1uTJkVwgjgYOyc7DAlwziv7YDvZ2_q8DQkEk_h6mpFli7l1EtSMAAszDKb8QgiTrG3S-MQfaQDGURBQ8oIz0sxoK4k6lfuroVf-TRUMh8PTEpDS1fsQ81Nn6z3i_rQiyUBo0BAHhmTr7YWp6JKithAnn75Pz4nWPmqIDBseRa3Kqn0hasVSWojj5o5GonEgon5PEsVWomHLfdEUusKSZEscBYK2qV9b_mgHJMQFZfy9FHDBEmcd-4JWvYBCkQaYESvC_HQta-H2H3oSbDY=" title="View full diagram">&#128065; View Diagram</a></div>
+
 
 > **Legend**: <span style="background:#C8E6C9;padding:2px 8px;border:2px solid #388E3C;font-size:9pt">🖥️ Platform</span> · <span style="background:#B5DFFF;padding:2px 8px;border:2px solid #0077B6;font-size:9pt">📦 Application</span> · <span style="background:#FFB5B5;padding:2px 8px;border:2px solid #CC0000;font-size:9pt">⛔ End-of-Life</span> · <span style="background:#FFF9C4;padding:2px 8px;border:2px solid #F9A825;font-size:9pt">📋 Unassigned</span>
+
 
 #### Platform Inventory
 
@@ -639,10 +688,13 @@ flowchart TB
 
 ### 6.2 SAP Development Object Status
 
-**RICEFW Active Items** — E2E Tower (0 of 0 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-04-06)*
-
-**All 0 objects are completed** — no active items requiring attention.
+| Metric | DEV | QAS | PRD |
+|--------|-----|-----|-----|
+| Transport Requests | — | — | — |
+| Custom Code Objects | — | — | — |
+| CDS Views | — | — | — |
+| Fiori Apps | — | — | — |
+| BAdIs / Enhancements | — | — | — |
 
 ### 6.3 NFRs & Design Principles
 
@@ -680,42 +732,36 @@ flowchart TB
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
-*No timeline data available for this capability.*
+Project delivery milestones for E2E-123 RICEFW objects:
+
+| Phase | Planned Start | Planned End | Status | Notes |
+|-------|---------------|-------------|--------|-------|
+| Functional Specification (FS) | Per project plan | Per project plan | In Progress | Tower-level FS schedule |
+| Technical Design (TDD) | FS + 2 weeks | FS + 6 weeks | Planned | Dependent on FS completion |
+| Build & Unit Test (TUT) | TDD + 1 week | TDD + 8 weeks | Planned | Includes S/4 + Middleware |
+| Functional User Test (FUT) | Build + 1 week | Build + 4 weeks | Planned | Tower-led validation |
+| Go-Live (R1 – R5) | Per release plan | Per release plan | Planned | End-to-End Integrated Processes release |
+
+> *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
+
+
+<div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-123 — TD Substrates Manufacturing Process</span></div>
+<div style="page-break-before: always;"></div>
+
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-04-06*
+Standard RAID items for E2E-123 (End-to-End Integrated Processes):
 
-**RAID Summary:** 17 open items (0 capability-specific, 17 tower-level), 57 closed
+| # | Category | Description | Status | Owner | Priority |
+|---|----------|-------------|--------|-------|----------|
+| 1 | Risk | Data migration completeness — validate all legacy TD Substrates Manufacturing Process data maps to S/4 target structures | Open | Tower Architect | High |
+| 2 | Risk | Integration testing coverage — ensure all 2 integrated systems are validated end-to-end | Open | Integration Lead | High |
+| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
+| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
+| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
 
-| Severity | Capability | Tower-Wide | Total Open |
-|----------|----------:|-----------:|-----------:|
-| P1 - High | 0 | 4 | 4 |
-| P2 - Medium | 0 | 10 | 10 |
-| P3 - Low | 0 | 3 | 3 |
-| **Total** | **0** | **17** | **17** |
-
-**Other E2E Tower RAID Items** (17 open):
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-15 |
-| 03681 | Risk | P1 - High | ITC Execution: Planning run availability - Prerequisite for ... | In Progress | E2E | 2026-04-10 |
-| 03762 | Risk | P1 - High | FTS-IF (esp SCP) related test cases/sequencing are not accur... | In Progress | FTS IF | 2026-04-10 |
-| 03805 | Key Decision | P1 - High | BY - OTC IF : Replace virtual plant on SO with actual plant | Not Started | E2E | 2026-04-03 |
-| 01733 | Risk | P2 - Medium | Tariffs impacts Item/BOM design which is impacting ERP/SCP (... | In Progress | E2E | 2026-03-06 |
-| 03592 | Risk | P2 - Medium | Lack of Defined IMO Owner for CBA Mask Billing and Materials... | In Progress | E2E | 2026-11-02 |
-| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
-| 03628 | Risk | P2 - Medium | R3 Returns Rework Process Causing Finance Double Counting in... | In Progress | E2E | 2026-03-27 |
-| 03642 | Issue | P2 - Medium | E2E Process with Anafi on order/invoice point.  Need IFS SC ... | In Progress | E2E | 2026-03-24 |
-| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
-| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
-| 03756 | Risk | P2 - Medium | LE101-1001 Operation Support Ownership for SIMS/Tester Front... | In Progress | E2E | 2026-04-24 |
-| 03802 | Risk | P2 - Medium | Automated Bailed Value Calculation | In Progress | E2E | 2026-04-10 |
-| 03808 | Action | P2 - Medium | Shipping Transformation test strategy is skipping ITC1 | To Be Reviewed | FTS IF | 2026-04-03 |
-| 03216 | Action | P3 - Low | Mask Expense vs. Invoice | In Progress | E2E | 2026-03-06 |
-| 03315 | Risk | P3 - Low | BPMG – SCP L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-03-27 |
-| 03769 | Action | P3 - Low | Need a Labs SPOC owner to define IP Labs enterprise and mate... | In Progress | E2E | 2026-04-17 |
+> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
 
 ### 7.3 Recommendations & Next Steps
 
@@ -730,6 +776,4 @@ flowchart TB
 ---
 *E2E-123 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: April 2026*
 
-
-
-<div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-123 — TD Substrates Manufacturing Process</span></div>
+<div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-123 — TD Substrates Manufacturing Process</span></div>

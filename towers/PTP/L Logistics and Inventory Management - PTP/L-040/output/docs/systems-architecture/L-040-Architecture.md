@@ -1,6 +1,5 @@
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
-  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMGFlZWY7c3RvcC1vcGFjaXR5OjEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjE1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4wMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDcpIiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgPC9wYXR0ZXJuPgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2JnKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNncmlkKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPgoKICA8IS0tIERlY29yYXRpdmUgY2lyY3VpdC9hcmNoaXRlY3R1cmUgbGluZXMgLS0+CiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+CiAgICA8cGF0aCBkPSJNIDAgMTAwIEwgMTIwIDEwMCBMIDE2MCAxNDAgTCAyODAgMTQwIi8+CiAgICA8cGF0aCBkPSJNIDAgMjYwIEwgODAgMjYwIEwgMTIwIDIyMCBMIDIwMCAyMjAgTCAyNDAgMjYwIEwgMzYwIDI2MCIvPgogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPgogICAgPHBhdGggZD0iTSA0NDAgMzQwIEwgNTYwIDM0MCBMIDYwMCAzMDAgTCA3MjAgMzAwIEwgNzYwIDM0MCBMIDgwMCAzNDAiLz4KICAgIDxwYXRoIGQ9Ik0gNjAwIDQwMCBMIDY4MCA0MDAgTCA3MjAgNDQwIi8+CiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+CiAgICA8cGF0aCBkPSJNIDIwMCA0MjAgTCAzMjAgNDIwIEwgMzYwIDM4MCBMIDQ4MCAzODAiLz4KICAgIDxwYXRoIGQ9Ik0gNjUwIDQ0MCBMIDc1MCA0NDAgTCA4MDAgNDgwIi8+CiAgPC9nPgoKICA8IS0tIERlY29yYXRpdmUgbm9kZXMgLS0+CiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+CiAgICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjI4MCIgY3k9IjE0MCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSIzNjAiIGN5PSIyNjAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjYwMCIgY3k9IjEwMCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI1NjAiIGN5PSIzNDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjgwIiBjeT0iMzYwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjMyMCIgY3k9IjQyMCIgcj0iNCIvPgogIDwvZz4KCiAgPCEtLSBUT0dBRiBCREFUIGJveGVzIC0tPgogIDxnIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI2MDAiPgogICAgPCEtLSBCIC0tPgogICAgPHJlY3QgeD0iMTUwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIyMTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QnVzaW5lc3M8L3RleHQ+CiAgICA8IS0tIEQgLS0+CiAgICA8cmVjdCB4PSIyOTAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjM1MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5EYXRhPC90ZXh0PgogICAgPCEtLSBBIC0tPgogICAgPHJlY3QgeD0iNDMwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSI0OTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QXBwbGljYXRpb248L3RleHQ+CiAgICA8IS0tIFQgLS0+CiAgICA8cmVjdCB4PSI1NzAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjYzMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5UZWNobm9sb2d5PC90ZXh0PgogIDwvZz4KCiAgPCEtLSBDb25uZWN0aW5nIGxpbmVzIGJldHdlZW4gQkRBVCBib3hlcyAtLT4KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+CiAgICA8bGluZSB4MT0iMjcwIiB5MT0iMTYwIiB4Mj0iMjkwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNDEwIiB5MT0iMTYwIiB4Mj0iNDMwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+CiAgPC9nPgoKICA8IS0tIE1haW4gdGl0bGUgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIyNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmZmZmYiIGxldHRlci1zcGFjaW5nPSIxIj4KICAgIElBTyBBcmNoaXRlY3R1cmUKICA8L3RleHQ+CiAgPHRleHQgeD0iNDAwIiB5PSIzMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC44KSIgbGV0dGVyLXNwYWNpbmc9IjIiPgogICAgVE9HQUYgQkRBVCDCtyBJQU8gUHJvZ3JhbSDCtyBJRE0gMi4wCiAgPC90ZXh0PgoKICA8IS0tIEJvdHRvbSBhY2NlbnQgYmFyIC0tPgogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgoKICA8IS0tIEludGVsIHRleHQgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPgogICAgSU5URUwgQ09ORklERU5USUFMCiAgPC90ZXh0Pgo8L3N2Zz4K" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">L-040 — Receive and Put-away Product - PTP</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Procure To Pay (PTP) Tower<br/>
@@ -13,30 +12,20 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-footer { display: none !important; }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
 </style>
 
 
@@ -77,9 +66,6 @@
   </li>
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
-      <li><a href="#51-current-state-current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
-      <li><a href="#52-future-state-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
-      <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
       <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -120,9 +106,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Release** | R1 – R5 |
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
-| **RICEFW Objects** | 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows |
-
-**Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
+| **RICEFW Objects** | 3 Reports, 171 Interfaces, 16 Conversions, 172 Enhancements, 7 Forms, 10 Workflows |
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
@@ -202,6 +186,7 @@ This capability includes **10 business process(es)** modeled in BPMN 2.0, coveri
 
 ### 3.2 Business Process Diagrams
 
+
 #### BUSINESS ARCHITECTURE — 3.2.1 L-040-030_Manage_Receiving_Manifest_-_PTP — L-040-030_Manage_Receiving_Manifest_-_PTP
 
 **Swim Lanes**: Warehouse Operator | **Tasks**: 1 | **Gateways**: 0
@@ -229,6 +214,7 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVFtv2jAY_StWKpRNClKuhOVhEgQiTdq0anTtw5gmk3wmFo4d2YbCEP99Nre0VH1aHlB8OBd_x0n2TikqcDKn19tTTnWG9q6uoQE3Q-4CK3A9dAIesaR4wUC5lkME1zP690gL4nZraRYrcEPZzqIzWApAP794aGSEzEMKc9VXIClxPbeVtMFylwsmpGXfwZD45Jh2_mssZAWyI_h-GpSJkTLKoYOjNE7jwuoUlIJXr0xJQoakdA92c0w8lzWW-rj9tYJvePtEK12bNcFMgeHUumFf8QKYnVHLtcXKtdxcyqDK5nBT2KzFJeVLg8e-gSTmqw5K_MMBHXq9Ob-GoofJnCNzlQwrNQGClDbwdKMRoYxld3E-KhLfU1qKFWR34TSdRKFX2kkyM7rv2XL7z0CXtc4WglVnav_ZzpCF7daT2yz0PbkzvzdZwKsuKR-Ew3B4TRqnQR7klyRCyH8lmV7lA1arc9Y0KsJics0KkkGS-2_9LmNO4nQU3PYEckNLeGFaFEU07aqaDpLAf990XEQDP78xXWINz3jXGX7K46thkaRFkL5reMq73eV6cS9FeTGMpkmRXA3TcVCMwncN41EQD887ND5LidsaMczhj_9r7jxhCbUwvaLvLUishZw7v09ke_HAcH5ACXQD6BvmlIAyJy1Fg6ZbDZJjhh7N-d_Kwg9GR3BGcL9lpomZFuUK3dc7RUvM2A6dPSsj-_hCF3U6pUXbRb7lm9TTDQ9Qv__ZaM_L8LR8edIWvLwRr-Do_PA6ntOAbDCtnGzvHD9I5qNVAcFrpp2D5-C1FrMdL53s-OI667Yyhzyh2PTZnMDDP1WQlag=" title="View full diagram">&#128065; View Diagram</a></div>
+
 
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-040 — Receive and Put-away Product - PTP</span></div>
@@ -327,6 +313,7 @@ flowchart LR
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV22P2jgQ_itWqhVbCXR5JcCHO7FAqj11W7R02w_ldDKJQ6wNduQ47NIt__3GeYOEIN1d9wPLPJ555sWesXnTfB4QbaLd3LxRRuUEvfVkRHakN0G9DU5Jr48K4CsWFG9ikvaUTsiZXNEfuZphJ69KTWEe3tH4oNAV2XKCnu77aAqGcR-lmKWDlAga9vq9RNAdFocZj7lQ2u_IKNTD3Fu5dMdFQMRJQdddw3fANKaMnGDLtV3bU3Yp8TkLGqShE45Cv3dUwcX8xY-wkHn4WUoe8Os3GsgI5BDHKQGdSO7ij3hDYpWjFJnC_Ezsq2LQVPlhULBVgn3KtoDbOkACs-cT5OjHIzre3KxZ7RR9fFwzBH9-jNN0TkKUSoAXe4lCGseTd_Zs6jl6P5WCP5PJO3Phzi2z76tMJpC63lfFHbwQuo3kZMPjoFQdvKgcJmby2hevE1PviwN8tnwRFpw8zYbmyBzVnu5cY2bMKk9hGP6SJ6ir-ILT59LXwvJMb177MpyhM9Mv-ao057Y7Ndp1ImJPfXJG6nmetTiVajF0DP066Z1nDfVZi3SLJXnBhxPheGbXhJ7jeoZ7lbDw144y2ywF9ytCa-F4Tk3o3hne1LxKaE8Ne1RGCDxbgZMIxZiRv_Xva03RZgL6j0k03cLnWvur0FV_zACVEE9CPFClRzNBIDW0zAQcu5Sgz6qH0O3y83tEGVr9Zjetzab1NE3plqGloFxQeVAmLaYuEsO-rWmSGKp6zzY8YwGak5juiThUhPQHlpQzWIfvEGYAPO_PiYbAs4LDipafQSnkYpcb1O5gqatMqgbfsCARz1SgCRFYctEM0uqs00WkD5hlOI4P6IXK6CIBlVpAfcWeV6JVCLvp4zFj6JEkHLpfcjSLiP98TtTwTEna5HKaXEsiVDnQE4s5DmDMoKdUfa6mS_Th6R5BQI8eWvmYMdLKfNjN9IHzIIX4fEIT-e_Z3O81nc-3V-t4pXx50dDtNJNcba2vSv0eHJx7GDU9zCn0Dd1k_8HLaZOg7otvDy0H419K4fIENHpB7yTPpxcE88D3ytMe2pgDaSg4bMQjWkm8VfWfgrZSW8JUQV8iwbNtlINtL-rEF0fhjG0ZHdKipBAasNQt0WpX1fQzyFUiDPl-VRfyoaWiuqUr1vy47M9DPQ-9ReKcxkIqeYLUJCOQWGsazPguiUnHNHDBvHBI0HT1qXMiFJqjt7dT0QMy2MB97Edn0f6x1o7Hc4txt0W-XSooHl4eiDaJqXeTkFc_zlKw-VDcMm0z42SGheAv6QDHEiVYwNaR-IqR-X-MrNNhDOEiJ2LAE8KQB6-SgYxEBvnyNA14Pph4kPkSDZD3ZYVu772ztqzHLox6NBj8Dv8ruRDNUnRLsbwd4UsBjErZaq2PW_KolCt6s-S3W7JR-y8Bp5LNQh6WchmuWQXotGSz1DcqYFgqWJVCGbJRhWiUKRmVhlFp1DHkWf1ca3dYwmn4k2_W2k_ItWIs1asQjdKlURXJKKvoVvKo5FM9sPIJg3c4zymNC5VPcHQv1cbtyIpbLl-0zh4yaj-rB1wDNrthqxu2u2GnGx52w-75w6-xMrq6Mr66Art2dcmun-JN3CmfzU10eEXbvYKPqrdmEx53wtAvnbDRDZvdsFW9RrW-tiMwMWmgTd60_Ecc_NALSIizWGrHvobhHl4dmK9N8h87WpYEQDinGB5XuwI8_gNSaXPi" title="View full diagram">&#128065; View Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-040 — Receive and Put-away Product - PTP</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -417,6 +404,7 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV2tv2kgU_SsjVxGJBF3b2Bj4sCuebaQmRSFptCqr1WCPYRQzg8ZjApvy3_eO7THYONWqmw9V5_jec-7THt4MnwfE6BtXV2-UUdlHbw25JhvS6KPGEsek0UQZ8A0LipcRiRvKJuRMzuk_qZnlbPfKTGFTvKHRQaFzsuIEPd020QAcoyaKMYtbMRE0bDQbW0E3WBxGPOJCWX8g3dAMU7X80ZCLgIiTgWl6lu-Ca0QZOcFtz_GcqfKLic9ZUCIN3bAb-o2jCi7ir_4aC5mGn8TkDu-faSDXcA5xFBOwWctN9AUvSaRylCJRmJ-InS4GjZUOg4LNt9inbAW4YwIkMHs5Qa55PKLj1dWCFaLocbxgCP78CMfxmIQolgBPdhKFNIr6H5zRYOqazVgK_kL6H-yJN27bTV9l0ofUzaYqbuuV0NVa9pc8CnLT1qvKoW9v902x79tmUxzg34oWYcFJadSxu3a3UBp61sgaaaUwDP-XEtRVPOL4JdeatKf2dFxoWW7HHZmXfDrNseMNrGqdiNhRn5yRTqfT9uRUqknHtcz3SYfTdsccVUhXWJJXfDgR9kZOQTh1vanlvUuY6VWjTJYzwX1N2J64U7cg9IbWdGC_S-gMLKebRwg8K4G3axRhRv42vy-MZyzImkNd0dctEVhysTD-yozVH7PAJsT9ELdU7dGMiJCLDXpiEccBzCPiIZqtDzH1cYSGfE9itKMYPUzR3MeMgQsXaD6YoU9Pt2Vmu575DrMEqCZMikNK_hVRhuYSq90L0B2HtwhQPpAth7mXHN0GhEkaHhC8Rj5-_FgWaZdFVEyo8Q0GFijSVWygMZGYRnGJasSFIL5Et2zJExaATUR3RBzK5M5PM3jaBjAGKoXPaX0HVKiZGEIL0fXnwfPwppCGBH-u5JaVRoIo6qoPAnk0eb5DX7iPJeWsTNKp1ALviKrZJc2Y-8kGKlF298ruD5hCUpO9T7ZKSrVZF-DTA4JuoZmgTKpDWujfTqbpuUze_V6w-3yFxhSmmS6TuiShT5AjuJ_798r-_7VA6JXKNVLNKHpxPUgk38BT_6aiYal9ybs6dy7J75PNEgpzQVlZKLVRI_CUaZG-qQ_WobJCFQ_7ukhuG8EIPYrEf0GDOKYrpvqkSgI9e4GQqKQQXgAEN-cM7RNDLPn23diz7C7c1aBDMkRs4NuIZolsYTXKRRVbaPY4qwTtvr2dOhKQ1hI-Yv4ane8eGuygPuqj_8fCOB7PvTv13perdd46WCNo7gWXV89F9n6UxJD-p-xtXXXr1rs9EJ_QnXrzzX3C4NLC0YVi75cUbfPX3KyTGxaCv8YtHEldo7yxv1X3tRqzbZ82KISvMhEtviVMpQsXpSzrbTay-XI9Cuy_qDpkvdQzkA8BtDn7D4wvarV-VwXNgW5-zo_6cU_b52dXnzXQ0Q7aw8kBJzvr51Yq8GNh3MNoDub3C-MHvEHzh15ma9v5uZOfdTS9nNvTZG5O9qdaSyBqV1W0go7frTLkkt0q4z1P_XQklpbWobQrhbHNDCiI87OlQ7KtnLnS60zGrFrlE3J7P9RToj60TmptaWurU0Srty_J_K4hcRTnO3BT1ii8oGroOu9DsTCZsXN2x1Fd13e7EmzXw-162KmH3Xq4Uw979XD3_KpYetJ79wmMvr6Hl_F2fmcuo8471q6-UJbhTj3s1cPderhXC8Oo1cJWPWzrC6rRNDbwlcA0MPpvRvq7Dn77BSTESSSNY9PA8HGdH5hv9NPfP0Y2S2OK4Vq6ycDjvzwCeLk=" title="View full diagram">&#128065; View Diagram</a></div>
+
 
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-040 — Receive and Put-away Product - PTP</span></div>
@@ -588,7 +576,8 @@ flowchart TD
     class n47 gateway
 ```
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1WW1v27oV_iuEiyIp4PRab5btDxtsx-4yNJ0bN7fYboaBliibiywKFO3Ey81_36FEyhZNFWh2lw9p9fCc57zwnENKeelELCadUef9-xeaUTFCLxdiQ7bkYoQuVrggF11UAb9iTvEqJcWFlElYJpb0P6WY4-fPUkxic7yl6UGiS7JmBN3fdNEYFNMuKnBWXBWE0-Sie5FzusX8MGUp41L6HRkkvaS0ppYmjMeEHwV6vdCJAlBNaUaOsBf6oT-XegWJWBY3SJMgGSTRxat0LmVP0QZzUbq_K8gtfv5OY7GB5wSnBQGZjdimn_GKpDJGwXcSi3Z8r5NBC2kng4QtcxzRbA243wOI4-zxCAW911f0-v79Q1YbRd-uHzIEP1GKi-KaJKgQAM_2AiU0TUfv_Ol4HvS6heDskYzeubPw2nO7kYxkBKH3ujK5V0-ErjditGJprESvnmQMIzd_7vLnkdvr8gP8NmyRLD5amvbdgTuoLU1CZ-pMtaUkSf4nS5BX_g0Xj8rWzJu78-valhP0g2nvnE-Hee2HY8fME-F7GpET0vl87s2OqZr1A6fXTjqZe_3e1CBdY0Ge8OFIOJz6NeE8COdO2EpY2TO93K0WnEWa0JsF86AmDCfOfOy2Evpjxx8oD4FnzXG-QSnOyL96vz10vmNONgzyiv6WE44F4w-df1bC8idzQCbBowRfydyjBeEJ41v0ibEY3ZGI0FygPcXobo6WEc4ywgt0X0ChoptsxXZZjK5JSveEH5q8rp33PksZjqU6S9BicyhohFM0Yc-kMMwgxtFyvECf7m-azF6T-ZbtCRIMLWj0iLD0h7McfWYRFpRlTVW_qTrlBDbyLBAEnqLZ99sWkuCPIOkbJBucrQlaCryWuRkDJ0o4g324Q_9gWRngX6CXypUmU2gkmhUCtJoyA6vLOEOz54jk0jv0hQma0MpVdPmZrRHNpFWY3ejrDqdUHJoy4zz_0LQybFpZkpREAi04iUkCMxdyQ4ucFbRUlzul_UBld15OdgfCf1mk5fYb3E7PSn4H_-xxJhrUZeKk31MscMrWO1Jam2UCFEucbbckE0UZ4oZ8_PjRMGY0xb2gKZxVJ9m6IzmDqQz5mVOgZjtREp96Af28pzFEXbtTxndurKVTxlGVpwJB356l7j6PZeqUEG3bScOUZ62DajYyfnTyFzmMdpzILKHxWv5-omIDxS0wTQvZu1K2tlkYdvzfakMRVNJ4B4n6iT5pcAUWrgWn4FJjRl1-uvuAvnEcPcoGqk5hk6rfpFI5lDRFzQMtKHZlZVjmW4MtbLLBDglOVztbjOAyhGgSDJoEpQf7egeqNkCzLWS8yr5M-WeaPeq2PG75ZVXIuicbVoZNK-ael9Yq_jvyb9lTujsMIld24BTiEmUB_iovYgdjhBtHgGyja3mrKlhKy1z_UNwtDaQpXjEuhZuJ-C5dXO7yPKXwJF1QHXbaGwajd1nHnqdwXje3WhY5KQrYLtAFgzFofzhV94_qhYBDZSkYnDHywInlHpQHzYJBKZqKQRk4jJstzD202Aksbwv2k8Dtl8KqUqrticut-Xp7nG-3gMprsCxMPY5vsiIn1QC4_HrzQbn37ZATw0LYZuH263RpsTGBezsMtaqmShnVFUJe4M8mmDuw8YOj9xknsikibU9n4nLu_sDd4f87IV7vJxMCNiYpcJH4ctL_Aa_zhybCkw1xbPJypqnR943T9ZrwsmRPNbyXl2Ozx-RqBW8W0UYqMS4ztNzQvBzqf37ovL6eavp2zaP5M43ArlGNMTmElxHJ4KWPnav27aqwv3oPMGzjnpwphnbFMtXSSTiYzOF7xjGwc5DnKN0VoPKputybasM3-uz33mTPd96m5r5NraVw6mIe7-EYkt1_Fl5L4ei3DbjakuixKEdJfHKJOeMJ3uZ4_21q4c-qwTtw9R9oMnR19affHzpf2EPndznt9YLE5bGhnl1HAT0N9CrA0xJKwNEMTqCAvgZCRaEZ1KOjn5VNr2bwFdA3vf27PG_BXU8v-M0wNKUXKHy8_FIt-ObKF3n9V6teqFa14YF6Doxnb6CAoVZQ2fC1ZV-no6Z0DYl-9azXVXJ8Hauy4OgQHQW4dfoUoXbBUS442oCjXPDrHVIm_TrBrgH4OtDa6lBJ1GHoTI8jOUzl0JZp1U4pcUdXiRcq8QkWUJJ_ZatSPjCXb3EG5165Vlec9rbm6ithGFO0UBOqqlqdNDds0ymHmqEVmkITBteyjImGlN5zd2Bwuzo3Onhv2G7Mqz3qmVpOG815nENTxOaxV9egyqCOwDfbp28uqPapi9DRLVn75pr1oDLuDMwCqW7gukCGZqdqH3zv5PORnCL6s1kDdu2wZ4d9OxzY4b4dDu3wwA4P7TA0pR1vidNpCdRpiRRG5MlHweZS0L7Ub18K25cG7UvD1iWY6vrzbhP31afYJhq0SPdb8LAFH7TgQzsOXWnHnRbcbcE9_T21Cft2OLDDfTsc2uGBHR5aYTiorLBjh107bI_St0fp26P07VH6dZSdbmcLb52Yxp3RS6f8u0tn1IlJgnep6Lx2O3gn2PKQRZ1R-feJzq78BnJN8ZrjbQW-_hefFRZd" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNq1WW1z4roV_isadnaSnSF78TvwoR0gsE1ns2XD5u60N52OMDKoMZZHFiQ0N_-9R7ZksJB3ZtPbfEjiR-c850XnHAnz0onZinSGnffvX2hGxRC9XIgN2ZKLIbpY4oJcdFEF_Io5xcuUFBdSJmGZWND_lGKOnz9LMYnN8JamB4kuyJoRdH_TRSNQTLuowFlxVRBOk4vuRc7pFvPDhKWMS-l3pJ_0ktKaWhozviL8KNDrRU4cgGpKM3KEvciP_JnUK0jMslWDNAmSfhJfvErnUvYUbzAXpfu7gtzi5-90JTbwnOC0ICCzEdv0M16SVMYo-E5i8Y7vdTJoIe1kkLBFjmOarQH3ewBxnD0eoaD3-ope379_yGqj6Nv1Q4bgJ05xUVyTBBUC4OleoISm6fCdPxnNgl63EJw9kuE7dxpde243lpEMIfReVyb36onQ9UYMlyxdKdGrJxnD0M2fu_x56Pa6_AC_DVskWx0tTUK37_ZrS-PImTgTbSlJkv_JEuSVf8PFo7I19Wbu7Lq25QRhMOmd8-kwr_1o5Jh5InxPY3JCOpvNvOkxVdMwcHrtpOOZF_YmBukaC_KED0fCwcSvCWdBNHOiVsLKnunlbjnnLNaE3jSYBTVhNHZmI7eV0B85fl95CDxrjvMNSnFG_tX77aHzHXOyYZBX9LeccCwYf-j8sxKWP5kDMgkeJvhK5h7NCU8Y36JPjK3QHYkJzQXaU4zuZmgR4ywjvED3BRQqusmWbJet0DVJ6Z7wQ5PXtfPeZynDK6nOEjTfHAoa4xSN2TMpDDOIcbQYzdGn-5sms9dkvmV7ggRDcxo_Iiz94SxHn1mMBWVZU9Vvqk44gY08CwSBp2j6_baFJPgjSEKDZIOzNUELgdcyNyPgRAlnsA936B8sKwP8C_RSudJkioxEs0KAVlOmb3UZZ2j6HJNceoe-MEETWrmKLj-zNaKZtAqzG33d4ZSKQ1NmlOcfmlYGTSsLkpJYoDknK5LAzIXc0CJnBS3V5U5pP1DZnZfj3YHwX-Zpuf0Gt9Ozkt_Bnz3ORIO6TJz0e4IFTtl6R0pr00yAYomz7ZZkoihD3JCPHz8axoymuBc0hbPqJFt3JGcwlSE_MwrUbCdK4lMvoJ_3dAVR1-6U8Z0ba-mUUVzlqUDQt2epu89XMnVKiLbtpGHKs9ZBNRsZPzr5ixxGO05kltBoLX8_UbGB4haYpoXsXSlb2ywMO_5vtaEYKmm0g0T9RJ80uAIL15xTcKkxoy4_3X1A3ziOH2UDVaewSRU2qVQOJU1R80ALil1ZGZb51mCLmmywQ4LT5c4WI7gMIZoE_SZB6cG-3oGqDdB0Cxmvsi9T_plmj7otj1t-WRWy7smGlUHTirnnpbWK_478W_aU7g6DyJUdOIG4RFmAv8qL2MEY4cYRINvoWt6qCpbSMtc_FHdLA2mKl4xL4WYivksXF7s8Tyk8SRdUh532hsHoXdax5ymc182tlkVOigK2C3TB4Aq0P5yq-0f1QsChshAMzhh54KzkHpQHzZxBKZqKQRk4jJstzD003wksbwv2k8ANS2FVKdX2rMqt-Xp7nG-3gMprsCxMPY5vsiIn1QC4_HrzQbn37ZATw0LUZuH262RhsTGGezsMtaqmShnVFUJe4M8mmNu38YOj9xknsilibU9n4nLm_sDdwf87IV7vJxMCNsYpcJHV5Tj8Aa_zhybCkw1xbPJypqnR943T9ZrwsmRPNbyXl2Ozr8jVEj5ZxBupxLjM0GJD83Ko__mh8_p6qunbNY_mzzQCu0Y1xuQQXsQkgw997Fw1tKvC_uo9wLCNe3KmGNkVy1RLJ-FgMofvGUffzkGe43RXgMqn6nJvqg3e6LPfe5M933mbmvs2tZbCqYt5tIdjSHb_WXgthaM_bcDVlsSPRTlKVieXmDOe4G2Oh29Ti35WDT4DV_9Ak6Grqz_9_tD5wh46v8tprxckLo8N9ew6CuhpoFcBnpZQAo5mcAIFhBqIFIVmUI-OflY2vZrBV0Boevt3ed6Cu55e8JthaEovUPho8aVa8M2VL_L6r1a9SK1qw331HBjPXl8BA62gsuFry75OR03pGhJh9azXVXJ8Hauy4OgQHQW4dfoUoXbBUS442oCjXPDrHVIm_TrBrgH4OtDa6kBJ1GHoTI9iOUzl0JZp1U4pcUdXiRcp8TEWUJJ_ZctSPjCXb3EG5165Vlec9rbmCpUwjClaqAlVVa1Omhu16ZRDzdCKTKExg2tZxkRDSu-52ze4XZ0bHbw3aDfm1R71TC2njeY8zoEpYvPYq2tQZVBH4JvtE5oLqn3qInR0S9a-uWY9qIw7fbNAqhu4LpCB2anaB987eX0kp4h-bdaAXTvs2WHfDgd2OLTDkR3u2-GBHYamtOMtcTotgTotkcKIPHkp2FwK2pfC9qWofanfvjRoXYKprl_vNnFfvYptokGLdNiCRy14vwUf2HHoSjvutOBuC-7p96lN2LfDgR0O7XBkh_t2eGCF4aCywo4ddu2wPUrfHqVvj9K3R-nXUXa6nS186sR01Rm-dMrvXeC7GXj_hnep6Lx2OxhenywOWdwZlt9PdHblO5BriuG18bYCX_8LnxUWXQ==" title="View full diagram">&#128065; View Diagram</a></div>
+
 
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-040 — Receive and Put-away Product - PTP</span></div>
@@ -680,6 +669,7 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV2tv4kYU_SsjRxGtBJHfBn9oxSNepWrSaMk2qpaqGuwxHsXMWGObhLL8997xA7Bja9OWD1Hm3HvOfXDtOxwUnwdEcZXr6wNlNHPRYZBFZEsGLhqscUoGQ1QCv2NB8Tom6UD6hJxlS_p34aaZyZt0k5iHtzTeS3RJNpygL3dDNAViPEQpZukoJYKGg-EgEXSLxX7OYy6k9xUZh2pYRKtMMy4CIs4OqupovgXUmDJyhg3HdExP8lLicxY0REMrHIf-4CiTi_mrH2GRFennKbnHb880yCI4hzhOCfhE2Tb-Fa9JLGvMRC4xPxe7uhk0lXEYNGyZYJ-yDeCmCpDA7OUMWerxiI7X1yt2CoqeFiuG4OPHOE0XJERpBvDtLkMhjWP3ypxPPUsdppngL8S90m-dhaEPfVmJC6WrQ9nc0Suhmyhz1zwOKtfRq6zB1ZO3oXhzdXUo9vC3FYuw4BxpbutjfXyKNHO0uTavI4Vh-L8iQV_FE05fqli3hqd7i1MszbKtufpery5zYTpTrd0nInbUJxeinucZt-dW3dqWpvaLzjzDVuct0Q3OyCvenwUnc_Mk6FmOpzm9gmW8dpb5-lFwvxY0bi3POgk6M82b6r2C5lQzx1WGoLMROIlQjBn5S_26Up6xIBGHvqLfEiJwxsVK-bN0lh-mgU-I3RCPZO_RXBCoDd2xNc9ZgBYkpjsi9k2O3slZTh_RDGd-hJ4jGhP0SETIxRZmGn3iPECfiU9okqEdxeizh5Y-ZgzYM3hJBIizm5ubZhTj6ymMzzd1lDLCQ75dA9cTfIumywcgXjLNJnNBoXV0nXfUhZ5pFlWad0ymizPKWUvP6sykU4vnWSXHihRbSvbHlb6blfPvqjxn9tCV2fjDai3ipEn8kgTNYaDsewqa-qGutFlycucR8V-QxwV6ikg5YTs5cEufMNg3vDXr-g-nQEkMz29jmOY4yXIh49KMQgIBkH-8ZBtndprxpMmmaS3wjmcCDVKDfXR6BjDUVZX5JLD_InMuNgcaocenx1baFgjAlCNR1FcEuDTbh8O5fQEZrWGdQGLvu_HzSjkeL5lON_MuRfeQmly7VZH3mOENPKbvFMbdCuTNj_MUcv1UvinbtEk3rWgJTDri4fshbsfW1f8UW9fO0xbCeiJixBPC0Ee_ofMYwlos_4HBQqPRT7KhFWCUZ7s62uXRrN3LY739WMWeVEerPNZamiPP31bKA4zzNzDXeCWj2W3HP0haeGrVMmTjKmB1dCpinY9ZmWt3vVYeV8CkddYqQc2oGWoJnBzUVolaVVRN0Owq1-LtLXM9lTWpLOXk_cLXpV1tMx9gTuRTcX7WpdukLQOjm-O4NF5sXfkt1LeNBqx3w8blTaJhMXstVq_F7rU4vZZxr2XSa4Hvodekn-6QTdyo7ntN1Ozxtnpwu74kNWGnGx53w5NOGIatE9bqa5QyVLYEliYNFPegFL8-4BdKQEKcx5lyHCo4z_hyz3zFLW7pSl4srQXFcHnaluDxH0GGCRw=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-040 — Receive and Put-away Product - PTP</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -747,6 +737,7 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVm2P2jgQ_itWVit6UljllbD5cCfecl2pu4fKvqgqp5NJHLDW2KmT7MJR_nvHIQkkBam64wOKH8_MM_N4Ms5OC0VENF-7vt5RTjMf7TrZiqxJx0edBU5JR0cH4BlLiheMpB1lEwuezei_hZnpJBtlprAArynbKnRGloKgpzsdDcCR6SjFPO2mRNK4o3cSSddYbkeCCamsr0g_NuKCrdwaChkReTQwDM8MXXBllJMjbHuO5wTKLyWh4FEjaOzG_Tjs7FVyTLyHKyyzIv08Jfd480KjbAXrGLOUgM0qW7NPeEGYqjGTucLCXL5VYtBU8XAQbJbgkPIl4I4BkMT89Qi5xn6P9tfXc16TosfxnCP4hQyn6ZjEKM0AnrxlKKaM-VfOaBC4hp5mUrwS_8qaeGPb0kNViQ-lG7oSt_tO6HKV-QvBotK0-65q8K1ko8uNbxm63MJ_i4vw6Mg06ll9q18zDT1zZI4qpjiO_xcT6Cofcfpack3swArGNZfp9tyR8XO8qsyx4w3Mtk5EvtGQnAQNgsCeHKWa9FzTuBx0GNg9Y9QKusQZecfbY8DbkVMHDFwvML2LAQ987SzzxVSKsApoT9zArQN6QzMYWBcDOgPT6ZcZQpylxMkKMczJP8bXufaCJVkJ0BX9lRCJMyHn2t8HY_XjJtjE2I9xV2mPRpJAbeiOL0TOIzQmjL4RuW36WE2fKZGxkGv0xJnAEfQweqYYfQ7QLMScg8FTqsB5bhlm_2i02B7Dq61byDCjgje57K81WSiWaExBBrrIz-SIXmgGlWZowLfo4xN6yNcLoqo9Def8erhMoMnLfcvfbfqXcn3EPGKqpicYgegNqp_i8BUvFTRLSEhjGmJVGxISDWEqRgien-G9gnUxMVo0PWAZq3mUCkYjRfGZhATyitB0tU0hGkNDsWlK5YHTHSRAlf00z7q46FGgmGUifC30aQhz4tv_BV-l7QX32w-1LAkDx3sIo6Y2mq1okigZquCROvey8loJuCCAVMKoU32q5jb6oFQczB5ubm6A6rfTjjUKcYBgDZP8mOwnUWo8fZy2etzc7Y6nFpHuAgZuuEJkE7I8BVX_PLzPc22_P3WzzrvBpJYkRX-0ze3z5rVkcIbfciqhZKVrQDnoU2X_UzDnv6V80p8xzF4iuyIhXHUPXIeHJkoyBO1ate6jhE5VB1S0IeqW6pXywTkdHriNut3foTHLpXdYmuW4hYcSKCcb77cMbst1ZV8urXLtHNbV0jos3craLc3tCigMvs-1BzHXvoN7G_9C0mKjdrCbDv02Xjl45UbFWEXutdZmmbHpnoxyVVd1hTVg6zxsn15PjR3n4o57cee2_ihopmRcwM3qHmvC1nnYPg8752G3utI0XVvDm4pppPk7rfgShK_FiMQ4Z5m21zWcZ2K25aHmF19MWp6oeTemGC6y9QHc_wAQiUnV" title="View full diagram">&#128065; View Diagram</a></div>
+
 
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-040 — Receive and Put-away Product - PTP</span></div>
@@ -843,6 +834,7 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV22P4jYQ_itWTitaCa5JSAjwoRVv6Z10e8eVvZ6qo6pM4oC7wY5sh126x3_vOCQhCaHSqnxA-PHM88yMxy-8GAEPiTE27u5eKKNqjF46akf2pDNGnQ2WpNNFZ-B3LCjexER2tE3EmVrRfzIzy0metZnGfLyn8VGjK7LlBH1530UTcIy7SGIme5IIGnW6nUTQPRbHGY-50NZvyDAyo0wtn5pyERJxMTBNzwpccI0pIxe47zme42s_SQLOwhpp5EbDKOicdHAxfwp2WKgs_FSSe_z8lYZqB-MIx5KAzU7t4w94Q2KdoxKpxoJUHIpiUKl1GBRsleCAsi3gjgmQwOzxArnm6YROd3drVoqih_maIfgEMZZyTiIkFcCLg0IRjePxG2c28V2zK5Xgj2T8xl54877dDXQmY0jd7Ori9p4I3e7UeMPjMDftPekcxnby3BXPY9vsiiN8N7QICy9Ks4E9tIel0tSzZtasUIqi6H8pQV3FA5aPudai79v-vNSy3IE7M6_5ijTnjjexmnUi4kADUiH1fb-_uJRqMXAt8zbp1O8PzFmDdIsVecLHC-Fo5pSEvuv5lneT8KzXjDLdLAUPCsL-wvXdktCbWv7EvknoTCxnmEcIPFuBkx2KMSN_md_WxlcsyI5DXdGnhAisuFgbf56N9YdZYBPhcYR7uvZowRR8-5ThGC1ThXWWK3DCW4KmlCHFUZgK6FN0Ic5qOxMEK8pZnd2us2dGBGEWohU-kFKhzlWn6DcodiSAleQCTQ6YxvpEqQYo0YFitJos0Z7DcdTM1vlWsgV8W8TTHgZ6omqHQqJARiIe5VV59yWLf06kgrFO-e3bt6BSlXH_UwZWOkwD1SrHWXyscteKD1lfaw3qWl-SUGv9ynko0W8kIDRRaMb3SUwyPqB5zzY8zVKI6YGIY4PQqxPOCXTEHs5MNEkSweF01fzVsLBE0FqVdoE2I1tKZLdqdh358DVCD8eENPxHr_FfkSBvz1r36y1yz6EVobGXFDorW1vwRh940NLQlvVDKSoVmAE_eGmKUHNkrktOmQK_H6uOeivMOIuo2P80Cf9OpSolUA8tH5YNId33DzuSC-j0dQ_CVYo-38PCxuSAmUL3kKO-HvW6qh2V5aKiOQ_SPQET6KU4Ple_yu-08t9_nq1exQ7gFK758FrAvRbQ2_YjR59THFN1hEaUyXlZsrJn2qLQ3je0rwUGIAAdDvd82eiaJt9tDwIHj_qgym7k1hJ7Ly-XBgpJbwP3cLArjzJdj6Kpsx36y9o4naoEw3aCJVzNEurOBTQFhA9HxpXrqN2VPAdxKqHGv56vmIabbba7vYPbFkHHc6Hr-km_fJqKttXuCt0Eq5LVfgJrcSBXjvZrQ4X3wvkHs1Cv9zNQ5MP-eZjf0czLh8N8PDyPR_lwdB56-XCQc5kFt5m7F3RW7mAVclbuMsjHdj5fCFiZ4Pe18QeRa-M7XA_NiY88w90cdxsETpPQy_1WR6nIHk4DKA_LKIocbbOhaZlN53vMYINUblSw6jfd88jsInm7SK4ol5UX2y6r4TQBtwHYVhGB7gbY2eeGOIfpNI2gcRom_abJlMOVxjjsy4qVW3n76A4p3nw12G6H--2wU33m1WbcmzODmzPezZnhzZnRzRnLyt_PddQuX_B1vH8Dd27g7g18cAP3isdrHR62w6NWGJqwFbbaYbuAja6xhysa09AYvxjZv0L45xiSCKexMk5dA6eKr44sMMbZvycjzR4zc4rhUbs_g6d_ARRhj_I=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-040 — Receive and Put-away Product - PTP</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -877,6 +869,8 @@ flowchart TD
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuK2zAQ_RXhJaQFB2zHjlM_FBInLgstXZptF9otRbHHiVhZMpKcS0P-vaPck2Wf6ofgOZlzzszIo42TywKcxGm1Nkwwk5BN28yhgnZC2lOqoe2SPfCDKkanHHTb5pRSmAn7u0vzw3pl0yyW0YrxtUUnMJNAvt-7ZIBE7hJNhe5oUKxsu-1asYqqdSq5VDb7DvqlV-7cDn8NpSpAnRM8L_bzCKmcCTjD3TiMw8zyNORSFFeiZVT2y7y9tcVxucznVJld-Y2GL3T1xAozx7ikXAPmzE3FP9MpcNujUY3F8kYtjsNg2voIHNikpjkTM8RDDyFFxcsZirztlmxbrWdxMiWPo2dB8Mk51XoEJdEG4fHCkJJxntyF6SCLPFcbJV8guQvG8agbuLntJMHWPdcOt7MENpubZCp5cUjtLG0PSVCvXLVKAs9Va_y98QJRnJ3SXtAP-ienYeynfnp0Ksvyv5xwruqR6peD17ibBdno5OVHvSj1Xusd2xyF8cC_nROoBcvhQjTLsu74PKpxL_K9t0WHWbfnpTeiM2pgSddnwQ9peBLMojjz4zcF9363VTbTByXzo2B3HGXRSTAe-tkgeFMwHPhh_1Ah6swUreeEUwF_vF_PzhNVMJc4V_K1BkWNVM_O732yfYSPOV_kAgj6F02Op6xkRT5JWWjyDXJgtcEFBHrNCpA1MXQGBHf7SNWECTKoayVxBXFC5KcU0CG7jSBSkYfGUDu113Ldd6hX0qSknZpjhi2oAoHFXNCYJvd4w6Bwgez3F_TwTNdG1qdWTjJITWVVc7ji4me9fxFd0ul8xFkcQn8fBocw2IfhxZlZynEDr-DwsCyO61SgKsoKJ9k4uwsQL8kCStpw42xdhzZGTtYid5LdReE0dYGdjRjF86v24PYfTIG5Vg==" title="View full diagram">&#128065; View Diagram</a></div>
 
+
+
 #### BUSINESS ARCHITECTURE — 3.2.9 L-040-150_Transport_Product_to_Storage_-_PTP — L-040-150_Transport_Product_to_Storage_-_PTP
 
 **Swim Lanes**: Warehouse Operator | **Tasks**: 3 | **Gateways**: 0
@@ -910,6 +904,8 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllNuO2jAQhl_FygrRSkHKkdBcVIJApJVaFZVt96JUlUnGYGHsyHY4FPHutQmHhXZ70eYCZX5mvn88sb13ClGCkzqt1p5yqlO0b-sFrKCdovYMK2i7qBG-YknxjIFq2xwiuJ7Qn8c0P6q2Ns1qOV5RtrPqBOYC0JdHF_VNIXORwlx1FEhK2m67knSF5S4TTEib_QA94pGj2-mvgZAlyGuC5yV-EZtSRjlc5TCJkii3dQoKwcsbKIlJjxTtg22OiU2xwFIf268VfMTbZ1rqhYkJZgpMzkKv2Ac8A2bXqGVttaKW6_MwqLI-3AxsUuGC8rnRI89IEvPlVYq9wwEdWq0pv5iip-GUI_MUDCs1BIKUNvJorRGhjKUPUdbPY89VWoolpA_BKBmGgVvYlaRm6Z5rh9vZAJ0vdDoTrDyldjZ2DWlQbV25TQPPlTvze-cFvLw6Zd2gF_QuToPEz_zs7EQI-S8nM1f5hNXy5DUK8yAfXrz8uBtn3u-88zKHUdL37-cEck0LeAHN8zwcXUc16sa-9zp0kIddL7uDzrGGDd5dge-y6ALM4yT3k1eBjd99l_VsLEVxBoajOI8vwGTg5_3gVWDU96PeqUPDmUtcLRDDHH5436bOM5awEGau6FMFEmshp873Jtk-3Dc5BKcEd-zsUV8pOufoMyhRywKQFuijWAMaL3aKFpihgdiCsvK41tjOYGKQeA5oQLm6RQe36CeJi-WVvKYYTfpjgzfXxn1XoSk1-VxVwmz-fzGP3lzcK2YyLzSsqeBIEFtr-qEKPZoGqPmipSG8fYGIrwilRfU3RCZWFYMbhDk0zQuPUKfz3kz6FPpNGJ7CsAmDUxg0Yfxig9iS88G4kYM_y9HlcriR49M5dlxnBXKFaemke-d4N5v7uwSCa6adg-vgWovJjhdOerzDnLoqzXSGFJuttWrEwy_xOeyB" title="View full diagram">&#128065; View Diagram</a></div>
+
+
 
 #### BUSINESS ARCHITECTURE — 3.2.10 L-040-170_Record_Stock_Location_-_PTP — L-040-170_Record_Stock_Location_-_PTP
 
@@ -950,6 +946,8 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqllW1vmzAQx7-KRVVlk4jGY8h4MSkhQaq0atXSbS_WaXLgnHgFG9kmLavy3WcDIQ9bX40XiDvufv-7g4MXK-M5WLF1ff1CGVUxehmpLZQwitFojSWMbNQ5vmJB8boAOTIxhDO1or_bMDeonk2Y8aW4pEVjvCvYcEBfbmw004mFjSRmcixBUDKyR5WgJRZNwgsuTPQVTIlDWrX-1pyLHMQxwHEiNwt1akEZHN1-FERBavIkZJzlZ1ASkinJRntTXMGfsi0Wqi2_lnCLn7_RXG21TXAhQcdsVVl8xGsoTI9K1MaX1WJ3GAaVRofpga0qnFG20f7A0S6B2ePRFTr7PdpfXz-wQRTdLx4Y0kdWYCkXQJBU2r3cKURoUcRXQTJLQ8eWSvBHiK-8ZbTwPTszncS6dcc2wx0_Ad1sVbzmRd6Hjp9MD7FXPdviOfYcWzT6fKEFLD8qJRNv6k0HpXnkJm5yUCKE_JeSnqu4x_Kx11r6qZcuBi03nISJ8zfv0OYiiGbu5ZxA7GgGJ9A0Tf3lcVTLSeg6r0PnqT9xkgvoBit4ws0R-D4JBmAaRqkbvQrs9C6rrNd3gmcHoL8M03AARnM3nXmvAoOZG0z7CjVnI3C1RQVm8NP5_mB9wwK2XM8VfapAYMXFg_WjCzYHc3UMwTHBYzN79NXsV4NWimePiDJzIfAG0Fpf7yhGq9kduuV60S853jnns14mkQ_pc53-kWdYUc4QJ-hWD9BsdctsV-ac5p_TvlS5TkA3bAdMExuEWY6SLegau0oPOoOGKf1dgFaNVFCes4PvAzzjmwP7rlbYPNL2RUk4I1SUA-qGrXmtJRdQ0B2IRgNPieGbgSgVr_4KR1RqZFkVoCDXuW9Pcic6tZd7h2b5r1qqoYuhbr2A3QWboPH4g-6hN4PO9HrT68x-B5jbmX5v-p0Znrx7Juawc2du799u_9_u4HTNzu6E_cfjzDkZvl6WbZWgB01zK36x2v-E_pfkQHBdKGtvW7hWfNWwzIrb76lVt09rQbF-zcvOuf8D-4EX5Q==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
+
+
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-040 — Receive and Put-away Product - PTP</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -968,12 +966,14 @@ flowchart TD
 
 ## 4. Data Architecture (TOGAF "D")
 
-### 4.1 Data Entities & Ownership
+### 4.1 Data Flows — Source to Target
 
-The following data entities are derived from the system integration flows for L-040. Tower architects should validate ownership and classification.
+The following data flows are derived from the system integration hops for L-040. Each row shows source application on its database flowing to a target application on its database.
 
-| # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
-|---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
+| # | Flow Chain | Hop | Source App | Source DB | Target App | Target DB | Data Description | Frequency | Classification |
+|---|-----------|-----|-----------|----------|-----------|----------|-----------------|-----------|---------------|
+
+> *DB platforms will be populated when tower architects complete the extended flow template columns (42-47).*
 
 
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-040 — Receive and Put-away Product - PTP</span></div>
@@ -983,6 +983,10 @@ The following data entities are derived from the system integration flows for L-
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
+
+
+
 
 ### 4.3 Data Lineage
 
@@ -1035,32 +1039,8 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 ## 5. Application Architecture (TOGAF "A")
 
-### 5.1 Current-State — Current-State Application Landscape
 
-#### Overview
 
-The Current-State architecture represents the **current / legacy** landscape for L-040.
-
-#### Current-State Flow Narrative
-
-*(No current-state flows defined.)*
-
-### 5.2 Future-State — Future-State Application Landscape
-
-#### Overview
-
-The Future-State architecture represents the **target** landscape for L-040.
-
-#### Future-State Flow Narrative
-
-*(No future-state flows defined.)*
-
-### 5.3 Change Impact Summary
-
-| Change Type | Flow Chain | Detail |
-|-------------|-----------|--------|
-
-**Totals**: 0 new - 0 removed - 0 modified - 0 unchanged
 
 ### 5.4 Component Overview
 
@@ -1156,7 +1136,7 @@ The Future-State architecture represents the **target** landscape for L-040.
 | PTPI0559_IP | Interface | All Validation of Chemical purchases on non MRP PR by using integration betwe... | 10. Object Complete | ICHEM → S/4 | NA | 03.Medium |
 | PTPI0559_IF | Interface | All Validation of Chemical purchases on non MRP PR by using integration betwe... | 10. Object Complete | ICHEM → S/4 | NA | 04.Low |
 | PTPI0494 | Interface | Maintain PO in IF from CWB | 10. Object Complete | CWB → S/4 | APIGEE | 01.Very High |
-| PTPI0473 | Interface | Demand Change - Automatic update of PR/PO/STR/STO/Scheduling agreement and Pr... | 06. Dev In Progress | NA → NA | Mulesoft | 02.High |
+| PTPI0473 | Interface | Demand Change - Automatic update of PR/PO/STR/STO/Scheduling agreement and Pr... | 09. FUT Overdue | NA → NA | Mulesoft | 02.High |
 | PTPI0470 | Interface | Payment Proposal after invoice posted from SAP S/4 HANA CFIN to Ariba | 10. Object Complete | S/4 → SAP Ariba Network | NA | 03.Medium |
 | PTPI0469 | Interface | Payment Remittance after payment posted from CFIN to IP/IF and from IP/IF to ... | 10. Object Complete | S/4 → SAP Ariba Network | NA | 03.Medium |
 | PTPI0468 | Interface | Payment Status after payment is cancelled / Void from CFIN to IP / IF and Fro... | 10. Object Complete | S/4 → SAP Ariba Network | NA | 02.High |
@@ -1224,9 +1204,9 @@ The Future-State architecture represents the **target** landscape for L-040.
 | PTPE1699 | Enhancement | Enhancement required in the purchase requisition (change only) to validate if... | 10. Object Complete |  | NA | 03.Medium |
 | PTPE1687 | Enhancement | Automate Warranty Credit Memo Posting | 10. Object Complete |  | NA | 03.Medium |
 | PTPE1656 | Enhancement | Enhancement to Update Invoice PAID Status from CFIN to IF & IP ARIBA Standard... | 10. Object Complete |  | NA | 03.Medium |
-| PTPE1644 | Enhancement | New Enhancement required for to make PO price updates for HVM OSAT and SIFO o... | 06. Dev In Progress |  | NA | 02.High |
-| PTPE1628_IP | Enhancement | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparis... | 08. FUT In Progress |  | NA | 04.Low |
-| PTPE1628_IF | Enhancement | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparis... | 08. FUT In Progress |  | NA | 03.Medium |
+| PTPE1644 | Enhancement | New Enhancement required for to make PO price updates for HVM OSAT and SIFO o... | 09. FUT Overdue |  | NA | 02.High |
+| PTPE1628_IP | Enhancement | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparis... | 10. Object Complete |  | NA | 04.Low |
+| PTPE1628_IF | Enhancement | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparis... | 10. Object Complete |  | NA | 03.Medium |
 | PTPE1622 | Enhancement | Enhancement to update Purchase document amount into USD when BAPP pull data f... | 10. Object Complete |  | NA | 03.Medium |
 | PTPE1621 | Enhancement | Enhancement to deleting all entries from ESH_SR_LTXT and ESH_SR_TXT_OBJ, runn... | 10. Object Complete |  | NA | 04.Low |
 | PTPE1606_IP | Enhancement | Custom enhancement to edit the posted accounting document for Payment Term, B... | 10. Object Complete |  | NA | 03.Medium |
@@ -1353,7 +1333,7 @@ The Future-State architecture represents the **target** landscape for L-040.
 | LOGW0978_IP | Workflow | Workflow for processing Goods Receipt and tracking and tracing of non-invento... | 10. Object Complete |  | NA | 03.Medium |
 | LOGW0978_IF | Workflow | Workflow for processing Goods Receipt and tracking and tracing of non-invento... | 10. Object Complete |  | NA | 03.Medium |
 | LOGR0856 | Report | Capital Call Ahead GAP Report​ | 10. Object Complete |  | NA | 03.Medium |
-| LOGI1726 | Interface | GR replication for raw materials for Straddle Sites from ECC to S4 IP via ECA​ | 04. FS In Progress |  | MULESOFT | 03.Medium |
+| LOGI1726 | Interface | GR replication for raw materials for Straddle Sites from ECC to S4 IP via ECA​ | 06. Dev In Progress |  | MULESOFT | 03.Medium |
 | LOGI1427_IP | Interface | Interface between S4 to Boundary Apps (PEGA-ISMQ) for real time data on Deliv... | 10. Object Complete | S/4 → PEGA | APIGEE | 03.Medium |
 | LOGI1427_IF | Interface | Interface between S4 to Boundary Apps (PEGA-ISMQ) for real time data on Deliv... | 10. Object Complete | S/4 → PEGA | APIGEE | 04.Low |
 | LOGI1309 | Interface | Inbound interface to receive Finished Goods Advanced Shipping notifications f... | 10. Object Complete | E2Open → S/4 | MULESOFT | 01.Very High |
@@ -1403,7 +1383,7 @@ The Future-State architecture represents the **target** landscape for L-040.
 | LOGF1045 | Form | Goods Receipt Label Print triggered at the point of completion of the GR | 10. Object Complete |  | NA | 03.Medium |
 | LOGF0920_IP | Form | Form for printing Goods receipt label in IM - IP | 10. Object Complete |  | NA | 02.High |
 | LOGF0920_IF | Form | Form for printing Goods receipt label in IM - IF | 10. Object Complete |  | NA | 03.Medium |
-| LOGE1728 | Enhancement | Automate Outbound delivery note creation for 250K annual Subcon POs for repai... | 04. FS In Progress |  | NA | 03.Medium |
+| LOGE1728 | Enhancement | Automate Outbound delivery note creation for 250K annual Subcon POs for repai... | 06. Dev In Progress |  | NA | 03.Medium |
 | LOGE1570 | Enhancement | CR0856 - Enhancement required (a report) to post the goods receipt for the ad... | 10. Object Complete |  | NA | 03.Medium |
 | LOGE1506 | Enhancement | Enhancement to bring attachments of images from Material master (MM03) to the... | 10. Object Complete |  | NA | 02.High |
 | LOGE1337 | Enhancement | Enhancement to generate outbound IDOC for 3B2 ASN information to RMA supplier... | 10. Object Complete |  | NA | 03.Medium |
@@ -1456,8 +1436,9 @@ The Future-State architecture represents the **target** landscape for L-040.
 | LOGE0450_IP | Enhancement | In SAP TM, Custom BRF+ and enhancement to populate the commodity code in the ... | 10. Object Complete | NA → NA | NA | 03.Medium |
 | LOGE0450_IF | Enhancement | In SAP TM, Custom BRF+ and enhancement to populate the commodity code in the ... | 10. Object Complete | NA → NA | NA | 04.Low |
 | PTPE1740 | Enhancement | Fair Market value Determination using custom code/logic during the replicatio... | 01. Pending Approval |  | NA | 02.High |
+| PTPE1742 | Enhancement | Enhancement requirement to read production order changes and automate text pu... | 02. FS Unplanned |  | NA | 03.Medium |
 
-**Summary**: 3 Reports, 171 Interfaces, 16 Conversions, 171 Enhancements, 7 Forms, 10 Workflows
+**Summary**: 3 Reports, 171 Interfaces, 16 Conversions, 172 Enhancements, 7 Forms, 10 Workflows
 
 
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-040 — Receive and Put-away Product - PTP</span></div>
@@ -1478,11 +1459,15 @@ Integration patterns identified from the system flow analysis for L-040:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
+
+
 
 #### Platform Inventory
 
@@ -1503,58 +1488,13 @@ Platform landscape inferred from integrated systems for L-040:
 
 ### 6.2 SAP Development Object Status
 
-**Capability RICEFW — Active Items** (7 of 378 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-04-06)*
-
-> **Completion Context:** 371 of 378 objects (98%) are complete/closed. The **7 active items** below require attention. See the **RICEFW Register** for full detail.
->
-> | Type | Completed | Active | Total |
-> |------|----------:|-------:|------:|
-> | Report (R) | 3 | 0 | 3 |
-> | Interface (I) | 169 | 2 | 171 |
-> | Conversion (C) | 16 | 0 | 16 |
-> | Enhancement (E) | 166 | 5 | 171 |
-> | Form (F) | 7 | 0 | 7 |
-> | Workflow (W) | 10 | 0 | 10 |
-> | **Total** | **371** | **7** | **378** |
-
-| Status | Count | % |
-|--------|------:|----:|
-| 06. Dev In Progress | 2 | 28.6% |
-| 08. FUT In Progress | 2 | 28.6% |
-| 04. FS In Progress | 2 | 28.6% |
-| 01. Pending Approval | 1 | 14.3% |
-| **Total Active** | **7** | **100%** |
-
-**Active RICEFW by Type:**
-
-| Type | Count |
-|------|------:|
-| Interface (I) | 2 |
-| Enhancement (E) | 5 |
-| **Total** | **7** |
-
-**Technical Complexity:**
-
-| Complexity | Count |
-|------------|------:|
-| 02.High | 3 |
-| 03.Medium | 3 |
-| 04.Low | 1 |
-
-**Objects Requiring Attention:**
-
-| Object ID | Type | Description | Status | Complexity |
-|-----------|------|-------------|--------|------------|
-| PTPI0473 | 02.Interface | Demand Change - Automatic update of PR/PO/STR/STO/Scheduling agreement and Produ... | 06. Dev In Progress | 02.High |
-| PTPE1644 | 04.Enhancement | New Enhancement required for to make PO price updates for HVM OSAT and SIFO orde... | 06. Dev In Progress | 02.High |
-| PTPE1628_IP | 04.Enhancement | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparison ... | 08. FUT In Progress | 04.Low |
-| PTPE1628_IF | 04.Enhancement | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparison ... | 08. FUT In Progress | 03.Medium |
-| LOGI1726 | 02.Interface | GR replication for raw materials for Straddle Sites from ECC to S4 IP via ECA​ | 04. FS In Progress | 03.Medium |
-| LOGE1728 | 04.Enhancement | Automate Outbound delivery note creation for 250K annual Subcon POs for repair/r... | 04. FS In Progress | 03.Medium |
-| PTPE1740 | 04.Enhancement | Fair Market value Determination using custom code/logic during the replication o... | 01. Pending Approval | 02.High |
-
-**Tower Context:** PTP has 7 active / 371 completed RICEFW objects
+| Metric | DEV | QAS | PRD |
+|--------|-----|-----|-----|
+| Transport Requests | — | — | — |
+| Custom Code Objects | — | — | — |
+| CDS Views | — | — | — |
+| Fiori Apps | — | — | — |
+| BAdIs / Enhancements | — | — | — |
 
 ### 6.3 NFRs & Design Principles
 
@@ -1592,68 +1532,49 @@ Platform landscape inferred from integrated systems for L-040:
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
-*6 active objects with timeline data (source: Object Tracker)*
-*371 completed objects excluded — see RICEFW Register for full detail.*
-
 | ID | Description | FS | TDD | Build | FUT | Status |
 |----|-------------|----|-----|-------|-----|--------|
-| PTPI0473 | Demand Change - Automatic update of PR/PO/STR/STO/Scheduling agreement and Production Order in S/4 based on input signal from planning engine (IP) | Feb-25 (100%) | Oct-25 (95%) | Oct-25 (95%) | Mar-26 (15%) | 3. Off Track |
-| PTPE1644 | New Enhancement required for to make PO price updates for HVM OSAT and SIFO orders for no GR and partial GR posted. | Dec-25 (100%) | Feb-26 (75%) | Feb-26 (75%) | Mar-26 (80%) | 3. Off Track |
-| PTPE1628_IP | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparison and automatic changes based on Product BOM changes – IP and IF | Dec-25 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (80%) | 3. Off Track |
-| PTPE1628_IF | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparison and automatic changes based on Product BOM changes – IP and IF | Dec-25 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (80%) | 3. Off Track |
-| LOGI1726 | GR replication for raw materials for Straddle Sites from ECC to S4 IP via ECA​ | Apr-26 (92%) | Apr-26 (0%) | Apr-26 (0%) | — |  |
-| LOGE1728 | Automate Outbound delivery note creation for 250K annual Subcon POs for repair/rework including Quench returns. | Apr-26 (87%) | May-26 (0%) | May-26 (0%) | — |  |
+| PTPW0367_IP | Workflow for Email Functionality and Notification to PO approver(IP) | 2024-12-13 00:00:00 (100%) | 2025-09-24 00:00:00 (100%) | 2025-09-24 00:00:00 (100%) | 2025-12-03 00:00:00 (100%) | 1. On Track |
+| PTPW0367_IF | Workflow for Email Functionality and Notification to PO approver(IF) | 2024-12-13 00:00:00 (100%) | 2025-09-24 00:00:00 (100%) | 2025-09-24 00:00:00 (100%) | 2025-12-03 00:00:00 (100%) | 1. On Track |
+| PTPW0366_IP | Workflow to trigger PO approvals in S4_IF | 2024-12-27 00:00:00 (100%) | 2025-09-05 00:00:00 (100%) | 2025-09-05 00:00:00 (100%) | 2025-12-03 00:00:00 (100%) | 1. On Track |
+| PTPW0366_IF | Workflow to trigger PO approvals in S4_IF | 2024-12-27 00:00:00 (100%) | 2025-09-05 00:00:00 (100%) | 2025-09-05 00:00:00 (100%) | 2025-12-03 00:00:00 (100%) | 1. On Track |
+| PTPW0363_IP | Workflow for Email Functionality and Notification to PR approver - IF | 2024-09-06 00:00:00 (100%) | 2025-09-24 00:00:00 (100%) | 2025-09-24 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 1. On Track |
+| PTPW0363_IF | Workflow for Email Functionality and Notification to PR approver - IF | 2024-09-06 00:00:00 (100%) | 2025-09-24 00:00:00 (100%) | 2025-09-24 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 1. On Track |
+| PTPW0362_IP | Workflow to Trigger PR approvals in S/4 – IF | 2024-09-06 00:00:00 (100%) | 2025-08-29 00:00:00 (100%) | 2025-08-29 00:00:00 (100%) | 2025-12-03 00:00:00 (100%) | 1. On Track |
+| PTPW0362_IF | Workflow to Trigger PR approvals in S/4 – IF | 2024-09-06 00:00:00 (100%) | 2025-08-29 00:00:00 (100%) | 2025-08-29 00:00:00 (100%) | 2025-12-03 00:00:00 (100%) | 1. On Track |
+| PTPR1530_IP | Develop a custom report in SAP S/4 HANA for auto PR to PO conversion failures... | 2025-08-09 00:00:00 (100%) | 2025-10-03 00:00:00 (100%) | 2025-10-03 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 1. On Track |
+| PTPR1530_IF | Develop a custom report in SAP S/4 HANA for auto PR to PO conversion failures... | 2025-08-09 00:00:00 (100%) | 2025-10-03 00:00:00 (100%) | 2025-10-03 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 1. On Track |
+| PTPM0008 | Quality Info record upload [T-Code - QI01] | 2025-05-05 00:00:00 (100%) | — | — | 2025-06-11 00:00:00 (100%) |  |
+| PTPM0007 | Inspection Plan upload [T-Code - QP01] | 2025-05-05 00:00:00 (100%) | — | — | 2025-06-11 00:00:00 (100%) |  |
+| PTPM0006 | Master Inspection Characteristics upload [T-Code - QS21] | 2025-05-05 00:00:00 (100%) | — | — | 2025-06-11 00:00:00 (100%) |  |
+| PTPI1689 | New custom API needed to process GET and DELETE function for Document Info Re... | 2026-01-07 00:00:00 (100%) | 2026-02-20 00:00:00 (100%) | 2026-02-20 00:00:00 (100%) | 2026-01-30 00:00:00 (100%) | 1. On Track |
+| PTPI1657 | Interface to send Invoice PAID Status from CFIN to IP | 2025-08-08 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 2025-12-03 00:00:00 (100%) | 4. Completed |
+| PTPI1533 | Pay@accept – Inbound Interface to fetch the values from FCE ODS to SAP S/4 HA... | 2025-09-08 00:00:00 (100%) | 2025-10-03 00:00:00 (100%) | 2025-10-03 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 1. On Track |
+| PTPI1529_IP | An interface to retrieve the list of approvers from a custom MDG table(MDG sy... | 2025-08-09 00:00:00 (100%) | 2025-10-17 00:00:00 (100%) | 2025-10-17 00:00:00 (100%) | 2025-12-03 00:00:00 (100%) | 4. Completed |
+| PTPI1529_IF | An interface to retrieve the list of approvers from a custom MDG table(MDG sy... | 2025-08-09 00:00:00 (100%) | 2025-10-03 00:00:00 (100%) | 2025-10-03 00:00:00 (100%) | 2025-12-03 00:00:00 (100%) | 4. Completed |
+| PTPI1458 | Develop an interface between PEGA and S/4 HANA system to transmit MSL informa... | 2025-07-08 00:00:00 (100%) | 2025-09-05 00:00:00 (100%) | 2025-09-05 00:00:00 (100%) | 2025-12-12 00:00:00 (100%) | 1. On Track |
+| PTPI1428_IP | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... | 2025-06-11 00:00:00 (100%) | 2025-08-08 00:00:00 (100%) | 2025-08-08 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 1. On Track |
+
+*... and 359 more objects (see full Object Tracker)*
+
+
+<div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-040 — Receive and Put-away Product - PTP</span></div>
+<div style="page-break-before: always;"></div>
+
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-04-06*
+Standard RAID items for L-040 (Procure To Pay):
 
-**Mapped sub-tower(s):** 6.2 PTP - Procurement, 6.3 PTP - EWM, 6.4 PTP - Logistics Management Inbound, 6.5 PTP - TM, 6.6 PTP - GTS, 6.7 PTP - Enable Payments, 6.8 PTP - QM
+| # | Category | Description | Status | Owner | Priority |
+|---|----------|-------------|--------|-------|----------|
+| 1 | Risk | Data migration completeness — validate all legacy Receive and Put-away Product - PTP data maps to S/4 target structures | Open | Tower Architect | High |
+| 2 | Risk | Integration testing coverage — ensure all 0 integrated systems are validated end-to-end | Open | Integration Lead | High |
+| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
+| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
+| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
 
-**RAID Summary:** 26 open items (2 capability-specific, 24 tower-level), 329 closed
-
-| Severity | Capability | Tower-Wide | Total Open |
-|----------|----------:|-----------:|-----------:|
-| P1 - High | 0 | 3 | 3 |
-| P2 - Medium | 1 | 17 | 18 |
-| P3 - Low | 1 | 3 | 4 |
-| **Total** | **2** | **24** | **26** |
-
-**Capability-Specific RAID Items:**
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03461 | Risk | P2 - Medium | PTP ECA DCM Process Changes and impacts to delivered self se... | In Progress | PTP | 2026-04-10 |
-| 03373 | Risk | P3 - Low | incoterm location id value to be used for import requisition... | In Progress | PTP | 2026-05-01 |
-
-**Other PTP Tower RAID Items** (24 open):
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-15 |
-| 03681 | Risk | P1 - High | ITC Execution: Planning run availability - Prerequisite for ... | In Progress | E2E | 2026-04-10 |
-| 03757 | Risk | P1 - High | IF Planning data not available in ITC1 until W4, leaving too... | In Progress | FTS IF | 2026-04-10 |
-| 03234 | Action | P2 - Medium | Process code information missing from PTP | Not Started | PTP | 2025-12-12 |
-| 03355 | Risk | P2 - Medium | PTP ECA OSAT Predictive Tool Test Self-Service Query View cr... | In Progress | FTS IP | 2026-04-03 |
-| 03729 | Action | P2 - Medium | AN and CC invoices are fetching wrong tax codes and posting ... | In Progress | FPR | 2026-04-03 |
-| 03540 | Issue | P2 - Medium | FPR Tower help required for GR/IR Clearing document and Data... | To Be Reviewed | PTP | 2026-02-11 |
-| 03542 | Action | P2 - Medium | T042A table data in IF & IP | In Progress |  | 2026-02-13 |
-| 03548 | Risk | P2 - Medium | IAPMID 1532 SIC-Supplier Hub MRP data needs not aligned | In Progress | B-Apps | 2026-04-03 |
-| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
-| 03628 | Risk | P2 - Medium | R3 Returns Rework Process Causing Finance Double Counting in... | In Progress | E2E | 2026-03-27 |
-| 03462 | Risk | P2 - Medium | PTP ECA Demand Analytics dependency on MP PRF & RTF | In Progress | FTS IP | 2026-04-10 |
-| 02173 | Risk | P2 - Medium | LE Restructuring : Jan 1 ‘26 EE+Asset changes reduced to Mal... | In Progress | Legal Entity | 2025-09-30 |
-| 03669 | Action | P2 - Medium | Pending Hot Lots Resolution | In Progress | PTP | 2026-03-30 |
-| 03735 | Issue | P2 - Medium | Box CPU Supplier Moduslink Queries | In Progress | FTS IP | 2026-03-21 |
-| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
-| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
-| 03749 | Action | P2 - Medium | Logistics Data Intake and Creation Process Definition | In Progress | Test Management | 2026-03-27 |
-| 03756 | Risk | P2 - Medium | LE101-1001 Operation Support Ownership for SIMS/Tester Front... | In Progress | E2E | 2026-04-24 |
-| 03758 | Action | P2 - Medium | IMR Repair Order Creation Ownership | In Progress | PTP | 2026-04-24 |
-| 03317 | Risk | P3 - Low | BPMG – E2E L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-05-29 |
-| 03525 | Issue | P3 - Low | Vendor determination in PDH for 2DN PR's & STR's. | Not Started | FTS IP | 2026-03-06 |
-| 03473 | Action | P3 - Low | Manual Service PIR creation for IP-IF Service Procurement. | In Progress | FPR | 2026-05-29 |
-| 02358 |  |  | METs/SOM Bapp is not ready for E2E Testing | Not Started |  |  |
+> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
 
 ### 7.3 Recommendations & Next Steps
 
@@ -1668,6 +1589,4 @@ Platform landscape inferred from integrated systems for L-040:
 ---
 *L-040 — Architecture Document (TOGAF BDAT) · Procure To Pay · Generated: April 2026*
 
-
-
-<div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-040 — Receive and Put-away Product - PTP</span></div>
+<div class="page-footer"><span>Page 24</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-040 — Receive and Put-away Product - PTP</span></div>

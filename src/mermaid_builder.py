@@ -95,6 +95,72 @@ _SUBGRAPH_COLORS = [
 
 
 # ---------------------------------------------------------------------------
+# Layer ordering — bottom-up architecture stack
+# ---------------------------------------------------------------------------
+# Index 0 = rendered first (top in TB diagram).  Higher index = lower layer.
+# Lanes not in this map float below the known layers (appended alphabetically).
+_LAYER_ORDER: list[tuple[str, str, str]] = [
+    # (canonical_name, fill, stroke)
+    ("Reporting",                "fill:#E8EAF6", "stroke:#283593"),   # purple — BI / reporting
+    ("Data Warehouse",           "fill:#E0F2F1", "stroke:#00695C"),   # teal — DW / data lake
+    ("ECA Platform",             "fill:#F3E5F5", "stroke:#7B1FA2"),   # violet — ECA
+    ("ERP Systems",              "fill:#E3F2FD", "stroke:#0078D4"),   # Azure blue — ERP
+    ("Cloud Products",           "fill:#E1F5FE", "stroke:#0277BD"),   # light blue — cloud
+    ("Middleware & Integration", "fill:#FFF3E0", "stroke:#E65100"),   # orange — middleware
+    ("Boundary Applications",    "fill:#E8F5E9", "stroke:#388E3C"),   # green — boundary / MES
+]
+
+# Aliases: map variant names to canonical layer name
+_LANE_ALIASES: dict[str, str] = {
+    "erp":                          "ERP Systems",
+    "erp systems":                  "ERP Systems",
+    "erp extension (standalone)":   "ERP Systems",
+    "reporting":                    "Reporting",
+    "manufacturing reporting systems": "Reporting",
+    "data warehouse":               "Data Warehouse",
+    "sidecar hana db":              "Data Warehouse",
+    "eca platform":                 "ECA Platform",
+    "eca platform (pdh)":           "ECA Platform",
+    "cloud products":               "Cloud Products",
+    "cloud products (legacy)":      "Cloud Products",
+    "middleware & integration":     "Middleware & Integration",
+    "boundary applications":        "Boundary Applications",
+    "mes systems":                  "Boundary Applications",
+    "manufacturing execution systems": "Boundary Applications",
+    "e.g. boundary apps":           "Boundary Applications",
+    "e.g. mes systems":             "Boundary Applications",
+}
+
+# Build lookup: canonical_name → (index, fill, stroke)
+_LAYER_INDEX: dict[str, int] = {}
+_LAYER_STYLE: dict[str, tuple[str, str]] = {}
+for _i, (_name, _fill, _stroke) in enumerate(_LAYER_ORDER):
+    _LAYER_INDEX[_name] = _i
+    _LAYER_STYLE[_name] = (_fill, _stroke)
+
+
+def _canonical_lane(lane: str) -> str:
+    """Normalize a lane value to its canonical layer name."""
+    low = lane.strip().lower()
+    return _LANE_ALIASES.get(low, lane.strip())
+
+
+def _lane_sort_key(lane: str) -> tuple[int, str]:
+    """Sort key for lanes: known layers first (by position), then alphabetical."""
+    canonical = _canonical_lane(lane)
+    idx = _LAYER_INDEX.get(canonical, len(_LAYER_ORDER))
+    return (idx, canonical)
+
+
+def _lane_style(lane: str, fallback_index: int) -> tuple[str, str]:
+    """Get (fill, stroke) for a lane, falling back to rotating palette."""
+    canonical = _canonical_lane(lane)
+    if canonical in _LAYER_STYLE:
+        return _LAYER_STYLE[canonical]
+    return _SUBGRAPH_COLORS[fallback_index % len(_SUBGRAPH_COLORS)]
+
+
+# ---------------------------------------------------------------------------
 # Builder
 # ---------------------------------------------------------------------------
 class MermaidBuilder:
@@ -134,13 +200,14 @@ class MermaidBuilder:
         node_id = _make_node_id(self.prefix, system)
         if node_id not in self._nodes:
             iapm_app = self.iapm.resolve(system, iapm_url) if self.iapm else None
+            canonical = _canonical_lane(lane) if lane else "Other"
             self._nodes[node_id] = MermaidNode(
                 node_id=node_id,
                 display_name=system,
-                lane=lane or "Other",
+                lane=canonical,
                 iapm_app=iapm_app,
             )
-            self._lanes.setdefault(lane or "Other", []).append(node_id)
+            self._lanes.setdefault(canonical, []).append(node_id)
         return node_id
 
     # -- Rendering -----------------------------------------------------------
@@ -157,10 +224,11 @@ class MermaidBuilder:
         lines.append("flowchart LR")
         lines.append("")
 
-        # Swim lanes: wrap all lanes in a container, each lane is a horizontal band
-        sorted_lanes = sorted(self._lanes.keys())
-        for lane in sorted_lanes:
+        # Swim lanes: ordered by architecture layer (top = Reporting, bottom = Boundary/MES)
+        sorted_lanes = sorted(self._lanes.keys(), key=_lane_sort_key)
+        for i, lane in enumerate(sorted_lanes):
             sg_id = _sanitize_lane_id(self.prefix, lane)
+            fill, stroke = _lane_style(lane, i)
             lines.append(f'    subgraph {sg_id}[" ⬛ {lane}"]')
             lines.append(f'        direction LR')
             for nid in sorted(self._lanes[lane]):
@@ -248,10 +316,10 @@ class MermaidBuilder:
         lines.append(f"    class {self.prefix}_L_NA naLegend")
         lines.append("")
 
-        # Subgraph styles
+        # Subgraph styles — layer-aware colors
         for i, lane in enumerate(sorted_lanes):
             sg_id = _sanitize_lane_id(self.prefix, lane)
-            fill, stroke = _SUBGRAPH_COLORS[i % len(_SUBGRAPH_COLORS)]
+            fill, stroke = _lane_style(lane, i)
             lines.append(f"    style {sg_id} {fill},{stroke}")
         lines.append(f"    style {legend_id} fill:#FFFFFF,stroke:#BDBDBD")
 
@@ -390,7 +458,8 @@ def build_archimate_mermaid(
         ]:
             if nid not in apps:
                 ia = iapm.resolve(sys_name, sys_url) if iapm else None
-                apps[nid] = {"name": sys_name, "lane": lane, "iapm_app": ia,
+                canonical = _canonical_lane(lane) if lane else "Other"
+                apps[nid] = {"name": sys_name, "lane": canonical, "iapm_app": ia,
                              "status": ia.status if ia else "N/A"}
 
         # Middleware nodes (from extended col 33)
@@ -432,8 +501,8 @@ def build_archimate_mermaid(
         lines.append('    subgraph AL["🔵 APPLICATION LAYER"]')
         lines.append("        direction LR")
 
-        # Create swim lane subgraphs within the application layer
-        for lane_name in sorted(lane_groups.keys()):
+        # Create swim lane subgraphs — layer-ordered (top=Reporting, bottom=Boundary)
+        for lane_name in sorted(lane_groups.keys(), key=_lane_sort_key):
             lane_id = _sanitize_lane_id(pfx + "LN", lane_name)
             lines.append(f'        subgraph {lane_id}[" ⬛ {lane_name}"]')
             lines.append(f'            direction LR')
@@ -480,10 +549,10 @@ def build_archimate_mermaid(
     lines.append(LAYER_STYLES)
     lines.append("")
 
-    # Swim-lane subgraph styles (Azure-tinted colors per lane)
-    for i, lane_name in enumerate(sorted(lane_groups.keys())):
+    # Swim-lane subgraph styles — layer-aware colors
+    for i, lane_name in enumerate(sorted(lane_groups.keys(), key=_lane_sort_key)):
         lane_id = _sanitize_lane_id(pfx + "LN", lane_name)
-        fill, stroke = _SUBGRAPH_COLORS[i % len(_SUBGRAPH_COLORS)]
+        fill, stroke = _lane_style(lane_name, i)
         lines.append(f"    style {lane_id} {fill},{stroke},stroke-width:1px")
     lines.append("")
 

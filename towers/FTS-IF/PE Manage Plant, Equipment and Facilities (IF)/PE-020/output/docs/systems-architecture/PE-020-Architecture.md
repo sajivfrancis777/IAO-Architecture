@@ -1,6 +1,5 @@
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
-  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMGFlZWY7c3RvcC1vcGFjaXR5OjEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjE1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4wMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDcpIiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgPC9wYXR0ZXJuPgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2JnKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNncmlkKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPgoKICA8IS0tIERlY29yYXRpdmUgY2lyY3VpdC9hcmNoaXRlY3R1cmUgbGluZXMgLS0+CiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+CiAgICA8cGF0aCBkPSJNIDAgMTAwIEwgMTIwIDEwMCBMIDE2MCAxNDAgTCAyODAgMTQwIi8+CiAgICA8cGF0aCBkPSJNIDAgMjYwIEwgODAgMjYwIEwgMTIwIDIyMCBMIDIwMCAyMjAgTCAyNDAgMjYwIEwgMzYwIDI2MCIvPgogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPgogICAgPHBhdGggZD0iTSA0NDAgMzQwIEwgNTYwIDM0MCBMIDYwMCAzMDAgTCA3MjAgMzAwIEwgNzYwIDM0MCBMIDgwMCAzNDAiLz4KICAgIDxwYXRoIGQ9Ik0gNjAwIDQwMCBMIDY4MCA0MDAgTCA3MjAgNDQwIi8+CiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+CiAgICA8cGF0aCBkPSJNIDIwMCA0MjAgTCAzMjAgNDIwIEwgMzYwIDM4MCBMIDQ4MCAzODAiLz4KICAgIDxwYXRoIGQ9Ik0gNjUwIDQ0MCBMIDc1MCA0NDAgTCA4MDAgNDgwIi8+CiAgPC9nPgoKICA8IS0tIERlY29yYXRpdmUgbm9kZXMgLS0+CiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+CiAgICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjI4MCIgY3k9IjE0MCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSIzNjAiIGN5PSIyNjAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjYwMCIgY3k9IjEwMCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI1NjAiIGN5PSIzNDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjgwIiBjeT0iMzYwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjMyMCIgY3k9IjQyMCIgcj0iNCIvPgogIDwvZz4KCiAgPCEtLSBUT0dBRiBCREFUIGJveGVzIC0tPgogIDxnIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI2MDAiPgogICAgPCEtLSBCIC0tPgogICAgPHJlY3QgeD0iMTUwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIyMTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QnVzaW5lc3M8L3RleHQ+CiAgICA8IS0tIEQgLS0+CiAgICA8cmVjdCB4PSIyOTAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjM1MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5EYXRhPC90ZXh0PgogICAgPCEtLSBBIC0tPgogICAgPHJlY3QgeD0iNDMwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSI0OTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QXBwbGljYXRpb248L3RleHQ+CiAgICA8IS0tIFQgLS0+CiAgICA8cmVjdCB4PSI1NzAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjYzMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5UZWNobm9sb2d5PC90ZXh0PgogIDwvZz4KCiAgPCEtLSBDb25uZWN0aW5nIGxpbmVzIGJldHdlZW4gQkRBVCBib3hlcyAtLT4KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+CiAgICA8bGluZSB4MT0iMjcwIiB5MT0iMTYwIiB4Mj0iMjkwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNDEwIiB5MT0iMTYwIiB4Mj0iNDMwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+CiAgPC9nPgoKICA8IS0tIE1haW4gdGl0bGUgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIyNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmZmZmYiIGxldHRlci1zcGFjaW5nPSIxIj4KICAgIElBTyBBcmNoaXRlY3R1cmUKICA8L3RleHQ+CiAgPHRleHQgeD0iNDAwIiB5PSIzMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC44KSIgbGV0dGVyLXNwYWNpbmc9IjIiPgogICAgVE9HQUYgQkRBVCDCtyBJQU8gUHJvZ3JhbSDCtyBJRE0gMi4wCiAgPC90ZXh0PgoKICA8IS0tIEJvdHRvbSBhY2NlbnQgYmFyIC0tPgogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgoKICA8IS0tIEludGVsIHRleHQgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPgogICAgSU5URUwgQ09ORklERU5USUFMCiAgPC90ZXh0Pgo8L3N2Zz4K" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">PE-020 — Identify Maintenance Structure (IF)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Forecast to Stock (IF) (FTS-IF) Tower<br/>
@@ -13,30 +12,20 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-footer { display: none !important; }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
 </style>
 
 
@@ -77,9 +66,6 @@
   </li>
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
-      <li><a href="#51-current-state-current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
-      <li><a href="#52-future-state-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
-      <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
       <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -121,8 +107,6 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 5 Reports, 92 Interfaces, 31 Conversions, 118 Enhancements, 15 Forms, 4 Workflows |
-
-**Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
@@ -198,6 +182,7 @@ This capability includes **6 business process(es)** modeled in BPMN 2.0, coverin
 
 ### 3.2 Business Process Diagrams
 
+
 #### BUSINESS ARCHITECTURE — 3.2.1 PE-020-010_Establish_Process_Related_Structures — PE-020-010_Establish_Process_Related_Structures
 
 **Swim Lanes**: FTS IF - Design Engineer · FTS IF - Intel Data Admin | **Tasks**: 2 | **Gateways**: 1
@@ -237,6 +222,7 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU1v4zYQ_SuEgsAXGZBkyXJ1KODIUhFgFw3qdPdQFwVNDSUiFOmSVGKv4f9e0vJH5Ca9VAfB8zzvvZnhh_YekRV4mXd_v2eCmQztR6aBFkYZGq2xhpGPeuAbVgyvOeiRy6FSmCX7cUwL483WpTmsxC3jO4cuoZaAfn_00dwSuY80FnqsQTE68kcbxVqsdrnkUrnsO5jRgB7dTn89SFWBuiYEQRqSxFI5E3CFJ2mcxqXjaSBSVANRmtAZJaODK47LN9JgZY7ldxq-4u13VpnGxhRzDTanMS3_gtfAXY9GdQ4jnXo9D4Np5yPswJYbTJioLR4HFlJYvFyhJDgc0OH-fiUupuh5sRLIPoRjrRdAkTYWLl4Noozz7C7O52US-Noo-QLZXVSki0nkE9dJZlsPfDfc8RuwujHZWvLqlDp-cz1k0Wbrq20WBb7a2feNF4jq6pRPo1k0uzg9pGEe5mcnSun_crJzVc9Yv5y8ikkZlYuLV5hMkzz4t965zUWczsPbOYF6ZQTeiZZlOSmuoyqmSRh8LvpQTqZBfiNaYwNveHcV_CmPL4JlkpZh-qlg73dbZbd-UpKcBSdFUiYXwfQhLOfRp4LxPIxnpwqtTq3wpkEcC_gr-GPllc9L9FiiMVqAZrVAhajt_ge18v7sKe4Roc2kOKN47FYAPVYgDKM75IoCrdFvwG3LFVraXU1Mp0AP-bHlF3ZLrjnTDXqSnBEGGmFR9RKVoyAqFfqKBa7tdSAMkhQ9NTvNCOZorjWYG9HEiuaybTthUwxYKhMGBBYELJFxqeWm2Q050_3-3Im7mMZre7RIg2BLeKfZK_zSr9zKOxx6lt3bH40ufD-6R2vL0QIbjOZVy8TQMhrOzi6nHTAqO0EMk8L29kXa8u3P4ziKvzu2ce0PRSaDAf6qaizYj571H7O_FC8iNB7_bGVOYdyH01OYDMNpH56Oigj7MHq3Jx14PosDOPoYnlzuowEcfwwnH8PT87nyfK8F1WJWedneO3497BemAoo7bryD7-HOyOVOEC873rJet6ksc8GwXcG2Bw__AELsIPs=" title="View full diagram">&#128065; View Diagram</a></div>
+
 
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-020 — Identify Maintenance Structure (IF)</span></div>
@@ -280,6 +266,8 @@ flowchart TD
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVU1v4jAQ_StWKsQlSPls2BxWooFIldrdqnR3D8tqZZwxWDU2sp22tOK_r50EaPpx2hxQ5jHz3szLOHnxiKzAy73B4IUJZnL0MjRr2MAwR8Ml1jD0UQv8xIrhJQc9dDlUCjNnz01amGyfXJrDSrxhfOfQOawkoB-XPprYQu4jjYUeaVCMDv3hVrENVrtCcqlc9hmMaUAbte6vC6kqUKeEIMhCktpSzgSc4DhLsqR0dRqIFFWPlKZ0TMlw75rj8pGssTJN-7WGa_z0i1VmbWOKuQabszYbfoWXwN2MRtUOI7V6OJjBtNMR1rD5FhMmVhZPAgspLO5PUBrs92g_GCzEURTdTRcC2YtwrPUUKNLGwrMHgyjjPD9LikmZBr42St5DfhbNsmkc-cRNktvRA9-ZO3oEtlqbfCl51aWOHt0MebR98tVTHgW-2tnfN1ogqpNScR6No_FR6SILi7A4KFFK_0vJ-qrusL7vtGZxGZXTo1aYnqdF8J7vMOY0ySbhW59APTACr0jLsoxnJ6tm52kYfE56UcbnQfGGdIUNPOLdifBLkRwJyzQrw-xTwlbvbZf18kZJciCMZ2mZHgmzi7CcRJ8SJpMwGXcdWp6Vwts14ljA3-D3wpuCZiuBZmJl1x7UwvvTZrpLhDaB4pzikTMeXVYgDKM7dI2ZMCCwIIC-qxUW7BkbJgWa260mplaAJkRJrZE92qiQmy0Wuz51aqlndkmXnOk1csOBTb8Fbq2rTjz6WGWX7KMZXIvl3RxdlmiELu_QN9uFZavQreTQl4z601hf7ci9WW4spdEIi6q5Ffa8HQZ5PWafNv7EJMfSaTS8aA7EVbf8V5LgNnrlVJPXZ0-aZ_Su01vQslb25uS4Y51w3vG-902kaDT6ah9qF4ZtGHVh3IZJF0ZtGL9aRFdyOIA9OPoYjj-Gk-O7qQenR9jzvQ2oDWaVl794zcfBfkAqoLjmxtv7Hq6NnO8E8fLmJerV28puzZRhuxebFtz_A5K-GUg=" title="View full diagram">&#128065; View Diagram</a></div>
 
+
+
 #### BUSINESS ARCHITECTURE — 3.2.3 PE-020-030_Define_Maintenance_Resource_Structure_and_Allocation — PE-020-030_Define_Maintenance_Resource_Structure_and_Allocation
 
 **Swim Lanes**: FTS IF - Design Engineer | **Tasks**: 3 | **Gateways**: 0
@@ -315,6 +303,8 @@ flowchart TD
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVV1v2jAU_StWqopNClo-G5aHSTQQCWnTqsHWh3WajHMNVh0b2U4prfjvswmQplufFgnEPbn3nPthX549Iivwcu_y8pkJZnL0PDBrqGGQo8ESaxj4qAV-YMXwkoMeOB8qhZmzp4NbmGwenZvDSlwzvnPoHFYS0PeZj8Y2kPtIY6GHGhSjA3-wUazGaldILpXzvoARDehB7fjqWqoKVOcQBFlIUhvKmYAOjrMkS0oXp4FIUfVIaUpHlAz2Ljkut2SNlTmk32j4gh9vWWXW1qaYa7A-a1Pzz3gJ3NVoVOMw0qiHUzOYdjrCNmy-wYSJlcWTwEIKi_sOSoP9Hu0vL-_EWRQtJncC2YdwrPUEKNLGwtMHgyjjPL9IinGZBr42St5DfhFNs0kc-cRVktvSA981d7gFtlqbfCl5dXQdbl0NebR59NVjHgW-2tnvV1ogqk6puIpG0eisdJ2FRViclCil_6Vk-6oWWN8ftaZxGZWTs1aYXqVF8DffqcxJko3D130C9cAIvCAtyzKedq2aXqVh8DbpdRlfBcUr0hU2sMW7jvBjkZwJyzQrw-xNwlbvdZbN8kZJciKMp2mZngmz67AcR28SJuMwGR0ztDwrhTdrxLGA38HPO69czNGsREM0Ac1WAk3Fyp5_UHferzbEPSK0nhTnFA_dBNCsAmEY3aEvmAkDAgsC6Bto2SgCGt2uJboBRaWqex5jYtgDMwx0nz3qs0_t2V1yptcIiwrN6g2360EYNBPUrZDdh0Vxg2w7bCW1PvjcSM7IX7Rxn3asXYEfxpxLYufzRu5G9l4sANfo3a1U98SmAEq_72skVsMOyLasDbMft8TQzECNPjNt7JVFc3vXiWkU9GNTG9vV-lWtsGBP2DApbD7cplh1kV1p9rK1P0SKhsNPdjZHM2zN6GhGrRkfzbg1kxcHy4WcLlQPjv4Nx_-Gk_Ou6cHpGfZ8rwZVY1Z5-bN3WPb2D6ECihtuvL3v4cbI-U4QLz8sRa_ZVLb6CcNuwi24_wOamgpL" title="View full diagram">&#128065; View Diagram</a></div>
 
+
+
 #### BUSINESS ARCHITECTURE — 3.2.4 PE-020-040_Define_Maintainable_Item_Listing_Structure — PE-020-040_Define_Maintainable_Item_Listing_Structure
 
 **Swim Lanes**: FTS IF - Design Engineer | **Tasks**: 1 | **Gateways**: 0
@@ -343,6 +333,7 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVE2P2jAQ_StWVohLkPJJaA6VIBAJqatWC20PpaqMMybuOja1nQWK-O91-AgL7Z7qQ2S_PL83Mx577xBZgJM6nc6eCWZStO-aEiropqi7xBq6LjoBX7BieMlBdxsOlcLM2O8jzY_W24bWYDmuGN816AxWEtDnqYuGdiN3kcZC9zQoRrtud61YhdUuk1yqhv0AA-rRo9v510iqAtSV4HmJT2K7lTMBVzhMoiTKm30aiBTFjSiN6YCS7qEJjssNKbEyx_BrDY94-5UVprRrirkGyylNxT_gJfAmR6PqBiO1erkUg-nGR9iCzdaYMLGyeORZSGHxfIVi73BAh05nIVpTNB8vBLKDcKz1GCjSxsKTF4Mo4zx9iLJhHnuuNko-Q_oQTJJxGLikySS1qXtuU9zeBtiqNOlS8uJM7W2aHNJgvXXVNg08V-3s984LRHF1yvrBIBi0TqPEz_zs4kQp_S8nW1c1x_r57DUJ8yAft15-3I8z72-9S5rjKBn693UC9cIIvBLN8zycXEs16ce-97boKA_7XnYnusIGNnh3FXyXRa1gHie5n7wpePK7j7JeflKSXATDSZzHrWAy8vNh8KZgNPSjwTlCq7NSeF0ijgX88L4tnHw-Q9Mc9dAYNFsJNBEr2_-gFs7305ZmCN8yKU4p7jUngKYFCMPoDs2BlIIRzNHH5U8gRiNTYoOwAjSrjwgyEj1iJgwILAjcygZW1qZnDV9z0FRQqSpsmBRottMGKvQEa6mM7X87-1UzZR8MYfStWvhvtSfQslZ2MrNXjpjaxoZFgYacS3L0aFVsH58mIkS93nub9nnpn5bBq1NpwEs33sBBe_Vu4LCFHdepwKbHCifdO8e3z76PBVBcc-McXAfXRs52gjjp8Y1w6nVh-2nMsD266gQe_gC1ybyK" title="View full diagram">&#128065; View Diagram</a></div>
+
 
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-020 — Identify Maintenance Structure (IF)</span></div>
@@ -385,6 +376,8 @@ flowchart TD
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVVFv4jgQ_itWqoqXUCUhadg8nEQDkXra6qqFvX3Ynk4mmRALx45sB8pW_PcbEwiFbp8uEkj-MvN9M5_HzpuTywKcxLm9fWOCmYS8DUwFNQwSMlhSDQOXdMDfVDG65KAHNqaUwszZr0OYHzavNsxiGa0Z31l0DisJ5PujSyaYyF2iqdBDDYqVA3fQKFZTtUsll8pG38C49MqD2vHVg1QFqHOA58V-HmEqZwLO8CgO4zCzeRpyKYoL0jIqx2U-2NviuNzmFVXmUH6r4Ym-_mCFqXBdUq4BYypT8690Cdz2aFRrsbxVm5MZTFsdgYbNG5ozsUI89BBSVKzPUOTt92R_e_sielGymL4Igk_OqdZTKIk2CM82hpSM8-QmTCdZ5LnaKLmG5CaYxdNR4Oa2kwRb91xr7nALbFWZZCl5cQwdbm0PSdC8uuo1CTxX7fD_SgtEcVZK74NxMO6VHmI_9dOTUlmW_0sJfVULqtdHrdkoC7Jpr-VH91HqfeQ7tTkN44l_7ROoDcvhHWmWZaPZ2arZfeR7n5M-ZKN7L70iXVEDW7o7E35Jw54wi-LMjz8l7PSuq2yXz0rmJ8LRLMqinjB-8LNJ8ClhOPHD8bFC5Fkp2lSEUwH_ej9fnGwxJ48ZGZInyoQBQUUOZAF5JVjOqHhx_uky7SN8TChpUtKh3QjyDTYMtoSKgnxvCuyZPDGtcUjJD6nW5C97wMiUGkqMJCltTKsAkzhsqDD9Czz9d3d3l0IjFDqxc25DyJ9ySaYyb2sQhhomBeFsDWTeQO4SY7ePM22ueCLkQf_wRHf94c_eMeTRQE2-Yrwtdo5HMbe19bk40L_zy3_v1_MTwf_HBZpF60vV4NKmYwEKdCOFZkvGmcHZkAp1DN5XWIJtkAmE6q41a6ncClC6Yg2RJZlPnlHxg0_hoT_NVuJi_75JvEcPJJPWVFKxXx0tzhBOEOiPjYqIDId_oPHH5ahbHk-LCLpleFz63TJ4N6UWPJ3OCzj4PRz2N9QFHPWw4zo1oB-scJI35_CJwM9IASVtuXH2rkNbI-c7kTvJ4Sp12sMIThnFHas7cP8f6MQXaw==" title="View full diagram">&#128065; View Diagram</a></div>
 
+
+
 #### BUSINESS ARCHITECTURE — 3.2.6 PE-020-060_Design_Maintenance_Roles_and_Authorization_Profiles — PE-020-060_Design_Maintenance_Roles_and_Authorization_Profiles
 
 **Swim Lanes**: FTS IF - PM  - IT Team | **Tasks**: 1 | **Gateways**: 1
@@ -421,6 +414,8 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVNuO2jAQ_RUrqxUvYZvrhuahEhtItVJXrQptH0pVmWQM1iY2tZ1dKOLfOyZcGrr71EhEmcOcc8Yjz2ydQpbgpM719ZYLblKy7Zkl1NBLSW9ONfRc0gJfqeJ0XoHu2RwmhZnw3_s0P1qtbZrFclrzamPRCSwkkC_3LhkisXKJpkL3NSjOem5vpXhN1SaTlVQ2-woGzGN7t8Nfd1KVoM4Jnpf4RYzUigs4w2ESJVFueRoKKcqOKIvZgBW9nS2uks_FkiqzL7_R8EDX33hplhgzWmnAnKWpqw90DpU9o1GNxYpGPR2bwbX1EdiwyYoWXCwQjzyEFBWPZyj2djuyu76eiZMpmY5mguBTVFTrETCiDcLjJ0MYr6r0KsqGeey52ij5COlVME5GYeAW9iQpHt1zbXP7z8AXS5POZVUeUvvP9gxpsFq7ap0Gnqs2-L7wAlGenbLbYBAMTk53iZ_52dGJMfZfTthXNaX68eA1DvMgH528_Pg2zrx_9Y7HHEXJ0L_sE6gnXsBfonmeh-Nzq8a3se-9LnqXh7dediG6oAae6eYs-DaLToJ5nOR-8qpg63dZZTP_pGRxFAzHcR6fBJM7Px8GrwpGQz8aHCpEnYWiqyWpqICf3veZk08n5D4nffLpgeD7fkqmQOuZ86Ml2Ef4mMdoymjf9p9gQTgi5IFyYUBQUQD5LHFwyRTvqWagFJSEKVmTe8Hs0G-IkWTyJiJMKjJeQ9EYLgWR7ObmpusUoFOb0NX_aGe1mxpiaqYAO02oKNts_HVoD1QbLPgzTq4qdZcfIf-Fk2DJUtV0X-Bkg_Qa6SupDM4efv1quMJlJcyFWrzdHntkF15_jq0olgTWRdVo_gTv2xsxc3a7loUz036IiPT777DJh9Bvw_gQxm0YdMPwr_thKce56MDBaQl04PBlOHoZjo-X2XGdGrAzvHTSrbNf2bjWS2C0qYyzcx3aGDnZiMJJ96vNaVYlMkec4o2rW3D3B0Ku8yE=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
+
+
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-020 — Identify Maintenance Structure (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -443,12 +438,14 @@ flowchart TD
 
 ## 4. Data Architecture (TOGAF "D")
 
-### 4.1 Data Entities & Ownership
+### 4.1 Data Flows — Source to Target
 
-The following data entities are derived from the system integration flows for PE-020. Tower architects should validate ownership and classification.
+The following data flows are derived from the system integration hops for PE-020. Each row shows source application on its database flowing to a target application on its database.
 
-| # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
-|---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
+| # | Flow Chain | Hop | Source App | Source DB | Target App | Target DB | Data Description | Frequency | Classification |
+|---|-----------|-----|-----------|----------|-----------|----------|-----------------|-----------|---------------|
+
+> *DB platforms will be populated when tower architects complete the extended flow template columns (42-47).*
 
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-020 — Identify Maintenance Structure (IF)</span></div>
@@ -458,6 +455,10 @@ The following data entities are derived from the system integration flows for PE
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
+
+
+
 
 ### 4.3 Data Lineage
 
@@ -527,32 +528,8 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 ## 5. Application Architecture (TOGAF "A")
 
-### 5.1 Current-State — Current-State Application Landscape
 
-#### Overview
 
-The Current-State architecture represents the **current / legacy** landscape for PE-020.
-
-#### Current-State Flow Narrative
-
-*(No current-state flows defined.)*
-
-### 5.2 Future-State — Future-State Application Landscape
-
-#### Overview
-
-The Future-State architecture represents the **target** landscape for PE-020.
-
-#### Future-State Flow Narrative
-
-*(No future-state flows defined.)*
-
-### 5.3 Change Impact Summary
-
-| Change Type | Flow Chain | Detail |
-|-------------|-----------|--------|
-
-**Totals**: 0 new - 0 removed - 0 modified - 0 unchanged
 
 ### 5.4 Component Overview
 
@@ -589,7 +566,7 @@ The Future-State architecture represents the **target** landscape for PE-020.
 | LOGM006_IF | Conversion | Product Master conversion (additional EWM attribution) | 10. Object Complete | WIINGS, ECC WM → EWM | NA | N/A |
 | LOGM005_IF | Conversion | UPLOAD TRANSPORTATION ZONES (TM) | 10. Object Complete |  | NA | N/A |
 | LOGM004_IF | Conversion | UPLOAD TRANSPORTATION LANES | 10. Object Complete |  | NA | N/A |
-| LOGI1718 | Interface | To align on batch attributes for straddle in S4 | 08. FUT In Progress |  | NA | 03.Medium |
+| LOGI1718 | Interface | To align on batch attributes for straddle in S4 | 10. Object Complete |  | NA | 03.Medium |
 | LOGI1708 | Interface | Wrapper program for Inbound interface from Kommand AS to SAP | 10. Object Complete |  | Apigee | 03.Medium |
 | LOGI1677 | Interface | Send 4C1 Inventory Reconciliation Snapshot to IP | 10. Object Complete |  | SFT | 03.Medium |
 | LOGI1676 | Interface | Send 4C1 Inventory movement Stock type change and cycle count to IP | 10. Object Complete |  | SFT | 03.Medium |
@@ -601,7 +578,7 @@ The Future-State architecture represents the **target** landscape for PE-020.
 | LOGI1591 | Interface | MergePick (Pick Warehouse task)data in XML format from SAP EWM to Kommand aut... | 10. Object Complete |  | APIGEE | 03.Medium |
 | LOGI1589 | Interface | MergeReplen(Putaway Warehouse task) data in XML format from SAP EWM to Komman... | 10. Object Complete |  | APIGEE | 03.Medium |
 | LOGI1587 | Interface | MergeItem (Product master)data in XML format from SAP EWM to Kommand auto-store | 10. Object Complete |  | APIGEE | 03.Medium |
-| LOGI1555 | Interface | Straddle Plant to be automatically complete the Goods Receipt and write of th... | 09. FUT Overdue |  | MuleSoft | 03.Medium |
+| LOGI1555 | Interface | Straddle Plant to be automatically complete the Goods Receipt and write of th... | 10. Object Complete |  | MuleSoft | 03.Medium |
 | LOGI1091 | Interface | STO based Outbound Delivery Notification Confirmation for Delivery Note Deletion | 10. Object Complete | S/4 → OpenText | MULESOFT | 03.Medium |
 | LOGI1084 | Interface | Interface to SiGac for capturing the consumption of Chems and Gases against a... | 10. Object Complete | SIGAC → S/4 | APIGEE | 03.Medium |
 | LOGI1081_IF | Interface | Interface + Enhancement - Reprinting of Carrier Label | 10. Object Complete | S/4 → Redwood | APIGEE | 04.Low |
@@ -630,23 +607,23 @@ The Future-State architecture represents the **target** landscape for PE-020.
 | LOGF0352_IF | Form | ISM - IPLA | 10. Object Complete | NA → NA | NA | 03.Medium |
 | LOGF0351_IF | Form | ISM - Custom China Special label | 10. Object Complete | NA → NA | NA | 03.Medium |
 | LOGF0350_IF | Form | ISM - India GST DC | 10. Object Complete | NA → NA | NA | 03.Medium |
-| LOGE1691 | Enhancement | Custom Enhancement for Storage Location and Storage Type Restriction LOG IF a... | 08. FUT In Progress |  | NA | 03.Medium |
-| LOGE1690 | Enhancement | Custom Enhancement for Storage Location and Storage Type Restriction LOG IF a... | 07. FUT Roadblock |  | NA | 03.Medium |
-| LOGE1601 | Enhancement | Interface between ECD (Excursion Containment Disposition) and SAP S/4 EWM for... | 06. Dev In Progress |  | NA | 02.High |
+| LOGE1691 | Enhancement | Custom Enhancement for Storage Location and Storage Type Restriction LOG IF a... | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1690 | Enhancement | Custom Enhancement for Storage Location and Storage Type Restriction LOG IF a... | 10. Object Complete |  | NA | 03.Medium |
+| LOGE1601 | Enhancement | Interface between ECD (Excursion Containment Disposition) and SAP S/4 EWM for... | 10. Object Complete |  | NA | 02.High |
 | LOGE1596 | Enhancement | Summary Reconciliation and Inventory Snapshot data in XML format from SAP EWM... | 10. Object Complete |  | NA | 03.Medium |
 | LOGE1592 | Enhancement | MergePick (Pick Warehouse task)data in XML format from SAP EWM to Kommand aut... | 10. Object Complete |  | NA | 03.Medium |
 | LOGE1590 | Enhancement | MergeReplen(Putaway Warehouse task) data in XML format from SAP EWM to Komman... | 10. Object Complete |  | NA | 03.Medium |
 | LOGE1588 | Enhancement | MergeItem (Product master)data in XML format from SAP EWM to Kommand auto-store | 10. Object Complete |  | NA | 03.Medium |
 | LOGE1572_IF | Enhancement | SAP GUI T-code to Move stock from Blocked to unblock Status | 10. Object Complete |  | NA | 03.Medium |
 | LOGE1569_IF | Enhancement | Enhancement to change billing status based on ship reason in ISM | 10. Object Complete |  | NA | 04.Low |
-| LOGE1554 | Enhancement | Straddle Plant to be automatically complete the Goods Receipt and write of th... | 09. FUT Overdue |  | NA | 03.Medium |
+| LOGE1554 | Enhancement | Straddle Plant to be automatically complete the Goods Receipt and write of th... | 10. Object Complete |  | NA | 03.Medium |
 | LOGE1526_IF | Enhancement | Automatic HAWB assignment for Freight Forwarders( ISM/ Prospal STO's) | 10. Object Complete |  | NA | 03.Medium |
 | LOGE1522 | Enhancement | WIP HU overpacking validation for unique TU | 10. Object Complete |  | NA | 03.Medium |
 | LOGE1521 | Enhancement | WIP Overpack Label Printing | 10. Object Complete |  | NA | 03.Medium |
 | LOGE1520 | Enhancement | Enhancement to enable WIP movement for receiving between Factory to EWM Wareh... | 10. Object Complete |  | NA | 03.Medium |
 | LOGE1453 | Enhancement | Trigger the request for cancellation 3B14R and cancel the demand on STO based... | 10. Object Complete |  | NA | 03.Medium |
 | LOGE1450 | Enhancement | Inbound idoc processing logic during 3B2 and 3B13 | 10. Object Complete |  | NA | 03.Medium |
-| LOGE1415 | Enhancement | Suppress Batch and serial number validation in MIGO/MB26 for movement type 261 | 08. FUT In Progress |  | NA | 03.Medium |
+| LOGE1415 | Enhancement | Suppress Batch and serial number validation in MIGO/MB26 for movement type 261 | 10. Object Complete |  | NA | 03.Medium |
 | LOGE1414 | Enhancement | Creation of outbound Delivery for WIP inventory from STO | 10. Object Complete |  | NA | 03.Medium |
 | LOGE1276_IF | Enhancement | TM:Replace VTRC and integrate with parcel carrier to retrieve the package lev... | 10. Object Complete |  | NA | 04.Low |
 | LOGE1255 | Enhancement | Visibility of New & Old Part Number during RF picking/ issue process | 10. Object Complete |  | NA | 03.Medium |
@@ -661,7 +638,7 @@ The Future-State architecture represents the **target** landscape for PE-020.
 | LOGE1058 | Enhancement | Determine Warehouse Process type for PM Returns | 10. Object Complete |  | NA | 04.Low |
 | LOGE1054 | Enhancement | Email/Text Trigger to Factory Technician and Post Goods Issue upon all WO con... | 10. Object Complete |  | NA | 02.High |
 | LOGE1052_IF | Enhancement | Custom fields required on delivery screen | 10. Object Complete |  | NA | 04.Low |
-| LOGE0935_IF | Enhancement | Fiori App - Shipping Memo | 08. FUT In Progress |  | NA | 02.High |
+| LOGE0935_IF | Enhancement | Fiori App - Shipping Memo | 09. FUT Overdue |  | NA | 02.High |
 | LOGE0835_IP | Enhancement | Interface to get the AMT (Asset Management Tool) data on the ISM | 10. Object Complete |  | NA | 03.Medium |
 | LOGE0405_IF | Enhancement | Dangerous Goods indicator from the delivery header text to be transmitted to ... | 10. Object Complete | NA → NA | NA | 04.Low |
 | LOGE0403_IF | Enhancement | In SAP TM, update FU and FO Transportation Cockpit w/ custom fields Purchase ... | 10. Object Complete | NA → NA | NA | 03.Medium |
@@ -714,12 +691,12 @@ The Future-State architecture represents the **target** landscape for PE-020.
 | FTSI1370 | Interface | Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou... | 04. FS In Progress |  → S/4 | MULESOFT | 03.Medium |
 | FTSI1355 | Interface | CMMS – Equipment with MMS flag (S4 to CMMS) | 06. Dev Not Started |  → S/4 | MULESOFT | 03.Medium |
 | FTSI1326 | Interface | Interface to send Lot create & Lot attribute signal to Workstream from SAP S4 | 06. Dev In Progress |  | MULESOFT | 02.High |
-| FTSI1323 | Interface | M-100-170_API 9 is to provide Shipping details Ship Server | 06. Dev In Progress |  | MULESOFT | 03.Medium |
+| FTSI1323 | Interface | M-100-170_API 9 is to provide Shipping details Ship Server | 10. Object Complete |  | MULESOFT | 03.Medium |
 | FTSI1321 | Interface | M-100-170_API 6 is to get Shippable lots from Work Stream | 06. Dev In Progress |  | MULESOFT | 03.Medium |
-| FTSI1320 | Interface | M-100-170_API 7 is for Precheck Request and Response to Ship Server | 06. Dev In Progress |  | MULESOFT | 03.Medium |
+| FTSI1320 | Interface | M-100-170_API 7 is for Precheck Request and Response to Ship Server | 10. Object Complete |  | MULESOFT | 03.Medium |
 | FTSI1319 | Interface | M-100-170_API4 is to provide Shipping details to ULT from S4 | 10. Object Complete |  | MULESOFT | 03.Medium |
 | FTSI1318 | Interface | M-100-170_API3 is to provide Shipping details to WorkStream from S4 | 06. Dev In Progress |  | MULESOFT | 03.Medium |
-| FTSI1317 | Interface | M-100-170_API 11 is to get Shippable lots from Ship server | 06. Dev In Progress |  | MULESOFT | 03.Medium |
+| FTSI1317 | Interface | M-100-170_API 11 is to get Shippable lots from Ship server | 10. Object Complete |  | MULESOFT | 03.Medium |
 | FTSI1159 | Interface | Interface from ECA to S4 to maintain POLP table | 10. Object Complete | ECA → S/4 | BODS | 03.Medium |
 | FTSI1158 | Interface | Interface from SMH to S4 to handle movement of lots from Revenue to TD | 10. Object Complete | PDF → S/4 | MULESOFT | 03.Medium |
 | FTSI1157 | Interface | Custom program for STO generation for Raw Silicon | 10. Object Complete | 3PL → S/4 | APIGEE | 03.Medium |
@@ -732,10 +709,10 @@ The Future-State architecture represents the **target** landscape for PE-020.
 | FTSI0983 | Interface | SAP Warranty Claim Document to e2open (Outbound Interface) | 10. Object Complete | S/4 → E2Open | MULESOFT | 03.Medium |
 | FTSI0924 | Interface | Interface: SAP ME to S/4 to Create & Maintain Notifications | 10. Object Complete | SAP ME → S/4 | NA | 03.Medium |
 | FTSI0860 | Interface | Interface to create Kanban trigger from DMRA and get Reservation created and ... | 06. Dev In Progress | DMRA → S/4 | MULESOFT | 01.Very High |
-| FTSI0830 | Interface | Shipserver Interface to S4 to get handling units for the logical ship | 06. Dev In Progress | MPL → S/4 | MULESOFT | 03.Medium |
+| FTSI0830 | Interface | Shipserver Interface to S4 to get handling units for the logical ship | 10. Object Complete | MPL → S/4 | MULESOFT | 03.Medium |
 | FTSI0689 | Interface | Interface between PDF and S4 to handle DLCP update in S4 based on the DLCP UP... | 10. Object Complete | MES → S/4 | MULESOFT | 03.Medium |
 | FTSI0686 | Interface | Interface between PDF and S4 to handle production order merge events in S4 ba... | 10. Object Complete | MES → S/4 | APIGEE | 02.High |
-| FTSI0677 | Interface | API from SHIP server to validate shipment readiness” | 06. Dev In Progress | PDF → S/4 | MULESOFT | 01.Very High |
+| FTSI0677 | Interface | API from SHIP server to validate shipment readiness” | 09. FUT Overdue | PDF → S/4 | MULESOFT | 01.Very High |
 | FTSI0676 | Interface | Interface between PDF and S4 to handle undo complete in S4 based on the UNDO ... | 10. Object Complete | PDF → S/4 | APIGEE | 03.Medium |
 | FTSI0675 | Interface | Interface between PDF and S4 to handle mid stage transfers in S4 based on the... | 10. Object Complete | MES → S/4 | APIGEE | 03.Medium |
 | FTSI0674 | Interface | Interface between PDF and S4 to handle undo move and scrap in S4 based on the... | 10. Object Complete | MES → S/4 | APIGEE | 03.Medium |
@@ -834,7 +811,7 @@ The Future-State architecture represents the **target** landscape for PE-020.
 | FTSE0423 | Enhancement | Create custom table in SAP to store the build instruction data | 10. Object Complete |  | NA | 04.Low |
 | FTSC1550 | Conversion | Inventory Conversion | 02. FS Unplanned |  | NA | 03.Medium |
 | FTSC0052_IF | Conversion | Conversion of Reference Operation Sets to S/4 | 10. Object Complete | ECC → S4 | NA | 02.High |
-| LOGI1738 | Interface | Interface to send data to Factory Comm to activate the Mobile text receiving ... | 02. FS Unplanned |  | NA | 02.High |
+| LOGI1738 | Interface | Interface to send data to Factory Comm to activate the Mobile text receiving ... | 04. FS In Progress |  | NA | 02.High |
 
 **Summary**: 5 Reports, 92 Interfaces, 31 Conversions, 118 Enhancements, 15 Forms, 4 Workflows
 
@@ -857,11 +834,15 @@ Integration patterns identified from the system flow analysis for PE-020:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
+
+
 
 #### Platform Inventory
 
@@ -882,109 +863,13 @@ Platform landscape inferred from integrated systems for PE-020:
 
 ### 6.2 SAP Development Object Status
 
-**Capability RICEFW — Active Items** (56 of 265 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-04-06)*
-
-> **Completion Context:** 209 of 265 objects (79%) are complete/closed. The **56 active items** below require attention. See the **RICEFW Register** for full detail.
->
-> | Type | Completed | Active | Total |
-> |------|----------:|-------:|------:|
-> | Report (R) | 5 | 0 | 5 |
-> | Interface (I) | 62 | 30 | 92 |
-> | Conversion (C) | 30 | 1 | 31 |
-> | Enhancement (E) | 94 | 24 | 118 |
-> | Form (F) | 15 | 0 | 15 |
-> | Workflow (W) | 3 | 1 | 4 |
-> | **Total** | **209** | **56** | **265** |
-
-| Status | Count | % |
-|--------|------:|----:|
-| 02. FS Unplanned | 22 | 39.3% |
-| 06. Dev In Progress | 19 | 33.9% |
-| 08. FUT In Progress | 4 | 7.1% |
-| 09. FUT Overdue | 4 | 7.1% |
-| 04. FS In Progress | 3 | 5.4% |
-| 07. FUT Roadblock | 2 | 3.6% |
-| 03. FS Not Started | 1 | 1.8% |
-| 06. Dev Not Started | 1 | 1.8% |
-| **Total Active** | **56** | **100%** |
-
-**Active RICEFW by Type:**
-
-| Type | Count |
-|------|------:|
-| Interface (I) | 30 |
-| Conversion (C) | 1 |
-| Enhancement (E) | 24 |
-| Workflow (W) | 1 |
-| **Total** | **56** |
-
-**Technical Complexity:**
-
-| Complexity | Count |
-|------------|------:|
-| 01.Very High | 5 |
-| 02.High | 9 |
-| 03.Medium | 39 |
-| 04.Low | 3 |
-
-**Objects Requiring Attention:**
-
-| Object ID | Type | Description | Status | Complexity |
-|-----------|------|-------------|--------|------------|
-| LOGI1718 | 02.Interface | To align on batch attributes for straddle in S4 | 08. FUT In Progress | 03.Medium |
-| LOGI1675 | 02.Interface | Interface for SiGaC to extract inventory data from EWM to meet their existing bu... | 06. Dev In Progress | 03.Medium |
-| LOGI1626 | 02.Interface | Inventory adjustment  data in XML format from Kommand auto-store to SAP EWM | 06. Dev In Progress | 03.Medium |
-| LOGI1594 | 02.Interface | Pickresult(Pick Warehouse task confirmation) data in XML format from SAP EWM to ... | 06. Dev In Progress | 02.High |
-| LOGI1593 | 02.Interface | Replenresult(Putaway warehouse task confirmation) data in XML format from SAP EW... | 06. Dev In Progress | 02.High |
-| LOGI1555 | 02.Interface | Straddle Plant to be automatically complete the Goods Receipt and write of the i... | 09. FUT Overdue | 03.Medium |
-| LOGE1691 | 04.Enhancement | Custom Enhancement for Storage Location and Storage Type Restriction LOG IF and ... | 08. FUT In Progress | 03.Medium |
-| LOGE1690 | 04.Enhancement | Custom Enhancement for Storage Location and Storage Type Restriction LOG IF and ... | 07. FUT Roadblock | 03.Medium |
-| LOGE1601 | 04.Enhancement | Interface between ECD (Excursion Containment Disposition) and SAP S/4 EWM for In... | 06. Dev In Progress | 02.High |
-| LOGE1554 | 04.Enhancement | Straddle Plant to be automatically complete the Goods Receipt and write of the i... | 09. FUT Overdue | 03.Medium |
-| LOGE1415 | 04.Enhancement | Suppress Batch and serial number validation in MIGO/MB26 for movement type 261 | 08. FUT In Progress | 03.Medium |
-| LOGE0935_IF | 04.Enhancement | Fiori App - Shipping Memo | 08. FUT In Progress | 02.High |
-| FTSW1372 | 06.Workflow | Factory Portal - Equipment to Parts Management (Custom Fields – Part Check out &... | 03. FS Not Started | 03.Medium |
-| FTSI1702 | 02.Interface | Interface to transfer Vendor details from S4 to DMRA on a daily basis | 02. FS Unplanned | 03.Medium |
-| FTSI1667 | 02.Interface | Interface to transfer BOM details from S4 to DMRA on a daily basis | 02. FS Unplanned | 03.Medium |
-| FTSI1654 | 02.Interface | Interface to transfer Material Master details from S4 to DMRA on a daily basis | 02. FS Unplanned | 04.Low |
-| FTSI1652 | 02.Interface | Interface to transfer STO Change  & Delete from S4 to DMRA on a daily basis | 02. FS Unplanned | 04.Low |
-| FTSI1651 | 02.Interface | Interface to transfer STO details from S4 to DMRA on a daily basis - STO create | 02. FS Unplanned | 04.Low |
-| FTSI1578 | 02.Interface | Interface to send Lot attribute signal to Workstream from SAP S4 - Mulesoft Requ... | 06. Dev In Progress | 02.High |
-| FTSI1538 | 02.Interface | CMMS – get location info from CMMS | 02. FS Unplanned | 03.Medium |
-| FTSI1537 | 02.Interface | CMMS – Get Collateral Details | 02. FS Unplanned | 03.Medium |
-| FTSI1536 | 02.Interface | CMMS – Collateral Conversion | 02. FS Unplanned | 03.Medium |
-| FTSI1431 | 02.Interface | Interface to transfer batch SLED details from S4 to DMRA on a daily basis | 06. Dev In Progress | 03.Medium |
-| FTSI1371 | 02.Interface | CMMS – Equipment create and update (status and collateral name) | 04. FS In Progress | 03.Medium |
-| FTSI1370 | 02.Interface | Factory Portal - Equipment to Parts Management (Custom Fields – Part Check out &... | 04. FS In Progress | 03.Medium |
-| FTSI1355 | 02.Interface | CMMS – Equipment with MMS flag (S4 to CMMS) | 06. Dev Not Started | 03.Medium |
-| FTSI1326 | 02.Interface | Interface to send Lot create & Lot attribute signal to Workstream from SAP S4 | 06. Dev In Progress | 02.High |
-| FTSI1323 | 02.Interface | M-100-170_API 9 is to provide Shipping details Ship Server | 06. Dev In Progress | 03.Medium |
-| FTSI1321 | 02.Interface | M-100-170_API 6 is to get Shippable lots from Work Stream | 06. Dev In Progress | 03.Medium |
-| FTSI1320 | 02.Interface | M-100-170_API 7 is for Precheck Request and Response to Ship Server | 06. Dev In Progress | 03.Medium |
-| FTSI1318 | 02.Interface | M-100-170_API3 is to provide Shipping details to WorkStream from S4 | 06. Dev In Progress | 03.Medium |
-| FTSI1317 | 02.Interface | M-100-170_API 11 is to get Shippable lots from Ship server | 06. Dev In Progress | 03.Medium |
-| FTSI1021 | 02.Interface | Interface to be developed from ECA to SAP which helps to upload PIR via BAPI | 06. Dev In Progress | 03.Medium |
-| FTSI0860 | 02.Interface | Interface to create Kanban trigger from DMRA and get Reservation created and sha... | 06. Dev In Progress | 01.Very High |
-| FTSI0830 | 02.Interface | Shipserver Interface to S4 to get handling units for the logical ship | 06. Dev In Progress | 03.Medium |
-| FTSI0677 | 02.Interface | API from SHIP server to validate shipment readiness” | 06. Dev In Progress | 01.Very High |
-| FTSE1641 | 04.Enhancement | Enhancement to create a program which can query on  Master Data, Batch & STO det... | 02. FS Unplanned | 03.Medium |
-| FTSE1577 | 04.Enhancement | Perform Auto batch determination at the time of STO creation – DMRA | 09. FUT Overdue | 02.High |
-| FTSE1549 | 04.Enhancement | Custom Attributes for AMT/ISM | 02. FS Unplanned | 03.Medium |
-| FTSE1548 | 04.Enhancement | Automation for Product Conversions – Equipment Structure update | 02. FS Unplanned | 03.Medium |
-| FTSE1547 | 04.Enhancement | Automation for Product Conversions – Work Order Closure | 02. FS Unplanned | 03.Medium |
-| FTSE1546 | 04.Enhancement | Automation for Product Conversions – Parts Request and Return | 02. FS Unplanned | 03.Medium |
-| FTSE1545 | 04.Enhancement | Automation for Product Conversions – Explode BOM | 02. FS Unplanned | 03.Medium |
-| FTSE1544 | 04.Enhancement | Automation for Product Conversions – create Work Order | 02. FS Unplanned | 03.Medium |
-| FTSE1543 | 04.Enhancement | PM inbound from AMT | 02. FS Unplanned | 03.Medium |
-| FTSE1542 | 04.Enhancement | PM outbound to AMT | 02. FS Unplanned | 03.Medium |
-| FTSE1541 | 04.Enhancement | Send SAP notification on Work Order update | 02. FS Unplanned | 03.Medium |
-| FTSE1540 | 04.Enhancement | Send SAP notification on Equipment update | 02. FS Unplanned | 03.Medium |
-| FTSE1539 | 04.Enhancement | Custom Fiori UI – Move Equipment SRoom to SRoom (screen) | 02. FS Unplanned | 03.Medium |
-| FTSE1477 | 04.Enhancement | Enhancement - Lot Level Exception UI | 09. FUT Overdue | 01.Very High |
-| | | *... and 6 more active objects* | | |
-
-**Tower Context:** FTS-IF has 56 active / 209 completed RICEFW objects
+| Metric | DEV | QAS | PRD |
+|--------|-----|-----|-----|
+| Transport Requests | — | — | — |
+| Custom Code Objects | — | — | — |
+| CDS Views | — | — | — |
+| Fiori Apps | — | — | — |
+| BAdIs / Enhancements | — | — | — |
 
 ### 6.3 NFRs & Design Principles
 
@@ -1022,119 +907,52 @@ Platform landscape inferred from integrated systems for PE-020:
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
-*30 active objects with timeline data (source: Object Tracker)*
-*209 completed objects excluded — see RICEFW Register for full detail.*
-
 | ID | Description | FS | TDD | Build | FUT | Status |
 |----|-------------|----|-----|-------|-----|--------|
-| LOGI1718 | To align on batch attributes for straddle in S4 | Feb-26 (100%) | Mar-26 (100%) | Mar-26 (100%) | Mar-26 (5%) | 3. Off Track |
-| LOGI1675 | Interface for SiGaC to extract inventory data from EWM to meet their existing business needs​ | Jan-26 (100%) | Feb-26 (100%) | Feb-26 (100%) | Mar-26 (100%) | 4. Completed |
-| LOGI1626 | Inventory adjustment data in XML format from Kommand auto-store to SAP EWM | Nov-25 (100%) | Nov-25 (100%) | Dec-25 (100%) | Mar-26 (77%) | 1. On Track |
-| LOGI1594 | Pickresult(Pick Warehouse task confirmation) data in XML format from SAP EWM to Kommand auto-store | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Mar-26 (80%) | 1. On Track |
-| LOGI1593 | Replenresult(Putaway warehouse task confirmation) data in XML format from SAP EWM to Kommand auto-store | Aug-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Mar-26 (80%) | 1. On Track |
-| LOGI1555 | Straddle Plant to be automatically complete the Goods Receipt and write of the inventory | Sep-25 (100%) | Nov-25 (100%) | Nov-25 (100%) | Mar-26 (45%) | 3. Off Track |
-| LOGE1691 | Custom Enhancement for Storage Location and Storage Type Restriction LOG IF and LOG EWM IF Security Roles | Feb-26 (100%) | Mar-26 (100%) | Mar-26 (100%) | Mar-26 (25%) | 3. Off Track |
-| LOGE1690 | Custom Enhancement for Storage Location and Storage Type Restriction LOG IF and LOG EWM IF Security Roles | Feb-26 (100%) | Mar-26 (100%) | Mar-26 (100%) | Mar-26 (0%) | 3. Off Track |
-| LOGE1601 | Interface between ECD (Excursion Containment Disposition) and SAP S/4 EWM for Inventory status and change (Block/Un-block) | Oct-25 (100%) | Feb-26 (83%) | Feb-26 (83%) | Mar-26 (90%) | 1. On Track |
-| LOGE1554 | Straddle Plant to be automatically complete the Goods Receipt and write of the inventory | Sep-25 (100%) | Jan-26 (100%) | Jan-26 (100%) | Mar-26 (45%) | 3. Off Track |
-| LOGE1415 | Suppress Batch and serial number validation in MIGO/MB26 for movement type 261 | Jul-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Mar-26 (99%) | 2. At Risk |
-| LOGE0935_IF | Fiori App - Shipping Memo | May-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Mar-26 (30%) | 2. At Risk |
-| FTSI1578 | Interface to send Lot attribute signal to Workstream from SAP S4 - Mulesoft Requirement | Sep-25 (100%) | — | — | — | 5. Not Dispositioned |
-| FTSI1431 | Interface to transfer batch SLED details from S4 to DMRA on a daily basis | Aug-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | — | 5. Not Dispositioned |
-| FTSI1355 | CMMS – Equipment with MMS flag (S4 to CMMS) | Jun-25 (100%) | — | — | — | 5. Not Dispositioned |
-| FTSI1326 | Interface to send Lot create & Lot attribute signal to Workstream from SAP S4 | Jun-25 (100%) | Aug-25 (100%) | Aug-25 (100%) | — | 5. Not Dispositioned |
-| FTSI1323 | M-100-170_API 9 is to provide Shipping details Ship Server | Jul-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Feb-26 (100%) | 1. On Track |
-| FTSI1321 | M-100-170_API 6 is to get Shippable lots from Work Stream | Jul-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Jan-26 (0%) | 5. Not Dispositioned |
-| FTSI1320 | M-100-170_API 7 is for Precheck Request and Response to Ship Server | Jul-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Feb-26 (100%) | 1. On Track |
-| FTSI1318 | M-100-170_API3 is to provide Shipping details to WorkStream from S4 | Jul-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Jan-26 (0%) | 5. Not Dispositioned |
-| FTSI1317 | M-100-170_API 11 is to get Shippable lots from Ship server | Jul-25 (100%) | Sep-25 (100%) | Sep-25 (100%) | Feb-26 (100%) | 1. On Track |
-| FTSI1021 | Interface to be developed from ECA to SAP which helps to upload PIR via BAPI | Mar-25 (100%) | May-25 (100%) | May-25 (100%) | — | 5. Not Dispositioned |
-| FTSI0860 | Interface to create Kanban trigger from DMRA and get Reservation created and shared to 3 PL to get inventory to shop floor. | Mar-25 (100%) | — | — | — | 5. Not Dispositioned |
-| FTSI0830 | Shipserver Interface to S4 to get handling units for the logical ship | May-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Mar-26 (100%) | 1. On Track |
-| FTSI0677 | API from SHIP server to validate shipment readiness” | May-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Mar-26 (45%) | 3. Off Track |
-| FTSE1577 | Perform Auto batch determination at the time of STO creation – DMRA | Sep-25 (100%) | Oct-25 (100%) | Oct-25 (100%) | Nov-25 (45%) | 1. On Track |
-| FTSE1477 | Enhancement - Lot Level Exception UI | Aug-25 (100%) | Dec-25 (100%) | Dec-25 (100%) | Mar-26 (72%) | 3. Off Track |
-| FTSE1467 | Custom Report for Operating Supplies Reservations​ | Jul-25 (100%) | Oct-25 (75%) | Oct-25 (75%) | Feb-26 (100%) | 1. On Track |
-| FTSE1325 | M-100-170_Create Manual ship FIORI UI in S4 | Aug-25 (100%) | Dec-25 (50%) | Dec-25 (50%) | Mar-26 (50%) | 3. Off Track |
-| FTSE1119 | Custom Table required to support enhancement to store lot attributes when Lot create signal sent S4 to Workstream”. | Mar-25 (100%) | May-25 (100%) | May-25 (100%) | Sep-25 (25%) | 3. Off Track |
+| LOGW1078_IF | ISM Workflows - Capital/AMT | 2025-06-11 00:00:00 (100%) | 2025-11-21 00:00:00 (100%) | 2025-11-21 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 4. Completed |
+| LOGW1077_IF | ISM Workflows - EIMS/Lab | 2025-06-11 00:00:00 (100%) | 2025-09-24 00:00:00 (100%) | 2025-09-24 00:00:00 (100%) | 2025-12-03 00:00:00 (100%) | 4. Completed |
+| LOGW1076_IF | ISM Workflows - Non-inventory | 2025-06-11 00:00:00 (100%) | 2025-09-24 00:00:00 (100%) | 2025-09-24 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 1. On Track |
+| LOGR1176_IF | ISM - International Traffic Report | 2025-04-18 00:00:00 (100%) | 2025-08-13 00:00:00 (100%) | 2025-08-13 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 4. Completed |
+| LOGR0833_IF | Email Notification for deletion of Shipping Memos | 2025-02-28 00:00:00 (100%) | 2025-09-05 00:00:00 (100%) | 2025-09-05 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 4. Completed |
+| LOGM024_IF | Create/Upload Vehicle resource | 2025-05-16 00:00:00 (100%) | — | — | 2025-09-10 00:00:00 (100%) |  |
+| LOGM023_IF | Update Business Share | 2025-06-11 00:00:00 (100%) | — | — | 2025-09-26 00:00:00 (100%) |  |
+| LOGM022_IF | Upload Transportation Allocation | 2025-06-11 00:00:00 (100%) | — | — | 2025-09-26 00:00:00 (100%) |  |
+| LOGM021_IF | Upload Schedules | 2025-08-01 00:00:00 (100%) | — | — | 2025-09-10 00:00:00 (100%) |  |
+| LOGM019_IF | Default Routes | 2025-05-16 00:00:00 (100%) | — | — | 2025-09-10 00:00:00 (100%) |  |
+| LOGM018_IF | Upload Rate Table | 2025-06-11 00:00:00 (100%) | — | — | 2025-09-26 00:00:00 (100%) |  |
+| LOGM016_IF | Create and review Charge Calculation Sheet | 2025-06-11 00:00:00 (100%) | — | — | 2025-09-26 00:00:00 (100%) |  |
+| LOGM015_IF | Create and review Freight Agreement | 2025-06-11 00:00:00 (100%) | — | — | 2025-09-26 00:00:00 (100%) |  |
+| LOGM012_IF | Creation of Location based on BP, Shipping points, plants | 2025-05-16 00:00:00 (100%) | — | — | 2025-09-10 00:00:00 (100%) |  |
+| LOGM008_IF | Location creation-ocean ports, airports | 2025-05-16 00:00:00 (100%) | — | — | 2025-09-10 00:00:00 (100%) | 1. On Track |
+| LOGM007_IF | Storage Bin Upload | 2025-07-16 00:00:00 (100%) | — | — | 2025-10-08 00:00:00 (100%) |  |
+| LOGM006_IF | Product Master conversion (additional EWM attribution) | 2025-07-16 00:00:00 (100%) | — | — | 2025-10-08 00:00:00 (100%) |  |
+| LOGM005_IF | UPLOAD TRANSPORTATION ZONES (TM) | 2025-06-11 00:00:00 (100%) | — | — | 2025-09-26 00:00:00 (100%) |  |
+| LOGM004_IF | UPLOAD TRANSPORTATION LANES | 2025-06-11 00:00:00 (100%) | — | — | 2025-09-26 00:00:00 (100%) |  |
+| LOGI1718 | To align on batch attributes for straddle in S4 | 2026-02-04 00:00:00 (100%) | 2026-03-19 00:00:00 (100%) | 2026-03-19 00:00:00 (100%) | 2026-03-27 00:00:00 (100%) | 4. Completed |
+
+*... and 245 more objects (see full Object Tracker)*
+
+
+<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-020 — Identify Maintenance Structure (IF)</span></div>
+<div style="page-break-before: always;"></div>
+
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-04-06*
-
-**Mapped sub-tower(s):** 7.1 FTS IF - ALL, 7.4 FTS IF - EWM, 7.5 FTS IF - TM, 7.6 FTS IF - Logistics & Inventory Management, 7.7 FTS IF - Manufacturing & MES Integration, 7.8 FTS IF - MRP & Planning Integration, 7.9 FTS IF - Plant Maintenance
-
-**RAID Summary:** 103 open items (22 capability-specific, 81 tower-level), 448 closed
-
-| Severity | Capability | Tower-Wide | Total Open |
-|----------|----------:|-----------:|-----------:|
-| P1 - High | 1 | 8 | 9 |
-| P2 - Medium | 19 | 59 | 78 |
-| P3 - Low | 2 | 14 | 16 |
-| **Total** | **22** | **81** | **103** |
-
-**Capability-Specific RAID Items:**
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03716 | Risk | P1 - High | Raising RAID to track the progress of FUT for LOGE1690 as it... | In Progress | FTS IF | 2026-03-13 |
-| 03294 |  | P2 - Medium | Factory portal application is not ready from FTS and this is... | In Progress | FTS IF | 2026-02-27 |
-| 02987 |  | P2 - Medium | LOGF1525 - Consolidated Commercial Invoice for WIP Awaiting ... | In Progress | FTS IF | 2025-11-06 |
-| 03518 | Action | P2 - Medium | Batch Attributes for WIP Straddle-LOGI1718 | Not Started |  | 2026-02-06 |
-| 02315 | Action | P2 - Medium | Need Approval on Preload file | Not Started | FTS IF |  |
-| 02419 | Key Decision | P2 - Medium | Batch classification details clarification required LOGC0972... | Not Started | FTS IF | 2025-10-15 |
-| 03752 | Risk | P2 - Medium | IF-LOGE1691-Enhancement to restrict access based on Storage ... | In Progress | Security & Controls | 2026-03-24 |
-| 01857 | Action | P2 - Medium | TF Signavio Flows Update Request | In Progress | FTS IF | 2026-01-30 |
-| 03157 |  | P2 - Medium | Split Logic to Segregate IF & IP data from EWM tables | Not Started |  | 2025-12-04 |
-| 03231 | Risk | P2 - Medium | Need LE Sample Data (Shipping Point & Delivery Route) for va... | Not Started | FTS IF | 2026-02-10 |
-| 03331 | Risk | P2 - Medium | Clarity on finalized SAP S/4 Plant and storage location mapp... | In Progress | Master Data | 2026-04-10 |
-| 03703 | Risk | P2 - Medium | For FUT: Factory Automation Apps waiting on Heartbeat Loader... | In Progress | FTS IF | 2026-03-24 |
-| 02088 | Risk | P2 - Medium | Equipment Master Conversion help needed | In Progress | FTS IF | 2026-03-31 |
-| 03539 | Risk | P2 - Medium | TPTD coming back into scope for SAP PM poses risk for R3 | Roadblock / At Risk | FTS IF | 2026-03-27 |
-| 02133 | Action | P2 - Medium | clarification on storage location xref for one to many scena... | Not Started | FTS IF |  |
-| 03671 | Risk | P2 - Medium | [WIINGS] - R4 GFM US EWM Warehouses Structure | Roadblock / At Risk | FTS IF | 2026-04-30 |
-| 03685 |  | P2 - Medium | Rinchem ITC1 Test Scenario/Case Readiness | In Progress | FTS IF |  |
-| 03515 | Risk | P2 - Medium | Need E2E test data for STO of IM to IM (Interfactory shipmen... | In Progress | FTS IF | 2026-04-03 |
-| 03779 | Risk | P2 - Medium | [WIINGS] - Chem 3PL PIP Enhancement to support FTZ | In Progress | FTS IF | 2026-04-17 |
-| 03799 | Issue | P2 - Medium | INT-CR1463 - Awaiting FS walk-through from FTS IF team | In Progress | FTS IF | 2026-03-31 |
-| 03061 | Risk | P3 - Low | Athena Operational Team needed to handle data updates during... | In Progress | FTS IF | 2026-03-06 |
-| 03404 | Risk | P3 - Low | [WIINGS] EWM labels updates | Not Started | FTS IF | 2026-04-03 |
-
-**Other FTS-IF Tower RAID Items** (81 open):
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03578 | Risk | P1 - High | HBI Process Flow Change impact Assessment | In Progress | FTS IF | 2026-03-27 |
-| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-15 |
-| 03600 | Risk | P1 - High | Error lifecycle functionality within PDF application is miss... | In Progress | FTS IF | 2026-05-01 |
-| 03601 | Risk | P1 - High | Traceability functionality within PDF application is missing... | In Progress | FTS IF | 2026-05-15 |
-| 03757 | Risk | P1 - High | IF Planning data not available in ITC1 until W4, leaving too... | In Progress | FTS IF | 2026-04-10 |
-| 03762 | Risk | P1 - High | FTS-IF (esp SCP) related test cases/sequencing are not accur... | In Progress | FTS IF | 2026-04-10 |
-| 03806 | Risk | P1 - High | Delay in Manufacturing Execution Design Impacts Training Del... | In Progress | CM & Comms | 2026-04-24 |
-| 03805 | Key Decision | P1 - High | BY - OTC IF : Replace virtual plant on SO with actual plant | Not Started | E2E | 2026-04-03 |
-| 01355 | Action | P2 - Medium | PDF SMHe product development approach does not appear to hav... | To Be Reviewed | FTS IF | 2026-04-03 |
-| 01658 | Risk | P2 - Medium | Under Intel Review | In Progress |  | 2025-07-18 |
-| 01709 | Action | P2 - Medium | No PAY1 or ENG1 storage locations defined or configured for ... | Not Started |  | 2025-08-08 |
-| 01733 | Risk | P2 - Medium | Tariffs impacts Item/BOM design which is impacting ERP/SCP (... | In Progress | E2E | 2026-03-06 |
-| 03079 | Action | P2 - Medium | Request for PDH Design WTF | In Progress | FTS IP | 2026-03-04 |
-| 03128 | Risk | P2 - Medium | Application Health Monitoring | In Progress | FTS IF | 2026-05-13 |
-| 03205 | Action | P2 - Medium | Provide an update WW50 on the production rollout plan for th... | In Progress | FTS IF | 2026-03-06 |
-| 03241 | Risk | P2 - Medium | Materials Planning Policy for Constrained Materials | In Progress | FTS IP | 2026-07-31 |
-| 03292 | Risk | P2 - Medium | SCP IF BY ESP Solves during ITC1 | In Progress | FTS IF | 2026-01-09 |
-| 03308 | Action | P2 - Medium | Missing information for Anafi material master | Not Started | FTS IF |  |
-| 03314 | Risk | P2 - Medium | Executive lock cause performance issues in IF Dev | In Progress | FTS IF | 2026-04-17 |
-| 03334 | Issue | P2 - Medium | Application Monitoring - Connectors Health Monitoring | In Progress | FTS IF | 2026-05-15 |
-| 03398 | Action | P2 - Medium | Kafka Admin Password for both IF and IP | In Progress | FTS IF | 2026-04-07 |
-| 03713 | Risk | P2 - Medium | Lack of TRDI data impacting delivery of ECA report by ITC2 | In Progress | FTS IF | 2026-03-27 |
-| 03732 | Risk | P2 - Medium | Production scheduling systems will likely only provide mock ... | Not Started |  | 2026-04-10 |
-| 03526 | Action | P2 - Medium | Review process for post-validation of system changes | In Progress | FTS IP | 2026-04-17 |
-| 02856 | Risk | P2 - Medium | SMH IF and (IP) Entra ID issue | In Progress | FTS IF | 2026-04-10 |
-| 03543 | Risk | P2 - Medium | SME's lack level of knowledge for BE SCP | In Progress | CM & Comms | 2026-04-03 |
-| 03560 | Issue | P2 - Medium | Apigee Endpoints for different ITC's | In Progress | Technology | 2026-02-28 |
-| 03579 | Risk | P2 - Medium | FTS-IF ECA reports as risk due to open TD & data source ques... | In Progress | FTS IF | 2026-03-27 |
-| 03610 | Action | P2 - Medium | Schedule follow-up with Mike Lange (re: CR1690 fix to missin... | In Progress | FTS IF | 2026-02-27 |
-| 03615 | Risk | P2 - Medium | Limited site data could impact IF S4 custom table Z_FTS_POLP... | In Progress | FTS IF | 2026-05-01 |
-| | | | *... and 51 more tower-level items* | | | |
+| # | Object ID | Category | RAID Description | Status | Assigned To | Created |
+|---|-----------|----------|-----------------|--------|-------------|---------|
+| 1 | FTSI1326 | TD Automation | 01584 | 06. Dev In Progress | Sateesh Kumar | 07/09/25 |
+| 2 | FTSI1323 | TD Automation | 01584 | 10. Object Complete | Sateesh Kumar | 07/09/25 |
+| 3 | FTSI1321 | TD Automation | 01584 | 06. Dev In Progress | Sateesh Kumar | 07/09/25 |
+| 4 | FTSI1320 | TD Automation | 01584 | 10. Object Complete | Sateesh Kumar | 07/09/25 |
+| 5 | FTSI1318 | TD Automation | 01584 | 06. Dev In Progress | Sateesh Kumar | 07/09/25 |
+| 6 | FTSI1317 | TD Automation | 01584 | 10. Object Complete | Sateesh Kumar | 07/09/25 |
+| 7 | FTSI1157 | TD Automation | 01584 | 10. Object Complete | Sateesh Kumar | 07/09/25 |
+| 8 | FTSI1021 | SIMS | 01584 | 06. Dev In Progress | Sateesh Kumar | 07/09/25 |
+| 9 | FTSI1020 | IMO | 01584 | 10. Object Complete | Sateesh Kumar | 07/09/25 |
+| 10 | FTSI1007 | PM | 01584 | 10. Object Complete | Sateesh Kumar | 07/09/25 |
+| 11 | FTSI0924 | PM | 01584 | 10. Object Complete | Sateesh Kumar | 07/09/25 |
+| 12 | FTSI0860 | TD Automation | 01584 | 06. Dev In Progress | Sateesh Kumar | 07/09/25 |
 
 ### 7.3 Recommendations & Next Steps
 
@@ -1149,6 +967,4 @@ Platform landscape inferred from integrated systems for PE-020:
 ---
 *PE-020 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IF) · Generated: April 2026*
 
-
-
-<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-020 — Identify Maintenance Structure (IF)</span></div>
+<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-020 — Identify Maintenance Structure (IF)</span></div>

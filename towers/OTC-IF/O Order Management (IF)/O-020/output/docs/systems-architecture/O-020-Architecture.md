@@ -1,6 +1,5 @@
 <div style="text-align:center; padding-top:20px;">
-  <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
-  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMGFlZWY7c3RvcC1vcGFjaXR5OjEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjE1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4wMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDcpIiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgPC9wYXR0ZXJuPgogIDwvZGVmcz4KCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2JnKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNncmlkKSIgcng9IjgiLz4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPgoKICA8IS0tIERlY29yYXRpdmUgY2lyY3VpdC9hcmNoaXRlY3R1cmUgbGluZXMgLS0+CiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+CiAgICA8cGF0aCBkPSJNIDAgMTAwIEwgMTIwIDEwMCBMIDE2MCAxNDAgTCAyODAgMTQwIi8+CiAgICA8cGF0aCBkPSJNIDAgMjYwIEwgODAgMjYwIEwgMTIwIDIyMCBMIDIwMCAyMjAgTCAyNDAgMjYwIEwgMzYwIDI2MCIvPgogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPgogICAgPHBhdGggZD0iTSA0NDAgMzQwIEwgNTYwIDM0MCBMIDYwMCAzMDAgTCA3MjAgMzAwIEwgNzYwIDM0MCBMIDgwMCAzNDAiLz4KICAgIDxwYXRoIGQ9Ik0gNjAwIDQwMCBMIDY4MCA0MDAgTCA3MjAgNDQwIi8+CiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+CiAgICA8cGF0aCBkPSJNIDIwMCA0MjAgTCAzMjAgNDIwIEwgMzYwIDM4MCBMIDQ4MCAzODAiLz4KICAgIDxwYXRoIGQ9Ik0gNjUwIDQ0MCBMIDc1MCA0NDAgTCA4MDAgNDgwIi8+CiAgPC9nPgoKICA8IS0tIERlY29yYXRpdmUgbm9kZXMgLS0+CiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+CiAgICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjI4MCIgY3k9IjE0MCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSIzNjAiIGN5PSIyNjAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjYwMCIgY3k9IjEwMCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI1NjAiIGN5PSIzNDAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjgwIiBjeT0iMzYwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjMyMCIgY3k9IjQyMCIgcj0iNCIvPgogIDwvZz4KCiAgPCEtLSBUT0dBRiBCREFUIGJveGVzIC0tPgogIDxnIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI2MDAiPgogICAgPCEtLSBCIC0tPgogICAgPHJlY3QgeD0iMTUwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIyMTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QnVzaW5lc3M8L3RleHQ+CiAgICA8IS0tIEQgLS0+CiAgICA8cmVjdCB4PSIyOTAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjM1MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5EYXRhPC90ZXh0PgogICAgPCEtLSBBIC0tPgogICAgPHJlY3QgeD0iNDMwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSI0OTAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+QXBwbGljYXRpb248L3RleHQ+CiAgICA8IS0tIFQgLS0+CiAgICA8cmVjdCB4PSI1NzAiIHk9IjE0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjYzMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5UZWNobm9sb2d5PC90ZXh0PgogIDwvZz4KCiAgPCEtLSBDb25uZWN0aW5nIGxpbmVzIGJldHdlZW4gQkRBVCBib3hlcyAtLT4KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+CiAgICA8bGluZSB4MT0iMjcwIiB5MT0iMTYwIiB4Mj0iMjkwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNDEwIiB5MT0iMTYwIiB4Mj0iNDMwIiB5Mj0iMTYwIi8+CiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+CiAgPC9nPgoKICA8IS0tIE1haW4gdGl0bGUgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIyNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmZmZmYiIGxldHRlci1zcGFjaW5nPSIxIj4KICAgIElBTyBBcmNoaXRlY3R1cmUKICA8L3RleHQ+CiAgPHRleHQgeD0iNDAwIiB5PSIzMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC44KSIgbGV0dGVyLXNwYWNpbmc9IjIiPgogICAgVE9HQUYgQkRBVCDCtyBJQU8gUHJvZ3JhbSDCtyBJRE0gMi4wCiAgPC90ZXh0PgoKICA8IS0tIEJvdHRvbSBhY2NlbnQgYmFyIC0tPgogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPgoKICA8IS0tIEludGVsIHRleHQgLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPgogICAgSU5URUwgQ09ORklERU5USUFMCiAgPC90ZXh0Pgo8L3N2Zz4K" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDgwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwNzFjNTtzdG9wLW9wYWNpdHk6MSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWVmO3N0b3Atb3BhY2l0eToxIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImFjY2VudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4xNSIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eTowLjAyIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCiAgICAgIDxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiIHN0cm9rZS13aWR0aD0iMC41Ii8+DQogICAgPC9wYXR0ZXJuPg0KICA8L2RlZnM+DQoNCiAgPCEtLSBCYWNrZ3JvdW5kIC0tPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNiZykiIHJ4PSI4Ii8+DQogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDgwIiBmaWxsPSJ1cmwoI2dyaWQpIiByeD0iOCIvPg0KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0idXJsKCNhY2NlbnQpIiByeD0iOCIvPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBjaXJjdWl0L2FyY2hpdGVjdHVyZSBsaW5lcyAtLT4NCiAgPGcgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTIpIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSI+DQogICAgPHBhdGggZD0iTSAwIDEwMCBMIDEyMCAxMDAgTCAxNjAgMTQwIEwgMjgwIDE0MCIvPg0KICAgIDxwYXRoIGQ9Ik0gMCAyNjAgTCA4MCAyNjAgTCAxMjAgMjIwIEwgMjAwIDIyMCBMIDI0MCAyNjAgTCAzNjAgMjYwIi8+DQogICAgPHBhdGggZD0iTSA1MjAgMTAwIEwgNjAwIDEwMCBMIDY0MCA2MCBMIDgwMCA2MCIvPg0KICAgIDxwYXRoIGQ9Ik0gNDQwIDM0MCBMIDU2MCAzNDAgTCA2MDAgMzAwIEwgNzIwIDMwMCBMIDc2MCAzNDAgTCA4MDAgMzQwIi8+DQogICAgPHBhdGggZD0iTSA2MDAgNDAwIEwgNjgwIDQwMCBMIDcyMCA0NDAiLz4NCiAgICA8cGF0aCBkPSJNIDAgNDAwIEwgNDAgNDAwIEwgODAgMzYwIi8+DQogICAgPHBhdGggZD0iTSAyMDAgNDIwIEwgMzIwIDQyMCBMIDM2MCAzODAgTCA0ODAgMzgwIi8+DQogICAgPHBhdGggZD0iTSA2NTAgNDQwIEwgNzUwIDQ0MCBMIDgwMCA0ODAiLz4NCiAgPC9nPg0KDQogIDwhLS0gRGVjb3JhdGl2ZSBub2RlcyAtLT4NCiAgPGcgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSI+DQogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjIwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iMzYwIiBjeT0iMjYwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNzIwIiBjeT0iMzAwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iMzQwIiByPSI0Ii8+DQogICAgPGNpcmNsZSBjeD0iODAiIGN5PSIzNjAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSI0ODAiIGN5PSIzODAiIHI9IjQiLz4NCiAgICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSI0MjAiIHI9IjQiLz4NCiAgPC9nPg0KDQogIDwhLS0gVE9HQUYgQkRBVCBib3hlcyAtLT4NCiAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjYwMCI+DQogICAgPCEtLSBCIC0tPg0KICAgIDxyZWN0IHg9IjE1MCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjIxMCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5CdXNpbmVzczwvdGV4dD4NCiAgICA8IS0tIEQgLS0+DQogICAgPHJlY3QgeD0iMjkwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iMzUwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPkRhdGE8L3RleHQ+DQogICAgPCEtLSBBIC0tPg0KICAgIDxyZWN0IHg9IjQzMCIgeT0iMTQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPg0KICAgIDx0ZXh0IHg9IjQ5MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIj5BcHBsaWNhdGlvbjwvdGV4dD4NCiAgICA8IS0tIFQgLS0+DQogICAgPHJlY3QgeD0iNTcwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+DQogICAgPHRleHQgeD0iNjMwIiB5PSIxNjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPlRlY2hub2xvZ3k8L3RleHQ+DQogIDwvZz4NCg0KICA8IS0tIENvbm5lY3RpbmcgbGluZXMgYmV0d2VlbiBCREFUIGJveGVzIC0tPg0KICA8ZyBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4yNSkiIHN0cm9rZS13aWR0aD0iMSI+DQogICAgPGxpbmUgeDE9IjI3MCIgeTE9IjE2MCIgeDI9IjI5MCIgeTI9IjE2MCIvPg0KICAgIDxsaW5lIHgxPSI0MTAiIHkxPSIxNjAiIHgyPSI0MzAiIHkyPSIxNjAiLz4NCiAgICA8bGluZSB4MT0iNTUwIiB5MT0iMTYwIiB4Mj0iNTcwIiB5Mj0iMTYwIi8+DQogIDwvZz4NCg0KICA8IS0tIE1haW4gdGl0bGUgLS0+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMjYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iMSI+DQogICAgSUFPIEFyY2hpdGVjdHVyZQ0KICA8L3RleHQ+DQogIDx0ZXh0IHg9IjQwMCIgeT0iMzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOCkiIGxldHRlci1zcGFjaW5nPSIyIj4NCiAgICBUT0dBRiBCREFUIMK3IElBTyBQcm9ncmFtIMK3IElETSAyLjANCiAgPC90ZXh0Pg0KDQogIDwhLS0gQm90dG9tIGFjY2VudCBiYXIgLS0+DQogIDxyZWN0IHg9IjI4MCIgeT0iMzQwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIvPg0KDQogIDwhLS0gSW50ZWwgdGV4dCAtLT4NCiAgPHRleHQgeD0iNDAwIiB5PSIzODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgbGV0dGVyLXNwYWNpbmc9IjMiPg0KICAgIElOVEVMIENPTkZJREVOVElBTA0KICA8L3RleHQ+DQo8L3N2Zz4NCg==" alt="IAO Architecture" style="width:100%; border-radius:8px;" />
   <h1 style="font-size:36px; margin-top:24px;">O-020 — Capture Orders (IF)</h1>
   <h2 style="font-size:24px;">Architecture Document (TOGAF BDAT)</h2>
   <p style="font-size:18px; color:#555;">Order To Cash (IF) (OTC-IF) Tower<br/>
@@ -13,30 +12,20 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4; margin: 10mm 0; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
-.page-footer {
-  margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  color: #888;
-  padding: 6px 12px;
-  background: #fff;
-}
-@media print {
-  .page-footer { display: none !important; }
-}
-.page-footer a { color: #00aeef; text-decoration: none; font-weight: 500; }
-.page-footer a:hover { color: #0071c5; text-decoration: underline; }
+nav.toc { margin: 16px 0 24px 0; }
+nav.toc ol, nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+nav.toc > ol > li { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+nav.toc > ol > li > ul { padding-left: 28px; margin-top: 4px; }
+nav.toc > ol > li > ul > li { font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+nav.toc a { color: #0071c5; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
 </style>
 
 
@@ -77,9 +66,6 @@
   </li>
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
-      <li><a href="#51-current-state-current-state-application-landscape">5.1 Current-State Application Landscape</a></li>
-      <li><a href="#52-future-state-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
-      <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
       <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -121,8 +107,6 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | **Total Systems** | 0 |
 | **System Status** | 0 Deployed, 0 Developing, 0 EOL, 0 Pending IAPM |
 | **RICEFW Objects** | 11 Interfaces, 64 Enhancements, 11 Forms, 1 Workflows |
-
-**Change Summary**: 0 new flow chains, 0 removed, 0 modified, 0 unchanged between Current-State and Future-State states.
 
 > All system nodes in architecture diagrams are **IAPM-linked** — click any node to open its IAPM page. Diagrams require `securityLevel: 'loose'` for click events.
 
@@ -197,6 +181,7 @@ This capability includes **6 business process(es)** modeled in BPMN 2.0, coverin
 
 
 ### 3.2 Business Process Diagrams
+
 
 #### BUSINESS ARCHITECTURE — 3.2.1 O-020-110_Create_Service_Contract_Order_(IF) — O-020-110_Create_Service_Contract_Order_(IF)
 
@@ -281,6 +266,7 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVmuP4jYU_StWRiNaKUhxHgTyoRUEUo3U2Y7KdKtqqSqTOGCNcZCdMFCW_16bPMCZpNWq-YC4x_ec-_DzbMRZgo3AeHw8E0byAJwH-Rbv8CAAgzUSeGCCEviMOEFrisVA-aQZy5fk76sbdPdH5aawCO0IPSl0iTcZBr89mWAqidQEAjExFJiTdGAO9pzsED-FGc248n7A49RKr9GqoVnGE8xvDpblw9iTVEoYvsGO7_pupHgCxxlLNNHUS8dpPLio5Gj2Hm8Rz6_pFwI_o-PvJMm30k4RFVj6bPMd_RmtMVU15rxQWFzwQ90MIlQcJhu23KOYsI3EXUtCHLG3G-RZlwu4PD6uWBMUvM5XDMgvpkiIOU6ByCW8OOQgJZQGD244jTzLFDnP3nDwYC_8uWObsaokkKVbpmru8B2TzTYP1hlNKtfhu6ohsPdHkx8D2zL5Sf62YmGW3CKFI3tsj5tIMx-GMKwjpWn6vyLJvvJXJN6qWAsnsqN5Ewt6Iy-0PurVZc5dfwrbfcL8QGJ8JxpFkbO4tWox8qDVLzqLnJEVtkQ3KMfv6HQTnIRuIxh5fgT9XsEyXjvLYv3Cs7gWdBZe5DWC_gxGU7tX0J1Cd1xlKHU2HO23gCKG_7K-rIywEHm2wxzMCiEXvhBgyhA9iXxl_Fly1MegdE1RkKKhmgLwGVGSyCLBL2oT6a627hqRI1gcY7zPScZ0T0f3DLeIbTAI5frgKG4l4Oq-v-IYkwMGy3L6GhKY4xwRKnSy1wrEscr9A7ejmJHOlOqY72SfSl_wetpjneC3CVyl-fz8NAeqwRsQvnzSGePO5EJE6TBL066kJl8aSpxtlGtcUEV64USdEdJbmzur5f8f5WtcqHM_TLzmbLcT2-cF_9dJ0uiOTu9ptkZx25Tudmsc7xvbN_qu8d9Tuav7yqkXZQKeESvk_J2k0vf3Sn5Lqdl8_VILimO5sRmJlSA4EAQW86e2sFpD6oBQ-7djwcDJ-XwrOcHDtbxR4q3c6qfb3hQ_rozL5X4jW90sfIypbO4B_1Qec20a_FaavD_KP8wGw-EP8mCoTKc062tAruQSgNUpzrzKrky3NEeVOSpNr2ZX6rCWh5U-bPQrhlvZfmlO6uyq8OPaHVb82r-y_dq_Hq8FYJUgrFOaVAXWBUCvDVQpQLsCxpXd5HCV-LoyPmUr4-t9r-qBP7AoR-7uFJVqfZdqsN0NO92w2w173fCoG_a74XE3PLm_sfWKrP4h2D9k9w85_UNu_5DXPzRqnmU67vfg4x58Ur8w9LmzumFYw4ZpyMNmh0hiBGfj-uqWL_MEp6iguXExDVTk2fLEYiO4vk6NYq_O-jlB8tGwK8HLP4Frrpg=" title="View full diagram">&#128065; View Diagram</a></div>
+
 
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
@@ -372,6 +358,7 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVmuP4jYU_StWRiNaKUhxHgTyoRUTSDVSZ3fUmd2qWqrKJA5YYxxkJwyU5b-vTZxAQqLtqvmAuMf3nPvw82jEWYKNwLi_PxJG8gAcB_kab_AgAIMlEnhgghL4jDhBS4rFQPmkGctfyL9nN-hu98pNYRHaEHpQ6AteZRh8ejTBVBKpCQRiYigwJ-nAHGw52SB-CDOaceV9h8eplZ6j6aGHjCeYXxwsy4exJ6mUMHyBHd_13UjxBI4zljREUy8dp_HgpJKj2Xu8Rjw_p18I_IT2f5IkX0s7RVRg6bPON_R3tMRU1ZjzQmFxwXdVM4hQcZhs2MsWxYStJO5aEuKIvV0gzzqdwOn-fsHqoOB1tmBAfjFFQsxwCkQu4fkuBymhNLhzw2nkWabIefaGgzt77s8c24xVJYEs3TJVc4fvmKzWebDMaKJdh--qhsDe7k2-D2zL5Af524qFWXKJFI7ssT2uIz34MIRhFSlN0_8VSfaVvyLxpmPNnciOZnUs6I280LrVq8qcuf4UtvuE-Y7E-Eo0iiJnfmnVfORBq1_0IXJGVtgSXaEcv6PDRXASurVg5PkR9HsFy3jtLIvlM8_iStCZe5FXC_oPMJravYLuFLpjnaHUWXG0XQOKGP7H-rIwwkLk2QZz8FAIufCFAFOG6EHkC-PvkqM-BqVrioIUDdUUgM-IkkQWCT6qTdR0tZuuIaJxQZXvMydqBTe9naZ3RPZgvo_xNicZa3q6Ld01YisM6vxDuaw4ilt5e-1ktnnBO1hghnNEqGiyRy02x6qOW3JHF_wmdSbPpR0GT0-PM6AavQLh84cmY9wdDFE6zNK0K8bkS02Js5UqAfONnMTSF7wetlgSGtNoNSnfrahBhk3yzSJoONutSP-h8w2-8-PFue2Qtyuv4e-1Q3TPUYMz-qnmbKnc4rf1_IFjLHUS8IRYIWfvICV-vpbwvyuhW3KRmlMcy-3NSKwEwY4gMJ89toXVClLHhNrFHcsFTo7HS70JHi7lvRKv5YY_XPac-HVhnE7X29nqZuF9TGWXdvi38rBr0-CP0uQtUv5hDhgOf5EbXptuaVaXgVzEJQD1Wc5G2tamV5oTbU5Kc1Sxbe3tVIAOB2t9redp29fxtTnW7mNt2zqd2obaoUoA6oRgVZB28CuzIlQBdYZ2VRB024BOCVY5wXORXxfGX1hupK_XzapGPmTnAefqZlGZVDdqA7a7YacbdrthrxsedcN-NzzuhifX93azIqt_CPYP2f1DTv-Q2z_k9Q-N6sdZE_d78HEPPqneGc25s7phWMGGacjDZoNIYgRH4_z2lu_zBKeooLlxMg1U5NnLgcVGcH6jGsVWnfIzguTTYVOCp28k-rG6" title="View full diagram">&#128065; View Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -434,6 +421,7 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P4jYU_StWRiNaKUj5JEweKkFCViN1dldluvuwVJVJHLBw7Mg2MCniv9cmH5AsPFTNA-Ien3PuvXZyk5ORsgwZofH8fMIUyxCcRnKLCjQKwWgNBRqZoAa-QY7hmiAx0pycUbnE_1xotld-aJrGElhgUml0iTYMgT9fTTBTQmICAakYC8RxPjJHJccF5FXECOOa_YSmuZVfsjVLc8YzxK8Eywrs1FdSgim6wm7gBV6idQKljGY909zPp3k6OuviCDumW8jlpfy9QG_w4zvO5FbFOSQCKc5WFuR3uEZE9yj5XmPpnh_azcBC56Fqw5YlTDHdKNyzFMQh3V0h3zqfwfn5eUW7pOA9XlGgrpRAIWKUAyEVvDhIkGNCwicvmiW-ZQrJ2Q6FT84iiF3HTHUnoWrdMvXmjo8Ib7YyXDOSNdTxUfcQOuWHyT9CxzJ5pX4HuRDNrpmiiTN1pl2meWBHdtRmyvP8f2VS-8rfodg1uRZu4iRxl8v2J35k_ezXthl7wcwe7hPiB5yiG9MkSdzFdasWE9-2HpvOE3diRQPTDZToCKur4UvkdYaJHyR28NCwzjescr_-ylnaGroLP_E7w2BuJzPnoaE3s71pU6Hy2XBYbgGBFP1t_VgZ0V5IViAO5nuhbnwhwIxCUgm5Mv6qNfqitqLmMMzhWB8BiBjNMS9A8iUCX_Rz1Gc7ffY3SHCmtuQe1e1TY_X8HhB4e3uNgS5oA6Kvn_sKb6iQiBeq9NodvFcl6gv8Qe0cPahl8qNjpkxl3qJ0Bz69LxXrlhbco73SA6KS8QrMDhATuMYEy2qgnP7SKUui7o-6YtWBUgjwB0qRaj5Tol9vRC9Kow9fn02MiGLwanA4-iBrr1m6o-xIULZRI5UOD9HueM0BQokZHZCc06ktEnLOjmIMiQQl5JAQRD7Vt_bKOJ9vRe5_E6mJUf-hNhiPf9MGTezUcRu6dThpQr8OnSac1qHXhEHj1S5P6jhoUzXetjUE2rjJ9jKI7Zbg1bF_83TqDtqp1IOd-7B7H_buw_59eHI7tnorwcOVafdK6MEv92HbeoDbD3CnHXp92G1hwzTUlCkgzozwZFze-OqrIEM53BNpnE0D7iVbVjQ1wsub0diXemTEGKqBVdTg-V99FpoW" title="View full diagram">&#128065; View Diagram</a></div>
+
 
 
 <div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
@@ -509,6 +497,7 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVl2P4jYU_StWViNaCaR8EiYPrSCQ1UrdbjVMt6qWqjLJDbgYO7UdGMry32uTBEgWHqryMJp7fM6519fOTY5WyjOwIuvp6UgYURE69tQattCLUG-JJfT6qAI-Y0HwkoLsGU7OmZqTf840xy_eDM1gCd4SejDoHFYc0K8f-mishbSPJGZyIEGQvNfvFYJssTjEnHJh2O9glNv5OVu9NOEiA3El2HbopIGWUsLgCnuhH_qJ0UlIOctapnmQj_K0dzLFUb5P11ioc_mlhI_47TeSqbWOc0wlaM5abelPeAnU7FGJ0mBpKXZNM4g0eZhu2LzAKWErjfu2hgRmmysU2KcTOj09LdglKXqdLhjSv5RiKaeQI6k0PNsplBNKo3d-PE4Cuy-V4BuI3rmzcOq5_dTsJNJbt_umuYM9kNVaRUtOs5o62Js9RG7x1hdvkWv3xUH_7eQCll0zxUN35I4umSahEztxkynP8_-VSfdVvGK5qXPNvMRNppdcTjAMYvtbv2abUz8cO90-gdiRFG5MkyTxZtdWzYaBYz82nSTe0I47piusYI8PV8Pn2L8YJkGYOOFDwypft8py-YvgaWPozYIkuBiGEycZuw8N_bHjj-oKtc9K4GKNKGbwp_1lYcWlVHwLAk1KqS--lGjMMD1ItbD-qDTmxxxNzXGU44E5AvQZU5LpTaJP5iFqU902dQoKxFZbV1z0eiigLfDagljAA2e_Q-QsJ2KL5uVSwt8lMKWTUbIDcUDJp_ieQ9B2eIEt38FVNaE83bQVw67iL0jVPevwy4WZ8hWK15Bu0PvXuWbd0kb3aB_YTlfPdQXjHSYULwkl6tBRPn93URZUX64XUKVgdVdfIAcBLIVMq76_PTj7KtMnXVz4Zh_fss05m5tmLkLTls5NMOdbmYzTDeN7CtlKz2_WvTHehVcfFFaEsw7JPx6v7chgsNSjLl3XRY6LQujzyX5cWKfTrSq4qrAQfC8HmCpUYIEpBfq-evq6ouF_E-mhVv3DXDQY_KCvaR16VVgPEvZchW4d-vXqsI5HdRzUsVPFYR2GVTiqw2HNrp9_FtRxk8w5239dWL-DXFhfNaG78DM_4016p3bwO7HT1Os0Kb0u4N_MIFN3M3tbsHsf9u7D_n04uA8P78Ph7cxurYwerjxf3oftTdn1u6uNOg_Y7gPce4D7zYugDQf34WEDW31LD-QtJpkVHa3zx5H-gMogxyVV1qlv4VLx-YGlVnT-iLDKwsziKcF6tm8r8PQv_aj2JQ==" title="View full diagram">&#128065; View Diagram</a></div>
 
 
+
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -550,6 +539,7 @@ flowchart TD
 ```
 
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlVO9v2jAQ_VesVBWblEj5SVg-bIJApElbN41u01SmySRnsOo4ke1AGeV_nw0JFNbuy_Ihwi_33vMdd7e18qoAK7Gur7eUU5WgbU8toYRegnpzLKFnowPwDQuK5wxkz8SQiqsp_b0P88L6wYQZLMMlZRuDTmFRAfr63kZDTWQ2kphLR4KgpGf3akFLLDZpxSphoq9gQFyyd2s_jSpRgDgFuG7s5ZGmMsrhBAdxGIeZ4UnIK16ciZKIDEje25nLsWqdL7FQ--s3Ej7ih--0UEt9JphJ0DFLVbIPeA7M5KhEY7C8EauuGFQaH64LNq1xTvlC46GrIYH5_QmK3N0O7a6vZ_xoim7HM470kzMs5RgIkkrDk5VChDKWXIXpMItcWypR3UNy5U_iceDbuckk0am7timuswa6WKpkXrGiDXXWJofErx9s8ZD4ri02-n3hBbw4OaV9f-APjk6j2Eu9tHMihPyXk66ruMXyvvWaBJmfjY9eXtSPUvdvvS7NcRgPvcs6gVjRHJ6IZlkWTE6lmvQjz31ZdJQFfTe9EF1gBWu8OQm-ScOjYBbFmRe_KHjwu7xlM_8sqrwTDCZRFh0F45GXDf0XBcOhFw7aG2qdhcD1EjHM4Zd7N7PSRqqqBIFGjdSNLyUacsw2Us2snweOebinQwlOCHbMX4BSATpF9MmM0Hmg_-oYWTNdgn0IGoPClEn0BXKgKyg05_UTUqA5Jj-AAq2pWqKpwmbUipa-_ybluVN4SbqpHDMMC_gXK9puu_uZzeTM9Wzl2hCXNeuIVKKDkNlH72bWbvdEoH93TJDo7gXhVDVwkyGIUlew1bjd1KCdW2s9IYcfvI8c562uZ3v0DseoPUbm-DizbqqZ9ahTvIB_gNzjQYv7B3b_SbcYyW5KzmD_uBLO4OB5OHwejrrWPkP7XX9atqVbqcS0sJKttV_revUXQHDDlLWzLdyoarrhuZXs15_V1IXWG1Osu7I8gLs_fzH7vg==" title="View full diagram">&#128065; View Diagram</a></div>
+
 
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
@@ -661,6 +651,8 @@ flowchart TD
 <div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqlV1uP4jYU_itWRiN2JVDjXCEPrZhAtiN1Zkc7062qpapM4oA1xmadcCvLf69NLhBP8tApD0jnO-c7dzvJ0Yh5go3AuL09EkbyABx7-RKvcC8AvTnKcK8PCuArEgTNKc56yiblLH8m_5zNoLPeKzOFRWhF6EGhz3jBMfj9vg_Gkkj7IEMsG2RYkLTX760FWSFxCDnlQlnf4GFqpudopeqOiwSLi4Fp-jB2JZUShi-w7Tu-EylehmPOkobT1E2Hadw7qeQo38VLJPJz-psMP6D9HyTJl1JOEc2wtFnmK_obmmOqaszFRmHxRmyrZpBMxWGyYc9rFBO2kLhjSkgg9nqBXPN0Aqfb2xmrg4KXyYwB-YspyrIJTkGWS3i6zUFKKA1unHAcuWY_ywV_xcGNNfUnttWPVSWBLN3sq-YOdpgslnkw5zQpTQc7VUNgrfd9sQ8ssy8O8l-LhVlyiRR61tAa1pHufBjCsIqUpun_iiT7Kl5Q9lrGmtqRFU3qWND13NB8668qc-L4Y6j3CYstifGV0yiK7OmlVVPPhWa307vI9sxQc7pAOd6hw8XhKHRqh5HrR9DvdFjE07PczJ8EjyuH9tSN3NqhfwejsdXp0BlDZ1hmKP0sBFovAUUM_21-mxnhJsv5Cgtwt8nk4mcZGDNED1k-M_4qOOrHoDT9vMVCkASDJyE71tTbUp-iIEUDNSLwFVGSyCaAz-qQNU2dpulEntgtBg8P9xOgUliA8OmxyXB1Ro7FSiZbeAcvh7WWjdckhAJ35OI3DSOyB9N9jNc54Qz8BL5giuUdBX6Va9okDrUIS8QWrRFG32rLmMvaljh-BZ9enqVVo7-mZsdZSsRKtprnPJcF1r4bLNhkPWGRcsmKnsMHVXVC8iKizrPasrpnW8xyLg5gvEWEojmhJD_oVPv9VEejIhpvqJqMWig5ed3e_VDbr6k8TsW45fhliEwOJ8Zyc9RgPl6zPI113lZQL-8X_H1DxFuaWgV1xtQRaJkjVBMvEihng9SSaEaj2mgcvzK-ozhZyGcb006TZR6Pl04keDCXN3y8lEfvcNm_7JeZcTpds2A7C-9jKk_OFn8qrh2dZr2PZrfT6gvjer_Ak7yocPImY-d9ob0LDQnBd9kA0RyskUCUYtpB8v8bST602u5EeF6D8zqCB8TQQl8ESxqM12vBt_VSJZi13YmW2169zgKlu-v21dkxGwwGP8tbsxSdQhyVoluIXil6hWiXIizVbilbsJD9UvYLcViKw0K0rMrcVMCPmfHIZ8aPa0UZB_o6ULmCFVDJpWvd8584K1xXhpara6rKLVvTwMobrLzXdZdNu3gt2wZroDSoOjMq9VUwWBIu0cteQVMHqlFAs6TUFlWQajqwAny92EcOPqiHzEetGXarHtpXrwdqQ6rXogbstMNuO-y1w347PGyHR9evUw2NbE6nCnarrG6V3a1yulVu_WLcxL0O3O_Ahx34qB2X-16-EzZh2A5b7bDdDjvtsNsOe-2wX8FG35C3-wqRxAiOxvnTTH6-JThFG5obp76BNjl_PrDYCM6fMMZmrd70JgTJW3RVgKd_AcSDUUI=" title="View full diagram">&#128065; View Diagram</a></div>
 
 
+
+
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
@@ -679,12 +671,14 @@ flowchart TD
 
 ## 4. Data Architecture (TOGAF "D")
 
-### 4.1 Data Entities & Ownership
+### 4.1 Data Flows — Source to Target
 
-The following data entities are derived from the system integration flows for O-020. Tower architects should validate ownership and classification.
+The following data flows are derived from the system integration hops for O-020. Each row shows source application on its database flowing to a target application on its database.
 
-| # | Data Entity | Source System | Target System | Data Owner | Classification | Volume | Master/Transaction |
-|---|-------------|---------------|---------------|------------|----------------|--------|-------------------|
+| # | Flow Chain | Hop | Source App | Source DB | Target App | Target DB | Data Description | Frequency | Classification |
+|---|-----------|-----|-----------|----------|-----------|----------|-----------------|-----------|---------------|
+
+> *DB platforms will be populated when tower architects complete the extended flow template columns (42-47).*
 
 
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
@@ -694,6 +688,10 @@ The following data entities are derived from the system integration flows for O-
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
+
+
+
+
 
 ### 4.3 Data Lineage
 
@@ -731,32 +729,8 @@ Reports and Conversions for this capability will be populated from the Smartshee
 
 ## 5. Application Architecture (TOGAF "A")
 
-### 5.1 Current-State — Current-State Application Landscape
 
-#### Overview
 
-The Current-State architecture represents the **current / legacy** landscape for O-020.
-
-#### Current-State Flow Narrative
-
-*(No current-state flows defined.)*
-
-### 5.2 Future-State — Future-State Application Landscape
-
-#### Overview
-
-The Future-State architecture represents the **target** landscape for O-020.
-
-#### Future-State Flow Narrative
-
-*(No future-state flows defined.)*
-
-### 5.3 Change Impact Summary
-
-| Change Type | Flow Chain | Detail |
-|-------------|-----------|--------|
-
-**Totals**: 0 new - 0 removed - 0 modified - 0 unchanged
 
 ### 5.4 Component Overview
 
@@ -793,7 +767,7 @@ The Future-State architecture represents the **target** landscape for O-020.
 | OTCE1557 | Enhancement | Business users want the capability to have sales order updated for the specif... | 10. Object Complete |  | NA | 02.High |
 | OTCE1200 | Enhancement | Enhancement to transfer fields from Sales Orders to Purchase Requisition duri... | 10. Object Complete |  | NA | 03.Medium |
 | OTCE1124 | Enhancement | Enhancement to support Inbound interface to change the ship to party record a... | 10. Object Complete |  | NA | 03.Medium |
-| OTCE1123 | Enhancement | Determine Confirmed Delivery date in sales orders at schedule line level base... | 06. Dev In Progress |  | NA | 02.High |
+| OTCE1123 | Enhancement | Determine Confirmed Delivery date in sales orders at schedule line level base... | 10. Object Complete |  | NA | 02.High |
 | OTCE1122 | Enhancement | Enhancement for IMR to update the Repair Sales Order post Repair work order i... | 10. Object Complete |  | NA | 03.Medium |
 | OTCE1106 | Enhancement | Enhancement to support Inbound interface and manual upload to create the sale... | 10. Object Complete |  | NA | 02.High |
 | OTCE1013 | Enhancement | SIMS Enhancement to determine the order type based on the Material Characteri... | 10. Object Complete |  | NA | 04.Low |
@@ -883,11 +857,15 @@ Integration patterns identified from the system flow analysis for O-020:
 <div style="page-break-before: always;"></div>
 
 
+
 ## 6. Technology Architecture (TOGAF "T")
 
 ### 6.1 Platform & Infrastructure
 
 > **TECHNOLOGY / PLATFORM ARCHITECTURE** — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.
+
+
+
 
 #### Platform Inventory
 
@@ -908,44 +886,13 @@ Platform landscape inferred from integrated systems for O-020:
 
 ### 6.2 SAP Development Object Status
 
-**Capability RICEFW — Active Items** (1 of 87 objects)
-*Data source: Smartsheet Object Tracker (cached 2026-04-06)*
-
-> **Completion Context:** 86 of 87 objects (99%) are complete/closed. The **1 active items** below require attention. See the **RICEFW Register** for full detail.
->
-> | Type | Completed | Active | Total |
-> |------|----------:|-------:|------:|
-> | Interface (I) | 11 | 0 | 11 |
-> | Enhancement (E) | 63 | 1 | 64 |
-> | Form (F) | 11 | 0 | 11 |
-> | Workflow (W) | 1 | 0 | 1 |
-> | **Total** | **86** | **1** | **87** |
-
-| Status | Count | % |
-|--------|------:|----:|
-| 06. Dev In Progress | 1 | 100.0% |
-| **Total Active** | **1** | **100%** |
-
-**Active RICEFW by Type:**
-
-| Type | Count |
-|------|------:|
-| Enhancement (E) | 1 |
-| **Total** | **1** |
-
-**Technical Complexity:**
-
-| Complexity | Count |
-|------------|------:|
-| 02.High | 1 |
-
-**Objects Requiring Attention:**
-
-| Object ID | Type | Description | Status | Complexity |
-|-----------|------|-------------|--------|------------|
-| OTCE1123 | 04.Enhancement | Determine Confirmed Delivery date in sales orders at schedule line level based o... | 06. Dev In Progress | 02.High |
-
-**Tower Context:** OTC-IF has 1 active / 86 completed RICEFW objects
+| Metric | DEV | QAS | PRD |
+|--------|-----|-----|-----|
+| Transport Requests | — | — | — |
+| Custom Code Objects | — | — | — |
+| CDS Views | — | — | — |
+| Fiori Apps | — | — | — |
+| BAdIs / Enhancements | — | — | — |
 
 ### 6.3 NFRs & Design Principles
 
@@ -983,53 +930,49 @@ Platform landscape inferred from integrated systems for O-020:
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
-*1 active objects with timeline data (source: Object Tracker)*
-*86 completed objects excluded — see RICEFW Register for full detail.*
-
 | ID | Description | FS | TDD | Build | FUT | Status |
 |----|-------------|----|-----|-------|-----|--------|
-| OTCE1123 | Determine Confirmed Delivery date in sales orders at schedule line level based on CMAD received from Blue yonder | Jun-25 (100%) | Nov-25 (60%) | Nov-25 (60%) | Nov-25 (100%) | 4. Completed |
+| OTCW0638 | Dispute Write-off Workflow | 2025-08-08 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 2025-11-28 00:00:00 (100%) | 2. At Risk |
+| OTCI1162 | Inbound interface to change the sales order via Build Instructions | 2025-03-21 00:00:00 (100%) | 2025-06-20 00:00:00 (100%) | 2025-06-20 00:00:00 (100%) | 2026-03-25 00:00:00 (100%) | 2. At Risk |
+| OTCI1161 | Inbound interface from BY-PDH to S4 to update CMAD in IF sales orders | 2025-06-20 00:00:00 (100%) | 2025-11-28 00:00:00 (100%) | 2025-11-28 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 1. On Track |
+| OTCI1126 | Inbound interface to create and change sales order via Subcon, STO & SIMS PO | 2025-04-18 00:00:00 (100%) | 2025-07-11 00:00:00 (100%) | 2025-07-11 00:00:00 (100%) | 2026-01-23 00:00:00 (100%) | 4. Completed |
+| OTCI0442 | IF: Interface requirement from SAC to S4 | 2024-09-13 00:00:00 (100%) | 2025-03-07 00:00:00 (100%) | 2025-03-07 00:00:00 (100%) | 2025-12-03 00:00:00 (100%) | 4. Completed |
+| OTCF0681_IF | Form development for Intercompany Invoice. | 2024-11-22 00:00:00 (100%) | 2025-03-07 00:00:00 (100%) | 2025-03-07 00:00:00 (100%) | 2025-07-11 00:00:00 (100%) |  |
+| OTCF0460_IF | Form Development for Invoice list. | 2024-09-13 00:00:00 (100%) | 2025-01-17 00:00:00 (100%) | 2025-01-17 00:00:00 (100%) | 2025-01-10 00:00:00 (100%) |  |
+| OTCF0431 | Generate Custom Late Payment Interest Charge Output Form | 2024-08-30 00:00:00 (100%) | 2025-01-31 00:00:00 (100%) | 2025-01-31 00:00:00 (100%) | 2025-05-09 00:00:00 (100%) |  |
+| OTCF0290 | Dunning output form customization | 2024-07-18 00:00:00 (100%) | 2025-01-31 00:00:00 (100%) | 2025-01-31 00:00:00 (100%) | 2025-03-14 00:00:00 (100%) |  |
+| OTCE1698 | Additional material attributes for transfer from MDG to GTS to support produc... | 2024-11-15 00:00:00 (100%) | 2025-03-21 00:00:00 (100%) | 2025-03-21 00:00:00 (100%) | 2025-12-03 00:00:00 (100%) |  |
+| OTCE1668_IF | Enhancement to transfer Customs value from S4 to GTS for Sales orders and del... | 2026-01-07 00:00:00 (100%) | 2026-02-04 00:00:00 (100%) | 2026-02-04 00:00:00 (100%) | 2026-03-27 00:00:00 (100%) | 1. On Track |
+| OTCE1662 | BADI Enhancement for Dispute Write off (workflow Trigger) | 2025-11-13 00:00:00 (100%) | 2025-11-21 00:00:00 (100%) | 2025-11-21 00:00:00 (100%) | 2025-11-28 00:00:00 (100%) | 2. At Risk |
+| OTCE1658 | Dispute Write-off Enhancement | 2025-11-13 00:00:00 (100%) | 2025-11-28 00:00:00 (100%) | 2025-11-28 00:00:00 (100%) | 2025-11-28 00:00:00 (100%) | 2. At Risk |
+| OTCE1655 | Enhancement to AIF capabilities on access and notifications | 2025-06-27 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 2026-01-23 00:00:00 (100%) | 1. On Track |
+| OTCE1625 | Credit hold release dashboard at line-item level | 2024-07-12 00:00:00 (100%) | 2025-09-05 00:00:00 (100%) | 2025-09-05 00:00:00 (100%) | 2026-02-04 00:00:00 (100%) | 1. On Track |
+| OTCE1558 | Business users want the capability to have CMIR updated for the specific Mate... | 2025-10-04 00:00:00 (100%) | 2025-11-21 00:00:00 (100%) | 2025-11-21 00:00:00 (100%) | 2025-11-28 00:00:00 (100%) | 4. Completed |
+| OTCE1557 | Business users want the capability to have sales order updated for the specif... | 2025-10-04 00:00:00 (100%) | 2025-12-03 00:00:00 (100%) | 2025-12-03 00:00:00 (100%) | 2026-01-30 00:00:00 (100%) | 4. Completed |
+| OTCE1200 | Enhancement to transfer fields from Sales Orders to Purchase Requisition duri... | 2025-07-11 00:00:00 (100%) | 2025-11-21 00:00:00 (100%) | 2025-11-21 00:00:00 (100%) | 2025-11-28 00:00:00 (100%) | 4. Completed |
+| OTCE1124 | Enhancement to support Inbound interface to change the ship to party record a... | 2025-04-11 00:00:00 (100%) | 2025-08-13 00:00:00 (100%) | 2025-08-13 00:00:00 (100%) | 2026-01-23 00:00:00 (100%) | 3. Off Track |
+| OTCE1123 | Determine Confirmed Delivery date in sales orders at schedule line level base... | 2025-06-20 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 2025-11-05 00:00:00 (100%) | 2025-11-28 00:00:00 (100%) | 4. Completed |
+
+*... and 67 more objects (see full Object Tracker)*
+
+
+<div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
+<div style="page-break-before: always;"></div>
+
 
 ### 7.2 RAID Log
 
-*Live data from Smartsheet Master RAID Log — extracted 2026-04-06*
+Standard RAID items for O-020 (Order To Cash (IF)):
 
-**Mapped sub-tower(s):** 4.10 OTC IF - Logistics Management Outbound, 4.11 OTC IF - Order Management, 4.12 OTC IF - TM, 4.3 OTC IF - Billing and Rebates, 4.6 OTC IF - Credit and Collections, 4.8 OTC IF - EWM, 4.9 OTC IF - GTS, 7.6 FTS IF - Logistics & Inventory Management
+| # | Category | Description | Status | Owner | Priority |
+|---|----------|-------------|--------|-------|----------|
+| 1 | Risk | Data migration completeness — validate all legacy Capture Orders (IF) data maps to S/4 target structures | Open | Tower Architect | High |
+| 2 | Risk | Integration testing coverage — ensure all 0 integrated systems are validated end-to-end | Open | Integration Lead | High |
+| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
+| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
+| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
 
-**RAID Summary:** 16 open items (2 capability-specific, 14 tower-level), 177 closed
-
-| Severity | Capability | Tower-Wide | Total Open |
-|----------|----------:|-----------:|-----------:|
-| P1 - High | 0 | 2 | 2 |
-| P2 - Medium | 1 | 10 | 11 |
-| P3 - Low | 1 | 2 | 3 |
-| **Total** | **2** | **14** | **16** |
-
-**Capability-Specific RAID Items:**
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03802 | Risk | P2 - Medium | Automated Bailed Value Calculation | In Progress | E2E | 2026-04-10 |
-| 03381 | Risk | P3 - Low | New requirement raised for enabling Israel as virtual site | Not Started | OTC IF | 2026-03-31 |
-
-**Other OTC-IF Tower RAID Items** (14 open):
-
-| RAID ID | Type | Severity | Title | Status | Assigned To | Due Date |
-|---------|------|----------|-------|--------|-------------|----------|
-| 03591 | Risk | P1 - High | R3 E2E scenario execution | In Progress | Test Management | 2026-04-15 |
-| 03805 | Key Decision | P1 - High | BY - OTC IF : Replace virtual plant on SO with actual plant | Not Started | E2E | 2026-04-03 |
-| 03309 |  | P2 - Medium | Identify source system for Anafi material conversion | Not Started | OTC IF |  |
-| 03592 | Risk | P2 - Medium | Lack of Defined IMO Owner for CBA Mask Billing and Materials... | In Progress | E2E | 2026-11-02 |
-| 03625 | Risk | P2 - Medium | Item/ BOM MC1 delta load | In Progress | Cutover | 2026-04-10 |
-| 03628 | Risk | P2 - Medium | R3 Returns Rework Process Causing Finance Double Counting in... | In Progress | E2E | 2026-03-27 |
-| 03642 | Issue | P2 - Medium | E2E Process with Anafi on order/invoice point.  Need IFS SC ... | In Progress | E2E | 2026-03-24 |
-| 03736 | Action | P2 - Medium | Golden Data/Test Data Readiness | In Progress | Master Data | 2026-04-22 |
-| 03743 | Issue | P2 - Medium | FD-Share with Entitlements -  Interface File Paths for MC1 | Roadblock / At Risk | PMO | 2026-03-20 |
-| 03749 | Action | P2 - Medium | Logistics Data Intake and Creation Process Definition | In Progress | Test Management | 2026-03-27 |
-| 03756 | Risk | P2 - Medium | LE101-1001 Operation Support Ownership for SIMS/Tester Front... | In Progress | E2E | 2026-04-24 |
-| 03758 | Action | P2 - Medium | IMR Repair Order Creation Ownership | In Progress | PTP | 2026-04-24 |
-| 03315 | Risk | P3 - Low | BPMG – SCP L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-03-27 |
-| 03317 | Risk | P3 - Low | BPMG – E2E L3/L4 flow standards | In Progress | Business Process Mgmt | 2026-05-29 |
+> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
 
 ### 7.3 Recommendations & Next Steps
 
@@ -1044,6 +987,4 @@ Platform landscape inferred from integrated systems for O-020:
 ---
 *O-020 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: April 2026*
 
-
-
-<div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
+<div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>O-020 — Capture Orders (IF)</span></div>
