@@ -101,21 +101,23 @@ _SUBGRAPH_COLORS = [
 # Lanes not in this map float below the known layers (appended alphabetically).
 _LAYER_ORDER: list[tuple[str, str, str]] = [
     # (canonical_name, fill, stroke)
-    ("Reporting",                "fill:#E8EAF6", "stroke:#283593"),   # purple — BI / reporting
-    ("Data Warehouse",           "fill:#E0F2F1", "stroke:#00695C"),   # teal — DW / data lake
-    ("ECA Platform",             "fill:#F3E5F5", "stroke:#7B1FA2"),   # violet — ECA
-    ("SideCar Hana DB",          "fill:#FFF9C4", "stroke:#F9A825"),   # amber — legacy staging layer
-    ("ERP Systems",              "fill:#E3F2FD", "stroke:#0078D4"),   # Azure blue — ERP
-    ("Cloud Products",           "fill:#E1F5FE", "stroke:#0277BD"),   # light blue — cloud
-    ("Middleware & Integration", "fill:#FFF3E0", "stroke:#E65100"),   # orange — middleware
-    ("Boundary Applications",    "fill:#E8F5E9", "stroke:#388E3C"),   # green — boundary / MES
+    ("Reporting",                 "fill:#E8EAF6", "stroke:#283593"),   # purple — BI / reporting
+    ("Data Warehouse",            "fill:#E0F2F1", "stroke:#00695C"),   # teal — DW / data lake
+    ("ECA Platform",              "fill:#F3E5F5", "stroke:#7B1FA2"),   # violet — ECA
+    ("SideCar Hana DB",           "fill:#FFF9C4", "stroke:#F9A825"),   # amber — future-state S/4→ECA pipeline
+    ("ERP Systems",               "fill:#E3F2FD", "stroke:#0078D4"),   # Azure blue — ERP (S/4 HANA)
+    ("ERP Extension (Standalone)", "fill:#BBDEFB", "stroke:#1565C0"),  # deeper blue — standalone ERP extensions
+    ("Cloud Products",            "fill:#E1F5FE", "stroke:#0277BD"),   # light blue — cloud
+    ("Cloud Products (Legacy)",   "fill:#B3E5FC", "stroke:#01579B"),   # darker sky — legacy cloud
+    ("Middleware & Integration",  "fill:#FFF3E0", "stroke:#E65100"),   # orange — middleware
+    ("Boundary Applications",     "fill:#E8F5E9", "stroke:#388E3C"),   # green — boundary / MES
 ]
 
 # Aliases: map variant names to canonical layer name
 _LANE_ALIASES: dict[str, str] = {
     "erp":                          "ERP Systems",
     "erp systems":                  "ERP Systems",
-    "erp extension (standalone)":   "ERP Systems",
+    "erp extension (standalone)":   "ERP Extension (Standalone)",
     "reporting":                    "Reporting",
     "manufacturing reporting systems": "Reporting",
     "data warehouse":               "Data Warehouse",
@@ -123,7 +125,7 @@ _LANE_ALIASES: dict[str, str] = {
     "eca platform":                 "ECA Platform",
     "eca platform (pdh)":           "ECA Platform",
     "cloud products":               "Cloud Products",
-    "cloud products (legacy)":      "Cloud Products",
+    "cloud products (legacy)":      "Cloud Products (Legacy)",
     "middleware & integration":     "Middleware & Integration",
     "boundary applications":        "Boundary Applications",
     "mes systems":                  "Boundary Applications",
