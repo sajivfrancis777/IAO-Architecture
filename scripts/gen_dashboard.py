@@ -133,6 +133,156 @@ def _load_raids(csv_path: Path) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
+# Architecture data — scan tower dirs for flows, lanes, capabilities, SADs
+# ---------------------------------------------------------------------------
+JIRA_CACHE = WORKSPACE / "data" / "jira" / "jira_cache.json"
+
+
+def _load_architecture_data(towers: list[str]) -> dict:
+    """Derive architecture metrics from the tower directory structure."""
+    tower_stats = {}
+    all_patterns: Counter = Counter()
+
+    for t in towers:
+        tower_dir = TOWERS_DIR / t
+        if not tower_dir.exists():
+            continue
+        flows = 0
+        lanes = 0
+        caps = 0
+        systems = 0
+        sads = 0
+        for l1_dir in tower_dir.iterdir():
+            if not l1_dir.is_dir() or l1_dir.name.startswith(("output", ".", "_")):
+                continue
+            lanes += 1  # each L1 directory = a process lane
+            for cap_dir in l1_dir.iterdir():
+                if not cap_dir.is_dir():
+                    continue
+                caps += 1
+                bpmn_dir = cap_dir / "input" / "bpmn"
+                data_dir = cap_dir / "input" / "data"
+                if bpmn_dir.exists():
+                    flows += len(list(bpmn_dir.glob("*.bpmn")))
+                if data_dir.exists():
+                    systems += len(list(data_dir.glob("*Flows.xlsx")))
+                sad_dir = cap_dir / "output" / "docs" / "systems-architecture"
+                if sad_dir and sad_dir.exists():
+                    sads += len(list(sad_dir.glob("*-Architecture.*")))
+        tower_stats[t] = {
+            "flows": flows,
+            "lanes": lanes,
+            "capabilities": caps,
+            "systems": systems,
+            "sads": sads,
+        }
+
+    # Derive integration patterns from object tracker type codes
+    # (will be enriched with actual objects in build_dashboard_context)
+    return {
+        "towers": tower_stats,
+        "patterns": dict(all_patterns) if all_patterns else {},
+        "total_flows": sum(s["flows"] for s in tower_stats.values()),
+        "total_systems": sum(s["systems"] for s in tower_stats.values()),
+        "total_lanes": sum(s["lanes"] for s in tower_stats.values()),
+        "total_caps": sum(s["capabilities"] for s in tower_stats.values()),
+        "total_sads": sum(s["sads"] for s in tower_stats.values()),
+    }
+
+
+# ---------------------------------------------------------------------------
+# JIRA / Testing data — load from jira_cache.json
+# ---------------------------------------------------------------------------
+def _load_jira_data(tower_filter: str = "") -> dict:
+    """Load JIRA defect + test case data for the Testing pillar."""
+    if not JIRA_CACHE.exists():
+        return {}
+    with open(JIRA_CACHE, "r", encoding="utf-8") as f:
+        cache = json.load(f)
+
+    # Pick the right summary level
+    if tower_filter and tower_filter in cache.get("tower_summaries", {}):
+        summary = cache["tower_summaries"][tower_filter]
+    else:
+        summary = cache.get("cross_tower_summary", {})
+
+    defect = summary.get("defect", {})
+    ds = defect.get("defect_summary", {})
+
+    total_defects = ds.get("total", 0)
+    open_count = ds.get("open", 0) + ds.get("in_progress", 0)
+    resolved = ds.get("resolved", 0)
+    critical_open = 0
+
+    # Severity breakdown for stacked bar — tower-level
+    defects_by_severity: dict[str, dict[str, int]] = {}
+    tower_keys = list(cache.get("tower_summaries", {}).keys()) if not tower_filter else [tower_filter]
+    for sev_row in defect.get("defect_by_severity", []):
+        sev = sev_row.get("severity", "")
+        if sev == "Critical":
+            critical_open += sev_row.get("open", 0) + sev_row.get("in_progress", 0)
+        if sev not in defects_by_severity:
+            defects_by_severity[sev] = {}
+        if tower_filter:
+            defects_by_severity[sev][tower_filter] = sev_row.get("open", 0) + sev_row.get("in_progress", 0)
+        else:
+            # Cross-tower: populate per tower
+            for tw in cache.get("tower_summaries", {}):
+                tw_sev = [s for s in cache["tower_summaries"][tw].get("defect", {}).get("defect_by_severity", [])
+                          if s.get("severity") == sev]
+                if tw_sev:
+                    defects_by_severity[sev][tw] = tw_sev[0].get("open", 0) + tw_sev[0].get("in_progress", 0)
+
+    # Aging buckets
+    aging = {}
+    for a_row in defect.get("defect_aging", []):
+        bucket = a_row.get("bucket", "")
+        aging[bucket] = sum(a_row.get(s, 0) for s in ("critical", "high", "medium", "low"))
+
+    # Test execution (from test_cases if available)
+    test_cases = cache.get("test_cases", [])
+    execution: Counter = Counter()
+    total_tests = len(test_cases)
+    for tc in test_cases:
+        status = tc.get("lastTestResultStatus", "Not Executed") or "Not Executed"
+        execution[status] += 1
+    pass_count = execution.get("Pass", 0)
+
+    # Go/No-Go logic: GO if pass rate >= 95% AND critical_open == 0
+    if total_tests > 0:
+        pass_pct = round(pass_count / total_tests * 100)
+    else:
+        pass_pct = 0
+    closure_rate = f"{round(resolved / total_defects * 100)}%" if total_defects else "N/A"
+    go_nogo = "GO" if (pass_pct >= 95 and critical_open == 0) else "NO-GO"
+
+    # Open defects list (Critical + High)
+    open_defects = defect.get("open_defects", [])
+
+    # Defects by tower (open only)
+    defects_by_tower = {}
+    if not tower_filter:
+        for tw, tw_data in cache.get("tower_summaries", {}).items():
+            tw_ds = tw_data.get("defect", {}).get("defect_summary", {})
+            defects_by_tower[tw] = tw_ds.get("open", 0) + tw_ds.get("in_progress", 0)
+
+    return {
+        "total_defects": total_defects,
+        "total_tests": total_tests,
+        "pass_pct": pass_pct,
+        "critical_open": critical_open,
+        "closure_rate": closure_rate,
+        "go_nogo": go_nogo,
+        "defects_by_severity": defects_by_severity,
+        "towers": tower_keys if not tower_filter else [tower_filter],
+        "execution": dict(execution) if execution else {"Not Executed": total_tests or 1},
+        "aging": aging,
+        "open_defects": open_defects,
+        "defects_by_tower": defects_by_tower,
+    }
+
+
+# ---------------------------------------------------------------------------
 # Compute tower stats
 # ---------------------------------------------------------------------------
 def _tower_stats(tower_short: str, objects: list[dict], raids: list[dict]) -> dict:
@@ -366,6 +516,15 @@ def build_dashboard_context(
         if stats["total"] > 0 or tower_filter:
             tower_data.append(stats)
 
+    # Architecture & Testing data
+    arch_data = _load_architecture_data(towers_to_process)
+    # Enrich architecture patterns from objects
+    pattern_counts = Counter(o["type_code"] for o in objects
+                             if not tower_filter or o["tower"] == tower_filter)
+    arch_data["patterns"] = {_TYPE_LABEL.get(k, k): v for k, v in pattern_counts.items() if v}
+
+    testing_data = _load_jira_data(tower_filter)
+
     # Program-level aggregation
     total_objects = sum(t["total"] for t in tower_data)
     completed_count = sum(t["completed"] for t in tower_data)
@@ -512,6 +671,10 @@ def build_dashboard_context(
         "doc_inventory": doc_inventory,
         "raw_objects_json": json.dumps(raw_objects_compact),
         "doc_inventory_json": json.dumps(doc_inventory),
+        "arch": arch_data,
+        "arch_json": json.dumps(arch_data),
+        "testing": testing_data,
+        "testing_json": json.dumps(testing_data),
     }
 
 

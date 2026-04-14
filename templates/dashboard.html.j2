@@ -280,6 +280,47 @@
     }
     .filter-chip:hover { border-color: var(--intel-blue); }
 
+    /* ---- Pillar tabs ---- */
+    .pillar-tabs {
+      display: flex;
+      gap: 0;
+      padding: 0 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+      border-bottom: 2px solid var(--grey-200);
+      background: #fff;
+    }
+    .pillar-tab {
+      padding: 14px 28px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--grey-600);
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pillar-tab:hover { color: var(--intel-blue); background: #f0f7ff; }
+    .pillar-tab.active {
+      color: var(--intel-blue);
+      border-bottom-color: var(--intel-blue);
+      background: #f0f7ff;
+    }
+    .pillar-tab .tab-icon { font-size: 1.1rem; }
+    .pillar-section { display: none; }
+    .pillar-section.active { display: block; }
+
+    /* ---- Testing KPI colors ---- */
+    .kpi-card.kpi-pass .value { color: var(--green); }
+    .kpi-card.kpi-fail .value { color: var(--red); }
+    .kpi-card.kpi-warn .value { color: var(--amber); }
+    .kpi-card.kpi-nogo .value { color: var(--red); font-size: 1.4rem; }
+    .kpi-card.kpi-go .value { color: var(--green); font-size: 1.4rem; }
+
     /* ---- Responsive ---- */
     @media (max-width: 900px) {
       .chart-grid { grid-template-columns: 1fr; }
@@ -326,7 +367,8 @@
       .topbar .meta { font-size: 9pt; }
 
       /* Hide interactive-only elements */
-      .tower-nav, .filter-bar { display: none !important; }
+      .tower-nav, .filter-bar, .pillar-tabs { display: none !important; }
+      .pillar-section { display: block !important; }
 
       /* KPI cards — 4 per row, compact */
       .kpi-grid {
@@ -472,6 +514,69 @@
 </div>
 
 <!-- ============================================================ -->
+<!--  PILLAR TABS                                                  -->
+<!-- ============================================================ -->
+<div class="pillar-tabs">
+  <button class="pillar-tab active" data-pillar="architecture" onclick="switchPillar('architecture')">
+    <span class="tab-icon">📐</span> Architecture
+  </button>
+  <button class="pillar-tab" data-pillar="development" onclick="switchPillar('development')">
+    <span class="tab-icon">⚙️</span> Development
+  </button>
+  <button class="pillar-tab" data-pillar="testing" onclick="switchPillar('testing')">
+    <span class="tab-icon">🧪</span> Testing
+  </button>
+</div>
+
+<!-- ============================================================ -->
+<!--  PILLAR 1: ARCHITECTURE                                       -->
+<!-- ============================================================ -->
+<div class="pillar-section active" id="pillar-architecture">
+
+<div class="kpi-grid">
+  <div class="kpi-card"><div class="value" id="arch-kpi-flows">{{ arch.total_flows | default(0) }}</div><div class="label">Total Flows</div></div>
+  <div class="kpi-card"><div class="value" id="arch-kpi-systems">{{ arch.total_systems | default(0) }}</div><div class="label">Flow Specs</div></div>
+  <div class="kpi-card"><div class="value" id="arch-kpi-patterns">{{ arch.patterns | default({}) | length }}</div><div class="label">Integration Patterns</div></div>
+  <div class="kpi-card"><div class="value" id="arch-kpi-caps">{{ arch.total_caps | default(0) }}</div><div class="label">Capabilities</div></div>
+  <div class="kpi-card"><div class="value" id="arch-kpi-sads">{{ arch.total_sads | default(0) }}</div><div class="label">SAD Documents</div></div>
+  <div class="kpi-card"><div class="value" id="arch-kpi-lanes">{{ arch.total_lanes | default(0) }}</div><div class="label">Process Lanes</div></div>
+</div>
+
+<div class="chart-grid">
+  <div class="chart-card" id="arch-chart-systems"></div>
+  <div class="chart-card" id="arch-chart-patterns"></div>
+  <div class="chart-card" id="arch-chart-lanes"></div>
+  <div class="chart-card" id="arch-chart-towers"></div>
+</div>
+
+<div class="doc-section">
+  <h2>Architecture Documents — {{ "All Towers" if not tower_filter else tower_filter }}</h2>
+  <table class="doc-table" id="arch-doc-table">
+    <thead>
+      <tr><th>Tower</th><th>Capability</th><th>Systems Architecture</th></tr>
+    </thead>
+    <tbody>
+    {% for row in doc_inventory %}
+      <tr data-tower="{{ row.tower }}" data-cap="{{ row.cap_id }}">
+        <td>{{ row.tower }}</td>
+        <td>{{ row.cap_id }}</td>
+        <td>
+          {% if row.sad_url %}<a href="{{ row.sad_url }}">View</a>
+          {% else %}<span class="badge badge-miss">Missing</span>{% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!--  PILLAR 2: DEVELOPMENT (existing RICEFW dashboard)            -->
+<!-- ============================================================ -->
+<div class="pillar-section" id="pillar-development">
+
+<!-- ============================================================ -->
 <!--  KPI CARDS                                                    -->
 <!-- ============================================================ -->
 <div class="kpi-grid">
@@ -538,42 +643,26 @@
 </div>
 
 <!-- ============================================================ -->
-<!--  DOCUMENT INVENTORY                                           -->
+<!--  DEV DOCUMENT INVENTORY                                       -->
 <!-- ============================================================ -->
 <div class="doc-section">
-  <h2>Document Inventory — {{ "All Towers" if not tower_filter else tower_filter }}</h2>
-  <table class="doc-table">
+  <h2>Development Documents — {{ "All Towers" if not tower_filter else tower_filter }}</h2>
+  <table class="doc-table" id="dev-doc-table">
     <thead>
       <tr>
         <th>Tower</th>
         <th>Capability</th>
-        <th>SAD</th>
         <th>RICEFW Tracker</th>
-        <th>Testing Report</th>
       </tr>
     </thead>
     <tbody>
     {% for row in doc_inventory %}
-      <tr>
+      <tr data-tower="{{ row.tower }}" data-cap="{{ row.cap_id }}">
         <td>{{ row.tower }}</td>
         <td>{{ row.cap_id }}</td>
         <td>
-          {% if row.sad_url %}
-            <a href="{{ row.sad_url }}">View</a>
-          {% else %}
-            <span class="badge badge-miss">Missing</span>
-          {% endif %}
-        </td>
-        <td>
           {% if row.ricefw_url %}
             <a href="{{ row.ricefw_url }}">View</a>
-          {% else %}
-            <span class="badge badge-miss">Missing</span>
-          {% endif %}
-        </td>
-        <td>
-          {% if row.testing_url %}
-            <a href="{{ row.testing_url }}">View</a>
           {% else %}
             <span class="badge badge-miss">Missing</span>
           {% endif %}
@@ -587,7 +676,7 @@
 {% if top_raids %}
 <div class="doc-section">
   <h2>Top RAID Items (P0/P1)</h2>
-  <table class="doc-table">
+  <table class="doc-table" id="raid-doc-table">
     <thead>
       <tr>
         <th>RAID ID</th>
@@ -600,7 +689,7 @@
     </thead>
     <tbody>
     {% for r in top_raids %}
-      <tr>
+      <tr data-tower="{{ r.tower }}">
         <td>{{ r.raid_id }}</td>
         <td><span class="badge badge-sev-{{ r.severity | lower }}">{{ r.severity }}</span></td>
         <td>{{ r.tower }}</td>
@@ -614,6 +703,75 @@
 </div>
 {% endif %}
 
+</div><!-- end pillar-development -->
+
+<!-- ============================================================ -->
+<!--  PILLAR 3: TESTING                                            -->
+<!-- ============================================================ -->
+<div class="pillar-section" id="pillar-testing">
+
+<div class="kpi-grid">
+  <div class="kpi-card"><div class="value" id="test-kpi-total">{{ testing.total_tests | default(0) }}</div><div class="label">Total Test Cases</div></div>
+  <div class="kpi-card kpi-pass"><div class="value" id="test-kpi-pass">{{ testing.pass_pct | default(0) }}%</div><div class="label">Pass Rate</div></div>
+  <div class="kpi-card"><div class="value" id="test-kpi-defects">{{ testing.total_defects | default(0) }}</div><div class="label">Total Defects</div></div>
+  <div class="kpi-card kpi-fail"><div class="value" id="test-kpi-critical">{{ testing.critical_open | default(0) }}</div><div class="label">Critical Open</div></div>
+  <div class="kpi-card kpi-warn"><div class="value" id="test-kpi-closure">{{ testing.closure_rate | default('N/A') }}</div><div class="label">Closure Rate</div></div>
+  <div class="kpi-card {{ 'kpi-go' if testing.go_nogo == 'GO' else 'kpi-nogo' }}"><div class="value" id="test-kpi-gonogo">{{ testing.go_nogo | default('N/A') }}</div><div class="label">Go / No-Go</div></div>
+</div>
+
+<div class="chart-grid">
+  <div class="chart-card" id="test-chart-severity"></div>
+  <div class="chart-card" id="test-chart-exec"></div>
+  <div class="chart-card" id="test-chart-aging"></div>
+  <div class="chart-card" id="test-chart-tower-defects"></div>
+</div>
+
+{% if testing.open_defects %}
+<div class="doc-section">
+  <h2>Critical & High Open Defects</h2>
+  <table class="doc-table" id="defect-table">
+    <thead>
+      <tr><th>ID</th><th>Severity</th><th>Summary</th><th>Status</th><th>Assignee</th><th>Days Open</th></tr>
+    </thead>
+    <tbody>
+    {% for d in testing.open_defects[:30] %}
+      <tr>
+        <td>{{ d.id }}</td>
+        <td><span class="badge {{ 'badge-sev-p0' if d.severity == 'Critical' else 'badge-sev-p1' if d.severity == 'High' else 'badge-sev-p2' }}">{{ d.severity }}</span></td>
+        <td>{{ d.summary | tc }}</td>
+        <td>{{ d.status }}</td>
+        <td>{{ d.assignee | tc(40) }}</td>
+        <td>{{ d.days_open }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+<div class="doc-section">
+  <h2>Testing Documents — {{ "All Towers" if not tower_filter else tower_filter }}</h2>
+  <table class="doc-table" id="test-doc-table">
+    <thead>
+      <tr><th>Tower</th><th>Capability</th><th>Testing Report</th></tr>
+    </thead>
+    <tbody>
+    {% for row in doc_inventory %}
+      <tr data-tower="{{ row.tower }}" data-cap="{{ row.cap_id }}">
+        <td>{{ row.tower }}</td>
+        <td>{{ row.cap_id }}</td>
+        <td>
+          {% if row.testing_url %}<a href="{{ row.testing_url }}">View</a>
+          {% else %}<span class="badge badge-miss">Missing</span>{% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+</div><!-- end pillar-testing -->
+
 <!-- ============================================================ -->
 <!--  PLOTLY DATA & RENDER (with client-side filtering)            -->
 <!-- ============================================================ -->
@@ -626,7 +784,10 @@ var towerUrls  = {{ tower_urls_json }};
 var capUrls    = {{ cap_urls_json }};
 var IS_TOWER   = {{ 'true' if tower_filter else 'false' }};
 var AVAIL_REL  = {{ available_releases_json }};
+var ARCH_DATA  = {{ arch_json | default('{}') }};
+var TESTING_DATA = {{ testing_json | default('{}') }};
 var activeRelease = 'All';  // global release filter state
+var activePillar = 'architecture';  // default visible pillar
 
 // ---- Constants ----
 var COLORS = {
@@ -729,16 +890,19 @@ function updateKPIs(twrs){
     if(!IS_TOWER){ if(selected.has(d.tower)) capSet.add(d.cap_id); }
     else{ if(selected.has(d.cap_id)) capSet.add(d.cap_id); }
   });
-  var cards=document.querySelectorAll('.kpi-card .value');
-  if(cards.length>=8){
-    cards[0].textContent=tot;
-    cards[1].textContent=(tot?Math.round(comp/tot*100):0)+'%';
-    cards[2].textContent=act;
-    cards[3].textContent=twrs.length;
-    cards[4].textContent=capSet.size;
-    cards[5].textContent=(n?Math.round(bW/n):0)+'%';
-    cards[6].textContent=(n?Math.round(fW/n):0)+'%';
-    cards[7].textContent=raids;
+  var devSection=document.getElementById('pillar-development');
+  if(devSection){
+    var cards=devSection.querySelectorAll('.kpi-card .value');
+    if(cards.length>=8){
+      cards[0].textContent=tot;
+      cards[1].textContent=(tot?Math.round(comp/tot*100):0)+'%';
+      cards[2].textContent=act;
+      cards[3].textContent=twrs.length;
+      cards[4].textContent=capSet.size;
+      cards[5].textContent=(n?Math.round(bW/n):0)+'%';
+      cards[6].textContent=(n?Math.round(fW/n):0)+'%';
+      cards[7].textContent=raids;
+    }
   }
 }
 
@@ -888,23 +1052,15 @@ function renderTypeLine(objs){
 
 // ---- Table filtering ----
 function filterDocTable(){
-  var rows=document.querySelectorAll('.doc-table tbody tr');
-  rows.forEach(function(row){
-    var cells=row.querySelectorAll('td');
-    if(cells.length<2) return;
-    var tower=cells[0].textContent.trim();
-    var capId=cells[1].textContent.trim();
+  document.querySelectorAll('.doc-table tbody tr[data-tower]').forEach(function(row){
+    var tower=row.getAttribute('data-tower');
+    var capId=row.getAttribute('data-cap');
     row.style.display = IS_TOWER ? (selected.has(capId)?'':'none') : (selected.has(tower)?'':'none');
   });
 }
 function filterRaidTable(){
-  var sections=document.querySelectorAll('.doc-section');
-  if(sections.length<2) return;
-  var rows=sections[1].querySelectorAll('tbody tr');
-  rows.forEach(function(row){
-    var cells=row.querySelectorAll('td');
-    if(cells.length<3) return;
-    var tower=cells[2].textContent.trim();
+  document.querySelectorAll('#raid-doc-table tbody tr[data-tower]').forEach(function(row){
+    var tower=row.getAttribute('data-tower');
     row.style.display = (!IS_TOWER && !selected.has(tower)) ? 'none' : '';
   });
 }
@@ -921,6 +1077,126 @@ function attachNav(){
   });
 }
 
+// ---- Pillar tab switching ----
+function switchPillar(pillar){
+  activePillar = pillar;
+  document.querySelectorAll('.pillar-section').forEach(function(s){
+    s.classList.toggle('active', s.id === 'pillar-' + pillar);
+  });
+  document.querySelectorAll('.pillar-tab').forEach(function(t){
+    t.classList.toggle('active', t.dataset.pillar === pillar);
+  });
+  // Trigger Plotly relayout so charts render at correct size in newly-visible section
+  setTimeout(function(){ window.dispatchEvent(new Event('resize')); }, 50);
+}
+// Wire clicks
+document.querySelectorAll('.pillar-tab').forEach(function(tab){
+  tab.addEventListener('click', function(){ switchPillar(tab.dataset.pillar); });
+});
+
+// ---- Architecture charts ----
+function renderArchCharts(){
+  var ad = ARCH_DATA;
+  if(!ad || !ad.towers) return;
+  // Systems per tower bar
+  var tNames = Object.keys(ad.towers);
+  var sysCounts = tNames.map(function(t){ return ad.towers[t].systems || 0; });
+  Plotly.react('arch-chart-systems',[{
+    x:tNames, y:sysCounts, type:'bar', marker:{color:'#0071c5'},
+    text:sysCounts.map(String), textposition:'outside', textfont:{size:isMobile?10:12}
+  }],Object.assign({},LB,{title:{text:'Systems per Tower',font:{size:isMobile?12:14,color:'#202124'}},
+    xaxis:{tickfont:{size:isMobile?9:12},automargin:true},
+    yaxis:{title:'Systems',titlefont:{size:isMobile?10:12}},showlegend:false}),CFG);
+  // Integration pattern pie
+  var pats = ad.patterns || {};
+  var patKeys = Object.keys(pats);
+  if(patKeys.length){
+    Plotly.react('arch-chart-patterns',[{
+      labels:patKeys, values:patKeys.map(function(k){return pats[k]}),
+      type:'pie', hole:0.4,
+      marker:{colors:['#0071c5','#00aeef','#34a853','#fbbc04','#8e44ad','#e67e22','#ea4335','#00395d']},
+      textinfo:'label+percent', textfont:{size:isMobile?10:12}
+    }],Object.assign({},LB,{title:{text:'Integration Patterns',font:{size:isMobile?12:14,color:'#202124'}},
+      showlegend:false,margin:{l:20,r:20,t:50,b:20}}),CFG);
+  }
+  // Lanes heatmap placeholder — use horizontal bar
+  var lCounts = tNames.map(function(t){ return ad.towers[t].lanes || 0; });
+  Plotly.react('arch-chart-lanes',[{
+    y:tNames, x:lCounts, type:'bar', orientation:'h',
+    marker:{color:'#00aeef'}, text:lCounts.map(String), textposition:'outside', textfont:{size:isMobile?10:12}
+  }],Object.assign({},LB,{title:{text:'Process Lanes by Tower',font:{size:isMobile?12:14,color:'#202124'}},
+    yaxis:{tickfont:{size:isMobile?10:13},automargin:true},xaxis:{title:'Lanes'},showlegend:false,
+    margin:{l:isMobile?90:110,r:40,t:50,b:40}}),CFG);
+  // Flow count by tower
+  var fCounts = tNames.map(function(t){ return ad.towers[t].flows || 0; });
+  Plotly.react('arch-chart-towers',[{
+    x:tNames, y:fCounts, type:'bar', marker:{color:'#34a853'},
+    text:fCounts.map(String), textposition:'outside', textfont:{size:isMobile?10:12}
+  }],Object.assign({},LB,{title:{text:'E2E Flows by Tower',font:{size:isMobile?12:14,color:'#202124'}},
+    xaxis:{tickfont:{size:isMobile?9:12},automargin:true},
+    yaxis:{title:'Flows',titlefont:{size:isMobile?10:12}},showlegend:false}),CFG);
+}
+
+// ---- Testing charts ----
+function renderTestCharts(){
+  var td = TESTING_DATA;
+  if(!td || !td.defects_by_severity) return;
+  // Defects by severity — stacked bar by tower
+  var sevKeys = Object.keys(td.defects_by_severity);
+  var sevColors = {Critical:'#ea4335',High:'#fbbc04',Medium:'#00aeef',Low:'#34a853'};
+  if(sevKeys.length){
+    var tws = td.towers || [];
+    var traces = ['Critical','High','Medium','Low'].filter(function(s){return td.defects_by_severity[s]}).map(function(sev){
+      return {x:tws, y:tws.map(function(t){return (td.defects_by_severity[sev]||{})[t]||0}),
+        name:sev, type:'bar', marker:{color:sevColors[sev]||'#999'}};
+    });
+    Plotly.react('test-chart-severity',traces,Object.assign({},LB,{
+      title:{text:'Defects by Severity & Tower',font:{size:isMobile?12:14,color:'#202124'}},
+      barmode:'stack', xaxis:{tickfont:{size:isMobile?9:12},automargin:true},
+      yaxis:{title:'Defects'},legend:{orientation:'h',y:-0.2,font:{size:isMobile?10:12}}}),CFG);
+  }
+  // Test execution donut
+  var exec = td.execution || {};
+  var eLabels = Object.keys(exec);
+  var eValues = eLabels.map(function(k){return exec[k]});
+  var eColors = {Pass:'#34a853',Fail:'#ea4335','Not Executed':'#fbbc04','In Progress':'#00aeef','Blocked':'#8e44ad'};
+  if(eLabels.length){
+    Plotly.react('test-chart-exec',[{
+      labels:eLabels, values:eValues, type:'pie', hole:0.5,
+      marker:{colors:eLabels.map(function(l){return eColors[l]||'#999'})},
+      textinfo:'label+percent', textfont:{size:isMobile?10:12}
+    }],Object.assign({},LB,{title:{text:'Test Execution Status',font:{size:isMobile?12:14,color:'#202124'}},
+      showlegend:true,legend:{orientation:'h',y:-0.15,font:{size:isMobile?10:12}},
+      margin:{l:20,r:20,t:50,b:60},
+      annotations:[{text:'<b>'+(eValues.reduce(function(a,b){return a+b},0))+'</b><br>Tests',
+        showarrow:false,font:{size:isMobile?14:18,color:'#202124'},x:0.5,y:0.5}]}),CFG);
+  }
+  // Defect aging bar
+  var aging = td.aging || {};
+  var agLabels = Object.keys(aging);
+  if(agLabels.length){
+    Plotly.react('test-chart-aging',[{
+      x:agLabels, y:agLabels.map(function(k){return aging[k]}), type:'bar',
+      marker:{color:agLabels.map(function(k){return aging[k]>20?'#ea4335':aging[k]>10?'#fbbc04':'#34a853'})},
+      text:agLabels.map(function(k){return aging[k]}), textposition:'outside', textfont:{size:isMobile?10:12}
+    }],Object.assign({},LB,{title:{text:'Open Defect Aging (days)',font:{size:isMobile?12:14,color:'#202124'}},
+      xaxis:{title:'Age Bucket',tickfont:{size:isMobile?9:12}},
+      yaxis:{title:'Defects',titlefont:{size:isMobile?10:12}},showlegend:false}),CFG);
+  }
+  // Defects by tower
+  var twDef = td.defects_by_tower || {};
+  var twKeys = Object.keys(twDef);
+  if(twKeys.length){
+    Plotly.react('test-chart-tower-defects',[{
+      x:twKeys, y:twKeys.map(function(k){return twDef[k]}), type:'bar',
+      marker:{color:'#ea4335'}, text:twKeys.map(function(k){return twDef[k]}),
+      textposition:'outside', textfont:{size:isMobile?10:12}
+    }],Object.assign({},LB,{title:{text:'Open Defects by Tower',font:{size:isMobile?12:14,color:'#202124'}},
+      xaxis:{tickfont:{size:isMobile?9:12},automargin:true},
+      yaxis:{title:'Defects'},showlegend:false}),CFG);
+  }
+}
+
 // ---- Master apply ----
 function applyFilters(){
   var twrs=fTowers(), objs=fObjs();
@@ -935,6 +1211,8 @@ function applyFilters(){
   filterDocTable();
   filterRaidTable();
   attachNav();
+  renderArchCharts();
+  renderTestCharts();
 }
 
 // ---- Filter chip handlers ----
@@ -979,6 +1257,7 @@ function applyFilters(){
 
 // ---- Initial render ----
 applyFilters();
+switchPillar('architecture');  // show Architecture pillar by default
 
 // ---- Release dropdown handler ----
 (function(){
@@ -1029,7 +1308,9 @@ applyFilters();
 // ---- Print/PDF: freeze Plotly charts to static PNG images, then print ----
 (function(){
   var chartIds=['chart-tower-bar','chart-completion-pie','chart-phases',
-                'chart-type-pie','chart-sankey','chart-raids','chart-type-phases'];
+                'chart-type-pie','chart-sankey','chart-raids','chart-type-phases',
+                'arch-chart-systems','arch-chart-patterns','arch-chart-lanes','arch-chart-towers',
+                'test-chart-severity','test-chart-exec','test-chart-aging','test-chart-tower-defects'];
   var snapshots={};
   var frozen=false;
 
