@@ -1623,23 +1623,22 @@ flowchart TB
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
 
-    subgraph AL["🔵 APPLICATION LAYER"]
+    subgraph E2E118CT_Boundary_Applications["Boundary Applications"]
         subgraph E2E118CLN_Boundary_Applications[" ⬛ Boundary Applications"]
             direction LR
             E2E118C_e_g_MES_300["📦 e.g. MES 300"]:::app
             E2E118C_e_g_XEUS["📦 e.g. XEUS"]:::app
         end
-        E2E118CMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
-        E2E118CDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
     end
+
+    E2E118CMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
+    E2E118CDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
 
     E2E118C_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E118CMW_e_g_Azure_Service_Bus
     E2E118CMW_e_g_Azure_Service_Bus --> E2E118C_e_g_XEUS
 
 
-    style BL fill:#FFFDE7,stroke:#F9A825,stroke-width:2px
-    style AL fill:#E3F2FD,stroke:#0078D4,stroke-width:2px
-
+    style E2E118CT_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
     style E2E118CLN_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:1px
 
     subgraph Legend["📐 LEGEND"]
@@ -1652,7 +1651,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlntvozgQwL-KxSp_XdLyCISgKhIPc8qJtNVmd3un44QccBJrHUAYts12893P4DwISa46RyLYM_Mbezwe_C7FWYIlS-r13klKSgu8h1K5xhscShYIpQVi_K3P3xiOq4KU2wD_wFQIaZYdpI3JN1QQtKCY1WLOWWZpOSc_9yjFyN-Ecj3uow2hWyGZ41WGwddpH9gcQPuAoZQNGC7IMpR2jQXNXuM1Kso9uWJ4ht5eSFKu65ElogzXeutyQwO0wLSZQllUzWjKlzjPUUzSVT2syfVggdLv7UF9twO7Xi9Mj77AFydMAW-9HhgM-NziNZmhEgPtTgW_AftnVWDAyi3FIKaIMcy4mrBo-h5egkXFSIoZA01bEkqtTz5vjtZnZZF9x7w7tk1V33cHr_WaLDV_68cZzQrrkyzLHSbKc3Bqgum6UPf9I1OWR6Y3_A-mZhtuB5ugEnWxjuNB3zliFd3QXfkcq7Sw3nBkKwdxghiPYoG2FtCB3nG2IUlC8SviEWzFBcqOenQGDV2R5ZtrcHzNkLtrwBm9CI3vu553wrqGaqrmbexIcZUuliHEulioOBCOjtiRo_i2ehM7tJWh2cXGNKuS_x9xtRvxDjZL8wJvOvlhQsMdH7EqHHna7dkqjg5VnnYCzKrFqkD5GtjB36EUVompJfyZaDqwn5-DqWt_mT49gsD-C34OpX-E0ZkhVKGimG7wGDlZlSao2EZ2nlMSo5JkKeNUEFbqQlmAgxy05WfQuiWkwHEtAsHnc8neU4SjVTSD80iT5facY2wAfLe6A1zG64DMyZZl8QN1m_In_Dq_iqgFV-xxmpw6e9DspUE1FSOa4-IHiXHkVOwsnMpIcEVd2WsBriWcnE7MBd6DDd7NWBlBygtxWk7aM46HglwrgL3Cw6K4nzyQiRDMv4F7MPWymP_9MX96fLgnE-G2rgrCYbMw8Xolyrz0TX6FUoPzmu3hKPt5yp8-ofwT8OujYJyhbynVbi62p57WPlWbauwEp0rrtc7ojUrbNrUPplDzVd_7qKCe-_0gzQ9k09fh6Shqpgk196KmXhy-AK_4DpxlYiKDAP4OH72zA3L9cAQRP6vdPG7N7komB9HspZuhs1MW3szKIPJgN_-8-uMC05JfILp5JUzgkyguqpEMuWIyyJaDgCz3bnhdbyXhKeIiKIfd1uvfMbDj8fgiqlJf2uBig0giWe_i0sLvPgleooqW_KohoarM5ts0lqzm8iBVOZ8o9gjim7ARg7t_AY0u2L0=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlnuPmzgQwL-KRZW_LtnlEQhBq0g8zGlPZLu6tN2Tygk54CRWHUAYuptu891rMEkIm_ThSMSeGf_GHsaDX6U4S7BkSYPBK0lJaYHXUCo3eItDyQKhtESM94a8x3BcFaTcBfgrpkJJs-ygbaZ8QgVBS4pZreacVZaWC_KtRSlG_iKMa7mPtoTuhGaB1xkGH--HwOYAOgQMpWzEcEFWobRvZtDsOd6gomzJFcNz9PJEknJTS1aIMlzbbcotDdAS02YJZVE10pRvcZGjmKTrWqzJtbBA6ZeuUN_vwX4wCNOjL_DBCVPA22AARiO-tnhD5qjEQLtRwV_A_lYVGLByRzGIKWIMM24mZjRjD6_AsmIkxYyBpq0IpdY7nzdHG7KyyL5gPpzapqq3w9FzvSdLzV-GcUazwnony3KPifIcnJpgui7Uff_IlOWJ6Y1_wtRsw-1hE1SiPtZxPOg7R6yiG7orn2OVDtYbT2zloE4Q41Es0M4COtB7zrYkSSh-RjyCnbhA2VGPzqChK7J8dQ-Orxlyfw84o29C4_uu552wrqGaqnkdO1FcpY9lCLE-FioOhJMjduIovq1exY5tZWz2sTHNquTPI672I97DZmle4G0vP0xouNMjVoUTT7u-WsXRocrTToBZtVwXKN8AqEJFMd0PkZNVaYKKXWTnOSUxKkmWss-hdJCDrjyU_hecS6zg4SoMhJW6VJbg19C6JaTAca0Cwb_nmtZThKN1NIeLSJNlTg-rxNQS_oyxAfDN-gZwHS8NMidblsXP2HXKf_Dj4iKiVlyYj9NEDJqO6La8-VNDbGpJtMDFVxLjyKlYF58oE4EXFae1AtxK-DqdpTO0Bxu0m7EygpSX57ScdRcdjwW1NgCtwd2yuJ3dkZlQLD6BW3DvZTH_-2fx_uHulsyEy7pW9HbSjS-vg7PvodRQvObFcIL9eM-fPqH8e_D9V_v_rSDVbt68mHpZbd42pfnnSXs4zKavw9Px0EwTau6b43EBey1_f5-r1NzeQQvwmqfKWYolMgjg3_DBO8v8y1kfRPbjYz9BO6u7kKJBNH_q59z8lFcX80zM82A_q7z6QwLTkl8WutlymgLfB40v1UjG3DAZZatRQFatG17DO6flFHERlENR1-vfMbDT6fRNVKWhtMXFFpFEsl7FBYXfcxK8QhUt-bVCQlWZLXZpLFnNRUGqcr5Q7BHEX8JWCPc_AHLa2PM=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-118 — Forecast to Stock</span></div>
 
@@ -1710,23 +1709,22 @@ flowchart TB
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
 
-    subgraph AL["🔵 APPLICATION LAYER"]
+    subgraph E2E118FT_Boundary_Applications["Boundary Applications"]
         subgraph E2E118FLN_Boundary_Applications[" ⬛ Boundary Applications"]
             direction LR
             E2E118F_e_g_MES_300["📦 e.g. MES 300"]:::app
             E2E118F_e_g_XEUS["📦 e.g. XEUS"]:::app
         end
-        E2E118FMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
-        E2E118FDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
     end
+
+    E2E118FMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
+    E2E118FDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
 
     E2E118F_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E118FMW_e_g_Azure_Service_Bus
     E2E118FMW_e_g_Azure_Service_Bus --> E2E118F_e_g_XEUS
 
 
-    style BL fill:#FFFDE7,stroke:#F9A825,stroke-width:2px
-    style AL fill:#E3F2FD,stroke:#0078D4,stroke-width:2px
-
+    style E2E118FT_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
     style E2E118FLN_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:1px
 
     subgraph Legend["📐 LEGEND"]
@@ -1739,7 +1737,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlntvozgQwL-KxSp_XdLyCISgKhIPc8qJtNVmd3un44QccBJrHUAYts12893P4DwISa46RyLYM_Mbezwe_C7FWYIlS-r13klKSgu8h1K5xhscShYIpQVi_K3P3xiOq4KU2wD_wFQIaZYdpI3JN1QQtKCY1WLOWWZpOSc_9yjFyN-Ecj3uow2hWyGZ41WGwddpH9gcQPuAoZQNGC7IMpR2jQXNXuM1Kso9uWJ4ht5eSFKu65ElogzXeutyQwO0wLSZQllUzWjKlzjPUUzSVT2syfVggdLv7UF9twO7Xi9Mj77AFydMAW-9HhgM-NziNZmhEgPtTgW_AftnVWDAyi3FIKaIMcy4mrBo-h5egkXFSIoZA01bEkqtTz5vjtZnZZF9x7w7tk1V33cHr_WaLDV_68cZzQrrkyzLHSbKc3Bqgum6UPf9I1OWR6Y3_A-mZhtuB5ugEnWxjuNB3zliFd3QXfkcq7Sw3nBkKwdxghiPYoG2FtCB3nG2IUlC8SviEWzFBcqOenQGDV2R5ZtrcHzNkLtrwBm9CI3vu553wrqGaqrmbexIcZUuliHEulioOBCOjtiRo_i2ehM7tJWh2cXGNKuS_x9xtRvxDjZL8wJvOvlhQsMdH7EqHHna7dkqjg5VnnYCzKrFqkD5GtjB36EUVompJfyZaDqwn5-DqWt_mT49gsD-C34OpX-E0ZkhVKGimH7wGDlZlSao2EZ2nlMSo5JkKeNUEFbqQlmAgxy05WfQuiWkwHEtAsHnc8neU4SjVTSD80iT5facY2wAfLe6A1zG64DMyZZl8QN1m_In_Dq_iqgFV-xxmpw6e9DspUE1FSOa4-IHiXHkVOwsnMpIcEVd2WsBriWcnE7MBd6DDd7NWBlBygtxWk7aM46HglwrgL3Cw6K4nzyQiRDMv4F7MPWymP_9MX96fLgnE-G2rgrCYbMw8Xolyrz0TX6FUoPzmu3hKPt5yp8-ofwT8OujYJyhbynVbi62p57WPlWbauwEp0rrtc7ojUrbNrUPplDzVd_7qKCe-_0gzQ9k09fh6Shqpgk196KmXhy-AK_4DpxlYiKDAP4OH72zA3L9cAQRP6vdPG7N7komB9HspZuhs1MW3szKIPJgN_-8-uMC05JfILp5JUzgkyguqpEMuWIyyJaDgCz3bnhdbyXhKeIiKIfd1uvfMbDj8fgiqlJf2uBig0giWe_i0sLvPgleooqW_KohoarM5ts0lqzm8iBVOZ8o9gjim7ARg7t_AfC42Ns=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlnuPmzgQwL-KRZW_LtnlEQhBq0g8zGlPZLu6tN2Tygk54CRWHUAYuptu891rMEkIm_ThSMSeGf_GHsaDX6U4S7BkSYPBK0lJaYHXUCo3eItDyQKhtESM94a8x3BcFaTcBfgrpkJJs-ygbaZ8QgVBS4pZreacVZaWC_KtRSlG_iKMa7mPtoTuhGaB1xkGH--HwOYAOgQMpWzEcEFWobRvZtDsOd6gomzJFcNz9PJEknJTS1aIMlzbbcotDdAS02YJZVE10pRvcZGjmKTrWqzJtbBA6ZeuUN_vwX4wCNOjL_DBCVPA22AARiO-tnhD5qjEQLtRwV_A_lYVGLByRzGIKWIMM24mZjRjD6_AsmIkxYyBpq0IpdY7nzdHG7KyyL5gPpzapqq3w9FzvSdLzV-GcUazwnony3KPifIcnJpgui7Uff_IlOWJ6Y1_wtRsw-1hE1SiPtZxPOg7R6yiG7orn2OVDtYbT2zloE4Q41Es0M4COtB7zrYkSSh-RjyCnbhA2VGPzqChK7J8dQ-Orxlyfw84o29C4_uu552wrqGaqnkdO1FcpY9lCLE-FioOhJMjduIovq1exY5tZWz2sTHNquTPI672I97DZmle4G0vP0xouNMjVoUTT7u-WsXRocrTToBZtVwXKN8AqEJFMf0PkZNVaYKKXWTnOSUxKkmWss-hdJCDrjyU_hecS6zg4SoMhJW6VJbg19C6JaTAca0Cwb_nmtZThKN1NIeLSJNlTg-rxNQS_oyxAfDN-gZwHS8NMidblsXP2HXKf_Dj4iKiVlyYj9NEDJqO6La8-VNDbGpJtMDFVxLjyKlYF58oE4EXFae1AtxK-DqdpTO0Bxu0m7EygpSX57ScdRcdjwW1NgCtwd2yuJ3dkZlQLD6BW3DvZTH_-2fx_uHulsyEy7pW9HbSjS-vg7PvodRQvObFcIL9eM-fPqH8e_D9V_v_rSDVbt68mHpZbd42pfnnSXs4zKavw9Px0EwTau6b43EBey1_f5-r1NzeQQvwmqfKWYolMgjg3_DBO8v8y1kfRPbjYz9BO6u7kKJBNH_q59z8lFcX80zM82A_q7z6QwLTkl8WutlymgLfB40v1UjG3DAZZatRQFatG17DO6flFHERlENR1-vfMbDT6fRNVKWhtMXFFpFEsl7FBYXfcxK8QhUt-bVCQlWZLXZpLFnNRUGqcr5Q7BHEX8JWCPc_AOfg2Rc=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-118 — Forecast to Stock</span></div>
 

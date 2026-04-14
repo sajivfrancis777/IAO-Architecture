@@ -156,6 +156,35 @@ for _i, (_name, _fill, _stroke) in enumerate(_LAYER_ORDER):
     _LAYER_STYLE[_name] = (_fill, _stroke)
 
 
+# ---------------------------------------------------------------------------
+# Tier grouping — group related lanes into architecture tiers
+# ---------------------------------------------------------------------------
+# Each tier is rendered as an outer subgraph (TB stacking between tiers)
+# containing sub-lane subgraphs (LR node arrangement within each lane).
+# Order: top of diagram (Reporting) → bottom (Boundary Applications).
+_TIER_GROUPS: list[tuple[int, str, list[str], str, str]] = [
+    # (tier_num, tier_label, [canonical_lane_names], fill, stroke)
+    (5, "Reporting",             ["Reporting", "Reporting (Legacy)"],
+     "fill:#E8EAF6", "stroke:#283593"),
+    (4, "ECA / Data Warehouse",  ["ECA Platform", "Data Warehouse (Legacy)"],
+     "fill:#F3E5F5", "stroke:#7B1FA2"),
+    (3, "ERP Systems",           ["ERP Systems", "ERP Systems (Legacy)"],
+     "fill:#E3F2FD", "stroke:#0078D4"),
+    (2, "Cloud Products",        ["Cloud Products", "Cloud Products (Legacy)"],
+     "fill:#E1F5FE", "stroke:#0277BD"),
+    (1, "Middleware",            ["Middleware & Integration", "Middleware (Legacy)"],
+     "fill:#FFF3E0", "stroke:#E65100"),
+    (0, "Boundary Applications", ["Boundary Applications"],
+     "fill:#E8F5E9", "stroke:#388E3C"),
+]
+
+# Reverse lookup: canonical lane name → tier number
+_LANE_TO_TIER: dict[str, int] = {}
+for _tn, _tl, _members, _tf, _ts in _TIER_GROUPS:
+    for _m in _members:
+        _LANE_TO_TIER[_m] = _tn
+
+
 def _canonical_lane(lane: str) -> str:
     """Normalize a lane value to its canonical layer name."""
     low = lane.strip().lower()
@@ -241,15 +270,49 @@ class MermaidBuilder:
         lines.append("flowchart TB")
         lines.append("")
 
-        # Swim lanes: ordered by architecture layer (top = Reporting, bottom = Boundary/MES)
-        # In TB mode, subgraph declaration order = top-to-bottom position.
-        sorted_lanes = sorted(self._lanes.keys(), key=_lane_sort_key)
-        for i, lane in enumerate(sorted_lanes):
+        # Tier-grouped swim lanes:
+        # Outer: TB stacking of tier subgraphs (Reporting at top, Boundary at bottom)
+        # Inner: LR arrangement of nodes within each lane subgraph
+        tier_lanes: dict[int, list[tuple[str, list[str]]]] = {}
+        ungrouped: list[tuple[str, list[str]]] = []
+        for lane in sorted(self._lanes.keys(), key=_lane_sort_key):
+            canonical = _canonical_lane(lane)
+            tier_num = _LANE_TO_TIER.get(canonical)
+            if tier_num is not None:
+                tier_lanes.setdefault(tier_num, []).append((lane, self._lanes[lane]))
+            else:
+                ungrouped.append((lane, self._lanes[lane]))
+
+        self._tier_sg_ids: list[tuple[str, str, str]] = []
+        self._lane_sg_ids: list[tuple[str, str, str]] = []
+
+        for tier_num, tier_label, _members, tier_fill, tier_stroke in _TIER_GROUPS:
+            if tier_num not in tier_lanes:
+                continue
+            lanes_in_tier = tier_lanes[tier_num]
+            tier_id = _sanitize_lane_id(self.prefix + "T", tier_label)
+            self._tier_sg_ids.append((tier_id, tier_fill, tier_stroke))
+            lines.append(f'    subgraph {tier_id}["{tier_label}"]')
+            for lane, nids in lanes_in_tier:
+                sg_id = _sanitize_lane_id(self.prefix, lane)
+                fill, stroke = _lane_style(lane, 0)
+                self._lane_sg_ids.append((sg_id, fill, stroke))
+                lines.append(f'        subgraph {sg_id}[" \u2b1b {lane}"]')
+                lines.append(f'            direction LR')
+                for nid in sorted(nids):
+                    node = self._nodes[nid]
+                    lines.append(f'            {nid}["{node.label}"]')
+                lines.append(f'        end')
+            lines.append("    end")
+            lines.append("")
+
+        for lane, nids in ungrouped:
             sg_id = _sanitize_lane_id(self.prefix, lane)
-            fill, stroke = _lane_style(lane, i)
+            fill, stroke = _lane_style(lane, 0)
+            self._lane_sg_ids.append((sg_id, fill, stroke))
             lines.append(f'    subgraph {sg_id}[" \u2b1b {lane}"]')
             lines.append(f'        direction LR')
-            for nid in sorted(self._lanes[lane]):
+            for nid in sorted(nids):
                 node = self._nodes[nid]
                 lines.append(f'        {nid}["{node.label}"]')
             lines.append("    end")
@@ -334,11 +397,11 @@ class MermaidBuilder:
         lines.append(f"    class {self.prefix}_L_NA naLegend")
         lines.append("")
 
-        # Subgraph styles — layer-aware colors
-        for i, lane in enumerate(sorted_lanes):
-            sg_id = _sanitize_lane_id(self.prefix, lane)
-            fill, stroke = _lane_style(lane, i)
-            lines.append(f"    style {sg_id} {fill},{stroke}")
+        # Subgraph styles — tier + lane colors
+        for sg_id, fill, stroke in self._tier_sg_ids:
+            lines.append(f"    style {sg_id} {fill},{stroke},stroke-width:2px")
+        for sg_id, fill, stroke in self._lane_sg_ids:
+            lines.append(f"    style {sg_id} {fill},{stroke},stroke-width:1px")
         lines.append(f"    style {legend_id} fill:#FFFFFF,stroke:#BDBDBD")
 
         return lines
@@ -508,7 +571,7 @@ def build_archimate_mermaid(
     lines.append(ARCHIMATE_CLASSDEFS)
     lines.append("")
 
-    # Application Layer — swim lanes by Source/Target Lane
+    # Application Layer — tier-grouped swim lanes
     if view in ("full", "app", "data"):
         # Group apps by their lane
         lane_groups: dict[str, list[str]] = {}
@@ -516,13 +579,51 @@ def build_archimate_mermaid(
             lane = info.get("lane") or "Other"
             lane_groups.setdefault(lane, []).append(nid)
 
-        lines.append('    subgraph AL["\U0001f535 APPLICATION LAYER"]')
+        # Build tier → lane mapping for lanes that have data
+        arch_tier_lanes: dict[int, list[str]] = {}
+        arch_ungrouped: list[str] = []
+        for lane_name in sorted(lane_groups.keys(), key=_lane_sort_key):
+            canonical = _canonical_lane(lane_name)
+            tier_num = _LANE_TO_TIER.get(canonical)
+            if tier_num is not None:
+                arch_tier_lanes.setdefault(tier_num, []).append(lane_name)
+            else:
+                arch_ungrouped.append(lane_name)
 
-        # Create swim lane subgraphs — layer-ordered by declaration order (top→bottom)
-        for li, lane_name in enumerate(sorted(lane_groups.keys(), key=_lane_sort_key)):
+        arch_tier_sg_ids: list[tuple[str, str, str]] = []
+        arch_lane_sg_ids: list[tuple[str, str, str]] = []
+
+        for tier_num, tier_label, _members, tier_fill, tier_stroke in _TIER_GROUPS:
+            if tier_num not in arch_tier_lanes:
+                continue
+            tier_id = _sanitize_lane_id(pfx + "T", tier_label)
+            arch_tier_sg_ids.append((tier_id, tier_fill, tier_stroke))
+            lines.append(f'    subgraph {tier_id}["{tier_label}"]')
+            for lane_name in arch_tier_lanes[tier_num]:
+                lane_id = _sanitize_lane_id(pfx + "LN", lane_name)
+                fill, stroke = _lane_style(lane_name, 0)
+                arch_lane_sg_ids.append((lane_id, fill, stroke))
+                lines.append(f'        subgraph {lane_id}[" \u2b1b {lane_name}"]')
+                lines.append(f'            direction LR')
+                for nid in sorted(lane_groups[lane_name]):
+                    info = apps[nid]
+                    ia = info["iapm_app"]
+                    status_str = ""
+                    if ia and ia.status_label:
+                        status_str = f"<br/><i>{ia.status_label}</i>"
+                    cls = "eol" if (ia and ia.style_class == "eol") else "app"
+                    lines.append(f'            {nid}["{EMOJI["app"]} {info["name"]}{status_str}"]:::{cls}')
+                lines.append(f'        end')
+            lines.append("    end")
+            lines.append("")
+
+        # Ungrouped lanes
+        for lane_name in arch_ungrouped:
             lane_id = _sanitize_lane_id(pfx + "LN", lane_name)
-            lines.append(f'        subgraph {lane_id}[" \u2b1b {lane_name}"]')
-            lines.append(f'            direction LR')
+            fill, stroke = _lane_style(lane_name, 0)
+            arch_lane_sg_ids.append((lane_id, fill, stroke))
+            lines.append(f'    subgraph {lane_id}[" \u2b1b {lane_name}"]')
+            lines.append(f'        direction LR')
             for nid in sorted(lane_groups[lane_name]):
                 info = apps[nid]
                 ia = info["iapm_app"]
@@ -530,16 +631,15 @@ def build_archimate_mermaid(
                 if ia and ia.status_label:
                     status_str = f"<br/><i>{ia.status_label}</i>"
                 cls = "eol" if (ia and ia.style_class == "eol") else "app"
-                lines.append(f'            {nid}["{EMOJI["app"]} {info["name"]}{status_str}"]:::{cls}')
-            lines.append(f'        end')
+                lines.append(f'        {nid}["{EMOJI["app"]} {info["name"]}{status_str}"]:::{cls}')
+            lines.append(f'    end')
+            lines.append("")
 
-        # Middleware and data entities (not in lanes)
+        # Middleware and data entities (outside tiers)
         for mw_id, mw_name in sorted(middlewares.items()):
-            lines.append(f'        {mw_id}["{EMOJI["middleware"]} {mw_name}"]:::middleware')
+            lines.append(f'    {mw_id}["{EMOJI["middleware"]} {mw_name}"]:::middleware')
         for de_id, de_label in sorted(data_entities.items()):
-            lines.append(f'        {de_id}>"{EMOJI["data"]} {de_label}"]:::data')
-
-        lines.append("    end")
+            lines.append(f'    {de_id}>"{EMOJI["data"]} {de_label}"]:::data')
         lines.append("")
 
     # Edges (application level flows)
@@ -563,15 +663,11 @@ def build_archimate_mermaid(
             lines.append(f'    click {nid} href "{ia.url}" "{tooltip}" _blank')
     lines.append("")
 
-    # Layer styles
-    lines.append(LAYER_STYLES)
-    lines.append("")
-
-    # Swim-lane subgraph styles — layer-aware colors
-    for i, lane_name in enumerate(sorted(lane_groups.keys(), key=_lane_sort_key)):
-        lane_id = _sanitize_lane_id(pfx + "LN", lane_name)
-        fill, stroke = _lane_style(lane_name, i)
-        lines.append(f"    style {lane_id} {fill},{stroke},stroke-width:1px")
+    # Tier + lane subgraph styles
+    for sg_id, fill, stroke in arch_tier_sg_ids:
+        lines.append(f"    style {sg_id} {fill},{stroke},stroke-width:2px")
+    for sg_id, fill, stroke in arch_lane_sg_ids:
+        lines.append(f"    style {sg_id} {fill},{stroke},stroke-width:1px")
     lines.append("")
 
     # Legend

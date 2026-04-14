@@ -3369,23 +3369,22 @@ flowchart TB
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
 
-    subgraph AL["🔵 APPLICATION LAYER"]
+    subgraph IF_Simplified_POSO_ModelCT_Boundary_Applications["Boundary Applications"]
         subgraph IF_Simplified_POSO_ModelCLN_Boundary_Applications[" ⬛ Boundary Applications"]
             direction LR
             IF_Simplified_POSO_ModelC_e_g_MES_300["📦 e.g. MES 300"]:::app
             IF_Simplified_POSO_ModelC_e_g_XEUS["📦 e.g. XEUS"]:::app
         end
-        IF_Simplified_POSO_ModelCMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
-        IF_Simplified_POSO_ModelCDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
     end
+
+    IF_Simplified_POSO_ModelCMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
+    IF_Simplified_POSO_ModelCDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
 
     IF_Simplified_POSO_ModelC_e_g_MES_300 -->|"e.g. Direct / API / File"| IF_Simplified_POSO_ModelCMW_e_g_Azure_Service_Bus
     IF_Simplified_POSO_ModelCMW_e_g_Azure_Service_Bus --> IF_Simplified_POSO_ModelC_e_g_XEUS
 
 
-    style BL fill:#FFFDE7,stroke:#F9A825,stroke-width:2px
-    style AL fill:#E3F2FD,stroke:#0078D4,stroke-width:2px
-
+    style IF_Simplified_POSO_ModelCT_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
     style IF_Simplified_POSO_ModelCLN_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:1px
 
     subgraph Legend["📐 LEGEND"]
@@ -3398,7 +3397,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVm1vozgQ_isWq3y6pOUlJARVlXgxp5xIUy27210dJ-SAk1jrAMKwbbab_74G54XQ5rZ1JAKemeeZGXvGfpbiLMGSKfV6zyQlpQmeQ6lc4w0OJROE0gIx_tbnbwzHVUHKrY9_YCqENMsO0sbkCyoIWlDMajHHWWZpGZCfeyhllD8J5XreQxtCt0IS4FWGwedpH1gcgPYBQykbMFyQZSjtGguaPcZrVJR75IrhGXp6IEm5rmeWiDJc663LDfXRAtPGhbKomtmUhxjkKCbpqp7W5HqyQOn39qS-24FdrxemRy7wyQ5TwEevBwYD7lu8JjNUYqBdqeAvYP2sCgxYuaUYxBQxhhlXExbNt4uXYFExkmLGQDOWhFLzg8eHrfVZWWTfMf-cWIaq7z8Hj3VMppo_9eOMZoX5QZblDibKc3AaAtNxoO55R0xZHhvu8H8wNWvkdGATVKIurG270LOPsIo-0h35HFZpwbrDsaUcxAliPIsF2ppAB3qHbEOShOJHxDPYyguUbfVIBke6IssXY7A9bSR3Y8AZfZEaz3Nc9wTrjFRDNS7DjhVH6cIyhFgXFio2hOMj7NhWPEu9CDu0lKHRhY1pViXvz7jazXgHNkvzAm86-8OAI2dyhFXh2NUue6vYOlT5thPArFqsCpSvgeX_G0phlRhawp-JpgPr_t6fOtan6fwO-NY3-DGU_hNGZ4ZTLwrIJqdkSXAS3c-DeTTjNUkd_y6ysypNULGNrJwrxKgkWco4DwgrdaEswEEO2vIzmnokpMBxLQL-x3PJRe4IR6toBoNIk-V2XDEeAXy1ugJcxnuFzLlM0-RF9x7cr_Bz8CpoLXgFEafJ6eMi9OyhAW86TxTg4geJcWRX7GxZlLFgEv1prwW4lqA9Vd4bCF3YEDoZKyNIeYtPy9t2VPFQcNUKYK9wsyiub2_IrRAEX8A1mLpZzP_-CeZ3N9fkVjhS9xvhQhO8eH3TavE2e_srlBoCt1l4Dm7dT_nTI5QfN7_en8I_0F8yq115w1aow9sXU3Ne2P7pLHBbXeTCWdA2tQ6mUPNUz_1Tyz_nfXchHrgMT4en9qEZBtScF-fAi4bh4xVf27M6SGTgw7_hnXtWwq-Xrx_x_tKtopZ3r9SRH80eutUwO-34ixXgRy7s7my3PhBhWvJLT3fHChM4Fw1RHSVDrpgMsuXAJ8s9DT-LWtv7tAYiKYf11-vfMbGTyeRFVqW-tMHFBpFEMp_FRYvf1xK8RBUt-fVIQlWZBds0lszmwiNVOXcUuwTxRdiIyd1veLgkWA==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdVm1vmzoU_isWUz7dpOUlJARVkXgxUyfSVpdtnTQm5ICTWHMAYVibdfnv1-C8UJqs7XUkYp9z_Dz28TnHfpLiLMGSKfV6TyQlpQmeQqlc4TUOJROE0hwx3uvzHsNxVZBy4-NfmAolzbK9tpnyFRUEzSlmtZrjLLK0DMjvHZQyyh-FcS330JrQjdAEeJlh8OW6DywOQPuAoZQNGC7IIpS2zQyaPcQrVJQ75IrhGXq8J0m5qiULRBmu7VblmvpojmmzhLKoGmnKtxjkKCbpshZrci0sUPqzLdS3W7Dt9cL0wAU-22EKeOv1wGDA1xavyAyVGGgXKvgHWL-rAgNWbigGMUWMYcbNxIxm7OIFmFeMpJgx0LQFodT84PFma31WFtlPzIcTy1D13XDwUO_JVPPHfpzRrDA_yLLcwUR5Do5NYDoO1D3vgCnLY8Md_gVTs0ZOBzZBJerC2rYLPfsAq-gj3ZGfwyotWHc4tpS9OkGMe7FAGxPoQO-QrUmSUPyAuAdbfoGyrR7I4EhXZPnsHmxPG8ndPeCMvnCN5zmue4R1RqqhGudhx4qjdGEZQqwLCxUbwvEBdmwrnqWehR1aytDowsY0q5L3e1zterwDm6V5gded-DDgyJkcYFU4drXzq1VsHao87AQwq-bLAuUrcO1FAVnnlCwITqK72-A2mvHUos7nyM6qNEHFJrJyro9RSbKUfQ-lvRy05aH0QyC_Dd2_OQsPwkqdK3PwOk3dElLguFYB_9_nmrPcEY6W0QwGkSbLnC-sEkNL-DfGI4AvlheA63hBkTmXaZo8M9-D-w1-CU6C1ooTiDhNxKDpiO5Zhtl9w9FUqSjAxS8S48iuWJswUcaCUNSynRXgVoL9mKWvkLmwIXMyVkaQ8qsgLaftjcVDwVMbgJ3B1by4nF6RqVAEX8EluHazmP99Cm5vri7JVCyirkuv7rZ9TrwKT_-EUoPrNkfOMa27a_71COW30Z_3e-1_OrteyhuCoN7eLtea6-S9ibYvSYanw2OSa4YBNedFkr-J6FzOvZ1JqZk6BcTHSx66z0I-kYEPP8Ib91m2ns5UP7Lu7roJ01rdiZTxo9l9N-Jnx6g-GeVingu7EezWFyRMS_4IakfmcQq89RsudZQMuWEyyBYDnyx2NPxuamXv8QyEU_aXlV7_Do6dTCYvvCr1pTUu1ogkkvkkHl78_ZbgBapoyZ9LEqrKLNiksWQ2DyCpyvlCsUsQP4S1EG7_A2XEM6o=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 
@@ -3456,23 +3455,22 @@ flowchart TB
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
 
-    subgraph AL["🔵 APPLICATION LAYER"]
+    subgraph IF_Simplified_POSO_ModelFT_Boundary_Applications["Boundary Applications"]
         subgraph IF_Simplified_POSO_ModelFLN_Boundary_Applications[" ⬛ Boundary Applications"]
             direction LR
             IF_Simplified_POSO_ModelF_e_g_MES_300["📦 e.g. MES 300"]:::app
             IF_Simplified_POSO_ModelF_e_g_XEUS["📦 e.g. XEUS"]:::app
         end
-        IF_Simplified_POSO_ModelFMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
-        IF_Simplified_POSO_ModelFDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
     end
+
+    IF_Simplified_POSO_ModelFMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
+    IF_Simplified_POSO_ModelFDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
 
     IF_Simplified_POSO_ModelF_e_g_MES_300 -->|"e.g. Direct / API / File"| IF_Simplified_POSO_ModelFMW_e_g_Azure_Service_Bus
     IF_Simplified_POSO_ModelFMW_e_g_Azure_Service_Bus --> IF_Simplified_POSO_ModelF_e_g_XEUS
 
 
-    style BL fill:#FFFDE7,stroke:#F9A825,stroke-width:2px
-    style AL fill:#E3F2FD,stroke:#0078D4,stroke-width:2px
-
+    style IF_Simplified_POSO_ModelFT_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
     style IF_Simplified_POSO_ModelFLN_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:1px
 
     subgraph Legend["📐 LEGEND"]
@@ -3485,7 +3483,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVVm1vozgQ_isWq3y6pOUlJARVlXgxp5xIUy27210dJ-SAk1jrAMKwbbab_74G54XQ5rZ1JAKemeeZGXvGfpbiLMGSKfV6zyQlpQmeQ6lc4w0OJROE0gIx_tbnbwzHVUHKrY9_YCqENMsO0sbkCyoIWlDMajHHWWZpGZCfeyhllD8J5XreQxtCt0IS4FWGwedpH1gcgPYBQykbMFyQZSjtGguaPcZrVJR75IrhGXp6IEm5rmeWiDJc663LDfXRAtPGhbKomtmUhxjkKCbpqp7W5HqyQOn39qS-24FdrxemRy7wyQ5TwEevBwYD7lu8JjNUYqBdqeAvYP2sCgxYuaUYxBQxhhlXExbNt4uXYFExkmLGQDOWhFLzg8eHrfVZWWTfMf-cWIaq7z8Hj3VMppo_9eOMZoX5QZblDibKc3AaAtNxoO55R0xZHhvu8H8wNWvkdGATVKIurG270LOPsIo-0h35HFZpwbrDsaUcxAliPIsF2ppAB3qHbEOShOJHxDPYyguUbfVIBke6IssXY7A9bSR3Y8AZfZEaz3Nc9wTrjFRDNS7DjhVH6cIyhFgXFio2hOMj7NhWPEu9CDu0lKHRhY1pViXvz7jazXgHNkvzAm86-8OAI2dyhFXh2NUue6vYOlT5thPArFqsCpSvgeX_G0phlRhawp-JpgPr_t6fOtan6fwO-NY3-DGU_hNGZ4ZTLwrIJqdkSXAS3c-DeTTjNUk9_y6ysypNULGNrJwrxKgkWco4DwgrdaEswEEO2vIzmnokpMBxLQL-x3PJRe4IR6toBoNIk-V2XDEeAXy1ugJcxnuFzLlM0-RF9x7cr_Bz8CpoLXgFEafJ6eMi9OyhAW86TxTg4geJcWRX7GxZlLFgEv1prwW4lqA9Vd4bCF3YEDoZKyNIeYtPy9t2VPFQcNUKYK9wsyiub2_IrRAEX8A1mLpZzP_-CeZ3N9fkVjhS9xvhQhO8eH3TavE2e_srlBoCt1l4Dm7dT_nTI5QfN7_en8I_0F8yq115w1aow9sXU3Ne2P7pLHBbXeTCWdA2tQ6mUPNUz_1Tyz_nfXchHrgMT4en9qEZBtScF-fAi4bh4xVf27M6SGTgw7_hnXtWwq-Xrx_x_tKtopZ3r9SRH80eutUwO-34ixXgRy7s7my3PhBhWvJLT3fHChM4Fw1RHSVDrpgMsuXAJ8s9DT-LWtv7tAYiKYf11-vfMbGTyeRFVqW-tMHFBpFEMp_FRYvf1xK8RBUt-fVIQlWZBds0lszmwiNVOXcUuwTxRdiIyd1v5cAkdg==" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdVm1vmzoU_isWUz7dpOUlJARVkXgxUyfSVpdtnTQm5GAnseYAwrA26_Lfr4G8UJqs7XUkYp9z_Dz28TnHfpLiFBPJlHq9J5rQwgRPoVSsyJqEkglCaY646PVFj5O4zGmx8ckvwholS9O9tp7yFeUUzRnhlVrgLNKkCOjvHZQyyh4b40ruoTVlm0YTkGVKwJfrPrAEAOsDjhI-4CSni1Da1jNY-hCvUF7skEtOZujxnuJiVUkWiHFS2a2KNfPRnLB6CUVe1tJEbDHIUEyTZSXW5EqYo-RnW6hvt2Db64XJgQt8tsMEiNbrgcFArC1e0RkqCNAuVPAPsH6XOQG82DACYoY4J1yYNTPqsUsWYF5ymhDOQd0WlDHzgyearfV5kac_iRhOLEPVd8PBQ7UnU80e-3HK0tz8IMtyBxNlGTi2BtNxoO55B0xZHhvu8C-YmjVyOrAYFagLa9su9OwDrKKPdEd-Dqu0YN3h2FL2aoy48GKONibQgd4hW1OMGXlAwoMtv0DZVg9kcKQrsnx2D7anjeTuHkjKXrjG8xzXPcI6I9VQjfOwY8VRurAcId6FhYoN4fgAO7YVz1LPwg4tZWh0YWOWlvj9Hle7Hu_ApkmWk3UnPgw4ciYHWBWOXe38ahVbh6oIuwaYl_NljrIVuPaigK4zRheU4OjuNriNZiK1mPc5stMywSjfRFYm9DEqaJrw76G0l4O2PJR-NMhvQ_dvzsKDsFTnyhy8TlM1THMSVyrg__tcc5Y7ItEymsEg0mRZ8IUlNjQsvjEZAXKxvABCJwqKLLhM0xSZ-R7cb_BLcBK0UpxAJAluBnWn6Z5lmN3XHHWVigKS_6IxieyStwmxMm4Im1q2swLCqmE_ZukrZC6syZyUFxFk4ipIiml7Y_Gw4akMwM7gap5fTq_otFEEX8EluHbTWPx9Cm5vri7ptFlEVZde3W37nEQVnv4JpRrXrY9cYFp31-LrUSZuoz_v99r_dHa1lDcEQbW9Xa7V18l7E21fkgxPh8ck1wwDas6LJH8T0bmcezuTUjF1CohPliJ0n4U8loEPP8Ib91m2ns5UP7Lu7roJ01rdiZTxo9l9N-Jnx6g-GeXNPBd2I9itLkiYFOIR1I7M4xR469dc6ggPhSEepIuBTxc7GnE3tbL3eAaNU_aXlV79Do6dTCYvvCr1pTXJ14hiyXxqHl7i_YbJApWsEM8lCZVFGmySWDLrB5BUZmKhxKVIHMK6EW7_A-i2M84=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 29</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 

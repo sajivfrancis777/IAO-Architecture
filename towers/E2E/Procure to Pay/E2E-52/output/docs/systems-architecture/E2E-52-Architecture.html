@@ -1282,23 +1282,22 @@ flowchart TB
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
 
-    subgraph AL["🔵 APPLICATION LAYER"]
+    subgraph E2E52CT_Boundary_Applications["Boundary Applications"]
         subgraph E2E52CLN_Boundary_Applications[" ⬛ Boundary Applications"]
             direction LR
             E2E52C_e_g_MES_300["📦 e.g. MES 300"]:::app
             E2E52C_e_g_XEUS["📦 e.g. XEUS"]:::app
         end
-        E2E52CMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
-        E2E52CDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
     end
+
+    E2E52CMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
+    E2E52CDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
 
     E2E52C_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E52CMW_e_g_Azure_Service_Bus
     E2E52CMW_e_g_Azure_Service_Bus --> E2E52C_e_g_XEUS
 
 
-    style BL fill:#FFFDE7,stroke:#F9A825,stroke-width:2px
-    style AL fill:#E3F2FD,stroke:#0078D4,stroke-width:2px
-
+    style E2E52CT_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
     style E2E52CLN_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:1px
 
     subgraph Legend["📐 LEGEND"]
@@ -1311,7 +1310,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVluuO2joQgF_FSsWvwm4uJIRohZSLc8RR2F2VttvqpIpMYsCqSaI46S7d8u51Yi4hLK2OkSDxzHxjj2cGv0pxlmDJknq9V5KS0gKvoVSu8QaHkgVCaYEYf-rzJ4bjqiDlNsA_MBVCmmUHaWPyGRUELShmtZhzlllazsnPPUox8hehXM_7aEPoVkjmeJVh8GnaBzYH0D5gKGUDhguyDKVdY0Gz53iNinJPrhieoZcnkpTremaJKMO13rrc0AAtMG2WUBZVM5vyLc5zFJN0VU9rcj1ZoPR7e1Lf7cCu1wvToy_w0QlTwEevBwYDvrZ4TWaoxEC7UcF7YP-sCgxYuaUYxBQxhhlXExbNu4eXYFExkmLGQDOWhFLrnc-Ho_VZWWTfMX8d26aq718Hz_WeLDV_6ccZzQrrnSzLHSbKc3Aagum6UPf9I1OWR6Y3_ANTsw23g01QibpYx_Gg7xyxim7ornyOVVpYbziylYM4QYxHsUBbC-hA7zjbkCSh-BnxCLbiAmVHPTqDhq7I8tU9OL5myN094IxehMb3Xc87YV1DNVXzOnakuEoXyxBiXSxUHAhHR-zIUXxbvYod2srQ7GJjmlXJ_4-42o14B5uleYE3nfwwoeGOj1gVjjzt-moVR4cqTzsBZtViVaB8Dezgv1AKq8TUEv6daDqwHx-DqWt_nD7cg8D-Cj-E0jdhdGYIVairbnAfOVmVJqjYRnaeUxKjkmQp41AQVupCWYCDHLTlZ8x6JKTAcS0CwYdziXAU4WgVzeA80mS5veIYGwDfrG4Al_EuIHOwZVm8nK5CvsBP8zcJteANc5wmpxfBmT01pKZbRHNc_CAxjpyKnYVSGQms6Cl7LcC1hI9TtXTpHmzobsbKCFLeg9Ny0l5vPBTgWgHsFe4Wxe3kjkyEYP4Z3IKpl8X859_5w_3dLZkIr3VDEP6abYnHywjzpjf5FUoNzWtOhpPsxyn_9gnlzf_XXyLRBl_TqZ10D6Ze0j5DmybsBKcG67VK80qDbZvaB1Oo-arv_a2Pnvv9c3YfwKavw1MBaqYJNfeik16UXIBXPPhnKZjIIID_wHvvrC7erokg4hXaTeDW6t5I4SCaPXVzc3bKv6v5GEQe7KaeV_-lwLTk14ZuSgkT-CBaimokQ66YDLLlICDLvRvezVv5dwq4CMrhsPX6cwzseDy-iKrUlza42CCSSNaruKrwG0-Cl6iiJb9gSKgqs_k2jSWruTJIVc4Xij2C-CFsxOTuN_hA1r8=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlnuPmzgQwL-KRZW_LtnlEQhBq0g8zGlPZLs62u5J5YQccBKrDiAM3U23-e41OA_CJn04ErFnxr-xh_HgVynJUyxZ0mDwSjJSWeA1kqo13uBIskAkLRDjvSHvMZzUJam2Af6KqVDSPD9o2ymfUEnQgmLWqDlnmWdVSL7tUYpRvAjjRu6jDaFboQnxKsfg4_0Q2BxAh4ChjI0YLskyknbtDJo_J2tUVntyzfAcvTyRtFo3kiWiDDd262pDA7TAtF1CVdatNONbDAuUkGzViDW5EZYo-9IV6rsd2A0GUXb0BT44UQZ4GwzAaMTXlqzJHFUYaDcq-AvY3-oSA1ZtKQYJRYxhxs3EjHbs4SVY1IxkmDHQtiWh1Hrn8-ZoQ1aV-RfMh1PbVPX9cPTc7MlSi5dhktO8tN7JstxjoqIApyaYrgt13z8yZXlieuOfMDXbcHvYFFWoj3UcD_rOEavohu7K51ilg_XGE1s5qFPEeBRLtLWADvSesw1JU4qfEY9gJy5QdtSjM2joiixf3YPja4bc3wPO6ZvQ-L7reSesa6imal7HThRX6WMZQqyPhYoD4eSInTiKb6tXsWNbGZt9bELzOv3ziKv9iPeweVaUeNPLDxMa7vSIVeHE066vVnF0qPK0E2BWL1YlKtYAqlBX3Q-xk9dZisptbBcFJQmqSJ6xz5F0kIOuPJL-F5gLqODhKgtEtbpQFuDXzKalpMRJowLBv-ca4SjG8SqewzDWZJnDozo1tZQ_E2wAfLO6AVzH64LMwZZl8QN2FfIf_BheJDSKC9NxlopB2xFdgZs_tcC2jMQhLr-SBMdOzbr0VJkIuig2eyvArYSr0zHqkj3Ykt2cVTGkvDBn1ay75GQsoI0B2BvcLcrb2R2ZCUX4CdyCey9P-N8_4fuHu1syEx6bKnG-j25seQGcfY-kFuK174QD7Md7_vQJ5R-C77_Y_O8EqHHSfyXNkvbZ2hbkn6bq4QSbvg5PZ0IzTai5b87EW-q1rP19rNJge4crwCueImeplcoggH_DB-8s3y_nehDbj4_9xOys7kJqBvH8qZ9s81NCXUwwMc-D_Xzymo8HzCp-QejmyWkKfB-0vlQjHXPDdJQvRwFZ7t3wut05JaeAi6AcCrne_I6BnU6nb6IqDaUNLjeIpJL1Ki4l_G6T4iWqacWvEhKqqzzcZolktZcDqS74QrFHEH8JGyHc_QDu9taP" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-52 — Purchase Requisition to Payments for Indirect Non-Mfg. &amp; Mfg. procurement</span></div>
 
@@ -1369,23 +1368,22 @@ flowchart TB
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
 
-    subgraph AL["🔵 APPLICATION LAYER"]
+    subgraph E2E52FT_Boundary_Applications["Boundary Applications"]
         subgraph E2E52FLN_Boundary_Applications[" ⬛ Boundary Applications"]
             direction LR
             E2E52F_e_g_MES_300["📦 e.g. MES 300"]:::app
             E2E52F_e_g_XEUS["📦 e.g. XEUS"]:::app
         end
-        E2E52FMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
-        E2E52FDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
     end
+
+    E2E52FMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
+    E2E52FDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
 
     E2E52F_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E52FMW_e_g_Azure_Service_Bus
     E2E52FMW_e_g_Azure_Service_Bus --> E2E52F_e_g_XEUS
 
 
-    style BL fill:#FFFDE7,stroke:#F9A825,stroke-width:2px
-    style AL fill:#E3F2FD,stroke:#0078D4,stroke-width:2px
-
+    style E2E52FT_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
     style E2E52FLN_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:1px
 
     subgraph Legend["📐 LEGEND"]
@@ -1398,7 +1396,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVluuO2joQgF_FSsWvwm4uJIRohZSLc8RR2F2VttvqpIpMYsCqSaI46S7d8u51Yi4hLK2OkSDxzHxjj2cGv0pxlmDJknq9V5KS0gKvoVSu8QaHkgVCaYEYf-rzJ4bjqiDlNsA_MBVCmmUHaWPyGRUELShmtZhzlllazsnPPUox8hehXM_7aEPoVkjmeJVh8GnaBzYH0D5gKGUDhguyDKVdY0Gz53iNinJPrhieoZcnkpTremaJKMO13rrc0AAtMG2WUBZVM5vyLc5zFJN0VU9rcj1ZoPR7e1Lf7cCu1wvToy_w0QlTwEevBwYDvrZ4TWaoxEC7UcF7YP-sCgxYuaUYxBQxhhlXExbNu4eXYFExkmLGQDOWhFLrnc-Ho_VZWWTfMX8d26aq718Hz_WeLDV_6ccZzQrrnSzLHSbKc3Aagum6UPf9I1OWR6Y3_ANTsw23g01QibpYx_Gg7xyxim7ornyOVVpYbziylYM4QYxHsUBbC-hA7zjbkCSh-BnxCLbiAmVHPTqDhq7I8tU9OL5myN094IxehMb3Xc87YV1DNVXzOnakuEoXyxBiXSxUHAhHR-zIUXxbvYod2srQ7GJjmlXJ_4-42o14B5uleYE3nfwwoeGOj1gVjjzt-moVR4cqTzsBZtViVaB8Dezgv1AKq8TUEv6daDqwHx-DqWt_nD7cg8D-Cj-E0jdhdGYIVairfnAfOVmVJqjYRnaeUxKjkmQp41AQVupCWYCDHLTlZ8x6JKTAcS0CwYdziXAU4WgVzeA80mS5veIYGwDfrG4Al_EuIHOwZVm8nK5CvsBP8zcJteANc5wmpxfBmT01pKZbRHNc_CAxjpyKnYVSGQms6Cl7LcC1hI9TtXTpHmzobsbKCFLeg9Ny0l5vPBTgWgHsFe4Wxe3kjkyEYP4Z3IKpl8X859_5w_3dLZkIr3VDEP6abYnHywjzpjf5FUoNzWtOhpPsxyn_9gnlzf_XXyLRBl_TqZ10D6Ze0j5DmybsBKcG67VK80qDbZvaB1Oo-Tyof-uj537_nN0HsOnr8FSAmmlCzb3opBclF-AVD_5ZCiYyCOA_8N47q4u3ayKIeIV2E7i1ujdSOIhmT93cnJ3y72o-BpEHu6nn1X8pMC35taGbUsIEPoiWohrJkCsmg2w5CMhy74Z381b-nQIugnI4bL3-HAM7Ho8voir1pQ0uNogkkvUqrir8xpPgJapoyS8YEqrKbL5NY8lqrgxSlfOFYo8gfggbMbn7DVtS1t0=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlnuPmzgQwL-KRZW_LtnlEQhBq0g8zGlPZLs62u5J5YQccBKrDiAM3U23-e41OA_CJn04ErFnxr-xh_HgVynJUyxZ0mDwSjJSWeA1kqo13uBIskAkLRDjvSHvMZzUJam2Af6KqVDSPD9o2ymfUEnQgmLWqDlnmWdVSL7tUYpRvAjjRu6jDaFboQnxKsfg4_0Q2BxAh4ChjI0YLskyknbtDJo_J2tUVntyzfAcvTyRtFo3kiWiDDd262pDA7TAtF1CVdatNONbDAuUkGzViDW5EZYo-9IV6rsd2A0GUXb0BT44UQZ4GwzAaMTXlqzJHFUYaDcq-AvY3-oSA1ZtKQYJRYxhxs3EjHbs4SVY1IxkmDHQtiWh1Hrn8-ZoQ1aV-RfMh1PbVPX9cPTc7MlSi5dhktO8tN7JstxjoqIApyaYrgt13z8yZXlieuOfMDXbcHvYFFWoj3UcD_rOEavohu7K51ilg_XGE1s5qFPEeBRLtLWADvSesw1JU4qfEY9gJy5QdtSjM2joiixf3YPja4bc3wPO6ZvQ-L7reSesa6imal7HThRX6WMZQqyPhYoD4eSInTiKb6tXsWNbGZt9bELzOv3ziKv9iPeweVaUeNPLDxMa7vSIVeHE066vVnF0qPK0E2BWL1YlKtYAqlBX_Q-xk9dZisptbBcFJQmqSJ6xz5F0kIOuPJL-F5gLqODhKgtEtbpQFuDXzKalpMRJowLBv-ca4SjG8SqewzDWZJnDozo1tZQ_E2wAfLO6AVzH64LMwZZl8QN2FfIf_BheJDSKC9NxlopB2xFdgZs_tcC2jMQhLr-SBMdOzbr0VJkIuig2eyvArYSr0zHqkj3Ykt2cVTGkvDBn1ay75GQsoI0B2BvcLcrb2R2ZCUX4CdyCey9P-N8_4fuHu1syEx6bKnG-j25seQGcfY-kFuK174QD7Md7_vQJ5R-C77_Y_O8EqHHSfyXNkvbZ2hbkn6bq4QSbvg5PZ0IzTai5b87EW-q1rP19rNJge4crwCueImeplcoggH_DB-8s3y_nehDbj4_9xOys7kJqBvH8qZ9s81NCXUwwMc-D_Xzymo8HzCp-QejmyWkKfB-0vlQjHXPDdJQvRwFZ7t3wut05JaeAi6AcCrne_I6BnU6nb6IqDaUNLjeIpJL1Ki4l_G6T4iWqacWvEhKqqzzcZolktZcDqS74QrFHEH8JGyHc_QBjRdaz" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-52 — Purchase Requisition to Payments for Indirect Non-Mfg. &amp; Mfg. procurement</span></div>
 

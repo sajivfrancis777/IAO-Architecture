@@ -3361,23 +3361,22 @@ flowchart TB
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
 
-    subgraph AL["🔵 APPLICATION LAYER"]
+    subgraph E2E74CT_Boundary_Applications["Boundary Applications"]
         subgraph E2E74CLN_Boundary_Applications[" ⬛ Boundary Applications"]
             direction LR
             E2E74C_e_g_MES_300["📦 e.g. MES 300"]:::app
             E2E74C_e_g_XEUS["📦 e.g. XEUS"]:::app
         end
-        E2E74CMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
-        E2E74CDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
     end
+
+    E2E74CMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
+    E2E74CDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
 
     E2E74C_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E74CMW_e_g_Azure_Service_Bus
     E2E74CMW_e_g_Azure_Service_Bus --> E2E74C_e_g_XEUS
 
 
-    style BL fill:#FFFDE7,stroke:#F9A825,stroke-width:2px
-    style AL fill:#E3F2FD,stroke:#0078D4,stroke-width:2px
-
+    style E2E74CT_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
     style E2E74CLN_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:1px
 
     subgraph Legend["📐 LEGEND"]
@@ -3390,7 +3389,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVluuO2joQgF_FSsWvwm4uJIRohZSLc8RR2F2VttvqpIpMYsCqSaI46S7d8u51Yi4hLK2OkSDxzHxjj2cGv0pxlmDJknq9V5KS0gKvoVSu8QaHkgVCaYEYf-rzJ4bjqiDlNsA_MBVCmmUHaWPyGRUELShmtZhzlllazsnPPUox8hehXM_7aEPoVkjmeJVh8GnaBzYH0D5gKGUDhguyDKVdY0Gz53iNinJPrhieoZcnkpTremaJKMO13rrc0AAtMG2WUBZVM5vyLc5zFJN0VU9rcj1ZoPR7e1Lf7cCu1wvToy_w0QlTwEevBwYDvrZ4TWaoxEC7UcF7YP-sCgxYuaUYxBQxhhlXExbNu4eXYFExkmLGQDOWhFLrnc-Ho_VZWWTfMX8d26aq718Hz_WeLDV_6ccZzQrrnSzLHSbKc3Aagum6UPf9I1OWR6Y3_ANTsw23g01QibpYx_Gg7xyxim7ornyOVVpYbziylYM4QYxHsUBbC-hA7zjbkCSh-BnxCLbiAmVHPTqDhq7I8tU9OL5myN094IxehMb3Xc87YV1DNVXzOnakuEoXyxBiXSxUHAhHR-zIUXxbvYod2srQ7GJjmlXJ_4-42o14B5uleYE3nfwwoeGOj1gVjjzt-moVR4cqTzsBZtViVaB8Dezgv1AKq8TUEv6daDqwHx-DqWt_nD7cg8D-Cj-E0jdhdGYIub-hG9xHTlalCSq2kZ3nlMSoJFnKOBSElbpQFuAgB235GbMeCSlwXItA8OFcIhxFOFpFMziPNFlurzjGBsA3qxvAZbwLyBxsWRYvp6uQL_DT_E1CLXjDHKfJ6UVwZk8NqekW0RwXP0iMI6diZ6FURgIrespeC3At4eNULV26Bxu6m7EygpT34LSctNcbDwW4VgB7hbtFcTu5IxMhmH8Gt2DqZTH_-Xf-cH93SybCa90QhL9mW-LxMsK86U1-hVJD85qT4ST7ccq_fUJ58__1l0i0wdd0aifdg6mXtM_Qpgk7wanBeq3SvNJg26b2wRRqvup7f-uj537_nN0HsOnr8FSAmmlCzb3opBclF-AVD_5ZCiYyCOA_8N47q4u3ayKIeIV2E7i1ujdSOIhmT93cnJ3y72o-BpEHu6nn1X8pMC35taGbUsIEPoiWohrJkCsmg2w5CMhy74Z381b-nQIugnI4bL3-HAM7Ho8voir1pQ0uNogkkvUqrir8xpPgJapoyS8YEqrKbL5NY8lqrgxSlfOFYo8gfggbMbn7DXyP1uc=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlnuPmzgQwL-KRZW_LtnlEQhBq0g8zGlPZLs62u5J5YQccBKrDiAM3U23-e41OA_CJn04ErFnxr-xh_HgVynJUyxZ0mDwSjJSWeA1kqo13uBIskAkLRDjvSHvMZzUJam2Af6KqVDSPD9o2ymfUEnQgmLWqDlnmWdVSL7tUYpRvAjjRu6jDaFboQnxKsfg4_0Q2BxAh4ChjI0YLskyknbtDJo_J2tUVntyzfAcvTyRtFo3kiWiDDd262pDA7TAtF1CVdatNONbDAuUkGzViDW5EZYo-9IV6rsd2A0GUXb0BT44UQZ4GwzAaMTXlqzJHFUYaDcq-AvY3-oSA1ZtKQYJRYxhxs3EjHbs4SVY1IxkmDHQtiWh1Hrn8-ZoQ1aV-RfMh1PbVPX9cPTc7MlSi5dhktO8tN7JstxjoqIApyaYrgt13z8yZXlieuOfMDXbcHvYFFWoj3UcD_rOEavohu7K51ilg_XGE1s5qFPEeBRLtLWADvSesw1JU4qfEY9gJy5QdtSjM2joiixf3YPja4bc3wPO6ZvQ-L7reSesa6imal7HThRX6WMZQqyPhYoD4eSInTiKb6tXsWNbGZt9bELzOv3ziKv9iPeweVaUeNPLDxMa7vSIVeHE066vVnF0qPK0E2BWL1YlKtYA8mlj90Ps5HWWonIb20VBSYIqkmfscyQd5KArj6T_BeYCKni4ygJRrS6UBfg1s2kpKXHSqEDw77lGOIpxvIrnMIw1WebwqE5NLeXPBBsA36xuANfxuiBzsGVZ_IBdhfwHP4YXCY3iwnScpWLQdkRX4OZPLbAtI3GIy68kwbFTsy49VSaCLorN3gpwK-HqdIy6ZA-2ZDdnVQwpL8xZNesuORkLaGMA9gZ3i_J2dkdmQhF-Arfg3ssT_vdP-P7h7pbMhMemSpzvoxtbXgBn3yOphXjtO-EA-_GeP31C-Yfg-y82_zsBapz0X0mzpH22tgX5p6l6OMGmr8PTmdBME2rumzPxlnota38fqzTY3uEK8IqnyFlqpTII4N_wwTvL98u5HsT242M_MTuru5CaQTx_6ifb_JRQFxNMzPNgP5-85uMBs4pfELp5cpoC3wetL9VIx9wwHeXLUUCWeze8bndOySngIiiHQq43v2Ngp9Ppm6hKQ2mDyw0iqWS9iksJv9ukeIlqWvGrhITqKg-3WSJZ7eVAqgu-UOwRxF_CRgh3PwCKTda_" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 
@@ -3448,23 +3447,22 @@ flowchart TB
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
 
-    subgraph AL["🔵 APPLICATION LAYER"]
+    subgraph E2E74FT_Boundary_Applications["Boundary Applications"]
         subgraph E2E74FLN_Boundary_Applications[" ⬛ Boundary Applications"]
             direction LR
             E2E74F_e_g_MES_300["📦 e.g. MES 300"]:::app
             E2E74F_e_g_XEUS["📦 e.g. XEUS"]:::app
         end
-        E2E74FMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
-        E2E74FDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
     end
+
+    E2E74FMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
+    E2E74FDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
 
     E2E74F_e_g_MES_300 -->|"e.g. Direct / API / File"| E2E74FMW_e_g_Azure_Service_Bus
     E2E74FMW_e_g_Azure_Service_Bus --> E2E74F_e_g_XEUS
 
 
-    style BL fill:#FFFDE7,stroke:#F9A825,stroke-width:2px
-    style AL fill:#E3F2FD,stroke:#0078D4,stroke-width:2px
-
+    style E2E74FT_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
     style E2E74FLN_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:1px
 
     subgraph Legend["📐 LEGEND"]
@@ -3477,7 +3475,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVluuO2joQgF_FSsWvwm4uJIRohZSLc8RR2F2VttvqpIpMYsCqSaI46S7d8u51Yi4hLK2OkSDxzHxjj2cGv0pxlmDJknq9V5KS0gKvoVSu8QaHkgVCaYEYf-rzJ4bjqiDlNsA_MBVCmmUHaWPyGRUELShmtZhzlllazsnPPUox8hehXM_7aEPoVkjmeJVh8GnaBzYH0D5gKGUDhguyDKVdY0Gz53iNinJPrhieoZcnkpTremaJKMO13rrc0AAtMG2WUBZVM5vyLc5zFJN0VU9rcj1ZoPR7e1Lf7cCu1wvToy_w0QlTwEevBwYDvrZ4TWaoxEC7UcF7YP-sCgxYuaUYxBQxhhlXExbNu4eXYFExkmLGQDOWhFLrnc-Ho_VZWWTfMX8d26aq718Hz_WeLDV_6ccZzQrrnSzLHSbKc3Aagum6UPf9I1OWR6Y3_ANTsw23g01QibpYx_Gg7xyxim7ornyOVVpYbziylYM4QYxHsUBbC-hA7zjbkCSh-BnxCLbiAmVHPTqDhq7I8tU9OL5myN094IxehMb3Xc87YV1DNVXzOnakuEoXyxBiXSxUHAhHR-zIUXxbvYod2srQ7GJjmlXJ_4-42o14B5uleYE3nfwwoeGOj1gVjjzt-moVR4cqTzsBZtViVaB8Dezgv1AKq8TUEv6daDqwHx-DqWt_nD7cg8D-Cj-E0jdhdGYIub-hH9xHTlalCSq2kZ3nlMSoJFnKOBSElbpQFuAgB235GbMeCSlwXItA8OFcIhxFOFpFMziPNFlurzjGBsA3qxvAZbwLyBxsWRYvp6uQL_DT_E1CLXjDHKfJ6UVwZk8NqekW0RwXP0iMI6diZ6FURgIrespeC3At4eNULV26Bxu6m7EygpT34LSctNcbDwW4VgB7hbtFcTu5IxMhmH8Gt2DqZTH_-Xf-cH93SybCa90QhL9mW-LxMsK86U1-hVJD85qT4ST7ccq_fUJ58__1l0i0wdd0aifdg6mXtM_Qpgk7wanBeq3SvNJg26b2wRRqvup7f-uj537_nN0HsOnr8FSAmmlCzb3opBclF-AVD_5ZCiYyCOA_8N47q4u3ayKIeIV2E7i1ujdSOIhmT93cnJ3y72o-BpEHu6nn1X8pMC35taGbUsIEPoiWohrJkCsmg2w5CMhy74Z381b-nQIugnI4bL3-HAM7Ho8voir1pQ0uNogkkvUqrir8xpPgJapoyS8YEqrKbL5NY8lqrgxSlfOFYo8gfggbMbn7Dd-S1wU=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlnuPmzgQwL-KRZW_LtnlEQhBq0g8zGlPZLs62u5J5YQccBKrDiAM3U23-e41OA_CJn04ErFnxr-xh_HgVynJUyxZ0mDwSjJSWeA1kqo13uBIskAkLRDjvSHvMZzUJam2Af6KqVDSPD9o2ymfUEnQgmLWqDlnmWdVSL7tUYpRvAjjRu6jDaFboQnxKsfg4_0Q2BxAh4ChjI0YLskyknbtDJo_J2tUVntyzfAcvTyRtFo3kiWiDDd262pDA7TAtF1CVdatNONbDAuUkGzViDW5EZYo-9IV6rsd2A0GUXb0BT44UQZ4GwzAaMTXlqzJHFUYaDcq-AvY3-oSA1ZtKQYJRYxhxs3EjHbs4SVY1IxkmDHQtiWh1Hrn8-ZoQ1aV-RfMh1PbVPX9cPTc7MlSi5dhktO8tN7JstxjoqIApyaYrgt13z8yZXlieuOfMDXbcHvYFFWoj3UcD_rOEavohu7K51ilg_XGE1s5qFPEeBRLtLWADvSesw1JU4qfEY9gJy5QdtSjM2joiixf3YPja4bc3wPO6ZvQ-L7reSesa6imal7HThRX6WMZQqyPhYoD4eSInTiKb6tXsWNbGZt9bELzOv3ziKv9iPeweVaUeNPLDxMa7vSIVeHE066vVnF0qPK0E2BWL1YlKtYA8mlj_0Ps5HWWonIb20VBSYIqkmfscyQd5KArj6T_BeYCKni4ygJRrS6UBfg1s2kpKXHSqEDw77lGOIpxvIrnMIw1WebwqE5NLeXPBBsA36xuANfxuiBzsGVZ_IBdhfwHP4YXCY3iwnScpWLQdkRX4OZPLbAtI3GIy68kwbFTsy49VSaCLorN3gpwK-HqdIy6ZA-2ZDdnVQwpL8xZNesuORkLaGMA9gZ3i_J2dkdmQhF-Arfg3ssT_vdP-P7h7pbMhMemSpzvoxtbXgBn3yOphXjtO-EA-_GeP31C-Yfg-y82_zsBapz0X0mzpH22tgX5p6l6OMGmr8PTmdBME2rumzPxlnota38fqzTY3uEK8IqnyFlqpTII4N_wwTvL98u5HsT242M_MTuru5CaQTx_6ifb_JRQFxNMzPNgP5-85uMBs4pfELp5cpoC3wetL9VIx9wwHeXLUUCWeze8bndOySngIiiHQq43v2Ngp9Ppm6hKQ2mDyw0iqWS9iksJv9ukeIlqWvGrhITqKg-3WSJZ7eVAqgu-UOwRxF_CRgh3PwD-jdbj" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-74 — R3 Internal manufacturing process for Finished Goods in Intel Foundry with Planning integrati</span></div>
 

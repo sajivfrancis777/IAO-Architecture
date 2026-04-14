@@ -1690,23 +1690,22 @@ flowchart TB
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
 
-    subgraph AL["🔵 APPLICATION LAYER"]
+    subgraph Order_to_Cash_IFCT_Boundary_Applications["Boundary Applications"]
         subgraph Order_to_Cash_IFCLN_Boundary_Applications[" ⬛ Boundary Applications"]
             direction LR
             Order_to_Cash_IFC_e_g_MES_300["📦 e.g. MES 300"]:::app
             Order_to_Cash_IFC_e_g_XEUS["📦 e.g. XEUS"]:::app
         end
-        Order_to_Cash_IFCMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
-        Order_to_Cash_IFCDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
     end
+
+    Order_to_Cash_IFCMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
+    Order_to_Cash_IFCDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
 
     Order_to_Cash_IFC_e_g_MES_300 -->|"e.g. Direct / API / File"| Order_to_Cash_IFCMW_e_g_Azure_Service_Bus
     Order_to_Cash_IFCMW_e_g_Azure_Service_Bus --> Order_to_Cash_IFC_e_g_XEUS
 
 
-    style BL fill:#FFFDE7,stroke:#F9A825,stroke-width:2px
-    style AL fill:#E3F2FD,stroke:#0078D4,stroke-width:2px
-
+    style Order_to_Cash_IFCT_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
     style Order_to_Cash_IFCLN_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:1px
 
     subgraph Legend["📐 LEGEND"]
@@ -1719,7 +1718,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlntvozgQwL-KxSp_XdLyCISgKhIPc8qJtNVmd3un44QccBJrHUAYts12893P4DwIaXo9RyLYM_6NPZ4Z_CrFWYIlS-r1XklKSgu8hlK5xhscShYIpQVi_K3P3xiOq4KU2wD_wFQIaZYdpM2Ub6ggaEExq8Wcs8zSck5-7lGKkb8I5XrcRxtCt0Iyx6sMg6_TPrA5gPYBQykbMFyQZSjtmhk0e47XqCj35IrhGXp5Ikm5rkeWiDJc663LDQ3QAtNmCWVRNaMp3-I8RzFJV_WwJteDBUq_twf13Q7ser0wPdoCX5wwBbz1emAw4GuL12SGSgy0GxX8BuyfVYEBK7cUg5gixjDjamJG0_fwEiwqRlLMGGjaklBqffJ5c7Q-K4vsO-bdsW2q-r47eK73ZKn5Sz_OaFZYn2RZ7jBRnoNTE0zXhbrvH5myPDK94TtMzTbcDjZBJepiHceDvnPEKrqhu_I5VmlhveHIVg7iBDHuxQJtLaADvWNsQ5KE4mfEPdjyC5Qd9WgMGroiy1f34PiaIXf3gDN64Rrfdz3vhHUN1VTN69iR4ipdLEOIdbFQcSAcHbEjR_Ft9Sp2aCtDs4uNaVYl_9_jatfjHWyW5gXedOLDhIY7PmJVOPK066tVHB2qPOwEmFWLVYHyNbCDv0MprBJTS_gz0XRgPz4GU9f-Mn24B4H9F_wcSv-ISWcTH4oEF1GZRS6PiWjqu8F95GRVmqBiG9l5TkmMSpKljPNBWKkLZQEOctCWn-HrlpACx7UIBJ_PJRc2IxytohmcR5ost_cRYwPgm9UN4DJeG2Ruw7IsnmQf4f0Jv87fhNWCN0g4TU6dC-TsqYE2lSWa4-IHiXHkVOzM7cpIWBD1Z68FuJYwd8qsdwx5sDHkZqyMIOWlOy0n7V3EQ2GjVgB7hbtFcTu5IxMhmH8Dt2DqZTH_-2P-cH93SyZiAXUdEaabzYrXd0-Dl83Jr1BqwF5zoBxqP0750yeUfz5-fdxVV8xdU69Nv3O09fL3SdDUeSc41XCvlf1Xanh7qn2YCjVf9b3_KtXndj-cQAcbpq_DU7prpgk196JuXyR4gFf8zM7iOZFBAH-H995Z6r2ddkHE60E3G1qreyMfgmj21I3u2SmCr0Z0EHmwG7Fe_QGDackvKd1IFFPggyhgqpEMuWIyyJaDgCz3Zvi3oxW2J98LpxzOXa9_R8eOx-MLr0p9aYOLDSKJZL2KixG_XyV4iSpa8uuMhKoym2_TWLKaC4pU5Xyh2COIH8JGDO7-BVQSB9Q=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlmtvozgUhv-KxSifNmm5hISgqhIXs-qKtNVmZrrSskIOOIk1DkYYps108t_H4FwoSbodV0rhHPt57eNzjF-VhKVYsZVe75VkpLTBa6SUK7zGkWKDSJkjLp764onjpCpIuQnxd0ylkzK29zZDvqKCoDnFvHYLzoJl5Yz82KG0Uf4iO9f2AK0J3UjPDC8ZBl_u-sARANoHHGV8wHFBFpGybUZQ9pysUFHuyBXHU_TyRNJyVVsWiHJc91uVaxqiOabNFMqiaqyZWOIsRwnJlrXZUGtjgbJvbaO53YJtrxdlBy3w2Y0yIFqvBwYDMbdkRaaoxMC40sEfwPlRFRjwckMxSCjiHHPRTY5o3n28APOKkwxzDpq2IJTanwLRXKPPy4J9w-J14li6uXsdPNdrsvX8pZ8wygr7k6qqHSbKc3Bskul50AyCA1NVx5Y_fIdpOCOvg01RibpY1_Vh4B6wmjkyPfUtVmth_eHY0fbuFHERxQJtbGACsyO2JmlK8TMSEWzFBaqufhCDI1NT1YtrcANjpHbXgBk9CU0QeL5_xHoj3dKty9ix5mldLEeId7FQcyEcH7BjVwsc_SJ26GhDq4tNKKvS34-43o14B8uyvMDrTn5YcORNDlgdjn3j8mw114S6SDsJ5tV8WaB8BR6KFBdxyWJPbG18F3ifY5dVWYqKTezkOSUJKgnL-L-RsreDtj1S_pPE96nh_UUsiCp9rs3B_-PrlpICJ7ULhH-_9ZxoxjhexlM4iw1VFTpRlVpGKn4TPAL4ankFhE8cHKrQsG1bVOBHeP_AL7OzsNpxhoSzVL40D_LxhDx9atjN6RPPcPGdJDh2K94WSrWxFJJn1K4XEL2k6rH6Loj4sBHxGC9jSMXRnpW37YUkQ8mvO4Bdh5t5cX17Q26lY_YVXIM7nyXi31-zh_uba3Irxetz5uLq2vsgTtPbn5HS8PxmKwXLebwTvwGh4qvy8-PR-c1g1tLvbGo9_V1tNMf_Rwtjf3RYgQmPxWhYFjS8k2J8V-BSjXxcQasVOgUe4qVIvTcpm6oghH_Ce_9NdZ2vrDB2Hh-7Cd-a3ZmUD-PpUzdzp8fsPJutcpwPuxnp1x8wmJXiktLOtOMQ-BA2WvooHYqO6YAtBiFZ7GTEt6NVfcfYy6DsPyZm_XcI7GQyOYmq0lfWuFgjkir2q7wYiftViheooqW4ziioKtlskyWK3VxQlCoXE8U-QWIT1tK4_QWo6xFy" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 
@@ -1777,23 +1776,22 @@ flowchart TB
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
 
-    subgraph AL["🔵 APPLICATION LAYER"]
+    subgraph Order_to_Cash_IFFT_Boundary_Applications["Boundary Applications"]
         subgraph Order_to_Cash_IFFLN_Boundary_Applications[" ⬛ Boundary Applications"]
             direction LR
             Order_to_Cash_IFF_e_g_MES_300["📦 e.g. MES 300"]:::app
             Order_to_Cash_IFF_e_g_XEUS["📦 e.g. XEUS"]:::app
         end
-        Order_to_Cash_IFFMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
-        Order_to_Cash_IFFDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
     end
+
+    Order_to_Cash_IFFMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
+    Order_to_Cash_IFFDE_e_g_Cost_Element>"📄 e.g. Cost Element<br/><i>e.g. CSV / IDoc / JSON</i>"]:::data
 
     Order_to_Cash_IFF_e_g_MES_300 -->|"e.g. Direct / API / File"| Order_to_Cash_IFFMW_e_g_Azure_Service_Bus
     Order_to_Cash_IFFMW_e_g_Azure_Service_Bus --> Order_to_Cash_IFF_e_g_XEUS
 
 
-    style BL fill:#FFFDE7,stroke:#F9A825,stroke-width:2px
-    style AL fill:#E3F2FD,stroke:#0078D4,stroke-width:2px
-
+    style Order_to_Cash_IFFT_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
     style Order_to_Cash_IFFLN_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:1px
 
     subgraph Legend["📐 LEGEND"]
@@ -1806,7 +1804,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlntvozgQwL-KxSp_XdLyCISgKhIPc8qJtNVmd3un44QccBJrHUAYts12893P4DwIaXo9RyLYM_6NPZ4Z_CrFWYIlS-r1XklKSgu8hlK5xhscShYIpQVi_K3P3xiOq4KU2wD_wFQIaZYdpM2Ub6ggaEExq8Wcs8zSck5-7lGKkb8I5XrcRxtCt0Iyx6sMg6_TPrA5gPYBQykbMFyQZSjtmhk0e47XqCj35IrhGXp5Ikm5rkeWiDJc663LDQ3QAtNmCWVRNaMp3-I8RzFJV_WwJteDBUq_twf13Q7ser0wPdoCX5wwBbz1emAw4GuL12SGSgy0GxX8BuyfVYEBK7cUg5gixjDjamJG0_fwEiwqRlLMGGjaklBqffJ5c7Q-K4vsO-bdsW2q-r47eK73ZKn5Sz_OaFZYn2RZ7jBRnoNTE0zXhbrvH5myPDK94TtMzTbcDjZBJepiHceDvnPEKrqhu_I5VmlhveHIVg7iBDHuxQJtLaADvWNsQ5KE4mfEPdjyC5Qd9WgMGroiy1f34PiaIXf3gDN64Rrfdz3vhHUN1VTN69iR4ipdLEOIdbFQcSAcHbEjR_Ft9Sp2aCtDs4uNaVYl_9_jatfjHWyW5gXedOLDhIY7PmJVOPK066tVHB2qPOwEmFWLVYHyNbCDv0MprBJTS_gz0XRgPz4GU9f-Mn24B4H9F_wcSv-ISWcTH4oEF1GZRS6PiWjq-8F95GRVmqBiG9l5TkmMSpKljPNBWKkLZQEOctCWn-HrlpACx7UIBJ_PJRc2IxytohmcR5ost_cRYwPgm9UN4DJeG2Ruw7IsnmQf4f0Jv87fhNWCN0g4TU6dC-TsqYE2lSWa4-IHiXHkVOzM7cpIWBD1Z68FuJYwd8qsdwx5sDHkZqyMIOWlOy0n7V3EQ2GjVgB7hbtFcTu5IxMhmH8Dt2DqZTH_-2P-cH93SyZiAXUdEaabzYrXd0-Dl83Jr1BqwF5zoBxqP0750yeUfz5-fdxVV8xdU69Nv3O09fL3SdDUeSc41XCvlf1Xanh7qn2YCjVf9b3_KtXndj-cQAcbpq_DU7prpgk196JuXyR4gFf8zM7iOZFBAH-H995Z6r2ddkHE60E3G1qreyMfgmj21I3u2SmCr0Z0EHmwG7Fe_QGDackvKd1IFFPggyhgqpEMuWIyyJaDgCz3Zvi3oxW2J98LpxzOXa9_R8eOx-MLr0p9aYOLDSKJZL2KixG_XyV4iSpa8uuMhKoym2_TWLKaC4pU5Xyh2COIH8JGDO7-BbziB_I=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlmtvozgUhv-KxSifNmm5hISgqhIXs-qKtNVmZrrSskIOdhJrHEDYTJvp5L-PgVwoSbodV0rhHPt57eNzjF-VJMNEsZVe75WmVNjgNVLEiqxJpNggUuaIy6e-fOIkKQsqNiH5TljjZFm299ZDvqKCojkjvHJLziJLxYz-2KG0Uf7SdK7sAVpTtmk8M7LMCPhy1weOBLA-4CjlA04KuoiUbT2CZc_JChViRy45maKXJ4rFqrIsEOOk6rcSaxaiOWH1FERR1tZULnGWo4Smy8psqJWxQOm3ttHcbsG214vSgxb47EYpkK3XA4OBnFuyolMkCDCudPAHcH6UBQFcbBgBCUOcEy67NSPqd58swLzkNCWcg7otKGP2p0A21-hzUWTfiHydOJZu7l4Hz9WabD1_6ScZywr7k6qqHSbKc3BsDdPzoBkEB6aqji1_-A7TcEZeB4uRQF2s6_owcA9YzRyZnvoWq7Ww_nDsaHs3RlxGsUAbG5jA7IitKcaMPCMZwVZcoOrqBzE4MjVVvbgGNzBGancNJGMnoQkCz_ePWG-kW7p1GTvWPK2L5QjxLhZqLoTjA3bsaoGjX8QOHW1odbEJy0r8-xHXuxHvYLM0L8i6kx8WHHmTA1aHY9-4PFvNNaEu064B83K-LFC-Ag8FJkUsstiTWxvfBcHn2M3KFKNiEzt5zmiCBM1S_m-k7O2gbY-U_xri-9Tw_iIWRKU-1-bg__FVw7QgSeUC4d9vPSeaMYmX8RTOYkNVpU5UYsvA8jchI0CulldA-uTBoUoN27ZlBX6E9w_8MjsLqxxnSCTFzUv90DyekKdPNbs-feIZKb7ThMRuydtCWBs3Qs0ZtesFZK9G9Vh9F0R8WIt4GRcxZPJoT8VteyHJsOFXHcCuw828uL69obeNY_YVXIM7P0vkv79mD_c31_S2Ea_OmYura--DPE1vf0ZKzfPrrZQs5_FO_gaUya_Kz49H5zeDWUm_s6nV9He1UR__Hy2M_dFhBSY8FqNhWdDwTorxXYFLNfJxBa1S6BR4SJYy9d6kLFZBCP-E9_6b6jpfWWHsPD52E741uzMpH8bTp27mTo_ZeTZbm3E-7GakX33AYCrkJaWdacch8CGstfQRHsqOeJAtBiFd7GTkt6NVfcfYN0HZf0zM6u8Q2MlkchJVpa-sSbFGFCv2a3MxkvcrTBaoZEJeZxRUimy2SRPFri8oSpnLiRKfIrkJ68a4_QUlvBGW" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>Order_to_Cash_IF — Order to Cash (IF)</span></div>
 
