@@ -64,17 +64,42 @@ _SUB_TEAM_TO_TOWER: dict[str, str] = {
     "FTS-IF": "FTS-IF", "FTS IF": "FTS-IF",
     "FTS-IP": "FTS-IP", "FTS IP": "FTS-IP",
     "PTP": "PTP",
-    "MDM": "MDM",
+    "MDM": "MDM", "Master Data": "MDM",
     "E2E": "E2E",
-    "Analytics": "FPR",
+    "Analytics": "FPR", "DARC": "FPR",
+    # Cross-cutting sub-teams → E2E
+    "Cutover": "E2E", "Security": "E2E",
+    "Technology": "E2E", "Data Migration": "E2E",
+    "ABAP": "E2E", "Middleware": "E2E", "BODS": "E2E",
+    # B-App sub-teams
+    "B-App- OTC IF": "OTC-IF", "B-App Supply Chain": "OTC-IF",
+    "B-App - FPR": "FPR", "B-App Corporate": "FPR",
 }
 
 _TEAM_TO_TOWER: dict[str, str] = {
-    "3.5 FPR": "FPR", "FPR": "FPR",
+    # Direct tower names
+    "FPR": "FPR", "PTP": "PTP", "MDM": "MDM", "E2E": "E2E",
+    "OTC-IF": "OTC-IF", "OTC IF": "OTC-IF",
+    "OTC-IP": "OTC-IP", "OTC IP": "OTC-IP",
+    "FTS-IF": "FTS-IF", "FTS IF": "FTS-IF",
+    "FTS-IP": "FTS-IP", "FTS IP": "FTS-IP",
+    # Numbered team prefixes from JIRA
+    "03. FPR": "FPR", "3.5 FPR": "FPR",
+    "04. OTC IF": "OTC-IF", "05. OTC IP": "OTC-IP",
+    "06. PTP": "PTP",
+    "07. FTS IF": "FTS-IF", "08. FTS IP": "FTS-IP",
+    "09A. Master Data": "MDM", "9A.": "MDM",
     "10. Analytics": "FPR", "10A. Analytics": "FPR",
-    "OTC-IF": "OTC-IF", "OTC-IP": "OTC-IP",
-    "FTS-IF": "FTS-IF", "FTS-IP": "FTS-IP",
-    "PTP": "PTP", "MDM": "MDM", "E2E": "E2E",
+    # Cross-cutting teams → E2E
+    "09B. Data Migration": "E2E",
+    "11. Technology": "E2E",
+    "13. Security": "E2E",
+    "15. Cutover": "E2E",
+    # B-App teams
+    "17.1. B-App- OTC IF": "OTC-IF", "17.1 B-App- OTC IF": "OTC-IF",
+    "17.2. B-App Supply Chain": "OTC-IF",
+    "17.3. B-App Corporate Function": "FPR",
+    "17.6 B-App - FPR": "FPR",
 }
 
 # ── Bug field IDs ───────────────────────────────────────────────────

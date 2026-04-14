@@ -72,17 +72,42 @@ _SUB_TEAM_TO_TOWER: dict[str, str] = {
     "FTS-IF": "FTS-IF", "FTS IF": "FTS-IF",
     "FTS-IP": "FTS-IP", "FTS IP": "FTS-IP",
     "PTP": "PTP",
-    "MDM": "MDM",
+    "MDM": "MDM", "Master Data": "MDM",
     "E2E": "E2E",
-    "Analytics": "FPR",
+    "Analytics": "FPR", "DARC": "FPR",
+    # Cross-cutting sub-teams → E2E
+    "Cutover": "E2E", "Security": "E2E",
+    "Technology": "E2E", "Data Migration": "E2E",
+    "ABAP": "E2E", "Middleware": "E2E", "BODS": "E2E",
+    # B-App sub-teams
+    "B-App- OTC IF": "OTC-IF", "B-App Supply Chain": "OTC-IF",
+    "B-App - FPR": "FPR", "B-App Corporate": "FPR",
 }
 
 _TEAM_TO_TOWER: dict[str, str] = {
-    "3.5 FPR": "FPR", "FPR": "FPR",
+    # Direct tower names
+    "FPR": "FPR", "PTP": "PTP", "MDM": "MDM", "E2E": "E2E",
+    "OTC-IF": "OTC-IF", "OTC IF": "OTC-IF",
+    "OTC-IP": "OTC-IP", "OTC IP": "OTC-IP",
+    "FTS-IF": "FTS-IF", "FTS IF": "FTS-IF",
+    "FTS-IP": "FTS-IP", "FTS IP": "FTS-IP",
+    # Numbered team prefixes from JIRA (e.g. "03. FPR", "07. FTS IF")
+    "03. FPR": "FPR", "3.5 FPR": "FPR",
+    "04. OTC IF": "OTC-IF", "05. OTC IP": "OTC-IP",
+    "06. PTP": "PTP",
+    "07. FTS IF": "FTS-IF", "08. FTS IP": "FTS-IP",
+    "09A. Master Data": "MDM", "9A.": "MDM",
     "10. Analytics": "FPR", "10A. Analytics": "FPR",
-    "OTC-IF": "OTC-IF", "OTC-IP": "OTC-IP",
-    "FTS-IF": "FTS-IF", "FTS-IP": "FTS-IP",
-    "PTP": "PTP", "MDM": "MDM", "E2E": "E2E",
+    # Cross-cutting teams → map to E2E
+    "09B. Data Migration": "E2E",
+    "11. Technology": "E2E",
+    "13. Security": "E2E",
+    "15. Cutover": "E2E",
+    # B-App teams → map by suffix
+    "17.1. B-App- OTC IF": "OTC-IF", "17.1 B-App- OTC IF": "OTC-IF",
+    "17.2. B-App Supply Chain": "OTC-IF",
+    "17.3. B-App Corporate Function": "FPR",
+    "17.6 B-App - FPR": "FPR",
 }
 
 CLOSED_STATUSES = frozenset((
@@ -242,6 +267,12 @@ def fetch_all_defects() -> list[dict]:
             )
             bug_status = f.get("status", {})
 
+            # Build unmapped reason so reviewers know what needs mapping
+            unmapped_reason = ""
+            if not bug_tower:
+                parts = [p for p in [bug_subteam, bug_team, affected] if p]
+                unmapped_reason = " | ".join(parts) if parts else "No team/sub-team assigned"
+
             all_issues.append({
                 "key": issue.get("key", ""),
                 "summary": f.get("summary", ""),
@@ -250,6 +281,7 @@ def fetch_all_defects() -> list[dict]:
                 "severity": bug_severity,
                 "release": bug_release,
                 "tower": bug_tower or "Unmapped",
+                "unmapped_reason": unmapped_reason,
                 "external_id": f.get(F_EXTERNAL_ID, "") or "",
                 "assigned_team": bug_team,
                 "subteam": bug_subteam,
@@ -269,11 +301,15 @@ def fetch_all_defects() -> list[dict]:
     return all_issues
 
 
-def fetch_all_test_cases(max_pages: int = 40) -> list[dict]:
-    """Paginate through all Zephyr Scale test cases across all releases."""
+def fetch_all_test_cases(max_pages: int = 200) -> list[dict]:
+    """Paginate through all Zephyr Scale test cases across all releases.
+
+    Uses ``lastTestResultStatus`` (actual execution result: Pass/Fail/Not Executed)
+    rather than ``status`` (approval state: Approved/Draft/Deprecated).
+    """
     all_cases: list[dict] = []
     start = 0
-    batch = 50
+    batch = 100  # Zephyr Scale may cap at 100; falls back gracefully
     page = 0
 
     while page < max_pages:
@@ -297,24 +333,39 @@ def fetch_all_test_cases(max_pages: int = 40) -> list[dict]:
             cf = tc.get("customFields", {})
             tc_release = cf.get("Release", "")
             tc_subteam = cf.get("Sub Team", "")
+            tc_team = cf.get("Team", "")
             tc_l3id = cf.get("L3 ID (ERP) / L4 ID (SCP)", "")
-            tc_tower = _resolve_tower_from_subteam(tc_subteam)
+            tc_tower = (
+                _resolve_tower_from_subteam(tc_subteam)
+                or _resolve_tower_from_jira_team(tc_subteam)
+                or _resolve_tower_from_jira_team(tc_team)
+            )
             tc_phase = cf.get("Test Phase", "")
+            # lastTestResultStatus = actual execution result (Pass/Fail/Not Executed)
+            exec_result = tc.get("lastTestResultStatus") or "Not Executed"
 
             if not _is_active_release(tc_release):
                 continue
 
+            # Build unmapped reason for test cases
+            unmapped_reason = ""
+            if not tc_tower:
+                parts = [p for p in [tc_subteam, tc_team] if p]
+                unmapped_reason = " | ".join(parts) if parts else "No team/sub-team assigned"
+
             all_cases.append({
                 "key": tc.get("key", ""),
                 "name": tc.get("name", ""),
-                "status": tc.get("status", ""),
+                "status": exec_result,          # execution result, not approval state
+                "approval": tc.get("status", ""),  # Approved/Draft/Deprecated
                 "priority": tc.get("priority", ""),
                 "release": tc_release,
                 "tower": tc_tower or "Unmapped",
+                "unmapped_reason": unmapped_reason,
                 "l3_l4_id": tc_l3id,
                 "test_phase": tc_phase,
                 "test_type": cf.get("Test Type", ""),
-                "team": cf.get("Team", ""),
+                "team": tc_team,
                 "sub_team": tc_subteam,
             })
 
@@ -457,25 +508,28 @@ def compute_defect_summary(defects: list[dict], tower: str = "") -> dict:
 
 
 def compute_test_summary(test_cases: list[dict], tower: str = "") -> dict:
-    """Compute test summary from Zephyr Scale test case statuses."""
+    """Compute test summary from Zephyr Scale execution results.
+
+    ``status`` field now contains ``lastTestResultStatus`` values:
+    Pass, Fail, Blocked, In Progress, Not Executed.
+    """
     cases = [tc for tc in test_cases if tc["tower"] == tower] if tower else test_cases
     total = len(cases)
-    passed = sum(1 for tc in cases if tc["status"] and "approved" in tc["status"].lower())
-    failed = sum(1 for tc in cases if tc["status"] and "deprecated" in tc["status"].lower())
-    # Zephyr Scale test case statuses: Approved, Draft, Deprecated
-    # Map: Approved → passed, Draft → not_run, Deprecated → blocked
-    draft = sum(1 for tc in cases if tc["status"] and "draft" in tc["status"].lower())
-    blocked = failed  # Use deprecated as blocked proxy
-    not_run = draft
+    passed = sum(1 for tc in cases if (tc.get("status") or "").lower() == "pass")
+    failed = sum(1 for tc in cases if (tc.get("status") or "").lower() == "fail")
+    blocked = sum(1 for tc in cases if (tc.get("status") or "").lower() == "blocked")
+    in_progress = sum(1 for tc in cases if (tc.get("status") or "").lower() == "in progress")
+    not_run = total - passed - failed - blocked - in_progress
 
     return {
         "total": total,
         "passed": passed,
-        "failed": 0,
+        "failed": failed,
         "blocked": blocked,
+        "in_progress": in_progress,
         "not_run": not_run,
         "pass_pct": round(passed / total * 100) if total else 0,
-        "fail_pct": 0,
+        "fail_pct": round(failed / total * 100) if total else 0,
         "blocked_pct": round(blocked / total * 100) if total else 0,
         "not_run_pct": round(not_run / total * 100) if total else 0,
     }
@@ -599,6 +653,18 @@ def main() -> None:
                     }
         print(f"  Mapped {len(capability_summaries)} capabilities from {len(subtower_data)} sub-towers")
 
+    # ── Build unmapped reasons summary ───────────────────────────
+    # Collect distinct team/sub-team combos that didn't map to a tower
+    unmapped_reasons: dict[str, int] = {}
+    for item in defects + test_cases:
+        reason = item.get("unmapped_reason", "")
+        if reason:
+            unmapped_reasons[reason] = unmapped_reasons.get(reason, 0) + 1
+    unmapped_reasons_sorted = dict(sorted(unmapped_reasons.items(), key=lambda x: -x[1]))
+    if unmapped_reasons_sorted:
+        print(f"  Unmapped items: {sum(unmapped_reasons_sorted.values())} across "
+              f"{len(unmapped_reasons_sorted)} distinct team/sub-team combos")
+
     # ── Save JSON ────────────────────────────────────────────────
     payload = {
         "fetched_at": datetime.now(timezone.utc).isoformat(),
@@ -609,6 +675,7 @@ def main() -> None:
         "tower_summaries": tower_summaries,
         "subtower_summaries": subtower_data,
         "capability_summaries": capability_summaries,
+        "unmapped_reasons": unmapped_reasons_sorted,
     }
 
     if args.dry_run:
