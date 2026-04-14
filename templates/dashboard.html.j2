@@ -160,6 +160,14 @@
       box-shadow: 0 1px 3px rgba(0,0,0,0.08);
       padding: 20px;
       min-height: 380px;
+      display: flex;
+      flex-direction: column;
+    }
+    .chart-card .js-plotly-plot,
+    .chart-card .plot-container,
+    .chart-card .svg-container {
+      flex: 1;
+      width: 100% !important;
     }
     .chart-card.full { grid-column: 1 / -1; }
     .chart-card h3 {
@@ -480,14 +488,16 @@
 </div>
 
 <!-- ============================================================ -->
-<!--  TOWER NAV                                                    -->
+<!--  TOWER NAV (per-tower pages only — program page uses filter chips) -->
 <!-- ============================================================ -->
+{% if tower_filter %}
 <div class="tower-nav">
-  <a href="{{ program_dashboard_url }}" {% if not tower_filter %}class="active"{% endif %}>All Towers</a>
+  <a href="{{ program_dashboard_url }}">All Towers</a>
   {% for t in nav_towers %}
   <a href="{{ t.dashboard_url }}" {% if tower_filter == t.short %}class="active"{% endif %}>{{ t.short }}</a>
   {% endfor %}
 </div>
+{% endif %}
 
 <!-- ============================================================ -->
 <!--  FILTER BAR                                                   -->
@@ -807,7 +817,8 @@ var LB = {
   margin:{l:isMobile?40:55, r:isMobile?15:30, t:isMobile?35:50, b:isMobile?45:60},
   paper_bgcolor:'rgba(0,0,0,0)', plot_bgcolor:'rgba(0,0,0,0)',
   hoverlabel:{bgcolor:'#fff',font:{size:13},bordercolor:'#ccc'},
-  autosize:true
+  autosize:true,
+  height:340
 };
 var CFG = {responsive:true, displayModeBar:false};
 // Recalculate on resize

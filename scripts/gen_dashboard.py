@@ -241,10 +241,12 @@ def _load_jira_data(tower_filter: str = "") -> dict:
 
     # Test execution (from test_cases if available)
     test_cases = cache.get("test_cases", [])
+    if tower_filter:
+        test_cases = [tc for tc in test_cases if tc.get("tower") == tower_filter]
     execution: Counter = Counter()
     total_tests = len(test_cases)
     for tc in test_cases:
-        status = tc.get("lastTestResultStatus", "Not Executed") or "Not Executed"
+        status = tc.get("status", "Not Executed") or "Not Executed"
         execution[status] += 1
     pass_count = execution.get("Pass", 0)
 
