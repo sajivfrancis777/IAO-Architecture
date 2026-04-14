@@ -1105,12 +1105,26 @@ document.querySelectorAll('.pillar-tab').forEach(function(tab){
   tab.addEventListener('click', function(){ switchPillar(tab.dataset.pillar); });
 });
 
-// ---- Architecture charts ----
+// ---- Architecture charts (filtered by tower chips) ----
 function renderArchCharts(){
   var ad = ARCH_DATA;
   if(!ad || !ad.towers) return;
-  // Systems per tower bar
-  var tNames = Object.keys(ad.towers);
+  // Filter towers by selected chips (same as development charts)
+  var allTowerNames = Object.keys(ad.towers);
+  var tNames = IS_TOWER ? allTowerNames : allTowerNames.filter(function(t){ return selected.has(t); });
+  if(tNames.length === 0) tNames = allTowerNames; // fallback if none selected
+  // Update Architecture KPIs based on filtered towers
+  var aFlows=0,aSys=0,aCaps=0,aSads=0,aLanes=0;
+  tNames.forEach(function(t){
+    var td=ad.towers[t];
+    aFlows+=(td.flows||0); aSys+=(td.systems||0); aCaps+=(td.capabilities||0);
+    aSads+=(td.sads||0); aLanes+=(td.lanes||0);
+  });
+  var archKpis=document.getElementById('pillar-architecture');
+  if(archKpis){
+    var kv=archKpis.querySelectorAll('.kpi-card .value');
+    if(kv.length>=6){kv[0].textContent=aFlows;kv[1].textContent=aSys;kv[2].textContent=Object.keys(ad.patterns||{}).length;kv[3].textContent=aCaps;kv[4].textContent=aSads;kv[5].textContent=aLanes;}
+  }
   var sysCounts = tNames.map(function(t){ return ad.towers[t].systems || 0; });
   Plotly.react('arch-chart-systems',[{
     x:tNames, y:sysCounts, type:'bar', marker:{color:'#0071c5'},
