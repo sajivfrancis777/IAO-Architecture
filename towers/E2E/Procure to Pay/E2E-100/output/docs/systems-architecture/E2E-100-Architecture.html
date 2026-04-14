@@ -290,20 +290,28 @@ strong { color: #00285a; }
 <style>
 /* Lane / subgraph headers — bold, larger, clearly visible */
 .mermaid .cluster-label .nodeLabel {
-  font-size: 18px !important;
+  font-size: 22px !important;
   font-weight: 700 !important;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.4px;
 }
 /* System / data / technology node labels — most prominent */
 .mermaid .node .nodeLabel,
 .mermaid .node .label {
-  font-size: 15px !important;
+  font-size: 16px !important;
   font-weight: 600 !important;
 }
 /* Edge labels — readable but secondary */
 .mermaid .edgeLabel .label {
-  font-size: 12px !important;
+  font-size: 13px !important;
   font-weight: 500 !important;
+}
+/* Subgraph padding — space between header and content */
+.mermaid .cluster rect {
+  rx: 8 !important;
+  ry: 8 !important;
+}
+.mermaid .cluster {
+  padding: 16px !important;
 }
 /* Responsive: allow horizontal scroll for wide diagrams */
 .mermaid { overflow-x: auto; }
@@ -321,8 +329,8 @@ strong { color: #00285a; }
     flowchart: {
       curve: 'basis',
       padding: 12,
-      nodeSpacing: 30,
-      rankSpacing: 35,
+      nodeSpacing: 50,
+      rankSpacing: 60,
       useMaxWidth: true
     },
     themeVariables: {
@@ -332,7 +340,7 @@ strong { color: #00285a; }
       lineColor: '#37474F',
       secondaryColor: '#f5f8fc',
       tertiaryColor: '#fff',
-      fontSize: '13px',
+      fontSize: '18px',
       fontFamily: 'Segoe UI, Arial, sans-serif'
     }
   });
@@ -1214,7 +1222,7 @@ flowchart TB
 <strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "16px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 30, "rankSpacing": 35}} }%%
+%%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "18px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 50, "rankSpacing": 60}} }%%
 flowchart TB
     %% -- ArchiMate 3.2 + Azure style classes --
     classDef business      fill:#FFFFB3,stroke:#F9A825,stroke-width:2px,color:#000
@@ -1226,12 +1234,10 @@ flowchart TB
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
 
-    subgraph E2E100CT_Boundary_Applications["Boundary Applications"]
-        subgraph E2E100CLN_Boundary_Applications[" ⬛ Boundary Applications"]
-            direction LR
-            E2E100C_e_g_MES_300["📦 e.g. MES 300"]:::app
-            E2E100C_e_g_XEUS["📦 e.g. XEUS"]:::app
-        end
+    subgraph E2E100CLN_Boundary_Applications[" Boundary Applications"]
+        direction LR
+        E2E100C_e_g_MES_300["📦 e.g. MES 300"]:::app
+        E2E100C_e_g_XEUS["📦 e.g. XEUS"]:::app
     end
 
     E2E100CMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
@@ -1241,8 +1247,7 @@ flowchart TB
     E2E100CMW_e_g_Azure_Service_Bus --> E2E100C_e_g_XEUS
 
 
-    style E2E100CT_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
-    style E2E100CLN_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:1px
+    style E2E100CLN_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
 
     subgraph Legend["📐 LEGEND"]
         direction LR
@@ -1254,7 +1259,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlnuPmzgQwL-KRZW_LtnlEQhBq0g8zGlPZLu6tN2Tygk54CRWHUAYuptu891rMEkIm_ThSMTMjH9jj8eDX6U4S7BkSYPBK0lJaYHXUCo3eItDyQKhtESM94a8x3BcFaTcBfgrpkJJs-ygbYZ8QgVBS4pZreacVZaWC_KtRSlG_iKMa7mPtoTuhGaB1xkGH--HwOYAOgQMpWzEcEFWobRvRtDsOd6gomzJFcNz9PJEknJTS1aIMlzbbcotDdAS02YKZVE10pQvcZGjmKTrWqzJtbBA6ZeuUN_vwX4wCNOjL_DBCVPA22AARiM-t3hD5qjEQLtRwV_A_lYVGLByRzGIKWIMM24mRjTvHl6BZcVIihkDTVsRSq13Pm-ONmRlkX3B_HVqm6revo6e6zVZav4yjDOaFdY7WZZ7TJTn4NQE03Wh7vtHpixPTG_8E6ZmG24Pm6AS9bGO40HfOWIV3dBd-RyrdLDeeGIrB3WCGI9igXYW0IHec7YlSULxM-IR7MQFyo56dAYNXZHlq2twfM2Q-2vAGX0TGt93Pe-EdQ3VVM3r2IniKn0sQ4j1sVBxIJwcsRNH8W31KnZsK2Ozj41pViV_HnG1H_EeNkvzAm97-WFCw50esSqceNr12SqODlWedgLMquW6QPkGQBXyHXE_RE5WpQkqdpGd55TEqCRZyj6H0kEOuvJQ-l9wLrGCh6swEFbqUlmCX0PrlpACx7UKBP-ea1pPEY7W0RwuIk2WOT2sElNL-DPGBsA36xvAdbw0yJxsWRY_Y9cp_8GPi4uIWnFhPE4T8dJ0RLflzZ8aYlNLogUuvpIYR07FuvhEmQi8qDitFeBWwtfpLJ2hPdig3YyVEaS8PKflrDvpeCyotQFoDe6Wxe3sjsyEYvEJ3IJ7L4v53z-L9w93t2QmXNa1oreSbnx5HZx9D6WG4jUbwwn24z1_-oTy78H3X63_t4JUu3mzMfW02rxtSvPPk_ZwmE1fh6fjoZkm1Nw3x-MC9lr-_j5Xqbm9gxbgNU-VsxRLZBDAv-GDd5b5l7M-iOzHx36CdmZ3IUWDaP7Uz7n5Ka8u5pkY58F-Vnn1hwSmJb8sdLPlNAS-DxpfqpGMuWEyylajgKxaN7yGd07LKeIiKIeirte_Y2Cn0-mbqEpDaYuLLSKJZL2KCwq_5yR4hSpa8muFhKoyW-zSWLKai4JU5Xyi2COIb8JWCPc_ABNB2Ic=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlntvmzoUwL-KxZS_lrQ8AiGoisTDXPWKdNXlbr3SZUIOOIk1BxA2a7Mu333mkYSSdg9HSuA8frbPOT7Os5TkKZYsaTR6JhnhFniOJL7FOxxJFoikFWLiaSyeGE6qkvB9gL9i2ippnh-1jcsnVBK0opjVasFZ5xkPybcOpZjFU2tcy320I3TfakK8yTH4eDsGtgDQMWAoYxOGS7KOpEPjQfPHZItK3pErhpfo6YGkfFtL1ogyXNtt-Y4GaIVpswReVo00E1sMC5SQbFOLdbkWlij70hMa8uEADqNRlJ3mAv86UQbEGI3AZCLWlmzJEnEMtCsVvAf2t6rEgPE9xSChiDHMhFnr0bx7eA1WFSMZZgw0Y00otd75YjjamPEy_4LF69w2Vb17nTzWe7LU4mmc5DQvrXeyLA-YqCjAebRM14W675-YsjwzvelPmJptuANsijgaYh3Hg75zwiq6obvyS6zSw3rTma0c1SliIool2ouIA30w2Y6kKcWPSESwFxcoO-ppMmjoiiy_uQfH1wx5uAec04vQ-L7reWesa6imar6NnSmuMsQyhNgQCxUHwtkJO3MU31bfxE5tZWoOsQnNq_TPI64OIz7A5llR4t2gPkxouPMTVoUzT3t7tYqjQ1WUXQtm1WpTomILoApFRtzgLnbyKktRuY_toqAkQZzkGfs_ksBRAfqKSPrckuqRkhIntRgE_5ylHTrG8SZewjDWZFngoio1tVR8J9gA-GpzBYQOCJ0gWpYlDsLrhP_gx_BV91ox8MVZetxoh1g-NJDmfMchLr-SBMdOxfrEVJm1xLYLdFZAWLX4c32_QHuwQbs54zGkomVmfNFfZzJtqbUB6AxuVuX14oYsWkX4CVyDWy9PxM_f4Ye7m2uyaKesz-9gJ_1wit60-B5JDcVrciAI9v2t-PYJFT36-6_2_1tBqqe5yEW9rK6Wmnb5i0I6njDT1-G5ZjXThJp7UbMXVRrgjcjpi_SnMgjgX_DO-41KDGL7_n5YPL3VvVJ6Qbx8GBbH8lwArxZE6-fBYfq9ugvDjIubtp_Wswv8EDRzqUY6FYbpJF9PArLuphENsFfW54i3QTl2RL3-nAI7n88vWro0lna43CGSStZze7uLPwkpXqOKcnEnS6jiebjPEslqblmpKsRCsUeQSMKuFR5-ABQmmvk=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
 
@@ -1300,7 +1305,7 @@ flowchart TB
 <strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "16px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 30, "rankSpacing": 35}} }%%
+%%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "18px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 50, "rankSpacing": 60}} }%%
 flowchart TB
     %% -- ArchiMate 3.2 + Azure style classes --
     classDef business      fill:#FFFFB3,stroke:#F9A825,stroke-width:2px,color:#000
@@ -1312,12 +1317,10 @@ flowchart TB
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
 
-    subgraph E2E100FT_Boundary_Applications["Boundary Applications"]
-        subgraph E2E100FLN_Boundary_Applications[" ⬛ Boundary Applications"]
-            direction LR
-            E2E100F_e_g_MES_300["📦 e.g. MES 300"]:::app
-            E2E100F_e_g_XEUS["📦 e.g. XEUS"]:::app
-        end
+    subgraph E2E100FLN_Boundary_Applications[" Boundary Applications"]
+        direction LR
+        E2E100F_e_g_MES_300["📦 e.g. MES 300"]:::app
+        E2E100F_e_g_XEUS["📦 e.g. XEUS"]:::app
     end
 
     E2E100FMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
@@ -1327,8 +1330,7 @@ flowchart TB
     E2E100FMW_e_g_Azure_Service_Bus --> E2E100F_e_g_XEUS
 
 
-    style E2E100FT_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
-    style E2E100FLN_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:1px
+    style E2E100FLN_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
 
     subgraph Legend["📐 LEGEND"]
         direction LR
@@ -1340,7 +1342,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlnuPmzgQwL-KRZW_LtnlEQhBq0g8zGlPZLu6tN2Tygk54CRWHUAYuptu891rMEkIm_ThSMTMjH9jj8eDX6U4S7BkSYPBK0lJaYHXUCo3eItDyQKhtESM94a8x3BcFaTcBfgrpkJJs-ygbYZ8QgVBS4pZreacVZaWC_KtRSlG_iKMa7mPtoTuhGaB1xkGH--HwOYAOgQMpWzEcEFWobRvRtDsOd6gomzJFcNz9PJEknJTS1aIMlzbbcotDdAS02YKZVE10pQvcZGjmKTrWqzJtbBA6ZeuUN_vwX4wCNOjL_DBCVPA22AARiM-t3hD5qjEQLtRwV_A_lYVGLByRzGIKWIMM24mRjTvHl6BZcVIihkDTVsRSq13Pm-ONmRlkX3B_HVqm6revo6e6zVZav4yjDOaFdY7WZZ7TJTn4NQE03Wh7vtHpixPTG_8E6ZmG24Pm6AS9bGO40HfOWIV3dBd-RyrdLDeeGIrB3WCGI9igXYW0IHec7YlSULxM-IR7MQFyo56dAYNXZHlq2twfM2Q-2vAGX0TGt93Pe-EdQ3VVM3r2IniKn0sQ4j1sVBxIJwcsRNH8W31KnZsK2Ozj41pViV_HnG1H_EeNkvzAm97-WFCw50esSqceNr12SqODlWedgLMquW6QPkGQBXyHfE_RE5WpQkqdpGd55TEqCRZyj6H0kEOuvJQ-l9wLrGCh6swEFbqUlmCX0PrlpACx7UKBP-ea1pPEY7W0RwuIk2WOT2sElNL-DPGBsA36xvAdbw0yJxsWRY_Y9cp_8GPi4uIWnFhPE4T8dJ0RLflzZ8aYlNLogUuvpIYR07FuvhEmQi8qDitFeBWwtfpLJ2hPdig3YyVEaS8PKflrDvpeCyotQFoDe6Wxe3sjsyEYvEJ3IJ7L4v53z-L9w93t2QmXNa1oreSbnx5HZx9D6WG4jUbwwn24z1_-oTy78H3X63_t4JUu3mzMfW02rxtSvPPk_ZwmE1fh6fjoZkm1Nw3x-MC9lr-_j5Xqbm9gxbgNU-VsxRLZBDAv-GDd5b5l7M-iOzHx36CdmZ3IUWDaP7Uz7n5Ka8u5pkY58F-Vnn1hwSmJb8sdLPlNAS-DxpfqpGMuWEyylajgKxaN7yGd07LKeIiKIeirte_Y2Cn0-mbqEpDaYuLLSKJZL2KCwq_5yR4hSpa8muFhKoyW-zSWLKai4JU5Xyi2COIb8JWCPc_AIhH2Ks=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqVlntvmzoUwL-KxZS_lrQ8AiGoisTDXPWKdNXlbr3SZUIOOIk1BxA2a7Mu333mkYSSdg9HSuA8frbPOT7Os5TkKZYsaTR6JhnhFniOJL7FOxxJFoikFWLiaSyeGE6qkvB9gL9i2ippnh-1jcsnVBK0opjVasFZ5xkPybcOpZjFU2tcy320I3TfakK8yTH4eDsGtgDQMWAoYxOGS7KOpEPjQfPHZItK3pErhpfo6YGkfFtL1ogyXNtt-Y4GaIVpswReVo00E1sMC5SQbFOLdbkWlij70hMa8uEADqNRlJ3mAv86UQbEGI3AZCLWlmzJEnEMtCsVvAf2t6rEgPE9xSChiDHMhFnr0bx7eA1WFSMZZgw0Y00otd75YjjamPEy_4LF69w2Vb17nTzWe7LU4mmc5DQvrXeyLA-YqCjAebRM14W675-YsjwzvelPmJptuANsijgaYh3Hg75zwiq6obvyS6zSw3rTma0c1SliIool2ouIA30w2Y6kKcWPSESwFxcoO-ppMmjoiiy_uQfH1wx5uAec04vQ-L7reWesa6imar6NnSmuMsQyhNgQCxUHwtkJO3MU31bfxE5tZWoOsQnNq_TPI64OIz7A5llR4t2gPkxouPMTVoUzT3t7tYqjQ1WUXQtm1WpTomILoApFRvzgLnbyKktRuY_toqAkQZzkGfs_ksBRAfqKSPrckuqRkhIntRgE_5ylHTrG8SZewjDWZFngoio1tVR8J9gA-GpzBYQOCJ0gWpYlDsLrhP_gx_BV91ox8MVZetxoh1g-NJDmfMchLr-SBMdOxfrEVJm1xLYLdFZAWLX4c32_QHuwQbs54zGkomVmfNFfZzJtqbUB6AxuVuX14oYsWkX4CVyDWy9PxM_f4Ye7m2uyaKesz-9gJ_1wit60-B5JDcVrciAI9v2t-PYJFT36-6_2_1tBqqe5yEW9rK6Wmnb5i0I6njDT1-G5ZjXThJp7UbMXVRrgjcjpi_SnMgjgX_DO-41KDGL7_n5YPL3VvVJ6Qbx8GBbH8lwArxZE6-fBYfq9ugvDjIubtp_Wswv8EDRzqUY6FYbpJF9PArLuphENsFfW54i3QTl2RL3-nAI7n88vWro0lna43CGSStZze7uLPwkpXqOKcnEnS6jiebjPEslqblmpKsRCsUeQSMKuFR5-AGnWmxc=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-100 — R3 - Purchase Requisition to Payments for Direct procurement with Planning Integration (Box</span></div>
 

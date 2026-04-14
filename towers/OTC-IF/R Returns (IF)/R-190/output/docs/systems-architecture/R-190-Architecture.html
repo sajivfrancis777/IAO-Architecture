@@ -290,20 +290,28 @@ strong { color: #00285a; }
 <style>
 /* Lane / subgraph headers — bold, larger, clearly visible */
 .mermaid .cluster-label .nodeLabel {
-  font-size: 18px !important;
+  font-size: 22px !important;
   font-weight: 700 !important;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.4px;
 }
 /* System / data / technology node labels — most prominent */
 .mermaid .node .nodeLabel,
 .mermaid .node .label {
-  font-size: 15px !important;
+  font-size: 16px !important;
   font-weight: 600 !important;
 }
 /* Edge labels — readable but secondary */
 .mermaid .edgeLabel .label {
-  font-size: 12px !important;
+  font-size: 13px !important;
   font-weight: 500 !important;
+}
+/* Subgraph padding — space between header and content */
+.mermaid .cluster rect {
+  rx: 8 !important;
+  ry: 8 !important;
+}
+.mermaid .cluster {
+  padding: 16px !important;
 }
 /* Responsive: allow horizontal scroll for wide diagrams */
 .mermaid { overflow-x: auto; }
@@ -321,8 +329,8 @@ strong { color: #00285a; }
     flowchart: {
       curve: 'basis',
       padding: 12,
-      nodeSpacing: 30,
-      rankSpacing: 35,
+      nodeSpacing: 50,
+      rankSpacing: 60,
       useMaxWidth: true
     },
     themeVariables: {
@@ -332,7 +340,7 @@ strong { color: #00285a; }
       lineColor: '#37474F',
       secondaryColor: '#f5f8fc',
       tertiaryColor: '#fff',
-      fontSize: '13px',
+      fontSize: '18px',
       fontFamily: 'Segoe UI, Arial, sans-serif'
     }
   });

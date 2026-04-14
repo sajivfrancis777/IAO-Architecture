@@ -290,20 +290,28 @@ strong { color: #00285a; }
 <style>
 /* Lane / subgraph headers — bold, larger, clearly visible */
 .mermaid .cluster-label .nodeLabel {
-  font-size: 18px !important;
+  font-size: 22px !important;
   font-weight: 700 !important;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.4px;
 }
 /* System / data / technology node labels — most prominent */
 .mermaid .node .nodeLabel,
 .mermaid .node .label {
-  font-size: 15px !important;
+  font-size: 16px !important;
   font-weight: 600 !important;
 }
 /* Edge labels — readable but secondary */
 .mermaid .edgeLabel .label {
-  font-size: 12px !important;
+  font-size: 13px !important;
   font-weight: 500 !important;
+}
+/* Subgraph padding — space between header and content */
+.mermaid .cluster rect {
+  rx: 8 !important;
+  ry: 8 !important;
+}
+.mermaid .cluster {
+  padding: 16px !important;
 }
 /* Responsive: allow horizontal scroll for wide diagrams */
 .mermaid { overflow-x: auto; }
@@ -321,8 +329,8 @@ strong { color: #00285a; }
     flowchart: {
       curve: 'basis',
       padding: 12,
-      nodeSpacing: 30,
-      rankSpacing: 35,
+      nodeSpacing: 50,
+      rankSpacing: 60,
       useMaxWidth: true
     },
     themeVariables: {
@@ -332,7 +340,7 @@ strong { color: #00285a; }
       lineColor: '#37474F',
       secondaryColor: '#f5f8fc',
       tertiaryColor: '#fff',
-      fontSize: '13px',
+      fontSize: '18px',
       fontFamily: 'Segoe UI, Arial, sans-serif'
     }
   });
@@ -3357,7 +3365,7 @@ flowchart TB
 <strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "16px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 30, "rankSpacing": 35}} }%%
+%%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "18px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 50, "rankSpacing": 60}} }%%
 flowchart TB
     %% -- ArchiMate 3.2 + Azure style classes --
     classDef business      fill:#FFFFB3,stroke:#F9A825,stroke-width:2px,color:#000
@@ -3369,12 +3377,10 @@ flowchart TB
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
 
-    subgraph IF_Simplified_POSO_ModelCT_Boundary_Applications["Boundary Applications"]
-        subgraph IF_Simplified_POSO_ModelCLN_Boundary_Applications[" ⬛ Boundary Applications"]
-            direction LR
-            IF_Simplified_POSO_ModelC_e_g_MES_300["📦 e.g. MES 300"]:::app
-            IF_Simplified_POSO_ModelC_e_g_XEUS["📦 e.g. XEUS"]:::app
-        end
+    subgraph IF_Simplified_POSO_ModelCLN_Boundary_Applications[" Boundary Applications"]
+        direction LR
+        IF_Simplified_POSO_ModelC_e_g_MES_300["📦 e.g. MES 300"]:::app
+        IF_Simplified_POSO_ModelC_e_g_XEUS["📦 e.g. XEUS"]:::app
     end
 
     IF_Simplified_POSO_ModelCMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
@@ -3384,8 +3390,7 @@ flowchart TB
     IF_Simplified_POSO_ModelCMW_e_g_Azure_Service_Bus --> IF_Simplified_POSO_ModelC_e_g_XEUS
 
 
-    style IF_Simplified_POSO_ModelCT_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
-    style IF_Simplified_POSO_ModelCLN_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:1px
+    style IF_Simplified_POSO_ModelCLN_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
 
     subgraph Legend["📐 LEGEND"]
         direction LR
@@ -3397,7 +3402,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdVm1vmzoU_isWUz7dpOUlJARVkXgxUyfSVpdtnTQm5ICTWHMAYVibdfnv1-C8UJqs7XUkYp9z_Dz28TnHfpLiLMGSKfV6TyQlpQmeQqlc4TUOJROE0hwx3uvzHsNxVZBy4-NfmAolzbK9tpnyFRUEzSlmtZrjLLK0DMjvHZQyyh-FcS330JrQjdAEeJlh8OW6DywOQPuAoZQNGC7IIpS2zQyaPcQrVJQ75IrhGXq8J0m5qiULRBmu7VblmvpojmmzhLKoGmnKtxjkKCbpshZrci0sUPqzLdS3W7Dt9cL0wAU-22EKeOv1wGDA1xavyAyVGGgXKvgHWL-rAgNWbigGMUWMYcbNxIxm7OIFmFeMpJgx0LQFodT84PFma31WFtlPzIcTy1D13XDwUO_JVPPHfpzRrDA_yLLcwUR5Do5NYDoO1D3vgCnLY8Md_gVTs0ZOBzZBJerC2rYLPfsAq-gj3ZGfwyotWHc4tpS9OkGMe7FAGxPoQO-QrUmSUPyAuAdbfoGyrR7I4EhXZPnsHmxPG8ndPeCMvnCN5zmue4R1RqqhGudhx4qjdGEZQqwLCxUbwvEBdmwrnqWehR1aytDowsY0q5L3e1zterwDm6V5gded-DDgyJkcYFU4drXzq1VsHao87AQwq-bLAuUrcO1FAVnnlCwITqK72-A2mvHUos7nyM6qNEHFJrJyro9RSbKUfQ-lvRy05aH0QyC_Dd2_OQsPwkqdK3PwOk3dElLguFYB_9_nmrPcEY6W0QwGkSbLnC-sEkNL-DfGI4AvlheA63hBkTmXaZo8M9-D-w1-CU6C1ooTiDhNxKDpiO5Zhtl9w9FUqSjAxS8S48iuWJswUcaCUNSynRXgVoL9mKWvkLmwIXMyVkaQ8qsgLaftjcVDwVMbgJ3B1by4nF6RqVAEX8EluHazmP99Cm5vri7JVCyirkuv7rZ9TrwKT_-EUoPrNkfOMa27a_71COW30Z_3e-1_OrteyhuCoN7eLtea6-S9ibYvSYanw2OSa4YBNedFkr-J6FzOvZ1JqZk6BcTHSx66z0I-kYEPP8Ib91m2ns5UP7Lu7roJ01rdiZTxo9l9N-Jnx6g-GeVingu7EezWFyRMS_4IakfmcQq89RsudZQMuWEyyBYDnyx2NPxuamXv8QyEU_aXlV7_Do6dTCYvvCr1pTUu1ogkkvkkHl78_ZbgBapoyZ9LEqrKLNiksWQ2DyCpyvlCsUsQP4S1EG7_A2XEM6o=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdln1vmzwQwL-KxZS_lrRAAiGoisSLedRHpK0enq2TxoQcbBJrDiAMa7Mu330G8sJos7VzpCTcnX9nn-8OP0lxholkSoPBE01paYKnUCrXZENCyQShtERc_BuKf5zEVUHLrU--EdYqWZYdtM2Uj6igaMkIr9WCk2RpGdDve5Ri5I-tcS330IaybasJyCoj4MP1EFgCwIaAo5SPOCloEkq7ZgbLHuI1Kso9ueJkgR7vKS7XtSRBjJPabl1umI-WhDVLKIuqkaZii0GOYpquarEm18ICpV87Ql3e7cBuMAjToy_wvx2mQIzBAIxGYm3xmi5QScD4QgXvgfW9Kgjg5ZYREDPEOeHCrJ3RPLskAcuK05RwDpqRUMbMd54Y9njIyyL7SsTjzDJUbf84eqj3ZKr54zDOWFaY72RZ7jFRnoPTaJmOAzXPOzJleWq4k98wx5bu9LAYlaiPtW0XevYRq2i65si_YpUO1p1MLeWgxoiLKBZoKyIOtJ6zDcWYkQckItiJC5Rt9egM6poiy2f3YHtjXe7vgWTsWWg8z3HdE9bRVUM1zmOniqP0sRwh3sdCxYZwesRObcWz1LPYiaVMjD42ZlmF3x5xtR_xHjZL84JsevlhQN2ZHbEqnLrj86tVbA2qIu1aMK-WqwLla3DtRQHd5IwmlODo7ja4jRaitJjj30R2VqUYFdvIyoVBjEqapfxzKIGDAnQVofSlZdcD04LEtRj4_52kZ51FJFpFCxhEY1kWDsIKG2MsvmOiA3KxugBCB4RO-DBNUxTLa5mf4IfgRWCt6NFIig_hOQtd3DfYpk9EASm-0ZhEdsW7PrAybX203WRvBYRV6_BUJ39w5sLGmZPxMoJMNOO0nHf3Ek9aP7UB2BtcLYvL-RWdt4rgI7gE124Wi59_g9ubq0s6bxdRd4Y_7rZ7LKIPzn-EUsN1m9MVTOvuWnx7lIn3wY-3R-0vg10v5RXnXm9vn-1NQ39zqh-6guFp8FRnY8OAY-dZnT2rLJ-sREb9knxYBj78B964r6gVP7Lu7vqp21ndC6XgR4v7fiIuTsn2YvK181zYTyy3fnPAtBS3g27CnKbAW7_xpep4IgzxKEtGPk32bkTT7hTV6QzaoBy6uFZ_joGdzWbPXkPSUNqQYoMolsyn9kYiLjaYJKhipbhHSKgqs2CbxpLZ3AykKhcLJS5F4hA2rXD3E2iI5t8=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 
@@ -3443,7 +3448,7 @@ flowchart TB
 <strong>Legend</strong>: <span style="background:#C8E6C9;padding:2px 6px;border:1px solid #2E7D32;font-size:9pt">Deployed</span> · <span style="background:#E3F2FD;padding:2px 6px;border:1px solid #1565C0;font-size:9pt">Developing</span> · <span style="background:#FFCDD2;padding:2px 6px;border:1px solid #C62828;font-size:9pt">End-of-Life</span> · <span style="background:#ECEFF1;padding:2px 6px;border:1px solid #78909C;font-size:9pt;border-style:dashed">No IAPM Match</span></p>
 </blockquote>
 <div class="mermaid">
-%%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "16px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 30, "rankSpacing": 35}} }%%
+%%{init: {"theme": "base", "securityLevel": "loose", "themeVariables": {"fontSize": "18px", "fontFamily": "Segoe UI, Arial, sans-serif"}, "flowchart": {"useMaxWidth": false, "htmlLabels": true, "nodeSpacing": 50, "rankSpacing": 60}} }%%
 flowchart TB
     %% -- ArchiMate 3.2 + Azure style classes --
     classDef business      fill:#FFFFB3,stroke:#F9A825,stroke-width:2px,color:#000
@@ -3455,12 +3460,10 @@ flowchart TB
     classDef cloud         fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#0D47A1
     classDef onprem        fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20
 
-    subgraph IF_Simplified_POSO_ModelFT_Boundary_Applications["Boundary Applications"]
-        subgraph IF_Simplified_POSO_ModelFLN_Boundary_Applications[" ⬛ Boundary Applications"]
-            direction LR
-            IF_Simplified_POSO_ModelF_e_g_MES_300["📦 e.g. MES 300"]:::app
-            IF_Simplified_POSO_ModelF_e_g_XEUS["📦 e.g. XEUS"]:::app
-        end
+    subgraph IF_Simplified_POSO_ModelFLN_Boundary_Applications[" Boundary Applications"]
+        direction LR
+        IF_Simplified_POSO_ModelF_e_g_MES_300["📦 e.g. MES 300"]:::app
+        IF_Simplified_POSO_ModelF_e_g_XEUS["📦 e.g. XEUS"]:::app
     end
 
     IF_Simplified_POSO_ModelFMW_e_g_Azure_Service_Bus["🔗 e.g. Azure Service Bus"]:::middleware
@@ -3470,8 +3473,7 @@ flowchart TB
     IF_Simplified_POSO_ModelFMW_e_g_Azure_Service_Bus --> IF_Simplified_POSO_ModelF_e_g_XEUS
 
 
-    style IF_Simplified_POSO_ModelFT_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
-    style IF_Simplified_POSO_ModelFLN_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:1px
+    style IF_Simplified_POSO_ModelFLN_Boundary_Applications fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
 
     subgraph Legend["📐 LEGEND"]
         direction LR
@@ -3483,7 +3485,7 @@ flowchart TB
     style Legend fill:#F5F5F5,stroke:#999,stroke-width:1px
 </div>
 
-<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdVm1vmzoU_isWUz7dpOUlJARVkXgxUyfSVpdtnTQm5GAnseYAwrA26_Lfr4G8UJqs7XUkYp9z_Dz28TnHfpLiFBPJlHq9J5rQwgRPoVSsyJqEkglCaY646PVFj5O4zGmx8ckvwholS9O9tp7yFeUUzRnhlVrgLNKkCOjvHZQyyh4b40ruoTVlm0YTkGVKwJfrPrAEAOsDjhI-4CSni1Da1jNY-hCvUF7skEtOZujxnuJiVUkWiHFS2a2KNfPRnLB6CUVe1tJEbDHIUEyTZSXW5EqYo-RnW6hvt2Db64XJgQt8tsMEiNbrgcFArC1e0RkqCNAuVPAPsH6XOQG82DACYoY4J1yYNTPqsUsWYF5ymhDOQd0WlDHzgyearfV5kac_iRhOLEPVd8PBQ7UnU80e-3HK0tz8IMtyBxNlGTi2BtNxoO55B0xZHhvu8C-YmjVyOrAYFagLa9su9OwDrKKPdEd-Dqu0YN3h2FL2aoy48GKONibQgd4hW1OMGXlAwoMtv0DZVg9kcKQrsnx2D7anjeTuHkjKXrjG8xzXPcI6I9VQjfOwY8VRurAcId6FhYoN4fgAO7YVz1LPwg4tZWh0YWOWlvj9Hle7Hu_ApkmWk3UnPgw4ciYHWBWOXe38ahVbh6oIuwaYl_NljrIVuPaigK4zRheU4OjuNriNZiK1mPc5stMywSjfRFYm9DEqaJrw76G0l4O2PJR-NMhvQ_dvzsKDsFTnyhy8TlM1THMSVyrg__tcc5Y7ItEymsEg0mRZ8IUlNjQsvjEZAXKxvABCJwqKLLhM0xSZ-R7cb_BLcBK0UpxAJAluBnWn6Z5lmN3XHHWVigKS_6IxieyStwmxMm4Im1q2swLCqmE_ZukrZC6syZyUFxFk4ipIiml7Y_Gw4akMwM7gap5fTq_otFEEX8EluHbTWPx9Cm5vri7ptFlEVZde3W37nEQVnv4JpRrXrY9cYFp31-LrUSZuoz_v99r_dHa1lDcEQbW9Xa7V18l7E21fkgxPh8ck1wwDas6LJH8T0bmcezuTUjF1CohPliJ0n4U8loEPP8Ib91m2ns5UP7Lu7roJ01rdiZTxo9l9N-Jnx6g-GeXNPBd2I9itLkiYFOIR1I7M4xR469dc6ggPhSEepIuBTxc7GnE3tbL3eAaNU_aXlV79Do6dTCYvvCr1pTXJ14hiyXxqHl7i_YbJApWsEM8lCZVFGmySWDLrB5BUZmKhxKVIHMK6EW7_A-i2M84=" title="View full diagram">&#128065; View Diagram</a></div>
+<div style="text-align:center; margin:4px 0 8px 0; font-size:11px;"><a href="https://mermaid.live/view#pako:eNqdln1vmzwQwL-KxZS_lrRAAiGoisSLedRHpK0enq2TxoQcbBJrDiAMa7Mu330G8sJos7VzpCTcnX9nn-8OP0lxholkSoPBE01paYKnUCrXZENCyQShtERc_BuKf5zEVUHLrU--EdYqWZYdtM2Uj6igaMkIr9WCk2RpGdDve5Ri5I-tcS330IaybasJyCoj4MP1EFgCwIaAo5SPOCloEkq7ZgbLHuI1Kso9ueJkgR7vKS7XtSRBjJPabl1umI-WhDVLKIuqkaZii0GOYpquarEm18ICpV87Ql3e7cBuMAjToy_wvx2mQIzBAIxGYm3xmi5QScD4QgXvgfW9Kgjg5ZYREDPEOeHCrJ3RPLskAcuK05RwDpqRUMbMd54Y9njIyyL7SsTjzDJUbf84eqj3ZKr54zDOWFaY72RZ7jFRnoPTaJmOAzXPOzJleWq4k98wx5bu9LAYlaiPtW0XevYRq2i65si_YpUO1p1MLeWgxoiLKBZoKyIOtJ6zDcWYkQckItiJC5Rt9egM6poiy2f3YHtjXe7vgWTsWWg8z3HdE9bRVUM1zmOniqP0sRwh3sdCxYZwesRObcWz1LPYiaVMjD42ZlmF3x5xtR_xHjZL84JsevlhQN2ZHbEqnLrj86tVbA2qIu1aMK-WqwLla3DtRQHd5IwmlODo7ja4jRaitJjn30R2VqUYFdvIyoVBjEqapfxzKIGDAnQVofSlZdcD04LEtRj4_52kZ51FJFpFCxhEY1kWDsIKG2MsvmOiA3KxugBCB4RO-DBNUxTLa5mf4IfgRWCt6NFIig_hOQtd3DfYpk9EASm-0ZhEdsW7PrAybX203WRvBYRV6_BUJ39w5sLGmZPxMoJMNOO0nHf3Ek9aP7UB2BtcLYvL-RWdt4rgI7gE124Wi59_g9ubq0s6bxdRd4Y_7rZ7LKIPzn-EUsN1m9MVTOvuWnx7lIn3wY-3R-0vg10v5RXnXm9vn-1NQ39zqh-6guFp8FRnY8OAY-dZnT2rLJ-sREb9knxYBj78B964r6gVP7Lu7vqp21ndC6XgR4v7fiIuTsn2YvK181zYTyy3fnPAtBS3g27CnKbAW7_xpep4IgzxKEtGPk32bkTT7hTV6QzaoBy6uFZ_joGdzWbPXkPSUNqQYoMolsyn9kYiLjaYJKhipbhHSKgqs2CbxpLZ3AykKhcLJS5F4hA2rXD3E8e25v0=" title="View full diagram">&#128065; View Diagram</a></div>
 
 <div class="page-footer"><span>Page 29</span><span><a href="#toc">↑ Back to TOC</a></span><span>IF_Simplified_PO-SO_Model — IF Simplified PO-SO Model</span></div>
 
