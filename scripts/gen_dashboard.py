@@ -284,6 +284,40 @@ def _load_jira_data(tower_filter: str = "") -> dict:
     }
 
 
+_CLOSED_DEFECT_STATUSES = {"completed", "canceled", "invalid bug/issue creation"}
+
+
+def _load_raw_jira(tower_filter: str = "") -> tuple[list[dict], list[dict]]:
+    """Load compact raw test-case & defect arrays for client-side filtering."""
+    if not JIRA_CACHE.exists():
+        return [], []
+    with open(JIRA_CACHE, "r", encoding="utf-8") as f:
+        cache = json.load(f)
+
+    raw_tests = []
+    for tc in cache.get("test_cases", []):
+        tw = tc.get("tower", "Unmapped")
+        if tower_filter and tw != tower_filter:
+            continue
+        raw_tests.append({"t": tw, "s": tc.get("status", "Not Executed") or "Not Executed"})
+
+    raw_defects = []
+    for d in cache.get("defects", []):
+        tw = d.get("tower", "Unmapped")
+        if tower_filter and tw != tower_filter:
+            continue
+        st = d.get("status", "")
+        is_open = 0 if st.lower() in _CLOSED_DEFECT_STATUSES else 1
+        raw_defects.append({
+            "t": tw,
+            "v": d.get("severity", "Unknown"),
+            "o": is_open,
+            "c": d.get("created", ""),
+        })
+
+    return raw_tests, raw_defects
+
+
 # ---------------------------------------------------------------------------
 # Compute tower stats
 # ---------------------------------------------------------------------------
@@ -526,6 +560,7 @@ def build_dashboard_context(
     arch_data["patterns"] = {_TYPE_LABEL.get(k, k): v for k, v in pattern_counts.items() if v}
 
     testing_data = _load_jira_data(tower_filter)
+    raw_tests, raw_defects = _load_raw_jira(tower_filter)
 
     # Program-level aggregation
     total_objects = sum(t["total"] for t in tower_data)
@@ -677,6 +712,8 @@ def build_dashboard_context(
         "arch_json": json.dumps(arch_data),
         "testing": testing_data,
         "testing_json": json.dumps(testing_data),
+        "raw_tests_json": json.dumps(raw_tests),
+        "raw_defects_json": json.dumps(raw_defects),
     }
 
 

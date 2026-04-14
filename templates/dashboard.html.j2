@@ -796,6 +796,8 @@ var IS_TOWER   = {{ 'true' if tower_filter else 'false' }};
 var AVAIL_REL  = {{ available_releases_json }};
 var ARCH_DATA  = {{ arch_json | default('{}') }};
 var TESTING_DATA = {{ testing_json | default('{}') }};
+var RAW_TESTS  = {{ raw_tests_json | default('[]') }};
+var RAW_DEFECTS = {{ raw_defects_json | default('[]') }};
 var activeRelease = 'All';  // global release filter state
 var activePillar = 'architecture';  // default visible pillar
 
@@ -949,7 +951,8 @@ function renderDonut(twrs){
   }],Object.assign({},LB,{title:{text:'Overall Completion',font:{size:isMobile?12:14,color:'#202124'}},
     showlegend:true,legend:{orientation:'h',y:-0.15,font:{size:isMobile?10:12}},
     margin:{l:20,r:20,t:isMobile?35:50,b:isMobile?50:60},
-    annotations:[{text:'<b>'+total+'</b><br>Total',showarrow:false,font:{size:isMobile?14:18,color:'#202124'},x:0.5,y:0.5}]}),CFG);
+    annotations:[{text:'<b>'+total+'</b><br>Total',showarrow:false,font:{size:isMobile?14:18,color:'#202124'},x:0.5,y:0.5}],
+    uniformtext:{minsize:10,mode:'hide'}}),CFG);
 }
 
 // ---- Chart 3: Build Phases by Tower — Grouped Bar ----
@@ -958,12 +961,13 @@ function renderPhaseBar(twrs){
   var pL=['FS %','TDD %','Build %','FUT %'], pK=['avg_fs','avg_tdd','avg_build','avg_fut'];
   var traces=pK.map(function(k,i){
     return{x:nm,y:twrs.map(function(t){return t[k]}),name:pL[i],type:'bar',marker:{color:COLORS.phases[i]},
-      text:twrs.map(function(t){return t[k]?t[k]+'%':''}),textposition:'outside',textfont:{size:isMobile?8:10},
+      text:twrs.map(function(t){return t[k]?t[k]+'%':''}),textposition:'auto',cliponaxis:false,
+      textfont:{size:isMobile?8:10},
       hovertemplate:'<b>%{x}</b><br>'+pL[i]+': %{y}%<extra></extra>'};
   });
   Plotly.react('chart-phases',traces,Object.assign({},LB,{title:{text:'Build Phase Progress by Tower',font:{size:isMobile?12:14,color:'#202124'}},barmode:'group',
     xaxis:{tickfont:{size:isMobile?9:12},tickangle:isMobile?-45:0,automargin:true},
-    yaxis:{title:'%',range:[0,110],titlefont:{size:isMobile?10:12},tickfont:{size:isMobile?9:11}},
+    yaxis:{title:'%',range:[0,115],titlefont:{size:isMobile?10:12},tickfont:{size:isMobile?9:11}},
     legend:{orientation:'h',y:-0.2,font:{size:isMobile?9:12}},
     bargap:0.15,bargroupgap:0.08}),CFG);
 }
@@ -978,7 +982,7 @@ function renderTypePie(objs){
   Plotly.react('chart-type-pie',[{
     y:lb.reverse(),x:vl.reverse(),type:'bar',orientation:'h',
     marker:{color:cl.reverse(),line:{color:'#fff',width:1}},
-    text:vl.map(function(v){return v+' objects'}),textposition:'outside',textfont:{size:isMobile?10:12},
+    text:vl.map(function(v){return v}),textposition:'outside',cliponaxis:false,textfont:{size:isMobile?10:12},
     hovertemplate:'<b>%{y}</b>: %{x} objects<extra></extra>'
   }],Object.assign({},LB,{title:{text:'RICEFW by Object Type',font:{size:isMobile?12:14,color:'#202124'}},
     xaxis:{title:'Count',titlefont:{size:isMobile?10:12},tickfont:{size:isMobile?9:11}},
@@ -1033,7 +1037,7 @@ function renderRaidBar(twrs){
   var cl=rd.map(function(v){return v>20?COLORS.rejected:v>10?'#fbbc04':COLORS.completed});
   Plotly.react('chart-raids',[{
     x:nm,y:rd,type:'bar',marker:{color:cl,line:{color:'rgba(0,0,0,.1)',width:1}},
-    text:rd.map(String),textposition:'outside',textfont:{size:isMobile?10:12},
+    text:rd.map(String),textposition:'outside',cliponaxis:false,textfont:{size:isMobile?10:12},
     hovertemplate:'<b>%{x}</b>: %{y} RAID items<extra></extra>'
   }],Object.assign({},LB,{title:{text:'Open RAID Items by Tower',font:{size:isMobile?12:14,color:'#202124'}},
     xaxis:{tickfont:{size:isMobile?9:12},tickangle:isMobile?-45:0,automargin:true},
@@ -1052,7 +1056,7 @@ function renderTypeLine(objs){
   Plotly.react('chart-type-phases',[{
     x:lb,y:pc,name:'Completed %',mode:'lines+markers+text',
     line:{color:COLORS.completed,width:3,shape:'spline'},marker:{size:isMobile?8:10,color:COLORS.completed,line:{color:'#fff',width:2}},
-    text:pc.map(function(v){return v+'%'}),textposition:'top center',textfont:{size:isMobile?10:12,color:'#202124'},
+    text:pc.map(function(v){return v+'%'}),textposition:'top center',cliponaxis:false,textfont:{size:isMobile?10:12,color:'#202124'},
     fill:'tozeroy',fillcolor:'rgba(52,168,83,0.08)',
     hovertemplate:'<b>%{x}</b>: %{y}% completed<extra></extra>'
   }],Object.assign({},LB,{title:{text:'Completion Rate by Object Type',font:{size:isMobile?12:14,color:'#202124'}},
@@ -1128,7 +1132,7 @@ function renderArchCharts(){
   var sysCounts = tNames.map(function(t){ return ad.towers[t].systems || 0; });
   Plotly.react('arch-chart-systems',[{
     x:tNames, y:sysCounts, type:'bar', marker:{color:'#0071c5'},
-    text:sysCounts.map(String), textposition:'outside', textfont:{size:isMobile?10:12}
+    text:sysCounts.map(String), textposition:'outside', cliponaxis:false, textfont:{size:isMobile?10:12}
   }],Object.assign({},LB,{title:{text:'Systems per Tower',font:{size:isMobile?12:14,color:'#202124'}},
     xaxis:{tickfont:{size:isMobile?9:12},automargin:true},
     yaxis:{title:'Systems',titlefont:{size:isMobile?10:12}},showlegend:false}),CFG);
@@ -1142,13 +1146,13 @@ function renderArchCharts(){
       marker:{colors:['#0071c5','#00aeef','#34a853','#fbbc04','#8e44ad','#e67e22','#ea4335','#00395d']},
       textinfo:'label+percent', textfont:{size:isMobile?10:12}
     }],Object.assign({},LB,{title:{text:'Integration Patterns',font:{size:isMobile?12:14,color:'#202124'}},
-      showlegend:false,margin:{l:20,r:20,t:50,b:20}}),CFG);
+      showlegend:false,margin:{l:20,r:20,t:50,b:20},uniformtext:{minsize:10,mode:'hide'}}),CFG);
   }
   // Lanes heatmap placeholder — use horizontal bar
   var lCounts = tNames.map(function(t){ return ad.towers[t].lanes || 0; });
   Plotly.react('arch-chart-lanes',[{
     y:tNames, x:lCounts, type:'bar', orientation:'h',
-    marker:{color:'#00aeef'}, text:lCounts.map(String), textposition:'outside', textfont:{size:isMobile?10:12}
+    marker:{color:'#00aeef'}, text:lCounts.map(String), textposition:'outside', cliponaxis:false, textfont:{size:isMobile?10:12}
   }],Object.assign({},LB,{title:{text:'Process Lanes by Tower',font:{size:isMobile?12:14,color:'#202124'}},
     yaxis:{tickfont:{size:isMobile?10:13},automargin:true},xaxis:{title:'Lanes'},showlegend:false,
     margin:{l:isMobile?90:110,r:40,t:50,b:40}}),CFG);
@@ -1156,35 +1160,68 @@ function renderArchCharts(){
   var fCounts = tNames.map(function(t){ return ad.towers[t].flows || 0; });
   Plotly.react('arch-chart-towers',[{
     x:tNames, y:fCounts, type:'bar', marker:{color:'#34a853'},
-    text:fCounts.map(String), textposition:'outside', textfont:{size:isMobile?10:12}
+    text:fCounts.map(String), textposition:'outside', cliponaxis:false, textfont:{size:isMobile?10:12}
   }],Object.assign({},LB,{title:{text:'E2E Flows by Tower',font:{size:isMobile?12:14,color:'#202124'}},
     xaxis:{tickfont:{size:isMobile?9:12},automargin:true},
     yaxis:{title:'Flows',titlefont:{size:isMobile?10:12}},showlegend:false}),CFG);
 }
 
-// ---- Testing charts ----
+// ---- Testing charts (filtered by tower chips) ----
 function renderTestCharts(){
-  var td = TESTING_DATA;
-  if(!td || !td.defects_by_severity) return;
-  // Defects by severity — stacked bar by tower
-  var sevKeys = Object.keys(td.defects_by_severity);
+  // Filter raw data by selected towers
+  var tests = IS_TOWER ? RAW_TESTS : RAW_TESTS.filter(function(tc){ return selected.has(tc.t); });
+  var defects = IS_TOWER ? RAW_DEFECTS : RAW_DEFECTS.filter(function(d){ return selected.has(d.t); });
+  if(!tests.length && !defects.length) return;
+
+  // --- Update Testing KPIs ---
+  var totalTests = tests.length;
+  var passCount = tests.filter(function(tc){ return tc.s === 'Pass'; }).length;
+  var passPct = totalTests > 0 ? Math.round(passCount / totalTests * 100) : 0;
+  var totalDefects = defects.length;
+  var closedStatuses = {'completed':1,'canceled':1,'invalid bug/issue creation':1};
+  var openDefects = defects.filter(function(d){ return d.o === 1; });
+  var resolvedCount = defects.filter(function(d){ return d.o === 0; }).length;
+  var criticalOpen = defects.filter(function(d){ return d.o === 1 && d.v === 'Critical'; }).length;
+  var closureRate = totalDefects > 0 ? Math.round(resolvedCount / totalDefects * 100) + '%' : 'N/A';
+  var goNogo = (passPct >= 95 && criticalOpen === 0) ? 'GO' : 'NO-GO';
+
+  var el = function(id){ return document.getElementById(id); };
+  if(el('test-kpi-total')) el('test-kpi-total').textContent = totalTests;
+  if(el('test-kpi-pass')) el('test-kpi-pass').textContent = passPct + '%';
+  if(el('test-kpi-defects')) el('test-kpi-defects').textContent = totalDefects;
+  if(el('test-kpi-critical')) el('test-kpi-critical').textContent = criticalOpen;
+  if(el('test-kpi-closure')) el('test-kpi-closure').textContent = closureRate;
+  if(el('test-kpi-gonogo')){
+    el('test-kpi-gonogo').textContent = goNogo;
+    var card = el('test-kpi-gonogo').closest('.kpi-card');
+    if(card){ card.className = 'kpi-card ' + (goNogo === 'GO' ? 'kpi-go' : 'kpi-nogo'); }
+  }
+
+  // --- Chart 1: Defects by severity & tower (stacked bar) ---
+  var towerSet = {};
+  defects.forEach(function(d){ if(d.o === 1) towerSet[d.t] = 1; });
+  var tws = Object.keys(towerSet).sort();
+  var sevOrder = ['Critical','High','Medium','Low'];
   var sevColors = {Critical:'#ea4335',High:'#fbbc04',Medium:'#00aeef',Low:'#34a853'};
-  if(sevKeys.length){
-    var tws = td.towers || [];
-    var traces = ['Critical','High','Medium','Low'].filter(function(s){return td.defects_by_severity[s]}).map(function(sev){
-      return {x:tws, y:tws.map(function(t){return (td.defects_by_severity[sev]||{})[t]||0}),
-        name:sev, type:'bar', marker:{color:sevColors[sev]||'#999'}};
+  if(tws.length){
+    var traces = sevOrder.map(function(sev){
+      return {x:tws, y:tws.map(function(tw){
+        return defects.filter(function(d){ return d.o === 1 && d.t === tw && d.v === sev; }).length;
+      }), name:sev, type:'bar', marker:{color:sevColors[sev]||'#999'}};
     });
     Plotly.react('test-chart-severity',traces,Object.assign({},LB,{
-      title:{text:'Defects by Severity & Tower',font:{size:isMobile?12:14,color:'#202124'}},
+      title:{text:'Open Defects by Severity & Tower',font:{size:isMobile?12:14,color:'#202124'}},
       barmode:'stack', xaxis:{tickfont:{size:isMobile?9:12},automargin:true},
-      yaxis:{title:'Defects'},legend:{orientation:'h',y:-0.2,font:{size:isMobile?10:12}}}),CFG);
+      yaxis:{title:'Defects',titlefont:{size:isMobile?10:12}},
+      legend:{orientation:'h',y:-0.2,font:{size:isMobile?10:12}}}),CFG);
   }
-  // Test execution donut
-  var exec = td.execution || {};
-  var eLabels = Object.keys(exec);
-  var eValues = eLabels.map(function(k){return exec[k]});
-  var eColors = {Pass:'#34a853',Fail:'#ea4335','Not Executed':'#fbbc04','In Progress':'#00aeef','Blocked':'#8e44ad'};
+
+  // --- Chart 2: Test execution donut ---
+  var execCounts = {};
+  tests.forEach(function(tc){ execCounts[tc.s] = (execCounts[tc.s] || 0) + 1; });
+  var eLabels = Object.keys(execCounts);
+  var eValues = eLabels.map(function(k){ return execCounts[k]; });
+  var eColors = {Pass:'#34a853',Fail:'#ea4335','Not Executed':'#fbbc04','In Progress':'#00aeef','Blocked':'#8e44ad','Not Applicable':'#999'};
   if(eLabels.length){
     Plotly.react('test-chart-exec',[{
       labels:eLabels, values:eValues, type:'pie', hole:0.5,
@@ -1193,33 +1230,55 @@ function renderTestCharts(){
     }],Object.assign({},LB,{title:{text:'Test Execution Status',font:{size:isMobile?12:14,color:'#202124'}},
       showlegend:true,legend:{orientation:'h',y:-0.15,font:{size:isMobile?10:12}},
       margin:{l:20,r:20,t:50,b:60},
-      annotations:[{text:'<b>'+(eValues.reduce(function(a,b){return a+b},0))+'</b><br>Tests',
-        showarrow:false,font:{size:isMobile?14:18,color:'#202124'},x:0.5,y:0.5}]}),CFG);
+      annotations:[{text:'<b>'+totalTests+'</b><br>Tests',
+        showarrow:false,font:{size:isMobile?14:18,color:'#202124'},x:0.5,y:0.5}],
+      uniformtext:{minsize:10,mode:'hide'}}),CFG);
   }
-  // Defect aging bar
-  var aging = td.aging || {};
-  var agLabels = Object.keys(aging);
+
+  // --- Chart 3: Defect aging bar (computed from created date) ---
+  var now = new Date();
+  var agingBuckets = {'0-7d':0,'8-14d':0,'15-30d':0,'31-60d':0,'60+d':0};
+  var bucketOrder = ['0-7d','8-14d','15-30d','31-60d','60+d'];
+  openDefects.forEach(function(d){
+    if(!d.c) return;
+    var days = Math.floor((now - new Date(d.c)) / 86400000);
+    if(days <= 7) agingBuckets['0-7d']++;
+    else if(days <= 14) agingBuckets['8-14d']++;
+    else if(days <= 30) agingBuckets['15-30d']++;
+    else if(days <= 60) agingBuckets['31-60d']++;
+    else agingBuckets['60+d']++;
+  });
+  var agLabels = bucketOrder.filter(function(k){ return agingBuckets[k] > 0; });
   if(agLabels.length){
     Plotly.react('test-chart-aging',[{
-      x:agLabels, y:agLabels.map(function(k){return aging[k]}), type:'bar',
-      marker:{color:agLabels.map(function(k){return aging[k]>20?'#ea4335':aging[k]>10?'#fbbc04':'#34a853'})},
-      text:agLabels.map(function(k){return aging[k]}), textposition:'outside', textfont:{size:isMobile?10:12}
-    }],Object.assign({},LB,{title:{text:'Open Defect Aging (days)',font:{size:isMobile?12:14,color:'#202124'}},
+      x:agLabels, y:agLabels.map(function(k){return agingBuckets[k]}), type:'bar',
+      marker:{color:agLabels.map(function(k){var v=agingBuckets[k];return v>20?'#ea4335':v>10?'#fbbc04':'#34a853'})},
+      text:agLabels.map(function(k){return agingBuckets[k]}), textposition:'outside', cliponaxis:false, textfont:{size:isMobile?10:12}
+    }],Object.assign({},LB,{title:{text:'Open Defect Aging',font:{size:isMobile?12:14,color:'#202124'}},
       xaxis:{title:'Age Bucket',tickfont:{size:isMobile?9:12}},
       yaxis:{title:'Defects',titlefont:{size:isMobile?10:12}},showlegend:false}),CFG);
   }
-  // Defects by tower
-  var twDef = td.defects_by_tower || {};
-  var twKeys = Object.keys(twDef);
+
+  // --- Chart 4: Defects by tower (open, horizontal bar) ---
+  var twDefects = {};
+  openDefects.forEach(function(d){ twDefects[d.t] = (twDefects[d.t] || 0) + 1; });
+  var twKeys = Object.keys(twDefects).sort(function(a,b){ return twDefects[b] - twDefects[a]; });
   if(twKeys.length){
     Plotly.react('test-chart-tower-defects',[{
-      x:twKeys, y:twKeys.map(function(k){return twDef[k]}), type:'bar',
-      marker:{color:'#ea4335'}, text:twKeys.map(function(k){return twDef[k]}),
-      textposition:'outside', textfont:{size:isMobile?10:12}
+      y:twKeys, x:twKeys.map(function(k){return twDefects[k]}), type:'bar', orientation:'h',
+      marker:{color:'#ea4335'}, text:twKeys.map(function(k){return twDefects[k]}),
+      textposition:'outside', cliponaxis:false, textfont:{size:isMobile?10:12}
     }],Object.assign({},LB,{title:{text:'Open Defects by Tower',font:{size:isMobile?12:14,color:'#202124'}},
-      xaxis:{tickfont:{size:isMobile?9:12},automargin:true},
-      yaxis:{title:'Defects'},showlegend:false}),CFG);
+      yaxis:{tickfont:{size:isMobile?10:13},automargin:true},
+      xaxis:{title:'Defects',titlefont:{size:isMobile?10:12}},showlegend:false,
+      margin:{l:isMobile?90:110,r:40,t:50,b:40}}),CFG);
   }
+
+  // --- Filter testing doc table ---
+  document.querySelectorAll('#test-doc-table tbody tr[data-tower]').forEach(function(row){
+    var tower=row.getAttribute('data-tower');
+    row.style.display = IS_TOWER ? '' : (selected.has(tower)?'':'none');
+  });
 }
 
 // ---- Master apply ----
