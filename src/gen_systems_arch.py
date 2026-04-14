@@ -793,6 +793,30 @@ def generate_capability(
             if rel_current_flows.hops or rel_future_flows.hops:
                 rel_diff = diff_flows(rel_current_flows, rel_future_flows)
 
+    # ── Release-flow promotion ──────────────────────────────────
+    # When a specific release is active AND release-specific flows exist,
+    # promote them into the primary slots (§5.1/5.2) and suppress §5.7.
+    # This avoids redundant diagrams: the user sees only release-scoped flows.
+    if has_release_flows:
+        current_flows = rel_current_flows
+        future_flows = rel_future_flows
+        current_mermaid = rel_current_mermaid
+        future_mermaid = rel_future_mermaid
+        current_archimate_mermaid = rel_current_archimate
+        future_archimate_mermaid = rel_future_archimate
+        # Re-derive Data/Platform architecture diagrams from release flows
+        current_data_arch_mermaid = build_data_arch_mermaid(current_flows, iapm, prefix_cur + "DA") if current_flows.hops else ""
+        future_data_arch_mermaid = build_data_arch_mermaid(future_flows, iapm, prefix_fut + "DA") if future_flows.hops else ""
+        current_platform_mermaid = build_platform_arch_mermaid(current_flows, iapm, prefix_cur + "PL") if current_flows.hops else ""
+        future_platform_mermaid = build_platform_arch_mermaid(future_flows, iapm, prefix_fut + "PL") if future_flows.hops else ""
+        # Clear release-specific slots — they've been promoted to primary
+        has_release_flows = False
+        rel_current_mermaid = ""
+        rel_future_mermaid = ""
+        rel_current_archimate = ""
+        rel_future_archimate = ""
+        rel_diff = None
+
     # Diff
     diff = diff_flows(current_flows, future_flows)
 

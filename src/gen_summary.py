@@ -656,12 +656,29 @@ def _render_summary_doc(
     retired_systems = current_summary.systems - future_summary.systems
     common_systems = current_summary.systems & future_summary.systems
 
+    # Cross-reference with IAPM to identify true EOL-bound systems
+    eol_systems = set()
+    removed_not_eol = set()
+    for sys_name in retired_systems:
+        app = iapm.find_by_name(sys_name)
+        if app and app.status in ("End of Life", "Canceled"):
+            eol_systems.add(sys_name)
+        else:
+            removed_not_eol.add(sys_name)
+
     md += "| Category | Count | Systems |\n"
     md += "|----------|:---:|---|\n"
-    md += f"| **New Systems** | {len(new_systems)} | {', '.join(sorted(new_systems)) if new_systems else '—'} |\n"
-    md += f"| **Retiring Systems** | {len(retired_systems)} | {', '.join(sorted(retired_systems)) if retired_systems else '—'} |\n"
+    md += f"| **Added in Future State** | {len(new_systems)} | {', '.join(sorted(new_systems)) if new_systems else '—'} |\n"
+    md += f"| **Removed from Future State** | {len(removed_not_eol)} | {', '.join(sorted(removed_not_eol)) if removed_not_eol else '—'} |\n"
+    if eol_systems:
+        md += f"| **EOL Path (per IAPM)** | {len(eol_systems)} | {', '.join(sorted(eol_systems))} |\n"
     md += f"| **Continuing Systems** | {len(common_systems)} | — |\n"
     md += "\n"
+    md += "> **Reconciliation Note:** System lifecycle status is sourced from IAPM "
+    md += "(Intel Application Portfolio Management). Systems shown as *Removed from "
+    md += "Future State* are not in scope for this release but are **not** "
+    md += "decommissioned unless marked *EOL Path* above. EOL decommissioning is "
+    md += "planned post-R5.\n\n"
 
     # New / removed connections
     cur_conn = set(current_summary.edges.keys())
@@ -677,7 +694,7 @@ def _render_summary_doc(
         md += "\n"
 
     if removed_conn:
-        md += f"**Removed Connections ({len(removed_conn)}):**\n\n"
+        md += f"**Connections Not in Future State ({len(removed_conn)}):**\n\n"
         md += "| Source | Target |\n|---|---|\n"
         for src, tgt in sorted(removed_conn):
             md += f"| {src} | {tgt} |\n"
@@ -716,8 +733,8 @@ def _render_summary_doc(
     # ── §5.3  Release-over-Release Changes ───────────────────────
     if has_release_diff:
         md += fmt.section_heading("5.3", "Release-over-Release Changes", level=3)
-        md += "Changes between adjacent releases — additions and retirements of applications, "
-        md += "databases, and technology platforms.\n\n"
+        md += "Changes between adjacent releases — additions and removals of applications, "
+        md += "databases, and technology platforms. System lifecycle sourced from IAPM.\n\n"
 
         for delta in release_deltas:
             md += f"#### {delta.from_rel} -> {delta.to_rel}\n\n"
@@ -732,14 +749,25 @@ def _render_summary_doc(
                 md += "*No changes detected between releases.*\n\n"
                 continue
 
-            # Applications
+            # Applications — cross-reference with IAPM for EOL status
             if delta.new_apps or delta.retired_apps:
                 md += "**Applications:**\n\n"
                 md += "| Change | Applications |\n|---|---|\n"
                 if delta.new_apps:
                     md += f"| **Added** | {', '.join(sorted(delta.new_apps))} |\n"
                 if delta.retired_apps:
-                    md += f"| **Retired** | {', '.join(sorted(delta.retired_apps))} |\n"
+                    eol_apps = set()
+                    removed_apps = set()
+                    for app_name in delta.retired_apps:
+                        app = iapm.find_by_name(app_name)
+                        if app and app.status in ("End of Life", "Canceled"):
+                            eol_apps.add(app_name)
+                        else:
+                            removed_apps.add(app_name)
+                    if removed_apps:
+                        md += f"| **Removed** | {', '.join(sorted(removed_apps))} |\n"
+                    if eol_apps:
+                        md += f"| **EOL Path (IAPM)** | {', '.join(sorted(eol_apps))} |\n"
                 md += "\n"
 
             # Databases
@@ -749,7 +777,7 @@ def _render_summary_doc(
                 if delta.new_dbs:
                     md += f"| **Added** | {', '.join(sorted(delta.new_dbs))} |\n"
                 if delta.retired_dbs:
-                    md += f"| **Retired** | {', '.join(sorted(delta.retired_dbs))} |\n"
+                    md += f"| **Removed** | {', '.join(sorted(delta.retired_dbs))} |\n"
                 md += "\n"
 
             # Technology Platforms
@@ -759,7 +787,7 @@ def _render_summary_doc(
                 if delta.new_platforms:
                     md += f"| **Added** | {', '.join(sorted(delta.new_platforms))} |\n"
                 if delta.retired_platforms:
-                    md += f"| **Retired** | {', '.join(sorted(delta.retired_platforms))} |\n"
+                    md += f"| **Removed** | {', '.join(sorted(delta.retired_platforms))} |\n"
                 md += "\n"
 
     # ── §6  Capability Detail Reference ──────────────────────────
