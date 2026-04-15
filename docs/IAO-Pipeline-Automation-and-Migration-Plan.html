@@ -1,0 +1,616 @@
+<html><head><meta charset="utf-8"><title>IAO Pipeline Automation &amp; Migration Plan</title>
+<style>
+body { font-family: 'Segoe UI', sans-serif; max-width: 960px; margin: 40px auto; padding: 0 24px; line-height: 1.6; color: #202124; }
+table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; font-size: 0.92em; }
+th { background: #0071c5; color: #fff; }
+tr:nth-child(even) { background: #f7f8fa; }
+code { background: #f0f0f0; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; }
+pre { background: #1e1e2e; color: #cdd6f4; padding: 16px; border-radius: 8px; overflow-x: auto; font-size: 0.88em; }
+pre code { background: none; color: inherit; }
+h1 { color: #00395d; border-bottom: 3px solid #0071c5; padding-bottom: 8px; }
+h2 { color: #00395d; border-bottom: 1px solid #e8ecf0; padding-bottom: 6px; margin-top: 32px; }
+h3 { color: #0071c5; }
+details { margin: 16px 0; padding: 12px; background: #f7f8fa; border-radius: 6px; border: 1px solid #e8ecf0; }
+summary { cursor: pointer; font-weight: 600; color: #0071c5; }
+hr { border: none; border-top: 2px solid #e8ecf0; margin: 24px 0; }
+</style></head><body>
+<h1 id="iao-architecture-pipeline-automation-checklist-corporate-migration-plan">IAO Architecture Pipeline — Automation Checklist &amp; Corporate Migration Plan</h1>
+<p><strong>Date:</strong> April 14, 2026
+<strong>Author:</strong> Sajiv Francis — Enterprise Architect, IAO Program
+<strong>Status:</strong> Assessment / Planning (No action without approval)</p>
+<hr />
+<h2 id="1-current-state-summary">1. Current State Summary</h2>
+<h3 id="whats-built-working-today">What's Built &amp; Working Today</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Status</th>
+<th>Automation Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GitHub Pages Portal</strong></td>
+<td>✅ Live</td>
+<td>Fully automated (deploy-pages.yml)</td>
+</tr>
+<tr>
+<td><strong>SAD Document Generation</strong></td>
+<td>✅ 49 docs, 8 towers</td>
+<td>Fully automated (generate-architecture.yml, 07:00 UTC Mon-Fri)</td>
+</tr>
+<tr>
+<td><strong>RICEFW Tracker Generation</strong></td>
+<td>✅ Per tower/capability</td>
+<td>Fully automated (same workflow)</td>
+</tr>
+<tr>
+<td><strong>Testing Report Generation</strong></td>
+<td>✅ Per tower/capability</td>
+<td>Fully automated (same workflow)</td>
+</tr>
+<tr>
+<td><strong>L0/L1/Program Summaries</strong></td>
+<td>✅ All towers + program rollup</td>
+<td>Fully automated (same workflow)</td>
+</tr>
+<tr>
+<td><strong>Interactive Dashboards</strong></td>
+<td>✅ 9 dashboards (program + 8 towers)</td>
+<td>Fully automated (same workflow)</td>
+</tr>
+<tr>
+<td><strong>Per-Release Document Variants</strong></td>
+<td>✅ R1–R5 scoped outputs</td>
+<td>Fully automated (deploy-pages.yml loops R1-R5)</td>
+</tr>
+<tr>
+<td><strong>Smartsheet Data Fetch</strong></td>
+<td>✅ RAID, WRICEF, Timeline</td>
+<td>Automated daily (data-refresh.yml, 06:00 UTC Mon-Fri)</td>
+</tr>
+<tr>
+<td><strong>JIRA/Zephyr Data Fetch</strong></td>
+<td>✅ Defects + Test Cases + Zephyr Scale</td>
+<td>Automated daily (same workflow)</td>
+</tr>
+<tr>
+<td><strong>MD → HTML Conversion</strong></td>
+<td>✅ All doc types</td>
+<td>Fully automated (gen_pdf.py --html-only)</td>
+</tr>
+<tr>
+<td><strong>Chat API (Phase 1)</strong></td>
+<td>✅ Anthropic Claude via Actions</td>
+<td>Triggered by repository_dispatch</td>
+</tr>
+<tr>
+<td><strong>MCP Servers (3 of 5)</strong></td>
+<td>✅ Smartsheet, JIRA, IAPM</td>
+<td>Local dev only (stdio transport)</td>
+</tr>
+<tr>
+<td><strong>Input Portal (React)</strong></td>
+<td>✅ Functional, separate repo</td>
+<td>Manual — AG Grid editor, XLSX export</td>
+</tr>
+<tr>
+<td><strong>Unique Systems Extraction</strong></td>
+<td>✅ Per release, current vs future</td>
+<td>Part of dashboard generation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cicd-workflow-schedule">CI/CD Workflow Schedule</h3>
+<pre><code>06:00 UTC Mon-Fri → data-refresh.yml
+  ├── fetch_smartsheet_data.py  (Smartsheet API → CSV cache)
+  └── fetch_jira_data.py        (JIRA REST + Zephyr Scale → JSON cache)
+
+07:00 UTC Mon-Fri → generate-architecture.yml (triggered by data-refresh)
+  ├── enrich_flows.py            (IAPM enrichment)
+  ├── gen_systems_arch --all     (49 SAD markdowns)
+  ├── gen_summary --all          (L0/L1/Program rollups)
+  ├── gen_ricefw_tracker --all   (RICEFW tracker docs)
+  ├── gen_testing_report --all   (Testing reports)
+  ├── gen_pdf --html-only        (MD → HTML conversion)
+  └── gen_dashboard              (9 Plotly dashboards)
+
+On push to main → deploy-pages.yml
+  ├── Regenerate ALL docs (all releases + per-release R1-R5)
+  ├── Build _site/ structure
+  └── Deploy to GitHub Pages
+</code></pre>
+<hr />
+<h2 id="2-automation-gaps-whats-still-manual">2. Automation Gaps — What's Still Manual</h2>
+<h3 id="priority-1-data-sources-not-yet-automated">Priority 1: Data Sources Not Yet Automated</h3>
+<table>
+<thead>
+<tr>
+<th>Gap</th>
+<th>Current Workaround</th>
+<th>Effort to Automate</th>
+<th>Blocker</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IAPM Live API</strong></td>
+<td>30K-app CSV cache (static)</td>
+<td>Low — bearer token fetch script</td>
+<td>Need IAPM bearer token (Azure AD OAuth)</td>
+</tr>
+<tr>
+<td><strong>Smartsheet MFA-blocked sheets</strong> (4 of 9)</td>
+<td>Manual CSV export + commit</td>
+<td>Medium — Smartsheet SDK or admin API key</td>
+<td>4 sheets require account-level access (MFA)</td>
+</tr>
+<tr>
+<td><strong>Input Portal → Pipeline</strong></td>
+<td>Manual XLSX upload + commit</td>
+<td>Medium — Azure Function <code>/api/save-data</code> or GitHub API</td>
+<td>Deploy Azure Function or use GitHub Actions API</td>
+</tr>
+</tbody>
+</table>
+<h3 id="priority-2-api-integrations-placeholder">Priority 2: API Integrations (Placeholder)</h3>
+<table>
+<thead>
+<tr>
+<th>Gap</th>
+<th>Current State</th>
+<th>Effort</th>
+<th>Blocker</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SAP OData (BI0/DI0)</strong></td>
+<td>Placeholder MCP server, no fetch script</td>
+<td>Medium — fetch_sap_data.py + gateway access</td>
+<td>Need SAP service account (BI0/DI0 credentials)</td>
+</tr>
+<tr>
+<td><strong>SAP BIC/Signavio</strong></td>
+<td>Placeholder MCP server, BPMN files from manual export</td>
+<td>Medium — BIC API fetch script</td>
+<td>Need BIC auth token + API endpoint access</td>
+</tr>
+<tr>
+<td><strong>SharePoint Reverse-Sync</strong></td>
+<td>Workflow exists, awaiting trigger</td>
+<td>Low — Power Automate flow to fire repository_dispatch</td>
+<td>Need SharePoint app registration (tenant/client/secret)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="priority-3-operational-enhancements">Priority 3: Operational Enhancements</h3>
+<table>
+<thead>
+<tr>
+<th>Gap</th>
+<th>Description</th>
+<th>Effort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IAPM Refresh Automation</strong></td>
+<td>Periodic re-export of IAPM All Solutions CSV</td>
+<td>Low — Add to data-refresh workflow with bearer token</td>
+</tr>
+<tr>
+<td><strong>Notification on Failure</strong></td>
+<td>No alerting when workflows fail</td>
+<td>Low — Add Slack/Teams webhook or email on workflow failure</td>
+</tr>
+<tr>
+<td><strong>Data Validation Gate</strong></td>
+<td>No automated check for data quality before doc generation</td>
+<td>Medium — Add validation script to generate-architecture workflow</td>
+</tr>
+<tr>
+<td><strong>Input Portal Deployment</strong></td>
+<td>React app not hosted (local dev only)</td>
+<td>Medium — Deploy to GitHub Pages (separate repo) or Azure Static Web App</td>
+</tr>
+<tr>
+<td><strong>Chat API Phase 2</strong></td>
+<td>30-60s latency via GitHub Actions</td>
+<td>Medium — Azure Function with &lt;5s response time</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-whats-required-for-full-automation">3. What's Required for Full Automation</h2>
+<h3 id="minimal-viable-automation-no-new-infra">Minimal Viable Automation (no new infra)</h3>
+<p>Only needs <strong>credentials/tokens</strong> — all code and workflows already exist:</p>
+<ol>
+<li>✅ Smartsheet API token (have it)</li>
+<li>✅ JIRA PAT (have it)</li>
+<li>❌ IAPM Bearer Token → enables live app portfolio refresh</li>
+<li>❌ SharePoint App Registration → enables reverse-sync from SharePoint</li>
+<li>❌ SAP BI0/DI0 service account → enables dev object tracking</li>
+<li>❌ BIC Auth Token → enables live BPMN process sync</li>
+</ol>
+<p><strong>With just items 1-4, the pipeline is ~90% automated.</strong> Items 5-6 are enrichment.</p>
+<h3 id="full-automation-target">Full Automation Target</h3>
+<pre><code>       ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+       │  Smartsheet   │     │  JIRA/Zephyr  │     │    IAPM      │
+       │  (API daily)  │     │  (API daily)  │     │ (API daily)  │
+       └──────┬───────┘     └──────┬───────┘     └──────┬───────┘
+              │                     │                     │
+              └─────────────┬───────┴─────────────────────┘
+                            ▼
+                ┌───────────────────────┐
+                │   data-refresh.yml    │  06:00 UTC Mon-Fri
+                │   (GitHub Actions)    │
+                └───────────┬───────────┘
+                            │  triggers
+                            ▼
+                ┌───────────────────────┐
+                │  generate-architecture│  07:00 UTC Mon-Fri
+                │  SADs, RICEFW, Tests, │
+                │  Summaries, Dashboard │
+                └───────────┬───────────┘
+                            │  triggers
+                            ▼
+                ┌───────────────────────┐
+                │    deploy-pages.yml   │
+                │  GitHub Pages / Azure │
+                └───────────┬───────────┘
+                            │
+              ┌─────────────┼─────────────┐
+              ▼             ▼             ▼
+        ┌──────────┐ ┌──────────┐ ┌──────────────┐
+        │  Portal  │ │Dashboard │ │  SAD / RICEFW │
+        │  (HTML)  │ │ (Plotly) │ │  (HTML docs)  │
+        └──────────┘ └──────────┘ └──────────────┘
+
+  Optional additions:
+  ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+  │  SAP OData   │     │  BIC/Signavio│     │  SharePoint   │
+  │  (enrichment)│     │  (BPMN sync) │     │  (rev-sync)   │
+  └──────────────┘     └──────────────┘     └──────────────┘
+</code></pre>
+<hr />
+<h2 id="4-corporate-github-migration-plan">4. Corporate GitHub Migration Plan</h2>
+<h3 id="current-state">Current State</h3>
+<ul>
+<li><strong>Repository:</strong> <code>sajivfrancis777/IAO-Architecture</code> (personal GitHub)</li>
+<li><strong>Hosting:</strong> GitHub Pages at <code>sajivfrancis777.github.io/IAO-Architecture</code></li>
+<li><strong>Secrets:</strong> Stored in GitHub repo settings + local <code>.env</code></li>
+</ul>
+<h3 id="migration-options">Migration Options</h3>
+<h4 id="option-a-intel-github-enterprise-githubintelcom">Option A: Intel GitHub Enterprise (github.intel.com)</h4>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Impact</th>
+<th>Changes Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Repository</strong></td>
+<td>Move to <code>github.intel.com/IAO/IAO-Architecture</code></td>
+<td><code>git remote set-url origin</code></td>
+</tr>
+<tr>
+<td><strong>GitHub Actions</strong></td>
+<td>✅ Works if GHE has Actions runners</td>
+<td>Verify runner availability; may need self-hosted runners</td>
+</tr>
+<tr>
+<td><strong>GitHub Pages</strong></td>
+<td>⚠️ GHE Pages may or may not be enabled</td>
+<td>Check with IT; if disabled, need Option B/C</td>
+</tr>
+<tr>
+<td><strong>Secrets</strong></td>
+<td>Re-create in GHE repo settings</td>
+<td>One-time migration of 9 secrets</td>
+</tr>
+<tr>
+<td><strong>Code Changes</strong></td>
+<td>None</td>
+<td>All scripts use relative paths</td>
+</tr>
+<tr>
+<td><strong>Access Control</strong></td>
+<td>✅ Better — Intel SSO + team-based permissions</td>
+<td>Configure team access</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Risk:</strong> GitHub Enterprise may not have Pages enabled or may restrict Actions minutes.</p>
+<h4 id="option-b-azure-static-web-apps-recommended-for-corporate">Option B: Azure Static Web Apps (Recommended for Corporate)</h4>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Impact</th>
+<th>Changes Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Repository</strong></td>
+<td>Move to Intel GitHub or Azure DevOps</td>
+<td>Standard git migration</td>
+</tr>
+<tr>
+<td><strong>CI/CD</strong></td>
+<td>Azure DevOps Pipelines or GitHub Actions</td>
+<td>Convert 5 YAML workflows to Azure Pipelines (if ADO)</td>
+</tr>
+<tr>
+<td><strong>Hosting</strong></td>
+<td>Azure Static Web App (free tier available)</td>
+<td>Replace GitHub Pages deploy with <code>az staticwebapp</code> CLI</td>
+</tr>
+<tr>
+<td><strong>Secrets</strong></td>
+<td>Azure Key Vault or Pipeline variables</td>
+<td>Migrate 9 secrets to Key Vault</td>
+</tr>
+<tr>
+<td><strong>Code Changes</strong></td>
+<td>Minimal — only deployment step changes</td>
+<td>Replace <code>deploy-pages.yml</code> with Azure SWA deploy action</td>
+</tr>
+<tr>
+<td><strong>Custom Domain</strong></td>
+<td>✅ <code>iao-architecture.intel.com</code> via Azure</td>
+<td>DNS CNAME record</td>
+</tr>
+<tr>
+<td><strong>Auth</strong></td>
+<td>✅ Azure AD SSO built-in</td>
+<td>No code changes — SWA handles auth at edge</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Effort Estimate:</strong> 2-3 days for pipeline conversion + 1 day for DNS/auth setup.</p>
+<p><strong>Code Changes Required:</strong></p>
+<pre><code class="language-yaml"># Replace deploy-pages.yml upload step with:
+- name: Deploy to Azure Static Web App
+  uses: Azure/static-web-apps-deploy@v1
+  with:
+    azure_static_web_apps_api_token: ${{ secrets.AZURE_SWA_TOKEN }}
+    app_location: &quot;_site&quot;
+    skip_app_build: true
+</code></pre>
+<h4 id="option-c-full-stack-azure-web-app-functions">Option C: Full-Stack Azure Web App + Functions</h4>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Technology</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Frontend</strong></td>
+<td>Azure Static Web App</td>
+<td>Portal, dashboards, SAD docs</td>
+</tr>
+<tr>
+<td><strong>Input Portal</strong></td>
+<td>Same SWA (route: <code>/input</code>)</td>
+<td>React AG Grid editor</td>
+</tr>
+<tr>
+<td><strong>API Layer</strong></td>
+<td>Azure Functions (Python 3.11)</td>
+<td><code>/api/save-data</code>, <code>/api/chat</code>, <code>/api/refresh</code></td>
+</tr>
+<tr>
+<td><strong>Data Pipeline</strong></td>
+<td>Azure Functions Timer Trigger</td>
+<td>Replace GitHub Actions cron (data-refresh)</td>
+</tr>
+<tr>
+<td><strong>Storage</strong></td>
+<td>Azure Blob Storage</td>
+<td>Generated HTML, XLSX templates, cached data</td>
+</tr>
+<tr>
+<td><strong>Auth</strong></td>
+<td>Azure AD / Entra ID</td>
+<td>SSO for all Intel users</td>
+</tr>
+<tr>
+<td><strong>Secrets</strong></td>
+<td>Azure Key Vault</td>
+<td>All API tokens and credentials</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Effort Estimate:</strong> 1-2 weeks for initial migration, 1 week for testing.</p>
+<p><strong>Code Changes Required:</strong></p>
+<table>
+<thead>
+<tr>
+<th>File/Area</th>
+<th>Change</th>
+<th>Effort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scripts/fetch_*.py</code></td>
+<td>Add Azure Blob output option</td>
+<td>Low — add <code>--output-blob</code> flag</td>
+</tr>
+<tr>
+<td><code>src/gen_systems_arch.py</code></td>
+<td>No changes (reads files, outputs files)</td>
+<td>None</td>
+</tr>
+<tr>
+<td><code>scripts/gen_dashboard.py</code></td>
+<td>No changes</td>
+<td>None</td>
+</tr>
+<tr>
+<td><code>templates/*.j2</code></td>
+<td>Update asset paths for SWA routing</td>
+<td>Low</td>
+</tr>
+<tr>
+<td><strong>New: <code>azure-functions/</code></strong></td>
+<td>3 Python functions (save-data, chat, timer-refresh)</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><strong>New: <code>staticwebapp.config.json</code></strong></td>
+<td>SWA routing rules + auth config</td>
+<td>Low</td>
+</tr>
+<tr>
+<td><strong>New: Azure Pipelines YAML</strong></td>
+<td>CI/CD for SWA + Functions deployment</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<h3 id="migration-decision-matrix">Migration Decision Matrix</h3>
+<table>
+<thead>
+<tr>
+<th>Criteria</th>
+<th>Option A (GHE Pages)</th>
+<th>Option B (Azure SWA)</th>
+<th>Option C (Full-Stack)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Effort</strong></td>
+<td>1 day</td>
+<td>2-3 days</td>
+<td>1-2 weeks</td>
+</tr>
+<tr>
+<td><strong>Code Changes</strong></td>
+<td>None</td>
+<td>Minimal (deploy step)</td>
+<td>Moderate (add Functions)</td>
+</tr>
+<tr>
+<td><strong>Auth/SSO</strong></td>
+<td>GHE built-in</td>
+<td>Azure AD built-in</td>
+<td>Azure AD built-in</td>
+</tr>
+<tr>
+<td><strong>Custom Domain</strong></td>
+<td>If GHE allows</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td><strong>Input Portal</strong></td>
+<td>Separate deploy</td>
+<td>Integrated (SWA route)</td>
+<td>Integrated (SWA route)</td>
+</tr>
+<tr>
+<td><strong>Chat API</strong></td>
+<td>GitHub Actions (slow)</td>
+<td>Azure Function (fast)</td>
+<td>Azure Function (fast)</td>
+</tr>
+<tr>
+<td><strong>Scalability</strong></td>
+<td>Limited by GHE</td>
+<td>Good (serverless)</td>
+<td>Best (full control)</td>
+</tr>
+<tr>
+<td><strong>Cost</strong></td>
+<td>$0 (if GHE available)</td>
+<td>$0-9/mo (free tier)</td>
+<td>$50-100/mo (Functions + Storage)</td>
+</tr>
+<tr>
+<td><strong>Intel IT Approval</strong></td>
+<td>Need GHE access</td>
+<td>Need Azure subscription</td>
+<td>Need Azure subscription</td>
+</tr>
+<tr>
+<td><strong>Recommendation</strong></td>
+<td>If GHE has Pages</td>
+<td><strong>Best balance</strong></td>
+<td>If Input Portal + Chat critical</td>
+</tr>
+</tbody>
+</table>
+<h3 id="recommended-path">Recommended Path</h3>
+<p><strong>Phase 1 — Immediate (Option A test):</strong>
+Check if Intel GitHub Enterprise has Pages enabled. If yes, migrate repo + secrets and done.</p>
+<p><strong>Phase 2 — If GHE Pages unavailable (Option B):</strong>
+Deploy to Azure Static Web App. Minimal code changes. Gets SSO + custom domain.</p>
+<p><strong>Phase 3 — When approved (Option C additions):</strong>
+Add Azure Functions for Input Portal save + Chat API. Replaces GitHub Actions cron with Timer Triggers.</p>
+<hr />
+<h2 id="5-checklist-summary">5. Checklist Summary</h2>
+<h3 id="already-done">Already Done ✅</h3>
+<ul>
+<li>[x] 5 CI/CD workflows (data-refresh, generate-architecture, deploy-pages, chat-api, sharepoint-sync)</li>
+<li>[x] Daily automated data fetch (Smartsheet + JIRA)</li>
+<li>[x] Daily automated doc generation (49 SADs + RICEFW + Testing + Summaries + Dashboards)</li>
+<li>[x] GitHub Pages deployment with per-release variants (R1-R5)</li>
+<li>[x] 3 working MCP servers (Smartsheet, JIRA, IAPM)</li>
+<li>[x] Unique system extraction from XLSX flows (per release, current/future)</li>
+<li>[x] Release dropdown filtering on all 3 dashboard pillars</li>
+<li>[x] Fabricated data removed from templates</li>
+<li>[x] Input Portal (React) — functional for data editing</li>
+</ul>
+<h3 id="needs-credentials-only">Needs Credentials Only 🔑</h3>
+<ul>
+<li>[ ] IAPM Bearer Token → live app portfolio refresh</li>
+<li>[ ] SharePoint App Registration → reverse-sync from architects</li>
+<li>[ ] SAP BI0/DI0 Service Account → dev object tracking</li>
+<li>[ ] BIC Auth Token → live BPMN process sync</li>
+</ul>
+<h3 id="needs-development-work">Needs Development Work 🔧</h3>
+<ul>
+<li>[ ] Input Portal deployment (GitHub Pages or Azure SWA)</li>
+<li>[ ] Input Portal → Pipeline integration (save XLSX → trigger rebuild)</li>
+<li>[ ] Chat API Phase 2 (Azure Function, &lt;5s latency)</li>
+<li>[ ] Workflow failure notifications (Slack/Teams webhook)</li>
+<li>[ ] Data validation gate (pre-generation quality check)</li>
+<li>[ ] 2 remaining MCP servers (SAP OData, BIC — blocked on credentials)</li>
+</ul>
+<h3 id="needs-corporate-decision">Needs Corporate Decision 🏢</h3>
+<ul>
+<li>[ ] Determine target: Intel GitHub Enterprise vs Azure</li>
+<li>[ ] Obtain Azure subscription (if Option B/C)</li>
+<li>[ ] DNS record for custom domain (iao-architecture.intel.com)</li>
+<li>[ ] Intel IT security review for Azure AD SSO integration</li>
+</ul>
+<hr />
+<details>
+<summary>View the Prompt Used</summary>
+
+
+<pre><code class="language-markdown">ok the deploy is completed, lets push the latest changes to github and commit: 9924f721
+
+[Follow-up] ok, can we outline a checklist of how to make this pipeline completely automated,
+i am not looking to do more work unless there is interest or approval, however, wanted to
+take account of what was completed and what else is required to make this fully automated.
+Additionally, we need a plan to move the code from my personal github to a corporate one,
+will the github pages still work, if not, we need alternate deployment plans and what type
+of changes will be required to the code, this include azure web apps &amp; functions or even a
+full stack if there is not too much of a lift?
+</code></pre>
+
+
+</details></body></html>

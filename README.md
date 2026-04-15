@@ -13,6 +13,7 @@ This pipeline produces per-capability **Systems Architecture Documents (SAD)**, 
 | Repository | Purpose | URL |
 |---|---|---|
 | **IAO-Architecture** | Pipeline code, templates, tower inputs, generated documents, CI/CD workflows | [github.com/sajivfrancis777/IAO-Architecture](https://github.com/sajivfrancis777/IAO-Architecture) |
+| **IAO-Architecture-Input-Portal** | React + AG Grid data editor for tower architects — edits CurrentFlows/FutureFlows XLSX | [github.com/sajivfrancis777/IAO-Architecture-Input-Portal](https://github.com/sajivfrancis777/IAO-Architecture-Input-Portal) |
 | **IAO-Architecture (Pages)** | Published portal — interactive architecture docs with sidebar, dashboards, release filtering | [sajivfrancis777.github.io/IAO-Architecture](https://sajivfrancis777.github.io/IAO-Architecture/) |
 
 ---
@@ -24,7 +25,7 @@ This pipeline produces per-capability **Systems Architecture Documents (SAD)**, 
 | **Systems Architecture Documents (SAD)** | 184 | TOGAF BDAT architecture per L2 capability — business process flows, application landscape, integration diagrams, data architecture, technology stack, RICEFW summary, RAID items |
 | **RICEFW Trackers** | 143 | Per-capability development object status — FS, TDD, Build, FUT dates with completion percentages, sourced from Smartsheet Object Tracker |
 | **Testing & Quality Reports** | 196 | Per-capability test readiness — JIRA defect counts, test case coverage, FUT status, quality gates |
-| **Interactive Dashboards** | 9 | Per-tower + program-level Plotly.js dashboards — RICEFW status distribution, completion trends, RAID heatmaps |
+| **Interactive Dashboards** | 9 | Per-tower + program-level Plotly.js dashboards — 3 pillars (Architecture, Development, Testing) with tower chip filters, release dropdown, unique systems by release, defect severity/aging charts |
 | **Summary Documents** | 9 | L0 (tower), L1 (process group), and program-level architecture rollups |
 | **Tower Landing Pages** | 8 | Portal entry points with capability navigation and doc links |
 | **Capability Pages** | 189 | Per-capability portal pages with links to SAD, RICEFW, Testing docs |
@@ -168,6 +169,7 @@ A web-based chatbot (accessible from the GitHub Pages portal without VS Code) is
 - Transport and deployment governance with Git-based audit trail (SOX compliance)
 - Architecture review board dashboards and compliance reporting
 - Steady-state operational metrics and KPI tracking
+- Corporate GitHub migration (Intel GHE or Azure Static Web Apps) — see [Automation & Migration Plan](docs/IAO-Pipeline-Automation-and-Migration-Plan.md)
 
 ---
 
