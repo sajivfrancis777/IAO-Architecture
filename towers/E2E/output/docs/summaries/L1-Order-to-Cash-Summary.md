@@ -379,9 +379,11 @@ flowchart TB
 
 | Category | Count | Systems |
 |----------|:---:|---|
-| **New Systems** | 0 | — |
-| **Retiring Systems** | 0 | — |
+| **Added in Future State** | 0 | — |
+| **Removed from Future State** | 0 | — |
 | **Continuing Systems** | 2 | — |
+
+> **Reconciliation Note:** System lifecycle status is sourced from IAPM (Intel Application Portfolio Management). Systems shown as *Removed from Future State* are not in scope for this release but are **not** decommissioned unless marked *EOL Path* above. EOL decommissioning is planned post-R5.
 
 
 ### 5.2 Integration Complexity Delta

@@ -545,7 +545,7 @@
 
 <div class="kpi-grid">
   <div class="kpi-card"><div class="value" id="arch-kpi-flows">{{ arch.total_flows | default(0) }}</div><div class="label">Total Flows</div></div>
-  <div class="kpi-card"><div class="value" id="arch-kpi-systems">{{ arch.total_systems | default(0) }}</div><div class="label">Flow Specs</div></div>
+  <div class="kpi-card"><div class="value" id="arch-kpi-systems">{{ arch.total_systems | default(0) }}</div><div class="label">Unique Systems</div></div>
   <div class="kpi-card"><div class="value" id="arch-kpi-patterns">{{ arch.patterns | default({}) | length }}</div><div class="label">Integration Patterns</div></div>
   <div class="kpi-card"><div class="value" id="arch-kpi-caps">{{ arch.total_caps | default(0) }}</div><div class="label">Capabilities</div></div>
   <div class="kpi-card"><div class="value" id="arch-kpi-sads">{{ arch.total_sads | default(0) }}</div><div class="label">SAD Documents</div></div>
@@ -1129,13 +1129,45 @@ function renderArchCharts(){
     var kv=archKpis.querySelectorAll('.kpi-card .value');
     if(kv.length>=6){kv[0].textContent=aFlows;kv[1].textContent=aSys;kv[2].textContent=Object.keys(ad.patterns||{}).length;kv[3].textContent=aCaps;kv[4].textContent=aSads;kv[5].textContent=aLanes;}
   }
-  var sysCounts = tNames.map(function(t){ return ad.towers[t].systems || 0; });
-  Plotly.react('arch-chart-systems',[{
-    x:tNames, y:sysCounts, type:'bar', marker:{color:'#0071c5'},
-    text:sysCounts.map(String), textposition:'outside', cliponaxis:false, textfont:{size:isMobile?10:12}
-  }],Object.assign({},LB,{title:{text:'Systems per Tower',font:{size:isMobile?12:14,color:'#202124'}},
-    xaxis:{tickfont:{size:isMobile?9:12},automargin:true},
-    yaxis:{title:'Systems',titlefont:{size:isMobile?10:12}},showlegend:false}),CFG);
+  // Systems by Release — grouped bar chart
+  var releases = ['R1','R2','R3','R4','R5'];
+  var relColors = {R1:'#0071c5',R2:'#00aeef',R3:'#34a853',R4:'#fbbc04',R5:'#8e44ad'};
+  // Check if any tower has release breakdown data
+  var hasRelData = tNames.some(function(t){ var sbr=ad.towers[t].systems_by_release; return sbr && Object.keys(sbr).length > 0; });
+  if(hasRelData){
+    var traces = releases.map(function(rel){
+      var yCounts = tNames.map(function(t){
+        var sbr = ad.towers[t].systems_by_release || {};
+        return sbr[rel] || 0;
+      });
+      var hasData = yCounts.some(function(v){return v > 0});
+      if(!hasData) return null;
+      return {x:tNames, y:yCounts, name:rel, type:'bar', marker:{color:relColors[rel]||'#999'},
+        text:yCounts.map(function(v){return v||''}), textposition:'outside', cliponaxis:false, textfont:{size:isMobile?8:10}};
+    }).filter(function(t){return t !== null});
+    if(traces.length){
+      // Add a "Total unique" trace (systems count = overall dedupped)
+      var totals = tNames.map(function(t){ return ad.towers[t].systems || 0; });
+      traces.push({x:tNames, y:totals, name:'Total (unique)', type:'bar',
+        marker:{color:'#00395d',pattern:{shape:'/'}},
+        text:totals.map(String), textposition:'outside', cliponaxis:false, textfont:{size:isMobile?8:10}});
+      Plotly.react('arch-chart-systems',traces,Object.assign({},LB,{
+        title:{text:'Unique Systems per Tower by Release',font:{size:isMobile?12:14,color:'#202124'}},
+        barmode:'group', xaxis:{tickfont:{size:isMobile?9:12},automargin:true},
+        yaxis:{title:'Unique Systems',titlefont:{size:isMobile?10:12}},
+        legend:{orientation:'h',y:-0.2,font:{size:isMobile?10:12}},
+        bargap:0.15,bargroupgap:0.08}),CFG);
+    }
+  } else {
+    // Fallback: total systems bar (no release breakdown)
+    var sysCounts = tNames.map(function(t){ return ad.towers[t].systems || 0; });
+    Plotly.react('arch-chart-systems',[{
+      x:tNames, y:sysCounts, type:'bar', marker:{color:'#0071c5'},
+      text:sysCounts.map(String), textposition:'outside', cliponaxis:false, textfont:{size:isMobile?10:12}
+    }],Object.assign({},LB,{title:{text:'Unique Systems per Tower',font:{size:isMobile?12:14,color:'#202124'}},
+      xaxis:{tickfont:{size:isMobile?9:12},automargin:true},
+      yaxis:{title:'Systems',titlefont:{size:isMobile?10:12}},showlegend:false}),CFG);
+  }
   // Integration pattern pie
   var pats = ad.patterns || {};
   var patKeys = Object.keys(pats);
@@ -1144,9 +1176,10 @@ function renderArchCharts(){
       labels:patKeys, values:patKeys.map(function(k){return pats[k]}),
       type:'pie', hole:0.4,
       marker:{colors:['#0071c5','#00aeef','#34a853','#fbbc04','#8e44ad','#e67e22','#ea4335','#00395d']},
-      textinfo:'label+percent', textfont:{size:isMobile?10:12}
+      textinfo:'percent', textfont:{size:isMobile?10:12}
     }],Object.assign({},LB,{title:{text:'Integration Patterns',font:{size:isMobile?12:14,color:'#202124'}},
-      showlegend:false,margin:{l:20,r:20,t:50,b:20},uniformtext:{minsize:10,mode:'hide'}}),CFG);
+      showlegend:true,legend:{orientation:'h',y:-0.15,font:{size:isMobile?10:12}},
+      margin:{l:20,r:20,t:50,b:60},uniformtext:{minsize:10,mode:'hide'}}),CFG);
   }
   // Lanes heatmap placeholder — use horizontal bar
   var lCounts = tNames.map(function(t){ return ad.towers[t].lanes || 0; });
@@ -1168,9 +1201,17 @@ function renderArchCharts(){
 
 // ---- Testing charts (filtered by tower chips) ----
 function renderTestCharts(){
-  // Filter raw data by selected towers
-  var tests = IS_TOWER ? RAW_TESTS : RAW_TESTS.filter(function(tc){ return selected.has(tc.t); });
-  var defects = IS_TOWER ? RAW_DEFECTS : RAW_DEFECTS.filter(function(d){ return selected.has(d.t); });
+  // Filter raw data by selected towers AND active release
+  var tests = RAW_TESTS;
+  var defects = RAW_DEFECTS;
+  if(activeRelease !== 'All'){
+    tests = tests.filter(function(tc){ return tc.r === activeRelease; });
+    defects = defects.filter(function(d){ return d.r === activeRelease; });
+  }
+  if(!IS_TOWER){
+    tests = tests.filter(function(tc){ return selected.has(tc.t); });
+    defects = defects.filter(function(d){ return selected.has(d.t); });
+  }
   if(!tests.length && !defects.length) return;
 
   // --- Update Testing KPIs ---

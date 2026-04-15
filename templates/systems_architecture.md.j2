@@ -142,11 +142,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | {{ d.number }} | {{ d.name }} | {{ d.description }} | {{ d.strategic_alignment }} | {{ d.priority }} |
 {% endfor %}
 {% else %}
-| # | Driver | Description | Strategic Alignment | Priority |
-|---|--------|-------------|---------------------|----------|
-| 1 | SAP S/4HANA Transformation | Migrate {{ cap_name }} to S/4HANA as part of IDM 2.0 | IDM 2.0 Program Strategy | High |
-| 2 | Process Standardization | Standardize {{ cap_name }} business processes across business units | Operational Excellence | High |
-| 3 | Integration Modernization | Modernize integration patterns for {{ cap_name }} using MuleSoft/CPI | Technology Modernization | Medium |
+*Business drivers for {{ cap_id }} {{ cap_name }} will be populated from the Input Portal when tower architects complete the Business Drivers tab.*
 {% endif %}
 
 <div style="page-break-before: always;"></div>
@@ -160,11 +156,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | {{ c.metric }} | {{ c.target }} | {{ c.measure }} | {{ c.baseline }} | {{ c.owner }} |
 {% endfor %}
 {% else %}
-| Metric | Target | Measure | Baseline | Owner |
-|--------|--------|---------|----------|-------|
-| Go-Live Readiness | 100% RICEFW objects in PRD | Object Tracker completion % | 0% (pre-build) | Tower Lead |
-| Data Migration Quality | < 1% error rate | Post-migration validation | Legacy baseline | Data Steward |
-| Integration Success | All flow chains operational | End-to-end test pass rate | N/A | Integration Lead |
+*Success criteria for {{ cap_id }} {{ cap_name }} will be populated from the Input Portal when tower architects complete the Success Criteria tab.*
 {% endif %}
 
 ### 2.4 Companion Documents
@@ -239,12 +231,7 @@ This capability includes **{{ bpmn_processes|length }} business process(es)** mo
 *(No lanes defined in BPMN models.)*
 {% endif %}
 {% else %}
-| Role / Lane | Processes Involved | Description |
-|------------|-------------------|-------------|
-| Business Process Owner | {{ cap_id }} | Accountable for {{ cap_name }} business process definition and sign-off |
-| Functional Analyst | {{ cap_id }} | Responsible for functional specification and test case design |
-| Technical Developer | {{ cap_id }} | Responsible for RICEFW build and unit testing |
-| Integration Architect | {{ cap_id }} | Designs and validates integration patterns and middleware flows |
+*Business roles and responsibilities will be derived from BPMN swim lane assignments when process models are available.*
 {% endif %}
 
 <div style="page-break-before: always;"></div>
@@ -260,15 +247,7 @@ This capability includes **{{ bpmn_processes|length }} business process(es)** mo
 | {{ loop.index }} | {{ df.flow_chain }} | {{ df.hop }} | {{ df.source_app }} | {{ df.source_db }} | {{ df.target_app }} | {{ df.target_db }} | {{ df.data_desc }} | {{ df.frequency }} | {{ df.classification }} |
 {% endfor %}
 {% else %}
-The following data flows are derived from the system integration hops for {{ cap_id }}. Each row shows source application on its database flowing to a target application on its database.
-
-| # | Flow Chain | Hop | Source App | Source DB | Target App | Target DB | Data Description | Frequency | Classification |
-|---|-----------|-----|-----------|----------|-----------|----------|-----------------|-----------|---------------|
-{% for hop in current_flows.hops[:8] -%}
-| {{ loop.index }} | {{ hop.flow_chain }} | {{ hop.hop_num or 1 }} | {{ hop.source_system }} | TBD | {{ hop.target_system }} | TBD | {{ hop.data_description or "Business Data" }} | {{ hop.frequency or "—" }} | Intel Confidential |
-{% endfor %}
-
-> *DB platforms will be populated when tower architects complete the extended flow template columns (42-47).*
+*Data flows with DB platform details will be populated when tower architects complete the extended flow template columns (42-47) via the Input Portal.*
 {% endif %}
 
 <div style="page-break-before: always;"></div>
@@ -321,15 +300,7 @@ The following data flows are derived from the system integration hops for {{ cap
 | {{ loop.index }} | {{ dl.source_sys }} | {{ dl.source_obj }} | {{ dl.target_sys }} | {{ dl.target_obj }} | {{ dl.notes }} |
 {% endfor %}
 {% else %}
-Data lineage traces the origin and transformation path of key data objects across integrated systems.
-
-| # | Source System | Source Schema/Object | Target System | Target Schema/Object | Transformation |
-|---|-------------|---------------------|---------------|---------------------|---------------|
-{% for hop in current_flows.hops[:6] -%}
-| {{ loop.index }} | {{ hop.source_system }} | {{ hop.source_system }} master tables | {{ hop.target_system }} | {{ hop.target_system }} staging tables | ETL / API replication |
-{% endfor %}
-
-> *Lineage detail will be refined when tower architects validate source/target schema object mappings.*
+*Data lineage (source schema/object → target schema/object mappings) will be populated when tower architects provide validated schema details via the Input Portal.*
 {% endif %}
 
 ### 4.4 RICEFW Data Objects
@@ -343,14 +314,7 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | {{ obj.object_id }} | {{ obj.type_label }} | {{ obj.description|tc }} | {{ obj.status|tc }} | {{ obj.source_system|tc }} | {{ obj.target_system|tc }} | {{ obj.technical_complexity|tc }} |
 {% endfor %}
 {% else %}
-Reports and Conversions for this capability will be populated from the Smartsheet Object Tracker via automated API extraction.
-
-| Object ID | Type | Description | Status | Source | Target | Complexity |
-|-----------|------|-------------|--------|--------|--------|-----------|
-| {{ cap_id }}-R001 | Report | {{ cap_name }} operational report | Planned | SAP S/4HANA | Analytics | Medium |
-| {{ cap_id }}-C001 | Conversion | Legacy data migration for {{ cap_name }} | Planned | Legacy ERP | SAP S/4HANA | High |
-
-> *Pending: Smartsheet API integration to auto-populate live RICEFW data (see Build Requirements).*
+*RICEFW data objects (Reports and Conversions) will be auto-populated from the Smartsheet Object Tracker when matched to this capability.*
 {% endif %}
 
 ### 4.5 Data Governance & Quality
@@ -503,15 +467,7 @@ This view is generated from `{{ future_csv_name }}` ({{ future_flows.total_hops 
 
 **Summary**: {{ ricefw.ricefw_summary }}
 {% else %}
-RICEFW objects for this capability will be auto-populated from the Smartsheet S/4 Object Tracker.
-
-| Object ID | Type | Description | Status | Source → Target | Middleware | Complexity |
-|-----------|------|-------------|--------|----------------|-----------|-----------|
-| {{ cap_id }}-I001 | Interface | {{ cap_name }} inbound data interface | Planned | Legacy → SAP S/4HANA | MuleSoft / CPI | Medium |
-| {{ cap_id }}-E001 | Enhancement | {{ cap_name }} custom business logic | Planned | SAP S/4HANA | N/A | Medium |
-| {{ cap_id }}-F001 | Form/Report | {{ cap_name }} operational output | Planned | SAP S/4HANA | N/A | Low |
-
-> *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
+*RICEFW inventory will be auto-populated from the Smartsheet S/4 Object Tracker when matched to this capability.*
 {% endif %}
 
 <div style="page-break-before: always;"></div>
@@ -525,17 +481,7 @@ RICEFW objects for this capability will be auto-populated from the Smartsheet S/
 | {{ loop.index }} | {{ ip.pattern }} | {{ ip.flow_chain }} | {{ ip.middleware }} | {{ ip.protocol }} | {{ ip.auth }} |
 {% endfor %}
 {% else %}
-Integration patterns identified from the system flow analysis for {{ cap_id }}:
-
-| # | Pattern | Flow Chain | Middleware | Protocol | Auth |
-|---|---------|-----------|-----------|----------|------|
-{% set ns = namespace(idx=0) -%}
-{% for hop in current_flows.hops[:8] -%}
-{% set ns.idx = ns.idx + 1 -%}
-| {{ ns.idx }} | {% if 'SAP' in hop.target_system or 'S/4' in hop.target_system %}API-Led{% elif 'MuleSoft' in (hop.interface_tech or '') %}Event-Driven{% else %}Point-to-Point{% endif %} | {{ hop.flow_chain }} | {% if hop.interface_tech %}{{ hop.interface_tech[:20] }}{% else %}MuleSoft / CPI{% endif %} | REST / IDoc | SSO / Certificate |
-{% endfor %}
-
-> *Integration pattern details will be refined when tower architects validate middleware assignments.*
+*Integration patterns will be populated when tower architects provide validated middleware and protocol details via the extended flow template.*
 {% endif %}
 
 <div style="page-break-before: always;"></div>
@@ -655,20 +601,7 @@ This section presents the **{{ release_id }}-scoped** current and future state f
 | {{ loop.index }} | {{ tp.name }} | {{ tp.type }} | {{ tp.systems }} | {{ tp.environment }} |
 {% endfor %}
 {% else %}
-Platform landscape inferred from integrated systems for {{ cap_id }}:
-
-| # | Platform | Type | Systems Using | Environment |
-|---|----------|------|--------------|-------------|
-| 1 | SAP S/4HANA | On-Premise (HEC) | SAP S/4 modules | DEV, QAS, PRD |
-| 2 | SAP BTP (Integration Suite) | Cloud / PaaS | CPI, API Management | DEV, QAS, PRD |
-| 3 | MuleSoft Anypoint | Cloud / iPaaS | API-led integrations | DEV, QAS, PRD |
-{% for sys in system_inventory -%}
-{% if 'SAP' not in sys.name and 'S/4' not in sys.name -%}
-| {{ loop.index + 3 }} | {{ sys.name }} Platform | {% if 'Cloud' in sys.name or 'SaaS' in sys.name %}Cloud / SaaS{% else %}On-Premise{% endif %} | {{ sys.name }} | DEV, QAS, PRD |
-{% endif -%}
-{% endfor %}
-
-> *Platform assignments will be validated when tower architects populate technology platform columns.*
+*Platform inventory will be populated when tower architects provide validated technology platform details via the extended flow template.*
 {% endif %}
 
 <div style="page-break-before: always;"></div>
@@ -683,16 +616,7 @@ Platform landscape inferred from integrated systems for {{ cap_id }}:
 | {{ obj_type }} | {{ envs.get('DEV', '—') }} | {{ envs.get('QAS', '—') }} | {{ envs.get('PRD', '—') }} |
 {% endfor %}
 {% else %}
-SAP development object counts for {{ cap_id }} will be auto-populated from SAP OData/ADT APIs when API access is provisioned.
-
-| Metric | DEV | QAS | PRD |
-|--------|-----|-----|-----|
-| Transport Requests | Pending extraction | — | — |
-| Custom Code Objects | Pending extraction | — | — |
-| CDS Views | Pending extraction | — | — |
-| Fiori Apps | Pending extraction | — | — |
-
-> *Requires SAP role `S_SERVICE` with authorization for OData catalog and ADT repository APIs (see Build Requirements).*
+*SAP development object status will be auto-populated when SAP OData/ADT API access is provisioned.*
 {% endif %}
 
 ### 6.3 NFRs & Design Principles
@@ -704,12 +628,7 @@ SAP development object counts for {{ cap_id }} will be auto-populated from SAP O
 | {{ n.category }} | {{ n.requirement }} | {{ n.target_sla }} | {{ n.priority }} |
 {% endfor %}
 {% else %}
-| Category | Requirement | Target / SLA | Priority |
-|----------|-------------|-------------|----------|
-| Performance | Transaction response time within acceptable thresholds | < 3 seconds (interactive) | High |
-| Availability | System uptime per Intel enterprise SLA | 99.5% (business hours) | High |
-| Scalability | Support projected transaction volume growth | 2x current volume | Medium |
-| Recoverability | RPO/RTO per Intel disaster recovery standards | RPO: 1 hour, RTO: 4 hours | High |
+*NFRs and design principles will be populated from the Input Portal when tower architects complete the NFRs tab.*
 {% endif %}
 
 ### 6.4 Security & Governance
@@ -721,12 +640,7 @@ SAP development object counts for {{ cap_id }} will be auto-populated from SAP O
 | {{ s.concern }} | {{ s.approach }} | {{ s.standard_policy }} | {{ s.owner }} |
 {% endfor %}
 {% else %}
-| Concern | Approach | Standard / Policy | Owner |
-|---------|----------|--------------------|-------|
-| Authentication | SSO via Intel corporate identity | | |
-| Authorization | Role-based access per system | | |
-| Data Classification | Financial data classified as Intel Confidential | | |
-| IAPM Governance | {{ total_systems }} systems tracked | | |
+*Security and governance controls will be populated from the Input Portal when tower architects complete the Security Controls tab.*
 {% endif %}
 
 <div style="page-break-before: always;"></div>
@@ -745,17 +659,7 @@ SAP development object counts for {{ cap_id }} will be auto-populated from SAP O
 *... and {{ ricefw.timeline|length - 20 }} more objects (see full Object Tracker)*
 {% endif %}
 {% else %}
-Project delivery milestones for {{ cap_id }} RICEFW objects:
-
-| Phase | Planned Start | Planned End | Status | Notes |
-|-------|---------------|-------------|--------|-------|
-| Functional Specification (FS) | Per project plan | Per project plan | In Progress | Tower-level FS schedule |
-| Technical Design (TDD) | FS + 2 weeks | FS + 6 weeks | Planned | Dependent on FS completion |
-| Build & Unit Test (TUT) | TDD + 1 week | TDD + 8 weeks | Planned | Includes S/4 + Middleware |
-| Functional User Test (FUT) | Build + 1 week | Build + 4 weeks | Planned | Tower-led validation |
-| Go-Live ({{ release_name }}) | Per release plan | Per release plan | Planned | {{ tower_name }} release |
-
-> *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
+*Project roadmap and RICEFW timelines will be auto-populated from the Smartsheet Object Tracker when matched to this capability.*
 {% endif %}
 
 <div style="page-break-before: always;"></div>
@@ -769,17 +673,7 @@ Project delivery milestones for {{ cap_id }} RICEFW objects:
 | {{ loop.index }} | {{ r.object_id }} | {{ r.category|tc }} | {{ r.raid_text|tc(60) }} | {{ r.status|tc }} | {{ r.assigned_to|tc }} | {{ r.created_date }} |
 {% endfor %}
 {% else %}
-Standard RAID items for {{ cap_id }} ({{ tower_name }}):
-
-| # | Category | Description | Status | Owner | Priority |
-|---|----------|-------------|--------|-------|----------|
-| 1 | Risk | Data migration completeness — validate all legacy {{ cap_name }} data maps to S/4 target structures | Open | Tower Architect | High |
-| 2 | Risk | Integration testing coverage — ensure all {{ total_systems }} integrated systems are validated end-to-end | Open | Integration Lead | High |
-| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
-| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
-| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
-
-> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
+*RAID items will be auto-populated from the Smartsheet RAID log when matched to this capability.*
 {% endif %}
 
 ### 7.3 Recommendations & Next Steps
@@ -791,13 +685,7 @@ Standard RAID items for {{ cap_id }} ({{ tower_name }}):
 | {{ r.number }} | {{ r.category }} | {{ r.recommendation }} | {{ r.priority }} | {{ r.owner }} | {{ r.target_date }} | {{ r.status }} |
 {% endfor %}
 {% else %}
-| # | Category | Recommendation | Priority | Owner | Target Date | Status |
-|---|----------|---------------|----------|-------|-------------|--------|
-| 1 | Architecture | Validate {{ cap_name }} current-state to future-state system mapping with tower architects | High | Tower Architect | Per release | Open |
-| 2 | Data | Complete data entity ownership and classification for all {{ total_systems }} integrated systems | High | Data Steward | Pre-TDD | Open |
-| 3 | Integration | Confirm middleware assignment (MuleSoft/CPI/BODS) for each interface object | Medium | Integration Lead | Pre-Build | Open |
-| 4 | Testing | Define end-to-end test scenarios covering all flow chains between current and future state | Medium | Test Lead | Pre-FUT | Open |
-| 5 | Governance | Register all new systems in IAPM and validate application lifecycle status | Low | EA Team | Ongoing | Open |
+*Recommendations and next steps will be populated from the Input Portal when tower architects complete the Recommendations tab.*
 {% endif %}
 
 ---

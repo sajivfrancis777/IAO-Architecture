@@ -138,8 +138,55 @@ def _load_raids(csv_path: Path) -> list[dict]:
 JIRA_CACHE = WORKSPACE / "data" / "jira" / "jira_cache.json"
 
 
+def _extract_systems_from_xlsx(xlsx_path: Path) -> set[str]:
+    """Extract unique system names (Source System + Target System) from an XLSX flow file."""
+    try:
+        import openpyxl
+        wb = openpyxl.load_workbook(str(xlsx_path), read_only=True, data_only=True)
+        # Try "Flows" tab first, then fall back to first sheet
+        sheet_map = {name.lower().strip(): name for name in wb.sheetnames}
+        actual = sheet_map.get("flows") or wb.sheetnames[0]
+        ws = wb[actual]
+        rows = list(ws.iter_rows(values_only=True))
+        wb.close()
+        if len(rows) < 2:
+            return set()
+        # Find Source System and Target System column indices
+        header = [str(h or "").strip() for h in rows[0]]
+        src_idx = tgt_idx = None
+        for i, h in enumerate(header):
+            hl = h.lower()
+            if hl == "source system":
+                src_idx = i
+            elif hl == "target system":
+                tgt_idx = i
+        if src_idx is None and tgt_idx is None:
+            return set()
+        systems = set()
+        for row in rows[1:]:
+            if src_idx is not None and src_idx < len(row):
+                val = str(row[src_idx] or "").strip()
+                if val and not val.startswith("e.g."):
+                    systems.add(val)
+            if tgt_idx is not None and tgt_idx < len(row):
+                val = str(row[tgt_idx] or "").strip()
+                if val and not val.startswith("e.g."):
+                    systems.add(val)
+        return systems
+    except Exception:
+        return set()
+
+
+_KNOWN_RELEASES = ["R1", "R2", "R3", "R4", "R5"]
+
+
 def _load_architecture_data(towers: list[str]) -> dict:
-    """Derive architecture metrics from the tower directory structure."""
+    """Derive architecture metrics from the tower directory structure.
+
+    Extracts unique system names from actual XLSX flow files, grouped by release.
+    Universal files (CurrentFlows/FutureFlows) count toward all releases.
+    Release-prefixed files (R1_CurrentFlows, etc.) count toward that release only.
+    """
     tower_stats = {}
     all_patterns: Counter = Counter()
 
@@ -150,12 +197,17 @@ def _load_architecture_data(towers: list[str]) -> dict:
         flows = 0
         lanes = 0
         caps = 0
-        systems = 0
         sads = 0
+        # Track unique systems: per-release + universal (combined across current & future)
+        universal_current: set[str] = set()
+        universal_future: set[str] = set()
+        release_current: dict[str, set[str]] = {r: set() for r in _KNOWN_RELEASES}
+        release_future: dict[str, set[str]] = {r: set() for r in _KNOWN_RELEASES}
+
         for l1_dir in tower_dir.iterdir():
             if not l1_dir.is_dir() or l1_dir.name.startswith(("output", ".", "_")):
                 continue
-            lanes += 1  # each L1 directory = a process lane
+            lanes += 1
             for cap_dir in l1_dir.iterdir():
                 if not cap_dir.is_dir():
                     continue
@@ -164,16 +216,59 @@ def _load_architecture_data(towers: list[str]) -> dict:
                 data_dir = cap_dir / "input" / "data"
                 if bpmn_dir.exists():
                     flows += len(list(bpmn_dir.glob("*.bpmn")))
-                if data_dir.exists():
-                    systems += len(list(data_dir.glob("*Flows.xlsx")))
+                if data_dir and data_dir.exists():
+                    for xlsx in data_dir.glob("*Flows.xlsx"):
+                        name = xlsx.name
+                        sys_names = _extract_systems_from_xlsx(xlsx)
+                        is_future = "FutureFlows" in name
+                        # Determine if release-specific or universal
+                        rel_match = re.match(r'^(R\d)_', name)
+                        if rel_match:
+                            rel = rel_match.group(1)
+                            if is_future:
+                                release_future.setdefault(rel, set()).update(sys_names)
+                            else:
+                                release_current.setdefault(rel, set()).update(sys_names)
+                        else:
+                            # Universal file — systems apply to all releases
+                            if is_future:
+                                universal_future.update(sys_names)
+                            else:
+                                universal_current.update(sys_names)
                 sad_dir = cap_dir / "output" / "docs" / "systems-architecture"
                 if sad_dir and sad_dir.exists():
                     sads += len(list(sad_dir.glob("*-Architecture.*")))
+
+        # Build per-release unique counts (release-specific + universal)
+        # Each release = universal_systems ∪ release-specific_systems
+        universal_all = universal_current | universal_future
+        systems_by_release = {}
+        current_by_release = {}
+        future_by_release = {}
+        for r in _KNOWN_RELEASES:
+            cur = universal_current | release_current.get(r, set())
+            fut = universal_future | release_future.get(r, set())
+            combined = cur | fut
+            if combined:
+                systems_by_release[r] = sorted(combined)
+                current_by_release[r] = len(cur)
+                future_by_release[r] = len(fut)
+        # Overall unique = union of everything
+        all_systems = set(universal_all)
+        for s in release_current.values():
+            all_systems.update(s)
+        for s in release_future.values():
+            all_systems.update(s)
+
         tower_stats[t] = {
             "flows": flows,
             "lanes": lanes,
             "capabilities": caps,
-            "systems": systems,
+            "systems": len(all_systems),
+            "systems_by_release": {r: len(v) for r, v in systems_by_release.items()},
+            "current_by_release": current_by_release,
+            "future_by_release": future_by_release,
+            "system_names": sorted(all_systems),
             "sads": sads,
         }
 
@@ -287,6 +382,19 @@ def _load_jira_data(tower_filter: str = "") -> dict:
 _CLOSED_DEFECT_STATUSES = {"completed", "canceled", "invalid bug/issue creation"}
 
 
+def _normalize_jira_release(raw: str) -> str:
+    """Normalize JIRA release names: 'Release 3' → 'R3', 'R2 SCP' → 'R2', etc."""
+    if not raw:
+        return "Unknown"
+    m = re.search(r'R(\d)', raw, re.IGNORECASE)
+    if m:
+        return f"R{m.group(1)}"
+    m = re.search(r'Release\s*(\d)', raw, re.IGNORECASE)
+    if m:
+        return f"R{m.group(1)}"
+    return raw
+
+
 def _load_raw_jira(tower_filter: str = "") -> tuple[list[dict], list[dict]]:
     """Load compact raw test-case & defect arrays for client-side filtering."""
     if not JIRA_CACHE.exists():
@@ -299,7 +407,11 @@ def _load_raw_jira(tower_filter: str = "") -> tuple[list[dict], list[dict]]:
         tw = tc.get("tower", "Unmapped")
         if tower_filter and tw != tower_filter:
             continue
-        raw_tests.append({"t": tw, "s": tc.get("status", "Not Executed") or "Not Executed"})
+        raw_tests.append({
+            "t": tw,
+            "s": tc.get("status", "Not Executed") or "Not Executed",
+            "r": _normalize_jira_release(tc.get("release", "")),
+        })
 
     raw_defects = []
     for d in cache.get("defects", []):
@@ -313,6 +425,7 @@ def _load_raw_jira(tower_filter: str = "") -> tuple[list[dict], list[dict]]:
             "v": d.get("severity", "Unknown"),
             "o": is_open,
             "c": d.get("created", ""),
+            "r": _normalize_jira_release(d.get("release", "")),
         })
 
     return raw_tests, raw_defects
