@@ -317,13 +317,13 @@ strong { color: #00285a; }
 .mermaid { overflow-x: auto; }
 .mermaid svg { min-width: 600px; }
 </style>
-<!-- Mermaid 11.14.0: Lazy-rendered via IntersectionObserver for performance.
-     Diagrams are only parsed + rendered when scrolled into the viewport.
-     On a page with 20+ diagrams this cuts initial load time from ~4s to <1s. -->
+<!-- Mermaid 11.14.0: Eager rendering on page load.
+     All diagrams render once during load so scrolling stays smooth
+     and Print / PDF captures every diagram correctly. -->
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.14.0/dist/mermaid.esm.min.mjs';
   mermaid.initialize({
-    startOnLoad: false,
+    startOnLoad: true,
     theme: 'base',
     securityLevel: 'loose',
     flowchart: {
@@ -343,27 +343,6 @@ strong { color: #00285a; }
       fontSize: '18px',
       fontFamily: 'Segoe UI, Arial, sans-serif'
     }
-  });
-
-  // Lazy-render: only render Mermaid diagrams when they scroll into view
-  var rendered = new Set();
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (!entry.isIntersecting) return;
-      var el = entry.target;
-      if (rendered.has(el)) return;
-      rendered.add(el);
-      observer.unobserve(el);
-      // mermaid.run expects an object with nodes array
-      mermaid.run({ nodes: [el] });
-    });
-  }, { rootMargin: '200px' });  // start rendering 200px before visible
-
-  // Observe all .mermaid divs once DOM is ready
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.mermaid').forEach(function(el) {
-      observer.observe(el);
-    });
   });
 </script>
 <script>
@@ -854,12 +833,12 @@ flowchart TB
 </thead>
 <tbody>
 <tr>
-<td><strong>New Systems</strong></td>
+<td><strong>Added in Future State</strong></td>
 <td style="text-align: center;">0</td>
 <td>—</td>
 </tr>
 <tr>
-<td><strong>Retiring Systems</strong></td>
+<td><strong>Removed from Future State</strong></td>
 <td style="text-align: center;">0</td>
 <td>—</td>
 </tr>
@@ -870,6 +849,9 @@ flowchart TB
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p><strong>Reconciliation Note:</strong> System lifecycle status is sourced from IAPM (Intel Application Portfolio Management). Systems shown as <em>Removed from Future State</em> are not in scope for this release but are <strong>not</strong> decommissioned unless marked <em>EOL Path</em> above. EOL decommissioning is planned post-R5.</p>
+</blockquote>
 <h3 id="52-integration-complexity-delta">5.2 Integration Complexity Delta</h3>
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>Master Data</span></div>
 
