@@ -1079,6 +1079,12 @@ def main() -> None:
         if args.release:
             removed = ss_loader.filter_by_release(args.release)
             print(f"  Filtered to {len(ss_loader._rows):,} rows for release {args.release} ({removed:,} excluded)")
+        # Cross-reference ECA data from SCP-PMO WRICEF
+        wricef_path = Path("data/smartsheet/api/ricefw/SCP-PMO_WRICEF.csv")
+        if wricef_path.exists():
+            eca_count = ss_loader.load_wricef_eca(str(wricef_path))
+            if eca_count:
+                print(f"  ECA cross-reference: enriched {eca_count} objects from SCP-PMO WRICEF")
     else:
         print(f"  WARNING: Object Tracker not found at {tracker_path} — RICEFW/RAID disabled")
 

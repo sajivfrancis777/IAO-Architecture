@@ -41,6 +41,9 @@ class RICEFWObject:
     fut_pct: str = ""
     release: str = ""
     rev_trac_id: str = ""
+    eca_involved: str = ""
+    eca_object_id: str = ""
+    eca_description: str = ""
 
     @property
     def type_code(self) -> str:
@@ -180,6 +183,65 @@ class SmartsheetLoader:
             reader = csv.DictReader(f)
             self._rows = [row for row in reader]
         self._loaded = True
+
+    def load_wricef_eca(self, wricef_csv: str) -> int:
+        """Cross-reference ECA data from SCP-PMO WRICEF into Object Tracker rows.
+
+        The SCP-PMO WRICEF has ECA columns (ECA Involved?, ECA Object ID,
+        ECA Object Description) that the main Object Tracker lacks.  This method
+        builds a lookup from SCP Object ID → Archive Object ID(s) in the WRICEF,
+        then matches those archive IDs to Object Tracker Object IDs to backfill
+        ECA fields.  Returns the number of rows enriched.
+        """
+        path = Path(wricef_csv)
+        if not path.exists():
+            return 0
+
+        with open(path, "r", encoding="utf-8-sig", newline="") as f:
+            wricef_rows = list(csv.DictReader(f))
+
+        # Build mapping: archive_object_id → ECA fields
+        eca_map: dict[str, dict[str, str]] = {}
+        for wr in wricef_rows:
+            eca_inv = (wr.get("ECA Involved?") or "").strip()
+            eca_id = (wr.get("ECA Object  ID") or wr.get("ECA Object ID") or "").strip()
+            eca_desc = (wr.get("ECA Object Description") or "").strip()
+            if not eca_id:
+                continue
+            # Archive Object IDs map SCP objects back to Object Tracker IDs
+            for col in ("Archive Object ID", "Archive Object ID_2"):
+                archive_raw = (wr.get(col) or "").strip()
+                if archive_raw:
+                    for aid in archive_raw.split(","):
+                        aid = aid.strip()
+                        if aid:
+                            eca_map[aid] = {
+                                "eca_involved": eca_inv,
+                                "eca_object_id": eca_id,
+                                "eca_description": eca_desc,
+                            }
+
+        # Also map by SCP Object ID directly for matching
+        for wr in wricef_rows:
+            scp_id = (wr.get("SCP Object ID") or "").strip()
+            eca_id = (wr.get("ECA Object  ID") or wr.get("ECA Object ID") or "").strip()
+            if scp_id and eca_id:
+                eca_map[scp_id] = {
+                    "eca_involved": (wr.get("ECA Involved?") or "").strip(),
+                    "eca_object_id": eca_id,
+                    "eca_description": (wr.get("ECA Object Description") or "").strip(),
+                }
+
+        # Enrich Object Tracker rows
+        enriched = 0
+        for row in self._rows:
+            obj_id = (row.get("Object ID") or "").strip()
+            if obj_id in eca_map:
+                row["ECA Involved?"] = eca_map[obj_id]["eca_involved"]
+                row["ECA Object  ID"] = eca_map[obj_id]["eca_object_id"]
+                row["ECA Object Description"] = eca_map[obj_id]["eca_description"]
+                enriched += 1
+        return enriched
 
     def filter_by_release(self, release: str) -> int:
         """Filter internal rows to only those matching the given release (e.g. 'R3').
@@ -324,6 +386,9 @@ class SmartsheetLoader:
             fut_pct=(row.get("FUT % Complete") or "").strip(),
             release=(row.get("Release Name") or "").strip(),
             rev_trac_id=(row.get("Rev-Trac ID") or "").strip(),
+            eca_involved=(row.get("ECA Involved?") or "").strip(),
+            eca_object_id=(row.get("ECA Object  ID") or row.get("ECA Object ID") or "").strip(),
+            eca_description=(row.get("ECA Object Description") or "").strip(),
         )
 
     def _parse_raid(self, row: dict[str, str]) -> Optional[RAIDEntry]:

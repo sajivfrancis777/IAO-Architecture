@@ -67,7 +67,12 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+        <ul>
+          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
+          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+        </ul>
+      </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
     </ul>
   </li>
@@ -650,12 +655,7 @@ flowchart TD
 
 ### 4.1 Data Flows — Source to Target
 
-The following data flows are derived from the system integration hops for LO-180. Each row shows source application on its database flowing to a target application on its database.
-
-| # | Flow Chain | Hop | Source App | Source DB | Target App | Target DB | Data Description | Frequency | Classification |
-|---|-----------|-----|-----------|----------|-----------|----------|-----------------|-----------|---------------|
-
-> *DB platforms will be populated when tower architects complete the extended flow template columns (42-47).*
+*Data flows with DB platform details will be populated when tower architects complete the extended flow template columns (42-47) via the Input Portal.*
 
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
@@ -672,12 +672,7 @@ The following data flows are derived from the system integration hops for LO-180
 
 ### 4.3 Data Lineage
 
-Data lineage traces the origin and transformation path of key data objects across integrated systems.
-
-| # | Source System | Source Schema/Object | Target System | Target Schema/Object | Transformation |
-|---|-------------|---------------------|---------------|---------------------|---------------|
-
-> *Lineage detail will be refined when tower architects validate source/target schema object mappings.*
+*Data lineage (source schema/object → target schema/object mappings) will be populated when tower architects provide validated schema details via the Input Portal.*
 
 ### 4.4 RICEFW Data Objects
 
@@ -724,61 +719,84 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 ### 5.5 RICEFW Inventory
 
-| Object ID | Type | Description | Status | Source → Target | Middleware | Complexity |
-|-----------|------|-------------|--------|----------------|-----------|-----------|
-| LOGW1078_IP | Workflow | ISM Workflows - Capital/AMT | 10. Object Complete |  | NA | 03.Medium |
-| LOGW1077_IP | Workflow | ISM Workflows - EIMS/Lab | 10. Object Complete |  | NA | 03.Medium |
-| LOGW1076_IP | Workflow | ISM Workflows - Non-inventory | 10. Object Complete |  | NA | 02.High |
-| LOGR1176_IP | Report | ISM - International Traffic Report | 10. Object Complete |  | NA | 02.High |
-| LOGR0833_IP | Report | Email Notification for deletion of Shipping Memos | 10. Object Complete |  | NA | 03.Medium |
-| LOGI1679 | Interface | Receive 4C1 Inventory movement Stock type change and cycle count from IF | 10. Object Complete |  | SFT | 03.Medium |
-| LOGI1678 | Interface | Receive 4C1 Inventory Reconciliation Snapshot from IF | 10. Object Complete |  | SFT | 03.Medium |
-| LOGI1576 | Interface | ECD_Interface between S4 to ECD for inventory status response | 10. Object Complete |  | MuleSoft | 03.Medium |
-| LOGI1575 | Interface | ECD_Interface between S4 to 3PL for inventory status webservice​ | 10. Object Complete |  | MuleSoft | 03.Medium |
-| LOGI1571 | Interface | ECD_Interface from ECD to S4 for Inventory status call​ | 10. Object Complete |  | MuleSoft | 03.Medium |
-| LOGI1295 | Interface | ECD_Interface between S/4 and ECD for completion status | 10. Object Complete |  | MULESOFT | 03.Medium |
-| LOGI1291 | Interface | ECD_Interface between S/4 and 3PL to send plant/batch level hold/unhold infor... | 10. Object Complete |  | MULESOFT | 03.Medium |
-| LOGI1290 | Interface | ECD_Interface from ECD to S4 for Inventory Hold/unhold request | 10. Object Complete |  | MULESOFT | 03.Medium |
-| LOGI1272 | Interface | Response to goods receipt posting from SAP to 3PL - EDI 4C1B | 10. Object Complete | S/4 → WMS (3PL) | MULESOFT | 03.Medium |
-| LOGI1267 | Interface | Inventory Reconciliation with Consignment hub – EDI 4C1 with version control | 10. Object Complete | OpenText → S/4 | MULESOFT | 03.Medium |
-| LOGI1081_IP | Interface | Interface + Enhancement - Reprinting of Carrier Label | 10. Object Complete | S/4 → Redwood | APIGEE | 03.Medium |
-| LOGI1079_IP | Interface | Interface from S4 ISM to Service Now | 10. Object Complete | S/4 ISM → Service Now | NA | 03.Medium |
-| LOGI1074_IP | Interface | Send data via API to retrieve the tracking ID - interface + Enhancement | 10. Object Complete | S/4 → Redwood | APIGEE | 03.Medium |
-| LOGI0951 | Interface | Inbound interface to receive Finished Goods “Goods Receipt” (4B2) signal from... | 10. Object Complete | OpenText → S/4 | MULESOFT | 03.Medium |
-| LOGI0950 | Interface | Interface to receive 4B2 signal from Factory and return shipments from ODM/OS... | 10. Object Complete | OpenText → S/4 | MULESOFT | 03.Medium |
-| LOGI0933 | Interface | W-lot inventory error handling | 10. Object Complete |  | MULESOFT | 03.Medium |
-| LOGI0836_IP | Interface | Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements) | 10. Object Complete | S/4 → NDA | NA | 03.Medium |
-| LOGI0335 | Interface | Outbound PIP signal to 3PL for material document transfer – EDI 4C1 | 10. Object Complete | S/4 → OpenText | MULESOFT | 02.High |
-| LOGI0237_IP | Interface | Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 | 10. Object Complete | 3PL → S/4 | MULESOFT | 02.High |
-| LOGF1100_IP | Form | Printing of Standard Shipping Label | 10. Object Complete |  | NA | 02.High |
-| LOGF0359_IP | Form | ISM - Generate Commercial Invoice - IF/IP | 10. Object Complete | NA → NA | NA | 02.High |
-| LOGF0358_IP | Form | ISM - Generate Traveler Document - IF/IP | 10. Object Complete | NA → NA | NA | 02.High |
-| LOGF0352_IP | Form | ISM - IPLA | 10. Object Complete |  | NA | 02.High |
-| LOGF0351_IP | Form | ISM - Custom China Special label | 10. Object Complete |  | NA | 02.High |
-| LOGF0350_IP | Form | ISM - India GST DC | 10. Object Complete |  | NA | 02.High |
-| LOGE1686 | Enhancement | IP custom table for reconciliation data | 10. Object Complete |  | NA | 03.Medium |
-| LOGE1572_IP | Enhancement | SAP GUI T-code to Move stock from Blocked to unblock Status | 10. Object Complete |  | NA | 02.High |
-| LOGE1569_IP | Enhancement | Enhancement to change billing status based on ship reason in ISM | 10. Object Complete |  | NA | 03.Medium |
-| LOGE1327 | Enhancement | ECD_Enhancement to retrieve plant details for material/batch and update custo... | 09. FUT Overdue |  | NA | 02.High |
-| LOGE1253 | Enhancement | Inventory Reconciliation with Consignment hub – EDI 4C1 with version control | 10. Object Complete |  | NA | 03.Medium |
-| LOGE1177_IP | Enhancement | India GST E-invoicing | 10. Object Complete |  | NA | 03.Medium |
-| LOGE1118_IP | Enhancement | ISM – MY Security Check Fiori app - IF | 10. Object Complete |  | NA | 02.High |
-| LOGE1117_IP | Enhancement | ISM – Employee acknowledgement - IP | 10. Object Complete |  | NA | 02.High |
-| LOGE1090_IP | Enhancement | PGI confirmation for non-inventory Intel freight shipments via email | 10. Object Complete |  | NA | 03.Medium |
-| LOGE1080_IP | Enhancement | Email notifications to be triggered as part of ISM Workflows | 10. Object Complete |  | NA | 02.High |
-| LOGE1052_IP | Enhancement | Custom fields required on delivery screen | 10. Object Complete |  | NA | 03.Medium |
-| LOGE0945 | Enhancement | Update COF, COA and FVR in 3PL WMS - EDI 4C1B | 10. Object Complete |  | NA | 03.Medium |
-| LOGE0936 | Enhancement | Validate receiving consigned materials into consignment hub – EDI 4B2 CSGN | 10. Object Complete |  | NA | 03.Medium |
-| LOGE0935_IP | Enhancement | Fiori App - Shipping Memo | 09. FUT Overdue |  | NA | 01.Very High |
-| LOGE0835_IF | Enhancement | Interface to get the AMT (Asset Management Tool) data on the ISM | 10. Object Complete |  | NA | 04.Low |
-| LOGE0239_IP | Enhancement | Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 - Table Creation | 10. Object Complete | NA → NA | NA | 03.Medium |
-| LOGE0190_IP | Enhancement | Delivery Split for STO in S/4 | 10. Object Complete | NA → NA | NA | 03.Medium |
-| LOGC1500 | Conversion | IM Stock conversion from Non SAP system to S4 system | 10. Object Complete |  | NA | 02.High |
-| LOGC0972_IP | Conversion | Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi... | 10. Object Complete |  | NA | 02.High |
-| LOGC0946_IP | Conversion | Open Inventory Conversion for IP and IF (as applicable) , ECC to S4 | 10. Object Complete |  | NA | 02.High |
-| LOGI1584 | Interface | Interface to post inventory in SAP S/4HANA from ECA via MuleSoft. | 06. Dev In Progress |  | MuleSoft | 03.Medium |
+| Object ID | Type | Description | Status | Source → Target | Middleware | Boundary App | Interface Approach | Complexity |
+|-----------|------|-------------|--------|----------------|-----------|-------------|-------------------|-----------|
+| LOGW1078_IP | Workflow | ISM Workflows - Capital/AMT | 10. Object Complete |  | NA |  |  | 03.Medium |
+| LOGW1077_IP | Workflow | ISM Workflows - EIMS/Lab | 10. Object Complete |  | NA |  |  | 03.Medium |
+| LOGW1076_IP | Workflow | ISM Workflows - Non-inventory | 10. Object Complete |  | NA |  |  | 02.High |
+| LOGR1176_IP | Report | ISM - International Traffic Report | 10. Object Complete |  | NA |  |  | 02.High |
+| LOGR0833_IP | Report | Email Notification for deletion of Shipping Memos | 10. Object Complete |  | NA |  |  | 03.Medium |
+| LOGI1679 | Interface | Receive 4C1 Inventory movement Stock type change and cycle count from IF | 10. Object Complete |  | SFT | NA |  | 03.Medium |
+| LOGI1678 | Interface | Receive 4C1 Inventory Reconciliation Snapshot from IF | 10. Object Complete |  | SFT | NA |  | 03.Medium |
+| LOGI1576 | Interface | ECD_Interface between S4 to ECD for inventory status response | 10. Object Complete |  | MuleSoft | Excursion Containment Disposition |  | 03.Medium |
+| LOGI1575 | Interface | ECD_Interface between S4 to 3PL for inventory status webservice​ | 10. Object Complete |  | MuleSoft | NA |  | 03.Medium |
+| LOGI1571 | Interface | ECD_Interface from ECD to S4 for Inventory status call​ | 10. Object Complete |  | MuleSoft | Excursion Containment Disposition |  | 03.Medium |
+| LOGI1295 | Interface | ECD_Interface between S/4 and ECD for completion status | 10. Object Complete |  | MULESOFT | Excursion Containment Disposition |  | 03.Medium |
+| LOGI1291 | Interface | ECD_Interface between S/4 and 3PL to send plant/batch level hold/unhold infor... | 10. Object Complete |  | MULESOFT | NA |  | 03.Medium |
+| LOGI1290 | Interface | ECD_Interface from ECD to S4 for Inventory Hold/unhold request | 10. Object Complete |  | MULESOFT | Excursion Containment Disposition |  | 03.Medium |
+| LOGI1272 | Interface | Response to goods receipt posting from SAP to 3PL - EDI 4C1B | 10. Object Complete | S/4 → WMS (3PL) | MULESOFT | OpenText |  | 03.Medium |
+| LOGI1267 | Interface | Inventory Reconciliation with Consignment hub – EDI 4C1 with version control | 10. Object Complete | OpenText → S/4 | MULESOFT | OpenText |  | 03.Medium |
+| LOGI1081_IP | Interface | Interface + Enhancement - Reprinting of Carrier Label | 10. Object Complete | S/4 → Redwood | APIGEE | Redwood |  | 03.Medium |
+| LOGI1079_IP | Interface | Interface from S4 ISM to Service Now | 10. Object Complete | S/4 ISM → Service Now | NA | ServiceNow Cloud |  | 03.Medium |
+| LOGI1074_IP | Interface | Send data via API to retrieve the tracking ID - interface + Enhancement | 10. Object Complete | S/4 → Redwood | APIGEE | Redwood |  | 03.Medium |
+| LOGI0951 | Interface | Inbound interface to receive Finished Goods “Goods Receipt” (4B2) signal from... | 10. Object Complete | OpenText → S/4 | MULESOFT | OpenText |  | 03.Medium |
+| LOGI0950 | Interface | Interface to receive 4B2 signal from Factory and return shipments from ODM/OS... | 10. Object Complete | OpenText → S/4 | MULESOFT | OpenText |  | 03.Medium |
+| LOGI0933 | Interface | W-lot inventory error handling | 10. Object Complete |  | MULESOFT | NA |  | 03.Medium |
+| LOGI0836_IP | Interface | Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements) | 10. Object Complete | S/4 → NDA | NA | LAWMAS Agiloft Contract Lifecycle Management |  | 03.Medium |
+| LOGI0335 | Interface | Outbound PIP signal to 3PL for material document transfer – EDI 4C1 | 10. Object Complete | S/4 → OpenText | MULESOFT | OpenText |  | 02.High |
+| LOGI0237_IP | Interface | Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 | 10. Object Complete | 3PL → S/4 | MULESOFT | OpenText |  | 02.High |
+| LOGF1100_IP | Form | Printing of Standard Shipping Label | 10. Object Complete |  | NA |  |  | 02.High |
+| LOGF0359_IP | Form | ISM - Generate Commercial Invoice - IF/IP | 10. Object Complete | NA → NA | NA |  |  | 02.High |
+| LOGF0358_IP | Form | ISM - Generate Traveler Document - IF/IP | 10. Object Complete | NA → NA | NA |  |  | 02.High |
+| LOGF0352_IP | Form | ISM - IPLA | 10. Object Complete |  | NA |  |  | 02.High |
+| LOGF0351_IP | Form | ISM - Custom China Special label | 10. Object Complete |  | NA |  |  | 02.High |
+| LOGF0350_IP | Form | ISM - India GST DC | 10. Object Complete |  | NA |  |  | 02.High |
+| LOGE1686 | Enhancement | IP custom table for reconciliation data | 10. Object Complete |  | NA |  |  | 03.Medium |
+| LOGE1572_IP | Enhancement | SAP GUI T-code to Move stock from Blocked to unblock Status | 10. Object Complete |  | NA |  |  | 02.High |
+| LOGE1569_IP | Enhancement | Enhancement to change billing status based on ship reason in ISM | 10. Object Complete |  | NA |  |  | 03.Medium |
+| LOGE1327 | Enhancement | ECD_Enhancement to retrieve plant details for material/batch and update custo... | 09. FUT Overdue |  | NA |  |  | 02.High |
+| LOGE1253 | Enhancement | Inventory Reconciliation with Consignment hub – EDI 4C1 with version control | 10. Object Complete |  | NA |  |  | 03.Medium |
+| LOGE1177_IP | Enhancement | India GST E-invoicing | 10. Object Complete |  | NA |  |  | 03.Medium |
+| LOGE1118_IP | Enhancement | ISM – MY Security Check Fiori app - IF | 10. Object Complete |  | NA |  |  | 02.High |
+| LOGE1117_IP | Enhancement | ISM – Employee acknowledgement - IP | 10. Object Complete |  | NA |  |  | 02.High |
+| LOGE1090_IP | Enhancement | PGI confirmation for non-inventory Intel freight shipments via email | 10. Object Complete |  | NA |  |  | 03.Medium |
+| LOGE1080_IP | Enhancement | Email notifications to be triggered as part of ISM Workflows | 10. Object Complete |  | NA |  |  | 02.High |
+| LOGE1052_IP | Enhancement | Custom fields required on delivery screen | 10. Object Complete |  | NA |  |  | 03.Medium |
+| LOGE0945 | Enhancement | Update COF, COA and FVR in 3PL WMS - EDI 4C1B | 10. Object Complete |  | NA |  |  | 03.Medium |
+| LOGE0936 | Enhancement | Validate receiving consigned materials into consignment hub – EDI 4B2 CSGN | 10. Object Complete |  | NA |  |  | 03.Medium |
+| LOGE0935_IP | Enhancement | Fiori App - Shipping Memo | 09. FUT Overdue |  | NA |  |  | 01.Very High |
+| LOGE0835_IF | Enhancement | Interface to get the AMT (Asset Management Tool) data on the ISM | 10. Object Complete |  | NA | Asset Management Tool 2.0 |  | 04.Low |
+| LOGE0239_IP | Enhancement | Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 - Table Creation | 10. Object Complete | NA → NA | NA | NA |  | 03.Medium |
+| LOGE0190_IP | Enhancement | Delivery Split for STO in S/4 | 10. Object Complete | NA → NA | NA | NA |  | 03.Medium |
+| LOGC1500 | Conversion | IM Stock conversion from Non SAP system to S4 system | 10. Object Complete |  | NA |  |  | 02.High |
+| LOGC0972_IP | Conversion | Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi... | 10. Object Complete |  | NA |  |  | 02.High |
+| LOGC0946_IP | Conversion | Open Inventory Conversion for IP and IF (as applicable) , ECC to S4 | 10. Object Complete |  | NA |  |  | 02.High |
+| LOGI1584 | Interface | Interface to post inventory in SAP S/4HANA from ECA via MuleSoft. | 06. Dev In Progress |  | MuleSoft | NA |  | 03.Medium |
 
 **Summary**: 2 Reports, 20 Interfaces, 3 Conversions, 17 Enhancements, 6 Forms, 3 Workflows
+
+
+#### 5.5.2 Boundary Application Dependencies
+
+The following RICEFW objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
+
+| RICEFW Object ID | Description | Boundary Application | IAPM ID | Source → Target |
+|-------------------|------------|---------------------|---------|----------------|
+| LOGI1576 | ECD_Interface between S4 to ECD for inventory status response | Excursion Containment Disposition | 8785.0 |  |
+| LOGI1571 | ECD_Interface from ECD to S4 for Inventory status call​ | Excursion Containment Disposition | 8785.0 |  |
+| LOGI1295 | ECD_Interface between S/4 and ECD for completion status | Excursion Containment Disposition | 8785.0 |  |
+| LOGI1290 | ECD_Interface from ECD to S4 for Inventory Hold/unhold request | Excursion Containment Disposition | 8785.0 |  |
+| LOGI1272 | Response to goods receipt posting from SAP to 3PL - EDI 4C1B | OpenText | 12842.0 | S/4 → WMS (3PL) |
+| LOGI1267 | Inventory Reconciliation with Consignment hub – EDI 4C1 with version control | OpenText | 12842.0 | OpenText → S/4 |
+| LOGI1081_IP | Interface + Enhancement - Reprinting of Carrier Label | Redwood | 56974.0 | S/4 → Redwood |
+| LOGI1079_IP | Interface from S4 ISM to Service Now | ServiceNow Cloud | 23476.0 | S/4 ISM → Service Now |
+| LOGI1074_IP | Send data via API to retrieve the tracking ID - interface + Enhancement | Redwood | 56974.0 | S/4 → Redwood |
+| LOGI0951 | Inbound interface to receive Finished Goods “Goods Receipt” (4B2) signal from... | OpenText | 12842.0 | OpenText → S/4 |
+| LOGI0950 | Interface to receive 4B2 signal from Factory and return shipments from ODM/OS... | OpenText | 12842.0 | OpenText → S/4 |
+| LOGI0836_IP | Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements) | LAWMAS Agiloft Contract Lifecycle Management | 35641.0 | S/4 → NDA |
+| LOGI0335 | Outbound PIP signal to 3PL for material document transfer – EDI 4C1 | OpenText | 12842.0 | S/4 → OpenText |
+| LOGI0237_IP | Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 | OpenText | 12842.0 | 3PL → S/4 |
+| LOGE0835_IF | Interface to get the AMT (Asset Management Tool) data on the ISM | Asset Management Tool 2.0 | 14310.0 |  |
 
 
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
@@ -787,12 +805,7 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 ### 5.6 Integration Patterns
 
-Integration patterns identified from the system flow analysis for LO-180:
-
-| # | Pattern | Flow Chain | Middleware | Protocol | Auth |
-|---|---------|-----------|-----------|----------|------|
-
-> *Integration pattern details will be refined when tower architects validate middleware assignments.*
+*Integration patterns will be populated when tower architects provide validated middleware and protocol details via the extended flow template.*
 
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
@@ -811,15 +824,7 @@ Integration patterns identified from the system flow analysis for LO-180:
 
 #### Platform Inventory
 
-Platform landscape inferred from integrated systems for LO-180:
-
-| # | Platform | Type | Systems Using | Environment |
-|---|----------|------|--------------|-------------|
-| 1 | SAP S/4HANA | On-Premise (HEC) | SAP S/4 modules | DEV, QAS, PRD |
-| 2 | SAP BTP (Integration Suite) | Cloud / PaaS | CPI, API Management | DEV, QAS, PRD |
-| 3 | MuleSoft Anypoint | Cloud / iPaaS | API-led integrations | DEV, QAS, PRD |
-
-> *Platform assignments will be validated when tower architects populate technology platform columns.*
+*Platform inventory will be populated when tower architects provide validated technology platform details via the extended flow template.*
 
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - FTS (IP)</span></div>
@@ -904,17 +909,7 @@ Platform landscape inferred from integrated systems for LO-180:
 
 ### 7.2 RAID Log
 
-Standard RAID items for LO-180 (Forecast to Stock (IP)):
-
-| # | Category | Description | Status | Owner | Priority |
-|---|----------|-------------|--------|-------|----------|
-| 1 | Risk | Data migration completeness — validate all legacy Manage Outbound Transportation - FTS (IP) data maps to S/4 target structures | Open | Tower Architect | High |
-| 2 | Risk | Integration testing coverage — ensure all 0 integrated systems are validated end-to-end | Open | Integration Lead | High |
-| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
-| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
-| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
-
-> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
+*RAID items will be auto-populated from the Smartsheet RAID log when matched to this capability.*
 
 ### 7.3 Recommendations & Next Steps
 

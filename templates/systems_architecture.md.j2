@@ -73,7 +73,12 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
 {% endif %}
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+        <ul>
+          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
+          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+        </ul>
+      </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
 {% if has_release_flows %}
       <li><a href="#57-release-specific-architecture-{{ release_id | lower }}">5.7 Release-Specific Architecture ({{ release_id }})</a></li>
@@ -459,13 +464,45 @@ This view is generated from `{{ future_csv_name }}` ({{ future_flows.total_hops 
 ### 5.5 RICEFW Inventory
 
 {% if ricefw and ricefw.ricefw %}
-| Object ID | Type | Description | Status | Source → Target | Middleware | Complexity |
-|-----------|------|-------------|--------|----------------|-----------|-----------|
+| Object ID | Type | Description | Status | Source → Target | Middleware | Boundary App | Interface Approach | Complexity |
+|-----------|------|-------------|--------|----------------|-----------|-------------|-------------------|-----------|
 {% for obj in ricefw.ricefw -%}
-| {{ obj.object_id }} | {{ obj.type_label }} | {{ obj.description|tc }} | {{ obj.status|tc }} | {{ obj.source_system|tc }}{% if obj.target_system %} → {{ obj.target_system|tc }}{% endif %} | {{ obj.middleware|tc }} | {{ obj.technical_complexity|tc }} |
+| {{ obj.object_id }} | {{ obj.type_label }} | {{ obj.description|tc }} | {{ obj.status|tc }} | {{ obj.source_system|tc }}{% if obj.target_system %} → {{ obj.target_system|tc }}{% endif %} | {{ obj.middleware|tc }} | {{ obj.boundary_app|tc }} | {{ obj.interface_approach|tc }} | {{ obj.technical_complexity|tc }} |
 {% endfor %}
 
 **Summary**: {{ ricefw.ricefw_summary }}
+
+{% set eca_objects = [] %}
+{% for obj in ricefw.ricefw if obj.eca_object_id %}
+{% if eca_objects.append(obj) %}{% endif %}
+{% endfor %}
+{% if eca_objects %}
+#### 5.5.1 ECA Dependencies
+
+The following RICEFW objects have dependencies on **Enterprise Cloud Analytics (ECA)** platform objects (Databricks/Snowflake):
+
+| RICEFW Object ID | Description | ECA Object ID | ECA Description | Source → Target |
+|-------------------|------------|---------------|----------------|----------------|
+{% for obj in eca_objects -%}
+| {{ obj.object_id }} | {{ obj.description|tc }} | {{ obj.eca_object_id }} | {{ obj.eca_description|tc }} | {{ obj.source_system|tc }}{% if obj.target_system %} → {{ obj.target_system|tc }}{% endif %} |
+{% endfor %}
+{% endif %}
+
+{% set ba_objects = [] %}
+{% for obj in ricefw.ricefw if obj.boundary_app and obj.boundary_app != 'NA' %}
+{% if ba_objects.append(obj) %}{% endif %}
+{% endfor %}
+{% if ba_objects %}
+#### 5.5.2 Boundary Application Dependencies
+
+The following RICEFW objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
+
+| RICEFW Object ID | Description | Boundary Application | IAPM ID | Source → Target |
+|-------------------|------------|---------------------|---------|----------------|
+{% for obj in ba_objects -%}
+| {{ obj.object_id }} | {{ obj.description|tc }} | {{ obj.boundary_app|tc }} | {{ obj.boundary_app_iapm_id }} | {{ obj.source_system|tc }}{% if obj.target_system %} → {{ obj.target_system|tc }}{% endif %} |
+{% endfor %}
+{% endif %}
 {% else %}
 *RICEFW inventory will be auto-populated from the Smartsheet S/4 Object Tracker when matched to this capability.*
 {% endif %}

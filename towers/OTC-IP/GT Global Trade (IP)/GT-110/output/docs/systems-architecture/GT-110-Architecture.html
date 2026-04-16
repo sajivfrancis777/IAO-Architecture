@@ -445,7 +445,12 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+        <ul>
+          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
+          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+        </ul>
+      </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
     </ul>
   </li>
@@ -878,40 +883,7 @@ flowchart TD
 
 <h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
 <h3 id="41-data-flows-source-to-target">4.1 Data Flows — Source to Target</h3>
-<p>The following data flows are derived from the system integration hops for GT-110. Each row shows source application on its database flowing to a target application on its database.</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Flow Chain</th>
-<th>Hop</th>
-<th>Source App</th>
-<th>Source DB</th>
-<th>Target App</th>
-<th>Target DB</th>
-<th>Data Description</th>
-<th>Frequency</th>
-<th>Classification</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>DB platforms will be populated when tower architects complete the extended flow template columns (42-47).</em></p>
-</blockquote>
+<p><em>Data flows with DB platform details will be populated when tower architects complete the extended flow template columns (42-47) via the Input Portal.</em></p>
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-110 — Monitor Completed Declaration (IP)</span></div>
 
 </div>
@@ -924,32 +896,7 @@ flowchart TD
 <p><strong>DATA ARCHITECTURE</strong> — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.</p>
 </blockquote>
 <h3 id="43-data-lineage">4.3 Data Lineage</h3>
-<p>Data lineage traces the origin and transformation path of key data objects across integrated systems.</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Source System</th>
-<th>Source Schema/Object</th>
-<th>Target System</th>
-<th>Target Schema/Object</th>
-<th>Transformation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Lineage detail will be refined when tower architects validate source/target schema object mappings.</em></p>
-</blockquote>
+<p><em>Data lineage (source schema/object → target schema/object mappings) will be populated when tower architects provide validated schema details via the Input Portal.</em></p>
 <h3 id="44-ricefw-data-objects">4.4 RICEFW Data Objects</h3>
 <p>Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:</p>
 <table>
@@ -1262,6 +1209,8 @@ flowchart TD
 <th>Status</th>
 <th>Source → Target</th>
 <th>Middleware</th>
+<th>Boundary App</th>
+<th>Interface Approach</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -1273,6 +1222,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1282,6 +1233,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1291,6 +1244,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>ECC → S4</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1300,6 +1255,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>MULESOFT</td>
+<td>Return For Credit</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1309,6 +1266,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>MULESOFT</td>
+<td>Return For Credit</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1318,6 +1277,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>MULESOFT</td>
+<td>NA</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1327,6 +1288,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>MULESOFT</td>
+<td>NA</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1336,6 +1299,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>APIGEE</td>
+<td>Entitlement Orchestration Service</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1345,6 +1310,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>MULESOFT</td>
+<td>SAP Commerce Cloud</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1354,6 +1321,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>MULESOFT</td>
+<td>SAP Commerce Cloud</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1363,6 +1332,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>MULESOFT</td>
+<td>NA</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1372,6 +1343,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S/4 → E-Commerce Cloud</td>
 <td>APIGEE</td>
+<td>SAP Commerce Cloud</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1381,6 +1354,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>GTS → MULESOFT</td>
 <td>APIGEE</td>
+<td>Reltio; Enterprise registration and profile management; Webquote; Profisee - &hellip;</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1390,6 +1365,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>GTS → MULESOFT</td>
 <td>APIGEE</td>
+<td>IRC2 Entitlement Management as-a Service; PEGA Integrated Shipping Memo Quest&hellip;</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1399,6 +1376,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>MULESOFT → GTS</td>
 <td>APIGEE</td>
+<td>IRC2 Entitlement Management as-a Service</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1408,6 +1387,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>MULESOFT → GTS</td>
 <td>APIGEE</td>
+<td>Customs Tracker; PEGA Global Trade Request; PEGA Integrated Shipping Memo Que&hellip;</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1417,6 +1398,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>MULESOFT → GTS</td>
 <td>APIGEE</td>
+<td>IRC2 Entitlement Management as-a Service</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1426,6 +1409,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>MULESOFT → GTS</td>
 <td>MULESOFT</td>
+<td>Reltio; Enterprise registration and profile management; Webquote; Profisee - &hellip;</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1435,6 +1420,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>OL → S/4</td>
 <td>APIGEE</td>
+<td>Entitlement Hub (SAP EMS, Internal Portal)</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1444,6 +1431,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S/4 → OL</td>
 <td>APIGEE</td>
+<td>Entitlement Hub (SAP EMS, Internal Portal)</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1453,6 +1442,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>SF → S/4</td>
 <td>MULESOFT</td>
+<td>Return For Credit</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1462,6 +1453,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>PDH → S/4</td>
 <td>BODS</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1471,6 +1464,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1480,6 +1475,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>CSAR → S/4</td>
 <td>NA</td>
+<td>Customer Service Adjustment Request</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1489,6 +1486,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>OpenText → S/4</td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1498,6 +1497,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>ALPS (Intel Product Validation Labs Planning) → S/4</td>
 <td>MULESOFT</td>
+<td>ALPS (Intel Product Validation Labs Planning)</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1507,6 +1508,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S/4 → CHM</td>
 <td>NA</td>
+<td>Channel Management</td>
+<td>02. Standard IDOC</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1516,6 +1519,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>WOM → S/4</td>
 <td>MULESOFT</td>
+<td>SAP Commerce Cloud</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1525,6 +1530,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>CHM → S/4</td>
 <td>NA</td>
+<td>Channel Management</td>
+<td>02. Standard IDOC</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1534,6 +1541,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S/4 → OpenText</td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1543,6 +1552,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S/4 → OpenText</td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1552,6 +1563,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>IRC2 → S/4</td>
 <td>MULESOFT</td>
+<td>IRC2 Entitlement Management as-a Service</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1561,6 +1574,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S/4 → IRC2</td>
 <td>MULESOFT</td>
+<td>IRC2 Entitlement Management as-a Service</td>
+<td>05. Fully custom API</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1570,6 +1585,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S/4 → WOM</td>
 <td>MULESOFT</td>
+<td>SAP Commerce Cloud</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1579,6 +1596,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td>05. Fully custom API</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1588,6 +1607,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>WOM → S/4</td>
 <td>MULESOFT</td>
+<td>SAP Commerce Cloud</td>
+<td>05. Fully custom API</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1597,6 +1618,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>SalesForce → S/4</td>
 <td>MULESOFT</td>
+<td>Return For Credit</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1606,6 +1629,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S/4 → OpenText</td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1615,6 +1640,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>SalesForce → S/4</td>
 <td>MULESOFT</td>
+<td>Return For Credit</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1624,6 +1651,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S/4 → SalesForce</td>
 <td>MULESOFT</td>
+<td>Return For Credit</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1633,6 +1662,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S/4 → OpenText</td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td>05. Fully custom API</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1642,6 +1673,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S/4 → OpenText</td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td>05. Fully custom API</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1651,6 +1684,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S/4 → WOM</td>
 <td>MULESOFT</td>
+<td>SAP Commerce Cloud</td>
+<td>05. Fully custom API</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1660,6 +1695,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>MyDeals → S/4</td>
 <td>MULESOFT</td>
+<td>My Deals</td>
+<td>05. Fully custom API</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1669,6 +1706,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>IPAR → S/4</td>
 <td>MULESOFT</td>
+<td>Intel Price Administration and Reporting</td>
+<td>05. Fully custom API</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1678,6 +1717,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>Commerce Cloud → S/4</td>
 <td>MULESOFT</td>
+<td>SAP Commerce Cloud</td>
+<td>05. Fully custom API</td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -1687,6 +1728,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>OpenText → S/4</td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td>05. Fully custom API</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1696,6 +1739,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>MySamples → S/4</td>
 <td>MULESOFT</td>
+<td>My Samples ( Future of Samples)</td>
+<td>05. Fully custom API</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1705,6 +1750,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>MySamples → S/4</td>
 <td>MULESOFT</td>
+<td>My Samples ( Future of Samples)</td>
+<td>05. Fully custom API</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1714,6 +1761,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>OpenText → S/4</td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td>05. Fully custom API</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1723,6 +1772,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>Commerce Cloud → S/4</td>
 <td>MULESOFT</td>
+<td>SAP Commerce Cloud</td>
+<td>05. Fully custom API</td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -1732,6 +1783,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1741,6 +1794,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1750,6 +1805,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1759,6 +1816,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1768,6 +1827,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1777,6 +1838,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1786,6 +1849,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1795,6 +1860,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1804,6 +1871,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -1813,6 +1882,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -1822,6 +1893,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1831,6 +1904,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1840,6 +1915,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1849,6 +1926,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -1858,6 +1937,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1867,6 +1948,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1876,6 +1959,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1885,6 +1970,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1894,6 +1981,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1903,6 +1992,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1912,6 +2003,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1921,6 +2014,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1930,6 +2025,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1939,6 +2036,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1948,6 +2047,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1957,6 +2058,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1966,6 +2069,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1975,6 +2080,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1984,6 +2091,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -1993,6 +2102,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2002,6 +2113,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2011,6 +2124,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2020,6 +2135,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2029,6 +2146,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2038,6 +2157,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2047,6 +2168,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2056,6 +2179,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2065,6 +2190,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2074,6 +2201,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2083,6 +2212,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2092,6 +2223,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2101,6 +2234,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2110,6 +2245,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2119,6 +2256,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2128,6 +2267,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2137,6 +2278,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -2146,6 +2289,8 @@ flowchart TD
 <td>06. Dev In Progress</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -2155,6 +2300,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2164,6 +2311,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2173,6 +2322,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2182,6 +2333,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2191,6 +2344,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2200,6 +2355,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2209,6 +2366,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2218,6 +2377,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2227,6 +2388,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2236,6 +2399,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2245,6 +2410,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2254,6 +2421,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2263,6 +2432,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2272,6 +2443,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2281,6 +2454,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2290,6 +2465,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2299,6 +2476,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2308,6 +2487,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2317,6 +2498,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2326,6 +2509,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2335,6 +2520,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2344,6 +2531,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2353,6 +2542,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2362,6 +2553,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2371,6 +2564,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2380,6 +2575,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2389,6 +2586,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2398,6 +2597,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2407,6 +2608,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2416,6 +2619,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2425,6 +2630,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2434,6 +2641,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2443,6 +2652,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2452,6 +2663,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2461,6 +2674,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2470,6 +2685,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2479,6 +2696,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2488,6 +2707,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -2497,6 +2718,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2506,6 +2729,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2515,6 +2740,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2524,6 +2751,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2533,6 +2762,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2542,6 +2773,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2551,6 +2784,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2560,6 +2795,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2569,6 +2806,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2578,6 +2817,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2587,6 +2828,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2596,6 +2839,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -2605,6 +2850,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2614,6 +2861,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2623,6 +2872,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -2632,6 +2883,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2641,6 +2894,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2650,6 +2905,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2659,6 +2916,8 @@ flowchart TD
 <td>06. Dev In Progress</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2668,6 +2927,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2677,6 +2938,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2686,6 +2949,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>WIINGS → EWM</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -2695,6 +2960,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>WIINGS, ECC WM → EWM</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -2704,6 +2971,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2713,6 +2982,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S/4 → SPECTRUM</td>
 <td>NA</td>
+<td>Loftware Spectrum (IP)</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2722,6 +2993,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>MULESOFT</td>
+<td>Customer Quality &amp; Reliability 360</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2731,6 +3004,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S/4 → ECA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2740,6 +3015,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>IWRAP → S/4</td>
 <td>APIGEE</td>
+<td>Integrated Warranty Requirements and Planning</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2749,6 +3026,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>Entitlement Orchestration Layer → S/4</td>
 <td>NA</td>
+<td>Entitlement Orchestration Service</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2758,6 +3037,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>Entitlement Orchestration Layer → S/4</td>
 <td>NA</td>
+<td>Entitlement Orchestration Service</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2767,6 +3048,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>SalesForce → S/4</td>
 <td>APIGEE</td>
+<td>Return For Credit</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2776,6 +3059,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S/4 → MPL</td>
 <td>SFT</td>
+<td>Mark Pack Label Suite (IP)</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2785,6 +3070,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2794,6 +3081,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>WOM → S/4</td>
 <td>MULESOFT</td>
+<td>SAP Commerce Cloud</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2803,6 +3092,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>WOM → S/4</td>
 <td>MULESOFT</td>
+<td>SAP Commerce Cloud</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2812,6 +3103,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S/4 → DBaaS</td>
 <td>MULESOFT</td>
+<td>Supply Chain Trade Re-engineering Data Container for Intel Products</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2821,6 +3114,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S/4 → OpenText</td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2830,6 +3125,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S/4 → OpenText</td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2839,6 +3136,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2848,6 +3147,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td>OpenText</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2857,6 +3158,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S/4 → OpenText</td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2866,6 +3169,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S/4 → OpenText</td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2875,6 +3180,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S/4 → OpenText</td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2884,6 +3191,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S/4 → 3PL</td>
 <td>MULESOFT</td>
+<td>Logistics Customers Service Request; OpenText; Customer Master Database</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2893,6 +3202,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>3PL → S/4</td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2902,6 +3213,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>3PL → S/4</td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2911,6 +3224,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2920,6 +3235,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2929,6 +3246,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2938,6 +3257,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2947,6 +3268,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2956,6 +3279,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2965,6 +3290,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2974,6 +3301,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2983,6 +3312,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2992,6 +3323,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3001,6 +3334,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3010,6 +3345,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3019,6 +3356,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3028,6 +3367,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3037,6 +3378,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>Integrated Shipping Memo</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3046,6 +3389,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3055,6 +3400,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3064,6 +3411,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3073,6 +3422,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3082,6 +3433,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3091,6 +3444,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3100,6 +3455,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -3109,6 +3466,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -3118,6 +3477,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3127,6 +3488,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3136,6 +3499,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3145,6 +3510,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3154,6 +3521,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3163,6 +3532,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3172,6 +3543,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3181,6 +3554,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3190,6 +3565,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3199,6 +3576,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3208,6 +3587,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3217,6 +3598,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3226,6 +3609,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3235,6 +3620,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3244,6 +3631,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3253,6 +3642,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3262,6 +3653,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3271,6 +3664,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3280,6 +3675,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3289,6 +3686,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3298,6 +3697,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3307,6 +3708,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3316,6 +3719,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3325,6 +3730,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3334,6 +3741,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -3343,6 +3752,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3352,6 +3763,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -3361,6 +3774,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3370,6 +3785,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -3379,6 +3796,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3388,6 +3807,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -3397,6 +3818,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3406,6 +3829,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3415,6 +3840,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3424,6 +3851,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3433,6 +3862,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3442,6 +3873,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3451,6 +3884,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3460,6 +3895,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3469,6 +3906,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3478,6 +3917,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3487,6 +3928,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3496,6 +3939,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3505,6 +3950,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3514,6 +3961,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3523,6 +3972,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3532,6 +3983,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3541,6 +3994,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3550,6 +4005,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3559,6 +4016,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3568,6 +4027,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3577,6 +4038,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3586,6 +4049,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3595,6 +4060,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3604,6 +4071,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3613,6 +4082,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3622,6 +4093,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3631,6 +4104,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3640,6 +4115,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3649,6 +4126,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3658,6 +4137,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3667,6 +4148,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3676,6 +4159,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td>Logistics Customers Service Request</td>
+<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -3685,6 +4170,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3694,6 +4181,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3703,6 +4192,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3712,6 +4203,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3721,6 +4214,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3730,6 +4225,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3739,6 +4236,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3748,6 +4247,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>ECD → S4</td>
 <td>NA</td>
+<td>Excursion Containment Disposition</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3757,6 +4258,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3766,6 +4269,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3775,6 +4280,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3784,6 +4291,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3793,6 +4302,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3802,6 +4313,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3811,6 +4324,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3820,6 +4335,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3829,6 +4346,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3838,6 +4357,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3847,6 +4368,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3856,6 +4379,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3865,6 +4390,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3874,6 +4401,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3883,6 +4412,8 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3892,11 +4423,504 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Summary</strong>: 5 Reports, 71 Interfaces, 20 Conversions, 167 Enhancements, 28 Forms, 1 Workflows</p>
+<h4 id="552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</h4>
+<p>The following RICEFW objects integrate with <strong>boundary applications</strong> (external systems outside the S/4 HANA core):</p>
+<table>
+<thead>
+<tr>
+<th>RICEFW Object ID</th>
+<th>Description</th>
+<th>Boundary Application</th>
+<th>IAPM ID</th>
+<th>Source → Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OTCI1721</td>
+<td>Outbound Interface changes to send data from S4 to SF</td>
+<td>Return For Credit</td>
+<td>36446.0</td>
+<td></td>
+</tr>
+<tr>
+<td>OTCI1720</td>
+<td>Inbound Interface to Update Original Flag Interface from SFDC to S4.</td>
+<td>Return For Credit</td>
+<td>36446.0</td>
+<td></td>
+</tr>
+<tr>
+<td>OTCI1598</td>
+<td>An outbound Interface to Read the EEPM and DECODER Matrix from S4 to OL</td>
+<td>Entitlement Orchestration Service</td>
+<td>39609.0</td>
+<td></td>
+</tr>
+<tr>
+<td>OTCI1568</td>
+<td>Inbound Interface from WOM to S4 HANA to send Shipment and tracking information</td>
+<td>SAP Commerce Cloud</td>
+<td>31717.0</td>
+<td></td>
+</tr>
+<tr>
+<td>OTCI1498</td>
+<td>Inbound Interface from WOM to S4 HANA to send Customer Hierarchy</td>
+<td>SAP Commerce Cloud</td>
+<td>31717.0</td>
+<td></td>
+</tr>
+<tr>
+<td>OTCI1259</td>
+<td>Outbound interface from S4 HANA to WOM to send the product information</td>
+<td>SAP Commerce Cloud</td>
+<td>31717.0</td>
+<td>S/4 → E-Commerce Cloud</td>
+</tr>
+<tr>
+<td>OTCI1192</td>
+<td>Interface for BP Status query in GTS - CAAS</td>
+<td>Reltio; Enterprise registration and profile management; Webquote; Profisee - &hellip;</td>
+<td>25490; 9168; 1649; 11357</td>
+<td>GTS → MULESOFT</td>
+</tr>
+<tr>
+<td>OTCI1191</td>
+<td>Interface for Transactional status query in GTS - CAAS</td>
+<td>IRC2 Entitlement Management as-a Service; PEGA Integrated Shipping Memo Quest&hellip;</td>
+<td>17492; 37510</td>
+<td>GTS → MULESOFT</td>
+</tr>
+<tr>
+<td>OTCI1190</td>
+<td>Interface for Product Create/ Change in GTS - CAAS</td>
+<td>IRC2 Entitlement Management as-a Service</td>
+<td>17492.0</td>
+<td>MULESOFT → GTS</td>
+</tr>
+<tr>
+<td>OTCI1189</td>
+<td>Interface for Product Classification Query in GTS - CAAS</td>
+<td>Customs Tracker; PEGA Global Trade Request; PEGA Integrated Shipping Memo Que&hellip;</td>
+<td>42860; 25189; 37510</td>
+<td>MULESOFT → GTS</td>
+</tr>
+<tr>
+<td>OTCI1188</td>
+<td>Interface for Transactional Create/ Change in GTS - CAAS</td>
+<td>IRC2 Entitlement Management as-a Service</td>
+<td>17492.0</td>
+<td>MULESOFT → GTS</td>
+</tr>
+<tr>
+<td>OTCI1187</td>
+<td>Interface for BP Create/ Change in GTS - CAAS</td>
+<td>Reltio; Enterprise registration and profile management; Webquote; Profisee - &hellip;</td>
+<td>25490; 9168; 1649; 11357</td>
+<td>MULESOFT → GTS</td>
+</tr>
+<tr>
+<td>OTCI1180</td>
+<td>EMS_Inbound Interface for Capturing Hardware SO and Line-Item Details into se&hellip;</td>
+<td>Entitlement Hub (SAP EMS, Internal Portal)</td>
+<td>44876.0</td>
+<td>OL → S/4</td>
+</tr>
+<tr>
+<td>OTCI1179</td>
+<td>EMS_Outbound interface to OL (Orchestration layer) for activation key generat&hellip;</td>
+<td>Entitlement Hub (SAP EMS, Internal Portal)</td>
+<td>44876.0</td>
+<td>S/4 → OL</td>
+</tr>
+<tr>
+<td>OTCI1178</td>
+<td>Interface from Sales Force (SF) to S4 to read the business rules</td>
+<td>Return For Credit</td>
+<td>36446.0</td>
+<td>SF → S/4</td>
+</tr>
+<tr>
+<td>OTCI0716</td>
+<td>PIP 2A1 Interface to Distribute</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td></td>
+</tr>
+<tr>
+<td>OTCI0711</td>
+<td>IP - Inbound Interface from CSAR to SAP</td>
+<td>Customer Service Adjustment Request</td>
+<td>316.0</td>
+<td>CSAR → S/4</td>
+</tr>
+<tr>
+<td>OTCI0682</td>
+<td>Inbound Interface for Receiving PO details from B2B Customer</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td>OpenText → S/4</td>
+</tr>
+<tr>
+<td>OTCI0661</td>
+<td>Inbound KL Order Creation from ALPS to S/4</td>
+<td>ALPS (Intel Product Validation Labs Planning)</td>
+<td>36978.0</td>
+<td>ALPS (Intel Product Validation Labs Planning) → S/4</td>
+</tr>
+<tr>
+<td>OTCI0565</td>
+<td>Outbound Interface development for Invoice data from S4 to CHM</td>
+<td>Channel Management</td>
+<td>1887.0</td>
+<td>S/4 → CHM</td>
+</tr>
+<tr>
+<td>OTCI0540</td>
+<td>Inbound Interface from WOM to S4 HANA to fetch the list of order Acknowledgem&hellip;</td>
+<td>SAP Commerce Cloud</td>
+<td>31717.0</td>
+<td>WOM → S/4</td>
+</tr>
+<tr>
+<td>OTCI0488</td>
+<td>Interface development direction inbound for Credit or Debit Memo Requests cre&hellip;</td>
+<td>Channel Management</td>
+<td>1887.0</td>
+<td>CHM → S/4</td>
+</tr>
+<tr>
+<td>OTCI0439</td>
+<td>Enable PIP 3A6 – transmit order status to the B2B customer (outbound interface)</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td>S/4 → OpenText</td>
+</tr>
+<tr>
+<td>OTCI0438</td>
+<td>Enable PIP 3A7 – transmit significant sales order changes to the B2B customer&hellip;</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td>S/4 → OpenText</td>
+</tr>
+<tr>
+<td>OTCI0435</td>
+<td>Inbound interface from IRC2 (Intel Registration Center) B-app to S4 against o&hellip;</td>
+<td>IRC2 Entitlement Management as-a Service</td>
+<td>17492.0</td>
+<td>IRC2 → S/4</td>
+</tr>
+<tr>
+<td>OTCI0426</td>
+<td>Outbound interface to IRC2 (Intel registration center) B-app upon order create</td>
+<td>IRC2 Entitlement Management as-a Service</td>
+<td>17492.0</td>
+<td>S/4 → IRC2</td>
+</tr>
+<tr>
+<td>OTCI0417</td>
+<td>Interface to Maintain Customer Part numbers in CMIR in S4 through WOM</td>
+<td>SAP Commerce Cloud</td>
+<td>31717.0</td>
+<td>S/4 → WOM</td>
+</tr>
+<tr>
+<td>OTCI0414</td>
+<td>Order create 4B3 - Consignment Issue</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td></td>
+</tr>
+<tr>
+<td>OTCI0413</td>
+<td>WOM users should be able to verify/simulate orders details before submitting &hellip;</td>
+<td>SAP Commerce Cloud</td>
+<td>31717.0</td>
+<td>WOM → S/4</td>
+</tr>
+<tr>
+<td>OTCI0298</td>
+<td>Enable capture of changes on the Return Request from Salesforce into relevant&hellip;</td>
+<td>Return For Credit</td>
+<td>36446.0</td>
+<td>SalesForce → S/4</td>
+</tr>
+<tr>
+<td>OTCI0296</td>
+<td>Enable EDI : Billing Output Generation</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td>S/4 → OpenText</td>
+</tr>
+<tr>
+<td>OTCI0294</td>
+<td>Inbound interface between Sales Force and S4 needed to create Return Order fo&hellip;</td>
+<td>Return For Credit</td>
+<td>36446.0</td>
+<td>SalesForce → S/4</td>
+</tr>
+<tr>
+<td>OTCI0291</td>
+<td>Outbound Interface from S4 to Salesforce to update the Return Order status in&hellip;</td>
+<td>Return For Credit</td>
+<td>36446.0</td>
+<td>S/4 → SalesForce</td>
+</tr>
+<tr>
+<td>OTCI0258</td>
+<td>Enable EDI 855 – Order Acknowledgment to B2B customer</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td>S/4 → OpenText</td>
+</tr>
+<tr>
+<td>OTCI0257</td>
+<td>Enable EDI 865 – Order change acknowledgment to B2B customer</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td>S/4 → OpenText</td>
+</tr>
+<tr>
+<td>OTCI0085</td>
+<td>Outbound Interface from S4HANA to WOM to Share order confirmation data</td>
+<td>SAP Commerce Cloud</td>
+<td>31717.0</td>
+<td>S/4 → WOM</td>
+</tr>
+<tr>
+<td>OTCI0082</td>
+<td>Interface between MyDeals and S4 needed for pricing feeds</td>
+<td>My Deals</td>
+<td>14464.0</td>
+<td>MyDeals → S/4</td>
+</tr>
+<tr>
+<td>OTCI0081</td>
+<td>Interface between IPAR and S4 needed for pricing feeds</td>
+<td>Intel Price Administration and Reporting</td>
+<td>353.0</td>
+<td>IPAR → S/4</td>
+</tr>
+<tr>
+<td>OTCI0061</td>
+<td>Enable WOM - Order Change</td>
+<td>SAP Commerce Cloud</td>
+<td>31717.0</td>
+<td>Commerce Cloud → S/4</td>
+</tr>
+<tr>
+<td>OTCI0060</td>
+<td>Enable EDI - Order Change</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td>OpenText → S/4</td>
+</tr>
+<tr>
+<td>OTCI0058</td>
+<td>Enable MySamples - Sample Order Change</td>
+<td>My Samples ( Future of Samples)</td>
+<td>11565.0</td>
+<td>MySamples → S/4</td>
+</tr>
+<tr>
+<td>OTCI0040</td>
+<td>Enable MySamples - Sample Order Create</td>
+<td>My Samples ( Future of Samples)</td>
+<td>11565.0</td>
+<td>MySamples → S/4</td>
+</tr>
+<tr>
+<td>OTCI0038</td>
+<td>Enable EDI - Order Create</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td>OpenText → S/4</td>
+</tr>
+<tr>
+<td>OTCI0037</td>
+<td>Enable WOM - Order Create</td>
+<td>SAP Commerce Cloud</td>
+<td>31717.0</td>
+<td>Commerce Cloud → S/4</td>
+</tr>
+<tr>
+<td>LOGI1312</td>
+<td>Label printing data in XML format from SAP EWM to Spectrum/Loftware</td>
+<td>Loftware Spectrum (IP)</td>
+<td>64181.0</td>
+<td>S/4 → SPECTRUM</td>
+</tr>
+<tr>
+<td>LOGI1300</td>
+<td>Discrepancy check for FAC receipts</td>
+<td>Customer Quality &amp; Reliability 360</td>
+<td>9425.0</td>
+<td></td>
+</tr>
+<tr>
+<td>LOGI1270</td>
+<td>IWRAP interface for CWP availibilty check(Inbound interface)</td>
+<td>Integrated Warranty Requirements and Planning</td>
+<td>11215.0</td>
+<td>IWRAP → S/4</td>
+</tr>
+<tr>
+<td>LOGI1263</td>
+<td>Retrieve the GES scanned CPU entitlement check details</td>
+<td>Entitlement Orchestration Service</td>
+<td>39609.0</td>
+<td>Entitlement Orchestration Layer → S/4</td>
+</tr>
+<tr>
+<td>LOGI1262</td>
+<td>Entitlement Output processing to perform discrepancy checks</td>
+<td>Entitlement Orchestration Service</td>
+<td>39609.0</td>
+<td>Entitlement Orchestration Layer → S/4</td>
+</tr>
+<tr>
+<td>LOGI1261</td>
+<td>Discrepancy resolution results to be sent from Salesforce to SAP</td>
+<td>Return For Credit</td>
+<td>36446.0</td>
+<td>SalesForce → S/4</td>
+</tr>
+<tr>
+<td>LOGI1067</td>
+<td>2DN - S4 – Interface from S/4 to MPL for packing list.</td>
+<td>Mark Pack Label Suite (IP)</td>
+<td>57576.0</td>
+<td>S/4 → MPL</td>
+</tr>
+<tr>
+<td>LOGI1066</td>
+<td>2DN - Interface to capture Data for 1st Delivery in 2DN X-Dock Model</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td></td>
+</tr>
+<tr>
+<td>LOGI0875</td>
+<td>Interface from WOM to S4 HANA to fetch the list of Deliveries for a particula&hellip;</td>
+<td>SAP Commerce Cloud</td>
+<td>31717.0</td>
+<td>WOM → S/4</td>
+</tr>
+<tr>
+<td>LOGI0874</td>
+<td>Interface from WOM to S4 HANA to fetch the ASN information of delivery.</td>
+<td>SAP Commerce Cloud</td>
+<td>31717.0</td>
+<td>WOM → S/4</td>
+</tr>
+<tr>
+<td>LOGI0842_IP</td>
+<td>Interface from SAP S4 to DBaaS to Fetch Actual COF for FVR batch and COA for &hellip;</td>
+<td>Supply Chain Trade Re-engineering Data Container for Intel Products</td>
+<td>53470.0</td>
+<td>S/4 → DBaaS</td>
+</tr>
+<tr>
+<td>LOGI0800_IP</td>
+<td>Interface to send shipment information to custom broker</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td>S/4 → OpenText</td>
+</tr>
+<tr>
+<td>LOGI0664</td>
+<td>Trigger ZCUS (export customs clearance output) and ZXCI to send outputs - ZSI&hellip;</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td>S/4 → OpenText</td>
+</tr>
+<tr>
+<td>LOGI0663_IP</td>
+<td>Trigger ZCUS (export customs clearance output) and ZXCI to send outputs - ZSI&hellip;</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td></td>
+</tr>
+<tr>
+<td>LOGI0630_IP</td>
+<td>TM - GTT: GXS sending carrier events back to GTT app “Shipment Tracking”. IP</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td></td>
+</tr>
+<tr>
+<td>LOGI0612_IP</td>
+<td>Customer ASN interface from outbound delivery</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td>S/4 → OpenText</td>
+</tr>
+<tr>
+<td>LOGI0610</td>
+<td>3B2 Post goods issue interface for Outbound delivery to SAP</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td>S/4 → OpenText</td>
+</tr>
+<tr>
+<td>LOGI0609</td>
+<td>3B13 interface for pick/pack updates for outbound delivery to SAP</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td>S/4 → OpenText</td>
+</tr>
+<tr>
+<td>LOGI0607</td>
+<td>3B14R Cancellation Request from S/4 to 3PL</td>
+<td>Logistics Customers Service Request; OpenText; Customer Master Database</td>
+<td>9329; 12842; 7196</td>
+<td>S/4 → 3PL</td>
+</tr>
+<tr>
+<td>LOGI0418</td>
+<td>3B12 Request to 3PL on FO creation</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td>3PL → S/4</td>
+</tr>
+<tr>
+<td>LOGI0415</td>
+<td>3B14C Cancellation Confirmation from 3PL to S/4</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td>3PL → S/4</td>
+</tr>
+<tr>
+<td>LOGF0349_IP</td>
+<td>ISM - Generate Packing List - IF/IP</td>
+<td>Integrated Shipping Memo</td>
+<td></td>
+<td>NA → NA</td>
+</tr>
+<tr>
+<td>LOGE0613</td>
+<td>Development of LCSR tool in Fiori</td>
+<td>Logistics Customers Service Request</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LOGE0512</td>
+<td>Update Freight Order Number to the delivery documents after carrier is assign&hellip;</td>
+<td>Excursion Containment Disposition</td>
+<td>8785.0</td>
+<td>ECD → S4</td>
+</tr>
+</tbody>
+</table>
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-110 — Monitor Completed Declaration (IP)</span></div>
 
 </div>
@@ -3905,32 +4929,7 @@ flowchart TD
 
 
 <h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
-<p>Integration patterns identified from the system flow analysis for GT-110:</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Pattern</th>
-<th>Flow Chain</th>
-<th>Middleware</th>
-<th>Protocol</th>
-<th>Auth</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Integration pattern details will be refined when tower architects validate middleware assignments.</em></p>
-</blockquote>
+<p><em>Integration patterns will be populated when tower architects provide validated middleware and protocol details via the extended flow template.</em></p>
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-110 — Monitor Completed Declaration (IP)</span></div>
 
 </div>
@@ -3944,44 +4943,7 @@ flowchart TD
 <p><strong>TECHNOLOGY / PLATFORM ARCHITECTURE</strong> — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.</p>
 </blockquote>
 <h4 id="platform-inventory">Platform Inventory</h4>
-<p>Platform landscape inferred from integrated systems for GT-110:</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Platform</th>
-<th>Type</th>
-<th>Systems Using</th>
-<th>Environment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>SAP S/4HANA</td>
-<td>On-Premise (HEC)</td>
-<td>SAP S/4 modules</td>
-<td>DEV, QAS, PRD</td>
-</tr>
-<tr>
-<td>2</td>
-<td>SAP BTP (Integration Suite)</td>
-<td>Cloud / PaaS</td>
-<td>CPI, API Management</td>
-<td>DEV, QAS, PRD</td>
-</tr>
-<tr>
-<td>3</td>
-<td>MuleSoft Anypoint</td>
-<td>Cloud / iPaaS</td>
-<td>API-led integrations</td>
-<td>DEV, QAS, PRD</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Platform assignments will be validated when tower architects populate technology platform columns.</em></p>
-</blockquote>
+<p><em>Platform inventory will be populated when tower architects provide validated technology platform details via the extended flow template.</em></p>
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>GT-110 — Monitor Completed Declaration (IP)</span></div>
 
 </div>
@@ -4373,64 +5335,7 @@ flowchart TD
 
 
 <h3 id="72-raid-log">7.2 RAID Log</h3>
-<p>Standard RAID items for GT-110 (Order To Cash (IP)):</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Category</th>
-<th>Description</th>
-<th>Status</th>
-<th>Owner</th>
-<th>Priority</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Risk</td>
-<td>Data migration completeness — validate all legacy Monitor Completed Declaration (IP) data maps to S/4 target structures</td>
-<td>Open</td>
-<td>Tower Architect</td>
-<td>High</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Risk</td>
-<td>Integration testing coverage — ensure all 0 integrated systems are validated end-to-end</td>
-<td>Open</td>
-<td>Integration Lead</td>
-<td>High</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Assumption</td>
-<td>Target SAP S/4HANA system available in DEV/QAS per release schedule</td>
-<td>Active</td>
-<td>SAP Basis</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Issue</td>
-<td>API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation</td>
-<td>Open</td>
-<td>EA Pipeline Team</td>
-<td>High</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Dependency</td>
-<td>Upstream BPMN process models validated and signed off by business process owners</td>
-<td>Active</td>
-<td>Process Owner</td>
-<td>Medium</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.</em></p>
-</blockquote>
+<p><em>RAID items will be auto-populated from the Smartsheet RAID log when matched to this capability.</em></p>
 <h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
 <table>
 <thead>

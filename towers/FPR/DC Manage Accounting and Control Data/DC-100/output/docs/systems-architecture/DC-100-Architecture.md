@@ -67,7 +67,12 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+        <ul>
+          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
+          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+        </ul>
+      </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
     </ul>
   </li>
@@ -589,12 +594,7 @@ flowchart TD
 
 ### 4.1 Data Flows — Source to Target
 
-The following data flows are derived from the system integration hops for DC-100. Each row shows source application on its database flowing to a target application on its database.
-
-| # | Flow Chain | Hop | Source App | Source DB | Target App | Target DB | Data Description | Frequency | Classification |
-|---|-----------|-----|-----------|----------|-----------|----------|-----------------|-----------|---------------|
-
-> *DB platforms will be populated when tower architects complete the extended flow template columns (42-47).*
+*Data flows with DB platform details will be populated when tower architects complete the extended flow template columns (42-47) via the Input Portal.*
 
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
@@ -611,12 +611,7 @@ The following data flows are derived from the system integration hops for DC-100
 
 ### 4.3 Data Lineage
 
-Data lineage traces the origin and transformation path of key data objects across integrated systems.
-
-| # | Source System | Source Schema/Object | Target System | Target Schema/Object | Transformation |
-|---|-------------|---------------------|---------------|---------------------|---------------|
-
-> *Lineage detail will be refined when tower architects validate source/target schema object mappings.*
+*Data lineage (source schema/object → target schema/object mappings) will be populated when tower architects provide validated schema details via the Input Portal.*
 
 ### 4.4 RICEFW Data Objects
 
@@ -659,24 +654,26 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 ### 5.5 RICEFW Inventory
 
-| Object ID | Type | Description | Status | Source → Target | Middleware | Complexity |
-|-----------|------|-------------|--------|----------------|-----------|-----------|
-| FPRR1240 | Report | Custom report for Revenue Recognition by Stage for Product/Services Sale​ act... | 10. Object Complete |  | NA | 03.Medium |
-| FPRI1241 | Interface | Disti Rebate percentage of gross for Unissued Returns and Intransit Deferral | 10. Object Complete | ECA → S/4 | BODS | 03.Medium |
-| FPRE1660 | Enhancement | Enhancement for Revenue Recognition by Stage postings for Product/Services Sa... | 10. Object Complete |  | NA | 02.High |
-| FPRE1659 | Enhancement | Enhancement for Revenue Recognition by Stage postings for Product/Services Sa... | 10. Object Complete |  | NA | 02.High |
-| FPRE1239 | Enhancement | Enhancement for Revenue Recognition by Stage postings for Product/Services Sa... | 10. Object Complete |  | NA | 02.High |
-| FPRE0760_IP | Enhancement | SAP RAR and TM Integration to trigger POD Event | 10. Object Complete |  | NA | 03.Medium |
-| FPRE0760_IF | Enhancement | SAP RAR and TM Integration to trigger POD Event | 10. Object Complete |  | NA | 04.Low |
-| FPRE0697 | Enhancement | RAR Balance sheet posting with MM & Sold To ID | 10. Object Complete |  | NA | 03.Medium |
-| FPRE0500_IP | Enhancement | Rule for Transaction Price Allocation in BRIM vs SD | 10. Object Complete |  | NA | 03.Medium |
-| FPRE0500_IF | Enhancement | Rule for Transaction Price Allocation in BRIM vs SD | 10. Object Complete |  | NA | 03.Medium |
-| FPRE0477 | Enhancement | Rebate for Direct Customer to Rebate of Intransit deferrals for Direct & Dist... | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRE0476 | Enhancement | Accounting for Stock Rotation | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRE0475 | Enhancement | Accounting for reserves for unissued returns credit note & Rebate Return Accr... | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRE0474 | Enhancement | Accounting for technical return reserve | 10. Object Complete | NA → NA | NA | 03.Medium |
+| Object ID | Type | Description | Status | Source → Target | Middleware | Boundary App | Interface Approach | Complexity |
+|-----------|------|-------------|--------|----------------|-----------|-------------|-------------------|-----------|
+| FPRR1240 | Report | Custom report for Revenue Recognition by Stage for Product/Services Sale​ act... | 10. Object Complete |  | NA |  |  | 03.Medium |
+| FPRI1241 | Interface | Disti Rebate percentage of gross for Unissued Returns and Intransit Deferral | 10. Object Complete | ECA → S/4 | BODS | NA |  | 03.Medium |
+| FPRE1660 | Enhancement | Enhancement for Revenue Recognition by Stage postings for Product/Services Sa... | 10. Object Complete |  | NA |  |  | 02.High |
+| FPRE1659 | Enhancement | Enhancement for Revenue Recognition by Stage postings for Product/Services Sa... | 10. Object Complete |  | NA |  |  | 02.High |
+| FPRE1239 | Enhancement | Enhancement for Revenue Recognition by Stage postings for Product/Services Sa... | 10. Object Complete |  | NA |  |  | 02.High |
+| FPRE0760_IP | Enhancement | SAP RAR and TM Integration to trigger POD Event | 10. Object Complete |  | NA |  |  | 03.Medium |
+| FPRE0760_IF | Enhancement | SAP RAR and TM Integration to trigger POD Event | 10. Object Complete |  | NA |  |  | 04.Low |
+| FPRE0697 | Enhancement | RAR Balance sheet posting with MM & Sold To ID | 10. Object Complete |  | NA |  |  | 03.Medium |
+| FPRE0500_IP | Enhancement | Rule for Transaction Price Allocation in BRIM vs SD | 10. Object Complete |  | NA |  |  | 03.Medium |
+| FPRE0500_IF | Enhancement | Rule for Transaction Price Allocation in BRIM vs SD | 10. Object Complete |  | NA |  |  | 03.Medium |
+| FPRE0477 | Enhancement | Rebate for Direct Customer to Rebate of Intransit deferrals for Direct & Dist... | 10. Object Complete | NA → NA | NA |  |  | 03.Medium |
+| FPRE0476 | Enhancement | Accounting for Stock Rotation | 10. Object Complete | NA → NA | NA |  |  | 03.Medium |
+| FPRE0475 | Enhancement | Accounting for reserves for unissued returns credit note & Rebate Return Accr... | 10. Object Complete | NA → NA | NA |  |  | 03.Medium |
+| FPRE0474 | Enhancement | Accounting for technical return reserve | 10. Object Complete | NA → NA | NA |  |  | 03.Medium |
 
 **Summary**: 1 Reports, 1 Interfaces, 12 Enhancements
+
+
 
 
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
@@ -685,12 +682,7 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 ### 5.6 Integration Patterns
 
-Integration patterns identified from the system flow analysis for DC-100:
-
-| # | Pattern | Flow Chain | Middleware | Protocol | Auth |
-|---|---------|-----------|-----------|----------|------|
-
-> *Integration pattern details will be refined when tower architects validate middleware assignments.*
+*Integration patterns will be populated when tower architects provide validated middleware and protocol details via the extended flow template.*
 
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
@@ -709,15 +701,7 @@ Integration patterns identified from the system flow analysis for DC-100:
 
 #### Platform Inventory
 
-Platform landscape inferred from integrated systems for DC-100:
-
-| # | Platform | Type | Systems Using | Environment |
-|---|----------|------|--------------|-------------|
-| 1 | SAP S/4HANA | On-Premise (HEC) | SAP S/4 modules | DEV, QAS, PRD |
-| 2 | SAP BTP (Integration Suite) | Cloud / PaaS | CPI, API Management | DEV, QAS, PRD |
-| 3 | MuleSoft Anypoint | Cloud / iPaaS | API-led integrations | DEV, QAS, PRD |
-
-> *Platform assignments will be validated when tower architects populate technology platform columns.*
+*Platform inventory will be populated when tower architects provide validated technology platform details via the extended flow template.*
 
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-100 — Revenue Recognition</span></div>
@@ -794,17 +778,7 @@ Platform landscape inferred from integrated systems for DC-100:
 
 ### 7.2 RAID Log
 
-Standard RAID items for DC-100 (Finance Plan To Report):
-
-| # | Category | Description | Status | Owner | Priority |
-|---|----------|-------------|--------|-------|----------|
-| 1 | Risk | Data migration completeness — validate all legacy Revenue Recognition data maps to S/4 target structures | Open | Tower Architect | High |
-| 2 | Risk | Integration testing coverage — ensure all 0 integrated systems are validated end-to-end | Open | Integration Lead | High |
-| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
-| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
-| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
-
-> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
+*RAID items will be auto-populated from the Smartsheet RAID log when matched to this capability.*
 
 ### 7.3 Recommendations & Next Steps
 

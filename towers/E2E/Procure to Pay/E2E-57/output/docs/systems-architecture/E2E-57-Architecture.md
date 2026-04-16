@@ -70,7 +70,12 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#52-future-state-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
       <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+        <ul>
+          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
+          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+        </ul>
+      </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
     </ul>
   </li>
@@ -959,14 +964,7 @@ flowchart TB
 
 ### 4.4 RICEFW Data Objects
 
-Reports and Conversions for this capability will be populated from the Smartsheet Object Tracker via automated API extraction.
-
-| Object ID | Type | Description | Status | Source | Target | Complexity |
-|-----------|------|-------------|--------|--------|--------|-----------|
-| E2E-57-R001 | Report | R3 Subcontracting with Planning integration- Foundry,OSAT,ODM operational report | Planned | SAP S/4HANA | Analytics | Medium |
-| E2E-57-C001 | Conversion | Legacy data migration for R3 Subcontracting with Planning integration- Foundry,OSAT,ODM | Planned | Legacy ERP | SAP S/4HANA | High |
-
-> *Pending: Smartsheet API integration to auto-populate live RICEFW data (see Build Requirements).*
+*RICEFW data objects (Reports and Conversions) will be auto-populated from the Smartsheet Object Tracker when matched to this capability.*
 
 ### 4.5 Data Governance & Quality
 
@@ -1144,15 +1142,7 @@ flowchart TB
 
 ### 5.5 RICEFW Inventory
 
-RICEFW objects for this capability will be auto-populated from the Smartsheet S/4 Object Tracker.
-
-| Object ID | Type | Description | Status | Source → Target | Middleware | Complexity |
-|-----------|------|-------------|--------|----------------|-----------|-----------|
-| E2E-57-I001 | Interface | R3 Subcontracting with Planning integration- Foundry,OSAT,ODM inbound data interface | Planned | Legacy → SAP S/4HANA | MuleSoft / CPI | Medium |
-| E2E-57-E001 | Enhancement | R3 Subcontracting with Planning integration- Foundry,OSAT,ODM custom business logic | Planned | SAP S/4HANA | N/A | Medium |
-| E2E-57-F001 | Form/Report | R3 Subcontracting with Planning integration- Foundry,OSAT,ODM operational output | Planned | SAP S/4HANA | N/A | Low |
-
-> *Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).*
+*RICEFW inventory will be auto-populated from the Smartsheet S/4 Object Tracker when matched to this capability.*
 
 
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
@@ -1332,17 +1322,7 @@ flowchart TB
 
 ### 7.1 Project Roadmap & Go-Live Plan
 
-Project delivery milestones for E2E-57 RICEFW objects:
-
-| Phase | Planned Start | Planned End | Status | Notes |
-|-------|---------------|-------------|--------|-------|
-| Functional Specification (FS) | Per project plan | Per project plan | In Progress | Tower-level FS schedule |
-| Technical Design (TDD) | FS + 2 weeks | FS + 6 weeks | Planned | Dependent on FS completion |
-| Build & Unit Test (TUT) | TDD + 1 week | TDD + 8 weeks | Planned | Includes S/4 + Middleware |
-| Functional User Test (FUT) | Build + 1 week | Build + 4 weeks | Planned | Tower-led validation |
-| Go-Live (R1 – R5) | Per release plan | Per release plan | Planned | End-to-End Integrated Processes release |
-
-> *Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.*
+*Project roadmap and RICEFW timelines will be auto-populated from the Smartsheet Object Tracker when matched to this capability.*
 
 
 <div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
@@ -1351,17 +1331,7 @@ Project delivery milestones for E2E-57 RICEFW objects:
 
 ### 7.2 RAID Log
 
-Standard RAID items for E2E-57 (End-to-End Integrated Processes):
-
-| # | Category | Description | Status | Owner | Priority |
-|---|----------|-------------|--------|-------|----------|
-| 1 | Risk | Data migration completeness — validate all legacy R3 Subcontracting with Planning integration- Foundry,OSAT,ODM data maps to S/4 target structures | Open | Tower Architect | High |
-| 2 | Risk | Integration testing coverage — ensure all 2 integrated systems are validated end-to-end | Open | Integration Lead | High |
-| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
-| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
-| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
-
-> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
+*RAID items will be auto-populated from the Smartsheet RAID log when matched to this capability.*
 
 ### 7.3 Recommendations & Next Steps
 

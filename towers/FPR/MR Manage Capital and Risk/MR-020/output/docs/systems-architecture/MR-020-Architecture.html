@@ -445,7 +445,12 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+        <ul>
+          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
+          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+        </ul>
+      </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
     </ul>
   </li>
@@ -669,37 +674,7 @@ nav.toc a:hover { text-decoration: underline; }
 <h3 id="31-business-process-overview">3.1 Business Process Overview</h3>
 <p><em>(No BPMN files found in input/bpmn/ for this capability.)</em></p>
 <h3 id="33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</h3>
-<table>
-<thead>
-<tr>
-<th>Role / Lane</th>
-<th>Processes Involved</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Business Process Owner</td>
-<td>MR-020</td>
-<td>Accountable for Manage Capital Structure business process definition and sign-off</td>
-</tr>
-<tr>
-<td>Functional Analyst</td>
-<td>MR-020</td>
-<td>Responsible for functional specification and test case design</td>
-</tr>
-<tr>
-<td>Technical Developer</td>
-<td>MR-020</td>
-<td>Responsible for RICEFW build and unit testing</td>
-</tr>
-<tr>
-<td>Integration Architect</td>
-<td>MR-020</td>
-<td>Designs and validates integration patterns and middleware flows</td>
-</tr>
-</tbody>
-</table>
+<p><em>Business roles and responsibilities will be derived from BPMN swim lane assignments when process models are available.</em></p>
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>MR-020 — Manage Capital Structure</span></div>
 
 </div>
@@ -709,40 +684,7 @@ nav.toc a:hover { text-decoration: underline; }
 
 <h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
 <h3 id="41-data-flows-source-to-target">4.1 Data Flows — Source to Target</h3>
-<p>The following data flows are derived from the system integration hops for MR-020. Each row shows source application on its database flowing to a target application on its database.</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Flow Chain</th>
-<th>Hop</th>
-<th>Source App</th>
-<th>Source DB</th>
-<th>Target App</th>
-<th>Target DB</th>
-<th>Data Description</th>
-<th>Frequency</th>
-<th>Classification</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>DB platforms will be populated when tower architects complete the extended flow template columns (42-47).</em></p>
-</blockquote>
+<p><em>Data flows with DB platform details will be populated when tower architects complete the extended flow template columns (42-47) via the Input Portal.</em></p>
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>MR-020 — Manage Capital Structure</span></div>
 
 </div>
@@ -755,32 +697,7 @@ nav.toc a:hover { text-decoration: underline; }
 <p><strong>DATA ARCHITECTURE</strong> — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.</p>
 </blockquote>
 <h3 id="43-data-lineage">4.3 Data Lineage</h3>
-<p>Data lineage traces the origin and transformation path of key data objects across integrated systems.</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Source System</th>
-<th>Source Schema/Object</th>
-<th>Target System</th>
-<th>Target Schema/Object</th>
-<th>Transformation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Lineage detail will be refined when tower architects validate source/target schema object mappings.</em></p>
-</blockquote>
+<p><em>Data lineage (source schema/object → target schema/object mappings) will be populated when tower architects provide validated schema details via the Input Portal.</em></p>
 <h3 id="44-ricefw-data-objects">4.4 RICEFW Data Objects</h3>
 <p>Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:</p>
 <table>
@@ -1246,6 +1163,8 @@ nav.toc a:hover { text-decoration: underline; }
 <th>Status</th>
 <th>Source → Target</th>
 <th>Middleware</th>
+<th>Boundary App</th>
+<th>Interface Approach</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -1257,6 +1176,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1266,6 +1187,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1275,6 +1198,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -1284,6 +1209,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1293,6 +1220,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1302,6 +1231,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1311,6 +1242,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1320,6 +1253,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1329,6 +1264,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1338,6 +1275,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1347,6 +1286,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1356,6 +1297,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1365,6 +1308,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1374,6 +1319,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1383,6 +1330,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1392,6 +1341,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1401,6 +1352,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1410,6 +1363,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1419,6 +1374,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1428,6 +1385,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1437,6 +1396,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1446,6 +1407,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1455,6 +1418,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1464,6 +1429,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1473,6 +1440,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1482,6 +1451,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1491,6 +1462,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1500,6 +1473,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1509,6 +1484,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1518,6 +1495,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1527,6 +1506,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1536,6 +1517,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1545,6 +1528,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1554,6 +1539,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1563,6 +1550,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -1572,6 +1561,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1581,6 +1572,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1590,6 +1583,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>ECC → CFIN</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1599,6 +1594,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>Intel MW</td>
+<td>Workday</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1608,6 +1605,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>Intel MW</td>
+<td>Workday</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1617,6 +1616,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>BODS</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1626,6 +1627,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1635,6 +1638,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>BODS</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1644,6 +1649,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>APIGEE</td>
+<td>Equipment Management System</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1653,6 +1660,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>APIGEE</td>
+<td>Equipment Management System</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1662,6 +1671,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>APIGEE</td>
+<td>Equipment Management System</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1671,6 +1682,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>MULESOFT</td>
+<td>Workday</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1680,6 +1693,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>IF → CFIN</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1689,6 +1704,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>IP → CFIN</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1698,6 +1715,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>APIGEE</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1707,6 +1726,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>S/4 → WOM</td>
 <td>MULESOFT</td>
+<td>SAP Commerce Cloud</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1716,6 +1737,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>APIGEE</td>
+<td>Equipment Management System</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1725,6 +1748,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>CFIN → S/4</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1734,6 +1759,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>CFIN → S/4</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1743,6 +1770,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
 <td>MuleSoft</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1752,6 +1781,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
 <td>MuleSoft</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1761,6 +1792,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>MULESOFT → S/4</td>
 <td>SFT</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1770,6 +1803,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>MULESOFT → S/4</td>
 <td>SFT</td>
+<td>NA</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1779,6 +1814,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
 <td>MuleSoft</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1788,6 +1825,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
 <td>BODS</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1797,6 +1836,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>Head Count Assignment Tool → S/4</td>
 <td>BODS</td>
+<td>Head Count Assignment Tool</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1806,6 +1847,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1815,6 +1858,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
 <td>BODS</td>
+<td>SPEED</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1824,6 +1869,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
 <td>BODS</td>
+<td>SPEED</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1833,6 +1880,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>SAC → S/4</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1842,6 +1891,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>SAC → S/4</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1851,6 +1902,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
 <td>BODS</td>
+<td>Head Count Assignment Tool</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1860,6 +1913,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
 <td>BODS</td>
+<td>Head Count Assignment Tool</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1869,6 +1924,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>FCS → S/4</td>
 <td>BODS</td>
+<td>MOR/FCS/SCS</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1878,6 +1935,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>ICS → S/4</td>
 <td>BODS</td>
+<td>JDA/Blue Yonder ESP/OP (ALTR); Module Planning for Supply Chain on Blue Yonde&hellip;</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1887,6 +1946,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>S/4 → WOM</td>
 <td>MULESOFT</td>
+<td>SAP Commerce Cloud</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1896,6 +1957,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>S/4 → WOM</td>
 <td>MULESOFT</td>
+<td>SAP Commerce Cloud</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1905,6 +1968,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>S/4 → WOM</td>
 <td>MULESOFT</td>
+<td>SAP Commerce Cloud</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1914,6 +1979,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>S/4 → WOM</td>
 <td>MULESOFT</td>
+<td>SAP Commerce Cloud</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1923,6 +1990,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>MULESOFT → S/4</td>
 <td>SFT</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1932,6 +2001,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>MULESOFT → S/4</td>
 <td>SFT</td>
+<td>NA</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1941,6 +2012,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>ECA → BLACKLINE</td>
 <td>APIGEE;DENODO</td>
+<td>Task - Blackline</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1950,6 +2023,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>ECA → BLACKLINE</td>
 <td>APIGEE;DENODO</td>
+<td>Task - Blackline</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1959,6 +2034,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>ECA → BLACKLINE</td>
 <td>APIGEE;DENODO</td>
+<td>Task - Blackline</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1968,6 +2045,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>WOM → S/4</td>
 <td>MULESOFT</td>
+<td>SAP Commerce Cloud</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1977,6 +2056,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>BLACKLINE → S/4</td>
 <td>MULESOFT</td>
+<td>Task - Blackline</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1986,6 +2067,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>BLACKLINE → S/4</td>
 <td>MULESOFT</td>
+<td>Task - Blackline</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1995,6 +2078,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>BLACKLINE → S/4</td>
 <td>MULESOFT</td>
+<td>Task - Blackline</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2004,6 +2089,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>BLACKLINE → ECA</td>
 <td>NA</td>
+<td>Task - Blackline</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2013,6 +2100,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>BLACKLINE → ECA</td>
 <td>NA</td>
+<td>Task - Blackline</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2022,6 +2111,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>BLACKLINE → ECA</td>
 <td>NA</td>
+<td>Task - Blackline</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2031,6 +2122,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>OpenText → S/4</td>
 <td>SFT</td>
+<td>NA</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2040,6 +2133,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>S/4 → OpenText</td>
 <td>SFT</td>
+<td>NA</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2049,6 +2144,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>ONESOURCE → READSOFT</td>
 <td>NA</td>
+<td>OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IP</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2058,6 +2155,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>ONESOURCE → READSOFT</td>
 <td>NA</td>
+<td>OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IF</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2067,6 +2166,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>S/4 MDG → CFIN</td>
 <td>NA</td>
+<td>Treasury Suite</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2076,6 +2177,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>MULESOFT → TREASURY SUITE</td>
 <td>MULESOFT</td>
+<td>Treasury Suite</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2085,6 +2188,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>Treasury Suite → MULESOFT</td>
 <td>MULESOFT</td>
+<td>Treasury Suite</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2094,6 +2199,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>BLACKLINE → S/4</td>
 <td>MULESOFT</td>
+<td>Matching - Blackline; Close Reconciliation Tool - Blackline; Task - Blackline</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2103,6 +2210,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>BLACKLINE → S/4</td>
 <td>MULESOFT</td>
+<td>Matching - Blackline; Close Reconciliation Tool - Blackline; Task - Blackline</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2112,6 +2221,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>BLACKLINE → S/4</td>
 <td>MULESOFT</td>
+<td>Matching - Blackline; Close Reconciliation Tool - Blackline; Task - Blackline</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2121,6 +2232,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>SERVICENOW → S/4</td>
 <td>MULESOFT</td>
+<td>ServiceNow Cloud Lab</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2130,6 +2243,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>SERVICENOW → S/4</td>
 <td>MULESOFT</td>
+<td>ServiceNow Cloud Lab</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2139,6 +2254,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>MULESOFT → S/4 MDG</td>
 <td>MULESOFT</td>
+<td>Bloomberg Professional</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2148,6 +2265,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>MULESOFT → BLOOMBERG</td>
 <td>MULESOFT</td>
+<td>Bloomberg Professional</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2157,6 +2276,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>MULESOFT → TREASURY SUITE</td>
 <td>MULESOFT</td>
+<td>Treasury Suite</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2166,6 +2287,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
 <td>MuleSoft</td>
+<td>Wafer Starts Per Week; ISA-VS2012 US (MAPPS); ISA-VS2008 Asia (ATMPS CR and D&hellip;</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2175,6 +2298,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>S/4 → S/4</td>
 <td>SFT</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2184,6 +2309,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>S/4 → S/4</td>
 <td>SFT</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2193,6 +2320,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>Bloomberg → S/4 MDG</td>
 <td>MULESOFT</td>
+<td>Bloomberg Professional</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2202,6 +2331,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>MULESOFT → BLOOMBERG</td>
 <td>MULESOFT</td>
+<td>Bloomberg Professional</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2211,6 +2342,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>Bloomberg → S/4 MDG</td>
 <td>MULESOFT</td>
+<td>Bloomberg Professional</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2220,6 +2353,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>MULESOFT → BLOOMBERG</td>
 <td>MULESOFT</td>
+<td>Bloomberg Professional</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2229,6 +2364,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>MULESOFT → QUANTUM</td>
 <td>MULESOFT</td>
+<td>FIS Quantum</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2238,6 +2375,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>MULESOFT → TREASURY SUITE</td>
 <td>MULESOFT</td>
+<td>Treasury Suite</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2247,6 +2386,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>MULESOFT → QUANTUM</td>
 <td>MULESOFT</td>
+<td>FIS Quantum</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2256,6 +2397,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>MULESOFT → TREASURY SUITE</td>
 <td>MULESOFT</td>
+<td>Treasury Suite</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2265,6 +2408,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>Copp Clark → S/4</td>
 <td>SFT</td>
+<td>Copp Clark Holiday Data Service</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2274,6 +2419,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>PAYROLL → S/4</td>
 <td>MULESOFT</td>
+<td>NA</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2283,6 +2430,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>API → S/4</td>
 <td>MULESOFT</td>
+<td>Design and Sales Acceleration E-Commerce (Demo Depot); Flex One-Stop Tool</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2292,6 +2441,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>API → S/4</td>
 <td>MULESOFT</td>
+<td>Design and Sales Acceleration E-Commerce (Demo Depot); Flex One-Stop Tool</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2301,6 +2452,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>CONCUR → S/4</td>
 <td>MULESOFT</td>
+<td>Workday; ADP Payroll GAR; ADP Payroll EMEA; ICOST - Integrated Cost of Sales &hellip;</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2310,6 +2463,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>ICOST → S/4</td>
 <td>MULESOFT</td>
+<td>Workday; ADP Payroll GAR; ADP Payroll EMEA; ICOST - Integrated Cost of Sales &hellip;</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2319,6 +2474,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td>ServiceNow Cloud</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2328,6 +2485,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td>ServiceNow Cloud</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2337,6 +2496,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>S/4 → Quantum</td>
 <td>SFT</td>
+<td>FIS Quantum</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2346,6 +2507,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>Quantum → S/4</td>
 <td>SFT</td>
+<td>FIS Quantum</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2355,6 +2518,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>S/4 → Quantum</td>
 <td>SFT</td>
+<td>FIS Quantum</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2364,6 +2529,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>XEUS → S/4</td>
 <td>APIGEE</td>
+<td>Equipment Management System</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2373,6 +2540,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2382,6 +2551,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2391,6 +2562,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2400,6 +2573,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2409,6 +2584,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2418,6 +2595,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2427,6 +2606,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2436,6 +2617,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2445,6 +2628,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2454,6 +2639,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2463,6 +2650,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2472,6 +2661,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2481,6 +2672,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>09. FUT Overdue</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2490,6 +2683,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2499,6 +2694,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2508,6 +2705,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2517,6 +2716,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2526,6 +2727,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>99. Rejected/Cancelled/On Hold</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2535,6 +2738,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>99. Rejected/Cancelled/On Hold</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2544,6 +2749,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2553,6 +2760,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>09. FUT Overdue</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2562,6 +2771,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>09. FUT Overdue</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2571,6 +2782,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2580,6 +2793,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2589,6 +2804,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2598,6 +2815,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2607,6 +2826,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -2616,6 +2837,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2625,6 +2848,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2634,6 +2859,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2643,6 +2870,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2652,6 +2881,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2661,6 +2892,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2670,6 +2903,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2679,6 +2914,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2688,6 +2925,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2697,6 +2936,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2706,6 +2947,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2715,6 +2958,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2724,6 +2969,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2733,6 +2980,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>99. Rejected/Cancelled/On Hold</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2742,6 +2991,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2751,6 +3002,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2760,6 +3013,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2769,6 +3024,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2778,6 +3035,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2787,6 +3046,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2796,6 +3057,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2805,6 +3068,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2814,6 +3079,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2823,6 +3090,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2832,6 +3101,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>99. Rejected/Cancelled/On Hold</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2841,6 +3112,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2850,6 +3123,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2859,6 +3134,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2868,6 +3145,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2877,6 +3156,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2886,6 +3167,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2895,6 +3178,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2904,6 +3189,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2913,6 +3200,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>S4 → ATLAS</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2922,6 +3211,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>S4 → ATLAS</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2931,6 +3222,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2940,6 +3233,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2949,6 +3244,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2958,6 +3255,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2967,6 +3266,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2976,6 +3277,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2985,6 +3288,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2994,6 +3299,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3003,6 +3310,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>99. Rejected/Cancelled/On Hold</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3012,6 +3321,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3021,6 +3332,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3030,6 +3343,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3039,6 +3354,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3048,6 +3365,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3057,6 +3376,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3066,6 +3387,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3075,6 +3398,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3084,6 +3409,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3093,6 +3420,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3102,6 +3431,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3111,6 +3442,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3120,6 +3453,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3129,6 +3464,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3138,6 +3475,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3147,6 +3486,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3156,6 +3497,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3165,6 +3508,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>09. FUT Overdue</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3174,6 +3519,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3183,6 +3530,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3192,6 +3541,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3201,6 +3552,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>EY Smart Exporter Tool → S4</td>
 <td>NA</td>
+<td>EY Smart Exporter Tool</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3210,6 +3563,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3219,6 +3574,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3228,6 +3585,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3237,6 +3596,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3246,6 +3607,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3255,6 +3618,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>Ariba → S4</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3264,6 +3629,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>Ariba → S4</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3273,6 +3640,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3282,6 +3651,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3291,6 +3662,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3300,6 +3673,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3309,6 +3684,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3318,6 +3695,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3327,6 +3706,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3336,6 +3717,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3345,6 +3728,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3354,6 +3739,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3363,6 +3750,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3372,6 +3761,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3381,6 +3772,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3390,6 +3783,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3399,6 +3794,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3408,6 +3805,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3417,6 +3816,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3426,6 +3827,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3435,6 +3838,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3444,6 +3849,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3453,6 +3860,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3462,6 +3871,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3471,6 +3882,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3480,6 +3893,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3489,6 +3904,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3498,6 +3915,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3507,6 +3926,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3516,6 +3937,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3525,6 +3948,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3534,6 +3959,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3543,6 +3970,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -3552,6 +3981,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3561,6 +3992,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3570,6 +4003,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3579,6 +4014,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3588,6 +4025,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3597,6 +4036,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3606,6 +4047,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3615,6 +4058,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3624,6 +4069,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3633,6 +4080,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3642,6 +4091,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3651,6 +4102,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3660,6 +4113,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3669,6 +4124,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3678,6 +4135,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3687,6 +4146,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3696,6 +4157,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3705,6 +4168,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3714,6 +4179,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3723,6 +4190,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3732,6 +4201,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3741,6 +4212,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3750,6 +4223,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3759,6 +4234,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3768,6 +4245,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3777,6 +4256,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td>BY-PDH</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3786,6 +4267,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3795,6 +4278,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3804,6 +4289,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3813,6 +4300,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3822,6 +4311,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3831,6 +4322,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3840,6 +4333,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3849,6 +4344,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3858,6 +4355,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3867,6 +4366,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3876,6 +4377,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3885,6 +4388,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3894,6 +4399,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3903,6 +4410,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3912,6 +4421,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3921,6 +4432,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3930,6 +4443,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3939,6 +4454,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3948,6 +4465,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3957,6 +4476,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3966,6 +4487,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3975,6 +4498,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3984,6 +4509,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3993,6 +4520,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4002,6 +4531,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4011,6 +4542,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4020,6 +4553,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4029,6 +4564,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4038,6 +4575,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4047,6 +4586,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4056,6 +4597,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4065,6 +4608,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4074,6 +4619,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4083,6 +4630,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4092,6 +4641,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4101,6 +4652,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4110,6 +4663,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4119,6 +4674,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4128,6 +4685,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4137,6 +4696,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4146,6 +4707,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4155,6 +4718,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4164,6 +4729,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4173,6 +4740,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4182,6 +4751,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4191,6 +4762,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4200,6 +4773,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4209,6 +4784,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4218,6 +4795,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4227,6 +4806,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4236,6 +4817,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4245,6 +4828,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4254,6 +4839,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4263,6 +4850,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4272,6 +4861,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4281,6 +4872,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4290,6 +4883,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4299,6 +4894,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4308,6 +4905,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -4317,6 +4916,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4326,6 +4927,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4335,6 +4938,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4344,6 +4949,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4353,6 +4960,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>06. Dev In Progress</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4362,6 +4971,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>06. Dev In Progress</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4371,6 +4982,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4380,6 +4993,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4389,6 +5004,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4398,6 +5015,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4407,6 +5026,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4416,6 +5037,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4425,6 +5048,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4434,6 +5059,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4443,6 +5070,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4452,6 +5081,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4461,6 +5092,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4470,6 +5103,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4479,6 +5114,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4488,6 +5125,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4497,6 +5136,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>ECC → S4</td>
 <td>NA</td>
+<td>ECC</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4506,6 +5147,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>ECC → S4</td>
 <td>NA</td>
+<td>ECC</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4515,6 +5158,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>ECC → CFIN</td>
 <td>NA</td>
+<td>ECC</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4524,6 +5169,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>Quantum → CFIN</td>
 <td>NA</td>
+<td>Quantum</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4533,6 +5180,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>→ MDG</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4542,6 +5191,8 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>→ MDG</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4551,11 +5202,511 @@ nav.toc a:hover { text-decoration: underline; }
 <td>01. Pending Approval</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>01.Very High</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Summary</strong>: 17 Reports, 86 Interfaces, 25 Conversions, 220 Enhancements, 1 Forms, 18 Workflows</p>
+<h4 id="552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</h4>
+<p>The following RICEFW objects integrate with <strong>boundary applications</strong> (external systems outside the S/4 HANA core):</p>
+<table>
+<thead>
+<tr>
+<th>RICEFW Object ID</th>
+<th>Description</th>
+<th>Boundary Application</th>
+<th>IAPM ID</th>
+<th>Source → Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FPRI1725_IP</td>
+<td>Interface to be developed to transfer the files from Denodo to FS share path &hellip;</td>
+<td>Workday</td>
+<td>12245.0</td>
+<td></td>
+</tr>
+<tr>
+<td>FPRI1725_IF</td>
+<td>Interface to be developed to transfer the files from Denodo to FS share path &hellip;</td>
+<td>Workday</td>
+<td>12245.0</td>
+<td></td>
+</tr>
+<tr>
+<td>FPRI1504</td>
+<td>Asset Delete from EMS to S4 through APIGEE</td>
+<td>Equipment Management System</td>
+<td>4012.0</td>
+<td></td>
+</tr>
+<tr>
+<td>FPRI1503</td>
+<td>Asset Display from EMS to S4 through APIGEE</td>
+<td>Equipment Management System</td>
+<td>4012.0</td>
+<td></td>
+</tr>
+<tr>
+<td>FPRI1502</td>
+<td>Asset Change from EMS to S4 through APIGEE</td>
+<td>Equipment Management System</td>
+<td>4012.0</td>
+<td></td>
+</tr>
+<tr>
+<td>FPRI1463</td>
+<td>Interface to upload payroll data from Workday to S/4 IP for legal entity 199 &hellip;</td>
+<td>Workday</td>
+<td>12245.0</td>
+<td></td>
+</tr>
+<tr>
+<td>FPRI1338</td>
+<td>Outbound Interface to view the Cleared Customer Invoices from CFIN System to &hellip;</td>
+<td>SAP Commerce Cloud</td>
+<td>31717.0</td>
+<td>S/4 → WOM</td>
+</tr>
+<tr>
+<td>FPRI1315</td>
+<td>Asset Create from EMS to S4 through APIGEE</td>
+<td>Equipment Management System</td>
+<td>4012.0</td>
+<td></td>
+</tr>
+<tr>
+<td>FPRI1238</td>
+<td>Pull Foundry WBS from HAT and create in LE 199 in IP S/4 for Foundry Employee&hellip;</td>
+<td>Head Count Assignment Tool</td>
+<td>NA</td>
+<td>Head Count Assignment Tool → S/4</td>
+</tr>
+<tr>
+<td>FPRI1105</td>
+<td>Interface for automatic creation of B2B customer related payment advice</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td></td>
+</tr>
+<tr>
+<td>FPRI0981_IP</td>
+<td>Interface of SAP PPM module to SPEED</td>
+<td>SPEED</td>
+<td>NA</td>
+<td>ECA → S/4</td>
+</tr>
+<tr>
+<td>FPRI0981_IF</td>
+<td>Interface of SAP PPM module to SPEED</td>
+<td>SPEED</td>
+<td>NA</td>
+<td>ECA → S/4</td>
+</tr>
+<tr>
+<td>FPRI0909_IP</td>
+<td>Interface for importing the Headcount details by Person# and WBS element comb&hellip;</td>
+<td>Head Count Assignment Tool</td>
+<td>NA</td>
+<td>ECA → S/4</td>
+</tr>
+<tr>
+<td>FPRI0909_IF</td>
+<td>Interface for importing the Headcount details by Person# and WBS element comb&hellip;</td>
+<td>Head Count Assignment Tool</td>
+<td>NA</td>
+<td>ECA → S/4</td>
+</tr>
+<tr>
+<td>FPRI0895</td>
+<td>Import Tool Sharing Forecasted Data from FCS to S4 &amp; derive FTQ data by Capex&hellip;</td>
+<td>MOR/FCS/SCS</td>
+<td>15799.0</td>
+<td>FCS → S/4</td>
+</tr>
+<tr>
+<td>FPRI0894</td>
+<td>Planned Volume from IP-BY will be utilized as a KP26 quantity to split &lsquo;Overh&hellip;</td>
+<td>JDA/Blue Yonder ESP/OP (ALTR); Module Planning for Supply Chain on Blue Yonde&hellip;</td>
+<td>25596; 38908; 36453</td>
+<td>ICS → S/4</td>
+</tr>
+<tr>
+<td>FPRI0869</td>
+<td>Interface for automatic creation of WOM related payment advice</td>
+<td>SAP Commerce Cloud</td>
+<td>31717.0</td>
+<td>S/4 → WOM</td>
+</tr>
+<tr>
+<td>FPRI0867</td>
+<td>Outbound Interface to view the open &amp; Cleared Customer Invoices from CFIN Sys&hellip;</td>
+<td>SAP Commerce Cloud</td>
+<td>31717.0</td>
+<td>S/4 → WOM</td>
+</tr>
+<tr>
+<td>FPRI0866</td>
+<td>Interface to Obtains the payer associated to the sold to from CFIN System to &hellip;</td>
+<td>SAP Commerce Cloud</td>
+<td>31717.0</td>
+<td>S/4 → WOM</td>
+</tr>
+<tr>
+<td>FPRI0865</td>
+<td>Interface to transfer the Uploaded WCP Grant Amount from CFIN to WOM and Defe&hellip;</td>
+<td>SAP Commerce Cloud</td>
+<td>31717.0</td>
+<td>S/4 → WOM</td>
+</tr>
+<tr>
+<td>FPRI0863_IP</td>
+<td>Interface between SAP &amp; ECA to provide information for auto certification in &hellip;</td>
+<td>Task - Blackline</td>
+<td>23557.0</td>
+<td>ECA → BLACKLINE</td>
+</tr>
+<tr>
+<td>FPRI0863_IF</td>
+<td>Interface between SAP &amp; ECA to provide information for auto certification in &hellip;</td>
+<td>Task - Blackline</td>
+<td>23557.0</td>
+<td>ECA → BLACKLINE</td>
+</tr>
+<tr>
+<td>FPRI0863_CFIN</td>
+<td>Interface between SAP &amp; ECA to provide information for auto certification in &hellip;</td>
+<td>Task - Blackline</td>
+<td>23557.0</td>
+<td>ECA → BLACKLINE</td>
+</tr>
+<tr>
+<td>FPRI0862</td>
+<td>Interface to transfer the details of selected invoice from WOM to CFIN ( Inbo&hellip;</td>
+<td>SAP Commerce Cloud</td>
+<td>31717.0</td>
+<td>WOM → S/4</td>
+</tr>
+<tr>
+<td>FPRI0778_IP</td>
+<td>Continue to auto-certify a BL task when the related JE is approved</td>
+<td>Task - Blackline</td>
+<td>23557.0</td>
+<td>BLACKLINE → S/4</td>
+</tr>
+<tr>
+<td>FPRI0778_IF</td>
+<td>Continue to auto-certify a BL task when the related JE is approved</td>
+<td>Task - Blackline</td>
+<td>23557.0</td>
+<td>BLACKLINE → S/4</td>
+</tr>
+<tr>
+<td>FPRI0778_CFIN</td>
+<td>Continue to auto-certify a BL task when the related JE is approved</td>
+<td>Task - Blackline</td>
+<td>23557.0</td>
+<td>BLACKLINE → S/4</td>
+</tr>
+<tr>
+<td>FPRI0770_IP</td>
+<td>To enable auto-certify a BL [Blackline] task when the related JE is approved</td>
+<td>Task - Blackline</td>
+<td>23557.0</td>
+<td>BLACKLINE → ECA</td>
+</tr>
+<tr>
+<td>FPRI0770_IF</td>
+<td>To enable auto-certify a BL [Blackline] task when the related JE is approved</td>
+<td>Task - Blackline</td>
+<td>23557.0</td>
+<td>BLACKLINE → ECA</td>
+</tr>
+<tr>
+<td>FPRI0770_CFIN</td>
+<td>To enable auto-certify a BL [Blackline] task when the related JE is approved</td>
+<td>Task - Blackline</td>
+<td>23557.0</td>
+<td>BLACKLINE → ECA</td>
+</tr>
+<tr>
+<td>FPRI0696_IP</td>
+<td>Interface between ONESOURCE and Readsoft Process Director built on the back o&hellip;</td>
+<td>OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IP</td>
+<td>37261; 64229</td>
+<td>ONESOURCE → READSOFT</td>
+</tr>
+<tr>
+<td>FPRI0696_IF</td>
+<td>Interface between ONESOURCE and Readsoft Process Director built on the back o&hellip;</td>
+<td>OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IF</td>
+<td>37261; 64228</td>
+<td>ONESOURCE → READSOFT</td>
+</tr>
+<tr>
+<td>FPRI0695</td>
+<td>Reference Interest Rates - S4 converted data from MDG to CFIN</td>
+<td>Treasury Suite</td>
+<td>8121.0</td>
+<td>S/4 MDG → CFIN</td>
+</tr>
+<tr>
+<td>FPRI0694</td>
+<td>Exchange Rates N - S4 converted data from MuleSoft to Treasury Suite</td>
+<td>Treasury Suite</td>
+<td>8121.0</td>
+<td>MULESOFT → TREASURY SUITE</td>
+</tr>
+<tr>
+<td>FPRI0693</td>
+<td>Exchange Rates L - S4 converted data from MuleSoft to Treasury Suite</td>
+<td>Treasury Suite</td>
+<td>8121.0</td>
+<td>Treasury Suite → MULESOFT</td>
+</tr>
+<tr>
+<td>FPRI0600_IP</td>
+<td>Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M&hellip;</td>
+<td>Matching - Blackline; Close Reconciliation Tool - Blackline; Task - Blackline</td>
+<td>20824;15513; 23557</td>
+<td>BLACKLINE → S/4</td>
+</tr>
+<tr>
+<td>FPRI0600_IF</td>
+<td>Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M&hellip;</td>
+<td>Matching - Blackline; Close Reconciliation Tool - Blackline; Task - Blackline</td>
+<td>20824;15513; 23557</td>
+<td>BLACKLINE → S/4</td>
+</tr>
+<tr>
+<td>FPRI0600_CFIN</td>
+<td>Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M&hellip;</td>
+<td>Matching - Blackline; Close Reconciliation Tool - Blackline; Task - Blackline</td>
+<td>20824;15513; 23557</td>
+<td>BLACKLINE → S/4</td>
+</tr>
+<tr>
+<td>FPRI0599_IP</td>
+<td>ServiceNow Asset change</td>
+<td>ServiceNow Cloud Lab</td>
+<td>35464.0</td>
+<td>SERVICENOW → S/4</td>
+</tr>
+<tr>
+<td>FPRI0599_IF</td>
+<td>ServiceNow Asset change</td>
+<td>ServiceNow Cloud Lab</td>
+<td>35464.0</td>
+<td>SERVICENOW → S/4</td>
+</tr>
+<tr>
+<td>FPRI0598</td>
+<td>N rate from Mulesoft to MDG</td>
+<td>Bloomberg Professional</td>
+<td>18830.0</td>
+<td>MULESOFT → S/4 MDG</td>
+</tr>
+<tr>
+<td>FPRI0597</td>
+<td>N rate from Mulesoft to Bloomberg</td>
+<td>Bloomberg Professional</td>
+<td>18830.0</td>
+<td>MULESOFT → BLOOMBERG</td>
+</tr>
+<tr>
+<td>FPRI0596</td>
+<td>N rate from Mulesoft to Treasury Suite</td>
+<td>Treasury Suite</td>
+<td>8121.0</td>
+<td>MULESOFT → TREASURY SUITE</td>
+</tr>
+<tr>
+<td>FPRI0554</td>
+<td>SKF Interface to get file from ECA and send to S4 via BODS - IF</td>
+<td>Wafer Starts Per Week; ISA-VS2012 US (MAPPS); ISA-VS2008 Asia (ATMPS CR and D&hellip;</td>
+<td>4119; 15170; 13284; 9332; 31348; 35612; 32079; 41627; 25596; 38908; 36453; 15799</td>
+<td>ECA → S/4</td>
+</tr>
+<tr>
+<td>FPRI0533</td>
+<td>Reference Interest Rates from MuleSoft to S4 MDG</td>
+<td>Bloomberg Professional</td>
+<td>18830.0</td>
+<td>Bloomberg → S/4 MDG</td>
+</tr>
+<tr>
+<td>FPRI0532</td>
+<td>Request for Reference Interest Rates from MuleSoft to Bloomberg</td>
+<td>Bloomberg Professional</td>
+<td>18830.0</td>
+<td>MULESOFT → BLOOMBERG</td>
+</tr>
+<tr>
+<td>FPRI0531</td>
+<td>L Rates from MuleSoft to S4 MDG</td>
+<td>Bloomberg Professional</td>
+<td>18830.0</td>
+<td>Bloomberg → S/4 MDG</td>
+</tr>
+<tr>
+<td>FPRI0530</td>
+<td>Request for L Rates from MuleSoft to Bloomberg</td>
+<td>Bloomberg Professional</td>
+<td>18830.0</td>
+<td>MULESOFT → BLOOMBERG</td>
+</tr>
+<tr>
+<td>FPRI0529</td>
+<td>L Rates from MuleSoft to Quantum</td>
+<td>FIS Quantum</td>
+<td>6922.0</td>
+<td>MULESOFT → QUANTUM</td>
+</tr>
+<tr>
+<td>FPRI0528</td>
+<td>L Rates from MuleSoft to Treasury Suite</td>
+<td>Treasury Suite</td>
+<td>8121.0</td>
+<td>MULESOFT → TREASURY SUITE</td>
+</tr>
+<tr>
+<td>FPRI0527</td>
+<td>Reference Interest Rates from MuleSoft to Quantum</td>
+<td>FIS Quantum</td>
+<td>6922.0</td>
+<td>MULESOFT → QUANTUM</td>
+</tr>
+<tr>
+<td>FPRI0526</td>
+<td>Reference Interest Rates from MuleSoft to Treasury Suite</td>
+<td>Treasury Suite</td>
+<td>8121.0</td>
+<td>MULESOFT → TREASURY SUITE</td>
+</tr>
+<tr>
+<td>FPRI0505</td>
+<td>Interface – Copp Clark Holiday Calendar Integration with SAP</td>
+<td>Copp Clark Holiday Data Service</td>
+<td>35822.0</td>
+<td>Copp Clark → S/4</td>
+</tr>
+<tr>
+<td>FPRI0378_IP</td>
+<td>GL Interface - SAP API IP</td>
+<td>Design and Sales Acceleration E-Commerce (Demo Depot); Flex One-Stop Tool</td>
+<td>8902; 602</td>
+<td>API → S/4</td>
+</tr>
+<tr>
+<td>FPRI0378_IF</td>
+<td>GL Interface - SAP API IF</td>
+<td>Design and Sales Acceleration E-Commerce (Demo Depot); Flex One-Stop Tool</td>
+<td>8902; 602</td>
+<td>API → S/4</td>
+</tr>
+<tr>
+<td>FPRI0377</td>
+<td>GL Interface - File Processing in Mulesoft</td>
+<td>Workday; ADP Payroll GAR; ADP Payroll EMEA; ICOST - Integrated Cost of Sales &hellip;</td>
+<td>12245; 5159; 19882; 7440; 5187; 20452; 6922; 19323; 10719</td>
+<td>CONCUR → S/4</td>
+</tr>
+<tr>
+<td>FPRI0376</td>
+<td>GL Interface - File Processing in Mulesoft</td>
+<td>Workday; ADP Payroll GAR; ADP Payroll EMEA; ICOST - Integrated Cost of Sales &hellip;</td>
+<td>12245; 5159; 19882; 7440; 5187; 20452; 6922; 19323; 10719</td>
+<td>ICOST → S/4</td>
+</tr>
+<tr>
+<td>FPRI0323_IP</td>
+<td>Create a common API for Asset updates, transfer, retire and Mass upload</td>
+<td>ServiceNow Cloud</td>
+<td>23476.0</td>
+<td></td>
+</tr>
+<tr>
+<td>FPRI0323_IF</td>
+<td>Create a common API for Asset updates, transfer, retire and Mass upload</td>
+<td>ServiceNow Cloud</td>
+<td>23476.0</td>
+<td></td>
+</tr>
+<tr>
+<td>FPRI0227</td>
+<td>Outbound Interface from CFIN to QTM in relation to not only QTM payment ackno&hellip;</td>
+<td>FIS Quantum</td>
+<td>6922.0</td>
+<td>S/4 → Quantum</td>
+</tr>
+<tr>
+<td>FPRI0226</td>
+<td>Inbound Interface from QTM to CFIN in relation to QTM payment files and MT me&hellip;</td>
+<td>FIS Quantum</td>
+<td>6922.0</td>
+<td>Quantum → S/4</td>
+</tr>
+<tr>
+<td>FPRI0224</td>
+<td>Outbound Interface - SAP to Quantum for Transmitting Cash Management Relevant&hellip;</td>
+<td>FIS Quantum</td>
+<td>6922.0</td>
+<td>S/4 → Quantum</td>
+</tr>
+<tr>
+<td>FPRI0188</td>
+<td>Inbound Interface from EMS to S/4 to create WBS element and Update WBS elemen&hellip;</td>
+<td>Equipment Management System</td>
+<td>4012.0</td>
+<td>XEUS → S/4</td>
+</tr>
+<tr>
+<td>FPRE0870</td>
+<td>Smart Exporter Interface to CFIN</td>
+<td>EY Smart Exporter Tool</td>
+<td></td>
+<td>EY Smart Exporter Tool → S4</td>
+</tr>
+<tr>
+<td>FPRE0549</td>
+<td>Enhancement to a) update Cost and Production volume in custom table, b) calcu&hellip;</td>
+<td>BY-PDH</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FPRC0174_IP</td>
+<td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
+<td>ECC</td>
+<td></td>
+<td>ECC → S4</td>
+</tr>
+<tr>
+<td>FPRC0174_IF</td>
+<td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
+<td>ECC</td>
+<td></td>
+<td>ECC → S4</td>
+</tr>
+<tr>
+<td>FPRC0117</td>
+<td>Conversion – In House Cash: Current Account creation and Current Account Bala&hellip;</td>
+<td>ECC</td>
+<td></td>
+<td>ECC → CFIN</td>
+</tr>
+<tr>
+<td>FPRC0116</td>
+<td>Conversion – Migration of Existing Bank Guarantees and Intercompany Loans to &hellip;</td>
+<td>Quantum</td>
+<td></td>
+<td>Quantum → CFIN</td>
+</tr>
+</tbody>
+</table>
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>MR-020 — Manage Capital Structure</span></div>
 
 </div>
@@ -4564,32 +5715,7 @@ nav.toc a:hover { text-decoration: underline; }
 
 
 <h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
-<p>Integration patterns identified from the system flow analysis for MR-020:</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Pattern</th>
-<th>Flow Chain</th>
-<th>Middleware</th>
-<th>Protocol</th>
-<th>Auth</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Integration pattern details will be refined when tower architects validate middleware assignments.</em></p>
-</blockquote>
+<p><em>Integration patterns will be populated when tower architects provide validated middleware and protocol details via the extended flow template.</em></p>
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>MR-020 — Manage Capital Structure</span></div>
 
 </div>
@@ -4603,44 +5729,7 @@ nav.toc a:hover { text-decoration: underline; }
 <p><strong>TECHNOLOGY / PLATFORM ARCHITECTURE</strong> — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.</p>
 </blockquote>
 <h4 id="platform-inventory">Platform Inventory</h4>
-<p>Platform landscape inferred from integrated systems for MR-020:</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Platform</th>
-<th>Type</th>
-<th>Systems Using</th>
-<th>Environment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>SAP S/4HANA</td>
-<td>On-Premise (HEC)</td>
-<td>SAP S/4 modules</td>
-<td>DEV, QAS, PRD</td>
-</tr>
-<tr>
-<td>2</td>
-<td>SAP BTP (Integration Suite)</td>
-<td>Cloud / PaaS</td>
-<td>CPI, API Management</td>
-<td>DEV, QAS, PRD</td>
-</tr>
-<tr>
-<td>3</td>
-<td>MuleSoft Anypoint</td>
-<td>Cloud / iPaaS</td>
-<td>API-led integrations</td>
-<td>DEV, QAS, PRD</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Platform assignments will be validated when tower architects populate technology platform columns.</em></p>
-</blockquote>
+<p><em>Platform inventory will be populated when tower architects provide validated technology platform details via the extended flow template.</em></p>
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>MR-020 — Manage Capital Structure</span></div>
 
 </div>
@@ -5032,64 +6121,7 @@ nav.toc a:hover { text-decoration: underline; }
 
 
 <h3 id="72-raid-log">7.2 RAID Log</h3>
-<p>Standard RAID items for MR-020 (Finance Plan To Report):</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Category</th>
-<th>Description</th>
-<th>Status</th>
-<th>Owner</th>
-<th>Priority</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Risk</td>
-<td>Data migration completeness — validate all legacy Manage Capital Structure data maps to S/4 target structures</td>
-<td>Open</td>
-<td>Tower Architect</td>
-<td>High</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Risk</td>
-<td>Integration testing coverage — ensure all 0 integrated systems are validated end-to-end</td>
-<td>Open</td>
-<td>Integration Lead</td>
-<td>High</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Assumption</td>
-<td>Target SAP S/4HANA system available in DEV/QAS per release schedule</td>
-<td>Active</td>
-<td>SAP Basis</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Issue</td>
-<td>API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation</td>
-<td>Open</td>
-<td>EA Pipeline Team</td>
-<td>High</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Dependency</td>
-<td>Upstream BPMN process models validated and signed off by business process owners</td>
-<td>Active</td>
-<td>Process Owner</td>
-<td>Medium</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.</em></p>
-</blockquote>
+<p><em>RAID items will be auto-populated from the Smartsheet RAID log when matched to this capability.</em></p>
 <h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
 <table>
 <thead>

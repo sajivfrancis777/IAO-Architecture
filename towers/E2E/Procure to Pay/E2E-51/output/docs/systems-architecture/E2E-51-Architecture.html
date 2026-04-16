@@ -448,7 +448,12 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#52-future-state-future-state-application-landscape">5.2 Future-State Application Landscape</a></li>
       <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+        <ul>
+          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
+          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+        </ul>
+      </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
     </ul>
   </li>
@@ -1176,43 +1181,7 @@ flowchart TB
 </tbody>
 </table>
 <h3 id="44-ricefw-data-objects">4.4 RICEFW Data Objects</h3>
-<p>Reports and Conversions for this capability will be populated from the Smartsheet Object Tracker via automated API extraction.</p>
-<table>
-<thead>
-<tr>
-<th>Object ID</th>
-<th>Type</th>
-<th>Description</th>
-<th>Status</th>
-<th>Source</th>
-<th>Target</th>
-<th>Complexity</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>E2E-51-R001</td>
-<td>Report</td>
-<td>Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​ operational report</td>
-<td>Planned</td>
-<td>SAP S/4HANA</td>
-<td>Analytics</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>E2E-51-C001</td>
-<td>Conversion</td>
-<td>Legacy data migration for Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​</td>
-<td>Planned</td>
-<td>Legacy ERP</td>
-<td>SAP S/4HANA</td>
-<td>High</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Pending: Smartsheet API integration to auto-populate live RICEFW data (see Build Requirements).</em></p>
-</blockquote>
+<p><em>RICEFW data objects (Reports and Conversions) will be auto-populated from the Smartsheet Object Tracker when matched to this capability.</em></p>
 <h3 id="45-data-governance-quality">4.5 Data Governance &amp; Quality</h3>
 <table>
 <thead>
@@ -1463,52 +1432,7 @@ flowchart TB
 
 
 <h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
-<p>RICEFW objects for this capability will be auto-populated from the Smartsheet S/4 Object Tracker.</p>
-<table>
-<thead>
-<tr>
-<th>Object ID</th>
-<th>Type</th>
-<th>Description</th>
-<th>Status</th>
-<th>Source → Target</th>
-<th>Middleware</th>
-<th>Complexity</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>E2E-51-I001</td>
-<td>Interface</td>
-<td>Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​ inbound data interface</td>
-<td>Planned</td>
-<td>Legacy → SAP S/4HANA</td>
-<td>MuleSoft / CPI</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>E2E-51-E001</td>
-<td>Enhancement</td>
-<td>Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​ custom business logic</td>
-<td>Planned</td>
-<td>SAP S/4HANA</td>
-<td>N/A</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>E2E-51-F001</td>
-<td>Form/Report</td>
-<td>Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​ operational output</td>
-<td>Planned</td>
-<td>SAP S/4HANA</td>
-<td>N/A</td>
-<td>Low</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Pending: Smartsheet API integration to auto-populate live RICEFW inventory (see Build Requirements).</em></p>
-</blockquote>
+<p><em>RICEFW inventory will be auto-populated from the Smartsheet S/4 Object Tracker when matched to this capability.</em></p>
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-51 — Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​</span></div>
 
 </div>
@@ -1859,58 +1783,7 @@ flowchart TB
 
 <h2 id="7-project-context">7. Project Context</h2>
 <h3 id="71-project-roadmap-go-live-plan">7.1 Project Roadmap &amp; Go-Live Plan</h3>
-<p>Project delivery milestones for E2E-51 RICEFW objects:</p>
-<table>
-<thead>
-<tr>
-<th>Phase</th>
-<th>Planned Start</th>
-<th>Planned End</th>
-<th>Status</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Functional Specification (FS)</td>
-<td>Per project plan</td>
-<td>Per project plan</td>
-<td>In Progress</td>
-<td>Tower-level FS schedule</td>
-</tr>
-<tr>
-<td>Technical Design (TDD)</td>
-<td>FS + 2 weeks</td>
-<td>FS + 6 weeks</td>
-<td>Planned</td>
-<td>Dependent on FS completion</td>
-</tr>
-<tr>
-<td>Build &amp; Unit Test (TUT)</td>
-<td>TDD + 1 week</td>
-<td>TDD + 8 weeks</td>
-<td>Planned</td>
-<td>Includes S/4 + Middleware</td>
-</tr>
-<tr>
-<td>Functional User Test (FUT)</td>
-<td>Build + 1 week</td>
-<td>Build + 4 weeks</td>
-<td>Planned</td>
-<td>Tower-led validation</td>
-</tr>
-<tr>
-<td>Go-Live (R1 – R5)</td>
-<td>Per release plan</td>
-<td>Per release plan</td>
-<td>Planned</td>
-<td>End-to-End Integrated Processes release</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Detailed object-level timelines will be auto-populated from the Smartsheet Object Tracker via API integration.</em></p>
-</blockquote>
+<p><em>Project roadmap and RICEFW timelines will be auto-populated from the Smartsheet Object Tracker when matched to this capability.</em></p>
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-51 — Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​</span></div>
 
 </div>
@@ -1919,64 +1792,7 @@ flowchart TB
 
 
 <h3 id="72-raid-log">7.2 RAID Log</h3>
-<p>Standard RAID items for E2E-51 (End-to-End Integrated Processes):</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Category</th>
-<th>Description</th>
-<th>Status</th>
-<th>Owner</th>
-<th>Priority</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Risk</td>
-<td>Data migration completeness — validate all legacy Purchase Requisition to Payments for Indirect Materials (Non-IPN and Non-Inventoried) ​ data maps to S/4 target structures</td>
-<td>Open</td>
-<td>Tower Architect</td>
-<td>High</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Risk</td>
-<td>Integration testing coverage — ensure all 2 integrated systems are validated end-to-end</td>
-<td>Open</td>
-<td>Integration Lead</td>
-<td>High</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Assumption</td>
-<td>Target SAP S/4HANA system available in DEV/QAS per release schedule</td>
-<td>Active</td>
-<td>SAP Basis</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Issue</td>
-<td>API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation</td>
-<td>Open</td>
-<td>EA Pipeline Team</td>
-<td>High</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Dependency</td>
-<td>Upstream BPMN process models validated and signed off by business process owners</td>
-<td>Active</td>
-<td>Process Owner</td>
-<td>Medium</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.</em></p>
-</blockquote>
+<p><em>RAID items will be auto-populated from the Smartsheet RAID log when matched to this capability.</em></p>
 <h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
 <table>
 <thead>

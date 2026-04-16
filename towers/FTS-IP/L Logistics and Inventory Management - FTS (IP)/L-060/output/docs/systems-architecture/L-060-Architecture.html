@@ -445,7 +445,12 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+        <ul>
+          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
+          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+        </ul>
+      </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
     </ul>
   </li>
@@ -1668,40 +1673,7 @@ flowchart LR
 
 <h2 id="4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</h2>
 <h3 id="41-data-flows-source-to-target">4.1 Data Flows — Source to Target</h3>
-<p>The following data flows are derived from the system integration hops for L-060. Each row shows source application on its database flowing to a target application on its database.</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Flow Chain</th>
-<th>Hop</th>
-<th>Source App</th>
-<th>Source DB</th>
-<th>Target App</th>
-<th>Target DB</th>
-<th>Data Description</th>
-<th>Frequency</th>
-<th>Classification</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>DB platforms will be populated when tower architects complete the extended flow template columns (42-47).</em></p>
-</blockquote>
+<p><em>Data flows with DB platform details will be populated when tower architects complete the extended flow template columns (42-47) via the Input Portal.</em></p>
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
 
 </div>
@@ -1714,32 +1686,7 @@ flowchart LR
 <p><strong>DATA ARCHITECTURE</strong> — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.</p>
 </blockquote>
 <h3 id="43-data-lineage">4.3 Data Lineage</h3>
-<p>Data lineage traces the origin and transformation path of key data objects across integrated systems.</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Source System</th>
-<th>Source Schema/Object</th>
-<th>Target System</th>
-<th>Target Schema/Object</th>
-<th>Transformation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Lineage detail will be refined when tower architects validate source/target schema object mappings.</em></p>
-</blockquote>
+<p><em>Data lineage (source schema/object → target schema/object mappings) will be populated when tower architects provide validated schema details via the Input Portal.</em></p>
 <h3 id="44-ricefw-data-objects">4.4 RICEFW Data Objects</h3>
 <p>Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:</p>
 <table>
@@ -1872,6 +1819,8 @@ flowchart LR
 <th>Status</th>
 <th>Source → Target</th>
 <th>Middleware</th>
+<th>Boundary App</th>
+<th>Interface Approach</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -1883,6 +1832,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1892,6 +1843,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1901,6 +1854,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1910,6 +1865,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1919,6 +1876,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1928,6 +1887,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>SFT</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1937,6 +1898,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>SFT</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1946,6 +1909,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>MuleSoft</td>
+<td>Excursion Containment Disposition</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1955,6 +1920,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>MuleSoft</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1964,6 +1931,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>MuleSoft</td>
+<td>Excursion Containment Disposition</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1973,6 +1942,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>MULESOFT</td>
+<td>Excursion Containment Disposition</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1982,6 +1953,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>MULESOFT</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1991,6 +1964,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>MULESOFT</td>
+<td>Excursion Containment Disposition</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2000,6 +1975,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td>S/4 → WMS (3PL)</td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2009,6 +1986,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td>OpenText → S/4</td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2018,6 +1997,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td>S/4 → Redwood</td>
 <td>APIGEE</td>
+<td>Redwood</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2027,6 +2008,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td>S/4 ISM → Service Now</td>
 <td>NA</td>
+<td>ServiceNow Cloud</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2036,6 +2019,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td>S/4 → Redwood</td>
 <td>APIGEE</td>
+<td>Redwood</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2045,6 +2030,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td>OpenText → S/4</td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2054,6 +2041,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td>OpenText → S/4</td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2063,6 +2052,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>MULESOFT</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2072,6 +2063,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td>S/4 → NDA</td>
 <td>NA</td>
+<td>LAWMAS Agiloft Contract Lifecycle Management</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2081,6 +2074,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td>S/4 → OpenText</td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2090,6 +2085,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td>3PL → S/4</td>
 <td>MULESOFT</td>
+<td>OpenText</td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2099,6 +2096,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2108,6 +2107,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2117,6 +2118,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2126,6 +2129,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2135,6 +2140,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2144,6 +2151,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2153,6 +2162,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2162,6 +2173,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2171,6 +2184,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2180,6 +2195,8 @@ flowchart LR
 <td>09. FUT Overdue</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2189,6 +2206,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2198,6 +2217,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2207,6 +2228,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2216,6 +2239,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2225,6 +2250,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2234,6 +2261,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2243,6 +2272,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2252,6 +2283,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2261,6 +2294,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2270,6 +2305,8 @@ flowchart LR
 <td>09. FUT Overdue</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -2279,6 +2316,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td>Asset Management Tool 2.0</td>
+<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2288,6 +2327,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2297,6 +2338,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2306,6 +2349,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2315,6 +2360,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2324,6 +2371,8 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
+<td></td>
+<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2333,11 +2382,133 @@ flowchart LR
 <td>06. Dev In Progress</td>
 <td></td>
 <td>MuleSoft</td>
+<td>NA</td>
+<td></td>
 <td>03.Medium</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Summary</strong>: 2 Reports, 20 Interfaces, 3 Conversions, 17 Enhancements, 6 Forms, 3 Workflows</p>
+<h4 id="552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</h4>
+<p>The following RICEFW objects integrate with <strong>boundary applications</strong> (external systems outside the S/4 HANA core):</p>
+<table>
+<thead>
+<tr>
+<th>RICEFW Object ID</th>
+<th>Description</th>
+<th>Boundary Application</th>
+<th>IAPM ID</th>
+<th>Source → Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOGI1576</td>
+<td>ECD_Interface between S4 to ECD for inventory status response</td>
+<td>Excursion Containment Disposition</td>
+<td>8785.0</td>
+<td></td>
+</tr>
+<tr>
+<td>LOGI1571</td>
+<td>ECD_Interface from ECD to S4 for Inventory status call​</td>
+<td>Excursion Containment Disposition</td>
+<td>8785.0</td>
+<td></td>
+</tr>
+<tr>
+<td>LOGI1295</td>
+<td>ECD_Interface between S/4 and ECD for completion status</td>
+<td>Excursion Containment Disposition</td>
+<td>8785.0</td>
+<td></td>
+</tr>
+<tr>
+<td>LOGI1290</td>
+<td>ECD_Interface from ECD to S4 for Inventory Hold/unhold request</td>
+<td>Excursion Containment Disposition</td>
+<td>8785.0</td>
+<td></td>
+</tr>
+<tr>
+<td>LOGI1272</td>
+<td>Response to goods receipt posting from SAP to 3PL - EDI 4C1B</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td>S/4 → WMS (3PL)</td>
+</tr>
+<tr>
+<td>LOGI1267</td>
+<td>Inventory Reconciliation with Consignment hub – EDI 4C1 with version control</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td>OpenText → S/4</td>
+</tr>
+<tr>
+<td>LOGI1081_IP</td>
+<td>Interface + Enhancement - Reprinting of Carrier Label</td>
+<td>Redwood</td>
+<td>56974.0</td>
+<td>S/4 → Redwood</td>
+</tr>
+<tr>
+<td>LOGI1079_IP</td>
+<td>Interface from S4 ISM to Service Now</td>
+<td>ServiceNow Cloud</td>
+<td>23476.0</td>
+<td>S/4 ISM → Service Now</td>
+</tr>
+<tr>
+<td>LOGI1074_IP</td>
+<td>Send data via API to retrieve the tracking ID - interface + Enhancement</td>
+<td>Redwood</td>
+<td>56974.0</td>
+<td>S/4 → Redwood</td>
+</tr>
+<tr>
+<td>LOGI0951</td>
+<td>Inbound interface to receive Finished Goods “Goods Receipt” (4B2) signal from&hellip;</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td>OpenText → S/4</td>
+</tr>
+<tr>
+<td>LOGI0950</td>
+<td>Interface to receive 4B2 signal from Factory and return shipments from ODM/OS&hellip;</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td>OpenText → S/4</td>
+</tr>
+<tr>
+<td>LOGI0836_IP</td>
+<td>Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements)</td>
+<td>LAWMAS Agiloft Contract Lifecycle Management</td>
+<td>35641.0</td>
+<td>S/4 → NDA</td>
+</tr>
+<tr>
+<td>LOGI0335</td>
+<td>Outbound PIP signal to 3PL for material document transfer – EDI 4C1</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td>S/4 → OpenText</td>
+</tr>
+<tr>
+<td>LOGI0237_IP</td>
+<td>Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4</td>
+<td>OpenText</td>
+<td>12842.0</td>
+<td>3PL → S/4</td>
+</tr>
+<tr>
+<td>LOGE0835_IF</td>
+<td>Interface to get the AMT (Asset Management Tool) data on the ISM</td>
+<td>Asset Management Tool 2.0</td>
+<td>14310.0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
 
 </div>
@@ -2346,32 +2517,7 @@ flowchart LR
 
 
 <h3 id="56-integration-patterns">5.6 Integration Patterns</h3>
-<p>Integration patterns identified from the system flow analysis for L-060:</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Pattern</th>
-<th>Flow Chain</th>
-<th>Middleware</th>
-<th>Protocol</th>
-<th>Auth</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Integration pattern details will be refined when tower architects validate middleware assignments.</em></p>
-</blockquote>
+<p><em>Integration patterns will be populated when tower architects provide validated middleware and protocol details via the extended flow template.</em></p>
 <div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
 
 </div>
@@ -2385,44 +2531,7 @@ flowchart LR
 <p><strong>TECHNOLOGY / PLATFORM ARCHITECTURE</strong> — Platforms (green) host applications (blue). Thick arrows show platform-to-platform integration flows.</p>
 </blockquote>
 <h4 id="platform-inventory">Platform Inventory</h4>
-<p>Platform landscape inferred from integrated systems for L-060:</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Platform</th>
-<th>Type</th>
-<th>Systems Using</th>
-<th>Environment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>SAP S/4HANA</td>
-<td>On-Premise (HEC)</td>
-<td>SAP S/4 modules</td>
-<td>DEV, QAS, PRD</td>
-</tr>
-<tr>
-<td>2</td>
-<td>SAP BTP (Integration Suite)</td>
-<td>Cloud / PaaS</td>
-<td>CPI, API Management</td>
-<td>DEV, QAS, PRD</td>
-</tr>
-<tr>
-<td>3</td>
-<td>MuleSoft Anypoint</td>
-<td>Cloud / iPaaS</td>
-<td>API-led integrations</td>
-<td>DEV, QAS, PRD</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Platform assignments will be validated when tower architects populate technology platform columns.</em></p>
-</blockquote>
+<p><em>Platform inventory will be populated when tower architects provide validated technology platform details via the extended flow template.</em></p>
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>L-060 — Manage Storage & Internal Movement of Inventory - FTS (IP)</span></div>
 
 </div>
@@ -2814,64 +2923,7 @@ flowchart LR
 
 
 <h3 id="72-raid-log">7.2 RAID Log</h3>
-<p>Standard RAID items for L-060 (Forecast to Stock (IP)):</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Category</th>
-<th>Description</th>
-<th>Status</th>
-<th>Owner</th>
-<th>Priority</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Risk</td>
-<td>Data migration completeness — validate all legacy Manage Storage &amp; Internal Movement of Inventory - FTS (IP) data maps to S/4 target structures</td>
-<td>Open</td>
-<td>Tower Architect</td>
-<td>High</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Risk</td>
-<td>Integration testing coverage — ensure all 0 integrated systems are validated end-to-end</td>
-<td>Open</td>
-<td>Integration Lead</td>
-<td>High</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Assumption</td>
-<td>Target SAP S/4HANA system available in DEV/QAS per release schedule</td>
-<td>Active</td>
-<td>SAP Basis</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Issue</td>
-<td>API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation</td>
-<td>Open</td>
-<td>EA Pipeline Team</td>
-<td>High</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Dependency</td>
-<td>Upstream BPMN process models validated and signed off by business process owners</td>
-<td>Active</td>
-<td>Process Owner</td>
-<td>Medium</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><em>Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.</em></p>
-</blockquote>
+<p><em>RAID items will be auto-populated from the Smartsheet RAID log when matched to this capability.</em></p>
 <h3 id="73-recommendations-next-steps">7.3 Recommendations &amp; Next Steps</h3>
 <table>
 <thead>

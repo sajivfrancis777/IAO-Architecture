@@ -67,7 +67,12 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a></li>
+      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+        <ul>
+          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
+          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+        </ul>
+      </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
     </ul>
   </li>
@@ -169,12 +174,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 
 ### 3.3 Business Roles & Responsibilities
 
-| Role / Lane | Processes Involved | Description |
-|------------|-------------------|-------------|
-| Business Process Owner | MDM-140 | Accountable for Maintain ERP Reference Data business process definition and sign-off |
-| Functional Analyst | MDM-140 | Responsible for functional specification and test case design |
-| Technical Developer | MDM-140 | Responsible for RICEFW build and unit testing |
-| Integration Architect | MDM-140 | Designs and validates integration patterns and middleware flows |
+*Business roles and responsibilities will be derived from BPMN swim lane assignments when process models are available.*
 
 
 <div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-140 — Maintain ERP Reference Data</span></div>
@@ -185,12 +185,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 
 ### 4.1 Data Flows — Source to Target
 
-The following data flows are derived from the system integration hops for MDM-140. Each row shows source application on its database flowing to a target application on its database.
-
-| # | Flow Chain | Hop | Source App | Source DB | Target App | Target DB | Data Description | Frequency | Classification |
-|---|-----------|-----|-----------|----------|-----------|----------|-----------------|-----------|---------------|
-
-> *DB platforms will be populated when tower architects complete the extended flow template columns (42-47).*
+*Data flows with DB platform details will be populated when tower architects complete the extended flow template columns (42-47) via the Input Portal.*
 
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-140 — Maintain ERP Reference Data</span></div>
@@ -207,23 +202,11 @@ The following data flows are derived from the system integration hops for MDM-14
 
 ### 4.3 Data Lineage
 
-Data lineage traces the origin and transformation path of key data objects across integrated systems.
-
-| # | Source System | Source Schema/Object | Target System | Target Schema/Object | Transformation |
-|---|-------------|---------------------|---------------|---------------------|---------------|
-
-> *Lineage detail will be refined when tower architects validate source/target schema object mappings.*
+*Data lineage (source schema/object → target schema/object mappings) will be populated when tower architects provide validated schema details via the Input Portal.*
 
 ### 4.4 RICEFW Data Objects
 
-Reports and Conversions for this capability will be populated from the Smartsheet Object Tracker via automated API extraction.
-
-| Object ID | Type | Description | Status | Source | Target | Complexity |
-|-----------|------|-------------|--------|--------|--------|-----------|
-| MDM-140-R001 | Report | Maintain ERP Reference Data operational report | Planned | SAP S/4HANA | Analytics | Medium |
-| MDM-140-C001 | Conversion | Legacy data migration for Maintain ERP Reference Data | Planned | Legacy ERP | SAP S/4HANA | High |
-
-> *Pending: Smartsheet API integration to auto-populate live RICEFW data (see Build Requirements).*
+*RICEFW data objects (Reports and Conversions) will be auto-populated from the Smartsheet Object Tracker when matched to this capability.*
 
 ### 4.5 Data Governance & Quality
 
@@ -258,19 +241,21 @@ Reports and Conversions for this capability will be populated from the Smartshee
 
 ### 5.5 RICEFW Inventory
 
-| Object ID | Type | Description | Status | Source → Target | Middleware | Complexity |
-|-----------|------|-------------|--------|----------------|-----------|-----------|
-| MDCE0015 | Enhancement | Asset Location - Extended Itego datamodel with 22 custom fields + UI to suppo... | 10. Object Complete | MDG | NA | 03.Medium |
-| MDCE0014 | Enhancement | Storage Location - Extended Itego datamodel with 11 custom fields + UI to sup... | 10. Object Complete | MDG | NA | 03.Medium |
-| MDCE0013 | Enhancement | Plant - Extended Itego datamodel with 13 custom fields + UI to support govern... | 10. Object Complete | MDG | NA | 03.Medium |
-| MDCE0012 | Enhancement | Sales Org Association - Custom Itego Object with 4 customer fields + UI to su... | 10. Object Complete | MDG | NA | 03.Medium |
-| MDCE0011 | Enhancement | Holiday Calendar - Custom goveranance | 10. Object Complete | MDG | NA | 03.Medium |
-| MDCE0009 | Enhancement | Shipping Point- Custom Itego Object with 6 customer fields + UI to support go... | 10. Object Complete | MDG | NA | 03.Medium |
-| DATW0591 | Workflow | Parallel Approver Workflow Process | 10. Object Complete |  | NA | 03.Medium |
-| DATE0799 | Enhancement | RICEFW for Validations and Derivations where enhancement required for all ref... | 10. Object Complete |  | NA | 03.Medium |
-| DATE0561 | Enhancement | Adding DQM Functionality for Address validation | 10. Object Complete |  | NA | 01.Very High |
+| Object ID | Type | Description | Status | Source → Target | Middleware | Boundary App | Interface Approach | Complexity |
+|-----------|------|-------------|--------|----------------|-----------|-------------|-------------------|-----------|
+| MDCE0015 | Enhancement | Asset Location - Extended Itego datamodel with 22 custom fields + UI to suppo... | 10. Object Complete | MDG | NA |  |  | 03.Medium |
+| MDCE0014 | Enhancement | Storage Location - Extended Itego datamodel with 11 custom fields + UI to sup... | 10. Object Complete | MDG | NA |  |  | 03.Medium |
+| MDCE0013 | Enhancement | Plant - Extended Itego datamodel with 13 custom fields + UI to support govern... | 10. Object Complete | MDG | NA |  |  | 03.Medium |
+| MDCE0012 | Enhancement | Sales Org Association - Custom Itego Object with 4 customer fields + UI to su... | 10. Object Complete | MDG | NA |  |  | 03.Medium |
+| MDCE0011 | Enhancement | Holiday Calendar - Custom goveranance | 10. Object Complete | MDG | NA |  |  | 03.Medium |
+| MDCE0009 | Enhancement | Shipping Point- Custom Itego Object with 6 customer fields + UI to support go... | 10. Object Complete | MDG | NA |  |  | 03.Medium |
+| DATW0591 | Workflow | Parallel Approver Workflow Process | 10. Object Complete |  | NA |  |  | 03.Medium |
+| DATE0799 | Enhancement | RICEFW for Validations and Derivations where enhancement required for all ref... | 10. Object Complete |  | NA |  |  | 03.Medium |
+| DATE0561 | Enhancement | Adding DQM Functionality for Address validation | 10. Object Complete |  | NA |  |  | 01.Very High |
 
 **Summary**: 8 Enhancements, 1 Workflows
+
+
 
 
 <div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-140 — Maintain ERP Reference Data</span></div>
@@ -279,12 +264,7 @@ Reports and Conversions for this capability will be populated from the Smartshee
 
 ### 5.6 Integration Patterns
 
-Integration patterns identified from the system flow analysis for MDM-140:
-
-| # | Pattern | Flow Chain | Middleware | Protocol | Auth |
-|---|---------|-----------|-----------|----------|------|
-
-> *Integration pattern details will be refined when tower architects validate middleware assignments.*
+*Integration patterns will be populated when tower architects provide validated middleware and protocol details via the extended flow template.*
 
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-140 — Maintain ERP Reference Data</span></div>
@@ -303,15 +283,7 @@ Integration patterns identified from the system flow analysis for MDM-140:
 
 #### Platform Inventory
 
-Platform landscape inferred from integrated systems for MDM-140:
-
-| # | Platform | Type | Systems Using | Environment |
-|---|----------|------|--------------|-------------|
-| 1 | SAP S/4HANA | On-Premise (HEC) | SAP S/4 modules | DEV, QAS, PRD |
-| 2 | SAP BTP (Integration Suite) | Cloud / PaaS | CPI, API Management | DEV, QAS, PRD |
-| 3 | MuleSoft Anypoint | Cloud / iPaaS | API-led integrations | DEV, QAS, PRD |
-
-> *Platform assignments will be validated when tower architects populate technology platform columns.*
+*Platform inventory will be populated when tower architects provide validated technology platform details via the extended flow template.*
 
 
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-140 — Maintain ERP Reference Data</span></div>
@@ -383,17 +355,7 @@ Platform landscape inferred from integrated systems for MDM-140:
 
 ### 7.2 RAID Log
 
-Standard RAID items for MDM-140 (Master Data):
-
-| # | Category | Description | Status | Owner | Priority |
-|---|----------|-------------|--------|-------|----------|
-| 1 | Risk | Data migration completeness — validate all legacy Maintain ERP Reference Data data maps to S/4 target structures | Open | Tower Architect | High |
-| 2 | Risk | Integration testing coverage — ensure all 0 integrated systems are validated end-to-end | Open | Integration Lead | High |
-| 3 | Assumption | Target SAP S/4HANA system available in DEV/QAS per release schedule | Active | SAP Basis | Medium |
-| 4 | Issue | API access provisioning — SAP OData, Smartsheet, and IAPM API credentials required for automation | Open | EA Pipeline Team | High |
-| 5 | Dependency | Upstream BPMN process models validated and signed off by business process owners | Active | Process Owner | Medium |
-
-> *Live RAID data will be auto-populated from the Smartsheet RAID log via API integration.*
+*RAID items will be auto-populated from the Smartsheet RAID log when matched to this capability.*
 
 ### 7.3 Recommendations & Next Steps
 
