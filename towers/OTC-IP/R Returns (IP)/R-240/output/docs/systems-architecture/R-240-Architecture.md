@@ -12,11 +12,13 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 10mm 15mm; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
   p { orphans: 3; widows: 3; }
+  table { table-layout: fixed; word-wrap: break-word; font-size: 8pt; }
+  td, th { overflow: hidden; text-overflow: ellipsis; padding: 3px 4px; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -716,9 +718,9 @@ flowchart TD
 
 ### 5.5 RICEFW Inventory
 
-| Object ID | Type | Description | Status | Source → Target | Middleware | Boundary App | Interface Approach | Complexity |
-|-----------|------|-------------|--------|----------------|-----------|-------------|-------------------|-----------|
-| LOGF0349_IP | Form | ISM - Generate Packing List - IF/IP | 10. Object Complete | NA → NA | NA | Integrated Shipping Memo |  | 02.High |
+| Object ID | Type | Description | Status | Source → Target | Boundary App | Complexity |
+|-----------|------|-------------|--------|----------------|-------------|----------|
+| LOGF0349_IP | Form | ISM - Generate Packing List - IF/IP | 10. Object Complete | NA → NA | Integrated Shipping Memo | 02.High |
 
 **Summary**: 1 Forms
 
@@ -727,9 +729,9 @@ flowchart TD
 
 The following RICEFW objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
 
-| RICEFW Object ID | Description | Boundary Application | IAPM ID | Source → Target |
-|-------------------|------------|---------------------|---------|----------------|
-| LOGF0349_IP | ISM - Generate Packing List - IF/IP | Integrated Shipping Memo |  | NA → NA |
+| RICEFW ID | Description | Boundary Application | Source → Target |
+|-----------|------------|---------------------|----------------|
+| LOGF0349_IP | ISM - Generate Packing List - IF/IP | Integrated Shipping Memo | NA → NA |
 
 
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-240 — Manage Storage & Internal Movement of Inventory (IP)</span></div>
@@ -739,6 +741,7 @@ The following RICEFW objects integrate with **boundary applications** (external 
 ### 5.6 Integration Patterns
 
 *Integration patterns will be populated when tower architects provide validated middleware and protocol details via the extended flow template.*
+
 
 
 

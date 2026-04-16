@@ -12,11 +12,13 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 10mm 15mm; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
   p { orphans: 3; widows: 3; }
+  table { table-layout: fixed; word-wrap: break-word; font-size: 8pt; }
+  td, th { overflow: hidden; text-overflow: ellipsis; padding: 3px 4px; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -229,17 +231,17 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 
 ### 5.5 RICEFW Inventory
 
-| Object ID | Type | Description | Status | Source → Target | Middleware | Boundary App | Interface Approach | Complexity |
-|-----------|------|-------------|--------|----------------|-----------|-------------|-------------------|-----------|
-| MDCE0015 | Enhancement | Asset Location - Extended Itego datamodel with 22 custom fields + UI to suppo... | 10. Object Complete | MDG | NA |  |  | 03.Medium |
-| MDCE0014 | Enhancement | Storage Location - Extended Itego datamodel with 11 custom fields + UI to sup... | 10. Object Complete | MDG | NA |  |  | 03.Medium |
-| MDCE0013 | Enhancement | Plant - Extended Itego datamodel with 13 custom fields + UI to support govern... | 10. Object Complete | MDG | NA |  |  | 03.Medium |
-| MDCE0012 | Enhancement | Sales Org Association - Custom Itego Object with 4 customer fields + UI to su... | 10. Object Complete | MDG | NA |  |  | 03.Medium |
-| MDCE0011 | Enhancement | Holiday Calendar - Custom goveranance | 10. Object Complete | MDG | NA |  |  | 03.Medium |
-| MDCE0009 | Enhancement | Shipping Point- Custom Itego Object with 6 customer fields + UI to support go... | 10. Object Complete | MDG | NA |  |  | 03.Medium |
-| DATW0591 | Workflow | Parallel Approver Workflow Process | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATE0799 | Enhancement | RICEFW for Validations and Derivations where enhancement required for all ref... | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATE0561 | Enhancement | Adding DQM Functionality for Address validation | 10. Object Complete |  | NA |  |  | 01.Very High |
+| Object ID | Type | Description | Status | Source → Target | Boundary App | Complexity |
+|-----------|------|-------------|--------|----------------|-------------|----------|
+| MDCE0015 | Enhancement | Asset Location - Extended Itego datamodel with 22 custom fields + UI to suppo... | 10. Object Complete | MDG |  | 03.Medium |
+| MDCE0014 | Enhancement | Storage Location - Extended Itego datamodel with 11 custom fields + UI to sup... | 10. Object Complete | MDG |  | 03.Medium |
+| MDCE0013 | Enhancement | Plant - Extended Itego datamodel with 13 custom fields + UI to support govern... | 10. Object Complete | MDG |  | 03.Medium |
+| MDCE0012 | Enhancement | Sales Org Association - Custom Itego Object with 4 customer fields + UI to su... | 10. Object Complete | MDG |  | 03.Medium |
+| MDCE0011 | Enhancement | Holiday Calendar - Custom goveranance | 10. Object Complete | MDG |  | 03.Medium |
+| MDCE0009 | Enhancement | Shipping Point- Custom Itego Object with 6 customer fields + UI to support go... | 10. Object Complete | MDG |  | 03.Medium |
+| DATW0591 | Workflow | Parallel Approver Workflow Process | 10. Object Complete |  |  | 03.Medium |
+| DATE0799 | Enhancement | RICEFW for Validations and Derivations where enhancement required for all ref... | 10. Object Complete |  |  | 03.Medium |
+| DATE0561 | Enhancement | Adding DQM Functionality for Address validation | 10. Object Complete |  |  | 01.Very High |
 
 **Summary**: 8 Enhancements, 1 Workflows
 
@@ -253,6 +255,7 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 ### 5.6 Integration Patterns
 
 *Integration patterns will be populated when tower architects provide validated middleware and protocol details via the extended flow template.*
+
 
 
 

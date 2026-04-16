@@ -12,11 +12,13 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 10mm 15mm; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
   p { orphans: 3; widows: 3; }
+  table { table-layout: fixed; word-wrap: break-word; font-size: 8pt; }
+  td, th { overflow: hidden; text-overflow: ellipsis; padding: 3px 4px; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -614,9 +616,9 @@ flowchart TD
 
 Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
-| Object ID | Type | Description | Status | Source | Target | Complexity |
-|-----------|------|-------------|--------|--------|--------|-----------|
-| FPRR1240 | Report | Custom report for Revenue Recognition by Stage for Product/Services Sale​ act... | 10. Object Complete |  |  | 03.Medium |
+| Object ID | Type | Description | Status | Source → Target | Complexity |
+|-----------|------|-------------|--------|----------------|----------|
+| FPRR1240 | Report | Custom report for Revenue Recognition by Stage for Product/Services Sale​ act... | 10. Object Complete |  | 03.Medium |
 
 ### 4.5 Data Governance & Quality
 
@@ -646,22 +648,22 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 ### 5.5 RICEFW Inventory
 
-| Object ID | Type | Description | Status | Source → Target | Middleware | Boundary App | Interface Approach | Complexity |
-|-----------|------|-------------|--------|----------------|-----------|-------------|-------------------|-----------|
-| FPRR1240 | Report | Custom report for Revenue Recognition by Stage for Product/Services Sale​ act... | 10. Object Complete |  | NA |  |  | 03.Medium |
-| FPRI1241 | Interface | Disti Rebate percentage of gross for Unissued Returns and Intransit Deferral | 10. Object Complete | ECA → S/4 | BODS | NA |  | 03.Medium |
-| FPRE1660 | Enhancement | Enhancement for Revenue Recognition by Stage postings for Product/Services Sa... | 10. Object Complete |  | NA |  |  | 02.High |
-| FPRE1659 | Enhancement | Enhancement for Revenue Recognition by Stage postings for Product/Services Sa... | 10. Object Complete |  | NA |  |  | 02.High |
-| FPRE1239 | Enhancement | Enhancement for Revenue Recognition by Stage postings for Product/Services Sa... | 10. Object Complete |  | NA |  |  | 02.High |
-| FPRE0760_IP | Enhancement | SAP RAR and TM Integration to trigger POD Event | 10. Object Complete |  | NA |  |  | 03.Medium |
-| FPRE0760_IF | Enhancement | SAP RAR and TM Integration to trigger POD Event | 10. Object Complete |  | NA |  |  | 04.Low |
-| FPRE0697 | Enhancement | RAR Balance sheet posting with MM & Sold To ID | 10. Object Complete |  | NA |  |  | 03.Medium |
-| FPRE0500_IP | Enhancement | Rule for Transaction Price Allocation in BRIM vs SD | 10. Object Complete |  | NA |  |  | 03.Medium |
-| FPRE0500_IF | Enhancement | Rule for Transaction Price Allocation in BRIM vs SD | 10. Object Complete |  | NA |  |  | 03.Medium |
-| FPRE0477 | Enhancement | Rebate for Direct Customer to Rebate of Intransit deferrals for Direct & Dist... | 10. Object Complete | NA → NA | NA |  |  | 03.Medium |
-| FPRE0476 | Enhancement | Accounting for Stock Rotation | 10. Object Complete | NA → NA | NA |  |  | 03.Medium |
-| FPRE0475 | Enhancement | Accounting for reserves for unissued returns credit note & Rebate Return Accr... | 10. Object Complete | NA → NA | NA |  |  | 03.Medium |
-| FPRE0474 | Enhancement | Accounting for technical return reserve | 10. Object Complete | NA → NA | NA |  |  | 03.Medium |
+| Object ID | Type | Description | Status | Source → Target | Boundary App | Complexity |
+|-----------|------|-------------|--------|----------------|-------------|----------|
+| FPRR1240 | Report | Custom report for Revenue Recognition by Stage for Product/Services Sale​ act... | 10. Object Complete |  |  | 03.Medium |
+| FPRI1241 | Interface | Disti Rebate percentage of gross for Unissued Returns and Intransit Deferral | 10. Object Complete | ECA → S/4 | NA | 03.Medium |
+| FPRE1660 | Enhancement | Enhancement for Revenue Recognition by Stage postings for Product/Services Sa... | 10. Object Complete |  |  | 02.High |
+| FPRE1659 | Enhancement | Enhancement for Revenue Recognition by Stage postings for Product/Services Sa... | 10. Object Complete |  |  | 02.High |
+| FPRE1239 | Enhancement | Enhancement for Revenue Recognition by Stage postings for Product/Services Sa... | 10. Object Complete |  |  | 02.High |
+| FPRE0760_IP | Enhancement | SAP RAR and TM Integration to trigger POD Event | 10. Object Complete |  |  | 03.Medium |
+| FPRE0760_IF | Enhancement | SAP RAR and TM Integration to trigger POD Event | 10. Object Complete |  |  | 04.Low |
+| FPRE0697 | Enhancement | RAR Balance sheet posting with MM & Sold To ID | 10. Object Complete |  |  | 03.Medium |
+| FPRE0500_IP | Enhancement | Rule for Transaction Price Allocation in BRIM vs SD | 10. Object Complete |  |  | 03.Medium |
+| FPRE0500_IF | Enhancement | Rule for Transaction Price Allocation in BRIM vs SD | 10. Object Complete |  |  | 03.Medium |
+| FPRE0477 | Enhancement | Rebate for Direct Customer to Rebate of Intransit deferrals for Direct & Dist... | 10. Object Complete | NA → NA |  | 03.Medium |
+| FPRE0476 | Enhancement | Accounting for Stock Rotation | 10. Object Complete | NA → NA |  | 03.Medium |
+| FPRE0475 | Enhancement | Accounting for reserves for unissued returns credit note & Rebate Return Accr... | 10. Object Complete | NA → NA |  | 03.Medium |
+| FPRE0474 | Enhancement | Accounting for technical return reserve | 10. Object Complete | NA → NA |  | 03.Medium |
 
 **Summary**: 1 Reports, 1 Interfaces, 12 Enhancements
 
@@ -675,6 +677,7 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 ### 5.6 Integration Patterns
 
 *Integration patterns will be populated when tower architects provide validated middleware and protocol details via the extended flow template.*
+
 
 
 

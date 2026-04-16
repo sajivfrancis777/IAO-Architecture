@@ -59,22 +59,29 @@ p {
 table {
     border-collapse: collapse;
     width: 100%;
+    table-layout: fixed;
     margin: 12px 0;
     font-size: 9.5pt;
     page-break-inside: avoid;
     break-inside: avoid;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 th {
     background: #00285a;
     color: #fff;
     font-weight: 600;
     text-align: left;
-    padding: 6px 8px;
+    padding: 4px 6px;
     border: 1px solid #00285a;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 td {
-    padding: 5px 8px;
+    padding: 4px 6px;
     border: 1px solid #ddd;
+    overflow: hidden;
+    text-overflow: ellipsis;
     vertical-align: top;
 }
 tr:nth-child(even) td { background: #f5f8fc; }
@@ -281,7 +288,9 @@ strong { color: #00285a; }
     h2 { margin-top: 14px; margin-bottom: 6px; font-size: 16pt; }
     h3 { margin-top: 10px; margin-bottom: 4px; font-size: 13pt; }
     h4 { margin-top: 8px; margin-bottom: 3px; font-size: 11pt; }
-    table { margin: 6px 0; font-size: 9pt; }
+    table { margin: 6px 0; font-size: 8pt; table-layout: fixed; word-wrap: break-word; }
+    th { padding: 3px 4px; }
+    td { padding: 3px 4px; }
     blockquote { margin: 6px 0; padding: 4px 12px; font-size: 9pt; }
     p { margin: 4px 0; }
     ul, ol { margin: 4px 0; }
@@ -410,11 +419,13 @@ strong { color: #00285a; }
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 10mm 15mm; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
   p { orphans: 3; widows: 3; }
+  table { table-layout: fixed; word-wrap: break-word; font-size: 8pt; }
+  td, th { overflow: visible; text-overflow: ellipsis; padding: 3px 4px; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -1319,8 +1330,7 @@ flowchart TD
 <th>Type</th>
 <th>Description</th>
 <th>Status</th>
-<th>Source</th>
-<th>Target</th>
+<th>Source → Target</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -1331,7 +1341,6 @@ flowchart TD
 <td>ISM - International Traffic Report</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1339,7 +1348,6 @@ flowchart TD
 <td>Report</td>
 <td>Email Notification for deletion of Shipping Memos</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1349,7 +1357,6 @@ flowchart TD
 <td>IM Stock conversion from Non SAP system to S4 system</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1358,7 +1365,6 @@ flowchart TD
 <td>Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1366,7 +1372,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Open Inventory Conversion for IP and IF (as applicable) , ECC to S4</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1434,9 +1439,7 @@ flowchart TD
 <th>Description</th>
 <th>Status</th>
 <th>Source → Target</th>
-<th>Middleware</th>
 <th>Boundary App</th>
-<th>Interface Approach</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -1447,8 +1450,6 @@ flowchart TD
 <td>ISM Workflows - Capital/AMT</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1457,8 +1458,6 @@ flowchart TD
 <td>Workflow</td>
 <td>ISM Workflows - EIMS/Lab</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1469,8 +1468,6 @@ flowchart TD
 <td>ISM Workflows - Non-inventory</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1479,8 +1476,6 @@ flowchart TD
 <td>Report</td>
 <td>ISM - International Traffic Report</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -1491,8 +1486,6 @@ flowchart TD
 <td>Email Notification for deletion of Shipping Memos</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1502,9 +1495,7 @@ flowchart TD
 <td>Receive 4C1 Inventory movement Stock type change and cycle count from IF</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>SFT</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1513,9 +1504,7 @@ flowchart TD
 <td>Receive 4C1 Inventory Reconciliation Snapshot from IF</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>SFT</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1524,9 +1513,7 @@ flowchart TD
 <td>ECD_Interface between S4 to ECD for inventory status response</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>MuleSoft</td>
 <td>Excursion Containment Disposition</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1535,9 +1522,7 @@ flowchart TD
 <td>ECD_Interface between S4 to 3PL for inventory status webservice​</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>MuleSoft</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1546,9 +1531,7 @@ flowchart TD
 <td>ECD_Interface from ECD to S4 for Inventory status call​</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>MuleSoft</td>
 <td>Excursion Containment Disposition</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1557,9 +1540,7 @@ flowchart TD
 <td>ECD_Interface between S/4 and ECD for completion status</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>MULESOFT</td>
 <td>Excursion Containment Disposition</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1568,9 +1549,7 @@ flowchart TD
 <td>ECD_Interface between S/4 and 3PL to send plant/batch level hold/unhold infor&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>MULESOFT</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1579,9 +1558,7 @@ flowchart TD
 <td>ECD_Interface from ECD to S4 for Inventory Hold/unhold request</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>MULESOFT</td>
 <td>Excursion Containment Disposition</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1590,9 +1567,7 @@ flowchart TD
 <td>Response to goods receipt posting from SAP to 3PL - EDI 4C1B</td>
 <td>10. Object Complete</td>
 <td>S/4 → WMS (3PL)</td>
-<td>MULESOFT</td>
 <td>OpenText</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1601,9 +1576,7 @@ flowchart TD
 <td>Inventory Reconciliation with Consignment hub – EDI 4C1 with version control</td>
 <td>10. Object Complete</td>
 <td>OpenText → S/4</td>
-<td>MULESOFT</td>
 <td>OpenText</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1612,9 +1585,7 @@ flowchart TD
 <td>Interface + Enhancement - Reprinting of Carrier Label</td>
 <td>10. Object Complete</td>
 <td>S/4 → Redwood</td>
-<td>APIGEE</td>
 <td>Redwood</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1623,9 +1594,7 @@ flowchart TD
 <td>Interface from S4 ISM to Service Now</td>
 <td>10. Object Complete</td>
 <td>S/4 ISM → Service Now</td>
-<td>NA</td>
 <td>ServiceNow Cloud</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1634,9 +1603,7 @@ flowchart TD
 <td>Send data via API to retrieve the tracking ID - interface + Enhancement</td>
 <td>10. Object Complete</td>
 <td>S/4 → Redwood</td>
-<td>APIGEE</td>
 <td>Redwood</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1645,9 +1612,7 @@ flowchart TD
 <td>Inbound interface to receive Finished Goods “Goods Receipt” (4B2) signal from&hellip;</td>
 <td>10. Object Complete</td>
 <td>OpenText → S/4</td>
-<td>MULESOFT</td>
 <td>OpenText</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1656,9 +1621,7 @@ flowchart TD
 <td>Interface to receive 4B2 signal from Factory and return shipments from ODM/OS&hellip;</td>
 <td>10. Object Complete</td>
 <td>OpenText → S/4</td>
-<td>MULESOFT</td>
 <td>OpenText</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1667,9 +1630,7 @@ flowchart TD
 <td>W-lot inventory error handling</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>MULESOFT</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1678,9 +1639,7 @@ flowchart TD
 <td>Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements)</td>
 <td>10. Object Complete</td>
 <td>S/4 → NDA</td>
-<td>NA</td>
 <td>LAWMAS Agiloft Contract Lifecycle Management</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1689,9 +1648,7 @@ flowchart TD
 <td>Outbound PIP signal to 3PL for material document transfer – EDI 4C1</td>
 <td>10. Object Complete</td>
 <td>S/4 → OpenText</td>
-<td>MULESOFT</td>
 <td>OpenText</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1700,9 +1657,7 @@ flowchart TD
 <td>Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4</td>
 <td>10. Object Complete</td>
 <td>3PL → S/4</td>
-<td>MULESOFT</td>
 <td>OpenText</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1710,8 +1665,6 @@ flowchart TD
 <td>Form</td>
 <td>Printing of Standard Shipping Label</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -1722,8 +1675,6 @@ flowchart TD
 <td>ISM - Generate Commercial Invoice - IF/IP</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1733,8 +1684,6 @@ flowchart TD
 <td>ISM - Generate Traveler Document - IF/IP</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1743,8 +1692,6 @@ flowchart TD
 <td>Form</td>
 <td>ISM - IPLA</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -1755,8 +1702,6 @@ flowchart TD
 <td>ISM - Custom China Special label</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1765,8 +1710,6 @@ flowchart TD
 <td>Form</td>
 <td>ISM - India GST DC</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -1777,8 +1720,6 @@ flowchart TD
 <td>IP custom table for reconciliation data</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1787,8 +1728,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>SAP GUI T-code to Move stock from Blocked to unblock Status</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -1799,8 +1738,6 @@ flowchart TD
 <td>Enhancement to change billing status based on ship reason in ISM</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1809,8 +1746,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>ECD_Enhancement to retrieve plant details for material/batch and update custo&hellip;</td>
 <td>09. FUT Overdue</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -1821,8 +1756,6 @@ flowchart TD
 <td>Inventory Reconciliation with Consignment hub – EDI 4C1 with version control</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1831,8 +1764,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>India GST E-invoicing</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1843,8 +1774,6 @@ flowchart TD
 <td>ISM – MY Security Check Fiori app - IF</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1853,8 +1782,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>ISM – Employee acknowledgement - IP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -1865,8 +1792,6 @@ flowchart TD
 <td>PGI confirmation for non-inventory Intel freight shipments via email</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1875,8 +1800,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Email notifications to be triggered as part of ISM Workflows</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -1887,8 +1810,6 @@ flowchart TD
 <td>Custom fields required on delivery screen</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1897,8 +1818,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Update COF, COA and FVR in 3PL WMS - EDI 4C1B</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1909,8 +1828,6 @@ flowchart TD
 <td>Validate receiving consigned materials into consignment hub – EDI 4B2 CSGN</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1919,8 +1836,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Fiori App - Shipping Memo</td>
 <td>09. FUT Overdue</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>01.Very High</td>
@@ -1931,9 +1846,7 @@ flowchart TD
 <td>Interface to get the AMT (Asset Management Tool) data on the ISM</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
 <td>Asset Management Tool 2.0</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1943,8 +1856,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1954,8 +1865,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1963,8 +1872,6 @@ flowchart TD
 <td>Conversion</td>
 <td>IM Stock conversion from Non SAP system to S4 system</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -1975,8 +1882,6 @@ flowchart TD
 <td>Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1985,8 +1890,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Open Inventory Conversion for IP and IF (as applicable) , ECC to S4</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -1997,9 +1900,7 @@ flowchart TD
 <td>Interface to post inventory in SAP S/4HANA from ECA via MuleSoft.</td>
 <td>06. Dev In Progress</td>
 <td></td>
-<td>MuleSoft</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 </tbody>
@@ -2010,10 +1911,9 @@ flowchart TD
 <table>
 <thead>
 <tr>
-<th>RICEFW Object ID</th>
+<th>RICEFW ID</th>
 <th>Description</th>
 <th>Boundary Application</th>
-<th>IAPM ID</th>
 <th>Source → Target</th>
 </tr>
 </thead>
@@ -2022,105 +1922,90 @@ flowchart TD
 <td>LOGI1576</td>
 <td>ECD_Interface between S4 to ECD for inventory status response</td>
 <td>Excursion Containment Disposition</td>
-<td>8785.0</td>
 <td></td>
 </tr>
 <tr>
 <td>LOGI1571</td>
 <td>ECD_Interface from ECD to S4 for Inventory status call​</td>
 <td>Excursion Containment Disposition</td>
-<td>8785.0</td>
 <td></td>
 </tr>
 <tr>
 <td>LOGI1295</td>
 <td>ECD_Interface between S/4 and ECD for completion status</td>
 <td>Excursion Containment Disposition</td>
-<td>8785.0</td>
 <td></td>
 </tr>
 <tr>
 <td>LOGI1290</td>
 <td>ECD_Interface from ECD to S4 for Inventory Hold/unhold request</td>
 <td>Excursion Containment Disposition</td>
-<td>8785.0</td>
 <td></td>
 </tr>
 <tr>
 <td>LOGI1272</td>
 <td>Response to goods receipt posting from SAP to 3PL - EDI 4C1B</td>
 <td>OpenText</td>
-<td>12842.0</td>
 <td>S/4 → WMS (3PL)</td>
 </tr>
 <tr>
 <td>LOGI1267</td>
 <td>Inventory Reconciliation with Consignment hub – EDI 4C1 with version control</td>
 <td>OpenText</td>
-<td>12842.0</td>
 <td>OpenText → S/4</td>
 </tr>
 <tr>
 <td>LOGI1081_IP</td>
 <td>Interface + Enhancement - Reprinting of Carrier Label</td>
 <td>Redwood</td>
-<td>56974.0</td>
 <td>S/4 → Redwood</td>
 </tr>
 <tr>
 <td>LOGI1079_IP</td>
 <td>Interface from S4 ISM to Service Now</td>
 <td>ServiceNow Cloud</td>
-<td>23476.0</td>
 <td>S/4 ISM → Service Now</td>
 </tr>
 <tr>
 <td>LOGI1074_IP</td>
 <td>Send data via API to retrieve the tracking ID - interface + Enhancement</td>
 <td>Redwood</td>
-<td>56974.0</td>
 <td>S/4 → Redwood</td>
 </tr>
 <tr>
 <td>LOGI0951</td>
 <td>Inbound interface to receive Finished Goods “Goods Receipt” (4B2) signal from&hellip;</td>
 <td>OpenText</td>
-<td>12842.0</td>
 <td>OpenText → S/4</td>
 </tr>
 <tr>
 <td>LOGI0950</td>
 <td>Interface to receive 4B2 signal from Factory and return shipments from ODM/OS&hellip;</td>
 <td>OpenText</td>
-<td>12842.0</td>
 <td>OpenText → S/4</td>
 </tr>
 <tr>
 <td>LOGI0836_IP</td>
 <td>Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements)</td>
 <td>LAWMAS Agiloft Contract Lifecycle Management</td>
-<td>35641.0</td>
 <td>S/4 → NDA</td>
 </tr>
 <tr>
 <td>LOGI0335</td>
 <td>Outbound PIP signal to 3PL for material document transfer – EDI 4C1</td>
 <td>OpenText</td>
-<td>12842.0</td>
 <td>S/4 → OpenText</td>
 </tr>
 <tr>
 <td>LOGI0237_IP</td>
 <td>Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4</td>
 <td>OpenText</td>
-<td>12842.0</td>
 <td>3PL → S/4</td>
 </tr>
 <tr>
 <td>LOGE0835_IF</td>
 <td>Interface to get the AMT (Asset Management Tool) data on the ISM</td>
 <td>Asset Management Tool 2.0</td>
-<td>14310.0</td>
 <td></td>
 </tr>
 </tbody>

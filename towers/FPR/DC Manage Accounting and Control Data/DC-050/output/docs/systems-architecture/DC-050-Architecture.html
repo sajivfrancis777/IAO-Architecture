@@ -59,22 +59,29 @@ p {
 table {
     border-collapse: collapse;
     width: 100%;
+    table-layout: fixed;
     margin: 12px 0;
     font-size: 9.5pt;
     page-break-inside: avoid;
     break-inside: avoid;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 th {
     background: #00285a;
     color: #fff;
     font-weight: 600;
     text-align: left;
-    padding: 6px 8px;
+    padding: 4px 6px;
     border: 1px solid #00285a;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 td {
-    padding: 5px 8px;
+    padding: 4px 6px;
     border: 1px solid #ddd;
+    overflow: hidden;
+    text-overflow: ellipsis;
     vertical-align: top;
 }
 tr:nth-child(even) td { background: #f5f8fc; }
@@ -281,7 +288,9 @@ strong { color: #00285a; }
     h2 { margin-top: 14px; margin-bottom: 6px; font-size: 16pt; }
     h3 { margin-top: 10px; margin-bottom: 4px; font-size: 13pt; }
     h4 { margin-top: 8px; margin-bottom: 3px; font-size: 11pt; }
-    table { margin: 6px 0; font-size: 9pt; }
+    table { margin: 6px 0; font-size: 8pt; table-layout: fixed; word-wrap: break-word; }
+    th { padding: 3px 4px; }
+    td { padding: 3px 4px; }
     blockquote { margin: 6px 0; padding: 4px 12px; font-size: 9pt; }
     p { margin: 4px 0; }
     ul, ol { margin: 4px 0; }
@@ -410,11 +419,13 @@ strong { color: #00285a; }
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 10mm 15mm; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
   p { orphans: 3; widows: 3; }
+  table { table-layout: fixed; word-wrap: break-word; font-size: 8pt; }
+  td, th { overflow: visible; text-overflow: ellipsis; padding: 3px 4px; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -2796,8 +2807,7 @@ flowchart LR
 <th>Type</th>
 <th>Description</th>
 <th>Status</th>
-<th>Source</th>
-<th>Target</th>
+<th>Source → Target</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -2808,7 +2818,6 @@ flowchart LR
 <td>Report for searching on and viewing government contract timesheets for Intel &hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2816,7 +2825,6 @@ flowchart LR
 <td>Report</td>
 <td>Report for searching on and viewing government contract timesheet changes for&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2826,7 +2834,6 @@ flowchart LR
 <td>Workflow Status Report ( Order Request / Approval Request / Others )</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2834,7 +2841,6 @@ flowchart LR
 <td>Report</td>
 <td>Workflow Status Report ( Order Request / Approval Request / Others )</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -2844,7 +2850,6 @@ flowchart LR
 <td>Convert active delegate relationships for Timesheet approval</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2852,7 +2857,6 @@ flowchart LR
 <td>Conversion</td>
 <td>Project Actuals Conversion (Non- Intel Federal)</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -2862,7 +2866,6 @@ flowchart LR
 <td>Project Actuals Conversion (Non- Intel Federal)</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2870,7 +2873,6 @@ flowchart LR
 <td>Conversion</td>
 <td>Conversion of Actual Labor hours for Intel Federal Projects</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -2880,7 +2882,6 @@ flowchart LR
 <td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2888,7 +2889,6 @@ flowchart LR
 <td>Conversion</td>
 <td>Project Actuals Conversion including Intel Federal</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2898,7 +2898,6 @@ flowchart LR
 <td>Project Budget Conversion</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2907,7 +2906,6 @@ flowchart LR
 <td>Project Budget Conversion</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2915,8 +2913,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
 <td>10. Object Complete</td>
-<td>ECC</td>
-<td>S4</td>
+<td>ECC → S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2924,8 +2921,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
 <td>10. Object Complete</td>
-<td>ECC</td>
-<td>S4</td>
+<td>ECC → S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2933,8 +2929,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Convert existing ECC &amp; MDG hierarchy to S4HANA PPM hierarchy (Portfolio &amp; buc&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>MDG</td>
+<td>→ MDG</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2942,8 +2937,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Convert existing ECC &amp; MDG hierarchy to S4HANA PPM hierarchy (Portfolio &amp; buc&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>MDG</td>
+<td>→ MDG</td>
 <td>04.Low</td>
 </tr>
 </tbody>
@@ -3010,9 +3004,7 @@ flowchart LR
 <th>Description</th>
 <th>Status</th>
 <th>Source → Target</th>
-<th>Middleware</th>
 <th>Boundary App</th>
-<th>Interface Approach</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -3023,8 +3015,6 @@ flowchart LR
 <td>Custom Workflow will also be created with some predefined process/rules for a&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>01.Very High</td>
 </tr>
@@ -3033,8 +3023,6 @@ flowchart LR
 <td>Workflow</td>
 <td>Custom Workflow will also be created with some predefined process/rules for a&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -3045,8 +3033,6 @@ flowchart LR
 <td>Custom workflow: Change Order Create and Change Approval</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3055,8 +3041,6 @@ flowchart LR
 <td>Workflow</td>
 <td>Custom workflow: Change Order Create and Change Approval</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3067,8 +3051,6 @@ flowchart LR
 <td>Custom Workflow - WBS Element Request approval with WBS Element creation</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3077,8 +3059,6 @@ flowchart LR
 <td>Workflow</td>
 <td>Custom Workflow - WBS Element Request approval with WBS Element creation</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3089,8 +3069,6 @@ flowchart LR
 <td>Custom Workflow: Approval for Project creation and create a Project def and l&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3099,8 +3077,6 @@ flowchart LR
 <td>Workflow</td>
 <td>Custom Workflow: Approval for Project creation and create a Project def and l&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3111,8 +3087,6 @@ flowchart LR
 <td>Project budget approval workflow (Capex)​</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3121,8 +3095,6 @@ flowchart LR
 <td>Workflow</td>
 <td>Project budget approval workflow (Capex)​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3133,8 +3105,6 @@ flowchart LR
 <td>Report for searching on and viewing government contract timesheets for Intel &hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3143,8 +3113,6 @@ flowchart LR
 <td>Report</td>
 <td>Report for searching on and viewing government contract timesheet changes for&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3155,8 +3123,6 @@ flowchart LR
 <td>Workflow Status Report ( Order Request / Approval Request / Others )</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3165,8 +3131,6 @@ flowchart LR
 <td>Report</td>
 <td>Workflow Status Report ( Order Request / Approval Request / Others )</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3178,8 +3142,6 @@ flowchart LR
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3188,9 +3150,7 @@ flowchart LR
 <td>Import Xeus/Mars volumes from ECA into S4.​</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>BODS</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3199,9 +3159,7 @@ flowchart LR
 <td>Interface to upload payroll data from Workday to S/4 IP for legal entity 199 &hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>MULESOFT</td>
 <td>Workday</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3210,9 +3168,7 @@ flowchart LR
 <td>Pull Foundry WBS from HAT and create in LE 199 in IP S/4 for Foundry Employee&hellip;</td>
 <td>10. Object Complete</td>
 <td>Head Count Assignment Tool → S/4</td>
-<td>BODS</td>
 <td>Head Count Assignment Tool</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3221,9 +3177,7 @@ flowchart LR
 <td>Interface of SAP PPM module to SPEED</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>BODS</td>
 <td>SPEED</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3232,9 +3186,7 @@ flowchart LR
 <td>Interface of SAP PPM module to SPEED</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>BODS</td>
 <td>SPEED</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3243,9 +3195,7 @@ flowchart LR
 <td>Interface for importing the Headcount details by Person# and WBS element comb&hellip;</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>BODS</td>
 <td>Head Count Assignment Tool</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3254,9 +3204,7 @@ flowchart LR
 <td>Interface for importing the Headcount details by Person# and WBS element comb&hellip;</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>BODS</td>
 <td>Head Count Assignment Tool</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3265,9 +3213,7 @@ flowchart LR
 <td>Inbound Interface from EMS to S/4 to create WBS element and Update WBS elemen&hellip;</td>
 <td>10. Object Complete</td>
 <td>XEUS → S/4</td>
-<td>APIGEE</td>
 <td>Equipment Management System</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3275,8 +3221,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Custom Fiori app - Change WBS Element Request Form with ALV Input​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3287,8 +3231,6 @@ flowchart LR
 <td>S4, Perform required calculations, summarizations, mappings and post the allo&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3297,8 +3239,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>S4, Perform required calculations, summarizations, mappings and post the allo&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3309,8 +3249,6 @@ flowchart LR
 <td>WBS transfer tool</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -3319,8 +3257,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>WBS transfer tool</td>
 <td>09. FUT Overdue</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3331,8 +3267,6 @@ flowchart LR
 <td>Custom Fiori app - Create WBS Element Request Form with ALV Input​</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3341,8 +3275,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Employee Notification for timesheet entry</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3353,8 +3285,6 @@ flowchart LR
 <td>Manager notification for timesheet approval</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3363,8 +3293,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Manage Delegates for approval</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3375,8 +3303,6 @@ flowchart LR
 <td>Timesheet approval</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -3385,8 +3311,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Timesheet entry for Intel Federal employees</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>01.Very High</td>
@@ -3397,8 +3321,6 @@ flowchart LR
 <td>Custom Fiori app - Change WBS Element Request Form with ALV Input​</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3407,8 +3329,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Project Change Order - Edit and Submit of draft request with change functiona&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -3419,8 +3339,6 @@ flowchart LR
 <td>Project Change Order - Edit and Submit of draft request with change functiona&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3429,8 +3347,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Project Change Order - Change existing Purchase Orders during creation of Pro&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -3441,8 +3357,6 @@ flowchart LR
 <td>Project Change Order - Change existing Purchase Orders during creation of Pro&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3451,8 +3365,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Project Change Order - Create Purchase Orders during creation of Project Chan&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -3463,8 +3375,6 @@ flowchart LR
 <td>Project Change Order - Create Purchase Orders during creation of Project Chan&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3473,8 +3383,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Enhancement to enable user decision action to be taken from email directly fo&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3485,8 +3393,6 @@ flowchart LR
 <td>Enhancement to enable user decision action to be taken from email directly fo&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -3495,8 +3401,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Enhancement to display popup screen to trigger project creation workflow</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3507,8 +3411,6 @@ flowchart LR
 <td>Enhancement to display popup screen to trigger project creation workflow</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -3517,8 +3419,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Add custom fields to CJI3 and CJI5 reports (SAP S/4HANA Project Systems modul&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3529,8 +3429,6 @@ flowchart LR
 <td>Add custom fields to CJI3 and CJI5 reports (SAP S/4HANA Project Systems modul&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -3539,8 +3437,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Upload adjustments to time sheet entries in bulk for Intel Federal.</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -3551,8 +3447,6 @@ flowchart LR
 <td>WBS with custom attributes will be created in the PS module. The master data &hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -3561,8 +3455,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>WBS with custom attributes will be created in the PS module. The master data &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3573,8 +3465,6 @@ flowchart LR
 <td>Custom Fiori app will be created using Free style model to display WBS/AUC re&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3583,8 +3473,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Custom Fiori app will be created using Free style model to display WBS/AUC re&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3596,8 +3484,6 @@ flowchart LR
 <td>10. Object Complete</td>
 <td>S4 → ATLAS</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3607,8 +3493,6 @@ flowchart LR
 <td>10. Object Complete</td>
 <td>S4 → ATLAS</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3616,8 +3500,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Split from primary Cost centers to PCOS &amp; R&amp;D/OCOS</td>
 <td>99. Rejected/Cancelled/On Hold</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3628,8 +3510,6 @@ flowchart LR
 <td>Investment type creation and automatic settlement rule generation for Opex Pr&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3638,8 +3518,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Investment type creation and automatic settlement rule generation for Opex Pr&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3650,8 +3528,6 @@ flowchart LR
 <td>Mass Update Fields in WBS Elements</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -3660,8 +3536,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Mass Update Fields in WBS Elements</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3672,8 +3546,6 @@ flowchart LR
 <td>WBS Element field synchronization to AUC and Fixed assets - Construction ID -&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3682,8 +3554,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>WBS Element field synchronization to AUC and Fixed assets - Construction ID -&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3694,8 +3564,6 @@ flowchart LR
 <td>Project Change Order - Create Project Change Order via custom Fiori Screens w&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -3704,8 +3572,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Project Change Order - Create Project Change Order via custom Fiori Screens w&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3716,8 +3582,6 @@ flowchart LR
 <td>Custom Fiori app - Create WBS Element Request Form with ALV Input​</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3726,8 +3590,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Custom Fiori app - CPA (Project Budget) approval request using PPM Item decis&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -3738,8 +3600,6 @@ flowchart LR
 <td>Custom Fiori app - CPA (Project Budget) approval request using PPM Item decis&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3748,8 +3608,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Automation to set TECO and CLSD status on Project/ WBS</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -3760,8 +3618,6 @@ flowchart LR
 <td>Automation to set TECO and CLSD status on Project/ WBS</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3771,8 +3627,6 @@ flowchart LR
 <td>Custom Fields in WBS element Master Data</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3781,8 +3635,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Custom Fields in WBS element Master Data</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3794,8 +3646,6 @@ flowchart LR
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3805,8 +3655,6 @@ flowchart LR
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3816,8 +3664,6 @@ flowchart LR
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3827,8 +3673,6 @@ flowchart LR
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3836,8 +3680,6 @@ flowchart LR
 <td>Conversion</td>
 <td>Convert active delegate relationships for Timesheet approval</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -3848,8 +3690,6 @@ flowchart LR
 <td>Project Actuals Conversion (Non- Intel Federal)</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -3858,8 +3698,6 @@ flowchart LR
 <td>Conversion</td>
 <td>Project Actuals Conversion (Non- Intel Federal)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -3870,8 +3708,6 @@ flowchart LR
 <td>Conversion of Actual Labor hours for Intel Federal Projects</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -3880,8 +3716,6 @@ flowchart LR
 <td>Conversion</td>
 <td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -3892,8 +3726,6 @@ flowchart LR
 <td>Project Actuals Conversion including Intel Federal</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3902,8 +3734,6 @@ flowchart LR
 <td>Conversion</td>
 <td>Project Budget Conversion</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3914,8 +3744,6 @@ flowchart LR
 <td>Project Budget Conversion</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3925,9 +3753,7 @@ flowchart LR
 <td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
 <td>10. Object Complete</td>
 <td>ECC → S4</td>
-<td>NA</td>
 <td>ECC</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3936,9 +3762,7 @@ flowchart LR
 <td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
 <td>10. Object Complete</td>
 <td>ECC → S4</td>
-<td>NA</td>
 <td>ECC</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3947,8 +3771,6 @@ flowchart LR
 <td>Convert existing ECC &amp; MDG hierarchy to S4HANA PPM hierarchy (Portfolio &amp; buc&hellip;</td>
 <td>10. Object Complete</td>
 <td>→ MDG</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3958,8 +3780,6 @@ flowchart LR
 <td>Convert existing ECC &amp; MDG hierarchy to S4HANA PPM hierarchy (Portfolio &amp; buc&hellip;</td>
 <td>10. Object Complete</td>
 <td>→ MDG</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -3968,8 +3788,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Mobile timesheet approval for Intel Federal employees.</td>
 <td>01. Pending Approval</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>01.Very High</td>
@@ -3982,10 +3800,9 @@ flowchart LR
 <table>
 <thead>
 <tr>
-<th>RICEFW Object ID</th>
+<th>RICEFW ID</th>
 <th>Description</th>
 <th>Boundary Application</th>
-<th>IAPM ID</th>
 <th>Source → Target</th>
 </tr>
 </thead>
@@ -3994,63 +3811,54 @@ flowchart LR
 <td>FPRI1463</td>
 <td>Interface to upload payroll data from Workday to S/4 IP for legal entity 199 &hellip;</td>
 <td>Workday</td>
-<td>12245.0</td>
 <td></td>
 </tr>
 <tr>
 <td>FPRI1238</td>
 <td>Pull Foundry WBS from HAT and create in LE 199 in IP S/4 for Foundry Employee&hellip;</td>
 <td>Head Count Assignment Tool</td>
-<td>NA</td>
 <td>Head Count Assignment Tool → S/4</td>
 </tr>
 <tr>
 <td>FPRI0981_IP</td>
 <td>Interface of SAP PPM module to SPEED</td>
 <td>SPEED</td>
-<td>NA</td>
 <td>ECA → S/4</td>
 </tr>
 <tr>
 <td>FPRI0981_IF</td>
 <td>Interface of SAP PPM module to SPEED</td>
 <td>SPEED</td>
-<td>NA</td>
 <td>ECA → S/4</td>
 </tr>
 <tr>
 <td>FPRI0909_IP</td>
 <td>Interface for importing the Headcount details by Person# and WBS element comb&hellip;</td>
 <td>Head Count Assignment Tool</td>
-<td>NA</td>
 <td>ECA → S/4</td>
 </tr>
 <tr>
 <td>FPRI0909_IF</td>
 <td>Interface for importing the Headcount details by Person# and WBS element comb&hellip;</td>
 <td>Head Count Assignment Tool</td>
-<td>NA</td>
 <td>ECA → S/4</td>
 </tr>
 <tr>
 <td>FPRI0188</td>
 <td>Inbound Interface from EMS to S/4 to create WBS element and Update WBS elemen&hellip;</td>
 <td>Equipment Management System</td>
-<td>4012.0</td>
 <td>XEUS → S/4</td>
 </tr>
 <tr>
 <td>FPRC0174_IP</td>
 <td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
 <td>ECC</td>
-<td></td>
 <td>ECC → S4</td>
 </tr>
 <tr>
 <td>FPRC0174_IF</td>
 <td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
 <td>ECC</td>
-<td></td>
 <td>ECC → S4</td>
 </tr>
 </tbody>

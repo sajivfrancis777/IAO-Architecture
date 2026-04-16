@@ -59,22 +59,29 @@ p {
 table {
     border-collapse: collapse;
     width: 100%;
+    table-layout: fixed;
     margin: 12px 0;
     font-size: 9.5pt;
     page-break-inside: avoid;
     break-inside: avoid;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 th {
     background: #00285a;
     color: #fff;
     font-weight: 600;
     text-align: left;
-    padding: 6px 8px;
+    padding: 4px 6px;
     border: 1px solid #00285a;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 td {
-    padding: 5px 8px;
+    padding: 4px 6px;
     border: 1px solid #ddd;
+    overflow: hidden;
+    text-overflow: ellipsis;
     vertical-align: top;
 }
 tr:nth-child(even) td { background: #f5f8fc; }
@@ -281,7 +288,9 @@ strong { color: #00285a; }
     h2 { margin-top: 14px; margin-bottom: 6px; font-size: 16pt; }
     h3 { margin-top: 10px; margin-bottom: 4px; font-size: 13pt; }
     h4 { margin-top: 8px; margin-bottom: 3px; font-size: 11pt; }
-    table { margin: 6px 0; font-size: 9pt; }
+    table { margin: 6px 0; font-size: 8pt; table-layout: fixed; word-wrap: break-word; }
+    th { padding: 3px 4px; }
+    td { padding: 3px 4px; }
     blockquote { margin: 6px 0; padding: 4px 12px; font-size: 9pt; }
     p { margin: 4px 0; }
     ul, ol { margin: 4px 0; }
@@ -410,11 +419,13 @@ strong { color: #00285a; }
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 10mm 15mm; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
   p { orphans: 3; widows: 3; }
+  table { table-layout: fixed; word-wrap: break-word; font-size: 8pt; }
+  td, th { overflow: visible; text-overflow: ellipsis; padding: 3px 4px; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -1071,8 +1082,7 @@ flowchart TD
 <th>Type</th>
 <th>Description</th>
 <th>Status</th>
-<th>Source</th>
-<th>Target</th>
+<th>Source → Target</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -1083,7 +1093,6 @@ flowchart TD
 <td>Payer Profile Data Conversion</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1091,7 +1100,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Payer Segment Data Conversion</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1101,7 +1109,6 @@ flowchart TD
 <td>Payer Relationship Data Conversion</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1109,7 +1116,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Open Credit Case Conversion</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1119,7 +1125,6 @@ flowchart TD
 <td>Open Dispute Case Conversion</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1127,7 +1132,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Collection Master Conversion</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1195,9 +1199,7 @@ flowchart TD
 <th>Description</th>
 <th>Status</th>
 <th>Source → Target</th>
-<th>Middleware</th>
 <th>Boundary App</th>
-<th>Interface Approach</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -1208,8 +1210,6 @@ flowchart TD
 <td>Additional WRICEF for Credit Limit Request Workflow</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1219,8 +1219,6 @@ flowchart TD
 <td>Implement Standard BADI to activate Credit Limit Request Workflow</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -1229,8 +1227,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Implement Standard Credit/Collection BADI</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1242,8 +1238,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -1251,8 +1245,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Payer Profile Data Conversion</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1263,8 +1255,6 @@ flowchart TD
 <td>Payer Segment Data Conversion</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1273,8 +1263,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Payer Relationship Data Conversion</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1285,8 +1273,6 @@ flowchart TD
 <td>Open Credit Case Conversion</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1296,8 +1282,6 @@ flowchart TD
 <td>Open Dispute Case Conversion</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1306,8 +1290,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Collection Master Conversion</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>

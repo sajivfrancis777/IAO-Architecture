@@ -12,11 +12,13 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 10mm 15mm; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
   p { orphans: 3; widows: 3; }
+  table { table-layout: fixed; word-wrap: break-word; font-size: 8pt; }
+  td, th { overflow: hidden; text-overflow: ellipsis; padding: 3px 4px; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -201,56 +203,56 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 
 Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
-| Object ID | Type | Description | Status | Source | Target | Complexity |
-|-----------|------|-------------|--------|--------|--------|-----------|
-| MDCR0025 | Report | Alternate/Preferred BOM Component Change in S4 | 09. FUT Overdue | MDG |  | 03.Medium |
-| DATR1430 | Report | Cost Center Approvers report by Supergroup, Group, Division, Subdivision, CCR... | 10. Object Complete |  |  | 03.Medium |
-| DATR0787 | Report | Report to send notification to Direct managers about the inactive Cost Center... | 10. Object Complete |  |  | 03.Medium |
-| DATR0390_IP | Report | Data Monitor Report between MDG and Reltio | 10. Object Complete | NA | NA | 03.Medium |
-| DATR0389_IP | Report | Customer Master Operational Report | 10. Object Complete | NA | NA | 03.Medium |
-| MDGM1332 | Conversion | IMO Materials | 10. Object Complete |  |  | N/A |
-| DATC1663 | Conversion | Product Hierarchy File 1 and File 2 | 10. Object Complete |  |  | 02.High |
-| DATC1640 | Conversion | Material Master MRP View WINGS Conversion | 10. Object Complete |  |  | 04.Low |
-| DATC1639 | Conversion | Material Master Plant and Storage Location View WINGS Materials Conversions | 10. Object Complete |  |  | 04.Low |
-| DATC1638 | Conversion | Material Master Accounting and Costing View WINGS Materials Conversions | 10. Object Complete |  |  | 04.Low |
-| DATC1637 | Conversion | Material Master Purchasing View WINGS Materials Conversions | 10. Object Complete |  |  | 04.Low |
-| DATC1617 | Conversion | HAZMAT Profile Conversion | 10. Object Complete |  |  | 03.Medium |
-| DATC1604 | Conversion | Initial Load for Objects & Relationships | 10. Object Complete |  |  | 03.Medium |
-| DATC1556 | Conversion | Conversion program to load Images of Products in Material Master | 10. Object Complete |  |  | 03.Medium |
-| DATC1552 | Conversion | edFIT - PSI BOM Conversion | 03. FS Not Started |  |  | 03.Medium |
-| DATC1551 | Conversion | edFIT - Material Master Conversion | 04. FS In Progress |  |  | 03.Medium |
-| DATC1237 | Conversion | Material Master Data – Quality Management View Conversion | 10. Object Complete |  |  | 03.Medium |
-| DATC1204 | Conversion | Load Vendor as Customer to MDG System | 10. Object Complete |  |  | 03.Medium |
-| DATC0859 | Conversion | Convert the Customer Master Contact Person from ECC system to MDG system_IP | 10. Object Complete |  |  | 03.Medium |
-| DATC0589 | Conversion | Vendor Master : General Data conversion from ECC to MDG | 10. Object Complete |  |  | 02.High |
-| DATC0588 | Conversion | Vendor Master : Company Code Data conversion from ECC to MDG | 10. Object Complete |  |  | 03.Medium |
-| DATC0587 | Conversion | Vendor Master : Purchase Org conversion from ECC to MDG | 10. Object Complete |  |  | 03.Medium |
-| DATC0586 | Conversion | Vendor Master : Partner Function conversion from ECC to MDG | 10. Object Complete |  |  | 02.High |
-| DATC0585 | Conversion | Vendor Master : Tax Data conversion from ECC to MDG | 10. Object Complete |  |  | 03.Medium |
-| DATC0584 | Conversion | Vendor Master : Bank Data conversion from ECC to MDG | 10. Object Complete |  |  | 03.Medium |
-| DATC0583 | Conversion | Initial load of HRMM data from WCDS to MPipe system, The initial data load wi... | 10. Object Complete | RELTIO | S4 | 02.High |
-| DATC0562 | Conversion | Conversion of DUNS table from ECC to S/4 for IP | 10. Object Complete |  |  | 03.Medium |
-| DATC0553 | Conversion | Conversion of BOM from SPEED to S4 IF | 10. Object Complete |  |  | 01.Very High |
-| DATC0552 | Conversion | Conversion of BOM from SPEED to S4 IP | 10. Object Complete |  |  | 01.Very High |
-| DATC0213 | Conversion | Material Master-Work scheduling view | 10. Object Complete |  |  | 03.Medium |
-| DATC0184_IP | Conversion | Convert the Customer Master Partner Function view from ECC system to MDG syst... | 10. Object Complete | NA | NA | 03.Medium |
-| DATC0182_IP | Conversion | Convert the General data view from ECC system to MDG system_IP. | 10. Object Complete | NA | NA | 03.Medium |
-| DATC0179_IP | Conversion | Convert the Customer Master Sales view from ECC system to MDG system_IP. | 10. Object Complete | NA | NA | 03.Medium |
-| DATC0178_IP | Conversion | Convert the Customer Master Tax view from ECC system to MDG system_IP. | 10. Object Complete | NA | NA | 04.Low |
-| DATC0120_IP | Conversion | Convert the Customer Master Company Code view from ECC system to MDG system_IP. | 10. Object Complete | ECC | MDG | 04.Low |
-| DATC0118_IP | Conversion | Convert the Customer Master In House Cash view from ECC system to MDG system_IP. | 10. Object Complete | ECC | MDG | 03.Medium |
-| DATC0076_IP | Conversion | Material Master-Classification View | 10. Object Complete |  |  | 03.Medium |
-| DATC0075_IP | Conversion | Material Master-Accounting & Costing view | 10. Object Complete |  |  | 03.Medium |
-| DATC0074_IP | Conversion | Material Master-Sales Org Views and Sales Text | 10. Object Complete |  |  | 03.Medium |
-| DATC0073 | Conversion | Material Master-Warehouse Mgmt Views | 10. Object Complete |  |  | 04.Low |
-| DATC0072 | Conversion | Material Master-Purchasing View and PO Text | 10. Object Complete |  |  | 03.Medium |
-| DATC0071_IP | Conversion | Material Master-MRP View | 10. Object Complete |  |  | 04.Low |
-| DATC0070_IP | Conversion | Material Master-Plant Data/Storage Views | 10. Object Complete |  |  | 03.Medium |
-| DATC0069_IP | Conversion | Material Master-Alt UOM | 10. Object Complete |  |  | 04.Low |
-| DATC0068_IP | Conversion | Material Master-Basic Data- (including description) Views | 10. Object Complete |  |  | 03.Medium |
-| DATC1743 | Conversion | Material Human Readable Description Derivation and Direct Update on the Exist... | 02. FS Unplanned |  |  | 03.Medium |
-| DATC1744_IP | Conversion | Implement Group BOM conversion functionality for S4 | 02. FS Unplanned |  |  | 03.Medium |
-| DATC1744_IF | Conversion | Implement Group BOM conversion functionality for S4 | 02. FS Unplanned |  |  | 04.Low |
+| Object ID | Type | Description | Status | Source → Target | Complexity |
+|-----------|------|-------------|--------|----------------|----------|
+| MDCR0025 | Report | Alternate/Preferred BOM Component Change in S4 | 09. FUT Overdue | MDG | 03.Medium |
+| DATR1430 | Report | Cost Center Approvers report by Supergroup, Group, Division, Subdivision, CCR... | 10. Object Complete |  | 03.Medium |
+| DATR0787 | Report | Report to send notification to Direct managers about the inactive Cost Center... | 10. Object Complete |  | 03.Medium |
+| DATR0390_IP | Report | Data Monitor Report between MDG and Reltio | 10. Object Complete | NA → NA | 03.Medium |
+| DATR0389_IP | Report | Customer Master Operational Report | 10. Object Complete | NA → NA | 03.Medium |
+| MDGM1332 | Conversion | IMO Materials | 10. Object Complete |  | N/A |
+| DATC1663 | Conversion | Product Hierarchy File 1 and File 2 | 10. Object Complete |  | 02.High |
+| DATC1640 | Conversion | Material Master MRP View WINGS Conversion | 10. Object Complete |  | 04.Low |
+| DATC1639 | Conversion | Material Master Plant and Storage Location View WINGS Materials Conversions | 10. Object Complete |  | 04.Low |
+| DATC1638 | Conversion | Material Master Accounting and Costing View WINGS Materials Conversions | 10. Object Complete |  | 04.Low |
+| DATC1637 | Conversion | Material Master Purchasing View WINGS Materials Conversions | 10. Object Complete |  | 04.Low |
+| DATC1617 | Conversion | HAZMAT Profile Conversion | 10. Object Complete |  | 03.Medium |
+| DATC1604 | Conversion | Initial Load for Objects & Relationships | 10. Object Complete |  | 03.Medium |
+| DATC1556 | Conversion | Conversion program to load Images of Products in Material Master | 10. Object Complete |  | 03.Medium |
+| DATC1552 | Conversion | edFIT - PSI BOM Conversion | 03. FS Not Started |  | 03.Medium |
+| DATC1551 | Conversion | edFIT - Material Master Conversion | 04. FS In Progress |  | 03.Medium |
+| DATC1237 | Conversion | Material Master Data – Quality Management View Conversion | 10. Object Complete |  | 03.Medium |
+| DATC1204 | Conversion | Load Vendor as Customer to MDG System | 10. Object Complete |  | 03.Medium |
+| DATC0859 | Conversion | Convert the Customer Master Contact Person from ECC system to MDG system_IP | 10. Object Complete |  | 03.Medium |
+| DATC0589 | Conversion | Vendor Master : General Data conversion from ECC to MDG | 10. Object Complete |  | 02.High |
+| DATC0588 | Conversion | Vendor Master : Company Code Data conversion from ECC to MDG | 10. Object Complete |  | 03.Medium |
+| DATC0587 | Conversion | Vendor Master : Purchase Org conversion from ECC to MDG | 10. Object Complete |  | 03.Medium |
+| DATC0586 | Conversion | Vendor Master : Partner Function conversion from ECC to MDG | 10. Object Complete |  | 02.High |
+| DATC0585 | Conversion | Vendor Master : Tax Data conversion from ECC to MDG | 10. Object Complete |  | 03.Medium |
+| DATC0584 | Conversion | Vendor Master : Bank Data conversion from ECC to MDG | 10. Object Complete |  | 03.Medium |
+| DATC0583 | Conversion | Initial load of HRMM data from WCDS to MPipe system, The initial data load wi... | 10. Object Complete | RELTIO → S4 | 02.High |
+| DATC0562 | Conversion | Conversion of DUNS table from ECC to S/4 for IP | 10. Object Complete |  | 03.Medium |
+| DATC0553 | Conversion | Conversion of BOM from SPEED to S4 IF | 10. Object Complete |  | 01.Very High |
+| DATC0552 | Conversion | Conversion of BOM from SPEED to S4 IP | 10. Object Complete |  | 01.Very High |
+| DATC0213 | Conversion | Material Master-Work scheduling view | 10. Object Complete |  | 03.Medium |
+| DATC0184_IP | Conversion | Convert the Customer Master Partner Function view from ECC system to MDG syst... | 10. Object Complete | NA → NA | 03.Medium |
+| DATC0182_IP | Conversion | Convert the General data view from ECC system to MDG system_IP. | 10. Object Complete | NA → NA | 03.Medium |
+| DATC0179_IP | Conversion | Convert the Customer Master Sales view from ECC system to MDG system_IP. | 10. Object Complete | NA → NA | 03.Medium |
+| DATC0178_IP | Conversion | Convert the Customer Master Tax view from ECC system to MDG system_IP. | 10. Object Complete | NA → NA | 04.Low |
+| DATC0120_IP | Conversion | Convert the Customer Master Company Code view from ECC system to MDG system_IP. | 10. Object Complete | ECC → MDG | 04.Low |
+| DATC0118_IP | Conversion | Convert the Customer Master In House Cash view from ECC system to MDG system_IP. | 10. Object Complete | ECC → MDG | 03.Medium |
+| DATC0076_IP | Conversion | Material Master-Classification View | 10. Object Complete |  | 03.Medium |
+| DATC0075_IP | Conversion | Material Master-Accounting & Costing view | 10. Object Complete |  | 03.Medium |
+| DATC0074_IP | Conversion | Material Master-Sales Org Views and Sales Text | 10. Object Complete |  | 03.Medium |
+| DATC0073 | Conversion | Material Master-Warehouse Mgmt Views | 10. Object Complete |  | 04.Low |
+| DATC0072 | Conversion | Material Master-Purchasing View and PO Text | 10. Object Complete |  | 03.Medium |
+| DATC0071_IP | Conversion | Material Master-MRP View | 10. Object Complete |  | 04.Low |
+| DATC0070_IP | Conversion | Material Master-Plant Data/Storage Views | 10. Object Complete |  | 03.Medium |
+| DATC0069_IP | Conversion | Material Master-Alt UOM | 10. Object Complete |  | 04.Low |
+| DATC0068_IP | Conversion | Material Master-Basic Data- (including description) Views | 10. Object Complete |  | 03.Medium |
+| DATC1743 | Conversion | Material Human Readable Description Derivation and Direct Update on the Exist... | 02. FS Unplanned |  | 03.Medium |
+| DATC1744_IP | Conversion | Implement Group BOM conversion functionality for S4 | 02. FS Unplanned |  | 03.Medium |
+| DATC1744_IF | Conversion | Implement Group BOM conversion functionality for S4 | 02. FS Unplanned |  | 04.Low |
 
 ### 4.5 Data Governance & Quality
 
@@ -280,157 +282,157 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 ### 5.5 RICEFW Inventory
 
-| Object ID | Type | Description | Status | Source → Target | Middleware | Boundary App | Interface Approach | Complexity |
-|-----------|------|-------------|--------|----------------|-----------|-------------|-------------------|-----------|
-| MDGM1332 | Conversion | IMO Materials | 10. Object Complete |  | NA |  |  | N/A |
-| MDCR0025 | Report | Alternate/Preferred BOM Component Change in S4 | 09. FUT Overdue | MDG | NA |  |  | 03.Medium |
-| MDCE0024 | Enhancement | Supplier Hierarchy | 10. Object Complete | MDG | NA |  |  | 03.Medium |
-| MDCE0023 | Enhancement | Sales Organization - Extended Itego datamodel + UI to govern assignment to Sa... | 10. Object Complete | MDG | NA |  |  | 03.Medium |
-| MDCE0022 | Enhancement | Sales Region - Custom Itego Object to govern Sales Regions | 10. Object Complete | MDG | NA |  |  | 03.Medium |
-| MDCE0021 | Enhancement | Customer Planning Hierarchy -IF | 10. Object Complete | MDG | NA |  |  | 03.Medium |
-| MDCE0020 | Enhancement | Customer Planning Hierarchy -IP | 10. Object Complete | MDG | NA |  |  | 03.Medium |
-| MDCE0019 | Enhancement | Product Planning Hierarchy -IF | 10. Object Complete | MDG | NA |  |  | 03.Medium |
-| MDCE0018 | Enhancement | Product Planning Hierarchy -IP | 10. Object Complete | MDG | NA |  |  | 03.Medium |
-| MDCE0017 | Enhancement | Commodity- Custom Itego Object with ~100 customer fields + UI to support gove... | 10. Object Complete | MDG | NA |  |  | 03.Medium |
-| MDCE0015 | Enhancement | Asset Location - Extended Itego datamodel with 22 custom fields + UI to suppo... | 10. Object Complete | MDG | NA |  |  | 03.Medium |
-| MDCE0014 | Enhancement | Storage Location - Extended Itego datamodel with 11 custom fields + UI to sup... | 10. Object Complete | MDG | NA |  |  | 03.Medium |
-| MDCE0013 | Enhancement | Plant - Extended Itego datamodel with 13 custom fields + UI to support govern... | 10. Object Complete | MDG | NA |  |  | 03.Medium |
-| MDCE0012 | Enhancement | Sales Org Association - Custom Itego Object with 4 customer fields + UI to su... | 10. Object Complete | MDG | NA |  |  | 03.Medium |
-| MDCE0011 | Enhancement | Holiday Calendar - Custom goveranance | 10. Object Complete | MDG | NA |  |  | 03.Medium |
-| MDCE0009 | Enhancement | Shipping Point- Custom Itego Object with 6 customer fields + UI to support go... | 10. Object Complete | MDG | NA |  |  | 03.Medium |
-| DATW1205 | Workflow | Vendor as Customer Workflow | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATW1203 | Workflow | Workflow Setup for Mark For Delete Reference Material Governance Process | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATW1202 | Workflow | Workflow Setup for Change/Extend Reference Material Governance Process | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATW1201 | Workflow | Workflow Setup for Create Reference Material Governance Process | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATW0748 | Workflow | Workflow Setup for Material Master Governance Mass Processing | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATW0747 | Workflow | Workflow Setup for Material Master Governance in Mark For Delete Process | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATW0746 | Workflow | Workflow Setup for Material Master Governance in the Change Process | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATW0591 | Workflow | Parallel Approver Workflow Process | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATW0207 | Workflow | Create IP Customer process workflow | 10. Object Complete | NA → NA | NA | NA |  | 02.High |
-| DATW0205_IP | Workflow | Change/Extend/Block/Unblock IP Customer Master process workflow | 10. Object Complete | NA → NA | NA | NA |  | 02.High |
-| DATR1430 | Report | Cost Center Approvers report by Supergroup, Group, Division, Subdivision, CCR... | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATR0787 | Report | Report to send notification to Direct managers about the inactive Cost Center... | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATR0390_IP | Report | Data Monitor Report between MDG and Reltio | 10. Object Complete | NA → NA | NA | NA |  | 03.Medium |
-| DATR0389_IP | Report | Customer Master Operational Report | 10. Object Complete | NA → NA | NA | NA |  | 03.Medium |
-| DATI1727 | Interface | Automated update to DC Sales Status and other Item Sales Data fields​ | 06. Dev In Progress |  | NA | Product and Customer Data Management Business Process Management Suite |  | 03.Medium |
-| DATI1712 | Interface | Import Dot process/stage details from MDG into IF. ​ | 10. Object Complete |  | NA | NA |  | 03.Medium |
-| DATI1618_IP | Interface | Interface to automate the PROC material master creation to read BOM data from... | 06. Dev In Progress |  | NA | NA |  | 03.Medium |
-| DATI1618_IF | Interface | Interface to automate the PROC material master creation to read BOM data from... | 06. Dev In Progress |  | NA | NA |  | 04.Low |
-| DATI1612_IP | Interface | 2A1 interface to send Product Catalog to OpenText for 3PL consumption | 10. Object Complete |  | MuleSoft | OpenText |  | 03.Medium |
-| DATI1612_IF | Interface | 2A1 interface to send Product Catalog to OpenText for 3PL consumption | 10. Object Complete |  | MuleSoft | OpenText |  | 04.Low |
-| DATI1607 | Interface | Delta updates to OM Position IDs and Relationships | 10. Object Complete |  | NA | Worker Data Services (WDS) |  | 03.Medium |
-| DATI1508 | Interface | Program to update weight of material in the material master | 10. Object Complete |  | NA | NA |  | 03.Medium |
-| DATI1501 | Interface | Inbound Interface to exchange BOM data between PLM Translator to SAP S/4 – In... | 10. Object Complete | PLM → S/4 | MULESOFT | PDM Translator |  | 02.High |
-| DATI1489 | Interface | Transfer activity type, WWID data from IFED2.0 to MDG for time keeping employees | 10. Object Complete |  | MULESOFT | Intel Federal Employee database |  | 03.Medium |
-| DATI1445_IP | Interface | Outbound Interface to exchange BOM data between PLM Translator to SAP S/4 – I... | 10. Object Complete | S/4 → PLM | NA | PDM Translator |  | 02.High |
-| DATI1445_IF | Interface | Outbound Interface to exchange BOM data between PLM Translator to SAP S/4 – I... | 10. Object Complete | S/4 → PLM | NA | PDM Translator |  | 03.Medium |
-| DATI1416 | Interface | Interface to get MMID from the PLM Translator for the materials created direc... | 10. Object Complete |  | NA | NA |  | 03.Medium |
-| DATI1289_IP | Interface | Program to update weight of material in the material master | 10. Object Complete | S/4 → S/4 MDG | NA | NA |  | 03.Medium |
-| DATI1289_IF | Interface | Program to update weight of material in the material master | 10. Object Complete | S/4 → S/4 MDG | NA | NA |  | 04.Low |
-| DATI1164 | Interface | Update Min Max ROP proposals in IF S4 Hana(PDH to MDG to S4) | 10. Object Complete | Supply Management and Materials Requirements Tool; IF Material PDH → S/4 | BODS | NA |  | 03.Medium |
-| DATI1132_IP | Interface | Interface to exchange Yield and Scrap data between PDH Translator to SAP S/4 ... | 10. Object Complete | PDH → S/4 | BODS | NA |  | 03.Medium |
-| DATI1132_IF | Interface | Interface to exchange Yield and Scrap data between PDH Translator to SAP S/4 ... | 10. Object Complete | PDH → S/4 | BODS | NA |  | 04.Low |
-| DATI0960 | Interface | To transfer HRMM data retrieved by Signature Authority API from source system... | 10. Object Complete | WCDS → S/4 MDG | MULESOFT | Worker Data Services (WDS) |  | 03.Medium |
-| DATI0959 | Interface | To transfer HRMM data retrieved by Worker snapshot API from source system WCD... | 10. Object Complete | WCDS → S/4 MDG | MULESOFT | Worker Data Services (WDS) |  | 03.Medium |
-| DATI0944 | Interface | Interface to Send/Receive item master Data Asynchronously between PLM Transla... | 10. Object Complete | PLM → S/4 MDG | NA | SPEED PDM (Legacy SPEED); SPEED PDM (Next Generation SPEED); PDM Translator; ... |  | 03.Medium |
-| DATI0943 | Interface | Interface to Send/Receive item master Data between PLM Translator and MDG Syn... | 10. Object Complete | S/4 MDG → PLM | APIGEE | SPEED PDM (Legacy SPEED); SPEED PDM (Next Generation SPEED); PDM Translator; ... |  | 03.Medium |
-| DATI0927 | Interface | Inbound Interface to exchange BOM data between PLM Translator to SAP S/4 – In... | 10. Object Complete | PLM → S/4 | MULESOFT | PDM Translator |  | 02.High |
-| DATI0657_IP | Interface | RICEFW2 - Interface between MDG and Reltio to fetch details to support pop-up... | 10. Object Complete |  | MULESOFT | Reltio |  | 03.Medium |
-| DATI0582 | Interface | Interface to pull Vendor Master from Reltio to MDG | 10. Object Complete | Reltio → S/4 | MULESOFT | Reltio |  | 02.High |
-| DATI0394_IP | Interface | Inbound Interface from Reltio to MDG to receive BP ID and UCD ID to MDG and u... | 10. Object Complete | Reltio → S/4 MDG | MULESOFT | Reltio |  | 03.Medium |
-| DATI0394_IF | Interface | Inbound Interface from Reltio to MDG to receive BP ID and UCD ID to MDG and u... | 10. Object Complete | Reltio → S/4 MDG | MULESOFT | Reltio |  | 04.Low |
-| DATI0393_IP | Interface | Replicating Customer Master data from MDG to cFin,IF and IP systems | 10. Object Complete |  | NA | NA |  | 04.Low |
-| DATI0392_IP | Interface | Outbound Interface from MDG to Reltio to send the Name, Address, URL, BP ID a... | 10. Object Complete |  | MULESOFT | Reltio |  | 03.Medium |
-| DATI0391_IP | Interface | Interface between MDG and Reltio to fetch details to support pop-up and Data ... | 10. Object Complete |  | MULESOFT | Reltio |  | 04.Low |
-| DATE1737_IP | Enhancement | Change BOM UI with BOM update Logic that can be run in background & Error pro... | 06. Dev In Progress |  | NA |  |  | 01.Very High |
-| DATE1737_IF | Enhancement | Change BOM UI with BOM update Logic that can be run in background & Error pro... | 06. Dev In Progress |  | NA |  |  | 02.High |
-| DATE1736_IP | Enhancement | Create BOM UI with Logic to combine Group BOM and MPV Component Table & Error... | 06. Dev In Progress |  | NA |  |  | 02.High |
-| DATE1736_IF | Enhancement | Create BOM UI with Logic to combine Group BOM and MPV Component Table & Error... | 06. Dev In Progress |  | NA |  |  | 03.Medium |
-| DATE1735_IP | Enhancement | Reprocess Errors based on Error Categories (replication / BOM / etc.)​ | 06. Dev In Progress |  | NA |  |  | 01.Very High |
-| DATE1735_IF | Enhancement | Reprocess Errors based on Error Categories (replication / BOM / etc.)​ | 06. Dev In Progress |  | NA |  |  | 02.High |
-| DATE1734_IP | Enhancement | Search BOM using Plant and Parent ( User selects components from entire BOM w... | 06. Dev In Progress |  | NA |  |  | 02.High |
-| DATE1734_IF | Enhancement | Search BOM using Plant and Parent ( User selects components from entire BOM w... | 06. Dev In Progress |  | NA |  |  | 03.Medium |
-| DATE1733_IP | Enhancement | Search BOM by Keyword and fetch only matching components​ | 06. Dev In Progress |  | NA |  |  | 02.High |
-| DATE1733_IF | Enhancement | Search BOM by Keyword and fetch only matching components​ | 06. Dev In Progress |  | NA |  |  | 03.Medium |
-| DATE1732_IP | Enhancement | Maintain MPV Component table (add, update, inactivate)​ | 06. Dev In Progress |  | NA |  |  | 02.High |
-| DATE1732_IF | Enhancement | Maintain MPV Component table (add, update, inactivate)​ | 06. Dev In Progress |  | NA |  |  | 03.Medium |
-| DATE1731_IP | Enhancement | Upload records to MPV Keyword or MPV Component table​ | 06. Dev In Progress |  | NA |  |  | 02.High |
-| DATE1731_IF | Enhancement | Upload records to MPV Keyword or MPV Component table​ | 06. Dev In Progress |  | NA |  |  | 03.Medium |
-| DATE1730_IP | Enhancement | Create/Maintain Keyword for Plant / or update multiple Keywords into MPV Keyw... | 06. Dev In Progress |  | NA |  |  | 02.High |
-| DATE1730_IF | Enhancement | Create/Maintain Keyword for Plant / or update multiple Keywords into MPV Keyw... | 06. Dev In Progress |  | NA |  |  | 03.Medium |
-| DATE1729_IP | Enhancement | Custom Tables – 3x (needed to support entire FS)​ | 06. Dev In Progress |  | NA |  |  | 02.High |
-| DATE1729_IF | Enhancement | Custom Tables – 3x (needed to support entire FS)​ | 06. Dev In Progress |  | NA |  |  | 03.Medium |
-| DATE1633 | Enhancement | SIMS External BOM - Update lead time offset for BOM Components | 06. Dev Unplanned |  | NA |  |  | 03.Medium |
-| DATE1623 | Enhancement | Custom table to store WCDS attributes based on BusinessTitleNm | 10. Object Complete |  | NA |  |  | 04.Low |
-| DATE1616_IP | Enhancement | Automate External BOM | 06. Dev In Progress |  | NA |  |  | 02.High |
-| DATE1616_IF | Enhancement | Automate External BOM | 06. Dev In Progress |  | NA |  |  | 03.Medium |
-| DATE1615 | Enhancement | Automate the PROC material master creation process based on business rules | 06. Dev In Progress |  | NA |  |  | 03.Medium |
-| DATE1613 | Enhancement | HAZMAT Profile UI | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATE1611_IP | Enhancement | 2A1 Enhancement to send Product Catalog to OpenText | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATE1611_IF | Enhancement | 2A1 Enhancement to send Product Catalog to OpenText | 10. Object Complete |  | NA |  |  | 04.Low |
-| DATE1499 | Enhancement | Capacity Group/Capacity Corridor Item Attribute Data Source​ | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATE1490 | Enhancement | Extend 15 days to termination date and roll back to actual termination for ti... | 10. Object Complete |  | NA |  |  | 04.Low |
-| DATE1457 | Enhancement | Master Data_Enhancement for Overwriting PC Value Derived from Business Rules | 10. Object Complete |  | NA |  |  | 04.Low |
-| DATE1417 | Enhancement | UNBW Cross Site | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATE1044_IP | Enhancement | Master Data Governance Email Notifications | 10. Object Complete |  | NA |  |  | 01.Very High |
-| DATE1044_IF | Enhancement | Master Data Governance Email Notifications | 10. Object Complete |  | NA |  |  | 01.Very High |
-| DATE0926_IP | Enhancement | Enhancement on PROC BOM for Intel Foundry | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATE0926_IF | Enhancement | Enhancement on PROC BOM for Intel Product | 10. Object Complete |  | NA |  |  | 04.Low |
-| DATE0799 | Enhancement | RICEFW for Validations and Derivations where enhancement required for all ref... | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATE0759 | Enhancement | Segregation of IF IP workers based on biz segment getting retrieved from WCDS | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATE0758 | Enhancement | 1)Standard IDOC Enhancement to map WWID same as CP ID and fill PERNR, | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATE0668 | Enhancement | Customizing Technology Node field while Creating Cost Center in MDG system | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATE0667_IF | Enhancement | Adding Technology Node while Creating Cost Center in MDG system (cFIn, IF and... | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATE0667_CFIN | Enhancement | Adding Technology Node while Creating Cost Center in MDG system (cFIn, IF and... | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATE0590 | Enhancement | Material extension using reference material | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATE0570 | Enhancement | Adding Cost Center Approvers fields while Creating Cost Center in MDG system | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATE0561 | Enhancement | Adding DQM Functionality for Address validation | 10. Object Complete |  | NA |  |  | 01.Very High |
-| DATE0446 | Enhancement | Derivation of UPI Intelligent description, Material group, Profit center, and... | 10. Object Complete | NA → NA | NA |  |  | 03.Medium |
-| DATE0395_IP | Enhancement | Pop Up window to be developed on MDG screen to display “Search before Create”... | 10. Object Complete | NA → NA | NA |  |  | 03.Medium |
-| DATE0313_IP | Enhancement | Customer Master Validations and Derivations | 10. Object Complete |  | NA |  |  | 02.High |
-| DATE0020 | Enhancement | Material description generation from Classification data | 10. Object Complete | NA → NA | NA | NA |  | 04.Low |
-| DATC1663 | Conversion | Product Hierarchy File 1 and File 2 | 10. Object Complete |  | NA |  |  | 02.High |
-| DATC1640 | Conversion | Material Master MRP View WINGS Conversion | 10. Object Complete |  | NA |  |  | 04.Low |
-| DATC1639 | Conversion | Material Master Plant and Storage Location View WINGS Materials Conversions | 10. Object Complete |  | NA |  |  | 04.Low |
-| DATC1638 | Conversion | Material Master Accounting and Costing View WINGS Materials Conversions | 10. Object Complete |  | NA |  |  | 04.Low |
-| DATC1637 | Conversion | Material Master Purchasing View WINGS Materials Conversions | 10. Object Complete |  | NA |  |  | 04.Low |
-| DATC1617 | Conversion | HAZMAT Profile Conversion | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATC1604 | Conversion | Initial Load for Objects & Relationships | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATC1556 | Conversion | Conversion program to load Images of Products in Material Master | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATC1552 | Conversion | edFIT - PSI BOM Conversion | 03. FS Not Started |  | NA |  |  | 03.Medium |
-| DATC1551 | Conversion | edFIT - Material Master Conversion | 04. FS In Progress |  | NA |  |  | 03.Medium |
-| DATC1237 | Conversion | Material Master Data – Quality Management View Conversion | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATC1204 | Conversion | Load Vendor as Customer to MDG System | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATC0859 | Conversion | Convert the Customer Master Contact Person from ECC system to MDG system_IP | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATC0589 | Conversion | Vendor Master : General Data conversion from ECC to MDG | 10. Object Complete |  | NA |  |  | 02.High |
-| DATC0588 | Conversion | Vendor Master : Company Code Data conversion from ECC to MDG | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATC0587 | Conversion | Vendor Master : Purchase Org conversion from ECC to MDG | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATC0586 | Conversion | Vendor Master : Partner Function conversion from ECC to MDG | 10. Object Complete |  | NA |  |  | 02.High |
-| DATC0585 | Conversion | Vendor Master : Tax Data conversion from ECC to MDG | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATC0584 | Conversion | Vendor Master : Bank Data conversion from ECC to MDG | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATC0583 | Conversion | Initial load of HRMM data from WCDS to MPipe system, The initial data load wi... | 10. Object Complete | RELTIO → S4 | NA |  |  | 02.High |
-| DATC0562 | Conversion | Conversion of DUNS table from ECC to S/4 for IP | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATC0553 | Conversion | Conversion of BOM from SPEED to S4 IF | 10. Object Complete |  | NA | SPEED PDM (Legacy SPEED); SPEED PDM (Next Generation SPEED) |  | 01.Very High |
-| DATC0552 | Conversion | Conversion of BOM from SPEED to S4 IP | 10. Object Complete |  | NA | SPEED PDM (Legacy SPEED); SPEED PDM (Next Generation SPEED) |  | 01.Very High |
-| DATC0213 | Conversion | Material Master-Work scheduling view | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATC0184_IP | Conversion | Convert the Customer Master Partner Function view from ECC system to MDG syst... | 10. Object Complete | NA → NA | NA | NA |  | 03.Medium |
-| DATC0182_IP | Conversion | Convert the General data view from ECC system to MDG system_IP. | 10. Object Complete | NA → NA | NA | NA |  | 03.Medium |
-| DATC0179_IP | Conversion | Convert the Customer Master Sales view from ECC system to MDG system_IP. | 10. Object Complete | NA → NA | NA | NA |  | 03.Medium |
-| DATC0178_IP | Conversion | Convert the Customer Master Tax view from ECC system to MDG system_IP. | 10. Object Complete | NA → NA | NA | NA |  | 04.Low |
-| DATC0120_IP | Conversion | Convert the Customer Master Company Code view from ECC system to MDG system_IP. | 10. Object Complete | ECC → MDG | NA | ECC |  | 04.Low |
-| DATC0118_IP | Conversion | Convert the Customer Master In House Cash view from ECC system to MDG system_IP. | 10. Object Complete | ECC → MDG | NA | ECC |  | 03.Medium |
-| DATC0076_IP | Conversion | Material Master-Classification View | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATC0075_IP | Conversion | Material Master-Accounting & Costing view | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATC0074_IP | Conversion | Material Master-Sales Org Views and Sales Text | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATC0073 | Conversion | Material Master-Warehouse Mgmt Views | 10. Object Complete |  | NA |  |  | 04.Low |
-| DATC0072 | Conversion | Material Master-Purchasing View and PO Text | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATC0071_IP | Conversion | Material Master-MRP View | 10. Object Complete |  | NA |  |  | 04.Low |
-| DATC0070_IP | Conversion | Material Master-Plant Data/Storage Views | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATC0069_IP | Conversion | Material Master-Alt UOM | 10. Object Complete |  | NA |  |  | 04.Low |
-| DATC0068_IP | Conversion | Material Master-Basic Data- (including description) Views | 10. Object Complete |  | NA |  |  | 03.Medium |
-| DATC1743 | Conversion | Material Human Readable Description Derivation and Direct Update on the Exist... | 02. FS Unplanned |  | NA |  |  | 03.Medium |
-| DATC1744_IP | Conversion | Implement Group BOM conversion functionality for S4 | 02. FS Unplanned |  | NA |  |  | 03.Medium |
-| DATC1744_IF | Conversion | Implement Group BOM conversion functionality for S4 | 02. FS Unplanned |  | NA |  |  | 04.Low |
+| Object ID | Type | Description | Status | Source → Target | Boundary App | Complexity |
+|-----------|------|-------------|--------|----------------|-------------|----------|
+| MDGM1332 | Conversion | IMO Materials | 10. Object Complete |  |  | N/A |
+| MDCR0025 | Report | Alternate/Preferred BOM Component Change in S4 | 09. FUT Overdue | MDG |  | 03.Medium |
+| MDCE0024 | Enhancement | Supplier Hierarchy | 10. Object Complete | MDG |  | 03.Medium |
+| MDCE0023 | Enhancement | Sales Organization - Extended Itego datamodel + UI to govern assignment to Sa... | 10. Object Complete | MDG |  | 03.Medium |
+| MDCE0022 | Enhancement | Sales Region - Custom Itego Object to govern Sales Regions | 10. Object Complete | MDG |  | 03.Medium |
+| MDCE0021 | Enhancement | Customer Planning Hierarchy -IF | 10. Object Complete | MDG |  | 03.Medium |
+| MDCE0020 | Enhancement | Customer Planning Hierarchy -IP | 10. Object Complete | MDG |  | 03.Medium |
+| MDCE0019 | Enhancement | Product Planning Hierarchy -IF | 10. Object Complete | MDG |  | 03.Medium |
+| MDCE0018 | Enhancement | Product Planning Hierarchy -IP | 10. Object Complete | MDG |  | 03.Medium |
+| MDCE0017 | Enhancement | Commodity- Custom Itego Object with ~100 customer fields + UI to support gove... | 10. Object Complete | MDG |  | 03.Medium |
+| MDCE0015 | Enhancement | Asset Location - Extended Itego datamodel with 22 custom fields + UI to suppo... | 10. Object Complete | MDG |  | 03.Medium |
+| MDCE0014 | Enhancement | Storage Location - Extended Itego datamodel with 11 custom fields + UI to sup... | 10. Object Complete | MDG |  | 03.Medium |
+| MDCE0013 | Enhancement | Plant - Extended Itego datamodel with 13 custom fields + UI to support govern... | 10. Object Complete | MDG |  | 03.Medium |
+| MDCE0012 | Enhancement | Sales Org Association - Custom Itego Object with 4 customer fields + UI to su... | 10. Object Complete | MDG |  | 03.Medium |
+| MDCE0011 | Enhancement | Holiday Calendar - Custom goveranance | 10. Object Complete | MDG |  | 03.Medium |
+| MDCE0009 | Enhancement | Shipping Point- Custom Itego Object with 6 customer fields + UI to support go... | 10. Object Complete | MDG |  | 03.Medium |
+| DATW1205 | Workflow | Vendor as Customer Workflow | 10. Object Complete |  |  | 03.Medium |
+| DATW1203 | Workflow | Workflow Setup for Mark For Delete Reference Material Governance Process | 10. Object Complete |  |  | 03.Medium |
+| DATW1202 | Workflow | Workflow Setup for Change/Extend Reference Material Governance Process | 10. Object Complete |  |  | 03.Medium |
+| DATW1201 | Workflow | Workflow Setup for Create Reference Material Governance Process | 10. Object Complete |  |  | 03.Medium |
+| DATW0748 | Workflow | Workflow Setup for Material Master Governance Mass Processing | 10. Object Complete |  |  | 03.Medium |
+| DATW0747 | Workflow | Workflow Setup for Material Master Governance in Mark For Delete Process | 10. Object Complete |  |  | 03.Medium |
+| DATW0746 | Workflow | Workflow Setup for Material Master Governance in the Change Process | 10. Object Complete |  |  | 03.Medium |
+| DATW0591 | Workflow | Parallel Approver Workflow Process | 10. Object Complete |  |  | 03.Medium |
+| DATW0207 | Workflow | Create IP Customer process workflow | 10. Object Complete | NA → NA | NA | 02.High |
+| DATW0205_IP | Workflow | Change/Extend/Block/Unblock IP Customer Master process workflow | 10. Object Complete | NA → NA | NA | 02.High |
+| DATR1430 | Report | Cost Center Approvers report by Supergroup, Group, Division, Subdivision, CCR... | 10. Object Complete |  |  | 03.Medium |
+| DATR0787 | Report | Report to send notification to Direct managers about the inactive Cost Center... | 10. Object Complete |  |  | 03.Medium |
+| DATR0390_IP | Report | Data Monitor Report between MDG and Reltio | 10. Object Complete | NA → NA | NA | 03.Medium |
+| DATR0389_IP | Report | Customer Master Operational Report | 10. Object Complete | NA → NA | NA | 03.Medium |
+| DATI1727 | Interface | Automated update to DC Sales Status and other Item Sales Data fields​ | 06. Dev In Progress |  | Product and Customer Data Management Business Process Management Suite | 03.Medium |
+| DATI1712 | Interface | Import Dot process/stage details from MDG into IF. ​ | 10. Object Complete |  | NA | 03.Medium |
+| DATI1618_IP | Interface | Interface to automate the PROC material master creation to read BOM data from... | 06. Dev In Progress |  | NA | 03.Medium |
+| DATI1618_IF | Interface | Interface to automate the PROC material master creation to read BOM data from... | 06. Dev In Progress |  | NA | 04.Low |
+| DATI1612_IP | Interface | 2A1 interface to send Product Catalog to OpenText for 3PL consumption | 10. Object Complete |  | OpenText | 03.Medium |
+| DATI1612_IF | Interface | 2A1 interface to send Product Catalog to OpenText for 3PL consumption | 10. Object Complete |  | OpenText | 04.Low |
+| DATI1607 | Interface | Delta updates to OM Position IDs and Relationships | 10. Object Complete |  | Worker Data Services (WDS) | 03.Medium |
+| DATI1508 | Interface | Program to update weight of material in the material master | 10. Object Complete |  | NA | 03.Medium |
+| DATI1501 | Interface | Inbound Interface to exchange BOM data between PLM Translator to SAP S/4 – In... | 10. Object Complete | PLM → S/4 | PDM Translator | 02.High |
+| DATI1489 | Interface | Transfer activity type, WWID data from IFED2.0 to MDG for time keeping employees | 10. Object Complete |  | Intel Federal Employee database | 03.Medium |
+| DATI1445_IP | Interface | Outbound Interface to exchange BOM data between PLM Translator to SAP S/4 – I... | 10. Object Complete | S/4 → PLM | PDM Translator | 02.High |
+| DATI1445_IF | Interface | Outbound Interface to exchange BOM data between PLM Translator to SAP S/4 – I... | 10. Object Complete | S/4 → PLM | PDM Translator | 03.Medium |
+| DATI1416 | Interface | Interface to get MMID from the PLM Translator for the materials created direc... | 10. Object Complete |  | NA | 03.Medium |
+| DATI1289_IP | Interface | Program to update weight of material in the material master | 10. Object Complete | S/4 → S/4 MDG | NA | 03.Medium |
+| DATI1289_IF | Interface | Program to update weight of material in the material master | 10. Object Complete | S/4 → S/4 MDG | NA | 04.Low |
+| DATI1164 | Interface | Update Min Max ROP proposals in IF S4 Hana(PDH to MDG to S4) | 10. Object Complete | Supply Management and Materials Requirements Tool; IF Material PDH → S/4 | NA | 03.Medium |
+| DATI1132_IP | Interface | Interface to exchange Yield and Scrap data between PDH Translator to SAP S/4 ... | 10. Object Complete | PDH → S/4 | NA | 03.Medium |
+| DATI1132_IF | Interface | Interface to exchange Yield and Scrap data between PDH Translator to SAP S/4 ... | 10. Object Complete | PDH → S/4 | NA | 04.Low |
+| DATI0960 | Interface | To transfer HRMM data retrieved by Signature Authority API from source system... | 10. Object Complete | WCDS → S/4 MDG | Worker Data Services (WDS) | 03.Medium |
+| DATI0959 | Interface | To transfer HRMM data retrieved by Worker snapshot API from source system WCD... | 10. Object Complete | WCDS → S/4 MDG | Worker Data Services (WDS) | 03.Medium |
+| DATI0944 | Interface | Interface to Send/Receive item master Data Asynchronously between PLM Transla... | 10. Object Complete | PLM → S/4 MDG | SPEED PDM (Legacy SPEED); SPEED PDM (Next Generation SPEED); PDM Translator; ... | 03.Medium |
+| DATI0943 | Interface | Interface to Send/Receive item master Data between PLM Translator and MDG Syn... | 10. Object Complete | S/4 MDG → PLM | SPEED PDM (Legacy SPEED); SPEED PDM (Next Generation SPEED); PDM Translator; ... | 03.Medium |
+| DATI0927 | Interface | Inbound Interface to exchange BOM data between PLM Translator to SAP S/4 – In... | 10. Object Complete | PLM → S/4 | PDM Translator | 02.High |
+| DATI0657_IP | Interface | RICEFW2 - Interface between MDG and Reltio to fetch details to support pop-up... | 10. Object Complete |  | Reltio | 03.Medium |
+| DATI0582 | Interface | Interface to pull Vendor Master from Reltio to MDG | 10. Object Complete | Reltio → S/4 | Reltio | 02.High |
+| DATI0394_IP | Interface | Inbound Interface from Reltio to MDG to receive BP ID and UCD ID to MDG and u... | 10. Object Complete | Reltio → S/4 MDG | Reltio | 03.Medium |
+| DATI0394_IF | Interface | Inbound Interface from Reltio to MDG to receive BP ID and UCD ID to MDG and u... | 10. Object Complete | Reltio → S/4 MDG | Reltio | 04.Low |
+| DATI0393_IP | Interface | Replicating Customer Master data from MDG to cFin,IF and IP systems | 10. Object Complete |  | NA | 04.Low |
+| DATI0392_IP | Interface | Outbound Interface from MDG to Reltio to send the Name, Address, URL, BP ID a... | 10. Object Complete |  | Reltio | 03.Medium |
+| DATI0391_IP | Interface | Interface between MDG and Reltio to fetch details to support pop-up and Data ... | 10. Object Complete |  | Reltio | 04.Low |
+| DATE1737_IP | Enhancement | Change BOM UI with BOM update Logic that can be run in background & Error pro... | 06. Dev In Progress |  |  | 01.Very High |
+| DATE1737_IF | Enhancement | Change BOM UI with BOM update Logic that can be run in background & Error pro... | 06. Dev In Progress |  |  | 02.High |
+| DATE1736_IP | Enhancement | Create BOM UI with Logic to combine Group BOM and MPV Component Table & Error... | 06. Dev In Progress |  |  | 02.High |
+| DATE1736_IF | Enhancement | Create BOM UI with Logic to combine Group BOM and MPV Component Table & Error... | 06. Dev In Progress |  |  | 03.Medium |
+| DATE1735_IP | Enhancement | Reprocess Errors based on Error Categories (replication / BOM / etc.)​ | 06. Dev In Progress |  |  | 01.Very High |
+| DATE1735_IF | Enhancement | Reprocess Errors based on Error Categories (replication / BOM / etc.)​ | 06. Dev In Progress |  |  | 02.High |
+| DATE1734_IP | Enhancement | Search BOM using Plant and Parent ( User selects components from entire BOM w... | 06. Dev In Progress |  |  | 02.High |
+| DATE1734_IF | Enhancement | Search BOM using Plant and Parent ( User selects components from entire BOM w... | 06. Dev In Progress |  |  | 03.Medium |
+| DATE1733_IP | Enhancement | Search BOM by Keyword and fetch only matching components​ | 06. Dev In Progress |  |  | 02.High |
+| DATE1733_IF | Enhancement | Search BOM by Keyword and fetch only matching components​ | 06. Dev In Progress |  |  | 03.Medium |
+| DATE1732_IP | Enhancement | Maintain MPV Component table (add, update, inactivate)​ | 06. Dev In Progress |  |  | 02.High |
+| DATE1732_IF | Enhancement | Maintain MPV Component table (add, update, inactivate)​ | 06. Dev In Progress |  |  | 03.Medium |
+| DATE1731_IP | Enhancement | Upload records to MPV Keyword or MPV Component table​ | 06. Dev In Progress |  |  | 02.High |
+| DATE1731_IF | Enhancement | Upload records to MPV Keyword or MPV Component table​ | 06. Dev In Progress |  |  | 03.Medium |
+| DATE1730_IP | Enhancement | Create/Maintain Keyword for Plant / or update multiple Keywords into MPV Keyw... | 06. Dev In Progress |  |  | 02.High |
+| DATE1730_IF | Enhancement | Create/Maintain Keyword for Plant / or update multiple Keywords into MPV Keyw... | 06. Dev In Progress |  |  | 03.Medium |
+| DATE1729_IP | Enhancement | Custom Tables – 3x (needed to support entire FS)​ | 06. Dev In Progress |  |  | 02.High |
+| DATE1729_IF | Enhancement | Custom Tables – 3x (needed to support entire FS)​ | 06. Dev In Progress |  |  | 03.Medium |
+| DATE1633 | Enhancement | SIMS External BOM - Update lead time offset for BOM Components | 06. Dev Unplanned |  |  | 03.Medium |
+| DATE1623 | Enhancement | Custom table to store WCDS attributes based on BusinessTitleNm | 10. Object Complete |  |  | 04.Low |
+| DATE1616_IP | Enhancement | Automate External BOM | 06. Dev In Progress |  |  | 02.High |
+| DATE1616_IF | Enhancement | Automate External BOM | 06. Dev In Progress |  |  | 03.Medium |
+| DATE1615 | Enhancement | Automate the PROC material master creation process based on business rules | 06. Dev In Progress |  |  | 03.Medium |
+| DATE1613 | Enhancement | HAZMAT Profile UI | 10. Object Complete |  |  | 03.Medium |
+| DATE1611_IP | Enhancement | 2A1 Enhancement to send Product Catalog to OpenText | 10. Object Complete |  |  | 03.Medium |
+| DATE1611_IF | Enhancement | 2A1 Enhancement to send Product Catalog to OpenText | 10. Object Complete |  |  | 04.Low |
+| DATE1499 | Enhancement | Capacity Group/Capacity Corridor Item Attribute Data Source​ | 10. Object Complete |  |  | 03.Medium |
+| DATE1490 | Enhancement | Extend 15 days to termination date and roll back to actual termination for ti... | 10. Object Complete |  |  | 04.Low |
+| DATE1457 | Enhancement | Master Data_Enhancement for Overwriting PC Value Derived from Business Rules | 10. Object Complete |  |  | 04.Low |
+| DATE1417 | Enhancement | UNBW Cross Site | 10. Object Complete |  |  | 03.Medium |
+| DATE1044_IP | Enhancement | Master Data Governance Email Notifications | 10. Object Complete |  |  | 01.Very High |
+| DATE1044_IF | Enhancement | Master Data Governance Email Notifications | 10. Object Complete |  |  | 01.Very High |
+| DATE0926_IP | Enhancement | Enhancement on PROC BOM for Intel Foundry | 10. Object Complete |  |  | 03.Medium |
+| DATE0926_IF | Enhancement | Enhancement on PROC BOM for Intel Product | 10. Object Complete |  |  | 04.Low |
+| DATE0799 | Enhancement | RICEFW for Validations and Derivations where enhancement required for all ref... | 10. Object Complete |  |  | 03.Medium |
+| DATE0759 | Enhancement | Segregation of IF IP workers based on biz segment getting retrieved from WCDS | 10. Object Complete |  |  | 03.Medium |
+| DATE0758 | Enhancement | 1)Standard IDOC Enhancement to map WWID same as CP ID and fill PERNR, | 10. Object Complete |  |  | 03.Medium |
+| DATE0668 | Enhancement | Customizing Technology Node field while Creating Cost Center in MDG system | 10. Object Complete |  |  | 03.Medium |
+| DATE0667_IF | Enhancement | Adding Technology Node while Creating Cost Center in MDG system (cFIn, IF and... | 10. Object Complete |  |  | 03.Medium |
+| DATE0667_CFIN | Enhancement | Adding Technology Node while Creating Cost Center in MDG system (cFIn, IF and... | 10. Object Complete |  |  | 03.Medium |
+| DATE0590 | Enhancement | Material extension using reference material | 10. Object Complete |  |  | 03.Medium |
+| DATE0570 | Enhancement | Adding Cost Center Approvers fields while Creating Cost Center in MDG system | 10. Object Complete |  |  | 03.Medium |
+| DATE0561 | Enhancement | Adding DQM Functionality for Address validation | 10. Object Complete |  |  | 01.Very High |
+| DATE0446 | Enhancement | Derivation of UPI Intelligent description, Material group, Profit center, and... | 10. Object Complete | NA → NA |  | 03.Medium |
+| DATE0395_IP | Enhancement | Pop Up window to be developed on MDG screen to display “Search before Create”... | 10. Object Complete | NA → NA |  | 03.Medium |
+| DATE0313_IP | Enhancement | Customer Master Validations and Derivations | 10. Object Complete |  |  | 02.High |
+| DATE0020 | Enhancement | Material description generation from Classification data | 10. Object Complete | NA → NA | NA | 04.Low |
+| DATC1663 | Conversion | Product Hierarchy File 1 and File 2 | 10. Object Complete |  |  | 02.High |
+| DATC1640 | Conversion | Material Master MRP View WINGS Conversion | 10. Object Complete |  |  | 04.Low |
+| DATC1639 | Conversion | Material Master Plant and Storage Location View WINGS Materials Conversions | 10. Object Complete |  |  | 04.Low |
+| DATC1638 | Conversion | Material Master Accounting and Costing View WINGS Materials Conversions | 10. Object Complete |  |  | 04.Low |
+| DATC1637 | Conversion | Material Master Purchasing View WINGS Materials Conversions | 10. Object Complete |  |  | 04.Low |
+| DATC1617 | Conversion | HAZMAT Profile Conversion | 10. Object Complete |  |  | 03.Medium |
+| DATC1604 | Conversion | Initial Load for Objects & Relationships | 10. Object Complete |  |  | 03.Medium |
+| DATC1556 | Conversion | Conversion program to load Images of Products in Material Master | 10. Object Complete |  |  | 03.Medium |
+| DATC1552 | Conversion | edFIT - PSI BOM Conversion | 03. FS Not Started |  |  | 03.Medium |
+| DATC1551 | Conversion | edFIT - Material Master Conversion | 04. FS In Progress |  |  | 03.Medium |
+| DATC1237 | Conversion | Material Master Data – Quality Management View Conversion | 10. Object Complete |  |  | 03.Medium |
+| DATC1204 | Conversion | Load Vendor as Customer to MDG System | 10. Object Complete |  |  | 03.Medium |
+| DATC0859 | Conversion | Convert the Customer Master Contact Person from ECC system to MDG system_IP | 10. Object Complete |  |  | 03.Medium |
+| DATC0589 | Conversion | Vendor Master : General Data conversion from ECC to MDG | 10. Object Complete |  |  | 02.High |
+| DATC0588 | Conversion | Vendor Master : Company Code Data conversion from ECC to MDG | 10. Object Complete |  |  | 03.Medium |
+| DATC0587 | Conversion | Vendor Master : Purchase Org conversion from ECC to MDG | 10. Object Complete |  |  | 03.Medium |
+| DATC0586 | Conversion | Vendor Master : Partner Function conversion from ECC to MDG | 10. Object Complete |  |  | 02.High |
+| DATC0585 | Conversion | Vendor Master : Tax Data conversion from ECC to MDG | 10. Object Complete |  |  | 03.Medium |
+| DATC0584 | Conversion | Vendor Master : Bank Data conversion from ECC to MDG | 10. Object Complete |  |  | 03.Medium |
+| DATC0583 | Conversion | Initial load of HRMM data from WCDS to MPipe system, The initial data load wi... | 10. Object Complete | RELTIO → S4 |  | 02.High |
+| DATC0562 | Conversion | Conversion of DUNS table from ECC to S/4 for IP | 10. Object Complete |  |  | 03.Medium |
+| DATC0553 | Conversion | Conversion of BOM from SPEED to S4 IF | 10. Object Complete |  | SPEED PDM (Legacy SPEED); SPEED PDM (Next Generation SPEED) | 01.Very High |
+| DATC0552 | Conversion | Conversion of BOM from SPEED to S4 IP | 10. Object Complete |  | SPEED PDM (Legacy SPEED); SPEED PDM (Next Generation SPEED) | 01.Very High |
+| DATC0213 | Conversion | Material Master-Work scheduling view | 10. Object Complete |  |  | 03.Medium |
+| DATC0184_IP | Conversion | Convert the Customer Master Partner Function view from ECC system to MDG syst... | 10. Object Complete | NA → NA | NA | 03.Medium |
+| DATC0182_IP | Conversion | Convert the General data view from ECC system to MDG system_IP. | 10. Object Complete | NA → NA | NA | 03.Medium |
+| DATC0179_IP | Conversion | Convert the Customer Master Sales view from ECC system to MDG system_IP. | 10. Object Complete | NA → NA | NA | 03.Medium |
+| DATC0178_IP | Conversion | Convert the Customer Master Tax view from ECC system to MDG system_IP. | 10. Object Complete | NA → NA | NA | 04.Low |
+| DATC0120_IP | Conversion | Convert the Customer Master Company Code view from ECC system to MDG system_IP. | 10. Object Complete | ECC → MDG | ECC | 04.Low |
+| DATC0118_IP | Conversion | Convert the Customer Master In House Cash view from ECC system to MDG system_IP. | 10. Object Complete | ECC → MDG | ECC | 03.Medium |
+| DATC0076_IP | Conversion | Material Master-Classification View | 10. Object Complete |  |  | 03.Medium |
+| DATC0075_IP | Conversion | Material Master-Accounting & Costing view | 10. Object Complete |  |  | 03.Medium |
+| DATC0074_IP | Conversion | Material Master-Sales Org Views and Sales Text | 10. Object Complete |  |  | 03.Medium |
+| DATC0073 | Conversion | Material Master-Warehouse Mgmt Views | 10. Object Complete |  |  | 04.Low |
+| DATC0072 | Conversion | Material Master-Purchasing View and PO Text | 10. Object Complete |  |  | 03.Medium |
+| DATC0071_IP | Conversion | Material Master-MRP View | 10. Object Complete |  |  | 04.Low |
+| DATC0070_IP | Conversion | Material Master-Plant Data/Storage Views | 10. Object Complete |  |  | 03.Medium |
+| DATC0069_IP | Conversion | Material Master-Alt UOM | 10. Object Complete |  |  | 04.Low |
+| DATC0068_IP | Conversion | Material Master-Basic Data- (including description) Views | 10. Object Complete |  |  | 03.Medium |
+| DATC1743 | Conversion | Material Human Readable Description Derivation and Direct Update on the Exist... | 02. FS Unplanned |  |  | 03.Medium |
+| DATC1744_IP | Conversion | Implement Group BOM conversion functionality for S4 | 02. FS Unplanned |  |  | 03.Medium |
+| DATC1744_IF | Conversion | Implement Group BOM conversion functionality for S4 | 02. FS Unplanned |  |  | 04.Low |
 
 **Summary**: 5 Reports, 30 Interfaces, 43 Conversions, 61 Enhancements, 10 Workflows
 
@@ -439,31 +441,31 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 The following RICEFW objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
 
-| RICEFW Object ID | Description | Boundary Application | IAPM ID | Source → Target |
-|-------------------|------------|---------------------|---------|----------------|
-| DATI1727 | Automated update to DC Sales Status and other Item Sales Data fields​ | Product and Customer Data Management Business Process Management Suite | 16892.0 |  |
-| DATI1612_IP | 2A1 interface to send Product Catalog to OpenText for 3PL consumption | OpenText | 12842.0 |  |
-| DATI1612_IF | 2A1 interface to send Product Catalog to OpenText for 3PL consumption | OpenText | 12842.0 |  |
-| DATI1607 | Delta updates to OM Position IDs and Relationships | Worker Data Services (WDS) | 10772.0 |  |
-| DATI1501 | Inbound Interface to exchange BOM data between PLM Translator to SAP S/4 – In... | PDM Translator | 41744.0 | PLM → S/4 |
-| DATI1489 | Transfer activity type, WWID data from IFED2.0 to MDG for time keeping employees | Intel Federal Employee database | 10741.0 |  |
-| DATI1445_IP | Outbound Interface to exchange BOM data between PLM Translator to SAP S/4 – I... | PDM Translator | 41744.0 | S/4 → PLM |
-| DATI1445_IF | Outbound Interface to exchange BOM data between PLM Translator to SAP S/4 – I... | PDM Translator | 41744.0 | S/4 → PLM |
-| DATI0960 | To transfer HRMM data retrieved by Signature Authority API from source system... | Worker Data Services (WDS) | 10772.0 | WCDS → S/4 MDG |
-| DATI0959 | To transfer HRMM data retrieved by Worker snapshot API from source system WCD... | Worker Data Services (WDS) | 10772.0 | WCDS → S/4 MDG |
-| DATI0944 | Interface to Send/Receive item master Data Asynchronously between PLM Transla... | SPEED PDM (Legacy SPEED); SPEED PDM (Next Generation SPEED); PDM Translator; ... | 4092; 11140; 41744; 38775; 17296 | PLM → S/4 MDG |
-| DATI0943 | Interface to Send/Receive item master Data between PLM Translator and MDG Syn... | SPEED PDM (Legacy SPEED); SPEED PDM (Next Generation SPEED); PDM Translator; ... | 4092; 11140; 41744; 38775; 17296 | S/4 MDG → PLM |
-| DATI0927 | Inbound Interface to exchange BOM data between PLM Translator to SAP S/4 – In... | PDM Translator | 41744.0 | PLM → S/4 |
-| DATI0657_IP | RICEFW2 - Interface between MDG and Reltio to fetch details to support pop-up... | Reltio | 25490.0 |  |
-| DATI0582 | Interface to pull Vendor Master from Reltio to MDG | Reltio | 25490.0 | Reltio → S/4 |
-| DATI0394_IP | Inbound Interface from Reltio to MDG to receive BP ID and UCD ID to MDG and u... | Reltio | 25490.0 | Reltio → S/4 MDG |
-| DATI0394_IF | Inbound Interface from Reltio to MDG to receive BP ID and UCD ID to MDG and u... | Reltio | 25490.0 | Reltio → S/4 MDG |
-| DATI0392_IP | Outbound Interface from MDG to Reltio to send the Name, Address, URL, BP ID a... | Reltio | 25490.0 |  |
-| DATI0391_IP | Interface between MDG and Reltio to fetch details to support pop-up and Data ... | Reltio | 25490.0 |  |
-| DATC0553 | Conversion of BOM from SPEED to S4 IF | SPEED PDM (Legacy SPEED); SPEED PDM (Next Generation SPEED) | 4092; 11140 |  |
-| DATC0552 | Conversion of BOM from SPEED to S4 IP | SPEED PDM (Legacy SPEED); SPEED PDM (Next Generation SPEED) | 4092; 11140 |  |
-| DATC0120_IP | Convert the Customer Master Company Code view from ECC system to MDG system_IP. | ECC |  | ECC → MDG |
-| DATC0118_IP | Convert the Customer Master In House Cash view from ECC system to MDG system_IP. | ECC |  | ECC → MDG |
+| RICEFW ID | Description | Boundary Application | Source → Target |
+|-----------|------------|---------------------|----------------|
+| DATI1727 | Automated update to DC Sales Status and other Item Sales Data fields​ | Product and Customer Data Management Business Process Management Suite |  |
+| DATI1612_IP | 2A1 interface to send Product Catalog to OpenText for 3PL consumption | OpenText |  |
+| DATI1612_IF | 2A1 interface to send Product Catalog to OpenText for 3PL consumption | OpenText |  |
+| DATI1607 | Delta updates to OM Position IDs and Relationships | Worker Data Services (WDS) |  |
+| DATI1501 | Inbound Interface to exchange BOM data between PLM Translator to SAP S/4 – In... | PDM Translator | PLM → S/4 |
+| DATI1489 | Transfer activity type, WWID data from IFED2.0 to MDG for time keeping employees | Intel Federal Employee database |  |
+| DATI1445_IP | Outbound Interface to exchange BOM data between PLM Translator to SAP S/4 – I... | PDM Translator | S/4 → PLM |
+| DATI1445_IF | Outbound Interface to exchange BOM data between PLM Translator to SAP S/4 – I... | PDM Translator | S/4 → PLM |
+| DATI0960 | To transfer HRMM data retrieved by Signature Authority API from source system... | Worker Data Services (WDS) | WCDS → S/4 MDG |
+| DATI0959 | To transfer HRMM data retrieved by Worker snapshot API from source system WCD... | Worker Data Services (WDS) | WCDS → S/4 MDG |
+| DATI0944 | Interface to Send/Receive item master Data Asynchronously between PLM Transla... | SPEED PDM (Legacy SPEED); SPEED PDM (Next Generation SPEED); PDM Translator; ... | PLM → S/4 MDG |
+| DATI0943 | Interface to Send/Receive item master Data between PLM Translator and MDG Syn... | SPEED PDM (Legacy SPEED); SPEED PDM (Next Generation SPEED); PDM Translator; ... | S/4 MDG → PLM |
+| DATI0927 | Inbound Interface to exchange BOM data between PLM Translator to SAP S/4 – In... | PDM Translator | PLM → S/4 |
+| DATI0657_IP | RICEFW2 - Interface between MDG and Reltio to fetch details to support pop-up... | Reltio |  |
+| DATI0582 | Interface to pull Vendor Master from Reltio to MDG | Reltio | Reltio → S/4 |
+| DATI0394_IP | Inbound Interface from Reltio to MDG to receive BP ID and UCD ID to MDG and u... | Reltio | Reltio → S/4 MDG |
+| DATI0394_IF | Inbound Interface from Reltio to MDG to receive BP ID and UCD ID to MDG and u... | Reltio | Reltio → S/4 MDG |
+| DATI0392_IP | Outbound Interface from MDG to Reltio to send the Name, Address, URL, BP ID a... | Reltio |  |
+| DATI0391_IP | Interface between MDG and Reltio to fetch details to support pop-up and Data ... | Reltio |  |
+| DATC0553 | Conversion of BOM from SPEED to S4 IF | SPEED PDM (Legacy SPEED); SPEED PDM (Next Generation SPEED) |  |
+| DATC0552 | Conversion of BOM from SPEED to S4 IP | SPEED PDM (Legacy SPEED); SPEED PDM (Next Generation SPEED) |  |
+| DATC0120_IP | Convert the Customer Master Company Code view from ECC system to MDG system_IP. | ECC | ECC → MDG |
+| DATC0118_IP | Convert the Customer Master In House Cash view from ECC system to MDG system_IP. | ECC | ECC → MDG |
 
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-130 — Create and Maintain Customers</span></div>
@@ -473,6 +475,7 @@ The following RICEFW objects integrate with **boundary applications** (external 
 ### 5.6 Integration Patterns
 
 *Integration patterns will be populated when tower architects provide validated middleware and protocol details via the extended flow template.*
+
 
 
 

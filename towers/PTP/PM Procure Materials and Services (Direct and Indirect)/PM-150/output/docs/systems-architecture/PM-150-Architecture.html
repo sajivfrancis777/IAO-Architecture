@@ -59,22 +59,29 @@ p {
 table {
     border-collapse: collapse;
     width: 100%;
+    table-layout: fixed;
     margin: 12px 0;
     font-size: 9.5pt;
     page-break-inside: avoid;
     break-inside: avoid;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 th {
     background: #00285a;
     color: #fff;
     font-weight: 600;
     text-align: left;
-    padding: 6px 8px;
+    padding: 4px 6px;
     border: 1px solid #00285a;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 td {
-    padding: 5px 8px;
+    padding: 4px 6px;
     border: 1px solid #ddd;
+    overflow: hidden;
+    text-overflow: ellipsis;
     vertical-align: top;
 }
 tr:nth-child(even) td { background: #f5f8fc; }
@@ -281,7 +288,9 @@ strong { color: #00285a; }
     h2 { margin-top: 14px; margin-bottom: 6px; font-size: 16pt; }
     h3 { margin-top: 10px; margin-bottom: 4px; font-size: 13pt; }
     h4 { margin-top: 8px; margin-bottom: 3px; font-size: 11pt; }
-    table { margin: 6px 0; font-size: 9pt; }
+    table { margin: 6px 0; font-size: 8pt; table-layout: fixed; word-wrap: break-word; }
+    th { padding: 3px 4px; }
+    td { padding: 3px 4px; }
     blockquote { margin: 6px 0; padding: 4px 12px; font-size: 9pt; }
     p { margin: 4px 0; }
     ul, ol { margin: 4px 0; }
@@ -410,11 +419,13 @@ strong { color: #00285a; }
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 10mm 15mm; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
   p { orphans: 3; widows: 3; }
+  table { table-layout: fixed; word-wrap: break-word; font-size: 8pt; }
+  td, th { overflow: visible; text-overflow: ellipsis; padding: 3px 4px; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -1602,9 +1613,7 @@ flowchart TD
 <th>Description</th>
 <th>Status</th>
 <th>Source → Target</th>
-<th>Middleware</th>
 <th>Boundary App</th>
-<th>Interface Approach</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -1616,8 +1625,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1626,9 +1633,7 @@ flowchart TD
 <td>Pay@accept – Inbound Interface to fetch the values from FCE ODS to SAP S/4 HA&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>APIGEE</td>
 <td>FCE Operational Data Services - METS Smart Order Management</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1637,9 +1642,7 @@ flowchart TD
 <td>Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t&hellip;</td>
 <td>10. Object Complete</td>
 <td>→ S/4</td>
-<td>APIGEE</td>
 <td>Customs Tracker</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1648,9 +1651,7 @@ flowchart TD
 <td>Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t&hellip;</td>
 <td>10. Object Complete</td>
 <td>→ S/4</td>
-<td>APIGEE</td>
 <td>Customs Tracker</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1659,9 +1660,7 @@ flowchart TD
 <td>Ariba Invoice Integration through (CIG - Cloud Integration Gateway (Currently&hellip;</td>
 <td>10. Object Complete</td>
 <td>SAP Ariba Network → S/4</td>
-<td>NA</td>
 <td>SAP Ariba Network</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1670,9 +1669,7 @@ flowchart TD
 <td>Ariba Invoice Integration through (CIG - Cloud Integration Gateway (Currently&hellip;</td>
 <td>10. Object Complete</td>
 <td>SAP Ariba Network → S/4</td>
-<td>NA</td>
 <td>SAP Ariba Network</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1681,9 +1678,7 @@ flowchart TD
 <td>Invoice Status Update from SAP S/4 to Ariba Network through CIG - Cloud Integ&hellip;</td>
 <td>10. Object Complete</td>
 <td>S/4 → SAP Ariba Network</td>
-<td>NA</td>
 <td>SAP Ariba Network</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1692,9 +1687,7 @@ flowchart TD
 <td>Invoice Status Update from SAP S/4 to Ariba Network through CIG - Cloud Integ&hellip;</td>
 <td>10. Object Complete</td>
 <td>S/4 → SAP Ariba Network</td>
-<td>NA</td>
 <td>SAP Ariba Network</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1703,9 +1696,7 @@ flowchart TD
 <td>Carbon Copy Invoice Integration from SAP S/4 to Ariba Network</td>
 <td>10. Object Complete</td>
 <td>S/4 → SAP Ariba Network</td>
-<td>NA</td>
 <td>SAP Ariba Network</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1714,9 +1705,7 @@ flowchart TD
 <td>Carbon Copy Invoice Integration from SAP S/4 to Ariba Network</td>
 <td>10. Object Complete</td>
 <td>S/4 → SAP Ariba Network</td>
-<td>NA</td>
 <td>SAP Ariba Network</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1725,9 +1714,7 @@ flowchart TD
 <td>Intel B2B – XML (3C7) Notify of Self Billing Invoice – Interface to send noti&hellip;</td>
 <td>10. Object Complete</td>
 <td>S/4 → OpenText</td>
-<td>MULESOFT</td>
 <td>OpenText</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1736,9 +1723,7 @@ flowchart TD
 <td>Intel B2B – XML (3C7) Notify of Self Billing Invoice – Interface to send noti&hellip;</td>
 <td>10. Object Complete</td>
 <td>S/4 → OpenText</td>
-<td>MULESOFT</td>
 <td>OpenText</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1747,9 +1732,7 @@ flowchart TD
 <td>S4 Manual Invoice Release Blocking functionality requires connection with GTT&hellip;</td>
 <td>10. Object Complete</td>
 <td>S/4 → GTT (Custom Tracker)</td>
-<td>NA</td>
 <td>SAP ECC - Accounts Payable; Customs Tracker</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1758,9 +1741,7 @@ flowchart TD
 <td>S4 Manual Invoice Release Blocking functionality requires connection with GTT&hellip;</td>
 <td>10. Object Complete</td>
 <td>S/4 → GTT (Custom Tracker)</td>
-<td>NA</td>
 <td>SAP ECC - Accounts Payable; Customs Tracker</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1769,9 +1750,7 @@ flowchart TD
 <td>Custom program to send configurations from S4 system to Illumis</td>
 <td>10. Object Complete</td>
 <td>S/4 → Accounts Payable Recovery Tool</td>
-<td>SFT</td>
 <td>Accounts Payable Recoveries (APR)</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1780,9 +1759,7 @@ flowchart TD
 <td>Custom program to send configurations from S4 system to Illumis</td>
 <td>10. Object Complete</td>
 <td>S/4 → Accounts Payable Recovery Tool</td>
-<td>SFT</td>
 <td>Accounts Payable Recoveries (APR)</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1791,9 +1768,7 @@ flowchart TD
 <td>Custom program to send the supplier master data from S4 system to Illumis.</td>
 <td>10. Object Complete</td>
 <td>S/4 → Accounts Payable Recovery Tool</td>
-<td>SFT</td>
 <td>Accounts Payable Recoveries (APR)</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1802,9 +1777,7 @@ flowchart TD
 <td>Custom program to send the supplier master data from S4 system to Illumis.</td>
 <td>10. Object Complete</td>
 <td>S/4 → Accounts Payable Recovery Tool</td>
-<td>SFT</td>
 <td>Accounts Payable Recoveries (APR)</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1813,9 +1786,7 @@ flowchart TD
 <td>Custom program to send the Transactions (Invoices) from IF system to Illumis</td>
 <td>10. Object Complete</td>
 <td>S/4 → Accounts Payable Recovery Tool</td>
-<td>SFT</td>
 <td>Accounts Payable Recoveries (APR)</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1824,9 +1795,7 @@ flowchart TD
 <td>Payment Proposal after invoice posted from SAP S/4 HANA CFIN to Ariba</td>
 <td>10. Object Complete</td>
 <td>S/4 → SAP Ariba Network</td>
-<td>NA</td>
 <td>SAP Ariba Network; SAP Ariba Invoicing</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1835,9 +1804,7 @@ flowchart TD
 <td>Payment Remittance after payment posted from CFIN to IP/IF and from IP/IF to &hellip;</td>
 <td>10. Object Complete</td>
 <td>S/4 → SAP Ariba Network</td>
-<td>NA</td>
 <td>SAP Ariba Network; SAP Ariba Invoicing</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1846,9 +1813,7 @@ flowchart TD
 <td>Payment Status after payment is cancelled / Void from CFIN to IP / IF and Fro&hellip;</td>
 <td>10. Object Complete</td>
 <td>S/4 → SAP Ariba Network</td>
-<td>NA</td>
 <td>SAP Ariba Network; SAP Ariba Invoicing</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1857,9 +1822,7 @@ flowchart TD
 <td>Payment Remittance after payment posted from CFIN to IP/IF for Readsoft</td>
 <td>10. Object Complete</td>
 <td>S/4 → Readsoft</td>
-<td>NA</td>
 <td>Readsoft - WorkCycle; Readsoft - Process Director Accounts Payable IP</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1868,9 +1831,7 @@ flowchart TD
 <td>Payment Remittance after payment posted from CFIN to IP/IF for Readsoft</td>
 <td>10. Object Complete</td>
 <td>S/4 → Readsoft</td>
-<td>NA</td>
 <td>Readsoft - WorkCycle; Readsoft - Process Director Accounts Payable IF</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1879,9 +1840,7 @@ flowchart TD
 <td>Custom program to send the Purchase order from SAP S4 system to Illumis</td>
 <td>10. Object Complete</td>
 <td>S/4 → Accounts Payable Recovery Tool</td>
-<td>SFT</td>
 <td>Accounts Payable Recoveries (APR)</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1890,9 +1849,7 @@ flowchart TD
 <td>Custom program to send the Purchase order from SAP S4 system to Illumis</td>
 <td>10. Object Complete</td>
 <td>S/4 → Accounts Payable Recovery Tool</td>
-<td>SFT</td>
 <td>Accounts Payable Recoveries (APR)</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1900,8 +1857,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Automate Warranty Credit Memo Posting</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1912,8 +1867,6 @@ flowchart TD
 <td>Enhancement to Update Invoice PAID Status from CFIN to IF &amp; IP ARIBA Standard&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1922,8 +1875,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom enhancement to edit the posted accounting document for Payment Term, B&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1934,8 +1885,6 @@ flowchart TD
 <td>Custom enhancement to edit the posted accounting document for Payment Term, B&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -1944,8 +1893,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom enhancement to edit the posted accounting document for Payment Term, B&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1956,8 +1903,6 @@ flowchart TD
 <td>Custom program to generate a PDF printout of SAP self-billing invoices (ERS/C&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1966,8 +1911,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom program to generate a PDF printout of SAP self-billing invoices (ERS/C&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -1978,8 +1921,6 @@ flowchart TD
 <td>Enhancement to Update Invoice PAID Status from CFIN to IF &amp; IP ARIBA Standard&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1988,8 +1929,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to Update Invoice PAID Status from CFIN to IF &amp; IP ARIBA Standard&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -2000,8 +1939,6 @@ flowchart TD
 <td>Custom Enhancements for Payment Proposal, payment remittance, payment status,&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -2010,8 +1947,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom Enhancements for Payment Proposal, payment remittance, payment status,&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -2022,8 +1957,6 @@ flowchart TD
 <td>Custom Enhancements for Payment Proposal, payment remittance, payment status,&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2032,8 +1965,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Pay@Accept Custom Program to release the invoice - SAP S/4 HANA IP and IF</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2044,8 +1975,6 @@ flowchart TD
 <td>Review the auto reversal of payment documents, Reset clearing of invoice and &hellip;</td>
 <td>99. Rejected/Cancelled/On Hold</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -2055,8 +1984,6 @@ flowchart TD
 <td>Standard BTE for Manage Supplier Line items to add the PO and Supplier name -&hellip;</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -2066,8 +1993,6 @@ flowchart TD
 <td>Standard BTE for Manage Supplier Line items to add the PO and Supplier name -&hellip;</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -2077,8 +2002,6 @@ flowchart TD
 <td>Standard BTE for Manage Supplier Line items to add the PO and Supplier name -&hellip;</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2089,8 +2012,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2100,8 +2021,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2110,8 +2029,6 @@ flowchart TD
 <td>Payment Term Mass change functionality in FBL1N Vendor Line item report</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2121,8 +2038,6 @@ flowchart TD
 <td>Payment Term Mass change functionality in FBL1N Vendor Line item report</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -2134,10 +2049,9 @@ flowchart TD
 <table>
 <thead>
 <tr>
-<th>RICEFW Object ID</th>
+<th>RICEFW ID</th>
 <th>Description</th>
 <th>Boundary Application</th>
-<th>IAPM ID</th>
 <th>Source → Target</th>
 </tr>
 </thead>
@@ -2146,175 +2060,150 @@ flowchart TD
 <td>PTPI1533</td>
 <td>Pay@accept – Inbound Interface to fetch the values from FCE ODS to SAP S/4 HA&hellip;</td>
 <td>FCE Operational Data Services - METS Smart Order Management</td>
-<td>25285.0</td>
 <td></td>
 </tr>
 <tr>
 <td>PTPI1428_IP</td>
 <td>Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t&hellip;</td>
 <td>Customs Tracker</td>
-<td>42860.0</td>
 <td>→ S/4</td>
 </tr>
 <tr>
 <td>PTPI1428_IF</td>
 <td>Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t&hellip;</td>
 <td>Customs Tracker</td>
-<td>42860.0</td>
 <td>→ S/4</td>
 </tr>
 <tr>
 <td>PTPI0822_IP</td>
 <td>Ariba Invoice Integration through (CIG - Cloud Integration Gateway (Currently&hellip;</td>
 <td>SAP Ariba Network</td>
-<td>15206.0</td>
 <td>SAP Ariba Network → S/4</td>
 </tr>
 <tr>
 <td>PTPI0822_IF</td>
 <td>Ariba Invoice Integration through (CIG - Cloud Integration Gateway (Currently&hellip;</td>
 <td>SAP Ariba Network</td>
-<td>15206.0</td>
 <td>SAP Ariba Network → S/4</td>
 </tr>
 <tr>
 <td>PTPI0821_IP</td>
 <td>Invoice Status Update from SAP S/4 to Ariba Network through CIG - Cloud Integ&hellip;</td>
 <td>SAP Ariba Network</td>
-<td>15206.0</td>
 <td>S/4 → SAP Ariba Network</td>
 </tr>
 <tr>
 <td>PTPI0821_IF</td>
 <td>Invoice Status Update from SAP S/4 to Ariba Network through CIG - Cloud Integ&hellip;</td>
 <td>SAP Ariba Network</td>
-<td>15206.0</td>
 <td>S/4 → SAP Ariba Network</td>
 </tr>
 <tr>
 <td>PTPI0820_IP</td>
 <td>Carbon Copy Invoice Integration from SAP S/4 to Ariba Network</td>
 <td>SAP Ariba Network</td>
-<td>15206.0</td>
 <td>S/4 → SAP Ariba Network</td>
 </tr>
 <tr>
 <td>PTPI0820_IF</td>
 <td>Carbon Copy Invoice Integration from SAP S/4 to Ariba Network</td>
 <td>SAP Ariba Network</td>
-<td>15206.0</td>
 <td>S/4 → SAP Ariba Network</td>
 </tr>
 <tr>
 <td>PTPI0819_IP</td>
 <td>Intel B2B – XML (3C7) Notify of Self Billing Invoice – Interface to send noti&hellip;</td>
 <td>OpenText</td>
-<td>12842.0</td>
 <td>S/4 → OpenText</td>
 </tr>
 <tr>
 <td>PTPI0819_IF</td>
 <td>Intel B2B – XML (3C7) Notify of Self Billing Invoice – Interface to send noti&hellip;</td>
 <td>OpenText</td>
-<td>12842.0</td>
 <td>S/4 → OpenText</td>
 </tr>
 <tr>
 <td>PTPI0710_IP</td>
 <td>S4 Manual Invoice Release Blocking functionality requires connection with GTT&hellip;</td>
 <td>SAP ECC - Accounts Payable; Customs Tracker</td>
-<td>10451; 42860</td>
 <td>S/4 → GTT (Custom Tracker)</td>
 </tr>
 <tr>
 <td>PTPI0710_IF</td>
 <td>S4 Manual Invoice Release Blocking functionality requires connection with GTT&hellip;</td>
 <td>SAP ECC - Accounts Payable; Customs Tracker</td>
-<td>10451; 42860</td>
 <td>S/4 → GTT (Custom Tracker)</td>
 </tr>
 <tr>
 <td>PTPI0692_IP</td>
 <td>Custom program to send configurations from S4 system to Illumis</td>
 <td>Accounts Payable Recoveries (APR)</td>
-<td>23042.0</td>
 <td>S/4 → Accounts Payable Recovery Tool</td>
 </tr>
 <tr>
 <td>PTPI0692_IF</td>
 <td>Custom program to send configurations from S4 system to Illumis</td>
 <td>Accounts Payable Recoveries (APR)</td>
-<td>23042.0</td>
 <td>S/4 → Accounts Payable Recovery Tool</td>
 </tr>
 <tr>
 <td>PTPI0691_IP</td>
 <td>Custom program to send the supplier master data from S4 system to Illumis.</td>
 <td>Accounts Payable Recoveries (APR)</td>
-<td>23042.0</td>
 <td>S/4 → Accounts Payable Recovery Tool</td>
 </tr>
 <tr>
 <td>PTPI0691_IF</td>
 <td>Custom program to send the supplier master data from S4 system to Illumis.</td>
 <td>Accounts Payable Recoveries (APR)</td>
-<td>23042.0</td>
 <td>S/4 → Accounts Payable Recovery Tool</td>
 </tr>
 <tr>
 <td>PTPI0685</td>
 <td>Custom program to send the Transactions (Invoices) from IF system to Illumis</td>
 <td>Accounts Payable Recoveries (APR)</td>
-<td>23042.0</td>
 <td>S/4 → Accounts Payable Recovery Tool</td>
 </tr>
 <tr>
 <td>PTPI0470</td>
 <td>Payment Proposal after invoice posted from SAP S/4 HANA CFIN to Ariba</td>
 <td>SAP Ariba Network; SAP Ariba Invoicing</td>
-<td>15206; 18292</td>
 <td>S/4 → SAP Ariba Network</td>
 </tr>
 <tr>
 <td>PTPI0469</td>
 <td>Payment Remittance after payment posted from CFIN to IP/IF and from IP/IF to &hellip;</td>
 <td>SAP Ariba Network; SAP Ariba Invoicing</td>
-<td>15206; 18292</td>
 <td>S/4 → SAP Ariba Network</td>
 </tr>
 <tr>
 <td>PTPI0468</td>
 <td>Payment Status after payment is cancelled / Void from CFIN to IP / IF and Fro&hellip;</td>
 <td>SAP Ariba Network; SAP Ariba Invoicing</td>
-<td>15206; 18292</td>
 <td>S/4 → SAP Ariba Network</td>
 </tr>
 <tr>
 <td>PTPI0466_IP</td>
 <td>Payment Remittance after payment posted from CFIN to IP/IF for Readsoft</td>
 <td>Readsoft - WorkCycle; Readsoft - Process Director Accounts Payable IP</td>
-<td>6878; 64229</td>
 <td>S/4 → Readsoft</td>
 </tr>
 <tr>
 <td>PTPI0466_IF</td>
 <td>Payment Remittance after payment posted from CFIN to IP/IF for Readsoft</td>
 <td>Readsoft - WorkCycle; Readsoft - Process Director Accounts Payable IF</td>
-<td>6878; 64228</td>
 <td>S/4 → Readsoft</td>
 </tr>
 <tr>
 <td>PTPI0388_IP</td>
 <td>Custom program to send the Purchase order from SAP S4 system to Illumis</td>
 <td>Accounts Payable Recoveries (APR)</td>
-<td>23042.0</td>
 <td>S/4 → Accounts Payable Recovery Tool</td>
 </tr>
 <tr>
 <td>PTPI0388_IF</td>
 <td>Custom program to send the Purchase order from SAP S4 system to Illumis</td>
 <td>Accounts Payable Recoveries (APR)</td>
-<td>23042.0</td>
 <td>S/4 → Accounts Payable Recovery Tool</td>
 </tr>
 </tbody>

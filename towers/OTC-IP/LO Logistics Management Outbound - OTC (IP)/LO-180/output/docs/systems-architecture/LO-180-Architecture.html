@@ -59,22 +59,29 @@ p {
 table {
     border-collapse: collapse;
     width: 100%;
+    table-layout: fixed;
     margin: 12px 0;
     font-size: 9.5pt;
     page-break-inside: avoid;
     break-inside: avoid;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 th {
     background: #00285a;
     color: #fff;
     font-weight: 600;
     text-align: left;
-    padding: 6px 8px;
+    padding: 4px 6px;
     border: 1px solid #00285a;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 td {
-    padding: 5px 8px;
+    padding: 4px 6px;
     border: 1px solid #ddd;
+    overflow: hidden;
+    text-overflow: ellipsis;
     vertical-align: top;
 }
 tr:nth-child(even) td { background: #f5f8fc; }
@@ -281,7 +288,9 @@ strong { color: #00285a; }
     h2 { margin-top: 14px; margin-bottom: 6px; font-size: 16pt; }
     h3 { margin-top: 10px; margin-bottom: 4px; font-size: 13pt; }
     h4 { margin-top: 8px; margin-bottom: 3px; font-size: 11pt; }
-    table { margin: 6px 0; font-size: 9pt; }
+    table { margin: 6px 0; font-size: 8pt; table-layout: fixed; word-wrap: break-word; }
+    th { padding: 3px 4px; }
+    td { padding: 3px 4px; }
     blockquote { margin: 6px 0; padding: 4px 12px; font-size: 9pt; }
     p { margin: 4px 0; }
     ul, ol { margin: 4px 0; }
@@ -410,11 +419,13 @@ strong { color: #00285a; }
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 10mm 15mm; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
   p { orphans: 3; widows: 3; }
+  table { table-layout: fixed; word-wrap: break-word; font-size: 8pt; }
+  td, th { overflow: visible; text-overflow: ellipsis; padding: 3px 4px; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -1535,8 +1546,7 @@ flowchart LR
 <th>Type</th>
 <th>Description</th>
 <th>Status</th>
-<th>Source</th>
-<th>Target</th>
+<th>Source → Target</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -1547,7 +1557,6 @@ flowchart LR
 <td>2DN - Inbound Escort Report</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1555,7 +1564,6 @@ flowchart LR
 <td>Report</td>
 <td>2DN - Outbound Escort Report</td>
 <td>06. Dev In Progress</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1565,7 +1573,6 @@ flowchart LR
 <td>2DN - Outbound Manifest Report</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1573,7 +1580,6 @@ flowchart LR
 <td>Report</td>
 <td>2DN - Inbound Manifest Report</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1641,9 +1647,7 @@ flowchart LR
 <th>Description</th>
 <th>Status</th>
 <th>Source → Target</th>
-<th>Middleware</th>
 <th>Boundary App</th>
-<th>Interface Approach</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -1654,8 +1658,6 @@ flowchart LR
 <td>2DN - Inbound Escort Report</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1664,8 +1666,6 @@ flowchart LR
 <td>Report</td>
 <td>2DN - Outbound Escort Report</td>
 <td>06. Dev In Progress</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -1676,8 +1676,6 @@ flowchart LR
 <td>2DN - Outbound Manifest Report</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1686,8 +1684,6 @@ flowchart LR
 <td>Report</td>
 <td>2DN - Inbound Manifest Report</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1698,9 +1694,7 @@ flowchart LR
 <td>2DN - S4 – Interface from S/4 to MPL for packing list.</td>
 <td>10. Object Complete</td>
 <td>S/4 → MPL</td>
-<td>SFT</td>
 <td>Mark Pack Label Suite (IP)</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1709,9 +1703,7 @@ flowchart LR
 <td>2DN - Interface to capture Data for 1st Delivery in 2DN X-Dock Model</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>MULESOFT</td>
 <td>OpenText</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1720,9 +1712,7 @@ flowchart LR
 <td>Interface from WOM to S4 HANA to fetch the list of Deliveries for a particula&hellip;</td>
 <td>10. Object Complete</td>
 <td>WOM → S/4</td>
-<td>MULESOFT</td>
 <td>SAP Commerce Cloud</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1731,9 +1721,7 @@ flowchart LR
 <td>Interface from WOM to S4 HANA to fetch the ASN information of delivery.</td>
 <td>10. Object Complete</td>
 <td>WOM → S/4</td>
-<td>MULESOFT</td>
 <td>SAP Commerce Cloud</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1742,9 +1730,7 @@ flowchart LR
 <td>Interface from SAP S4 to DBaaS to Fetch Actual COF for FVR batch and COA for &hellip;</td>
 <td>10. Object Complete</td>
 <td>S/4 → DBaaS</td>
-<td>MULESOFT</td>
 <td>Supply Chain Trade Re-engineering Data Container for Intel Products</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1753,9 +1739,7 @@ flowchart LR
 <td>Interface to send shipment information to custom broker</td>
 <td>10. Object Complete</td>
 <td>S/4 → OpenText</td>
-<td>MULESOFT</td>
 <td>OpenText</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1764,9 +1748,7 @@ flowchart LR
 <td>Customer ASN interface from outbound delivery</td>
 <td>10. Object Complete</td>
 <td>S/4 → OpenText</td>
-<td>MULESOFT</td>
 <td>OpenText</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1775,9 +1757,7 @@ flowchart LR
 <td>3B2 Post goods issue interface for Outbound delivery to SAP</td>
 <td>10. Object Complete</td>
 <td>S/4 → OpenText</td>
-<td>MULESOFT</td>
 <td>OpenText</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1786,9 +1766,7 @@ flowchart LR
 <td>3B13 interface for pick/pack updates for outbound delivery to SAP</td>
 <td>10. Object Complete</td>
 <td>S/4 → OpenText</td>
-<td>MULESOFT</td>
 <td>OpenText</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1797,9 +1775,7 @@ flowchart LR
 <td>3B14R Cancellation Request from S/4 to 3PL</td>
 <td>10. Object Complete</td>
 <td>S/4 → 3PL</td>
-<td>MULESOFT</td>
 <td>Logistics Customers Service Request; OpenText; Customer Master Database</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1808,9 +1784,7 @@ flowchart LR
 <td>3B12 Request to 3PL on FO creation</td>
 <td>10. Object Complete</td>
 <td>3PL → S/4</td>
-<td>MULESOFT</td>
 <td>OpenText</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1819,9 +1793,7 @@ flowchart LR
 <td>3B14C Cancellation Confirmation from 3PL to S/4</td>
 <td>10. Object Complete</td>
 <td>3PL → S/4</td>
-<td>MULESOFT</td>
 <td>OpenText</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1830,8 +1802,6 @@ flowchart LR
 <td>Consolidated Export Commercial Invoice – Finished Goods (IP)</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1840,8 +1810,6 @@ flowchart LR
 <td>Form</td>
 <td>Consolidated Packing list for Chengdu</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -1852,8 +1820,6 @@ flowchart LR
 <td>EIAJ form to be generated for OEM customers (Japan)</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1863,8 +1829,6 @@ flowchart LR
 <td>Generate Consolidated Export Commercial Invoice - Finished Goods (IF and IP)</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1874,8 +1838,6 @@ flowchart LR
 <td>Shipper Letter of instruction (Localization requirement for US)</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1885,8 +1847,6 @@ flowchart LR
 <td>Bailment CI and End-Customer CI for IF/IP</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1896,8 +1856,6 @@ flowchart LR
 <td>Generate Export CI for IF/IP</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1907,8 +1865,6 @@ flowchart LR
 <td>Generate Itemised Packing Lists</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1918,8 +1874,6 @@ flowchart LR
 <td>Generate Packing Lists for Finished Goods - IP and IF</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1928,8 +1882,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Copy Control Routine for Customer Master Special Instructions</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1940,8 +1892,6 @@ flowchart LR
 <td>2DN - Trigger Auto packing in 2nd DN of 2DN X-Dock Model</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1950,8 +1900,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>2DN - S4 – Error Handling program in 2DN X-Dock Model</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -1962,8 +1910,6 @@ flowchart LR
 <td>2DN - Enhancement to capture required fields of 1st Delivery in 2DN X-Dock Model</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1972,8 +1918,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>2DN - Post 3PL 3B2 or manual Goods Issue from CW or IW - Wrapper Program to c&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1984,8 +1928,6 @@ flowchart LR
 <td>Pre-alert summary report for the EMEA customer</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1994,8 +1936,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Pre alert notification to Customer</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2006,8 +1946,6 @@ flowchart LR
 <td>Custom transaction to trigger CUSDEC</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -2016,8 +1954,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Upload program to update pick/pack information in sap in case of 3B13 PIP fai&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2028,8 +1964,6 @@ flowchart LR
 <td>Enhancement to Update Custom Table form Master data and Manage SOP Data Commu&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2038,8 +1972,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Creation of Proforma Invoice ZF8 from Freight Order and Save ITN Number in De&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2050,8 +1982,6 @@ flowchart LR
 <td>Develop Fiori app to View/Edit/Add SOP data(CMDB).</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -2061,9 +1991,7 @@ flowchart LR
 <td>Development of LCSR tool in Fiori</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
 <td>Logistics Customers Service Request</td>
-<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -2071,8 +1999,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>1. Custom fields in Delivery to store Number of Pallets &amp; IPLA indicator fiel&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2083,8 +2009,6 @@ flowchart LR
 <td>Custom logic to fetch the details from different source and save in the custo&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2093,8 +2017,6 @@ flowchart LR
 <td>Enhancement</td>
 <td>Incoterm Location 1 ID field update for Outbound delivery</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -2106,8 +2028,6 @@ flowchart LR
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2117,8 +2037,6 @@ flowchart LR
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 </tbody>
@@ -2129,10 +2047,9 @@ flowchart LR
 <table>
 <thead>
 <tr>
-<th>RICEFW Object ID</th>
+<th>RICEFW ID</th>
 <th>Description</th>
 <th>Boundary Application</th>
-<th>IAPM ID</th>
 <th>Source → Target</th>
 </tr>
 </thead>
@@ -2141,91 +2058,78 @@ flowchart LR
 <td>LOGI1067</td>
 <td>2DN - S4 – Interface from S/4 to MPL for packing list.</td>
 <td>Mark Pack Label Suite (IP)</td>
-<td>57576.0</td>
 <td>S/4 → MPL</td>
 </tr>
 <tr>
 <td>LOGI1066</td>
 <td>2DN - Interface to capture Data for 1st Delivery in 2DN X-Dock Model</td>
 <td>OpenText</td>
-<td>12842.0</td>
 <td></td>
 </tr>
 <tr>
 <td>LOGI0875</td>
 <td>Interface from WOM to S4 HANA to fetch the list of Deliveries for a particula&hellip;</td>
 <td>SAP Commerce Cloud</td>
-<td>31717.0</td>
 <td>WOM → S/4</td>
 </tr>
 <tr>
 <td>LOGI0874</td>
 <td>Interface from WOM to S4 HANA to fetch the ASN information of delivery.</td>
 <td>SAP Commerce Cloud</td>
-<td>31717.0</td>
 <td>WOM → S/4</td>
 </tr>
 <tr>
 <td>LOGI0842_IP</td>
 <td>Interface from SAP S4 to DBaaS to Fetch Actual COF for FVR batch and COA for &hellip;</td>
 <td>Supply Chain Trade Re-engineering Data Container for Intel Products</td>
-<td>53470.0</td>
 <td>S/4 → DBaaS</td>
 </tr>
 <tr>
 <td>LOGI0800_IP</td>
 <td>Interface to send shipment information to custom broker</td>
 <td>OpenText</td>
-<td>12842.0</td>
 <td>S/4 → OpenText</td>
 </tr>
 <tr>
 <td>LOGI0612_IP</td>
 <td>Customer ASN interface from outbound delivery</td>
 <td>OpenText</td>
-<td>12842.0</td>
 <td>S/4 → OpenText</td>
 </tr>
 <tr>
 <td>LOGI0610</td>
 <td>3B2 Post goods issue interface for Outbound delivery to SAP</td>
 <td>OpenText</td>
-<td>12842.0</td>
 <td>S/4 → OpenText</td>
 </tr>
 <tr>
 <td>LOGI0609</td>
 <td>3B13 interface for pick/pack updates for outbound delivery to SAP</td>
 <td>OpenText</td>
-<td>12842.0</td>
 <td>S/4 → OpenText</td>
 </tr>
 <tr>
 <td>LOGI0607</td>
 <td>3B14R Cancellation Request from S/4 to 3PL</td>
 <td>Logistics Customers Service Request; OpenText; Customer Master Database</td>
-<td>9329; 12842; 7196</td>
 <td>S/4 → 3PL</td>
 </tr>
 <tr>
 <td>LOGI0418</td>
 <td>3B12 Request to 3PL on FO creation</td>
 <td>OpenText</td>
-<td>12842.0</td>
 <td>3PL → S/4</td>
 </tr>
 <tr>
 <td>LOGI0415</td>
 <td>3B14C Cancellation Confirmation from 3PL to S/4</td>
 <td>OpenText</td>
-<td>12842.0</td>
 <td>3PL → S/4</td>
 </tr>
 <tr>
 <td>LOGE0613</td>
 <td>Development of LCSR tool in Fiori</td>
 <td>Logistics Customers Service Request</td>
-<td></td>
 <td></td>
 </tr>
 </tbody>

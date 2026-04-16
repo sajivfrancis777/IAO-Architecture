@@ -12,11 +12,13 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 10mm 15mm; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
   p { orphans: 3; widows: 3; }
+  table { table-layout: fixed; word-wrap: break-word; font-size: 8pt; }
+  td, th { overflow: hidden; text-overflow: ellipsis; padding: 3px 4px; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -479,11 +481,11 @@ flowchart TD
 
 ### 5.5 RICEFW Inventory
 
-| Object ID | Type | Description | Status | Source → Target | Middleware | Boundary App | Interface Approach | Complexity |
-|-----------|------|-------------|--------|----------------|-----------|-------------|-------------------|-----------|
-| FPRE0764_IP | Enhancement | Import Headcount details by cost center and update in S4 for HR benefits spen... | 10. Object Complete |  | NA |  |  | 03.Medium |
-| FPRE0764_IF | Enhancement | Import Headcount details by cost center and update in S4 for HR benefits spen... | 10. Object Complete |  | NA |  |  | 04.Low |
-| FPRE0574_IP | Enhancement | Margin analysis Dimensions creation | 10. Object Complete |  | NA |  |  | 04.Low |
+| Object ID | Type | Description | Status | Source → Target | Boundary App | Complexity |
+|-----------|------|-------------|--------|----------------|-------------|----------|
+| FPRE0764_IP | Enhancement | Import Headcount details by cost center and update in S4 for HR benefits spen... | 10. Object Complete |  |  | 03.Medium |
+| FPRE0764_IF | Enhancement | Import Headcount details by cost center and update in S4 for HR benefits spen... | 10. Object Complete |  |  | 04.Low |
+| FPRE0574_IP | Enhancement | Margin analysis Dimensions creation | 10. Object Complete |  |  | 04.Low |
 
 **Summary**: 3 Enhancements
 
@@ -497,6 +499,7 @@ flowchart TD
 ### 5.6 Integration Patterns
 
 *Integration patterns will be populated when tower architects provide validated middleware and protocol details via the extended flow template.*
+
 
 
 

@@ -12,11 +12,13 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 10mm 15mm; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
   p { orphans: 3; widows: 3; }
+  table { table-layout: fixed; word-wrap: break-word; font-size: 8pt; }
+  td, th { overflow: hidden; text-overflow: ellipsis; padding: 3px 4px; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -201,13 +203,13 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 
 Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
-| Object ID | Type | Description | Status | Source | Target | Complexity |
-|-----------|------|-------------|--------|--------|--------|-----------|
-| LOGR1176_IF | Report | ISM - International Traffic Report | 10. Object Complete |  |  | 03.Medium |
-| LOGR0833_IF | Report | Email Notification for deletion of Shipping Memos | 10. Object Complete |  |  | 04.Low |
-| LOGC0972_IF | Conversion | Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi... | 10. Object Complete |  |  | 02.High |
-| LOGC0946_IF | Conversion | Open Inventory Conversion for IP and IF (as applicable) , ECC to S4 | 10. Object Complete |  |  | 02.High |
-| FTSC1550 | Conversion | Inventory Conversion | 02. FS Unplanned |  |  | 03.Medium |
+| Object ID | Type | Description | Status | Source → Target | Complexity |
+|-----------|------|-------------|--------|----------------|----------|
+| LOGR1176_IF | Report | ISM - International Traffic Report | 10. Object Complete |  | 03.Medium |
+| LOGR0833_IF | Report | Email Notification for deletion of Shipping Memos | 10. Object Complete |  | 04.Low |
+| LOGC0972_IF | Conversion | Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi... | 10. Object Complete |  | 02.High |
+| LOGC0946_IF | Conversion | Open Inventory Conversion for IP and IF (as applicable) , ECC to S4 | 10. Object Complete |  | 02.High |
+| FTSC1550 | Conversion | Inventory Conversion | 02. FS Unplanned |  | 03.Medium |
 
 ### 4.5 Data Governance & Quality
 
@@ -237,62 +239,62 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 ### 5.5 RICEFW Inventory
 
-| Object ID | Type | Description | Status | Source → Target | Middleware | Boundary App | Interface Approach | Complexity |
-|-----------|------|-------------|--------|----------------|-----------|-------------|-------------------|-----------|
-| LOGW1078_IF | Workflow | ISM Workflows - Capital/AMT | 10. Object Complete |  | NA |  |  | 03.Medium |
-| LOGW1077_IF | Workflow | ISM Workflows - EIMS/Lab | 10. Object Complete |  | NA |  |  | 03.Medium |
-| LOGW1076_IF | Workflow | ISM Workflows - Non-inventory | 10. Object Complete |  | NA |  |  | 03.Medium |
-| LOGR1176_IF | Report | ISM - International Traffic Report | 10. Object Complete |  | NA |  |  | 03.Medium |
-| LOGR0833_IF | Report | Email Notification for deletion of Shipping Memos | 10. Object Complete |  | NA |  |  | 04.Low |
-| LOGI1718 | Interface | To align on batch attributes for straddle in S4 | 10. Object Complete |  | NA | NA |  | 03.Medium |
-| LOGI1677 | Interface | Send 4C1 Inventory Reconciliation Snapshot to IP | 10. Object Complete |  | SFT | NA |  | 03.Medium |
-| LOGI1676 | Interface | Send 4C1 Inventory movement Stock type change and cycle count to IP | 10. Object Complete |  | SFT | NA |  | 03.Medium |
-| LOGI1555 | Interface | Straddle Plant to be automatically complete the Goods Receipt and write of th... | 10. Object Complete |  | MuleSoft | NA |  | 03.Medium |
-| LOGI1091 | Interface | STO based Outbound Delivery Notification Confirmation for Delivery Note Deletion | 10. Object Complete | S/4 → OpenText | MULESOFT | OpenText |  | 03.Medium |
-| LOGI1081_IF | Interface | Interface + Enhancement - Reprinting of Carrier Label | 10. Object Complete | S/4 → Redwood | APIGEE | Redwood |  | 04.Low |
-| LOGI1079_IF | Interface | Interface from S4 ISM to Service Now | 10. Object Complete | S/4 ISM → Service Now | NA | ServiceNow Cloud |  | 04.Low |
-| LOGI1074_IF | Interface | Send data via API to retrieve the tracking ID - interface + Enhancement | 10. Object Complete | S/4 → Redwood | APIGEE | Redwood |  | 04.Low |
-| LOGI1062 | Interface | STO based outbound delivery notification request for delivery note cancellation | 10. Object Complete | OpenText → S/4 | MULESOFT | OpenText |  | 03.Medium |
-| LOGI1053 | Interface | STO based Outbound Delivery Notification from 3PL to S/4 for confirming Pick/... | 10. Object Complete | OpenText → S/4 | MULESOFT | OpenText |  | 03.Medium |
-| LOGI1043 | Interface | Inventory Movement from 3PL to S/4 - 4C1 Cycle Count | 10. Object Complete | OpenText → S/4 | MULESOFT | OpenText |  | 03.Medium |
-| LOGI1041 | Interface | STO based Outbound Delivery PGI confirmation from 3PL to S/4 - 3B2 | 10. Object Complete | OpenText → S/4 | MULESOFT | OpenText |  | 03.Medium |
-| LOGI1040 | Interface | STO based Outbound Delivery PGI confirmation for returns from S/4 to 3PL - 3B2 | 10. Object Complete | S/4 → OpenText | MULESOFT | OpenText |  | 03.Medium |
-| LOGI1038 | Interface | STO based Outbound Delivery Notification from S/4 to 3PL - 3B12 | 10. Object Complete | S/4 → OpenText | MULESOFT | OpenText |  | 03.Medium |
-| LOGI1037 | Interface | Inventory Movement from S/4 to 3PL – 4C1 (Outbound) | 10. Object Complete | S/4 → OpenText | MULESOFT | OpenText |  | 03.Medium |
-| LOGI0836_IF | Interface | Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements) | 10. Object Complete | S/4 → NDA | NA | LAWMAS Agiloft Contract Lifecycle Management |  | 04.Low |
-| LOGI0237_IF | Interface | Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 | 10. Object Complete | 3PL → S/4 | MULESOFT | OpenText |  | 03.Medium |
-| LOGF1525 | Form | Consolidated Commercial Invoice for WIP | 10. Object Complete |  | NA |  |  | 04.Low |
-| LOGF1524 | Form | Commercial Invoice for WIP | 10. Object Complete |  | NA |  |  | 04.Low |
-| LOGF1523 | Form | Packing list for WIP | 10. Object Complete |  | NA |  |  | 04.Low |
-| LOGF1100_IF | Form | Printing of Standard Shipping Label | 10. Object Complete |  | NA |  |  | 03.Medium |
-| LOGF0359_IF | Form | ISM - Generate Commercial Invoice - IF/IP | 10. Object Complete | NA → NA | NA |  |  | 03.Medium |
-| LOGF0358_IF | Form | ISM - Generate Traveler Document - IF/IP | 10. Object Complete | NA → NA | NA |  |  | 03.Medium |
-| LOGF0352_IF | Form | ISM - IPLA | 10. Object Complete | NA → NA | NA |  |  | 03.Medium |
-| LOGF0351_IF | Form | ISM - Custom China Special label | 10. Object Complete | NA → NA | NA |  |  | 03.Medium |
-| LOGF0350_IF | Form | ISM - India GST DC | 10. Object Complete | NA → NA | NA |  |  | 03.Medium |
-| LOGE1690 | Enhancement | Custom Enhancement for Storage Location and Storage Type Restriction LOG IF a... | 10. Object Complete |  | NA |  |  | 03.Medium |
-| LOGE1572_IF | Enhancement | SAP GUI T-code to Move stock from Blocked to unblock Status | 10. Object Complete |  | NA |  |  | 03.Medium |
-| LOGE1569_IF | Enhancement | Enhancement to change billing status based on ship reason in ISM | 10. Object Complete |  | NA |  |  | 04.Low |
-| LOGE1554 | Enhancement | Straddle Plant to be automatically complete the Goods Receipt and write of th... | 10. Object Complete |  | NA |  |  | 03.Medium |
-| LOGE1453 | Enhancement | Trigger the request for cancellation 3B14R and cancel the demand on STO based... | 10. Object Complete |  | NA |  |  | 03.Medium |
-| LOGE1450 | Enhancement | Inbound idoc processing logic during 3B2 and 3B13 | 10. Object Complete |  | NA |  |  | 03.Medium |
-| LOGE1415 | Enhancement | Suppress Batch and serial number validation in MIGO/MB26 for movement type 261 | 10. Object Complete |  | NA |  |  | 03.Medium |
-| LOGE1414 | Enhancement | Creation of outbound Delivery for WIP inventory from STO | 10. Object Complete |  | NA |  |  | 03.Medium |
-| LOGE1177_IF | Enhancement | India GST E-invoicing | 10. Object Complete |  | NA |  |  | 04.Low |
-| LOGE1118_IF | Enhancement | ISM – MY Security Check Fiori app - IF | 10. Object Complete |  | NA |  |  | 03.Medium |
-| LOGE1117_IF | Enhancement | ISM – Employee acknowledgement - IF | 10. Object Complete |  | NA |  |  | 03.Medium |
-| LOGE1090_IF | Enhancement | PGI confirmation for non-inventory Intel freight shipments via email | 10. Object Complete |  | NA |  |  | 04.Low |
-| LOGE1080_IF | Enhancement | Email notifications to be triggered as part of ISM Workflows | 10. Object Complete |  | NA |  |  | 03.Medium |
-| LOGE1054 | Enhancement | Email/Text Trigger to Factory Technician and Post Goods Issue upon all WO con... | 10. Object Complete |  | NA |  |  | 02.High |
-| LOGE1052_IF | Enhancement | Custom fields required on delivery screen | 10. Object Complete |  | NA |  |  | 04.Low |
-| LOGE0935_IF | Enhancement | Fiori App - Shipping Memo | 09. FUT Overdue |  | NA |  |  | 02.High |
-| LOGE0835_IP | Enhancement | Interface to get the AMT (Asset Management Tool) data on the ISM | 10. Object Complete |  | NA | Asset Management Tool 2.0 |  | 03.Medium |
-| LOGE0239_IF | Enhancement | Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 - Table Creation | 10. Object Complete | NA → NA | NA | NA |  | 04.Low |
-| LOGE0190_IF | Enhancement | Delivery Split for STO in S/4 | 10. Object Complete | NA → NA | NA | NA |  | 04.Low |
-| LOGC0972_IF | Conversion | Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi... | 10. Object Complete |  | NA |  |  | 02.High |
-| LOGC0946_IF | Conversion | Open Inventory Conversion for IP and IF (as applicable) , ECC to S4 | 10. Object Complete |  | NA |  |  | 02.High |
-| FTSC1550 | Conversion | Inventory Conversion | 02. FS Unplanned |  | NA |  |  | 03.Medium |
-| LOGI1738 | Interface | Interface to send data to Factory Comm to activate the Mobile text receiving ... | 04. FS In Progress |  | NA | Factory Communications |  | 02.High |
+| Object ID | Type | Description | Status | Source → Target | Boundary App | Complexity |
+|-----------|------|-------------|--------|----------------|-------------|----------|
+| LOGW1078_IF | Workflow | ISM Workflows - Capital/AMT | 10. Object Complete |  |  | 03.Medium |
+| LOGW1077_IF | Workflow | ISM Workflows - EIMS/Lab | 10. Object Complete |  |  | 03.Medium |
+| LOGW1076_IF | Workflow | ISM Workflows - Non-inventory | 10. Object Complete |  |  | 03.Medium |
+| LOGR1176_IF | Report | ISM - International Traffic Report | 10. Object Complete |  |  | 03.Medium |
+| LOGR0833_IF | Report | Email Notification for deletion of Shipping Memos | 10. Object Complete |  |  | 04.Low |
+| LOGI1718 | Interface | To align on batch attributes for straddle in S4 | 10. Object Complete |  | NA | 03.Medium |
+| LOGI1677 | Interface | Send 4C1 Inventory Reconciliation Snapshot to IP | 10. Object Complete |  | NA | 03.Medium |
+| LOGI1676 | Interface | Send 4C1 Inventory movement Stock type change and cycle count to IP | 10. Object Complete |  | NA | 03.Medium |
+| LOGI1555 | Interface | Straddle Plant to be automatically complete the Goods Receipt and write of th... | 10. Object Complete |  | NA | 03.Medium |
+| LOGI1091 | Interface | STO based Outbound Delivery Notification Confirmation for Delivery Note Deletion | 10. Object Complete | S/4 → OpenText | OpenText | 03.Medium |
+| LOGI1081_IF | Interface | Interface + Enhancement - Reprinting of Carrier Label | 10. Object Complete | S/4 → Redwood | Redwood | 04.Low |
+| LOGI1079_IF | Interface | Interface from S4 ISM to Service Now | 10. Object Complete | S/4 ISM → Service Now | ServiceNow Cloud | 04.Low |
+| LOGI1074_IF | Interface | Send data via API to retrieve the tracking ID - interface + Enhancement | 10. Object Complete | S/4 → Redwood | Redwood | 04.Low |
+| LOGI1062 | Interface | STO based outbound delivery notification request for delivery note cancellation | 10. Object Complete | OpenText → S/4 | OpenText | 03.Medium |
+| LOGI1053 | Interface | STO based Outbound Delivery Notification from 3PL to S/4 for confirming Pick/... | 10. Object Complete | OpenText → S/4 | OpenText | 03.Medium |
+| LOGI1043 | Interface | Inventory Movement from 3PL to S/4 - 4C1 Cycle Count | 10. Object Complete | OpenText → S/4 | OpenText | 03.Medium |
+| LOGI1041 | Interface | STO based Outbound Delivery PGI confirmation from 3PL to S/4 - 3B2 | 10. Object Complete | OpenText → S/4 | OpenText | 03.Medium |
+| LOGI1040 | Interface | STO based Outbound Delivery PGI confirmation for returns from S/4 to 3PL - 3B2 | 10. Object Complete | S/4 → OpenText | OpenText | 03.Medium |
+| LOGI1038 | Interface | STO based Outbound Delivery Notification from S/4 to 3PL - 3B12 | 10. Object Complete | S/4 → OpenText | OpenText | 03.Medium |
+| LOGI1037 | Interface | Inventory Movement from S/4 to 3PL – 4C1 (Outbound) | 10. Object Complete | S/4 → OpenText | OpenText | 03.Medium |
+| LOGI0836_IF | Interface | Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements) | 10. Object Complete | S/4 → NDA | LAWMAS Agiloft Contract Lifecycle Management | 04.Low |
+| LOGI0237_IF | Interface | Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 | 10. Object Complete | 3PL → S/4 | OpenText | 03.Medium |
+| LOGF1525 | Form | Consolidated Commercial Invoice for WIP | 10. Object Complete |  |  | 04.Low |
+| LOGF1524 | Form | Commercial Invoice for WIP | 10. Object Complete |  |  | 04.Low |
+| LOGF1523 | Form | Packing list for WIP | 10. Object Complete |  |  | 04.Low |
+| LOGF1100_IF | Form | Printing of Standard Shipping Label | 10. Object Complete |  |  | 03.Medium |
+| LOGF0359_IF | Form | ISM - Generate Commercial Invoice - IF/IP | 10. Object Complete | NA → NA |  | 03.Medium |
+| LOGF0358_IF | Form | ISM - Generate Traveler Document - IF/IP | 10. Object Complete | NA → NA |  | 03.Medium |
+| LOGF0352_IF | Form | ISM - IPLA | 10. Object Complete | NA → NA |  | 03.Medium |
+| LOGF0351_IF | Form | ISM - Custom China Special label | 10. Object Complete | NA → NA |  | 03.Medium |
+| LOGF0350_IF | Form | ISM - India GST DC | 10. Object Complete | NA → NA |  | 03.Medium |
+| LOGE1690 | Enhancement | Custom Enhancement for Storage Location and Storage Type Restriction LOG IF a... | 10. Object Complete |  |  | 03.Medium |
+| LOGE1572_IF | Enhancement | SAP GUI T-code to Move stock from Blocked to unblock Status | 10. Object Complete |  |  | 03.Medium |
+| LOGE1569_IF | Enhancement | Enhancement to change billing status based on ship reason in ISM | 10. Object Complete |  |  | 04.Low |
+| LOGE1554 | Enhancement | Straddle Plant to be automatically complete the Goods Receipt and write of th... | 10. Object Complete |  |  | 03.Medium |
+| LOGE1453 | Enhancement | Trigger the request for cancellation 3B14R and cancel the demand on STO based... | 10. Object Complete |  |  | 03.Medium |
+| LOGE1450 | Enhancement | Inbound idoc processing logic during 3B2 and 3B13 | 10. Object Complete |  |  | 03.Medium |
+| LOGE1415 | Enhancement | Suppress Batch and serial number validation in MIGO/MB26 for movement type 261 | 10. Object Complete |  |  | 03.Medium |
+| LOGE1414 | Enhancement | Creation of outbound Delivery for WIP inventory from STO | 10. Object Complete |  |  | 03.Medium |
+| LOGE1177_IF | Enhancement | India GST E-invoicing | 10. Object Complete |  |  | 04.Low |
+| LOGE1118_IF | Enhancement | ISM – MY Security Check Fiori app - IF | 10. Object Complete |  |  | 03.Medium |
+| LOGE1117_IF | Enhancement | ISM – Employee acknowledgement - IF | 10. Object Complete |  |  | 03.Medium |
+| LOGE1090_IF | Enhancement | PGI confirmation for non-inventory Intel freight shipments via email | 10. Object Complete |  |  | 04.Low |
+| LOGE1080_IF | Enhancement | Email notifications to be triggered as part of ISM Workflows | 10. Object Complete |  |  | 03.Medium |
+| LOGE1054 | Enhancement | Email/Text Trigger to Factory Technician and Post Goods Issue upon all WO con... | 10. Object Complete |  |  | 02.High |
+| LOGE1052_IF | Enhancement | Custom fields required on delivery screen | 10. Object Complete |  |  | 04.Low |
+| LOGE0935_IF | Enhancement | Fiori App - Shipping Memo | 09. FUT Overdue |  |  | 02.High |
+| LOGE0835_IP | Enhancement | Interface to get the AMT (Asset Management Tool) data on the ISM | 10. Object Complete |  | Asset Management Tool 2.0 | 03.Medium |
+| LOGE0239_IF | Enhancement | Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 - Table Creation | 10. Object Complete | NA → NA | NA | 04.Low |
+| LOGE0190_IF | Enhancement | Delivery Split for STO in S/4 | 10. Object Complete | NA → NA | NA | 04.Low |
+| LOGC0972_IF | Conversion | Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi... | 10. Object Complete |  |  | 02.High |
+| LOGC0946_IF | Conversion | Open Inventory Conversion for IP and IF (as applicable) , ECC to S4 | 10. Object Complete |  |  | 02.High |
+| FTSC1550 | Conversion | Inventory Conversion | 02. FS Unplanned |  |  | 03.Medium |
+| LOGI1738 | Interface | Interface to send data to Factory Comm to activate the Mobile text receiving ... | 04. FS In Progress |  | Factory Communications | 02.High |
 
 **Summary**: 2 Reports, 18 Interfaces, 3 Conversions, 19 Enhancements, 9 Forms, 3 Workflows
 
@@ -301,23 +303,23 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 The following RICEFW objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
 
-| RICEFW Object ID | Description | Boundary Application | IAPM ID | Source → Target |
-|-------------------|------------|---------------------|---------|----------------|
-| LOGI1091 | STO based Outbound Delivery Notification Confirmation for Delivery Note Deletion | OpenText | 12842.0 | S/4 → OpenText |
-| LOGI1081_IF | Interface + Enhancement - Reprinting of Carrier Label | Redwood | 56974.0 | S/4 → Redwood |
-| LOGI1079_IF | Interface from S4 ISM to Service Now | ServiceNow Cloud | 23476.0 | S/4 ISM → Service Now |
-| LOGI1074_IF | Send data via API to retrieve the tracking ID - interface + Enhancement | Redwood | 56974.0 | S/4 → Redwood |
-| LOGI1062 | STO based outbound delivery notification request for delivery note cancellation | OpenText | 12842.0 | OpenText → S/4 |
-| LOGI1053 | STO based Outbound Delivery Notification from 3PL to S/4 for confirming Pick/... | OpenText | 12842.0 | OpenText → S/4 |
-| LOGI1043 | Inventory Movement from 3PL to S/4 - 4C1 Cycle Count | OpenText | 12842.0 | OpenText → S/4 |
-| LOGI1041 | STO based Outbound Delivery PGI confirmation from 3PL to S/4 - 3B2 | OpenText | 12842.0 | OpenText → S/4 |
-| LOGI1040 | STO based Outbound Delivery PGI confirmation for returns from S/4 to 3PL - 3B2 | OpenText | 12842.0 | S/4 → OpenText |
-| LOGI1038 | STO based Outbound Delivery Notification from S/4 to 3PL - 3B12 | OpenText | 12842.0 | S/4 → OpenText |
-| LOGI1037 | Inventory Movement from S/4 to 3PL – 4C1 (Outbound) | OpenText | 12842.0 | S/4 → OpenText |
-| LOGI0836_IF | Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements) | LAWMAS Agiloft Contract Lifecycle Management | 35641.0 | S/4 → NDA |
-| LOGI0237_IF | Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 | OpenText | 12842.0 | 3PL → S/4 |
-| LOGE0835_IP | Interface to get the AMT (Asset Management Tool) data on the ISM | Asset Management Tool 2.0 | 14310.0 |  |
-| LOGI1738 | Interface to send data to Factory Comm to activate the Mobile text receiving ... | Factory Communications | 11807.0 |  |
+| RICEFW ID | Description | Boundary Application | Source → Target |
+|-----------|------------|---------------------|----------------|
+| LOGI1091 | STO based Outbound Delivery Notification Confirmation for Delivery Note Deletion | OpenText | S/4 → OpenText |
+| LOGI1081_IF | Interface + Enhancement - Reprinting of Carrier Label | Redwood | S/4 → Redwood |
+| LOGI1079_IF | Interface from S4 ISM to Service Now | ServiceNow Cloud | S/4 ISM → Service Now |
+| LOGI1074_IF | Send data via API to retrieve the tracking ID - interface + Enhancement | Redwood | S/4 → Redwood |
+| LOGI1062 | STO based outbound delivery notification request for delivery note cancellation | OpenText | OpenText → S/4 |
+| LOGI1053 | STO based Outbound Delivery Notification from 3PL to S/4 for confirming Pick/... | OpenText | OpenText → S/4 |
+| LOGI1043 | Inventory Movement from 3PL to S/4 - 4C1 Cycle Count | OpenText | OpenText → S/4 |
+| LOGI1041 | STO based Outbound Delivery PGI confirmation from 3PL to S/4 - 3B2 | OpenText | OpenText → S/4 |
+| LOGI1040 | STO based Outbound Delivery PGI confirmation for returns from S/4 to 3PL - 3B2 | OpenText | S/4 → OpenText |
+| LOGI1038 | STO based Outbound Delivery Notification from S/4 to 3PL - 3B12 | OpenText | S/4 → OpenText |
+| LOGI1037 | Inventory Movement from S/4 to 3PL – 4C1 (Outbound) | OpenText | S/4 → OpenText |
+| LOGI0836_IF | Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements) | LAWMAS Agiloft Contract Lifecycle Management | S/4 → NDA |
+| LOGI0237_IF | Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 | OpenText | 3PL → S/4 |
+| LOGE0835_IP | Interface to get the AMT (Asset Management Tool) data on the ISM | Asset Management Tool 2.0 |  |
+| LOGI1738 | Interface to send data to Factory Comm to activate the Mobile text receiving ... | Factory Communications |  |
 
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - FTS (IF)</span></div>
@@ -327,6 +329,7 @@ The following RICEFW objects integrate with **boundary applications** (external 
 ### 5.6 Integration Patterns
 
 *Integration patterns will be populated when tower architects provide validated middleware and protocol details via the extended flow template.*
+
 
 
 

@@ -12,11 +12,13 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 10mm 15mm; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
   p { orphans: 3; widows: 3; }
+  table { table-layout: fixed; word-wrap: break-word; font-size: 8pt; }
+  td, th { overflow: hidden; text-overflow: ellipsis; padding: 3px 4px; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -251,10 +253,10 @@ This capability includes **{{ bpmn_processes|length }} business process(es)** mo
 ### 4.1 Data Flows — Source to Target
 
 {% if data_flows %}
-| # | Flow Chain | Hop | Source App | Source DB | Target App | Target DB | Data Description | Frequency | Classification |
-|---|-----------|-----|-----------|----------|-----------|----------|-----------------|-----------|---------------|
+| # | Flow Chain | Hop | Source App | Target App | Data Description | Frequency |
+|---|-----------|-----|-----------|-----------|-----------------|----------|
 {% for df in data_flows -%}
-| {{ loop.index }} | {{ df.flow_chain }} | {{ df.hop }} | {{ df.source_app }} | {{ df.source_db }} | {{ df.target_app }} | {{ df.target_db }} | {{ df.data_desc }} | {{ df.frequency }} | {{ df.classification }} |
+| {{ loop.index }} | {{ df.flow_chain }} | {{ df.hop }} | {{ df.source_app }} | {{ df.target_app }} | {{ df.data_desc }} | {{ df.frequency }} |
 {% endfor %}
 {% else %}
 *Data flows with DB platform details will be populated when tower architects complete the extended flow template columns (42-47) via the Input Portal.*
@@ -320,10 +322,10 @@ This capability includes **{{ bpmn_processes|length }} business process(es)** mo
 {% if ricefw and (ricefw.ricefw_by_type("R") or ricefw.ricefw_by_type("C")) %}
 Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
-| Object ID | Type | Description | Status | Source | Target | Complexity |
-|-----------|------|-------------|--------|--------|--------|-----------|
+| Object ID | Type | Description | Status | Source → Target | Complexity |
+|-----------|------|-------------|--------|----------------|----------|
 {% for obj in ricefw.ricefw_by_type("R") + ricefw.ricefw_by_type("C") -%}
-| {{ obj.object_id }} | {{ obj.type_label }} | {{ obj.description|tc }} | {{ obj.status|tc }} | {{ obj.source_system|tc }} | {{ obj.target_system|tc }} | {{ obj.technical_complexity|tc }} |
+| {{ obj.object_id }} | {{ obj.type_label }} | {{ obj.description|tc }} | {{ obj.status|tc }} | {{ obj.source_system|tc }}{% if obj.target_system %} → {{ obj.target_system|tc }}{% endif %} | {{ obj.technical_complexity|tc }} |
 {% endfor %}
 {% else %}
 *RICEFW data objects (Reports and Conversions) will be auto-populated from the Smartsheet Object Tracker when matched to this capability.*
@@ -469,10 +471,10 @@ This view is generated from `{{ future_csv_name }}` ({{ future_flows.total_hops 
 ### 5.5 RICEFW Inventory
 
 {% if ricefw and ricefw.ricefw %}
-| Object ID | Type | Description | Status | Source → Target | Middleware | Boundary App | Interface Approach | Complexity |
-|-----------|------|-------------|--------|----------------|-----------|-------------|-------------------|-----------|
+| Object ID | Type | Description | Status | Source → Target | Boundary App | Complexity |
+|-----------|------|-------------|--------|----------------|-------------|----------|
 {% for obj in ricefw.ricefw -%}
-| {{ obj.object_id }} | {{ obj.type_label }} | {{ obj.description|tc }} | {{ obj.status|tc }} | {{ obj.source_system|tc }}{% if obj.target_system %} → {{ obj.target_system|tc }}{% endif %} | {{ obj.middleware|tc }} | {{ obj.boundary_app|tc }} | {{ obj.interface_approach|tc }} | {{ obj.technical_complexity|tc }} |
+| {{ obj.object_id }} | {{ obj.type_label }} | {{ obj.description|tc }} | {{ obj.status|tc }} | {{ obj.source_system|tc }}{% if obj.target_system %} → {{ obj.target_system|tc }}{% endif %} | {{ obj.boundary_app|tc }} | {{ obj.technical_complexity|tc }} |
 {% endfor %}
 
 **Summary**: {{ ricefw.ricefw_summary }}
@@ -486,10 +488,10 @@ This view is generated from `{{ future_csv_name }}` ({{ future_flows.total_hops 
 
 The following RICEFW objects have dependencies on **Enterprise Cloud Analytics (ECA)** platform objects (Databricks/Snowflake):
 
-| RICEFW Object ID | Description | ECA Object ID | ECA Description | Source → Target |
-|-------------------|------------|---------------|----------------|----------------|
+| RICEFW ID | Description | ECA Object ID | ECA Description |
+|-----------|------------|---------------|----------------|
 {% for obj in eca_objects -%}
-| {{ obj.object_id }} | {{ obj.description|tc }} | {{ obj.eca_object_id }} | {{ obj.eca_description|tc }} | {{ obj.source_system|tc }}{% if obj.target_system %} → {{ obj.target_system|tc }}{% endif %} |
+| {{ obj.object_id }} | {{ obj.description|tc }} | {{ obj.eca_object_id }} | {{ obj.eca_description|tc }} |
 {% endfor %}
 {% endif %}
 
@@ -502,10 +504,10 @@ The following RICEFW objects have dependencies on **Enterprise Cloud Analytics (
 
 The following RICEFW objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
 
-| RICEFW Object ID | Description | Boundary Application | IAPM ID | Source → Target |
-|-------------------|------------|---------------------|---------|----------------|
+| RICEFW ID | Description | Boundary Application | Source → Target |
+|-----------|------------|---------------------|----------------|
 {% for obj in ba_objects -%}
-| {{ obj.object_id }} | {{ obj.description|tc }} | {{ obj.boundary_app|tc }} | {{ obj.boundary_app_iapm_id }} | {{ obj.source_system|tc }}{% if obj.target_system %} → {{ obj.target_system|tc }}{% endif %} |
+| {{ obj.object_id }} | {{ obj.description|tc }} | {{ obj.boundary_app|tc }} | {{ obj.source_system|tc }}{% if obj.target_system %} → {{ obj.target_system|tc }}{% endif %} |
 {% endfor %}
 {% endif %}
 {% else %}
@@ -602,7 +604,9 @@ This section presents the **{{ release_id }}-scoped** current and future state f
 **{{ release_id }} Totals**: {{ rel_diff.summary_str }}
 {% endif %}
 {% endif %}
+{% endif %}{# end if has_release_flows #}
 
+{% if has_release_flows %}
 <div style="page-break-before: always;"></div>
 {% endif %}
 
@@ -721,10 +725,10 @@ This section presents the **{{ release_id }}-scoped** current and future state f
 ### 7.2 RAID Log
 
 {% if ricefw and ricefw.raid %}
-| # | Object ID | Category | RAID Description | Status | Assigned To | Created |
-|---|-----------|----------|-----------------|--------|-------------|---------|
+| # | Object ID | Category | RAID Description | Status | Assigned To |
+|---|-----------|----------|-----------------|--------|-------------|
 {% for r in ricefw.raid -%}
-| {{ loop.index }} | {{ r.object_id }} | {{ r.category|tc }} | {{ r.raid_text|tc(60) }} | {{ r.status|tc }} | {{ r.assigned_to|tc }} | {{ r.created_date }} |
+| {{ loop.index }} | {{ r.object_id }} | {{ r.category|tc }} | {{ r.raid_text|tc(50) }} | {{ r.status|tc }} | {{ r.assigned_to|tc }} |
 {% endfor %}
 {% else %}
 *RAID items will be auto-populated from the Smartsheet RAID log when matched to this capability.*

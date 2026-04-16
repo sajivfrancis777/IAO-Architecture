@@ -59,22 +59,29 @@ p {
 table {
     border-collapse: collapse;
     width: 100%;
+    table-layout: fixed;
     margin: 12px 0;
     font-size: 9.5pt;
     page-break-inside: avoid;
     break-inside: avoid;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 th {
     background: #00285a;
     color: #fff;
     font-weight: 600;
     text-align: left;
-    padding: 6px 8px;
+    padding: 4px 6px;
     border: 1px solid #00285a;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 td {
-    padding: 5px 8px;
+    padding: 4px 6px;
     border: 1px solid #ddd;
+    overflow: hidden;
+    text-overflow: ellipsis;
     vertical-align: top;
 }
 tr:nth-child(even) td { background: #f5f8fc; }
@@ -281,7 +288,9 @@ strong { color: #00285a; }
     h2 { margin-top: 14px; margin-bottom: 6px; font-size: 16pt; }
     h3 { margin-top: 10px; margin-bottom: 4px; font-size: 13pt; }
     h4 { margin-top: 8px; margin-bottom: 3px; font-size: 11pt; }
-    table { margin: 6px 0; font-size: 9pt; }
+    table { margin: 6px 0; font-size: 8pt; table-layout: fixed; word-wrap: break-word; }
+    th { padding: 3px 4px; }
+    td { padding: 3px 4px; }
     blockquote { margin: 6px 0; padding: 4px 12px; font-size: 9pt; }
     p { margin: 4px 0; }
     ul, ol { margin: 4px 0; }
@@ -410,11 +419,13 @@ strong { color: #00285a; }
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 10mm 15mm; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
   p { orphans: 3; widows: 3; }
+  table { table-layout: fixed; word-wrap: break-word; font-size: 8pt; }
+  td, th { overflow: visible; text-overflow: ellipsis; padding: 3px 4px; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -2053,8 +2064,7 @@ flowchart TD
 <th>Type</th>
 <th>Description</th>
 <th>Status</th>
-<th>Source</th>
-<th>Target</th>
+<th>Source → Target</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -2065,7 +2075,6 @@ flowchart TD
 <td>Conversion of WIP values as per Component structure in S/4 - IP</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2073,7 +2082,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Conversion of WIP values as per Component structure in S/4 - Back End IF</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -2141,9 +2149,7 @@ flowchart TD
 <th>Description</th>
 <th>Status</th>
 <th>Source → Target</th>
-<th>Middleware</th>
 <th>Boundary App</th>
-<th>Interface Approach</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -2154,9 +2160,7 @@ flowchart TD
 <td>Automated Tool MUP Excess Capacity calculation and associated PCOS/OCOS Split&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>BODS</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2165,9 +2169,7 @@ flowchart TD
 <td>Receive planned production quantities per production version from ECA to S/4 &hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>APIGEE</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2176,9 +2178,7 @@ flowchart TD
 <td>Activity Inbound interface from ECA to S4 IP</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>MuleSoft</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2187,9 +2187,7 @@ flowchart TD
 <td>Production quantity update in WAC custom table from ECA to S4 IF</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>MuleSoft</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2198,9 +2196,7 @@ flowchart TD
 <td>Activity Quantity Inbound interface from ECA to S4 IF</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>MuleSoft</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2209,9 +2205,7 @@ flowchart TD
 <td>IF-IP Integration Actual Cost - Inbound Interface</td>
 <td>10. Object Complete</td>
 <td>OpenText → S/4</td>
-<td>SFT</td>
 <td>NA</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2220,9 +2214,7 @@ flowchart TD
 <td>IF-IP Integration Actual Cost - Outbound Interface</td>
 <td>10. Object Complete</td>
 <td>S/4 → OpenText</td>
-<td>SFT</td>
 <td>NA</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2231,9 +2223,7 @@ flowchart TD
 <td>SKF Interface to get file from ECA and send to S4 via BODS - IF</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>MuleSoft</td>
 <td>Wafer Starts Per Week; ISA-VS2012 US (MAPPS); ISA-VS2008 Asia (ATMPS CR and D&hellip;</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2242,9 +2232,7 @@ flowchart TD
 <td>IF-IP Integration - Interface to send Cost Idoc from S4 If to S4 IP</td>
 <td>10. Object Complete</td>
 <td>S/4 → S/4</td>
-<td>SFT</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2253,9 +2241,7 @@ flowchart TD
 <td>IF-IP Integration - Interface to receive Cost Idoc from S4 If to S4 IP</td>
 <td>10. Object Complete</td>
 <td>S/4 → S/4</td>
-<td>SFT</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2263,8 +2249,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de&hellip;</td>
 <td>99. Rejected/Cancelled/On Hold</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2275,8 +2259,6 @@ flowchart TD
 <td>Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de&hellip;</td>
 <td>99. Rejected/Cancelled/On Hold</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -2285,8 +2267,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Update mixing ratio for Procurement alternative for Cross site transfer based&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2297,8 +2277,6 @@ flowchart TD
 <td>Update Procurement alternatives based on production version &amp; PIR for cross s&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2307,8 +2285,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Legal Valuation standard cost calculation enhancement</td>
 <td>99. Rejected/Cancelled/On Hold</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2319,8 +2295,6 @@ flowchart TD
 <td>Calculation of variance to be loaded for Group Actual Costing</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2329,8 +2303,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Mixed Costing ratio auto update</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2341,8 +2313,6 @@ flowchart TD
 <td>Mixed Costing ratio auto update</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -2351,8 +2321,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Representative material ID – Q2-Q8 Forecast</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2363,8 +2331,6 @@ flowchart TD
 <td>Representative material ID – Q2-Q8 Forecast</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -2373,8 +2339,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement for Excess Capacity – Fixed Spending Adjustment</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -2385,8 +2349,6 @@ flowchart TD
 <td>Legal Valuation standard cost calculation enhancement</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -2395,8 +2357,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>SKF Actual Driver volume update from actual activity confirmation Automation</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2407,8 +2367,6 @@ flowchart TD
 <td>Enhancement to update additive cost in IP based on Idoc of IF cost</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2418,9 +2376,7 @@ flowchart TD
 <td>Enhancement to a) update Cost and Production volume in custom table, b) calcu&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
 <td>BY-PDH</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2428,8 +2384,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Conversion of WIP values as per Component structure in S/4 - IP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -2439,8 +2393,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Conversion of WIP values as per Component structure in S/4 - Back End IF</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -2453,10 +2405,9 @@ flowchart TD
 <table>
 <thead>
 <tr>
-<th>RICEFW Object ID</th>
+<th>RICEFW ID</th>
 <th>Description</th>
 <th>Boundary Application</th>
-<th>IAPM ID</th>
 <th>Source → Target</th>
 </tr>
 </thead>
@@ -2465,14 +2416,12 @@ flowchart TD
 <td>FPRI0554</td>
 <td>SKF Interface to get file from ECA and send to S4 via BODS - IF</td>
 <td>Wafer Starts Per Week; ISA-VS2012 US (MAPPS); ISA-VS2008 Asia (ATMPS CR and D&hellip;</td>
-<td>4119; 15170; 13284; 9332; 31348; 35612; 32079; 41627; 25596; 38908; 36453; 15799</td>
 <td>ECA → S/4</td>
 </tr>
 <tr>
 <td>FPRE0549</td>
 <td>Enhancement to a) update Cost and Production volume in custom table, b) calcu&hellip;</td>
 <td>BY-PDH</td>
-<td></td>
 <td></td>
 </tr>
 </tbody>

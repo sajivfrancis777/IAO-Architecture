@@ -12,11 +12,13 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 10mm 15mm; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
   p { orphans: 3; widows: 3; }
+  table { table-layout: fixed; word-wrap: break-word; font-size: 8pt; }
+  td, th { overflow: hidden; text-overflow: ellipsis; padding: 3px 4px; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -844,9 +846,9 @@ flowchart LR
 
 ### 4.1 Data Flows — Source to Target
 
-| # | Flow Chain | Hop | Source App | Source DB | Target App | Target DB | Data Description | Frequency | Classification |
-|---|-----------|-----|-----------|----------|-----------|----------|-----------------|-----------|---------------|
-| 1 | e.g. MES Route to ICOST | 1 | e.g. MES 300 | e.g. SAP HANA | e.g. XEUS | e.g. Azure SQL | What data moves | e.g. Near Real-Time | e.g. Intel Confidential |
+| # | Flow Chain | Hop | Source App | Target App | Data Description | Frequency |
+|---|-----------|-----|-----------|-----------|-----------------|----------|
+| 1 | e.g. MES Route to ICOST | 1 | e.g. MES 300 | e.g. XEUS | What data moves | e.g. Near Real-Time |
 
 
 <div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
@@ -1150,6 +1152,7 @@ flowchart TB
 
 <div class="page-footer"><span>Page 21</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-57 — R3 Subcontracting with Planning integration- Foundry,OSAT,ODM</span></div>
 <div style="page-break-before: always;"></div>
+
 
 
 

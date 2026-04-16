@@ -12,11 +12,13 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 10mm 15mm; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
   p { orphans: 3; widows: 3; }
+  table { table-layout: fixed; word-wrap: break-word; font-size: 8pt; }
+  td, th { overflow: hidden; text-overflow: ellipsis; padding: 3px 4px; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -1406,10 +1408,10 @@ flowchart TD
 
 Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
-| Object ID | Type | Description | Status | Source | Target | Complexity |
-|-----------|------|-------------|--------|--------|--------|-----------|
-| FPRC1493 | Conversion | Conversion of WIP values as per Component structure in S/4 - IP | 10. Object Complete |  |  | 02.High |
-| FPRC1491 | Conversion | Conversion of WIP values as per Component structure in S/4 - Back End IF | 10. Object Complete |  |  | 02.High |
+| Object ID | Type | Description | Status | Source → Target | Complexity |
+|-----------|------|-------------|--------|----------------|----------|
+| FPRC1493 | Conversion | Conversion of WIP values as per Component structure in S/4 - IP | 10. Object Complete |  | 02.High |
+| FPRC1491 | Conversion | Conversion of WIP values as per Component structure in S/4 - Back End IF | 10. Object Complete |  | 02.High |
 
 ### 4.5 Data Governance & Quality
 
@@ -1439,35 +1441,35 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 ### 5.5 RICEFW Inventory
 
-| Object ID | Type | Description | Status | Source → Target | Middleware | Boundary App | Interface Approach | Complexity |
-|-----------|------|-------------|--------|----------------|-----------|-------------|-------------------|-----------|
-| FPRI1704 | Interface | Automated Tool MUP Excess Capacity calculation and associated PCOS/OCOS Split... | 10. Object Complete |  | BODS | NA |  | 03.Medium |
-| FPRI1439 | Interface | Receive planned production quantities per production version from ECA to S/4 ... | 10. Object Complete |  | APIGEE | NA |  | 03.Medium |
-| FPRI1288 | Interface | Activity Inbound interface from ECA to S4 IP | 10. Object Complete | ECA → S/4 | MuleSoft | NA |  | 03.Medium |
-| FPRI1287 | Interface | Production quantity update in WAC custom table from ECA to S4 IF | 10. Object Complete | ECA → S/4 | MuleSoft | NA |  | 03.Medium |
-| FPRI1273 | Interface | Activity Quantity Inbound interface from ECA to S4 IF | 10. Object Complete | ECA → S/4 | MuleSoft | NA |  | 03.Medium |
-| FPRI0704 | Interface | IF-IP Integration Actual Cost - Inbound Interface | 10. Object Complete | OpenText → S/4 | SFT | NA |  | 02.High |
-| FPRI0703 | Interface | IF-IP Integration Actual Cost - Outbound Interface | 10. Object Complete | S/4 → OpenText | SFT | NA |  | 02.High |
-| FPRI0554 | Interface | SKF Interface to get file from ECA and send to S4 via BODS - IF | 10. Object Complete | ECA → S/4 | MuleSoft | Wafer Starts Per Week; ISA-VS2012 US (MAPPS); ISA-VS2008 Asia (ATMPS CR and D... |  | 02.High |
-| FPRI0545 | Interface | IF-IP Integration - Interface to send Cost Idoc from S4 If to S4 IP | 10. Object Complete | S/4 → S/4 | SFT | NA |  | 03.Medium |
-| FPRI0544 | Interface | IF-IP Integration - Interface to receive Cost Idoc from S4 If to S4 IP | 10. Object Complete | S/4 → S/4 | SFT | NA |  | 03.Medium |
-| FPRE1620_IP | Enhancement | Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de... | 99. Rejected/Cancelled/On Hold |  | NA |  |  | 03.Medium |
-| FPRE1620_IF | Enhancement | Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de... | 99. Rejected/Cancelled/On Hold |  | NA |  |  | 04.Low |
-| FPRE1438 | Enhancement | Update mixing ratio for Procurement alternative for Cross site transfer based... | 10. Object Complete |  | NA |  |  | 03.Medium |
-| FPRE1419 | Enhancement | Update Procurement alternatives based on production version & PIR for cross s... | 10. Object Complete |  | NA |  |  | 03.Medium |
-| FPRE1328 | Enhancement | Legal Valuation standard cost calculation enhancement | 99. Rejected/Cancelled/On Hold |  | NA |  |  | 03.Medium |
-| FPRE0702 | Enhancement | Calculation of variance to be loaded for Group Actual Costing | 10. Object Complete |  | NA |  |  | 03.Medium |
-| FPRE0701_IP | Enhancement | Mixed Costing ratio auto update | 10. Object Complete |  | NA |  |  | 03.Medium |
-| FPRE0701_IF | Enhancement | Mixed Costing ratio auto update | 10. Object Complete |  | NA |  |  | 04.Low |
-| FPRE0700_IP | Enhancement | Representative material ID – Q2-Q8 Forecast | 10. Object Complete |  | NA |  |  | 03.Medium |
-| FPRE0700_IF | Enhancement | Representative material ID – Q2-Q8 Forecast | 10. Object Complete |  | NA |  |  | 04.Low |
-| FPRE0699 | Enhancement | Enhancement for Excess Capacity – Fixed Spending Adjustment | 10. Object Complete |  | NA |  |  | 02.High |
-| FPRE0698 | Enhancement | Legal Valuation standard cost calculation enhancement | 10. Object Complete |  | NA |  |  | 04.Low |
-| FPRE0551 | Enhancement | SKF Actual Driver volume update from actual activity confirmation Automation | 10. Object Complete |  | NA |  |  | 03.Medium |
-| FPRE0550 | Enhancement | Enhancement to update additive cost in IP based on Idoc of IF cost | 10. Object Complete |  | NA |  |  | 03.Medium |
-| FPRE0549 | Enhancement | Enhancement to a) update Cost and Production volume in custom table, b) calcu... | 10. Object Complete |  | NA | BY-PDH |  | 03.Medium |
-| FPRC1493 | Conversion | Conversion of WIP values as per Component structure in S/4 - IP | 10. Object Complete |  | NA |  |  | 02.High |
-| FPRC1491 | Conversion | Conversion of WIP values as per Component structure in S/4 - Back End IF | 10. Object Complete |  | NA |  |  | 02.High |
+| Object ID | Type | Description | Status | Source → Target | Boundary App | Complexity |
+|-----------|------|-------------|--------|----------------|-------------|----------|
+| FPRI1704 | Interface | Automated Tool MUP Excess Capacity calculation and associated PCOS/OCOS Split... | 10. Object Complete |  | NA | 03.Medium |
+| FPRI1439 | Interface | Receive planned production quantities per production version from ECA to S/4 ... | 10. Object Complete |  | NA | 03.Medium |
+| FPRI1288 | Interface | Activity Inbound interface from ECA to S4 IP | 10. Object Complete | ECA → S/4 | NA | 03.Medium |
+| FPRI1287 | Interface | Production quantity update in WAC custom table from ECA to S4 IF | 10. Object Complete | ECA → S/4 | NA | 03.Medium |
+| FPRI1273 | Interface | Activity Quantity Inbound interface from ECA to S4 IF | 10. Object Complete | ECA → S/4 | NA | 03.Medium |
+| FPRI0704 | Interface | IF-IP Integration Actual Cost - Inbound Interface | 10. Object Complete | OpenText → S/4 | NA | 02.High |
+| FPRI0703 | Interface | IF-IP Integration Actual Cost - Outbound Interface | 10. Object Complete | S/4 → OpenText | NA | 02.High |
+| FPRI0554 | Interface | SKF Interface to get file from ECA and send to S4 via BODS - IF | 10. Object Complete | ECA → S/4 | Wafer Starts Per Week; ISA-VS2012 US (MAPPS); ISA-VS2008 Asia (ATMPS CR and D... | 02.High |
+| FPRI0545 | Interface | IF-IP Integration - Interface to send Cost Idoc from S4 If to S4 IP | 10. Object Complete | S/4 → S/4 | NA | 03.Medium |
+| FPRI0544 | Interface | IF-IP Integration - Interface to receive Cost Idoc from S4 If to S4 IP | 10. Object Complete | S/4 → S/4 | NA | 03.Medium |
+| FPRE1620_IP | Enhancement | Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de... | 99. Rejected/Cancelled/On Hold |  |  | 03.Medium |
+| FPRE1620_IF | Enhancement | Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de... | 99. Rejected/Cancelled/On Hold |  |  | 04.Low |
+| FPRE1438 | Enhancement | Update mixing ratio for Procurement alternative for Cross site transfer based... | 10. Object Complete |  |  | 03.Medium |
+| FPRE1419 | Enhancement | Update Procurement alternatives based on production version & PIR for cross s... | 10. Object Complete |  |  | 03.Medium |
+| FPRE1328 | Enhancement | Legal Valuation standard cost calculation enhancement | 99. Rejected/Cancelled/On Hold |  |  | 03.Medium |
+| FPRE0702 | Enhancement | Calculation of variance to be loaded for Group Actual Costing | 10. Object Complete |  |  | 03.Medium |
+| FPRE0701_IP | Enhancement | Mixed Costing ratio auto update | 10. Object Complete |  |  | 03.Medium |
+| FPRE0701_IF | Enhancement | Mixed Costing ratio auto update | 10. Object Complete |  |  | 04.Low |
+| FPRE0700_IP | Enhancement | Representative material ID – Q2-Q8 Forecast | 10. Object Complete |  |  | 03.Medium |
+| FPRE0700_IF | Enhancement | Representative material ID – Q2-Q8 Forecast | 10. Object Complete |  |  | 04.Low |
+| FPRE0699 | Enhancement | Enhancement for Excess Capacity – Fixed Spending Adjustment | 10. Object Complete |  |  | 02.High |
+| FPRE0698 | Enhancement | Legal Valuation standard cost calculation enhancement | 10. Object Complete |  |  | 04.Low |
+| FPRE0551 | Enhancement | SKF Actual Driver volume update from actual activity confirmation Automation | 10. Object Complete |  |  | 03.Medium |
+| FPRE0550 | Enhancement | Enhancement to update additive cost in IP based on Idoc of IF cost | 10. Object Complete |  |  | 03.Medium |
+| FPRE0549 | Enhancement | Enhancement to a) update Cost and Production volume in custom table, b) calcu... | 10. Object Complete |  | BY-PDH | 03.Medium |
+| FPRC1493 | Conversion | Conversion of WIP values as per Component structure in S/4 - IP | 10. Object Complete |  |  | 02.High |
+| FPRC1491 | Conversion | Conversion of WIP values as per Component structure in S/4 - Back End IF | 10. Object Complete |  |  | 02.High |
 
 **Summary**: 10 Interfaces, 2 Conversions, 15 Enhancements
 
@@ -1476,10 +1478,10 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 The following RICEFW objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
 
-| RICEFW Object ID | Description | Boundary Application | IAPM ID | Source → Target |
-|-------------------|------------|---------------------|---------|----------------|
-| FPRI0554 | SKF Interface to get file from ECA and send to S4 via BODS - IF | Wafer Starts Per Week; ISA-VS2012 US (MAPPS); ISA-VS2008 Asia (ATMPS CR and D... | 4119; 15170; 13284; 9332; 31348; 35612; 32079; 41627; 25596; 38908; 36453; 15799 | ECA → S/4 |
-| FPRE0549 | Enhancement to a) update Cost and Production volume in custom table, b) calcu... | BY-PDH |  |  |
+| RICEFW ID | Description | Boundary Application | Source → Target |
+|-----------|------------|---------------------|----------------|
+| FPRI0554 | SKF Interface to get file from ECA and send to S4 via BODS - IF | Wafer Starts Per Week; ISA-VS2012 US (MAPPS); ISA-VS2008 Asia (ATMPS CR and D... | ECA → S/4 |
+| FPRE0549 | Enhancement to a) update Cost and Production volume in custom table, b) calcu... | BY-PDH |  |
 
 
 <div class="page-footer"><span>Page 22</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>
@@ -1489,6 +1491,7 @@ The following RICEFW objects integrate with **boundary applications** (external 
 ### 5.6 Integration Patterns
 
 *Integration patterns will be populated when tower architects provide validated middleware and protocol details via the extended flow template.*
+
 
 
 

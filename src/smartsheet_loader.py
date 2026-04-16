@@ -44,6 +44,7 @@ class RICEFWObject:
     eca_involved: str = ""
     eca_object_id: str = ""
     eca_description: str = ""
+    development_system: str = ""
 
     @property
     def type_code(self) -> str:
@@ -67,6 +68,34 @@ class RICEFWObject:
             "E": "Enhancement", "F": "Form", "W": "Workflow",
         }
         return labels.get(self.type_code, self.object_type)
+
+    @property
+    def platform_category(self) -> str:
+        """Classify this object into a platform category for dependency grouping.
+
+        Returns one of: SAP, ECA, Middleware, Scheduling, or the raw development_system.
+        """
+        ds = self.development_system.lower()
+        src = self.source_system.lower()
+        tgt = self.target_system.lower()
+
+        # ECA objects: Source or Target is ECA/PDH, or development system mentions ECA
+        if "eca" in src or "eca" in tgt or "pdh" in src or "pdh" in tgt or "eca" in ds:
+            return "ECA"
+
+        # Middleware objects: developed on MuleSoft
+        if "mulesoft" in ds:
+            return "Middleware"
+
+        # SAP objects: S4, MDG, S4 BOT
+        if ds.startswith("01.") or ds.startswith("02.") or ds.startswith("04.") or "s4" in ds or "mdg" in ds:
+            return "SAP"
+
+        # Default: SAP if development_system is blank (majority are SAP)
+        if not ds:
+            return "SAP"
+
+        return self.development_system.strip() or "SAP"
 
 
 @dataclass
@@ -141,6 +170,47 @@ class SmartsheetData:
             if n:
                 parts.append(f"{n} {label}")
         return ", ".join(parts) if parts else "No RICEFW objects"
+
+    def sap_dev_objects(self) -> list[RICEFWObject]:
+        """SAP development objects — R/E/C/F/W on S4/MDG/BOT (non-interface)."""
+        return [r for r in self.ricefw if r.platform_category == "SAP" and r.type_code != "I"]
+
+    def eca_dev_objects(self) -> list[RICEFWObject]:
+        """ECA development objects — Source/Target = ECA or PDH."""
+        return [r for r in self.ricefw if r.platform_category == "ECA"]
+
+    def interfaces(self) -> list[RICEFWObject]:
+        """Interface objects — all type_code = I, regardless of platform."""
+        return [r for r in self.ricefw if r.type_code == "I"]
+
+    def middleware_objects(self) -> list[RICEFWObject]:
+        """Middleware/MuleSoft objects — Development System = MuleSoft."""
+        return [r for r in self.ricefw if r.platform_category == "Middleware"]
+
+    def scheduling_objects(self) -> list[RICEFWObject]:
+        """Scheduling/batch objects — AutoSys, etc. (placeholder for future enrichment)."""
+        return [r for r in self.ricefw if r.platform_category == "Scheduling"]
+
+    @property
+    def dev_object_summary(self) -> str:
+        """Summary of all development objects by platform category."""
+        parts = []
+        n_sap = len(self.sap_dev_objects())
+        n_eca = len(self.eca_dev_objects())
+        n_intf = len(self.interfaces())
+        n_mw = len(self.middleware_objects())
+        n_sched = len(self.scheduling_objects())
+        if n_sap:
+            parts.append(f"{n_sap} SAP")
+        if n_eca:
+            parts.append(f"{n_eca} ECA")
+        if n_intf:
+            parts.append(f"{n_intf} Interfaces")
+        if n_mw:
+            parts.append(f"{n_mw} Middleware")
+        if n_sched:
+            parts.append(f"{n_sched} Scheduling")
+        return ", ".join(parts) if parts else "No development objects"
 
 
 # Tower name normalization — uses centralized registry
@@ -389,6 +459,7 @@ class SmartsheetLoader:
             eca_involved=(row.get("ECA Involved?") or "").strip(),
             eca_object_id=(row.get("ECA Object  ID") or row.get("ECA Object ID") or "").strip(),
             eca_description=(row.get("ECA Object Description") or "").strip(),
+            development_system=(row.get("Development System") or "").strip(),
         )
 
     def _parse_raid(self, row: dict[str, str]) -> Optional[RAIDEntry]:

@@ -12,11 +12,13 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 10mm 15mm; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
   p { orphans: 3; widows: 3; }
+  table { table-layout: fixed; word-wrap: break-word; font-size: 8pt; }
+  td, th { overflow: hidden; text-overflow: ellipsis; padding: 3px 4px; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -368,22 +370,22 @@ flowchart TD
 
 ### 5.5 RICEFW Inventory
 
-| Object ID | Type | Description | Status | Source → Target | Middleware | Boundary App | Interface Approach | Complexity |
-|-----------|------|-------------|--------|----------------|-----------|-------------|-------------------|-----------|
-| LOGI0842_IF | Interface | Interface from SAP S4 to DBaaS to Fetch Actual COF for FVR batch and COA for ... | 10. Object Complete | S/4 → DBaaS | MULESOFT | Supply Chain Trade Re-engineering Data Container for Intel Foundry |  | 04.Low |
-| LOGI0800_IF | Interface | Interface to send shipment information to custom broker | 10. Object Complete | S/4 → OpenText | MULESOFT | OpenText |  | 04.Low |
-| LOGF1673 | Form | Consolidated Export CI for Wafer Die (Ireland) | 10. Object Complete |  | NA |  |  | 03.Medium |
-| LOGF1672 | Form | Consolidated Export CI for Finished Goods (Ireland) | 10. Object Complete |  | NA |  |  | 03.Medium |
-| LOGF1149_IF | Form | Consolidated Packing list for Chengdu | 10. Object Complete |  | NA |  |  | 03.Medium |
-| LOGF0873 | Form | CI/PL document should be printed based on R3 process. | 10. Object Complete |  | NA |  |  | 02.High |
-| LOGF0356 | Form | Generate Consolidated Bailment Commercial Invoice - Finished Goods (IF and IP) | 10. Object Complete | NA → NA | NA |  |  | 02.High |
-| LOGF0355 | Form | Generate Consolidated Bailment Commercial Invoice - Wafer/Die (IF and IP) | 10. Object Complete | NA → NA | NA |  |  | 03.Medium |
-| LOGE1624 | Enhancement | Development of LCSR tool in Fiori | 10. Object Complete |  | NA |  |  | 01.Very High |
-| LOGE0797_IF | Enhancement | Pre alert notification to Customer | 10. Object Complete |  | NA |  |  | 04.Low |
-| LOGE0796_IF | Enhancement | Custom transaction to trigger CUSDEC | 10. Object Complete |  | NA |  |  | 03.Medium |
-| LOGE0792_IF | Enhancement | Enhancement to Update Custom Table form Master data and Manage SOP Data Commu... | 10. Object Complete |  | NA |  |  | 04.Low |
-| LOGE0791_IF | Enhancement | Creation of Proforma Invoice ZF8 from Freight Order and Save ITN Number in De... | 10. Object Complete |  | NA |  |  | 04.Low |
-| LOGE0772_IF | Enhancement | Develop Fiori app to View/Edit/Add SOP data(CMDB). | 10. Object Complete |  | NA |  |  | 03.Medium |
+| Object ID | Type | Description | Status | Source → Target | Boundary App | Complexity |
+|-----------|------|-------------|--------|----------------|-------------|----------|
+| LOGI0842_IF | Interface | Interface from SAP S4 to DBaaS to Fetch Actual COF for FVR batch and COA for ... | 10. Object Complete | S/4 → DBaaS | Supply Chain Trade Re-engineering Data Container for Intel Foundry | 04.Low |
+| LOGI0800_IF | Interface | Interface to send shipment information to custom broker | 10. Object Complete | S/4 → OpenText | OpenText | 04.Low |
+| LOGF1673 | Form | Consolidated Export CI for Wafer Die (Ireland) | 10. Object Complete |  |  | 03.Medium |
+| LOGF1672 | Form | Consolidated Export CI for Finished Goods (Ireland) | 10. Object Complete |  |  | 03.Medium |
+| LOGF1149_IF | Form | Consolidated Packing list for Chengdu | 10. Object Complete |  |  | 03.Medium |
+| LOGF0873 | Form | CI/PL document should be printed based on R3 process. | 10. Object Complete |  |  | 02.High |
+| LOGF0356 | Form | Generate Consolidated Bailment Commercial Invoice - Finished Goods (IF and IP) | 10. Object Complete | NA → NA |  | 02.High |
+| LOGF0355 | Form | Generate Consolidated Bailment Commercial Invoice - Wafer/Die (IF and IP) | 10. Object Complete | NA → NA |  | 03.Medium |
+| LOGE1624 | Enhancement | Development of LCSR tool in Fiori | 10. Object Complete |  |  | 01.Very High |
+| LOGE0797_IF | Enhancement | Pre alert notification to Customer | 10. Object Complete |  |  | 04.Low |
+| LOGE0796_IF | Enhancement | Custom transaction to trigger CUSDEC | 10. Object Complete |  |  | 03.Medium |
+| LOGE0792_IF | Enhancement | Enhancement to Update Custom Table form Master data and Manage SOP Data Commu... | 10. Object Complete |  |  | 04.Low |
+| LOGE0791_IF | Enhancement | Creation of Proforma Invoice ZF8 from Freight Order and Save ITN Number in De... | 10. Object Complete |  |  | 04.Low |
+| LOGE0772_IF | Enhancement | Develop Fiori app to View/Edit/Add SOP data(CMDB). | 10. Object Complete |  |  | 03.Medium |
 
 **Summary**: 2 Interfaces, 6 Enhancements, 6 Forms
 
@@ -392,10 +394,10 @@ flowchart TD
 
 The following RICEFW objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
 
-| RICEFW Object ID | Description | Boundary Application | IAPM ID | Source → Target |
-|-------------------|------------|---------------------|---------|----------------|
-| LOGI0842_IF | Interface from SAP S4 to DBaaS to Fetch Actual COF for FVR batch and COA for ... | Supply Chain Trade Re-engineering Data Container for Intel Foundry | 53494.0 | S/4 → DBaaS |
-| LOGI0800_IF | Interface to send shipment information to custom broker | OpenText | 12842.0 | S/4 → OpenText |
+| RICEFW ID | Description | Boundary Application | Source → Target |
+|-----------|------------|---------------------|----------------|
+| LOGI0842_IF | Interface from SAP S4 to DBaaS to Fetch Actual COF for FVR batch and COA for ... | Supply Chain Trade Re-engineering Data Container for Intel Foundry | S/4 → DBaaS |
+| LOGI0800_IF | Interface to send shipment information to custom broker | OpenText | S/4 → OpenText |
 
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IF)</span></div>
@@ -405,6 +407,7 @@ The following RICEFW objects integrate with **boundary applications** (external 
 ### 5.6 Integration Patterns
 
 *Integration patterns will be populated when tower architects provide validated middleware and protocol details via the extended flow template.*
+
 
 
 

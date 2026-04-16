@@ -12,11 +12,13 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 10mm 15mm; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
   p { orphans: 3; widows: 3; }
+  table { table-layout: fixed; word-wrap: break-word; font-size: 8pt; }
+  td, th { overflow: hidden; text-overflow: ellipsis; padding: 3px 4px; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -497,14 +499,14 @@ flowchart TD
 
 Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
-| Object ID | Type | Description | Status | Source | Target | Complexity |
-|-----------|------|-------------|--------|--------|--------|-----------|
-| OTCC1341 | Conversion | Payer Profile Data Conversion | 10. Object Complete |  |  | 03.Medium |
-| OTCC1340 | Conversion | Payer Segment Data Conversion | 10. Object Complete |  |  | 03.Medium |
-| OTCC1339 | Conversion | Payer Relationship Data Conversion | 10. Object Complete |  |  | 03.Medium |
-| OTCC0803 | Conversion | Open Credit Case Conversion | 10. Object Complete |  |  | 02.High |
-| OTCC0679 | Conversion | Open Dispute Case Conversion | 10. Object Complete |  |  | 02.High |
-| OTCC0678 | Conversion | Collection Master Conversion | 10. Object Complete |  |  | 02.High |
+| Object ID | Type | Description | Status | Source → Target | Complexity |
+|-----------|------|-------------|--------|----------------|----------|
+| OTCC1341 | Conversion | Payer Profile Data Conversion | 10. Object Complete |  | 03.Medium |
+| OTCC1340 | Conversion | Payer Segment Data Conversion | 10. Object Complete |  | 03.Medium |
+| OTCC1339 | Conversion | Payer Relationship Data Conversion | 10. Object Complete |  | 03.Medium |
+| OTCC0803 | Conversion | Open Credit Case Conversion | 10. Object Complete |  | 02.High |
+| OTCC0679 | Conversion | Open Dispute Case Conversion | 10. Object Complete |  | 02.High |
+| OTCC0678 | Conversion | Collection Master Conversion | 10. Object Complete |  | 02.High |
 
 ### 4.5 Data Governance & Quality
 
@@ -534,18 +536,18 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 ### 5.5 RICEFW Inventory
 
-| Object ID | Type | Description | Status | Source → Target | Middleware | Boundary App | Interface Approach | Complexity |
-|-----------|------|-------------|--------|----------------|-----------|-------------|-------------------|-----------|
-| OTCW1683 | Workflow | Additional WRICEF for Credit Limit Request Workflow | 10. Object Complete |  | NA |  |  | 03.Medium |
-| OTCE0737 | Enhancement | Implement Standard BADI to activate Credit Limit Request Workflow | 10. Object Complete |  | NA |  |  | 04.Low |
-| OTCE0614_IP | Enhancement | Implement Standard Credit/Collection BADI | 10. Object Complete |  | NA |  |  | 03.Medium |
-| OTCE0021 | Enhancement | Credit hold release dashboard at line-item level | 10. Object Complete | NA → NA | NA | NA |  | 01.Very High |
-| OTCC1341 | Conversion | Payer Profile Data Conversion | 10. Object Complete |  | NA |  |  | 03.Medium |
-| OTCC1340 | Conversion | Payer Segment Data Conversion | 10. Object Complete |  | NA |  |  | 03.Medium |
-| OTCC1339 | Conversion | Payer Relationship Data Conversion | 10. Object Complete |  | NA |  |  | 03.Medium |
-| OTCC0803 | Conversion | Open Credit Case Conversion | 10. Object Complete |  | NA |  |  | 02.High |
-| OTCC0679 | Conversion | Open Dispute Case Conversion | 10. Object Complete |  | NA |  |  | 02.High |
-| OTCC0678 | Conversion | Collection Master Conversion | 10. Object Complete |  | NA |  |  | 02.High |
+| Object ID | Type | Description | Status | Source → Target | Boundary App | Complexity |
+|-----------|------|-------------|--------|----------------|-------------|----------|
+| OTCW1683 | Workflow | Additional WRICEF for Credit Limit Request Workflow | 10. Object Complete |  |  | 03.Medium |
+| OTCE0737 | Enhancement | Implement Standard BADI to activate Credit Limit Request Workflow | 10. Object Complete |  |  | 04.Low |
+| OTCE0614_IP | Enhancement | Implement Standard Credit/Collection BADI | 10. Object Complete |  |  | 03.Medium |
+| OTCE0021 | Enhancement | Credit hold release dashboard at line-item level | 10. Object Complete | NA → NA | NA | 01.Very High |
+| OTCC1341 | Conversion | Payer Profile Data Conversion | 10. Object Complete |  |  | 03.Medium |
+| OTCC1340 | Conversion | Payer Segment Data Conversion | 10. Object Complete |  |  | 03.Medium |
+| OTCC1339 | Conversion | Payer Relationship Data Conversion | 10. Object Complete |  |  | 03.Medium |
+| OTCC0803 | Conversion | Open Credit Case Conversion | 10. Object Complete |  |  | 02.High |
+| OTCC0679 | Conversion | Open Dispute Case Conversion | 10. Object Complete |  |  | 02.High |
+| OTCC0678 | Conversion | Collection Master Conversion | 10. Object Complete |  |  | 02.High |
 
 **Summary**: 6 Conversions, 3 Enhancements, 1 Workflows
 
@@ -559,6 +561,7 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 ### 5.6 Integration Patterns
 
 *Integration patterns will be populated when tower architects provide validated middleware and protocol details via the extended flow template.*
+
 
 
 

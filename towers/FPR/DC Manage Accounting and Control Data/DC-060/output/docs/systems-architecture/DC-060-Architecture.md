@@ -12,11 +12,13 @@
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 10mm 15mm; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
   p { orphans: 3; widows: 3; }
+  table { table-layout: fixed; word-wrap: break-word; font-size: 8pt; }
+  td, th { overflow: hidden; text-overflow: ellipsis; padding: 3px 4px; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -201,10 +203,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 
 Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
-| Object ID | Type | Description | Status | Source | Target | Complexity |
-|-----------|------|-------------|--------|--------|--------|-----------|
-| FPRR1514_IP | Report | To generate reports out of the ITT documents that was created | 10. Object Complete |  |  | 03.Medium |
-| FPRR1514_IF | Report | To generate reports out of the ITT documents that was created | 10. Object Complete |  |  | 04.Low |
+| Object ID | Type | Description | Status | Source → Target | Complexity |
+|-----------|------|-------------|--------|----------------|----------|
+| FPRR1514_IP | Report | To generate reports out of the ITT documents that was created | 10. Object Complete |  | 03.Medium |
+| FPRR1514_IF | Report | To generate reports out of the ITT documents that was created | 10. Object Complete |  | 04.Low |
 
 ### 4.5 Data Governance & Quality
 
@@ -234,28 +236,28 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 ### 5.5 RICEFW Inventory
 
-| Object ID | Type | Description | Status | Source → Target | Middleware | Boundary App | Interface Approach | Complexity |
-|-----------|------|-------------|--------|----------------|-----------|-------------|-------------------|-----------|
-| FPRR1514_IP | Report | To generate reports out of the ITT documents that was created | 10. Object Complete |  | NA |  |  | 03.Medium |
-| FPRR1514_IF | Report | To generate reports out of the ITT documents that was created | 10. Object Complete |  | NA |  |  | 04.Low |
-| FPRI0696_IP | Interface | Interface between ONESOURCE and Readsoft Process Director built on the back o... | 10. Object Complete | ONESOURCE → READSOFT | NA | OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IP |  | 02.High |
-| FPRI0696_IF | Interface | Interface between ONESOURCE and Readsoft Process Director built on the back o... | 10. Object Complete | ONESOURCE → READSOFT | NA | OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IF |  | 03.Medium |
-| FPRE1723_IP | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 10. Object Complete |  | NA |  |  | 04.Low |
-| FPRE1723_IF | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 10. Object Complete |  | NA |  |  | 04.Low |
-| FPRE1722_IP | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 10. Object Complete |  | NA |  |  | 04.Low |
-| FPRE1722_IF | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 10. Object Complete |  | NA |  |  | 04.Low |
-| FPRE1513_IP | Enhancement | Generate and download JV file for JE posting | 10. Object Complete |  | NA |  |  | 03.Medium |
-| FPRE1513_IF | Enhancement | Generate and download JV file for JE posting | 10. Object Complete |  | NA |  |  | 04.Low |
-| FPRE1513_CFIN | Enhancement | Generate and download JV file for JE posting | 99. Rejected/Cancelled/On Hold |  | NA |  |  | 03.Medium |
-| FPRE1512_IP | Enhancement | Query confirm ITT document to determine the Capital/Expense and tax code manu... | 10. Object Complete |  | NA |  |  | 03.Medium |
-| FPRE1512_IF | Enhancement | Query confirm ITT document to determine the Capital/Expense and tax code manu... | 10. Object Complete |  | NA |  |  | 04.Low |
-| FPRE1511_IP | Enhancement | Query existing draft ITT document and make changes | 10. Object Complete |  | NA |  |  | 03.Medium |
-| FPRE1511_IF | Enhancement | Query existing draft ITT document and make changes | 10. Object Complete |  | NA |  |  | 04.Low |
-| FPRE1510_IP | Enhancement | ITT document creation | 10. Object Complete |  | NA |  |  | 03.Medium |
-| FPRE1510_IF | Enhancement | ITT document creation | 10. Object Complete |  | NA |  |  | 04.Low |
-| FPRE0931_IP | Enhancement | Rebuild Boundary Application ITT in S/4 | 10. Object Complete |  | NA |  |  | 03.Medium |
-| FPRE0931_IF | Enhancement | Rebuild Boundary Application ITT in S/4 | 10. Object Complete |  | NA |  |  | 03.Medium |
-| FPRE0931_CFIN | Enhancement | Rebuild Boundary Application ITT in S/4 | 10. Object Complete |  | NA |  |  | 02.High |
+| Object ID | Type | Description | Status | Source → Target | Boundary App | Complexity |
+|-----------|------|-------------|--------|----------------|-------------|----------|
+| FPRR1514_IP | Report | To generate reports out of the ITT documents that was created | 10. Object Complete |  |  | 03.Medium |
+| FPRR1514_IF | Report | To generate reports out of the ITT documents that was created | 10. Object Complete |  |  | 04.Low |
+| FPRI0696_IP | Interface | Interface between ONESOURCE and Readsoft Process Director built on the back o... | 10. Object Complete | ONESOURCE → READSOFT | OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IP | 02.High |
+| FPRI0696_IF | Interface | Interface between ONESOURCE and Readsoft Process Director built on the back o... | 10. Object Complete | ONESOURCE → READSOFT | OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IF | 03.Medium |
+| FPRE1723_IP | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 10. Object Complete |  |  | 04.Low |
+| FPRE1723_IF | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 10. Object Complete |  |  | 04.Low |
+| FPRE1722_IP | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 10. Object Complete |  |  | 04.Low |
+| FPRE1722_IF | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 10. Object Complete |  |  | 04.Low |
+| FPRE1513_IP | Enhancement | Generate and download JV file for JE posting | 10. Object Complete |  |  | 03.Medium |
+| FPRE1513_IF | Enhancement | Generate and download JV file for JE posting | 10. Object Complete |  |  | 04.Low |
+| FPRE1513_CFIN | Enhancement | Generate and download JV file for JE posting | 99. Rejected/Cancelled/On Hold |  |  | 03.Medium |
+| FPRE1512_IP | Enhancement | Query confirm ITT document to determine the Capital/Expense and tax code manu... | 10. Object Complete |  |  | 03.Medium |
+| FPRE1512_IF | Enhancement | Query confirm ITT document to determine the Capital/Expense and tax code manu... | 10. Object Complete |  |  | 04.Low |
+| FPRE1511_IP | Enhancement | Query existing draft ITT document and make changes | 10. Object Complete |  |  | 03.Medium |
+| FPRE1511_IF | Enhancement | Query existing draft ITT document and make changes | 10. Object Complete |  |  | 04.Low |
+| FPRE1510_IP | Enhancement | ITT document creation | 10. Object Complete |  |  | 03.Medium |
+| FPRE1510_IF | Enhancement | ITT document creation | 10. Object Complete |  |  | 04.Low |
+| FPRE0931_IP | Enhancement | Rebuild Boundary Application ITT in S/4 | 10. Object Complete |  |  | 03.Medium |
+| FPRE0931_IF | Enhancement | Rebuild Boundary Application ITT in S/4 | 10. Object Complete |  |  | 03.Medium |
+| FPRE0931_CFIN | Enhancement | Rebuild Boundary Application ITT in S/4 | 10. Object Complete |  |  | 02.High |
 
 **Summary**: 2 Reports, 2 Interfaces, 16 Enhancements
 
@@ -264,10 +266,10 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 The following RICEFW objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
 
-| RICEFW Object ID | Description | Boundary Application | IAPM ID | Source → Target |
-|-------------------|------------|---------------------|---------|----------------|
-| FPRI0696_IP | Interface between ONESOURCE and Readsoft Process Director built on the back o... | OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IP | 37261; 64229 | ONESOURCE → READSOFT |
-| FPRI0696_IF | Interface between ONESOURCE and Readsoft Process Director built on the back o... | OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IF | 37261; 64228 | ONESOURCE → READSOFT |
+| RICEFW ID | Description | Boundary Application | Source → Target |
+|-----------|------------|---------------------|----------------|
+| FPRI0696_IP | Interface between ONESOURCE and Readsoft Process Director built on the back o... | OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IP | ONESOURCE → READSOFT |
+| FPRI0696_IF | Interface between ONESOURCE and Readsoft Process Director built on the back o... | OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IF | ONESOURCE → READSOFT |
 
 
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-060 — Manage Taxes</span></div>
@@ -277,6 +279,7 @@ The following RICEFW objects integrate with **boundary applications** (external 
 ### 5.6 Integration Patterns
 
 *Integration patterns will be populated when tower architects provide validated middleware and protocol details via the extended flow template.*
+
 
 
 

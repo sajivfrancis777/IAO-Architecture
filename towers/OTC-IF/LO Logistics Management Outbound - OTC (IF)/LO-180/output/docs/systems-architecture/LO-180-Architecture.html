@@ -59,22 +59,29 @@ p {
 table {
     border-collapse: collapse;
     width: 100%;
+    table-layout: fixed;
     margin: 12px 0;
     font-size: 9.5pt;
     page-break-inside: avoid;
     break-inside: avoid;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 th {
     background: #00285a;
     color: #fff;
     font-weight: 600;
     text-align: left;
-    padding: 6px 8px;
+    padding: 4px 6px;
     border: 1px solid #00285a;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 td {
-    padding: 5px 8px;
+    padding: 4px 6px;
     border: 1px solid #ddd;
+    overflow: hidden;
+    text-overflow: ellipsis;
     vertical-align: top;
 }
 tr:nth-child(even) td { background: #f5f8fc; }
@@ -281,7 +288,9 @@ strong { color: #00285a; }
     h2 { margin-top: 14px; margin-bottom: 6px; font-size: 16pt; }
     h3 { margin-top: 10px; margin-bottom: 4px; font-size: 13pt; }
     h4 { margin-top: 8px; margin-bottom: 3px; font-size: 11pt; }
-    table { margin: 6px 0; font-size: 9pt; }
+    table { margin: 6px 0; font-size: 8pt; table-layout: fixed; word-wrap: break-word; }
+    th { padding: 3px 4px; }
+    td { padding: 3px 4px; }
     blockquote { margin: 6px 0; padding: 4px 12px; font-size: 9pt; }
     p { margin: 4px 0; }
     ul, ol { margin: 4px 0; }
@@ -410,11 +419,13 @@ strong { color: #00285a; }
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 10mm 15mm; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
   p { orphans: 3; widows: 3; }
+  table { table-layout: fixed; word-wrap: break-word; font-size: 8pt; }
+  td, th { overflow: visible; text-overflow: ellipsis; padding: 3px 4px; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -953,9 +964,7 @@ flowchart TD
 <th>Description</th>
 <th>Status</th>
 <th>Source → Target</th>
-<th>Middleware</th>
 <th>Boundary App</th>
-<th>Interface Approach</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -966,9 +975,7 @@ flowchart TD
 <td>Interface from SAP S4 to DBaaS to Fetch Actual COF for FVR batch and COA for &hellip;</td>
 <td>10. Object Complete</td>
 <td>S/4 → DBaaS</td>
-<td>MULESOFT</td>
 <td>Supply Chain Trade Re-engineering Data Container for Intel Foundry</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -977,9 +984,7 @@ flowchart TD
 <td>Interface to send shipment information to custom broker</td>
 <td>10. Object Complete</td>
 <td>S/4 → OpenText</td>
-<td>MULESOFT</td>
 <td>OpenText</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -987,8 +992,6 @@ flowchart TD
 <td>Form</td>
 <td>Consolidated Export CI for Wafer Die (Ireland)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -999,8 +1002,6 @@ flowchart TD
 <td>Consolidated Export CI for Finished Goods (Ireland)</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1009,8 +1010,6 @@ flowchart TD
 <td>Form</td>
 <td>Consolidated Packing list for Chengdu</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1021,8 +1020,6 @@ flowchart TD
 <td>CI/PL document should be printed based on R3 process.</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1032,8 +1029,6 @@ flowchart TD
 <td>Generate Consolidated Bailment Commercial Invoice - Finished Goods (IF and IP)</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1043,8 +1038,6 @@ flowchart TD
 <td>Generate Consolidated Bailment Commercial Invoice - Wafer/Die (IF and IP)</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1053,8 +1046,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Development of LCSR tool in Fiori</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>01.Very High</td>
@@ -1065,8 +1056,6 @@ flowchart TD
 <td>Pre alert notification to Customer</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -1075,8 +1064,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom transaction to trigger CUSDEC</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1087,8 +1074,6 @@ flowchart TD
 <td>Enhancement to Update Custom Table form Master data and Manage SOP Data Commu&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -1098,8 +1083,6 @@ flowchart TD
 <td>Creation of Proforma Invoice ZF8 from Freight Order and Save ITN Number in De&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -1108,8 +1091,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Develop Fiori app to View/Edit/Add SOP data(CMDB).</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1122,10 +1103,9 @@ flowchart TD
 <table>
 <thead>
 <tr>
-<th>RICEFW Object ID</th>
+<th>RICEFW ID</th>
 <th>Description</th>
 <th>Boundary Application</th>
-<th>IAPM ID</th>
 <th>Source → Target</th>
 </tr>
 </thead>
@@ -1134,14 +1114,12 @@ flowchart TD
 <td>LOGI0842_IF</td>
 <td>Interface from SAP S4 to DBaaS to Fetch Actual COF for FVR batch and COA for &hellip;</td>
 <td>Supply Chain Trade Re-engineering Data Container for Intel Foundry</td>
-<td>53494.0</td>
 <td>S/4 → DBaaS</td>
 </tr>
 <tr>
 <td>LOGI0800_IF</td>
 <td>Interface to send shipment information to custom broker</td>
 <td>OpenText</td>
-<td>12842.0</td>
 <td>S/4 → OpenText</td>
 </tr>
 </tbody>

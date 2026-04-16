@@ -59,22 +59,29 @@ p {
 table {
     border-collapse: collapse;
     width: 100%;
+    table-layout: fixed;
     margin: 12px 0;
     font-size: 9.5pt;
     page-break-inside: avoid;
     break-inside: avoid;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 th {
     background: #00285a;
     color: #fff;
     font-weight: 600;
     text-align: left;
-    padding: 6px 8px;
+    padding: 4px 6px;
     border: 1px solid #00285a;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 td {
-    padding: 5px 8px;
+    padding: 4px 6px;
     border: 1px solid #ddd;
+    overflow: hidden;
+    text-overflow: ellipsis;
     vertical-align: top;
 }
 tr:nth-child(even) td { background: #f5f8fc; }
@@ -281,7 +288,9 @@ strong { color: #00285a; }
     h2 { margin-top: 14px; margin-bottom: 6px; font-size: 16pt; }
     h3 { margin-top: 10px; margin-bottom: 4px; font-size: 13pt; }
     h4 { margin-top: 8px; margin-bottom: 3px; font-size: 11pt; }
-    table { margin: 6px 0; font-size: 9pt; }
+    table { margin: 6px 0; font-size: 8pt; table-layout: fixed; word-wrap: break-word; }
+    th { padding: 3px 4px; }
+    td { padding: 3px 4px; }
     blockquote { margin: 6px 0; padding: 4px 12px; font-size: 9pt; }
     p { margin: 4px 0; }
     ul, ol { margin: 4px 0; }
@@ -410,11 +419,13 @@ strong { color: #00285a; }
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 10mm 15mm; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
   p { orphans: 3; widows: 3; }
+  table { table-layout: fixed; word-wrap: break-word; font-size: 8pt; }
+  td, th { overflow: visible; text-overflow: ellipsis; padding: 3px 4px; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -1563,8 +1574,7 @@ flowchart TD
 <th>Type</th>
 <th>Description</th>
 <th>Status</th>
-<th>Source</th>
-<th>Target</th>
+<th>Source → Target</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -1575,7 +1585,6 @@ flowchart TD
 <td>Factory Portal - Warranty Claim (Warranty Dashboard​​)</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1583,7 +1592,6 @@ flowchart TD
 <td>Report</td>
 <td>Report- Custom Fiori report to show full parts tracking status dashboard (wor&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1593,7 +1601,6 @@ flowchart TD
 <td>Convert Equipment Warranty information to SAP S/4 Equipment Master – reusable&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1601,7 +1608,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Conversion of Inflight Work Orders</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>N/A</td>
 </tr>
@@ -1611,7 +1617,6 @@ flowchart TD
 <td>Conversion of General Task List</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1620,7 +1625,6 @@ flowchart TD
 <td>Manual Conversion of Functional Locations (FLOC)</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1628,8 +1632,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Equipment Master</td>
 <td>10. Object Complete</td>
-<td>MES, SAP ME, EMS, EDFIT, Workstream, NIT, ECM</td>
-<td>S4</td>
+<td>MES, SAP ME, EMS, EDFIT, Workstream, NIT, ECM → S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1637,8 +1640,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Catalogs</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>S4</td>
+<td>→ S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1646,8 +1648,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Maintenance Plans</td>
 <td>10. Object Complete</td>
-<td>ME</td>
-<td>S4</td>
+<td>ME → S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1655,8 +1656,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Maintenance Items</td>
 <td>10. Object Complete</td>
-<td>NA</td>
-<td>S4</td>
+<td>NA → S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1664,8 +1664,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Equipment Class</td>
 <td>10. Object Complete</td>
-<td>NA</td>
-<td>S4</td>
+<td>NA → S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1673,8 +1672,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Characteristics</td>
 <td>10. Object Complete</td>
-<td>NA</td>
-<td>S4</td>
+<td>NA → S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1682,8 +1680,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Work Center</td>
 <td>10. Object Complete</td>
-<td>Fuzion, ME, Manual</td>
-<td>S4</td>
+<td>Fuzion, ME, Manual → S4</td>
 <td>N/A</td>
 </tr>
 </tbody>
@@ -1750,9 +1747,7 @@ flowchart TD
 <th>Description</th>
 <th>Status</th>
 <th>Source → Target</th>
-<th>Middleware</th>
 <th>Boundary App</th>
-<th>Interface Approach</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -1763,8 +1758,6 @@ flowchart TD
 <td>Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou&hellip;</td>
 <td>03. FS Not Started</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1773,8 +1766,6 @@ flowchart TD
 <td>Report</td>
 <td>Factory Portal - Warranty Claim (Warranty Dashboard​​)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -1785,8 +1776,6 @@ flowchart TD
 <td>Report- Custom Fiori report to show full parts tracking status dashboard (wor&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1795,8 +1784,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Convert Equipment Warranty information to SAP S/4 Equipment Master – reusable&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -1807,9 +1794,7 @@ flowchart TD
 <td>Conversion of Inflight Work Orders</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
 <td>ME, XEUS, MARS</td>
-<td></td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1818,9 +1803,7 @@ flowchart TD
 <td>Conversion of General Task List</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
 <td>ME, EMS</td>
-<td></td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1829,9 +1812,7 @@ flowchart TD
 <td>Manual Conversion of Functional Locations (FLOC)</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
 <td>ME, EMS</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1840,9 +1821,7 @@ flowchart TD
 <td>Equipment Master</td>
 <td>10. Object Complete</td>
 <td>MES, SAP ME, EMS, EDFIT, Workstream, NIT, ECM → S4</td>
-<td>NA</td>
 <td>MES, SAP ME, EMS, EDFIT, Workstream, NIT, ECM</td>
-<td></td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1851,8 +1830,6 @@ flowchart TD
 <td>Catalogs</td>
 <td>10. Object Complete</td>
 <td>→ S4</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>N/A</td>
 </tr>
@@ -1862,9 +1839,7 @@ flowchart TD
 <td>Maintenance Plans</td>
 <td>10. Object Complete</td>
 <td>ME → S4</td>
-<td>NA</td>
 <td>ME</td>
-<td></td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1873,8 +1848,6 @@ flowchart TD
 <td>Maintenance Items</td>
 <td>10. Object Complete</td>
 <td>NA → S4</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>N/A</td>
 </tr>
@@ -1884,8 +1857,6 @@ flowchart TD
 <td>Equipment Class</td>
 <td>10. Object Complete</td>
 <td>NA → S4</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>N/A</td>
 </tr>
@@ -1895,8 +1866,6 @@ flowchart TD
 <td>Characteristics</td>
 <td>10. Object Complete</td>
 <td>NA → S4</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>N/A</td>
 </tr>
@@ -1906,9 +1875,7 @@ flowchart TD
 <td>Work Center</td>
 <td>10. Object Complete</td>
 <td>Fuzion, ME, Manual → S4</td>
-<td>NA</td>
 <td>ME</td>
-<td></td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1917,9 +1884,7 @@ flowchart TD
 <td>CMMS – get location info from CMMS</td>
 <td>02. FS Unplanned</td>
 <td></td>
-<td>NA</td>
 <td>Collateral MMS</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1928,9 +1893,7 @@ flowchart TD
 <td>CMMS – Get Collateral Details</td>
 <td>02. FS Unplanned</td>
 <td></td>
-<td>NA</td>
 <td>Collateral MMS</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1939,9 +1902,7 @@ flowchart TD
 <td>CMMS – Collateral Conversion</td>
 <td>02. FS Unplanned</td>
 <td></td>
-<td>NA</td>
 <td>Collateral MMS</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1950,9 +1911,7 @@ flowchart TD
 <td>Interface to get Cu flag from XEUS</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>MULESOFT</td>
 <td>XEUS Loader Framework</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1961,9 +1920,7 @@ flowchart TD
 <td>CMMS – Equipment create and update (status and collateral name)</td>
 <td>04. FS In Progress</td>
 <td>→ S/4</td>
-<td>MULESOFT</td>
 <td>Collateral MMS</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1972,9 +1929,7 @@ flowchart TD
 <td>Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou&hellip;</td>
 <td>04. FS In Progress</td>
 <td>→ S/4</td>
-<td>MULESOFT</td>
 <td>Factory Communications</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1983,9 +1938,7 @@ flowchart TD
 <td>CMMS – Equipment with MMS flag (S4 to CMMS)</td>
 <td>06. Dev Not Started</td>
 <td>→ S/4</td>
-<td>MULESOFT</td>
 <td>Collateral MMS</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1994,9 +1947,7 @@ flowchart TD
 <td>Interface S/4 with EMS</td>
 <td>10. Object Complete</td>
 <td>EMS → S/4</td>
-<td>MULESOFT</td>
 <td>Equipment Management System</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2005,9 +1956,7 @@ flowchart TD
 <td>Interface S/4 with XEUS</td>
 <td>10. Object Complete</td>
 <td>XEUS/Mars → S/4</td>
-<td>APIGEE</td>
 <td>XEUS Loader Framework; ATM MARS</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2016,9 +1965,7 @@ flowchart TD
 <td>Claim Status Update from e2open to SAP S4 (Inbound Interface)</td>
 <td>10. Object Complete</td>
 <td>E2Open → S/4</td>
-<td>MULESOFT</td>
 <td>E2open</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2027,9 +1974,7 @@ flowchart TD
 <td>SAP Warranty Claim Document to e2open (Outbound Interface)</td>
 <td>10. Object Complete</td>
 <td>S/4 → E2Open</td>
-<td>MULESOFT</td>
 <td>E2open</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2038,9 +1983,7 @@ flowchart TD
 <td>Interface: SAP ME to S/4 to Create &amp; Maintain Notifications</td>
 <td>10. Object Complete</td>
 <td>SAP ME → S/4</td>
-<td>NA</td>
 <td>SAP Manufacturing Execution</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2048,8 +1991,6 @@ flowchart TD
 <td>Form</td>
 <td>Factory Portal - Returns Order Flow (Form-Based (CRD) Return Order​)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2060,8 +2001,6 @@ flowchart TD
 <td>Custom tables to store Board Failure Form details</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2070,8 +2009,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom Attributes for AMT/ISM</td>
 <td>02. FS Unplanned</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2082,8 +2019,6 @@ flowchart TD
 <td>Automation for Product Conversions – Equipment Structure update</td>
 <td>02. FS Unplanned</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2092,8 +2027,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Automation for Product Conversions – Work Order Closure</td>
 <td>02. FS Unplanned</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2104,8 +2037,6 @@ flowchart TD
 <td>Automation for Product Conversions – Parts Request and Return</td>
 <td>02. FS Unplanned</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2114,8 +2045,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Automation for Product Conversions – Explode BOM</td>
 <td>02. FS Unplanned</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2126,8 +2055,6 @@ flowchart TD
 <td>Automation for Product Conversions – create Work Order</td>
 <td>02. FS Unplanned</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2136,8 +2063,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>PM inbound from AMT</td>
 <td>02. FS Unplanned</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2148,8 +2073,6 @@ flowchart TD
 <td>PM outbound to AMT</td>
 <td>02. FS Unplanned</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2158,8 +2081,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Send SAP notification on Work Order update</td>
 <td>02. FS Unplanned</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2170,8 +2091,6 @@ flowchart TD
 <td>Send SAP notification on Equipment update</td>
 <td>02. FS Unplanned</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2180,8 +2099,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom Fiori UI – Move Equipment SRoom to SRoom (screen)</td>
 <td>02. FS Unplanned</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2192,8 +2109,6 @@ flowchart TD
 <td>Warranty claim for non E2O supplier</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2202,8 +2117,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement required for triggering Interface between S4 and SAP ME from the &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2214,8 +2127,6 @@ flowchart TD
 <td>Reusable Mass Upload Program for Equipment Master Warranty</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2224,8 +2135,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Factory Portal - Preventative Maintenance (AT) (Schedule Maintenance Plan)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>01.Very High</td>
@@ -2236,8 +2145,6 @@ flowchart TD
 <td>Factory Portal - Preventative Maintenance (AT) (Set Maintenance Counte)</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>01.Very High</td>
 </tr>
@@ -2246,8 +2153,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Factory Portal - Preventative Maintenance (AT) (Set Maintenance Cycle​)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>01.Very High</td>
@@ -2258,8 +2163,6 @@ flowchart TD
 <td>Factory Portal - Preventative Maintenance (AT) (Create Maintenance Plan)</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>01.Very High</td>
 </tr>
@@ -2268,8 +2171,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Factory Portal - Part list (Part list creation / modify (IA05​)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>01.Very High</td>
@@ -2280,8 +2181,6 @@ flowchart TD
 <td>Factory Portal - Functional Location​ (FLOC creation / Update (IL01 and IL02)​​)</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>01.Very High</td>
 </tr>
@@ -2290,8 +2189,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Factory Portal - Admin (Notifications​)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>01.Very High</td>
@@ -2302,8 +2199,6 @@ flowchart TD
 <td>Factory Portal - Admin (Admin Screen - My Profile) - Contacts custom Table En&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>01.Very High</td>
 </tr>
@@ -2312,8 +2207,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Factory Portal - Admin (Admin Screen - My Profile) - Fiori Enhancement</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>01.Very High</td>
@@ -2324,8 +2217,6 @@ flowchart TD
 <td>Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou&hellip;</td>
 <td>04. FS In Progress</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>01.Very High</td>
 </tr>
@@ -2334,8 +2225,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Factory Portal - Equipment to Parts Management (Equipment Management (details&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>01.Very High</td>
@@ -2346,8 +2235,6 @@ flowchart TD
 <td>Factory Portal - Equipment to Parts Management (Equipment/ Entity/ Sub-Entity&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>01.Very High</td>
 </tr>
@@ -2356,8 +2243,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Factory Portal - Operating Supply (Reserve Ops Suppl​​​)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>01.Very High</td>
@@ -2368,8 +2253,6 @@ flowchart TD
 <td>Factory Portal - Operating Supply (Search for Ops Supply​​​)</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>01.Very High</td>
 </tr>
@@ -2378,8 +2261,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Factory Portal - Warranty Claim (Create Warranty Claim – Detailed Vie​)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>01.Very High</td>
@@ -2390,8 +2271,6 @@ flowchart TD
 <td>Custom Fiori UI – HAZMAT Enhancement to pull data</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2400,8 +2279,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Factory Portal - Returns Order Flow (Prevent TECO until after parts have been&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>01.Very High</td>
@@ -2412,8 +2289,6 @@ flowchart TD
 <td>Factory Portal - Returns Order Flow (Form-Based (CRD) Return Order​)</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>01.Very High</td>
 </tr>
@@ -2422,8 +2297,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Factory Portal - Work Order Flow ( Confirm and Submit Parts (Table Extension &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>01.Very High</td>
@@ -2434,8 +2307,6 @@ flowchart TD
 <td>Factory Portal - Work Order Flow ( Confirm and Submit Parts (Fiori Enhancemen&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>01.Very High</td>
 </tr>
@@ -2444,8 +2315,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Factory Portal - Work Order Flow ( Add component to work order )</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>01.Very High</td>
@@ -2456,8 +2325,6 @@ flowchart TD
 <td>Factory Portal - Work Order Flow ( Search Parts )</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>01.Very High</td>
 </tr>
@@ -2466,8 +2333,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Factory Portal - Work Order Flow ( Change Color of WO, Equipment, and CRD &amp; e&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>01.Very High</td>
@@ -2478,8 +2343,6 @@ flowchart TD
 <td>Factory Portal - Work Order Flow ( Show Work Order – Single Work Order View +&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>01.Very High</td>
 </tr>
@@ -2488,8 +2351,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Factory Portal - Work Order Flow ( Search work orders - ​List View )</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>01.Very High</td>
@@ -2500,8 +2361,6 @@ flowchart TD
 <td>Factory Portal - Work Order Flow ( Home Page - View S/4 work orders )</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>01.Very High</td>
 </tr>
@@ -2510,8 +2369,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Update the Copper/Heavy Metal flag (User Status) for the tools on placement a&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2522,8 +2379,6 @@ flowchart TD
 <td>Create Purchase Requisition with multiple purchase req document types from Wo&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2532,8 +2387,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to update rejection reason and text in maintenance work order fro&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2544,8 +2397,6 @@ flowchart TD
 <td>Auto Roll Function to add Item/Part through Batch job in Master Warranty</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2554,8 +2405,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom Fields Enhancement in WTY Claim</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2566,8 +2415,6 @@ flowchart TD
 <td>Claim Generation from Maintenance Work Order per Item</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2576,8 +2423,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Create PR with Free of Charge from approved claim status – MMID &amp; Non-MMID</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2588,8 +2433,6 @@ flowchart TD
 <td>Warranty validation at Equipment level &amp; Item/Part level in Work Order</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2598,8 +2441,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Convert Item/Part Warranty information upload to SAP S/4 Master Warranty</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -2610,8 +2451,6 @@ flowchart TD
 <td>SAP Warranty Claim Document to e2open (Outbound Interface)</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2621,8 +2460,6 @@ flowchart TD
 <td>SAP PM enhancement to capture reason codes for returns (dropdown)</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -2631,8 +2468,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement: Batch process to create Equipment from Material BOM after GR</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2645,10 +2480,9 @@ flowchart TD
 <table>
 <thead>
 <tr>
-<th>RICEFW Object ID</th>
+<th>RICEFW ID</th>
 <th>Description</th>
 <th>Boundary Application</th>
-<th>IAPM ID</th>
 <th>Source → Target</th>
 </tr>
 </thead>
@@ -2658,13 +2492,11 @@ flowchart TD
 <td>Conversion of Inflight Work Orders</td>
 <td>ME, XEUS, MARS</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>FTSM018</td>
 <td>Conversion of General Task List</td>
 <td>ME, EMS</td>
-<td></td>
 <td></td>
 </tr>
 <tr>
@@ -2672,111 +2504,95 @@ flowchart TD
 <td>Manual Conversion of Functional Locations (FLOC)</td>
 <td>ME, EMS</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>FTSM016</td>
 <td>Equipment Master</td>
 <td>MES, SAP ME, EMS, EDFIT, Workstream, NIT, ECM</td>
-<td></td>
 <td>MES, SAP ME, EMS, EDFIT, Workstream, NIT, ECM → S4</td>
 </tr>
 <tr>
 <td>FTSM010</td>
 <td>Maintenance Plans</td>
 <td>ME</td>
-<td></td>
 <td>ME → S4</td>
 </tr>
 <tr>
 <td>FTSM002_IF</td>
 <td>Work Center</td>
 <td>ME</td>
-<td></td>
 <td>Fuzion, ME, Manual → S4</td>
 </tr>
 <tr>
 <td>FTSI1538</td>
 <td>CMMS – get location info from CMMS</td>
 <td>Collateral MMS</td>
-<td>30889.0</td>
 <td></td>
 </tr>
 <tr>
 <td>FTSI1537</td>
 <td>CMMS – Get Collateral Details</td>
 <td>Collateral MMS</td>
-<td>30889.0</td>
 <td></td>
 </tr>
 <tr>
 <td>FTSI1536</td>
 <td>CMMS – Collateral Conversion</td>
 <td>Collateral MMS</td>
-<td>30889.0</td>
 <td></td>
 </tr>
 <tr>
 <td>FTSI1527</td>
 <td>Interface to get Cu flag from XEUS</td>
 <td>XEUS Loader Framework</td>
-<td>35612.0</td>
 <td></td>
 </tr>
 <tr>
 <td>FTSI1371</td>
 <td>CMMS – Equipment create and update (status and collateral name)</td>
 <td>Collateral MMS</td>
-<td>30889.0</td>
 <td>→ S/4</td>
 </tr>
 <tr>
 <td>FTSI1370</td>
 <td>Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou&hellip;</td>
 <td>Factory Communications</td>
-<td>11807.0</td>
 <td>→ S/4</td>
 </tr>
 <tr>
 <td>FTSI1355</td>
 <td>CMMS – Equipment with MMS flag (S4 to CMMS)</td>
 <td>Collateral MMS</td>
-<td>30889.0</td>
 <td>→ S/4</td>
 </tr>
 <tr>
 <td>FTSI1008</td>
 <td>Interface S/4 with EMS</td>
 <td>Equipment Management System</td>
-<td>4012.0</td>
 <td>EMS → S/4</td>
 </tr>
 <tr>
 <td>FTSI1007</td>
 <td>Interface S/4 with XEUS</td>
 <td>XEUS Loader Framework; ATM MARS</td>
-<td>35612; 32079</td>
 <td>XEUS/Mars → S/4</td>
 </tr>
 <tr>
 <td>FTSI0985</td>
 <td>Claim Status Update from e2open to SAP S4 (Inbound Interface)</td>
 <td>E2open</td>
-<td>12208.0</td>
 <td>E2Open → S/4</td>
 </tr>
 <tr>
 <td>FTSI0983</td>
 <td>SAP Warranty Claim Document to e2open (Outbound Interface)</td>
 <td>E2open</td>
-<td>12208.0</td>
 <td>S/4 → E2Open</td>
 </tr>
 <tr>
 <td>FTSI0924</td>
 <td>Interface: SAP ME to S/4 to Create &amp; Maintain Notifications</td>
 <td>SAP Manufacturing Execution</td>
-<td>14162.0</td>
 <td>SAP ME → S/4</td>
 </tr>
 </tbody>
@@ -3190,7 +3006,6 @@ flowchart TD
 <th>RAID Description</th>
 <th>Status</th>
 <th>Assigned To</th>
-<th>Created</th>
 </tr>
 </thead>
 <tbody>
@@ -3201,7 +3016,6 @@ flowchart TD
 <td>01584</td>
 <td>10. Object Complete</td>
 <td>Sateesh Kumar</td>
-<td>07/09/25</td>
 </tr>
 <tr>
 <td>2</td>
@@ -3210,7 +3024,6 @@ flowchart TD
 <td>01584</td>
 <td>10. Object Complete</td>
 <td>Sateesh Kumar</td>
-<td>07/09/25</td>
 </tr>
 </tbody>
 </table>

@@ -59,22 +59,29 @@ p {
 table {
     border-collapse: collapse;
     width: 100%;
+    table-layout: fixed;
     margin: 12px 0;
     font-size: 9.5pt;
     page-break-inside: avoid;
     break-inside: avoid;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 th {
     background: #00285a;
     color: #fff;
     font-weight: 600;
     text-align: left;
-    padding: 6px 8px;
+    padding: 4px 6px;
     border: 1px solid #00285a;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 td {
-    padding: 5px 8px;
+    padding: 4px 6px;
     border: 1px solid #ddd;
+    overflow: hidden;
+    text-overflow: ellipsis;
     vertical-align: top;
 }
 tr:nth-child(even) td { background: #f5f8fc; }
@@ -281,7 +288,9 @@ strong { color: #00285a; }
     h2 { margin-top: 14px; margin-bottom: 6px; font-size: 16pt; }
     h3 { margin-top: 10px; margin-bottom: 4px; font-size: 13pt; }
     h4 { margin-top: 8px; margin-bottom: 3px; font-size: 11pt; }
-    table { margin: 6px 0; font-size: 9pt; }
+    table { margin: 6px 0; font-size: 8pt; table-layout: fixed; word-wrap: break-word; }
+    th { padding: 3px 4px; }
+    td { padding: 3px 4px; }
     blockquote { margin: 6px 0; padding: 4px 12px; font-size: 9pt; }
     p { margin: 4px 0; }
     ul, ol { margin: 4px 0; }
@@ -410,11 +419,13 @@ strong { color: #00285a; }
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 10mm 15mm; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
   p { orphans: 3; widows: 3; }
+  table { table-layout: fixed; word-wrap: break-word; font-size: 8pt; }
+  td, th { overflow: visible; text-overflow: ellipsis; padding: 3px 4px; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -888,8 +899,7 @@ flowchart TD
 <th>Type</th>
 <th>Description</th>
 <th>Status</th>
-<th>Source</th>
-<th>Target</th>
+<th>Source → Target</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -900,7 +910,6 @@ flowchart TD
 <td>To generate reports out of the ITT documents that was created</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -908,7 +917,6 @@ flowchart TD
 <td>Report</td>
 <td>To generate reports out of the ITT documents that was created</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -918,7 +926,6 @@ flowchart TD
 <td>Custom report for Revenue Recognition by Stage for Product/Services Sale​ act&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -926,7 +933,6 @@ flowchart TD
 <td>Report</td>
 <td>Report for searching on and viewing government contract timesheets for Intel &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -936,7 +942,6 @@ flowchart TD
 <td>Report for searching on and viewing government contract timesheet changes for&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -944,7 +949,6 @@ flowchart TD
 <td>Report</td>
 <td>Workflow Status Report ( Order Request / Approval Request / Others )</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -954,7 +958,6 @@ flowchart TD
 <td>Workflow Status Report ( Order Request / Approval Request / Others )</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -962,7 +965,6 @@ flowchart TD
 <td>Report</td>
 <td>CFR - Report to support multiple Treasury Funding requests from Multiple Inte&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -972,7 +974,6 @@ flowchart TD
 <td>TPR-Report to support multiple Treasury Payment Requests from Multiple Intel &hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -980,8 +981,7 @@ flowchart TD
 <td>Report</td>
 <td>Inter-company Outage Pre-consolidate Report (ACDOCA)</td>
 <td>10. Object Complete</td>
-<td>NA</td>
-<td>NA</td>
+<td>NA → NA</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -989,8 +989,7 @@ flowchart TD
 <td>Report</td>
 <td>GL Interface – Reconciliation Report/Dashboard</td>
 <td>10. Object Complete</td>
-<td>NA</td>
-<td>NA</td>
+<td>NA → NA</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -998,8 +997,7 @@ flowchart TD
 <td>Report</td>
 <td>Report to display the requests/change IDs and status of the workflow approval&hellip;</td>
 <td>10. Object Complete</td>
-<td>NA</td>
-<td>NA</td>
+<td>NA → NA</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1007,8 +1005,7 @@ flowchart TD
 <td>Report</td>
 <td>Report to display the requests/change IDs and status of the workflow approval&hellip;</td>
 <td>10. Object Complete</td>
-<td>NA</td>
-<td>NA</td>
+<td>NA → NA</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1016,8 +1013,7 @@ flowchart TD
 <td>Report</td>
 <td>Operational Report to display whether supporting documents are attached to JEs</td>
 <td>10. Object Complete</td>
-<td>NA</td>
-<td>NA</td>
+<td>NA → NA</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1025,8 +1021,7 @@ flowchart TD
 <td>Report</td>
 <td>Operational Report to display whether supporting documents are attached to JEs</td>
 <td>10. Object Complete</td>
-<td>NA</td>
-<td>NA</td>
+<td>NA → NA</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1034,8 +1029,7 @@ flowchart TD
 <td>Report</td>
 <td>Operational Report to display whether supporting documents are attached to JEs</td>
 <td>10. Object Complete</td>
-<td>NA</td>
-<td>NA</td>
+<td>NA → NA</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1043,8 +1037,7 @@ flowchart TD
 <td>Report</td>
 <td>In House Cash – Loan Account balance Detailed report</td>
 <td>10. Object Complete</td>
-<td>NA</td>
-<td>NA</td>
+<td>NA → NA</td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -1052,7 +1045,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Revenue Recognition Rules</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>N/A</td>
 </tr>
@@ -1062,7 +1054,6 @@ flowchart TD
 <td>Revenue Contracts</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1070,8 +1061,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Bank Master</td>
 <td>10. Object Complete</td>
-<td>ECC</td>
-<td>CFIN</td>
+<td>ECC → CFIN</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1079,7 +1069,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Creation of output template with consumption data</td>
 <td>06. Dev In Progress</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1089,7 +1078,6 @@ flowchart TD
 <td>Creation of output template with consumption data</td>
 <td>06. Dev In Progress</td>
 <td></td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1097,7 +1085,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Convert active delegate relationships for Timesheet approval</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1107,7 +1094,6 @@ flowchart TD
 <td>Conversion of WIP values as per Component structure in S/4 - IP</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1115,7 +1101,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Conversion of WIP values as per Component structure in S/4 - Back End IF</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1125,7 +1110,6 @@ flowchart TD
 <td>Project Actuals Conversion (Non- Intel Federal)</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1133,7 +1117,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Project Actuals Conversion (Non- Intel Federal)</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1143,7 +1126,6 @@ flowchart TD
 <td>Conversion of Actual Labor hours for Intel Federal Projects</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1151,7 +1133,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1161,7 +1142,6 @@ flowchart TD
 <td>Project Actuals Conversion including Intel Federal</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1169,7 +1149,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Project Budget Conversion</td>
 <td>10. Object Complete</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1179,7 +1158,6 @@ flowchart TD
 <td>Project Budget Conversion</td>
 <td>10. Object Complete</td>
 <td></td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1187,8 +1165,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Asset Transaction data conversion</td>
 <td>10. Object Complete</td>
-<td>NA</td>
-<td>NA</td>
+<td>NA → NA</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1196,8 +1173,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Asset Transaction data conversion</td>
 <td>10. Object Complete</td>
-<td>NA</td>
-<td>NA</td>
+<td>NA → NA</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1205,8 +1181,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Asset Master data conversion</td>
 <td>10. Object Complete</td>
-<td>NA</td>
-<td>NA</td>
+<td>NA → NA</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1214,8 +1189,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Asset Master data conversion</td>
 <td>10. Object Complete</td>
-<td>NA</td>
-<td>NA</td>
+<td>NA → NA</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1223,8 +1197,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
 <td>10. Object Complete</td>
-<td>ECC</td>
-<td>S4</td>
+<td>ECC → S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1232,8 +1205,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
 <td>10. Object Complete</td>
-<td>ECC</td>
-<td>S4</td>
+<td>ECC → S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1241,8 +1213,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Conversion – In House Cash: Current Account creation and Current Account Bala&hellip;</td>
 <td>10. Object Complete</td>
-<td>ECC</td>
-<td>CFIN</td>
+<td>ECC → CFIN</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1250,8 +1221,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Conversion – Migration of Existing Bank Guarantees and Intercompany Loans to &hellip;</td>
 <td>10. Object Complete</td>
-<td>Quantum</td>
-<td>CFIN</td>
+<td>Quantum → CFIN</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1259,8 +1229,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Convert existing ECC &amp; MDG hierarchy to S4HANA PPM hierarchy (Portfolio &amp; buc&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>MDG</td>
+<td>→ MDG</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1268,8 +1237,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Convert existing ECC &amp; MDG hierarchy to S4HANA PPM hierarchy (Portfolio &amp; buc&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>MDG</td>
+<td>→ MDG</td>
 <td>04.Low</td>
 </tr>
 </tbody>
@@ -1336,9 +1304,7 @@ flowchart TD
 <th>Description</th>
 <th>Status</th>
 <th>Source → Target</th>
-<th>Middleware</th>
 <th>Boundary App</th>
-<th>Interface Approach</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -1350,8 +1316,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1359,8 +1323,6 @@ flowchart TD
 <td>Workflow</td>
 <td>TFR: Workflow to handle Memo creation and cancellation process</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1371,8 +1333,6 @@ flowchart TD
 <td>Custom Workflow will also be created with some predefined process/rules for a&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>01.Very High</td>
 </tr>
@@ -1381,8 +1341,6 @@ flowchart TD
 <td>Workflow</td>
 <td>Custom Workflow will also be created with some predefined process/rules for a&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -1393,8 +1351,6 @@ flowchart TD
 <td>Workflow for Counterparty Approval</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1403,8 +1359,6 @@ flowchart TD
 <td>Workflow</td>
 <td>Custom workflow: Change Order Create and Change Approval</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1415,8 +1369,6 @@ flowchart TD
 <td>Custom workflow: Change Order Create and Change Approval</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1425,8 +1377,6 @@ flowchart TD
 <td>Workflow</td>
 <td>Custom Workflow - WBS Element Request approval with WBS Element creation</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1437,8 +1387,6 @@ flowchart TD
 <td>Custom Workflow - WBS Element Request approval with WBS Element creation</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1447,8 +1395,6 @@ flowchart TD
 <td>Workflow</td>
 <td>Custom Workflow: Approval for Project creation and create a Project def and l&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1459,8 +1405,6 @@ flowchart TD
 <td>Custom Workflow: Approval for Project creation and create a Project def and l&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1470,8 +1414,6 @@ flowchart TD
 <td>Project budget approval workflow (Capex)​</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1480,8 +1422,6 @@ flowchart TD
 <td>Workflow</td>
 <td>Project budget approval workflow (Capex)​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1493,8 +1433,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1504,8 +1442,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1515,8 +1451,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1526,8 +1460,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1537,8 +1469,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1546,8 +1476,6 @@ flowchart TD
 <td>Report</td>
 <td>To generate reports out of the ITT documents that was created</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1558,8 +1486,6 @@ flowchart TD
 <td>To generate reports out of the ITT documents that was created</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -1568,8 +1494,6 @@ flowchart TD
 <td>Report</td>
 <td>Custom report for Revenue Recognition by Stage for Product/Services Sale​ act&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1580,8 +1504,6 @@ flowchart TD
 <td>Report for searching on and viewing government contract timesheets for Intel &hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1590,8 +1512,6 @@ flowchart TD
 <td>Report</td>
 <td>Report for searching on and viewing government contract timesheet changes for&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1602,8 +1522,6 @@ flowchart TD
 <td>Workflow Status Report ( Order Request / Approval Request / Others )</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1612,8 +1530,6 @@ flowchart TD
 <td>Report</td>
 <td>Workflow Status Report ( Order Request / Approval Request / Others )</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -1624,8 +1540,6 @@ flowchart TD
 <td>CFR - Report to support multiple Treasury Funding requests from Multiple Inte&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1634,8 +1548,6 @@ flowchart TD
 <td>Report</td>
 <td>TPR-Report to support multiple Treasury Payment Requests from Multiple Intel &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1646,8 +1558,6 @@ flowchart TD
 <td>Inter-company Outage Pre-consolidate Report (ACDOCA)</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1658,8 +1568,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1669,8 +1577,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1680,8 +1586,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1691,8 +1595,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1702,8 +1604,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1713,8 +1613,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1724,8 +1622,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -1733,8 +1629,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Revenue Recognition Rules</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>N/A</td>
@@ -1745,8 +1639,6 @@ flowchart TD
 <td>Revenue Contracts</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>N/A</td>
 </tr>
@@ -1756,8 +1648,6 @@ flowchart TD
 <td>Bank Master</td>
 <td>10. Object Complete</td>
 <td>ECC → CFIN</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>N/A</td>
 </tr>
@@ -1767,9 +1657,7 @@ flowchart TD
 <td>Interface to be developed to transfer the files from Denodo to FS share path &hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>Intel MW</td>
 <td>Workday</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1778,9 +1666,7 @@ flowchart TD
 <td>Interface to be developed to transfer the files from Denodo to FS share path &hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>Intel MW</td>
 <td>Workday</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1789,9 +1675,7 @@ flowchart TD
 <td>Automated Tool MUP Excess Capacity calculation and associated PCOS/OCOS Split&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>BODS</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1801,8 +1685,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1811,9 +1693,7 @@ flowchart TD
 <td>Import Xeus/Mars volumes from ECA into S4.​</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>BODS</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1822,9 +1702,7 @@ flowchart TD
 <td>Asset Delete from EMS to S4 through APIGEE</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>APIGEE</td>
 <td>Equipment Management System</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1833,9 +1711,7 @@ flowchart TD
 <td>Asset Display from EMS to S4 through APIGEE</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>APIGEE</td>
 <td>Equipment Management System</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1844,9 +1720,7 @@ flowchart TD
 <td>Asset Change from EMS to S4 through APIGEE</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>APIGEE</td>
 <td>Equipment Management System</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1855,9 +1729,7 @@ flowchart TD
 <td>Interface to upload payroll data from Workday to S/4 IP for legal entity 199 &hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>MULESOFT</td>
 <td>Workday</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1867,8 +1739,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>IF → CFIN</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1878,8 +1748,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>IP → CFIN</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1888,9 +1756,7 @@ flowchart TD
 <td>Receive planned production quantities per production version from ECA to S/4 &hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>APIGEE</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1899,9 +1765,7 @@ flowchart TD
 <td>Outbound Interface to view the Cleared Customer Invoices from CFIN System to &hellip;</td>
 <td>10. Object Complete</td>
 <td>S/4 → WOM</td>
-<td>MULESOFT</td>
 <td>SAP Commerce Cloud</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1910,9 +1774,7 @@ flowchart TD
 <td>Asset Create from EMS to S4 through APIGEE</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>APIGEE</td>
 <td>Equipment Management System</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1922,8 +1784,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>CFIN → S/4</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1933,8 +1793,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>CFIN → S/4</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1943,9 +1801,7 @@ flowchart TD
 <td>Activity Inbound interface from ECA to S4 IP</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>MuleSoft</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1954,9 +1810,7 @@ flowchart TD
 <td>Production quantity update in WAC custom table from ECA to S4 IF</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>MuleSoft</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1965,9 +1819,7 @@ flowchart TD
 <td>Interface between SAP IP and IF boxes for Outbound IDOC flow_IP</td>
 <td>10. Object Complete</td>
 <td>MULESOFT → S/4</td>
-<td>SFT</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1976,9 +1828,7 @@ flowchart TD
 <td>Interface between SAP IP and IF boxes for Outbound IDOC flow_IF</td>
 <td>10. Object Complete</td>
 <td>MULESOFT → S/4</td>
-<td>SFT</td>
 <td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1987,9 +1837,7 @@ flowchart TD
 <td>Activity Quantity Inbound interface from ECA to S4 IF</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>MuleSoft</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1998,9 +1846,7 @@ flowchart TD
 <td>Disti Rebate percentage of gross for Unissued Returns and Intransit Deferral</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>BODS</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2009,9 +1855,7 @@ flowchart TD
 <td>Pull Foundry WBS from HAT and create in LE 199 in IP S/4 for Foundry Employee&hellip;</td>
 <td>10. Object Complete</td>
 <td>Head Count Assignment Tool → S/4</td>
-<td>BODS</td>
 <td>Head Count Assignment Tool</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2020,9 +1864,7 @@ flowchart TD
 <td>Interface for automatic creation of B2B customer related payment advice</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>MULESOFT</td>
 <td>OpenText</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2031,9 +1873,7 @@ flowchart TD
 <td>Interface of SAP PPM module to SPEED</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>BODS</td>
 <td>SPEED</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2042,9 +1882,7 @@ flowchart TD
 <td>Interface of SAP PPM module to SPEED</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>BODS</td>
 <td>SPEED</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2054,8 +1892,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>SAC → S/4</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2065,8 +1901,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>SAC → S/4</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2075,9 +1909,7 @@ flowchart TD
 <td>Interface for importing the Headcount details by Person# and WBS element comb&hellip;</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>BODS</td>
 <td>Head Count Assignment Tool</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2086,9 +1918,7 @@ flowchart TD
 <td>Interface for importing the Headcount details by Person# and WBS element comb&hellip;</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>BODS</td>
 <td>Head Count Assignment Tool</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2097,9 +1927,7 @@ flowchart TD
 <td>Import Tool Sharing Forecasted Data from FCS to S4 &amp; derive FTQ data by Capex&hellip;</td>
 <td>10. Object Complete</td>
 <td>FCS → S/4</td>
-<td>BODS</td>
 <td>MOR/FCS/SCS</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2108,9 +1936,7 @@ flowchart TD
 <td>Planned Volume from IP-BY will be utilized as a KP26 quantity to split &lsquo;Overh&hellip;</td>
 <td>10. Object Complete</td>
 <td>ICS → S/4</td>
-<td>BODS</td>
 <td>JDA/Blue Yonder ESP/OP (ALTR); Module Planning for Supply Chain on Blue Yonde&hellip;</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2119,9 +1945,7 @@ flowchart TD
 <td>Interface for automatic creation of WOM related payment advice</td>
 <td>10. Object Complete</td>
 <td>S/4 → WOM</td>
-<td>MULESOFT</td>
 <td>SAP Commerce Cloud</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2130,9 +1954,7 @@ flowchart TD
 <td>Outbound Interface to view the open &amp; Cleared Customer Invoices from CFIN Sys&hellip;</td>
 <td>10. Object Complete</td>
 <td>S/4 → WOM</td>
-<td>MULESOFT</td>
 <td>SAP Commerce Cloud</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2141,9 +1963,7 @@ flowchart TD
 <td>Interface to Obtains the payer associated to the sold to from CFIN System to &hellip;</td>
 <td>10. Object Complete</td>
 <td>S/4 → WOM</td>
-<td>MULESOFT</td>
 <td>SAP Commerce Cloud</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2152,9 +1972,7 @@ flowchart TD
 <td>Interface to transfer the Uploaded WCP Grant Amount from CFIN to WOM and Defe&hellip;</td>
 <td>10. Object Complete</td>
 <td>S/4 → WOM</td>
-<td>MULESOFT</td>
 <td>SAP Commerce Cloud</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2163,9 +1981,7 @@ flowchart TD
 <td>Interface between SAP IP and IF boxes for Inbound IDOC flow_IP</td>
 <td>10. Object Complete</td>
 <td>MULESOFT → S/4</td>
-<td>SFT</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2174,9 +1990,7 @@ flowchart TD
 <td>Interface between SAP IP and IF boxes for Inbound IDOC flow_IF</td>
 <td>10. Object Complete</td>
 <td>MULESOFT → S/4</td>
-<td>SFT</td>
 <td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2185,9 +1999,7 @@ flowchart TD
 <td>Interface between SAP &amp; ECA to provide information for auto certification in &hellip;</td>
 <td>10. Object Complete</td>
 <td>ECA → BLACKLINE</td>
-<td>APIGEE;DENODO</td>
 <td>Task - Blackline</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2196,9 +2008,7 @@ flowchart TD
 <td>Interface between SAP &amp; ECA to provide information for auto certification in &hellip;</td>
 <td>10. Object Complete</td>
 <td>ECA → BLACKLINE</td>
-<td>APIGEE;DENODO</td>
 <td>Task - Blackline</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2207,9 +2017,7 @@ flowchart TD
 <td>Interface between SAP &amp; ECA to provide information for auto certification in &hellip;</td>
 <td>10. Object Complete</td>
 <td>ECA → BLACKLINE</td>
-<td>APIGEE;DENODO</td>
 <td>Task - Blackline</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2218,9 +2026,7 @@ flowchart TD
 <td>Interface to transfer the details of selected invoice from WOM to CFIN ( Inbo&hellip;</td>
 <td>10. Object Complete</td>
 <td>WOM → S/4</td>
-<td>MULESOFT</td>
 <td>SAP Commerce Cloud</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2229,9 +2035,7 @@ flowchart TD
 <td>Continue to auto-certify a BL task when the related JE is approved</td>
 <td>10. Object Complete</td>
 <td>BLACKLINE → S/4</td>
-<td>MULESOFT</td>
 <td>Task - Blackline</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2240,9 +2044,7 @@ flowchart TD
 <td>Continue to auto-certify a BL task when the related JE is approved</td>
 <td>10. Object Complete</td>
 <td>BLACKLINE → S/4</td>
-<td>MULESOFT</td>
 <td>Task - Blackline</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2251,9 +2053,7 @@ flowchart TD
 <td>Continue to auto-certify a BL task when the related JE is approved</td>
 <td>10. Object Complete</td>
 <td>BLACKLINE → S/4</td>
-<td>MULESOFT</td>
 <td>Task - Blackline</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2262,9 +2062,7 @@ flowchart TD
 <td>To enable auto-certify a BL [Blackline] task when the related JE is approved</td>
 <td>10. Object Complete</td>
 <td>BLACKLINE → ECA</td>
-<td>NA</td>
 <td>Task - Blackline</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2273,9 +2071,7 @@ flowchart TD
 <td>To enable auto-certify a BL [Blackline] task when the related JE is approved</td>
 <td>10. Object Complete</td>
 <td>BLACKLINE → ECA</td>
-<td>NA</td>
 <td>Task - Blackline</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2284,9 +2080,7 @@ flowchart TD
 <td>To enable auto-certify a BL [Blackline] task when the related JE is approved</td>
 <td>10. Object Complete</td>
 <td>BLACKLINE → ECA</td>
-<td>NA</td>
 <td>Task - Blackline</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2295,9 +2089,7 @@ flowchart TD
 <td>IF-IP Integration Actual Cost - Inbound Interface</td>
 <td>10. Object Complete</td>
 <td>OpenText → S/4</td>
-<td>SFT</td>
 <td>NA</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2306,9 +2098,7 @@ flowchart TD
 <td>IF-IP Integration Actual Cost - Outbound Interface</td>
 <td>10. Object Complete</td>
 <td>S/4 → OpenText</td>
-<td>SFT</td>
 <td>NA</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2317,9 +2107,7 @@ flowchart TD
 <td>Interface between ONESOURCE and Readsoft Process Director built on the back o&hellip;</td>
 <td>10. Object Complete</td>
 <td>ONESOURCE → READSOFT</td>
-<td>NA</td>
 <td>OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IP</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2328,9 +2116,7 @@ flowchart TD
 <td>Interface between ONESOURCE and Readsoft Process Director built on the back o&hellip;</td>
 <td>10. Object Complete</td>
 <td>ONESOURCE → READSOFT</td>
-<td>NA</td>
 <td>OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IF</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2339,9 +2125,7 @@ flowchart TD
 <td>Reference Interest Rates - S4 converted data from MDG to CFIN</td>
 <td>10. Object Complete</td>
 <td>S/4 MDG → CFIN</td>
-<td>NA</td>
 <td>Treasury Suite</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2350,9 +2134,7 @@ flowchart TD
 <td>Exchange Rates N - S4 converted data from MuleSoft to Treasury Suite</td>
 <td>10. Object Complete</td>
 <td>MULESOFT → TREASURY SUITE</td>
-<td>MULESOFT</td>
 <td>Treasury Suite</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2361,9 +2143,7 @@ flowchart TD
 <td>Exchange Rates L - S4 converted data from MuleSoft to Treasury Suite</td>
 <td>10. Object Complete</td>
 <td>Treasury Suite → MULESOFT</td>
-<td>MULESOFT</td>
 <td>Treasury Suite</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2372,9 +2152,7 @@ flowchart TD
 <td>Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M&hellip;</td>
 <td>10. Object Complete</td>
 <td>BLACKLINE → S/4</td>
-<td>MULESOFT</td>
 <td>Matching - Blackline; Close Reconciliation Tool - Blackline; Task - Blackline</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2383,9 +2161,7 @@ flowchart TD
 <td>Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M&hellip;</td>
 <td>10. Object Complete</td>
 <td>BLACKLINE → S/4</td>
-<td>MULESOFT</td>
 <td>Matching - Blackline; Close Reconciliation Tool - Blackline; Task - Blackline</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2394,9 +2170,7 @@ flowchart TD
 <td>Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M&hellip;</td>
 <td>10. Object Complete</td>
 <td>BLACKLINE → S/4</td>
-<td>MULESOFT</td>
 <td>Matching - Blackline; Close Reconciliation Tool - Blackline; Task - Blackline</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2405,9 +2179,7 @@ flowchart TD
 <td>ServiceNow Asset change</td>
 <td>10. Object Complete</td>
 <td>SERVICENOW → S/4</td>
-<td>MULESOFT</td>
 <td>ServiceNow Cloud Lab</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2416,9 +2188,7 @@ flowchart TD
 <td>ServiceNow Asset change</td>
 <td>10. Object Complete</td>
 <td>SERVICENOW → S/4</td>
-<td>MULESOFT</td>
 <td>ServiceNow Cloud Lab</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2427,9 +2197,7 @@ flowchart TD
 <td>N rate from Mulesoft to MDG</td>
 <td>10. Object Complete</td>
 <td>MULESOFT → S/4 MDG</td>
-<td>MULESOFT</td>
 <td>Bloomberg Professional</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2438,9 +2206,7 @@ flowchart TD
 <td>N rate from Mulesoft to Bloomberg</td>
 <td>10. Object Complete</td>
 <td>MULESOFT → BLOOMBERG</td>
-<td>MULESOFT</td>
 <td>Bloomberg Professional</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2449,9 +2215,7 @@ flowchart TD
 <td>N rate from Mulesoft to Treasury Suite</td>
 <td>10. Object Complete</td>
 <td>MULESOFT → TREASURY SUITE</td>
-<td>MULESOFT</td>
 <td>Treasury Suite</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2460,9 +2224,7 @@ flowchart TD
 <td>SKF Interface to get file from ECA and send to S4 via BODS - IF</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>MuleSoft</td>
 <td>Wafer Starts Per Week; ISA-VS2012 US (MAPPS); ISA-VS2008 Asia (ATMPS CR and D&hellip;</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2471,9 +2233,7 @@ flowchart TD
 <td>IF-IP Integration - Interface to send Cost Idoc from S4 If to S4 IP</td>
 <td>10. Object Complete</td>
 <td>S/4 → S/4</td>
-<td>SFT</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2482,9 +2242,7 @@ flowchart TD
 <td>IF-IP Integration - Interface to receive Cost Idoc from S4 If to S4 IP</td>
 <td>10. Object Complete</td>
 <td>S/4 → S/4</td>
-<td>SFT</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2493,9 +2251,7 @@ flowchart TD
 <td>Reference Interest Rates from MuleSoft to S4 MDG</td>
 <td>10. Object Complete</td>
 <td>Bloomberg → S/4 MDG</td>
-<td>MULESOFT</td>
 <td>Bloomberg Professional</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2504,9 +2260,7 @@ flowchart TD
 <td>Request for Reference Interest Rates from MuleSoft to Bloomberg</td>
 <td>10. Object Complete</td>
 <td>MULESOFT → BLOOMBERG</td>
-<td>MULESOFT</td>
 <td>Bloomberg Professional</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2515,9 +2269,7 @@ flowchart TD
 <td>L Rates from MuleSoft to S4 MDG</td>
 <td>10. Object Complete</td>
 <td>Bloomberg → S/4 MDG</td>
-<td>MULESOFT</td>
 <td>Bloomberg Professional</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2526,9 +2278,7 @@ flowchart TD
 <td>Request for L Rates from MuleSoft to Bloomberg</td>
 <td>10. Object Complete</td>
 <td>MULESOFT → BLOOMBERG</td>
-<td>MULESOFT</td>
 <td>Bloomberg Professional</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2537,9 +2287,7 @@ flowchart TD
 <td>L Rates from MuleSoft to Quantum</td>
 <td>10. Object Complete</td>
 <td>MULESOFT → QUANTUM</td>
-<td>MULESOFT</td>
 <td>FIS Quantum</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2548,9 +2296,7 @@ flowchart TD
 <td>L Rates from MuleSoft to Treasury Suite</td>
 <td>10. Object Complete</td>
 <td>MULESOFT → TREASURY SUITE</td>
-<td>MULESOFT</td>
 <td>Treasury Suite</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2559,9 +2305,7 @@ flowchart TD
 <td>Reference Interest Rates from MuleSoft to Quantum</td>
 <td>10. Object Complete</td>
 <td>MULESOFT → QUANTUM</td>
-<td>MULESOFT</td>
 <td>FIS Quantum</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2570,9 +2314,7 @@ flowchart TD
 <td>Reference Interest Rates from MuleSoft to Treasury Suite</td>
 <td>10. Object Complete</td>
 <td>MULESOFT → TREASURY SUITE</td>
-<td>MULESOFT</td>
 <td>Treasury Suite</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2581,9 +2323,7 @@ flowchart TD
 <td>Interface – Copp Clark Holiday Calendar Integration with SAP</td>
 <td>10. Object Complete</td>
 <td>Copp Clark → S/4</td>
-<td>SFT</td>
 <td>Copp Clark Holiday Data Service</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2592,9 +2332,7 @@ flowchart TD
 <td>GL Interface – File processing in MuleSoft-Payroll</td>
 <td>10. Object Complete</td>
 <td>PAYROLL → S/4</td>
-<td>MULESOFT</td>
 <td>NA</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2603,9 +2341,7 @@ flowchart TD
 <td>GL Interface - SAP API IP</td>
 <td>10. Object Complete</td>
 <td>API → S/4</td>
-<td>MULESOFT</td>
 <td>Design and Sales Acceleration E-Commerce (Demo Depot); Flex One-Stop Tool</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2614,9 +2350,7 @@ flowchart TD
 <td>GL Interface - SAP API IF</td>
 <td>10. Object Complete</td>
 <td>API → S/4</td>
-<td>MULESOFT</td>
 <td>Design and Sales Acceleration E-Commerce (Demo Depot); Flex One-Stop Tool</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2625,9 +2359,7 @@ flowchart TD
 <td>GL Interface - File Processing in Mulesoft</td>
 <td>10. Object Complete</td>
 <td>CONCUR → S/4</td>
-<td>MULESOFT</td>
 <td>Workday; ADP Payroll GAR; ADP Payroll EMEA; ICOST - Integrated Cost of Sales &hellip;</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2636,9 +2368,7 @@ flowchart TD
 <td>GL Interface - File Processing in Mulesoft</td>
 <td>10. Object Complete</td>
 <td>ICOST → S/4</td>
-<td>MULESOFT</td>
 <td>Workday; ADP Payroll GAR; ADP Payroll EMEA; ICOST - Integrated Cost of Sales &hellip;</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2647,9 +2377,7 @@ flowchart TD
 <td>Create a common API for Asset updates, transfer, retire and Mass upload</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
 <td>ServiceNow Cloud</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2658,9 +2386,7 @@ flowchart TD
 <td>Create a common API for Asset updates, transfer, retire and Mass upload</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
 <td>ServiceNow Cloud</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2669,9 +2395,7 @@ flowchart TD
 <td>Outbound Interface from CFIN to QTM in relation to not only QTM payment ackno&hellip;</td>
 <td>10. Object Complete</td>
 <td>S/4 → Quantum</td>
-<td>SFT</td>
 <td>FIS Quantum</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2680,9 +2404,7 @@ flowchart TD
 <td>Inbound Interface from QTM to CFIN in relation to QTM payment files and MT me&hellip;</td>
 <td>10. Object Complete</td>
 <td>Quantum → S/4</td>
-<td>SFT</td>
 <td>FIS Quantum</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2691,9 +2413,7 @@ flowchart TD
 <td>Outbound Interface - SAP to Quantum for Transmitting Cash Management Relevant&hellip;</td>
 <td>10. Object Complete</td>
 <td>S/4 → Quantum</td>
-<td>SFT</td>
 <td>FIS Quantum</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2702,9 +2422,7 @@ flowchart TD
 <td>Inbound Interface from EMS to S/4 to create WBS element and Update WBS elemen&hellip;</td>
 <td>10. Object Complete</td>
 <td>XEUS → S/4</td>
-<td>APIGEE</td>
 <td>Equipment Management System</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2714,8 +2432,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2723,8 +2439,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -2735,8 +2449,6 @@ flowchart TD
 <td>Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+)</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -2745,8 +2457,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Intel BRF+ - Create Function Modules in S/4HANA (FM and components)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -2757,8 +2467,6 @@ flowchart TD
 <td>Intel BRF+ - Create Function Modules in S/4HANA (FM and components)</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -2767,8 +2475,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>BADI Enhancement to change Order Type from Product cost Collector from IP &amp; I&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2779,8 +2485,6 @@ flowchart TD
 <td>Enhancement to create Cash Management relevant data from F110 Payment Run for&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2789,8 +2493,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to do Cash App post EBS load with the corresponding payment advice.</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2801,8 +2503,6 @@ flowchart TD
 <td>Custom Fiori app - Change WBS Element Request Form with ALV Input​</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2811,8 +2511,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>S4, Perform required calculations, summarizations, mappings and post the allo&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2823,8 +2521,6 @@ flowchart TD
 <td>S4, Perform required calculations, summarizations, mappings and post the allo&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -2833,8 +2529,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>WBS transfer tool</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -2845,8 +2539,6 @@ flowchart TD
 <td>WBS transfer tool</td>
 <td>09. FUT Overdue</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2855,8 +2547,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement for Revenue Recognition by Stage postings for Product/Services Sa&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -2867,8 +2557,6 @@ flowchart TD
 <td>Enhancement for Revenue Recognition by Stage postings for Product/Services Sa&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -2877,8 +2565,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>(FTQ Input to drive Disaggregation to Allocation Cycle) for Forecast.​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2889,8 +2575,6 @@ flowchart TD
 <td>(FTQ Input to drive Disaggregation to Allocation Cycle) for Forecast.​</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -2899,8 +2583,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de&hellip;</td>
 <td>99. Rejected/Cancelled/On Hold</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2911,8 +2593,6 @@ flowchart TD
 <td>Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de&hellip;</td>
 <td>99. Rejected/Cancelled/On Hold</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -2921,8 +2601,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom Fiori app - Create WBS Element Request Form with ALV Input​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2933,8 +2611,6 @@ flowchart TD
 <td>Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO li&hellip;</td>
 <td>09. FUT Overdue</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2943,8 +2619,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO li&hellip;</td>
 <td>09. FUT Overdue</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -2955,8 +2629,6 @@ flowchart TD
 <td>Employee Notification for timesheet entry</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2965,8 +2637,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Manager notification for timesheet approval</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -2977,8 +2647,6 @@ flowchart TD
 <td>Manage Delegates for approval</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -2987,8 +2655,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Timesheet approval</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -2999,8 +2665,6 @@ flowchart TD
 <td>Timesheet entry for Intel Federal employees</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>01.Very High</td>
 </tr>
@@ -3009,8 +2673,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom Fiori app - Change WBS Element Request Form with ALV Input​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3021,8 +2683,6 @@ flowchart TD
 <td>Project Change Order - Edit and Submit of draft request with change functiona&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -3031,8 +2691,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Project Change Order - Edit and Submit of draft request with change functiona&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3043,8 +2701,6 @@ flowchart TD
 <td>Project Change Order - Change existing Purchase Orders during creation of Pro&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -3053,8 +2709,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Project Change Order - Change existing Purchase Orders during creation of Pro&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3065,8 +2719,6 @@ flowchart TD
 <td>Project Change Order - Create Purchase Orders during creation of Project Chan&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -3075,8 +2727,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Project Change Order - Create Purchase Orders during creation of Project Chan&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3087,8 +2737,6 @@ flowchart TD
 <td>Enhancement to enable user decision action to be taken from email directly fo&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3097,8 +2745,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to enable user decision action to be taken from email directly fo&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3109,8 +2755,6 @@ flowchart TD
 <td>Enhancement to display popup screen to trigger project creation workflow</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3119,8 +2763,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to display popup screen to trigger project creation workflow</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3131,8 +2773,6 @@ flowchart TD
 <td>Generate and download JV file for JE posting</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3141,8 +2781,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Generate and download JV file for JE posting</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3153,8 +2791,6 @@ flowchart TD
 <td>Generate and download JV file for JE posting</td>
 <td>99. Rejected/Cancelled/On Hold</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3163,8 +2799,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Query confirm ITT document to determine the Capital/Expense and tax code manu&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3175,8 +2809,6 @@ flowchart TD
 <td>Query confirm ITT document to determine the Capital/Expense and tax code manu&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -3185,8 +2817,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Query existing draft ITT document and make changes</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3197,8 +2827,6 @@ flowchart TD
 <td>Query existing draft ITT document and make changes</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -3208,8 +2836,6 @@ flowchart TD
 <td>ITT document creation</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3218,8 +2844,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>ITT document creation</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3231,8 +2855,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3240,8 +2862,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>FIORI screen to take care of TFR Display/ Change/ cancellation options</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3252,8 +2872,6 @@ flowchart TD
 <td>Update mixing ratio for Procurement alternative for Cross site transfer based&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3262,8 +2880,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Update Procurement alternatives based on production version &amp; PIR for cross s&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3274,8 +2890,6 @@ flowchart TD
 <td>Legal Valuation standard cost calculation enhancement</td>
 <td>99. Rejected/Cancelled/On Hold</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3284,8 +2898,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement for Revenue Recognition by Stage postings for Product/Services Sa&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -3296,8 +2908,6 @@ flowchart TD
 <td>Add custom fields to CJI3 and CJI5 reports (SAP S/4HANA Project Systems modul&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3306,8 +2916,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Add custom fields to CJI3 and CJI5 reports (SAP S/4HANA Project Systems modul&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3318,8 +2926,6 @@ flowchart TD
 <td>Upload adjustments to time sheet entries in bulk for Intel Federal.</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -3328,8 +2934,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>WBS with custom attributes will be created in the PS module. The master data &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -3340,8 +2944,6 @@ flowchart TD
 <td>WBS with custom attributes will be created in the PS module. The master data &hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3351,8 +2953,6 @@ flowchart TD
 <td>Custom Fiori app will be created using Free style model to display WBS/AUC re&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3361,8 +2961,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom Fiori app will be created using Free style model to display WBS/AUC re&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3374,8 +2972,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S4 → ATLAS</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3385,8 +2981,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>S4 → ATLAS</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3394,8 +2988,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Rebuild Boundary Application ITT in S/4</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3406,8 +2998,6 @@ flowchart TD
 <td>Rebuild Boundary Application ITT in S/4</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3416,8 +3006,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Rebuild Boundary Application ITT in S/4</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -3428,8 +3016,6 @@ flowchart TD
 <td>Fiori UI for Counterparty Maintenance and User Exit to trigger replication to&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -3438,8 +3024,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement for automatic derivation and population of Purpose Of Payment (PO&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3450,8 +3034,6 @@ flowchart TD
 <td>Custom Enhancement to disaggregate: Owner CC-DPN $ to WBS elements using Cape&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -3460,8 +3042,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom Enhancement to disaggregate:Owner CC-DPN $ to WBS elements using Capex&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3472,8 +3052,6 @@ flowchart TD
 <td>Derive ICS FTQ data by Capex WBS L2 &amp; Mfr. Process Node CC​</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3482,8 +3060,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Split from primary Cost centers to PCOS &amp; R&amp;D/OCOS</td>
 <td>99. Rejected/Cancelled/On Hold</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3494,8 +3070,6 @@ flowchart TD
 <td>Investment type creation and automatic settlement rule generation for Opex Pr&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3504,8 +3078,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Investment type creation and automatic settlement rule generation for Opex Pr&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3516,8 +3088,6 @@ flowchart TD
 <td>Custom table needs to be created to hold allocation %s based on LOB Profit ce&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -3526,8 +3096,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom table needs to be created to hold allocation %s based on LOB Profit ce&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3538,8 +3106,6 @@ flowchart TD
 <td>Mass Update Fields in WBS Elements</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -3548,8 +3114,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Mass Update Fields in WBS Elements</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3560,8 +3124,6 @@ flowchart TD
 <td>WBS Element field synchronization to AUC and Fixed assets - Construction ID -&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3570,8 +3132,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>WBS Element field synchronization to AUC and Fixed assets - Construction ID -&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3582,8 +3142,6 @@ flowchart TD
 <td>Project Change Order - Create Project Change Order via custom Fiori Screens w&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -3592,8 +3150,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Project Change Order - Create Project Change Order via custom Fiori Screens w&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3604,8 +3160,6 @@ flowchart TD
 <td>Custom Fiori app - Create WBS Element Request Form with ALV Input​</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3614,8 +3168,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom Fiori app - CPA (Project Budget) approval request using PPM Item decis&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -3626,8 +3178,6 @@ flowchart TD
 <td>Custom Fiori app - CPA (Project Budget) approval request using PPM Item decis&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3636,8 +3186,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>(FTQ Input to drive Disaggregation to Allocation Cycle) for Actuals.​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3648,8 +3196,6 @@ flowchart TD
 <td>(FTQ Input to drive Disaggregation to Allocation Cycle) for Actuals.​</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -3658,8 +3204,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Derive FCS FTQ data by Capex WBS L2 &amp; Mfr. Process Node CC​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3670,8 +3214,6 @@ flowchart TD
 <td>DMEE User Exits Required in the payment files- APAC​</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -3680,8 +3222,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Cash concentration functionality for cross-currency current accounts</td>
 <td>09. FUT Overdue</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3692,8 +3232,6 @@ flowchart TD
 <td>File Formatting and processing to support MBC and APM integration</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -3702,8 +3240,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Automation to set TECO and CLSD status on Project/ WBS</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -3714,8 +3250,6 @@ flowchart TD
 <td>Automation to set TECO and CLSD status on Project/ WBS</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3725,9 +3259,7 @@ flowchart TD
 <td>Smart Exporter Interface to CFIN</td>
 <td>10. Object Complete</td>
 <td>EY Smart Exporter Tool → S4</td>
-<td>NA</td>
 <td>EY Smart Exporter Tool</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3735,8 +3267,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>MT3xx and MT5xx Files - Adjust SWIFT Parameters for MBC</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3747,8 +3277,6 @@ flowchart TD
 <td>Enhancement to Mass upload of WOM payment advice.</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3757,8 +3285,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to upload WCP Grant Amount in CFIN sys</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3769,8 +3295,6 @@ flowchart TD
 <td>Reclass program for XIU/ SIU to reclass expense to inventory accounts (cost c&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3779,8 +3303,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Reclass program for XIU/ SIU to reclass expense to inventory accounts (cost c&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3791,8 +3313,6 @@ flowchart TD
 <td>Asset creation from PO (S4 / Ariba / EMS, etc.)</td>
 <td>10. Object Complete</td>
 <td>Ariba → S4</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3802,8 +3322,6 @@ flowchart TD
 <td>Asset creation from PO (S4 / Ariba / EMS, etc.)</td>
 <td>10. Object Complete</td>
 <td>Ariba → S4</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -3812,8 +3330,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Import Standard Cost from S4 tables into SAC using Custom CDS view.</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3824,8 +3340,6 @@ flowchart TD
 <td>Import Standard Cost from S4 tables into SAC using Custom CDS view.</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -3834,8 +3348,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Read the workday file from AL11 in IP, IF</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3846,8 +3358,6 @@ flowchart TD
 <td>Read the workday file from AL11 in IP, IF</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -3856,8 +3366,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhance the details in workday file to meet AE format in IP, IF</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3868,8 +3376,6 @@ flowchart TD
 <td>Enhance the details in workday file to meet AE format in IP, IF</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -3878,8 +3384,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Add a field in ACDOCA to store Cert ID to continue auto-certify a BL task whe&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3890,8 +3394,6 @@ flowchart TD
 <td>Add a field in ACDOCA to store Cert ID to continue auto-certify a BL task whe&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -3900,8 +3402,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Add a field in ACDOCA to store Cert ID to continue auto-certify a BL task whe&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3912,8 +3412,6 @@ flowchart TD
 <td>Import Headcount details by cost center and update in S4 for HR benefits spen&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3922,8 +3420,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Import Headcount details by cost center and update in S4 for HR benefits spen&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3934,8 +3430,6 @@ flowchart TD
 <td>Placeholder - BADI for Memo Records with different Planning Levels/Types gene&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3944,8 +3438,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Branch Name and Address for Payments instead of entity Name and Address</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -3956,8 +3448,6 @@ flowchart TD
 <td>SAP RAR and TM Integration to trigger POD Event</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3966,8 +3456,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>SAP RAR and TM Integration to trigger POD Event</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -3978,8 +3466,6 @@ flowchart TD
 <td>Calculation of variance to be loaded for Group Actual Costing</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -3988,8 +3474,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Mixed Costing ratio auto update</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -4000,8 +3484,6 @@ flowchart TD
 <td>Mixed Costing ratio auto update</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -4010,8 +3492,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Representative material ID – Q2-Q8 Forecast</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -4022,8 +3502,6 @@ flowchart TD
 <td>Representative material ID – Q2-Q8 Forecast</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -4032,8 +3510,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement for Excess Capacity – Fixed Spending Adjustment</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -4044,8 +3520,6 @@ flowchart TD
 <td>Legal Valuation standard cost calculation enhancement</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -4054,8 +3528,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>RAR Balance sheet posting with MM &amp; Sold To ID</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -4066,8 +3538,6 @@ flowchart TD
 <td>RD04 - Intercompany invoice billing posting to different GL accounts</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -4076,8 +3546,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>RD04 - Intercompany invoice billing posting to different GL accounts</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -4088,8 +3556,6 @@ flowchart TD
 <td>Intercompany - Subledger Posting template &amp; Approval Workflow</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -4098,8 +3564,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Intercompany - Subledger Posting template &amp; Approval Workflow</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -4110,8 +3574,6 @@ flowchart TD
 <td>Intercompany - Subledger Posting template &amp; Approval Workflow</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -4120,8 +3582,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>An automated solution to record the depreciation amount in a monthly basis fo&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -4132,8 +3592,6 @@ flowchart TD
 <td>An automated solution to record the depreciation amount in a monthly basis fo&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -4142,8 +3600,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Need to identify a Mass settlement upload tool. Today, the capital life cycle&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>01.Very High</td>
@@ -4154,8 +3610,6 @@ flowchart TD
 <td>Need to identify a Mass settlement upload tool. Today, the capital life cycle&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -4164,8 +3618,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Portal Remittance Automation- Retrofitting</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -4176,8 +3628,6 @@ flowchart TD
 <td>Payment Advice Bot Success &amp; Exception Report</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -4186,8 +3636,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Exception Handling &amp; Trigger Set up</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -4198,8 +3646,6 @@ flowchart TD
 <td>Payment Advice CSV Creation &amp; Upload</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -4208,8 +3654,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Model Integration &amp; Export</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -4220,8 +3664,6 @@ flowchart TD
 <td>UiPath OCR - Model Validation</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -4230,8 +3672,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>UiPath OCR - Iterative Model Training</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -4242,8 +3682,6 @@ flowchart TD
 <td>UiPath OCR - Classification &amp; Extraction</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -4252,8 +3690,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>UiPath OCR - Taxonomy &amp; Digitize</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -4264,8 +3700,6 @@ flowchart TD
 <td>H2RA - 13th month bonus &amp; Quarterly Performance Bonus (QPB) bonus accrual pos&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -4274,8 +3708,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>H2RA - 13th month bonus &amp; Quarterly Performance Bonus (QPB) bonus accrual pos&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -4286,8 +3718,6 @@ flowchart TD
 <td>H2RA - Annual Performance Bonus (APB) ER taxes accrual &amp; Quarterly Performanc&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -4296,8 +3726,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>H2RA - Annual Performance Bonus (APB) ER taxes accrual &amp; Quarterly Performanc&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -4308,8 +3736,6 @@ flowchart TD
 <td>Reclassification of Vendor transactions from Default to Actual within CFIN</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -4318,8 +3744,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Reclassification of Customer transactions from Default to Actual within CFIN</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -4330,8 +3754,6 @@ flowchart TD
 <td>Margin analysis Dimensions creation</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -4340,8 +3762,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Mass Asset Documents Reversal</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -4352,8 +3772,6 @@ flowchart TD
 <td>Mass Asset Documents Reversal</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -4362,8 +3780,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Mass Asset Capitalization</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -4374,8 +3790,6 @@ flowchart TD
 <td>Mass Asset Capitalization</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -4384,8 +3798,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>DSD Matrix Rules to Update Depreciation Start Date in the Direct Cap Asset Ma&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -4396,8 +3808,6 @@ flowchart TD
 <td>DSD Matrix Rules to Update Depreciation Start Date in the Direct Cap Asset Ma&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -4406,8 +3816,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>SKF Actual Driver volume update from actual activity confirmation Automation</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -4418,8 +3826,6 @@ flowchart TD
 <td>Enhancement to update additive cost in IP based on Idoc of IF cost</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -4429,9 +3835,7 @@ flowchart TD
 <td>Enhancement to a) update Cost and Production volume in custom table, b) calcu&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
 <td>BY-PDH</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4439,8 +3843,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Rule for Transaction Price Allocation in BRIM vs SD</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -4451,8 +3853,6 @@ flowchart TD
 <td>Rule for Transaction Price Allocation in BRIM vs SD</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -4461,8 +3861,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Substitution and Validation rule user exit</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -4473,8 +3871,6 @@ flowchart TD
 <td>Substitution and Validation rule user exit</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -4483,8 +3879,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom Fields in WBS element Master Data</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -4495,8 +3889,6 @@ flowchart TD
 <td>Custom Fields in WBS element Master Data</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -4506,8 +3898,6 @@ flowchart TD
 <td>Rebate for Direct Customer to Rebate of Intransit deferrals for Direct &amp; Dist&hellip;</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -4517,8 +3907,6 @@ flowchart TD
 <td>Accounting for Stock Rotation</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -4528,8 +3916,6 @@ flowchart TD
 <td>Accounting for reserves for unissued returns credit note &amp; Rebate Return Accr&hellip;</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -4539,8 +3925,6 @@ flowchart TD
 <td>Accounting for technical return reserve</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -4550,8 +3934,6 @@ flowchart TD
 <td>Enhancement to develop automatic creation of payment advice number in the AR &hellip;</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -4562,8 +3944,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4573,8 +3953,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4584,8 +3962,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4595,8 +3971,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4606,8 +3980,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4617,8 +3989,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4626,8 +3996,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Treasury Funding - Enhancement to support multiple Treasury Funding scenarios&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -4639,8 +4007,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4650,8 +4016,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4661,8 +4025,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4671,8 +4033,6 @@ flowchart TD
 <td>GL Interface – IDOC status from IF &amp; IP</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -4682,8 +4042,6 @@ flowchart TD
 <td>GL Interface – IDOC status from IF &amp; IP</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -4693,8 +4051,6 @@ flowchart TD
 <td>GL Interface – IDOC status from IF &amp; IP</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -4704,8 +4060,6 @@ flowchart TD
 <td>GL Interface- Managing 999+ GL line items</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -4715,8 +4069,6 @@ flowchart TD
 <td>GL Interface- Managing 999+ GL line items</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -4726,8 +4078,6 @@ flowchart TD
 <td>GL Interface- Managing 999+ GL line items</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -4737,8 +4087,6 @@ flowchart TD
 <td>GL Interface – Splitting of enriched files and populating staging table</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -4748,8 +4096,6 @@ flowchart TD
 <td>GL Interface - Incoming file processing and Simulation</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -4759,8 +4105,6 @@ flowchart TD
 <td>Reclassify GL Accounts for Balance Carryforwards - IP</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -4769,8 +4113,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Reclassify GL Accounts for Balance Carryforwards - IF</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -4782,8 +4124,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4793,8 +4133,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4804,8 +4142,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4815,8 +4151,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4826,8 +4160,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4837,8 +4169,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4848,8 +4178,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4859,8 +4187,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4870,8 +4196,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4881,8 +4205,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4892,8 +4214,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4903,8 +4223,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4914,8 +4232,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4925,8 +4241,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4936,8 +4250,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4947,8 +4259,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4958,8 +4268,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4969,8 +4277,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4980,8 +4286,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4991,8 +4295,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -5002,8 +4304,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5013,8 +4313,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -5024,8 +4322,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -5035,8 +4331,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5045,8 +4339,6 @@ flowchart TD
 <td>Mass upload of the same supporting document as an attachment to multiple JEs</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -5056,8 +4348,6 @@ flowchart TD
 <td>Mass upload of the same supporting document as an attachment to multiple JEs</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -5067,8 +4357,6 @@ flowchart TD
 <td>Mass upload of the same supporting document as an attachment to multiple JEs</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -5079,8 +4367,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -5090,8 +4376,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5101,8 +4385,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -5112,8 +4394,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -5123,8 +4403,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5132,8 +4410,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Creation of output template with consumption data</td>
 <td>06. Dev In Progress</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -5144,8 +4420,6 @@ flowchart TD
 <td>Creation of output template with consumption data</td>
 <td>06. Dev In Progress</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -5154,8 +4428,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Convert active delegate relationships for Timesheet approval</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -5166,8 +4438,6 @@ flowchart TD
 <td>Conversion of WIP values as per Component structure in S/4 - IP</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -5176,8 +4446,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Conversion of WIP values as per Component structure in S/4 - Back End IF</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -5188,8 +4456,6 @@ flowchart TD
 <td>Project Actuals Conversion (Non- Intel Federal)</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -5198,8 +4464,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Project Actuals Conversion (Non- Intel Federal)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -5210,8 +4474,6 @@ flowchart TD
 <td>Conversion of Actual Labor hours for Intel Federal Projects</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -5220,8 +4482,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -5232,8 +4492,6 @@ flowchart TD
 <td>Project Actuals Conversion including Intel Federal</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -5243,8 +4501,6 @@ flowchart TD
 <td>Project Budget Conversion</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -5253,8 +4509,6 @@ flowchart TD
 <td>Conversion</td>
 <td>Project Budget Conversion</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -5266,8 +4520,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -5277,8 +4529,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -5288,8 +4538,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5299,8 +4547,6 @@ flowchart TD
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5309,9 +4555,7 @@ flowchart TD
 <td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
 <td>10. Object Complete</td>
 <td>ECC → S4</td>
-<td>NA</td>
 <td>ECC</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -5320,9 +4564,7 @@ flowchart TD
 <td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
 <td>10. Object Complete</td>
 <td>ECC → S4</td>
-<td>NA</td>
 <td>ECC</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5331,9 +4573,7 @@ flowchart TD
 <td>Conversion – In House Cash: Current Account creation and Current Account Bala&hellip;</td>
 <td>10. Object Complete</td>
 <td>ECC → CFIN</td>
-<td>NA</td>
 <td>ECC</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -5342,9 +4582,7 @@ flowchart TD
 <td>Conversion – Migration of Existing Bank Guarantees and Intercompany Loans to &hellip;</td>
 <td>10. Object Complete</td>
 <td>Quantum → CFIN</td>
-<td>NA</td>
 <td>Quantum</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5353,8 +4591,6 @@ flowchart TD
 <td>Convert existing ECC &amp; MDG hierarchy to S4HANA PPM hierarchy (Portfolio &amp; buc&hellip;</td>
 <td>10. Object Complete</td>
 <td>→ MDG</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -5364,8 +4600,6 @@ flowchart TD
 <td>Convert existing ECC &amp; MDG hierarchy to S4HANA PPM hierarchy (Portfolio &amp; buc&hellip;</td>
 <td>10. Object Complete</td>
 <td>→ MDG</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -5374,8 +4608,6 @@ flowchart TD
 <td>Enhancement</td>
 <td>Mobile timesheet approval for Intel Federal employees.</td>
 <td>01. Pending Approval</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>01.Very High</td>
@@ -5388,10 +4620,9 @@ flowchart TD
 <table>
 <thead>
 <tr>
-<th>RICEFW Object ID</th>
+<th>RICEFW ID</th>
 <th>Description</th>
 <th>Boundary Application</th>
-<th>IAPM ID</th>
 <th>Source → Target</th>
 </tr>
 </thead>
@@ -5400,448 +4631,384 @@ flowchart TD
 <td>FPRI1725_IP</td>
 <td>Interface to be developed to transfer the files from Denodo to FS share path &hellip;</td>
 <td>Workday</td>
-<td>12245.0</td>
 <td></td>
 </tr>
 <tr>
 <td>FPRI1725_IF</td>
 <td>Interface to be developed to transfer the files from Denodo to FS share path &hellip;</td>
 <td>Workday</td>
-<td>12245.0</td>
 <td></td>
 </tr>
 <tr>
 <td>FPRI1504</td>
 <td>Asset Delete from EMS to S4 through APIGEE</td>
 <td>Equipment Management System</td>
-<td>4012.0</td>
 <td></td>
 </tr>
 <tr>
 <td>FPRI1503</td>
 <td>Asset Display from EMS to S4 through APIGEE</td>
 <td>Equipment Management System</td>
-<td>4012.0</td>
 <td></td>
 </tr>
 <tr>
 <td>FPRI1502</td>
 <td>Asset Change from EMS to S4 through APIGEE</td>
 <td>Equipment Management System</td>
-<td>4012.0</td>
 <td></td>
 </tr>
 <tr>
 <td>FPRI1463</td>
 <td>Interface to upload payroll data from Workday to S/4 IP for legal entity 199 &hellip;</td>
 <td>Workday</td>
-<td>12245.0</td>
 <td></td>
 </tr>
 <tr>
 <td>FPRI1338</td>
 <td>Outbound Interface to view the Cleared Customer Invoices from CFIN System to &hellip;</td>
 <td>SAP Commerce Cloud</td>
-<td>31717.0</td>
 <td>S/4 → WOM</td>
 </tr>
 <tr>
 <td>FPRI1315</td>
 <td>Asset Create from EMS to S4 through APIGEE</td>
 <td>Equipment Management System</td>
-<td>4012.0</td>
 <td></td>
 </tr>
 <tr>
 <td>FPRI1238</td>
 <td>Pull Foundry WBS from HAT and create in LE 199 in IP S/4 for Foundry Employee&hellip;</td>
 <td>Head Count Assignment Tool</td>
-<td>NA</td>
 <td>Head Count Assignment Tool → S/4</td>
 </tr>
 <tr>
 <td>FPRI1105</td>
 <td>Interface for automatic creation of B2B customer related payment advice</td>
 <td>OpenText</td>
-<td>12842.0</td>
 <td></td>
 </tr>
 <tr>
 <td>FPRI0981_IP</td>
 <td>Interface of SAP PPM module to SPEED</td>
 <td>SPEED</td>
-<td>NA</td>
 <td>ECA → S/4</td>
 </tr>
 <tr>
 <td>FPRI0981_IF</td>
 <td>Interface of SAP PPM module to SPEED</td>
 <td>SPEED</td>
-<td>NA</td>
 <td>ECA → S/4</td>
 </tr>
 <tr>
 <td>FPRI0909_IP</td>
 <td>Interface for importing the Headcount details by Person# and WBS element comb&hellip;</td>
 <td>Head Count Assignment Tool</td>
-<td>NA</td>
 <td>ECA → S/4</td>
 </tr>
 <tr>
 <td>FPRI0909_IF</td>
 <td>Interface for importing the Headcount details by Person# and WBS element comb&hellip;</td>
 <td>Head Count Assignment Tool</td>
-<td>NA</td>
 <td>ECA → S/4</td>
 </tr>
 <tr>
 <td>FPRI0895</td>
 <td>Import Tool Sharing Forecasted Data from FCS to S4 &amp; derive FTQ data by Capex&hellip;</td>
 <td>MOR/FCS/SCS</td>
-<td>15799.0</td>
 <td>FCS → S/4</td>
 </tr>
 <tr>
 <td>FPRI0894</td>
 <td>Planned Volume from IP-BY will be utilized as a KP26 quantity to split &lsquo;Overh&hellip;</td>
 <td>JDA/Blue Yonder ESP/OP (ALTR); Module Planning for Supply Chain on Blue Yonde&hellip;</td>
-<td>25596; 38908; 36453</td>
 <td>ICS → S/4</td>
 </tr>
 <tr>
 <td>FPRI0869</td>
 <td>Interface for automatic creation of WOM related payment advice</td>
 <td>SAP Commerce Cloud</td>
-<td>31717.0</td>
 <td>S/4 → WOM</td>
 </tr>
 <tr>
 <td>FPRI0867</td>
 <td>Outbound Interface to view the open &amp; Cleared Customer Invoices from CFIN Sys&hellip;</td>
 <td>SAP Commerce Cloud</td>
-<td>31717.0</td>
 <td>S/4 → WOM</td>
 </tr>
 <tr>
 <td>FPRI0866</td>
 <td>Interface to Obtains the payer associated to the sold to from CFIN System to &hellip;</td>
 <td>SAP Commerce Cloud</td>
-<td>31717.0</td>
 <td>S/4 → WOM</td>
 </tr>
 <tr>
 <td>FPRI0865</td>
 <td>Interface to transfer the Uploaded WCP Grant Amount from CFIN to WOM and Defe&hellip;</td>
 <td>SAP Commerce Cloud</td>
-<td>31717.0</td>
 <td>S/4 → WOM</td>
 </tr>
 <tr>
 <td>FPRI0863_IP</td>
 <td>Interface between SAP &amp; ECA to provide information for auto certification in &hellip;</td>
 <td>Task - Blackline</td>
-<td>23557.0</td>
 <td>ECA → BLACKLINE</td>
 </tr>
 <tr>
 <td>FPRI0863_IF</td>
 <td>Interface between SAP &amp; ECA to provide information for auto certification in &hellip;</td>
 <td>Task - Blackline</td>
-<td>23557.0</td>
 <td>ECA → BLACKLINE</td>
 </tr>
 <tr>
 <td>FPRI0863_CFIN</td>
 <td>Interface between SAP &amp; ECA to provide information for auto certification in &hellip;</td>
 <td>Task - Blackline</td>
-<td>23557.0</td>
 <td>ECA → BLACKLINE</td>
 </tr>
 <tr>
 <td>FPRI0862</td>
 <td>Interface to transfer the details of selected invoice from WOM to CFIN ( Inbo&hellip;</td>
 <td>SAP Commerce Cloud</td>
-<td>31717.0</td>
 <td>WOM → S/4</td>
 </tr>
 <tr>
 <td>FPRI0778_IP</td>
 <td>Continue to auto-certify a BL task when the related JE is approved</td>
 <td>Task - Blackline</td>
-<td>23557.0</td>
 <td>BLACKLINE → S/4</td>
 </tr>
 <tr>
 <td>FPRI0778_IF</td>
 <td>Continue to auto-certify a BL task when the related JE is approved</td>
 <td>Task - Blackline</td>
-<td>23557.0</td>
 <td>BLACKLINE → S/4</td>
 </tr>
 <tr>
 <td>FPRI0778_CFIN</td>
 <td>Continue to auto-certify a BL task when the related JE is approved</td>
 <td>Task - Blackline</td>
-<td>23557.0</td>
 <td>BLACKLINE → S/4</td>
 </tr>
 <tr>
 <td>FPRI0770_IP</td>
 <td>To enable auto-certify a BL [Blackline] task when the related JE is approved</td>
 <td>Task - Blackline</td>
-<td>23557.0</td>
 <td>BLACKLINE → ECA</td>
 </tr>
 <tr>
 <td>FPRI0770_IF</td>
 <td>To enable auto-certify a BL [Blackline] task when the related JE is approved</td>
 <td>Task - Blackline</td>
-<td>23557.0</td>
 <td>BLACKLINE → ECA</td>
 </tr>
 <tr>
 <td>FPRI0770_CFIN</td>
 <td>To enable auto-certify a BL [Blackline] task when the related JE is approved</td>
 <td>Task - Blackline</td>
-<td>23557.0</td>
 <td>BLACKLINE → ECA</td>
 </tr>
 <tr>
 <td>FPRI0696_IP</td>
 <td>Interface between ONESOURCE and Readsoft Process Director built on the back o&hellip;</td>
 <td>OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IP</td>
-<td>37261; 64229</td>
 <td>ONESOURCE → READSOFT</td>
 </tr>
 <tr>
 <td>FPRI0696_IF</td>
 <td>Interface between ONESOURCE and Readsoft Process Director built on the back o&hellip;</td>
 <td>OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IF</td>
-<td>37261; 64228</td>
 <td>ONESOURCE → READSOFT</td>
 </tr>
 <tr>
 <td>FPRI0695</td>
 <td>Reference Interest Rates - S4 converted data from MDG to CFIN</td>
 <td>Treasury Suite</td>
-<td>8121.0</td>
 <td>S/4 MDG → CFIN</td>
 </tr>
 <tr>
 <td>FPRI0694</td>
 <td>Exchange Rates N - S4 converted data from MuleSoft to Treasury Suite</td>
 <td>Treasury Suite</td>
-<td>8121.0</td>
 <td>MULESOFT → TREASURY SUITE</td>
 </tr>
 <tr>
 <td>FPRI0693</td>
 <td>Exchange Rates L - S4 converted data from MuleSoft to Treasury Suite</td>
 <td>Treasury Suite</td>
-<td>8121.0</td>
 <td>Treasury Suite → MULESOFT</td>
 </tr>
 <tr>
 <td>FPRI0600_IP</td>
 <td>Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M&hellip;</td>
 <td>Matching - Blackline; Close Reconciliation Tool - Blackline; Task - Blackline</td>
-<td>20824;15513; 23557</td>
 <td>BLACKLINE → S/4</td>
 </tr>
 <tr>
 <td>FPRI0600_IF</td>
 <td>Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M&hellip;</td>
 <td>Matching - Blackline; Close Reconciliation Tool - Blackline; Task - Blackline</td>
-<td>20824;15513; 23557</td>
 <td>BLACKLINE → S/4</td>
 </tr>
 <tr>
 <td>FPRI0600_CFIN</td>
 <td>Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M&hellip;</td>
 <td>Matching - Blackline; Close Reconciliation Tool - Blackline; Task - Blackline</td>
-<td>20824;15513; 23557</td>
 <td>BLACKLINE → S/4</td>
 </tr>
 <tr>
 <td>FPRI0599_IP</td>
 <td>ServiceNow Asset change</td>
 <td>ServiceNow Cloud Lab</td>
-<td>35464.0</td>
 <td>SERVICENOW → S/4</td>
 </tr>
 <tr>
 <td>FPRI0599_IF</td>
 <td>ServiceNow Asset change</td>
 <td>ServiceNow Cloud Lab</td>
-<td>35464.0</td>
 <td>SERVICENOW → S/4</td>
 </tr>
 <tr>
 <td>FPRI0598</td>
 <td>N rate from Mulesoft to MDG</td>
 <td>Bloomberg Professional</td>
-<td>18830.0</td>
 <td>MULESOFT → S/4 MDG</td>
 </tr>
 <tr>
 <td>FPRI0597</td>
 <td>N rate from Mulesoft to Bloomberg</td>
 <td>Bloomberg Professional</td>
-<td>18830.0</td>
 <td>MULESOFT → BLOOMBERG</td>
 </tr>
 <tr>
 <td>FPRI0596</td>
 <td>N rate from Mulesoft to Treasury Suite</td>
 <td>Treasury Suite</td>
-<td>8121.0</td>
 <td>MULESOFT → TREASURY SUITE</td>
 </tr>
 <tr>
 <td>FPRI0554</td>
 <td>SKF Interface to get file from ECA and send to S4 via BODS - IF</td>
 <td>Wafer Starts Per Week; ISA-VS2012 US (MAPPS); ISA-VS2008 Asia (ATMPS CR and D&hellip;</td>
-<td>4119; 15170; 13284; 9332; 31348; 35612; 32079; 41627; 25596; 38908; 36453; 15799</td>
 <td>ECA → S/4</td>
 </tr>
 <tr>
 <td>FPRI0533</td>
 <td>Reference Interest Rates from MuleSoft to S4 MDG</td>
 <td>Bloomberg Professional</td>
-<td>18830.0</td>
 <td>Bloomberg → S/4 MDG</td>
 </tr>
 <tr>
 <td>FPRI0532</td>
 <td>Request for Reference Interest Rates from MuleSoft to Bloomberg</td>
 <td>Bloomberg Professional</td>
-<td>18830.0</td>
 <td>MULESOFT → BLOOMBERG</td>
 </tr>
 <tr>
 <td>FPRI0531</td>
 <td>L Rates from MuleSoft to S4 MDG</td>
 <td>Bloomberg Professional</td>
-<td>18830.0</td>
 <td>Bloomberg → S/4 MDG</td>
 </tr>
 <tr>
 <td>FPRI0530</td>
 <td>Request for L Rates from MuleSoft to Bloomberg</td>
 <td>Bloomberg Professional</td>
-<td>18830.0</td>
 <td>MULESOFT → BLOOMBERG</td>
 </tr>
 <tr>
 <td>FPRI0529</td>
 <td>L Rates from MuleSoft to Quantum</td>
 <td>FIS Quantum</td>
-<td>6922.0</td>
 <td>MULESOFT → QUANTUM</td>
 </tr>
 <tr>
 <td>FPRI0528</td>
 <td>L Rates from MuleSoft to Treasury Suite</td>
 <td>Treasury Suite</td>
-<td>8121.0</td>
 <td>MULESOFT → TREASURY SUITE</td>
 </tr>
 <tr>
 <td>FPRI0527</td>
 <td>Reference Interest Rates from MuleSoft to Quantum</td>
 <td>FIS Quantum</td>
-<td>6922.0</td>
 <td>MULESOFT → QUANTUM</td>
 </tr>
 <tr>
 <td>FPRI0526</td>
 <td>Reference Interest Rates from MuleSoft to Treasury Suite</td>
 <td>Treasury Suite</td>
-<td>8121.0</td>
 <td>MULESOFT → TREASURY SUITE</td>
 </tr>
 <tr>
 <td>FPRI0505</td>
 <td>Interface – Copp Clark Holiday Calendar Integration with SAP</td>
 <td>Copp Clark Holiday Data Service</td>
-<td>35822.0</td>
 <td>Copp Clark → S/4</td>
 </tr>
 <tr>
 <td>FPRI0378_IP</td>
 <td>GL Interface - SAP API IP</td>
 <td>Design and Sales Acceleration E-Commerce (Demo Depot); Flex One-Stop Tool</td>
-<td>8902; 602</td>
 <td>API → S/4</td>
 </tr>
 <tr>
 <td>FPRI0378_IF</td>
 <td>GL Interface - SAP API IF</td>
 <td>Design and Sales Acceleration E-Commerce (Demo Depot); Flex One-Stop Tool</td>
-<td>8902; 602</td>
 <td>API → S/4</td>
 </tr>
 <tr>
 <td>FPRI0377</td>
 <td>GL Interface - File Processing in Mulesoft</td>
 <td>Workday; ADP Payroll GAR; ADP Payroll EMEA; ICOST - Integrated Cost of Sales &hellip;</td>
-<td>12245; 5159; 19882; 7440; 5187; 20452; 6922; 19323; 10719</td>
 <td>CONCUR → S/4</td>
 </tr>
 <tr>
 <td>FPRI0376</td>
 <td>GL Interface - File Processing in Mulesoft</td>
 <td>Workday; ADP Payroll GAR; ADP Payroll EMEA; ICOST - Integrated Cost of Sales &hellip;</td>
-<td>12245; 5159; 19882; 7440; 5187; 20452; 6922; 19323; 10719</td>
 <td>ICOST → S/4</td>
 </tr>
 <tr>
 <td>FPRI0323_IP</td>
 <td>Create a common API for Asset updates, transfer, retire and Mass upload</td>
 <td>ServiceNow Cloud</td>
-<td>23476.0</td>
 <td></td>
 </tr>
 <tr>
 <td>FPRI0323_IF</td>
 <td>Create a common API for Asset updates, transfer, retire and Mass upload</td>
 <td>ServiceNow Cloud</td>
-<td>23476.0</td>
 <td></td>
 </tr>
 <tr>
 <td>FPRI0227</td>
 <td>Outbound Interface from CFIN to QTM in relation to not only QTM payment ackno&hellip;</td>
 <td>FIS Quantum</td>
-<td>6922.0</td>
 <td>S/4 → Quantum</td>
 </tr>
 <tr>
 <td>FPRI0226</td>
 <td>Inbound Interface from QTM to CFIN in relation to QTM payment files and MT me&hellip;</td>
 <td>FIS Quantum</td>
-<td>6922.0</td>
 <td>Quantum → S/4</td>
 </tr>
 <tr>
 <td>FPRI0224</td>
 <td>Outbound Interface - SAP to Quantum for Transmitting Cash Management Relevant&hellip;</td>
 <td>FIS Quantum</td>
-<td>6922.0</td>
 <td>S/4 → Quantum</td>
 </tr>
 <tr>
 <td>FPRI0188</td>
 <td>Inbound Interface from EMS to S/4 to create WBS element and Update WBS elemen&hellip;</td>
 <td>Equipment Management System</td>
-<td>4012.0</td>
 <td>XEUS → S/4</td>
 </tr>
 <tr>
 <td>FPRE0870</td>
 <td>Smart Exporter Interface to CFIN</td>
 <td>EY Smart Exporter Tool</td>
-<td></td>
 <td>EY Smart Exporter Tool → S4</td>
 </tr>
 <tr>
@@ -5849,34 +5016,29 @@ flowchart TD
 <td>Enhancement to a) update Cost and Production volume in custom table, b) calcu&hellip;</td>
 <td>BY-PDH</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>FPRC0174_IP</td>
 <td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
 <td>ECC</td>
-<td></td>
 <td>ECC → S4</td>
 </tr>
 <tr>
 <td>FPRC0174_IF</td>
 <td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
 <td>ECC</td>
-<td></td>
 <td>ECC → S4</td>
 </tr>
 <tr>
 <td>FPRC0117</td>
 <td>Conversion – In House Cash: Current Account creation and Current Account Bala&hellip;</td>
 <td>ECC</td>
-<td></td>
 <td>ECC → CFIN</td>
 </tr>
 <tr>
 <td>FPRC0116</td>
 <td>Conversion – Migration of Existing Bank Guarantees and Intercompany Loans to &hellip;</td>
 <td>Quantum</td>
-<td></td>
 <td>Quantum → CFIN</td>
 </tr>
 </tbody>

@@ -59,22 +59,29 @@ p {
 table {
     border-collapse: collapse;
     width: 100%;
+    table-layout: fixed;
     margin: 12px 0;
     font-size: 9.5pt;
     page-break-inside: avoid;
     break-inside: avoid;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 th {
     background: #00285a;
     color: #fff;
     font-weight: 600;
     text-align: left;
-    padding: 6px 8px;
+    padding: 4px 6px;
     border: 1px solid #00285a;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 td {
-    padding: 5px 8px;
+    padding: 4px 6px;
     border: 1px solid #ddd;
+    overflow: hidden;
+    text-overflow: ellipsis;
     vertical-align: top;
 }
 tr:nth-child(even) td { background: #f5f8fc; }
@@ -281,7 +288,9 @@ strong { color: #00285a; }
     h2 { margin-top: 14px; margin-bottom: 6px; font-size: 16pt; }
     h3 { margin-top: 10px; margin-bottom: 4px; font-size: 13pt; }
     h4 { margin-top: 8px; margin-bottom: 3px; font-size: 11pt; }
-    table { margin: 6px 0; font-size: 9pt; }
+    table { margin: 6px 0; font-size: 8pt; table-layout: fixed; word-wrap: break-word; }
+    th { padding: 3px 4px; }
+    td { padding: 3px 4px; }
     blockquote { margin: 6px 0; padding: 4px 12px; font-size: 9pt; }
     p { margin: 4px 0; }
     ul, ol { margin: 4px 0; }
@@ -410,11 +419,13 @@ strong { color: #00285a; }
 
 <style>
 @media print {
-  @page { size: A4; margin: 10mm 0; }
+  @page { size: A4; margin: 10mm 15mm; }
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
   p { orphans: 3; widows: 3; }
+  table { table-layout: fixed; word-wrap: break-word; font-size: 8pt; }
+  td, th { overflow: visible; text-overflow: ellipsis; padding: 3px 4px; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -769,9 +780,7 @@ nav.toc a:hover { text-decoration: underline; }
 <th>Description</th>
 <th>Status</th>
 <th>Source → Target</th>
-<th>Middleware</th>
 <th>Boundary App</th>
-<th>Interface Approach</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -782,8 +791,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Dispute Write-off Workflow</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -793,9 +800,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Inbound interface to change the sales order via Build Instructions</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>MULESOFT</td>
 <td>OpenText</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -804,9 +809,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Inbound interface from BY-PDH to S4 to update CMAD in IF sales orders</td>
 <td>10. Object Complete</td>
 <td>BY → S/4</td>
-<td>BODS</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -815,9 +818,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Inbound interface to create and change sales order via Subcon, STO &amp; SIMS PO</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>MULESOFT</td>
 <td>OpenText</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -826,9 +827,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>IF: Interface requirement from SAC to S4</td>
 <td>10. Object Complete</td>
 <td>SAC → S/4</td>
-<td>BODS</td>
 <td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -836,8 +835,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Form</td>
 <td>Form development for Intercompany Invoice.</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -848,8 +845,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Form Development for Invoice list.</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -860,8 +855,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -870,8 +863,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Dunning output form customization</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -882,8 +873,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -891,8 +880,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Enhancement to transfer Customs value from S4 to GTS for Sales orders and del&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -903,8 +890,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>BADI Enhancement for Dispute Write off (workflow Trigger)</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -914,8 +899,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Dispute Write-off Enhancement</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -924,8 +907,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Enhancement to AIF capabilities on access and notifications</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -937,8 +918,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -946,8 +925,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Business users want the capability to have CMIR updated for the specific Mate&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -958,8 +935,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Business users want the capability to have sales order updated for the specif&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -968,8 +943,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Enhancement to transfer fields from Sales Orders to Purchase Requisition duri&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -980,8 +953,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement to support Inbound interface to change the ship to party record a&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -990,8 +961,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Determine Confirmed Delivery date in sales orders at schedule line level base&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -1002,8 +971,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement for IMR to update the Repair Sales Order post Repair work order i&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1012,8 +979,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Enhancement to support Inbound interface and manual upload to create the sale&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>02.High</td>
@@ -1024,8 +989,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>SIMS Enhancement to determine the order type based on the Material Characteri&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -1034,8 +997,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Screen enhancement to populate the assignment priority at SO line item</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -1046,8 +1007,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>IF : Apply a Delivery Block Hold for Items with Multiple Schedule lines (MSL)&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1056,8 +1015,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Enrich the delivery data transfer data from S/4 IF to GTS with the &lsquo;new&rsquo; vs &lsquo;&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1068,8 +1025,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Implement Standard Credit/Collection BADI</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -1079,8 +1034,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Price Swamp: For Order Repricing</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1091,8 +1044,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1102,8 +1053,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td>NA → NA</td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1112,9 +1061,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>To capture correct Country of Assembly and Country of Fabrication on FVR and &hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>MuleSoft</td>
 <td>Supply Chain Trade Re-engineering Data Container for Intel Foundry</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1124,8 +1071,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>10. Object Complete</td>
 <td></td>
 <td>NA</td>
-<td>NA</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1134,9 +1079,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface for Label printing, So in this interface when user will click on pr&hellip;</td>
 <td>10. Object Complete</td>
 <td>SPECTRUM → S/4</td>
-<td>NA</td>
 <td>Loftware Spectrum (IF)</td>
-<td></td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1145,9 +1088,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface from SAP S4 to DBaaS to Fetch Actual COF for FVR batch and COA for &hellip;</td>
 <td>10. Object Complete</td>
 <td>S/4 → DBaaS</td>
-<td>MULESOFT</td>
 <td>Supply Chain Trade Re-engineering Data Container for Intel Foundry</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1156,9 +1097,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface to send shipment information to custom broker</td>
 <td>10. Object Complete</td>
 <td>S/4 → OpenText</td>
-<td>MULESOFT</td>
 <td>OpenText</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1167,9 +1106,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Trigger ZCUS (export customs clearance output) and ZXCI to send outputs - ZSI&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>MULESOFT</td>
 <td>OpenText</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1178,9 +1115,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>TM - GTT: GXS sending carrier events back to GTT app “Shipment Tracking”. IF.</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
 <td>OpenText</td>
-<td></td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1188,8 +1123,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Form</td>
 <td>Consolidated Export CI for Wafer Die (Ireland)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1200,8 +1133,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Consolidated Export CI for Finished Goods (Ireland)</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1210,8 +1141,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Form</td>
 <td>Consolidated Packing list for Chengdu</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1222,8 +1151,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>CI/PL document should be printed based on R3 process.</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1233,8 +1160,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Generate Consolidated Bailment Commercial Invoice - Finished Goods (IF and IP)</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1244,8 +1169,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Generate Consolidated Bailment Commercial Invoice - Wafer/Die (IF and IP)</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1255,9 +1178,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>ISM - Generate Packing List - IF/IP</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
 <td>Integrated Shipping Memo</td>
-<td></td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1265,8 +1186,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Development of LCSR tool in Fiori</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>01.Very High</td>
@@ -1277,8 +1196,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Tendering- FIORI app for Approval Hierarchy (Assign Delegate)</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1287,8 +1204,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Invoice notification- Notification to carrier for POD and internal notificati&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1299,8 +1214,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Carrier notification- Carrier contact table BRF+ maintenance</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1309,8 +1222,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Carrier notification- Cancellation email</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1321,8 +1232,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Carrier notification- Acceptance and Rejection email</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1331,8 +1240,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Invoice notification- Notification to carrier for Invoice</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1343,8 +1250,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Invoice notification- Notification to carrier for dispute</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1353,8 +1258,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Tendering- Internal Notification mail</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -1365,8 +1268,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Tendering- Approval Process with Purchase group determination</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -1375,8 +1276,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>TM - GTT: Send Event # Estimated Time of Arrival (ETA) as a separate event fr&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -1387,8 +1286,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>TM - GTT: To propagate events to S/4 TM Freight order reported by GXS by Bypa&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -1397,8 +1294,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>TM - GTT: Additional field needs to be captured in S/4 TM Freight Order “Note&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -1409,8 +1304,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>TM - GTT: Additional field values sent by carrier through GXS are required in&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -1419,8 +1312,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Disable the Amount field within Subcontracting tab in Freight Order for CW Lo&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -1431,8 +1322,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>TM - GTT: Document type T54 (House Airway Bill) number to GTT</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -1441,8 +1330,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>More determinization of input entry criteria to be added for dedicated carrie&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1453,8 +1340,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Creating new Carrier selection strategy methods ZPRE_TAL and ZPOST_TAL to cal&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1463,8 +1348,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Carrier notification- Tendering initiation email</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1475,8 +1358,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Invoice notification- Notification to carrier for POD and internal notificati&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1485,8 +1366,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Enhancement to display an error message in the pack transaction within SAP Ex&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1497,8 +1376,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Pre alert notification to Customer</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -1507,8 +1384,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Custom transaction to trigger CUSDEC</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1519,8 +1394,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement to Update Custom Table form Master data and Manage SOP Data Commu&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -1529,8 +1402,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Creation of Proforma Invoice ZF8 from Freight Order and Save ITN Number in De&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -1541,8 +1412,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement to RF Loading Screen for 3PV Validation</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>02.High</td>
 </tr>
@@ -1551,8 +1420,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Enhancement in packing transaction. Should allow user to launch Interface for&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1563,8 +1430,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Develop Fiori app to View/Edit/Add SOP data(CMDB).</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1573,8 +1438,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>TM - GTT: Routing of events from GTT to correct S4 system</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -1585,8 +1448,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Calling a new BRF+ for Carrier exclusion during Carrier Selection process. Eg&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -1595,8 +1456,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Data code extractor to be extended on S4 TM side​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>04.Low</td>
@@ -1607,8 +1466,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>TM: Custom Determination Class to access Source and Destination country in FU&hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1617,8 +1474,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>CRF freight orders, should have a custom event type “Shipped –CRF&rdquo;. This cust&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1629,8 +1484,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>FO subcontracting screen for tendering enhancement. Fields include- send for &hellip;</td>
 <td>10. Object Complete</td>
 <td></td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1639,8 +1492,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Tendering- FIORI app for Approval Hierarchy (Assign Delegate)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
 <td></td>
 <td></td>
 <td>03.Medium</td>
@@ -1651,8 +1502,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Mass upload – Custom TM program for below items. Resource Downtime upload.Not&hellip;</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1662,8 +1511,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Mass upload – Custom TM program for below items. Schedule and Default Routes &hellip;</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1673,8 +1520,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Mass upload – Custom TM program for below items. Mass upload program to creat&hellip;</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>03.Medium</td>
 </tr>
@@ -1684,8 +1529,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Generate Automated Carrier Pre-Alert (ZPRC) from SAP TM.</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -1695,8 +1538,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>In SAP TM, Custom carrier selection strategy - Carrier Selection -Custom Stra&hellip;</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -1706,8 +1547,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>In SAP TM, Custom carrier selection strategy - Carrier Selection -Custom Stra&hellip;</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -1717,8 +1556,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>In SAP TM, Custom carrier selection strategy - Carrier Selection -Custom Stra&hellip;</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -1728,8 +1565,6 @@ nav.toc a:hover { text-decoration: underline; }
 <td>In SAP TM, Custom carrier selection strategy - Carrier Selection UI enhanceme&hellip;</td>
 <td>10. Object Complete</td>
 <td>NA → NA</td>
-<td>NA</td>
-<td></td>
 <td></td>
 <td>04.Low</td>
 </tr>
@@ -1741,10 +1576,9 @@ nav.toc a:hover { text-decoration: underline; }
 <table>
 <thead>
 <tr>
-<th>RICEFW Object ID</th>
+<th>RICEFW ID</th>
 <th>Description</th>
 <th>Boundary Application</th>
-<th>IAPM ID</th>
 <th>Source → Target</th>
 </tr>
 </thead>
@@ -1753,63 +1587,54 @@ nav.toc a:hover { text-decoration: underline; }
 <td>OTCI1162</td>
 <td>Inbound interface to change the sales order via Build Instructions</td>
 <td>OpenText</td>
-<td>12842.0</td>
 <td></td>
 </tr>
 <tr>
 <td>OTCI1126</td>
 <td>Inbound interface to create and change sales order via Subcon, STO &amp; SIMS PO</td>
 <td>OpenText</td>
-<td>12842.0</td>
 <td></td>
 </tr>
 <tr>
 <td>LOGI1688</td>
 <td>To capture correct Country of Assembly and Country of Fabrication on FVR and &hellip;</td>
 <td>Supply Chain Trade Re-engineering Data Container for Intel Foundry</td>
-<td>53494.0</td>
 <td></td>
 </tr>
 <tr>
 <td>LOGI0871</td>
 <td>Interface for Label printing, So in this interface when user will click on pr&hellip;</td>
 <td>Loftware Spectrum (IF)</td>
-<td>38292.0</td>
 <td>SPECTRUM → S/4</td>
 </tr>
 <tr>
 <td>LOGI0842_IF</td>
 <td>Interface from SAP S4 to DBaaS to Fetch Actual COF for FVR batch and COA for &hellip;</td>
 <td>Supply Chain Trade Re-engineering Data Container for Intel Foundry</td>
-<td>53494.0</td>
 <td>S/4 → DBaaS</td>
 </tr>
 <tr>
 <td>LOGI0800_IF</td>
 <td>Interface to send shipment information to custom broker</td>
 <td>OpenText</td>
-<td>12842.0</td>
 <td>S/4 → OpenText</td>
 </tr>
 <tr>
 <td>LOGI0663_IF</td>
 <td>Trigger ZCUS (export customs clearance output) and ZXCI to send outputs - ZSI&hellip;</td>
 <td>OpenText</td>
-<td>12842.0</td>
 <td></td>
 </tr>
 <tr>
 <td>LOGI0630_IF</td>
 <td>TM - GTT: GXS sending carrier events back to GTT app “Shipment Tracking”. IF.</td>
 <td>OpenText</td>
-<td>12842.0</td>
 <td></td>
 </tr>
 <tr>
 <td>LOGF0349_IF</td>
 <td>ISM - Generate Packing List - IF/IP</td>
 <td>Integrated Shipping Memo</td>
-<td></td>
 <td>NA → NA</td>
 </tr>
 </tbody>
